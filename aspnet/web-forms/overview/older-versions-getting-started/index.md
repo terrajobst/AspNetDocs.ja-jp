@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/index
 title: 旧バージョン - Getting Started Web フォーム |Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web フォーム 4 と以前のバージョンに関するドキュメントです。
+description: ASP.NET Web フォーム 4 と以前のバージョンのチュートリアル。
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
@@ -11,7 +11,7 @@ msc.type: chapter
 ---
 <a name="older-versions---web-forms-getting-started"></a>旧バージョン - Getting Started Web フォーム
 ====================
-> ASP.NET Web フォーム 4 と以前のバージョンに関するドキュメントです。
+> ASP.NET Web フォーム 4 と以前のバージョンのチュートリアル。
 
 
 - [ASP.NET 4 - Tailspin Spyworks](tailspin-spyworks/index.md)
