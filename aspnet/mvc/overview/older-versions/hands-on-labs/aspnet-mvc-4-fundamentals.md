@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: d8e837a5d56871d271590859c2e82336111cc87a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d3bc39a37cace003c3fda6691f0dd7f893128b07
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029409"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425250"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
 
@@ -389,7 +389,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. 各ページの本文のセクションを表示するために、div が含まれます。 置換 <strong>@RenderBody()</strong>を次の強調表示されているコード。(C#)
+5. 各ページの本文のセクションを表示するために、div が含まれます。 置換 <strong>@RenderBody()</strong>次のようにコードを強調表示されます。(C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
@@ -529,7 +529,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
 > [!NOTE]
-> **{Get; 設定}。** 表記法では、# の使用により、自動実装プロパティの機能です。 バッキング フィールドを宣言することを必要とせず、プロパティの利点を提供します。
+> **{Get; 設定}。** 表記を利用C#の自動実装プロパティ機能。 バッキング フィールドを宣言することを必要とせず、プロパティの利点を提供します。
 
 <a id="Ex5Task3"></a>
 
@@ -800,7 +800,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
    > 
    > このアプローチは、その文字列をハードコードに依存します。 後で、コント ローラーを変更した場合はこの命令を手動で変更する必要があります。 優れた代替を使用して、 **HTML ヘルパー**メソッド。 ASP.NET MVC には、これは、このようなタスクに使用できる HTML ヘルパー メソッドが含まれています。 **Html.ActionLink()** ヘルパー メソッドでは、簡単に構築 HTML **&lt;、&gt;** リンクについては、URL パスが正しく URL エンコードすることを確認します。
    > 
-   > Htlm.ActionLink では、いくつかのオーバー ロードがあります。 この演習では、次の 3 つのパラメーターを受け取るいずれかを使用します。
+   > Html.ActionLink では、いくつかのオーバー ロードがあります。 この演習では、次の 3 つのパラメーターを受け取るいずれかを使用します。
    > 
    > 1. リンク テキストは、ジャンル名が表示されます。
    > 2. コント ローラー アクションの名前 (**参照**)
@@ -1017,7 +1017,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 1. 移動して、 [Windows Azure 管理ポータル](https://manage.windowsazure.com/)サブスクリプションに関連付けられている Microsoft の資格情報を使用してサインインします。
 
     > [!NOTE]
-    > Windows Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](http://aka.ms/aspnet-hol-azure)します。
+    > Windows Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](https://aka.ms/aspnet-hol-azure)します。
 
     ![Windows Azure ポータルにログオン](aspnet-mvc-4-fundamentals/_static/image48.png "Windows Azure ポータルにログオン")
 

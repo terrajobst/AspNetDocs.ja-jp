@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 47dc2c1044a5964624ba2f8af4f174a2fd99d3e8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 04e4bbc8b6405dc60b8335191d88920028eef599
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049689"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424847"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>ASP.NET Identity での確認とパスワードの回復をアカウント (C#)
 
@@ -132,7 +132,7 @@ OWIN`AuthenticationManager.SignIn`メソッドで、`ClaimsIdentity`とし、ユ
 
 ## <a name="email-confirmation"></a>確認の電子メール
 
-他のユーザーを偽装していないことを確認する新しいユーザーに登録メールを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@example.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 として誤って Bob が登録されていると仮定`"bib@example.com"`気付いていなかったとパスワードの回復を使用して、アプリは、正しいメール アドレスがある見つからないため、彼はできません。 確認の電子メールがボットから制限の保護のみを提供し、決定スパムから保護を提供しません、登録に使用できる多くの作業用電子メールの別名が。次の例では、ユーザーは (それらによりに登録した電子メール アカウントで受信した確認リンクを選択します。) 自分のアカウントが確認されているまで、自分のパスワードを変更することができません。この作業の流れは、例を確認し、これに自分のプロファイルを変更したときに、ユーザーに電子メールを送信、管理者によって作成された新しいアカウントのパスワードをリセット リンクを送信する他のシナリオに適用できます。 新しいユーザーが電子メール、SMS テキスト メッセージまたは別のメカニズムによって確認されて前に、web サイトにデータを投稿するを防ぐために一般的にします。 <a id="build"></a>
+他のユーザーを偽装していないことを確認する新しいユーザーに登録メールを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@example.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 Bob が誤ってとして登録されていると仮定`"bib@example.com"`気付いていなかったとパスワードの回復を使用して、アプリは、正しいメール アドレスがある見つからないため、彼はできません。 確認の電子メールがボットから制限の保護のみを提供し、決定スパムから保護を提供しません、登録に使用できる多くの作業用電子メールの別名が。次の例では、ユーザーは (それらによりに登録した電子メール アカウントで受信した確認リンクを選択します。) 自分のアカウントが確認されているまで、自分のパスワードを変更することができません。この作業の流れは、例を確認し、これに自分のプロファイルを変更したときに、ユーザーに電子メールを送信、管理者によって作成された新しいアカウントのパスワードをリセット リンクを送信する他のシナリオに適用できます。 新しいユーザーが電子メール、SMS テキスト メッセージまたは別のメカニズムによって確認されて前に、web サイトにデータを投稿するを防ぐために一般的にします。 <a id="build"></a>
 
 ## <a name="build-a-more-complete-sample"></a>完全なサンプルをビルドします。
 

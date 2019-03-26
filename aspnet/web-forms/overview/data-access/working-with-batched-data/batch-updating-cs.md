@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 4e849bcc-c557-4bc3-937e-f7453ee87265
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c878056273ea821e4dd4481fa1b6f7690f22b285
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 27c043ff64b80dfbe05795c20bb1e71723f93c75
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062479"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421571"
 ---
 <a name="batch-updating-c"></a>一括更新 (C#)
 ====================
@@ -241,7 +241,7 @@ GridView s 以降編集インターフェイスで定義されているその Te
 
 行ごとに、`ProductID`から取得したが、`DataKeys`コレクションと、適切な`ProductsRow`からが選択されている、`ProductsDataTable`します。 TemplateField の 4 つの入力コントロールがプログラムで参照されているし、その値に割り当てられます、`ProductsRow`プロパティをインスタンス化します。 各 GridView 後は、s 行の値を更新に使用されている、 `ProductsDataTable`、BLL s に s が渡される`UpdateWithTransaction`、前のチュートリアルで説明したように単純に呼び出すメソッド DAL s に`UpdateWithTransaction`メソッド。
 
-このチュートリアルで使用されるバッチ更新アルゴリズム内の各行の更新、`ProductsDataTable`製品の情報が変更されているかどうかに関係なく、gridview の行に対応します。 このような blind 更新は t は、通常、パフォーマンスの問題、発生する可能性余分なレコード re 監査するが、データベース テーブルに変更された場合。 戻り、[バッチ更新を実行する](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md)チュートリアル、DataList でインターフェイスの更新バッチを探索し、ユーザーが実際に変更されたレコードのみを更新するコードを追加します。 自由に技法を使用して[バッチ更新を実行する](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md)必要な場合は、このチュートリアルでは、コードを更新します。
+このチュートリアルで使用されるバッチ更新アルゴリズム内の各行の更新、`ProductsDataTable`製品の情報が変更されているかどうかに関係なく、gridview の行に対応します。 このような視覚障碍のある更新プログラムは、パフォーマンスの問題では通常は、中に発生する可能性余分なレコード re 監査するが、データベース テーブルに変更された場合。 戻り、[バッチ更新を実行する](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md)チュートリアル、DataList でインターフェイスの更新バッチを探索し、ユーザーが実際に変更されたレコードのみを更新するコードを追加します。 自由に技法を使用して[バッチ更新を実行する](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md)必要な場合は、このチュートリアルでは、コードを更新します。
 
 > [!NOTE]
 > GridView にデータ ソースの主キー値を Visual Studio が自動的に割り当てられます、スマート タグを GridView にデータ ソースをバインドするときに`DataKeyNames`プロパティ。 かどうか、手順 1. で説明したように GridView s のスマート タグを GridView ObjectDataSource にバインドすることできませんでしたし、GridView s を手動で設定する必要があります`DataKeyNames`プロパティにアクセスするには、ProductID、`ProductID`を各行の値、`DataKeys`コレクション。
@@ -269,7 +269,7 @@ GridView s 以降編集インターフェイスで定義されているその Te
 
 `BatchMethodAlternate` 開始すると、新しい空の作成、`ProductsDataTable`という`products`します。 これは、後で、GridView s をステップ実行`Rows`コレクションと、各行は、BLL s を使用して、特定の製品情報を取得します。`GetProductByProductID(productID)`メソッド。 取得して、`ProductsRow`インスタンスがそのプロパティと同じように更新`BatchUpdate`にインポートされた行を更新した後、 `products``ProductsDataTable` DataTable s を介して[`ImportRow(DataRow)`メソッド](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx)します。
 
-後に、`foreach`ループが完了したら、 `products` 1 つ含まれる`ProductsRow`GridView の行ごとのインスタンス。 以降の各、`ProductsRow`インスタンスに追加された、 `products` (の代わりに更新されます)、無条件に渡す場合、`UpdateWithTransaction`メソッド、`ProductsTableAdatper`は各レコードをデータベースに挿入ましょう。 代わりに、それぞれの行が変更されたこと (追加されません) を指定する必要があります。
+後に、`foreach`ループが完了したら、 `products` 1 つ含まれる`ProductsRow`GridView の行ごとのインスタンス。 以降の各、`ProductsRow`インスタンスに追加された、 `products` (の代わりに更新されます)、無条件に渡す場合、`UpdateWithTransaction`メソッド、`ProductsTableAdapter`は各レコードをデータベースに挿入ましょう。 代わりに、それぞれの行が変更されたこと (追加されません) を指定する必要があります。
 
 これは、名前付き BLL に新しいメソッドを追加することで実現できます`UpdateProductsWithTransaction`します。 `UpdateProductsWithTransaction`、、下図のようにセット、`RowState`のそれぞれの、`ProductsRow`インスタンス、`ProductsDataTable`に`Modified`し渡します、 `ProductsDataTable` DAL s`UpdateWithTransaction`メソッド。
 

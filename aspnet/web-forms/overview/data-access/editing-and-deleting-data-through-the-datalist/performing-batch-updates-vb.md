@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 67ab034880c8140e6156721956059b7cdd3f077b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c903dd64ba7dd19a8af63224ee54629086279bf6
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034939"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425887"
 ---
 <a name="performing-batch-updates-vb"></a>バッチ更新を実行する (VB)
 ====================
@@ -126,7 +126,7 @@ DataList とセットの上ボタン Web コントロールを追加すること
 
 ## <a name="updating-only-those-addresses-that-have-been-modified"></a>変更されたアドレスのみを更新しています
 
-このチュートリアルの呼び出しに使用されるバッチ更新アルゴリズム、`UpdateSupplierAddress`メソッド*すべて*自分の住所情報が変更されているかどうかに関係なく、DataList で業者にします。 このような blind 更新は t は、通常、パフォーマンスの問題、発生する可能性余分なレコード re 監査するが、データベース テーブルに変更された場合。 たとえば、すべてを記録するトリガーを使用する`UPDATE`s、`Suppliers`監査テーブル、ユーザーは、ユーザーがいずれかを行われるかどうかに関係なく、システムで、各仕入先の新しい監査レコードを作成するがすべて更新 ボタンをクリックするたびに変更します。
+このチュートリアルの呼び出しに使用されるバッチ更新アルゴリズム、`UpdateSupplierAddress`メソッド*すべて*自分の住所情報が変更されているかどうかに関係なく、DataList で業者にします。 このような視覚障碍のある更新プログラムは、パフォーマンスの問題では通常は、中に発生する可能性余分なレコード re 監査するが、データベース テーブルに変更された場合。 たとえば、すべてを記録するトリガーを使用する`UPDATE`s、`Suppliers`監査テーブル、ユーザーは、ユーザーがいずれかを行われるかどうかに関係なく、システムで、各仕入先の新しい監査レコードを作成するがすべて更新 ボタンをクリックするたびに変更します。
 
 ADO.NET DataTable、DataAdapter クラスは、のみ、変更、削除、および新しいレコードがデータベース通信では、結果をバッチ更新をサポートするために設計されています。 データ テーブルの各行が、 [ `RowState`プロパティ](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx)行がから、変更、削除、DataTable に追加されたまたはままかどうかを示します。 DataTable の内容が最初に表示されたら、すべての行が変更されていないマークされます。 任意の行の列の値を変更すると、変更済みとして、行がマークされます。
 

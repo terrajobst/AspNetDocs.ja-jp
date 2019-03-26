@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8bea3d4bc19a5a47240abeb2cc015116814a8fdf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: afd1551d72fa3a5b925d7499c86731db4b6f0b61
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043039"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422013"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>並べ替え、フィルター処理、および ASP.NET MVC アプリケーション (3/10) で Entity Framework でのページング
 ====================
@@ -89,7 +89,7 @@ Students インデックス ページにフィルターを追加するには、�
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-`searchString` パラメーターを `Index` メソッドに追加しました。 また、LINQ ステートメントに追加した、 `where` clausethat 名または姓を持つは、検索文字列を含む受講者のみを選択します。 インデックス ビューに追加するテキスト ボックスから検索する文字列値を受信します。ステートメントを追加する、[場所](https://msdn.microsoft.com/library/bb535040.aspx)句は、検索する値がある場合にのみ実行されます。
+`searchString` パラメーターを `Index` メソッドに追加しました。 LINQ ステートメントに追加することも、`where`名または姓を持つ検索文字列が含まれています。 学生のみを選択する句。 インデックス ビューに追加するテキスト ボックスから検索する文字列値を受信します。ステートメントを追加する、[場所](https://msdn.microsoft.com/library/bb535040.aspx)句は、検索する値がある場合にのみ実行されます。
 
 > [!NOTE]
 > 多くの場合は、Entity Framework のエンティティ セットまたはメモリ内コレクションの拡張メソッドとして同じメソッドを呼び出すことができます。 結果は、通常は同じが、場合によっては異なる場合があります。 .NET Framework の実装など、`Contains`メソッドが、空の文字列を渡しますが、Entity Framework provider for SQL Server Compact 4.0 は、空の文字列には、ゼロ行を返すときに、すべての行を返します。 例のコードではそのため (配置すること、`Where`内のステートメント、`if`ステートメント) は、すべてのバージョンの SQL Server と同じ結果を取得することを確認します。 .NET Framework の実装も、`Contains`メソッドは、既定では、大文字小文字の比較を実行しますが、Entity Framework の SQL Server プロバイダーは、既定では大文字の比較を実行します。 そのため、呼び出し、`ToUpper`メソッド、テストを明示的に大文字をにより返されます、リポジトリを使用するには、後でコードを変更すると、結果は変化しません、`IEnumerable`コレクションの代わりに、`IQueryable`オブジェクト。 (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。
@@ -133,8 +133,7 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-
-  `Index` メソッドを次のコードで置き換えます。
+`Index` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
@@ -226,8 +225,7 @@ Contoso University web サイトのページについて、登録日付ごとに
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs?highlight=3)]
 
-
-  `About` メソッドを次のコードで置き換えます。
+`About` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs)]
 

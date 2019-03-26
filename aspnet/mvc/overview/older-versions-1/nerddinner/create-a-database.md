@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 983f3ffa-08b8-4868-b8c9-aa34593fc683
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: b6ab0740f251889f0fa0561809cac2bbe79bcb3a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48ca2984ca8e4ec5b2bc49952a8718aa26138aea
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064909"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423703"
 ---
 <a name="create-a-database"></a>データベースを作成する
 ====================
@@ -94,7 +94,7 @@ CTRL-S を入力するかを使用していますし、テーブルを保存し�
 
 これで 2 つのテーブルがある、データベース内で。 Dinner 行ごとに適用する 0 個以上の RSVP の行に関連付けられたできますように – 2 つのテーブル間の「1 対多」リレーションシップを設定する、最後のスキーマのデザイン手順がなります。 "Dinners"テーブルに"DinnerID"列に外部キー リレーションシップが RSVP テーブルの"DinnerID"列を構成することによって行います。
 
-これを行うサーバー エクスプ ローラーでダブルクリックして、テーブル デザイナー内で予約テーブルを開くします。 "DinnerID"の列選択し、右クリックし、「Relationshps...」のコンテキスト メニュー コマンドを選択。
+これを行うサーバー エクスプ ローラーでダブルクリックして、テーブル デザイナー内で予約テーブルを開くします。 "DinnerID"の列選択し、右クリックし、「リレーションシップ…」を選択コンテキスト メニューのコマンド:
 
 ![](create-a-database/_static/image12.png)
 

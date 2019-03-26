@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0e43ec6b1cbe922b00f0f71d08aed4d0f4c08af8
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065249"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425861"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 のセキュリティ ガイダンス OData
 ====================
@@ -25,7 +25,7 @@ ms.locfileid: "57065249"
 
 クエリのセマンティクスは、entity data model (EDM) でないモデルの基になる型に基づきます。 プロパティを除外するには、EDM からして、クエリには表示されません。 たとえば、給与プロパティを持つ従業員の種類が、モデルに含まれています。 クライアントから非表示にする、EDM からこのプロパティを除外する場合があります。
 
-除外する 2 つの方法、EDM からプロパティ。 設定することができます、 **[IgnoreDataMember]** モデル クラスのプロパティの属性。
+EDM からプロパティを除外する 2 つの方法はあります。 設定することができます、 **[IgnoreDataMember]** モデル クラスのプロパティの属性。
 
 [!code-csharp[Main](odata-security-guidance/samples/sample1.cs)]
 

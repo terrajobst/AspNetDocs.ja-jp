@@ -8,19 +8,19 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f57ce4236abe71de3f6f60cb2d7930f7ae9a8d7a
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57047089"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423911"
 ---
-<a name="mvc-recommended-resources"></a>MVC 推奨リソース
-====================
+# <a name="mvc-recommended-resources"></a>MVC 推奨リソース
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このトピックでは、ASP.NET MVC 5 に関するドキュメント リソースへのリンクを提供します。 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com/)に便利です送信があるその他リンクやスレッド[me](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link)リンクを使用して電子メール。 ここで指定したリンクは、定期的に更新されます。 古いを見つけることができます (ただし多くの場合も引き続き該当) 上の ASP.NET MVC のリンク、 [MSDN コンテンツ マップ](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx)します。
-> 
+>
 > 質問に対する回答を取得する、または問題の解決策を見つけるには、適切で、 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx/1?MVC)または[stackoverflow](http://stackoverflow.com/questions/tagged/mvc+asp.net-mvc)します。
 > <a id="gettingstarted"></a>
 
@@ -63,8 +63,8 @@ ms.locfileid: "57047089"
     - [ヒントし、テクニックを Visual Studio 2013 で](https://channel9.msdn.com/Events/Build/2014/2-582)Cathy Sullivan によって
     - [Azureの新しいSDK、ツール、およびサービスでどこでも自動化](https://channel9.msdn.com/Events/Build/2014/3-621)Brady Gaster、Joe Levy によって
     - [Azure の Web サイトの Chris compy です、Nir Mashkowski では新機能](https://channel9.msdn.com/Events/Build/2014/3-625)
-    - [大規模なビルド。Azure のお客様からの教訓](https://channel9.msdn.com/Events/Build/2014/3-633)Chris Clayton、Mark Simms   
-        [ASP.NET と AngularJS シングル ページ アプリケーションを構築](https://channel9.msdn.com/Events/Build/2014/3-644)David Catuhe、Jon Galloway によって
+    - [大規模なビルド。Azure のお客様からの教訓](https://channel9.msdn.com/Events/Build/2014/3-633)Chris Clayton、Mark Simms
+    - [ASP.NET と AngularJS シングル ページ アプリケーションを構築](https://channel9.msdn.com/Events/Build/2014/3-644)David Catuhe、Jon Galloway によって
     - [設計とアーキテクトのためのハイブリッド クラウド ソリューションの実装](https://channel9.msdn.com/Events/Build/2014/3-632)
     - [Azure リソース グループ モデル:最新のクラウドの最新の管理](https://channel9.msdn.com/Events/Build/2014/2-607)Gautam Thapar、Nathan Totten によって
     - [ASP.NET Web API 2.1 を使用してモバイル アプリの Web Api の構築](https://channel9.msdn.com/Events/Build/2014/3-603)Daniel Roth が
@@ -168,8 +168,7 @@ ms.locfileid: "57047089"
 - [ドーナツのキャッシュおよびドーナツの穴に Asp.Net MVC 4 でのキャッシュ](http://www.dotnet-tricks.com/Tutorial/mvc/ODJa210113-Donut-Caching-and-Donut-Hole-Caching-with-Asp.Net-MVC-4.html)
 - [例による Asp.Net MVC のキャッシュ処理を理解します。](http://www.dotnet-tricks.com/Tutorial/mvc/4R5c050113-Understanding-Caching-in-Asp.Net-MVC-with-example.html)
 - [http://webdevchecklist.com/asp.net/performance/](http://webdevchecklist.com/asp.net/performance/)
-- [ASP.NET MVC ビュー モデル:Entity Framework &amp; JSON のシリアル化](http://www.dotnetexpertguide.com/2013/06/aspnet-mvc-view-model-entity-framework-json-serialization.html)  
- Nandip Makwana 子エンティティの不要なシリアル化を排除することでパフォーマンスの向上 (および CPU 使用率が低い) に便利なヒントを示しています
+- [ASP.NET MVC ビュー モデル:Entity Framework &amp; JSON のシリアル化](http://www.dotnetexpertguide.com/2013/06/aspnet-mvc-view-model-entity-framework-json-serialization.html)Nandip Makwana 子エンティティの不要なシリアル化を排除することでパフォーマンスの向上 (および CPU 使用率が低い) に便利なヒントを示しています
 - [Async と Await](http://blog.stephencleary.com/2012/02/async-and-await.html) Stephen Cleary により asp.net
 - [デバッグと glimpse に関する情報を使用してパフォーマンス](http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx)
 - [非同期の部分ビューでの ASP.NET MVC web サイトのユーザーの体感パフォーマンスを向上させる](http://blog.michaelckennedy.net/2012/11/13/improve-perceived-performance-of-asp-net-mvc-websites-with-async-partialviews/)
@@ -365,7 +364,7 @@ ms.locfileid: "57047089"
 - [ASP.NET mvc、WebP イメージを提供しています。](http://friism.com/serving-webp-images-with-asp-net-mvc)
 - [詳細な ASP.NET MVC パイプライン](http://www.dotnet-tricks.com/Tutorial/mvc/LYHK270114-Detailed-ASP.NET-MVC-Pipeline.html)
 - [MVC での入れ子レイアウト](http://astutelogic.com/nesting-layouts-in-mvc/)Russell やす子によって
-- [Mplementing RichTextEditor または ASP.NET MVC では、WYSIWYG (TinyMCE)](http://www.dotnetfunda.com/articles/show/2657/implementing-richtexteditor-or-wysiwyg-tinymce-in-aspnet-mvc) Sheo Narayan によって
+- [ASP.NET MVC で RichTextEditor または WYSIWYG (TinyMCE) を実装する](http://www.dotnetfunda.com/articles/show/2657/implementing-richtexteditor-or-wysiwyg-tinymce-in-aspnet-mvc)Sheo Narayan によって
 - [ASP.NET MVC での匿名型のコレクションを使用してビューのバインド](http://www.dotnetfunda.com/articles/show/2655/binding-views-with-anonymous-type-collection-in-aspnet-mvc)Sheo Narayan によって
 - [HTML 5 canvas の ASP.NET MVC でのイメージとして保存](http://www.dotnetfunda.com/articles/show/2665/saving-html-5-canvas-as-image-in-aspnet-mvc)Sheo Narayan によって
 - [イメージのサイズと ASP.NET MVC を使用してデータベースで、ページ上の位置を維持する](http://www.dotnetfunda.com/articles/show/2783/maintaining-image-size-and-position-on-the-page-in-database-using-aspn)Sheo Narayan によって

@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 32377145-ec25-4715-8370-a1c590a331d5
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1ac64a3c5023d83259f6e2d6facd8e248768c2d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4b2e50a4ede0dfa97df6fa73dbd5b16bfde59745
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046649"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421676"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-c"></a>ラジオ ボタンの GridView 列を追加する (C#)
 ====================
@@ -179,7 +179,7 @@ RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/library/s
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample5.aspx)]
 
-ここでは、`GetUniqueRadioButton`と`GetRadioButtonValue`返さ、適切な分離コード クラスで定義されているメソッドになります`id`と`value`属性の各オプション ボタンの値。 このアプローチで割り当てることは、`id`と`value`属性しますが、指定する必要がある場合は、`checked`データ バインディング構文はデータが GridView にバインドしておく場合にのみ実行されるため、属性値。 そのため、GridView のビュー ステートを有効になっている場合は、書式指定メソッドだけ起動ときに、ページが最初に読み込まれた (または、データ ソースに GridView が明示的に再バインドすると) と関数を設定するため、`checked`で t が勝利した属性は呼び出せませんポストバックします。 これはかなり分かりにくい問題と少しため、このスクリプトの選択は、この記事の範囲外です。 ただし、上記の方法を使用することお勧めしますする行き詰まったをポイントする作業を通じてはしないでください。 このような演習が勝利した t を取得すると、作業バージョンをそれ以上近づく、GridView とデータ バインドのライフ サイクルの理解を深めを促進するのに役立ちます。
+ここでは、`GetUniqueRadioButton`と`GetRadioButtonValue`返さ、適切な分離コード クラスで定義されているメソッドになります`id`と`value`属性の各オプション ボタンの値。 このアプローチで割り当てることは、`id`と`value`属性しますが、指定する必要がある場合は、`checked`データ バインディング構文はデータが GridView にバインドしておく場合にのみ実行されるため、属性値。 そのため、GridView のビュー ステートを有効になっている場合は、書式指定メソッドだけ起動ときにページが最初に読み込まれた (または、データ ソースに GridView が明示的に再バインドすると)、および設定する関数ではそのため、`checked`の属性は呼び出されませんポストバックします。 これはかなり分かりにくい問題と少しため、このスクリプトの選択は、この記事の範囲外です。 ただし、上記の方法を使用することお勧めしますする行き詰まったをポイントする作業を通じてはしないでください。 この実習届きませんする近い作業バージョンを中に、GridView とデータ バインドのライフ サイクルの理解を深めを促進するのに役立ちます。
 
 追加するカスタムを挿入することを他のアプローチをテンプレートとこのチュートリアルで使用するアプローチの低レベルのマークアップは、[リテラル コントロール](https://msdn.microsoft.com/library/sz4949ks(VS.80).aspx)テンプレートにします。 その後、GridView s `RowCreated`または`RowDataBound`イベント ハンドラーでは、リテラル コントロールをプログラムでアクセスできるとその`Text`プロパティを出力する、マークアップに設定します。
 

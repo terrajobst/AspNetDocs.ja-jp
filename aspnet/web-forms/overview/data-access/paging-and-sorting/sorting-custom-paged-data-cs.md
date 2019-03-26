@@ -2,18 +2,18 @@
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 title: ページングされたデータ (c#) をカスタムの並べ替え |Microsoft Docs
 author: rick-anderson
-description: 前のチュートリアルでは、web ページ上のデータを presentating 場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルでは、前に、拡張する方法を見る.
+description: 前のチュートリアルでは、web ページ上のデータを表示する場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルでは、前に、拡張する方法を見る.
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc0ca571957f29afd7e3a2657e58272f804fc6ef
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ebc6be8c41251190a0124fe5f3d2c154f1ad4450
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034709"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425649"
 ---
 <a name="sorting-custom-paged-data-c"></a>カスタム ページングを適用したデータを並べ替える (C#)
 ====================
@@ -21,7 +21,7 @@ ms.locfileid: "57034709"
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe)または[PDF のダウンロード](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
 
-> 前のチュートリアルでは、web ページ上のデータを presentating 場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルではカスタム ページングを並べ替えをサポートするように前の例を拡張する方法を参照してください。
+> 前のチュートリアルでは、web ページ上のデータを表示する場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルではカスタム ページングを並べ替えをサポートするように前の例を拡張する方法を参照してください。
 
 
 ## <a name="introduction"></a>はじめに

@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: 21a178de-4c5a-4211-8a9c-74ec576c0f30
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 9b27ccc6ce26e8266947c531d299ba69bbec4fde
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5eff66b701d775a553a51437e540619b4524a58f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055829"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421558"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>ASP.NET MVC - 第 2 部での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -24,7 +24,7 @@ ms.locfileid: "57055829"
 
 ## <a name="adding-an-automatic-datetime-template"></a>自動の DateTime のテンプレートを追加します。
 
-このチュートリアルの最初の部分では、書式設定を明示的に指定するモデルに属性を追加する方法と、モデルを表示するために使用するテンプレートを明示的に指定する方法を説明しました。 たとえば、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性を明示的に次のコードでは、書式を指定します、`ReleaseDate`プロパティ。
+このチュートリアルの最初の部分では、書式設定を明示的に指定するモデルに属性を追加する方法と、モデルを表示するために使用するテンプレートを明示的に指定する方法を説明しました。 たとえば、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性は、次のコードの書式を明示的に指定、`ReleaseDate`プロパティ。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
@@ -104,7 +104,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 この時間、`ReleaseDate`プロパティは、時間と赤い太字なしで日付を表示します。 これは、データの名前を持つテンプレートを入力することを示しています (この場合`DateTime`) に自動的にその型のすべてのモデル プロパティの表示に使用します。 名前を変更した後、 *DateTime.cshtml*ファイルを*LoudDateTime.cshtml*、ASP.NET でのテンプレートを見つからなくなった、 *Views\Movies\DisplayTemplates*フォルダーを使用して*DateTime.cshtml*テンプレートから、* Views\Movies\Shared\*フォルダー。
 
-(一致するテンプレートは大文字と小文字、大文字小文字の区別でテンプレート ファイルの名前を作成した可能性があるためです。 たとえば、 *DATETIME.chstml、datetime.cshtml*、および*DaTeTiMe.cshtml*はすべてと一致、`DateTime`型です)。
+(一致するテンプレートは大文字と小文字、大文字小文字の区別でテンプレート ファイルの名前を作成した可能性があるためです。 たとえば、 *DATETIME.cshtml、datetime.cshtml*、および*DaTeTiMe.cshtml*はすべてと一致、`DateTime`型です)。
 
 確認する: この時点で、`ReleaseDate`を使用してフィールドが表示されている、 *Views\Movies\DisplayTemplates\DateTime.cshtml*テンプレートでは、短い日付形式を使用してデータが表示されますが、それ以外の場合、特殊な形式は追加されません。
 

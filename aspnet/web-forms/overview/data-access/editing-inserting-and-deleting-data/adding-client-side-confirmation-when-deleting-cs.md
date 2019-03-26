@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: f6e2a12a-2b5e-48fd-8db3-1e94a500c19a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8cca6ece2eb008170192dc1774a6f88c1b37a21
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a3e35e7b27d646569692a2eb715dcf40b7967473
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034829"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423196"
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>削除時、クライアント側の確認を追加する (C#)
 ====================
@@ -38,7 +38,7 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 **図 1**:JavaScript`confirm(string)`メソッドは、クライアント側のモーダルのメッセージ ボックスを表示します。
 
 
-値の場合、フォームの送信中に`false`が、フォームの送信をキャンセルし、クライアント側のイベント ハンドラーから返されます。 この機能を使用する場合は、この削除ボタン s のクライアント側ができる`onclick`イベント ハンドラーの呼び出しの値を返す`confirm("Are you sure you want to delete this product?")`します。 ユーザーが [キャンセル] をクリックすると`confirm(string)`原因と、フォームの送信をキャンセルするため、false が返されます。 ポストバックと t を受注の Delete ボタンがクリックされた製品が削除されます。 ただし、ユーザーは確認のダイアログ ボックスで [ok] をクリックすると場合、は、ポストバックがに伴って続行され、製品が削除されます。 参照してください[を使用して JavaScript s`confirm()`フォームの送信を制御するメソッド](http://www.webreference.com/programming/javascript/confirm/)この手法の詳細についてはします。
+値の場合、フォームの送信中に`false`が、フォームの送信をキャンセルし、クライアント側のイベント ハンドラーから返されます。 この機能を使用する場合は、この削除ボタン s のクライアント側ができる`onclick`イベント ハンドラーの呼び出しの値を返す`confirm("Are you sure you want to delete this product?")`します。 ユーザーが [キャンセル] をクリックすると`confirm(string)`原因と、フォームの送信をキャンセルするため、false が返されます。 ポストバックでの Delete ボタンがクリックされた製品は削除されません。 ただし、ユーザーは確認のダイアログ ボックスで [ok] をクリックすると場合、は、ポストバックがに伴って続行され、製品が削除されます。 参照してください[を使用して JavaScript s`confirm()`フォームの送信を制御するメソッド](http://www.webreference.com/programming/javascript/confirm/)この手法の詳細についてはします。
 
 必要なクライアント側スクリプトを追加することが若干を [commandfield] を使用するときのテンプレートを使用する場合。 そのため、このチュートリアルでは、FormView や GridView の両方の例を見ていますが。
 

@@ -8,12 +8,12 @@ ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 2a22c5b686cb8e02054f421f78a8fc910af7ce28
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bbb38ddde49cdeea4255e0e05bd559ddd9e5f692
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062739"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425991"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Visual Studio 2013 の ASP.NET と Web 2013.2 ツールのリリース ノート
 ====================
@@ -112,7 +112,7 @@ IE または Chrome で、サイトが表示されます、ブラウザーで証
 
     `<div data-bind="text: foo.bar.baz.etc" />`
 
-    表示される IntelilSense では、JavaScript オブジェクトの完全な IntelliSense です。
+    表示される IntelliSense は、JavaScript オブジェクトの完全な IntelliSense です。
 
     ![Intellisense が表示された完全な JavaScript オブジェクト](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image15.png)
 - **新しい URL ピッカー HTML、Razor、CSS、LESS と Sass ドキュメント**:VS 2013 では、Web フォーム ページの外部で URL ピッカーを使用して付属していません。 HTML、Razor、CSS、以下の新しい URL の選択と Sass エディターが認識ダイアログのない、fluent」と入力選択 '… ' img タグ、リンクのフィルター ファイルを適切に一覧表示します。
@@ -177,6 +177,7 @@ Azure を追加しました[「リモート リソースの作成」](https://do
 NuGet 2.8.1 RTM は、2014 年 4 月にリリースされます。 リリース ノートから注目すべき点しますが、確認してください、[完全なリリース ノート](http://docs.nuget.org/docs/release-notes/nuget-2.8)これらの変更の詳細についてはします。
 
 - **ターゲットの Windows Phone 8.1 アプリケーション**:2.8.1 を NuGet では、'WindowsPhoneApp'、'WPA'、'WindowsPhoneApp81' および 'WPA81' のターゲット フレームワーク モニカーを使用して Windows Phone 8.1 アプリケーションを対象となりました。
+
 - **依存関係の解決をパッチ**:パッケージの依存関係を解決するときに NuGet は従来のパッケージの依存関係を満たす最下位のメジャーおよびマイナーのパッケージ バージョンを選択する戦略を実装しました。 メジャーおよびマイナーのバージョンとは異なり、修正プログラムのバージョン常に解決された最上位のバージョンを。 動作は、理由の 1 つが、依存関係を持つパッケージをインストールするための決定性の欠如が作成されます。
 - **DependencyVersion スイッチ**:NuGet 2.8 の変更が、*既定*動作の依存関係を解決するためも追加されます。 これに DependencyVersion スイッチを使用して依存関係解決プロセスをより細かく制御パッケージ マネージャー コンソール。 スイッチは、最下位の可能なバージョン (既定の動作)、最高の可能なバージョンや最上位のマイナーまたは修正プログラムのバージョンに依存関係を解決できます。 このスイッチは、powershell コマンドでインストール パッケージにのみ機能します。
 - **DependencyVersion 属性**:上記の詳細、NuGet が必要なアクセス許可も使用できます。 nuget.config ファイルに新しい属性を設定する - DependencyVersion スイッチだけでなくを定義する既定値の呼び出しでは、- DependencyVersion スイッチが指定されていない場合インストール パッケージです。 この値は、任意の操作のインストール パッケージを NuGet パッケージ マネージャー ダイアログでも適用されます。 この値を設定するには、nuget.config ファイルに次の属性を追加します。
@@ -205,7 +206,7 @@ NuGet 2.8.1 RTM は、2014 年 4 月にリリースされます。 リリース 
 - [属性のルーティングが強化されました](../../../mvc/overview/releases/mvc51-release-notes.md#AttributeRouting)
 - [エディター テンプレートのブートス トラップのサポート](../../../mvc/overview/releases/mvc51-release-notes.md#Bootstrap)
 - [ビューでの列挙型のサポート](../../../mvc/overview/releases/mvc51-release-notes.md#Enum)
-- [Minlength Unobstrusive サポート/MaxLength 属性](../../../mvc/overview/releases/mvc51-release-notes.md#Unobtrusive)
+- [控えめなサポート MinLength または MaxLength 属性](../../../mvc/overview/releases/mvc51-release-notes.md#Unobtrusive)
 - [控えめな Ajax での 'this' コンテキストのサポート](../../../mvc/overview/releases/mvc51-release-notes.md#thisContext)
 - さまざまな[バグの修正](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=MVC&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 

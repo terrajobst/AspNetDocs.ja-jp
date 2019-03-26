@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 6abecf80-8ffa-41ba-b0d9-1d9edbe7687b
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 74294bd04d5649f2ec54e58adb744f5e30525162
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bdeb9624180206b33d8fdb22b4a4fdaf4cb92294
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050589"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424769"
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>Redis による SignalR スケールアウト (SignalR 1.x)
 ====================
@@ -125,7 +125,7 @@ IIS の役割を追加します。 WebSocket プロトコルを含む、「ア�
 
 ![](scaleout-with-redis/_static/image6.png)
 
-**インストール Web Deploy 3.0 です。** IIS マネージャーを実行するとき、Microsoft Web プラットフォームをインストールするように求められますできます[ダウンロード、intstaller](https://go.microsoft.com/fwlink/?LinkId=255386)します。 プラットフォーム インストーラーで Web Deploy を検索し、Web Deploy 3.0 をインストール
+**インストール Web Deploy 3.0 です。** IIS マネージャーを実行するとき、Microsoft Web プラットフォームをインストールするように求められますできます[インストーラーをダウンロード](https://go.microsoft.com/fwlink/?LinkId=255386)します。 プラットフォーム インストーラーで Web Deploy を検索し、Web Deploy 3.0 をインストール
 
 ![](scaleout-with-redis/_static/image7.png)
 

@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d4998c8b739b4b1a06699a17464a7399a87a8595
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3db54a134e8f842cab1d3471c69f5a8e2039d83d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039489"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423612"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>ハンズ オン ラボ:SignalR によるリアルタイム Web アプリ
 ====================
@@ -22,7 +22,7 @@ ms.locfileid: "57039489"
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Web のキャンプ トレーニング キットをダウンロードします。](http://aka.ms/webcamps-training-kit)
+[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
 > リアルタイムの Web アプリケーションには、サーバー側の偶然ですが、リアルタイムで接続されているクライアントにコンテンツをプッシュする機能が機能します。 ASP.NET 開発者向けの**ASP.NET SignalR**は自分のアプリケーションにリアルタイム web 機能を追加するライブラリです。 これは、クライアントとサーバーの最適な使用可能なトランスポート最適使用可能なトランスポートを自動的に選択すると、いくつかのトランスポート利用します。 活用されて**WebSocket**ブラウザーとサーバー間の双方向通信を実現する HTML5 API。
 > 
@@ -34,7 +34,7 @@ ms.locfileid: "57039489"
 > 
 > ![SignalR のアーキテクチャ](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)します。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
 
 
 <a id="Overview"></a>

@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 955991c148d48020c66cbc63ec6da45e3a9cc282
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 389627e610eebcdabee9b4db524e5915186db099
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045309"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440353"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>繰り返し #4 – アプリケーションを疎結合 (c#) を作成します。
 ====================
@@ -61,7 +61,7 @@ ms.locfileid: "57045309"
 
 アプリケーションが疎結合、ときにその一方で、ことができますに変更を加える 1 つのアプリケーションの一部をアプリケーションの他の部分に触れることがなく。 たとえば、検証またはコント ローラーのロジックを変更することがなく、データ アクセス テクノロジを切り替えることができます。
 
-このイテレーションより疎結合アプリケーションに Contact Manager アプリケーションのリファクタリングを有効にするいくつかのソフトウェア設計パターンの利点を実行します。 私たちが完了すると、t が勝利した Contact Manager 何も実行するには一致しませんでした t の前に操作を行います。 ただし、今後より簡単にアプリケーションを変更することを予定です。
+このイテレーションより疎結合アプリケーションに Contact Manager アプリケーションのリファクタリングを有効にするいくつかのソフトウェア設計パターンの利点を実行します。 の終了後は、連絡先マネージャーが勝利した t 操作を実行する前に出力しないこと。 ただし、今後より簡単にアプリケーションを変更することを予定です。
 
 > [!NOTE] 
 > 
@@ -79,7 +79,7 @@ ms.locfileid: "57045309"
 
 最初に、すべての実行に必要なデータ アクセス メソッドを記述するインターフェイスを作成する必要があります。 リスト 1 で IContactManagerRepository インターフェイスが含まれています。 このインターフェイスは、5 つの方法を説明します。CreateContact()、DeleteContact()、EditContact()、GetContact、および ListContacts() します。
 
-**1 - Models\IContactManagerRepositiory.cs を一覧表示します。**
+**1 - Models\IContactManagerRepository.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample1.cs)]
 
@@ -165,7 +165,7 @@ IContactManagerService インターフェイスは、リスト 5 に含まれて
 
 ただし、このサービス層は、コント ローラーのレイヤーに検証エラー メッセージを渡すことができる必要があります。 コント ローラーとサービス層を結合せずに検証エラー メッセージを通信するために、サービス層を有効にいますか。 という名前のソフトウェア デザイン パターンの活用する、[デコレーター パターン](http://en.wikipedia.org/wiki/Decorator_pattern)します。
 
-コント ローラーでは、ModelState をという名前の ModelStateDictionary を使用して、検証エラーを表します。 そのため、ModelState をコント ローラーのレイヤーからサービス レイヤーに渡すしたくなるかもしれません。 ただし、ModelState を使用して、サービス層では、サービス層に依存しないように、ASP.NET MVC フレームワークの機能です。 ASP.NET MVC アプリケーションではなく、WPF アプリケーションで、サービス層を使用する、将来は不良になります。 その場合は、払い戻し t は ModelStateDictionary クラスを使用する ASP.NET MVC フレームワークを参照するとします。
+コント ローラーでは、ModelState をという名前の ModelStateDictionary を使用して、検証エラーを表します。 そのため、ModelState をコント ローラーのレイヤーからサービス レイヤーに渡すしたくなるかもしれません。 ただし、ModelState を使用して、サービス層では、サービス層に依存しないように、ASP.NET MVC フレームワークの機能です。 ASP.NET MVC アプリケーションではなく、WPF アプリケーションで、サービス層を使用する、将来は不良になります。 その場合は、ModelStateDictionary クラスを使用する ASP.NET MVC フレームワークを参照するでしょう。
 
 デコレーター パターンでは、新しいクラスにインターフェイスを実装するために、既存のクラスをラップすることができます。 連絡先マネージャー プロジェクトには、リスト 7 に含まれる ModelStateWrapper クラスが含まれています。 ModelStateWrapper クラスは、8 の一覧で、インターフェイスを実装します。
 

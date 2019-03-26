@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 79513edce7ac3044f6f547149400cba7d307edfa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ebabd626e0b862e09f19552648406aab959f882
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027639"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423313"
 ---
 # <a name="template-implement-inheritance-with-ef-in-an-aspnet-mvc-5-app"></a>テンプレート:ASP.NET MVC 5 アプリで ef の継承を実装します。
 
@@ -73,7 +73,7 @@ TPC および TPH 継承パターンは、TPT パターンが複雑な結合ク�
 
 ## <a name="update-instructor-and-student"></a>Instructor と Student を更新する
 
-今すぐ更新、 *Instructor.cs*と*Sudent.cs*から値を継承するように、 *Person.sc*します。
+今すぐ更新、 *Instructor.cs*と*Student.cs*から値を継承するように、 *Person.sc*します。
 
 *Instructor.cs*、派生、`Instructor`クラスから、`Person`クラスし、キーと名前のフィールドを削除します。 コードは次の例のように表示されます。
 

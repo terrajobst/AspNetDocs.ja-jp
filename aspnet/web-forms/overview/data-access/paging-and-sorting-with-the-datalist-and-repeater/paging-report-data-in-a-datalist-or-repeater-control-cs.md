@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: e8e0809b-25c4-4c3b-8d12-9a17048148ae
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4212b7bff41d76eaef18d638cf28441b50061159
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bd66affc6ceab864ca753287f484a37c7671f20f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024629"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423053"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>DataList または Repeater コントロールのレポート データをページングする (C#)
 ====================
@@ -127,7 +127,7 @@ UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブ
 
 ページのインデックスとページ サイズの値は、ポストバック間で記憶する必要があります。 ビュー ステートに格納できる、クエリ文字列に永続化、セッション変数に格納されているまたはその他のいくつかの手法を使用して記憶します。 このチュートリアルでは、ブックマークを設定するデータの特定のページを許可という利点がありますが、クエリ文字列を使用します。
 
-具体的には、クエリ文字列フィールド pageIndex との pageSize を使用して、`pageIndex`と`pageSize`パラメーターをそれぞれ (図 7 を参照してください)。 T が勝利したクエリ文字列値は、ユーザーが最初にこのページにアクセスする場合に存在するようこれらのユーザーには、より低い権限のロールや日常的なニーズに適したロールを割り当てることをお勧めします現在の割り当てを確認し、 ここに提案した変更をご検討ください、これらのパラメーターの既定値を設定します。 `pageIndex`、既定値を 0 (これは、データの最初のページが表示されます) に設定し、`pageSize`を 4 秒の既定値。
+具体的には、クエリ文字列フィールド pageIndex との pageSize を使用して、`pageIndex`と`pageSize`パラメーターをそれぞれ (図 7 を参照してください)。 少し、これらのパラメーターの既定値を設定するようにクエリ文字列値は、ユーザーが最初にこのページにアクセスする場合に存在できません。 `pageIndex`、既定値を 0 (これは、データの最初のページが表示されます) に設定し、`pageSize`を 4 秒の既定値。
 
 
 [![PageIndex および pageSize パラメーターのソースとして、クエリ文字列を使用します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)

@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0834d43f95bd19fffb603dcde640714bd779fd80
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ebbf60ada1f50bb704118d0e81fb3c97c7e4386
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031559"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422231"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>GridView にボタンを追加し、応答する (VB)
 ====================
@@ -113,7 +113,7 @@ FormView のテンプレートをすべての製品の中止 ボタンを追加�
 **図 8**:名前付き新しい ObjectDataSource 作成`SuppliersProductsDataSource`([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image20.png))。
 
 
-構成 s ProductsBLL クラスを使用するには、この ObjectDataSource`GetProductsBySupplierID(supplierID)`メソッド (図 9 参照)。 アプリケーションはこの GridView が調整される製品の価格の許可が、編集または GridView から機能を削除する組み込みを使用しません。 そのため、設定できます (なし)、ドロップ ダウン リスト ObjectDataSource s の UPDATE、INSERT、および DELETE のタブ。
+構成 s ProductsBLL クラスを使用するには、この ObjectDataSource`GetProductsBySupplierID(supplierID)`メソッド (図 9 参照)。 この GridView が調整される製品の価格の許可が、編集または GridView から機能を削除する、組み込みが使用ことはありません。 そのため、設定できます (なし)、ドロップ ダウン リスト ObjectDataSource s の UPDATE、INSERT、および DELETE のタブ。
 
 
 [![ProductsBLL クラス GetProductsBySupplierID(supplierID) メソッドを使用するデータ ソースの構成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image21.png)
@@ -296,7 +296,7 @@ ButtonField が自動的に渡す、 *rowIndex*を持つボタンがクリック
 
 > [!NOTE]
 > ボタン、Linkbutton、または ImageButtons、TemplateFields に追加の GridView や DetailsView) こともできます。 BoundField をクリックすると、これらのボタンは、ポストバックを誘発、としては、GridView s を発生させる`RowCommand`イベント。 ときに追加のボタンをクリックして TemplateField、ただし、ボタンの`CommandArgument`が自動的に設定されていない行のインデックスを ButtonFields を使用する場合は。 内でクリックしてされたボタンの行インデックスを確認する必要がある場合、`RowCommand`イベント ハンドラーで、[s] ボタンを手動で設定する必要があります`CommandArgument`のようなコードを使用して、TemplateField 内でその宣言構文内のプロパティ。  
-> `<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`。
+> `<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`.
 
 
 ## <a name="summary"></a>まとめ

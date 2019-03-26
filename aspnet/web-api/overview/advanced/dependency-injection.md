@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 318a2f1c587feb360212a390bb5de7bdc127513d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5011d42d0c2200bc782ab548f6bfa0d952f6e72
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043869"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420921"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の依存関係の挿入
 ====================
@@ -49,7 +49,7 @@ Entity Framework を使用して、データベース内の項目を格納する
 
 - 置換する場合`ProductRepository`別の実装にもする必要があるコント ローラー クラスを変更します。
 - 場合、`ProductRepository`依存関係は、コント ローラー内でこれらを構成する必要があります。 複数のコント ローラーで、大規模なプロジェクトの構成コードがプロジェクトに分散します。
-- コント ローラーが、データベースのクエリにハード コードされたため、単体テストには困難です。 単体テストでは、現在デザインでは実行できません、モックまたはスタブのリポジトリを使用する必要があります。
+- コント ローラーが、データベースのクエリにハード コードされたため、単体テストには困難です。 単体テストでは、現在の設計では実行できません、モックまたはスタブのリポジトリを使用してください。
 
 これらの問題を取り上げます*挿入*コント ローラーにリポジトリ。 最初に、リファクタリング、`ProductRepository`クラス、インターフェイスに。
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 5819d789f31b9452d40ae3aa7f821f101ae126ce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c0cfd4f900c88f953cf7004a987bc267a1e1b4a2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049479"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422034"
 ---
 <a name="adding-validation-to-the-model"></a>モデルに検証を追加する
 ====================
@@ -55,7 +55,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 [!code-console[Main](adding-validation-to-the-model/samples/sample3.cmd)]
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMIgration`指定された名前の派生クラス (*AddDataAnnotationsMig*)、および、`Up`メソッドを更新するコードを表示できますスキーマの制約。 `Title`と`Genre`フィールドが null 許容では不要になった (つまり、値を入力する必要があります)、`Rating`フィールドが 5 の最大長。
+このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`指定された名前の派生クラス (*AddDataAnnotationsMig*)、および、`Up`メソッドを更新するコードを表示できますスキーマの制約。 `Title`と`Genre`フィールドが null 許容では不要になった (つまり、値を入力する必要があります)、`Rating`フィールドが 5 の最大長。
 
 検証属性では、適用対象のモデル プロパティに適用する動作を指定します。 `Required`属性では、プロパティ値がある必要がありますを示します。 このサンプルで、ムービーが値を持つことが、 `Title`、 `ReleaseDate`、 `Genre`、および`Price`プロパティを有効にするためにします。 `Range` 属性は、指定した範囲内に値を制限します。 `StringLength` 属性では、文字列プロパティの最大長を設定でき、オプションとして最小長も設定できます。 組み込みの型 (など`decimal, int, float, DateTime`) は、既定で要求され、必要はありません、`Required`属性。
 

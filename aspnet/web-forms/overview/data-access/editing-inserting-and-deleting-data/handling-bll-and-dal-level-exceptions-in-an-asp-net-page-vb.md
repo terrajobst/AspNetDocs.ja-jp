@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 129d4338-1315-4f40-89b5-2b84b807707d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 86b8bb00e83f311d311a51a747086356833a8c93
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 968f222742e0bd5f145082e8b2c33bbc43ee78cd
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060919"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423014"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (VB)
 ====================
@@ -98,7 +98,7 @@ ms.locfileid: "57060919"
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>手順 2: DAL レベルの例外を適切に処理
 
-編集可能な GridView は、ユーザーが編集された製品の名前、価格、および在庫数の有効な値を入力するときにすばらしく、不正な値を入力することで例外が発生します。 などを省略すると、`ProductName`値の原因を[NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp)からスローされる、`ProductName`プロパティ、`ProdcutsRow`クラスがその`AllowDBNull`プロパティに設定`false`場合、データベースが、停止、`SqlException`データベースに接続するときに、TableAdapter がスローされます。 操作を行わずに、これらの例外バブル アップ データ アクセス層からビジネス ロジック層で、[ASP.NET] ページで、最後に、ASP.NET ランタイムにします。
+編集可能な GridView は、ユーザーが編集された製品の名前、価格、および在庫数の有効な値を入力するときにすばらしく、不正な値を入力することで例外が発生します。 などを省略すると、`ProductName`値の原因を[NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp)からスローされる、`ProductName`プロパティ、`ProductsRow`クラスがその`AllowDBNull`プロパティに設定`false`場合、データベースが、停止、`SqlException`データベースに接続するときに、TableAdapter がスローされます。 操作を行わずに、これらの例外バブル アップ データ アクセス層からビジネス ロジック層で、[ASP.NET] ページで、最後に、ASP.NET ランタイムにします。
 
 Web アプリケーションを構成する方法と、アプリケーションからアクセスしているかどうかに応じて`localhost`、ハンドルされない例外が発生する一般的なサーバー エラー ページ、詳細なエラー レポート、またはユーザー フレンドリな web ページのいずれかにします。 参照してください[ASP.NET のアプリケーション エラーの処理を Web](http://www.15seconds.com/issue/030102.htm)と[customErrors 要素](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx)ASP.NET ランタイムが、キャッチされない例外に応答する方法の詳細についてはします。
 

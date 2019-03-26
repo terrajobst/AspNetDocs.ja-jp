@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 68acd884-fb57-4486-a1be-aaa93e380780
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 121a3a35c8255f1423d7008930315f76bbb8e8f9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b361470c769b61a7b407797158eb695fe5084eda
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053099"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423495"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-vb"></a>キャッシュされたページに動的コンテンツを追加する (VB)
 ====================
@@ -72,7 +72,7 @@ RenderNews メソッドは、WriteSubstitution() メソッドに渡されます�
 
 4 を一覧表示するには、2 つのメソッドを公開する Visual Basic モジュールが含まれます。RenderBanner() RenderBannerInternal(). RenderBanner() メソッドでは、実際のヘルパー メソッドを表します。 このメソッドは、標準の ASP.NET MVC の HtmlHelper クラスを拡張するので、他のヘルパー メソッドと同様のビューで Html.RenderBanner() を呼び出すことができます。
 
-RenderBanner() メソッドを WriteSubsitution() メソッド RenderBannerInternal() メソッドに渡す HttpResponse.WriteSubstitution() メソッドを呼び出します。
+RenderBanner() メソッドを WriteSubstitution() メソッド RenderBannerInternal() メソッドに渡す HttpResponse.WriteSubstitution() メソッドを呼び出します。
 
 RenderBannerInternal() メソッドは、プライベート メソッドです。 このメソッドは、ヘルパー メソッドとして公開されません。 RenderBannerInternal() メソッドは、バナー広告の 3 つのイメージの一覧からランダムに 1 つのバナー広告イメージを返します。
 

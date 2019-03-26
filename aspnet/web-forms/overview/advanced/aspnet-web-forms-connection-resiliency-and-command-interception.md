@@ -8,12 +8,12 @@ ms.date: 03/31/2014
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 039923a91d957765fa8b2c0cfe11abc8790c1e88
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 067542e8b8aa9909bbb2147f8e11e34604986d87
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052679"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424028"
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続回復性とコマンド傍受
 ====================
@@ -141,7 +141,7 @@ Entity Framework から派生したクラス内で見つかったコードを自
 
 これらの行のコードでは、Entity Framework がデータベースにクエリを送信するときに実行するインターセプター コードの原因は何です。 一時的なエラーのシミュレーションの個別のインターセプター クラスを作成したログ記録、個別に有効にして無効にするために注意します。   
   
- 使用してインターセプターを追加することができます、`DbInterception.Add`メソッドは、コードで任意の場所である必要はありません、`Application_Start`メソッド。 別のオプションでインターセプターを追加しなかった場合、`Application_Start`方法は更新するかという名前のクラスを追加すること*WingtipToysConfiguration.cs*のコンス トラクターの末尾には、上記のコードを配置し、`WingtipToysbConfiguration`クラス。
+ 使用してインターセプターを追加することができます、`DbInterception.Add`メソッドは、コードで任意の場所である必要はありません、`Application_Start`メソッド。 別のオプションでインターセプターを追加しなかった場合、`Application_Start`方法は更新するかという名前のクラスを追加すること*WingtipToysConfiguration.cs*のコンス トラクターの末尾には、上記のコードを配置し、`WingtipToysConfiguration`クラス。
 
 場所に配置するこのコードは、実行しないように注意する`DbInterception.Add`または 1 回以上同じインターセプターの追加のインターセプター インスタンスが表示されます。 たとえば、ログ記録のインターセプターを 2 回追加すると、すべての SQL クエリの 2 つのログが表示されます。
 
@@ -156,7 +156,7 @@ UI で、別の値を入力して一時的なエラーが発生することが�
 3. 適切な説明、価格、およびイメージ ファイルを使用して、新しい製品を「スロー」という名前を入力します。
 4. キーを押して、**追加製品**ボタンをクリックします。  
    ブラウザーが Entity Framework は、複数回に、クエリには再試行中の数秒間の停止していることがわかります。 最初の再試行は非常に迅速に発生し、各追加の再試行する前に、待機が増加します。 このプロセスの再試行の間隔が呼び出される前に長時間待つ*指数関数的バックオフ*します。
-5. ページが読み込む atttempting でされなくなるまで待ちます。
+5. ページが不要になった読み込もうとするまで待機します。
 6. プロジェクトを停止して、Visual Studio を見て**出力**トレース出力を表示するウィンドウ。 検索することができます、**出力**ウィンドウを選択して**デバッグ** - &gt; **Windows**  - &gt; **出力**します。 ロガーによって書き込まれたその他のいくつかのログをスクロールする必要があります。  
   
    データベースに送信される実際の SQL クエリを表示できることに注意してください。 表示いくつかの最初のクエリと Entity Framework が開始するのにがコマンド データベース バージョンと移行履歴テーブルをチェックします。   

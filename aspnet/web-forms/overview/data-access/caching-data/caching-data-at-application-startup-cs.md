@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c97058e5fd54dfd0393ec5ad020ad957d9719784
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 692b2a13664a9a5153a85a230dd513b022518316
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064069"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423989"
 ---
 <a name="caching-data-at-application-startup-c"></a>アプリケーションの起動時にデータをキャッシュする (C#)
 ====================
@@ -103,7 +103,7 @@ ms.locfileid: "57064069"
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
-時間ベースの期限なしでデータ キャッシュに項目を追加するには、使用、`System.Web.Caching.Cache.NoAbsoluteExpiration`と`System.Web.Caching.Cache.NoSlidingExpiration`入力パラメーターとして値。 この特定のオーバー ロードのデータ キャッシュの`Insert`指定できればようにメソッドが選択されて、*優先度*キャッシュ項目の。 優先順位を使用して、使用可能なメモリが不足しているときに、キャッシュから清掃を行うには、どのような項目を決定します。 ここでは、優先順位を使用`NotRemovable`、清掃このキャッシュ項目が、t が勝利したことが保証されます。
+時間ベースの期限なしでデータ キャッシュに項目を追加するには、使用、`System.Web.Caching.Cache.NoAbsoluteExpiration`と`System.Web.Caching.Cache.NoSlidingExpiration`入力パラメーターとして値。 この特定のオーバー ロードのデータ キャッシュの`Insert`指定できればようにメソッドが選択されて、*優先度*キャッシュ項目の。 優先順位を使用して、使用可能なメモリが不足しているときに、キャッシュから清掃を行うには、どのような項目を決定します。 ここでは、優先順位を使用`NotRemovable`、これにより、このキャッシュ項目を清掃するされません。
 
 > [!NOTE]
 > このチュートリアルのダウンロードの実装、`StaticCache`クラスの静的メンバー変数のアプローチを使用します。 アプリケーションの状態とデータのキャッシュの手法のコードは、クラス ファイル内のコメントで使用できます。

@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7b7ba2fb3f1bba0447e700c84a017266cba305e6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bd54a1d8ae3a2913c9d8a11c5b31ba1c829450d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045019"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425315"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のメディア フォーマッタ
 ====================
@@ -23,7 +23,7 @@ ms.locfileid: "57045019"
 
 ## <a name="internet-media-types"></a>インターネット メディアの種類
 
-MIME の種類とも呼ばれます。 メディアの種類は、データの一部の形式を識別します。 HTTP では、メディアの種類には、メッセージ本文の形式について説明します。 メディアの種類は、2 つの文字列、種類、およびサブタイプで構成されます。 例えば:
+MIME の種類とも呼ばれます。 メディアの種類は、データの一部の形式を識別します。 HTTP では、メディアの種類には、メッセージ本文の形式について説明します。 メディアの種類は、2 つの文字列、種類、およびサブタイプで構成されます。 例:
 
 - text/html
 - image/png
@@ -56,7 +56,7 @@ Web API のシリアル化し、HTTP メッセージ本文を逆シリアル化�
 
 [!code-csharp[Main](media-formatters/samples/sample3.cs)]
 
-CSV フォーマッタを実装するから派生したクラスを定義**BufferedMediaTypeFormater**:
+CSV フォーマッタを実装するから派生したクラスを定義**BufferedMediaTypeFormatter**:
 
 [!code-csharp[Main](media-formatters/samples/sample4.cs)]
 

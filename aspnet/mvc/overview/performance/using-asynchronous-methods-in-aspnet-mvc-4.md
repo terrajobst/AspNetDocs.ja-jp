@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 757b15c34f6fa0078d0bca0dfb38d553bb73809d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 20f8d6f459cefc6c1a2e7d5f64c6df4199f8ad24
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033269"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424470"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 での非同期メソッドの使用
 ====================
@@ -90,7 +90,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 ## <a id="CreatingAsynchGizmos"></a>  ギズモを非同期アクション メソッドを作成します。
 
-このサンプルは、新しい[非同期](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)と[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワード (.NET 4.5 と Visual Studio 2012 で使用可能) コンパイラで複雑な変換のために必要な保守を担当します。非同期プログラミングします。 コンパイラでは、# の同期の制御フローの構築を使用してコードを記述できるし、コンパイラは、スレッドがブロックされないようにするためにコールバックを使用するために必要な変換を自動的に適用されます。
+このサンプルは、新しい[非同期](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)と[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワード (.NET 4.5 と Visual Studio 2012 で使用可能) コンパイラで複雑な変換のために必要な保守を担当します。非同期プログラミングします。 コンパイラを使用してコードを記述することができます、C#の同期の制御フローを構築し、コンパイラは、スレッドがブロックされないようにするためにコールバックを使用するために必要な変換を自動的に適用されます。
 
 次のコードは、`Gizmos`同期メソッドと`GizmosAsync`非同期メソッドです。 お使いのブラウザーがサポートしている場合、 [HTML 5`<mark>`要素](http://www.w3.org/wiki/HTML/Elements/mark)で変更が表示されます`GizmosAsync`黄色の強調表示にします。
 
@@ -152,7 +152,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample10.cs)]
 
-サンプル アプリケーションを選択すると、*キャンセル トークンのデモ*呼び出しのリンク、`GizmosCancelAsync`メソッドおよび非同期の呼び出しのキャンセルした場合の例を示します。
+サンプル アプリケーションを選択する、*キャンセル トークンのデモ*呼び出しのリンク、`GizmosCancelAsync`メソッドの非同期呼び出しのキャンセルを示しています。
 
 ## <a id="ServerConfig"></a>  高い同時実行/高待機時間の Web サービス呼び出しのサーバー構成
 

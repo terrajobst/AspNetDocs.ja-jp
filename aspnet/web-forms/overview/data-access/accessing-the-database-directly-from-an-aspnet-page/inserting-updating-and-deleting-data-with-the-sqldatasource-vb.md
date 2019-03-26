@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: 9673bef3-892c-45ba-a7d8-0da3d6f48ec5
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3124d53bad0040938c6a1090971ceecdf8c92333
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e02796a7ffe854b746100a5f17d00c811a2b973c
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041269"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440314"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>SqlDataSource でデータを挿入、更新、削除する (VB)
 ====================
@@ -119,7 +119,7 @@ ms.locfileid: "57041269"
 [削除] ボタンをクリックすると、ポストバックが発生する、GridView を割り当てます、`ProductID`パラメーター値の`DataKeys`が [削除] ボタンがクリックしてされ、SqlDataSource s を呼び出す行のコレクション値`Delete()`メソッド。 SqlDataSource コントロール: データベースに接続し、実行、`DELETE`ステートメント。 GridView が SqlDataSource、戻す (を不要になっただけ削除されたレコードを含む) の製品の現在のセットを表示する、再バインドします。
 
 > [!NOTE]
-> GridView を使用しているため、 `DataKeys` 、SqlDataSource パラメーターを設定するコレクションが s の重要なを GridView s`DataKeyNames`プロパティと主キーを構成する列に設定する SqlDataSource の`SelectCommand`を返しますこれらの列。 さらに、その SqlDataSource s でパラメーターの名前、重要な`DeleteCommand`に設定されている`@ProductID`します。 場合、`DataKeyNames`プロパティが設定されていないか、パラメーターの名前が付いていません`@ProductsID`ポストバックを発生させるが、[削除] ボタンをクリックすると、受注の t が実際には任意のレコードを削除します。
+> GridView を使用しているため、 `DataKeys` 、SqlDataSource パラメーターを設定するコレクションが s の重要なを GridView s`DataKeyNames`プロパティと主キーを構成する列に設定する SqlDataSource の`SelectCommand`を返しますこれらの列。 さらに、その SqlDataSource s でパラメーターの名前、重要な`DeleteCommand`に設定されている`@ProductID`します。 場合、`DataKeyNames`プロパティが設定されていないか、パラメーターの名前が付いていません`@ProductsID`、削除ボタンをクリックすると、ポストバックが発生しますが、実際に任意のレコードは削除されません。
 
 
 図 5 は、この相互作用をグラフィカルに示しています。 参照、 [、イベントに関連付けられている挿入、更新、および削除の確認](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)挿入、更新、およびデータ Web コントロールからの削除に関連付けられているイベントのチェーンについては詳細なチュートリアルです。
@@ -192,7 +192,7 @@ DetailsView のデータの変更機能を有効にする、挿入を有効に�
 
 中に、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントは、手動で入力することができます、次の時間節約のヒントを検討してください。 最初に、SqlDataSource をセットアップ データだけを取得戻すように、`Products`テーブル。 テーブルまたはビューの画面からデータ ソースの構成ウィザードの列と s を指定を使用して、自動的に生成することができるように、 `INSERT`、 `UPDATE`、および`DELETE`ステートメント。 ウィザードの完了後に選択のプロパティ ウィンドウから SelectQuery を構成する (または、代わりに、使用するカスタム SQL ステートメントを指定しますが、データ ソース構成ウィザードまたはストアド プロシージャのオプションに戻る)。 更新し、`SELECT`ステートメントに含める、`JOIN`構文。 この手法が自動的に生成された SQL ステートメントの時間節約の利点し、さらにカスタマイズできます`SELECT`ステートメント。
 
-自動的に生成する別の制限、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントは、列、`INSERT`と`UPDATE`ステートメントはによって返される列に基づいて、`SELECT`ステートメント。 私たちは、更新またはただし、またはより少ないフィールドを挿入する必要があります。 たとえば、手順 2 の例ですることができますが、 `UnitPrice` BoundField が読み取り専用にします。 その場合は、これで表示されるべきで t、`UpdateCommand`します。 または、GridView に表示されていない、テーブルのフィールドの値を設定することがあります。 たとえば、新しい追加するときにレコード可能性がある、`QuantityPerUnit`値 TODO に設定します。
+自動的に生成する別の制限、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントは、列、`INSERT`と`UPDATE`ステートメントはによって返される列に基づいて、`SELECT`ステートメント。 私たちは、更新またはただし、またはより少ないフィールドを挿入する必要があります。 たとえば、手順 2 の例ですることができますが、 `UnitPrice` BoundField が読み取り専用にします。 その場合に表示されることはできません、`UpdateCommand`します。 または、GridView に表示されていない、テーブルのフィールドの値を設定することがあります。 たとえば、新しい追加するときにレコード可能性がある、`QuantityPerUnit`値 TODO に設定します。
 
 このようなカスタマイズが必要な場合は、手動でできるように、[プロパティ] ウィンドウ、カスタム SQL ステートメントを指定してくださいまたはウィザードで、または宣言の構文を使用してストアド プロシージャのオプションを使用する必要があります。
 
@@ -204,7 +204,7 @@ DetailsView のデータの変更機能を有効にする、挿入を有効に�
 
 Web コントロールの組み込みの挿入、編集、および削除機能を利用するデータの順序でにバインドされているデータ ソース コントロールは、このような機能を提供する必要があります。 SqlDataSource、つまり`INSERT`、 `UPDATE`、および`DELETE`SQL ステートメントを割り当てる必要があります、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ。 これらのプロパティと、対応するパラメーターのコレクションを手動で追加またはデータ ソース構成ウィザードを使用して自動的に生成します。 このチュートリアルでは、両方の手法を調査します。
 
-調べるで ObjectDataSource でオプティミスティック同時実行制御を使用して、[オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)チュートリアル。 SqlDataSource コントロールには、オプティミスティック同時実行制御のサポートも提供します。 自動的に生成するときに、手順 2. で説明したように、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントでは、ウィザードを使用してオプティミスティック同時実行制御オプションを使用しています。 次のチュートリアルで後ほど、SqlDataSource でオプティミスティック同時実行制御を使用して変更、`WHERE`内の句、`UPDATE`と`DELETE`の他の列の値にデータが最後に変更されていないことを確認するステートメントページに表示されます。
+調べるで ObjectDataSource でオプティミスティック同時実行制御を使用して、[オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)チュートリアル。 SqlDataSource コントロールには、オプティミスティック同時実行制御のサポートも提供します。 自動的に生成するときに、手順 2. で説明したように、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントでは、ウィザードを使用してオプティミスティック同時実行制御オプションを使用しています。 次のチュートリアルで後ほど、SqlDataSource でオプティミスティック同時実行制御を使用して変更、`WHERE`内の句、`UPDATE`と`DELETE`ステートメント、データが最後に、その他の列の値を変更していないことを確認するにはページに表示されます。
 
 満足のプログラミングです。
 

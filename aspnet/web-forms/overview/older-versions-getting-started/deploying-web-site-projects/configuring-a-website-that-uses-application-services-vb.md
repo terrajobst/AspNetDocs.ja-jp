@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 9c31a42f-d8bb-4c0f-9ccc-597d4f70ac42
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d5fe8dc8486cf08e0aaf0e107069972eee7fbada
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 472770477e83fc0bbe24995e5558d0e8624082ae
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041919"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426004"
 ---
 <a name="configuring-a-website-that-uses-application-services-vb"></a>アプリケーション サービスを使用する Web サイトを構成する (VB)
 ====================
@@ -138,7 +138,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 **図 4**:データベース オブジェクトが、実稼働データベースに追加されたことを確認します ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image12.jpg))。
 
 
-使用する必要がありますのみ、`aspnet_regsql.exe`ツールまたはアプリケーション サービスの使用を開始した後は、最初に、最初に、web アプリケーションをデプロイするときにします。 これらのデータベース オブジェクトが、実稼働データベースでは、再追加または変更する必要はありませんが勝利しました。
+使用する必要がありますのみ、`aspnet_regsql.exe`ツールまたはアプリケーション サービスの使用を開始した後は、最初に、最初に、web アプリケーションをデプロイするときにします。 これらのデータベースとオブジェクトは、再追加または変更する必要はありませんが、実稼働データベースでは。
 
 ### <a name="copying-user-accounts-from-development-to-production"></a>開発から運用環境にユーザー アカウントのコピー
 
@@ -148,7 +148,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 
 加え、`ApplicationId`列、`aspnet_Applications`テーブルも含まれています、`ApplicationName`列は、アプリケーションの複数の人が読みやすい名前を提供します。 Web サイトが指示する必要がありますが、ログイン ページからユーザーの資格情報の検証などのユーザー アカウントを使用しようとしたときに、`SqlMembershipProvider`クラスを使用するには、どのようなアプリケーションです。 これによって、アプリケーション名を指定し、これは通常、値は s のプロバイダーの構成から`Web.config`経由で具体的には、`applicationName`属性。
 
-どうすれば、`applicationName`で属性が指定されていない`Web.config`でしょうか。 このような場合、メンバーシップ システムとしてアプリケーション ルートのパスを使用して、`applicationName`値。 場合、`applicationName`属性が明示的に設定されていない`Web.config`、その後、開発環境と運用環境別のアプリケーション ルートを使用し、そのため、別のアプリケーションに関連付けられる可能性があります。アプリケーション サービスの名前。 開発環境で作成したユーザーの場合は、このような不一致が発生した場合、`ApplicationId`と一致しない値、`ApplicationId`運用環境の値。 最終的な結果は、t が勝利したそれらのユーザーが、ログインできることです。
+どうすれば、`applicationName`で属性が指定されていない`Web.config`でしょうか。 このような場合、メンバーシップ システムとしてアプリケーション ルートのパスを使用して、`applicationName`値。 場合、`applicationName`属性が明示的に設定されていない`Web.config`、その後、開発環境と運用環境別のアプリケーション ルートを使用し、そのため、別のアプリケーションに関連付けられる可能性があります。アプリケーション サービスの名前。 開発環境で作成したユーザーの場合は、このような不一致が発生した場合、`ApplicationId`と一致しない値、`ApplicationId`運用環境の値。 最終的な結果は、それらのユーザーがログインすることができません。
 
 > [!NOTE]
 > 場合、自分で、このような場合は、一致しないで実稼働環境にコピーするユーザー アカウントを使って検索`ApplicationId`値 - これらが正しくないを更新するクエリを記述する`ApplicationId`値を`ApplicationId`運用環境で使用します。 更新と、開発環境で作成されたアカウントを持つユーザーは運用上の web アプリケーションにサインインできるがようになりました。

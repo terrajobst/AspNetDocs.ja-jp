@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 3f9222c7b485f552da91f4875c882db7e03cdd0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 52aba3fa5948d32180fbf135444433771b17756d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046749"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425643"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 依存関係挿入
 
@@ -361,7 +361,7 @@ ms.locfileid: "57046749"
     (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex02 - 登録 CustomViewPageActivator*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample16.cs)]
-5. インスタンスでの ASP.NET MVC 4 の既定の依存関係競合回避モジュールを置き換えます**UnityDependencyResolver**します。 これを行うには、置き換える**Initialise**メソッドの内容を次のコードに。
+5. インスタンスでの ASP.NET MVC 4 の既定の依存関係競合回避モジュールを置き換えます**UnityDependencyResolver**します。 これを行うには、置き換える**初期化**メソッドの内容を次のコードに。
 
     (コード スニペット - *ASP.NET 依存関係の挿入ラボ - Ex02 - 更新プログラムの依存関係リゾルバー*)
 
@@ -508,7 +508,7 @@ ms.locfileid: "57046749"
 
 インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
-1. 移動して[ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
 

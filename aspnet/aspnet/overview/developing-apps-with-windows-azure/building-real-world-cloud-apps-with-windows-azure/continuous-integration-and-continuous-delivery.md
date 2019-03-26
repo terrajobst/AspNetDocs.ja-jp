@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: f701488025ec84a17651f9abff43f84531d35689
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b384fe08ebd6a106b9469debfb13014e87534b8f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046939"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425926"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的デリバリー (Azure で現実世界のクラウド アプリの構築)
 ====================
@@ -32,7 +32,7 @@ ms.locfileid: "57046939"
 
 通常、開発環境とステージング環境を継続的デリバリーを使用することをお勧めします。 Microsoft、でも、ほとんどのチームでは、運用環境のデプロイの手動のレビューおよび承認プロセスが必要です。 実稼働ことを確認する展開は、開発チームの主要な人物サポートについては、または低トラフィックの期間中に使用可能な場合に発生します。 しかしは受け入れテストの設定は何も変更と、環境をチェックインが開発者が行うように、開発およびテスト環境を完全に自動化することを防止するため。
 
-次の図から[、Microsoft Patterns and Practices 電子書籍の継続的デリバリーについて](http://aka.ms/ReleasePipeline)一般的なワークフローを示しています。 元のコンテキストでのフル サイズを確認する画像をクリックします。
+次の図から[、Microsoft Patterns and Practices 電子書籍の継続的デリバリーについて](https://aka.ms/ReleasePipeline)一般的なワークフローを示しています。 元のコンテキストでのフル サイズを確認する画像をクリックします。
 
 [![継続的デリバリーのワークフロー](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
@@ -66,7 +66,7 @@ Azure DevOps サービスは、さまざまな展開を計画からのアプリ�
 
 次のリソースを参照してください。
 
-- [Team Foundation Server 2012 によるリリース パイプラインを構築](http://aka.ms/ReleasePipeline)します。 電子書籍、実践的なラボ、およびサンプル コードでは、Microsoft Patterns and Practices、継続的デリバリーの詳細な概要について説明します。 Visual Studio Lab Management の Visual Studio Release Management の使用をについて説明します。
+- [Team Foundation Server 2012 によるリリース パイプラインを構築](https://aka.ms/ReleasePipeline)します。 電子書籍、実践的なラボ、およびサンプル コードでは、Microsoft Patterns and Practices、継続的デリバリーの詳細な概要について説明します。 Visual Studio Lab Management の Visual Studio Release Management の使用をについて説明します。
 - [ALM Rangers の DevOps ツールとガイダンス](https://aka.ms/vsarsolutions/)します。 ALM Rangers は DevOps Workbench サンプル付属ソリューションと実用的なガイダンス、パターンとの共同作業で導入された&amp;プラクティスに関する書籍*TFS 2012 によるリリース パイプラインを構築*、開始する優れた方法としてDevOps の概念を理解&amp;Release Management for TFS 2012 とでぜひします。 ガイダンスは、複数の環境を 1 回ビルドしてデプロイする方法を示します。
 - [Visual Studio 2012 での継続的デリバリーのテスト](https://msdn.microsoft.com/library/jj159345.aspx)です。 によって、Microsoft Patterns and Practices、電子書籍では、継続的デリバリーを使用した自動テストを統合する方法について説明します。
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker)します。 (ラベルに基づく)、TFS からのビルドをキャプチャするためのツールのソース コードは、ビルド、パッケージ化しの特定の側面を構成する DevOps ロールで許可するユーザーが Azure にプッシュします。 ツールは、""バージョンにロールバックする前に配置する操作を有効にするには、展開プロセスを追跡します。 このツールは、外部の依存関係を持たないし、TFS の Api と Azure SDK を使用してスタンドアロン機能できます。

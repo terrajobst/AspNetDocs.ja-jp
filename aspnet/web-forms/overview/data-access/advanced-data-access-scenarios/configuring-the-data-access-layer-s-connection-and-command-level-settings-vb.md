@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: d57dfa2b-d627-45cb-b5b1-abbf3159d770
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d44372ef3eaf7634d3bf3a82bd2c1eb1d710f786
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 37c537931008045c5c6438fe2097652438c7e8b1
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57032369"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424912"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>データ アクセス層の接続レベルとコマンド レベルの設定を構成する (VB)
 ====================
@@ -106,7 +106,7 @@ S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データ
 
 この部分クラスが基になる接続オブジェクトの 1 つのプロパティを公開します:`ConnectionString`します。 全体の接続オブジェクトを TableAdapter の境界を超えて使用できるようにする場合は、または変更、`Connection`プロパティ %s の保護レベル。 手順 1. で調べる自動生成されたコードを示した、tableadapter`Connection`プロパティがマーク`Friend`、それのみにアクセスできることによって、同じアセンブリ内のクラスを意味します。 これは、ただし、tableadapter を使用して`ConnectionModifier`プロパティ。
 
-開く、`Northwind`データセットをクリックして、`ProductsTableAdatper`デザイナーで、[プロパティ] ウィンドウに移動します。 表示されます、`ConnectionModifier`が既定値に設定`Assembly`します。 させる、`Connection`プロパティの変更、型指定されたデータセットのアセンブリの外部で使用できる、`ConnectionModifier`プロパティを`Public`します。
+開く、`Northwind`データセットをクリックして、`ProductsTableAdapter`デザイナーで、[プロパティ] ウィンドウに移動します。 表示されます、`ConnectionModifier`が既定値に設定`Assembly`します。 させる、`Connection`プロパティの変更、型指定されたデータセットのアセンブリの外部で使用できる、`ConnectionModifier`プロパティを`Public`します。
 
 
 [![ConnectionModifier プロパティを使用して接続プロパティのアクセシビリティ レベルを構成することができます。](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image6.png)

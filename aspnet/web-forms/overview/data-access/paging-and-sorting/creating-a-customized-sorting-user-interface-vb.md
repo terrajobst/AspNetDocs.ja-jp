@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b12baa5075b4e67018d8a98a92e807d1778737c8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63e31d719991dddec2168524187c304256d1b4e0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054699"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426108"
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>カスタマイズされた並べ替えユーザー インターフェイスを作成する (VB)
 ====================
@@ -79,7 +79,7 @@ GridView をデータ ソースにバインドすると、ときに作成、`Gri
 **図 3**:1 つの手法では、データ ソースへの行の区切り記号の追加
 
 
-特殊な区切りのレコードがないために、引用符で囲まれた用語の区切り記号レコードを使用します。代わりに、私たちする必要があります何らかの方法でフラグ、データ ソースの特定のレコードが通常のデータ行ではなく、区切り記号として機能します。 この例については、再バインドします、`ProductsDataTable`インスタンスから構成されると、GridView を`ProductRows`します。 レコードを区切り記号の行としてフラグを設定して可能性があります、`CategoryID`プロパティを`-1`(ため、通常の値でした t が存在)。
+特殊な区切りのレコードがないために、引用符で囲まれた用語の区切り記号レコードを使用します。代わりに、私たちする必要があります何らかの方法でフラグ、データ ソースの特定のレコードが通常のデータ行ではなく、区切り記号として機能します。 この例については、再バインドします、`ProductsDataTable`インスタンスから構成されると、GridView を`ProductRows`します。 レコードを区切り記号の行としてフラグを設定して可能性があります、`CategoryID`プロパティを`-1`(ため、このような値は、通常存在でした)。
 
 この手法を利用するには、次の手順を実行する d 必要があります。
 

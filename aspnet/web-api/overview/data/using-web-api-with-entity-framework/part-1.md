@@ -8,12 +8,12 @@ ms.date: 01/17/2019
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 266c808e3525787181038d2de473194989039e02
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d96f2bef5fff6fbee8e0767b0fa735cbd68e2779
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038019"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421545"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Web API 2 と Entity Framework 6 を使用する
 ====================
@@ -91,7 +91,7 @@ Visual Studio を開きます。 **ファイル**メニューの **新規**を�
 
    [![](part-1/_static/image16.png)](part-1/_static/image16.png)
 
-   既定値を受け入れるか、別の値を入力します。 入力、**管理者ユーザー名**と**管理者パスワード**新しいデータベースの。 選択**OK**完了したら。 **App Service の作成**ページが再表示されます。
+   既定値を受け入れるか、別の値を入力します。 入力、**管理者のユーザー名**と**管理者パスワード**新しいデータベースの。 選択**OK**完了したら。 **App Service の作成**ページが再表示されます。
 
 5. 選択**作成**プロファイルを作成します。 右上隅にある展開が進行中であることを示すメッセージが表示されます。 少し時間が、後に、**発行**ウィンドウが再び表示されます。
 

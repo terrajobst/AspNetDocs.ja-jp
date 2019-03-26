@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: cf5acaf5-d4f6-4957-badc-b89956b285f3
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f79c446a0c9407309ab65cd993df544e883afb22
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8dd23b960df6511f65882820cb26d4af4ccf5c58
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038429"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421532"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>DataList コントロールで複数のレコードを行ごとに表示する (C#)
 ====================
@@ -66,7 +66,7 @@ ms.locfileid: "57038429"
 
 既定の動作中に、DataList で単一列、複数行のテーブルの縦方向には、そのアイテムのレイアウトにはこの動作に簡単にで変更できます DataList s [ `RepeatDirection`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx)します。 `RepeatDirection`プロパティは、2 つの値のいずれかを受け入れることができます:`Horizontal`または`Vertical`(既定)。
 
-変更することで、`RepeatDirection`プロパティから`Vertical`に`Horizontal`DataList はデータ ソースの項目ごとに 1 つの列を作成する 1 つの行では、そのレコードをレンダリングします。 この効果を示すためには、DataList、デザイナーでをクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`RepeatDirection`プロパティから`Vertical`に`Horiztonal`します。 すぐにそうと、デザイナー レイアウトを調整します DataList s、単一行、複数列のインターフェイスを作成する (図 3 を参照してください)。
+変更することで、`RepeatDirection`プロパティから`Vertical`に`Horizontal`DataList はデータ ソースの項目ごとに 1 つの列を作成する 1 つの行では、そのレコードをレンダリングします。 この効果を示すためには、DataList、デザイナーでをクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`RepeatDirection`プロパティから`Vertical`に`Horizontal`します。 すぐにそうと、デザイナー レイアウトを調整します DataList s、単一行、複数列のインターフェイスを作成する (図 3 を参照してください)。
 
 
 [![RepeatDirection プロパティを指定する方法、方向 DataList の項目は配置には](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-cs/_static/image7.png)

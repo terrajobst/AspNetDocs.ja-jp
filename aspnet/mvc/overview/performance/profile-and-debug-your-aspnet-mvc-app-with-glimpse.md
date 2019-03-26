@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea149b6450cf02c993c7690752a05396802336be
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049229"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425055"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Glimpse を使用して ASP.NET MVC アプリをプロファイルおよびデバッグする
 ====================
@@ -58,7 +58,7 @@ Glimpse に関する情報をインストールするには、NuGet パッケー
 
 お気に入りバーの表示があれば、ドラッグ Glimpse ボタンをドロップし bookmarklets として追加およびできます。
 
-![Glimpse boookmarklets で IE](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
+![Glimpse bookmarklets で IE](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
 
 アプリを移動できるようになりました、**ヘッドを表示**(HUD) は、ページの下部に表示されます。
 
@@ -104,11 +104,11 @@ Tom Dykstra の変更しました未処理[EF 6 と MVC 5 のチュートリア�
 <a id="da"></a>
 ## <a name="using-glimpse-on-azure"></a>Glimpse に関する情報を使用して Azure に
 
-Glimpse の既定のセキュリティ ポリシーは、ローカル ホストから表示される概要データのみを許可します。 (Azure の web アプリ) などのリモート サーバーでこのデータを表示できるように、このセキュリティ ポリシーを変更できます。 Azure でのテスト環境、最大で一番下の強調表示されているマークの追加、 *web.confg* glimpse に関する情報を有効にするファイル。
+Glimpse の既定のセキュリティ ポリシーは、ローカル ホストから表示される概要データのみを許可します。 (Azure の web アプリ) などのリモート サーバーでこのデータを表示できるように、このセキュリティ ポリシーを変更できます。 Azure でのテスト環境、最大で一番下の強調表示されているマークの追加、 *web.config* glimpse に関する情報を有効にするファイル。
 
 [!code-xml[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample3.xml?highlight=2-6)]
 
-だけでこの変更により、任意のユーザーはリモート サイトに Glimpse データを表示できます。 のみ展開を適用するときにその発行プロファイル (たとえば、Azure テスト proifle。)、発行プロファイルに上記のマークアップを追加することを検討してください。Glimpse のデータを制限するのには追加、`canViewGlimpseData`ロールと glimpse に関する情報のデータを表示するには、このロールのユーザーのみを許可します。
+だけでこの変更により、任意のユーザーはリモート サイトに Glimpse データを表示できます。 のみ展開を適用するときにその発行プロファイル (たとえば、Azure テスト プロファイル。)、発行プロファイルに上記のマークアップを追加することを検討してください。Glimpse のデータを制限するのには追加、`canViewGlimpseData`ロールと glimpse に関する情報のデータを表示するには、このロールのユーザーのみを許可します。
 
 コメントを削除、 *GlimpseSecurityPolicy.cs*ファイルし、変更、 [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx)から呼び出す`Administrator`を`canViewGlimpseData`ロール。
 

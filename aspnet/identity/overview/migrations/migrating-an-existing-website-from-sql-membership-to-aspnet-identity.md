@@ -8,19 +8,18 @@ ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 393d14799973e9126379743f63f79a7131206f38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b80f2f5cc4702c3e406d8989905c56508711e788
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037819"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426082"
 ---
-<a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する
-====================
+# <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Suhas Joshi](https://github.com/suhasj)
 
 > このチュートリアルでは、ユーザーとロールのデータが新しい ASP.NET Identity のシステムに SQL メンバーシップを使用して作成された既存の web アプリケーションを移行する手順を説明します。 このアプローチでは、ASP.NET Identity と古いまたは新しいクラスでフックで必要な 1 つに、既存のデータベース スキーマを変更する必要があります。 後、データベースが移行した後に、このアプローチを採用する Id に今後の更新プログラムを簡単に処理されます。
-
 
 このチュートリアルでは、ユーザーおよびロールのデータを作成する Visual Studio 2010 を使用して作成された web アプリケーション テンプレート (Web フォーム) ことになります。 Id システムで必要なテーブルに既存のデータベースを移行するのに SQL スクリプトを使用します。 次に、必要な NuGet パッケージのインストールがされメンバーシップの管理の Id システムを使用して新しいアカウントの管理ページを追加します。 移行のテストとして SQL メンバーシップを使用して作成されたユーザーにログインできるようにする必要があり、新しいユーザーが登録できる必要があります。 完全なサンプルが見つかります[ここ](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SQLMembership-Identity-OWIN/)します。 参照してください[ASP.NET メンバーシップから ASP.NET Identity に移行する](http://travis.io/blog/2015/03/24/migrate-from-aspnet-membership-to-aspnet-identity.html)します。
 
@@ -50,7 +49,7 @@ ms.locfileid: "57037819"
 
 1. Web またはと共に Visual Studio 2013 の Visual Studio Express 2013 をインストール、[最新の更新プログラム](https://www.microsoft.com/download/details.aspx?id=44921)します。
 2. インストールされているバージョンの Visual Studio には、上記のプロジェクトを開きます。 コンピューターの SQL Server Express がインストールされていない場合は、接続文字列が SQL Express を使用しているため、プロジェクトを開くと、プロンプトが表示されます。 か、SQL Express をインストールまたはとして回避変更 LocalDb への接続文字列を選択できます。 この記事で LocalDb に変更します。
-3. Web.config を開きから接続文字列を変更します。(LocalDb) v11.0 を SQLExpess します。 削除 ' のユーザー インスタンス = true' の接続文字列。
+3. Web.config を開きから接続文字列を変更します。(LocalDb) v11.0 を SQLExpress です。 削除 ' のユーザー インスタンス = true' の接続文字列。
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image3.jpg)
 4. サーバー エクスプ ローラーを開き、テーブルのスキーマとデータが発生する可能性があることを確認します。
@@ -115,7 +114,7 @@ ms.locfileid: "57037819"
 
 [!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
-このデータベースの生成スクリプトを加える新しい列を追加したり、データをコピーする追加の変更開始として使用できます。 これの利点は、生成ここ、 `_MigrationHistory` model クラスの将来のバージョンの Id のリリースの変更時にデータベース スキーマを変更する entity Framework で使用されるテーブル。 
+このデータベースの生成スクリプトを加える新しい列を追加したり、データをコピーする追加の変更開始として使用できます。 これの利点は、生成ここ、 `_MigrationHistory` model クラスの将来のバージョンの Id のリリースの変更時にデータベース スキーマを変更する entity Framework で使用されるテーブル。
 
 SQL メンバーシップ ユーザーの情報は、その他の namely の電子メール Id ユーザー モデル クラスで使用されているだけでなく、プロパティ、パスワードの試行回数、前回のログイン日、最後のロックアウト日などがありました。これは、有用な情報と Id システムに持ち越すしたいです。 これは、ユーザー モデルに追加のプロパティを追加して、データベース内のテーブル列にマッピングすることによって実行できます。 そのため、クラスを追加することでをサブクラスとして持つ、`IdentityUser`モデル。 このカスタム クラスにプロパティを追加して、テーブルを作成するときに、対応する列を追加する SQL スクリプトを編集します。 このクラスのコードについては、情報の記事で詳しく説明します。 SQL スクリプトを作成するため、`AspnetUsers`テーブルは、新しいプロパティを追加した後
 
@@ -125,7 +124,7 @@ SQL メンバーシップ ユーザーの情報は、その他の namely の電�
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample2.sql)]
 
-上記の SQL ステートメントから各ユーザーについての情報で、 *aspnet\_ユーザー*と*aspnet\_メンバーシップ*の列にテーブルをコピー、 *AspnetUsers*テーブル。 ここで唯一の変更は、パスワードをコピーするとします。 SQL メンバーシップ内のパスワードの暗号化アルゴリズムには、'PasswordSalt' と 'PasswordFormat' が使用される、ためにコピーをすぎるハッシュされたパスワードと共に Id を使用して、パスワードを復号化する使用できるようにします。 カスタム パスワード ハッシャーをフックするときに、この記事ではさらにこれがについて説明します。 
+上記の SQL ステートメントから各ユーザーについての情報で、 *aspnet\_ユーザー*と*aspnet\_メンバーシップ*の列にテーブルをコピー、 *AspnetUsers*テーブル。 ここで唯一の変更は、パスワードをコピーするとします。 SQL メンバーシップ内のパスワードの暗号化アルゴリズムには、'PasswordSalt' と 'PasswordFormat' が使用される、ためにコピーをすぎるハッシュされたパスワードと共に Id を使用して、パスワードを復号化する使用できるようにします。 カスタム パスワード ハッシャーをフックするときに、この記事ではさらにこれがについて説明します。
 
 このスクリプト ファイルは、このサンプルに固有です。 追加のテーブルが存在するアプリケーション、開発者がユーザー モデル クラスに追加のプロパティを追加し、AspnetUsers テーブル内の列にマップする同様のアプローチに従うことができます。 スクリプトを実行するには
 
@@ -158,7 +157,7 @@ SQL メンバーシップ ユーザーの情報は、その他の namely の電�
 
 サンプルでは、AspNetRoles、AspNetUserClaims、AspNetLogins および AspNetUserRole テーブルに Id システムの既存の実装に類似した列があります。 そのためにこれらのテーブルにマップする既存のクラスを再利用できます。 AspNetUser テーブルには、SQL のメンバーシップ テーブルから追加情報の格納に使用されるいくつかの追加列があります。 これは、'IdentityUser' の既存の実装を拡張し、追加のプロパティを追加するモデル クラスを作成してマップできます。
 
-1. プロジェクトのフォルダーを作成するモデル クラスのユーザーを追加します。 クラスの名前は、'AspnetUsers' テーブルの '識別子' 列に追加されたデータと一致する必要があります。
+1. プロジェクトの Models フォルダーを作成し、クラスのユーザーを追加します。 クラスの名前は、'AspnetUsers' テーブルの '識別子' 列に追加されたデータと一致する必要があります。
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image10.png)
 
@@ -199,7 +198,7 @@ SQL メンバーシップ ユーザーの情報は、その他の namely の電�
 - クラスの使用の背後にある Register.aspx.cs と Login.aspx.cs コード、`UserManager`からユーザーを作成するパッケージの Id。 この例で前に説明した手順に従って、Models フォルダーに追加 UserManager を使用します。
 - 作成、IdentityUser クラスの背後にある Register.aspx.cs および Login.aspx.cs のコードではなく、ユーザー クラスを使用します。 これは、Id システムに、カスタム ユーザー クラスにフックします。
 - データベースを作成する部分をスキップできます。
-- 開発者は、現在のアプリケーション ID と一致する新しいユーザーの ApplicationId を設定する必要があります。 これは、Register.aspx.cs クラスで、ユーザー オブジェクトが作成される前にこのアプリケーションの ApplicationId クエリを実行して、ユーザーを作成する前に設定することによって実行できます。 
+- 開発者は、現在のアプリケーション ID と一致する新しいユーザーの ApplicationId を設定する必要があります。 これは、Register.aspx.cs クラスで、ユーザー オブジェクトが作成される前にこのアプリケーションの ApplicationId クエリを実行して、ユーザーを作成する前に設定することによって実行できます。
 
     例:
 

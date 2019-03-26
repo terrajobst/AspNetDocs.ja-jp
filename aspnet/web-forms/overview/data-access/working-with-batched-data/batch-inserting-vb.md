@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 58338d8bfdd782167aafaa440f2d549d6eeb838e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1078087e9ff2564e94a5b1df1efb6c96928524c7
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034229"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424925"
 ---
 <a name="batch-inserting-vb"></a>一括挿入 (VB)
 ====================
@@ -195,7 +195,7 @@ Label Web コントロールをツールボックスからデザイナーでペ�
 次に、製品出荷し、[キャンセル] ボタンの挿入のインターフェイス コントロールからの追加のイベント ハンドラーを作成します。 いずれかのボタンをクリックすると表示のインターフェイスに戻す必要があります。 作成`Click`両方のイベント ハンドラー ボタン コントロールを呼び出すことができるように`ReturnToDisplayInterface`メソッドを一時的に追加します。 非表示に加え、`InsertingInterface`パネルと表示されている、`DisplayInterface`パネル、`ReturnToDisplayInterface`メソッドは、編集済みの状態に Web コントロールを返す必要があります。 これには、Dropdownlist の設定が含まれます`SelectedIndex`0 およびを消去するプロパティを`Text`の TextBox コントロールのプロパティ。
 
 > [!NOTE]
-> 何が起こりうるを検討してください場合私たちでした t が編集済みの状態に表示インターフェイスに戻る前にコントロールを返します。 ユーザーは、製品出荷を処理する ボタンをクリックして、出荷から製品を入力および製品出荷の追加 をクリックし、可能性があります。 製品を追加して、ユーザー表示インターフェイスを返すこのは。 この時点で、ユーザーは別の出荷を追加する場合があります。 挿入のインターフェイスが、DropDownList に戻ると、製品出荷を処理するボタンをクリックすると選択、およびテキスト ボックスの値が引き続き反映されます。 して以前の値。
+> 何が起こりうるを検討してください。 コントロール表示インターフェイスに戻る前に、編集済みの状態に戻りますしていない場合。 ユーザーは、製品出荷を処理する ボタンをクリックして、出荷から製品を入力および製品出荷の追加 をクリックし、可能性があります。 製品を追加して、ユーザー表示インターフェイスを返すこのは。 この時点で、ユーザーは別の出荷を追加する場合があります。 挿入のインターフェイスが、DropDownList に戻ると、製品出荷を処理するボタンをクリックすると選択、およびテキスト ボックスの値が引き続き反映されます。 して以前の値。
 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
@@ -215,7 +215,7 @@ Label Web コントロールをツールボックスからデザイナーでペ�
 
 ## <a name="step-4-adding-the-products"></a>手順 4: 製品の追加
 
-このチュートリアルは、出荷ボタン s から、追加の製品内のデータベースに製品を保存するのに残っているすべて`Click`イベント ハンドラー。 これは、作成して実行できます、`ProductsDataTable`を追加して、`ProductsRow`指定された製品名の各インスタンス。 これらは 1 回`ProductsRow`への呼び出しを行います s が追加されています、`ProductsBLL`クラス s`UpdateWithTransaction`メソッドに渡して、 `ProductsDataTable`。 いることを思い出してください、`UpdateWithTransaction`メソッドで、バックアップで作成された、[トランザクション内のデータベース変更のラッピング](wrapping-database-modifications-within-a-transaction-vb.md)チュートリアル、パス、`ProductsDataTable`を`ProductsTableAdapter`s`UpdateWithTransaction`メソッド。 ADO.NET トランザクションの開始から、および TableAdatper 問題、`INSERT`ステートメントに追加された各データベースに`ProductsRow`DataTable にします。 すべての製品がエラーを発生させず追加は、トランザクションがコミットされたと仮定すると、それ以外の場合はロールバックされます。
+このチュートリアルは、出荷ボタン s から、追加の製品内のデータベースに製品を保存するのに残っているすべて`Click`イベント ハンドラー。 これは、作成して実行できます、`ProductsDataTable`を追加して、`ProductsRow`指定された製品名の各インスタンス。 これらは 1 回`ProductsRow`への呼び出しを行います s が追加されています、`ProductsBLL`クラス s`UpdateWithTransaction`メソッドに渡して、 `ProductsDataTable`。 いることを思い出してください、`UpdateWithTransaction`メソッドで、バックアップで作成された、[トランザクション内のデータベース変更のラッピング](wrapping-database-modifications-within-a-transaction-vb.md)チュートリアル、パス、`ProductsDataTable`を`ProductsTableAdapter`の`UpdateWithTransaction`メソッド。 ADO.NET トランザクションの開始と TableAdapter の問題、`INSERT`ステートメントに追加された各データベースに`ProductsRow`datatable です。 すべての製品がエラーを発生させず追加は、トランザクションがコミットされたと仮定すると、それ以外の場合はロールバックされます。
 
 製品出荷ボタン %s からの追加のコード`Click`イベント ハンドラーも少しエラー チェックを実行する必要があります。 挿入のインターフェイスで使用される RequiredFieldValidators がないので、ユーザーでした価格を入力の製品の中に、その名前を省略するとします。 S を製品名は必須であるため、ユーザーにアラートを生成し、挿入を続行する場合は、このような条件で色付けされていく様子する必要があります。 完全な`Click`イベント ハンドラーのコードに従います。
 

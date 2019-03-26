@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b1700e0ccece543c381dbb4fa7d6243de57ed4d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ac502a1f57b25dd596489d1e7abaa55a77ddb6c7
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055009"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440340"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>繰り返し #6 – テスト駆動開発 (VB) を使用します。
 ====================
@@ -80,9 +80,9 @@ Contact Manager アプリケーションの前のイテレーションでは、�
 
 ## <a name="what-gets-tested"></a>どのようなテストを取得します
 
-前のイテレーションで説明したように通常データ アクセス ロジックの単体テストを記述したりしないロジックを表示します。 比較的低速の操作は、データベースにアクセスするため、データ アクセス ロジックの t 書き込み単体テストはありません。 比較的低速の操作には、web サーバーを開始して、ビューにアクセスする必要があるために、ビュー ロジックの t 書き込み単体テストがありません。 T べきでは、テスト実行できる何度も高速な場合を除き、単体テストを記述します。
+前のイテレーションで説明したように通常データ アクセス ロジックの単体テストを記述したりしないロジックを表示します。 比較的低速の操作は、データベースにアクセスするため、データ アクセス ロジックの t 書き込み単体テストはありません。 比較的低速の操作には、web サーバーを開始して、ビューにアクセスする必要があるために、ビュー ロジックの t 書き込み単体テストがありません。 テスト実行できる何度も高速な場合を除き、単体テストを記述することはできません。
 
-テスト駆動開発は、単体テストによって主導別、ので注目最初にコント ローラーとビジネス ロジックを記述します。 私たちは、データベースまたはビューを変更しないでください。 T 獲得したデータベースを変更したり、このチュートリアルの最後までビューを作成します。 まず何をテストすることができます。
+テスト駆動開発は、単体テストによって主導別、ので注目最初にコント ローラーとビジネス ロジックを記述します。 私たちは、データベースまたはビューを変更しないでください。 データベースを修正またはこのチュートリアルの最後までビューを作成しません。 まず何をテストすることができます。
 
 ## <a name="creating-user-stories"></a>ユーザー ストーリーの作成
 
@@ -250,7 +250,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 | 名前 | nvarchar (50) | False |
 
 
-次に、Contacts テーブルからすべてのデータを削除する必要があります (それ以外の場合、獲得した連絡先およびグループのテーブル間のリレーションシップを作成することはできません)。 この場合は、以下の手順に従ってください。
+次に、Contacts テーブルからすべてのデータを削除する必要があります (それ以外の場合、私たちはできません連絡先およびグループのテーブル間のリレーションシップを作成する)。 この場合は、以下の手順に従ってください。
 
 1. Contacts テーブルを右クリックし、メニュー オプションを選択**テーブル データの表示**します。
 2. すべての行を削除します。
@@ -310,7 +310,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample14.vb)]
 
-私たち haven t が実際には、実際の EntityContactManagerRepository クラスで連絡先グループの操作に関連するメソッドのいずれかを実装します。 現時点では、EntityContactManagerRepository クラスでは、各 IContactManagerRepository インターフェイスに表示されている連絡先グループ メソッド スタブのメソッドがあります。 たとえば、現在 ListGroups() メソッドが次のようになります。
+実際、EntityContactManagerRepository クラスで連絡先グループの操作に関連するメソッドのいずれかの実際に実装していません。 現時点では、EntityContactManagerRepository クラスでは、各 IContactManagerRepository インターフェイスに表示されている連絡先グループ メソッド スタブのメソッドがあります。 たとえば、現在 ListGroups() メソッドが次のようになります。
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample15.vb)]
 

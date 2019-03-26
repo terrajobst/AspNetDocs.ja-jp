@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: c36749f82051ee8965035eca9c2e4e57a5dbd616
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d7985fcd48e1282437cc3a7d3c1b528af2e44ae0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028289"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425783"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 での非同期メソッドの使用
 ====================
@@ -100,7 +100,7 @@ Web アプリケーションの起動時に同時要求の数が多いを参照�
 
 ## <a id="CreatingAsynchGizmos"></a>  非同期ギズモ ページの作成
 
-このサンプルは、新しい[非同期](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)と[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワード (.NET 4.5 と Visual Studio 2012 で使用可能) コンパイラで複雑な変換のために必要な保守を担当します。非同期プログラミングします。 コンパイラでは、# の同期の制御フローの構築を使用してコードを記述できるし、コンパイラは、スレッドがブロックされないようにするためにコールバックを使用するために必要な変換を自動的に適用されます。
+このサンプルは、新しい[非同期](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)と[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワード (.NET 4.5 と Visual Studio 2012 で使用可能) コンパイラで複雑な変換のために必要な保守を担当します。非同期プログラミングします。 コンパイラを使用してコードを記述することができます、C#の同期の制御フローを構築し、コンパイラは、スレッドがブロックされないようにするためにコールバックを使用するために必要な変換を自動的に適用されます。
 
 ASP.NET の非同期ページを含める必要があります、[ページ](https://msdn.microsoft.com/library/ydy4x04a.aspx)ディレクティブ、`Async`属性が"true"に設定します。 次のコードは、[ページ](https://msdn.microsoft.com/library/ydy4x04a.aspx)ディレクティブ、`Async`属性を"true"に設定、 *GizmosAsync.aspx*ページ。
 
@@ -178,7 +178,7 @@ Async void イベントに欠点は、開発者が完全にイベントの実行
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-45/samples/sample12.cs?highlight=6,9)]
 
-提供されるサンプル アプリケーションで選択すると、 *GizmosCancelAsync*呼び出しのリンク、 *GizmosCancelAsync.aspx*ページおよび非同期の呼び出しの (タイムアウト) をキャンセルした場合の例を示します。 遅延時間では、任意の範囲内であるために、タイムアウト エラー メッセージを取得するページを 2 回の更新する必要があります。
+提供されるサンプル アプリケーションで選択すると、 *GizmosCancelAsync*呼び出しのリンク、 *GizmosCancelAsync.aspx*ページし、非同期呼び出しの (タイムアウト) によって取り消しを示します。 遅延時間では、任意の範囲内であるために、タイムアウト エラー メッセージを取得するページを 2 回の更新する必要があります。
 
 ## <a id="ServerConfig"></a>  高い同時実行/高待機時間の Web サービス呼び出しのサーバー構成
 

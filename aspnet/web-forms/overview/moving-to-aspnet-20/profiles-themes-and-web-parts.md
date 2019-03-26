@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 98559c2a378c72bc5664faafe5436753050b574f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 010adaba61b15ca4421c2d3a4a7590becb53897b
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062769"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422851"
 ---
 <a name="profiles-themes-and-web-parts"></a>プロファイル、テーマ、Web パーツ
 ====================
@@ -222,7 +222,7 @@ Web アプリケーションの最も重要な側面の 1 つは、サイト全�
 3. ファイルの一覧から Web 構成ファイルを選択し、[追加] をクリックします。
 4. ソリューション エクスプ ローラーでプロジェクトを右クリックし、新しい項目の追加を選択します。
 5. スキン ファイルを選択し、[追加] をクリックします。
-6. アプリ内のファイルを配置するとかどうかメッセージが表示されたら [はい] をクリックします。\_テーマ フォルダー。
+6. たいかどうか、アプリ内でファイルを配置するメッセージが表示されたら [はい] をクリックします。\_テーマ フォルダー。
 7. アプリ内で SkinFile フォルダーを右クリックして\_テーマ フォルダーをソリューション エクスプ ローラーで新しい項目の追加を選択します。
 8. ファイルの一覧からスタイル シートを選択し、[追加] をクリックします。 すべての新しいテーマを実装するために必要なファイルのあるようになりました。 ただし、Visual Studio には、テーマ フォルダー SkinFile がという名前です。 そのフォルダーを右クリックし、CoolTheme に名前を変更します。
 9. SkinFile.skin ファイルを開き、ファイルの末尾の次のコードを追加します。 

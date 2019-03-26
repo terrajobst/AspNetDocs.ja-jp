@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: d84a525221e40b79853be55069367134d17fb5ec
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0f252fd5c0e5962353720e47ba888d2b6b325a1c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035959"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421909"
 ---
 <a name="part-1-overview-and-file-new-project"></a>第 1 部:概要とファイル -> 新しいプロジェクト
 ====================
@@ -60,7 +60,7 @@ MVC のミュージック ストアは、紹介し、web 開発用の ASP.NET MV
 
 ![](mvc-music-store-part-1/_static/image6.jpg)
 
-だけでなく、顧客 faceing ページは、アルバムをから管理者を作成できます、編集の一覧を表示する管理者セクションを構築し、アルバムを削除しましたがも。
+顧客向けのページだけでなくしますも開発のアルバムをから管理者を作成できます、編集、一覧を表示する管理者セクションおよびアルバムを削除します。
 
 ![](mvc-music-store-part-1/_static/image7.jpg)
 

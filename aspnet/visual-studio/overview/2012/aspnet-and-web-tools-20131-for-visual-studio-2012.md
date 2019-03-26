@@ -8,12 +8,12 @@ ms.date: 11/13/2013
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: a0b3d52910ac33c403ecbe2340c12b202c25147b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 008891b72e1fb72458aee00bbf83839d0fbed263
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053029"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423547"
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 の ASP.NET と Web 2013.1 ツールのリリース ノート
 ====================
@@ -163,7 +163,7 @@ Visual Studio Express 2012 for Web は、Entity Framework (Web API 2 コント �
 ### <a name="aspnet-razor-3"></a>ASP.NET Razor 3
 
 <a id="browseissue"></a>
-#### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Cshtml ファイル withBrowse WithorF5causes サーバー エラーを表示します。
+#### <a name="viewing-cshtml-file-with-browse-with-or-f5-causes-a-server-error"></a>サーバー エラーが発生 cshtml ファイルで参照または f5 キーを表示します。
 
 -を示すエラーが表示されます、MVC 5 プロジェクトを Visual Studio 2012 (または Visual Studio 2013 で作成された Visual Studio 2012、MVC 5 プロジェクトで開く) で作成 cshtml ファイルを参照または f5 キーを使用して表示しようとすると、**でサーバー エラー'/' アプリケーション**します。 サーバーに移動しようとしました。 `http://localhost:XXXX/Views/../XXXX.cshtml`
 

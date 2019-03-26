@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e33e4b401d957f4aa5560193dd8af0e53ca3b631
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 06ee6f8ea415ddde4e47acacaa74a29cbf9a0478
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57032699"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425588"
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>オプティミスティック同時実行制御を実装する (VB)
 ====================
@@ -60,7 +60,7 @@ ms.locfileid: "57032699"
 **図 2**:更新プログラムまたは成功を元の値必要がありますと等しいデータベースの現在の値を Delete ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image6.png))。
 
 
-オプティミスティック同時実行制御を実装するためのさまざまな方法はあります (を参照してください[Peter A. 作成](http://peterbromberg.net/)の[Optmistic 同時実行更新ロジック](http://www.eggheadcafe.com/articles/20050719.asp)のさまざまなオプションについて簡単に説明)。 ADO.NET 型指定されたデータセットは、チェック ボックスのチェック マークだけで構成できる 1 つの実装を提供します。 型指定されたデータセット内に TableAdapter は、TableAdapter のオプティミスティック同時実行制御を有効にする`UPDATE`と`DELETE`のすべての元の値の比較を含めるようにステートメントを`WHERE`句。 次`UPDATE`ステートメントでは、たとえば、更新プログラム名と製品の価格データベースの現在の値が、GridView でレコードを更新するときに取得された元の値に等しい場合のみです。 `@ProductName`と`@UnitPrice`パラメーターには、ユーザーが入力した新しい値が含まれて`@original_ProductName`と`@original_UnitPrice`編集ボタンがクリックされたときに、GridView に読み込まれた最初の値が含まれます。
+オプティミスティック同時実行制御を実装するためのさまざまな方法はあります (を参照してください[Peter A. 作成](http://peterbromberg.net/)の[オプティミスティック同時実行更新ロジック](http://www.eggheadcafe.com/articles/20050719.asp)のさまざまなオプションについて簡単に説明)。 ADO.NET 型指定されたデータセットは、チェック ボックスのチェック マークだけで構成できる 1 つの実装を提供します。 型指定されたデータセット内に TableAdapter は、TableAdapter のオプティミスティック同時実行制御を有効にする`UPDATE`と`DELETE`のすべての元の値の比較を含めるようにステートメントを`WHERE`句。 次`UPDATE`ステートメントでは、たとえば、更新プログラム名と製品の価格データベースの現在の値が、GridView でレコードを更新するときに取得された元の値に等しい場合のみです。 `@ProductName`と`@UnitPrice`パラメーターには、ユーザーが入力した新しい値が含まれて`@original_ProductName`と`@original_UnitPrice`編集ボタンがクリックされたときに、GridView に読み込まれた最初の値が含まれます。
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample1.sql)]

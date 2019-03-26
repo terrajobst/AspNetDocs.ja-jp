@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: e902881d3dab6a902cb747a197a32f317d199723
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 71e566523d658eb8198453f354a12e63a4c38495
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025989"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421038"
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX を使用し、動的更新を配信する
 ====================
@@ -78,7 +78,7 @@ AJAX、詳細ビューから登録アクション メソッドの呼び出しに
 
 最初のライブラリは、core の ASP.NET AJAX クライアント側のスクリプト ライブラリを参照します。 このファイルは、約 24 k (圧縮) サイズでは、中核となるクライアント側の AJAX 機能が含まれています。 2 番目のライブラリには、ASP.NET MVC の組み込み AJAX ヘルパー メソッド (これはまもなく使用します) と統合するユーティリティ関数が含まれています。
 
-更新プログラム ビュー テンプレート コードが表示されるように「が登録されていないこのイベントの」メッセージを出力時ではなく代わりにリンクするプッシュされるときに追加しましたが、RSVP コント ローラーで、RSVPForEvent アクション メソッドを呼び出す AJAX 呼び出しを実行してからことができます。ユーザーを RSVPs:
+更新プログラム ビュー テンプレート コードが表示されるように「が登録されていないこのイベントの」メッセージを出力ではなく代わりにリンクするプッシュされたときに追加しましたが、RSVP コント ローラーで、RSVPForEvent アクション メソッドを呼び出す AJAX 呼び出しを実行してからことができます。ユーザーを RSVPs:
 
 [!code-aspx[Main](use-ajax-to-deliver-dynamic-updates/samples/sample6.aspx)]
 

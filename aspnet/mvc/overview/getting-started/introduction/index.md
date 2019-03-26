@@ -15,7 +15,7 @@ msc.type: chapter
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-この次のチュートリアル シリーズでは、ASP.NET MVC について説明します。上にあるソース[GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
+この次のチュートリアル シリーズでは、ASP.NET MVC について説明します。上にあるソース[GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
 
 - [はじめに](getting-started.md)
 - [コントローラーの追加](adding-a-controller.md)

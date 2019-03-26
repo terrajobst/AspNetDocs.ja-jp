@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: e0d525e497cf41a79820417a9c832fa6b5cd7f8a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 59bce8c511167e8ba8a8db6f1842e352c90f3039
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031539"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424899"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのトレース
 ====================
@@ -89,7 +89,7 @@ Web API プロジェクト テンプレートを選択します。
 
 このセクションでは、Web API のカスタム トレース ライターを作成する方法について説明します。
 
-Microsoft.AspNet.WebApi.Tracing パッケージは、Web API で一般的なトレース インフラストラクチャ上に構築されます。 Microsoft.AspNet.WebApi.Tracing を使用せずに組み込むことも可能で他のトレース/ログイン ライブラリなど[NLog](http://nlog-project.org/)または[log4net](http://logging.apache.org/log4net/)します。
+Microsoft.AspNet.WebApi.Tracing パッケージは、Web API で一般的なトレース インフラストラクチャ上に構築されます。 Microsoft.AspNet.WebApi.Tracing を使用せずに組み込むことも可能で他のトレース/ログ記録ライブラリなど[NLog](http://nlog-project.org/)または[log4net](http://logging.apache.org/log4net/)します。
 
 トレースを収集するには、実装、 **ITraceWriter**インターフェイス。 簡単な例を次に示します。
 
@@ -113,7 +113,7 @@ Microsoft.AspNet.WebApi.Tracing パッケージは、Web API で一般的なト�
 
 Web API でのトレースを使用して、*ファサード*パターン。トレースが有効にすると、Web API は、トレースの呼び出しを実行するクラスを使用して、要求パイプラインのさまざまな部分をラップします。
 
-たとえば、コント ローラーを選択するときに、パイプラインを使用して、 **IHttpControllerSelector**インターフェイス。 実装するクラスを挿入する、pipleline トレースが有効になっている、 **IHttpControllerSelector**が実際の実装を通じて呼び出し。
+たとえば、コント ローラーを選択するときに、パイプラインを使用して、 **IHttpControllerSelector**インターフェイス。 実装するクラスを挿入する、パイプライン トレースを有効になっている、 **IHttpControllerSelector**が実際の実装を通じて呼び出し。
 
 ![Web API のトレースは、ファサード パターンを使用します。](tracing-in-aspnet-web-api/_static/image8.png)
 

@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f1173feb-11ee-4017-8f3f-86599ea6ae13
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8bbd20cb64fb27a0a6de2cdc14743f6961f4bf0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5e12f4ec9a6e8c53ee88388355ecfbd81b100c3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057879"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422266"
 ---
 <a name="iteration-2--make-the-application-look-nice-c"></a>繰り返し #2 – アプリケーションの外観を便利な (c#) を作成します。
 ====================
@@ -112,7 +112,7 @@ ASP.NET MVC デザイン ギャラリーでは、さまざまなデザイン ス
 
 ただし、web サイトの完全に独自のデザインを作成する必要があります。 その場合は、理にかなって web サイトのデザイン会社を使用します。 Contact Manager アプリケーションを設計するためには、この手法を採用することにしました。
 
-イテレーション 1 Contact Manager を zip 形式し、デザイン会社にプロジェクトを送信します。 Visual Studio (残念なことにです) はなかった t 問題が発生することが、所有せずします。 Microsoft Visual Web Developer を無料でダウンロードすることができました、 [ https://www.asp.net ](https://www.asp.net) web サイトを Visual Web Developer で Contact Manager アプリケーションを開きます。 いくつかの日には、図 7 の設計を生成されると必要があります。
+イテレーション 1 Contact Manager を zip 形式し、デザイン会社にプロジェクトを送信します。 Visual Studio (残念なことに!) を所有せずが問題を表示しませんでした。 Microsoft Visual Web Developer を無料でダウンロードすることができました、 [ https://www.asp.net ](https://www.asp.net) web サイトを Visual Web Developer で Contact Manager アプリケーションを開きます。 いくつかの日には、図 7 の設計を生成されると必要があります。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)

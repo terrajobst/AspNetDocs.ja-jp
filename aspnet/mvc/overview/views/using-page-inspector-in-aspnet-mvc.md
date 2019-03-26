@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: abb1ef355bd7614daaab8c205d9d53065856cd23
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057709"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424366"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
 ====================
@@ -139,7 +139,7 @@ Index.cshtml で定義されているフッターがであることが判明こ�
 
 クリックして**検査**Page Inspector を検査モードにします。
 
-"Logohere、"と書かれたページの上部をクリックします。 詳細については、マウス ポインターを移動すると、ブラウザー ウィンドウの表示が不要になった変更の特定の要素を調べることができます。
+"Your logo here"と書かれたページの上部をクリックします。 詳細については、マウス ポインターを移動すると、ブラウザー ウィンドウの表示が不要になった変更の特定の要素を調べることができます。
 
 今すぐにマウス ポインターを移動、 **HTML**ウィンドウ。 Page Inspector 内の要素の概要、マウス ポインターを移動すると、 **HTML**ウィンドウとブラウザーのウィンドウで、対応する要素が強調表示されます。
 

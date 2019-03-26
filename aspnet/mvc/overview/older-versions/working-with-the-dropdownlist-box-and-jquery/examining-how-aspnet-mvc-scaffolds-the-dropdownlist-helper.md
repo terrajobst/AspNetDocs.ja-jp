@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 8921d7f2-21f0-427a-8b27-2df7251174b0
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 542790b7f475cc641ed26ff3187c25c25118e0ed
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ef83ef22e17ab7bda035d0f11ab936fe56d58800
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037829"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423027"
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC で DropDownList ヘルパーをスキャフォールディングするしくみを確認する
 ====================
@@ -99,7 +99,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 使用することができます、 [fiddler ツール](http://www.fiddler2.com/fiddler2/)ポストされたフォーム値を確認するその ASP.NET MVC のモデル バインドを使用してアルバム オブジェクトを作成します。
 
-![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png)。
+![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png).
 
 ### <a name="refactoring-the-viewbag-selectlist-creation"></a>ViewBag SelectList 作成のリファクタリング
 
@@ -197,7 +197,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 ### <a name="which-approach-should-you-use"></a>どちらのアプローチを使用する必要がありますか。
 
-表示されるすべての 3 つのアプローチは許容します。 多くの開発者が好む explictily パスに、`SelectList`を`DropDownList`を使用して、`ViewBag`します。 このアプローチでは、コレクションのより適切な名前を使用する柔軟がもたらさの長所があります。 1 つの注意事項は、名前を`ViewBag SelectList`モデルのプロパティと同じ名前のオブジェクトします。
+表示されるすべての 3 つのアプローチを利用できます。 多くの開発者が明示的に渡す必要に応じて、`SelectList`を`DropDownList`を使用して、`ViewBag`します。 このアプローチでは、コレクションのより適切な名前を使用する柔軟がもたらさの長所があります。 1 つの注意事項は、名前を`ViewBag SelectList`モデルのプロパティと同じ名前のオブジェクトします。
 
 ViewModel のアプローチを好む開発者もいます。 他のユーザーより詳細なマークアップを考慮し、HTML ViewModel アプローチの欠点を生成します。
 

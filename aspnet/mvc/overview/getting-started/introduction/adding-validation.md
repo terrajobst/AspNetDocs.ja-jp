@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 6831259ce19c3747c179d6fc1b7e2095051a603b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f127f6a7d8a1f949432cc8f6f784dd7ee85ec207
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57026029"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422997"
 ---
 <a name="adding-validation"></a>検証の追加
 ====================
@@ -49,7 +49,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 [!code-console[Main](adding-validation/samples/sample2.cmd)]
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMIgration`指定された名前の派生クラス (`DataAnnotations`)、し、`Up`メソッドのスキーマの制約を更新するコードを確認できます。
+このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`指定された名前の派生クラス (`DataAnnotations`)、し、`Up`メソッドのスキーマの制約を更新するコードを確認できます。
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 

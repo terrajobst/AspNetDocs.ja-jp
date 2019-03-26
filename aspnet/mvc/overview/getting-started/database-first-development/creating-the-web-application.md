@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: dced55386c3f810e406c5c2b3f0071b45e3b2dbd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 481a0ee9b19e5d35d736b2cc937a124900bce446
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041579"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426134"
 ---
 # <a name="tutorial-create-the-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>チュートリアル: 作成、ASP.NET MVC での最初のデータベース、Web アプリケーションと ef データ モデル
 
@@ -64,7 +64,7 @@ Entity Data Model ウィザード、選択**データベースの EF デザイ�
 
 開発環境内で定義されているデータベースの接続があれば、事前選択されているこれらの接続のいずれかを表示可能性があります。 ただし、このチュートリアルの最初の部分で作成したデータベースへの新しい接続を作成します。 をクリックして、**新しい接続**ボタンをクリックします。
 
-接続のプロパティ ウィンドウで、作成されたデータベースのローカル サーバーの名前を指定します (ここで **(localdb) \Projects13**)。 サーバーの名前を指定するには、利用可能なデータベースから、ContosoUniversityData を選択します。
+接続のプロパティ ウィンドウで、作成されたデータベースのローカル サーバーの名前を指定します (ここで **(localdb) \ProjectsV13**)。 サーバーの名前を指定するには、利用可能なデータベースから、ContosoUniversityData を選択します。
 
 ![接続プロパティの設定](creating-the-web-application/_static/image8.png)
 

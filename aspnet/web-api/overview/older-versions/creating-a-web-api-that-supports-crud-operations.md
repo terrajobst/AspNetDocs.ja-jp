@@ -8,12 +8,12 @@ ms.date: 01/28/2012
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: ba061b26b8527e447f25f6046057542a54f989a8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f3cb0004075ef7687ca1096bd407c342b4d0b7be
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052919"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423751"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 で CRUD 操作を有効にします。
 ====================
@@ -109,7 +109,7 @@ Visual Studio を使用して起動し、選択**新しいプロジェクト**�
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample2.cs)]
 
-という名前の Models フォルダーに別のクラスを今すぐ追加&quot;ProductRepository します。&quot;このクラスが `IProductRespository` インターフェイスを実装します。 次の実装を追加します。
+という名前の Models フォルダーに別のクラスを今すぐ追加&quot;ProductRepository します。&quot;このクラスが `IProductRepository` インターフェイスを実装します。 次の実装を追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample3.cs)]
 
@@ -133,7 +133,7 @@ ASP.NET MVC を使用する場合、し、既に慣れてコント ローラー�
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
-> コント ローラーをという名前のフォルダーに、contollers を格納する必要はありません。 フォルダー名は重要です。ソース ファイルを整理する便利な方法では単純にすることをお勧めします。
+> 場合によっては、コント ローラーをという名前のフォルダーに、コント ローラーを配置する必要はありません。 フォルダー名は重要です。ソース ファイルを整理する便利な方法では単純にすることをお勧めします。
 
 
 **コント ローラーの追加**ProductsController.cs Controllers フォルダーをという名前のファイルを作成します。 このファイルがまだ開いていない場合、は、開くファイルをダブルクリックします。 次の追加**を使用して**ステートメント。
@@ -216,7 +216,7 @@ Put の製品を更新することは簡単です。
 
 ## <a name="deleting-a-resource"></a>リソースを削除します。
 
-Resourse を削除するには、[削除] メソッドを定義します。
+リソースを削除するには、「削除...」を定義します。メソッド。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample12.cs)]
 

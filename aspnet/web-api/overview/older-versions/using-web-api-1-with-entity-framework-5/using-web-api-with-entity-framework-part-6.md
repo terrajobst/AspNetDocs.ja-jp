@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 642ff4554ed3664af0b5cc8e49d6b236c568131b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21cfbd0bf691ea033e9a5a873ab49c83507750d5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054439"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425965"
 ---
 <a name="part-6-creating-product-and-order-controllers"></a>第 6 部:Product コントローラーと Order コントローラーの作成
 ====================
@@ -96,7 +96,7 @@ HTTP 応答の数量と製品の配列が含まれます。
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample10.json)]
 
-これは、適切に構成された順序では、および Entity Framework では、データベースに挿入さいわいです。 以前は存在しなかった Product エンティティが含まれています。 クライアントは、新しい製品を作成したデータベースに! クマの注文を表示するときは、順序、フルフィルメント業務部門に驚くことになります。 使用は、POST または PUT 要求でそのまま使用するデータについて本当に注意してください。
+これは、適切に構成された順序では、および Entity Framework では、データベースに挿入さいわいです。 以前は存在しなかった Product エンティティが含まれています。 クライアントは、新しい製品を作成したデータベースに! クマの注文を表示するときは、注文調達部門に驚くことになります。 使用は、POST または PUT 要求でそのまま使用するデータについて本当に注意してください。
 
 この問題を回避するには、変更、`PostOrder`メソッドを`OrderDTO`インスタンス。 使用して、`OrderDTO`を作成する、`Order`します。
 

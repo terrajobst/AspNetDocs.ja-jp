@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 0f982827-f8f9-420d-b36b-57b23f5aa519
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9d75c80b4c1bac5011acc896d91ff2fcd5a19298
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a5623c34ad7f8c9b5effed318a04b204ab66ecaa
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064799"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425198"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>選択可能なマスター GridView と詳細 DetailView を使用してマスター/詳細を表示する (C#)
 ====================
@@ -153,7 +153,7 @@ GridView の最終的なマークアップを示します。
 
 これで、上記の 3 つのチュートリアルのさまざまなマスター/詳細レポートを表示するための手法を説明しました。 調べるこのチュートリアルでは選択可能な GridView を使用して、マスター レコードと同じページで選択したマスター レコードの詳細を表示する、DetailsView を格納します。 前のチュートリアルには、Dropdownlist を使用して、1 つの web ページと詳細レコードを別のマスター レコードを表示するマスター/詳細レポートを表示する方法を説明しました。
 
-このチュートリアルでは、マスター/詳細レポートのマイクロソフトの調査で終了します。 以降では、[次へ] tutorialwe 最初に、探索の GridView、DetailsView、FormView とカスタマイズされた書式を設定します。 ここにバインドされたデータに基づくこれらのコントロールの外観をカスタマイズする方法、GridView のフッターにデータを集計する方法、およびテンプレートを使用してより詳細なレイアウトの制御を取得する方法が表示されます。
+このチュートリアルでは、マスター/詳細レポートのマイクロソフトの調査で終了します。 以降、次のチュートリアルではまず、探索の GridView、DetailsView、FormView とカスタマイズされた書式します。 ここにバインドされたデータに基づくこれらのコントロールの外観をカスタマイズする方法、GridView のフッターにデータを集計する方法、およびテンプレートを使用してより詳細なレイアウトの制御を取得する方法が表示されます。
 
 満足のプログラミングです。
 

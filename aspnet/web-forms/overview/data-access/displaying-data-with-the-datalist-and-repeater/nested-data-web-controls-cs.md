@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 032321b5cf5323058c114e652512854f9866d447
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2fda8883a1cd45a7018c639efcce94cf0e59974c
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062609"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440301"
 ---
 <a name="nested-data-web-controls-c"></a>入れ子になったデータ Web コントロール (C#)
 ====================
@@ -140,7 +140,7 @@ Repeater s`DataSource`プロパティでは、データ バインディング構
 この新しい手法を使用するこれらの変更を行った後、ブラウザーを使用してページを表示するのには少しがかかります。 ObjectDataSource を使用する場合は、出力を出力と一致させるようにと`ItemDataBound`イベント ハンドラーのアプローチ (戻るは図 5 のスクリーン ショットを参照してください)。
 
 > [!NOTE]
-> 作成するには、ユーザーに代わって業務に思えるかもしれませんが、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド。 結局のところ、このメソッドは、のインスタンスだけを作成、`ProductsBLL`クラスし、結果が返されますその`GetProductsByCategoryID(categoryID)`メソッド。 なぜだけこのメソッドから直接呼び出す内部の Repeater でデータ バインディング構文のような:`DataSource='<%# ProductsBLL.GetProductsByCategoryID((int)(Eval("CategoryID"))) %>'`でしょうか。 この構文は、現在の実装では動作しませんが、`ProductsBLL`クラス (ため、`GetProductsByCategoryID(categoryID)`メソッドがインスタンス メソッド)、変更する可能性があります`ProductsBLL`に静的なを含める`GetProductsByCategoryID(categoryID)`メソッド クラスの静的を含めることも`Instance()`の新しいインスタンスを返すメソッドを`ProductsBLL`クラス。
+> 作成するには、ユーザーに代わって業務に思えるかもしれませんが、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド。 結局のところ、このメソッドは、のインスタンスだけを作成、`ProductsBLL`クラスし、結果が返されますその`GetProductsByCategoryID(categoryID)`メソッド。 なぜだけこのメソッドから直接呼び出す内部の Repeater でデータ バインディング構文のような:`DataSource='<%# ProductsBLL.GetProductsByCategoryID((int)(Eval("CategoryID"))) %>'`でしょうか。 現在の実装でこの構文は使用できませんが、`ProductsBLL`クラス (ため、`GetProductsByCategoryID(categoryID)`メソッドがインスタンス メソッド)、変更できます`ProductsBLL`に静的なを含める`GetProductsByCategoryID(categoryID)`メソッドまたは静止クラスがあります`Instance()`の新しいインスタンスを返すメソッドを`ProductsBLL`クラス。
 
 
 必要性がなくなりますが、このような変更、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド、分離コード クラスのメソッドによりより柔軟に間もなく表示されるように、取得したデータを使用します。
@@ -151,7 +151,7 @@ Repeater s`DataSource`プロパティでは、データ バインディング構
 
 指定された*N*システム カテゴリは、このアプローチのネット*N* + データベースの 1 つのデータベース クエリを 1 の呼び出しは、すべてのカテゴリを取得し、 *N*製品への呼び出し各カテゴリに特定します。 ただし、カテゴリ、およびすべての製品を取得する他のすべてを取得する 2 つのデータベース呼び出し 1 回の呼び出しで必要なすべてのデータを取得したことができます。 これらの製品のためフィルター処理のすべての製品を取得したら、現在の一致する製品だけである`CategoryID`s そのカテゴリにバインドされて内部 Repeater します。
 
-この機能を提供することには、のみにわずかな変更を加える必要が、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド。 無条件の結果を返すのではなく、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド、なるべく代わりに初めてアクセス*すべて*製品の (t いない場合されて既にアクセス) しのフィルター処理されたビューだけを返す、製品が渡されるに基づく`CategoryID`します。
+この機能を提供することには、のみにわずかな変更を加える必要が、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド。 無条件の結果を返すのではなく、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド、なるべく代わりに初めてアクセス*すべて*(これらは既にアクセスされていない) 場合、製品のしのフィルター処理されたビューだけを返すと、製品が渡されるに基づく`CategoryID`します。
 
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample8.cs)]

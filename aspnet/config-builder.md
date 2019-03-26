@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: 4dcc62573fad13ec8b37b2c59e884eec7ca80b92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e2f3781623af5a32149e1db1c17b67ce43b7da0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030649"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423973"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET の構成ビルダー
 
@@ -191,7 +191,7 @@ ms.locfileid: "57030649"
 
 この構成ビルダーのような機能を提供する[ASP.NET Core Secret Manager](/aspnet/core/security/app-secrets)します。
 
-[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework プロジェクトで使用できますが、シークレット ファイルを指定する必要があります。 代わりに、定義、`UserSecretsId`プロジェクト内のプロパティ ファイルを開き、正しい位置を読み取り用に、生のシークレット ファイルを作成します。 プロジェクトから外部の依存関係を保持するには、シークレットのファイルは XML 形式です。 実装の詳細は、XML の書式設定して、形式に依存する必要があります。 共有する必要がある場合、 *secrets.json* .NET Core プロジェクトでファイルを使用を検討して、 [SimpleJsonConfigBuilder](#simplejsonconfig)します。 `SimpleJsonConfigBuilder` .NET Core 見なす必要がありますも変更される可能性の実装の詳細の書式を設定します。
+[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework プロジェクトで使用できますが、シークレット ファイルを指定する必要があります。 代わりに、定義、`UserSecretsId`プロジェクト内のプロパティ ファイルを開き、正しい位置を読み取り用に、生のシークレット ファイルを作成します。 プロジェクトから外部の依存関係を保持するには、シークレットのファイルは XML 形式です。 実装の詳細は、XML の書式設定して、形式に依存する必要があります。 共有する必要がある場合、 *secrets.json* .NET Core プロジェクトでファイルを使用を検討して、 [SimpleJsonConfigBuilder](#simplejsonconfigbuilder)します。 `SimpleJsonConfigBuilder` .NET Core 見なす必要がありますも変更される可能性の実装の詳細の書式を設定します。
 
 構成属性を`UserSecretsConfigBuilder`:
 

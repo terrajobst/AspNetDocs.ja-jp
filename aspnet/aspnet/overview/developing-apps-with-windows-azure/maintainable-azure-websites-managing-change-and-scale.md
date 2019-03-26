@@ -8,18 +8,18 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 315e89c81782edf0875c65afd27153102d733050
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054539"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424249"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理
 ====================
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-[Web のキャンプ トレーニング キットをダウンロードします。](http://aka.ms/webcamps-training-kit)
+[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure では、簡単にビルドし、web サイトを運用環境にデプロイできます。 アプリケーションのライブが完了して、始めたばかりという方します。 変化する要件、データベースの更新、スケール、および詳細を処理する必要があります。 さいわい、Azure App Service では、多数の機能をスムーズに実行されている、サイトを保護するために、対応していますが。
 >
@@ -31,7 +31,7 @@ ms.locfileid: "57054539"
 >
 > SQL データベースが新しいバージョンのアプリケーションをデプロイするときに、生産性の高いデータベースを最新に重要です。 方々 に感謝**Entity Framework Code First Migrations**、分単位でお使いの環境を更新する、開発と、データ モデルの展開が簡素化されています。 このハンズオン ラボでは、web アプリを Microsoft Azure で運用環境にデプロイするときに発生する可能性があります、さまざまなトピックを示します。
 >
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)します。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
 >
 > このトピックの詳しい内容について詳細を参照してください、 [Azure 電子書籍の実際のクラウド アプリの構築](building-real-world-cloud-apps-with-windows-azure/introduction.md)します。
 
@@ -62,10 +62,10 @@ ms.locfileid: "57054539"
 - [GIT バージョン管理システム](http://git-scm.com/download)
 - Microsoft Azure サブスクリプション
 
-    - サインアップ、[無料試用版](http://aka.ms/watk-freetrial)
-    - アクティブ Visual Studio Professional、Test Professional、Premium または Ultimate with MSDN または MSDN Platforms のサブスクライバーに、 [MSDN の特典](http://aka.ms/watk-msdn)Azure で開発とテストを開始するようになりました
-    - [BizSpark](http://aka.ms/watk-bizspark)メンバーは、Azure に自動的に受信、Visual Studio Ultimate with MSDN サブスクリプション特典
-    - メンバー、 [Microsoft Partner Network](http://aka.ms/watk-mpn) Cloud Essentials プログラムが無料で毎月の Azure クレジットを受け取る
+    - サインアップ、[無料試用版](https://aka.ms/watk-freetrial)
+    - アクティブ Visual Studio Professional、Test Professional、Premium または Ultimate with MSDN または MSDN Platforms のサブスクライバーに、 [MSDN の特典](https://aka.ms/watk-msdn)Azure で開発とテストを開始するようになりました
+    - [BizSpark](https://aka.ms/watk-bizspark)メンバーは、Azure に自動的に受信、Visual Studio Ultimate with MSDN サブスクリプション特典
+    - メンバー、 [Microsoft Partner Network](https://aka.ms/watk-mpn) Cloud Essentials プログラムが無料で毎月の Azure クレジットを受け取る
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
@@ -549,7 +549,7 @@ Web アプリがステージング環境で正しく動作していることを�
     *ログに記録されたエラー*
 8. エラーの詳細部分を見つけます。 明らかに、リファクタリング前の手順でコミットするコードによってこのエラーが発生します。
 
-    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`。
+    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
 9. ブラウザーを閉じないでください。
 10. 新しいブラウザー インスタンスでは、に移動、 [Azure 管理ポータル](https://manage.windowsazure.com)サブスクリプションに関連付けられた Microsoft アカウントを使用してサインインします。
 11. 選択**Websites**手順 2 で作成した web アプリをクリックします。

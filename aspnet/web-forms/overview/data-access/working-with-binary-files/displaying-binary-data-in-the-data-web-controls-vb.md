@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42db8122d75689f8a0e6961826b06f53622d6313
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19c377e0f0cd9b27ac7c05af0ab050d8e213fe69
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035649"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424652"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>データ Web コントロールにバイナリ データを表示する (VB)
 ====================
@@ -183,7 +183,7 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 場合、この例外を発生することも、 `CategoriesTableAdapter` s`GetCategoryWithBinaryDataByCategoryID`メソッドの`SELECT`アドホック SQL ステートメントを使用しているし、tableadapter のウィザードを再実行している場合に発生することがメイン クエリの列リストに戻るステートメントが元に戻るメインのクエリ。 いることを確認するチェック`GetCategoryWithBinaryDataByCategoryID`メソッド s`SELECT`ステートメントが含まれていますが、`Picture`列。
 
 > [!NOTE]
-> 毎回、`DisplayCategoryPicture.aspx`がアクセスすると、データベースにアクセスし、指定したカテゴリの画像データが返されます。 カテゴリの画像から t 変更された場合、ユーザーが最後に表示するため、これは、無駄な努力します。 HTTP では、さいわい、*条件付きの取得*します。 条件付きの GET と HTTP 要求を行うクライアントに送信に沿って、 [ `If-Modified-Since` HTTP ヘッダー](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)クライアントは、web サーバーからこのリソースを取得する最後の日時を提供します。 Web サーバーが応答がこの日付が指定されているために、コンテンツが変更されていない場合、 [Not Modified 状態コード (304)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)せず、要求されたリソースのコンテンツを送信するとします。 簡単に言えば、この手法により、web サーバーが変更されていない場合、クライアントが最終アクセス後にリソースのコンテンツのバックアップに送信する必要がなくなります。
+> 毎回、`DisplayCategoryPicture.aspx`がアクセスすると、データベースにアクセスし、指定したカテゴリの画像データが返されます。 カテゴリの画像が、ユーザーが最後に表示するために変更されていない場合、これは無駄な努力します。 HTTP では、さいわい、*条件付きの取得*します。 条件付きの GET と HTTP 要求を行うクライアントに送信に沿って、 [ `If-Modified-Since` HTTP ヘッダー](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)クライアントは、web サーバーからこのリソースを取得する最後の日時を提供します。 Web サーバーが応答がこの日付が指定されているために、コンテンツが変更されていない場合、 [Not Modified 状態コード (304)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)せず、要求されたリソースのコンテンツを送信するとします。 簡単に言えば、この手法により、web サーバーが変更されていない場合、クライアントが最終アクセス後にリソースのコンテンツのバックアップに送信する必要がなくなります。
 
 
 この動作を実装するただし、追加する必要があります、`PictureLastModified`列を`Categories`ときにキャプチャするテーブル、`Picture`列が最後に更新されたコードを確認すると、`If-Modified-Since`ヘッダー。 詳細については、`If-Modified-Since`ヘッダーと条件付きの GET ワークフローを参照してください。 [RSS ハッカーの条件付き GET を HTTP](http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers)と[A 深く見て ASP.NET ページの HTTP 要求を実行する](http://aspnet.4guysfromrolla.com/articles/122204-1.aspx)します。

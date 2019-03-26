@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2fe85d6513a229f11b3aad7c7cc6c7124c94d70f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c552dd54830152afbe100ed03fb6764ddfb590dd
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57047189"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422663"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>DataList の編集インターフェイスに検証コントロールを追加する (C#)
 ====================
@@ -156,10 +156,10 @@ ASP.NET 検証コントロールのすべてのポストバック時にすぐに
 
 [!code-csharp[Main](adding-validation-controls-to-the-datalist-s-editing-interface-cs/samples/sample2.cs)]
 
-これにより、送信されたデータが有効な場合にのみ更新する製品を試みます。 T が勝利したほとんどのユーザーが、検証コントロールのクライアント側スクリプトにより、無効なデータをポストバックできるが、ブラウザーの JavaScript サポートのない、または JavaScript のサポートのユーザーのクライアント側のチェックをバイパスし無効なデータを送信を無効にできます。
+これにより、送信されたデータが有効な場合にのみ更新する製品を試みます。 ほとんどのユーザーは、検証コントロールのクライアント側スクリプトにより、無効なデータをポストバックすることはできませんが、JavaScript をサポートするブラウザーのないユーザー、またはを JavaScript のサポートを無効になっていることができます、クライアント側のチェックをバイパスし、無効なデータを送信します。
 
 > [!NOTE]
-> 鋭い読者なら、前述のとおりです、GridView でデータを更新するときに私たちは一致しませんでした t が明示的に確認する必要があります、`Page.IsValid`ページ分離コード クラスのプロパティ。 これは、GridView を参照しているため、`Page.IsValid`プロパティの値を返す場合にのみ更新プログラムを続行のみと`True`します。
+> を GridView にデータを更新する場合でも、明示的にチェックする必要ありませんでしたが、鋭い読者なら、を呼び出し、`Page.IsValid`ページ分離コード クラスのプロパティ。 これは、GridView を参照しているため、`Page.IsValid`プロパティの値を返す場合にのみ更新プログラムを続行のみと`True`します。
 
 
 ## <a name="step-3-summarizing-data-entry-problems"></a>手順 3: データ エントリの問題の要約

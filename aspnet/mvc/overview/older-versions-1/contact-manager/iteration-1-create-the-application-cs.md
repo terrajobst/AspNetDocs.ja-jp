@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: db0f160b-901c-46d3-865e-7ab6cd4ed68d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 78b488263fbb0c646d9bf6ee8c4ace2ff63ccf9d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8fb2481342fa309941257feae792d9aa3c7bf721
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57040099"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422676"
 ---
 <a name="iteration-1--create-the-application-c"></a>繰り返し #1 – アプリケーションを作成する (c#)
 ====================
@@ -88,7 +88,7 @@ ASP.NET MVC フレームワーク。 ASP.NET MVC フレームワークは、次�
 ASP.NET MVC Web アプリケーション プロジェクト。 Visual Studio を起動し、メニュー オプションを選択**ファイル]、[新しいプロジェクト**します。 **新しいプロジェクト**ダイアログでは、(図 1 参照) が表示されます。 選択、 **Web**プロジェクトの種類と**ASP.NET MVC Web アプリケーション**テンプレート。 新しいプロジェクトに名前を*ContactManager* [ok] ボタンをクリックします。
 
 
-上部にあるドロップダウン リストから選択されている .NET Framework 3.5 があることを確認の右、**新しいプロジェクト**ダイアログ。 それ以外の場合、t が勝利した ASP.NET MVC Web アプリケーション テンプレートが表示されます。
+上部にあるドロップダウン リストから選択されている .NET Framework 3.5 があることを確認の右、**新しいプロジェクト**ダイアログ。 それ以外の場合、ASP.NET MVC Web アプリケーション テンプレートは表示されません。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-cs/_static/image1.jpg)](iteration-1-create-the-application-cs/_static/image1.png)
@@ -96,7 +96,7 @@ ASP.NET MVC Web アプリケーション プロジェクト。 Visual Studio を
 **図 01**:新しいプロジェクト ダイアログ ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-cs/_static/image2.png))。
 
 
-ASP.NET MVC アプリケーション、**単体テスト プロジェクトの作成**ダイアログが表示されます。 このダイアログ ボックスを使用すると、作成し、ASP.NET MVC アプリケーションを作成するときに、単体テスト プロジェクトをソリューションに追加することを指定します。 獲得した t はこのイテレーションの単体テストを構築するには、オプションを選択する必要があります**はい、単体テスト プロジェクトを作成**後のイテレーションで単体テストを追加する予定なので。 最初に新しい ASP.NET MVC プロジェクトを作成するときは、テスト プロジェクトを追加するは、ASP.NET MVC プロジェクトが作成された後にテスト プロジェクトを追加するよりもはるかに簡単です。
+ASP.NET MVC アプリケーション、**単体テスト プロジェクトの作成**ダイアログが表示されます。 このダイアログ ボックスを使用すると、作成し、ASP.NET MVC アプリケーションを作成するときに、単体テスト プロジェクトをソリューションに追加することを指定します。 オプションを選択する必要がありますが、このイテレーションの単体テストを構築することはありません、**はい、単体テスト プロジェクトを作成**後のイテレーションで単体テストを追加する予定なので。 最初に新しい ASP.NET MVC プロジェクトを作成するときは、テスト プロジェクトを追加するは、ASP.NET MVC プロジェクトが作成された後にテスト プロジェクトを追加するよりもはるかに簡単です。
 
 > [!NOTE] 
 > 
@@ -175,7 +175,7 @@ Microsoft SQL Server、Oracle、MySQL、および IBM DB2 データベースを�
 | 電子メール | nvarchar(255) | False |
 
 
-最初の列、Id 列は特殊です。 Id 列と主キー列として Id 列をマークする必要があります。 列にある列のプロパティ (図 6 下部にあるを参照) を展開し、Identity の指定のプロパティの下にスクロールして、Id 列を指定します。 設定、 **(Id)** プロパティ値を**はい**します。
+最初の列、Id 列は特殊です。 Id 列と主キー列として Id 列をマークする必要があります。 列にある列のプロパティ (図 6 下部にあるを参照) を展開し、Id の指定のプロパティの下にスクロールして、Id 列を指定します。 設定、 **(Id)** プロパティ値を**はい**します。
 
 主キー列として列を選択し、キーのアイコンのボタンをクリックして列をマークするとします。 列が主キー列としてマークされている、キーのアイコンが、列の横に表示されます (図 6 参照)。
 
@@ -442,7 +442,7 @@ Html.ActionLink( { id=item.Id }) %&gt;
 
 ## <a name="changing-the-name-of-the-default-controller"></a>既定のコント ローラーの名前を変更します。
 
-連絡先を操作するため、コント ローラー クラスの名前が HomeController クラスということをわざわざ可能性があります。 べきで t、コント ローラーは、ContactController を指定しますか。
+連絡先を操作するため、コント ローラー クラスの名前が HomeController クラスということをわざわざ可能性があります。 コント ローラーに ContactController をということはできませんか。
 
 この問題は、簡単に修正します。 最初に、Home コント ローラーの名前をリファクターする必要があります。 HomeController クラスにでは、Visual Studio コード エディターを開き、クラスの名前を右クリックしてメニュー オプションを選択**名前の変更のリファクタリング**します。 このメニュー オプションを選択すると、名前の変更 ダイアログが開きます。
 

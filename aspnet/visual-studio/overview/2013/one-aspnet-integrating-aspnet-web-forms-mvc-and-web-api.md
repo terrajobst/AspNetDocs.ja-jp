@@ -8,24 +8,24 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: c18911680b59448cd67190f71e951a3fcf3d0478
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 85e4369ee458043eec59fb27e317d18466f61f32
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044129"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422533"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ:One ASP.NET:ASP.NET Web フォーム、MVC、Web API の統合
 ====================
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-[Web のキャンプ トレーニング キットをダウンロードします。](http://aka.ms/webcamps-training-kit)
+[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
 > ASP.NET は、Web サイト、アプリ、および MVC、Web API、およびその他のユーザーなどの特殊なテクノロジを使用してサービスを構築するためのフレームワークです。 拡張とは、ASP.NET が作成されてから確認した、明示する必要がありますこれらのテクノロジが統合された最近の取り組みに作業**One ASP.NET**します。
 > 
 > Visual Studio 2013 には、アプリケーションのビルドし、すべての ASP.NET テクノロジを 1 つのプロジェクトで使用できる新しい、統一されたプロジェクト システムが導入されています。 この機能は、プロジェクトとそれに伴うスティックの開始時に 1 つのテクノロジを選択する必要はありませんし、代わりに 1 つのプロジェクト内の複数の ASP.NET フレームワークの使用が推奨します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)します。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
 
 
 <a id="Overview"></a>

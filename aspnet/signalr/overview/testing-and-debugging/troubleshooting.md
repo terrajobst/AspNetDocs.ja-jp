@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 38802814fbb748513274f1fd8a33521fafd48ed3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c9ccfa00d768f767cee7705372c157199572d2ed
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039409"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422585"
 ---
 <a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
 ====================
@@ -87,7 +87,7 @@ SignalR では、2 つの間の通信モデルを使用します。ハブおよ�
 
 [!code-csharp[Main](troubleshooting/samples/sample3.cs)]
 
-**複数のアプリケーションがある場合、ハブ、または複数のハブ ルートをマップ c# サーバー コード**
+**C#複数のアプリケーションがある場合、ハブ、または複数のハブ ルートをマップするサーバー コード**
 
 [!code-css[Main](troubleshooting/samples/sample4.css)]
 

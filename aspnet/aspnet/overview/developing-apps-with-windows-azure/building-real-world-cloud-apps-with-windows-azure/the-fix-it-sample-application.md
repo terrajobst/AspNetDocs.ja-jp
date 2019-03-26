@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a73fac6107be45455465b506a019bcc9a41b1deb
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034219"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425523"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録:修正プログラムがのサンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
@@ -376,13 +376,13 @@ Fix It アプリを実行する 2 つの方法はあります。
 
 クラウド サービスを展開する前に、構成ファイルの一部を更新する必要があります。
 
-MyFixIt.WorkerRoler\app.config で `connectionStrings`の値を置き換える、 `appdb` SQL データベースの実際の接続文字列で接続文字列。 接続文字列は、ポータルから取得できます。 ポータルで、次のようにクリックします。 **SQL データベース** - **appdb** - **ADO .Net、ODBC、PHP、および JDBC の接続文字列を SQL データベースの表示**します。 ADO.NET 接続文字列をコピーして、app.config ファイルに値を貼り付けます。 置換"{、\_パスワード\_ここ}"をデータベースのパスワード。 (内のデータベース パスワードを指定した MVC アプリをデプロイするスクリプトを使用すると仮定すると、`SqlDatabasePassword`パラメーターのスクリプトを作成します)。
+MyFixIt.WorkerRole\app.config で `connectionStrings`の値を置き換える、 `appdb` SQL データベースの実際の接続文字列で接続文字列。 接続文字列は、ポータルから取得できます。 ポータルで、次のようにクリックします。 **SQL データベース** - **appdb** - **ADO .Net、ODBC、PHP、および JDBC の接続文字列を SQL データベースの表示**します。 ADO.NET 接続文字列をコピーして、app.config ファイルに値を貼り付けます。 置換"{、\_パスワード\_ここ}"をデータベースのパスワード。 (内のデータベース パスワードを指定した MVC アプリをデプロイするスクリプトを使用すると仮定すると、`SqlDatabasePassword`パラメーターのスクリプトを作成します)。
 
 結果は、次のようになります。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample32.xml)]
 
-同じ MyFixIt.WorkerRoler\app.config ファイルで  `appSettings`、Azure ストレージ アカウントの 2 つのプレース ホルダーの値を置き換えます。
+同じ MyFixIt.WorkerRole\app.config ファイルで  `appSettings`、Azure ストレージ アカウントの 2 つのプレース ホルダーの値を置き換えます。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample33.xml?highlight=2-3)]
 

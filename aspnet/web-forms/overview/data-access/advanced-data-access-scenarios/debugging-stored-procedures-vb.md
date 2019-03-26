@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d951fab4fea59226e5d34bbf468377d436df944
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 106f7498a70339556d0662a986d71a01a21074ab
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046199"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424535"
 ---
 <a name="debugging-stored-procedures-vb"></a>ストアド プロシージャのデバッグ (VB)
 ====================
@@ -48,7 +48,7 @@ SQL Server 2005 では、T-SQL とマネージ データベース オブジェ�
 
 Visual Studio では、ローカルおよびリモートの SQL Server インスタンス上のストアド プロシージャをデバッグできます。 ローカルの SQL Server インスタンスでは、Visual Studio と同じコンピューターにインストールされている 1 つです。 使用している SQL Server データベースが開発用コンピューターにない場合は、リモート インスタンスを見なされます。 これらのチュートリアルについては使用しているローカルの SQL Server インスタンス。 リモート SQL server インスタンスでストアド プロシージャのデバッグには、ローカル インスタンス上のストアド プロシージャのデバッグより多くの構成手順が必要です。
 
-ローカルの SQL Server インスタンスを使用している場合は、手順 1 から始まります。 と末尾には、このチュートリアルに取り組みます。 リモートの SQL Server インスタンスを使用している場合ただしは、デバッグ時に確実にする最初の必要性をリモート インスタンス上の SQL Server ログインを持つ Windows ユーザー アカウントを使用して、開発用コンピューターにログに記録されます。 Moveover、このデータベースのログインと、実行中の ASP.NET アプリケーションからデータベースへの接続に使用するデータベース ログインの両方のメンバーである必要があります、`sysadmin`ロール。 リモート インスタンスをデバッグするには、Visual Studio と SQL Server の構成の詳細については、このチュートリアルの最後に、リモート インスタンスのセクションで T-SQL デバッグ データベース オブジェクトを参照してください。
+ローカルの SQL Server インスタンスを使用している場合は、手順 1 から始まります。 と末尾には、このチュートリアルに取り組みます。 リモートの SQL Server インスタンスを使用している場合ただしは、デバッグ時に確実にする最初の必要性をリモート インスタンス上の SQL Server ログインを持つ Windows ユーザー アカウントを使用して、開発用コンピューターにログに記録されます。 さらに、このデータベースのログインと、実行中の ASP.NET アプリケーションからデータベースへの接続に使用するデータベース ログインの両方のメンバーである必要があります、`sysadmin`ロール。 リモート インスタンスをデバッグするには、Visual Studio と SQL Server の構成の詳細については、このチュートリアルの最後に、リモート インスタンスのセクションで T-SQL デバッグ データベース オブジェクトを参照してください。
 
 最後に、T-SQL でのデータベース オブジェクトのデバッグをサポートがないこととして、.NET アプリケーションのデバッグをサポートと豊富な機能を理解します。 たとえば、ブレークポイント条件およびフィルター処理はサポートされていません、のみ、デバッグ ウィンドウのサブセットが使用可能、エディット コンティニュを使用することはできません、役に立たないなど、イミディ エイト ウィンドウが表示されます。 参照してください[デバッガー コマンドや機能に関する制限事項](https://msdn.microsoft.com/library/ms165035(VS.80).aspx)詳細についてはします。
 

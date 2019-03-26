@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: b895e37e-0e69-45cc-a7e4-17ddd2e1b38d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2e1cc844122b0fdebbc0be09f88baa11a461ab8e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 23f14251c280e1da3a51612ed538ecbc0f5b8d54
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038619"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424353"
 ---
 <a name="paging-and-sorting-report-data-vb"></a>レポート データのページングと並べ替え (VB)
 ====================
@@ -194,7 +194,7 @@ S GridView のページング インターフェイスの既定の外観を向�
 
 [!code-vb[Main](paging-and-sorting-report-data-vb/samples/sample6.vb)]
 
-内の項目を消去するでこのコードは、まず、 `PageList` DropDownList します。 1 つと t を変更するページの数を予想されるが、他のユーザーのシステムを同時に使用して、追加またはからレコードを削除する場合があるため、余分なこの見えます、`Products`テーブル。 このような挿入または削除は、データのページ数を変更可能性があります。
+内の項目を消去するでこのコードは、まず、 `PageList` DropDownList します。 1 つを変更するページの数を想定しませんが、他のユーザーのシステムを同時に使用して、追加またはからレコードを削除する場合があるため、余分なこの見えます、`Products`テーブル。 このような挿入または削除は、データのページ数を変更可能性があります。
 
 次に、ページ番号をもう一度作成して、現在 GridView にマップする必要があります`PageIndex`既定で選択します。 0 ~ ループが発生するために`PageCount - 1`、新しい追加`ListItem`各イテレーションの設定でその`Selected`プロパティを現在の反復インデックス GridView 秒に等しい場合に true に`PageIndex`プロパティ。
 
@@ -253,7 +253,7 @@ GridView の各フィールドが自動的には、ObjectDataSource を GridView
 
 [!code-aspx[Main](paging-and-sorting-report-data-vb/samples/sample9.aspx)]
 
-フィールドを構成するように、s の並べ替えをクリアするその`SortExpression`プロパティ (空の文字列に割り当てる)。 これを示すためを想像してください。 私たちでしたたくはありません、お客様の価格を、マイクロソフトの製品を並べ替えできるようにします。 `UnitPrice` BoundField の`SortExpression`宣言型マークアップまたは (つまりアクセス GridView s のスマート タグで列の編集リンクをクリックして) フィールド ダイアログ ボックスで、プロパティを削除できます。
+フィールドを構成するように、s の並べ替えをクリアするその`SortExpression`プロパティ (空の文字列に割り当てる)。 これを示すためには、価格をマイクロソフトの製品を並べ替え、顧客に知らせることたくことを想像してください。 `UnitPrice` BoundField の`SortExpression`宣言型マークアップまたは (つまりアクセス GridView s のスマート タグで列の編集リンクをクリックして) フィールド ダイアログ ボックスで、プロパティを削除できます。
 
 
 ![結果を昇順で UnitPrice によって並べ替えられています。](paging-and-sorting-report-data-vb/_static/image27.png)

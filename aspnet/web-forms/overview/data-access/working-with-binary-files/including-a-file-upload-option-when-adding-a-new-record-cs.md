@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c3887f920126d70b300de5a0d6e09474fd33c332
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8b7f839f16150b93645a9fe868642fa5f36248a9
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061479"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424977"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>新しいレコードを追加するとき、ファイル アップロード オプションを含める (C#)
 ====================
@@ -73,7 +73,7 @@ FileUpload コントロールを使用して、web サーバーをクライア�
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample2.cs)]
 
 > [!NOTE]
-> 追加する前に型指定されたデータセットを保存するかどうかを確認、 `InsertWithPicture` BLL にメソッド。 以降、`CategoriesTableAdapter`クラス コードが自動生成された、型指定されたデータセットに基づいて t don は、型指定されたデータセットに変更を保存する最初の`Adapter`t が勝利したプロパティが認識、`InsertWithPicture`メソッド。
+> 追加する前に型指定されたデータセットを保存するかどうかを確認、 `InsertWithPicture` BLL にメソッド。 以降、`CategoriesTableAdapter`クラス コードが自動生成された、型指定されたデータセットに基づいて t don は、型指定されたデータセットに変更を保存する最初の`Adapter`プロパティが認識されず、`InsertWithPicture`メソッド。
 
 
 ## <a name="step-3-listing-the-existing-categories-and-their-binary-data"></a>手順 3: 既存のカテゴリとそのバイナリ データを一覧表示します。
@@ -231,7 +231,7 @@ Let s は、挿入のインターフェイスをテストする少しと`ItemIns
 **図 9**:警告メッセージが表示される場合、無効な種類のファイルのアップロード ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image16.png))。
 
 
-1 回、確認すること、ページが画像をアップロードする必要があります受注 t PDF 以外または非 JPG ファイルを受け入れる、有効な JPG 画像の新しいカテゴリを追加パンフレット フィールドを空のまま。 [挿入] ボタンをクリックした後、ページがポストバックをし、新しいレコードに追加されます、`Categories`データベースに直接格納されているアップロードされた画像のバイナリ コンテンツを含むテーブル。 GridView が更新され、新しく追加されたカテゴリの行を示していますが、図 10 に示す、新しいカテゴリの画像が正しくレンダリングされません。
+確認した後、ページに画像をアップロードし、しません PDF 以外または非 JPG ファイルを受け入れる、有効な JPG 画像を使用した新しいカテゴリを追加が必要であるパンフレット フィールドを空のままです。 [挿入] ボタンをクリックした後、ページがポストバックをし、新しいレコードに追加されます、`Categories`データベースに直接格納されているアップロードされた画像のバイナリ コンテンツを含むテーブル。 GridView が更新され、新しく追加されたカテゴリの行を示していますが、図 10 に示す、新しいカテゴリの画像が正しくレンダリングされません。
 
 
 [![新しいカテゴリの画像は表示されません。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)

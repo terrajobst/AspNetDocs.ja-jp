@@ -8,18 +8,18 @@ ms.date: 06/09/2009
 ms.assetid: 5bc1afd5-2484-4528-b158-ab218ba150e8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d94f0a3c931100d2c79513b1ad7ae0e77d7fcff6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a8b029e7187881c14117fa813ce787b51a561382
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060709"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424514"
 ---
 <a name="processing-unhandled-exceptions-c"></a>未処理の例外を処理する (C#)
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs/samples)します ([ダウンロード方法](/aspnet/core/tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs/samples)します ([ダウンロード方法](/aspnet/core/tutorials/index#how-to-download-a-sample))。
 
 > 運用環境で web アプリケーションでランタイム エラーが発生したときは、重要なは、開発者に通知して、エラーを記録して、時間で、後で診断することがあります。 このチュートリアルでは、ASP.NET のランタイム エラーを処理およびカスタム コードが実行されるたびに、ASP.NET の実行時までの未処理の例外バブルの 1 つの方法で検索の概要を示します。
 

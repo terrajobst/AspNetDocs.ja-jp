@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: bb4704e7f4f13fab04acdbdd642174884517e18a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91a6496e2640668c58ec0493d47d909e2de67367
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042409"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421351"
 ---
 <a name="part-7-creating-the-main-page"></a>第 7 部:メイン ページの作成
 ====================
@@ -44,8 +44,7 @@ HTML では、データ バインディングやスクリプトではないい�
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample3.js)]
 
-ユーザーでは、製品のリストから、カートにアイテムを追加でき、カートから項目を削除することができます。 これらの関数をカプセル化するには、成果物を表す別のビュー モデル クラスを作成します。 
-  `AppViewModel` に次のコードを追加します。
+ユーザーでは、製品のリストから、カートにアイテムを追加でき、カートから項目を削除することができます。 これらの関数をカプセル化するには、成果物を表す別のビュー モデル クラスを作成します。 `AppViewModel` に次のコードを追加します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample4.js?highlight=4)]
 
@@ -62,7 +61,7 @@ HTML では、データ バインディングやスクリプトではないい�
 これらの関数を次に、追加`AppViewModel`:
 
 - `resetCart` カートの内容からすべての項目を削除します。
-- `getDetails` 注文の詳細を取得します (新しい pusing によって`OrderDetailsViewModel`上に、`details`リスト)。
+- `getDetails` 注文の詳細を取得します (新しいプッシュして`OrderDetailsViewModel`上に、`details`リスト)。
 - `createOrder` 新しい注文を作成し、カートの内容を空にします。
 
 

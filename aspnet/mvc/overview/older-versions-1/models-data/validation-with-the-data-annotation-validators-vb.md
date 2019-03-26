@@ -8,12 +8,12 @@ ms.date: 05/29/2009
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8159693adced7f102f6fe1457d7b103f8596d231
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6bfe11a40bbdf0cd9dfe4d81d9c7436a5adb9491
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025549"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420687"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>データ検証注釈コントロールの検証 (VB)
 ====================
@@ -55,7 +55,7 @@ Microsoft.Web.Mvc.DataAnnotations.dll アセンブリと system.componentmodel.d
 データ注釈のモデル バインダーを使用する場合は、検証を実行する検証属性を使用します。 System.ComponentModel.DataAnnotations 名前空間には、次の検証属性が含まれています。
 
 - 範囲は – プロパティの値が、指定した値の範囲があるかどうかを検証することができます。
-- ReqularExpression – では、プロパティの値が指定した正規表現パターンに一致するかどうかを検証することができます。
+- – 正規表現では、プロパティの値が指定した正規表現パターンに一致するかどうかを検証することができます。
 - 必要な – 必要に応じてプロパティをマークすることができます。
 - StringLength – では、文字列プロパティの最大長を指定することができます。
 - 検証: すべての検証属性の基本クラス。

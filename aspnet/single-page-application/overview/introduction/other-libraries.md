@@ -8,12 +8,12 @@ ms.date: 02/05/2013
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 53c97580b45bb40a6c3256c8038ec5c8b861b69f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5503a00df707ee79282a32c77ed2287e93cf8f48
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025219"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425471"
 ---
 <a name="know-a-library-other-than-knockout"></a>Knockout 以外のライブラリを知っていますか?
 ====================
@@ -48,7 +48,7 @@ Ember SPA テンプレートは、EmberJS と Handlebars のテンプレート�
 
 [ホットのタオル SPA テンプレート](../templates/hottowel-template.md)します。 このテンプレートは、簡単、Knockout、RequireJS Twitter Bootstrap など、いくつかの JavaScript ライブラリで表示されます。
 
-次のとおり、他のテンプレートと比べると、ホット タオル teample できますをビルドする独自のより完全なアプリケーションを提供します。 、注意すべきその他の概念がありますが、このテンプレートがある可能性がありますだけそれらを理解すると探しているもの。 秒にする必要があります、SPA とすべてのツールとホット タオルの使用を開始する場所を決定することはできませんが、SPA を構築する場合は、その上に構築する必要があります。
+次のとおり、他のテンプレートと比べると、ホット タオル テンプレートは、元の作成、独自のより完全なアプリケーションを提供します。 、注意すべきその他の概念がありますが、このテンプレートがある可能性がありますだけそれらを理解すると探しているもの。 秒にする必要があります、SPA とすべてのツールとホット タオルの使用を開始する場所を決定することはできませんが、SPA を構築する場合は、その上に構築する必要があります。
 
 ## <a name="feature-table"></a>機能テーブル
 
@@ -60,7 +60,7 @@ Ember SPA テンプレートは、EmberJS と Handlebars のテンプレート�
 |      ToDo サンプル       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
 |     ベア テンプレート      |             | &#10003; |                |           |          | &#10003;  |
 | ナビゲーションと履歴 |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
-|        ライブラリ        |             |          |                |           |          |           |
+|        ライブラリ       |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
 |    &#8195;バックボーン     |             | &#10003; |                |           |          |           |
 |         簡単です。         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |

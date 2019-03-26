@@ -2,24 +2,24 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 title: ASP.NET Web API を使用した OData v4 の種類を開く |Microsoft Docs
 author: microsoft
-description: OData v4 のオープン型は、型定義で宣言されている任意のプロパティだけでなく、動的プロパティを含む stuctured 型です。 開く...
+description: OData v4 のオープン型は、型定義で宣言されている任意のプロパティだけでなく、動的プロパティを含む構造化された型です。 開く...
 ms.author: riande
 ms.date: 09/15/2014
 ms.assetid: f25f5ac5-4800-4950-abe5-c97750a27fc6
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 77771d85532b8b622c2ad4ca219a38990e474c9c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f901e5efc38e5cda6eb606b6bc1ecfe7dea3599c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042589"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423431"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API を使用した OData v4 の種類を開く
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-> OData v4 の*オープン型*は型定義で宣言されている任意のプロパティだけでなく、動的プロパティを含む stuctured 型です。 オープン型では、データ モデルに柔軟性を追加できます。 このチュートリアルでは、ASP.NET Web API OData でオープン型を使用する方法を示します。
+> OData v4 の*オープン型*が型定義で宣言されている任意のプロパティだけでなく、動的プロパティを含む構造化された型。 オープン型では、データ モデルに柔軟性を追加できます。 このチュートリアルでは、ASP.NET Web API OData でオープン型を使用する方法を示します。
 > 
 > このチュートリアルでは、ASP.NET Web API で OData エンドポイントを作成する方法を既に把握している前提としています。 そうでない場合は、を読み取ることによって開始[OData v4 エンドポイントを作成](create-an-odata-v4-endpoint.md)最初。
 > 

@@ -8,12 +8,12 @@ ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3a10d6e5f60efad1f88c5acc8371a24dbf8d2cb7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 73a93c93932a004e76cf4ef7be1b3308ef6b991f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061809"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422897"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (VB)
 ====================
@@ -100,7 +100,7 @@ Repeater s の各カテゴリの製品の数を決定する`ItemDataBound`イベ
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample4.aspx)]
 
 > [!NOTE]
-> このチュートリアルでは、Repeater のビュー ステートを有効になっている必要があります (の省略の指定に注意してください、 `EnableViewState="False"` Repeater s の宣言構文から)。 手順 3. で作成しますイベント ハンドラー Repeater s の`ItemCommand`が更新されます DataList の ObjectDataSource のイベント`SelectParameters`コレクション。 Repeater の`ItemCommand`、ただし、ビュー ステートが無効になっている場合は、t 火災を獲得します。 参照してください[、ASP.NET の質問の A Stumper](http://scottonwriting.net/sowblog/posts/1263.aspx)と[そのソリューション](http://scottonwriting.net/sowBlog/posts/1268.aspx)理由の詳細についてはビュー ステートを Repeater s を有効する必要があります`ItemCommand`イベントが発生します。
+> このチュートリアルでは、Repeater のビュー ステートを有効になっている必要があります (の省略の指定に注意してください、 `EnableViewState="False"` Repeater s の宣言構文から)。 手順 3. で作成しますイベント ハンドラー Repeater s の`ItemCommand`が更新されます DataList の ObjectDataSource のイベント`SelectParameters`コレクション。 Repeater の`ItemCommand`、ビュー ステートが無効になっている場合に、ただし、起動されません。 参照してください[、ASP.NET の質問の A Stumper](http://scottonwriting.net/sowblog/posts/1263.aspx)と[そのソリューション](http://scottonwriting.net/sowBlog/posts/1268.aspx)理由の詳細についてはビュー ステートを Repeater s を有効する必要があります`ItemCommand`イベントが発生します。
 
 
 LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパティ セット。 カテゴリ名を表示するたいだけですが場合、私たちがプロパティを設定、テキスト宣言によって、データ バインドの構文で次のようにします。

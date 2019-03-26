@@ -8,12 +8,12 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: c8aac09c3d3e06529f7834eb3f60dca2f3073922
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 311976a9d0e79083e02231ab056af3537a3d3d25
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042639"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420804"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>SignalR 1.x の依存関係挿入
 ====================
@@ -41,7 +41,7 @@ ms.locfileid: "57042639"
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-選択するため、オブジェクトはありませんので`ILogger`を使用します。 スイッチのできます`ILogger`それに依存するオブジェクトを変更することがなく実装します。
+選択するため、オブジェクトはありませんので`ILogger`を使用します。 切り替えることができます`ILogger`それに依存するオブジェクトを変更することがなく実装します。
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
@@ -161,7 +161,7 @@ RegisterHubs.cs ファイルを開きます。 `RegisterHubs.Start`メソッド�
 
 [!code-csharp[Main](dependency-injection/samples/sample18.cs)]
 
-このコードを返す匿名関数を creatres、 **IHubConnection**します。 **WhenInjectedInto**メソッドに指示を作成するときにのみ、この関数を使用する Ninject`IStockTicker`インスタンス。 理由は、SignalR が作成される**IHubConnectionContext**インスタンスを内部的には、SignalR での作成方法をオーバーライドする必要はないです。 この関数にのみ適用されます、`StockTicker`クラス。
+このコードを返す匿名関数の作成、 **IHubConnection**します。 **WhenInjectedInto**メソッドに指示を作成するときにのみ、この関数を使用する Ninject`IStockTicker`インスタンス。 理由は、SignalR が作成される**IHubConnectionContext**インスタンスを内部的には、SignalR での作成方法をオーバーライドする必要はないです。 この関数にのみ適用されます、`StockTicker`クラス。
 
 依存関係の競合回避モジュールに渡す、 **MapHubs**メソッド。
 

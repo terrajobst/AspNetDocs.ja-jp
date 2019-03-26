@@ -8,12 +8,12 @@ ms.date: 07/11/2013
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 4d29f087cd658faf1fadb0d9a85e9f32c03a2b3f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a022138c594154109ff0bfba85949099e6b2d2a2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058999"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422754"
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API のパラメーター バインド
 ====================
@@ -42,7 +42,7 @@ URI から複合型を読み取る Web API を強制的には、追加、 **[Fro
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
-クライアントは、クエリ文字列で、緯度と経度の値を配置することができ、Web API を構築を使用してそれらが、`GeoPoint`します。 例えば:
+クライアントは、クエリ文字列で、緯度と経度の値を配置することができ、Web API を構築を使用してそれらが、`GeoPoint`します。 例:
 
 `http://localhost/api/values/?Latitude=47.678558&Longitude=-122.130989`
 
@@ -182,7 +182,7 @@ ETag を取得するかどうかを示す列挙体も定義します、`if-match
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample23.cs)]
 
-それに**ParameterBindingAttribute**、カスタムを追加するための別のフック**HttpParameterBinding**します。 **HttpConfiguration**オブジェクト、 **ParameterBindingRules**プロパティは、型の anomymous 関数のコレクション (**HttpParameterDescriptor**  - &gt; **HttpParameterBinding**)。 たとえば、ETag のパラメーターを GET メソッドを使用するルールを追加できます`ETagParameterBinding`で`if-none-match`:
+それに**ParameterBindingAttribute**、カスタムを追加するための別のフック**HttpParameterBinding**します。 **HttpConfiguration**オブジェクト、 **ParameterBindingRules**プロパティが型の匿名関数のコレクション (**HttpParameterDescriptor**  - &gt; **HttpParameterBinding**)。 たとえば、ETag のパラメーターを GET メソッドを使用するルールを追加できます`ETagParameterBinding`で`if-none-match`:
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample24.cs)]
 

@@ -8,18 +8,18 @@ ms.date: 09/30/2015
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c3557bb2be2807b11874937fcc629b5b773e463
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 03409e2fda831a07bbc5321ad842633b23ec25e5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054569"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422410"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする
 ====================
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-[Web のキャンプ トレーニング キットをダウンロードします。](http://aka.ms/webcamps-training-kit)
+[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
 > 従来の web アプリケーションでは、クライアント (ブラウザー) は、ページを要求することによって、サーバーとの通信を開始します。 サーバーは、要求を処理し、ページの HTML をクライアントに送信します。 – ユーザーなどのリンクに移動またはフォームにデータを送信する – ページと後続のやり取りで新しい要求は、サーバーに送信され、フローをもう一度開始します。 サーバーが要求を処理し、新しいアクションの要求に応答してブラウザーに新しいページを送信します。クライアントによって ed します。
 > 
@@ -29,7 +29,7 @@ ms.locfileid: "57054569"
 > 
 > このハンズオン ラボでは、ギーク Quiz、SPA の概念に基づくトリビアの web サイトを実装するためにこれらのテクノロジの利点がかかります。 まず、質問を取得し、回答を保存するに必要なエンドポイントを公開する ASP.NET Web API を使用したサービス層を実装します。 次に、AngularJS、および CSS3 の変換の効果を使用して、リッチで応答性の高い UI をビルドします。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)します。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
 
 
 ## <a name="overview"></a>概要
@@ -98,7 +98,7 @@ Web API フレームワークは、ASP.NET スタックの一部でありは HTT
 <a id="Ex1Task1"></a>
 #### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>タスク 1 – おたくのクイズの初期のプロジェクトを作成します。
 
-このタスクで ASP.NET Web API ベースのサポートで新しい ASP.NET MVC プロジェクトの作成を開始は、 **One ASP.NET** Visual Studio に付属する型を射影します。 **1 つの ASP.NET**すべての ASP.NET のテクノロジの統合し、を混在させるし、必要に応じてとに一致させることができます。 Entity Framework のモデル クラスと、質問を挿入するデータベース initializator を追加します。
+このタスクで ASP.NET Web API ベースのサポートで新しい ASP.NET MVC プロジェクトの作成を開始は、 **One ASP.NET** Visual Studio に付属する型を射影します。 **1 つの ASP.NET**すべての ASP.NET のテクノロジの統合し、を混在させるし、必要に応じてとに一致させることができます。 Entity Framework のモデル クラスと、質問を挿入するデータベースの初期化子を追加します。
 
 1. 開いている**Visual Studio Express 2013 for Web**選択**ファイル |新しいプロジェクト.** 新しいソリューションを開始します。
 

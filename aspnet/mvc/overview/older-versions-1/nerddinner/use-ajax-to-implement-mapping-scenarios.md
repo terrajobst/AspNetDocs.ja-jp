@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: f731990a-0a81-4d62-81df-87d676cdedd6
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: f7de23ca46e6dc00fe8075e28068a8b3f95d02cd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9beddfcaf568bf374271fb9fcb3af3a38aff4b72
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053259"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424834"
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX を使用し、マッピング シナリオを実装する
 ====================
@@ -150,7 +150,7 @@ To SQL デザイナーは、SQL NerdDinnerDataContext クラスに、LINQ のメ
 
 [!code-csharp[Main](use-ajax-to-implement-mapping-scenarios/samples/sample10.cs)]
 
-SearchController の SearchByLocation のアクション メソッドは、近くにある dinners の一覧を取得する DinnerRespository で FindByLocation メソッドを内部的に呼び出します。 クライアントに直接 Dinner オブジェクトを返すのではなく、代わりに返します JsonDinner オブジェクト。 JsonDinner クラスが Dinner プロパティのサブセットを公開します (例: セキュリティ上の理由を夕食に対する RSVP が人の名前を公開しません)。 Dinner: 存在しないし、特定の夕食に関連付けられている RSVP オブジェクトの数をカウントすることによって動的に計算されます、RSVPCount プロパティも含まれています。
+SearchController の SearchByLocation のアクション メソッドは、近くにある dinners の一覧を取得するときは必ず DinnerRepository で FindByLocation メソッドを内部的に呼び出します。 クライアントに直接 Dinner オブジェクトを返すのではなく、代わりに返します JsonDinner オブジェクト。 JsonDinner クラスが Dinner プロパティのサブセットを公開します (例: セキュリティ上の理由を夕食に対する RSVP が人の名前を公開しません)。 Dinner: 存在しないし、特定の夕食に関連付けられている RSVP オブジェクトの数をカウントすることによって動的に計算されます、RSVPCount プロパティも含まれています。
 
 コント ローラーの基本クラスで Json() のヘルパー メソッドを使用して、返す一連の dinners JSON ベースのワイヤ形式を使用していますが。 JSON は、単純なデータ構造を表すための標準のテキスト形式です。 次の 2 つの JsonDinner オブジェクトの JSON 形式の一覧がどのように、アクション メソッドから返されるときに例を示します。
 

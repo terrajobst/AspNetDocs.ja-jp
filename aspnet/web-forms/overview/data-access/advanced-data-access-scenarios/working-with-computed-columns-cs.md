@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 57459065-ed7c-4dfe-ac9c-54c093abc261
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ef548c627cd40159bb3961f479401657a2ac394
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 097d68bdcde7de713ce2e7c829c0611d4c82d64d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041939"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424755"
 ---
 <a name="working-with-computed-columns-c"></a>計算列を使用する (C#)
 ====================
@@ -32,7 +32,7 @@ Microsoft SQL Server では、 *[計算列](https://msdn.microsoft.com/library/m
 
 使用しての課題の 1 つは、アドホック SQL ステートメントを使用する TableAdapter の列を計算する、tableadapter は、`INSERT`と`UPDATE`クエリには、いつでも、TableAdapter 構成ウィザードの完了が自動的に再生成します。 そのため、手動で計算列がから削除、`INSERT`と`UPDATE`ウィザードが再実行クエリが表示されなくなります。 ストアド プロシージャを使用する Tableadapter のないこの脆弱性の低下が、手順 3 で扱うは独自の癖が。
 
-このチュートリアルでは、計算列を追加は、 `Suppliers` Northwind データベースのテーブルが表示され、このテーブルとその計算列を操作する対応する TableAdapter を作成します。 TableAdapter 構成ウィザードを使用すると、カスタマイズは t が失われるように、アドホック SQL ステートメントの代わりにストアド プロシージャを使用して、TableAdapter に、します。
+このチュートリアルでは、計算列を追加は、 `Suppliers` Northwind データベースのテーブルが表示され、このテーブルとその計算列を操作する対応する TableAdapter を作成します。 TableAdapter 構成ウィザードを使用すると、カスタマイズの喪失がないように、アドホック SQL ステートメントの代わりにストアド プロシージャを使用して、TableAdapter に、します。
 
 Let s を始めましょう。
 

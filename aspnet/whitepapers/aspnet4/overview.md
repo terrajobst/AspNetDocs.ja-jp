@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 775286df610df9040cbf04125b1742b6befa055b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 93ee29ae125e9442ee755998768a8105dfb485c0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043159"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424301"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
 ====================
@@ -945,7 +945,7 @@ Web アプリケーションまたは Web サイトは、.NET Framework 4 を対
 
 ASP.NET 3.5 SP1 およびそれ以前のバージョンでは、フレームワークがレンダリング、*無効になっている*そのコントロールの HTML マークアップ属性*有効*プロパティに設定*false*。 ただし、HTML 4.01 仕様のみに従って*入力*要素は、この属性を持つ必要があります。
 
-ASP.NET 4 で設定することができます、 *controlRenderingCompatabilityVersion*プロパティを次の例のように「3.5」。
+ASP.NET 4 で設定することができます、 *controlRenderingCompatibilityVersion*プロパティを次の例のように「3.5」。
 
 [!code-xml[Main](overview/samples/sample70.xml)]
 
@@ -957,7 +957,7 @@ ASP.NET 4 で設定することができます、 *controlRenderingCompatability
 
 [!code-html[Main](overview/samples/sample72.html)]
 
-ASP.NET 4 で設定することができます、 *controlRenderingCompatabilityVersion* 「4.0」にします。 その場合は、そのレンダリングを制御するだけ*入力*要素が表示されます、*無効になっている*属性の場合に、コントロールの*有効*プロパティに設定されて*false*. HTML にレンダリングされないコントロール*入力*要素をレンダリングする*クラス*無効になっているコントロールの外観を定義に使用できる CSS クラスを参照する属性。 たとえば、*ラベル*前の例に示すようにコントロールが次のマークアップを生成します。
+ASP.NET 4 で設定することができます、 *controlRenderingCompatibilityVersion* 「4.0」にします。 その場合は、そのレンダリングを制御するだけ*入力*要素が表示されます、*無効になっている*属性の場合に、コントロールの*有効*プロパティに設定されて*false*. HTML にレンダリングされないコントロール*入力*要素をレンダリングする*クラス*無効になっているコントロールの外観を定義に使用できる CSS クラスを参照する属性。 たとえば、*ラベル*前の例に示すようにコントロールが次のマークアップを生成します。
 
 [!code-html[Main](overview/samples/sample73.html)]
 

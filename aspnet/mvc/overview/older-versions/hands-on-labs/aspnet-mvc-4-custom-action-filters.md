@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 0170fda6849c1dfb53b44908ea55ba2cad0dd067
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4c8628cc289610e287c0a3bc3c8a4c7a833c9fde
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036619"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423417"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 カスタム アクション フィルター
 
@@ -261,7 +261,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > このカスタム アクション フィルターは、前の演習で作成したものよりもほぼ同じです。 主な違いは、持っていること、 *&quot;ログに記録して&quot;* 送信先のフィルターを識別するためにこの新しいクラスの名前で更新された属性には、ログが登録されています。
+    > このカスタム アクション フィルターは、前の演習で作成したものよりもほぼ同じです。 主な違いは、持っていること、 *&quot;ログに記録して&quot;* 属性を識別するためにこの新しいクラス名で更新するフィルターには、ログが登録されています。
 
 <a id="Ex2Task2"></a>
 
@@ -292,7 +292,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 <a id="Task_3_Managing_Filter_Ordering"></a>
 #### <a name="task-3-managing-filter-ordering"></a>タスク 3:フィルターの順序を管理します。
 
-このタスクでは、順序のプロパティを使用して、フィルターの実行順序を管理する方法を学習します。
+このタスクでは、順序のプロパティを使用して、フィルターの実行順序を管理する方法を学びます。
 
 1. オープン、 **StoreController**クラスがある**MvcMusicStore\Controllers**を指定し、**順序**などの両方のフィルター プロパティ下図のようにします。
 
@@ -325,7 +325,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 <a id="Task_4_Registering_Filters_Globally"></a>
 #### <a name="task-4-registering-filters-globally"></a>タスク 4:グローバル フィルターを登録します。
 
-このタスクでは、新しいフィルターを登録するソリューションを更新します (**MyNewCustomActionFilter**) グローバル フィルターとして。 これにより、すべてのアクション実行、アプリケーションと、前のタスクのように StoreController ものだけでなくによってトリガーされます。
+このタスクでは、新しいフィルターを登録するソリューションを更新します (**MyNewCustomActionFilter**) グローバル フィルターとして。 これにより、アプリケーションで、前のタスクのように StoreController ものだけでなくでを実行するすべてのアクションによってトリガーされます。
 
 1. **StoreController**クラスを削除 **[MyNewCustomActionFilter]** 属性と順序プロパティから **[CustomActionFilter]** します。 以下のようになっています。
 
@@ -375,7 +375,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 
 インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
-1. 移動して[ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
 
@@ -419,7 +419,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 1. 移動して、 [Windows Azure 管理ポータル](https://manage.windowsazure.com/)サブスクリプションに関連付けられている Microsoft の資格情報を使用してサインインします。
 
     > [!NOTE]
-    > Windows Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](http://aka.ms/aspnet-hol-azure)します。
+    > Windows Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](https://aka.ms/aspnet-hol-azure)します。
 
     ![Windows Azure ポータルにログオン](aspnet-mvc-4-custom-action-filters/_static/image17.png "Windows Azure ポータルにログオン")
 

@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e07da4b5263ac3c6db19c375ca00cbcf87e0b35a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b44ef5e92df8cc3b8660a8ce9e4ccc9b74c135d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042179"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422728"
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>データベースの開発と配置のための戦略 (VB)
 ====================
@@ -66,7 +66,7 @@ ms.locfileid: "57042179"
 
 Prose でデータベースの変更を文書化の主な利点は、わかりやすくするためです。 作成およびデータベース オブジェクトを変更するための SQL 構文知識の t 必要はありません。 代わりに、prose で変更を記録し、SQL Server Management Studio のグラフィカル ユーザー インターフェイスからそれらを実装できます。
 
-Prose で、変更ログは、確かに、スコープ内に大きいものなど、特定のプロジェクトにも非常に高度で受注 t 作業を管理、データ モデルに頻繁に変更または複数の開発者が関係します。 ただし、このアプローチを勝ち取る、小規模プロジェクト データ モデルに不定期の変更のみを持ち、個人の開発者がない強力なバック グラウンドで作成およびデータベース オブジェクトを変更するための SQL 構文で非常にうまく機能させる見てきました。
+Prose で、変更ログが、正直なところ、できません非常に高度なし、スコープ内に大きいものなど、特定のプロジェクトではうまくいきませんを維持し、データ モデルに頻繁に変更または複数の開発者が関係します。 ただし、このアプローチを勝ち取る、小規模プロジェクト データ モデルに不定期の変更のみを持ち、個人の開発者がない強力なバック グラウンドで作成およびデータベース オブジェクトを変更するための SQL 構文で非常にうまく機能させる見てきました。
 
 > [!NOTE]
 > 変更ログの情報は技術的には、展開時までに必要なだけの変更履歴を維持することをお勧めします。 1 つを保持することではなく変更のログ ファイル、成長し続けることを検討データベース バージョンごとに別の変更のログ ファイル。 通常はするバージョン、データベースが展開されている各時間。 変更ログのログを維持することにより、ベースラインから開始を再作成する任意のデータベース バージョン バージョン 1 以降では変更ログ スクリプトを実行してとを再作成する必要があります、バージョンに到達するまで続行します。

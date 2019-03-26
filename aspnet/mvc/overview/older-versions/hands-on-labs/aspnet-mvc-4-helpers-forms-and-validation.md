@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 8671ae8e9408e6f05135fa27d56480477521c4ba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 45aab00140f63cd84ea1b7ba22f655b0e4373f97
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056779"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423079"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 ヘルパー、フォーム、検証
 
@@ -710,7 +710,7 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
     > 
     > さらに、カスタム動作を任意のコント ローラーに ClientValidationEnabled 属性を割り当てることができます。
 2. 開いている**Create.cshtml**で**Views\StoreManager**します。
-3. 次のスクリプト ファイルを必ず**jquery.validate**と**jquery.validate.unobtrusive**、システム ビューのレジストリ設定で参照される、 &quot; **~/bundles/jqueryval**&quot;バンドルします。
+3. 次のスクリプト ファイルを必ず**jquery.validate**と**jquery.validate.unobtrusive**、これにより、ビューで参照される、 &quot; **~/bundles/jqueryval**&quot;バンドルします。
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample22.cshtml)]
 

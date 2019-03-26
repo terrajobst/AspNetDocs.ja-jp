@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 7ad0ec27021514b447e569e479a9e9127e3f75fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0fc533fb3673639769ecdfa8b3d02ff40133cb27
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037649"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421624"
 ---
 <a name="part-3-creating-an-admin-controller"></a>第 3 部:管理者コントローラーの作成
 ====================
@@ -95,7 +95,7 @@ Entity Framework では、スタートアップ時に、データベースを設
 
 この時点では、任意のクライアント コードでは、まだ作成されていないが、web などのツール、web ブラウザーまたは、HTTP デバッギングを使用して API を呼び出すことができます[Fiddler](http://www.fiddler2.com/fiddler2/)します。 Visual Studio で f5 キーを押してデバッグを開始します。 Web ブラウザーが開いて、`http://localhost:*portnum*/`ここで、*させる*いくつかのポート番号です。
 
-HTTP 要求を送信"`http://localhost:*portnum*/api/admin`します。 Entify フレームワークを作成し、データベースをシードする必要があるために、最初の要求が、完了に時間がかかる可能性があります。 応答のように、次のとおりです。
+HTTP 要求を送信"`http://localhost:*portnum*/api/admin`します。 最初の要求は、Entity Framework を作成し、データベースをシードする必要があるため、完了に時間がかかる可能性があります。 応答のように、次のとおりです。
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 

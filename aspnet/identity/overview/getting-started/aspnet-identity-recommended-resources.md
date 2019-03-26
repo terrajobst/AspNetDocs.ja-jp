@@ -8,21 +8,20 @@ ms.date: 04/09/2015
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 1d5b44ccce423dda8ac77029e361a531b6c91b26
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 14a8ec16fe741d87a23bfa45046386a2c08d2f27
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056349"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424340"
 ---
-<a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity 推奨リソース
-====================
+# <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity 推奨リソース
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このトピックでは、ASP.NET Identity を使用する方法に関するドキュメント リソースへのリンクを提供します。
-> 
+>
 > 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com)スレッド、または他リンクに役立つ、[電子メールの送信](mailto:aspnetue@microsoft.com?subject=Identity recommended resources)かリンクを使用してこのページの下部にメッセージを残します。
-
 
 - [ASP.NET Identity の概要](#gettingstarted)
 - [新しい記事読み取りをする必要があります。](#feat)
@@ -35,6 +34,7 @@ ms.locfileid: "57056349"
 - [Q &amp; (質問/回答)](#qand)
 
 <a id="gettingstarted"></a>
+
 ## <a name="getting-started-with-aspnet-identity"></a>ASP.NET Identity の概要
 
 - [Facebook、Twitter、LinkedIn、Google の OAuth2 サインオンした MVC 5 アプリケーション](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)このチュートリアルでは、Facebook や Google の OAuth 2 承認を持つ ASP.NET MVC 5 アプリを記述する方法。 Id のデータベースにデータを追加する方法も示します。
@@ -44,6 +44,7 @@ ms.locfileid: "57056349"
 - [SMS や電子メールで 2 要素認証する ASP.NET MVC 5 アプリ](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
+
 ## <a name="new-featured-must-read-articles"></a>新しい記事読み取りをする必要があります。
 
 - [チュートリアル: Microsoft アカウント認証を使用した ASP.NET MVC Identity](http://www.benday.com/2014/02/25/walkthrough-asp-net-mvc-identity-with-microsoft-account-authentication/)によって[Benjamin Day](http://www.benday.com/about/)
@@ -53,6 +54,7 @@ ms.locfileid: "57056349"
 - [ASP.NET Identity 2.0:ユーザーとロールをカスタマイズします。](http://typecastexception.com/post/2014/06/22/ASPNET-Identity-20-Customizing-Users-and-Roles.aspx)
 
 <a id="adv"></a>
+
 ## <a name="intermediate-aspnet-identity"></a>ASP.NET Identity の中間
 
 - [アカウントの確認と ASP.NET Identity によるパスワードの回復](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
@@ -64,6 +66,7 @@ ms.locfileid: "57056349"
 - [ASP.NET Identity: ユーザーのロックアウト](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>
+
 ## <a name="where-to-ask-questions-request-features-report-a-bug-and-nightly-builds"></a>に関する質問をしたり、機能を要求、バグと夜間ビルドをレポートする場所
 
 - タグを使用すると、StackOverflow の[aspnet id](http://stackoverflow.com/questions/tagged/asp.net-identity)
@@ -71,6 +74,7 @@ ms.locfileid: "57056349"
 - [GitHub での ASP.NET Identity](https://github.com/aspnet/AspNetIdentity) Get で夜間のビルド要求機能、バグを開きます。
 
 <a id="blog"></a>
+
 ## <a name="blog-posts-on-identity"></a>Id に関するブログの投稿
 
 - [ASP.NET Identity での SecurityStamp とは何ですか。](http://stackoverflow.com/questions/19487322/what-is-asp-net-identitys-iusersecuritystampstoretuser-interface/19505060#19505060)
@@ -120,6 +124,7 @@ ms.locfileid: "57056349"
 - [ASP.NET メンバーシップから ASP.NET Identity に移行](http://webdojo.sharepoint.com/ajmatthews/_layouts/15/start.aspx#/Lists/Posts/Post.aspx?ID=2)Alistair Matthews によって
 
 <a id="video"></a>
+
 ## <a name="videos"></a>ビデオ
 
 - Channel 9 [ASP.NET アプリケーションおよびサービスをセキュリティで保護します。最新のアプリケーションのセキュリティの手直し](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B421#fbid=PhVT9E1WRtr?hashlink=fbid)松井 Flatow によって
@@ -132,6 +137,7 @@ ms.locfileid: "57056349"
 - [チェコ語の ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY)この講義で基本認証をデプロイする方法、Twitter や Facebook などの外部 id プロバイダーのサポートを追加する方法、およびワンタイム パスワード (OTP) を使用する方法を表示されます。 [ASP.NET Identity では nástupce メンバーシップ ロール プロバイダー&#367; v tedy knihovna ASP.NET pro zajišt&#283;ní autentizace uživatel&#367;します。 V této p&#345;ednášce si ukážeme、充満 nasad]
 
 <a id="cust"></a>
+
 ## <a name="custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity のカスタム ストレージ プロバイダー
 
 独自のプロバイダーを記述する場合は、読み取る[概要カスタム ストレージ プロバイダーの ASP.NET Identity の](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)と[ASP.NET Identity の実装](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)し、表示されている OSS プロジェクトの 1 つのソースを調べます以下に。
@@ -144,7 +150,7 @@ ms.locfileid: "57056349"
 - [Azure Table Storage](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) James Randall でします。
 - Azure テーブル ストレージ:[AspNet.Identity.TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage)によって[ @stuartleeks](https://twitter.com/stuartleeks)します。
 - [CouchDB/Daniel Wertheim によって Cloudant します。](https://github.com/danielwertheim/mycouch.aspnet.identity)
-- エラスティック検索[: %m:エラスティック Identity](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. によって
+- [Elastic Search:エラスティック Identity](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. によって
 - [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) Jonathan Sheely Jonathan Sheely でします。
 - [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) Antônio Milesi Bastos でします。
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0)によって[ @tourismgeek](https://twitter.com/tourismgeek)します。
@@ -153,11 +159,13 @@ ms.locfileid: "57056349"
 - 「最初にデータベース」のユーザー ストアの EF コードを生成する T4 テンプレート:[AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
 
 <a id="additional"></a>
+
 ## <a name="additional-aspnet-identity-resources"></a>その他の ASP.NET Identity リソース
 
 - [Owin Yahoo と LinkedIn OAuth のセキュリティ プロバイダーの概要](http://blog.beabigrockstar.com/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/)Jerrie Pelser Yahoo と LinkedIn 手順については、します。
 
 <a id="qand"></a>
+
 ## <a name="qampa-questionanswer"></a>Q&amp;(質問/回答)
 
 - Q:ロックアウト (したがって、そのコンピューターやブラウザーで、2 fa を経由する必要はありません)「次回」を有効にするユーザーがロックアウトされていません。理由と方法を防止するでしょうか。 回答[ここ](http://stackoverflow.com/questions/24312247/locked-out-users-can-login-if-they-have-auth-cookie)します。
@@ -177,6 +185,6 @@ ms.locfileid: "57056349"
 - Q:セキュリティ トークンを無効にする方法 回答[ここ](http://stackoverflow.com/questions/22755700/revoke-token-generated-by-usertokenprovider-in-asp-net-identity-2-0/22767286#22767286)します。
 - Q:方法: cookie ミドルウェア内でのストアの要求は、ですか? 回答[ここ](http://stackoverflow.com/questions/22320632/storing-retrieving-user-data-without-database-when-using-owin-cookie-authenticat/22541856#22541856)します。
 - Q:暗証番号 (pin)、またはセキュリティ チェックで MVC アプリでは、各アクション メソッドであるしたいと思いますが、そのアクション メソッドへの要求ごとに PIN を入力する必要のないように、ユーザーの成功を格納したいと思います。 回答[ここ](http://stackoverflow.com/questions/22479958/security-check-an-user-to-a-access-controller-action/22486075#22486075)します。
-- Q:まずに、DB には、ソーシャル プロバイダーから返された電子メール アドレスを保存どうすればいいですか。 回答[ここ](http://stackoverflow.com/questions/22888397/save-claims-to-db-on-login/22970969#22970969):
+- Q:まずは、するソーシャル プロバイダーから返された電子メール アドレス、DB に保存どうすればいいですか。 回答[ここ](http://stackoverflow.com/questions/22888397/save-claims-to-db-on-login/22970969#22970969):
 - Q:「次回」の cookie の両方で/でアウト ユーザーのログオン時を検出する方法は? 回答[ここ](http://stackoverflow.com/questions/22956486/how-can-i-detect-when-a-user-logs-in-with-microsoft-aspnet-identity/22970698#22970698)します。
 - Q:SignIn を呼び出した後の owin 対応の ASP.NET Identity での要求を変更できますか。 回答:SignIn を呼び出すことはまったくどうしたら、ユーザーの要求を変更する場合の対処方法です。 基本的に、cookie は、後続の要求に現れる新しい要求を表示するためにシリアル化される、ClaimsIdentity が発生します。

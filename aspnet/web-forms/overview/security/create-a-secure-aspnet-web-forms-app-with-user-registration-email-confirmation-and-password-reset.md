@@ -8,12 +8,12 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: acc13776840408756901e20589b9efacc83ff2a9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1bd90f0ceddee7d9e18c1cac2fadfb2c84841f19
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053649"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424639"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>ユーザー登録、電子メール確認、パスワード リセットを利用し、安全な ASP.NET Web フォームを作成する (C#)
 ====================
@@ -64,7 +64,7 @@ ms.locfileid: "57053649"
 
 ## <a name="email-confirmation"></a>確認の電子メール
 
-他のユーザーを偽装していないことを確認する新しいユーザーの登録時に電子メールを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@cpandl.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 として誤って Bob が登録されていると仮定`"bib@cpandl.com"`認識していないと、アプリは、正しいメール アドレスがある見つからないため、パスワードの回復を使用して、彼はできません。 確認の電子メールはボットからの限られた保護のみを提供し、決定スパムから保護を提供しません。
+他のユーザーを偽装していないことを確認する新しいユーザーの登録時に電子メールを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@cpandl.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 Bob が誤ってとして登録されていると仮定`"bib@cpandl.com"`気付いていなかったとパスワードの回復を使用して、アプリは、正しいメール アドレスがある見つからないため、彼はできません。 確認の電子メールはボットからの限られた保護のみを提供し、決定スパムから保護を提供しません。
 
 新しいユーザーがいずれかの電子メール、SMS テキスト メッセージまたは別のメカニズムによって確認されて前に、web サイトにデータを送信するを防ぐために一般的にします。 以下のセクションでは確認の電子メールを有効にし、新しく登録されたユーザーがログインするまで、自分の電子メールが確認されていることを防ぐためにコードを変更します。、 このチュートリアルでは、SendGrid 電子メール サービスを使用します。
 
@@ -152,7 +152,7 @@ SendGrid は、このチュートリアルが記述されたからの API を変
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>電子メールの確認リンクを再送信します。
 
-ユーザーは、新しいローカル アカウントを作成した後は、確認リンクがログオンする前に、使用する必要が、メールで送信されます。 誤ってユーザーは、確認の電子メールを削除します。 または、電子メールが到着することはありません、確認リンクをもう一度送信される必要があります。 次のコード変更では、これを有効にする方法を示します。
+ユーザーは、新しいローカル アカウントを作成した後は、確認リンクがログオンする前に、使用する必要が、メールで送信されます。 確認の電子メールをユーザーが誤って削除または電子メールが到着することはありません、確認リンクをもう一度送信される必要があります。 次のコード変更では、これを有効にする方法を示します。
 
 1. Visual Studio で開く、 **Login.aspx.cs**分離コードと後に次のイベント ハンドラーを追加、`LogIn`イベント ハンドラー。   
 

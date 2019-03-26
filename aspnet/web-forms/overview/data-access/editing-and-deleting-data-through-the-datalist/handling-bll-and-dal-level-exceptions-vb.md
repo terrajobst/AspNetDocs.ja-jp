@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e71ad365ecbfc1bb33117a6c93e7108a4b3866a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d52fadc1ddcc101d5815df6f1c1bc5eeba95d9b8
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053019"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440366"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL レベルと DAL レベルの例外を処理する (VB)
 ====================
@@ -30,7 +30,7 @@ ms.locfileid: "57053019"
 
 説明したように、[処理 BLL - と DAL レベルの例外で、ASP.NET ページ](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)チュートリアルでは、ビジネス ロジックまたはデータ アクセス レイヤーの深さから例外が発生した場合、例外の詳細が返されます、ObjectDataSource にし、GridView には。 これらの例外を作成して適切に処理する方法を説明しました`Updated`または`RowUpdated`ObjectDataSource や GridView、例外を確認し、例外が処理されたことを示す、イベント ハンドラー。
 
-DataList チュートリアル、ただし、データ更新および削除による、ObjectDataSource は t です。 代わりに、BLL に対して直接取り組んでいます。 BLL または DAL から送信された例外を検出するためには、例外処理、ASP.NET ページの分離コード内でコードを実装する必要があります。 このチュートリアルよりもらえるように編集可能な DataList 秒のワークフローを更新中に発生した例外を処理する方法がわかります。
+ただし、DataList チュートリアルでは、データ更新および削除の ObjectDataSource を使用しません。 代わりに、BLL に対して直接取り組んでいます。 BLL または DAL から送信された例外を検出するためには、例外処理、ASP.NET ページの分離コード内でコードを実装する必要があります。 このチュートリアルよりもらえるように編集可能な DataList 秒のワークフローを更新中に発生した例外を処理する方法がわかります。
 
 > [!NOTE]
 > *編集の 概要と、DataList でデータを削除する*を更新するため、ObjectDataSource を使用して編集および DataList からデータを削除するためのさまざまな手法を説明したチュートリアルでは、いくつかのテクニックを紹介し、削除しています。 これらの手法を採用する場合は、ObjectDataSource s を通じて BLL または DAL から例外を処理することができます`Updated`または`Deleted`イベント ハンドラー。
@@ -131,7 +131,7 @@ GridView と ObjectDataSource を例外がされているかどうかを示す�
 
 このチュートリアルでは、編集可能な DataList 秒のワークフローを追加することで更新する例外処理を追加する方法を説明しました、`Try ... Catch`へのブロック、`UpdateCommand`イベント ハンドラー。 更新のワークフロー中に例外が発生した場合、`Catch`ブロックのコードの実行に役立つ情報を表示する、`ExceptionDetails`ラベル。
 
-この時点では、DataList では、最初の段階で発生してから例外を回避するための努力はしません。 負の価格は、例外発生、したがってことがわかっていて t はまだ未然に防ぐため、ユーザーから、このような無効な入力機能を追加します。 [次へ]、チュートリアルでは無効なユーザー入力の検証コントロールを追加することでが原因の例外を削減する方法を見ていきます、`EditItemTemplate`します。
+この時点では、DataList では、最初の段階で発生してから例外を回避するための努力はしません。 負の価格、例外が発生することがわかっている場合でも事前にこのような無効な入力されないようにする機能まだ追加します。 [次へ]、チュートリアルでは無効なユーザー入力の検証コントロールを追加することでが原因の例外を削減する方法を見ていきます、`EditItemTemplate`します。
 
 満足のプログラミングです。
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1ef4242ff3bd1dd86f4d58bd04ba08e8b90fdaa4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 50fdcc1959b8f3a02ec5bbe0eb7417ffb8a260a3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037519"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425908"
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework で関連データの更新
 ====================
@@ -131,7 +131,7 @@ Course ビューは、department フィールドのドロップダウン リス�
 参照を`RetryLimitExceededException`が必要です、`using`ステートメントの追加-マウス カーソルを置く;`RetryLimitExceededException`します。 次のようなメッセージが表示されます。![ 例外メッセージを再試行してください。](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 
 
-選択**potentital 修正内容を表示**、し**System.Data.Entity.Infrastructure を使用します。**
+選択**考えられる修正内容を表示する**、し**System.Data.Entity.Infrastructure を使用します。**
 
 ![再試行の例外を解決するには](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 

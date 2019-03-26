@@ -8,12 +8,12 @@ ms.date: 09/17/2012
 ms.assetid: 243db2ec-8f67-4a5e-a382-4ddcec4b4164
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: 61e0c47efdd92a3a0b329930aeec757b446eb9b8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ee717085a02f4c5f5d664cfd2fa82c21864e4055
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044739"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425822"
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>ASP.NET Web API の HTTP Cookie
 ====================
@@ -25,7 +25,7 @@ ms.locfileid: "57044739"
 
 ここでは、HTTP レベルで cookie を実装する方法について概説します。 詳細についてを参照してください[RFC 6265](http://tools.ietf.org/html/rfc6265)します。
 
-Cookie とは、サーバーが HTTP 応答で送信するデータの一部です。 (省略可能)、クライアントはクッキーを格納し、subsequet 要求で返します。 これにより、クライアントとサーバー状態を共有できます。 サーバーには cookie を設定するには、応答 Set-cookie ヘッダーが含まれています。 Cookie の形式は、省略可能な属性を持つ、名前と値のペアです。 例:
+Cookie とは、サーバーが HTTP 応答で送信するデータの一部です。 (省略可能)、クライアントはクッキーを格納し、後続の要求で返します。 これにより、クライアントとサーバー状態を共有できます。 サーバーには cookie を設定するには、応答 Set-cookie ヘッダーが含まれています。 Cookie の形式は、省略可能な属性を持つ、名前と値のペアです。 例:
 
 [!code-powershell[Main](http-cookies/samples/sample1.ps1)]
 

@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 17e11c33d6bf2a75e99e3bda4d6ab89c5b1631f9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9969a68a3e1aa043845fb5affd6d3b73dec4136d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042859"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425393"
 ---
-<a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データ ストレージ オプション (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データ ストレージ オプション (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -62,13 +62,13 @@ ms.locfileid: "57042859"
 
 Azure では、 [HDInsight](https://azure.microsoft.com/services/hdinsight/)すると、処理、分析、および Hadoop の電源を使用して big data から新しい洞察を得ることができます。 たとえば、web サーバー ログを分析に使用できます。
 
-- ストレージ アカウントに、web サーバーのログ記録を有効にします。 これは、ログをアプリケーションに HTTP 要求ごとに Blob Service に書き込む Azure を設定します。 Blob Service は、基本的に、クラウド ファイル ストレージと HDInsight を適切に統合されています。 
+- ストレージ アカウントに、web サーバーのログ記録を有効にします。 これは、ログをアプリケーションに HTTP 要求ごとに Blob Service に書き込む Azure を設定します。 Blob Service は、基本的に、クラウド ファイル ストレージと HDInsight を適切に統合されています。
 
     ![Blob Storage にログ](data-storage-options/_static/image2.png)
-- アプリがトラフィックと、web サーバーの IIS ログは、Blob storage に書き込まれます。 
+- アプリがトラフィックと、web サーバーの IIS ログは、Blob storage に書き込まれます。
 
     ![Web サーバーのログ](data-storage-options/_static/image3.png)
-- ポータルで、次のようにクリックします**新規** - **Data Services** - **HDInsight** - **簡易作成**、。HDInsight クラスター名、クラスターのサイズ (HDInsight クラスターのデータ ノード数)、およびユーザー名と、HDInsight クラスターのパスワードを指定します。 
+- ポータルで、次のようにクリックします**新規** - **Data Services** - **HDInsight** - **簡易作成**、。HDInsight クラスター名、クラスターのサイズ (HDInsight クラスターのデータ ノード数)、およびユーザー名と、HDInsight クラスターのパスワードを指定します。
 
     ![HDInsight](data-storage-options/_static/image4.png)
 
@@ -152,7 +152,7 @@ Azure での PaaS データ ストレージ オプションには、サード �
 
 どのような一般的な推奨事項は、データ ストレージ ソリューションを選択する前にこれらの各カテゴリの質問に対する回答がわからない。
 
-さらに、ワークロードには、他のユーザーよりも優れたいくつかのプラットフォームをサポートできる特定の要件があります。 例えば:
+さらに、ワークロードには、他のユーザーよりも優れたいくつかのプラットフォームをサポートできる特定の要件があります。 例:
 
 - アプリケーションの必要な監査の機能ですか。
 - データの長期にわたって要件--アーカイブまたは削除の自動化された機能が必要ですか。
@@ -175,7 +175,7 @@ Fix It アプリでは、リレーショナル データベースを使用して
 
 ![作成された新しい SQL データベース](data-storage-options/_static/image10.png)
 
-Azure はいくつかの秒何かかる場合がありますが、1 日、または 1 週間以上で、オンプレミス環境を実現します。 スクリプトまたは管理 API を使用してデータベースを自動的に作成できますが同じくらい簡単にため、動的にスケール アウトできます < o:p > の複数のデータベース間でデータを分散させることで、アプリケーションがそのようプログラムされた限りとします </o。: p >
+Azure はいくつかの秒何かかる場合がありますが、1 日、または 1 週間以上で、オンプレミス環境を実現します。 ため、スクリプトまたは管理 API を使用してデータベースを自動的に作成できますが同じくらい簡単に、動的にスケール アウトできます複数のデータベース間でデータを分散させることで、アプリケーションがそのようプログラムされた限りです。
 
 これは、サービスとしてのプラットフォーム モデルの例です。 サーバーを管理する必要はありません、行います。 バックアップについて心配する必要はありません、行います。 高可用性 – で実行されている 3 台のサーバー間では、データベース内のデータが自動的にレプリケートされます。 マシンが実行されていない場合自動的にフェールオーバーし、データは失われません。 サーバーに定期的に修正プログラムが、気にする必要はありません。
 
@@ -267,7 +267,7 @@ VM で SQL Server を使用する場合は、SQL Server ライセンスを使用
 
 データベース プラットフォームを選択します。
 
-- [拡張性の高いソリューションへのデータ アクセス:SQL、NoSQL、および Polyglot の永続化を使用して](http://aka.ms/dag-doc)します。 電子書籍では、Microsoft Patterns and Practices を深さでは、異なる種類のデータには、クラウド アプリケーションで使用できる格納します。
+- [拡張性の高いソリューションへのデータ アクセス:SQL、NoSQL、および Polyglot の永続化を使用して](https://aka.ms/dag-doc)します。 電子書籍では、Microsoft Patterns and Practices を深さでは、異なる種類のデータには、クラウド アプリケーションで使用できる格納します。
 - [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/ff898430.aspx)します。 データ整合性入門、データのレプリケーション、および同期ガイダンスについては、インデックス テーブル パターン、具体化されたビュー パターンを参照してください。
 - [ベース:代わりに Acid](http://queue.acm.org/detail.cfm?id=1394128)します。 データの整合性とスケーラビリティのトレードオフに関する記事します。
 - [7 週間で 7 つのデータベース:最新のデータベースと NoSQL 移動ガイド](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921)します。 Eric Redmond と Jim R. Wilson 著。 自分で現在利用可能なデータのストレージ プラットフォームに導入するため強くお勧めします。

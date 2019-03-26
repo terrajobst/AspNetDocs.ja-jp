@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 7cb9c949936c3af73d4c904d401c36d4d83f3e18
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 998191a21388d76fb18b59fca9bcea7a40507c86
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045689"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425575"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>アプリケーション ライフサイクル管理:開発から運用環境まで
 ====================
@@ -26,7 +26,7 @@ ms.locfileid: "57045689"
 > トピックがの概要を説明するように設計、[一連のチュートリアル](deploying-web-applications-in-enterprise-scenarios.md)企業の web 展開でします。 ここで説明した概念の一部に詳しくない場合に心配&#x2014;以下のチュートリアルは、これらのタスクと手法のすべての詳細情報を提供します。
 > 
 > > [!NOTE]
-> > このためにわかりやすくするため、このトピックについては説明しませんデータベースの更新、展開プロセスの一部として。 ただし、多くのエンタープライズ展開シナリオの要件です。 データベースの機能に対して増分更新を行うと、このチュートリアル シリーズの後半でこれを実行する方法のガイダンスを見つけることができます。 詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。
+> > わかりやすくする、このトピックでは、展開プロセスの一部として、データベースの更新を説明します。 ただし、多くのエンタープライズ展開シナリオの要件です。 データベースの機能に対して増分更新を行うと、このチュートリアル シリーズの後半でこれを実行する方法のガイダンスを見つけることができます。 詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。
 
 
 ## <a name="overview"></a>概要

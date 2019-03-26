@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 9b2832dd23f68f9283983b52a85e8a9d5f85fd2f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cd31ae26f0b0b0ad8d333ae93aea9bae8f6a9fc1
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031429"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426017"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用して ASP.NET Web の展開:コマンド ライン配置
 ====================
@@ -83,7 +83,7 @@ MSBuild では、ソリューションがビルドされ、テスト環境に展
 
 [!code-console[Main](command-line-deployment/samples/sample4.cmd?highlight=1)]
 
-Visual Studio 2010 のバージョン番号は 10.0 です。 詳細については、次を参照してください。 [Visual Studio プロジェクトの互換性および VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) Sayed Hashimi's ブログ。
+Visual Studio 2010 のバージョン番号は 10.0 です。 詳細については、次を参照してください。 [Visual Studio プロジェクトの互換性と VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) Sayed Hashimi's ブログ。
 
 ### <a name="specifying-the-publish-profile"></a>発行プロファイルを指定します。
 

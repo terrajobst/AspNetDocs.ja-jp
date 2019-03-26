@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 4158cb055088f3da752020e577007ffe80856b60
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 55e38762dbc7caf31989d65ebf70516a458cfb00
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055959"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425536"
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR パフォーマンス (SignalR 1.x)
 ====================
@@ -148,7 +148,7 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 - **接続されている接続**
 - **接続の再接続**
-- **接続外して**
+- **接続の切断**
 - **現在の接続**
 
 **メッセージ メトリックス**

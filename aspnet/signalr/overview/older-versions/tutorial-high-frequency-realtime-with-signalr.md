@@ -8,12 +8,12 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 6df35a420a0733003808a12d065b03f08ef56dd9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 60fffd7cd5139b2be34968c1f33474be867f0962
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048049"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422884"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR 1.x による高頻度リアルタイム
 ====================
@@ -136,7 +136,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
 ## <a name="add-the-client-loop"></a>クライアントのループを追加します。
 
-すべてのマウス移動イベントに図形の位置を送信すると、ネットワーク トラフィック量が不要なを作成するため、クライアントからメッセージを抑制される必要があります。 使用して、javascript`setInterval`固定の率でサーバーに新しい位置情報を送信するループを設定する関数。 このループは非常に基本的な「ゲーム ループ」を繰り返し呼び出された関数でドライブのすべてのゲームやその他のシミュレーションの機能を表したものです。
+すべてのマウス移動イベントに図形の位置を送信すると、ネットワーク トラフィック量が不要なを作成するため、クライアントからメッセージを調整する必要があります。 使用して、javascript`setInterval`固定の率でサーバーに新しい位置情報を送信するループを設定する関数。 このループは非常に基本的な「ゲーム ループ」を繰り返し呼び出された関数でドライブのすべてのゲームやその他のシミュレーションの機能を表したものです。
 
 1. 次のコード スニペットを一致するように HTML ページ内のクライアント コードを更新します。
 

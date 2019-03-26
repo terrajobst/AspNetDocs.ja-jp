@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 00304f67138873318b63c5e2ad0cd69aa7449521
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f1f5ebbf5170f205be331b6402951fb429196046
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041669"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423716"
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API を使用した RESTful Api を構築します。
 ====================
@@ -528,7 +528,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 1. 移動して、 [Azure 管理ポータル](https://manage.windowsazure.com/)サブスクリプションに関連付けられている Microsoft の資格情報を使用してサインインします。
 
     > [!NOTE]
-    > Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](http://aka.ms/aspnet-hol-azure)します。
+    > Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](https://aka.ms/aspnet-hol-azure)します。
 
     ![Windows Azure ポータルにログオン](build-restful-apis-with-aspnet-web-api/_static/image39.png "Windows Azure ポータルにログオン")
 

@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 3de929ff7253928f2f9cd9b033ef6c643744e91c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 87dbbc0b598a6592b511383a5487a04b302b0994
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050799"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425666"
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>複数のパターンとガイダンス (Azure で現実世界のクラウド アプリの構築)
 ====================
@@ -61,7 +61,7 @@ ms.locfileid: "57050799"
 コード サンプル
 
 - [Fix It アプリケーションこの電子書籍に付属している](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002)します。
-- [クラウド サービス Visual Studio 2012 用の c# での Azure の基礎](http://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
+- [クラウド サービス Visual Studio 2012 用の c# での Azure の基礎](https://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
 
 ハード コピー ブック
 
@@ -101,7 +101,7 @@ ms.locfileid: "57050799"
 - Edward Wu - SSO 章のサンプル コードを提供します。
 - Guang Yang - は、PowerShell の自動化スクリプトを作成しました。
 
-メンバー、 [Microsoft 開発者向けガイダンス Advisory Council](http://aka.ms/DGAC)も確認し、下書きについてコメントしました (DGAC)。
+メンバー、 [Microsoft 開発者向けガイダンス Advisory Council](https://aka.ms/DGAC)も確認し、下書きについてコメントしました (DGAC)。
 
 - Jean-Luc Boucho
 - Catalin Gheorghiu

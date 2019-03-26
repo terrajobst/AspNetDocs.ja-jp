@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0f9b659b67a9a62635091b1e87169bce1218281a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a1f56a48c0c5b16993a853532689a2b524a1f92e
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060699"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425445"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Movie モデルとテーブルに新しいフィールドを追加する
 ====================
@@ -142,7 +142,7 @@ Code First Migrations は、別のクラス ファイルを作成、*移行*フ�
 
 `add-migration`コマンドは現在のムービー DB スキーマを使用して現在のムービー モデルを調べるし、DB を新しいモデルに移行するために必要なコードを作成するために移行フレームワークに指示します。 AddRatingMig は任意なので移行ファイルの名前を使用します。 移行手順のわかりやすい名前を使用することをお勧めします。
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMIgration`クラスを派生し、`Up`メソッド、新しい列を作成するコードを表示できます。
+このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`クラスを派生し、`Up`メソッド、新しい列を作成するコードを表示できます。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample8.cs)]
 

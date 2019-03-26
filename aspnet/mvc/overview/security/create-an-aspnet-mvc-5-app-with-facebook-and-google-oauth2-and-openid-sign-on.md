@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 611a4b59b2ea2eee771f4060fb5d5af041b2ccc6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 132560c0280a2e4096ea4e9a715c32bc880a8b82
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061889"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421428"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn、Google の OAuth2 サインオンを使用して ASP.NET MVC 5 アプリを作成する (C#)
 ====================
@@ -92,7 +92,7 @@ Google や Facebook などの認証プロバイダーに接続するには SSL �
 6. 選択、 **Web**タブをクリックしに SSL URL を貼り付けて、**プロジェクト Url**ボックス。 (Ctl + S) ファイルを保存します。 この URL を Facebook、Google の認証アプリを構成する必要があります。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. 追加、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)属性を`Home`すべての要求を必要とするコント ローラーは、HTTPS を使用する必要があります。 安全な方法は、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)フィルターがアプリケーションにします。 セクションを参照して&quot;SSL と承認属性を使用してアプリケーションを保護する&quot;マイ tutoral で[auth と SQL DB を使って、ASP.NET MVC アプリを作成し、Azure App Service にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)します。 Home コント ローラーの一部は、以下に示します。
+7. 追加、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)属性を`Home`すべての要求を必要とするコント ローラーは、HTTPS を使用する必要があります。 安全な方法は、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)フィルターがアプリケーションにします。 セクションを参照して&quot;SSL と承認属性を使用してアプリケーションを保護する&quot;拙著のチュートリアルで[auth と SQL DB を使って、ASP.NET MVC アプリを作成し、Azure App Service にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)します。 Home コント ローラーの一部は、以下に示します。
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
 8. Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。 過去の証明書をインストールしている場合は、このセクションの残りの部分を省略し、ジャンプ[OAuth 2 用の Google アプリを作成して、アプリ プロジェクトを接続する](#goog)、それ以外の場合、次の手順については、自己署名を信頼するにはIIS Express が生成した証明書。  
