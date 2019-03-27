@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 438ebfa474ab510d90738c4a3ee40e172d838dcb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1596e1c8c1b96fd41c842169b95914c7b02cf196
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030329"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424626"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>マネージド コードでストアド プロシージャとユーザー定義関数を作成する (VB)
 ====================
@@ -303,7 +303,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample7.vb)]
 
-どちらの方法は、単に対応する DAL メソッドを呼び出しを返す、`ProductsDataTable`インスタンス。 `DataObjectMethodAttribute`各メソッドの上のマークアップにより、ObjectDataSource s のデータ ソースの構成ウィザードの選択 タブで、ドロップダウン リストに含まれるこれらのメソッド。
+どちらの方法は、単に対応する DAL メソッドを呼び出しを返す、`ProductsDataTable`インスタンス。 `DataObjectMethodAttribute`各メソッドの上のマークアップにより、ObjectDataSource のデータ ソースの構成ウィザードの選択 タブで、ドロップダウン リストに含まれるこれらのメソッド。
 
 ## <a name="step-8-invoking-the-managed-stored-procedures-from-the-presentation-layer"></a>手順 8: プレゼンテーション層から管理対象のストアド プロシージャの呼び出し
 

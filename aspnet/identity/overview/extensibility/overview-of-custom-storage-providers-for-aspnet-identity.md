@@ -8,12 +8,12 @@ ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: e7461098f93bf64d6ff0d0e4ecdb64338f96be8b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d819fabf4f367c8f6d0ce857bc248a2b812c2b21
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064059"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422208"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity のカスタム ストレージ プロバイダーの概要
 ====================
@@ -82,7 +82,7 @@ ASP.NET Identity のカスタマイズされた記憶域プロバイダーを作
 
 ストア プロバイダーのカスタマイズされたリポジトリのデザイン時の自由度の多くがあります。 アプリケーションで使用する機能のリポジトリを作成する必要があるだけです。 たとえば、アプリケーションでロールを使用していない場合は、ロールまたはユーザー ロールのストレージを作成する必要はありません。 既存のインフラストラクチャ、テクノロジは ASP.NET Identity の既定の実装を非常に異なる構造を必要があります。 データ アクセス層では、リポジトリの構造を使用するロジックを提供します。
 
-ASP.NET Identity 2.0 向けのデータ リポジトリの MySQL の実装を参照してください。 [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql)します。
+ASP.NET Identity 2.0 用のデータ リポジトリの MySQL 実装では、次を参照してください。 [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql)します。
 
 データ アクセス層では、ASP.NET Identity からのデータ ソースにデータを保存するためのロジックを提供します。 カスタマイズされた記憶域プロバイダーのデータ アクセス層には、ユーザーおよびロールの情報を格納する、次のクラスが含まれます。
 

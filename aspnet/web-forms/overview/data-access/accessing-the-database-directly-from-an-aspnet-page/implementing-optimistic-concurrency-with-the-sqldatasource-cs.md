@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f2590e8e7712d719eb89403ef839f03066a93d2b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6569f8e8f11bb67bc0723908225c7fd663a845b3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036079"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423963"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource でオプティミスティック同時実行制御を実装する (C#)
 ====================
@@ -28,7 +28,7 @@ ms.locfileid: "57036079"
 
 前のチュートリアルでは、挿入、更新、および削除 SqlDataSource コントロールに機能を追加する方法について確認しました。 つまり、対応するを指定するためこれらの機能を提供する`INSERT`、 `UPDATE`、または`DELETE`s コントロールでの SQL ステートメント`InsertCommand`、 `UpdateCommand`、または`DeleteCommand`と共に、適切なプロパティ内のパラメーター、 `InsertParameters`、 `UpdateParameters`、および`DeleteParameters`コレクション。 データ ソースの構成ウィザードの [詳細設定] で、生成を提供中に、これらのプロパティとコレクションを手動で指定することができます、 `INSERT`、 `UPDATE`、および`DELETE`が自動的に作成これらのステートメントのステートメントのチェック ボックスに基づいて、`SELECT`ステートメント。
 
-生成と共に`INSERT`、 `UPDATE`、および`DELETE`ステートメントのチェック ボックス、SQL 生成の詳細オプション ダイアログ ボックスにはに、オプション使用してオプティミスティック同時実行制御にはが含まれています (図 1 参照)。 選択した場合、`WHERE`句で、自動生成された`UPDATE`と`DELETE`のみ更新を実行するステートメントが変更または削除、ユーザーから基になるデータベースのデータから t が変更された場合最後に読み込まれるデータ グリッドです。
+生成と共に`INSERT`、 `UPDATE`、および`DELETE`ステートメントのチェック ボックス、SQL 生成の詳細オプション ダイアログ ボックスにはに、オプション使用してオプティミスティック同時実行制御にはが含まれています (図 1 参照)。 選択した場合、`WHERE`句で、自動生成された`UPDATE`と`DELETE`のみ更新を実行または最終、ユーザーは、グリッドに、データを読み込んだので、基になるデータベースのデータが変更されていない場合は、削除するステートメントが変更されました。
 
 
 ![オプティミスティック同時実行制御のサポートを追加するには、高度なから SQL 生成のオプション ダイアログ ボックス](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
@@ -52,7 +52,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 **図 2**:ときに 2 人のユーザーを同時に更新レコードが s 可能性の 1 つのユーザーの変更を上書きするため、他の ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))。
 
 
-このシナリオがの形式を開くことを防ぐために[同時実行制御](http://en.wikipedia.org/wiki/Concurrency_control)実装する必要があります。 [オプティミスティック同時実行制御](http://en.wikipedia.org/wiki/Optimistic_concurrency_control)がある同時実行の競合し、このような競合が t が勝利した時間の大部分が発生したことを前提としてこのチュートリアルの目的が動作します。 そのため場合は、競合が発生した場合、オプティミスティック同時実行制御単にユーザーに通知、別のユーザーには、同じデータが変更されたために、その変更は t が保存されること。
+このシナリオがの形式を開くことを防ぐために[同時実行制御](http://en.wikipedia.org/wiki/Concurrency_control)実装する必要があります。 [オプティミスティック同時実行制御](http://en.wikipedia.org/wiki/Optimistic_concurrency_control)このような競合が発生しない時間の大半を想定しているにも可能性がある同時実行の競合し、このチュートリアルの目的は、動作します。 そのため場合は、競合が発生した場合、オプティミスティック同時実行制御単にユーザーに通知、別のユーザーには、同じデータが変更されたために、その変更は t が保存されること。
 
 > [!NOTE]
 > 多くの同時実行の競合があるか、このような競合が許容されないかどうかの想定をアプリケーションでは、し、ペシミスティック同時実行制御する代わりに使用できます。 参照、[オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)ペシミスティック同時実行制御についてはより詳細なチュートリアルです。
@@ -66,7 +66,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 **図 3**:更新プログラムまたは成功を元の値必要がありますと等しいデータベースの現在の値を Delete ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))。
 
 
-オプティミスティック同時実行制御を実装するためのさまざまな方法はあります (を参照してください[Peter A. 作成](http://www.eggheadcafe.com/articles/pbrombergresume.asp)s [Optmistic 同時実行更新ロジック](http://www.eggheadcafe.com/articles/20050719.asp)のさまざまなオプションについて簡単に説明)。 SqlDataSource (および、データ アクセス層で使用される ADO.NET 型指定されたデータセット) を使用する手法は、`WHERE`に含めるすべての元の値の比較句。 次`UPDATE`ステートメントでは、たとえば、更新プログラム名と製品の価格データベースの現在の値が、GridView でレコードを更新するときに取得された元の値に等しい場合のみです。 `@ProductName`と`@UnitPrice`パラメーターには、ユーザーが入力した新しい値が含まれて`@original_ProductName`と`@original_UnitPrice`編集ボタンがクリックされたときに、GridView に読み込まれた最初の値が含まれます。
+オプティミスティック同時実行制御を実装するためのさまざまな方法はあります (を参照してください[Peter A. 作成](http://www.eggheadcafe.com/articles/pbrombergresume.asp)の[オプティミスティック同時実行更新ロジック](http://www.eggheadcafe.com/articles/20050719.asp)のさまざまなオプションについて簡単に説明)。 SqlDataSource (および、データ アクセス層で使用される ADO.NET 型指定されたデータセット) を使用する手法は、`WHERE`に含めるすべての元の値の比較句。 次`UPDATE`ステートメントでは、たとえば、更新プログラム名と製品の価格データベースの現在の値が、GridView でレコードを更新するときに取得された元の値に等しい場合のみです。 `@ProductName`と`@UnitPrice`パラメーターには、ユーザーが入力した新しい値が含まれて`@original_ProductName`と`@original_UnitPrice`編集ボタンがクリックされたときに、GridView に読み込まれた最初の値が含まれます。
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample1.sql)]
@@ -129,7 +129,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample6.sql)]
 
-`UnitPrice`内の列、`Products`テーブル`NULL`値。 特定のレコードがある場合、`NULL`値`UnitPrice`、`WHERE`句部分`[UnitPrice] = @original_UnitPrice`は*常に*False に評価されたため、`NULL = NULL`常に False を返します。 そのため、レコードを含む`NULL`値を編集したり、削除できないとして、`UPDATE`と`DELETE`ステートメント`WHERE`句は t の戻り値を更新または削除する対象の行。
+`UnitPrice`内の列、`Products`テーブル`NULL`値。 特定のレコードがある場合、`NULL`値`UnitPrice`、`WHERE`句部分`[UnitPrice] = @original_UnitPrice`は*常に*False に評価されたため、`NULL = NULL`常に False を返します。 そのため、レコードを含む`NULL`値を編集したり、削除できないとして、`UPDATE`と`DELETE`ステートメント`WHERE`句を更新または削除する対象の行が返されません。
 
 > [!NOTE]
 > このバグが最初に 2004 年 6 月に Microsoft に報告[生成の不適切な SQL ステートメントを SqlDataSource](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937)され、次のバージョンの ASP.NET で修正される予定とです。
@@ -189,7 +189,7 @@ GridView に次の変更を加えたら、GridView や SqlDataSource 宣言型�
 > 同様に、delete の動作。 2 つのブラウザー ウィンドウが開き、まず、1 つの特定の製品を編集し、その変更を保存します。 1 つのブラウザーで、変更を保存した後、それ以外の同じ製品の削除 ボタンをクリックします。 内元の値は t が同一であるため、`DELETE`ステートメント`WHERE`句では、削除は失敗します。
 
 
-2 番目のブラウザー ウィンドウでのエンド ユーザー s の観点からの更新ボタンをクリックした後グリッドが編集済みのモードを返しますが、変更が失われました。 ただし、s が、変更は一致しませんでした t が引き続き使用する視覚的フィードバックがありません。 理想的には、ユーザーの変更が同時実行制御違反が失われた場合は、d に通知し、おそらく、グリッドを編集モードで保持します。 これを実現する方法を見て s を使用できます。
+2 番目のブラウザー ウィンドウでのエンド ユーザー s の観点からの更新ボタンをクリックした後グリッドが編集済みのモードを返しますが、変更が失われました。 ただし、s が、変更していないものだけ作業を視覚的フィードバックがありません。 理想的には、ユーザーの変更が同時実行制御違反が失われた場合は、d に通知し、おそらく、グリッドを編集モードで保持します。 これを実現する方法を見て s を使用できます。
 
 ## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>手順 3: 同時実行制御違反が発生した場合を決定します。
 
