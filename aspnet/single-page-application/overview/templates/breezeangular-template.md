@@ -8,12 +8,12 @@ ms.date: 03/08/2013
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
-ms.openlocfilehash: a3e8b42cdadf99df6971a278834b1429e129ce72
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a3021f166262ee953b0cbe9ea88762a385925b88
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041189"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423104"
 ---
 <a name="breezeangular-template"></a>Breeze/Angular テンプレート
 ====================
@@ -89,7 +89,7 @@ SPA の land するようになりました。 すべてのものが表示され
 
 検証ロジックは、簡単で実行されるクライアント側です。 サーバー モデルのクラスに検証属性がクライアントに伝達し、クライアントは、サーバーに接続する前に自動的に実行します。
 
-ネットワーク トラフィックを確認します。 存在しないこと、サーバー呼び出しを簡単にエラーが検出されたときに注意してください。 POST 要求に「/api/Todo/SaveChanges」に有効な各変更が発生しました。 簡単、変更をバンドルし、送信まとめて 1 つの要求として、Web API コント ローラーに`SaveChanges`メソッド。 KockoutJS SPA テンプレートは、PUT、POST、および削除の各項目の要求を個別には、異なるです。
+ネットワーク トラフィックを確認します。 存在しないこと、サーバー呼び出しを簡単にエラーが検出されたときに注意してください。 POST 要求に「/api/Todo/SaveChanges」に有効な各変更が発生しました。 簡単、変更をバンドルし、送信まとめて 1 つの要求として、Web API コント ローラーに`SaveChanges`メソッド。 KnockoutJS SPA テンプレートは、PUT、POST、および削除の各項目の要求を個別には、異なるです。
 
 また、およびページについて、TodoList 間を切り替えると、ネットワーク トラフィックはありません。 Breeze のローカル キャッシュにクエリが制約されているためにです。
 
@@ -107,7 +107,7 @@ UI のアーキテクチャでは、コント ローラーでのサポートの�
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ServerArchitecture.png)
 
-基本的なアーキテクチャでは、KockoutJS SPA テンプレートと同じです。 ただし、実装ははるかに簡単です。Dto が削除され、Entity Framework の詳細のほとんどを Breeze.NET に委任されています。
+基本的なアーキテクチャでは、KnockoutJS SPA テンプレートと同じです。 ただし、実装ははるかに簡単です。Dto が削除され、Entity Framework の詳細のほとんどを Breeze.NET に委任されています。
 
 ## <a name="next-steps"></a>次の手順
 

@@ -8,12 +8,12 @@ ms.date: 05/20/2012
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: e936bdfa52f786ec86d3e84eac3cd644225b6f92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9cfbed49c1022fbf26160e89aed3ab474f5e0fdc
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039249"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425692"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API でコンテンツ ネゴシエーション
 ====================
@@ -48,7 +48,7 @@ Web API コント ローラーには、CLR 型としてのリソースが返さ�
 
 [!code-console[Main](content-negotiation/samples/sample3.cmd)]
 
-JSON、Javascript、またはその「何も」この例では、クライアントが要求した (\*/\*)。 サーバー応答の JSON 表現の`Product`オブジェクト。 通知に応答の Content-type ヘッダーが設定されている&quot;、application/json&quot;します。
+JSON、Javascript、またはその「何も」この例では、クライアントが要求した (\*/\*)。 サーバー応答の JSON 表現しました、`Product`オブジェクト。 通知に応答の Content-type ヘッダーが設定されている&quot;、application/json&quot;します。
 
 コント ローラーを返すことも、 **HttpResponseMessage**オブジェクト。 応答本文の CLR オブジェクトを指定するには、呼び出し、 **CreateResponse**拡張メソッド。
 
@@ -62,7 +62,7 @@ JSON、Javascript、またはその「何も」この例では、クライアン
 
 最初に、パイプラインの取得、 **IContentNegotiator**からサービス、 **HttpConfiguration**オブジェクト。 メディア フォーマッタの一覧を取得また、 **HttpConfiguration.Formatters**コレクション。
 
-次に、パイプラインを呼び出す**IContentNegotiatior.Negotiate**で渡し。
+次に、パイプラインを呼び出す**IContentNegotiator.Negotiate**で渡し。
 
 - シリアル化するオブジェクトの種類
 - メディア フォーマッタのコレクション
@@ -73,7 +73,7 @@ JSON、Javascript、またはその「何も」この例では、クライアン
 - どのフォーマッタを使用するには
 - 応答のメディアの種類
 
-フォーマッタが見つからない場合、**ネゴシエート**メソッドを返します。 **null**、およびクライアント渡さ HTTP エラー 406 (Not Acceptable)。
+フォーマッタが見つからない場合、**ネゴシエート**メソッドを返します。 **null**、し、クライアントは、406 (Not Acceptable) の HTTP エラーを受け取ります。
 
 次のコードは、どのコント ローラーを直接呼び出すできますコンテンツ ネゴシエーションを示しています。
 
@@ -92,7 +92,7 @@ JSON、Javascript、またはその「何も」この例では、クライアン
 - **SupportedMediaTypes**コレクションで、サポートされているメディアの種類の一覧が含まれています。 コンテンツ ネゴシエーターは、要求の Accept ヘッダーに対しては、この一覧の一致を試みます。 Accept ヘッダーが範囲を含めることができますに注意してください。 たとえば、"text/plain"にはテキストと一致する/\*または\* /\*します。
 - **MediaTypeMappings**の一覧を含むコレクションを**MediaTypeMapping**オブジェクト。 **MediaTypeMapping**クラスには、メディアの種類が HTTP 要求を一致するように、一般的な方法が用意されています。 たとえば、カスタム HTTP ヘッダーを特定のメディアの種類にマップことでした。
 
-複数ある場合は一致すると、最高の品質ファクター wins と一致します。 例えば:
+複数ある場合は一致すると、最高の品質ファクター wins と一致します。 例:
 
 [!code-console[Main](content-negotiation/samples/sample6.cmd)]
 
