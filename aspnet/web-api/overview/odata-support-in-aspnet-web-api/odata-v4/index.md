@@ -8,6 +8,12 @@ ms.date: 06/26/2014
 ms.assetid: bb807fdd-0bd8-43d0-b068-e88de7e5fd87
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4
 msc.type: chapter
+ms.openlocfilehash: ea6bb911ccda4f78192463c3029d073ed64b4568
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57021489"
 ---
 <a name="supporting-odata-v4-in-aspnet-web-api"></a><span data-ttu-id="f9d0e-103">ASP.NET Web API での OData v4 のサポート</span><span class="sxs-lookup"><span data-stu-id="f9d0e-103">Supporting OData v4 in ASP.NET Web API</span></span>
 ====================

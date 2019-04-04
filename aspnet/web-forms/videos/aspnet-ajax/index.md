@@ -8,6 +8,12 @@ ms.date: 10/05/2011
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
+ms.openlocfilehash: c8084dedc89bc2fcab6bee03b1a65911d42435b3
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57021219"
 ---
 <a name="aspnet-ajax"></a><span data-ttu-id="4258b-103">ASP.NET AJAX</span><span class="sxs-lookup"><span data-stu-id="4258b-103">ASP.NET AJAX</span></span>
 ====================

@@ -8,6 +8,12 @@ ms.date: 10/05/2011
 ms.assetid: cbd98d24-8281-4415-87df-8365f0fbe7fc
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting
 msc.type: chapter
+ms.openlocfilehash: 9323886ed50df775ac587b0473126fbdc28a7a19
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57019889"
 ---
 <a name="basic-reporting"></a><span data-ttu-id="706b7-103">基本レポート</span><span class="sxs-lookup"><span data-stu-id="706b7-103">Basic Reporting</span></span>
 ====================
