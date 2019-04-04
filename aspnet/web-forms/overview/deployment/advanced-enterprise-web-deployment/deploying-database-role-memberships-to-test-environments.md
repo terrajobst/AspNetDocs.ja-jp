@@ -84,7 +84,7 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 
 > [!NOTE]
-> Sqlcmd コマンド ライン オプションの詳細については、次を参照してください。 [sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)します。
+> Sqlcmd コマンド ライン オプションの詳細については、[sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)を参照してください。
 
 
 このコマンドを埋め込むには、MSBuild ターゲットで、前に、スクリプトを実行するどのような条件を考慮する必要があります。
@@ -127,7 +127,7 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 ## <a name="further-reading"></a>関連項目
 
-VSDBCMD を使用してデータベース プロジェクトを配置する詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。 別のターゲット環境のデータベースの配置をカスタマイズする方法のガイダンスについては、次を参照してください。[複数の環境のデータベースの配置をカスタマイズする](customizing-database-deployments-for-multiple-environments.md)します。 カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。 Sqlcmd コマンド ライン オプションの詳細については、次を参照してください。 [sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)します。
+VSDBCMD を使用してデータベース プロジェクトを配置する詳細については、[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。 別のターゲット環境のデータベースの配置をカスタマイズする方法のガイダンスについては、[複数の環境のデータベースの配置をカスタマイズする](customizing-database-deployments-for-multiple-environments.md)を参照してください。 カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)を参照してください。 Sqlcmd コマンド ライン オプションの詳細については、[sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](customizing-database-deployments-for-multiple-environments.md)

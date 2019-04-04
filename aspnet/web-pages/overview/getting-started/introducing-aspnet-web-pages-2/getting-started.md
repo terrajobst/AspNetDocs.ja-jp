@@ -154,7 +154,7 @@ Web Platform Installer が表示されたら、WebMatrix をインストール�
 
 完了したら、インストール プロセスは WebMatrix を自動的に起動できます。 開かない場合は、Windows 内から、**開始**] メニューの [起動**Microsoft WebMatrix**します。
 
-初めて WebMatrix を起動するときに、Microsoft アカウントで Microsoft Azure にサインインする機会が提供されます。 サインインすると、Azure での 10 個の無料の web アプリが表示されます。 これらの無料の web アプリでは、アプリをテストする便利な手段を提供します。 場合は、Azure アカウントでは、既に必要はありませんが、MSDN サブスクリプションが、 [MSDN サブスクリプションの特典をアクティブ化](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)します。 それ以外の場合、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Azure 無料試用版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。
+初めて WebMatrix を起動するときに、Microsoft アカウントで Microsoft Azure にサインインする機会が提供されます。 サインインすると、Azure での 10 個の無料の web アプリが表示されます。 これらの無料の web アプリでは、アプリをテストする便利な手段を提供します。 場合は、Azure アカウントでは、既に必要はありませんが、MSDN サブスクリプションが、 [MSDN サブスクリプションの特典をアクティブ化](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)します。 それ以外の場合、ほんの数分で無料試用版アカウントを作成できます。 詳細については、[Azure 無料試用版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)を参照してください。
 
 このチュートリアルを続行して今すぐサインインする必要はありません。 サインインしないようになりました場合、は、後でサインインするオプションが続行されます。 最後の[トピック](publishing.md)シリーズでは、このチュートリアルには、web サイトを Azure にデプロイする方法について説明します。 そのトピックを完了するサインインしなければ、そのためです。
 

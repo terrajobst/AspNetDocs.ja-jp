@@ -145,7 +145,7 @@ ASP.NET MVC を使用する場合、し、既に慣れてコント ローラー�
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample5.cs)]
 
 > [!NOTE]
-> 呼び出す`new ProductRepository()`コント ローラーでないにとって最善の設計では、コント ローラーの特定の実装に結び付けるため`IProductRepository`します。 優れたアプローチでは、次を参照してください。 [Web API の依存関係競合回避モジュールを使用して](../advanced/dependency-injection.md)します。
+> 呼び出す`new ProductRepository()`コント ローラーでないにとって最善の設計では、コント ローラーの特定の実装に結び付けるため`IProductRepository`します。 優れたアプローチでは、[Web API の依存関係競合回避モジュールを使用して](../advanced/dependency-injection.md)を参照してください。
 
 
 ## <a name="getting-a-resource"></a>リソースの取得
@@ -203,7 +203,7 @@ ASP.NET Web API を簡単に HTTP 応答メッセージを操作します。 強
 **CreateResponse**メソッドを作成、 **HttpResponseMessage**本文に自動的に Product オブジェクトのシリアル化された表現を書き込みます fo 応答メッセージ。
 
 > [!NOTE]
-> この例では検証されません、`Product`します。 モデルの検証については、次を参照してください。 [Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)します。
+> この例では検証されません、`Product`します。 モデルの検証については、[Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)を参照してください。
 
 
 ## <a name="updating-a-resource"></a>リソースの更新

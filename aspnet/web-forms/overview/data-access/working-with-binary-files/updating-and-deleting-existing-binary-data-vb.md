@@ -83,7 +83,7 @@ Let s はこのチュートリアルでは、代わりに、バイナリの画�
 **図 3**:コピーから宣言型マークアップ`UploadInDetailsView.aspx`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image9.png))。
 
 
-宣言型マークアップとコードをコピーした後、次を参照してください。`UpdatingAndDeleting.aspx`します。 出力は同じで、同じユーザー エクスペリエンスの表示と同様`UploadInDetailsView.aspx`ページ、前のチュートリアルから。
+宣言型マークアップとコードをコピーした後、`UpdatingAndDeleting.aspx`を参照してください。 出力は同じで、同じユーザー エクスペリエンスの表示と同様`UploadInDetailsView.aspx`ページ、前のチュートリアルから。
 
 ## <a name="step-4-adding-deleting-support-to-the-objectdatasource-and-gridview"></a>手順 4: ObjectDataSource を GridView サポートの削除を追加します。
 

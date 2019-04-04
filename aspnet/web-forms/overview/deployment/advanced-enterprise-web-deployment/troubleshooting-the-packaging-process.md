@@ -72,7 +72,7 @@ WPP ターゲットの多くは、追加情報を記録する条件付きロジ�
 値を指定するには、プロジェクトをビルドし、Team Foundation Server (TFS) ビルド定義を使用する場合、 **EnablePackageProcessLoggingAndAssert**プロパティ、 **MSBuild 引数**行。![](troubleshooting-the-packaging-process/_static/image1.png)
 
 > [!NOTE]
-> 作成して、ビルド定義の構成の詳細については、次を参照してください。[配置を作成する、ビルド定義をサポートしています](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)します。
+> 作成して、ビルド定義の構成の詳細については、[配置を作成する、ビルド定義をサポートしています](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)を参照してください。
 
 
 または、ビルドのたびに、パッケージを含める場合は、設定する web アプリケーション プロジェクトのプロジェクト ファイルを変更できます、 **EnablePackageProcessLoggingAndAssert**プロパティを**true**します。 最初にプロパティを追加する必要があります**PropertyGroup** .csproj または .vbproj ファイル内の要素。
@@ -93,7 +93,7 @@ WPP ターゲットの多くは、追加情報を記録する条件付きロジ�
 - *AfterExcludeFilesFilesList.txt*の除外が指定されているファイルが削除された後に変更されたファイルの一覧が含まれます。
 
     > [!NOTE]
-    > ファイルとフォルダーをパッケージ化プロセスから除外する方法の詳細については、次を参照してください。[展開から除外ファイルとフォルダー](excluding-files-and-folders-from-deployment.md)します。
+    > ファイルとフォルダーをパッケージ化プロセスから除外する方法の詳細については、[展開から除外ファイルとフォルダー](excluding-files-and-folders-from-deployment.md)を参照してください。
 - *AfterTransformWebConfig.txt*ファイルは、後のパッケージ化に収集されたファイルを一覧表示*Web.config*変換が実行されています。 この一覧の任意の構成に固有の*Web.config*など、ファイルを変換*Web.Debug.config*と*Web.Release.config*のファイルの一覧から除外されますパッケージ化します。 1 つの変換*Web.config*代わりに含まれます。
 - *PostAutoParameterizationWebConfigConnectionStrings.txt*ファイルでは、ファイルの一覧を含む接続文字列の後、 *Web.config*ファイルがパラメーター化されています。 これは、プロセス、パッケージを展開するときに、ターゲット環境の適切な設定で、接続文字列を置換することができます。
 - *Prepackage.txt*ファイルには、パッケージに含まれるファイルの完成したビルド前の一覧が含まれています。
@@ -110,7 +110,7 @@ Web パッケージの内容が期待どおりでないこれらのファイル�
 
 ## <a name="further-reading"></a>関連項目
 
-カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。 WPP とパッケージ化プロセスを管理する方法の詳細については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)します。 Web 展開パッケージから特定のファイルとフォルダーを除外する方法のガイダンスについては、次を参照してください。[展開から除外ファイルとフォルダー](excluding-files-and-folders-from-deployment.md)します。
+カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)を参照してください。 WPP とパッケージ化プロセスを管理する方法の詳細については、[のビルドとパッケージ化 Web Application Projects](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)を参照してください。 Web 展開パッケージから特定のファイルとフォルダーを除外する方法のガイダンスについては、[展開から除外ファイルとフォルダー](excluding-files-and-folders-from-deployment.md)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](running-windows-powershell-scripts-from-msbuild-project-files.md)

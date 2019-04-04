@@ -25,7 +25,7 @@ ms.locfileid: "57054239"
 > 
 > ## <a name="database-first"></a>最初のデータベースします。
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
+> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、[Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)を参照してください。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 

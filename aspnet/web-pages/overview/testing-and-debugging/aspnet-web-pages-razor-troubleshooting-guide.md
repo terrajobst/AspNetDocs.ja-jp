@@ -38,7 +38,7 @@ ms.locfileid: "57061299"
 - [電子メールの送信に関する問題](#email)
 - [その他のリソース](#AdditionalResources)
 
-一般的な質問については、次を参照してください。 [ASP.NET Web Pages (Razor) FAQ](https://go.microsoft.com/fwlink/?LinkId=253000)します。
+一般的な質問については、[ASP.NET Web Pages (Razor) FAQ](https://go.microsoft.com/fwlink/?LinkId=253000)を参照してください。
 
 <a id="Issues_Running_.cshtml_Pages"></a>
 ## <a name="issues-with-running-pages"></a>ページの実行に関する問題
@@ -57,7 +57,7 @@ Web サイトのルートが少なくとも 1 つであること確認 *.cshtml*
 
 Web サーバーがリモート サーバー上のときにこのエラーが発生した場合は、サーバーの管理者に問い合わせてください。 サーバーに .NET Framework 4 があることを確認または以降がインストールされていること。 また、アプリケーションがそのバージョンの.net Framework を使用するように構成されるアプリケーション プールで実行されていることを確認します。
 
-サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行しても試すことがあります、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、次を参照してください。 [ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)します。
+サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行しても試すことがあります、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、[ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)を参照してください。
 
 ### <a name="http-error-40314---forbidden"></a>HTTP エラー 403.14 - 許可されていません
 

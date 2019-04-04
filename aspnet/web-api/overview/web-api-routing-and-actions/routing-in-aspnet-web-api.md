@@ -38,7 +38,7 @@ ASP.NET Web api で、*コント ローラー*は HTTP 要求を処理するク�
 
 詳細については、`WebApiConfig`クラスを参照してください[ASP.NET Web API の構成](../advanced/configuring-aspnet-web-api.md)します。
 
-Web API を自己ホストする場合は、上で直接ルーティング テーブルを設定する必要があります、`HttpSelfHostConfiguration`オブジェクト。 詳細については、次を参照してください。 [Web API を自己ホスト](../older-versions/self-host-a-web-api.md)します。
+Web API を自己ホストする場合は、上で直接ルーティング テーブルを設定する必要があります、`HttpSelfHostConfiguration`オブジェクト。 詳細については、[Web API を自己ホスト](../older-versions/self-host-a-web-api.md)を参照してください。
 
 ルーティング テーブル各エントリが含まれる、*ルート テンプレート*します。 Web API の既定のルート テンプレートは&quot;api/{controller}/{id}&quot;します。 このテンプレートで&quot;api&quot;はリテラルのパス セグメント、および {controller} と {id} はプレース ホルダー変数です。
 
@@ -127,4 +127,4 @@ HTTP 動詞の名前付け規則を使用する代わりに、次の属性のい
 
 ## <a name="further-reading"></a>関連項目
 
-このトピックでは、ルーティングの概要が提供されています。 詳細については、次を参照してください。[ルーティングとアクションの選択](routing-and-action-selection.md)、が正確におよび方法について説明フレームワーク ルートへの URI と一致する、コント ローラーを選択します。 次に呼び出すアクションを選択します。
+このトピックでは、ルーティングの概要が提供されています。 詳細については、[ルーティングとアクションの選択](routing-and-action-selection.md)、が正確におよび方法について説明フレームワーク ルートへの URI と一致する、コント ローラーを選択を参照してください。 次に呼び出すアクションを選択します。

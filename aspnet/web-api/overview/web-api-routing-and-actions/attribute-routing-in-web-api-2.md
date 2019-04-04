@@ -23,7 +23,7 @@ ms.locfileid: "57034279"
 
 規約ベースと呼ばれる、ルーティングの以前のスタイルを引き続き完全にサポートは、ルーティングします。 実際には、同じプロジェクト内の両方の手法を組み合わせることができます。
 
-このトピックでは、属性ルーティングを有効にする方法を示していて、属性ルーティングのさまざまなオプションについて説明します。 属性ルーティングを使用するエンド ツー エンド チュートリアルでは、次を参照してください。[属性ルーティングで Web API 2 で REST API の作成](create-a-rest-api-with-attribute-routing.md)です。
+このトピックでは、属性ルーティングを有効にする方法を示していて、属性ルーティングのさまざまなオプションについて説明します。 属性ルーティングを使用するエンド ツー エンド チュートリアルでは、[属性ルーティングで Web API 2 で REST API の作成](create-a-rest-api-with-attribute-routing.md)を参照してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -36,7 +36,7 @@ ms.locfileid: "57034279"
 <a id="why"></a>
 ## <a name="why-attribute-routing"></a>なぜ属性ルーティングでしょうか。
 
-使用する Web API の最初のリリース*規則に基づく*ルーティングします。 その型のルーティングでは、いずれかを定義するかは基本的に、複数のルート テンプレートには、文字列がパラメーター化されました。 フレームワークは、要求を受信したときに、ルート テンプレートに対して URI が一致します。 (規約ベースのルーティングの詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](routing-in-aspnet-web-api.md)します。
+使用する Web API の最初のリリース*規則に基づく*ルーティングします。 その型のルーティングでは、いずれかを定義するかは基本的に、複数のルート テンプレートには、文字列がパラメーター化されました。 フレームワークは、要求を受信したときに、ルート テンプレートに対して URI が一致します。 (規約ベースのルーティングの詳細については、[ASP.NET Web API におけるルーティング](routing-in-aspnet-web-api.md)を参照してください。
 
 規約ベースのルーティングの利点の 1 つは、テンプレートが 1 つの場所で定義されていること、およびルーティング規則は、すべてのコント ローラー間で一貫して適用されます。 残念ながら、規約ベースのルーティングを困難に RESTful Api に共通している特定の URI パターンをサポートします。 たとえば、リソースには多くの場合、子リソースが含まれます。顧客の注文がある、映画のアクターがあると、ブックの「複数の作者によりやなど。 これらの関係を反映する Uri を作成する自然です。
 
@@ -82,7 +82,7 @@ ms.locfileid: "57034279"
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample3.cs)]
 
-Web API を構成する方法の詳細については、次を参照してください。 [ASP.NET Web API 2 の構成](../advanced/configuring-aspnet-web-api.md)します。
+Web API を構成する方法の詳細については、[ASP.NET Web API 2 の構成](../advanced/configuring-aspnet-web-api.md)を参照してください。
 
 <a id="config"></a>
 ### <a name="note-migrating-from-web-api-1"></a>メモ:Web API 1 からの移行
@@ -96,7 +96,7 @@ Web API 2 では、前に、Web API プロジェクト テンプレートには�
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample5.cs?highlight=4)]
 
 > [!NOTE]
-> 詳細については、次を参照してください。 [ASP.NET ホストによる Web API を構成する](../advanced/configuring-aspnet-web-api.md#webhost)します。
+> 詳細については、[ASP.NET ホストによる Web API を構成する](../advanced/configuring-aspnet-web-api.md#webhost)を参照してください。
 
 
 <a id="add-routes"></a>

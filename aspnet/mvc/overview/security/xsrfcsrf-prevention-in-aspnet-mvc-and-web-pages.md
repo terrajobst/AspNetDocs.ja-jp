@@ -23,7 +23,7 @@ ms.locfileid: "57063949"
 > 
 > XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシング攻撃には、対象とのやり取りが必要です。 フィッシング攻撃では、悪意のある web サイトがターゲットの web サイト、し、対象は、攻撃者に機密情報を提供することにようにだまされます。 XSRF 攻撃では、ある必要はありません多くの場合、相互作用に攻撃対象です。 代わりに、自動的にすべての関連クッキーを模擬 web サイトに送信するブラウザーで、攻撃者が証明書利用者です。
 > 
-> 詳細については、次を参照してください。、 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page)(OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))します。
+> 詳細については、、 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page)(OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))を参照してください。
 
 
 ## <a name="anatomy-of-an-attack"></a>攻撃の分析
@@ -182,7 +182,7 @@ ANTI-XSRF システムには"anonymous"が定義されているユーザーと�
 
 複数のアプリケーションが 1 つのドメインでホストされている場合は、開発者が注意を使用してください。 たとえば、場合でも*example1.cloudapp.net*と*example2.cloudapp.net*はさまざまなホストは、すべてのホスト間で暗黙的な信頼リレーションシップがある、  *\*. cloudapp.net*ドメイン。 この暗黙的な信頼関係[互いの cookie に影響を与える可能性のある信頼されていないホストできる](http://stackoverflow.com/questions/9636857/how-can-asp-net-or-asp-net-mvc-be-protected-from-related-domain-cookie-attacks)(AJAX 要求を管理する同一オリジン ポリシーに必ずしも適用ない HTTP cookie)。 ASP.NET Web スタックのランタイムは、フィールドのトークンにユーザー名が埋め込まれているため、場合でも、悪意のあるサブドメインは、セッション トークンを上書きすることができなく、ユーザーの有効なフィールドのトークンを生成することで、いくつかの軽減策を提供します。 ただし、このような環境でホストされている場合、組み込みの ANTI-XSRF ルーチンもことはできません防御セッション ハイジャックまたは XSRF のログイン。
 
-ANTI-XSRF ルーチンがに対する防御はいない現在[クリックジャッ キング](https://www.owasp.org/index.php/Clickjacking)します。 アプリケーション自体をクリックジャッ キングに対する防御が、X のフレームのオプションを送信することによって行う簡単にことがあります。各応答と共に SAMEORIGIN ヘッダー。 このヘッダーは、最近のすべてのブラウザーでサポートされます。 詳細については、次を参照してください。、 [IE ブログ](https://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx)、 [SDL ブログ](https://blogs.msdn.com/b/sdl/archive/2009/02/05/clickjacking-defense-in-ie8.aspx)、および[OWASP](https://www.owasp.org/index.php/Clickjacking)します。 いくつかの将来のリリースください、MVC、ASP.NET Web スタック ランタイム可能性があり、Web ページの ANTI-XSRF ヘルパーは、アプリケーションは、この攻撃に対しては自動的に保護できるように自動的にこのヘッダーを設定します。
+ANTI-XSRF ルーチンがに対する防御はいない現在[クリックジャッ キング](https://www.owasp.org/index.php/Clickjacking)します。 アプリケーション自体をクリックジャッ キングに対する防御が、X のフレームのオプションを送信することによって行う簡単にことがあります。各応答と共に SAMEORIGIN ヘッダー。 このヘッダーは、最近のすべてのブラウザーでサポートされます。 詳細については、、 [IE ブログ](https://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx)、 [SDL ブログ](https://blogs.msdn.com/b/sdl/archive/2009/02/05/clickjacking-defense-in-ie8.aspx)、および[OWASP](https://www.owasp.org/index.php/Clickjacking)を参照してください。 いくつかの将来のリリースください、MVC、ASP.NET Web スタック ランタイム可能性があり、Web ページの ANTI-XSRF ヘルパーは、アプリケーションは、この攻撃に対しては自動的に保護できるように自動的にこのヘッダーを設定します。
 
 Web 開発者は、そのサイトが XSS 攻撃に対して脆弱でないことを確認する続行する必要があります。 XSS 攻撃が非常に強力なと悪用、XSRF 攻撃からの ASP.NET Web スタック ランタイム防御機能でも改ページします。
 

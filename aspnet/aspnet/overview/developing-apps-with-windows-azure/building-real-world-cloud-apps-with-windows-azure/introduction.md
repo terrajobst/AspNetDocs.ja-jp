@@ -152,7 +152,7 @@ Web サイトにユーザーが、IIS Vm を直接ヒットはありませんに
 
 このすべては自動的に実行します。 行う必要があるものは、web サイトを作成し、Windows PowerShell、Visual Studio、または Azure 管理ポータルを使用して、アプリケーションをデプロイするだけです。
 
-迅速かつ簡単なチュートリアルについては Visual Studio で web アプリケーションを作成して、Azure の Web サイトにデプロイする方法を示す、次を参照してください。 [Azure と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)します。
+迅速かつ簡単なチュートリアルについては Visual Studio で web アプリケーションを作成して、Azure の Web サイトにデプロイする方法を示す、[Azure と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)を参照してください。
 
 <a id="summary"></a>
 ## <a name="summary"></a>まとめ

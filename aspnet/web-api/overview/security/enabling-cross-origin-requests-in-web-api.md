@@ -56,7 +56,7 @@ ms.locfileid: "58425289"
 ## <a name="create-the-webservice-project"></a>Web サービス プロジェクトを作成します。
 
 > [!NOTE]
-> このセクションでは、Web API プロジェクトを作成する方法を知ってを前提としています。 そうでない場合は、次を参照してください。 [ASP.NET Web API の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
+> このセクションでは、Web API プロジェクトを作成する方法を知ってを前提としています。 そうでない場合は、[ASP.NET Web API の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)を参照してください。
 
 1. Visual Studio を起動し、新しい作成**ASP.NET Web アプリケーション (.NET Framework)** プロジェクト。
 2. **新しい ASP.NET Web アプリケーション**ダイアログ ボックスで、**空**プロジェクト テンプレート。 **フォルダーを追加し、参照用のコア**を選択、 **Web API**チェック ボックスをオンします。

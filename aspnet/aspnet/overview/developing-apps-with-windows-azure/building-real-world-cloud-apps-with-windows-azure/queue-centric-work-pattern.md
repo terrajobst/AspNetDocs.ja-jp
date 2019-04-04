@@ -21,7 +21,7 @@ ms.locfileid: "57056939"
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
 
 
 複数のサービスを使用してにより、アプリの有効な SLA が、複合 SLA 見た前に、*製品*の個々 の SLA。 たとえば、Fix It アプリは、Websites、ストレージ、および SQL Database を使用します。 これらのサービスのいずれかが失敗した場合、アプリは、ユーザーにエラーを返します。
@@ -153,7 +153,7 @@ Fix It タスクをキューに配置には、web フロント エンドは、�
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-詳細については、次を参照してください。 [Visual Studio で Azure プロジェクトを作成します。](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
+詳細については、[Visual Studio で Azure プロジェクトを作成を参照してください。](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 ワーカー ロール内でメッセージのポーリングを呼び出して、`ProcessMessageAsync`のメソッド、`FixItQueueManager`先ほどお見せするクラス。
 

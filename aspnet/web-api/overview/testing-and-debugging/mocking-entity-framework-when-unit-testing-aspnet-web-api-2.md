@@ -23,9 +23,9 @@ ms.locfileid: "58422624"
 
 > このガイダンスとアプリケーションは、Entity Framework を使用する Web API 2 アプリケーションの単体テストを作成する方法を説明します。 テストは、コンテキスト オブジェクトを渡すことを有効にするスキャフォールディングされたコント ローラーを変更する方法と Entity Framework で動作するテスト オブジェクトを作成する方法を示しています。
 >
-> ASP.NET Web API を使用した単体テストの概要については、次を参照してください。 [ASP.NET Web API 2 で Unit Testing](unit-testing-with-aspnet-web-api.md)します。
+> ASP.NET Web API を使用した単体テストの概要については、[ASP.NET Web API 2 で Unit Testing](unit-testing-with-aspnet-web-api.md)を参照してください。
 >
-> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、次を参照してください。 [ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
+> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、[ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)を参照してください。
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 >

@@ -36,7 +36,7 @@ ms.locfileid: "57065609"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -138,7 +138,7 @@ ms.locfileid: "57065609"
 <a id="azure"></a>
 ### <a name="azure-table-storage"></a>Azure テーブル ストレージ
 
-Azure テーブル ストレージの次の例では、データベースの例に似ています。 すべての Azure Table Storage サービスを開始する必要のある情報が含まれません。 詳しくは、次を参照してください。 [.NET からテーブル ストレージを使用する方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)します。
+Azure テーブル ストレージの次の例では、データベースの例に似ています。 すべての Azure Table Storage サービスを開始する必要のある情報が含まれません。 詳しくは、[.NET からテーブル ストレージを使用する方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)を参照してください。
 
 次の例では、接続情報を格納するためのテーブル エンティティを示します。 ユーザーの名前で、データをパーティション分割し、ユーザーでは、いつでも複数の接続ができるように、接続 id を使用して各エンティティを識別します。
 

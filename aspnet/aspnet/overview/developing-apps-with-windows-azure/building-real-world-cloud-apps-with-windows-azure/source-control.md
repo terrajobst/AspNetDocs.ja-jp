@@ -21,7 +21,7 @@ ms.locfileid: "57056359"
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
 
 ソース管理は、すべてのクラウド開発プロジェクト、チーム環境だけでなくに不可欠です。 ソース コードの編集を検討するでしょうかも、Word ドキュメントを元に戻す関数と自動バックアップ、およびソース管理なしでは、問題が発生したときにさらに多くの時間を乗り越えるのにプロジェクト レベルでこれらの関数。 クラウド ソースの管理サービスでされなく複雑のセットアップについて心配する必要があるし、最大 5 ユーザーまで無料の Azure リポジトリ ソース管理を使用することができます。
 

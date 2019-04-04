@@ -22,7 +22,7 @@ Zoe ルオ語で
 > これまでは、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセスできます。 OData v4、シングルトンおよびコンテインメント、web Api 2.2 をサポートする 2 つの追加オプションを提供します。
 
 
-この記事では、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。 どのようなシングルトン、およびこれを使用する利点については、次を参照してください。[シングルトンを使用して、特別なエンティティを定義する](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx)します。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。 
+この記事では、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。 どのようなシングルトン、およびこれを使用する利点については、[シングルトンを使用して、特別なエンティティを定義する](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx)を参照してください。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。 
 
 次のデータ モデルを使用して Web API プロジェクトでシングルトンを作成します。
 

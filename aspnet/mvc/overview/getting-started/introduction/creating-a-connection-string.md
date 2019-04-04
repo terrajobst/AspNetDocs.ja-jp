@@ -33,7 +33,7 @@ SQL Server Express は、実稼働 web アプリケーションでの使用は�
 
 Visual Studio 2017 では、LocalDB は、Visual Studio では既定でインストールされます。
 
-既定では、Entity Framework は、オブジェクト コンテキスト クラスと同じ名前の接続文字列の検索 (`MovieDBContext`このプロジェクトの)。 詳細については、次を参照してください。 [ASP.NET Web アプリケーションの SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)します。
+既定では、Entity Framework は、オブジェクト コンテキスト クラスと同じ名前の接続文字列の検索 (`MovieDBContext`このプロジェクトの)。 詳細については、[ASP.NET Web アプリケーションの SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)を参照してください。
 
 アプリケーションのルートを開く*Web.config*次に示すファイル。 (いない、 *Web.config*ファイル、*ビュー*フォルダー)。
 

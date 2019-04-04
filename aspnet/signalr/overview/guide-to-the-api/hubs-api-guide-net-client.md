@@ -37,7 +37,7 @@ ms.locfileid: "57054769"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -82,7 +82,7 @@ ms.locfileid: "57054769"
 - [SignalR ハブ API ガイド - サーバー](hubs-api-guide-server.md)
 - [SignalR ハブ API ガイド - JavaScript クライアント](hubs-api-guide-javascript-client.md)
 
-.NET 4.5 バージョンの API は API のリファレンス トピックへのリンクです。 .NET 4 を使用している場合は、次を参照してください。 [.NET 4 のバージョンを API のトピックの](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)します。
+.NET 4.5 バージョンの API は API のリファレンス トピックへのリンクです。 .NET 4 を使用している場合は、[.NET 4 のバージョンを API のトピックの](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)を参照してください。
 
 <a id="clientsetup"></a>
 
@@ -104,7 +104,7 @@ SignalR が存在するクライアントのバージョンがサーバー上に
 > JavaScript クライアントには、呼び出す前に少なくとも 1 つのイベント ハンドラーを登録する必要が、`Start`メソッドは、接続を確立します。 これは、.NET クライアントの必要はありません。 JavaScript クライアントは、生成されたプロキシ コードに自動的に存在するすべてのハブ プロキシをサーバーを作成、およびハンドラーの登録は、どのハブを指定する方法、クライアントが使用します。 .NET クライアントのハブ プロキシ手動で作成するため、SignalR のプロキシを作成するのいずれかのハブを使用することを想定しています。
 
 
-サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)します。
+サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、[ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)を参照してください。
 
 `Start`メソッドを非同期的に実行します。 後続行のコードは、接続が確立された後まで実行されないようにするには、次のように使用します。 `await` ASP.NET 4.5 の非同期メソッドまたは`.Wait()`同期メソッドにします。 使用しない`.Wait()`WinRT クライアント。
 
@@ -116,7 +116,7 @@ SignalR が存在するクライアントのバージョンがサーバー上に
 
 ### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight クライアントからドメイン間の接続
 
-Silverlight クライアントからドメイン間の接続を有効にする方法については、次を参照してください。[使用可能なドメインの境界を越えてサービスを行う](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx)します。
+Silverlight クライアントからドメイン間の接続を有効にする方法については、[使用可能なドメインの境界を越えてサービスを行う](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx)を参照してください。
 
 <a id="configureconnection"></a>
 
@@ -138,7 +138,7 @@ Silverlight クライアントからドメイン間の接続を有効にする�
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample4.cs?highlight=4)]
 
-詳細については、次を参照してください。 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)します。
+詳細については、[ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)を参照してください。
 
 <a id="querystring"></a>
 
@@ -169,7 +169,7 @@ Silverlight クライアントからドメイン間の接続を有効にする�
 
 ブラウザーでのみ使用されているために、ForeverFrame トランスポートはこの一覧に含まれていません。
 
-サーバー コードでの転送方法を確認する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーのコンテキスト プロパティからのクライアントに関する情報を取得する方法](hubs-api-guide-server.md#contextproperty)します。 トランスポートとフォールバックの詳細については、次を参照してください。 [SignalR のトランスポートとフォールバックの概要](../getting-started/introduction-to-signalr.md#transports)します。
+サーバー コードでの転送方法を確認する方法については、[ASP.NET SignalR ハブ API ガイド - サーバーのコンテキスト プロパティからのクライアントに関する情報を取得する方法](hubs-api-guide-server.md#contextproperty)を参照してください。 トランスポートとフォールバックの詳細については、[SignalR のトランスポートとフォールバックの概要](../getting-started/introduction-to-signalr.md#transports)を参照してください。
 
 <a id="httpheaders"></a>
 
@@ -340,7 +340,7 @@ SignalR は、次の接続に処理できる有効期間イベントを提供し
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample30.cs)]
 
-詳細については、次を参照してください。 [SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)します。
+詳細については、[SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)を参照してください。
 
 <a id="handleerrors"></a>
 

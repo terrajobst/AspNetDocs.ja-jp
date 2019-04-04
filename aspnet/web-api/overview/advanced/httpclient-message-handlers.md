@@ -30,7 +30,7 @@ A*メッセージ ハンドラー*は HTTP 要求を受信し、HTTP 応答を�
 ![](httpclient-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> また、ASP.NET Web API は、サーバー側でメッセージのハンドラーを使用します。 詳細については、次を参照してください。 [HTTP メッセージ ハンドラー](http-message-handlers.md)します。
+> また、ASP.NET Web API は、サーバー側でメッセージのハンドラーを使用します。 詳細については、[HTTP メッセージ ハンドラー](http-message-handlers.md)を参照してください。
 
 
 ## <a name="custom-message-handlers"></a>カスタム メッセージ ハンドラー

@@ -56,7 +56,7 @@ ms.locfileid: "57038399"
 ![[イメージ]](11-adding-email-to-your-web-site/_static/image1.jpg)
 
 > [!NOTE]
-> この例を簡潔にするに、コードを初期化します、`WebMail`ヘルパーの右側で使用するページ。 ただし、実際の web サイトであるグローバル ファイルの場合は、このような初期化コードを配置することをお勧めを初期化する、 `WebMail` web サイトのすべてのファイルのヘルパー。 詳細については、次を参照してください。[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers)します。
+> この例を簡潔にするに、コードを初期化します、`WebMail`ヘルパーの右側で使用するページ。 ただし、実際の web サイトであるグローバル ファイルの場合は、このような初期化コードを配置することをお勧めを初期化する、 `WebMail` web サイトのすべてのファイルのヘルパー。 詳細については、[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers)を参照してください。
 
 
 1. 新しい web サイトを作成します。

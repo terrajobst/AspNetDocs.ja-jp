@@ -347,4 +347,4 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 このチュートリアルでは、Visual Studio のページ デザイナーの基本機能を説明しました。 作成し、Visual Studio で Web フォーム ページを編集する方法を理解したところでその他の機能を探索する可能性があります。 たとえば、以下を実行します。
 
 - ASP.NET Web フォームの詳細について次のステップ バイ ステップ チュートリアル シリーズして[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。
-- カスケード スタイル シート (CSS) について説明します。 詳細については、次を参照してください。 [CSS の概要での作業](https://msdn.microsoft.com/library/bb398931.aspx)します。
+- カスケード スタイル シート (CSS) について説明します。 詳細については、[CSS の概要での作業](https://msdn.microsoft.com/library/bb398931.aspx)を参照してください。

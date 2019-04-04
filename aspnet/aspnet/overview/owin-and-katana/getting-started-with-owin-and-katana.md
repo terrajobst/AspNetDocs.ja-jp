@@ -21,7 +21,7 @@ ms.locfileid: "57052009"
 
 [Web Interface for .NET (OWIN) を開く](http://owin.org/).NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN は、アプリケーションから web サーバーを分離することで、簡単に .NET web 開発のためのミドルウェアを作成します。 また、OWIN 簡単に他のホストに web アプリケーションを移植&#8212;などの Windows サービスまたはその他のプロセスで自己ホストします。
 
-OWIN は、実装ではなく、コミュニティが所有している仕様です。 Katana プロジェクトには、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)します。 この記事でが、右をジャンプを開始するコードにします。
+OWIN は、実装ではなく、コミュニティが所有している仕様です。 Katana プロジェクトには、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)を参照してください。 この記事でが、右をジャンプを開始するコードにします。
 
 このチュートリアルでは[Visual Studio 2013 Release Candidate](https://go.microsoft.com/fwlink/?LinkId=306566)、Visual Studio 2012 を使用することもできます。 いくつかの手順は、Visual Studio 2012 では、下記のメモをここでは異なります。
 
@@ -47,7 +47,7 @@ OWIN は、実装ではなく、コミュニティが所有している仕様で
 
 ### <a name="add-a-startup-class"></a>Startup クラスを追加します。
 
-次に、OWIN startup クラスを追加します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、 **Owin Startup クラス**します。 スタートアップ クラスの構成の詳細については、次を参照してください。 [OWIN スタートアップ クラス検出](owin-startup-class-detection.md)します。
+次に、OWIN startup クラスを追加します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、 **Owin Startup クラス**します。 スタートアップ クラスの構成の詳細については、[OWIN スタートアップ クラス検出](owin-startup-class-detection.md)を参照してください。
 
 ![](getting-started-with-owin-and-katana/_static/image4.png)
 

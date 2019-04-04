@@ -114,4 +114,4 @@ Web アプリの複数のインスタンスを使用して、それらのイン�
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>次の手順
 
-Azure App Service で Web アプリの詳細については、次を参照してください。 [Web Apps の概要](https://azure.microsoft.com/documentation/articles/app-service-web-overview/)します。
+Azure App Service で Web アプリの詳細については、[Web Apps の概要](https://azure.microsoft.com/documentation/articles/app-service-web-overview/)を参照してください。

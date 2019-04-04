@@ -23,9 +23,9 @@ ms.locfileid: "57044409"
 
 > このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトをソリューションに含めるし、コント ローラー メソッドから返された値をチェックするテスト メソッドを記述する方法を示します。
 >
-> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、次を参照してください。 [ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
+> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、[ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)を参照してください。
 >
-> このトピックの「単体テストは、単純なデータ シナリオに意図的に制限されます。 単体テストより高度なデータ シナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)します。
+> このトピックの「単体テストは、単純なデータ シナリオに意図的に制限されます。 単体テストより高度なデータ シナリオで[Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)を参照してください。
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 >
@@ -157,4 +157,4 @@ NuGet パッケージの管理ウィンドウを閉じます。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルを完了しました。 このチュートリアルでは、データは、単体テストの条件に重点を置く意図的に簡略化されました。 単体テストより高度なデータ シナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)します。
+このチュートリアルを完了しました。 このチュートリアルでは、データは、単体テストの条件に重点を置く意図的に簡略化されました。 単体テストより高度なデータ シナリオで[Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)を参照してください。

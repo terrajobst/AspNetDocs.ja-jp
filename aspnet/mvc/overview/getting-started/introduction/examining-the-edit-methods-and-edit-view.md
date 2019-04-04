@@ -117,7 +117,7 @@ ms.locfileid: "57029209"
 
 すべての編集ビューでは、このコードを繰り返しを避けるため、レイアウト ファイルを移動できます。 スクリプトのダウンロードを最適化するには、拙著のチュートリアルを参照してください。[バンドルと縮小](../../performance/bundling-and-minification.md)します。
 
-詳細については、次を参照してください。 [ASP.NET MVC 3 Internationalization](http://afana.me/post/aspnet-mvc-internationalization.aspx)と[ASP.NET MVC 3 国際化 - パート 2 (NerdDinner)](http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx)します。
+詳細については、[ASP.NET MVC 3 Internationalization](http://afana.me/post/aspnet-mvc-internationalization.aspx)と[ASP.NET MVC 3 国際化 - パート 2 (NerdDinner)](http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx)を参照してください。
 
 一時的な対策として英語 (米国) を使用するコンピューターを強制することができます、ロケールでの作業を検証できない場合、またはお使いのブラウザーで JavaScript を無効にすることができます。 英語 (米国) を使用するコンピューターを強制的には、プロジェクトのルートにグローバリゼーションの要素を追加できます*web.config*ファイル。 次のコードでは、United States English に設定する、カルチャにグローバリゼーションの要素を示しています。
 

@@ -130,7 +130,7 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 
 呼び出しに使用する構文、`FindControl`の最初の 2 つの行にメソッドが若干`SubmitButton_Click`と同じ意味ですが。 すべての ASP.NET サーバー コントロールを含めることを思い出してください、`FindControl`メソッド。 これが含まれています、`Page`クラス、すべて ASP.NET からは分離コード クラスから派生する必要があります。 そのため、`FindControl("controlID")`呼び出しと同じですが`Page.FindControl("controlID")`、オーバーライドするいないと仮定すると、`FindControl`分離コード クラスまたはカスタム基底クラス メソッド。
 
-このコードを入力した後、次を参照してください。、`IDIssues.aspx`ブラウザーからページで、お客様の年齢を入力し、[送信] ボタンをクリックします。 [送信] ボタンをクリックすると、`NullReferenceException`が発生します (図 5 を参照してください)。
+このコードを入力した後、、`IDIssues.aspx`ブラウザーからページで、お客様の年齢を入力し、[送信] ボタンをクリックを参照してください。 [送信] ボタンをクリックすると、`NullReferenceException`が発生します (図 5 を参照してください)。
 
 
 [![NullReferenceException が発生します](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)

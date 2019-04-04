@@ -2,12 +2,18 @@
 uid: mvc/videos/mvc-2/how-do-i/index
 title: How Do I |Microsoft Docs
 author: rick-anderson
-description: 'このセクションではビデオでは、ASP.NET MVC、''、Storefront'' - [完了] を最初から全体の電子商取引アプリケーションを構築する方法などについて説明します。'
+description: このセクションではビデオでは、ASP.NET MVC、'、Storefront' - [完了] を最初から全体の電子商取引アプリケーションを構築する方法などについて説明します。
 ms.author: riande
 ms.date: 09/15/2011
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
+ms.openlocfilehash: 09b8b31059ed6a238414714847d191426e28db28
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57023899"
 ---
 <a name="how-do-i"></a>操作方法
 ====================

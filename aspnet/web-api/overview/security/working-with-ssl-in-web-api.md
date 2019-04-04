@@ -28,7 +28,7 @@ IIS 7 またはそれ以降の SSL を設定します。
 - 作成または証明書を取得します。 テストは、自己署名証明書を作成できます。
 - HTTPS バインドを追加します。
 
-詳細については、次を参照してください。 [IIS 7 で SSL の設定方法](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis)します。
+詳細については、[IIS 7 で SSL の設定方法](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis)を参照してください。
 
 ローカル テストでは、Visual Studio からの IIS Express での SSL を有効にできます。 [プロパティ] ウィンドウで次のように設定します。 **SSL が有効になっている**に**True**します。 値に注意してください**SSL URL**; HTTPS 接続をテストするため、この URL を使用します。
 

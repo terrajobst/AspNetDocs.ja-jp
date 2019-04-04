@@ -73,7 +73,7 @@ ms.locfileid: "57041859"
 - 既定では、ブラウザーがに基づいて正しい書式を使用してデータを表示、[ロケール](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx)します。
 - [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性には、データを表示するために正しいフィールド テンプレートの選択を MVC が有効にすることができます (、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)文字列テンプレートを使用)。 詳細については、Brad Wilson を参照してください。 [ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)します。 (MVC 2 用に記述されたもこの記事でまだに適用 ASP.NET MVC の現在のバージョン)。
 
-使用する場合、`DataType`属性指定する必要が、日付フィールドを持つ、 `DisplayFormat` Chrome ブラウザーで、フィールドが正常に表示されることを確認するためにも属性。 詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)します。
+使用する場合、`DataType`属性指定する必要が、日付フィールドを持つ、 `DisplayFormat` Chrome ブラウザーで、フィールドが正常に表示されることを確認するためにも属性。 詳細については、[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)を参照してください。
 
 MVC では、その他の日付形式を処理する方法の詳細についてを参照してください[MVC 5 の概要。メソッドの編集とビューの編集](../introduction/examining-the-edit-methods-and-edit-view.md)と検索のページで&quot;国際化&quot;します。
 
@@ -252,7 +252,7 @@ Course エンティティが外部キー プロパティ`DepartmentID`どの地�
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample21.cs)]
 
-列マッピングは一般に必要な場合は、Entity Framework は通常、プロパティの定義された CLR 型に基づいて適切な SQL Server データ型が選択されるためです。 CLR `decimal` 型は SQL Server の `decimal` 型にマップされます。 通貨額、列が保持されるわかってここでは、 [money](https://msdn.microsoft.com/library/ms179882.aspx)データ型がより適しています。 CLR データ型と SQL Server データ型に一致する方法の詳細については、次を参照してください。[エンティティ FrameworkTypes 用 SqlClient](https://msdn.microsoft.com/library/bb896344.aspx)します。
+列マッピングは一般に必要な場合は、Entity Framework は通常、プロパティの定義された CLR 型に基づいて適切な SQL Server データ型が選択されるためです。 CLR `decimal` 型は SQL Server の `decimal` 型にマップされます。 通貨額、列が保持されるわかってここでは、 [money](https://msdn.microsoft.com/library/ms179882.aspx)データ型がより適しています。 CLR データ型と SQL Server データ型に一致する方法の詳細については、[エンティティ FrameworkTypes 用 SqlClient](https://msdn.microsoft.com/library/bb896344.aspx)を参照してください。
 
 ### <a name="foreign-key-and-navigation-properties"></a>Foreign Key 制約とナビゲーション プロパティ
 
@@ -382,7 +382,7 @@ PMC から入力、`add-migration`コマンド (しないで、`update-database`
 >
 > [!code-xml[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample36.xml?highlight=1)]
 >
-> 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、次を参照してください。 [Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)します。
+> 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、[Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)を参照してください。
 >
 > 失敗した場合、PMC で、次のコマンドを入力して、データベースを再初期化が、もう 1 つを試みることができます。
 >

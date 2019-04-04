@@ -444,4 +444,4 @@ Web.config ファイルに変更を保存する権限があることをこれに
 
 ## <a name="more-information"></a>詳細情報:
 
-ASP.NET 2.0 のプロバイダー モデルでは、多くの他の用途でも (メンバーシップ、プロファイルなど) が、アプリケーションの実装だけでなく、独自のプロバイダーを作成することができます。テキスト ファイルにアプリケーション イベント ログに記録するカスタム プロバイダーの作成の詳細については、次を参照してください。[このリンク](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp)します。
+ASP.NET 2.0 のプロバイダー モデルでは、多くの他の用途でも (メンバーシップ、プロファイルなど) が、アプリケーションの実装だけでなく、独自のプロバイダーを作成することができます。テキスト ファイルにアプリケーション イベント ログに記録するカスタム プロバイダーの作成の詳細については、[このリンク](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp)を参照してください。

@@ -110,10 +110,10 @@ Web パッケージ自体の内容の環境に固有のプロジェクト ファ
 
 これらのプロジェクト ファイルを使用して、シングル ステップ、反復可能な展開プロセスの一環として、実行する必要があります、 *Publish.proj* MSBuild を使用してファイルし、環境固有のプロジェクト ファイルの場所をパラメーターとして渡します。 これは、さまざまな方法で行うことができます。
 
-- MSBuild やカスタム プロジェクト ファイルの概要の概要については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。
-- カスタムのプロジェクト ファイルを実行する MSBuild コマンドを考案する方法については、次を参照してください。 [Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)します。
-- シングル ステップで反復可能な展開でコマンド ファイルに、MSBuild コマンドを組み込む方法については、次を参照してください。[の作成と展開コマンド ファイルを実行している](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)します。
-- チーム ビルドから、カスタムのプロジェクト ファイルを実行する方法については、次を参照してください。[ビルド定義をサポートする展開を作成する](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)します。
+- MSBuild やカスタム プロジェクト ファイルの概要の概要については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)を参照してください。
+- カスタムのプロジェクト ファイルを実行する MSBuild コマンドを考案する方法については、[Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)を参照してください。
+- シングル ステップで反復可能な展開でコマンド ファイルに、MSBuild コマンドを組み込む方法については、[の作成と展開コマンド ファイルを実行している](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)を参照してください。
+- チーム ビルドから、カスタムのプロジェクト ファイルを実行する方法については、[ビルド定義をサポートする展開を作成する](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-server-farm-with-the-web-farm-framework.md)

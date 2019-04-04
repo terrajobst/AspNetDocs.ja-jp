@@ -52,7 +52,7 @@ ASP.NET では、web プロジェクトの 2 つの種類の選択: *web アプ�
     ![[新しいプロジェクト] ダイアログ](creating-web-projects-in-visual-studio/_static/image1.png)
 
     選択することができます**クラウド**を作成するには、左側のウィンドウで、 [Azure クラウド サービス](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)、 [Azure モバイル サービス](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx)、または[Azure WebJob](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs)します。 このトピックでこれらのテンプレートについては説明しません。
-3. 右側のウィンドウでをクリックして、**プロジェクトに Application Insights の追加**チェック ボックスをする場合、正常性と、アプリケーションの使用状況の監視します。 詳細については、次を参照してください。 [web アプリケーションのパフォーマンスを監視](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)します。
+3. 右側のウィンドウでをクリックして、**プロジェクトに Application Insights の追加**チェック ボックスをする場合、正常性と、アプリケーションの使用状況の監視します。 詳細については、[web アプリケーションのパフォーマンスを監視](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)を参照してください。
 4. プロジェクトを指定**名**、**場所**、およびその他のオプション、および順にクリックします**OK**します。
 
     **新しい ASP.NET プロジェクト**ダイアログが表示されます。
@@ -93,7 +93,7 @@ Visual Studio には、web アプリケーションをホストするための A
 
 ![Azure アプリ設定を構成します。](creating-web-projects-in-visual-studio/_static/image9.png)
 
-Azure リソースを作成するため、このプロセスを使用する方法の詳細については、次を参照してください。 [Azure と ASP.NET の概要](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)と[Visual Studio を使用した web サイトの仮想マシンを作成する](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/)します。
+Azure リソースを作成するため、このプロセスを使用する方法の詳細については、[Azure と ASP.NET の概要](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)と[Visual Studio を使用した web サイトの仮想マシンを作成する](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/)を参照してください。
 
 この記事の残りの部分では、使用可能なテンプレートとオプションについて詳しく説明します。 記事には、テンプレートで使用されるブートス トラップ、レイアウトとテーマのフレームワークも導入されています。
 
@@ -114,9 +114,9 @@ Visual Studio 2013 では、.NET 4.5 または .NET framework の以降のバー
 
 提供する Visual Studio 拡張機能をインストールすることも、 [Facebook テンプレート](#facebook)します。
 
-.NET 4 を対象とするプロジェクトを作成する方法については、次を参照してください。 [Visual Studio 2012 のテンプレート](#vs2012)このトピックで後述します。
+.NET 4 を対象とするプロジェクトを作成する方法については、[Visual Studio 2012 のテンプレート](#vs2012)このトピックで後述を参照してください。
 
-モバイル クライアント向けの ASP.NET アプリケーションを作成する方法については、次を参照してください。 [ASP.NET でのモバイル サポート](../../../mobile/index.md)します。
+モバイル クライアント向けの ASP.NET アプリケーションを作成する方法については、[ASP.NET でのモバイル サポート](../../../mobile/index.md)を参照してください。
 
 <a id="empty"></a>
 ### <a name="empty-template"></a>空のテンプレート
@@ -146,7 +146,7 @@ Web フォーム テンプレートを使用するサンプル Web フォーム 
 
 ![Web フォーム テンプレート アプリのホーム ページ](creating-web-projects-in-visual-studio/_static/image10.png)
 
-Web フォームの詳細については、次を参照してください。 [ASP.NET Web フォーム](https://asp.net/web-forms)します。 Web フォーム テンプレートが何をする方法の詳細については、次を参照してください。 [Visual Studio 2013 を使用して基本的な Web フォーム アプリケーションを構築](https://blogs.msdn.com/b/webdev/archive/2013/12/19/building-a-basic-web-forms-application-using-visual-studio-2013.aspx)します。
+Web フォームの詳細については、[ASP.NET Web フォーム](https://asp.net/web-forms)を参照してください。 Web フォーム テンプレートが何をする方法の詳細については、[Visual Studio 2013 を使用して基本的な Web フォーム アプリケーションを構築](https://blogs.msdn.com/b/webdev/archive/2013/12/19/building-a-basic-web-forms-application-using-visual-studio-2013.aspx)を参照してください。
 
 <a id="mvc"></a>
 ### <a name="mvc-template"></a>MVC テンプレート
@@ -161,7 +161,7 @@ MVC テンプレートを使用するサンプルの MVC 5 アプリケーショ
 
 ![MVC サンプル アプリケーション](creating-web-projects-in-visual-studio/_static/image11.png)
 
-MVC の詳細については、次を参照してください。 [ASP.NET MVC](https://asp.net/mvc)します。 MVC 4 テンプレートを選択する方法については、次を参照してください。 [Visual Studio 2012 テンプレート](#vs2012)この記事で後述します。
+MVC の詳細については、[ASP.NET MVC](https://asp.net/mvc)を参照してください。 MVC 4 テンプレートを選択する方法については、[Visual Studio 2012 テンプレート](#vs2012)この記事で後述を参照してください。
 
 <a id="webapi"></a>
 ### <a name="web-api-template"></a>Web API テンプレート
@@ -176,7 +176,7 @@ Web API テンプレートでは、サンプル web サービスを作成しま�
 
 ![Web API のヘルプ ページの取得 API を](creating-web-projects-in-visual-studio/_static/image13.png)
 
-Web API の詳細については、次を参照してください。 [ASP.NET Web API](https://asp.net/web-api)します。
+Web API の詳細については、[ASP.NET Web API](https://asp.net/web-api)を参照してください。
 
 <a id="spa"></a>
 ### <a name="single-page-application-template"></a>単一ページ アプリケーション テンプレート
@@ -189,7 +189,7 @@ SPA テンプレートの唯一の認証オプションが[個々 のユーザ�
 
 ![SPA のサンプル アプリケーション](creating-web-projects-in-visual-studio/_static/image14.png)
 
-SPA テンプレートを使用して、アプリケーションを作成する方法については、次を参照してください。 [Web API の外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)します。
+SPA テンプレートを使用して、アプリケーションを作成する方法については、[Web API の外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)を参照してください。
 
 ASP.NET シングル ページ アプリケーション、および KnockoutJS 以外の JavaScript フレームワークを使用する追加の SPA テンプレートについての詳細については、次のリソースを参照してください。
 
@@ -204,7 +204,7 @@ ASP.NET シングル ページ アプリケーション、および KnockoutJS �
 
 認証オプションはありません、Facebook テンプレートの Facebook アプリケーションが Facebook サイト内で実行し、Facebook の認証に依存しているためです。
 
-ASP.NET の Facebook アプリケーションの詳細については、次を参照してください。 [MVC Facebook API の更新](https://blogs.msdn.com/b/webdev/archive/2014/06/10/updating-the-mvc-facebook-api.aspx)します。
+ASP.NET の Facebook アプリケーションの詳細については、[MVC Facebook API の更新](https://blogs.msdn.com/b/webdev/archive/2014/06/10/updating-the-mvc-facebook-api.aspx)を参照してください。
 
 <a id="vs2012"></a>
 ### <a name="visual-studio-2012-templates"></a>Visual Studio 2012 のテンプレート
@@ -249,7 +249,7 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 
 ![ブートス トラップ アメリア テーマ](creating-web-projects-in-visual-studio/_static/image20.png)
 
-多くのブートス トラップ テーマは、使用可能な free と premium の両方のバージョン。 ブートス トラップでさまざまな UI コンポーネントをなど提供も[ドロップダウン](http://twitter.github.io/bootstrap/components.html#dropdowns)、[ボタン グループ](http://twitter.github.io/bootstrap/components.html#buttonGroups)と[アイコン](http://twitter.github.io/bootstrap/base-css.html#images)。 ブートス トラップの詳細については、次を参照してください。 [Bootstrap サイト](http://twitter.github.io/bootstrap/)します。
+多くのブートス トラップ テーマは、使用可能な free と premium の両方のバージョン。 ブートス トラップでさまざまな UI コンポーネントをなど提供も[ドロップダウン](http://twitter.github.io/bootstrap/components.html#dropdowns)、[ボタン グループ](http://twitter.github.io/bootstrap/components.html#buttonGroups)と[アイコン](http://twitter.github.io/bootstrap/base-css.html#images)。 ブートス トラップの詳細については、[Bootstrap サイト](http://twitter.github.io/bootstrap/)を参照してください。
 
 Visual Studio で Web フォーム デザイナーを使用する場合は、デザイナーに CSS3 をサポートしないため、ブートス トラップ テーマや応答性の高いレイアウトの変更のすべての効果を正確に表示されないことに注意してください。 ただし、Web フォーム ページは、ブラウザーで表示すると、正しく表示します。
 
@@ -326,7 +326,7 @@ ASP.NET Identity では、主に外部の顧客であるインターネット we
 <a id="orgauth"></a>
 ### <a name="organizational-accounts"></a>組織アカウント
 
-選択した場合**組織アカウント**、サンプル アプリケーションは、Azure Active Directory (Azure AD、Office 365 を含む) 内のユーザー アカウントに基づく認証に Windows Identity Foundation (WIF) を使用するように構成されますかWindows Server Active Directory。 詳細については、次を参照してください。[組織アカウントの認証オプション](#orgauthoptions)このトピックで後述します。
+選択した場合**組織アカウント**、サンプル アプリケーションは、Azure Active Directory (Azure AD、Office 365 を含む) 内のユーザー アカウントに基づく認証に Windows Identity Foundation (WIF) を使用するように構成されますかWindows Server Active Directory。 詳細については、[組織アカウントの認証オプション](#orgauthoptions)このトピックで後述を参照してください。
 
 <a id="winauth"></a>
 ### <a name="windows-authentication"></a>Windows 認証
@@ -365,7 +365,7 @@ Azure AD のオプションのいずれかを試すにはまだ、アカウン�
 
 #### <a name="access-level"></a>アクセス レベル
 
-アプリケーションは、クエリまたは Graph API を使用してディレクトリ情報の更新を選択する必要がある場合**でシングル サインオン、ディレクトリ データの読み取り**または**でシングル サインオン、読み取りおよびディレクトリ データを書き込む**します。 それ以外の場合、選択**でシングル サインオン**します。 詳細については、次を参照してください。[アプリケーションのアクセス レベル](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)と[クエリ Azure AD Graph API を使用して](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx)します。
+アプリケーションは、クエリまたは Graph API を使用してディレクトリ情報の更新を選択する必要がある場合**でシングル サインオン、ディレクトリ データの読み取り**または**でシングル サインオン、読み取りおよびディレクトリ データを書き込む**します。 それ以外の場合、選択**でシングル サインオン**します。 詳細については、[アプリケーションのアクセス レベル](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)と[クエリ Azure AD Graph API を使用して](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx)を参照してください。
 
 #### <a name="application-id-uri"></a>アプリケーション ID URI
 
@@ -408,7 +408,7 @@ Visual Studio 2013; まだ更新されていない、チュートリアルVisual
 
 ![オンプレミス組織認証](creating-web-projects-in-visual-studio/_static/image26.png)
 
-Windows Server Active Directory (AD) では定義されているユーザー アカウントの認証を有効にして、Azure AD を使用する場合は、このオプションを選択します。 このオプションを使用すると、イントラネット サイトやインターネット サイトを作成します。 インターネット サイトで Active Directory フェデレーション サービス (ADFS) を使用して、AD にアクセスできるようにします。 詳細については、次を参照してください。 [ASP.NET で、オンプレミス組織認証オプション (ADFS) を使用して、Visual Studio 2013 で](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)します。
+Windows Server Active Directory (AD) では定義されているユーザー アカウントの認証を有効にして、Azure AD を使用する場合は、このオプションを選択します。 このオプションを使用すると、イントラネット サイトやインターネット サイトを作成します。 インターネット サイトで Active Directory フェデレーション サービス (ADFS) を使用して、AD にアクセスできるようにします。 詳細については、[ASP.NET で、オンプレミス組織認証オプション (ADFS) を使用して、Visual Studio 2013 で](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)を参照してください。
 
 イントラネット サイトの代替として選択できます[Windows 認証](#winauth)このオプションの代わりにします。 Windows 認証オプションは、メタデータ ドキュメントの URL を指定する必要はありません。 ただし、Windows 認証与えませんできる Active Directory のアプリケーション アクセスを制御したり、ディレクトリ データを照会します。
 
@@ -423,4 +423,4 @@ AD を使用して、このアプリケーションを識別または Visual Stu
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>次の手順
 
-このドキュメントは Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプを提供しています。 Web 開発用の Visual Studio の使用に関する詳細については、次を参照してください。 [ https://www.asp.net/visual-studio/](../../index.md)します。
+このドキュメントは Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプを提供しています。 Web 開発用の Visual Studio の使用に関する詳細については、[ https://www.asp.net/visual-studio/](../../index.md)を参照してください。

@@ -216,7 +216,7 @@ ASP.NET には、ページ開発者と共に、SiteMapPath などのサイト �
 サイト マップを定義したら、ナビゲーション Web コントロールを含めるにマスター ページを更新しましょう。 具体的には、サイト マップで定義されている各ノードのリスト項目と、順序なしリストを表示する」のレッスンのセクションでは、左側の列にみましょう ListView コントロールを追加します。
 
 > [!NOTE]
-> ListView コントロールは ASP.NET バージョン 3.5 に追加されました。 ASP.NET の以前のバージョンを使用している場合は、代わりに、Repeater コントロールを使用します。 ListView コントロールの詳細については、次を参照してください。[を使用して ASP.NET 3.5 の ListView と DataPager コントロール](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)します。
+> ListView コントロールは ASP.NET バージョン 3.5 に追加されました。 ASP.NET の以前のバージョンを使用している場合は、代わりに、Repeater コントロールを使用します。 ListView コントロールの詳細については、[を使用して ASP.NET 3.5 の ListView と DataPager コントロール](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)を参照してください。
 
 
 レッスン セクションから既存のマークアップの順序なしリストを削除することで開始します。 次に、ListView コントロールをツールボックスからドラッグし、レッスンの下にドロップ見出し。 その他のビュー コントロールと共に、ツールボックスの [データ] セクションに、ListView がある: GridView、DetailsView、およびフォーム ビュー。 ListView の設定`ID`プロパティを`LessonsList`します。

@@ -24,7 +24,7 @@ ms.locfileid: "57055129"
 > このトピックでは、展開プロセスの一部として特定のターゲット環境にデータベースのプロパティを調整する方法について説明します。
 > 
 > > [!NOTE]
-> > トピックでは、MSBuild.exe と VSDBCMD.exe を使用して Visual Studio 2010 データベース プロジェクトをデプロイすることを前提としています。 この方法を選択する理由の詳細については、次を参照してください。 [、企業の Web 展開](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)と[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。
+> > トピックでは、MSBuild.exe と VSDBCMD.exe を使用して Visual Studio 2010 データベース プロジェクトをデプロイすることを前提としています。 この方法を選択する理由の詳細については、[、企業の Web 展開](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)と[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。
 > 
 > 
 > 複数の変換先にデータベース プロジェクトを展開するときは、各ターゲット環境のデータベースの配置プロパティをカスタマイズするとする多くの場合。 たとえば、テスト環境では通常再作成するデプロイごとに、データベース ステージングまたは運用環境では多く可能性が高く、データを保持するために増分更新を行うには。
@@ -134,7 +134,7 @@ Visual Studio 2010 内で (デバッグやリリース) などのソリューシ
 
 ## <a name="further-reading"></a>関連項目
 
-VSDBCMD.exe を使用してデータベース プロジェクトの配置の詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。 カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。
+VSDBCMD.exe を使用してデータベース プロジェクトの配置の詳細については、[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。 カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)を参照してください。
 
 MSDN でこれらの記事では、データベースの配置に関する一般的なガイダンスを提供します。
 

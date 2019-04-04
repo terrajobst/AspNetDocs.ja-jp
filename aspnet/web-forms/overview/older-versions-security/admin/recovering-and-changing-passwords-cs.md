@@ -90,7 +90,7 @@ ASP.NET ページで、PasswordRecovery コントロールの使用を見てみ�
 
 に加えて、SMTP サーバーを使用して、ネットワーク上、または送信される電子メール メッセージの格納場所のピックアップ ディレクトリを指定できます。
 
-SMTP 設定を構成した後は、次を参照してください。、`RecoverPassword.aspx`ページがブラウザーを使用します。 まず、ユーザー ストアに存在しないユーザー名を入力してください。 図 2 に示すよう、PasswordRecovery コントロールには、ユーザー情報がアクセスしないことを示すメッセージが表示されます。 コントロールのメッセージのテキストをカスタマイズできる[`UserNameFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)します。
+SMTP 設定を構成した後は、、`RecoverPassword.aspx`ページがブラウザーを使用を参照してください。 まず、ユーザー ストアに存在しないユーザー名を入力してください。 図 2 に示すよう、PasswordRecovery コントロールには、ユーザー情報がアクセスしないことを示すメッセージが表示されます。 コントロールのメッセージのテキストをカスタマイズできる[`UserNameFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)します。
 
 
 [![無効なユーザー名を入力した場合、エラー メッセージが表示されます。](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)

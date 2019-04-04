@@ -34,7 +34,7 @@ ms.locfileid: "57037789"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -115,7 +115,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 ## <a name="authentication-options-for-net-clients"></a>.NET クライアントの認証オプション
 
-認証されたユーザーを制限するハブとの対話、により、コンソール アプリなどの .NET クライアントがある場合は、cookie、connection ヘッダー。 または、証明書で認証資格情報を渡すことができます。 このセクションの例では、ユーザーを認証するため、これらのさまざまなメソッドを使用する方法を示します。 完全に機能する SignalR アプリケーションではありません。 SignalR を使って .NET クライアントの詳細については、次を参照してください。[ハブ API ガイド - .NET クライアント](../guide-to-the-api/hubs-api-guide-net-client.md)します。
+認証されたユーザーを制限するハブとの対話、により、コンソール アプリなどの .NET クライアントがある場合は、cookie、connection ヘッダー。 または、証明書で認証資格情報を渡すことができます。 このセクションの例では、ユーザーを認証するため、これらのさまざまなメソッドを使用する方法を示します。 完全に機能する SignalR アプリケーションではありません。 SignalR を使って .NET クライアントの詳細については、[ハブ API ガイド - .NET クライアント](../guide-to-the-api/hubs-api-guide-net-client.md)を参照してください。
 
 <a id="cookie"></a>
 

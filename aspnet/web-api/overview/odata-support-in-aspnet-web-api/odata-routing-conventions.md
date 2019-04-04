@@ -66,7 +66,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | GET /entityset(key) | /Products(1) | GetEntityType または Get | GetProduct |
 | GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType または Get | GetBook |
 
-詳細については、次を参照してください。[読み取り専用 OData エンドポイントを作成](odata-v3/creating-an-odata-endpoint.md)です。
+詳細については、[読み取り専用 OData エンドポイントを作成](odata-v3/creating-an-odata-endpoint.md)を参照してください。
 
 **作成、更新、およびエンティティの削除**
 
@@ -87,7 +87,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | GET /entityset(key)/navigation | /Products(1)/Supplier | GetNavigationFromEntityType または GetNavigation | GetSupplierFromProduct |
 | キャスト/ナビゲーション/entityset (キー) を取得します。 | /Products(1)/Models.Book/Author | GetNavigationFromEntityType または GetNavigation | GetAuthorFromBook |
 
-詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
+詳細については、[操作エンティティ関係](odata-v3/working-with-entity-relations.md)を参照してください。
 
 **作成およびリンクを削除します。**
 
@@ -98,7 +98,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | DELETE /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | DeleteLink |
 | DELETE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$links/Suppliers(1) | DeleteLink |
 
-詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
+詳細については、[操作エンティティ関係](odata-v3/working-with-entity-relations.md)を参照してください。
 
 **Properties**
 
@@ -116,7 +116,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | POST /entityset(key)/action | /Products(1)/Rate | ActionNameOnEntityType またはアクション名 | RateOnProduct |
 | 事後/entityset (キー) キャスト/アクション | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType またはアクション名 | CheckOutOnBook |
 
-詳細については、次を参照してください。 [OData アクション](odata-v3/odata-actions.md)します。
+詳細については、[OData アクション](odata-v3/odata-actions.md)を参照してください。
 
 **メソッド シグネチャ**
 

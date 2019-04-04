@@ -21,9 +21,9 @@ ms.locfileid: "57041009"
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)を参照してください。
 
 
 ## <a name="overview"></a>概要
@@ -243,7 +243,7 @@ Elmah にへの書き込みアクセスがあることを確認、 *Elmah*フォ
 
 `User-agent`行は、ファイル内のルールがすべて検索エンジン web クローラー (ロボット) に適用される検索エンジンに指示し、`Disallow`行では、サイトのページをクロールないことを指定します。
 
-検索エンジンを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する可能性がありますようにします。 そのためには、次を参照してください。**できますしないようにする特定のファイルまたはフォルダーの展開からでしょうか。** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)します。 運用環境の発行プロファイルに対してのみ、除外を指定することを確認します。
+検索エンジンを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する可能性がありますようにします。 そのためには、**できますしないようにする特定のファイルまたはフォルダーの展開からでしょうか。** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)を参照してください。 運用環境の発行プロファイルに対してのみ、除外を指定することを確認します。
 
 2 つ目のホスト アカウントの作成は、テスト環境は必要ありませんが、追加費用価値がありますを使用するアプローチです。 以下のチュートリアルでは、テスト環境として IIS を使用して引き続きします。
 

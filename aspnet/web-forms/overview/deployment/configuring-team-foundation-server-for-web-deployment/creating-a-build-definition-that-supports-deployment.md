@@ -39,7 +39,7 @@ ms.locfileid: "57031969"
 - ビルド プロセスのさまざまな他のパラメーター。
 
 > [!NOTE]
-> ビルド定義の詳細については、次を参照してください。[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)します。
+> ビルド定義の詳細については、[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)を参照してください。
 
 
 このトピックでは、開発者が新しいコンテンツでチェックするとき、ビルドがトリガーできるため、CI を使用するビルド定義を作成する方法を説明します。 ビルドが成功すると、ビルド サービスは、ソリューションをテスト環境を配置するカスタムのプロジェクト ファイルを実行します。
@@ -141,12 +141,12 @@ CI を使用するビルド定義を構成した場合は、2 つの方法で、
 この情報を使用して、失敗したビルドのトラブルシューティングを行うし、別のビルドを試行する前に問題に対処することができます。
 
 > [!NOTE]
-> デプロイ ロジックを実行するビルドは、ビルド サーバー先の環境に必要なすべてのアクセス許可を付与が失敗する可能性があります。 詳細については、次を参照してください。[チーム ビルド展開のアクセス許可を構成する](configuring-permissions-for-team-build-deployment.md)します。
+> デプロイ ロジックを実行するビルドは、ビルド サーバー先の環境に必要なすべてのアクセス許可を付与が失敗する可能性があります。 詳細については、[チーム ビルド展開のアクセス許可を構成する](configuring-permissions-for-team-build-deployment.md)を参照してください。
 
 
 ## <a name="monitor-the-build-process"></a>ビルド プロセスを監視します。
 
-TFS では、さまざまなビルド プロセスを監視するのに役立つ機能を提供します。 たとえば、TFS は、電子メールを送信またはビルドが完了したら、タスク バーの通知領域にアラートを表示できます。 詳細については、次を参照してください。[実行とビルドの監視](https://msdn.microsoft.com/library/ms181721.aspx)します。
+TFS では、さまざまなビルド プロセスを監視するのに役立つ機能を提供します。 たとえば、TFS は、電子メールを送信またはビルドが完了したら、タスク バーの通知領域にアラートを表示できます。 詳細については、[実行とビルドの監視](https://msdn.microsoft.com/library/ms181721.aspx)を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 
@@ -156,7 +156,7 @@ TFS では、さまざまなビルド プロセスを監視するのに役立つ
 
 ## <a name="further-reading"></a>関連項目
 
-ビルド定義を作成する方法の詳細については、次を参照してください。[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)します。 キュー ビルドの詳細については、次を参照してください。[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)します。
+ビルド定義を作成する方法の詳細については、[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)を参照してください。 キュー ビルドの詳細については、[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-a-tfs-build-server-for-web-deployment.md)

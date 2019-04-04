@@ -68,7 +68,7 @@ ms.locfileid: "58424028"
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample1.cs)]
 
-Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)します。
+Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、[EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)を参照してください。
 
 1. *ロジック*フォルダーを開き、 *AddProducts.cs*ファイル。
 2. 追加、`using`ステートメント`System.Data.Entity.Infrastructure`黄色で強調表示されています。  

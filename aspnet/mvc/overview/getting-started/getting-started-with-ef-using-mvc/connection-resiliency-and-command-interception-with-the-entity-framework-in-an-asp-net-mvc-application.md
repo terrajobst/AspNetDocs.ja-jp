@@ -58,7 +58,7 @@ Entity Framework プロバイダーでサポートされている任意のデー
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)します。
+    Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、[EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)を参照してください。
 3. *StudentController.cs*、追加、`using`ステートメント`System.Data.Entity.Infrastructure`します。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -68,7 +68,7 @@ Entity Framework プロバイダーでサポートされている任意のデー
 
     使用していた`DataException`にわかりやすい「もう一度やり直してください」のメッセージを提供するために一時的な可能性のあるエラーを特定しようとしています。 再試行ポリシーを有効にした、これで一過性のエラーの中からのみが既にがされてしようとしたや複数回失敗しましたに返される実際の例外がラップされます、`RetryLimitExceededException`例外。
 
-詳細については、次を参照してください。 [Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)します。
+詳細については、[Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)を参照してください。
 
 ## <a name="enable-command-interception"></a>コマンド傍受を有効にします。
 

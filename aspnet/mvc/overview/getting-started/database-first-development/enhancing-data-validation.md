@@ -90,11 +90,11 @@ MVC、Entity Framework、および ASP.NET のスキャフォールディング�
 
 Code First の開発の基本的な例を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)します。 
 
-高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションの Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。 Database First のデータ処理に使用する DbContext API は Code First のデータを操作するために使用する API と同じことに注意してください。 Database First を使用する場合でも、コードの最初のチュートリアルからなど、同時実行の競合を処理、読み取りと、関連するデータの更新などのより複雑なシナリオを処理する方法を学習できます。 唯一の違いは、データベース、コンテキストのクラスおよびエンティティ クラスを作成する方法には。
+高度な例では、[ASP.NET MVC 4 アプリケーションの Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。 Database First のデータ処理に使用する DbContext API は Code First のデータを操作するために使用する API と同じことに注意してください。 Database First を使用する場合でも、コードの最初のチュートリアルからなど、同時実行の競合を処理、読み取りと、関連するデータの更新などのより複雑なシナリオを処理する方法を学習できます。 唯一の違いは、データベース、コンテキストのクラスおよびエンティティ クラスを作成する方法には。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-プロパティとクラスに適用できるデータ検証注釈の一覧については、次を参照してください。 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)します。
+プロパティとクラスに適用できるデータ検証注釈の一覧については、[System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

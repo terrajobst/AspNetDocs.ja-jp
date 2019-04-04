@@ -182,7 +182,7 @@ Visual Studio の主なウィンドウが含まれて、**ソリューション 
 
 ![プロジェクトの NuGet ダイアログ ボックスを作成します。](create-the-project/_static/image9.png)
 
-Visual Studio の詳細については、次を参照してください。 [Visual Web Developer を視覚的なガイド](https://msdn.microsoft.com/library/ee410104.aspx)します。
+Visual Studio の詳細については、[Visual Web Developer を視覚的なガイド](https://msdn.microsoft.com/library/ee410104.aspx)を参照してください。
 
 ## <a name="summary"></a>まとめ
 

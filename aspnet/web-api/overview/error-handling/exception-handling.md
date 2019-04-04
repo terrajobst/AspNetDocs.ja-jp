@@ -106,7 +106,7 @@ Web API 例外フィルターを登録するいくつかの方法はあります
 
 [!code-console[Main](exception-handling/samples/sample11.cmd)]
 
-モデルの検証の詳細については、次を参照してください。 [Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)します。
+モデルの検証の詳細については、[Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)を参照してください。
 
 ### <a name="using-httperror-with-httpresponseexception"></a>HttpResponseException での http エラーの使用
 

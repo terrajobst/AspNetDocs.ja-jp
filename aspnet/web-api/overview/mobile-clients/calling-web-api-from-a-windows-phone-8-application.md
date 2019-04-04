@@ -34,7 +34,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 
 - Windows Phone 8 sdk がインストールされた visual Studio 2013
 - Windows 8 または後で、HYPER-V がインストールされていると、64 ビット システム
-- その他の要件の一覧は、次を参照してください。、*システム要件*セクションで、 [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471)ページをダウンロードします。
+- その他の要件の一覧は、、*システム要件*セクションで、 [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471)ページをダウンロードを参照してください。
 
 > [!NOTE]
 > Web API と、ローカル システム上の Windows Phone 8 プロジェクトの間の接続をテストしようとするで手順を実行する必要があります、 *[にローカルで Web API アプリケーション、Windows Phone 8 エミュレーターを接続します。コンピューター](https://go.microsoft.com/fwlink/?LinkId=324014)* に関する記事をテスト環境を設定します。

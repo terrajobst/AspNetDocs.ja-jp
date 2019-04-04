@@ -221,7 +221,7 @@ Departments Index ページを実行します。 右クリックして、**削�
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-同時実行のさまざまなシナリオを処理する他の方法については、次を参照してください。[オプティミスティック同時実行パターン](https://msdn.microsoft.com/data/jj592904)と[プロパティの値を操作](https://msdn.microsoft.com/data/jj592677)msdn です。 次のチュートリアル用の table-per-hierarchy 継承を実装する方法を示しています、`Instructor`と`Student`エンティティ。
+同時実行のさまざまなシナリオを処理する他の方法については、[オプティミスティック同時実行パターン](https://msdn.microsoft.com/data/jj592904)と[プロパティの値を操作](https://msdn.microsoft.com/data/jj592677)msdn を参照してください。 次のチュートリアル用の table-per-hierarchy 継承を実装する方法を示しています、`Instructor`と`Student`エンティティ。
 
 ## <a name="next-steps"></a>次の手順
 

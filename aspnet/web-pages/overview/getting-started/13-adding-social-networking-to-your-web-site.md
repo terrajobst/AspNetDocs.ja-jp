@@ -62,7 +62,7 @@ ms.locfileid: "57041849"
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>フィード、Twitter を追加します。
 
-Twitter API の現在のバージョンと互換性がある Twitter ヘルパーの使用方法の詳細については、次を参照してください。 [Twitter ヘルパー](../ui-layouts-and-themes/twitter-helper.md)します。 この例では、多くのページからコードを簡単に再利用できるように、独自のヘルパーを記述する方法を示します。
+Twitter API の現在のバージョンと互換性がある Twitter ヘルパーの使用方法の詳細については、[Twitter ヘルパー](../ui-layouts-and-themes/twitter-helper.md)を参照してください。 この例では、多くのページからコードを簡単に再利用できるように、独自のヘルパーを記述する方法を示します。
 
 <a id="Displaying_a_Facebook_Button"></a>
 ## <a name="displaying-a-facebook-quotlikequot-button"></a>Facebook を表示する&quot;など&quot;ボタン

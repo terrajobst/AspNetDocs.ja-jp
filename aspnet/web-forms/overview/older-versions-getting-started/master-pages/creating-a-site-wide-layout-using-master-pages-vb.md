@@ -205,7 +205,7 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 
 ### <a name="adding-markup-and-web-controls-to-the-content-page"></a>コンテンツのページにマークアップおよび Web コントロールを追加します。
 
-一部のコンテンツを作成する少し、`About.aspx`ページ。 図 10 で、"について、Author"見出しと、いくつかの段落のテキストを入力したを参照してください。 が、自由にも、Web コントロールを追加できます。 このインターフェイスを作成した後、次を参照してください。、`About.aspx`ページがブラウザーを使用します。
+一部のコンテンツを作成する少し、`About.aspx`ページ。 図 10 で、"について、Author"見出しと、いくつかの段落のテキストを入力したを参照してください。 が、自由にも、Web コントロールを追加できます。 このインターフェイスを作成した後、、`About.aspx`ページがブラウザーを使用を参照してください。
 
 
 [![ブラウザーを使用して About.aspx ページを参照してください。](creating-a-site-wide-layout-using-master-pages-vb/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image26.png)

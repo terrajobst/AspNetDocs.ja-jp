@@ -210,7 +210,7 @@ ASP.NET MVC 3 をサポート、新しい[RemoteAttribute](https://msdn.microsof
 
 ### <a name="json-binding-support"></a>JSON のバインディング サポート
 
-ASP.NET MVC 3 には、JSON でエンコードされたデータを受信し、モデル バインド、アクション メソッドのパラメーターにアクション メソッドを使用する組み込みの JSON バインド サポートが含まれています。 この機能は、クライアントのテンプレートとデータ バインドに関連するシナリオで役立ちます。 (クライアントのテンプレートを使用する書式設定し、クライアント上で実行されるテンプレートを使用して、1 つのデータ項目または一連のデータ項目を表示します。)MVC 3 では、サーバー上の JSON データを送受信するアクション メソッドとクライアント テンプレートを簡単に接続することができます。 JSON のバインディング サポートの詳細については、次を参照してください。、 **JavaScript と AJAX の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)します。
+ASP.NET MVC 3 には、JSON でエンコードされたデータを受信し、モデル バインド、アクション メソッドのパラメーターにアクション メソッドを使用する組み込みの JSON バインド サポートが含まれています。 この機能は、クライアントのテンプレートとデータ バインドに関連するシナリオで役立ちます。 (クライアントのテンプレートを使用する書式設定し、クライアント上で実行されるテンプレートを使用して、1 つのデータ項目または一連のデータ項目を表示します。)MVC 3 では、サーバー上の JSON データを送受信するアクション メソッドとクライアント テンプレートを簡単に接続することができます。 JSON のバインディング サポートの詳細については、、 **JavaScript と AJAX の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)を参照してください。
 
 <a id="BM_Model_Validation_Improvements"></a>
 
@@ -232,7 +232,7 @@ ASP.NET MVC 3 では`DataAnnotations`などのメタデータ属性`DisplayAttri
 
 [IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx)インターフェイスは、実行時に検証コントロールがあるクライアントの検証をサポートするかどうかを検出する ASP.NET MVC を使用できます。 このインターフェイスは、さまざまな検証フレームワークに統合できるように設計されています。
 
-検証のインターフェイスの詳細については、次を参照してください。、**モデル検証の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)します。 (ただし、ブログで"IValidateObject"への参照は"IValidatableObject"である必要があります。)
+検証のインターフェイスの詳細については、、**モデル検証の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)を参照してください。 (ただし、ブログで"IValidateObject"への参照は"IValidatableObject"である必要があります。)
 
 <a id="BM_Dependency_Injection_Improvements"></a>
 
@@ -296,7 +296,7 @@ ASP.NET MVC 3 のスキャフォールディング テンプレートは、モ�
 
 ### <a name="sessionless-controller-support"></a>Sessionless コント ローラーのサポート
 
-ASP.NET MVC 3 の場合は、セッションの状態を使用するコント ローラー クラスを希望するかどうかを指定する、セッション状態するかどうか読み取り/書き込みまたは読み取り専用です。 Sessionless コント ローラーのサポートの詳細については、次を参照してください。 [MVC 3 のリリース ノート](../whitepapers/mvc3-release-notes.md)します。
+ASP.NET MVC 3 の場合は、セッションの状態を使用するコント ローラー クラスを希望するかどうかを指定する、セッション状態するかどうか読み取り/書き込みまたは読み取り専用です。 Sessionless コント ローラーのサポートの詳細については、[MVC 3 のリリース ノート](../whitepapers/mvc3-release-notes.md)を参照してください。
 
 ### <a name="new-additionalmetadataattribute-class"></a>新しい"AdditionalMetadataAttribute"クラス
 

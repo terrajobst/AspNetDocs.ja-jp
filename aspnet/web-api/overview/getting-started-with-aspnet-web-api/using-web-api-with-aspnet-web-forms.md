@@ -72,7 +72,7 @@ Visual Studio を起動し、選択**新しいプロジェクト**から、**開
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample4.cs)]
 
-ルーティング テーブルの詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)します。
+ルーティング テーブルの詳細については、[ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)を参照してください。
 
 ## <a name="add-client-side-ajax"></a>クライアント側 AJAX を追加します。
 

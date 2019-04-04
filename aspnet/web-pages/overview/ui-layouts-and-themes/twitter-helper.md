@@ -41,7 +41,7 @@ ms.locfileid: "57058219"
 
 このトピックでは、Twitter API のバージョン 1.1 用に記述されています。 直接 Twitter ヘルパー コードを追加すると、プロジェクトに、Twitter API が変更された場合、ヘルパー コードを更新できます。
 
-WebMatrix のインストール方法の詳細については、次を参照してください。 [Introducing ASP.NET Web Pages 2 - Getting Started](../getting-started/introducing-aspnet-web-pages-2/getting-started.md)します。
+WebMatrix のインストール方法の詳細については、[Introducing ASP.NET Web Pages 2 - Getting Started](../getting-started/introducing-aspnet-web-pages-2/getting-started.md)を参照してください。
 
 ## <a name="add-twitter-helper-to-your-project"></a>Twitter ヘルパーをプロジェクトに追加します。
 

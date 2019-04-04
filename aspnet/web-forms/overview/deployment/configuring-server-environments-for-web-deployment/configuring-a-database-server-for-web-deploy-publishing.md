@@ -45,7 +45,7 @@ Web 配置をサポートするためにデータベース サーバーを構成
 のみ、SQL Server インスタンスを含める必要があります、**データベース エンジン サービス**ロールは、任意の SQL Server のインストールに自動的に含まれています。 ただし、構成と保守の容易にするため、推奨を含めること、**管理ツール-基本**と**管理ツール-完全**サーバーの役割。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。 SQL Server をインストールする方法の詳細については、次を参照してください。 [SQL Server 2008 R2 のインストール](https://technet.microsoft.com/library/bb500395.aspx)します。
+> コンピューターをドメインに参加させる方法については、[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)を参照してください。 静的 IP アドレスの構成の詳細については、[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)を参照してください。 SQL Server をインストールする方法の詳細については、[SQL Server 2008 R2 のインストール](https://technet.microsoft.com/library/bb500395.aspx)を参照してください。
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>SQL Server へのリモート アクセスを有効にします。
@@ -135,7 +135,7 @@ Web アプリケーションにインターネット インフォメーション
 Web アプリケーションが 1 台のサーバーではなく、サーバー ファームで実行している場合は、サーバー ファーム内のすべての web サーバーにこれらの手順を繰り返す必要があります。
 
 > [!NOTE]
-> アプリケーション プール id とネットワークのリソースへのアクセスの詳細については、次を参照してください。[アプリケーション プール Id](https://go.microsoft.com/?linkid=9805123)します。
+> アプリケーション プール id とネットワークのリソースへのアクセスの詳細については、[アプリケーション プール Id](https://go.microsoft.com/?linkid=9805123)を参照してください。
 
 
 さまざまな方法でこれらのタスクの方法があります。 ログインを作成するには、ことができますか。
@@ -162,7 +162,7 @@ SQL Server ログインは、ために展開するデータベースに依存す
 - データベース ロール、ログインに手動で割り当てる、最初にデータベースをデプロイした後。
 - 配置後スクリプトを使用して、ログインにデータベース ロールを割り当てます。
 
-ログインとデータベース ロールのマッピングの作成を自動化する方法については、次を参照してください。[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。 または、次の手順を使用すると、マシン アカウントのログインを手動で必要なデータベース ロールにマップします。 までには、この手順を実行することはできませんに注意してください。*後*データベースをデプロイしました。
+ログインとデータベース ロールのマッピングの作成を自動化する方法については、[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)を参照してください。 または、次の手順を使用すると、マシン アカウントのログインを手動で必要なデータベース ロールにマップします。 までには、この手順を実行することはできませんに注意してください。*後*データベースをデプロイしました。
 
 **データベース ロールを web サーバー マシン アカウントのログインにマップするには**
 
@@ -180,7 +180,7 @@ SQL Server ログインは、ために展開するデータベースに依存す
 データベース ロールの手動マッピングは、テスト環境の複数の適切なが多くの場合、はステージング環境または運用環境への自動、または 1 回のクリックの展開の推奨されません。 詳細についてはこの種の配置後スクリプトを使用してタスクを自動化することで見つかります[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。
 
 > [!NOTE]
-> サーバー プロジェクトとデータベース プロジェクトの詳細については、次を参照してください。 [Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/library/ff678491.aspx)します。
+> サーバー プロジェクトとデータベース プロジェクトの詳細については、[Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/library/ff678491.aspx)を参照してください。
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>展開アカウントのアクセス許可を構成します。
@@ -226,7 +226,7 @@ SQL Server ログインは、ために展開するデータベースに依存す
 
 ## <a name="further-reading"></a>関連項目
 
-データベース プロジェクトの配置方法の詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。 配置後スクリプトを実行してデータベース ロールのメンバーシップを作成する方法の詳細については、次を参照してください。[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。 メンバーシップ データベースをもたらす独自の展開の課題に対応する方法のガイダンスについては、次を参照してください。[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)します。
+データベース プロジェクトの配置方法の詳細については、[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。 配置後スクリプトを実行してデータベース ロールのメンバーシップを作成する方法の詳細については、[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)を参照してください。 メンバーシップ データベースをもたらす独自の展開の課題に対応する方法のガイダンスについては、[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

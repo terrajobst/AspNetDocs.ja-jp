@@ -74,7 +74,7 @@ Imagine の web サイトが構成された、URL 承認規則を持っている
 
 `UrlAuthorizationModule`はマネージ コードは、ASP.NET ランタイムの一部であります。 前のバージョン 7 のマイクロソフトの[インターネット インフォメーション サービス (IIS)](https://www.iis.net/) web サーバー、IIS の HTTP パイプラインと、ASP.NET ランタイムのパイプラインの個別障害が発生しました。 簡単に言えば、IIS 6 以降では、ASP します。NET の`UrlAuthorizationModule`ASP.NET ランタイムに要求が IIS から委任されるときにのみ実行されます。 既定では、IIS などの静的コンテンツ自体の HTML ページと CSS、JavaScript、およびイメージ ファイルの処理し、ASP.NET ランタイムの拡張子を持つページへの要求のみを渡します`.aspx`、 `.asmx`、または`.ashx`を要求します。
 
-IIS 7 では、ただしでは、統合された IIS と ASP.NET パイプライン。 呼び出す、IIS 7 を設定するいくつかの構成設定で、`UrlAuthorizationModule`の*すべて*要求、任意の種類のファイルの URL 承認規則を定義できることを意味します。 さらに、IIS 7 には、独自の URL 承認エンジンが含まれています。 ASP.NET の統合と IIS 7 のネイティブ URL 承認の機能の詳細については、次を参照してください。[理解 IIS7 URL 承認](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)します。 ASP.NET と IIS 7 の統合の詳細については、集荷 Shahram Khosravi のマニュアルのコピーを*Professional IIS 7 と ASP.NET の統合プログラミング*(ISBN:978-0470152539).
+IIS 7 では、ただしでは、統合された IIS と ASP.NET パイプライン。 呼び出す、IIS 7 を設定するいくつかの構成設定で、`UrlAuthorizationModule`の*すべて*要求、任意の種類のファイルの URL 承認規則を定義できることを意味します。 さらに、IIS 7 には、独自の URL 承認エンジンが含まれています。 ASP.NET の統合と IIS 7 のネイティブ URL 承認の機能の詳細については、[理解 IIS7 URL 承認](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)を参照してください。 ASP.NET と IIS 7 の統合の詳細については、集荷 Shahram Khosravi のマニュアルのコピーを*Professional IIS 7 と ASP.NET の統合プログラミング*(ISBN:978-0470152539).
 
 簡単に言うと、IIS 7 よりも前のバージョンでは、URL 承認規則のみに適用されます、ASP.NET ランタイムによって処理されるリソース。 IIS 7 と IIS のネイティブ URL 認証機能を使用する、または ASP を統合することはできます。NET の`UrlAuthorizationModule`IIS の HTTP パイプラインにすべての要求には、この機能の拡張によって実現します。
 

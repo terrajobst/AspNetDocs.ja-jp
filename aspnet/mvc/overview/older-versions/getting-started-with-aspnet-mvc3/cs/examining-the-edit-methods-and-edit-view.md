@@ -86,7 +86,7 @@ ASP.NET framework のモデル バインダーはポストされたフォーム�
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image8.png)](examining-the-edit-methods-and-edit-view/_static/image7.png)
 
-> **ロケールに関する注意事項**通常の英語以外のロケールを使用する場合は、次を参照してください。[英語以外のロケールを使用した ASP.NET MVC 3 検証をサポートします。](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
+> **ロケールに関する注意事項**通常の英語以外のロケールを使用する場合は、[英語以外のロケールを使用した ASP.NET MVC 3 検証をサポートを参照してください。](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
 ## <a name="making-the-edit-method-more-robust"></a>Edit メソッドをより堅牢な作成

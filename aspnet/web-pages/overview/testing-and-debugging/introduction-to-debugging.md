@@ -131,7 +131,7 @@ Web サイトをテストするときに実行中のコードは、ブレーク�
 
 ![値を参照してください。](introduction-to-debugging/_static/image3.png)
 
-Visual Studio で、統合デバッガーを使用して、ASP.NET Razor ページをデバッグする方法については、次を参照してください。[プログラミング ASP.NET Web Pages (Razor) を使用して Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)します。
+Visual Studio で、統合デバッガーを使用して、ASP.NET Razor ページをデバッグする方法については、[プログラミング ASP.NET Web Pages (Razor) を使用して Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)を参照してください。
 
 ## <a name="additional-resources"></a>その他のリソース
 

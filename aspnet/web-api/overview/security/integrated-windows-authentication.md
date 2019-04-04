@@ -26,7 +26,7 @@ ms.locfileid: "57063709"
 | -IIS に組み込まれています。 -要求では、ユーザーの資格情報を送信しません。 場合、クライアント コンピューターは、ドメイン (たとえば、イントラネット アプリケーション) に属している、ユーザーが資格情報を入力する必要はありません。 | -インターネット アプリケーションはお勧めしません。 -クライアントで Kerberos または NTLM のサポートが必要です。 クライアントは、Active Directory ドメインになければなりません。 |
 
 > [!NOTE]
-> アプリケーションが Azure でホストし、オンプレミスの Active Directory ドメインを使用している場合、オンプレミスの AD と Azure Active Directory のフェデレーションを検討してください。 これにより、ユーザーが自分のオンプレミスの資格情報でログインできますが、Azure AD によって認証されます。 詳細については、次を参照してください。 [Azure Authentication](../../../visual-studio/overview/2012/windows-azure-authentication.md)します。
+> アプリケーションが Azure でホストし、オンプレミスの Active Directory ドメインを使用している場合、オンプレミスの AD と Azure Active Directory のフェデレーションを検討してください。 これにより、ユーザーが自分のオンプレミスの資格情報でログインできますが、Azure AD によって認証されます。 詳細については、[Azure Authentication](../../../visual-studio/overview/2012/windows-azure-authentication.md)を参照してください。
 
 
 統合 Windows 認証を使用するアプリケーションを作成するには、MVC 4 プロジェクト ウィザードで、「イントラネット アプリケーション」テンプレートを選択します。 このプロジェクト テンプレートは、Web.config ファイルに次の設定を格納します。

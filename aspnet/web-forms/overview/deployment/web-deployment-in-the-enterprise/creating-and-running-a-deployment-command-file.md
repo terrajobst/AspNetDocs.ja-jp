@@ -110,10 +110,10 @@ ms.locfileid: "57048339"
 
 
 > [!NOTE]
-> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
+> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)を参照してください。
 
 
-プロパティをオーバーライドするか、MSBuild コマンドの他の各種のスイッチを設定して各環境のビルド プロセスをカスタマイズすることもできます。 詳細については、次を参照してください。 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)します。
+プロパティをオーバーライドするか、MSBuild コマンドの他の各種のスイッチを設定して各環境のビルド プロセスをカスタマイズすることもできます。 詳細については、[MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](deploying-database-projects.md)

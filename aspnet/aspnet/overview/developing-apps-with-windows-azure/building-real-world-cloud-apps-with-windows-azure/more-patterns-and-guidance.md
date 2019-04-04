@@ -21,7 +21,7 @@ ms.locfileid: "58425666"
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
 
 
 これまでの 13 パターンで成功する方法のガイダンスを提供するクラウド コンピューティングはこれでしました。 これらは、クラウド アプリに適用されるパターンのほんの一部です。 さらにいくつかのクラウド コンピューティング トピック、およびそれらに役立つリソースを次に示します。
@@ -72,7 +72,7 @@ ms.locfileid: "58425666"
 - [Windows Azure の新興のパターンをプログラミング](https://www.amazon.com/dp/1849685606)します。 によって Riccardo Becker します。
 - [Microsoft Windows Azure 開発 Cookbook](https://www.amazon.com/dp/1849682224)します。 Neil Mackenzie。、
 
-最後に、実際のアプリの構築を開始して、Azure で実行するには、遅かれ早かれ大抵の場合は、専門家から支援を必要があります。 などのコミュニティ サイトで質問を入力することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)、または直接 Azure のサポートを Microsoft に連絡することができます。 マイクロソフトは、Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、次を参照してください。 [Azure のサポート](https://azure.microsoft.com/support/plans/)します。
+最後に、実際のアプリの構築を開始して、Azure で実行するには、遅かれ早かれ大抵の場合は、専門家から支援を必要があります。 などのコミュニティ サイトで質問を入力することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)、または直接 Azure のサポートを Microsoft に連絡することができます。 マイクロソフトは、Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、[Azure のサポート](https://azure.microsoft.com/support/plans/)を参照してください。
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>謝辞

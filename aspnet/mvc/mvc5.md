@@ -23,7 +23,7 @@ ms.locfileid: "57038039"
 
 Web MVC プロジェクト テンプレートは、1 つの ASP.NET のエクスペリエンスとシームレスに統合します。 MVC プロジェクトをカスタマイズし、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成します。 ASP.NET MVC 5 の入門のチュートリアルをご覧[ASP.NET MVC 5 の概要](overview/getting-started/introduction/getting-started.md)します。
 
-MVC 5、MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)します。
+MVC 5、MVC 4 プロジェクトをアップグレードする方法については、[ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)を参照してください。
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
@@ -31,7 +31,7 @@ ASP.NET Identity を使用して認証と id 管理には、MVC プロジェク�
 
 ### <a name="bootstrap"></a>ブートス トラップ
 
-使用する MVC プロジェクト テンプレートが更新されました[ブートス トラップ](http://getbootstrap.com/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、次を参照してください。 [Visual Studio web プロジェクト テンプレートでのブートス トラップ](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap)します。
+使用する MVC プロジェクト テンプレートが更新されました[ブートス トラップ](http://getbootstrap.com/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、[Visual Studio web プロジェクト テンプレートでのブートス トラップ](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap)を参照してください。
 
 ### <a name="authentication-filters"></a>認証フィルター
 
@@ -60,7 +60,7 @@ Visual Studio には、Visual Studio 2013 以降で、新しい web プロジェ
 
 ![認証オプション](mvc5/_static/change-authentication-dialog.png)
 
-Web プロジェクトを作成するためのプロセスの詳細については、次を参照してください。 [Visual Studio で ASP.NET Web プロジェクトの作成](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md)です。 認証オプションの詳細については、次を参照してください。 [ASP.NET Identity](../identity/overview/index.md)します。
+Web プロジェクトを作成するためのプロセスの詳細については、[Visual Studio で ASP.NET Web プロジェクトの作成](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md)を参照してください。 認証オプションの詳細については、[ASP.NET Identity](../identity/overview/index.md)を参照してください。
 
 <a id="scaffold"></a>
 ### <a name="aspnet-scaffolding"></a>ASP.NET のスキャフォールディング
@@ -77,7 +77,7 @@ Web フォーム プロジェクトには、MVC のスキャフォールディ�
 
 非同期コント ローラーのスキャフォールディングのサポートは、Entity Framework 6 から非同期機能を使用します。
 
-詳細とチュートリアルについては、次を参照してください。 [ASP.NET スキャフォールディング概要](../visual-studio/overview/2013/aspnet-scaffolding-overview.md)します。
+詳細とチュートリアルについては、[ASP.NET スキャフォールディング概要](../visual-studio/overview/2013/aspnet-scaffolding-overview.md)を参照してください。
 
 ### <a name="get-help-and-report-issues"></a>ヘルプを表示し、問題の報告
 

@@ -27,7 +27,7 @@ ms.locfileid: "57057969"
 > * 多くの機能をカバーしている。
 > * 新しいアプリケーションの開発で推奨されるアプローチである。
 
-このチュートリアル シリーズでは、データ アクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。 このチュートリアルでは、Code First ワークフローを使用します。 Code First、Database First または Model First を選択する方法については、次を参照してください。[モデルを作成する](/ef/ef6/modeling/)します。
+このチュートリアル シリーズでは、データ アクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。 このチュートリアルでは、Code First ワークフローを使用します。 Code First、Database First または Model First を選択する方法については、[モデルを作成する](/ef/ef6/modeling/)を参照してください。
 
 このチュートリアル シリーズでは、Contoso University のサンプル アプリケーションを構築する方法について説明します。 サンプル アプリケーションは、簡単な大学向け web サイトです。 それには表示して学生、コース、およびインストラクターの情報を更新します。 作成する画面の 2 つを次に示します。
 
@@ -178,7 +178,7 @@ Entity Framework がという名前が場合に、外部キー プロパティ�
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs?highlight=1)]
 
-現在、Web.config ファイルに格納されているいずれかの名前ではなく、接続文字列自体に渡すこともできます。 使用するデータベースを指定するためのオプションの詳細については、次を参照してください。[接続文字列とモデル](/ef/ef6/fundamentals/configuring/connection-strings)します。
+現在、Web.config ファイルに格納されているいずれかの名前ではなく、接続文字列自体に渡すこともできます。 使用するデータベースを指定するためのオプションの詳細については、[接続文字列とモデル](/ef/ef6/fundamentals/configuring/connection-strings)を参照してください。
 
 接続文字列またはいずれかの名前を明示的に指定しない場合、Entity Framework では、接続文字列名は、クラス名と同じ前提としています。 この例では既定の接続文字列名になりますし`SchoolContext`、明示的に指定しているものと同じです。
 
@@ -202,9 +202,9 @@ Entity Framework できます自動的に作成 (または削除して再作成)
 
    [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample9.xml?highlight=2-6)]
 
-   `context type`コンテキストの完全修飾クラス名とには、アセンブリを指定します、`databaseinitializer type`と内にあるアセンブリの初期化子クラスの完全修飾名を指定します。 (で属性を設定するには、初期化子を使用する EF をしたくない場合、`context`要素: `disableDatabaseInitialization="true"`)。詳細については、次を参照してください。[構成ファイルの設定](/ef/ef6/fundamentals/configuring/config-file)します。
+   `context type`コンテキストの完全修飾クラス名とには、アセンブリを指定します、`databaseinitializer type`と内にあるアセンブリの初期化子クラスの完全修飾名を指定します。 (で属性を設定するには、初期化子を使用する EF をしたくない場合、`context`要素: `disableDatabaseInitialization="true"`)。詳細については、[構成ファイルの設定](/ef/ef6/fundamentals/configuring/config-file)を参照してください。
 
-   初期化子を設定する代わりに、 *Web.config*ファイルを追加してコードで行うが、`Database.SetInitializer`ステートメントを`Application_Start`メソッドで、 *Global.asax.cs*ファイル。 詳細については、次を参照してください。 [Entity Framework Code First でデータベース初期化子を理解する](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)します。
+   初期化子を設定する代わりに、 *Web.config*ファイルを追加してコードで行うが、`Database.SetInitializer`ステートメントを`Application_Start`メソッドで、 *Global.asax.cs*ファイル。 詳細については、[Entity Framework Code First でデータベース初期化子を理解する](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)を参照してください。
 
 アプリケーションは Entity Framework がモデルにデータベースを比較し、アプリケーションの特定の実行で初めてデータベースにアクセスするときにできるように、今すぐを設定 (、`SchoolContext`とエンティティ クラス)。 違いがある場合、アプリケーションは削除し、データベースを再作成します。
 
@@ -221,9 +221,9 @@ Entity Framework できます自動的に作成 (または削除して再作成)
 
    [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample10.xml?highlight=1-3)]
 
-追加した接続文字列は、Entity Framework がという名前の LocalDB データベースを使用するを指定します*ContosoUniversity1.mdf*します。 (データベースがまだ存在しないが EF によって作成されます)。データベースを作成する場合、*アプリ\_データ*でしたを追加するフォルダー、`AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf`接続文字列にします。 接続文字列の詳細については、次を参照してください。 [ASP.NET Web アプリケーションの SQL Server 接続文字列](/previous-versions/aspnet/jj653752(v=vs.110))します。
+追加した接続文字列は、Entity Framework がという名前の LocalDB データベースを使用するを指定します*ContosoUniversity1.mdf*します。 (データベースがまだ存在しないが EF によって作成されます)。データベースを作成する場合、*アプリ\_データ*でしたを追加するフォルダー、`AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf`接続文字列にします。 接続文字列の詳細については、[ASP.NET Web アプリケーションの SQL Server 接続文字列](/previous-versions/aspnet/jj653752(v=vs.110))を参照してください。
 
-内の接続文字列を実際には必要はありません、 *Web.config*ファイル。 接続文字列を指定しない場合、Entity Framework には、コンテキスト クラスに基づいた既定の接続文字列が使用されます。 詳細については、次を参照してください。[新しいデータベースを Code First](/ef/ef6/modeling/code-first/workflows/new-database)します。
+内の接続文字列を実際には必要はありません、 *Web.config*ファイル。 接続文字列を指定しない場合、Entity Framework には、コンテキスト クラスに基づいた既定の接続文字列が使用されます。 詳細については、[新しいデータベースを Code First](/ef/ef6/modeling/code-first/workflows/new-database)を参照してください。
 
 ## <a name="create-controller-and-views"></a>コントローラーとビューを作成する
 

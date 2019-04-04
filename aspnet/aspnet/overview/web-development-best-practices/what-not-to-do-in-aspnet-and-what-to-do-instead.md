@@ -153,7 +153,7 @@ SQL コマンドの値を安全にエンコードする場合などのコマン�
 
 EnableViewStateMac を設定する既定では、true に設定します。 アプリケーションがビュー ステートを使用していない場合でも EnableViewStateMac を false に設定しないでください。 この値を false に設定すると、アプリケーションがクロスサイト スクリプティングに対する脆弱性。
 
-ASP.NET 4.5.2 以降では、ランタイムが適用**EnableViewStateMac は true を =** します。 False に設定すると、場合でも、ランタイムはこの値は無視され、true に設定された値が続行されます。 詳細については、次を参照してください。 [ASP.NET 4.5.2 および EnableViewStateMac](https://blogs.msdn.com/b/webdev/archive/2014/05/07/asp-net-4-5-2-and-enableviewstatemac.aspx)します。
+ASP.NET 4.5.2 以降では、ランタイムが適用**EnableViewStateMac は true を =** します。 False に設定すると、場合でも、ランタイムはこの値は無視され、true に設定された値が続行されます。 詳細については、[ASP.NET 4.5.2 および EnableViewStateMac](https://blogs.msdn.com/b/webdev/archive/2014/05/07/asp-net-4-5-2-and-enableviewstatemac.aspx)を参照してください。
 
 次の例では、EnableViewStateMac を true に設定する方法を示します。 実際には既定で true が true には、この値を設定する必要はありません。 ただし、設定した場合が false に任意のページで、アプリケーションで、この値をすぐに修正する必要があります。
 
@@ -165,7 +165,7 @@ ASP.NET 4.5.2 以降では、ランタイムが適用**EnableViewStateMac は tr
 
 推奨事項:セキュリティ境界として、中程度の信頼 (または他の信頼レベル) に依存しない操作を行います。
 
-部分信頼では、アプリケーションを適切に保護できないは使用できません。 代わりに、完全な信頼を使用し、個別のアプリケーション プールで信頼されていないアプリケーションを分離します。 また、一意の id では、各アプリケーション プールを実行します。 詳細については、次を参照してください。 [ASP.NET 部分信頼でアプリケーションの分離が保証されない](https://support.microsoft.com/kb/2698981)します。
+部分信頼では、アプリケーションを適切に保護できないは使用できません。 代わりに、完全な信頼を使用し、個別のアプリケーション プールで信頼されていないアプリケーションを分離します。 また、一意の id では、各アプリケーション プールを実行します。 詳細については、[ASP.NET 部分信頼でアプリケーションの分離が保証されない](https://support.microsoft.com/kb/2698981)を参照してください。
 
 <a id="appsettings"></a>
 
@@ -175,7 +175,7 @@ ASP.NET 4.5.2 以降では、ランタイムが適用**EnableViewStateMac は tr
 
 AppSettings 要素には、セキュリティ更新プログラムの必要な多くの値が含まれています。 変更または、これらの値を無効にする必要がありますされません。 場合は、更新プログラムを展開するときに、これらの値を無効にする必要があります、すぐに再有効化展開が完了後します。
 
-詳細については、次を参照してください。 [ASP.NET appSettings 要素](https://msdn.microsoft.com/library/hh975440.aspx)します。
+詳細については、[ASP.NET appSettings 要素](https://msdn.microsoft.com/library/hh975440.aspx)を参照してください。
 
 <a id="urlpathencode"></a>
 
@@ -275,7 +275,7 @@ EnableViewState ページ ディレクティブで false に設定すると、�
 
 現在のプロジェクト テンプレートで SqlMembershipProvider 代わられました[ASP.NET Universal Providers](http://www.nuget.org/packages/Microsoft.AspNet.Providers)、NuGet パッケージとして利用できます。 SqlMembershipProvider テンプレートの以前のバージョンでビルドされたプロジェクトを使用している場合は、ユニバーサル プロバイダーに切り替える必要があります。 Universal Providers Entity Framework でサポートされているすべてのデータベースを使用します。
 
-詳細については、次を参照してください。 [ASP.NET ユニバーサル プロバイダーの導入](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx)します。
+詳細については、[ASP.NET ユニバーサル プロバイダーの導入](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx)を参照してください。
 
 <a id="long"></a>
 

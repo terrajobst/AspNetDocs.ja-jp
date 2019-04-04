@@ -82,7 +82,7 @@ ms.locfileid: "57046689"
 - [ASP.NET MVC 5 の概要](../mvc/overview/getting-started/introduction/getting-started.md)します。 狭い Entity Framework コードの範囲の最初シナリオについて説明しますより包括的なジョブの MVC 機能を紹介します。
 - [モデル バインディングと Web フォーム](https://go.microsoft.com/fwlink/?LinkId=286117)します。 Web フォーム アプリケーションで Code First を使用します。
 - [ASP.NET 4.5 Web フォームの概要](../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 紹介 Web フォームをいくつかの範囲の Code First です。 モデル バインドを使用します。
-- [MVC Music Store](../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1.md)します。 メンバーシップと承認も実装する e コマース MVC 3 アプリケーションで Code First を使用します。 MVC のバージョンと ASP.NET メンバーシップ (認証と承認) システムここでは使用が期限切れです。ASP.NET メンバーシップを最新の状態の詳細については、次を参照してください。 [ https://asp.net/identity](https://asp.net/identity)します。
+- [MVC Music Store](../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1.md)します。 メンバーシップと承認も実装する e コマース MVC 3 アプリケーションで Code First を使用します。 MVC のバージョンと ASP.NET メンバーシップ (認証と承認) システムここでは使用が期限切れです。ASP.NET メンバーシップを最新の状態の詳細については、[ https://asp.net/identity](https://asp.net/identity)を参照してください。
 
 その他のリソース:
 

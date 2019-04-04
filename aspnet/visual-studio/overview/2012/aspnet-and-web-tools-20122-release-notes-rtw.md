@@ -101,7 +101,7 @@ ASP.NET および Web Tools 2012.2 Web 用 Visual Studio 2012 または Visual S
 <a id="_Templates"></a>
 ### <a name="aspnet-mvc-templates"></a>ASP.NET MVC テンプレート
 
-- 新しい Facebook Application テンプレートは、アプリケーションを簡単に Facebook Canvas を作成します。 いくつかの簡単な手順では、ログインしているユーザーからデータを取得し、その友達と統合する Facebook アプリケーションを作成できます。 テンプレートには、認証、Facebook データへのアクセスのアクセス許可を含む、Facebook アプリの作成に必要なすべてのパーツを処理する新しいライブラリが含まれています。 Facebook アプリケーション テンプレートを使用しての詳細については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921)します。
+- 新しい Facebook Application テンプレートは、アプリケーションを簡単に Facebook Canvas を作成します。 いくつかの簡単な手順では、ログインしているユーザーからデータを取得し、その友達と統合する Facebook アプリケーションを作成できます。 テンプレートには、認証、Facebook データへのアクセスのアクセス許可を含む、Facebook アプリの作成に必要なすべてのパーツを処理する新しいライブラリが含まれています。 Facebook アプリケーション テンプレートを使用しての詳細については、[ https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921)を参照してください。
 - 新しい Single Page Application MVC テンプレートは、HTML 5、CSS 3、および人気のある Knockout、jQuery JavaScript ライブラリを ASP.NET Web API を使用して対話型のクライアント側 web アプリを構築する開発者を使用できます。 テンプレートには、RESTful サーバー API を使用した JavaScript の HTML5 アプリケーションを構築するための一般的なプラクティスを示す"todo"リスト アプリケーションが含まれています。 詳細に[ https://www.asp.net/single-page-application](../../../single-page-application/index.md)します。
 - ASP.NET MVC の新しいプロジェクト ダイアログ ボックスに新しいテンプレートを追加する VSIX を作成できます。 方法について説明します。 [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
 - FixedDisplayModes パッケージ&#8211;を MVC 4 でのバグの回避策を含む新しい 'FixedDisplayModes' NuGet パッケージを含めるに MVC プロジェクト テンプレートが更新されました。 パッケージに含まれている修正プログラムの詳細については、このブログの投稿を参照してください ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) MVC チームから。
@@ -145,13 +145,13 @@ ASP.NET Web API OData は、現在、次の機能をサポートします。
 - OData アクション。
 - WCF Data Services、つまり ODataLib と同じ基盤に基づいて構築されています ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata))。
 
-ASP.NET Web API OData の詳細については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141)します。
+ASP.NET Web API OData の詳細については、[ https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141)を参照してください。
 
 #### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API のトレース
 
 ASP.NET Web API のトレースは、.NET トレースと web Api からのトレース データを統合します。 これは既定では、Web API プロジェクト テンプレートでは有効になりました。 Api は、web データのトレースは出力ウィンドウに送信し、は IntelliTrace から入手します。 トレースについては、Web API との統合により、Windows Azure でホストされている場合に使用する ASP.NET Web API Tracing [Windows Azure 診断](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx)します。 インストールして ASP.NET Web API Tracing NuGet パッケージを使用して任意のアプリケーションで ASP.NET Web API のトレースを有効にすることもできます ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing))。
 
-構成と ASP.NET Web API のトレースの使用の詳細については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874)します。
+構成と ASP.NET Web API のトレースの使用の詳細については、[ https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874)を参照してください。
 
 #### <a name="aspnet-web-api-help-page"></a>ASP.NET Web API ヘルプ ページ
 
@@ -164,14 +164,14 @@ ASP.NET Web API のトレースは、.NET トレースと web Api からのト�
 
 ASP.NET SignalR では、使用可能な場合は Websocket を使用して、自動的にフォールバックを他の方法でない場合、単純に、ASP.NET アプリケーションでは、リアルタイム web 機能を追加します。
 
-ASP.NET SignalR を使用しての詳細については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271)します。
+ASP.NET SignalR を使用しての詳細については、[ https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271)を参照してください。
 
 <a id="_ASP.NET_Friendly_URLs"></a>
 ### <a name="aspnet-friendly-urls"></a>ASP.NET Friendly Url
 
 ASP.NET FriendlyURLs では、クリーナー Url を検索 (.aspx 拡張子なし) を生成する web フォームの開発者にとって非常に簡単です。 No にほとんどの構成が必要ですし、既存の ASP.NET v4.0 アプリケーションで使用できます。 FriendlyURLs 機能では、デスクトップとモバイル ビュー間の切り替えをサポートすることによって、アプリケーションにモバイル デバイスのサポートを追加する開発者が簡単にします。
 
-インストールして、ASP.NET Friendly Url を使用しての詳細については、次を参照してください。 [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx)します。
+インストールして、ASP.NET Friendly Url を使用しての詳細については、[ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx)を参照してください。
 
 <a id="_Known_Issues_and"></a>
 ## <a name="known-issues-and-breaking-changes"></a>既知の問題と重大な変更

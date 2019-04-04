@@ -32,7 +32,7 @@ ms.locfileid: "57046779"
 >
 > C# ソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [C# バージョンをダウンロード](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip)します。
 >
-> チュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーへのデプロイで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[無料試用版アカウントを Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法については、次を参照してください。[作成し、ASP.NET web サイトと Visual Studio での SQL Database のデプロイ](https://docs.microsoft.com/dotnet/azure/)します。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL Database (旧 SQL Azure) に、SQL Server データベースをデプロイする方法も示します。
+> チュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーへのデプロイで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[無料試用版アカウントを Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法については、[作成し、ASP.NET web サイトと Visual Studio での SQL Database のデプロイ](https://docs.microsoft.com/dotnet/azure/)を参照してください。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL Database (旧 SQL Azure) に、SQL Server データベースをデプロイする方法も示します。
 >
 > このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )。
 

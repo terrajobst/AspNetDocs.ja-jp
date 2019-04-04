@@ -90,7 +90,7 @@ Visual Studio 2013 で新しい web プロジェクトの作成の強化され�
 
 ![認証オプション](release-notes/_static/image2.png)
 
-Web プロジェクトを作成するための新しいプロセスの詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)です。 新しい認証オプションの詳細については、次を参照してください。 [ASP.NET Identity](#TOC8)このドキュメントで後述します。
+Web プロジェクトを作成するための新しいプロセスの詳細については、[Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)を参照してください。 新しい認証オプションの詳細については、[ASP.NET Identity](#TOC8)このドキュメントで後述を参照してください。
 
 <a id="scaffold"></a>
 ## <a name="aspnet-scaffolding"></a>ASP.NET のスキャフォールディング
@@ -105,7 +105,7 @@ Web フォーム プロジェクトには、MVC のスキャフォールディ�
 
 非同期コント ローラーをスキャフォールディングするためのサポートは、Entity Framework 6 からの新しい非同期機能を使用します。
 
-詳細とチュートリアルについては、次を参照してください。 [ASP.NET スキャフォールディング概要](aspnet-scaffolding-overview.md)します。
+詳細とチュートリアルについては、[ASP.NET スキャフォールディング概要](aspnet-scaffolding-overview.md)を参照してください。
 
 <a id="browser-link"></a>
 ## <a name="browser-link--signalr-channel-between-browser-and-visual-studio"></a>ブラウザー リンク – ブラウザーと Visual Studio の間の SignalR チャネル
@@ -147,7 +147,7 @@ Visual Studio 2013 には、新規および強化された Web の発行の機�
 - Web デプロイを構成する[ファイルのチェックサムを使用して、最終変更日ではなく](https://go.microsoft.com/fwlink/?LinkId=325531)ファイルは、サーバーにコピーするかを決定するため。
 - すばやく、FTP を使用しているか、ファイル システム メソッドを公開するときにだけでなく Web 配置には、個々 の選択したファイル (Web.config を含む) を発行します。
 
-ASP.NET web 配置の詳細については、次を参照してください。 [ASP.NET サイト](https://go.microsoft.com/fwlink/?LinkId=322027)します。
+ASP.NET web 配置の詳細については、[ASP.NET サイト](https://go.microsoft.com/fwlink/?LinkId=322027)を参照してください。
 
 <a id="nuget"></a>
 ## <a name="nuget-27"></a>NuGet 2.7
@@ -161,15 +161,15 @@ NuGet 2.7 にはで詳細に説明されている新機能の豊富なセット�
 
 ### <a name="one-aspnet"></a>One ASP.NET
 
-Web フォーム プロジェクト テンプレートは、1 つの ASP.NET の新しいエクスペリエンスとシームレスに統合します。 MVC と Web API のサポート、Web フォーム プロジェクトを 1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成することができますを追加することができます。 詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)です。
+Web フォーム プロジェクト テンプレートは、1 つの ASP.NET の新しいエクスペリエンスとシームレスに統合します。 MVC と Web API のサポート、Web フォーム プロジェクトを 1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成することができますを追加することができます。 詳細については、[Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)を参照してください。
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
-Web フォーム プロジェクト テンプレートでは、新しい ASP.NET Identity フレームワークをサポートします。 さらに、テンプレートは、イントラネットの Web フォーム プロジェクトの作成をサポートするようになりました。 詳細については、次を参照してください。[認証方法](creating-web-projects-in-visual-studio.md#auth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**です。
+Web フォーム プロジェクト テンプレートでは、新しい ASP.NET Identity フレームワークをサポートします。 さらに、テンプレートは、イントラネットの Web フォーム プロジェクトの作成をサポートするようになりました。 詳細については、[認証方法](creating-web-projects-in-visual-studio.md#auth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**を参照してください。
 
 ### <a name="bootstrap"></a>ブートス トラップ
 
-Web フォーム テンプレートを使用して、[ブートス トラップ](http://twitter.github.io/bootstrap/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、次を参照してください。 [Visual Studio 2013 web プロジェクト テンプレートを使用すると、ブートス トラップ](creating-web-projects-in-visual-studio.md#bootstrap)します。
+Web フォーム テンプレートを使用して、[ブートス トラップ](http://twitter.github.io/bootstrap/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、[Visual Studio 2013 web プロジェクト テンプレートを使用すると、ブートス トラップ](creating-web-projects-in-visual-studio.md#bootstrap)を参照してください。
 
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
@@ -178,7 +178,7 @@ Web フォーム テンプレートを使用して、[ブートス トラップ]
 
 Web MVC プロジェクト テンプレートは、1 つの ASP.NET の新しいエクスペリエンスとシームレスに統合します。 MVC プロジェクトをカスタマイズし、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成します。 ASP.NET MVC 5 の入門のチュートリアルをご覧[ASP.NET MVC 5 の概要](../../../mvc/overview/getting-started/introduction/getting-started.md)します。
 
-MVC 5、MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)します。
+MVC 5、MVC 4 プロジェクトをアップグレードする方法については、[ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)を参照してください。
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
@@ -186,7 +186,7 @@ ASP.NET Identity を使用して認証と id 管理には、MVC プロジェク�
 
 ### <a name="bootstrap"></a>ブートス トラップ
 
-使用する MVC プロジェクト テンプレートが更新されました[ブートス トラップ](http://getbootstrap.com/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、次を参照してください。 [Visual Studio 2013 web プロジェクト テンプレートを使用すると、ブートス トラップ](creating-web-projects-in-visual-studio.md#bootstrap)します。
+使用する MVC プロジェクト テンプレートが更新されました[ブートス トラップ](http://getbootstrap.com/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、[Visual Studio 2013 web プロジェクト テンプレートを使用すると、ブートス トラップ](creating-web-projects-in-visual-studio.md#bootstrap)を参照してください。
 
 ### <a name="authentication-filters"></a>認証フィルター
 
@@ -217,7 +217,7 @@ ASP.NET Web API が Tim McCall の作成者によって投稿物に協力して�
 
 [!code-csharp[Main](release-notes/samples/sample3.cs)]
 
-属性ルーティングの詳細については、次を参照してください。[属性は、Web API 2 でルーティング](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md)します。
+属性ルーティングの詳細については、[属性は、Web API 2 でルーティング](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md)を参照してください。
 
 ### <a name="oauth-20"></a>OAuth 2.0
 
@@ -231,7 +231,7 @@ OAuth 2.0 のサポートは、新しいセキュリティ ミドルウェア �
 
 ASP.NET Web API OData の $select を完全にサポートになりました、$ の展開、$value します。 バッチ処理と変更セットの処理要求の $batch を使用することもできます。
 
-$Select および $expand オプションを展開し、OData エンドポイントから返されるデータの形状を変更するようにします。 詳細については、次を参照してください。 [Introducing $select および $expand は、Web API odata のサポートを拡張](../../../web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value.md)します。
+$Select および $expand オプションを展開し、OData エンドポイントから返されるデータの形状を変更するようにします。 詳細については、[Introducing $select および $expand は、Web API odata のサポートを拡張](../../../web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value.md)を参照してください。
 
 **強化された機能拡張**
 
@@ -283,7 +283,7 @@ Brock Allen から別の優れた投稿に協力してくれた ASP.NET 完全�
 
 ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 [CORS](http://www.w3.org/TR/cors/) W3C 標準で、サーバーによる同一オリジン ポリシーの緩和にできるです。 CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。
 
-プレフライト要求の自動処理を含む CORS web API 2 をサポートします。 詳細については、次を参照してください。 [ASP.NET Web API でのクロス オリジン要求を有効にする](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)します。
+プレフライト要求の自動処理を含む CORS web API 2 をサポートします。 詳細については、[ASP.NET Web API でのクロス オリジン要求を有効にする](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)を参照してください。
 
 ### <a name="authentication-filters"></a>認証フィルター
 
@@ -297,7 +297,7 @@ Brock Allen から別の優れた投稿に協力してくれた ASP.NET 完全�
 
 ASP.NET Web API 今すぐ完全 OWIN をサポートの OWIN 対応のホストで実行することができます。 含まれていますが、 **HostAuthenticationFilter** OWIN 認証システムとの統合を提供します。
 
-OWIN の統合、SignalR など、他の OWIN ミドルウェアと共に独自のプロセスで Web API を自己ホストできます。 詳細については、次を参照してください。 [Self-Host ASP.NET Web API を使用して OWIN](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)します。
+OWIN の統合、SignalR など、他の OWIN ミドルウェアと共に独自のプロセスで Web API を自己ホストできます。 詳細については、[Self-Host ASP.NET Web API を使用して OWIN](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)を参照してください。
 
 <a id="TOC13"></a>
 ## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
@@ -318,7 +318,7 @@ OWIN の統合、SignalR など、他の OWIN ミドルウェアと共に独自�
 - [簡単に単体テストのハブ](#unittesting)
 - [JavaScript のエラー処理](#javascripterror)
 
-SignalR 2.0 に既存の 1.x プロジェクトをアップグレードする方法の例は、次を参照してください。[アップグレード、SignalR 1.x プロジェクト](../../../signalr/overview/releases/upgrading-signalr-1x-projects-to-20.md)します。
+SignalR 2.0 に既存の 1.x プロジェクトをアップグレードする方法の例は、[アップグレード、SignalR 1.x プロジェクト](../../../signalr/overview/releases/upgrading-signalr-1x-projects-to-20.md)を参照してください。
 
 <a id="builtonowin"></a>
 ### <a name="built-on-owin"></a>OWIN 上に構築されました。
@@ -387,7 +387,7 @@ SignalR 2.0 では、新しい CORS ミドルウェアを追加するには、�
 
 ### <a name="ios-and-android-support-via-monotouch-and-monodroid"></a>MonoTouch と MonoDroid による iOS および Android をサポートします。
 
-IOS と Android のクライアントから MonoTouch と MonoDroid コンポーネントを使用してサポートが追加されました、 [Xamarin ライブラリ](https://xamarin.com/)します。 それらを使用する方法の詳細については、次を参照してください。 [Xamarin コンポーネントを使用して](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln)します。 これらのコンポーネントがで提供されます、 [Xamarin Store](https://store.xamarin.com/) SignalR RTW リリースが使用可能な場合。
+IOS と Android のクライアントから MonoTouch と MonoDroid コンポーネントを使用してサポートが追加されました、 [Xamarin ライブラリ](https://xamarin.com/)します。 それらを使用する方法の詳細については、[Xamarin コンポーネントを使用して](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln)を参照してください。 これらのコンポーネントがで提供されます、 [Xamarin Store](https://store.xamarin.com/) SignalR RTW リリースが使用可能な場合。
 
 <a id="portable"></a> ### ポータブル .NET クライアント
 
@@ -497,7 +497,7 @@ SignalR 2.0 では、JavaScript エラー処理のすべてのコールバック
 
 ### <a name="new-aspnet-membership-system"></a>新しい ASP.NET メンバーシップ システム
 
-ASP.NET Identity は、ASP.NET アプリケーションの新しいメンバーシップ システムです。 ASP.NET Identity を簡単にアプリケーション データとユーザー固有のプロファイル データを統合します。 ASP.NET Identity では、アプリケーションでユーザー プロファイルの永続化モデルを選択することもできます。 SQL Server データベースまたは Azure Storage のテーブルなどの NoSQL データ ストアなど、別のデータ ストアにデータを保存することができます。 詳細については、次を参照してください。[個々 のユーザー アカウント](creating-web-projects-in-visual-studio.md#indauth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**です。
+ASP.NET Identity は、ASP.NET アプリケーションの新しいメンバーシップ システムです。 ASP.NET Identity を簡単にアプリケーション データとユーザー固有のプロファイル データを統合します。 ASP.NET Identity では、アプリケーションでユーザー プロファイルの永続化モデルを選択することもできます。 SQL Server データベースまたは Azure Storage のテーブルなどの NoSQL データ ストアなど、別のデータ ストアにデータを保存することができます。 詳細については、[個々 のユーザー アカウント](creating-web-projects-in-visual-studio.md#indauth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**を参照してください。
 
 ### <a name="claims-based-authentication"></a>クレーム ベースの認証
 
@@ -505,7 +505,7 @@ ASP.NET では、ユーザーの id が信頼された発行者からのクレ�
 
 ### <a name="integration-with-azure-active-directory-and-windows-server-active-directory"></a>Azure Active Directory および Windows Server Active Directory との統合
 
-Azure Active Directory または Windows Server ・ Active Directory (AD) 認証を使用する ASP.NET プロジェクトを作成できます。 詳細については、次を参照してください。[組織アカウント](creating-web-projects-in-visual-studio.md#orgauth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**です。
+Azure Active Directory または Windows Server ・ Active Directory (AD) 認証を使用する ASP.NET プロジェクトを作成できます。 詳細については、[組織アカウント](creating-web-projects-in-visual-studio.md#orgauth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**を参照してください。
 
 ### <a name="owin-integration"></a>OWIN の統合
 
@@ -518,7 +518,7 @@ ASP.NET 認証は、任意の OWIN ベースのホストで使用できる、OWI
 
 Microsoft OWIN コンポーネント (Katana プロジェクトとも呼ばれます) で導入された変更には、新しいサーバーとホストのコンポーネント、新しいヘルパー ライブラリとミドルウェア、および新しい認証ミドルウェアが含まれます。
 
-OWIN と Katana の詳細については、次を参照してください。 [OWIN と Katana の新](../../../aspnet/overview/owin-and-katana/index.md)します。
+OWIN と Katana の詳細については、[OWIN と Katana の新](../../../aspnet/overview/owin-and-katana/index.md)を参照してください。
 
 **注:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) IIS クラシック モードでアプリケーションを実行できません。 これらは、統合モードで実行する必要があります。**
 
@@ -567,7 +567,7 @@ OWIN 仕様から関数と型の定義のみを使用して、OWIN コンポー�
 <a id="ef6"></a>
 ## <a name="entity-framework-6"></a>Entity Framework 6
 
-新機能および Entity Framework 6 の他の変更の一覧は、次を参照してください。 [Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)します。
+新機能および Entity Framework 6 の他の変更の一覧は、[Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)を参照してください。
 
 <a id="TOC14"></a>
 ## <a name="aspnet-razor-3"></a>ASP.NET Razor 3
@@ -585,7 +585,7 @@ ASP.NET Razor 3 には、次の新機能が含まれています。
 <a id="TOC15"></a>
 ## <a name="aspnet-app-suspend"></a>ASP.NET アプリを中断します。
 
-ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数の 1 台のコンピューター上の ASP.NET のサイトをホストするための経済的なモデルを大幅に変更する .NET Framework 4.5.1 における革新的機能です。 詳細については、次を参照してください。 [ASP.NET App Suspend – 応答性の高い共有 .NET web ホスティング](https://blogs.msdn.com/b/dotnet/archive/2013/10/09/asp-net-app-suspend-responsive-shared-net-web-hosting.aspx)します。
+ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数の 1 台のコンピューター上の ASP.NET のサイトをホストするための経済的なモデルを大幅に変更する .NET Framework 4.5.1 における革新的機能です。 詳細については、[ASP.NET App Suspend – 応答性の高い共有 .NET web ホスティング](https://blogs.msdn.com/b/dotnet/archive/2013/10/09/asp-net-app-suspend-responsive-shared-net-web-hosting.aspx)を参照してください。
 
 <a id="knownissues"></a>
 ## <a name="known-issues-and-breaking-changes"></a>既知の問題と重大な変更
@@ -651,7 +651,7 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
 
       [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-      MVC 5、MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)します。
+      MVC 5、MVC 4 プロジェクトをアップグレードする方法については、[ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)を参照してください。
 3. Jquery Unobtrusive Validation をクライアント側の検証を使用する場合、検証メッセージが正しくない場合があります型の HTML input 要素を = 'number' です。 検証エラーが必須の値 (「[Age] フィールドが必要です」) が表示されます、正しいメッセージの有効な数値が必要であるのではなく無効な数値を入力する場合。
 
     Create と Edit ビューで整数のプロパティを持つモデルのこの問題が検出スキャフォールディングされたコードで一般的です。

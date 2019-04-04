@@ -79,13 +79,13 @@ C# サンプル アプリケーションを使用が、チュートリアルに�
 
 このチュートリアルでは、これらのメソッドの最初の 2 つを使用します。 DbFullSql Web Deploy プロバイダーは、SQL Server Compact から SQL Server への移行など特定のシナリオ以外は推奨されなくをレガシ メソッドです。
 
-このチュートリアルで示されているメソッドはない SQL Server Compact、SQL Server データベースです。 SQL Server Compact データベースをデプロイする方法については、次を参照してください。 [Visual Studio Web 配置で SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+このチュートリアルで示されているメソッドはない SQL Server Compact、SQL Server データベースです。 SQL Server Compact データベースをデプロイする方法については、[Visual Studio Web 配置で SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 
-このチュートリアルで示されているメソッドの Web Deploy を使用することが必要なメソッドを公開します。 FTP、ファイル システム、または FPSE などのメソッドを別に発行する場合は、次を参照してください。 [web アプリケーションのデプロイから個別にデータベースを展開する](https://go.microsoft.com/fwlink/p/?LinkId=282413#databaseseparate)for Visual Studio および ASP.NET Web 配置コンテンツ マップでします。
+このチュートリアルで示されているメソッドの Web Deploy を使用することが必要なメソッドを公開します。 FTP、ファイル システム、または FPSE などのメソッドを別に発行する場合は、[web アプリケーションのデプロイから個別にデータベースを展開する](https://go.microsoft.com/fwlink/p/?LinkId=282413#databaseseparate)for Visual Studio および ASP.NET Web 配置コンテンツ マップでを参照してください。
 
 ### <a name="entity-framework-code-first-migrations"></a>Entity Framework Code First Migrations
 
-Entity Framework バージョン 4.3 では、Microsoft は、Code First Migrations を紹介します。 Code First Migrations は、データ モデルに増分の変更を加えると、データベースにこれらの変更を反映するプロセスを自動化します。 Code First の以前のバージョンでは、通常は削除して再作成、データベースをデータ モデルを変更するたびに、Entity Framework を使用できます。 これが問題を開発テスト データが簡単に再作成されたが、実稼働環境では、通常するデータベースを削除せずに、データベース スキーマを更新します。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 Code First の必要なスキーマ変更を行う方法を自動的に決定させることができますか、変更内容をカスタマイズするコードを記述することができます。 Code First Migrations の概要については、次を参照してください。 [Code First Migrations](https://msdn.microsoft.com/library/hh770484.aspx)します。
+Entity Framework バージョン 4.3 では、Microsoft は、Code First Migrations を紹介します。 Code First Migrations は、データ モデルに増分の変更を加えると、データベースにこれらの変更を反映するプロセスを自動化します。 Code First の以前のバージョンでは、通常は削除して再作成、データベースをデータ モデルを変更するたびに、Entity Framework を使用できます。 これが問題を開発テスト データが簡単に再作成されたが、実稼働環境では、通常するデータベースを削除せずに、データベース スキーマを更新します。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 Code First の必要なスキーマ変更を行う方法を自動的に決定させることができますか、変更内容をカスタマイズするコードを記述することができます。 Code First Migrations の概要については、[Code First Migrations](https://msdn.microsoft.com/library/hh770484.aspx)を参照してください。
 
 Web プロジェクトを展開する場合に、Visual Studio は、Code First Migrations で管理されているデータベースの配置のプロセスを自動化できます。 発行プロファイルを作成するときに、実行 Code First Migrations (アプリケーションの起動時に実行されます) というラベルの付いたチェック ボックスを選択します。 この設定により、Code First が使用されるように、移行先サーバーでアプリケーションの Web.config ファイルを自動的に構成する展開プロセス、`MigrateDatabaseToLatestVersion`初期化子クラス。
 

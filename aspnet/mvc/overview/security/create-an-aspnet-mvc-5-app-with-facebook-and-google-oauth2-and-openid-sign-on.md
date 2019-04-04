@@ -112,7 +112,7 @@ Google や Facebook などの認証プロバイダーに接続するには SSL �
 ## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 用の Google アプリを作成して、アプリ プロジェクトを接続します。
 
 > [!WARNING]
-> 現在 Google OAuth 手順については、次を参照してください。 [ASP.NET Core での構成の Google 認証](/aspnet/core/security/authentication/social/google-logins)します。
+> 現在 Google OAuth 手順については、[ASP.NET Core での構成の Google 認証](/aspnet/core/security/authentication/social/google-logins)を参照してください。
 
 1. 移動し、 [Google Developers Console](https://console.developers.google.com/)します。
 2. 前にプロジェクトを作成していない場合は、選択**資格情報**クリックして、左側のタブで**作成**です。

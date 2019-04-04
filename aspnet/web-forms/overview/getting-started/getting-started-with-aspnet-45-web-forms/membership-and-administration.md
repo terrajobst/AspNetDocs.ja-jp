@@ -104,7 +104,7 @@ A`RoleStore`ロール管理を提供するオブジェクトがデータベー�
 > エラー処理は、このチュートリアル シリーズの後半の「ASP.NET エラーの処理"チュートリアル中に更新されます。
 
 
-次回、アプリケーションの起動時"canEditUser"という名前のユーザーは、という名前のアプリケーションの"canEdit"ロールとして追加されます。 このチュートリアルの後半では、このチュートリアルの中に追加するその他の機能を表示する"canEditUser"ユーザーとしてログインします。 ASP.NET Identity の API については、次を参照してください。、 [Microsoft.AspNet.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx)します。 ASP.NET の Id システムを初期化する方法について詳細を参照してください、 [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs)します。
+次回、アプリケーションの起動時"canEditUser"という名前のユーザーは、という名前のアプリケーションの"canEdit"ロールとして追加されます。 このチュートリアルの後半では、このチュートリアルの中に追加するその他の機能を表示する"canEditUser"ユーザーとしてログインします。 ASP.NET Identity の API については、、 [Microsoft.AspNet.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx)を参照してください。 ASP.NET の Id システムを初期化する方法について詳細を参照してください、 [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs)します。
 
 ### <a name="restricting-access-to-the-administration-page"></a>管理ページにアクセスを制限します。
 

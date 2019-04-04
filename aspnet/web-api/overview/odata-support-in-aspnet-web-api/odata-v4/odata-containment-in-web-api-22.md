@@ -22,7 +22,7 @@ ms.locfileid: "57054209"
 > これまでは、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセスできます。 OData v4、シングルトンおよびコンテインメント、web Api 2.2 をサポートする 2 つの追加オプションを提供します。
 
 
-このトピックでは、web Api 2.2 で OData エンドポイントでコンテインメントを定義する方法を示します。 コンテインメントの詳細については、次を参照してください。 [OData v4 で予定されている包含](https://blogs.msdn.com/b/odatateam/archive/2014/03/13/containment-is-coming-with-odata-v4.aspx)します。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。
+このトピックでは、web Api 2.2 で OData エンドポイントでコンテインメントを定義する方法を示します。 コンテインメントの詳細については、[OData v4 で予定されている包含](https://blogs.msdn.com/b/odatateam/archive/2014/03/13/containment-is-coming-with-odata-v4.aspx)を参照してください。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。
 
 最初に、作成しますコンテインメントのドメイン モデル、OData サービスでこのデータ モデルを使用します。
 

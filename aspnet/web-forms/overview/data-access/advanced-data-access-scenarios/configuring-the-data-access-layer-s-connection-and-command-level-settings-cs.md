@@ -82,7 +82,7 @@ TableAdapter クラスをインスタンスするときに、メンバー変数`
 S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データセットに含める、`ConnectionString`プロパティの読み取りまたは TableAdapter で使用される接続文字列を変更するビジネス ロジック層で使用できます。
 
 > [!NOTE]
-> A*接続文字列*は、データベース、認証の資格情報、およびその他のデータベースに関連する設定の場所を使用するプロバイダーなどのデータベース接続情報を指定する文字列です。 さまざまなデータ ストアとプロバイダーで使用される接続文字列のパターンの一覧は、次を参照してください。 [ConnectionStrings.com](http://www.connectionstrings.com/)します。
+> A*接続文字列*は、データベース、認証の資格情報、およびその他のデータベースに関連する設定の場所を使用するプロバイダーなどのデータベース接続情報を指定する文字列です。 さまざまなデータ ストアとプロバイダーで使用される接続文字列のパターンの一覧は、[ConnectionStrings.com](http://www.connectionstrings.com/)を参照してください。
 
 
 説明したように、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、型指定されたデータセットの自動生成されたクラスは、部分クラスを使用して拡張できます。 まず、という名前のプロジェクトに新しいサブフォルダーを作成`ConnectionAndCommandSettings`下にある、`~/App_Code/DAL`フォルダー。

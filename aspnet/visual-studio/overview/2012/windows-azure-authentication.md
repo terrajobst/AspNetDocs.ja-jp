@@ -96,7 +96,7 @@ Windows Azure を有効にする認証は、アプリケーションに、次の
 
 ## <a name="deploy-the-application-to-windows-azure"></a>Windows Azure へのアプリケーションをデプロイします。
 
-完全な手順については、次を参照してください。 [ASP.NET Web アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)します。
+完全な手順については、[ASP.NET Web アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)を参照してください。
 
 Windows Azure Authentication を Azure Web サイトを使用してアプリケーションを発行するには。
 

@@ -259,7 +259,7 @@ ASP.NET MVC 3 は、ASP.NET MVC 2 と並行 ASP.NET MVC 3、ASP.NET MVC 2 アプ
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>プロジェクト テンプレートに Modernizr 1.7 が追加されました
 
-Modernizr は、これらの機能をサポートしていないブラウザーで、CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクト用のテンプレートに事前にインストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、次を参照してください。 [ http://www.modernizr.com/](http://www.modernizr.com/)します。
+Modernizr は、これらの機能をサポートしていないブラウザーで、CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクト用のテンプレートに事前にインストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、[ http://www.modernizr.com/](http://www.modernizr.com/)を参照してください。
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクト テンプレートは、更新されたバージョンの jQuery、jQuery UI、および jQuery の検証
@@ -295,7 +295,7 @@ JQuery には、ファイル名にバージョン番号が含まれているた�
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>既知の問題
 
-- 場合によっては、インストール、エラー メッセージ「インストールに失敗しましたエラー コード (0x80070643)」で失敗します。 この問題を回避する方法については、次を参照してください。[サポート技術情報の記事 2531566](https://support.microsoft.com/kb/2531566)します。
+- 場合によっては、インストール、エラー メッセージ「インストールに失敗しましたエラー コード (0x80070643)」で失敗します。 この問題を回避する方法については、[サポート技術情報の記事 2531566](https://support.microsoft.com/kb/2531566)を参照してください。
 - コント ローラーを追加するためのスキャフォールディングでは、Entity Framework 内でエンティティ継承サポートを利用するエンティティはスキャフォールディングされません。 たとえば、ベースを指定*人*クラスによって継承される、*学生*クラスをスキャフォールディング、*学生*クラスと、生成されたコード コンパイルされていません。
 - ソリューション フォルダー内で新しい ASP.NET MVC 3 プロジェクトを作成するには、原因、 *NullReferenceException*エラー。 回避策では、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューション フォルダーに移動しています。
 - Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper がインストールされているあり ASP.NET MVC 3 での Razor IntelliSense サポートを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)併用する方法が説明されています Hadi Hariri のブログ、します。
@@ -708,7 +708,7 @@ DefaultControllerFactory クラスには、IControllerFactory インスタンス
 
 要求された型の登録済みのサービスがない場合は、ASP.NET MVC は GetService から null を返すと、GetServices から空のコレクションを返すには、このインターフェイスの実装が必要です。
 
-新しい DependencyResolver クラスを使用して、新しい IDependencyResolver インターフェイスまたは共通サービス ロケーターのインターフェイス (IServiceLocator) のいずれかを実装するクラスを登録できます。 共通サービス ロケーターの詳細については、次を参照してください。 [github CommonServiceLocator](https://github.com/unitycontainer/commonservicelocator)します。
+新しい DependencyResolver クラスを使用して、新しい IDependencyResolver インターフェイスまたは共通サービス ロケーターのインターフェイス (IServiceLocator) のいずれかを実装するクラスを登録できます。 共通サービス ロケーターの詳細については、[github CommonServiceLocator](https://github.com/unitycontainer/commonservicelocator)を参照してください。
 
 <a id="0.1__Breaking_Changes"></a>
 
@@ -743,7 +743,7 @@ ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれま�
 - jquery-1.4.1.js
 - jquery.unobtrusive.ajax.js
 
-この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルで既定で有効ですが、既存のプロジェクトは既定では無効します。 詳細については、次を参照してください。[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
+この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルで既定で有効ですが、既存のプロジェクトは既定では無効します。 詳細については、[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述を参照してください。
 
 ### <a id="0.1__Toc274034222"></a>  控えめな jQuery 検証のサポート
 
@@ -761,7 +761,7 @@ ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれま�
 - jquery.validate.js
 - jquery.validate.unobtrusive.js
 
-この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルでは既定で有効になっているが、既存のプロジェクトは既定では無効になります。 詳細については、次を参照してください。[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを新しい](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
+この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルでは既定で有効になっているが、既存のプロジェクトは既定では無効になります。 詳細については、[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを新しい](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述を参照してください。
 
 <a id="0.1__Toc274034223"></a>
 

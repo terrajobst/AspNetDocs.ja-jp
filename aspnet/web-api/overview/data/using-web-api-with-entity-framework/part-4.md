@@ -83,7 +83,7 @@ JSON データの一部として、作成者取得する方法を見てみまし
 
 ### <a name="explicit-loading"></a>明示的な読み込み
 
-はコードで明示的に関連するデータを取得する点を除いては、明示的読み込みは、遅延読み込みに似ていますナビゲーション プロパティにアクセスするときに自動的に発生しません。 明示的読み込みは、関連データを読み込むときに細かく制御できますが、余分なコードが必要です。 明示的な読み込みの詳細については、次を参照してください。[関連エンティティの読み込み](https://msdn.microsoft.com/data/jj574232#explicit)します。
+はコードで明示的に関連するデータを取得する点を除いては、明示的読み込みは、遅延読み込みに似ていますナビゲーション プロパティにアクセスするときに自動的に発生しません。 明示的読み込みは、関連データを読み込むときに細かく制御できますが、余分なコードが必要です。 明示的な読み込みの詳細については、[関連エンティティの読み込み](https://msdn.microsoft.com/data/jj574232#explicit)を参照してください。
 
 ## <a name="navigation-properties-and-circular-references"></a>ナビゲーション プロパティと循環参照
 
@@ -105,7 +105,7 @@ XML フォーマッタを次に示します。
 
 [!code-xml[Main](part-4/samples/sample13.xml)]
 
-1 つのソリューションでは、次のセクションで説明する Dto を使用します。 また、グラフのサイクルの対応する JSON および XML フォーマッタを構成できます。 詳細については、次を参照してください。[循環オブジェクト参照の処理](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)します。
+1 つのソリューションでは、次のセクションで説明する Dto を使用します。 また、グラフのサイクルの対応する JSON および XML フォーマッタを構成できます。 詳細については、[循環オブジェクト参照の処理](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)を参照してください。
 
 このチュートリアルで必要はありません、`Author.Book`ナビゲーション プロパティ、ため残しておくことができます。
 

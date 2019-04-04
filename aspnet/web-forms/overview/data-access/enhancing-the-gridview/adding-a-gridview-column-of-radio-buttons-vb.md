@@ -167,7 +167,7 @@ RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/library/s
 これの短い形式は、RadioButton Web コントロールを使用して GridView にラジオ ボタンの列を作成できないことです。 代わりではなく旧式の手法を使用して GridView 行ごとに適切なマークアップを挿入するようにする必要があります。
 
 > [!NOTE]
-> RadioButton Web コントロール、HTML コントロール、テンプレートに追加されたときにオプション ボタンが、一意では、よう`name`属性をグループに属していないグリッドのオプション ボタンを作成します。 HTML コントロールに慣れていない場合は、HTML コントロールはほとんど使用されると、ASP.NET 2.0 では特に、この注を無視する自由ください。 詳細に関心がある場合は、次を参照してください。 ただし[K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx) s ブログ エントリ[Web コントロールと HTML コントロール](http://www.odetocode.com/Articles/348.aspx)します。
+> RadioButton Web コントロール、HTML コントロール、テンプレートに追加されたときにオプション ボタンが、一意では、よう`name`属性をグループに属していないグリッドのオプション ボタンを作成します。 HTML コントロールに慣れていない場合は、HTML コントロールはほとんど使用されると、ASP.NET 2.0 では特に、この注を無視する自由ください。 詳細に関心がある場合は、ただし[K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx) s ブログ エントリ[Web コントロールと HTML コントロール](http://www.odetocode.com/Articles/348.aspx)を参照してください。
 
 
 ## <a name="using-a-literal-control-to-inject-radio-button-markup"></a>リテラル コントロールを使用して、ラジオ ボタンのマークアップを挿入するには

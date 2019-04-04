@@ -60,7 +60,7 @@ ms.locfileid: "57058119"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-開始する前にある Visual Studio 2012 または 2010 SP1 がコンピューターにインストールされていることを確認します。 Visual Studio を持っていない場合は、次を参照してください。 [ASP.NET ダウンロード](https://www.asp.net/downloads)、無料の Visual Studio 2012 Express for Web を取得します。
+開始する前にある Visual Studio 2012 または 2010 SP1 がコンピューターにインストールされていることを確認します。 Visual Studio を持っていない場合は、[ASP.NET ダウンロード](https://www.asp.net/downloads)、無料の Visual Studio 2012 Express for Web を取得を参照してください。
 
 Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)がインストールされています。
 
@@ -122,7 +122,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample3.cs)]
 
-    [ハブ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)メソッドは、クライアントは、サーバー上で呼び出すことができますを定義するクラスを使用します。 1 つのメソッドを定義する:`GetAllStocks()`します。 クライアントは、最初に、サーバーに接続するときは、その現在の価格の株式のすべての一覧を取得するには、このメソッドを呼び出します。 メソッドは同期的に実行し、返す`IEnumerable<Stock>`メモリからデータを返すためです。 指定したかどうか、メソッドがデータベース検索など、web サービス呼び出しの待機を含むは何かの手順を実行してデータを取得する必要がある`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](index.md)します。
+    [ハブ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)メソッドは、クライアントは、サーバー上で呼び出すことができますを定義するクラスを使用します。 1 つのメソッドを定義する:`GetAllStocks()`します。 クライアントは、最初に、サーバーに接続するときは、その現在の価格の株式のすべての一覧を取得するには、このメソッドを呼び出します。 メソッドは同期的に実行し、返す`IEnumerable<Stock>`メモリからデータを返すためです。 指定したかどうか、メソッドがデータベース検索など、web サービス呼び出しの待機を含むは何かの手順を実行してデータを取得する必要がある`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、[ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](index.md)を参照してください。
 
     HubName 属性は、クライアントでの JavaScript コードでのハブの参照方法を指定します。 この属性を使用しない場合、クライアントに既定の名前は、ここで stockTickerHub 可能性のあるクラス名の camel 形式のバージョンです。
 
@@ -181,7 +181,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
     BroadcastStockPrice で呼び出している updateStockPrice メソッドがまだ存在しません。後で追加するクライアントで実行されるコードを記述するときにします。 Clients.All は動的で、実行時に、式が評価されることを意味しているために、updateStockPrice ここを参照できます。 このメソッドの呼び出しが実行されると、SignalR はクライアントに送信メソッド名とパラメーターの値、およびクライアントに updateStockPrice という名前のメソッドがある場合は、そのメソッドが呼び出され、それに渡されるパラメーターの値。
 
-    Clients.All では、すべてのクライアントに送信を意味します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、次を参照してください。 [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)します。
+    Clients.All では、すべてのクライアントに送信を意味します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、[HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)を参照してください。
 
 ### <a name="register-the-signalr-route"></a>SignalR のルートを登録します。
 
@@ -406,9 +406,9 @@ UpdateStockPrice 関数は、グリッドとティッカーの表示の両方を
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでは、接続されているすべてのクライアント、定期的と任意のクライアントからの通知に応答の両方に、サーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学習できました。 マルチ スレッドのシングルトン インスタンスを使用して、サーバーの状態を保持するパターンも、マルチ プレーヤー オンライン ゲーム シナリオで使用こともできます。 例については、次を参照してください。 [SignalR に基づいている ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)します。
+このチュートリアルでは、接続されているすべてのクライアント、定期的と任意のクライアントからの通知に応答の両方に、サーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学習できました。 マルチ スレッドのシングルトン インスタンスを使用して、サーバーの状態を保持するパターンも、マルチ プレーヤー オンライン ゲーム シナリオで使用こともできます。 例については、[SignalR に基づいている ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)を参照してください。
 
-ピア ツー ピア通信シナリオを示すチュートリアルについては、次を参照してください。 [SignalR の概要](index.md)と[SignalR によるリアルタイムの更新](index.md)します。
+ピア ツー ピア通信シナリオを示すチュートリアルについては、[SignalR の概要](index.md)と[SignalR によるリアルタイムの更新](index.md)を参照してください。
 
 SignalR 開発のより高度な概念については、SignalR のソース コードおよびリソースは、次のサイトを参照してください。
 

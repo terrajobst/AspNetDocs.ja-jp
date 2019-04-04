@@ -108,7 +108,7 @@ ms.locfileid: "57038279"
 
     > [!NOTE]
     > **Microsoft.Aspnet.Identity.Owin**パッケージには、一連管理および ASP.NET Identity のコア パッケージで使用する OWIN 認証ミドルウェアを構成する OWIN 拡張機能のクラスにはが含まれています。
-    > **Microsoft.Owin.Host.SystemWeb**パッケージには、OWIN ベース アプリケーションを ASP.NET の要求パイプラインを使用して、IIS で実行できるようにする OWIN サーバーが含まれています。 詳細については、次を参照してください。 [、IIS での OWIN ミドルウェア パイプラインを統合する](../../../aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline.md)します。
+    > **Microsoft.Owin.Host.SystemWeb**パッケージには、OWIN ベース アプリケーションを ASP.NET の要求パイプラインを使用して、IIS で実行できるようにする OWIN サーバーが含まれています。 詳細については、[、IIS での OWIN ミドルウェア パイプラインを統合する](../../../aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline.md)を参照してください。
 
 ## <a name="add-owin-startup-and-authentication-configuration-classes"></a>OWIN の起動と認証の構成クラスを追加します。
 

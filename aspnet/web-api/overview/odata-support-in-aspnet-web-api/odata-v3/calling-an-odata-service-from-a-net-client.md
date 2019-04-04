@@ -223,7 +223,7 @@ Odata では、[アクション](odata-actions.md)エンティティに対する
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-詳細については、次を参照してください。[呼び出すサービス操作とアクション](https://msdn.microsoft.com/library/hh230677.aspx)します。
+詳細については、[呼び出すサービス操作とアクション](https://msdn.microsoft.com/library/hh230677.aspx)を参照してください。
 
 1 つのオプションは、拡張する、**コンテナー**処理を実行する厳密に型指定されたメソッドを提供するクラス。
 

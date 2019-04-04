@@ -26,7 +26,7 @@ ms.locfileid: "58425575"
 > トピックがの概要を説明するように設計、[一連のチュートリアル](deploying-web-applications-in-enterprise-scenarios.md)企業の web 展開でします。 ここで説明した概念の一部に詳しくない場合に心配&#x2014;以下のチュートリアルは、これらのタスクと手法のすべての詳細情報を提供します。
 > 
 > > [!NOTE]
-> > わかりやすくする、このトピックでは、展開プロセスの一部として、データベースの更新を説明します。 ただし、多くのエンタープライズ展開シナリオの要件です。 データベースの機能に対して増分更新を行うと、このチュートリアル シリーズの後半でこれを実行する方法のガイダンスを見つけることができます。 詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。
+> > わかりやすくする、このトピックでは、展開プロセスの一部として、データベースの更新を説明します。 ただし、多くのエンタープライズ展開シナリオの要件です。 データベースの機能に対して増分更新を行うと、このチュートリアル シリーズの後半でこれを実行する方法のガイダンスを見つけることができます。 詳細については、[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。
 
 
 ## <a name="overview"></a>概要
@@ -86,7 +86,7 @@ Fabrikam, Inc. の開発チームは、連絡先マネージャー ソリュー�
 Matt の明を作成で説明されている分割プロジェクト ファイルの方法を使用してさまざまなカスタム MSBuild プロジェクト ファイル、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。 Matt が作成されます。
 
 - という名前のプロジェクト ファイル*Publish.proj*展開プロセスを実行します。 このファイルには、ソリューションでプロジェクトをビルド、web のパッケージを作成および変換先のサーバー環境にパッケージを配置する MSBuild ターゲットが含まれています。
-- という名前の環境に固有のプロジェクト ファイル*Env Dev.proj*と*Env Stage.proj*します。 これらには、固有の設定、テスト環境とステージング環境にそれぞれ、接続文字列、サービス エンドポイント、および web パッケージを受信するリモート サービスの詳細などが含まれます。 特定の展開先環境の適切な設定を選択する方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
+- という名前の環境に固有のプロジェクト ファイル*Env Dev.proj*と*Env Stage.proj*します。 これらには、固有の設定、テスト環境とステージング環境にそれぞれ、接続文字列、サービス エンドポイント、および web パッケージを受信するリモート サービスの詳細などが含まれます。 特定の展開先環境の適切な設定を選択する方法のガイダンスについては、[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)を参照してください。
 
 展開を実行するユーザーが実行される、 *Publish.proj* MSBuild またはチーム ビルドを使用してファイルし、関連する環境に固有のプロジェクト ファイルの場所を指定します (*Env Dev.proj*または*Env Stage.proj*) コマンドライン引数として。 *Publish.proj*ファイルからの発行手順については、各ターゲット環境の完全なセットを作成する環境固有のプロジェクト ファイルをインポートします。
 
@@ -173,7 +173,7 @@ Fabrikam, Inc. の開発チームは、さまざまなソフトウェア テス�
 ![](application-lifecycle-management-from-development-to-production/_static/image5.png)
 
 > [!NOTE]
-> このようなビルド定義を作成する方法の詳細については、次を参照してください。[特定のビルドをデプロイ](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md)します。
+> このようなビルド定義を作成する方法の詳細については、[特定のビルドをデプロイ](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md)を参照してください。
 
 
 **DeployToStaging-whatif**ビルド定義にはと同じ配置ロジックが含まれています、 **DeployToStaging**定義を作成します。 ただし、追加の引数を含めて**WhatIf = true**:
@@ -185,13 +185,13 @@ Fabrikam, Inc. の開発チームは、さまざまなソフトウェア テス�
 内で、 *Publish.proj*ファイル、 **WhatIf**プロパティは、すべての配置リソースが"what-if"モードで公開することを示します。 つまり、展開にそうなったが、送信先の環境で何も変更は実際には、ログ ファイルが生成されます。 これにより、提案された展開の影響を評価できます&#x2014;で特定の内容は、追加、取得とは、更新、および削除はどのような&#x2014;実際に変更を加える前にします。
 
 > [!NOTE]
-> "What if"展開を構成する方法の詳細については、次を参照してください。 ["What If"展開を実行する](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md)します。
+> "What if"展開を構成する方法の詳細については、["What If"展開を実行する](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md)を参照してください。
 
 
 ステージング環境でプライマリ web サーバーにアプリケーションをデプロイすると、WFF は自動的に同期されているサーバー ファーム内のすべてのサーバー間でアプリケーションを使用します。
 
 > [!NOTE]
-> Web サーバーを同期する WFF の構成の詳細については、次を参照してください。 [Web Farm Framework でサーバー ファームを作成する](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md)します。
+> Web サーバーを同期する WFF の構成の詳細については、[Web Farm Framework でサーバー ファームを作成する](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md)を参照してください。
 
 
 ## <a name="deployment-to-production"></a>運用環境へのデプロイ
@@ -211,7 +211,7 @@ Fabrikam, Inc. の開発チームは、さまざまなソフトウェア テス�
 
 ### <a name="how-does-the-deployment-process-work"></a>展開プロセスのしくみ
 
-IIS マネージャーには、IIS の web サイトに web パッケージを公開しやすくインポート アプリケーション パッケージのウィザードが含まれています。 この手順を実行する方法のチュートリアルは、次を参照してください。 [Web パッケージを手動でインストール](../web-deployment-in-the-enterprise/manually-installing-web-packages.md)します。
+IIS マネージャーには、IIS の web サイトに web パッケージを公開しやすくインポート アプリケーション パッケージのウィザードが含まれています。 この手順を実行する方法のチュートリアルは、[Web パッケージを手動でインストール](../web-deployment-in-the-enterprise/manually-installing-web-packages.md)を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 

@@ -323,7 +323,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 コメントにアクセスしたユーザーを離れることに加え、`Guestbook.aspx`ページは、ゲストブックの既存のコメントを表示できる必要があります。 これを実現するという名前の ListView コントロールを追加`CommentList`ページの下部にします。
 
 > [!NOTE]
-> ListView コントロールは ASP.NET バージョン 3.5 に追加されました。 非常にカスタマイズ可能な柔軟なレイアウトで項目の一覧を表示しながら組み込みの編集、挿入、削除、ページング、および並べ替え GridView のような機能を引き続き提供は設計されています。 ASP.NET 2.0 を使用している場合は、DataList または Repeater コントロールの代わりに使用する必要があります。 ListView の使用に関する詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ「 [asp: ListView コントロール](https://weblogs.asp.net/scottgu/archive/2007/08/10/the-asp-listview-control-part-1-building-a-product-listing-page-with-clean-css-ui.aspx)、筆者の記事と[ListView コントロールにデータを表示する](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)します。
+> ListView コントロールは ASP.NET バージョン 3.5 に追加されました。 非常にカスタマイズ可能な柔軟なレイアウトで項目の一覧を表示しながら組み込みの編集、挿入、削除、ページング、および並べ替え GridView のような機能を引き続き提供は設計されています。 ASP.NET 2.0 を使用している場合は、DataList または Repeater コントロールの代わりに使用する必要があります。 ListView の使用に関する詳細については、[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ「 [asp: ListView コントロール](https://weblogs.asp.net/scottgu/archive/2007/08/10/the-asp-listview-control-part-1-building-a-product-listing-page-with-clean-css-ui.aspx)、筆者の記事と[ListView コントロールにデータを表示する](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)を参照してください。
 
 
 ListView のスマート タグを開き、データ ソースのドロップダウン リストから新しいデータ ソースにコントロールをバインドします。 手順 2. で説明したようにこれが、データ ソース構成ウィザードが起動します。 [データベース] アイコンを選択し、結果として得られる SqlDataSource という名前を`CommentsDataSource`、[ok] をクリックします。 次に、選択、`SecurityTutorialsConnectionString`接続がドロップダウン リストから文字列を [次へ] をクリックします。
@@ -415,7 +415,7 @@ CreateUserWizard コントロールを使用して、[続行] ボタンがクリ
 
 CreateUserWizard コントロールの既定のインターフェイスは、単純なアカウントの作成シナリオのユーザー名、パスワード、および電子メールのような唯一のコア ユーザー アカウント情報を収集する必要があれば十分です。 しかし、自分のアカウントを作成する際に、自分の出身地、ホーム ページ、および署名を入力するビジターを要求したい場合でしょうか。 サインアップの詳細情報を収集する、CreateUserWizard コントロールのインターフェイスをカスタマイズすることができますし、この情報を使用することがあります、`CreatedUser`イベント ハンドラーを基になるデータベースに追加のレコードを挿入します。
 
-CreateUserWizard コントロールは、一連の順序を定義するページの開発者が可能なコントロールである ASP.NET のウィザード コントロールを拡張`WizardSteps`します。 ウィザード コントロールは、アクティブなステップをレンダリングし、により、これらの手順を移動するビジター ナビゲーション インターフェイスを提供します。 ウィザード コントロールは、いくつかの簡単な手順に長いタスクを分割するために最適です。 ウィザード コントロールの詳細については、次を参照してください。[ステップ バイ ステップのユーザー インターフェイスを作成する ASP.NET 2.0 ウィザード コントロールに](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)します。
+CreateUserWizard コントロールは、一連の順序を定義するページの開発者が可能なコントロールである ASP.NET のウィザード コントロールを拡張`WizardSteps`します。 ウィザード コントロールは、アクティブなステップをレンダリングし、により、これらの手順を移動するビジター ナビゲーション インターフェイスを提供します。 ウィザード コントロールは、いくつかの簡単な手順に長いタスクを分割するために最適です。 ウィザード コントロールの詳細については、[ステップ バイ ステップのユーザー インターフェイスを作成する ASP.NET 2.0 ウィザード コントロールに](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)を参照してください。
 
 CreateUserWizard コントロールの既定のマークアップは、2 つ定義`WizardSteps`:`CreateUserWizardStep`と`CompleteWizardStep`します。
 
@@ -489,7 +489,7 @@ CreateUserWizard のイベント ハンドラーを追加`ActiveStepChanged`イ�
 
 このような場合は、内のテキスト ボックス コントロールをプログラムで参照する、`UserSettings WizardStep`します。 使用してこの情報は、`FindControl`メソッドをプログラムで参照する、 `UserSettings WizardStep`、し、内から、テキスト ボックスを参照するには、もう一度、`WizardStep`します。 実行する準備ができました、テキスト ボックスを参照していますと、`UPDATE`ステートメント。 `UPDATE`ステートメントには同数のパラメーターとして、`INSERT`内のステートメント、`CreatedUser`イベントのハンドラーが、ここでは、ユーザーが指定したホーム町、ホーム ページ、および署名の値を使用します。
 
-場所でのこのイベント ハンドラーに次を参照してください。、`EnhancedCreateUserWizard.aspx`ブラウザーでページとホーム町、ホーム ページ、および署名の値を指定する新しいユーザー アカウントを作成します。 新しいアカウントの作成後にリダイレクトする必要があります、 `AdditionalUserInfo.aspx`  ページで、だけが入力したホーム町、ホーム ページ、および署名情報が表示されます。
+場所でのこのイベント ハンドラーに、`EnhancedCreateUserWizard.aspx`ブラウザーでページとホーム町、ホーム ページ、および署名の値を指定する新しいユーザー アカウントを作成を参照してください。 新しいアカウントの作成後にリダイレクトする必要があります、 `AdditionalUserInfo.aspx`  ページで、だけが入力したホーム町、ホーム ページ、および署名情報が表示されます。
 
 > [!NOTE]
 > 当社の web サイトの訪問者が新しいアカウントを作成する 2 つのページが現在:`CreatingUserAccounts.aspx`と`EnhancedCreateUserWizard.aspx`します。 Web サイトのサイト マップおよびログイン ページを指す、 `CreatingUserAccounts.aspx`  ページが、`CreatingUserAccounts.aspx`ページがホーム町、ホーム ページ、および署名については、ユーザー プロンプトが表示されませんしに対応する行は追加されません`UserProfiles`します。 そのため、更新、`CreatingUserAccounts.aspx`この機能を提供するためのページまたはページを更新するサイト マップおよびログインを参照する`EnhancedCreateUserWizard.aspx`の代わりに`CreatingUserAccounts.aspx`します。 後者のオプションを選択する場合に更新することを確認して、`Membership`フォルダーの`Web.config`匿名ユーザーへのアクセスを許可するためのファイル、`EnhancedCreateUserWizard.aspx`ページ。

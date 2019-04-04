@@ -49,7 +49,7 @@ ms.locfileid: "57047299"
 - コマンドで、予約済みの XML 文字をエスケープします。
 - カスタム MSBuild プロジェクト ファイルでターゲットを作成し、使用、 **Exec**コマンドを実行するタスク。
 
-このトピックでは、これらの手順を実行する方法を説明します。 タスクとチュートリアルでは、このトピックでは、MSBuild ターゲットおよびプロパティ、慣れている既にことと、カスタム MSBuild プロジェクト ファイルを使用してビルドおよび配置プロセスを促進する方法を理解することを想定しています。 詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。
+このトピックでは、これらの手順を実行する方法を説明します。 タスクとチュートリアルでは、このトピックでは、MSBuild ターゲットおよびプロパティ、慣れている既にことと、カスタム MSBuild プロジェクト ファイルを使用してビルドおよび配置プロセスを促進する方法を理解することを想定しています。 詳細については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)を参照してください。
 
 ## <a name="creating-and-adding-windows-powershell-scripts"></a>作成して、Windows PowerShell スクリプトの追加
 
@@ -137,7 +137,7 @@ MSBuild からこのコマンドを呼び出す場合は、いくつか追加の
 Windows PowerShell がリモート コンピューターでスクリプトを実行できる[Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx)(WinRM)。 これを行うには、使用する必要があります、 [Invoke-command](https://technet.microsoft.com/library/dd347578.aspx)コマンドレット。 これにより、スクリプトをリモート コンピューターにコピーすることがなく 1 つまたは複数のリモート コンピューターに対してスクリプトを実行できます。 スクリプトの実行に使用したローカル コンピューターには、すべての結果が返されます。
 
 > [!NOTE]
-> 使用する前に、 **Invoke-command**リモート コンピューターでスクリプトを Windows PowerShell を実行するコマンドレット、リモートのメッセージを受け入れるように WinRM リスナーを構成する必要があります。 コマンドを実行してこれを行う**winrm quickconfig**リモート コンピューター。 詳細については、次を参照してください。[インストールと構成の Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx)します。
+> 使用する前に、 **Invoke-command**リモート コンピューターでスクリプトを Windows PowerShell を実行するコマンドレット、リモートのメッセージを受け入れるように WinRM リスナーを構成する必要があります。 コマンドを実行してこれを行う**winrm quickconfig**リモート コンピューター。 詳細については、[インストールと構成の Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx)を参照してください。
 
 
 実行するこの構文を使用する、Windows PowerShell ウィンドウから、 **LogDeploy.ps1**リモート コンピューター上のスクリプト。
@@ -176,9 +176,9 @@ Windows PowerShell がで指定したコンピューターでスクリプトを�
 
 ## <a name="further-reading"></a>関連項目
 
-Windows PowerShell スクリプトに署名して、実行ポリシーの管理に関するガイダンスについては、次を参照してください。 [Windows PowerShell スクリプトの実行](https://technet.microsoft.com/library/ee176949.aspx)します。 リモート コンピューターから Windows PowerShell コマンドを実行する方法の詳細については、次を参照してください。[リモート コマンドを実行している](https://technet.microsoft.com/library/dd819505.aspx)します。
+Windows PowerShell スクリプトに署名して、実行ポリシーの管理に関するガイダンスについては、[Windows PowerShell スクリプトの実行](https://technet.microsoft.com/library/ee176949.aspx)を参照してください。 リモート コンピューターから Windows PowerShell コマンドを実行する方法の詳細については、[リモート コマンドを実行している](https://technet.microsoft.com/library/dd819505.aspx)を参照してください。
 
-カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。
+カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](taking-web-applications-offline-with-web-deploy.md)

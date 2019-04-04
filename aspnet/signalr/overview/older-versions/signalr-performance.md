@@ -24,7 +24,7 @@ ms.locfileid: "58425536"
 > このトピックでは、ための設計、計測、および SignalR アプリケーションのパフォーマンスを向上する方法について説明します。
 
 
-SignalR パフォーマンスとスケーリングに最近行ったプレゼンテーションは、次を参照してください。 [ASP.NET SignalR によるリアルタイムの Web スケール](https://channel9.msdn.com/Events/Build/2013/3-502)します。
+SignalR パフォーマンスとスケーリングに最近行ったプレゼンテーションは、[ASP.NET SignalR によるリアルタイムの Web スケール](https://channel9.msdn.com/Events/Build/2013/3-502)を参照してください。
 
 このトピックは、次のセクションで構成されています。
 
@@ -43,7 +43,7 @@ SignalR パフォーマンスとスケーリングに最近行ったプレゼン
 
 ### <a name="throttling-message-frequency"></a>メッセージの頻度を調整
 
-を (リアルタイムのゲーム アプリケーションの場合) などの高頻度でメッセージを送信するアプリケーションであっても、ほとんどのアプリケーションは、1 秒間に複数のメッセージを送信する必要はありません。 各クライアントを生成するトラフィックの量を減らすためには、メッセージ ループを実装するキューおよび送信メッセージありませんより固定レートよりも頻繁に (つまり、メッセージ数まで送信されます 1 秒ごとに、その時点でのメッセージがある場合terval 送信する)。 メッセージを (クライアントとサーバーの両方) から、一定のレートを調整するサンプル アプリケーションの場合、次を参照してください。 [SignalR による高頻度リアルタイム メッセージング](../getting-started/tutorial-high-frequency-realtime-with-signalr.md)します。
+を (リアルタイムのゲーム アプリケーションの場合) などの高頻度でメッセージを送信するアプリケーションであっても、ほとんどのアプリケーションは、1 秒間に複数のメッセージを送信する必要はありません。 各クライアントを生成するトラフィックの量を減らすためには、メッセージ ループを実装するキューおよび送信メッセージありませんより固定レートよりも頻繁に (つまり、メッセージ数まで送信されます 1 秒ごとに、その時点でのメッセージがある場合terval 送信する)。 メッセージを (クライアントとサーバーの両方) から、一定のレートを調整するサンプル アプリケーションの場合、[SignalR による高頻度リアルタイム メッセージング](../getting-started/tutorial-high-frequency-realtime-with-signalr.md)を参照してください。
 
 ### <a name="reducing-message-size"></a>メッセージのサイズを縮小します。
 
@@ -69,7 +69,7 @@ SignalR メッセージのサイズを小さくには、シリアル化された
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>SignalR サーバーのパフォーマンスのチューニング
 
-SignalR アプリケーションでパフォーマンスの向上のため、サーバーをチューニングするは、次の構成設定を使用できます。 ASP.NET アプリケーションのパフォーマンスを向上させる方法の概要については、次を参照してください。 [ASP.NET パフォーマンスの向上](https://msdn.microsoft.com/library/ff647787.aspx)します。
+SignalR アプリケーションでパフォーマンスの向上のため、サーバーをチューニングするは、次の構成設定を使用できます。 ASP.NET アプリケーションのパフォーマンスを向上させる方法の概要については、[ASP.NET パフォーマンスの向上](https://msdn.microsoft.com/library/ff647787.aspx)を参照してください。
 
 **SignalR の構成設定**
 
@@ -109,7 +109,7 @@ SignalR パフォーマンスを向上させることがあります ASP.NET の
 
 ### <a name="verifying-that-websocket-is-being-used"></a>WebSocket が使用されていることを確認します。
 
-SignalR は、さまざまなトランスポートを使用して、クライアントとサーバー間の通信、WebSocket は、パフォーマンスに大きなメリットが提供し、クライアントとサーバーがサポートしている場合に使用する必要があります。 調べるには、クライアントとサーバーが WebSocket の要件を満たしているかどうかは、次を参照してください。[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)します。 どのようなトランスポートは、アプリケーションで使用されているを確認するのには、ブラウザー開発者ツールを使用し、トランスポートが接続に使用されているログを調べてできます。 Internet Explorer と Chrome ブラウザーの開発ツールを使用する方法の詳細については、次を参照してください。[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)します。
+SignalR は、さまざまなトランスポートを使用して、クライアントとサーバー間の通信、WebSocket は、パフォーマンスに大きなメリットが提供し、クライアントとサーバーがサポートしている場合に使用する必要があります。 調べるには、クライアントとサーバーが WebSocket の要件を満たしているかどうかは、[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)を参照してください。 どのようなトランスポートは、アプリケーションで使用されているを確認するのには、ブラウザー開発者ツールを使用し、トランスポートが接続に使用されているログを調べてできます。 Internet Explorer と Chrome ブラウザーの開発ツールを使用する方法の詳細については、[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)を参照してください。
 
 <a id="perfcounters"></a>
 
@@ -144,7 +144,7 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 **接続メトリック**
 
-次のメトリックは、発生する接続の有効期間イベントを測定します。 詳細については、次を参照してください。[接続の有効期間イベントの処理と理解](../guide-to-the-api/handling-connection-lifetime-events.md)します。
+次のメトリックは、発生する接続の有効期間イベントを測定します。 詳細については、[接続の有効期間イベントの処理と理解](../guide-to-the-api/handling-connection-lifetime-events.md)を参照してください。
 
 - **接続されている接続**
 - **接続の再接続**
@@ -200,7 +200,7 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 - **スケール アウト エラー/秒**
 - **スケール アウト送信キューの長さ**
 
-これらのカウンターの測定の詳細については、次を参照してください。 [Azure Service Bus による SignalR スケール アウト](scaleout-with-windows-azure-service-bus.md)します。
+これらのカウンターの測定の詳細については、[Azure Service Bus による SignalR スケール アウト](scaleout-with-windows-azure-service-bus.md)を参照してください。
 
 <a id="othercounters"></a>
 

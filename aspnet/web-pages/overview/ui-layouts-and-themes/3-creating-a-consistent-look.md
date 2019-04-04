@@ -124,7 +124,7 @@ ms.locfileid: "57051239"
     手順 6 には、同じレイアウト ページを共有できますし、追加のコンテンツ ページの作成を繰り返します。
 
     > [!NOTE]
-    > フォルダー内のすべてのコンテンツ ページの同じレイアウト ページを自動的に使用できるように、サイトを設定することができます。 詳細については、次を参照してください。[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906)します。
+    > フォルダー内のすべてのコンテンツ ページの同じレイアウト ページを自動的に使用できるように、サイトを設定することができます。 詳細については、[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906)を参照してください。
 
 ## <a name="designing-layout-pages-that-have-multiple-content-sections"></a>複数のコンテンツ セクションのレイアウト ページのデザイン
 

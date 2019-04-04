@@ -30,7 +30,7 @@ ms.locfileid: "57063229"
 >
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
 >
-> OData バージョン 3 では、次を参照してください。[の ASP.NET Web API 2 OData アクション](../odata-v3/odata-actions.md)します。
+> OData バージョン 3 では、[の ASP.NET Web API 2 OData アクション](../odata-v3/odata-actions.md)を参照してください。
 
 間の差*アクション*と*関数*アクションは、副作用を持つことができます、関数がないことです。 アクションと関数の両方では、データを返すことができます。 アクションの使用は次のとおりです。
 

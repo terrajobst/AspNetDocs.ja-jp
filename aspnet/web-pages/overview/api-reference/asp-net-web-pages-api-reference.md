@@ -23,7 +23,7 @@ ms.locfileid: "57063859"
 > 
 > 説明"(v2)"とマークされている ASP.NET Web Pages 2 のバージョンで導入されました。
 > 
-> API リファレンス ドキュメントについては、次を参照してください。、 [ASP.NET Web ページのリファレンス ドキュメント](https://go.microsoft.com/fwlink/?LinkId=208659)msdn です。
+> API リファレンス ドキュメントについては、、 [ASP.NET Web ページのリファレンス ドキュメント](https://go.microsoft.com/fwlink/?LinkId=208659)msdn を参照してください。
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 > 

@@ -230,7 +230,7 @@ NuGet 2.8.1 RTM は、2014 年 4 月にリリースされます。 リリース 
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework をバージョン 6.1 ランタイムとツールの両方に更新されました。 Entity Framework (EF) 6.1 Entity Framework 6 のマイナー アップデートは、さまざまなバグ修正と新機能が含まれています。 新しい機能は、ドキュメントへのリンクを含む、EF6.1 の詳細については、次を参照してください。 [Entity Framework のバージョン履歴](https://msdn.microsoft.com/data/jj574253)します。 このリリースの新機能は次のとおりです。
+Entity Framework をバージョン 6.1 ランタイムとツールの両方に更新されました。 Entity Framework (EF) 6.1 Entity Framework 6 のマイナー アップデートは、さまざまなバグ修正と新機能が含まれています。 新しい機能は、ドキュメントへのリンクを含む、EF6.1 の詳細については、[Entity Framework のバージョン履歴](https://msdn.microsoft.com/data/jj574253)を参照してください。 このリリースの新機能は次のとおりです。
 
 - **ツールの統合**新しい EF モデルを作成する一貫した方法を提供します。 この機能は、既存のデータベースからリバース エンジニア リングを含む、Code First モデルの作成をサポートするために、ADO.NET Entity Data Model ウィザードを拡張します。 これらの機能では、以前の EF Power Tools Beta 品質で利用できます。
 - **トランザクションのコミット エラーの処理**提供新しい[System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx)を使用する新しく導入された機能のトランザクションの操作を傍受します。 **CommitFailureHandler**トランザクションのコミット中に接続の障害からの自動復旧を許可します。

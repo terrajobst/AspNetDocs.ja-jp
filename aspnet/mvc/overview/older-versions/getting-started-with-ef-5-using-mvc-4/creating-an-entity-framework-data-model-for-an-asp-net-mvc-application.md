@@ -30,7 +30,7 @@ ms.locfileid: "57048229"
 > 
 > ## <a name="code-first"></a>Code First
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、Code First の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
+> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、Code First の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、[Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)を参照してください。
 > 
 > ## <a name="mvc"></a>MVC
 > 
@@ -198,15 +198,15 @@ Visual Studio 2012 およびそれ以降のバージョンでは、LocalDB は�
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample8.xml)]
 
-既定と同じ名前の接続文字列の次の Entity Framework、`DbContext`クラス (`SchoolContext`このプロジェクトの)。 追加した接続文字列をという名前の LocalDB データベースを指定します*ContosoUniversity.mdf*内にある、*アプリ\_データ*フォルダー。 詳細については、次を参照してください。 [ASP.NET Web アプリケーションの SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)します。
+既定と同じ名前の接続文字列の次の Entity Framework、`DbContext`クラス (`SchoolContext`このプロジェクトの)。 追加した接続文字列をという名前の LocalDB データベースを指定します*ContosoUniversity.mdf*内にある、*アプリ\_データ*フォルダー。 詳細については、[ASP.NET Web アプリケーションの SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)を参照してください。
 
-実際には、接続文字列を指定する必要はありません。 接続文字列を指定しない場合は、Entity Framework により作成されます。ただし、データベースでできる可能性がありますいない、*アプリ\_データ*アプリのフォルダー。 データベースを作成する方法の詳細については、次を参照してください。[新しいデータベースを Code First](https://msdn.microsoft.com/data/jj193542)します。
+実際には、接続文字列を指定する必要はありません。 接続文字列を指定しない場合は、Entity Framework により作成されます。ただし、データベースでできる可能性がありますいない、*アプリ\_データ*アプリのフォルダー。 データベースを作成する方法の詳細については、[新しいデータベースを Code First](https://msdn.microsoft.com/data/jj193542)を参照してください。
 
 `connectionStrings`コレクションもという名前の接続文字列を持つ`DefaultConnection`メンバーシップ データベースに使用されます。 このチュートリアルでは、メンバーシップ データベースは使用しません。 2 つの接続文字列の唯一の違いは、データベース名および名前属性の値は。
 
 ## <a name="set-up-and-execute-a-code-first-migration"></a>設定して、コードの最初の移行を実行
 
-アプリケーションの開発を初めて起動すると、データ モデルの変更、頻繁にし、毎回、モデルの変更はデータベースと同期を取得します。 自動的に削除し、データ モデルを変更するたびにデータベースを再作成するには、Entity Framework を構成することができます。 これは、問題には開発の早い段階でテスト データが簡単に再作成されたが、通常は実稼働環境にデプロイした後、データベースを削除せずにデータベース スキーマを更新するためです。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 新しいプロジェクトの開発サイクルの早い段階で使用する可能性があります[DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx)を削除して再作成し、データベースを再シードするたびに、モデルの変更。 いずれかを取得するアプリケーションをデプロイする準備ができて、移行のアプローチに変換することができます。 このチュートリアルでは移行のみを使用します。 詳細については、次を参照してください。 [Code First Migrations](https://msdn.microsoft.com/data/jj591621)と[移行スクリーン キャスト シリーズ](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx)します。
+アプリケーションの開発を初めて起動すると、データ モデルの変更、頻繁にし、毎回、モデルの変更はデータベースと同期を取得します。 自動的に削除し、データ モデルを変更するたびにデータベースを再作成するには、Entity Framework を構成することができます。 これは、問題には開発の早い段階でテスト データが簡単に再作成されたが、通常は実稼働環境にデプロイした後、データベースを削除せずにデータベース スキーマを更新するためです。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 新しいプロジェクトの開発サイクルの早い段階で使用する可能性があります[DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx)を削除して再作成し、データベースを再シードするたびに、モデルの変更。 いずれかを取得するアプリケーションをデプロイする準備ができて、移行のアプローチに変換することができます。 このチュートリアルでは移行のみを使用します。 詳細については、[Code First Migrations](https://msdn.microsoft.com/data/jj591621)と[移行スクリーン キャスト シリーズ](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx)を参照してください。
 
 ### <a name="enable-code-first-migrations"></a>Code First Migrations を有効にします。
 
@@ -340,7 +340,7 @@ Visual Studio 2012 およびそれ以降のバージョンでは、LocalDB は�
 - 列名には、エンティティ プロパティ名が使用されます。
 - という名前のエンティティ プロパティ`ID`または*classname* `ID`主キー プロパティとして認識されます。
 
-規則をオーバーライドできることを説明しました (たとえば、指定したテーブル名を複数化しないこと)、規則とでこれらをオーバーライドする方法の詳細を学習し、[詳細の複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)チュートリアルこのシリーズの後半で。 詳細については、次を参照してください。[コードの最初の規則](https://msdn.microsoft.com/data/jj679962)します。
+規則をオーバーライドできることを説明しました (たとえば、指定したテーブル名を複数化しないこと)、規則とでこれらをオーバーライドする方法の詳細を学習し、[詳細の複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)チュートリアルこのシリーズの後半で。 詳細については、[コードの最初の規則](https://msdn.microsoft.com/data/jj679962)を参照してください。
 
 ## <a name="summary"></a>まとめ
 

@@ -122,7 +122,7 @@ IIS 7 以降では、Web Deploy は、IIS Web 配置ハンドラーを別の展�
 
 
 > [!NOTE]
-> Web デプロイ コマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)します。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
+> Web デプロイ コマンドライン操作と構文の詳細については、[Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)を参照してください。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
 
 
 Web 配置ハンドラーは、ステージング環境、ホストされている環境、およびサーバーへのリモート アクセスがあるが管理者の資格情報が、イントラネット ベースの実稼働環境で展開するのに役立つアプローチを提供します。
@@ -143,9 +143,9 @@ Web 配置ハンドラーのアプローチを使用するシナリオのエン�
 
 ## <a name="further-reading"></a>関連項目
 
-Web デプロイ コマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)します。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
+Web デプロイ コマンドライン操作と構文の詳細については、[Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)を参照してください。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
 
-リモート コンピューターから web パッケージをデプロイするさまざまな方法に関する一般的なガイダンスについては、次を参照してください。[を使用して Web デプロイ リモート](https://technet.microsoft.com/library/ee461175(WS.10).aspx)します。 オンデマンドで Web デプロイの使用に関する詳細については、次を参照してください。[オンデマンドで Web デプロイ](https://technet.microsoft.com/library/ee517345(WS.10).aspx)します。
+リモート コンピューターから web パッケージをデプロイするさまざまな方法に関する一般的なガイダンスについては、[を使用して Web デプロイ リモート](https://technet.microsoft.com/library/ee461175(WS.10).aspx)を参照してください。 オンデマンドで Web デプロイの使用に関する詳細については、[オンデマンドで Web デプロイ](https://technet.microsoft.com/library/ee517345(WS.10).aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-server-environments-for-web-deployment.md)

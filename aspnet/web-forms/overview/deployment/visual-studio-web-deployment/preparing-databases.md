@@ -21,7 +21,7 @@ ms.locfileid: "57029779"
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
 
 ## <a name="overview"></a>概要
@@ -57,7 +57,7 @@ Azure ではなく、サード パーティのホスティング プロバイダ
 
 ## <a name="configure-code-first-migrations-for-application-database-deployment"></a>Code First Migrations をアプリケーション データベースの配置を構成します。
 
-Contoso University アプリケーションのデータベースは、Code First によって管理され、Code First Migrations を使用してデプロイします。 Code First Migrations を使用してデータベースの配置の概要については、次を参照してください。[このシリーズの最初のチュートリアル](introduction.md)します。
+Contoso University アプリケーションのデータベースは、Code First によって管理され、Code First Migrations を使用してデプロイします。 Code First Migrations を使用してデータベースの配置の概要については、[このシリーズの最初のチュートリアル](introduction.md)を参照してください。
 
 アプリケーション データベースを展開するときに通常しないデプロイするだけですべてのデータのデータベースを開発、運用環境にテスト目的でのみ内のデータの多くはおそらくありますので。 たとえば、テスト データベース内の学生の名前は、架空です。 その一方で、多くの場合、配置できませんデータことのないデータベース構造だけですべての。 テスト データベースでデータの一部は、実際のデータがあり、ユーザーがアプリケーションの使用を開始する場合がある必要があります。 たとえば、データベースには、グレードが有効な値または実際の部署名を含むテーブルがあります。
 
@@ -226,7 +226,7 @@ SQL Server インストール センターの最初のページで次のよう�
 
 ## <a name="more-information"></a>説明
 
-NuGet の詳細については、次を参照してください。 [nuget プロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)します。 NuGet を使用しない場合がインストールされているときの動作を決定する NuGet パッケージを分析する方法を説明する必要があります。 (たとえば、構成が*Web.config*変換、ビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法について詳しくは、次を参照してください。[を作成すると、パッケージを公開する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)します。
+NuGet の詳細については、[nuget プロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)を参照してください。 NuGet を使用しない場合がインストールされているときの動作を決定する NuGet パッケージを分析する方法を説明する必要があります。 (たとえば、構成が*Web.config*変換、ビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法について詳しくは、[を作成すると、パッケージを公開する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](introduction.md)

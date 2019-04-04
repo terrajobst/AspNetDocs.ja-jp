@@ -93,7 +93,7 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 
 その結果、アプリケーションでの任意のプロバイダー情報を指定せず単に有効にするロール framework 場合`Web.config`ファイル、アプリケーションは、登録されている既定のロール プロバイダーを使用して`AspNetSqlRoleProvider`します。 場合、`~/App_Data/aspnet.mdf`データベースが存在しないか、ASP.NET ランタイムに自動的にそれを作成し、アプリケーションのサービス スキーマを追加します。 ただし、使用するたく、`aspnet.mdf`を使用する代わりに、データベースでは、`SecurityTutorials.mdf`データベースを既に作成して、アプリケーションのサービス スキーマを追加します。 この変更は、2 つの方法のいずれかで実行できます。
 
-- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>接続文字列名を</strong><strong>`Web.config`</strong><strong>します。</strong> 上書きすることで、`LocalSqlServer`の接続文字列名値`Web.config`、登録されている既定のロール プロバイダーを使用できます (`AspNetSqlRoleProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この手法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)します。
+- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>接続文字列名を</strong><strong>`Web.config`</strong><strong>します。</strong> 上書きすることで、`LocalSqlServer`の接続文字列名値`Web.config`、登録されている既定のロール プロバイダーを使用できます (`AspNetSqlRoleProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この手法の詳細については、[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)を参照してください。
 - <strong>型の新しい登録済みプロバイダーの追加</strong><strong>`SqlRoleProvider`</strong><strong>構成とその</strong><strong>`connectionStringName`</strong><strong>をポイントする設定</strong><strong>`SecurityTutorials.mdf`</strong><strong>データベース。</strong> これが推奨しで使用される方法、 <a id="_msoanchor_7"> </a> [ *SQL Server でメンバーシップ スキーマを作成する*](../membership/creating-the-membership-schema-in-sql-server-vb.md)チュートリアルでは、これはもこのチュートリアルで使用する方法。
 
 次の役割の構成マークアップを追加、`Web.config`ファイル。 このマークアップは、という名前の新しいプロバイダーを登録します。 `SecurityTutorialsSqlRoleProvider.`
@@ -200,7 +200,7 @@ GridView の設定で開始`AutoGenerateColumns`プロパティを False にし�
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample11.vb)]
 
-ユーザーが新しいロールを追加するときに今すぐ、`RoleList`視覚的なフィードバック、ロールが正常に作成されたことを提供する GridView、ポストバックのだけで追加したロールを示しています。 これを示すためには、次を参照してください。、`ManageRoles.aspx`ブラウザーでページと、監督者をという名前のロールを追加します。 ロールの作成 ボタンをクリックすると、ポストバックが発生したりして、グリッドが更新され、管理者として、新しいロール、監督者などがあります。
+ユーザーが新しいロールを追加するときに今すぐ、`RoleList`視覚的なフィードバック、ロールが正常に作成されたことを提供する GridView、ポストバックのだけで追加したロールを示しています。 これを示すためには、、`ManageRoles.aspx`ブラウザーでページと、監督者をという名前のロールを追加を参照してください。 ロールの作成 ボタンをクリックすると、ポストバックが発生したりして、グリッドが更新され、管理者として、新しいロール、監督者などがあります。
 
 
 [![スーパーバイザー ロールが追加されました](creating-and-managing-roles-vb/_static/image17.png)](creating-and-managing-roles-vb/_static/image16.png)
@@ -236,7 +236,7 @@ GridView のイベント ハンドラーを次に、作成`RowDeleting`イベン
 プログラムで参照することによって、コードの先頭、 `RoleNameLabel` Web コントロールの役割の削除ボタンがクリックされた行にします。 `Roles.DeleteRole`メソッドが呼び出されてを渡して、`Text`の`RoleNameLabel`と`False`のため、かどうかに関係なく、ロールを削除するロールに関連付けられているすべてのユーザーがあります。 最後に、 `RoleList` GridView が更新されるので、単に削除された役割がグリッドに表示されなくなります。
 
 > [!NOTE]
-> ロールの削除 ボタンでは、あらゆる種類のロールを削除する前に、ユーザーから送信される確認は必要ありません。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、次を参照してください。[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-vb.aspx)します。
+> ロールの削除 ボタンでは、あらゆる種類のロールを削除する前に、ユーザーから送信される確認は必要ありません。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-vb.aspx)を参照してください。
 
 
 ## <a name="summary"></a>まとめ

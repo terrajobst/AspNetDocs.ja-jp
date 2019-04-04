@@ -99,7 +99,7 @@ ms.locfileid: "57065759"
 
 アプリでは、[ハブ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)メソッドは、クライアントは、サーバー上で呼び出すことができますを定義するクラス。 1 つのメソッドを定義する:`GetAllStocks()`します。 クライアントは、最初に、サーバーに接続するときは、その現在の価格の株式のすべての一覧を取得するには、このメソッドを呼び出します。 メソッドは同期的に実行して、返す`IEnumerable<Stock>`メモリからデータを返すためです。
 
-指定したかどうか、メソッドがデータベース検索など、web サービス呼び出しの待機を含むは何かの手順を実行してデータを取得する必要がある`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods)します。
+指定したかどうか、メソッドがデータベース検索など、web サービス呼び出しの待機を含むは何かの手順を実行してデータを取得する必要がある`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、[ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods)を参照してください。
 
 `HubName`属性は、アプリが、クライアントでの JavaScript コードのハブを参照する方法を指定します。 クライアントに既定の名前は、この属性を使用しない場合は、例ではこのクラスの名前のキャメル ケース バージョン`stockTickerHub`します。
 
@@ -169,7 +169,7 @@ Stocks コレクションとは見なさ、 [ConcurrentDictionary](https://msdn.
 
 `updateStockPrice`で呼び出しているメソッド`BroadcastStockPrice`がまだ存在しません。 後で追加するクライアントで実行されるコードを記述するときにします。 参照することができます`updateStockPrice`ここため`Clients.All`は動的で、アプリが実行時に式を評価することを意味します。 このメソッドの呼び出しが実行されると、SignalR は送信メソッド名とパラメーターの値をクライアントにクライアントがという名前のメソッドと`updateStockPrice`アプリはそのメソッドを呼び出すし、パラメーターの値を渡します。
 
-`Clients.All` 意味は、すべてのクライアントに送信します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、次を参照してください。 [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)します。
+`Clients.All` 意味は、すべてのクライアントに送信します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、[HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)を参照してください。
 
 ### <a name="register-the-signalr-route"></a>SignalR のルートを登録します。
 
@@ -474,9 +474,9 @@ JQuery コードがスクロールします。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-このチュートリアルでは、接続されているすべてのクライアントをサーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学習できました。 ここで任意のクライアントからの通知に応答して定期的にメッセージをブロードキャストすることができます。 マルチ スレッドのシングルトン インスタンスの概念は、マルチ プレーヤー オンライン ゲーム シナリオでサーバーの状態を維持するために使用できます。 例については、次を参照してください。 [SignalR に基づいて ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)します。
+このチュートリアルでは、接続されているすべてのクライアントをサーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学習できました。 ここで任意のクライアントからの通知に応答して定期的にメッセージをブロードキャストすることができます。 マルチ スレッドのシングルトン インスタンスの概念は、マルチ プレーヤー オンライン ゲーム シナリオでサーバーの状態を維持するために使用できます。 例については、[SignalR に基づいて ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)を参照してください。
 
-ピア ツー ピア通信シナリオを示すチュートリアルについては、次を参照してください。 [SignalR の概要](introduction-to-signalr.md)と[SignalR によるリアルタイムの更新](tutorial-high-frequency-realtime-with-signalr.md)します。
+ピア ツー ピア通信シナリオを示すチュートリアルについては、[SignalR の概要](introduction-to-signalr.md)と[SignalR によるリアルタイムの更新](tutorial-high-frequency-realtime-with-signalr.md)を参照してください。
 
 詳細については、SignalR は、次のリソースを参照してください。
 

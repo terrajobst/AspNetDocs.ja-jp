@@ -33,7 +33,7 @@ ms.locfileid: "57042599"
 >
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
 >
-> OData バージョン 3 では、次を参照してください。 [OData v3 エンドポイントの作成](../odata-v3/creating-an-odata-endpoint.md)です。
+> OData バージョン 3 では、[OData v3 エンドポイントの作成](../odata-v3/creating-an-odata-endpoint.md)を参照してください。
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 
@@ -148,7 +148,7 @@ A*コント ローラー*は HTTP 要求を処理するクラスです。 各エ
 
 パラメーターなしのバージョンの`Get`メソッド全体の製品のコレクションを返します。 `Get`メソッドを*キー*キーで製品を次のパラメーター (この場合、`Id`プロパティ)。
 
-**[EnableQuery]** 属性は、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更するクライアントを使用できます。 詳細については、次を参照してください。 [OData クエリ オプションをサポートしている](../supporting-odata-query-options.md)します。
+**[EnableQuery]** 属性は、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更するクライアントを使用できます。 詳細については、[OData クエリ オプションをサポートしている](../supporting-odata-query-options.md)を参照してください。
 
 ## <a name="add-an-entity-to-the-entity-set"></a>エンティティ、エンティティ セットを追加します。
 

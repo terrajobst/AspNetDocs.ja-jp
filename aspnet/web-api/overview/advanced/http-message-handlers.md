@@ -44,7 +44,7 @@ A*メッセージ ハンドラー*は HTTP 要求を受信し、HTTP 応答を�
 ![](http-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> HttpClient は、クライアント側で、メッセージのハンドラーも使用します。 詳細については、次を参照してください。 [HttpClient メッセージ ハンドラー](httpclient-message-handlers.md)します。
+> HttpClient は、クライアント側で、メッセージのハンドラーも使用します。 詳細については、[HttpClient メッセージ ハンドラー](httpclient-message-handlers.md)を参照してください。
 
 
 ## <a name="custom-message-handlers"></a>カスタム メッセージ ハンドラー

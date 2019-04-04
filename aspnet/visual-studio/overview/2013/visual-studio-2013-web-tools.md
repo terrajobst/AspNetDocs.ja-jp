@@ -151,7 +151,7 @@ ms.locfileid: "58423248"
     *展開された HTML*
 
     > [!NOTE]
-    > Zen コーディングの構文の詳細については、次を参照してください。[記事](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/)します。
+    > Zen コーディングの構文の詳細については、[記事](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/)を参照してください。
 5. をクリックして、**リンクされたブラウザーを更新**両方のブラウザーを更新するボタンをクリックします。
 
     ![リンクされたブラウザーを更新](visual-studio-2013-web-tools/_static/image7.png "リンクされたブラウザーを更新")

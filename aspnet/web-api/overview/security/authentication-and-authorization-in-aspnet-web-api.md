@@ -34,7 +34,7 @@ Web API を作成したが、それへのアクセスを制御するようにな
 
 Web API では、ホストでその認証を行いますを前提としています。 Web ホスト、ホスト認証のための HTTP モジュールを使用して、IIS です。 IIS または ASP.NET に組み込まれている認証モジュールのいずれかを使用するプロジェクトを構成したり、カスタム認証を実行する独自の HTTP モジュールを記述できます。
 
-作成、ホストが、ユーザーを認証するとき、*プリンシパル*は、 [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx)コードが実行されているセキュリティ コンテキストを表すオブジェクト。 ホストを設定して現在のスレッドにプリンシパルをアタッチします**Thread.CurrentPrincipal**します。 プリンシパルが含まれていますが、関連付けられている**Identity**ユーザーに関する情報を含むオブジェクト。 ユーザーが認証されている場合、 **Identity.IsAuthenticated**プロパティが返す**true**します。 匿名の要求に対して**IsAuthenticated**返します**false**します。 プリンシパルの詳細については、次を参照してください。[ロール ベース セキュリティ](https://msdn.microsoft.com/library/shz8h065.aspx)します。
+作成、ホストが、ユーザーを認証するとき、*プリンシパル*は、 [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx)コードが実行されているセキュリティ コンテキストを表すオブジェクト。 ホストを設定して現在のスレッドにプリンシパルをアタッチします**Thread.CurrentPrincipal**します。 プリンシパルが含まれていますが、関連付けられている**Identity**ユーザーに関する情報を含むオブジェクト。 ユーザーが認証されている場合、 **Identity.IsAuthenticated**プロパティが返す**true**します。 匿名の要求に対して**IsAuthenticated**返します**false**します。 プリンシパルの詳細については、[ロール ベース セキュリティ](https://msdn.microsoft.com/library/shz8h065.aspx)を参照してください。
 
 ### <a name="http-message-handlers-for-authentication"></a>認証のための HTTP メッセージ ハンドラー
 

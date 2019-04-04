@@ -45,7 +45,7 @@ Web API コント ローラーで単体テストする点を次に示します�
 - アクションは、リポジトリまたはサービス層で適切なメソッドを呼び出します。
 - 応答には、ドメイン モデルが含まれている場合は、モデルの種類を確認します。
 
-これらの一般的なことをテストするが、コント ローラーの実装によって異なります。 大きな違いは、その具体的には、コント ローラーのアクションを返すかどうか**HttpResponseMessage**または**IHttpActionResult**します。 これらの結果の種類の詳細については、次を参照してください。 [Web Api 2 でアクションの結果](../getting-started-with-aspnet-web-api/action-results.md)します。
+これらの一般的なことをテストするが、コント ローラーの実装によって異なります。 大きな違いは、その具体的には、コント ローラーのアクションを返すかどうか**HttpResponseMessage**または**IHttpActionResult**します。 これらの結果の種類の詳細については、[Web Api 2 でアクションの結果](../getting-started-with-aspnet-web-api/action-results.md)を参照してください。
 
 ## <a name="testing-actions-that-return-httpresponsemessage"></a>テスト HttpResponseMessage を返すアクション
 

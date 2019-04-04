@@ -141,7 +141,7 @@ Table-per-Hierarchy 継承を構成するために Entity Framework に必要な
 > 
 > [!code-xml[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.xml?highlight=1-2)]
 > 
-> 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、次を参照してください。 [Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)します。 チュートリアルを続行するにはこの方法を実行する場合、配置サイトの移行を自動的に実行時に同じエラーが発生があるために、このチュートリアルの最後に配置手順をスキップします。 移行エラーのトラブルシューティングを行う場合は、最適なリソースは、Entity Framework のフォーラムまたは StackOverflow.com のいずれか。
+> 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、[Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)を参照してください。 チュートリアルを続行するにはこの方法を実行する場合、配置サイトの移行を自動的に実行時に同じエラーが発生があるために、このチュートリアルの最後に配置手順をスキップします。 移行エラーのトラブルシューティングを行う場合は、最適なリソースは、Entity Framework のフォーラムまたは StackOverflow.com のいずれか。
 
 
 ## <a name="testing"></a>テスト

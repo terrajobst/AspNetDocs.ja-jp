@@ -110,7 +110,7 @@ F5 キーをビルドして、web アプリケーションのデバッグを押�
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Facebook 認証を有効にします。
 
-Facebook を使用して認証では、Facebook 開発者アカウントを作成する必要があります、プロジェクトが必要し、なりますアプリケーション ID と秘密キーの Facebook から機能するためにします。 Facebook 開発者アカウントを作成して、アプリケーション ID と秘密キーの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)します。
+Facebook を使用して認証では、Facebook 開発者アカウントを作成する必要があります、プロジェクトが必要し、なりますアプリケーション ID と秘密キーの Facebook から機能するためにします。 Facebook 開発者アカウントを作成して、アプリケーション ID と秘密キーの取得については、[ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)を参照してください。
 
 1 回、アプリケーション ID とシークレット キーを取得した、web アプリケーションの Facebook 認証を有効にする、次の手順を使用します。
 
@@ -138,7 +138,7 @@ Facebook を使用して認証では、Facebook 開発者アカウントを作�
 <a id="GOOGLE"></a>
 ## <a name="enabling-google-authentication"></a>Enabling Google Authentication
 
-Google を使用して、認証では、Google developer アカウントを作成する必要があります、プロジェクトが機能するためにアプリケーション ID と Google からの秘密鍵を必要は。 Google developer アカウントを作成して、アプリケーション ID と秘密キーの取得については、次を参照してください。 [ https://developers.google.com](https://developers.google.com)します。
+Google を使用して、認証では、Google developer アカウントを作成する必要があります、プロジェクトが機能するためにアプリケーション ID と Google からの秘密鍵を必要は。 Google developer アカウントを作成して、アプリケーション ID と秘密キーの取得については、[ https://developers.google.com](https://developers.google.com)を参照してください。
 
 
 Web アプリケーション用に Google 認証を有効にするには、次の手順を使用します。
@@ -170,7 +170,7 @@ Web アプリケーション用に Google 認証を有効にするには、次�
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Microsoft 認証を有効にします。
 
-Microsoft 認証では、開発者アカウントを作成する必要があり、機能するために、クライアント ID とクライアント シークレットが必要です。 Microsoft 開発者アカウントを作成して、クライアント ID とクライアント シークレットの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070)します。
+Microsoft 認証では、開発者アカウントを作成する必要があり、機能するために、クライアント ID とクライアント シークレットが必要です。 Microsoft 開発者アカウントを作成して、クライアント ID とクライアント シークレットの取得については、[ https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070)を参照してください。
 
 1 回、コンシューマー キーとコンシューマー シークレットを取得した、次の手順を使用して web アプリケーション用に Microsoft 認証を有効にします。
 
@@ -201,7 +201,7 @@ Microsoft 認証では、開発者アカウントを作成する必要があり�
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Twitter 認証を有効にします。
 
-Twitter の認証では、開発者アカウントを作成する必要があり、機能するために、コンシューマー キーとコンシューマー シークレットが必要です。 Twitter 開発者アカウントを作成して、コンシューマー キーとコンシューマー シークレットの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)します。
+Twitter の認証では、開発者アカウントを作成する必要があり、機能するために、コンシューマー キーとコンシューマー シークレットが必要です。 Twitter 開発者アカウントを作成して、コンシューマー キーとコンシューマー シークレットの取得については、[ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)を参照してください。
 
 1 回、コンシューマー キーとコンシューマー シークレットを取得した、web アプリケーション用に Twitter 認証を有効にする、次の手順を使用します。
 

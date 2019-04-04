@@ -58,10 +58,10 @@ ms.locfileid: "57058109"
 [Team Foundation ビルドを管理する](https://msdn.microsoft.com/library/ms252495.aspx)MSDN に関する章には、これらのタスクを実行するために必要なすべてのリソースが含まれています。
 
 - Team Foundation ビルドの概念的概要については、ビルド サービス、ビルド コント ローラーとビルド エージェント、参照を含む[Team Foundation ビルド システムについて](https://msdn.microsoft.com/library/dd793166.aspx)します。
-- インストールして、ビルド サービスを構成するのには、次を参照してください。[ビルド コンピューターの構成](https://msdn.microsoft.com/library/ms181712.aspx)します。
-- ビルド コント ローラーを作成する方法の詳細については、次を参照してください。[ビルド コント ローラーの作成と操作](https://msdn.microsoft.com/library/ee330987.aspx)します。
-- ビルド エージェントを作成する方法の詳細については、次を参照してください。[ビルド エージェントの作成と操作](https://msdn.microsoft.com/library/bb399135.aspx)します。
-- 作成して、ドロップ フォルダーを構成するのには、次を参照してください。[ドロップ フォルダーのセットアップ](https://msdn.microsoft.com/library/bb778394.aspx)します。
+- インストールして、ビルド サービスを構成するのには、[ビルド コンピューターの構成](https://msdn.microsoft.com/library/ms181712.aspx)を参照してください。
+- ビルド コント ローラーを作成する方法の詳細については、[ビルド コント ローラーの作成と操作](https://msdn.microsoft.com/library/ee330987.aspx)を参照してください。
+- ビルド エージェントを作成する方法の詳細については、[ビルド エージェントの作成と操作](https://msdn.microsoft.com/library/bb399135.aspx)を参照してください。
+- 作成して、ドロップ フォルダーを構成するのには、[ドロップ フォルダーのセットアップ](https://msdn.microsoft.com/library/bb778394.aspx)を参照してください。
 
 ## <a name="install-required-products-and-components"></a>必要な製品とコンポーネントをインストールします。
 
@@ -111,7 +111,7 @@ ms.locfileid: "57058109"
 
 ## <a name="further-reading"></a>関連項目
 
-チーム ビルドを使用して作業の一般的なガイダンスについては、次を参照してください。 [Team Foundation ビルドを管理する](https://msdn.microsoft.com/library/ms252495.aspx)します。
+チーム ビルドを使用して作業の一般的なガイダンスについては、[Team Foundation ビルドを管理する](https://msdn.microsoft.com/library/ms252495.aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](adding-content-to-source-control.md)

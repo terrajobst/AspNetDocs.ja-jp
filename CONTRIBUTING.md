@@ -24,7 +24,7 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 
 ## <a name="markdown-syntax"></a>Markdown の構文
 
-記事は [DocFX Flavored Markdown](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html) で書かれています。これは [GitHub flavored Markdown (GFM)](https://guides.github.com/features/mastering-markdown/) のスーパーセットです。 ASP.NET のドキュメントでよく使用される UI 機能についての DFM 構文の例については、次を参照してください。[メタデータと Markdown テンプレート](https://github.com/dotnet/docs/blob/master/styleguide/template.md).NET Docs リポジトリ スタイル ガイドにします。
+記事は [DocFX Flavored Markdown](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html) で書かれています。これは [GitHub flavored Markdown (GFM)](https://guides.github.com/features/mastering-markdown/) のスーパーセットです。 ASP.NET のドキュメントでよく使用される UI 機能についての DFM 構文の例については、[メタデータと Markdown テンプレート](https://github.com/dotnet/docs/blob/master/styleguide/template.md).NET Docs リポジトリ スタイル ガイドにを参照してください。
 
 ## <a name="folder-structure-conventions"></a>フォルダー構造の規則
 
@@ -145,7 +145,7 @@ DocFX には次のものが必要です。
 
 ## <a name="voice-and-tone"></a>スタイルとトーン
 
-目標は、できるかぎり幅広いユーザーにわかりやすいドキュメントを作成することです。 そのため、寄稿者に従っていただきたい書き方のガイドラインが設けられています。 詳細については、次を参照してください。[とトーンのガイドライン](https://github.com/dotnet/docs/blob/master/styleguide/voice-tone.md).NET リポジトリにします。
+目標は、できるかぎり幅広いユーザーにわかりやすいドキュメントを作成することです。 そのため、寄稿者に従っていただきたい書き方のガイドラインが設けられています。 詳細については、[とトーンのガイドライン](https://github.com/dotnet/docs/blob/master/styleguide/voice-tone.md).NET リポジトリにを参照してください。
 
 ## <a name="microsoft-writing-style-guide"></a>Microsoft 文書作成スタイル ガイド
 

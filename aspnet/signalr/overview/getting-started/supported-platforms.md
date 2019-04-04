@@ -27,7 +27,7 @@ ms.locfileid: "57063419"
 > 
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
-SignalR は、さまざまなサーバーおよびクライアントの構成でサポートされています。 また、各トランスポート オプションでは、一連の; 独自の要件トランスポートのシステム要件が利用できない場合は、SignalR は適切に他のトランスポートへのフェールオーバーにします。 SignalR をサポートするトランスポートの詳細については、次を参照してください。[トランスポートとフォールバック](introduction-to-signalr.md#transports)します。
+SignalR は、さまざまなサーバーおよびクライアントの構成でサポートされています。 また、各トランスポート オプションでは、一連の; 独自の要件トランスポートのシステム要件が利用できない場合は、SignalR は適切に他のトランスポートへのフェールオーバーにします。 SignalR をサポートするトランスポートの詳細については、[トランスポートとフォールバック](introduction-to-signalr.md#transports)を参照してください。
 
 ## <a name="server-system-requirements"></a>サーバーのシステム要件
 
@@ -53,7 +53,7 @@ SignalR 2 は、.NET Framework 4.5 でのみサポートされます。 参照�
 
 SignalR は、IIS でホストされている、次のバージョンがサポートされます。 クライアントのオペレーティング システムを使用する場合などの開発 (Windows 8 または Windows 7) の完全なバージョンの IIS または Cassini する必要があります使用しないこと、接続から非常に短時間に達したが 10 の同時接続、課せられる制限があるために注意してください。頻繁に再確立されると、一時的なものとは、破棄されていないすぐに使用されていないとします。 クライアント オペレーティング システムでは、IIS Express を使用する必要があります。
 
-また、WebSocket を使用する SignalR の IIS 8 または IIS 8 の Express を使用する必要があります、サーバーに Windows 8、Windows Server 2012、またはそれ以降、する必要がありますを使用して、IIS で WebSocket を有効にする必要がありますに注意してください。 IIS で WebSocket を有効にする方法については、次を参照してください。 [IIS 8.0 WebSocket プロトコルのサポート](https://www.iis.net/learn/get-started/whats-new-in-iis-8/iis-80-websocket-protocol-support)します。
+また、WebSocket を使用する SignalR の IIS 8 または IIS 8 の Express を使用する必要があります、サーバーに Windows 8、Windows Server 2012、またはそれ以降、する必要がありますを使用して、IIS で WebSocket を有効にする必要がありますに注意してください。 IIS で WebSocket を有効にする方法については、[IIS 8.0 WebSocket プロトコルのサポート](https://www.iis.net/learn/get-started/whats-new-in-iis-8/iis-80-websocket-protocol-support)を参照してください。
 
 - IIS 8、または IIS 8 Express。
 - IIS 7 および 7.5 です。 サポート[拡張子のない Url](https://support.microsoft.com/kb/980368)が必要です。

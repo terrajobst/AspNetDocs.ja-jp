@@ -143,7 +143,7 @@ Ember は、Url、ルート名、コント ローラー、およびテンプレ�
 - todoList.hbs:テンプレートを"/todo"ルート。
 - \_navbar.hbs:テンプレートは、ナビゲーション メニューを定義します。
 
-アプリケーション テンプレートは、マスター ページと同様に機能します。 ヘッダー、フッター、および「{{アウトレット}}」をルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、次を参照してください。 [ http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)します。
+アプリケーション テンプレートは、マスター ページと同様に機能します。 ヘッダー、フッター、および「{{アウトレット}}」をルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、[ http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)を参照してください。
 
 "/TodoList"テンプレートには、2 つのループ式が含まれています。 外側のループが`{{#each controller}}`、および内部ループは`{{#each todos}}`します。 次のコードは、組み込み`Ember.Checkbox`表示、カスタマイズされた`App.TodoItemEditView`とのリンクを`deleteTodo`アクション。
 

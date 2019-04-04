@@ -24,7 +24,7 @@ ms.locfileid: "57053119"
 >
 > SignalR ハブの API では、サーバーからに接続されているクライアントとサーバーのクライアントからのリモート プロシージャ コール (Rpc) を作成することができます。 サーバー コードで、クライアントから呼び出すことができるメソッドを定義して、クライアント上で実行されるメソッドを呼び出します。 クライアント コードで、サーバーから呼び出すことができるメソッドを定義して、サーバー上で実行されるメソッドを呼び出します。 SignalR は、のすべてのクライアントとサーバーが処理されます。
 >
-> SignalR では、永続的な接続と呼ばれる下位レベル API も提供します。 SignalR、ハブ、および永続的な接続の概要については、次を参照してください。 [SignalR 入門](../getting-started/introduction-to-signalr.md)します。
+> SignalR では、永続的な接続と呼ばれる下位レベル API も提供します。 SignalR、ハブ、および永続的な接続の概要については、[SignalR 入門](../getting-started/introduction-to-signalr.md)を参照してください。
 >
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
@@ -37,7 +37,7 @@ ms.locfileid: "57053119"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -122,14 +122,14 @@ JavaScript クライアントでは、jQuery、および SignalR core の JavaSc
 前の例では、SignalR が生成されたプロキシへの参照は、物理ファイルが、動的に生成された JavaScript コードが。 SignalR では、その場でプロキシの JavaScript コードを作成し、それを「/signalr ハブ」URL への応答でクライアントに提供します。 サーバーでは、SignalR 接続の場合は、さまざまなベース URL を指定したかどうか、`MapSignalR`メソッドを動的に生成されるプロキシ ファイルの URL は、カスタムの URL に"/ハブ"が追加されます。
 
 > [!NOTE]
-> Windows 8 (Windows ストア) JavaScript クライアントは、動的に生成されたものではなく、物理プロキシ ファイルを使用します。 詳細については、次を参照してください。 [SignalR の物理ファイルを作成する方法は、プロキシを生成](#manualproxy)このトピックで後述します。
+> Windows 8 (Windows ストア) JavaScript クライアントは、動的に生成されたものではなく、物理プロキシ ファイルを使用します。 詳細については、[SignalR の物理ファイルを作成する方法は、プロキシを生成](#manualproxy)このトピックで後述を参照してください。
 
 
 ASP.NET MVC 4 または 5 の Razor ビューでは、チルダを使用して、アプリケーション ルートに、プロキシ ファイルのリファレンスを参照してください。
 
 [!code-html[Main](hubs-api-guide-javascript-client/samples/sample5.html)]
 
-MVC 5 で SignalR を使用する方法の詳細については、次を参照してください。 [SignalR と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)します。
+MVC 5 で SignalR を使用する方法の詳細については、[SignalR と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)を参照してください。
 
 ASP.NET MVC 3 Razor ビューで使用して`Url.Content`ファイル参照用プロキシに。
 
@@ -184,7 +184,7 @@ Visual Studio 2017 でデバッグ モードで web プロジェクトを実行�
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample9.js?highlight=1,6)]
 
-サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)します。
+サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、[ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)を参照してください。
 
 既定では、ハブの場所には、現在のサーバー別のサーバーに接続する場合は、呼び出す前に URL を指定、`start`メソッドを次の例に示すようにします。
 
@@ -248,9 +248,9 @@ SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCross
 >
 >     SignalR では、CORS の使用を処理します。 設定`jQuery.support.cors`に SignalR、ブラウザーは、CORS をサポートするいると仮定する原因になるので true JSONP を無効にします。
 > - に localhost の URL に接続するときに Internet Explorer 10 は見なされませんが、ドメイン間の接続を、アプリケーションは、ローカルで IE 10 サーバー上のドメイン間の接続を有効にしていない場合でも、。
-> - Internet Explorer 9 を使用したドメイン間の接続方法の詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/13573397/siganlr-ie9-cross-domain-request-dont-work)します。
-> - Chrome を使用したドメイン間の接続方法の詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/15467373/signalr-1-0-1-cross-domain-request-cors-with-chrome)します。
-> - サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)します。
+> - Internet Explorer 9 を使用したドメイン間の接続方法の詳細については、[この StackOverflow スレッド](http://stackoverflow.com/questions/13573397/siganlr-ie9-cross-domain-request-dont-work)を参照してください。
+> - Chrome を使用したドメイン間の接続方法の詳細については、[この StackOverflow スレッド](http://stackoverflow.com/questions/15467373/signalr-1-0-1-cross-domain-request-cors-with-chrome)を参照してください。
+> - サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、[ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)を参照してください。
 
 
 <a id="configureconnection"></a>
@@ -318,7 +318,7 @@ SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCross
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample20.js?highlight=3)]
 
-サーバー コードでの転送方法を確認する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーのコンテキスト プロパティからのクライアントに関する情報を取得する方法](hubs-api-guide-server.md#contextproperty)します。 トランスポートとフォールバックの詳細については、次を参照してください。 [SignalR のトランスポートとフォールバックの概要](../getting-started/introduction-to-signalr.md#transports)します。
+サーバー コードでの転送方法を確認する方法については、[ASP.NET SignalR ハブ API ガイド - サーバーのコンテキスト プロパティからのクライアントに関する情報を取得する方法](hubs-api-guide-server.md#contextproperty)を参照してください。 トランスポートとフォールバックの詳細については、[SignalR のトランスポートとフォールバックの概要](../getting-started/introduction-to-signalr.md#transports)を参照してください。
 
 <a id="getproxy"></a>
 
@@ -480,7 +480,7 @@ SignalR は、次の接続に処理できる有効期間イベントを提供し
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample47.js?highlight=2)]
 
-詳細については、次を参照してください。 [SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)します。
+詳細については、[SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)を参照してください。
 
 <a id="handleerrors"></a>
 
@@ -528,4 +528,4 @@ SignalR JavaScript クライアントは、提供、`error`イベントのハン
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample54.js?highlight=2)]
 
-ログを表示するには、ブラウザーの開発者ツールを開きコンソール タブに移動します。これを行う方法を示すショット画面および詳細な手順を表示するチュートリアルについては、次を参照してください。[ログ記録を有効にする - ASP.NET Signalr によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md#enable-logging)します。
+ログを表示するには、ブラウザーの開発者ツールを開きコンソール タブに移動します。これを行う方法を示すショット画面および詳細な手順を表示するチュートリアルについては、[ログ記録を有効にする - ASP.NET Signalr によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md#enable-logging)を参照してください。

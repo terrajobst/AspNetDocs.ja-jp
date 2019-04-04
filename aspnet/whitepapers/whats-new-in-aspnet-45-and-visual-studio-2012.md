@@ -509,7 +509,7 @@ Select メソッドを返すため、 *IQueryable*オブジェクト、 *GridVie
 <a id="_Toc318097394"></a>
 ## <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 
-ASP.NET MVC 4 Beta が Visual Studio 11 Beta に含まれています。 ASP.NET MVC は、モデル-ビュー-コント ローラー (MVC) パターンを活用することでテスト可能かつ保守が容易な Web アプリケーションを開発するためのフレームワークです。 ASP.NET MVC 4 では、簡単に、モバイル web アプリケーションを構築することと、任意のデバイスにアクセスできる HTTP サービスの構築に役立つ、ASP.NET Web API が含まれています。 詳細については、次を参照してください。、 [ASP.NET MVC 4 リリース ノート](mvc4-release-notes.md)します。
+ASP.NET MVC 4 Beta が Visual Studio 11 Beta に含まれています。 ASP.NET MVC は、モデル-ビュー-コント ローラー (MVC) パターンを活用することでテスト可能かつ保守が容易な Web アプリケーションを開発するためのフレームワークです。 ASP.NET MVC 4 では、簡単に、モバイル web アプリケーションを構築することと、任意のデバイスにアクセスできる HTTP サービスの構築に役立つ、ASP.NET Web API が含まれています。 詳細については、、 [ASP.NET MVC 4 リリース ノート](mvc4-release-notes.md)を参照してください。
 
 <a id="_Toc318097395"></a>
 ## <a name="aspnet-web-pages-2"></a>ASP.NET Web ページ 2
@@ -524,7 +524,7 @@ ASP.NET MVC 4 Beta が Visual Studio 11 Beta に含まれています。 ASP.NET
 - Web ページ アプリケーションでの並列実行されています。
 - モバイル デバイス用のページをレンダリングします。
 
-詳細については、これらの機能とページ全体のコード例は、次を参照してください。 [Web ページ 2 のベータ版のベスト機能](https://go.microsoft.com/fwlink/?LinkID=227824)します。
+詳細については、これらの機能とページ全体のコード例は、[Web ページ 2 のベータ版のベスト機能](https://go.microsoft.com/fwlink/?LinkID=227824)を参照してください。
 
 <a id="_Toc318097396"></a>
 ## <a name="visual-web-developer-11-beta"></a>Visual Web Developer 11 Beta
@@ -565,9 +565,9 @@ MSBuildExtensionsPath32 設定によって表されるパスからインポー�
 
 既定値に、次の変更を加え*Web.config* Visual Studio 2012 Release Candidate で web サイト テンプレートを使用して作成されたサイトのファイル。
 
-- `<httpRuntime>`要素、`encoderType`属性が ASP.NET に追加された AntiXSS 型を使用する既定で設定ようになりました。 詳細については、次を参照してください。 [AntiXSS ライブラリ](#_Toc318097382)します。
-- さらに、`<httpRuntime>`要素、`requestValidationMode`属性が「4.5」に設定します。 つまり、既定では遅延 (「レイジー」) の検証を使用する要求の検証が構成されます。 詳細については、次を参照してください。 [ASP.NET 要求の検証機能の新しい](#_Toc318097379)します。
-- `<modules>`の要素、`<system.webServer>`セクションが含まれていない、`runAllManagedModulesForAllRequests`属性。 (既定値は、false)。つまり版を SP1 に更新されていない IIS 7 を使用している場合は、新しいサイトでのルーティングに関する問題を必要する可能性があります。 詳細については、次を参照してください。 [ASP.NET ルーティング IIS 7 でネイティブ サポート](#Native_Support_In_IIS7_For_ASPNET_Routine)します。
+- `<httpRuntime>`要素、`encoderType`属性が ASP.NET に追加された AntiXSS 型を使用する既定で設定ようになりました。 詳細については、[AntiXSS ライブラリ](#_Toc318097382)を参照してください。
+- さらに、`<httpRuntime>`要素、`requestValidationMode`属性が「4.5」に設定します。 つまり、既定では遅延 (「レイジー」) の検証を使用する要求の検証が構成されます。 詳細については、[ASP.NET 要求の検証機能の新しい](#_Toc318097379)を参照してください。
+- `<modules>`の要素、`<system.webServer>`セクションが含まれていない、`runAllManagedModulesForAllRequests`属性。 (既定値は、false)。つまり版を SP1 に更新されていない IIS 7 を使用している場合は、新しいサイトでのルーティングに関する問題を必要する可能性があります。 詳細については、[ASP.NET ルーティング IIS 7 でネイティブ サポート](#Native_Support_In_IIS7_For_ASPNET_Routine)を参照してください。
 
 これらの変更は、既存のアプリケーションには影響しません。 ただし、既存の web サイトと新しいテンプレートを使用して ASP.NET 4.5 用に作成した新しい web サイトの動作の違いを表すことができます。
 

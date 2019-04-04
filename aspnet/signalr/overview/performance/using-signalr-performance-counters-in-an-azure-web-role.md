@@ -147,7 +147,7 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
 
     [!code-xml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample10.xml)]
 
-29. Azure サブスクリプションにアプリケーションを展開します。 アプリケーションを Azure にデプロイする方法の詳細については、次を参照してください。[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)します。
+29. Azure サブスクリプションにアプリケーションを展開します。 アプリケーションを Azure にデプロイする方法の詳細については、[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)を参照してください。
 
 30. 数分待ってから。 **Cloud Explorer**先ほど構成したストレージ アカウントを見つけて、検索、`WADPerformanceCountersTable`内のテーブル。 テーブルのデータで SignalR カウンターが表示されます。 テーブルが表示されない場合は、Azure ストレージの資格情報を再入力する必要があります。 選択する必要があります、**更新**ボタンをクリックして、テーブルで**Cloud Explorer**または選択、**更新**テーブル内のデータを表示するテーブルを開くウィンドウのボタン。
 

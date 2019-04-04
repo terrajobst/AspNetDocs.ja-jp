@@ -149,7 +149,7 @@ ASP.NET Web api では、コント ローラーは、HTTP 要求を処理する�
 
 ID 値のプレース ホルダーにはいくつかの操作の Uri が含まれていることがわかります。 たとえば、リストを削除するに - 42 の ID を持つ、URI は`/api/todo/42`します。
 
-CRUD 操作用の Web API の使用方法の詳細については、次を参照してください。[そのサポートの CRUD 操作を作成するには、Web API](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md)します。 このコント ローラーのコードはとても簡単です。 いくつかの興味深い点を次に示します。
+CRUD 操作用の Web API の使用方法の詳細については、[そのサポートの CRUD 操作を作成するには、Web API](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md)を参照してください。 このコント ローラーのコードはとても簡単です。 いくつかの興味深い点を次に示します。
 
 - `GetTodoLists`メソッドでは、LINQ クエリを使用して、ログイン ユーザーの ID で結果をフィルター処理します。 これにより、ユーザーには、自分が属しているデータのみが表示されます。 また、Select ステートメントを使用に変換することに注意してください、`ToDoList`インスタンスを`TodoListDto`インスタンス。
 - PUT と POST メソッドは、データベースを変更する前に、モデルの状態を確認します。 場合**ModelState.IsValid**が false の場合、これらのメソッドは、HTTP 400 正しくない要求を返します。 モデルの検証で Web API の詳細については[モデルの検証](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md)です。
@@ -226,7 +226,7 @@ Knockout では、各種のバインディング数を提供します。 SPA テ
 
 偽造防止トークンは、悪意のあるページが同一オリジン ポリシーにより、ユーザーのトークンを読み取ることができませんので機能します。 (同一オリジン ポリシーは、互いのコンテンツへのアクセスを 2 つの異なるサイトでホストされているドキュメントを禁止します)。
 
-ASP.NET MVC で偽造防止トークンの組み込みサポートを提供します、[偽造防止](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx)クラスおよび[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx)属性。 現時点では、この機能は現在の Web API には組み込まれていません。 ただし、SPA テンプレートには、Web API のカスタム実装が含まれます。 このコードで定義、`ValidateHttpAntiForgeryTokenAttribute`クラスは、ソリューションの [フィルター] フォルダーにあります。 Web API での CSRF の詳細については、次を参照してください。[防止クロスサイト リクエスト フォージェリ (CSRF) 攻撃](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md)します。
+ASP.NET MVC で偽造防止トークンの組み込みサポートを提供します、[偽造防止](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx)クラスおよび[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx)属性。 現時点では、この機能は現在の Web API には組み込まれていません。 ただし、SPA テンプレートには、Web API のカスタム実装が含まれます。 このコードで定義、`ValidateHttpAntiForgeryTokenAttribute`クラスは、ソリューションの [フィルター] フォルダーにあります。 Web API での CSRF の詳細については、[防止クロスサイト リクエスト フォージェリ (CSRF) 攻撃](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md)を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 

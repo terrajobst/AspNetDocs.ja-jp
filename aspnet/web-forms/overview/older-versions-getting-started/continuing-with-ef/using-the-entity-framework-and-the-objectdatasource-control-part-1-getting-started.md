@@ -27,7 +27,7 @@ ms.locfileid: "57065409"
 > 
 > ## <a name="database-first"></a>最初のデータベースします。
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
+> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、[Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)を参照してください。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 
@@ -100,7 +100,7 @@ Visual studio で作成した Contoso University web アプリケーションを
 > [!NOTE]
 > 削除してしまった場合`Person`は既にデータに対応する行、`Administrator`列で、この変更を保存できません。 その場合は、エディターでは、テーブルを使用して、**サーバー エクスプ ローラー**ことを確認する、`Administrator`値すべて`Department`行に実際に存在するレコードの ID が含まれています、`Person`テーブル。
 > 
-> 行を削除できませんが、変更を保存した後、`Person`テーブルの人物が部門の管理者である場合。 実稼働アプリケーションでは、データベースの制約により、削除、または連鎖削除を指定するときに特定のエラー メッセージを指定するは。 連鎖削除を指定する方法の例は、次を参照してください。 [。 Entity Framework と ASP.NET – 開始パート 2 を取得する](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)します。
+> 行を削除できませんが、変更を保存した後、`Person`テーブルの人物が部門の管理者である場合。 実稼働アプリケーションでは、データベースの制約により、削除、または連鎖削除を指定するときに特定のエラー メッセージを指定するは。 連鎖削除を指定する方法の例は、[。 Entity Framework と ASP.NET – 開始パート 2 を取得する](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)を参照してください。
 
 
 ### <a name="adding-a-view-to-the-database"></a>データベースにビューを追加します。

@@ -67,7 +67,7 @@ HTTP 応答:
 
 [!code-csharp[Main](action-results/samples/sample5.cs)]
 
-Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、次を参照してください。[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)します。
+Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)を参照してください。
 
 ## <a name="ihttpactionresult"></a>IHttpActionResult
 
@@ -107,9 +107,9 @@ Web API では、要求の Accept ヘッダーを使用して、フォーマッ�
 
 [!code-csharp[Main](action-results/samples/sample11.cs)]
 
-この方法の欠点は、404 など、エラー コードを直接返すことはできません。 ただし、スロー、 **HttpResponseException**エラー コード。 詳細については、次を参照してください。 [ASP.NET Web API での例外処理](../error-handling/exception-handling.md)します。
+この方法の欠点は、404 など、エラー コードを直接返すことはできません。 ただし、スロー、 **HttpResponseException**エラー コード。 詳細については、[ASP.NET Web API での例外処理](../error-handling/exception-handling.md)を参照してください。
 
-Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、次を参照してください。[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)します。
+Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)を参照してください。
 
 要求の例
 

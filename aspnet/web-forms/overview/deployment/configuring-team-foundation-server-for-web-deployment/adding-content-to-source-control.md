@@ -37,7 +37,7 @@ ms.locfileid: "57050859"
 
 このトピックでは、これらの手順を実行する方法を説明します。
 
-タスクとチュートリアルでは、このトピックでは、コンテンツを管理する新しい TFS チーム プロジェクトを既に作成したことを想定しています。 新しいチーム プロジェクトを作成する方法の詳細については、次を参照してください。 [TFS でチーム プロジェクトを作成する](creating-a-team-project-in-tfs.md)します。
+タスクとチュートリアルでは、このトピックでは、コンテンツを管理する新しい TFS チーム プロジェクトを既に作成したことを想定しています。 新しいチーム プロジェクトを作成する方法の詳細については、[TFS でチーム プロジェクトを作成する](creating-a-team-project-in-tfs.md)を参照してください。
 
 ### <a name="who-performs-these-procedures"></a>これらの手順を実行しますか。
 
@@ -146,13 +146,13 @@ ms.locfileid: "57050859"
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックでは、チーム プロジェクトに接続し、フォルダー構造をマップし、ソース管理にコンテンツを追加する方法について説明します。 ソース管理下にある項目を操作する方法の詳細については、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)します。
+このトピックでは、チーム プロジェクトに接続し、フォルダー構造をマップし、ソース管理にコンテンツを追加する方法について説明します。 ソース管理下にある項目を操作する方法の詳細については、[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)を参照してください。
 
 次のトピックでは、 [Web 配置の TFS ビルド サーバーを構成する](configuring-a-tfs-build-server-for-web-deployment.md)、構築して、ソリューションをデプロイする TFS チーム ビルド サーバーを準備する方法について説明します。
 
 ## <a name="further-reading"></a>関連項目
 
-TFS でソース管理の操作方法の詳細については、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)します。
+TFS でソース管理の操作方法の詳細については、[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-team-project-in-tfs.md)

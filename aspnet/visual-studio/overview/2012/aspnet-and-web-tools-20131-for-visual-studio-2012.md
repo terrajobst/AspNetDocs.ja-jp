@@ -88,7 +88,7 @@ MVC 5 ビュー、Web ページ (Razor 3)、および Web API 2 コント ロー
 <a id="ef6"></a>
 ### <a name="entity-framework-6"></a>Entity Framework 6
 
-Entity Framework を使用して、MVC または Web API のコント ローラーをスキャフォールディングするときに、Framework 6 を使用します。 Entity Framework の詳細については、次を参照してください。、 [Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)します。
+Entity Framework を使用して、MVC または Web API のコント ローラーをスキャフォールディングするときに、Framework 6 を使用します。 Entity Framework の詳細については、、 [Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)を参照してください。
 
 ダウンロードして、Visual Studio 2012 用の Entity Framework 6 Tools をインストールすることができますも。 参照してください、 [Entity Framework の入手](https://msdn.com/data/ee712906#tooling)します。
 
@@ -105,7 +105,7 @@ Web フォーム プロジェクトには、MVC のスキャフォールディ�
 
 非同期コント ローラーをスキャフォールディングするためのサポートは、Entity Framework 6 からの新しい非同期機能を使用します。
 
-詳細とチュートリアルについては、次を参照してください。 [ASP.NET スキャフォールディング概要](../2013/aspnet-scaffolding-overview.md)します。 これらのチュートリアルは、Visual Studio 2013 では、スキャフォールディングを説明しますも ASP.NET と Visual Studio 2012 for Web Tools 2013.1 に適用されます。
+詳細とチュートリアルについては、[ASP.NET スキャフォールディング概要](../2013/aspnet-scaffolding-overview.md)を参照してください。 これらのチュートリアルは、Visual Studio 2013 では、スキャフォールディングを説明しますも ASP.NET と Visual Studio 2012 for Web Tools 2013.1 に適用されます。
 
 <a id="razor"></a>
 ### <a name="razor-editor"></a>Razor エディター

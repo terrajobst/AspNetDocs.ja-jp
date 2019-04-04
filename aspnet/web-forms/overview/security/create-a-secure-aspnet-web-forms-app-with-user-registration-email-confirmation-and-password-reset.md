@@ -71,7 +71,7 @@ ms.locfileid: "58424639"
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>SendGrid をフックします。
 
-SendGrid は、このチュートリアルが記述されたからの API を変更されました。 SendGrid 手順については現在、次を参照してください。 [SendGrid](http://sendgrid.com/)または[アカウントの確認とパスワードの回復を有効にする](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery)します。
+SendGrid は、このチュートリアルが記述されたからの API を変更されました。 SendGrid 手順については現在、[SendGrid](http://sendgrid.com/)または[アカウントの確認とパスワードの回復を有効にする](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery)を参照してください。
 
 このチュートリアルを使用して電子メール通知を追加する方法だけでは[SendGrid](http://sendgrid.com/)、SMTP とその他のメカニズムを使用して電子メールを送信することができます (を参照してください[その他のリソース](#addRes))。
 

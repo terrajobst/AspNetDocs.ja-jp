@@ -176,7 +176,7 @@ Client/Program.cs ファイルを開きます。 次の追加**を使用して**
 
 **GetAsync**と**ReadAsAsync**メソッドは、非同期のどちらもします。 返される**タスク**非同期操作を表すオブジェクト。 取得、**結果**プロパティは、操作が完了するまでスレッドをブロックします。
 
-非ブロッキング呼び出しを実行する方法など、HttpClient を使用しての詳細については、次を参照してください。 [Web API から、.NET クライアントを呼び出す](../advanced/calling-a-web-api-from-a-net-client.md)します。
+非ブロッキング呼び出しを実行する方法など、HttpClient を使用しての詳細については、[Web API から、.NET クライアントを呼び出す](../advanced/calling-a-web-api-from-a-net-client.md)を参照してください。
 
 これらのメソッドを呼び出す前に BaseAddress プロパティを設定する HttpClient インスタンス"`http://localhost:8080`"。 例:
 

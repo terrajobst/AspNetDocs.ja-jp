@@ -58,7 +58,7 @@ Web API は、JSON と XML の両方のメディア タイプ フォーマッタ
 
 ### <a name="json-serialization"></a>JSON シリアル化
 
-このセクションは、既定値を使用して、JSON フォーマッタのいくつかの特定の動作を説明します[Json.NET](https://github.com/JamesNK/Newtonsoft.Json)シリアライザー。 これは意図するもの、Json.NET ライブラリの包括的なドキュメント詳細については、次を参照してください。、 [Json.NET のドキュメント](http://james.newtonking.com/projects/json/help/)します。
+このセクションは、既定値を使用して、JSON フォーマッタのいくつかの特定の動作を説明します[Json.NET](https://github.com/JamesNK/Newtonsoft.Json)シリアライザー。 これは意図するもの、Json.NET ライブラリの包括的なドキュメント詳細については、、 [Json.NET のドキュメント](http://james.newtonking.com/projects/json/help/)を参照してください。
 
 #### <a name="what-gets-serialized"></a>どのようなシリアル化を取得しますか。
 

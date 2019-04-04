@@ -68,7 +68,7 @@ Azure Active Directory でホストされる web アプリの認証を有効化�
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)
 
     > [!NOTE]
-    > クリックして Azure AD に登録されるアプリケーション ID URI を構成することもできます。**オプションより**します。 アプリ ID URI は、アプリケーションは、Azure AD に登録され、Azure AD と通信するときに識別する、アプリケーションで使用される一意の識別子です。 アプリ ID URI と登録済みのアプリケーションの他のプロパティの詳細については、次を参照してください。[このトピックの「](https://msdn.microsoft.com/library/azure/dn499820.aspx#BKMK_Registering)します。 アプリ ID URI フィールドの下のチェック ボックスをクリックすると、同じアプリ ID URI を使用して Azure AD で既存の登録を上書きすることもできます。
+    > クリックして Azure AD に登録されるアプリケーション ID URI を構成することもできます。**オプションより**します。 アプリ ID URI は、アプリケーションは、Azure AD に登録され、Azure AD と通信するときに識別する、アプリケーションで使用される一意の識別子です。 アプリ ID URI と登録済みのアプリケーションの他のプロパティの詳細については、[このトピックの「](https://msdn.microsoft.com/library/azure/dn499820.aspx#BKMK_Registering)を参照してください。 アプリ ID URI フィールドの下のチェック ボックスをクリックすると、同じアプリ ID URI を使用して Azure AD で既存の登録を上書きすることもできます。
 4. クリックすると**OK**サインイン ダイアログが表示され、グローバル管理者アカウント (Microsoft アカウントではなく、サブスクリプションに関連付けられている) を使用してサインインする必要があります。 新しい管理者アカウントを先ほど作成した場合は、パスワードを変更し、もう一度新しいパスワードを使用してサインインする必要があります。
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image9.png)

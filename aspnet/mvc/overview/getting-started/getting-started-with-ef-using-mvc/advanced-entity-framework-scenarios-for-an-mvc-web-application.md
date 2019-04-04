@@ -107,7 +107,7 @@ Contoso University の管理者は、すべてのコースの単位数を変更�
 
 **[リストに戻る]** をクリックして、単位数が変更されたコースの一覧を表示します。
 
-生 SQL クエリの詳細については、次を参照してください。[生 SQL クエリ](https://msdn.microsoft.com/data/jj592907)msdn です。
+生 SQL クエリの詳細については、[生 SQL クエリ](https://msdn.microsoft.com/data/jj592907)msdn を参照してください。
 
 ## <a name="no-tracking-queries"></a>追跡なしのクエリ
 
@@ -172,7 +172,7 @@ A`SelectList`ドロップダウン リストのすべての部門を含むコレ
 - EF コンテキスト クラスは、EF を使用して行っているデータベースの更新の unit-of-work クラスとして動作できます。
 - Entity Framework 6 で導入された機能を簡単にリポジトリのコードを記述することがなく、TDD を実装します。
 
-リポジトリと unit of work パターンを実装する方法の詳細については、次を参照してください。[このチュートリアル シリーズの Entity Framework 5 バージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)します。 Entity Framework 6 で TDD を実装する方法については、次のリソースを参照してください。
+リポジトリと unit of work パターンを実装する方法の詳細については、[このチュートリアル シリーズの Entity Framework 5 バージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)を参照してください。 Entity Framework 6 で TDD を実装する方法については、次のリソースを参照してください。
 
 - [EF6 がより簡単にモックの作成の DbSets を使用](http://thedatafarm.com/data-access/how-ef6-enables-mocking-dbsets-more-easily/)
 - [モック作成フレームワークとテスト](https://msdn.microsoft.com/data/dn314429)
@@ -196,7 +196,7 @@ Entity Framework では、(たとえば、クエリを実行するときに) エ
 - インスタンス化すると、エンティティ クラスを使用して、`new`オペレーターは、プロキシ インスタンスを取得しません。 これは、遅延読み込みと自動変更の追跡などの機能を取得しないことを意味します。 これは通常では;一般的に不要な lazy loading、データベースにない新しいエンティティを作成するためと、変更の追跡としてエンティティを明示的にマークしている場合は通常不要`Added`します。 ただし、遅延読み込みする必要は、変更の追跡が必要な場合は、インスタンスを作成できます新しいエンティティを使用してプロキシを持つ、[作成](https://msdn.microsoft.com/library/gg679504.aspx)のメソッド、`DbSet`クラス。
 - プロキシ型から実際のエンティティ型を取得する可能性があります。 使用することができます、 [GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx)のメソッド、`ObjectContext`プロキシ型のインスタンスの実際のエンティティ型を取得するクラス。
 
-詳細については、次を参照してください。 [Proxies の操作](https://msdn.microsoft.com/data/JJ592886.aspx)msdn です。
+詳細については、[Proxies の操作](https://msdn.microsoft.com/data/JJ592886.aspx)msdn を参照してください。
 
 ## <a name="automatic-change-detection"></a>変更の自動検出
 
@@ -212,11 +212,11 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、一時的に変更の自動検出を使用して無効にすることで大幅なパフォーマンス向上を取得可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティ。 詳細については、次を参照してください。[変更を自動的に検出](https://msdn.microsoft.com/data/jj556205)msdn です。
+多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、一時的に変更の自動検出を使用して無効にすることで大幅なパフォーマンス向上を取得可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティ。 詳細については、[変更を自動的に検出](https://msdn.microsoft.com/data/jj556205)msdn を参照してください。
 
 ## <a name="automatic-validation"></a>自動検証
 
-呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、変更されたすべてのエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したら、既に検証したデータは、この作業は必要ありませんし保存するプロセスを行うことができます、変更は一時的に検証を無効にすることで時間が。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx)プロパティ。 詳細については、次を参照してください。[検証](https://msdn.microsoft.com/data/gg193959)msdn です。
+呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、変更されたすべてのエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したら、既に検証したデータは、この作業は必要ありませんし保存するプロセスを行うことができます、変更は一時的に検証を無効にすることで時間が。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx)プロパティ。 詳細については、[検証](https://msdn.microsoft.com/data/gg193959)msdn を参照してください。
 
 ## <a name="entity-framework-power-tools"></a>Entity Framework Power Tools
 
@@ -294,7 +294,7 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
- Entity Framework を使用してデータを操作する方法の詳細については、次を参照してください。、 [msdn ドキュメント ページを EF](https://msdn.microsoft.com/data/ee712907)と[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+ Entity Framework を使用してデータを操作する方法の詳細については、、 [msdn ドキュメント ページを EF](https://msdn.microsoft.com/data/ee712907)と[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)を参照してください。
 
 これを構築した後、web アプリケーションをデプロイする方法の詳細については、次を参照してください。 [ASP.NET Web 展開 - 推奨リソース](../../../../whitepapers/aspnet-web-deployment-content-map.md)、MSDN ライブラリ。
 

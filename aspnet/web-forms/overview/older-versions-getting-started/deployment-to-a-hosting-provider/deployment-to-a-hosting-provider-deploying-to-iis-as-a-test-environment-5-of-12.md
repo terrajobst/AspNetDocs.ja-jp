@@ -21,9 +21,9 @@ ms.locfileid: "57058809"
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)を参照してください。
 
 
 ## <a name="overview"></a>概要
@@ -108,7 +108,7 @@ Visual Studio 2010 および Web Deploy を使用してを展開するいくつ�
 - 作成、*展開パッケージ*し、IIS マネージャーの UI を使用してインストールします。 展開パッケージの構成要素を *.zip*ファイルをすべてのファイルと IIS にサイトをインストールに必要なメタデータが含まれています。
 - 展開パッケージを作成し、コマンドラインを使用してインストールします。
 
-プロセス自動化する Visual Studio を設定する前のチュートリアルでデプロイ タスクがこれら 3 つのメソッドのすべてに適用されます。 これらのチュートリアルでは、これらのメソッドの最初の数値を使用します。 展開パッケージの使用方法の詳細については、次を参照してください。 [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx)します。
+プロセス自動化する Visual Studio を設定する前のチュートリアルでデプロイ タスクがこれら 3 つのメソッドのすべてに適用されます。 これらのチュートリアルでは、これらのメソッドの最初の数値を使用します。 展開パッケージの使用方法の詳細については、[ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx)を参照してください。
 
 発行前に、管理者モードで Visual Studio を実行していることを確認します。 (Windows 7 で**開始**] メニューの [は、ご使用の Visual Studio のバージョンのアイコンを右クリックし、選択**管理者として実行**)。管理者モードでは、のみときに発行している IIS、ローカル コンピューター上の発行に必要です。
 

@@ -21,7 +21,7 @@ ms.locfileid: "57063469"
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
 
 ## <a name="overview"></a>概要
@@ -76,7 +76,7 @@ ms.locfileid: "57063469"
 
 ## <a name="summary"></a>まとめ
 
-これは、この一連のサード パーティのホスティング プロバイダーへの ASP.NET web アプリケーションを展開する方法のチュートリアルを完了します。 これらのチュートリアルで取り上げるトピックのいずれかの詳細については、次を参照してください。、 [ASP.NET 配置コンテンツ マップ](https://go.microsoft.com/fwlink/p/?LinkId=282413)します。
+これは、この一連のサード パーティのホスティング プロバイダーへの ASP.NET web アプリケーションを展開する方法のチュートリアルを完了します。 これらのチュートリアルで取り上げるトピックのいずれかの詳細については、、 [ASP.NET 配置コンテンツ マップ](https://go.microsoft.com/fwlink/p/?LinkId=282413)を参照してください。
 
 ## <a name="more-information"></a>詳細情報
 

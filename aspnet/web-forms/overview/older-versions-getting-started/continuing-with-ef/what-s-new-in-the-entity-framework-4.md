@@ -175,7 +175,7 @@ A *.sql*データ定義言語 (DDL) コマンドを使用してファイルが�
 
 (メモ: このページがダウンロード可能なプロジェクトで含まれていますが、ように動作する必要がありますでデータベースを作成、ローカル SQL Server Express インスタンス。データベースとして含まれていますが、 *.mdf*ファイル、*アプリ\_データ*フォルダー)。
 
-Entity Framework のモデルの最初の機能の使用に関する詳細については、次を参照してください。 [Entity Framework 4 でモデルファースト](https://msdn.microsoft.com/data/ff830362.aspx)します。
+Entity Framework のモデルの最初の機能の使用に関する詳細については、[Entity Framework 4 でモデルファースト](https://msdn.microsoft.com/data/ff830362.aspx)を参照してください。
 
 ## <a name="poco-support"></a>POCO サポート
 

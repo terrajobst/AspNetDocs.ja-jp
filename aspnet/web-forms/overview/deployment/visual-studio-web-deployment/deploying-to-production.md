@@ -21,7 +21,7 @@ ms.locfileid: "57045849"
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
 
 ## <a name="overview"></a>概要
@@ -34,7 +34,7 @@ ms.locfileid: "57045849"
 
 ## <a name="get-a-microsoft-azure-account"></a>Microsoft Azure アカウントを取得します。
 
-Azure アカウントがない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Azure 無料試用版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。
+Azure アカウントがない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、[Azure 無料試用版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)を参照してください。
 
 ## <a name="create-a-staging-environment"></a>ステージング環境を作成します。
 
@@ -49,7 +49,7 @@ Azure アカウントがない場合は、ほんの数分で無料試用版ア�
 チュートリアルのこのセクションでは、web アプリとステージング環境では、使用するデータベースを作成し、ステージングへのデプロイを作成し、実稼働環境に展開する前にテストがあります。
 
 > [!NOTE]
-> 次の手順では、Azure 管理ポータルを使用して Azure App Service で web アプリを作成する方法を示します。 Azure SDK の最新のバージョンで行うことができますもこのサーバー エクスプ ローラーを使用して、Visual Studio を離れることがなく。 Visual Studio 2013 での発行 ダイアログ ボックスから直接 web アプリを作成することもできます。 詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成します。](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
+> 次の手順では、Azure 管理ポータルを使用して Azure App Service で web アプリを作成する方法を示します。 Azure SDK の最新のバージョンで行うことができますもこのサーバー エクスプ ローラーを使用して、Visual Studio を離れることがなく。 Visual Studio 2013 での発行 ダイアログ ボックスから直接 web アプリを作成することもできます。 詳細については、[Azure App Service で ASP.NET web アプリを作成を参照してください。](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
 
 
 1. [Azure 管理ポータル](https://manage.windowsazure.com/)、 をクリックして**Websites**、順にクリックします**新規**します。
@@ -96,7 +96,7 @@ Azure アカウントがない場合は、ほんの数分で無料試用版ア�
 Web アプリとステージング環境のデータベースを作成して、プロジェクトをデプロイできます。
 
 > [!NOTE]
-> この手順でダウンロードして、発行プロファイルを作成する方法を示します、 *.publishsettings*ファイルで、サード パーティのホスティング プロバイダーも Azure のだけでなく動作します。 最新の Azure SDK することもできます、Visual Studio から直接 Azure に接続し、Azure アカウント内にある web アプリの一覧から選択します。 Visual Studio 2013 ではから Azure にサインインすることができます、 **Web の発行**ダイアログから、または、**サーバー エクスプ ローラー**ウィンドウ。 詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)です。
+> この手順でダウンロードして、発行プロファイルを作成する方法を示します、 *.publishsettings*ファイルで、サード パーティのホスティング プロバイダーも Azure のだけでなく動作します。 最新の Azure SDK することもできます、Visual Studio から直接 Azure に接続し、Azure アカウント内にある web アプリの一覧から選択します。 Visual Studio 2013 ではから Azure にサインインすることができます、 **Web の発行**ダイアログから、または、**サーバー エクスプ ローラー**ウィンドウ。 詳細については、[Azure App Service で ASP.NET web アプリを作成](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)を参照してください。
 
 
 ### <a name="download-the-publishsettings-file"></a>.Publishsettings ファイルをダウンロードします。
@@ -164,7 +164,7 @@ Web アプリとステージング環境のデータベースを作成して、�
 ### <a name="configure-a-publish-profile-transform-for-the-environment-indicator"></a>環境のインジケーターの発行プロファイルの変換を構成します。
 
 > [!NOTE]
-> このセクションでは、環境のインジケーターの Web.config 変換を設定する方法を示します。 インジケーターがあるため、`<appSettings>`要素では、Azure App Service にデプロイするときに、変換を指定するための別の方法があります。 詳細については、次を参照してください。[を指定する Web.config の設定を Azure で](web-config-transformations.md#watransforms)します。
+> このセクションでは、環境のインジケーターの Web.config 変換を設定する方法を示します。 インジケーターがあるため、`<appSettings>`要素では、Azure App Service にデプロイするときに、変換を指定するための別の方法があります。 詳細については、[を指定する Web.config の設定を Azure で](web-config-transformations.md#watransforms)を参照してください。
 
 
 1. **ソリューション エクスプ ローラー**、展開**プロパティ**、順に展開**PublishProfiles**します。
@@ -190,7 +190,7 @@ Web アプリとステージング環境のデータベースを作成して、�
 - 推測することはできませんを難読化された URL を使用します。
 - 作成、 *robots.txt*ファイルを検索エンジンがクロール テスト アプリとレポートのリンクを検索結果にすることを確認します。
 
-これらのメソッドの最初が最も効果的ですが、Azure App Service ではなく Azure クラウド サービスをデプロイすることが必要になるため、このチュートリアルでは説明しません。 クラウド サービスの詳細についてと Azure で IP 制限は、次を参照してください。 [Azure によって提供されるオプションをホストしているコンピューティング](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)と[Web ロールへのアクセスを特定の IP アドレスをブロック](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx)します。 サード パーティのホスティング プロバイダーに展開する場合は、IP 制限を実装する方法について説明を検索するプロバイダーに問い合わせてください。
+これらのメソッドの最初が最も効果的ですが、Azure App Service ではなく Azure クラウド サービスをデプロイすることが必要になるため、このチュートリアルでは説明しません。 クラウド サービスの詳細についてと Azure で IP 制限は、[Azure によって提供されるオプションをホストしているコンピューティング](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)と[Web ロールへのアクセスを特定の IP アドレスをブロック](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx)を参照してください。 サード パーティのホスティング プロバイダーに展開する場合は、IP 制限を実装する方法について説明を検索するプロバイダーに問い合わせてください。
 
 このチュートリアルで作成します、 *robots.txt*ファイル。
 
@@ -268,7 +268,7 @@ A *.pubxml*ファイルには、特定の発行プロファイルに関連する
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    ファイルとフォルダーを除外する方法の詳細については、次を参照してください。[できますしないようにする特定のファイルまたはフォルダーの展開からでしょうか。](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)で、 **for Visual Studio および ASP.NET Web 配置の FAQ** msdn です。
+    ファイルとフォルダーを除外する方法の詳細については、[できますしないようにする特定のファイルまたはフォルダーの展開からでしょうか。](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)で、 **for Visual Studio および ASP.NET Web 配置の FAQ** msdn を参照してください。
 
 ### <a name="deploy-to-production"></a>運用環境にデプロイします。
 
@@ -292,11 +292,11 @@ A *.pubxml*ファイルには、特定の発行プロファイルに関連する
 次のチュートリアルでは、アプリケーション コードを更新し、テスト、ステージング、実稼働環境に変更をデプロイします。
 
 > [!NOTE]
-> アプリケーションを運用環境で使用中には、復旧計画を実装する必要があります。 つまり、する必要がありますが定期的にデータベースのバックアップ、運用環境のアプリから、セキュリティで保護された記憶域の場所に、このようなバックアップのいくつかの世代を保存する必要があります。 データベースを更新するときに、変更の直前のバックアップ コピーをする必要があります。 次に、設定を間違えたして運用環境に配置した後に検出されるまでそのしない場合が破損する前に、の状態にデータベースを復旧できます。 詳細については、次を参照してください。 [Azure SQL Database のバックアップと復元](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx)します。
+> アプリケーションを運用環境で使用中には、復旧計画を実装する必要があります。 つまり、する必要がありますが定期的にデータベースのバックアップ、運用環境のアプリから、セキュリティで保護された記憶域の場所に、このようなバックアップのいくつかの世代を保存する必要があります。 データベースを更新するときに、変更の直前のバックアップ コピーをする必要があります。 次に、設定を間違えたして運用環境に配置した後に検出されるまでそのしない場合が破損する前に、の状態にデータベースを復旧できます。 詳細については、[Azure SQL Database のバックアップと復元](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx)を参照してください。
 > 
 > 
 > [!NOTE]
-> このチュートリアル SQL Server を展開しているエディションは、Azure SQL Database は。 展開プロセスは他のエディションの SQL Server に似ていますが、実際の運用アプリケーション必要があります特別なコードを Azure SQL Database の一部のシナリオで。 詳細については、次を参照してください。 [Azure SQL Database](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb)と[SQL Server および Azure SQL Database の使い分け](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing)します。
+> このチュートリアル SQL Server を展開しているエディションは、Azure SQL Database は。 展開プロセスは他のエディションの SQL Server に似ていますが、実際の運用アプリケーション必要があります特別なコードを Azure SQL Database の一部のシナリオで。 詳細については、[Azure SQL Database](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb)と[SQL Server および Azure SQL Database の使い分け](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing)を参照してください。
 > 
 > [!div class="step-by-step"]
 > [前へ](setting-folder-permissions.md)

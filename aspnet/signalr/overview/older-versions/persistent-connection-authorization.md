@@ -21,7 +21,7 @@ ms.locfileid: "57034639"
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> このトピックでは、永続的な接続の承認を適用する方法を説明します。 SignalR アプリケーションへのセキュリティの統合の詳細については、次を参照してください。[セキュリティの概要](index.md)します。
+> このトピックでは、永続的な接続の承認を適用する方法を説明します。 SignalR アプリケーションへのセキュリティの統合の詳細については、[セキュリティの概要](index.md)を参照してください。
 
 
 ## <a name="enforce-authorization"></a>承認を適用します。

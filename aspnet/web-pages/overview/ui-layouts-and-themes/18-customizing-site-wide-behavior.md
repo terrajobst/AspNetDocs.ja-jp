@@ -186,7 +186,7 @@ ASP.NET では、階層を作成できます。  *\_PageStart.cshtml*ファイ�
 
     エラーが発生したため、 *Exception.cshtml*、  *\_PageStart.cshtml*ページにリダイレクト、 *Error.cshtml*ファイルで、メッセージが表示されます。
 
-    例外の詳細については、次を参照してください。 [ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkID=251587)します。
+    例外の詳細については、[ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkID=251587)を参照してください。
 
 <a id="Using__PageStart.cshtml_to_Restrict_Folder_Access"></a>
 ## <a name="using-pagestartcshtml-to-restrict-folder-access"></a>使用して\_PageStart.cshtml フォルダーへのアクセスを制限するには

@@ -21,7 +21,7 @@ ms.locfileid: "58425523"
 
 [プロジェクトに修正プログラムをダウンロードします。](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
 
 Azure 電子書籍で構築実世界クラウド アプリには、この付録には、Fix It サンプル アプリケーションをダウンロードすることに関する追加情報を提供する次のセクションが含まれています。
 
@@ -58,18 +58,18 @@ Fix It アプリは、もともと限りシンプルにこの電子書籍を示�
 
 Fix It アプリで処理するキュー メッセージは、最小限のコードでキューを中心とした作業パターンを説明するために簡単に設計されています。 この単純なコードは、実際の運用アプリケーションのための適切なできません。
 
-- コードでは、各キュー メッセージが最大で 1 回処理されることは保証されません。 キューからメッセージを取得するときに、メッセージが他のキュー リスナーに表示されていない、タイムアウト期間があります。 もう一度メッセージが削除される前にタイムアウトになるには、メッセージが表示されます。 そのため、ワーカー ロール インスタンスは、メッセージの処理時間を費やして、ある理論的に、同じメッセージを 2 回、処理可能、データベース内の重複するタスクの結果します。 この問題の詳細については、次を参照してください。[を使用して Azure Storage キュー](https://msdn.microsoft.com/library/ff803365.aspx#sec7)します。
+- コードでは、各キュー メッセージが最大で 1 回処理されることは保証されません。 キューからメッセージを取得するときに、メッセージが他のキュー リスナーに表示されていない、タイムアウト期間があります。 もう一度メッセージが削除される前にタイムアウトになるには、メッセージが表示されます。 そのため、ワーカー ロール インスタンスは、メッセージの処理時間を費やして、ある理論的に、同じメッセージを 2 回、処理可能、データベース内の重複するタスクの結果します。 この問題の詳細については、[を使用して Azure Storage キュー](https://msdn.microsoft.com/library/ff803365.aspx#sec7)を参照してください。
 - キューのポーリングのロジックは、メッセージの取得をバッチ処理によってよりコスト効果の高い可能性があります。 呼び出すたびに[CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx)トランザクションのコストがあります。 代わりに、呼び出すことができます[CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (、複数形に注意してください ')、単一のトランザクションで複数のメッセージを取得します。 Azure Storage キューのトランザクション コストは、ため、ほとんどのシナリオで大幅なコストへの影響は非常に低いです。
 - キュー メッセージの処理コードの緊密なループにより、CPU アフィニティは、複数のコアの Vm を効率的に使用されません。 優れた設計は、いくつかの非同期タスクの並列実行するのにタスクの並列化を使用します。
 - キューのメッセージ処理では、のみ初歩的な例外処理があります。 たとえば、コードを処理しない[有害メッセージ](https://msdn.microsoft.com/library/ms789028.aspx)します。 (メッセージの処理には、例外が発生、エラーを記録し、メッセージを削除する必要があるまたはワーカー ロールは、もう一度処理しようし、ループが無期限に続行されます。)
 
 ### <a name="sql-queries-are-unbounded"></a>SQL クエリの制限がないです。
 
-現在の修正、コードは、インデックス ページのクエリが返す可能性があります行の数に制限を配置しません。 膨大な量のタスクがデータベースに入力された場合、受信した結果のリストのサイズにはパフォーマンスの問題可能性があります。 ソリューションでは、ページングを実装します。 例については、次を参照してください。[並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でページング](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)します。
+現在の修正、コードは、インデックス ページのクエリが返す可能性があります行の数に制限を配置しません。 膨大な量のタスクがデータベースに入力された場合、受信した結果のリストのサイズにはパフォーマンスの問題可能性があります。 ソリューションでは、ページングを実装します。 例については、[並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でページング](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)を参照してください。
 
 ### <a name="view-models-recommended"></a>推奨モデルの表示
 
-Fix It アプリでは、FixItTask エンティティ クラスを使用して、コント ローラーとビューの間で情報を渡します。 ビュー モデルを使用することをお勧めします。 ドメイン モデル (FixItTask エンティティ クラスなど) は、データの表示、ビュー モデルをデザインするときにデータ永続化のために必要なものに基づいて設計されています。 詳細については、次を参照してください。 [12 の ASP.NET MVC のベスト プラクティス](http://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx)します。
+Fix It アプリでは、FixItTask エンティティ クラスを使用して、コント ローラーとビューの間で情報を渡します。 ビュー モデルを使用することをお勧めします。 ドメイン モデル (FixItTask エンティティ クラスなど) は、データの表示、ビュー モデルをデザインするときにデータ永続化のために必要なものに基づいて設計されています。 詳細については、[12 の ASP.NET MVC のベスト プラクティス](http://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx)を参照してください。
 
 ### <a name="secure-image-blob-recommended"></a>セキュリティで保護されたイメージの blob がお勧めします
 
@@ -81,7 +81,7 @@ Fix It アプリでは、FixItTask エンティティ クラスを使用して�
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>ユーザー入力に HTML コードの特別な処理
 
-ASP.NET には、さまざまな方法が悪意のあるユーザーがユーザー入力テキスト ボックスにスクリプトを入力してクロス サイト スクリプティング攻撃を試みることもありますが自動的にできないようにします。 MVC`DisplayFor`タスクを表示するために使用するヘルパーがタイトルし、自動的にブラウザーに送信される HTML エンコードの値をメモします。 ただし、運用アプリでその他の対策をする可能性があります。 詳細については、次を参照してください。 [asp.net 要求の検証](https://msdn.microsoft.com/library/hh882339.aspx)です。
+ASP.NET には、さまざまな方法が悪意のあるユーザーがユーザー入力テキスト ボックスにスクリプトを入力してクロス サイト スクリプティング攻撃を試みることもありますが自動的にできないようにします。 MVC`DisplayFor`タスクを表示するために使用するヘルパーがタイトルし、自動的にブラウザーに送信される HTML エンコードの値をメモします。 ただし、運用アプリでその他の対策をする可能性があります。 詳細については、[asp.net 要求の検証](https://msdn.microsoft.com/library/hh882339.aspx)を参照してください。
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>ベスト プラクティス
@@ -180,7 +180,7 @@ Fix It アプリの元のバージョンの単純なコードを表示するた�
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-使用する必要があります`async void`最上位レベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元ができない**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、次を参照してください。[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)します。
+使用する必要があります`async void`最上位レベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元ができない**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)を参照してください。
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>キャンセル トークンを使用して、ワーカー ロールのループを中断するには
 
@@ -263,7 +263,7 @@ Fix It アプリを実行する 2 つの方法はあります。
 
 これらの手順は、既にダウンロードしてあると Fix It ソリューションをローカルで実行し、Azure があるかアカウントまたは Azure サブスクリプションがある想定しています。 管理が承認されています。
 
-1. インストール、 **Azure PowerShell**コンソール。 手順については、次を参照してください。[をインストールして、Azure PowerShell を構成する方法](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)します。
+1. インストール、 **Azure PowerShell**コンソール。 手順については、[をインストールして、Azure PowerShell を構成する方法](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)を参照してください。
 
     このカスタマイズされたコンソールを構成するには、Azure サブスクリプションを使用します。 Azure モジュールがインストールされている、 *Program Files*ディレクトリ、Azure PowerShell コンソールを使用するたびに自動的にインポートされます。
 
@@ -392,7 +392,7 @@ MyFixItCloudService\ServiceConfiguration.Cloud.cscfg、Azure ストレージ ア
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-クラウド サービスをデプロイする準備が整いました。 ソリューション エクスプ ローラーでは、MyFixItCloudService プロジェクトを右クリックして**発行**します。 詳細については、次を参照してください。"[アプリケーションを Azure にデプロイ](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)"、第 2 部である[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)します。
+クラウド サービスをデプロイする準備が整いました。 ソリューション エクスプ ローラーでは、MyFixItCloudService プロジェクトを右クリックして**発行**します。 詳細については、"[アプリケーションを Azure にデプロイ](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)"、第 2 部である[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](more-patterns-and-guidance.md)

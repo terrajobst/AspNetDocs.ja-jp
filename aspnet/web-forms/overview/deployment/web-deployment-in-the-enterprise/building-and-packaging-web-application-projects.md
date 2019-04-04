@@ -68,7 +68,7 @@ Contact Manager のサンプル ソリューションで、これらの追加の
 - Web アプリケーション プロジェクトおよびすべてのアセンブリは、ソリューション内のプロジェクトを参照します。
 - Web アプリケーションをデプロイするすべてのデータベースを生成する SQL スクリプトです。
 
-Web デプロイ パッケージが生成されると、さまざまな方法での IIS web サーバーに発行することができます。 たとえば、対象となる、Web デプロイのリモート エージェント サービスまたは送信先の web サーバーで Web 配置ハンドラーによってリモートで展開できるまたは IIS マネージャーを使用して手動で移行先の web サーバー上のパッケージをインポートすることができます。 展開する方法の詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)します。
+Web デプロイ パッケージが生成されると、さまざまな方法での IIS web サーバーに発行することができます。 たとえば、対象となる、Web デプロイのリモート エージェント サービスまたは送信先の web サーバーで Web 配置ハンドラーによってリモートで展開できるまたは IIS マネージャーを使用して手動で移行先の web サーバー上のパッケージをインポートすることができます。 展開する方法の詳細については、[Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)を参照してください。
 
 ## <a name="how-does-the-build-process-work"></a>ビルド プロセスのしくみ
 
@@ -93,7 +93,7 @@ Web アプリケーション プロジェクトをビルドすると、ビルド
 
 このトピックでは、Visual Studio 2010 で web アプリケーション プロジェクトのビルドとパッケージ化プロセスの概要が提供されます。 WPP を使用する MSBuild から Web Deploy コマンドを呼び出す方法を説明し、ビルドとパッケージ化プロセスの動作について説明しました。
 
-Web 配置パッケージを作成したら、次の手順は、それをデプロイします。 詳細については、これは、次を参照してください。 [Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)と[Web パッケージを展開する](deploying-web-packages.md)します。
+Web 配置パッケージを作成したら、次の手順は、それをデプロイします。 詳細については、これは、[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)と[Web パッケージを展開する](deploying-web-packages.md)を参照してください。
 
 ## <a name="further-reading"></a>関連項目
 

@@ -466,7 +466,7 @@ ASP.NET 4 でのデザイン変更の結果の出力をレンダリングなし�
 
 場合、 *Menu.DynamicPopOutImageUrl*プロパティが設定されていないと、 *Menu.DynamicEnableDefaultPopOutImage*プロパティに設定されて*false*イメージは表示されません。 同様に場合、 *StaticPopOutImageUrl*プロパティが設定されていないと、 *StaticEnableDefaultPopOutImage*プロパティに設定されて*false*イメージは表示されません。
 
-これらのプロパティのパスを設定すると、円記号の代わりにスラッシュ (/) を使用して、(\)します。 詳細については、次を参照してください。 [Menu.StaticPopOutImageUrl とレンダリング イメージとパスを含む円記号を Menu.DynamicPopOutImageUrl Fail](#0.1__Menu.StaticPopOutImageUrl_and_Menu. "_Menu.StaticPopOutImageUrl_and_Menu します。") 他の場所でこのドキュメントでは。
+これらのプロパティのパスを設定すると、円記号の代わりにスラッシュ (/) を使用して、(\)します。 詳細については、[Menu.StaticPopOutImageUrl とレンダリング イメージとパスを含む円記号を Menu.DynamicPopOutImageUrl Fail](#0.1__Menu.StaticPopOutImageUrl_and_Menu. "_Menu.StaticPopOutImageUrl_and_Menu を参照してください。") 他の場所でこのドキュメントでは。
 
 <a id="0.1__Menu.StaticPopOutImageUrl_and_Menu."></a><a id="0.1__Toc256770160"></a>
 

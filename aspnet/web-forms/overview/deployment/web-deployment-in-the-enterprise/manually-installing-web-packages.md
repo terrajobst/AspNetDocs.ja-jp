@@ -40,7 +40,7 @@ IIS に web 配置パッケージをインポートするこれらの高度な�
 - Web パッケージを移行先の web サーバーにコピーします。
 - IIS マネージャーでアプリケーション パッケージのインポート ウィザードを使用して web パッケージをインストールし、接続文字列とサービスのエンドポイントなどの変数の値を指定します。
 
-このトピックでは、これらの手順を実行する方法を説明します。 タスクとチュートリアルでは、このトピックでは、web パッケージ、Web デプロイ、および、WPP の背後にある概念を理解している既にことを想定しています。 詳細については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
+このトピックでは、これらの手順を実行する方法を説明します。 タスクとチュートリアルでは、このトピックでは、web パッケージ、Web デプロイ、および、WPP の背後にある概念を理解している既にことを想定しています。 詳細については、[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)を参照してください。
 
 > [!NOTE]
 > このトピックでと組み合わせて使用最適[Web 配置発行 (オフライン展開) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)、必要なコンポーネントをインストールし、パッケージのインポート用の IIS の web サイトを準備する方法を説明しています。
@@ -85,7 +85,7 @@ Web パッケージを手動でインポートすることを計画している�
 - Web サーバーに web デプロイ パッケージをコピーします。
 - アプリケーションをホストする IIS web サーバーを構成します。
 
-Web 展開パッケージをサポートするために、IIS web サーバーの構成の詳細については、次を参照してください。 [Web 配置発行 (オフライン展開) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)します。
+Web 展開パッケージをサポートするために、IIS web サーバーの構成の詳細については、[Web 配置発行 (オフライン展開) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)を参照してください。
 
 **IIS マネージャーを使用して web 配置パッケージをインポートするには**
 
@@ -111,7 +111,7 @@ Web 展開パッケージをサポートするために、IIS web サーバー�
     4. 2 番目の**接続文字列**設定は、アプリケーションは実際に稼働している場合、データベースとの通信に使用される接続文字列。 これで接続文字列のエントリに対応して、 *web.config*ファイル。
 
         > [!NOTE]
-        > これらのパラメーター元の場所の詳細については、次を参照してください。 [Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)します。
+        > これらのパラメーター元の場所の詳細については、[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)を参照してください。
 6. **[次へ]** をクリックします。
 7. 初めてこの web サイトにアプリケーションをデプロイした表示しない場合をインストールする前にすべての既存のコンテンツを削除するかどうかを指定する求め。 要件に合わせて、適切なオプションを選択し、クリックして**次**します。
 
@@ -128,7 +128,7 @@ Web 展開パッケージをサポートするために、IIS web サーバー�
 
 ## <a name="further-reading"></a>関連項目
 
-Web パッケージを手動でインポートをサポートする IIS web サーバーを構成する方法のガイダンスについては、次を参照してください。 [Web 配置発行 (オフライン展開) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)します。 Web パッケージの展開の一般的なガイダンスについては、次を参照してください。[チュートリアル。Web 配置パッケージ (1/4) を使用して Web アプリケーション プロジェクトを配置する](https://msdn.microsoft.com/library/dd483479.aspx)します。
+Web パッケージを手動でインポートをサポートする IIS web サーバーを構成する方法のガイダンスについては、[Web 配置発行 (オフライン展開) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)を参照してください。 Web パッケージの展開の一般的なガイダンスについては、次を参照してください。[チュートリアル。Web 配置パッケージ (1/4) を使用して Web アプリケーション プロジェクトを配置する](https://msdn.microsoft.com/library/dd483479.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](creating-and-running-a-deployment-command-file.md)

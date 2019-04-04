@@ -29,7 +29,7 @@ ms.locfileid: "57063209"
 > - 使用して、 *Web 配置ハンドラー*します。 このアプローチは、もっと複雑な web サーバーを設定する初期の労力が必要です。 ただし、このアプローチを使用する場合は、配置を実行する管理者以外のユーザーを許可するように IIS を構成できます。 Web 配置ハンドラーでは、IIS 7 以降のバージョンで利用できるのみです。
 > - 使用*オフライン展開*します。 このアプローチには、web サーバーの最低限の構成が必要ですが、サーバー管理者は、サーバー上に web パッケージのコピーし IIS マネージャーからインポートする必要があります手動でします。
 > 
-> 主な機能、利点、およびこれらのアプローチの欠点の詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)します。
+> 主な機能、利点、およびこれらのアプローチの欠点の詳細については、[Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)を参照してください。
 
 
 はい、ネットワークのインフラストラクチャまたはセキュリティの制限は、リモート展開を防ぐ。 これは、インターネットに接続する運用環境で web サーバーが分離の場合に最も可能性の高い&#x2014;か、物理的にまたはファイアウォールや、によってサブネット&#x2014;、サーバー インフラストラクチャの残りの部分から。
@@ -57,7 +57,7 @@ ms.locfileid: "57063209"
 - サーバーは、静的 IP アドレスを持ちます。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。
+> コンピューターをドメインに参加させる方法については、[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)を参照してください。 静的 IP アドレスの構成の詳細については、[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)を参照してください。
 
 
 ## <a name="install-products-and-components"></a>製品とコンポーネントをインストールします。
@@ -72,7 +72,7 @@ ms.locfileid: "57063209"
 - **ASP.NET MVC 3**します。 MVC 3 アプリケーションを実行する必要があるアセンブリがインストールされます。
 
 > [!NOTE]
-> このチュートリアルでは、さまざまなコンポーネントをインストールして構成、Web Platform Installer の使用について説明します。 Web Platform Installer を使用する必要はありません、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、次を参照してください。 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)します。
+> このチュートリアルでは、さまざまなコンポーネントをインストールして構成、Web Platform Installer の使用について説明します。 Web Platform Installer を使用する必要はありません、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、[Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)を参照してください。
 
 
 **必要な製品とコンポーネントをインストールするには**
@@ -146,7 +146,7 @@ IIS の既定の web サイトにコンテンツを展開するなんらです�
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image4.png)
 
     > [!NOTE]
-    > 運用環境では、ポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成するします可能性があります。 IIS 7 でホスト ヘッダーの構成の詳細については、次を参照してください。 [(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/library/cc753195(WS.10).aspx)します。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、次を参照してください。 [DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/windowsserver/dd448607)します。
+    > 運用環境では、ポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成するします可能性があります。 IIS 7 でホスト ヘッダーの構成の詳細については、[(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/library/cc753195(WS.10).aspx)を参照してください。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、[DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/windowsserver/dd448607)を参照してください。
 9. **[アクション]** ウィンドウの **[サイトの編集]** の下にある **[バインド]** をクリックします。
 10. **サイト バインド**ダイアログ ボックスで、をクリックして**追加**します。
 
@@ -178,7 +178,7 @@ Web サイト コンテンツを配信するためには、アプリケーショ
 最も一般的なアプローチは、ローカルに権限を割り当てる、 **IIS\_IUSRS**グループ、このアプローチでは、ファイル システム アクセス許可を再構成することがなくアプリケーション プールを変更できるためです。 次の手順では、このグループ ベースのアプローチを使用します。
 
 > [!NOTE]
-> IIS 7.5 でアプリケーション プール id の詳細については、次を参照してください。[アプリケーション プール Id ](https://go.microsoft.com/?linkid=9805123) します。
+> IIS 7.5 でアプリケーション プール id の詳細については、[アプリケーション プール Id ](https://go.microsoft.com/?linkid=9805123) を参照してください。
 
 
 **IIS の web サイトのフォルダーのアクセス許可を構成するには**

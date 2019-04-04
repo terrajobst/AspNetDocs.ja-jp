@@ -63,9 +63,9 @@ Team Foundation Server (TFS) 2010年のビルド サービスをインストー�
 2. Web 配置ハンドラーを構成し、」の説明に従って、アカウントの特定の IIS web サイトにコンテンツを配置に必要なアクセス許可を付与[Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)します。
 3. Web Deploy を呼び出すと、Web 配置ハンドラーの対象、基本認証を使用して、ドメイン アカウントの資格情報を提供作成、配置を実行します。
 
-[Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプル ソリューションでは、認証の種類を指定する (基本または NTLM)、Web デプロイの資格情報と、環境固有のプロジェクト ファイル内のエンドポイント アドレス (リモート エージェントまたは Web 配置ハンドラー)。 これらの値は、作成して、プロジェクト ファイルを実行すると、Web Deploy コマンドを実行に使用されます。 詳細については、次を参照してください。 [Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)します。
+[Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプル ソリューションでは、認証の種類を指定する (基本または NTLM)、Web デプロイの資格情報と、環境固有のプロジェクト ファイル内のエンドポイント アドレス (リモート エージェントまたは Web 配置ハンドラー)。 これらの値は、作成して、プロジェクト ファイルを実行すると、Web Deploy コマンドを実行に使用されます。 詳細については、[Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)を参照してください。
 
-Web デプロイのハンドラーを許可を構成する方法などの構成の詳細については、次を参照してください。 [Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)します。 リモート エージェントの構成の詳細については、次を参照してください。 [Web 配置発行 (リモート エージェント) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)します。
+Web デプロイのハンドラーを許可を構成する方法などの構成の詳細については、[Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)を参照してください。 リモート エージェントの構成の詳細については、[Web 配置発行 (リモート エージェント) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)を参照してください。
 
 ## <a name="configuring-database-server-permissions"></a>データベース サーバーのアクセス許可の構成
 
@@ -80,7 +80,7 @@ NTLM 認証または SQL Server 認証を使用して SQL Server インスタン
 - NTLM 認証を使用する場合は、ビルド サービス アカウントに上記で説明したアクセス許可を付与する必要があります。
 - SQL Server 認証を使用する場合は、SQL Server アカウントに上記で説明したアクセス許可を付与する必要があります。 また、データベースの配置に使用する接続文字列に、SQL Server ユーザー名とパスワードを含める必要があります。
 
-データベースの配置のアクセス許可を構成する方法の詳細な手順については、次を参照してください。 [Web 配置発行のデータベース サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)します。
+データベースの配置のアクセス許可を構成する方法の詳細な手順については、[Web 配置発行のデータベース サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 
@@ -88,7 +88,7 @@ NTLM 認証または SQL Server 認証を使用して SQL Server インスタン
 
 ## <a name="further-reading"></a>関連項目
 
-リモート展開をサポートする Windows server 環境の構成の詳細については、次を参照してください。 [Web 配置のサーバー環境の構成](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)します。
+リモート展開をサポートする Windows server 環境の構成の詳細については、[Web 配置のサーバー環境の構成](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](deploying-a-specific-build.md)

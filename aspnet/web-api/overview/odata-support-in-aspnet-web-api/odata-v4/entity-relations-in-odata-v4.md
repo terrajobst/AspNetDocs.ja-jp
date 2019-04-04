@@ -33,7 +33,7 @@ ms.locfileid: "57054619"
 >
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
 >
-> OData バージョン 3 では、次を参照してください。 [OData v3 のエンティティ関係をサポートしている](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations)します。
+> OData バージョン 3 では、[OData v3 のエンティティ関係をサポートしている](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations)を参照してください。
 
 ## <a name="add-a-supplier-entity"></a>Supplier エンティティを追加します。
 

@@ -61,7 +61,7 @@ Visual Studio 2010 サポートは含まれません既定の ASP.NET Web ペー
 | **ASP.NET Web ページ 2** | ASP.NET MVC 4 をインストールします。 | (含まれています) | (含まれています) |
 | **ASP.NET Web ページ 3** |  | 更新プログラムを ASP.NET Web ページから 3 つの NuGet | (含まれています) |
 
-Visual Studio 2010 を使用する、次を参照してください。 [Visual Studio 2010 で ASP.NET Web Pages のサポートのインストール](#vs2010support)します。
+Visual Studio 2010 を使用する、[Visual Studio 2010 で ASP.NET Web Pages のサポートのインストール](#vs2010support)を参照してください。
 
 ## <a name="launching-visual-studio-from-webmatrix"></a>WebMatrix から Visual Studio を起動します。
 
@@ -127,7 +127,7 @@ Visual Studio で ASP.NET Razor の web サイトを作成します。
 
 ## <a name="using-razor-in-aspnet-mvc-projects-with-visual-studio"></a>Visual Studio を使用した ASP.NET MVC プロジェクトでの Razor の使用
 
-ASP.NET MVC プロジェクトで幅広く、Razor 構文が使用されます。 MVC は、動的な web サイトを構築する、パターン ベースの強力な方法です。 ASP.NET Web Pages サイトの保守が困難になると、ASP.NET MVC アプリケーションに変換することを検討する可能性があります。 MVC アプリケーションの作成の例は、次を参照してください。 [ASP.NET MVC 5 の概要](../../../mvc/overview/getting-started/introduction/getting-started.md)します。
+ASP.NET MVC プロジェクトで幅広く、Razor 構文が使用されます。 MVC は、動的な web サイトを構築する、パターン ベースの強力な方法です。 ASP.NET Web Pages サイトの保守が困難になると、ASP.NET MVC アプリケーションに変換することを検討する可能性があります。 MVC アプリケーションの作成の例は、[ASP.NET MVC 5 の概要](../../../mvc/overview/getting-started/introduction/getting-started.md)を参照してください。
 
 <a id="vs2010support"></a>
 ## <a name="installing-support-for-aspnet-web-pages-in-visual-studio-2010"></a>Visual Studio 2010 での ASP.NET Web ページのサポートのインストール

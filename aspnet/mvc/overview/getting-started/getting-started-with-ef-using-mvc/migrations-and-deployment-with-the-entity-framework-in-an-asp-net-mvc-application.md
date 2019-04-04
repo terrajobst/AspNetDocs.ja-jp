@@ -23,7 +23,7 @@ ms.locfileid: "57036989"
 - Code First Migrations を有効にします。 移行機能を使用すると、データ モデルを変更し、変更を削除して、データベースを再作成しなくても、データベース スキーマを更新することで運用環境にデプロイできます。
 - Azure にデプロイします。 この手順は省略可能です。残りのチュートリアルを続行するには、プロジェクトをデプロイすることなしです。
 
-ソース管理と展開については、継続的インテグレーション プロセスを使用するが、このチュートリアルではこれらのトピックについては説明しないことをお勧めします。 詳細については、次を参照してください。、[ソース管理](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)と[継続的インテグレーション](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)の章[Azure と実際のクラウド アプリの構築](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)します。
+ソース管理と展開については、継続的インテグレーション プロセスを使用するが、このチュートリアルではこれらのトピックについては説明しないことをお勧めします。 詳細については、、[ソース管理](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)と[継続的インテグレーション](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)の章[Azure と実際のクラウド アプリの構築](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)を参照してください。
 
 このチュートリアルでは、次の作業を行いました。
 
@@ -138,7 +138,7 @@ Visual Studio は何も、データベースと展開プロセス中に、移行
 ### <a name="get-an-azure-account"></a>Azure アカウントを取得します。
 
 Azure アカウントが必要があります。 場合は、1 つ必要は既にありませんが、Visual Studio サブスクリプションが、[サブスクリプションの特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/
-)します。 それ以外の場合、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Azure 無料試用版](https://azure.microsoft.com/free/)します。
+)します。 それ以外の場合、ほんの数分で無料試用版アカウントを作成できます。 詳細については、[Azure 無料試用版](https://azure.microsoft.com/free/)を参照してください。
 
 ### <a name="create-a-web-site-and-a-sql-database-in-azure"></a>Azure での web サイトと SQL database を作成します。
 
@@ -156,7 +156,7 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 3. **サブスクリプション**ボックスで、選択する Azure サブスクリプション、 **App Service**を配置します。
 
-4. **リソース グループ**テキスト ボックスに、リソース グループを選択するか、新しく作成します。 この設定では、web サイトが実行されるデータ センターを指定します。 リソース グループの詳細については、次を参照してください。[リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)します。
+4. **リソース グループ**テキスト ボックスに、リソース グループを選択するか、新しく作成します。 この設定では、web サイトが実行されるデータ センターを指定します。 リソース グループの詳細については、[リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)を参照してください。
 
 5. 新規作成**App Service プラン**をクリックして、 *App Service のセクション*、**新規作成**、入力と**App Service プラン**(と同じ名前を指定できますApp Service の場合)、**場所**、および**価格レベル**(無料のオプションがある)。
 
@@ -164,14 +164,14 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 7. **名前**ボックスに、データベースの名前を入力します。
 8. をクリックして、**ターゲット サーバー**ボックスを選び**サーバーの新規作成**です。 または、以前にサーバーを作成する場合は、使用可能なサーバーの一覧からそのサーバーを選択できます。
-9. 選択**価格レベル**セクションで、選択*Free*します。 その他のリソースが必要な場合、データベースをいつでもまで拡張できます。 Azure SQL の料金の詳細については、次を参照してください。 [Azure SQL Database の価格](https://azure.microsoft.com/pricing/details/sql-database/managed/)します。
+9. 選択**価格レベル**セクションで、選択*Free*します。 その他のリソースが必要な場合、データベースをいつでもまで拡張できます。 Azure SQL の料金の詳細については、[Azure SQL Database の価格](https://azure.microsoft.com/pricing/details/sql-database/managed/)を参照してください。
 10. 変更[照合](/sql/relational-databases/collations/collation-and-unicode-support)に応じて。
 11. 管理者が入力**SQL 管理ユーザー名**と**SQL 管理パスワード**します。
 
    - 選択した場合**新しい SQL Database server**、新しい名前とデータベースにアクセスするときに後で使用するパスワードを定義します。
    - 以前に作成したサーバーを選択した場合は、そのサーバーの資格情報を入力します。
 
-12. Application Insights を使用した App Service にテレメトリの収集を有効にすることができます。 ほとんどの構成では、Application Insights は、重要なイベント、例外、依存関係、要求、およびトレース情報を収集します。 Application Insights の詳細については、次を参照してください。 [Azure Monitor](https://azure.microsoft.com/services/monitor/)します。
+12. Application Insights を使用した App Service にテレメトリの収集を有効にすることができます。 ほとんどの構成では、Application Insights は、重要なイベント、例外、依存関係、要求、およびトレース情報を収集します。 Application Insights の詳細については、[Azure Monitor](https://azure.microsoft.com/services/monitor/)を参照してください。
 13. をクリックして**作成**下部を完了することを示します。
 
     管理ポータルのダッシュ ボード ページに戻り、**通知**ページの上部にある領域は、サイトが作成されていることを示しています。 (通常、1 分未満)、しばらくしてから、デプロイが成功したことを示す通知があります。 新しい App Service は、左側にあるナビゲーション バーで、 **App Services**セクションと、新しい SQL データベースで表示されます、 **SQL データベース**セクション。
@@ -207,15 +207,15 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 デプロイされたバージョンので、自分のコンピューター上の Web.config ファイルを検索する*ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*します。デプロイされているアクセスできる*Web.config* FTP を使用してファイル自体。 手順については、次を参照してください。 [Visual Studio を使用して ASP.NET Web 展開。コードの更新を展開する](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update)します。 始まる手順"、FTP ツールを使用するには、するには、次の 3 つが必要です: FTP の URL、ユーザー名、およびパスワード。"。
 
 > [!NOTE]
-> Web アプリの URL を見つけた他のユーザー データを変更できるように、セキュリティを実装しません。 Web サイトをセキュリティで保護する方法の詳細については、次を参照してください。[メンバーシップ、OAuth、および SQL database で安全な ASP.NET MVC アプリを Azure にデプロイ](/aspnet/core/security/authorization/secure-data)します。 他のユーザーが Azure 管理ポータルを使用してサービスを停止して、サイトの使用禁止または**サーバー エクスプ ローラー** Visual Studio でします。
+> Web アプリの URL を見つけた他のユーザー データを変更できるように、セキュリティを実装しません。 Web サイトをセキュリティで保護する方法の詳細については、[メンバーシップ、OAuth、および SQL database で安全な ASP.NET MVC アプリを Azure にデプロイ](/aspnet/core/security/authorization/secure-data)を参照してください。 他のユーザーが Azure 管理ポータルを使用してサービスを停止して、サイトの使用禁止または**サーバー エクスプ ローラー** Visual Studio でします。
 
 ![アプリ サービスのメニュー項目を停止します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/server-explorer-stop-app-service.png)
 
 ## <a name="advanced-migrations-scenarios"></a>高度な移行シナリオ
 
-このチュートリアルで示すように自動的に移行を実行してデータベースを展開する複数のサーバーで実行されている web サイトにデプロイする場合は、移行を同時に実行しようとしています。 複数のサーバーを取得できます。 2 台のサーバーでは、同じ移行を実行しようとして、1 つは成功し、(2 回の操作を実行できませんを想定) が失敗、その他の移行はアトミックで。 このシナリオでは、これらの問題を回避する場合の移行を手動で呼び出すしてのみ 1 回行われるように、独自のコードを設定します。 詳細については、次を参照してください。[実行とコードからの移行のスクリプト](http://romiller.com/2012/02/09/running-scripting-migrations-from-code/)Rowan Miller のブログと[Migrate.exe](/ef/ef6/modeling/code-first/migrations/migrate-exe) (コマンドラインからの移行を実行して) 用です。
+このチュートリアルで示すように自動的に移行を実行してデータベースを展開する複数のサーバーで実行されている web サイトにデプロイする場合は、移行を同時に実行しようとしています。 複数のサーバーを取得できます。 2 台のサーバーでは、同じ移行を実行しようとして、1 つは成功し、(2 回の操作を実行できませんを想定) が失敗、その他の移行はアトミックで。 このシナリオでは、これらの問題を回避する場合の移行を手動で呼び出すしてのみ 1 回行われるように、独自のコードを設定します。 詳細については、[実行とコードからの移行のスクリプト](http://romiller.com/2012/02/09/running-scripting-migrations-from-code/)Rowan Miller のブログと[Migrate.exe](/ef/ef6/modeling/code-first/migrations/migrate-exe) (コマンドラインからの移行を実行して) 用を参照してください。
 
-その他の移行シナリオについては、次を参照してください。[移行スクリーン キャスト シリーズ](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx)します。
+その他の移行シナリオについては、[移行スクリーン キャスト シリーズ](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx)を参照してください。
 
 ## <a name="code-first-initializers"></a>コードの最初の初期化子
 

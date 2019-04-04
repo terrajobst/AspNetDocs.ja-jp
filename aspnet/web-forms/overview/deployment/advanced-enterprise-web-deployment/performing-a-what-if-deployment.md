@@ -49,7 +49,7 @@ MSDeploy.exe を直接使用している場合は、追加することで、"wha
 削除することができます、"what if"展開の結果に満足したら、 **– whatif**ライブの展開を実行するフラグ。
 
 > [!NOTE]
-> MSDeploy.exe のコマンド ライン オプションの詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。
+> MSDeploy.exe のコマンド ライン オプションの詳細については、[Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)を参照してください。
 
 
 使用している場合、 *. deploy.cmd*ファイルを含めることで、"what if"展開を実行することができます、 **/t**フラグ (試用版モード) のフラグの代わりに、 **/y**のフラグ ("yes"、または更新モード)コマンド。 たとえばを実行して ContactManager.Mvc.zip パッケージを展開する場合に何が起こるかを評価するため、 *. deploy.cmd*ファイルでは、このコマンドのようになります。
@@ -139,7 +139,7 @@ VSDBCMD は、データベースの差分の展開ツールと、指定したス
 
 ## <a name="further-reading"></a>関連項目
 
-Web デプロイ コマンドライン構文の詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。 コマンド ライン オプションを使用する場合のガイダンスについては、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。 VSDBCMD コマンドライン構文については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンス。EXE (展開およびスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)します。
+Web デプロイ コマンドライン構文の詳細については、[Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)を参照してください。 コマンド ライン オプションを使用する場合のガイダンスについては、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。 VSDBCMD コマンドライン構文については、[VSDBCMD のコマンド ライン リファレンス。EXE (展開およびスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](advanced-enterprise-web-deployment.md)

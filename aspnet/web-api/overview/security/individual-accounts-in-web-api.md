@@ -37,7 +37,7 @@ Visual Studio 2013 で、Web API プロジェクト テンプレートを使用�
 - **組織のアカウント。** ユーザーが Azure Active Directory、Office 365、またはオンプレミスの Active Directory の資格情報でサインインします。
 - **Windows 認証。** このオプションは、イントラネット アプリケーションのためのものでは、Windows 認証の IIS モジュールを使用しています。
 
-これらのオプションの詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth)です。
+これらのオプションの詳細については、[Visual Studio 2013 で ASP.NET Web プロジェクトの作成](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth)を参照してください。
 
 個々 のアカウントは、ユーザーにログインするための 2 つの方法を提供します。
 
@@ -225,7 +225,7 @@ StartupAuth.cs では、次のコードは、OAuth2 承認サーバーを構成�
 
 [![](individual-accounts-in-web-api/_static/image16.png)](individual-accounts-in-web-api/_static/image15.png)
 
-OAuth のミドルウェアのユーザー アカウントについて何も認識します。 プロバイダーは、ミドルウェア、ASP.NET Identity と通信します。 承認サーバーの実装の詳細については、次を参照してください。 [OWIN OAuth 2.0 承認サーバー](../../../aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server.md)します。
+OAuth のミドルウェアのユーザー アカウントについて何も認識します。 プロバイダーは、ミドルウェア、ASP.NET Identity と通信します。 承認サーバーの実装の詳細については、[OWIN OAuth 2.0 承認サーバー](../../../aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server.md)を参照してください。
 
 ### <a name="configuring-web-api-to-use-bearer-tokens"></a>ベアラー トークンを使用する Web API を構成します。
 
@@ -246,7 +246,7 @@ OAuth のミドルウェアのユーザー アカウントについて何も認�
 1. **HostAuthentication**フィルターは、トークンを検証する OAuth ミドルウェアを呼び出します。
 2. ミドルウェアは、トークンを要求の id に変換します。
 3. 要求は、この時点では、*認証*なく*承認*します。
-4. 承認フィルターは、要求の id を検証します。 クレームは、そのリソースに対してユーザーを承認する場合、要求を承認します。 既定で、 **[Authorize]** 属性では、認証されたすべての要求を承認します。 ただし、ロールまたはその他の要求を承認できます。 詳細については、次を参照してください。 [Web API で認証と承認](authentication-and-authorization-in-aspnet-web-api.md)します。
+4. 承認フィルターは、要求の id を検証します。 クレームは、そのリソースに対してユーザーを承認する場合、要求を承認します。 既定で、 **[Authorize]** 属性では、認証されたすべての要求を承認します。 ただし、ロールまたはその他の要求を承認できます。 詳細については、[Web API で認証と承認](authentication-and-authorization-in-aspnet-web-api.md)を参照してください。
 5. 前の手順が成功すると、コント ローラーは、保護されたリソースを返します。 それ以外の場合、クライアントは、401 (未承認) のエラーを受け取ります。
 
 [![](individual-accounts-in-web-api/_static/image18.png)](individual-accounts-in-web-api/_static/image17.png)

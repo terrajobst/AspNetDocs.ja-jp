@@ -36,7 +36,7 @@ ms.locfileid: "58423431"
 - 複合型:キーのない構造化型。
 - オープン型の場合:動的プロパティの型。 エンティティ型と複合型の両方を開くことができます。
 
-動的なプロパティの値は、プリミティブ型、複合型、または列挙型を指定できます。または、それらの型のいずれかのコレクション。 オープン型の詳細については、次を参照してください。、 [OData v4 仕様](http://www.odata.org/documentation/odata-version-4-0/)します。
+動的なプロパティの値は、プリミティブ型、複合型、または列挙型を指定できます。または、それらの型のいずれかのコレクション。 オープン型の詳細については、、 [OData v4 仕様](http://www.odata.org/documentation/odata-version-4-0/)を参照してください。
 
 ## <a name="install-the-web-odata-libraries"></a>Web の OData ライブラリをインストールします。
 
