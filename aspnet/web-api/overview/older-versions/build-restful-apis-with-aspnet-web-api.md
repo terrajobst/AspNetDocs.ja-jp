@@ -440,7 +440,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 <a id="CodeSnippetUsingKeyBoard"></a>
 
 <a id="To_add_a_code_snippet_using_the_keyboard_C_only"></a>
-### <a name="to-add-a-code-snippet-using-the-keyboard-c-only"></a>キーボード (c# のみ) を使用するコード スニペットを追加するには
+### <a name="to-add-a-code-snippet-using-the-keyboard-c-only"></a>キーボード (C# のみ) を使用するコード スニペットを追加するには
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

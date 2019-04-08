@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
-title: バッチ更新 (c#) を実行する |Microsoft Docs
+title: バッチ更新 (C#) を実行する |Microsoft Docs
 author: rick-anderson
 description: 完全に編集を作成する方法について説明します DataList ですべての項目が編集モードとで、[すべて更新] ボタンをクリックして保存できる値を持つ、.
 ms.author: riande

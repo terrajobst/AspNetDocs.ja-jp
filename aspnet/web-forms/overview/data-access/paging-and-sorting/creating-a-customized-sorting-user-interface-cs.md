@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
-title: カスタマイズされた並べ替えユーザー インターフェイス (c#) を作成する |Microsoft Docs
+title: カスタマイズされた並べ替えユーザー インターフェイス (C#) を作成する |Microsoft Docs
 author: rick-anderson
 description: 長いリストを表示するには、データが並べ替えられたときに、非常に役に立ちます行の区切り記号を導入することで関連するデータをグループ化します。 このチュートリアルで作成する方法.
 ms.author: riande

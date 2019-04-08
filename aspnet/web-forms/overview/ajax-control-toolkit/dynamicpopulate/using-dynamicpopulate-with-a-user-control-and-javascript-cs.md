@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
-title: DynamicPopulate を使用するユーザー コントロールと JavaScript (c#) |Microsoft Docs
+title: DynamicPopulate を使用するユーザー コントロールと JavaScript (C#) |Microsoft Docs
 author: wenz
 description: ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、t のターゲット コントロールに、結果の値を入力しています.
 ms.author: riande

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
-title: 挿入、更新、およびデータ (c#) の削除の概要 |Microsoft Docs
+title: 挿入、更新、およびデータ (C#) の削除の概要 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ObjectDataSource の Insert()、Update() にマップする方法を見ていきます、構成する方法についても、BLL のメソッドに Delete() メソッドがクラスとしています.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58424574"
 ---
-<a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>挿入、更新、およびデータ (c#) の削除の概要
+<a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>挿入、更新、およびデータ (C#) の削除の概要
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 

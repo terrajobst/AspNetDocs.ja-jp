@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
-title: アクションを作成する (c#) |Microsoft Docs
+title: アクションを作成する (C#) |Microsoft Docs
 author: microsoft
 description: ASP.NET MVC のコント ローラーに新しいアクションを追加する方法について説明します。 メソッドを操作するための要件について説明します。
 ms.author: riande

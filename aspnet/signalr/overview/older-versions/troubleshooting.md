@@ -111,7 +111,7 @@ SignalR は自動的に JSON シリアル化に使用、メソッド パラメ�
 
 この動作は意図されたものです。 ときに`OnDisconnected`が呼び出されると、ハブが既に入力、`Disconnected`によりさらにハブ メソッドを呼び出せる状態。
 
-**OnDisconnected イベント内のコードを正しく実行 c# サーバー コード**
+**OnDisconnected イベント内のコードを正しく実行 C# サーバー コード**
 
 [!code-csharp[Main](troubleshooting/samples/sample8.cs)]
 
@@ -127,7 +127,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ドメインのセキュリティを使用する .NET クライアント アプリケーション内の接続が失敗する場合は、接続が正しく構成されていません。 SignalR を使用して、ドメイン環境で、次のように、必要な接続プロパティを設定します。
 
-**接続の資格情報を実装する c# クライアント コード**
+**接続の資格情報を実装する C# クライアント コード**
 
 [!code-csharp[Main](troubleshooting/samples/sample9.cs)]
 

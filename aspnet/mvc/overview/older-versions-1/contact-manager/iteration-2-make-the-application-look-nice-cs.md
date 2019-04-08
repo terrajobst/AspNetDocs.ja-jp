@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
-title: '繰り返し #2 – アプリケーションの外観を便利な (c#) を作成する |Microsoft Docs'
+title: '繰り返し #2 – アプリケーションの外観を便利な (C#) を作成する |Microsoft Docs'
 author: microsoft
 description: このイテレーションで、アプリケーションの見た目を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58422266"
 ---
-<a name="iteration-2--make-the-application-look-nice-c"></a>繰り返し #2 – アプリケーションの外観を便利な (c#) を作成します。
+<a name="iteration-2--make-the-application-look-nice-c"></a>繰り返し #2 – アプリケーションの外観を便利な (C#) を作成します。
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
@@ -24,7 +24,7 @@ ms.locfileid: "58422266"
 > このイテレーションで、アプリケーションの見た目を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (C#) の構築
   
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。

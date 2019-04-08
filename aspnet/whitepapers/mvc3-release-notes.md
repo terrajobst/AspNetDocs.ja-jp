@@ -277,7 +277,7 @@ Modernizr は、これらの機能をサポートしていないブラウザー�
 
 ADO.NET の Entity Framework 4.1 には、Code First 機能が含まれています。 コードは、既存の Database First と Model First パターンの代替を提供する ADO.NET Entity Framework の新しい開発パターンを最初です。
 
-コードはまず、Visual Basic または c# で記述された POCO クラス ("plain old CLR object") を使用して、モデルの定義をフォーカスしています。 これらのクラスは、既存のデータベースにマップすることができますし、またはデータベース スキーマの生成に使用します。 使用して追加の構成を指定する*DataAnnotations*属性または fluent Api を使用します。
+コードはまず、Visual Basic または C# で記述された POCO クラス ("plain old CLR object") を使用して、モデルの定義をフォーカスしています。 これらのクラスは、既存のデータベースにマップすることができますし、またはデータベース スキーマの生成に使用します。 使用して追加の構成を指定する*DataAnnotations*属性または fluent Api を使用します。
 
 コード Firstwith ASP.NET MVC を使用するためのドキュメントは、次の Url で ASP.NET web サイトで使用できます。
 
@@ -793,7 +793,7 @@ ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれま�
 
 ### <a id="0.1__Toc274034225"></a>  VBHTML Razor 構文のサポート
 
-ASP.NET MVC の以前のプレビューには、c# に基づく Razor 構文を使用してビューのサポートが含まれています。 これらのビューは、.cshtml ファイルの拡張機能を使用します。 Razor をサポートするために進行中の作業の一環として、ASP.NET MVC 3 のベータ版では、.vbhtml ファイル拡張機能を使用する Visual Basic での Razor 構文のサポートが導入されています。
+ASP.NET MVC の以前のプレビューには、C# に基づく Razor 構文を使用してビューのサポートが含まれています。 これらのビューは、.cshtml ファイルの拡張機能を使用します。 Razor をサポートするために進行中の作業の一環として、ASP.NET MVC 3 のベータ版では、.vbhtml ファイル拡張機能を使用する Visual Basic での Razor 構文のサポートが導入されています。
 
 VBHTML ページで Visual Basic 構文の使用の概要については、次の URL でチュートリアルを参照してください。
 

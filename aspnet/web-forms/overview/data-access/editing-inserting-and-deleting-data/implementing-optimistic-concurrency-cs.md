@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
-title: オプティミスティック同時実行制御 (c#) を実装する |Microsoft Docs
+title: オプティミスティック同時実行制御 (C#) を実装する |Microsoft Docs
 author: rick-anderson
 description: データを編集する複数のユーザーを許可する web アプリケーションの場合、2 人のユーザーは編集、同じデータと同時にリスクがあります。 この tutori にしています.
 ms.author: riande

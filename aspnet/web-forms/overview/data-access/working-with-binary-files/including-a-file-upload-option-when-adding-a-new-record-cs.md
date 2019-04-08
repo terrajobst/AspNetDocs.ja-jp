@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
-title: 新しいレコード (c#) を追加するときにオプションをアップロードするファイルを含む |Microsoft Docs
+title: 新しいレコード (C#) を追加するときにオプションをアップロードするファイルを含む |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ユーザーがテキスト データを入力して、バイナリ ファイルをアップロードできる Web インターフェイスを作成する方法を示します。 オプションの使用可能な t をについて説明しています.
 ms.author: riande

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
-title: サービス層 (c#) の検証 |Microsoft Docs
+title: サービス層 (C#) の検証 |Microsoft Docs
 author: StephenWalther
 description: コント ローラー アクションから、別のサービス層には、検証ロジックを移動する方法について説明します。 このチュートリアルでは、Stephen Walther がについて説明する方法をしています.
 ms.author: riande

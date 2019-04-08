@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
-title: GridView のフッター (c#) から新しいレコードの挿入 |Microsoft Docs
+title: GridView のフッター (C#) から新しいレコードの挿入 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルが含める GridView を拡張する方法では、GridView コントロールには、データの新しいレコードを挿入するための組み込みのサポートされていません、中に、.
 ms.author: riande

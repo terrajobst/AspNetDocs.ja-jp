@@ -34,7 +34,7 @@ Visual Web Developer ではなく Visual Studio 2010 を使用する場合は、
 
 このチュートリアルで完了して、 [MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアルまたは ASP.NET MVC の開発に慣れていること。 このチュートリアルから完成したプロジェクトでは、 [MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアル。
 
-このチュートリアルでは、c# でコードを示します。 ただし、[スターター プロジェクト](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)な完成したプロジェクトも Visual Basic で用意されています。
+このチュートリアルでは、C# でコードを示します。 ただし、[スターター プロジェクト](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)な完成したプロジェクトも Visual Basic で用意されています。
 
 Visual Studio プロジェクトとC#と Visual Basic ソース コードはこのトピックと共に使用できます。[ダウンロード](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)します。
 

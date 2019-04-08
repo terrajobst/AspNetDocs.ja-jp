@@ -66,7 +66,7 @@ URL の最初の部分を実行するコント ローラー クラスを決定�
 
 [![これは、[ようこそ] のアクション メソッドです。](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
-みましょう URL からの一部の情報を渡すなどのように、コント ローラーをように、サンプルを少し変更:/helloworld/welcome でしょうか。 名前 = Scott&amp;numtimes 4 を = です。 2 つのパラメーターと以下のような更新プログラムを含めるへようこそ 方法を変更します。 が渡されない場合 1 をパラメーター numTimes が既定を示す c# のオプション パラメーター機能を使用したことに注意してください。
+みましょう URL からの一部の情報を渡すなどのように、コント ローラーをように、サンプルを少し変更:/helloworld/welcome でしょうか。 名前 = Scott&amp;numtimes 4 を = です。 2 つのパラメーターと以下のような更新プログラムを含めるへようこそ 方法を変更します。 が渡されない場合 1 をパラメーター numTimes が既定を示す C# のオプション パラメーター機能を使用したことに注意してください。
 
 [!code-csharp[Main](getting-started-with-mvc-part2/samples/sample2.cs)]
 

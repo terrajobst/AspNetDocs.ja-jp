@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
-title: 多数 (c#) から 1 つのユーザー アカウントを選択するインターフェイスの構築 |Microsoft Docs
+title: 多数 (C#) から 1 つのユーザー アカウントを選択するインターフェイスの構築 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ページング、フィルター可能の grid でのユーザー インターフェイスを作成します。 具体的には、ユーザー インターフェイスは、一連の Linkbutton ので構成されます.
 ms.author: riande

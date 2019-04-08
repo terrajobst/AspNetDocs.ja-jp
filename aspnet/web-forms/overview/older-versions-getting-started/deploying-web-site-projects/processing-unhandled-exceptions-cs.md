@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
-title: 処理の未処理の例外 (c#) |Microsoft Docs
+title: 処理の未処理の例外 (C#) |Microsoft Docs
 author: rick-anderson
 description: 実稼働環境で web アプリケーションでランタイム エラーが発生したとき、重要なは、開発者に通知して、la で診断ができるように、エラーをログには.
 ms.author: riande

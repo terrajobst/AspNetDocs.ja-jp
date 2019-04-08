@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
-title: ストアド プロシージャ (c#) のデバッグ |Microsoft Docs
+title: ストアド プロシージャ (C#) のデバッグ |Microsoft Docs
 author: rick-anderson
 description: Visual Studio Professional および Team System のエディションを使用すると、ブレークポイントを設定し、SQL Server 内のストアド プロシージャにステップ、格納されているデバッグを行う.
 ms.author: riande
@@ -36,7 +36,7 @@ Visual Studio では、豊富なデバッグ エクスペリエンスを提供�
 
 ## <a name="sql-server-debugging-concepts"></a>SQL Server デバッグの概念
 
-Microsoft SQL Server 2005 の統合を提供するもの、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、SQL Server 2005 では、マネージ データベース オブジェクトをサポートしています。 つまり、c# クラスのメソッドとしてストアド プロシージャおよびユーザー定義関数 (Udf) のようなデータベース オブジェクトを作成できます。 これにより、これらのストアド プロシージャ、Udf では、.NET Framework と、独自のカスタム クラスから機能を利用できます。 もちろん、SQL Server 2005 では、T-SQL でのデータベース オブジェクトに対してのサポートもが提供されます。
+Microsoft SQL Server 2005 の統合を提供するもの、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、SQL Server 2005 では、マネージ データベース オブジェクトをサポートしています。 つまり、C# クラスのメソッドとしてストアド プロシージャおよびユーザー定義関数 (Udf) のようなデータベース オブジェクトを作成できます。 これにより、これらのストアド プロシージャ、Udf では、.NET Framework と、独自のカスタム クラスから機能を利用できます。 もちろん、SQL Server 2005 では、T-SQL でのデータベース オブジェクトに対してのサポートもが提供されます。
 
 SQL Server 2005 では、T-SQL とマネージ データベース オブジェクトの両方に対するデバッグのサポートを提供します。 ただし、これらのオブジェクトは、Visual Studio 2005 Professional やチーム システムのエディションでのみデバッグできます。 このチュートリアルでは、デバッグ T-SQL でのデータベース オブジェクトを説明します。 次のチュートリアルがマネージ データベース オブジェクトをデバッグします。
 

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-cs
-title: クライアント側コード (c#) を使用してアニメーションを実行する |Microsoft Docs
+title: クライアント側コード (C#) を使用してアニメーションを実行する |Microsoft Docs
 author: wenz
 description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 アニメーションの実行.
 ms.author: riande

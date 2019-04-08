@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
-title: .NET クライアント (c#) から Web API を呼び出す |Microsoft Docs
+title: .NET クライアント (C#) から Web API を呼び出す |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58423140"
 ---
-<a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
+<a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (C#) から Web API を呼び出す
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)および[Rick Anderson](https://twitter.com/RickAndMSFT)
 

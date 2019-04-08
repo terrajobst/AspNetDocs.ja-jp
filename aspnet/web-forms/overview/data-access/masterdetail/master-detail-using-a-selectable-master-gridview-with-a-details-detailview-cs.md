@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
-title: マスター/詳細の選択可能なマスター GridView を使用すると詳細 DetailView (c#) |Microsoft Docs
+title: マスター/詳細の選択可能なマスター GridView を使用すると詳細 DetailView (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルは、GridView 行選択ボタンと共に各製品の価格と名前を含める必要があります。 Particu の Select ボタンをクリックしています.
 ms.author: riande

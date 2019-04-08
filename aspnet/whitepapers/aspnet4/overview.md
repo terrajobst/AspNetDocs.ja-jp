@@ -1279,7 +1279,7 @@ Visual Studio 2010 で Visual Web Developer デザイナーは CSS 2.1 標準へ
 
 ### <a name="html-and-javascript-snippets"></a>HTML および JavaScript のスニペット
 
-HTML エディターで IntelliSense オートコンプリート タグ名。 IntelliSense スニペット機能が自動補完し、タグ全体。 Visual Studio 2010 では、IntelliSense スニペットは、javascript、c# および Visual Basic、Visual Studio の以前のバージョンでサポートされていたと共にサポートされます。
+HTML エディターで IntelliSense オートコンプリート タグ名。 IntelliSense スニペット機能が自動補完し、タグ全体。 Visual Studio 2010 では、IntelliSense スニペットは、javascript、C# および Visual Basic、Visual Studio の以前のバージョンでサポートされていたと共にサポートされます。
 
 Visual Studio 2010 に役立つ、オート コンプリート一般的な ASP.NET タグと HTML タグ、必要な属性を含む 200 を超えるのスニペットが含まれています (など、runat ="server") と共通の属性をタグに特定 (など*ID*、 *DataSourceID*、 *ControlToValidate*、および*テキスト*)。
 

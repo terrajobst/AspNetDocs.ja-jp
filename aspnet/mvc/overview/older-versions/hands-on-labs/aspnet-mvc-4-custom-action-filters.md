@@ -144,7 +144,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
       > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
       > 
       > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 新しい c# クラスを追加、**フィルター**フォルダーと名前を付けます*CustomActionFilter.cs*します。 このフォルダーでは、すべてのカスタム フィルターを格納します。
+2. 新しい C# クラスを追加、**フィルター**フォルダーと名前を付けます*CustomActionFilter.cs*します。 このフォルダーでは、すべてのカスタム フィルターを格納します。
 3. 開いている**CustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
 
     (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex1 CustomActionFilterNamespaces*)
@@ -248,7 +248,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
         > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
         > 
         > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 新しい c# クラスを追加、**フィルター**フォルダーと名前を付けます*MyNewCustomActionFilter.cs*
+2. 新しい C# クラスを追加、**フィルター**フォルダーと名前を付けます*MyNewCustomActionFilter.cs*
 3. 開いている**MyNewCustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
 
     (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex2 MyNewCustomActionFilterNamespaces*)
@@ -555,7 +555,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (c# のみ) を使用するコード スニペットを追加するには***
+***キーボード (C# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
-title: カスタマイズのデータ変更インターフェイス (c#) |Microsoft Docs
+title: カスタマイズのデータ変更インターフェイス (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、標準のテキスト ボックスを置き換えることで、編集可能な GridView のインターフェイスをカスタマイズする方法に注目します チェック ボックス コントロール alternati.
 ms.author: riande

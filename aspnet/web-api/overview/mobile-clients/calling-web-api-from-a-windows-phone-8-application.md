@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
-title: 8 アプリケーション (c#) を、Windows Phone から Web API を呼び出す |Microsoft Docs
+title: 8 アプリケーション (C#) を、Windows Phone から Web API を呼び出す |Microsoft Docs
 author: rmcmurray
 description: Windows Phone 8 アプリケーションに書籍のカタログを提供する ASP.NET Web API アプリケーションから成る完全なエンド ツー エンド シナリオを作成します。
 ms.author: riande
@@ -47,7 +47,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 
 1. 開いている**Visual Studio 2013**します。
 2. クリックして**ファイル**、し**新しい**、し**プロジェクト**します。
-3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**テンプレート**、し**Visual c#**、し**Web**します。
+3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**テンプレート**、し**Visual C#**、し**Web**します。
 
 
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
@@ -106,7 +106,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 このエンド ツー エンド シナリオの次の手順では、Windows Phone 8 向けカタログ アプリケーションを作成します。 このアプリケーションを使用して、 *Windows Phone のデータ バインド アプリ*テンプレートでは、既定のユーザー インターフェイスで作成した Web API アプリケーションが使用されます[手順 1.](#STEP1)データ ソースとしては、このチュートリアルの。
 
 1. 右クリックし、**書店**でソリューション、ソリューション エクスプ ローラーでをクリックし、**追加**、し**新しいプロジェクト**します。
-2. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**Visual c#**、し**Windows Phone**します。
+2. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**Visual C#**、し**Windows Phone**します。
 3. 強調表示**Windows Phone のデータ バインド アプリ**、入力**BookCatalog**名、およびクリック **[ok]** します。
 4. Json.NET の NuGet パッケージを追加、 **BookCatalog**プロジェクト。
 

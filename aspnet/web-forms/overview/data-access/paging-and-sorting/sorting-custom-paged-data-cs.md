@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
-title: ページングされたデータ (c#) をカスタムの並べ替え |Microsoft Docs
+title: ページングされたデータ (C#) をカスタムの並べ替え |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアルでは、web ページ上のデータを表示する場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルでは、前に、拡張する方法を見る.
 ms.author: riande

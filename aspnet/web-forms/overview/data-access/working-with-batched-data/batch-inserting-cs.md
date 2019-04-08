@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
-title: バッチを挿入する (c#) |Microsoft Docs
+title: バッチを挿入する (C#) |Microsoft Docs
 author: rick-anderson
 description: 1 回の操作で複数のデータベース レコードを挿入する方法について説明します。 ユーザー インターフェイス レイヤーは、複数の n を入力するユーザーを許可する GridView を拡張しています.
 ms.author: riande

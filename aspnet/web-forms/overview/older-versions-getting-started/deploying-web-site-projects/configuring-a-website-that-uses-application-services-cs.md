@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
-title: アプリケーション サービス (c#) を使用する web サイトの構成 |Microsoft Docs
+title: アプリケーション サービス (C#) を使用する web サイトの構成 |Microsoft Docs
 author: rick-anderson
 description: ASP.NET version 2.0 では、一連の .NET Framework の一部であり、一連のビルディング ブロックされるサービスは、yo として機能するアプリケーション サービスを導入しています.
 ms.author: riande

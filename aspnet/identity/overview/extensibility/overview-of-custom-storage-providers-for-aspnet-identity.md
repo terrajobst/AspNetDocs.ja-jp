@@ -21,7 +21,7 @@ ms.locfileid: "58422208"
 
 > ASP.NET Identity は、拡張可能なシステムを独自の記憶域プロバイダーを作成して、アプリケーションを再動作せず、アプリケーションに組み込むことができます。 このトピックでは、ASP.NET Identity のカスタマイズされた記憶域プロバイダーを作成する方法について説明します。 独自の記憶域プロバイダーを作成するための重要な概念について説明しますが、カスタム ストレージ プロバイダーの実装の詳細なチュートリアルではありません。
 > 
-> カスタム ストレージ プロバイダーの実装の例は、次を参照してください。[カスタム MySQL ASP.NET Identity ストレージ プロバイダーを実装する](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)します。
+> カスタム ストレージ プロバイダーの実装の例は、[カスタム MySQL ASP.NET Identity ストレージ プロバイダーを実装する](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)を参照してください。
 > 
 > このトピックでは、ASP.NET Identity 2.0 用に更新されました。
 > 
@@ -82,7 +82,7 @@ ASP.NET Identity のカスタマイズされた記憶域プロバイダーを作
 
 ストア プロバイダーのカスタマイズされたリポジトリのデザイン時の自由度の多くがあります。 アプリケーションで使用する機能のリポジトリを作成する必要があるだけです。 たとえば、アプリケーションでロールを使用していない場合は、ロールまたはユーザー ロールのストレージを作成する必要はありません。 既存のインフラストラクチャ、テクノロジは ASP.NET Identity の既定の実装を非常に異なる構造を必要があります。 データ アクセス層では、リポジトリの構造を使用するロジックを提供します。
 
-ASP.NET Identity 2.0 用のデータ リポジトリの MySQL 実装では、次を参照してください。 [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql)します。
+ASP.NET Identity 2.0 用のデータ リポジトリの MySQL 実装では、[MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql)を参照してください。
 
 データ アクセス層では、ASP.NET Identity からのデータ ソースにデータを保存するためのロジックを提供します。 カスタマイズされた記憶域プロバイダーのデータ アクセス層には、ユーザーおよびロールの情報を格納する、次のクラスが含まれます。
 

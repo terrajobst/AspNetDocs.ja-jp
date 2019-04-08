@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
-title: 入れ子になったデータ Web コントロール (c#) |Microsoft Docs
+title: 入れ子になったデータ Web コントロール (C#) |Microsoft Docs
 author: rick-anderson
 description: について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 例では、両方 d 内部 Repeater を設定する方法について説明しています.
 ms.author: riande

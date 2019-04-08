@@ -39,7 +39,7 @@ Visual Studio は、IDE、または統合開発環境です。 Microsoft Word �
 
 ## <a name="create-your-first-app"></a>最初のアプリの作成
 
-**スタート ページ**、**新しいプロジェクト**します。 **新しいプロジェクト**ダイアログ ボックスで、 **Visual c#** し、左側のカテゴリ**Web**、クリックして、 **ASP.NET Web アプリケーション (.NET Framework)** プロジェクト テンプレート。 プロジェクトに"MvcMovie"という名前にして**OK**します。
+**スタート ページ**、**新しいプロジェクト**します。 **新しいプロジェクト**ダイアログ ボックスで、 **Visual C#** し、左側のカテゴリ**Web**、クリックして、 **ASP.NET Web アプリケーション (.NET Framework)** プロジェクト テンプレート。 プロジェクトに"MvcMovie"という名前にして**OK**します。
 
 ![](getting-started/_static/image2.png)
 

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
-title: データ Web でのバイナリ データの表示を制御する (c#) |Microsoft Docs
+title: データ Web でのバイナリ データの表示を制御する (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、Web ページで、イメージ ファイルの表示、[ダウンロード] リンク f のプロビジョニングなどをバイナリ データを表示するオプションに注目しています.
 ms.author: riande

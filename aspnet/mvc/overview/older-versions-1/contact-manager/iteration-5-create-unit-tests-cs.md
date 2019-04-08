@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
-title: '繰り返し #5 – 単体テストを作成 (c#) |Microsoft Docs'
+title: '繰り返し #5 – 単体テストを作成 (C#) |Microsoft Docs'
 author: microsoft
 description: 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスをモックして o の単体テストをビルドしています.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58422169"
 ---
-<a name="iteration-5--create-unit-tests-c"></a>繰り返し #5 – 単体テストの作成 (c#)
+<a name="iteration-5--create-unit-tests-c"></a>繰り返し #5 – 単体テストの作成 (C#)
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
@@ -24,7 +24,7 @@ ms.locfileid: "58422169"
 > 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスの模擬テストを実行し、コント ローラーと検証ロジックの単体テストをビルドします。
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (C#) の構築
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。
 

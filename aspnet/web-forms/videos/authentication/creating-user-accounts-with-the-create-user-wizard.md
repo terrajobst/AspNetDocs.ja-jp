@@ -19,7 +19,7 @@ ms.locfileid: "57024289"
 ====================
 によって[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、Joe Stagner は、ASP.NET および Visual Studio でのログイン コントロール コレクションに付属する作成ユーザー ウィザードを使用してユーザーを作成する方法を示します。 このビデオについては、「ユーザー アカウントの作成」セキュリティのチュートリアルをお読みください ([c#](../../overview/older-versions-security/membership/creating-user-accounts-cs.md)、 [VB](../../overview/older-versions-security/membership/creating-user-accounts-vb.md))。
+このビデオでは、Joe Stagner は、ASP.NET および Visual Studio でのログイン コントロール コレクションに付属する作成ユーザー ウィザードを使用してユーザーを作成する方法を示します。 このビデオについては、「ユーザー アカウントの作成」セキュリティのチュートリアルをお読みください ([C#](../../overview/older-versions-security/membership/creating-user-accounts-cs.md)、 [VB](../../overview/older-versions-security/membership/creating-user-accounts-vb.md))。
 
 [&#9654;ビデオ (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-user-accounts-with-the-create-user-wizard)
 

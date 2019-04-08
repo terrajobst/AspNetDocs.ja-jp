@@ -55,7 +55,7 @@ Page Inspector には、Microsoft Web Developer Tools が付属しています�
 
 ## <a name="create-a-web-application"></a>Web アプリケーションを作成します。
 
-最初に、Page Inspector を使用する web アプリケーションを作成します。 Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual c#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。
+最初に、Page Inspector を使用する web アプリケーションを作成します。 Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual C#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。
 
 ![新しい ASP.NET MVC アプリケーション](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
@@ -240,7 +240,7 @@ Page Inspector がすぐに変更を検出、 *Site.css*更新バーで、アラ
 > SPA テンプレートが必要です、 [ASP.NET and Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)を更新します。
 
 
-Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual c#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。 **[OK]** をクリックします。
+Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual C#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。 **[OK]** をクリックします。
 
 **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスで、 **Single Page Application**します。
 

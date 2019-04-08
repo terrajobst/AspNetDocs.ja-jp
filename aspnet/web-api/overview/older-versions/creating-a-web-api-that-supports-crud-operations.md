@@ -71,7 +71,7 @@ CRUD の略&quot;作成、読み取り、更新、および削除、&quot; 4 つ
 
 Visual Studio を使用して起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**します。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**します。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual C#** ノード。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
@@ -101,7 +101,7 @@ Visual Studio を使用して起動し、選択**新しいプロジェクト**�
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image4.png)
 
-**テンプレート**ペインで、**インストールされたテンプレート**c# ノードを展開します。 C# の場合は、選択**コード**します。 コード テンプレートの一覧で選択**インターフェイス**します。 インターフェイスの名前&quot;IProductRepository&quot;します。
+**テンプレート**ペインで、**インストールされたテンプレート**C# ノードを展開します。 C# の場合は、選択**コード**します。 コード テンプレートの一覧で選択**インターフェイス**します。 インターフェイスの名前&quot;IProductRepository&quot;します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image5.png)
 

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
-title: マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList (c#) |Microsoft Docs
+title: マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでを前のチュートリアルの 2 ページのマスター/詳細レポートを 1 つのページに圧縮 t のカテゴリ名の箇条書きリストを表示.
 ms.author: riande

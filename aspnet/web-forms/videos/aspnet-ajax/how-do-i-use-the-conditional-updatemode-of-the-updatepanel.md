@@ -19,7 +19,7 @@ ms.locfileid: "58423833"
 ====================
 によって[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET AJAX UpdatePanel には、'Always' または '条件' に設定できる UpdateMode プロパティが含まれています。 既定では、常にいる場合、UpdatePanel は常に、コンテンツの更新、非同期ポストバック時です。 このビデオでは、UpdateMode をするケース、UpdatePanel はのみ、コンテンツの更新、サーバー側コードは、Update メソッドを呼び出すときに、条件付きに設定しますか説明します。 これにより、c# または Visual Basic コードで条件付きロジックを使用して、UpdatePanel が現在の非同期ポストバック中にコンテンツを更新するかどうかを決定することができます。
+ASP.NET AJAX UpdatePanel には、'Always' または '条件' に設定できる UpdateMode プロパティが含まれています。 既定では、常にいる場合、UpdatePanel は常に、コンテンツの更新、非同期ポストバック時です。 このビデオでは、UpdateMode をするケース、UpdatePanel はのみ、コンテンツの更新、サーバー側コードは、Update メソッドを呼び出すときに、条件付きに設定しますか説明します。 これにより、C# または Visual Basic コードで条件付きロジックを使用して、UpdatePanel が現在の非同期ポストバック中にコンテンツを更新するかどうかを決定することができます。
 
 [&#9654;(13 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-conditional-updatemode-of-the-updatepanel)
 

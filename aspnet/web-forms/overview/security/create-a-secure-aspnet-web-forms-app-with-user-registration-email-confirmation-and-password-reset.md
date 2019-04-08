@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: セキュリティで保護された ASP.NET Web フォーム アプリを作成するユーザー登録、電子メール確認、パスワードのリセット (c#) |Microsoft Docs
+title: セキュリティで保護された ASP.NET Web フォーム アプリを作成するユーザー登録、電子メール確認、パスワードのリセット (C#) |Microsoft Docs
 author: Erikre
 description: このチュートリアルでは、ユーザーの登録、確認の電子メールと ASP.NET Identity のメンバーを使用してパスワード リセットによる ASP.NET Web フォーム アプリを構築する方法を紹介しています.
 ms.author: riande

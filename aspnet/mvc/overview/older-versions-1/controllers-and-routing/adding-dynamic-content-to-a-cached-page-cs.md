@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
-title: キャッシュされたページ (c#) への動的なコンテンツの追加 |Microsoft Docs
+title: キャッシュされたページ (C#) への動的なコンテンツの追加 |Microsoft Docs
 author: microsoft
 description: 同じページで、動的およびキャッシュ済みコンテンツを混在させる方法について説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます.
 ms.author: riande

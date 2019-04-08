@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
-title: データベースの開発と配置 (c#) の戦略 |Microsoft Docs
+title: データベースの開発と配置 (C#) の戦略 |Microsoft Docs
 author: rick-anderson
 description: 最初に、データ駆動型アプリケーションをデプロイするときに、開発環境を運用環境で無条件、データベースをコピーできます。 B..
 ms.author: riande

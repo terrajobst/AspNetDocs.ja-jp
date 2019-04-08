@@ -264,7 +264,7 @@ ASP.NET では、現在のコンテキストのメンバーとして RolePrincip
 - UpdateUser 関数
 - ValidateUser 関数
 
-これを c# 開発者として実装する非常にリストします。 簡単に実装は一切 VB.NET でクラスを作成して、コードを c# に変換する .NET Reflector などのツールを使用することもあります。
+これを C# 開発者として実装する非常にリストします。 簡単に実装は一切 VB.NET でクラスを作成して、コードを C# に変換する .NET Reflector などのツールを使用することもあります。
 
 接続文字列とその他のプロパティを Initialize メソッドの既定値に設定する必要があります。 (Initialize メソッドは、プロバイダーが実行時に読み込まれたときに発生した)。Initialize メソッドの 2 番目のパラメーターは、型 System.Collections.Specialized.NameValueCollection がありへの参照、&lt;追加&gt;web.config ファイルで、カスタム プロバイダーに関連付けられている要素。 そのエントリは、次のようになります。
 

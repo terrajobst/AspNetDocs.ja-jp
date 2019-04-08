@@ -27,7 +27,7 @@ ms.locfileid: "57048159"
 > 
 > Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
 > 
-> VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/adding-a-view.md)このチュートリアルの。
+> VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [C# バージョン](../cs/adding-a-view.md)このチュートリアルの。
 
 
 このセクションでお見せ変更、`HelloWorldController`をクリーンにビュー テンプレート ファイルを使用するクラスがクライアントへの HTML 応答を生成するプロセスをカプセル化します。

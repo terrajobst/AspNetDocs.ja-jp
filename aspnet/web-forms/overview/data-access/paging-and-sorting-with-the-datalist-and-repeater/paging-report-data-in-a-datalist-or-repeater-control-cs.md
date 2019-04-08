@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
-title: DataList または Repeater コントロール (c#) でのレポート データをページング |Microsoft Docs
+title: DataList または Repeater コントロール (C#) でのレポート データをページング |Microsoft Docs
 author: rick-anderson
 description: DataList と Repeater のどちらもプランの自動ページングや並べ替えのサポートでは、中には、このチュートリアルは、DataList または Repeater、ページングのサポートを追加する方法を示します.
 ms.author: riande

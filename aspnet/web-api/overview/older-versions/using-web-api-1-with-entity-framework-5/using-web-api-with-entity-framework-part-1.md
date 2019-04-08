@@ -54,7 +54,7 @@ Entity Framework は、オブジェクト/リレーショナル マッピング 
 
 - ASP.NET MVC では、クライアントの HTML ページを生成します。
 - ASP.NET Web API は、データ (製品と注文) に対する CRUD 操作を公開します。
-- Entity Framework では、データベースのエンティティに Web API で使用される c# モデルを変換します。
+- Entity Framework では、データベースのエンティティに Web API で使用される C# モデルを変換します。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image3.png)
 
@@ -68,7 +68,7 @@ Visual Web Developer Express または完全なバージョンの Visual Studio 
 
 **開始**] ページで [**新しいプロジェクト**します。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに"ProductStore"という名前にして**OK**します。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual C#** ノード。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに"ProductStore"という名前にして**OK**します。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 

@@ -93,7 +93,7 @@ WebMatrix で、使用することができます、**スターター サイト*
 
      > [!NOTE] 
      > 
-     > **ヒント:** これらのプロパティの値の詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。
+     > **ヒント:** これらのプロパティの値の詳細については、[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)を参照してください。
 7. 保存して閉じます *\_AppStart.cshtml*します。
 8. 実行、 *Default.cshtml*ブラウザーでページ。
 
@@ -124,7 +124,7 @@ WebMatrix で、使用することができます、**スターター サイト*
       ![6-セキュリティ-メンバーシップ](16-adding-security-and-membership/_static/image5.png)
 
       > [!NOTE]
-      > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで送信 (人間が判読できるテキスト) として。 実稼働サイトがセキュリティで保護された HTTP を使用する必要があります (https:// とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 電子メールが必要なことができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例のようにします。 SSL の詳細については、次を参照してください。 [Web 通信をセキュリティで保護します。証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)します。
+      > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで送信 (人間が判読できるテキスト) として。 実稼働サイトがセキュリティで保護された HTTP を使用する必要があります (https:// とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 電子メールが必要なことができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例のようにします。 SSL の詳細については、[Web 通信をセキュリティで保護を参照してください。証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)します。
 
 ## <a name="additional-membership-functionality-in-the-site"></a>サイトの追加のメンバーシップの機能
 

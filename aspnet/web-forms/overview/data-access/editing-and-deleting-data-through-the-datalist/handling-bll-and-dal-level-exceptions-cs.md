@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
-title: BLL レベルと DAL レベルの例外 (c#) の処理 |Microsoft Docs
+title: BLL レベルと DAL レベルの例外 (C#) の処理 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、もらえるように編集可能な DataList の更新のワークフロー中に発生した例外を処理する方法がわかります。
 ms.author: riande

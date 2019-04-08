@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
-title: '繰り返し #1 – アプリケーションを作成する (c#) |Microsoft Docs'
+title: '繰り返し #1 – アプリケーションを作成する (C#) |Microsoft Docs'
 author: microsoft
 description: 最初のイテレーションを作成、連絡先マネージャー最も簡単な方法で考えられるします。 基本的なデータベース操作のサポートを追加します。作成、読み取り、更新、および D.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58422676"
 ---
-<a name="iteration-1--create-the-application-c"></a>繰り返し #1 – アプリケーションを作成する (c#)
+<a name="iteration-1--create-the-application-c"></a>繰り返し #1 – アプリケーションを作成する (C#)
 ====================
 によって[Microsoft](https://github.com/microsoft)
 

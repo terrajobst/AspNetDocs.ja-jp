@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
-title: DataList または Repeater コントロール (c#) データを並べ替える |Microsoft Docs
+title: DataList または Repeater コントロール (C#) データを並べ替える |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは並べ替えを DataList と Repeater、サポートを含める方法と、データが含まれることができます、DataList または Repeater を構築する方法について説明します.
 ms.author: riande

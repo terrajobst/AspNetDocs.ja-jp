@@ -19,7 +19,7 @@ ms.locfileid: "58425952"
 ====================
 によって[Raquel Soares De Almeida](https://github.com/raquelsa)、 [Suhas Joshi](https://github.com/suhasj)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
-> ASP.NET Identity は、拡張可能なシステムを独自の記憶域プロバイダーを作成して、アプリケーションを再動作せず、アプリケーションに組み込むことができます。 このトピックでは、ASP.NET Identity の MySQL の記憶域プロバイダーを作成する方法について説明します。 カスタム ストレージ プロバイダーの作成の概要については、次を参照してください。[概要カスタム ストレージ プロバイダーの ASP.NET Identity の](overview-of-custom-storage-providers-for-aspnet-identity.md)します。
+> ASP.NET Identity は、拡張可能なシステムを独自の記憶域プロバイダーを作成して、アプリケーションを再動作せず、アプリケーションに組み込むことができます。 このトピックでは、ASP.NET Identity の MySQL の記憶域プロバイダーを作成する方法について説明します。 カスタム ストレージ プロバイダーの作成の概要については、[概要カスタム ストレージ プロバイダーの ASP.NET Identity の](overview-of-custom-storage-providers-for-aspnet-identity.md)を参照してください。
 > 
 > このチュートリアルを完了するには、Visual Studio 2013 with Update 2 が必要です。
 > 
@@ -47,7 +47,7 @@ ms.locfileid: "58425952"
 3. MVC アプリケーションを作成し、MySQL プロバイダーを使用するように構成
 4. アプリを実行する
 
-このトピックでは、ASP.NET Identity と顧客の記憶域プロバイダーを実装する際に、意思決定のアーキテクチャは含まれません。 詳細については、次を参照してください。[概要カスタム ストレージ プロバイダーの ASP.NET Identity の](overview-of-custom-storage-providers-for-aspnet-identity.md)します。
+このトピックでは、ASP.NET Identity と顧客の記憶域プロバイダーを実装する際に、意思決定のアーキテクチャは含まれません。 詳細については、[概要カスタム ストレージ プロバイダーの ASP.NET Identity の](overview-of-custom-storage-providers-for-aspnet-identity.md)を参照してください。
 
 ## <a name="review-mysql-storage-provider-classes"></a>MySQL ストレージ プロバイダー クラスを確認してください。
 

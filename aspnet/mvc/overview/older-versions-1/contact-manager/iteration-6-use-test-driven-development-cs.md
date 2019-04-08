@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
-title: '繰り返し #6 – テスト駆動開発 (c#) を使用して、|Microsoft Docs'
+title: '繰り返し #6 – テスト駆動開発 (C#) を使用して、|Microsoft Docs'
 author: microsoft
 description: この 6 番目のイテレーションでは、アプリケーションに新しい機能を追加には、まず単体テストの記述、単体テストに対してコードを記述します。 このイテレーションにしています.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58440327"
 ---
-<a name="iteration-6--use-test-driven-development-c"></a>繰り返し #6 – テスト駆動開発 (c#) を使用します。
+<a name="iteration-6--use-test-driven-development-c"></a>繰り返し #6 – テスト駆動開発 (C#) を使用します。
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
@@ -24,7 +24,7 @@ ms.locfileid: "58440327"
 > この 6 番目のイテレーションでは、アプリケーションに新しい機能を追加には、まず単体テストの記述、単体テストに対してコードを記述します。 このイテレーションは、連絡先グループを追加します。
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (C#) の構築
   
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。

@@ -39,7 +39,7 @@ ms.locfileid: "58424028"
 - [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)します。 .NET Framework は、自動的にインストールされます。
 - Wingtip Toys では、Wingtip Toys プロジェクト内では、このチュートリアルで説明されている機能を実装できるように、プロジェクトがサンプルです。 次のリンクは、ダウンロードの詳細を提供します。
 
-    - [Getting Started with ASP.NET 4.5.1 Web フォームの Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
+    - [Getting Started with ASP.NET 4.5.1 Web フォームの Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (C#)
 - このチュートリアルを完了する前に、関連するチュートリアル シリーズの確認を検討する[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 チュートリアルのシリーズはよく理解する際に役立つ、 **WingtipToys**プロジェクトとコード。
 
 ## <a name="connection-resiliency"></a>接続の復元性

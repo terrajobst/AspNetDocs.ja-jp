@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
-title: DataList に検証コントロールを追加の編集インターフェイス (c#) |Microsoft Docs
+title: DataList に検証コントロールを追加の編集インターフェイス (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、DataList の後に編集 int です。 ユーザー間違えにくいを提供するために検証コントロールを追加するがいかに簡単か見て.
 ms.author: riande

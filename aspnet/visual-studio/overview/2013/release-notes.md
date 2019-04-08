@@ -377,7 +377,7 @@ SignalR 2.0 では、新しい CORS ミドルウェアを追加するには、�
 
 [!code-csharp[Main](release-notes/samples/sample9.cs)]
 
-**SignalR 2.0 (c# コード ファイル) からのクロス ドメイン要求を実装します。**
+**SignalR 2.0 (C# コード ファイル) からのクロス ドメイン要求を実装します。**
 
 次のコードでは、SignalR 2.0 プロジェクトで CORS または JSONP を有効にする方法を示します。 このコード サンプルを使用して`Map`と`RunSignalR`の代わりに`MapSignalR`、CORS ミドルウェアは、CORS のサポートを必要とする SignalR 要求に対してのみが実行されるように、(で指定されたパスにすべてのトラフィックではなく`MapSignalR`)。`Map`アプリケーション全体に対してではなく、特定の URL プレフィックスでは、実行する必要があるその他のミドルウェアにも使用できます。
 

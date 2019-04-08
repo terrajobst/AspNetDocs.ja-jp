@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
-title: コント ローラー (c#) の追加 |Microsoft Docs
+title: コント ローラー (C#) の追加 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、どの i を使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: riande

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
-title: 計算列は (c#) を使用する |Microsoft Docs
+title: 計算列は (C#) を使用する |Microsoft Docs
 author: rick-anderson
 description: Microsoft SQL Server を使用すると、その値が式から計算されますが、計算列の定義、データベース テーブルを作成するときに通常、referen.
 ms.author: riande

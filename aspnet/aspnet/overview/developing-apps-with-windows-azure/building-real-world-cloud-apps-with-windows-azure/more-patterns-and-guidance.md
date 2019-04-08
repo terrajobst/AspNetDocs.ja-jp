@@ -61,7 +61,7 @@ ms.locfileid: "58425666"
 コード サンプル
 
 - [Fix It アプリケーションこの電子書籍に付属している](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002)します。
-- [クラウド サービス Visual Studio 2012 用の c# での Azure の基礎](https://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
+- [クラウド サービス Visual Studio 2012 用の C# での Azure の基礎](https://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
 
 ハード コピー ブック
 
