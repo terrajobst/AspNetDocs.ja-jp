@@ -8,15 +8,15 @@ ms.date: 07/25/2013
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: 6993c17c8de890cbaa40c619bcd20f494bfd2f90
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d120c184f6cf7dd0db075bbfac17214d7467664a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383721"
 ---
-<a name="aspnet-data-access---recommended-resources"></a>ASP.NET データ アクセス - 推奨リソース
-====================
+# <a name="aspnet-data-access---recommended-resources"></a>ASP.NET データ アクセス - 推奨リソース
+
 > このトピックでは、Entity Framework および SQL Server を使用して、主に ASP.NET web アプリケーションでデータにアクセスする方法に関するドキュメント リソースへのリンクを提供します。
 > 
 > 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com)スレッド、または他リンクに役立つ、[電子メールの送信](mailto:aspnetue@microsoft.com?subject=Data Access Content Map)リンクを使用します。
@@ -82,7 +82,7 @@ ms.locfileid: "57046689"
 - [ASP.NET MVC 5 の概要](../mvc/overview/getting-started/introduction/getting-started.md)します。 狭い Entity Framework コードの範囲の最初シナリオについて説明しますより包括的なジョブの MVC 機能を紹介します。
 - [モデル バインディングと Web フォーム](https://go.microsoft.com/fwlink/?LinkId=286117)します。 Web フォーム アプリケーションで Code First を使用します。
 - [ASP.NET 4.5 Web フォームの概要](../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 紹介 Web フォームをいくつかの範囲の Code First です。 モデル バインドを使用します。
-- [MVC Music Store](../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1.md)します。 メンバーシップと承認も実装する e コマース MVC 3 アプリケーションで Code First を使用します。 MVC のバージョンと ASP.NET メンバーシップ (認証と承認) システムここでは使用が期限切れです。ASP.NET メンバーシップを最新の状態の詳細については、[ https://asp.net/identity](https://asp.net/identity)を参照してください。
+- [MVC Music Store](../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1.md)します。 メンバーシップと承認も実装する e コマース MVC 3 アプリケーションで Code First を使用します。 MVC のバージョンと ASP.NET メンバーシップ (認証と承認) システムここでは使用が期限切れです。ASP.NET メンバーシップを最新の状態の詳細については、次を参照してください。 [ https://asp.net/identity](https://asp.net/identity)します。
 
 その他のリソース:
 

@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: aa7b3e8e-e23d-49f1-b160-f99a7f2982bd
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
-ms.openlocfilehash: 4c7867587ba0610f0f1c23d9a0b9fbdc4040de7c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3db6947f36eb51b41d929f8c7d8835a95db8ea75
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027629"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392353"
 ---
-<a name="adding-validation-to-the-model"></a>モデルに検証を追加する
-====================
+# <a name="adding-validation-to-the-model"></a>モデルに検証を追加する
+
 [Scott Hanselman](https://github.com/shanselman)による
 
 > これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
@@ -61,11 +61,11 @@ JavaScript でいくつかのクライアント側検証を有効にしてみま
 
 IDE 内でのコードを次に示します。
 
-[![ビデオ - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
+[![Movies - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
 
 アプリケーションを実行し、/Movies/Create をもう一度、アクセスしすべてのデータを入力しなくても作成 をクリックします。 エラー メッセージを表示すぐに、ページのデータの送信に関連付けられたことをフラッシュせず、サーバーに至るまでさかのぼって。 これは ASP.NET MVC は、両方の入力の (JavaScript を使用して) クライアントを検証ようになりましたがあるため、サーバー上です。
 
-[![Windows Internet Explorer の作成-](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
+[![Create - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
 これは順調です! データベースに 1 つの列の追加を今すぐ追加してみましょう。
 

@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 07442b7a016ce2a32b1c9e7f44010517e40d7189
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fd0914ed62a280fea290b9f1b150fc25c8ed6d40
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035499"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385333"
 ---
-<a name="deploying-database-role-memberships-to-test-environments"></a>テスト環境にデータベース ロール メンバーシップを配置する
-====================
+# <a name="deploying-database-role-memberships-to-test-environments"></a>テスト環境にデータベース ロール メンバーシップを配置する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、テスト環境にデプロイするソリューションの一部として、データベース ロールにユーザー アカウントを追加する方法について説明します。
 > 
@@ -84,7 +84,7 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 
 > [!NOTE]
-> Sqlcmd コマンド ライン オプションの詳細については、[sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)を参照してください。
+> Sqlcmd コマンド ライン オプションの詳細については、次を参照してください。 [sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)します。
 
 
 このコマンドを埋め込むには、MSBuild ターゲットで、前に、スクリプトを実行するどのような条件を考慮する必要があります。
@@ -127,7 +127,7 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 ## <a name="further-reading"></a>関連項目
 
-VSDBCMD を使用してデータベース プロジェクトを配置する詳細については、[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。 別のターゲット環境のデータベースの配置をカスタマイズする方法のガイダンスについては、[複数の環境のデータベースの配置をカスタマイズする](customizing-database-deployments-for-multiple-environments.md)を参照してください。 カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)を参照してください。 Sqlcmd コマンド ライン オプションの詳細については、[sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)を参照してください。
+VSDBCMD を使用してデータベース プロジェクトを配置する詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。 別のターゲット環境のデータベースの配置をカスタマイズする方法のガイダンスについては、次を参照してください。[複数の環境のデータベースの配置をカスタマイズする](customizing-database-deployments-for-multiple-environments.md)します。 カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。 Sqlcmd コマンド ライン オプションの詳細については、次を参照してください。 [sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](customizing-database-deployments-for-multiple-environments.md)

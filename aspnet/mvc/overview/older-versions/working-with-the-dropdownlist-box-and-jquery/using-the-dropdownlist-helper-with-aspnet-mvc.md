@@ -8,15 +8,15 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 11b874d2d07c84631c6c5c266c22c6de49d40cf2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2a4d991205351531129480bee221651021483967
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396253"
 ---
-<a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC で DropDownList ヘルパーを使用する
-====================
+# <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC で DropDownList ヘルパーを使用する
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 このチュートリアルでは説明する操作の基本、 [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx)ヘルパーと[ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) ASP.NET MVC Web アプリケーションでヘルパー。 Microsoft Visual Web Developer 2010 Express Service Pack 1、これはチュートリアルを実行する Microsoft Visual Studio の無料版を使用することができます。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
@@ -190,7 +190,7 @@ Starter とこのチュートリアルに付属する完全なサンプル プ�
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-上記のコードで HTML 属性と属性値を追加しましたが`class = "chzn-select"`します。 \@文字の前のクラスには、Razor ビュー エンジンとは無関係です。 `class` [c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)します。 C# のキーワードが含まれている場合を除き、識別子として使用できません\@をプレフィックスとして。 上記の例で`@class`有効な識別子ですが、**クラス**できないためは**クラス**はキーワードです。
+上記のコードで HTML 属性と属性値を追加しましたが`class = "chzn-select"`します。 \@文字の前のクラスには、Razor ビュー エンジンとは無関係です。 `class` [ C#キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)します。 C# のキーワードが含まれている場合を除き、識別子として使用できません\@をプレフィックスとして。 上記の例で`@class`有効な識別子ですが、**クラス**できないためは**クラス**はキーワードです。
 
 参照を追加、 *Chosen/chosen.jquery.js*と*Chosen/chosen.css*ファイル。 *Chosen/chosen.jquery.js*を実装して、選択したプラグインの機能的です。 *Chosen/chosen.css*ファイル、スタイル設定を提供します。 一番下にこれらの参照を追加、 *Views\Home\MultiSelectCountry.cshtml*ファイル。 次のコードでは、選択したプラグインを参照する方法を示します。
 

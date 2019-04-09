@@ -8,15 +8,15 @@ ms.date: 05/29/2007
 ms.assetid: 15282963-2ec5-4013-b6bc-f1fcf272818e
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-nobot-control
 msc.type: video
-ms.openlocfilehash: 275bbbeb9859662c94bb795f9a91b15a28fe2184
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f03d94669d4d9b0089c8106b01812fe9722b6944
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379210"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a>[How Do i:]ASP.NET AJAX NoBot コントロールを使用しますか。
-====================
+# <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a>[How Do i:]ASP.NET AJAX NoBot コントロールを使用しますか。
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 ASP.NET AJAX Control toolkit NoBot コントロールでは、Web アプリケーションに特定の種類の不正アクセスを防ぐのに役立ちます。 このビデオでは、NoBot コントロールが多数の組み込み自動アクセス、フォームの送信の頻度と数を含む防止を提供する方法がわかります。 コントロールにより、開発者は、ページがブラウザーで表示する場合にのみが成功する JavaScript テストなどのカスタムのチャレンジを定義する方法をも参照してください。

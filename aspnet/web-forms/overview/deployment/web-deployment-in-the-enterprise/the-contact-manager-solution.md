@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: bc2fe88f4566d9fa144abcd2239f9008a1aefe83
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7998b5bb2983410479123514661a4ddb67afc8c6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398372"
 ---
-<a name="the-contact-manager-solution"></a>連絡先マネージャー ソリューション
-====================
+# <a name="the-contact-manager-solution"></a>連絡先マネージャー ソリューション
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > これは、[一連のチュートリアル](web-deployment-in-the-enterprise.md)サンプル ソリューションを使用して&#x2014;連絡先マネージャー ソリューション&#x2014;に現実的な複雑さのレベルを持つエンタープライズ規模のアプリケーションを表します。 このトピックでは、連絡先マネージャー ソリューションを紹介し、ソリューションの主要なコンポーネントについて説明します、このようなエンタープライズ環境では、さまざまな対象プラットフォームのアプリケーションを展開する際の課題を識別します。
 > 

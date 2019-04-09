@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: ce654eb5abd54613987f2375cc973febc9dc2ad5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041959"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396564"
 ---
-<a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012 で Page Inspector を使用する
-====================
+# <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012 で Page Inspector を使用する
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 > このハンズオン ラボでは、検索して、Visual Studio で Page Inspector で web ページの問題を修正する新しいツールを検出します。
@@ -59,7 +59,7 @@ ms.locfileid: "57041959"
 - [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 A](#AppendixA)をインストールする方法について)。
 - Internet Explorer 9 以降
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -106,7 +106,7 @@ ms.locfileid: "57041959"
     *Page Inspector 内でプレビューするファイルを選択します。*
 3. Page Inspector のウィンドウが表示されます、 */ホーム/インデックス*URL ソースを選択したビューにマップします。
 
-    ![ThefirstcontactwithPageInspector](using-page-inspector-in-visual-studio-2012/_static/image2.png)
+    ![PageInspector で最初にお問い合わせください。](using-page-inspector-in-visual-studio-2012/_static/image2.png)
 
     *Page Inspector で最初にお問い合わせください。*
 
@@ -130,7 +130,7 @@ ms.locfileid: "57041959"
     *トグル検査モード ボタン*
 6. Page Inspector のブラウザーでページの要素に対するマウス ポインターを移動します。 表示するページの任意の部分にマウス ポインターを移動するときに、要素の型が表示され、対応するソース マークアップまたはコードが Visual Studio エディターで強調表示されます。
 
-    ![Inspectionmodeinaction](using-page-inspector-in-visual-studio-2012/_static/image5.png)
+    ![検査モードの動作](using-page-inspector-in-visual-studio-2012/_static/image5.png)
 
     *検査モードの動作*
 
@@ -139,7 +139,7 @@ ms.locfileid: "57041959"
 
     注意する場合、 **Index.cshtml**ファイルが表示されます、選択した要素を生成するソース コードの部分が強調表示されます。 この機能では、コードにアクセスする直接的および高速の方法を提供する長いソース ファイルの編集が容易になります。
 
-    ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
+    ![要素の検査](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *要素の検査*
 7. クリックして、**検査モードを切り替える**ボタン (![Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します.") ) 、カーソルを無効にします。
@@ -156,7 +156,7 @@ ms.locfileid: "57041959"
     > [!NOTE]
     > Page Inspector は開くことも、ヘッダーは、サイトのレイアウトの一部であるため\_Layout.cshtml ファイルとコードのセグメントが影響を強調表示します。
 
-    ![Discoveringstyles](using-page-inspector-in-visual-studio-2012/_static/image9.png)
+    ![スタイルの検出](using-page-inspector-in-visual-studio-2012/_static/image9.png)
 
     *スタイルと、選択した要素のソース ファイルを検出します。*
 11. 切り替え検査ポインターを有効になっている、おすすめ青いバーの下にマウス ポインターを移動し、半分の円をクリックします。
@@ -180,7 +180,7 @@ ms.locfileid: "57041959"
     *Page Inspector 内での CSS 値を変更します。*
 15. をクリックして、**トレース スタイル** タブで、Page Inspector の右側のウィンドウにあります。 これは、属性の名前順で、選択範囲に適用されるすべてのスタイルを表示する別の方法です。
 
-    ![CSSstylestracing](using-page-inspector-in-visual-studio-2012/_static/image13.png)
+    ![CSS スタイルのトレース](using-page-inspector-in-visual-studio-2012/_static/image13.png)
 
     *選択した要素の CSS スタイルのトレース*
 16. Page Inspector のもう 1 つの機能は、レイアウト ペインです。 検査モードを使用して、ナビゲーション バーを選択し、クリックして、**レイアウト**右側のウィンドウ タブ。 選択した要素の正確なサイズと、オフセット、余白、パディングおよび境界線のサイズが表示されます。 このビューから値を変更することも注目してください。
@@ -218,7 +218,7 @@ ASP.NET MVC 4 の実際の WYSIWYG が存在しないためスタイルの問題
 2. 選択されている検査モードの切り替えに近いではなく、そのコードを開くための登録リンクをクリックします。
 
     通知のリンクのソース コードに配置されている、  **\_LoginPartial.cshtml**ファイル、Index.cshtml いないも\_Layout.cshtml は、最初に確認することがあります。 適切なソース ファイルに直接配置されています。
-3. **スタイル** タブを見つけて、クリックして、 **<section> #login</section>** 項目で、これらのリンクの HTML コンテナーです。
+3. **スタイル** タブを見つけて、クリックして、 **\<セクション > #login**項目で、これらのリンクの HTML コンテナーです。
 
     いることを確認、 **#login**スタイルが自動的に**Site.css**  をクリック後します。 さらに、コードは強調表示されたようになりました。
 
@@ -261,12 +261,12 @@ ASP.NET MVC 4 の実際の WYSIWYG が存在しないためスタイルの問題
 
     *新しいタイトルを割り当てる*
 
-    ![PhotoGallerypage](using-page-inspector-in-visual-studio-2012/_static/image23.png)
+    ![フォト ギャラリー ページ](using-page-inspector-in-visual-studio-2012/_static/image23.png)
 
     *フォト ギャラリー ページの更新*
-11. 最後に、完了、 **PhotoGallery**プロジェクト キーを押します**f5 キーを押して**アプリを実行します。 チェック アウトすべて予想どおりに変更します。
+11. 最後に、選択、 **PhotoGallery**プロジェクトとキーを押して**F5**アプリを実行します。 チェック アウトすべて予想どおりに変更します。
 
-* * *
+---
 
 <a id="Exercise2"></a>
 
@@ -347,7 +347,7 @@ ASP.NET MVC 4 の実際の WYSIWYG が存在しないためスタイルの問題
     > [!NOTE]
     > ヘッダーがサイトのレイアウトの一部であるため、Page Inspector も Site.Master ファイルを開き、影響を受けるコードのセグメントを強調表示します。
 
-    ![DiscoveringstylesWebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "スタイルと、選択した要素のソース ファイルを検出します。")
+    ![WebForms のスタイルを検出する](using-page-inspector-in-visual-studio-2012/_static/image32.png "スタイルと、選択した要素のソース ファイルを検出します。")
 
     *スタイルと、選択した要素のソース ファイルを検出します。*
 11. 切り替え検査ポインターを有効になっている、メニュー バーの下にマウス ポインターを移動し、空白の半分の円をクリックします。
@@ -421,7 +421,7 @@ Visual Studio の以前のバージョンとの Web ページの問題を診断�
     Page Inspector は、現在のページを構成するすべてのファイルを認識し、これらのファイルのいずれかが変更を検出できます。 ブラウザーで現在のページがソース ファイルと同期されるたびに、警告されます。
 5. Page Inspector のブラウザーでは、変更を保存し、ページを再読み込みするには、アドレス バーの下にあるバーをクリックします。
 
-    ![Reloadingthepage](using-page-inspector-in-visual-studio-2012/_static/image40.png)
+    ![ページの再読み込み](using-page-inspector-in-visual-studio-2012/_static/image40.png)
 
     *ページの再読み込み*
 
@@ -457,7 +457,7 @@ Visual Studio の以前のバージョンとの Web ページの問題を診断�
     *フォト ギャラリー ページの更新*
 11. 最後にキーを押して**F5**アプリに期待どおりに変更をすべてチェックを実行します。
 
-* * *
+---
 
 <a id="Summary"></a>
 

@@ -8,15 +8,15 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 258a55bf72c4b3425d001f478620fa9651952b3f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058119"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403585"
 ---
-<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト
-====================
+# <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -43,12 +43,12 @@ ms.locfileid: "57058119"
 このチュートリアルには、次のセクションが含まれています。
 
 - [必須コンポーネント](#prerequisites)
-- [プロジェクトを作成します。](#createproject)
+- [プロジェクトの作成](#createproject)
 - [SignalR の NuGet パッケージを追加します。](#nugetpackages)
 - [サーバー コードを設定します。](#server)
 - [クライアント コードを設定します。](#client)
-- [アプリケーションをテストします。](#test)
-- [ログ記録を有効にします。](#enablelogging)
+- [アプリケーションをテストする](#test)
+- [ログの有効化](#enablelogging)
 - [インストールして、完全な StockTicker サンプルを確認してください。](#fullsample)
 - [次の手順](#nextsteps)
 
@@ -60,7 +60,7 @@ ms.locfileid: "57058119"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-開始する前にある Visual Studio 2012 または 2010 SP1 がコンピューターにインストールされていることを確認します。 Visual Studio を持っていない場合は、[ASP.NET ダウンロード](https://www.asp.net/downloads)、無料の Visual Studio 2012 Express for Web を取得を参照してください。
+開始する前にある Visual Studio 2012 または 2010 SP1 がコンピューターにインストールされていることを確認します。 Visual Studio を持っていない場合は、次を参照してください。 [ASP.NET ダウンロード](https://www.asp.net/downloads)、無料の Visual Studio 2012 Express for Web を取得します。
 
 Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)がインストールされています。
 
@@ -122,7 +122,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample3.cs)]
 
-    [ハブ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)メソッドは、クライアントは、サーバー上で呼び出すことができますを定義するクラスを使用します。 1 つのメソッドを定義する:`GetAllStocks()`します。 クライアントは、最初に、サーバーに接続するときは、その現在の価格の株式のすべての一覧を取得するには、このメソッドを呼び出します。 メソッドは同期的に実行し、返す`IEnumerable<Stock>`メモリからデータを返すためです。 指定したかどうか、メソッドがデータベース検索など、web サービス呼び出しの待機を含むは何かの手順を実行してデータを取得する必要がある`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、[ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](index.md)を参照してください。
+    [ハブ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)メソッドは、クライアントは、サーバー上で呼び出すことができますを定義するクラスを使用します。 1 つのメソッドを定義する:`GetAllStocks()`します。 クライアントは、最初に、サーバーに接続するときは、その現在の価格の株式のすべての一覧を取得するには、このメソッドを呼び出します。 メソッドは同期的に実行し、返す`IEnumerable<Stock>`メモリからデータを返すためです。 指定したかどうか、メソッドがデータベース検索など、web サービス呼び出しの待機を含むは何かの手順を実行してデータを取得する必要がある`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](index.md)します。
 
     HubName 属性は、クライアントでの JavaScript コードでのハブの参照方法を指定します。 この属性を使用しない場合、クライアントに既定の名前は、ここで stockTickerHub 可能性のあるクラス名の camel 形式のバージョンです。
 
@@ -181,7 +181,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
     BroadcastStockPrice で呼び出している updateStockPrice メソッドがまだ存在しません。後で追加するクライアントで実行されるコードを記述するときにします。 Clients.All は動的で、実行時に、式が評価されることを意味しているために、updateStockPrice ここを参照できます。 このメソッドの呼び出しが実行されると、SignalR はクライアントに送信メソッド名とパラメーターの値、およびクライアントに updateStockPrice という名前のメソッドがある場合は、そのメソッドが呼び出され、それに渡されるパラメーターの値。
 
-    Clients.All では、すべてのクライアントに送信を意味します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、[HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)を参照してください。
+    Clients.All では、すべてのクライアントに送信を意味します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、次を参照してください。 [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)します。
 
 ### <a name="register-the-signalr-route"></a>SignalR のルートを登録します。
 
@@ -406,13 +406,13 @@ UpdateStockPrice 関数は、グリッドとティッカーの表示の両方を
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでは、接続されているすべてのクライアント、定期的と任意のクライアントからの通知に応答の両方に、サーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学習できました。 マルチ スレッドのシングルトン インスタンスを使用して、サーバーの状態を保持するパターンも、マルチ プレーヤー オンライン ゲーム シナリオで使用こともできます。 例については、[SignalR に基づいている ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)を参照してください。
+このチュートリアルでは、接続されているすべてのクライアント、定期的と任意のクライアントからの通知に応答の両方に、サーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学習できました。 マルチ スレッドのシングルトン インスタンスを使用して、サーバーの状態を保持するパターンも、マルチ プレーヤー オンライン ゲーム シナリオで使用こともできます。 例については、次を参照してください。 [SignalR に基づいている ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)します。
 
-ピア ツー ピア通信シナリオを示すチュートリアルについては、[SignalR の概要](index.md)と[SignalR によるリアルタイムの更新](index.md)を参照してください。
+ピア ツー ピア通信シナリオを示すチュートリアルについては、次を参照してください。 [SignalR の概要](index.md)と[SignalR によるリアルタイムの更新](index.md)します。
 
 SignalR 開発のより高度な概念については、SignalR のソース コードおよびリソースは、次のサイトを参照してください。
 
 - [ASP.NET SignalR](https://asp.net/signalr/)
 - [SignalR プロジェクト](http://signalr.net/)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

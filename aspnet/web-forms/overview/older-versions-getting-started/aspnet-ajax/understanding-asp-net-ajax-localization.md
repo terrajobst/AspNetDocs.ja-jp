@@ -8,18 +8,18 @@ ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 86cbf150708f1db711b40ccbc25345afeb3e542a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 11e70493478d6810d63ba6b3ac813e32f03052eb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031439"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381329"
 ---
-<a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX ローカライズについて理解する
-====================
+# <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX ローカライズについて理解する
+
 によって[Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
 > ローカリゼーションとは、設計し、アプリケーションまたはアプリケーション コンポーネントに特定の言語とカルチャのサポートを統合するプロセスです。 Microsoft ASP.NET プラットフォームの標準の ASP.NET アプリケーションのローカライズを標準 .NET ローカライズ モデルを統合することによって広範なサポートを提供します。Microsoft AJAX フレームワークでは、ローカライズを実行できる多様なシナリオをサポートする統合モデルを利用します。
 
@@ -32,13 +32,13 @@ ms.locfileid: "57031439"
 
 このホワイト ペーパーでは、ベースの Microsoft Visual Studio 2008 の Beta 2 リリースにします。 このホワイト ペーパーには、いない Visual Web Developer Express を Visual Studio 2008 で使用され、チュートリアルに従って、Visual Studio のユーザー インターフェイスを提供することも想定しています。 一部のコード サンプルでは、Visual Web Developer Express で使用できるプロジェクト テンプレートを利用します。
 
-## <a name="the-need-for-localization"></a>*ローカライズの必要性*
+## *<a name="the-need-for-localization"></a>ローカライズの必要性*
 
 エンタープライズ アプリケーション開発者およびコンポーネントの開発者、特にのカルチャおよび言語間の違いを認識できるツールを作成する機能がますます必要になっています。 クライアントのロケールに適応することができますコンポーネントを設計して、開発者の生産性の向上、グローバルに機能するコンポーネントの調整に必要な作業の量が減少します。
 
 ローカリゼーションとは、設計し、アプリケーションまたはアプリケーション コンポーネントに特定の言語とカルチャのサポートを統合するプロセスです。 Microsoft ASP.NET プラットフォームの標準の ASP.NET アプリケーションのローカライズを標準 .NET ローカライズ モデルを統合することによって広範なサポートを提供します。Microsoft AJAX フレームワークでは、ローカライズを実行できる多様なシナリオをサポートする統合モデルを利用します。 Microsoft AJAX フレームワーク スクリプトかローカライズできますサテライト アセンブリに配置されているか、静的なファイル システムの構造を利用することで。
 
-## <a name="embedding-scripts-with-satellite-assemblies"></a>*サテライト アセンブリを使用した埋め込みスクリプト*
+## *<a name="embedding-scripts-with-satellite-assemblies"></a>サテライト アセンブリを使用した埋め込みスクリプト*
 
 標準の .NET Framework ローカライズ戦略と一貫性のある、リソースはサテライト アセンブリに含めることができます。 サテライト アセンブリの利点がいくつかのバイナリの従来のリソースの包含大きなイメージを更新することがなく、特定のローカリゼーションを更新できるにサテライト アセンブリをインストールするだけで追加のローカライズ版を展開することができますメイン プロジェクト アセンブリの再読み込みを発生させることがなく、プロジェクト フォルダー、およびサテライト アセンブリを展開できます。 ASP.NET プロジェクトで特にはこれで増分更新は、使用されるシステム リソースの量を大幅に削減することができますので便利ですし、実稼働 web サイトの使用量を最小限中断します。
 
@@ -118,7 +118,7 @@ JavaScript の正規表現の構文、1 つのスラッシュ内のテキスト�
 
 このチュートリアルでは、いくつかのバリエーションがあることに注意してください。 たとえば、スクリプトでしたを登録する、ScriptManager コントロール プログラムでページの読み込み中に。
 
-## <a name="including-a-static-script-file-structure"></a>*静的なスクリプト ファイルの構造を含む*
+## *<a name="including-a-static-script-file-structure"></a>静的なスクリプト ファイルの構造を含む*
 
 静的なスクリプト ファイルを使用して、展開、本質的な .NET のローカリゼーションのスキームを使用する利点の一部が失われます。 主に表示されるようなスクリプト リソース ファイルから生成された自動型が失われるは、します。たとえば、上記のチュートリアルではリソースが、ScriptManager コントロールからメッセージを呼び出す自動的に生成されたの型によって公開されるされました。
 
@@ -128,7 +128,7 @@ Microsoft では、プロジェクトのコンパイル中に、スクリプト 
 
 静的なスクリプトをファイルにする必要がありますが、追加することでいずれかで参照宣言によってリソースがないため、`<asp:ScriptElement>`要素の子として、`<Scripts>`またはプログラムで追加することで、ScriptManager コントロールのタグ`ScriptReference`オブジェクト`Scripts`のプロパティ、`ScriptManager`実行時にページ上のコントロール。
 
-## <a name="the-scriptmanager-and-its-role-in-localization"></a>*Scriptmanager コントロールとそのロールのローカリゼーション*
+## *<a name="the-scriptmanager-and-its-role-in-localization"></a>Scriptmanager コントロールとそのロールのローカリゼーション*
 
 Scriptmanager コントロールには、ローカライズされたアプリケーションの複数の自動動作が有効にします。
 
@@ -146,7 +146,7 @@ Scriptmanager コントロールには、ローカライズされたアプリケ
 
 .NET Framework には、リソース文字列とイメージを検索する一貫した方法を表示するには、サテライト アセンブリと XML リソース (.resx) ファイルを利用して豊富なローカライズ フレームワークでは、本質的にサポートします。 Microsoft AJAX フレームワークおよび Microsoft AJAX スクリプト ライブラリを含む、ASP.NET AJAX Extensions をサポートしてこのプログラミング モデルをクライアント側のコードに簡単にリソース文字列の検索を有効にします。 サテライト アセンブリは、ファイル名が指定された名前付けスキームに従う限り、自動 ScriptResource.axd により、スクリプト リソース (実際の .js ファイル) を含めることをサポートします。 このサポートにより、ASP.NET AJAX Extensions には、スクリプトのローカライズおよびアプリケーションのグローバリゼーションが簡略化します。
 
-## <a name="bio"></a>*自己紹介*
+## *<a name="bio"></a>自己紹介*
 
 1997 年からマイクロソフトの Web テクノロジで働いてあり myKB.com プレジデント、Scott Cate ([www.myKB.com](http://www.myKB.com)) ベースのナレッジ ベースのソフトウェア ソリューションに重点を置いてアプリケーションを ASP.NET の記述を専門としています。 Scott は時に電子メールが接続可能[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)またはで彼のブログ[ScottCate.com](http://ScottCate.com)
 

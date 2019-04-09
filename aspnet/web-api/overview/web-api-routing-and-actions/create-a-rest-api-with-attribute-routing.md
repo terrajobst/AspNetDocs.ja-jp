@@ -8,18 +8,18 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a58daa96410de734619bf65f84346137c7d3cf44
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393302"
 ---
-<a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性ルーティングで REST API を作成します。
-====================
+# <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性ルーティングで REST API を作成します。
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-新しい型をサポートする web API 2 のルーティングと呼ばれる*属性ルーティング*します。 属性ルーティングの一般的な概要については、[属性は、Web API 2 でルーティング](attribute-routing-in-web-api-2.md)を参照してください。 このチュートリアルではルーティングを使用して属性のブックの「コレクションの REST API を作成します。 API は、次の操作をサポートします。
+新しい型をサポートする web API 2 のルーティングと呼ばれる*属性ルーティング*します。 属性ルーティングの一般的な概要については、次を参照してください。[属性は、Web API 2 でルーティング](attribute-routing-in-web-api-2.md)します。 このチュートリアルではルーティングを使用して属性のブックの「コレクションの REST API を作成します。 API は、次の操作をサポートします。
 
 | アクション | URI の例 |
 | --- | --- |

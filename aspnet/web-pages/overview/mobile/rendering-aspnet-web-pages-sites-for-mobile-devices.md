@@ -8,15 +8,15 @@ ms.date: 02/17/2014
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: dd06a54d396bd85eeef7c004ee115828d541a2c1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dbcd25331387f8606343e551302bc3ed1f9b2c25
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379509"
 ---
-<a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示
-====================
+# <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、モバイル デバイスで適切にレンダリングする ASP.NET Web Pages (Razor) サイトでページを作成する方法について説明します。
@@ -37,7 +37,7 @@ ms.locfileid: "57031109"
 
 ASP.NET Web ページを使用して、モバイル デバイスまたはその他のデバイスでコンテンツの描画のカスタムの表示を作成できます。
 
-ASP.NET Web Pages サイトでデバイスに固有のページを作成する最も簡単な方法では、このようなファイルの名前付けパターンを使用しています。<em>ファイル名。</em> <em>Mobile</em><em>.cshtml</em>します。 ページの 2 つのバージョンを作成することができます (たとえば、1 つという名前<em>MyFile.cshtml</em>という名前の 1 つ<em>MyFile.Mobile.cshtml</em>)。 実行時に、モバイル デバイスを要求したとき<em>MyFile.cshtml</em>、ASP.NET からコンテンツをレンダリングする<em>MyFile.Mobile.cshtml</em>します。 それ以外の場合、 <em>MyFile.cshtml</em>を表示します。
+ASP.NET Web Pages サイトでデバイスに固有のページを作成する最も簡単な方法では、このようなファイルの名前付けパターンを使用しています。*FileName.Mobile.cshtml*します。 ページの 2 つのバージョンを作成することができます (たとえば、1 つという名前*MyFile.cshtml*という名前の 1 つ*MyFile.Mobile.cshtml*)。 実行時に、モバイル デバイスを要求したとき*MyFile.cshtml*、ASP.NET からコンテンツをレンダリングする*MyFile.Mobile.cshtml*します。 それ以外の場合、 *MyFile.cshtml*を表示します。
 
 次の例では、モバイル デバイスのコンテンツ ページを追加して、モバイルのレンダリングを有効にする方法を示します。 *Page1.cshtml*コンテンツにはナビゲーション サイド バーが含まれています。 *Page1.Mobile.cshtml* 、同じコンテンツが含まれていますが、サイドバーが省略されます。
 
@@ -47,7 +47,7 @@ ASP.NET Web Pages サイトでデバイスに固有のページを作成する�
 2. という名前のファイルを作成する*Page1.Mobile.cshtml*既存のコンテンツを次のマークアップに置き換えます。 モバイル バージョンのページが小さい画面できれいに表示のナビゲーション セクションを省略することに注意してください。
 
     [!code-html[Main](rendering-aspnet-web-pages-sites-for-mobile-devices/samples/sample2.html)]
-3. デスクトップ ブラウザーを実行しを参照*Page1.cshtml*します。 ![mobilesites-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
+3. デスクトップ ブラウザーを実行しを参照*Page1.cshtml*します。 ![mobilesites 1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
 4. モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*します。 (通知を組み込んでいない *.mobile します。* URL の一部として、します。)要求されている場合でも*Page1.cshtml*、ASP.NET のレンダリング*Page1.Mobile.cshtml*します。
 
     ![mobilesites 2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)

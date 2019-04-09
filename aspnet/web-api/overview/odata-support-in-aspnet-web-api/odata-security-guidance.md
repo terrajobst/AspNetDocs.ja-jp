@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: ASP.NET Web API 2 のセキュリティ ガイダンス OData |Microsoft Docs
+title: ASP.NET Web API 2 のセキュリティ ガイダンス OData - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET での ASP.NET Web API 2 OData でのデータセットを公開するときに考慮すべきセキュリティ問題について説明します 4.x です。
 ms.author: riande
 ms.date: 02/06/2013
+ms.custom: seoapril2019
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 0e43ec6b1cbe922b00f0f71d08aed4d0f4c08af8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8194a368cb0629c30e32ec05bf4bed150d442ad8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425861"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393510"
 ---
-<a name="security-guidance-for-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 のセキュリティ ガイダンス OData
-====================
+# <a name="security-guidance-for-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 のセキュリティ ガイダンス OData
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-このトピックでは、OData でのデータセットを公開するときに考慮すべきセキュリティの問題について説明します。
+このトピックでは、いくつかの ASP.NET での ASP.NET Web API 2 OData でのデータセットを公開するときに考慮すべきセキュリティ問題について説明します 4.x です。
 
 ## <a name="edm-security"></a>EDM のセキュリティ
 
@@ -39,12 +40,12 @@ EDM からプログラムで、プロパティも削除できます。
 
 **[Queryable]** 属性は、解析、検証、およびクエリを適用するアクション フィルター。 フィルターは、クエリ オプションを LINQ 式に変換します。 OData コント ローラーを返す場合、 **IQueryable**の種類、 **IQueryable** LINQ プロバイダーは、クエリに LINQ 式を変換します。 そのため、パフォーマンスは、LINQ プロバイダーを使用して、データセットやデータベース スキーマの特定の特性を依存します。
 
-ASP.NET Web API での OData クエリ オプションの使用に関する詳細については、[OData クエリ オプションをサポートしている](supporting-odata-query-options.md)を参照してください。
+ASP.NET Web API での OData クエリ オプションの使用に関する詳細については、次を参照してください。 [OData クエリ オプションをサポートしている](supporting-odata-query-options.md)します。
 
 (たとえば、エンタープライズ環境) で、すべてのクライアントが信頼されていることがわかっている場合、または、データセットが小さい場合は、クエリのパフォーマンスが問題になりません。 それ以外の場合、次の推奨事項を考慮する必要があります。
 
 - さまざまなクエリを使用してサービスをテストし、DB をプロファイルします。
-- 1 つのクエリで大規模なデータ セットを返すことを回避するために、サーバー ドリブン ページングを有効にします。 詳細については、[Server-Driven ページング](supporting-odata-query-options.md#server-paging)を参照してください。 
+- 1 つのクエリで大規模なデータ セットを返すことを回避するために、サーバー ドリブン ページングを有効にします。 詳細については、次を参照してください。 [Server-Driven ページング](supporting-odata-query-options.md#server-paging)します。 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample3.cs)]
 - $Filter、$orderby が必要ですか。 一部のアプリケーションは、ページング、$top、$skip を使用してクライアントを許可するが、その他のクエリ オプションを無効にする可能性があります。 
@@ -62,7 +63,7 @@ ASP.NET Web API での OData クエリ オプションの使用に関する詳�
 - 任意の文字列プロパティには、大きな文字列が含まれている場合&#8212;製品の説明、ブログ エントリなど、&#8212;文字列関数を無効にしてみます。 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
-- ナビゲーション プロパティのフィルター処理を禁止することを検討してください。 ナビゲーション プロパティのフィルター処理、結合、遅く、データベース スキーマに応じて、可能性のある可能性があります。 次のコードでは、ナビゲーション プロパティのフィルター処理しないようにクエリ検証コントロールを示します。 クエリ検証コントロールの詳細については、[クエリ検証](supporting-odata-query-options.md#query-validation)を参照してください。 
+- ナビゲーション プロパティのフィルター処理を禁止することを検討してください。 ナビゲーション プロパティのフィルター処理、結合、遅く、データベース スキーマに応じて、可能性のある可能性があります。 次のコードでは、ナビゲーション プロパティのフィルター処理しないようにクエリ検証コントロールを示します。 クエリ検証コントロールの詳細については、次を参照してください。[クエリ検証](supporting-odata-query-options.md#query-validation)です。 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
 - データベース用にカスタマイズされている検証コントロールを記述することで $filter のクエリを制限することを検討してください。 たとえば、これら 2 つのクエリがあるとします。 

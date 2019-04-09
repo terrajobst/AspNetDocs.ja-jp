@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 4c8628cc289610e287c0a3bc3c8a4c7a833c9fde
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 32587c7b0fd3075cd46678922b40bda2019f3a26
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423417"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381134"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 カスタム アクション フィルター
 
@@ -59,7 +59,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c:コード スニペットを使用して](#AppendixC)&quot;します。
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -144,7 +144,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
       > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
       > 
       > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 新しい C# クラスを追加、**フィルター**フォルダーと名前を付けます*CustomActionFilter.cs*します。 このフォルダーでは、すべてのカスタム フィルターを格納します。
+2. 新しい c# クラスを追加、**フィルター**フォルダーと名前を付けます*CustomActionFilter.cs*します。 このフォルダーでは、すべてのカスタム フィルターを格納します。
 3. 開いている**CustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
 
     (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex1 CustomActionFilterNamespaces*)
@@ -248,7 +248,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
         > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
         > 
         > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 新しい C# クラスを追加、**フィルター**フォルダーと名前を付けます*MyNewCustomActionFilter.cs*
+2. 新しい c# クラスを追加、**フィルター**フォルダーと名前を付けます*MyNewCustomActionFilter.cs*
 3. 開いている**MyNewCustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
 
     (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex2 MyNewCustomActionFilterNamespaces*)
@@ -354,7 +354,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 > また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
 
 
-* * *
+---
 
 <a id="Summary"></a>
 
@@ -407,7 +407,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
 
 この付録では、Windows Azure 管理ポータルから新しい web サイトを作成して Windows Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
 
@@ -531,7 +531,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 
     ![データベースを作成する](aspnet-mvc-4-custom-action-filters/_static/image34.png "データベース文字列を作成します。")
 
-    *データベースの作成*
+    *データベースを作成する*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-custom-action-filters/_static/image35.png "SQL データベースを指す接続文字列")
@@ -547,7 +547,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>付録 c:コード スニペットを使用
+## <a name="appendix-c-using-code-snippets"></a>付録 Cコード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -555,7 +555,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

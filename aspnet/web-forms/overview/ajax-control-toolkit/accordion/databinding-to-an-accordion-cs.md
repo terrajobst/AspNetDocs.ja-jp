@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 9c8f0054-e319-46f8-80c0-35b606d2fbd4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordion-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 930392bd33cfeb7dec52a6084a5d401a6134a7ef
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 28e001059cb1853d21175da2a2b1af2c75364485
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024639"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380367"
 ---
-<a name="databinding-to-an-accordion-c"></a>アコーディオンにデータバインドする (C#)
-====================
+# <a name="databinding-to-an-accordion-c"></a>アコーディオンにデータバインドする (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion1CS.pdf)
@@ -59,7 +59,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-css[Main](databinding-to-an-accordion-cs/samples/sample6.css)]
 
 
-[![アコーディオンにデータがデータ ソースから直接取得されます。](databinding-to-an-accordion-cs/_static/image2.png)](databinding-to-an-accordion-cs/_static/image1.png)
+[![Tアコーディオンにデータは、データ ソースから直接取得されます](databinding-to-an-accordion-cs/_static/image2.png)](databinding-to-an-accordion-cs/_static/image1.png)
 
 アコーディオンにデータがデータ ソースから直接取得されます ([フルサイズの画像を表示する をクリックします](databinding-to-an-accordion-cs/_static/image3.png))。
 

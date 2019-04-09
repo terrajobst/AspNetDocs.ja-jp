@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 603c9bd3-b895-4ec6-853b-0c81ff36d580
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0e4091e873aab8bed4e0f4a5b2a30784fd52723e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b3bdb44a0e3dc274c056bcadae3dcf90ab3c5507
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042399"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401440"
 ---
-<a name="declarative-parameters-c"></a>宣言パラメーター (C#)
-====================
+# <a name="declarative-parameters-c"></a>宣言パラメーター (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_5_CS.exe)または[PDF のダウンロード](declarative-parameters-cs/_static/datatutorial05cs1.pdf)
@@ -37,7 +37,7 @@ ms.locfileid: "57042399"
 最初の例では、DetailsView コントロールを追加することによって、起動、`DeclarativeParams.aspx`ページで、`BasicReporting`フォルダー。 DetailsView のスマート タグから次のように選択します。&lt;新しいデータ ソース&gt;ドロップダウン リストから一覧表示し、ObjectDataSource を追加します。
 
 
-[![ObjectDataSource をページに追加します。](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
+[![Add のページに、ObjectDataSource](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
 
 **図 1**:ObjectDataSource をページに追加 ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image3.png))。
 
@@ -45,7 +45,7 @@ ms.locfileid: "57042399"
 ObjectDataSource コントロールのデータ ソースの選択ウィザードが自動的に開始されます。 選択、`ProductsBLL`ウィザードの最初の画面からクラス。
 
 
-[![ProductsBLL クラスを選択します。](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
+[![SProductsBLL クラスを選択](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
 
 **図 2**:選択、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image6.png))。
 
@@ -53,7 +53,7 @@ ObjectDataSource コントロールのデータ ソースの選択ウィザー�
 使用する特定の製品についての情報を表示するため、`GetProductByProductID(productID)`メソッド。
 
 
-[![GetProductByProductID(productID) 方法を選択します。](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
+[![CGetProductByProductID(productID) メソッドの選択](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
 
 **図 3**:選択、`GetProductByProductID(productID)`メソッド ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image9.png))。
 
@@ -61,7 +61,7 @@ ObjectDataSource コントロールのデータ ソースの選択ウィザー�
 選択したメソッドには、パラメーターが含まれているため、パラメーターに使用する値の定義を求める、ウィザードの詳細について 1 つの画面があります。 左側の一覧には、選択したメソッドのパラメーターのすべてが表示されます。 `GetProductByProductID(productID)` 1 つしかない`productID`します。 右側には、選択したパラメーターの値を指定できます。 パラメーターのソースのドロップダウン リストでは、パラメーター値のさまざまな原因を列挙します。 5 用のハード コーディングされた値を指定するので、`productID`パラメーター、None としてパラメーターのソースを残す場合、DefaultValue テキスト ボックスに 5 を入力します。
 
 
-[![Hard-Coded パラメーター値の 5 を使用するパラメーターの productID に対して](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
+[![A ハード コーディングされたパラメーター値の 5 を使用するパラメーターの productID に対して](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
 
 **図 4**:Hard-Coded パラメーター値の 5 を使用するため、`productID`パラメーター ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image12.png))。
 
@@ -77,7 +77,7 @@ ObjectDataSource コントロールの宣言型マークアップを含むデー
 データ Web コントロールが ObjectDataSource を呼び出すときに、このページにアクセスして、`Select`メソッドを呼び出すが、`ProductsBLL`クラスの`GetProductByProductID(productID)`5 用のハード コーディングされた値を使用して、メソッド、`productID`入力パラメーター。 メソッドは厳密に型を返す`ProductDataTable`Chef Anton の Gumbo ミックスに関する情報を含む 1 つの行を格納しているオブジェクト (製品の`ProductID`5)。
 
 
-[![情報に関する Chef Anton の Gumbo ミックスが表示されます。](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
+[![I詳細について Chef Anton の Gumbo ミックスが表示されます](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
 
 **図 5**:情報に関する Chef Anton の Gumbo ミックスが表示されます ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image15.png))。
 
@@ -87,7 +87,7 @@ ObjectDataSource コントロールの宣言型マークアップを含むデー
 ObjectDataSource のパラメーターの値を設定することも、ページ上の Web コントロールの値に基づいています。 これを示すためには、ユーザーが指定した国に所在する仕入先のすべてを一覧表示する GridView があてみましょう。 このスタートを得るためには、ユーザーが国の名前を入力できるページにテキスト ボックスを追加します。 このテキスト ボックス コントロールの設定`ID`プロパティを`CountryName`します。 また、ボタンの Web コントロールを追加します。
 
 
-[![ID CountryName をページにテキスト ボックスを追加します。](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
+[![Add ID CountryName をページにテキスト ボックス](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
 
 **図 6**:テキスト ボックスをページに追加`ID` `CountryName` ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image18.png))。
 
@@ -95,7 +95,7 @@ ObjectDataSource のパラメーターの値を設定することも、ページ
 次に、ページと、スマート タグの間に、GridView を追加では、新しい ObjectDataSource を追加する選択します。 仕入先情報の選択を表示するため、`SuppliersBLL`ウィザードの最初の画面からのクラス。 2 番目の画面から選択、`GetSuppliersByCountry(country)`メソッド。
 
 
-[![GetSuppliersByCountry(country) 方法を選択します。](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
+[![CGetSuppliersByCountry(country) メソッドの選択](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
 
 **図 7**:選択、`GetSuppliersByCountry(country)`メソッド ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image21.png))。
 
@@ -103,7 +103,7 @@ ObjectDataSource のパラメーターの値を設定することも、ページ
 以降、`GetSuppliersByCountry(country)`メソッドの入力パラメーターには、ウィザードにはもう一度パラメーターの値を選択するための最後の画面が含まれています。 この時点では、パラメーター ソースをコントロールに設定します。 ページ上のコントロールの名前を持つ ControlID ドロップダウン リストが設定されます。選択、`CountryName`一覧からコントロール。 ページが初めてアクセスしたときに、`CountryName`結果が返されないと、何も表示されませんが、テキスト ボックスは空白になります。 既定でいくつかの結果を表示する場合は、DefaultValue textbox を適宜設定します。
 
 
-[![CountryName コントロールの値にパラメーター値を設定します。](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
+[![Set CountryName コントロールの値をパラメーター値](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
 
 **図 8**:パラメーターの値を設定、`CountryName`コントロールの値 ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image24.png))。
 
@@ -117,7 +117,7 @@ ObjectDataSource の宣言型マークアップは、最初の例と若干異な
 訪問者の国、ただし、入力し、するポストバックを発生させる、ObjectDataSource のサプライヤーの表示 ボタンをクリックすると`Select`メソッドをクエリすると、TextBox コントロールの渡して`Text`値として、`country`パラメーター。
 
 
-[![カナダから業者が表示されます。](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
+[![Tホース カナダからの仕入先が表示されます](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
 
 **図 9**:カナダから業者が表示されます ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image27.png))。
 
@@ -139,7 +139,7 @@ ObjectDataSource の宣言型マークアップは、最初の例と若干異な
 この変更により、`DeclarativeParams.aspx`初めてアクセスしたときに、仕入先のすべてのページが表示されます (またはたびに、`CountryName`テキスト ボックスが空です)。
 
 
-[![All は既定で表示されるようになりました](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
+[![All サプライヤーは、既定で表示されるようになりました](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
 
 **図 10**:All は既定で表示されるようになりました ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image30.png))。
 

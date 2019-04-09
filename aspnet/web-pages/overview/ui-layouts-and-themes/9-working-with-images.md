@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 778c4e58-4372-4d25-bab9-aec4a8d8e38d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/9-working-with-images
 msc.type: authoredcontent
-ms.openlocfilehash: 7536f71eb9afce9d7c8bb7e4d6326d280658c27b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fedd1013c036ebdb85877a868aaaa172733e5b8a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056039"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394706"
 ---
-<a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトに画像の操作
-====================
+# <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトに画像の操作
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、追加、表示、およびイメージを操作する方法を示します (サイズ変更、反転、およびウォーターマークの追加) ASP.NET Web Pages (Razor) の web サイトにします。

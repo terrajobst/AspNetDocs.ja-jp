@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 239c7aa8-d09a-4d02-9c0e-6bd52be5f0d5
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 7350e986130af7426603e861622949f580512339
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d915cb5d7d40bb2cc355a5e45befe124a7b60dc4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57047349"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398489"
 ---
-<a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web 配置発行の Web サーバーを構成する (リモート エージェント)
-====================
+# <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web 配置発行の Web サーバーを構成する (リモート エージェント)
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、web の発行および (Web 配置) IIS Web 配置ツールのリモート エージェント サービスを使用して配置をサポートするためにインターネット インフォメーション サービス (IIS) web サーバーを構成する方法を説明します。
 > 
@@ -29,7 +29,7 @@ ms.locfileid: "57047349"
 > - 使用して、 *Web 配置ハンドラー*します。 このアプローチは、もっと複雑な web サーバーを設定する初期の労力が必要です。 ただし、このアプローチを使用する場合は、配置を実行する管理者以外のユーザーを許可するように IIS を構成できます。 Web 配置ハンドラーでは、IIS 7 以降のバージョンで利用できるのみです。
 > - 使用*オフライン展開*します。 このアプローチには、web サーバーの最低限の構成が必要ですが、サーバー管理者は、サーバー上に web パッケージのコピーし IIS マネージャーからインポートする必要があります手動でします。
 > 
-> 主な機能、利点、およびこれらのアプローチの欠点の詳細については、[Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)を参照してください。
+> 主な機能、利点、およびこれらのアプローチの欠点の詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)します。
 
 
 ## <a name="is-the-web-deploy-remote-agent-the-right-approach-for-you"></a>Web では、リモート エージェントの適切なアプローチを展開するのでしょうか。
@@ -62,7 +62,7 @@ ms.locfileid: "57047349"
 - サーバーは、静的 IP アドレスを持ちます。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)を参照してください。 静的 IP アドレスの構成の詳細については、[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)を参照してください。 リモート エージェント サービスは、IIS 6 で以降はサポートされするドメインに参加させる必要はありません。 ただし、このチュートリアルの手順では開発され、IIS 7.5 でテストし、他のバージョンの手順が異なる場合があります。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。 リモート エージェント サービスは、IIS 6 で以降はサポートされするドメインに参加させる必要はありません。 ただし、このチュートリアルの手順では開発され、IIS 7.5 でテストし、他のバージョンの手順が異なる場合があります。
 
 
 ## <a name="install-products-and-components"></a>製品とコンポーネントをインストールします。
@@ -77,7 +77,7 @@ ms.locfileid: "57047349"
 - **ASP.NET MVC 3**します。 MVC 3 アプリケーションを実行する必要があるアセンブリがインストールされます。
 
 > [!NOTE]
-> このチュートリアルでは、Web Platform Installer をインストールに必要なコンポーネントの構成の使用について説明します。 Web Platform Installer を使用する必要はありません、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、[Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)を参照してください。
+> このチュートリアルでは、Web Platform Installer をインストールに必要なコンポーネントの構成の使用について説明します。 Web Platform Installer を使用する必要はありません、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、次を参照してください。 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)します。
 
 
 **必要な製品とコンポーネントをインストールするには**
@@ -151,7 +151,7 @@ IIS の既定の web サイトにコンテンツを展開するなんらです�
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image4.png)
 
     > [!NOTE]
-    > 運用環境では、ポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成するします可能性があります。 IIS 7 でホスト ヘッダーの構成の詳細については、[(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/library/cc753195(WS.10).aspx)を参照してください。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、[DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/windowsserver/dd448607)を参照してください。
+    > 運用環境では、ポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成するします可能性があります。 IIS 7 でホスト ヘッダーの構成の詳細については、次を参照してください。 [(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/library/cc753195(WS.10).aspx)します。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、次を参照してください。 [DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/windowsserver/dd448607)します。
 9. **[アクション]** ウィンドウの **[サイトの編集]** の下にある **[バインド]** をクリックします。
 10. **サイト バインド**ダイアログ ボックスで、をクリックして**追加**します。
 
@@ -228,7 +228,7 @@ Web サイト コンテンツを配信するためには、アプリケーショ
 
 ## <a name="further-reading"></a>関連項目
 
-リモート エージェント サービスに web パッケージを配置するカスタムの Microsoft Build Engine (MSBuild) プロジェクト ファイルを構成する方法のガイダンスについては、[ターゲット環境の配置プロパティを構成する](configuring-deployment-properties-for-a-target-environment.md)を参照してください。
+リモート エージェント サービスに web パッケージを配置するカスタムの Microsoft Build Engine (MSBuild) プロジェクト ファイルを構成する方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](configuring-deployment-properties-for-a-target-environment.md)します。
 
 > [!div class="step-by-step"]
 > [前へ](scenario-configuring-a-production-environment-for-web-deployment.md)

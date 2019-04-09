@@ -8,18 +8,18 @@ ms.date: 07/03/2012
 ms.assetid: 94421d86-68c4-4471-bf5f-82d654a17252
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 0e4021402e8deccd2395f23b6b512679b5e9d281
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5a72dbfe1530e457ec16df5c7d50b03b5f63502
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384215"
 ---
-<a name="part-1-overview-and-creating-the-project"></a>第 1 部:概要とプロジェクトの作成
-====================
+# <a name="part-1-overview-and-creating-the-project"></a>第 1 部:概要とプロジェクトの作成
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 Entity Framework は、オブジェクト/リレーショナル マッピング フレームワークです。 ドメイン オブジェクトをコードでは、リレーショナル データベース内のエンティティにマップされます。 ほとんどの場合がありません、データベース層について心配する Entity Framework が自動的に処理ができます。 コードは、オブジェクトを操作して、変更がデータベースに保存されます。
 
@@ -54,7 +54,7 @@ Entity Framework は、オブジェクト/リレーショナル マッピング 
 
 - ASP.NET MVC では、クライアントの HTML ページを生成します。
 - ASP.NET Web API は、データ (製品と注文) に対する CRUD 操作を公開します。
-- Entity Framework では、データベースのエンティティに Web API で使用される C# モデルを変換します。
+- Entity Framework では、データベースのエンティティに Web API で使用される c# モデルを変換します。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image3.png)
 
@@ -68,7 +68,7 @@ Visual Web Developer Express または完全なバージョンの Visual Studio 
 
 **開始**] ページで [**新しいプロジェクト**します。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual C#** ノード。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに"ProductStore"という名前にして**OK**します。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに"ProductStore"という名前にして**OK**します。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 

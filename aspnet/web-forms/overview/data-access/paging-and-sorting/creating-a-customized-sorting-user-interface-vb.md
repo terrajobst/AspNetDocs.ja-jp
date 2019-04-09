@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 63e31d719991dddec2168524187c304256d1b4e0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 571e34a8c87bf54b8dd71c912f16ebcdab3c87a7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426108"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383448"
 ---
-<a name="creating-a-customized-sorting-user-interface-vb"></a>カスタマイズされた並べ替えユーザー インターフェイスを作成する (VB)
-====================
+# <a name="creating-a-customized-sorting-user-interface-vb"></a>カスタマイズされた並べ替えユーザー インターフェイスを作成する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_VB.exe)または[PDF のダウンロード](creating-a-customized-sorting-user-interface-vb/_static/datatutorial27vb1.pdf)
@@ -31,7 +31,7 @@ ms.locfileid: "58426108"
 並べ替えられたグループ間の境界を強調表示するには、多くの web サイトは、このようなグループ間の区切り記号を追加するユーザー インターフェイスを使用します。 図 1 のような区切り記号は、ユーザーはより迅速に特定のグループを検索して、その境界を特定するだけでなく、データにどのような個別のグループの存在を確認できます。
 
 
-[![各カテゴリ グループが明確に識別](creating-a-customized-sorting-user-interface-vb/_static/image2.png)](creating-a-customized-sorting-user-interface-vb/_static/image1.png)
+[![Each カテゴリ グループは、明確に識別](creating-a-customized-sorting-user-interface-vb/_static/image2.png)](creating-a-customized-sorting-user-interface-vb/_static/image1.png)
 
 **図 1**:各カテゴリ グループが明確に識別される ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-vb/_static/image3.png))。
 
@@ -50,7 +50,7 @@ ms.locfileid: "58426108"
 ブラウザーできませんでしたが、進行状況を表示する時間がかかります。 図 2 は、そのデータがカテゴリでアルファベット順で並べ替えられる場合、並べ替え可能な GridView を示します。
 
 
-[![並べ替え可能な GridView のデータはカテゴリで並べ替え](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
+[![Tカテゴリで並べ替え可能な GridView のデータ彼が順序付け](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
 
 **図 2**:データのカテゴリで並べ替え並べ替え可能な GridView s ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-vb/_static/image6.png))。
 
@@ -100,7 +100,7 @@ GridView にバインドする前に、データをメッセージングでは�
 各並べ替えグループ間の区切り記号の行を追加するには、ことを直接操作できますこのコントロールの階層構造が作成されたら。 ページが表示されるまで、最後に s の GridView コントロール階層が作成されたことを確信できます。 このため、この方法をオーバーライド、`Page`クラスの`Render`メソッド、必要な区切り記号の行に含めるこの時点で GridView s の最終的なコントロール階層を更新します。 図 4 は、このプロセスを示します。
 
 
-[![代替手法が s の GridView コントロール階層を操作します。](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
+[![An 個の代替手法は、s の GridView コントロール階層を操作する](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
 
 **図 4**:代替手法が GridView のコントロール階層を操作する ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-vb/_static/image10.png))。
 
@@ -156,12 +156,12 @@ GridView がまだを並べ替え、GridView の`SortExpression`プロパティ�
 BoundField で並べ替えるときに現在のコードでは、並べ替えのインターフェイスは並べ替えグループ ヘッダーを追加 (業者によって並べ替えるときに、スクリーン ショットを表示する図 5 を参照してください)。 ただし、(CheckBoxField や TemplateField) などのフィールドの種類を並べ替えるときに、並べ替えのグループ ヘッダーが (図 6 参照) が見つかりません。
 
 
-[![並べ替えのインターフェイスに BoundFields で並べ替えるときに並べ替えられたグループ ヘッダーが含まれます](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
+[![T彼並べ替えインターフェイスが含まれます並べ替えグループ ヘッダー BoundFields で並べ替える場合](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
 
 **図 5**:並べ替えインターフェイスが含まれています並べ替えグループ ヘッダーとして並べ替え BoundFields ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-vb/_static/image13.png))。
 
 
-[![並べ替えのグループ ヘッダーが不足しているときに並べ替え、CheckBoxField です。](creating-a-customized-sorting-user-interface-vb/_static/image15.png)](creating-a-customized-sorting-user-interface-vb/_static/image14.png)
+[![T彼は並べ替えグループ ヘッダーは、不足しているときに並べ替え、CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image15.png)](creating-a-customized-sorting-user-interface-vb/_static/image14.png)
 
 **図 6**:並べ替えのグループ ヘッダーが不足しているときに並べ替え、CheckBoxField ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-vb/_static/image16.png))。
 
@@ -178,7 +178,7 @@ BoundFields 以外のフィールド型を処理するために、コードを�
 上記のコードの追加、並べ替えのグループ ヘッダーは廃止された CheckBoxField で並べ替えるときに存在するようになりました (図 7 を参照してください)。
 
 
-[![並べ替えのグループ ヘッダーは現在存在するときに並べ替え、CheckBoxField です。](creating-a-customized-sorting-user-interface-vb/_static/image18.png)](creating-a-customized-sorting-user-interface-vb/_static/image17.png)
+[![T彼は並べ替えグループ ヘッダーは、現在存在するときに並べ替え、CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image18.png)](creating-a-customized-sorting-user-interface-vb/_static/image17.png)
 
 **図 7**:並べ替えのグループ ヘッダーは現在存在するときに並べ替え、CheckBoxField ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-vb/_static/image19.png))。
 

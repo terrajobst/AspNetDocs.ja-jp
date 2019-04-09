@@ -8,15 +8,15 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: c20341a7fa0f5c5382ce7f2f6d459c4a6bec509f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 78efe409ab59df17ae71c26d4e280cc9971a64d2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424094"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393251"
 ---
-<a name="signalr-scaleout-with-redis"></a>Redis による SignalR スケールアウト
-====================
+# <a name="signalr-scaleout-with-redis"></a>Redis による SignalR スケールアウト
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "58424094"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -150,7 +150,7 @@ IIS の役割を追加します。 WebSocket プロトコルを含む、「ア�
 
 Web 管理サービスが実行されていることを確認します。 それ以外の場合は、サービスを開始します。 (Web 管理サービスで Windows サービスの一覧が表示されない場合は、IIS の役割を追加したときに、管理サービスがインストールされていることを確認)。
 
-既定では、Web 管理サービスは TCP ポート 8172 でリッスンします。 Windows ファイアウォールでポート 8172 で TCP トラフィックを許可する場合は、新しい受信規則を作成します。 詳細については、[ファイアウォール規則を構成する](https://technet.microsoft.com/library/dd448559(WS.10).aspx)を参照してください。 (Azure 上の Vm をホストしている場合はこれを行う、Azure portal で直接します。 参照してください[仮想マシンにエンドポイントを設定する方法](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/))。
+既定では、Web 管理サービスは TCP ポート 8172 でリッスンします。 Windows ファイアウォールでポート 8172 で TCP トラフィックを許可する場合は、新しい受信規則を作成します。 詳細については、次を参照してください。[ファイアウォール規則を構成する](https://technet.microsoft.com/library/dd448559(WS.10).aspx)します。 (Azure 上の Vm をホストしている場合はこれを行う、Azure portal で直接します。 参照してください[仮想マシンにエンドポイントを設定する方法](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/))。
 
 サーバーに、開発コンピューターから Visual Studio プロジェクトを配置する準備が整いました。 ソリューション エクスプ ローラーでソリューションを右クリックし、をクリックして**発行**します。
 

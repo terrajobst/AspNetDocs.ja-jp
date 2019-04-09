@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 4da43d77-f6c4-43a8-9124-f1e8e1c8f0a2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 81b0dbd794d31bc3c55bff4ba8110c590b88b509
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ee66e166d24bb80008671c84f6512d5c54707fcf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389818"
 ---
-<a name="using-multiple-popup-controls-vb"></a>複数のポップアップ コントロールを使用する (VB)
-====================
+# <a name="using-multiple-popup-controls-vb"></a>複数のポップアップ コントロールを使用する (VB)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol1VB.pdf)
@@ -49,7 +49,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 テキスト フィールド内でクリックしたときに、カレンダーが表示されます、フィールドの下の日付を選択することができます。 (テキスト ボックスに、選択した日付は戻ってきてで取り上げる別のチュートリアルです。)
 
 
-[![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](using-multiple-popup-controls-vb/_static/image2.png)](using-multiple-popup-controls-vb/_static/image1.png)
+[![T彼の予定表は、テキスト ボックスに、ユーザーがクリックしたときに表示されます](using-multiple-popup-controls-vb/_static/image2.png)](using-multiple-popup-controls-vb/_static/image1.png)
 
 テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](using-multiple-popup-controls-vb/_static/image3.png))。
 

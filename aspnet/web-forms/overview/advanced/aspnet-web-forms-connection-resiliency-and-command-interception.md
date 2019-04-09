@@ -8,15 +8,15 @@ ms.date: 03/31/2014
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 067542e8b8aa9909bbb2147f8e11e34604986d87
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 2b8cae61347f00712aba18fe6a2e91bc207cb9f3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424028"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380042"
 ---
-<a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続回復性とコマンド傍受
-====================
+# <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続回復性とコマンド傍受
+
 によって[Erik Reitan](https://github.com/Erikre)
 
 このチュートリアルでは、接続復元性とコマンド傍受をサポートするために、Wingtip Toys のサンプル アプリケーションを変更します。 接続の回復を有効にすると、Wingtip Toys のサンプル アプリケーションは自動的に再試行データ呼び出し、クラウド環境の一般的な一時的なエラーが発生します。 また、コマンド インターセプションを実装すると、Wingtip Toys のサンプル アプリケーションはキャッチ オール SQL クエリのログまたはそれらを変更するには、データベースに送信します。
@@ -39,7 +39,7 @@ ms.locfileid: "58424028"
 - [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)します。 .NET Framework は、自動的にインストールされます。
 - Wingtip Toys では、Wingtip Toys プロジェクト内では、このチュートリアルで説明されている機能を実装できるように、プロジェクトがサンプルです。 次のリンクは、ダウンロードの詳細を提供します。
 
-    - [Getting Started with ASP.NET 4.5.1 Web フォームの Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (C#)
+    - [Getting Started with ASP.NET 4.5.1 Web フォームの Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
 - このチュートリアルを完了する前に、関連するチュートリアル シリーズの確認を検討する[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 チュートリアルのシリーズはよく理解する際に役立つ、 **WingtipToys**プロジェクトとコード。
 
 ## <a name="connection-resiliency"></a>接続の復元性
@@ -68,7 +68,7 @@ ms.locfileid: "58424028"
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample1.cs)]
 
-Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、[EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)を参照してください。
+Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)します。
 
 1. *ロジック*フォルダーを開き、 *AddProducts.cs*ファイル。
 2. 追加、`using`ステートメント`System.Data.Entity.Infrastructure`黄色で強調表示されています。  

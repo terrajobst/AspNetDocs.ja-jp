@@ -8,21 +8,21 @@ ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: ce54181996376cb5dde3b91c10c16f33b3c6a570
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 238efd312a73e2452ca5f679f2b8f5ed1336c4dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058919"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385879"
 ---
-<a name="routing-and-action-selection-in-aspnet-web-api"></a>ルーティングと ASP.NET Web API の操作の選択
-====================
+# <a name="routing-and-action-selection-in-aspnet-web-api"></a>ルーティングと ASP.NET Web API の操作の選択
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 この記事では、ASP.NET Web API が特定のコント ローラーのアクションに HTTP 要求をルーティングする方法について説明します。
 
 > [!NOTE]
-> ルーティングの大まかな概要については、[ASP.NET Web API におけるルーティング](routing-in-aspnet-web-api.md)を参照してください。
+> ルーティングの大まかな概要については、次を参照してください。 [ASP.NET Web API におけるルーティング](routing-in-aspnet-web-api.md)します。
 
 
 この記事では、ルーティング処理の詳細を検索します。 Web API プロジェクトを作成して、一部の要求を取得しない検索期待どおりのルーティング、うまくいけばこの記事では役立ちます。
@@ -56,7 +56,7 @@ URI セグメントがプレース ホルダーを照合する方法を制限す
 - "{controller}"は、コント ローラーの名前を提供します。
 - "{action}"は、アクションの名前を提供します。 Web api では、通常の規則は、"{action}"を省略する場合は。
 
-### <a name="defaults"></a>[既定値]
+### <a name="defaults"></a>既定値
 
 既定値を指定する場合、ルートはこれらのセグメントが不足している URI に一致します。 例:
 
@@ -85,7 +85,7 @@ URI のパス「api/製品」では、ルート ディクショナリが含ま�
 - category: "toys"
 - Id:"123"
 
-既定値は、ルート テンプレートで任意の場所に表示されていない値を含めることができますも。 ルートが一致すると、その値がディクショナリに格納します。 例えば:
+既定値は、ルート テンプレートで任意の場所に表示されていない値を含めることができますも。 ルートが一致すると、その値がディクショナリに格納します。 例:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample6.cs)]
 

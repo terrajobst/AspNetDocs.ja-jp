@@ -1,25 +1,30 @@
 ---
 uid: web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
-title: ASP.NET Web API を使用した RESTful Api の構築 |Microsoft Docs
+title: ASP.NET Web API - ASP.NET を使用した RESTful Api を構築 4.x
 author: rick-anderson
-description: 近年、HTTP が HTML ページを提供するためだけでないことは明らかになった。 いくつかの o を使用して、Web Api を構築するための強力なプラットフォームではもしています.
+description: ハンズ オン ラボ:Asp.net Web API を使用して 4.x を連絡先マネージャー アプリケーションのシンプルな REST API をビルドします。
 ms.author: riande
 ms.date: 02/18/2013
+ms.custom: seoapril2019
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f1f5ebbf5170f205be331b6402951fb429196046
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423716"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391482"
 ---
-<a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API を使用した RESTful Api を構築します。
-====================
+# <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API を使用した RESTful Api を構築します。
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-> 近年、HTTP が HTML ページを提供するためだけでないことは明らかになった。 さらにいくつかの単純な概念など、いくつかの動詞 (GET、POST、およびなど) を使用して、Web Api を構築するための強力なプラットフォームではまた*Uri*と*ヘッダー*します。 ASP.NET Web API は、一連の HTTP プログラミングを簡略化するコンポーネントです。 ASP.NET MVC ランタイムの上に用意されているので Web API は HTTP の低レベルのトランスポートの詳細を自動的に処理します。 同時に、Web API は自然な HTTP プログラミング モデルを公開します。 Web API の 1 つの目標が、実際には、*いない*HTTP の現実で抽象化します。 結果として、Web API は、柔軟で簡単に拡張できます。 このハンズオン ラボでは、連絡先のマネージャーのアプリケーション用の単純な REST API を構築するのに Web API を使用します。 また、API を使用するクライアントをビルドします。 REST のアーキテクチャ スタイルは確かにありませんが、唯一の有効な方法で HTTP する HTTP - を活用する効果的な方法を実証済みです。 連絡先のマネージャーでは、一覧表示、追加、およびその他の連絡先を削除するための RESTful を公開します。 このラボでは、HTTP、REST の基本的な知識を必要とし、HTML、JavaScript、および jQuery の基本的な知識があることを前提します。
+> ハンズ オン ラボ:Asp.net Web API を使用して 4.x を連絡先マネージャー アプリケーションのシンプルな REST API をビルドします。 また、API を使用するクライアントをビルドします。
+
+近年、HTTP が HTML ページを提供するためだけでないことは明らかになった。 さらにいくつかの単純な概念など、いくつかの動詞 (GET、POST、およびなど) を使用して、Web Api を構築するための強力なプラットフォームではまた*Uri*と*ヘッダー*します。 ASP.NET Web API は、一連の HTTP プログラミングを簡略化するコンポーネントです。 ASP.NET MVC ランタイムの上に用意されているので Web API は HTTP の低レベルのトランスポートの詳細を自動的に処理します。 同時に、Web API は自然な HTTP プログラミング モデルを公開します。 Web API の 1 つの目標が、実際には、*いない*HTTP の現実で抽象化します。 結果として、Web API は、柔軟で簡単に拡張できます。  REST のアーキテクチャ スタイルは確かにありませんが、唯一の有効な方法で HTTP する HTTP - を活用する効果的な方法を実証済みです。 連絡先のマネージャーでは、一覧表示、追加、およびその他の連絡先を削除するための RESTful を公開します。 
+
+このラボでは、HTTP、REST の基本的な知識を必要とし、HTML、JavaScript、および jQuery の基本的な知識があることを前提します。
 > 
 > > [!NOTE]
 > > ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域がある[ https://asp.net/web-api](https://asp.net/web-api)します。 このサイトが引き続き最新の情報、サンプル、および Web API に関連するニュースご確認いただけます。 よくを提供する場合は、事実上あらゆるデバイスや開発フレームワークを使用できるカスタムの Web Api の作成のアートをもっと深く掘り下げてたいです。
@@ -417,7 +422,7 @@ ms.locfileid: "58423716"
 > また、Azure の次に、このアプリケーションを展開できます[付録 c:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixC)します。
 
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
@@ -440,7 +445,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 <a id="CodeSnippetUsingKeyBoard"></a>
 
 <a id="To_add_a_code_snippet_using_the_keyboard_C_only"></a>
-### <a name="to-add-a-code-snippet-using-the-keyboard-c-only"></a>キーボード (C# のみ) を使用するコード スニペットを追加するには
+### <a name="to-add-a-code-snippet-using-the-keyboard-c-only"></a>キーボード (c# のみ) を使用するコード スニペットを追加するには
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。
@@ -480,7 +485,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>付録 b:For Web Express 2012 の Visual Studio のインストール
+## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>付録 B:For Web Express 2012 の Visual Studio のインストール
 
 インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
@@ -516,7 +521,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-c-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 c:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-c-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 CWeb Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
 
 この付録では、Azure Portal から新しい web サイトを作成して Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
 
@@ -640,7 +645,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 
     ![データベースを作成する](build-restful-apis-with-aspnet-web-api/_static/image56.png "データベース文字列を作成します。")
 
-    *データベースの作成*
+    *データベースを作成する*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](build-restful-apis-with-aspnet-web-api/_static/image57.png "SQL データベースを指す接続文字列")

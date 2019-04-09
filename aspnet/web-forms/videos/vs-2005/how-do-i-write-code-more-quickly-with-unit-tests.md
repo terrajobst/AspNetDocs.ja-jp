@@ -8,15 +8,15 @@ ms.date: 06/21/2007
 ms.assetid: 4618499e-1925-414e-a432-16952bb967f4
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 msc.type: video
-ms.openlocfilehash: d0950ec711e85435c5a25028e357d9519817f7b9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f92fa38a42fe73d22085e5a88b66ea6df0d68191
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062949"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403767"
 ---
-<a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[How Do i:]単体テストのより迅速にコードを記述しますか。
-====================
+# <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[How Do i:]単体テストのより迅速にコードを記述しますか。
+
 によって[Chris Menegay](https://twitter.com/CMenegay)
 
 このビデオでは Unit Testing 強化する方法、生産性の向上、デバッグ プロセスを簡略化して説明します。 Visual Studio Team System が、Web アプリケーションを起動し、同じコードを手動で実行するために必要な手順を実行にかかる時間を節約するコードがデバッグ中の実行を自動化する単体テストを生成する方法がわかります。 単体テストの結果より堅牢なコードをすばやく作成できます。

@@ -8,15 +8,15 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 6fd91f8c05462b603d6911e16bd48ec618d635d9
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6cea53021ce92e3936b06481008a86dd0590a117
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425731"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387439"
 ---
-<a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
-====================
+# <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
+
 > [!WARNING]
 > 実稼働アプリケーションでは、CDN 資産のハードの依存関係をなりません。 アプリケーションは、参照されている場合、CDN 資産のテストし、CDN が利用できない場合は、フォールバックの資産を使用する必要があります。
 >
@@ -1271,4 +1271,4 @@ ASP.NET Ajax ライブラリの次のリリースは、CDN でホストされま
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.0.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.0.1.js
 
-CDN の使用条件については、[Microsoft Ajax CDN の使用条件](https://www.asp.net/terms-of-use "Microsoft Ajax CDN の使用条件")を参照してください。
+CDN の使用条件については、次を参照してください。 [Microsoft Ajax CDN の使用条件](https://www.asp.net/terms-of-use "Microsoft Ajax CDN の使用条件")します。

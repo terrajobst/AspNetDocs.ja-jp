@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 78cb6dec71e6b4974fdea4f205d1a36ebdfc3104
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424445"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401743"
 ---
-<a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 の Web フォームの新機能
-====================
+# <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 の Web フォームの新機能
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 > ASP.NET Web フォームの新しいバージョンでは、さまざまなデータを扱うときにユーザー エクスペリエンスの向上に重点を置いた機能強化について説明します。
@@ -396,11 +396,11 @@ ASP.NET 4.5 では、Web フォームのデータ注釈検証について説明�
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5 では、既存のデータ注釈のコレクションを拡張しました。 これらは、一部のデータ注釈を使用することができます: [CreditCard] [Phone] [EmailAddress]、[範囲] [比較]、[Url] [FileExtensions]、[Required]、[Key]、[正規表現]。
+    > .NET framework 4.5 では、既存のデータ注釈のコレクションを拡張しました。 これらは、一部のデータ注釈を使用することができます: [CreditCard] [Phone] [EmailAddress]、[範囲] [比較]、[Url] [FileExtensions]、[Required]、[キー]、[正規表現]。
     > 
     > いくつかの使用例:
     > 
-    > [Key]: Specifies that an attribute is the unique identifier
+    > [キー]: Specifies that an attribute is the unique identifier
     > 
     > [Range(0.4, 0.5, ErrorMessage=&quot;{Write an error message}&quot;]: Double range
     > 
@@ -612,7 +612,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 > また、Azure の次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
 
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
@@ -666,7 +666,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
 
 この付録では、Azure Portal から新しい web サイトを作成して Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
 
@@ -790,7 +790,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 
     ![データベースを作成する](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "データベース文字列を作成します。")
 
-    *データベースの作成*
+    *データベースを作成する*
 7. Azure SQL データベースへの接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "SQL データベースを指す接続文字列")
@@ -806,7 +806,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>付録 c:コード スニペットを使用
+## <a name="appendix-c-using-code-snippets"></a>付録 Cコード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -814,7 +814,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 92c70297-4430-4e4e-919a-9c2333a8d09a
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a319e2eb71da1bf693b1bd14ae368c844e7daeb1
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 256536150a585a4bb0304f23c3524b18d0f552f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440262"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392379"
 ---
-<a name="iteration-4--make-the-application-loosely-coupled-vb"></a>繰り返し #4 – アプリケーションを疎結合 (VB) を作成します。
-====================
+# <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>繰り返し #4 – アプリケーションを疎結合 (VB) を作成します。
+
 によって[Microsoft](https://github.com/microsoft)
 
 [コードをダウンロードします。](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
@@ -85,7 +85,7 @@ ms.locfileid: "58440262"
 
 次に、IContactManagerRepository インターフェイスを実装する具象クラスを作成する必要があります。 Microsoft Entity Framework を使用して、データベースへのアクセスには、ため EntityContactManagerRepository をという名前の新しいクラスを作成します。 このクラスは、リスト 2 に含まれます。
 
-**Listing 2 - Models\EntityContactManagerRepository.vb**
+**2 - Models\EntityContactManagerRepository.vb を一覧表示します。**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample2.vb)]
 
@@ -173,7 +173,7 @@ IContactManagerService インターフェイスは、リスト 5 に含まれて
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample7.vb)]
 
-**Listing 8 - Models\Validation\IValidationDictionary.vb**
+**8 - Models\Validation\IValidationDictionary.vb を一覧表示します。**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample8.vb)]
 

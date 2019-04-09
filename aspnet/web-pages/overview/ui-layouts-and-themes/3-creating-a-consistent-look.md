@@ -8,15 +8,15 @@ ms.date: 03/10/2014
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 83aef41c0baaeca6a25e09b4ea797ce9ee963a85
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7ed2f5da62f4521b42db737100230fac5ea71d67
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57051239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385978"
 ---
-<a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトで一貫したレイアウトを作成します。
-====================
+# <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトで一貫したレイアウトを作成します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事で使用方法を説明するレイアウト ページ、ASP.NET Web Pages (Razor) の web サイトで (ヘッダーとフッター) などのコンテンツの再利用可能なブロックを作成して、サイト内のすべてのページの一貫性のある外観を作成します。
@@ -124,7 +124,7 @@ ms.locfileid: "57051239"
     手順 6 には、同じレイアウト ページを共有できますし、追加のコンテンツ ページの作成を繰り返します。
 
     > [!NOTE]
-    > フォルダー内のすべてのコンテンツ ページの同じレイアウト ページを自動的に使用できるように、サイトを設定することができます。 詳細については、[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906)を参照してください。
+    > フォルダー内のすべてのコンテンツ ページの同じレイアウト ページを自動的に使用できるように、サイトを設定することができます。 詳細については、次を参照してください。[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906)します。
 
 ## <a name="designing-layout-pages-that-have-multiple-content-sections"></a>複数のコンテンツ セクションのレイアウト ページのデザイン
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 649f83d54bfdb3367d9cea056a53a614f982adec
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ca47f6fe6d55153354d38fcf1ba5e844215279b2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422962"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389038"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework スキャフォールディングと移行
 
@@ -58,7 +58,7 @@ ASP.NET MVC 4 コント ローラーのメソッドに慣れてまたは、完�
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b:コード スニペットを使用して](#AppendixB)&quot;します。
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -218,7 +218,7 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 
     ![SQL スクリプトを生成して](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image15.png "SQL スクリプトの生成")
 
-    *SQL スクリプトの生成*
+    *SQL スクリプトを生成する*
 
     ![SQL スクリプトの update](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image16.png "SQL スクリプトの更新")
 
@@ -260,7 +260,7 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 
     ![ミドル ネーム edition](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image21.png "ミドル ネームのエディション")
 
-* * *
+---
 
 <a id="Summary"></a>
 
@@ -308,7 +308,7 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>付録 b:コード スニペットを使用
+## <a name="appendix-b-using-code-snippets"></a>付録 B:コード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -316,7 +316,7 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

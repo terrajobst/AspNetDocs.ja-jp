@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
-title: ASP.NET Web API のパラメーター バインド |Microsoft Docs
+title: パラメーター バインドでは、ASP.NET Web API - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Web API がパラメーターをバインドする方法と ASP.NET でバインディングのプロセスをカスタマイズする方法について説明します 4.x です。
 ms.author: riande
 ms.date: 07/11/2013
+ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a022138c594154109ff0bfba85949099e6b2d2a2
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f121f12ce689a079412bbd5392fde4fea863ff1f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422754"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401973"
 ---
-<a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API のパラメーター バインド
-====================
+# <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API のパラメーター バインド
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-呼ばれるプロセス パラメーターの値を設定する必要があります Web API コント ローラーのメソッドを呼び出す、*バインド*します。 この記事では、Web API が、パラメーターをバインドする方法と、バインディング プロセスをカスタマイズする方法について説明します。
+この記事では、Web API が、パラメーターをバインドする方法と、バインディング プロセスをカスタマイズする方法について説明します。 呼ばれるプロセス パラメーターの値を設定する必要があります Web API コント ローラーのメソッドを呼び出す、*バインド*します。 
 
 既定では、Web API は、次の規則を使用して、パラメーターをバインドします。
 
@@ -32,7 +33,7 @@ ms.locfileid: "58422754"
 
 *Id*パラメーターは、&quot;単純&quot;型であるため、Web API は要求 URI の値を取得しようとしています。 *項目*パラメーターが、複雑な型、Web API は、メディアの種類のフォーマッタを使用して、要求本文から値を読み取るようにします。
 
-URI から値を取得するには、Web API は、ルート データと、URI クエリ文字列で検索します。 ルーティング システムは、URI を解析し、ルートに一致する場合は、ルート データが設定されます。 詳細については、[ルーティングとアクションの選択](../web-api-routing-and-actions/routing-and-action-selection.md)を参照してください。
+URI から値を取得するには、Web API は、ルート データと、URI クエリ文字列で検索します。 ルーティング システムは、URI を解析し、ルートに一致する場合は、ルート データが設定されます。 詳細については、次を参照してください。[ルーティングとアクションの選択](../web-api-routing-and-actions/routing-and-action-selection.md)します。
 
 この記事の残りの部分で、モデル バインディング プロセスをカスタマイズする方法を示します。 複合型は、ただし、可能であれば、メディア タイプ フォーマッタを使用してを考慮します。 HTTP の重要な原則は、リソースは、コンテンツ ネゴシエーションを使用して、リソースの表現を指定する、メッセージの本文で送信されます。 メディア タイプ フォーマッタは、正確に、この目的用に設計されています。
 
@@ -42,7 +43,7 @@ URI から複合型を読み取る Web API を強制的には、追加、 **[Fro
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
-クライアントは、クエリ文字列で、緯度と経度の値を配置することができ、Web API を構築を使用してそれらが、`GeoPoint`します。 例:
+クライアントは、クエリ文字列で、緯度と経度の値を配置することができ、Web API を構築を使用してそれらが、`GeoPoint`します。 例えば:
 
 `http://localhost/api/values/?Latitude=47.678558&Longitude=-122.130989`
 

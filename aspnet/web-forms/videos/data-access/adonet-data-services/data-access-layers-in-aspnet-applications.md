@@ -8,15 +8,15 @@ ms.date: 08/07/2008
 ms.assetid: 536aa7a6-84fb-487c-a14f-6ca3eb8a4a33
 msc.legacyurl: /web-forms/videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications
 msc.type: video
-ms.openlocfilehash: f084f54c32cb31c5787b073751764efbe1643fbc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7a16533fd7265253d10a22dc5cc7c855250f8fe4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052569"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399568"
 ---
-<a name="data-access-layers-in-aspnet-applications"></a>ASP.NET アプリケーションのデータ アクセス層
-====================
+# <a name="data-access-layers-in-aspnet-applications"></a>ASP.NET アプリケーションのデータ アクセス層
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオでは、3、第 1 部では、Joe Stagner は単純な ASP.NET アプリケーションの型指定されたデータ セットを使用して、データ アクセス層を作成します。 このビデオについては、読み取り、[データ アクセス層を作成する](../../../overview/data-access/introduction/creating-a-data-access-layer-vb.md)データ アクセスのチュートリアル。

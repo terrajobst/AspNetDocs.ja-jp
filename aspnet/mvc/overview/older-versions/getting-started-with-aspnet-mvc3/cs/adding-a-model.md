@@ -8,15 +8,15 @@ ms.date: 01/12/2011
 ms.assetid: 42355b95-5f1f-413e-8d16-14cdfaaefcd8
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: f35e1fec7b3b2a1fc53cf8beb3781a2e2f6c8740
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c9fb4b65605d07421872c051eedcf667101316ef
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033629"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396760"
 ---
-<a name="adding-a-model-c"></a>モデルの追加 (C#)
-====================
+# <a name="adding-a-model-c"></a>モデルの追加 (C#)
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
@@ -73,8 +73,6 @@ Entity Framework と呼ばれる .NET Framework データ アクセス テクノ
 アプリケーションのルートを開く*Web.config*ファイル。 (いない、 *Web.config*ファイル、*ビュー*フォルダー)。次の図は、両方を表示*Web.config*ファイル; 開く、 *Web.config*ファイル赤い丸でします。
 
 ![](adding-a-model/_static/image4.png)
-
-### 
 
 次の接続文字列を追加、`<connectionStrings>`内の要素、 *Web.config*ファイル。
 

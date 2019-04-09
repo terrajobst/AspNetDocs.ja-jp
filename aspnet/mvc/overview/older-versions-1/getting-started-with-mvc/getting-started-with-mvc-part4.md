@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: 596a491b4152da341a7779236dab17967a6de670
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b75057f3128662a9bbdd641dc0a7c1ba09fbbe87
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044219"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388193"
 ---
-<a name="creating-a-database"></a>データベースの作成
-====================
+# <a name="creating-a-database"></a>データベースの作成
+
 [Scott Hanselman](https://github.com/shanselman)による
 
 > これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
@@ -32,11 +32,11 @@ ms.locfileid: "57044219"
 
 接続の追加 ダイアログ ボックスで次のように入力します。"。 \SQLEXPRESS"、サーバー名に対応し、新しいデータベースの名前として"Movies"を入力します。
 
-[![追加の接続 ダイアログ ボックス](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
+[![Add 接続ダイアログ](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
 
 [OK] をクリックし、求められますかどうかは、そのデータベースを作成します。 [はい] を選択します。
 
-[![ムービーを作成しますか。](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
+[![Cムービーを作成しますか?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
 
 サーバー エクスプ ローラーで、空のデータベースがあります。
 
@@ -44,7 +44,7 @@ ms.locfileid: "57044219"
 
 テーブルを右クリックし、[テーブルの追加] をクリックします。 テーブル デザイナーが表示されます。 Id、タイトル、ReleaseDate、ジャンル、および価格の列を追加します。 ID 列を右クリックし、主キーの設定 をクリックします。 次のようになります、どのようなデザイン領域に示します。
 
-[![データベース テーブル エディター](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
+[![Dデータベース テーブル エディター](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
 
 また、Id 列を選択し、以下の列のプロパティを"Yes"にします「Id の指定」を変更します。
 
@@ -52,11 +52,11 @@ ms.locfileid: "57044219"
 
 これを取得したら、ツールバーの [保存] アイコンをクリックしますまたはファイルを選択します |。メニューから、保存し、テーブルの名前"**ムービー**"(単数形)。 データベースとテーブルを作成しました!
 
-[![名前を選択します。](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
+[![C名前の選択](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
 
 サーバー エクスプ ローラーに戻り、Movie テーブルを右クリックし、"テーブル データの表示。 を選択します。 データベースにいくつかのデータがあるため、いくつかの映画を入力します。
 
-[![データベース テーブルの編集](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
+[![Dデータベース テーブルの編集](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
 ## <a name="creating-a-model"></a>モデルの作成
 
@@ -76,7 +76,7 @@ ms.locfileid: "57044219"
 
 ここで、Entity Framework デザイナーで新しいムービー テーブルを参照してください。 し、コードからアクセスできます。
 
-[![ビデオ - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
+[![Movies - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
 
 デザイン画面では、「ビデオ」クラスを確認できます。 このクラスは、データベース内の「ムービー」テーブルにマップし、内の各プロパティは、テーブルの列にマップします。 「ビデオ」クラスの各インスタンスは"Movie"テーブル内の行に対応します。
 

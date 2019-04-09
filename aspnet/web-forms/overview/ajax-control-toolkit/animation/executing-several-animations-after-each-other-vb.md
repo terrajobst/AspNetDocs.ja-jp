@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 21ece509-79cc-4d9d-892d-7b6e9c4d3502
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 89412c078bbe40f06d31327d0a17bf3ea8bc8314
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 53984f03cf01caab859f44fdc018b1598ed62def
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383045"
 ---
-<a name="executing-several-animations-after-each-other-vb"></a>複数のアニメーションを順番に実行する (VB)
-====================
+# <a name="executing-several-animations-after-each-other-vb"></a>複数のアニメーションを順番に実行する (VB)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation3.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation3VB.pdf)
@@ -53,12 +53,12 @@ ms.locfileid: "57052579"
 ときに最初の取得も縦と横が小さくし、パネル、このスクリプトを実行します。
 
 
-[![まず、幅が増加します。](executing-several-animations-after-each-other-vb/_static/image2.png)](executing-several-animations-after-each-other-vb/_static/image1.png)
+[![Fクエリー、幅を増やす](executing-several-animations-after-each-other-vb/_static/image2.png)](executing-several-animations-after-each-other-vb/_static/image1.png)
 
 まず、幅が増加 ([フルサイズの画像を表示する をクリックします](executing-several-animations-after-each-other-vb/_static/image3.png))。
 
 
-[![高さの減少し、](executing-several-animations-after-each-other-vb/_static/image5.png)](executing-several-animations-after-each-other-vb/_static/image4.png)
+[![T高さの減少 hen](executing-several-animations-after-each-other-vb/_static/image5.png)](executing-several-animations-after-each-other-vb/_static/image4.png)
 
 高さの減少し、([フルサイズの画像を表示する をクリックします](executing-several-animations-after-each-other-vb/_static/image6.png))。
 

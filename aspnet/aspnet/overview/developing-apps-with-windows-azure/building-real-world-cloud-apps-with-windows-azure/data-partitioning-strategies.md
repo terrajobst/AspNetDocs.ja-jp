@@ -8,20 +8,20 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 07a80767ca2def26c0252037a3b8b990abcbe1b3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1050018794526e12aad43cd473665de5ff575d7d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57051869"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403559"
 ---
-<a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>データのパーティション分割戦略 (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>データのパーティション分割戦略 (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 系列の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 系列の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 前の追加と web サーバーを削除して、クラウド アプリケーションの web 層をスケールするがいかに簡単かを説明しました。 すべて発生する場合、同じデータ ストア、バック エンド、フロント エンドからアプリケーションのボトルネックに移動し、データ層はスケールにします。 この章で利用する方法、データ層は拡張性の高い複数のリレーショナル データベースにデータを分割することで、または他のデータ ストレージ オプションとリレーショナル データベースの記憶域を組み合わせることによってに注目します。

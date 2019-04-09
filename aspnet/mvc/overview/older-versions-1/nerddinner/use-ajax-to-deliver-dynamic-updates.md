@@ -8,18 +8,18 @@ ms.date: 07/27/2010
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 71e566523d658eb8198453f354a12e63a4c38495
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 56ebc40aa500b62811bac0a5041fa9aa4f91f4ae
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421038"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391053"
 ---
-<a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX を使用し、動的更新を配信する
-====================
+# <a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX を使用し、動的更新を配信する
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 10 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -112,9 +112,9 @@ JQuery を使用するには、スクリプト参照を最初に追加します�
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*ヒント: VS 2008 sp1 (jQuery など)、JavaScript ファイルの高度な intellisense サポートを有効にする JavaScript intellisense の修正プログラムがインストールされていることを確認します。ダウンロードすることができます。 http://tinyurl.com/vs2008javascripthotfix*
+*ヒント: VS 2008 sp1 (jQuery など)、JavaScript ファイルの高度な intellisense サポートを有効にする JavaScript intellisense の修正プログラムがインストールされていることを確認します。 ダウンロードすることができます。 http://tinyurl.com/vs2008javascripthotfix*
 
-多くの場合、JQuery を使用して記述されたコードは、グローバル「$ ()」を使用して JavaScript メソッドを CSS セレクターを使用して 1 つまたは複数の HTML 要素を取得します。 たとえば、 <em>$("#rsvpmsg")</em> rsvpmsg の id を持つ任意の HTML 要素を選択中に<em>$(".something")</em> 「何か」CSS ですべての要素を選択クラス名。 「すべてのチェックのラジオ ボタンを返す」などのより高度なクエリを記述することもできます。 セレクターのようなクエリを使用して: <em>$("入力 [@type= ラジオ] [@checked]")</em>します。
+多くの場合、JQuery を使用して記述されたコードは、グローバル「$ ()」を使用して JavaScript メソッドを CSS セレクターを使用して 1 つまたは複数の HTML 要素を取得します。 たとえば、 *$("#rsvpmsg")* rsvpmsg の id を持つ任意の HTML 要素を選択中に *$(".something")* 「何か」CSS ですべての要素を選択クラス名。 「すべてのチェックのラジオ ボタンを返す」などのより高度なクエリを記述することもできます。 セレクターのようなクエリを使用して: *$("入力 [@type= ラジオ] [@checked]")* します。
 
 要素を選択すると、非表示にするように、アクションを実行するためにメソッドを呼び出すことができます: *$("#rsvpmsg").hide();*
 

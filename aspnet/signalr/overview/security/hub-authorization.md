@@ -8,15 +8,15 @@ ms.date: 01/05/2015
 ms.assetid: a610c796-c131-473c-baef-2e6c568cb2a2
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: bfea212283165facc046e5355571c1e6d9c7cd7d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91703a9ea088ab8b2898945dbd80b671ee25be07
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037789"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392502"
 ---
-<a name="authentication-and-authorization-for-signalr-hubs"></a>SignalR ハブの認証と承認
-====================
+# <a name="authentication-and-authorization-for-signalr-hubs"></a>SignalR ハブの認証と承認
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "57037789"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -115,7 +115,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 ## <a name="authentication-options-for-net-clients"></a>.NET クライアントの認証オプション
 
-認証されたユーザーを制限するハブとの対話、により、コンソール アプリなどの .NET クライアントがある場合は、cookie、connection ヘッダー。 または、証明書で認証資格情報を渡すことができます。 このセクションの例では、ユーザーを認証するため、これらのさまざまなメソッドを使用する方法を示します。 完全に機能する SignalR アプリケーションではありません。 SignalR を使って .NET クライアントの詳細については、[ハブ API ガイド - .NET クライアント](../guide-to-the-api/hubs-api-guide-net-client.md)を参照してください。
+認証されたユーザーを制限するハブとの対話、により、コンソール アプリなどの .NET クライアントがある場合は、cookie、connection ヘッダー。 または、証明書で認証資格情報を渡すことができます。 このセクションの例では、ユーザーを認証するため、これらのさまざまなメソッドを使用する方法を示します。 完全に機能する SignalR アプリケーションではありません。 SignalR を使って .NET クライアントの詳細については、次を参照してください。[ハブ API ガイド - .NET クライアント](../guide-to-the-api/hubs-api-guide-net-client.md)します。
 
 <a id="cookie"></a>
 

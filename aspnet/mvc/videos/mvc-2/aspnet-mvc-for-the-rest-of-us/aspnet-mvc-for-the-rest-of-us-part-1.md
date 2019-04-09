@@ -8,15 +8,15 @@ ms.date: 04/22/2010
 ms.assetid: c56355c3-821f-43e2-9058-9499a1d63f80
 msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1
 msc.type: video
-ms.openlocfilehash: 3e7d874c322e6461dcc030814de455318c9dd902
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ac872869f97aab679384c7cda9f6c8399cd966a3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384704"
 ---
-<a name="aspnet-mvc-for-the-rest-of-us-part-1"></a>残りの人のための ASP.NET MVC:第 1 部
-====================
+# <a name="aspnet-mvc-for-the-rest-of-us-part-1"></a>残りの人のための ASP.NET MVC:第 1 部
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオの Microsoft の Joe Stagner は、ビュー、コント ローラー ロジックおよびカスタム モデルを既定の ASP.NET アプリケーションに追加することで、ASP.NET MVC アプリケーション用「弊社」機能を構築します。 ASP.NET Web フォームと ASP.NET MVC の使用に関する基本的な違いの一部が表示されます。

@@ -8,21 +8,21 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 010adaba61b15ca4421c2d3a4a7590becb53897b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422851"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390039"
 ---
-<a name="profiles-themes-and-web-parts"></a>プロファイル、テーマ、Web パーツ
-====================
+# <a name="profiles-themes-and-web-parts"></a>プロファイル、テーマ、Web パーツ
+
 によって[Microsoft](https://github.com/microsoft)
 
 > 主要な構成の変更と ASP.NET 2.0 のインストルメンテーションがあります。 新しい ASP.NET 構成 API では、プログラムで実行できる構成の変更ができます。 多くの新しい構成設定が存在するさらに、新しい構成とインストルメンテーションを許可します。
 
 
-ASP.NET 2.0 では、カスタマイズされた Web サイトの領域も大幅に改善を表します。 既に説明メンバーシップ機能という、だけでなく ASP.NET プロファイル、テーマ、および Web パーツを大幅に改善の Web サイトでのパーソナル化します。
+ASP.NET 2.0 では、カスタマイズされた Web サイトの領域も大幅に改善を表します。 既に説明した、メンバーシップ機能だけでなく ASP.NET プロファイル、テーマ、および Web パーツを大幅に改善の Web サイトでのパーソナル化。
 
 ## <a name="aspnet-profiles"></a>ASP.NET プロファイル
 
@@ -93,13 +93,13 @@ ASP.NET プロファイルでは、プロバイダー モデルを使用しま�
 
 ### <a name="providerbase-members"></a>ProviderBase メンバー
 
-| **Member** | **説明** |
+| **メンバー** | **説明** |
 | --- | --- |
 | Initialize メソッド | プロバイダーのインスタンスの名前と構成設定の NameValueCollection を入力として受け取ります。 オプションと実装に固有の値と、マシンの構成または Web.config ファイルで指定されたオプションを含む、プロバイダーのインスタンスのプロパティの値を設定するために使用します。 |
 
 ### <a name="settingsprovider-members"></a>SettingsProvider メンバー
 
-| **Member** | **説明** |
+| **メンバー** | **説明** |
 | --- | --- |
 | ApplicationName プロパティ | 各プロファイルに格納されているアプリケーション名。 プロファイル プロバイダーでは、アプリケーション名を使用して、アプリケーションごとに個別にプロファイル情報を格納します。 これにより、同じユーザー名が別のアプリケーションで作成した場合、競合することがなく、同じデータ ソースを使用する複数の ASP.NET アプリケーション。 または、複数の ASP.NET アプリケーションでは、同じアプリケーション名を指定することで、プロファイル データ ソースを共有できます。 |
 | GetPropertyValues メソッド | SettingsPropertyCollection オブジェクトおよび SettingsContext 入力として受け取ります。 **SettingsContext**ユーザーに関する情報を提供します。 主キーとして、情報を使用するには、ユーザーのプロファイル プロパティ情報を取得します。 使用して、 **SettingsContext**ユーザー名と、ユーザーが認証済みまたは匿名のかどうかを取得するオブジェクト。 **SettingsPropertyCollection** SettingsProperty オブジェクトのコレクションが含まれています。 各**SettingsProperty**オブジェクト プロパティと、プロパティとプロパティは読み取り専用かどうかの既定値などの追加情報の種類と名前を提供します。 **GetPropertyValues**メソッドに基づく SettingsPropertyValue オブジェクトが、SettingsPropertyValueCollection を設定します、 **SettingsProperty**入力として提供されているオブジェクト。 指定したユーザーのデータ ソースからの値が各 PropertyValue プロパティに割り当てられている**SettingsPropertyValue**オブジェクトとコレクション全体が返されます。 指定されたユーザー プロファイルの LastActivityDate 値を現在の日付と時刻を更新もメソッドを呼び出すことです。 |
@@ -107,7 +107,7 @@ ASP.NET プロファイルでは、プロバイダー モデルを使用しま�
 
 ### <a name="profileprovider-members"></a>ProfileProvider メンバー
 
-| **Member** | **説明** |
+| **メンバー** | **説明** |
 | --- | --- |
 | DeleteProfiles メソッド | アプリケーション名が一致するユーザーの文字列配列の名前し、データ ソースから削除します。 すべてのプロファイル情報とプロパティ値に対して指定した名前の入力として受け取り、 **ApplicationName**プロパティの値。 データ ソースは、トランザクションをサポートする場合は、すべての削除操作は、トランザクションに含めることと、トランザクションをロールバックして、削除操作が失敗した場合に例外をスローするをお勧めします。 |
 | DeleteProfiles メソッド | アプリケーション名が一致する ProfileInfo のコレクション オブジェクトし、データ ソースから削除します。 すべてのプロファイル情報とプロパティ値の各プロファイルの入力として受け取り、 **ApplicationName**プロパティの値。 データ ソースは、トランザクションをサポートする場合は、すべての削除操作をトランザクションに含めると、トランザクションのロールバックを削除操作が失敗した場合に例外をスローをお勧めします。 |

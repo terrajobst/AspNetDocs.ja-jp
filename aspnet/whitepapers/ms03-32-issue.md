@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: 9041f8d15a449a517594f8051c3d9f0ceb18a8a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: faad1530a499fd3f46a6a6c6e7c194ba6c55fa6c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038549"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386295"
 ---
-<a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE のセキュリティ更新を適用した後の 'サーバー アプリケーションは使用できません ' エラーの修正
-====================
+# <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE のセキュリティ更新を適用した後の 'サーバー アプリケーションは使用できません ' エラーの修正
+
 > このホワイト ペーパーでは、Windows XP Professional で実行されている ASP.NET 1.0 アプリケーションに影響する Internet Explorer の ms 03 32 のセキュリティ更新プログラムの問題を修正する修正プログラムについて説明します。
 > 
 > ASP.NET 1.0 と Windows XP Professional に適用されます。
@@ -62,7 +62,7 @@ Microsoft では、Internet Explorer のセキュリティ更新プログラム�
 | --- | --- | --- |
 | バージョン 1.0 | Windows 2000 Professional | いいえ |
 | バージョン 1.0 | Windows 2000 Server | いいえ |
-| バージョン 1.0 | Windows XP Professional | [はい] |
+| バージョン 1.0 | Windows XP Professional | はい |
 | バージョン 1.0 | Windows Server 2003 | いいえ |
 | バージョン 1.0 | Cassini と Windows XP ホーム | いいえ |
 | バージョン 1.1 | Windows 2000 Professional | いいえ |

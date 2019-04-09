@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: セキュリティで保護された ASP.NET Web フォーム アプリを作成するユーザー登録、電子メール確認、パスワードのリセット (C#) |Microsoft Docs
+title: セキュリティで保護された ASP.NET Web フォーム アプリを作成するユーザー登録、電子メール確認、パスワードのリセット (c#) |Microsoft Docs
 author: Erikre
 description: このチュートリアルでは、ユーザーの登録、確認の電子メールと ASP.NET Identity のメンバーを使用してパスワード リセットによる ASP.NET Web フォーム アプリを構築する方法を紹介しています.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 1bd90f0ceddee7d9e18c1cac2fadfb2c84841f19
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3df728891103de9c8e461ab9507237c9b14e8251
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424639"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390689"
 ---
-<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>ユーザー登録、電子メール確認、パスワード リセットを利用し、安全な ASP.NET Web フォームを作成する (C#)
-====================
+# <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>ユーザー登録、電子メール確認、パスワード リセットを利用し、安全な ASP.NET Web フォームを作成する (C#)
+
 によって[Erik Reitan](https://github.com/Erikre)
 
 > このチュートリアルでは、ユーザーの登録、確認の電子メールと、ASP.NET Identity メンバーシップ システムを使用してパスワード リセットによる ASP.NET Web フォーム アプリをビルドする方法を示します。 このチュートリアルは、Rick Anderson のに基づいてが[MVC チュートリアル](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)します。
@@ -71,7 +71,7 @@ ms.locfileid: "58424639"
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>SendGrid をフックします。
 
-SendGrid は、このチュートリアルが記述されたからの API を変更されました。 SendGrid 手順については現在、[SendGrid](http://sendgrid.com/)または[アカウントの確認とパスワードの回復を有効にする](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery)を参照してください。
+SendGrid は、このチュートリアルが記述されたからの API を変更されました。 SendGrid 手順については現在、次を参照してください。 [SendGrid](http://sendgrid.com/)または[アカウントの確認とパスワードの回復を有効にする](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery)します。
 
 このチュートリアルを使用して電子メール通知を追加する方法だけでは[SendGrid](http://sendgrid.com/)、SMTP とその他のメカニズムを使用して電子メールを送信することができます (を参照してください[その他のリソース](#addRes))。
 

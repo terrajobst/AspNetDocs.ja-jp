@@ -8,15 +8,15 @@ ms.date: 12/03/2010
 ms.assetid: 5cb00916-8f46-491f-be25-4739a615d619
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: f9f100ccaf5e9cfdaf0633f9bfebbad273212a0e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 51e3010f6e01434c495201af4af3bbdcde993da7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398437"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Web フォームの作業の Entity Framework 4.0 Database で最初に開始および ASP.NET 4
-====================
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Web フォームの作業の Entity Framework 4.0 Database で最初に開始および ASP.NET 4
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso University の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
@@ -25,7 +25,7 @@ ms.locfileid: "57054239"
 > 
 > ## <a name="database-first"></a>最初のデータベースします。
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、[Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)を参照してください。
+> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 

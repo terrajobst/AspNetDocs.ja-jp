@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b88aa22ccef04ab03b3a16c42e0a30e45ad11901
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b452c59f16107be6d356f86e6c313ba3229dbce6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025449"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392756"
 ---
-<a name="part-2-controllers"></a>第 2 部: Controllers
-====================
+# <a name="part-2-controllers"></a>第 2 部: Controllers
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -73,7 +73,7 @@ Visual Web Developer が、web サーバーを指す URL のブラウザー ウ�
 
 では、非常に速かった – 新しい web サイトを作成しましたが、関数の場合、次の 3 つの行を追加して、ブラウザーでテキストがあります。 いないきわめてが、開始します。
 
-*注:Visual Web Developer には、無料の「ポート」ランダムな番号で、web サイトを実行する ASP.NET 開発サーバーが含まれています。上記のスクリーン ショットでは、サイトが実行されている`http://localhost:26641/`26641 ポートを使用しているため、します。実際のポート番号は別になります。このチュートリアルでは URL の like/Store/Browse について説明と、は、ポート番号の後が変わります。26641 のポート番号と仮定すると、/ストア/参照への参照を参照する`http://localhost:26641/Store/Browse`します。*
+*メモ:Visual Web Developer には、無料の「ポート」ランダムな番号で、web サイトを実行する ASP.NET 開発サーバーが含まれています。 上記のスクリーン ショットでは、サイトが実行されている`http://localhost:26641/`26641 ポートを使用しているため、します。 実際のポート番号は別になります。 このチュートリアルでは URL の like/Store/Browse について説明と、は、ポート番号の後が変わります。 26641 のポート番号と仮定すると、/ストア/参照への参照を参照する`http://localhost:26641/Store/Browse`します。*
 
 ## <a name="adding-a-storecontroller"></a>StoreController を追加します。
 
@@ -113,7 +113,7 @@ Visual Web Developer が、web サーバーを指す URL のブラウザー ウ�
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*注:ユーザー入力をサニタイズするのに HttpUtility.HtmlEncode ユーティリティ メソッドを使用しています。これにより、ユーザーが/Store/Browse などのリンクを使用して、ビューに Javascript を挿入することからできないようにしますか。ジャンル =&lt;スクリプト&gt;window.location='http://hackersite.com'&lt;/script&gt;します。*
+*メモ:ユーザー入力をサニタイズするのに HttpUtility.HtmlEncode ユーティリティ メソッドを使用しています。 これにより、ユーザーが/Store/Browse などのリンクを使用して、ビューに Javascript を挿入することからできないようにしますか。ジャンル =&lt;スクリプト&gt;window.location='http://hackersite.com'&lt;/script&gt;します。*
 
 今すぐ/ストア/参照をブラウズしますか?ジャンル Disco を =
 

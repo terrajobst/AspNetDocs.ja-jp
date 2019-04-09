@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: cab338e56505c453532a26d794eb7bf4e94555a9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2ba210d8c541c6c330dda74706470fa73a81474a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064409"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379483"
 ---
-<a name="part-8-shopping-cart-with-ajax-updates"></a>第 8 部:ショッピング カートと Ajax 更新
-====================
+# <a name="part-8-shopping-cart-with-ajax-updates"></a>第 8 部:ショッピング カートと Ajax 更新
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -54,7 +54,7 @@ ms.locfileid: "57064409"
 
 一時的な一意の識別子 (GUID、またはグローバルに一意の識別子を使用して) ユーザーを割り当てることが買い物かごにアイテムを追加するためだけのアカウントにサインアップするユーザーを必要とするのでない、ショッピング カートにアクセスするとき。 ASP.NET セッション クラスを使用して、この ID を格納します。
 
-*注:ASP.NET セッションは、サイトを離れた後の有効期限をユーザーに固有の情報を格納する便利な場所です。セッション状態の不正使用では、大きいサイトのパフォーマンスに影響を持つことができます、明るい使用はデモンストレーションのためにも機能します。*
+*メモ:ASP.NET セッションは、サイトを離れた後の有効期限をユーザーに固有の情報を格納する便利な場所です。 セッション状態の不正使用では、大きいサイトのパフォーマンスに影響を持つことができます、明るい使用はデモンストレーションのためにも機能します。*
 
 ShoppingCart クラスは、次のメソッドを公開します。
 

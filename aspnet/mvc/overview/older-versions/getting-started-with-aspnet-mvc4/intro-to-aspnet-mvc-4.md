@@ -8,15 +8,15 @@ ms.date: 08/15/2012
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: ea3d1517192ded0e5372c49897bb1fec33324b6f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ecc0733c2850bc157c7ee5b251787152393481fc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046779"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385255"
 ---
-<a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4 入門
-====================
+# <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4 入門
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、使用可能な場合は、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)します。 新しいチュートリアルでは、このチュートリアルで多くの機能強化を提供する ASP.NET MVC 5 を使用します。
@@ -32,7 +32,7 @@ ms.locfileid: "57046779"
 >
 > C# ソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [C# バージョンをダウンロード](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip)します。
 >
-> チュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーへのデプロイで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[無料試用版アカウントを Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法については、[作成し、ASP.NET web サイトと Visual Studio での SQL Database のデプロイ](https://docs.microsoft.com/dotnet/azure/)を参照してください。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL Database (旧 SQL Azure) に、SQL Server データベースをデプロイする方法も示します。
+> チュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーへのデプロイで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[無料試用版アカウントを Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法については、次を参照してください。[作成し、ASP.NET web サイトと Visual Studio での SQL Database のデプロイ](https://docs.microsoft.com/dotnet/azure/)します。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL Database (旧 SQL Azure) に、SQL Server データベースをデプロイする方法も示します。
 >
 > このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )。
 

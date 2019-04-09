@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 53e659cc-eefb-40c1-a1dc-559481c99443
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a2d7a27a8bf9da365e4f48d7ca2d9d902ec4a5ba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8edc18968625036964c0120b83f8ebb149dbf87a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048469"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393432"
 ---
-<a name="masterdetail-filtering-with-a-dropdownlist-c"></a>DropDownList でマスター/詳細をフィルター処理する (C#)
-====================
+# <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>DropDownList でマスター/詳細をフィルター処理する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_7_CS.exe)または[PDF のダウンロード](master-detail-filtering-with-a-dropdownlist-cs/_static/datatutorial07cs1.pdf)
@@ -35,7 +35,7 @@ ms.locfileid: "57048469"
 マスター/詳細レポートは、選択されたリスト項目の製品が表示されると、DropDownList でカテゴリを一覧の後半で、GridView でページ。 前に、最初のタスクは、DropDownList に表示されるカテゴリにし、です。 開く、`FilterByDropDownList.aspx`ページで、`Filtering`フォルダーは、ページのデザイナーには、ツールボックスから DropDownList にドラッグし、設定、`ID`プロパティを`Categories`します。 次に、DropDownList のスマート タグからのデータ ソースの選択のリンクをクリックします。 これにより、データ ソース構成ウィザードが表示されます。
 
 
-[![DropDownList のデータ ソースを指定します。](master-detail-filtering-with-a-dropdownlist-cs/_static/image2.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image1.png)
+[![SDropDownList のデータ ソースを指定する](master-detail-filtering-with-a-dropdownlist-cs/_static/image2.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image1.png)
 
 **図 1**:DropDownList のデータ ソースを指定 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image3.png))。
 
@@ -43,17 +43,17 @@ ms.locfileid: "57048469"
 という名前の新しい ObjectDataSource を追加することも`CategoriesDataSource`を呼び出す、`CategoriesBLL`クラスの`GetCategories()`メソッド。
 
 
-[![CategoriesDataSource という名前の新しい ObjectDataSource を追加します。](master-detail-filtering-with-a-dropdownlist-cs/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image4.png)
+[![Add 新しい ObjectDataSource という CategoriesDataSource](master-detail-filtering-with-a-dropdownlist-cs/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image4.png)
 
 **図 2**:新しい ObjectDataSource という追加`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image6.png))。
 
 
-[![CategoriesBLL クラスを使用します。](master-detail-filtering-with-a-dropdownlist-cs/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image7.png)
+[![CCategoriesBLL クラスを使用する選択](master-detail-filtering-with-a-dropdownlist-cs/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image7.png)
 
 **図 3**:使用する、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image9.png))。
 
 
-[![ObjectDataSource GetCategories() メソッドを使用して構成します。](master-detail-filtering-with-a-dropdownlist-cs/_static/image11.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image10.png)
+[![C構成、ObjectDataSource GetCategories() メソッドを使用する](master-detail-filtering-with-a-dropdownlist-cs/_static/image11.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image10.png)
 
 **図 4**:構成に使用する ObjectDataSource、`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image12.png))。
 
@@ -61,7 +61,7 @@ ms.locfileid: "57048469"
 DropDownList にどのようなデータ ソースのフィールドを表示するかを指定する必要があります ObjectDataSource を構成した後は、リスト項目の値として関連付けられている 1 つがあります。 `CategoryName`フィールドとして表示し、`CategoryID`各リスト項目の値として。
 
 
-[![値として使用 CategoryID と CategoryName フィールド DropDownList 表示があります。](master-detail-filtering-with-a-dropdownlist-cs/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image13.png)
+[![HDropDownList の平均は、値として使用 CategoryID と CategoryName フィールドを表示](master-detail-filtering-with-a-dropdownlist-cs/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image13.png)
 
 **図 5**:DropDownList の表示、`CategoryName`フィールド`CategoryID`値として ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image15.png))。
 
@@ -69,7 +69,7 @@ DropDownList にどのようなデータ ソースのフィールドを表示す
 この時点でのレコードが設定された DropDownList コントロールがある、`Categories`テーブル (すべて約 6 秒間で行われます)。 図 6 は、ブラウザーで表示したときにこれまで、進行状況を示します。
 
 
-[![ドロップダウンには、現在のカテゴリが表示されます。](master-detail-filtering-with-a-dropdownlist-cs/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image16.png)
+[![A ドロップダウン リストには、現在のカテゴリが表示されます](master-detail-filtering-with-a-dropdownlist-cs/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image16.png)
 
 **図 6**:ドロップダウン リスト、現在のカテゴリ ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image18.png))。
 
@@ -79,7 +79,7 @@ DropDownList にどのようなデータ ソースのフィールドを表示す
 マスター/詳細レポートの最後のステップでは、選択したカテゴリに関連付けられている製品を一覧表示します。 これを実現するには、ページに GridView を追加という名前の新しい ObjectDataSource を作成して`productsDataSource`します。 `productsDataSource`コントロールからそのデータの数を減らします、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。
 
 
-[![GetProductsByCategoryID(categoryID) メソッドを選択します。](master-detail-filtering-with-a-dropdownlist-cs/_static/image20.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image19.png)
+[![SGetProductsByCategoryID(categoryID) メソッドを選択](master-detail-filtering-with-a-dropdownlist-cs/_static/image20.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image19.png)
 
 **図 7**:選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image21.png))。
 
@@ -87,7 +87,7 @@ DropDownList にどのようなデータ ソースのフィールドを表示す
 メソッドの値のこと、ObjectDataSource ウィザードでこのメソッドを選択すると、入力*`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`します。
 
 
-[![CategoryID パラメーター カテゴリの DropDownList の値に設定されます。](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
+[![Set categoryID パラメーターのカテゴリの DropDownList の値](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
 
 **図 8**:設定、 *`categoryID`* パラメーターの値を`Categories`DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))。
 
@@ -100,12 +100,12 @@ DropDownList にどのようなデータ ソースのフィールドを表示す
 図 9 と 10 は、マスター/詳細レポートの動作を示しています。
 
 
-[![まず、ページにアクセスして、飲み物の製品が表示されます。](master-detail-filtering-with-a-dropdownlist-cs/_static/image26.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image25.png)
+[![When が最初にアクセスして、ページ、飲み物の製品が表示されます](master-detail-filtering-with-a-dropdownlist-cs/_static/image26.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image25.png)
 
 **図 9**:まず、ページにアクセスして、飲み物の製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image27.png))。
 
 
-[![新しい製品 (生成) を選択すると、自動的にポストバックが発生する、GridView を更新しています](master-detail-filtering-with-a-dropdownlist-cs/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image28.png)
+[![S新しい製品 (生成) の自動的と、ポストバック、GridView の更新の選択](master-detail-filtering-with-a-dropdownlist-cs/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image28.png)
 
 **図 10**:新しい製品 (生成) を選択すると、自動的にポストバックが発生する、GridView を更新しています ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image30.png))。
 
@@ -117,7 +117,7 @@ DropDownList にどのようなデータ ソースのフィールドを表示す
 DropDownList に新しいリスト アイテムを追加する [プロパティ] ウィンドウに移動し、省略記号をクリックして、`Items`プロパティ。 新しいリスト アイテムを追加、 `Text` 「--カテゴリを選択--」および`Value``-1`します。
 
 
-[![追加-カテゴリ - リスト項目の選択](master-detail-filtering-with-a-dropdownlist-cs/_static/image32.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image31.png)
+[![Add-カテゴリ - リスト項目の選択](master-detail-filtering-with-a-dropdownlist-cs/_static/image32.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image31.png)
 
 **図 11**:追加---カテゴリを選択するには、リスト項目 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image33.png))。
 
@@ -137,7 +137,7 @@ DropDownList に新しいリスト アイテムを追加する [プロパティ]
 これらの変更後「--カテゴリを選択--」オプションが選択されている最初のページにアクセスすると、製品は表示されません。
 
 
-[![初期ページの読み込み時の製品は表示されません。](master-detail-filtering-with-a-dropdownlist-cs/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image35.png)
+[![On 最初のページ ロードなし製品が表示されます](master-detail-filtering-with-a-dropdownlist-cs/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image35.png)
 
 **図 13**:初期ページ負荷のない製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))。
 
@@ -151,7 +151,7 @@ DropDownList に新しいリスト アイテムを追加する [プロパティ]
 図 14 のスクリーン ショットを示しています。 `FilterByDropDownList.aspx` "--カテゴリを選択--"オプションを選択するとします。 ここでは、既定では、すべての製品が表示され、ユーザーは、特定のカテゴリを選択して、表示を絞り込むことができます。
 
 
-[![一覧で、既定ではすべての製品](master-detail-filtering-with-a-dropdownlist-cs/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image38.png)
+[![A製品の今回は、一覧で、既定で](master-detail-filtering-with-a-dropdownlist-cs/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image38.png)
 
 **図 14**:一覧で、既定ではすべての製品 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image40.png))。
 

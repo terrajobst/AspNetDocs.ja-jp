@@ -8,15 +8,15 @@ ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: c9d3e4b05103d270ad95908177bb2981338a4ae1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9d3016d98fa6c3a55359c6dab0737407b29925f1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425289"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403832"
 ---
-<a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのクロス オリジン要求を有効にします。
-====================
+# <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのクロス オリジン要求を有効にします。
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。 ただし、場合がありますたい他のサイト、web API の呼び出しを使用します。
@@ -45,10 +45,10 @@ ms.locfileid: "58425289"
 
 次の URL は、上の URL とは生成元が異なります。
 
-- `http://example.net` - 異なるドメイン 
-- `http://example.com:9000/foo.html` - 異なるポート
-- `https://example.com/foo.html` - 異なるスキーム
-- `http://www.example.com/foo.html` - 異なるサブドメイン
+- `http://example.net` -別のドメイン
+- `http://example.com:9000/foo.html` -別のポート
+- `https://example.com/foo.html` -別の配色
+- `http://www.example.com/foo.html` -別のサブドメイン
 
 > [!NOTE]
 > Internet Explorer では、配信元を比較するときに、ポートは考慮されません。
@@ -56,7 +56,7 @@ ms.locfileid: "58425289"
 ## <a name="create-the-webservice-project"></a>Web サービス プロジェクトを作成します。
 
 > [!NOTE]
-> このセクションでは、Web API プロジェクトを作成する方法を知ってを前提としています。 そうでない場合は、[ASP.NET Web API の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)を参照してください。
+> このセクションでは、Web API プロジェクトを作成する方法を知ってを前提としています。 そうでない場合は、次を参照してください。 [ASP.NET Web API の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
 
 1. Visual Studio を起動し、新しい作成**ASP.NET Web アプリケーション (.NET Framework)** プロジェクト。
 2. **新しい ASP.NET Web アプリケーション**ダイアログ ボックスで、**空**プロジェクト テンプレート。 **フォルダーを追加し、参照用のコア**を選択、 **Web API**チェック ボックスをオンします。
@@ -296,6 +296,6 @@ Jquery では。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample24.cs)]
 
-## <a name="browser-support"></a>ブラウザーのサポート
+## <a name="browser-support"></a>ブラウザー サポート
 
 Web API CORS パッケージは、サーバー側テクノロジです。 ユーザーのブラウザーが CORS をサポートするためにも必要です。 幸いにも、すべての主要なブラウザーの現在のバージョンを含める[cors サポート](http://caniuse.com/cors)します。

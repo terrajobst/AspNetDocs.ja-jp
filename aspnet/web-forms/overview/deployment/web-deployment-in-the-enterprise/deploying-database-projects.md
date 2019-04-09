@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 43fa197a1d5a3cf521f4d2202754ff0d121cebe3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5b7cecdd1a8dbd9be1bd781cec31c53c9096546
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383227"
 ---
-<a name="deploying-database-projects"></a>データベース プロジェクトを配置する
-====================
+# <a name="deploying-database-projects"></a>データベース プロジェクトを配置する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > [!NOTE]
 > エンタープライズ展開シナリオの多くは、配置されたデータベースに増分更新を発行する機能が必要です。 代わりに、すべてのデプロイでは、既存のデータベース内のデータが失われることを意味上のデータベースを再作成することです。 Visual Studio 2010 を使用する場合は、増分データベース発行に推奨される方法は VSDBCMD を使用します。 ただし、次のバージョンの Visual Studio と Web 発行パイプライン (WPP) 増分直接公開をサポートするツールが含まれます。
@@ -62,7 +62,7 @@ Contact Manager サンプル ソリューションを開くには、Visual Studi
 データベース プロジェクトを展開に使用できる 3 つの主な方法はあります。
 
 - Visual Studio 2010 データベース プロジェクトの種類でデプロイ機能を使用できます。 ビルドして、Visual Studio 2010 データベース プロジェクトを展開するとき、展開プロセスは、ビルド構成に固有の SQL ベースの展開ファイルを生成するのに、配置マニフェストを使用します。 既に存在かが既に存在する場合は、データベースに必要な変更を加える場合は、データベースが作成されます。 SQLCMD.exe を使用するには、移行先サーバーでこのファイルを実行するか作成し、ファイルを実行する Visual Studio を設定することができます。 このアプローチの欠点は、展開の設定の制御がのみに制限されています。 多くの場合も、特定の環境変数の値を指定する SQL デプロイ ファイルを変更する必要があります。 Visual Studio 2010 がインストールされている場合、このアプローチのコンピューターからのみ使用でき、開発者が知るし、すべての展開先環境の接続文字列と資格情報を提供する必要があります。
-- インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用する[web アプリケーション プロジェクトの一部としてデータベースを展開](https://msdn.microsoft.com/library/dd465343.aspx)します。 ただし、この手法は、移行先サーバー上の既存のローカル データベースをレプリケートするだけではなく、データベース プロジェクトを配置する場合は、もっと複雑です。 Web 配置のためにが、データベース プロジェクトを生成する SQL デプロイ スクリプトを実行することができます、web アプリケーション プロジェクトのカスタム WPP ターゲット ファイルを作成する必要があります。 展開プロセスに膨大な量の複雑さが追加されます。 さらに、Web Deploy 直接サポートしませんの増分更新を既存のデータベース。 この方法の詳細については、[SQL ファイルを展開パッケージのデータベース プロジェクトに Web 発行パイプラインを拡張する](https://go.microsoft.com/?linkid=9805121)を参照してください。
+- インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用する[web アプリケーション プロジェクトの一部としてデータベースを展開](https://msdn.microsoft.com/library/dd465343.aspx)します。 ただし、この手法は、移行先サーバー上の既存のローカル データベースをレプリケートするだけではなく、データベース プロジェクトを配置する場合は、もっと複雑です。 Web 配置のためにが、データベース プロジェクトを生成する SQL デプロイ スクリプトを実行することができます、web アプリケーション プロジェクトのカスタム WPP ターゲット ファイルを作成する必要があります。 展開プロセスに膨大な量の複雑さが追加されます。 さらに、Web Deploy 直接サポートしませんの増分更新を既存のデータベース。 この方法の詳細については、次を参照してください。 [SQL ファイルを展開パッケージのデータベース プロジェクトに Web 発行パイプラインを拡張する](https://go.microsoft.com/?linkid=9805121)します。
 - VSDBCMD ユーティリティを使用して、データベース スキーマまたは配置マニフェストのいずれかを使用して、データベースをデプロイすることができます。 VSDBCMD.exe は、MSBuild ターゲット データベースをスクリプト化されたより大規模の展開プロセスの一環として発行できますから呼び出すことができます。 .Sqlcmdvars ファイルとその他のデータベースのプロパティを複数のビルド構成を作成せず、展開のさまざまな環境をカスタマイズすることができます、VSDBCMD のコマンドから多数の変数をオーバーライドできます。 VSDBCMD は、データベース スキーマを転送先データベースを配置するために必要な変更のみが行われますが、差別化機能を提供します。 VSDBCMD は、さまざまなコマンド ライン オプションは、展開プロセスをよりきめ細かく制御も提供します。
 
 この概要については、MSBuild で VSDBCMD を使用するが一般的な企業の展開シナリオに最適な方法がわかります。
@@ -96,7 +96,7 @@ VSDBCMD ユーティリティを使用して、データベース スキーマ (
 
 VSDBCMD の詳細については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンス。EXE (展開およびスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)と[方法。VSDBCMD を使用して、コマンド プロンプトからのデプロイのデータベースを準備します。EXE](https://msdn.microsoft.com/library/dd193258.aspx)します。
 
-MSBuild プロジェクト ファイルから、VSDBCMD を使用する方法の例は、[ビルド プロセスを理解する](understanding-the-build-process.md)を参照してください。 複数の環境のデータベースの配置設定を構成する方法の例については、[複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)を参照してください。
+MSBuild プロジェクト ファイルから、VSDBCMD を使用する方法の例は、次を参照してください。[ビルド プロセスを理解する](understanding-the-build-process.md)します。 複数の環境のデータベースの配置設定を構成する方法の例については、次を参照してください。[複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)します。
 
 ## <a name="understanding-the-deploytodatabase-switch"></a>DeployToDatabase スイッチを理解します。
 
@@ -134,11 +134,11 @@ MSBuild プロジェクト ファイルから、VSDBCMD を使用する方法の
 
 このトピックでは、Visual Studio 2010 データベース プロジェクトのビルドと展開プロセスの概要が提供されます。 また、エンタープライズ規模のデータベースの配置をサポートするために、MSBuild で VSDBCMD.exe を使用する方法も説明します。
 
-実際にこのしくみの詳細については、[複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)を参照してください。
+実際にこのしくみの詳細については、次を参照してください。[複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)します。
 
 ## <a name="further-reading"></a>関連項目
 
-環境ごとに個別のデプロイの構成ファイルを作成してデータベースの配置をカスタマイズする方法については、[複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)を参照してください。 配置後スクリプトを実行してデータベース ロールのメンバーシップを構成する方法のガイダンスについては、[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)を参照してください。 固有の課題のいくつかのメンバーシップを管理する方法のガイダンスについては、データベースは強制を参照してください[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)します。
+環境ごとに個別のデプロイの構成ファイルを作成してデータベースの配置をカスタマイズする方法については、次を参照してください。[複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)します。 配置後スクリプトを実行してデータベース ロールのメンバーシップを構成する方法のガイダンスについては、次を参照してください。[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。 固有の課題のいくつかのメンバーシップを管理する方法のガイダンスについては、データベースは強制を参照してください[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)します。
 
 MSDN でこれらのトピックより広範なガイダンスと背景情報については、Visual Studio データベース プロジェクトとデータベースの展開プロセスを説明します。
 

@@ -8,15 +8,15 @@ ms.date: 10/23/2006
 ms.assetid: bf1f345e-55c8-4dc8-b62a-365326bb6ed7
 msc.legacyurl: /web-forms/videos/sql-2005/using-sql-server-management-studio
 msc.type: video
-ms.openlocfilehash: 72e51efaa9de8112c1ce0ae165cf0bf85ab1bd13
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6428bc6e31f143f10f9acb0d491c2813552f4938
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045869"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381914"
 ---
-<a name="using-sql-server-management-studio"></a>SQL Server Management Studio を使用する
-====================
+# <a name="using-sql-server-management-studio"></a>SQL Server Management Studio を使用する
+
 によって[Microsoft](https://github.com/microsoft)
 
 SQL Server Management Studio Express と、SQL Server Express にメイン インターフェイスは、通常になります。 このレッスンでは、基本的な技法とスキルが正常にデータベース インスタンスに接続する、移動、クエリ ウィンドウとデータベース オブジェクトのスクリプト作成、アタッチ、デタッチおよびデータベース、およびその他のバックアップを作成する必要がありますを示します。

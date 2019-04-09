@@ -8,15 +8,15 @@ ms.date: 01/27/2011
 ms.assetid: 0cbd88da-0da6-4605-b222-2835c6478304
 msc.legacyurl: /mvc/overview/views/dynamic-v-strongly-typed-views
 msc.type: authoredcontent
-ms.openlocfilehash: bde40f609db25f590108bfc2396071c0033a1326
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3235fc58fbf93cb87946f8ebd4a478eff7ce80e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423339"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386139"
 ---
-<a name="dynamic-v-strongly-typed-views"></a>動的に型指定されたビューと 厳密に型指定されたビュー
-====================
+# <a name="dynamic-v-strongly-typed-views"></a>動的に型指定されたビューと 厳密に型指定されたビュー
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 ASP.NET MVC 3 でビュー コント ローラーから情報を渡すための 3 つの方法はあります。

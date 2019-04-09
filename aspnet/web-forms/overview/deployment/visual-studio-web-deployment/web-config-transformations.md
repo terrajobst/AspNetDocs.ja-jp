@@ -8,20 +8,20 @@ ms.date: 02/15/2013
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 58f3daac5e9fbe6d327f19b6ae78ea17a26cd7e7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 15a5984048ba2aca9fedcb7bc4bb77eb440f21ee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060449"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379457"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio を使用して ASP.NET Web の展開:Web.config ファイル変換
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio を使用して ASP.NET Web の展開:Web.config ファイル変換
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 ## <a name="overview"></a>概要
@@ -104,7 +104,7 @@ Web 配置パラメーターを使用して、さまざまな種類の設定に�
 
 > [!NOTE] 
 > 
-> **セキュリティに関する注意**で実稼働アプリケーションでは、一般にエラーの詳細を表示または公共の場所にその情報を格納することはありません。 攻撃者は、エラー情報を使用して、サイトの脆弱性を検出することができます。 独自のアプリケーションで ELMAH を使用する場合は、セキュリティ上のリスクを最小限に抑える ELMAH を構成します。 このチュートリアルの例では ELMAH しない推奨される構成を検討してください。 アプリケーションはファイルを作成できる必要があるフォルダーを処理する方法を説明するために実装されている一例です。 詳細については、[ELMAH エンドポイントをセキュリティで保護する](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)を参照してください。
+> **セキュリティに関する注意**で実稼働アプリケーションでは、一般にエラーの詳細を表示または公共の場所にその情報を格納することはありません。 攻撃者は、エラー情報を使用して、サイトの脆弱性を検出することができます。 独自のアプリケーションで ELMAH を使用する場合は、セキュリティ上のリスクを最小限に抑える ELMAH を構成します。 このチュートリアルの例では ELMAH しない推奨される構成を検討してください。 アプリケーションはファイルを作成できる必要があるフォルダーを処理する方法を説明するために実装されている一例です。 詳細については、次を参照してください。 [ELMAH エンドポイントをセキュリティで保護する](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)します。
 
 
 ## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>処理する設定プロファイル変換ファイルを発行します。

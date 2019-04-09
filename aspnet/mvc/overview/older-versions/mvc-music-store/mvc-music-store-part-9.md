@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: b3babf1d935774b0ef93d6ab02c8b295998f8afc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c7151351b087439f17457b254cd9e373af21cae3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380900"
 ---
-<a name="part-9-registration-and-checkout"></a>第 9 部:登録と精算
-====================
+# <a name="part-9-registration-and-checkout"></a>第 9 部:登録と精算
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -78,7 +78,7 @@ Controllers フォルダーを右クリックし、空のコント ローラー 
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample4.cs)]
 
-*注:これは以前、StoreManagerController に行われた変更に似ていますが、Authorize 属性のユーザーが管理者ロールであることが必要な場合。チェック アウト コント ローラーで要求しているユーザーがログインする管理者である必要はありませんが。*
+*メモ:これは以前、StoreManagerController に行われた変更に似ていますが、Authorize 属性のユーザーが管理者ロールであることが必要な場合。 チェック アウト コント ローラーで要求しているユーザーがログインする管理者である必要はありませんが。*
 
 わかりやすくは、私たちはこのチュートリアルでは支払い情報を扱うはありません。 代わりに、ユーザーにキャンペーン コードを使用して、チェック アウトできるようにしています。 プロモーションをという名前の定数を使用してこのプロモーション コードを保存します。
 
@@ -108,7 +108,7 @@ AddressAndPayment POST メソッドは、同じパターンに従って、StoreM
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample8.cs)]
 
-*注:エラー ビューが自動的に作成お/Views/Shared フォルダーにプロジェクトを開始したとき。*
+*メモ:エラー ビューが自動的に作成お/Views/Shared フォルダーにプロジェクトを開始したとき。*
 
 完全な CheckoutController コードは次のとおりです。
 

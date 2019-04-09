@@ -8,15 +8,15 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 9b627a66007aec09a404147698e2bef06c7e7794
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053189"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383838"
 ---
-<a name="bundling-and-minification"></a>バンドルと縮小
-====================
+# <a name="bundling-and-minification"></a>バンドルと縮小
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > バンドルと縮小は、2 つの手法を要求の読み込み時間を向上させるために ASP.NET 4.5 で使用することができます。 バンドルと縮小は、サーバーへの要求の数が減り、(CSS および JavaScript を使用します。) など、要求された資産のサイズを小さくして読み込み時間を向上します。
@@ -52,7 +52,7 @@ ms.locfileid: "57053189"
 
 コメントと不要な空白文字を削除するだけでなく、次のパラメーターと変数名が名前を変更 (短縮)。
 
-| **翻訳元** | **名前変更** |
+| **元** | **名前の変更** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | t |

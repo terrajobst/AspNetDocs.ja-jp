@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: d2f5710c-23c7-40a5-9cd9-5d0516570cba
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5d05a2e5d4380a15078317545325bd20fde3f83c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: be4948e5443a5eb4e1824c63dd0c445a7ee1928e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039509"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384695"
 ---
-<a name="handling-entity-relations"></a>エンティティ関係の処理
-====================
+# <a name="handling-entity-relations"></a>エンティティ関係の処理
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
 
 このセクションでは、EF が関連エンティティを読み込む方法と、モデル クラス内で循環ナビゲーション プロパティを処理する方法のいくつかの詳細について説明します。 (ここでは、バック グラウンドの知識を提供し、チュートリアルを完了する必要はありません。 場合は、必要に応じて[パート 5](part-5.md)。)。
 
@@ -83,7 +83,7 @@ JSON データの一部として、作成者取得する方法を見てみまし
 
 ### <a name="explicit-loading"></a>明示的な読み込み
 
-はコードで明示的に関連するデータを取得する点を除いては、明示的読み込みは、遅延読み込みに似ていますナビゲーション プロパティにアクセスするときに自動的に発生しません。 明示的読み込みは、関連データを読み込むときに細かく制御できますが、余分なコードが必要です。 明示的な読み込みの詳細については、[関連エンティティの読み込み](https://msdn.microsoft.com/data/jj574232#explicit)を参照してください。
+はコードで明示的に関連するデータを取得する点を除いては、明示的読み込みは、遅延読み込みに似ていますナビゲーション プロパティにアクセスするときに自動的に発生しません。 明示的読み込みは、関連データを読み込むときに細かく制御できますが、余分なコードが必要です。 明示的な読み込みの詳細については、次を参照してください。[関連エンティティの読み込み](https://msdn.microsoft.com/data/jj574232#explicit)します。
 
 ## <a name="navigation-properties-and-circular-references"></a>ナビゲーション プロパティと循環参照
 
@@ -105,7 +105,7 @@ XML フォーマッタを次に示します。
 
 [!code-xml[Main](part-4/samples/sample13.xml)]
 
-1 つのソリューションでは、次のセクションで説明する Dto を使用します。 また、グラフのサイクルの対応する JSON および XML フォーマッタを構成できます。 詳細については、[循環オブジェクト参照の処理](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)を参照してください。
+1 つのソリューションでは、次のセクションで説明する Dto を使用します。 また、グラフのサイクルの対応する JSON および XML フォーマッタを構成できます。 詳細については、次を参照してください。[循環オブジェクト参照の処理](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)します。
 
 このチュートリアルで必要はありません、`Author.Book`ナビゲーション プロパティ、ため残しておくことができます。
 

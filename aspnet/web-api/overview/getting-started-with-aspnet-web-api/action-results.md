@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/action-results
-title: Web API 2 の操作の結果 |Microsoft Docs
+title: 操作の結果が Web API 2 - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET Web API に ASP.NET の HTTP 応答メッセージにコント ローラー アクションからの戻り値を変換する方法について説明します。 4.x です。
 ms.author: riande
 ms.date: 02/03/2014
+ms.custom: seoapril2019
 ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: c255cebfd6b0c632c000d24288a4dd4cf73c8a1c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 87f71938a5c5f38d3a456ba9339540f67e236e1a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422026"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400894"
 ---
-<a name="action-results-in-web-api-2"></a>Web API 2 のアクションの結果
-====================
+# <a name="action-results-in-web-api-2"></a>Web API 2 のアクションの結果
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 このトピックでは、ASP.NET Web API に HTTP 応答メッセージにコント ローラー アクションからの戻り値を変換する方法について説明します。
@@ -67,7 +68,7 @@ HTTP 応答:
 
 [!code-csharp[Main](action-results/samples/sample5.cs)]
 
-Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)を参照してください。
+Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、次を参照してください。[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)します。
 
 ## <a name="ihttpactionresult"></a>IHttpActionResult
 
@@ -107,9 +108,9 @@ Web API では、要求の Accept ヘッダーを使用して、フォーマッ�
 
 [!code-csharp[Main](action-results/samples/sample11.cs)]
 
-この方法の欠点は、404 など、エラー コードを直接返すことはできません。 ただし、スロー、 **HttpResponseException**エラー コード。 詳細については、[ASP.NET Web API での例外処理](../error-handling/exception-handling.md)を参照してください。
+この方法の欠点は、404 など、エラー コードを直接返すことはできません。 ただし、スロー、 **HttpResponseException**エラー コード。 詳細については、次を参照してください。 [ASP.NET Web API での例外処理](../error-handling/exception-handling.md)します。
 
-Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)を参照してください。
+Web API では、要求の Accept ヘッダーを使用して、フォーマッタを選択します。 詳細については、次を参照してください。[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)します。
 
 要求の例
 

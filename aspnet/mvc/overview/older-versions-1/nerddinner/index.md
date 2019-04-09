@@ -8,15 +8,15 @@ ms.date: 09/28/2011
 ms.assetid: 6edfe14c-415a-4281-b6fa-69e9b38a82c8
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner
 msc.type: chapter
-ms.openlocfilehash: 39a7f1b44ffe33b27097a53a8e5c1f47ea1cdd73
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 263ffc1ab815c1f7d6c1ee008f4fbe61316b7231
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022879"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380744"
 ---
-<a name="nerddinner"></a>NerdDinner
-====================
+# <a name="nerddinner"></a>NerdDinner
+
 > ASP.NET MVC 1 を使用して、NerdDinner.com web サイトを構築する方法。 ASP.NET MVC のバージョンを参照してください[GitHub で NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner)します。
 
 
@@ -27,10 +27,10 @@ ms.locfileid: "57022879"
 - [コントローラーとビューを使用し、リスティング/詳細 UI を実装する](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
 - [CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する](provide-crud-create-read-update-delete-data-form-entry-support.md)
 - [ViewData を使用し、ViewModel クラスを実装する](use-viewdata-and-implement-viewmodel-classes.md)
-- [マスター ページと部分的ビューを利用して UI を再使用する](re-use-ui-using-master-pages-and-partials.md)
+- [マスター ページと部分を利用して UI を再使用する](re-use-ui-using-master-pages-and-partials.md)
 - [効率的なデータ ページングを実装する](implement-efficient-data-paging.md)
 - [認証と承認を利用した安全なアプリケーション](secure-applications-using-authentication-and-authorization.md)
-- [AJAX を使用し、動的更新を届ける](use-ajax-to-deliver-dynamic-updates.md)
+- [AJAX を使用し、動的更新を配信する](use-ajax-to-deliver-dynamic-updates.md)
 - [AJAX を使用し、マッピング シナリオを実装する](use-ajax-to-implement-mapping-scenarios.md)
 - [自動化された単体テストを有効にする](enable-automated-unit-testing.md)
 - [NerdDinner まとめ](nerddinner-wrap-up.md)

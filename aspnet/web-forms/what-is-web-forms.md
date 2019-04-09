@@ -8,15 +8,15 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cb7a4ff9dbf746c0729129445042e53e506df5d2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039069"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385736"
 ---
-<a name="what-is-web-forms"></a>Web フォームとは
-====================
+# <a name="what-is-web-forms"></a>Web フォームとは
+
 ASP.NET Web フォーム、ASP.NET web アプリケーション フレームワークの一部であるしに含まれている[Visual Studio](https://www.asp.net/downloads)します。 それ以外は、ASP.NET MVC、ASP.NET Web ページ、および ASP.NET シングル ページ アプリケーション、ASP.NET web アプリケーションを作成に使用できる 4 つのプログラミング モデルのいずれかです。
 
 Web フォームでは、ページがブラウザーを使用して、ユーザーの要求です。 HTML の組み合わせを使用してこれらのページが書き込まれるクライアント スクリプト、サーバー コントロール、およびサーバー コード。 ユーザーは、ページを要求するときに、コンパイルおよびフレームワークによって、サーバー上で実行し、フレームワーク、ブラウザーをレンダリングする HTML マークアップが生成されます。 ASP.NET Web フォーム ページは、任意のブラウザーまたはクライアント デバイスでユーザーに情報を提供します。

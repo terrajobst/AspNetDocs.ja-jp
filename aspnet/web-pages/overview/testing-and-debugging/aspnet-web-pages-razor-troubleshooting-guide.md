@@ -8,15 +8,15 @@ ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: ec8cdda5c5b298736a650f82cd6b52d73b6dfe3d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061299"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389207"
 ---
-<a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web ページ (Razor) トラブルシューティング ガイド
-====================
+# <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web ページ (Razor) トラブルシューティング ガイド
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) と一部の推奨されるソリューションを使用する場合がある問題について説明します。
@@ -38,7 +38,7 @@ ms.locfileid: "57061299"
 - [電子メールの送信に関する問題](#email)
 - [その他のリソース](#AdditionalResources)
 
-一般的な質問については、[ASP.NET Web Pages (Razor) FAQ](https://go.microsoft.com/fwlink/?LinkId=253000)を参照してください。
+一般的な質問については、次を参照してください。 [ASP.NET Web Pages (Razor) FAQ](https://go.microsoft.com/fwlink/?LinkId=253000)します。
 
 <a id="Issues_Running_.cshtml_Pages"></a>
 ## <a name="issues-with-running-pages"></a>ページの実行に関する問題
@@ -57,7 +57,7 @@ Web サイトのルートが少なくとも 1 つであること確認 *.cshtml*
 
 Web サーバーがリモート サーバー上のときにこのエラーが発生した場合は、サーバーの管理者に問い合わせてください。 サーバーに .NET Framework 4 があることを確認または以降がインストールされていること。 また、アプリケーションがそのバージョンの.net Framework を使用するように構成されるアプリケーション プールで実行されていることを確認します。
 
-サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行しても試すことがあります、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、[ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)を参照してください。
+サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行しても試すことがあります、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、次を参照してください。 [ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)します。
 
 ### <a name="http-error-40314---forbidden"></a>HTTP エラー 403.14 - 許可されていません
 
@@ -141,7 +141,7 @@ ASP.NET Web Pages (Razor) で、組み込みのセキュリティ (メンバー�
     *接続されているパーティが一定の時間、または確立された接続は接続されているホストが応答しなかったために失敗しました正しく応答しなかったために、接続試行が失敗しました*
 
     このエラーは通常、アプリケーションが SMTP サーバーに接続できなかったことを意味します。 サーバー名を確認して、ポート番号。
-- <em>メールボックスが使用できません。サーバーの応答は次のとおりでした。5.1.0 &lt; someuser@invaliddomain &gt;拒否送信者: 無効な送信者のドメイン</em>
+- *メールボックスが使用できません。 サーバーの応答は次のとおりでした。5.1.0 &lt; someuser@invaliddomain &gt;拒否送信者: 無効な送信者のドメイン*
 
     このメッセージは、ことを示すことができます、`From`アドレスが間違っているかがありません。
 - *指定の文字列は、電子メール アドレスに必要な形式ではありません。*

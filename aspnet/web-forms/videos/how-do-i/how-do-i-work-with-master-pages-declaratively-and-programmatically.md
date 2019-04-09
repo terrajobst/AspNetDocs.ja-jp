@@ -8,15 +8,15 @@ ms.date: 02/21/2008
 ms.assetid: 4f5f7805-373f-4dc3-b7f6-219edf7e66a3
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 msc.type: video
-ms.openlocfilehash: 961a616480db6bd1f632996c27856798c9e92a43
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 821ad2015d6cc040e219aec59d96792e715e2d7b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041999"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392223"
 ---
-<a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[How Do i:]操作マスター ページの宣言とプログラミング
-====================
+# <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[How Do i:]操作マスター ページの宣言とプログラミング
+
 によって[Chris Pels](https://twitter.com/chrispels)
 
 このビデオの Chris Pels でいくつかの側面を定義して、ASP.NET web サイトでマスター ページの使用が表示されます。 最初に、宣言によって ASP.NET マスター ページのモデルを使用してマスター ページを作成する方法を確認し、どのような情報は、個々 のコンテンツ ページと比較して、マスター ページに最も適していますを説明します。 次に、プログラムでマスター ページにその場で個々 のコンテンツ ページ内に割り当てる方法を参照してください。 基底クラスから継承するすべてのページのプログラムでマスター ページを割り当てるページの基本クラスを作成する方法についても説明します。 さらに、web.config ファイルで、マスター ページを設定する方法を参照してください。 最後に、マスター ページの要素へのアクセスを構成するためのベスト プラクティスを含む個々 のコンテンツ ページからマスター ページの要素にアクセスする方法を参照してください。

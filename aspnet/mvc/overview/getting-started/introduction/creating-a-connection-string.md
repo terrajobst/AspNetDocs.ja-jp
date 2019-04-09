@@ -8,15 +8,15 @@ ms.date: 10/17/2013
 ms.assetid: 6127804d-c1a9-414d-8429-7f3dd0f56e97
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: 746101344832793b199d2b3f3dfcfcd4e3b9a8da
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e29fe14d2c7fafe2edb9c02029b678090ea83cc5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031949"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403819"
 ---
-<a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>接続文字列の作成と SQL Server LocalDB の使用
-====================
+# <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>接続文字列の作成と SQL Server LocalDB の使用
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
@@ -33,7 +33,7 @@ SQL Server Express は、実稼働 web アプリケーションでの使用は�
 
 Visual Studio 2017 では、LocalDB は、Visual Studio では既定でインストールされます。
 
-既定では、Entity Framework は、オブジェクト コンテキスト クラスと同じ名前の接続文字列の検索 (`MovieDBContext`このプロジェクトの)。 詳細については、[ASP.NET Web アプリケーションの SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)を参照してください。
+既定では、Entity Framework は、オブジェクト コンテキスト クラスと同じ名前の接続文字列の検索 (`MovieDBContext`このプロジェクトの)。 詳細については、次を参照してください。 [ASP.NET Web アプリケーションの SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)します。
 
 アプリケーションのルートを開く*Web.config*次に示すファイル。 (いない、 *Web.config*ファイル、*ビュー*フォルダー)。
 

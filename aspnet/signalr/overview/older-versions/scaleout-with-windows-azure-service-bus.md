@@ -8,15 +8,15 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 77186f43b38a8423a1cbd4cf42723c5b9ccdd953
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cab185ccb048a374a08f4b5d978b30675c30a60d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044199"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383963"
 ---
-<a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus による SignalR スケールアウト (SignalR 1.x)
-====================
+# <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus による SignalR スケールアウト (SignalR 1.x)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -35,7 +35,7 @@ Service bus のバック プレーンと互換性のあるも[Service Bus for Wi
 
 ## <a name="pricing"></a>価格
 
-Service Bus のバック プレーンでは、トピックを使用して、メッセージを送信します。 最新の価格情報については、[Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)を参照してください。 この記事の執筆時に、1 ドル未満の 1 か月あたり 1,000,000 メッセージを送信できます。 バック プレーンでは、SignalR のハブ メソッドの呼び出しごとの service bus メッセージを送信します。 接続の切断、結合またはしたまま、やグループなどの一部のコントロール メッセージもあります。 ほとんどのアプリケーションでは、メッセージ トラフィックの大部分のハブ メソッド呼び出しとなります。
+Service Bus のバック プレーンでは、トピックを使用して、メッセージを送信します。 最新の価格情報については、次を参照してください。 [Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)します。 この記事の執筆時に、1 ドル未満の 1 か月あたり 1,000,000 メッセージを送信できます。 バック プレーンでは、SignalR のハブ メソッドの呼び出しごとの service bus メッセージを送信します。 接続の切断、結合またはしたまま、やグループなどの一部のコントロール メッセージもあります。 ほとんどのアプリケーションでは、メッセージ トラフィックの大部分のハブ メソッド呼び出しとなります。
 
 ## <a name="overview"></a>概要
 

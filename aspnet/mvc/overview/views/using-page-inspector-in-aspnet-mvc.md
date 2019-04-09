@@ -8,15 +8,15 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: abb1ef355bd7614daaab8c205d9d53065856cd23
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ef0ae42e1c6114849a311164eac242db6dab2b1d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424366"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385801"
 ---
-<a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
-====================
+# <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
+
 Tim Ammann、
 
 > Visual Studio 2012 での Page Inspector は、統合ブラウザーの web 開発ツールです。 統合されたブラウザーで任意の要素を選択し、Page Inspector は、要素のソースと CSS にすぐに強調表示します。 任意の MVC ビューを参照、すばやくの出力されるマークアップは、のソースを検索し、Visual Studio 環境内で直接ブラウザー ツールを使用します。
@@ -55,7 +55,7 @@ Page Inspector には、Microsoft Web Developer Tools が付属しています�
 
 ## <a name="create-a-web-application"></a>Web アプリケーションを作成します。
 
-最初に、Page Inspector を使用する web アプリケーションを作成します。 Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual C#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。
+最初に、Page Inspector を使用する web アプリケーションを作成します。 Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual c#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。
 
 ![新しい ASP.NET MVC アプリケーション](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
@@ -240,7 +240,7 @@ Page Inspector がすぐに変更を検出、 *Site.css*更新バーで、アラ
 > SPA テンプレートが必要です、 [ASP.NET and Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)を更新します。
 
 
-Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual C#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。 **[OK]** をクリックします。
+Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual c#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。 **[OK]** をクリックします。
 
 **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスで、 **Single Page Application**します。
 

@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: c61560e9-9f6c-4985-834a-08a3eabf9c3c
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: 121df7482f7cbd70b191e518bae791f0642ccc7c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cbad35c9ef83b41e9d3f9a48ff37672d22338e7e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048339"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395226"
 ---
-<a name="creating-and-running-a-deployment-command-file"></a>配置コマンド ファイルを作成し、実行する
-====================
+# <a name="creating-and-running-a-deployment-command-file"></a>配置コマンド ファイルを作成し、実行する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、シングル ステップの再現可能なプロセスとして Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して展開を実行できるようにするコマンド ファイルを構築する方法について説明します。
 
@@ -110,10 +110,10 @@ ms.locfileid: "57048339"
 
 
 > [!NOTE]
-> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)を参照してください。
+> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
 
 
-プロパティをオーバーライドするか、MSBuild コマンドの他の各種のスイッチを設定して各環境のビルド プロセスをカスタマイズすることもできます。 詳細については、[MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)を参照してください。
+プロパティをオーバーライドするか、MSBuild コマンドの他の各種のスイッチを設定して各環境のビルド プロセスをカスタマイズすることもできます。 詳細については、次を参照してください。 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](deploying-database-projects.md)

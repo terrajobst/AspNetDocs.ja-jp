@@ -8,15 +8,15 @@ ms.date: 12/30/2009
 ms.assetid: 55c2fa76-d5b9-43e7-921e-51a9b57dba30
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 889506be05c617d64a7e1f7b9b70a7a1ed52ae0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c81057a065e00834928eebe4bd129f3a4a8581f6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053549"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379015"
 ---
-<a name="how-do-i-work-with-model-binders-in-an-mvc-application"></a>How Do i:MVC アプリケーションでのモデル バインダーを使用しますか。
-====================
+# <a name="how-do-i-work-with-model-binders-in-an-mvc-application"></a>How Do i:MVC アプリケーションでのモデル バインダーを使用しますか。
+
 によって[Chris Pels](https://twitter.com/chrispels)
 
 このビデオの Chris Pels では、モデル バインダーを使用して MVC アプリケーション モデル内の複雑なビジネス オブジェクトにフォーム データをバインドする方法を示します。 最初に、コント ローラーと共に Customer クラスの単純なモデルと顧客データを編集するためのビューと共に MVC アプリケーションが作成されます。 次に、customer クラスを使用して MVC のモデルの自動バインディングが示されています。 次に、Bind 属性がについて説明し、複雑なオブジェクトの特定のプロパティを含めたり除外したりバインド プロセスの詳細を制御するためのメカニズムとして示されています。 最後に、ページ上のフォーム データをセグメント化の名前空間プレフィックスの使用がについて説明します。

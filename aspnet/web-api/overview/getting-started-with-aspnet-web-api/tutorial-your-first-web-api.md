@@ -1,28 +1,31 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: ASP.NET Web API 2 (c#) の概要します。
+title: ASP.NET Web API 2 の概要 (C#)-ASP.NET 4.x
 author: MikeWasson
-description: HTTP は web ページを提供するためだけではありません。 サービスとデータを公開する Api を構築するための強力なプラットフォームです。 HTTP は、シンプルで柔軟なおよび ubiq には.
+description: コードのチュートリアルです。 Web API を製品の一覧を返すを作成するのにには、ASP.NET Web API を使用します。
 ms.author: riande
 ms.date: 11/28/2017
+ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7bec95af4532535f0d620bfe6862958907466874
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060189"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401752"
 ---
-<a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要します。
-====================
+# <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要します。
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+[完成したプロジェクトをダウンロードします。](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+
+このチュートリアルでは、web を製品の一覧を返す API を作成するのに ASP.NET Web API を使用します。
 
 HTTP は web ページを提供するためだけではありません。 HTTP は、サービスとデータを公開する Api を構築するための強力なプラットフォームではまたです。 HTTP は、シンプルかつ柔軟なユビキタスです。 考えることができ、ほとんどすべてのプラットフォームでは、HTTP ライブラリを持つため、HTTP サービスがクライアント、ブラウザー、モバイル デバイスは、従来のデスクトップ アプリケーションなどの広範な範囲に到達できます。
 
-ASP.NET Web API とは、web Api、.NET Framework 上に構築するためのフレームワークです。 このチュートリアルでは、web を製品の一覧を返す API を作成するのに ASP.NET Web API を使用します。
+ASP.NET Web API とは、web Api、.NET Framework 上に構築するためのフレームワークです。 
 
 ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 
@@ -112,7 +115,7 @@ Web api で、*コント ローラー*は HTTP 要求を処理するオブジェ
 
 `GetProduct`メソッド、 *id* URI にプレース ホルダーです。 たとえば、id が 5 の製品を取得する URI は`api/products/5`します。
 
-Web API がコント ローラーのメソッドに HTTP 要求をルーティングする方法の詳細については、[ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)を参照してください。
+Web API がコント ローラーのメソッドに HTTP 要求をルーティングする方法の詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)します。
 
 ## <a name="calling-the-web-api-with-javascript-and-jquery"></a>Javascript や jQuery による Web API を呼び出す
 
@@ -188,5 +191,5 @@ HTTP サービスを使用する場合は、HTTP 要求を表示、メッセー�
 ## <a name="next-steps"></a>次の手順
 
 - POST、PUT、および DELETE 操作をサポートし、データベースに書き込みます HTTP サービスのより完全な例を参照してください。 [Entity Framework 6 で Web API 2 を使用して](../data/using-web-api-with-entity-framework/part-1.md)します。
-- HTTP サービス上で流動性と応答性の高い web アプリケーションを作成する方法の詳細は、[ASP.NET Single Page Application](../../../single-page-application/index.md)を参照してください。
-- Visual Studio web プロジェクトを Azure App Service にデプロイする方法については、[Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)を参照してください。
+- HTTP サービス上で流動性と応答性の高い web アプリケーションを作成する方法の詳細は、次を参照してください。 [ASP.NET Single Page Application](../../../single-page-application/index.md)します。
+- Visual Studio web プロジェクトを Azure App Service にデプロイする方法については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)です。

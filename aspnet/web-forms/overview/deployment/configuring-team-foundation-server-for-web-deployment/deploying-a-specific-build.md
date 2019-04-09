@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: c979535f-48a3-4ec4-a633-a77889b86ddb
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: e788f02795fc83ac98c5a0ba307f16b0f506e489
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0ab58aee6f1203beaf3990536b059f8209e66547
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393484"
 ---
-<a name="deploying-a-specific-build"></a>特定のビルドを配置する
-====================
+# <a name="deploying-a-specific-build"></a>特定のビルドを配置する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、web のパッケージと新しい変換先のステージング環境または運用環境と同じように、特定の以前のビルドからのデータベース スクリプトをデプロイする方法について説明します。
 
@@ -128,7 +128,7 @@ Web パッケージを展開し、データベースを別の場所からスク�
 
 ## <a name="further-reading"></a>関連項目
 
-ビルド定義を作成する方法の詳細については、[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)を参照してください。 キュー ビルドの詳細については、[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)を参照してください。
+ビルド定義を作成する方法の詳細については、次を参照してください。[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)します。 キュー ビルドの詳細については、次を参照してください。[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-build-definition-that-supports-deployment.md)

@@ -8,15 +8,15 @@ ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: aa852e7bbd93622154d59e0d0a13ffa680812df2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7374b1afafa9ca63309f3c0369c5efd808f7f28a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050719"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401986"
 ---
-<a name="webmatrix-readme"></a>WebMatrix Readme
-====================
+# <a name="webmatrix-readme"></a>WebMatrix Readme
+
 2011 年 1 月 13日
 
 ## <a name="contents"></a>目次
@@ -120,8 +120,8 @@ ms.locfileid: "57050719"
 ドキュメントのこのセクションでは、新機能、変更、および Razor 構文を使用して ASP.NET Web Pages の 1.0 リリースの既知の問題について説明します。
 
 - [新機能](#NewFeatures)
-- [変更](#Changes)
-- [問題](#Issues)
+- [変更内容](#Changes)
+- [懸案事項](#Issues)
 
 #### <a id="NewFeatures"></a>  新機能
 
@@ -197,7 +197,7 @@ ms.locfileid: "57050719"
 > 同じ動作には、追加、削除、または内のファイルを変更する場合に発生しますが、通常、web ベースのパッケージ マネージャーのインターフェイスを使用する場合は、この動作を確認した、*アプリ\_データ*フォルダー。
 > 
 > **回避策**   
-> Visual Studio でパッケージを使用するには、web ベースのパッケージ マネージャーではなく、NuGet 拡張機能を使用します。 詳しくは、、 [NuGet のドキュメント](https://docs.microsoft.com/nuget/)を参照してください。 他のファイルを使用している場合、*アプリ\_データ*フォルダー、この問題を回避するために別の場所でファイルを残すようにしてください。 ですが実用的でない場合は、削除、*アプリ\_offline.htm*ファイルを手動でまたは自動的に (既定では、30 秒後) で、サイトがオンラインに戻るまで待機します。
+> Visual Studio でパッケージを使用するには、web ベースのパッケージ マネージャーではなく、NuGet 拡張機能を使用します。 詳しくは、次を参照してください。、 [NuGet のドキュメント](https://docs.microsoft.com/nuget/)します。 他のファイルを使用している場合、*アプリ\_データ*フォルダー、この問題を回避するために別の場所でファイルを残すようにしてください。 ですが実用的でない場合は、削除、*アプリ\_offline.htm*ファイルを手動でまたは自動的に (既定では、30 秒後) で、サイトがオンラインに戻るまで待機します。
 
 
 #### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>問題:Visual Studio IntelliSense およびプロジェクトで使用できるテンプレートのみ ASP.NET MVC version 3
@@ -255,9 +255,9 @@ ms.locfileid: "57050719"
 > 1. データベース エンジン アセンブリをコピー、 *Bin*ターゲット コンピューター上のアプリケーションのフォルダー (とサブフォルダー)。  
 > 
 >    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->        **to** *\Bin*
->    - コピー <em>C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>に</em></strong>\Bin\x86*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
+>      **to** *\Bin*
+>    - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\*  **に** *\Bin\x86*
+>    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
 > 
 > 2. Web サイトのルート フォルダーに作成または開き、 *web.config*ファイル。 (WebMatrix 1.0 では、このファイルの種類がクリックした場合に使用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
 > 3. 子として次の要素を追加、`<configuration>`要素 (内部ではなく、`<system.web>`要素)。

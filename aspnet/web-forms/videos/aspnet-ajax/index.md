@@ -8,20 +8,20 @@ ms.date: 10/05/2011
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
-ms.openlocfilehash: c8084dedc89bc2fcab6bee03b1a65911d42435b3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5fc85b5ac4771d6784e9afa41e09d74474a605ba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57021219"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381303"
 ---
-<a name="aspnet-ajax"></a>ASP.NET AJAX
-====================
+# <a name="aspnet-ajax"></a>ASP.NET AJAX
+
 > JavaScript のエキスパートがない場合でも、応答性の高いページを作成する ASP.NET AJAX を使用する方法。
 
 
 - [ASP.NET AJAX の概要](how-do-i-get-started-with-aspnet-ajax.md)
-- [ASP.NET AJAX の部分的ページ更新を実行する](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)
+- [ASP.NET AJAX を使用して動的な部分ページ更新を実装する](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)
 - [ASP.NET AJAX でクライアント側のネットワーク コールバックを行う](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md)
 - [ASP.NET AJAX 機能を既存の Web アプリケーションに追加する](how-do-i-add-aspnet-ajax-features-to-an-existing-web-application.md)
 - [ASP.NET AJAX 既存の Web サービスの有効化](how-do-i-aspnet-ajax-enable-an-existing-web-service.md)
@@ -36,7 +36,7 @@ ms.locfileid: "57021219"
 - [ASP.NET AJAX UpdateProgress コントロール](how-do-i-use-the-aspnet-ajax-updateprogress-control.md)
 - [ASP.NET AJAX History コントロール](how-do-i-use-the-aspnet-ajax-history-control.md)
 - [AJAX After Processing (処理後) パターンを実装する](how-do-i-implement-the-ajax-after-processing-pattern.md)
-- [ASP.NET AJAX で、あるページの複数のリージョンを更新する](how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax.md)
+- [ASP.NET AJAX を使用してページの複数のリージョンを更新する](how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax.md)
 - [AJAX ページの更新方法を選択する](how-do-i-choose-between-methods-of-ajax-page-updates.md)
 - [ASP.NET AJAX でその他の JavaScript ユーザー インターフェイス ライブラリを使用する](how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax.md)
 - [ASP.NET AJAX プロファイル サービスを使用する](how-do-i-use-the-aspnet-ajax-profile-services.md)
@@ -47,7 +47,7 @@ ms.locfileid: "57021219"
 - [UpdatePanel の条件付き UpdateMode を使用する](how-do-i-use-the-conditional-updatemode-of-the-updatepanel.md)
 - [UpdatePanel で Persistent Communications (永続的コミュニケーション) パターンを実装する](how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel.md)
 - [ASP.NET AJAX アプリケーションをローカライズする](how-do-i-localize-an-aspnet-ajax-application.md)
-- [Web サービスで Persistent Communications (永続的コミュニケーション) パターンを実装する](how-do-i-implement-the-persistent-communications-pattern-using-web-services.md)
+- [Web サービスを使用して Persistent Communications (永続的コミュニケーション) パターンを実装する](how-do-i-implement-the-persistent-communications-pattern-using-web-services.md)
 - [DropDownList コントロールから UpdatePanel 更新をトリガーする](how-do-i-trigger-an-updatepanel-refresh-from-a-dropdownlist-control.md)
 - [ASP.NET AJAX エクステンダーを一から作成する](how-do-i-create-an-aspnet-ajax-extender-from-scratch.md)
 - [ASP.NET AJAX ありまたはなしで機能するカスタム サーバー コントロールをビルドする](how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax.md)
@@ -59,7 +59,7 @@ ms.locfileid: "57021219"
 - [AJAX 対応アプリケーションの基本 ASP.NET 認証](basic-aspnet-authentication-in-an-ajax-enabled-application.md)
 - [CSS ASP.NET AJAX UpdatePanel の動的変更](how-to-dynamically-change-css-using-the-aspnet-ajax-updatepanel.md)
 - [Web ページにコントロールを動的に追加する](how-to-dynamically-add-controls-to-a-web-page.md)
-- [ASP.NET 3.5 の開発環境を構える](set-up-your-development-environment-for-aspnet-35.md)
-- [ASP.NET 2.0 の開発環境を構える](set-up-your-development-environment-for-aspnet-20.md)
+- [ASP.NET 3.5 の開発環境を設定する](set-up-your-development-environment-for-aspnet-35.md)
+- [ASP.NET 2.0 の開発環境を設定する](set-up-your-development-environment-for-aspnet-20.md)
 - [ASP.NET AJAX UpdatePanel のエラー処理をカスタマイズする](how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel.md)
 - [ASP.NET AJAX クライアント テンプレートを使用する](how-do-i-use-aspnet-ajax-client-templates.md)

@@ -8,20 +8,20 @@ ms.date: 06/10/2014
 ms.assetid: e264677b-9c01-47ec-94f9-3cd8f08f94af
 msc.legacyurl: /signalr/overview/security/persistent-connection-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 7dab28f4720b34082f71e487c64af88a8ba01e6c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9399addc76b7ba0844efe5b935d16edfdd9ec9f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384988"
 ---
-<a name="authentication-and-authorization-for-signalr-persistent-connections"></a>SignalR 永続的接続の認証と承認
-====================
+# <a name="authentication-and-authorization-for-signalr-persistent-connections"></a>SignalR 永続的接続の認証と承認
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> このトピックでは、永続的な接続の承認を適用する方法を説明します。 SignalR アプリケーションへのセキュリティの統合の詳細については、[セキュリティの概要](introduction-to-security.md)を参照してください。
+> このトピックでは、永続的な接続の承認を適用する方法を説明します。 SignalR アプリケーションへのセキュリティの統合の詳細については、次を参照してください。[セキュリティの概要](introduction-to-security.md)します。
 >
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
@@ -34,7 +34,7 @@ ms.locfileid: "57033529"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >

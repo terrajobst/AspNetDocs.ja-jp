@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 7dc02b18-2b5d-4844-b7c5-cbd818477163
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 60fb7dacfe59eaafef71fcc9cde61b7840624343
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 644af2485c1a51f2de209e968ba1b3475350fa47
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394069"
 ---
-<a name="executing-several-animations-after-each-other-c"></a>複数のアニメーションを順番に実行する (C#)
-====================
+# <a name="executing-several-animations-after-each-other-c"></a>複数のアニメーションを順番に実行する (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation3.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation3CS.pdf)
@@ -51,12 +51,12 @@ ms.locfileid: "57030969"
 ときに最初の取得も縦と横が小さくし、パネル、このスクリプトを実行します。
 
 
-[![まず、幅が増加します。](executing-several-animations-after-each-other-cs/_static/image2.png)](executing-several-animations-after-each-other-cs/_static/image1.png)
+[![Fクエリー、幅を増やす](executing-several-animations-after-each-other-cs/_static/image2.png)](executing-several-animations-after-each-other-cs/_static/image1.png)
 
 まず、幅が増加 ([フルサイズの画像を表示する をクリックします](executing-several-animations-after-each-other-cs/_static/image3.png))。
 
 
-[![高さの減少し、](executing-several-animations-after-each-other-cs/_static/image5.png)](executing-several-animations-after-each-other-cs/_static/image4.png)
+[![T高さの減少 hen](executing-several-animations-after-each-other-cs/_static/image5.png)](executing-several-animations-after-each-other-cs/_static/image4.png)
 
 高さの減少し、([フルサイズの画像を表示する をクリックします](executing-several-animations-after-each-other-cs/_static/image6.png))。
 

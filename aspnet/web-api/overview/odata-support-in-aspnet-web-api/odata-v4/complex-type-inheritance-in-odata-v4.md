@@ -8,20 +8,20 @@ ms.date: 09/16/2014
 ms.assetid: a00d3600-9c2a-41bc-9460-06cc527904e2
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 8dbf7dc4cfc70e1ea1ed6f72ffc0751a56809c09
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 76db6325b8528af5b82ca3ea4e34284ca470ff6e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028449"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378602"
 ---
-<a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API を使用した OData v4 の複合型の継承
-====================
+# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API を使用した OData v4 の複合型の継承
+
 によって[Microsoft](https://github.com/microsoft)
 
 > OData v4 に従って[仕様](http://www.odata.org/documentation/odata-version-4-0/)、複合型は、別の複合型から継承できます。 (A*複雑な*型はキーのない構造化された型です)。Web API OData 5.3 は、複合型の継承をサポートします。
 > 
-> このトピックでは、複雑な継承の種類で entity data model (EDM) を構築する方法を示します。 完全なソース コードでは、[OData の複合型継承サンプル](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt)を参照してください。
+> このトピックでは、複雑な継承の種類で entity data model (EDM) を構築する方法を示します。 完全なソース コードでは、次を参照してください。 [OData の複合型継承サンプル](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt)します。
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 

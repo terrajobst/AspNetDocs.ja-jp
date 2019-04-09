@@ -8,15 +8,15 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: bcc1de15b49b51461f76c9ac8f1bee4555ea101d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a5de73d93d0af21a3b59d6c21014810184292adb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422429"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379353"
 ---
-<a name="adding-a-new-field"></a>新しいフィールドの追加
-====================
+# <a name="adding-a-new-field"></a>新しいフィールドの追加
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
@@ -75,7 +75,7 @@ Visual Studio を開き、 *Configuration.cs*ファイル。 置換、`Seed`メ�
 > 
 > このコードでは、タイトルが一意であることを前提としています。 タイトルの重複を手動で追加する場合、次回の移行を実行する次の例外が表示されます。   
 > 
->  *シーケンスには、1 つ以上の要素が含まれています。*  
+> *シーケンスには、1 つ以上の要素が含まれています。*  
 > 
 > 詳細については、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを参照してください[EF 4.3 AddOrUpdate メソッドを使用して対処](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/).
 
@@ -141,7 +141,7 @@ Code First Migrations は、別のクラス ファイルを作成、*移行*フ�
 
 このエラーを解決するための手法がいくつかあります。
 
-1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 短所は、データベース内の既存のデータが失われる-ようにする*しない*実稼働データベースでこのアプローチを使用する! 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。 Entity Framework データベースの初期化子の詳細については、[ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。
+1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 短所は、データベース内の既存のデータが失われる-ようにする*しない*実稼働データベースでこのアプローチを使用する! 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。 Entity Framework データベースの初期化子の詳細については、次を参照してください。 [ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 3. Code First Migrations を使用して、データベース スキーマを更新します。
 

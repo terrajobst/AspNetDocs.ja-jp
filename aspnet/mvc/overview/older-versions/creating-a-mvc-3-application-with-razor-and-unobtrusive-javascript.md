@@ -8,15 +8,15 @@ ms.date: 11/01/2010
 ms.assetid: 658b149b-d770-46bf-8b4b-4e47cca242f3
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: f60ca3e76fda8a18da1ad83e955e5e4759f5e3af
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91c96cc413e63ad2fc160ffbb473c4f3e1ada3e4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053169"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401063"
 ---
-<a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Razor と控えめな JavaScript で MVC 3 を作成する
-====================
+# <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Razor と控えめな JavaScript で MVC 3 を作成する
+
 によって[Microsoft](https://github.com/microsoft)
 
 > ユーザーの一覧のサンプル web アプリケーションでは、Razor ビュー エンジンを使用して ASP.NET MVC 3 アプリケーションを作成するは簡単な方法を示します。 サンプル アプリケーションでは、ASP.NET MVC version 3 での新しい Razor ビュー エンジンと Visual Studio 2010 を使用して、作成、表示、編集、削除するユーザーなどの機能が含まれています、架空ユーザー リスト web サイトを作成する方法を示します。
@@ -36,7 +36,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 チュートリアルを開始する Visual Studio 2010 を開き、使用して新しいプロジェクトを作成、 *ASP.NET MVC 3 Web アプリケーション*テンプレート。 アプリケーションの名前を&quot;Mvc3Razor&quot;します。
 
-[![新しい MVC 3 プロジェクト](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
+[![N新しい MVC 3 プロジェクト](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
 
 **新しい ASP.NET MVC 3 プロジェクト**ダイアログ ボックスで、**インターネット アプリケーション**、Razor ビュー エンジンを選択し、クリックして**OK**します。
 
@@ -45,7 +45,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 このチュートリアルではない使用する、ASP.NET メンバーシップ プロバイダー ログオンおよびメンバーシップに関連付けられているすべてのファイルを削除できるようにします。 **ソリューション エクスプ ローラー**、次のファイルとディレクトリを削除します。
 
 - *Controllers\AccountController*
-- *Models\AccountModels*
+- *される models \accountmodels*
 - *Views\Shared\\_LogOnPartial*
 - *Views\Account* (およびこのディレクトリ内のすべてのファイル)
 

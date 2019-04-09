@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
-ms.openlocfilehash: 1486cc7d8f25e823481dfab109d18c407c2d8063
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 74fc0f4cb7d3ed7d1ef091cdb8fa829091af5a7a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388687"
 ---
-<a name="configuring-deployment-properties-for-a-target-environment"></a>ターゲット環境の配置プロパティを構成する
-====================
+# <a name="configuring-deployment-properties-for-a-target-environment"></a>ターゲット環境の配置プロパティを構成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、特定のターゲット環境にサンプルの連絡先マネージャー ソリューションをデプロイするために環境固有のプロパティを構成する方法について説明します。
 
@@ -110,10 +110,10 @@ Web パッケージ自体の内容の環境に固有のプロジェクト ファ
 
 これらのプロジェクト ファイルを使用して、シングル ステップ、反復可能な展開プロセスの一環として、実行する必要があります、 *Publish.proj* MSBuild を使用してファイルし、環境固有のプロジェクト ファイルの場所をパラメーターとして渡します。 これは、さまざまな方法で行うことができます。
 
-- MSBuild やカスタム プロジェクト ファイルの概要の概要については、[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)を参照してください。
-- カスタムのプロジェクト ファイルを実行する MSBuild コマンドを考案する方法については、[Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)を参照してください。
-- シングル ステップで反復可能な展開でコマンド ファイルに、MSBuild コマンドを組み込む方法については、[の作成と展開コマンド ファイルを実行している](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)を参照してください。
-- チーム ビルドから、カスタムのプロジェクト ファイルを実行する方法については、[ビルド定義をサポートする展開を作成する](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)を参照してください。
+- MSBuild やカスタム プロジェクト ファイルの概要の概要については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。
+- カスタムのプロジェクト ファイルを実行する MSBuild コマンドを考案する方法については、次を参照してください。 [Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)します。
+- シングル ステップで反復可能な展開でコマンド ファイルに、MSBuild コマンドを組み込む方法については、次を参照してください。[の作成と展開コマンド ファイルを実行している](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)します。
+- チーム ビルドから、カスタムのプロジェクト ファイルを実行する方法については、次を参照してください。[ビルド定義をサポートする展開を作成する](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)します。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-server-farm-with-the-web-farm-framework.md)

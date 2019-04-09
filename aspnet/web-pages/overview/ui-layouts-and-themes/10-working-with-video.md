@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 8f4b7186ae5c7b7b384ebcb23f7c9ad65caeb0bd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 204611513860e268001596b9c7ac9e9c023caa12
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034149"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399854"
 ---
-<a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにビデオを表示します。
-====================
+# <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにビデオを表示します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) の web サイトに (メディア) のビデオ プレーヤーを使用して、サイトに保存されているビデオを表示できるようにする方法について説明します。 Razor 構文を使用して ASP.NET Web ページでは、Flash を再生することができます (*.swf*)、Media Player (*.wmv*)、および Silverlight (*.xap*) ビデオ。
@@ -123,9 +123,9 @@ ms.locfileid: "57034149"
 
 フラッシュ ビデオを再生を使用して特定のサイズを変更する、`scale`パラメーターで、次を設定することができます。
 
-- `showall`。 これにより、元の縦横比を維持しながらビデオ全体を表示にします。 ただし、それぞれの側に境界線で入ることがあります。
-- `noorder`。 元の縦横比を維持しながら、ビデオが拡大または縮小しますが、それがトリミングされる可能性があります。
-- `exactfit`。 元の縦横比を維持せずビデオ全体を表示によりこれが、ゆがみが発生する可能性があります。
+- `showall`. これにより、元の縦横比を維持しながらビデオ全体を表示にします。 ただし、それぞれの側に境界線で入ることがあります。
+- `noorder`. 元の縦横比を維持しながら、ビデオが拡大または縮小しますが、それがトリミングされる可能性があります。
+- `exactfit`. 元の縦横比を維持せずビデオ全体を表示によりこれが、ゆがみが発生する可能性があります。
 
 指定しない場合、`scale`パラメーター、ビデオ全体が表示されます、トリミングせずに元の縦横比は維持されます。 次の例は、使用する方法を示します、`scale`パラメーター。
 

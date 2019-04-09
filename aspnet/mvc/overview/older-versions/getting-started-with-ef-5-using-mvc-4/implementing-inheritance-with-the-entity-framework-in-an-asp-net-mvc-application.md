@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: a5c3feff-5335-4cdd-a97d-f7a8785c2494
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 10ee0be62a1d601e323afc423e9022bed56f4f33
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fe2bc91c1bb37282389a45f662a34f8865dee301
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381069"
 ---
-<a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>ASP.NET MVC アプリケーション (10 の 8) で、Entity Framework による継承の実装
-====================
+# <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>ASP.NET MVC アプリケーション (10 の 8) で、Entity Framework による継承の実装
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -128,7 +128,7 @@ Table-per-Hierarchy 継承を構成するために Entity Framework に必要な
 
 実行、 `Update-Database` PMC でコマンド。 移行が処理する方法を認識しない既存のデータがあるので、コマンドはこの時点で失敗します。 次のエラーが発生しました。
 
-*ALTER TABLE ステートメントと競合して外部キー制約"FK\_dbo します。部門\_dbo します。Person\_PersonID"。競合が発生したデータベース"ContosoUniversity"テーブル"dbo します。Person"です。 列 'PersonID'。*
+*ALTER TABLE ステートメントと競合して外部キー制約"FK\_dbo します。部門\_dbo します。Person\_PersonID"。 競合が発生したデータベース"ContosoUniversity"テーブル"dbo します。Person"です。 列 'PersonID'。*
 
 開いている*移行\&lt; タイムスタンプ&gt;\_Inheritance.cs*と置換、`Up`メソッドを次のコード。
 
@@ -141,7 +141,7 @@ Table-per-Hierarchy 継承を構成するために Entity Framework に必要な
 > 
 > [!code-xml[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.xml?highlight=1-2)]
 > 
-> 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、[Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)を参照してください。 チュートリアルを続行するにはこの方法を実行する場合、配置サイトの移行を自動的に実行時に同じエラーが発生があるために、このチュートリアルの最後に配置手順をスキップします。 移行エラーのトラブルシューティングを行う場合は、最適なリソースは、Entity Framework のフォーラムまたは StackOverflow.com のいずれか。
+> 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、次を参照してください。 [Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)します。 チュートリアルを続行するにはこの方法を実行する場合、配置サイトの移行を自動的に実行時に同じエラーが発生があるために、このチュートリアルの最後に配置手順をスキップします。 移行エラーのトラブルシューティングを行う場合は、最適なリソースは、Entity Framework のフォーラムまたは StackOverflow.com のいずれか。
 
 
 ## <a name="testing"></a>テスト

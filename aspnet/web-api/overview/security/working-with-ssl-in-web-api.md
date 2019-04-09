@@ -8,15 +8,15 @@ ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 31589b3713b1f1a9b98d12906bfef81f8bf5e3f9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048799"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386157"
 ---
-<a name="working-with-ssl-in-web-api"></a>Web API の SSL の使用
-====================
+# <a name="working-with-ssl-in-web-api"></a>Web API の SSL の使用
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 いくつかの一般的な認証方式は、プレーンな HTTP は安全ではありません。 具体的には、基本認証とフォーム認証、暗号化されていない資格情報を送信します。 セキュリティ保護、これらの認証スキーム*する必要があります*SSL を使用します。 さらに、SSL クライアント証明書は、クライアントの認証に使用できます。
@@ -28,7 +28,7 @@ IIS 7 またはそれ以降の SSL を設定します。
 - 作成または証明書を取得します。 テストは、自己署名証明書を作成できます。
 - HTTPS バインドを追加します。
 
-詳細については、[IIS 7 で SSL の設定方法](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis)を参照してください。
+詳細については、次を参照してください。 [IIS 7 で SSL の設定方法](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis)します。
 
 ローカル テストでは、Visual Studio からの IIS Express での SSL を有効にできます。 [プロパティ] ウィンドウで次のように設定します。 **SSL が有効になっている**に**True**します。 値に注意してください**SSL URL**; HTTPS 接続をテストするため、この URL を使用します。
 

@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 516c370941b8f7e5f3528953491057973679586d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049349"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384767"
 ---
-<a name="improving-performance-with-output-caching-c"></a>出力キャッシュでパフォーマンスを改善する (C#)
-====================
+# <a name="improving-performance-with-output-caching-c"></a>出力キャッシュでパフォーマンスを改善する (C#)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、出力キャッシュを活用して、ASP.NET MVC web アプリケーションのパフォーマンスを大幅に向上する方法を説明します。 同じコンテンツは、新しいユーザーがアクションを呼び出すたびに作成する必要はありません、コント ローラー アクションから返される結果をキャッシュする方法について説明します。
@@ -83,7 +83,7 @@ Location プロパティは、次の値のいずれかに設定できます。
 
 たとえば、リスト 3 のコント ローラーを現在のユーザー名を返す GetName() という名前のアクションを公開します。 ジャック、web サイトにログインし、GetName() アクションを呼び出す場合、アクションの文字列を返します"やあ Jack"。 その後、Jill は、web サイトにログインし、GetName() アクションを呼び出します場合、して彼女も表示されます"やあ Jack"の文字列。 文字列は、回線のモジュラー ジャックが最初にコント ローラー アクションを起動した後、すべてのユーザーの web サーバーでキャッシュされます。
 
-**3 – Controllers\BadUserController.cs を一覧表示します。**
+**Listing 3 – Controllers\BadUserController.cs**
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample3.cs)]
 

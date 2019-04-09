@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: ca7eccd684473d9a1ec4a8adfd8690b291fe702f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63afd25e2ccf22d3c7ae5c5048c80a8cf060d4cf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043269"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382824"
 ---
-<a name="part-4-listing-products"></a>第 4 部:製品のリスティング
-====================
+# <a name="part-4-listing-products"></a>第 4 部:製品のリスティング
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 > Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
@@ -50,7 +50,7 @@ ms.locfileid: "57043269"
 
 これを実現するには、WHERE 句の自動生成 EntityDataSource を説明し、WhereParameter を指定します。
 
-[製品カテゴリ メニュー] で、メニュー項目を作成したときに動的に構築、リンク、CatagoryID を各リンクのクエリ文字列に追加することで。 思い出してください。 場所のパラメーターをクエリ文字列パラメーターから派生するエンティティのデータ ソースをお知らせします。
+[製品カテゴリ メニュー] で、メニュー項目を作成したときに動的に構築リンク、CategoryID を各リンクのクエリ文字列に追加することで。 思い出してください。 場所のパラメーターをクエリ文字列パラメーターから派生するエンティティのデータ ソースをお知らせします。
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample1.aspx)]
 
@@ -79,7 +79,7 @@ ListView コントロール インスタンスのマークアップを次に示�
 
 ![](tailspin-spyworks-part-4/_static/image6.jpg)
 
-ProductDetials.apsx ページと AddToCart 機能を実装する必要があります。
+ProductDetails.aspx ページと AddToCart 機能を実装する必要があります。
 
 ファイルを使用して、&gt;ProductDetails.aspx 以前に行ったように、サイトのマスター ページを使用してページ名を作成します。
 
@@ -93,7 +93,7 @@ EntityDataSource コントロールを使用して、データベース内の特
 
 名の後選択しないことに注意してください。
 
-データベースには、"ShoppingCart"という名前のテーブルが含まれています。 Entity Data Model を生成したときに、クラスは、データベース内の各テーブルに対して作成されました。 そのため、エンティティ データ モデルでは、"ShoppingCart"という名前のエンティティ クラスが生成されます。 行わないことに代わりに単純に現在名前の競合を回避するには、ショッピング カートの実装には、その名前を使用したり、ニーズに応じて、拡張されるように、モデルを編集しましたでした。
+データベースには、"ShoppingCart"という名前のテーブルが含まれています。 Entity Data Model を生成したときに、クラスは、データベース内の各テーブルに対して作成されました。 そのため、エンティティ データ モデルでは、"ShoppingCart"という名前のエンティティ クラスが生成されます。 ショッピング カートの実装には、その名前を使用したり、ニーズに応じて、それを拡張しましたが、競合を回避するための名前を選択する代わりに選択できるように、モデルの編集でした。
 
 簡単なショッピング カートを作成したことに注意してください。 および、ショッピング カートの表示でショッピング カート ロジックの埋め込み価値もです。 また、ショッピング カートを完全に独立したビジネス層で実装に選択する場合があります。
 

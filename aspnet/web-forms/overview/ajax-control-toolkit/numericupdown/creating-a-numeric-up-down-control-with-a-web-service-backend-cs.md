@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: c99bbc72-d4de-41ed-92a4-9a4632368363
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ffefed61e259994990315d17a545ef74074092a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b8160c6f5ac090e120e86f4273749b756857967e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050729"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385710"
 ---
-<a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web サービス バックエンドで数値を上げ下げするコントロールを作成する (C#)
-====================
+# <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web サービス バックエンドで数値を上げ下げするコントロールを作成する (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/numericupdown1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/numericupdown1CS.pdf)
@@ -54,7 +54,7 @@ ASP.NET AJAX Control Toolkit に含まれています、`NumericUpDown`エクス
 ページを実行する場合は、どのようにテキスト ボックスに値常に 2 倍に上のボタンをクリックして、下のボタンをクリックするとは半分にするとに注意してください。
 
 
-[![2 の累乗の数値のみが表示されます。](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image1.png)
+[![O2 の累乗としてのみ () 番号が表示されます](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image1.png)
 
 2 の累乗の数値のみが表示されます ([フルサイズの画像を表示する をクリックします](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))。
 

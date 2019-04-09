@@ -8,15 +8,15 @@ ms.date: 11/27/2012
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a78606a74b2149e68e3b01f4fe204f4a13edf4b5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5dc4471039938a429a85c891594c3a6651c6ef9d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388531"
 ---
-<a name="authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API で認証と承認
-====================
+# <a name="authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API で認証と承認
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 Web API を作成したが、それへのアクセスを制御するようになりました。 この一連の記事では、承認されていないユーザーから web API をセキュリティで保護するためのいくつかのオプションを紹介します。 このシリーズは、認証と承認の両方について説明します。
@@ -34,7 +34,7 @@ Web API を作成したが、それへのアクセスを制御するようにな
 
 Web API では、ホストでその認証を行いますを前提としています。 Web ホスト、ホスト認証のための HTTP モジュールを使用して、IIS です。 IIS または ASP.NET に組み込まれている認証モジュールのいずれかを使用するプロジェクトを構成したり、カスタム認証を実行する独自の HTTP モジュールを記述できます。
 
-作成、ホストが、ユーザーを認証するとき、*プリンシパル*は、 [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx)コードが実行されているセキュリティ コンテキストを表すオブジェクト。 ホストを設定して現在のスレッドにプリンシパルをアタッチします**Thread.CurrentPrincipal**します。 プリンシパルが含まれていますが、関連付けられている**Identity**ユーザーに関する情報を含むオブジェクト。 ユーザーが認証されている場合、 **Identity.IsAuthenticated**プロパティが返す**true**します。 匿名の要求に対して**IsAuthenticated**返します**false**します。 プリンシパルの詳細については、[ロール ベース セキュリティ](https://msdn.microsoft.com/library/shz8h065.aspx)を参照してください。
+作成、ホストが、ユーザーを認証するとき、*プリンシパル*は、 [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx)コードが実行されているセキュリティ コンテキストを表すオブジェクト。 ホストを設定して現在のスレッドにプリンシパルをアタッチします**Thread.CurrentPrincipal**します。 プリンシパルが含まれていますが、関連付けられている**Identity**ユーザーに関する情報を含むオブジェクト。 ユーザーが認証されている場合、 **Identity.IsAuthenticated**プロパティが返す**true**します。 匿名の要求に対して**IsAuthenticated**返します**false**します。 プリンシパルの詳細については、次を参照してください。[ロール ベース セキュリティ](https://msdn.microsoft.com/library/shz8h065.aspx)します。
 
 ### <a name="http-message-handlers-for-authentication"></a>認証のための HTTP メッセージ ハンドラー
 

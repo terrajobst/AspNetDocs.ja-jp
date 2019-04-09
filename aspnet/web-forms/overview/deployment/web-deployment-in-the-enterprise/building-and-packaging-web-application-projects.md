@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 406b8e6daf47196eb98700efe41e34c02d5682d3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 82134b8da7ab5ca49fef8e769128db9010fd231f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028699"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396331"
 ---
-<a name="building-and-packaging-web-application-projects"></a>Web アプリケーション プロジェクトのビルドとパッケージ化
-====================
+# <a name="building-and-packaging-web-application-projects"></a>Web アプリケーション プロジェクトのビルドとパッケージ化
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > リモート サーバー環境に web アプリケーション プロジェクトを配置するときに、最初のタスクは、プロジェクトをビルドし、web 配置パッケージを生成します。 このトピックでは、web アプリケーション プロジェクトのビルド プロセスのしくみについて説明します。 具体的には、それについて説明します。
 > 
@@ -68,7 +68,7 @@ Contact Manager のサンプル ソリューションで、これらの追加の
 - Web アプリケーション プロジェクトおよびすべてのアセンブリは、ソリューション内のプロジェクトを参照します。
 - Web アプリケーションをデプロイするすべてのデータベースを生成する SQL スクリプトです。
 
-Web デプロイ パッケージが生成されると、さまざまな方法での IIS web サーバーに発行することができます。 たとえば、対象となる、Web デプロイのリモート エージェント サービスまたは送信先の web サーバーで Web 配置ハンドラーによってリモートで展開できるまたは IIS マネージャーを使用して手動で移行先の web サーバー上のパッケージをインポートすることができます。 展開する方法の詳細については、[Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)を参照してください。
+Web デプロイ パッケージが生成されると、さまざまな方法での IIS web サーバーに発行することができます。 たとえば、対象となる、Web デプロイのリモート エージェント サービスまたは送信先の web サーバーで Web 配置ハンドラーによってリモートで展開できるまたは IIS マネージャーを使用して手動で移行先の web サーバー上のパッケージをインポートすることができます。 展開する方法の詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)します。
 
 ## <a name="how-does-the-build-process-work"></a>ビルド プロセスのしくみ
 
@@ -93,7 +93,7 @@ Web アプリケーション プロジェクトをビルドすると、ビルド
 
 このトピックでは、Visual Studio 2010 で web アプリケーション プロジェクトのビルドとパッケージ化プロセスの概要が提供されます。 WPP を使用する MSBuild から Web Deploy コマンドを呼び出す方法を説明し、ビルドとパッケージ化プロセスの動作について説明しました。
 
-Web 配置パッケージを作成したら、次の手順は、それをデプロイします。 詳細については、これは、[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)と[Web パッケージを展開する](deploying-web-packages.md)を参照してください。
+Web 配置パッケージを作成したら、次の手順は、それをデプロイします。 詳細については、これは、次を参照してください。 [Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)と[Web パッケージを展開する](deploying-web-packages.md)します。
 
 ## <a name="further-reading"></a>関連項目
 

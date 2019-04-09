@@ -8,15 +8,15 @@ ms.date: 10/23/2008
 ms.assetid: e5b0f6da-635c-461d-8f34-ab815715888a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/begin-editing-the-templates-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 2f1bc029e2a9555c3526747e228141ac81cde3c6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 97e38513ced9584d767a441fcfa98f59a3d202a4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386672"
 ---
-<a name="begin-editing-the-templates-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションでテンプレートの編集を始める
-====================
+# <a name="begin-editing-the-templates-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションでテンプレートの編集を始める
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオでは、生成された、ASP.NET 動的データ アプリケーションのアプリケーション構造を確認して、提供されているテンプレートの編集の作業を開始します。

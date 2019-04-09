@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 50223ee9-11b9-4cf3-bca2-e2f10bf471f3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: cada8d9aee649e4f2a5afc1ca2b46863ea458207
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 646aeb4ad99ba9b0ee114c6be4aa528e62ef4775
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056519"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389948"
 ---
-<a name="part-7-adding-features"></a>第 7 部:機能の追加
-====================
+# <a name="part-7-adding-features"></a>第 7 部:機能の追加
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 > Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
@@ -41,11 +41,11 @@ ms.locfileid: "57056519"
 
 「アカウント」フォルダーで 1 つの名前付き OrderList.aspx とその他の名前付きの OrderDetails.aspx の 2 つの .aspx ページを作成します
 
-私たちがある以前と同様、OrderList.aspx は GridView と EntityDataSoure コントロールを活用します。
+私たちがある以前と同様、OrderList.aspx は GridView と EntityDataSource コントロールを活用します。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample1.aspx)]
 
-EntityDataSoure、ユーザー名でフィルター処理、Orders テーブルからレコードを選択します (WhereParameter を参照してください) をユーザー ログオンのときにセッション変数に設定します。
+EntityDataSource、ユーザー名でフィルター処理、Orders テーブルからレコードを選択します (WhereParameter を参照してください) をユーザー ログオンのときにセッション変数に設定します。
 
 GridView の内でこれらのパラメーターにも注意してください。
 
@@ -143,7 +143,7 @@ Visual Studio のソリューション エクスプ ローラーでソリュー�
 
 分単位で最も人気のある項目を変更しないため、アプリケーションのパフォーマンスを向上させるために出るディレクティブを追加できます。 このディレクティブは、コントロールのキャッシュされた出力の有効期限が切れる場合に、実行されるのみコントロール コードになります。 それ以外の場合は、コントロールの出力のキャッシュされたバージョンが使用されます。
 
-次に行う必要があるは、Default.aspc ページで、新しいコントロールを含めます。
+次に行う必要があるは、Default.aspx ページで、新しいコントロールを含めます。
 
 ドラッグ アンド ドロップで、既定のフォームのオープンの列に、コントロールのインスタンスを配置します。
 

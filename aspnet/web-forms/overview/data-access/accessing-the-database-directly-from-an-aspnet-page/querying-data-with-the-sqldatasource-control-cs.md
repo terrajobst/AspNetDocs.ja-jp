@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: 60512d6a-b572-4b7a-beb3-3e44b4d2020c
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d15e09c2b790c4d1e6b278c4ea35bab7f66b861
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f6aa0e4535f88a04419695114d07ea2cf6ac7036
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57040599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381160"
 ---
-<a name="querying-data-with-the-sqldatasource-control-c"></a>SqlDataSource コントロールでデータにクエリを実行する (C#)
-====================
+# <a name="querying-data-with-the-sqldatasource-control-c"></a>SqlDataSource コントロールでデータにクエリを実行する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_CS.exe)または[PDF のダウンロード](querying-data-with-the-sqldatasource-control-cs/_static/datatutorial47cs1.pdf)
@@ -51,7 +51,7 @@ SqlDataSource は、同じ機能を提供しますが、オブジェクト ラ�
 
 
 > [!NOTE]
-> このチュートリアルでは、データベースからデータを取得中に注目します。 [挿入、更新、および、SqlDataSource コントロールでデータを削除しても](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)チュートリアルでは、挿入、更新、および削除をサポートするために SqlDataSource を構成する方法を見ていきます。
+> このチュートリアルでは、データベースからデータを取得中に注目します。 [挿入、更新、および、SqlDataSource コントロールでデータを削除する](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)チュートリアルでは、挿入、更新、および削除をサポートするために SqlDataSource を構成する方法を見ていきます。
 
 
 ## <a name="the-sqldatasource-and-accessdatasource-controls"></a>SqlDataSource と AccessDataSource コントロール
@@ -79,7 +79,7 @@ SqlDataSource コントロールを使用してデータベースのデータを
 などの他のフォルダーで`Default.aspx`で、`SqlDataSource`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
+[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
 
 **図 4**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](querying-data-with-the-sqldatasource-control-cs/_static/image6.gif))。
 
@@ -155,7 +155,7 @@ ObjectDataSource で SqlDataSource のウィザード単に値を割り当てま
 SqlDataSource が構成されていると、データ、GridView や DetailsView などの Web コントロールにバインドできます。 このチュートリアルでは、s を GridView にデータを表示することができます。 ツールボックスからページに GridView をドラッグしにバインド、 `ProductsDataSource` SqlDataSource GridView s のスマート タグのドロップダウン リストから、データ ソースを選択します。
 
 
-[![GridView を追加し、SqlDataSource コントロールにバインドします。](querying-data-with-the-sqldatasource-control-cs/_static/image13.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image12.gif)
+[![Add、GridView、SqlDataSource コントロールにバインド](querying-data-with-the-sqldatasource-control-cs/_static/image13.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image12.gif)
 
 **図 10**:GridView を追加し、SqlDataSource コントロールにバインドする ([フルサイズの画像を表示する をクリックします](querying-data-with-the-sqldatasource-control-cs/_static/image14.gif))。
 
@@ -170,7 +170,7 @@ GridView の 3 つを構成する少し BoundFields します。 変更、`Produ
 ブラウザーからこのページを参照してください。 図 11 に示すよう、GridView が s の各製品を一覧表示`ProductID`、 `ProductName`、および`UnitPrice`値。
 
 
-[![GridView は、各製品の ProductID、ProductName、および UnitPrice の値が表示されます。](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
+[![T彼は GridView には、各製品の ProductID、ProductName、UnitPrice の値が表示されます](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
 
 **図 11**:GridView 表示の各製品 s `ProductID`、 `ProductName`、および`UnitPrice`値 ([フルサイズの画像を表示する をクリックします](querying-data-with-the-sqldatasource-control-cs/_static/image17.gif))。
 
@@ -228,7 +228,7 @@ SqlDataSource コントロールを構成するときに、カスタム SQL ス�
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample5.aspx)]
 
 
-[![GridView は、各製品の ID、名前、および関連付けられているカテゴリの名前を示しています。](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
+[![TGridView 彼には、各製品の ID、名、および関連付けられているカテゴリの名前が示しています](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
 
 **図 15**:GridView 表示の各製品 ID、名、および関連付けられているカテゴリの名前 ([フルサイズの画像を表示する をクリックします](querying-data-with-the-sqldatasource-control-cs/_static/image23.gif))。
 

@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 828ff18abcc5932f82be71a45ebde589eeb051fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ce866a169e69c0d85fe18ddeccf271f1f235d440
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049279"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381121"
 ---
-<a name="part-3-views-and-viewmodels"></a>第 3 部:Views と ViewModels
-====================
+# <a name="part-3-views-and-viewmodels"></a>第 3 部:Views と ViewModels
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -122,7 +122,7 @@ ActionResult を返すコント ローラー アクション メソッドは、�
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample7.cs)]
 
-*注:念のため、{get; 設定。} 表記を行うのを使用して、C#の自動実装プロパティ機能。これにより、プロパティの利点、バッキング フィールドを宣言することを必要とせず。*
+*メモ:念のため、{get; 設定。} 表記を行うのを使用して、C#の自動実装プロパティ機能。 これにより、プロパティの利点、バッキング フィールドを宣言することを必要とせず。*
 
 次に、タイトルとジャンル プロパティを持つアルバム クラス (Album.cs という名前) を作成する同じ手順に従います。
 
@@ -144,7 +144,7 @@ ActionResult を返すコント ローラー アクション メソッドは、�
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample11.cs)]
 
-*注:詳しくない場合C#、ことをアルバムの変数は、遅延バインディングを var を使用して意味を担うことができます。正しくありません-C# コンパイラを使用して型推論に基づいてどのアルバムがアルバムの種類を決定する、変数に代入しています、アルバムの種類として、アルバムのローカル変数をコンパイルするため、コンパイル時チェックと Visual Studio コード エディターを取得しますサポート。*
+*メモ:詳しくない場合C#、ことをアルバムの変数は、遅延バインディングを var を使用して意味を担うことができます。 正しくありません-c# コンパイラを使用して型推論に基づいてどのアルバムがアルバムの種類を決定する、変数に代入しています、アルバムの種類として、アルバムのローカル変数をコンパイルするため、コンパイル時チェックと Visual Studio コード エディターを取得しますサポート。*
 
 当社のアルバムを使用して、HTML 応答を生成するテンプレートの表示を今すぐ作成しましょう。 その前に、新しく作成したアルバム クラスの概要ビューの追加 ダイアログを認識するようにプロジェクトをビルドする必要があります。 プロジェクトをビルドする Debug⇨Build MvcMusicStore を選択してメニュー項目 (追加の手順を使用できます Ctrl + SHIFT+B ショートカット プロジェクトをビルドします)。
 
@@ -238,7 +238,7 @@ Html.ActionLink() には、リンクに必要な限り多くの情報を指定�
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample20.cshtml)]
 
-*注:この場合、していない現在のビューをレンダリングしている同じコント ローラー内の別のアクション リンクしているだけであるため、コント ローラー名を指定する必要があります。*
+*メモ:この場合、していない現在のビューをレンダリングしている同じコント ローラー内の別のアクション リンクしているだけであるため、コント ローラー名を指定する必要があります。*
 
 [参照] ページに、リンクを 3 つのパラメーターを受け取る Html.ActionLink メソッドの別のオーバー ロードを使用するために、ただし、パラメーターを渡す必要があります。
 

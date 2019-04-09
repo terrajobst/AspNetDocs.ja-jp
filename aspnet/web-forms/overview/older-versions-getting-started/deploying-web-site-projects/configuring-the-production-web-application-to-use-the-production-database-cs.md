@@ -8,15 +8,15 @@ ms.date: 04/23/2009
 ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2560ae7a845c27f7fa5f420eaf1d89618397c60
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fa05645db9d43a836cc75b399153dd2e2c288f7c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388767"
 ---
-<a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>実稼働データベースを使用するように Web アプリケーションを構成する (C#)
-====================
+# <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>実稼働データベースを使用するように Web アプリケーションを構成する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_cs.pdf)
@@ -53,7 +53,7 @@ Web アプリケーションは、情報を使用して、*接続文字列*デ�
 Visual Studio を開き、サーバー エクスプ ローラー ウィンドウに移動します (Visual Web developer では、このウィンドウと呼ばれるデータベース エクスプ ローラー)。 データ接続オプションを右クリックし、コンテキスト メニューから 接続の追加オプションを選択します。 図 1 に示すようにウィザードが表示されます。 適切なデータ ソースを選択し、[続行] をクリックします。
 
 
-[![サーバー エクスプ ローラーに新しいデータベースを追加します。](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image1.jpg) 
+[![Cサーバー エクスプ ローラーに新しいデータベースを追加する選択](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image1.jpg) 
 
 **図 1**:サーバー エクスプ ローラーに新しいデータベースを追加する ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image3.jpg))。
 
@@ -61,7 +61,7 @@ Visual Studio を開き、サーバー エクスプ ローラー ウィンドウ
 次に、さまざまなデータベース接続情報を指定 (図 2 参照)。 Web ホスティング会社にサインアップしたときに、データベース サーバー名、データベース名、ユーザー名とパスワードを使用して、データベースに接続して、具合のデータベースに接続する方法の情報を指定した必要があります。 この情報を入力したら、このウィザードを完了して、データベースをサーバー エクスプ ローラーに追加する [ok] をクリックします。
 
 
-[![データベースの接続情報を指定します](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image4.jpg) 
+[![Sデータベース接続情報を指定する](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image4.jpg) 
 
 **図 2**:データベースの接続情報を指定します ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image6.jpg))。
 
@@ -91,7 +91,7 @@ Visual Studio を開き、サーバー エクスプ ローラー ウィンドウ
 サイトを運用環境にデプロイすると、ブラウザーを使用して実稼働サイトを参照してください。 データ ドリブン アプリケーションをローカルに実行する場合と同じユーザー エクスペリエンスをお楽しみくださいし、表示されます。 もちろん実稼働環境で、web サイトにアクセスすると、サイトが搭載されています、実稼働データベース サーバーが、開発、データベースでは、開発環境で web サイトにアクセスします。 図 3 は、*教える自分で ASP.NET 3.5 in 24 時間*(ブラウザーのアドレス バーに URL に注意してください) の実稼働環境で web サイトからのページを確認します。
 
 
-[![データ ドリブン アプリケーションでは、ここで使用可能なに運用環境です。](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image7.jpg) 
+[![Tデータ ドリブン アプリケーションは今すぐ使用できるで実稼働!](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image7.jpg) 
 
 **図 3**:データ ドリブン アプリケーションでは、ここで使用可能なに運用環境です。 ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image9.jpg))。
 

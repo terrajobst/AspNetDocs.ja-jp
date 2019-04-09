@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: 577ae07b-a872-4818-a804-bca489b40ad0
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2fa3804411cb553de242a503f57e247efc990156
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 311cd61ae971dd6b902411eca87f75f87f5868ae
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384060"
 ---
-<a name="using-the-colorpicker-control-extender-vb"></a>ColorPicker コントロール エクステンダー (VB) を使用します。
-====================
+# <a name="using-the-colorpicker-control-extender-vb"></a>ColorPicker コントロール エクステンダー (VB) を使用します。
+
 によって[Microsoft](https://github.com/microsoft)
 
 > ColorPicker では、popup コントロールの UI を使用したクライアント側の色を選択機能を提供する ASP.NET AJAX エクステンダーです。 ASP.NET の TextBox コントロールにアタッチできます。 です。
@@ -29,7 +29,7 @@ ms.locfileid: "57053689"
 たとえば、ユーザーがカスタマイズされたビジネス カードを作成できるようにする web サイトを作成することに想像してください。 訪問者は、名刺のテキストを入力し、色を選択できます。 リスト 1 での ASP.NET ページには、txtCardText txtCardColor という 2 つのテキスト ボックス コントロールが含まれています。 フォームを送信すると、選択した値が表示されます (図 1 参照)。
 
 
-[![ビジネスのカードを作成するための簡単なフォーム](using-the-colorpicker-control-extender-vb/_static/image1.jpg)](using-the-colorpicker-control-extender-vb/_static/image1.png)
+[![Sビジネスのカードを作成するためのフォームを概要](using-the-colorpicker-control-extender-vb/_static/image1.jpg)](using-the-colorpicker-control-extender-vb/_static/image1.png)
 
 **図 01**:ビジネスのカードを作成するための簡単なフォーム ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-vb/_static/image2.png))。
 
@@ -43,7 +43,7 @@ ms.locfileid: "57053689"
 ColorPicker コントロール エクステンダーを使用して、優れたユーザー エクスペリエンスを作成することができます。 TextBox コントロールにフォーカスを移動すると、ColorPicker に色のダイアログが表示されます (図 2 参照)。
 
 
-[![ColorPicker コントロール エクステンダー](using-the-colorpicker-control-extender-vb/_static/image2.jpg)](using-the-colorpicker-control-extender-vb/_static/image3.png)
+[![T彼 ColorPicker コントロール エクステンダー](using-the-colorpicker-control-extender-vb/_static/image2.jpg)](using-the-colorpicker-control-extender-vb/_static/image3.png)
 
 **図 02**:ColorPicker コントロール エクステンダー ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-vb/_static/image4.png))。
 
@@ -60,12 +60,12 @@ ColorPicker を使用する前に、ページに、ScriptManager を追加する
 ColorPicker コントロール エクステンダーをページに追加する最も簡単な方法は、デザイン ビューでです。 TxtCardColor テキスト ボックスの上にマウスを移動する場合は、スマート タスク オプションは、可能で表示されます。 エクステンダーを追加する (図 3 を参照してください)。 このオプションを選択する場合、Extender ウィザードでは、(図 4 参照) が表示されます。
 
 
-[![Extender の追加](using-the-colorpicker-control-extender-vb/_static/image3.jpg)](using-the-colorpicker-control-extender-vb/_static/image5.png)
+[![Adding エクステンダー](using-the-colorpicker-control-extender-vb/_static/image3.jpg)](using-the-colorpicker-control-extender-vb/_static/image5.png)
 
 **図 03**:Extender の追加 ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-vb/_static/image6.png))。
 
 
-[![エクステンダーのウィザードを使用してコントロール エクステンダーを選択します。](using-the-colorpicker-control-extender-vb/_static/image4.jpg)](using-the-colorpicker-control-extender-vb/_static/image7.png)
+[![Sエクステンダーのウィザードを使用してコントロール エクステンダーを選定](using-the-colorpicker-control-extender-vb/_static/image4.jpg)](using-the-colorpicker-control-extender-vb/_static/image7.png)
 
 **図 04**:エクステンダーのウィザードを使用してコントロール エクステンダーを選択すると ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-vb/_static/image8.png))。
 
@@ -91,7 +91,7 @@ ColorPicker エクステンダーには、次のプロパティがサポート�
 
 これらのプロパティを使用して、カラー ピッカー ダイアログ ボックスを表示する方法と、選択した色の表示方法をカスタマイズすることができます。 リスト 3 のページでは、これらのプロパティのいくつかの使用方法を示します。
 
-**3 - CreateCardButton.aspx を一覧表示します。**
+**Listing 3 - CreateCardButton.aspx**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-vb/samples/sample3.aspx)]
 
@@ -102,7 +102,7 @@ ColorPicker PopupButtonID プロパティは、色の選択 ボタンを関連�
 SampleControlID プロパティは、関連付ける、ColorPicker で選択した色を表示するコントロールに使用されます。 ColorPicker は、現在選択されている色にこのコントロールの背景色を変更します。
 
 
-[![ボタンのカラー ピッカー ダイアログを表示します。](using-the-colorpicker-control-extender-vb/_static/image5.jpg)](using-the-colorpicker-control-extender-vb/_static/image9.png)
+[![Displaying ボタン、カラー ピッカー ダイアログ](using-the-colorpicker-control-extender-vb/_static/image5.jpg)](using-the-colorpicker-control-extender-vb/_static/image9.png)
 
 **図 05**:ボタンのカラー ピッカー ダイアログを表示する ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-vb/_static/image10.png))。
 

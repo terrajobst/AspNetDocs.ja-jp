@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: 4823a186-caaf-4116-a318-c7ff4d955ddc
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f40c2632e98dd8c64c985e44478a9739df473ca
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ca1bf281130bf2c726b6147f90733c8a83754563
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423135"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399589"
 ---
-<a name="sorting-custom-paged-data-vb"></a>カスタム ページングを適用したデータを並べ替える (VB)
-====================
+# <a name="sorting-custom-paged-data-vb"></a>カスタム ページングを適用したデータを並べ替える (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_VB.exe)または[PDF のダウンロード](sorting-custom-paged-data-vb/_static/datatutorial26vb1.pdf)
@@ -71,7 +71,7 @@ ms.locfileid: "58423135"
 **図 1**:ストアド プロシージャの 3 つ入力パラメーターを異なる値をお試しください。
 
 
-[![ストアド プロシージャの結果は、出力ウィンドウに表示されます。](sorting-custom-paged-data-vb/_static/image3.png)](sorting-custom-paged-data-vb/_static/image2.png)
+[![T彼はストアド プロシージャの結果は、出力ウィンドウに表示されます](sorting-custom-paged-data-vb/_static/image3.png)](sorting-custom-paged-data-vb/_static/image2.png)
 
 **図 2**:ストアド プロシージャの結果は、出力ウィンドウに表示されます ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-vb/_static/image4.png))。
 
@@ -145,7 +145,7 @@ GridView の並べ替え機能を有効にするチェック ボックスを並�
 図 7 で並べ替えたときの結果の最初のページを示しています、`UnitPrice`で昇順に並べ替えます。
 
 
-[![結果は、UnitPrice 順に並べ替えられます。](sorting-custom-paged-data-vb/_static/image10.png)](sorting-custom-paged-data-vb/_static/image9.png)
+[![T彼の結果は、UnitPrice ごとに表示](sorting-custom-paged-data-vb/_static/image10.png)](sorting-custom-paged-data-vb/_static/image9.png)
 
 **図 7**:結果は、UnitPrice で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-vb/_static/image11.png))。
 
@@ -166,7 +166,7 @@ GridView の並べ替え機能を有効にするチェック ボックスを並�
 **図 9**:変更 CompanyName を仕入 BoundField の SortExpression
 
 
-[![業者によって、結果を並べ替えるようになりました](sorting-custom-paged-data-vb/_static/image15.png)](sorting-custom-paged-data-vb/_static/image14.png)
+[![T彼は業者によって結果を並べ替えるようになりました](sorting-custom-paged-data-vb/_static/image15.png)](sorting-custom-paged-data-vb/_static/image14.png)
 
 **図 10**:結果は今すぐで並べ替えられます Supplier ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-vb/_static/image16.png))。
 

@@ -8,26 +8,26 @@ ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: c53c27f4852eab9813bd917315111e7cd3b04953
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 29baaf2917e47ac46a78a252721be725b4e9b58f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398476"
 ---
-<a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>取得して、モデル バインディングと web フォームでデータの表示
-====================
+# <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>取得して、モデル バインディングと web フォームでデータの表示
+
 
 > このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。
 > 
->  モデル バインドのパターンは、任意のデータ アクセス テクノロジと連携します。 このチュートリアルでは、Entity Framework を使用するが、最も使い慣れたデータ アクセス テクノロジを使用できます。 GridView、ListView、DetailsView、または FormView コントロールなどのデータ バインド サーバー コントロールから選択すると、更新、削除、およびデータの作成に使用するメソッドの名前を指定します。 このチュートリアルでは、SelectMethod の値を指定します。 
+> モデル バインドのパターンは、任意のデータ アクセス テクノロジと連携します。 このチュートリアルでは、Entity Framework を使用するが、最も使い慣れたデータ アクセス テクノロジを使用できます。 GridView、ListView、DetailsView、または FormView コントロールなどのデータ バインド サーバー コントロールから選択すると、更新、削除、およびデータの作成に使用するメソッドの名前を指定します。 このチュートリアルでは、SelectMethod の値を指定します。 
 > 
 > そのメソッド内では、データを取得するロジックを提供します。 次のチュートリアルでは、UpdateMethod、InsertMethod、DeleteMethod の値を設定します。
 >
 > できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)で完全なプロジェクトC#または Visual Basic です。 ダウンロード可能なコードは、Visual Studio 2012 以降のバージョンとは動作します。 これは、このチュートリアルで示すように、Visual Studio 2017 のテンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
 > 
 > チュートリアルでは、Visual Studio でアプリケーションを実行します。 ホスティング プロバイダーにアプリケーションを展開し、インターネット経由で使用できるようにもできます。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、  
->  [無料 Azure 試用版アカウント](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Azure App Service Web Apps にデプロイする方法については、次を参照してください。、 [Visual Studio を使用して ASP.NET Web 配置](../../deployment/visual-studio-web-deployment/introduction.md)シリーズ。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Azure SQL Database に SQL Server データベースをデプロイする方法も示します。
+> [無料 Azure 試用版アカウント](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Azure App Service Web Apps にデプロイする方法については、次を参照してください。、 [Visual Studio を使用して ASP.NET Web 配置](../../deployment/visual-studio-web-deployment/introduction.md)シリーズ。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Azure SQL Database に SQL Server データベースをデプロイする方法も示します。
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 

@@ -1,27 +1,28 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: ASP.NET Web API のヘルプ ページの作成 |Microsoft Docs
+title: ヘルプ ページを作成する ASP.NET web API - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: コードで、このチュートリアルは、ASP.NET での ASP.NET Web API のヘルプ ページを作成する方法を示しています。 4.x です。
 ms.author: riande
 ms.date: 04/01/2013
+ms.custom: seoapril2019
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: fba368e4017fea65ff96e2540d486662cc6b45f8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: e3f6a9b8a6835b034a075d580cd9a33136969990
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423729"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395018"
 ---
-<a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API のヘルプ ページの作成
-====================
+# <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API のヘルプ ページの作成
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-Web API を作成するときに多くの場合のヘルプ ページを作成すると便利他の開発者は、API を呼び出す方法を認識できるようにします。 すべてのドキュメントを手動で作成する可能性がありますが、できるだけ多くの自動生成することをお勧めします。
+コードで、このチュートリアルは、ASP.NET での ASP.NET Web API のヘルプ ページを作成する方法を示しています。 4.x です。
 
-この作業を容易にするには、ASP.NET Web API は、実行時のヘルプ ページの自動生成するライブラリを提供します。
+Web API を作成するときに多くの場合のヘルプ ページを作成すると便利他の開発者は、API を呼び出す方法を認識できるようにします。 すべてのドキュメントを手動で作成する可能性がありますが、できるだけ多くの自動生成することをお勧めします。 この作業を容易にするには、ASP.NET Web API は、実行時のヘルプ ページの自動生成するライブラリを提供します。
 
 ![](creating-api-help-pages/_static/image1.png)
 
@@ -61,7 +62,7 @@ Web API を作成するときに多くの場合のヘルプ ページを作成�
 
 **Visual Basic**アプリケーション。 `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
-C# と Visual Basic の 2 つのパッケージがあります。 プロジェクトに一致する 1 つを使用してください。
+C# と Visual basic の 2 つのパッケージがあります。 プロジェクトに一致する 1 つを使用してください。
 
 このコマンドは、必要なアセンブリをインストールし、(領域/HelpPage フォルダーにあります) のヘルプ ページの MVC ビューを追加します。 ヘルプ ページへのリンクを手動で追加する必要があります。 URI は、/Help です。 Razor ビューで、リンクを作成するには、次のように追加します。
 

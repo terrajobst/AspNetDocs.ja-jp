@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: 既存の web サイトを SQL メンバーシップから ASP.NET Identity に移行する |Microsoft Docs
+title: 既存の web サイトを SQL メンバーシップから ASP.NET Identity の ASP.NET に移行する 4.x
 author: Rick-Anderson
 description: このチュートリアルでは、ユーザーとロールのデータが新しい ASP.NET identity s SQL メンバーシップを使用して作成された既存の web アプリケーションを移行する手順は説明しています.
 ms.author: riande
 ms.date: 12/19/2014
+ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: b80f2f5cc4702c3e406d8989905c56508711e788
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f205dfd8692bc946ca2124655bf8bcefbdbd1779
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426082"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394531"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する
 
@@ -82,7 +83,7 @@ ms.locfileid: "58426082"
 
 既存のユーザーのデータを事前に定義するクラスを ASP.NET Identity、ASP.NET Identity で必要な 1 つに、データベース スキーマを移行する必要があります。 この新しいテーブルを追加し、それらのテーブルに既存の情報をコピーして実行できます。 既定では、ASP.NET Identity は、Id モデルのクラスを保存/取得の情報をデータベースにマップするのに EntityFramework を使用します。 これらのモデル クラスは、ユーザーとロール オブジェクトを定義するコア Identity のインターフェイスを実装します。 テーブルと、データベース内の列は、これらのモデル クラスに基づいています。 Identity v2.1.0 とそのプロパティに EntityFramework モデル クラスには、以下に定義されています。
 
-| **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
+| **IdentityUser** | **型** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
 | ID | string | ID | RoleId | ProviderKey | ID |
 | [ユーザー名] | string | 名前 | ユーザー Id | ユーザー Id | ClaimType |
@@ -98,7 +99,7 @@ ms.locfileid: "58426082"
 
 これらのモデルの各プロパティに対応する列を含むテーブルが存在する必要があります。 クラスとテーブル間のマッピングが定義されている、`OnModelCreating`のメソッド、`IdentityDBContext`します。 これは構成の fluent API メソッドと呼ばれ、情報の詳細については[ここ](https://msdn.microsoft.com/data/jj591617.aspx)します。 クラスの構成が次のようには
 
-| **Class** | **テーブル** | **主キー** | **外部キー** |
+| **クラス** | **テーブル** | **主キー** | **外部キー** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | ID |  |
 | IdentityRole | AspnetRoles | ID |  |

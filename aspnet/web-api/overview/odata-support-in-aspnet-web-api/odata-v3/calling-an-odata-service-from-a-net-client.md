@@ -8,18 +8,18 @@ ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 75f8e3eab7bd5667bbdcccbb5ae8a8e5b1f5fdba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d35c0057f5c29e399e45d0a58467de7f106d9994
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050139"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389974"
 ---
-<a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアントから OData サービスを呼び出す (C#)
-====================
+# <a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアントから OData サービスを呼び出す (C#)
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > このチュートリアルでは、c# クライアント アプリケーションから OData サービスを呼び出す方法を示します。
 >
@@ -223,7 +223,7 @@ Odata では、[アクション](odata-actions.md)エンティティに対する
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-詳細については、[呼び出すサービス操作とアクション](https://msdn.microsoft.com/library/hh230677.aspx)を参照してください。
+詳細については、次を参照してください。[呼び出すサービス操作とアクション](https://msdn.microsoft.com/library/hh230677.aspx)します。
 
 1 つのオプションは、拡張する、**コンテナー**処理を実行する厳密に型指定されたメソッドを提供するクラス。
 

@@ -9,16 +9,13 @@ ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 11b1bc316f730e31b4a01924765db3c982783652
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383019"
 ---
-<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>ASP.NET MVC 5 アプリケーション (10/12) では、Entity Framework 6 で同時実行の処理
-====================
-
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>チュートリアル: ASP.NET MVC 5 アプリでの EF による同時実行を処理します。
 
 前のチュートリアルでは、データを更新する方法について説明しました。 このチュートリアルでは、オプティミスティック同時実行制御を使用して、複数のユーザーが同時に同じエンティティを更新するときの競合を処理する方法を示します。 使用する web ページを変更する、`Department`エンティティ同時実行エラーを処理するようにします。 次の図は Edit ページと Delete ページのものです。コンカレンシーで競合が発生すると、メッセージが表示されます。
@@ -215,13 +212,13 @@ Departments Index ページを実行します。 右クリックして、**削�
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したプロジェクトのダウンロード](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
+[完成したプロジェクトをダウンロードします。](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-同時実行のさまざまなシナリオを処理する他の方法については、[オプティミスティック同時実行パターン](https://msdn.microsoft.com/data/jj592904)と[プロパティの値を操作](https://msdn.microsoft.com/data/jj592677)msdn を参照してください。 次のチュートリアル用の table-per-hierarchy 継承を実装する方法を示しています、`Instructor`と`Student`エンティティ。
+同時実行のさまざまなシナリオを処理する他の方法については、次を参照してください。[オプティミスティック同時実行パターン](https://msdn.microsoft.com/data/jj592904)と[プロパティの値を操作](https://msdn.microsoft.com/data/jj592677)msdn です。 次のチュートリアル用の table-per-hierarchy 継承を実装する方法を示しています、`Instructor`と`Student`エンティティ。
 
 ## <a name="next-steps"></a>次の手順
 

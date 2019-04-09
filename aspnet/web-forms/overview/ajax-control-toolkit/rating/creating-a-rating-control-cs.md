@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 969fb28f-2bff-4fc4-b24a-27f5e2534a37
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5776101d9e40f999806aefa5a9529dbef21af161
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fa118b4d733d7848b838f80e9918d62ae60033af
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048389"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378976"
 ---
-<a name="creating-a-rating-control-c"></a>評価コントロールを作成する (C#)
-====================
+# <a name="creating-a-rating-control-c"></a>評価コントロールを作成する (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0CS.pdf)
@@ -66,7 +66,7 @@ ms.locfileid: "57048389"
 ページを保存し、お使いのブラウザーに読み込みます。 (最初は空) の評価の項目をポイントすると、JavaScript の効果が発生します。評価の変更。 一連の星をクリックすると、現在の評価が保持されます。 最後に、フォームを送信するときに、サーバー側コードは、選択した評価を出力します。
 
 
-[![最小限のコードで評価システムを作成します。](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
+[![C最小限のコードで評価システムの作成](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
 
 最小限のコードで評価システムを作成する ([フルサイズの画像を表示する をクリックします](creating-a-rating-control-cs/_static/image3.png))。
 

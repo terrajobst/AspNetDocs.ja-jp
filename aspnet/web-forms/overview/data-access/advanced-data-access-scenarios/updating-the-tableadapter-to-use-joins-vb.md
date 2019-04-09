@@ -8,15 +8,15 @@ ms.date: 07/18/2007
 ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d5a7b61d447631f5e65ca8a3dfac9c58c108643f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 943b8a67e77e4ed449e0b2c887b3cae7cc10f305
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048539"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383435"
 ---
-<a name="updating-the-tableadapter-to-use-joins-vb"></a>JOIN を使用するように TableAdapter を更新する (VB)
-====================
+# <a name="updating-the-tableadapter-to-use-joins-vb"></a>JOIN を使用するように TableAdapter を更新する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_69_VB.zip)または[PDF のダウンロード](updating-the-tableadapter-to-use-joins-vb/_static/datatutorial69vb1.pdf)
@@ -64,7 +64,7 @@ A`JOIN`いくつかの条件に基づいて別のテーブルからレコード�
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample3.sql)]
 
 
-[![結合を含むメイン クエリを入力します。](updating-the-tableadapter-to-use-joins-vb/_static/image2.png)](updating-the-tableadapter-to-use-joins-vb/_static/image1.png)
+[![Eメインの所属を入力は、そのを含む結合クエリ](updating-the-tableadapter-to-use-joins-vb/_static/image2.png)](updating-the-tableadapter-to-use-joins-vb/_static/image1.png)
 
 **図 1**:その値を含むメイン クエリを入力して`JOIN`s ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image3.png))。
 
@@ -88,7 +88,7 @@ A`JOIN`いくつかの条件に基づいて別のテーブルからレコード�
 TableAdapter の値が不足しています、DataTable には、適切な列が、その`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ。 これには、デザイナーで TableAdapter クリックし、[プロパティ] ウィンドウに移動します。 表示されますが、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ (なし) に設定されます。
 
 
-[![InsertCommand、UpdateCommand、および DeleteCommand プロパティは、(なし) に設定されます。](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
+[![T(なし) には、InsertCommand 彼、UpdateCommand、および DeleteCommand プロパティが設定](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
 
 **図 4**:`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ (なし) に設定されます ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image8.png))。
 
@@ -108,7 +108,7 @@ TableAdapter の値が不足しています、DataTable には、適切な列が
 開いて開始、`NorthwindWithSprocs`データセットで、`~/App_Code/DAL`フォルダー。 デザイナーを右クリックし、コンテキスト メニューから追加のオプションを選択および TableAdapter のメニュー項目を選択します。 これにより、TableAdapter 構成ウィザードが起動します。 図 5 を示していますとしてのウィザードで新しいストアド プロシージャを作成し、[次へ] をクリックします。 新規作成は、ストアド プロシージャを TableAdapter の s ウィザードからを参照してください、[型指定されたデータセット s Tableadapter の新しいのストアド プロシージャの作成](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)チュートリアル。
 
 
-[![作成する新しいストアド プロシージャ オプションを選択します。](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
+[![S次のように、新しいストアド プロシージャの作成オプションを選択](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
 
 **図 5**:新しいストアド プロシージャ オプションの選択の作成 ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image11.png))。
 
@@ -123,7 +123,7 @@ TableAdapter の値が不足しています、DataTable には、適切な列が
 次の手順により、TableAdapter の格納されているプロシージャの名前を付けます。 名を使用して`Employees_Select`、 `Employees_Insert`、 `Employees_Update`、および`Employees_Delete`図 6 に示すようにします。
 
 
-[![TableAdapter の格納されているプロシージャの名前](updating-the-tableadapter-to-use-joins-vb/_static/image13.png)](updating-the-tableadapter-to-use-joins-vb/_static/image12.png)
+[![Name、tableadapter のストアド プロシージャ](updating-the-tableadapter-to-use-joins-vb/_static/image13.png)](updating-the-tableadapter-to-use-joins-vb/_static/image12.png)
 
 **図 6**:TableAdapter のストアド プロシージャの名前 ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image14.png))。
 
@@ -131,7 +131,7 @@ TableAdapter の値が不足しています、DataTable には、適切な列が
 最後の手順では、メソッド、TableAdapter の名前を求められます。 使用`Fill`と`GetEmployees`メソッド名として。 必ず、データベース (GenerateDBDirectMethods) チェック ボックスはオンに直接更新を送信するためのメソッドを作成するのままにしてください。
 
 
-[![TableAdapter のメソッドの塗りつぶしの名前と GetEmployees](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
+[![Name tableadapter のメソッドの入力と GetEmployees](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
 
 **図 7**:Tableadapter のメソッドの名前を付けます`Fill`と`GetEmployees`([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image17.png))。
 
@@ -139,7 +139,7 @@ TableAdapter の値が不足しています、DataTable には、適切な列が
 ウィザードを完了すると、データベース内のストアド プロシージャを調べるには少しを実行します。 次の 4 つの新しい値が表示されます: `Employees_Select`、 `Employees_Insert`、 `Employees_Update`、および`Employees_Delete`します。 次に、検査、`EmployeesDataTable`と`EmployeesTableAdapter`だけを作成します。 DataTable には、メインのクエリによって返される各フィールドの列が含まれています。 TableAdapter でクリックし、[プロパティ] ウィンドウに移動します。 表示されますが、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティが対応するストアド プロシージャの呼び出しを正しく構成されています。
 
 
-[![TableAdapter の Insert、Update が含まれています、機能の削除](updating-the-tableadapter-to-use-joins-vb/_static/image19.png)](updating-the-tableadapter-to-use-joins-vb/_static/image18.png)
+[![T彼が含まれています、TableAdapter の挿入、更新、および機能の削除](updating-the-tableadapter-to-use-joins-vb/_static/image19.png)](updating-the-tableadapter-to-use-joins-vb/_static/image18.png)
 
 **図 8**:TableAdapter を含む挿入、更新、および機能の削除 ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image20.png))。
 
@@ -156,7 +156,7 @@ TableAdapter の値が不足しています、DataTable には、適切な列が
 更新した後、`SELECT`ステートメントでは、[ファイル] メニューに移動し、保存を選択して変更を保存、`Employees_Select`します。 または、ツールバーの [保存] アイコンをクリックします。 または Ctrl + S をヒットできます。 右クリックし、変更を保存した後、`Employees_Select`サーバー エクスプ ローラーでのストアド プロシージャを実行 を選択します。 これは、ストアド プロシージャを実行され、出力ウィンドウにその結果を表示する (図 9 参照)。
 
 
-[![ストアド プロシージャの結果が出力ウィンドウに表示されます。](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
+[![T彼はストアド プロシージャの結果は、出力ウィンドウに表示されます](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
 
 **図 9**:ストアド プロシージャの結果が出力ウィンドウに表示されます ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image23.png))。
 
@@ -173,7 +173,7 @@ DataTable 列を手動で追加するなど、前のチュートリアルにつ�
 右クリックして開始、`EmployeesTableAdapter`し、コンテキスト メニューから構成を選択します。 選択、挿入、更新、および削除、その戻り値とパラメーター (ある場合) と共に使用するストアド プロシージャを一覧表示すると、TableAdapter 構成ウィザードが表示されます。 図 10 では、このウィザードを示します。 ここで確認できます、`Employees_Select`ストアド プロシージャ、`ManagerFirstName`と`ManagerLastName`フィールド。
 
 
-[![ウィザード、Employees_Select の更新された列の一覧に示すストアド プロシージャ](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
+[![Tウィザードでは、更新された列の一覧を示しています Employees_Select ストアド プロシージャ用](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
 
 **図 10**:更新の列の一覧が表示されます、`Employees_Select`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image26.png))。
 
@@ -181,7 +181,7 @@ DataTable 列を手動で追加するなど、前のチュートリアルにつ�
 [完了] をクリックしてウィザードを完了します。 データセット デザイナーに戻ると、 `EmployeesDataTable` 2 つの列が含まれています:`ManagerFirstName`と`ManagerLastName`します。
 
 
-[![EmployeesDataTable には、2 つの新しい列が含まれています。](updating-the-tableadapter-to-use-joins-vb/_static/image28.png)](updating-the-tableadapter-to-use-joins-vb/_static/image27.png)
+[![T彼 EmployeesDataTable 格納の 2 つの新しい列](updating-the-tableadapter-to-use-joins-vb/_static/image28.png)](updating-the-tableadapter-to-use-joins-vb/_static/image27.png)
 
 **図 11**:`EmployeesDataTable` 2 つの新しい列が含まれています ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image29.png))。
 
@@ -204,12 +204,12 @@ DataTable 列を手動で追加するなど、前のチュートリアルにつ�
 構成を使用する ObjectDataSource、`EmployeesBLLWithSprocs`クラスし、SELECT および DELETE のタブからいることを確認、`GetEmployees`と`DeleteEmployee`メソッドは、ドロップダウン リストから選択します。 ObjectDataSource の構成を完了するには、[完了] をクリックします。
 
 
-[![EmployeesBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](updating-the-tableadapter-to-use-joins-vb/_static/image31.png)](updating-the-tableadapter-to-use-joins-vb/_static/image30.png)
+[![C構成、ObjectDataSource EmployeesBLLWithSprocs クラスを使用する](updating-the-tableadapter-to-use-joins-vb/_static/image31.png)](updating-the-tableadapter-to-use-joins-vb/_static/image30.png)
 
 **図 12**:構成に使用する ObjectDataSource、`EmployeesBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image32.png))。
 
 
-[![ObjectDataSource 使用 GetEmployees とするメソッドがあります。](updating-the-tableadapter-to-use-joins-vb/_static/image34.png)](updating-the-tableadapter-to-use-joins-vb/_static/image33.png)
+[![Have ObjectDataSource は、GetEmployees とするメソッドを使用](updating-the-tableadapter-to-use-joins-vb/_static/image34.png)](updating-the-tableadapter-to-use-joins-vb/_static/image33.png)
 
 **図 13**:ObjectDataSource の使用、`GetEmployees`と`DeleteEmployee`メソッド ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image35.png))。
 
@@ -224,7 +224,7 @@ Visual Studio は各の GridView に、BoundField を追加するが、`Employee
 ブラウザーを使用して、ページをテストします。 図 14 に示すよう、各従業員と (あると仮定)、ユーザーのマネージャーの名前に、ページが表示されます。
 
 
-[![Employees_Select 内の結合、ストアド プロシージャ、マネージャー名](updating-the-tableadapter-to-use-joins-vb/_static/image37.png)](updating-the-tableadapter-to-use-joins-vb/_static/image36.png)
+[![TEmployees_Select ストアド プロシージャ内の結合を返し、マネージャー名](updating-the-tableadapter-to-use-joins-vb/_static/image37.png)](updating-the-tableadapter-to-use-joins-vb/_static/image36.png)
 
 **図 14**:`JOIN`で、`Employees_Select`ストアド プロシージャは、マネージャー名を返します ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image38.png))。
 
@@ -232,7 +232,7 @@ Visual Studio は各の GridView に、BoundField を追加するが、`Employee
 実行が完了する、削除ワークフローの開始、削除ボタンをクリックすると、`Employees_Delete`ストアド プロシージャ。 ただし、試行`DELETE`外部キー制約違反のため、ストアド プロシージャ内のステートメントは失敗し (図 15 を参照してください)。 具体的には、各従業員が、1 つまたは複数のレコード、`Orders`テーブル、削除が失敗します。
 
 
-[![外部キー制約の違反に対応する注文の結果を持つ従業員を削除します。](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
+[![Deleting を外部キー制約の違反に対応する注文の結果を持つ従業員](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
 
 **図 15**:外部キー制約の違反に対応する注文の結果を持つ従業員を削除しています ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image41.png))。
 

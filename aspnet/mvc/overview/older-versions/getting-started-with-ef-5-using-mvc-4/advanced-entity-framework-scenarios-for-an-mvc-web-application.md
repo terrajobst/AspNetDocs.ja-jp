@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: 64906a1d-f734-41cf-9615-ee95f8740996
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18a292ada33936ea03f2d51427c160541424c8d1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a1218b1fb5a8ee28ea6ee3d3c5af979e86821ed7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425614"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391196"
 ---
-<a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>MVC Web アプリケーション (10/10) 用の高度な Entity Framework シナリオ
-====================
+# <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>MVC Web アプリケーション (10/10) 用の高度な Entity Framework シナリオ
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -252,11 +252,11 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、一時的に変更の自動検出を使用して無効にすることで大幅なパフォーマンス向上を取得可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx)プロパティ。 詳細については、[変更を自動的に検出](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx)を参照してください。
+多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、一時的に変更の自動検出を使用して無効にすることで大幅なパフォーマンス向上を取得可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx)プロパティ。 詳細については、次を参照してください。[変更を自動的に検出](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx)します。
 
 ## <a name="disabling-validation-when-saving-changes"></a>変更を保存するときに検証を無効にします。
 
-呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、変更されたすべてのエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したら、既に検証したデータは、この作業は必要ありませんし保存するプロセスを行うことができます、変更は一時的に検証を無効にすることで時間が。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx)プロパティ。 詳細については、[検証](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx)を参照してください。
+呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、変更されたすべてのエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したら、既に検証したデータは、この作業は必要ありませんし保存するプロセスを行うことができます、変更は一時的に検証を無効にすることで時間が。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx)プロパティ。 詳細については、次を参照してください。[検証](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx)です。
 
 ## <a name="summary"></a>まとめ
 
@@ -276,7 +276,7 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 
 ## <a name="vb"></a>VB
 
-チュートリアルが生成された最初のダウンロードが完了したプロジェクトの C# および VB の両方のバージョンが用意されていますが。 この更新により、時間の制限と実行していないを VB 向けの優先順位が、シリーズでは、任意の場所を開始するが容易に章ごとに C# ダウンロード可能なプロジェクトを提供しています これらのチュートリアルを使用した VB プロジェクトをビルドして可能な項目を他のユーザーと共有、ご連絡ください。
+チュートリアルが生成された最初のダウンロードが完了したプロジェクトの c# および VB の両方のバージョンが用意されていますが。 この更新により、時間の制限と実行していないを VB 向けの優先順位が、シリーズでは、任意の場所を開始するが容易に章ごとに c# ダウンロード可能なプロジェクトを提供しています これらのチュートリアルを使用した VB プロジェクトをビルドして可能な項目を他のユーザーと共有、ご連絡ください。
 
 <a id="errors"></a>
 
@@ -306,7 +306,7 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-*1 つまたは複数のエンティティの検証に失敗しました。詳細については、'EntityValidationErrors' プロパティを参照してください。* (から、 *`Update-Database`* PMC でコマンド)。
+*1 つまたは複数のエンティティの検証に失敗しました。 詳細については、'EntityValidationErrors' プロパティを参照してください。* (から、 *`Update-Database`* PMC でコマンド)。
 
 解決方法 : 
 
@@ -316,7 +316,8 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-*HTTP エラー 500.19 - 内部サーバー エラー、要求されたページは、ページの関連する構成データが無効であるために、アクセスできません。*
+*HTTP エラー 500.19 - 内部サーバー エラー  
+ページの関連する構成データが無効であるため、要求されたページにアクセスできません。*
 
 解決方法 : 
 
@@ -326,7 +327,7 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-*SQL Server への接続を確立中にネットワーク関連またはインスタンス固有のエラーが発生しました。サーバーが見つからないかアクセスできません。インスタンス名が正しいことと、リモート接続を許可する SQL Server が構成されていることを確認します。(プロバイダー。SQL ネットワーク インターフェイス、エラー:26 - 指定されたサーバー インスタンスを検索中にエラー)*
+*SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー:SQL ネットワーク インターフェイス、エラー:26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)*
 
 解決方法 : 
 

@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 848e6bcf-4c3f-4d14-974d-e45b9444ab79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 12c5aa60aa6bb71c99e267a1a71b40ed718df8cf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1b955c43a0fc95bda87843fc4a5c9e56aef3dfc6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041329"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400998"
 ---
-<a name="drag-and-drop-via-reorderlist-vb"></a>ReorderList 経由でドラッグ アンド ドロップする (VB)
-====================
+# <a name="drag-and-drop-via-reorderlist-vb"></a>ReorderList 経由でドラッグ アンド ドロップする (VB)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList5.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist5VB.pdf)
@@ -44,7 +44,7 @@ ms.locfileid: "57041329"
 - `position` (int, NULL)
 
 
-[![AJAX のテーブルのレイアウト](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
+[![TAJAX のテーブルの彼のレイアウト](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
 
 AJAX のテーブルのレイアウト ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-vb/_static/image3.png))。
 
@@ -52,7 +52,7 @@ AJAX のテーブルのレイアウト ([フルサイズの画像を表示する
 次に、表に、いくつかの値を設定します。 なお、`position`列は、要素の並べ替え順序を保持します。
 
 
-[![AJAX の表に、初期データ](drag-and-drop-via-reorderlist-vb/_static/image5.png)](drag-and-drop-via-reorderlist-vb/_static/image4.png)
+[![T彼は AJAX テーブルの初期データ](drag-and-drop-via-reorderlist-vb/_static/image5.png)](drag-and-drop-via-reorderlist-vb/_static/image4.png)
 
 AJAX の表に、初期データ ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-vb/_static/image6.png))。
 
@@ -83,7 +83,7 @@ AJAX の表に、初期データ ([フルサイズの画像を表示する を�
 ブラウザーでこの例を実行し、リスト項目を少し変更します。 次に、ページを再度読み込んでか、データベースを見てください。 変更後の位置が保持されているし、は、値でも反映されます、`position`データベース内の列のマークアップを使用して、任意のコードは一切だけです。
 
 
-[![新しい一覧項目の順序に従って、データベースで変更データ](drag-and-drop-via-reorderlist-vb/_static/image8.png)](drag-and-drop-via-reorderlist-vb/_static/image7.png)
+[![T彼のデータを新しい一覧項目の順序に従ってデータベースの変更](drag-and-drop-via-reorderlist-vb/_static/image8.png)](drag-and-drop-via-reorderlist-vb/_static/image7.png)
 
 新しい一覧に従って、データベースで変更データ項目の順序 ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-vb/_static/image9.png))。
 

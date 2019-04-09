@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
-title: '繰り返し #4 – ようにアプリケーションを疎結合 (C#) |Microsoft Docs'
+title: '繰り返し #4 – ようにアプリケーションを疎結合 (c#) |Microsoft Docs'
 author: microsoft
 description: この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 .
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 389627e610eebcdabee9b4db524e5915186db099
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 8caa88d928517e1c71210cbe55e3961d4baf461a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440353"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381277"
 ---
-<a name="iteration-4--make-the-application-loosely-coupled-c"></a>繰り返し #4 – アプリケーションを疎結合 (C#) を作成します。
-====================
+# <a name="iteration-4--make-the-application-loosely-coupled-c"></a>繰り返し #4 – アプリケーションを疎結合 (c#) を作成します。
+
 によって[Microsoft](https://github.com/microsoft)
 
 [コードをダウンロードします。](iteration-4-make-the-application-loosely-coupled-cs/_static/contactmanager_4_cs1.zip)
@@ -24,7 +24,7 @@ ms.locfileid: "58440353"
 > この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 たとえば、Repository パターンと依存関係の注入パターンを使用するようにアプリケーションをリファクタリングします。
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (C#) の構築
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。
 
@@ -137,7 +137,7 @@ EntityContactManagerRepository の具象クラスではなく IContactManagerRep
 
 リスト 4、ContactManagerService が含まれています。 連絡先のコント ローラー クラスからの検証ロジックが含まれています。
 
-**4 - Models\ContactManagerService.cs を一覧表示します。**
+**Listing 4 - Models\ContactManagerService.cs**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample4.cs)]
 
@@ -173,7 +173,7 @@ IContactManagerService インターフェイスは、リスト 5 に含まれて
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample7.cs)]
 
-**8 - Models\Validation\IValidationDictionary.cs を一覧表示します。**
+**Listing 8 - Models\Validation\IValidationDictionary.cs**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample8.cs)]
 

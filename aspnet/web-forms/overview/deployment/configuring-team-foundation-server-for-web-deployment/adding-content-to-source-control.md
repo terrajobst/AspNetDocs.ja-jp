@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 86c14aab-c2dd-4f73-b40c-c6d52fa44950
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 2119705a75d0717d05d4a7db69b3f5d38b1cdd45
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a609b761543e4994aa4a7f86636bd16e9cd74683
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050859"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396721"
 ---
-<a name="adding-content-to-source-control"></a>ソース管理にコンテンツを追加する
-====================
+# <a name="adding-content-to-source-control"></a>ソース管理にコンテンツを追加する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、ソース管理では、Team Foundation Server (TFS) 2010 にコンテンツを追加する方法について説明します。 ソリューションとプロジェクトを TFS でチーム プロジェクトに追加する方法について説明し、フレームワーク、またはアセンブリなどの外部の依存関係をソース管理に追加する方法について説明します。
 
@@ -37,7 +37,7 @@ ms.locfileid: "57050859"
 
 このトピックでは、これらの手順を実行する方法を説明します。
 
-タスクとチュートリアルでは、このトピックでは、コンテンツを管理する新しい TFS チーム プロジェクトを既に作成したことを想定しています。 新しいチーム プロジェクトを作成する方法の詳細については、[TFS でチーム プロジェクトを作成する](creating-a-team-project-in-tfs.md)を参照してください。
+タスクとチュートリアルでは、このトピックでは、コンテンツを管理する新しい TFS チーム プロジェクトを既に作成したことを想定しています。 新しいチーム プロジェクトを作成する方法の詳細については、次を参照してください。 [TFS でチーム プロジェクトを作成する](creating-a-team-project-in-tfs.md)します。
 
 ### <a name="who-performs-these-procedures"></a>これらの手順を実行しますか。
 
@@ -146,13 +146,13 @@ ms.locfileid: "57050859"
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックでは、チーム プロジェクトに接続し、フォルダー構造をマップし、ソース管理にコンテンツを追加する方法について説明します。 ソース管理下にある項目を操作する方法の詳細については、[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)を参照してください。
+このトピックでは、チーム プロジェクトに接続し、フォルダー構造をマップし、ソース管理にコンテンツを追加する方法について説明します。 ソース管理下にある項目を操作する方法の詳細については、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)します。
 
 次のトピックでは、 [Web 配置の TFS ビルド サーバーを構成する](configuring-a-tfs-build-server-for-web-deployment.md)、構築して、ソリューションをデプロイする TFS チーム ビルド サーバーを準備する方法について説明します。
 
 ## <a name="further-reading"></a>関連項目
 
-TFS でソース管理の操作方法の詳細については、[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)を参照してください。
+TFS でソース管理の操作方法の詳細については、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-team-project-in-tfs.md)

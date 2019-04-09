@@ -8,20 +8,20 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7effc0194541afe766a6202f527d36d96f3007f2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381368"
 ---
-<a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 ソース管理は、すべてのクラウド開発プロジェクト、チーム環境だけでなくに不可欠です。 ソース コードの編集を検討するでしょうかも、Word ドキュメントを元に戻す関数と自動バックアップ、およびソース管理なしでは、問題が発生したときにさらに多くの時間を乗り越えるのにプロジェクト レベルでこれらの関数。 クラウド ソースの管理サービスでされなく複雑のセットアップについて心配する必要があるし、最大 5 ユーザーまで無料の Azure リポジトリ ソース管理を使用することができます。
 

@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 14133833-e518-4347-87b9-6b6f71f14a77
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5cee2acfac74c0790a7ad82bbfb503a8a16f6b47
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cc9407ba15474f58437817c9536d6040e0ea2e84
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024609"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381447"
 ---
-<a name="adjusting-the-z-index-of-a-dropshadow-c"></a>DropShadow の Z インデックスを調整する (C#)
-====================
+# <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>DropShadow の Z インデックスを調整する (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1CS.pdf)
@@ -56,12 +56,12 @@ ASP.NET AJAX では最後に、`ScriptManager`コントロールが動作する 
 次に、 `DropShadowExtender` Menu コントロールとコントロールが不要に競合しません。
 
 
-[![以前は：メニュー エントリが表示されていません。](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
+[![B前:メニュー エントリは表示されません](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
 
 前:メニュー エントリは表示されません ([フルサイズの画像を表示する をクリックします](adjusting-the-z-index-of-a-dropshadow-cs/_static/image3.png))。
 
 
-[![設定後。メニュー エントリが表示されます。](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
+[![A後に中断しました。メニュー エントリが表示されます](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
 
 後:メニュー エントリが表示されます ([フルサイズの画像を表示する をクリックします](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))。
 

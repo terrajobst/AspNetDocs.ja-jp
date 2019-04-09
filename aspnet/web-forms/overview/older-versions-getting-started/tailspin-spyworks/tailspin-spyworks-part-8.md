@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 3b49ee53e82933de9b50960779c28ca6ab7441e5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: db8db4e3bff8047b48a7528b5146873ab6d84714
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57059839"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398684"
 ---
-<a name="part-8-final-pages-exception-handling-and-conclusion"></a>第 8 部:最終ページ、例外処理、まとめ
-====================
+# <a name="part-8-final-pages-exception-handling-and-conclusion"></a>第 8 部:最終ページ、例外処理、まとめ
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 > Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
@@ -28,7 +28,7 @@ ms.locfileid: "57059839"
 
 ContactUs.aspx をという名前の新しいページを作成します。
 
-デザイナーを使用して、ToolkitScriptManager、AjaxdControlToolkit からエディター コントロールなど、特別な注意事項は次の形式を作成します。 .
+デザイナーを使用して、ToolkitScriptManager、AjaxControlToolkit からエディター コントロールなど、特別な注意事項は次の形式を作成します。 .
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 

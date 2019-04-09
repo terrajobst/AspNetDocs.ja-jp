@@ -8,20 +8,20 @@ ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cd31ae26f0b0b0ad8d333ae93aea9bae8f6a9fc1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c9aadec642837953dde4cf3e89ec9a7d484b380e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426017"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401336"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用して ASP.NET Web の展開:コマンド ライン配置
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用して ASP.NET Web の展開:コマンド ライン配置
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 ## <a name="overview"></a>概要

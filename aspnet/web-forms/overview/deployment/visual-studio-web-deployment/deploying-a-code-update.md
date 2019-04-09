@@ -8,20 +8,20 @@ ms.date: 02/15/2013
 ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: a3d181f3ec8db74781c550720ba4331bdf6478b3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6e66c03a4521f339f0ee9c7c0e7b8129f241113c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57047109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379411"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio を使用して ASP.NET Web の展開:コード更新を配置する
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio を使用して ASP.NET Web の展開:コード更新を配置する
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 ## <a name="overview"></a>概要

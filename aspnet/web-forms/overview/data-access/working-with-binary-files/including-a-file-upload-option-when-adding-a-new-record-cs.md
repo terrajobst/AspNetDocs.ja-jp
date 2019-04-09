@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
-title: 新しいレコード (C#) を追加するときにオプションをアップロードするファイルを含む |Microsoft Docs
+title: 新しいレコード (c#) を追加するときにオプションをアップロードするファイルを含む |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ユーザーがテキスト データを入力して、バイナリ ファイルをアップロードできる Web インターフェイスを作成する方法を示します。 オプションの使用可能な t をについて説明しています.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b7f839f16150b93645a9fe868642fa5f36248a9
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9ec09bfcadaa56401a08a389028766ee04f1daad
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424977"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379882"
 ---
-<a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>新しいレコードを追加するとき、ファイル アップロード オプションを含める (C#)
-====================
+# <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>新しいレコードを追加するとき、ファイル アップロード オプションを含める (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_56_CS.exe)または[PDF のダウンロード](including-a-file-upload-option-when-adding-a-new-record-cs/_static/datatutorial56cs1.pdf)
@@ -47,7 +47,7 @@ FileUpload コントロールを使用して、web サーバーをクライア�
 型指定されたデータセットを開くし、デザイナーを右クリックし、`CategoriesTableAdapter`のヘッダー、コンテキスト メニューから追加のクエリを選択します。 これにより、TableAdapter クエリがデータベースにアクセスする方法を求めてでは、まずする TableAdapter クエリ構成ウィザードが起動します。 SQL ステートメントを使用を選択し、[次へ] をクリックします。 次の手順では、生成されるクエリの種類を要求します。 クエリを作成する新しいレコードを追加する re 経過、`Categories`テーブルを挿入を選択し、[次へ] をクリックします。
 
 
-[![挿入オプションを選択します。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.png)
+[![S挿入オプションを選択](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image1.png)
 
 **図 1**:挿入オプションを選択します ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.png))。
 
@@ -60,7 +60,7 @@ FileUpload コントロールを使用して、web サーバーをクライア�
 ウィザードの最後の画面を使用して、新しい TableAdapter メソッドの名前を付けるよう求められます。 入力`InsertWithPicture`[完了] をクリックします。
 
 
-[![新しい TableAdapter メソッド InsertWithPicture 名](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.png)
+[![Name 新しい TableAdapter メソッド InsertWithPicture](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image2.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.png)
 
 **図 2**:新しい TableAdapter メソッド名前`InsertWithPicture`([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.png))。
 
@@ -83,7 +83,7 @@ FileUpload コントロールを使用して、web サーバーをクライア�
 開いて開始、`DisplayOrDownload.aspx`ページから、`BinaryData`フォルダー。 ソース ビューに移動し、GridView コントロールと ObjectDataSource s 宣言構文内で貼り付けることをコピー、`<asp:Content>`要素`UploadInDetailsView.aspx`します。 また、don t もご活用ください経由でコピーする、`GenerateBrochureLink`の分離コード クラスからメソッド`DisplayOrDownload.aspx`に`UploadInDetailsView.aspx`。
 
 
-[![コピーして貼り付ける UploadInDetailsView.aspx に DisplayOrDownload.aspx から宣言構文](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.png)
+[![Copy UploadInDetailsView.aspx DisplayOrDownload.aspx から宣言型構文貼り付けます](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image3.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.png)
 
 **図 3**:コピーしてから、宣言型構文貼り付けます`DisplayOrDownload.aspx`に`UploadInDetailsView.aspx`([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.png))。
 
@@ -91,7 +91,7 @@ FileUpload コントロールを使用して、web サーバーをクライア�
 宣言の構文をコピーした後、`GenerateBrochureLink`経由でメソッドを`UploadInDetailsView.aspx` ページで、すべてが正しくコピーされたことを確実にブラウザーからページを表示します。 カテゴリの画像と同様に、パンフレットをダウンロードするリンクを含む 8 つのカテゴリを一覧表示する GridView が表示されます。
 
 
-[![各カテゴリのバイナリ データと共に表示されます。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image7.png)
+[![You は、各カテゴリのバイナリ データと共にを表示する必要があります](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image7.png)
 
 **図 4**:各カテゴリのバイナリ データと共に表示されます ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.png))。
 
@@ -103,7 +103,7 @@ FileUpload コントロールを使用して、web サーバーをクライア�
 ObjectDataSource s のスマート タグからのデータ ソースの構成のリンクをクリックして開始します。 最初の画面は、データ ソースが使用すると、連携するよう構成オブジェクトを示しています。`CategoriesBLL`します。 このような設定のままに-は、高度なデータ メソッドの定義の画面を横にあるをクリックします。 [挿入] タブに移動し、選択、`InsertWithPicture`ドロップダウン リストからメソッド。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![ObjectDataSource InsertWithPicture メソッドを使用して構成します。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.png)
+[![C構成、ObjectDataSource InsertWithPicture メソッドを使用する](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image5.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.png)
 
 **図 5**:構成を使用する ObjectDataSource、`InsertWithPicture`メソッド ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.png))。
 
@@ -124,7 +124,7 @@ ObjectDataSource がの値を加わりましたウィザードを完了すると
 上記の設定、GridView、デザイナーには、ツールボックスから、DetailsView をドラッグすることにより、その`ID`プロパティを`NewCategory`を消去して、`Height`と`Width`プロパティの値。 DetailsView s のスマート タグから、既存バインド`CategoriesDataSource`し挿入を有効にする チェック ボックスを確認します。
 
 
-[![DetailsView を CategoriesDataSource にバインドし、挿入を有効にします。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.png)
+[![B%%ind CategoriesDataSource と有効にするを挿入する DetailsView](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image6.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.png)
 
 **図 6**:バインドに DetailsView、`CategoriesDataSource`と挿入を有効にする ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image12.png))。
 
@@ -153,7 +153,7 @@ DetailsView は 5 つ BoundFields `CategoryID`、 `CategoryName`、 `Description
 DetailsView s のスマート タグからのテンプレートの編集] オプションを選択し、[、 `BrochurePath` TemplateField の`InsertItemTemplate`ドロップダウン リストから。 テキスト ボックスを削除し、テンプレートに、ツールボックスから FileUpload コントロールをドラッグします。 FileUpload コントロール s 設定`ID`に`BrochureUpload`します。 同様に、FileUpload コントロールを追加、 `Picture` TemplateField の`InsertItemTemplate`します。 この FileUpload コントロール s 設定`ID`に`PictureUpload`します。
 
 
-[![FileUpload コントロールを後に追加します。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image13.png)
+[![Add、後に FileUpload コントロール](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image8.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image13.png)
 
 **図 8**:FileUpload コントロールを追加、 `InsertItemTemplate` ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image14.png))。
 
@@ -226,7 +226,7 @@ ObjectDataSource s 前に`Insert()`メソッドが呼び出されると、まず
 Let s は、挿入のインターフェイスをテストする少しと`ItemInserting`いくつかの手順が最後に作成されたイベント ハンドラー。 参照してください、`UploadInDetailsView.aspx`しようと、カテゴリを追加するが、画像を省略すると、ブラウザー内でページまたは非 JPG 画像または PDF 以外パンフレットを指定します。 このような場合も、エラー メッセージが表示されます、insert のワークフローが取り消されました。
 
 
-[![警告メッセージが表示される場合、無効な種類のファイルのアップロード](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image15.png)
+[![A 警告メッセージは、表示される場合、無効な種類のファイルのアップロード](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image9.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image15.png)
 
 **図 9**:警告メッセージが表示される場合、無効な種類のファイルのアップロード ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image16.png))。
 
@@ -234,7 +234,7 @@ Let s は、挿入のインターフェイスをテストする少しと`ItemIns
 確認した後、ページに画像をアップロードし、しません PDF 以外または非 JPG ファイルを受け入れる、有効な JPG 画像を使用した新しいカテゴリを追加が必要であるパンフレット フィールドを空のままです。 [挿入] ボタンをクリックした後、ページがポストバックをし、新しいレコードに追加されます、`Categories`データベースに直接格納されているアップロードされた画像のバイナリ コンテンツを含むテーブル。 GridView が更新され、新しく追加されたカテゴリの行を示していますが、図 10 に示す、新しいカテゴリの画像が正しくレンダリングされません。
 
 
-[![新しいカテゴリの画像は表示されません。](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)
+[![T彼の新しいカテゴリの画像が表示されていない](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)
 
 **図 10**:画像が表示されていない新しいカテゴリ s ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image18.png))。
 
@@ -249,7 +249,7 @@ Let s は、挿入のインターフェイスをテストする少しと`ItemIns
 この変更により、JPG イメージにレンダリングされます正しく GridView。
 
 
-[![新しいカテゴリの JPG イメージは正しくレンダリング](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image19.png)
+[![T新しいカテゴリの彼の JPG イメージでは、正しくレンダリング](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image19.png)
 
 **図 11**:新しいカテゴリの JPG イメージは正しくレンダリング ([フルサイズの画像を表示する をクリックします](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image20.png))。
 

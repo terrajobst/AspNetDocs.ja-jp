@@ -8,15 +8,15 @@ ms.date: 09/15/2011
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
-ms.openlocfilehash: 09b8b31059ed6a238414714847d191426e28db28
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 84c626764573108969fec51a2cba028e463b1962
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57023899"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380887"
 ---
-<a name="how-do-i"></a>操作方法
-====================
+# <a name="how-do-i"></a>操作方法
+
 > このセクションではビデオでは、ASP.NET MVC、"The Storefront"- [完了] を最初から全体の電子商取引アプリケーションを構築する方法などについて説明します。
 
 
@@ -32,11 +32,11 @@ ms.locfileid: "57023899"
 - [カスタム HTML ヘルパーの作成](creating-custom-html-helpers.md)
 - [LINQ to SQL でモデル クラスを作成する](creating-model-classes-with-linq-to-sql.md)
 - [データベース データの表を表示する](displaying-a-table-of-database-data.md)
-- [ASP.NET MVC とは何か。開発者向けの技術的な動画で NerdDinner をビルドします。80 分。](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
-- [ASP.NET MVC を使う理由。意思決定者のための概要動画。3 分。](why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-- [ASP.NET MVC:開発者向け方法 10 分の技術的な動画](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
-- [ASP.NET MVC Web アプリケーションで AJAX 呼び出しに対して JSON 形式のデータを返す](how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
-- [ASP.NET MVC 部分的ビューのデータを操作する](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
+- [ASP.NET MVC とは何か。開発者向けの技術的な動画 (NerdDinner の構築、80 分)](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
+- [ASP.NET MVC を使う理由。意思決定者のための概要動画 (3 分)](why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
+- [ASP.NET MVC:使い方。開発者向けの技術的な動画 (10 分)](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+- [ASP.NET MVC Web アプリで AJAX 呼び出しに対して JSON 形式のデータを返す](how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
+- [ASP.NET MVC 部分ビューのデータを操作する](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
 - [ASP.NET MVC ビューのデータを管理するビュー モデルを実装します。](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
 - [MVC アプリケーションのカスタム HTML ヘルパーを作成する](how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
 - [MVC アプリケーションのモデル バインダーを使用する](how-do-i-work-with-model-binders-in-an-mvc-application.md)

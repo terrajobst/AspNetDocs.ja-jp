@@ -8,19 +8,19 @@ ms.date: 08/08/2011
 ms.assetid: bb2b79bd-aaf4-4f5e-82a1-fc199514a3e2
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data
 msc.type: chapter
-ms.openlocfilehash: faac31cbad8ee1f3429b8b4e341ad9081a0e4d2b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c1bd52b47b42005ed22f107b9f8aaa65c0ed111a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57021969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402025"
 ---
-<a name="working-with-data-in-aspnet-web-forms"></a>ASP.NET Web フォームでデータを扱う
-====================
+# <a name="working-with-data-in-aspnet-web-forms"></a>ASP.NET Web フォームでデータを扱う
+
 > コントロールを使用してデータにアクセスする方法および要求間の情報を永続化する方法。
 
 
-- [Visual Studio 2013 のモデル バインディングと Web フォーム](model-binding/index.md)
+- [Visual Studio 2013 のモデル バインドと Web フォーム](model-binding/index.md)
 
     - [データの取得と表示](model-binding/retrieving-data.md)
     - [データの更新、削除、作成](model-binding/updating-deleting-and-creating-data.md)

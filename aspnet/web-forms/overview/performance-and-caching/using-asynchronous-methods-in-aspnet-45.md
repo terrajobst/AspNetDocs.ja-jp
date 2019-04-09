@@ -8,15 +8,15 @@ ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: d7985fcd48e1282437cc3a7d3c1b528af2e44ae0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a47d428830fa6c43bcb9ce797d65b73891b44618
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425783"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381888"
 ---
-<a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 での非同期メソッドの使用
-====================
+# <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 での非同期メソッドの使用
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルが非同期 ASP.NET Web フォームを使用するアプリケーションの構築の基礎を講義[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11)、これは Microsoft Visual Studio の無料バージョンです。 使用することも[Visual Studio 2012](https://www.microsoft.com/visualstudio/11)します。 このチュートリアルでは、次のセクションが含まれます。
@@ -31,7 +31,7 @@ ms.locfileid: "58425783"
 > - [高い同時実行/高待機時間の Web サービス呼び出しのサーバー構成](#ServerConfig)
 > 
 > このチュートリアルの完全なサンプルが提供されます。  
->  [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/) [GitHub](https://github.com/)サイト。
+> [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/) [GitHub](https://github.com/)サイト。
 
 
 ASP.NET 4.5 Web ページの組み合わせで[.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx)型のオブジェクトを返す非同期メソッドを登録することができます[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)します。 .NET Framework 4 と呼ばれる非同期のプログラミング概念を導入する、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)ASP.NET 4.5 をサポートし、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)します。 タスクがによって表される、**タスク**型と関連する型を[System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx)名前空間。 この非同期サポートに基づいて、.NET Framework 4.5、 [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)操作できるようにするキーワード[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)前よりもはるかに単純なオブジェクト非同期のアプローチです。 [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードは簡略記法を示すためのコードがコードの他のいくつかの一部で非同期的に待機します。 [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードは、タスク ベースの非同期メソッドとしてメソッドをマークするために使用できるヒントを表します。 組み合わせ**await**、 **async**、および**タスク**オブジェクトにより、.NET 4.5 で非同期コードを記述するためのはるかに簡単です。 非同期メソッドの場合、新しいモデルと呼ばれる、*タスクベースの非同期パターン*(**タップ**)。 このチュートリアルは、非同期プログラミングを使用して知識があることを前提[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードと[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間。
@@ -40,7 +40,7 @@ ASP.NET 4.5 Web ページの組み合わせで[.NET 4.5](https://msdn.microsoft.
 
 - [ホワイト ペーパー:.NET での非同期性](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [Async/await のよく寄せられる質問](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
-- [Visual Studio の非同期プログラミング](https://msdn.microsoft.com/vstudio/gg316360)
+- [Async および Await を使用した非同期プログラミング](https://msdn.microsoft.com/vstudio/gg316360)
 
 ## <a id="HowRequestsProcessedByTP"></a>  スレッド プール内に要求を処理する方法
 
@@ -192,7 +192,7 @@ Async void イベントに欠点は、開発者が完全にイベントの実行
 
     - IIS マネージャーを開き、アプリケーション プール ウィンドウに移動します。
     - 対象のアプリケーション プールを右クリックし、選択**詳細設定**します。  
-        ![advanced](using-asynchronous-methods-in-aspnet-45/_static/image4.png)
+        ![高度な](using-asynchronous-methods-in-aspnet-45/_static/image4.png)
     - **詳細設定** ダイアログ ボックスで、変更*キューの長さ*5,000 に 1,000 から。  
         ![キューの長さ](using-asynchronous-methods-in-aspnet-45/_static/image5.png)  
   

@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ac502a1f57b25dd596489d1e7abaa55a77ddb6c7
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 3fd252b94e55f02215a2733f218e68b26486691f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440340"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397111"
 ---
-<a name="iteration-6--use-test-driven-development-vb"></a>繰り返し #6 – テスト駆動開発 (VB) を使用します。
-====================
+# <a name="iteration-6--use-test-driven-development-vb"></a>繰り返し #6 – テスト駆動開発 (VB) を使用します。
+
 によって[Microsoft](https://github.com/microsoft)
 
 [コードをダウンロードします。](iteration-6-use-test-driven-development-vb/_static/contactmanager_6_vb1.zip)
@@ -113,7 +113,7 @@ Contact Manager アプリケーションの前のイテレーションでは、�
 ContactManager.Tests プロジェクトで、Controllers フォルダーを右クリックして新しい単体テストの作成を選択すると**追加]、[新しいテスト**を選択して、**単体テスト**テンプレート (図 1 参照)。 名前の新しい単位が GroupControllerTest.vb をテストし、をクリックして、 **OK**ボタンをクリックします。
 
 
-[![GroupControllerTest 単体テストを追加します。](iteration-6-use-test-driven-development-vb/_static/image1.jpg)](iteration-6-use-test-driven-development-vb/_static/image1.png)
+[![Adding GroupControllerTest 単体テスト](iteration-6-use-test-driven-development-vb/_static/image1.jpg)](iteration-6-use-test-driven-development-vb/_static/image1.png)
 
 **図 01**:GroupControllerTest 単体テストを追加する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image2.png))。
 
@@ -130,7 +130,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 リスト 2 でのグループのコント ローラー クラスには、単体テストに合格するために必要なコードの最低限が含まれています。 Index() アクションは、グループ (グループ クラスは、リスト 3 で定義されます) の静的にコード化された一覧を返します。
 
-**2 - Controllers\GroupController.vb を一覧表示します。**
+**Listing 2 - Controllers\GroupController.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample2.vb)]
 
@@ -152,7 +152,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 リスト 4 のテストは、新しいグループを持つメソッドは、Index() メソッドによって返されるグループの一覧に、グループを追加します。 Create() を呼び出すことを確認します。 つまり、新しいグループを作成した場合、必要のある Index() メソッドによって返されるグループの一覧から戻り、新しいグループを取得できません。
 
-**4 - Controllers\GroupControllerTest.vb を一覧表示します。**
+**Listing 4 - Controllers\GroupControllerTest.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample4.vb)]
 
@@ -160,7 +160,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 リスト 5 で変更されたグループ コント ローラーには、必要な最小限新しいテストに合格するために必要な変更にはが含まれています。
 
-**5 - Controllers\GroupController.vb を一覧表示します。**
+**Listing 5 - Controllers\GroupController.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample5.vb)]
 
@@ -174,7 +174,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 6 を一覧表示するには、この意図を表す新しいテストが含まれています。 このテストでは、モデルの状態の検証エラー メッセージに名前の結果を指定せずにグループを作成しようとすることを確認します。
 
-**6 - Controllers\GroupControllerTest.vb を一覧表示します。**
+**Listing 6 - Controllers\GroupControllerTest.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample6.vb)]
 
@@ -184,7 +184,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample7.vb)]
 
-**8 - Controllers\GroupController.vb を一覧表示します。**
+**Listing 8 - Controllers\GroupController.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample8.vb)]
 
@@ -204,7 +204,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 11 を一覧表示するには、IContactManagerRepository インターフェイスを実装する新しい FakeContactManagerRepository クラスが含まれています。 を IContactManagerRepository インターフェイスも実装する EntityContactManagerRepository クラスとは異なり、新しい FakeContactManagerRepository クラスは、データベースと通信しません。 FakeContactManagerRepository クラスは、データベースのプロキシとしてのメモリ内コレクションを使用します。 このクラス、単体テストで偽リポジトリ層として使用します。
 
-**9 - Controllers\GroupController.vb を一覧表示します。**
+**Listing 9 - Controllers\GroupController.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample9.vb)]
 
@@ -224,7 +224,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 最後に、これらの変更をアプリケーションの設計には、いくつかの単体テストを変更することが必要です。 これで、単体テストを実行するときに、FakeContactManagerRepository を使用する必要があります。 更新された GroupControllerTest クラスは、12 の一覧に含まれます。
 
-**12 - Controllers\GroupControllerTest.vb を一覧表示します。**
+**Listing 12 - Controllers\GroupControllerTest.vb**
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample13.vb)]
 
@@ -244,7 +244,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 <a id="0.12_table01"></a>
 
 
-| **列名** | **データ型** | **Null を許容します。** |
+| **列名** | **データ型** | **Null を許容** |
 | --- | --- | --- |
 | ID | int | False |
 | 名前 | nvarchar (50) | False |
@@ -268,12 +268,12 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 9. Contacts テーブルに対する変更を保存する [保存] ボタンをクリックします。
 
 
-[![データベース テーブルのリレーションシップを作成します。](iteration-6-use-test-driven-development-vb/_static/image3.jpg)](iteration-6-use-test-driven-development-vb/_static/image5.png)
+[![Cデータベース テーブルのリレーションシップの作成](iteration-6-use-test-driven-development-vb/_static/image3.jpg)](iteration-6-use-test-driven-development-vb/_static/image5.png)
 
 **図 03**:データベース テーブルのリレーションシップを作成する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image6.png))。
 
 
-[![テーブルのリレーションシップを指定します。](iteration-6-use-test-driven-development-vb/_static/image4.jpg)](iteration-6-use-test-driven-development-vb/_static/image7.png)
+[![Sテーブルのリレーションシップを pecifying](iteration-6-use-test-driven-development-vb/_static/image4.jpg)](iteration-6-use-test-driven-development-vb/_static/image7.png)
 
 **図 04**:テーブルのリレーションシップを指定する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image8.png))。
 
@@ -289,7 +289,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 5. Contact エンティティの下部に表示されるグループ ナビゲーション プロパティを右クリックします。 名前を変更、*グループ*ナビゲーション プロパティを*グループ*(単数形)。
 
 
-[![データベースから Entity Framework モデルを更新しています](iteration-6-use-test-driven-development-vb/_static/image5.jpg)](iteration-6-use-test-driven-development-vb/_static/image9.png)
+[![Updating データベースから Entity Framework モデル](iteration-6-use-test-driven-development-vb/_static/image5.jpg)](iteration-6-use-test-driven-development-vb/_static/image9.png)
 
 **図 05**:データベースから Entity Framework モデルを更新しています ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image10.png))。
 
@@ -297,7 +297,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 次の手順を完了すると、データ モデルは、連絡先とグループの両方のテーブルを表します。 エンティティ デザイナーは、両方のエンティティを表示する必要があります (図 6 参照)。
 
 
-[![エンティティ デザイナーのグループと連絡先を表示します。](iteration-6-use-test-driven-development-vb/_static/image6.jpg)](iteration-6-use-test-driven-development-vb/_static/image11.png)
+[![Entity デザイナーを表示して、グループにお問い合わせください](iteration-6-use-test-driven-development-vb/_static/image6.jpg)](iteration-6-use-test-driven-development-vb/_static/image11.png)
 
 **図 06**:エンティティ デザイナーのグループと連絡先を表示する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image12.png))。
 
@@ -330,7 +330,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 - Views\Group\Delete.aspx - 連絡先グループの削除確認フォームを表示します
 
 
-[![グループのインデックス ビュー](iteration-6-use-test-driven-development-vb/_static/image7.jpg)](iteration-6-use-test-driven-development-vb/_static/image13.png)
+[![T彼グループ インデックス ビュー](iteration-6-use-test-driven-development-vb/_static/image7.jpg)](iteration-6-use-test-driven-development-vb/_static/image13.png)
 
 **図 07**:グループのインデックス ビュー ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image14.png))。
 
@@ -344,7 +344,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 このチュートリアルに付属する Visual Studio アプリケーションを調べることで変更されたビューを表示できます。 たとえば、図 8 は、連絡先のインデックス ビューを示しています。
 
 
-[![連絡先のインデックス ビュー](iteration-6-use-test-driven-development-vb/_static/image8.jpg)](iteration-6-use-test-driven-development-vb/_static/image15.png)
+[![T彼の連絡先のインデックス ビュー](iteration-6-use-test-driven-development-vb/_static/image8.jpg)](iteration-6-use-test-driven-development-vb/_static/image15.png)
 
 **図 08**:連絡先の Index ビュー ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image16.png))。
 

@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: 16dc5c11-65be-4eae-a818-9fad7f8259c6
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6ecf716b78a789ca72e8b35e0be3e1fd0b957052
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3bbbe0c8240a2a77edee8d39a76bf865c95f345e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052459"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381095"
 ---
-<a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX Control Toolkit の概要 (C#)
-====================
+# <a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX Control Toolkit の概要 (C#)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > AJAX Control Toolkit の使用を開始するために必要なについて説明します。
@@ -29,7 +29,7 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 [AJAX Control Toolkit](http://devexpress.com/act)は、ASP.NET コミュニティと ASP.NET チームのメンバーによって開発されたオープン ソース プロジェクトです。 
 
 
-[![AJAX Control Toolkit のダウンロード](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
+[![Downloading、AJAX Control Toolkit](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
 
 **図 01**:AJAX Control Toolkit のダウンロード ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image2.png))。
 
@@ -37,7 +37,7 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 ファイルをダウンロードした後、ファイルのブロックを解除する必要があります。 ファイルを右クリックし、プロパティを選択してをクリックして、**ブロック解除**(図 2 参照) ボタンをクリックします。
 
 
-[![AJAX Control Toolkit の ZIP ファイルをブロック解除](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
+[![Unblocking AJAX Control Toolkit の ZIP ファイル](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
 
 **図 02**:AJAX Control Toolkit の ZIP ファイルをブロック解除 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image4.png))。
 
@@ -49,7 +49,7 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio または Visual Web Developer ツールボックスにこのツールキットを追加する、(図 3 を参照してください)。 そうすることだけドラッグできます toolkit のコントロールをページにそれを使用する場合。
 
 
-[![AJAX Control Toolkit がツールボックスに表示されます。](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
+[![Aもたらし Control Toolkit は、ツールボックスに表示されます](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
 
 **図 03**:AJAX Control Toolkit がツールボックスに表示されます ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image6.png))。
 
@@ -61,7 +61,7 @@ AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio ま
 3. AJAX Control Toolkit という名前の新しいタブを入力します。
 
 
-[![新しいタブを追加します。](get-started-with-the-ajax-control-toolkit-cs/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image7.png)
+[![Adding 新しいタブ](get-started-with-the-ajax-control-toolkit-cs/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image7.png)
 
 **図 04**:新しいタブの追加 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image8.png))。
 
@@ -72,7 +72,7 @@ AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio ま
 - AJAX Control Toolkit を解凍するを AjaxControlToolkit.dll アセンブリを選択する場所に移動します。
 
 
-[![ツールボックスに追加する項目を選択します。](get-started-with-the-ajax-control-toolkit-cs/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image9.png)
+[![Cツールボックスに追加する項目を選択](get-started-with-the-ajax-control-toolkit-cs/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image9.png)
 
 **図 05**:ツールボックスに追加する項目を選択 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image10.png))。
 

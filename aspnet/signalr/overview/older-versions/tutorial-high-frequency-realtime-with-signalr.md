@@ -8,15 +8,15 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 60fffd7cd5139b2be34968c1f33474be867f0962
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 179f6dd3a60f8c49770ee34af93d54defad0adc4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422884"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379415"
 ---
-<a name="high-frequency-realtime-with-signalr-1x"></a>SignalR 1.x による高頻度リアルタイム
-====================
+# <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR 1.x による高頻度リアルタイム
+
 提供者: [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "58422884"
 このチュートリアルには、次のセクションが含まれています。
 
 - [必須コンポーネント](#prerequisites)
-- [プロジェクトを作成します。](#createtheproject)
+- [プロジェクトの作成](#createtheproject)
 - [ASP.NET SignalR と JQuery.UI NuGet パッケージを追加します。](#nugetpackages)
 - [ベースのアプリケーションを作成します。](#baseapp)
 - [クライアントのループを追加します。](#clientloop)
@@ -70,7 +70,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 このセクションでは、Visual Studio でプロジェクトを作成します。
 
 1. **ファイル**ボタンをクリックし**新しいプロジェクト**します。
-2. **新しいプロジェクト**] ダイアログ ボックスで、展開**C#** [**テンプレート**選択と**Web**します。
+2. **新しいプロジェクト**] ダイアログ ボックスで、展開**c#** [**テンプレート**選択と**Web**します。
 3. 選択、**空の ASP.NET Web アプリケーション**名では、プロジェクト テンプレートは、 *MoveShapeDemo*、 をクリック**OK**します。
 
     ![新しいプロジェクトを作成します。](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
@@ -195,4 +195,4 @@ SignalR 開発の概念に関する詳細については、SignalR のソース 
 
 - [SignalR プロジェクト](http://signalr.net)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

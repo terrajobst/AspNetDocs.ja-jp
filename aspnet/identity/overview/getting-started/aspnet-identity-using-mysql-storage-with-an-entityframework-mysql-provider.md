@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
-title: ASP.NET Identity:EntityFramework MySQL プロバイダーと MySQL ストレージを使用して (C#) |Microsoft Docs
+title: ASP.NET Identity:EntityFramework MySQL プロバイダーと MySQL ストレージを使用して (C#)-ASP.NET 4.x
 author: maumar
 description: このチュートリアルでは、MySQL または EntityFramework (SQL クライアント プロバイダー) で ASP.NET Identity の既定のデータ ストレージ機構を置き換える方法を紹介しています.
 ms.author: riande
 ms.date: 12/10/2013
 ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: f510c9bcaf83c6a68e835a7d82555653459df856
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6a73efb7d577cc70ca5ebaa69e8fdd03f3735ae4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041799"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379665"
 ---
-<a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity:EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)
-====================
+# <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity:EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)
+
 によって[Maurycy Markowski](https://github.com/maumar)、 [Raquel Soares De Almeida](https://github.com/raquelsa)、 [Robert McMurray](https://github.com/rmcmurray)
 
 > このチュートリアルでは、既定のデータ ストレージ メカニズムを置き換える方法[ **ASP.NET Identity** ](introduction-to-aspnet-identity.md) (SQL クライアント プロバイダー) を EntityFramework MySQL プロバイダーを使用します。
@@ -115,7 +116,7 @@ EntityFramework MySQL database に接続するためには、MySQL プロバイ�
 
 ### <a name="adding-custom-migrationhistory-context"></a>カスタムの MigrationHistory コンテキストを追加します。
 
-Entity Framework Code First を使用して、 **MigrationHistory**テーブル モデルの変更を追跡して、データベース スキーマと概念スキーマの一貫性を確保します。 ただし、このテーブルは使えません MySQL 既定では、主キーが大きすぎるため。 このような状況を解決するにはそのテーブルのキーのサイズを縮小する必要があります。 これを行うには、次の手順を使用します。
+Entity Framework Code First を使用して、 **MigrationHistory**テーブル モデルの変更を追跡して、データベース スキーマと概念スキーマの一貫性を確保します。 ただし、このテーブルは使えません MySQL 既定では、主キーが大きすぎるため。 このような状況を解決するにはそのテーブルのキーのサイズを縮小する必要があります。 そのためには、次の手順に従います。
 
 1. このテーブルのスキーマ情報がキャプチャされた、 **HistoryContext**とその他の変更される**DbContext**します。 これを行うには、という名前の新しいクラス ファイルを追加**MySqlHistoryContext.cs**をプロジェクトにし、その内容を次のコードに置き換えます。
 
@@ -143,7 +144,7 @@ Mysql カスタム Entity Framework の初期化子を作成するには、次�
 
 ## <a name="running-the-application-and-verifying-the-database"></a>アプリケーションを実行して、データベースの検証
 
-前のセクションで手順を完了すると後、データベースをテストする必要があります。 これを行うには、次の手順を使用します。
+前のセクションで手順を完了すると後、データベースをテストする必要があります。 そのためには、次の手順に従います。
 
 1. キーを押して**ctrl キーを押しながら f5 キーを押して**をビルドして、web アプリケーションを実行します。
 2. をクリックして、**登録**ページ上部にあるタブ。

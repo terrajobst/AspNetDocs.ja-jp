@@ -8,15 +8,15 @@ ms.date: 07/28/2008
 ms.assetid: 0edcd653-f24a-41aa-aef4-75f868fe5ac2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a89964749ce8e127207ada6944a3d2ba513d3547
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 96f6ebb47af38c77cba11a92c883700730324226
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389233"
 ---
-<a name="specifying-the-master-page-programmatically-vb"></a>プログラムでマスター ページを指定する (VB)
-====================
+# <a name="specifying-the-master-page-programmatically-vb"></a>プログラムでマスター ページを指定する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.pdf)
@@ -42,7 +42,7 @@ ms.locfileid: "57036309"
 図 1 は、この fusion を示しています。 図 1 の手順 1 では、初期コンテンツとマスター ページのコントロール階層を示します。 PreInit ステージのコンテンツの末尾には、ページ内のコントロールは、マスター ページ (ステップ 2) に対応する ContentPlaceHolders に追加されます。 この fusion の場合後、は、マスター ページが融合型のコントロール階層のルートとして機能します。 コントロール組み合わされ、この階層は、完成したコントロールの階層 (手順 3) を生成するために、ページに追加されます。 最終的な結果は、ページのコントロール階層に融合型のコントロール階層が含まれています。
 
 
-[![PreInit ステージ中にマスター ページとコンテンツ ページのコントロール階層が一緒に組み合わされ、](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
+[![T彼のマスター ページとコンテンツ ページのコントロールの階層は、PreInit ステージ中に一緒に組み合わされは](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
 
 **図 01**:PreInit ステージ中にマスター ページとコンテンツ ページのコントロール階層が組み合わされ、まとめて ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image3.png))。
 
@@ -83,7 +83,7 @@ PreInit ステージの開始時、`Page`オブジェクトその[`PreInit`イ�
 つまりのままにする必要があります、`MasterPageFile`属性、 `@Page` Visual Studio でデザイン時の豊富なエクスペリエンスをご利用いただくにディレクティブ。
 
 
-[![Visual Studio の使用、@Pageデザイン ビューをレンダリングするディレクティブの MasterPageFile 属性](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
+[![Visual Studio を使用して、@Pageデザイン ビューをレンダリングするディレクティブの MasterPageFile 属性](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
 
 **図 02**:Visual Studio を使用して、`@Page`ディレクティブの`MasterPageFile`デザイン ビューを表示する属性 ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image6.png))。
 
@@ -97,7 +97,7 @@ PreInit ステージの開始時、`Page`オブジェクトその[`PreInit`イ�
 という名前のルート フォルダーに新しいマスター ページを作成`Alternate.master`です。 新しいスタイル シートをという名前の web サイトに追加することも`AlternateStyles.css`します。
 
 
-[![もう 1 つ追加マスター ページおよび CSS ファイル、web サイトを](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
+[![Add 別のマスター ページと CSS ファイルを web サイト](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
 
 **図 03**:Web サイトにもう 1 つのマスター ページおよび CSS ファイルを追加 ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image9.png))。
 
@@ -108,7 +108,7 @@ PreInit ステージの開始時、`Page`オブジェクトその[`PreInit`イ�
 > ASP.NET には、定義する機能が含まれています。*テーマ*します。 テーマは、一連のイメージ、CSS ファイル、およびスタイルに関連する Web コントロール プロパティの設定時にページに適用できます。 テーマは、サイトのレイアウトには、表示される画像でのみ、し、CSS 規則が異なる場合に移動する方法です。 など、別の Web コントロールを使用したり、根本的に異なるレイアウトを大幅により、レイアウトが異なる場合は、別のマスター ページを使用する必要があります。 テーマの詳細については、このチュートリアルの最後に、関連項目」セクションを参照してください。
 
 
-[![このコンテンツ ページは新しいルック アンド フィールを使えるようになりました](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
+[![Oコンテンツ ページは新しいルック アンド フィールに使えるようになりました](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
 
 **図 04**:このコンテンツ ページは新しいルック アンド フィールを使えるようになりました ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image12.png))。
 
@@ -206,7 +206,7 @@ PreInit ステージの開始時、`Page`オブジェクトその[`PreInit`イ�
 > `Site.master`と`Alternate.master`が同じ設定のプレース ホルダー コントロールのどのようなマスター ページを新しいコンテンツ ページを作成するときに選択するかは関係ありません。 一貫性を保つのためにそちらを使用して`Site.master`します。
 
 
-[![新しいコンテンツ ページ、web サイトを追加します。](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
+[![Add、web サイトを新しいコンテンツ ページ](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
 
 **図 05**:新しいコンテンツ ページ、web サイトを追加 ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image15.png))。
 
@@ -251,12 +251,12 @@ PreInit ステージの開始時、`Page`オブジェクトその[`PreInit`イ�
 このコードを参照してください。、`ChooseMasterPage.aspx`ページ。 最初に、`Site.master`マスター ページが選択されていると (を図 6 参照) が、ユーザーがドロップダウン リストから別のマスター ページを選択できます。
 
 
-[![Site.master マスター ページを使用してコンテンツ ページが表示されます。](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
+[![CSite.master マスター ページを使用して ontent ページが表示されます](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
 
 **図 06**:使用して表示されるページは、コンテンツ、`Site.master`マスター ページ ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image18.png))。
 
 
-[![コンテンツ ページが Alternate.master マスター ページを使用して表示されます。](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
+[![C今すぐ Alternate.master マスター ページを使用して ontent ページを表示](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
 
 **図 07**:コンテンツ ページは、今すぐ表示を使用して、`Alternate.master`マスター ページ ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image21.png))。
 

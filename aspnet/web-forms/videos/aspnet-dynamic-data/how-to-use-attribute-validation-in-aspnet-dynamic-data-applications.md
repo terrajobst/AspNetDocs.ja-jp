@@ -8,15 +8,15 @@ ms.date: 10/23/2008
 ms.assetid: dcaaaa8d-7dbd-4f5f-be2a-226c2517872a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: e062c9338e339ede77f1a27f9237890a8789e22a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1cc66d91e19ccfb3ae3582c7df544553e877517f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392236"
 ---
-<a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションで属性の検証を使用する方法
-====================
+# <a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションで属性の検証を使用する方法
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオは、動的データ アプリケーションのデータ アクセス層で部分クラスを変更することを紹介し、検証属性に重点を置いた属性の使用を開始します。 このデータ アクセス レイヤーの検証は、ユーザー インターフェイス層で検証することをお勧めは非常に簡単に、ASP.NET 動的データを使用しないでください。

@@ -2,26 +2,26 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 title: コンテンツ ページ (VB) で ID の名前付けの制御 |Microsoft Docs
 author: rick-anderson
-description: ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindConrol) を使用して困難なコントロールのプログラムで操作を行うために示しています.
+description: ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindControl) を使用して困難なコントロールのプログラムで操作を行うために示しています.
 ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: dbb024a6-f043-4fc5-ad66-56556711875b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6e9a751538ca28250e4e776ff2c6c3f0185ffbe6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dd60d02c2c3840edd4c0e1244623fcea0cb2db0b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57059309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386321"
 ---
-<a name="control-id-naming-in-content-pages-vb"></a>コンテンツ ページのコントロール ID の名前付け (VB)
-====================
+# <a name="control-id-naming-in-content-pages-vb"></a>コンテンツ ページのコントロール ID の名前付け (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_VB.pdf)
 
-> ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindConrol) を使用して困難なコントロールのプログラムで操作を行うためには示しています。 この問題と回避策を見ます。 結果の ClientID 値をプログラムでアクセスする方法についても説明します。
+> ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindControl) を使用して困難なコントロールのプログラムで操作を行うためには示しています。 この問題と回避策を見ます。 結果の ClientID 値をプログラムでアクセスする方法についても説明します。
 
 
 ## <a name="introduction"></a>はじめに
@@ -83,7 +83,7 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 図 3 は、Visual Studio のデザイナーを使用して表示する際、ページを示します。
 
 
-[![このページには、次の 3 つの Web コントロールが含まれます。、テキスト ボックス、ボタン、およびラベル](control-id-naming-in-content-pages-vb/_static/image4.png)](control-id-naming-in-content-pages-vb/_static/image3.png)
+[![T彼はページを含む 3 つの Web コントロール テキスト ボックス、ボタン、およびラベル]。(control-id-naming-in-content-pages-vb/_static/image4.png)](control-id-naming-in-content-pages-vb/_static/image3.png)
 
 **図 03**:ページが含まれます次の 3 つ Web コントロール: テキスト ボックス、ボタン、およびラベル ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image5.png))。
 
@@ -130,10 +130,10 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 
 呼び出しに使用する構文、`FindControl`の最初の 2 つの行にメソッドが若干`SubmitButton_Click`と同じ意味ですが。 すべての ASP.NET サーバー コントロールを含めることを思い出してください、`FindControl`メソッド。 これが含まれています、`Page`クラス、すべて ASP.NET からは分離コード クラスから派生する必要があります。 そのため、`FindControl("controlID")`呼び出しと同じですが`Page.FindControl("controlID")`、オーバーライドするいないと仮定すると、`FindControl`分離コード クラスまたはカスタム基底クラス メソッド。
 
-このコードを入力した後、、`IDIssues.aspx`ブラウザーからページで、お客様の年齢を入力し、[送信] ボタンをクリックを参照してください。 [送信] ボタンをクリックすると、`NullReferenceException`が発生します (図 5 を参照してください)。
+このコードを入力した後、次を参照してください。、`IDIssues.aspx`ブラウザーからページで、お客様の年齢を入力し、[送信] ボタンをクリックします。 [送信] ボタンをクリックすると、`NullReferenceException`が発生します (図 5 を参照してください)。
 
 
-[![NullReferenceException が発生します](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)
+[![A NullReferenceException が発生します](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)
 
 **図 05**:A`NullReferenceException`が発生します ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image9.png))。
 
@@ -173,7 +173,7 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 今回は、ブラウザーでページにアクセスして、お客様の年齢を入力し、[送信] ボタンをクリックしてメッセージを表示、`Results`ラベル、期待どおりにします。
 
 
-[![ユーザーの年齢がラベルに表示されます。](control-id-naming-in-content-pages-vb/_static/image11.png)](control-id-naming-in-content-pages-vb/_static/image10.png)
+[![T彼はユーザーの年齢がラベルに表示されます](control-id-naming-in-content-pages-vb/_static/image11.png)](control-id-naming-in-content-pages-vb/_static/image10.png)
 
 **図 06**:ユーザーの年齢がラベルに表示されます ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image12.png))。
 
@@ -200,7 +200,7 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 このコードに戻ります、`IDIssues.aspx`ページの分離コード クラスと現在のコメント`FindControl`メソッドの呼び出し。 呼び出しに置き換える`Page.FindControlRecursive("controlID")`します。 拡張メソッドの優れている点は、IntelliSense のドロップダウン リスト内で直接表示します。 図 7 に示す、入力すると`Page`期間を押すと、`FindControlRecursive`メソッドは、IntelliSense と共に他のドロップダウン リストに含まれている`Control`クラス メソッド。
 
 
-[![拡張メソッドは IntelliSense ドロップダウン リストに含まれる](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
+[![EIntelliSense ドロップダウン リストでは、拡張メソッドを含める](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
 
 **図 07**:拡張メソッドは IntelliSense ドロップダウン リストに含まれる ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image15.png))。
 

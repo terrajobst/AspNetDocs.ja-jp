@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
-title: サービス層 (C#) の検証 |Microsoft Docs
+title: サービス層 (c#) の検証 |Microsoft Docs
 author: StephenWalther
 description: コント ローラー アクションから、別のサービス層には、検証ロジックを移動する方法について説明します。 このチュートリアルでは、Stephen Walther がについて説明する方法をしています.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 4eabc535-b8a1-43f5-bb99-cfeb86db0fca
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 69ff78949589017d12a791231e38b400b49f2917
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9b2a7e00b3c50a946ad0f2518880892f103a5c1b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57051839"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387114"
 ---
-<a name="validating-with-a-service-layer-c"></a>サービス層の検証 (C#)
-====================
+# <a name="validating-with-a-service-layer-c"></a>サービス層の検証 (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > コント ローラー アクションから、別のサービス層には、検証ロジックを移動する方法について説明します。 このチュートリアルでは、Stephen Walther は、コント ローラー層から、サービス層を分離することで、懸念事項のシャープな分離を維持する方法について説明します。
@@ -80,7 +80,7 @@ IValidationDictionary インターフェイスは、リスト 6 で定義され�
 
 リスト 7、ModelStateWrapper クラスという名前でクラスでは、IValidationDictionary インターフェイスを実装します。 モデル状態ディクショナリをコンス トラクターに渡すことによって、ModelStateWrapper クラスをインスタンス化できます。
 
-**7 - Models\ModelStateWrapper.cs を一覧表示します。**
+**Listing 7 - Models\ModelStateWrapper.cs**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample7.cs)]
 

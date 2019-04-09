@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
-title: アクションを作成する (C#) |Microsoft Docs
+title: アクションを作成する (c#) |Microsoft Docs
 author: microsoft
 description: ASP.NET MVC のコント ローラーに新しいアクションを追加する方法について説明します。 メソッドを操作するための要件について説明します。
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: cb33b28c-3025-4bd1-a1fa-eaa3af7bb56f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 243248ee30c6a2db7f102f7743d0393d4a6a9d24
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c66e066bd3e241e667924dacc114f57151df822a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056129"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389558"
 ---
-<a name="creating-an-action-c"></a>アクションを作成する (C#)
-====================
+# <a name="creating-an-action-c"></a>アクションを作成する (C#)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC のコント ローラーに新しいアクションを追加する方法について説明します。 メソッドを操作するための要件について説明します。
@@ -50,14 +50,14 @@ ms.locfileid: "57056129"
 
 コント ローラー クラスにパブリック メソッドを作成する必要があると、コント ローラーのアクションとしてメソッドを公開する場合は、[NonAction] 属性を使用して呼び出されているからメソッドを防ぐことができます。 たとえば、リスト 2 でコント ローラーには、[NonAction] 属性で装飾した CompanySecrets() をという名前のパブリック メソッドが含まれています。
 
-**2 - Controllers\WorkController.cs を一覧表示します。**
+**Listing 2 - Controllers\WorkController.cs**
 
 [!code-csharp[Main](creating-an-action-cs/samples/sample2.cs)]
 
 CompanySecrets() コント ローラーのアクションを起動するには、お使いのブラウザーのアドレス バーに/Work/CompanySecrets を入力しようとした場合は、図 1 で、エラー メッセージが表示されます。
 
 
-[![NonAction メソッドを呼び出す](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
+[![Invoking NonAction メソッド](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
 
 **図 01**:NonAction メソッドを呼び出す ([フルサイズの画像を表示する をクリックします](creating-an-action-cs/_static/image2.png))。
 

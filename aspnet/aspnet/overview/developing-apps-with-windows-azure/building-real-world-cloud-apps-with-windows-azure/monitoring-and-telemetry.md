@@ -8,20 +8,20 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: f4dae827627103e5cfb9981b6c3b9342cdc34c13
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043219"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403910"
 ---
-<a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 多くの人は、そのアプリケーションがダウンしてタイミングを把握できるように顧客に依存します。 ない本当にベスト プラクティスどこでも、そして特に、クラウドではありません。 多くの場合に発生した事象に関する最小限または誤解を招くのデータを取得する通知は取得されたらと、簡単な通知の保証はありません。 適切なテレメトリとアプリ、および場合は、何が起こってを認識してありますできますログ記録システムにを使用するトラブルシューティングに役立つ情報をすぐに確認して不適切な移動します。
@@ -72,7 +72,7 @@ Visual Studio で、アプリでの New Relic NuGet パッケージをインス�
 
 戻り、 **New Relic**ページで、**アドオン** タブをクリックして、ポータルの**管理**します。 ポータルでは、シングル サインオン認証を使用して、資格情報をもう一度入力する必要はありませんので、New Relic の管理ポータルに送信します。 [概要] ページは、さまざまなパフォーマンスの統計情報を表示します。 (概要ページの完全なサイズを表示する画像をクリックします。)
 
-[![新しい Relic 監視 タブ](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![N新しい Relic 監視タブ](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 統計情報を確認できますのほんの一部を次に示します。
 
@@ -139,7 +139,7 @@ New Relic は、製品利用統計情報システムの 1 つの例このすべ�
 
 Azure App Service で web アプリは、書き込み用の組み込みサポートを備えた`System.Diagnostics`ファイル システム、Table storage、または Blob storage にログ。 ストレージ送信先ごとに、さまざまなログ記録レベルを選択して、アプリケーションを再起動しなくても、実行時にログ記録レベルを変更することができます。 Blob storage のサポートにより、簡単に実行[HDInsight](https://docs.microsoft.com/azure/hdinsight/) HDInsight が Blob storage を直接操作する方法を知っているため、アプリケーション ログでジョブを分析します。
 
-### <a name="log-exceptions"></a>例外をログ出力
+### <a name="log-exceptions"></a>例外をログに記録する
 
 配置しない*例外。ToString()* ログ コードにします。 コンテキスト情報が残ります。 SQL のエラーの場合は SQL エラー数が残ります。 すべての例外のコンテキスト情報、例外自体、およびトラブルシューティングのために必要なすべてのものを提供されているかどうかを確認する内部の例外が含まれます。 たとえば、コンテキスト情報には、サーバー名、トランザクションの識別子とユーザー名 (がいない、パスワードまたはシークレット!) があります。
 
@@ -159,7 +159,7 @@ NLog などのフレームワークを使用するための 1 つの考えられ
 
 ### <a name="semantic-logging"></a>セマンティック ログ記録
 
-さらに便利な診断情報を生成できるログ記録を行う比較的新しい方法は、[エンタープライズ ライブラリ セマンティック ログ アプリケーション ブロック (SLAB)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/)を参照してください。 スラブを使用して[Windows のイベント トレース](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)(ETW) と[EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx)で構造化されたクエリ可能なログを作成するために .NET 4.5 をサポートします。 記述する情報をカスタマイズすることができます、ログに記録するイベントの種類ごとに異なるメソッドを定義します。 たとえばと呼ばれる SQL データベースのエラー ログに記録するため、`LogSQLDatabaseError`メソッド。 このような例外では、メソッド シグネチャでエラー番号のパラメーターを含めるし、エラー番号を記述するログ レコードの個別のフィールドとして記録するでしたので、重要な情報は、エラー番号がわかっています。 数が個別のフィールドのためより簡単かつ確実に取得できますメッセージ文字列にはエラー番号を連結しただけの場合に比べて、SQL エラー番号に基づくレポート。
+さらに便利な診断情報を生成できるログ記録を行う比較的新しい方法は、次を参照してください。[エンタープライズ ライブラリ セマンティック ログ アプリケーション ブロック (SLAB)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/)します。 スラブを使用して[Windows のイベント トレース](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)(ETW) と[EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx)で構造化されたクエリ可能なログを作成するために .NET 4.5 をサポートします。 記述する情報をカスタマイズすることができます、ログに記録するイベントの種類ごとに異なるメソッドを定義します。 たとえばと呼ばれる SQL データベースのエラー ログに記録するため、`LogSQLDatabaseError`メソッド。 このような例外では、メソッド シグネチャでエラー番号のパラメーターを含めるし、エラー番号を記述するログ レコードの個別のフィールドとして記録するでしたので、重要な情報は、エラー番号がわかっています。 数が個別のフィールドのためより簡単かつ確実に取得できますメッセージ文字列にはエラー番号を連結しただけの場合に比べて、SQL エラー番号に基づくレポート。
 
 ## <a name="logging-in-the-fix-it-app"></a>この修正プログラムでログ アプリ
 
@@ -287,7 +287,7 @@ Azure でのログ記録を有効にした後が作成されるときに、Visua
 
 コード サンプル:
 
-- [クラウド サービス Azure の基礎](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)します。 Microsoft Azure Customer Advisory Team で作成したサンプル アプリケーション。 次の記事で説明したように、テレメトリとログ記録のプラクティスの両方を示します。 このサンプルを使用してアプリケーションのログ記録を実装する[NLog](http://nlog-project.org/)します。 関連ドキュメントについては、、[一連のテレメトリとログ記録に関する 4 つの TechNet wiki の記事](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon)を参照してください。
+- [クラウド サービス Azure の基礎](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)します。 Microsoft Azure Customer Advisory Team で作成したサンプル アプリケーション。 次の記事で説明したように、テレメトリとログ記録のプラクティスの両方を示します。 このサンプルを使用してアプリケーションのログ記録を実装する[NLog](http://nlog-project.org/)します。 関連ドキュメントについては、次を参照してください。、[一連のテレメトリとログ記録に関する 4 つの TechNet wiki の記事](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon)します。
 
 > [!div class="step-by-step"]
 > [前へ](design-to-survive-failures.md)

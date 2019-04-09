@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 78fd0e92-f9c6-4e96-a5e9-0375b307a828
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: ba00024e93beba6eab226dd0d381d8734061e095
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ba9fdaaf655f6510d3ebf6ce0930fbf4000add3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038879"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388869"
 ---
-<a name="data-source-controls"></a>データ ソース コントロール
-====================
+# <a name="data-source-controls"></a>データ ソース コントロール
+
 によって[Microsoft](https://github.com/microsoft)
 
 > DataGrid コントロールで ASP.NET 1.x が Web アプリケーションでのデータ アクセスに大きな強化をマークします。 ただし、した可能性がありますと、わかりやすいありませんでした。 そこから多くの便利な機能を取得するコードの非常に長い時間が必要です。 1.x ですべてのデータ アクセスの試みで、このモデルです。

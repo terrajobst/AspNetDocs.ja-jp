@@ -8,15 +8,15 @@ ms.date: 08/20/2008
 ms.assetid: 81e8ee8e-00ea-4988-9f11-920c1728ee43
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-views-view-data-and-html-helpers
 msc.type: video
-ms.openlocfilehash: 8d34b209c9227f2b004f18891798580f1f5b0211
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4786234ecd8b1022f48081278711a61305a949ee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041319"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390637"
 ---
-<a name="understanding-views-view-data-and-html-helpers"></a>ビュー、ビュー データ、HTML ヘルパーについて理解する
-====================
+# <a name="understanding-views-view-data-and-html-helpers"></a>ビュー、ビュー データ、HTML ヘルパーについて理解する
+
 によって[Microsoft](https://github.com/microsoft)
 
 ASP.NET MVC ビューし、HTML ページから違う方法でしょうか。 このチュートリアルでは、Stephen Walther がビューを紹介し、データの表示と HTML ヘルパーをビュー内の利用の実行方法を示します。 このビデオについては、「HTML ヘルパーとビューについて、データの表示」のチュートリアルをお読みください ([c#](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-cs.md)、 [VB](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-vb.md))。

@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: b4b632a84e40aa0b73dfc7a30da0cf28249cc5b4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 288f5017acde5a103460ace688933609fba0b02c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046789"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391027"
 ---
-<a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR 1.x の概要
-====================
+# <a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR 1.x の概要
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tim Teebken](https://github.com/timlt)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -167,10 +167,10 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 
 SignalR がリアルタイムの web アプリケーションを構築するためのフレームワークについて説明しました。 いくつかの SignalR 開発タスクも学習しました。 SignalR を ASP.NET アプリケーションを追加する方法、ハブ クラスを作成する方法と、ハブからメッセージを送受信する方法。
 
-利用できるサンプル アプリケーションは、このチュートリアルやその他の SignalR アプリケーションで、インターネット経由でしてホスティング プロバイダーにデプロイすること。 Microsoft 提供の無料 web ホスティングを無料で最大 10 個の web サイトを[Windows Azure トライアル アカウント](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 サンプルの SignalR アプリケーションをデプロイする方法のチュートリアルは、[、SignalR 入門サンプルとして Windows Azure の Web サイトを発行](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx)を参照してください。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法の詳細については、[ASP.NET アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)を参照してください。 (メモ: WebSocket トランスポートでは、Windows Azure の Web サイトは現在サポートされていません。 ときに WebSocket トランスポートを使用できません、SignalR のトランスポートのセクションで説明したように、その他の利用可能なトランスポートを使用して、 [SignalR のトピックで初めに](index.md))。
+利用できるサンプル アプリケーションは、このチュートリアルやその他の SignalR アプリケーションで、インターネット経由でしてホスティング プロバイダーにデプロイすること。 Microsoft 提供の無料 web ホスティングを無料で最大 10 個の web サイトを[Windows Azure トライアル アカウント](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 サンプルの SignalR アプリケーションをデプロイする方法のチュートリアルは、次を参照してください。 [、SignalR 入門サンプルとして Windows Azure の Web サイトを発行](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法の詳細については、次を参照してください。 [ASP.NET アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)します。 (メモ: WebSocket トランスポートでは、Windows Azure の Web サイトは現在サポートされていません。 ときに WebSocket トランスポートを使用できません、SignalR のトランスポートのセクションで説明したように、その他の利用可能なトランスポートを使用して、 [SignalR のトピックで初めに](index.md))。
 
 高度な SignalR 開発の概念については、SignalR のソース コードおよびリソースは、次のサイトを参照してください。
 
 - [SignalR プロジェクト](http://signalr.net)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

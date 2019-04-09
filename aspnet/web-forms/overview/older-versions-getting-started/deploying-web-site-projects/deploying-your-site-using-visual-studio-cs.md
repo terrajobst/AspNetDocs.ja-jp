@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: cde4ee53-a5d0-4937-a54b-67877e8266c3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 94f4f3e0d81f3cfae141c8306731cc8eef6f0efb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9512685672e42091e7be11c5710a2434ca8b0488
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033509"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392418"
 ---
-<a name="deploying-your-site-using-visual-studio-c"></a>Visual Studio を使用してサイトを配置する (C#)
-====================
+# <a name="deploying-your-site-using-visual-studio-c"></a>Visual Studio を使用してサイトを配置する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_cs.pdf)
@@ -45,7 +45,7 @@ Web サイトのコピー ツールを使用して、運用環境に書籍レビ
 ソリューション エクスプ ローラー (このアイコンは図 1 丸); Web サイトのコピー アイコンをクリックして、Web サイトのコピー ツールのプロジェクトを起動します。また、web サイト メニューから Web サイトのコピー オプションを選択できます。 どちらの方法は、図 1 に示すように Web サイトのコピーのユーザー インターフェイスを起動します。まだリモート サーバーに接続があるので、図 1 の左側のウィンドウのみが設定されます。
 
 
-[![コピーの Web サイト ツールのユーザー インターフェイスが 2 つのペインに分割されます。](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
+[![T彼はコピーの Web サイトのツールのユーザー インターフェイスは、2 つのペインに分割](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
 
 **図 1**:コピーの Web サイト ツールのユーザー インターフェイスが 2 つのペインに分割されます ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image3.png))。
 
@@ -62,7 +62,7 @@ Web サイトのコピー ツールを使用して、運用環境に書籍レビ
 ほとんどの web ホスト プロバイダーは、FTP をサポートしますが、FrontPage サーバー拡張機能のサポートを提供は少なくなります。 そのため、FTP サイト オプションを選択して図 2 に示すように、接続情報を入力します。
 
 
-[![変換先の web サイトを指定します。](deploying-your-site-using-visual-studio-cs/_static/image5.png)](deploying-your-site-using-visual-studio-cs/_static/image4.png)
+[![S変換先の web サイトを指定する](deploying-your-site-using-visual-studio-cs/_static/image5.png)](deploying-your-site-using-visual-studio-cs/_static/image4.png)
 
 **図 2**:変換先の web サイトを指定 ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image6.png))。
 
@@ -72,7 +72,7 @@ Web サイトのコピー ツールを使用して、運用環境に書籍レビ
 新しい追加 BookReviewsWSP プロジェクトへのページングし、Web サイトのコピー ツールの動作を確認できるように、デプロイします。 という名前のルート ディレクトリで、Visual Studio で新しい ASP.NET ページを作成`Privacy.aspx`です。 マスター ページを使用して、ページがある`Site.master`とこのページに、サイトのプライバシー ポリシーを追加します。 図 3 は、このページを作成した後、Visual Studio を示します。
 
 
-[![という新しいページを追加&lt;コード&gt;Privacy.aspx&lt;/code&gt;を web サイトのルート フォルダー](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
+[![Aという新しいページ dd&lt;コード&gt;Privacy.aspx&lt;/code&gt;を web サイトのルート フォルダー](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
 
 **図 3**:という新しいページを追加`Privacy.aspx`web サイトのルート フォルダーに ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image9.png))。
 
@@ -80,7 +80,7 @@ Web サイトのコピー ツールを使用して、運用環境に書籍レビ
 次に、Web サイトのコピーのユーザー インターフェイスを返します。 左側のウィンドウは、新しいファイルを含む、図 4 に示すよう`Policy.aspx`と`Policy.aspx.cs`します。 さらに、これらのファイルは、矢印のアイコンと状態の新しいリモート サイトではなく、ローカル サイトが存在することを示すでマークされます。
 
 
-[![Web サイトのコピー ツールは、新規を含む&lt;コード&gt;Privacy.aspx&lt;/code&gt;ページの左ペインで](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
+[![T[新しいには彼の Web サイトのコピー ツールが含まれています&lt;コード&gt;Privacy.aspx&lt;/code&gt;ページの左ペインで](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
 
 **図 4**:Web サイトのコピー ツールは、新規を含む`Privacy.aspx`ページの左ペインで ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image12.png))。
 
@@ -90,7 +90,7 @@ Web サイトのコピー ツールを使用して、運用環境に書籍レビ
 一覧を表示するには、新しいファイルとは、Web サイトのコピー ツールには、ローカルおよびリモートのサイト間で差異がある任意のファイルが強調表示されます。 アクションの表示に戻り、`Privacy.aspx`ページおよびプライバシー ポリシーをいくつかの複数の単語を追加します。 ページを保存してから、Web サイトのコピー ツールに戻ります。 図 5 に示すよう、`Privacy.aspx`ページの左側のペインで、変更は、リモート サイトとの同期であることを示す状態。
 
 
-[![Web サイトのコピー ツールでは、ことを示します、&lt;コード&gt;Privacy.aspx&lt;/code&gt;ページが変更されました](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
+[![T彼の Web サイトのコピー ツールを示しますが、&lt;コード&gt;Privacy.aspx&lt;/code&gt;ページが変更されました](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
 
 **図 5**:Web サイトのコピー ツールでは、ことを示します、`Privacy.aspx`ページが変更されました ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image15.png))。
 
@@ -117,7 +117,7 @@ Visual Studio 内から web アプリケーションをデプロイする別の�
 内容をアップロードするオプションがありますも、`App_Data`フォルダー。
 
 
-[![変換先の web サイトを指定します。](deploying-your-site-using-visual-studio-cs/_static/image17.png)](deploying-your-site-using-visual-studio-cs/_static/image16.png)
+[![S変換先の web サイトを指定する](deploying-your-site-using-visual-studio-cs/_static/image17.png)](deploying-your-site-using-visual-studio-cs/_static/image16.png)
 
 **図 6**:変換先の web サイトを指定 ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image18.png))。
 
@@ -127,7 +127,7 @@ Visual Studio 内から web アプリケーションをデプロイする別の�
 図 7 は、発行操作が完了した後、FTP サイト上のファイルを示します。 マークアップのページのみと必要なサーバー側とクライアント側のサポート ファイルがアップロードされたことに注意してください。
 
 
-[![運用環境に必要なファイルのみが公開されました。](deploying-your-site-using-visual-studio-cs/_static/image20.png)](deploying-your-site-using-visual-studio-cs/_static/image19.png)
+[![O運用環境に発行された、必要なファイルのみが ()](deploying-your-site-using-visual-studio-cs/_static/image20.png)](deploying-your-site-using-visual-studio-cs/_static/image19.png)
 
 **図 7**:のみのために必要なファイルに公開された運用環境 ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-cs/_static/image21.png))。
 

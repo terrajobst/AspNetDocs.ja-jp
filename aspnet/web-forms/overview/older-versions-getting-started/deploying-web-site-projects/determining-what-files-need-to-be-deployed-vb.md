@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 22461b681ea195225c6b7b0306b6f49956a2890b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fe19910d693a784b8dc207462591c9f4d51cec14
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382148"
 ---
-<a name="determining-what-files-need-to-be-deployed-vb"></a>配置が必要なファイルを決定する (VB)
-====================
+# <a name="determining-what-files-need-to-be-deployed-vb"></a>配置が必要なファイルを決定する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
@@ -93,7 +93,7 @@ Microsoft は、Visual Studio 2005 Service Pack 1 がリリースされる Web �
 図 1 は、ブラウザーで表示したときに、書籍レビューの web サイトのスクリーン ショットを示します。 ここで、ページが表示 ~ Tech/TYASP35.aspx、書籍レビューする/*教える自分で ASP.NET 3.5 in 24 時間*します。 定義されているサイト マップ構造に基づいて、ページ左側にあるメニューの上部にまたがる階層リンク`Web.sitemap`します。 右上隅のイメージは、本の表紙にあるイメージの 1 つ、`Images`フォルダー。 内の CSS ファイルで明確に記述、カスケード スタイル シートの規則を使用して、web サイトの外観が定義されている、`Styles`包括的なページ レイアウトが、マスター ページで定義されている間は、フォルダー、`Site.master`します。
 
 
-[![書籍レビューの web サイトのタイトルのさまざまなレビューを提供しています](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
+[![T彼の web サイトの書籍のレビューには、タイトルのさまざまなレビューが提供しています](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
 **図 1**:タイトルのさまざまなレビューを提供する、書籍レビューの web サイト ([フルサイズの画像を表示する をクリックします](determining-what-files-need-to-be-deployed-vb/_static/image3.png))。
 
@@ -116,7 +116,7 @@ Web アプリケーション プロジェクト モデルは、明示的なコ�
 図 2 は、書籍レビューの Web アプリケーション プロジェクトを構成するファイルを示します。
 
 
-[![ソリューション エクスプ ローラーでは、Web アプリケーション プロジェクトを構成するファイルを一覧表示します。](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
+[![Tソリューション エクスプ ローラー ファイルを示します、Web アプリケーション プロジェクトを構成する。](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
 
 **図 2**:ソリューション エクスプ ローラーは、Web アプリケーション プロジェクトを構成するファイルを一覧表示します。
 
@@ -147,7 +147,7 @@ Visual Studio のビルド メニュー オプションは、Web アプリケー
 図 3 は、書籍レビューの Web サイト プロジェクトを構成するファイルを示します。
 
 
-[![ソリューション エクスプ ローラーでは、Web サイト プロジェクトを構成するファイルを一覧表示します。](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
+[![Tソリューション エクスプ ローラー ファイルを示します、Web サイト プロジェクトを構成する。](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
 
 **図 3**:ソリューション エクスプ ローラーは、Web サイト プロジェクトを構成するファイルを一覧表示します。
 
