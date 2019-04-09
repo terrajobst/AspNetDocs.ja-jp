@@ -8,29 +8,29 @@ ms.date: 09/28/2011
 ms.assetid: 6edfe14c-415a-4281-b6fa-69e9b38a82c8
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner
 msc.type: chapter
-ms.openlocfilehash: 39a7f1b44ffe33b27097a53a8e5c1f47ea1cdd73
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 263ffc1ab815c1f7d6c1ee008f4fbe61316b7231
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022879"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380744"
 ---
-<a name="nerddinner"></a><span data-ttu-id="1a26a-104">NerdDinner</span><span class="sxs-lookup"><span data-stu-id="1a26a-104">NerdDinner</span></span>
-====================
-> <span data-ttu-id="1a26a-105">ASP.NET MVC 1 を使用して、NerdDinner.com web サイトを構築する方法。</span><span class="sxs-lookup"><span data-stu-id="1a26a-105">How to build the NerdDinner.com website using ASP.NET MVC 1.</span></span> <span data-ttu-id="1a26a-106">ASP.NET MVC のバージョンを参照してください[GitHub で NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner)します。</span><span class="sxs-lookup"><span data-stu-id="1a26a-106">For the ASP.NET MVC version, please visit [NerdDinner on GitHub](https://github.com/AspNetMVPSamples/NerdDinner).</span></span>
+# <a name="nerddinner"></a><span data-ttu-id="2ce02-104">NerdDinner</span><span class="sxs-lookup"><span data-stu-id="2ce02-104">NerdDinner</span></span>
+
+> <span data-ttu-id="2ce02-105">ASP.NET MVC 1 を使用して、NerdDinner.com web サイトを構築する方法。</span><span class="sxs-lookup"><span data-stu-id="2ce02-105">How to build the NerdDinner.com website using ASP.NET MVC 1.</span></span> <span data-ttu-id="2ce02-106">ASP.NET MVC のバージョンを参照してください[GitHub で NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner)します。</span><span class="sxs-lookup"><span data-stu-id="2ce02-106">For the ASP.NET MVC version, please visit [NerdDinner on GitHub](https://github.com/AspNetMVPSamples/NerdDinner).</span></span>
 
 
-- [<span data-ttu-id="1a26a-107">NerdDinner チュートリアルの紹介</span><span class="sxs-lookup"><span data-stu-id="1a26a-107">Introducing the NerdDinner Tutorial</span></span>](introducing-the-nerddinner-tutorial.md)
-- [<span data-ttu-id="1a26a-108">新しい ASP.NET MVC プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="1a26a-108">Create a New ASP.NET MVC Project</span></span>](create-a-new-aspnet-mvc-project.md)
-- [<span data-ttu-id="1a26a-109">データベースを作成する</span><span class="sxs-lookup"><span data-stu-id="1a26a-109">Create a Database</span></span>](create-a-database.md)
-- [<span data-ttu-id="1a26a-110">ビジネス ルール検証でモデルをビルドする</span><span class="sxs-lookup"><span data-stu-id="1a26a-110">Build a Model with Business Rule Validations</span></span>](build-a-model-with-business-rule-validations.md)
-- [<span data-ttu-id="1a26a-111">コントローラーとビューを使用し、リスティング/詳細 UI を実装する</span><span class="sxs-lookup"><span data-stu-id="1a26a-111">Use Controllers and Views to Implement a Listing/Details UI</span></span>](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-- [<span data-ttu-id="1a26a-112">CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する</span><span class="sxs-lookup"><span data-stu-id="1a26a-112">Provide CRUD (Create, Read, Update, Delete) Data Form Entry Support</span></span>](provide-crud-create-read-update-delete-data-form-entry-support.md)
-- [<span data-ttu-id="1a26a-113">ViewData を使用し、ViewModel クラスを実装する</span><span class="sxs-lookup"><span data-stu-id="1a26a-113">Use ViewData and Implement ViewModel Classes</span></span>](use-viewdata-and-implement-viewmodel-classes.md)
-- [<span data-ttu-id="1a26a-114">マスター ページと部分的ビューを利用して UI を再使用する</span><span class="sxs-lookup"><span data-stu-id="1a26a-114">Re-use UI Using Master Pages and Partials</span></span>](re-use-ui-using-master-pages-and-partials.md)
-- [<span data-ttu-id="1a26a-115">効率的なデータ ページングを実装する</span><span class="sxs-lookup"><span data-stu-id="1a26a-115">Implement Efficient Data Paging</span></span>](implement-efficient-data-paging.md)
-- [<span data-ttu-id="1a26a-116">認証と承認を利用した安全なアプリケーション</span><span class="sxs-lookup"><span data-stu-id="1a26a-116">Secure Applications Using Authentication and Authorization</span></span>](secure-applications-using-authentication-and-authorization.md)
-- [<span data-ttu-id="1a26a-117">AJAX を使用し、動的更新を届ける</span><span class="sxs-lookup"><span data-stu-id="1a26a-117">Use AJAX to Deliver Dynamic Updates</span></span>](use-ajax-to-deliver-dynamic-updates.md)
-- [<span data-ttu-id="1a26a-118">AJAX を使用し、マッピング シナリオを実装する</span><span class="sxs-lookup"><span data-stu-id="1a26a-118">Use AJAX to Implement Mapping Scenarios</span></span>](use-ajax-to-implement-mapping-scenarios.md)
-- [<span data-ttu-id="1a26a-119">自動化された単体テストを有効にする</span><span class="sxs-lookup"><span data-stu-id="1a26a-119">Enable Automated Unit Testing</span></span>](enable-automated-unit-testing.md)
-- [<span data-ttu-id="1a26a-120">NerdDinner まとめ</span><span class="sxs-lookup"><span data-stu-id="1a26a-120">NerdDinner Wrap Up</span></span>](nerddinner-wrap-up.md)
+- [<span data-ttu-id="2ce02-107">NerdDinner チュートリアルの紹介</span><span class="sxs-lookup"><span data-stu-id="2ce02-107">Introducing the NerdDinner Tutorial</span></span>](introducing-the-nerddinner-tutorial.md)
+- [<span data-ttu-id="2ce02-108">新しい ASP.NET MVC プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="2ce02-108">Create a New ASP.NET MVC Project</span></span>](create-a-new-aspnet-mvc-project.md)
+- [<span data-ttu-id="2ce02-109">データベースを作成する</span><span class="sxs-lookup"><span data-stu-id="2ce02-109">Create a Database</span></span>](create-a-database.md)
+- [<span data-ttu-id="2ce02-110">ビジネス ルール検証でモデルをビルドする</span><span class="sxs-lookup"><span data-stu-id="2ce02-110">Build a Model with Business Rule Validations</span></span>](build-a-model-with-business-rule-validations.md)
+- [<span data-ttu-id="2ce02-111">コントローラーとビューを使用し、リスティング/詳細 UI を実装する</span><span class="sxs-lookup"><span data-stu-id="2ce02-111">Use Controllers and Views to Implement a Listing/Details UI</span></span>](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+- [<span data-ttu-id="2ce02-112">CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する</span><span class="sxs-lookup"><span data-stu-id="2ce02-112">Provide CRUD (Create, Read, Update, Delete) Data Form Entry Support</span></span>](provide-crud-create-read-update-delete-data-form-entry-support.md)
+- [<span data-ttu-id="2ce02-113">ViewData を使用し、ViewModel クラスを実装する</span><span class="sxs-lookup"><span data-stu-id="2ce02-113">Use ViewData and Implement ViewModel Classes</span></span>](use-viewdata-and-implement-viewmodel-classes.md)
+- [<span data-ttu-id="2ce02-114">マスター ページと部分を利用して UI を再使用する</span><span class="sxs-lookup"><span data-stu-id="2ce02-114">Re-use UI Using Master Pages and Partials</span></span>](re-use-ui-using-master-pages-and-partials.md)
+- [<span data-ttu-id="2ce02-115">効率的なデータ ページングを実装する</span><span class="sxs-lookup"><span data-stu-id="2ce02-115">Implement Efficient Data Paging</span></span>](implement-efficient-data-paging.md)
+- [<span data-ttu-id="2ce02-116">認証と承認を利用した安全なアプリケーション</span><span class="sxs-lookup"><span data-stu-id="2ce02-116">Secure Applications Using Authentication and Authorization</span></span>](secure-applications-using-authentication-and-authorization.md)
+- [<span data-ttu-id="2ce02-117">AJAX を使用し、動的更新を配信する</span><span class="sxs-lookup"><span data-stu-id="2ce02-117">Use AJAX to Deliver Dynamic Updates</span></span>](use-ajax-to-deliver-dynamic-updates.md)
+- [<span data-ttu-id="2ce02-118">AJAX を使用し、マッピング シナリオを実装する</span><span class="sxs-lookup"><span data-stu-id="2ce02-118">Use AJAX to Implement Mapping Scenarios</span></span>](use-ajax-to-implement-mapping-scenarios.md)
+- [<span data-ttu-id="2ce02-119">自動化された単体テストを有効にする</span><span class="sxs-lookup"><span data-stu-id="2ce02-119">Enable Automated Unit Testing</span></span>](enable-automated-unit-testing.md)
+- [<span data-ttu-id="2ce02-120">NerdDinner まとめ</span><span class="sxs-lookup"><span data-stu-id="2ce02-120">NerdDinner Wrap Up</span></span>](nerddinner-wrap-up.md)

@@ -8,17 +8,17 @@ ms.date: 08/30/2011
 ms.assetid: a87af3be-589d-4b0c-846d-4de60a8745c0
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-snippets
 msc.type: video
-ms.openlocfilehash: f2c70dc335bac3b6466a99375c72d7076276f411
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8af991fad10957ee5a0c712b0298647a02eaed46
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031719"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395837"
 ---
-<a name="visual-studio-vnext-videos-css-snippets"></a><span data-ttu-id="e921a-103">Visual Studio vNext ビデオ:CSS スニペット</span><span class="sxs-lookup"><span data-stu-id="e921a-103">Visual Studio vNext Videos: CSS Snippets</span></span>
-====================
-<span data-ttu-id="e921a-104">によって[Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="e921a-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
+# <a name="visual-studio-vnext-videos-css-snippets"></a><span data-ttu-id="44faf-103">Visual Studio vNext ビデオ:CSS スニペット</span><span class="sxs-lookup"><span data-stu-id="44faf-103">Visual Studio vNext Videos: CSS Snippets</span></span>
 
-<span data-ttu-id="e921a-105">このビデオでは、Mads Kristensen は CSS3 変換、メディア クエリ、フォントの埋め込み、その他のいくつかの便利なスニペットを追加します。 Visual Studio vNext CSS エディターの改善を示します。</span><span class="sxs-lookup"><span data-stu-id="e921a-105">In this video, Mads Kristensen demonstrates an improvement in the Visual Studio vNext CSS editor which adds some useful snippets for CSS3 transforms, media queries, font embedding, and more.</span></span>
+<span data-ttu-id="44faf-104">によって[Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="44faf-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
 
-[<span data-ttu-id="e921a-106">&#9654;ビデオ (1 分)</span><span class="sxs-lookup"><span data-stu-id="e921a-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-css-editor-snippets)
+<span data-ttu-id="44faf-105">このビデオでは、Mads Kristensen は CSS3 変換、メディア クエリ、フォントの埋め込み、その他のいくつかの便利なスニペットを追加します。 Visual Studio vNext CSS エディターの改善を示します。</span><span class="sxs-lookup"><span data-stu-id="44faf-105">In this video, Mads Kristensen demonstrates an improvement in the Visual Studio vNext CSS editor which adds some useful snippets for CSS3 transforms, media queries, font embedding, and more.</span></span>
+
+[<span data-ttu-id="44faf-106">&#9654;ビデオ (1 分)</span><span class="sxs-lookup"><span data-stu-id="44faf-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-css-editor-snippets)

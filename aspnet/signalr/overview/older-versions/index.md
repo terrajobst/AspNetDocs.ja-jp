@@ -8,35 +8,35 @@ ms.date: 09/19/2014
 ms.assetid: 607f4617-380f-41fa-bf46-147e82bb8124
 msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: 160c3b2f0d255314bdf9fef3eda22cb578de476e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 67ca6b1dc68dc2dde4e24d4d6c6ddae04fc4bb6d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022389"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383487"
 ---
-<a name="signalr-older-versions"></a><span data-ttu-id="af681-103">SignalR の以前のバージョン</span><span class="sxs-lookup"><span data-stu-id="af681-103">SignalR Older Versions</span></span>
-====================
-> <span data-ttu-id="af681-104">以前のバージョンの SignalR に関連するドキュメントです。</span><span class="sxs-lookup"><span data-stu-id="af681-104">Documentation that pertains to earlier versions of SignalR.</span></span>
+# <a name="signalr-older-versions"></a><span data-ttu-id="b2b16-103">SignalR の以前のバージョン</span><span class="sxs-lookup"><span data-stu-id="b2b16-103">SignalR Older Versions</span></span>
+
+> <span data-ttu-id="b2b16-104">以前のバージョンの SignalR に関連するドキュメントです。</span><span class="sxs-lookup"><span data-stu-id="b2b16-104">Documentation that pertains to earlier versions of SignalR.</span></span>
 
 
-- [<span data-ttu-id="af681-105">チュートリアル: SignalR の概要 1.x</span><span class="sxs-lookup"><span data-stu-id="af681-105">Tutorial: Getting Started with SignalR 1.x</span></span>](tutorial-getting-started-with-signalr.md)
-- [<span data-ttu-id="af681-106">チュートリアル: SignalR の概要 1.x と MVC 4</span><span class="sxs-lookup"><span data-stu-id="af681-106">Tutorial: Getting Started with SignalR 1.x and MVC 4</span></span>](tutorial-getting-started-with-signalr-and-mvc-4.md)
-- [<span data-ttu-id="af681-107">SignalR 1.x による高頻度リアルタイム メッセージング</span><span class="sxs-lookup"><span data-stu-id="af681-107">High-Frequency Realtime with SignalR 1.x</span></span>](tutorial-high-frequency-realtime-with-signalr.md)
-- [<span data-ttu-id="af681-108">チュートリアル: ASP.NET SignalR によるサーバー ブロードキャスト 1.x</span><span class="sxs-lookup"><span data-stu-id="af681-108">Tutorial: Server Broadcast with ASP.NET SignalR 1.x</span></span>](tutorial-server-broadcast-with-aspnet-signalr.md)
-- [<span data-ttu-id="af681-109">ハブ API ガイド - サーバー</span><span class="sxs-lookup"><span data-stu-id="af681-109">Hubs API Guide - Server</span></span>](signalr-1x-hubs-api-guide-server.md)
-- [<span data-ttu-id="af681-110">SignalR 1.x ハブ API ガイド - JavaScript クライアント</span><span class="sxs-lookup"><span data-stu-id="af681-110">SignalR 1.x Hubs API Guide - JavaScript Client</span></span>](signalr-1x-hubs-api-guide-javascript-client.md)
-- [<span data-ttu-id="af681-111">ハブ API ガイド - .NET クライアント</span><span class="sxs-lookup"><span data-stu-id="af681-111">Hubs API Guide - .NET Client</span></span>](signalr-1x-hubs-api-guide-net-client.md)
-- [<span data-ttu-id="af681-112">SignalR の接続有効期間イベントについて理解し、処理する</span><span class="sxs-lookup"><span data-stu-id="af681-112">Understanding and Handling Connection Lifetime Events in SignalR</span></span>](handling-connection-lifetime-events.md)
-- [<span data-ttu-id="af681-113">SignalR 1.x でグループを使用する</span><span class="sxs-lookup"><span data-stu-id="af681-113">Working with Groups in SignalR 1.x</span></span>](working-with-groups.md)
-- [<span data-ttu-id="af681-114">SignalR 1.x でユーザーを接続にマッピングする</span><span class="sxs-lookup"><span data-stu-id="af681-114">Mapping SignalR Users to Connections in SignalR 1.x</span></span>](mapping-users-to-connections.md)
-- [<span data-ttu-id="af681-115">SignalR セキュリティ入門 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-115">Introduction to SignalR Security (SignalR 1.x)</span></span>](introduction-to-security.md)
-- [<span data-ttu-id="af681-116">SignalR ハブの認証と承認 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-116">Authentication and Authorization for SignalR Hubs (SignalR 1.x)</span></span>](hub-authorization.md)
-- [<span data-ttu-id="af681-117">SignalR 永続的接続の認証と承認 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-117">Authentication and Authorization for SignalR Persistent Connections (SignalR 1.x)</span></span>](persistent-connection-authorization.md)
-- [<span data-ttu-id="af681-118">SignalR パフォーマンス (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-118">SignalR Performance (SignalR 1.x)</span></span>](signalr-performance.md)
-- [<span data-ttu-id="af681-119">SignalR 1.x のスケールアウト入門</span><span class="sxs-lookup"><span data-stu-id="af681-119">Introduction to Scaleout in SignalR 1.x</span></span>](scaleout-in-signalr.md)
-- [<span data-ttu-id="af681-120">Azure Service Bus による SignalR スケールアウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-120">SignalR Scaleout with Azure Service Bus (SignalR 1.x)</span></span>](scaleout-with-windows-azure-service-bus.md)
-- [<span data-ttu-id="af681-121">Redis による SignalR スケールアウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-121">SignalR Scaleout with Redis (SignalR 1.x)</span></span>](scaleout-with-redis.md)
-- [<span data-ttu-id="af681-122">SQL Server による SignalR スケールアウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-122">SignalR Scaleout with SQL Server (SignalR 1.x)</span></span>](scaleout-with-sql-server.md)
-- [<span data-ttu-id="af681-123">SignalR トラブルシューティング (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="af681-123">SignalR Troubleshooting (SignalR 1.x)</span></span>](troubleshooting.md)
-- [<span data-ttu-id="af681-124">SignalR 1.x の依存関係挿入</span><span class="sxs-lookup"><span data-stu-id="af681-124">Dependency Injection in SignalR 1.x</span></span>](dependency-injection.md)
+- [<span data-ttu-id="b2b16-105">チュートリアル: SignalR 1.x の概要</span><span class="sxs-lookup"><span data-stu-id="b2b16-105">Tutorial: Getting Started with SignalR 1.x</span></span>](tutorial-getting-started-with-signalr.md)
+- [<span data-ttu-id="b2b16-106">チュートリアル: SignalR 1.x と MVC 4 の概要</span><span class="sxs-lookup"><span data-stu-id="b2b16-106">Tutorial: Getting Started with SignalR 1.x and MVC 4</span></span>](tutorial-getting-started-with-signalr-and-mvc-4.md)
+- [<span data-ttu-id="b2b16-107">SignalR 1.x による高頻度リアルタイム</span><span class="sxs-lookup"><span data-stu-id="b2b16-107">High-Frequency Realtime with SignalR 1.x</span></span>](tutorial-high-frequency-realtime-with-signalr.md)
+- [<span data-ttu-id="b2b16-108">チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト</span><span class="sxs-lookup"><span data-stu-id="b2b16-108">Tutorial: Server Broadcast with ASP.NET SignalR 1.x</span></span>](tutorial-server-broadcast-with-aspnet-signalr.md)
+- [<span data-ttu-id="b2b16-109">ハブ API ガイド - サーバー</span><span class="sxs-lookup"><span data-stu-id="b2b16-109">Hubs API Guide - Server</span></span>](signalr-1x-hubs-api-guide-server.md)
+- [<span data-ttu-id="b2b16-110">SignalR 1.x ハブ API ガイド - JavaScript クライアント</span><span class="sxs-lookup"><span data-stu-id="b2b16-110">SignalR 1.x Hubs API Guide - JavaScript Client</span></span>](signalr-1x-hubs-api-guide-javascript-client.md)
+- [<span data-ttu-id="b2b16-111">ハブ API ガイド - .NET クライアント</span><span class="sxs-lookup"><span data-stu-id="b2b16-111">Hubs API Guide - .NET Client</span></span>](signalr-1x-hubs-api-guide-net-client.md)
+- [<span data-ttu-id="b2b16-112">SignalR の接続有効期間イベントについて理解し、処理する</span><span class="sxs-lookup"><span data-stu-id="b2b16-112">Understanding and Handling Connection Lifetime Events in SignalR</span></span>](handling-connection-lifetime-events.md)
+- [<span data-ttu-id="b2b16-113">SignalR 1.x でグループを使用する</span><span class="sxs-lookup"><span data-stu-id="b2b16-113">Working with Groups in SignalR 1.x</span></span>](working-with-groups.md)
+- [<span data-ttu-id="b2b16-114">SignalR 1.x で SignalR ユーザーを接続にマッピングする</span><span class="sxs-lookup"><span data-stu-id="b2b16-114">Mapping SignalR Users to Connections in SignalR 1.x</span></span>](mapping-users-to-connections.md)
+- [<span data-ttu-id="b2b16-115">SignalR セキュリティ入門 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-115">Introduction to SignalR Security (SignalR 1.x)</span></span>](introduction-to-security.md)
+- [<span data-ttu-id="b2b16-116">SignalR ハブの認証と承認 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-116">Authentication and Authorization for SignalR Hubs (SignalR 1.x)</span></span>](hub-authorization.md)
+- [<span data-ttu-id="b2b16-117">SignalR 永続的接続の認証と承認 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-117">Authentication and Authorization for SignalR Persistent Connections (SignalR 1.x)</span></span>](persistent-connection-authorization.md)
+- [<span data-ttu-id="b2b16-118">SignalR パフォーマンス (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-118">SignalR Performance (SignalR 1.x)</span></span>](signalr-performance.md)
+- [<span data-ttu-id="b2b16-119">SignalR 1.x のスケールアウト入門</span><span class="sxs-lookup"><span data-stu-id="b2b16-119">Introduction to Scaleout in SignalR 1.x</span></span>](scaleout-in-signalr.md)
+- [<span data-ttu-id="b2b16-120">Azure Service Bus による SignalR スケールアウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-120">SignalR Scaleout with Azure Service Bus (SignalR 1.x)</span></span>](scaleout-with-windows-azure-service-bus.md)
+- [<span data-ttu-id="b2b16-121">Redis による SignalR スケールアウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-121">SignalR Scaleout with Redis (SignalR 1.x)</span></span>](scaleout-with-redis.md)
+- [<span data-ttu-id="b2b16-122">SQL Server による SignalR スケールアウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-122">SignalR Scaleout with SQL Server (SignalR 1.x)</span></span>](scaleout-with-sql-server.md)
+- [<span data-ttu-id="b2b16-123">SignalR トラブルシューティング (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b16-123">SignalR Troubleshooting (SignalR 1.x)</span></span>](troubleshooting.md)
+- [<span data-ttu-id="b2b16-124">SignalR 1.x の依存関係挿入</span><span class="sxs-lookup"><span data-stu-id="b2b16-124">Dependency Injection in SignalR 1.x</span></span>](dependency-injection.md)
