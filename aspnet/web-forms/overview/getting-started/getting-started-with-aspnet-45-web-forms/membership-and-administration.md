@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: 23d08d5a05a8321fbc794e2c9b54cc39c9b5baf6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7263a7d7ee791be8a1369934aac4d091736a658b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031059"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417482"
 ---
-<a name="membership-and-administration"></a>メンバーシップと管理
-====================
+# <a name="membership-and-administration"></a>メンバーシップと管理
+
 によって[Erik Reitan](https://github.com/Erikre)
 
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -66,12 +66,12 @@ ASP.NET Identity を使用して、カスタム ロールの追加し、コー�
    強調表示されているメソッドの先頭に文字"A"は下線が表示されます。
 7. 文字"A"をポイントし、クリックして UI のメソッド スタブを生成することができる`AddUserAndRole`メソッド。 
 
-    ![メンバーシップと Advministration - メソッド スタブを生成します。](membership-and-administration/_static/image1.png)
+    ![メンバーシップと管理 - メソッド スタブを生成します。](membership-and-administration/_static/image1.png)
 8. オプションをクリックします。  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. 開く、 *RoleActions.cs*ファイルから、*ロジック*フォルダー。  
    `AddUserAndRole`メソッドがクラス ファイルに追加されました。
-10. 変更、 *RoleActions.cs*ファイルを削除して、`NotImplementedeException`し、次のように表示されるように黄色で強調表示されているコードを追加します。  
+10. 変更、 *RoleActions.cs*ファイルを削除して、`NotImplementedException`し、次のように表示されるように黄色で強調表示されているコードを追加します。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
 
@@ -104,7 +104,7 @@ A`RoleStore`ロール管理を提供するオブジェクトがデータベー�
 > エラー処理は、このチュートリアル シリーズの後半の「ASP.NET エラーの処理"チュートリアル中に更新されます。
 
 
-次回、アプリケーションの起動時"canEditUser"という名前のユーザーは、という名前のアプリケーションの"canEdit"ロールとして追加されます。 このチュートリアルの後半では、このチュートリアルの中に追加するその他の機能を表示する"canEditUser"ユーザーとしてログインします。 ASP.NET Identity の API については、、 [Microsoft.AspNet.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx)を参照してください。 ASP.NET の Id システムを初期化する方法について詳細を参照してください、 [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs)します。
+次回、アプリケーションの起動時"canEditUser"という名前のユーザーは、という名前のアプリケーションの"canEdit"ロールとして追加されます。 このチュートリアルの後半では、このチュートリアルの中に追加するその他の機能を表示する"canEditUser"ユーザーとしてログインします。 ASP.NET Identity の API については、次を参照してください。、 [Microsoft.AspNet.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx)します。 ASP.NET の Id システムを初期化する方法について詳細を参照してください、 [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs)します。
 
 ### <a name="restricting-access-to-the-administration-page"></a>管理ページにアクセスを制限します。
 

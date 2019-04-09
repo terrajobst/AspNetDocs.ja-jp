@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: b7a28c0d-efb9-443a-80a4-1a5ee54671cd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e4705b6c590f153043082759f1269c8f2d927abe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c05f0976a135615f7a272b8057eb4c56677e5117
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412425"
 ---
-<a name="animation-depending-on-a-condition-c"></a>条件に基づくアニメーション (C#)
-====================
+# <a name="animation-depending-on-a-condition-c"></a>条件に基づくアニメーション (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)
@@ -53,7 +53,7 @@ ms.locfileid: "57030939"
 なお、小なり記号 (`<`) で、`ConditionScript`属性は () をエスケープする必要があります。 ときにないアニメーション実行される、このスクリプトを実行するまたは、2 つのいずれかまたは両方の操作を行います。
 
 
-[![パネルがフェードアウト、サイズを変更せず 1 つ目、2 番目のアニメーション実行していないため](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
+[![T彼のパネルは、2 番目のアニメーション実行の 1 つ目にしていないため、サイズを変更せずフェードが](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
 
 パネルがフェードアウト、サイズを変更せず 1 つ目、2 番目のアニメーション実行していないため ([フルサイズの画像を表示する をクリックします](animation-depending-on-a-condition-cs/_static/image3.png))。
 

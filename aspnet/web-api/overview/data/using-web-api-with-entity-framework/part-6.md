@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: 20360326-b123-4b1e-abae-1d350edf4ce4
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b5cb4d93c30ef80a48da48ffc51dd51411b1d0d0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 74f2cc4e5e401d690042b05b028dfc0c46ae282a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413894"
 ---
-<a name="create-the-javascript-client"></a>JavaScript クライアントの作成
-====================
+# <a name="create-the-javascript-client"></a>JavaScript クライアントの作成
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
 
 このセクションでは、HTML、JavaScript を使用して、アプリケーションのクライアントを作成して、 [Knockout.js](http://knockoutjs.com/)ライブラリ。 段階的に、クライアント アプリを作成します。
 

@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: 9158a1f53268daec6e6fbdf003dd73e1d62cc667
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031249"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412178"
 ---
-<a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web ページの概要 - データを表示します。
-====================
+# <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web ページの概要 - データを表示します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアルでは、WebMatrix で、データベースを作成する方法と ASP.NET Web Pages (Razor) を使用すると、データベースのデータをページに表示する方法を説明します。 を通じてシリーズを完了したと想定して[ASP.NET Web Pages のプログラミングの概要](../introducing-razor-syntax-c.md)します。
@@ -333,7 +333,7 @@ WebMatrix のツリー ビューでは、ページを右クリックして**ブ�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduction to ASP.NET Web Programming Using the Razor Syntax (Razor 構文を使用した ASP.NET Web プログラミングの概要)](https://go.microsoft.com/fwlink/?LinkID=202890)
 
 > [!div class="step-by-step"]
 > [前へ](intro-to-web-pages-programming.md)

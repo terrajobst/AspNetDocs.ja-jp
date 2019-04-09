@@ -8,20 +8,20 @@ ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 5c9a408acb074a31aeb347ad8e33ba5319530563
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9076ce7d933d9bbaaf4d34ccb6df7b6823cd38bf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029389"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417014"
 ---
-<a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (Azure での実際のクラウド アプリの構築)
-====================
+# <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (Azure での実際のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 現実世界のクラウド アプリを設計するときは、一時的なサービスの中断を処理する方法について考慮する必要があることの 1 つです。 この問題は、そのため、ネットワーク接続や外部サービスに依存するため、クラウド アプリ内で一意に重要です。 自動修復は通常、ほとんどの故障を得られることし、お客様の不適切な経験では結果をインテリジェントに処理する準備済みでない場合。
@@ -71,7 +71,7 @@ ms.locfileid: "57029389"
 
 ![再試行ポリシーのサンプル](transient-fault-handling/_static/image1.png)
 
-SQL Database の再試行ポリシー ガイダンスについては、[一過性の障害と SQL Database への接続エラーのトラブルシューティング](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/)を参照してください。
+SQL Database の再試行ポリシー ガイダンスについては、次を参照してください。[一過性の障害と SQL Database への接続エラーのトラブルシューティング](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/)します。
 
 ## <a name="summary"></a>まとめ
 
@@ -99,7 +99,7 @@ SQL Database の再試行ポリシー ガイダンスについては、[一過�
 
 コード サンプル
 
-- [クラウド サービス Azure の基礎](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)します。 サンプル アプリケーションを作成して、Microsoft Azure Customer Advisory Team を使用する方法については、 [Enterprise Library Transient Fault Handling Block](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH)。 詳細については、[クラウド サービスの基本データ アクセス層 – 一時的な障害処理](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)を参照してください。 ADO.NET を使用して (せずに直接 Entity Framework を使用して) データベースへのアクセスには、TFH を使用することをお勧めします。
+- [クラウド サービス Azure の基礎](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)します。 サンプル アプリケーションを作成して、Microsoft Azure Customer Advisory Team を使用する方法については、 [Enterprise Library Transient Fault Handling Block](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH)。 詳細については、次を参照してください。[クラウド サービスの基本データ アクセス層 – 一時的な障害処理](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)します。 ADO.NET を使用して (せずに直接 Entity Framework を使用して) データベースへのアクセスには、TFH を使用することをお勧めします。
 
 > [!div class="step-by-step"]
 > [前へ](monitoring-and-telemetry.md)

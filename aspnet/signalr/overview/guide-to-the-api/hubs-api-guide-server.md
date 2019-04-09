@@ -8,15 +8,15 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: a28663c8d5c679f85e863e7d0b4523a6f4dd4a1f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: adfd540562ec54938860740ab280c770e24f492e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035209"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411411"
 ---
-<a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR ハブ API ガイド - サーバー (c#)
-====================
+# <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR ハブ API ガイド - サーバー (c#)
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "57035209"
 > 
 > SignalR ハブの API では、サーバーからに接続されているクライアントとサーバーのクライアントからのリモート プロシージャ コール (Rpc) を作成することができます。 サーバー コードで、クライアントから呼び出すことができるメソッドを定義して、クライアント上で実行されるメソッドを呼び出します。 クライアント コードで、サーバーから呼び出すことができるメソッドを定義して、サーバー上で実行されるメソッドを呼び出します。 SignalR は、のすべてのクライアントとサーバーが処理されます。
 > 
-> SignalR では、永続的な接続と呼ばれる下位レベル API も提供します。 SignalR、ハブ、および永続的な接続の概要については、[SignalR 2 の概要](../getting-started/introduction-to-signalr.md)を参照してください。
+> SignalR では、永続的な接続と呼ばれる下位レベル API も提供します。 SignalR、ハブ、および永続的な接続の概要については、次を参照してください。 [SignalR 2 の概要](../getting-started/introduction-to-signalr.md)します。
 > 
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 > 
@@ -38,7 +38,7 @@ ms.locfileid: "57035209"
 > 
 > ## <a name="topic-versions"></a>トピックの「バージョン
 > 
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 > 
 > ## <a name="questions-and-comments"></a>意見やご質問
 > 
@@ -138,13 +138,13 @@ SignalR; に対しては使用できませんのベース URL を構成した特
 
 - CORS または JSONP を使用して、ブラウザー クライアントからのクロス ドメイン呼び出しを有効にします。
 
-    通常、ブラウザーがからページを読み込む場合`http://contoso.com`、SignalR 接続が同じドメイン内では`http://contoso.com/signalr`します。 場合、ページから`http://contoso.com`への接続は、`http://fabrikam.com/signalr`ドメイン間の接続されています。 セキュリティ上の理由から、ドメイン間の接続が既定で無効になります。 詳細については、[ASP.NET SignalR ハブ API ガイド - JavaScript クライアントのドメイン間の接続を確立する方法](hubs-api-guide-javascript-client.md#crossdomain)を参照してください。
+    通常、ブラウザーがからページを読み込む場合`http://contoso.com`、SignalR 接続が同じドメイン内では`http://contoso.com/signalr`します。 場合、ページから`http://contoso.com`への接続は、`http://fabrikam.com/signalr`ドメイン間の接続されています。 セキュリティ上の理由から、ドメイン間の接続が既定で無効になります。 詳細については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - JavaScript クライアントのドメイン間の接続を確立する方法](hubs-api-guide-javascript-client.md#crossdomain)します。
 - 詳細なエラー メッセージを有効にします。
 
     エラーが発生すると、SignalR の既定の動作が発生した事象に関する詳細なしの通知メッセージをクライアントに送信するは。 詳細なエラー情報をクライアントに送信することは推奨されません、運用環境で悪意のあるユーザーは、アプリケーションに対する攻撃の情報を使用できない可能性があるため。 トラブルシューティングについては、一時的に詳しいエラー報告を有効にするのにこのオプションを使用できます。
 - 自動的に生成された JavaScript プロキシ ファイルを無効にします。
 
-    既定では、URL「/signalr ハブ」への応答で、ハブ クラスのプロキシを持つ JavaScript ファイルが生成されます。 JavaScript プロキシを使用する場合、または手動でこのファイルを生成し、クライアントの物理ファイルを参照する場合は、プロキシの生成を無効にするのにこのオプションを使用できます。 詳細については、[SignalR ハブ API ガイド - JavaScript クライアント - SignalR の物理ファイルを作成する方法は、プロキシを生成](hubs-api-guide-javascript-client.md#manualproxy)を参照してください。
+    既定では、URL「/signalr ハブ」への応答で、ハブ クラスのプロキシを持つ JavaScript ファイルが生成されます。 JavaScript プロキシを使用する場合、または手動でこのファイルを生成し、クライアントの物理ファイルを参照する場合は、プロキシの生成を無効にするのにこのオプションを使用できます。 詳細については、次を参照してください。 [SignalR ハブ API ガイド - JavaScript クライアント - SignalR の物理ファイルを作成する方法は、プロキシを生成](hubs-api-guide-javascript-client.md#manualproxy)します。
 
 次の例への呼び出しで SignalR 接続の URL とこれらのオプションを指定する方法を示しています、`MapSignalR`メソッド。 カスタム URL を指定するには、置き換える"/signalr"を使用する URL の例です。
 
@@ -168,7 +168,7 @@ SignalR; に対しては使用できませんのベース URL を構成した特
 
 ハブ クラスのインスタンスは、一時的なであるため、次の 1 つのメソッド呼び出しからの状態を維持するために使用できません。 たびに、サーバー メッセージを受信メソッド呼び出しをクライアントでは、ハブ クラスのプロセスの新しいインスタンス。 を介して複数の接続とメソッドの呼び出しの状態を維持するために、ハブ クラスまたは別のクラスから派生していないデータベース、または静的変数などの他のメソッドを使用して、`Hub`します。 メモリ内のデータを永続化する場合、ハブ クラスに静的変数などのメソッドを使用して、データは失われますアプリ ドメインがリサイクルされる場合。
 
-ハブ クラス外部で実行されるコードからクライアントにメッセージを送信する場合、ハブ クラスのインスタンスをインスタンス化して行うことはできませんが、ハブ クラスの SignalR コンテキスト オブジェクトへの参照を取得することによって行うことができます。 詳細については、[クライアント メソッドを呼び出すと、ハブ クラスの外部からグループを管理する方法](#callfromoutsidehub)このトピックで後述を参照してください。
+ハブ クラス外部で実行されるコードからクライアントにメッセージを送信する場合、ハブ クラスのインスタンスをインスタンス化して行うことはできませんが、ハブ クラスの SignalR コンテキスト オブジェクトへの参照を取得することによって行うことができます。 詳細については、次を参照してください。[クライアント メソッドを呼び出すと、ハブ クラスの外部からグループを管理する方法](#callfromoutsidehub)このトピックで後述します。
 
 <a id="hubnames"></a>
 
@@ -208,7 +208,7 @@ SignalR; に対しては使用できませんのベース URL を構成した特
     すべてのハブが同じ接続を共有するため、サーバーを取得する HTTP 要求情報は、SignalR の接続を確立する元の HTTP 要求で何が。 クエリ文字列を指定することで、クライアントからサーバーに情報を渡すために、接続要求を使用する場合は、別のハブに別のクエリ文字列を提供できません。 すべてのハブと同じ情報が表示されます。
 - JavaScript プロキシの生成されたファイルは、1 つのファイルですべてのハブ プロキシが含まれます。
 
-    JavaScript プロキシの詳細については、[SignalR ハブ API ガイド - JavaScript クライアントで生成されたプロキシとは何が](hubs-api-guide-javascript-client.md#genproxy)を参照してください。
+    JavaScript プロキシの詳細については、次を参照してください。 [SignalR ハブ API ガイド - JavaScript クライアントで生成されたプロキシとは何が](hubs-api-guide-javascript-client.md#genproxy)します。
 - グループは、ハブ内で定義されます。
 
     SignalR を定義することで接続されているクライアントのサブセットにブロードキャストするグループの名前。 グループは、各ハブとは別に保持されます。 たとえば、"Administrators"という名前のグループはクライアントの 1 つのセットを追加、`ContosoChatHub`クラスと同じグループ名は参照されている場合にクライアントを別のセットに、`StockTickerHub`クラス。
@@ -278,7 +278,7 @@ SignalR; に対しては使用できませんのベース URL を構成した特
 
 [!code-javascript[Main](hubs-api-guide-server/samples/sample21.js)]
 
-ASP.NET 4.5 で非同期メソッドを使用する方法の詳細については、[ASP.NET MVC 4 での非同期のメソッドを使用して](../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md)を参照してください。
+ASP.NET 4.5 で非同期メソッドを使用する方法の詳細については、次を参照してください。 [ASP.NET MVC 4 での非同期のメソッドを使用して](../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md)します。
 
 <a id="overloads"></a>
 
@@ -384,7 +384,7 @@ SignalR 2.1 には、サポートが追加されて、[進行状況レポート�
 
 ### <a name="no-compile-time-validation-for-method-names"></a>メソッド名のコンパイル時検証なし
 
-指定したメソッド名は、IntelliSense またはコンパイル時検証がないことを意味の動的オブジェクトとして解釈されます。 式は、実行時に評価されます。 メソッドの呼び出しを実行するときにそのメソッドが呼び出される SignalR メソッド名とパラメーターの値をクライアントに送信し、名前に一致する場合は、クライアントがある、メソッド、およびパラメーターの値は渡されます。 クライアントに一致するメソッドが見つからない場合、エラーは発生しません。 SignalR は、クライアント メソッドを呼び出すと、バック グラウンドでクライアントに送信するデータの形式の詳細については、[SignalR 入門](../getting-started/introduction-to-signalr.md)を参照してください。
+指定したメソッド名は、IntelliSense またはコンパイル時検証がないことを意味の動的オブジェクトとして解釈されます。 式は、実行時に評価されます。 メソッドの呼び出しを実行するときにそのメソッドが呼び出される SignalR メソッド名とパラメーターの値をクライアントに送信し、名前に一致する場合は、クライアントがある、メソッド、およびパラメーターの値は渡されます。 クライアントに一致するメソッドが見つからない場合、エラーは発生しません。 SignalR は、クライアント メソッドを呼び出すと、バック グラウンドでクライアントに送信するデータの形式の詳細については、次を参照してください。 [SignalR 入門](../getting-started/introduction-to-signalr.md)します。
 
 <a id="caseinsensitive"></a>
 
@@ -452,7 +452,7 @@ SignalR 接続の追跡、ユーザーが同じグループにユーザーを確
 
 接続は、接続の喪失後に自動的に復元できない場合にまたは接続がタイムアウトしたときに、(たとえば、ブラウザーは、新しいページに移動します) 場合、クライアントが切断されたときは、グループ メンバーシップは失われます。 次に、ユーザーが接続したときは、新しい接続になります。 を、同じユーザーが新しい接続が確立されるときのグループ メンバーシップを維持するには、アプリケーションは、ユーザーとグループの間の関連付けを追跡し、ユーザーが新しい接続を確立するたびにグループ メンバーシップを復元するがします。
 
-接続と再接続に関する詳細については、[ハブ クラスでの接続の有効期間イベントを処理する方法](#connectionlifetime)このトピックで後述を参照してください。
+接続と再接続に関する詳細については、次を参照してください。[ハブ クラスでの接続の有効期間イベントを処理する方法](#connectionlifetime)このトピックで後述します。
 
 <a id="singleusergroups"></a>
 
@@ -485,7 +485,7 @@ SignalR 接続の追跡、ユーザーが同じグループにユーザーを確
 
 `OnDisconnected`メソッドなど、サーバーがダウンしたときに、一部のシナリオで呼び出されませんまたはアプリケーション ドメインが再利用されます。 別のサーバーがオンラインにするか、アプリ ドメインのリサイクルが完了すると、一部のクライアントが再接続して起動できるようになることがあります、`OnReconnected`イベント。
 
-詳細については、[SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)を参照してください。
+詳細については、次を参照してください。 [SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)します。
 
 <a id="nocallerstate"></a>
 
@@ -602,7 +602,7 @@ VB.NET または厳密に型指定されたハブでは、呼び出し元の状�
 
     [!code-csharp[Main](hubs-api-guide-server/samples/sample65.cs)]
 
-ハブ パイプライン モジュールの詳細については、[ハブ パイプラインをカスタマイズする方法について](#hubpipeline)このトピックで後述を参照してください。
+ハブ パイプライン モジュールの詳細については、次を参照してください。[ハブ パイプラインをカスタマイズする方法について](#hubpipeline)このトピックで後述します。
 
 <a id="tracing"></a>
 
@@ -624,7 +624,7 @@ VB.NET または厳密に型指定されたハブでは、呼び出し元の状�
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample67.cs?highlight=8,24)]
 
-有効期間が長いオブジェクト コンテキストの複数回を使用する必要がある場合は、1 回の参照を取得しよりも、毎回の取得を保存します。 コンテキストを 1 回取得すると、SignalR がメッセージをハブのメソッド、クライアントのメソッドの呼び出しと同じシーケンス内のクライアントに送信するようにします。 ハブの SignalR コンテキストを使用する方法を示すチュートリアルについては、[ASP.NET SignalR によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)を参照してください。
+有効期間が長いオブジェクト コンテキストの複数回を使用する必要がある場合は、1 回の参照を取得しよりも、毎回の取得を保存します。 コンテキストを 1 回取得すると、SignalR がメッセージをハブのメソッド、クライアントのメソッドの呼び出しと同じシーケンス内のクライアントに送信するようにします。 ハブの SignalR コンテキストを使用する方法を示すチュートリアルについては、次を参照してください。 [ASP.NET SignalR によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)します。
 
 <a id="callingclientsoutsidehub"></a>
 

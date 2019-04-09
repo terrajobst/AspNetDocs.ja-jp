@@ -8,21 +8,21 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3db54a134e8f842cab1d3471c69f5a8e2039d83d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423612"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412009"
 ---
-<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>ハンズ オン ラボ:SignalR によるリアルタイム Web アプリ
-====================
+# <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>ハンズ オン ラボ:SignalR によるリアルタイム Web アプリ
+
 
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web のキャンプ トレーニング キット、2015 年 10 月リリースのダウンロードします。](https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b)
 
 > リアルタイムの Web アプリケーションには、サーバー側の偶然ですが、リアルタイムで接続されているクライアントにコンテンツをプッシュする機能が機能します。 ASP.NET 開発者向けの**ASP.NET SignalR**は自分のアプリケーションにリアルタイム web 機能を追加するライブラリです。 これは、クライアントとサーバーの最適な使用可能なトランスポート最適使用可能なトランスポートを自動的に選択すると、いくつかのトランスポート利用します。 活用されて**WebSocket**ブラウザーとサーバー間の双方向通信を実現する HTML5 API。
 > 
@@ -34,8 +34,7 @@ ms.locfileid: "58423612"
 > 
 > ![SignalR のアーキテクチャ](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
-
+> すべてのサンプル コードとスニペットが含まれる Web キャンプ トレーニング キット、2015 年 10 月リリースでご利用いただけます[ https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b](https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b)します。  そのページでインストーラーのリンクが機能しなく; に注意してください。[アセット] セクションのリンクのいずれかを代わりに使用します。
 
 <a id="Overview"></a>
 ## <a name="overview"></a>概要
@@ -77,7 +76,7 @@ ms.locfileid: "58423612"
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>演習
@@ -176,7 +175,7 @@ SignalR をサポートしています**サーバー プッシュ**または**�
 
     ![新しい項目の追加](real-time-web-applications-with-signalr/_static/image11.png "新しい項目の追加")
 
-    *新しい項目を追加します。*
+    *新しい項目の追加*
 6. **新しい項目の追加**ダイアログ ボックスで、 **(Visual C#) |Web |SignalR**選択の左側のウィンドウでノード**SignalR ハブ クラス (v2)** ファイルの名前を中央のウィンドウから**StatisticsHub.cs**  をクリック**追加**します。
 
     ![新しい項目 ダイアログ ボックスを追加](real-time-web-applications-with-signalr/_static/image12.png "追加新しい項目 ダイアログ ボックス")
@@ -355,7 +354,7 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 
     ![Service Broker を有効にする](real-time-web-applications-with-signalr/_static/image26.png "Service Broker を有効にします。")
 
-    *Service Broker を有効にします。*
+    *Service Broker の有効化*
 
     > [!NOTE]
     > このクエリは、デッドロックを確認が表示された場合、DB に接続されているアプリケーションはありません。
@@ -394,7 +393,7 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 
     *バック プレーン メッセージ テーブル*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ

@@ -8,15 +8,15 @@ ms.date: 07/01/2007
 ms.assetid: 2b0649d3-d072-446a-9918-b2648de26472
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-load-test-a-web-application
 msc.type: video
-ms.openlocfilehash: 9171b4aeb806b20d9e5a8464d503551761d3b2b6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6b086fd9c8c92d5dafa8aba9f1a8928c6bcb0c07
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413777"
 ---
-<a name="how-do-i-load-test-a-web-application"></a>[How Do i:]Web アプリケーションのテストを読み込むか。
-====================
+# <a name="how-do-i-load-test-a-web-application"></a>[How Do i:]Web アプリケーションのテストを読み込むか。
+
 によって[Chris Menegay](https://twitter.com/CMenegay)
 
 このビデオでは、Web テストの記録とし、それを再生するとして複数のユーザーをシミュレートするロード テストの手順について説明します。 Visual Studio Team System を使用する Web アプリケーションが成功またはロード テストを失敗したかどうかを定義します。 サーバーのリソース使用率の警告と重大しきい値を設定する方法がわかります。

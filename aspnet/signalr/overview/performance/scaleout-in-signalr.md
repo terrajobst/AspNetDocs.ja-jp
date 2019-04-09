@@ -8,15 +8,15 @@ ms.date: 06/10/2014
 ms.assetid: 7e781fc1-1c1f-45a8-bc1d-338e96dbe9c9
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 60ae0353745284796eb7e0ddb6397ecb48eceaf0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0d17308d1e97279c0870ea02933a42400ef338c9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036369"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411554"
 ---
-<a name="introduction-to-scaleout-in-signalr"></a>SignalR のスケールアウト入門
-====================
+# <a name="introduction-to-scaleout-in-signalr"></a>SignalR のスケールアウト入門
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "57036369"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >

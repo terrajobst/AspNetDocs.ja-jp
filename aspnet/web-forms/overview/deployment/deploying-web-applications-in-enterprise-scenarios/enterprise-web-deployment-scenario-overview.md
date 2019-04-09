@@ -8,18 +8,18 @@ ms.date: 05/03/2012
 ms.assetid: aa862153-4cd8-4e33-beeb-abf502c6664f
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ec5b62f3991fa256bc8efe7abe9b953d61d1a515
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 326abfe4fe86d0741b0bf807d5454d6cf87a7c12
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038389"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411970"
 ---
-<a name="enterprise-web-deployment-scenario-overview"></a>エンタープライズ Web 配置:シナリオの概要
-====================
+# <a name="enterprise-web-deployment-scenario-overview"></a>エンタープライズ Web 配置:シナリオの概要
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > この一連のチュートリアルは、参照実装を提供して、タスクとチュートリアルの一般的なコンテキストを提供すると共に、架空の企業の展開シナリオの複雑さの現実的なレベルを持つサンプル ソリューションを使用します。 このトピックでは、チュートリアルのシナリオについて説明し、サンプル ソリューションを紹介します。
 
@@ -112,7 +112,7 @@ Fabrikam 社のアプリケーション ライフ サイクル管理 (ALM) の�
 - ユーザー アカウントのデータを展開することがなく、アド ホックにメンバーシップ データベースをデプロイする必要があります。 また、既存のユーザー アカウントのデータを失うことがなく展開されたメンバーシップ データベースのスキーマを更新する必要があります。
 - コンテンツをさまざまなターゲット環境に展開するときに、特定のファイルまたはフォルダーを除外する必要があります。
 
-さらに、更新が頻繁かつ増分配置を管理するにはいくつか追加の課題をスローします。 例:
+さらに、更新が頻繁かつ増分配置を管理するにはいくつか追加の課題をスローします。 例えば:
 
 - 開発者が新しいコードをチェックインするたびに、単体テストを実行します。 コードが単体テストに合格している場合、ソリューションを展開するのみです。
 - ユーザーをリダイレクトするステージング環境または運用環境への web アプリケーションを展開するときに、*アプリ\_offline.htm*展開プロセスの実行中のファイル。

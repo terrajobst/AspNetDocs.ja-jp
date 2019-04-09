@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: ASP.NET Web API 2 のグローバル エラー処理 |Microsoft Docs
+title: グローバル エラー処理では、ASP.NET Web API 2 - ASP.NET 4.x
 author: davidmatson
-description: ''
+description: グローバル エラー ASP.NET 用の ASP.NET Web API 2 で処理の概要 4.x です。
 ms.author: riande
 ms.date: 02/03/2014
+ms.custom: seoapril2019
 ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3e371760d2b34eb2be492e6ebbb33a5f9f7eff10
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7d9f4fb9909671d7c4c8ee2aa9285b0186c4b125
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414375"
 ---
-<a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のグローバル エラー処理
-====================
+# <a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のグローバル エラー処理
+
 によって[David Matson](https://github.com/davidmatson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-今日は簡単な方法でログインするか、世界中にエラーを処理する Web API です。 使用して、いくつかのハンドルされない例外を処理できる[例外フィルター](exception-handling.md)が、さまざまな例外フィルターが処理できない場合があります。 例:
+このトピックでは、グローバル エラー ASP.NET 用の ASP.NET Web API 2 で処理の概要を示します 4.x です。 今日は簡単な方法でログインするか、世界中にエラーを処理する Web API です。 使用して、いくつかのハンドルされない例外を処理できる[例外フィルター](exception-handling.md)が、さまざまな例外フィルターが処理できない場合があります。 例えば:
 
 1. コント ローラーのコンス トラクターからスローされる例外。
 2. メッセージ ハンドラーからスローされる例外。

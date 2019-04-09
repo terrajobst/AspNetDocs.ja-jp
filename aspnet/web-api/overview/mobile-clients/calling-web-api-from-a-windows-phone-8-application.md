@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
-title: 8 アプリケーション (C#) を、Windows Phone から Web API を呼び出す |Microsoft Docs
+title: 8 アプリケーションを、Windows Phone から Web API を呼び出す (C#)-ASP.NET 4.x
 author: rmcmurray
-description: Windows Phone 8 アプリケーションに書籍のカタログを提供する ASP.NET Web API アプリケーションから成る完全なエンド ツー エンド シナリオを作成します。
+description: コードのチュートリアル:ASP.NET で、ASP.NET Web API アプリケーションを作成する Windows Phone 8 アプリケーションに書籍のカタログを提供する 4.x です。
 ms.author: riande
 ms.date: 10/09/2013
+ms.custom: seoapril2019
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: ca2b5f41f6c3bd38faacd1e15c4dee6f6210aff7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a5c7804c2336e91dc171b5da52819436472e81cf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412451"
 ---
-<a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 アプリケーションから Web API を呼び出す (C#)
-====================
+# <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 アプリケーションから Web API を呼び出す (C#)
+
 によって[Robert McMurray](https://github.com/rmcmurray)
 
 このチュートリアルでは、Windows Phone 8 アプリケーションに書籍のカタログを提供する ASP.NET Web API アプリケーションから成る完全なエンド ツー エンド シナリオを作成する方法を学びます。
@@ -34,7 +35,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 
 - Windows Phone 8 sdk がインストールされた visual Studio 2013
 - Windows 8 または後で、HYPER-V がインストールされていると、64 ビット システム
-- その他の要件の一覧は、、*システム要件*セクションで、 [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471)ページをダウンロードを参照してください。
+- その他の要件の一覧は、次を参照してください。、*システム要件*セクションで、 [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471)ページをダウンロードします。
 
 > [!NOTE]
 > Web API と、ローカル システム上の Windows Phone 8 プロジェクトの間の接続をテストしようとするで手順を実行する必要があります、 *[にローカルで Web API アプリケーション、Windows Phone 8 エミュレーターを接続します。コンピューター](https://go.microsoft.com/fwlink/?LinkId=324014)* に関する記事をテスト環境を設定します。
@@ -47,7 +48,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 
 1. 開いている**Visual Studio 2013**します。
 2. クリックして**ファイル**、し**新しい**、し**プロジェクト**します。
-3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**テンプレート**、し**Visual C#**、し**Web**します。
+3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**テンプレート**、し**Visual c#**、し**Web**します。
 
 
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
@@ -106,7 +107,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 このエンド ツー エンド シナリオの次の手順では、Windows Phone 8 向けカタログ アプリケーションを作成します。 このアプリケーションを使用して、 *Windows Phone のデータ バインド アプリ*テンプレートでは、既定のユーザー インターフェイスで作成した Web API アプリケーションが使用されます[手順 1.](#STEP1)データ ソースとしては、このチュートリアルの。
 
 1. 右クリックし、**書店**でソリューション、ソリューション エクスプ ローラーでをクリックし、**追加**、し**新しいプロジェクト**します。
-2. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**Visual C#**、し**Windows Phone**します。
+2. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**Visual c#**、し**Windows Phone**します。
 3. 強調表示**Windows Phone のデータ バインド アプリ**、入力**BookCatalog**名、およびクリック **[ok]** します。
 4. Json.NET の NuGet パッケージを追加、 **BookCatalog**プロジェクト。
 

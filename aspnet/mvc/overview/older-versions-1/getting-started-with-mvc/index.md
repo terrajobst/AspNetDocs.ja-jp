@@ -8,20 +8,20 @@ ms.date: 11/08/2011
 ms.assetid: 057f01bf-0ad9-488a-ae75-c8f85b8e1f23
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc
 msc.type: chapter
-ms.openlocfilehash: 22e344b0667ac596bea75884df6aadd8e6a5ff92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 08be9368049e97baecf9ae81e496950b1349d18f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57021869"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414908"
 ---
-<a name="getting-started-with-mvc"></a>MVC の概要
-====================
+# <a name="getting-started-with-mvc"></a>MVC の概要
+
 > これは、ASP.NET MVC を導入する初心者向けチュートリアル シリーズです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。
 
 
 - [ASP.NET MVC 入門](getting-started-with-mvc-part1.md)
-- [コントローラーの追加](getting-started-with-mvc-part2.md)
+- [コントローラーを追加する](getting-started-with-mvc-part2.md)
 - [ビューの追加](getting-started-with-mvc-part3.md)
 - [データベースの作成](getting-started-with-mvc-part4.md)
 - [コントローラーからモデルのデータにアクセスする](getting-started-with-mvc-part5.md)

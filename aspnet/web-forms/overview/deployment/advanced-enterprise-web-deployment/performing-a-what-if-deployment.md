@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: c711b453-01ac-4e65-a48c-93d99bf22e58
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 054b15e1e58164ec7e85c77c39fb47bcb47879b9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a222aa6bf52ee72e6a0f4ac5503b4b4f78d294fb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414323"
 ---
-<a name="performing-a-what-if-deployment"></a>"What If" 配置を実行する
-====================
+# <a name="performing-a-what-if-deployment"></a>"What If" 配置を実行する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックで"what-if"を実行する方法について説明します (またはシミュレートされた) (Web 配置) インターネット インフォメーション サービス (IIS) Web 配置ツール、VSDBCMD を使用してデプロイします。 これにより、アプリケーションを実際に展開する前に、デプロイ ロジックの特定のターゲット環境に与える影響を判断できます。
 
@@ -49,7 +49,7 @@ MSDeploy.exe を直接使用している場合は、追加することで、"wha
 削除することができます、"what if"展開の結果に満足したら、 **– whatif**ライブの展開を実行するフラグ。
 
 > [!NOTE]
-> MSDeploy.exe のコマンド ライン オプションの詳細については、[Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)を参照してください。
+> MSDeploy.exe のコマンド ライン オプションの詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。
 
 
 使用している場合、 *. deploy.cmd*ファイルを含めることで、"what if"展開を実行することができます、 **/t**フラグ (試用版モード) のフラグの代わりに、 **/y**のフラグ ("yes"、または更新モード)コマンド。 たとえばを実行して ContactManager.Mvc.zip パッケージを展開する場合に何が起こるかを評価するため、 *. deploy.cmd*ファイルでは、このコマンドのようになります。
@@ -139,7 +139,7 @@ VSDBCMD は、データベースの差分の展開ツールと、指定したス
 
 ## <a name="further-reading"></a>関連項目
 
-Web デプロイ コマンドライン構文の詳細については、[Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)を参照してください。 コマンド ライン オプションを使用する場合のガイダンスについては、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。 VSDBCMD コマンドライン構文については、[VSDBCMD のコマンド ライン リファレンス。EXE (展開およびスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)を参照してください。
+Web デプロイ コマンドライン構文の詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。 コマンド ライン オプションを使用する場合のガイダンスについては、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。 VSDBCMD コマンドライン構文については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンス。EXE (展開およびスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](advanced-enterprise-web-deployment.md)

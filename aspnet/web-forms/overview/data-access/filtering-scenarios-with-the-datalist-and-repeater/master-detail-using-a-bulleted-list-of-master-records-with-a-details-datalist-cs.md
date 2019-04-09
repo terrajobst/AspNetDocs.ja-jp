@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
-title: マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList (C#) |Microsoft Docs
+title: マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList (c#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでを前のチュートリアルの 2 ページのマスター/詳細レポートを 1 つのページに圧縮 t のカテゴリ名の箇条書きリストを表示.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 10/17/2006
 ms.assetid: c727bb73-7b59-41a1-8dc3-623c6d69e7c2
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 57854d1df3686e81ee2e368495b7c051d7f1b37b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d5c881592140bdf73f25fa620d58213cc283153d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422507"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412035"
 ---
-<a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (C#)
-====================
+# <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_CS.exe)または[PDF のダウンロード](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/datatutorial35cs1.pdf)
@@ -31,7 +31,7 @@ ms.locfileid: "58422507"
 このチュートリアルでを 2 ページのチュートリアルを 1 つのページに圧縮 LinkButton としてレンダリングの各カテゴリ名と、画面の左側にあるカテゴリ名の箇条書きリストを表示します。 カテゴリ名は、Linkbutton をクリックすると、ポストバックを誘発しますし、選択したカテゴリ、製品を画面の右側に 2 つの列 DataList にバインドします。 に加えて、各カテゴリの名前を表示するには、左側の Repeater を示していますが合計製品の数が特定のカテゴリが (図 1 参照)。
 
 
-[![左側のカテゴリ名と製品の合計数が表示されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image1.png)
+[![T左側には、彼のカテゴリの名前と製品の合計数が表示されます](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image1.png)
 
 **図 1**:左側のカテゴリ名と製品の合計数が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image3.png))。
 
@@ -62,7 +62,7 @@ DataList の左側に Repeater を float を使用して必要があります、
 CSS クラスを追加して、マークアップでを構成したら、 `CategoriesAndProducts.aspx`  ページで、デザイナーに移動します。 (ただし、右両方だけに表示されます灰色のボックスからそのデータ ソースまたはテンプレートを構成するには、まだ ve) は、DataList の左側に浮動 Repeater が表示されます。
 
 
-[![DataList の左にフロート リピータ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image4.png)
+[![TDataList の左にフロート彼 Repeater](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image4.png)
 
 **図 2**:リピータが DataList の左にフロートされ ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image6.png))。
 
@@ -81,7 +81,7 @@ CSS クラスを追加して、マークアップでを構成したら、 `Categ
 Repeater s の各カテゴリの製品の数を決定する`ItemDataBound`イベント ハンドラーでは、既存のデータ アクセス層への変更は必要ありません。 内で直接すべての変更ができるように、`CategoriesAndProducts.aspx`ページ。 という名前の新しい ObjectDataSource に追加して開始`CategoriesDataSource`Repeater s のスマート タグを使用しています。 次に、構成、 `CategoriesDataSource` ObjectDataSource ことから、そのデータを取得するため、`CategoriesBLL`クラスの`GetCategories()`メソッド。
 
 
-[![CategoriesBLL クラス GetCategories() メソッドを使用する ObjectDataSource を構成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image7.png)
+[![C構成、ObjectDataSource CategoriesBLL クラス GetCategories() メソッドを使用する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image7.png)
 
 **図 3**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス s`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image9.png))。
 
@@ -122,7 +122,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 このイベント ハンドラーを追加した後、ブラウザーでページをテストするのには少しを実行します。 各カテゴリがカテゴリの名前とカテゴリに関連付けられている製品の数を表示する、箇条書きリストに表示されている方法に注意してください (図 4 参照)。
 
 
-[![各カテゴリ名と製品の数が表示されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image10.png)
+[![Each カテゴリ名と製品の数が表示されます](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image10.png)
 
 **図 4**:各カテゴリ名と製品の数が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image12.png))。
 
@@ -132,7 +132,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 として、各カテゴリの製品の数を決定するのではなく、s が、Repeater にバインドを調整してこのプロセスを合理化します、`CategoriesDataTable`と`CategoriesTableAdapter`データ アクセス層をネイティブでこの情報を含めます。 これを実現する新しい列を追加する必要があります`CategoriesDataTable`関連付けられている製品の数を保持するためにします。 新しい列を DataTable に追加するに型指定されたデータセットを開きます (`App_Code\DAL\Northwind.xsd`) を変更するデータ テーブルを右クリックし、追加の選択、/列。 新しい列を追加、 `CategoriesDataTable` (図 5 を参照してください)。
 
 
-[![CategoriesDataSource に新しい列を追加します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image13.png)
+[![Add、CategoriesDataSource に新しい列](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image13.png)
 
 **図 5**:新しい列を追加、 `CategoriesDataSource` ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image15.png))。
 
@@ -150,12 +150,12 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 これを新しい追加`GetCategoriesAndNumberOfProducts()`メソッドを右クリックし、`CategoriesTableAdapter`し、新しいクエリ を選択します。 TableAdapter クエリ構成ウィザードで、私たち何回も前のチュートリアルで使用するアップが表示されます。 このメソッドには、クエリが行を返す、アドホック SQL ステートメントを使用することを示すことにより、ウィザードを起動します。
 
 
-[![アドホック SQL ステートメントを使用して、メソッドを作成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image17.png)
+[![Create メソッドを使用して、アドホック SQL ステートメント](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image17.png)
 
 **図 7**:アドホック SQL ステートメントを使用してメソッドを作成 ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image19.png))。
 
 
-[![SQL ステートメントには、行が返されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image20.png)
+[![TSQL ステートメントの行を返します](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image20.png)
 
 **図 8**:SQL ステートメントの行を返します ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image22.png))。
 
@@ -166,7 +166,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 [!code-sql[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample7.sql)]
 
 
-[![使用するクエリを指定します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image23.png)
+[![S使用するクエリを指定する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image23.png)
 
 **図 9**:使用するクエリを指定 ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image25.png))。
 
@@ -176,7 +176,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 このクエリを入力した後は、最後の手順は、新しいメソッドの名前を選択します。 使用`FillWithNumberOfProducts`と`GetCategoriesAndNumberOfProducts`塗りつぶし DataTable 戻って DataTable パターン、それぞれします。
 
 
-[![名前の新しい TableAdapter のメソッド FillWithNumberOfProducts と GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image26.png)
+[![Name 新しい tableadapter メソッド FillWithNumberOfProducts と GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image26.png)
 
 **図 10**:新しい tableadapter のメソッドの名前を付けます`FillWithNumberOfProducts`と`GetCategoriesAndNumberOfProducts`([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image28.png))。
 
@@ -191,7 +191,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 元の状態に戻す Repeater、という名前の新しい ObjectDataSource を追加`CategoriesDataSource`Repeater s のスマート タグを使用しています。 構成を使用する ObjectDataSource、`CategoriesBLL`クラスが使用することではなく、`GetCategories()`メソッドが使用する必要が`GetCategoriesAndNumberOfProducts()`代わりに (図 11 を参照してください)。
 
 
-[![ObjectDataSource GetCategoriesAndNumberOfProducts メソッドを使用して構成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image29.png)
+[![C構成、ObjectDataSource GetCategoriesAndNumberOfProducts メソッドを使用する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image29.png)
 
 **図 11**:構成に使用する ObjectDataSource、`GetCategoriesAndNumberOfProducts`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image31.png))。
 
@@ -218,7 +218,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 という名前の新しい ObjectDataSource を追加することを選択、DataList s のスマート タグから`CategoryProductsDataSource`を使用するように構成し、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 このチュートリアルでは、DataList では、読み取り専用のインターフェイスを提供するので自由 INSERT、UPDATE でドロップダウン リストを設定し、(なし) タブを削除します。
 
 
-[![ObjectDataSource ProductsBLL クラスの GetProductsByCategoryID(categoryID) メソッドを使用して構成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image32.png)
+[![C構成クラスを使用して ProductsBLL s GetProductsByCategoryID(categoryID) メソッド ObjectDataSource](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image32.png)
 
 **図 12**:構成に使用する ObjectDataSource`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image34.png))。
 
@@ -228,7 +228,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 ここでは、パラメーター ソースのドロップダウン リストを None に設定します。 カテゴリ、Repeater の LinkButton がクリックされたときにこのパラメーターの値をプログラムによって割り当てられるためです。
 
 
-[![CategoryID パラメーターのパラメーターのソースは指定されていません](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image35.png)
+[![Do は、categoryID パラメーターのパラメーターのソースを指定しない](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image35.png)
 
 **図 13**:パラメーター ソースを指定しないをしないで、 *`categoryID`* パラメーター ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))。
 
@@ -263,12 +263,12 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 これらの項目を追加します。 このチュートリアルが完了しました。 ブラウザーでテストを実行する時間がかかります。 図 14 では、最初のページにアクセスしたときに、画面が表示されます。 選択するカテゴリがまだのための製品は表示されません。 2 つの列のビューで、製品カテゴリでこれらの製品が表示されます、生成などのカテゴリをクリックすると (図 15 を参照してください)。
 
 
-[![表示されるときに最初にアクセスしてページを要求している製品はありません。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image38.png)
+[![No 製品は、表示されるときに最初にアクセスしてページ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image38.png)
 
 **図 14**:表示されるときに最初にアクセスしてページを要求している製品はありません ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image40.png))。
 
 
-[![生成カテゴリの一覧の右側に一致する製品のクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image41.png)
+[![C生成カテゴリ リストに一致する製品を適切になる](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image41.png)
 
 **図 15**:右側に一致する製品を一覧表示生成カテゴリ をクリックして ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image43.png))。
 
