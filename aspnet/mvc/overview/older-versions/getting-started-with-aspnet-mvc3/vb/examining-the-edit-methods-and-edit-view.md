@@ -8,15 +8,15 @@ ms.date: 01/12/2011
 ms.assetid: 5cb3c59b-1e96-464b-b3a8-c55607201872
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 509f362a15990486cc5fa4f2f666c3d0de2434dc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ebb526a51755df3cb439eedbf567d0d3dbd95a92
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399451"
 ---
-<a name="examining-the-edit-methods-and-edit-view-vb"></a>Edit メソッドと Edit ビューの確認 (VB)
-====================
+# <a name="examining-the-edit-methods-and-edit-view-vb"></a>Edit メソッドと Edit ビューの確認 (VB)
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
@@ -82,7 +82,7 @@ ASP.NET framework のモデル バインダーはポストされたフォーム�
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image7.png)](examining-the-edit-methods-and-edit-view/_static/image6.png)
 
-> **ロケールに関する注意事項**通常の英語以外のロケールを使用する場合は、[英語以外のロケールを使用した ASP.NET MVC 3 検証をサポートを参照してください。](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
+> **ロケールに関する注意事項**通常の英語以外のロケールを使用する場合は、次を参照してください。[英語以外のロケールを使用した ASP.NET MVC 3 検証をサポートします。](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
 ## <a name="making-the-edit-method-more-robust"></a>Edit メソッドをより堅牢な作成
@@ -171,8 +171,7 @@ If Not String.IsNullOrEmpty(searchString) Then
 
 追加した場合、`HttpPost`のバージョン、`SearchIndex`メソッド、今すぐ削除しています。
 
-次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 
-  `SearchIndex` メソッドを次のコードで置き換えます。
+次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 `SearchIndex` メソッドを次のコードで置き換えます。
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample15.vb)]
 

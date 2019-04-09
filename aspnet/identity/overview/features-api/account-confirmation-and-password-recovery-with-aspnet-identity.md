@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: アカウントの確認とパスワードの回復では、ASP.NET Identity (c#) |Microsoft Docs
+title: アカウントの確認とパスワードの回復 - ASP.NET Identity (C#)-ASP.NET 4.x
 author: HaoK
 description: このチュートリアルを完了する必要がありますを実行する前に、ログイン、電子メールの確認とパスワードのリセットをセキュリティで保護された ASP.NET MVC 5 web アプリを作成します。 このチュートリアルには.
 ms.author: riande
 ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 04e4bbc8b6405dc60b8335191d88920028eef599
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 2e4cd21d66e69590fb1642d7974e4b7f82cba0cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424847"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396422"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>ASP.NET Identity での確認とパスワードの回復をアカウント (C#)
 
@@ -83,7 +84,7 @@ ms.locfileid: "58424847"
 
 ASP.NET Identity の既定のデータ ストアは、Entity Framework が、他のデータ ストアを使用して、フィールドを追加することを構成することができます。 参照してください[資料](#addRes)このチュートリアルの最後のセクション。
 
-[OWIN startup クラス](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md)( *Startup.cs* )、アプリが開始し、呼び出すときに呼び出される、`ConfigureAuth`メソッド*アプリ\_Start\Startup.Auth.cs*、これにより、OWIN パイプラインを構成して、ASP.NET Identity を初期化します。 `ConfigureAuth` メソッドを調べます。 各`CreatePerOwinContext`呼び出しコールバックを登録します (に保存されている、 `OwinContext`) 指定した型のインスタンスを作成する要求あたり 1 回呼び出すされます。 コンス トラクターで、ブレークポイントを設定して`Create`各型のメソッド (`ApplicationDbContext, ApplicationUserManager`) 要求のたびに呼び出されることを確認します。 インスタンスを`ApplicationDbContext`と`ApplicationUserManager`アプリケーション全体でアクセスできます。 OWIN コンテキストに格納されます。 ASP.NET Identity では、cookie ミドルウェアを OWIN パイプラインにフックします。 詳細については、[ASP.NET Identity で UserManager クラスの要求の有効期間管理あたり](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx)を参照してください。
+[OWIN startup クラス](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md)( *Startup.cs* )、アプリが開始し、呼び出すときに呼び出される、`ConfigureAuth`メソッド*アプリ\_Start\Startup.Auth.cs*、これにより、OWIN パイプラインを構成して、ASP.NET Identity を初期化します。 `ConfigureAuth` メソッドを調べます。 各`CreatePerOwinContext`呼び出しコールバックを登録します (に保存されている、 `OwinContext`) 指定した型のインスタンスを作成する要求あたり 1 回呼び出すされます。 コンス トラクターで、ブレークポイントを設定して`Create`各型のメソッド (`ApplicationDbContext, ApplicationUserManager`) 要求のたびに呼び出されることを確認します。 インスタンスを`ApplicationDbContext`と`ApplicationUserManager`アプリケーション全体でアクセスできます。 OWIN コンテキストに格納されます。 ASP.NET Identity では、cookie ミドルウェアを OWIN パイプラインにフックします。 詳細については、次を参照してください。 [ASP.NET Identity で UserManager クラスの要求の有効期間管理あたり](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx)します。
 
 新しいセキュリティ スタンプが生成されに格納されているセキュリティ プロファイルを変更すると、`SecurityStamp`のフィールド、 *AspNetUsers*テーブル。 メモ、`SecurityStamp`フィールドとは異なるセキュリティ クッキー。 セキュリティ クッキーに格納されていない、`AspNetUsers`テーブル (または任意の場所で Identity DB)。 使用して、セキュリティ cookie トークンが自己署名[DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx)で作成し、`UserId, SecurityStamp`と有効期限の時刻情報。
 

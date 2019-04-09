@@ -8,15 +8,15 @@ ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b49c1e6425080693229c6c132df3879504c835c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029699"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379535"
 ---
-<a name="search"></a>検索
-====================
+# <a name="search"></a>検索
+
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
@@ -28,7 +28,7 @@ ms.locfileid: "57029699"
 
 このセクションのスクリーン ショットを一致させるのには、(f5 キーを押して) アプリケーションを実行し、データベースに次の動画を追加する必要があります。
 
-| Title | リリース日 | Genre | 価格 |
+| タイトル | リリース日 | Genre | 価格 |
 | ----- | ------------ | ----- | ----- |
 | Ghostbusters | 6/8/1984 | コメディ | 6.99 |
 | Ghostbusters II | 6/16/1989 | コメディ | 6.99 |
@@ -120,8 +120,7 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 追加した場合、`HttpPost`のバージョン、`Index`メソッド、今すぐ削除しています。
 
-次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 
-  `Index` メソッドを次のコードで置き換えます。
+次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 `Index` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](adding-search/samples/sample11.cs)]
 

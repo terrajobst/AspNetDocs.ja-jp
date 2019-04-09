@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
-title: 入れ子になったデータ Web コントロール (C#) |Microsoft Docs
+title: 入れ子になったデータ Web コントロール (c#) |Microsoft Docs
 author: rick-anderson
 description: について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 例では、両方 d 内部 Repeater を設定する方法について説明しています.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 09/13/2006
 ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2fda8883a1cd45a7018c639efcce94cf0e59974c
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 5dcb0b302a814f25ab8f0e89fb8859fbc0ca665d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440301"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399503"
 ---
-<a name="nested-data-web-controls-c"></a>入れ子になったデータ Web コントロール (C#)
-====================
+# <a name="nested-data-web-controls-c"></a>入れ子になったデータ Web コントロール (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_32_CS.exe)または[PDF のダウンロード](nested-data-web-controls-cs/_static/datatutorial32cs1.pdf)
@@ -35,7 +35,7 @@ ms.locfileid: "58440301"
 について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 外部 Repeater、カテゴリの名前と説明を表示する、データベース内の各カテゴリの項目が含まれます。 各カテゴリ項目 s 内部 Repeater には、そのカテゴリに属する各製品の情報が表示されます (図 1 参照) 箇条書きリストにします。 これの例では、宣言とプログラミングは、内部の Repeater を設定する方法について説明します。
 
 
-[![マイクロソフトの製品、と共に、各カテゴリの一覧が表示されます。](nested-data-web-controls-cs/_static/image2.png)](nested-data-web-controls-cs/_static/image1.png)
+[![Each と共に、その製品のカテゴリの一覧が表示されます](nested-data-web-controls-cs/_static/image2.png)](nested-data-web-controls-cs/_static/image1.png)
 
 **図 1**:マイクロソフトの製品、と共に、各カテゴリの一覧が表示されます ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-cs/_static/image3.png))。
 
@@ -47,7 +47,7 @@ ms.locfileid: "58440301"
 開いて開始、`NestedControls.aspx`ページで、`DataListRepeaterBasics`フォルダー設定 ページに、Repeater コントロールを追加し、その`ID`プロパティを`CategoryList`します。 という名前の新しい ObjectDataSource を作成することも、Repeater のスマート タグから`CategoriesDataSource`します。
 
 
-[![名前の新しい ObjectDataSource CategoriesDataSource](nested-data-web-controls-cs/_static/image5.png)](nested-data-web-controls-cs/_static/image4.png)
+[![Name 新しい ObjectDataSource CategoriesDataSource](nested-data-web-controls-cs/_static/image5.png)](nested-data-web-controls-cs/_static/image4.png)
 
 **図 2**:名前を新しい ObjectDataSource `CategoriesDataSource` ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-cs/_static/image6.png))。
 
@@ -55,7 +55,7 @@ ms.locfileid: "58440301"
 そのデータを取得するために、ObjectDataSource を構成、`CategoriesBLL`クラスの`GetCategories`メソッド。
 
 
-[![CategoriesBLL クラスのメソッドを使用する ObjectDataSource を構成します。](nested-data-web-controls-cs/_static/image8.png)](nested-data-web-controls-cs/_static/image7.png)
+[![C構成、ObjectDataSource CategoriesBLL クラスのメソッドを使用する](nested-data-web-controls-cs/_static/image8.png)](nested-data-web-controls-cs/_static/image7.png)
 
 **図 3**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス s`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-cs/_static/image9.png))。
 
@@ -68,7 +68,7 @@ ms.locfileid: "58440301"
 図 4 は、ブラウザーで表示したときに進行状況を示します。
 
 
-[![各カテゴリ名と説明が表示されて、水平方向の規則で区切られました。](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
+[![Each カテゴリ名と説明が表示されて、水平方向の規則で区切られた](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
 
 **図 4**:各カテゴリ名と説明が表示されて、水平方向の規則で区切られた ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-cs/_static/image12.png))。
 
@@ -116,7 +116,7 @@ ObjectDataSource のアプローチを使用するときに設定する必要が
 このイベント ハンドラーと、`ProductsByCategoryList`各 Repeater`RepeaterItem`でこれらの製品にバインドされて、`RepeaterItem`のカテゴリ。 図 5 は、結果の出力のスクリーン ショットを示します。
 
 
-[![外部 Repeater は、各カテゴリを一覧表示されます。内部の 1 つは、そのカテゴリの製品を一覧表示します。](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
+[![T各カテゴリを外部 Repeater 示します内部の 1 つは、そのカテゴリの製品を一覧表示](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
 
 **図 5**:外部 Repeater は、各カテゴリを一覧表示されます。内部の 1 つのリスト カテゴリの製品 ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-cs/_static/image15.png))。
 

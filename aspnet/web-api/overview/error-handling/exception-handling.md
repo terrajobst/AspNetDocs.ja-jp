@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/error-handling/exception-handling
-title: ASP.NET Web API での例外処理 |Microsoft Docs
+title: 例外処理では、ASP.NET Web API - ASP.NET 4.x
 author: MikeWasson
 description: ''
 ms.author: riande
 ms.date: 03/12/2012
+ms.custom: seoapril2019
 ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
-ms.openlocfilehash: e6a04c490a1f7e3b2a450414b4be6f02804b9681
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 08b3663c1f9a08b8b3600113c32aeffb36c0d990
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422598"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399321"
 ---
-<a name="exception-handling-in-aspnet-web-api"></a>ASP.NET Web API での例外処理
-====================
+# <a name="exception-handling-in-aspnet-web-api"></a>ASP.NET Web API での例外処理
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 この記事では、エラーと ASP.NET Web API での例外処理について説明します。
@@ -106,7 +107,7 @@ Web API 例外フィルターを登録するいくつかの方法はあります
 
 [!code-console[Main](exception-handling/samples/sample11.cmd)]
 
-モデルの検証の詳細については、[Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)を参照してください。
+モデルの検証の詳細については、次を参照してください。 [Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)します。
 
 ### <a name="using-httperror-with-httpresponseexception"></a>HttpResponseException での http エラーの使用
 

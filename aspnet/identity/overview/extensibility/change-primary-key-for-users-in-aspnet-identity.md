@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: ASP.NET Identity でユーザーのプライマリ キーの変更 |Microsoft Docs
+title: ASP.NET Identity の ASP.NET でのユーザーのプライマリ キーを変更する 4.x
 author: Rick-Anderson
 description: Visual Studio 2013 では、既定の web アプリケーションは、ユーザー アカウントのキーの文字列値を使用します。 ASP.NET Identity では、型を変更することができます、.
 ms.author: riande
 ms.date: 09/30/2014
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: d2856ce1ca61a29e091bfbd16647b673e6fc659b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 212b07494381d13f6ded96a41b846dcdf7e8ff16
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033809"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393744"
 ---
-<a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity でユーザーの主キーを変更する
-====================
+# <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity でユーザーの主キーを変更する
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > Visual Studio 2013 では、既定の web アプリケーションは、ユーザー アカウントのキーの文字列値を使用します。 ASP.NET Identity では、データの要件を満たすために、キーの種類を変更することができます。 たとえば、文字列から整数に、キーの種類を変更できます。

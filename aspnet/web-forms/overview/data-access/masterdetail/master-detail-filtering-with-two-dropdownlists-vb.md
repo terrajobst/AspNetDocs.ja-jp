@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 11ae4f64-01ba-4823-95f4-a2fe1f84f7d7
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 20df98f1aacb046bb9ec9fa5ad03e008dc234509
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b7785b756f5a9d204c461c9c858f4306d3ff409
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57040119"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379574"
 ---
-<a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>2 つの DropDownList でマスター/詳細をフィルター処理する (VB)
-====================
+# <a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>2 つの DropDownList でマスター/詳細をフィルター処理する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_8_VB.exe)または[PDF のダウンロード](master-detail-filtering-with-two-dropdownlists-vb/_static/datatutorial08vb1.pdf)
@@ -37,7 +37,7 @@ Northwind データベースの標準的な顧客/注文/注文詳細情報を�
 オープン、`MasterDetailsDetails.aspx`ページで、`Filtering`フォルダー、DropDownList に ページで、追加設定その`ID`プロパティを`Categories`のスマート タグのデータ ソースの構成のリンクをクリックします。 データ ソース構成ウィザードからは、新しいデータ ソースを追加を選択します。
 
 
-[![DropDownList に新しいデータ ソースを追加します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image2.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image1.png)
+[![Add、DropDownList に新しいデータ ソース](master-detail-filtering-with-two-dropdownlists-vb/_static/image2.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image1.png)
 
 **図 1**:DropDownList に新しいデータ ソースの追加 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image3.png))。
 
@@ -45,12 +45,12 @@ Northwind データベースの標準的な顧客/注文/注文詳細情報を�
 新しいデータ ソース、当然ながら、べき ObjectDataSource。 名前をこの新しい ObjectDataSource`CategoriesDataSource`してそれを呼び出す、`CategoriesBLL`オブジェクトの`GetCategories()`メソッド。
 
 
-[![CategoriesBLL クラスを使用します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image5.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image4.png)
+[![CCategoriesBLL クラスを使用する選択](master-detail-filtering-with-two-dropdownlists-vb/_static/image5.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image4.png)
 
 **図 2**:使用する、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image6.png))。
 
 
-[![ObjectDataSource GetCategories() メソッドを使用して構成します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image8.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image7.png)
+[![C構成、ObjectDataSource GetCategories() メソッドを使用する](master-detail-filtering-with-two-dropdownlists-vb/_static/image8.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image7.png)
 
 **図 3**:構成に使用する ObjectDataSource、`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image9.png))。
 
@@ -58,7 +58,7 @@ Northwind データベースの標準的な顧客/注文/注文詳細情報を�
 ObjectDataSource を構成すた後必要がありますにどのデータ ソースのフィールドを表示するかを指定する、 `Categories` DropDownList、どれをリスト項目の値として構成する必要があります。 設定、`CategoryName`フィールドとして表示し、`CategoryID`各リスト項目の値として。
 
 
-[![値として使用 CategoryID と CategoryName フィールド DropDownList 表示があります。](master-detail-filtering-with-two-dropdownlists-vb/_static/image11.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image10.png)
+[![HDropDownList の平均は、値として使用 CategoryID と CategoryName フィールドを表示](master-detail-filtering-with-two-dropdownlists-vb/_static/image11.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image10.png)
 
 **図 4**:DropDownList の表示、`CategoryName`フィールド`CategoryID`値として ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image12.png))。
 
@@ -66,7 +66,7 @@ ObjectDataSource を構成すた後必要がありますにどのデータ ソ�
 この時点で DropDownList コントロールがある (`Categories`) からのレコードに設定されます、`Categories`テーブル。 ユーザーが次のドロップダウン リストから新しいカテゴリを選択すると、DropDownList、手順 2. で作成することが私たちの製品を更新するために発生するへのポストバックがいいでしょう。 そのため、AutoPostBack を有効にするオプションを確認してください、 `categories` DropDownList のスマート タグ。
 
 
-[![カテゴリの DropDownList の AutoPostBack を有効にします。](master-detail-filtering-with-two-dropdownlists-vb/_static/image14.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image13.png)
+[![EAutoPostBack カテゴリ DropDownList を有効にする](master-detail-filtering-with-two-dropdownlists-vb/_static/image14.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image13.png)
 
 **図 5**:AutoPostBack を有効にする、 `Categories` DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image15.png))。
 
@@ -76,12 +76,12 @@ ObjectDataSource を構成すた後必要がありますにどのデータ ソ�
 `Categories` DropDownList が完了したら、次の手順は、選択したカテゴリに属する製品の DropDownList を表示します。 これを実現するもう 1 つの DropDownList をという名前のページに追加`ProductsByCategory`します。 同様、 `Categories` DropDownList の新しい ObjectDataSource を作成、`ProductsByCategory`という名前の DropDownList`ProductsByCategoryDataSource`します。
 
 
-[![ProductsByCategory DropDownList に新しいデータ ソースを追加します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image17.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image16.png)
+[![Add ProductsByCategory DropDownList に新しいデータ ソース](master-detail-filtering-with-two-dropdownlists-vb/_static/image17.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image16.png)
 
 **図 6**:新しいデータ ソースの追加、 `ProductsByCategory` DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image18.png))。
 
 
-[![ProductsByCategoryDataSource という名前の新しい ObjectDataSource を作成します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image20.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image19.png)
+[![C新しい ObjectDataSource という ProductsByCategoryDataSource を reate](master-detail-filtering-with-two-dropdownlists-vb/_static/image20.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image19.png)
 
 **図 7**:名前付き新しい ObjectDataSource 作成`ProductsByCategoryDataSource`([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image21.png))。
 
@@ -89,12 +89,12 @@ ObjectDataSource を構成すた後必要がありますにどのデータ ソ�
 以降、`ProductsByCategory`選択したカテゴリに属する製品だけを表示する DropDownList ニーズがある呼び出す ObjectDataSource、`GetProductsByCategoryID(categoryID)`からメソッド、`ProductsBLL`オブジェクト。
 
 
-[![ProductsBLL クラスを使用します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image23.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image22.png)
+[![CProductsBLL クラスを使用する選択](master-detail-filtering-with-two-dropdownlists-vb/_static/image23.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image22.png)
 
 **図 8**:使用する、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image24.png))。
 
 
-[![ObjectDataSource GetProductsByCategoryID(categoryID) メソッドを使用して構成します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image26.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image25.png)
+[![C構成、ObjectDataSource GetProductsByCategoryID(categoryID) メソッドを使用する](master-detail-filtering-with-two-dropdownlists-vb/_static/image26.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image25.png)
 
 **図 9**:構成に使用する ObjectDataSource、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image27.png))。
 
@@ -102,7 +102,7 @@ ObjectDataSource を構成すた後必要がありますにどのデータ ソ�
 値を指定しなければ、ウィザードの最後の手順で、 *`categoryID`* パラメーター。 選択されたアイテムにこのパラメーターを割り当てる、 `Categories` DropDownList します。
 
 
-[![カテゴリ DropDownList から categoryID パラメーターの値を取得します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image28.png)
+[![Pフル categoryID カテゴリ DropDownList からパラメーター値](master-detail-filtering-with-two-dropdownlists-vb/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image28.png)
 
 **図 10**:プル、 *`categoryID`* からパラメーター値、 `Categories` DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))。
 
@@ -110,7 +110,7 @@ ObjectDataSource を構成すた後必要がありますにどのデータ ソ�
 ObjectDataSource が構成されているとは次のドロップダウン リストの項目の値や表示の対象に使用されるデータ ソース フィールドを指定します。 表示、`ProductName`フィールドし、を使用して、`ProductID`値としてフィールド。
 
 
-[![DropDownList のリスト項目のテキストと値のプロパティに使用されるデータ ソースのフィールドを指定します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image32.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image31.png)
+[![Sデータ ソースのフィールドの使用を指定の DropDownList のリスト項目のテキストと値のプロパティ](master-detail-filtering-with-two-dropdownlists-vb/_static/image32.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image31.png)
 
 **図 11**:使用されるデータ ソースのフィールドを指定の DropDownList の`ListItem`s'`Text`と`Value`プロパティ ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image33.png))。
 
@@ -118,12 +118,12 @@ ObjectDataSource が構成されているとは次のドロップダウン リ�
 ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構成されている 2 つの Dropdownlist に表示されます。 最初はすべて一覧表示、カテゴリの 2 つ目は、選択したカテゴリに属しているこれらの製品を一覧表示中にします。 ユーザーは、最初の DropDownList から新しいカテゴリを選択してポストバックが発生したりする 2 つ目の DropDownList を再バインドは、新しく選択したカテゴリに属しているこれらの製品を表示します。 図 12、13 show`MasterDetailsDetails.aspx`ブラウザーで表示したときにアクションにします。
 
 
-[![飲み物のカテゴリが選択されている場合、最初のページにアクセスして、](master-detail-filtering-with-two-dropdownlists-vb/_static/image35.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image34.png)
+[![W最初にアクセスして、ページで、飲料カテゴリ hen が選択されている](master-detail-filtering-with-two-dropdownlists-vb/_static/image35.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image34.png)
 
 **図 12**:飲み物のカテゴリが選択されている場合、最初のページにアクセスして、([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image36.png))。
 
 
-[![別のカテゴリを選択すると、新しいカテゴリの製品が表示されます。](master-detail-filtering-with-two-dropdownlists-vb/_static/image38.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image37.png)
+[![Choosing 別のカテゴリは、新しいカテゴリの製品を表示します](master-detail-filtering-with-two-dropdownlists-vb/_static/image38.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image37.png)
 
 **図 13**:別のカテゴリが表示されます、新しいカテゴリの製品を選択する ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image39.png))。
 
@@ -131,7 +131,7 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 現在、 `productsByCategory` DropDownList を変更されたときに*いない*ポストバックが発生します。 ただし、選択した製品の詳細 (手順 3) を表示する、DetailsView を追加すると発生するへのポストバックします。 そのためから AutoPostBack を有効にするチェック ボックスをオン、 `productsByCategory` DropDownList のスマート タグ。
 
 
-[![ProductsByCategory DropDownList の AutoPostBack 機能を有効にします。](master-detail-filtering-with-two-dropdownlists-vb/_static/image41.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image40.png)
+[![EAutoPostBack 機能 productsByCategory DropDownList を有効にする](master-detail-filtering-with-two-dropdownlists-vb/_static/image41.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image40.png)
 
 **図 14**:AutoPostBack 機能を有効にする、 `productsByCategory` DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image42.png))。
 
@@ -141,17 +141,17 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 最後の手順では、DetailsView で選択した製品の詳細を表示します。 ページに、DetailsView を追加するこれを実現するに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータをプルするには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の*`productID`* パラメーター。
 
 
-[![ProductsBLL クラスを使用します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image43.png)
+[![CProductsBLL クラスを使用する選択](master-detail-filtering-with-two-dropdownlists-vb/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image43.png)
 
 **図 15**:使用する、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image45.png))。
 
 
-[![ObjectDataSource GetProductByProductID(productID) メソッドを使用して構成します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image47.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image46.png)
+[![C構成、ObjectDataSource GetProductByProductID(productID) メソッドを使用する](master-detail-filtering-with-two-dropdownlists-vb/_static/image47.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image46.png)
 
 **図 16**:構成に使用する ObjectDataSource、`GetProductByProductID(productID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image48.png))。
 
 
-[![ProductsByCategory DropDownList から productID パラメーターの値を取得します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image49.png)
+[![Pフル productID ProductsByCategory DropDownList からパラメーター値](master-detail-filtering-with-two-dropdownlists-vb/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image49.png)
 
 **図 17**:プル、 *`productID`* からパラメーター値、 `ProductsByCategory` DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))。
 
@@ -166,7 +166,7 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 この問題を具体化するためは、具体的な例を見てみましょう。 飲み物のカテゴリが選択されているし、関連製品に読み込まれるページに初めてアクセスするときに、 `ProductsByCategory` DropDownList します。 Chai は、選択した製品とその詳細が表示されます、 `ProductDetails` DetailsView、図 18 に示すようにします。
 
 
-[![選択されている製品の詳細は、DetailsView で表示されます。](master-detail-filtering-with-two-dropdownlists-vb/_static/image53.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image52.png)
+[![T彼は選択されている製品の詳細については、DetailsView で表示されます](master-detail-filtering-with-two-dropdownlists-vb/_static/image53.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image52.png)
 
 **図 18**:DetailsView で選択されている製品の詳細が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image54.png))。
 
@@ -174,7 +174,7 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 ポストバックが発生した飲み物から調味料にカテゴリ選択を変更した場合、 `ProductsByCategory` DropDownList は、それに応じて更新されますが、DetailsView はまだ Chai の詳細を表示します。
 
 
-[![以前選択されている製品の詳細については引き続き表示されます。](master-detail-filtering-with-two-dropdownlists-vb/_static/image56.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image55.png)
+[![T彼は以前選択されている製品の詳細については、引き続き表示されます](master-detail-filtering-with-two-dropdownlists-vb/_static/image56.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image55.png)
 
 **図 19**:以前選択されている製品の詳細については引き続き表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image57.png))。
 
@@ -186,7 +186,7 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 このような状況で発生した問題は、ObjectDataSources パラメーターの変更をチェックするページのライフ サイクル内のポイントが発生する*する前に*関連付けられているデータ Web コントロールの再バインドします。 そのため、新しいカテゴリを選択するときに、 `ProductsByCategoryDataSource` ObjectDataSource では、そのパラメーターの値の変更を検出します。 ObjectDataSource で使用される、 `ProductDetails` DetailsView、ただしは書き留めておきます。 このような変更、 `ProductsByCategory` DropDownList はまだ再バインドできます。 ライフ サイクルの後で、 `ProductsByCategory` DropDownList を新しく選択したカテゴリの製品を取得して、その ObjectDataSource に再バインドします。 中に、 `ProductsByCategory` DropDownList の値が変更されて、 `ProductDetails` DetailsView の ObjectDataSource が既にそのパラメーター値のチェックを実行。 そのため、DetailsView がその前の結果が表示されます。 この操作は、図 20 で表したものです。
 
 
-[![ProductsByCategory DropDownList の値が変更された ProductDetails DetailsView の ObjectDataSource の変更を確認した後](master-detail-filtering-with-two-dropdownlists-vb/_static/image59.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image58.png)
+[![T彼は ProductsByCategory DropDownList の値の変更後、ProductDetails DetailsView の ObjectDataSource は変更を確認](master-detail-filtering-with-two-dropdownlists-vb/_static/image59.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image58.png)
 
 **図 20**:`ProductsByCategory` DropDownList の値の変更後、 `ProductDetails` DetailsView の変更の ObjectDataSource 確認 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image60.png))。
 
@@ -199,7 +199,7 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 この明示的な呼び出しの後、 `ProductDetails` DetailsView の`DataBind()`メソッドが追加されていますが、チュートリアルが期待どおりに動作します。 図 21 の強調表示がこれを変更する方法は、以前の問題を修正できます。
 
 
-[![ProductDetails DetailsView は明示的に更新されるときに、ProductsByCategory DropDownList のデータ バインド イベントが発生します](master-detail-filtering-with-two-dropdownlists-vb/_static/image62.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image61.png)
+[![TProductDetails DetailsView 彼は、明示的に更新されるときに、ProductsByCategory DropDownList のデータ バインド イベントが発生](master-detail-filtering-with-two-dropdownlists-vb/_static/image62.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image61.png)
 
 **図 21**:`ProductDetails` DetailsView は明示的に更新されるときに、 `ProductsByCategory` DropDownList の`DataBound`イベントが発生します ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-two-dropdownlists-vb/_static/image63.png))。
 

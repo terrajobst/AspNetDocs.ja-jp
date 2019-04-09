@@ -8,20 +8,20 @@ ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: d2c377f8466f8f324b75ce60860aa00c11bc0ffe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c39e1cf42fde382a9e74d7f865f0dac1aa62ddc8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058479"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384241"
 ---
-<a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web フォームで Visual Studio 2012 の Page Inspector を使用する
-====================
+# <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web フォームで Visual Studio 2012 の Page Inspector を使用する
+
 Tim Ammann、
 
 > Visual Studio 2012 の Page Inspector は、統合ブラウザーの web 開発ツールです。 統合されたブラウザーで任意の要素を選択し、Page Inspector は、要素のソースと CSS にすぐに強調表示します。 アプリケーションで任意のページを参照、すばやくの出力されるマークアップは、のソースを検索し、Visual Studio 環境内で直接ブラウザー ツールを使用します。
 > 
-> このチュートリアルの shwos を検査モードを有効にして、すばやく見つけて、web プロジェクト内のテキストと CSS 規則を編集する方法。 チュートリアルは、Web フォーム アプリケーション プロジェクトを使用して、Web サイト プロジェクトの Page Inspector を使用することもできますが、 [MVC](https://go.microsoft.com/?linkid=9802002)アプリケーション。
+> このチュートリアルでは、検査モードを有効にし迅速に見つけ、CSS 規則と、web プロジェクト内のテキストを編集する方法を示します。 チュートリアルは、Web フォーム アプリケーション プロジェクトを使用して、Web サイト プロジェクトの Page Inspector を使用することもできますが、 [MVC](https://go.microsoft.com/?linkid=9802002)アプリケーション。
 > 
 > このチュートリアルでは、次のセクションがあります。
 > 

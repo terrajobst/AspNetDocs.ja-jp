@@ -8,15 +8,15 @@ ms.date: 12/10/2012
 ms.assetid: b0a214c7-2f38-4dbc-b47f-bd7bd9df97bd
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: 3c14bc6feb144a52773bf7bd4c23df24966a9ebb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0603bc24e070e223551813f66a75889a2e46fd35
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033869"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379548"
 ---
-<a name="custom-mvc-template"></a>カスタム MVC テンプレート
-====================
+# <a name="custom-mvc-template"></a>カスタム MVC テンプレート
+
 によって[Jacques Eloff](https://github.com/joeloff)
 
 MVC 3 Tools Update の Visual Studio 2010 のリリースでは、MVC プロジェクトの別のプロジェクト ウィザードが導入されました。 変更が、2 つの要因によって決まります。 最初に、MVC 3 と剃刀などの追加のビュー エンジンのサポートで新しいテンプレートの概要は、Visual Studio で新しいプロジェクト ダイアログを overcrowding 可能性があります。 第 2 に、お客様が要望があった機能拡張ポイントと、新しい MVC プロジェクト ウィザードは余裕がある米国これらの要求に応答する機会をします。
@@ -25,7 +25,7 @@ MVC 3 Tools Update の Visual Studio 2010 のリリースでは、MVC プロジ�
 
 によって提供される既存のインフラストラクチャの一部を活用することにしましたので、前述の方法のどちらもは理想的な[VSIX](https://msdn.microsoft.com/library/ff363239.aspx)の作成者を簡単にする拡張機能の配布し、MVC 4 以降では、カスタムの MVC テンプレートをインストールします。Visual Studio 2012。 このアプローチによって提供される利点を次に示します。
 
-- VSIX 拡張機能は、さまざまな言語 (C# および Visual Basic) をサポートする複数のテンプレートと複数のビュー エンジン (ASPX と剃刀) に含めることができます。
+- VSIX 拡張機能は、さまざまな言語 (c# および Visual Basic) をサポートする複数のテンプレートと複数のビュー エンジン (ASPX と剃刀) に含めることができます。
 - 複数の Sku の Visual Studio Express Sku を含む VSIX 拡張機能を対象にできます。
 - [Visual Studio ギャラリー](https://visualstudiogallery.msdn.microsoft.com/)多様な対象ユーザーに拡張機能の配布を容易にします。
 - VSIX 拡張機能をアップグレードするには、容易に修正し、カスタム テンプレートの更新を作成します。
@@ -38,7 +38,7 @@ MVC 3 Tools Update の Visual Studio 2010 のリリースでは、MVC プロジ�
 
 ## <a name="example"></a>例
 
-最初の手順では、C# または Visual Basic を使用して、新しい VSIX プロジェクトを作成します。 選択**ファイル > 新しいプロジェクト**、順にクリックします**拡張**クリックし、左側のウィンドウで、 **VSIX プロジェクト**。
+最初の手順では、c# または Visual Basic を使用して、新しい VSIX プロジェクトを作成します。 選択**ファイル > 新しいプロジェクト**、順にクリックします**拡張**クリックし、左側のウィンドウで、 **VSIX プロジェクト**。
 
 ![新しいプロジェクト](custom-mvc-templates/_static/image1.jpg)
 
@@ -105,7 +105,7 @@ TemplateId=&quot;MyMvcApplication&quot;
 次に必要なカスタム属性の説明に示します。
 
 - **ProjectType** MVC に設定する必要があります。
-- **言語**テンプレートでサポートされている開発言語を指定します。 有効な値は、C# または VB. です。
+- **言語**テンプレートでサポートされている開発言語を指定します。 有効な値は、c# または VB. です。
 - **ViewEngine** Aspx など Razor テンプレートでサポートされているビュー エンジンを指定します。 このフィールドのカスタム値を指定することができます。
 - **TemplateId**テンプレートをグループ化するために使用します。 値は、既存のテンプレート ID が一致する場合は、MVC のウィザードを使用して以前に登録されているテンプレートをオーバーライドします。
 - **タイトル**各プロジェクト テンプレートの下に MVC ウィザードに表示される簡単な説明を指定します。
