@@ -8,21 +8,21 @@ ms.date: 06/27/2014
 ms.assetid: 5fbfefad-a17a-4c46-8646-f1ccd154cd56
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: aca263a04df25ca241bc0b9798b3a0b588d4cae8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fed55a4bf01e82af5167018f03e28a6274fcda78
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054209"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382200"
 ---
-<a name="containment-in-odata-v4-using-web-api-22"></a>Web API 2.2 を使用して OData v4 のコンテインメイト
-====================
+# <a name="containment-in-odata-v4-using-web-api-22"></a>Web API 2.2 を使用して OData v4 のコンテインメイト
+
 によって Jinfu Tan
 
 > これまでは、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセスできます。 OData v4、シングルトンおよびコンテインメント、web Api 2.2 をサポートする 2 つの追加オプションを提供します。
 
 
-このトピックでは、web Api 2.2 で OData エンドポイントでコンテインメントを定義する方法を示します。 コンテインメントの詳細については、[OData v4 で予定されている包含](https://blogs.msdn.com/b/odatateam/archive/2014/03/13/containment-is-coming-with-odata-v4.aspx)を参照してください。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。
+このトピックでは、web Api 2.2 で OData エンドポイントでコンテインメントを定義する方法を示します。 コンテインメントの詳細については、次を参照してください。 [OData v4 で予定されている包含](https://blogs.msdn.com/b/odatateam/archive/2014/03/13/containment-is-coming-with-odata-v4.aspx)します。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。
 
 最初に、作成しますコンテインメントのドメイン モデル、OData サービスでこのデータ モデルを使用します。
 
