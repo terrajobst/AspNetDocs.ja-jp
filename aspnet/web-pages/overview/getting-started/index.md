@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: d46c4100bf169caa5dfd0f265e16d00d519ac847
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3e5b9d1a3bac0cf1ab042f473f8fd508069000a5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408577"
 ---
-<a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web ページの概要
-====================
+# <a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web ページの概要
+
 > どのような Web ページと WebMatrix は、さらにすべてをインストール、最初に、サイトを展開する方法です。
 
 
@@ -25,15 +25,15 @@ ms.locfileid: "57022239"
 - [ASP.NET Web ページ Visual Basic](introducing-razor-syntax-vb.md)
 - [ASP.NET Web ページ (Razor) のよくあるご質問](aspnet-web-pages-razor-faq.md)
 - [サイトから電子メールを送信する](11-adding-email-to-your-web-site.md)
-- [Web サイトにソーシャル ネットワーキングを追加する](13-adding-social-networking-to-your-web-site.md)
+- [Web サイトにソーシャル ネットワークを追加する](13-adding-social-networking-to-your-web-site.md)
 - [ASP.NET Web ページの概要](introducing-aspnet-web-pages-2/index.md)
 
-    - [はじめに](introducing-aspnet-web-pages-2/getting-started.md)
+    - [作業の開始](introducing-aspnet-web-pages-2/getting-started.md)
     - [プログラミングの基礎](introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
     - [データの表示](introducing-aspnet-web-pages-2/displaying-data.md)
     - [HTML フォームの基本](introducing-aspnet-web-pages-2/form-basics.md)
     - [フォームを使用してデータベース データを入力する](introducing-aspnet-web-pages-2/entering-data.md)
     - [データベース データを更新する](introducing-aspnet-web-pages-2/updating-data.md)
-    - [データベース データを更新する](introducing-aspnet-web-pages-2/deleting-data.md)
+    - [データベース データを削除する](introducing-aspnet-web-pages-2/deleting-data.md)
     - [一貫性のあるレイアウトを作成する](introducing-aspnet-web-pages-2/layouts.md)
     - [WebMatrix を使用してサイトを公開する](introducing-aspnet-web-pages-2/publishing.md)

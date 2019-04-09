@@ -8,20 +8,20 @@ ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 22ef4c2908783e513bfb6fb63364e71378cb8719
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: da1136e085776c63886b6ac25533521fa1479d4f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027649"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406289"
 ---
-<a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングル サインオン (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングル サインオン (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 クラウド アプリを開発しているときに考慮する多くのセキュリティの問題がありますが、このシリーズの 1 つだけに注目します。 シングル サインオンします。 次の質問の質問は"主にビルド アプリ自分の会社の従業員クラウドでのこれらのアプリをホストしてはどうすれば引き続き従業員がいるし、アプリを実行しているときに、オンプレミス環境で使用するのと同じセキュリティ モデルを使用するように有効にするホスト ファイアウォールの内側にでしょうか。" このシナリオを有効にする方法の 1 つには、Azure Active Directory (Azure AD) が呼び出されます。 Azure AD では、エンタープライズ基幹業務 (LOB) アプリ使用できるように、インターネットを経由でき、ビジネス パートナーもこれらのアプリを使用できるようにすることができます。

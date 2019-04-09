@@ -8,15 +8,15 @@ ms.date: 11/13/2013
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 008891b72e1fb72458aee00bbf83839d0fbed263
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 17315dbbbdc08412e4e928256783c221a8a2cb20
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423547"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406809"
 ---
-<a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 の ASP.NET と Web 2013.1 ツールのリリース ノート
-====================
+# <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 の ASP.NET と Web 2013.1 ツールのリリース ノート
+
 によって[Microsoft](https://github.com/microsoft)
 
 > このドキュメントでは、ASP.NET および Web Tools 2013.1 for Visual Studio 2012 のリリースについて説明します。
@@ -25,10 +25,10 @@ ms.locfileid: "58423547"
 ## <a name="contents"></a>目次
 
 - [インストールに関する注記](#install)
-- [ソフトウェアの要件](#requirements)
+- [ソフトウェア要件](#requirements)
 - ASP.NET および Web Tools 2013.1 for Visual Studio 2012 の新機能
 
-    - [Bootstrap](#bootstrap)
+    - [ブートス トラップ](#bootstrap)
     - [テンプレート](#templates)
 
         - [ASP.NET MVC 5 テンプレート](#mvc5template)
@@ -88,7 +88,7 @@ MVC 5 ビュー、Web ページ (Razor 3)、および Web API 2 コント ロー
 <a id="ef6"></a>
 ### <a name="entity-framework-6"></a>Entity Framework 6
 
-Entity Framework を使用して、MVC または Web API のコント ローラーをスキャフォールディングするときに、Framework 6 を使用します。 Entity Framework の詳細については、、 [Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)を参照してください。
+Entity Framework を使用して、MVC または Web API のコント ローラーをスキャフォールディングするときに、Framework 6 を使用します。 Entity Framework の詳細については、次を参照してください。、 [Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)します。
 
 ダウンロードして、Visual Studio 2012 用の Entity Framework 6 Tools をインストールすることができますも。 参照してください、 [Entity Framework の入手](https://msdn.com/data/ee712906#tooling)します。
 
@@ -105,7 +105,7 @@ Web フォーム プロジェクトには、MVC のスキャフォールディ�
 
 非同期コント ローラーをスキャフォールディングするためのサポートは、Entity Framework 6 からの新しい非同期機能を使用します。
 
-詳細とチュートリアルについては、[ASP.NET スキャフォールディング概要](../2013/aspnet-scaffolding-overview.md)を参照してください。 これらのチュートリアルは、Visual Studio 2013 では、スキャフォールディングを説明しますも ASP.NET と Visual Studio 2012 for Web Tools 2013.1 に適用されます。
+詳細とチュートリアルについては、次を参照してください。 [ASP.NET スキャフォールディング概要](../2013/aspnet-scaffolding-overview.md)します。 これらのチュートリアルは、Visual Studio 2013 では、スキャフォールディングを説明しますも ASP.NET と Visual Studio 2012 for Web Tools 2013.1 に適用されます。
 
 <a id="razor"></a>
 ### <a name="razor-editor"></a>Razor エディター

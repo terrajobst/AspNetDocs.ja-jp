@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 45aab00140f63cd84ea1b7ba22f655b0e4373f97
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 639a8e0e5fd9557221c95aee1bef0294df047ae8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423079"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406315"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 ヘルパー、フォーム、検証
 
@@ -70,7 +70,7 @@ ms.locfileid: "58423079"
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b:コード スニペットを使用して](#AppendixB)&quot;します。
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -755,7 +755,7 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
    > 
    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
-* * *
+---
 
 <a id="Summary"></a>
 
@@ -812,7 +812,7 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>付録 b:コード スニペットを使用
+## <a name="appendix-b-using-code-snippets"></a>付録 B:コード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -820,7 +820,7 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

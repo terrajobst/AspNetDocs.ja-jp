@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: f8400241-4f4b-4bbd-9994-54fb64909e6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 534a0edf5c26dd2daec3c44e41410f8c5de96c15
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1500415c7ee017776c59acb05a2eaefc6956a41b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404707"
 ---
-<a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置の TFS ビルド サーバーを構成する
-====================
+# <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置の TFS ビルド サーバーを構成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、チーム ビルドとインターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して、ソリューション構築、デプロイする Team Foundation Server (TFS) ビルド サーバーを準備する方法について説明します。
 
@@ -58,10 +58,10 @@ ms.locfileid: "57058109"
 [Team Foundation ビルドを管理する](https://msdn.microsoft.com/library/ms252495.aspx)MSDN に関する章には、これらのタスクを実行するために必要なすべてのリソースが含まれています。
 
 - Team Foundation ビルドの概念的概要については、ビルド サービス、ビルド コント ローラーとビルド エージェント、参照を含む[Team Foundation ビルド システムについて](https://msdn.microsoft.com/library/dd793166.aspx)します。
-- インストールして、ビルド サービスを構成するのには、[ビルド コンピューターの構成](https://msdn.microsoft.com/library/ms181712.aspx)を参照してください。
-- ビルド コント ローラーを作成する方法の詳細については、[ビルド コント ローラーの作成と操作](https://msdn.microsoft.com/library/ee330987.aspx)を参照してください。
-- ビルド エージェントを作成する方法の詳細については、[ビルド エージェントの作成と操作](https://msdn.microsoft.com/library/bb399135.aspx)を参照してください。
-- 作成して、ドロップ フォルダーを構成するのには、[ドロップ フォルダーのセットアップ](https://msdn.microsoft.com/library/bb778394.aspx)を参照してください。
+- インストールして、ビルド サービスを構成するのには、次を参照してください。[ビルド コンピューターの構成](https://msdn.microsoft.com/library/ms181712.aspx)します。
+- ビルド コント ローラーを作成する方法の詳細については、次を参照してください。[ビルド コント ローラーの作成と操作](https://msdn.microsoft.com/library/ee330987.aspx)します。
+- ビルド エージェントを作成する方法の詳細については、次を参照してください。[ビルド エージェントの作成と操作](https://msdn.microsoft.com/library/bb399135.aspx)します。
+- 作成して、ドロップ フォルダーを構成するのには、次を参照してください。[ドロップ フォルダーのセットアップ](https://msdn.microsoft.com/library/bb778394.aspx)します。
 
 ## <a name="install-required-products-and-components"></a>必要な製品とコンポーネントをインストールします。
 
@@ -111,7 +111,7 @@ ms.locfileid: "57058109"
 
 ## <a name="further-reading"></a>関連項目
 
-チーム ビルドを使用して作業の一般的なガイダンスについては、[Team Foundation ビルドを管理する](https://msdn.microsoft.com/library/ms252495.aspx)を参照してください。
+チーム ビルドを使用して作業の一般的なガイダンスについては、次を参照してください。 [Team Foundation ビルドを管理する](https://msdn.microsoft.com/library/ms252495.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](adding-content-to-source-control.md)

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 52aba3fa5948d32180fbf135444433771b17756d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 86781a1f46ce0c01a5d70b1f0cf8a81f3f96a032
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425643"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405925"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 依存関係挿入
 
@@ -91,7 +91,7 @@ ms.locfileid: "58425643"
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b:コード スニペットを使用して](#AppendixB)&quot;します。
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -484,7 +484,7 @@ ms.locfileid: "58425643"
     *アプリケーション トレース - 要求の詳細*
 4. ブラウザーを閉じます。
 
-* * *
+---
 
 <a id="Summary"></a>
 
@@ -540,7 +540,7 @@ ms.locfileid: "58425643"
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>付録 b:コード スニペットを使用
+## <a name="appendix-b-using-code-snippets"></a>付録 B:コード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -548,7 +548,7 @@ ms.locfileid: "58425643"
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

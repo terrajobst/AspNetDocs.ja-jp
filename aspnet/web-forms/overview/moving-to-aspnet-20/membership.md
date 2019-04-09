@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: d4fab68555eeb27420e60a28aca2f2c0fb9a73e3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421519"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408187"
 ---
-<a name="membership"></a>メンバーシップ
-====================
+# <a name="membership"></a>メンバーシップ
+
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET から ASP.NET メンバーシップが、成功すると、フォーム認証モデルのビルド 1.x します。 ASP.NET フォーム認証では、ログイン フォームを ASP.NET アプリケーションに組み込むし、データベースまたは他のデータ ストアに対してユーザーを検証する便利な手段を提供します。
@@ -264,7 +264,7 @@ ASP.NET では、現在のコンテキストのメンバーとして RolePrincip
 - UpdateUser 関数
 - ValidateUser 関数
 
-これを C# 開発者として実装する非常にリストします。 簡単に実装は一切 VB.NET でクラスを作成して、コードを C# に変換する .NET Reflector などのツールを使用することもあります。
+これを c# 開発者として実装する非常にリストします。 簡単に実装は一切 VB.NET でクラスを作成して、コードを c# に変換する .NET Reflector などのツールを使用することもあります。
 
 接続文字列とその他のプロパティを Initialize メソッドの既定値に設定する必要があります。 (Initialize メソッドは、プロバイダーが実行時に読み込まれたときに発生した)。Initialize メソッドの 2 番目のパラメーターは、型 System.Collections.Specialized.NameValueCollection がありへの参照、&lt;追加&gt;web.config ファイルで、カスタム プロバイダーに関連付けられている要素。 そのエントリは、次のようになります。
 

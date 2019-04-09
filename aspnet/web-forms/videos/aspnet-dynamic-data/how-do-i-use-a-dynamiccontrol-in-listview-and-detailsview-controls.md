@@ -8,15 +8,15 @@ ms.date: 05/08/2008
 ms.assetid: 816175a2-47b1-49ba-b346-cfb1ee33096a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls
 msc.type: video
-ms.openlocfilehash: ce587fd1cb73178c75d291a6cb7a7e3f24d29390
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4916885afff0900d85f7ef58b84abc50144aa29e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57040219"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406328"
 ---
-<a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>ListView コントロールと DetailsView コントロールで DynamicControl の使用方法
-====================
+# <a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>ListView コントロールと DetailsView コントロールで DynamicControl の使用方法
+
 [Scott Hanselman](https://github.com/shanselman)による
 
 このビデオでは、動的なデータが 1 回とせずに 2 回、記述された同じアプリケーションと比較します。 追加するプロセスで**DynamicControl**オブジェクトを**ListView**と**DetailsView**コントロール。
