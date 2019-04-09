@@ -8,18 +8,18 @@ ms.date: 09/19/2014
 ms.assetid: 437f6dec-ab4b-4d12-af71-e8ab028aab7b
 msc.legacyurl: /signalr/overview/testing-and-debugging
 msc.type: chapter
-ms.openlocfilehash: a644d881ada390fd51001f69b4c309516e8842d6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 88f45c27759a3a37a1b3cad6247cf528e8f521a8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57023049"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406484"
 ---
-<a name="signalr-testing-and-debugging"></a><span data-ttu-id="38069-103">SignalR のテストとデバッグ</span><span class="sxs-lookup"><span data-stu-id="38069-103">SignalR Testing and Debugging</span></span>
-====================
-> <span data-ttu-id="38069-104">テストし、SignalR アプリケーションをデバッグする方法。</span><span class="sxs-lookup"><span data-stu-id="38069-104">How to test and debug SignalR applications.</span></span>
+# <a name="signalr-testing-and-debugging"></a><span data-ttu-id="1881b-103">SignalR のテストとデバッグ</span><span class="sxs-lookup"><span data-stu-id="1881b-103">SignalR Testing and Debugging</span></span>
+
+> <span data-ttu-id="1881b-104">テストし、SignalR アプリケーションをデバッグする方法。</span><span class="sxs-lookup"><span data-stu-id="1881b-104">How to test and debug SignalR applications.</span></span>
 
 
-- [<span data-ttu-id="38069-105">SignalR トラブルシューティング</span><span class="sxs-lookup"><span data-stu-id="38069-105">SignalR Troubleshooting</span></span>](troubleshooting.md)
-- [<span data-ttu-id="38069-106">SignalR アプリケーションの単体テスト</span><span class="sxs-lookup"><span data-stu-id="38069-106">Unit Testing SignalR Applications</span></span>](unit-testing-signalr-applications.md)
-- [<span data-ttu-id="38069-107">SignalR トレースを有効にする</span><span class="sxs-lookup"><span data-stu-id="38069-107">Enabling SignalR Tracing</span></span>](enabling-signalr-tracing.md)
+- [<span data-ttu-id="1881b-105">SignalR トラブルシューティング</span><span class="sxs-lookup"><span data-stu-id="1881b-105">SignalR Troubleshooting</span></span>](troubleshooting.md)
+- [<span data-ttu-id="1881b-106">SignalR アプリケーションの単体テスト</span><span class="sxs-lookup"><span data-stu-id="1881b-106">Unit Testing SignalR Applications</span></span>](unit-testing-signalr-applications.md)
+- [<span data-ttu-id="1881b-107">SignalR トレースを有効にする</span><span class="sxs-lookup"><span data-stu-id="1881b-107">Enabling SignalR Tracing</span></span>](enabling-signalr-tracing.md)
