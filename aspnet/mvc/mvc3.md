@@ -8,15 +8,15 @@ ms.date: 10/05/2010
 ms.assetid: dddc8812-a0bc-49f9-aafb-caf2064c2b8c
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 82d18865815568c5df9768fd9dd403f11ebd1714
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 42c28bb7082781ffdf8f2f0fb46f14387e614043
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045429"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389532"
 ---
-<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
-====================
+# <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
+
 > *(2011 年 4 月が含まれています Tools Update)*
 > 
 > ASP.NET MVC 3 は、既に確立されている設計パターンと ASP.NET および .NET Framework の機能を使用してスケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークです。
@@ -99,7 +99,7 @@ ASP.NET MVC 3 でスキャフォールディングの詳細については、次
 
     1. [概要:ASP.NET MVC 3 プロジェクトと MvcScaffolding パッケージのスキャフォールディングします。](http://blog.stevensanderson.com/2011/01/13/scaffold-your-aspnet-mvc-3-project-with-the-mvcscaffolding-package/)
     2. [標準的な使用法:一般的なユース ケースとオプション](http://blog.stevensanderson.com/2011/01/13/mvcscaffolding-standard-usage/)
-    3. [一対多のリレーションシップ](http://blog.stevensanderson.com/2011/01/28/mvcscaffolding-one-to-many-relationships/)
+    3. [一対多リレーションシップ](http://blog.stevensanderson.com/2011/01/28/mvcscaffolding-one-to-many-relationships/)
     4. [スキャフォールディング アクションと単体テスト](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
     5. [T4 テンプレートをオーバーライドします。](http://blog.stevensanderson.com/2011/04/06/mvcscaffolding-overriding-the-t4-templates/)
     6. [この投稿:カスタム スキャフォールダーの作成](http://blog.stevensanderson.com/2011/04/07/mvcscaffolding-creating-custom-scaffolders/)
@@ -133,11 +133,11 @@ Razor の新機能の一部を以下に示します。
 
 Razor では、次などの新しい HTML ヘルパーも含まれます。
 
-- `Chart`。 ASP.NET 4 のグラフ コントロールと同じ機能を提供する、グラフを表示します。
-- `WebGrid`。 ページングと並べ替え機能を備えたデータ グリッドを表示します。
-- `Crypto`。 正常に作成するアルゴリズムのハッシュを使用してでは、ソルトし、パスワードをハッシュします。
-- `WebImage`。 イメージを表示します。
-- `WebMail`。 電子メールを送信します。
+- `Chart`. ASP.NET 4 のグラフ コントロールと同じ機能を提供する、グラフを表示します。
+- `WebGrid`. ページングと並べ替え機能を備えたデータ グリッドを表示します。
+- `Crypto`. 正常に作成するアルゴリズムのハッシュを使用してでは、ソルトし、パスワードをハッシュします。
+- `WebImage`. イメージを表示します。
+- `WebMail`. 電子メールを送信します。
 
 Razor の詳細については、次のリソースを参照してください。
 
@@ -210,7 +210,7 @@ ASP.NET MVC 3 をサポート、新しい[RemoteAttribute](https://msdn.microsof
 
 ### <a name="json-binding-support"></a>JSON のバインディング サポート
 
-ASP.NET MVC 3 には、JSON でエンコードされたデータを受信し、モデル バインド、アクション メソッドのパラメーターにアクション メソッドを使用する組み込みの JSON バインド サポートが含まれています。 この機能は、クライアントのテンプレートとデータ バインドに関連するシナリオで役立ちます。 (クライアントのテンプレートを使用する書式設定し、クライアント上で実行されるテンプレートを使用して、1 つのデータ項目または一連のデータ項目を表示します。)MVC 3 では、サーバー上の JSON データを送受信するアクション メソッドとクライアント テンプレートを簡単に接続することができます。 JSON のバインディング サポートの詳細については、、 **JavaScript と AJAX の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)を参照してください。
+ASP.NET MVC 3 には、JSON でエンコードされたデータを受信し、モデル バインド、アクション メソッドのパラメーターにアクション メソッドを使用する組み込みの JSON バインド サポートが含まれています。 この機能は、クライアントのテンプレートとデータ バインドに関連するシナリオで役立ちます。 (クライアントのテンプレートを使用する書式設定し、クライアント上で実行されるテンプレートを使用して、1 つのデータ項目または一連のデータ項目を表示します。)MVC 3 では、サーバー上の JSON データを送受信するアクション メソッドとクライアント テンプレートを簡単に接続することができます。 JSON のバインディング サポートの詳細については、次を参照してください。、 **JavaScript と AJAX の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)します。
 
 <a id="BM_Model_Validation_Improvements"></a>
 
@@ -232,7 +232,7 @@ ASP.NET MVC 3 では`DataAnnotations`などのメタデータ属性`DisplayAttri
 
 [IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx)インターフェイスは、実行時に検証コントロールがあるクライアントの検証をサポートするかどうかを検出する ASP.NET MVC を使用できます。 このインターフェイスは、さまざまな検証フレームワークに統合できるように設計されています。
 
-検証のインターフェイスの詳細については、、**モデル検証の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)を参照してください。 (ただし、ブログで"IValidateObject"への参照は"IValidatableObject"である必要があります。)
+検証のインターフェイスの詳細については、次を参照してください。、**モデル検証の機能強化**の[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)します。 (ただし、ブログで"IValidateObject"への参照は"IValidatableObject"である必要があります。)
 
 <a id="BM_Dependency_Injection_Improvements"></a>
 
@@ -296,7 +296,7 @@ ASP.NET MVC 3 のスキャフォールディング テンプレートは、モ�
 
 ### <a name="sessionless-controller-support"></a>Sessionless コント ローラーのサポート
 
-ASP.NET MVC 3 の場合は、セッションの状態を使用するコント ローラー クラスを希望するかどうかを指定する、セッション状態するかどうか読み取り/書き込みまたは読み取り専用です。 Sessionless コント ローラーのサポートの詳細については、[MVC 3 のリリース ノート](../whitepapers/mvc3-release-notes.md)を参照してください。
+ASP.NET MVC 3 の場合は、セッションの状態を使用するコント ローラー クラスを希望するかどうかを指定する、セッション状態するかどうか読み取り/書き込みまたは読み取り専用です。 Sessionless コント ローラーのサポートの詳細については、次を参照してください。 [MVC 3 のリリース ノート](../whitepapers/mvc3-release-notes.md)します。
 
 ### <a name="new-additionalmetadataattribute-class"></a>新しい"AdditionalMetadataAttribute"クラス
 

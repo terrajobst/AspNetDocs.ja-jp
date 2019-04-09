@@ -8,15 +8,15 @@ ms.date: 11/13/2006
 ms.assetid: 1afdb14d-6e49-4e1f-aead-2934730d472e
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c88c3c01dc641d5076ac99f4e1cf2b2fb1681ffd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1e1b6407dfff4513416869404a9565ed225b5e14
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027229"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392249"
 ---
-<a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>DataList と Repeater のカスタム ボタン (VB)
-====================
+# <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>DataList と Repeater のカスタム ボタン (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_46_VB.exe)または[PDF のダウンロード](custom-buttons-in-the-datalist-and-repeater-vb/_static/datatutorial46vb1.pdf)
@@ -31,7 +31,7 @@ ms.locfileid: "57027229"
 さらに編集して、ボタンの削除、DataList と Repeater コントロールも、ボタン、Linkbutton、または ImageButtons をクリックすると、いくつかのカスタム サーバー側ロジックを実行します。 このチュートリアルでは、Repeater を使用して、システムで、カテゴリを一覧表示するインターフェイスをビルドします。 リピータ カテゴリごとに、BulletedList コントロールを使用して $s に関連付けられている製品カテゴリを表示するためのボタンが含まれます (図 1 参照)。
 
 
-[![クリックすると表示の製品リンク表示箇条書きリストにカテゴリの製品](custom-buttons-in-the-datalist-and-repeater-vb/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image1.png)
+[![C箇条書きリストにカテゴリの製品の製品リンクを表示する表示をクリックして](custom-buttons-in-the-datalist-and-repeater-vb/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image1.png)
 
 **図 1**:箇条書きリストにカテゴリの製品の製品リンクを表示する表示します をクリックして ([フルサイズの画像を表示する をクリックします](custom-buttons-in-the-datalist-and-repeater-vb/_static/image3.png))。
 
@@ -52,7 +52,7 @@ ms.locfileid: "57027229"
 などの他のフォルダーで`Default.aspx`で、`CustomButtonsDataListRepeater`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 追加するには、このユーザー コントロール`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](custom-buttons-in-the-datalist-and-repeater-vb/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image5.png)
+[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](custom-buttons-in-the-datalist-and-repeater-vb/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image5.png)
 
 **図 3**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](custom-buttons-in-the-datalist-and-repeater-vb/_static/image7.png))。
 
@@ -75,7 +75,7 @@ ms.locfileid: "57027229"
 このチュートリアルを表示する製品 LinkButton と共にすべてのカテゴリを一覧表示する Repeater を作成する必要をクリックすると、箇条書きリストに関連付けられているカテゴリの製品が表示されます。 最初、システムで、カテゴリを一覧表示する単純な Repeater を作成して使用できます。 開いて開始、`CustomButtons.aspx`ページで、`CustomButtonsDataListRepeater`フォルダー。 ツールボックスからデザイナーとセットに、Repeater をドラッグしてその`ID`プロパティを`Categories`します。 次に、Repeater s のスマート タグから新しいデータ ソース コントロールを作成します。 具体的には、という名前の新しい ObjectDataSource コントロールを作成`CategoriesDataSource`からそのデータを選択を`CategoriesBLL`クラスの`GetCategories()`メソッド。
 
 
-[![ObjectDataSource CategoriesBLL クラスの GetCategories() メソッドを使用して構成します。](custom-buttons-in-the-datalist-and-repeater-vb/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image9.png)
+[![C構成、ObjectDataSource CategoriesBLL クラス GetCategories() メソッドを使用する](custom-buttons-in-the-datalist-and-repeater-vb/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image9.png)
 
 **図 5**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス s`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](custom-buttons-in-the-datalist-and-repeater-vb/_static/image11.png))。
 
@@ -90,7 +90,7 @@ Visual Studio で、既定値を作成します、DataList コントロールと
 図 6 は、ブラウザーで表示する際、ページを示します。 各カテゴリの名前と説明が表示されます。 製品の表示 ボタンをクリックすると、ポストバックが発生するが、任意の操作はまだ実行されません。
 
 
-[![各カテゴリ名と説明が表示され、製品 linkbutton コントロールを表示します。](custom-buttons-in-the-datalist-and-repeater-vb/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image12.png)
+[![Each カテゴリ名と説明が表示され、製品 linkbutton コントロールを表示する](custom-buttons-in-the-datalist-and-repeater-vb/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image12.png)
 
 **図 6**:各カテゴリ名と説明が表示され、製品を表示する LinkButton ([フルサイズの画像を表示する をクリックします](custom-buttons-in-the-datalist-and-repeater-vb/_static/image14.png))。
 
@@ -146,7 +146,7 @@ DataList、内のボタンを使用します。 前のチュートリアルで[�
 > 1 つだけのカテゴリの製品が同時に表示されるように、このレポートの動作を変更する場合は、s BulletedList コントロールを設定するだけ`EnableViewState`プロパティを`False`します。
 
 
-[![選択したカテゴリの製品を表示するため、BulletedList](custom-buttons-in-the-datalist-and-repeater-vb/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image15.png)
+[![A BulletedList は使用すると、選択したカテゴリの製品を表示](custom-buttons-in-the-datalist-and-repeater-vb/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image15.png)
 
 **図 7**:選択したカテゴリの製品を表示するため、BulletedList ([フルサイズの画像を表示する をクリックします](custom-buttons-in-the-datalist-and-repeater-vb/_static/image17.png))。
 

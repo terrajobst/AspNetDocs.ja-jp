@@ -8,15 +8,15 @@ ms.date: 01/26/2011
 ms.assetid: 393df4a8-b1db-44c4-9db7-2b533ca887d0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 402e7ace1abad899d32ed179d6b68de4e5a129f5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0bc24a59e09728a5ecb6e18378c4cde0c8e046f2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045719"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387452"
 ---
-<a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 の新機能
-====================
+# <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 の新機能
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [Entity Framework の概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
@@ -135,7 +135,7 @@ Contoso University の管理者は、ストアド プロシージャを作成し
 
 [![Image14](what-s-new-in-the-entity-framework-4/_static/image26.png)](what-s-new-in-the-entity-framework-4/_static/image25.png)
 
-**接続プロパティ** ダイアログ ボックスで、ローカルの SQL Server Express インスタンスを選択し、データベースの名前`AlumniAsssociation`します。
+**接続プロパティ** ダイアログ ボックスで、ローカルの SQL Server Express インスタンスを選択し、データベースの名前`AlumniAssociation`します。
 
 [![Image15](what-s-new-in-the-entity-framework-4/_static/image28.png)](what-s-new-in-the-entity-framework-4/_static/image27.png)
 
@@ -175,7 +175,7 @@ A *.sql*データ定義言語 (DDL) コマンドを使用してファイルが�
 
 (メモ: このページがダウンロード可能なプロジェクトで含まれていますが、ように動作する必要がありますでデータベースを作成、ローカル SQL Server Express インスタンス。データベースとして含まれていますが、 *.mdf*ファイル、*アプリ\_データ*フォルダー)。
 
-Entity Framework のモデルの最初の機能の使用に関する詳細については、[Entity Framework 4 でモデルファースト](https://msdn.microsoft.com/data/ff830362.aspx)を参照してください。
+Entity Framework のモデルの最初の機能の使用に関する詳細については、次を参照してください。 [Entity Framework 4 でモデルファースト](https://msdn.microsoft.com/data/ff830362.aspx)します。
 
 ## <a name="poco-support"></a>POCO サポート
 
