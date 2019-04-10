@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 0bf0959b-4ca8-45de-bd13-b15347543b5a
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 4f6433f0b8a9ad3b3634c9bcd8d95015eebaa865
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 86ea4a2e17ec44a3716e1570e51a224144f1369c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386971"
 ---
-<a name="configuring-server-environments-for-web-deployment"></a>Web 配置のサーバー環境を構成する
-====================
+# <a name="configuring-server-environments-for-web-deployment"></a>Web 配置のサーバー環境を構成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このチュートリアルでは、1 回のクリック、または自動のサポート、web サイトの配置、およびさまざまなさまざまなシナリオで発行するサーバー環境を設定する方法を説明します。 このチュートリアルには、デプロイとシナリオ ベースの概要を提供すると共に、Web Farm Framework (WFF) のサーバー ファームをセットアップする具体的なアプローチをサポートするために web サーバーの構成など、さまざまなタスクを完了することを説明するトピックが含まれています。高度なエンド ツー エンドのガイダンスです。
 > 
@@ -30,16 +30,16 @@ ms.locfileid: "57043529"
 
 このチュートリアルには、これらのトピックが含まれています。
 
-- [適切な Web 展開手法を選択する](choosing-the-right-approach-to-web-deployment.md)
-- [シナリオ: Web 配置のテスト環境を構成します。](scenario-configuring-a-test-environment-for-web-deployment.md)
-- [シナリオ: Web デプロイのステージング環境を構成します。](scenario-configuring-a-staging-environment-for-web-deployment.md)
-- [シナリオ: Web デプロイ用の運用環境の構成](scenario-configuring-a-production-environment-for-web-deployment.md)
+- [適切な Web 配置手法を選択する](choosing-the-right-approach-to-web-deployment.md)
+- [シナリオ:Web 配置のテスト環境を構成する](scenario-configuring-a-test-environment-for-web-deployment.md)
+- [シナリオ:Web 配置のステージング環境を構成する](scenario-configuring-a-staging-environment-for-web-deployment.md)
+- [シナリオ:Web 配置の運用環境を構成する](scenario-configuring-a-production-environment-for-web-deployment.md)
 - [Web 配置発行の Web サーバーを構成する (リモート エージェント)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
 - [Web 配置発行の Web サーバーを構成する (Web 配置ハンドラー)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-- [Web 配置発行の Web サーバーを構成する (オフライン展開)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+- [Web 配置発行の Web サーバーを構成する (オフライン配置)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
 - [Web 配置発行のデータベース サーバーを構成する](configuring-a-database-server-for-web-deploy-publishing.md)
 - [Web Farm Framework でサーバー ファームを作成する](creating-a-server-farm-with-the-web-farm-framework.md)
-- [ターゲット環境の展開プロパティを構成する](configuring-deployment-properties-for-a-target-environment.md)
+- [ターゲット環境の配置プロパティを構成する](configuring-deployment-properties-for-a-target-environment.md)
 
 最初のトピックでは、 [Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)、インターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して web アプリケーションを発行する際の主な方法について説明 2.0。 また、各アプローチにマップするシナリオを識別します。 ここは、各シナリオのトピックでは、完了する必要があるタスクの概要を示し、これらのタスクを完了するのに役立つを使用する必要がありますのトピックを識別します。
 

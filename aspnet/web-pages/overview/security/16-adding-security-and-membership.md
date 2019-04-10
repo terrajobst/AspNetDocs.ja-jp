@@ -8,15 +8,15 @@ ms.date: 02/24/2014
 ms.assetid: 7a77c2c0-deea-4290-a9c3-97958891758e
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: 1c36adf23f3b53e4fbf3dbdce7ca85664b32c975
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1291417755e3fa4fb030bc6ba3089c38c4719c71
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57026939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389666"
 ---
-<a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトへのセキュリティとメンバーシップの追加
-====================
+# <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトへのセキュリティとメンバーシップの追加
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ページの一部がログインするユーザーにのみ使用できるように、ASP.NET Web Pages (Razor) の web サイトをセキュリティで保護する方法について説明します。 (もわかりますだれでもアクセスできるページを作成する方法。)
@@ -93,7 +93,7 @@ WebMatrix で、使用することができます、**スターター サイト*
 
      > [!NOTE] 
      > 
-     > **ヒント:** これらのプロパティの値の詳細については、[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)を参照してください。
+     > **ヒント:** これらのプロパティの値の詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。
 7. 保存して閉じます *\_AppStart.cshtml*します。
 8. 実行、 *Default.cshtml*ブラウザーでページ。
 
@@ -124,7 +124,7 @@ WebMatrix で、使用することができます、**スターター サイト*
       ![6-セキュリティ-メンバーシップ](16-adding-security-and-membership/_static/image5.png)
 
       > [!NOTE]
-      > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで送信 (人間が判読できるテキスト) として。 実稼働サイトがセキュリティで保護された HTTP を使用する必要があります (https:// とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 電子メールが必要なことができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例のようにします。 SSL の詳細については、[Web 通信をセキュリティで保護を参照してください。証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)します。
+      > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで送信 (人間が判読できるテキスト) として。 実稼働サイトがセキュリティで保護された HTTP を使用する必要があります (https:// とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 電子メールが必要なことができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例のようにします。 SSL の詳細については、次を参照してください。 [Web 通信をセキュリティで保護します。証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)します。
 
 ## <a name="additional-membership-functionality-in-the-site"></a>サイトの追加のメンバーシップの機能
 

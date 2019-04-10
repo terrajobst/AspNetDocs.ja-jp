@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: a6a007678d58547e9987ebda46bd08ae8aea66f7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 58f3ec28914a604aa911cc3cb73733f0d58fd49f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390417"
 ---
-<a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web ページの概要 - 一貫性のあるレイアウトを作成します。
-====================
+# <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web ページの概要 - 一貫性のあるレイアウトを作成します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアルは、使用する方法を示します*レイアウト*ASP.NET Web Pages を使用するサイトで、ページの一貫性のある外観を作成します。 を通じてシリーズを完了したと想定して[データベースのデータを削除する ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251584)します。
@@ -122,8 +122,7 @@ ASP.NET に Movies.cshtml ページのコンテンツをマージ、  *\_Layout.
 
 [!code-css[Main](layouts/samples/sample6.css)]
 
-次に、同じ種類の変更を加えます*AddMovie.cshtml*の*Movies.cshtml* -追加`Layout="~/_Layout.cshtml;`および削除するには余分な HTML マークアップ。 
-  `<h1>` 要素を `<h2>` に変更します。 完了したら、ページはこの例のようになります。
+次に、同じ種類の変更を加えます*AddMovie.cshtml*の*Movies.cshtml* -追加`Layout="~/_Layout.cshtml;`および削除するには余分な HTML マークアップ。 `<h1>` 要素を `<h2>` に変更します。 完了したら、ページはこの例のようになります。
 
 [!code-cshtml[Main](layouts/samples/sample7.cshtml)]
 
@@ -147,7 +146,7 @@ ASP.NET に Movies.cshtml ページのコンテンツをマージ、  *\_Layout.
 
 `Page`オブジェクトがすべてで使用可能な *.cshtml*ページ、つまり、この目的は、ページとレイアウト情報を共有します。
 
-開く、<em>\_Layout.cshtml</em>ページ。 変更、`<title>`要素のため、it がこのマークアップのようになります。
+開く、  *\_Layout.cshtml*ページ。 変更、`<title>`要素のため、it がこのマークアップのようになります。
 
 [!code-html[Main](layouts/samples/sample9.html)]
 

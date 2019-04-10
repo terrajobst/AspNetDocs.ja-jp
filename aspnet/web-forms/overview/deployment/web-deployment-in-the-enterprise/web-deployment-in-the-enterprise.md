@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: b8283698-7b82-42a8-8d83-3aeb18ca7fcc
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 735cc5ac37e369e6149c526174c3f74a08db9758
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1f2dc0fea9eeca64b9389881470353c5cca473e0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57026159"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396318"
 ---
-<a name="web-deployment-in-the-enterprise"></a>エンタープライズの Web 配置
-====================
+# <a name="web-deployment-in-the-enterprise"></a>エンタープライズの Web 配置
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このチュートリアルでは、エンタープライズ規模の web アプリケーションを開発、テスト、ステージング、および運用環境のデプロイを管理するときに発生する課題の多くを達成する方法について説明します。 このチュートリアルには、さまざまな一般的なタスクと手順について説明する概念とタスク指向のコンテンツの組み合わせと共に参照ソリューションが含まれています。
 > 
@@ -76,8 +76,8 @@ ms.locfileid: "57026159"
 これらのトピックには、ビルドとパッケージ化プロセスの動作、ビルド プロセスが Web 発行パイプラインと統合する方法、デプロイのパラメーターを変更する方法および変換先に web パッケージをデプロイする方法を含め、web アプリケーションのデプロイがについて説明します環境:
 
 - [Web アプリケーション プロジェクトのビルドとパッケージ化](building-and-packaging-web-application-projects.md)
-- [Web パッケージ展開のパラメーターを構成する](configuring-parameters-for-web-package-deployment.md)
-- [Web パッケージを展開する](deploying-web-packages.md)
+- [Web パッケージ配置のパラメーターを構成する](configuring-parameters-for-web-package-deployment.md)
+- [Web パッケージを配置する](deploying-web-packages.md)
 
 - [データベース プロジェクトの配置](deploying-database-projects.md)長所と短所のそれぞれの方法と、Visual Studio データベース プロジェクトを展開に使用できるさまざまな手法について説明します。 [作成と展開コマンド ファイルを実行している](creating-and-running-a-deployment-command-file.md)デプロイ ロジックをカプセル化し、1 つの手順として複雑なソリューションをデプロイすることができます簡単なコマンド ファイルを作成する方法について説明します。
 - 最後に、 [Web パッケージを手動でインストール](manually-installing-web-packages.md)で IIS に web パッケージをインポートすることを示すことによって、チュートリアルは終了します。

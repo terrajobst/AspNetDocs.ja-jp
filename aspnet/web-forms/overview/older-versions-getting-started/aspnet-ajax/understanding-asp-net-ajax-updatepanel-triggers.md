@@ -8,18 +8,18 @@ ms.date: 03/12/2008
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 9501a2e855bdffe8c9d85c0dd0d836f50935b306
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e3821eee8c7bf2c2f9b45ea75ade2bd5b3b8ef19
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025299"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406263"
 ---
-<a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel トリガーについて理解する
-====================
+# <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel トリガーについて理解する
+
 によって[Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
 > Visual Studio でのマークアップ エディターで作業しているときにお気付き (IntelliSense) から、UpdatePanel コントロールの 2 つの子要素があることです。 ページ (または 1 つを使用している場合、ユーザー コントロール) 上のコントロールを指定するトリガー要素は、その 1 つの要素が存在する UpdatePanel コントロールは、部分的なレンダリングがトリガーされます。
 
@@ -32,7 +32,7 @@ ms.locfileid: "57025299"
 
 このホワイト ペーパーでは、.NET Framework 3.5 のベータ 2 リリースと Visual Studio 2008 に基づきます。 ASP.NET AJAX の拡張機能であり、以前 ASP.NET 2.0 を対象としたアドオン アセンブリは .NET Framework 基本クラス ライブラリに統合されました。 このホワイト ペーパー Visual Studio 2008 のない Visual Web Developer Express で使用される (ただし、コードの一覧が完全な互換性に関係なくするには、Visual Studio のユーザー インターフェイスに従って概説はし、、も前提としています開発環境の場合)。
 
-## <a name="triggers"></a>*トリガー*
+## *<a name="triggers"></a>トリガー*
 
 既定では、特定の UpdatePanel のトリガーが自動的に (たとえば) を持つテキスト ボックス コントロールを含む、ポストバックを起動する子コントロールを含める、`AutoPostBack`プロパティに設定**true**します。 ただし、トリガー含めることもできます。 マークアップを使用して宣言内でこれは、 `<triggers>` UpdatePanel コントロールの宣言のセクション。 トリガーを使用してアクセスできますが、`Triggers`コレクション プロパティ、それが推奨されます (たとえば、デザイン時に、コントロールを使用できません) 場合は、実行時に、部分的なレンダリングのトリガーを登録することを使用して、`RegisterAsyncPostBackControl(Control)`のメソッド、内部オブジェクト、ページの ScriptManager、`Page_Load`イベント。 ページはステートレスで、これは再登録するこれらのコントロールが作成されるたびにことに注意してください。
 
@@ -40,7 +40,7 @@ ms.locfileid: "57025299"
 
 UpdatePanel コントロールは入れ子になったときに、UpdateMode 設定されている場合注意してください**条件付き**子 UpdatePanel がトリガーされますが、UpdatePanel が更新されます子のみが、親ではないの場合は、します。 ただし、親 UpdatePanel が更新された場合、子 UpdatePanel も更新されます。
 
-## <a name="the-lttriggersgt-element"></a>*&lt;トリガー&gt;要素*
+## *<a name="the-lttriggersgt-element"></a>&lt;トリガー&gt;要素*
 
 Visual Studio でのマークアップ エディターで作業しているときにすることがありますに注意してください (IntelliSense) から 2 つの子要素があることの`UpdatePanel`コントロール。 最も多く見要素は、`<ContentTemplate>`要素は、本質的に更新パネルによって保持されるコンテンツをカプセル化する (コンテンツの部分的なレンダリングを有効にします)。 その他の要素が、`<Triggers>`ページ (または 1 つを使用している場合、ユーザー コントロール) 上のコントロールを指定する、要素を UpdatePanel コントロールの部分的なレンダリングをトリガーする、&lt;トリガー&gt;要素が存在します。
 
@@ -50,7 +50,7 @@ Visual Studio でのマークアップ エディターで作業していると�
 
 同様に、`<asp:PostBackTrigger>`部分ページ レンダリング、トリガーが、サーバーへの完全なラウンドト リップが必要な要素を使用できます。 このトリガーの要素がコントロールは通常、部分ページ レンダリングがトリガーするそれ以外の場合と、完全なページ レンダリングを強制することもできます (時など、`Button`コントロールが、 `<ContentTemplate>` UpdatePanel コントロールの要素)。 ここでも、PostBackTrigger 要素は、カプセル化の現在の単位の UpdatePanel コントロールの子である任意のコントロールを指定できます。
 
-## <a name="lttriggersgt-element-reference"></a>*&lt;トリガー&gt;要素のリファレンス*
+## *<a name="lttriggersgt-element-reference"></a>&lt;トリガー&gt;要素のリファレンス*
 
 *マークアップの子孫。*
 
@@ -59,7 +59,7 @@ Visual Studio でのマークアップ エディターで作業していると�
 | &lt;asp:AsyncPostBackTrigger&gt; | コントロールと、部分ページ更新をこのトリガーの参照を含んでいる UpdatePanel の原因となるイベントを指定します。 |
 | &lt;asp:PostBackTrigger&gt; | コントロールと、完全なページ更新 (ページ全体の更新) が発生するイベントを指定します。 このタグは、コントロールは、部分的なレンダリングをトリガーするそれ以外の場合と、完全な更新を強制的に使用できます。 |
 
-## <a name="walkthrough-cross-updatepanel-triggers"></a>*チュートリアル: クロス UpdatePanel トリガー*
+## *<a name="walkthrough-cross-updatepanel-triggers"></a>チュートリアル: クロス UpdatePanel トリガー*
 
 1. Scriptmanager コントロール オブジェクトが部分的なレンダリングを有効にする設定で新しい ASP.NET ページを作成します。 最初のこのページに 2 つの Updatepanel を追加、ラベル コントロール (Label1) と 2 つのボタン コントロール (Button1 と Button2) が含まれます。 Button1 の両方を更新する をクリックする必要がありますと答えてし、Button2 する必要があります、または次のようなこれらの行を更新する をクリックします。 2 番目の UpdatePanel では、ラベル コントロール (Label2) のみを含めるを区別するために既定値以外に、前景色プロパティを設定します。
 2. 両方の UpdatePanel タグの UpdateMode プロパティを設定**条件付き**します。
@@ -82,7 +82,7 @@ Visual Studio でのマークアップ エディターで作業していると�
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))。
 
 
-## <a name="under-the-hood"></a>*内部的な処理*
+## *<a name="under-the-hood"></a>内部的には*
 
 作成したばかりの例を利用することができますを見ていきます、ASP.NET AJAX が行っている内容と、UpdatePanel クロス パネル トリガーの動作します。 FireBug - と呼ばれる、Mozilla Firefox 拡張機能と同様に、生成されたページのソース HTML、いたしますそのためには、AJAX ポストバックを簡単に確認できます。 また、Lutz Roeder の .NET Reflector ツールを使用します。 どちらのツールは、オンラインで自由に利用できると、インターネット検索で見つかんだことができます。
 
