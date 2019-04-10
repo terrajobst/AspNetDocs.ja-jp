@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 0b21852a1db2862a8452e332021b55ce7f1db423
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 65b77b016e02c2d9c8ff2b925b1567f26a6a05cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036319"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407914"
 ---
-<a name="choosing-the-right-approach-to-web-deployment"></a>適切な Web 配置手法を選択する
-====================
+# <a name="choosing-the-right-approach-to-web-deployment"></a>適切な Web 配置手法を選択する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) 2.0 以降を使用する場合は、3 つのアプローチを web サーバーにパッケージ化された web アプリケーションの取得に使用できます。 方法があります。
 > 
@@ -122,7 +122,7 @@ IIS 7 以降では、Web Deploy は、IIS Web 配置ハンドラーを別の展�
 
 
 > [!NOTE]
-> Web デプロイ コマンドライン操作と構文の詳細については、[Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)を参照してください。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
+> Web デプロイ コマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)します。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
 
 
 Web 配置ハンドラーは、ステージング環境、ホストされている環境、およびサーバーへのリモート アクセスがあるが管理者の資格情報が、イントラネット ベースの実稼働環境で展開するのに役立つアプローチを提供します。
@@ -143,9 +143,9 @@ Web 配置ハンドラーのアプローチを使用するシナリオのエン�
 
 ## <a name="further-reading"></a>関連項目
 
-Web デプロイ コマンドライン操作と構文の詳細については、[Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)を参照してください。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
+Web デプロイ コマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)します。 使用しての詳細については、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
 
-リモート コンピューターから web パッケージをデプロイするさまざまな方法に関する一般的なガイダンスについては、[を使用して Web デプロイ リモート](https://technet.microsoft.com/library/ee461175(WS.10).aspx)を参照してください。 オンデマンドで Web デプロイの使用に関する詳細については、[オンデマンドで Web デプロイ](https://technet.microsoft.com/library/ee517345(WS.10).aspx)を参照してください。
+リモート コンピューターから web パッケージをデプロイするさまざまな方法に関する一般的なガイダンスについては、次を参照してください。[を使用して Web デプロイ リモート](https://technet.microsoft.com/library/ee461175(WS.10).aspx)します。 オンデマンドで Web デプロイの使用に関する詳細については、次を参照してください。[オンデマンドで Web デプロイ](https://technet.microsoft.com/library/ee517345(WS.10).aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-server-environments-for-web-deployment.md)

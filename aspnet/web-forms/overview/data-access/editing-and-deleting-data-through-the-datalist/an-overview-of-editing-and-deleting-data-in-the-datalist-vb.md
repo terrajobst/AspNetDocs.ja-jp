@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: 9410a23c-9697-4f07-bd71-e62b0ceac655
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b1c7834e67f7682f82ecd0b2b5140260d104aecc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4bea4e70dd0c06fbcb0374d1c6a869c06d7e68b7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035789"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387946"
 ---
-<a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>DataList (VB) でのデータ編集と削除の概要
-====================
+# <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>DataList (VB) でのデータ編集と削除の概要
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_36_VB.exe)または[PDF のダウンロード](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/datatutorial36vb1.pdf)
@@ -59,7 +59,7 @@ ms.locfileid: "57035789"
 などの他のフォルダーで`Default.aspx`で、`EditDeleteDataList`フォルダーは、そのセクションでは、チュートリアルを一覧表示されます。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image2.png)
+[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image2.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image4.png))。
 
@@ -107,12 +107,12 @@ GridView でのデータ編集と削除は、GridView と ObjectDataSource が�
 開いて開始、`Basics.aspx`ページで、`EditDeleteDataList`フォルダーと、デザイン ビューでは、DataList をページに追加します。 次に、DataList s のスマート タグから新しい ObjectDataSource を作成します。 製品データを使用して、構成を使用するよう、`ProductsBLL`クラス。 取得する*すべて*、製品の選択、`GetProducts()`メソッドで、[選択] タブ。
 
 
-[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image6.png)
+[![C構成、ObjectDataSource ProductsBLL クラスを使用する](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image6.png)
 
 **図 4**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image8.png))。
 
 
-[![GetProducts() メソッドを使用して、製品情報を返す](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image9.png)
+[![Return GetProducts() メソッドを使用して、製品情報](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image9.png)
 
 **図 5**:使用して、製品情報を返す、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image11.png))。
 
@@ -120,7 +120,7 @@ GridView でのデータ編集と削除は、GridView と ObjectDataSource が�
 など、GridView、DataList はいない新しいデータを挿入するために設計されていますこのため、挿入 タブで、ドロップダウン リストからオプション (なし)。(なし) の UPDATE および DELETE の各タブのため、更新および削除は、BLL を介してプログラムで実行されます。
 
 
-[![ObjectDataSource の挿入でドロップダウン リストを一覧表示、更新、およびタブの削除 (None) に設定されていることを確認します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image12.png)
+[![Confirm ObjectDataSource 秒で、ドロップダウン リストを挿入、更新、および削除のタブは (None) に設定](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image12.png)
 
 **図 6**:ObjectDataSource の INSERT、UPDATE、および削除のタブで、ドロップダウン リストは、(なし) に設定されていることを確認します ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image14.png))。
 
@@ -139,7 +139,7 @@ DataList の既定値に置き換えた後`ItemTemplate`をカスタマイズし
 ブラウザーから進行状況を表示する時間がかかります。 図 7 に示すよう、DataList では、2 つの列の各製品の製品名および単価が表示されます。
 
 
-[![2 つの列 DataList で製品名と価格の表示します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image15.png)
+[![T2 つの列 DataList では、彼は製品の名前と価格が表示されます](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image15.png)
 
 **図 7**:製品の名前と価格は、2 つの列 DataList に表示されます ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image17.png))。
 
@@ -147,7 +147,7 @@ DataList の既定値に置き換えた後`ItemTemplate`をカスタマイズし
 > [!NOTE]
 > DataList は、多数の更新および削除のプロセスに必要なプロパティと、これらの値は、ビュー ステートに格納されます。 そのため、編集またはデータの削除をサポート DataList を構築することが DataList s のビューステートが有効にすることが重要です。  
 >   
->  鋭い読者なら、可能性があることが編集可能な Gridview、DetailsViews、および FormViews を作成するときに、ビュー ステートを無効にすることを思い出してください。 ASP.NET 2.0 Web コントロールを含めることができますので、これは*状態コントロール*、ビュー ステートがみなし essential のようなポストバック間で永続化状態。
+> 鋭い読者なら、可能性があることが編集可能な Gridview、DetailsViews、および FormViews を作成するときに、ビュー ステートを無効にすることを思い出してください。 ASP.NET 2.0 Web コントロールを含めることができますので、これは*状態コントロール*、ビュー ステートがみなし essential のようなポストバック間で永続化状態。
 
 
 無効にするだけで、GridView での状態は、単純な状態情報が省略されますが (を編集および削除するために必要な状態を含む) コントロールの状態を維持します。 ASP.NET 1.x タイム フレームで作成されている、DataList コントロールの状態は使用されませんし、したがって、ビュー ステートを有効になっている必要があります。 参照してください[コントロールの状態とします。ビュー ステート](https://msdn.microsoft.com/library/1whwt1k7.aspx)コントロールの状態とビュー ステートとは異なる方法の詳細については、目的の。
@@ -161,7 +161,7 @@ DataList では、その一方で、テンプレートを使用してそのア�
 `EditItemTemplate` (DataList s のスマート タグからのテンプレートの編集 オプションを選択) を宣言的またはデザイナーのいずれかに作成できます。 テンプレートの編集オプションを使用して、まず、スマート タグのテンプレートの編集リンクをクリックし、、`EditItemTemplate`ドロップダウン リストから項目。
 
 
-[![DataList s の後で作業することを選択します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image18.png)
+[![ODataList の後に連携する pt](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image18.png)
 
 **図 8**:DataList s で作業することを選択`EditItemTemplate`([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image20.png))。
 
@@ -169,7 +169,7 @@ DataList では、その一方で、テンプレートを使用してそのア�
 次に、製品名を入力: と価格: ツールボックスから 2 つのテキスト ボックス コントロールをドラッグし、`EditItemTemplate`デザイナー上のインターフェイス。 テキスト ボックスの設定`ID`プロパティ`ProductName`と`UnitPrice`します。
 
 
-[![製品の名前と価格のテキスト ボックスを追加します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image21.png)
+[![Add、製品名と価格のテキスト ボックス](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image21.png)
 
 **図 9**:価格、製品名のテキスト ボックスを追加 ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image23.png))。
 
@@ -198,7 +198,7 @@ DataList では、その一方で、テンプレートを使用してそのア�
 追加、 `EditItemTemplate` 2 つのボタンの Web コントロール、1 つ持つ`CommandName`Update と他の設定を [キャンセル] に設定されています。 これら 2 つのボタンの Web コントロールを追加した後、デザイナーに、次のようになります。
 
 
-[![更新プログラムを追加し、キャンセル、後にボタン](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image25.png)
+[![Add 更新と、後にキャンセル ボタン](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image25.png)
 
 **図 11**:更新とキャンセル ボタンを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image27.png))。
 
@@ -215,7 +215,7 @@ DataList では、その一方で、テンプレートを使用してそのア�
 この編集 ボタンを追加した後、ブラウザーでページを表示するみましょう。 これにより、各製品の一覧は、[編集] ボタンを含める必要があります。
 
 
-[![更新プログラムを追加し、キャンセル、後にボタン](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image28.png)
+[![Add 更新と、後にキャンセル ボタン](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image28.png)
 
 **図 12**:更新とキャンセル ボタンを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image30.png))。
 
@@ -235,7 +235,7 @@ DataList s 以降`EditCommand`イベント編集ボタンがクリックされ�
 このイベント ハンドラーを追加した後、ブラウザーでページを再検討します。 [編集] ボタンをクリックすると、今すぐでは、製品のクリックされた編集可能な (図 13 参照)。
 
 
-[![編集ボタンが編集可能な製品をクリックします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image31.png)
+[![Cクリックしてボタンの編集が製品の編集](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image31.png)
 
 **図 13**:製品編集可能で、[編集] をクリックすると、([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image33.png))。
 
@@ -283,17 +283,17 @@ DataList のすべての読み取り専用モードでは、その項目を表�
 `EditCommand`、 `CancelCommand`、および`UpdateCommand`イベント ハンドラーの完了、訪問者には、製品の価格と名前を編集できます。 図 14-16 は、アクションのこの編集ワークフローを表示します。
 
 
-[![ページにアクセスして、すべての製品は読み取り専用モードで](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image34.png)
+[![Wページでは、すべての製品にアクセスして hen は読み取り専用モード](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image34.png)
 
 **図 14**:すべての製品が読み取り専用モードでは、ページを最初にアクセスして、ときに ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image36.png))。
 
 
-[![製品名の価格を更新するには、[編集] ボタンをクリックします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image37.png)
+[![Ts の製品名または価格、更新は、編集ボタンをクリックして](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image37.png)
 
 **図 15**:製品名または価格を更新するには、[編集] ボタンをクリックします ([フルサイズの画像を表示する をクリックします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image39.png))。
 
 
-[![値を変更した後、読み取り専用モードに戻るに更新 をクリックして](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image40.png)
+[![A読み取り専用モードに戻るの更新プログラムをクリックして、値の変更後に中断しました](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image40.png)
 
 **図 16**:読み取り専用モードに戻るの更新プログラムをクリックして、値を変更した後 ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image42.png))。
 

@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b863cb0045fcec202931148bff5befa7ed62db4d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6aee7a07402e407b4c7b0bcd7a5e926955bf96b1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424145"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410735"
 ---
-<a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>ユーザー コントロールと JavaScript で DynamicPopulate を使用する (VB)
-====================
+# <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>ユーザー コントロールと JavaScript で DynamicPopulate を使用する (VB)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2VB.pdf)
@@ -67,7 +67,7 @@ A &lt; `label` &gt;要素を使用して、サーバーから取得したデー�
 以上です。 ページに期待どおりに動作します。ユーザーがラジオ ボタンの 1 つクリックする、Toolkit でコントロールが web サービスを呼び出すし、目的の形式で、現在の日付を表示します。
 
 
-[![ラジオ ボタンがユーザー コントロール内に存在します。](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
+[![T彼のラジオ ボタンは、ユーザー コントロール内に存在](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
 
 ユーザー コントロールでオプション ボタンが存在する ([フルサイズの画像を表示する をクリックします](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image3.png))。
 

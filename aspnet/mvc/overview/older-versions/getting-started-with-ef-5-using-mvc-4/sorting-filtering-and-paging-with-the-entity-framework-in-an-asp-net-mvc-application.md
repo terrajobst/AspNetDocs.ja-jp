@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: afd1551d72fa3a5b925d7499c86731db4b6f0b61
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 4220327388703b773011921bb206976b04b07e34
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422013"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397904"
 ---
-<a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>並べ替え、フィルター処理、および ASP.NET MVC アプリケーション (3/10) で Entity Framework でのページング
-====================
+# <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>並べ替え、フィルター処理、および ASP.NET MVC アプリケーション (3/10) で Entity Framework でのページング
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -191,7 +191,7 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 
-`PagedListPager`ヘルパーはさまざまな Url を含むおよびスタイル設定、カスタマイズ可能なオプションを提供します。 詳細については、[TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) 、GitHub サイトでを参照してください。
+`PagedListPager`ヘルパーはさまざまな Url を含むおよびスタイル設定、カスタマイズ可能なオプションを提供します。 詳細については、次を参照してください。 [TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) 、GitHub サイトでします。
 
 ページを実行します。
 
@@ -259,7 +259,7 @@ Visual Studio は行いませんデータベースで何か、展開プロセス
 
 ### <a name="get-a-windows-azure-account"></a>Windows Azure アカウントを取得します。
 
-Windows Azure アカウントが必要があります。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、[Windows Azure の無料試用版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)を参照してください。
+Windows Azure アカウントが必要があります。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Windows Azure の無料試用版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。
 
 ### <a name="create-a-web-site-and-a-sql-database-in-windows-azure"></a>Windows Azure での web サイトと SQL database を作成します。
 
@@ -377,7 +377,7 @@ Windows Azure SQL Database とは、SQL Server テクノロジに基づいて構
 デプロイされたバージョンので、自分のコンピューター上の Web.config ファイルを検索する*ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*します。デプロイされているアクセスできる*Web.config* FTP を使用してファイル自体。 手順については、次を参照してください。 [Visual Studio を使用して ASP.NET Web 展開。コードの更新を展開する](../../../../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md)します。 始まる手順"、FTP ツールを使用するには、するには、次の 3 つが必要です: FTP の URL、ユーザー名、およびパスワード。"。
 
 > [!NOTE]
-> Web アプリの URL を見つけた他のユーザー データを変更できるように、セキュリティを実装しません。 Web サイトをセキュリティで保護する方法の詳細については、[メンバーシップ、OAuth、SQL Database を使用した安全な ASP.NET MVC アプリを Windows Azure の Web サイトにデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)を参照してください。 他の人が、Windows Azure 管理ポータルを使用して、サイトを使用するようにまたは**サーバー エクスプ ローラー** Visual Studio で、サイトを停止します。
+> Web アプリの URL を見つけた他のユーザー データを変更できるように、セキュリティを実装しません。 Web サイトをセキュリティで保護する方法の詳細については、次を参照してください。[メンバーシップ、OAuth、SQL Database を使用した安全な ASP.NET MVC アプリを Windows Azure の Web サイトにデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)します。 他の人が、Windows Azure 管理ポータルを使用して、サイトを使用するようにまたは**サーバー エクスプ ローラー** Visual Studio で、サイトを停止します。
 
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image35.png)

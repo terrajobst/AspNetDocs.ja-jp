@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: a4f4bf4e-abcc-4650-8f43-527e48b52fe6
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0a0b6b706fdb212a745346ffaefc118e85c2a245
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5d8a40b03a1997904a2736a339dbf6b4003ae7bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410644"
 ---
-<a name="creating-a-custom-route-constraint-c"></a>カスタム ルート制約を作成する (C#)
-====================
+# <a name="creating-a-custom-route-constraint-c"></a>カスタム ルート制約を作成する (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther では、カスタム ルート制約を作成する方法を示します。 ルートがリモート コンピューターからブラウザーの要求が行われたときに一致することを防止する単純なカスタム制約を実装します。

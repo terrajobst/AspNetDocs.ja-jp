@@ -8,20 +8,20 @@ ms.date: 02/15/2013
 ms.assetid: ec1cec4c-a75f-47af-a2ba-b1e2f971d24b
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 85b2aa982c56f030c2de0f3ac2ad0dca780f3f38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 464146bc8af5cf978902a3e634398ed3f8d15404
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57051649"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400049"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio を使用して ASP.NET Web の展開:プロジェクトのプロパティ
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio を使用して ASP.NET Web の展開:プロジェクトのプロパティ
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 ## <a name="overview"></a>概要
@@ -42,7 +42,7 @@ ms.locfileid: "57051649"
 
 **アクティブ (リリース)** または**リリース**リリースのビルド構成を使用して展開するときに有効な値を表示、選択しました。
 
-- **配置する項目**ボックスで、**アプリケーションの実行に必要なファイルのみ**が選択されています。 その他のオプションは**このプロジェクト内のすべてのファイル**または**このプロジェクト フォルダー内のすべてのファイル**します。 既定の選択をそのままにすることではたとえば、ソース コード ファイルを展開しないでください。 この設定は、SQL Server Compact のバイナリ ファイルを含むフォルダーがプロジェクトに含まれるがなぜ理由です。 この設定の詳細については、**理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx)を参照してください。
+- **配置する項目**ボックスで、**アプリケーションの実行に必要なファイルのみ**が選択されています。 その他のオプションは**このプロジェクト内のすべてのファイル**または**このプロジェクト フォルダー内のすべてのファイル**します。 既定の選択をそのままにすることではたとえば、ソース コード ファイルを展開しないでください。 この設定は、SQL Server Compact のバイナリ ファイルを含むフォルダーがプロジェクトに含まれるがなぜ理由です。 この設定の詳細については、次を参照してください。**理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx)します。
 - **デバッグ シンボルの生成を除外する**が選択されています。 このビルド構成を使用する場合にデバッグはありません。
 - **SQL のパッケージ化/発行 タブで構成されているデータベースをすべて含める**が選択されています。 データベースだけでなく、ファイル、Visual Studio を展開するかどうかを指定します。 チェック ボックスのラベルのみに記載されているが、**パッケージ化/発行 SQL**  タブで、このチェック ボックスをオフにするとは無効にも発行プロファイルで構成されているデータベースの配置。 作業を後で、チェック ボックスを選択されたままにする必要がありますので。 **パッケージ化/発行 SQL**  タブはこれらのチュートリアルで使用しないメソッドを公開する従来のデータベースを使用します。
 - **Web 展開パッケージの設定**セクションは 1 回のクリックを使用しているためには適用されませんこれらのチュートリアルで発行します。

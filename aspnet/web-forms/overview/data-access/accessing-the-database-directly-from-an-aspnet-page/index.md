@@ -8,23 +8,23 @@ ms.date: 10/05/2011
 ms.assetid: 134a202f-4eef-41fc-8e91-70efba338389
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page
 msc.type: chapter
-ms.openlocfilehash: 6836b02937ebdf3110390260633317e2d3fef43a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9558d4131205b3d696f8ce70476ff575fbccf20e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57018609"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407693"
 ---
-<a name="accessing-the-database-directly-from-an-aspnet-page"></a>ASP.NET ページからデータベースに直接アクセスする
-====================
+# <a name="accessing-the-database-directly-from-an-aspnet-page"></a>ASP.NET ページからデータベースに直接アクセスする
+
 > これらのチュートリアルでは、SqlDataSource コントロールを使用して、プレゼンテーション層とデータ アクセス層の厳密な分離が不要な場合は、データベースを直接照会する方法を説明します。
 
 
 - [SqlDataSource コントロールでデータにクエリを実行する (C#)](querying-data-with-the-sqldatasource-control-cs.md)
 - [パラメーター化されたクエリと SqlDataSource を使用する (C#)](using-parameterized-queries-with-the-sqldatasource-cs.md)
 - [SqlDataSource でデータを挿入、更新、削除する (C#)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
-- [SqlDataSource でオプティミスティック コンカレンシーを実装する (C#)](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+- [SqlDataSource でオプティミスティック同時実行制御を実装する (C#)](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
 - [SqlDataSource コントロールでデータにクエリを実行する (VB)](querying-data-with-the-sqldatasource-control-vb.md)
 - [パラメーター化されたクエリと SqlDataSource を使用する (VB)](using-parameterized-queries-with-the-sqldatasource-vb.md)
 - [SqlDataSource でデータを挿入、更新、削除する (VB)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
-- [SqlDataSource でオプティミスティック コンカレンシーを実装する (VB)](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+- [SqlDataSource でオプティミスティック同時実行制御を実装する (VB)](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)

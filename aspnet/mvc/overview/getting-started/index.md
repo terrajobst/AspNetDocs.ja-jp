@@ -8,25 +8,25 @@ ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f588af70f3928285274ef6bf14f58697190943ff
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57021759"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405821"
 ---
-<a name="aspnet-mvc-getting-started"></a>ASP.NET MVC の概要
-====================
+# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC の概要
+
 > 次のガイダンスには、ASP.NET MVC を通知し、開始する方法を示しますがについて説明します。
 
 
 - [ASP.NET MVC 5 の概要](introduction/index.md)
 
-    - [はじめに](introduction/getting-started.md)
-    - [コントローラーの追加](introduction/adding-a-controller.md)
+    - [作業の開始](introduction/getting-started.md)
+    - [コントローラーを追加する](introduction/adding-a-controller.md)
     - [ビューの追加](introduction/adding-a-view.md)
     - [モデルの追加](introduction/adding-a-model.md)
-    - [接続文字列を作成し、SQL Server LocalDB を使用する](introduction/creating-a-connection-string.md)
+    - [接続文字列の作成と SQL Server LocalDB の使用](introduction/creating-a-connection-string.md)
     - [コントローラーからモデルのデータにアクセスする](introduction/accessing-your-models-data-from-a-controller.md)
     - [Edit メソッドと Edit ビューの確認](introduction/examining-the-edit-methods-and-edit-view.md)
     - [検索の追加](introduction/adding-search.md)
@@ -38,8 +38,8 @@ ms.locfileid: "57021759"
     - [Entity Framework データ モデルを作成する](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
     - [基本 CRUD 機能を実装する](getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
     - [並べ替え、フィルター処理、ページング](getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [接続復元性とコマンド傍受](getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [Code First Migrations と展開](getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [接続回復性とコマンド傍受](getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [Code First Migrations と配置](getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
     - [より複雑なデータ モデルを作成する](getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
     - [関連データの読み取り](getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
     - [関連データの更新](getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
@@ -50,11 +50,11 @@ ms.locfileid: "57021759"
 - [EF Database First と ASP.NET MVC](database-first-development/index.md)
 
     - [Entity Framework 6 Database First と MVC 5 の使用の概要](database-first-development/setting-up-database.md)
-    - [Web アプリケーションとデータ モデルを作成する](database-first-development/creating-the-web-application.md)
+    - [Web アプリとデータ モデルを作成する](database-first-development/creating-the-web-application.md)
     - [ビューの生成](database-first-development/generating-views.md)
     - [データベースの変更](database-first-development/changing-the-database.md)
     - [ビューのカスタマイズ](database-first-development/customizing-a-view.md)
-    - [データ検証の拡張](database-first-development/enhancing-data-validation.md)
+    - [データの入力規則の拡張](database-first-development/enhancing-data-validation.md)
 - [ASP.NET MVC 5 アプリケーションのライフサイクル](lifecycle-of-an-aspnet-mvc-5-application.md)
 - [MVC 推奨リソース](recommended-resources-for-mvc.md)
 - [MVC 推奨チュートリアルと推奨記事](mvc-learning-sequence.md)

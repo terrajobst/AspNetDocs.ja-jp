@@ -8,18 +8,18 @@ ms.date: 10/16/2008
 ms.assetid: e83812f2-c53e-4a43-a7c1-d64c59ecf694
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0116306afdf21cb24a374013bb54ada54e5699ea
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bbedc11b9b1225b1047350c1c84a116ecef0c380
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036299"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407407"
 ---
-<a name="understanding-action-filters-vb"></a>アクション フィルターについて理解する (VB)
-====================
+# <a name="understanding-action-filters-vb"></a>アクション フィルターについて理解する (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_VB.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_VB.pdf)
 
 > このチュートリアルの目的では、アクション フィルターについて説明します。 アクション フィルターは、コント ローラーのアクションまたは全体コント ローラー--アクションを実行する方法を変更するに適用できる属性です。
 
@@ -49,7 +49,7 @@ ms.locfileid: "57036299"
 繰り返しを起動する場合、`Index()`お使いのブラウザーのアドレス バーに URL データ/インデックスを入力して、更新操作ボタンを複数回同時には 10 秒間表示されます。 出力、`Index()`アクションが (図 1 参照)、10 秒間キャッシュされます。
 
 
-[![キャッシュされる時間](understanding-action-filters-vb/_static/image2.png)](understanding-action-filters-vb/_static/image1.png)
+[![C変更時刻](understanding-action-filters-vb/_static/image2.png)](understanding-action-filters-vb/_static/image1.png)
 
 **図 01**:時間のキャッシュ ([フルサイズの画像を表示する をクリックします](understanding-action-filters-vb/_static/image3.png))。
 
@@ -107,7 +107,7 @@ ASP.NET MVC フレームワークには、次の 4 つの異なる種類のフ�
 リストの 2 で、 `OnActionExecuting()`、 `OnActionExecuted()`、 `OnResultExecuting()`、および`OnResultExecuted()`すべてのメソッドを呼び出す、`Log()`メソッド。 メソッドと現在のルート データの名前に渡される、`Log()`メソッド。 `Log()`メソッドは、Visual Studio の出力ウィンドウにメッセージを書き込みます (図 2 参照)。
 
 
-[![Visual Studio の出力ウィンドウへの書き込み](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
+[![WVisual Studio の出力ウィンドウに riting](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
 
 **図 02**:Visual Studio の出力ウィンドウへの書き込み ([フルサイズの画像を表示する をクリックします](understanding-action-filters-vb/_static/image6.png))。
 

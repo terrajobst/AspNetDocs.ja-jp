@@ -8,15 +8,15 @@ ms.date: 03/27/2007
 ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8849f8f279dde883a71fb3ba1678a589f2e321eb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 02fbd3ca162309aefbefdba9a453af6e55b3900b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382746"
 ---
-<a name="uploading-files-c"></a>ファイルのアップロード (C#)
-====================
+# <a name="uploading-files-c"></a>ファイルのアップロード (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe)または[PDF のダウンロード](uploading-files-cs/_static/datatutorial54cs1.pdf)
@@ -53,7 +53,7 @@ ms.locfileid: "57038849"
 などの他のフォルダーで`Default.aspx`で、`BinaryData`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
+[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image2.png))。
 
@@ -76,7 +76,7 @@ ms.locfileid: "57038849"
 2 つの場所のいずれかで、アプリケーションのデータ モデルに関連付けられているバイナリ データを格納できますデータベースに格納されているファイルへの参照で web サーバーのファイル システム上。または、データベース自体内で直接 (図 4 参照)。 それぞれのアプローチは、独自の長所と短所のセットを備え、効率的に詳細な議論について。
 
 
-[![ファイル システム上またはデータベースで直接、バイナリ データを格納することができます。](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
+[![Bファイル システム上または直接データベースにデータを格納できる inary](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
 
 **図 4**:ファイル システム上またはデータベースで直接、バイナリ データを格納することができます ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image4.png))。
 
@@ -110,7 +110,7 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 新しい追加`varchar(200)`列を`Categories`という名前のテーブル`BrochurePath`でき、 `NULL` s と保存 アイコンをクリックします (または Ctrl + S をヒット)。
 
 
-[![Categories テーブルに BrochurePath 列を追加します。](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
+[![Add BrochurePath Categories テーブル列](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
 
 **図 5**:追加、`BrochurePath`列を`Categories`テーブル ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image6.png))。
 
@@ -132,7 +132,7 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 これら 2 つの列を追加して、開始、`CategoriesDataTable`します。 右クリックし、`CategoriesDataTable`ヘッダー、コンテキスト メニューの 追加とし、列のオプションを選択します。 これは、新しい作成`DataColumn`という名前の DataTable に`Column1`します。 この列の名前を変更`Picture`します。 [プロパティ] ウィンドウから次のように設定します。、 `DataColumn` s`DataType`プロパティを`System.Byte[]`(これは、ドロップダウン リストで、オプションではありません) も入力する必要があります。
 
 
-[![データ型を持つが system.byte[] DataColumn という名前の画像を作成します。](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![Cデータ型を持つ System.Byte [] は、DataColumn という名前の画像の作成(uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
 **図 6**:作成、`DataColumn`名前付き`Picture`が`DataType`は`System.Byte[]`([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image8.png))。
 
@@ -146,7 +146,7 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 TableAdapter のメインのクエリを更新するを右クリックし、`CategoriesTableAdapter`のヘッダー、コンテキスト メニューから、構成オプションを選択します。 私たちのテーブル アダプター構成ウィザードが起動さまざまな過去のチュートリアルで確認したところです。 更新に戻すクエリ、 `BrochurePath` [完了] をクリックします。
 
 
-[![更新プログラムも BrochurePath を返す SELECT ステートメントで列リスト](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+[![U返す BrochurePath に SELECT ステートメントで列リストを更新する](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
 
 **図 7**:列リストを更新、`SELECT`ステートメントを返すことも`BrochurePath`([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image10.png))。
 
@@ -159,12 +159,12 @@ Tableadapter をアドホック SQL ステートメントを使用する場合�
 特定のカテゴリ s を返す新しい TableAdapter メソッドを次に、作成`Picture`列の値。 右クリックし、`CategoriesTableAdapter`のヘッダー、TableAdapter クエリ構成ウィザードを起動するクエリの追加オプションを選択します。 このウィザードの最初の手順は、アドホック SQL ステートメントを使用してデータをクエリする場合、新しいストアド プロシージャ、または、既存ことを確認します。 SQL ステートメントを使用を選択し、[次へ] をクリックします。 以降の行を返すことを 2 番目の手順からオプションの行を返す SELECT を選択します。
 
 
-[![SQL ステートメントのオプションを選択します。](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
+[![SSQL ステートメントのオプションを選択](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
 
 **図 8**:SQL ステートメントのオプションを選択します ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image12.png))。
 
 
-[![行を返すので、クエリでは、Categories テーブルからレコードを返すは、選択を選択します](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
+[![Since クエリは複数行を返す選択選択、Categories テーブルからレコードを返す](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
 
 **図 9**:複数行を返す選択選択、Categories テーブルからレコードが返されますので ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image14.png))。
 
@@ -177,7 +177,7 @@ Tableadapter をアドホック SQL ステートメントを使用する場合�
 最後の手順では、新しいメソッドの名前を選択します。 使用`FillCategoryWithBinaryDataByCategoryID`と`GetCategoryWithBinaryDataByCategoryID`塗りつぶし DataTable 戻って DataTable パターン、それぞれします。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![TableAdapter のメソッドの名前を選択します。](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
+[![Ctableadapter のメソッドの名前を選択する](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
 
 **図 10**:Tableadapter のメソッドの名前を選択 ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image16.png))。
 
@@ -212,7 +212,7 @@ ASP.NET 2.0 の新[FileUpload Web コントロール](https://msdn.microsoft.com
 ファイルのアップロードを示すためには、開く、`FileUpload.aspx`ページで、`BinaryData`フォルダー、FileUpload コントロールをツールボックスからデザイナーにドラッグおよび s コントロール設定`ID`プロパティを`UploadTest`します。 設定ボタン Web コントロールを次に、追加の`ID`と`Text`プロパティを`UploadButton`し、それぞれ、選択したファイルをアップロードします。 最後に、クリアします、ボタンの下にラベル Web コントロールを配置、`Text`プロパティとその`ID`プロパティを`UploadDetails`します。
 
 
-[![FileUpload コントロールを ASP.NET ページに追加します。](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
+[![Add、FileUpload コントロールを ASP.NET ページ](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
 
 **図 12**:FileUpload コントロールを ASP.NET ページに追加 ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image18.png))。
 
@@ -220,7 +220,7 @@ ASP.NET 2.0 の新[FileUpload Web コントロール](https://msdn.microsoft.com
 図 13 は、ブラウザーで表示した場合は、このページを示します。 ユーザーが自分のコンピューターからファイルを選択できるファイルの選択 ダイアログ ボックスを表示、参照ボタンをクリックするとに注意してください。 ファイルを選択すると、選択したファイルのアップロード ボタンをクリックしてにより選択したファイルのバイナリ コンテンツを web サーバーに送信するポストバックが発生します。
 
 
-[![ユーザーが自分のコンピューターからサーバーにアップロードするファイルを選択できます。](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
+[![Tアップロードするファイルを選択彼のユーザーには、コンピューターをサーバーから](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
 
 **図 13**:ユーザーは自分のコンピューターをサーバーからアップロードするファイルを選択することができます ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image20.png))。
 
@@ -241,7 +241,7 @@ FileUpload s`SaveAs(filePath)`を指定したアップロードされたファ�
 完了した後、`Click`イベント ハンドラーでは、ブラウザーでページをテストする少し。 [参照] ボタンをクリックして、ハード ドライブからファイルを選択し、選択したファイルのアップロード ボタンをクリックします。 ポストバックに保存する前に、ファイルに関する情報が表示される web サーバーに、選択したファイルの内容を送り、`~/Brochures`フォルダー。 ファイルをアップロードした後は、Visual Studio に戻り、ソリューション エクスプ ローラーで [更新] ボタンをクリックします。 ~/Brochures フォルダーにアップロードしたファイルが表示する必要があります。
 
 
-[![Web サーバーにアップロードされたファイル EvolutionValley.jpg](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
+[![T彼はファイル EvolutionValley.jpg が Web サーバーにアップロードされました](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
 
 **図 14**:ファイル`EvolutionValley.jpg`Web サーバーにアップロードされました ([フルサイズの画像を表示する をクリックします](uploading-files-cs/_static/image22.png))。
 
@@ -277,7 +277,7 @@ FileUpload コントロールは、大きなファイルのアップロードの
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [大きな値データ型の使用](https://msdn.microsoft.com/library/ms178158.aspx)
+- [大きな値のデータ型の使用](https://msdn.microsoft.com/library/ms178158.aspx)
 - [FileUpload コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
 - [ASP.NET 2.0 の FileUpload サーバー コントロール](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [ファイルをアップロードします。](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)

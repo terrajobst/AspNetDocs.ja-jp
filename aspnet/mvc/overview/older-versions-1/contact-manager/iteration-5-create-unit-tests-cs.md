@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
-title: '繰り返し #5 – 単体テストを作成 (C#) |Microsoft Docs'
+title: '繰り返し #5 – 単体テストを作成 (c#) |Microsoft Docs'
 author: microsoft
 description: 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスをモックして o の単体テストをビルドしています.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 28ad8f80-b8a5-444e-b478-8b15a846060c
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b2e96c996905bc73698d1c0b11df97d1dd366172
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 68080859e205283f56d8f543bfa06b76bb22a39d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422169"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408863"
 ---
-<a name="iteration-5--create-unit-tests-c"></a>繰り返し #5 – 単体テストの作成 (C#)
-====================
+# <a name="iteration-5--create-unit-tests-c"></a>繰り返し #5 – 単体テストの作成 (c#)
+
 によって[Microsoft](https://github.com/microsoft)
 
 [コードをダウンロードします。](iteration-5-create-unit-tests-cs/_static/contactmanager_5_cs1.zip)
@@ -24,7 +24,7 @@ ms.locfileid: "58422169"
 > 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスの模擬テストを実行し、コント ローラーと検証ロジックの単体テストをビルドします。
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (C#) の構築
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。
 
@@ -117,12 +117,12 @@ Moq を使用するには、次の手順を完了する必要があります。
 5. 次の手順を完了すると、図 2 よう、[参照] フォルダーになります。
 
 
-[![Moq のブロック解除](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
+[![Unblocking Moq](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
 
 **図 01**:ブロック解除 Moq ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image2.png))。
 
 
-[![Moq を追加した後の参照](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
+[![RMoq を追加した後 eferences](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
 
 **図 02**:Moq を追加した後の参照 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image4.png))。
 
@@ -185,7 +185,7 @@ ContactManagerService クラスのインスタンスを作成するときに、�
 リスト 1 で単体テストを実行するには、メニュー オプションを選択して**ソリューション (CTRL + R、A) ですべてのテストを実行します。 テスト**します。 テスト結果 ウィンドウで、テストの結果が表示されます (図 4 参照)。
 
 
-[![テスト結果](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
+[![T東部標準時の結果](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
 
 **図 04**:テスト結果 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image8.png))。
 

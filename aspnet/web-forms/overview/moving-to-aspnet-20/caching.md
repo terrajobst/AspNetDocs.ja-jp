@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 5c97464ee50291338a80120a86b1b86b07bc672d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57032929"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400205"
 ---
-<a name="caching"></a>キャッシュ
-====================
+# <a name="caching"></a>キャッシュ
+
 によって[Microsoft](https://github.com/microsoft)
 
 > キャッシュの理解は、優れた ASP.NET アプリケーションにとって重要です。 ASP.NET 1.x には、3 つの異なるキャッシュ オプションが提供されています出力キャッシュ、フラグメント キャッシュ、および、キャッシュ API。
@@ -56,7 +56,7 @@ ASP.NET 1.x の開発者向けのカスタム キャッシュ依存関係は、�
 
 キャッシュ キーとして機能する項目のキーが、キャッシュ キーの配列に追加された値と同じでなければならないことに注意してください。
 
-## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>SQL キャッシュ依存関係のポーリングに基づいた<em>(テーブル ベースの依存関係とも呼ばれます)</em>
+## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>ポーリング ベースの SQL キャッシュ Dependencies(Also called Table-Based Dependencies)
 
 SQL Server 7、2000、SQL キャッシュ依存関係のポーリングに基づいたモデルを使用します。 ポーリング ベースのモデルでは、テーブル内のデータを変更するときにトリガーされるデータベース テーブルにトリガーを使用します。 更新プログラムのトリガーとなる、 **changeId** ASP.NET を定期的にチェックする通知テーブルのフィールド。 場合、 **changeId**フィールドが更新されましたが、ASP.NET を知っている、データが変更され、キャッシュされたデータは無効になります。
 
@@ -213,7 +213,7 @@ ASP.NET 2.0 でのキャッシュの構成にいくつかの変更がありま�
 
 | **要素** | **説明** |
 | --- | --- |
-| **cache** | 省略可能な要素です。 アプリケーションのグローバル キャッシュ設定を定義します。 |
+| **キャッシュ** | 省略可能な要素です。 アプリケーションのグローバル キャッシュ設定を定義します。 |
 | **outputCache** | 省略可能な要素です。 アプリケーション全体の出力キャッシュ設定を指定します。 |
 | **outputCacheSettings** | 省略可能な要素です。 アプリケーションのページに適用できる出力キャッシュ設定を指定します。 |
 | **sqlCacheDependency** | 省略可能な要素です。 ASP.NET アプリケーションの SQL キャッシュ依存関係を構成します。 |

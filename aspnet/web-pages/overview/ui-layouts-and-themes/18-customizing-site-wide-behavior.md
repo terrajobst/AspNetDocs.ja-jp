@@ -8,15 +8,15 @@ ms.date: 02/17/2014
 ms.assetid: e158bed7-226f-4275-b02e-7553bd58c669
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: ca7c241d6e4d1e4baa581faf2bda4ed275b4e785
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2763cae0f8124cfcaccfd737622cb17b6dd947e1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030949"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413296"
 ---
-<a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトのサイト全体の動作をカスタマイズします。
-====================
+# <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトのサイト全体の動作をカスタマイズします。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) の web サイトでページのサイト側設定する方法について説明します。
@@ -186,7 +186,7 @@ ASP.NET では、階層を作成できます。  *\_PageStart.cshtml*ファイ�
 
     エラーが発生したため、 *Exception.cshtml*、  *\_PageStart.cshtml*ページにリダイレクト、 *Error.cshtml*ファイルで、メッセージが表示されます。
 
-    例外の詳細については、[ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkID=251587)を参照してください。
+    例外の詳細については、次を参照してください。 [ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkID=251587)します。
 
 <a id="Using__PageStart.cshtml_to_Restrict_Folder_Access"></a>
 ## <a name="using-pagestartcshtml-to-restrict-folder-access"></a>使用して\_PageStart.cshtml フォルダーへのアクセスを制限するには

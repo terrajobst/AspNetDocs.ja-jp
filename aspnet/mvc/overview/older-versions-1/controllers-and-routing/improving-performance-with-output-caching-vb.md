@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9402d7e053ef11eeefa92d112b05ec255d5ec6f7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0f824bd5e080d42a9df3525ca47b87bcef407f7a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033669"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405626"
 ---
-<a name="improving-performance-with-output-caching-vb"></a>出力キャッシュでパフォーマンスを改善する (VB)
-====================
+# <a name="improving-performance-with-output-caching-vb"></a>出力キャッシュでパフォーマンスを改善する (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、出力キャッシュを活用して、ASP.NET MVC web アプリケーションのパフォーマンスを大幅に向上する方法を説明します。 同じコンテンツは、新しいユーザーがアクションを呼び出すたびに作成する必要はありません、コント ローラー アクションから返される結果をキャッシュする方法について説明します。
@@ -154,7 +154,7 @@ VaryByParam プロパティは、次の値に設定できます。
 
 リスト 7 でコント ローラーはコント ローラー アクションとに Cache1Hour プロファイルを適用する方法を示しています、 &lt;OutputCache&gt;属性。
 
-**7 – Controllers\ProfileController.vb を一覧表示します。**
+**Listing 7 – Controllers\ProfileController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample7.vb)]
 

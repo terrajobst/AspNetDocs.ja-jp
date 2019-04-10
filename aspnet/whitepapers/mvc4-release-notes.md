@@ -8,22 +8,22 @@ ms.date: 09/09/2011
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: a4f78061850ef5ad8c3381daafdb5ea6bca4cb2f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0f9b4e2ba0514df4c017a192f3c2136a7eec60c7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054289"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413257"
 ---
-<a name="aspnet-mvc-4"></a>ASP.NET MVC 4
-====================
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+
 > このドキュメントでは、ASP.NET MVC 4 のリリースについて説明します。
 
 
 - [インストールに関する注記](#_Toc303253802)
 - [ドキュメント](#_Toc303253803)
 - [サポート](#_Toc303253804)
-- [ソフトウェアの要件](#_Toc303253805)
+- [ソフトウェア要件](#_Toc303253805)
 - [ASP.NET MVC 4 の新機能](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
@@ -122,7 +122,7 @@ ASP.NET Web API の詳細についてを参照してくださいの[ https://www
 
 ![](mvc4-release-notes/_static/image3.png)
 
-このテンプレートには、インターネット アプリケーション テンプレートと同じアプリケーションの構造が含まれています (およびコント ローラーのコードはほぼ同じです) が、jQuery Mobile を使用して、適切に表示して、タッチ ベースのモバイル デバイスで適切に動作するスタイルを設定します。 構造体し、モバイルの UI のスタイルを設定する方法の詳細については、、 [jQuery モバイル プロジェクトの web サイト](http://jquerymobile.com/)を参照してください。
+このテンプレートには、インターネット アプリケーション テンプレートと同じアプリケーションの構造が含まれています (およびコント ローラーのコードはほぼ同じです) が、jQuery Mobile を使用して、適切に表示して、タッチ ベースのモバイル デバイスで適切に動作するスタイルを設定します。 構造体し、モバイルの UI のスタイルを設定する方法の詳細については、次を参照してください。、 [jQuery モバイル プロジェクトの web サイト](http://jquerymobile.com/)します。
 
 デスクトップ指向のサイト、モバイルに最適化されたビューを追加するデスクトップとモバイル ブラウザー スタイルの異なるビューを提供する 1 つのサイトを作成する場合に既にある場合は、新しい表示モード機能を使用できます。 (詳しくは、次のセクションを参照してください)。
 
@@ -140,7 +140,7 @@ ASP.NET Web API の詳細についてを参照してくださいの[ https://www
 
 [!code-csharp[Main](mvc4-release-notes/samples/sample1.cs)]
 
-アプリケーションで、views \shared を使用して、Apple iPhone ブラウザー要求を作成するときにこのコードが実行された後、\\_Layout.iPhone.cshtml レイアウト (存在する場合)。 表示モードの詳細については、[ASP.NET MVC 4 モバイル機能](../mvc/overview/older-versions/aspnet-mvc-4-mobile-features.md)を参照してください。 DisplayModeProvider を使用してアプリケーションをインストールする必要があります、[固定 DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) NuGet パッケージ。 [ASP.NET Fall 2012 Update](https://go.microsoft.com/fwlink/?LinkID=271322)が含まれています、[固定 DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) NuGet パッケージで新しいプロジェクト テンプレート。 参照してください[ASP.NET MVC 4 モバイル キャッシュ バグ Fixedd](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)詳細については、修正します。
+アプリケーションで、views \shared を使用して、Apple iPhone ブラウザー要求を作成するときにこのコードが実行された後、\\_Layout.iPhone.cshtml レイアウト (存在する場合)。 表示モードの詳細については、次を参照してください。 [ASP.NET MVC 4 モバイル機能](../mvc/overview/older-versions/aspnet-mvc-4-mobile-features.md)します。 DisplayModeProvider を使用してアプリケーションをインストールする必要があります、[固定 DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) NuGet パッケージ。 [ASP.NET Fall 2012 Update](https://go.microsoft.com/fwlink/?LinkID=271322)が含まれています、[固定 DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) NuGet パッケージで新しいプロジェクト テンプレート。 参照してください[ASP.NET MVC 4 モバイル キャッシュ バグ Fixedd](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)詳細については、修正します。
 
 <a id="_Toc303253811"></a>
 ### <a name="jquery-mobile-and-mobile-features"></a>jQuery Mobile と Mobile 機能
@@ -152,7 +152,7 @@ ASP.NET MVC 4 でモバイル アプリケーションを構築する方法に�
 
 これで記述できる非同期アクション メソッドを型のオブジェクトを返す 1 つのメソッド*タスク*または*タスク&lt;ActionResult&gt;* します。
 
- 詳細については、[ASP.NET MVC 4 での非同期のメソッドを使用して](../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md)を参照してください。
+ 詳細については、次を参照してください。 [ASP.NET MVC 4 での非同期のメソッドを使用して](../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md)します。
 
 <a id="_Toc303253814"></a>
 ### <a name="azure-sdk"></a>Azure SDK
@@ -162,7 +162,7 @@ ASP.NET MVC 4 には、Windows Azure sdk 1.6 以降のリリースがサポー�
 <a id="_Toc303253818"></a>
 ### <a name="database-migrations"></a>データベースの移行
 
-これで、ASP.NET MVC 4 プロジェクトには、Entity Framework 5 が含まれます。 Entity Framework 5 の優れた機能の 1 つは、データベースを移行するためのサポートです。 この機能では、データベース内のデータを維持しながらコードを重視した移行を使用して、データベース スキーマを簡単に進化することができます。 データベースの移行の詳細については、[Movie モデルとテーブルに新しいフィールドを追加](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table.md)で、 [ASP.NET MVC 4 のチュートリアルの概要](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)を参照してください。
+これで、ASP.NET MVC 4 プロジェクトには、Entity Framework 5 が含まれます。 Entity Framework 5 の優れた機能の 1 つは、データベースを移行するためのサポートです。 この機能では、データベース内のデータを維持しながらコードを重視した移行を使用して、データベース スキーマを簡単に進化することができます。 データベースの移行の詳細については、次を参照してください。 [Movie モデルとテーブルに新しいフィールドを追加](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table.md)で、 [ASP.NET MVC 4 のチュートリアルの概要](../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)します。
 
 <a id="_Toc303253819"></a>
 ### <a name="empty-project-template"></a>空のプロジェクト テンプレート
@@ -177,12 +177,12 @@ ASP.NET MVC 4 には、Windows Azure sdk 1.6 以降のリリースがサポー�
 <a id="_Toc303253821"></a>
 ### <a name="bundling-and-minification"></a>バンドルと縮小
 
-バンドルと縮小フレームワークでは、Web ページは、スクリプトや CSS バンドルされている 1 つのファイルに個別のファイルを組み合わせることでする必要がある HTTP 要求の数を削減することができます。 バンドルのコンテンツを縮小して、それらの要求の全体的なサイズを小さくできます。 縮小すると、短縮することも、セマンティクスに基づく CSS セレクターを折りたたみ、変数名に空白文字を排除することのようなアクティビティを含めることができます。 バンドルの宣言し、で構成されているコードとは簡単に参照されているいずれかを生成するヘルパー メソッドを使用してビューでバンドルを 1 つのリンク、または複数のバンドルの個々 のコンテンツにリンク、デバッグ時にします。 詳細については、[バンドルと縮小](../mvc/overview/performance/bundling-and-minification.md)を参照してください。
+バンドルと縮小フレームワークでは、Web ページは、スクリプトや CSS バンドルされている 1 つのファイルに個別のファイルを組み合わせることでする必要がある HTTP 要求の数を削減することができます。 バンドルのコンテンツを縮小して、それらの要求の全体的なサイズを小さくできます。 縮小すると、短縮することも、セマンティクスに基づく CSS セレクターを折りたたみ、変数名に空白文字を排除することのようなアクティビティを含めることができます。 バンドルの宣言し、で構成されているコードとは簡単に参照されているいずれかを生成するヘルパー メソッドを使用してビューでバンドルを 1 つのリンク、または複数のバンドルの個々 のコンテンツにリンク、デバッグ時にします。 詳細については、次を参照してください。[バンドルと縮小](../mvc/overview/performance/bundling-and-minification.md)します。
 
 <a id="_Toc303253822"></a>
 ### <a name="enabling-logins-from-facebook-and-other-sites-using-oauth-and-openid"></a>Facebook と OAuth および OpenID を使用して他のサイトからのログインを有効にします。
 
-ASP.NET MVC 4 のインターネットのプロジェクト テンプレートの既定のテンプレートには、DotNetOpenAuth ライブラリを使用して OAuth と OpenID のログインのサポートが含まれています。 OAuth または OpenID プロバイダーの構成方法の詳細については、[WebForms、MVC、web ページの Oauth/openid サポート](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx)と[OAuth と OpenID の機能のドキュメントでは、ASP.NET Web Pages](../web-pages/overview/releases/top-features-in-web-pages-2.md#oauthsetup)を参照してください。
+ASP.NET MVC 4 のインターネットのプロジェクト テンプレートの既定のテンプレートには、DotNetOpenAuth ライブラリを使用して OAuth と OpenID のログインのサポートが含まれています。 OAuth または OpenID プロバイダーの構成方法の詳細については、次を参照してください。 [WebForms、MVC、web ページの Oauth/openid サポート](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx)と[OAuth と OpenID の機能のドキュメントでは、ASP.NET Web Pages](../web-pages/overview/releases/top-features-in-web-pages-2.md#oauthsetup)します。
 
 <a id="_Toc303253806"></a>
 ## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>ASP.NET MVC 4、ASP.NET MVC 3 プロジェクトをアップグレードします。

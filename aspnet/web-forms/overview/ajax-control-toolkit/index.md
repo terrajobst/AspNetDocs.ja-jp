@@ -8,22 +8,22 @@ ms.date: 10/05/2011
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: ad68d8f074bc3c453e991abf7f8d393fbe9740ba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 795283c33d63272b29b91fd7037c3463bc71abad
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57020309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410748"
 ---
-<a name="older-versions---ajax-control-toolkit"></a>旧バージョン - Ajax Control Toolkit
-====================
+# <a name="older-versions---ajax-control-toolkit"></a>旧バージョン - Ajax Control Toolkit
+
 > いくつかの最も人気のあるコントロールを使用する方法と、Ajax Control Toolkit を使用する方法。 DevExpress では、無料かつオープン ソースの Ajax Control Toolkit を保持します。
 > 
 > 
 > ![](index/_static/image1.png) DevExpress、受賞歴のある ASP.NET WebForms、MVC と HTML5 UI コントロール、フレームワーク、開発者は、この要求の高度のオープン ソース ライブラリを信頼性の高い状態に戻すために、ASP.NET AJAX Control Toolkit のメンテナンスと引き継ぎました。 [詳細については](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx)します。
 
 
-- [はじめに](getting-started/index.md)
+- [作業の開始](getting-started/index.md)
 
     - [AJAX Control Toolkit の概要 (C#)](getting-started/get-started-with-the-ajax-control-toolkit-cs.md)
     - [AJAX Control Toolkit のコントロールとコントロール エクステンダーを使用する (C#)](getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
@@ -115,8 +115,8 @@ ms.locfileid: "57020309"
     - [Repeater コントロールで HoverMenu を使用する (VB)](hovermenu/using-hovermenu-with-a-repeater-control-vb.md)
 - [HTMLEditor](htmleditor/index.md)
 
-    - [HTML エディター コード (C#)](htmleditor/how-do-i-use-the-html-editor-control-cs.md)
-    - [HTML エディター コード (VB)](htmleditor/how-do-i-use-the-html-editor-control-vb.md)
+    - [HTML エディター コントロール (C#)](htmleditor/how-do-i-use-the-html-editor-control-cs.md)
+    - [HTML エディター コントロール (VB)](htmleditor/how-do-i-use-the-html-editor-control-vb.md)
 - [ModalPopup](modalpopup/index.md)
 
     - [サーバー コードからモーダル ポップアップ ウィンドウを起動する (C#)](modalpopup/launching-a-modal-popup-window-from-server-code-cs.md)
@@ -143,7 +143,7 @@ ms.locfileid: "57020309"
 
     - [パスワードの強度をテストする (C#)](passwordstrength/testing-the-strength-of-a-password-cs.md)
     - [パスワードの強度をテストする (VB)](passwordstrength/testing-the-strength-of-a-password-vb.md)
-- [Popup](popup/index.md)
+- [ポップアップ](popup/index.md)
 
     - [複数のポップアップ コントロールを使用する (C#)](popup/using-multiple-popup-controls-cs.md)
     - [ポップアップ コントロールからポストバックを処理する (UpdatePanel あり) (C#)](popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
@@ -151,7 +151,7 @@ ms.locfileid: "57020309"
     - [複数のポップアップ コントロールを使用する (VB)](popup/using-multiple-popup-controls-vb.md)
     - [ポップアップ コントロールからポストバックを処理する (UpdatePanel あり) (VB)](popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
     - [ポップアップ コントロールからポストバックを処理する (UpdatePanel なし) (VB)](popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
-- [Rating](rating/index.md)
+- [年齢区分](rating/index.md)
 
     - [評価コントロールを作成する (C#)](rating/creating-a-rating-control-cs.md)
     - [評価コントロールを作成する (VB)](rating/creating-a-rating-control-vb.md)
@@ -161,7 +161,7 @@ ms.locfileid: "57020309"
     - [ReorderList 経由でドラッグ アンド ドロップする (C#)](reorderlist/drag-and-drop-via-reorderlist-cs.md)
     - [ReorderList でポストバックを使用する (VB)](reorderlist/using-postbacks-with-reorderlist-vb.md)
     - [ReorderList 経由でドラッグ アンド ドロップする (VB)](reorderlist/drag-and-drop-via-reorderlist-vb.md)
-- [Slider](slider/index.md)
+- [スライダー](slider/index.md)
 
     - [スライダー コントロール (自動ポストバックあり) (C#)](slider/using-the-slider-control-with-auto-postback-cs.md)
     - [スライダー コントロールをデータバインドする (C#)](slider/databinding-the-slider-control-cs.md)

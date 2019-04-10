@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 21ebbaee-7ed8-45ae-b6c1-c27c88342e48
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: ba116140faa0667d504e0ff101c274db9f46079e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b06f105b16087f97788e0ab360af41f538d2c1ac
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57026349"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400803"
 ---
-<a name="configuration-and-instrumentation"></a>構成とインストルメンテーション
-====================
+# <a name="configuration-and-instrumentation"></a>構成とインストルメンテーション
+
 によって[Microsoft](https://github.com/microsoft)
 
 > 主要な構成の変更と ASP.NET 2.0 のインストルメンテーションがあります。 新しい ASP.NET 構成 API では、プログラムで実行できる構成の変更ができます。 多くの新しい構成設定が存在するさらに、新しい構成とインストルメンテーションを許可します。
@@ -145,10 +145,10 @@ ASP.NET 2.0 では、アプリケーション ドメインの開始し停止、�
 
 &lt;HealthMonitoring&gt;グローバルの Web.config ファイルのセクションには、次のものが含まれています。
 
-| **providers** | イベント ビューアー、WMI、および SQL Server の設定プロバイダーが含まれています。 |
+| **プロバイダー** | イベント ビューアー、WMI、および SQL Server の設定プロバイダーが含まれています。 |
 | --- | --- |
 | **eventMappings** | さまざまな WebBase クラスのマッピングが含まれます。 イベント クラスを生成する場合は、このリストを拡張できます。 イベント クラスを生成できますに細かい粒度に情報を送信するプロバイダー。 たとえば、電子メールに独自のカスタム イベントを送信中に、SQL Server に送信される未処理の例外を構成できます。 |
-| **ルール** | EventMappings をプロバイダーにリンクします。 |
+| **規則** | EventMappings をプロバイダーにリンクします。 |
 | **バッファリング** | SQL Server および電子メール プロバイダーで使用すると、イベントをプロバイダーにフラッシュする頻度を決定します。 |
 
 グローバルの Web.config ファイルからのコード例を次に示します。
@@ -241,7 +241,7 @@ ASP.NET の構成を支援するためにいくつかのコマンド ライン �
 
 次のコマンド ライン ツールを使用できます。
 
-| **ツール** | **使用** |
+| **ツール** | **用途** |
 | --- | --- |
 | **aspnet\_regiis.exe** | IIS と ASP.NET を登録をできます。 このツールの 2 つのバージョンがある (フレームワーク フォルダー) 内の 32 ビット システム用と (Framework64 フォルダー。 の) 内の 64 ビット システム用の ASP.NET 2.0 に付属64 ビット バージョンは、32 ビット OS ではインストールされません。 |
 | **aspnet\_regsql.exe** | ASP.NET SQL Server の登録ツールは、ASP.NET では、SQL Server プロバイダーで使用するための Microsoft SQL Server データベースを作成するか、追加または既存のデータベースからオプションを削除に使用されます。 Aspnet\_regsql.exe ファイル フォルダーにある、[drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber を Web サーバー。 |
@@ -288,7 +288,7 @@ Asp.net version 1.1 では、Machine.config ファイルという名前のセク
 
 Aspnet を実行している場合は、次のオプションは使用可能な\_regbrowser.exe:
 
-| **Option** | **説明** |
+| **オプション** | **説明** |
 | --- | --- |
 | **-?** | 表示、Aspnet\_regbbrowsers.exe コマンド ウィンドウでヘルプ テキスト。 |
 | **-i** | ランタイムのブラウザー機能のアセンブリを作成し、そのアセンブリをグローバル アセンブリ キャッシュにインストールします。 |
@@ -298,7 +298,7 @@ Aspnet を実行している場合は、次のオプションは使用可能な\
 
 ASP.NET コンパイル ツールは、2 つの一般的な方法で使用できます。 インプレース コンパイルと展開は、ターゲットの出力ディレクトリが指定されているコンパイルします。
 
-### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[場所にアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
+### [<a name="compiling-an-application-in-place"></a>場所にアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
 
 ASP.NET コンパイル ツールが場所でアプリケーションをコンパイル、つまり、正規表現のコンパイルになり、アプリケーションに複数の要求を行うの動作を模倣します。 プリコンパイル済みサイトのユーザーでは、最初の要求でページをコンパイルすると発生する遅延は発生しません。
 
@@ -314,7 +314,7 @@ ASP.NET コンパイル ツールが場所でアプリケーションをコン�
 > 入れ子になったアプリケーションを含むアプリケーションのコンパイルでは、入れ子になったアプリケーションをコンパイルしません。 入れ子になったアプリケーションを個別にコンパイルする必要があります。
 
 
-### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[展開のアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
+### [<a name="compiling-an-application-for-deployment"></a>展開のアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
 
 TargetDir パラメーターを指定するには、デプロイ (ターゲットの場所にコンパイル) 用にアプリケーションをコンパイルします。 TargetDir は、Web アプリケーションの最終的な場所またはコンパイル済みのアプリケーションをさらに展開できます。 使用して、 **-u**オプションは、このような方法を変更することは、コンパイルされたアプリケーションの特定のファイルを再コンパイルなしでアプリケーションをコンパイルします。 Aspnet\_compiler.exe 区別の静的および動的なファイルの種類を作成されたアプリケーションを作成するときに異なる方法で処理します。
 
@@ -351,11 +351,11 @@ TargetDir パラメーターを指定するには、デプロイ (ターゲッ�
 | アプリでファイルを .skin\_テーマ サブディレクトリ | テーマでは、アセンブリにコンパイルされ、Bin ディレクトリに格納します。 スタブ ファイルが .skin ファイル用に作成し、対応する出力ディレクトリに配置します。 (.Css) などの静的ファイルは、出力ディレクトリにコピーされます。 |
 | .browser ファイルの Web.config の静的な型のアセンブリを Bin ディレクトリに既に存在します。 | 出力ディレクトリには、これらのファイルがコピーされます。 |
 
-### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[固定のアセンブリ名](https://msdn.microsoft.com/library/ms229863.aspx##)
+### [<a name="fixed-assembly-names"></a>固定のアセンブリ名](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 MSI Windows Installer を使用して Web アプリケーションの配置など、一部のシナリオでは、一貫性のあるファイルの名前と内容、アセンブリまたは更新プログラムの構成設定を識別するために、一貫性のあるディレクトリの構造体の使用が必要です。 その場合、使用することができます、 **-fixednames** ASP.NET コンパイル ツールがアセンブリをコンパイルする必要がありますを指定するオプション、where を使用する代わりにソース ファイルごとに複数のページは、アセンブリにコンパイルされます。 これには、スケーラビリティを重視する場合は注意が必要で、このオプションを使用する必要がありますので、アセンブリの数が多いにつながることができます。
 
-### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[厳密な名前のコンパイル](https://msdn.microsoft.com/library/ms229863.aspx##)
+### [<a name="strong-name-compilation"></a>厳密な名前のコンパイル](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 **-Aptca**、 **-delaysign**、 **-keycontainer**と **-keyfile** Aspnet を使用できるように、オプションが用意されています\_厳密に作成する compiler.exe、名前付きアセンブリを使用せず、[厳密名ツール (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx)とは別にします。 これらのオプションの対応、それぞれを**AllowPartiallyTrustedCallersAttribute**、 **AssemblyDelaySignAttribute**、 **AssemblyKeyNameAttribute**と**AssemblyKeyFileAttribute**します。
 
@@ -444,4 +444,4 @@ Web.config ファイルに変更を保存する権限があることをこれに
 
 ## <a name="more-information"></a>詳細情報:
 
-ASP.NET 2.0 のプロバイダー モデルでは、多くの他の用途でも (メンバーシップ、プロファイルなど) が、アプリケーションの実装だけでなく、独自のプロバイダーを作成することができます。テキスト ファイルにアプリケーション イベント ログに記録するカスタム プロバイダーの作成の詳細については、[このリンク](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp)を参照してください。
+ASP.NET 2.0 のプロバイダー モデルでは、多くの他の用途でも (メンバーシップ、プロファイルなど) が、アプリケーションの実装だけでなく、独自のプロバイダーを作成することができます。テキスト ファイルにアプリケーション イベント ログに記録するカスタム プロバイダーの作成の詳細については、次を参照してください。[このリンク](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp)します。

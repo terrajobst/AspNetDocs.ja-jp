@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/introduction-to-aspnet-identity
-title: ASP.NET Identity の概要 |Microsoft Docs
+title: Asp.net - ASP.NET の概要 4.x
 author: jongalloway
 description: ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 のバックしているので 2005年では、方法は web アプリケーションの場合に多くの変更されているし、.
 ms.author: riande
 ms.date: 01/22/2019
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4a545e52d2d9ea04a10c37c116fd326c60de9f8f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 34a0d62d7afcaffa8fbac0bc774d9266efb6b165
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061379"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413049"
 ---
-<a name="introduction-to-aspnet-identity"></a>ASP.NET Identity 入門
-====================
+# <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity 入門
+
 
 > ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 のバックしているので 2005年では、web アプリケーションは、通常は認証と承認に処理の方法で多くの変更されているし。 ASP.NET Identity では、メンバーシップ システムべきは、web、電話、またはタブレット向けのモダン アプリケーションを作成するときに改めて注目です。
 

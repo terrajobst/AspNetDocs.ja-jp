@@ -8,15 +8,15 @@ ms.date: 06/11/2014
 ms.assetid: 43a6cce7-a3ef-42aa-ad06-90d36d49f098
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: e1bb1aa120ced95db7674eae1831f2a2c7356fc0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9fa71bec14a2ba4d14f01661ad2bf41975f4f55e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061919"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413803"
 ---
-<a name="unit-testing-controllers-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の単体テスト コントローラー
-====================
+# <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の単体テスト コントローラー
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > このトピックでは、単体テストで Web API 2 コント ローラーの具体的な技法について説明します。 このトピックを読む前にチュートリアルを参照する可能性があります[ASP.NET Web API 2 の単体テスト](unit-testing-with-aspnet-web-api.md)、単体テスト プロジェクトをソリューションに追加する方法を示します。
@@ -45,7 +45,7 @@ Web API コント ローラーで単体テストする点を次に示します�
 - アクションは、リポジトリまたはサービス層で適切なメソッドを呼び出します。
 - 応答には、ドメイン モデルが含まれている場合は、モデルの種類を確認します。
 
-これらの一般的なことをテストするが、コント ローラーの実装によって異なります。 大きな違いは、その具体的には、コント ローラーのアクションを返すかどうか**HttpResponseMessage**または**IHttpActionResult**します。 これらの結果の種類の詳細については、[Web Api 2 でアクションの結果](../getting-started-with-aspnet-web-api/action-results.md)を参照してください。
+これらの一般的なことをテストするが、コント ローラーの実装によって異なります。 大きな違いは、その具体的には、コント ローラーのアクションを返すかどうか**HttpResponseMessage**または**IHttpActionResult**します。 これらの結果の種類の詳細については、次を参照してください。 [Web Api 2 でアクションの結果](../getting-started-with-aspnet-web-api/action-results.md)します。
 
 ## <a name="testing-actions-that-return-httpresponsemessage"></a>テスト HttpResponseMessage を返すアクション
 

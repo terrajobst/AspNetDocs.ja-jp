@@ -8,15 +8,15 @@ ms.date: 03/09/2010
 ms.assetid: 79e2a85d-e214-4e31-a9da-0980f5f86935
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-to-best-learn-asp-net-mvc
 msc.type: video
-ms.openlocfilehash: 0b8a544df051e41c9abeaab79b3c4ed06bbdffdd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5ccc057cfd2567e4b89fc8dcb1697a533b5df19e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055839"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407420"
 ---
-<a name="how-to-best-learn-aspnet-mvc"></a>最適な ASP.NET MVC の学習方法
-====================
+# <a name="how-to-best-learn-aspnet-mvc"></a>最適な ASP.NET MVC の学習方法
+
 [Scott Hanselman](https://github.com/shanselman)による
 
 マイクロソフトの Scott Hanselman は、ASP.NET MVC を使用して、web アプリケーションを開発する方法を学習する必要がありますを示します。

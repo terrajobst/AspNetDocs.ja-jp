@@ -8,15 +8,15 @@ ms.date: 07/24/2008
 ms.assetid: e332a1e0-226d-40ad-be99-96f13ecaec24
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
 msc.type: video
-ms.openlocfilehash: 07fa077f75034e5bb52e85e202b26b32e3822b77
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1b58f217716ecbc037aae736fd323bb7da8afbdd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055439"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398151"
 ---
-<a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[How Do i:]コンパイラ ユーティリティで Fixednames オプションを使用して、柔軟性を最大限に
-====================
+# <a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[How Do i:]コンパイラ ユーティリティで Fixednames オプションを使用して、柔軟性を最大限に
+
 によって[Chris Pels](https://twitter.com/chrispels)
 
 このビデオでは、Chris Pels が、aspnet で fixednames オプションを使用する方法を紹介は\_compiler.exe ユーティリティ一貫性のあるファイルを生成するためには、コンパイルの出力の名前します。 まず、aspnet のコンパイルの出力を参照してください\_compiler.exe ユーティリティには、ASP.NET web サイトのサイトのページ、テーマ、およびフォルダーを含むさまざまなコンポーネントを表す出力ファイルが生成されます。 コンポーネントの名前付け方法と、元の web サイトとの関連が含まれているを参照してください。 次に、fixednames オプションを使用して、基に基づいているソース ファイルの出力ファイル名を標準化する方法を参照してください。 次に、更新プログラムを更新する最も可能性の高い使用されているコンポーネントに重点を置いて、コンパイル済みの web サイトにデプロイするときに、各コンパイル オプションを使用するための考慮事項について説明します。

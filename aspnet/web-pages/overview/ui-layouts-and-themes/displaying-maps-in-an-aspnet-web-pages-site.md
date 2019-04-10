@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: b5c268dd-ca6a-4562-b94c-a220fcf01f58
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: cde27c54b11ee91b193dffd61e3a354c6cf2449a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6e5c01c3602bd313ebca467b65563b7abfd7ffe2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024369"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400101"
 ---
-<a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでマップを表示します。
-====================
+# <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでマップを表示します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、Bing、Google、MapQuest、および Yahoo によって提供されるサービスのマッピングに基づいて、ASP.NET Web Pages (Razor) web サイトのページでインタラクティブ マップを表示する方法について説明します。
@@ -57,7 +57,7 @@ Web ページで表示できますマップ、ページを使用して`Maps`ヘ�
 
 マップを表示するには、これらの情報が必要です。
 
-- `Maps`ヘルパー。 このヘルパーは、ASP.NET Web Helpers Library のバージョン 2 では。 ライブラリに追加済みしていない場合、NuGet パッケージとしてインストール、サイトのことができます。 詳細については、[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)を参照してください。 (ギャラリーで検索、`microsoft-web-helpers`パッケージです)。
+- `Maps`ヘルパー。 このヘルパーは、ASP.NET Web Helpers Library のバージョン 2 では。 ライブラリに追加済みしていない場合、NuGet パッケージとしてインストール、サイトのことができます。 詳細については、次を参照してください。 [ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)します。 (ギャラリーで検索、`microsoft-web-helpers`パッケージです)。
 - JQuery ライブラリです。 いくつかの WebMatrix サイトのテンプレートでの jQuery ライブラリに既に含まれて、*スクリプト*フォルダー。 これらのライブラリがない場合、は、直接から最新の jQuery ライブラリをダウンロードすることができます、 [jQuery.org](http://jQuery.org)サイト。 テンプレートを使用して新しいサイトを作成することも (たとえば、**スターター サイト**テンプレート) し、現在のサイトにそのサイトから jQuery ファイルをコピーします。
 
 最後に、Bing maps を使用する場合は、最初 (無料) アカウントを作成して、キーを取得します。 キーを取得するには、次の手順に従います。

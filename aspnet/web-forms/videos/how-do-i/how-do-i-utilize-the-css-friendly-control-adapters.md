@@ -8,15 +8,15 @@ ms.date: 09/01/2007
 ms.assetid: aa5a29e3-0cc2-4cc0-986d-e845dbf01813
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
 msc.type: video
-ms.openlocfilehash: 288d023e718eb76935ef3c3ccf1adb8e1adcb845
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf9b990355dba83c68059a50ee378a85fcdd4089
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054229"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417404"
 ---
-<a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[How Do i:]CSS Friendly Control Adapters を活用しますか。
-====================
+# <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[How Do i:]CSS Friendly Control Adapters を活用しますか。
+
 によって[Chris Pels](https://twitter.com/chrispels)
 
 CSS Friendly Control Adapters を使用すると、標準の ASP.NET 2.0 サーバー コントロールによって表示される HTML を変更できます。 このビデオでは、標準の ASP.NET の Menu コントロールが HTML が表示される説明します`<table>`要素が、同じコントロールが HTML をレンダリング CSS Friendly Control Adapters を`<ul>`リスト要素をメニューのユーザー補助機能とプレゼンテーションを改善します。 

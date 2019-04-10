@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b666c3cef0b09c6d68cee581a3c27c08e3357cca
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b1e7bd0b16190b00e0e78a01ef71475e1c8d048a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024589"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394823"
 ---
-<a name="part-6-using-data-annotations-for-model-validation"></a>第 6 部:モデル検証にデータ注釈を使用する
-====================
+# <a name="part-6-using-data-annotations-for-model-validation"></a>第 6 部:モデル検証にデータ注釈を使用する
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  

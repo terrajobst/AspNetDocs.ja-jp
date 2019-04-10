@@ -8,15 +8,15 @@ ms.date: 11/13/2006
 ms.assetid: 97c13898-0741-45f9-b3fa-7540ab1679e6
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 58d4c14e2b888f933457fe421235499943354182
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 844b05f2b046d2c865805150b6ddc5b9c2ebb658
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422924"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414154"
 ---
-<a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>DataList または Repeater コントロールのデータを並べ替える (VB)
-====================
+# <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>DataList または Repeater コントロールのデータを並べ替える (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_45_VB.exe)または[PDF のダウンロード](sorting-data-in-a-datalist-or-repeater-control-vb/_static/datatutorial45vb1.pdf)
@@ -51,12 +51,12 @@ DataList または Repeater コントロールでのこの機能をレプリケ�
 並べ替え関連の機能のいずれかの実装について気にし、前に、s を Repeater コントロールでは、製品の一覧を表示して起動を使用できます。 開いて開始、`Sorting.aspx`ページで、`PagingSortingDataListRepeater`フォルダー。 Repeater コントロールを追加、web ページで、設定をその`ID`プロパティを`SortableProducts`します。 Repeater s のスマート タグからの作成という名前の新しい ObjectDataSource`ProductsDataSource`からデータを取得するように構成し、`ProductsBLL`クラスの`GetProducts()`メソッド。 INSERT、UPDATE、および DELETE の各タブで、ドロップダウン リストから (なし) オプションを選択します。
 
 
-[![ObjectDataSource を作成し、GetProductsAsPagedDataSource() メソッドを使用するように構成します。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
+[![Create、ObjectDataSource と GetProductsAsPagedDataSource() メソッドを使用するように構成する](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
 
 **図 1**:ObjectDataSource を作成し、使用するように構成、`GetProductsAsPagedDataSource()`メソッド ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image3.png))。
 
 
-[![UPDATE、INSERT で、ドロップダウン リストを設定し、(なし) タブを削除します。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image4.png)
+[![Set (None) に、UPDATE、INSERT、および DELETE のタブで、ドロップダウン リスト](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image4.png)
 
 **図 2**:UPDATE、INSERT で、ドロップダウン リストを設定し、[(なし) タブを削除する ([フルサイズの画像を表示する] をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image6.png))。
 
@@ -71,7 +71,7 @@ DataList または Repeater コントロールでのこの機能をレプリケ�
 図 3 は、ブラウザーで表示した場合は、このページを示します。
 
 
-[![各製品の名前、供給業者、およびカテゴリが表示されます。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
+[![Each 製品の名前、供給業者、およびカテゴリが表示されます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
 
 **図 3**:各製品名、供給業者、およびカテゴリが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))。
 
@@ -90,7 +90,7 @@ ObjectDataSource に、ASP.NET ページから並べ替え情報を渡すため�
 使用して別のハード コーディングされた値をみましょう*sortExpression*し、ブラウザーで結果をテストします。 図 4 に示すとして ProductName DESC を使用する場合、 *sortExpression*製品がアルファベットの逆順での名前で並べ替えられます。
 
 
-[![製品は名前がアルファベット順の逆順で順に並べ替えられます。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
+[![T彼の製品で名前がアルファベット順の逆順で並べ替えられます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
 **図 4**:製品はアルファベット順の逆で、名前で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))。
 
@@ -124,12 +124,12 @@ LinkButton に各並べ替え可能なフィールドのヘッダー テキス�
 最初のページにアクセスすると、この時点で、製品は初期状態で並べ替えられます、`ProductName`ほどのデータ フィールド s、 `SortBy` `ListItem`既定で選択されます (図 6 参照)。 さまざまな並べ替えカテゴリなどのオプションと [更新] を選択、ポストバックを発生させるし、再、図 7 に示すように、それらのカテゴリ名で、データを並べ替えます。
 
 
-[![製品は、最初の名前で並べ替え](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)
+[![T彼の製品は、最初の名前で並べ替え](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)
 
 **図 6**:製品が最初に、名前で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image16.png))。
 
 
-[![製品がカテゴリで並べ替えられます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)
+[![T彼の製品は、カテゴリで並べ替えられます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)
 
 **図 7**:製品がカテゴリで並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image19.png))。
 
@@ -151,7 +151,7 @@ LinkButton に各並べ替え可能なフィールドのヘッダー テキス�
 [前のチュートリアル](paging-report-data-in-a-datalist-or-repeater-control-vb.md)DataList で既定のページングを実装する方法について確認しました。 S、ページングされたデータの並べ替え機能は、この前の例を拡張することができます。 開いて開始、`SortingWithDefaultPaging.aspx`と`Paging.aspx`ページで、`PagingSortingDataListRepeater`フォルダー。 `Paging.aspx`  ページで、ページの宣言型マークアップを表示する ソース ボタンをクリックします。 選択したテキストをコピー (図 8 参照) の宣言型マークアップを貼り付けます`SortingWithDefaultPaging.aspx`間、`<asp:Content>`タグ。
 
 
-[![宣言型マークアップをレプリケート、 &lt;Asp:content&gt; SortingWithDefaultPaging.aspx Paging.aspx からタグ](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)
+[![Replicate 宣言型マークアップで、 &lt;Asp:content&gt; SortingWithDefaultPaging.aspx Paging.aspx からタグ](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)
 
 **図 8**:宣言型マークアップをレプリケート、`<asp:Content>`からタグ`Paging.aspx`に`SortingWithDefaultPaging.aspx`([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image22.png))。
 
@@ -185,7 +185,7 @@ ObjectDataSource %s 更新`SelectMethod`プロパティを呼び出す新しい`
 この時点で、`SortingWithDefaultPaging.aspx`ページは、製品名、その結果をアルファベット順に並べ替えが (図 9 参照)。 既定では、商品名の値として渡されるため、これは、`GetProductsSortedAsPagedDataSource`メソッド s *sortExpression*パラメーター。
 
 
-[![既定では、結果が商品名で並べ替えられます。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)
+[![B既定で、結果は ProductName で並べ替えられます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)
 
 **図 9**:既定では、結果は並べ`ProductName`([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image25.png))。
 
@@ -214,12 +214,12 @@ ObjectDataSource %s 更新`SelectMethod`プロパティを呼び出す新しい`
 データがアルファベット順に並べ替え、製品名によって、ページを最初にアクセスして、ときに (戻るは図 9 を参照してください)。 データの 2 番目のページに進みカテゴリ ボタンによって、並べ替えをクリックして [次へ] ボタンをクリックします。 カテゴリ名で並べ替えられた、データの最初のページに戻ること (図 10 参照)。 同様に、サプライヤー ボタンによって、並べ替えをクリックすると、仕入先データの最初のページから開始して、データが並べ替えられます。 を通じて、データをページングと並べ替えの基準が記憶されます。 図 11 は、カテゴリでの並べ替えとデータの 13 番目のページに昇格し、後のページを示します。
 
 
-[![製品はカテゴリ順に並べ替えられます。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)
+[![T彼は製品カテゴリ順に並べ替え](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)
 
 **図 10**:製品はカテゴリで並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image28.png))。
 
 
-[![並べ替え式は記憶とページングを通じてデータ](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image29.png)
+[![T彼の並べ替え式は、記憶とページングを [データ](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image29.png)
 
 **図 11**:並べ替え式は記憶とページングを通じて、データ ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image31.png))。
 
@@ -237,7 +237,7 @@ DataList 例では、非効率的な既定のページングの手法を使用�
 開く、`SortingWithCustomPaging.aspx`ページで、`PagingSortingDataListRepeater`フォルダー設定 ページで、Repeater に追加し、その`ID`プロパティを`Products`します。 Repeater s のスマート タグからの作成という名前の新しい ObjectDataSource`ProductsDataSource`します。 データを選択するように構成、`ProductsBLL`クラスの`GetProductsPaged`メソッド。
 
 
-[![ObjectDataSource ProductsBLL クラスの GetProductsPaged メソッドを使用して構成します。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image32.png)
+[![C構成、ObjectDataSource ProductsBLL クラス GetProductsPaged メソッドを使用する](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image32.png)
 
 **図 12**:構成に使用する ObjectDataSource、`ProductsBLL`クラス s`GetProductsPaged`メソッド ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image34.png))。
 
@@ -245,7 +245,7 @@ DataList 例では、非効率的な既定のページングの手法を使用�
 UPDATE、INSERT でドロップダウン リストを設定 (None) にタブを削除して、[次へ] ボタンをクリックします。 データ ソースの構成ウィザードでのソースをようになりましたが、`GetProductsPaged`メソッド s *startRowIndex*と*maximumRows*パラメーターを入力します。 実際には、これらの入力パラメーターは無視されます。 代わりに、 *startRowIndex*と*maximumRows*経由で値が渡された、 `Arguments` ObjectDataSource s プロパティ`Selecting`イベント ハンドラーを指定した方法と同じように、*sortExpression*でこのチュートリアルの最初のデモです。 そのため、パラメーター ソースを None に設定ウィザードで、ドロップダウン リストままにします。
 
 
-[![[なし] に、パラメーター ソースの設定をそのまま使用します。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image35.png)
+[![Lパラメーター ソースの設定を None に残す](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image35.png)
 
 **図 13**:[なし] にパラメーターのソースの設定のままに ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image37.png))。
 
@@ -267,7 +267,7 @@ UPDATE、INSERT でドロップダウン リストを設定 (None) にタブを�
 この変更によりは、ブラウザーで表示したときに、ページには、最初の 5 つの製品が表示されます。
 
 
-[![最初の 5 つのレコードが表示されます。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image38.png)
+[![T彼は最初の 5 つのレコードが表示されます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image38.png)
 
 **図 14**:最初の 5 つのレコードが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image40.png))。
 
@@ -313,17 +313,17 @@ Let 用途に同じ最初、Previous、次に、最後のページングのイ�
 これらを追加した後`Click`イベント ハンドラーと、コードを有効にまたは現在の開始行インデックスに基づいて、ページング インターフェイス要素を無効にするには、ブラウザーでページをテストします。 図 15 に示した最初のページを最初にアクセスすると、[戻る] ボタンは無効です。 最後をクリックすると、最後のページを表示中には、[次へ] をクリックすると、データの 2 番目のページが表示されます (図 16、17 を参照してください)。 データの最後のページを表示するときに、次へと最後のボタンが無効です。
 
 
-[![最初の製品ページを表示するときに、前と最後のボタンが無効にします。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image41.png)
+[![T最初の製品ページを表示するときに、彼は前と最後のボタンが無効になります](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image41.png)
 
 **図 15**:最初の製品ページを表示するときに、前と最後のボタンが無効に ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image43.png))。
 
 
-[![2 つ目の製品ページがいないことを示す](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image44.png)
+[![T彼は 2 つ目の製品ページが表示されます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image44.png)
 
-**図 16**:2 つ目の製品ページがいないことを示す ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image46.png))。
+**図 16**:2 つ目の製品ページが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image46.png))。
 
 
-[![クリックすると過去のデータの最後のページを表示します。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image47.png)
+[![C最後のデータ ページの最後の表示をクリックして](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image47.png)
 
 **図 17**:最後のクリックしてには、データの最終的なページが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image49.png))。
 
@@ -366,7 +366,7 @@ ObjectDataSource を呼び出す前に、`GetProductsPagedAndSorted`メソッド
 すべてが s で終了です。 カスタム ページングと並べ替えを実装する手順の数値の中の手順が既定のページングの必要なものによく似ています。 図 18 では、カテゴリ別に並べ替えてときにデータの最後のページを表示するときに、製品が表示されます。
 
 
-[![カテゴリ別に並べ替え、データの最後のページが表示されます。](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image50.png)
+[![T彼最後のページのデータ、カテゴリ別に並べ替えが表示されます](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image50.png)
 
 **図 18**:カテゴリ別に並べ替え、データの最後のページが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-vb/_static/image52.png))。
 

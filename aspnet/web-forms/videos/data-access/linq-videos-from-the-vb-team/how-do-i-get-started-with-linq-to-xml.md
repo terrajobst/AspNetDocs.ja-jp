@@ -8,15 +8,15 @@ ms.date: 11/15/2007
 ms.assetid: dc3dedcd-5daf-4f0e-9afa-9ccad94f2ce0
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq-to-xml
 msc.type: video
-ms.openlocfilehash: c7ca1a1361157afc6d1032dc4bcded3fdc2fbe38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bbe5c24f88562d2e4eb0b70e8d83dbd92a90460f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060249"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384800"
 ---
-<a name="how-do-i-get-started-with-linq-to-xml"></a>[How Do i:]LINQ to XML による開始できますか。
-====================
+# <a name="how-do-i-get-started-with-linq-to-xml"></a>[How Do i:]LINQ to XML による開始できますか。
+
 によって[Beth Massi](https://github.com/bethmassi)
 
 Visual Basic 開発者は、作成、クエリ、および XML ドキュメントを簡単に変換する XML リテラル、埋め込み式、および XML 軸のプロパティを使用して Visual Basic における XML を操作する方法について説明します。

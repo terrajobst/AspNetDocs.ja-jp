@@ -8,15 +8,15 @@ ms.date: 10/23/2008
 ms.assetid: 2011925a-789d-4160-af31-4667097727f1
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/getting-started-with-dynamic-data
 msc.type: video
-ms.openlocfilehash: 25f8a03d37fb900af59b1bdd29c33e06f1706e9b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9f40088b40705976983096446e88225d5b434a2a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027809"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411320"
 ---
-<a name="getting-started-with-dynamic-data"></a>動的データ入門
-====================
+# <a name="getting-started-with-dynamic-data"></a>動的データ入門
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオで作成します全体の ASP.NET アプリケーション ASP.NET Dynamic Data で動的なデータのコードを生成する、スキャフォールディング、およびテンプレートを使用して Northwind データを使用しています。 完成したアプリケーションは、AJAX 動作と完全な CRUD 機能を備えたデータベース層に完了します。

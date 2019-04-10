@@ -8,15 +8,15 @@ ms.date: 06/16/2014
 ms.assetid: b380c940-84c4-4e4a-980a-fa69986e919b
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5
 msc.type: chapter
-ms.openlocfilehash: 805bf4e94dfbba7b8495ee42438b58bbad6e4b91
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: be7322bae8f3d343866aae6e1c91ccce73ea6fd7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405652"
 ---
-<a name="using-aspnet-web-api-1-with-entity-framework-5"></a>ASP.NET Web API 1 と Entity Framework 5 を使用する
-====================
+# <a name="using-aspnet-web-api-1-with-entity-framework-5"></a>ASP.NET Web API 1 と Entity Framework 5 を使用する
+
 > データベースの永続化のために Entity Framework を使用する Web API 1 アプリケーションを作成する方法。
 
 

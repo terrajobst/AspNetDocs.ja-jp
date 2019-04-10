@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 93ee29ae125e9442ee755998768a8105dfb485c0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424301"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409721"
 ---
-<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
-====================
+# <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
+
 > このドキュメントは、ASP.NET と Visual Studio 2010 での.net Framework 4 に含まれている数多くの新しい機能の概要を提供します。
 > 
 > [このホワイト ペーパーをダウンロードします。](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
@@ -42,7 +42,7 @@ ms.locfileid: "58424301"
 [コンテンツ配信ネットワーク サポート](#0.2__Toc253429252 "_Toc253429252")  
 [Scriptmanager コントロールの明示的なスクリプト](#0.2__Toc253429253 "_Toc253429253")
 
-**[Web Forms](#0.2__Toc253429256 "_Toc253429256")**  
+**[Web フォーム](#0.2__Toc253429256 "_Toc253429256")**  
 [Page.MetaKeywords Page.MetaDescription プロパティとメタ タグを設定](#0.2__Toc253429257 "_Toc253429257")  
 [個々 のコントロール ビュー ステートを有効にする](#0.2__Toc253429258 "_Toc253429258")  
 [ブラウザーの機能への変更](#0.2__Toc253429259 "_Toc253429259")  
@@ -89,7 +89,7 @@ ms.locfileid: "58424301"
 [1 回のクリックは、Web アプリケーションの発行](#0.2__Toc253429296 "_Toc253429296")  
 [Resources](#0.2__Toc253429297 "_Toc253429297")
 
-**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
+**[免責事項](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -202,7 +202,7 @@ ASP.NET 4 では、URL の文字のチェックで使用される文字を構成
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-既定で、 <em>requestPathInvalidChars</em>属性が無効として 8 文字を定義します。 (に割り当てられている文字列で<em>requestPathInvalidChars</em>既定<em>、</em>より小さい (&lt;)、大 (&gt;)、アンパサンドと (&amp;) 文字は、エンコードされたため、`Web.config`ファイルは、XML ファイルです)。無効な文字のセットは、必要に応じてカスタマイズできます。
+既定で、 *requestPathInvalidChars*属性が無効として 8 文字を定義します。 (に割り当てられている文字列で*requestPathInvalidChars*既定より小さい (&lt;)、大 (&gt;)、アンパサンドと (&amp;) 文字がエンコードされます、`Web.config`ファイルXML ファイルです。)無効な文字のセットは、必要に応じてカスタマイズできます。
 
 > [!NOTE]
 > ASP.NET 4 は、無効な URL 文字は、IETF の RFC 2396 で定義されているため、常に 0x00 ~ 0x1F の ASCII の範囲内の文字が含まれている URL パスを拒否するメモ ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt))。 IIS 6 を実行するバージョンの Windows Server または以降では、http.sys プロトコルのデバイス ドライバーに自動的に拒否 Url でこれらの文字。
@@ -411,15 +411,15 @@ ASP.NET 4 で追加する 2 つのプロパティ、*ページ*クラス、 *Met
 
 これらの設定の効果は、ページが初めて読み込まれる、ブラウザーで次の出力で表示します。
 
-無効になっています。 `: [DynamicValue]`
+無効 `: [DynamicValue]`
 
-有効になります。`[DynamicValue]`
+有効:`[DynamicValue]`
 
 ポストバック後に、次の出力が表示されます。
 
-無効になっています。 `: [DeclaredValue]`
+無効 `: [DeclaredValue]`
 
-有効になります。`[DynamicValue]`
+有効:`[DynamicValue]`
 
 Label1 コントロール (が*に ViewStateMode*値に設定されて*無効*) がコードで設定されていた値を保持していません。 ただし、label2 制御 (が*に ViewStateMode*値に設定されて*有効*) の状態を保持しています。
 
@@ -628,7 +628,7 @@ ASP.NET は、適切なルートを自動的に動作 (正しい URL を生成�
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-ルート パラメーターの searchterm の値が使用しての例では、@companynameパラメーター、<em>選択</em>ステートメント。
+ルート パラメーターの searchterm の値が使用しての例では、@companynameパラメーター、*選択*ステートメント。
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -982,9 +982,9 @@ ASP.NET 2.0 およびそれ以降のバージョンがシステムに固有の�
 既定では、テンプレートをサポートする次の ASP.NET Web サーバー コントロールが、インライン スタイルを適用するために使用する外部テーブルで自動的にラップします。
 
 - *FormView*
-- *Login*
+- *ログイン*
 - *PasswordRecovery*
-- *ChangePassword*
+- *パスワードの変更*
 - *ウィザード*
 - *CreateUserWizard*
 
@@ -1279,7 +1279,7 @@ Visual Studio 2010 で Visual Web Developer デザイナーは CSS 2.1 標準へ
 
 ### <a name="html-and-javascript-snippets"></a>HTML および JavaScript のスニペット
 
-HTML エディターで IntelliSense オートコンプリート タグ名。 IntelliSense スニペット機能が自動補完し、タグ全体。 Visual Studio 2010 では、IntelliSense スニペットは、javascript、C# および Visual Basic、Visual Studio の以前のバージョンでサポートされていたと共にサポートされます。
+HTML エディターで IntelliSense オートコンプリート タグ名。 IntelliSense スニペット機能が自動補完し、タグ全体。 Visual Studio 2010 では、IntelliSense スニペットは、javascript、c# および Visual Basic、Visual Studio の以前のバージョンでサポートされていたと共にサポートされます。
 
 Visual Studio 2010 に役立つ、オート コンプリート一般的な ASP.NET タグと HTML タグ、必要な属性を含む 200 を超えるのスニペットが含まれています (など、runat ="server") と共通の属性をタグに特定 (など*ID*、 *DataSourceID*、 *ControlToValidate*、および*テキスト*)。
 

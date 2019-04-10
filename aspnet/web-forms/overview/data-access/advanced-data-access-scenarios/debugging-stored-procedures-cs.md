@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
-title: ストアド プロシージャ (C#) のデバッグ |Microsoft Docs
+title: ストアド プロシージャ (c#) のデバッグ |Microsoft Docs
 author: rick-anderson
 description: Visual Studio Professional および Team System のエディションを使用すると、ブレークポイントを設定し、SQL Server 内のストアド プロシージャにステップ、格納されているデバッグを行う.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: c655c324-2ffa-4c21-8265-a254d79a693d
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4558a309248c89483d198f47f731eee2a266695f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9ac206edee58542ced24ce89adc3393d7a3c1c37
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421467"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392171"
 ---
-<a name="debugging-stored-procedures-c"></a>ストアド プロシージャのデバッグ (C#)
-====================
+# <a name="debugging-stored-procedures-c"></a>ストアド プロシージャのデバッグ (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_74_CS.zip)または[PDF のダウンロード](debugging-stored-procedures-cs/_static/datatutorial74cs1.pdf)
@@ -36,7 +36,7 @@ Visual Studio では、豊富なデバッグ エクスペリエンスを提供�
 
 ## <a name="sql-server-debugging-concepts"></a>SQL Server デバッグの概念
 
-Microsoft SQL Server 2005 の統合を提供するもの、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、SQL Server 2005 では、マネージ データベース オブジェクトをサポートしています。 つまり、C# クラスのメソッドとしてストアド プロシージャおよびユーザー定義関数 (Udf) のようなデータベース オブジェクトを作成できます。 これにより、これらのストアド プロシージャ、Udf では、.NET Framework と、独自のカスタム クラスから機能を利用できます。 もちろん、SQL Server 2005 では、T-SQL でのデータベース オブジェクトに対してのサポートもが提供されます。
+Microsoft SQL Server 2005 の統合を提供するもの、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、SQL Server 2005 では、マネージ データベース オブジェクトをサポートしています。 つまり、c# クラスのメソッドとしてストアド プロシージャおよびユーザー定義関数 (Udf) のようなデータベース オブジェクトを作成できます。 これにより、これらのストアド プロシージャ、Udf では、.NET Framework と、独自のカスタム クラスから機能を利用できます。 もちろん、SQL Server 2005 では、T-SQL でのデータベース オブジェクトに対してのサポートもが提供されます。
 
 SQL Server 2005 では、T-SQL とマネージ データベース オブジェクトの両方に対するデバッグのサポートを提供します。 ただし、これらのオブジェクトは、Visual Studio 2005 Professional やチーム システムのエディションでのみデバッグできます。 このチュートリアルでは、デバッグ T-SQL でのデータベース オブジェクトを説明します。 次のチュートリアルがマネージ データベース オブジェクトをデバッグします。
 
@@ -67,7 +67,7 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 値を指定した後、`@CategoryID`パラメーター、ストアド プロシージャを実行します。 を完了するまで実行するのではなく、デバッガーが停止の最初のステートメントを実行します。 ストアド プロシージャの現在の位置を示す、余白の黄色の矢印に注意してください。 表示および [ウォッチ] ウィンドウで、またはストアド プロシージャでパラメーター名の上に置くことによって、パラメーター値を編集できます。
 
 
-[![ストアド プロシージャの最初のステートメントでデバッガーが停止しました](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
+[![Tストアド プロシージャの最初のステートメントでは、デバッガーが停止しました](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
 
 **図 2**:ストアド プロシージャの最初のステートメントでデバッガーが停止した ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image4.png))。
 
@@ -85,7 +85,7 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 アプリケーションから呼び出されるストアド プロシージャのデバッグを始めることができます、前に、SQL Server デバッガーと統合する ASP.NET web アプリケーションに指示する必要があります。 ソリューション エクスプ ローラーで web サイト名を右クリックして開始 (`ASPNET_Data_Tutorial_74_CS`)。 コンテキスト メニューからプロパティ ページのオプションを選択し、左側で、開始オプション項目を選択し、デバッガーのセクションでは SQL Server のチェック ボックスをオン (図 3 を参照してください)。
 
 
-[![アプリケーションのプロパティ ページで、SQL Server のチェック ボックスをオンします。](debugging-stored-procedures-cs/_static/image6.png)](debugging-stored-procedures-cs/_static/image5.png)
+[![Cアプリケーションのプロパティ ページで SQL Server のチェック ボックスをチェックする](debugging-stored-procedures-cs/_static/image6.png)](debugging-stored-procedures-cs/_static/image5.png)
 
 **図 3**:アプリケーションのプロパティ ページで SQL Server のチェック ボックスをオン ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image7.png))。
 
@@ -108,7 +108,7 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 開く、`Products_SelectByCategoryID`ストアド プロシージャとの先頭にブレークポイントを設定、`SELECT`ステートメントの余白の適切な場所をクリックしてまたはの開始時にカーソルを配置することで、`SELECT`ステートメントと f9 キーを押します。 図 4 に示すように、ブレークポイントは余白に赤い丸が表示されます。
 
 
-[![ブレークポイントを設定、Products_SelectByCategoryID でストアド プロシージャ](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
+[![Set、Products_SelectByCategoryID 内のブレークポイントのストアド プロシージャ](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
 
 **図 4**:ブレークポイントを設定、`Products_SelectByCategoryID`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image10.png))。
 
@@ -126,12 +126,12 @@ SQL データベース オブジェクトのクライアント アプリケー�
 `Products_SelectByCategoryID`でストアド プロシージャが作成された、[型指定されたデータセット s Tableadapter の既存のストアド プロシージャの使用](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)チュートリアル。 対応する web ページ (`~/AdvancedDAL/ExistingSprocs.aspx`) このストアド プロシージャによって返される結果を表示する GridView が含まれています。 ブラウザーからこのページを参照してください。 ページ内のブレークポイントに達すると、`Products_SelectByCategoryID`ストアド プロシージャにヒットして、Visual Studio に制御が返されます。 同じように手順 1 で、ビュー、ストアド プロシージャのステートメントをステップできパラメーター値を変更できます。
 
 
-[![ExistingSprocs.aspx ページは、飲み物を最初に表示されます。](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
+[![T彼 ExistingSprocs.aspx ページには、飲み物、最初に表示されます](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
 
 **図 6**:`ExistingSprocs.aspx`ページは、飲み物を最初に表示されます ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image14.png))。
 
 
-[![ストアド プロシージャのブレークポイントに達しました](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
+[![T彼はストアド プロシージャのブレークポイントに到達した場合](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
 
 **図 7**:ブレークポイントに達するストアド プロシージャ %s ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image17.png))。
 
@@ -139,12 +139,12 @@ SQL データベース オブジェクトのクライアント アプリケー�
 図 7 に示すの値のウォッチ ウィンドウとして、`@CategoryID`パラメーターが 1 です。 これは、ため、`ExistingSprocs.aspx`が飲み物のカテゴリで、製品を最初に表示されます ページ、 `CategoryID` 1 の値。 ドロップダウン リストから別のカテゴリを選択します。 これによりポストバックが発生して、再実行します、`Products_SelectByCategoryID`ストアド プロシージャ。 この時間が、もう一度、ブレークポイントにヒット、`@CategoryID`パラメーター s の値がドロップダウン リストを選択したアイテムを反映して`CategoryID`します。
 
 
-[![ドロップダウン リストから別のカテゴリを選択します。](debugging-stored-procedures-cs/_static/image19.png)](debugging-stored-procedures-cs/_static/image18.png)
+[![Cドロップダウン リストから別のカテゴリの選択](debugging-stored-procedures-cs/_static/image19.png)](debugging-stored-procedures-cs/_static/image18.png)
 
 **図 8**:ドロップダウン リストから別のカテゴリを選択 ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image20.png))。
 
 
-[![@CategoryIDパラメーターは、Web ページから選択したカテゴリを反映](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
+[![T彼@CategoryIDパラメーターは、Web ページからカテゴリを選択を反映](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
 
 **図 9**:`@CategoryID`パラメーターは、Web ページからカテゴリを選択が反映されます ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image23.png))。
 

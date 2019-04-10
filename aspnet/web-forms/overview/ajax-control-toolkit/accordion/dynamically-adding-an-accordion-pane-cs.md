@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 66d88cfa-f26f-46b1-ad52-1c9e03c04a48
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 16cefadb7086a658b20558526757f9229a43fcc9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea526ce8abdf6f7013e8dd832824c21448878e0b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416845"
 ---
-<a name="dynamically-adding-an-accordion-pane-c"></a>アコーディオン ウィンドウでは (c#) を動的に追加します。
-====================
+# <a name="dynamically-adding-an-accordion-pane-c"></a>アコーディオン ウィンドウでは (c#) を動的に追加します。
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2CS.pdf)
@@ -55,7 +55,7 @@ AJAX Control Toolkit で、アコーディオン コントロールは、複数�
 [!code-css[Main](dynamically-adding-an-accordion-pane-cs/samples/sample6.css)]
 
 
-[![アコーディオンにデータはサーバー側コードによって動的に追加されました](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
+[![Tアコーディオンにデータが動的に追加されたサーバー側コードによって](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
 
 アコーディオンにデータはサーバー側コードによって動的に追加されました ([フルサイズの画像を表示する をクリックします](dynamically-adding-an-accordion-pane-cs/_static/image3.png))。
 

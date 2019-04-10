@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c1f64f57d4c23fe225a8268042104254e17dc456
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b3c6726c2d08e2e6ac37501f2ab455e427df82bb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044249"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414056"
 ---
-<a name="creating-model-classes-with-the-entity-framework-vb"></a>Entity Framework でモデル クラスを作成する (VB)
-====================
+# <a name="creating-model-classes-with-the-entity-framework-vb"></a>Entity Framework でモデル クラスを作成する (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 エンティティ ウィザードを使用して、ADO.NET Entity Data Model を作成する方法について説明します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションを構築します。

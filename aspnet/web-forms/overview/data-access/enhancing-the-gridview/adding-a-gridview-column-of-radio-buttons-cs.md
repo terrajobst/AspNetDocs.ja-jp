@@ -8,15 +8,15 @@ ms.date: 03/06/2007
 ms.assetid: 32377145-ec25-4715-8370-a1c590a331d5
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4b2e50a4ede0dfa97df6fa73dbd5b16bfde59745
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d191dd0022c9ec87e2c7df6be8be2a8c6b951ad3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421676"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413023"
 ---
-<a name="adding-a-gridview-column-of-radio-buttons-c"></a>ラジオ ボタンの GridView 列を追加する (C#)
-====================
+# <a name="adding-a-gridview-column-of-radio-buttons-c"></a>ラジオ ボタンの GridView 列を追加する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_51_CS.exe)または[PDF のダウンロード](adding-a-gridview-column-of-radio-buttons-cs/_static/datatutorial51cs1.pdf)
@@ -52,7 +52,7 @@ GridView コントロールには、多くの組み込み機能が用意され�
 などの他のフォルダーで`Default.aspx`で、`EnhancedGridView`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image1.png)
+[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image1.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.png))。
 
@@ -77,12 +77,12 @@ GridView コントロールには、多くの組み込み機能が用意され�
 開いて開始、`RadioButtonField.aspx`ページで、 `EnhancedGridView` GridView をツールボックスからデザイナーにドラッグしてフォルダー。 GridView s 設定`ID`に`Suppliers`と、新しいデータ ソースを作成することも、スマート タグから。 具体的には、作成するという、ObjectDataSource`SuppliersDataSource`からデータを抽出する、`SuppliersBLL`オブジェクト。
 
 
-[![SuppliersDataSource という名前の新しい ObjectDataSource を作成します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image3.png)
+[![C新しい ObjectDataSource という SuppliersDataSource を reate](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image3.png)
 
 **図 4**:名前付き新しい ObjectDataSource 作成`SuppliersDataSource`([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.png))。
 
 
-[![SuppliersBLL クラスを使用する ObjectDataSource を構成します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.png)
+[![C構成、ObjectDataSource SuppliersBLL クラスを使用する](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.png)
 
 **図 5**:構成に使用する ObjectDataSource、`SuppliersBLL`クラス ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.png))。
 
@@ -90,7 +90,7 @@ GridView コントロールには、多くの組み込み機能が用意され�
 米国内で業者を一覧表示するのみ、選択、`GetSuppliersByCountry(country)`選択 タブで、ドロップダウン リストからメソッド。
 
 
-[![SuppliersBLL クラスを使用する ObjectDataSource を構成します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.png)
+[![C構成、ObjectDataSource SuppliersBLL クラスを使用する](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.png)
 
 **図 6**:構成に使用する ObjectDataSource、`SuppliersBLL`クラス ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.png))。
 
@@ -98,7 +98,7 @@ GridView コントロールには、多くの組み込み機能が用意され�
 更新プログラム] タブで、[オプションし、[次へ] (なし)。
 
 
-[![SuppliersBLL クラスを使用する ObjectDataSource を構成します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.png)
+[![C構成、ObjectDataSource SuppliersBLL クラスを使用する](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.png)
 
 **図 7**:構成に使用する ObjectDataSource、`SuppliersBLL`クラス ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.png))。
 
@@ -106,7 +106,7 @@ GridView コントロールには、多くの組み込み機能が用意され�
 以降、`GetSuppliersByCountry(country)`メソッドが受け取るパラメーターは、データ ソースの構成ウィザードでは、私たちを入力パラメーターのソース。 指定するには、(USA, この例では)、ハード コーディングされた値には、ソースのドロップダウン リストを None に設定し、テキスト ボックスで、既定値を入力パラメーターがままにします。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![既定値として (米国) を使用して、お住まいの国のパラメーター](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.png)
+[![Use 国パラメーターの既定値として (米国)](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.png)
 
 **図 8**:既定値として (米国) を使用して、`country`パラメーター ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.png))。
 
@@ -121,7 +121,7 @@ GridView コントロールには、多くの組み込み機能が用意され�
 図 9 は、 `Suppliers` GridView コントロールとボタンの 2 つの Web ブラウザーで表示した場合を制御します。
 
 
-[![米国から業者がある、名前、City、および国の情報を一覧表示](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.png)
+[![T米国からサプライヤーのホースがある、名前、市区町村、および国の情報を表示](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.png)
 
 **図 9**:その名前のある (米国)、City、および国の情報が表示されてから業者 ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.png))。
 
@@ -135,7 +135,7 @@ GridView コントロールには、多くの組み込み機能が用意され�
 Let s がので、このアプローチを実装する場合でも、RadioButton Web コントロールの TemplateField を使用する必要がある機能は提供しません、結果として得られるラジオ ボタンのグループ分けされていない理由を検討する価値はあるでしょう。 まず、左端のフィールドになります、サプライヤーの GridView を TemplateField を追加します。 次に、GridView s のスマート タグからテンプレートの編集リンクをクリックし、TemplateField s に RadioButton Web コントロールをツールボックスからドラッグ`ItemTemplate`(図 10 参照)。 RadioButton s 設定`ID`プロパティを`RowSelector`と`GroupName`プロパティを`SuppliersGroup`します。
 
 
-[![ItemTemplate に RadioButton Web コントロールを追加します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.png)
+[![Add を ItemTemplate RadioButton Web コントロール](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.png)
 
 **図 10**:RadioButton Web コントロールを追加、 `ItemTemplate` ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.png))。
 
@@ -150,7 +150,7 @@ RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/library/s
 追加された RadioButton Web コントロールで、`ItemTemplate`ブラウザーからこのページを参照してください。 し、グリッドの行のラジオ ボタンをクリックします。 通知がないラジオ ボタンをグループ化方法、図 11 としてすべての行を選択することを示しています。
 
 
-[![GridView s のラジオ ボタンがグループ化されていません。](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.png)
+[![Tラジオ ボタンの GridView s 彼は、グループ化されていない](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.png)
 
 **図 11**:GridView s のラジオ ボタンがグループ化されていない ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.png))。
 
@@ -167,7 +167,7 @@ RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/library/s
 これの短い形式は、RadioButton Web コントロールを使用して GridView にラジオ ボタンの列を作成できないことです。 代わりではなく旧式の手法を使用して GridView 行ごとに適切なマークアップを挿入するようにする必要があります。
 
 > [!NOTE]
-> RadioButton Web コントロール、HTML コントロール、テンプレートに追加されたときにオプション ボタンが、一意では、よう`name`属性をグループに属していないグリッドのオプション ボタンを作成します。 HTML コントロールに慣れていない場合は、HTML コントロールはほとんど使用されると、ASP.NET 2.0 では特に、この注を無視する自由ください。 詳細に関心がある場合は、ただし[K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx) s ブログ エントリ[Web コントロールと HTML コントロール](http://www.odetocode.com/Articles/348.aspx)を参照してください。
+> RadioButton Web コントロール、HTML コントロール、テンプレートに追加されたときにオプション ボタンが、一意では、よう`name`属性をグループに属していないグリッドのオプション ボタンを作成します。 HTML コントロールに慣れていない場合は、HTML コントロールはほとんど使用されると、ASP.NET 2.0 では特に、この注を無視する自由ください。 詳細に関心がある場合は、次を参照してください。 ただし[K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx) s ブログ エントリ[Web コントロールと HTML コントロール](http://www.odetocode.com/Articles/348.aspx)します。
 
 
 ## <a name="using-a-literal-control-to-inject-radio-button-markup"></a>リテラル コントロールを使用して、ラジオ ボタンのマークアップを挿入するには
@@ -186,7 +186,7 @@ RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/library/s
 TemplateField s から、オプション ボタンを削除することによって開始`ItemTemplate`、リテラル コントロールに置き換えます。 リテラル コントロール s 設定`ID`に`RadioButtonMarkup`します。
 
 
-[![リテラル コントロール、ItemTemplate を追加します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.png)
+[![Add を ItemTemplate リテラル コントロール](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.png)
 
 **図 12**:リテラル コントロールを追加、 `ItemTemplate` ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image20.png))。
 
@@ -240,7 +240,7 @@ ASP.NET のコントロールをコンパイルすると、これまで、カス
 対応するために、`SuppliersSelectedIndex`の値`-1`、Label Web コントロール、GridView 上にあるページを追加します。 設定の`ID`プロパティを`ChooseSupplierMsg`その`CssClass`プロパティを`Warning`その`EnableViewState`と`Visible`プロパティを`false`とその`Text`くださいにプロパティ グリッドから、業者を選択します。 CSS クラス`Warning`赤、斜体、太字、大きなフォントでテキストを表示しで定義されている`Styles.css`します。 設定して、`EnableViewState`と`Visible`プロパティ`false`、以外は、where をポストバックだけのラベルは表示されませんコントロール s`Visible`プロパティ プログラムで`true`します。
 
 
-[![GridView の上のラベル Web コントロールを追加します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image21.png)
+[![Add ラベル Web コントロールの上、GridView](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image21.png)
 
 **図 13**:追加ラベル Web コントロールの上、GridView ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image22.png))。
 
@@ -253,12 +253,12 @@ ASP.NET のコントロールをコンパイルすると、これまで、カス
 クリックするとブラウザー ページを参照してください、 `SendToProducts` GridView から仕入先を選択する前にボタンをクリックします。 図 14 に示す、これを表示、`ChooseSupplierMsg`ラベル。 次に、仕入先を選択し、クリックして、`SendToProducts`ボタンをクリックします。 選択したサプライヤーから供給される製品を一覧表示されたページにするを whisk これは。 図 15 を示しています、`ProductsForSupplierDetails.aspx`ビッグフット醸造酒および仕入先を選択したときのページします。
 
 
-[![No 仕入先が選択されている場合、ChooseSupplierMsg ラベルが表示されます。](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image23.png)
+[![TNo 仕入先が選択されている場合は、彼 ChooseSupplierMsg ラベルが表示されます](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image23.png)
 
 **図 14**:`ChooseSupplierMsg`いいえ仕入先が選択されている場合、ラベルが表示されます ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image24.png))。
 
 
-[![ProductsForSupplierDetails.aspx、仕入先の選択した製品が表示されます。](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image25.png)
+[![T彼仕入先の選択の s ProductsForSupplierDetails.aspx に製品が表示されます](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image25.png)
 
 **図 15**:仕入先の選択した製品が表示される`ProductsForSupplierDetails.aspx`([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image26.png))。
 
@@ -270,7 +270,7 @@ ASP.NET のコントロールをコンパイルすると、これまで、カス
 のみたいので、業者を選択したらを表示する製品のこの GridView、下のパネルの Web コントロールを追加、 `Suppliers` GridView、設定、`ID`に`ProductsBySupplierPanel`とその`Visible`プロパティを`false`します。 GridView という名前で、パネル内で選択されている仕入先の製品のテキストを追加後に`ProductsBySupplier`します。 という名前の新しい ObjectDataSource にバインドを選択する GridView s のスマート タグから`ProductsBySupplierDataSource`します。
 
 
-[![新しい ObjectDataSource ProductsBySupplier GridView にバインドします。](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image27.png)
+[![B%%ind 新しい ObjectDataSource に ProductsBySupplier GridView](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image27.png)
 
 **図 16**:バインド、`ProductsBySupplier`新しい ObjectDataSource に GridView ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image28.png))。
 
@@ -278,12 +278,12 @@ ASP.NET のコントロールをコンパイルすると、これまで、カス
 使用する ObjectDataSource を次に、構成、`ProductsBLL`クラス。 のみたいので、選択した業者によって提供されるこれらの製品を取得する、ObjectDataSource を呼び出す必要があることを指定、`GetProductsBySupplierID(supplierID)`そのデータを取得します。 (なし) を UPDATE、INSERT でドロップダウン リストから選択し、タブを削除します。
 
 
-[![ObjectDataSource GetProductsBySupplierID(supplierID) メソッドを使用して構成します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image29.png)
+[![C構成、ObjectDataSource GetProductsBySupplierID(supplierID) メソッドを使用する](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image29.png)
 
 **図 17**:構成に使用する ObjectDataSource、`GetProductsBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image30.png))。
 
 
-[![UPDATE、INSERT で (なし) ドロップダウン リストを設定し、タブを削除します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image31.png)
+[![Set UPDATE、INSERT、および DELETE のタブで [(なし) のドロップダウン リスト](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image31.png)
 
 **図 18**:UPDATE、INSERT、および削除のタブで、ドロップダウン リストを [(なし) を設定 ([フルサイズの画像を表示する] をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image32.png))。
 
@@ -295,7 +295,7 @@ ASP.NET のコントロールをコンパイルすると、これまで、カス
 または、ControlParameter を使用して参照してください、、 `Suppliers` GridView s [ `SelectedValue`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx)(図 19 を参照してください)。 GridView s`SelectedValue`プロパティが返す、`DataKey`に対応する値、 [ `SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx)します。 このオプションを使用するためには、GridView s をプログラムで設定する`SelectedIndex`プロパティに、選択した行の場合に、`ListProducts`ボタンがクリックされました。 設定して、追加のメリットとして、 `SelectedIndex`、選択したレコードになる予定、`SelectedRowStyle`で定義されている、`DataWebControls`テーマ (黄色の背景)。
 
 
-[![パラメーターのソースとして GridView の SelectedValue を指定するのに、ControlParameter を使用します。](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
+[![Use、ControlParameter GridView の SelectedValue をパラメーターのソースとして指定する](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
 
 **図 19**:パラメーターのソースとして GridView の SelectedValue を指定する、ControlParameter を使用して ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image34.png))。
 
@@ -315,7 +315,7 @@ ASP.NET のコントロールをコンパイルすると、これまで、カス
 図 20 ビッグフット醸造酒および仕入先が選択されているし、[ページ] ボタンを表示する製品がクリックしてされた後、結果を示しています。
 
 
-[![同じページには、ビッグフット醸造酒およびによって提供される製品が一覧表示されます。](adding-a-gridview-column-of-radio-buttons-cs/_static/image20.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image35.png)
+[![T製品がビッグフット醸造酒およびによって提供される彼は、同じページに表示されます](adding-a-gridview-column-of-radio-buttons-cs/_static/image20.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image35.png)
 
 **図 20**:同じページには、ビッグフット醸造酒およびによって提供される製品が一覧表示されます ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-radio-buttons-cs/_static/image36.png))。
 

@@ -8,15 +8,15 @@ ms.date: 03/08/2013
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
-ms.openlocfilehash: a3021f166262ee953b0cbe9ea88762a385925b88
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 1e7103df41e4c355ca6f1291ef0a10269c5c403a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423104"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415558"
 ---
-<a name="breezeangular-template"></a>Breeze/Angular テンプレート
-====================
+# <a name="breezeangular-template"></a>Breeze/Angular テンプレート
+
 によって[Mads Kristensen](https://github.com/madskristensen)
 
 > Ward Bell によって Breeze/angular の MVC テンプレートが作成されました
@@ -59,7 +59,7 @@ Breeze/angular SPA テンプレートはバリエーションの 1 つ、 [Knock
 
 ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 テンプレートは、Visual Studio Extension (VSIX) ファイルとしてパッケージ化されます。 Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual C#** ノード。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
 
 **新しいプロジェクト**ウィザードで、 **Breeze Angular SPA**します。
 

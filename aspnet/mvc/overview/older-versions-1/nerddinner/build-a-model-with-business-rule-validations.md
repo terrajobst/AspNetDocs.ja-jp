@@ -8,18 +8,18 @@ ms.date: 07/27/2010
 ms.assetid: 0bc191b2-4311-479a-a83a-7f1b1c32e6fe
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: f5829aab8cb266a65674d052ab77ab8e10c60670
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 078614c6e7ba18ac09bbd5e23b90b08c97aee658
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422854"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387309"
 ---
-<a name="build-a-model-with-business-rule-validations"></a>ビジネス ルール検証でモデルをビルドする
-====================
+# <a name="build-a-model-with-business-rule-validations"></a>ビジネス ルール検証でモデルをビルドする
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 3 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -44,7 +44,7 @@ LINQ to SQL では、.NET クラスのコードにはデータベース テー�
 
 LINQ to SQL では、Dinner および RSVP を取得および更新の SQL ステートメントを手動で作成しなくてもすむようににより、データベースのデータ オブジェクト。 代わりにマップする方法との間、データベース、およびそれらの関係は、Dinner および RSVP クラスで定義します。 LINQ to SQL は私たちを操作し、それらを使用時に、実行時に使用する適切な SQL の実行ロジックを生成する処理を引き継ぎます。
 
-VB と C# 内での LINQ の言語サポートを使用して Dinner と RSVP を取得する表現力豊かなクエリの作成、データベースのオブジェクト。 これによりデータのコードを記述する必要がありますの量を最小限にし、本当に優れたアプリケーションを構築することができます。
+VB と c# 内での LINQ の言語サポートを使用して Dinner と RSVP を取得する表現力豊かなクエリの作成、データベースのオブジェクト。 これによりデータのコードを記述する必要がありますの量を最小限にし、本当に優れたアプリケーションを構築することができます。
 
 ### <a name="adding-linq-to-sql-classes-to-our-project"></a>追加の LINQ to SQL クラスをプロジェクト
 
@@ -116,7 +116,7 @@ NerdDinner アプリケーションを持つときは必ず DinnerRepository ク
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample2.cs)]
 
-*注:この章では後でこのクラスから IDinnerRepository インターフェイスの抽出がされ、コント ローラーでそれに依存関係の挿入を有効にします。まず、ここを簡単に開始し、ときは必ず DinnerRepository クラスを直接操作だけです。*
+*メモ:この章では後でこのクラスから IDinnerRepository インターフェイスの抽出がされ、コント ローラーでそれに依存関係の挿入を有効にします。 まず、ここを簡単に開始し、ときは必ず DinnerRepository クラスを直接操作だけです。*
 
 "Models"フォルダーを右クリックしを選択しましたが、このクラスを実装するために、**追加 -&gt;新しい項目の**メニュー コマンド。 "新しい項目の追加 ダイアログ ボックスでは、「クラス」テンプレートを選択し、ファイルの名前を"DinnerRepository.cs"しましたします。
 

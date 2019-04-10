@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/content-negotiation
-title: コンテンツ ネゴシエーションを ASP.NET Web API の |Microsoft Docs
+title: コンテンツ ネゴシエーションでは、ASP.NET Web API - ASP.NET 4.x
 author: MikeWasson
-description: ASP.NET Web API で HTTP コンテンツ ネゴシエーションの実装方法について説明します。
+description: ASP.NET Web API が ASP.NET の HTTP コンテンツ ネゴシエーションを実装する方法について説明します。 4.x です。
 ms.author: riande
 ms.date: 05/20/2012
+ms.custom: seoapril2019
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfbed49c1022fbf26160e89aed3ab474f5e0fdc
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: cb6668ff6de276d3778ce11f27ce597d8bf1f9c7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425692"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380161"
 ---
-<a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API でコンテンツ ネゴシエーション
-====================
+# <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API でコンテンツ ネゴシエーション
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-この記事では、ASP.NET Web API でコンテンツ ネゴシエーションの実装方法について説明します。
+この記事では、ASP.NET Web API での ASP.NET コンテンツ ネゴシエーションの実装方法について説明します 4.x です。
 
 HTTP の仕様 (RFC 2616) は、「複数の表現が使用できる場合に、指定された応答の最適な表現を選択した場合のプロセスです。」とコンテンツ ネゴシエーションを定義します。 Http コンテンツ ネゴシエーションを主要なメカニズムは、これらの要求ヘッダーです。
 
@@ -56,7 +57,7 @@ JSON、Javascript、またはその「何も」この例では、クライアン
 
 このオプションでは、応答の詳細についてより詳細に制御をできます。 ステータス コードを設定し、HTTP のヘッダーを追加するなどできます。
 
-リソースをシリアル化するオブジェクトが呼び出されると、*メディア フォーマッタ*します。 派生してメディア フォーマッタ、 **MediaTypeFormatter**クラス。 Web API は、XML および JSON 用メディア フォーマッタを提供し、その他のメディアの種類をサポートするために、カスタム フォーマッタを作成することができます。 カスタム フォーマッタを作成する方法の詳細については、[メディア フォーマッタ](media-formatters.md)を参照してください。
+リソースをシリアル化するオブジェクトが呼び出されると、*メディア フォーマッタ*します。 派生してメディア フォーマッタ、 **MediaTypeFormatter**クラス。 Web API は、XML および JSON 用メディア フォーマッタを提供し、その他のメディアの種類をサポートするために、カスタム フォーマッタを作成することができます。 カスタム フォーマッタを作成する方法の詳細については、次を参照してください。[メディア フォーマッタ](media-formatters.md)します。
 
 ## <a name="how-content-negotiation-works"></a>コンテンツ ネゴシエーションのしくみ
 
@@ -92,7 +93,7 @@ JSON、Javascript、またはその「何も」この例では、クライアン
 - **SupportedMediaTypes**コレクションで、サポートされているメディアの種類の一覧が含まれています。 コンテンツ ネゴシエーターは、要求の Accept ヘッダーに対しては、この一覧の一致を試みます。 Accept ヘッダーが範囲を含めることができますに注意してください。 たとえば、"text/plain"にはテキストと一致する/\*または\* /\*します。
 - **MediaTypeMappings**の一覧を含むコレクションを**MediaTypeMapping**オブジェクト。 **MediaTypeMapping**クラスには、メディアの種類が HTTP 要求を一致するように、一般的な方法が用意されています。 たとえば、カスタム HTTP ヘッダーを特定のメディアの種類にマップことでした。
 
-複数ある場合は一致すると、最高の品質ファクター wins と一致します。 例:
+複数ある場合は一致すると、最高の品質ファクター wins と一致します。 例えば:
 
 [!code-console[Main](content-negotiation/samples/sample6.cmd)]
 

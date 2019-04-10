@@ -8,15 +8,15 @@ ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 6124bcdaeeb0d4342cbde0d3ca52d55f76a953ab
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 484c01f19014639cc30244ed4f4d014794594aa2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041449"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391703"
 ---
-<a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
-====================
+# <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
+
 によって[Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > この記事では、IIS 統合パイプラインで OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を示していて、上、OMC パイプライン イベントを設定する方法で実行します。 確認する必要があります[プロジェクト Katana の概要を](an-overview-of-project-katana.md)と[OWIN スタートアップ クラス検出](owin-startup-class-detection.md)このチュートリアルを読む前にします。 このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )、Chris Ross、Praburaj Thiagarajan、Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) )。

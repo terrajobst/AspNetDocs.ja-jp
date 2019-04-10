@@ -8,15 +8,15 @@ ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 40c9764f0c47b83df8300553b4b290429937345c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bb8a7da1080dc325c0479b337d114b8dcdf6e102
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390065"
 ---
-<a name="signalr-connection-density-testing-with-crank"></a>Crank による SignalR 接続密度テスト
-====================
+# <a name="signalr-connection-density-testing-with-crank"></a>Crank による SignalR 接続密度テスト
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -40,7 +40,7 @@ Crank を完全にサーバーのメモリが飽和状態にサーバー ハー�
 
 1. ビルドをダウンロードして、 [SignalR の開発ブランチのコードベース](https://github.com/SignalR/SignalR/archive/dev.zip)します。 コマンド プロンプトでに移動します。&lt;プロジェクト ディレクトリ&gt;\src\Microsoft.AspNet.SignalR.Crank\bin\debug します。
 2. その目的のホスティング環境にアプリケーションをデプロイします。 アプリケーションが使用するエンドポイントをメモしてをおきます作成したアプリケーションなどで、[チュートリアル入門](../getting-started/tutorial-getting-started-with-signalr.md)、エンドポイントが`http://<yourhost>:8080/signalr`します。
-3. インストール[SignalR パフォーマンス カウンター](signalr-performance.md#perfcounters)サーバー。 アプリケーションが Azure で実行している場合は、[Azure Web ロールで SignalR パフォーマンス カウンターを使用して](using-signalr-performance-counters-in-an-azure-web-role.md)を参照してください。
+3. インストール[SignalR パフォーマンス カウンター](signalr-performance.md#perfcounters)サーバー。 アプリケーションが Azure で実行している場合は、次を参照してください。 [Azure Web ロールで SignalR パフォーマンス カウンターを使用して](using-signalr-performance-counters-in-an-azure-web-role.md)します。
 
 Crank コマンド ライン ツールで見つかるダウンロードして、コードベースのビルドしホストのパフォーマンス カウンターをインストールした後、`src\Microsoft.AspNet.SignalR.Crank\bin\Debug`フォルダー。
 
@@ -48,7 +48,7 @@ Crank ツールの使用可能なオプションは次のとおりです。
 
 - **/?**:ヘルプ画面を示しています。 場合にも使用可能なオプションが表示されます、 **Url**パラメーターを省略するとします。
 - **/Url**:SignalR 接続の URL。 このパラメーターは必須です。 SignalR アプリケーションの既定のマッピングを使用する場合、パスの末尾が"/signalr"。
-- **/トランスポート**:使用されるトランスポートの名前。 既定値は`auto`、最適使用可能なプロトコルが選択されます。 オプションがあります。 `WebSockets`、 `ServerSentEvents`、および`LongPolling`(`ForeverFrame`オプションではありません、実際の .NET クライアントから Internet Explorer を使用するのではなく)。 SignalR のトランスポートを選択する方法の詳細については、[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)を参照してください。
+- **/トランスポート**:使用されるトランスポートの名前。 既定値は`auto`、最適使用可能なプロトコルが選択されます。 オプションがあります。 `WebSockets`、 `ServerSentEvents`、および`LongPolling`(`ForeverFrame`オプションではありません、実際の .NET クライアントから Internet Explorer を使用するのではなく)。 SignalR のトランスポートを選択する方法の詳細については、次を参照してください。[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)します。
 - **/BatchSize**:各バッチで追加されたクライアントの数。 既定値には 50 です。
 - **/ConnectInterval**:間隔が接続の追加 (ミリ秒)。 既定値は 500 です。
 - **/接続**:アプリケーションのロード テストに使用される接続の数。 既定値には 100,000 です。

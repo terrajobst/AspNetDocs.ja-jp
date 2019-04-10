@@ -8,15 +8,15 @@ ms.date: 08/20/2008
 ms.assetid: 2456a5da-d376-4d45-8275-9e0dc46bf7dd
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-controllers-controller-actions-and-action-results
 msc.type: video
-ms.openlocfilehash: a76900ea082c4f1df1a08fa79e995f4ac2cf4537
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b638565cdaf4b16d5f7a4649b7b1cccd880200d1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042809"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407381"
 ---
-<a name="understanding-controllers-controller-actions-and-action-results"></a>コントローラー、コントローラー アクション、アクションの結果を理解する
-====================
+# <a name="understanding-controllers-controller-actions-and-action-results"></a>コントローラー、コントローラー アクション、アクションの結果を理解する
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 このチュートリアルで Stephen Walther がわかる ASP.NET MVC コント ローラー。 新しいコント ローラーを作成し、さまざまな種類のアクションの結果を返す方法を学習します。 このビデオについては、「理解コント ローラー、コント ローラーのアクションおよびアクションの結果」のチュートリアルをお読みください ([c#](../../../overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs.md)、 [VB](../../../overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb.md))。

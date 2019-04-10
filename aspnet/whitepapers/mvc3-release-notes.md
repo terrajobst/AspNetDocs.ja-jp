@@ -8,18 +8,18 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 7342b5f4a7e2327f3f3850941510a6e46ec30842
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57063869"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407108"
 ---
-<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
-====================
+# <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
+
 - [概要](#overview)
 - [インストールに関する注記](#installation-notes)
-- [ソフトウェアの要件](#software-requirements)
+- [ソフトウェア要件](#software-requirements)
 - [ドキュメント](#documentation)
 - [サポート](#support)
 - [ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。](#upgrading)
@@ -39,7 +39,7 @@ ms.locfileid: "57063869"
     - [修正済み。逆に空白の結果を含む Razor 式の一部を貼り付ける](#RTM-3)
     - [修正済み。構文の色付けと IntelliSense を無効にしますが、エディターで開かれている Razor ファイルの名前を変更します。](#RTM-4)
     - [既知の問題](#RTM-KI)
-    - [重大な変更](#RTM-BC)
+    - [互換性に影響する変更点](#RTM-BC)
 - [ASP.NET MVC 3 Release Candidate 2 (2010 年 12 月 10 日)](#_Toc2)
 
     - [JQuery 1.4.4、jQuery 検証 1.7、jQuery UI 1.8.6y UI 1.8.6 など、プロジェクト テンプレートの変更](#_Toc2_1)
@@ -55,20 +55,20 @@ ms.locfileid: "57063869"
     - [エンジン固有のファイル名をサポートするために、ビュー エンジンに追加された"FileExtensions"プロパティ](#_Toc2_10)
     - [固定"LabelFor"ヘルパー"For"属性の正しい値を出力するには](#_Toc2_11)
     - [モデル バインド中に明示的な値を優先する固定"RenderAction"メソッド](#_Toc2_12)
-    - [重大な変更](#_Toc2_BC)
+    - [互換性に影響する変更点](#_Toc2_BC)
     - [既知の問題](#_Toc2_KI)
 - [ASP.NET MVC 3 リリース候補 (2010 年 11 月 9 日)](#TOC_ASP_NET_3_RC)
 
     - [ASP.NET MVC 3 RC の新機能](#_Toc276711785)
     - [NuGet パッケージ マネージャー](#_Toc276711786)
-    - [[新しいプロジェクト の改善] ダイアログ ボックス](#_Toc276711787)
+    - [新しいプロジェクト の改善 ダイアログ ボックス](#_Toc276711787)
     - [Sessionless コント ローラー](#_Toc276711788)
     - [新しい検証属性](#_Toc276711789)
     - ["LabelFor"と"LabelForModel"メソッドの新しいオーバー ロード](#_Toc276711790)
     - [子アクションの出力キャッシュ](#_Toc276711791)
     - ["ビューの追加 ダイアログ ボックスの機能強化](#_Toc276711792)
     - [詳細な要求の検証](#_Toc276711793)
-    - [重大な変更](#_Toc276711794)
+    - [互換性に影響する変更点](#_Toc276711794)
     - [既知の問題](#_Toc276711795)
 - [ASP します。MVC 3 Beta ノート (2010 年 10 月 6 日)](#TOC_ASP_NET_3_Beta)
 
@@ -85,10 +85,10 @@ ms.locfileid: "57063869"
     - [VBHTML Razor 構文のサポート](#0.1__Toc274034225)
     - [ValidateInputAttribute をより細かく制御](#0.1__Toc274034226)
     - [ヘルパーの匿名オブジェクトを使用して指定された HTML 属性名にアンダー スコアをハイフンに変換します。](#0.1__Toc274034227)
-    - [バグの修正](#0.1__Toc274034228)
-    - [重大な変更](#0.1__Toc274034229)
+    - [バグ修正](#0.1__Toc274034228)
+    - [互換性に影響する変更点](#0.1__Toc274034229)
     - [既知の問題](#0.1__Toc274034230)
-- [免責事項](#0.1__Toc274034231)
+- [免責情報](#0.1__Toc274034231)
 
 <a id="overview"></a>
 ## <a name="overview"></a>概要
@@ -259,7 +259,7 @@ ASP.NET MVC 3 は、ASP.NET MVC 2 と並行 ASP.NET MVC 3、ASP.NET MVC 2 アプ
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>プロジェクト テンプレートに Modernizr 1.7 が追加されました
 
-Modernizr は、これらの機能をサポートしていないブラウザーで、CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクト用のテンプレートに事前にインストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、[ http://www.modernizr.com/](http://www.modernizr.com/)を参照してください。
+Modernizr は、これらの機能をサポートしていないブラウザーで、CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクト用のテンプレートに事前にインストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、次を参照してください。 [ http://www.modernizr.com/](http://www.modernizr.com/)します。
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクト テンプレートは、更新されたバージョンの jQuery、jQuery UI、および jQuery の検証
@@ -277,7 +277,7 @@ Modernizr は、これらの機能をサポートしていないブラウザー�
 
 ADO.NET の Entity Framework 4.1 には、Code First 機能が含まれています。 コードは、既存の Database First と Model First パターンの代替を提供する ADO.NET Entity Framework の新しい開発パターンを最初です。
 
-コードはまず、Visual Basic または C# で記述された POCO クラス ("plain old CLR object") を使用して、モデルの定義をフォーカスしています。 これらのクラスは、既存のデータベースにマップすることができますし、またはデータベース スキーマの生成に使用します。 使用して追加の構成を指定する*DataAnnotations*属性または fluent Api を使用します。
+コードはまず、Visual Basic または c# で記述された POCO クラス ("plain old CLR object") を使用して、モデルの定義をフォーカスしています。 これらのクラスは、既存のデータベースにマップすることができますし、またはデータベース スキーマの生成に使用します。 使用して追加の構成を指定する*DataAnnotations*属性または fluent Api を使用します。
 
 コード Firstwith ASP.NET MVC を使用するためのドキュメントは、次の Url で ASP.NET web サイトで使用できます。
 
@@ -295,7 +295,7 @@ JQuery には、ファイル名にバージョン番号が含まれているた�
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>既知の問題
 
-- 場合によっては、インストール、エラー メッセージ「インストールに失敗しましたエラー コード (0x80070643)」で失敗します。 この問題を回避する方法については、[サポート技術情報の記事 2531566](https://support.microsoft.com/kb/2531566)を参照してください。
+- 場合によっては、インストール、エラー メッセージ「インストールに失敗しましたエラー コード (0x80070643)」で失敗します。 この問題を回避する方法については、次を参照してください。[サポート技術情報の記事 2531566](https://support.microsoft.com/kb/2531566)します。
 - コント ローラーを追加するためのスキャフォールディングでは、Entity Framework 内でエンティティ継承サポートを利用するエンティティはスキャフォールディングされません。 たとえば、ベースを指定*人*クラスによって継承される、*学生*クラスをスキャフォールディング、*学生*クラスと、生成されたコード コンパイルされていません。
 - ソリューション フォルダー内で新しい ASP.NET MVC 3 プロジェクトを作成するには、原因、 *NullReferenceException*エラー。 回避策では、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューション フォルダーに移動しています。
 - Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper がインストールされているあり ASP.NET MVC 3 での Razor IntelliSense サポートを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)併用する方法が説明されています Hadi Hariri のブログ、します。
@@ -435,7 +435,7 @@ ASP.NET MVC 3 のプロジェクト テンプレートでは、jQuery、jQuery �
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>固定@model空白の文書に追加の宣言
 
-以前のリリースで、 <em>@model</em>ビューの上部にある宣言が表示される HTML 出力に空白行を追加します。 これは、宣言は空白を挿入しないように修正されています。
+以前のリリースで、 *@model*ビューの上部にある宣言が表示される HTML 出力に空白行を追加します。 これは、宣言は空白を挿入しないように修正されています。
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>エンジン固有のファイル名をサポートするために、ビュー エンジンに追加された"FileExtensions"プロパティ
@@ -462,7 +462,7 @@ ASP.NET MVC 3 のプロジェクト テンプレートでは、jQuery、jQuery �
 - ASP.NET MVC の以前のバージョンでは、アクション フィルターが 1 回のような場合を除く要求作成されました。 この動作が保証された動作が実装の詳細だけで、されていないことと、フィルターのコントラクトがステートレスに考慮すべきでした。 ASP.NET MVC 3 では、フィルターがより積極的にキャッシュされます。 そのため、不適切なインスタンスの状態を格納するカスタム アクション フィルターは、壊れている場合があります。
 - 例外フィルターの実行の順序が同じである例外フィルターの変更された*順序*値。 ASP.NET MVC 2 以降では、同じがあったコント ローラー上の例外がフィルター*順序*アクション メソッドで例外フィルターの前に実行されたアクション メソッドの値します。 通常、ある場合、この例外フィルターが適用されたときに指定されていない*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
 - という名前の新しいプロパティ*FileExtensions*に追加された、 *VirtualPathProviderViewEngine*基本クラス。 ASP.NET では、(名前) ではなくパスでビューを検索、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューのみが考慮されます。 これは、Web フォーム ビューのファイルのカスタム拡張機能を有効にするには、カスタム ビルド プロバイダーが登録されているし、プロバイダー名ではなく、完全なパスを使用してこれらのビューが参照して、アプリケーションで重大な変更です。 回避の値を変更するには、 *FileExtensions*プロパティをカスタムのファイル拡張子が含まれます。
-- 直接実装するカスタム コント ローラー ファクトリの実装、 <em>IControllerFactory</em>インターフェイスは、新しい実装を提供する必要があります<em>GetControllerSessionBehavior</em> <em>このリリースでは、インターフェイスに追加されたメソッド</em>します。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる<em>DefaultControllerFactory</em>します。
+- 直接実装するカスタム コント ローラー ファクトリの実装、 *IControllerFactory*インターフェイスは、新しい実装を提供する必要があります*GetControllerSessionBehavior*がメソッドこのリリースでは、インターフェイスに追加されます。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる*DefaultControllerFactory*します。
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>既知の問題
@@ -708,7 +708,7 @@ DefaultControllerFactory クラスには、IControllerFactory インスタンス
 
 要求された型の登録済みのサービスがない場合は、ASP.NET MVC は GetService から null を返すと、GetServices から空のコレクションを返すには、このインターフェイスの実装が必要です。
 
-新しい DependencyResolver クラスを使用して、新しい IDependencyResolver インターフェイスまたは共通サービス ロケーターのインターフェイス (IServiceLocator) のいずれかを実装するクラスを登録できます。 共通サービス ロケーターの詳細については、[github CommonServiceLocator](https://github.com/unitycontainer/commonservicelocator)を参照してください。
+新しい DependencyResolver クラスを使用して、新しい IDependencyResolver インターフェイスまたは共通サービス ロケーターのインターフェイス (IServiceLocator) のいずれかを実装するクラスを登録できます。 共通サービス ロケーターの詳細については、次を参照してください。 [github CommonServiceLocator](https://github.com/unitycontainer/commonservicelocator)します。
 
 <a id="0.1__Breaking_Changes"></a>
 
@@ -743,7 +743,7 @@ ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれま�
 - jquery-1.4.1.js
 - jquery.unobtrusive.ajax.js
 
-この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルで既定で有効ですが、既存のプロジェクトは既定では無効します。 詳細については、[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述を参照してください。
+この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルで既定で有効ですが、既存のプロジェクトは既定では無効します。 詳細については、次を参照してください。[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
 
 ### <a id="0.1__Toc274034222"></a>  控えめな jQuery 検証のサポート
 
@@ -761,7 +761,7 @@ ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれま�
 - jquery.validate.js
 - jquery.validate.unobtrusive.js
 
-この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルでは既定で有効になっているが、既存のプロジェクトは既定では無効になります。 詳細については、[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを新しい](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述を参照してください。
+この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルでは既定で有効になっているが、既存のプロジェクトは既定では無効になります。 詳細については、次を参照してください。[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを新しい](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
 
 <a id="0.1__Toc274034223"></a>
 
@@ -793,7 +793,7 @@ ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれま�
 
 ### <a id="0.1__Toc274034225"></a>  VBHTML Razor 構文のサポート
 
-ASP.NET MVC の以前のプレビューには、C# に基づく Razor 構文を使用してビューのサポートが含まれています。 これらのビューは、.cshtml ファイルの拡張機能を使用します。 Razor をサポートするために進行中の作業の一環として、ASP.NET MVC 3 のベータ版では、.vbhtml ファイル拡張機能を使用する Visual Basic での Razor 構文のサポートが導入されています。
+ASP.NET MVC の以前のプレビューには、c# に基づく Razor 構文を使用してビューのサポートが含まれています。 これらのビューは、.cshtml ファイルの拡張機能を使用します。 Razor をサポートするために進行中の作業の一環として、ASP.NET MVC 3 のベータ版では、.vbhtml ファイル拡張機能を使用する Visual Basic での Razor 構文のサポートが導入されています。
 
 VBHTML ページで Visual Basic 構文の使用の概要については、次の URL でチュートリアルを参照してください。
 

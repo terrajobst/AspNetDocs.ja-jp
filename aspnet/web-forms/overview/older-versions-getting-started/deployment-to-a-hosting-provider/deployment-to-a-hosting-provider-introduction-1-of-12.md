@@ -8,22 +8,22 @@ ms.date: 11/17/2011
 ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9dacafaacdab12b8005cb6073647ae526cefcfb4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ae53e23dda3ac63e26590edab692188bb44e9f65
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029679"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413205"
 ---
-<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの展開。12 の第 1 の概要
-====================
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの展開。12 の第 1 の概要
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)を参照してください。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
 > 
 > これらのチュートリアルでは、テスト、ローカル開発用コンピューター上の iis とサード パーティのホスティング プロバイダーにし、最初に配置する方法を説明します。 デプロイするアプリケーションでは、アプリケーション データベースと、ASP.NET メンバーシップ データベースを使用します。 SQL Server Compact を使用して、SQL Server Compact への展開を開始して、以降のチュートリアルを表示するデータベースの変更をデプロイする方法と SQL Server に移行する方法。
 > 
@@ -48,9 +48,9 @@ ms.locfileid: "57029679"
 - 運用環境は、サード パーティのホスティング プロバイダーです。
 - 通常、1 人のユーザーは、複数のロール (同一人物を開発、テスト、および展開) を設定します。
 
-エンタープライズ環境で継続的インテグレーションのプロセスを実装する方が一般的ですし、運用環境が、通常、会社のサーバーによってホストされています。 通常、さまざまな人々 は、異なる役割を実行します。 エンタープライズ展開方法については、[エンタープライズ シナリオで Web アプリケーションの配置](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)を参照してください。
+エンタープライズ環境で継続的インテグレーションのプロセスを実装する方が一般的ですし、運用環境が、通常、会社のサーバーによってホストされています。 通常、さまざまな人々 は、異なる役割を実行します。 エンタープライズ展開方法については、次を参照してください。[エンタープライズ シナリオで Web アプリケーションの配置](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)します。
 
-あらゆる規模の組織を Azure に web アプリケーションをデプロイもでき、このチュートリアルで示す手順のほとんどは、Azure App Services の Web Apps にも適用します。 Azure の概要については、[ https://azure.microsoft.com](https://azure.microsoft.com)を参照してください。
+あらゆる規模の組織を Azure に web アプリケーションをデプロイもでき、このチュートリアルで示す手順のほとんどは、Azure App Services の Web Apps にも適用します。 Azure の概要については、次を参照してください。 [ https://azure.microsoft.com](https://azure.microsoft.com)します。
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>チュートリアルで示すように、ホスティング プロバイダー
 
@@ -60,7 +60,7 @@ ms.locfileid: "57029679"
 
 ## <a name="deploying-web-site-projects"></a>Web サイト プロジェクトの配置
 
-Contoso 大学は、Visual Studio web アプリケーション プロジェクトです。 ほとんどの展開方法とツールがこのチュートリアルで示すには適用されません[Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)します。 Web サイト プロジェクトをデプロイする方法については、[ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects)を参照してください。
+Contoso 大学は、Visual Studio web アプリケーション プロジェクトです。 ほとんどの展開方法とツールがこのチュートリアルで示すには適用されません[Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)します。 Web サイト プロジェクトをデプロイする方法については、次を参照してください。 [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects)します。
 
 ## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC プロジェクトの配置
 

@@ -8,15 +8,15 @@ ms.date: 05/20/2008
 ms.assetid: 694103ee-3845-451a-aac4-be06559530d2
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
 msc.type: video
-ms.openlocfilehash: 16afcd4d472531b099bf7b34f3ea7f2283c69e41
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4732a3c301c56602533b757434e239c48fe7a392
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403325"
 ---
-<a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[How Do i:]異なるデータに対して ListView コントロールのグループを作成するのに機能を使用します。
-====================
+# <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[How Do i:]異なるデータに対して ListView コントロールのグループを作成するのに機能を使用します。
+
 によって[Chris Pels](https://twitter.com/chrispels)
 
 このビデオでは、Chris Pels は ListView コントロールでデータを表示するときに項目がグループ化の方法を示します。 最初に、LayoutTemplate と ItemTemplate の ListView コントロールで項目のレイアウトの基本を参照してください。 次に、データのグループを確立するには、LayoutTemplate と ItemTemplate を ListView 内に、GroupTemplate を関連付ける方法について説明します。 浮動小数点の DIV 要素を使用して、任意の HTML を含めることができます、ListView を使用するテンプレートのいずれかのために、柔軟な表形式のレイアウトを作成する方法を参照してください。 これは、ListView コントロールを使用してデータのグループの作成に大きな柔軟性を提供します。 最後に、ListView テンプレートと、EmptyItemTemplate と同様に、GroupSeparatorTemplate 使用する方法で使用される CSS スタイルを操作することによって、外観を強化するためのいくつかのオプションを参照してください。

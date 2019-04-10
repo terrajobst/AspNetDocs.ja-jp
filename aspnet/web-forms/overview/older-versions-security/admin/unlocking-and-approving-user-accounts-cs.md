@@ -8,15 +8,15 @@ ms.date: 04/01/2008
 ms.assetid: 5346aab1-9974-489f-a065-ae3883b8a350
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1a8373f62833c3a76d2e7f96193e5ecbe2d9c593
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4e8591f3090de8f931ffd8eb1dd0a1138674842
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410046"
 ---
-<a name="unlocking-and-approving-user-accounts-c"></a>ユーザー アカウントをロック解除し、承認する (C#)
-====================
+# <a name="unlocking-and-approving-user-accounts-c"></a>ユーザー アカウントをロック解除し、承認する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.14.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_cs.pdf)
@@ -49,12 +49,12 @@ ms.locfileid: "57038489"
 GridView に追加すると、内、時間を表示するがかかる、`ManageUsers.aspx`ブラウザーを使用してページ。 図 1 に示す GridView 各行にはようになりました「管理」リンクが含まれます。 Bruce の [管理] リンクを指す`UserInformation.aspx?user=Bruce`、Dave の [管理] リンクを指す`UserInformation.aspx?user=Dave`します。
 
 
-[![内に追加します。](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
+[![T彼が内に追加する](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
 
 **図 1**:内の各ユーザー アカウントの [管理] リンクを追加します ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image3.png))。
 
 
-ユーザー インターフェイスを作成しコードは、`UserInformation.aspx`みましょうトークで、時点が最初のページについて、ユーザーをプログラムで変更する方法のロックアウトし、承認の状態。 [ `MembershipUser`クラス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)が[ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx)と[`IsApproved`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx)します。 `IsLockedOut`プロパティは読み取り専用です。 プログラムでユーザーをロックアウトするメカニズムはありません。ユーザーのロックを解除するには、使用、`MembershipUser`クラスの[`UnlockUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)します。 `IsApproved`プロパティは読み取りも書き込み可能です。 このプロパティに変更を保存する必要がありますを呼び出す、`Membership`クラスの[`UpdateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)、変更を渡して、`MembershipUser`オブジェクト。
+ユーザー インターフェイスを作成しコードは、`UserInformation.aspx`みましょうトークで、時点が最初のページについて、ユーザーをプログラムで変更する方法のロックアウトし、承認の状態。 [ `MembershipUser`クラス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)が[ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx)と[`IsApproved`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx)します。 `IsLockedOut` プロパティは読み取り専用です。 プログラムでユーザーをロックアウトするメカニズムはありません。ユーザーのロックを解除するには、使用、`MembershipUser`クラスの[`UnlockUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)します。 `IsApproved`プロパティは読み取りも書き込み可能です。 このプロパティに変更を保存する必要がありますを呼び出す、`Membership`クラスの[`UpdateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)、変更を渡して、`MembershipUser`オブジェクト。
 
 `IsApproved`プロパティは読み取りも書き込み可能な CheckBox コントロールは、このプロパティを構成するための最適なユーザー インターフェイス要素では可能性があります。 ただし、チェック ボックスに対しては機能しません、`IsLockedOut`プロパティをユーザーのロック解除のみ可能性があります彼女管理者は、ユーザーをロックアウトことはできません、ためです。 ための適切なユーザー インターフェイス、`IsLockedOut`プロパティは、ボタンをクリックすると、ユーザー アカウントのロックを解除します。 このボタンは、ユーザーがロックアウトされた場合にのみ有効です。
 
@@ -72,7 +72,7 @@ GridView に追加すると、内、時間を表示するがかかる、`ManageU
 これらのコントロールを追加すると、Visual Studio でデザイン ビューは図 2 でスクリーン ショットのようになります。
 
 
-[![UserInformation.aspx のユーザー インターフェイスを作成します。](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
+[![CUserInformation.aspx のユーザー インターフェイスを作成する](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
 
 **図 2**:ユーザー インターフェイスを作成`UserInformation.aspx`([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image6.png))。
 
@@ -98,7 +98,7 @@ Visual Studio に戻り、イベント ハンドラーを作成、`IsApproved`�
 これらのイベント ハンドラーで、ページに再アクセスおよび未承認ユーザー。 図 3 に示すようメッセージのことを示すページで、ユーザーの概要が表示されます`IsApproved`プロパティが正常に変更します。
 
 
-[![Chris は未承認されました](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
+[![C人事情報システムは、未承認されました](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
 
 **図 3**:Chris は未承認されました ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image9.png))。
 
@@ -106,7 +106,7 @@ Visual Studio に戻り、イベント ハンドラーを作成、`IsApproved`�
 次に、ログアウトし、アカウントを持つユーザーとしてログインしてください許可されませんでしただけです。 ユーザーが承認されていないため、ログインできません。 既定では、Login コントロールでは、理由に関係なく、ユーザーがログインできない場合に、同じメッセージが表示されます。 しかし、 <a id="Tutorial6"> </a> [*を検証するユーザーの資格情報に対して、メンバーシップ ユーザー ストア*](../membership/validating-user-credentials-against-the-membership-user-store-cs.md)チュートリアルがより適切なメッセージを表示するログインの制御を強化しました。 図 4 に示す、Chris が自分のアカウントがまだ承認されていないため、彼ログインできないことを説明するメッセージが表示されます。
 
 
-[![Chris できないログインのため His アカウントが未承認](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
+[![C自分のアカウントが未承認であるために、人事情報システムはログインできません](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
 
 **図 4**:Chris できないログインのため His アカウントが未承認 ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image12.png))。
 
@@ -116,7 +116,7 @@ Visual Studio に戻り、イベント ハンドラーを作成、`IsApproved`�
 戻り、`ManageUsers.aspx`ページし、ロックアウトされたユーザーの管理 リンクをクリックします。 図 5 に示すように値が表示する必要があります、`LastLockedOutDateLabel`ユーザーのロックを解除 ボタンを有効にする必要があります。 ユーザー アカウントのロックを解除するユーザーのロックを解除 ボタンをクリックします。 ユーザーのロックを解除すると、再度ログインできるされます。
 
 
-[![Dave は、システムからロックアウトされている](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
+[![D平均は、システムからロックアウトされているが](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
 
 **図 5**:Dave がされているロックのうちシステム ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image15.png))。
 
@@ -166,7 +166,7 @@ CreateUserWizard コントロールから、電子メールを送信する次の
 実質的な効果は、ある新しいユーザー承認されていない、つまりことは、サイトにログインすることはできません。 さらに、自動的に送信される電子メールのリンクを検証 URL (図 6 参照)。
 
 
-[![新しいユーザー検証 URL へのリンクを電子メールを受信します。](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
+[![T検証 URL へのリンクを電子メールを受信して新しいユーザー](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
 
 **図 6**:新しいユーザー検証 URL へのリンクを電子メールの受信 ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image18.png))。
 
@@ -188,7 +188,7 @@ CreateUserWizard コントロールから、電子メールを送信する次の
 図 7 に示します、`Verification.aspx`ページをブラウザーからアクセスする場合。
 
 
-[![新しいユーザーのアカウントが承認されるようになりました](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
+[![T新しいユーザーのアカウントは、今すぐ承認](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
 
 **図 7**:新しいユーザーのアカウントが承認されるようになりました ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image21.png))。
 

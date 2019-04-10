@@ -8,15 +8,15 @@ ms.date: 06/25/2013
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
-ms.openlocfilehash: 74793becba663d163a31cb1b02654b7b6cb021af
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c7c0de7ade31e43e3b43495cb6755608872d506d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022329"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412750"
 ---
-<a name="aspnet-and-visual-studio-2013"></a>ASP.NET と Visual Studio 2013
-====================
+# <a name="aspnet-and-visual-studio-2013"></a>ASP.NET と Visual Studio 2013
+
 > Visual Studio 2013 で ASP.NET web アプリの開発
 
 
@@ -27,7 +27,7 @@ ms.locfileid: "57022329"
 - [Visual Studio 2013 Web エディター機能 - 公開](visual-studio-2013-web-editor-features-publishing.md)
 - [Visual Studio 2013 Web エディター機能 - Page Inspector](visual-studio-2013-web-editor-features-page-inspector.md)
 - [Visual Studio 2013 Web エディター機能 - HTML エディター](visual-studio-2013-web-editor-features-html-editor.md)
-- [Visual Studio 2013 Web エディター機能 - HTML HTML5](visual-studio-2013-web-editor-features-html5.md)
+- [Visual Studio 2013 Web エディター機能 - HTML5](visual-studio-2013-web-editor-features-html5.md)
 - [Visual Studio 2013 の ASP.NET スキャフォールディング](aspnet-scaffolding-overview.md)
 - [ブラウザー リンク](using-browser-link.md)
 - [Visual Studio 2013 の ASP.NET と Web ツールのリリース ノート](release-notes.md)

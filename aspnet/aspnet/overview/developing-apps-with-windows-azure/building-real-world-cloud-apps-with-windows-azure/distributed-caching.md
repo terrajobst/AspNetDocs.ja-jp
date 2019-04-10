@@ -8,20 +8,20 @@ ms.date: 07/20/2015
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 26866ef9d13a198aab627ccf0f5e1ff3d2304427
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 61837d0087a297b6a677eb3503ce3e6c13d5e0ac
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039809"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397475"
 ---
-<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>分散キャッシュ (実際のクラウド アプリの構築と Azure)
-====================
+# <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>分散キャッシュ (実際のクラウド アプリの構築と Azure)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 前の章では、一時的な障害処理について説明しましたし、サーキット ブレーカー戦略としてキャッシュを説明します。 この章では、キャッシュ、さらに詳しく知り、それを使用するための一般的なパターンを使用するタイミングなど、Azure での実装方法。

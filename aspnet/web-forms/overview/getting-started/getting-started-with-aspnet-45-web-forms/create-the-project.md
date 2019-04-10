@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 754f085e3e43f7efa155f410d02a0d29d3349612
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9e2cd1beca03b81140b9d58c5e43dbf7c6b8808b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393055"
 ---
-<a name="create-the-project"></a>プロジェクトの作成
-====================
+# <a name="create-the-project"></a>プロジェクトの作成
+
 によって[Erik Reitan](https://github.com/Erikre)
 
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -150,7 +150,7 @@ ASP.NET Web フォーム ページを実行すると、ページは、一連の�
 > 
 > HTML5 をサポートしていないブラウザーでは、使用することができます[Modernizr](http://www.modernizr.com/)します。 Modernizr は、ブラウザーが HTML5 機能をサポートし、そうでない場合に有効にするかどうかを検出できるオープン ソース JavaScript ライブラリです。 ASP.NET Web フォーム アプリケーション テンプレートでは、Modernizr は NuGet パッケージとしてインストールされます。
 > 
-> **Bootstrap**
+> **ブートス トラップ**
 > 
 > Visual Studio 2013 のプロジェクト テンプレートを使用して、[ブートス トラップ](http://getbootstrap.com/)、Twitter によって作成されたレイアウトとテーマのフレームワークです。 ブートス トラップでは、CSS3 を使用して、レイアウトは、別のブラウザー ウィンドウのサイズに動的に対応できることを意味するレスポンシブ デザインを提供します。 アプリケーションの外観の変更を簡単に影響するのにブートス トラップのテーマ機能を使用することもできます。 既定では、Visual Studio 2013 で ASP.NET Web アプリケーション テンプレートには、NuGet パッケージとしてのブートス トラップが含まれています。
 > 
@@ -182,7 +182,7 @@ Visual Studio の主なウィンドウが含まれて、**ソリューション 
 
 ![プロジェクトの NuGet ダイアログ ボックスを作成します。](create-the-project/_static/image9.png)
 
-Visual Studio の詳細については、[Visual Web Developer を視覚的なガイド](https://msdn.microsoft.com/library/ee410104.aspx)を参照してください。
+Visual Studio の詳細については、次を参照してください。 [Visual Web Developer を視覚的なガイド](https://msdn.microsoft.com/library/ee410104.aspx)します。
 
 ## <a name="summary"></a>まとめ
 
@@ -190,7 +190,7 @@ Visual Studio の詳細については、[Visual Web Developer を視覚的な�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-[正しいプログラミング モデルを選択します。](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
+[正しいプログラミング モデルを選択する](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
 [Web アプリケーション プロジェクトと Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)   
 [ASP.NET Web フォーム ページの概要](https://msdn.microsoft.com/library/428509ah.aspx)
 

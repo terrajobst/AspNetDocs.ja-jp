@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 634ea84b-f904-4afe-b71b-49cccef4d9cc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 10c2f6379f6d3139dd3bcf1027ff456e074298c3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 53ca3bc4e550f488f3ae4c41f02a636e747107cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425094"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384891"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルとデータ アクセス
 
@@ -74,7 +74,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c:コード スニペットを使用して](#AppendixC)&quot;します。
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -163,7 +163,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
     ![接続プロパティ](aspnet-mvc-4-models-and-data-access/_static/image9.png "接続のプロパティ")
 
-    *接続のプロパティ*
+    *接続プロパティ*
 6. 生成されたクラスする必要がありますエンティティ接続文字列と同じ名前を指定しているため、その名前を**MusicStoreEntities**  をクリック**次**します。
 
     ![データ接続を選択する](aspnet-mvc-4-models-and-data-access/_static/image10.png "データ接続を選択します。")
@@ -181,7 +181,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
     ![エンティティの図](aspnet-mvc-4-models-and-data-access/_static/image12.png "エンティティ図")
 
-    *エンティティの図*
+    *エンティティ図*
 
     > [!NOTE]
     > T4 テンプレート (.tt) は、エンティティ クラスを生成するコードを実行し、同じ名前の既存のクラスが上書きされます。 この例では、クラスで&quot;アルバム&quot;、&quot;ジャンル&quot;と&quot;アーティスト&quot;が生成されたコードで上書きされます。
@@ -204,7 +204,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
     ![ビルドが成功した](aspnet-mvc-4-models-and-data-access/_static/image14.png "ビルドに成功しました")
 
     *ビルドに成功しました*
-3. デザイナーがダイアグラム形式のエンティティを表示する、C# のクラスでは本当に。 展開、 **StoreDB.edmx**ソリューション エクスプ ローラーでノードをクリックし**StoreDB.tt**、新規生成されたエンティティが表示されます。
+3. デザイナーがダイアグラム形式のエンティティを表示する、c# のクラスでは本当に。 展開、 **StoreDB.edmx**ソリューション エクスプ ローラーでノードをクリックし**StoreDB.tt**、新規生成されたエンティティが表示されます。
 
     ![生成されたファイル](aspnet-mvc-4-models-and-data-access/_static/image15.png "によって生成されたファイル")
 
@@ -438,7 +438,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 この演習では、パラメーターを使用してデータベースを照会する方法とクエリ結果の整形を使用する方法について説明しますが、データベース数を削減する機能がより効率的な方法でデータの取得にアクセスします。
 
 > [!NOTE]
-> クエリ結果の形成について詳しくは、[msdn の記事](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx)を参照してください。
+> クエリ結果の形成について詳しくは、次を参照してください。 [msdn の記事](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx)します。
 
 <a id="Ex3Task1"></a>
 
@@ -481,7 +481,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
     ![ジャンルによる参照](aspnet-mvc-4-models-and-data-access/_static/image24.png "ジャンルによる参照")
 
-    *参照/ストア/参照? ジャンル Pop を =*
+    *Browsing /Store/Browse?genre=Pop*
 
 <a id="Ex3Task3"></a>
 
@@ -514,7 +514,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 > [!NOTE]
 > また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
 
-* * *
+---
 
 <a id="Summary"></a>
 
@@ -568,7 +568,7 @@ ASP.NET MVC のモデルとデータ アクセスの基礎を学習するこの�
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
 
 この付録では、Windows Azure 管理ポータルから新しい web サイトを作成して Windows Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
 
@@ -692,7 +692,7 @@ ASP.NET MVC のモデルとデータ アクセスの基礎を学習するこの�
 
     ![データベースを作成する](aspnet-mvc-4-models-and-data-access/_static/image48.png "データベース文字列を作成します。")
 
-    *データベースの作成*
+    *データベースを作成する*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-models-and-data-access/_static/image49.png "SQL データベースを指す接続文字列")
@@ -708,7 +708,7 @@ ASP.NET MVC のモデルとデータ アクセスの基礎を学習するこの�
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>付録 c:コード スニペットを使用
+## <a name="appendix-c-using-code-snippets"></a>付録 Cコード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -716,7 +716,7 @@ ASP.NET MVC のモデルとデータ アクセスの基礎を学習するこの�
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

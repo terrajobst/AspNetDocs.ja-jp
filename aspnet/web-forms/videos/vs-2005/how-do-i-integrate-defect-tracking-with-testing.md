@@ -8,15 +8,15 @@ ms.date: 06/12/2007
 ms.assetid: 83a849da-fe6c-483a-bc26-73e8a135830f
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-integrate-defect-tracking-with-testing
 msc.type: video
-ms.openlocfilehash: 8e712c1224daede630f83f4754d785426fed1389
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f46adbd1ef55061332e4eb3f62578654120c9ebd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027089"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398814"
 ---
-<a name="how-do-i-integrate-defect-tracking-with-testing"></a>[How Do i:]欠陥追跡とテストを統合しますか。
-====================
+# <a name="how-do-i-integrate-defect-tracking-with-testing"></a>[How Do i:]欠陥追跡とテストを統合しますか。
+
 によって[Chris Menegay](https://twitter.com/CMenegay)
 
 このビデオを見て、テスト フレームワークの Visual Studio Team System と作業項目追跡システムの間の統合ポイントを実行します。

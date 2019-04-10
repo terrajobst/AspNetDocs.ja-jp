@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 9b18a48914a74a7fea85278d0e601f6f84376b23
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 017eceb8567859fdbe28bb87af844eee20dfa525
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056189"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415480"
 ---
-<a name="taking-web-applications-offline-with-web-deploy"></a>Web 配置の際、Web アプリをオフラインにする
-====================
+# <a name="taking-web-applications-offline-with-web-deploy"></a>Web 配置の際、Web アプリをオフラインにする
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、インターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して自動展開の期間の web アプリケーションをオフラインする方法について説明します。 Web アプリケーションを参照するユーザーをリダイレクト、*アプリ\_offline.htm*デプロイが完了するまでのファイルします。
 

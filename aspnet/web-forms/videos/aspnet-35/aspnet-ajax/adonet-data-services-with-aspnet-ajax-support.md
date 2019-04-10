@@ -8,15 +8,15 @@ ms.date: 12/20/2007
 ms.assetid: c7aa9192-8859-403f-a9a8-c372081f75bd
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support
 msc.type: video
-ms.openlocfilehash: ad02ade67949ac7d2ffabae10232cec8e7db588e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5a81668c2c01fa12f7dbec506f914a388e09a9ff
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043719"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397462"
 ---
-<a name="adonet-data-services-with-aspnet-ajax-support"></a>ADO.NET Data Services と ASP.NET AJAX サポート
-====================
+# <a name="adonet-data-services-with-aspnet-ajax-support"></a>ADO.NET Data Services と ASP.NET AJAX サポート
+
 によって[Levi Broderick](https://github.com/GrabYourPitchforks)
 
 どの ADO.NET Data Services と統合できる ASP.NET AJAX のサポートにシームレスにすることを確認します。 **ADP.NET データ サービス テクノロジが記載されて、 [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (2007 年 12 月)。**

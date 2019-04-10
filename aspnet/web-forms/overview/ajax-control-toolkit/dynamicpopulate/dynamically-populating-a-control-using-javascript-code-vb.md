@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 90582e54-3e90-432a-9da5-689fb39ed56b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d1c3b59896b8c509e9c62738ccd1b37c250a840
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 668815d58f2dc9a67cce441dfa267fa043a35091
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57051409"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387205"
 ---
-<a name="dynamically-populating-a-control-using-javascript-code-vb"></a>JavaScript コードを使用してコントロールに動的に入力する (VB)
-====================
+# <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>JavaScript コードを使用してコントロールに動的に入力する (VB)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate1VB.pdf)
@@ -55,7 +55,7 @@ JavaScript の部分するようになりました。 `$find()` 、ASP.NET AJAX 
 ラジオ ボタン、JavaScript の式のコンテキスト内でなお`this.value`はまったく同じ情報を使用する場合は、現在のボタンの値を示します、`getDate()`メソッドを使用できます。
 
 
-[![ボタンをクリックして指定された形式で、サーバーから日付を取得します。](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
+[![A ボタンをクリックしますは、指定された形式で、サーバーから日付を取得](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
 
 ボタンをクリックしますが、指定された形式でサーバーから日付を取得 ([フルサイズの画像を表示する をクリックします](dynamically-populating-a-control-using-javascript-code-vb/_static/image3.png))。
 

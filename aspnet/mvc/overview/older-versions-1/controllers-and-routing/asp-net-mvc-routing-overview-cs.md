@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: 5b39d2d5-4bf9-4d04-94c7-81b84dfeeb31
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 188490c5ca075710dcbdcd1c325808f7c1d383bc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e2f2246e2126bd6e648f861bcb296fab62a748bb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380107"
 ---
-<a name="aspnet-mvc-routing-overview-c"></a>ASP.NET MVC ルーティング概要 (C#)
-====================
+# <a name="aspnet-mvc-routing-overview-c"></a>ASP.NET MVC ルーティング概要 (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラー アクションへのブラウザーの要求をマップする方法を示します。
@@ -95,7 +95,7 @@ Index() メソッドではリスト 4、1 つの整数パラメーターがあ�
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample5.cs)]
 
 
-[![パラメーターの値が必要とするコント ローラー アクションの呼び出し](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
+[![Invoking コント ローラーのアクション パラメーターの値が必要とする](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
 
 **図 01**:パラメーターの値が必要とするコント ローラー アクションの呼び出し ([フルサイズの画像を表示する をクリックします](asp-net-mvc-routing-overview-cs/_static/image2.png))。
 

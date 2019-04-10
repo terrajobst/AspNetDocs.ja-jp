@@ -8,18 +8,18 @@ ms.date: 02/25/2014
 ms.assetid: 2d7b3aa2-aa47-4e6e-b0ce-3d65a1c6fe02
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 msc.type: authoredcontent
-ms.openlocfilehash: 71c0f91f709aca0deb5548bdbcad60d79a2702f6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 62ac526a9b0861af73ab17e9714bde1266a86221
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392366"
 ---
-<a name="supporting-odata-actions-in-aspnet-web-api-2"></a>ASP.NET web API 2 OData アクションをサポートしています。
-====================
+# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>ASP.NET web API 2 OData アクションをサポートしています。
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > Odata では、*アクション*エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 アクションの使用は次のとおりです。
 > 

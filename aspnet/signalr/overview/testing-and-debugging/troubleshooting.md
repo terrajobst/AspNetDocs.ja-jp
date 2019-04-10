@@ -8,15 +8,15 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: c9ccfa00d768f767cee7705372c157199572d2ed
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3e3ba353184f94621ffc0fb1c50647caf1a89514
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422585"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402766"
 ---
-<a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
-====================
+# <a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
+
 提供者: [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "58422585"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -129,7 +129,7 @@ SignalR は自動的に JSON シリアル化に使用、メソッド パラメ�
 
 この動作は意図されたものです。 ときに`OnDisconnected`が呼び出されると、ハブが既に入力、`Disconnected`によりさらにハブ メソッドを呼び出せる状態。
 
-**OnDisconnected イベント内のコードを正しく実行 C# サーバー コード**
+**OnDisconnected イベント内のコードを正しく実行 c# サーバー コード**
 
 [!code-csharp[Main](troubleshooting/samples/sample8.cs)]
 
@@ -145,13 +145,13 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ### <a name="cross-domain-connection-not-set-up-properly"></a>ドメイン間の接続が正しく設定されていません
 
-ドメイン間の接続の場合 (対象の SignalR URL が、ホスティング ページと同じドメインに接続) が正しくセットアップされていない、エラーが発生せず、接続が失敗します。 ドメイン間の通信を有効にする方法については、[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)を参照してください。
+ドメイン間の接続の場合 (対象の SignalR URL が、ホスティング ページと同じドメインに接続) が正しくセットアップされていない、エラーが発生せず、接続が失敗します。 ドメイン間の通信を有効にする方法については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。
 
 ### <a name="connection-using-ntlm-active-directory-not-working-in-net-client"></a>.NET クライアントで機能しない NTLM (Active Directory) を使用して接続
 
 ドメインのセキュリティを使用する .NET クライアント アプリケーション内の接続が失敗する場合は、接続が正しく構成されていません。 SignalR を使用して、ドメイン環境で、次のように、必要な接続プロパティを設定します。
 
-**接続の資格情報を実装する C# クライアント コード**
+**接続の資格情報を実装する c# クライアント コード**
 
 [!code-csharp[Main](troubleshooting/samples/sample9.cs)]
 
@@ -159,7 +159,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ## <a name="configuring-iis-websockets-to-pingpong-to-detect-a-dead-client"></a>停止したクライアントを検出するためにピンポン IIS websocket を構成します。
 
-SignalR のサーバーがわからないかどうか、クライアントが切れているか、つまりから基になるための websocket 接続の失敗を通知に依存、`OnClose`コールバック。 この問題を 1 つのソリューションでは、IIS websocket ping/pong な作業を構成します。 これにより、予期せず中断の場合、接続が閉じられます。 詳細については、[この stackoverflow の投稿](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss)を参照してください。
+SignalR のサーバーがわからないかどうか、クライアントが切れているか、つまりから基になるための websocket 接続の失敗を通知に依存、`OnClose`コールバック。 この問題を 1 つのソリューションでは、IIS websocket ping/pong な作業を構成します。 これにより、予期せず中断の場合、接続が閉じられます。 詳細については、次を参照してください。[この stackoverflow の投稿](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss)します。
 
 <a id="other"></a>
 
@@ -183,7 +183,7 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 ### <a name="403-forbidden-error-in-net-or-silverlight-client"></a>.NET または Silverlight クライアントに「403 アクセス不可」エラー
 
-このエラーは、ドメイン間の通信が正しく有効化しないクロス ドメイン環境で発生する可能性があります。 ドメイン間の通信を有効にする方法については、[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)を参照してください。 Silverlight クライアントでのドメイン間の接続を確立するを参照してください。 [Silverlight クライアントからのドメインを越えた接続](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain)します。
+このエラーは、ドメイン間の通信が正しく有効化しないクロス ドメイン環境で発生する可能性があります。 ドメイン間の通信を有効にする方法については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。 Silverlight クライアントでのドメイン間の接続を確立するを参照してください。 [Silverlight クライアントからのドメインを越えた接続](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain)します。
 
 ### <a name="404-not-found-error"></a>「404 見つかりません」エラー
 
@@ -198,7 +198,7 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 ### <a name="500-internal-server-error"></a>「500 内部サーバー エラー」
 
-これは、さまざまな原因の可能性がある非常に一般的なエラーです。 エラーの詳細については、サーバーのイベント ログに記録する必要があります。 またはサーバーのデバッグを確認できます。 サーバーの詳細なエラーを有効にして、詳細なエラー情報を取得できます。 詳細については、[ハブ クラス内のエラーの処理方法](../guide-to-the-api/hubs-api-guide-server.md#handleErrors)を参照してください。
+これは、さまざまな原因の可能性がある非常に一般的なエラーです。 エラーの詳細については、サーバーのイベント ログに記録する必要があります。 またはサーバーのデバッグを確認できます。 サーバーの詳細なエラーを有効にして、詳細なエラー情報を取得できます。 詳細については、次を参照してください。[ハブ クラス内のエラーの処理方法](../guide-to-the-api/hubs-api-guide-server.md#handleErrors)します。
 
 ファイアウォールまたはプロキシが正しく構成されていない、書き換え要求ヘッダーの原因の場合、このエラーは発生も一般的です。 ソリューションでは、ファイアウォールまたはプロキシのポート 80 が有効であるかどうかを確認します。
 
@@ -220,7 +220,7 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 ### <a name="javascript-hub-proxy-generation-has-been-disabled"></a>「JavaScript ハブ プロキシの生成が無効になっています。」
 
-このエラーが発生`DisableJavaScriptProxies`で動的に生成されたプロキシへの参照を含むも中に設定されている`signalr/hubs`します。 プロキシを手動で作成する方法の詳細については、[、生成されたプロキシとは何が](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy)を参照してください。
+このエラーが発生`DisableJavaScriptProxies`で動的に生成されたプロキシへの参照を含むも中に設定されている`signalr/hubs`します。 プロキシを手動で作成する方法の詳細については、次を参照してください。 [、生成されたプロキシとは何が](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy)します。
 
 ### <a name="the-connection-id-is-in-the-incorrect-format-or-the-user-identity-cannot-change-during-an-active-signalr-connection-error"></a>「接続 ID は形式が正しくありません」または「ユーザー id は、SignalR のアクティブな接続中に変更できません」エラー
 
@@ -252,7 +252,7 @@ SignalR JavaScript クライアントでは、jQuery を実行する必要があ
 
 ### <a name="value-cannot-be-null-error"></a>「値を null にすることはできません」エラー
 
-省略可能なパラメーターを持つサーバー側のメソッドは現在サポートされていません。省略可能なパラメーターを省略した場合、メソッドは失敗します。 詳細については、[省略可能なパラメーター](https://github.com/SignalR/SignalR/issues/324)を参照してください。
+省略可能なパラメーターを持つサーバー側のメソッドは現在サポートされていません。省略可能なパラメーターを省略した場合、メソッドは失敗します。 詳細については、次を参照してください。[省略可能なパラメーター](https://github.com/SignalR/SignalR/issues/324)します。
 
 ### <a name="firefox-cant-establish-a-connection-to-the-server-at-ltaddressgt-error-in-firebug"></a>"Firefox でサーバーへの接続を確立できません&lt;アドレス&gt;"Firebug でのエラー
 
@@ -290,7 +290,7 @@ Silverlight でイベントを送信するサーバーを使用する場合、�
 
 ### <a name="exception-ltmethod-namegt-method-could-not-be-resolved-when-client-calls-method-on-server"></a>"例外:&lt;メソッド名&gt;メソッドを解決できませんでした"クライアントがサーバーでメソッドを呼び出すと
 
-このエラーは、配列などの JSON ペイロードを検出できないデータ型の使用から発生します。 回避策では、IList などの JSON で検出可能なデータ型を使用します。 詳細については、[.NET クライアントの配列パラメーターを持つハブ メソッドを呼び出すことができません](https://github.com/SignalR/SignalR/issues/2672)を参照してください。
+このエラーは、配列などの JSON ペイロードを検出できないデータ型の使用から発生します。 回避策では、IList などの JSON で検出可能なデータ型を使用します。 詳細については、次を参照してください。 [.NET クライアントの配列パラメーターを持つハブ メソッドを呼び出すことができません](https://github.com/SignalR/SignalR/issues/2672)します。
 
 <a id="server"></a>
 
@@ -332,7 +332,7 @@ Silverlight でイベントを送信するサーバーを使用する場合、�
 
 ### <a name="caller-state-cannot-be-accessed-from-clientscaller-in-visual-basic-or-in-a-strongly-typed-hub-conversion-from-type-taskof-object-to-type-string-is-not-valid-error"></a>Visual Basic または厳密に型指定されたハブ; Clients.Caller から呼び出し元の状態にアクセスできません。「型 'Task (Of Object)' を 'String' を型に変換が無効です」エラー
 
-Visual Basic、または厳密に型指定されたハブに呼び出し元の状態にアクセスするには、使用、 `Clients.CallerState` (SignalR 2.1 で導入) の代わりにプロパティ`Clients.Caller`します。
+Visual basic、または厳密に型指定されたハブに呼び出し元の状態にアクセスするには、使用、 `Clients.CallerState` (SignalR 2.1 で導入) の代わりにプロパティ`Clients.Caller`します。
 
 <a id="vs"></a>
 

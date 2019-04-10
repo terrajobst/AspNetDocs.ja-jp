@@ -8,15 +8,15 @@ ms.date: 10/21/2006
 ms.assetid: f348a388-d3a2-4ea8-baf0-be2e6ef8efe1
 msc.legacyurl: /web-forms/videos/sql-2005/getting-started-with-reporting-services
 msc.type: video
-ms.openlocfilehash: 95018211c77e69b1842b05718885f284756b0513
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 10fcdb1a2eb4ae88c9a480787612ed7a9500d73d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050289"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409981"
 ---
-<a name="getting-started-with-reporting-services"></a>Reporting Services 入門
-====================
+# <a name="getting-started-with-reporting-services"></a>Reporting Services 入門
+
 によって[Microsoft](https://github.com/microsoft)
 
 SQL Server Reporting Services の設計し、適切に書式設定と対話型のデータの代表的なレポートを展開することができます。 印刷物またはオンラインの配布に適した、これらのレポートとそれが使用すると、プロフェッショナルな結果が非常にすばやくです。 このビデオでは、ウィザードとデザイナーを使用してレポートを作成するには、Reporting Services と、Business Intelligence Development Studio を設定し、レポート サーバーに配置する方法を示します。

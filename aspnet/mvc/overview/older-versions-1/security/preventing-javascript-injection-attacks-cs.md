@@ -8,18 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 77d0f0346e9eff756cd74c64c310918f3c367ab1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d954cbc001a62f021f942f1ff44522a2769f516
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029829"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389584"
 ---
-<a name="preventing-javascript-injection-attacks-c"></a>JavaScript インジェクション攻撃を防ぐ (C#)
-====================
+# <a name="preventing-javascript-injection-attacks-c"></a>JavaScript インジェクション攻撃を防ぐ (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
-[PDF のダウンロード](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
 
 > JavaScript インジェクション攻撃およびクロス サイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、これらの種類の HTML コンテンツをエンコードして攻撃を簡単に倒す方法について説明します。
 
@@ -33,7 +33,7 @@ ms.locfileid: "57029829"
 顧客フィードバック web サイトを作成することを想像してください (図 1 参照)。 Web サイトにアクセスし、製品を使用した経験のフィードバックを入力できます。 顧客は、ユーザーのフィードバックを送信するときに、フィードバックはフィードバック ページに再表示されます。
 
 
-[![カスタマー フィードバックの web サイト](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
+[![Customer フィードバック web サイト](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
 
 **図 01**:カスタマー フィードバックの web サイト ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-cs/_static/image3.png))。
 
@@ -65,7 +65,7 @@ ms.locfileid: "57029829"
 このテキストは、警告メッセージ ボックスを表示する JavaScript スクリプトを表します。 このスクリプトを送信するフィードバックにだれかが後のフォームのメッセージ<em>Boo!</em>すべてのユーザー アクセス、カスタマー フィードバックの web サイト、将来 (図 2 参照) されるたびに表示されます。
 
 
-[![JavaScript インジェクション](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
+[![JavaScript の挿入](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
 
 **図 02**:JavaScript インジェクション ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-cs/_static/image6.png))。
 
@@ -93,7 +93,7 @@ JavaScript インジェクション攻撃を防ぐの簡単な方法では HTML 
 これは平均値を HTML 文字列をエンコードするでしょうか。 文字列をエンコードする HTML と危険な文字など`<`と`>`など HTML エンティティ参照に置き換え`&lt;`と`&gt;`します。 したがって、文字列`<script>alert("Boo!")</script>`html エンコードされる場合に変換を取得`&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`します。 エンコードされた文字列は、ブラウザーによって解釈される場合は、JavaScript スクリプトとして実行されなくなります。 代わりに、図 3 害のないページを取得します。
 
 
-[![JavaScript の敗北攻撃](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
+[![Defeated JavaScript 攻撃](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
 
 **図 03**:JavaScript の攻撃を阻止 ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-cs/_static/image9.png))。
 

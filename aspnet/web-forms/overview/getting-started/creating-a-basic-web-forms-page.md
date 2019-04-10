@@ -8,16 +8,17 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: eb1a4632caf00097012bd1757da44016a076630f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf3336c2467553ba3714bbd4fbb41a35a0490768
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57026229"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410605"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Visual Studio 2013 を使用して基本的な ASP.NET 4.5 Web フォーム ページを作成するには
+# 
 
-ステージで[Erik Reitan](https://github.com/Erikre)
+によって[Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -61,7 +62,7 @@ ms.locfileid: "57026229"
 3. 選択、**テンプレート** - &gt; **Visual C#**  - &gt; **Web**左側のテンプレート グループ。
 4. 選択、 **ASP.NET Web アプリケーション**中央の列のテンプレート。
 5. プロジェクトに名前を***BasicWebApp***  をクリックし、 **OK**ボタン。   
-![新しいプロジェクト ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image2.png)
+![[新しいプロジェクト] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image2.png)
 6. 次に、選択、 **Web フォーム**テンプレートをクリックして、 **OK**プロジェクトを作成するボタンをクリックします。  
 ![新しい ASP.NET プロジェクト ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image3.png)  
 
@@ -108,7 +109,7 @@ ms.locfileid: "57026229"
 2. **ソリューション エクスプ ローラー**、Web アプリケーションの名前を右クリックし (アプリケーション名は、このチュートリアルでは**BasicWebSite**)、をクリックし、**追加** - &gt;**新しい項目の**します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 3. 選択、 **Visual C#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**Web フォーム**中央から一覧表示し、名前を*名前*します。   
-    ![新しい項目 ダイアログ ボックスを追加します。](creating-a-basic-web-forms-page/_static/image6.png)
+    ![[新しい項目の追加] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image6.png)
 4. クリックして**追加**web ページ、プロジェクトを追加します。  
 Visual Studio では、新しいページを作成し、それを開きます。
 
@@ -347,4 +348,4 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 このチュートリアルでは、Visual Studio のページ デザイナーの基本機能を説明しました。 作成し、Visual Studio で Web フォーム ページを編集する方法を理解したところでその他の機能を探索する可能性があります。 たとえば、以下を実行します。
 
 - ASP.NET Web フォームの詳細について次のステップ バイ ステップ チュートリアル シリーズして[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。
-- カスケード スタイル シート (CSS) について説明します。 詳細については、[CSS の概要での作業](https://msdn.microsoft.com/library/bb398931.aspx)を参照してください。
+- カスケード スタイル シート (CSS) について説明します。 詳細については、次を参照してください。 [CSS の概要での作業](https://msdn.microsoft.com/library/bb398931.aspx)します。

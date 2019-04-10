@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: 09279194-bcf9-4b59-a09d-c68e5926a758
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ea6d2deaaad1112f4a5ce4e4ea5534c6eab35a8d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 70640ac12b52d50c92d1d7f65c1116b2ec36d883
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058659"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381771"
 ---
-<a name="deploying-your-site-using-an-ftp-client-vb"></a>FTP クライアントを使用してサイトを配置する (VB)
-====================
+# <a name="deploying-your-site-using-an-ftp-client-vb"></a>FTP クライアントを使用してサイトを配置する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_03_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial03_DeployingViaFTP_vb.pdf)
@@ -69,7 +69,7 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 > それらは無視されますと、実稼働サーバー上のソース コード ファイルがある場合も問題はありません。 ASP.NET は、web サイトの訪問者がアクセス可能なソース コード ファイルが、実稼働サーバー上に存在する場合でもがれないように、既定でソース コード ファイルへの HTTP 要求が禁止されます。 (ユーザーがアクセスしようしている場合は、`http://www.yoursite.com/Default.aspx.vb`のファイル - これらの型を説明するエラー ページが表示されます`.vb`ファイル - が禁止されています)。
 
 
-[![FTP クライアントを使用して、必要なファイルをデスクトップから、Web ホスト プロバイダーにある Web サーバーにコピーします。](deploying-your-site-using-an-ftp-client-vb/_static/image2.png)](deploying-your-site-using-an-ftp-client-vb/_static/image1.png)
+[![Use FTP クライアントが自分のデスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーする。](deploying-your-site-using-an-ftp-client-vb/_static/image2.png)](deploying-your-site-using-an-ftp-client-vb/_static/image1.png)
 
 **図 1**:FTP クライアントを使用して、自分のデスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーする ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-an-ftp-client-vb/_static/image3.png))。
 
@@ -82,7 +82,7 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 > アプリケーションの表示時間がかかることを確認するときにエラーが発生した場合は、ファイルの正しいセットをデプロイします。 次に、問題に関するすべての手がかりを表示するかどうかに表示するエラー メッセージを確認します。 次に、web ホスト会社のヘルプデスクを有効にするか適切なフォーラムに質問を投稿、 [ASP.NET フォーラム](https://forums.asp.net/)します。
 
 
-[![書籍レビュー サイトでは、インターネット接続があればだれでもアクセスできるようになりました。](deploying-your-site-using-an-ftp-client-vb/_static/image5.png)](deploying-your-site-using-an-ftp-client-vb/_static/image4.png)
+[![T彼の本のレビュー サイトがアクセスできるようになりました、インターネット接続があればだれでも。](deploying-your-site-using-an-ftp-client-vb/_static/image5.png)](deploying-your-site-using-an-ftp-client-vb/_static/image4.png)
 
 **図 2**:インターネット接続があればだれでも、書籍レビューのサイトがアクセスできるようになりました ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-an-ftp-client-vb/_static/image6.png))。
 
@@ -124,7 +124,7 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 図 3 は、必要なファイルをコピーした後、FileZilla を示します。 ご覧のように、ASP.NET ソース コード ファイルなど`About.aspx.vb`は、コード ファイルを自動を使用する場合に展開する必要があるため、ローカル コンピューター (開発環境) と web ホスト プロバイダー (運用環境) の両方に存在コンパイルします。
 
 
-[![FTP クライアントを使用して、デスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーするには](deploying-your-site-using-an-ftp-client-vb/_static/image8.png)](deploying-your-site-using-an-ftp-client-vb/_static/image7.png)
+[![Use FTP クライアントが自分のデスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーする](deploying-your-site-using-an-ftp-client-vb/_static/image8.png)](deploying-your-site-using-an-ftp-client-vb/_static/image7.png)
 
 **図 3**:FTP クライアントを使用して、自分のデスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーする ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-an-ftp-client-vb/_static/image9.png))。
 

@@ -8,15 +8,15 @@ ms.date: 01/30/2013
 ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 69331dc1cf2aacf306b55b49402f7df90f5e2c99
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: e2bb8a13a0036f1fcfdcfd03a6a6e74e886a7f2c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421975"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406861"
 ---
-<a name="emberjs-template"></a>EmberJS テンプレート
-====================
+# <a name="emberjs-template"></a>EmberJS テンプレート
+
 によって[Xinyang Qiu](https://github.com/xqiu)
 
 > EmberJS の MVC テンプレートは、Nathan Totten、Thiago Santos、および Xinyang Qiu によって書き込まれます。
@@ -40,7 +40,7 @@ EmberJS テンプレートのとほぼ同じですが、サーバー側で、 [K
 
 ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual C#** ノード。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
 
 ![](emberjs-template/_static/image2.png)
 
@@ -143,7 +143,7 @@ Ember は、Url、ルート名、コント ローラー、およびテンプレ�
 - todoList.hbs:テンプレートを"/todo"ルート。
 - \_navbar.hbs:テンプレートは、ナビゲーション メニューを定義します。
 
-アプリケーション テンプレートは、マスター ページと同様に機能します。 ヘッダー、フッター、および「{{アウトレット}}」をルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、[ http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)を参照してください。
+アプリケーション テンプレートは、マスター ページと同様に機能します。 ヘッダー、フッター、および「{{アウトレット}}」をルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、次を参照してください。 [ http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)します。
 
 "/TodoList"テンプレートには、2 つのループ式が含まれています。 外側のループが`{{#each controller}}`、および内部ループは`{{#each todos}}`します。 次のコードは、組み込み`Ember.Checkbox`表示、カスタマイズされた`App.TodoItemEditView`とのリンクを`deleteTodo`アクション。
 

@@ -8,18 +8,18 @@ ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 74abf391bb4aab3ff0d5079e0a24ba20287e18fb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b0c9cd7ab36a8414e0d7d50a68b05bb09a5f24f1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049459"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387907"
 ---
-<a name="enable-automated-unit-testing"></a>自動化された単体テストを有効にする
-====================
+# <a name="enable-automated-unit-testing"></a>自動化された単体テストを有効にする
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 12 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -96,9 +96,9 @@ Visual Studio 2008 Professional (および上位エディション)、IDE 内で
 
 ![](enable-automated-unit-testing/_static/image5.png)
 
-*注:VS テストの結果ウィンドウでは、既定では、クラス名の列は表示されません。これは、テスト結果 ウィンドウ内で右クリックし、列の追加/削除 メニューのコマンドを使用して追加できます。*
+*メモ:VS テストの結果ウィンドウでは、既定では、クラス名の列は表示されません。 これは、テスト結果 ウィンドウ内で右クリックし、列の追加/削除 メニューのコマンドを使用して追加できます。*
 
-2 つのテストでは、時間に実行して、できる限りの秒の端数のみ渡されるときの両方を参照してください。 移動するようになりましたを特定のルールの検証を確認し、2 つのヘルパー メソッド - IsUserHost() と Dinner クラスに追加した IsUserRegisterd() – をカバーするテストを作成してそれらを拡張できます。 Dinner クラスのためにこれらすべてのテストを持つことによりより簡単かつ安全に、今後の新しいビジネス ルールと検証を追加します。 夕食に新しいルール ロジックを追加し、数秒で、以前のロジックの機能のいずれかが破損していないことすることを確認します。
+2 つのテストでは、時間に実行して、できる限りの秒の端数のみ渡されるときの両方を参照してください。 移動するようになりましたを特定のルールの検証を確認し、2 つのヘルパー メソッド - IsUserHost() と Dinner クラスに追加した IsUserRegistered() – をカバーするテストを作成してそれらを拡張できます。 Dinner クラスのためにこれらすべてのテストを持つことによりより簡単かつ安全に、今後の新しいビジネス ルールと検証を追加します。 夕食に新しいルール ロジックを追加し、数秒で、以前のロジックの機能のいずれかが破損していないことすることを確認します。
 
 どのようにわかりやすいテスト名を使用して簡単に各テストの検証をすばやく理解に注意してください。 使用することをお勧め、 **Tools -&gt;オプション**メニュー コマンドを開き、テスト ツール-&gt;テストの実行の構成画面で、チェック"ダブルクリックすると失敗したか結果が不確定の単体テストの結果が表示されます。テストの障害発生時点"のチェック ボックスをオンします。 これは、使用すると、テストの結果ウィンドウにエラーをダブルクリックし、アサート失敗にすぐにジャンプできます。
 
@@ -211,7 +211,7 @@ FakeDinnerRepository クラスが IDinnerRepository インターフェイスを�
 
 | **側のトピック:依存関係挿入フレームワーク** |
 | --- |
-| 正常に機能しますが、依存関係の数として維持が困難になりますが (上記います) などの手動による依存関係の挿入を実行して、アプリケーションのコンポーネントが増加します。 さらに多くの依存関係管理の柔軟性を提供するのに役立つ .NET のいくつかの依存関係挿入フレームワークが存在します。 これらのフレームワークは、「制御の反転」(IoC) コンテナーとも呼ばを指定して、(最もよく使用コンス トラクターの挿入時のオブジェクトへの依存関係を渡すことの構成サポートの追加レベルを有効にするメカニズムを提供します。). いくつかの人気の OSS 依存関係の挿入]、[.NET の IOC フレームワークが含まれます。AutoFac、Ninject、Spring.NET、StructureMap、Windsor します。 ASP.NET MVC の公開機能拡張 Api 開発者は、解像度と、コント ローラーのインスタンス化に参加できるようにして、依存関係の挿入を有効/IoC フレームワークは、このプロセス内で正常に統合します。 DI/IOC フレームワークを使用してから、DinnersController は –、DinnerRepositorys との間の結合を完全に削除すると、既定のコンス トラクターを削除することできます。 依存関係の挿入して/NerdDinner アプリケーションで IOC フレームワーク。 NerdDinner コード ベースと機能が拡張された場合、今後のこともできます何か。 |
+| 正常に機能しますが、依存関係の数として維持が困難になりますが (上記います) などの手動による依存関係の挿入を実行して、アプリケーションのコンポーネントが増加します。 さらに多くの依存関係管理の柔軟性を提供するのに役立つ .NET のいくつかの依存関係挿入フレームワークが存在します。 これらのフレームワークは、「制御の反転」(IoC) コンテナーとも呼ばを指定して、(最もよく使用コンス トラクターの挿入時のオブジェクトへの依存関係を渡すことの構成サポートの追加レベルを有効にするメカニズムを提供します。). いくつかの人気の OSS 依存関係の挿入]、[.NET の IOC フレームワークが含まれます。AutoFac、Ninject、Spring.NET、StructureMap、Windsor します。 ASP.NET MVC の公開機能拡張 Api 開発者は、解像度と、コント ローラーのインスタンス化に参加できるようにして、依存関係の挿入を有効/IoC フレームワークは、このプロセス内で正常に統合します。 DI/IOC フレームワークを使用してから、DinnersController は – ときは、必ず DinnerRepository との間の結合を完全に削除すると、既定のコンス トラクターを削除することできます。 依存関係の挿入して/NerdDinner アプリケーションで IOC フレームワーク。 NerdDinner コード ベースと機能が拡張された場合、今後のこともできます何か。 |
 
 ### <a name="creating-edit-action-unit-tests"></a>編集アクションの単体テストの作成
 

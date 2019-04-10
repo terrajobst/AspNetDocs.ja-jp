@@ -8,15 +8,15 @@ ms.date: 07/25/2006
 ms.assetid: 1a95474a-a897-4ba1-b372-8a112cb324ba
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20
 msc.type: video
-ms.openlocfilehash: 9c0893a8d1669cc9eeb48d822b3823f61275b2e2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 978236ae72ec0908b09901d8a8d4d3fd27770b86
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401635"
 ---
-<a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a>JSP 開発者向け ASP.NET 入門:ASP.NET 2.0 へようこそ
-====================
+# <a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a>JSP 開発者向け ASP.NET 入門:ASP.NET 2.0 へようこそ
+
 によって[Microsoft](https://github.com/microsoft)
 
 ASP.NET と .NET Framework、Microsoft IIS と ASP.NET を統合する方法を理解するために必要な基本的なバック グラウンドに焦点を当てます。

@@ -8,15 +8,15 @@ ms.date: 01/12/2011
 ms.assetid: 1d266bf0-a61e-423b-a3d2-13773d7dafe2
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 6ed989173f7f687e37c73b89217b1cd81e056f75
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aacc9132a71fdd6ceb210c97001e1030d978836e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393107"
 ---
-<a name="examining-the-edit-methods-and-edit-view-c"></a>Edit メソッドと Edit ビューの確認 (C#)
-====================
+# <a name="examining-the-edit-methods-and-edit-view-c"></a>Edit メソッドと Edit ビューの確認 (C#)
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
@@ -44,7 +44,7 @@ ms.locfileid: "57031979"
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample1.cshtml)]
 
-[![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image4.png)](examining-the-edit-methods-and-edit-view/_static/image3.png)
+[![Html します。ActionLink](examining-the-edit-methods-and-edit-view/_static/image4.png)](examining-the-edit-methods-and-edit-view/_static/image3.png)
 
 `Html`オブジェクトは、プロパティを使用して公開されるヘルパー、`WebViewPage`基本クラス。 `ActionLink`ヘルパー メソッドでは、簡単に動的にコント ローラーのアクション メソッドにリンクする HTML ハイパーリンクを生成できます。 最初の引数、`ActionLink`メソッドは、表示するために、リンク テキスト (たとえば、 `<a>Edit Me</a>`)。 2 番目の引数は、呼び出すアクション メソッドの名前です。 最後の引数、[匿名オブジェクト](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx)(この例では、4 の ID) では、ルート データを生成します。
 
@@ -86,7 +86,7 @@ ASP.NET framework のモデル バインダーはポストされたフォーム�
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image8.png)](examining-the-edit-methods-and-edit-view/_static/image7.png)
 
-> **ロケールに関する注意事項**通常の英語以外のロケールを使用する場合は、[英語以外のロケールを使用した ASP.NET MVC 3 検証をサポートを参照してください。](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
+> **ロケールに関する注意事項**通常の英語以外のロケールを使用する場合は、次を参照してください。[英語以外のロケールを使用した ASP.NET MVC 3 検証をサポートします。](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
 ## <a name="making-the-edit-method-more-robust"></a>Edit メソッドをより堅牢な作成
@@ -191,8 +191,7 @@ ASP.NET framework のモデル バインダーはポストされたフォーム�
 
 追加した場合、`HttpPost`のバージョン、`SearchIndex`メソッド、今すぐ削除しています。
 
-次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 
-  `SearchIndex` メソッドを次のコードで置き換えます。
+次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 `SearchIndex` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample18.cs)]
 

@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 2e861511-450e-4752-a61e-4a01933f9b6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 3627d18e1b102c574726282780239464be04c04b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 586508039b9a3d78492aa02a77a1f29c64668b5e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052449"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409695"
 ---
-<a name="scenario-configuring-a-production-environment-for-web-deployment"></a>シナリオ:Web 配置の運用環境を構成する
-====================
+# <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>シナリオ:Web 配置の運用環境を構成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、運用環境の一般的な web 展開シナリオと類似した環境を設定するには完了する必要があるタスクについて説明します。
 

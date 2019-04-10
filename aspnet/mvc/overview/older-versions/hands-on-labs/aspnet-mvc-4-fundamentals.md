@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: d3bc39a37cace003c3fda6691f0dd7f893128b07
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 38aea3b3480dde6ec6182a45c4f61f44eea8e05e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425250"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380224"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
 
@@ -125,7 +125,7 @@ MVC パターンでは、これらの要素間の疎結合を提供しながら�
 
 1. このタスクでは、Visual Studio の MVC テンプレートを使用して、空の ASP.NET MVC アプリケーション プロジェクトを作成します。 開始**VS Express for Web**します。
 2. **[ファイル]** メニューの **[新しいプロジェクト]** をクリックします。
-3. **新しいプロジェクト**ダイアログ ボックスの 、 **ASP.NET MVC 4 Web アプリケーション**プロジェクトの種類の下にある**Visual C#、** **Web**テンプレートリスト。
+3. **新しいプロジェクト**ダイアログ ボックスの 、 **ASP.NET MVC 4 Web アプリケーション**プロジェクトの種類の下にある**Visual c#、** **Web**テンプレートリスト。
 4. 変更、**名前**に*MvcMusicStore*します。
 5. 新しいソリューションの場所を設定**開始**例については、この演習のソース フォルダー内のフォルダー **[、ハンズオン ラボ PATH] \Source\Ex01-CreatingMusicStoreProject\Begin**します。 **[OK]** をクリックします。
 
@@ -326,7 +326,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
 
     ![参照 StoreBrowseGenre Disco を =](aspnet-mvc-4-fundamentals/_static/image10.png "StoreBrowseGenre をブラウズ Disco を =")
 
-    *Browsing /Store/Browse?Genre=Disco*
+    */Store/Browse を参照しますか。ジャンル Disco を =*
 3. ブラウザーを閉じます。
 
 <a id="Ex3Task3"></a>
@@ -691,7 +691,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 > [!NOTE]
 > 新機能**一覧&lt;アルバム&gt;** :この定義を使用して、**一覧&lt;T&gt;** 型、場所**T**こののどの要素に型を制約**一覧**ここに属しています。**アルバム**(またはその子孫のいずれか)。
 > 
-> クラスとクラスまたはメソッドが宣言されているし、C# 言語の機能は、クライアント コードによってインスタンス化されるまでに 1 つまたは複数の種類の指定を遅延させるメソッドを設計するには、この機能と呼ばれる**ジェネリック**します。
+> クラスとクラスまたはメソッドが宣言されているし、c# 言語の機能は、クライアント コードによってインスタンス化されるまでに 1 つまたは複数の種類の指定を遅延させるメソッドを設計するには、この機能と呼ばれる**ジェネリック**します。
 > 
 > **リスト&lt;T&gt;** はジェネリックと同等の**ArrayList**を入力しで使用できるは、 **System.Collections.Generic**名前空間。 使用する利点の 1 つ**ジェネリック**型が指定されているため、型チェックに要素をキャストなどの操作を処理する必要はありませんが**アルバム**で行う場合、**ArrayList**します。
 
@@ -947,7 +947,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 > また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
 
 
-* * *
+---
 
 <a id="Summary"></a>
 
@@ -1005,7 +1005,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
 
 この付録では、Windows Azure 管理ポータルから新しい web サイトを作成して Windows Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
 
@@ -1129,7 +1129,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 
     ![データベースを作成する](aspnet-mvc-4-fundamentals/_static/image65.png "データベース文字列を作成します。")
 
-    *データベースの作成*
+    *データベースを作成する*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-fundamentals/_static/image66.png "SQL データベースを指す接続文字列")
@@ -1149,7 +1149,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>付録 c:コード スニペットを使用
+## <a name="appendix-c-using-code-snippets"></a>付録 Cコード スニペットを使用
 
 コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
 
@@ -1157,7 +1157,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。

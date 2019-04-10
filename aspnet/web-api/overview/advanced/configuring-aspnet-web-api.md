@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/advanced/configuring-aspnet-web-api
-title: ASP.NET Web API 2 の構成 |Microsoft Docs
+title: 構成の ASP.NET Web API 2 - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET 用の ASP.NET Web API 2 の構成 4.x:設定、ASP.NET 4.x をホストしている、OWIN 自己ホスト、グローバル サービスおよび前のコント ローラーの構成を構成します。
 ms.author: riande
 ms.date: 03/31/2014
+ms.custom: seoapril2019
 ms.assetid: 9e10a700-8d91-4d2e-a31e-b8b569fe867c
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 270268b77f398084169843e20b0a2bf9f1c2a011
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 39629ba404e536b29318db00bce8c4443a782497
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423157"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411944"
 ---
-<a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2 の構成
-====================
+# <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2 の構成
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 このトピックでは、ASP.NET Web API を構成する方法について説明します。
@@ -35,14 +36,14 @@ Web API の構成設定が定義されている、 [HttpConfiguration](https://m
 | メンバー | 説明 |
 | --- | --- |
 | **DependencyResolver** | コント ローラーの依存関係の挿入を有効にします。 参照してください[、Web API の依存関係競合回避モジュールを使用して](dependency-injection.md)します。 |
-| **Filters** | アクション フィルター。 |
-| **Formatters** | [メディア タイプ フォーマッタ](../formats-and-model-binding/media-formatters.md)です。 |
+| **フィルター** | アクション フィルター。 |
+| **フォーマッタ** | [メディア タイプ フォーマッタ](../formats-and-model-binding/media-formatters.md)です。 |
 | **IncludeErrorDetailPolicy** | サーバーが HTTP 応答メッセージで例外メッセージやスタック トレースなどのエラーの詳細を含めるかどうかを指定します。 参照してください[IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108))します。 |
-| **Initializer** | 最終初期化を実行する関数、**HttpConfiguration**です。 |
+| **初期化子** | 最終初期化を実行する関数、**HttpConfiguration**です。 |
 | **MessageHandlers** | [HTTP メッセージ ハンドラー](http-message-handlers.md)します。 |
 | **ParameterBindingRules** | コント ローラー アクションのパラメーターをバインドするための規則のコレクション。 |
-| **Properties** | 汎用プロパティ バッグ。 |
-| **Routes** | ルートのコレクション。 参照してください[ASP.NET Web API でルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)です。 |
+| **プロパティ** | 汎用プロパティ バッグ。 |
+| **ルート** | ルートのコレクション。 参照してください[ASP.NET Web API でルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)です。 |
 | **Services** | サービスのコレクション。 参照してください[Services](#services)です。 |
 
 
@@ -104,7 +105,7 @@ OWIN 自己ホストする場合は、作成、新しい**HttpConfiguration**イ
 | **IAssembliesResolver** | アプリケーションのアセンブリの一覧を取得します。 参照してください[ルーティングとアクションの選択](../web-api-routing-and-actions/routing-and-action-selection.md)します。 |
 | **IBodyModelValidator** | 要求本文からメディア タイプ フォーマッタによって読み取られるモデルを検証します。 |
 | **IContentNegotiator** | コンテンツ ネゴシエーションを実行します。 |
-| **IDocumentationProvider** | Api のドキュメントを提供します。 既定値は**null**します。 参照してください[Web API のヘルプ ページを作成する](../getting-started-with-aspnet-web-api/creating-api-help-pages.md)します。 |
+| **IDocumentationProvider** | Api のドキュメントを提供します。 既定値は **null**です。 参照してください[Web API のヘルプ ページを作成する](../getting-started-with-aspnet-web-api/creating-api-help-pages.md)します。 |
 | **IHostBufferPolicySelector** | ホストで HTTP メッセージのエンティティ ボディをバッファーする必要があるかどうかを示します。 |
 | **IHttpActionInvoker** | コント ローラー アクションを呼び出します。 参照してください[ルーティングとアクションの選択](../web-api-routing-and-actions/routing-and-action-selection.md)します。 |
 | **IHttpActionSelector** | コント ローラーのアクションを選択します。 参照してください[ルーティングとアクションの選択](../web-api-routing-and-actions/routing-and-action-selection.md)します。 |

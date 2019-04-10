@@ -8,15 +8,15 @@ ms.date: 07/09/2007
 ms.assetid: 7572654d-6fa2-4ea3-a43b-56a8578af0f6
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 87bb74ed2f6301cafc6abe3bfa75fbf3884dd651
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a936829217aa62a5caff5c9b0b51cca8a994c10e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57044459"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400309"
 ---
-<a name="how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX ページの複数のリージョンを更新しますか。
-====================
+# <a name="how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX ページの複数のリージョンを更新しますか。
+
 によって[Scott golightly が説明](https://github.com/scottgolightly)
 
 このビデオでは、ASP.NET AJAX UpdatePanel コントロールが 1 つのクライアント側イベントに応答の Web ページの複数のリージョンを更新するために使用が 2 つのプロパティを提供することについて説明します。 常をパネルの場合は常に、post 中に更新またはこれで、パネルの場合はのみ特定のイベントに応答更新条件を設定する UpdateMode プロパティを設定することがあります。 トリガーのコレクション プロパティ、パネルを更新すると、それらのイベントを指定することができます。 これらのプロパティは、同じイベント トリガーへの応答で更新する複数の UpdatePanel コントロールを許可一緒に使用します。

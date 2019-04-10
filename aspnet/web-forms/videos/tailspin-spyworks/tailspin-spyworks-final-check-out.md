@@ -8,15 +8,15 @@ ms.date: 06/29/2010
 ms.assetid: 61ee30d6-c557-4ebd-9538-1253bd02d825
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-final-check-out
 msc.type: video
-ms.openlocfilehash: c51d6634f6b13662c43d1243a08442b7582767b8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9642e3ab581462359d4bc37e6ab41e4372339f5b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405470"
 ---
-<a name="tailspin-spyworks---final-check-out"></a>Tailspin Spyworks - 最後の精算
-====================
+# <a name="tailspin-spyworks---final-check-out"></a>Tailspin Spyworks - 最後の精算
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 Joe Stagner は、最終的なチェック アウト Tailspin Spyworks サンプルの Web フォーム アプリケーションの処理中に顧客の注文を配置します。

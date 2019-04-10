@@ -8,15 +8,15 @@ ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: ec1c055d1b3f6ca5c6374a18840c2595bb368e0e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 81c2c6f0070a409c289128ccf5d39f9fff788b48
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034559"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387348"
 ---
-<a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web Pages のプログラミングの基礎の概要
-====================
+# <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web Pages のプログラミングの基礎の概要
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアルによって、プログラムでは、ASP.NET Web ページ Razor 構文を使用する方法の概要がわかります。
@@ -162,7 +162,7 @@ If を追加した内容が条件です。 コードで、if の条件がある�
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-変数に対して値または式を使用してテストすることができます、<em>論理演算子</em>または<em>比較演算子</em>: より大きい (= =)、等号 (&gt;) より小さい (&lt;)、大きいまたは等しい (&gt;=) とに等しいまたはそれよりも小さい (&lt;=)。 ! = 演算子の意味が等しくない: などの場合 (、! = 0) ことを意味<em>場合</em> <em>、</em><em>が 0 と等しく</em>。
+変数に対して値または式を使用してテストすることができます、*論理演算子*または*比較演算子*: より大きい (= =)、等号 (&gt;) より小さい (&lt;)、大きいまたは等しい (&gt;=) とに等しいまたはそれよりも小さい (&lt;=)。 ! = 演算子の意味が等しくない-など場合 (、! = 0) ことを意味*場合、0 と等しくない*します。
 
 > [!NOTE]
 > 等号 (= =) 比較演算子がない = と同じことを確認することを確認します。 = 演算子は値を割り当てる場合にのみ使用 (var を = 2)。 これらの演算子が混在する場合は、エラーが発生しますかまたはいくつかの予期しない結果が表示されます。
@@ -354,7 +354,7 @@ GetHtml メソッドでは、その他のパラメーターを提供すること
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduction to ASP.NET Web Programming Using the Razor Syntax (Razor 構文を使用した ASP.NET Web プログラミングの概要)](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Twitter ヘルパー](../../ui-layouts-and-themes/twitter-helper.md)
 
 > [!div class="step-by-step"]

@@ -7,15 +7,15 @@ ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 4d8483d46bc79459db36d9006fef5ab71dddcfde
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c2f7ca2e7fb8d7831f21e3ba2f4713211657e1b3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424730"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402233"
 ---
-<a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 の概要
-====================
+# <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 の概要
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
@@ -39,7 +39,7 @@ Visual Studio は、IDE、または統合開発環境です。 Microsoft Word �
 
 ## <a name="create-your-first-app"></a>最初のアプリの作成
 
-**スタート ページ**、**新しいプロジェクト**します。 **新しいプロジェクト**ダイアログ ボックスで、 **Visual C#** し、左側のカテゴリ**Web**、クリックして、 **ASP.NET Web アプリケーション (.NET Framework)** プロジェクト テンプレート。 プロジェクトに"MvcMovie"という名前にして**OK**します。
+**スタート ページ**、**新しいプロジェクト**します。 **新しいプロジェクト**ダイアログ ボックスで、 **Visual c#** し、左側のカテゴリ**Web**、クリックして、 **ASP.NET Web アプリケーション (.NET Framework)** プロジェクト テンプレート。 プロジェクトに"MvcMovie"という名前にして**OK**します。
 
 ![](getting-started/_static/image2.png)
 
@@ -61,7 +61,7 @@ Visual Studio は、何もせず、実用的なアプリケーションが現在
 
 アプリケーションには、登録し、ログインのサポートも提供します。 次の手順では、このアプリケーションの動作を変更し、ASP.NET MVC についてもう少し説明します。 ASP.NET MVC アプリケーションを終了し、いくつかのコードを変更してみましょう。
 
-現在のチュートリアルの一覧は、[の記事をお勧めを参照してください。 MVC](../mvc-learning-sequence.md)します。
+現在のチュートリアルの一覧は、次を参照してください。[の記事をお勧めします。 MVC](../mvc-learning-sequence.md)します。
 
 ## <a name="see-this-app-running-on-azure"></a>Azure で実行されているこのアプリを参照してください。
 

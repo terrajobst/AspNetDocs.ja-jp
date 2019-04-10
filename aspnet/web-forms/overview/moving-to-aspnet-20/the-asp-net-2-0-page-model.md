@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 4452169a01276cbc60f2a2057e6b560022ccd7c0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 09f8389a04c5600ca9ee8365a9dc5a0d607c0a4d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057259"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403923"
 ---
-<a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 ページ モデル
-====================
+# <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 ページ モデル
+
 によって[Microsoft](https://github.com/microsoft)
 
 > Asp.net 1.x では、開発者は、インライン コード モデルとコード分離コード モデルの選択を必要があります。 Src 属性または分離コード属性を使用して、分離コードを実装することも、@Pageディレクティブ。 ASP.NET 2.0 では、開発者はインライン コードと分離コードの間の選択肢があるが分離コード モデルを大幅に強化されました。
@@ -34,7 +34,7 @@ Asp.net 1.x では、ASPX ファイル (web フォーム) およびプログラ�
 
 ## <a name="the-code-behind-model-in-aspnet-20"></a>ASP.NET 2.0 では、分離コード モデル
 
-ASP.NET 2.0 は、このモデルが大幅に向上します。 新しいを使用して ASP.NET 2.0 で分離コードが実装されます*部分クラス*ASP.NET 2.0 で提供します。 ASP.NET 2.0 では、分離コード クラスは、つまりクラス定義の一部のみが含まれている部分クラスとして定義します。 クラス定義の残りの部分は、実行時に、または Web サイトをプリコンパイル済みの ASPX ページを使用して ASP.NET 2.0 を動的に生成します。 まだ @ Page ディレクティブを使用して、分離コード ファイルと ASPX ページ間のリンクが確立されます。 ただし、分離コード ファイルまたは Src 属性ではなく ASP.NET 2.0 では、CodeFile 属性。 Inherits 属性は、ページのクラス名を指定するも使用されます。
+ASP.NET 2.0 は、このモデルが大幅に向上します。 新しいを使用して ASP.NET 2.0 で分離コードが実装されます*部分クラス*ASP.NET 2.0 で提供します。 ASP.NET 2.0 では、分離コード クラスは、つまり、クラス定義の一部のみが含まれている部分クラスとして定義されます。 クラス定義の残りの部分は、実行時に、または Web サイトをプリコンパイル済みの ASPX ページを使用して ASP.NET 2.0 を動的に生成します。 まだ @ Page ディレクティブを使用して、分離コード ファイルと ASPX ページ間のリンクが確立されます。 ただし、分離コード ファイルまたは Src 属性ではなく ASP.NET 2.0 では、CodeFile 属性。 Inherits 属性は、ページのクラス名を指定するも使用されます。
 
 一般的な @ Page ディレクティブは、次のようになります。
 
@@ -265,7 +265,7 @@ ASP.NET 2.0 ページ クラスの新しい保護されているプロパティ�
 
 ## <a name="uniquefilepathsuffix"></a>UniqueFilePathSuffix
 
-このプロパティは、ブラウザーのキャッシュのファイル パスに追加される一意 suffic を返します。 既定値は\_ \__ufps = と 6 桁の数字です。
+このプロパティは、ブラウザーのキャッシュのファイル パスに追加される一意のサフィックスを返します。 既定値は\_ \__ufps = と 6 桁の数字です。
 
 ## <a name="new-public-methods-for-the-page-class"></a>ページ クラスの新しいパブリック メソッド
 
@@ -508,7 +508,7 @@ GetCallbackEventReference 上記の戻り値が文字列変数に割り当てら
 
 ## <a name="step-4--register-the-client-side-script"></a>手順 4:クライアント側スクリプトを登録します。
 
-GetCallbackEventReference への呼び出しが、クライアント側スクリプトと呼ばれることを指定したことを思い出してください**ShowCompanyName**はサーバー側のコールバックが成功したときに実行されます。 このスクリプトは、ClientScriptManager インスタンスを使用して、ページに追加する必要があります。 (ClientScriptManager クラスは、このモジュールの後半で示すになります)そのためそのなどを行います。
+GetCallbackEventReference への呼び出しが、クライアント側スクリプトと呼ばれることを指定したことを思い出してください**ShowCompanyName**はサーバー側のコールバックが成功したときに実行されます。 このスクリプトは、ClientScriptManager インスタンスを使用して、ページに追加する必要があります。 (ClientScriptManager クラスはこのモジュールの後半で説明されます)。そのためそのなどを行います。
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample16.js)]
 

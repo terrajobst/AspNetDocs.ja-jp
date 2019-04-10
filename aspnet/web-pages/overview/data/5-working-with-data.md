@@ -8,15 +8,15 @@ ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: a688761c87376aa93463c13eaa07858d3acb9dc2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0fc828e39cfcce22d4cc226954cf7d1731b04e42
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064589"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379782"
 ---
-<a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web でのデータベース操作の概要
-====================
+# <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web でのデータベース操作の概要
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、Microsoft WebMatrix ツールを使用して、ASP.NET Web Pages (Razor) の web サイトでデータベースを作成する方法と表示、追加、編集、およびデータを削除することができるページを作成する方法について説明します。
@@ -32,8 +32,7 @@ ms.locfileid: "57064589"
 > 
 > - Microsoft SQL Server Compact Edition データベースを使用します。
 > - SQL クエリを使用します。
-> - 
-  `Database` クラス
+> - `Database` クラス
 >   
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
@@ -52,7 +51,7 @@ ms.locfileid: "57064589"
 
 このような画像データへの一般的な方法は、行と列を含むテーブルとしてです。 データベース用語では、各行は多くの場合にレコードとして参照します。 (フィールドとも呼ばれます) の各列には、データの種類ごとの値が含まれています。 名、姓の名、およびなど。
 
-| **ID** | **FirstName** | **LastName** | **Address** | **電子メール** | **電話** |
+| **ID** | **FirstName** | **LastName** | **アドレス** | **電子メール** | **電話番号** |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234 Main st. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
@@ -108,7 +107,7 @@ ms.locfileid: "57064589"
 2. Product テーブルを右クリックし、をクリックし、**データ**します。
 3. [編集] ペインで、次のレコードを入力します。
 
-    | **Name** | **説明** | **価格** |
+    | **名前** | **説明** | **価格** |
     | --- | --- | --- |
     | パン | 毎日斬新組み込まれています。 | 2.99 |
     | ストロベリー ショート ケーキ | ガーデンから有機的な strawberries で行われます。 | 9.99 |
@@ -137,7 +136,7 @@ ms.locfileid: "57064589"
     最初のコード ブロックで開く、 *SmallBakery.sdf*先ほど作成したファイル (データベース)。 `Database.Open`メソッドを前提としていますが、 *.sdf*ファイルは、web サイトの*アプリ\_データ*フォルダー。 (を指定する必要はありませんが、 *.sdf*拡張子&#8212;実のところ、この場合、`Open`メソッドは機能しません)。
 
     > [!NOTE]
-    > *アプリ\_データ*データ ファイルを格納するために使用する asp.net の特別なフォルダーです。 詳細については、[データベースに接続する](#SB_ConnectingToADatabase)この記事で後述を参照してください。
+    > *アプリ\_データ*データ ファイルを格納するために使用する asp.net の特別なフォルダーです。 詳細については、次を参照してください。[データベースに接続する](#SB_ConnectingToADatabase)この記事で後述します。
 
     次の SQL を使用してデータベースを照会する要求を行うし`Select`ステートメント。
 
@@ -238,7 +237,7 @@ ms.locfileid: "57064589"
 
 > [!NOTE] 
 > 
-> **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)を参照してください。
+> **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、次を参照してください。[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)します。
 
 
 1. という名前の新しい CSHTML ファイルを作成、web サイトで*EditProducts.cshtml*します。
@@ -320,7 +319,7 @@ ms.locfileid: "57064589"
 
 > [!NOTE] 
 > 
-> **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)を参照してください。
+> **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、次を参照してください。[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)します。
 
 
 1. という名前の新しい CSHTML ファイルを作成、web サイトで*ListProductsForDelete.cshtml*します。

@@ -8,15 +8,15 @@ ms.date: 01/26/2012
 ms.assetid: 8447679a-2556-4411-b758-bbe55cfa4805
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions
 msc.type: chapter
-ms.openlocfilehash: cb38906e33d5c32dada35d72bb646aad1e5a0907
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 41ee7a14c26c10fb693eb3b5bf590f92a4caf3a3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405964"
 ---
-<a name="web-api-routing"></a>Web API のルーティング
-====================
+# <a name="web-api-routing"></a>Web API のルーティング
+
 > どの ASP.NET Web API は、コント ローラーとアクションに HTTP 要求をルーティングします。
 
 

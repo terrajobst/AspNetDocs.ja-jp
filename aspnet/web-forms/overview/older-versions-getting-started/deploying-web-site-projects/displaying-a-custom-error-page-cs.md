@@ -8,15 +8,15 @@ ms.date: 06/09/2009
 ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 449b8eb26f3f6018fdd6c6dcc1de1c8d58214ac3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0ccb1a737fdfc3cf2ffdcc22131650e1b79cd2cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045949"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407225"
 ---
-<a name="displaying-a-custom-error-page-c"></a>カスタム エラー ページを表示する (C#)
-====================
+# <a name="displaying-a-custom-error-page-c"></a>カスタム エラー ページを表示する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_cs.pdf)
@@ -84,8 +84,7 @@ YSOD の他の種類に、ランタイム エラー YSOD、**図 2**します。
 - 構成情報、`<customErrors>`セクションと
 - かどうか、ユーザーは、ローカルまたはリモートでサイトを訪問は。
 
-[ `<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)で`Web.config`がどのようなエラー ページが表示に影響する 2 つの属性:`defaultRedirect`と`mode`します。 
-  `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラーの YSOD ではなく、カスタム エラー ページが表示することを示します。 `mode`属性が必要ですし、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`します。 これらの値には、次の動作があります。
+[ `<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)で`Web.config`がどのようなエラー ページが表示に影響する 2 つの属性:`defaultRedirect`と`mode`します。 `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラーの YSOD ではなく、カスタム エラー ページが表示することを示します。 `mode`属性が必要ですし、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`します。 これらの値には、次の動作があります。
 
 - `On` -カスタム エラー ページまたはランタイム エラーの YSOD がローカルまたはリモートいるかどうかに関係なく、すべての訪問者に表示されていることを示します。
 - `Off` -例外の詳細 YSOD がローカルまたはリモートいるかどうかに関係なく、すべての訪問者に表示されることを指定します。
@@ -168,7 +167,7 @@ ASP.NET が動作しますモード属性を設定している場合、それ以
 - [エラー ページ、もう 1 回](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
 - [例外のデザインのガイドライン](https://msdn.microsoft.com/library/ms229014.aspx)
 - [わかりやすいエラー ページ](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [処理と例外をスロー](https://msdn.microsoft.com/library/5b2yeyab.aspx)
+- [例外の処理とスロー](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [ASP.NET でカスタム エラー ページを正しく使用](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 > [!div class="step-by-step"]

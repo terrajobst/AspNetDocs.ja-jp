@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 1caac9d0-e21e-49d6-a8ff-e563a736d6ca
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e767785f801b5110f0e9e915cd35c8a4425a9487
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: db69c0cf4fc3e5d39d88d8a6478a529309020d3d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064549"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398034"
 ---
-<a name="positioning-a-modalpopup-c"></a>ModalPopup の位置を決める (C#)
-====================
+# <a name="positioning-a-modalpopup-c"></a>ModalPopup の位置を決める (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup4.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup4CS.pdf)
@@ -55,7 +55,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-aspx[Main](positioning-a-modalpopup-cs/samples/sample6.aspx)]
 
 
-[![指定した位置にモーダル ポップアップが表示されます。](positioning-a-modalpopup-cs/_static/image2.png)](positioning-a-modalpopup-cs/_static/image1.png)
+[![T指定された位置にある彼のモーダル ポップアップが表示されます](positioning-a-modalpopup-cs/_static/image2.png)](positioning-a-modalpopup-cs/_static/image1.png)
 
 指定した位置にモーダル ポップアップが表示されます ([フルサイズの画像を表示する をクリックします](positioning-a-modalpopup-cs/_static/image3.png))。
 

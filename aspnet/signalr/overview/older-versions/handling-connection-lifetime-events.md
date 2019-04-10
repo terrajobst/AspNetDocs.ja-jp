@@ -8,22 +8,22 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: bf10cf3e3e1881a976e8a123b48007f7bd8821f7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a8121a2d7c4ed14e296dc72c72ca7c25939a2b50
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048089"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414011"
 ---
-<a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>SignalR で接続の有効期間イベントの処理の理解と 1.x
-====================
+# <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>SignalR で接続の有効期間イベントの処理の理解と 1.x
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > この記事では、SignalR 接続や再接続、切断イベントを処理することができますとタイムアウトとキープア ライブの設定を構成することができますの概要を示します。
 > 
-> この記事では、SignalR と接続の有効期間イベントの一部に関する知識がある前提としています。 SignalR の概要については、[SignalR - 概要 - Getting Started](index.md)を参照してください。 接続の有効期間イベントのリストは、次のリソースを参照してください。
+> この記事では、SignalR と接続の有効期間イベントの一部に関する知識がある前提としています。 SignalR の概要については、次を参照してください。 [SignalR - 概要 - Getting Started](index.md)します。 接続の有効期間イベントのリストは、次のリソースを参照してください。
 > 
 > - [ハブ クラスでの接続の有効期間イベントを処理する方法](index.md)
 > - [JavaScript クライアントでの接続の有効期間イベントを処理する方法](index.md)
@@ -50,7 +50,7 @@ ms.locfileid: "57048089"
 - [継続的に再接続する方法](#continuousreconnect)
 - [サーバー コードでクライアントを切断する方法](#disconnectclientfromserver)
 
-.NET 4.5 バージョンの API は API のリファレンス トピックへのリンクです。 .NET 4 を使用している場合は、[.NET 4 のバージョンを API のトピックの](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)を参照してください。
+.NET 4.5 バージョンの API は API のリファレンス トピックへのリンクです。 .NET 4 を使用している場合は、次を参照してください。 [.NET 4 のバージョンを API のトピックの](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)します。
 
 <a id="terminology"></a>
 
@@ -87,7 +87,7 @@ ms.locfileid: "57048089"
 
 ### <a name="transport-disconnection-scenarios"></a>トランスポート切断シナリオ
 
-物理的な接続が遅くなるまたは接続の中断がある可能性があります。 中断時間の長さなどの要因によってトランスポート接続が削除される可能性があります。 SignalR はトランスポート接続を再確立を試みます。 トランスポート接続 API が場合があります、中断を検出し、トランスポートの接続が切断し、SignalR がすぐに、接続が失われることです。 他のシナリオでのトランスポート接続 API も、SignalR 認識はすぐになり接続が失われたこと。 SignalR クライアントが呼び出される関数を使用して、ロング ポーリングを除くすべてのトランスポートで*keepalive*トランスポート API が検出できない接続が失われるを確認します。 時間の長いポーリングの接続については、[タイムアウトとキープア ライブ設定](#timeoutkeepalive)このトピックで後述を参照してください。
+物理的な接続が遅くなるまたは接続の中断がある可能性があります。 中断時間の長さなどの要因によってトランスポート接続が削除される可能性があります。 SignalR はトランスポート接続を再確立を試みます。 トランスポート接続 API が場合があります、中断を検出し、トランスポートの接続が切断し、SignalR がすぐに、接続が失われることです。 他のシナリオでのトランスポート接続 API も、SignalR 認識はすぐになり接続が失われたこと。 SignalR クライアントが呼び出される関数を使用して、ロング ポーリングを除くすべてのトランスポートで*keepalive*トランスポート API が検出できない接続が失われるを確認します。 時間の長いポーリングの接続については、次を参照してください。[タイムアウトとキープア ライブ設定](#timeoutkeepalive)このトピックで後述します。
 
 接続がアクティブでない場合、サーバーはクライアントにキープア ライブ パケットを送信定期的にします。 この記事では、書き込まれる時点で、既定の頻度が 10 秒ごとにできます。 これらのパケットをリッスンして、クライアントは接続の問題があるかどうかを指示することができます。 キープア ライブ パケットが受信されない場合予想される場合、短期間のうちに、クライアントが想定パフォーマンスの低下や中断などの接続に関する問題があること。 長い時間が経過したら、keepalive が受信されないままの場合、クライアントで、接続が切断されてと再接続しようとしていますが開始されます。
 
@@ -126,7 +126,7 @@ SignalR 接続の有効期間イベント、クライアントで発生する可
 
 トランスポート API で検出されない、keepalive ping キープア ライブのタイムアウト警告期間よりも長くサーバーからの受信を延期しないトランスポート接続の中断は、任意の接続が発生します。 有効期間イベントを発生させないことがあります。
 
-一部のネットワーク環境は意図的に、アイドル状態の接続を閉じるし、キープア ライブ パケットの別の関数は、これらのネットワークは、SignalR の接続が使用されているを知ることによってこれを防ぐためにします。 極端なケースで keepalive ping の既定の頻度が十分でない閉じられた接続を防ぐため。 その場合はより多くの場合、送信される ping をキープア ライブを構成できます。 詳細については、[タイムアウトとキープア ライブ設定](#timeoutkeepalive)このトピックで後述を参照してください。
+一部のネットワーク環境は意図的に、アイドル状態の接続を閉じるし、キープア ライブ パケットの別の関数は、これらのネットワークは、SignalR の接続が使用されているを知ることによってこれを防ぐためにします。 極端なケースで keepalive ping の既定の頻度が十分でない閉じられた接続を防ぐため。 その場合はより多くの場合、送信される ping をキープア ライブを構成できます。 詳細については、次を参照してください。[タイムアウトとキープア ライブ設定](#timeoutkeepalive)このトピックで後述します。
 
 > [!NOTE] 
 > 

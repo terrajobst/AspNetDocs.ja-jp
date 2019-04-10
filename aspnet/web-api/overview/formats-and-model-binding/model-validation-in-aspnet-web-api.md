@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: ASP.NET Web API でのモデル検証 |Microsoft Docs
+title: モデルの検証に ASP.NET Web API - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET の ASP.NET Web API でのモデル検証の概要 4.x です。
 ms.author: riande
 ms.date: 07/20/2012
+ms.custom: seoapril2019
 ms.assetid: 7d061207-22b8-4883-bafa-e89b1e7749ca
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 611a6466e160387592df678b3b8556625ff8e234
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4e792f8cc2f79c2ab82c5a74fd50f49475fac4f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033409"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404573"
 ---
-<a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API でモデルの検証
-====================
+# <a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API でモデルの検証
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-クライアントは、web API へのデータを送信するときに多くの場合、検証するデータ、処理を実行する前にします。 この記事では、モデルの注釈を設定、データの検証のため、注釈を使用して、web API で検証エラーを処理する方法を示しています。
+この記事では、モデルの注釈を設定、データの検証のため、注釈を使用して、web API で検証エラーを処理する方法を示しています。 クライアントは、web API へのデータを送信するときに多くの場合、検証するデータ、処理を実行する前にします。 
 
 ## <a name="data-annotations"></a>データの注釈
 
@@ -51,7 +52,7 @@ ASP.NET MVC のモデルの検証を使用している場合この使い慣れ�
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample5.cs?highlight=1-2)]
 
-**「オーバーポスティング」**:クライアントが送信も*詳細*が予想よりもデータ。 例:
+**「オーバーポスティング」**:クライアントが送信も*詳細*が予想よりもデータ。 例えば:
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample6.json)]
 

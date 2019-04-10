@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: bac10aee-6731-4a0f-84d7-9eef5e560ae5
 msc.legacyurl: /web-forms/videos/net-4
 msc.type: chapter
-ms.openlocfilehash: e8565bc2914570eef982bbcc63a8497c2d38386a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea11b464329a755d5625797327f5a0a3ccb0f426
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57019809"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400588"
 ---
-<a name="net-4"></a>.NET 4
-====================
+# <a name="net-4"></a>.NET 4
+
 > ASP.NET の新機能と .NET Framework 4 で使用できる機能。
 
 
@@ -28,8 +28,8 @@ ms.locfileid: "57019809"
     - [AJAX データ テンプレート](ajax/aspnet-4-quick-hit-ajax-data-templates.md)
 - [グラフ](chart/index.md)
 
-    - [Chart コントロール](chart/aspnet-4-quick-hit-chart-control.md)
-    - [Visual Studio 2010 の新しい Chart コントロール概要](chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
+    - [Chart Control](chart/aspnet-4-quick-hit-chart-control.md)
+    - [Visual Studio 2010 の新しい Chart コントロールの概要](chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
 - [コア](core/index.md)
 
     - [自動開始](core/aspnet-4-quick-hit-auto-start.md)

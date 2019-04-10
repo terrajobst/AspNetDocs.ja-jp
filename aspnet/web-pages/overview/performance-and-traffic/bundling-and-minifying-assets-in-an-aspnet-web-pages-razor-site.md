@@ -8,15 +8,15 @@ ms.date: 06/21/2012
 ms.assetid: 8906f1e9-4b66-4a03-8e8a-9e9debf8ed91
 msc.legacyurl: /web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
 msc.type: authoredcontent
-ms.openlocfilehash: 7d2cb2fe311b8aff20bfb378b329286701ed5b7d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e42111ad71ec65581e56c73822e23ecd5fcbd58
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57059919"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400452"
 ---
-<a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでアセットをバンドルし、小さくする
-====================
+# <a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでアセットをバンドルし、小さくする
+
 によって[Microsoft](https://github.com/microsoft)
 
 > バンドルと縮小には、サイトを速く方法です。 複数の JavaScript を結合することができますのバンドル (*.js*) ファイルまたは複数のカスケード スタイル シート (*.css*) それらを一度に 1 つずつではなく、単位としてダウンロードできるようにします。 縮小では、空白を絞り出すし、他の種類のことがある小規模としてダウンロードしたファイルを作成するために圧縮を実行します。

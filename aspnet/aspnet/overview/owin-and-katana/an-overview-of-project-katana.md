@@ -8,15 +8,15 @@ ms.date: 08/30/2013
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 52007eba109de28c6d178505b82b1d5ff2883b47
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 72f70faa151007558ecbb270143ecd5b37c2134d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57040739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392574"
 ---
-<a name="an-overview-of-project-katana"></a>プロジェクト Katana の概要
-====================
+# <a name="an-overview-of-project-katana"></a>プロジェクト Katana の概要
+
 によって[Howard dierking が](https://github.com/howarddierking)
 
 > 10 年以上にわたってきましたが、ASP.NET フレームワークとプラットフォームが無数の Web サイトとサービスの開発を有効にします。 Web アプリケーションの開発戦略に進化してきましたが、フレームワークに ASP.NET MVC や ASP.NET Web API などのテクノロジの手順で展開できるされています。 プロジェクトのように Web アプリケーションの開発では、クラウド コンピューティングの世界に次の革新的な手順を受け取り、 [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET)に柔軟で移植可能で、有効にすると、ASP.NET アプリケーション コンポーネントの基になるセットを提供します。軽量で、パフォーマンスの向上 – と別の方法で、プロジェクト[Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET)クラウドは、ASP.NET アプリケーションを最適化します。

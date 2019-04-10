@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
-title: ASP.NET Identity を空または既存の web フォーム プロジェクトの追加 |Microsoft Docs
+title: 追加の ASP.NET Identity を空または既存の web フォーム プロジェクト - ASP.NET 4.x
 author: raquelsa
-description: このチュートリアルでは、ASP.NET アプリケーションを ASP.NET Identity (ASP.NET の新しいメンバーシップ システム) を追加する方法を示します。 ときに、新しい Web フォームまたは MVC を作成しています.
+description: このチュートリアルでは、ASP.NET アプリケーションを ASP.NET Identity (asp.net メンバーシップ システム) を追加する方法を示します。 ときに、新しい Web フォームまたは MVC を作成しています.
 ms.author: riande
 ms.date: 01/22/2019
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: cd28cc68db96b52eb205b8764aa2af014ffad9c3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8f66cdb46e4cd02509092ea3bdcb7af9c292eb8f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038279"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394316"
 ---
 # <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する
 
@@ -108,7 +109,7 @@ ms.locfileid: "57038279"
 
     > [!NOTE]
     > **Microsoft.Aspnet.Identity.Owin**パッケージには、一連管理および ASP.NET Identity のコア パッケージで使用する OWIN 認証ミドルウェアを構成する OWIN 拡張機能のクラスにはが含まれています。
-    > **Microsoft.Owin.Host.SystemWeb**パッケージには、OWIN ベース アプリケーションを ASP.NET の要求パイプラインを使用して、IIS で実行できるようにする OWIN サーバーが含まれています。 詳細については、[、IIS での OWIN ミドルウェア パイプラインを統合する](../../../aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline.md)を参照してください。
+    > **Microsoft.Owin.Host.SystemWeb**パッケージには、OWIN ベース アプリケーションを ASP.NET の要求パイプラインを使用して、IIS で実行できるようにする OWIN サーバーが含まれています。 詳細については、次を参照してください。 [、IIS での OWIN ミドルウェア パイプラインを統合する](../../../aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline.md)します。
 
 ## <a name="add-owin-startup-and-authentication-configuration-classes"></a>OWIN の起動と認証の構成クラスを追加します。
 
@@ -145,7 +146,7 @@ ms.locfileid: "57038279"
     > [!NOTE] 
     > 
     > - `Page_Load`現在のユーザーの状態をチェックし、に基づいてアクションを実行するようになりましたその`Context.User.Identity.IsAuthenticated`状態。
-    >     **ユーザー名でログインして表示**:Microsoft ASP.NET Identity フレームワークでの拡張メソッドが追加[どのオブジェクト タイプも](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx)を取得することができます、`UserName`と`UserId`ユーザーでログオンします。 これらの拡張メソッドが定義されている、`Microsoft.AspNet.Identity.Core`アセンブリ。 これらの拡張メソッドは、置換の[HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx)します。
+    >   **ユーザー名でログインして表示**:Microsoft ASP.NET Identity フレームワークでの拡張メソッドが追加[どのオブジェクト タイプも](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx)を取得することができます、`UserName`と`UserId`ユーザーでログオンします。 これらの拡張メソッドが定義されている、`Microsoft.AspNet.Identity.Core`アセンブリ。 これらの拡張メソッドは、置換の[HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx)します。
     > - SignIn メソッド:`This`メソッドは、置換前`CreateUser_Click`メソッドでは、このサンプルと、ユーザーが正常に作成した後、ユーザー サインインようになりました。   
     >   拡張メソッドを追加で Microsoft の OWIN Framework`System.Web.HttpContext`への参照を取得することができます、`IOwinContext`します。 これらの拡張メソッドが定義されている`Microsoft.Owin.Host.SystemWeb`アセンブリ。 `OwinContext`クラスでは、`IAuthenticationManager`現在の要求で使用可能な認証ミドルウェアの機能を表すプロパティ。 使用して、ユーザーがサインインすることができます、 `AuthenticationManager` OWIN と呼び出し元から`SignIn`を渡して、`ClaimsIdentity`上記のようです。 フレームワークが、アプリを生成する必要があります ASP.NET Identity と OWIN クッキー認証は要求ベースのシステムであるため、`ClaimsIdentity`ユーザー。 `ClaimsIdentity`ユーザーが属するロールなど、ユーザーのすべての要求に関する情報があります。 このコードは、ユーザーがサインインし、cookie も生成は、この段階でユーザーの複数のクレームを追加することもできます。 この呼び出しに似ています[FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx)で使用される、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
     > - `SignOut` 方法:参照を取得、 `AuthenticationManager` OWIN と呼び出しから`SignOut`します。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)メソッドで使用される、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。

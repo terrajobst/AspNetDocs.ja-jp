@@ -8,20 +8,20 @@ ms.date: 02/15/2013
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 5145f0a9bfe615fa98a7341841f72597594de1e4
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 86dcac0b95f07a310bdaaa4e69db0a83f8734744
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424262"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416637"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用して ASP.NET Web の展開:データベース更新を配置する
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用して ASP.NET Web の展開:データベース更新を配置する
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 ## <a name="overview"></a>概要
@@ -137,7 +137,7 @@ DbDacFx プロバイダーを使用してデータベースを更新する方法
     1. クリックして**データベース更新を構成する**します。
     2. **データベース更新を構成する**ダイアログ ボックスで、クリア、チェック ボックスを横に*Grant.sql*と*aspnet-データ-dev.sql*します。
     3. **[閉じる]** をクリックします。
-6. をクリックして、**プレビュー**タブ。
+6. **[プレビュー]** タブをクリックします。
 7. **データベース**の右側に**DefaultConnection**、クリックして、**プレビュー データベース**リンク。
 
     ![データベースのプレビュー](deploying-a-database-update/_static/image7.png)

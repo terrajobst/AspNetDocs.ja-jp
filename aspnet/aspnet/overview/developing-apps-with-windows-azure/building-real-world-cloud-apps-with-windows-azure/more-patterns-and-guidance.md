@@ -8,20 +8,20 @@ ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 87dbbc0b598a6592b511383a5487a04b302b0994
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 95943222a9869349784d4fd2686fb81725c65d44
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425666"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409227"
 ---
-<a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>複数のパターンとガイダンス (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>複数のパターンとガイダンス (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 これまでの 13 パターンで成功する方法のガイダンスを提供するクラウド コンピューティングはこれでしました。 これらは、クラウド アプリに適用されるパターンのほんの一部です。 さらにいくつかのクラウド コンピューティング トピック、およびそれらに役立つリソースを次に示します。
@@ -61,7 +61,7 @@ ms.locfileid: "58425666"
 コード サンプル
 
 - [Fix It アプリケーションこの電子書籍に付属している](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002)します。
-- [クラウド サービス Visual Studio 2012 用の C# での Azure の基礎](https://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
+- [クラウド サービス Visual Studio 2012 用の c# での Azure の基礎](https://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
 
 ハード コピー ブック
 
@@ -72,7 +72,7 @@ ms.locfileid: "58425666"
 - [Windows Azure の新興のパターンをプログラミング](https://www.amazon.com/dp/1849685606)します。 によって Riccardo Becker します。
 - [Microsoft Windows Azure 開発 Cookbook](https://www.amazon.com/dp/1849682224)します。 Neil Mackenzie。、
 
-最後に、実際のアプリの構築を開始して、Azure で実行するには、遅かれ早かれ大抵の場合は、専門家から支援を必要があります。 などのコミュニティ サイトで質問を入力することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)、または直接 Azure のサポートを Microsoft に連絡することができます。 マイクロソフトは、Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、[Azure のサポート](https://azure.microsoft.com/support/plans/)を参照してください。
+最後に、実際のアプリの構築を開始して、Azure で実行するには、遅かれ早かれ大抵の場合は、専門家から支援を必要があります。 などのコミュニティ サイトで質問を入力することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)、または直接 Azure のサポートを Microsoft に連絡することができます。 マイクロソフトは、Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、次を参照してください。 [Azure のサポート](https://azure.microsoft.com/support/plans/)します。
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>謝辞

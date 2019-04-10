@@ -8,15 +8,15 @@ ms.date: 01/25/2007
 ms.assetid: 7559a912-2753-4866-a140-a4c6cefee00c
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 626f103c59afc0843f821d6475393b61347492f8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c032609a440ea8cb0d6e11759994581011daf70c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410202"
 ---
-<a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX での動的な部分ページ更新を実装するか。
-====================
+# <a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX での動的な部分ページ更新を実装するか。
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオでは、Microsoft ASP.NET AJAX を使用して ASP.NET アプリケーションに動的部分ページ更新を追加する方法を学びます。 具体的には、TimerControl を使用して、AJAX コールバックの頻度を管理する方法が表示されます。

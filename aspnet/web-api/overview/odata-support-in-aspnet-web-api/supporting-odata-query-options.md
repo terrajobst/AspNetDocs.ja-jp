@@ -1,23 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: ASP.NET Web API 2 OData クエリ オプションをサポートしている |Microsoft Docs
+title: ASP.NET Web API 2 - ASP.NET での OData クエリ オプションをサポートしている 4.x
 author: MikeWasson
-description: ''
+description: 概要のコード例と ASP.NET Web API 2 で ASP.NET のサポートの OData クエリ オプションでは、4.x です。
 ms.author: riande
 ms.date: 02/04/2013
+ms.custom: seoapril2019
 ms.assetid: 50e6e62b-e72e-4a29-8293-4b67377bd21f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
 msc.type: authoredcontent
-ms.openlocfilehash: 8745183125c9dd1dcc7cb0e146367a893bdb0170
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 428e4942e42436585049c1e84cd7b07a4a79c0d1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050879"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411567"
 ---
-<a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>ASP.NET web API 2 OData クエリ オプションをサポート
-====================
+# <a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>ASP.NET web API 2 OData クエリ オプションをサポート
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
+
+コード例では、この概要では、ASP.NET Web API 2 では、サポートの OData クエリ オプションを紹介 for ASP.NET 4.x です。 
 
 OData では、OData のクエリを変更するために使用するパラメーターを定義します。 クライアントは、要求 URI のクエリ文字列で、これらのパラメーターを送信します。 たとえば、クライアントに結果を並べ替えるには、$orderby パラメーターを使用してください。
 

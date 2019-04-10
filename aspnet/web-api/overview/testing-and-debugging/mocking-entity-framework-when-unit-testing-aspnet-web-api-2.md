@@ -8,24 +8,24 @@ ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 7ed2d543ca019e926a87e6897aa0d8a0784f4796
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3dddc1fd38a5384e40f9fa109da9d8c1424ef01a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422624"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387257"
 ---
-<a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework のモックを作成するときに単体テストの ASP.NET Web API 2
-====================
+# <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework のモックを作成するときに単体テストの ASP.NET Web API 2
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
+[完成したプロジェクトをダウンロードします。](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > このガイダンスとアプリケーションは、Entity Framework を使用する Web API 2 アプリケーションの単体テストを作成する方法を説明します。 テストは、コンテキスト オブジェクトを渡すことを有効にするスキャフォールディングされたコント ローラーを変更する方法と Entity Framework で動作するテスト オブジェクトを作成する方法を示しています。
 >
-> ASP.NET Web API を使用した単体テストの概要については、[ASP.NET Web API 2 で Unit Testing](unit-testing-with-aspnet-web-api.md)を参照してください。
+> ASP.NET Web API を使用した単体テストの概要については、次を参照してください。 [ASP.NET Web API 2 で Unit Testing](unit-testing-with-aspnet-web-api.md)します。
 >
-> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、[ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)を参照してください。
+> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、次を参照してください。 [ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 >
@@ -44,8 +44,8 @@ ms.locfileid: "58422624"
 - [追加の依存関係の挿入](#dependency)
 - [テスト プロジェクトで NuGet パッケージをインストールします。](#testpackages)
 - [テストのコンテキストを作成します。](#testcontext)
-- [テストを作成します。](#tests)
-- [テストを実行します。](#runtests)
+- [テストの作成](#tests)
+- [テストの実行](#runtests)
 
 」の手順を既に完了している場合[ASP.NET Web API 2 で Unit Testing](unit-testing-with-aspnet-web-api.md)、セクションに進んで[コント ローラーの追加](#controller)します。
 

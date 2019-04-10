@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
-title: コント ローラー (C#) から、モデルのデータへのアクセス |Microsoft Docs
+title: コント ローラー (c#) から、モデルのデータへのアクセス |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 01/12/2011
 ms.assetid: 002ada5c-f114-47ab-a441-57dbdb728ea0
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 25a4f7bb8b6b47915861ea9b7c579c31aed4919b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a2e2957ffe766282f127b6fb537af00673aa440f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421506"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389844"
 ---
-<a name="accessing-your-models-data-from-a-controller-c"></a>コントローラーからモデルのデータにアクセスする (C#)
-====================
+# <a name="accessing-your-models-data-from-a-controller-c"></a>コントローラーからモデルのデータにアクセスする (C#)
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]

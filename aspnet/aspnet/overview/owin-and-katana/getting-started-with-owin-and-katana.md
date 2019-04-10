@@ -8,20 +8,20 @@ ms.date: 09/27/2013
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 9920861da0e67d9304a944cacfb8ff8685267cd6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5b5ecfcc7561e3e7bc13e1c8819a548e73ae1ab3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052009"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408096"
 ---
-<a name="getting-started-with-owin-and-katana"></a>OWIN と Katana の概要
-====================
+# <a name="getting-started-with-owin-and-katana"></a>OWIN と Katana の概要
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 [Web Interface for .NET (OWIN) を開く](http://owin.org/).NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN は、アプリケーションから web サーバーを分離することで、簡単に .NET web 開発のためのミドルウェアを作成します。 また、OWIN 簡単に他のホストに web アプリケーションを移植&#8212;などの Windows サービスまたはその他のプロセスで自己ホストします。
 
-OWIN は、実装ではなく、コミュニティが所有している仕様です。 Katana プロジェクトには、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)を参照してください。 この記事でが、右をジャンプを開始するコードにします。
+OWIN は、実装ではなく、コミュニティが所有している仕様です。 Katana プロジェクトには、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)します。 この記事でが、右をジャンプを開始するコードにします。
 
 このチュートリアルでは[Visual Studio 2013 Release Candidate](https://go.microsoft.com/fwlink/?LinkId=306566)、Visual Studio 2012 を使用することもできます。 いくつかの手順は、Visual Studio 2012 では、下記のメモをここでは異なります。
 
@@ -47,7 +47,7 @@ OWIN は、実装ではなく、コミュニティが所有している仕様で
 
 ### <a name="add-a-startup-class"></a>Startup クラスを追加します。
 
-次に、OWIN startup クラスを追加します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、 **Owin Startup クラス**します。 スタートアップ クラスの構成の詳細については、[OWIN スタートアップ クラス検出](owin-startup-class-detection.md)を参照してください。
+次に、OWIN startup クラスを追加します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、 **Owin Startup クラス**します。 スタートアップ クラスの構成の詳細については、次を参照してください。 [OWIN スタートアップ クラス検出](owin-startup-class-detection.md)します。
 
 ![](getting-started-with-owin-and-katana/_static/image4.png)
 
@@ -65,7 +65,7 @@ OWIN は、実装ではなく、コミュニティが所有している仕様で
 
 ### <a name="run-the-application"></a>アプリケーションを実行する
 
-F5 キーを押して、デバッグを開始します。 Visual Studio はブラウザー ウィンドウを開いて`http://localhost:*port*/`します。 ページは、次のようになります。
+F5 キーを押してデバッグを開始します。 Visual Studio はブラウザー ウィンドウを開いて`http://localhost:*port*/`します。 ページは、次のようになります。
 
 ![](getting-started-with-owin-and-katana/_static/image5.png)
 

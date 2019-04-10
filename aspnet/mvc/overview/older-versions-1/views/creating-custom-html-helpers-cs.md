@@ -8,18 +8,18 @@ ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6a684e01b67c2ea139a50b568098d2dcf594272
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 23741d7974713102e6ccb46ced5d62ec202505e8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031999"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400855"
 ---
-<a name="creating-custom-html-helpers-c"></a>カスタム HTML ヘルパーの作成 (C#)
-====================
+# <a name="creating-custom-html-helpers-c"></a>カスタム HTML ヘルパーの作成 (C#)
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
 > このチュートリアルの目的を MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用して HTML タグの標準の HTML ページを作成するために必要ことの面倒な型指定の量を減らすことができます。
 
@@ -49,7 +49,7 @@ ASP.NET MVC フレームワークには、次の一連標準の HTML ヘルパ�
 たとえば、リスト 1 でフォームを検討してください。 (図 1 参照)、標準の HTML ヘルパーの 2 つのヘルプでは、このフォームが表示されます。 このフォームを使用して、`Html.BeginForm()`と`Html.TextBox()`単純な HTML フォームを表示するためにヘルパー メソッド。
 
 
-[![HTML ヘルパーのページが表示されます。](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
+[![PHTML ヘルパーでレンダリングした経過時間](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
 **図 01**:HTML ヘルパーのページが表示される ([フルサイズの画像を表示する をクリックします](creating-custom-html-helpers-cs/_static/image3.png))。
 
@@ -104,7 +104,7 @@ ASP.NET MVC フレームワークには、ヘルパーの小さなセットが�
 拡張メソッドがすべてのクラスの他のメソッドのように Visual Studio の Intellisense に表示されます、拡張メソッドを作成し、アプリケーションを正常にビルドした後 (図 2 参照)。 唯一の違いは、その拡張機能メソッドがそれら (下向きの矢印のアイコン) の横にある特別なシンボルを表示します。
 
 
-[![Html.Label() の拡張メソッドを使用](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
+[![UHtml.Label() の拡張メソッドを歌い](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
 **図 02**:Html.Label() の拡張メソッドを使用して ([フルサイズの画像を表示する をクリックします](creating-custom-html-helpers-cs/_static/image6.png))。
 

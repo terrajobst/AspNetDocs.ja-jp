@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
-title: ASP.NET Web API 2 では、Azure Worker ロールのホスト |Microsoft Docs
+title: ホスト ASP.NET Web API 2 では、Azure Worker ロール - ASP.NET 4.x
 author: MikeWasson
-description: このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) de の Web インターフェイスを開く.
+description: 'チュートリアル: Azure ワーカー ロールで OWIN を使用して Web API フレームワークを自己ホストするには、ASP.NET Web API をホストします。'
 ms.author: riande
 ms.date: 04/02/2014
+ms.custom: seoapril2019
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 40cb1a4514beaf81e7ed75bbd3e478f2ba146fe5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bfb23aafb814010e8651965dad91ca20a37fd786
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57063919"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404625"
 ---
-<a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 では、Azure Worker ロールをホストします。
-====================
+# <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 では、Azure Worker ロールをホストします。
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。
@@ -134,7 +135,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 ## <a name="deploy-to-azure"></a>Azure に配置する
 
-この手順では、Azure アカウントが必要です。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、[Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)を参照してください。
+この手順では、Azure アカウントが必要です。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)します。
 
 ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。 **[発行]** を選びます。
 

@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d902fd6d042783c036bb42a11b7e469f6dd2b5b6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a408134b4e26e8ad1f7c22c9d2005a7c551b00c6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038569"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392860"
 ---
-<a name="custom-formatting-based-upon-data-vb"></a>データに基づくカスタム書式設定 (VB)
-====================
+# <a name="custom-formatting-based-upon-data-vb"></a>データに基づくカスタム書式設定 (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_11_VB.exe)または[PDF のダウンロード](custom-formatting-based-upon-data-vb/_static/datatutorial11vb1.pdf)
@@ -49,7 +49,7 @@ GridView、DetailsView、またはにバインドされたデータに基づく�
 ObjectDataSource は、DetailsView にバインドしたら後、は、フィールド リストを変更するには、少しを実行します。 削除することを選択する、 `ProductID`、 `SupplierID`、 `CategoryID`、 `UnitsInStock`、 `UnitsOnOrder`、 `ReorderLevel`、および`Discontinued`BoundFields の名前を変更して、残りの BoundFields を再フォーマットします。 私も取り除か、`Width`と`Height`設定します。 DetailsView では、1 つのレコードのみが表示されたら、以降のすべての製品を表示するエンドユーザーに許可するには、ページングを有効にする必要があります。 そのため、DetailsView のスマート タグでページングを有効にするチェック ボックスをオンします。
 
 
-[![図 1:DetailsView のスマート タグで有効にするページングのチェック ボックスをオンします。](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
+[![Figure 1:ページングを有効にするチェック ボックスをオン DetailsView のスマート タグで確認してください](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
 
 **図 1**:図 1: チェック ボックスを有効にするページング DetailsView のスマート タグ ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image3.png))。
 
@@ -62,7 +62,7 @@ ObjectDataSource は、DetailsView にバインドしたら後、は、フィー
 このページをブラウザーでテストする時間がかかります。
 
 
-[![DetailsView コントロールは、一度に 1 つの製品を表示します](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
+[![T彼一度に製品を 1 つ DetailsView コントロールの表示](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
 
 **図 2**:DetailsView コントロールが表示されます製品の 1 つずつ ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image6.png))。
 
@@ -124,12 +124,12 @@ DetailsView にバインドされたデータを使用してアクセスでき�
 通常フォントで価格が表示されます、Chai 75.00 ドル未満のコスト、これを表示するときに (図 4 参照)。 ただし、97.00 ドルの価格を持つ、Mishi 日本の神戸 Niku を表示すると、価格が太字、斜体のフォントに表示されます (図 5 を参照してください)。
 
 
-[![通常フォントで $75.00 より低い価格が表示されます。](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
+[![Prices $75.00 は標準フォントで表示されます。 より小さい](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
 
 **図 4**:通常フォントで $75.00 より低い価格が表示されます ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image10.png))。
 
 
-[![高価な製品の価格は太字、斜体フォントで表示されます。](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
+[![Expensive 製品の価格は、太字、斜体フォントに表示されます](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
 
 **図 5**:太字、斜体フォントで高価な製品の価格が表示されます ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image13.png))。
 
@@ -196,12 +196,12 @@ Web コントロールへの参照をプログラムによって取得したら�
 図 7 製品を表示するときに、フォーム ビューを示していますが`UnitsInStock`図 8 の製品があるその値が 10 未満の値が 10 より大きい。
 
 
-[![カスタム書式の適用の製品で、十分に大きい Units In Stock、](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
+[![Fまたは、製品で、十分に大きい Units In Stock"、"カスタム書式の適用](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
 
 **図 7**:カスタム書式の適用の製品で、十分に大きい Units In Stock、([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image17.png))。
 
 
-[![在庫数の単位は、製品の値を 10 以下の赤で表示します。](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
+[![T彼の在庫数単位については、その製品で値を 10 以下の赤で表示](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
 
 **図 8**:在庫数の単位は、製品の値を 10 以下の赤で表示 ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image20.png))。
 
@@ -247,7 +247,7 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 図 9 は、ブラウザーで表示した場合は、このポイントに進行状況を示します。
 
 
-[![GridView は、名前、カテゴリ、および各製品の価格を一覧表示されます。](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
+[![T彼は GridView には、名前、カテゴリ、および各製品の価格が一覧表示](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
 
 **図 9**:GridView には、名前、カテゴリ、および各製品の価格が一覧表示されます ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image23.png))。
 
@@ -303,7 +303,7 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample18.vb)]
 
 
-[![最も低コスト製品は黄色の強調表示されています。](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
+[![T最も低コスト製品彼は黄色の強調表示](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
 
 **図 11**:最も低コスト製品は黄色の強調表示されている ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image27.png))。
 

@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 315e89c81782edf0875c65afd27153102d733050
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424249"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409734"
 ---
-<a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理
-====================
+# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 [Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
@@ -89,7 +89,7 @@ ms.locfileid: "58424249"
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>演習
@@ -131,7 +131,7 @@ ms.locfileid: "58424249"
 
     ![移行を有効にする](maintainable-azure-websites-managing-change-and-scale/_static/image1.png "Migrations を有効にします。")
 
-    *移行を有効にします。*
+    *移行を有効にする*
 
     > [!NOTE]
     > このコマンドを追加、**移行**というフォルダーにファイルを含むギーク Quiz プロジェクト**Configuration.cs**します。 **構成**クラスでは、コンテキストの移行の動作を構成できます。
@@ -198,7 +198,7 @@ ms.locfileid: "58424249"
 
     ![Add-migration](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "Add-migration")
 
-    *追加の移行*
+    *Add-Migration*
 
     > [!NOTE]
     > 移行ファイルが 2 つの方法で構成される**を**と**ダウン**します。
@@ -248,7 +248,7 @@ ms.locfileid: "58424249"
 この演習ではデプロイ、**ギーク Quiz** Git ソース管理を使用して web アプリのステージング環境へのアプリケーション。 これを行うが web アプリを作成し、管理ポータルで必要なコンポーネントのプロビジョニング、構成、 **Git**リポジトリとプッシュ アプリケーション ソース コードをローカル コンピューターから、ステージング スロットにします。 実稼働データベースを更新することもが、 **Code First Migrations**前の演習で作成しました。 その操作を確認するには、このテスト環境でアプリケーションを実行します。 問題がなければ、期待どおりに動作しているそのこと、運用環境にアプリケーションが昇格されます。
 
 > [!NOTE]
-> ステージングされた発行を有効にするのには、web アプリである必要があります**標準モード**します。 Web アプリを標準モードに変更する場合は、追加料金が発生することに注意してください。 価格の詳細については、[App Service の価格](https://azure.microsoft.com/pricing/details/app-service/)を参照してください。
+> ステージングされた発行を有効にするのには、web アプリである必要があります**標準モード**します。 Web アプリを標準モードに変更する場合は、追加料金が発生することに注意してください。 価格の詳細については、次を参照してください。 [App Service の価格](https://azure.microsoft.com/pricing/details/app-service/)します。
 
 
 <a id="Ex2Task1"></a>
@@ -692,7 +692,7 @@ Web アプリがステージング環境で正しく動作していることを�
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > URL リライトは、受信 Web 要求をインターセプトし、別のリソースへの要求のリダイレクトのプロセスです。 URL 書き換えルールでは、書き換えエンジンを要求をリダイレクトする必要がある場合と、リダイレクト先にするように指示します。 書き換えルールは 2 つの文字列で構成されます: 要求された URL で検索するパターン (通常は、正規表現を使用して) 場合に使用すると、パターンを置換する文字列が見つかったとします。 詳細については、[ASP.NET における URL リライト](https://msdn.microsoft.com/library/ms972974.aspx)を参照してください。
+    > URL リライトは、受信 Web 要求をインターセプトし、別のリソースへの要求のリダイレクトのプロセスです。 URL 書き換えルールでは、書き換えエンジンを要求をリダイレクトする必要がある場合と、リダイレクト先にするように指示します。 書き換えルールは 2 つの文字列で構成されます: 要求された URL で検索するパターン (通常は、正規表現を使用して) 場合に使用すると、パターンを置換する文字列が見つかったとします。 詳細については、次を参照してください。 [ASP.NET における URL リライト](https://msdn.microsoft.com/library/ms972974.aspx)します。
 3. キーを押して**CTRL + S**変更を保存します。
 4. 新しく開きます**Git Bash**更新されたアプリケーションを Azure App Service をデプロイするコンソール。
 5. Azure に変更をプッシュするには、次のコマンドを実行します。 更新プログラム、 *[YOUR APPLICATION PATH]* へのパスのプレース ホルダー、 **GeekQuiz**ソリューション。 デプロイ パスワードを求めるメッセージが表示されます。
@@ -869,7 +869,7 @@ Web アプリがステージング環境で正しく動作していることを�
 20. **ソリューション エクスプ ローラー**、ダブルクリックして、 **Local.settings**テストの設定を表示するファイル。 既定では、Visual Studio は、テストを実行するのにローカル コンピューターを使用します。
 
     > [!NOTE]
-    > 使用して、クラウドでロード テストを実行するテスト プロジェクトを構成する代わりに、 **Azure テスト計画**します。 Azure のテスト計画には、クラウド ベースのロード テスト サービスをより現実的な負荷をシミュレートする、CPU 容量、使用可能なメモリ、ネットワーク帯域幅などのローカル環境の制約を回避が提供します。 Azure のテスト計画を使用して、ロード テストを実行する方法の詳細については、[ロード テスト シナリオ](/azure/devops/test/load-test/overview?view=vsts)を参照してください。
+    > 使用して、クラウドでロード テストを実行するテスト プロジェクトを構成する代わりに、 **Azure テスト計画**します。 Azure のテスト計画には、クラウド ベースのロード テスト サービスをより現実的な負荷をシミュレートする、CPU 容量、使用可能なメモリ、ネットワーク帯域幅などのローカル環境の制約を回避が提供します。 Azure のテスト計画を使用して、ロード テストを実行する方法の詳細については、次を参照してください。[ロード テスト シナリオ](/azure/devops/test/load-test/overview?view=vsts)します。
 
     ![テストの設定](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
@@ -909,7 +909,7 @@ Web アプリがステージング環境で正しく動作していることを�
     > - 最大値と最小値を減らして、**ターゲット CPU**範囲は、web アプリの自動スケールの構成
     > - 使用してクラウドでロード テストの実行**Azure テスト計画**します。 詳細については[ここ](/azure/devops/test/load-test/index?view=vsts)
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ

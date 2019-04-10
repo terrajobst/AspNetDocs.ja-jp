@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: af5e5a9c8d211b07b57aa50238b02cabe249aef8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4b8f059974dec33d6305e7b84919550713bf4e4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041629"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409890"
 ---
-<a name="aspnet-error-handling"></a>ASP.NET エラー処理
-====================
+# <a name="aspnet-error-handling"></a>ASP.NET エラー処理
+
 によって[Erik Reitan](https://github.com/Erikre)
 
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -55,7 +55,7 @@ ASP.NET アプリケーションでは、一貫した方法で実行中に発生
 ASP.NET Web フォーム アプリケーションでは、特定の処理の階層に基づく例外を処理することができます。 次のレベルでは、例外を処理できます。
 
 - アプリケーション レベル
-- ページ レベル
+- ページレベルのロック
 - コード レベル
 
 アプリケーションでは、例外を処理するときに例外クラスから継承される例外に関する追加情報多くの場合、取得でき、ユーザーに表示されます。 に加えて、アプリケーション、ページ、およびコード レベルでは、HTTP モジュール レベルでは、IIS のカスタム ハンドラーを使用して例外を処理することもできます。

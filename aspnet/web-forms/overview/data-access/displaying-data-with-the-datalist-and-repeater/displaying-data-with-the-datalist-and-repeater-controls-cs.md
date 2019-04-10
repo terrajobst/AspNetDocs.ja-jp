@@ -8,15 +8,15 @@ ms.date: 09/13/2006
 ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a58a9501a546a437b44e078c628d7db010700b5c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf9930a3704d4ae6f0cb012a1512e23b29435f76
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400192"
 ---
-<a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList および Repeater コントロールでデータを表示する (C#)
-====================
+# <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList および Repeater コントロールでデータを表示する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_29_CS.exe)または[PDF のダウンロード](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/datatutorial29cs1.pdf)
@@ -51,7 +51,7 @@ ms.locfileid: "57062099"
 開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン サーフェイスにフォルダー。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、サイト マップの列挙し、箇条書きリストに現在のセクションから、チュートリアルを表示します。
 
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image2.png)
+[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image2.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image4.png))。
 
@@ -72,7 +72,7 @@ ms.locfileid: "57062099"
 テンプレートではなく BoundFields、CheckBoxFields、具合に依存 DataList コントロールの出力にレンダリングされますをフォーム ビューと同様に、します。 FormView とは異なり、DataList は単独の 1 つではなく、レコードのセットを表示する設計されています。 S で製品情報を DataList にバインドを参照してください、このチュートリアルを開始することができます。 開いて開始、`Basics.aspx`ページで、`DataListRepeaterBasics`フォルダー。 次に、DataList をツールボックスからデザイナーにドラッグします。 DataList s のテンプレートを指定する前に、図 4 に示すように、デザイナーで、灰色のボックスとして表示にします。
 
 
-[![DataList をツールボックスからデザイナーにドラッグします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image6.png)
+[![Drag、DataList、ツールボックスに、デザイナーから](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image6.png)
 
 **図 4**:DataList から、ツールボックスに、デザイナーをドラッグします ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image8.png))。
 
@@ -80,17 +80,17 @@ ms.locfileid: "57062099"
 スマート タグの DataList s から、新しい ObjectDataSource を追加しを使用するように構成、`ProductsBLL`クラスの`GetProducts`メソッド。 ウィザード s INSERT (なし) をドロップダウン リストを設定では、このチュートリアルでは、読み取り専用 DataList を作成しますので、更新、およびタブを削除します。
 
 
-[![新しい ObjectDataSource を作成することを選択します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image10.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image9.png)
+[![O新しい ObjectDataSource を作成する pt](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image10.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image9.png)
 
 **図 5**:新しい ObjectDataSource を作成すること ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image11.png))。
 
 
-[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image12.png)
+[![C構成、ObjectDataSource ProductsBLL クラスを使用する](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image12.png)
 
 **図 6**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image14.png))。
 
 
-[![すべての GetProducts メソッドを使用して製品に関する情報を取得します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image15.png)
+[![R情報はすべて GetProducts メソッドを使用して製品の etrieve](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image15.png)
 
 **図 7**:情報のすべての製品を使用して、取得、`GetProducts`メソッド ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image17.png))。
 
@@ -120,7 +120,7 @@ DataList タグは、テンプレートの編集リンクをクリックして�
 そのため、デザイナーを使用して、テンプレートの編集のオプションを提供すると、DataList を使用する場合は、コンテンツは、テンプレートの編集インターフェイスを通じてアクセスできるように、ラベルの Web コントロールを使用する優先します。 間もなく表示されるよう、Repeater は、ソース ビューから、テンプレート コンテンツを編集することが必要です。 そのため、書式設定する必要がありますがわからないコントロールを Label Web 多くの場合は省略します Repeater のテンプレートを作成する際に、データの外観はプログラム ロジックに基づくテキストにバインドされます。
 
 
-[![各製品の出力は、DataList の ItemTemplate を使用してレンダリング](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image18.png)
+[![Each 製品の出力では、DataList の ItemTemplate を使用して表示](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image18.png)
 
 **図 8**:各製品の出力を使用してレンダリング DataList s `ItemTemplate` ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image20.png))。
 
@@ -134,7 +134,7 @@ DataList タグは、テンプレートの編集リンクをクリックして�
 スキン ファイルを追加するを右クリックし、`App_Themes/DataWebControls`フォルダーが、新しい項目の追加を選択し、一覧からスキン ファイル オプションを選択します。 そのファイルに `DataList.skin` という名前を付けます。
 
 
-[![DataList.skin をという名前の新しいスキン ファイルを作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
+[![C新しいスキン ファイルという DataList.skin を reate](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
 
 **図 9**:新しいスキン ファイルの名前付き作成`DataList.skin`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image23.png))。
 
@@ -149,7 +149,7 @@ DataList タグは、テンプレートの編集リンクをクリックして�
 このスキン ファイルの追加により、(; [表示] メニューから新しいスキン ファイルの効果を確認、更新を選択するデザイナー ビューを更新する必要があります)、デザイナー、DataList 外観が更新されます。 図 10 に示すよう各代替製品が薄いピンク色の背景色にします。
 
 
-[![DataList.skin をという名前の新しいスキン ファイルを作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image25.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image24.png)
+[![C新しいスキン ファイルという DataList.skin を reate](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image25.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image24.png)
 
 **図 10**:新しいスキン ファイルの名前付き作成`DataList.skin`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image26.png))。
 
@@ -174,7 +174,7 @@ DataList タグは、テンプレートの編集リンクをクリックして�
 この例では let s したタイトルが DataList の結果の上部に表示される製品情報、`<h3>`見出し。 これを行うには、追加、`HeaderTemplate`を適切なマークアップ。 これは、デザイナーでは、DataList s のスマート タグのテンプレートの編集リンクをクリックすると、ドロップダウン リストからヘッダーのテンプレートを選択するスタイルのドロップダウン リストから 3 の見出しのオプションを選択した後のテキストを入力して実行できます (図 11 を参照してください) を一覧表示します。
 
 
-[![テキストの製品情報を使って HeaderTemplate を追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image27.png)
+[![Add テキスト製品情報を使って HeaderTemplate](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image27.png)
 
 **図 11**:追加、`HeaderTemplate`テキストの製品情報 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image29.png))。
 
@@ -196,7 +196,7 @@ DataList タグは、テンプレートの編集リンクをクリックして�
 この参照を追加したら、ブラウザーを使用してページを表示するときに図 12 ようなります。 ヘッダー行と各製品の一覧の間の線に注意してください。
 
 
-[![DataList には、ヘッダー行と各製品の一覧の間で水平方向の規則が含まれます。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image30.png)
+[![TDataList 彼には、ヘッダー行と、水平方向の規則の間で各 Product Listing が含まれています](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image30.png)
 
 **図 12**:DataList には、ヘッダー行と、水平方向の規則の間で各 Product Listing が含まれています ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image32.png))。
 
@@ -227,7 +227,7 @@ Repeater では、すべてのデータ Web コントロール catch として�
 これを実現するには、Repeater コントロールをツールボックスから、デザイナーの 製品情報 DataList 上にドラッグして開始します。 DataList と Repeater 最初に表示されます灰色のボックスとしてそのテンプレートが定義されるまでです。
 
 
-[![Repeater をデザイナーに追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
+[![Add をデザイナーに Repeater](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
 
 **図 13**:Repeater をデザイナーに追加 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image35.png))。
 
@@ -235,17 +235,17 @@ Repeater では、すべてのデータ Web コントロール catch として�
 ある s Repeater s でオプションを 1 つだけにスマート タグ。データ ソースを選択します。 新しい ObjectDataSource を作成および使用するように構成することを選択、`CategoriesBLL`クラスの`GetCategories`メソッド。
 
 
-[![新しい ObjectDataSource を作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image36.png)
+[![C新しい ObjectDataSource を reate](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image36.png)
 
 **図 14**:新しい ObjectDataSource を作成 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image38.png))。
 
 
-[![CategoriesBLL クラスを使用する ObjectDataSource を構成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image39.png)
+[![C構成、ObjectDataSource CategoriesBLL クラスを使用する](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image39.png)
 
 **図 15**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image41.png))。
 
 
-[![すべてのメソッドを使用してカテゴリに関する情報を取得します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image42.png)
+[![Retrieve 情報に関するすべてのメソッドを使用してカテゴリ](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image42.png)
 
 **図 16**:情報のすべてのカテゴリを使用して、取得、`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image44.png))。
 
@@ -265,7 +265,7 @@ DataList とは異なり Visual Studio は自動的に作成されません、It
 Repeater では、そのテンプレート、それ以上、何も以下で指定された正確なマークアップを出力します。 図 17 では、ブラウザーで表示したときに、Repeater s の出力を示します。
 
 
-[![単一行の HTML&lt;テーブル&gt;別の列に各カテゴリを一覧表示](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
+[![A 単一行の HTML&lt;テーブル&gt;別の列に各カテゴリの一覧](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
 
 **図 17**:単一行の HTML`<table>`別の列の各カテゴリの一覧表示されます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image47.png))。
 
@@ -292,7 +292,7 @@ Repeater では、そのテンプレートで指定されたマークアップ�
 図 18 は、これらの変更が行われた後に、Repeater を示します。
 
 
-[![カテゴリ列を選択し、背景色で交互にヘッダー行が含まれています](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image48.png)
+[![T彼のカテゴリ列代替背景色でヘッダー行が含まれます](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image48.png)
 
 **図 18**:背景色とヘッダー行を含むカテゴリ列代替 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image50.png))。
 

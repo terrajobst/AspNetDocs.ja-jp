@@ -8,22 +8,22 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 65e2268418501f89a77a0ba20f7960a618c2e9b7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034279"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405457"
 ---
-<a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性のルーティング
-====================
+# <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性のルーティング
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 *ルーティング*Web API がアクションへの URI に一致します。 新しい型をサポートする web API 2 のルーティングと呼ばれる*属性ルーティング*します。 名前が示すようは、ルートを定義するのに属性を使用する属性ルーティングします。 属性ルーティングでは、Uri の制御、web API でします。 たとえば、リソースの階層について説明する Uri を簡単に作成することができます。
 
 規約ベースと呼ばれる、ルーティングの以前のスタイルを引き続き完全にサポートは、ルーティングします。 実際には、同じプロジェクト内の両方の手法を組み合わせることができます。
 
-このトピックでは、属性ルーティングを有効にする方法を示していて、属性ルーティングのさまざまなオプションについて説明します。 属性ルーティングを使用するエンド ツー エンド チュートリアルでは、[属性ルーティングで Web API 2 で REST API の作成](create-a-rest-api-with-attribute-routing.md)を参照してください。
+このトピックでは、属性ルーティングを有効にする方法を示していて、属性ルーティングのさまざまなオプションについて説明します。 属性ルーティングを使用するエンド ツー エンド チュートリアルでは、次を参照してください。[属性ルーティングで Web API 2 で REST API の作成](create-a-rest-api-with-attribute-routing.md)です。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -36,7 +36,7 @@ ms.locfileid: "57034279"
 <a id="why"></a>
 ## <a name="why-attribute-routing"></a>なぜ属性ルーティングでしょうか。
 
-使用する Web API の最初のリリース*規則に基づく*ルーティングします。 その型のルーティングでは、いずれかを定義するかは基本的に、複数のルート テンプレートには、文字列がパラメーター化されました。 フレームワークは、要求を受信したときに、ルート テンプレートに対して URI が一致します。 (規約ベースのルーティングの詳細については、[ASP.NET Web API におけるルーティング](routing-in-aspnet-web-api.md)を参照してください。
+使用する Web API の最初のリリース*規則に基づく*ルーティングします。 その型のルーティングでは、いずれかを定義するかは基本的に、複数のルート テンプレートには、文字列がパラメーター化されました。 フレームワークは、要求を受信したときに、ルート テンプレートに対して URI が一致します。 (規約ベースのルーティングの詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](routing-in-aspnet-web-api.md)します。
 
 規約ベースのルーティングの利点の 1 つは、テンプレートが 1 つの場所で定義されていること、およびルーティング規則は、すべてのコント ローラー間で一貫して適用されます。 残念ながら、規約ベースのルーティングを困難に RESTful Api に共通している特定の URI パターンをサポートします。 たとえば、リソースには多くの場合、子リソースが含まれます。顧客の注文がある、映画のアクターがあると、ブックの「複数の作者によりやなど。 これらの関係を反映する Uri を作成する自然です。
 
@@ -82,7 +82,7 @@ ms.locfileid: "57034279"
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample3.cs)]
 
-Web API を構成する方法の詳細については、[ASP.NET Web API 2 の構成](../advanced/configuring-aspnet-web-api.md)を参照してください。
+Web API を構成する方法の詳細については、次を参照してください。 [ASP.NET Web API 2 の構成](../advanced/configuring-aspnet-web-api.md)します。
 
 <a id="config"></a>
 ### <a name="note-migrating-from-web-api-1"></a>メモ:Web API 1 からの移行
@@ -96,7 +96,7 @@ Web API 2 では、前に、Web API プロジェクト テンプレートには�
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample5.cs?highlight=4)]
 
 > [!NOTE]
-> 詳細については、[ASP.NET ホストによる Web API を構成する](../advanced/configuring-aspnet-web-api.md#webhost)を参照してください。
+> 詳細については、次を参照してください。 [ASP.NET ホストによる Web API を構成する](../advanced/configuring-aspnet-web-api.md#webhost)します。
 
 
 <a id="add-routes"></a>
@@ -166,7 +166,7 @@ Web API には、(GET、POST など) の要求の HTTP メソッドに基づい�
 <a id="constraints"></a>
 ## <a name="route-constraints"></a>ルート制約
 
-ルート制約では、ルート テンプレートでパラメーターを照合する方法を制限できます。 一般的な構文は&quot;{0} パラメーター: 制約}&quot;します。 例:
+ルート制約では、ルート テンプレートでパラメーターを照合する方法を制限できます。 一般的な構文は&quot;{0} パラメーター: 制約}&quot;します。 例えば:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample14.cs)]
 
@@ -184,7 +184,7 @@ Web API には、(GET、POST など) の要求の HTTP メソッドに基づい�
 | float | 32 ビットの浮動小数点値と一致します。 | {x:float} |
 | guid | GUID 値と一致します。 | {x:guid} |
 | int | 32 ビット整数値と一致します。 | {x:int} |
-| length | 指定した長さで、または長さの指定した範囲内の文字列と一致します。 | {x:length(6)} {x:length(1,20)} |
+| 長さ | 指定した長さで、または長さの指定した範囲内の文字列と一致します。 | {x:length(6)} {x:length(1,20)} |
 | long | 64 ビット整数値と一致します。 | {x:long} |
 | max | 最大値は整数に一致します。 | {x:max(10)} |
 | maxlength | 最大長を持つ文字列と一致します。 | {x:maxlength(10)} |
@@ -228,8 +228,8 @@ Web API には、(GET、POST など) の要求の HTTP メソッドに基づい�
 
 これは、前の例とほぼ同じですが、既定値が適用される動作のわずかな違いがあります。
 
-- 最初の例 ("{lcid?}") で、パラメーターがこの正確な値を反映するため、メソッド パラメーターに直接 1033 の既定値が割り当てられます。
-- 2 番目の例 ("{lcid 1033 の =}")、「1033」の既定値は、モデル バインディング プロセスをたどります。 既定のモデル バインダーは、数値の値 1033 に「1033」に変換されます。 ただし、別のものを実行するカスタム モデル バインダーを接続する可能性があります。
+- 最初の例 ("{lcid:int?}") で、パラメーターがこの正確な値を反映するため、メソッド パラメーターに直接 1033 の既定値が割り当てられます。
+- 2 番目の例 ("{lcid:int 1033 の =}")、「1033」の既定値は、モデル バインディング プロセスをたどります。 既定のモデル バインダーは、数値の値 1033 に「1033」に変換されます。 ただし、別のものを実行するカスタム モデル バインダーを接続する可能性があります。
 
 (ほとんどの場合、パイプラインでカスタム モデル バインダーがない限り、2 つの形式と同じになります。)
 

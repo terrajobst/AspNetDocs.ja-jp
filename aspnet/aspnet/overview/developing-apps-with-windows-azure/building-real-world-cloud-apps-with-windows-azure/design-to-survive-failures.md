@@ -8,20 +8,20 @@ ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 72b26fd58866df1296d06bd9e3bc695900cfbf65
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fbe618acfc70711933996f97657a4326d389b3dd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035199"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411242"
 ---
-<a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure で現実世界のクラウド アプリの構築) の障害から復旧する設計します。
-====================
+# <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure で現実世界のクラウド アプリの構築) の障害から復旧する設計します。
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 適切にエラーを処理し、続ける価値を提供するように、アプリを設計する方法は、のアプリケーション、特に 1 つが、多くの人が使用する、クラウドで実行される任意の型を作成する場合について考慮する必要がある点の 1 つとして考えられる。 十分な時間を指定するには、任意の環境または任意のソフトウェア システムで問題が発生する作業がうまきます。 お客様の取得方法感情的とどれ時間だけを決定します、アプリがそのような状況を処理する方法を分析し、問題の修正を使う必要です。

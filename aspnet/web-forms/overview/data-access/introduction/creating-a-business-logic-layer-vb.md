@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 345f4981ebdd5384068bd42bce0581f94866ad1d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63efa46410e821947c6b0ee4ecd0c790fbf793e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024349"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380094"
 ---
-<a name="creating-a-business-logic-layer-vb"></a>ビジネス ロジック層を作成する (VB)
-====================
+# <a name="creating-a-business-logic-layer-vb"></a>ビジネス ロジック層を作成する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_2_VB.exe)または[PDF のダウンロード](creating-a-business-logic-layer-vb/_static/datatutorial02vb1.pdf)
@@ -129,7 +129,7 @@ ProductsBLL.vb
 BLL クラスは、ObjectDataSource を使用して (型指定されたデータセットのことができます)、宣言によってもアクセスできます。 ここで説明するさらに詳しく ObjectDataSource で、次のチュートリアル。
 
 
-[![GridView に製品の一覧が表示されます。](creating-a-business-logic-layer-vb/_static/image4.png)](creating-a-business-logic-layer-vb/_static/image3.png)
+[![TGridView で彼の製品の一覧が表示されます](creating-a-business-logic-layer-vb/_static/image4.png)](creating-a-business-logic-layer-vb/_static/image3.png)
 
 **図 3**:GridView に製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-a-business-logic-layer-vb/_static/image5.png))。
 
@@ -148,7 +148,7 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 データベースでのこれらの規則を適用するだけでなくもを適用するデータセットのレベル。 実際には、フィールド長、値が必須または省略可能なのかどうか既に DataColumns のそれぞれの DataTable のセットをキャプチャします。 自動的に提供される既存のフィールド レベルの検証を表示するには、データセット デザイナーに移動し、Datatable のいずれかからフィールドを選択して、[プロパティ] ウィンドウに移動し。 図 4 に示すよう、`QuantityPerUnit`で DataColumn、`ProductsDataTable`が 20 文字の最大長を許可して`NULL`値。 設定する場合、`ProductsDataRow`の`QuantityPerUnit`プロパティを 20 文字より長い文字列値に、`ArgumentException`がスローされます。
 
 
-[![DataColumn は、フィールド レベルの基本的な検証を提供します。](creating-a-business-logic-layer-vb/_static/image7.png)](creating-a-business-logic-layer-vb/_static/image6.png)
+[![T彼の基本的なフィールド レベルの検証を DataColumn](creating-a-business-logic-layer-vb/_static/image7.png)](creating-a-business-logic-layer-vb/_static/image6.png)
 
 **図 4**:DataColumn は、基本的なフィールド レベルの検証 ([フルサイズの画像を表示する をクリックします](creating-a-business-logic-layer-vb/_static/image8.png))。
 
@@ -156,7 +156,7 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 残念ながら、指定できない、境界のチェックなど、`UnitPrice`プロパティ ウィンドウで、0 以上の値がある必要があります。 この種類のフィールド レベルの検証を提供するために、DataTable のイベント ハンドラーを作成する必要[ColumnChanging](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx)イベント。 説明したように、[前のチュートリアル](creating-a-data-access-layer-vb.md)、部分クラスを使用して型指定されたデータセットによって作成された DataSet、Datatable、および DataRow オブジェクトを拡張することができます。 作成するこの手法を使用して、`ColumnChanging`のイベント ハンドラー、`ProductsDataTable`クラス。 クラスを作成して開始、`App_Code`という名前のフォルダー`ProductsDataTable.ColumnChanging.vb`します。
 
 
-[![App_Code フォルダーに新しいクラスを追加します。](creating-a-business-logic-layer-vb/_static/image10.png)](creating-a-business-logic-layer-vb/_static/image9.png)
+[![Add App_Code フォルダーに新しいクラス](creating-a-business-logic-layer-vb/_static/image10.png)](creating-a-business-logic-layer-vb/_static/image9.png)
 
 **図 5**:新しいクラスを追加、`App_Code`フォルダー ([フルサイズの画像を表示する をクリックします](creating-a-business-logic-layer-vb/_static/image11.png))。
 

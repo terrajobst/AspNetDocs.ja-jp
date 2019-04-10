@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 114dd21002ef41627f3a101c0197a85fd5208887
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d774a8e13e108d1be4c39e1e909d3d9683968a0d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57053969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404924"
 ---
-<a name="understanding-the-project-file"></a>プロジェクト ファイルについて理解する
-====================
+# <a name="understanding-the-project-file"></a>プロジェクト ファイルについて理解する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Microsoft Build Engine (MSBuild) プロジェクト ファイルは、ビルドおよび配置プロセスの中核にあります。 このトピックでは、MSBuild とプロジェクト ファイルの概念の概要から始まります。 これには、プロジェクトのファイルを使用して、プロジェクト ファイルを使用して、実際のアプリケーションをデプロイする方法の例を使用して動作時に遭遇するが、主要なコンポーネントについて説明します。
 > 
@@ -38,7 +38,7 @@ ms.locfileid: "57053969"
 MSBuild プロジェクト ファイルがに基づいて、 [MSBuild XML スキーマ](https://msdn.microsoft.com/library/5dy88c2e.aspx)、その結果、ビルド プロセスは完全にオープンで透明とします。 さらに、MSBuild エンジンを使用するには、Visual Studio をインストールする必要はありません&#x2014;MSBuild.exe の実行可能ファイルは、.NET Framework の一部と、コマンド プロンプトから行うことができます。 開発者には、MSBuild XML スキーマを使用して、プロジェクトをビルドおよび配置する方法を洗練されたきめ細かな制御を強制する独自 MSBuild プロジェクト ファイルを作成できます。 これらのカスタム プロジェクト ファイルは、Visual Studio によって自動的に生成されるプロジェクト ファイルとまったく同じ方法で動作します。
 
 > [!NOTE]
-> Team Build サービスでは、Team Foundation Server (TFS) と MSBuild プロジェクト ファイルを使用することもできます。 たとえば、継続的インテグレーション (CI) のシナリオでのプロジェクト ファイルを使用して、新しいコードをチェックインするときに、テスト環境にデプロイを自動化することができます。 詳細については、[Web デプロイの自動化用の Team Foundation Server の構成](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)を参照してください。
+> Team Build サービスでは、Team Foundation Server (TFS) と MSBuild プロジェクト ファイルを使用することもできます。 たとえば、継続的インテグレーション (CI) のシナリオでのプロジェクト ファイルを使用して、新しいコードをチェックインするときに、テスト環境にデプロイを自動化することができます。 詳細については、次を参照してください。 [Web デプロイの自動化用の Team Foundation Server の構成](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)します。
 
 
 ### <a name="project-file-naming-conventions"></a>プロジェクト ファイルの名前付け規則
@@ -59,7 +59,7 @@ ASP.NET web アプリケーションおよび ASP.NET MVC web アプリケーシ
 良い知らせは、web プロジェクト用のカスタム プロジェクト ファイルを作成するときに、WPP が提供する統合ポイントの利用を行うことができます。 プロジェクトをビルドし、web デプロイ パッケージを作成、およびリモート サーバー上で 1 つのプロジェクト ファイルと MSBuild への 1 回の呼び出しを通じてこれらのパッケージをインストールすることができるプロジェクト ファイルでは、デプロイの手順を含めることができます。 実行可能ファイル、ビルド プロセスの一部として呼び出すこともできます。 たとえば、スキーマ ファイルからデータベースを配置する VSDBCMD.exe コマンド ライン ツールを実行できます。 このトピックの過程で、エンタープライズ展開シナリオの要件を満たすためにこれらの機能を活用を実行する方法が表示されます。
 
 > [!NOTE]
-> Web アプリケーションの展開プロセスのしくみの詳細については、[ASP.NET Web アプリケーション プロジェクトの配置の概要](https://msdn.microsoft.com/library/dd394698.aspx)を参照してください。
+> Web アプリケーションの展開プロセスのしくみの詳細については、次を参照してください。 [ASP.NET Web アプリケーション プロジェクトの配置の概要](https://msdn.microsoft.com/library/dd394698.aspx)します。
 
 
 ## <a name="the-anatomy-of-a-project-file"></a>プロジェクト ファイルの構造
@@ -90,7 +90,7 @@ ASP.NET web アプリケーションおよび ASP.NET MVC web アプリケーシ
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-形式を使用するプロパティの値を取得する<strong>$(</strong><em>PropertyName</em><strong>)</strong><em>.</em>たとえばの値を取得するため、 <strong>ServerName</strong>入力プロパティ。
+プロパティ値を取得する形式を使用する **$(***PropertyName***) * * *。* たとえばの値を取得するため、 **ServerName**入力プロパティ。
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -107,10 +107,10 @@ ASP.NET web アプリケーションおよび ASP.NET MVC web アプリケーシ
 
 
 > [!NOTE]
-> MSBuild.exe で使用できるスイッチと引数の詳細については、[MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)を参照してください。
+> MSBuild.exe で使用できるスイッチと引数の詳細については、次を参照してください。 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)します。
 
 
-環境変数と組み込みのプロジェクトのプロパティの値を取得するのにプロパティのと同じ構文を使用することができます。 一般的に使用されるプロパティの多くが、定義されているし、する使用プロジェクト ファイルで、関連するパラメーター名を含めることで。 たとえば、現在のプロジェクト プラットフォームを取得する&#x2014;など **x86** または **AnyCpu**&#x2014;含めることができます、 **$(Platform)** プロパティ参照でプロジェクト ファイルです。 詳細については、[ビルドのコマンドとプロパティのマクロの](https://msdn.microsoft.com/library/c02as0cs.aspx)、 [MSBuild プロジェクトの共通プロパティ](https://msdn.microsoft.com/library/bb629394.aspx)、および[の予約済みプロパティ](https://msdn.microsoft.com/library/ms164309.aspx)を参照してください。
+環境変数と組み込みのプロジェクトのプロパティの値を取得するのにプロパティのと同じ構文を使用することができます。 一般的に使用されるプロパティの多くが、定義されているし、する使用プロジェクト ファイルで、関連するパラメーター名を含めることで。 たとえば、現在のプロジェクト プラットフォームを取得する&#x2014;など **x86** または **AnyCpu**&#x2014;含めることができます、 **$(Platform)** プロパティ参照でプロジェクト ファイルです。 詳細については、次を参照してください。[ビルドのコマンドとプロパティのマクロの](https://msdn.microsoft.com/library/c02as0cs.aspx)、 [MSBuild プロジェクトの共通プロパティ](https://msdn.microsoft.com/library/bb629394.aspx)、および[の予約済みプロパティ](https://msdn.microsoft.com/library/ms164309.aspx)します。
 
 プロパティと組み合わせてよく*条件*します。 ほとんどの MSBuild 要素をサポートして、**条件**属性には、MSBuild が要素を評価する条件を指定することができます。 たとえば、このプロパティの定義があるとします。
 
@@ -120,7 +120,7 @@ ASP.NET web アプリケーションおよび ASP.NET MVC web アプリケーシ
 
 MSBuild では、このプロパティの定義を処理するとき、まず確認するかどうか、 **$(OutputRoot)** プロパティの値が使用可能な。 プロパティの値が空白の場合&#x2014;つまり、ユーザーは、このプロパティの値を指定していない&#x2014;条件の評価が **true** にプロパティの値を設定および **.\Publish\Out** です。条件の評価が場合は、ユーザーには、このプロパティの値が提供された、 **false**静的プロパティの値は使用されません。
 
-条件を指定するさまざまな方法の詳細については、[MSBuild の条件](https://msdn.microsoft.com/library/7szfhaft.aspx)を参照してください。
+条件を指定するさまざまな方法の詳細については、次を参照してください。 [MSBuild の条件](https://msdn.microsoft.com/library/7szfhaft.aspx)します。
 
 ### <a name="items-and-item-groups"></a>項目と項目グループ
 
@@ -161,7 +161,7 @@ MSBuild のスキーマで、[タスク](https://msdn.microsoft.com/library/77f2
 - **メッセージ**タスクでは、ロガーにメッセージを書き込みます。
 
 > [!NOTE]
-> すぐに使用できるタスクの詳細については、[MSBuild タスク リファレンス](https://msdn.microsoft.com/library/7z253716.aspx)を参照してください。 カスタムのタスクを作成する方法など、タスクの詳細については、[MSBuild タスク](https://msdn.microsoft.com/library/ms171466.aspx)を参照してください。
+> すぐに使用できるタスクの詳細については、次を参照してください。 [MSBuild タスク リファレンス](https://msdn.microsoft.com/library/7z253716.aspx)します。 カスタムのタスクを作成する方法など、タスクの詳細については、次を参照してください。 [MSBuild タスク](https://msdn.microsoft.com/library/ms171466.aspx)します。
 
 
 内のタスクを含めることが常に必要がある[ターゲット](https://msdn.microsoft.com/library/t50z2hka.aspx)要素。 A**ターゲット**要素は、一連の順番に実行される 1 つまたは複数のタスクとプロジェクト ファイルは、複数のターゲットを含めることができます。 タスクまたは一連のタスクを実行する場合は、それらを含むターゲットを呼び出します。 たとえば、メッセージをログに記録する単純なプロジェクト ファイルがあるとします。
@@ -192,8 +192,8 @@ MSBuild のスキーマで、[タスク](https://msdn.microsoft.com/library/77f2
 
 一般に、便利なタスクとターゲットを作成するときに、プロパティと他の場所で、プロジェクト ファイルで定義した項目を参照する必要があります。
 
-- プロパティ値を使用する入力<strong>$(</strong><em>PropertyName</em><strong>)</strong>ここで、 <em>PropertyName</em>の名前を指定します、 <strong>プロパティ</strong>要素またはパラメーターの名前。
-- 項目を使用する入力<strong>@(</strong><em>ItemName</em><strong>)</strong>ここで、 <em>ItemName</em>の名前を指定します、<strong>項目</strong>要素。
+- プロパティ値を使用する入力 **$(***PropertyName***)** ここで、 *PropertyName*の名前を指定します、**プロパティ**要素の名前または、パラメーター。
+- 項目を使用する入力 **@(***ItemName***)** ここで、 *ItemName*の名前を指定します、**項目**要素。
 
 > [!NOTE]
 > 同じ名前の複数の項目を作成する場合は、一覧を構築していることを覚えておいてください。 これに対し、同じ名前の複数のプロパティを作成する場合は、最後のプロパティ値を指定するプロパティが上書きされます前と同じ名前&#x2014;プロパティがのみ 1 つの値を含めることができます。
@@ -219,7 +219,7 @@ MSBuild のスキーマで、[タスク](https://msdn.microsoft.com/library/77f2
 表示することも、 **MSBuild**タスクという名前のターゲットを呼び出す**ビルド**します。 これは広く使用されている Visual Studio プロジェクト ファイルでは、カスタムのプロジェクト ファイルで使用できるようないくつかの組み込みのターゲットの 1 つ**ビルド**、**クリーン**、 **を再構築**、および**発行**します。 ターゲットとし、ビルド プロセスの制御やに関するタスクの使用方法の詳細を学習、 **MSBuild**タスクの具体的には、このトピックで後述します。
 
 > [!NOTE]
-> ターゲットの詳細については、[MSBuild ターゲット](https://msdn.microsoft.com/library/ms171462.aspx)を参照してください。
+> ターゲットの詳細については、次を参照してください。 [MSBuild ターゲット](https://msdn.microsoft.com/library/ms171462.aspx)します。
 
 
 ## <a name="splitting-project-files-to-support-multiple-environments"></a>複数の環境をサポートするためのプロジェクト ファイルの分割
@@ -250,7 +250,7 @@ MSBuild のスキーマで、[タスク](https://msdn.microsoft.com/library/77f2
 この方法で、プロジェクト ファイルの分割に従うことをお勧めします。 複数のプロジェクト ファイルに汎用のビルド プロパティの重複を回避しながら 1 つのコマンドを実行して複数の環境にデプロイすることができます。
 
 > [!NOTE]
-> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)を参照してください。
+> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
 
 
 ## <a name="conclusion"></a>まとめ

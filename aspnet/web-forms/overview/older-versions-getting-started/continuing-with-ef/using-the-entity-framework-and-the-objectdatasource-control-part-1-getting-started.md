@@ -8,15 +8,15 @@ ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 5eaeaa0aa474e1aed86954e6c10dd1703b938944
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c0f11019c7410b756d592066a7fe33b3e26fd383
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065409"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407199"
 ---
-<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 1。作業の開始
-====================
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 1。作業の開始
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。
@@ -27,7 +27,7 @@ ms.locfileid: "57065409"
 > 
 > ## <a name="database-first"></a>最初のデータベースします。
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、[Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)を参照してください。
+> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 
@@ -100,7 +100,7 @@ Visual studio で作成した Contoso University web アプリケーションを
 > [!NOTE]
 > 削除してしまった場合`Person`は既にデータに対応する行、`Administrator`列で、この変更を保存できません。 その場合は、エディターでは、テーブルを使用して、**サーバー エクスプ ローラー**ことを確認する、`Administrator`値すべて`Department`行に実際に存在するレコードの ID が含まれています、`Person`テーブル。
 > 
-> 行を削除できませんが、変更を保存した後、`Person`テーブルの人物が部門の管理者である場合。 実稼働アプリケーションでは、データベースの制約により、削除、または連鎖削除を指定するときに特定のエラー メッセージを指定するは。 連鎖削除を指定する方法の例は、[。 Entity Framework と ASP.NET – 開始パート 2 を取得する](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)を参照してください。
+> 行を削除できませんが、変更を保存した後、`Person`テーブルの人物が部門の管理者である場合。 実稼働アプリケーションでは、データベースの制約により、削除、または連鎖削除を指定するときに特定のエラー メッセージを指定するは。 連鎖削除を指定する方法の例は、次を参照してください。 [。 Entity Framework と ASP.NET – 開始パート 2 を取得する](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)します。
 
 
 ### <a name="adding-a-view-to-the-database"></a>データベースにビューを追加します。

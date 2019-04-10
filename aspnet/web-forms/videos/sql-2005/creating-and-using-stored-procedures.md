@@ -8,15 +8,15 @@ ms.date: 11/14/2006
 ms.assetid: 817bc763-7faa-4ac5-880b-b3f5531e9d07
 msc.legacyurl: /web-forms/videos/sql-2005/creating-and-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: f8397bfa9a6d162cfc6158fbd138dccf90d7e8a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ee6735e406cc28370b9b5a91611c686ad0f39260
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037669"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408850"
 ---
-<a name="creating-and-using-stored-procedures"></a>ストアド プロシージャを作成し、使用する
-====================
+# <a name="creating-and-using-stored-procedures"></a>ストアド プロシージャを作成し、使用する
+
 によって[Microsoft](https://github.com/microsoft)
 
 このビデオでは、ストアド プロシージャが導入されたいくつかのレッスンを前のトピックに展開します。 このビデオでは、入力と出力パラメーターを使用して作成し、ストアド プロシージャを更新するには、基本的な構文を説明で戻り値、変数の宣言を追加するには他の T-SQL プログラミング要素にストアド プロシージャ、ストアド プロシージャを実行する方法クエリ ウィンドウで、および最後に、独自のアプリケーションでストアド プロシージャを使用するために必要な Visual Basic および c# の構文。

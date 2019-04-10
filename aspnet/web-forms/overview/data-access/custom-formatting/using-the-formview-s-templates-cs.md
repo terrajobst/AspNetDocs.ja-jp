@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: d3f062af-88cf-426d-af44-e41f32c41672
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1a7cf17d8cbd0a5a17a387b9a70336a1b06efde7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d275e3b154ca3397294d6cd0924cb6a50bbcef9a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054999"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395538"
 ---
-<a name="using-the-formviews-templates-c"></a>FormView のテンプレート (c#) を使用します。
-====================
+# <a name="using-the-formviews-templates-c"></a>FormView のテンプレート (c#) を使用します。
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_14_CS.exe)または[PDF のダウンロード](using-the-formview-s-templates-cs/_static/datatutorial14cs1.pdf)
@@ -40,7 +40,7 @@ DetailsView とは異なり、FormView いないフィールドで構成され�
 取り上げるこのチュートリアルでは、FormView コントロールを使用して、製品の小さい固定表示を表示します。 名前、カテゴリ、供給業者とに、フォーム ビューのフィールドではなく`ItemTemplate`ヘッダー要素の組み合わせを使用してこれらの値が表示されます、 `<table>` (図 1 参照)。
 
 
-[![FormView は、DetailsView でグリッドのようなレイアウトのブレーク アウト](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
+[![T彼はフォーム ビューは、DetailsView で Grid-Like レイアウト認識のブレーク アウト](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
 
 **図 1**:FormView が Grid-Like レイアウト表示から、DetailsView で中断されます ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image3.png))。
 
@@ -50,7 +50,7 @@ DetailsView とは異なり、FormView いないフィールドで構成され�
 開く、`FormView.aspx`ページし、FormView をツールボックスからデザイナーにドラッグします。 まず、フォーム ビューを追加するときに私たちに指示する灰色のボックスとして表示される`ItemTemplate`が必要です。
 
 
-[![ItemTemplate が提供されるまで、デザイナーで、フォーム ビューをレンダリングできません。](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
+[![TItemTemplate が提供されるまで FormView 彼は、デザイナーで表示できません](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
 
 **図 2**:デザイナーまででレンダリング、FormView できません、`ItemTemplate`提供されます ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image6.png))。
 
@@ -88,12 +88,12 @@ FormView のスマート タグでページングを有効にするチェック 
 `ItemTemplate`製品情報がより滑らかな方法で表示されます、完了します。 (図 4) このチュートリアルでは、FormView によって生成される出力の最後のチュートリアル (図 3) からの出力を DetailsView を比較します。
 
 
-[![剛体 DetailsView 出力](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
+[![T彼剛体 DetailsView 出力](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
 
 **図 3**:剛体 DetailsView 出力 ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image9.png))。
 
 
-[![滑らかな FormView 出力](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
+[![T彼流体 FormView 出力](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
 
 **図 4**:流体 FormView 出力 ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image12.png))。
 

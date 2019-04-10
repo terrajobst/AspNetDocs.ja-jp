@@ -8,15 +8,15 @@ ms.date: 02/14/2014
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: ede341e02869a9c81cbe2fa7ef97345dc87519a1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 10b853966ba80b673e1a6786987893f919369e7a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57032689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412906"
 ---
-<a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>パフォーマンス向上のための ASP.NET Web Pages (Razor) サイトでデータのキャッシュ
-====================
+# <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>パフォーマンス向上のための ASP.NET Web Pages (Razor) サイトでデータのキャッシュ
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) の web サイトに高速なパフォーマンスの情報をキャッシュするためのヘルパーを使用する方法について説明します。 格納することにより、web サイトを短縮できます&#8212;キャッシュは、&#8212;通常を取得または処理にかなりの時間がかかるし、を頻繁に変更されないデータの結果。

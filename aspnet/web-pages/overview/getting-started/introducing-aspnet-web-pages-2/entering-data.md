@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: e40d2962ccac56eaaf4812819aa42168e69295bc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d76f607f1d5e779d43ee15d8f2d697e7b0f147ae
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029799"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380120"
 ---
-<a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力します。
-====================
+# <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアルでは、入力フォームを作成し、取得するフォームからデータベース テーブルに ASP.NET Web Pages (Razor) を使用するときにデータを入力する方法を示します。 を通じてシリーズを完了したと想定して[基本の HTML フォームの ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251581)します。
@@ -98,7 +98,7 @@ ms.locfileid: "57029799"
 
 挿入する列は、コマンドに既に表示されて、`(Title, Genre, Year)`します。 興味深い部分にテキスト ボックスから値を取得する方法、`VALUES`コマンドの一部です。 実際の値の代わりに`@0`、 `@1`、および`@2`、プレース ホルダーはもちろんです。 コマンドを実行すると (上、`db.Execute`行)、テキスト ボックスから取得した値を渡します。
 
-**重要**。 SQL ステートメント内のユーザーがオンラインに入力したデータが含まれることが唯一の方法は、次に示すよう、プレース ホルダーを使用する、(`VALUES(@0, @1, @2)`)。 SQL ステートメントにユーザー入力を連結する場合を手動で開く、SQL インジェクション攻撃をで説明したよう[フォームの基本 ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251581)(前のチュートリアル)。
+**大事な！** SQL ステートメント内のユーザーがオンラインに入力したデータが含まれることが唯一の方法は、次に示すよう、プレース ホルダーを使用する、(`VALUES(@0, @1, @2)`)。 SQL ステートメントにユーザー入力を連結する場合を手動で開く、SQL インジェクション攻撃をで説明したよう[フォームの基本 ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251581)(前のチュートリアル)。
 
 まだ内、`if`ブロックで、次の行を追加、`db.Execute`行。
 
@@ -253,7 +253,7 @@ ASP.NET を解釈する前に説明するように、 `~` web サイトのルー
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduction to ASP.NET Web Programming Using the Razor Syntax (Razor 構文を使用した ASP.NET Web プログラミングの概要)](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [ステートメントに SQL 挿入](http://www.w3schools.com/sql/sql_insert.asp)W3Schools サイト
 - [ページのサイトを ASP.NET Web でユーザー入力の検証](https://go.microsoft.com/fwlink/?LinkId=253002)です。 作業の詳細については、`Validation`ヘルパー。
 

@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: ASP.NET Identity で SMS と電子メールを使用する 2 要素認証 |Microsoft Docs
+title: ASP.NET Identity の ASP.NET で SMS と電子メールを使用する 2 要素認証 4.x
 author: HaoK
 description: このチュートリアルでは、SMS と電子メールを使用して 2 要素認証 (2 fa) を設定する方法を説明します。 この記事の執筆者は、Rick Anderson ( @RickAndMSFT ) あたり、.
 ms.author: riande
 ms.date: 09/15/2015
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4b253923696e35e59c196578a232f53c11671d16
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57043169"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395292"
 ---
-<a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>ASP.NET Identity で SMS と電子メールを使用する 2 要素認証
-====================
+# <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>ASP.NET Identity で SMS と電子メールを使用する 2 要素認証
+
 によって[Hao 力](https://github.com/HaoK)、 [Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Suhas Joshi](https://github.com/suhasj)
 
 > このチュートリアルでは、SMS と電子メールを使用して 2 要素認証 (2 fa) を設定する方法を説明します。
@@ -52,8 +53,8 @@ ms.locfileid: "57043169"
    このチュートリアルで使用します[SendGrid](http://sendgrid.com/)電子メールを送信して[Twilio](https://www.twilio.com/)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms のようにします。 `Identity.Samples`パッケージで使用されるコードをインストールします。
 3. 設定、 [SSL を使用するプロジェクト](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)します。
 4. *省略可能*:指示に従って、[電子メール確認チュートリアル](account-confirmation-and-password-recovery-with-aspnet-identity.md)SendGrid をフックし、アプリを実行し、電子メール アカウントを登録します。
-5. * 省略可能: * デモ電子メール リンク確認コード サンプルから削除 (、 `ViewBag.Link` account コント ローラー コード。 参照してください、`DisplayEmail`と`ForgotPasswordConfirmation`アクション メソッドと razor ビュー)。
-6. <em>省略可能: * 削除、`ViewBag.Status`コードの管理およびアカウント コント ローラーと、*Views\Account\VerifyCode.cshtml から</em>と<em>Views\Manage\VerifyPhoneNumber.cshtml</em> razor ビュー。 または、保持することができます、`ViewBag.Status`テスト フックして、電子メールや SMS メッセージを送信することがなくローカルでこのアプリの動作を表示します。
+5. *省略可能。* サンプルからデモ電子メール リンク確認コードを削除 (、 `ViewBag.Link` account コント ローラー コード。 参照してください、`DisplayEmail`と`ForgotPasswordConfirmation`アクション メソッドと razor ビュー)。
+6. *省略可能。* 削除、`ViewBag.Status`コードの管理およびアカウント コント ローラーからとの間、 *Views\Account\VerifyCode.cshtml*と*Views\Manage\VerifyPhoneNumber.cshtml* razor ビュー。 または、保持することができます、`ViewBag.Status`テスト フックして、電子メールや SMS メッセージを送信することがなくローカルでこのアプリの動作を表示します。
 
 > [!NOTE]
 > 警告 :このサンプルでは、セキュリティ設定を変更する場合は、運用アプリを加えられた変更を明示的に呼び出すセキュリティ監査を受ける必要があります。

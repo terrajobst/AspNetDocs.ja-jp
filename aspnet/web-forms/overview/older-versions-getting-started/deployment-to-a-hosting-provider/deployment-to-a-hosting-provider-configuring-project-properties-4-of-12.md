@@ -8,22 +8,22 @@ ms.date: 11/17/2011
 ms.assetid: 8b013630-842c-4d44-a6fc-c6be43e7210f
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ecd169f70eee162a647f6ea827ba5649b6c22ffd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 90367183c95dd1f97846df1092310df22f1d0899
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054519"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412945"
 ---
-<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。構成のプロジェクトのプロパティ - 4/12
-====================
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。構成のプロジェクトのプロパティ - 4/12
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
+> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)を参照してください。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
 
 
 ## <a name="overview"></a>概要
@@ -44,10 +44,10 @@ ms.locfileid: "57054519"
 
 **アクティブ (リリース)** または**リリース**リリースのビルド構成を使用して展開するときに有効な値を表示、選択しました。
 
-- **配置する項目**ボックスで、**アプリケーションの実行に必要なファイルのみ**が選択されています。 その他のオプションは**このプロジェクト内のすべてのファイル**または**このプロジェクト フォルダー内のすべてのファイル**します。 既定の選択をそのままにすることではたとえば、ソース コード ファイルを展開しないでください。 この設定は、SQL Server Compact のバイナリ ファイルを含むフォルダーがプロジェクトに含まれるがなぜ理由です。 この設定の詳細については、**理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx)を参照してください。
+- **配置する項目**ボックスで、**アプリケーションの実行に必要なファイルのみ**が選択されています。 その他のオプションは**このプロジェクト内のすべてのファイル**または**このプロジェクト フォルダー内のすべてのファイル**します。 既定の選択をそのままにすることではたとえば、ソース コード ファイルを展開しないでください。 この設定は、SQL Server Compact のバイナリ ファイルを含むフォルダーがプロジェクトに含まれるがなぜ理由です。 この設定の詳細については、次を参照してください。**理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx)します。
 - **デバッグ シンボルの生成を除外する**が選択されています。 このビルド構成を使用する場合にデバッグはありません。
 - **アプリからファイルを除外する\_データ フォルダー**が選択されていません。 メンバーシップ データベースの SQL Server Compact、ファイルはそのフォルダーであり、それをデプロイする必要があります。 データベースの変更が含まれていない更新プログラムを展開するときに、このチェック ボックスを選択します。
-- **パブリッシュする前にこのアプリケーションをプリコンパイル**が選択されていません。 ほとんどのシナリオでは、web アプリケーション プロジェクトをプリコンパイルする必要はありません。 このオプションの詳細については、[パッケージ化/発行 Web] タブの [プロジェクトのプロパティ](https://msdn.microsoft.com/library/dd410108(v=vs.110).aspx)と[プリコンパイルの設定 ダイアログの高度な](https://msdn.microsoft.com/library/hh475319(v=vs.110).aspx)を参照してください。
+- **パブリッシュする前にこのアプリケーションをプリコンパイル**が選択されていません。 ほとんどのシナリオでは、web アプリケーション プロジェクトをプリコンパイルする必要はありません。 このオプションの詳細については、次を参照してください。[パッケージ化/発行 Web] タブの [プロジェクトのプロパティ](https://msdn.microsoft.com/library/dd410108(v=vs.110).aspx)と[プリコンパイルの設定 ダイアログの高度な](https://msdn.microsoft.com/library/hh475319(v=vs.110).aspx)します。
 - **SQL のパッケージ化/発行 タブで構成されているすべてのデータベースを含める**が選択されている場合、このオプションも何も起こりません今すぐ構成していないためですが、**パッケージ化/発行 SQL**  タブ。そのタブは、SQL Server データベースを展開するための唯一のオプションを使用する従来のデータベース配置方法によってです。 使用して、**パッケージ化/発行 SQL**  タブで、 [SQL Server への移行](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)チュートリアル。
 - **Web 展開パッケージの設定**セクションは 1 回のクリックを使用しているためには適用されませんこれらのチュートリアルで発行します。
 

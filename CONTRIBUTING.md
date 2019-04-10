@@ -24,7 +24,7 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 
 ## <a name="markdown-syntax"></a>Markdown の構文
 
-記事は [DocFX Flavored Markdown](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html) で書かれています。これは [GitHub flavored Markdown (GFM)](https://guides.github.com/features/mastering-markdown/) のスーパーセットです。 ASP.NET のドキュメントでよく使用される UI 機能についての DFM 構文の例については、[メタデータと Markdown テンプレート](https://github.com/dotnet/docs/blob/master/styleguide/template.md).NET Docs リポジトリ スタイル ガイドにを参照してください。
+記事は [DocFX Flavored Markdown](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html) で書かれています。これは [GitHub flavored Markdown (GFM)](https://guides.github.com/features/mastering-markdown/) のスーパーセットです。 ASP.NET のドキュメントでよく使用される UI 機能についての DFM 構文の例については、次を参照してください。[メタデータと Markdown テンプレート](https://github.com/dotnet/docs/blob/master/styleguide/template.md).NET Docs リポジトリ スタイル ガイドにします。
 
 ## <a name="folder-structure-conventions"></a>フォルダー構造の規則
 
@@ -119,6 +119,7 @@ DocFX には次のものが必要です。
   ```console
   docfx --serve
   ```
+
 * ブラウザーで、`http://localhost:8080/group1-dest/` に移動します。
 
 ### <a name="mono-instructions"></a>Mono での手順
@@ -128,6 +129,7 @@ DocFX には次のものが必要です。
   ```console
   brew install mono
   ```
+
 * [最新バージョンの DocFX](https://github.com/dotnet/docfx/releases) をダウンロードします。
 * アーカイブを *$HOME/bin/docfx* に抽出します。
 * bash シェルで **docfx** の別名を 2 つ作成します。 最初の別名は、ドキュメントを構築するために使います。 2 番目の別名は、ドキュメントを構築して提供するために使います。
@@ -136,16 +138,18 @@ DocFX には次のものが必要です。
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
+
 * コマンド シェルに移動します。、 *aspnet*を含むフォルダー、 *docfx.json*ファイルをビルド、そのエイリアスを使用してドキュメントを提供する次のコマンドを実行して。
 
   ```console
   docfx-serve
   ```
+
 * ブラウザーで、`http://localhost:8080/group1-dest/` に移動します。
 
 ## <a name="voice-and-tone"></a>スタイルとトーン
 
-目標は、できるかぎり幅広いユーザーにわかりやすいドキュメントを作成することです。 そのため、寄稿者に従っていただきたい書き方のガイドラインが設けられています。 詳細については、[とトーンのガイドライン](https://github.com/dotnet/docs/blob/master/styleguide/voice-tone.md).NET リポジトリにを参照してください。
+目標は、できるかぎり幅広いユーザーにわかりやすいドキュメントを作成することです。 そのため、寄稿者に従っていただきたい書き方のガイドラインが設けられています。 詳細については、次を参照してください。[とトーンのガイドライン](https://github.com/dotnet/docs/blob/master/styleguide/voice-tone.md).NET リポジトリにします。
 
 ## <a name="microsoft-writing-style-guide"></a>Microsoft 文書作成スタイル ガイド
 

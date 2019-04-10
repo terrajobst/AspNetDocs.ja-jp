@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: 112483abdd920649fb530959a538b1d5ed6064d7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a6ae18529afc4df799d95d8b7a98f9bc5add9485
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062659"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385541"
 ---
-<a name="aspnet-4-breaking-changes"></a>ASP.NET 4 の破壊的変更
-====================
+# <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 の破壊的変更
+
 > このドキュメントでは、行われた .NET Framework のバージョンの ASP.NET 4 Beta 1 とベータ 2 リリースを含む、以前のリリースを使用して作成されたアプリケーションに影響を与える可能性のある 4 のリリースの変更について説明します。
 > 
 > [このホワイト ペーパーをダウンロードします。](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_Breaking_Changes.pdf)
@@ -466,7 +466,7 @@ ASP.NET 4 でのデザイン変更の結果の出力をレンダリングなし�
 
 場合、 *Menu.DynamicPopOutImageUrl*プロパティが設定されていないと、 *Menu.DynamicEnableDefaultPopOutImage*プロパティに設定されて*false*イメージは表示されません。 同様に場合、 *StaticPopOutImageUrl*プロパティが設定されていないと、 *StaticEnableDefaultPopOutImage*プロパティに設定されて*false*イメージは表示されません。
 
-これらのプロパティのパスを設定すると、円記号の代わりにスラッシュ (/) を使用して、(\)します。 詳細については、[Menu.StaticPopOutImageUrl とレンダリング イメージとパスを含む円記号を Menu.DynamicPopOutImageUrl Fail](#0.1__Menu.StaticPopOutImageUrl_and_Menu. "_Menu.StaticPopOutImageUrl_and_Menu を参照してください。") 他の場所でこのドキュメントでは。
+これらのプロパティのパスを設定すると、円記号の代わりにスラッシュ (/) を使用して、(\)します。 詳細については、次を参照してください。 [Menu.StaticPopOutImageUrl とレンダリング イメージとパスを含む円記号を Menu.DynamicPopOutImageUrl Fail](#0.1__Menu.StaticPopOutImageUrl_and_Menu. "_Menu.StaticPopOutImageUrl_and_Menu します。") 他の場所でこのドキュメントでは。
 
 <a id="0.1__Menu.StaticPopOutImageUrl_and_Menu."></a><a id="0.1__Toc256770160"></a>
 

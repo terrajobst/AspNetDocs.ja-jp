@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: 確認とパスワードのリセット (C#) を電子メールでは、ログをセキュリティで保護された ASP.NET MVC 5 web アプリを作成 |Microsoft Docs
+title: 確認とパスワードのリセット (c#) を電子メールでは、ログをセキュリティで保護された ASP.NET MVC 5 web アプリを作成 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、確認の電子メールと、ASP.NET Identity メンバーシップ システムを使用してパスワード リセットによる ASP.NET MVC 5 web アプリをビルドする方法を示します。 . Ca
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 650063db25f38b02cc33955925d1e3c2f45db665
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 165343fd20b92becee1956c7a19870219323e073
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58420856"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409396"
 ---
-<a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>ログイン、電子メール確認、パスワード リセットを使用して安全な ASP.NET MVC 5 Web アプリを作成する (C#)
-====================
+# <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>ログイン、電子メール確認、パスワード リセットを使用して安全な ASP.NET MVC 5 Web アプリを作成する (C#)
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、確認の電子メールと、ASP.NET Identity メンバーシップ システムを使用してパスワード リセットによる ASP.NET MVC 5 web アプリをビルドする方法を示します。 完成したアプリケーションをダウンロードする[ここ](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)します。 ダウンロードには、確認の電子メールと SMS を電子メールまたは SMS プロバイダーをセットアップすることがなくテストできるデバッグ ヘルパーが含まれています。

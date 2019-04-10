@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: 0c6e4c2f-fcdb-4978-9656-1990c6f15727
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: f32509701dd112053aa4f31d6552601f961c7413
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48404f449ce2641bdff55b9ad75aa5eec1aee46b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049439"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403299"
 ---
-<a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>第 10 部:ナビゲーションとサイト デザインの最終更新、まとめ
-====================
+# <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>第 10 部:ナビゲーションとサイト デザインの最終更新、まとめ
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -66,7 +66,7 @@ Html.RenderAction メソッドを使用して、サイトのマスターを含�
 
 このアクションは、次で作成されますが、部分ビューによって表示されるジャンルの一覧を返します。
 
-*注:部分ビューから使用するには、この操作のみが必要であることを示します。 このコント ローラー アクションを [ChildActionOnly] 属性を追加しました。この属性により、コント ローラー アクションから/Store/GenreMenu を参照して実行されています。部分ビューは、必須ではありませんが、意図したように、コント ローラー アクションが使用されるかどうかを確認するために、ことをお勧めです。ビュー エンジンがその他のビュー内に含まれる際に、このビューのレイアウトを使用しないでください、知っておくことができるビューではなく PartialView を返すもいます。*
+*メモ:部分ビューから使用するには、この操作のみが必要であることを示します。 このコント ローラー アクションを [ChildActionOnly] 属性を追加しました。 この属性により、コント ローラー アクションから/Store/GenreMenu を参照して実行されています。 部分ビューは、必須ではありませんが、意図したように、コント ローラー アクションが使用されるかどうかを確認するために、ことをお勧めです。 ビュー エンジンがその他のビュー内に含まれる際に、このビューのレイアウトを使用しないでください、知っておくことができるビューではなく PartialView を返すもいます。*
 
 GenreMenu コント ローラーのアクションを右クリックし、次に示すように、ジャンルのビュー データ クラスを使用して厳密に型指定された GenreMenu をという名前の部分的なビューを作成します。
 
@@ -92,7 +92,7 @@ GenreMenu コント ローラーのアクションを右クリックし、次に
 
 ここで行っています Html.ActionLink ではなく Url.Action を使用してアルバム アートを含むへのリンクを特殊な書式設定を適用できるようにします。
 
-*注:これらのアルバムの汎用のアルバム カバーに示されています。この情報は、データベースに格納されはストア マネージャーを使用して編集できます。独自のアートワークを追加する、できます。*
+*メモ:これらのアルバムの汎用のアルバム カバーに示されています。 この情報は、データベースに格納されはストア マネージャーを使用して編集できます。 独自のアートワークを追加する、できます。*
 
 今すぐを参照、ジャンル、ときにアルバム アートを持つグリッドに表示されるアルバムが表示されます。
 
@@ -106,7 +106,7 @@ GenreMenu コント ローラーのアクションを右クリックし、次に
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample8.cs)]
 
-*注:使用して、追加する必要がありますを取り込む System.Collections.Generic 名前空間のステートメント。*
+*メモ:使用して、追加する必要がありますを取り込む System.Collections.Generic 名前空間のステートメント。*
 
 まず、storeDB フィールドと、他のコント ローラーのように、ステートメントを使用して MvcMusicStore.Models を追加します。 次に、HomeController OrderDetails に従って販売上のアルバムを検索するデータベースを照会する次のメソッドを追加します。
 

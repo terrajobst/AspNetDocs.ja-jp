@@ -8,15 +8,15 @@ ms.date: 08/29/2011
 ms.assetid: 57666c69-2b0f-423a-a61d-be49547fa585
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: e933ca0398d99a41089b4d1e18d21dd657db4b6b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0f6d58b8bf72c6b9d6909a8a05efe4f61ebd551a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423352"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416741"
 ---
-<a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>ASP.NET MVC - パート 4 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
-====================
+# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>ASP.NET MVC - パート 4 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、エディターのテンプレート、画面テンプレート、および ASP.NET MVC Web アプリケーションで jQuery UI datepicker ポップアップ カレンダーを使用する方法の基本を説明します。
@@ -171,8 +171,8 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 このチュートリアルでは、ASP.NET テンプレート化されたヘルパーの基礎を取り上げ、ASP.NET MVC アプリケーションで jQuery UI datepicker ポップアップ カレンダーを使用する方法を示します。 詳細については、これらのリソースにしてください。
 
 - ローカライズについては、Rajeesh のブログを参照してください。 [ASP.NET MVC で JQueryUI Datepicker](http://www.rajeeshcv.com/2010/02/jqueryui-datepicker-in-asp-net-mvc/)します。
-- JQuery UI の詳細については、[の jQuery UI](http://docs.jquery.com/UI)を参照してください。
-- Datepicker コントロールをローカライズする方法については、[UI/Datepicker/ローカライズ](http://docs.jquery.com/UI/Datepicker/Localization)を参照してください。
+- JQuery UI の詳細については、次を参照してください。[の jQuery UI](http://docs.jquery.com/UI)します。
+- Datepicker コントロールをローカライズする方法については、次を参照してください。 [UI/Datepicker/ローカライズ](http://docs.jquery.com/UI/Datepicker/Localization)します。
 - ASP.NET MVC テンプレートの詳細については、Brad Wilson のブログ シリーズを参照してください。 [ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)します。 ASP.NET MVC 2 の系列が記述されていますが、ASP.NET MVC の現在のバージョンについても、マテリアルは適用されます。
 
 > [!div class="step-by-step"]

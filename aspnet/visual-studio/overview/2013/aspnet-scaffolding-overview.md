@@ -8,15 +8,15 @@ ms.date: 04/09/2014
 ms.assetid: a41ec9d4-8287-4f31-9e2a-460e7b7f04be
 msc.legacyurl: /visual-studio/overview/2013/aspnet-scaffolding-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 4246a52ad1d10da04a2a214f9dba6a935a9e9e72
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2084b81745dec80daa80f80876697a747b49b90e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416728"
 ---
-<a name="aspnet-scaffolding-in-visual-studio-2013"></a>Visual Studio 2013 の ASP.NET スキャフォールディング
-====================
+# <a name="aspnet-scaffolding-in-visual-studio-2013"></a>Visual Studio 2013 の ASP.NET スキャフォールディング
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > ASP.NET のスキャフォールディングとは、Visual Studio 2013 に含まれている新機能です。
@@ -28,7 +28,7 @@ ASP.NET のスキャフォールディングは、ASP.NET Web アプリケーシ
 
 既定では、Visual Studio 2013 は Web フォーム プロジェクトでは、コードの生成をサポートしていませんが、MVC 依存関係をプロジェクトに追加するか、拡張機能のインストールで Web フォームのスキャフォールディングを使用することができます。 どちらの方法は、以下に示します。
 
-Visual Studio 2013 Update 2 (現在 RC) は、シナリオの要件を満たすために ASP.NET スキャフォールディングを拡張する機能を提供します。 この機能により、カスタマイズされたスキャフォールディング テンプレートを作成し、新しいスキャフォールディングの追加 ダイアログ ボックスに追加することができます。 カスタマイズされたテンプレート内では、スキャフォールディングされた項目を追加するときに生成されるコードを指定します。 詳細については、[for Visual Studio カスタム Scaffolder を作成する](https://go.microsoft.com/fwlink/p/?LinkId=395029)を参照してください。
+Visual Studio 2013 Update 2 (現在 RC) は、シナリオの要件を満たすために ASP.NET スキャフォールディングを拡張する機能を提供します。 この機能により、カスタマイズされたスキャフォールディング テンプレートを作成し、新しいスキャフォールディングの追加 ダイアログ ボックスに追加することができます。 カスタマイズされたテンプレート内では、スキャフォールディングされた項目を追加するときに生成されるコードを指定します。 詳細については、次を参照してください。 [for Visual Studio カスタム Scaffolder を作成する](https://go.microsoft.com/fwlink/p/?LinkId=395029)します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -66,7 +66,7 @@ Web フォーム プロジェクトでスキャフォールディングを使用
 
 ![web フォームのスキャフォールディングをインストールします。](aspnet-scaffolding-overview/_static/image5.png)
 
-詳細については、[Web フォームのスキャフォールディング](https://go.microsoft.com/fwlink/p/?LinkId=396478)を参照してください。
+詳細については、次を参照してください。 [Web フォームのスキャフォールディング](https://go.microsoft.com/fwlink/p/?LinkId=396478)します。
 
 ### <a name="mvc-dependencies"></a>MVC 依存関係
 

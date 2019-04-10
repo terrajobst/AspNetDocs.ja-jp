@@ -8,15 +8,15 @@ ms.date: 09/09/2011
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: f1d949ec716ea8cb677c54fe5b07431161c58fbc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b7722d5c282f07b35dd18d08911fa562dae6afc2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387933"
 ---
-<a name="aspnet-mvc-4"></a>ASP.NET MVC 4
-====================
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+
 > このドキュメントでは、ASP.NET MVC 4 Beta の Visual Studio 2010 のリリースについて説明します。
 > 
 > > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "57065109"
 - [インストールに関する注記](#_Toc303253802)
 - [ドキュメント](#_Toc303253803)
 - [サポート](#_Toc303253804)
-- [ソフトウェアの要件](#_Toc303253805)
+- [ソフトウェア要件](#_Toc303253805)
 - [ASP.NET MVC 4、ASP.NET MVC 3 プロジェクトをアップグレードします。](#_Toc303253806)
 - [ASP.NET MVC 4 Beta の新機能](#_Toc303253807)
 
@@ -173,7 +173,7 @@ ASP.NET MVC 4 には、JavaScript、および Web Api を使用して重要な�
 
 ![](mvc4-beta-release-notes/_static/image4.png)
 
-このテンプレートには、インターネット アプリケーション テンプレートと同じアプリケーションの構造が含まれています (およびコント ローラーのコードはほぼ同じです) が、jQuery Mobile を使用して、適切に表示して、タッチ ベースのモバイル デバイスで適切に動作するスタイルを設定します。 構造体し、モバイルの UI のスタイルを設定する方法の詳細については、、 [jQuery モバイル プロジェクトの web サイト](http://jquerymobile.com/)を参照してください。
+このテンプレートには、インターネット アプリケーション テンプレートと同じアプリケーションの構造が含まれています (およびコント ローラーのコードはほぼ同じです) が、jQuery Mobile を使用して、適切に表示して、タッチ ベースのモバイル デバイスで適切に動作するスタイルを設定します。 構造体し、モバイルの UI のスタイルを設定する方法の詳細については、次を参照してください。、 [jQuery モバイル プロジェクトの web サイト](http://jquerymobile.com/)します。
 
 デスクトップ指向のサイト、モバイルに最適化されたビューを追加するデスクトップとモバイル ブラウザー スタイルの異なるビューを提供する 1 つのサイトを作成する場合に既にある場合は、新しい表示モード機能を使用できます。 (詳しくは、次のセクションを参照してください)。
 

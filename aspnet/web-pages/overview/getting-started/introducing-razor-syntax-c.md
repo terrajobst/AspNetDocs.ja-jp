@@ -8,15 +8,15 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: b5eb98dfdf3fc013920f45080d4a20e1fa507725
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57032669"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407355"
 ---
-<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要
-====================
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、Razor 構文を使ったASP.NET Web ページにおけるプログラミングの概要を解説します。 ASP.NETは、Webサーバーで動的な Web ページを運用するためのマイクロソフトの技術です。 この記事では、C# プログラミング言語の使用に焦点を当てます。
@@ -351,7 +351,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
     <strong>例</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsInt(), IsInt()`
@@ -363,7 +365,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsBool(), IsBool()`
@@ -375,7 +379,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsFloat(), IsFloat()`
@@ -387,7 +393,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDecimal(), IsDecimal()`
@@ -399,7 +407,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDateTime(), IsDateTime()`
@@ -411,7 +421,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `ToString()`
@@ -431,16 +443,18 @@ ASP.NET は、データ型を自動的に決定することができます、通
 
 :::row:::
     :::column:::
-    <strong>Operator</strong>
+    <strong>演算子</strong>
     :::column-end:::
     :::column:::
     <strong>説明</strong>
     :::column-end:::
     :::column:::
-    <strong>例</strong>
+    <strong>使用例</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+` `-` `*` `/`
@@ -452,7 +466,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `=`
@@ -464,7 +480,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `==`
@@ -476,7 +494,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `!=`
@@ -488,7 +508,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `< > <= >=`
@@ -500,7 +522,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+`
@@ -512,7 +536,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+=` `-=`
@@ -524,7 +550,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `.`
@@ -536,7 +564,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `()`
@@ -548,7 +578,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `[]`
@@ -560,7 +592,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `!`
@@ -572,10 +606,12 @@ ASP.NET は、データ型を自動的に決定することができます、通
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
-        `&&` <code>&#124;&#124;</code>
+        `&&` `||`
     :::column-end:::
     :::column:::
     論理 AND またはと、条件をまとめてリンクに使用されます。
@@ -715,8 +751,8 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 プロパティを使用して、`Page`など多くの情報を取得するオブジェクト。
 
-- `Request`。 既に説明したように行われる要求、ページ、ユーザー id などの URL をブラウザーの種類を含む、現在の要求に関する情報のコレクションになります。
-- `Response`。 これは、サーバー コードの実行が終了したら、ブラウザーに送信される応答 (ページ) に関する情報のコレクションです。 たとえば、このプロパティを使用すると、応答に情報を書き込みます。 
+- `Request`. 既に説明したように行われる要求、ページ、ユーザー id などの URL をブラウザーの種類を含む、現在の要求に関する情報のコレクションになります。
+- `Response`. これは、サーバー コードの実行が終了したら、ブラウザーに送信される応答 (ページ) に関する情報のコレクションです。 たとえば、このプロパティを使用すると、応答に情報を書き込みます。 
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample58.cshtml)]
 

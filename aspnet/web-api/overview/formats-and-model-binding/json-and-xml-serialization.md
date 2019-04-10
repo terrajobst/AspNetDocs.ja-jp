@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/formats-and-model-binding/json-and-xml-serialization
-title: JSON と ASP.NET Web API での XML シリアル化 |Microsoft Docs
+title: JSON と XML のシリアル化では、ASP.NET Web API - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET の ASP.NET Web API で JSON と XML フォーマッタをについて説明します 4.x です。
 ms.author: riande
 ms.date: 05/30/2012
+ms.custom: seoapril2019
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: 47967e6e1dd0e84b6059c07d7544c0e755fdf510
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028929"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408278"
 ---
-<a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON と ASP.NET Web API での XML シリアル化
-====================
+# <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON と ASP.NET Web API での XML シリアル化
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 この記事では、ASP.NET Web API で JSON と XML フォーマッタについて説明します。
@@ -58,7 +59,7 @@ Web API は、JSON と XML の両方のメディア タイプ フォーマッタ
 
 ### <a name="json-serialization"></a>JSON シリアル化
 
-このセクションは、既定値を使用して、JSON フォーマッタのいくつかの特定の動作を説明します[Json.NET](https://github.com/JamesNK/Newtonsoft.Json)シリアライザー。 これは意図するもの、Json.NET ライブラリの包括的なドキュメント詳細については、、 [Json.NET のドキュメント](http://james.newtonking.com/projects/json/help/)を参照してください。
+このセクションは、既定値を使用して、JSON フォーマッタのいくつかの特定の動作を説明します[Json.NET](https://github.com/JamesNK/Newtonsoft.Json)シリアライザー。 これは意図するもの、Json.NET ライブラリの包括的なドキュメント詳細については、次を参照してください。、 [Json.NET のドキュメント](http://james.newtonking.com/projects/json/help/)します。
 
 #### <a name="what-gets-serialized"></a>どのようなシリアル化を取得しますか。
 

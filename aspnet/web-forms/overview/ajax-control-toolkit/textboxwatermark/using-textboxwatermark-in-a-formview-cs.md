@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: e6ee90bf-32a5-4987-a384-15cc7dd30c8a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 272befe4182a459c0e1f3b6668d252d9ba4715d0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 10c877e072d5caf23e78f49ebc71387fde20393d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038319"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393614"
 ---
-<a name="using-textboxwatermark-in-a-formview-c"></a>FormView で TextBoxWatermark を使用する (C#)
-====================
+# <a name="using-textboxwatermark-in-a-formview-c"></a>FormView で TextBoxWatermark を使用する (C#)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark1CS.pdf)
@@ -49,7 +49,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 挿入モードに、ユーザーが変更されたときに今すぐ、`FormView`制御の場合に感謝します。 新しい仕入先が事前入力のテキスト フィールド、`TextBoxWatermarkExtender`コントロール。 テキスト ボックス内をクリックには、充てんテキストが表示されなくなることができます。
 
 
-[![フィールド内のウォーターマークに由来エクステンダー](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
+[![Tフィールドに彼の透かしエクステンダーに由来](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
 
 フィールドに透かしエクステンダーに由来 ([フルサイズの画像を表示する をクリックします](using-textboxwatermark-in-a-formview-cs/_static/image3.png))。
 

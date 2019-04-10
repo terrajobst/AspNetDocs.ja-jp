@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 91a1c967fbe74dbda8f8ac9635fdccbe05b0b6cc
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d6a787206862b88f915859d4a8fc4dd3c3166293
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423898"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389597"
 ---
-<a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>データ アクセス層の接続レベルとコマンド レベルの設定を構成する (C#)
-====================
+# <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>データ アクセス層の接続レベルとコマンド レベルの設定を構成する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_72_CS.zip)または[PDF のダウンロード](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/datatutorial72cs1.pdf)
@@ -51,7 +51,7 @@ Microsoft .NET Framework には、具体的には、データを操作するよ�
 各 TableAdapter クラスには、`Connection`データベース接続情報を指定するプロパティ。 このプロパティのデータ型と`ConnectionString`値は、TableAdapter 構成ウィザードで選択したオプションによって決まります。 最初に型指定されたデータセットに TableAdapter を追加するときこのウィザード求められたとき、データベースのことを思い出してください。 ソース (図 1 参照)。 この最初の手順でドロップダウン リストには、サーバー エクスプ ローラーのデータ接続で他のすべてのデータベースと同様に、構成ファイルで指定されたデータベースにそれらが含まれています。 ドロップダウン リストで使用するデータベースが存在しない場合は、新しい接続 ボタンをクリックし、必要な接続情報を提供する新しいデータベース接続を指定できます。
 
 
-[![TableAdapter 構成ウィザードの最初のステップ](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
+[![Tまた、TableAdapter 構成ウィザードの最初のステップ](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
 
 **図 1**:TableAdapter 構成ウィザードの最初の手順 ([フルサイズの画像を表示する をクリックします](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image3.png))。
 
@@ -82,7 +82,7 @@ TableAdapter クラスをインスタンスするときに、メンバー変数`
 S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データセットに含める、`ConnectionString`プロパティの読み取りまたは TableAdapter で使用される接続文字列を変更するビジネス ロジック層で使用できます。
 
 > [!NOTE]
-> A*接続文字列*は、データベース、認証の資格情報、およびその他のデータベースに関連する設定の場所を使用するプロバイダーなどのデータベース接続情報を指定する文字列です。 さまざまなデータ ストアとプロバイダーで使用される接続文字列のパターンの一覧は、[ConnectionStrings.com](http://www.connectionstrings.com/)を参照してください。
+> A*接続文字列*は、データベース、認証の資格情報、およびその他のデータベースに関連する設定の場所を使用するプロバイダーなどのデータベース接続情報を指定する文字列です。 さまざまなデータ ストアとプロバイダーで使用される接続文字列のパターンの一覧は、次を参照してください。 [ConnectionStrings.com](http://www.connectionstrings.com/)します。
 
 
 説明したように、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、型指定されたデータセットの自動生成されたクラスは、部分クラスを使用して拡張できます。 まず、という名前のプロジェクトに新しいサブフォルダーを作成`ConnectionAndCommandSettings`下にある、`~/App_Code/DAL`フォルダー。
@@ -109,7 +109,7 @@ S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データ
 開く、`Northwind`データセットをクリックして、`ProductsTableAdapter`デザイナーで、[プロパティ] ウィンドウに移動します。 表示されます、`ConnectionModifier`が既定値に設定`Assembly`します。 させる、`Connection`プロパティの変更、型指定されたデータセットのアセンブリの外部で使用できる、`ConnectionModifier`プロパティを`Public`します。
 
 
-[![ConnectionModifier プロパティを使用して接続プロパティのアクセシビリティ レベルを構成することができます。](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
+[![T彼の接続プロパティのアクセシビリティ レベルを構成するには、ConnectionModifier プロパティを介して](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
 
 **図 4**:`Connection`を使用してプロパティのアクセシビリティ レベルを構成できます %s、`ConnectionModifier`プロパティ ([フルサイズの画像を表示する をクリックします](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image8.png))。
 

@@ -8,18 +8,18 @@ ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: d722130e625a9f867923280fce0ef35f19bfeb9d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 18056c917b32680678c536229e8e26d5cc7db161
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041259"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395135"
 ---
-<a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX 認証とプロファイル アプリケーション サービスについて理解する
-====================
+# <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX 認証とプロファイル アプリケーション サービスについて理解する
+
 によって[Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
 > 認証サービスにより、ユーザー、認証クッキーを受信するために資格情報を指定して、ゲートウェイ サービスのカスタム ユーザー プロファイルを許可するのには ASP.NET によって提供されます。 ASP.NET AJAX の認証サービスの使用は、フォーム認証を使用中のアプリケーション (ログインの制御など) しない機能しなくなります AJAX 認証サービスにアップグレードすることで、標準の ASP.NET フォーム認証と互換性のあります。
 
@@ -32,7 +32,7 @@ ms.locfileid: "57041259"
 
 このホワイト ペーパーでは、Visual Studio 2008 の Beta 2 リリースと、.NET Framework 3.5 に基づいています。 このホワイト ペーパーには、いない Visual Web Developer Express を Visual Studio 2008 Beta 2 で使用され、チュートリアルに従って、Visual Studio のユーザー インターフェイスを提供することも想定しています。 一部のコード サンプルでは、Visual Web Developer Express で使用できないプロジェクト テンプレートを利用可能性があります。
 
-## <a name="profiles-and-authentication"></a>*プロファイルと認証*
+## *<a name="profiles-and-authentication"></a>プロファイルと認証*
 
 Microsoft ASP.NET のプロファイルと認証サービスは、ASP.NET フォーム認証システムによって提供され、ASP.NET の標準的なコンポーネントです。 ASP.NET AJAX Extensions では、クライアント AJAX ライブラリの名前空間の Sys.Services 非常に簡単ですモデルでのスクリプト プロキシを介してこれらのサービスへのスクリプト アクセスを提供します。
 
@@ -42,7 +42,7 @@ Microsoft ASP.NET のプロファイルと認証サービスは、ASP.NET フォ
 
 ASP.NET の認証とプロファイル サービス自体を組み込むアプリケーションがこのホワイト ペーパーの範囲外です。 トピックの詳細については、MSDN ライブラリを参照してください参照資料でのメンバーシップを使用したユーザーを管理する[ https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)します。 ASP.NET には、ASP.NET メンバーシップの既定の認証サービス プロバイダーは、SQL Server でのメンバーシップを自動的に設定するためのユーティリティも含まれています。 詳細については、ASP.NET SQL Server の登録ツールの記事を参照してください (Aspnet\_regsql.exe) で[ https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)します。
 
-## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX の認証サービスの使用*
+## *<a name="using-the-aspnet-ajax-authentication-service"></a>ASP.NET AJAX の認証サービスの使用*
 
 Web.config ファイルでは、ASP.NET AJAX 認証サービスを有効にする必要があります。
 
@@ -60,7 +60,7 @@ Login() メソッドは、ユーザーの資格情報を認証するための要
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | userName | 必須。 認証するユーザー名。 |
 | パスワード | 省略可能 (既定値は null) です。 ユーザーのパスワード。 |
@@ -85,7 +85,7 @@ Logout() メソッドは、資格情報の cookie を削除し、web アプリ�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | redirectUrl | 省略可能 (既定値は null) です。認証に成功するブラウザーをリダイレクトする URL。 このパラメーターが null または空の文字列の場合は、リダイレクトは行われません。 |
 | logoutCompletedCallback | 省略可能 (既定値は null) です。ログアウトが正常に完了したときに呼び出す関数。 指定した場合、このパラメーターは、defaultLogoutCompleted プロパティをオーバーライドします。 |
@@ -110,9 +110,9 @@ Logout() メソッドは、資格情報の cookie を削除し、web アプリ�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
-| エラー | エラー情報を指定します。 |
+| error | エラー情報を指定します。 |
 | userContext | ログインまたはログアウト関数が呼び出されたときにユーザー コンテキスト情報を指定します。 |
 | methodName | 呼び出し元のメソッドの名前。 |
 
@@ -126,7 +126,7 @@ Logout() メソッドは、資格情報の cookie を削除し、web アプリ�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | validCredentials | ユーザーが有効な資格情報を指定するかどうかを指定します。 `true` で、ユーザーが正常にログインしている場合それ以外の場合`false`します。 |
 | userContext | Login 関数が呼び出されたときにユーザー コンテキスト情報を指定します。 |
@@ -142,7 +142,7 @@ Logout() メソッドは、資格情報の cookie を削除し、web アプリ�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | result | このパラメーターは必ず`null`; 将来使用するために予約されています。 |
 | userContext | Login 関数が呼び出されたときにユーザー コンテキスト情報を指定します。 |
@@ -206,7 +206,7 @@ AJAX プロファイル サービスが構成されているとページです�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | propertyNames | 省略可能 (既定値は null) です。 サーバーから読み込まれるプロパティです。 |
 | loadCompletedCallback | 省略可能 (既定値は null) です。 読み込みが完了したときに呼び出す関数。 |
@@ -223,7 +223,7 @@ Save() メソッドは、ASP.NET のユーザーのプロファイルを指定�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | propertyNames | 省略可能 (既定値は null) です。 サーバーに保存するプロパティです。 |
 | saveCompletedCallback | 省略可能 (既定値は null) です。 保存するときに呼び出される関数が完了しました。 |
@@ -244,7 +244,7 @@ Save 関数には、戻り値はありません。 いずれかが呼び出す�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | Error | エラー情報を指定します。 |
 | userContext | 時に提供されたユーザーのコンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
@@ -260,7 +260,7 @@ Save 関数には、戻り値はありません。 いずれかが呼び出す�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | numPropsSaved | 保存されたプロパティの数を指定します。 |
 | userContext | 時に提供されたユーザーのコンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
@@ -276,7 +276,7 @@ Save 関数には、戻り値はありません。 いずれかが呼び出す�
 
 *パラメーター:*
 
-| **パラメーター名** | **意味** |
+| **パラメーター名** | **説明** |
 | --- | --- |
 | numPropsLoaded | 読み込まれるプロパティの数を指定します。 |
 | userContext | 時に提供されたユーザーのコンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
@@ -304,7 +304,7 @@ Save 関数には、戻り値はありません。 いずれかが呼び出す�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample12.js)]
 
-## <a name="using-a-custom-authentication-service-provider"></a>*カスタム認証のサービス プロバイダーを使用します。*
+## *<a name="using-a-custom-authentication-service-provider"></a>カスタム認証のサービス プロバイダーを使用します。*
 
 ASP.NET AJAX Extensions を使用すると、カスタム web サービスを通じて、機能を公開することで、カスタム スクリプトの認証サービス プロバイダーを作成できます。 使用するために、web サービスが 2 つのメソッドを公開する必要があります`Login`と`Logout`; 既定の ASP.NET AJAX 認証 web サービスと同じメソッド シグネチャを持つこれらのメソッドを指定する必要があります。
 
@@ -338,7 +338,7 @@ ASP.NET サービス - 具体的にはプロファイル、メンバーシップ
 
 さらに、同等のメソッド シグネチャを持つ簡略化された web サービスの実装を作成すると、開発者はこれらの組み込みの ASP.NET サービス プロバイダーがカスタム スクリプトを作成できます。 これらの手法のサポートは、さまざまな特定のニーズに対応する柔軟性を開発者に提供しながら、リッチ クライアント アプリケーションの開発を簡略化します。
 
-## <a name="bio"></a>*自己紹介*
+## *<a name="bio"></a>自己紹介*
 
 1997 年からマイクロソフトの Web テクノロジで働いてあり myKB.com プレジデント、Scott Cate ([www.myKB.com](http://www.myKB.com)) ベースのナレッジ ベースのソフトウェア ソリューションに重点を置いてアプリケーションを ASP.NET の記述を専門としています。 Scott は時に電子メールが接続可能[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)またはで彼のブログ[ScottCate.com](http://ScottCate.com)
 

@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 72d90cd0-b3d9-454c-b2eb-ed0d9812f32c
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: 60259ceb99de536410aa5f53db64fb2dca68bf66
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a580b678a943695969b7f3acd2f7a033bd0b6ee3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379769"
 ---
-<a name="improvements-in-visual-studio-2005"></a>Visual Studio 2005 の機能強化
-====================
+# <a name="improvements-in-visual-studio-2005"></a>Visual Studio 2005 の機能強化
+
 によって[Microsoft](https://github.com/microsoft)
 
 > Visual Studio 2005 では、Web アプリケーション開発者の改善と Web プロジェクトの機能強化の長いリストを提供します。
@@ -438,7 +438,7 @@ FTP 経由で開かれた Web アプリケーションをリモートでデバ�
 
 ## <a name="aspnet-development-server"></a>ASP.NET 開発サーバー
 
-既に説明したという、としては、ASP.NET 開発サーバーと呼ばれる Web サーバーと Visual Studio 2005 が提供されます。 (ASP.NET 開発サーバーとも呼ば Cassini。)この Web サーバーを参照し、ファイル システムで実行されている Web アプリケーションをデバッグする便利な手段です。
+既に説明したように、ASP.NET 開発サーバーと呼ばれる Web サーバーと Visual Studio 2005 が同梱されています。 (ASP.NET 開発サーバーとも呼ば Cassini。)この Web サーバーを参照し、ファイル システムで実行されている Web アプリケーションをデバッグする便利な手段です。
 
 ASP.NET 開発サーバーとは、制限付きの Web サーバーです。 リモート接続を許可しないこと、Web サーバーを開始したユーザー以外のユーザーからの要求を許可しません。 これもが ASP ページを提供する機能。 ASP.NET リソースと HTML のリソース (画像、CSS ファイルなどを含む) のみが提供されます。
 

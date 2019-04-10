@@ -1,33 +1,37 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: ハンズ オン ラボ:ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルド |Microsoft Docs
+title: ハンズ オン ラボ:ASP.NET Web API と Angular.js - ASP.NET シングル ページ アプリケーション (SPA) をビルド 4.x
 author: rick-anderson
-description: 従来の web アプリケーションでは、クライアント (ブラウザー) は、ページを要求することによって、サーバーとの通信を開始します。 サーバーは、要求を処理しています.
+description: コードのステップ バイ ステップ。ASP.NET 用の ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルド 4.x です。
 ms.author: riande
 ms.date: 09/30/2015
+ms.custom: seoapril2019
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 03409e2fda831a07bbc5321ad842633b23ec25e5
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422410"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390273"
 ---
-<a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする
-====================
+# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 [Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
-> 従来の web アプリケーションでは、クライアント (ブラウザー) は、ページを要求することによって、サーバーとの通信を開始します。 サーバーは、要求を処理し、ページの HTML をクライアントに送信します。 – ユーザーなどのリンクに移動またはフォームにデータを送信する – ページと後続のやり取りで新しい要求は、サーバーに送信され、フローをもう一度開始します。 サーバーが要求を処理し、新しいアクションの要求に応答してブラウザーに新しいページを送信します。クライアントによって ed します。
+このハンズオン ラボは、ASP.NET の ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) を構築する方法を示します 4.x です。
+
+このハンズオン ラボでは、ギーク Quiz、SPA の概念に基づくトリビアの web サイトを実装するためにこれらのテクノロジの利点がかかります。 まず、質問を取得し、回答を保存するに必要なエンドポイントを公開する ASP.NET Web API を使用したサービス層を実装します。 次に、AngularJS、および CSS3 の変換の効果を使用して、リッチで応答性の高い UI をビルドします。
+
+従来の web アプリケーションでは、クライアント (ブラウザー) は、ページを要求することによって、サーバーとの通信を開始します。 サーバーは、要求を処理し、ページの HTML をクライアントに送信します。 – ユーザーなどのリンクに移動またはフォームにデータを送信する – ページと後続のやり取りで新しい要求は、サーバーに送信され、フローをもう一度開始します。 サーバーが要求を処理し、新しいアクションの要求に応答してブラウザーに新しいページを送信します。クライアントによって ed します。
 > 
 > シングル ページ アプリケーション (Spa) では、ブラウザーで全体のページを読み込む最初の要求の後が、以降の Ajax 要求を通じて行われます。 つまり、ブラウザーが変更されました。 ページの部分だけを更新するにはページ全体を再読み込みする必要はありません。 SPA のアプローチには、その結果より滑らかなエクスペリエンス、ユーザーの操作に応答するアプリケーションでは時間が短縮されます。
 > 
 > SPA のアーキテクチャには、従来の web アプリケーションではないいくつかの課題が含まれます。 ただし、ASP.NET Web API などのテクノロジを新たな JavaScript フレームワークなどの AngularJS と CSS3 によって提供される新しいスタイル機能簡単本当に設計し、Spa を構築します。
 > 
-> このハンズオン ラボでは、ギーク Quiz、SPA の概念に基づくトリビアの web サイトを実装するためにこれらのテクノロジの利点がかかります。 まず、質問を取得し、回答を保存するに必要なエンドポイントを公開する ASP.NET Web API を使用したサービス層を実装します。 次に、AngularJS、および CSS3 の変換の効果を使用して、リッチで応答性の高い UI をビルドします。
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
 
@@ -72,7 +76,7 @@ ms.locfileid: "58422410"
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>演習
@@ -104,7 +108,7 @@ Web API フレームワークは、ASP.NET スタックの一部でありは HTT
 
     ![新しいプロジェクトを作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image1.png "新しいプロジェクトを作成します。")
 
-    *新しいプロジェクトを作成します。*
+    *新規プロジェクトの作成*
 2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下、 **(Visual C#) |Web**タブ。確認します **.NET Framework 4.5**がという名前を選択すると、 *GeekQuiz*、選択、**場所** をクリック**OK**。
 
     ![新しい ASP.NET Web アプリケーション プロジェクトを作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image2.png "新しい ASP.NET Web アプリケーション プロジェクトを作成します。")
@@ -433,7 +437,7 @@ Visual Studio のパッケージ マネージャー コンソールから Angula
 
     *フリップの影響は、次の質問を取得します。*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ

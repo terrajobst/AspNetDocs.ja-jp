@@ -8,15 +8,15 @@ ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: a14facad4cbd0f9be1ff7bde2667f61ec8cc2a14
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 22178890e8a5d481a80e5efdd37d3e43f1a30955
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030009"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406042"
 ---
-<a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での認証フィルター
-====================
+# <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での認証フィルター
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > 認証フィルターは、HTTP 要求を認証するコンポーネントです。 認証フィルターを両方サポート web API 2 と MVC 5 がフィルター インターフェイスの名前付け規則のほとんどの場合、少しが異なります。 このトピックでは、Web API 認証フィルターについて説明します。

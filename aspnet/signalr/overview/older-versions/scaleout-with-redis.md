@@ -8,15 +8,15 @@ ms.date: 05/01/2013
 ms.assetid: 6abecf80-8ffa-41ba-b0d9-1d9edbe7687b
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: bdeb9624180206b33d8fdb22b4a4fdaf4cb92294
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: b3c5d01bdfa6be954313fe2dde61635e07756f5a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424769"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384345"
 ---
-<a name="signalr-scaleout-with-redis-signalr-1x"></a>Redis による SignalR スケールアウト (SignalR 1.x)
-====================
+# <a name="signalr-scaleout-with-redis-signalr-1x"></a>Redis による SignalR スケールアウト (SignalR 1.x)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -131,7 +131,7 @@ IIS の役割を追加します。 WebSocket プロトコルを含む、「ア�
 
 Web 管理サービスが実行されていることを確認します。 それ以外の場合は、サービスを開始します。 (Web 管理サービスで Windows サービスの一覧が表示されない場合は、IIS の役割を追加したときに、管理サービスがインストールされていることを確認)。
 
-既定では、Web 管理サービスは TCP ポート 8172 でリッスンします。 Windows ファイアウォールでポート 8172 で TCP トラフィックを許可する場合は、新しい受信規則を作成します。 詳細については、[ファイアウォール規則を構成する](https://technet.microsoft.com/library/dd448559(WS.10).aspx)を参照してください。 (Azure 上の Vm をホストしている場合はこれを行う、Azure portal で直接します。 参照してください[仮想マシンにエンドポイントを設定する方法](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/))。
+既定では、Web 管理サービスは TCP ポート 8172 でリッスンします。 Windows ファイアウォールでポート 8172 で TCP トラフィックを許可する場合は、新しい受信規則を作成します。 詳細については、次を参照してください。[ファイアウォール規則を構成する](https://technet.microsoft.com/library/dd448559(WS.10).aspx)します。 (Azure 上の Vm をホストしている場合はこれを行う、Azure portal で直接します。 参照してください[仮想マシンにエンドポイントを設定する方法](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/))。
 
 サーバーに、開発コンピューターから Visual Studio プロジェクトを配置する準備が整いました。 ソリューション エクスプ ローラーでソリューションを右クリックし、をクリックして**発行**します。
 

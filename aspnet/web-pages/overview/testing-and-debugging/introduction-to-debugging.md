@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: e5302492f01cbd507e0b0fd995f21621bf6f04c8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4be58f618ed990b1932b4388f84cd743c21f009
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034469"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389610"
 ---
-<a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web のデバッグの概要
-====================
+# <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web のデバッグの概要
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) の web サイトのページをデバッグするさまざまな方法について説明します。 デバッグは、検出とコード ページ内エラーを修正のプロセスです。
@@ -131,7 +131,7 @@ Web サイトをテストするときに実行中のコードは、ブレーク�
 
 ![値を参照してください。](introduction-to-debugging/_static/image3.png)
 
-Visual Studio で、統合デバッガーを使用して、ASP.NET Razor ページをデバッグする方法については、[プログラミング ASP.NET Web Pages (Razor) を使用して Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)を参照してください。
+Visual Studio で、統合デバッガーを使用して、ASP.NET Razor ページをデバッグする方法については、次を参照してください。[プログラミング ASP.NET Web Pages (Razor) を使用して Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)します。
 
 ## <a name="additional-resources"></a>その他のリソース
 

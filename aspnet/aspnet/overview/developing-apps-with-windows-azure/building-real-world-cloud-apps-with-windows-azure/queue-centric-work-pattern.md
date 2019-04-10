@@ -8,20 +8,20 @@ ms.date: 06/12/2014
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 03b6950104b6f293271d9f9a0feed4071e9b1174
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0d6d8375425f3a0cb915c2f7844f6c5191ea4e95
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392015"
 ---
-<a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>キューを中心とした作業パターン (Azure で現実世界のクラウド アプリの構築)
-====================
+# <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>キューを中心とした作業パターン (Azure で現実世界のクラウド アプリの構築)
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 複数のサービスを使用してにより、アプリの有効な SLA が、複合 SLA 見た前に、*製品*の個々 の SLA。 たとえば、Fix It アプリは、Websites、ストレージ、および SQL Database を使用します。 これらのサービスのいずれかが失敗した場合、アプリは、ユーザーにエラーを返します。
@@ -153,7 +153,7 @@ Fix It タスクをキューに配置には、web フロント エンドは、�
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-詳細については、[Visual Studio で Azure プロジェクトを作成を参照してください。](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
+詳細については、次を参照してください。 [Visual Studio で Azure プロジェクトを作成します。](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 ワーカー ロール内でメッセージのポーリングを呼び出して、`ProcessMessageAsync`のメソッド、`FixItQueueManager`先ほどお見せするクラス。
 

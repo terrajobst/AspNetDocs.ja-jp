@@ -8,15 +8,15 @@ ms.date: 02/27/2014
 ms.assetid: b90978bd-795d-4871-9ade-1671caff5730
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 490279ec8457535031387e955e67550052764fff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7ba95f24085c403c669bc5d6df4dee7c87fbd90a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414245"
 ---
-<a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>モデル バインディングと web フォームでデータをフィルター処理クエリ文字列の値を使用します。
-====================
+# <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>モデル バインディングと web フォームでデータをフィルター処理クエリ文字列の値を使用します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。

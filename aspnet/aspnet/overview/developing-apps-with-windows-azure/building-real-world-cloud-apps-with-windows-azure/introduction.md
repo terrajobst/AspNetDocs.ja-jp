@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: c496e93d7517bc187514d5fa2dfa90d29c5f47f9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033119"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412412"
 ---
-<a name="building-real-world-cloud-apps-with-azure"></a>Azure での実際のクラウド アプリの構築
-====================
+# <a name="building-real-world-cloud-apps-with-azure"></a>Azure での実際のクラウド アプリの構築
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -100,7 +100,7 @@ Scott Guthrie を監視するすべてのユーザー*構築現実世界の Clou
     - 高可用性を有効にして、web とワーカーの層を疎結合することで、スケーラビリティが向上します。
     - デモ:Fix It アプリで azure storage キュー。
 - [他のクラウド アプリのパターンとガイダンス](more-patterns-and-guidance.md)します。
-- [付録:修正プログラム、サンプル アプリケーション](the-fix-it-sample-application.md)
+- [付録:Fix It サンプル アプリケーション](the-fix-it-sample-application.md)
 
     - 既知の問題
     - ベスト プラクティス
@@ -152,7 +152,7 @@ Web サイトにユーザーが、IIS Vm を直接ヒットはありませんに
 
 このすべては自動的に実行します。 行う必要があるものは、web サイトを作成し、Windows PowerShell、Visual Studio、または Azure 管理ポータルを使用して、アプリケーションをデプロイするだけです。
 
-迅速かつ簡単なチュートリアルについては Visual Studio で web アプリケーションを作成して、Azure の Web サイトにデプロイする方法を示す、[Azure と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)を参照してください。
+迅速かつ簡単なチュートリアルについては Visual Studio で web アプリケーションを作成して、Azure の Web サイトにデプロイする方法を示す、次を参照してください。 [Azure と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)します。
 
 <a id="summary"></a>
 ## <a name="summary"></a>まとめ

@@ -8,15 +8,15 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029709"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397371"
 ---
-<a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web フォームのコードを編集する
-====================
+# <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web フォームのコードを編集する
+
 によって[Erik Reitan](https://github.com/Erikre)
 
 多くの ASP.NET Web フォーム ページでは、Visual Basic、C#、または別の言語でコードを記述します。 Visual Studio でコード エディターでは、エラーを回避することができ、コードをすばやく記述できます。 さらに、エディターには、行う必要がある作業量を減らすために再利用可能なコードを作成するための方法が用意されています。
@@ -59,7 +59,7 @@ ms.locfileid: "57029709"
 3. 選択、**テンプレート** - &gt; **Visual C#**  - &gt; **Web**左側のテンプレート グループ。
 4. 選択、 **ASP.NET Web アプリケーション**中央の列のテンプレート。
 5. プロジェクトに名前を***BasicWebApp***  をクリックし、 **OK**ボタン。   
-![新しいプロジェクト ダイアログ ボックス](code-editing-in-web-forms-pages/_static/image2.png)
+![[新しいプロジェクト] ダイアログ ボックス](code-editing-in-web-forms-pages/_static/image2.png)
 6. 次に、選択、 **Web フォーム**テンプレートをクリックして、 **OK**プロジェクトを作成するボタンをクリックします。  
 ![新しい ASP.NET プロジェクト ダイアログ ボックス](code-editing-in-web-forms-pages/_static/image3.png)  
 
@@ -77,7 +77,7 @@ ms.locfileid: "57029709"
 1. **ソリューション エクスプ ローラー**、Web アプリケーションの名前を右クリックし (アプリケーション名は、このチュートリアルでは**BasicWebSite**)、をクリックし、**追加** - &gt;**新しい項目の**します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択、 **Visual C#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**Web フォーム**中央から一覧表示し、名前を*名前*します。   
-    ![新しい項目 ダイアログ ボックスを追加します。](code-editing-in-web-forms-pages/_static/image4.png)
+    ![[新しい項目の追加] ダイアログ ボックス](code-editing-in-web-forms-pages/_static/image4.png)
 3. クリックして**追加**をプロジェクトに Web フォーム ページを追加します。  
  Visual Studio では、新しいページを作成し、それを開きます。
 4. 次に、この新しいページを既定のスタートアップ ページとして設定します。 **ソリューション エクスプ ローラー**、という名前の新しいページを右クリックして*名前*選択**スタート ページとして設定**します。 次に、進行状況をテストするには、このアプリケーションを実行したとき、ブラウザーでこの新しいページに自動的に表示されます。

@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
-title: Azure Active Directory と ASP.NET アプリの開発 |Microsoft Docs
+title: Azure Active Directory - ASP.NET と ASP.NET アプリの開発 4.x
 author: Rick-Anderson
 description: Azure Active Directory 用の Microsoft ASP.NET ツールにより、簡単に Azure でホストされている web アプリケーションの認証を有効にします。 Azure 認証を使用することができます.
 ms.author: riande
 ms.date: 08/14/2014
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 7f0e569458c9a294cc281b86e731c2fda48768be
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6f8b926c78097b68e6a159f2fdd30e7b8a6477a0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395174"
 ---
-<a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory を使った ASP.NET アプリの開発
-====================
+# <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory を使った ASP.NET アプリの開発
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Azure Active Directory でホストされる web アプリの認証を有効化を簡素化用のツールは Microsoft ASP.NET [Azure](https://www.windowsazure.com/home/features/web-sites/)します。 Azure 認証を使用して、組織、オンプレミスの Active Directory から同期された会社のアカウントまたはカスタムの Azure Active Directory ドメインで作成されたユーザーから Office 365 ユーザーを認証することができます。 Windows Azure Authentication を有効にすると、1 つを使用してユーザーを認証するアプリケーションを構成します[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナント。
@@ -68,7 +69,7 @@ Azure Active Directory でホストされる web アプリの認証を有効化�
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)
 
     > [!NOTE]
-    > クリックして Azure AD に登録されるアプリケーション ID URI を構成することもできます。**オプションより**します。 アプリ ID URI は、アプリケーションは、Azure AD に登録され、Azure AD と通信するときに識別する、アプリケーションで使用される一意の識別子です。 アプリ ID URI と登録済みのアプリケーションの他のプロパティの詳細については、[このトピックの「](https://msdn.microsoft.com/library/azure/dn499820.aspx#BKMK_Registering)を参照してください。 アプリ ID URI フィールドの下のチェック ボックスをクリックすると、同じアプリ ID URI を使用して Azure AD で既存の登録を上書きすることもできます。
+    > クリックして Azure AD に登録されるアプリケーション ID URI を構成することもできます。**オプションより**します。 アプリ ID URI は、アプリケーションは、Azure AD に登録され、Azure AD と通信するときに識別する、アプリケーションで使用される一意の識別子です。 アプリ ID URI と登録済みのアプリケーションの他のプロパティの詳細については、次を参照してください。[このトピックの「](https://msdn.microsoft.com/library/azure/dn499820.aspx#BKMK_Registering)します。 アプリ ID URI フィールドの下のチェック ボックスをクリックすると、同じアプリ ID URI を使用して Azure AD で既存の登録を上書きすることもできます。
 4. クリックすると**OK**サインイン ダイアログが表示され、グローバル管理者アカウント (Microsoft アカウントではなく、サブスクリプションに関連付けられている) を使用してサインインする必要があります。 新しい管理者アカウントを先ほど作成した場合は、パスワードを変更し、もう一度新しいパスワードを使用してサインインする必要があります。
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image9.png)
@@ -141,7 +142,7 @@ Azure Active Directory でホストされる web アプリの認証を有効化�
 
 ## <a name="more-information"></a>説明
 
-- 「[Deep Dive:Azure の web サイトと Azure AD を使用して組織の認証](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
+- [詳細:Azure の web サイトと Azure AD を使用して組織の認証](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
 - [Azure AD Graph API の概要](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 - [Azure AD での認証シナリオ](https://msdn.microsoft.com/library/azure/dn499820.aspx)
 - [GitHub での azure AD コード サンプルします。](https://github.com/AzureADSamples)

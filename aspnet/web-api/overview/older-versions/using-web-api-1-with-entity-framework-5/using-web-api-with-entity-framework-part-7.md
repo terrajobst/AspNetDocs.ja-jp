@@ -8,18 +8,18 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 91a6496e2640668c58ec0493d47d909e2de67367
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 028631f8855e4d94bebb0e965de75c4025e22859
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421351"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409266"
 ---
-<a name="part-7-creating-the-main-page"></a>第 7 部:メイン ページの作成
-====================
+# <a name="part-7-creating-the-main-page"></a>第 7 部:メイン ページの作成
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-the-main-page"></a>メイン ページの作成
 
@@ -73,7 +73,7 @@ HTML では、データ バインディングやスクリプトではないい�
 
 そうは多くのコードが構築しましたを順を追って、ことを願っています設計はクリアされます。 HTML に一部の Knockout.js バインドを追加できます。
 
-**製品**
+**Products**
 
 製品の一覧については、バインドを次に示します。
 
@@ -91,7 +91,7 @@ HTML では、データ バインディングやスクリプトではないい�
 
 これにより、カートの配列を反復処理し、名前、価格、および数量を表示します。 ビュー モデルの関数にリンクの「削除」と"Order の作成"ボタンがバインドされていることに注意してください。
 
-**注文**
+**Orders**
 
 注文の一覧については、バインドを次に示します。
 

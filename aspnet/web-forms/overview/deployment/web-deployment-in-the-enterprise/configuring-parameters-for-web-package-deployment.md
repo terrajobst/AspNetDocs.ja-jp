@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 37947d79-ab1e-4ba9-9017-52e7a2757414
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 6660ad52ce68932be63e2874a5f6acb34336e575
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f738d1c0b3cd99bb6df5f8b24dca907fa0b31f4d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052069"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413101"
 ---
-<a name="configuring-parameters-for-web-package-deployment"></a>Web パッケージ配置のパラメーターを構成する
-====================
+# <a name="configuring-parameters-for-web-package-deployment"></a>Web パッケージ配置のパラメーターを構成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、リモートの IIS web サーバーに web パッケージを展開するときに、インターネット インフォメーション サービス (IIS) web アプリケーションの名前、接続文字列、およびサービスのエンドポイントなどのパラメーター値を設定する方法について説明します。
 
@@ -31,7 +31,7 @@ Web アプリケーション プロジェクト、ビルドおよびパッケー
 - A *[プロジェクト名]。SetParameters.xml*ファイル。 これは、MSDeploy.exe コマンドにパラメーター値のセットを提供します。 このファイル内の値を更新し、Web Deploy をパラメーターとして渡す、コマンド ライン web パッケージを展開するときにできます。
 
 > [!NOTE]
-> ビルドとパッケージ化プロセスの詳細については、[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)を参照してください。
+> ビルドとパッケージ化プロセスの詳細については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
 
 
 *SetParameters.xml*ファイルは、web アプリケーションのプロジェクト ファイルと、プロジェクト内のすべての構成ファイルから動的に生成します。 ビルドおよび Web 発行パイプライン (WPP)、プロジェクトをパッケージ化する場合、変換先の IIS web アプリケーションのように、デプロイ環境とデータベース接続文字列の間を変更する可能性のある変数の多くが自動的に検出します。 これらの値が自動的に web デプロイ パッケージでパラメーター化されたに追加された、 *SetParameters.xml*ファイル。 接続文字列を追加する場合など、 *web.config*ファイル、web アプリケーション プロジェクトでビルド プロセスは、この変更を検出およびエントリを追加、 *SetParameters.xml*ファイルそれに応じて。
@@ -94,7 +94,7 @@ Web アプリケーションのパッケージを手動で展開する予定の�
 [Contact Manager サンプル ソリューション](the-contact-manager-solution.md)このプロセスを示しています。 後のコード例は、この例に関連する詳細のみを表示する編集されています。
 
 > [!NOTE]
-> サンプル ソリューションでは、および一般的なカスタムのプロジェクト ファイルの概要で、プロジェクト ファイルのモデルのより広範な概要については、[プロジェクト ファイルを理解する](understanding-the-project-file.md)と[ビルド プロセスを理解する](understanding-the-build-process.md)を参照してください。
+> サンプル ソリューションでは、および一般的なカスタムのプロジェクト ファイルの概要で、プロジェクト ファイルのモデルのより広範な概要については、次を参照してください。[プロジェクト ファイルを理解する](understanding-the-project-file.md)と[ビルド プロセスを理解する](understanding-the-build-process.md)します。
 
 
 最初に、関心のあるパラメーターの値は、環境固有のプロジェクト ファイル内のプロパティとして定義されます (たとえば、 *Env Dev.proj*)。
@@ -104,7 +104,7 @@ Web アプリケーションのパッケージを手動で展開する予定の�
 
 
 > [!NOTE]
-> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)を参照してください。
+> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
 
 
 次に、 *Publish.proj*ファイルは、これらのプロパティをインポートします。 ため、各*SetParameters.xml*ファイルが関連付けられている、 *. deploy.cmd*をそれぞれ呼び出すプロジェクト ファイルが最終的にするファイル、および *. deploy.cmd*ファイル、プロジェクトファイルには、MSBuild が作成されます*項目*各 *. deploy.cmd*として関心のあるプロパティを定義ファイルを開き*項目メタデータ*します。
@@ -141,7 +141,7 @@ Web アプリケーションのパッケージを手動で展開する予定の�
 
 ## <a name="further-reading"></a>関連項目
 
-Web パッケージを作成する方法については、[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)を参照してください。 実際に web パッケージをデプロイする方法のガイダンスについては、[Web パッケージを展開する](deploying-web-packages.md)を参照してください。 作成する方法についてステップ バイ ステップ チュートリアルについては、 *'parameters.xml'* ファイルを参照してください[方法。展開の設定時に、パッケージの構成を使用してパラメーターがインストールされている](https://msdn.microsoft.com/library/ff398068.aspx)します。
+Web パッケージを作成する方法については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。 実際に web パッケージをデプロイする方法のガイダンスについては、次を参照してください。 [Web パッケージを展開する](deploying-web-packages.md)します。 作成する方法についてステップ バイ ステップ チュートリアルについては、 *'parameters.xml'* ファイルを参照してください[方法。展開の設定時に、パッケージの構成を使用してパラメーターがインストールされている](https://msdn.microsoft.com/library/ff398068.aspx)します。
 
 Web デプロイのパラメーター化の一般的なについては、次を参照してください。[アクションで Web デプロイ Parameterization](https://go.microsoft.com/?linkid=9805119) (ブログの投稿)。
 

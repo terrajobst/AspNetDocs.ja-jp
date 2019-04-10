@@ -8,15 +8,15 @@ ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
-ms.openlocfilehash: 478ee9f851a395c68701347c04534bfe72d94512
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 482119a97f30e24472231897e8db31685c451a0f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424860"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400790"
 ---
-<a name="breezeknockout-template"></a>Breeze/Knockout テンプレート
-====================
+# <a name="breezeknockout-template"></a>Breeze/Knockout テンプレート
+
 によって[Mads Kristensen](https://github.com/madskristensen)
 
 > Ward Bell によって Breeze/knockout の MVC テンプレートが作成されました
@@ -54,7 +54,7 @@ Breeze/knockout テンプレートを使用してより堅牢なデータ管理�
 
 ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 テンプレートは、Visual Studio Extension (VSIX) ファイルとしてパッケージ化されます。 Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual C#** ノード。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
 
 **新しいプロジェクト**ウィザードで、 **Breeze Knockout SPA**します。
 

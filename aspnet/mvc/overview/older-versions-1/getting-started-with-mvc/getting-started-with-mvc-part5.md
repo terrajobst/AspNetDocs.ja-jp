@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: 76dc324134dc93c9552741fea9f1136abdc9184a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e0b540c030bf600def9b9efad4c73f055a343851
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036659"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402831"
 ---
-<a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
-====================
+# <a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
+
 [Scott Hanselman](https://github.com/shanselman)による
 
 > これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
@@ -26,7 +26,7 @@ ms.locfileid: "57036659"
 
 Controllers フォルダーを右クリックし、新しい MoviesController を作成します。
 
-[![コント ローラーを追加します。](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Add コント ローラー](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 これにより、プロジェクト内で、\Controllers フォルダーの下に新しい"MoviesController.cs"ファイルが作成されます。 新しく設定されたデータベースからムービーの一覧を取得する MovieController を更新してみましょう。
 
@@ -42,11 +42,11 @@ Controllers フォルダーを右クリックし、新しい MoviesController �
 
 追加 をクリックし、システムはムービーの一覧を表示するためビューのコードを自動的に生成されます。 これは、変更すると良い、 &lt;h2&gt; Hello World ビューで以前に行ったように"マイ Movie List"のように向かっています。
 
-[![ビデオ - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![Movies - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
 アプリケーションを実行し、アドレス バーに/Movies を参照してください。 ここで、コント ローラー内での基本的なクエリを使用してデータベースからデータを取得したし、映画について認識しているビューにデータが返されます。 そのビューは、ムービーのリストをループ処理し、私たちのデータのテーブルを作成します。
 
-[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Mリスト - ovie Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 私たちはありませんする機能を実装する編集、詳細、削除 - このアプリケーションでのスキャフォールディング テンプレートが作成された既定のリンクしない必要があります。 /Movies/Index.aspx ファイルを開き、それらを削除します。
 
@@ -56,7 +56,7 @@ Controllers フォルダーを右クリックし、新しい MoviesController �
 
 この例には削除されますので必要はありませんが、あるリンクを作成します。 次へ を、新規作成 が保持されます。 削除する列で、アプリがどのようにを次に示します。
 
-[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Mリスト - ovie Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 ムービー データの単純なリストがあるようになりました。 ただし、"新規作成 リンクをクリックすると場合、そのように接続されていないエラーが発生しましたします! 作成アクション メソッドを実装して、データベースに新しい映画を入力するユーザーを有効にします。
 

@@ -8,15 +8,15 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 798c41ee36372d12f03d07bbd7af3a26c161d33f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 5f7ebf7cc6d6a65216021911fe77036357369980
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423326"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389272"
 ---
-<a name="signalr-troubleshooting-signalr-1x"></a>SignalR トラブルシューティング (SignalR 1.x)
-====================
+# <a name="signalr-troubleshooting-signalr-1x"></a>SignalR トラブルシューティング (SignalR 1.x)
+
 提供者: [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -111,7 +111,7 @@ SignalR は自動的に JSON シリアル化に使用、メソッド パラメ�
 
 この動作は意図されたものです。 ときに`OnDisconnected`が呼び出されると、ハブが既に入力、`Disconnected`によりさらにハブ メソッドを呼び出せる状態。
 
-**OnDisconnected イベント内のコードを正しく実行 C# サーバー コード**
+**OnDisconnected イベント内のコードを正しく実行 c# サーバー コード**
 
 [!code-csharp[Main](troubleshooting/samples/sample8.cs)]
 
@@ -121,13 +121,13 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ### <a name="cross-domain-connection-not-set-up-properly"></a>ドメイン間の接続が正しく設定されていません
 
-ドメイン間の接続の場合 (対象の SignalR URL が、ホスティング ページと同じドメインに接続) が正しくセットアップされていない、エラーが発生せず、接続が失敗します。 ドメイン間の通信を有効にする方法については、[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)を参照してください。
+ドメイン間の接続の場合 (対象の SignalR URL が、ホスティング ページと同じドメインに接続) が正しくセットアップされていない、エラーが発生せず、接続が失敗します。 ドメイン間の通信を有効にする方法については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。
 
 ### <a name="connection-using-ntlm-active-directory-not-working-in-net-client"></a>.NET クライアントで機能しない NTLM (Active Directory) を使用して接続
 
 ドメインのセキュリティを使用する .NET クライアント アプリケーション内の接続が失敗する場合は、接続が正しく構成されていません。 SignalR を使用して、ドメイン環境で、次のように、必要な接続プロパティを設定します。
 
-**接続の資格情報を実装する C# クライアント コード**
+**接続の資格情報を実装する c# クライアント コード**
 
 [!code-csharp[Main](troubleshooting/samples/sample9.cs)]
 
@@ -153,7 +153,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ### <a name="403-forbidden-error-in-net-or-silverlight-client"></a>.NET または Silverlight クライアントに「403 アクセス不可」エラー
 
-このエラーは、ドメイン間の通信が正しく有効化しないクロス ドメイン環境で発生する可能性があります。 ドメイン間の通信を有効にする方法については、[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)を参照してください。 Silverlight クライアントでのドメイン間の接続を確立するを参照してください。 [Silverlight クライアントからのドメインを越えた接続](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain)します。
+このエラーは、ドメイン間の通信が正しく有効化しないクロス ドメイン環境で発生する可能性があります。 ドメイン間の通信を有効にする方法については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。 Silverlight クライアントでのドメイン間の接続を確立するを参照してください。 [Silverlight クライアントからのドメインを越えた接続](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain)します。
 
 ### <a name="404-not-found-error"></a>「404 見つかりません」エラー
 
@@ -164,7 +164,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ### <a name="500-internal-server-error"></a>「500 内部サーバー エラー」
 
-これは、さまざまな原因の可能性がある非常に一般的なエラーです。 エラーの詳細については、サーバーのイベント ログに記録する必要があります。 またはサーバーのデバッグを確認できます。 サーバーの詳細なエラーを有効にして、詳細なエラー情報を取得できます。 詳細については、[ハブ クラス内のエラーの処理方法](../guide-to-the-api/hubs-api-guide-server.md#handleErrors)を参照してください。
+これは、さまざまな原因の可能性がある非常に一般的なエラーです。 エラーの詳細については、サーバーのイベント ログに記録する必要があります。 またはサーバーのデバッグを確認できます。 サーバーの詳細なエラーを有効にして、詳細なエラー情報を取得できます。 詳細については、次を参照してください。[ハブ クラス内のエラーの処理方法](../guide-to-the-api/hubs-api-guide-server.md#handleErrors)します。
 
 ### <a name="typeerror-lthubtypegt-is-undefined-error"></a>"TypeError: &lt;hubType&gt;が定義されていません"エラー
 
@@ -180,7 +180,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ### <a name="javascript-hub-proxy-generation-has-been-disabled"></a>「JavaScript ハブ プロキシの生成が無効になっています。」
 
-このエラーが発生`DisableJavaScriptProxies`で動的に生成されたプロキシへの参照を含むも中に設定されている`signalr/hubs`します。 プロキシを手動で作成する方法の詳細については、[、生成されたプロキシとは何が](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy)を参照してください。
+このエラーが発生`DisableJavaScriptProxies`で動的に生成されたプロキシへの参照を含むも中に設定されている`signalr/hubs`します。 プロキシを手動で作成する方法の詳細については、次を参照してください。 [、生成されたプロキシとは何が](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy)します。
 
 ### <a name="the-connection-id-is-in-the-incorrect-format-or-the-user-identity-cannot-change-during-an-active-signalr-connection-error"></a>「接続 ID は形式が正しくありません」または「ユーザー id は、SignalR のアクティブな接続中に変更できません」エラー
 
@@ -212,7 +212,7 @@ SignalR JavaScript クライアントでは、jQuery を実行する必要があ
 
 ### <a name="value-cannot-be-null-error"></a>「値を null にすることはできません」エラー
 
-省略可能なパラメーターを持つサーバー側のメソッドは現在サポートされていません。省略可能なパラメーターを省略した場合、メソッドは失敗します。 詳細については、[省略可能なパラメーター](https://github.com/SignalR/SignalR/issues/324)を参照してください。
+省略可能なパラメーターを持つサーバー側のメソッドは現在サポートされていません。省略可能なパラメーターを省略した場合、メソッドは失敗します。 詳細については、次を参照してください。[省略可能なパラメーター](https://github.com/SignalR/SignalR/issues/324)します。
 
 ### <a name="firefox-cant-establish-a-connection-to-the-server-at-ltaddressgt-error-in-firebug"></a>"Firefox でサーバーへの接続を確立できません&lt;アドレス&gt;"Firebug でのエラー
 

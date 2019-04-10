@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 8b9176cb88f6e460fe5494167d4a5880456530aa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4a62cce3af57b507882744f948ce208becdb03ac
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57032979"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382304"
 ---
-<a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでファイルの使用
-====================
+# <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでファイルの使用
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、読み取り、書き込み、追加、削除、および ASP.NET Web Pages (Razor) サイトでファイルをアップロードする方法について説明します。
@@ -153,7 +153,7 @@ ms.locfileid: "57032979"
 
 > [!NOTE] 
 > 
-> **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)を参照してください。
+> **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、次を参照してください。[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)します。
 
 
 1. という名前のサブフォルダーを作成、web サイトで*イメージ*します。

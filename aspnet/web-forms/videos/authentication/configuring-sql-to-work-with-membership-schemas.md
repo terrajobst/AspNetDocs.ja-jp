@@ -8,15 +8,15 @@ ms.date: 08/04/2008
 ms.assetid: b3edd71d-b43e-4ccb-93e5-b89bb723312c
 msc.legacyurl: /web-forms/videos/authentication/configuring-sql-to-work-with-membership-schemas
 msc.type: video
-ms.openlocfilehash: 1748f40aea66022e928b8f2b0584efab48047fd3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1144f6de63ebff3c92efc148ec619ec1d5cc0aa1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409929"
 ---
-<a name="configuring-sql-to-work-with-membership-schemas"></a>メンバーシップ スキーマと連動するように SQL を構成する
-====================
+# <a name="configuring-sql-to-work-with-membership-schemas"></a>メンバーシップ スキーマと連動するように SQL を構成する
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオの Joe Stagner で、特定の ASP サービス メンバーシップ プロファイル; を使用する SQL インスタンスを構成する方法を示しますだけでなくを machine.cgf ファイルでこの SQL インスタンスと既定の設定を使用するアプリケーションを構成します。 このビデオについては、読み取り、 [SQL Server でメンバーシップ スキーマを作成する](../../overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md)セキュリティ チュートリアル。
