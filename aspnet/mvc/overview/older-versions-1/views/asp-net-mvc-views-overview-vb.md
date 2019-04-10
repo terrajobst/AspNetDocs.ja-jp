@@ -8,15 +8,15 @@ ms.date: 02/16/2008
 ms.assetid: c28ba88d-3a93-47f5-a306-049bd766714d
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a7f4afd70a17281123a7448a00896c186b9a00f8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 84af745d338e38ece438fa58d51d0929c7b92967
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57030369"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408460"
 ---
-<a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC ビュー概要 (VB)
-====================
+# <a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC ビュー概要 (VB)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > ASP.NET MVC ビューし、HTML ページから違う方法でしょうか。 このチュートリアルでは、Stephen Walther がビューを紹介し、データの表示と HTML ヘルパーをビュー内の利用の実行方法を示します。
@@ -104,7 +104,7 @@ Response.Write() を呼び出すことが多いためので、Microsoft でシ�
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
 **図 01**:標準ログイン フォーム ([フルサイズの画像を表示する をクリックします](asp-net-mvc-views-overview-vb/_static/image2.png))。
 

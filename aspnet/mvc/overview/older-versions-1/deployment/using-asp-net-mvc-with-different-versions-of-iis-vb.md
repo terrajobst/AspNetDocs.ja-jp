@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: 1c1283b2-6956-4937-b568-d30de432ce23
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e83a5f8e5d1726dc2f39a9aee6515995ce0ed157
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0446a125845134d2fad869094a540c960f6b0a25
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057909"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406471"
 ---
-<a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>さまざまなバージョンの IIS と共に ASP.NET MVC を使用する (VB)
-====================
+# <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>さまざまなバージョンの IIS と共に ASP.NET MVC を使用する (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、異なるバージョンのインターネット インフォメーション サービスで ASP.NET MVC、および URL ルーティングを使用する方法について説明します。 IIS 7.0 (クラシック モード)、IIS 6.0 では、以前のバージョンの IIS と ASP.NET MVC を使用するためのさまざまな方法を学習します。
@@ -54,7 +54,7 @@ Microsoft Windows XP Professional には、IIS 5.1 が含まれています。 I
 既定では、2 つのアプリケーション プールをサポートするために IIS を構成します。**DefaultAppPool**と**クラシック .NET AppPool**します。 DefaultAppPool が選択されている場合は、統合された要求の処理モードでアプリケーションが実行されます。 従来の .NET AppPool が選択されている場合は、従来の要求の処理モードでは、アプリケーションが実行されています。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.png)
 
 **図 1**:要求の処理モードの検出 ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.png))。
 
@@ -97,7 +97,7 @@ Web サーバー (たとえば、アプリケーションは、インターネ�
 残念ながら、古いバージョンの IIS、ASP.NET フレームワークにこれらの要求が転送されません。 そのため、これらの要求をコント ローラーにルーティングされません。 たとえば、URL/Home/インデックスのブラウザー要求を行う場合は、図 2 に、エラー ページが表示されます。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.png)
 
 **図 2**:404 Not Found エラーが発生する ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.png))。
 
@@ -173,7 +173,7 @@ IIS 7.0 の場合、ワイルドカード スクリプト マップを有効に�
 7. をクリックして、 **OK**ボタン
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.png)
 
 **図 3**:IIS 7.0 でワイルドカード スクリプト マップの作成 ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image6.png))。
 
@@ -190,7 +190,7 @@ IIS 6.0 ではワイルドカード スクリプト マップを作成する次�
 8. をクリックして、 **OK**ボタン
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image7.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image7.png)
 
 **図 4**:IIS 6.0 ではワイルドカード スクリプト マップの作成 ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image8.png))。
 
@@ -198,7 +198,7 @@ IIS 6.0 ではワイルドカード スクリプト マップを作成する次�
 ワイルドカード スクリプト マップを有効にした後は、ルートのルートを含むように、Global.asax ファイルのルート テーブルを変更する必要があります。 それ以外の場合、アプリケーションのルート ページの要求を行うときに、図 5 で、エラー ページが表示されます。 リスト 4 変更後の Global.asax ファイルを使用することができます。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image9.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image9.png)
 
 **図 5**:ルートのルートのエラーがありません ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image10.png))。
 

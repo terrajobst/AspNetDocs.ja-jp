@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 4805e75a-7911-46e3-b11b-229a6eed245e
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b44aaab45f04f736e4171a43a8b24b71aaedca2f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e031417f2ee22533e7b5a606fc40526d7d911efc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039659"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413335"
 ---
-<a name="iteration-3--add-form-validation-vb"></a>繰り返し #3 – フォーム検証を追加する (VB)
-====================
+# <a name="iteration-3--add-form-validation-vb"></a>繰り返し #3 – フォーム検証を追加する (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
 [コードをダウンロードします。](iteration-3-add-form-validation-vb/_static/contactmanager_3_vb1.zip)
@@ -51,7 +51,7 @@ ms.locfileid: "57039659"
 Contact Manager アプリケーションの 2 番目のイテレーションでは、基本的なフォーム検証を追加します。 により、ユーザーが必要なフォーム フィールドの値を入力しなくても、連絡先を送信できないようにします。 また、電話番号、電子メール アドレスが (図 1 参照) を検証しました。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](iteration-3-add-form-validation-vb/_static/image1.jpg)](iteration-3-add-form-validation-vb/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](iteration-3-add-form-validation-vb/_static/image1.jpg)](iteration-3-add-form-validation-vb/_static/image1.png)
 
 **図 01**:検証を使用して、フォーム ([フルサイズの画像を表示する をクリックします](iteration-3-add-form-validation-vb/_static/image2.png))。
 
@@ -66,7 +66,7 @@ Contact Manager アプリケーションの 2 番目のイテレーションで�
 
 検証ロジックを作成ビューに追加することで開始 s を使用できます。 さいわい、Visual Studio を使用したビューを作成する、生成されたため、ビューを作成する既に含まれていますすべての検証メッセージを表示するために必要なユーザー インターフェイス ロジック。 リスト 1 で、作成ビューが含まれています。
 
-**Listing 1 - \Views\Contact\Create.aspx**
+**リスト 1 - \Views\Contact\Create.aspx**
 
 [!code-aspx[Main](iteration-3-add-form-validation-vb/samples/sample1.aspx)]
 

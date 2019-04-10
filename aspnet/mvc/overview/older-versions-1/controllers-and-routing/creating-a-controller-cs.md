@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 719d50d4-2305-454c-98b4-bae64937c48f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6fe880775a5d477aefcf0fe6cedb3e719760ed90
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c92d7cdeb7b2d31d5eca810628e9f563840f7494
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400613"
 ---
-<a name="creating-a-controller-c"></a>コントローラーを作成する (C#)
-====================
+# <a name="creating-a-controller-c"></a>コントローラーを作成する (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションをコント ローラーを追加する方法について説明します。
@@ -29,12 +29,12 @@ ms.locfileid: "57036489"
 新しいコント ローラーを作成する最も簡単な方法は、Visual Studio ソリューション エクスプ ローラー ウィンドウで、Controllers フォルダーを右クリックして、選択、**追加、コント ローラー**メニュー オプション (図 1 参照)。 このメニュー オプションを選択すると表示、**コント ローラーの追加**ダイアログ (図 2 参照)。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-a-controller-cs/_static/image1.jpg)](creating-a-controller-cs/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](creating-a-controller-cs/_static/image1.jpg)](creating-a-controller-cs/_static/image1.png)
 
 **図 01**:新しいコント ローラーの追加 ([フルサイズの画像を表示する をクリックします](creating-a-controller-cs/_static/image2.png))。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-a-controller-cs/_static/image2.jpg)](creating-a-controller-cs/_static/image3.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](creating-a-controller-cs/_static/image2.jpg)](creating-a-controller-cs/_static/image3.png)
 
 **図 02**:コント ローラーの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](creating-a-controller-cs/_static/image4.png))。
 
@@ -45,7 +45,7 @@ ms.locfileid: "57036489"
 不足しているコント ローラーを作成する場合、*コント ローラー*コント ローラーを起動することはできませんし、サフィックスが付いています。 これを行わない--この間違いを犯す後に自分の人生に膨大な時間を無駄しました。
 
 
-**1 - Controllers\ProductController.cs を一覧表示します。**
+**Listing 1 - Controllers\ProductController.cs**
 
 [!code-csharp[Main](creating-a-controller-cs/samples/sample1.cs)]
 
@@ -56,12 +56,12 @@ Controllers フォルダーで、常にコント ローラーを作成する必�
 コント ローラーを作成するときに自動的に作成、更新、および詳細のアクション メソッドを生成するオプションがある (図 3 を参照してください)。 このオプションを選択する場合は、リスト 2 でコント ローラー クラスが生成されます。
 
 
-[![アクション メソッドを自動的に作成します。](creating-a-controller-cs/_static/image3.jpg)](creating-a-controller-cs/_static/image5.png)
+[![C作成アクション メソッドに自動的に](creating-a-controller-cs/_static/image3.jpg)](creating-a-controller-cs/_static/image5.png)
 
 **図 03**:アクション メソッドを自動的に作成する ([フルサイズの画像を表示する をクリックします](creating-a-controller-cs/_static/image6.png))。
 
 
-**2 - Controllers\CustomerController.cs を一覧表示します。**
+**Listing 2 - Controllers\CustomerController.cs**
 
 [!code-csharp[Main](creating-a-controller-cs/samples/sample2.cs)]
 
@@ -76,7 +76,7 @@ ASP.NET MVC コント ローラーは、単なるクラスです。 場合は、
 3. (リスト 3 参照)、基本 System.Web.Mvc.Controller クラスからクラスを継承するので、結果として得られるクラス ファイルを変更します。
 
 
-[![新しいクラスを作成します。](creating-a-controller-cs/_static/image4.jpg)](creating-a-controller-cs/_static/image7.png)
+[![C新しいクラスの作成](creating-a-controller-cs/_static/image4.jpg)](creating-a-controller-cs/_static/image7.png)
 
 **図 04**:新しいクラスを作成する ([フルサイズの画像を表示する をクリックします](creating-a-controller-cs/_static/image8.png))。
 

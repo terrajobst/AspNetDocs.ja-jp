@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 54d86de49bf61305b17fc80964723c518abd467b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423248"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421070"
 ---
-<a name="hands-on-lab-visual-studio-2013-web-tools"></a>ハンズ オン ラボ:Visual Studio 2013 Web ツール
-====================
+# <a name="hands-on-lab-visual-studio-2013-web-tools"></a>ハンズ オン ラボ:Visual Studio 2013 Web ツール
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 [Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
@@ -74,7 +74,7 @@ ms.locfileid: "58423248"
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>演習
@@ -106,7 +106,7 @@ ms.locfileid: "58423248"
 2. **ファイル**メニューの**開く |プロジェクト/ソリューションしています.** を見つけて**Ex1 WorkingwithBrowserLinkandWebEssentials\Begin**で、**ソース**ラボ (C:\WebCampsTK\HOL\VSWebTooling\Source) のフォルダーです。 選択**Begin.sln**をクリック**開く**です。
 3. Visual Studio のツールバーで、[ブラウザー] メニューを展開し、選択**を参照しています.**.
 
-    ![ブラウザーのメニュー オプション](visual-studio-2013-web-tools/_static/image1.png "ブラウザーのメニューで で [参照]")
+    ![ブラウザーのメニュー オプション](visual-studio-2013-web-tools/_static/image1.png "ブラウザーのメニューで] で [参照]")
 
     *ブラウザーのメニュー オプション*
 4. **Browse With**ダイアログ ボックスの両方をオン**Google Chrome**と**Internet Explorer**押したまま、 **CTRL**キーおよびをクリックして**既定値として設定**です。
@@ -151,7 +151,7 @@ ms.locfileid: "58423248"
     *展開された HTML*
 
     > [!NOTE]
-    > Zen コーディングの構文の詳細については、[記事](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/)を参照してください。
+    > Zen コーディングの構文の詳細については、次を参照してください。[記事](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/)します。
 5. をクリックして、**リンクされたブラウザーを更新**両方のブラウザーを更新するボタンをクリックします。
 
     ![リンクされたブラウザーを更新](visual-studio-2013-web-tools/_static/image7.png "リンクされたブラウザーを更新")
@@ -319,12 +319,12 @@ ms.locfileid: "58423248"
 
     ![エラーをビューに一覧表示メニューの](visual-studio-2013-web-tools/_static/image31.png "表示 メニューのエラー一覧")
 
-    *エラーをビューに一覧表示メニュー*
+    *エラーをビューに一覧表示 メニュー*
 2. 通知を SEO 警告があることに注意してください、 **&lt;メタ&gt;** タグ ページの説明がありません。 これを修正する SEO 警告エントリをダブルクリックします。
 
     ![エラー一覧ウィンドウ](visual-studio-2013-web-tools/_static/image32.png "エラー一覧ウィンドウ")
 
-    *エラー一覧ウィンドウ*
+    *[エラー一覧] ウィンドウ*
 3. **Web Essentials**ダイアログ ボックスで、をクリックして**はい**説明を挿入する&lt;メタ&gt;タグ。
 
     ![Web Essentials ダイアログ ボックス](visual-studio-2013-web-tools/_static/image33.png "Web Essentials ダイアログ ボックス")
@@ -424,7 +424,7 @@ Web Essentials 2013 では、スタイル シートと HTML ページは、Id �
 
     ![名前を付けて保存ウィンドウ](visual-studio-2013-web-tools/_static/image40.png "名前を付けて保存ウィンドウ")
 
-    *名前を付けて保存ウィンドウ*
+    *名前を付けて保存 ウィンドウ*
 
     > [!NOTE]
     > **Init.js**ファイルが作成され、スクリプトの内容が、ファイルに移動します。
@@ -511,7 +511,7 @@ Web Essentials 2013 では、スタイル シートと HTML ページは、Id �
 
     *ビューに含まれるオーディオ プレーヤー*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ

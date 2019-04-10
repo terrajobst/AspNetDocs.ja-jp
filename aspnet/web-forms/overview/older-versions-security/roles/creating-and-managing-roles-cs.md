@@ -8,15 +8,15 @@ ms.date: 03/24/2008
 ms.assetid: 113f10b3-a19a-471b-8ff6-db3c79ce8a91
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41cd8cef2582b730391e5221629e9bb35794c159
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ee858cba449b0a8c8e693970a10ce0182e8c3da
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028209"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412399"
 ---
-<a name="creating-and-managing-roles-c"></a>ロールを作成し、管理する (C#)
-====================
+# <a name="creating-and-managing-roles-c"></a>ロールを作成し、管理する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.09.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_cs.pdf)
@@ -48,7 +48,7 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 この時点で、プロジェクトのソリューション エクスプ ローラーのスクリーン ショット、図 1 に示すようなはずです。
 
 
-[![[ロール] フォルダーに 4 つの新しいページが追加されました](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
+[![F[ロール] フォルダーに追加された、新しいページ](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
 
 **図 1**:次の 4 つ新しいページに追加されている、`Roles`フォルダー ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image3.png))。
 
@@ -68,7 +68,7 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 更新サイト マップでは、ブラウザーを使用してサイトを参照してください。 図 2 に示す、左側のナビゲーションには、ロール チュートリアルについては、アイテムが含まれます。
 
 
-[![[ロール] フォルダーに 4 つの新しいページが追加されました](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
+[![F[ロール] フォルダーに追加された、新しいページ](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
 
 **図 2**:次の 4 つ新しいページに追加されている、`Roles`フォルダー ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image6.png))。
 
@@ -93,7 +93,7 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 
 その結果、アプリケーションでの任意のプロバイダー情報を指定せず単に有効にするロール framework 場合`Web.config`ファイル、アプリケーションは、登録されている既定のロール プロバイダーを使用して`AspNetSqlRoleProvider`します。 場合、`~/App_Data/aspnet.mdf`データベースが存在しないか、ASP.NET ランタイムに自動的にそれを作成し、アプリケーションのサービス スキーマを追加します。 ただし、使用するたく、`aspnet.mdf`を使用する代わりに、データベースでは、`SecurityTutorials.mdf`データベースを既に作成して、アプリケーションのサービス スキーマを追加します。 この変更は、2 つの方法のいずれかで実行できます。
 
-- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>接続文字列名を</strong><strong>`Web.config`</strong><strong>します。</strong> 上書きすることで、`LocalSqlServer`の接続文字列名値`Web.config`、登録されている既定のロール プロバイダーを使用できます (`AspNetSqlRoleProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この手法の詳細については、[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)を参照してください。
+- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>接続文字列名を</strong><strong>`Web.config`</strong><strong>します。</strong> 上書きすることで、`LocalSqlServer`の接続文字列名値`Web.config`、登録されている既定のロール プロバイダーを使用できます (`AspNetSqlRoleProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この手法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)します。
 - <strong>型の新しい登録済みプロバイダーの追加</strong><strong>`SqlRoleProvider`</strong><strong>構成とその</strong><strong>`connectionStringName`</strong><strong>をポイントする設定</strong><strong>`SecurityTutorials.mdf`</strong><strong>データベース。</strong> これが推奨しで使用される方法、 <a id="_msoanchor_7"> </a> [ *SQL Server でメンバーシップ スキーマを作成する*](../membership/creating-the-membership-schema-in-sql-server-cs.md)チュートリアルでは、これはもこのチュートリアルで使用する方法。
 
 次の役割の構成マークアップを追加、`Web.config`ファイル。 このマークアップは、という名前の新しいプロバイダーを登録します。`SecurityTutorialsSqlRoleProvider`します。
@@ -149,7 +149,7 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 Administrators というロールを作成してみましょう。 参照してください、`ManageRoles.aspx`ブラウザーでページで、管理者、テキスト ボックスに入力 (図 3 参照)、ロールの作成 ボタンを順にクリックします。
 
 
-[![管理者ロールを作成します。](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
+[![C管理者の役割を作成する](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
 
 **図 3**:管理者ロールを作成 ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image9.png))。
 
@@ -157,7 +157,7 @@ Administrators というロールを作成してみましょう。 参照して�
 何がどうなりますか。 ポストバックが発生したが、実際には、ロールが視覚的な合図がありませんがシステムに追加します。 手順 5 を視覚的なフィードバックを含めるには、このページを更新します。 ここでは、ただし、ことを確認に移動して、ロールが作成されたこと、`SecurityTutorials.mdf`データベースとデータを表示する、`aspnet_Roles`テーブル。 図 4 に示すよう、`aspnet_Roles`テーブルに追加したばかりの管理者ロールのレコードが含まれています。
 
 
-[![Aspnet_Roles テーブルでは、行を持つ管理者は、](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
+[![T彼 aspnet_Roles テーブルが、管理者は、1 行をあります](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
 
 **図 4**:`aspnet_Roles`テーブルでは、行を持つ管理者は、([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image12.png))。
 
@@ -175,7 +175,7 @@ Administrators というロールを作成してみましょう。 参照して�
 このコードでは、ブラウザーを使用してページを参照してください。 図 5 に示す項目というラベルの付いた 1 つの列のグリッドが表示されます。 グリッドには、手順 4 で追加された管理者ロールに 1 行が含まれています。
 
 
-[![GridView には、1 つの列で、役割が表示されます。](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
+[![TGridView 彼には、1 つの列で、ロールが表示されます](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
 
 **図 5**:GridView には、1 つの列で、役割が表示されます ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image15.png))。
 
@@ -200,10 +200,10 @@ GridView の設定で開始`AutoGenerateColumns`プロパティを False にし�
 
 [!code-csharp[Main](creating-and-managing-roles-cs/samples/sample11.cs)]
 
-ユーザーが新しいロールを追加するときに今すぐ、`RoleList`視覚的なフィードバック、ロールが正常に作成されたことを提供する GridView、ポストバックのだけで追加したロールを示しています。 これを示すためには、、`ManageRoles.aspx`ブラウザーでページと、監督者をという名前のロールを追加を参照してください。 ロールの作成 ボタンをクリックすると、ポストバックが発生したりして、グリッドが更新され、管理者として、新しいロール、監督者などがあります。
+ユーザーが新しいロールを追加するときに今すぐ、`RoleList`視覚的なフィードバック、ロールが正常に作成されたことを提供する GridView、ポストバックのだけで追加したロールを示しています。 これを示すためには、次を参照してください。、`ManageRoles.aspx`ブラウザーでページと、監督者をという名前のロールを追加します。 ロールの作成 ボタンをクリックすると、ポストバックが発生したりして、グリッドが更新され、管理者として、新しいロール、監督者などがあります。
 
 
-[![スーパーバイザー ロールが追加されました](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
+[![T彼の監督者のロールが追加されました](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
 
 **図 6**:スーパーバイザー ロールが追加されました ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image18.png))。
 
@@ -220,7 +220,7 @@ GridView の設定で開始`AutoGenerateColumns`プロパティを False にし�
 GridView を拡張してみましょう`ManageRoles.aspx`に Delete ボタンであり、クリックすると、選択したロールを削除します。 最初、フィールド ダイアログ ボックスに移動し、commandfield オプションの下にある削除 ボタンを追加して GridView に Delete ボタンを追加します。 列の左端のボタンをクリックし、設定の削除を行うその`DeleteText`ロールを削除するプロパティ。
 
 
-[![RoleList GridView に Delete ボタンを追加します。](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
+[![Add RoleList GridView にボタンの削除](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
 
 **図 7**:削除ボタンを追加して、 `RoleList` GridView ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-cs/_static/image21.png))。
 
@@ -236,7 +236,7 @@ GridView のイベント ハンドラーを次に、作成`RowDeleting`イベン
 プログラムで参照することによって、コードの先頭、 `RoleNameLabel` Web コントロールの役割の削除ボタンがクリックされた行にします。 `Roles.DeleteRole`メソッドが呼び出されてを渡して、`Text`の`RoleNameLabel`と`false`のため、かどうかに関係なく、ロールを削除するロールに関連付けられているすべてのユーザーがあります。 最後に、 `RoleList` GridView が更新されるので、単に削除された役割がグリッドに表示されなくなります。
 
 > [!NOTE]
-> ロールの削除 ボタンでは、あらゆる種類のロールを削除する前に、ユーザーから送信される確認は必要ありません。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-cs.aspx)を参照してください。
+> ロールの削除 ボタンでは、あらゆる種類のロールを削除する前に、ユーザーから送信される確認は必要ありません。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、次を参照してください。[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-cs.aspx)します。
 
 
 ## <a name="summary"></a>まとめ

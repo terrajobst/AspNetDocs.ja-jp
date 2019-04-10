@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: 6ac5758b-6199-42af-adcb-21954b864951
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cd7ad46161b3f44d915bc4b2fa201606b00d194a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a7b8b85ba1cf5c18e605eb8114a305272baf41a6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035279"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404872"
 ---
-<a name="creating-custom-routes-vb"></a>カスタム ルートを作成する (VB)
-====================
+# <a name="creating-custom-routes-vb"></a>カスタム ルートを作成する (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC アプリケーションにカスタム ルートを追加する方法について説明します。 このチュートリアルでは、Global.asax ファイルの既定のルート テーブルを変更する方法について説明します。
@@ -61,7 +61,7 @@ ASP.NET MVC アプリケーションでは既定のルーティング テーブ�
 **図 1 - パラメーターの変換からのエラー**
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
 **図 01**:パラメーターの変換からのエラー ([フルサイズの画像を表示する をクリックします](creating-custom-routes-vb/_static/image2.png))。
 

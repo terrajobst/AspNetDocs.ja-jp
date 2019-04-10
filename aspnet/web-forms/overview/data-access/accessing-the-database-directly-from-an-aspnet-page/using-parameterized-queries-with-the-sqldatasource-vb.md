@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: e322f34c-83b7-41ea-ab65-ab1e0bdcc609
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1dffaf59c6519f288dc36519897e51efa22c6a26
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4814edc35c27ba3d17f9bd7de75f97a7e1ad071f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57037069"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422084"
 ---
-<a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>パラメーター化されたクエリと SqlDataSource を使用する (VB)
-====================
+# <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>パラメーター化されたクエリと SqlDataSource を使用する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_48_VB.exe)または[PDF のダウンロード](using-parameterized-queries-with-the-sqldatasource-vb/_static/datatutorial48vb1.pdf)
@@ -61,7 +61,7 @@ SqlDataSource コントロールのデータ ソースの構成ウィザード�
 SqlDataSource コントロールをデータベースから返すデータを選択すると、データ ソースの構成ウィザードでは単に既存のテーブルから返したり (図 1 参照) を表示する列を選択することができます。 SQL を作成して、自動的に行う`SELECT`ステートメントで、データベースに送信されるときに SqlDataSource の`Select()`メソッドが呼び出されます。 前のチュートリアルで行ったようにドロップダウン リストから、Products テーブルを選択し、確認、 `ProductID`、 `ProductName`、および`UnitPrice`列。
 
 
-[![テーブルまたはビューから返す列を選択します。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.png)
+[![Pテーブルまたはビューからの戻り値の列をクリック](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.png)
 
 **図 1**:テーブルまたはビューからの戻り値に列を選択 ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image2.png))。
 
@@ -71,7 +71,7 @@ SqlDataSource コントロールをデータベースから返すデータを選
 この例では、let s のみ結果を返す、場所、`UnitPrice`値は、2,500 ドル以下です。 そのため、選択`UnitPrice`列のドロップダウン リストからおよび&lt;= 演算子のドロップダウン リストから。 ($2,500) などのハード コーディングされたパラメーター値を使用する場合、またはパラメーター値は、プログラムで指定する場合は、ソースのドロップダウン リストから [なし] を選択します。 次に、2,500 値のテキスト ボックスで、ハード コーディングされたパラメーターの値を入力し、[追加] ボタンをクリックしてプロセスを完了します。
 
 
-[![返される結果を制限する、追加 WHERE 句 ダイアログ ボックス](using-parameterized-queries-with-the-sqldatasource-vb/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.png)
+[![L追加で句] ダイアログ ボックスから返される結果 imit](using-parameterized-queries-with-the-sqldatasource-vb/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.png)
 
 **図 2**:追加から返される結果を制限する`WHERE`句 ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image4.png))。
 
@@ -93,7 +93,7 @@ SqlDataSource (をクリックして次に、し、[完了]) の構成を完了�
 ときに SqlDataSource s`Select()`メソッドが呼び出される、`UnitPrice`パラメーター値 (2,500) に適用されます、`@UnitPrice`パラメーター、`SelectCommand`データベースに送信される前にします。 最終的には 2,500 ドル未満から返される製品だけである、`Products`テーブル。 ページに GridView を追加、これを確認するには、このデータ ソースにバインドし、ブラウザーでページを表示します。 記載されている 2,500 円、小さい図 3 が確認されるこれらの製品のみが表示されます。
 
 
-[![唯一のこれらの製品より小さいまたは等しい 2,500 ドルが表示されます。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.png)
+[![Oこれらの製品より小さいのみ () または 2,500 ドルに等しいが表示されます](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.png)
 
 **図 3**:これらの製品より小さいまたは等しい 2,500 ドルのみが表示されます ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image6.png))。
 
@@ -110,7 +110,7 @@ SqlDataSource (をクリックして次に、し、[完了]) の構成を完了�
 (手動またはクエリ ビルダーによって) をクエリを入力した後、[次へ] をクリックします。
 
 
-[![パラメーターの値を小さい製品のみを返す](using-parameterized-queries-with-the-sqldatasource-vb/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.png)
+[![Return のみこれらの製品より小さいまたはパラメーターの値に等しい](using-parameterized-queries-with-the-sqldatasource-vb/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.png)
 
 **図 4**:戻り値ののみこれらの製品より小さいまたはパラメーターの値に等しい ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image8.png))。
 
@@ -118,7 +118,7 @@ SqlDataSource (をクリックして次に、し、[完了]) の構成を完了�
 クエリには、パラメーターが含まれているため、ウィザードの次の画面は私たちをパラメーター値のソースを要求します。 パラメーターのソースのドロップダウン リストからコントロールを選択し、 `MaxPrice` (TextBox コントロールの`ID`値) ControlID のドロップダウン リストから。 ユーザーに任意のテキストの入力がない場合に使用する、省略可能な既定値を入力することも、`MaxPrice`テキスト ボックス。 しばらくの間には、既定値を入力しません。
 
 
-[![MaxPrice TextBox の Text プロパティは、パラメーター ソースとして使用します。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.png)
+[![T彼 MaxPrice TextBox の Text プロパティは、パラメーターのソースとして使用](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.png)
 
 **図 5**:`MaxPrice`テキスト ボックス s`Text`プロパティ パラメーターのソースとして使用されます ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image10.png))。
 
@@ -133,7 +133,7 @@ SqlDataSource (をクリックして次に、し、[完了]) の構成を完了�
 ブラウザーからこのページを表示する時間がかかります。 まず、ページにアクセスしたとき、またはたびに、`MaxPrice`テキスト ボックスに、GridView でレコードが表示されない値が不足しています。
 
 
-[![表示されるときに、MaxPrice テキスト ボックスが空のレコードはありません。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.png)
+[![No レコードは、表示されるときに、MaxPrice テキスト ボックスが空](using-parameterized-queries-with-the-sqldatasource-vb/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.png)
 
 **図 6**:表示されるときにレコードがない、`MaxPrice`テキスト ボックスが空 ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image12.png))。
 
@@ -143,7 +143,7 @@ SqlDataSource (をクリックして次に、し、[完了]) の構成を完了�
 5.00 のように、テキスト ボックスに値を入力し、一致する製品の表示 ボタンをクリックします。 、ポストバックの SqlDataSource は GridView、パラメーター ソースの 1 つが変更されたことを通知します。 その結果、GridView が SqlDataSource、5.00 にこれらの製品少ない以下を表示するのに再バインドします。
 
 
-[![製品のより小さいまたは等しい 5.00 ドルが表示されます。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.png)
+[![Products 5.00 ドル以下が表示されます](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.png)
 
 **図 7**:製品のより小さいまたは等しい 5.00 ドルが表示されます ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image14.png))。
 
@@ -162,7 +162,7 @@ SqlDataSource (をクリックして次に、し、[完了]) の構成を完了�
 これは、`WHERE`句を返します*すべて*場合、`@MaximumPrice`パラメーターと等しい`-1.0`します。 パラメーターの値がない場合`-1.0`、これらの製品のみが`UnitPrice`に等しいまたはそれよりも小さい、`@MaximumPrice`パラメーターの値が返されます。 既定値を設定して、`@MaximumPrice`パラメーターを`-1.0`、最初のページの読み込み時 (またはたびに、`MaxPrice`テキスト ボックスが空)、`@MaximumPrice`の値を持ちます`-1.0`とすべての製品が表示されます。
 
 
-[![これで、すべての製品が表示されるときに、MaxPrice テキスト ボックスが空](using-parameterized-queries-with-the-sqldatasource-vb/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.png)
+[![Now すべての製品が表示されるときに、MaxPrice テキスト ボックスが空](using-parameterized-queries-with-the-sqldatasource-vb/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.png)
 
 **図 8**:これで、すべての製品が表示されるときに、`MaxPrice`テキスト ボックスが空 ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image16.png))。
 
@@ -185,7 +185,7 @@ SqlDataSource でストアド プロシージャの使用を示すためには�
 保存アイコン (または Ctrl + S)、ストアド プロシージャを保存する をクリックします。 ストアド プロシージャをテストするにはストアド プロシージャ フォルダーを右クリックして実行 を選択します。 これは、ストアド プロシージャのパラメーターが要求されます (`@CategoryID`、このインスタンスで) 後が、結果が表示されます、出力ウィンドウにします。
 
 
-[![GetProductsByCategory ストアド プロシージャを実行すると、 @CategoryID 1](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image17.png)
+[![T彼は GetProductsByCategory のストアド プロシージャを実行すると、 @CategoryID 1](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image17.png)
 
 **図 9**:`GetProductsByCategory`ストアド プロシージャを実行すると、 `@CategoryID` 1 の ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image18.png))。
 
@@ -193,7 +193,7 @@ SqlDataSource でストアド プロシージャの使用を示すためには�
 このストアド プロシージャを使用して、GridView で飲み物のカテゴリのすべての製品を表示する秒を使用できます。 新しい GridView をページに追加し、という名前の新しい SqlDataSource にバインドする`BeverageProductsDataSource`します。 カスタム SQL ステートメントまたはストアド プロシージャの画面の指定に引き続き、ストアド プロシージャのラジオ ボタンを選択および選択、`GetProductsByCategory`ストアド プロシージャをドロップダウン リストから。
 
 
-[![選択、GetProductsByCategory ストアド プロシージャをドロップダウン リストから](using-parameterized-queries-with-the-sqldatasource-vb/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image19.png)
+[![SGetProductsByCategory ストアド プロシージャをドロップダウン リストから選択](using-parameterized-queries-with-the-sqldatasource-vb/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image19.png)
 
 **図 10**:選択、`GetProductsByCategory`ドロップダウン リストからストアド プロシージャ ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image20.png))。
 
@@ -201,7 +201,7 @@ SqlDataSource でストアド プロシージャの使用を示すためには�
 ストアド プロシージャは、入力パラメーターを受け取るので (`@CategoryID`)、[次へ] をクリックするとこのパラメーターの値のソースを指定することを求められます。 飲み物`CategoryID`は 1 です。 したがって None パラメーターのソースのドロップダウン リストのままにしてと DefaultValue テキスト ボックスに 1 を入力します。
 
 
-[![ハード コーディングされた値 1 を使用して、飲料カテゴリ、製品を返す](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image21.png)
+[![Use Hard-Coded 値 1 を飲料カテゴリ、製品を返す](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image21.png)
 
 **図 11**:Hard-Coded 値 1 を使用して、飲料カテゴリ、製品を返す ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image22.png))。
 
@@ -214,7 +214,7 @@ SqlDataSource s、ストアド プロシージャを使用する場合は次の�
 ブラウザーでページをテストします。 飲み物のカテゴリに属する製品だけが表示されますが、*すべて*以降、製品のフィールドが表示されます、`GetProductsByCategory`ストアド プロシージャが返すすべての列から、`Products`テーブル。 もちろん、制限または GridView の列の編集 ダイアログ ボックスから GridView に表示されるフィールドをカスタマイズすることでした。
 
 
-[![飲み物のすべてが表示されます。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image23.png)
+[![All、飲み物の表示](using-parameterized-queries-with-the-sqldatasource-vb/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image23.png)
 
 **図 12**:飲み物のすべてが表示されます ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image24.png))。
 
@@ -246,7 +246,7 @@ S カテゴリを表示する`CategoryName`値、Label Web コントロールを
 `randomCategoryView(0)` 最初を返します`DataRowView`DataView にします。 `randomCategoryView(0)("CategoryName")` 値を返します、`CategoryName`この最初の行の列。 データ ビューでは、弱い型指定があるに注意してください。 特定の列の値を参照するには、文字列 (このケースでは、CategoryName) として、列の名前を渡す必要があります。 図 13 に表示されるメッセージでは、`CategoryNameLabel`ページを表示するときにします。 によって表示される実際のカテゴリ名をランダムに選択もちろん、 `RandomCategoryDataSource` SqlDataSource (ポストバックを含む)、ページにアクセスするたびにします。
 
 
-[![名前が表示されます、ランダムに選択したカテゴリ s](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image25.png)
+[![T彼はランダムに選択したカテゴリの名前が表示されます](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image25.png)
 
 **図 13**:名前が表示されます、ランダムに選択したカテゴリ s ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image26.png))。
 
@@ -270,7 +270,7 @@ SqlDataSource でランダムに選択カテゴリでは、カテゴリの製品
 GridView をページに追加することで開始し、という名前の新しい SqlDataSource にバインドする`ProductsByCategoryDataSource`します。 手順 3 で行ったようなより、SqlDataSource の構成を呼び出すように、`GetProductsByCategory`ストアド プロシージャ。 None、パラメーター ソースのドロップダウン リストの設定をそのまま使用しますが、この既定値をプログラムで設定しますが、既定値を入力しないでください。
 
 
-[![パラメーターのソースまたは既定値を指定しません。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image27.png)
+[![Do には、パラメーター ソースまたは既定値が指定しない](using-parameterized-queries-with-the-sqldatasource-vb/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image27.png)
 
 **図 14**:パラメーターのソースまたは既定値を指定しないでください ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image28.png))。
 
@@ -288,7 +288,7 @@ SqlDataSource ウィザードを完了すると、結果として得られる宣
 これにより、ページには、ランダムに選択したカテゴリに関連付けられている製品を表示する GridView が含まれます。
 
 
-[![パラメーターのソースまたは既定値を指定しません。](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image29.png)
+[![Do には、パラメーター ソースまたは既定値が指定しない](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image29.png)
 
 **図 15**:パラメーターのソースまたは既定値を指定しないでください ([フルサイズの画像を表示する をクリックします](using-parameterized-queries-with-the-sqldatasource-vb/_static/image30.png))。
 

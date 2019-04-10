@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: f640e063-150e-453d-8cfc-7e54a6ce0f1e
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b9c6ff228e73ce63f7a0b046110db656103d6d5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3df4258b2de309aed5a3a598caeb1e7332c321f6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064469"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383962"
 ---
-<a name="iteration-7--add-ajax-functionality-vb"></a>繰り返し #7 – Ajax 機能を追加 (VB)
-====================
+# <a name="iteration-7--add-ajax-functionality-vb"></a>繰り返し #7 – Ajax 機能を追加 (VB)
+
 によって[Microsoft](https://github.com/microsoft)
 
 [コードをダウンロードします。](iteration-7-add-ajax-functionality-vb/_static/contactmanager_7_vb1.zip)
@@ -94,14 +94,14 @@ JavaScript をサポートするブラウザーで Contact Manager アプリケ�
 S の連絡先を表示するビューの領域を更新のみ連絡先グループ をクリックするように、インデックス ビューを変更することで開始できるようにします。 図 1 で赤いボックスには、リージョン更新することにはが含まれています。
 
 
-[![連絡先のみを更新しています](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
+[![Updating 連絡先のみ](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
 
 **図 01**:連絡先のみを更新 ([フルサイズの画像を表示する をクリックします](iteration-7-add-ajax-functionality-vb/_static/image2.png))。
 
 
 最初の手順は、別の部分 (ビュー ユーザー コントロール) に非同期的に更新するビューの一部を分離します。 連絡先のテーブルを表示する Index ビューのセクションでは、リスト 1 で部分に移動されました。
 
-**1 - Views\Contact\ContactList.ascx を一覧表示します。**
+**Listing 1 - Views\Contact\ContactList.ascx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample2.aspx)]
 
@@ -194,7 +194,7 @@ ASP.NET AJAX ブラウザーの履歴、3 つの作業を行う必要があり�
 現時点では、連絡先を削除する必要があります、削除 リンクをクリックし、削除の確認 ページに表示される 削除 ボタンをクリックする (図 2 参照)。 これは、多くのページ要求でデータベースのレコードを削除するような簡単な処理を行うように見えます。
 
 
-[![削除の確認ページ](iteration-7-add-ajax-functionality-vb/_static/image2.jpg)](iteration-7-add-ajax-functionality-vb/_static/image3.png)
+[![T[確認] ページを削除しています](iteration-7-add-ajax-functionality-vb/_static/image2.jpg)](iteration-7-add-ajax-functionality-vb/_static/image3.png)
 
 **図 02**:削除の確認 ページ ([フルサイズの画像を表示する をクリックします](iteration-7-add-ajax-functionality-vb/_static/image4.png))。
 

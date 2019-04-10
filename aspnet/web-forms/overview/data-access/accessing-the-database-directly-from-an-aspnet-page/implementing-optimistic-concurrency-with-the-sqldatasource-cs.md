@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6569f8e8f11bb67bc0723908225c7fd663a845b3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: e8ed68e10d2924a2174494943b654e1f46284be4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423963"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420706"
 ---
-<a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource でオプティミスティック同時実行制御を実装する (C#)
-====================
+# <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource でオプティミスティック同時実行制御を実装する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_CS.exe)または[PDF のダウンロード](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/datatutorial50cs1.pdf)
@@ -47,7 +47,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 図 2 は、この相互作用を示しています。
 
 
-[![2 人のユーザー レコードを同時に更新するときに、その他の s を上書きするがあります s の潜在的 1 人のユーザーの変更](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
+[![When 2 つのユーザーに同時に更新プログラム、レコードが潜在的な 1 人のユーザーの変更を他を上書きするため](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
 
 **図 2**:ときに 2 人のユーザーを同時に更新レコードが s 可能性の 1 つのユーザーの変更を上書きするため、他の ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))。
 
@@ -61,7 +61,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 オプティミスティック同時実行制御は、更新または削除プロセスを開始するときと同様、更新または削除されるレコードが同じ値があることを確認することによって機能します。 たとえば、編集可能な GridView で [編集] ボタンをクリックすると s のレコードの値はデータベースからの読み取りし、テキスト ボックスや他の Web コントロールに表示されます。 これらの元の値は、GridView で保存されます。 後で、ユーザーが自分の変更を行いますが、更新ボタンをクリックした後、`UPDATE`ステートメントを使用する必要があります、元の値と新しい値を考慮し、元の値は、ユーザーが編集を開始した場合にのみ、基になるデータベース レコードを更新引き続き、データベース内の値と同じです。 図 3 は、このイベントのシーケンスを示しています。
 
 
-[![正常に更新または削除、元の値は現在のデータベースの値と等しくする必要があります。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
+[![Fまたはを正常に更新または削除、元の値が現在のデータベースの値と等しくする必要があります](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
 
 **図 3**:更新プログラムまたは成功を元の値必要がありますと等しいデータベースの現在の値を Delete ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))。
 
@@ -78,7 +78,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 開いて開始、`OptimisticConcurrency.aspx`ページから、`SqlDataSource`フォルダー。 SqlDataSource コントロールをドラッグして、デザイナーの設定には、ツールボックスからその`ID`プロパティを`ProductsDataSourceWithOptimisticConcurrency`します。 次に、コントロールのスマート タグからのデータ ソースの構成のリンクをクリックします。 ウィザードの最初の画面で選択を使用する、 `NORTHWINDConnectionString` [次へ] をクリックします。
 
 
-[![選択、NORTHWINDConnectionString を操作する](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
+[![CNORTHWINDConnectionString] を選択](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
 
 **図 4**:操作を選択して、 `NORTHWINDConnectionString` ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png))。
 
@@ -86,7 +86,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 この例ではユーザーが編集できるようにする GridView に追加する、`Products`テーブル。 そのため、ステートメントの選択画面の構成 から選択、`Products`ドロップダウン リストからテーブルを選択、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`列、図 5 に示すようにします。
 
 
-[![Products テーブルから ProductID、ProductName、UnitPrice、および提供が中止された列を返す](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
+[![From、Products テーブルは、ProductID、ProductName、UnitPrice、および提供が中止された列を返す](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
 
 **図 5**:`Products`テーブルを返す、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`列 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png))。
 
@@ -152,7 +152,7 @@ Jisun と Sam、2 人のユーザーが両方にアクセスして更新およ�
 オプティミスティック同時実行制御をサポートするように構成 SqlDataSource ではこの同時実行制御を使用するページにデータ Web コントロールを追加します。 このチュートリアルでは、s の両方の編集を提供する GridView の追加し、削除機能を使用できます。 これを実現するデザイナーとセットには、ツールボックスから、GridView をドラッグします。 その`ID`に`Products`します。 GridView のスマート タグからバインドを`ProductsDataSourceWithOptimisticConcurrency`SqlDataSource コントロールを手順 1. で追加します。 最後に、スマート タグから編集の有効化および削除を有効にするオプションを確認します。
 
 
-[![SqlDataSource GridView にバインドし、編集および削除を有効にします。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
+[![B%%ind GridView が SqlDataSource を編集および削除を有効にする](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
 
 **図 6**:SqlDataSource と編集の有効化および削除すると、GridView にバインド ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png))。
 
@@ -173,7 +173,7 @@ GridView に次の変更を加えたら、GridView や SqlDataSource 宣言型�
 2 番目のブラウザー ウィンドウで (ただし、元の値として製品の名前のままに) 価格を変更し、[更新] をクリックします。 ポストバックでは、グリッドが、事前の編集モードに戻りますが、価格に変更は記録されません。 2 番目のブラウザーでは、1 つ目と同じ値に古い価格に新しい製品名が表示されます。 2 番目のブラウザー ウィンドウで行った変更が失われました。 さらに、変更が失われましたサイレント モードではなく、例外または同時実行制御違反が発生したことを示すメッセージがないです。
 
 
-[![2 番目のブラウザー ウィンドウで変更が自動的に失われました](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
+[![T彼は、2 番目のブラウザー ウィンドウがサイレント モードで失われるの変更](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
 
 **図 7**:2 番目のブラウザー ウィンドウがサイレント モードで失われる変更 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png))。
 
@@ -196,7 +196,7 @@ GridView に次の変更を加えたら、GridView や SqlDataSource 宣言型�
 同時実行制御違反は、いずれかが行われた変更を拒否するため、同時実行制御違反が発生した場合にアラートをユーザーになります。 Let s がという名前のページの上部にラベル Web コントロールを追加して、警告、`ConcurrencyViolationMessage`が`Text`プロパティには、次のメッセージが表示されます。更新または別のユーザーによって同時に更新されたレコードを削除しようとしました。 その他のユーザーの変更を確認し、更新プログラムを再実行か削除してください。 ラベル コントロールの設定`CssClass`で定義されているプロパティは、CSS クラスの警告を`Styles.css`赤、斜体、太字、および大規模なフォントでテキストを表示します。 最後に、s のラベルを設定`Visible`と`EnableViewState`プロパティ`false`します。 これは明示的に設定します、ポストバックのみを除く、ラベルを非表示にその`Visible`プロパティを`true`します。
 
 
-[![警告を表示するページにラベル コントロールを追加します。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
+[![Add ラベル コントロールをページに警告を表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
 
 **図 8**:警告を表示するページにラベル コントロールを追加 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png))。
 
@@ -213,7 +213,7 @@ GridView に次の変更を加えたら、GridView や SqlDataSource 宣言型�
 これら 2 つのイベント ハンドラーを使用して、図 9 に示すように、同時実行制御違反が発生するたびに非常に顕著なメッセージが表示されます。
 
 
-[![同時実行制御違反が発生した場合、メッセージが表示されます。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
+[![A 同時実行制御違反が発生した場合は、メッセージが表示されます](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
 
 **図 9**:同時実行制御違反が発生した場合、メッセージが表示されます ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))。
 

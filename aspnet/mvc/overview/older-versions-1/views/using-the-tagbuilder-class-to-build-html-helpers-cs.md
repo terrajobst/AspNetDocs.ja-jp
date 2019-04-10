@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 3975a52f-bd15-4edd-8f3d-1df93672515b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9759ea9b05ba5eba268901d3d2d1a15b2afe6202
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3227560c1d0c48f7738e26c87a0dbb140c410eee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055929"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410098"
 ---
-<a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>TagBuilder クラスを使用して、HTML ヘルパー (c#) をビルドするには
-====================
+# <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>TagBuilder クラスを使用して、HTML ヘルパー (c#) をビルドするには
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther TagBuilder クラスという名前の ASP.NET MVC フレームワークで便利なユーティリティ クラスを紹介します。 TagBuilder クラスを使用すると、HTML タグを簡単に構築します。
@@ -60,12 +60,12 @@ TagBuilder.MergeAttribute() メソッドを使用して、TagBuilder に src 属
 
 イメージ ヘルパーを作成した後は、その他の標準の HTML ヘルパーのいずれかのように、ASP.NET MVC ビューで、ヘルパーを使用できます。 リスト 2 での表示では、イメージ ヘルパーを使用して、2 回、Xbox の同じイメージを表示 (図 1 参照)。 HTML 属性のコレクションの有無にかかわらず、Image() ヘルパーが呼び出されます。
 
-**2 - Home\Index.aspx を一覧表示します。**
+**Listing 2 - Home\Index.aspx**
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample2.aspx)]
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
 
 **図 01**:イメージ ヘルパーを使用して ([フルサイズの画像を表示する をクリックします](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))。
 

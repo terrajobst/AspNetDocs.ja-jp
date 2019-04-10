@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: df6cf4b7-0bb3-4c4e-b17a-bd78a759a6bc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 31faf2e89e6acb25854455902c1a6fdffebd293c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c7a1b9e82defaae71f0a911e5e4321f6e15ad8bf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423183"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422617"
 ---
-<a name="performing-simple-validation-vb"></a>簡易検証を実行する (VB)
-====================
+# <a name="performing-simple-validation-vb"></a>簡易検証を実行する (VB)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > ASP.NET MVC アプリケーションで検証を実行する方法について説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして、検証 HTML ヘルパーについて説明します。
@@ -56,12 +56,12 @@ Html.ValidationMessage() と Html.ValidationSummary() ヘルパーは、ASP.NET 
 ビューを追加する前にアプリケーションをビルドすることを確認します。 それ以外の場合、クラスの一覧に表示されません、**データ クラスを表示**ドロップダウン リスト。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
 
 **図 01**:ビューの追加 ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image2.png))。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
 
 **図 02**:厳密に型指定されたビューを作成する ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image4.png))。
 
@@ -79,7 +79,7 @@ Html.ValidationMessage() ヘルパーは HTML フォームのフィールドの�
 図 3 のページは、不足しているフィールドと無効な値で、フォームが送信されたときに、検証ヘルパーによって表示されるエラー メッセージを示しています。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
 **図 03**:問題を含めて提出してビューを作成する ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image6.png))。
 
@@ -104,7 +104,7 @@ HTML の外観は、検証エラーがある場合にもフィールドが変更
 製品を作成するための HTML フォームを送信する、[price] フィールドと UnitsInStock フィールドの値に無効な値を入力すると、図 4 に表示される検証メッセージを取得します。 これらの検証エラー メッセージからどのようになるでしょうか。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
 
 **図 04**:検証エラーを prebinding ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image8.png))。
 

@@ -8,15 +8,15 @@ ms.date: 02/16/2009
 ms.assetid: 0bfd06b1-12d3-4fbb-9779-a82e5eb7fe7d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 51d76248a59968e1d6befd5d5404f7bf6c2878e4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 42c0ce5e158e2fe9387ac218ac0762b6362094f9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389577"
 ---
-<a name="creating-a-route-constraint-c"></a>ルート制約を作成する (C#)
-====================
+# <a name="creating-a-route-constraint-c"></a>ルート制約を作成する (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > このチュートリアルでは、Stephen Walther は、正規表現のルート制約を作成して、ブラウザーが一致するルートを要求する方法を制御する方法について説明します。
@@ -51,7 +51,7 @@ ms.locfileid: "57049619"
 Details() アクションには、整数パラメーターが必要ですが、ため、整数値以外のものを含む要求を行うと、エラーが発生します。 たとえば、URL/Product/apple をお使いのブラウザーに入力した場合は、図 1 エラー ページを表示がされます。
 
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
+[![T彼は新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
 
 **図 01**:展開のページが表示 ([フルサイズの画像を表示する をクリックします](creating-a-route-constraint-cs/_static/image2.png))。
 

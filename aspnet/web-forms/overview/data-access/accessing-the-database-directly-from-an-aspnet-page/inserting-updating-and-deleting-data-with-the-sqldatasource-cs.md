@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: a526f0ec-779e-4a2b-a476-6604090d25ce
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06c5fea8a058f15e72d455cf0e15b462d8f91e38
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 8a1f0f929e2e2ee01a4567cb502e5fd908d8c90b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440392"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402792"
 ---
-<a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>SqlDataSource でデータを挿入、更新、削除する (C#)
-====================
+# <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>SqlDataSource でデータを挿入、更新、削除する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_49_CS.exe)または[PDF のダウンロード](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/datatutorial49cs1.pdf)
@@ -50,7 +50,7 @@ ms.locfileid: "58440392"
 開いて開始、`InsertUpdateDelete.aspx`と`Querying.aspx`ページから、`SqlDataSource`フォルダー。 上のデザイナーから、 `Querying.aspx`  ページで、最初の例から、SqlDataSource や GridView を選択します (、`ProductsDataSource`と`GridView1`コントロール)。 2 つのコントロールを選択すると、[編集] メニューに移動およびコピーを選択 (または ctrl キーを押しながら C キーを押すだけ)。 デザイナーに移動して次に、`InsertUpdateDelete.aspx`コントロールに貼り付けます。 に 2 つのコントロールを移動したら`InsertUpdateDelete.aspx`ブラウザーでページをテストします。 値を表示する必要があります、 `ProductID`、 `ProductName`、および`UnitPrice`内のレコードのすべての列、`Products`データベース テーブル。
 
 
-[![すべての製品が一覧表示されます ProductID によって順序付け](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
+[![AProductID によって順序付けられた製品の ll が一覧表示されます](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
 
 **図 1**:すべての製品が一覧表示されます並べ`ProductID`([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.png))。
 
@@ -87,7 +87,7 @@ ms.locfileid: "58440392"
 次に、追加するパラメーターの更新ボタンをクリックして、`@ProductID`パラメーター以下のパラメーターの一覧にします。
 
 
-[![[プロパティ] ウィンドウから DeleteQuery プロパティを選択します。](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
+[![S[プロパティ] ウィンドウから、DeleteQuery プロパティを選択](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
 
 **図 3**:[プロパティ] ウィンドウから、DeleteQuery プロパティを選択します ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.png))。
 
@@ -111,7 +111,7 @@ ms.locfileid: "58440392"
 `DeleteCommand`プロパティの追加、GridView s のスマート タグには、削除を有効にするオプションが含まれています。 このチェック ボックスを確認してください。 説明したよう[、概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)、これが原因で、GridView で [commandfield] を追加するその`ShowDeleteButton`プロパティに設定`true`します。 ページがブラウザーからアクセスしたときに、4 に示すを図には、[削除] ボタンが含まれます。 このページをテストするには、一部の製品を削除します。
 
 
-[![GridView の行ごとに Delete ボタンが含まれています](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
+[![Each GridView の行には、[削除] ボタンが含まれています](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
 
 **図 4**:GridView の行ごとに、[削除] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.png))。
 
@@ -137,7 +137,7 @@ ms.locfileid: "58440392"
 この自動生成オプションを探索して使用できます。 デザイナーに、DetailsView を追加`InsertUpdateDelete.aspx`設定とその`ID`プロパティを`ManageProducts`します。 次に、DetailsView s のスマート タグから、SqlDataSource という名前を作成し、新しいデータ ソースを作成する選択`ManageProductsDataSource`します。
 
 
-[![ManageProductsDataSource という名前の新しい SqlDataSource を作成します。](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
+[![C新しい SqlDataSource という ManageProductsDataSource を reate](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
 
 **図 6**:名前付き新しい SqlDataSource 作成`ManageProductsDataSource`([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.png))。
 
@@ -145,7 +145,7 @@ ms.locfileid: "58440392"
 使用することを選択、データ ソースの構成ウィザードから、`NORTHWINDConnectionString`接続文字列を [次へ] をクリックします。 Select ステートメントの画面の構成 から選択したテーブルまたはビューのオプション ボタンから列を指定のままにし、選択、`Products`ドロップダウン リストからテーブル。 選択、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`チェック ボックスの一覧から列。
 
 
-[![ProductID、ProductName、UnitPrice、および提供が中止された列を返す、Products テーブルを使用して、](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
+[![UProducts テーブルの歌い、ProductID、ProductName、UnitPrice、および提供が中止された列を返す](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
 
 **図 7**:使用して、`Products`テーブルを返す、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`列 ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image10.png))。
 
@@ -173,7 +173,7 @@ DetailsView のデータの変更機能を有効にする、挿入を有効に�
 ブラウザーでページにアクセスし、編集、削除、および DetailsView に含まれる新しいボタンに注意してください。 各 BoundField を表示する編集モードにある DetailsView をオンに編集ボタンをクリックを`ReadOnly`プロパティに設定されて`false`(既定)、テキスト ボックスとチェック ボックスとして CheckBoxField として。
 
 
-[![DetailsView s 既定の編集インターフェイス](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
+[![T彼 DetailsView s 編集インターフェイスの既定](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
 
 **図 9**:DetailsView s 編集インターフェイスの既定の ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image12.png))。
 

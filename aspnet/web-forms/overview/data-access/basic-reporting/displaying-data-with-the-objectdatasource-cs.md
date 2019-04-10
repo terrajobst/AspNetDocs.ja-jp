@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: af882aef-56f5-4e9a-8f95-3977fde20e74
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 45f72cfb06cdd4ee624f9930a360d5a85a98a9c1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a861fbbf2813a659f5301e43bd851345cac34e9f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045829"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380029"
 ---
-<a name="displaying-data-with-the-objectdatasource-c"></a>ObjectDataSource でデータを表示する (C#)
-====================
+# <a name="displaying-data-with-the-objectdatasource-c"></a>ObjectDataSource でデータを表示する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_4_CS.exe)または[PDF のダウンロード](displaying-data-with-the-objectdatasource-cs/_static/datatutorial04cs1.pdf)
@@ -39,7 +39,7 @@ ASP.NET 2.0 の 5 つの組み込みのデータ ソース コントロールが
 ObjectDataSource は、その他のオブジェクトを操作するためのプロキシとして機能します。 ObjectDataSource を構成する指定しますこの基になるオブジェクトとそのメソッドと ObjectDataSource のマップ`Select`、 `Insert`、 `Update`、および`Delete`メソッド。 この基になるオブジェクトが指定されているし、そのメソッドは、ObjectDataSource にマップされている、ObjectDataSource をデータ Web コントロールにバインドできますがします。 ASP.NET は、Web コントロール、GridView、DetailsView、RadioButtonList、および、DropDownList を含む他のユーザーの間で多くのデータに付属します。 ページのライフ サイクル中にデータ Web コントロールがその ObjectDataSource を呼び出すことによってこれを実現するのには、バインドされているデータにアクセスする必要があります`Select`メソッド; データ Web コントロールでは、挿入、更新、サポートしているか、削除、呼び出し可能に場合、ObjectDataSource の`Insert`、 `Update`、または`Delete`メソッド。 これらの呼び出しは、次の図に示すように、適切な基になるオブジェクトのメソッドを ObjectDataSource でルーティングされます。
 
 
-[![ObjectDataSource がプロキシとして機能します。](displaying-data-with-the-objectdatasource-cs/_static/image3.png)](displaying-data-with-the-objectdatasource-cs/_static/image2.png)
+[![T彼は ObjectDataSource がプロキシとして機能](displaying-data-with-the-objectdatasource-cs/_static/image3.png)](displaying-data-with-the-objectdatasource-cs/_static/image2.png)
 
 **図 2**:プロキシとして機能する ObjectDataSource ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image4.png))。
 
@@ -57,7 +57,7 @@ ObjectDataSource を使用して、挿入するためのメソッドを呼び出
 ObjectDataSource の基になるオブジェクトとそのオブジェクトのメソッドに ObjectDataSource のマップ方法を指定するには、ObjectDataSource のスマート タグからのデータ ソースの構成のリンクをクリックします。
 
 
-[![をクリックして、スマート タグからのデータ ソースのリンクを構成します。](displaying-data-with-the-objectdatasource-cs/_static/image6.png)](displaying-data-with-the-objectdatasource-cs/_static/image5.png)
+[![Cスマート タグから構成データ ソースのリンクをクリックして](displaying-data-with-the-objectdatasource-cs/_static/image6.png)](displaying-data-with-the-objectdatasource-cs/_static/image5.png)
 
 **図 3**:スマート タグから構成データのソース リンクをクリックします ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image7.png))。
 
@@ -67,7 +67,7 @@ ObjectDataSource の基になるオブジェクトとそのオブジェクトの
 この最初の画面から選択、`ProductsBLL`ドロップダウン リストからクラスし、[次へ] をクリックします。
 
 
-[![ObjectDataSource コントロールを使用するオブジェクトを指定します。](displaying-data-with-the-objectdatasource-cs/_static/image9.png)](displaying-data-with-the-objectdatasource-cs/_static/image8.png)
+[![SObjectDataSource コントロールで使用するオブジェクトを指定する](displaying-data-with-the-objectdatasource-cs/_static/image9.png)](displaying-data-with-the-objectdatasource-cs/_static/image8.png)
 
 **図 4**:ObjectDataSource コントロールを使用するオブジェクトを指定 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image10.png))。
 
@@ -75,7 +75,7 @@ ObjectDataSource の基になるオブジェクトとそのオブジェクトの
 次の画面で、ウィザードでは、ObjectDataSource を呼び出す必要があるどのような方法を選択するように求められます。 ドロップダウン リストでは、前の画面から選択したオブジェクトにデータを返すメソッドが一覧表示します。 ここでわかります`GetProductByProductID`、 `GetProducts`、 `GetProductsByCategoryID`、および`GetProductsBySupplierID`します。 選択、`GetProducts`メソッド をクリックして、ドロップダウン リストから 完了 (追加した場合、`DataObjectMethodAttribute`を`ProductBLL`の前のチュートリアルでは、このオプションで示すように、メソッドは既定で選択されます)。
 
 
-[![タブからデータを返す方法を選択します。](displaying-data-with-the-objectdatasource-cs/_static/image12.png)](displaying-data-with-the-objectdatasource-cs/_static/image11.png)
+[![C[選択] タブからデータを返すメソッドの選択](displaying-data-with-the-objectdatasource-cs/_static/image12.png)](displaying-data-with-the-objectdatasource-cs/_static/image11.png)
 
 **図 5**:データを返す処理の方法を選択 タブから選択 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image13.png))。
 
@@ -98,7 +98,7 @@ ObjectDataSource のによって返されるデータを表示するページに
 GridView コントロールをツールボックスから追加`SimpleDisplay.aspx`のデザイン画面。 GridView のスマート タグからには、手順 1. で追加された ObjectDataSource コントロールを選択します。 ObjectDataSource からのデータによって返される各プロパティの GridView に、BoundField 自動的に作成されます`Select`メソッド (つまり、製品データ テーブルで定義されたプロパティ)。
 
 
-[![GridView がページに追加されて、ObjectDataSource にバインド](displaying-data-with-the-objectdatasource-cs/_static/image15.png)](displaying-data-with-the-objectdatasource-cs/_static/image14.png)
+[![A GridView がページに追加されて、ObjectDataSource にバインド](displaying-data-with-the-objectdatasource-cs/_static/image15.png)](displaying-data-with-the-objectdatasource-cs/_static/image14.png)
 
 **図 6**:GridView に追加された、ページと ObjectDataSource にバインド ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image16.png))。
 
@@ -106,7 +106,7 @@ GridView コントロールをツールボックスから追加`SimpleDisplay.as
 カスタマイズ、再配置、またはスマート タグからの列の編集オプションをクリックして、GridView の BoundFields を削除し、ことができます。
 
 
-[![列の編集 ダイアログ ボックスの GridView の BoundFields を管理します。](displaying-data-with-the-objectdatasource-cs/_static/image18.png)](displaying-data-with-the-objectdatasource-cs/_static/image17.png)
+[![MGridView を管理 BoundFields 経由の編集の列] ダイアログ ボックス](displaying-data-with-the-objectdatasource-cs/_static/image18.png)](displaying-data-with-the-objectdatasource-cs/_static/image17.png)
 
 **図 7**:GridView の BoundFields 経由の編集の列 ダイアログ ボックスの管理 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image19.png))。
 
@@ -117,7 +117,7 @@ GridView の BoundFields、削除を変更する少し、 `ProductID`、 `Suppli
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample2.aspx)]
 
 
-[![GridView の BoundFields がカスタマイズされています。](displaying-data-with-the-objectdatasource-cs/_static/image21.png)](displaying-data-with-the-objectdatasource-cs/_static/image20.png)
+[![T彼は GridView の BoundFields がカスタマイズされている](displaying-data-with-the-objectdatasource-cs/_static/image21.png)](displaying-data-with-the-objectdatasource-cs/_static/image20.png)
 
 **図 8**:GridView の BoundFields がカスタマイズされている ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image22.png))。
 
@@ -133,7 +133,7 @@ GridView の BoundFields、削除を変更する少し、 `ProductID`、 `Suppli
 という名前のプロジェクトに新しいスキン ファイルを追加して開始`GridView.skin`をソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。
 
 
-[![GridView.skin をという名前のスキン ファイルを追加します。](displaying-data-with-the-objectdatasource-cs/_static/image24.png)](displaying-data-with-the-objectdatasource-cs/_static/image23.png)
+[![Add スキン ファイルという GridView.skin](displaying-data-with-the-objectdatasource-cs/_static/image24.png)](displaying-data-with-the-objectdatasource-cs/_static/image23.png)
 
 **図 9**:スキン ファイルの名前を追加`GridView.skin`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image25.png))。
 
@@ -141,7 +141,7 @@ GridView の BoundFields、削除を変更する少し、 `ProductID`、 `Suppli
 スキン ファイルに存在する、テーマに配置することが必要、`App_Themes`フォルダー。 このようなフォルダーはまだありません、ために、Visual Studio は、最初のスキンを追加するときに、私たちの 1 つを作成する提供してください。 作成するには、[はい] をクリックして、`App_Theme`フォルダーと新しい配置`GridView.skin`ファイルがあります。
 
 
-[![App_Theme フォルダーを作成する Visual Studio で自動的に](displaying-data-with-the-objectdatasource-cs/_static/image27.png)](displaying-data-with-the-objectdatasource-cs/_static/image26.png)
+[![Let Visual Studio では、App_Theme フォルダーを作成](displaying-data-with-the-objectdatasource-cs/_static/image27.png)](displaying-data-with-the-objectdatasource-cs/_static/image26.png)
 
 **図 10**:Visual Studio で作成できるように、`App_Theme`フォルダー ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image28.png))。
 
@@ -172,7 +172,7 @@ DataWebControls を GridView のテーマの名前を変更 (GridView フォル�
 必要な作業は以上です。 `styleSheetTheme`設定では、テーマで指定したプロパティが必要があることを示します*いない*コントロール レベルで指定されたプロパティを上書きします。 テーマの設定がコントロールの設定を優先する必要がありますを指定するには、使用、`theme`属性の代わりに`styleSheetTheme`、残念ながら、テーマの設定で指定された、`theme`属性は、Visual Studio のデザイン ビューでは表示されません。 参照してください[ASP.NET のテーマおよびスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)と[サーバー側のスタイルを使用してテーマ](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)テーマとスキン; の詳細については、次を参照してください[How To:。ASP.NET のテーマを適用](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx)テーマを使用するページの設定に関する詳細。
 
 
-[![GridView は、製品の名前、カテゴリ、供給業者、価格、および提供が中止された情報が表示されます。](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)
+[![TGridView 彼は、製品の名前、カテゴリ、供給業者、価格、および情報の提供が中止された表示します](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)
 
 **図 12**:製品の名前、カテゴリ、供給業者、価格、および情報の提供が中止された GridView が表示されます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image32.png))。
 
@@ -184,7 +184,7 @@ GridView にバインドされているデータ ソース コントロールに
 DetailsView コントロールを追加して開始*上*で GridView`SimpleDisplay.aspx`します。 次に、GridView として同じ ObjectDataSource コントロールにバインドします。 ObjectDataSource のによって返されるオブジェクト内の各プロパティの DetailsView に追加されます、BoundField、GridView でよう`Select`メソッド。 唯一の違いは、垂直方向にではなく水平方向に DetailsView の BoundFields が配置されています。
 
 
-[![ページに、DetailsView を追加し、ObjectDataSource にバインドします。](displaying-data-with-the-objectdatasource-cs/_static/image34.png)](displaying-data-with-the-objectdatasource-cs/_static/image33.png)
+[![Add のページに、DetailsView、ObjectDataSource にバインド](displaying-data-with-the-objectdatasource-cs/_static/image34.png)](displaying-data-with-the-objectdatasource-cs/_static/image33.png)
 
 **図 13**:ページに、DetailsView を追加し、ObjectDataSource にバインドする ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image35.png))。
 
@@ -192,7 +192,7 @@ DetailsView コントロールを追加して開始*上*で GridView`SimpleDispl
 GridView のような ObjectDataSource によって返されるデータのカスタマイズされた表示を提供する DetailsView の BoundFields を調整できます。 図 14 は、その BoundFields 後、DetailsView を示しています。 と`CssClass`GridView の例のような外観を作成するプロパティが構成されています。
 
 
-[![DetailsView は、1 つのレコードを示しています。](displaying-data-with-the-objectdatasource-cs/_static/image37.png)](displaying-data-with-the-objectdatasource-cs/_static/image36.png)
+[![TDetailsView 彼は、1 つのレコードを示しています](displaying-data-with-the-objectdatasource-cs/_static/image37.png)](displaying-data-with-the-objectdatasource-cs/_static/image36.png)
 
 **図 14**:DetailsView は 1 つのレコードを示しています ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image38.png))。
 
@@ -200,12 +200,12 @@ GridView のような ObjectDataSource によって返されるデータのカ�
 DetailsView はそのデータ ソースによって返される最初のレコードしか表示されないことに注意してください。 ステップ実行のすべてのレコードを 1 つずつ、ユーザーを許可するには、DetailsView のページングを有効にするする必要があります。 これを行うには、Visual Studio に戻り、DetailsView のスマート タグでページングを有効にするチェック ボックスをオンします。
 
 
-[![DetailsView コントロールでページングを有効にします。](displaying-data-with-the-objectdatasource-cs/_static/image40.png)](displaying-data-with-the-objectdatasource-cs/_static/image39.png)
+[![E有効にする DetailsView コントロールでページング](displaying-data-with-the-objectdatasource-cs/_static/image40.png)](displaying-data-with-the-objectdatasource-cs/_static/image39.png)
 
 **図 15**:DetailsView コントロールでページングを有効にする ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image41.png))。
 
 
-[![ページングが有効になっている、DetailsView では、製品のいずれかを表示します。](displaying-data-with-the-objectdatasource-cs/_static/image43.png)](displaying-data-with-the-objectdatasource-cs/_static/image42.png)
+[![W有効なページング、DetailsView 場合に限りますにより、任意の製品を表示する](displaying-data-with-the-objectdatasource-cs/_static/image43.png)](displaying-data-with-the-objectdatasource-cs/_static/image42.png)
 
 **図 16**:DetailsView で任意の製品を表示するユーザーはページングが有効な ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image44.png))。
 
@@ -221,18 +221,18 @@ DetailsView はかなり柔軟性に欠けるで ObjectDataSource から返さ�
 FormView コントロールを追加、`SimpleDisplay.aspx`ページのデザイン画面。 最初に、フォーム ビューが表示されます灰色のブロックとして、少なくとも、コントロールを提供する必要があるかを知らせる`ItemTemplate`します。
 
 
-[![FormView する必要がありますが、ItemTemplate を含める](displaying-data-with-the-objectdatasource-cs/_static/image46.png)](displaying-data-with-the-objectdatasource-cs/_static/image45.png)
+[![TItemTemplate 彼 FormView 含める必要があります](displaying-data-with-the-objectdatasource-cs/_static/image46.png)](displaying-data-with-the-objectdatasource-cs/_static/image45.png)
 
 **図 17**:FormView 必要があります、 `ItemTemplate` ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image47.png))。
 
 
-FormView をバインドするには、既定値を作成、FormView のスマート タグからのデータ ソース コントロールに直接`ItemTemplate`自動的に (と共に、`EditItemTemplate`と`InsertItemTemplate`場合は、ObjectDatatSource コントロールの`InsertMethod`と`UpdateMethod`プロパティが設定されます)。 ただし、この例で、フォーム ビューにデータをバインドして指定の`ItemTemplate`手動でします。 FormView の設定で開始`DataSourceID`プロパティを`ID`、ObjectDataSource コントロールの`ObjectDataSource1`します。 次に、作成、 `ItemTemplate` 、製品の名前と価格を表示するよう、`<h4>`要素およびフォント サイズで下にはカテゴリや出荷業者の名前。
+FormView をバインドするには、既定値を作成、FormView のスマート タグからのデータ ソース コントロールに直接`ItemTemplate`自動的に (と共に、`EditItemTemplate`と`InsertItemTemplate`場合は、ObjectDataSource コントロールの`InsertMethod`と`UpdateMethod`プロパティが設定されます)。 ただし、この例で、フォーム ビューにデータをバインドして指定の`ItemTemplate`手動でします。 FormView の設定で開始`DataSourceID`プロパティを`ID`、ObjectDataSource コントロールの`ObjectDataSource1`します。 次に、作成、 `ItemTemplate` 、製品の名前と価格を表示するよう、`<h4>`要素およびフォント サイズで下にはカテゴリや出荷業者の名前。
 
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample6.aspx)]
 
 
-[![最初の製品 (Chai) がカスタム形式で表示されます。](displaying-data-with-the-objectdatasource-cs/_static/image49.png)](displaying-data-with-the-objectdatasource-cs/_static/image48.png)
+[![Tカスタム形式では最初の製品 (Chai) が表示されます](displaying-data-with-the-objectdatasource-cs/_static/image49.png)](displaying-data-with-the-objectdatasource-cs/_static/image48.png)
 
 **図 18**:最初の製品 (Chai) がカスタム形式で表示されます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-cs/_static/image50.png))。
 

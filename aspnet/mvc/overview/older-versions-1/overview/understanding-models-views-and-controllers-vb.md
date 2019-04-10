@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: a106374a-5e74-4fd0-9ac0-1a32280e5d0d
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15d4e7d7b6a2662296b8e3647cd60187de580789
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: HT
+ms.openlocfilehash: 879a771c3b85c85d35d470f056173f230a36e906
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388957"
 ---
-<a name="understanding-models-views-and-controllers-vb"></a>モデル、ビュー、コントローラーを理解する (VB)
-====================
+# <a name="understanding-models-views-and-controllers-vb"></a>モデル、ビュー、コントローラーを理解する (VB)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > モデル、ビュー、およびコント ローラーと混同するでしょうか。 このチュートリアルで Stephen Walther がわかる ASP.NET MVC アプリケーションのさまざまな部分。
@@ -30,10 +30,10 @@ ms.locfileid: "57029179"
 
 ASP.NET MVC Web アプリケーションを作成するための既定の Visual Studio テンプレートには、ASP.NET MVC アプリケーションのさまざまな部分を理解するのに使用できる非常に簡単なサンプル アプリケーションが含まれています。 私たちは、このチュートリアルではこのシンプルなアプリケーションの利用します。
 
-Visual Studio 2008 を起動することで、MVC テンプレートを使用して、新しい ASP.NET MVC アプリケーションを作成して、新規プロジェクト ファイル メニュー オプションを選択すると、(図 1 参照)。 新しいプロジェクト] ダイアログで [プロジェクトの種類 (Visual Basic または C#)、好みのプログラミング言語を選択し、[ **ASP.NET MVC Web アプリケーション**テンプレート] の下。 [Ok] ボタンをクリックします。
+Visual Studio 2008 を起動することで、MVC テンプレートを使用して、新しい ASP.NET MVC アプリケーションを作成して、新規プロジェクト ファイル メニュー オプションを選択すると、(図 1 参照)。 新しいプロジェクト] ダイアログで [プロジェクトの種類 (Visual Basic または c#)、好みのプログラミング言語を選択し、[ **ASP.NET MVC Web アプリケーション**テンプレート] の下。 [Ok] ボタンをクリックします。
 
 
-[![新しいプロジェクト ダイアログ ボックス](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
+[![N新しいプロジェクト] ダイアログ ボックス](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
 
 **図 01**:新しいプロジェクト ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-vb/_static/image2.png))。
 
@@ -41,7 +41,7 @@ Visual Studio 2008 を起動することで、MVC テンプレートを使用し
 新しい ASP.NET MVC アプリケーションを作成するときに、**単体テスト プロジェクトの作成**ダイアログでは、(図 2 参照) が表示されます。 このダイアログ ボックスでは、ASP.NET MVC アプリケーションのテスト用のソリューションで別のプロジェクトを作成することができます。 オプションを選択**単体テスト プロジェクトを作成できません** をクリックし、 **OK**ボタン。
 
 
-[![単体テスト ダイアログ ボックスを作成します。](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
+[![C単体テスト] ダイアログ ボックスを作成する](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
 
 **図 02**:単体テスト ダイアログ ボックスの作成 ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-vb/_static/image4.png))。
 
@@ -51,7 +51,7 @@ Visual Studio 2008 を起動することで、MVC テンプレートを使用し
 Controllers フォルダーを展開する場合、AccountController.vb という名前のファイルと HomeController.vb という名前のファイルが表示されます。 Views フォルダーを展開する場合は、アカウント ホーム共有という 3 つのサブフォルダーが表示されます。 ホーム フォルダーを展開する場合は、About.aspx と Index.aspx (図 3 参照) という 2 つの追加ファイルが表示されます。 これらのファイルは、既定の ASP.NET MVC テンプレートに含まれているサンプル アプリケーションを構成します。
 
 
-[![ソリューション エクスプ ローラー ウィンドウ](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
+[![T彼のソリューション エクスプ ローラーのウィンドウ](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
 
 **図 03**:ソリューション エクスプ ローラー ウィンドウ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-vb/_static/image6.png))。
 
@@ -61,7 +61,7 @@ Controllers フォルダーを展開する場合、AccountController.vb とい�
 ASP.NET アプリケーションを初めて実行すると、デバッグ モードを有効にすることをお勧めの図 4 ダイアログが表示されます。 [Ok] ボタンをクリックし、アプリケーションを実行します。
 
 
-[![デバッグの有効になっていません ダイアログ](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
+[![D有効になっていないダイアログを ebugging](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
 
 **図 04**:有効になっていないダイアログをデバッグ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-vb/_static/image8.png))。
 
@@ -69,7 +69,7 @@ ASP.NET アプリケーションを初めて実行すると、デバッグ モ�
 ASP.NET MVC アプリケーションを実行すると、Visual Studio は、web ブラウザーでアプリケーションを起動します。 サンプル アプリケーションは、2 つだけのページで構成されます。 インデックス ページと [About] ページ。 まず、アプリケーションの起動時に、インデックス ページ (図 5 参照) が表示されます。 上部のメニューのリンクをクリックして、About ページに移動することができます、アプリケーションの右。
 
 
-[![インデックス ページ](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
+[![T彼のインデックス ページ](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
 
 **図 05**:インデックス ページ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-vb/_static/image10.png))。
 
@@ -138,7 +138,7 @@ Id =
 
 コント ローラーは、MVC アプリケーションでユーザーと対話する方法を制御します。 コント ローラーには、ASP.NET MVC アプリケーションのフロー制御ロジックが含まれています。 コント ローラーは、ユーザーがブラウザーの要求を行うと、ユーザーに送信するには、どのような応答を決定します。
 
-コント ローラーは、クラス (たとえば、Visual Basic または C# クラス) だけです。 サンプル ASP.NET MVC アプリケーションには、コント ローラーのフォルダーにある HomeController.vb という名前のコント ローラーが含まれています。 リスト 2 で HomeController.vb ファイルの内容を再現します。
+コント ローラーは、クラス (たとえば、Visual Basic または c# クラス) だけです。 サンプル ASP.NET MVC アプリケーションには、コント ローラーのフォルダーにある HomeController.vb という名前のコント ローラーが含まれています。 リスト 2 で HomeController.vb ファイルの内容を再現します。
 
 **2 - HomeController.cs を一覧表示します。**
 
@@ -170,7 +170,7 @@ HomeController.About() アクションには、次のパスにあるビューが
 
 リスト 3 の最初の行を無視する場合、ビューの残りの部分のほとんどは標準の HTML で構成されます。 ここでする任意の HTML を入力して、ビューの内容を変更できます。
 
-ビューは、Active Server Pages または ASP.NET Web フォーム内のページによく似ています。 ビューは、HTML コンテンツとスクリプトに含めることができます。 プログラミング言語 (たとえば、C# または Visual Basic .NET)、使い慣れた .NET で、スクリプトを記述することができます。 データベースのデータなどの動的なコンテンツを表示するのにには、スクリプトを使用します。
+ビューは、Active Server Pages または ASP.NET Web フォーム内のページによく似ています。 ビューは、HTML コンテンツとスクリプトに含めることができます。 プログラミング言語 (たとえば、c# または Visual Basic .NET)、使い慣れた .NET で、スクリプトを記述することができます。 データベースのデータなどの動的なコンテンツを表示するのにには、スクリプトを使用します。
 
 ## <a name="understanding-models"></a>理解のモデル
 

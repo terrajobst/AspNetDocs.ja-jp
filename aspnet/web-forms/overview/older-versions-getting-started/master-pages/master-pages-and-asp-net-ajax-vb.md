@@ -8,15 +8,15 @@ ms.date: 07/11/2008
 ms.assetid: 0ee9318c-29bb-4d58-b1dc-94e575b8ae10
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aa511b8bd2f4d739cbe1f04b2a9cf03bf6928182
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5a968bbbe5bdb6f8daad2c11c18c2b704c3bed8b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57036239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385502"
 ---
-<a name="master-pages-and-aspnet-ajax-vb"></a>マスター ページと ASP.NET AJAX (VB)
-====================
+# <a name="master-pages-and-aspnet-ajax-vb"></a>マスター ページと ASP.NET AJAX (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_08_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_08_VB.pdf)
@@ -71,7 +71,7 @@ ASP.NET AJAX フレームワークを使用するすべての web ページに�
 Scriptmanager コントロールをページに追加すると、次のように変更します。 その`ID`から`ScriptManager1`に`MyManager`します。
 
 
-[![マスター ページに、scriptmanager コントロールを追加します。](master-pages-and-asp-net-ajax-vb/_static/image2.png)](master-pages-and-asp-net-ajax-vb/_static/image1.png)
+[![Add マスター ページに ScriptManager](master-pages-and-asp-net-ajax-vb/_static/image2.png)](master-pages-and-asp-net-ajax-vb/_static/image1.png)
 
 **図 01**:マスター ページに、scriptmanager コントロールを追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image3.png))。
 
@@ -83,7 +83,7 @@ Scriptmanager コントロールをページに追加すると、次のように
 という名前のルート ディレクトリに新しいページを作成して開始`ShowRandomProduct.aspx`します。 この新しいページにバインドすることを忘れないでください、`Site.master`マスター ページ。
 
 
-[![新しい ASP.NET ページ、web サイトを追加します。](master-pages-and-asp-net-ajax-vb/_static/image5.png)](master-pages-and-asp-net-ajax-vb/_static/image4.png)
+[![Add、web サイトに新しい ASP.NET ページ](master-pages-and-asp-net-ajax-vb/_static/image5.png)](master-pages-and-asp-net-ajax-vb/_static/image4.png)
 
 **図 02**:新しい ASP.NET ページ、web サイトを追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image6.png))。
 
@@ -104,7 +104,7 @@ Scriptmanager コントロールをページに追加すると、次のように
 最初のタスクでは、UpdatePanel 内でランダムに選択した製品についての情報を表示します。 DetailsView コントロールを updatepanel コントロールにドラッグすることで開始します。 DetailsView コントロールの設定`ID`プロパティを`ProductInfo`クリアとその`Height`と`Width`プロパティ。 DetailsView のスマート タグを展開し、データ ソースの選択ドロップダウン リストから、DetailsView をという名前の新しい SqlDataSource コントロールにバインドする選択`RandomProductDataSource`します。
 
 
-[![DetailsView を新しい SqlDataSource コントロールにバインドします。](master-pages-and-asp-net-ajax-vb/_static/image8.png)](master-pages-and-asp-net-ajax-vb/_static/image7.png)
+[![B%%ind SqlDataSource コントロールを新規に DetailsView](master-pages-and-asp-net-ajax-vb/_static/image8.png)](master-pages-and-asp-net-ajax-vb/_static/image7.png)
 
 **図 03**:DetailsView を新しい SqlDataSource コントロールにバインド ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image9.png))。
 
@@ -117,7 +117,7 @@ SqlDataSource コントロールを使用して Northwind データベースへ�
 `TOP 1`キーワード、`SELECT`句は、クエリによって返される最初のレコードのみを返します。 `NEWID()`関数は、新しいグローバル一意識別子値 (GUID) を生成しで使用できる、`ORDER BY`句をランダムな順序でテーブルのレコードを返します。
 
 
-[![1 つをランダムに選択したレコードを取得する SqlDataSource を構成します。](master-pages-and-asp-net-ajax-vb/_static/image11.png)](master-pages-and-asp-net-ajax-vb/_static/image10.png)
+[![C構成を 1 つのランダムに選択したレコードを返す SqlDataSource](master-pages-and-asp-net-ajax-vb/_static/image11.png)](master-pages-and-asp-net-ajax-vb/_static/image10.png)
 
 **図 04**:構成を 1 つのランダムに選択したレコードを返す SqlDataSource ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image12.png))。
 
@@ -130,7 +130,7 @@ SqlDataSource コントロールを使用して Northwind データベースへ�
 図 5 は、`ShowRandomProduct.aspx`ページをブラウザーで表示する場合。 ページを再読み込みするブラウザーの更新 ボタンをクリックします。表示する必要があります、`ProductName`と`UnitPrice`新しいランダムに選択されたレコードの値。
 
 
-[![ランダムな製品の名前と価格が表示されます。](master-pages-and-asp-net-ajax-vb/_static/image14.png)](master-pages-and-asp-net-ajax-vb/_static/image13.png)
+[![A ランダムな製品の名前と価格が表示されます](master-pages-and-asp-net-ajax-vb/_static/image14.png)](master-pages-and-asp-net-ajax-vb/_static/image13.png)
 
 **図 05**:ランダムな製品の名前と価格が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image15.png))。
 
@@ -159,12 +159,12 @@ ASP.NET AJAX フレームワークには、指定の時刻にポストバック�
 完全なこの変更は、ページには、現在表示されている製品が読み込まれた時間が含まれます。 図 6 は、最初にアクセスする際、ページを示します。 図 7 では、Timer コントロールが「オン」と、新しい製品についての情報を表示する、UpdatePanel が更新された後、ページが 15 秒後に示します。
 
 
-[![ページの読み込み時にランダムに選択した製品が表示されます。](master-pages-and-asp-net-ajax-vb/_static/image17.png)](master-pages-and-asp-net-ajax-vb/_static/image16.png)
+[![A ランダムに選択した製品がページの読み込み時に表示されます](master-pages-and-asp-net-ajax-vb/_static/image17.png)](master-pages-and-asp-net-ajax-vb/_static/image16.png)
 
 **図 06**:ページの読み込み時にランダムに選択した製品が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image18.png))。
 
 
-[![15 秒に、新しいランダムに選択した製品が表示されます。](master-pages-and-asp-net-ajax-vb/_static/image20.png)](master-pages-and-asp-net-ajax-vb/_static/image19.png)
+[![E新しいランダムに選択した製品を表示する非常に 15 秒](master-pages-and-asp-net-ajax-vb/_static/image20.png)](master-pages-and-asp-net-ajax-vb/_static/image19.png)
 
 **図 07**:15 秒に、新しいランダムに選択した製品が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image21.png))。
 
@@ -190,12 +190,12 @@ ScriptManagerProxy コントロールの動作を確認するで UpdatePanel を
 という名前の web サイトで新しいフォルダーを作成して開始`Scripts`します。 という名前の Scripts フォルダーに新しいファイルを次に、追加`TimerScript.js`の JScript ファイルの種類。
 
 
-[![新しい JavaScript ファイルを Scripts フォルダーに追加します。](master-pages-and-asp-net-ajax-vb/_static/image23.png)](master-pages-and-asp-net-ajax-vb/_static/image22.png)
+[![Add の Scripts フォルダーに新しい JavaScript ファイル](master-pages-and-asp-net-ajax-vb/_static/image23.png)](master-pages-and-asp-net-ajax-vb/_static/image22.png)
 
 **図 08**:新しい JavaScript ファイルを追加、`Scripts`フォルダー ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image24.png))。
 
 
-[![新しい JavaScript ファイルが web サイトに追加されました](master-pages-and-asp-net-ajax-vb/_static/image26.png)](master-pages-and-asp-net-ajax-vb/_static/image25.png)
+[![A 新しい JavaScript ファイルは、web サイトに追加されました](master-pages-and-asp-net-ajax-vb/_static/image26.png)](master-pages-and-asp-net-ajax-vb/_static/image25.png)
 
 **図 09**:新しい JavaScript ファイルが web サイトに追加されました ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image27.png))。
 
@@ -208,7 +208,7 @@ ScriptManagerProxy コントロールの動作を確認するで UpdatePanel を
 今すぐにこのカスタム JavaScript ファイルを登録する必要があります`ShowRandomProduct.aspx`します。 戻り`ShowRandomProduct.aspx`ScriptManagerProxy コントロールをページに追加は、設定しその`ID`に`MyManagerProxy`します。 カスタム JavaScript を登録するには、は、ファイルはデザイナーで ScriptManagerProxy コントロールを選択し、[プロパティ] ウィンドウに移動します。 スクリプトをタイトル、プロパティのいずれかです。 このプロパティを選択するには、図 10 に示すように、ScriptReference コレクション エディターが表示されます。 新しいスクリプト参照を含めるパス プロパティでスクリプト ファイルへのパスを入力して [追加] ボタンをクリックします。`~/Scripts/TimerScript.js`します。
 
 
-[![ScriptManagerProxy コントロールへのスクリプト参照を追加します。](master-pages-and-asp-net-ajax-vb/_static/image29.png)](master-pages-and-asp-net-ajax-vb/_static/image28.png)
+[![Add ScriptManagerProxy コントロールへの参照をスクリプト](master-pages-and-asp-net-ajax-vb/_static/image29.png)](master-pages-and-asp-net-ajax-vb/_static/image28.png)
 
 **図 10**:ScriptManagerProxy コントロールへのスクリプト参照の追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image30.png))。
 
@@ -230,12 +230,12 @@ ScriptManagerProxy コントロールの動作を確認するで UpdatePanel を
 図 11 では、まずブラウザーからアクセスすると、このページを示します。 タイマーが現在実行されているし、15 秒に表示されている製品情報を更新します。 図 12 では、一時停止 ボタンがクリックしてされた後に、画面が表示されます。 一時停止 ボタンをクリックすると、タイマーを停止し、"Resume"するボタンのテキストを更新します。 製品情報が更新 (および 15 秒ごとに更新し続ける) と、ユーザーが再開をクリックします。
 
 
-[![タイマー コントロールを停止する [一時停止] ボタンをクリックします。](master-pages-and-asp-net-ajax-vb/_static/image32.png)](master-pages-and-asp-net-ajax-vb/_static/image31.png)
+[![Cタイマー コントロールを停止する [一時停止] ボタンをクリックして](master-pages-and-asp-net-ajax-vb/_static/image32.png)](master-pages-and-asp-net-ajax-vb/_static/image31.png)
 
 **図 11**:タイマー コントロールを停止する [一時停止] ボタンをクリックします ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image33.png))。
 
 
-[![タイマーを再起動する [再開] ボタンをクリックします](master-pages-and-asp-net-ajax-vb/_static/image35.png)](master-pages-and-asp-net-ajax-vb/_static/image34.png)
+[![Cタイマーを再起動する [再開] ボタンをクリックして](master-pages-and-asp-net-ajax-vb/_static/image35.png)](master-pages-and-asp-net-ajax-vb/_static/image34.png)
 
 **図 12**:タイマーを再起動する [再開] ボタンをクリックします ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image36.png))。
 

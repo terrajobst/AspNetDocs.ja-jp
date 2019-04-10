@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 4830d984-bd2c-4a08-bfe5-2385599f1f7d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d2bf8e3b074e846f1071a94884faa40312e507b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d337aa2e0658692e1af213085b262daaed05a18
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061509"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421915"
 ---
-<a name="customizing-the-data-modification-interface-vb"></a>データ変更インターフェイスをカスタマイズする (VB)
-====================
+# <a name="customizing-the-data-modification-interface-vb"></a>データ変更インターフェイスをカスタマイズする (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_20_VB.exe)または[PDF のダウンロード](customizing-the-data-modification-interface-vb/_static/datatutorial20vb1.pdf)
@@ -31,7 +31,7 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 [前のチュートリアル](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)検証 Web コントロールを追加して、データ変更インターフェイスをカスタマイズする方法を説明しました。 このチュートリアルでは、BoundField と CheckBoxField の標準のテキスト ボックスに置き換える実際のデータ コレクションの Web コントロールと代替の入力 Web コントロールを含む チェック ボックス コントロールをカスタマイズする方法について説明します。 具体的には、製品の名前、カテゴリ、供給業者、および提供が中止された状態を更新できる編集可能な GridView をビルドします。 特定の行を編集するには、category と supplier フィールドは、Dropdownlist としてレンダリングされますから選択するサプライヤーと利用可能なカテゴリのセットを含みます。 さらに、2 つのオプションを提供する RadioButtonList コントロールで CheckBoxField の既定のチェック ボックスを置き換えること。「アクティブ」と「廃止」。
 
 
-[![GridView の編集インターフェイスには、Dropdownlist、オプション ボタンが含まれています。](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
+[![T彼は GridView のインターフェイスが含まれています Dropdownlist の編集と Radiobutton](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
 
 **図 1**:GridView のインターフェイスが含まれています Dropdownlist を編集し、オプション ボタン ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image3.png))。
 
@@ -56,7 +56,7 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 `UpdateProduct`オーバー ロードを追加、編集可能な GridView を作成する準備ができました。 開く、`CustomizedUI.aspx`ページで、`EditInsertDelete`フォルダーと GridView コントロールをデザイナーに追加します。 次に、GridView のスマート タグから新しい ObjectDataSource を作成します。 構成を使用して製品情報を取得する ObjectDataSource、`ProductBLL`クラスの`GetProducts()`メソッドを使用して製品データを更新して、`UpdateProduct`オーバー ロードを作成したばかりです。 INSERT および DELETE のタブからは、ドロップダウン リストから () を選択します。
 
 
-[![先ほど作成した UpdateProduct オーバー ロードを使用する ObjectDataSource を構成します。](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
+[![C構成、UpdateProduct オーバー ロードの作成に使用する ObjectDataSource](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
 
 **図 2**:構成に使用する ObjectDataSource、`UpdateProduct`先ほど作成したオーバー ロード ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image6.png))。
 
@@ -80,7 +80,7 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 これらの変更後、デザイナーはようになります図 3 は、次に示す GridView の宣言型構文を使用します。
 
 
-[![GridView から不要なフィールドを削除します。](customizing-the-data-modification-interface-vb/_static/image8.png)](customizing-the-data-modification-interface-vb/_static/image7.png)
+[![RGridView から不要なフィールドの削除](customizing-the-data-modification-interface-vb/_static/image8.png)](customizing-the-data-modification-interface-vb/_static/image7.png)
 
 **図 3**:GridView から不要なフィールドを削除 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image9.png))。
 
@@ -90,7 +90,7 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 この時点で、GridView の読み取り専用の動作が完了しました。 データを表示するには、各製品が製品の名前、カテゴリ、供給業者、表示、GridView の行として表示され、ステータスの提供が中止されました。
 
 
-[![GridView の読み取り専用のインターフェイスは、完了です。](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
+[![T彼は GridView の読み取り専用のインターフェイスは、完了](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
 
 **図 4**:GridView の読み取り専用のインターフェイスは、完了 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image12.png))。
 
@@ -124,7 +124,7 @@ BoundField が読み取り専用としてマークされているため両方、
 前のチュートリアルできたよう、デザイナーを使用または宣言型構文から直接テンプレートを編集できます。 デザイナーで編集、GridView のスマート タグからのテンプレートの編集リンクをクリックしを選択して、カテゴリ フィールドの操作`EditItemTemplate`します。 ラベルの Web コントロールを削除し、DropDownList の ID プロパティを設定、DropDownList コントロールに置き換えます`Categories`します。
 
 
-[![ テキスト ボックスを削除し、後に、DropDownList を追加](customizing-the-data-modification-interface-vb/_static/image14.png)](customizing-the-data-modification-interface-vb/_static/image13.png)
+[![Rまたは削除します] テキスト ボックスと、後に、DropDownList の追加](customizing-the-data-modification-interface-vb/_static/image14.png)](customizing-the-data-modification-interface-vb/_static/image13.png)
 
 **図 5**: テキスト ボックスを削除し、DropDownList を追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image15.png))。
 
@@ -132,7 +132,7 @@ BoundField が読み取り専用としてマークされているため両方、
 次に、利用可能なカテゴリで DropDownList を設定する必要があります。 DropDownList のスマート タグから データ ソースのリンクをクリックし、という名前の新しい ObjectDataSource を作成することを選択`CategoriesDataSource`します。
 
 
-[![CategoriesDataSource という名前の新しい ObjectDataSource コントロールを作成します。](customizing-the-data-modification-interface-vb/_static/image17.png)](customizing-the-data-modification-interface-vb/_static/image16.png)
+[![C新しい ObjectDataSource コントロールという CategoriesDataSource を reate](customizing-the-data-modification-interface-vb/_static/image17.png)](customizing-the-data-modification-interface-vb/_static/image16.png)
 
 **図 6**:新しい ObjectDataSource コントロールの名前付き作成`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image18.png))。
 
@@ -140,7 +140,7 @@ BoundField が読み取り専用としてマークされているため両方、
 この ObjectDataSource を返すすべてのカテゴリには、バインドして、`CategoriesBLL`クラスの`GetCategories()`メソッド。
 
 
-[![ObjectDataSource を CategoriesBLL の GetCategories() メソッドにバインドします。](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
+[![B%%ind CategoriesBLL の GetCategories() メソッドに ObjectDataSource](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
 
 **図 7**:バインドを ObjectDataSource、`CategoriesBLL`の`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image21.png))。
 
@@ -148,7 +148,7 @@ BoundField が読み取り専用としてマークされているため両方、
 最後に、DropDownList の設定を構成するよう、`CategoryName`フィールドは、各 DropDownList に表示される`ListItem`で、`CategoryID`フィールドの値として使用します。
 
 
-[![区分名 フィールドが表示されますが、CategoryID を値として使用あり](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
+[![Have CategoryName フィールドが表示され、値として使用する CategoryID](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
 
 **図 8**:`CategoryName`フィールドが表示されると、`CategoryID`値として使用 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image24.png))。
 
@@ -167,7 +167,7 @@ BoundField が読み取り専用としてマークされているため両方、
 2 つに、Dropdownlist を追加した後`EditItemTemplate`s、ブラウザーでページを読み込むし、Chef Anton の Cajun Seasoning 製品の編集 ボタンをクリックします。 図 9 に示す、製品のカテゴリと仕入先の列は、利用可能なカテゴリと仕入先から選択を含むドロップダウン リストとしてレンダリングされます。 ただし、注意、*最初*両方のドロップダウン リスト内の項目は、供給業者、として場合でも、ニューオーリンズ Cajun によって提供される Condiment は、Chef Anton の Cajun Seasoning で、既定 (飲み物のカテゴリ) と風変わり液体で選択されますDelights します。
 
 
-[![既定では、ドロップダウン リストの最初の項目が選択されています。](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
+[![T既定では、ドロップダウン リストの最初の項目が選択されている](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
 
 **図 9**:既定では、ドロップダウン リストの最初の項目が選択されている ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image27.png))。
 
@@ -181,7 +181,7 @@ BoundField が読み取り専用としてマークされているため両方、
 または、デザイナーを使用してテンプレートを編集して DropDownList のスマート タグから DataBindings の編集リンクをクリックすると、DropDownList の databindings を設定できます。 次に、いることを示す、`SelectedValue`プロパティにバインドする必要があります、`CategoryID`双方向データ バインドを使用してフィールド (図 10 参照)。 バインドを宣言的またはデザイナーのプロセスを繰り返し、`SupplierID`のデータ フィールドを`Suppliers`DropDownList します。
 
 
-[![CategoryID を双方向データ バインドを使用して、次のドロップダウン リストの SelectedValue プロパティにバインドします。](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
+[![B%%ind DropDownList の SelectedValue プロパティが双方向データ バインドを使用する CategoryID](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
 
 **図 10**:バインド、 `CategoryID` DropDownList のする`SelectedValue`プロパティを使用して双方向データ バインド ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image30.png))。
 
@@ -189,7 +189,7 @@ BoundField が読み取り専用としてマークされているため両方、
 バインドが適用されたら、 `SelectedValue` 2 つの Dropdownlist のプロパティを編集した製品のカテゴリと仕入先の列は既定で、現在の製品の値。 更新プログラムをクリックすると、`CategoryID`と`SupplierID`のドロップダウン リストを選択した項目の値に渡される、`UpdateProduct`メソッド。 データ バインド ステートメントを追加した後、図 11 は、チュートリアルを示しています。Chef Anton の Cajun Seasoning のドロップダウン リストを選択した項目が正しく Condiment とニューオーリンズ Cajun Delights 方法に注意してください。
 
 
-[![編集の製品の現在のカテゴリと仕入先の値が既定で選択されています。](customizing-the-data-modification-interface-vb/_static/image32.png)](customizing-the-data-modification-interface-vb/_static/image31.png)
+[![T既定では、彼は編集製品の現在のカテゴリと仕入先の値を選択](customizing-the-data-modification-interface-vb/_static/image32.png)](customizing-the-data-modification-interface-vb/_static/image31.png)
 
 **図 11**:編集の製品の現在のカテゴリと仕入先の値が既定で選択されている ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image33.png))。
 
@@ -219,7 +219,7 @@ BoundField が読み取り専用としてマークされているため両方、
 この追加`ListItem`、編集インターフェイスに割り当てることができますようになりました`NULL`値を製品の`CategoryID`と`SupplierID`フィールド、図 12 に示すようにします。
 
 
-[![製品のカテゴリまたは仕入先の NULL 値を割り当てる (なし)](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
+[![C(なし) と NULL 値を割り当てる製品のカテゴリまたは仕入先の選択](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
 
 **図 12**:割り当てる [(なし)、`NULL`製品のカテゴリまたは仕入先の値 ([フルサイズの画像を表示する] をクリックします](customizing-the-data-modification-interface-vb/_static/image36.png))。
 
@@ -233,7 +233,7 @@ BoundField が読み取り専用としてマークされているため両方、
 両方のチェック ボックスを置き換える、`ItemTemplate`と`EditItemTemplate`RadioButtonList コントロールでは、設定の両方 RadioButtonLists の`ID`プロパティを`DiscontinuedChoice`します。 次を示す、RadioButtonLists する必要がありますが含まれる 2 つのラジオ ボタン、1 つのラベルの付いた「アクティブ」値"False"に「廃止」というラベルの付いた 1 つの値は"True"です。 入力するか、これを実現する、`<asp:ListItem>`内の要素の宣言構文または使用から直接、`ListItem`デザイナーからコレクション エディター。 図 13 では、`ListItem`コレクション エディターの後、2 つのラジオ ボタンのオプションが指定されています。
 
 
-[![RadioButtonList にアクティブで廃止されたオプションを追加します。](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
+[![Add アクティブと、RadioButtonList オプションの提供が中止された](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
 
 **図 13**:アクティブとオプションの提供が中止された、RadioButtonList を追加 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image39.png))。
 
@@ -250,7 +250,7 @@ RadioButtonList コントロールを割り当てる必要があります`Select
 これらの変更により、 `Discontinued` (図 14 を参照してください) ラジオ ボタンのペアのリストにチェック ボックスの一覧から列を変換されました。 該当するラジオ ボタンが選択されている製品を編集するときと、他のオプション ボタンを選択し、[更新] をクリックして、製品の提供が中止された状態を更新できます。
 
 
-[![提供が中止されたチェック ボックスがラジオ ボタンの組み合わせに置き換えられています。](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
+[![T彼は生産中止のチェック ボックスは、ラジオ ボタンの組み合わせに置き換えられている](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
 
 **図 14**:提供が中止されたチェック ボックスをオンに置き換えられているラジオ ボタンのペア ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-vb/_static/image42.png))。
 

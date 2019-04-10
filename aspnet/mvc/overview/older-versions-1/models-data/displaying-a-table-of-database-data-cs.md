@@ -8,18 +8,18 @@ ms.date: 10/07/2008
 ms.assetid: d6e758b6-6571-484d-a132-34ee6c47747a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d0d3f6a574a4b923d5da73ccb2ab3bfbd6f305ef
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 99b18de33e266adb626f4ab53ff20b1f52102900
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57054829"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417586"
 ---
-<a name="displaying-a-table-of-database-data-c"></a>データベース データの表を表示する (C#)
-====================
+# <a name="displaying-a-table-of-database-data-c"></a>データベース データの表を表示する (C#)
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_CS.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_CS.pdf)
 
 > このチュートリアルでは、一連のデータベース レコードを表示する 2 つの方法を紹介します。 一連の HTML テーブルのデータベース レコードを書式設定の 2 つの方法を紹介します。 最初に、ビュー内で直接、データベース レコードの書式を設定する方法を紹介します。 次に、方法を利用するパーシャルのデータベース レコードを書式設定時に紹介します。
 
@@ -33,7 +33,7 @@ ms.locfileid: "57054829"
 <a id="0.3_table01"></a>
 
 
-| **列名** | **データ型** | **Null を許容します。** |
+| **列名** | **データ型** | **Null を許容** |
 | --- | --- | --- |
 | ID | Int | False |
 | Title | Nvarchar(200) | False |
@@ -61,7 +61,7 @@ ASP.NET MVC アプリケーションで映画のテーブルを表すために�
 3. **データベース オブジェクトの選択**ステップ、[テーブル] ノードを展開し、映画のテーブルを選択します。 名前空間を入力*モデル* をクリックし、**完了**ボタンをクリックします。
 
 
-[![LINQ to SQL クラスを作成](displaying-a-table-of-database-data-cs/_static/image1.jpg)](displaying-a-table-of-database-data-cs/_static/image1.png)
+[![CSQL クラスを LINQ の作成](displaying-a-table-of-database-data-cs/_static/image1.jpg)](displaying-a-table-of-database-data-cs/_static/image1.png)
 
 **図 01**:LINQ to SQL クラスを作成 ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image2.png))。
 
@@ -69,7 +69,7 @@ ASP.NET MVC アプリケーションで映画のテーブルを表すために�
 Entity Data Model ウィザードを完了すると、Entity Data Model のデザイナーが開きます。 デザイナーは、ムービー エンティティを表示する必要があります (図 2 参照)。
 
 
-[![Entity Data Model デザイナー](displaying-a-table-of-database-data-cs/_static/image2.jpg)](displaying-a-table-of-database-data-cs/_static/image3.png)
+[![T彼 Entity Data Model デザイナー](displaying-a-table-of-database-data-cs/_static/image2.jpg)](displaying-a-table-of-database-data-cs/_static/image3.png)
 
 **図 02**:Entity Data Model デザイナー ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image4.png))。
 
@@ -83,7 +83,7 @@ Entity Data Model ウィザードを完了すると、Entity Data Model のデ�
 あるので、データベース レコードを表す方法、映画のコレクションを返すコント ローラーを作成できます。 Visual Studio ソリューション エクスプ ローラー ウィンドウで、Controllers フォルダーを右クリックし、メニュー オプションを選択します**追加、コント ローラー** (図 3 を参照してください)。
 
 
-[![コント ローラーのメニューに追加します。](displaying-a-table-of-database-data-cs/_static/image3.jpg)](displaying-a-table-of-database-data-cs/_static/image5.png)
+[![T彼コント ローラー] メニューの追加](displaying-a-table-of-database-data-cs/_static/image3.jpg)](displaying-a-table-of-database-data-cs/_static/image5.png)
 
 **図 03**:コント ローラーの追加 メニュー ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image6.png))。
 
@@ -91,7 +91,7 @@ Entity Data Model ウィザードを完了すると、Entity Data Model のデ�
 ときに、**コント ローラーの追加**ダイアログが表示されたら、MovieController コント ローラー名を入力します (図 4 参照)。 をクリックして、**追加**新しいコント ローラーを追加するボタンをクリックします。
 
 
-[![コント ローラーの追加 ダイアログ](displaying-a-table-of-database-data-cs/_static/image4.jpg)](displaying-a-table-of-database-data-cs/_static/image7.png)
+[![T彼はコント ローラーの追加ダイアログ](displaying-a-table-of-database-data-cs/_static/image4.jpg)](displaying-a-table-of-database-data-cs/_static/image7.png)
 
 **図 04**:コント ローラーの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image8.png))。
 
@@ -117,7 +117,7 @@ HTML テーブルの一連のデータベース レコードを表示する最�
 Index() アクションを右クリックし、メニュー オプションを選択**ビューの追加**(図 5 を参照してください)。
 
 
-[![ビューの追加](displaying-a-table-of-database-data-cs/_static/image5.jpg)](displaying-a-table-of-database-data-cs/_static/image9.png)
+[![Adding ビュー](displaying-a-table-of-database-data-cs/_static/image5.jpg)](displaying-a-table-of-database-data-cs/_static/image9.png)
 
 **図 05**:ビューの追加 ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image10.png))。
 
@@ -125,21 +125,21 @@ Index() アクションを右クリックし、メニュー オプションを�
 **ビューの追加**ダイアログ ボックスで、チェック ボックスをラベル付け**厳密に型指定されたビューを作成**。 としてムービー クラスの選択、**データ クラスを表示**します。 選択*一覧*として、**コンテンツを表示**(図 6 参照)。 これらのオプションを選択すると、ムービーの一覧を表示する厳密に型指定されたビューが生成されます。
 
 
-[![ビューの追加 ダイアログ](displaying-a-table-of-database-data-cs/_static/image6.jpg)](displaying-a-table-of-database-data-cs/_static/image11.png)
+[![T彼はビューの追加ダイアログ](displaying-a-table-of-database-data-cs/_static/image6.jpg)](displaying-a-table-of-database-data-cs/_static/image11.png)
 
 **図 06**:ビューの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image12.png))。
 
 
 クリックした後、**追加**ボタン、リスト 2 でビューが自動的に生成されます。 このビューには、映画のコレクションを反復処理し、各ビデオのプロパティの表示に必要なコードが含まれています。
 
-**2 – Views\Movie\Index.aspx を一覧表示します。**
+**Listing 2 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-cs/samples/sample2.aspx)]
 
 アプリケーションを実行するには、メニュー オプションを選択して**デバッグ、デバッグの開始** (または、F5 キー)。 アプリケーションを実行すると、Internet Explorer が起動します。 /Movie URL に移動すると、図 7 ページが表示されます。
 
 
-[![映画のテーブル](displaying-a-table-of-database-data-cs/_static/image7.jpg)](displaying-a-table-of-database-data-cs/_static/image13.png)
+[![A ムービーのテーブル](displaying-a-table-of-database-data-cs/_static/image7.jpg)](displaying-a-table-of-database-data-cs/_static/image13.png)
 
 **図 07**:映画のテーブル ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-cs/_static/image14.png))。
 

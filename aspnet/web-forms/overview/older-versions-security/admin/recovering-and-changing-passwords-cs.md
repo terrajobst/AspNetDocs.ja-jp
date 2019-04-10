@@ -8,15 +8,15 @@ ms.date: 04/01/2008
 ms.assetid: 19c4d042-4e34-4b44-9f1d-6bf2253ba366
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c04ed8ae18a3739f5519e30dea7768b8f6c7c7ff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e3e097663568b21ee3f84c7006a0bd89718ac6c2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57045319"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380282"
 ---
-<a name="recovering-and-changing-passwords-c"></a>パスワードを復元し、変更する (C#)
-====================
+# <a name="recovering-and-changing-passwords-c"></a>パスワードを復元し、変更する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.13.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_cs.pdf)
@@ -63,7 +63,7 @@ PasswordRecovery コントロールは、3 つのビューで構成されます�
 図 1 は、メンバーシップの構成によって PasswordRecovery のインターフェイスと動作を反映する方法を示します。
 
 
-[![RequiresQuestionAndAnswer、EnablePasswordRetrieval、および EnablePasswordReset PasswordRecovery コントロールの外観と動作に影響を与える](recovering-and-changing-passwords-cs/_static/image2.png)](recovering-and-changing-passwords-cs/_static/image1.png)
+[![T彼 RequiresQuestionAndAnswer、EnablePasswordRetrieval、および EnablePasswordReset PasswordRecovery コントロールの外観と動作に影響を与える](recovering-and-changing-passwords-cs/_static/image2.png)](recovering-and-changing-passwords-cs/_static/image1.png)
 
 **図 1**:`RequiresQuestionAndAnswer`、 `EnablePasswordRetrieval`、および`EnablePasswordReset`PasswordRecovery コントロールの外観と動作に影響を与える ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image3.png))。
 
@@ -90,10 +90,10 @@ ASP.NET ページで、PasswordRecovery コントロールの使用を見てみ�
 
 に加えて、SMTP サーバーを使用して、ネットワーク上、または送信される電子メール メッセージの格納場所のピックアップ ディレクトリを指定できます。
 
-SMTP 設定を構成した後は、、`RecoverPassword.aspx`ページがブラウザーを使用を参照してください。 まず、ユーザー ストアに存在しないユーザー名を入力してください。 図 2 に示すよう、PasswordRecovery コントロールには、ユーザー情報がアクセスしないことを示すメッセージが表示されます。 コントロールのメッセージのテキストをカスタマイズできる[`UserNameFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)します。
+SMTP 設定を構成した後は、次を参照してください。、`RecoverPassword.aspx`ページがブラウザーを使用します。 まず、ユーザー ストアに存在しないユーザー名を入力してください。 図 2 に示すよう、PasswordRecovery コントロールには、ユーザー情報がアクセスしないことを示すメッセージが表示されます。 コントロールのメッセージのテキストをカスタマイズできる[`UserNameFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)します。
 
 
-[![無効なユーザー名を入力した場合、エラー メッセージが表示されます。](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)
+[![A無効なユーザー名を入力した場合は、n のエラー メッセージが表示されます](recovering-and-changing-passwords-cs/_static/image5.png)](recovering-and-changing-passwords-cs/_static/image4.png)
 
 **図 2**:無効なユーザー名を入力した場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image6.png))。
 
@@ -101,7 +101,7 @@ SMTP 設定を構成した後は、、`RecoverPassword.aspx`ページがブラ�
 これで、ユーザー名を入力します。 アクセスできる、セキュリティの回答を電子メール アドレスを持つシステム内のアカウントのユーザー名の確認に使用します。 ユーザー名を入力し、送信をクリックすると、PasswordRecovery コントロールには、その質問ビューが表示されます。 としてユーザー名ビューを入力した場合が不適切な回答、PasswordRecovery コントロールが表示されます (図 3 参照) を示すエラー メッセージします。 使用して、 [ `QuestionFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx)このエラー メッセージをカスタマイズします。
 
 
-[![ユーザーが、無効な秘密の答えを入力した場合、エラー メッセージが表示されます。](recovering-and-changing-passwords-cs/_static/image8.png)](recovering-and-changing-passwords-cs/_static/image7.png)
+[![Aユーザーが、無効な秘密の答えを入力した場合、n のエラー メッセージが表示されます](recovering-and-changing-passwords-cs/_static/image8.png)](recovering-and-changing-passwords-cs/_static/image7.png)
 
 **図 3**:ユーザーが、無効な秘密の答えを入力した場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image9.png))。
 
@@ -109,7 +109,7 @@ SMTP 設定を構成した後は、、`RecoverPassword.aspx`ページがブラ�
 最後に、適切なセキュリティの回答を入力し、[送信] をクリックします。 背後では、PasswordRecovery コントロール ランダム パスワードを生成、ユーザー アカウントに割り当てられますの新しいパスワードをユーザーに通知電子メールを送信します (図 4 参照)、し、正常に完了ビューを表示します。
 
 
-[![His の新しいパスワードを使用してメールをユーザーが送信されます。](recovering-and-changing-passwords-cs/_static/image11.png)](recovering-and-changing-passwords-cs/_static/image10.png)
+[![T彼のユーザーにより、His の新しいパスワードでメールが送信されます](recovering-and-changing-passwords-cs/_static/image11.png)](recovering-and-changing-passwords-cs/_static/image10.png)
 
 **図 4**:His の新しいパスワードを使用してメールをユーザーが送信されます ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image12.png))。
 
@@ -145,7 +145,7 @@ PasswordRecovery コントロールから送信された既定の電子メール
 これらの変更内容起きた後、`RecoverPassword.aspx`ページし、ユーザー名とセキュリティの質問を入力します。 受信した次の図 5 のような電子メールをする必要があります。 なお`webmaster@example.com`CC、および件名と本文が更新されていることにしました。
 
 
-[![件名、本文、および [cc] ボックスの一覧が更新されました](recovering-and-changing-passwords-cs/_static/image14.png)](recovering-and-changing-passwords-cs/_static/image13.png)
+[![T彼の件名、本文、および [cc] 一覧は更新されている](recovering-and-changing-passwords-cs/_static/image14.png)](recovering-and-changing-passwords-cs/_static/image13.png)
 
 **図 5**:件名、本文、および [cc] 一覧は更新されている ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image15.png))。
 
@@ -197,7 +197,7 @@ ChangePassword コントロールを使用すると、自分のパスワード�
 開く、`ChangePassword.aspx`ページし、その名前を付け、ページに ChangePassword コントロールを追加`ChangePwd`します。 この時点で、デザイン ビューがパスワードの変更を表示する必要があります (図 6 参照) を表示します。 ような PasswordRecovery コントロールが、切り替えることができます、コントロールのスマート タグを使用してビュー。 さらに、これらのビューの外観は、そのようなさまざまなスタイルのプロパティまたはテンプレートに変換してカスタマイズできます。
 
 
-[![ChangePassword コントロールをページに追加します。](recovering-and-changing-passwords-cs/_static/image17.png)](recovering-and-changing-passwords-cs/_static/image16.png)
+[![Add ChangePassword コントロールをページ](recovering-and-changing-passwords-cs/_static/image17.png)](recovering-and-changing-passwords-cs/_static/image16.png)
 
 **図 6**:ChangePassword コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image18.png))。
 
@@ -215,7 +215,7 @@ ChangePassword コントロールを使用すると、別のユーザーのパ�
 参照してください、`ChangePassword.aspx`ブラウザーでページし、パスワードを変更します。 パスワードの長さとメンバーシップの構成で指定された文字の英数字以外の要件を満たすために失敗した新しいパスワードを入力すると、エラー メッセージが表示されることに注意してください (図 7 を参照してください)。
 
 
-[![ChangePassword コントロールをページに追加します。](recovering-and-changing-passwords-cs/_static/image20.png)](recovering-and-changing-passwords-cs/_static/image19.png)
+[![Add ChangePassword コントロールをページ](recovering-and-changing-passwords-cs/_static/image20.png)](recovering-and-changing-passwords-cs/_static/image19.png)
 
 **図 7**:ChangePassword コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image21.png))。
 
@@ -235,7 +235,7 @@ ChangePassword コントロールを次に、設定`MailDefinition`プロパテ�
 これらの変更を加えたら、ページを再確認し、もう一度パスワードを変更します。 今回は、ChangePassword コントロールで、ファイルで、ユーザーの電子メール アドレスに、HTML 形式のカスタマイズされたメールが送信します (図 8 参照)。
 
 
-[![ユーザー、そのパスワードが変更通知の電子メール メッセージ](recovering-and-changing-passwords-cs/_static/image23.png)](recovering-and-changing-passwords-cs/_static/image22.png)
+[![An 個の電子メール メッセージのユーザーをそのパスワードが変更通知](recovering-and-changing-passwords-cs/_static/image23.png)](recovering-and-changing-passwords-cs/_static/image22.png)
 
 **図 8**:ユーザー、そのパスワードが変更通知の電子メール メッセージ ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image24.png))。
 
@@ -273,7 +273,7 @@ ChangePassword コントロールを次に、設定`MailDefinition`プロパテ�
 新しいパスワードを入力する、2 つ目のテキスト ボックスの確認、ユーザーの更新ボタンをクリックして後のポストバックに陥りますと`aspnet_Membership_SetPassword`ストアド プロシージャが呼び出される、ユーザーのパスワードを更新します。 コードについての理解を含めるパスワードを変更したユーザーに電子メールを送信するための機能を拡張してこの機能の対象読者ことをお勧めします。
 
 
-[![管理者がユーザーのパスワードを変更します。](recovering-and-changing-passwords-cs/_static/image26.png)](recovering-and-changing-passwords-cs/_static/image25.png)
+[![An 個の管理者には、ユーザーのパスワードを変更可能性があります](recovering-and-changing-passwords-cs/_static/image26.png)](recovering-and-changing-passwords-cs/_static/image25.png)
 
 **図 9**:管理者ユーザーのパスワードを変更することがあります ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-cs/_static/image27.png))。
 

@@ -8,15 +8,15 @@ ms.date: 03/06/2007
 ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6e56c46d1f2574b9f228190e0e0c8205240015ed
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 251cd769672f1610ac7c51772882b0c166184372
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423953"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397436"
 ---
-<a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView のフッターから新しいレコードを挿入する (VB)
-====================
+# <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView のフッターから新しいレコードを挿入する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_53_VB.exe)または[PDF のダウンロード](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/datatutorial53vb1.pdf)
@@ -31,7 +31,7 @@ ms.locfileid: "58423953"
 挿入機能を GridView に追加するで新しいレコードが追加されますを決定する、挿入のインターフェイスを作成して、新しいレコードを挿入するコードを記述を担当います。 挿入のインターフェイスを GridView のフッターに追加することに注目するはこのチュートリアルでは行が (図 1 参照)。 各列のフッター セルには、適切なデータ コレクションのユーザー インターフェイス要素 (s の製品名 ボックスと供給業者、DropDownList) が含まれています。 列も必要があります、追加のボタンで、クリックされたときのポストバックを発生させるしに新しいレコードを挿入、`Products`テーブル フッター行に指定された値を使用します。
 
 
-[![フッター行が新しい製品を追加するためのインターフェイスを提供します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
+[![T彼のフッター行は、新製品の追加のインターフェイスを提供](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
 
 **図 1**:フッター行は、新製品の追加のインターフェイスを提供します ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.png))。
 
@@ -41,7 +41,7 @@ ms.locfileid: "58423953"
 GridView のフッターに挿入するインターフェイスを作成すると自分たちに関係、前に、データベースでは、製品を一覧表示されたページに GridView を追加する最初のフォーカスを s を使用できます。 開いて開始、`InsertThroughFooter.aspx`ページで、`EnhancedGridView`フォルダーと、デザイナーの GridView s を設定するのには、ツールボックスからドラッグ GridView`ID`プロパティを`Products`します。 次に、GridView s のスマート タグをという名前の新しい ObjectDataSource にバインドを使用して`ProductsDataSource`します。
 
 
-[![ProductsDataSource という名前の新しい ObjectDataSource を作成します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.png)
+[![C新しい ObjectDataSource という ProductsDataSource を reate](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.png)
 
 **図 2**:名前付き新しい ObjectDataSource 作成`ProductsDataSource`([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.png))。
 
@@ -49,12 +49,12 @@ GridView のフッターに挿入するインターフェイスを作成する�
 構成を使用する ObjectDataSource、`ProductsBLL`クラスの`GetProducts()`製品情報を取得します。 このチュートリアルでは、挿入機能を追加するのには厳密に注目できるようにし、編集および削除について心配ありません。 そのため、[挿入] タブで、ドロップダウン リストに設定されていることを確認`AddProduct()`UPDATE および DELETE の各タブで、ドロップダウン リストが (なし) に設定されているとします。
 
 
-[![マップ ObjectDataSource s insert() AddProduct メソッド](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
+[![Mアジア太平洋 ObjectDataSource s insert() AddProduct メソッド](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
 
 **図 3**:マップ、 `AddProduct` ObjectDataSource s メソッド`Insert()`メソッド ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.png))。
 
 
-[![(なし) を更新および削除のタブのドロップダウン リストを設定します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
+[![Set (None) に更新および削除のタブのドロップダウン リスト](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
 
 **図 4**:更新プログラムやタブ ドロップダウン リストの削除 (なし) に設定 ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.png))。
 
@@ -69,7 +69,7 @@ ObjectDataSource s のデータ ソース構成ウィザードを完了するは
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample1.aspx)]
 
 
-[![製品のすべてのデータ フィールドはページングされた GridView に表示されます。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
+[![A今回はページングされた GridView で製品データ フィールドが表示されます](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
 
 **図 5**:ページングされた GridView で製品のすべてのデータ フィールドが表示されます ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))。
 
@@ -79,7 +79,7 @@ ObjectDataSource s のデータ ソース構成ウィザードを完了するは
 およびそのヘッダーとデータ行は、GridView には、フッター行が含まれています。 GridView の秒の値に応じて、ヘッダーとフッター行の表示[ `ShowHeader` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showheader.aspx)と[ `ShowFooter` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showfooter.aspx)プロパティ。 フッター行を表示する設定、`ShowFooter`プロパティを`True`します。 図 6 に示すように、設定、`ShowFooter`プロパティを`True`フッター行をグリッドに追加します。
 
 
-[![フッター行を表示するには、True に ShowFooter を設定します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
+[![To 表示、フッター行は、ShowFooter を True に設定](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
 
 **図 6**:フッター行を表示するには、次のように設定します`ShowFooter`に`True`([フルサイズの画像を表示する をクリックします。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png))。
 
@@ -96,7 +96,7 @@ ObjectDataSource s のデータ ソース構成ウィザードを完了するは
 設定した後、`ShowFooter`プロパティを`True`、時間、ブラウザーで、出力を表示するのにはかかりません。 現在、フッター行は t には、任意のテキストまたは Web コントロールが含まれます。 手順 3. では、GridView の各フィールドのフッターを変更して、適切な挿入インターフェイスが含まれるようにします。
 
 
-[![空のフッター行は表示上、ページング インターフェイス コントロールです。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
+[![T彼は空のフッター行は、表示上、ページング インターフェイス コントロール](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
 
 **図 7**:空のフッター行は表示上、ページング インターフェイス コントロール ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image14.png))。
 
@@ -130,7 +130,7 @@ GridView の各フィールドを TemplateField に変換すると、これで�
 編集インターフェイスを作成するには、GridView s のスマート タグからテンプレートの編集リンクを選択します。 次に、ドロップダウン リストから適切なフィールドの s を選択`FooterTemplate`し、適切なコントロールをツールボックスからデザイナーにドラッグします。
 
 
-[![各フィールドの後に、適切な挿入のインターフェイスを追加します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
+[![Add フィールドの各秒後に、適切な挿入インターフェイス](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
 
 **図 9**:各フィールドに適切な挿入のインターフェイスを追加`FooterTemplate`([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image16.png))。
 
@@ -166,7 +166,7 @@ GridView のさまざまなフィールドの外観を向上させるために�
 ブラウザーで表示、ときに GridView のフッター行が含まれています、完成したインターフェイスの挿入 (図 10 参照)。 この時点では、挿入のインターフェイスは t には、ユーザーが彼女 s 新しい製品のデータを入力し、データベースに新しいレコードを挿入する必要があるを指定するための手段が含まれます。 ここではまた、フッターに入力されたデータで新しいレコードに変換する方法に対処するには、まだ ve、`Products`データベース。 挿入インターフェイスに、[追加] ボタンを追加する方法とでコードを実行する方法について説明します、手順 4. でポストバックの場合、s をクリックします。 手順 5 では、フッターからデータを使用して新しいレコードを挿入する方法を示します。
 
 
-[![GridView のフッターは、新しいレコードを追加するインターフェイスを提供します](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
+[![TGridView のフッター彼は、新しいレコードを追加するため、インターフェイスを提供します](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
 
 **図 10**:GridView のフッターは、新しいレコードを追加するインターフェイスを提供します ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image18.png))。
 
@@ -178,7 +178,7 @@ GridView のさまざまなフィールドの外観を向上させるために�
 デザイナーでは、GridView s のスマート タグにテンプレートの編集リンクをクリックし、、`ProductID`フィールドの`FooterTemplate`ドロップダウン リストから。 テンプレートにその ID に設定 ボタンの Web コントロール (または LinkButton または ImageButton、使用する場合) を追加`AddProduct`その`CommandName`挿入 をその`Text`図 11 に示すように追加するプロパティ。
 
 
-[![ProductID TemplateField s の後に追加 ボタンを配置します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
+[![PProductID TemplateField 秒後に、[追加] ボタンを lace](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
 
 **図 11**:[追加] ボタンを配置、 `ProductID` TemplateField s `FooterTemplate` ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image20.png))。
 
@@ -186,7 +186,7 @@ GridView のさまざまなフィールドの外観を向上させるために�
 Ve するには、[追加] ボタンが含まれているとは、ブラウザーでページをテストします。 無効なデータを挿入するインターフェイスの追加 ボタンをクリックすると、ポストバックは短いサーキットをメモし、ValidationSummary コントロール (図 12 を参照してください)、無効なデータを示します。 適切なデータ入力を追加 ボタンをクリックするとポストバックが発生します。 レコードがないデータベースに追加、ただし。 実際に挿入を実行するコードを少し記述する必要があります。
 
 
-[![ボタンの追加 s ポストバックは短いサーキット挿入インターフェイスに無効なデータがある場合](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
+[![Tボタンの追加] s ポストバック サーキットの短い場合は、挿入インターフェイスに無効なデータがある](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
 
 **図 12**:ボタンの追加 s ポストバック サーキットの短い挿入インターフェイスに無効なデータがある場合は、([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image22.png))。
 

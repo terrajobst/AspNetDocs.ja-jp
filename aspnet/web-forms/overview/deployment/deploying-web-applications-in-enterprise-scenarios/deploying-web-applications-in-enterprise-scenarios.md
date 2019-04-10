@@ -8,18 +8,18 @@ ms.date: 05/03/2012
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: fa06538dcd9e087df52a76588e084a527867bf84
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f8d55cb98e6943ef2a7c7eb05f7f771b5f5e63ef
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062729"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420407"
 ---
-<a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを配置する
-====================
+# <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを配置する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > この一連のチュートリアルでは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。 最適な Visual Studio 2010、Microsoft Build Engine (MSBuild)、インターネット インフォメーション サービス (IIS) 7.5、IIS の Web 配置ツール (Web 配置)、Web Farm Framework (WFF) およびに VSDBCMD.exe などのユーティリティなどのテクノロジを使用する方法について説明します簡略化と展開プロセスを管理します。 概念の要約とするのに役立つタスク指向のガイダンスが含まれています。
 > 

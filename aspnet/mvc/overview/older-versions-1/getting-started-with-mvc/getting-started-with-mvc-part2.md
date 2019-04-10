@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: b593c6225c05c7405c9d8b78abfd29a087d47b04
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 84f9c822f041808184b2c586ce933ba3b24615dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421260"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419835"
 ---
-<a name="adding-a-controller"></a>コントローラーを追加する
-====================
+# <a name="adding-a-controller"></a>コントローラーを追加する
+
 [Scott Hanselman](https://github.com/shanselman)による
 
 > > [!NOTE]
@@ -40,7 +40,7 @@ MVC は、モデル、ビュー、コント ローラーの略です。 MVC は�
 
 新しいコント ローラー"HelloWorldController"の名前し、[追加] をクリックします。
 
-[![[追加] ダイアログのコント ローラー](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
+[![Add コント ローラーのダイアログ](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
 
 HelloWorldController.cs と呼ばれるの新しいファイルが作成されでそのファイルが開いている右側のソリューション エクスプ ローラーで、 **IDE**します。
 
@@ -58,15 +58,15 @@ ASP.NET MVC では、着信 URL に応じて別のコント ローラー クラ�
 
 URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって、HelloWorldController クラス/HelloWorld にマップします。 URL の 2 番目の部分は、実行するには、クラスのアクション メソッドを決定します。 /HelloWorld/Index を実行する HelloWorldController クラスの Index() メソッド。 上記/HelloWorld とインデックスが暗黙的に指定されたメソッドを参照してくださいにのみ必要があることを確認します。 これは、"Index"という名前のメソッドが明示的に指定されていない場合、コント ローラーで呼び出される既定の方法であるためです。
 
-[![これは、既定のアクション](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
+[![T彼は、[既定のアクション](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 
 ここで、次を参照してください`http://localhost:xx/HelloWorld/Welcome.`へようこそ の方法が実行され、HTML 文字列を返すようになりました。
 
 ここでも、/[Controller]/[ActionName]/[パラメーター] コント ローラーが HelloWorld とウェルカム メソッドをここでは、します。 パラメーターをまだ完了していないことはできます。
 
-[![これは、[ようこそ] のアクション メソッドです。](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
+[![T彼は、[ようこそ] のアクション メソッド](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
-みましょう URL からの一部の情報を渡すなどのように、コント ローラーをように、サンプルを少し変更:/helloworld/welcome でしょうか。 名前 = Scott&amp;numtimes 4 を = です。 2 つのパラメーターと以下のような更新プログラムを含めるへようこそ 方法を変更します。 が渡されない場合 1 をパラメーター numTimes が既定を示す C# のオプション パラメーター機能を使用したことに注意してください。
+みましょう URL からの一部の情報を渡すなどのように、コント ローラーをように、サンプルを少し変更:/helloworld/welcome でしょうか。 名前 = Scott&amp;numtimes 4 を = です。 2 つのパラメーターと以下のような更新プログラムを含めるへようこそ 方法を変更します。 が渡されない場合 1 をパラメーター numTimes が既定を示す c# のオプション パラメーター機能を使用したことに注意してください。
 
 [!code-csharp[Main](getting-started-with-mvc-part2/samples/sample2.cs)]
 

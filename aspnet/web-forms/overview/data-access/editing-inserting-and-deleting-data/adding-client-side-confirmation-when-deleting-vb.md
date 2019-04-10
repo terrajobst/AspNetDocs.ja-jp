@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2b0d7aeab357a0009c44a29ff66f22ce8a744a90
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: fc5c99ce6c5da7d004b95462a3338aefbed31b36
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422151"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388713"
 ---
-<a name="adding-client-side-confirmation-when-deleting-vb"></a>削除時、クライアント側の確認を追加する (VB)
-====================
+# <a name="adding-client-side-confirmation-when-deleting-vb"></a>削除時、クライアント側の確認を追加する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_22_VB.exe)または[PDF のダウンロード](adding-client-side-confirmation-when-deleting-vb/_static/datatutorial22vb1.pdf)
@@ -65,7 +65,7 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 これらの変更は、ユーザーを削除 ボタンをクリックするだけで、製品を削除することができます、一度に 1 つの製品を通じて切り替えるできる web ページを完全に機能があります。 図 2 は、ブラウザーで表示したときにこれまで、進行状況のスクリーン ショットを示します。
 
 
-[![FormView には、1 つの製品についての情報が表示されます。](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
+[![T彼 FormView 表示情報について、1 つの製品](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
 
 **図 2**:FormView 表示情報について、1 つの製品 ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-vb/_static/image4.png))。
 
@@ -85,7 +85,7 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 > 渡された文字列、 `confirm(string)` JavaScript 関数は、アポストロフィ (引用符ではなく) で区切られます。 JavaScript ではいずれかの文字を使用して文字列を区切ることができます。 渡された文字列の区切り記号のようにアポストロフィここで使用`confirm(string)`を使用する区切り記号では、あいまいさを持ち込んでいない、`OnClientClick`プロパティの値。
 
 
-[![確認メッセージは、今すぐ表示と削除 ボタンをクリックして](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
+[![A 確認は、今すぐ表示と削除] ボタンをクリックして](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
 
 **図 3**:確認メッセージは、今すぐ表示と削除 ボタンをクリックして ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))。
 
@@ -127,7 +127,7 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 > この手法が、DetailsView で [commandfield] で [削除] ボタンをプログラムでアクセスすることもできます。 DetailsView、ただし、d を作成、イベント ハンドラーを`DataBound`DetailsView があるないため、イベント、`RowDataBound`イベント。
 
 
-[![GridView の削除 ボタンをクリックすると、カスタマイズされた確認ダイアログ ボックスが表示されます。](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
+[![CGridView の削除] ボタンが表示されます、カスタマイズされた確認ダイアログ ボックスをクリックして](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
 
 **図 4**:GridView の削除 ボタンをクリックするとカスタマイズの確認 ダイアログ ボックスが表示されます ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))。
 
