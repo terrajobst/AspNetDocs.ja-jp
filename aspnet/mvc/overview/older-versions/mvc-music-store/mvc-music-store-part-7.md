@@ -8,15 +8,15 @@ ms.date: 10/13/2010
 ms.assetid: c8511ebe-68bc-4240-87c3-d5ced84a3f37
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 44205f0ef59e00ad9fb1c45fdc0ba8934b5804cc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5431d60506f5b0a0f4bbcd8e86b316c728a1191
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57060429"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415922"
 ---
-<a name="part-7-membership-and-authorization"></a>第 7 部:メンバーシップと承認
-====================
+# <a name="part-7-membership-and-authorization"></a>第 7 部:メンバーシップと承認
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -40,7 +40,7 @@ ms.locfileid: "57060429"
 
 MvcMusicStore で開始するために、コント ローラーとモデルのクラスの名前空間を変更します。 AccountController クラスは MvcMusicStore.Controllers 名前空間を使用する必要があり、AccountModels クラス MvcMusicStore.Models 名前空間を使用する必要があります。
 
-*注:これらのファイルでは、チュートリアルの先頭に、サイト設計のファイルをコピーした MvcMusicStore Assets.zip ダウンロードで入手できます。メンバーシップのファイルは、Code ディレクトリにあります。*
+*メモ:これらのファイルでは、チュートリアルの先頭に、サイト設計のファイルをコピーした MvcMusicStore Assets.zip ダウンロードで入手できます。 メンバーシップのファイルは、Code ディレクトリにあります。*
 
 更新されたソリューションは、次のようになります。
 
@@ -75,13 +75,13 @@ Web サイトで承認を要求する、前にアクセス権を持つユーザ�
 | **フィールド** | **[値]** |
 | --- | --- |
 | **ユーザー名** | 管理者 |
-| **パスワード** | password123! |
+| **[Password]** | password123! |
 | **パスワードの確認入力** | password123! |
 | **電子メール** | (任意の電子メール アドレスは機能) |
 | **セキュリティの質問** | (好き) |
 | **セキュリティ返答** | (好き) |
 
-*注:もちろん、たい任意のパスワードを使用できます。既定のパスワード セキュリティ設定が必要なパスワードは 7 文字の長さを 1 つの英数字以外の文字が含まれています。*
+*メモ:もちろん、たい任意のパスワードを使用できます。 既定のパスワード セキュリティ設定が必要なパスワードは 7 文字の長さを 1 つの英数字以外の文字が含まれています。*
 
 このユーザーの管理者ロールを選択し、ユーザーの作成 ボタンをクリックします。
 
@@ -99,7 +99,7 @@ Web サイトで承認を要求する、前にアクセス権を持つユーザ�
 
 [!code-csharp[Main](mvc-music-store-part-7/samples/sample1.cs)]
 
-*注:[Authorize] 属性は、特定のアクション メソッドをおよびコント ローラーのクラス レベルで配置できます。*
+*メモ:[Authorize] 属性は、特定のアクション メソッドをおよびコント ローラーのクラス レベルで配置できます。*
 
 ログオン ダイアログ/StoreManager を今すぐ参照が表示されます。
 

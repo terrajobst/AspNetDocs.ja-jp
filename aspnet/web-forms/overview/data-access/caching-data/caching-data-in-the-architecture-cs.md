@@ -8,15 +8,15 @@ ms.date: 05/30/2007
 ms.assetid: d29a7c41-0628-4a23-9dfc-bfea9c6c1054
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3971140aa7a6c829287e74df804694c19e34adcf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7637e23678af80ae037292fd3f89ef74167c8242
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57028049"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419250"
 ---
-<a name="caching-data-in-the-architecture-c"></a>アーキテクチャでデータをキャッシュする (C#)
-====================
+# <a name="caching-data-in-the-architecture-c"></a>アーキテクチャでデータをキャッシュする (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_59_CS.exe)または[PDF のダウンロード](caching-data-in-the-architecture-cs/_static/datatutorial59cs1.pdf)
@@ -159,7 +159,7 @@ Let s の更新プログラム、`AddCacheItem(key, value)`メソッドの各項
 データを操作する手法を使用してこのチュートリアルで調査して、キャッシュ層のクラスとメソッドを使用できます。 キャッシュされたデータの操作を示すためには、変更内容を保存、`ProductsCL`クラスを開き、`FromTheArchitecture.aspx`ページで、`Caching`フォルダー、GridView を追加します。 GridView のスマート タグから新しい ObjectDataSource を作成します。 ウィザードの最初の手順で表示する必要があります、`ProductsCL`クラスのドロップダウン リストからオプションのいずれか。
 
 
-[![ビジネス オブジェクトのドロップダウン リストで ProductsCL クラスが含まれています。](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
+[![T彼はビジネス オブジェクトのドロップダウン リストで ProductsCL クラスが含まれる](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
 
 **図 4**:`ProductsCL`ビジネス オブジェクトのドロップダウン リストにクラスが含まれる ([フルサイズの画像を表示する をクリックします](caching-data-in-the-architecture-cs/_static/image6.png))。
 
@@ -167,7 +167,7 @@ Let s の更新プログラム、`AddCacheItem(key, value)`メソッドの各項
 選択した後`ProductsCL`、[次へ] をクリックします。 タブで、ドロップダウン リストが 2 つの項目 -`GetProducts()`と`GetProductsByCategoryID(categoryID)`更新プログラム タブであり、唯一`UpdateProduct`オーバー ロードします。 選択、`GetProducts()`メソッドを選択します タブから、`UpdateProducts`し更新 タブからメソッドを終了します。
 
 
-[![ドロップダウン リストに、ProductsCL クラスのメソッドの一覧します。](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
+[![T彼は、ドロップダウン リストに ProductsCL クラスのメソッドの一覧](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
 
 **図 5**:`ProductsCL` 、ドロップダウン リストにクラスのメソッドの一覧 ([フルサイズの画像を表示する をクリックします](caching-data-in-the-architecture-cs/_static/image9.png))。
 

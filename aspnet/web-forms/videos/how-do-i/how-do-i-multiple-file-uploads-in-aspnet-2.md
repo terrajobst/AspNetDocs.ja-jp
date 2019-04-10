@@ -8,15 +8,15 @@ ms.date: 02/12/2008
 ms.assetid: 7cf3f5ed-2a87-4208-a71d-2b39bc19832a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
 msc.type: video
-ms.openlocfilehash: cd0e93e10dc7295febc783852c3713963c7c35d8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0e7757e24fea52034d15728a8e4c37b0d1bd954e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064769"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421642"
 ---
-<a name="how-do-i--multiple-file-uploads-in-aspnet2"></a>[How Do i:] ASP.NET 2 での複数のファイルをアップロードします。
-====================
+# <a name="how-do-i--multiple-file-uploads-in-aspnet2"></a>[How Do i:] ASP.NET 2 での複数のファイルをアップロードします。
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 このビデオでは、ASP.NET アプリケーションへのファイル数が動的に決定のアップロードについて説明します。

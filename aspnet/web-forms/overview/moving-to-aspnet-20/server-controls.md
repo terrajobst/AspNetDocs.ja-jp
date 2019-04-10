@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: ecf99fa894c1f662542aa8a613195b828bf2c67b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061439"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420758"
 ---
-<a name="server-controls"></a>サーバー コントロール
-====================
+# <a name="server-controls"></a>サーバー コントロール
+
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET 2.0 では、さまざまな方法でサーバー コントロールを強化します。 このモジュールでいくつかの方法は、ASP.NET 2.0 には、アーキテクチャの変更について説明し、Visual Studio 2005 は、サーバー コントロールを処理します。
@@ -99,7 +99,7 @@ ASP.NET 2.0 で既定の DOCTYPE 定義のとおりです。
 
 [!code-html[Main](server-controls/samples/sample7.html)]
 
-選択した場合は、構成ファイルで xhtmlConformance ノードを介して既定 XHML コンプライアンスを変更できます。 たとえば、web.config ファイルで、次のノードは XHTML 1.0 Strict を XHTML 準拠を変更します。
+選択した場合は、構成ファイルで xhtmlConformance ノード経由での既定の XHTML 準拠を変更できます。 たとえば、web.config ファイルで、次のノードは XHTML 1.0 Strict を XHTML 準拠を変更します。
 
 [!code-xml[Main](server-controls/samples/sample8.xml)]
 

@@ -8,20 +8,20 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: 18e988279b56e479b0bb27de2f01ab22a2e70301
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d27c8c1910a79cea8ccdf4231d3bc2b80a20dc68
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422611"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418366"
 ---
-<a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure での実際のクラウド アプリの構築) すべてを自動化します。
-====================
+# <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure での実際のクラウド アプリの構築) すべてを自動化します。
+
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の概要については、[第 1 章](introduction.md)を参照してください。
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の概要については、次を参照してください。[第 1 章](introduction.md)します。
 
 
 実際には、見て最初の 3 つのパターンには、あらゆるソフトウェア開発プロジェクト、特にクラウド プロジェクトが適用されます。 このパターンは、開発タスクの自動化についてです。 手動プロセスは低速でエラーが発生しやすい; は、重要なトピック高速かつ信頼性が高く、アジャイルのワークフローを設定することの支援としてそれらの多くを自動化します。 困難または不可能なオンプレミス環境を自動化するには多くのタスクを簡単に自動化できるため、クラウド開発を一意に重要です。 たとえば、テスト全体を設定することが新しい web サーバーとバックエンド Vm を含む環境では、データベース、blob storage (ファイル ストレージ)、キューなど。
@@ -125,7 +125,7 @@ Web アプリ:
 
 ### <a name="create-the-storage-account"></a>ストレージ アカウントを作成します。
 
-メイン スクリプトを実行し、<em>新規 AzureStorage.ps1</em>スクリプトを指定する"<em>&lt;websitename&gt;</em>ストレージ"、ストレージ アカウント名の同じデータ センターの場所として、web アプリです。
+メイン スクリプトを実行し、*新規 AzureStorage.ps1*スクリプトを指定する"*&lt;websitename&gt;* ストレージ"、ストレージ アカウント名の同じデータ センターの場所として、web アプリです。
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 

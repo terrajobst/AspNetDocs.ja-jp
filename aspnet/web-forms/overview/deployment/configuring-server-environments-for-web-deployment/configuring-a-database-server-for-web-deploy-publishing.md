@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 0f8639efcfcd02c9fdb65ce3ed25272965be8aa8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2cd99e23904276e89cf043a2332ad07c0f01716d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031699"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415350"
 ---
-<a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web 配置発行のデータベース サーバーを構成する
-====================
+# <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web 配置発行のデータベース サーバーを構成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、web 配置および発行をサポートするために SQL Server 2008 R2 データベース サーバーを構成する方法について説明します。
 > 
@@ -45,7 +45,7 @@ Web 配置をサポートするためにデータベース サーバーを構成
 のみ、SQL Server インスタンスを含める必要があります、**データベース エンジン サービス**ロールは、任意の SQL Server のインストールに自動的に含まれています。 ただし、構成と保守の容易にするため、推奨を含めること、**管理ツール-基本**と**管理ツール-完全**サーバーの役割。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)を参照してください。 静的 IP アドレスの構成の詳細については、[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)を参照してください。 SQL Server をインストールする方法の詳細については、[SQL Server 2008 R2 のインストール](https://technet.microsoft.com/library/bb500395.aspx)を参照してください。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。 SQL Server をインストールする方法の詳細については、次を参照してください。 [SQL Server 2008 R2 のインストール](https://technet.microsoft.com/library/bb500395.aspx)します。
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>SQL Server へのリモート アクセスを有効にします。
@@ -92,7 +92,7 @@ TCP/IP 経由で通信するのに SQL Server を有効にするのにには、S
 
 SQL Server の既定のインスタンスを使用するいると仮定するトラフィックを許可するようにファイアウォールを構成する必要があります。
 
-| 方向 | ポートから | ポートに | ポートの種類 |
+| Direction | ポートから | ポートに | ポートの種類 |
 | --- | --- | --- | --- |
 | 受信 | どれでも可 | 1433 | TCP |
 | 送信 | 1433 | どれでも可 | TCP |
@@ -135,7 +135,7 @@ Web アプリケーションにインターネット インフォメーション
 Web アプリケーションが 1 台のサーバーではなく、サーバー ファームで実行している場合は、サーバー ファーム内のすべての web サーバーにこれらの手順を繰り返す必要があります。
 
 > [!NOTE]
-> アプリケーション プール id とネットワークのリソースへのアクセスの詳細については、[アプリケーション プール Id](https://go.microsoft.com/?linkid=9805123)を参照してください。
+> アプリケーション プール id とネットワークのリソースへのアクセスの詳細については、次を参照してください。[アプリケーション プール Id](https://go.microsoft.com/?linkid=9805123)します。
 
 
 さまざまな方法でこれらのタスクの方法があります。 ログインを作成するには、ことができますか。
@@ -162,7 +162,7 @@ SQL Server ログインは、ために展開するデータベースに依存す
 - データベース ロール、ログインに手動で割り当てる、最初にデータベースをデプロイした後。
 - 配置後スクリプトを使用して、ログインにデータベース ロールを割り当てます。
 
-ログインとデータベース ロールのマッピングの作成を自動化する方法については、[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)を参照してください。 または、次の手順を使用すると、マシン アカウントのログインを手動で必要なデータベース ロールにマップします。 までには、この手順を実行することはできませんに注意してください。*後*データベースをデプロイしました。
+ログインとデータベース ロールのマッピングの作成を自動化する方法については、次を参照してください。[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。 または、次の手順を使用すると、マシン アカウントのログインを手動で必要なデータベース ロールにマップします。 までには、この手順を実行することはできませんに注意してください。*後*データベースをデプロイしました。
 
 **データベース ロールを web サーバー マシン アカウントのログインにマップするには**
 
@@ -180,7 +180,7 @@ SQL Server ログインは、ために展開するデータベースに依存す
 データベース ロールの手動マッピングは、テスト環境の複数の適切なが多くの場合、はステージング環境または運用環境への自動、または 1 回のクリックの展開の推奨されません。 詳細についてはこの種の配置後スクリプトを使用してタスクを自動化することで見つかります[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。
 
 > [!NOTE]
-> サーバー プロジェクトとデータベース プロジェクトの詳細については、[Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/library/ff678491.aspx)を参照してください。
+> サーバー プロジェクトとデータベース プロジェクトの詳細については、次を参照してください。 [Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/library/ff678491.aspx)します。
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>展開アカウントのアクセス許可を構成します。
@@ -226,7 +226,7 @@ SQL Server ログインは、ために展開するデータベースに依存す
 
 ## <a name="further-reading"></a>関連項目
 
-データベース プロジェクトの配置方法の詳細については、[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を参照してください。 配置後スクリプトを実行してデータベース ロールのメンバーシップを作成する方法の詳細については、[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)を参照してください。 メンバーシップ データベースをもたらす独自の展開の課題に対応する方法のガイダンスについては、[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)を参照してください。
+データベース プロジェクトの配置方法の詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。 配置後スクリプトを実行してデータベース ロールのメンバーシップを作成する方法の詳細については、次を参照してください。[テスト環境にデータベース ロール メンバーシップを展開する](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)します。 メンバーシップ データベースをもたらす独自の展開の課題に対応する方法のガイダンスについては、次を参照してください。[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)します。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

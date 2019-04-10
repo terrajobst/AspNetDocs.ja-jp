@@ -8,16 +8,16 @@ ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: 1693838a74f0564e38e11a2827cceb3d6474677b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: db8f336f3fd9a88dfb32f99510fc53cd7b4a5178
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038859"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415987"
 ---
-<a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>方法: モバイル ページを ASP.NET Web フォーム / MVC アプリケーションに追加する
-====================
-> **適用されます。**
+# <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>方法: モバイル ページを ASP.NET Web フォーム / MVC アプリケーションに追加する
+
+> **対象**
 > 
 > - ASP.NET Web フォームのバージョン 4.0
 > - ASP.NET MVC version 3.0
@@ -36,7 +36,7 @@ ms.locfileid: "57038859"
 - ASP.NET MVC アプリケーションがモバイル固有のページを表示する方法
 - その他の技術情報
 
-ASP.NET Web フォームと MVC の両方のこのホワイト ペーパーの手法を示すダウンロード可能なコード サンプルでは、[Mobile Apps と ASP.NET を使用したサイト](https://docs.microsoft.com/aspnet/mobile/overview)を参照してください。
+ASP.NET Web フォームと MVC の両方のこのホワイト ペーパーの手法を示すダウンロード可能なコード サンプルでは、次を参照してください。 [Mobile Apps と ASP.NET を使用したサイト](https://docs.microsoft.com/aspnet/mobile/overview)します。
 
 ## <a name="overview"></a>概要
 
@@ -240,7 +240,7 @@ ASP の中にします。2 つの主なケースなことができない場合�
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-退席中、および URL http:// エラーになるようになりました<em>目的のサイト</em>http://、デスクトップのホーム ページに到達/<em>目的のサイト</em>/mobile/はモバイルのホームページに達します。
+退席中、および URL の http エラーになるようになりました:\/\/*目的のサイト*はデスクトップのホーム ページ、および http アクセスは/:\/\/*目的のサイト*/mobile/されますモバイル ホーム ページに到達します。
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>モバイルお住まいの地域をモバイル閲覧者にリダイレクトします。
 
@@ -306,7 +306,7 @@ Web.config ファイルの fiftyOne セクションに追加された次の要�
 
 [!code-xml[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample15.xml)]
 
-詳細については、[51degrees.mobi Foundation ドキュメント](https://github.com/51Degrees/dotNET-Device-Detection)を参照してください。
+詳細については、次を参照してください。 [51degrees.mobi Foundation ドキュメント](https://github.com/51Degrees/dotNET-Device-Detection)します。
 
 > [!NOTE]
 > *できます*51Degrees.mobi Foundation のリダイレクトの機能が、ASP.NET MVC アプリケーションではルーティング パラメーターは使用しませんまたは MVC フィルターを設定することによって、プレーンな Url の観点から、リダイレクト構成を定義する必要がありますアクション。 これはためです (この記事の執筆時点) で 51Degrees.mobi Foundation では、フィルターやルーティングは認識しません。

@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-1
-title: ASP.NET Web API で HTML フォーム データを送信します。Url エンコード フォーム データ |Microsoft Docs
+title: ASP.NET Web API で HTML フォーム データを送信します。Url エンコード フォーム データ - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: この記事では、asp.net Web API コント ローラーに url エンコード フォーム データをポストする方法を示しています 4.x。
 ms.author: riande
 ms.date: 06/15/2012
+ms.custom: seoapril2019
 ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 2d01212cc408f8bb66fa3103464c9a1f7a1e21c6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fb0309af11910125943737ebb721b356b7bd08bc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418301"
 ---
-<a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>ASP.NET Web API で HTML フォーム データを送信します。URL エンコード フォーム データ
-====================
+# <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>ASP.NET Web API で HTML フォーム データを送信します。URL エンコード フォーム データ
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 ## <a name="part-1-form-urlencoded-data"></a>第 1 部:URL エンコード フォーム データ
@@ -133,4 +134,4 @@ JQuery**送信**関数は、新しい関数にフォームのアクションを�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-[第 2 部: ファイルのアップロードとマルチパート MIME](sending-html-form-data-part-2.md)
+[第 2 部: ファイル アップロードとマルチパート MIME](sending-html-form-data-part-2.md)

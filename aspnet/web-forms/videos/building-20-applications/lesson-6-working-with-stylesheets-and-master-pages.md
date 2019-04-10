@@ -8,15 +8,15 @@ ms.date: 11/28/2005
 ms.assetid: 321513ca-a52e-4142-9124-24eacb6048b4
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-6-working-with-stylesheets-and-master-pages
 msc.type: video
-ms.openlocfilehash: 7574f7fa0cb1869f8f49bab63d7f747a02e4dca9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e04a276d991b7e0979bfb43f326e2c9ab7bfbb9c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056859"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421824"
 ---
-<a name="lesson-6-working-with-stylesheets-and-master-pages"></a>[レッスン 6:] スタイルシートとマスター ページを使用する
-====================
+# <a name="lesson-6-working-with-stylesheets-and-master-pages"></a>[レッスン 6:] スタイルシートとマスター ページを使用する
+
 によって[Microsoft](https://github.com/microsoft)
 
 このレッスンでは、スタイル シートとマスター ページを使用して、web アプリケーションのすべてのページの一貫した外観を維持する方法について開始されます。

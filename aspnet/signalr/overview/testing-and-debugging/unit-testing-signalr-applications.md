@@ -8,15 +8,15 @@ ms.date: 06/10/2014
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: cb4eb25aeedfe31ac2606de9fe7d280eb95ce2e6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1556e8275da446e285c88d1f850d072725de057b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57039289"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415675"
 ---
-<a name="unit-testing-signalr-applications"></a>SignalR アプリケーションの単体テスト
-====================
+# <a name="unit-testing-signalr-applications"></a>SignalR アプリケーションの単体テスト
+
 提供者: [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -85,7 +85,7 @@ XUnit.net; テストの制御に使用します。Moq の作成に使用され�
 9. キーを押して、ソリューションをビルド**F6**します。
 10. 単体テストを実行します。 Visual Studio で、次のように選択します。**テスト**、 **Windows**、**テスト エクスプ ローラー**します。 テスト エクスプ ローラー ウィンドウで右クリック**HubsAreMockableViaDynamic**選択**選択したテストの実行**します。
 
-    ![テスト エクスプローラー](unit-testing-signalr-applications/_static/image5.png)
+    ![Test Explorer](unit-testing-signalr-applications/_static/image5.png)
 11. テスト エクスプ ローラー ウィンドウで、下部のウィンドウをチェックして、テストが渡されることを確認します。 テストが成功した、ウィンドウが表示されます。
 
     ![テスト成功](unit-testing-signalr-applications/_static/image6.png)
@@ -106,7 +106,7 @@ XUnit.net; テストの制御に使用します。Moq の作成に使用され�
 3. キーを押して、ソリューションをビルド**F6**します。
 4. 単体テストを実行します。 Visual Studio で、次のように選択します。**テスト**、 **Windows**、**テスト エクスプ ローラー**します。 テスト エクスプ ローラー ウィンドウで右クリック**HubsAreMockableViaDynamic**選択**選択したテストの実行**します。
 
-    ![テスト エクスプローラー](unit-testing-signalr-applications/_static/image7.png)
+    ![Test Explorer](unit-testing-signalr-applications/_static/image7.png)
 5. テスト エクスプ ローラー ウィンドウで、下部のウィンドウをチェックして、テストが渡されることを確認します。 テストが成功した、ウィンドウが表示されます。
 
     ![テスト成功](unit-testing-signalr-applications/_static/image8.png)

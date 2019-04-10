@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
-title: ASP.NET ページ (C#) で BLL レベルと DAL レベルの例外の処理 |Microsoft Docs
+title: ASP.NET ページ (c#) で BLL レベルと DAL レベルの例外の処理 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、挿入、更新、または削除操作の中に例外が発生する必要があります、親しみやすい、わかりやすいエラー メッセージを表示する方法をわかる.
 ms.author: riande
@@ -8,15 +8,15 @@ ms.date: 07/17/2006
 ms.assetid: 49d8a66c-3ea8-4087-839f-179d1d94512a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dea7b1e8cd5be795acd27868066384fe52b065f7
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 14b9070a462741aab7230963e3e1298368b8e6aa
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422195"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420992"
 ---
-<a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (C#)
-====================
+# <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_18_CS.exe)または[PDF のダウンロード](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/datatutorial18cs1.pdf)
@@ -50,7 +50,7 @@ ms.locfileid: "58422195"
 この方法で完全なこれら 4 つの特定の製品フィールドを編集できます。 ASP.NET ページを作成する準備ができました。 開く、`ErrorHandling.aspx`ページで、`EditInsertDelete`フォルダー、デザイナーを使用してページに GridView を追加します。 新しい ObjectDataSource では、GridView にバインド マッピング、`Select()`メソッドを`ProductsBLL`クラスの`GetProducts()`メソッドと`Update()`メソッドを`UpdateProduct`オーバー ロードを作成します。
 
 
-[![次の 4 つの入力パラメーターを受け取る UpdateProduct メソッド オーバー ロードを使用します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image1.png)
+[![Use UpdateProduct メソッドのオーバー ロードことを受け入れる次の 4 つの入力パラメーター](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image1.png)
 
 **図 1**:使用して、`UpdateProduct`メソッドをオーバー ロードすることを受け入れる次の 4 つ入力パラメーター ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image3.png))。
 
@@ -62,7 +62,7 @@ ms.locfileid: "58422195"
 前のチュートリアルで書式を設定する方法を説明しました、 `UnitPrice` BoundField 読み取り専用モードと編集モードの両方の通貨として。 同じここで見ていきます。 BoundField の設定が必要ですこのことを思い出してください`DataFormatString`プロパティを`{0:c}`その`HtmlEncode`プロパティを`false`、およびその`ApplyFormatInEditMode`に`true`図 2 に示すように、します。
 
 
-[![通貨として表示する UnitPrice BoundField を構成します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
+[![C構成の通貨として表示する UnitPrice BoundField](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
 
 **図 2**:構成、 `UnitPrice` BoundField を通貨として表示する ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image6.png))。
 
@@ -75,7 +75,7 @@ ms.locfileid: "58422195"
 含まれています、GridView、 `QuantityPerUnit` BoundField がこの BoundField 表示用のみにする必要があり、ユーザーは編集できません。 これを配置する BoundFields' を設定するだけ`ReadOnly`プロパティを`true`します。
 
 
-[![読み取り専用 QuantityPerUnit BoundField を行う](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image8.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image7.png)
+[![Mおきます QuantityPerUnit BoundField 読み取り専用](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image8.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image7.png)
 
 **図 3**:ように、 `QuantityPerUnit` BoundField 読み取り専用 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image9.png))。
 
@@ -83,7 +83,7 @@ ms.locfileid: "58422195"
 最後に、GridView のスマート タグの編集を有効にするチェック ボックスを確認します。 次の手順を完了した後、`ErrorHandling.aspx`ページのデザイナーはよう図 4 になります。
 
 
-[![すべて削除、必要な BoundFields とチェック チェック ボックスの編集を有効にします。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
+[![R[必要な BoundFields 以外のすべての削除とチェックを有効にする編集チェック ボックス](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
 
 **図 4**:[必要な BoundFields 以外のすべてを削除し、チェックを有効にする編集ボックスをオン ([フルサイズの画像を表示する] をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image12.png))。
 
@@ -91,7 +91,7 @@ ms.locfileid: "58422195"
 この時点でのすべての製品の一覧がある`ProductName`、 `QuantityPerUnit`、 `UnitPrice`、および`UnitsInStock`フィールドです。 ただし、のみ、 `ProductName`、 `UnitPrice`、と`UnitsInStock`のフィールドを編集できます。
 
 
-[![ユーザー今すぐ簡単に編集できます製品の名前、価格、およびストック フィールド内のユニット](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
+[![Uユーザーことが今すぐ簡単に編集の製品の名前、価格、および在庫フィールドの単位](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
 
 **図 5**:ユーザーできます今すぐ簡単に編集の製品の名前、価格、および単位で在庫フィールド ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image15.png))。
 
@@ -105,7 +105,7 @@ Web アプリケーションを構成する方法と、アプリケーション�
 図 6 を指定せず、製品を更新する際に発生した画面を示しています、`ProductName`値。 これは、既定の送信されるときに詳細なエラー レポートが表示される`localhost`します。
 
 
-[![製品の名前が表示されます例外の詳細を省略します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image17.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image16.png)
+[![O製品を mitting 名は例外の詳細を表示](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image17.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image16.png)
 
 **図 6**:製品の名前は例外の詳細を表示を省略すると ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image18.png))。
 
@@ -117,7 +117,7 @@ Web アプリケーションを構成する方法と、アプリケーション�
 ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパティを`ExceptionDetails`を消去して、`Text`プロパティ。 このメッセージに、ユーザーの目を描画するために次のように設定します。 その`CssClass`プロパティを`Warning`、に追加の CSS クラスは、`Styles.css`前のチュートリアルでのファイル。 この CSS クラスにより、ラベルのテキストは、赤、斜体、太字、特大のフォントで表示されることを思い出してください。
 
 
-[![ラベルの Web コントロールをページに追加します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image19.png)
+[![Add ラベルの Web コントロールをページ](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image19.png)
 
 **図 7**:ラベルの Web コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image21.png))。
 
@@ -172,12 +172,12 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 図 9 は、製品の名前を省略する場合にこのページのスクリーン ショットを示します図 10 では、不正なを入力するときに、結果が表示されます`UnitPrice`値 (-50 の場合)。
 
 
-[![ProductName BoundField が値を含める必要があります。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image24.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image23.png)
+[![TProductName BoundField 彼は値が必要](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image24.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image23.png)
 
 **図 9**:`ProductName` BoundField が値を含める必要があります ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image25.png))。
 
 
-[![UnitPrice の負の値は許可されていません](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image27.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image26.png)
+[![Negative UnitPrice の値は、許可されていません](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image27.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image26.png)
 
 **図 10**:負の値`UnitPrice`値は許可されていません ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image28.png))。
 
@@ -200,7 +200,7 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 この変更により、既存の価格に 2 回以上である価格の更新が発生、`ApplicationException`がスローされます。 この BLL 発生した、DAL から発生する例外と同様に`ApplicationException`検出され、gridview の処理は`RowUpdated`イベント ハンドラー。 実際には、`RowUpdated`イベント ハンドラーのコードでは、書き込まれるが正しくこの例外を検出し、表示、`ApplicationException`の`Message`プロパティの値。 図 11 は、ユーザーがその現在の価格 19.95 ドルの 2 倍以上である、50.00 ドルに Chai の価格を更新しようとしたとき画面を示しています。
 
 
-[![ビジネス ルールは、製品の価格が 2 倍以上の価格の上昇を禁止します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image29.png)
+[![Tビジネス ルールの Disallow 価格彼が増加、製品の価格を 2 倍よりも複数](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image29.png)
 
 **図 11**:ビジネス ルールの製品の価格が 2 倍以上 Disallow 価格の上昇 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image31.png))。
 

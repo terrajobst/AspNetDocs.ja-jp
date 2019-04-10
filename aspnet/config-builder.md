@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: 5e2f3781623af5a32149e1db1c17b67ce43b7da0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 443b33b5c3b964f731999834db580a6abbf6617b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423973"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420420"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET の構成ビルダー
 
@@ -83,7 +83,7 @@ ms.locfileid: "58423973"
 
 * `EnvironmentConfigBuilder`既定`Strict`モードと、構成ファイル内の適切なキー名。 上記のコードとマークアップは、このアプローチを採用します。 できます、このアプローチを使用して**いない**両方のキーが同じ名前の付いた`<appSettings/>`と`<connectionStrings/>`します。
 * 2 つを使用して、`EnvironmentConfigBuilder`内`Greedy`異なるプレフィックスを持つモードと`stripPrefix`します。 この方法で、アプリが読み取ることができます`<appSettings/>`と`<connectionStrings/>`構成ファイルを更新する必要はありません。 次のセクションでは、 [stripPrefix](#stripprefix)、これを行う方法を示しています。
-* 2 つを使用して、`EnvironmentConfigBuilder`内`Greedy`異なるプレフィックスを持つモード。 この方法でキー名を変更する必要がありますプレフィックスとキー名が重複することはできません。  例:
+* 2 つを使用して、`EnvironmentConfigBuilder`内`Greedy`異なるプレフィックスを持つモード。 この方法でキー名を変更する必要がありますプレフィックスとキー名が重複することはできません。  例えば:
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebPrefix.config?name=snippet&highlight=11-99)]
 
@@ -252,7 +252,7 @@ ms.locfileid: "58423973"
 
 属性の詳細:
 
-* `directoryPath` - 必須。 値を検索するパスを指定します。 機密情報が格納されている Windows の docker、 *C:\ProgramData\Docker\secrets*既定ディレクトリ。
+* `directoryPath` 必須。 値を検索するパスを指定します。 機密情報が格納されている Windows の docker、 *C:\ProgramData\Docker\secrets*既定ディレクトリ。
 * `ignorePrefix` -このプレフィックスで始まるファイルが除外されます。 既定値"ignore"です。
 * `keyDelimiter` 既定値は`null`します。 場合は、指定された構成ビルダーは、この区切り記号でキー名を構築、ディレクトリの複数のレベルを走査します。 この値が場合`null`ディレクトリの最上位レベルだけ構成ビルダーを検索します。
 * `optional` 既定値は`false`します。 ソース ディレクトリが存在しない場合に、構成ビルダーがエラーを発生するかどうかを指定します。
@@ -276,9 +276,9 @@ ms.locfileid: "58423973"
 
 属性の詳細:
 
-* `jsonFile` - 必須。 読み取りに JSON ファイルを指定します。 `~`アプリのルートを参照する先頭の文字を使用できます。
+* `jsonFile` 必須。 読み取りに JSON ファイルを指定します。 `~`アプリのルートを参照する先頭の文字を使用できます。
 * `optional` -ブール値、既定値は`true`します。 により、JSON ファイルが見つからない場合は、例外をスローします。
-* `jsonMode` - `[Flat|Sectional]`. `Flat` が既定値です。 ときに`jsonMode`は`Flat`、JSON ファイルが 1 つのフラットなキー/値のソース。 `EnvironmentConfigBuilder`と`AzureKeyVaultConfigBuilder`も、1 つのフラットなキー/値のソース。 ときに、`SimpleJsonConfigBuilder`で構成されて`Sectional`モード。
+* `jsonMode` - `[Flat|Sectional]`。 `Flat` 既定値です。 ときに`jsonMode`は`Flat`、JSON ファイルが 1 つのフラットなキー/値のソース。 `EnvironmentConfigBuilder`と`AzureKeyVaultConfigBuilder`も、1 つのフラットなキー/値のソース。 ときに、`SimpleJsonConfigBuilder`で構成されて`Sectional`モード。
 
   * JSON ファイルは概念的には、最上位レベルだけで複数のディクショナリに分かれています。
   * 各ディクショナリは、割り当てられている最上位のプロパティ名と一致する構成セクションにのみ適用します。 例:

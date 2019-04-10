@@ -8,18 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: eb35710d-1d99-44ac-b61f-e50af8cb328a
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bce5456d9c5465156daf511d0f75a68b35cf7d9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 47d42b8017837f15e0d56dfb3565257164c97bbe
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033349"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421031"
 ---
-<a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>ASP.NET MVC アプリケーションの単体テストを作成する (VB)
-====================
+# <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>ASP.NET MVC アプリケーションの単体テストを作成する (VB)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
-[PDF のダウンロード](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_VB.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_VB.pdf)
 
 > コント ローラー アクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther はコント ローラー アクションの特定のビューを返します、特定のデータのセットを返しますまたは別の種類のアクションの結果を返すかどうかをテストする方法を示します。
 
@@ -59,7 +59,7 @@ ms.locfileid: "57033349"
 リスト 2 で単体テストを実行するには、キーボードの組み合わせを入力するか、 **CTRL + R、A**かをクリックして、**ソリューション内のすべてのテストを実行**(図 1 参照) ボタンをクリックします。 テストが成功した場合は、図 2 でテスト結果 ウィンドウを確認します。
 
 
-[![ソリューション内のすべてのテストを実行します。](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
+[![Rソリューションにおけるすべてのテストの解除](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
 
 **図 01**:ソリューション内のすべてのテストの実行 ([フルサイズの画像を表示する をクリックします](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png))。
 

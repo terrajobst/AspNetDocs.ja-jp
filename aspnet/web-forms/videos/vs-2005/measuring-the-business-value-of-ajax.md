@@ -8,15 +8,15 @@ ms.date: 03/23/2007
 ms.assetid: 60bb771b-e938-490f-944e-c80bc6bbdc12
 msc.legacyurl: /web-forms/videos/vs-2005/measuring-the-business-value-of-ajax
 msc.type: video
-ms.openlocfilehash: 6fc804c63d1d21b49d9520192c09c09ff199c92d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 28b8cc18f3c0359e8d4b54846481c2c02770c766
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419471"
 ---
-<a name="measuring-the-business-value-of-ajax"></a>AJAX のビジネス価値を測定する
-====================
+# <a name="measuring-the-business-value-of-ajax"></a>AJAX のビジネス価値を測定する
+
 Eric Lee が
 
 ASP.NET AJAX は Web アプリケーションのユーザー エクスペリエンスを向上させる機能のよく知られています。 Visual Studio Team System で ASP.NET AJAX の Web アプリケーションに追加のビジネス価値を測定することもできます。 具体的には Visual Studio Team System のロード テストと Web テストの機能を使用して HTTP データ転送サイズの差が、Web アプリケーションのパフォーマンスとスケーラビリティの特性に与える影響を調査することができます。

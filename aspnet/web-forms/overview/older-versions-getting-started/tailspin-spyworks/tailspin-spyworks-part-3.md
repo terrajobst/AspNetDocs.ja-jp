@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: f55b29a271dbdb72d3e2249ed74517b77d78cf5e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: badae58d5b43fb2674f4918f54f999ff48d0b5b0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418015"
 ---
-<a name="part-3-layout-and-category-menu"></a>第 3 部:レイアウトとカテゴリ メニュー
-====================
+# <a name="part-3-layout-and-category-menu"></a>第 3 部:レイアウトとカテゴリ メニュー
+
 によって[Joe Stagner](https://github.com/JoeStagner)
 
 > Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
@@ -66,7 +66,7 @@ Commerce データベースのエンティティのデータ ソースのモデ�
 
 ASP.NET 構文&lt;%# %&gt;内に含まれるものと、"行"の結果を出力の実行に、ランタイムに指示する短縮形規則。
 
-エンティティ モデル アイテムの名前の値は"CatagoryName"フェッチ Eval("CategoryName") ステートメントは、バインドされたデータ項目のコレクションの現在のエントリのように指示します。 これは、非常に強力な機能の簡潔な構文です。
+エンティティ モデル アイテムの名前の値は"CategoryName"フェッチ Eval("CategoryName") ステートメントは、バインドされたデータ項目のコレクションの現在のエントリのように指示します。 これは、非常に強力な機能の簡潔な構文です。
 
 これでアプリケーションを実行することができます。
 

@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 4733b9f1-9999-48fb-8b73-6038fbcc5ecb
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b80535db32c4567135407aeb99967bb40c279ddb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3e1399d17840a2f5301349cb91deb07b0cc34363
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025339"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421980"
 ---
-<a name="validating-with-the-idataerrorinfo-interface-c"></a>IDataErrorInfo インターフェイスの検証 (C#)
-====================
+# <a name="validating-with-the-idataerrorinfo-interface-c"></a>IDataErrorInfo インターフェイスの検証 (C#)
+
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther では、モデル クラスで IDataErrorInfo インターフェイスを実装することによってカスタムの検証エラー メッセージを表示する方法を示します。
@@ -31,7 +31,7 @@ ms.locfileid: "57025339"
 <a id="0.5_table01"></a>
 
 
-| **列名** | **データ型** | **Null を許容します。** |
+| **列名** | **データ型** | **Null を許容** |
 | --- | --- | --- |
 | ID | Int | False |
 | Title | nvarchar (100) | False |
@@ -42,7 +42,7 @@ ms.locfileid: "57025339"
 このチュートリアルでは、私のデータベース モデル クラスを生成するのに Microsoft Entity Framework を使用します。 Entity Framework によって生成されたムービー クラスは、図 1 に表示されます。
 
 
-[![ムービー エンティティ](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
+[![T彼ムービー エンティティ](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
 
 **図 01**:ムービー エンティティ ([フルサイズの画像を表示する をクリックします](validating-with-the-idataerrorinfo-interface-cs/_static/image2.png))。
 
@@ -73,7 +73,7 @@ ms.locfileid: "57025339"
 ムービー クラスは、Entity Framework によって生成されます。 ソリューション エクスプ ローラー ウィンドウで、MoviesDBModel.edmx ファイルを展開すると、コード エディターで MoviesDBModel.Designer.cs ファイルを開き、ムービー クラスのコードを確認できます (図 2 参照)。
 
 
-[![ムービー エンティティのコード](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
+[![Tムービー エンティティのコード](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
 
 **図 02**:ムービー エンティティのコード ([フルサイズの画像を表示する をクリックします](validating-with-the-idataerrorinfo-interface-cs/_static/image4.png))。
 
@@ -82,7 +82,7 @@ ms.locfileid: "57025339"
 
 リスト 2 で、クラスを Models フォルダーに追加します。
 
-**2 - Models\Movie.cs を一覧表示します。**
+**Listing 2 - Models\Movie.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample3.cs)]
 
@@ -112,7 +112,7 @@ OnChanging メソッドは、対応するプロパティが変更される前に
 > 部分メソッドは、実装する必要はありませんが、クラスで定義されたメソッドです。 部分メソッドを実装しない場合、コンパイラがメソッド シグネチャを削除し、メソッドのためにすべての呼び出しには、部分メソッドに関連付けられている実行時のコストはありません。 Visual Studio コード エディターで、キーワードを入力して、部分メソッドに追加できます*部分*後にスペースを実装するパーシャルの一覧を表示します。
 
 
-**3 - Models\Movie.cs を一覧表示します。**
+**Listing 3 - Models\Movie.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample4.cs)]
 
@@ -147,7 +147,7 @@ DefaultModelBinder クラスは、IDataErrorInfo インターフェイスを実�
 変更されたムービー クラスを使用する任意の方法で、Home コント ローラーを変更する必要はありません。 図 3 に表示されるページは、タイトルまたはディレクター フォーム フィールドの値が入力されていないときの動作を示しています。
 
 
-[![アクション メソッドを自動的に作成します。](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
+[![C作成アクション メソッドに自動的に](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
 
 **図 03**:欠損値を含むフォーム ([フルサイズの画像を表示する をクリックします](validating-with-the-idataerrorinfo-interface-cs/_static/image6.png))。
 

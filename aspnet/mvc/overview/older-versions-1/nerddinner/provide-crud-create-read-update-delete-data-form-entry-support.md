@@ -8,18 +8,18 @@ ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 45d74249a34fc7e37e9776a398615d2f613a7582
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 242665b3ba2e2ad2157abbe2c44ae207f15e72ce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57031739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410865"
 ---
-<a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する
-====================
+# <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する
+
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 5 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -41,17 +41,17 @@ ms.locfileid: "57031739"
 | */Dinners/* | GET | 今後の dinners の HTML リストを表示します。 |
 | */Dinners 詳細/[id]* | GET | 特定の dinner に関する詳細を表示します。 |
 
-これで 3 つの追加の Url を実装するアクション メソッドを追加します: <em>/Dinners/編集/[id]、/Dinners/作成、</em>と<em>/Dinners/削除/[id]</em>します。 これらの Url は、新しい Dinners を作成および Dinners を削除する編集の既存 Dinners のサポートを有効になります。
+これで 3 つの追加の Url を実装するアクション メソッドを追加します: */Dinners/編集/[id]*、 */Dinners/作成*、および */Dinners/削除/[id]* します。 これらの Url は、新しい Dinners を作成および Dinners を削除する編集の既存 Dinners のサポートを有効になります。
 
 私たちは、これらの新しい Url に HTTP GET と HTTP POST の両方の動詞相互作用をサポートします。 これらの Url に HTTP GET 要求 ("edit"の場合、Dinner データ設定フォーム、「作成」の場合、空のフォームおよび「削除」の場合、削除の確認画面) のデータの初期の HTML ビューが表示されます。 これらの Url に HTTP POST 要求は、Dinner のデータのときは必ず DinnerRepository (および、データベースにそこから) を保存/更新/削除になります。
 
 | **URL** | **動詞** | **目的** |
 | --- | --- | --- |
-| */Dinners/Edit/[id]* | GET | Dinner データが設定の編集可能な HTML フォームを表示します。 |
+| */Dinners/編集/[id]* | GET | Dinner データが設定の編集可能な HTML フォームを表示します。 |
 | POST | 特定の夕食をデータベースには、フォームの変更を保存します。 |
-| */Dinners/Create* | GET | ユーザーが新しい Dinners を定義できる空の HTML フォームを表示します。 |
+| */Dinners/作成* | GET | ユーザーが新しい Dinners を定義できる空の HTML フォームを表示します。 |
 | POST | 新しい夕食を作成し、データベースに保存します。 |
-| */Dinners/Delete/[id]* | GET | 削除の確認画面を表示します。 |
+| */Dinners/削除/[id]* | GET | 削除の確認画面を表示します。 |
 | POST | データベースから指定の夕食を削除します。 |
 
 ### <a name="edit-support"></a>編集のサポート
@@ -138,7 +138,7 @@ HTTP GET バージョン、Edit アクション メソッドの実装のよう�
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-[AcceptVerbs] 属性は、オーバー ロードされたアクション メソッドに適用するときに ASP.NET MVC は自動的に入力方向の HTTP 動詞に応じて適切なアクション メソッドにディスパッチ要求を処理します。 HTTP POST 要求を<em>/Dinners/編集/[id]</em> Url への他のすべての HTTP 動詞要求中に、上記の Edit メソッドに移動します<em>/Dinners/編集/[id]</em>Url が変わります (これが最初の編集メソッドを実装しましたいない属性を持つ [AcceptVerbs])。
+[AcceptVerbs] 属性は、オーバー ロードされたアクション メソッドに適用するときに ASP.NET MVC は自動的に入力方向の HTTP 動詞に応じて適切なアクション メソッドにディスパッチ要求を処理します。 HTTP POST 要求を */Dinners/編集/[id]* Url への他のすべての HTTP 動詞要求中に、上記の Edit メソッドに移動します */Dinners/編集/[id]* Url が変わります (これが最初の編集メソッドを実装しましたされませんが、`[AcceptVerbs]`属性)。
 
 | **側のトピック:HTTP 動詞を使用して区別なぜでしょうか。** |
 | --- |
@@ -228,7 +228,7 @@ Html.ValidationMessage() のヘルパー メソッドには、表示されるエ
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-上記のコードを出力: <em>&lt;クラスにまたがる =「フィールドの検証エラー」&gt;\*&lt;/span&gt;</em>エラーの場合、既定のエラー テキストではなく、EventDate のプロパティです。
+上記のコードを出力: *&lt;クラスにまたがる =「フィールドの検証エラー」&gt;\*&lt;/span&gt;* エラーの場合、既定のエラー テキストではなく、EventDate のプロパティです。
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() ヘルパー メソッド
 

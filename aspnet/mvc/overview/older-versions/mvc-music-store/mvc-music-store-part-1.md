@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 0f252fd5c0e5962353720e47ba888d2b6b325a1c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 63d85ec5f1f2fbadd92fd0210e67332df30aab5a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421909"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419601"
 ---
-<a name="part-1-overview-and-file-new-project"></a>第 1 部:概要とファイル -> 新しいプロジェクト
-====================
+# <a name="part-1-overview-and-file-new-project"></a>第 1 部:概要とファイル -> 新しいプロジェクト
+
 [Jon Galloway](https://github.com/jongalloway) による
 
 > MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
@@ -115,10 +115,10 @@ ASP.NET MVC フォルダー名をいくつかの基本的な名前付け規則�
 | **フォルダー** | **目的** |
 | --- | --- |
 | **/コント ローラー** | コント ローラーは、ブラウザーからの入力を操作、およびユーザーへの応答を返す方法を決めるに応答します。 |
-| **/Views** | ビューは、UI テンプレートを保持します。 |
+| **/ビュー** | ビューは、UI テンプレートを保持します。 |
 | **/モデル** | モデルの保持し、データの操作 |
-| **/Content** | このフォルダーは、イメージ、CSS、およびその他の静的コンテンツを保持します。 |
-| **/Scripts** | このフォルダーは、JavaScript ファイルを保持します。 |
+| **/コンテンツ** | このフォルダーは、イメージ、CSS、およびその他の静的コンテンツを保持します。 |
+| **/スクリプト** | このフォルダーは、JavaScript ファイルを保持します。 |
 
 既定では、ASP.NET MVC フレームワークは、「設定より規約」の手法を使用し、フォルダーの名前付け規則に基づくいくつかの既定の解釈は、ために、これらのフォルダーが空の ASP.NET MVC アプリケーションであっても含まれます。 たとえば、コント ローラーを検索、Views フォルダー内のビュー既定では、コードでこれを明示的に指定する必要がありません。 既定の規則を使用することでコードを記述する必要がある量を削減できますも容易にできるように、プロジェクトを理解するには、他の開発者とします。 これらの規則は、アプリケーションの構築に詳しく説明します。
 

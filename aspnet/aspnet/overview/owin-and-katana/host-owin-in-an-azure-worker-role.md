@@ -8,22 +8,22 @@ ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: dbf0964695dd2592d063b05c0778923edffe8e2e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 129b6a8f411d482de75e7e5edc5cc919b4d2de52
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57058039"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419523"
 ---
-<a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホストする
-====================
+# <a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホストする
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法を示します。
 >
 > [.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションの分離 – Azure worker ロール内など。
 >
-> このチュートリアルでは、Microsoft Azure worker ロール内での OWIN アプリケーションを自己ホストする方法を学習します。 ワーカー ロールの詳細については、[Azure 実行モデル](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)を参照してください。
+> このチュートリアルでは、Microsoft Azure worker ロール内での OWIN アプリケーションを自己ホストする方法を学習します。 ワーカー ロールの詳細については、次を参照してください。 [Azure 実行モデル](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)します。
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 >
@@ -116,13 +116,13 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、 http:// に移動します<em>アドレス</em>ここで、<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80` します。 OWIN へようこそ ページを参照する必要があります。
+サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http に移動します:\/\/*アドレス*ここで、*アドレス*は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`します。 OWIN へようこそ ページを参照する必要があります。
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 
 ## <a name="deploy-to-azure"></a>Azure に配置する
 
-この手順では、Azure アカウントが必要です。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、[Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)を参照してください。
+この手順では、Azure アカウントが必要です。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)します。
 
 ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。 **[発行]** を選びます。
 

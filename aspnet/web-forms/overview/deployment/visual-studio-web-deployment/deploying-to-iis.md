@@ -8,18 +8,18 @@ ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: d49dfad368ca4b81bb865103a99ec223a1cc66df
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 39502e03196d2ba51e826d248ff0ff1e84258131
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57059579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420199"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用して ASP.NET Web の展開:テスト環境に配置する
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用して ASP.NET Web の展開:テスト環境に配置する
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、または Visual Studio 2017 を使用して、サード パーティのホスティング プロバイダーにします。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、または Visual Studio 2017 を使用して、サード パーティのホスティング プロバイダーにします。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 ## <a name="overview"></a>概要
 
@@ -39,7 +39,7 @@ ms.locfileid: "57059579"
 
 オプション 2 は、テストする最も信頼性の高い方法です。 オプション 2 を使用する場合は、オプション 1 を使用する必要はありませんとは限りません。 ただし、サードパーティにデプロイする場合、ホスティング プロバイダー、オプション 2 できない場合もありますか、または、高価なため、このチュートリアル シリーズは、両方の方法を示しています。 オプション 2 のガイダンスがで提供される、[実稼働環境に展開する](deploying-to-production.md)チュートリアル。
 
-Visual Studio で web サーバーの使用に関する詳細については、[ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx)を参照してください。
+Visual Studio で web サーバーの使用に関する詳細については、次を参照してください。 [ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx)します。
 
 リマインダー:エラー メッセージが表示される、または、チュートリアルを進めるときに機能しない、するを確認してください、[トラブルシューティング ページ](troubleshooting.md)します。
 
@@ -119,7 +119,7 @@ LocalDB ので、テスト環境、SQL Server Express をインストールし�
 
 SQL Server Express をインストールするには、ダウンロードしてからインストール[ダウンロード センター。Microsoft SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express)します。 
 
-SQL Server インストール センターの最初のページで次のように選択します。 **SQL Server の新規スタンドアロン インストールまたは既存のインストールに機能の追加**既定の選択を受け入れ、指示に従います。 インストール ウィザードでは、既定の設定をそのまま使用します。 インストール オプションの詳細については、[インストール ウィザード (セットアップ) からの SQL Server のインストール](https://msdn.microsoft.com/library/ms143219.aspx)を参照してください。
+SQL Server インストール センターの最初のページで次のように選択します。 **SQL Server の新規スタンドアロン インストールまたは既存のインストールに機能の追加**既定の選択を受け入れ、指示に従います。 インストール ウィザードでは、既定の設定をそのまま使用します。 インストール オプションの詳細については、次を参照してください。[インストール ウィザード (セットアップ) からの SQL Server のインストール](https://msdn.microsoft.com/library/ms143219.aspx)します。
 
 ## <a name="create-sql-server-express-databases-for-the-test-environment"></a>テスト環境用の SQL Server Express データベースを作成します。
 
@@ -159,10 +159,10 @@ Contoso University アプリケーションには、2 つのデータベース�
 Visual Studio で、Contoso University のソリューションを開きます。 (いないプロジェクトの 1 つ、)、ソリューションを右クリックして**追加**します。 選択**既存項目の**を参照する*Grant.sql*、し、開きます。
 
 > [!NOTE]
-> このチュートリアルで指定されているとして Windows 10、Windows 8、または Windows 7 で IIS 設定とおよび SQL Server Express 2012 と連携して、またはそれ以降にこのスクリプトが設計います。 別のバージョンの SQL Server または Windows を使用している場合、または IIS を設定するコンピューターに異なる場合は、このスクリプトへの変更が必要な場合があります。 SQL Server スクリプトの詳細については、[SQL Server オンライン ブックの「](https://go.microsoft.com/fwlink/?LinkId=132511)を参照してください。
+> このチュートリアルで指定されているとして Windows 10、Windows 8、または Windows 7 で IIS 設定とおよび SQL Server Express 2012 と連携して、またはそれ以降にこのスクリプトが設計います。 別のバージョンの SQL Server または Windows を使用している場合、または IIS を設定するコンピューターに異なる場合は、このスクリプトへの変更が必要な場合があります。 SQL Server スクリプトの詳細については、次を参照してください。 [SQL Server オンライン ブックの「](https://go.microsoft.com/fwlink/?LinkId=132511)します。
 
 > [!NOTE] 
-> **セキュリティに関する注意**このスクリプトは、 `db_owner` 、運用環境でがありますが、実行時にデータベースにアクセスするユーザーへのアクセス許可。 一部のシナリオでは、展開に対してのみアクセス許可を更新し、実行時のデータを読み書きするのみのアクセス許可を持つ別のユーザーを指定します。 データベースの完全スキーマを持つユーザーを指定する場合があります。 詳細については、[Code First Migrations に対する自動の Web.config の変更をレビュー](#reviewingmigrations)このチュートリアルで後述を参照してください。
+> **セキュリティに関する注意**このスクリプトは、 `db_owner` 、運用環境でがありますが、実行時にデータベースにアクセスするユーザーへのアクセス許可。 一部のシナリオでは、展開に対してのみアクセス許可を更新し、実行時のデータを読み書きするのみのアクセス許可を持つ別のユーザーを指定します。 データベースの完全スキーマを持つユーザーを指定する場合があります。 詳細については、次を参照してください。 [Code First Migrations に対する自動の Web.config の変更をレビュー](#reviewingmigrations)このチュートリアルで後述します。
 
 <a id="publish"></a>
 
@@ -172,11 +172,11 @@ Visual Studio で、Contoso University のソリューションを開きます�
 
 1. Visual Studio で開く、 *Grant.sql*先ほど作成したファイル。
 
-2. 選択**接続**します。 
+2. **[接続]** を選択します。 
 
     ![[接続] ボタン](deploying-to-iis/_static/image11.png)
 
-3. **サーバーへの接続** ダイアログ ボックスに、入力 *. \SQLExpress*として、**サーバー名**します。 選択**接続**します。
+3. **サーバーへの接続** ダイアログ ボックスに、入力 *. \SQLExpress*として、**サーバー名**します。 **[接続]** を選択します。
 
 4. データベースのドロップダウン リストで選択**ContosoUniversity**します。 選択**実行**します。 
 
@@ -193,7 +193,7 @@ Visual Studio と Web Deploy を使用して IIS に配置できるいくつか�
 * 展開パッケージを作成し、IIS マネージャーを使用してインストールします。 パッケージには、すべてのファイルと IIS にサイトをインストールに必要なメタデータで .zip ファイルがあります。
 * 展開パッケージを作成し、コマンドラインを使用してインストールします。
 
-プロセス自動化する Visual Studio を設定する前のチュートリアルでデプロイ タスクは、これらのメソッドのすべてに適用されます。 これらのチュートリアルでは、最初の 2 つのメソッドを使用します。 展開パッケージの使用方法の詳細については、[作成し、web 配置パッケージをインストールした web アプリケーションの配置](https://go.microsoft.com/fwlink/p/?LinkId=282413#package)for Visual Studio および ASP.NET Web 配置コンテンツ マップでを参照してください。
+プロセス自動化する Visual Studio を設定する前のチュートリアルでデプロイ タスクは、これらのメソッドのすべてに適用されます。 これらのチュートリアルでは、最初の 2 つのメソッドを使用します。 展開パッケージの使用方法の詳細については、次を参照してください。[作成し、web 配置パッケージをインストールした web アプリケーションの配置](https://go.microsoft.com/fwlink/p/?LinkId=282413#package)for Visual Studio および ASP.NET Web 配置コンテンツ マップでします。
 
 発行前に、管理者モードで Visual Studio を実行していることを確認します。 表示されない場合 **(管理者)** タイトル バーで、Visual Studio を閉じます。 Windows 8 (またはそれ以降)**開始**ページまたは Windows 7**開始**] メニューの [Visual Studio アイコンを右クリックし、選択**管理者として実行**します。 管理者モードはローカル コンピューターの IIS に発行するときに公開するために必要です。
 

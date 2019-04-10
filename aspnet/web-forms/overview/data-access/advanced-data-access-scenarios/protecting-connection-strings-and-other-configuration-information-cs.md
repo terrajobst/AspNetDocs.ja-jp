@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: ad8dd396-30f7-4abe-ac02-a0b84422e5be
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 61ac52ffe28762ce0cf8892621343f71e73a9ca7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: eab1ad6cd4636ab3d35988ec8dc762c8a8f51ef4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027609"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421135"
 ---
-<a name="protecting-connection-strings-and-other-configuration-information-c"></a>接続文字列とその他の構成情報を保護する (C#)
-====================
+# <a name="protecting-connection-strings-and-other-configuration-information-c"></a>接続文字列とその他の構成情報を保護する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_73_CS.zip)または[PDF のダウンロード](protecting-connection-strings-and-other-configuration-information-cs/_static/datatutorial73cs1.pdf)
@@ -31,7 +31,7 @@ ASP.NET アプリケーションの構成情報がよくという XML ファイ�
 `Web.config` 、接続文字列などの機密データを含めることができますが重要ですがの内容`Web.config`安全で承認されていないビューアーから非表示を保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能は、返す ASP.NET エンジンによって処理されます、*この種類のページが提供されない*図 1 に表示されるメッセージ。 つまり、訪問者を表示できない、 `Web.config` s の内容を入力するだけでファイル http://www.YourServer.com/Web.config ブラウザーのアドレス バーにします。
 
 
-[![Web.config で、ブラウザーを返します。 ページのこの型にアクセスして、メッセージは処理されません。](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
+[![VWeb.config で、ブラウザーを返します、この種のページは isiting には、メッセージが処理されます](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
 
 **図 1**:訪問`Web.config`を通じて、ブラウザーを返しますページの種類、このメッセージは提供されませんが ([フルサイズの画像を表示する をクリックします。](protecting-connection-strings-and-other-configuration-information-cs/_static/image3.png))。
 
@@ -83,7 +83,7 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 この時点で、画面は図 2 のようなはずです。
 
 
-[![テキスト ボックスと 2 つのボタンの Web コントロールをページに追加します。](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
+[![Add テキスト ボックスとページに 2 つのボタン Web コントロール](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
 
 **図 2**:テキスト ボックスと 2 つのボタンの Web コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-cs/_static/image6.png))。
 
@@ -111,7 +111,7 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 上記のコードを入力するとテストを参照してください、`EncryptingConfigSections.aspx`ページがブラウザーを使用します。 内容を一覧表示されたページを表示する必要があります最初に`Web.config`で、`<connectionStrings>`セクションがプレーン テキストで表示されます (図 3 を参照してください)。
 
 
-[![テキスト ボックスと 2 つのボタンの Web コントロールをページに追加します。](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
+[![Add テキスト ボックスとページに 2 つのボタン Web コントロール](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
 
 **図 3**:テキスト ボックスと 2 つのボタンの Web コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-cs/_static/image9.png))。
 
@@ -126,7 +126,7 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 ページの要求の検証を無効にした後、接続文字列の暗号化 ボタンをクリックすると、もう一度お試しください。 構成ファイルのアクセス、ポストバックのおよびその`<connectionStrings>`セクション DPAPI プロバイダーを使用して暗号化します。 テキスト ボックスが、新しい表示を更新し`Web.config`コンテンツ。 図 4 に示すよう、`<connectionStrings>`情報が暗号化されています。
 
 
-[![クリックすると、暗号化接続文字列 ボタンは暗号化、 &lt;connectionString&gt;セクション](protecting-connection-strings-and-other-configuration-information-cs/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image10.png)
+[![Cクリックして、暗号化接続文字列 ボタンは暗号化、 &lt;connectionString&gt;セクション](protecting-connection-strings-and-other-configuration-information-cs/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image10.png)
 
 **図 4**:クリックすると、暗号化接続文字列 ボタンは暗号化、`<connectionString>`セクション ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-cs/_static/image12.png))。
 
@@ -143,7 +143,7 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 接続文字列の情報にアクセスするときに`Web.config`- かによって、コードの記述、SqlDataSource コントロールから、または、型指定されたデータセットを Tableadapter から自動生成されたコード - は、自動的に暗号化解除します。 つまり余分なコードまたは暗号化、復号化するためのロジックを追加する必要はありません`<connectionString>`セクション。 これを示すために、基本レポートのセクションから単純な表示チュートリアルなど、この時点でアクセス前のチュートリアルのいずれか (`~/BasicReporting/SimpleDisplay.aspx`)。 図 5 に示すよう、チュートリアルはとってい、ASP.NET ページで、暗号化された接続文字列情報の自動的に暗号化解除することを示すとおりに動作します。
 
 
-[![データ アクセス層には、接続文字列情報を自動的に復号化します](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
+[![Tデータ アクセス層を彼には、接続文字列情報に自動的に復号化](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
 
 **図 5**:データ アクセス層には、接続文字列情報を自動的に復号化します ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-cs/_static/image15.png))。
 

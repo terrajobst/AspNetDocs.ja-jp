@@ -8,15 +8,15 @@ ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: c561534a3fa1382c8af23c6ac779fac0c1dc8160
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 91948b1b997b083606a53e6e02bc00d2c58cb791
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424184"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418145"
 ---
-<a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
-====================
+# <a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
@@ -152,7 +152,7 @@ Entity Framework Code First が検出されたデータベース接続文字列�
 
 ![](accessing-your-models-data-from-a-controller/_static/image15.png "CloseConnection")
 
-これで、データを表示、編集、更新および削除できるデータベースができました。 次のチュートリアルがスキャフォールディングされたコードの残りの部分を調べるされ追加、`SearchIndex`メソッドと`SearchIndex`ビューをこのデータベースのムービーを検索することができます。 MVC を Entity Framework を使用する方法の詳細については、[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。
+これで、データを表示、編集、更新および削除できるデータベースができました。 次のチュートリアルがスキャフォールディングされたコードの残りの部分を調べるされ追加、`SearchIndex`メソッドと`SearchIndex`ビューをこのデータベースのムービーを検索することができます。 MVC を Entity Framework を使用する方法の詳細については、次を参照してください。 [、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-connection-string.md)

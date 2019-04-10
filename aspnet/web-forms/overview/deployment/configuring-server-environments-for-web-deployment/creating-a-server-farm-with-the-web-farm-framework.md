@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: 656dd06d-806c-467c-863d-9fc45e5ba3ab
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: b650a05a22f18ffdcc114a9a64054dd0a34bc041
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19c061e83257e118aee74c9373a627b8c56defe3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421239"
 ---
-<a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework でサーバー ファームを作成する
-====================
+# <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework でサーバー ファームを作成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、Web Farm Framework (WFF) 2.0 を使用して作成し、サーバーのコレクションからの web サーバー ファームを構成する方法について説明します。
 
@@ -62,7 +62,7 @@ WFF 2.0 を使用して、プロビジョニング、管理、および web サ�
 - サーバーは、静的 IP アドレスを持ちます。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)を参照してください。 静的 IP アドレスの構成の詳細については、[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)を参照してください。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。
 
 
 ## <a name="create-the-wff-controller-server"></a>WFF コント ローラーのサーバーを作成します。
@@ -91,7 +91,7 @@ WFF サーバー ファームを作成する前に、web サーバー ファー�
 - 許可するファイアウォール例外を追加、**コア ネットワーク**、**リモート管理**、および**ファイルとプリンターの共有**WFF コント ローラーのサーバーと通信する機能.
 - ドメイン アカウントを作成する (たとえば、 **FABRIKAM\stagingfarm**) Active Directory でし、各サーバーでローカルの administrators グループに追加します。 サーバー ファームを作成するときに、サーバー ファームの管理者アカウントとしてこのアカウントを使用します。
 
-Windows ファイアウォールでこれらのファイアウォール例外を構成する方法の詳細については、[システムと IIS 7 Web Farm Framework 2.0 のプラットフォーム要件](https://go.microsoft.com/?linkid=9805128)を参照してください。 その他のファイアウォール システムは、製品のマニュアルを参照してください。
+Windows ファイアウォールでこれらのファイアウォール例外を構成する方法の詳細については、次を参照してください。[システムと IIS 7 Web Farm Framework 2.0 のプラットフォーム要件](https://go.microsoft.com/?linkid=9805128)します。 その他のファイアウォール システムは、製品のマニュアルを参照してください。
 
 次の手順を使用して、Windows Server 2008 R2 でのローカルの administrators グループにドメイン アカウントを追加することができます。 サーバー ファームに追加するすべてのサーバーでこの手順を実行する必要があります&#x2014;つまり、プライマリ サーバーと各セカンダリ サーバーのローカル administrators グループに同じドメイン アカウントを追加します。
 
@@ -184,7 +184,7 @@ Web ファームを作成するときに、web サーバー間での HTTP 要求
 IIS の先端と密接に統合する WFF は設計されています この統合を利用するには、WFF コント ローラー サーバーに ARR モジュールをインストールする必要があります。 すべてのトラフィック、web、コント ローラー サーバーに通常ドメイン ネーム システム (DNS) レコードを構成することで。 コント ローラーのサーバーは、サーバーの可用性とさまざまなその他の条件に基づいて、ファーム内のサーバー間で着信要求を分散します。
 
 > [!NOTE]
-> WFF; で、ARR を使用する必要はありません。サード パーティの負荷分散ソリューションを使用する WFF を構成することができます。 詳細については、[IIS 7 Web Farm Framework 2.0 の概要](https://go.microsoft.com/?linkid=9805126)を参照してください。
+> WFF; で、ARR を使用する必要はありません。サード パーティの負荷分散ソリューションを使用する WFF を構成することができます。 詳細については、次を参照してください。 [IIS 7 Web Farm Framework 2.0 の概要](https://go.microsoft.com/?linkid=9805126)します。
 
 
 このチュートリアルの範囲を超えてはこれの最も複雑なトピックでは、ARR を使用して負荷分散します。 ただし、ARR モジュールをインストールし、負荷分散の概要を次の手順を使用することができます。
@@ -205,14 +205,14 @@ IIS の先端と密接に統合する WFF は設計されています この統�
 8. **負荷分散**アルゴリズムのバランスを取るウィンドウで、ロードを選択します (たとえば、**少なくとも現在の要求**)。
 
     > [!NOTE]
-    > 負荷分散アルゴリズムとその他の構成設定の詳細については、[アプリケーション要求ルーティング モジュール](https://go.microsoft.com/?linkid=9805130)を参照してください。
+    > 負荷分散アルゴリズムとその他の構成設定の詳細については、次を参照してください。[アプリケーション要求ルーティング モジュール](https://go.microsoft.com/?linkid=9805130)します。
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image17.png)
 9. **アクション**ウィンドウで、をクリックして**適用**します。
 
 基本的な負荷分散、サーバー ファーム内のサーバーが構成されました。 コント ローラー サーバーにすべての web ファーム トラフィックを転送する場合、要求は可用性に応じて、ファーム内のサーバーと選択した負荷分散アルゴリズムの間で配布されます。
 
-ARR で負荷分散を構成する方法の詳細については、[アプリケーション要求ルーティング モジュール](https://go.microsoft.com/?linkid=9805130)を参照してください。
+ARR で負荷分散を構成する方法の詳細については、次を参照してください。[アプリケーション要求ルーティング モジュール](https://go.microsoft.com/?linkid=9805130)します。
 
 ## <a name="monitor-the-server-farm"></a>サーバー ファームを監視します。
 

@@ -8,15 +8,15 @@ ms.date: 02/07/2014
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 27bfbe782455a5f8cf5096953c91712988b8dcab
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b0e51b2fb73370164af1a38af5e5e15e24608843
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418652"
 ---
-<a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web ページ (Razor) のよくあるご質問
-====================
+# <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web ページ (Razor) のよくあるご質問
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > > [!NOTE] 
@@ -44,7 +44,7 @@ ms.locfileid: "57049099"
 - [Web ページで JavaScript と jQuery を使用できますか。](#Can_I_use_JavaScript_and_jQuery_with_Web_Pages)
 - [その他のリソース](#AdditionalResources)
 
-エラーおよびその他の問題に関する質問については、、 [ASP.NET Web Pages (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)を参照してください。
+エラーおよびその他の問題に関する質問については、次を参照してください。、 [ASP.NET Web Pages (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)します。
 
 <a id="Whats_the_difference_between_ASP.NET_Web_Pages,_ASP.NET_Web_Forms,_and_ASP.NET_MVC"></a>
 ## <a name="whats-the-difference-between-aspnet-web-pages-aspnet-web-forms-and-aspnet-mvc"></a>ASP.NET Web ページ、ASP.NET Web フォーム、ASP.NET MVC の違いは何ですか。
@@ -106,7 +106,7 @@ IIS Express のコマンド ライン オプションについては、次のよ
 <a id="Do_I_have_to_use_the_WebSecurity_helper_to_support_logins"></a>
 ## <a name="do-i-have-to-use-the-websecurity-helper-to-support-logins"></a>WebSecurity ヘルパーを使用してログインをサポートするには
 
-いいえ。 `SimpleMembership` ASP.NET Web ページの一部であるプロバイダーの 1 つです。 Asp.net (Web フォームでの操作に使用した可能性があります) の一部であるセキュリティ プロバイダーも使用できます。 たとえば、できます認証を使用するフォーム ASP.NET Web Pages で Web フォームと同様です。 使用する方法の 1 つの例ではフォーム認証、Microsoft サポート記事を参照してください[How To Implement Forms-Based 認証を使用して C# .NET、ASP.NET アプリケーションで](https://support.microsoft.com/kb/301240)します。 簡単な例をダウンロードするには、[の ASP.NET のバージョン"ログイン&amp;パスワード](http://www.codeguru.com/csharp/.net/net_asp/scripting/article.php/c19295/ASPNET-version-of-Login--Password.htm)を参照してください。
+いいえ。 `SimpleMembership` ASP.NET Web ページの一部であるプロバイダーの 1 つです。 Asp.net (Web フォームでの操作に使用した可能性があります) の一部であるセキュリティ プロバイダーも使用できます。 たとえば、できます認証を使用するフォーム ASP.NET Web Pages で Web フォームと同様です。 使用する方法の 1 つの例ではフォーム認証、Microsoft サポート記事を参照してください[How To Implement Forms-Based 認証を使用して C# .NET、ASP.NET アプリケーションで](https://support.microsoft.com/kb/301240)します。 簡単な例をダウンロードするには、次を参照してください。[の ASP.NET のバージョン"ログイン&amp;パスワード](http://www.codeguru.com/csharp/.net/net_asp/scripting/article.php/c19295/ASPNET-version-of-Login--Password.htm)します。
 
 Windows 認証を使用する方法については、ブログの投稿を参照してください。[を使用して Windows 認証 ASP.NET Web Pages で](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2298)します。
 

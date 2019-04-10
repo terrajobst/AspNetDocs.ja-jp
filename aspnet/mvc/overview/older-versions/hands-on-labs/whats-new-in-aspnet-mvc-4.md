@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 0c4b7b2641c91cbb63ec46fa707c004f7273a303
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411125"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
 
@@ -112,7 +112,7 @@ ASP.NET MVC 4 は、既に確立されている設計パターンと、ASP.NET �
     *新しい ASP.NET MVC 4 インターネット アプリケーションの作成*
 
     > [!NOTE]
-    > Razor 構文は、ASP.NET MVC 3 で導入されました。 その目的は、文字と、高速とワークフローをコーディング流体を有効にするファイルでは、必要なキーストロークの数を最小限に抑えるです。 Razor を活用して既存の C#/VB (またはその他) の言語スキルと最高の HTML の構築ワークフローを有効にするテンプレート マークアップ構文を提供します。
+    > Razor 構文は、ASP.NET MVC 3 で導入されました。 その目的は、文字と、高速とワークフローをコーディング流体を有効にするファイルでは、必要なキーストロークの数を最小限に抑えるです。 Razor を活用して既存の c#/VB (またはその他) の言語スキルと最高の HTML の構築ワークフローを有効にするテンプレート マークアップ構文を提供します。
 4. キーを押して**F5**ソリューションを実行し、更新されたテンプレートを参照してください。 次の機能を確認することができます。
 
     **モダン スタイルのテンプレート**
@@ -173,14 +173,14 @@ ASP.NET MVC 4 は、既に確立されている設計パターンと、ASP.NET �
 
    *ASP.NET MVC 4 インターネット アプリケーションのプロジェクト テンプレート*
 
-   - **HTML 5 マークアップ**
+    - **HTML 5 マークアップ**
 
        新しいテーマのマークアップを確認するテンプレート ビューを参照します。
 
        ![Razor、HTML5 マークアップ About.cshtml を使用して新しいテンプレートです。](whats-new-in-aspnet-mvc-4/_static/image10.png "Razor、HTML5 マークアップ About.cshtml を使用して、新しいテンプレート。")
 
        *Razor、HTML5 マークアップ (About.cshtml) を使用して新しいテンプレート。*
-   - **更新された JavaScript ライブラリ**
+    - **更新された JavaScript ライブラリ**
 
        これで、ASP.NET MVC 4 の既定のテンプレートには、KnockoutJS、豊富な作成できる JavaScript の MVVM フレームワーク、および JavaScript と HTML を使った応答性に優れた web アプリケーションが含まれます。 ような MVC3 で jQuery と jQuery UI ライブラリも含まれます ASP.NET MVC 4 で。
 
@@ -250,11 +250,11 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 > メディア クエリの基本的な形式です。@media \[のスコープ: すべて |ハンドヘルド |印刷 |プロジェクション |画面\](プロパティ: 値と.プロパティ: 値)
 
 
-メディア クエリの例: &gt;  <strong>@mediaすべてと (幅の最大値。1000 ピクセル) と (幅の最小値。700px) {}:</strong>700 px と 1000 ピクセルの間ですべて解決のため
+メディア クエリの例: &gt;  **@mediaすべてと (幅の最大値。1000 ピクセル) と (幅の最小値。700px) {}:** 700 px と 1000 ピクセルの間ですべて解決のため
 
-> <strong>@media 画面と (幅の最小値。400 px) と (幅の最大値。700px) { ... }:</strong>画面には。 解像度は、400 ~ 700 px にする必要があります。
+> **@media 画面と (幅の最小値。400 px) と (幅の最大値。700px) { ... }:** 画面には。 解像度は、400 ~ 700 px にする必要があります。
 > 
-> <strong>@media ハンドヘルドと (幅の最小値。20em)、画面と (幅の最小値。20em) { ... }:</strong>ハンドヘルド デバイス (モバイルおよびデバイス)、および画面。 幅の最小値は、20em より大きくする必要があります。
+> **@media ハンドヘルドと (幅の最小値。20em)、画面と (幅の最小値。20em) { ... }:** ハンドヘルド デバイス (モバイルおよびデバイス)、および画面。 幅の最小値は、20em より大きくする必要があります。
 > 
 > 詳細についてを見つけることができます、 [W3C サイト](http://www.w3.org/TR/css3-mediaqueries/)します。
 
@@ -263,7 +263,7 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
 1. 開く、 **PhotoGallery.sln**選択をタスク 1 で作成したソリューション、 **PhotoGallery**プロジェクト。 キーを押して**F5**ソリューションを実行します。
 2. ブラウザーの幅を半分にまたはより小さいの元のサイズの四半期に、windows の設定のサイズを変更します。 ヘッダー内の項目で発生する内容に注意してください。一部の要素は、ヘッダーの表示領域には表示されません。
-3. 開いている<strong>Site.css</strong>ファイルで Visual Studio ソリューション エクスプ ローラーから<strong>コンテンツ</strong>プロジェクト フォルダーです。 キーを押して<strong>CTRL + F</strong>を Visual Studio の統合された検索を開いたり書き込んだりする<strong>@media</strong>を検索する、 <strong>CSS メディア クエリ</strong>します。
+3. 開いている**Site.css**ファイルで Visual Studio ソリューション エクスプ ローラーから**コンテンツ**プロジェクト フォルダーです。 キーを押して**CTRL + F**を Visual Studio の統合された検索を開いたり書き込んだりする**@media**を検索する、 **CSS メディア クエリ**します。
 
     このテンプレートで定義されているメディア クエリの条件は、この方法では動作します。ときに、ブラウザーのウィンドウのサイズを下回って**850 px**、適用される CSS ルールがこのメディア ブロック内で定義されています。
 
@@ -274,13 +274,13 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
     ![ページの適用、左側で、@mediaスタイル、スタイル、右を省略すると](whats-new-in-aspnet-mvc-4/_static/image17.png "左で、ページを適用する、@mediaスタイル、スタイル、右を省略すると")
 
-    <em>ページの適用、左側で、@mediaスタイル、スタイル、右を省略すると</em>
+    *ページの適用、左側で、@mediaスタイル、スタイル、右を省略すると*
 
     ここで、モバイル デバイス上の動作確認しましょう。
 
     ![ページの適用、左側で、@mediaスタイル、スタイル、右を省略すると](whats-new-in-aspnet-mvc-4/_static/image18.png "左で、ページを適用する、@mediaスタイル、スタイル、右を省略すると")
 
-    <em>ページの適用、左側で、@mediaスタイル、スタイル、右を省略すると</em>
+    *ページの適用、左側で、@mediaスタイル、スタイル、右を省略すると*
 
     モバイル デバイスを使用する場合、Web ブラウザーで、ページをレンダリングすると、変更は、非常に重要ないないと表示されますが、違いはより明確になります。 イメージの左側にある、カスタムのスタイルが、読みやすさを向上することを確認できます。
 
@@ -543,11 +543,11 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
     ![デスクトップ ビューに表示の切り替えを表示](whats-new-in-aspnet-mvc-4/_static/image32.png "デスクトップ ビューにレンダリングされるビュー スイッチャー")
 
     *デスクトップ ビューにレンダリングされるビュー スイッチャー*
-7. もう一度モバイル ビューに切り替えるしを参照<strong>に関する</strong>ページ (http://localhost[port]/Home/About)。 、、About.Mobile.cshtml ビューを作成していない場合でも、[About] ページが表示されます、モバイル レイアウトを使用して (\_Layout.Mobile.cshtml)。
+7. もう一度モバイル ビューに切り替えるしを参照**に関する**ページ (http://localhost[port]/Home/About)。 、、About.Mobile.cshtml ビューを作成していない場合でも、[About] ページが表示されます、モバイル レイアウトを使用して (\_Layout.Mobile.cshtml)。
 
     ![ページについて](whats-new-in-aspnet-mvc-4/_static/image33.png "ページについて")
 
-    *ページについて*
+    *About ページ*
 8. 最後に、デスクトップ、Web ブラウザーでサイトを開きます。 デスクトップ ビューに影響なし以前の更新プログラムのことに注意してください。
 
     ![PhotoGallery デスクトップ ビュー](whats-new-in-aspnet-mvc-4/_static/image34.png "PhotoGallery デスクトップ ビュー")
@@ -559,7 +559,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 
 新しい表示モード機能には、要求を生成しているブラウザーによってビューを選択して、アプリケーションことができます。 たとえば、デスクトップ ブラウザーでは、ホーム ページを要求している場合、アプリケーションが返されます、 **Views\Home\Index.cshtml**テンプレート。 モバイル ブラウザーでは、ホーム ページを要求している場合、アプリケーションが返されます、 **Views\Home\Index.mobile.cshtml**テンプレート。
 
-このタスクでは iPhone デバイスでは、カスタマイズされたレイアウトを作成して iPhone デバイスからの要求をシミュレートする必要があります。 これを行うには、いずれかを iPhone エミュレーターまたはシミュレーターを使用することができます (など[電気 Mobile シミュレーター](http://www.electricplum.com/)) またはユーザー エージェントを変更するアドオンを使用したブラウザー。 IPhone をエミュレートするために、Safari ブラウザーでユーザー エージェント文字列を設定する方法については、[Safari pretend IE ができるようにする方法](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html)David Alison のブログにを参照してください。
+このタスクでは iPhone デバイスでは、カスタマイズされたレイアウトを作成して iPhone デバイスからの要求をシミュレートする必要があります。 これを行うには、いずれかを iPhone エミュレーターまたはシミュレーターを使用することができます (など[電気 Mobile シミュレーター](http://www.electricplum.com/)) またはユーザー エージェントを変更するアドオンを使用したブラウザー。 IPhone をエミュレートするために、Safari ブラウザーでユーザー エージェント文字列を設定する方法については、次を参照してください。 [Safari pretend IE ができるようにする方法](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html)David Alison のブログにします。
 
 **このタスクは省略可能なことと、実行せず、ラボで続行することができますに注意してください。**
 
@@ -604,7 +604,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 <a id="Exercise_4_Using_Asynchronous_Controllers"></a>
 ### <a name="exercise-4-using-asynchronous-controllers"></a>手順 4:非同期コント ローラーを使用します。
 
-Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミングでの非同期性を提供する C# および Visual Basic の新しい言語機能について説明します。 この新しい基盤は、-のようなと約同期プログラミングと同程度に簡単に非同期プログラミングになります。 使用して ASP.NET MVC 4 での非同期アクション メソッドを記述することができるよう、 **AsyncController**クラス。 実行時間の長い非同期アクション メソッドを使用する、非 CPU バインド要求です。 要求の処理中に作業を実行してから、Web サーバーのブロックを回避できます。 AsyncController クラスは、通常の実行時間の長い Web サービス呼び出しに使用されます。
+Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミングでの非同期性を提供する c# および Visual Basic の新しい言語機能について説明します。 この新しい基盤は、-のようなと約同期プログラミングと同程度に簡単に非同期プログラミングになります。 使用して ASP.NET MVC 4 での非同期アクション メソッドを記述することができるよう、 **AsyncController**クラス。 実行時間の長い非同期アクション メソッドを使用する、非 CPU バインド要求です。 要求の処理中に作業を実行してから、Web サーバーのブロックを回避できます。 AsyncController クラスは、通常の実行時間の長い Web サービス呼び出しに使用されます。
 
 この演習では、ASP.NET MVC 4 での非同期操作の基本について説明します。 詳細を紹介する場合は、次の記事を確認できます。 [[https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
@@ -650,7 +650,7 @@ Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミン
 8. アプリケーションを実行します。 わかりますなし、主要な変更が、コードでは、サーバー リソースの使用率の向上を行うと、パフォーマンスの向上、スレッド プールのスレッドはブロックされません。
 
     > [!NOTE]
-    > ラボで新しい非同期プログラミング機能の詳細を確認できます&quot; **C# および Visual Basic を使用して .NET 4.5 での非同期プログラミング**&quot; Visual Studio のトレーニング キットに含まれています。
+    > ラボで新しい非同期プログラミング機能の詳細を確認できます&quot; **c# および Visual Basic を使用して .NET 4.5 での非同期プログラミング**&quot; Visual Studio のトレーニング キットに含まれています。
 
 <a id="Task_2_-_Handling_Time-Outs_with_Cancellation_Tokens"></a>
 #### <a name="task-2---handling-time-outs-with-cancellation-tokens"></a>タスク 2 - キャンセル トークンを使用した処理のタイムアウト
@@ -723,7 +723,7 @@ Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミン
 
 *Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
 
-***キーボード (C# のみ) を使用するコード スニペットを追加するには***
+***キーボード (c# のみ) を使用するコード スニペットを追加するには***
 
 1. コードを挿入するには、カーソルを置きます。
 2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。
@@ -760,11 +760,11 @@ Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミン
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>付録 b:For Web Express 2012 の Visual Studio のインストール
+## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>付録 B:For Web Express 2012 の Visual Studio のインストール
 
 インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
-1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
+1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; *Visual Studio Express 2012 for Web と Windows Azure SDK*&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
 
@@ -796,7 +796,7 @@ Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミン
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Installing_WebMatrix_2_and_iPhone_Simulator"></a>
-## <a name="appendix-c-installing-webmatrix-2-and-iphone-simulator"></a>付録 c:WebMatrix 2 と iPhone シミュレーターのインストール
+## <a name="appendix-c-installing-webmatrix-2-and-iphone-simulator"></a>付録 CWebMatrix 2 と iPhone シミュレーターのインストール
 
 IPhone のシミュレートされたデバイスで、サイトを実行するには、WebMatrix の拡張機能を使用することができます&quot;iPhone 用の電気の Mobile シミュレーター&quot;します。 また、Visual Studio 2012 から、シミュレーターを実行する同じ拡張機能を構成できます。
 
@@ -805,7 +805,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 <a id="Task_1_-_Installing_WebMatrix_2"></a>
 #### <a name="task-1---installing-webmatrix-2"></a>タスク 1 - 2 WebMatrix のインストール
 
-1. 移動して[ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>WebMatrix 2</em>&quot;します。
+1. 移動して[ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; *WebMatrix 2*&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
 
@@ -875,7 +875,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 3. &quot;ブラウザー&quot;ダイアログ ボックスで、をクリックして**追加**します。
 4. &quot;プログラムの追加&quot;ダイアログ ボックスで、次の値を使用します。
 
-   - <strong>プログラム</strong>:C:\Users\*{CurrentUser}<em>\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe * (パスを適宜更新する)</em>
+   - **プログラム**:C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(パスを適宜更新する)*
    - **引数**:&quot;1&quot;
    - **フレンドリ名**: iPhone シミュレーター
 
@@ -892,7 +892,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 <a id="AppendixD"></a>
 
 <a id="Appendix_D_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-d-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 d:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-d-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 D:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
 
 この付録では、Windows Azure 管理ポータルから新しい web サイトを作成して Windows Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
 
@@ -1016,7 +1016,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 
     ![データベースを作成する](whats-new-in-aspnet-mvc-4/_static/image78.png "データベース文字列を作成します。")
 
-    *データベースの作成*
+    *データベースを作成する*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL データベースを指す接続文字列")

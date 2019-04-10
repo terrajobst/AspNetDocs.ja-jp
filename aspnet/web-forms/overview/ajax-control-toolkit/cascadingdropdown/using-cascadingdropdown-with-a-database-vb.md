@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 97a3d33c-c856-43f3-8acb-f1ccbc48221a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 98e07764a3bd6afc8045221e9c016e57be44f5f7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d0b6f8651e327cf9ad2a3051edd323efba4f64fc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041879"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418730"
 ---
-<a name="using-cascadingdropdown-with-a-database-vb"></a>データベースで CascadingDropDown を使用する (VB)
-====================
+# <a name="using-cascadingdropdown-with-a-database-vb"></a>データベースで CascadingDropDown を使用する (VB)
+
 によって[Christian Wenz](https://github.com/wenz)
 
 [コードのダウンロード](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown1VB.pdf)
@@ -86,12 +86,12 @@ CascadingDropDown によって呼び出される web メソッドのシグネチ
 ASP.NET ページを読み込むし、後しばらくすると、ベンダーの一覧が 25 のエントリが入力されます。 1 つのエントリを選択し、データが 2 つ目のドロップダウン リストを格納する方法に注意してください。
 
 
-[![最初のリストが自動的に入力します。](using-cascadingdropdown-with-a-database-vb/_static/image2.png)](using-cascadingdropdown-with-a-database-vb/_static/image1.png)
+[![T彼は最初のリストが自動的に入力されます](using-cascadingdropdown-with-a-database-vb/_static/image2.png)](using-cascadingdropdown-with-a-database-vb/_static/image1.png)
 
 最初のリストが自動的に入力されます ([フルサイズの画像を表示する をクリックします](using-cascadingdropdown-with-a-database-vb/_static/image3.png))。
 
 
-[![2 番目のリストが最初のリストの選択に応じて入力します。](using-cascadingdropdown-with-a-database-vb/_static/image5.png)](using-cascadingdropdown-with-a-database-vb/_static/image4.png)
+[![T彼は 2 番目のリストが最初のリストの選択に応じて入力](using-cascadingdropdown-with-a-database-vb/_static/image5.png)](using-cascadingdropdown-with-a-database-vb/_static/image4.png)
 
 2 番目のリストが最初のリストの選択に応じて入力 ([フルサイズの画像を表示する をクリックします](using-cascadingdropdown-with-a-database-vb/_static/image6.png))。
 

@@ -8,15 +8,15 @@ ms.date: 11/14/2011
 ms.assetid: a923735c-2d34-456c-8327-40aa62a4c1d6
 msc.legacyurl: /web-forms/videos/data-access
 msc.type: chapter
-ms.openlocfilehash: f93a3b496b2a3bf7957687c7e1ba97db994b4712
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b41843143dfbd957ef242c67e67101af79d9efba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57022109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419406"
 ---
-<a name="data-access"></a>データ アクセス
-====================
+# <a name="data-access"></a>データ アクセス
+
 > データ アクセス層 (DAL) を作成する方法。
 
 
@@ -29,14 +29,14 @@ ms.locfileid: "57022109"
 
     - [LINQ to SQL:概要](how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
     - [LINQ to SQL:データ モデル](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-    - [LINQ to SQL:データベースのクエリを実行します。](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+    - [LINQ to SQL:データベースに対するクエリの実行](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
     - [LINQ to SQL:データベースの更新](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
     - [LINQ to SQL:LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
-    - [LINQ to SQL:Custom LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
+    - [LINQ to SQL:カスタム LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
     - [LINQ to SQL:ストアド プロシージャの使用](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-    - [LINQ to SQL:ストアド プロシージャで更新しています](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-    - [LINQ to SQL:任意の SQL を実行します。](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
-- [VB チーム提供の LINQ ビデオ](linq-videos-from-the-vb-team/index.md)
+    - [LINQ to SQL:ストアド プロシージャによる更新](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+    - [LINQ to SQL:任意の SQL を実行する](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+- [VB チームの LINQ ビデオ](linq-videos-from-the-vb-team/index.md)
 
     - [LINQ 入門](linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
     - [クエリのグループ化と集計を行う](linq-videos-from-the-vb-team/how-do-i-perform-group-and-aggregate-queries.md)
@@ -44,4 +44,4 @@ ms.locfileid: "57022109"
     - [LINQ to XML 入門](linq-videos-from-the-vb-team/how-do-i-get-started-with-linq-to-xml.md)
     - [XML IntelliSense を有効にして、XML 名前空間を使用する](linq-videos-from-the-vb-team/how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
     - [SQL データから XML ドキュメントを作成する](linq-videos-from-the-vb-team/how-do-i-create-xml-documents-from-sql-data.md)
-    - [LINQ to XML を使用して Excel ワークシートを作成する](linq-videos-from-the-vb-team/how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)
+    - [LINQ to XML を使用して Excel スプレッドシートを作成する](linq-videos-from-the-vb-team/how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)

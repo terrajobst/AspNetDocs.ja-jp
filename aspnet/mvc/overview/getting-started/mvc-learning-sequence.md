@@ -8,15 +8,15 @@ ms.date: 05/22/2015
 ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: 720e3999fe2c1872a50c82bad0711bbcadd176cd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e78ad67187b2da96ca3766e6914e396508aa180e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029269"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417547"
 ---
-<a name="mvc-recommended-tutorials-and-articles"></a>MVC 推奨チュートリアルと推奨記事
-====================
+# <a name="mvc-recommended-tutorials-and-articles"></a>MVC 推奨チュートリアルと推奨記事
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="pwd"></a>
@@ -39,7 +39,7 @@ ms.locfileid: "57029269"
 - [Facebook、Twitter、LinkedIn、Google の OAuth2 サインオンでの ASP.NET MVC 5 アプリケーションの作成](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)このチュートリアルでは、OAuth 2.0 を使用して、外部の認証の資格情報を持つユーザーにログインできるようにする ASP.NET MVC 5 web アプリケーションを構築する方法Facebook、Twitter、LinkedIn、Microsoft、Google などのプロバイダー。
 - [電子メールの確認とパスワードのリセットでログをセキュリティで保護された ASP.NET MVC 5 web アプリを作成](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)最初、系列 Id にするためのコードが含まれます[確認リンクを再送信](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend)します。
 - [SMS と電子メール 2 要素認証による ASP.NET MVC 5 アプリ](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)Identity シリーズの 2 つ目です。
-- [ASP.NET と Azure App Service にパスワードやその他の機密データを展開するためのベスト プラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+- [ASP.NET と Azure App Service にパスワードやその他の機密データを配置するためのベスト プラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
 - [ASP.NET Identity で SMS と電子メールを使用する 2 要素認証](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)`isPersistent`セキュリティ クッキー、ユーザー、ログインすることが検証済みの電子メール アカウントを持つことを要求するコードと SignInManager が 2 fa の要件を確認する方法。
 - [アカウントの確認と ASP.NET Identity によるパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)の Id が見つかりませんで詳細を説明[ログイン、電子メールの確認とパスワードのリセットをセキュリティで保護された ASP.NET MVC 5 web アプリを作成](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)などできるようにする方法ユーザーは、忘れたパスワードをリセットします。
 
@@ -52,4 +52,4 @@ ms.locfileid: "57029269"
 <a id="perf"></a>
 ## <a name="performance-and-debugging"></a>パフォーマンスとデバッグ
 
-- [Glimpse で ASP.NET MVC アプリをプロファイリングし、デバッグする](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+- [Glimpse を使用して ASP.NET MVC アプリをプロファイルおよびデバッグする](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)

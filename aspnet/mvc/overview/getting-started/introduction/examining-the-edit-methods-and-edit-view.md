@@ -8,15 +8,15 @@ ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 75fd3a7dd55107cbdb9095d5b54b616133b4f65e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4a4627bdce8b8f2085150aa08cdc4c1271e09e09
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029209"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422006"
 ---
-<a name="examining-the-edit-methods-and-edit-view"></a>Edit メソッドと Edit ビューの確認
-====================
+# <a name="examining-the-edit-methods-and-edit-view"></a>Edit メソッドと Edit ビューの確認
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
@@ -117,7 +117,7 @@ ms.locfileid: "57029209"
 
 すべての編集ビューでは、このコードを繰り返しを避けるため、レイアウト ファイルを移動できます。 スクリプトのダウンロードを最適化するには、拙著のチュートリアルを参照してください。[バンドルと縮小](../../performance/bundling-and-minification.md)します。
 
-詳細については、[ASP.NET MVC 3 Internationalization](http://afana.me/post/aspnet-mvc-internationalization.aspx)と[ASP.NET MVC 3 国際化 - パート 2 (NerdDinner)](http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx)を参照してください。
+詳細については、次を参照してください。 [ASP.NET MVC 3 Internationalization](http://afana.me/post/aspnet-mvc-internationalization.aspx)と[ASP.NET MVC 3 国際化 - パート 2 (NerdDinner)](http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx)します。
 
 一時的な対策として英語 (米国) を使用するコンピューターを強制することができます、ロケールでの作業を検証できない場合、またはお使いのブラウザーで JavaScript を無効にすることができます。 英語 (米国) を使用するコンピューターを強制的には、プロジェクトのルートにグローバリゼーションの要素を追加できます*web.config*ファイル。 次のコードでは、United States English に設定する、カルチャにグローバリゼーションの要素を示しています。
 

@@ -8,15 +8,15 @@ ms.date: 08/01/2007
 ms.assetid: 8e8fd5a9-0e98-415a-93f5-9ad7524ae9bb
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-automate-testing-using-team-build
 msc.type: video
-ms.openlocfilehash: 95a02d8eaaeaa06b2323eaecc03fda58c2acb397
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9692a2a981d8521fa2e4f9344d2bcdfbf2e97ffd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57052279"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416546"
 ---
-<a name="how-do-i-automate-testing-using-team-build"></a>[How Do i:]チーム ビルドを使用してテストを自動化しますか。
-====================
+# <a name="how-do-i-automate-testing-using-team-build"></a>[How Do i:]チーム ビルドを使用してテストを自動化しますか。
+
 によって[Chris Menegay](https://twitter.com/CMenegay)
 
 このビデオでは Visual Studio Team System を使用して、チーム ビルド中に実行される自動テストを定義する方法とどのようにドリルダウンできますこれらのテストの結果を説明します。 私たちも学習、[テスト ツール ビルド タスク](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt)チーム ビルド中に実行するテストを指定する別の方法を提供します。

@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: 76e2013a-65b7-488c-834d-9448ecea378e
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 733b1c343d774e5fa8757808be07a9ae67481d84
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 257bd06848adb949330856cc71eeb3d685e9d036
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065499"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421668"
 ---
-<a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシード
-====================
+# <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシード
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
 
 このセクションでは使用して[Code First Migrations](https://msdn.microsoft.com/data/jj591621)テスト データでデータベースをシードする EF でします。
 

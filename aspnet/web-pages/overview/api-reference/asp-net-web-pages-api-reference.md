@@ -8,22 +8,22 @@ ms.date: 02/10/2014
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 656987f8a725f81dbca7a72594d7d03bc542fabe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 547b1932c4f8d3684c668561e3fe568a0f272925
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57063859"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416507"
 ---
-<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) API のクイック リファレンス
-====================
+# <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) API のクイック リファレンス
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このページには、最もよく使用されるオブジェクト、プロパティ、および Razor 構文を使用した ASP.NET Web Pages をプログラミングする方法の簡単な例を含む一覧が含まれています。
 > 
 > 説明"(v2)"とマークされている ASP.NET Web Pages 2 のバージョンで導入されました。
 > 
-> API リファレンス ドキュメントについては、、 [ASP.NET Web ページのリファレンス ドキュメント](https://go.microsoft.com/fwlink/?LinkId=208659)msdn を参照してください。
+> API リファレンス ドキュメントについては、次を参照してください。、 [ASP.NET Web ページのリファレンス ドキュメント](https://go.microsoft.com/fwlink/?LinkId=208659)msdn です。
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 > 
@@ -689,7 +689,7 @@ SMTP サーバーのパスワードを設定します。 このプロパティ�
 
 ### `WebMail.SmtpServer`
 
-SMTP サーバー名を設定します。 このプロパティを設定する通常の<em>\_AppStart</em>ページ。
+SMTP サーバー名を設定します。 このプロパティを設定する通常の *\_AppStart*ページ。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 

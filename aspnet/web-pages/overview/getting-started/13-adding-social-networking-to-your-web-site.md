@@ -8,15 +8,15 @@ ms.date: 02/21/2014
 ms.assetid: 03c342f9-b35c-4d7c-b9ed-cd9aaaffedb6
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: d2b970e7b80e4129d0a912f648f9c4a54df531b2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19ef447659f2edb75089f39888a6e98c801eb430
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415753"
 ---
-<a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ソーシャル ネットワー キングを ASP.NET Web ページ (Razor) サイトを追加します。
-====================
+# <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ソーシャル ネットワー キングを ASP.NET Web ページ (Razor) サイトを追加します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、Twitter のフィード、Xbox のゲーマー カードおよび Gravatar イメージに含める方法と、ASP.NET Web Pages (Razor) の web サイトのページに、Facebook、Twitter、Reddit、Digg、ソーシャル ネットワー キングへのリンクを追加する方法について説明します。
@@ -62,7 +62,7 @@ ms.locfileid: "57041849"
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>フィード、Twitter を追加します。
 
-Twitter API の現在のバージョンと互換性がある Twitter ヘルパーの使用方法の詳細については、[Twitter ヘルパー](../ui-layouts-and-themes/twitter-helper.md)を参照してください。 この例では、多くのページからコードを簡単に再利用できるように、独自のヘルパーを記述する方法を示します。
+Twitter API の現在のバージョンと互換性がある Twitter ヘルパーの使用方法の詳細については、次を参照してください。 [Twitter ヘルパー](../ui-layouts-and-themes/twitter-helper.md)します。 この例では、多くのページからコードを簡単に再利用できるように、独自のヘルパーを記述する方法を示します。
 
 <a id="Displaying_a_Facebook_Button"></a>
 ## <a name="displaying-a-facebook-quotlikequot-button"></a>Facebook を表示する&quot;など&quot;ボタン

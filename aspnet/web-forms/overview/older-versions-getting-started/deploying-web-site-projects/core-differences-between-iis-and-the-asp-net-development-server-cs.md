@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: 13a5a423-9235-4dde-b408-2fd10f791d63
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 19ca40374f97d59cac4f1677f886f3e48eab7b67
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ec59b63050a9d561c4f3da5a8eaaffbefef48454
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57035859"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410527"
 ---
-<a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS と ASP.NET 開発サーバーの間の中心的違い (C#)
-====================
+# <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS と ASP.NET 開発サーバーの間の中心的違い (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_06_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial06_WebServerDiff_cs.pdf)
@@ -50,7 +50,7 @@ ASP.NET 開発サーバーは、受信要求を現在ログオンしているユ
 次を参照してください、*教える自分で ASP.NET 3.5 in 24 時間*ASP.NET 開発サーバーを使用して開発環境で書籍の確認 ページ。 作成し、web でのテキスト ファイルを変更するには、適切なアクセス権を持つアカウントを使用してコンピューターにアプリケーションのルート ディレクトリ、書籍レビュー、以前と同じ表示されますが、ページが毎回アクセス日付と時刻、およびユーザーのログインするいると仮定 IP アドレスが格納されている、`LastTYASP35Access.txt`ファイル。 このファイルをお使いのブラウザーをポイントします。図 1 のようなメッセージが表示されます。
 
 
-[![テキスト ファイルには、最後の日付と時刻の書籍レビューのアクセスが含まれています。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
+[![T彼はテキスト ファイルには、最後の日付と時刻の書籍レビューのアクセスが含まれています](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
 
 **図 1**:テキスト ファイルには、最後の日付と時刻の書籍レビューのアクセスが含まれています ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))。
 
@@ -58,7 +58,7 @@ ASP.NET 開発サーバーは、受信要求を現在ログオンしているユ
 Web アプリケーションを運用環境にデプロイして、ホストされているアクセス*教える自分で ASP.NET 3.5 in 24 時間*書籍の確認 ページ。 この時点で書籍の確認 ページには、normal または図 2 に表示されるエラー メッセージとしても表示されます。 一部の web ホスト プロバイダーは、ASP.NET による匿名のコンピューター アカウントの場合、ページはエラーなしに書き込みアクセス許可を付与します。 ただし、web ホスト プロバイダーは匿名アカウントへの書き込みアクセスを禁止する場合は、 [ `UnauthorizedAccessException`例外](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)発生する状況、`TYASP35.aspx`ページが、現在の日付と時刻を記述しようとしています。、`LastTYASP35Access.txt`ファイル。
 
 
-[![IIS によって使用される既定のマシン アカウントには、ファイル システムに書き込むアクセス許可がありません。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
+[![T既定のマシン アカウント IIS によって使用される彼には、ファイル システムへの書き込みにアクセス許可がありません](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
 
 **図 2**:既定のマシン使用されるアカウント IIS はありませんがあるアクセス許可によって、ファイル システムへの書き込みを ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image6.png))。
 
@@ -96,7 +96,7 @@ ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラ
 ファイルの ASP.NET 開発サーバーに要求を送信するブラウザーは、アドレス バーにこの URL を入力します。 ASP.NET 開発サーバーは要求を処理するため、ASP.NET ランタイムに渡します。 では、まだログインしていないことがあるため、`Web.config`で、`PrivateDocs`フォルダーへの匿名アクセスを拒否するように構成を ASP.NET ランタイムに自動的にリダイレクトします私たち、ログイン ページに`Login.aspx`(図 3 を参照してください)。 ASP.NET には、ログイン ページにユーザーをリダイレクトしたときに、`ReturnUrl`ページを示すクエリ文字列パラメーター、ユーザーが表示しようとします。 ユーザーに正常にログインした後は、このページに戻ってことができます。
 
 
-[![承認されていないユーザーがログイン ページに自動的にリダイレクトされます。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
+[![Unauthorized ユーザーは、ログイン ページに自動的にリダイレクト](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
 
 **図 3**:承認されていないユーザーがログイン ページに自動的にリダイレクト ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image9.png))。
 
@@ -104,7 +104,7 @@ ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラ
 これで運用環境でこの動作を見てみましょう。 アプリケーションを配置しで Pdf のいずれかに直接 URL を入力、`PrivateDocs`実稼働環境でのフォルダー。 これは、ファイルの IIS 要求を送信するブラウザーを求めます。 静的ファイルが要求されるため、IIS は取得し、ASP.NET ランタイムを呼び出さずに、ファイルを返します。 その結果、URL 承認チェックが実行されます。 がありません。おそらくプライベート PDF の内容では、ファイルへの直接の URL を知っている人にアクセスできます。
 
 
-[![匿名ユーザーがファイルに直接 URL を入力して、プライベートの PDF ファイルをダウンロードできます。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
+[![A匿名ユーザーにダウンロードできる、プライベート PDF ファイルによって入力ダイレクト URL ファイル](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
 
 **図 4**:匿名ユーザーにダウンロードできる、プライベート PDF ファイルによって入力ダイレクト URL、ファイル ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image12.png))。
 

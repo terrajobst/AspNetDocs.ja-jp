@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 0ecb03b6-52a0-4731-8c7a-436391d36838
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f823d1db7f98dcbbef12d20df4a28e39fae0ac26
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0f5c5d4530092cced02834161ae91d840f42de1b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062349"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420732"
 ---
-<a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>ObjectDataSource のパラメーター値をプログラムで設定する (VB)
-====================
+# <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>ObjectDataSource のパラメーター値をプログラムで設定する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_6_VB.exe)または[PDF のダウンロード](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/datatutorial06vb1.pdf)
@@ -33,7 +33,7 @@ ms.locfileid: "57062349"
 たびに ObjectDataSource の`Select`メソッドが呼び出される、ObjectDataSource がその[するイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx)します。 ObjectDataSource の基になるオブジェクトのメソッドが呼び出されます。 ObjectDataSource の完了後[選択したイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx)(図 1 は、このイベントのシーケンスを示しています) が起動します。 ObjectDataSource の基になるオブジェクトのメソッドに渡されたパラメーター値を設定またはのイベント ハンドラーでカスタマイズできる、`Selecting`イベント。
 
 
-[![ObjectDataSource の選択と選択イベント起動する前に、後の基になるオブジェクトのメソッドが呼び出されます](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image1.png)
+[![T彼は ObjectDataSource の選択と選択イベント起動する前に、後の基になるオブジェクトのメソッドが呼び出される](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image1.png)
 
 **図 1**:ObjectDataSource の`Selected`と`Selecting`イベントの発生前に、と後の基になるオブジェクトのメソッドが呼び出されます ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image3.png))。
 
@@ -47,7 +47,7 @@ ms.locfileid: "57062349"
 これらの従業員を取得するための手段を追加する必要があります最初の例の持つ`HireDate`で指定した月が発生しました。 最初のメソッドを作成する必要があります、アーキテクチャに従ってこの機能を提供する`EmployeesTableAdapter`適切な SQL ステートメントに対応します。 これを実現するには、Northwind の型指定されたデータセットを開くことで開始します。 右クリックし、`EmployeesTableAdapter`ラベルし、クエリの追加 を選択します。
 
 
-[![新しいクエリ、EmployeesTableAdapter を追加します。](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image5.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image4.png)
+[![Add、EmployeesTableAdapter に新しいクエリ](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image5.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image4.png)
 
 **図 2**:新しいクエリを追加、 `EmployeesTableAdapter` ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image6.png))。
 
@@ -55,7 +55,7 @@ ms.locfileid: "57062349"
 行を返す SQL ステートメントを追加することもできます。 指定に達すると、`SELECT`ステートメントは、既定値を画面`SELECT`のステートメント、`EmployeesTableAdapter`は既に読み込まれます。 追加するだけです、`WHERE`句:`WHERE DATEPART(m, HireDate) = @Month`します。 [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) T-SQL 関数の特定の日付部分を返しますです、`datetime`型。 この場合、使用している`DATEPART`の月を返す、`HireDate`列。
 
 
-[![戻り値、行が、HireDate 列のみが未満かと等しい、@HiredBeforeDateパラメーター](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image7.png)
+[![Return もの行が、HireDate 列のみが未満かと等しい、@HiredBeforeDateパラメーター](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image7.png)
 
 **図 3**:のみこれらの行を返す、`HireDate`列は、以下に、`@HiredBeforeDate`パラメーター ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image9.png))。
 
@@ -63,7 +63,7 @@ ms.locfileid: "57062349"
 最後に、変更、`FillBy`と`GetDataBy`メソッド名をする`FillByHiredDateMonth`と`GetEmployeesByHiredDateMonth`、それぞれします。
 
 
-[![FillBy と GetDataBy よりもより適切なメソッド名を選択します。](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image10.png)
+[![C適切なメソッド名よりも FillBy 選択と GetDataBy](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image10.png)
 
 **図 4**:適切なメソッド名よりも選択`FillBy`と`GetDataBy`([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image12.png))。
 
@@ -71,7 +71,7 @@ ms.locfileid: "57062349"
 ウィザードを完了し、データセットのデザイン画面に戻るには、[完了] をクリックします。 `EmployeesTableAdapter`従業員を雇用すると、指定した 1 か月にアクセスするためのメソッドの新しいセットを含める必要がありますようになりました。
 
 
-[![新しいメソッド、データセットのデザイン画面に表示します。](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image13.png)
+[![T彼は新しいメソッドは、データセットのデザイン画面に表示](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image13.png)
 
 **図 5**:新規のメソッド、データセットのデザイン画面に表示されます ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image15.png))。
 
@@ -90,12 +90,12 @@ ms.locfileid: "57062349"
 この例の最後の手順では、従業員の雇用の記念日はこの月を表示します。 GridView を追加することで開始、`ProgrammaticParams.aspx`ページで、`BasicReporting`フォルダーとそのデータ ソースとして新しい ObjectDataSource を追加します。 構成を使用する ObjectDataSource、`EmployeesBLL`クラス、`SelectMethod`に設定`GetEmployeesByHiredDateMonth(month)`します。
 
 
-[![EmployeesBLL クラスを使用して、](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image16.png)
+[![Use EmployeesBLL クラス](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image16.png)
 
 **図 6**:使用して、`EmployeesBLL`クラス ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image18.png))。
 
 
-[![The GetEmployeesByHiredDateMonth(month) から選択メソッド](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image19.png)
+[![Sthe GetEmployeesByHiredDateMonth(month) からメソッドを選択](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image19.png)
 
 **図 7**:Select From、`GetEmployeesByHiredDateMonth(month)`メソッド ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image21.png))。
 
@@ -103,7 +103,7 @@ ms.locfileid: "57062349"
 最後の画面には、提供するよう求められます、`month`パラメーターの値のソース。 この値をプログラムで設定しますがため、パラメーター ソースが [なし]、既定値に設定したままにはオプションし、[完了] をクリックします。
 
 
-[![[なし] に、パラメーター ソースの設定をそのまま使用します。](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image22.png)
+[![Lパラメーター ソース設定を None に残す](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image22.png)
 
 **図 8**:[なし] にパラメーターのソースの設定のままに ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image24.png))。
 
@@ -129,7 +129,7 @@ ms.locfileid: "57062349"
 ブラウザーからこのページにアクセスすると、1 つだけの従業員が採用された今月 (3 月) 確認できます Laura Callahan、1994 年以来勤務しています。
 
 
-[![これらの従業員を記念日今月が表示されます。](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image26.png)
+[![Tホース従業員を記念日この 1 か月が表示されます](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image26.png)
 
 **図 10**:これらの従業員を記念日この 1 か月が表示されます ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image28.png))。
 

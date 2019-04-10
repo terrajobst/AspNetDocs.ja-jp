@@ -1,27 +1,30 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: ASP.NET Web フォームによる Web API の使用 |Microsoft Docs
+title: Web API を使用して ASP.NET Web フォーム、ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: コード、ASP.NET フォーム アプリケーションに asp.net Web API を追加するステップ バイ ステップ チュートリアル 4.x
 ms.author: riande
 ms.date: 04/03/2012
+ms.custom: seoapril2019
 ms.assetid: 25da8c3f-4e90-4946-9765-4f160985e1e4
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 msc.type: authoredcontent
-ms.openlocfilehash: a14bf0abd8c5d603cf3859891f855415cf3df9f3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ae553b62998fefd128e12711cbde958ea42d8c63
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422578"
 ---
-<a name="using-web-api-with-aspnet-web-forms"></a>ASP.NET Web フォームで Web API を使用する
-====================
+# <a name="using-web-api-with-aspnet-web-forms"></a>ASP.NET Web フォームで Web API を使用する
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-ASP.NET Web API は、ASP.NET MVC にパッケージ化されてが簡単に Web API を従来の ASP.NET Web フォーム アプリケーションに追加できます。 このチュートリアルの手順について説明します。
+このチュートリアルで Web API ASP.NET の従来の ASP.NET Web フォーム アプリケーションを追加する手順を 4.x です。 
 
 ## <a name="overview"></a>概要
+
+ASP.NET Web API は、ASP.NET MVC にパッケージ化されてが簡単に Web API を従来の ASP.NET Web フォーム アプリケーションに追加できます。
 
 Web フォーム アプリケーションで Web API を使用するには、2 つの主な手順があります。
 
@@ -72,7 +75,7 @@ Visual Studio を起動し、選択**新しいプロジェクト**から、**開
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample4.cs)]
 
-ルーティング テーブルの詳細については、[ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)を参照してください。
+ルーティング テーブルの詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)します。
 
 ## <a name="add-client-side-ajax"></a>クライアント側 AJAX を追加します。
 

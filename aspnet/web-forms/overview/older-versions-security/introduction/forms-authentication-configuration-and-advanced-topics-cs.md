@@ -8,15 +8,15 @@ ms.date: 01/14/2008
 ms.assetid: b9c29865-a34e-48bb-92c0-c443a72cb860
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 33d9c90aa2798ec7a88acc8ff4e4062efc0701fc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9665dafb23b885fdf9e4ea5f1a515a0c6dcc9a9a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046079"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410631"
 ---
-<a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証構成と高度なトピック (C#)
-====================
+# <a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証構成と高度なトピック (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_03_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial03_AuthAdvanced_cs.pdf)
@@ -84,7 +84,7 @@ ASP.NET 2.0 では、既定値を超えるフォーム認証の値は FormsAuthe
 図 1 は、slidingExpiration が false に設定して、タイムアウトが 30 に設定するときにワークフローを示します。 ログイン時に生成された認証チケットには、有効期限の日付が含まれていて、後続の要求では、この値は更新されていません。 FormsAuthenticationModule では、チケットの期限が切れたことが検出されると、それを破棄し、匿名として、要求を処理します。
 
 
-[![フォーム認証チケットの有効期限と slidingExpiration のグラフィカル表現は false です。](forms-authentication-configuration-and-advanced-topics-cs/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image1.png)
+[![A フォーム認証チケットの有効期限と slidingExpiration のグラフィカル表現が false](forms-authentication-configuration-and-advanced-topics-cs/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image1.png)
 
 **図 01**:フォーム認証チケットの有効期限と slidingExpiration のグラフィカル表現が false ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image3.png))。
 
@@ -92,7 +92,7 @@ ASP.NET 2.0 では、既定値を超えるフォーム認証の値は FormsAuthe
 SlidingExpiration に設定すると、図 2 は、ワークフローを示しています true とタイムアウトが 30 に設定します。 (有効期限のないチケット) を使用して認証された要求が受信したときに、その有効期限は、タイムアウト時間 (分)、将来に更新されます。
 
 
-[![フォーム認証チケットのグラフィカル表現 slidingExpiration が true の場合](forms-authentication-configuration-and-advanced-topics-cs/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image4.png)
+[![A フォーム認証チケットのグラフィカル表現 slidingExpiration が true の場合](forms-authentication-configuration-and-advanced-topics-cs/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image4.png)
 
 **図 02**:フォーム認証チケットのグラフィカル表現 slidingExpiration が true の場合 ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image6.png))。
 
@@ -181,7 +181,7 @@ Default.aspx に変更を保存し、ブラウザーを使用しを参照して�
 作成 (または変更) とチケット、フォーム認証システムは、MAC を作成し、チケットのデータにアタッチします。 後続の要求が到着すると、フォーム認証システムは、チケット データの信頼性を検証する、MAC、およびチケットのデータを比較します。 図 3 では、このワークフローがグラフィカルに示しています。
 
 
-[![MAC により、チケットの信頼性が確保されます。](forms-authentication-configuration-and-advanced-topics-cs/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image7.png)
+[![TMAC では、彼はチケットの信頼性が保証](forms-authentication-configuration-and-advanced-topics-cs/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image7.png)
 
 **図 03**:MAC により、チケットの信頼性が確保されます ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image9.png))。
 
@@ -238,7 +238,7 @@ Web ファームの設定や、同じサーバー上のアプリケーション�
 チケットに格納されているデータにアクセスする必要があります、たびにこれを現在の要求の所属をグラブして UserData プロパティを逆シリアル化して実行できます。 生年月日と雇用者名の例の日付の場合は、区切り記号 (|) に基づく 2 つの部分文字列に UserData 文字列を分割します。
 
 
-[![認証チケットに追加のユーザー情報を格納できます。](forms-authentication-configuration-and-advanced-topics-cs/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image10.png)
+[![A追加ユーザーについては、認証チケットに格納できる](forms-authentication-configuration-and-advanced-topics-cs/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image10.png)
 
 **図 04**:その他のユーザー情報に格納できる認証チケット ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image12.png))。
 
@@ -302,7 +302,7 @@ UserData プロパティは読み取り専用と FormsAuthentication クラス�
 図 5 は、実行中、この画面のスクリーン ショットを示します。 Scott としてログインするには、Scott の会社とタイトルを含むバックへようこそ のメッセージが表示されます。
 
 
-[![現在ログインして ユーザーの会社とタイトルが表示されます。](forms-authentication-configuration-and-advanced-topics-cs/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image13.png)
+[![T彼は現在にログオンしたユーザーの会社とタイトルが表示されます](forms-authentication-configuration-and-advanced-topics-cs/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image13.png)
 
 **図 05**:現在ログインして [ユーザーの会社とタイトルが表示されます ([フルサイズの画像を表示する] をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image15.png))。
 
@@ -338,7 +338,7 @@ IIdentity を実装し、CompanyName とタイトルのプロパティを含む�
 次に、2 つの新しいクラス ファイルをアプリに追加\_CustomPrincipal.cs という名前のコードのフォルダー、1 つの名前付き CustomIdentity.cs および 1 つ。
 
 
-[![CustomIdentity と CustomPrincipal クラスをプロジェクトに追加します。](forms-authentication-configuration-and-advanced-topics-cs/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image16.png)
+[![Add、CustomIdentity とプロジェクトへの CustomPrincipal クラス](forms-authentication-configuration-and-advanced-topics-cs/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image16.png)
 
 **図 06**:CustomIdentity と CustomPrincipal クラスをプロジェクトに追加 ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image18.png))。
 
@@ -362,7 +362,7 @@ ASP.NET パイプラインは、受信要求を受け取り、ステップの数
 AuthenticateRequest イベント後に ASP.NET パイプラインを発生させます、 [PostAuthenticateRequest イベント](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx)のインスタンスと FormsAuthenticationModule によって作成された GenericPrincipal オブジェクトを置換できますが、などの CustomPrincipal オブジェクト。 図 7 は、このワークフローを示しています。
 
 
-[![GenericPrincipal は、CustomPrincipal PostAuthenticationRequest イベントに置き換え](forms-authentication-configuration-and-advanced-topics-cs/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image19.png)
+[![TGenericPrincipal 彼は、CustomPrincipal PostAuthenticationRequest イベントで置き換え](forms-authentication-configuration-and-advanced-topics-cs/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image19.png)
 
 **図 07**:GenericPrincipal は、CustomPrincipal PostAuthenticationRequest イベントに置き換え ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image21.png))。
 
@@ -370,7 +370,7 @@ AuthenticateRequest イベント後に ASP.NET パイプラインを発生させ
 コードを実行するには、ASP.NET パイプライン イベントに応答するためには、Global.asax で適切なイベント ハンドラーを作成しますか、独自の HTTP モジュールを作成します。 このチュートリアルには、Global.asax でイベント ハンドラーを作成しましょう。 Global.asax を web サイトに追加することで開始します。 ソリューション エクスプ ローラーでプロジェクト名を右クリックし、Global.asax という、グローバル アプリケーション クラスの種類のアイテムを追加します。
 
 
-[![Global.asax ファイル、web サイトを追加します。](forms-authentication-configuration-and-advanced-topics-cs/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image22.png)
+[![Add に web サイトの Global.asax ファイル](forms-authentication-configuration-and-advanced-topics-cs/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image22.png)
 
 **図 08**:Global.asax ファイルを web サイトに追加 ([フルサイズの画像を表示する をクリックします](forms-authentication-configuration-and-advanced-topics-cs/_static/image24.png))。
 
@@ -415,7 +415,7 @@ ASP.NET ランタイムは、私たちにとって、これらのプロパティ
 - [Professional ASP.NET 2.0 のセキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN:978-0-7645-9698-8)
 - [ログイン コントロールをセキュリティで保護します。](https://msdn.microsoft.com/library/ms178346.aspx)
 - [&lt;認証&gt;要素](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [&lt;forms&gt;要素&lt;authentication&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [&lt;フォーム&gt;要素&lt;認証&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 - [&lt;MachineKey&gt;要素](https://msdn.microsoft.com/library/w8h3skw9.aspx)
 - [フォーム認証チケット Cookie を理解します。](https://support.microsoft.com/kb/910443)
 

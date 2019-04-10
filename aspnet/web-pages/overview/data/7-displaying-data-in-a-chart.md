@@ -8,15 +8,15 @@ ms.date: 05/22/2012
 ms.assetid: f889fd46-4dac-4ecb-83d8-60e64c22036e
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: 00529355476e88c47ab790121ae77202aa5e7b76
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f97f214abeaeb88634dd10aaebacc0d58e91ab84
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57061099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422461"
 ---
-<a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web Pages (Razor) を持つグラフ データを表示します。
-====================
+# <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web Pages (Razor) を持つグラフ データを表示します。
+
 によって[Microsoft](https://github.com/microsoft)
 
 > この記事は、グラフを使用して、使用して ASP.NET Web Pages (Razor) の web サイトにデータを表示する方法を説明します、`Chart`ヘルパー。
@@ -40,10 +40,10 @@ ms.locfileid: "57061099"
 
 使用することができますグラフィカルな形式でデータを表示する場合は、`Chart`ヘルパー。 `Chart`ヘルパーのさまざまな種類のグラフでデータを表示するイメージをレンダリングできます。 書式設定とラベル付けに関して多くのオプションをサポートしています。 `Chart` 30 を超える種類のグラフ、場合によっては Microsoft Excel やその他のツールを使い慣れているグラフのすべての種類などをレンダリングできるヘルパー&#8212;面グラフ、横棒グラフ、縦棒グラフ、折れ線グラフ、およびと共に複数の円グラフ株価チャートをなどの特殊なグラフ。
 
-| **面グラフ**![説明。面グラフの種類の画像](7-displaying-data-in-a-chart/_static/image1.jpg) | **横棒グラフ**![説明。横棒グラフの画像](7-displaying-data-in-a-chart/_static/image2.jpg) |
+| **面グラフ**![説明。面グラフの画像](7-displaying-data-in-a-chart/_static/image1.jpg) | **横棒グラフ**![説明。横棒グラフの画像](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
-| **縦棒グラフ**![説明。縦棒グラフの種類の画像](7-displaying-data-in-a-chart/_static/image3.jpg) | **折れ線グラフ**![説明。線グラフの種類の画像](7-displaying-data-in-a-chart/_static/image4.jpg) |
-| **円グラフ**![説明。円グラフの種類の画像](7-displaying-data-in-a-chart/_static/image5.jpg) | **株価チャート**![説明。株価チャートの画像](7-displaying-data-in-a-chart/_static/image6.jpg) |
+| **縦棒グラフ**![説明。縦棒グラフの画像](7-displaying-data-in-a-chart/_static/image3.jpg) | **折れ線グラフ**![説明。折れ線グラフの画像](7-displaying-data-in-a-chart/_static/image4.jpg) |
+| **円グラフ**![説明。円グラフの画像](7-displaying-data-in-a-chart/_static/image5.jpg) | **株価チャート**![説明。株価チャートの画像](7-displaying-data-in-a-chart/_static/image6.jpg) |
 
 ### <a name="chart-elements"></a>グラフ要素
 

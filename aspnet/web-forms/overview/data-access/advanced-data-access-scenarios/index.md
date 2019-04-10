@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 00d198ed-fddc-4fd3-a86e-3f29c5f707cc
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
-ms.openlocfilehash: 6c0abbe94f743a24541a79c6dd4144d8992cd224
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 735832675b48427d866612817ce7c8ef0290374b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57020589"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421304"
 ---
-<a name="advanced-data-access-scenarios"></a>高度なデータ アクセス シナリオ
-====================
+# <a name="advanced-data-access-scenarios"></a>高度なデータ アクセス シナリオ
+
 > これらのチュートリアルでは、ストアド プロシージャ、および計算列を操作する方法、データベースのテーブルで結合を使用する方法、およびデータの接続情報を暗号化する方法について説明します。
 
 

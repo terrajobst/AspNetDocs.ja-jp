@@ -1,21 +1,22 @@
 ---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
-title: .NET クライアント (C#) から Web API を呼び出す |Microsoft Docs
+title: .NET クライアントから Web API を呼び出す (C#)-ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: このチュートリアルでは、.NET 4.x アプリケーションから web API を呼び出す方法を示します。
 ms.author: riande
 ms.date: 11/24/2017
+ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 0c360f580285967c8fab8d33ccbb9557a7316ee1
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 113600ca1e77ae9667465464da505478fc948c9b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423140"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421109"
 ---
-<a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (C#) から Web API を呼び出す
-====================
+# <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
+
 作成者[Mike Wasson](https://github.com/MikeWasson)および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [完成したプロジェクトをダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) 
@@ -46,7 +47,7 @@ Visual Studio で、**HttpClientSample** という名前の新しい Windows コ
 
 上記のコードでは、完全なクライアント アプリです。
 
-`RunAsync` が実行され、完了するまでブロックされます。 **HttpClient**メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。 すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` 実行および完了するまでブロックします。 **HttpClient**メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。 すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 

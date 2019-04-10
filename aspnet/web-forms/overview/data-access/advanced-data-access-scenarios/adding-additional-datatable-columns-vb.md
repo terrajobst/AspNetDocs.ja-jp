@@ -8,15 +8,15 @@ ms.date: 07/18/2007
 ms.assetid: 1e8e65f9-fe3e-4250-810b-c90227786bed
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 75b5a1e1d6beb00079d754601860d0c25bc8a23e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 985e052abbe1065ba2d6816911f686cb61c85a6d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062749"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416468"
 ---
-<a name="adding-additional-datatable-columns-vb"></a>その他の DataTable 列を追加する (VB)
-====================
+# <a name="adding-additional-datatable-columns-vb"></a>その他の DataTable 列を追加する (VB)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_70_VB.zip)または[PDF のダウンロード](adding-additional-datatable-columns-vb/_static/datatutorial70vb1.pdf)
@@ -49,7 +49,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 開く、`NorthwindWithSprocs`データセットを右クリックし、`ProductsDataTable`します。 コンテキスト メニューから追加を選択し、列を選択してください。
 
 
-[![ProductsDataTable に新しい列を追加します。](adding-additional-datatable-columns-vb/_static/image2.png)](adding-additional-datatable-columns-vb/_static/image1.png)
+[![Add、ProductsDataTable に新しい列](adding-additional-datatable-columns-vb/_static/image2.png)](adding-additional-datatable-columns-vb/_static/image1.png)
 
 **図 1**:新しい列を追加、 `ProductsDataTable` ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image3.png))。
 
@@ -57,7 +57,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 これは、新しい列がという名前の型の列 1 の DataTable に追加されます`System.String`します。 この列の名前に更新 PriceQuartile とその型にする必要があります`System.Int32`される 1 ~ 4 の数値を保持するために使用します。 新しく追加された列の選択、`ProductsDataTable`し、[プロパティ] ウィンドウから次のように設定します。、 `Name` PriceQuartile にプロパティと`DataType`プロパティを`System.Int32`します。
 
 
-[![新しい列の名前とデータ型のプロパティを設定します。](adding-additional-datatable-columns-vb/_static/image5.png)](adding-additional-datatable-columns-vb/_static/image4.png)
+[![Set 新しい列の名前とデータ型のプロパティ](adding-additional-datatable-columns-vb/_static/image5.png)](adding-additional-datatable-columns-vb/_static/image4.png)
 
 **図 2**:設定の新しい列 s`Name`と`DataType`プロパティ ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image6.png))。
 
@@ -69,7 +69,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 これで、`ProductsDataTable`を含めるが更新されました、`PriceQuartile`を作成する準備ができました 列、`GetProductsWithPriceQuartile`メソッド。 TableAdapter を右クリックし、コンテキスト メニューから追加のクエリを選択して開始します。 まず、アドホック SQL ステートメントまたは新規または既存のストアド プロシージャを使用するかどうかについて私たちを求められます TableAdapter クエリ構成ウィザードが表示されます。 後で私たちはないまだ価格の四分位数のデータを返すストアド プロシージャがある、s をこのストアド プロシージャを作成する TableAdapter を許可することができます。 新しいストアド プロシージャの作成 オプションを選択し、次へ をクリックします。
 
 
-[![私たちにとって、ストアド プロシージャを作成する TableAdapter ウィザードの指示します。](adding-additional-datatable-columns-vb/_static/image8.png)](adding-additional-datatable-columns-vb/_static/image7.png)
+[![I読み取れません TableAdapter ウィザードで、ストアド プロシージャの私たちを作成する](adding-additional-datatable-columns-vb/_static/image8.png)](adding-additional-datatable-columns-vb/_static/image7.png)
 
 **図 3**:TableAdapter ウィザードで、ストアド プロシージャの私たちを作成するように指示 ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image9.png))。
 
@@ -77,7 +77,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 図 4 に示すように、後続の画面で、ウィザード求められたときを追加するクエリの種類。 以降、`GetProductsWithPriceQuartile`メソッドは、すべての列とレコードを返します、`Products`テーブル、行のオプションと [次へ] を選択します。
 
 
-[![クエリが SELECT ステートメントを返します。 その複数行になります](adding-additional-datatable-columns-vb/_static/image11.png)](adding-additional-datatable-columns-vb/_static/image10.png)
+[![Oクエリは、SELECT ステートメントを返します。 その複数行になります](adding-additional-datatable-columns-vb/_static/image11.png)](adding-additional-datatable-columns-vb/_static/image10.png)
 
 **図 4**:このクエリが行われる、`SELECT`ステートメントを複数行を返します ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image12.png))。
 
@@ -98,7 +98,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 入力した後、`SELECT`クエリ、[次へ] をクリックして、ウィザード求められたときに、作成、ストアド プロシージャの名前を指定します。 新しいストアド プロシージャの名前を付けます`Products_SelectWithPriceQuartile`[次へ] をクリックします。
 
 
-[![ストアド プロシージャ Products_SelectWithPriceQuartile 名](adding-additional-datatable-columns-vb/_static/image14.png)](adding-additional-datatable-columns-vb/_static/image13.png)
+[![Name ストアド プロシージャの Products_SelectWithPriceQuartile](adding-additional-datatable-columns-vb/_static/image14.png)](adding-additional-datatable-columns-vb/_static/image13.png)
 
 **図 5**:ストアド プロシージャの名前を付けます`Products_SelectWithPriceQuartile`([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image15.png))。
 
@@ -106,7 +106,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 最後に、TableAdapter のメソッドの名前を付けるように求められます。 両方の塗りつぶしの DataTable のままにし、DataTable のチェック ボックスがオンと名、メソッドが返されます`FillWithPriceQuartile`と`GetProductsWithPriceQuartile`します。
 
 
-[![名前、tableadapter のメソッドとクリック完了します。](adding-additional-datatable-columns-vb/_static/image17.png)](adding-additional-datatable-columns-vb/_static/image16.png)
+[![Name、tableadapter のメソッドとは [完了](adding-additional-datatable-columns-vb/_static/image17.png)](adding-additional-datatable-columns-vb/_static/image16.png)
 
 **図 6**:TableAdapter のメソッドとは [完了] の名前 ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image18.png))。
 
@@ -121,7 +121,7 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 **図 7**:新しいメソッドが TableAdapter に追加されたことを確認します。
 
 
-[![データベースには、Products_SelectWithPriceQuartile ストアド プロシージャ](adding-additional-datatable-columns-vb/_static/image21.png)](adding-additional-datatable-columns-vb/_static/image20.png)
+[![Ensure Products_SelectWithPriceQuartile ストアド プロシージャがデータベースに含まれる](adding-additional-datatable-columns-vb/_static/image21.png)](adding-additional-datatable-columns-vb/_static/image20.png)
 
 **図 8**:データベースの含まれていることを確認、`Products_SelectWithPriceQuartile`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image22.png))。
 
@@ -150,12 +150,12 @@ DataTable のスキーマを TableAdapter のメイン クエリを反映する�
 BLL の追加には、各製品の価格の四分位数を示す ASP.NET ページを作成する準備ができたらを完了します。 開く、`AddingColumns.aspx`ページで、`AdvancedDAL`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ、GridView、`ID`プロパティを`Products`します。 GridView のスマート タグからという名前の新しい ObjectDataSource にバインド`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLLWithSprocs`クラスの`GetProductsWithPriceQuartile`メソッド。 これは読み取り専用グリッドになる、ため、UPDATE、INSERT でドロップダウン リストを設定し、(None) にタブを削除します。
 
 
-[![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](adding-additional-datatable-columns-vb/_static/image24.png)](adding-additional-datatable-columns-vb/_static/image23.png)
+[![C構成、ObjectDataSource ProductsBLLWithSprocs クラスを使用する](adding-additional-datatable-columns-vb/_static/image24.png)](adding-additional-datatable-columns-vb/_static/image23.png)
 
 **図 9**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image25.png))。
 
 
-[![GetProductsWithPriceQuartile メソッドから製品情報を取得します。](adding-additional-datatable-columns-vb/_static/image27.png)](adding-additional-datatable-columns-vb/_static/image26.png)
+[![Retrieve GetProductsWithPriceQuartile メソッドから製品情報](adding-additional-datatable-columns-vb/_static/image27.png)](adding-additional-datatable-columns-vb/_static/image26.png)
 
 **図 10**:製品情報を取得、`GetProductsWithPriceQuartile`メソッド ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image28.png))。
 
@@ -172,12 +172,12 @@ GridView のフィールドを削除する編集はすべて、 `ProductName`、
 図 11 では、ブラウザーからアクセスしたときに、このページを示します。 最初に、製品順に適切な割り当てられている各製品での降順での価格に注意してください。`PriceQuartile`値。 まだ価格に関して、製品の順位付けを反映した価格の四分位数の列値が他の条件でコースのこのデータの並べ替えは (図 12 を参照してください)。
 
 
-[![製品は、価格順に並べ替えられます。](adding-additional-datatable-columns-vb/_static/image30.png)](adding-additional-datatable-columns-vb/_static/image29.png)
+[![T彼の製品は、その価格によって並べ替えられています](adding-additional-datatable-columns-vb/_static/image30.png)](adding-additional-datatable-columns-vb/_static/image29.png)
 
 **図 11**:製品は、価格で並べ替えられます ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image31.png))。
 
 
-[![製品は、名前順に並べ替えられます。](adding-additional-datatable-columns-vb/_static/image33.png)](adding-additional-datatable-columns-vb/_static/image32.png)
+[![T彼の製品は、その名前によって並べ替えられています](adding-additional-datatable-columns-vb/_static/image33.png)](adding-additional-datatable-columns-vb/_static/image32.png)
 
 **図 12**:製品は、名前で並べ替えられます ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-vb/_static/image34.png))。
 

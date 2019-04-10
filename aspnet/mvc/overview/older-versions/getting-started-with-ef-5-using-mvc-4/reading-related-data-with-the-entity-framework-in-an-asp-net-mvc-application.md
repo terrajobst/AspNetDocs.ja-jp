@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 4767b015db0bad09942802827ce54162687fcabc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f86212c1cb559c164342997fb0e4208339b5e3cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033789"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421122"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>関連データ (5/10) ASP.NET MVC アプリケーションで Entity Framework での読み取り
-====================
+# <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>関連データ (5/10) ASP.NET MVC アプリケーションで Entity Framework での読み取り
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -152,11 +152,13 @@ Instructor インデックス ページには、3 つのテーブルが表示さ
 > 
 > ルート データは、モデル バインダーがルーティング テーブルで指定された URL セグメントであるデータです。 たとえば、既定のルートを指定します`controller`、 `action`、および`id`セグメント。
 > 
+> ```csharp
 > routes.MapRoute(  
->  名:"Default"、  
+>  name: "Default",  
 >  url: "{controller}/{action}/{id}",  
->  既定値: 新しい {コント ローラー アクションを"Home"= ="Index"id = UrlParameter.Optional}  
+>  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  
 > );
+> ```
 > 
 > 次の URL で既定のルートをマップ`Instructor`として、 `controller`、`Index`として、 `action` 1 を`id`。 これらは、ルート データの値。
 > 

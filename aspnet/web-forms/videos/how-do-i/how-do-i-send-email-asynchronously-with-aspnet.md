@@ -8,15 +8,15 @@ ms.date: 09/24/2008
 ms.assetid: 77a5c8fa-ebb2-426d-b56b-a5a98a46b516
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
 msc.type: video
-ms.openlocfilehash: fc6d1d9b36eec042d1aec22e0e125e8807460a90
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea29823446cc1339003160bd3e945bde1af42473
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57050179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421369"
 ---
-<a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[How Do i:]ASP.NET で非同期的に電子メールを送信します。
-====================
+# <a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[How Do i:]ASP.NET で非同期的に電子メールを送信します。
+
 によって[Chris Pels](https://twitter.com/chrispels)
 
 このビデオでは、Chris Pels は、ASP.NET で、System.Net.Mail クラスを使用して、非同期の電子メール メッセージを送信する方法を示します。 最初に、電子メールを使用して送信する web サイトを構成する方法を参照してください、 &lt;mailSettings&gt; web.config ファイル内の要素。 次に、メールの情報を入力するためのシンプルなユーザー インターフェイスを作成します。 作成する方法を学習 MailMessage クラスを使用して、ページの分離コードで電子メール メッセージを作成します。 そのプロセスの一環として、次の電子メールの送信の非同期コールバックのイベント ハンドラーを作成します。 イベント ハンドラーでは、電子メールの送信処理に関する情報を提供する AsynchCompletedEventArgs クラスのインスタンスを使用する方法を参照してください。 最後に、テスト電子メールの非同期的に送信、デバッグ モードでの手順と、プロセスから受信した実際の電子メールを表示します。

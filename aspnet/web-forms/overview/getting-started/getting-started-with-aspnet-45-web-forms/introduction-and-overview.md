@@ -8,15 +8,15 @@ ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: b51ffda9aa10dd8b1fe98c4b56f70994eb016cec
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3a39e8d1979a743101d728eb3430e9aa0efb1252
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425718"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415636"
 ---
-<a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 の概要
-====================
+# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 の概要
+
 
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -39,7 +39,7 @@ ASP.NET Web フォームに慣れていない開発者は、このチュート�
 
 これらの領域を確認するには、次の内容を調査を検討してください。
 
-- [Visual C# の概要](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Visual C# について](https://msdn.microsoft.com/library/a72418yk.aspx)
 - [Web 開発](https://msdn.microsoft.com/beginner/bb308760.aspx)、 [HTML、CSS、JavaScript、SQL、PHP、JQuery](http://w3schools.com/)
 - [リレーショナル データベース](http://en.wikipedia.org/wiki/Relational_database)
 - [複数層アーキテクチャ](http://en.wikipedia.org/wiki/Multitier_architecture)
@@ -182,7 +182,7 @@ Visual Studio については、次に注意してください。
 
 チュートリアルのシリーズを完了すると、知識をテストし、主要な概念を強調するクイズに挑戦します。 各質問は、説明とその他のガイダンスへのリンクを提供します。
 
- * [ASP.NET Web フォームのクイズ](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
+* [ASP.NET Web フォームのクイズ](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
 
 ## <a name="tutorial-support-and-comments"></a>チュートリアルのサポートとコメント
 

@@ -8,15 +8,15 @@ ms.date: 01/28/2011
 ms.assetid: 51b447d5-eaa1-4df1-917c-f4f2746ed62d
 msc.legacyurl: /mobile/tested-devices
 msc.type: content
-ms.openlocfilehash: 4576e176f3b5d6e3a1fbec16f098c64ec3f0d54d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ecf8b7d90358fa0410ded9bd33c711016b4cd1d4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034379"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411060"
 ---
-<a name="aspnet-mobile-controls-tested-devices"></a>ASP.NET モバイル コントロールでテスト済みのデバイス
-====================
+# <a name="aspnet-mobile-controls-tested-devices"></a>ASP.NET モバイル コントロールでテスト済みのデバイス
+
 > ASP.NET モバイル コントロールと Microsoft Mobile Internet Toolkit v1.0 で、次のデバイスとブラウザーがテストされています。
 > 
 > - Microsoft Mobile Internet Toolkit [MMIT 1.0]:*(2002 年 1 月 15 日)*
@@ -139,7 +139,7 @@ ms.locfileid: "57034379"
 |      Cyberbank      |                       POZ                       |             Microsoft             |           Pocket IE 2002 (4.1)            |  DU 3.0  |
 |       Docomo        |                      Musea                      |             Microsoft             |           Pocket IE 2002 (4.1)            |  DU 3.0  |
 |        DOPOD        |                       686                       |             Microsoft             |           Pocket IE 2002 (4.1)            |  DU 3.0  |
-|       Fujitsu       |                      F212i                      |              Access               |           Compact NetFront 2.0            |  DU 3.0  |
+|       Fujitsu       |                      F212i                      |              アクセス               |           Compact NetFront 2.0            |  DU 3.0  |
 |       日立       |                     SH-P300                     |             Openwave              |           UP.Browser 6.1.0.135            |  DU 3.0  |
 |        JTEL         |                   Cellvic XG                    |           NATE ブラウザー            |                   v2.2                    |  DU 3.0  |
 |       凡例        |                      G808                       |            自動更新-システム             |                   V4.2                    |  DU 3.0  |
@@ -148,8 +148,8 @@ ms.locfileid: "57034379"
 |      Motorola       |                      V-730                      |            自動更新-システム             |                   V2.5                    |  DU 3.0  |
 |      Motorola       |                      V60G                       |             Openwave              |             UP.Browser4.1.23c             |  DU 3.0  |
 |      Motorola       |                       V70                       |             Openwave              |            UP.Browser 4.1.25i             |  DU 3.0  |
-|         NEC         |                      N251i                      |              Access               |           Compact NetFront 2.0            |  DU 3.0  |
-|         NEC         |                     N504iS                      |              Access               |           Compact NetFront 2.0            |  DU 3.0  |
+|         NEC         |                      N251i                      |              アクセス               |           Compact NetFront 2.0            |  DU 3.0  |
+|         NEC         |                     N504iS                      |              アクセス               |           Compact NetFront 2.0            |  DU 3.0  |
 |        Nokia        |                      6590                       |               Nokia               |                1.0 (30.34)                |  DU 3.0  |
 |        Nokia        |                      7650                       |               Nokia               |                   1.2.1                   |  DU 3.0  |
 |      OpenWave       |                  6.1 エミュレーター                   |             OpenWave              |              UP.Browser 6.1               |  DU 3.0  |
@@ -159,7 +159,7 @@ ms.locfileid: "57034379"
 |       Philips       |                    Fisio 820                    |             Openwave              |            アップします。ブラウザー 5.0.1.11            |  DU 3.0  |
 |        三洋        |                     J-SA51                      | Original Equipment Manufacturer |                バージョン 4.1                |  DU 3.0  |
 |        シャープ        |                     J-SH52                      | Original Equipment Manufacturer |                バージョン 4.1                |  DU 3.0  |
-|        シャープ        |                     SL-B500                     |              Access               |               NetFront 3.0                |  DU 3.0  |
+|        シャープ        |                     SL-B500                     |              アクセス               |               NetFront 3.0                |  DU 3.0  |
 |       Siemens       |                       S46                       |             Openwave              |          UP.Browser 5.0.2.1.103           |  DU 3.0  |
 |    SonyEricsson     |               SonyEricsson A1101S               |             Openwave              |              UP.Browser 6.0               |  DU 3.0  |
 |    SonyEricsson     |                SonyEricsson P800                |           SonyEricsson            |                 P800/R101                 |  DU 3.0  |

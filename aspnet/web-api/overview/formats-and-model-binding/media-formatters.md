@@ -1,29 +1,30 @@
 ---
 uid: web-api/overview/formats-and-model-binding/media-formatters
-title: ASP.NET Web API 2 のメディア フォーマッタ |Microsoft Docs
+title: メディア フォーマッタで ASP.NET Web API 2 - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET Web API で ASP.NET の他のメディア形式をサポートする方法を示しています。 4.x です。
 ms.author: riande
 ms.date: 01/20/2014
+ms.custom: seoapril2019
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: bd54a1d8ae3a2913c9d8a11c5b31ba1c829450d2
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: da0c566dad302054d7d0a6435e4c6df178c64772
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425315"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418769"
 ---
-<a name="media-formatters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のメディア フォーマッタ
-====================
+# <a name="media-formatters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のメディア フォーマッタ
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 このチュートリアルでは、ASP.NET Web API で他のメディア形式をサポートする方法を示します。
 
 ## <a name="internet-media-types"></a>インターネット メディアの種類
 
-MIME の種類とも呼ばれます。 メディアの種類は、データの一部の形式を識別します。 HTTP では、メディアの種類には、メッセージ本文の形式について説明します。 メディアの種類は、2 つの文字列、種類、およびサブタイプで構成されます。 例:
+MIME の種類とも呼ばれます。 メディアの種類は、データの一部の形式を識別します。 HTTP では、メディアの種類には、メッセージ本文の形式について説明します。 メディアの種類は、2 つの文字列、種類、およびサブタイプで構成されます。 例えば:
 
 - text/html
 - image/png

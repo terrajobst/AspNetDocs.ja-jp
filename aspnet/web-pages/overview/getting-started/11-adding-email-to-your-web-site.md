@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: f388ac1a97bde39cffe6b592b436d7af0d419a5f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0263f736b96f8e8572536f3783d86c261d7c0512
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57038399"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411229"
 ---
-<a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトから電子メールを送信します。
-====================
+# <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトから電子メールを送信します。
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) を使用すると、web サイトから電子メール メッセージを送信する方法について説明します。
@@ -56,7 +56,7 @@ ms.locfileid: "57038399"
 ![[イメージ]](11-adding-email-to-your-web-site/_static/image1.jpg)
 
 > [!NOTE]
-> この例を簡潔にするに、コードを初期化します、`WebMail`ヘルパーの右側で使用するページ。 ただし、実際の web サイトであるグローバル ファイルの場合は、このような初期化コードを配置することをお勧めを初期化する、 `WebMail` web サイトのすべてのファイルのヘルパー。 詳細については、[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers)を参照してください。
+> この例を簡潔にするに、コードを初期化します、`WebMail`ヘルパーの右側で使用するページ。 ただし、実際の web サイトであるグローバル ファイルの場合は、このような初期化コードを配置することをお勧めを初期化する、 `WebMail` web サイトのすべてのファイルのヘルパー。 詳細については、次を参照してください。[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers)します。
 
 
 1. 新しい web サイトを作成します。
@@ -136,5 +136,5 @@ ms.locfileid: "57038399"
 
 
 - [ASP.NET Web ページ (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)
-- [簡易メール転送プロトコル](https://msdn.microsoft.com/library/aa480435.aspx)
+- [簡易メール転送プロトコル (Simple Mail Transfer Protocol)](https://msdn.microsoft.com/library/aa480435.aspx)
 - [ASP.NET Web ページのサイト全体の動作をカスタマイズします。](https://go.microsoft.com/fwlink/?LinkId=202906)

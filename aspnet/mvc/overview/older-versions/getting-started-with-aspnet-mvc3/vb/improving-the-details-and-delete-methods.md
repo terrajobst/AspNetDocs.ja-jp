@@ -8,15 +8,15 @@ ms.date: 01/12/2011
 ms.assetid: c5c14ef0-c128-4dc1-8c01-7f0fdb09e411
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: edc2d5e9a6ef5785dacb839a375dfcc660dd3dc9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63930ebe35e4c37e0cc7c0882582c48348cf201a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046629"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417664"
 ---
-<a name="improving-the-details-and-delete-methods-vb"></a>Details メソッドと Delete メソッドの改善 (VB)
-====================
+# <a name="improving-the-details-and-delete-methods-vb"></a>Details メソッドと Delete メソッドの改善 (VB)
+
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
@@ -70,7 +70,7 @@ SQL Server Compact データベースにデータを格納する完全な ASP.NE
 
 アプリケーションをデプロイする場合は、最初のテスト、ローカルの IIS 7 サーバーでアプリケーションをことをお勧めします。 これを使用することができます[Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) ASP.NET アプリケーション用の IIS 設定を有効にリンクします。 次の展開のリンクを参照してください。
 
-- [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/dd394698.aspx)
+- [ASP.NET 配置のコンテンツ マップ](https://msdn.microsoft.com/library/dd394698.aspx)
 - [Enabling IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Web アプリケーション プロジェクトの配置](https://msdn.microsoft.com/library/dd394698.aspx)
 

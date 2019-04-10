@@ -8,15 +8,15 @@ ms.date: 06/12/2007
 ms.assetid: 45daf6e2-c652-49c0-a9b4-2263f4ceada8
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-an-httpmodule
 msc.type: video
-ms.openlocfilehash: 7955fdc72c0b2ee4481062d11a2d1e5134cad8c0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3b1543812fc246f4641434732ebd7c35f5d08ede
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57046359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410475"
 ---
-<a name="how-do-i-implement-an-httpmodule"></a>[How Do i:]HttpModule を実装するか。
-====================
+# <a name="how-do-i-implement-an-httpmodule"></a>[How Do i:]HttpModule を実装するか。
+
 によって[Scott golightly が説明](https://github.com/scottgolightly)
 
 このビデオの Scott golightly が説明して、BeginRequest および EndRequest イベントを使用して、要求に関するいくつかのデータを格納し、後でユーザーにそのデータを表示する単純な HttpModule を実装する方法を示しています。 Web.config ファイルにモジュールを登録する方法も示されます。

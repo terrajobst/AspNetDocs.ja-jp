@@ -8,15 +8,15 @@ ms.date: 10/17/2013
 ms.assetid: ebbc93a8-e6c4-4122-8e0d-3aa42293c747
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 1e65a11e08a5b060cf8b096b5fe5b90eb8dc5b51
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 75c8d2f4a102bef541195280a01d75271331dec4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57047559"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422513"
 ---
-<a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>SignalR 1.x で SignalR ユーザーを接続にマッピングする
-====================
+# <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>SignalR 1.x で SignalR ユーザーを接続にマッピングする
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -97,7 +97,7 @@ ms.locfileid: "57047559"
 
 ### <a name="azure-table-storage"></a>Azure テーブル ストレージ
 
-Azure テーブル ストレージの次の例では、データベースの例に似ています。 すべての Azure Table Storage サービスを開始する必要のある情報が含まれません。 詳しくは、[.NET からテーブル ストレージを使用する方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)を参照してください。
+Azure テーブル ストレージの次の例では、データベースの例に似ています。 すべての Azure Table Storage サービスを開始する必要のある情報が含まれません。 詳しくは、次を参照してください。 [.NET からテーブル ストレージを使用する方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)します。
 
 次の例では、接続情報を格納するためのテーブル エンティティを示します。 ユーザーの名前で、データをパーティション分割し、ユーザーでは、いつでも複数の接続ができるように、接続 id を使用して各エンティティを識別します。
 

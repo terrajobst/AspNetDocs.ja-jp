@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: ルーティング規則では、ASP.NET Web API 2 Odata |Microsoft Docs
+title: ルーティング規則では、ASP.NET Web API 2 Odata - ASP.NET 4.x
 author: MikeWasson
-description: この記事では、Web API は OData エンドポイントを使用しているルーティング表記規則について説明します。
+description: OData エンドポイントの ASP.NET 4.x でその Web API 2 のルーティング規約をについて説明します。
 ms.author: riande
 ms.date: 07/31/2013
+ms.custom: seoapril2019
 ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: 0199ccde100c8c3ab70db912b8ab984e0617f9dd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8916f8b7a024636be1be055457081487f46a7936
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027119"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421629"
 ---
-<a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ルーティング規則では、ASP.NET Web API 2 Odata
-====================
+# <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ルーティング規則では、ASP.NET Web API 2 Odata
+
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-> この記事では、Web API は OData エンドポイントを使用しているルーティング表記規則について説明します。
+> この記事には、OData エンドポイントの ASP.NET 4.x でその Web API 2 のルーティング規則がについて説明します。
 
 
 Web API OData の要求を取得、コント ローラー名とアクション名を要求がマップされます。 マッピングは、HTTP メソッドと URI に基づきます。 たとえば、`GET /odata/Products(1)`マップ`ProductsController.GetProduct`します。
@@ -66,7 +67,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | GET /entityset(key) | /Products(1) | GetEntityType または Get | GetProduct |
 | GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType または Get | GetBook |
 
-詳細については、[読み取り専用 OData エンドポイントを作成](odata-v3/creating-an-odata-endpoint.md)を参照してください。
+詳細については、次を参照してください。[読み取り専用 OData エンドポイントを作成](odata-v3/creating-an-odata-endpoint.md)です。
 
 **作成、更新、およびエンティティの削除**
 
@@ -87,7 +88,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | GET /entityset(key)/navigation | /Products(1)/Supplier | GetNavigationFromEntityType または GetNavigation | GetSupplierFromProduct |
 | キャスト/ナビゲーション/entityset (キー) を取得します。 | /Products(1)/Models.Book/Author | GetNavigationFromEntityType または GetNavigation | GetAuthorFromBook |
 
-詳細については、[操作エンティティ関係](odata-v3/working-with-entity-relations.md)を参照してください。
+詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
 
 **作成およびリンクを削除します。**
 
@@ -98,9 +99,9 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | DELETE /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | DeleteLink |
 | DELETE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$links/Suppliers(1) | DeleteLink |
 
-詳細については、[操作エンティティ関係](odata-v3/working-with-entity-relations.md)を参照してください。
+詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
 
-**Properties**
+**プロパティ**
 
 *Web API 2 が必要です。*
 
@@ -116,7 +117,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 | POST /entityset(key)/action | /Products(1)/Rate | ActionNameOnEntityType またはアクション名 | RateOnProduct |
 | 事後/entityset (キー) キャスト/アクション | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType またはアクション名 | CheckOutOnBook |
 
-詳細については、[OData アクション](odata-v3/odata-actions.md)を参照してください。
+詳細については、次を参照してください。 [OData アクション](odata-v3/odata-actions.md)します。
 
 **メソッド シグネチャ**
 

@@ -8,18 +8,18 @@ ms.date: 05/04/2012
 ms.assetid: b28d3e2d-0bb4-4e29-a780-af810b964722
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 9218a22ff221dc7067662c58ccd3e758fca493b7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1e727e8124e1f045f8ef25ab7a3d4efbafd4290a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57062519"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411216"
 ---
-<a name="creating-a-team-project-in-tfs"></a>TFS でチーム プロジェクトを作成する
-====================
+# <a name="creating-a-team-project-in-tfs"></a>TFS でチーム プロジェクトを作成する
+
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、Team Foundation Server (TFS) 2010 で、新しいチーム プロジェクトを作成する方法について説明します。
 
@@ -106,13 +106,14 @@ ms.locfileid: "57062519"
 
    > [!NOTE]
    > 表示される、 <strong>HTTP 404 Not Found</strong>エラー二重 HTTP エンコード バグが発生しました。 この場合、この URL に置き換えます。   
-   > `[site_collection_URL]/_layouts/permsetup.aspx` 例えば：  
+   > `[site_collection_URL]/_layouts/permsetup.aspx`
+   > 例:  
    > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
 8. **このサイトのグループの設定**ページで、チーム プロジェクトを作成するユーザーを追加、**所有者**グループ化、およびクリックして **[ok]** します。
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
 
-チーム プロジェクト コレクション内の新しいチーム プロジェクトを作成するための詳細については、[チーム プロジェクト コレクションの管理者アクセス許可の設定](https://msdn.microsoft.com/library/dd547204.aspx)を参照してください。
+チーム プロジェクト コレクション内の新しいチーム プロジェクトを作成するための詳細については、次を参照してください。[チーム プロジェクト コレクションの管理者アクセス許可の設定](https://msdn.microsoft.com/library/dd547204.aspx)します。
 
 ## <a name="create-a-new-team-project-and-add-users"></a>新しいチーム プロジェクトを作成し、ユーザーの追加
 
@@ -158,9 +159,9 @@ ms.locfileid: "57062519"
 11. **プロセス テンプレートを選択**をクリックして、開発プロセスの管理を使用するプロセス テンプレートの選択 ページで、**次**。
 
     > [!NOTE]
-    > Tfs プロセス テンプレートの詳細については、[プロセス テンプレートとツール](https://msdn.microsoft.com/vstudio/aa718795)を参照してください。
+    > Tfs プロセス テンプレートの詳細については、次を参照してください。[プロセス テンプレートとツール](https://msdn.microsoft.com/vstudio/aa718795)します。
 12. **チーム サイトの設定** ページで変更せずに、既定の設定のままにしてをクリックし、**次**します。
-13. この設定を作成、または TFS のチーム プロジェクトに関連付けられている SharePoint チーム サイトを識別します。 開発チームは、ドキュメントの管理、スレッドのディスカッションに参加、wiki ページを作成、およびコードに関連していないその他の各種のタスクを実行する、このサイトを使用できます。 詳細については、[SharePoint 製品との間の相互作用と Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx)を参照してください。
+13. この設定を作成、または TFS のチーム プロジェクトに関連付けられている SharePoint チーム サイトを識別します。 開発チームは、ドキュメントの管理、スレッドのディスカッションに参加、wiki ページを作成、およびコードに関連していないその他の各種のタスクを実行する、このサイトを使用できます。 詳細については、次を参照してください。 [SharePoint 製品との間の相互作用と Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx)します。
 14. **ソース管理設定の指定** ページで変更せずに、既定の設定のままにしてをクリックし、**次**。
 15. この設定は、識別またはコンテンツのルート フォルダーとして動作する TFS フォルダー階層内の場所を作成します。
 16. **チーム プロジェクト設定の確認**] ページで [**完了**します。
@@ -196,7 +197,7 @@ ms.locfileid: "57062519"
 
 ## <a name="further-reading"></a>関連項目
 
-TFS でチーム プロジェクトを作成する方法より広範なガイダンスについては、[チーム プロジェクト作成](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx)を参照してください。 チーム プロジェクト コレクション内の新しいチーム プロジェクトを作成するための詳細については、[チーム プロジェクト コレクションの管理者アクセス許可の設定](https://msdn.microsoft.com/library/dd547204.aspx)を参照してください。 チーム プロジェクトにユーザーを追加する方法の詳細については、[チーム プロジェクトへのユーザーの追加](https://msdn.microsoft.com/library/bb558971.aspx)を参照してください。
+TFS でチーム プロジェクトを作成する方法より広範なガイダンスについては、次を参照してください。[チーム プロジェクト作成](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx)です。 チーム プロジェクト コレクション内の新しいチーム プロジェクトを作成するための詳細については、次を参照してください。[チーム プロジェクト コレクションの管理者アクセス許可の設定](https://msdn.microsoft.com/library/dd547204.aspx)します。 チーム プロジェクトにユーザーを追加する方法の詳細については、次を参照してください。[チーム プロジェクトへのユーザーの追加](https://msdn.microsoft.com/library/bb558971.aspx)します。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-team-foundation-server-for-web-deployment.md)

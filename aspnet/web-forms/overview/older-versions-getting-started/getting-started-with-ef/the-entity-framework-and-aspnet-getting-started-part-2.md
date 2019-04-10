@@ -8,15 +8,15 @@ ms.date: 12/03/2010
 ms.assetid: fb63a326-a4ae-4b0c-a4f5-412327197216
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a0b4acca93deee4fb514fa1bc3e2bd13490cf10e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f436044b0887d6b092ab18a6128019aa87747566
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041909"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422305"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部
-====================
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、次を参照してください[シリーズの最初のチュートリアル。](the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -32,7 +32,7 @@ ms.locfileid: "57041909"
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-このアプリケーションではありませんに追加する入力の検証、データベースを更新するページ、実稼働アプリケーションで処理するために必要な堅牢いくつかのエラー処理ができないことに注意してください。 Entity Framework に重点を置いて、このチュートリアルを保持して長くなりすぎます。 これらの機能をアプリケーションに追加する方法の詳細については、[ASP.NET Web Pages でのユーザー入力の検証](https://msdn.microsoft.com/library/7kh55542.aspx)と[ASP.NET ページとアプリケーションのエラー処理](https://msdn.microsoft.com/library/w16865z6.aspx)を参照してください。
+このアプリケーションではありませんに追加する入力の検証、データベースを更新するページ、実稼働アプリケーションで処理するために必要な堅牢いくつかのエラー処理ができないことに注意してください。 Entity Framework に重点を置いて、このチュートリアルを保持して長くなりすぎます。 これらの機能をアプリケーションに追加する方法の詳細については、次を参照してください。 [ASP.NET Web Pages でのユーザー入力の検証](https://msdn.microsoft.com/library/7kh55542.aspx)と[ASP.NET ページとアプリケーションのエラー処理](https://msdn.microsoft.com/library/w16865z6.aspx)します。
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>追加と EntityDataSource コントロールの構成
 
@@ -46,7 +46,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 指定*Site.Master*のマスター ページとして。 これらのチュートリアルを作成するページのすべては、このマスター ページで使用されます。
 
-[![image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
+[![Image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
 
 **ソース**ビューで、追加、`h2`に見出し、`Content`という名前のコントロール`Content2`次の例のように。
 
@@ -66,7 +66,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 メモ:次のダイアログ ボックスをこの時点で発生した場合は、続行する前にプロジェクトをビルドする必要があります。
 
-[![image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
+[![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
 **構成データの選択**手順で、**人**の値として**EntitySetName**します。 **選択**、ことを確認、 ** を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、クリックして**完了**します。
 
@@ -146,7 +146,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 両方の表示し、編集モードと、"short 日付"形式で表示される日付の書式指定文字列「{0, d}」。 (コンピューターはこのチュートリアルで示すように画面の画像から異なる方法では、この形式を表示する構成があります)。
 
-これらのテンプレート フィールドごとに、デザイナーは使用に注意してください、`Bind`が既定では、式を変更する、`Eval`内の式、`ItemTemplate`要素。 `Bind`データで使用できる式`GridView`コード内のデータにアクセスする必要がある場合は、プロパティを制御します。 このページを使用できるようにコードでは、このデータにアクセスする必要はありません`Eval`、これが効率的です。 詳細については、[データ コントロールからデータを取得](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx)を参照してください。
+これらのテンプレート フィールドごとに、デザイナーは使用に注意してください、`Bind`が既定では、式を変更する、`Eval`内の式、`ItemTemplate`要素。 `Bind`データで使用できる式`GridView`コード内のデータにアクセスする必要がある場合は、プロパティを制御します。 このページを使用できるようにコードでは、このデータにアクセスする必要はありません`Eval`、これが効率的です。 詳細については、次を参照してください。[データ コントロールからデータを取得](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx)します。
 
 ## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>パフォーマンスを向上させるために改訂 EntityDataSource コントロール マークアップ
 
@@ -154,13 +154,13 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 - パフォーマンスが向上します。 ときに、`EntityDataSource`コントロールを使用してデータ モデルを初期化します、`ConnectionString`と`DefaultContainerName`属性、追加の作業要求のたびにメタデータの読み込みを実行します。 これは指定した場合は必要ありません、`ContextTypeName`属性。
 - 遅延読み込みが生成されたオブジェクト コンテキスト クラスに既定でオン (など`SchoolEntities`このチュートリアルでは) では、Entity Framework 4.0。 これはナビゲーション プロパティが読み込まれる関連データを自動的に必要なときすぐを意味します。 遅延読み込みは、このチュートリアルの後半で詳しく説明します。
-- オブジェクト コンテキスト クラスに適用したカスタマイズ (ここで、`SchoolEntities`クラス) を使用するコントロールで使用できる、`EntityDataSource`コントロール。 このチュートリアル シリーズでは説明しません高度なトピックは、オブジェクト コンテキスト クラスをカスタマイズします。 詳細については、[Entity Framework 生成型の拡張](https://msdn.microsoft.com/library/dd456844.aspx)を参照してください。
+- オブジェクト コンテキスト クラスに適用したカスタマイズ (ここで、`SchoolEntities`クラス) を使用するコントロールで使用できる、`EntityDataSource`コントロール。 このチュートリアル シリーズでは説明しません高度なトピックは、オブジェクト コンテキスト クラスをカスタマイズします。 詳細については、次を参照してください。 [Entity Framework 生成型の拡張](https://msdn.microsoft.com/library/dd456844.aspx)します。
 
 マークアップは次の例 (プロパティの順序が異なる可能性があります) のようになります。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening`属性が、外部キー列は、エンティティのプロパティとして公開されていなかったため、Entity Framework の以前のバージョンで必要な機能を参照します。 現在のバージョンを使用して*外部キー アソシエーション*、つまり、外部キー プロパティは、多対多のアソシエーションの公開します。 外部キー プロパティとなしに、エンティティがある[複合型](https://msdn.microsoft.com/library/bb738472.aspx)、この属性に設定しておくことができます`False`します。 既定値であるために、マークアップから属性を削除しない`True`します。 詳細については、[フラット化オブジェクト (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx)を参照してください。
+`EnableFlattening`属性が、外部キー列は、エンティティのプロパティとして公開されていなかったため、Entity Framework の以前のバージョンで必要な機能を参照します。 現在のバージョンを使用して*外部キー アソシエーション*、つまり、外部キー プロパティは、多対多のアソシエーションの公開します。 外部キー プロパティとなしに、エンティティがある[複合型](https://msdn.microsoft.com/library/bb738472.aspx)、この属性に設定しておくことができます`False`します。 既定値であるために、マークアップから属性を削除しない`True`します。 詳細については、次を参照してください。[フラット化オブジェクト (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx)します。
 
 ページを実行し、受講者と従業員 (しますをフィルター処理するだけの学生で、次のチュートリアル) の一覧を参照してください。 名と姓がまとめて表示されます。
 

@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 85e4369ee458043eec59fb27e317d18466f61f32
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 1023d9bef311e58fb5fb0bb24cde80e8320e6bac
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422533"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419055"
 ---
-<a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ:One ASP.NET:ASP.NET Web フォーム、MVC、Web API の統合
-====================
+# <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ:One ASP.NET:ASP.NET Web フォーム、MVC、Web API の統合
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
 [Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
@@ -48,7 +48,7 @@ ms.locfileid: "58422533"
 このハンズオン ラボを完了する、次が必要。
 
 - [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/)以上
-- [Visual Studio 2013 Update 1](https://go.microsoft.com/fwlink/?LinkId=301714)
+- [Visual Studio 2013 更新プログラム 1](https://go.microsoft.com/fwlink/?LinkId=301714)
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
@@ -72,7 +72,7 @@ ms.locfileid: "58422533"
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>演習
@@ -103,7 +103,7 @@ ms.locfileid: "58422533"
 
     ![新規プロジェクトの作成](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image1.png)
 
-    *新しいプロジェクトを作成します。*
+    *新規プロジェクトの作成*
 2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下、 **(Visual C#) |Web**タブをクリックし、確認 **.NET Framework 4.5**が選択されています。 プロジェクトの名前*MyHybridSite*、選択、**場所** をクリック**OK**します。
 
     ![新しい ASP.NET Web アプリケーション プロジェクト](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image2.png)
@@ -427,7 +427,7 @@ Web API を作成するときに、他の開発者は、API を呼び出す方�
 
     *詳細情報 ページ*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
