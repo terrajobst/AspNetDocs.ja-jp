@@ -8,51 +8,51 @@ ms.date: 06/02/2008
 ms.assetid: 2bfbc5cc-f942-44b7-a62d-a29520f1da9a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 253377ef6019a672680c6e819349357627ef111b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8bdee58aa04e1c8217c2a727b96aa8b239fe1aca
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57024529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395609"
 ---
-<a name="changing-an-animation-using-client-side-code-c"></a><span data-ttu-id="34a10-104">クライアント側コードを使用してアニメーションを変更する (C#)</span><span class="sxs-lookup"><span data-stu-id="34a10-104">Changing an Animation Using Client-Side Code (C#)</span></span>
-====================
-<span data-ttu-id="34a10-105">によって[Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="34a10-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+# <a name="changing-an-animation-using-client-side-code-c"></a><span data-ttu-id="f0922-104">クライアント側コードを使用してアニメーションを変更する (C#)</span><span class="sxs-lookup"><span data-stu-id="f0922-104">Changing an Animation Using Client-Side Code (C#)</span></span>
 
-<span data-ttu-id="34a10-106">[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="34a10-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.cs.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11CS.pdf)</span></span>
+<span data-ttu-id="f0922-105">によって[Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="f0922-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-> <span data-ttu-id="34a10-107">アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。</span><span class="sxs-lookup"><span data-stu-id="34a10-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="34a10-108">カスタムのクライアント側の JavaScript コードを使用してアニメーションを変更することもできます。</span><span class="sxs-lookup"><span data-stu-id="34a10-108">The animation can also be changed using custom client-side JavaScript code.</span></span>
+<span data-ttu-id="f0922-106">[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="f0922-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.cs.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11CS.pdf)</span></span>
+
+> <span data-ttu-id="f0922-107">アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。</span><span class="sxs-lookup"><span data-stu-id="f0922-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="f0922-108">カスタムのクライアント側の JavaScript コードを使用してアニメーションを変更することもできます。</span><span class="sxs-lookup"><span data-stu-id="f0922-108">The animation can also be changed using custom client-side JavaScript code.</span></span>
 
 
-## <a name="overview"></a><span data-ttu-id="34a10-109">概要</span><span class="sxs-lookup"><span data-stu-id="34a10-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="f0922-109">概要</span><span class="sxs-lookup"><span data-stu-id="f0922-109">Overview</span></span>
 
-<span data-ttu-id="34a10-110">アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。</span><span class="sxs-lookup"><span data-stu-id="34a10-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="34a10-111">カスタムのクライアント側の JavaScript コードを使用してアニメーションを変更することもできます。</span><span class="sxs-lookup"><span data-stu-id="34a10-111">The animation can also be changed using custom client-side JavaScript code.</span></span>
+<span data-ttu-id="f0922-110">アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。</span><span class="sxs-lookup"><span data-stu-id="f0922-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="f0922-111">カスタムのクライアント側の JavaScript コードを使用してアニメーションを変更することもできます。</span><span class="sxs-lookup"><span data-stu-id="f0922-111">The animation can also be changed using custom client-side JavaScript code.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="34a10-112">手順</span><span class="sxs-lookup"><span data-stu-id="34a10-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="f0922-112">手順</span><span class="sxs-lookup"><span data-stu-id="f0922-112">Steps</span></span>
 
-<span data-ttu-id="34a10-113">まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。</span><span class="sxs-lookup"><span data-stu-id="34a10-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
+<span data-ttu-id="f0922-113">まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。</span><span class="sxs-lookup"><span data-stu-id="f0922-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample1.aspx)]
 
-<span data-ttu-id="34a10-114">次のようなテキストのパネルに、アニメーションが適用されます。</span><span class="sxs-lookup"><span data-stu-id="34a10-114">The animation will be applied to a panel of text which looks like this:</span></span>
+<span data-ttu-id="f0922-114">次のようなテキストのパネルに、アニメーションが適用されます。</span><span class="sxs-lookup"><span data-stu-id="f0922-114">The animation will be applied to a panel of text which looks like this:</span></span>
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample2.aspx)]
 
-<span data-ttu-id="34a10-115">パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。</span><span class="sxs-lookup"><span data-stu-id="34a10-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
+<span data-ttu-id="f0922-115">パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。</span><span class="sxs-lookup"><span data-stu-id="f0922-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
 
 [!code-css[Main](changing-an-animation-using-client-side-code-cs/samples/sample3.css)]
 
-<span data-ttu-id="34a10-116">実際のアニメーションは、HTML ボタンによって起動されます。</span><span class="sxs-lookup"><span data-stu-id="34a10-116">The actual animation is launched by an HTML button:</span></span>
+<span data-ttu-id="f0922-116">実際のアニメーションは、HTML ボタンによって起動されます。</span><span class="sxs-lookup"><span data-stu-id="f0922-116">The actual animation is launched by an HTML button:</span></span>
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample4.aspx)]
 
-<span data-ttu-id="34a10-117">次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`:</span><span class="sxs-lookup"><span data-stu-id="34a10-117">Then, add the `AnimationExtender` to the page, providing an `ID`, the `TargetControlID` attribute and the obligatory `runat="server"`:</span></span>
+<span data-ttu-id="f0922-117">次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`:</span><span class="sxs-lookup"><span data-stu-id="f0922-117">Then, add the `AnimationExtender` to the page, providing an `ID`, the `TargetControlID` attribute and the obligatory `runat="server"`:</span></span>
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample5.aspx)]
 
-<span data-ttu-id="34a10-118">あることに注意してくださいありません`<Animations>`内のノード、`AnimationExtender`コントロール。</span><span class="sxs-lookup"><span data-stu-id="34a10-118">Note that there is no `<Animations>` node within the `AnimationExtender` control.</span></span> <span data-ttu-id="34a10-119">カスタム JavaScript コードは、コントロールで使用するアニメーションの提供に使用されます。</span><span class="sxs-lookup"><span data-stu-id="34a10-119">Custom JavaScript code is used to provide the animations to be used with the control.</span></span>
+<span data-ttu-id="f0922-118">あることに注意してくださいありません`<Animations>`内のノード、`AnimationExtender`コントロール。</span><span class="sxs-lookup"><span data-stu-id="f0922-118">Note that there is no `<Animations>` node within the `AnimationExtender` control.</span></span> <span data-ttu-id="f0922-119">カスタム JavaScript コードは、コントロールで使用するアニメーションの提供に使用されます。</span><span class="sxs-lookup"><span data-stu-id="f0922-119">Custom JavaScript code is used to provide the animations to be used with the control.</span></span>
 
-<span data-ttu-id="34a10-120">サーバー API と同様`AnimationExtender`アニメーションをエクステンダーにまだ割り当てする簡単な方法はありません。</span><span class="sxs-lookup"><span data-stu-id="34a10-120">As with the server API of `AnimationExtender`, there is no easy way to assign an animation to the extender yet.</span></span> <span data-ttu-id="34a10-121">さまざまなイベントに登録されているエクステンダーはアニメーションを読み書きするいくつかのメソッドを公開するただし (`OnClick`、`OnLoad`など)。</span><span class="sxs-lookup"><span data-stu-id="34a10-121">However the extender does expose several methods to read and write animations registered with the various events (`OnClick`, `OnLoad`, and so on).</span></span> <span data-ttu-id="34a10-122">次にいくつかの例を示します。</span><span class="sxs-lookup"><span data-stu-id="34a10-122">Here are some examples:</span></span>
+<span data-ttu-id="f0922-120">サーバー API と同様`AnimationExtender`アニメーションをエクステンダーにまだ割り当てする簡単な方法はありません。</span><span class="sxs-lookup"><span data-stu-id="f0922-120">As with the server API of `AnimationExtender`, there is no easy way to assign an animation to the extender yet.</span></span> <span data-ttu-id="f0922-121">さまざまなイベントに登録されているエクステンダーはアニメーションを読み書きするいくつかのメソッドを公開するただし (`OnClick`、`OnLoad`など)。</span><span class="sxs-lookup"><span data-stu-id="f0922-121">However the extender does expose several methods to read and write animations registered with the various events (`OnClick`, `OnLoad`, and so on).</span></span> <span data-ttu-id="f0922-122">次にいくつかの例を示します。</span><span class="sxs-lookup"><span data-stu-id="f0922-122">Here are some examples:</span></span>
 
 - `get_OnClick()`
 - `set_OnClick()`
@@ -60,22 +60,22 @@ ms.locfileid: "57024529"
 - `set_OnLoad()`
 - `...`
 
-<span data-ttu-id="34a10-123">戻り値の形式、`get_*()`関数と引数の形式、`set_*()`関数は、JSON 文字列は、XML マークアップのオブジェクト表現を提供します。</span><span class="sxs-lookup"><span data-stu-id="34a10-123">The format of the return value of the `get_*()` functions and the format of the argument for the `set_*()` functions is a JSON string, providing an object representation of what the XML markup would be.</span></span> <span data-ttu-id="34a10-124">現時点で、オブジェクトを渡す方法はありませんが、特定のアニメーションからオブジェクトを読み取ることが (`get_OnXXXBehavior()`メソッド)。</span><span class="sxs-lookup"><span data-stu-id="34a10-124">Currently, there is no way to pass an object in, but it is possible to read an object from a given animation (`get_OnXXXBehavior()` methods).</span></span>
+<span data-ttu-id="f0922-123">戻り値の形式、`get_*()`関数と引数の形式、`set_*()`関数は、JSON 文字列は、XML マークアップのオブジェクト表現を提供します。</span><span class="sxs-lookup"><span data-stu-id="f0922-123">The format of the return value of the `get_*()` functions and the format of the argument for the `set_*()` functions is a JSON string, providing an object representation of what the XML markup would be.</span></span> <span data-ttu-id="f0922-124">現時点で、オブジェクトを渡す方法はありませんが、特定のアニメーションからオブジェクトを読み取ることが (`get_OnXXXBehavior()`メソッド)。</span><span class="sxs-lookup"><span data-stu-id="f0922-124">Currently, there is no way to pass an object in, but it is possible to read an object from a given animation (`get_OnXXXBehavior()` methods).</span></span>
 
-<span data-ttu-id="34a10-125">JSON 文字列を次に示します (引用符を区切り記号と適切に書式設定)、ボタンによってトリガーされるアニメーションを表すが、パネルのサイズを変更して同時にフェードアウトしてアニメーション化します。</span><span class="sxs-lookup"><span data-stu-id="34a10-125">Here is a JSON string (without the delimiting quotes and formatted nicely) representing an animation triggered by the button, but animating the panel by resizing it and fading it out at the same time:</span></span>
+<span data-ttu-id="f0922-125">JSON 文字列を次に示します (引用符を区切り記号と適切に書式設定)、ボタンによってトリガーされるアニメーションを表すが、パネルのサイズを変更して同時にフェードアウトしてアニメーション化します。</span><span class="sxs-lookup"><span data-stu-id="f0922-125">Here is a JSON string (without the delimiting quotes and formatted nicely) representing an animation triggered by the button, but animating the panel by resizing it and fading it out at the same time:</span></span>
 
 [!code-json[Main](changing-an-animation-using-client-side-code-cs/samples/sample6.json)]
 
-<span data-ttu-id="34a10-126">次の JavaScript コードでは、この JSON descripting に割り当てられます、`OnClick`現在エクステンダーのアニメーションが実行されるとします。</span><span class="sxs-lookup"><span data-stu-id="34a10-126">The following JavaScript code assigns this JSON descripting to the `OnClick` animation of the current extender and runs it:</span></span>
+<span data-ttu-id="f0922-126">次の JavaScript コードでは、この JSON descripting に割り当てられます、`OnClick`現在エクステンダーのアニメーションが実行されるとします。</span><span class="sxs-lookup"><span data-stu-id="f0922-126">The following JavaScript code assigns this JSON descripting to the `OnClick` animation of the current extender and runs it:</span></span>
 
 [!code-html[Main](changing-an-animation-using-client-side-code-cs/samples/sample7.html)]
 
 
-<span data-ttu-id="34a10-127">[![アニメーションのマウス クリックせず (およびほとんどのマークアップ)、すぐに実行します。](changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="34a10-127">[![The animation runs immediately, without a mouse click (and with very little markup)](changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)</span></span>
+[![T<span data-ttu-id="f0922-127">アニメーションは、マウスのクリックしてせず (およびほとんどのマークアップ)、すぐに実行]</span><span class="sxs-lookup"><span data-stu-id="f0922-127">he animation runs immediately, without a mouse click (and with very little markup)]</span></span>(changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)
 
-<span data-ttu-id="34a10-128">アニメーションのマウス クリックしてせず (およびほとんどのマークアップ)、すぐに実行 ([フルサイズの画像を表示する をクリックします](changing-an-animation-using-client-side-code-cs/_static/image3.png))。</span><span class="sxs-lookup"><span data-stu-id="34a10-128">The animation runs immediately, without a mouse click (and with very little markup) ([Click to view full-size image](changing-an-animation-using-client-side-code-cs/_static/image3.png))</span></span>
+<span data-ttu-id="f0922-128">アニメーションのマウス クリックしてせず (およびほとんどのマークアップ)、すぐに実行 ([フルサイズの画像を表示する をクリックします](changing-an-animation-using-client-side-code-cs/_static/image3.png))。</span><span class="sxs-lookup"><span data-stu-id="f0922-128">The animation runs immediately, without a mouse click (and with very little markup) ([Click to view full-size image](changing-an-animation-using-client-side-code-cs/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="34a10-129">[前へ](executing-animations-using-client-side-code-cs.md)
-> [次へ](animating-an-updatepanel-control-cs.md)</span><span class="sxs-lookup"><span data-stu-id="34a10-129">[Previous](executing-animations-using-client-side-code-cs.md)
+> <span data-ttu-id="f0922-129">[前へ](executing-animations-using-client-side-code-cs.md)
+> [次へ](animating-an-updatepanel-control-cs.md)</span><span class="sxs-lookup"><span data-stu-id="f0922-129">[Previous](executing-animations-using-client-side-code-cs.md)
 [Next](animating-an-updatepanel-control-cs.md)</span></span>

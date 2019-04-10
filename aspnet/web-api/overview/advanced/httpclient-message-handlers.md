@@ -1,63 +1,64 @@
 ---
 uid: web-api/overview/advanced/httpclient-message-handlers
-title: ASP.NET Web API の HttpClient メッセージ ハンドラー |Microsoft Docs
+title: ASP.NET Web API - ASP.NET の HttpClient メッセージ ハンドラー 4.x
 author: MikeWasson
-description: ''
+description: ASP.NET での ASP.NET Web API のカスタム メッセージ ハンドラーを作成 4.x
 ms.author: riande
 ms.date: 10/01/2012
+ms.custom: seoapril2019
 ms.assetid: 5a4b6c80-b2e9-4710-8969-d5076f7f82b8
 msc.legacyurl: /web-api/overview/advanced/httpclient-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: 764244d1299d8cfcb59c3f15d63b42ebff4f6ac0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bd52396064cd7007ee17705ba86b02aaf27cb4f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57029099"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401726"
 ---
-<a name="httpclient-message-handlers-in-aspnet-web-api"></a><span data-ttu-id="b584b-102">ASP.NET Web API の HttpClient メッセージ ハンドラー</span><span class="sxs-lookup"><span data-stu-id="b584b-102">HttpClient Message Handlers in ASP.NET Web API</span></span>
-====================
-<span data-ttu-id="b584b-103">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="b584b-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+# <a name="httpclient-message-handlers-in-aspnet-web-api"></a><span data-ttu-id="36795-103">ASP.NET Web API の HttpClient メッセージ ハンドラー</span><span class="sxs-lookup"><span data-stu-id="36795-103">HttpClient Message Handlers in ASP.NET Web API</span></span>
 
-<span data-ttu-id="b584b-104">A*メッセージ ハンドラー*は HTTP 要求を受信し、HTTP 応答を返すクラスです。</span><span class="sxs-lookup"><span data-stu-id="b584b-104">A *message handler* is a class that receives an HTTP request and returns an HTTP response.</span></span>
+<span data-ttu-id="36795-104">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="36795-104">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-<span data-ttu-id="b584b-105">通常、一連のメッセージ ハンドラーが連結されます。</span><span class="sxs-lookup"><span data-stu-id="b584b-105">Typically, a series of message handlers are chained together.</span></span> <span data-ttu-id="b584b-106">最初のハンドラー HTTP 要求を受信するには、いくつかの処理およびの次のハンドラーへの要求を提供します。</span><span class="sxs-lookup"><span data-stu-id="b584b-106">The first handler receives an HTTP request, does some processing, and gives the request to the next handler.</span></span> <span data-ttu-id="b584b-107">いくつかの時点では、応答が作成され、チェーンの上位に戻ります。</span><span class="sxs-lookup"><span data-stu-id="b584b-107">At some point, the response is created and goes back up the chain.</span></span> <span data-ttu-id="b584b-108">このパターンと呼ばれます、*委任*ハンドラー。</span><span class="sxs-lookup"><span data-stu-id="b584b-108">This pattern is called a *delegating* handler.</span></span>
+<span data-ttu-id="36795-105">A*メッセージ ハンドラー*は HTTP 要求を受信し、HTTP 応答を返すクラスです。</span><span class="sxs-lookup"><span data-stu-id="36795-105">A *message handler* is a class that receives an HTTP request and returns an HTTP response.</span></span>
+
+<span data-ttu-id="36795-106">通常、一連のメッセージ ハンドラーが連結されます。</span><span class="sxs-lookup"><span data-stu-id="36795-106">Typically, a series of message handlers are chained together.</span></span> <span data-ttu-id="36795-107">最初のハンドラー HTTP 要求を受信するには、いくつかの処理およびの次のハンドラーへの要求を提供します。</span><span class="sxs-lookup"><span data-stu-id="36795-107">The first handler receives an HTTP request, does some processing, and gives the request to the next handler.</span></span> <span data-ttu-id="36795-108">いくつかの時点では、応答が作成され、チェーンの上位に戻ります。</span><span class="sxs-lookup"><span data-stu-id="36795-108">At some point, the response is created and goes back up the chain.</span></span> <span data-ttu-id="36795-109">このパターンと呼ばれます、*委任*ハンドラー。</span><span class="sxs-lookup"><span data-stu-id="36795-109">This pattern is called a *delegating* handler.</span></span>
 
 ![](httpclient-message-handlers/_static/image1.png)
 
-<span data-ttu-id="b584b-109">クライアント側で、 **HttpClient**クラスはメッセージ ハンドラーを使用して要求を処理します。</span><span class="sxs-lookup"><span data-stu-id="b584b-109">On the client side, the **HttpClient** class uses a message handler to process requests.</span></span> <span data-ttu-id="b584b-110">既定のハンドラーは**HttpClientHandler**、ネットワーク経由で要求を送信して、サーバーからの応答を取得します。</span><span class="sxs-lookup"><span data-stu-id="b584b-110">The default handler is **HttpClientHandler**, which sends the request over the network and gets the response from the server.</span></span> <span data-ttu-id="b584b-111">クライアント パイプラインにカスタム メッセージ ハンドラーを挿入することができます。</span><span class="sxs-lookup"><span data-stu-id="b584b-111">You can insert custom message handlers into the client pipeline:</span></span>
+<span data-ttu-id="36795-110">クライアント側で、 **HttpClient**クラスはメッセージ ハンドラーを使用して要求を処理します。</span><span class="sxs-lookup"><span data-stu-id="36795-110">On the client side, the **HttpClient** class uses a message handler to process requests.</span></span> <span data-ttu-id="36795-111">既定のハンドラーは**HttpClientHandler**、ネットワーク経由で要求を送信して、サーバーからの応答を取得します。</span><span class="sxs-lookup"><span data-stu-id="36795-111">The default handler is **HttpClientHandler**, which sends the request over the network and gets the response from the server.</span></span> <span data-ttu-id="36795-112">クライアント パイプラインにカスタム メッセージ ハンドラーを挿入することができます。</span><span class="sxs-lookup"><span data-stu-id="36795-112">You can insert custom message handlers into the client pipeline:</span></span>
 
 ![](httpclient-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> <span data-ttu-id="b584b-112">また、ASP.NET Web API は、サーバー側でメッセージのハンドラーを使用します。</span><span class="sxs-lookup"><span data-stu-id="b584b-112">ASP.NET Web API also uses message handlers on the server side.</span></span> <span data-ttu-id="b584b-113">詳細については、[HTTP メッセージ ハンドラー](http-message-handlers.md)を参照してください。</span><span class="sxs-lookup"><span data-stu-id="b584b-113">For more information, see [HTTP Message Handlers](http-message-handlers.md).</span></span>
+> <span data-ttu-id="36795-113">また、ASP.NET Web API は、サーバー側でメッセージのハンドラーを使用します。</span><span class="sxs-lookup"><span data-stu-id="36795-113">ASP.NET Web API also uses message handlers on the server side.</span></span> <span data-ttu-id="36795-114">詳細については、次を参照してください。 [HTTP メッセージ ハンドラー](http-message-handlers.md)します。</span><span class="sxs-lookup"><span data-stu-id="36795-114">For more information, see [HTTP Message Handlers](http-message-handlers.md).</span></span>
 
 
-## <a name="custom-message-handlers"></a><span data-ttu-id="b584b-114">カスタム メッセージ ハンドラー</span><span class="sxs-lookup"><span data-stu-id="b584b-114">Custom Message Handlers</span></span>
+## <a name="custom-message-handlers"></a><span data-ttu-id="36795-115">カスタム メッセージ ハンドラー</span><span class="sxs-lookup"><span data-stu-id="36795-115">Custom Message Handlers</span></span>
 
-<span data-ttu-id="b584b-115">派生するカスタム メッセージ ハンドラーを書き込む**System.Net.Http.DelegatingHandler**をオーバーライドし、 **SendAsync**メソッド。</span><span class="sxs-lookup"><span data-stu-id="b584b-115">To write a custom message handler, derive from **System.Net.Http.DelegatingHandler** and override the **SendAsync** method.</span></span> <span data-ttu-id="b584b-116">メソッド シグネチャを次に示します。</span><span class="sxs-lookup"><span data-stu-id="b584b-116">Here is the method signature:</span></span>
+<span data-ttu-id="36795-116">派生するカスタム メッセージ ハンドラーを書き込む**System.Net.Http.DelegatingHandler**をオーバーライドし、 **SendAsync**メソッド。</span><span class="sxs-lookup"><span data-stu-id="36795-116">To write a custom message handler, derive from **System.Net.Http.DelegatingHandler** and override the **SendAsync** method.</span></span> <span data-ttu-id="36795-117">メソッド シグネチャを次に示します。</span><span class="sxs-lookup"><span data-stu-id="36795-117">Here is the method signature:</span></span>
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample1.cs)]
 
-<span data-ttu-id="b584b-117">メソッドには、 **HttpRequestMessage**として入力し、非同期的に返します、 **HttpResponseMessage**します。</span><span class="sxs-lookup"><span data-stu-id="b584b-117">The method takes an **HttpRequestMessage** as input and asynchronously returns an **HttpResponseMessage**.</span></span> <span data-ttu-id="b584b-118">一般的な実装は、次を行います。</span><span class="sxs-lookup"><span data-stu-id="b584b-118">A typical implementation does the following:</span></span>
+<span data-ttu-id="36795-118">メソッドには、 **HttpRequestMessage**として入力し、非同期的に返します、 **HttpResponseMessage**します。</span><span class="sxs-lookup"><span data-stu-id="36795-118">The method takes an **HttpRequestMessage** as input and asynchronously returns an **HttpResponseMessage**.</span></span> <span data-ttu-id="36795-119">一般的な実装は、次を行います。</span><span class="sxs-lookup"><span data-stu-id="36795-119">A typical implementation does the following:</span></span>
 
-1. <span data-ttu-id="b584b-119">要求メッセージを処理します。</span><span class="sxs-lookup"><span data-stu-id="b584b-119">Process the request message.</span></span>
-2. <span data-ttu-id="b584b-120">呼び出す`base.SendAsync`内部ハンドラーに要求を送信します。</span><span class="sxs-lookup"><span data-stu-id="b584b-120">Call `base.SendAsync` to send the request to the inner handler.</span></span>
-3. <span data-ttu-id="b584b-121">内部ハンドラーは、応答メッセージを返します。</span><span class="sxs-lookup"><span data-stu-id="b584b-121">The inner handler returns a response message.</span></span> <span data-ttu-id="b584b-122">(この手順は、非同期です)。</span><span class="sxs-lookup"><span data-stu-id="b584b-122">(This step is asynchronous.)</span></span>
-4. <span data-ttu-id="b584b-123">応答を処理し、呼び出し元に戻すこと。</span><span class="sxs-lookup"><span data-stu-id="b584b-123">Process the response and return it to the caller.</span></span>
+1. <span data-ttu-id="36795-120">要求メッセージを処理します。</span><span class="sxs-lookup"><span data-stu-id="36795-120">Process the request message.</span></span>
+2. <span data-ttu-id="36795-121">呼び出す`base.SendAsync`内部ハンドラーに要求を送信します。</span><span class="sxs-lookup"><span data-stu-id="36795-121">Call `base.SendAsync` to send the request to the inner handler.</span></span>
+3. <span data-ttu-id="36795-122">内部ハンドラーは、応答メッセージを返します。</span><span class="sxs-lookup"><span data-stu-id="36795-122">The inner handler returns a response message.</span></span> <span data-ttu-id="36795-123">(この手順は、非同期です)。</span><span class="sxs-lookup"><span data-stu-id="36795-123">(This step is asynchronous.)</span></span>
+4. <span data-ttu-id="36795-124">応答を処理し、呼び出し元に戻すこと。</span><span class="sxs-lookup"><span data-stu-id="36795-124">Process the response and return it to the caller.</span></span>
 
-<span data-ttu-id="b584b-124">次の例では、送信要求にカスタム ヘッダーを追加するメッセージ ハンドラーを示します。</span><span class="sxs-lookup"><span data-stu-id="b584b-124">The following example shows a message handler that adds a custom header to the outgoing request:</span></span>
+<span data-ttu-id="36795-125">次の例では、送信要求にカスタム ヘッダーを追加するメッセージ ハンドラーを示します。</span><span class="sxs-lookup"><span data-stu-id="36795-125">The following example shows a message handler that adds a custom header to the outgoing request:</span></span>
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample2.cs)]
 
-<span data-ttu-id="b584b-125">呼び出し`base.SendAsync`は非同期です。</span><span class="sxs-lookup"><span data-stu-id="b584b-125">The call to `base.SendAsync` is asynchronous.</span></span> <span data-ttu-id="b584b-126">存在する場合、ハンドラーはこの呼び出しの後の作業を使用して、 **await**キーワードをメソッドの完了後に実行を再開します。</span><span class="sxs-lookup"><span data-stu-id="b584b-126">If the handler does any work after this call, use the **await** keyword to resume execution after the method completes.</span></span> <span data-ttu-id="b584b-127">次の例では、コードのエラー ログに記録するハンドラーを示します。</span><span class="sxs-lookup"><span data-stu-id="b584b-127">The following example shows a handler that logs error codes.</span></span> <span data-ttu-id="b584b-128">ログ自体が非常に興味深いではありませんが、ハンドラー内で応答を取得する方法の例に示します。</span><span class="sxs-lookup"><span data-stu-id="b584b-128">The logging itself is not very interesting, but the example shows how to get at the response inside the handler.</span></span>
+<span data-ttu-id="36795-126">呼び出し`base.SendAsync`は非同期です。</span><span class="sxs-lookup"><span data-stu-id="36795-126">The call to `base.SendAsync` is asynchronous.</span></span> <span data-ttu-id="36795-127">存在する場合、ハンドラーはこの呼び出しの後の作業を使用して、 **await**キーワードをメソッドの完了後に実行を再開します。</span><span class="sxs-lookup"><span data-stu-id="36795-127">If the handler does any work after this call, use the **await** keyword to resume execution after the method completes.</span></span> <span data-ttu-id="36795-128">次の例では、コードのエラー ログに記録するハンドラーを示します。</span><span class="sxs-lookup"><span data-stu-id="36795-128">The following example shows a handler that logs error codes.</span></span> <span data-ttu-id="36795-129">ログ自体が非常に興味深いではありませんが、ハンドラー内で応答を取得する方法の例に示します。</span><span class="sxs-lookup"><span data-stu-id="36795-129">The logging itself is not very interesting, but the example shows how to get at the response inside the handler.</span></span>
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample3.cs?highlight=10,13)]
 
-## <a name="adding-message-handlers-to-the-client-pipeline"></a><span data-ttu-id="b584b-129">クライアントのパイプラインへのメッセージ ハンドラーの追加</span><span class="sxs-lookup"><span data-stu-id="b584b-129">Adding Message Handlers to the Client Pipeline</span></span>
+## <a name="adding-message-handlers-to-the-client-pipeline"></a><span data-ttu-id="36795-130">クライアントのパイプラインへのメッセージ ハンドラーの追加</span><span class="sxs-lookup"><span data-stu-id="36795-130">Adding Message Handlers to the Client Pipeline</span></span>
 
-<span data-ttu-id="b584b-130">カスタム ハンドラーを追加する**HttpClient**を使用して、 **HttpClientFactory.Create**メソッド。</span><span class="sxs-lookup"><span data-stu-id="b584b-130">To add custom handlers to **HttpClient**, use the **HttpClientFactory.Create** method:</span></span>
+<span data-ttu-id="36795-131">カスタム ハンドラーを追加する**HttpClient**を使用して、 **HttpClientFactory.Create**メソッド。</span><span class="sxs-lookup"><span data-stu-id="36795-131">To add custom handlers to **HttpClient**, use the **HttpClientFactory.Create** method:</span></span>
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample4.cs)]
 
-<span data-ttu-id="b584b-131">メッセージ ハンドラーは順番に渡す、**作成**メソッド。</span><span class="sxs-lookup"><span data-stu-id="b584b-131">Message handlers are called in the order that you pass them into the **Create** method.</span></span> <span data-ttu-id="b584b-132">ハンドラーは入れ子になったため、応答メッセージは、他の方向に移動します。</span><span class="sxs-lookup"><span data-stu-id="b584b-132">Because handlers are nested, the response message travels in the other direction.</span></span> <span data-ttu-id="b584b-133">これは最後のハンドラーでは、応答メッセージを取得する 1 つ目があります。</span><span class="sxs-lookup"><span data-stu-id="b584b-133">That is, the last handler is the first to get the response message.</span></span>
+<span data-ttu-id="36795-132">メッセージ ハンドラーは順番に渡す、**作成**メソッド。</span><span class="sxs-lookup"><span data-stu-id="36795-132">Message handlers are called in the order that you pass them into the **Create** method.</span></span> <span data-ttu-id="36795-133">ハンドラーは入れ子になったため、応答メッセージは、他の方向に移動します。</span><span class="sxs-lookup"><span data-stu-id="36795-133">Because handlers are nested, the response message travels in the other direction.</span></span> <span data-ttu-id="36795-134">これは最後のハンドラーでは、応答メッセージを取得する 1 つ目があります。</span><span class="sxs-lookup"><span data-stu-id="36795-134">That is, the last handler is the first to get the response message.</span></span>
