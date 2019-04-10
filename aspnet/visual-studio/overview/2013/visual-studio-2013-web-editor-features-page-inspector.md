@@ -8,17 +8,17 @@ ms.date: 10/17/2013
 ms.assetid: 17b67048-c61c-4ac0-a73a-a8079b493253
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-page-inspector
 msc.type: video
-ms.openlocfilehash: c32b4171202d2bb11a523b8882f70b7b2750ad6f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: aa6a01a37b6f39f87e2b77d351b221aee415a3c5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421727"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418847"
 ---
-<a name="visual-studio-2013-web-editor-features---page-inspector"></a><span data-ttu-id="44000-103">Visual Studio 2013 Web エディター機能 - Page Inspector</span><span class="sxs-lookup"><span data-stu-id="44000-103">Visual Studio 2013 Web Editor Features - Page Inspector</span></span>
-====================
-<span data-ttu-id="44000-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="44000-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+# <a name="visual-studio-2013-web-editor-features---page-inspector"></a><span data-ttu-id="41f02-103">Visual Studio 2013 Web エディター機能 - Page Inspector</span><span class="sxs-lookup"><span data-stu-id="41f02-103">Visual Studio 2013 Web Editor Features - Page Inspector</span></span>
 
-<span data-ttu-id="44000-105">Scott Hanselman は、Visual Studio 2013 での Page Inspector の機能を使用すると、それをレンダリングするソース コードと完全に統合されて、レンダリングされたページ マークアップを対話的に操作する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="44000-105">Scott Hanselman shows how the Page Inspector feature in Visual Studio 2013 allows you to work interactively with the rendered page markup, fully integrated with the source code that rendered it.</span></span>
+<span data-ttu-id="41f02-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="41f02-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="44000-106">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="44000-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2013-web-editor-features-page-inspector)
+<span data-ttu-id="41f02-105">Scott Hanselman は、Visual Studio 2013 での Page Inspector の機能を使用すると、それをレンダリングするソース コードと完全に統合されて、レンダリングされたページ マークアップを対話的に操作する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="41f02-105">Scott Hanselman shows how the Page Inspector feature in Visual Studio 2013 allows you to work interactively with the rendered page markup, fully integrated with the source code that rendered it.</span></span>
+
+[<span data-ttu-id="41f02-106">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="41f02-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2013-web-editor-features-page-inspector)
