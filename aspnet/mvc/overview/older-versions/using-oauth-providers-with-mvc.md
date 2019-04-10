@@ -10,7 +10,7 @@ msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
 ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57065729"
@@ -44,7 +44,7 @@ ms.locfileid: "57065729"
 - Microsoft Visual Studio 2010 SP1 または[Visual Web Developer Express 2010 SP1](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
 - [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
 
-さらに、このトピックでは、ASP.NET MVC と Visual Studio に関する基本的な知識がある前提としています。 ASP.NET MVC 4 の概要が必要な場合は、次を参照してください。 [ASP.NET MVC 4 の概要](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)します。
+さらに、このトピックでは、ASP.NET MVC と Visual Studio に関する基本的な知識がある前提としています。 ASP.NET MVC 4 の概要が必要な場合は、[ASP.NET MVC 4 の概要](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)を参照してください。
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
@@ -52,7 +52,7 @@ Visual Studio で、新しい ASP.NET MVC 4 Web アプリケーションを作�
 
 ![プロジェクトを作成します。](using-oauth-providers-with-mvc/_static/image1.png)
 
-新しい ASP.NET MVC 4 プロジェクト ウィンドウで、次のように選択します。**インターネット アプリケーション**して**Razor**ビュー エンジンとして。
+新しい ASP.NET MVC 4 プロジェクト] ウィンドウで、次のように選択します。**インターネット アプリケーション**して**Razor**ビュー エンジンとして。
 
 ![インターネット アプリケーションを選択します。](using-oauth-providers-with-mvc/_static/image2.png)
 
@@ -83,7 +83,7 @@ AuthConfig ファイルには、クライアントの外部認証プロバイダ
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-Facebook を使用してサイトを登録するときに行うことができます&quot;localhost&quot;サイト ドメインと`&quot; http://localhost/&quot;`url、次の図に示すようにします。 Localhost を使用してでは、ほとんどのプロバイダーで機能しますが、Microsoft プロバイダーで現在動作しません。 Microsoft プロバイダーでは、有効な web サイトの URL を含める必要があります。
+Facebook を使用してサイトを登録するときに行うことができます&quot;localhost&quot;サイト ドメインと`&quot;http://localhost/&quot;`url、次の図に示すようにします。 Localhost を使用してでは、ほとんどのプロバイダーで機能しますが、Microsoft プロバイダーで現在動作しません。 Microsoft プロバイダーでは、有効な web サイトの URL を含める必要があります。
 
 ![サイトを登録します。](using-oauth-providers-with-mvc/_static/image4.png)
 
@@ -111,9 +111,9 @@ Facebook から id とシークレットを受信したできた AuthConfig フ�
 
 ![外部ログイン](using-oauth-providers-with-mvc/_static/image6.png)
 
-このチュートリアルでは、外部プロバイダーのボタンでログをカスタマイズする方法は説明しません。 詳細については、次を参照してください。 [Oauth/openid を使用する場合は、ログイン UI をカスタマイズする](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx)します。
+このチュートリアルでは、外部プロバイダーのボタンでログをカスタマイズする方法は説明しません。 詳細については、[Oauth/openid を使用する場合は、ログイン UI をカスタマイズする](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx)を参照してください。
 
-Facebook の資格情報でログインする Facebook ボタンをクリックします。 外部プロバイダーのいずれかを選択すると、そのサイトにリダイレクトされ、ログインにそのサービスによってメッセージが表示するは。
+Facebook の資格情報でログインする Facebook] ボタンをクリックします。 外部プロバイダーのいずれかを選択すると、そのサイトにリダイレクトされ、ログインにそのサービスによってメッセージが表示するは。
 
 次の図は、Facebook のログイン画面を示しています。 Oauthmvcexample という名前のサイトにログインする、Facebook アカウントを使用していることを示します。
 
@@ -152,7 +152,7 @@ Facebook の資格情報でログインした後は、ページは、サイト�
 3. コマンドを実行**IgnoreChanges 追加移行初期 –**
 4. コマンドを実行**データベースの更新**
 
-ここで、新しいプロパティを追加します。 Models フォルダーで、AccountModels.cs ファイルを開き RegisterExternalLoginModel クラスを探します。 RegisterExternalLoginModel クラスは、認証プロバイダーから返される値を保持します。 FullName とリンクを以下の強調表示されているという名前のプロパティを追加します。
+ここで、新しいプロパティを追加します。 Models] フォルダーで、AccountModels.cs ファイルを開き RegisterExternalLoginModel クラスを探します。 RegisterExternalLoginModel クラスは、認証プロバイダーから返される値を保持します。 FullName とリンクを以下の強調表示されているという名前のプロパティを追加します。
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample4.cs?highlight=9-13)]
 
@@ -215,7 +215,7 @@ UsersContext クラスでは、新しいクラスの DbSet プロパティを作
 
 アプリケーションを実行し、保存された追加情報を新しいユーザーを登録する、ほぼ準備が整いました。 サイトに既に登録されていないアカウントが必要です。 別のテスト アカウントを使用か、内の行を削除することができます、 **UserProfile**と**web ページ\_OAuthMembership**で再利用するアカウントのテーブル。 これらの行を削除すると、アカウントが再登録するようになります。
 
-アプリケーションを実行し、新しいユーザーを登録します。 この時間には確認 ページが含まれているより多くの値に注意してください。
+アプリケーションを実行し、新しいユーザーを登録します。 この時間には確認] ページが含まれているより多くの値に注意してください。
 
 ![register](using-oauth-providers-with-mvc/_static/image12.png)
 

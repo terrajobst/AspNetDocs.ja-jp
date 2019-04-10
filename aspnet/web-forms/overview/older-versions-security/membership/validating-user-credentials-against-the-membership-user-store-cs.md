@@ -8,15 +8,15 @@ ms.date: 01/18/2008
 ms.assetid: 61aa4e08-aa81-4aeb-8ebe-19ba7a65e04c
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac04ee84ad30015ec3dea272c2b143bb2dae25e5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d962036213d779f73e5d837af1de42a01f08a329
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57041179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389220"
 ---
-<a name="validating-user-credentials-against-the-membership-user-store-c"></a>メンバーシップ ユーザー ストアに対してユーザー資格情報を確認する (C#)
-====================
+# <a name="validating-user-credentials-against-the-membership-user-store-c"></a>メンバーシップ ユーザー ストアに対してユーザー資格情報を確認する (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [コードのダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_cs.pdf)
@@ -43,7 +43,7 @@ ms.locfileid: "57041179"
 このログイン ページを更新しましょう (~/`Login.aspx`) メンバーシップ フレームワークのユーザー ストアに対して指定された資格情報を検証します。 このログイン ページを作成したに戻り、 <a id="Tutorial02"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルでは、ユーザー名とパスワードの 2 つのテキスト ボックスで、インターフェイスの作成をチェック ボックスをオンし、ログイン ボタンに、そのアカウントを記憶する (図 1 参照)。 コードでは、ハード コーディングされた (Scott/パスワード、Jisun/パスワード、および Sam/パスワード) は、ユーザー名とパスワードのペアのリストに対して入力した資格情報を検証します。 <a id="Tutorial03"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md)チュートリアルは、フォームに追加情報を格納する、ログイン ページのコードを更新しました認証チケットの`UserData`プロパティ。
 
 
-[![ログイン ページのインターフェイスには、2 つのテキスト ボックス、CheckBoxList、およびボタンが含まれます。](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
+[![T彼はログイン ページのインターフェイスが含まれています 2 つのテキスト ボックス、CheckBoxList、およびボタン](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
 
 **図 1**:ログイン ページのインターフェイスを含む 2 つのテキスト ボックス、CheckBoxList、およびボタン ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image3.png))。
 
@@ -86,7 +86,7 @@ ms.locfileid: "57041179"
 更新`Login.aspx`、手動で作成したインターフェイスを交換およびコードでは、Login コントロール。 既存のマークアップを削除することで起動し、コードで`Login.aspx`します。 削除しても、最初から、または単にコメント アウトする可能性があります。宣言型マークアップをコメントに、それを囲む、`<%--`と`--%>`区切り記号。 これらの区切り記号を手動で入力することができますか、図 2 に示すよう、コメント アウトし、ツールバーのアイコンを選択した行をコメントをクリックするテキストを選択します。 同様に、選択した行のアイコンをコメントを使用すると、分離コード クラスで選択したコードをコメント アウトします。
 
 
-[![既存の宣言型マークアップと Login.aspx 内のソース コード コメント](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
+[![Comment を既存宣言型マークアップと Login.aspx 内のソース コード](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
 
 **図 2**:コメントを既存宣言マークアップとソース コードで`Login.aspx`([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image6.png))。
 
@@ -98,7 +98,7 @@ ms.locfileid: "57041179"
 次に、ログイン コントロールをページにツールボックスからドラッグし、設定、`ID`プロパティを`myLogin`します。 この時点で、画面に図 3 のようになります。 ログイン コントロールの既定のインターフェイスがユーザー名とパスワードを次回チェック ボックスをオンおよびログの ボタンのテキスト ボックス コントロールが含まれることに注意してください。 `RequiredFieldValidator`の 2 つのテキスト ボックス コントロール。
 
 
-[![Login コントロールをページに追加します。](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
+[![Add ログイン コントロールをページ](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
 
 **図 3**:Login コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image9.png))。
 
@@ -115,7 +115,7 @@ Login コントロールでは、4 つの要因を使って、正常にログイ
 図 4 は、方法を示しています、Login コントロールがそのページの適切な意思決定に到着するこれら 4 つのパラメーターを使用します。
 
 
-[![Login コントロールをページに追加します。](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
+[![Add ログイン コントロールをページ](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
 
 **図 4**:Login コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image12.png))。
 
@@ -145,7 +145,7 @@ Login コントロールは、そのユーザー インターフェイス コン
 これらのプロパティの変更を行った後、ログイン コントロールの宣言型マークアップと外観のようなります図 5 に示されています。
 
 
-[![ログイン コントロールのプロパティの値の外観を決定します。](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
+[![T彼のログイン コントロールのプロパティの値をディクテーションの表示](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
 
 **図 5**:外観をディクテーション ログイン コントロールのプロパティの値 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image15.png))。
 
@@ -164,7 +164,7 @@ Login コントロールは、そのユーザー インターフェイス コン
 指定された電子メール アドレス、電子メール アドレス宛に一致する場合にのみユーザーを認証し、ユーザー名、パスワード、および電子メール アドレスのユーザー入力を求めるようにしてみましょう Login コントロールを更新します。 まず、ログイン コントロールのインターフェイスをテンプレートに変換する必要があります。 ログイン コントロールのスマート タグから変換テンプレート オプションを選択します。
 
 
-[![Login コントロールをテンプレートに変換します。](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
+[![C変更テンプレートへのログイン コントロール](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
 
 **図 6**:Login コントロールをテンプレートに変換 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image18.png))。
 
@@ -176,7 +176,7 @@ Login コントロールは、そのユーザー インターフェイス コン
 Login コントロールをテンプレートに変換を追加、 `LayoutTemplate` HTML 要素およびユーザー インターフェイスを定義する Web コントロールを使用するコントロールの宣言型マークアップにします。 図 7 に示すようコントロールをテンプレートに変換するさまざまなプロパティから削除プロパティ ウィンドウなど`TitleText`、`CreateUserUrl`などのように、ため、テンプレートを使用する場合、これらのプロパティ値は無視されます。
 
 
-[![以下のプロパティは、使用可能なときのログイン コントロールがテンプレートに変換されます。](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
+[![Fewer プロパティは、使用可能なときのログイン コントロールがテンプレートに変換](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
 
 **図 7**:以下のプロパティは、使用可能なときのログイン コントロールがテンプレートに変換されます ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image21.png))。
 
@@ -190,7 +190,7 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 追加した後、 `Email`  ボックスに、ブラウザーを使用してページを参照してください。 図 8 に示すよう、ログイン コントロールのユーザー インターフェイスの 3 つ目のテキスト ボックスに追加されました。
 
 
-[![Login コントロールのユーザーの電子メール アドレス テキスト ボックスになりました](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
+[![T彼 Login コントロールが含まれています、テキスト ボックスにはユーザーの電子メール アドレス](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
 
 **図 8**:Login コントロールのユーザーの電子メール アドレス テキスト ボックスになりました ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image24.png))。
 
@@ -208,7 +208,7 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 図 9 には、認証ワークフローのフロー チャートが用意されています。
 
 
-[![ログイン コントロールの認証ワークフロー](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
+[![T彼はログイン コントロールの認証ワークフロー](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
 
 **図 9**:ログイン コントロールの認証ワークフロー ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image27.png))。
 
@@ -247,7 +247,7 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 このコードでは、適切なユーザー名、パスワード、および電子メール アドレスを入力する、有効なユーザーとしてログインを試みます。 もう一度お試しくださいがこの時間は意図的に正しくない電子メール アドレスを使用して (図 10 参照)。 最後に、試して、存在しないユーザー名を使用して 3 回目です。 最初のケースでする必要がありますが正常にログオンして、サイトが最後の 2 つの場合、ログイン コントロールの無効な資格情報のメッセージが表示されます。
 
 
-[![Tito が正しくない電子メール アドレスを指定するときにログインできません。](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
+[![Tito は、正しくない電子メール アドレスを指定するときにログインできません](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
 
 **図 10**:Tito ことはできませんログのときに指定が正しくない電子メール アドレス ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image30.png))。
 
@@ -280,7 +280,7 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 このコードをテストするには、意図的しようとすると、既存のユーザーとしてログインしますが、正しくないパスワードを使用します。 10 分間のタイム フレーム内の行で 5 回を行い、アカウントをロックアウトします。図 11 に示す試行は常に (正しいパスワード) でも失敗しますが、ここでは、その後のログインよりわかりやすい表示と、アカウントが無効なログインの回数が多すぎるためロックされています。 アカウント ロック解除されたメッセージが管理者にお問い合わせください。
 
 
-[![Tito が無効なログインを何度もを実行して、ロックアウトされています。](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
+[![Tito 実行が無効なログインも間違えるとがされてロックアウト](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
 
 **図 11**:Tito 実行が無効なログインも間違えるとがされてロックアウト ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-cs/_static/image33.png))。
 

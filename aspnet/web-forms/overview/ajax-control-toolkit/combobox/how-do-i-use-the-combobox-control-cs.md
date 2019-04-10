@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: 0bbf4134-04df-4226-8930-d5bb99e27128
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: edf3786600a8ec7b58422e1ec20e71e2b749d6e4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d23e65f817c11e45adab56ea054a7c46a35d4f3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386438"
 ---
-<a name="how-do-i-use-the-combobox-control-c"></a>コンボ ボックス コントロールの使用方法 (C#)
-====================
+# <a name="how-do-i-use-the-combobox-control-c"></a>コンボ ボックス コントロールの使用方法 (C#)
+
 によって[Microsoft](https://github.com/microsoft)
 
 > コンボ ボックスは、ユーザーが選択できるオプションの一覧と、テキスト ボックスの柔軟性を組み合わせた ASP.NET AJAX コントロールです。
@@ -37,7 +37,7 @@ Ll が新しい ASP.NET Web フォーム ページを作成し、ページで、
 次に、コンボ ボックス コントロールをページにドラッグします。 その他の AJAX Control Toolkit のコントロールとコントロールのエクステンダー (図 1 を参照してください) で、ツールボックスにコンボ ボックス コントロールが表示されます。
 
 
-[![ビジネスのカードを作成するための簡単なフォーム](how-do-i-use-the-combobox-control-cs/_static/image1.jpg)](how-do-i-use-the-combobox-control-cs/_static/image1.png)
+[![Sビジネスのカードを作成するためのフォームを概要](how-do-i-use-the-combobox-control-cs/_static/image1.jpg)](how-do-i-use-the-combobox-control-cs/_static/image1.png)
 
 **図 01**:コンボ ボックス コントロールをツールボックスから選択 ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image2.png))。
 
@@ -45,7 +45,7 @@ Ll が新しい ASP.NET Web フォーム ページを作成し、ページで、
 私たちの選択肢の静的な一覧を表示するコンボ ボックス コントロールを使用します。 ユーザーは、3 つの選択肢の一覧から、食品の spiciness の特定のレベルを選択できます。軽度、メディア、およびホット (図 2 参照)。
 
 
-[![項目の静的リストから選択します。](how-do-i-use-the-combobox-control-cs/_static/image2.jpg)](how-do-i-use-the-combobox-control-cs/_static/image3.png)
+[![S静的な一覧の項目の選択](how-do-i-use-the-combobox-control-cs/_static/image2.jpg)](how-do-i-use-the-combobox-control-cs/_static/image3.png)
 
 **図 02**:項目の静的な一覧から選択 ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image4.png))。
 
@@ -53,7 +53,7 @@ Ll が新しい ASP.NET Web フォーム ページを作成し、ページで、
 コンボ ボックス コントロールにこれらの選択肢を追加するには、2 つの方法はあります。 まず、デザイン ビューでコントロールの上にマウス ポインターを置くオプションの編集タスク オプションを選択し、項目エディターを開きます (図 3 を参照してください)。
 
 
-[![コンボ ボックス項目の編集](how-do-i-use-the-combobox-control-cs/_static/image3.jpg)](how-do-i-use-the-combobox-control-cs/_static/image5.png)
+[![Eコンボ ボックス アイテムの編集で](how-do-i-use-the-combobox-control-cs/_static/image3.jpg)](how-do-i-use-the-combobox-control-cs/_static/image5.png)
 
 **図 03**:コンボ ボックス項目の編集 ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image6.png))。
 
@@ -71,7 +71,7 @@ Ll が新しい ASP.NET Web フォーム ページを作成し、ページで、
 既存を選択するかどうかに関係なく項目またはするカスタム項目をとき、入力フォームを送信すると、選択したラベル コントロールに表示されます。 BtnSubmit、フォームを送信するとき\_ハンドラーを実行し、ラベルを更新 をクリックします (図 4 参照)。
 
 
-[![選択した項目を表示します。](how-do-i-use-the-combobox-control-cs/_static/image4.jpg)](how-do-i-use-the-combobox-control-cs/_static/image7.png)
+[![Displaying 選択された項目](how-do-i-use-the-combobox-control-cs/_static/image4.jpg)](how-do-i-use-the-combobox-control-cs/_static/image7.png)
 
 **図 04**:選択した項目を表示する ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image8.png))。
 
@@ -104,12 +104,12 @@ Ll が新しい ASP.NET Web フォーム ページを作成し、ページで、
 12. ウィザードを閉じる [ok] ボタンをクリックします。
 
 
-[![データ ソースの選択](how-do-i-use-the-combobox-control-cs/_static/image5.jpg)](how-do-i-use-the-combobox-control-cs/_static/image9.png)
+[![Choosing データ ソース](how-do-i-use-the-combobox-control-cs/_static/image5.jpg)](how-do-i-use-the-combobox-control-cs/_static/image9.png)
 
 **図 05**:データ ソースの選択 ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image10.png))。
 
 
-[![データのテキストと値のフィールドの選択](how-do-i-use-the-combobox-control-cs/_static/image6.jpg)](how-do-i-use-the-combobox-control-cs/_static/image11.png)
+[![Choosing データのテキストと値フィールド](how-do-i-use-the-combobox-control-cs/_static/image6.jpg)](how-do-i-use-the-combobox-control-cs/_static/image11.png)
 
 **図 06**:データのテキストと値のフィールドの選択 ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image12.png))。
 
@@ -123,7 +123,7 @@ Ll が新しい ASP.NET Web フォーム ページを作成し、ページで、
 コンボ ボックス コントロールに SqlDataSource コントロールを指す DataSourceID プロパティがあることに注意してください。 ブラウザーでページを開くと、データベースからムービーの一覧が表示されます (図 7 を参照してください)。 いずれかを選択、一覧からビデオを実行できますか、コンボ ボックスに、ムービーを入力して、新しいムービーを入力します。
 
 
-[![ムービーの一覧を表示します。](how-do-i-use-the-combobox-control-cs/_static/image7.jpg)](how-do-i-use-the-combobox-control-cs/_static/image13.png)
+[![Displaying ムービーの一覧](how-do-i-use-the-combobox-control-cs/_static/image7.jpg)](how-do-i-use-the-combobox-control-cs/_static/image13.png)
 
 **図 07**:ムービーの一覧を表示する ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image14.png))。
 
@@ -150,17 +150,17 @@ DropDownList の値により、標準の DropDownList コントロールと同�
 - パネルのコンボ ボックス両方は、一覧が表示されをリストから入力した内容が (図 10 参照) に一致する項目を追加します。
 
 
-[![コンボ ボックスは、修正案](how-do-i-use-the-combobox-control-cs/_static/image8.jpg)](how-do-i-use-the-combobox-control-cs/_static/image15.png)
+[![T修正候補は、彼のコンボ ボックス](how-do-i-use-the-combobox-control-cs/_static/image8.jpg)](how-do-i-use-the-combobox-control-cs/_static/image15.png)
 
 **図 08**:コンボ ボックスは、提案 ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image16.png))。
 
 
-[![コンボ ボックスは、一致するテキストを追加します。](how-do-i-use-the-combobox-control-cs/_static/image9.jpg)](how-do-i-use-the-combobox-control-cs/_static/image17.png)
+[![ComboBox は、一致するテキストを追加します](how-do-i-use-the-combobox-control-cs/_static/image9.jpg)](how-do-i-use-the-combobox-control-cs/_static/image17.png)
 
 **図 09**:コンボ ボックスは、一致するテキストを追加します ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image18.png))。
 
 
-[![コンボ ボックスの内容が提示され、追加します](how-do-i-use-the-combobox-control-cs/_static/image10.jpg)](how-do-i-use-the-combobox-control-cs/_static/image19.png)
+[![Tコンボ ボックス彼が提示され、追加します](how-do-i-use-the-combobox-control-cs/_static/image10.jpg)](how-do-i-use-the-combobox-control-cs/_static/image19.png)
 
 **図 10**:コンボ ボックスの内容が提示され、追加します ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-combobox-control-cs/_static/image20.png))。
 

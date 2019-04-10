@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: feebee845a19a7cb462127a893a30ac7e0761965
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21f37dc1ffbcb7e8e15e4bed261b68ffc0388c21
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57051729"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388427"
 ---
-<a name="efficiently-paging-through-large-amounts-of-data-c"></a>大量のデータを効率的にページングする (C#)
-====================
+# <a name="efficiently-paging-through-large-amounts-of-data-c"></a>大量のデータを効率的にページングする (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_25_CS.exe)または[PDF のダウンロード](efficiently-paging-through-large-amounts-of-data-cs/_static/datatutorial25cs1.pdf)
@@ -191,7 +191,7 @@ DAL で BLL 開始行インデックスをそのまま使用するメソッド�
 後のパラメーターの値を入力してこれらの選択、結果を出力ウィンドウが表示されます。 図 8 は、10 の両方を渡すときに結果を示しています、`@startRowIndex`と`@maximumRows`パラメーター。
 
 
-[![レコードに含まれる 2 番目のページ データが返されます](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
+[![Tレコードはこと、2 番目のデータ ページに表示は彼が返されます](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
 
 **図 8**:レコードに含まれる 2 番目のページ データが返されます ([フルサイズの画像を表示する をクリックします](efficiently-paging-through-large-amounts-of-data-cs/_static/image10.png))。
 
@@ -293,7 +293,7 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 これらの変更を行った後は、ブラウザーからこのページを参照してください。 表示されている場合、10 個の製品が表示アルファベット順でします。 一度にデータの 1 つのページをステップに時間がかかります。 エンドユーザーの観点から既定のページングとカスタム ページングの視覚的な違いはありませんが、カスタム ページングをより効率的のページを大量データのように、特定のページに表示する必要があるレコードのみを取得します。
 
 
-[![製品名、Ordered、データを使用してカスタム ページングのページは、します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
+[![T彼は、データを使用してカスタム ページングのページは、製品名を並べ](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
 
 **図 17**:製品名、Ordered、データがページを使用してのカスタム ページング ([フルサイズの画像を表示する をクリックします](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))。
 
@@ -309,7 +309,7 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 現在のカスタム ページングの実装では、を通じて、データをページングする順序が、作成するときに、静的に指定する必要があります、`GetProductsPaged`ストアド プロシージャ。 ただし、GridView s のスマート タグがページングを有効にするオプションだけでなくで並べ替えを有効にするのチェック ボックスが含まれていることに注意が可能性があります。 残念ながら、現在カスタム ページング実装を GridView に並べ替えのサポートを追加しても、データの現在表示されているページのレコードには並べ替えのみです。 などもページングをサポートし、製品名の降順で、データの最初のページを表示するときに並べ替え、GridView を構成する場合は、ページ 1 で、製品の順序が反転されます。 無視、71 他の製品がアルファベット順に; マーガリン後に、逆のアルファベット順の順序で並べ替えるときに、最初の製品としてマーガリンを示しますこのような図 18 に示すよう最初のページのレコードだけが、並べ替え中と見なされます。
 
 
-[![並べ替えられた、データにのみ表示されます、現在のページ](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
+[![O現在のページには、データの表示のみ () の並べ替え](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
 
 **図 18**:並べ替えられた、データにのみ表示されます、現在のページ ([フルサイズの画像を表示する をクリックします](efficiently-paging-through-large-amounts-of-data-cs/_static/image24.png))。
 
@@ -356,8 +356,8 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 | --- | --- | --- |
 | **既定の SQL Profiler のページング** | 1.411 | 383 |
 | **カスタム ページング SQL Profiler** | 0.002 | 29 |
-| **ページングの既定の ASP.NET トレース** | 2.379 | *該当なし* |
-| **カスタム ページング ASP.NET トレース** | 0.029 | *該当なし* |
+| **ページングの既定の ASP.NET トレース** | 2.379 | *N/A* |
+| **カスタム ページング ASP.NET トレース** | 0.029 | *N/A* |
 
 
 ご覧のように、データの特定のページを取得する平均 354 未満の読み取りに必要なし、短時間で完了します。 ASP.NET ページで、カスタム ページが 1/100 に近いでレンダリングできる<sup>th</sup>かかった時間の既定のページングを使用する場合。 参照してください[筆者の記事](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)コードおよびデータベースと共にこれらの結果の詳細については、独自の環境でこれらのテストを再現するためにダウンロードできます。

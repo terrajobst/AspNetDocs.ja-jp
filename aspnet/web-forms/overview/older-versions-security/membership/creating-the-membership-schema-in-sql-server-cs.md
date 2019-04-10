@@ -10,7 +10,7 @@ msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-t
 msc.type: authoredcontent
 ms.openlocfilehash: 425dea8233eb6b5be7c3a3945d953ef47056f114
 ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57045409"
@@ -310,7 +310,7 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 
 アプリケーションのでは、メンバーシップ プロバイダー情報お指定しなかったかどうか`Web.config`ファイル、アプリケーションは、登録されている既定のメンバーシップ プロバイダーを使用して`AspNetSqlMembershipProvider`します。 場合、`~/App_Data/aspnet.mdf`データベースが存在しないか、ASP.NET ランタイムに自動的にそれを作成し、アプリケーションのサービス スキーマを追加します。 ただし、使用するたく、`aspnet.mdf`を使用する代わりに、データベースでは、`SecurityTutorials.mdf`手順 2. で作成したデータベース。 この変更は、2 つの方法のいずれかで実行できます。
 
-- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>接続文字列名を</strong><strong>`Web.config`</strong><strong>します。</strong> 上書きすることで、`LocalSqlServer`の接続文字列名値`Web.config`、登録されている既定のメンバーシップ プロバイダーを使用します (`AspNetSqlMembershipProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この方法は、コンテンツで指定された構成設定を使用する場合は問題ありません。`AspNetSqlMembershipProvider`します。 この手法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)します。
+- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>接続文字列名を</strong><strong>`Web.config`</strong><strong>します。</strong> 上書きすることで、`LocalSqlServer`の接続文字列名値`Web.config`、登録されている既定のメンバーシップ プロバイダーを使用します (`AspNetSqlMembershipProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この方法は、コンテンツで指定された構成設定を使用する場合は問題ありません。`AspNetSqlMembershipProvider`します。 この手法の詳細については、[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)を参照してください。
 - <strong>型の新しい登録済みプロバイダーの追加</strong><strong>`SqlMembershipProvider`</strong><strong>構成とその</strong><strong>`connectionStringName`</strong><strong>をポイントする設定</strong><strong>`SecurityTutorials.mdf`</strong><strong>データベース。</strong> この方法は、データベース接続文字列だけでなく他の構成プロパティをカスタマイズするシナリオで役立ちます。 自分のプロジェクトでは常に、その柔軟性と読みやすさのためこの方法を使用します。
 
 参照する新しい登録済みのプロバイダーを追加するため、`SecurityTutorials.mdf`データベースでは、まず必要があります内の適切な接続文字列値を追加する、`<connectionStrings>`セクション`Web.config`します。 次のマークアップは、という名前の新しい接続文字列を追加します。`SecurityTutorialsConnectionString`を参照する SQL Server 2005 Express Edition`SecurityTutorials.mdf`データベースに、`App_Data`フォルダー。
@@ -331,7 +331,7 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 なお、`SecurityTutorialsSqlMembershipProvider`の`connectionStringName`、単に追加された参照の設定`SecurityTutorialsConnectionString`接続文字列名、およびその`applicationName`SecurityTutorials の値に設定が設定されています。 さらに、`requiresUniqueEmail`設定に設定されている`true`します。 その他のすべての構成オプションの値と同じ`AspNetSqlMembershipProvider`します。 自由にする場合は、ここでは、構成変更を加えます。 たとえば、または 7 ではなく、8 文字に、パスワードの長さを増やすことで、1 つではなく 2 つの英数字以外の文字を要求することで、パスワードの強度を強化でした。
 
 > [!NOTE]
-> メンバーシップ フレームワークにより、複数のアプリケーション パーティションに分割する 1 人のユーザー ストアのことを思い出してください。 メンバーシップ プロバイダーの`applicationName`設定は、ユーザー ストアを使用する場合、プロバイダーを使用して、どのようなアプリケーションを示します。 値を明示的に設定することが重要では、`applicationName`構成設定のため場合、`applicationName`が実行時に、web アプリケーションの仮想ルートのパスに割り当てられていることを明示的に設定されていません。 正常に機能しますが、アプリケーションの仮想ルートのパスが変更されない限り、アプリケーションを別のパスに移動する場合、`applicationName`設定が変更されます。 この場合、別のアプリケーション パーティションの操作に使用されていたよりも、メンバーシップ プロバイダーが開始されます。 別のアプリケーション パーティションに移動する前に作成されたユーザー アカウントが存在し、それらのユーザーがサイトにログインできなくなります。 この問題の詳細な議論については、次を参照してください。[は常に設定、`applicationName`プロパティときに構成する ASP.NET 2.0 メンバーシップとその他のプロバイダー](https://weblogs.asp.net/scottgu/443634)します。
+> メンバーシップ フレームワークにより、複数のアプリケーション パーティションに分割する 1 人のユーザー ストアのことを思い出してください。 メンバーシップ プロバイダーの`applicationName`設定は、ユーザー ストアを使用する場合、プロバイダーを使用して、どのようなアプリケーションを示します。 値を明示的に設定することが重要では、`applicationName`構成設定のため場合、`applicationName`が実行時に、web アプリケーションの仮想ルートのパスに割り当てられていることを明示的に設定されていません。 正常に機能しますが、アプリケーションの仮想ルートのパスが変更されない限り、アプリケーションを別のパスに移動する場合、`applicationName`設定が変更されます。 この場合、別のアプリケーション パーティションの操作に使用されていたよりも、メンバーシップ プロバイダーが開始されます。 別のアプリケーション パーティションに移動する前に作成されたユーザー アカウントが存在し、それらのユーザーがサイトにログインできなくなります。 この問題の詳細な議論については、[は常に設定、`applicationName`プロパティときに構成する ASP.NET 2.0 メンバーシップとその他のプロバイダー](https://weblogs.asp.net/scottgu/443634)を参照してください。
 
 
 ## <a name="summary"></a>まとめ

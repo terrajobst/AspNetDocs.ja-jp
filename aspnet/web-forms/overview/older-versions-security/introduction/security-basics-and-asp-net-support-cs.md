@@ -8,18 +8,18 @@ ms.date: 01/13/2008
 ms.assetid: 07e15538-2f29-40c6-b2e7-e6115075ac83
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 817a823ab5b09ea8bf2620a142779e79f53d957d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8f6fb4348e6ff703d329331b908e41763f24bb1f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57026509"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402948"
 ---
-<a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (C#)
-====================
+# <a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (C#)
+
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_cs.pdf)
+[PDF をダウンロードします。](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_cs.pdf)
 
 > これは、web フォームでの訪問者を認証、特定のページと機能にアクセスを承認および ASP.NET アプリケーションでユーザー アカウントを管理するための手法を紹介するチュートリアル シリーズの最初のチュートリアルです。
 
@@ -140,7 +140,7 @@ Microsoft では、.NET Framework のメンバーシップ プロバイダーの
 このチュートリアル シリーズは、SqlMembershipProvider のみに焦点を当てています。
 
 
-[![プロバイダー モデルにより、さまざまな実装にシームレスに電源接続時に、フレームワーク&lt;/strong&gt;](security-basics-and-asp-net-support-cs/_static/image4.png)](security-basics-and-asp-net-support-cs/_static/image3.png)
+[![T彼はプロバイダー モデルにより、さまざまな実装にシームレスに電源接続時に、フレームワーク&lt;/strong&gt;](security-basics-and-asp-net-support-cs/_static/image4.png)](security-basics-and-asp-net-support-cs/_static/image3.png)
 
 **図 03**:プロバイダー モデルにより、さまざまな実装にシームレスに電源接続時に、フレームワーク ([フルサイズの画像を表示する をクリックします](security-basics-and-asp-net-support-cs/_static/image5.png))。
 

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
-title: マスター/詳細の 2 つのページ (c#) 間のフィルター処理 |Microsoft Docs
+title: マスター/詳細の 2 つのページ (C#) 間のフィルター処理 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルではこのパターンを仕入先データベースを一覧表示する GridView を使用して実装します。 GridView のサプライヤーの各行には、Vie が含まれます.
 ms.author: riande
@@ -10,7 +10,7 @@ msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filter
 msc.type: authoredcontent
 ms.openlocfilehash: 69e5f010507784229360f71cf6f570b342f5ff46
 ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57036879"

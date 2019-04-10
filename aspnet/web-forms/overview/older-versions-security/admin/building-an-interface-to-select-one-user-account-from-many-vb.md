@@ -10,7 +10,7 @@ msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-int
 msc.type: authoredcontent
 ms.openlocfilehash: bb30c5d3ce6e04f60d8192e8ed0404b89031b4b9
 ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57038579"
@@ -169,7 +169,7 @@ GridView コントロールには、ページングの 2 つの種類があり�
 数千のレコードをページングするときに、既定およびカスタム ページングのパフォーマンスの違いは大幅にできます。 構築されたためがいると仮定して、このインターフェイスが数百または何千ものユーザー アカウントを更新した後、カスタム ページングを使用してみましょう可能性があります。
 
 > [!NOTE]
-> 既定とカスタム ページング、さらにカスタム ページングを実装に伴う課題の違いの詳細についてを参照してください[効率的にページングを大規模な量のデータ](https://asp.net/learn/data-access/tutorial-25-vb.aspx)します。 既定およびカスタム ページングのパフォーマンスの違いのいくつかの分析では、次を参照してください。 [SQL Server 2005 での ASP.NET でカスタム ページング](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)します。
+> 既定とカスタム ページング、さらにカスタム ページングを実装に伴う課題の違いの詳細についてを参照してください[効率的にページングを大規模な量のデータ](https://asp.net/learn/data-access/tutorial-25-vb.aspx)します。 既定およびカスタム ページングのパフォーマンスの違いのいくつかの分析では、[SQL Server 2005 での ASP.NET でカスタム ページング](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)を参照してください。
 
 
 カスタム ページングを実装するために、GridView により表示されるレコードの正確なサブセットを取得するには、いくつかメカニズムまず必要あります。 良い知らせは、`Membership`クラスの`FindUsersByName`メソッドがページのインデックスと、ページ サイズを指定することができるようにするオーバー ロードと、そのレコードの範囲内にあるユーザー アカウントのみを返します。

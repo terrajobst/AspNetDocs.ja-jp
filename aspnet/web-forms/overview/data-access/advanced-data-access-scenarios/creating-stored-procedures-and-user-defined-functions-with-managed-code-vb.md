@@ -10,7 +10,7 @@ msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/cr
 msc.type: authoredcontent
 ms.openlocfilehash: 1596e1c8c1b96fd41c842169b95914c7b02cf196
 ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58424626"
@@ -21,7 +21,7 @@ ms.locfileid: "58424626"
 
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_VB.zip)または[PDF のダウンロード](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/datatutorial75vb1.pdf)
 
-> Microsoft SQL Server 2005 は、開発者がマネージ コードからデータベース オブジェクトを作成する .NET 共通言語ランタイムと統合します。 このチュートリアルでは、マネージ ストアド プロシージャを作成する方法を示していて、ユーザー定義関数は、Visual Basic または c# のコードを管理します。 これらのエディションの Visual Studio を使用すると、このようなマネージ データベース オブジェクトをデバッグする方法をも参照してください。
+> Microsoft SQL Server 2005 は、開発者がマネージ コードからデータベース オブジェクトを作成する .NET 共通言語ランタイムと統合します。 このチュートリアルでは、マネージ ストアド プロシージャを作成する方法を示していて、ユーザー定義関数は、Visual Basic または C# のコードを管理します。 これらのエディションの Visual Studio を使用すると、このようなマネージ データベース オブジェクトをデバッグする方法をも参照してください。
 
 
 ## <a name="introduction"></a>はじめに
@@ -484,7 +484,7 @@ S を新規作成するこれらのタスクを示しています。 これら�
 
 このコードはほぼと同じで、`GetProductsWithPriceLessThan`手順 5. で作成したメソッド。 唯一の違いは、メソッド名、`WHERE`句、およびクエリで使用されるパラメーターの名前。 戻り、`GetProductsWithPriceLessThan`メソッド、`WHERE`句を読み取る:`WHERE UnitPrice < @MaxPrice`します。 ここで、`GetProductsWithPriceGreaterThan`を使用して:`WHERE UnitPrice > @MinPrice`します。
 
-これで、このクラスをアセンブリにコンパイルする必要があります。 コマンドラインから保存したディレクトリに移動、`GetProductsWithPriceGreaterThan.vb`ファイルを開き、c# コンパイラを使用して (`csc.exe`) アセンブリにクラス ファイルをコンパイルします。
+これで、このクラスをアセンブリにコンパイルする必要があります。 コマンドラインから保存したディレクトリに移動、`GetProductsWithPriceGreaterThan.vb`ファイルを開き、C# コンパイラを使用して (`csc.exe`) アセンブリにクラス ファイルをコンパイルします。
 
 
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample18.cmd)]
@@ -570,7 +570,7 @@ Visual Studio の SQL Server のプロジェクトの種類には、作成、コ
 
 ## <a name="special-thanks-to"></a>特別なに感謝します。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、S ren Jacob Lauritsen でした。 この記事では、S ren を確認するほかには、マネージ データベース オブジェクトを手動でコンパイルするためには、この記事のダウンロードに含まれている Visual c# Express Edition プロジェクトを作成します。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、S ren Jacob Lauritsen でした。 この記事では、S ren を確認するほかには、マネージ データベース オブジェクトを手動でコンパイルするためには、この記事のダウンロードに含まれている Visual C# Express Edition プロジェクトを作成します。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](debugging-stored-procedures-vb.md)

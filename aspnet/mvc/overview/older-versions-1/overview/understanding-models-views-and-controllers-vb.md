@@ -10,7 +10,7 @@ msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-view
 msc.type: authoredcontent
 ms.openlocfilehash: 15d4e7d7b6a2662296b8e3647cd60187de580789
 ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57029179"
@@ -30,7 +30,7 @@ ms.locfileid: "57029179"
 
 ASP.NET MVC Web アプリケーションを作成するための既定の Visual Studio テンプレートには、ASP.NET MVC アプリケーションのさまざまな部分を理解するのに使用できる非常に簡単なサンプル アプリケーションが含まれています。 私たちは、このチュートリアルではこのシンプルなアプリケーションの利用します。
 
-Visual Studio 2008 を起動することで、MVC テンプレートを使用して、新しい ASP.NET MVC アプリケーションを作成して、新規プロジェクト ファイル メニュー オプションを選択すると、(図 1 参照)。 新しいプロジェクト] ダイアログで [プロジェクトの種類 (Visual Basic または c#)、好みのプログラミング言語を選択し、[ **ASP.NET MVC Web アプリケーション**テンプレート] の下。 [Ok] ボタンをクリックします。
+Visual Studio 2008 を起動することで、MVC テンプレートを使用して、新しい ASP.NET MVC アプリケーションを作成して、新規プロジェクト ファイル メニュー オプションを選択すると、(図 1 参照)。 新しいプロジェクト] ダイアログで [プロジェクトの種類 (Visual Basic または C#)、好みのプログラミング言語を選択し、[ **ASP.NET MVC Web アプリケーション**テンプレート] の下。 [Ok] ボタンをクリックします。
 
 
 [![新しいプロジェクト ダイアログ ボックス](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
@@ -138,7 +138,7 @@ Id =
 
 コント ローラーは、MVC アプリケーションでユーザーと対話する方法を制御します。 コント ローラーには、ASP.NET MVC アプリケーションのフロー制御ロジックが含まれています。 コント ローラーは、ユーザーがブラウザーの要求を行うと、ユーザーに送信するには、どのような応答を決定します。
 
-コント ローラーは、クラス (たとえば、Visual Basic または c# クラス) だけです。 サンプル ASP.NET MVC アプリケーションには、コント ローラーのフォルダーにある HomeController.vb という名前のコント ローラーが含まれています。 リスト 2 で HomeController.vb ファイルの内容を再現します。
+コント ローラーは、クラス (たとえば、Visual Basic または C# クラス) だけです。 サンプル ASP.NET MVC アプリケーションには、コント ローラーのフォルダーにある HomeController.vb という名前のコント ローラーが含まれています。 リスト 2 で HomeController.vb ファイルの内容を再現します。
 
 **2 - HomeController.cs を一覧表示します。**
 
@@ -170,7 +170,7 @@ HomeController.About() アクションには、次のパスにあるビューが
 
 リスト 3 の最初の行を無視する場合、ビューの残りの部分のほとんどは標準の HTML で構成されます。 ここでする任意の HTML を入力して、ビューの内容を変更できます。
 
-ビューは、Active Server Pages または ASP.NET Web フォーム内のページによく似ています。 ビューは、HTML コンテンツとスクリプトに含めることができます。 プログラミング言語 (たとえば、c# または Visual Basic .NET)、使い慣れた .NET で、スクリプトを記述することができます。 データベースのデータなどの動的なコンテンツを表示するのにには、スクリプトを使用します。
+ビューは、Active Server Pages または ASP.NET Web フォーム内のページによく似ています。 ビューは、HTML コンテンツとスクリプトに含めることができます。 プログラミング言語 (たとえば、C# または Visual Basic .NET)、使い慣れた .NET で、スクリプトを記述することができます。 データベースのデータなどの動的なコンテンツを表示するのにには、スクリプトを使用します。
 
 ## <a name="understanding-models"></a>理解のモデル
 
