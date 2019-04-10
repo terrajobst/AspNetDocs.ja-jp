@@ -7,13 +7,14 @@ ms.author: riande
 title: ASP.NET のドキュメント
 ms.date: 08/24/2018
 description: ASP.NET および ASP.NET Web アプリケーションを構築する方法を説明します。 ドキュメント、コード例、チュートリアル、その他を入手します。
-ms.openlocfilehash: d46c4b3f39a540244905be3e6cb9a48373613190
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423748"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384722"
 ---
+<!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
     <div class="container">
         <h1>ASP.NET のドキュメント</h1>
