@@ -8,22 +8,22 @@ ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9b3d47c3c8fe5f0b37f1d45e19341df3f91a5bb0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cc8568847e050e868a3e7563b5fc1fc6fbf25d86
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57059359"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405483"
 ---
-<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server Compact データベースに 12 の 2 を展開します。
-====================
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server Compact データベースに 12 の 2 を展開します。
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
+> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)を参照してください。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
 
 
 ## <a name="overview"></a>概要
@@ -138,7 +138,7 @@ Configuration.cs ファイルを開き、内のコメントを置き換える、
 > [!NOTE]
 > コードを追加、`Seed`メソッドは、固定データがデータベースに挿入できるさまざまな方法の 1 つです。 代わりに、コードを追加し、`Up`と`Down`各移行クラスのメソッド。 `Up`と`Down`メソッドには、データベースの変更を実装するコードが含まれています。 これらの例が表示されます、[データベース更新の展開](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)チュートリアル。
 > 
-> 使用して SQL ステートメントを実行するコードを記述することも、`Sql`メソッド。 たとえば、Department テーブルを予算の列を追加し、移行の一環として、すべての部門予算を $1,000.00 を初期化するために必要な場合は、コードの次の行を追加でした、`Up`その移行のためのメソッド。
+> 使用して SQL ステートメントを実行するコードを記述することも、`Sql`メソッド。 たとえば、Department テーブルを予算の列を追加し、移行の一環として、すべての部門予算を $1,000.00 を初期化するために必要な場合は、次のコードの行を追加でした、`Up`その移行のためのメソッド。
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 > 
@@ -195,7 +195,7 @@ Code First Migrations では、メンバーシップ データベースが管理
 
 **ソリューション エクスプ ローラー**、web プロジェクト (ContosoUniversity、ContosoUniversity.DAL されません) が選択されていることを確認します。 次に、**プロジェクト**メニューの  **ASP.NET 構成**を実行する、 **Web サイト管理ツール**(WAT)。
 
-選択、**セキュリティ**タブ。
+**[セキュリティ]** タブをクリックします。
 
 [![WAT_Security_tab](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image19.png)
 
@@ -217,7 +217,7 @@ Code First Migrations では、メンバーシップ データベースが管理
 
 このセクションで開発バージョンは、学校 Dev.sdf と aspnet Dev.sdf と実稼働バージョンは学校 Prod.sdf と aspnet Prod.sdf ようにデータベースを変更します。 これは、必要に応じてが行うのために役立つ混乱テストと運用環境のデータベースのバージョンを取得することを防止します。
 
-**ソリューション エクスプ ローラー**、 をクリックして**更新**アプリを展開および\_先ほど作成した School データベースを参照してください右クリックし、選択するデータ フォルダー**プロジェクトに含める**.
+**ソリューション エクスプ ローラー**、 をクリックして**更新**アプリを展開および\_先ほど作成した School データベースを参照してください右クリックし、選択するデータ フォルダー**プロジェクトに含める。**.
 
 ![Including_School.sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
 
@@ -239,7 +239,7 @@ SQL Server Compact のデータベース エンジンと両方のデータベー
 
 ## <a name="more-information"></a>説明
 
-NuGet の詳細については、[nuget プロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)を参照してください。 NuGet を使用しない場合がインストールされているときの動作を決定する NuGet パッケージを分析する方法を説明する必要があります。 (たとえば、構成が*Web.config*変換、ビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法について詳しくは、特にを参照してください[を作成して、パッケージを公開する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)します。
+NuGet の詳細については、次を参照してください。 [nuget プロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)します。 NuGet を使用しない場合がインストールされているときの動作を決定する NuGet パッケージを分析する方法を説明する必要があります。 (たとえば、構成が*Web.config*変換、ビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法について詳しくは、特にを参照してください[を作成して、パッケージを公開する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)します。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-introduction-1-of-12.md)
