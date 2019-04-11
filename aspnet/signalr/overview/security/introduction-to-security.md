@@ -8,15 +8,15 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 311bfb4279b1c919fddcef2c0aed657083f9c34f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: HT
+ms.openlocfilehash: 6e96c9a086241b6f3fff40d4a5fb0a3636bfa4b7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57034059"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387328"
 ---
-<a name="introduction-to-signalr-security"></a>SignalR セキュリティ入門
-====================
+# <a name="introduction-to-signalr-security"></a>SignalR セキュリティ入門
+
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "57034059"
 >
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 >
-> SignalR の以前のバージョンについては、[以前のバージョンの SignalR](../older-versions/index.md)を参照してください。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -70,9 +70,9 @@ ms.locfileid: "57034059"
 
 SignalR では、ユーザーを認証するための機能は提供されません。 代わりに、アプリケーションの既存の認証の構造に SignalR の機能を統合します。 通常、SignalR での認証の結果での作業、アプリケーションでのコードは、ユーザーを認証します。 たとえば、ASP.NET フォーム認証でユーザー認証を行うし、ハブ内にユーザーを適用する場合があります。 またはメソッドを呼び出す権限がロール。 ハブでユーザー名またはユーザーがクライアントに、ロールに属しているかどうかなどの認証情報を渡すこともできます。
 
-SignalR の提供、 [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx)ハブまたはメソッドへのアクセスを持つユーザーを指定する属性。 Authorize 属性を適用するには、ハブまたはハブのメソッドを特定します。 Authorize 属性がない場合は、ハブのすべてのパブリック メソッドは、ハブに接続されているクライアント使用できます。 ハブの詳細については、[SignalR ハブの認証と承認](hub-authorization.md)を参照してください。
+SignalR の提供、 [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx)ハブまたはメソッドへのアクセスを持つユーザーを指定する属性。 Authorize 属性を適用するには、ハブまたはハブのメソッドを特定します。 Authorize 属性がない場合は、ハブのすべてのパブリック メソッドは、ハブに接続されているクライアント使用できます。 ハブの詳細については、次を参照してください。 [SignalR ハブの認証と承認](hub-authorization.md)します。
 
-適用する、`Authorize`属性をハブがいない永続的な接続します。 使用する場合は、承認規則を適用する、`PersistentConnection`オーバーライドする必要があります、`AuthorizeRequest`メソッド。 永続的な接続の詳細については、[SignalR 永続的な接続の認証と承認](persistent-connection-authorization.md)を参照してください。
+適用する、`Authorize`属性をハブがいない永続的な接続します。 使用する場合は、承認規則を適用する、`PersistentConnection`オーバーライドする必要があります、`AuthorizeRequest`メソッド。 永続的な接続の詳細については、次を参照してください。 [SignalR 永続的な接続の認証と承認](persistent-connection-authorization.md)します。
 
 <a id="connectiontoken"></a>
 
@@ -102,9 +102,9 @@ SignalR の接続トークンは、認証トークンはありません。 こ�
 
 既定では、SignalR アプリケーションは自動的に再ユーザー グループに割り当てる適切な接続が削除され、接続がタイムアウトする前に再確立するなどの一時中断から再接続時に。再接続時に、クライアントは接続の id と割り当てられたグループを含むグループ トークンを渡します。 グループのトークンはデジタル署名および暗号化します。 クライアントが保持する; 再接続後も同じ接続 idそのため、再接続のクライアントから渡された接続 id は、クライアントで使用される前の接続 id と一致する必要があります。 この検証では、悪意のあるユーザーが再接続時に承認されていないグループの参加要求を渡すことを防ぎます。
 
-ただしに注意してください、グループのトークンが失効しないことができます。 ユーザーが以前は、グループに属しているかが、そのグループから禁止されていますが、そのユーザーは禁止されているグループを含むグループ トークンを模倣することがあります。 どのグループに属するユーザーを安全に管理する必要がある場合は、データベースのようにサーバーで、そのデータを格納する必要があります。 次に、サーバーで、ユーザーがグループに属しているかどうかを検証するアプリケーション ロジックを追加します。 グループ メンバーシップの確認の例は、[グループの操作](../guide-to-the-api/working-with-groups.md)を参照してください。
+ただしに注意してください、グループのトークンが失効しないことができます。 ユーザーが以前は、グループに属しているかが、そのグループから禁止されていますが、そのユーザーは禁止されているグループを含むグループ トークンを模倣することがあります。 どのグループに属するユーザーを安全に管理する必要がある場合は、データベースのようにサーバーで、そのデータを格納する必要があります。 次に、サーバーで、ユーザーがグループに属しているかどうかを検証するアプリケーション ロジックを追加します。 グループ メンバーシップの確認の例は、次を参照してください。[グループの操作](../guide-to-the-api/working-with-groups.md)します。
 
-グループを自動的に再参加と、一時中断の後の接続が再接続されたときにのみ適用します。 によって、ユーザーが切断した場合、アプリケーションまたはアプリケーションが、アプリケーションが再起動を離れると、正しいグループにそのユーザーを追加する方法が処理する必要があります。 詳細については、[グループの操作](../guide-to-the-api/working-with-groups.md)を参照してください。
+グループを自動的に再参加と、一時中断の後の接続が再接続されたときにのみ適用します。 によって、ユーザーが切断した場合、アプリケーションまたはアプリケーションが、アプリケーションが再起動を離れると、正しいグループにそのユーザーを追加する方法が処理する必要があります。 詳細については、次を参照してください。[グループの操作](../guide-to-the-api/working-with-groups.md)します。
 
 <a id="csrf"></a>
 
@@ -134,7 +134,7 @@ CSRF 攻撃の例を次に示します。
 
 SignalR は、悪意のあるサイトが、アプリケーションに有効な要求を作成するを防ぐために、次の手順を受け取ります。 SignalR は、次の手順を既定では、コードで何もする必要はありません。
 
-- **クロス ドメイン要求を無効にする**SignalR は、ユーザーが、外部ドメインから SignalR エンドポイントを呼び出すことを防止するクロス ドメイン要求を無効にします。 SignalR では、無効である、外部ドメインのすべての要求を考慮し、要求をブロックします。 この既定の動作を維持することをお勧めします。それ以外の場合、悪意のあるサイトでは、サイトにコマンドを送信するのにユーザーをだましてでした。 クロス ドメイン要求を使用する必要がある場合は、[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)を参照してください。
+- **クロス ドメイン要求を無効にする**SignalR は、ユーザーが、外部ドメインから SignalR エンドポイントを呼び出すことを防止するクロス ドメイン要求を無効にします。 SignalR では、無効である、外部ドメインのすべての要求を考慮し、要求をブロックします。 この既定の動作を維持することをお勧めします。それ以外の場合、悪意のあるサイトでは、サイトにコマンドを送信するのにユーザーをだましてでした。 クロス ドメイン要求を使用する必要がある場合は、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。
 - **クエリ文字列、cookie ではない接続トークンを渡す**SignalR は、の代わりにクエリ文字列の値として接続トークンを cookie として渡します。 悪意のあるコードが発生した場合に、ブラウザーは接続トークンを転送誤ってできるため、接続トークンを cookie に格納するセーフはありません。 また、クエリ文字列で接続トークンを渡すの現在の接続を超える永続化接続トークンが防止します。 そのため、悪意のあるユーザーは、別のユーザーの認証の資格情報で要求を作成することはできません。
 - **接続トークンを確認します。** 」の説明に従って、[接続トークン](#connectiontoken) セクションで、サーバーでは、どの接続 id が各認証済みユーザーに関連付けられたがわかっています。 サーバーは、ユーザー名と一致しない接続 id からの要求を処理しません。 悪意のあるユーザーは、ユーザー名と、現在の接続をランダムに生成された id を知っている必要があるために、悪意のあるユーザーは有効な要求を推測でした可能性が高いことはできません。接続が終了するとすぐに、その接続 id が無効になります。 匿名ユーザーには、機密情報へのアクセスはありません。
 
@@ -146,13 +146,13 @@ SignalR は、悪意のあるサイトが、アプリケーションに有効な
 
 ### <a name="secure-socket-layers-ssl-protocol"></a>セキュリティで保護されたソケット レイヤー (SSL) プロトコル
 
-SSL プロトコルは、クライアントとサーバー間のデータの転送をセキュリティで保護するのに暗号化を使用します。 SignalR アプリケーションがクライアントとサーバー間で機密情報を送信する場合は、トランスポートの SSL を使用します。 SSL の設定の詳細については、[IIS 7 で SSL を設定する方法](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis)を参照してください。
+SSL プロトコルは、クライアントとサーバー間のデータの転送をセキュリティで保護するのに暗号化を使用します。 SignalR アプリケーションがクライアントとサーバー間で機密情報を送信する場合は、トランスポートの SSL を使用します。 SSL の設定の詳細については、次を参照してください。 [IIS 7 で SSL を設定する方法](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis)します。
 
 <a id="groupsecurity"></a>
 
 ### <a name="do-not-use-groups-as-a-security-mechanism"></a>セキュリティ メカニズムとしてグループを使用しません
 
-グループは、関連するユーザーを収集する場合の便利な方法が、機密情報へのアクセスを制限するためのセキュリティで保護されたメカニズムではありません。 これは、ユーザーことができます、再接続中にグループを自動的に再参加するときに特に当てはまります。 代わりに、特権のあるユーザーをロールに追加して、そのロールのメンバーのみにハブ メソッドへのアクセスを制限することを検討してください。 役割に基づくアクセス制限の例は、[SignalR ハブの認証と承認](hub-authorization.md)を参照してください。 再接続時にユーザー グループへのアクセスのチェックの例は、[グループの操作](../guide-to-the-api/working-with-groups.md)を参照してください。
+グループは、関連するユーザーを収集する場合の便利な方法が、機密情報へのアクセスを制限するためのセキュリティで保護されたメカニズムではありません。 これは、ユーザーことができます、再接続中にグループを自動的に再参加するときに特に当てはまります。 代わりに、特権のあるユーザーをロールに追加して、そのロールのメンバーのみにハブ メソッドへのアクセスを制限することを検討してください。 役割に基づくアクセス制限の例は、次を参照してください。 [SignalR ハブの認証と承認](hub-authorization.md)します。 再接続時にユーザー グループへのアクセスのチェックの例は、次を参照してください。[グループの操作](../guide-to-the-api/working-with-groups.md)します。
 
 <a id="input"></a>
 
@@ -186,7 +186,7 @@ SSL プロトコルは、クライアントとサーバー間のデータの転�
 
 [!code-csharp[Main](introduction-to-security/samples/sample5.cs)]
 
-JavaScript プロキシ ファイルの詳細については、[、生成されたプロキシとは何が](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy)を参照してください。 <a id="exceptions"></a>
+JavaScript プロキシ ファイルの詳細については、次を参照してください。 [、生成されたプロキシとは何が](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy)します。 <a id="exceptions"></a>
 
 ### <a name="exceptions"></a>例外
 
