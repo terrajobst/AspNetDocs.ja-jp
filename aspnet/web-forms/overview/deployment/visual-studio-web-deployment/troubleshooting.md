@@ -8,29 +8,29 @@ ms.date: 06/01/2015
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 65cd5cd9f7d1f9c5fdaea9b0d16bdfd84259efdd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: HT
+ms.openlocfilehash: b59cd34036c733579e678eab78097d3393f3e671
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042339"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421083"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio を使用して ASP.NET Web の展開:トラブルシューティング
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio を使用して ASP.NET Web の展開:トラブルシューティング
+
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 このページには、Visual Studio を使用して ASP.NET web アプリケーションを展開するときに発生する可能性がある一般的な問題について説明します。 1 つの 1 つ以上の考えられる原因と対応するソリューションは提供されます。
 
 表示されるシナリオは、Azure とサード パーティのホスティング プロバイダーの両方に適用されます。 Azure App Service で web アプリのトラブルシューティングの詳細については、次のリソースを参照してください。
 
-- [Visual Studio を使用した Azure App Service での Web アプリのトラブルシューティング](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Visual Studio を使用して Azure App Service で web アプリをトラブルシューティングします。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 - [Azure App Service で Web アプリの監視](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
-- [.NET 用の Windows Azure SDK 2.0 のリリースの発表](http:// https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net)(ScottGu のブログでは、Visual Studio で診断ログを取得する方法を示します)
+- [.NET 用の Windows Azure SDK 2.0 のリリースの発表](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net)(ScottGu のブログでは、Visual Studio で診断ログを取得する方法を示します)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>サーバー エラーからリモートで表示されている現在のカスタム エラーの設定が、エラーの詳細を防ぐため '/' アプリケーション - で
 
@@ -46,7 +46,7 @@ ms.locfileid: "57042339"
 
 リモート ホストで実行されるときに、詳細なエラー メッセージを表示するアプリケーションを有効にするには、customErrors モードを off に設定、アプリケーションを再デプロイ、およびアプリケーションを再度実行するには、Web.config ファイルを編集します。
 
-1. アプリケーションの Web.config ファイルでは、thesystem.web 要素に acustomErrors 要素が含まれる場合は、"off"に themode 属性を変更します。 それ以外の場合要素に追加 acustomErrors 要素 thesystem.web themode 属性が"off"に設定された次の例に示すようにします。 
+1. アプリケーションの Web.config ファイルでは、system.web 要素に customErrors 要素が含まれる場合は、"off"にモード属性を変更します。 それ以外の場合追加 customErrors 要素 system.web 要素でモード属性が"off"に設定された次の例に示すようにします。 
 
     [!code-xml[Main](troubleshooting/samples/sample2.xml)]
 2. アプリケーションをデプロイします。
@@ -99,7 +99,7 @@ IIS 構成ファイル 'マシン/リダイレクト' を読み込むときに�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-プロキシ サーバーは、移行先サーバーとの通信を中断することです。 Windows コントロール パネルから、または Internet Explorer で、選択**インターネット オプション**を選択し、**接続**タブ。**インターネット プロパティ**ダイアログ ボックスで、をクリックして**LAN の設定**します。 **ローカル エリア ネットワーク (LAN) 設定** ダイアログ ボックスで、クリア、**設定を自動的に検出**チェック ボックスをオンします。 [発行] ボタンを再度クリックします。
+プロキシ サーバーは、移行先サーバーとの通信を中断することです。 Windows コントロール パネルから、または Internet Explorer で、選択**インターネット オプション**を選択し、**接続**タブ。**インターネット プロパティ**ダイアログ ボックスで、をクリックして**LAN の設定**します。 **ローカル エリア ネットワーク (LAN) 設定**] ダイアログ ボックスで、クリア、**設定を自動的に検出**チェック ボックスをオンします。 [発行] ボタンを再度クリックします。
 
 問題が解決しない場合は、プロキシまたはファイアウォールの設定で何ができる、システム管理者に問い合わせてください。 Web Deploy Web 管理サービスの展開 (8172); の非標準ポートを使用するために、問題が発生します。他の接続では、Web Deploy はポート 80 を使用します。 サード パーティのホスティング プロバイダーに展開する場合に通常 Web 管理サービスを使用しています。
 
@@ -129,7 +129,7 @@ IIS では、ASP.NET 4 がインストールされていません。 配置す�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-開く、 *Web.config*ファイルで、展開されたサイトと接続文字列の値が $ で始まるかどうかを確認 (ReplacableToken\_、次の例。
+開く、 *Web.config*で展開されたサイトを確認するかどうか、接続文字列値で始まるファイル`$(ReplaceableToken_`、次の例。
 
 [!code-xml[Main](troubleshooting/samples/sample5.xml)]
 
@@ -149,7 +149,7 @@ HTTP エラー 500 - 内部サーバー エラー。
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-500 のエラーの原因の多くがありますが、これらのチュートリアルをフォローしている場合は、考えられる原因の 1 つは XML 要素を Web.config 変換ファイルのいずれかで間違った場所に配置すること。 挿入する変換を配置する場合にこのエラーが得られるなど、&lt;場所&gt;要素  &lt;system.web&gt;の代わりの直下にある&lt;構成&gt;します。 Web.config 変換のプレビュー機能を使用すると、変換が意図したとおりに動作していることを確認します。 コーディングがある変換を検索する場合は、変換ファイルを修正して再デプロイします。 エラーが明らかな場合は、変換をコメント アウトし、500 エラーの原因を確認する 1 つの再デプロイします。
+500 のエラーの原因の多くがありますが、これらのチュートリアルをフォローしている場合は、考えられる原因の 1 つは XML 要素を Web.config 変換ファイルのいずれかで間違った場所に配置すること。 挿入する変換を配置する場合にこのエラーが得られるなど、&lt;場所&gt;要素 [ &lt;system.web&gt;の代わりの直下にある&lt;構成&gt;します。 Web.config 変換のプレビュー機能を使用すると、変換が意図したとおりに動作していることを確認します。 コーディングがある変換を検索する場合は、変換ファイルを修正して再デプロイします。 エラーが明らかな場合は、変換をコメント アウトし、500 エラーの原因を確認する 1 つの再デプロイします。
 
 ## <a name="http-50021-internal-server-error"></a>HTTP 500.21 内部サーバー エラー
 
@@ -195,11 +195,11 @@ System.Data.SqlClient.SqlException:データベース"DatabaseName"ログイン�
 
 ### <a name="scenario"></a>シナリオ
 
-構成されているデータベースの配置を使用している、**パッケージ化/発行 SQL**  タブで、デプロイ時に実行される SQL スクリプトなどのユーザーの作成またはロールの作成のコマンドをスクリプトの実行が失敗したこれらのコマンドを実行するとします。 次のように、メッセージの詳細を参照して可能性があります。
+構成されているデータベースの配置を使用している、**パッケージ化/発行 SQL** ] タブで、デプロイ時に実行される SQL スクリプトなどのユーザーの作成またはロールの作成のコマンドをスクリプトの実行が失敗したこれらのコマンドを実行するとします。 次のように、メッセージの詳細を参照して可能性があります。
 
 [!code-console[Main](troubleshooting/samples/sample8.cmd)]
 
-データベースの配置を構成したときにこのエラーが発生、 **Web の発行**ウィザードではなく、**パッケージ化/発行 SQL**  タブでスレッドを作成、[構成し、展開](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)フォーラム、およびソリューションは、このトラブルシューティングのページに追加されます。
+データベースの配置を構成したときにこのエラーが発生、 **Web の発行**ウィザードではなく、**パッケージ化/発行 SQL** ] タブでスレッドを作成、[構成し、展開](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)フォーラム、およびソリューションは、このトラブルシューティングのページに追加されます。
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
@@ -217,9 +217,9 @@ System.Data.SqlClient.SqlException:データベース"DatabaseName"ログイン�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-別のトランザクション モードを持つ複数のスクリプトを実行すると、タイムアウト エラーが発生することができます。 既定では、自動的に生成されたスクリプトは、トランザクションで実行しますが、カスタム スクリプトはありません。 選択した場合、**データや既存のデータベースからスキーマをプル**オプション、**パッケージ化/発行 SQL**  タブで、カスタム SQL スクリプトを追加する場合は、いくつかのスクリプトでのトランザクション設定を変更する必要がありますようにすべてのスクリプトでは、同じトランザクションの設定を使用します。 詳細については、「[方法 :データベース、Web アプリケーション プロジェクトを配置](https://msdn.microsoft.com/library/dd465343.aspx)します。
+別のトランザクション モードを持つ複数のスクリプトを実行すると、タイムアウト エラーが発生することができます。 既定では、自動的に生成されたスクリプトは、トランザクションで実行しますが、カスタム スクリプトはありません。 選択した場合、**データや既存のデータベースからスキーマをプル**オプション、**パッケージ化/発行 SQL** ] タブで、カスタム SQL スクリプトを追加する場合は、いくつかのスクリプトでのトランザクション設定を変更する必要がありますようにすべてのスクリプトでは、同じトランザクションの設定を使用します。 詳細については、「[方法 :データベース、Web アプリケーション プロジェクトを配置](https://msdn.microsoft.com/library/dd465343.aspx)します。
 
-すべてが同じになるように、トランザクションの設定を構成したが、このエラーが引き続き発生すると場合、考えられる回避策とは別にスクリプトを実行します。 **データベース スクリプト**グリッドで、**パッケージ化/発行**SQL タブで、、 **Include**タイムアウト エラーが発生するスクリプトのチェック ボックスは、プロジェクトを発行します。 移動し、**データベース スクリプト**グリッド、スクリプトを選択します**Include**チェック ボックスをオンし、オフ、 **Include**他のスクリプトのチェック ボックスを。 プロジェクトをもう一度発行します。 この時間を発行すると、選択したカスタム スクリプトのみが実行されます。
+すべてが同じになるように、トランザクションの設定を構成したが、このエラーが引き続き発生すると場合、考えられる回避策とは別にスクリプトを実行します。 **データベース スクリプト**グリッドで、**パッケージ化/発行**SQL タブで、[、 **Include**タイムアウト エラーが発生するスクリプトのチェック ボックスは、プロジェクトを発行します。 移動し、**データベース スクリプト**グリッド、スクリプトを選択します**Include**チェック ボックスをオンし、オフ、 **Include**他のスクリプトのチェック ボックスを。 プロジェクトをもう一度発行します。 この時間を発行すると、選択したカスタム スクリプトのみが実行されます。
 
 ## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>サイトのマニフェストの Stream データはまだ使用できません。
 
@@ -257,7 +257,7 @@ IIS では、ASP.NET 4 がインストールされていません。 配置す�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-Web Deploy 2.0 がインストールされているサーバーに Web デプロイ 1.1 UI を使用して IIS マネージャーからのデプロイしようとしました。 チェック、パッケージをインポートして展開する IIS のリモート管理ツールを使用している場合、**機能利用可能な新しい** ダイアログ ボックス、接続を確立するときにします。 (このダイアログ ボックスがありますのみ表示されます 1 回、接続が最初に確立されたときに。 接続を消去し、最初からやり直す、IIS マネージャーを閉じますと inetmgr を入力して、もう一度開始が/コマンド プロンプトでリセットします。)機能のいずれかが表示されている場合は、 **Web デプロイ UI**、8 よりも低いバージョン番号があるを展開して、サーバーは 1.1 と 2.0 の両方のバージョンの Web 配置がインストールされている必要があります。 2.0 をインストールしているクライアントからのデプロイ、サーバーにのみ Web Deploy 2.0 をインストールする必要があります。 この問題を解決するのには、ホスティング プロバイダーに連絡する必要があります。
+Web Deploy 2.0 がインストールされているサーバーに Web デプロイ 1.1 UI を使用して IIS マネージャーからのデプロイしようとしました。 チェック、パッケージをインポートして展開する IIS のリモート管理ツールを使用している場合、**機能利用可能な新しい**] ダイアログ ボックス、接続を確立するときにします。 (このダイアログ ボックスがありますのみ表示されます 1 回、接続が最初に確立されたときに。 接続を消去し、最初からやり直す、IIS マネージャーを閉じますと inetmgr を入力して、もう一度開始が/コマンド プロンプトでリセットします。)機能のいずれかが表示されている場合は、 **Web デプロイ UI**、8 よりも低いバージョン番号があるを展開して、サーバーは 1.1 と 2.0 の両方のバージョンの Web 配置がインストールされている必要があります。 2.0 をインストールしているクライアントからのデプロイ、サーバーにのみ Web Deploy 2.0 をインストールする必要があります。 この問題を解決するのには、ホスティング プロバイダーに連絡する必要があります。
 
 ## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>SQL Server Compact のネイティブ コンポーネントを読み込めませんでした。
 
@@ -269,7 +269,7 @@ SQL Server Compact の 8482 のバージョンの ADO.NET プロバイダーに�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-展開されたサイトがない*amd64*と*x86*アプリケーションの下にネイティブ アセンブリを含むサブフォルダー *bin*フォルダー。 SQL Server Compact がインストールされているコンピューターで、ネイティブ アセンブリ内にある*C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private*します。 Visual Studio プロジェクトに適切なフォルダーに正しいファイルを取得する最善の方法では、NuGet SqlServerCompact パッケージをインストールします。 パッケージのインストールにネイティブ アセンブリをコピーするビルド後のスクリプトを追加します*amd64*と*x86*します。 これらを展開するためには、ただし、手動で、プロジェクトに追加する必要があります。 詳細については、次を参照してください。、[を展開する SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)チュートリアル。
+展開されたサイトがない*amd64*と*x86*アプリケーションの下にネイティブ アセンブリを含むサブフォルダー *bin*フォルダー。 SQL Server Compact がインストールされているコンピューターで、ネイティブ アセンブリ内にある*C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private*します。 Visual Studio プロジェクトに適切なフォルダーに正しいファイルを取得する最善の方法では、NuGet SqlServerCompact パッケージをインストールします。 パッケージのインストールにネイティブ アセンブリをコピーするビルド後のスクリプトを追加します*amd64*と*x86*します。 これらを展開するためには、ただし、[手動で、プロジェクトに追加する必要があります。 詳細については、次を参照してください。、[を展開する SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)チュートリアル。
 
 ## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>Entity Framework Code First アプリケーションのデプロイ後にエラーが「パスが無効です」
 
@@ -281,7 +281,7 @@ SQL Server Compact、アプリ内のファイルにそのデータベースを�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-コードは、データベースが、アプリを作成する試行が最初\_データ フォルダーが存在しません。 ファイルがあるいないか、*アプリ\_データ*フォルダーを展開したか、選択したときに**を除外するアプリ\_データ**上、**パッケージ化/発行 Web**プロジェクトのプロパティ ウィンドウのタブ。 サーバーにコピーするフォルダーにファイルがない場合、展開プロセス サーバーのフォルダーは作成されません。 展開プロセスがファイルを削除、サイトの設定、データベースがある場合、*アプリ\_データ*フォルダー自体を選択した場合**転送先に追加のファイルを削除**で発行プロファイル。 問題を解決するには、内の .txt ファイルなどのプレース ホルダー ファイルを配置、*アプリ\_データ*フォルダーがないことを確認**を除外するアプリ\_データ**を選択し、再デプロイします。
+コードは、データベースが、アプリを作成する試行が最初\_データ フォルダーが存在しません。 ファイルがあるいないか、*アプリ\_データ*フォルダーを展開したか、選択したときに**を除外するアプリ\_データ**上、**パッケージ化/発行 Web**プロジェクトのプロパティ] ウィンドウのタブ。 サーバーにコピーするフォルダーにファイルがない場合、展開プロセス サーバーのフォルダーは作成されません。 展開プロセスがファイルを削除、サイトの設定、データベースがある場合、*アプリ\_データ*フォルダー自体を選択した場合**転送先に追加のファイルを削除**で発行プロファイル。 問題を解決するには、内の .txt ファイルなどのプレース ホルダー ファイルを配置、*アプリ\_データ*フォルダーがないことを確認**を除外するアプリ\_データ**を選択し、再デプロイします。
 
 ## <a name="com-object-that-has-been-separated-from-its-underlying-rcw-cannot-be-used"></a>「基になる RCW から分割された COM オブジェクト使用できません。」
 
@@ -338,7 +338,7 @@ ASP.NET 4.5 を対象とする web プロジェクトを正常に発行したが
 
 同じ宛先へ、ASP.NET 4 またはそれ以前の web プロジェクトを展開する場合は、選択、**転送先に追加のファイルを削除**チェック ボックスをオン、**設定**のタブ、 **Web の発行**ウィザード。 選択しない場合**転送先に追加のファイルを削除**、構成エラー ページを取得する続行されます。
 
-プロジェクト**プロパティ**windows には、ターゲット フレームワークのドロップダウン リストが含まれていますが、だけを変更することでこの問題を解決できない **.NET Framework 4.5**に **.NET Framework 4**. 以前の framework バージョンをターゲット フレームワークを変更した場合、プロジェクトは framework の以降のバージョンのアセンブリへの参照が残っているし、は実行されません。 手動でこれらの参照を変更または .NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、[Web サイトの .NET Framework Targeting](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx)を参照してください。
+プロジェクト**プロパティ**windows には、ターゲット フレームワークのドロップダウン リストが含まれていますが、だけを変更することでこの問題を解決できない **.NET Framework 4.5**に **.NET Framework 4**. 以前の framework バージョンをターゲット フレームワークを変更した場合、プロジェクトは framework の以降のバージョンのアセンブリへの参照が残っているし、は実行されません。 手動でこれらの参照を変更または .NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、次を参照してください。 [Web サイトの .NET Framework Targeting](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx)します。
 
 ## <a name="medium-trust-errors"></a>中程度の信頼のエラー
 
