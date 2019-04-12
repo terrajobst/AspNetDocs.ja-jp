@@ -8,15 +8,15 @@ ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: HT
+ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065729"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396983"
 ---
-<a name="using-oauth-providers-with-mvc-4"></a>MVC 4 で OAuth プロバイダーを使用する
-====================
+# <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 で OAuth プロバイダーを使用する
+
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアルでは、ユーザーが Facebook、Twitter、Microsoft、Google などの外部プロバイダーからの資格情報でログインし、これらのプロバイダーにから機能の一部を統合できる ASP.NET MVC 4 web アプリケーションを構築する方法、web アプリケーションです。 わかりやすくするため、このチュートリアルは Facebook からの資格情報の操作に焦点を当てます。
@@ -44,7 +44,7 @@ ms.locfileid: "57065729"
 - Microsoft Visual Studio 2010 SP1 または[Visual Web Developer Express 2010 SP1](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
 - [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
 
-さらに、このトピックでは、ASP.NET MVC と Visual Studio に関する基本的な知識がある前提としています。 ASP.NET MVC 4 の概要が必要な場合は、[ASP.NET MVC 4 の概要](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)を参照してください。
+さらに、このトピックでは、ASP.NET MVC と Visual Studio に関する基本的な知識がある前提としています。 ASP.NET MVC 4 の概要が必要な場合は、次を参照してください。 [ASP.NET MVC 4 の概要](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)します。
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
@@ -111,7 +111,7 @@ Facebook から id とシークレットを受信したできた AuthConfig フ�
 
 ![外部ログイン](using-oauth-providers-with-mvc/_static/image6.png)
 
-このチュートリアルでは、外部プロバイダーのボタンでログをカスタマイズする方法は説明しません。 詳細については、[Oauth/openid を使用する場合は、ログイン UI をカスタマイズする](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx)を参照してください。
+このチュートリアルでは、外部プロバイダーのボタンでログをカスタマイズする方法は説明しません。 詳細については、次を参照してください。 [Oauth/openid を使用する場合は、ログイン UI をカスタマイズする](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx)します。
 
 Facebook の資格情報でログインする Facebook] ボタンをクリックします。 外部プロバイダーのいずれかを選択すると、そのサイトにリダイレクトされ、ログインにそのサービスによってメッセージが表示するは。
 
@@ -185,7 +185,7 @@ UsersContext クラスでは、新しいクラスの DbSet プロパティを作
 
 - ID
 - name
-- link
+-  リンクをクリックする
 - 性別
 - accesstoken
 
