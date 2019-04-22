@@ -12,7 +12,7 @@ ms.openlocfilehash: 288f5017acde5a103460ace688933609fba0b02c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391027"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR 1.x の概要
@@ -173,4 +173,4 @@ SignalR がリアルタイムの web アプリケーションを構築するた�
 
 - [SignalR プロジェクト](http://signalr.net)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)

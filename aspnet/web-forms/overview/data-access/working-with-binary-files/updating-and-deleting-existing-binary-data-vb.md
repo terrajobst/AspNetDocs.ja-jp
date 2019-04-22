@@ -12,7 +12,7 @@ ms.openlocfilehash: b12af635c7913d4ca343d3e0e6af9f43aef493e9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391560"
 ---
 # <a name="updating-and-deleting-existing-binary-data-vb"></a>既存のバイナリ データの更新と削除 (VB)
@@ -37,7 +37,7 @@ DAL が自動生成`Insert`、 `Update`、および`Delete`メソッドがこれ
 型指定されたデータセットを開くし、デザイナーを右クリックし、`CategoriesTableAdapter`のヘッダー、TableAdapter クエリ構成ウィザードを起動するコンテキスト メニューから追加のクエリを選択します。 このウィザードは、TableAdapter のクエリがデータベースにアクセスする方法を求めてして開始します。 SQL ステートメントを使用を選択し、[次へ] をクリックします。 次の手順では、生成されるクエリの種類を要求します。 クエリを作成する新しいレコードを追加する re 経過、`Categories`テーブルを更新プログラムを選択し、[次へ] をクリックします。
 
 
-[![S更新オプションを選択](updating-and-deleting-existing-binary-data-vb/_static/image2.png)](updating-and-deleting-existing-binary-data-vb/_static/image1.png)
+[![更新オプションを選択します。](updating-and-deleting-existing-binary-data-vb/_static/image2.png)](updating-and-deleting-existing-binary-data-vb/_static/image1.png)
 
 **図 1**:更新オプションを選択します ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image3.png))。
 
@@ -50,7 +50,7 @@ DAL が自動生成`Insert`、 `Update`、および`Delete`メソッドがこれ
 ウィザードの最後の画面を使用して、新しい TableAdapter メソッドの名前を付けるよう求められます。 入力`UpdateWithPicture`[完了] をクリックします。
 
 
-[![Name 新しい TableAdapter メソッド UpdateWithPicture](updating-and-deleting-existing-binary-data-vb/_static/image5.png)](updating-and-deleting-existing-binary-data-vb/_static/image4.png)
+[![新しい TableAdapter メソッド UpdateWithPicture 名](updating-and-deleting-existing-binary-data-vb/_static/image5.png)](updating-and-deleting-existing-binary-data-vb/_static/image4.png)
 
 **図 2**:新しい TableAdapter メソッド名前`UpdateWithPicture`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image6.png))。
 
@@ -78,7 +78,7 @@ Let s はこのチュートリアルでは、代わりに、バイナリの画�
 開いて開始、`UploadInDetailsView.aspx`ページ。 宣言型構文内のすべてのコピー、`<asp:Content>`要素を図 3 に示すようにします。 次に、`UpdatingAndDeleting.aspx`内では、このマークアップを貼り付けると、`<asp:Content>`要素。 同様からコードをコピー、`UploadInDetailsView.aspx`ページの分離コード クラスを`UpdatingAndDeleting.aspx`します。
 
 
-[![Copy UploadInDetailsView.aspx から宣言型マークアップ](updating-and-deleting-existing-binary-data-vb/_static/image8.png)](updating-and-deleting-existing-binary-data-vb/_static/image7.png)
+[![宣言型マークアップを UploadInDetailsView.aspx からコピーします。](updating-and-deleting-existing-binary-data-vb/_static/image8.png)](updating-and-deleting-existing-binary-data-vb/_static/image7.png)
 
 **図 3**:コピーから宣言型マークアップ`UploadInDetailsView.aspx`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image9.png))。
 
@@ -94,7 +94,7 @@ Let s はこのチュートリアルでは、代わりに、バイナリの画�
 ここでは、(None) に更新 タブのドロップダウン リストの設定が削除 s タブのドロップダウン リストに設定をそのまま`DeleteCategory`します。 更新のサポートを追加する手順 6 では、このウィザードに戻っています。
 
 
-[![C構成、ObjectDataSource DeleteCategory メソッドを使用する](updating-and-deleting-existing-binary-data-vb/_static/image11.png)](updating-and-deleting-existing-binary-data-vb/_static/image10.png)
+[![ObjectDataSource DeleteCategory メソッドを使用して構成します。](updating-and-deleting-existing-binary-data-vb/_static/image11.png)](updating-and-deleting-existing-binary-data-vb/_static/image10.png)
 
 **図 4**:構成に使用する ObjectDataSource、`DeleteCategory`メソッド ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image12.png))。
 
@@ -113,7 +113,7 @@ ObjectDataSource の値を含めるようになりましたが、`DeleteMethod`�
 ObjectDataSource を構成した後に、GridView s のスマート タグから削除を有効にするチェック ボックスをオン GridView に削除する機能を追加します。 これは、[commandfield] が GridView に追加されますが`ShowDeleteButton`プロパティに設定されて`True`。
 
 
-[![E削除すると、gridview のサポート有効にする](updating-and-deleting-existing-binary-data-vb/_static/image14.png)](updating-and-deleting-existing-binary-data-vb/_static/image13.png)
+[![Gridview を削除するためのサポートを有効にします。](updating-and-deleting-existing-binary-data-vb/_static/image14.png)](updating-and-deleting-existing-binary-data-vb/_static/image13.png)
 
 **図 5**:削除すると、gridview のサポートを有効にする ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image15.png))。
 
@@ -121,12 +121,12 @@ ObjectDataSource を構成した後に、GridView s のスマート タグから
 削除の機能をテストする時間がかかります。 間の外部キーがある、`Products`テーブル s`CategoryID`と`Categories`テーブルの`CategoryID`ので、最初の 8 つのカテゴリのいずれかを削除しようとした場合、外部キー制約の違反例外が表示されます。 Out には、この機能をテストするには、パンフレットと図の両方を提供する、新しいカテゴリを追加します。 図 6 に示すように、私のテスト カテゴリには、という名前のテスト パンフレット ファイルが含まれています。`Test.pdf`とテスト画像。 図 7 は、テスト カテゴリを追加した後に、GridView を示します。
 
 
-[![Add パンフレットとイメージのテスト カテゴリ](updating-and-deleting-existing-binary-data-vb/_static/image17.png)](updating-and-deleting-existing-binary-data-vb/_static/image16.png)
+[![パンフレットと画像があるテスト カテゴリを追加します。](updating-and-deleting-existing-binary-data-vb/_static/image17.png)](updating-and-deleting-existing-binary-data-vb/_static/image16.png)
 
 **図 6**:パンフレットとイメージのテスト カテゴリを追加 ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image18.png))。
 
 
-[![Aテストのカテゴリの挿入後に中断しました GridView に表示されます](updating-and-deleting-existing-binary-data-vb/_static/image20.png)](updating-and-deleting-existing-binary-data-vb/_static/image19.png)
+[![テスト カテゴリを挿入した後、GridView に表示されます。](updating-and-deleting-existing-binary-data-vb/_static/image20.png)](updating-and-deleting-existing-binary-data-vb/_static/image19.png)
 
 **図 7**:テスト カテゴリを挿入した後、GridView に表示されます ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image21.png))。
 
@@ -171,7 +171,7 @@ GridView s [ `RowDeleting`イベント](https://msdn.microsoft.com/library/syste
 ObjectDataSource のウィザードからのデータ ソースの構成のリンクをクリックして、2 番目の手順に進みます。 ため、`DataObjectMethodAttribute`で使用される`CategoriesBLL`の更新プログラムのドロップダウン リストを自動的に代入する、`UpdateCategory`を 4 つの入力パラメーターを受け取るオーバー ロード (すべての列が`Picture`)。 5 つのパラメーターでオーバー ロードを使用するように変更します。
 
 
-[![C構成の画像のパラメーターを含む UpdateCategory メソッドを使用して ObjectDataSource](updating-and-deleting-existing-binary-data-vb/_static/image23.png)](updating-and-deleting-existing-binary-data-vb/_static/image22.png)
+[![画像のパラメーターを含む UpdateCategory メソッドを使用して ObjectDataSource を構成します。](updating-and-deleting-existing-binary-data-vb/_static/image23.png)](updating-and-deleting-existing-binary-data-vb/_static/image22.png)
 
 **図 9**:構成に使用する ObjectDataSource、`UpdateCategory`メソッドのパラメーターを含む`Picture`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image24.png))。
 
@@ -186,7 +186,7 @@ ObjectDataSource の値を含めるようになりましたが、`UpdateMethod`�
 GridView s 組み込み編集機能を有効にするには、GridView s のスマート タグの編集を有効にするオプションをオンにします。 設定すると、[commandfield] s`ShowEditButton`プロパティを`True`、さらに編集ボタン (および編集される行の更新プログラムおよび [キャンセル] ボタン) の結果として得られる。
 
 
-[![C構成のサポートを編集する GridView](updating-and-deleting-existing-binary-data-vb/_static/image26.png)](updating-and-deleting-existing-binary-data-vb/_static/image25.png)
+[![サポートの編集を GridView を構成します。](updating-and-deleting-existing-binary-data-vb/_static/image26.png)](updating-and-deleting-existing-binary-data-vb/_static/image25.png)
 
 **図 10**:構成のサポートを編集する GridView ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image27.png))。
 
@@ -194,7 +194,7 @@ GridView s 組み込み編集機能を有効にするには、GridView s のス�
 ブラウザーでページにアクセスし、いずれかの行の編集ボタンをクリックします。 `CategoryName`と`Description`BoundFields がテキスト ボックスとしてレンダリングされます。 `BrochurePath` TemplateField がない、`EditItemTemplate`を表示し続けるため、その`ItemTemplate`パンフレットへのリンク。 `Picture` ImageField を持つテキスト ボックスとしてレンダリング`Text`プロパティには、ImageField s の値が割り当てられている`DataImageUrlField`値、ここで`CategoryID`します。
 
 
-[![TGridView 彼が BrochurePath の編集インターフェイスは、不足しています](updating-and-deleting-existing-binary-data-vb/_static/image29.png)](updating-and-deleting-existing-binary-data-vb/_static/image28.png)
+[![GridView の BrochurePath の編集インターフェイスが不足しています](updating-and-deleting-existing-binary-data-vb/_static/image29.png)](updating-and-deleting-existing-binary-data-vb/_static/image28.png)
 
 **図 11**:GridView の編集インターフェイスがない`BrochurePath`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image30.png))。
 
@@ -226,7 +226,7 @@ GridView s のスマート タグからのテンプレートの編集リンク�
 という名前の FileUpload コントロールを追加、RadioButtonList、下にある`BrochureUpload`します。 設定の`Visible`プロパティを`False`します。
 
 
-[![Add、RadioButtonList と、後に FileUpload コントロール](updating-and-deleting-existing-binary-data-vb/_static/image32.png)](updating-and-deleting-existing-binary-data-vb/_static/image31.png)
+[![後に、RadioButtonList と FileUpload コントロールを追加します。](updating-and-deleting-existing-binary-data-vb/_static/image32.png)](updating-and-deleting-existing-binary-data-vb/_static/image31.png)
 
 **図 13**:RadioButtonList と FileUpload コントロールを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image33.png))。
 
@@ -241,12 +241,12 @@ RadioButtonList と FileUpload コントロールでは、テンプレート内�
 このコードを少し編集インターフェイスをテストします。 行の編集 ボタンをクリックします。 最初に、現在のパンフレットを使用する オプションを選択してください。 選択されたインデックスの変更がポストバックを発生します。 3 番目のオプションが選択されている場合は、FileUpload コントロールが表示されたら、それ以外の場合は表示されません。 図 14 は、編集 ボタンがクリックされた最初; ときに編集インターフェイスを示しています図 15 は、新しいパンフレットのアップロード オプションを選択した後に、インターフェイスを示します。
 
 
-[![Initially を使用して現在パンフレット オプションを選択する](updating-and-deleting-existing-binary-data-vb/_static/image35.png)](updating-and-deleting-existing-binary-data-vb/_static/image34.png)
+[![最初に、使用して現在パンフレット オプションを選択します。](updating-and-deleting-existing-binary-data-vb/_static/image35.png)](updating-and-deleting-existing-binary-data-vb/_static/image34.png)
 
 **図 14**:最初に、使用して現在パンフレット オプションが選択されている ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image36.png))。
 
 
-[![Choosing アップロード新しいパンフレット オプションは、FileUpload コントロールを表示します](updating-and-deleting-existing-binary-data-vb/_static/image38.png)](updating-and-deleting-existing-binary-data-vb/_static/image37.png)
+[![FileUpload コントロール アップロード新しいパンフレット オプションの表示の選択](updating-and-deleting-existing-binary-data-vb/_static/image38.png)](updating-and-deleting-existing-binary-data-vb/_static/image37.png)
 
 **図 15**:FileUpload コントロール アップロード新しいパンフレット オプションの表示の選択 ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image39.png))。
 
@@ -302,7 +302,7 @@ ImageField をこの方法で TemplateField に変換するには、2 つのテ�
 更新する必要があります、 `EditItemTemplate` FileUpload コントロールを使用します。 テンプレートの編集 、s のスマート タグの GridView からリンクを選び、 `Picture` TemplateField の`EditItemTemplate`ドロップダウン リストから。 テンプレートでは、これを削除するテキスト ボックスが表示されます。 次に、ツールボックスから FileUpload コントロールをドラッグして、テンプレートの設定にその`ID`に`PictureUpload`します。 また、カテゴリの画像を変更するには、新しい画像を指定するテキストを追加します。 同じカテゴリの画像を維持するには、空のままに、フィールド、テンプレートにします。
 
 
-[![Add、後に FileUpload コントロール](updating-and-deleting-existing-binary-data-vb/_static/image41.png)](updating-and-deleting-existing-binary-data-vb/_static/image40.png)
+[![FileUpload コントロールを後に追加します。](updating-and-deleting-existing-binary-data-vb/_static/image41.png)](updating-and-deleting-existing-binary-data-vb/_static/image40.png)
 
 **図 17**:FileUpload コントロールを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image42.png))。
 
@@ -310,7 +310,7 @@ ImageField をこの方法で TemplateField に変換するには、2 つのテ�
 編集インターフェイスをカスタマイズしたら、ブラウザーで、進行状況を表示します。 読み取り専用モードで行を表示するときに前に、が、画像の列を表示します FileUpload コントロールでテキストとして編集 ボタンをクリックすると、カテゴリ s の画像が表示されます。
 
 
-[![T彼の編集インターフェイスには、FileUpload コントロールが含まれています](updating-and-deleting-existing-binary-data-vb/_static/image44.png)](updating-and-deleting-existing-binary-data-vb/_static/image43.png)
+[![編集インターフェイスには、FileUpload コントロールが含まれています。](updating-and-deleting-existing-binary-data-vb/_static/image44.png)](updating-and-deleting-existing-binary-data-vb/_static/image43.png)
 
 **図 18**:FileUpload コントロールが編集インターフェイスに含まれています ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-vb/_static/image45.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 9ac206edee58542ced24ce89adc3393d7a3c1c37
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392171"
 ---
 # <a name="debugging-stored-procedures-c"></a>ストアド プロシージャのデバッグ (C#)
@@ -67,7 +67,7 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 値を指定した後、`@CategoryID`パラメーター、ストアド プロシージャを実行します。 を完了するまで実行するのではなく、デバッガーが停止の最初のステートメントを実行します。 ストアド プロシージャの現在の位置を示す、余白の黄色の矢印に注意してください。 表示および [ウォッチ] ウィンドウで、またはストアド プロシージャでパラメーター名の上に置くことによって、パラメーター値を編集できます。
 
 
-[![Tストアド プロシージャの最初のステートメントでは、デバッガーが停止しました](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
+[![ストアド プロシージャの最初のステートメントでデバッガーが停止しました](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
 
 **図 2**:ストアド プロシージャの最初のステートメントでデバッガーが停止した ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image4.png))。
 
@@ -85,7 +85,7 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 アプリケーションから呼び出されるストアド プロシージャのデバッグを始めることができます、前に、SQL Server デバッガーと統合する ASP.NET web アプリケーションに指示する必要があります。 ソリューション エクスプ ローラーで web サイト名を右クリックして開始 (`ASPNET_Data_Tutorial_74_CS`)。 コンテキスト メニューからプロパティ ページのオプションを選択し、左側で、開始オプション項目を選択し、デバッガーのセクションでは SQL Server のチェック ボックスをオン (図 3 を参照してください)。
 
 
-[![Cアプリケーションのプロパティ ページで SQL Server のチェック ボックスをチェックする](debugging-stored-procedures-cs/_static/image6.png)](debugging-stored-procedures-cs/_static/image5.png)
+[![アプリケーションのプロパティ ページで、SQL Server のチェック ボックスをオンします。](debugging-stored-procedures-cs/_static/image6.png)](debugging-stored-procedures-cs/_static/image5.png)
 
 **図 3**:アプリケーションのプロパティ ページで SQL Server のチェック ボックスをオン ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image7.png))。
 
@@ -108,7 +108,7 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 開く、`Products_SelectByCategoryID`ストアド プロシージャとの先頭にブレークポイントを設定、`SELECT`ステートメントの余白の適切な場所をクリックしてまたはの開始時にカーソルを配置することで、`SELECT`ステートメントと f9 キーを押します。 図 4 に示すように、ブレークポイントは余白に赤い丸が表示されます。
 
 
-[![Set、Products_SelectByCategoryID 内のブレークポイントのストアド プロシージャ](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
+[![ブレークポイントを設定、Products_SelectByCategoryID でストアド プロシージャ](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
 
 **図 4**:ブレークポイントを設定、`Products_SelectByCategoryID`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image10.png))。
 
@@ -126,12 +126,12 @@ SQL データベース オブジェクトのクライアント アプリケー�
 `Products_SelectByCategoryID`でストアド プロシージャが作成された、[型指定されたデータセット s Tableadapter の既存のストアド プロシージャの使用](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)チュートリアル。 対応する web ページ (`~/AdvancedDAL/ExistingSprocs.aspx`) このストアド プロシージャによって返される結果を表示する GridView が含まれています。 ブラウザーからこのページを参照してください。 ページ内のブレークポイントに達すると、`Products_SelectByCategoryID`ストアド プロシージャにヒットして、Visual Studio に制御が返されます。 同じように手順 1 で、ビュー、ストアド プロシージャのステートメントをステップできパラメーター値を変更できます。
 
 
-[![T彼 ExistingSprocs.aspx ページには、飲み物、最初に表示されます](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
+[![ExistingSprocs.aspx ページは、飲み物を最初に表示されます。](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
 
 **図 6**:`ExistingSprocs.aspx`ページは、飲み物を最初に表示されます ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image14.png))。
 
 
-[![T彼はストアド プロシージャのブレークポイントに到達した場合](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
+[![ストアド プロシージャのブレークポイントに達しました](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
 
 **図 7**:ブレークポイントに達するストアド プロシージャ %s ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image17.png))。
 
@@ -139,12 +139,12 @@ SQL データベース オブジェクトのクライアント アプリケー�
 図 7 に示すの値のウォッチ ウィンドウとして、`@CategoryID`パラメーターが 1 です。 これは、ため、`ExistingSprocs.aspx`が飲み物のカテゴリで、製品を最初に表示されます ページ、 `CategoryID` 1 の値。 ドロップダウン リストから別のカテゴリを選択します。 これによりポストバックが発生して、再実行します、`Products_SelectByCategoryID`ストアド プロシージャ。 この時間が、もう一度、ブレークポイントにヒット、`@CategoryID`パラメーター s の値がドロップダウン リストを選択したアイテムを反映して`CategoryID`します。
 
 
-[![Cドロップダウン リストから別のカテゴリの選択](debugging-stored-procedures-cs/_static/image19.png)](debugging-stored-procedures-cs/_static/image18.png)
+[![ドロップダウン リストから別のカテゴリを選択します。](debugging-stored-procedures-cs/_static/image19.png)](debugging-stored-procedures-cs/_static/image18.png)
 
 **図 8**:ドロップダウン リストから別のカテゴリを選択 ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image20.png))。
 
 
-[![T彼@CategoryIDパラメーターは、Web ページからカテゴリを選択を反映](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
+[![@CategoryIDパラメーターは、Web ページから選択したカテゴリを反映](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
 
 **図 9**:`@CategoryID`パラメーターは、Web ページからカテゴリを選択が反映されます ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image23.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 35fcf02c20e3d20f9cb75f6a25aeb1ddac016b4e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393770"
 ---
 # <a name="urls-in-master-pages-vb"></a>マスター ページの URL (VB)
@@ -75,7 +75,7 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 `<img>`要素の`src`属性は、相対 URL をブラウザーが検索しようとした場合、 `Images` web ページのフォルダーの場所を基準としたフォルダーです。 つまり、イメージ ファイルには、ブラウザーが検索`Admin/Images/PoweredByASPNET.gif`します。
 
 
-[![T彼は PoweredByASPNET.gif イメージ ファイルが見つかりません](urls-in-master-pages-vb/_static/image3.png)](urls-in-master-pages-vb/_static/image2.png)
+[![PoweredByASPNET.gif イメージ ファイルが見つかりません](urls-in-master-pages-vb/_static/image3.png)](urls-in-master-pages-vb/_static/image2.png)
 
 **図 02**:`PoweredByASPNET.gif`イメージ ファイルが見つかりません ([フルサイズの画像を表示する をクリックします](urls-in-master-pages-vb/_static/image4.png))。
 
@@ -92,7 +92,7 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 更新する少し、`<img>`要素の`src`属性上に示した形式のいずれかを使用して絶対 URL をし、アクセス、`~/Admin/Default.aspx`ブラウザーを使用してページ。 この時間、ブラウザーの検索し、表示が正しく、`PoweredByASPNET.gif`イメージ ファイル (図 3 を参照してください)。
 
 
-[![T彼は PoweredByASPNET.gif イメージが表示されるようになりました](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
+[![PoweredByASPNET.gif イメージが表示されるようになりました](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
 
 **図 03**:`PoweredByASPNET.gif`イメージが表示されるようになりました ([フルサイズの画像を表示する をクリックします](urls-in-master-pages-vb/_static/image7.png))。
 

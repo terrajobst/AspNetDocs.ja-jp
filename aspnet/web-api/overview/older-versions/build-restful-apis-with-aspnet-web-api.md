@@ -13,7 +13,7 @@ ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391482"
 ---
 # <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API を使用した RESTful Api を構築します。
@@ -645,7 +645,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
 
     ![データベースを作成する](build-restful-apis-with-aspnet-web-api/_static/image56.png "データベース文字列を作成します。")
 
-    *データベースを作成する*
+    *データベースの作成*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](build-restful-apis-with-aspnet-web-api/_static/image57.png "SQL データベースを指す接続文字列")

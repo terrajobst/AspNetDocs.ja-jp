@@ -12,7 +12,7 @@ ms.openlocfilehash: a8ed5c773a6b566e587f46dfe3a8504162d71c13
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395265"
 ---
 # <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a>挿入、更新、削除に関連付けられているイベントを調べる (C#)
@@ -37,7 +37,7 @@ ms.locfileid: "59395265"
 図 1 GridView を更新するときに、この一連のイベントと手順を示しています。 図 1 イベント パターンは、GridView を使用する更新に固有ではありません。 挿入、更新、または、GridView からデータを削除、DetailsView、またはフォーム ビューには、同じデータ Web コントロールと ObjectDataSource の両方の前と後のレベルのイベントのシーケンスが precipitates します。
 
 
-[![A 一連の前と後イベントには炎を GridView にデータを更新する場合](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image2.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image1.png)
+[![一連の前と後イベントには炎を GridView にデータを更新するときに](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image2.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image1.png)
 
 **図 1**:シリーズの前と後のイベント起動とデータの更新、GridView ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image3.png))。
 
@@ -60,7 +60,7 @@ ms.locfileid: "59395265"
 これにより、`ProductsBLL`簡略化された GridView インターフェイスを作成する準備ができましたクラス。 開く、`DataModificationEvents.aspx`で、`EditInsertDelete`フォルダーと、ページに GridView を追加します。 新しい ObjectDataSource を作成および使用するように構成、`ProductsBLL`クラスとその`Select()`メソッドのマッピングを`GetProducts`とその`Update()`へのマッピングをメソッド、`UpdateProduct`でのみを受け取るオーバー ロード、 `productName`、 `unitPrice`、および`productID`パラメーターを入力します。 図 2 は、ObjectDataSource をマッピングするときに、データ ソースの作成ウィザードを示しています`Update()`メソッドを`ProductsBLL`クラスの新しい`UpdateProduct`メソッドのオーバー ロードします。
 
 
-[![Mアジア太平洋新しい UpdateProduct を ObjectDataSource の Update() メソッドをオーバー ロードする](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image5.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image4.png)
+[![ObjectDataSource の Update() メソッドを新しい UpdateProduct オーバー ロードにマップします。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image5.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image4.png)
 
 **図 2**:ObjectDataSource のマップ`Update()`メソッドを新規`UpdateProduct`オーバー ロード ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image6.png))。
 
@@ -68,7 +68,7 @@ ms.locfileid: "59395265"
 この例では、機能、データを編集するがないレコード挿入または削除が必要のみが最初には、ために少し明示的に示す ObjectDataSource の`Insert()`と`Delete()`メソッドは、のいずれかにマップすることはできません、 `ProductsBLL`クラスのメソッドを挿入および削除の各タブに移動し、ドロップダウン リストから選択 (なし)。
 
 
-[![C(なし) がドロップダウン リストから挿入および削除のタブの選択](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image8.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image7.png)
+[![挿入および削除のタブのドロップダウン リストから (なし)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image8.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image7.png)
 
 **図 3**:[(なし) がドロップダウン リストから挿入および削除のタブ ([フルサイズの画像を表示する] をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image9.png))。
 
@@ -91,7 +91,7 @@ ObjectDataSource のマッピングが存在しないため`Insert()`と`Delete(
 ObjectDataSource はのみに`UpdateParameters`製品の名前、価格、および ID、Visual Studio が追加 BoundField または CheckBoxField GridView で各製品のフィールド。
 
 
-[![T各製品のフィールドの BoundField または CheckBoxField を含む GridView 彼と](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image11.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image10.png)
+[![GridView の各製品のフィールドの BoundField または CheckBoxField を含む](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image11.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image10.png)
 
 **図 4**:GridView の各製品のフィールドの BoundField または CheckBoxField を含む ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image12.png))。
 
@@ -99,7 +99,7 @@ ObjectDataSource はのみに`UpdateParameters`製品の名前、価格、およ
 エンド ユーザーでは、製品の編集、その更新ボタンをクリックすると、GridView は読み取り専用でしたそれらのフィールドを列挙します。 ObjectDataSource ので、対応するパラメーターの値を設定し、`UpdateParameters`ユーザーが入力した値のコレクション。 対応するパラメーターがない場合、GridView はコレクションに追加します。 そのため、当社の GridView に BoundFields と CheckBoxFields のすべての製品のフィールドが含まれる場合、ObjectDataSource は、最終的に、`UpdateProduct`という事実に関係なく、これらのパラメーターのすべてを受け取るオーバー ロードを ObjectDataSource の宣言型マークアップでは、3 つの入力パラメーター (図 5 参照) を指定します。 同様に、読み取り専用ではないの組み合わせがある場合製品フィールドの入力パラメーターに対応しない GridView、`UpdateProduct`オーバー ロードすると、更新を試みているときに、例外が発生します。
 
 
-[![T彼は GridView では、パラメーターを ObjectDataSource の UpdateParameters コレクションに追加](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image14.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image13.png)
+[![GridView は ObjectDataSource の UpdateParameters コレクションにパラメーターを追加します。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image14.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image13.png)
 
 **図 5**:GridView は追加パラメーターを ObjectDataSource の`UpdateParameters`コレクション ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image15.png))。
 
@@ -114,7 +114,7 @@ ObjectDataSource が呼び出すことを確認する、`UpdateProduct`で製品
 当社の GridView と共に、`UpdateProduct`オーバー ロードのユーザーを他の製品のフィールドのいずれかを失うことがなく、名前と製品の価格だけを編集できます。
 
 
-[![T彼はインターフェイスにより、編集した製品の名前と価格](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image17.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image16.png)
+[![インターフェイスを使用した製品の名前と価格の編集](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image17.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image16.png)
 
 **図 6**:だけ、製品の名前と価格の編集インターフェイスが ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image18.png))。
 
@@ -128,7 +128,7 @@ ObjectDataSource が呼び出すことを確認する、`UpdateProduct`で製品
 図 6 は、GridView の例の中に、`UnitPrice`フィールドがすべての書式設定されていない、記号し小数点以下 4 桁が任意の通貨が不足している価格表示にします。 通貨が編集可能な行の書式設定を適用する設定、 `UnitPrice` BoundField の`DataFormatString`プロパティを`{0:c}`とその`HtmlEncode`プロパティを`false`します。
 
 
-[![Set UnitPrice の DataFormatString と HtmlEncode プロパティに応じて](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image20.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image19.png)
+[![UnitPrice の DataFormatString と HtmlEncode プロパティを適宜設定します。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image20.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image19.png)
 
 **図 7**:設定、`UnitPrice`の`DataFormatString`と`HtmlEncode`プロパティに応じて ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image21.png))。
 
@@ -136,7 +136,7 @@ ObjectDataSource が呼び出すことを確認する、`UpdateProduct`で製品
 この変更により、行が編集可能な料金は、通貨形式に、;編集された行、ただし、引き続き表示されます、通貨記号と小数点以下 4 桁の値。
 
 
-[![N読み取り専用の行は、通貨値として書式設定されたようになりました](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image23.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image22.png)
+[![非が編集可能な行で書式化を通貨値として](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image23.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image22.png)
 
 **図 8**:非が編集可能な行はこれで通貨の値として書式設定 ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image24.png))。
 
@@ -144,7 +144,7 @@ ObjectDataSource が呼び出すことを確認する、`UpdateProduct`で製品
 指定された書式設定の指示、`DataFormatString`プロパティは、BoundField を設定して編集インターフェイスに適用できます`ApplyFormatInEditMode`プロパティを`true`(既定値は`false`)。 このプロパティを設定する少し`true`します。
 
 
-[![SUnitPrice BoundField を et ApplyFormatInEditMode プロパティを true に](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image26.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image25.png)
+[![UnitPrice BoundField の ApplyFormatInEditMode プロパティを true に設定します。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image26.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image25.png)
 
 **図 9**:設定、 `UnitPrice` BoundField の`ApplyFormatInEditMode`プロパティを`true`([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image27.png))。
 
@@ -152,7 +152,7 @@ ObjectDataSource が呼び出すことを確認する、`UpdateProduct`で製品
 この変更では、値を`UnitPrice`編集後に表示される行が通貨として書式設定もできます。
 
 
-[![T彼は編集された行の UnitPrice の値は、通貨として書式設定されたようになりました](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image29.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image28.png)
+[![編集された行の UnitPrice の値は今すぐ形式を通貨として](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image29.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image28.png)
 
 **図 10**:編集された行の`UnitPrice`値が通貨として書式設定ようになりました ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image30.png))。
 
@@ -169,7 +169,7 @@ GridView の`RowUpdating`イベントが 2 番目のパラメーターとして�
 図 11 は、ユーザーが指定した通貨記号の原因となった問題を両方`UnitPrice`、方法と共に、GridView の`RowUpdating`イベント ハンドラーを使用して、このような入力を正しく解析します。
 
 
-[![T彼は編集された行の UnitPrice の値は、通貨として書式設定されたようになりました](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image32.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image31.png)
+[![編集された行の UnitPrice の値は今すぐ形式を通貨として](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image32.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image31.png)
 
 **図 11**:編集された行の`UnitPrice`値が通貨として書式設定ようになりました ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image33.png))。
 
@@ -188,7 +188,7 @@ GridView の`RowUpdating`イベントが 2 番目のパラメーターとして�
 最後に、ラベルを設定`CssClass`プロパティを`Warning`します。 この時点で、デザイナーが図 12 に示すように、警告メッセージの赤い太字、斜体、GridView、上記の超大規模なフォント サイズを表示する必要があります。
 
 
-[![A GridView の上のラベルが追加されました](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image35.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image34.png)
+[![GridView の上にラベルが追加されました](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image35.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image34.png)
 
 **図 12**:ラベルがされている追加の上、GridView ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image36.png))。
 
@@ -206,7 +206,7 @@ GridView の`RowUpdating`イベントが 2 番目のパラメーターとして�
 価格を指定せず、製品を保存しようとすると場合、は、更新は取り消され、便利なメッセージが表示されます。 データベース (およびのビジネス ロジック) の中では、 `NULL` `UnitPrice` s、この特定の ASP.NET ページはありません。
 
 
-[![A ユーザーは、UnitPrice 空白から離れることはできません](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image38.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image37.png)
+[![ユーザーは、UnitPrice 空白のままことはできません。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image38.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image37.png)
 
 **図 13**:ユーザーから出られません`UnitPrice`空白 ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image39.png))。
 
@@ -229,12 +229,12 @@ ObjectDataSource で構成するには、ウィザードを起動、スマート
 ままに、`Insert()`メソッドを指す、`AddProduct`メソッドが、もう一度 (なし)、削除 タブのドロップダウン リストを設定します。
 
 
-[![S[挿入] タブのドロップダウン リストを AddProduct メソッドに et](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image41.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image40.png)
+[![AddProduct メソッドに挿入 タブのドロップダウン リストを設定します。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image41.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image40.png)
 
 **図 14**:挿入 タブのドロップダウン リストを設定、`AddProduct`メソッド ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image42.png))。
 
 
-[![Set (None) に、[削除] タブのドロップダウン リストを一覧表示](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image44.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image43.png)
+[![(なし)、[削除] タブのボックスの一覧を設定します。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image44.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image43.png)
 
 **図 15**:(なし)、削除タブのドロップダウン リストの設定 ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image45.png))。
 
@@ -254,7 +254,7 @@ ObjectDataSource で構成するには、ウィザードを起動、スマート
 図 16 では、この時点で、ブラウザーで表示した場合は、このページを示します。 ご覧のとおり、最初の製品 (Chai) の価格と名前、DetailsView が一覧表示します。 ただし、ここで必要なは、ユーザー データベースを新しい製品をすばやく追加するための手段を提供する挿入のインターフェイスです。
 
 
-[![TDetailsView 彼は現在読み取り専用モードで表示](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image47.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image46.png)
+[![DetailsView は現在読み取り専用モードでレンダリング](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image47.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image46.png)
 
 **図 16**:DetailsView は現在読み取り専用モードでレンダリング ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image48.png))。
 
@@ -262,7 +262,7 @@ ObjectDataSource で構成するには、ウィザードを起動、スマート
 挿入モードを設定する必要があります。 そのである DetailsView を表示するには、`DefaultMode`プロパティを`Inserting`します。 これは、最初にアクセスすると、挿入モードである DetailsView をレンダリングし、新しいレコードを挿入した後に保持することがあります。 図 17 に示す、このような DetailsView では、新しいレコードを追加するためのクイック インターフェイスが提供します。
 
 
-[![TDetailsView 彼は、新しい製品を簡単に追加するため、インターフェイスを提供します](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image50.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image49.png)
+[![DetailsView 新しい製品を簡単に追加するためのインターフェイスを提供します](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image50.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image49.png)
 
 **図 17**:DetailsView インターフェイスを提供します、簡単に追加の新しい製品 ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image51.png))。
 
@@ -285,7 +285,7 @@ ObjectDataSource で構成するには、ウィザードを起動、スマート
 これが一覧表示内のレコードはすべて、`Products`テーブル。 図 19 に示すよう、すべての新しい製品の列以外の`ProductID`、 `ProductName`、および`UnitPrice`が`NULL`値。
 
 
-[![T製品フィールドに指定されていない、DetailsView 彼は、NULL 値の割り当て](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image54.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image53.png)
+[![NULL 値を割り当てるには、製品フィールドに指定されていない、DetailsView です。](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image54.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image53.png)
 
 **図 19**:割り当てられている、製品フィールドに指定されていない、DetailsView`NULL`値 ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image55.png))。
 
@@ -313,7 +313,7 @@ ObjectDataSource のイベント ハンドラーを作成する少し`Inserting`
 この (など、Acme Soda)、新しい製品を追加したときに、`CategoryID`と`SupplierID`新製品の列が 1 に設定されます (図 20 を参照してください)。
 
 
-[![N新製品は、CategoryID と SupplierID をある値を 1 に設定](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image57.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image56.png)
+[![新製品は、CategoryID と SupplierID をある値を 1 に設定](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image57.png)](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image56.png)
 
 **図 20**:新しい製品ようになりましたがあるその`CategoryID`と`SupplierID`値が 1 に設定 ([フルサイズの画像を表示する をクリックします](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image58.png))。
 

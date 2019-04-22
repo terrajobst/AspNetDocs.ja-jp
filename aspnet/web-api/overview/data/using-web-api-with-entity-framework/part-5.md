@@ -12,14 +12,14 @@ ms.openlocfilehash: 1af29955e8040c34840d4c77fc2006f59d2324dd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395278"
 ---
 # <a name="create-data-transfer-objects-dtos"></a>データ転送オブジェクト (DTO) の作成
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 権利、web API、クライアントにデータベースのエンティティを公開します。 クライアントは、データベース テーブルに直接マップされるデータを受け取ります。 ただし、ない常にお勧めします。 クライアントに送信するデータの形状を変更することがあります。 たとえば、次の操作を行います。
 

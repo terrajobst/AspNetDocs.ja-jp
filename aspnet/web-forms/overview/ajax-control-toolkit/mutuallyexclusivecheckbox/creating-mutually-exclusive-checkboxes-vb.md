@@ -12,7 +12,7 @@ ms.openlocfilehash: 45ea3c3dbcf7816f67081a61230c4b055a90fcf5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393627"
 ---
 # <a name="creating-mutually-exclusive-checkboxes-vb"></a>相互に排他的なチェックボックスを作成する (VB)
@@ -47,7 +47,7 @@ ASP.NET AJAX Control Toolkit には、MutuallyExclusiveCheckBox エクステン�
 保存し、ページを実行します。確認し、両方のチェック ボックスをオフにします。 ただしない時に両方のチェック ボックス チェックできます。
 
 
-[![Oのみ () の 1 つのチェック ボックスは、同時にチェックできます](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)
+[![一度に 1 つだけのチェック ボックスをオンすることができます。](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)
 
 一度に 1 つだけのチェック ボックスをオンすることができます ([フルサイズの画像を表示する をクリックします](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))。
 

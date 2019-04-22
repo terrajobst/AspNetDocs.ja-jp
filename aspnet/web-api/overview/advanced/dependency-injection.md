@@ -13,14 +13,14 @@ ms.openlocfilehash: 0ad0b3c63741803e05274df4da3fcbe5481d32a4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391936"
 ---
 # <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の依存関係の挿入
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
 
 > このチュートリアルでは、ASP.NET Web API コント ローラーに依存関係を挿入する方法を示します。
 > 

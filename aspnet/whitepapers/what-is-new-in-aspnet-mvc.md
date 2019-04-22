@@ -12,7 +12,7 @@ ms.openlocfilehash: 7f846e807309f3123db52b3053b9aa8d6aca81e6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394836"
 ---
 # <a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 の新機能
@@ -20,11 +20,11 @@ ms.locfileid: "59394836"
 > このドキュメントでは、新しい機能と ASP.NET MVC 2 で導入された機能強化について説明します。 このドキュメントが可能な[ダウンロード](https://download.microsoft.com/download/F/1/6/F16F9AF9-8EF4-4845-BC97-639791D5699C/WhatIsNewInMVC_2.pdf)
 
 
-[はじめに](#_TOC1)   
+[概要](#_TOC1)   
 [ASP.NET MVC 1.0 プロジェクトを ASP.NET MVC 2 にアップグレードします。](#_TOC2)   
 [新機能](#_TOC3)   
 [テンプレート化されたヘルパー](#_TOC3_1)   
-[Areas](#_TOC3_2)   
+[領域](#_TOC3_2)   
 [非同期コント ローラーのサポート](#_TOC3_3)   
 [DefaultValueAttribute アクション メソッド パラメーターのサポート](#_TOC3_4)   
 [モデル バインダーのバイナリ データをバインドするためのサポート](#_TOC3_5)   
@@ -38,8 +38,8 @@ ms.locfileid: "59394836"
 [テンプレート化されたヘルパーの新しい HiddenInputAttribute クラス](#_TOC3_13)   
 [Html.ValidationSummary ヘルパー メソッドはモデル レベルのエラーを表示できます。](#_TOC3_14)   
 [T4 テンプレートでは、Visual Studio コードの生成固有では、.NET Framework のターゲット バージョンに](#_TOC3_15)[API の強化](#_TOC4)  
-[互換性に影響する変更点](#_TOC5)  
-[免責情報](#_TOC6)  
+[重大な変更](#_TOC5)  
+[免責事項](#_TOC6)  
 
 ## <a id="_TOC1"></a>  概要
 

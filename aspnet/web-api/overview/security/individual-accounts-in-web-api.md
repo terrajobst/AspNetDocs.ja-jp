@@ -12,7 +12,7 @@ ms.openlocfilehash: 29c3670ad7ab93acb0be878e5bd961d0ea446eee
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396233"
 ---
 # <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>個々 のアカウントと ASP.NET Web API 2.2 でのローカル ログインを使用して Web API をセキュリティで保護します。
@@ -26,7 +26,7 @@ ms.locfileid: "59396233"
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 
 > 
-> - [Visual Studio 2013 更新プログラム 3](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+> - [Visual Studio 2013 Update 3](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - [Web API 2.2](../releases/whats-new-in-aspnet-web-api-22.md)
 > - [ASP.NET Identity 2.1](../../../identity/index.md)
 
@@ -35,7 +35,7 @@ Visual Studio 2013 で、Web API プロジェクト テンプレートを使用�
 
 - **個々 のアカウント。** アプリでは、メンバーシップ データベースを使用します。
 - **組織のアカウント。** ユーザーが Azure Active Directory、Office 365、またはオンプレミスの Active Directory の資格情報でサインインします。
-- **Windows 認証です。** このオプションは、イントラネット アプリケーションのためのものでは、Windows 認証の IIS モジュールを使用しています。
+- **Windows 認証。** このオプションは、イントラネット アプリケーションのためのものでは、Windows 認証の IIS モジュールを使用しています。
 
 これらのオプションの詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth)です。
 
@@ -199,10 +199,10 @@ HTTP 応答:
 
 これらの機能を実装するアプリケーションのメイン クラスを次に示します。
 
-- `AccountController`. ユーザー アカウントを管理するためには、Web API エンドポイントを提供します。 `Register`アクションは、このチュートリアルで使用した 1 つだけです。 クラスの他のメソッドは、パスワードのリセット、ソーシャル ログイン、およびその他の機能をサポートします。
+- `AccountController`。 ユーザー アカウントを管理するためには、Web API エンドポイントを提供します。 `Register`アクションは、このチュートリアルで使用した 1 つだけです。 クラスの他のメソッドは、パスワードのリセット、ソーシャル ログイン、およびその他の機能をサポートします。
 - `ApplicationUser`、/Models/IdentityModels.cs で定義されています。 このクラスは、メンバーシップ データベース内のユーザー アカウントの EF モデルです。
 - `ApplicationUserManager`、/App で定義されている\_からこのクラスの派生 Start/IdentityConfig.cs [UserManager](https://msdn.microsoft.com/library/dn613290.aspx)パスワード、およびなどを確認する、新しいユーザーの作成などのユーザー アカウントに対して操作を実行し、自動的に保持データベースに変更します。
-- `ApplicationOAuthProvider`. このオブジェクトは、OWIN ミドルウェアに差し込むし、ミドルウェアによって発生したイベントを処理します。 派生した[OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx)します。
+- `ApplicationOAuthProvider`。 このオブジェクトは、OWIN ミドルウェアに差し込むし、ミドルウェアによって発生したイベントを処理します。 派生した[OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx)します。
 
 ![](individual-accounts-in-web-api/_static/image14.png)
 

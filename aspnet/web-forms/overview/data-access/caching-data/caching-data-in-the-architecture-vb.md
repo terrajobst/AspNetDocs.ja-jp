@@ -12,7 +12,7 @@ ms.openlocfilehash: 9c5ac1aeff427c78030f789fcb67736020ce3367
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391807"
 ---
 # <a name="caching-data-in-the-architecture-vb"></a>アーキテクチャでデータをキャッシュする (VB)
@@ -159,7 +159,7 @@ Let s の更新プログラム、`AddCacheItem(key, value)`メソッドの各項
 データを操作する手法を使用してこのチュートリアルで調査して、キャッシュ層のクラスとメソッドを使用できます。 キャッシュされたデータの操作を示すためには、変更内容を保存、`ProductsCL`クラスを開き、`FromTheArchitecture.aspx`ページで、`Caching`フォルダー、GridView を追加します。 GridView のスマート タグから新しい ObjectDataSource を作成します。 ウィザードの最初の手順で表示する必要があります、`ProductsCL`クラスのドロップダウン リストからオプションのいずれか。
 
 
-[![T彼はビジネス オブジェクトのドロップダウン リストで ProductsCL クラスが含まれる](caching-data-in-the-architecture-vb/_static/image5.png)](caching-data-in-the-architecture-vb/_static/image4.png)
+[![ビジネス オブジェクトのドロップダウン リストで ProductsCL クラスが含まれています。](caching-data-in-the-architecture-vb/_static/image5.png)](caching-data-in-the-architecture-vb/_static/image4.png)
 
 **図 4**:`ProductsCL`ビジネス オブジェクトのドロップダウン リストにクラスが含まれる ([フルサイズの画像を表示する をクリックします](caching-data-in-the-architecture-vb/_static/image6.png))。
 
@@ -167,7 +167,7 @@ Let s の更新プログラム、`AddCacheItem(key, value)`メソッドの各項
 選択した後`ProductsCL`、[次へ] をクリックします。 タブで、ドロップダウン リストが 2 つの項目 -`GetProducts()`と`GetProductsByCategoryID(categoryID)`更新プログラム タブであり、唯一`UpdateProduct`オーバー ロードします。 選択、`GetProducts()`メソッドを選択します タブから、`UpdateProducts`し更新 タブからメソッドを終了します。
 
 
-[![T彼は、ドロップダウン リストに ProductsCL クラスのメソッドの一覧](caching-data-in-the-architecture-vb/_static/image8.png)](caching-data-in-the-architecture-vb/_static/image7.png)
+[![ドロップダウン リストに、ProductsCL クラスのメソッドの一覧します。](caching-data-in-the-architecture-vb/_static/image8.png)](caching-data-in-the-architecture-vb/_static/image7.png)
 
 **図 5**:`ProductsCL` 、ドロップダウン リストにクラスのメソッドの一覧 ([フルサイズの画像を表示する をクリックします](caching-data-in-the-architecture-vb/_static/image9.png))。
 

@@ -12,14 +12,14 @@ ms.openlocfilehash: cbad35c9ef83b41e9d3f9a48ff37672d22338e7e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395226"
 ---
 # <a name="creating-and-running-a-deployment-command-file"></a>配置コマンド ファイルを作成し、実行する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、シングル ステップの再現可能なプロセスとして Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して展開を実行できるようにするコマンド ファイルを構築する方法について説明します。
 

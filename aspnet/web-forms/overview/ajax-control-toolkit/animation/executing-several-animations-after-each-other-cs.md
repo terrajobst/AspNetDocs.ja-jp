@@ -12,7 +12,7 @@ ms.openlocfilehash: 644af2485c1a51f2de209e968ba1b3475350fa47
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394069"
 ---
 # <a name="executing-several-animations-after-each-other-c"></a>複数のアニメーションを順番に実行する (C#)
@@ -51,12 +51,12 @@ ms.locfileid: "59394069"
 ときに最初の取得も縦と横が小さくし、パネル、このスクリプトを実行します。
 
 
-[![Fクエリー、幅を増やす](executing-several-animations-after-each-other-cs/_static/image2.png)](executing-several-animations-after-each-other-cs/_static/image1.png)
+[![まず、幅が増加します。](executing-several-animations-after-each-other-cs/_static/image2.png)](executing-several-animations-after-each-other-cs/_static/image1.png)
 
 まず、幅が増加 ([フルサイズの画像を表示する をクリックします](executing-several-animations-after-each-other-cs/_static/image3.png))。
 
 
-[![T高さの減少 hen](executing-several-animations-after-each-other-cs/_static/image5.png)](executing-several-animations-after-each-other-cs/_static/image4.png)
+[![高さの減少し、](executing-several-animations-after-each-other-cs/_static/image5.png)](executing-several-animations-after-each-other-cs/_static/image4.png)
 
 高さの減少し、([フルサイズの画像を表示する をクリックします](executing-several-animations-after-each-other-cs/_static/image6.png))。
 

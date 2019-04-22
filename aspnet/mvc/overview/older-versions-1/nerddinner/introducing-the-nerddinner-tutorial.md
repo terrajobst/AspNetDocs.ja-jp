@@ -12,14 +12,14 @@ ms.openlocfilehash: ebd49295ea165ba4ef1a25398cff7dddcfa54f11
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392197"
 ---
 # <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner チュートリアルの紹介
 
 [Scott Hanselman](https://github.com/shanselman)による
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > 新しいフレームワークを学習する最善の方法では、何らかの処理を構築します。 このチュートリアルでは、小さなをビルドしても、ASP.NET MVC 1 を使用してアプリケーションを実行する方法について説明し、その背後にある主要な概念の一部が導入されています。
 > 

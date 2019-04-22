@@ -12,7 +12,7 @@ ms.openlocfilehash: 1c99ce1528b1a28a4ec470a05d62abef6d4bb888
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391859"
 ---
 # <a name="customizing-the-datalists-editing-interface-vb"></a>DataList の編集インターフェイスをカスタマイズする (VB)
@@ -37,7 +37,7 @@ ms.locfileid: "59391859"
 このチュートリアルでは、DataList、Dropdownlist とチェック ボックスを含む 1 つの豊富な編集インターフェイスを作成します。 具体的には、製品情報を一覧表示を更新する製品の名前、仕入先、カテゴリ、および提供が中止された状態は、DataList を作成します (図 1 参照)。
 
 
-[![T彼の編集インターフェイスには、テキスト ボックス、2 つの Dropdownlist およびチェック ボックスが含まれています](customizing-the-datalist-s-editing-interface-vb/_static/image2.png)](customizing-the-datalist-s-editing-interface-vb/_static/image1.png)
+[![編集インターフェイスには、テキスト ボックス、2 つの Dropdownlist およびチェック ボックスが含まれています。](customizing-the-datalist-s-editing-interface-vb/_static/image2.png)](customizing-the-datalist-s-editing-interface-vb/_static/image1.png)
 
 **図 1**:編集インターフェイスには、テキスト ボックス、2 つの Dropdownlist およびチェック ボックスが含まれています ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image3.png))。
 
@@ -47,7 +47,7 @@ ms.locfileid: "59391859"
 DataList の編集可能なインターフェイスを作成する前にまず読み取り専用のインターフェイスを構築する必要があります。 開いて開始、`CustomizedUI.aspx`ページから、`EditDeleteDataList`フォルダーと、デザイナーでは、DataList に ページで、追加の設定、`ID`プロパティを`Products`します。 DataList s のスマート タグから新しい ObjectDataSource を作成します。 名前をこの新しい ObjectDataSource`ProductsDataSource`からデータを取得するように構成し、`ProductsBLL`クラスの`GetProducts`メソッド。 としてでは、前の編集可能な DataList チュートリアル更新編集した製品情報をビジネス ロジック層に直接移動しています。 それに応じて、UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。
 
 
-[![Set (なし) を更新、挿入、および DELETE のタブのドロップダウン リスト](customizing-the-datalist-s-editing-interface-vb/_static/image5.png)](customizing-the-datalist-s-editing-interface-vb/_static/image4.png)
+[![(なし) を更新、挿入、および DELETE のタブのドロップダウン リストを設定します。](customizing-the-datalist-s-editing-interface-vb/_static/image5.png)](customizing-the-datalist-s-editing-interface-vb/_static/image4.png)
 
 **図 2**:(なし) に、UPDATE、INSERT、およびタブ ドロップダウン リストの削除を設定 ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image6.png))。
 
@@ -60,7 +60,7 @@ ObjectDataSource を構成すると、Visual Studio の既定値は作成`ItemTe
 上記のマークアップを使用して、製品情報レイアウト、 &lt;h4&gt; s の製品名、および 4 つの列の見出し`<table>`残りのフィールド。 `ProductPropertyLabel`と`ProductPropertyValue`で定義された CSS クラス`Styles.css`、前のチュートリアルで説明しています。 図 3 は、ブラウザーで表示したときに進行状況を示します。
 
 
-[![T彼の名前、仕入先、カテゴリ、提供が中止された状態、および各製品の価格が表示されます](customizing-the-datalist-s-editing-interface-vb/_static/image8.png)](customizing-the-datalist-s-editing-interface-vb/_static/image7.png)
+[![名前、仕入先、カテゴリ、提供が中止された状態、および各製品の価格が表示されます。](customizing-the-datalist-s-editing-interface-vb/_static/image8.png)](customizing-the-datalist-s-editing-interface-vb/_static/image7.png)
 
 **図 3**:名前、仕入先、カテゴリ、提供が中止された状態、および各製品の価格が表示されます ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image9.png))。
 
@@ -72,7 +72,7 @@ ObjectDataSource を構成すると、Visual Studio の既定値は作成`ItemTe
 編集インターフェイスをカスタマイズするには、DataList s のスマート タグからのテンプレートの編集リンクをクリックし、選択、`EditItemTemplate`ドロップダウン リストからオプション。 DropDownList を追加、`EditItemTemplate`設定とその`ID`に`Categories`します。
 
 
-[![Add のカテゴリの DropDownList](customizing-the-datalist-s-editing-interface-vb/_static/image11.png)](customizing-the-datalist-s-editing-interface-vb/_static/image10.png)
+[![カテゴリの DropDownList を追加します。](customizing-the-datalist-s-editing-interface-vb/_static/image11.png)](customizing-the-datalist-s-editing-interface-vb/_static/image10.png)
 
 **図 4**:カテゴリの DropDownList を追加 ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image12.png))。
 
@@ -80,12 +80,12 @@ ObjectDataSource を構成すると、Visual Studio の既定値は作成`ItemTe
 次に、DropDownList s のスマート タグからデータ ソースの選択オプションを選択し、という名前の新しい ObjectDataSource を作成する`CategoriesDataSource`します。 構成を使用するには、この ObjectDataSource、`CategoriesBLL`クラスの`GetCategories()`メソッド (図 5 を参照してください)。 次に、DropDownList のデータ ソース構成ウィザード要求ごとに使用するデータ フィールドの`ListItem`s`Text`と`Value`プロパティ。 DropDownList の表示、`CategoryName`データ フィールドと使用、`CategoryID`図 6 に示すように、値として。
 
 
-[![C新しい ObjectDataSource という CategoriesDataSource を reate](customizing-the-datalist-s-editing-interface-vb/_static/image14.png)](customizing-the-datalist-s-editing-interface-vb/_static/image13.png)
+[![CategoriesDataSource という名前の新しい ObjectDataSource を作成します。](customizing-the-datalist-s-editing-interface-vb/_static/image14.png)](customizing-the-datalist-s-editing-interface-vb/_static/image13.png)
 
 **図 5**:名前付き新しい ObjectDataSource 作成`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image15.png))。
 
 
-[![CDropDownList の表示の構成と、値フィールド](customizing-the-datalist-s-editing-interface-vb/_static/image17.png)](customizing-the-datalist-s-editing-interface-vb/_static/image16.png)
+[![DropDownList の画面を構成して、フィールドの値](customizing-the-datalist-s-editing-interface-vb/_static/image17.png)](customizing-the-datalist-s-editing-interface-vb/_static/image16.png)
 
 **図 6**:DropDownList s の表示と値のフィールドの構成 ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image18.png))。
 
@@ -102,7 +102,7 @@ ObjectDataSource を構成すると、Visual Studio の既定値は作成`ItemTe
 [!code-aspx[Main](customizing-the-datalist-s-editing-interface-vb/samples/sample2.aspx)]
 
 
-[![T彼の編集インターフェイスは、読み取り専用インターフェイスと同様のレイアウトを](customizing-the-datalist-s-editing-interface-vb/_static/image20.png)](customizing-the-datalist-s-editing-interface-vb/_static/image19.png)
+[![読み取り専用インターフェイスと同様のレイアウトを編集インターフェイスは、します。](customizing-the-datalist-s-editing-interface-vb/_static/image20.png)](customizing-the-datalist-s-editing-interface-vb/_static/image19.png)
 
 **図 7**:読み取り専用インターフェイスと同様のレイアウトを編集インターフェイスは、([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image21.png))。
 
@@ -119,7 +119,7 @@ ObjectDataSource を構成すると、Visual Studio の既定値は作成`ItemTe
 これらは、編集インターフェイスを表示する 2 つのイベント ハンドラーの場所でが編集ボタンをクリックし、その読み取り専用モードに編集済みの項目を返します [キャンセル] ボタンをクリックします。 図 8 は、Chef Anton の Gumbo ミックスの編集 ボタンがクリックしてされた後に、DataList を示します。 以降編集のインターフェイスを任意のデータ バインディング構文を追加するには、まだ ve、`ProductName`テキスト ボックスは空白になります、`Discontinued`から、チェック ボックスはオフ、および最初の項目が選択されている、`Categories`と`Suppliers`Dropdownlist します。
 
 
-[![C編集ボタンが表示されます、編集インターフェイスをクリックして](customizing-the-datalist-s-editing-interface-vb/_static/image23.png)](customizing-the-datalist-s-editing-interface-vb/_static/image22.png)
+[![編集ボタンの表示、編集用のインターフェイスをクリックします。](customizing-the-datalist-s-editing-interface-vb/_static/image23.png)](customizing-the-datalist-s-editing-interface-vb/_static/image22.png)
 
 **図 8**:[編集] ボタンをクリックすると編集インターフェイスを表示します ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image24.png))。
 
@@ -131,7 +131,7 @@ ObjectDataSource を構成すると、Visual Studio の既定値は作成`ItemTe
 割り当てる、`ProductName`データ フィールドの値を`ProductName`テキスト ボックス s`Text`プロパティ、`CategoryID`と`SupplierID`データ フィールドの値を`Categories`と`Suppliers`Dropdownlist`SelectedValue`プロパティ、および`Discontinued`データ フィールドの値を`Discontinued`チェック ボックスの`Checked`プロパティ。 デザイナーを使用したり、宣言型のマークアップから直接これらの変更を行った後、ブラウザーを使用してページを再確認し、Chef Anton の Gumbo ミックスの編集 をクリックします。 図 9 に示すようデータ バインド構文がテキスト ボックスに、Dropdownlist、およびチェック ボックスをオンに現在の値を追加します。
 
 
-[![C編集ボタンが表示されます、編集インターフェイスをクリックして](customizing-the-datalist-s-editing-interface-vb/_static/image26.png)](customizing-the-datalist-s-editing-interface-vb/_static/image25.png)
+[![編集ボタンの表示、編集用のインターフェイスをクリックします。](customizing-the-datalist-s-editing-interface-vb/_static/image26.png)](customizing-the-datalist-s-editing-interface-vb/_static/image25.png)
 
 **図 9**:[編集] ボタンをクリックすると編集インターフェイスを表示します ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image27.png))。
 
@@ -167,7 +167,7 @@ DataList s で Dropdownlist マークアップのこれらの変更を行った�
 ブラウザーから進行状況を表示する時間がかかります。 製品を編集するときに注意してください、`Categories`と`Suppliers`Dropdownlist の両方がある (なし)、DropDownList の開始時のオプション。
 
 
-[![T彼はカテゴリと仕入先の Dropdownlist を (なし) オプションを含める](customizing-the-datalist-s-editing-interface-vb/_static/image29.png)](customizing-the-datalist-s-editing-interface-vb/_static/image28.png)
+[![カテゴリと仕入先の Dropdownlist を (なし) オプションを含める](customizing-the-datalist-s-editing-interface-vb/_static/image29.png)](customizing-the-datalist-s-editing-interface-vb/_static/image28.png)
 
 **図 10**:`Categories`と`Suppliers`Dropdownlist には、() オプションが含まれます ([フルサイズの画像を表示する をクリックします](customizing-the-datalist-s-editing-interface-vb/_static/image30.png))。
 

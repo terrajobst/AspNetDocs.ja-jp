@@ -12,7 +12,7 @@ ms.openlocfilehash: 8a6239f716aa0f63caaae84e34807ee007005f16
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395401"
 ---
 # <a name="using-templatefields-in-the-detailsview-control-c"></a>DetailsView コントロールで TemplateFields を使用する (C#)
@@ -35,7 +35,7 @@ TemplateField、BoundField、CheckBoxField、内、およびその他のデー�
 GridView で利用できる同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品を含む 2 つの TemplateFields DetailsView を使用して一度に表示します。 最初の TemplateField を組み合わせて、 `UnitPrice`、`UnitsInStock`と`UnitsOnOrder`DetailsView は 1 行にデータ フィールド。 2 番目の TemplateField の値が表示されます、`Discontinued`フィールドが、書式設定メソッドを使用して、"YES"を表示する場合は`Discontinued`は`true`、"NO"を返します。
 
 
-[![Two TemplateFields を使用して、表示をカスタマイズする](using-templatefields-in-the-detailsview-control-cs/_static/image2.png)](using-templatefields-in-the-detailsview-control-cs/_static/image1.png)
+[![2 つの TemplateFields を使用して、表示をカスタマイズするには](using-templatefields-in-the-detailsview-control-cs/_static/image2.png)](using-templatefields-in-the-detailsview-control-cs/_static/image1.png)
 
 **図 1**:2 つの TemplateFields を使用して、表示をカスタマイズする ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image3.png))。
 
@@ -49,7 +49,7 @@ BoundFields だけを格納している DetailsView コントロールを作成�
 開く、`DetailsViewTemplateField.aspx`ページし、DetailsView をツールボックスからデザイナーにドラッグします。 呼び出す新しい ObjectDataSource コントロールを追加することも、DetailsView のスマート タグから、`ProductsBLL`クラスの`GetProducts()`メソッド。
 
 
-[![Add GetProducts() メソッドを呼び出す新しい ObjectDataSource コントロール](using-templatefields-in-the-detailsview-control-cs/_static/image5.png)](using-templatefields-in-the-detailsview-control-cs/_static/image4.png)
+[![GetProducts() メソッドを呼び出す新しい ObjectDataSource コントロールを追加します。](using-templatefields-in-the-detailsview-control-cs/_static/image5.png)](using-templatefields-in-the-detailsview-control-cs/_static/image4.png)
 
 **図 2**:新しい ObjectDataSource コントロールを追加するには、その呼び出します、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image6.png))。
 
@@ -64,7 +64,7 @@ BoundFields だけを格納している DetailsView コントロールを作成�
 ブラウザーでページを表示する時間がかかります。 この時点で製品の名前、カテゴリ、供給業者、価格、在庫数、ユニットの順序、およびその提供が中止された状態を示す行で表示されている 1 つの製品 (Chai) を表示する必要があります。
 
 
-[![T彼は製品の詳細については、一連の BoundFields を使用して表示されます](using-templatefields-in-the-detailsview-control-cs/_static/image8.png)](using-templatefields-in-the-detailsview-control-cs/_static/image7.png)
+[![製品の詳細については、一連の BoundFields を使用して表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image8.png)](using-templatefields-in-the-detailsview-control-cs/_static/image7.png)
 
 **図 3**:製品の詳細については、一連の BoundFields を使用して表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image9.png))。
 
@@ -76,7 +76,7 @@ DetailsView は 1 行のデータ、 `UnitPrice`、 `UnitsInStock`、および`U
 フィールドのダイアログ ボックスを表示する DetailsView のスマート タグのフィールドの編集リンクをクリックして開始します。 次に、新しい TemplateField を追加し、設定、`HeaderText`プロパティを「価格およびインベントリ」に移動その it は、上に配置されますので、新しい TemplateField、 `UnitPrice` BoundField します。
 
 
-[![Add DetailsView コントロールに新しい TemplateField](using-templatefields-in-the-detailsview-control-cs/_static/image11.png)](using-templatefields-in-the-detailsview-control-cs/_static/image10.png)
+[![DetailsView コントロールに新しい TemplateField を追加します。](using-templatefields-in-the-detailsview-control-cs/_static/image11.png)](using-templatefields-in-the-detailsview-control-cs/_static/image10.png)
 
 **図 4**:DetailsView コントロールに新しい TemplateField を追加 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image12.png))。
 
@@ -88,7 +88,7 @@ DetailsView は 1 行のデータ、 `UnitPrice`、 `UnitsInStock`、および`U
 このチュートリアルでは、価格と在庫 TemplateField のラベル コントロールを追加することで開始`ItemTemplate`します。 次に、ラベルの Web コントロールのスマート タグから DataBindings の編集リンクをクリックし、バインド、`Text`プロパティを`UnitPrice`フィールド。
 
 
-[![B%%ind UnitPrice データへのラベルのテキスト プロパティ フィールド](using-templatefields-in-the-detailsview-control-cs/_static/image14.png)](using-templatefields-in-the-detailsview-control-cs/_static/image13.png)
+[![UnitPrice データ フィールドにラベルのテキストのプロパティをバインドします。](using-templatefields-in-the-detailsview-control-cs/_static/image14.png)](using-templatefields-in-the-detailsview-control-cs/_static/image13.png)
 
 **図 5**:ラベルのバインド`Text`プロパティを`UnitPrice`データ フィールド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image15.png))。
 
@@ -98,7 +98,7 @@ DetailsView は 1 行のデータ、 `UnitPrice`、 `UnitsInStock`、および`U
 これにより、Label Web コントロールの価格と在庫 TemplateField 表示されます、選択した製品の料金だけです。 図 6 は、ブラウザーで表示したときにこれまで、進行状況のスクリーン ショットを示します。
 
 
-[![T彼の価格と在庫 TemplateField 価格を表示](using-templatefields-in-the-detailsview-control-cs/_static/image17.png)](using-templatefields-in-the-detailsview-control-cs/_static/image16.png)
+[![価格と在庫 TemplateField には、価格が表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image17.png)](using-templatefields-in-the-detailsview-control-cs/_static/image16.png)
 
 **図 6**:価格と在庫 TemplateField には、価格が表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image18.png))。
 
@@ -110,7 +110,7 @@ Label Web コントロールで使用されるデータ バインディング構
 `UnitPrice` 、適切なドロップダウン リストの値を選択するかを入力して指定された通貨の書式設定を使用してフィールド`{0:C}`を手動でします。
 
 
-[![Format 通貨と価格](using-templatefields-in-the-detailsview-control-cs/_static/image20.png)](using-templatefields-in-the-detailsview-control-cs/_static/image19.png)
+[![価格を通貨として書式設定します。](using-templatefields-in-the-detailsview-control-cs/_static/image20.png)](using-templatefields-in-the-detailsview-control-cs/_static/image19.png)
 
 **図 7**:価格の通貨として書式設定 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image21.png))。
 
@@ -137,7 +137,7 @@ Label Web コントロールで使用されるデータ バインディング構
 これらの変更を単一 DetailsView 行に、価格とインベントリ情報を統合しました。
 
 
-[![T1 つの行では、彼の価格とインベントリ情報が表示されます](using-templatefields-in-the-detailsview-control-cs/_static/image23.png)](using-templatefields-in-the-detailsview-control-cs/_static/image22.png)
+[![価格とインベントリ情報は、1 つの行に表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image23.png)](using-templatefields-in-the-detailsview-control-cs/_static/image22.png)
 
 **図 8**:価格とインベントリ情報は、1 つの行に表示される ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image24.png))。
 
@@ -149,7 +149,7 @@ Label Web コントロールで使用されるデータ バインディング構
 CheckBoxField を表示するのではなく、代わりに表示するテキストを示す、製品が提供が中止されたかどうかたい場合があります。 これを実現するには、DetailsView から、CheckBoxField を削除して追加、BoundField でしたが`DataField`プロパティに設定されました`Discontinued`します。 これを行う時間がかかります。 この変更後、DetailsView テキストが表示されます、"True"生産中止の製品と"False"の製品がアクティブなままにします。
 
 
-[![T彼の文字列は True と False を使用して、生産中止の状態を表示](using-templatefields-in-the-detailsview-control-cs/_static/image26.png)](using-templatefields-in-the-detailsview-control-cs/_static/image25.png)
+[![文字列は True と false の場合、提供が中止された状態を表示する使用は](using-templatefields-in-the-detailsview-control-cs/_static/image26.png)](using-templatefields-in-the-detailsview-control-cs/_static/image25.png)
 
 **図 9**:文字列 True および False は使用中止の状態を表示する ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image27.png))。
 
@@ -175,7 +175,7 @@ CheckBoxField を表示するのではなく、代わりに表示するテキス
 これにより、 `DisplayDiscontinuedAsYESorNO` 、DetailsView を表示するときに呼び出されるメソッドに渡して、`ProductRow`インスタンスの`Discontinued`値。 以降、`Eval`メソッド型の値を返します`object`が、`DisplayDiscontinuedAsYESorNO`メソッド型の入力パラメーターが必要ですが`bool`、キャスト、`Eval`メソッドに値を返す`bool`します。 `DisplayDiscontinuedAsYESorNO`メソッドは"YES"を返します、または"NO"の値に応じて受信します。 返される値は、この DetailsView に表示されている行 (図 10 参照)。
 
 
-[![YES または [いいえの値は、生産中止の行に示すようになりました](using-templatefields-in-the-detailsview-control-cs/_static/image29.png)](using-templatefields-in-the-detailsview-control-cs/_static/image28.png)
+[![はいまたは NO の値は、生産中止の行に示すようになりました](using-templatefields-in-the-detailsview-control-cs/_static/image29.png)](using-templatefields-in-the-detailsview-control-cs/_static/image28.png)
 
 **図 10**:はいまたは NO の値は、生産中止の行に示すようになりました ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image30.png))。
 

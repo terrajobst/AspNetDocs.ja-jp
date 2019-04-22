@@ -12,14 +12,14 @@ ms.openlocfilehash: 56ebc40aa500b62811bac0a5041fa9aa4f91f4ae
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391053"
 ---
 # <a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX を使用し、動的更新を配信する
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 10 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -112,7 +112,7 @@ JQuery を使用するには、スクリプト参照を最初に追加します�
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*ヒント: VS 2008 sp1 (jQuery など)、JavaScript ファイルの高度な intellisense サポートを有効にする JavaScript intellisense の修正プログラムがインストールされていることを確認します。 ダウンロードすることができます。 http://tinyurl.com/vs2008javascripthotfix*
+*ヒント: VS 2008 sp1 (jQuery など)、JavaScript ファイルの高度な intellisense サポートを有効にする JavaScript intellisense の修正プログラムがインストールされていることを確認します。ダウンロードすることができます。 http://tinyurl.com/vs2008javascripthotfix*
 
 多くの場合、JQuery を使用して記述されたコードは、グローバル「$ ()」を使用して JavaScript メソッドを CSS セレクターを使用して 1 つまたは複数の HTML 要素を取得します。 たとえば、 *$("#rsvpmsg")* rsvpmsg の id を持つ任意の HTML 要素を選択中に *$(".something")* 「何か」CSS ですべての要素を選択クラス名。 「すべてのチェックのラジオ ボタンを返す」などのより高度なクエリを記述することもできます。 セレクターのようなクエリを使用して: *$("入力 [@type= ラジオ] [@checked]")* します。
 

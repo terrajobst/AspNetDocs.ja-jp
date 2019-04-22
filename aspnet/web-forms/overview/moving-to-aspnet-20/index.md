@@ -12,7 +12,7 @@ ms.openlocfilehash: 651ac82196b29d0f90c5dff41c9ce42b4bdcf627
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395499"
 ---
 # <a name="older-versions---aspnet-20"></a>旧バージョン - ASP.NET 2.0
@@ -25,8 +25,8 @@ ms.locfileid: "59395499"
 - [サーバー コントロール](server-controls.md)
 - [マスター ページ](master-pages.md)
 - [データ ソース コントロール](data-source-controls.md)
-- [データ バインドされたコントロール](data-bound-controls.md)
+- [データ バインド コントロール](data-bound-controls.md)
 - [キャッシュ](caching.md)
 - [メンバーシップ](membership.md)
 - [構成とインストルメンテーション](configuration-and-instrumentation.md)
-- [プロファイル、テーマ、Web パーツ](profiles-themes-and-web-parts.md)
+- [プロファイル、テーマ、Web パート](profiles-themes-and-web-parts.md)

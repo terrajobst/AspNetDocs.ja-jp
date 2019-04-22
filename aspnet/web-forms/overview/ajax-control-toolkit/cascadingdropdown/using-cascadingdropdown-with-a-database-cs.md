@@ -12,7 +12,7 @@ ms.openlocfilehash: ef40d71828237a3d086c7c1bb05de56e0770f588
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391274"
 ---
 # <a name="using-cascadingdropdown-with-a-database-c"></a>データベースで CascadingDropDown を使用する (C#)
@@ -86,12 +86,12 @@ CascadingDropDown によって呼び出される web メソッドのシグネチ
 ASP.NET ページを読み込むし、後しばらくすると、ベンダーの一覧が 25 のエントリが入力されます。 1 つのエントリを選択し、データが 2 つ目のドロップダウン リストを格納する方法に注意してください。
 
 
-[![T彼は最初のリストが自動的に入力されます](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
+[![最初のリストが自動的に入力します。](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
 
 最初のリストが自動的に入力されます ([フルサイズの画像を表示する をクリックします](using-cascadingdropdown-with-a-database-cs/_static/image3.png))。
 
 
-[![T彼は 2 番目のリストが最初のリストの選択に応じて入力](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
+[![2 番目のリストが最初のリストの選択に応じて入力します。](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
 
 2 番目のリストが最初のリストの選択に応じて入力 ([フルサイズの画像を表示する をクリックします](using-cascadingdropdown-with-a-database-cs/_static/image6.png))。
 

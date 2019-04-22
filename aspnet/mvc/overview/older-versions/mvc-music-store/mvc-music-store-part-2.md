@@ -12,7 +12,7 @@ ms.openlocfilehash: b452c59f16107be6d356f86e6c313ba3229dbce6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392756"
 ---
 # <a name="part-2-controllers"></a>第 2 部: Controllers
@@ -73,7 +73,7 @@ Visual Web Developer が、web サーバーを指す URL のブラウザー ウ�
 
 では、非常に速かった – 新しい web サイトを作成しましたが、関数の場合、次の 3 つの行を追加して、ブラウザーでテキストがあります。 いないきわめてが、開始します。
 
-*メモ:Visual Web Developer には、無料の「ポート」ランダムな番号で、web サイトを実行する ASP.NET 開発サーバーが含まれています。 上記のスクリーン ショットでは、サイトが実行されている`http://localhost:26641/`26641 ポートを使用しているため、します。 実際のポート番号は別になります。 このチュートリアルでは URL の like/Store/Browse について説明と、は、ポート番号の後が変わります。 26641 のポート番号と仮定すると、/ストア/参照への参照を参照する`http://localhost:26641/Store/Browse`します。*
+*注:Visual Web Developer には、無料の「ポート」ランダムな番号で、web サイトを実行する ASP.NET 開発サーバーが含まれています。上記のスクリーン ショットでは、サイトが実行されている`http://localhost:26641/`26641 ポートを使用しているため、します。実際のポート番号は別になります。このチュートリアルでは URL の like/Store/Browse について説明と、は、ポート番号の後が変わります。26641 のポート番号と仮定すると、/ストア/参照への参照を参照する`http://localhost:26641/Store/Browse`します。*
 
 ## <a name="adding-a-storecontroller"></a>StoreController を追加します。
 
@@ -113,7 +113,7 @@ Visual Web Developer が、web サーバーを指す URL のブラウザー ウ�
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*メモ:ユーザー入力をサニタイズするのに HttpUtility.HtmlEncode ユーティリティ メソッドを使用しています。 これにより、ユーザーが/Store/Browse などのリンクを使用して、ビューに Javascript を挿入することからできないようにしますか。ジャンル =&lt;スクリプト&gt;window.location='http://hackersite.com'&lt;/script&gt;します。*
+*注:ユーザー入力をサニタイズするのに HttpUtility.HtmlEncode ユーティリティ メソッドを使用しています。これにより、ユーザーが/Store/Browse などのリンクを使用して、ビューに Javascript を挿入することからできないようにしますか。ジャンル =&lt;スクリプト&gt;window.location='http://hackersite.com'&lt;/script&gt;します。*
 
 今すぐ/ストア/参照をブラウズしますか?ジャンル Disco を =
 

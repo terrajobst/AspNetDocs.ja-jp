@@ -12,7 +12,7 @@ ms.openlocfilehash: 330167207620b29ba4e7382c48763e56f5858834
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394043"
 ---
 # <a name="working-with-data-part-2"></a>データの操作 (第 2 部)

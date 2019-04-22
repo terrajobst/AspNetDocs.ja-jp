@@ -12,7 +12,7 @@ ms.openlocfilehash: e4c6bfe1884d3e066c7b27e07e3a069943793bdd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392288"
 ---
 # <a name="adding-animation-to-a-control-c"></a>コントロールにアニメーションを追加する (C#)
@@ -72,7 +72,7 @@ ms.locfileid: "59392288"
 このスクリプトを実行すると、パネルが表示され、1.5 秒にフェードアウトします。
 
 
-[![T彼はパネルがフェードアウト](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
+[![パネルをフェードアウトします。](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
 
 パネルをフェードアウト ([フルサイズの画像を表示する をクリックします](adding-animation-to-a-control-cs/_static/image3.png))。
 

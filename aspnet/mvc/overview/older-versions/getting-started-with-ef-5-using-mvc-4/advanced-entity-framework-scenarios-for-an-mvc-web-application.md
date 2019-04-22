@@ -12,14 +12,14 @@ ms.openlocfilehash: a1218b1fb5a8ee28ea6ee3d3c5af979e86821ed7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391196"
 ---
 # <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>MVC Web アプリケーション (10/10) 用の高度な Entity Framework シナリオ
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -306,7 +306,7 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-*1 つまたは複数のエンティティの検証に失敗しました。 詳細については、'EntityValidationErrors' プロパティを参照してください。* (から、 *`Update-Database`* PMC でコマンド)。
+*1 つまたは複数のエンティティの検証に失敗しました。詳細については、'EntityValidationErrors' プロパティを参照してください。* (から、 *`Update-Database`* PMC でコマンド)。
 
 解決方法 : 
 
@@ -316,8 +316,7 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-*HTTP エラー 500.19 - 内部サーバー エラー  
-ページの関連する構成データが無効であるため、要求されたページにアクセスできません。*
+*HTTP エラー 500.19 - 内部サーバー エラー、要求されたページは、ページの関連する構成データが無効であるために、アクセスできません。*
 
 解決方法 : 
 
@@ -327,7 +326,7 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-*SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー:SQL ネットワーク インターフェイス、エラー:26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)*
+*SQL Server への接続を確立中にネットワーク関連またはインスタンス固有のエラーが発生しました。サーバーが見つからないかアクセスできません。インスタンス名が正しいことと、リモート接続を許可する SQL Server が構成されていることを確認します。(プロバイダー。SQL ネットワーク インターフェイス、エラー:26 - 指定されたサーバー インスタンスを検索中にエラー)*
 
 解決方法 : 
 

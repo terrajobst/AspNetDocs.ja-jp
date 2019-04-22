@@ -12,14 +12,14 @@ ms.openlocfilehash: 7ea8c74a6621200e3a0d52a7c37fed6b5eeff4e5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391625"
 ---
 # <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>シナリオ:Web 配置のテスト環境を構成する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、開発者の一般的な web 展開シナリオについて説明しますまたはテスト環境とのような環境をセットアップするには完了する必要があるタスクについて説明します。
 

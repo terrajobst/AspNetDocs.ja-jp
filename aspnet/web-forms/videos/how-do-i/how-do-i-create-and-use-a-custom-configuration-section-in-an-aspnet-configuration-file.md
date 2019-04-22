@@ -12,7 +12,7 @@ ms.openlocfilehash: f1a1c73947bda381bf559e3cbe1e308d0079c2dc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392691"
 ---
 # <a name="how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file"></a>[How Do i:]作成し、ASP.NET 構成ファイルでカスタム構成セクションを使用

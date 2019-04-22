@@ -13,7 +13,7 @@ ms.openlocfilehash: 1e5fecca826a74fd8ff60ecd415f39c4f51917a2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391364"
 ---
 # <a name="documentation-on-older-versions-of-web-api"></a>以前のバージョンの Web API のドキュメント
@@ -32,4 +32,4 @@ ms.locfileid: "59391364"
     - [Product コントローラーと Order コントローラーの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
     - [メイン ページの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
 - [Web API 1 をセルフホストする (C#)](self-host-a-web-api.md)
-- [ASP.NET Web API で RESTful API をビルドする](build-restful-apis-with-aspnet-web-api.md)
+- [ASP.NET Web API で RESTful API をビルドする ](build-restful-apis-with-aspnet-web-api.md)

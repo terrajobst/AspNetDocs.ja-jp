@@ -12,7 +12,7 @@ ms.openlocfilehash: a9a3bf12b721c8f5eec21f3090142e40e74b0b9c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395645"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-c"></a>CascadingDropDown を使用して一覧に入力する (C#)
@@ -61,7 +61,7 @@ JavaScript コード、`CascadingDropDown`エクステンダーは、次のシ�
 ブラウザーでページの読み込みと、次の 3 つの仕入先を格納するリストがトリガーされます。
 
 
-[![T彼の一覧が自動的に入力されます](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
+[![リストが自動的に入力します。](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
 
 リストが自動的に入力されます ([フルサイズの画像を表示する をクリックします](filling-a-list-using-cascadingdropdown-cs/_static/image3.png))。
 

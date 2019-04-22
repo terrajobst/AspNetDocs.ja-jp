@@ -12,14 +12,14 @@ ms.openlocfilehash: 0ab58aee6f1203beaf3990536b059f8209e66547
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393484"
 ---
 # <a name="deploying-a-specific-build"></a>特定のビルドを配置する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、web のパッケージと新しい変換先のステージング環境または運用環境と同じように、特定の以前のビルドからのデータベース スクリプトをデプロイする方法について説明します。
 

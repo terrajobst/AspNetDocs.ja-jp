@@ -12,7 +12,7 @@ ms.openlocfilehash: 3db6947f36eb51b41d929f8c7d8835a95db8ea75
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392353"
 ---
 # <a name="adding-validation-to-the-model"></a>モデルに検証を追加する
@@ -61,11 +61,11 @@ JavaScript でいくつかのクライアント側検証を有効にしてみま
 
 IDE 内でのコードを次に示します。
 
-[![Movies - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
+[![ビデオ - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
 
 アプリケーションを実行し、/Movies/Create をもう一度、アクセスしすべてのデータを入力しなくても作成 をクリックします。 エラー メッセージを表示すぐに、ページのデータの送信に関連付けられたことをフラッシュせず、サーバーに至るまでさかのぼって。 これは ASP.NET MVC は、両方の入力の (JavaScript を使用して) クライアントを検証ようになりましたがあるため、サーバー上です。
 
-[![Create - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
+[![Windows Internet Explorer の作成-](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
 これは順調です! データベースに 1 つの列の追加を今すぐ追加してみましょう。
 

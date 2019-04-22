@@ -12,7 +12,7 @@ ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392990"
 ---
 # <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトでユーザー入力の検証
@@ -141,12 +141,12 @@ ASP.NET Web ページ 2 では、使用することができます、`Validator`
 
 予約済みの名前は次の CSS クラスを定義することで検証エラーを表示する方法を制御できます。
 
-- `field-validation-error`. 出力を定義、`Html.ValidationMessage`メソッドのエラーを表示している場合。
-- `field-validation-valid`. 出力を定義、`Html.ValidationMessage`メソッドのエラーがない場合。
-- `input-validation-error`. 定義する方法`<input>`エラーがある場合に要素が表示されます。 (の背景色を設定するこのクラスを使用するなど、&lt;入力&gt;要素を別の色を使用している場合、その値が無効です)。この CSS クラスは、(ASP.NET Web ページ 2) でクライアントの検証中にのみ使用されます。
-- `input-validation-valid`. 外観を定義`<input>`要素エラーがない場合。
-- `validation-summary-errors`. 出力を定義、`Html.ValidationSummary`メソッドがエラーの一覧を表示することができます。
-- `validation-summary-valid`. 出力を定義、`Html.ValidationSummary`メソッドのエラーがない場合。
+- `field-validation-error`。 出力を定義、`Html.ValidationMessage`メソッドのエラーを表示している場合。
+- `field-validation-valid`。 出力を定義、`Html.ValidationMessage`メソッドのエラーがない場合。
+- `input-validation-error`。 定義する方法`<input>`エラーがある場合に要素が表示されます。 (の背景色を設定するこのクラスを使用するなど、&lt;入力&gt;要素を別の色を使用している場合、その値が無効です)。この CSS クラスは、(ASP.NET Web ページ 2) でクライアントの検証中にのみ使用されます。
+- `input-validation-valid`。 外観を定義`<input>`要素エラーがない場合。
+- `validation-summary-errors`。 出力を定義、`Html.ValidationSummary`メソッドがエラーの一覧を表示することができます。
+- `validation-summary-valid`。 出力を定義、`Html.ValidationSummary`メソッドのエラーがない場合。
 
 次`<style>`ブロックには、エラー条件のルールが表示されます。
 

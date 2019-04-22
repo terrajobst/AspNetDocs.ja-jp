@@ -12,7 +12,7 @@ ms.openlocfilehash: 3df728891103de9c8e461ab9507237c9b14e8251
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390689"
 ---
 # <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>ユーザー登録、電子メール確認、パスワード リセットを利用し、安全な ASP.NET Web フォームを作成する (C#)

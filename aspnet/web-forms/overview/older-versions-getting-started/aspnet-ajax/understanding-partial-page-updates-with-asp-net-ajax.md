@@ -12,14 +12,14 @@ ms.openlocfilehash: d2d7982a4e0175824ffede965dc8206219485df2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396474"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX の部分ページ更新について理解する
 
 によって[Scott Cate](https://github.com/scottcate)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
 > おそらく、ASP.NET AJAX Extensions の最も目につく機能はないコードの変更と最小限のマークアップの変更を使用して、サーバーに完全なポストバックを実行しなくても、部分的なまたは増分ページ更新プログラムを実行する機能です。 利点は、広範な – (Adobe Flash や Windows Media) など、マルチ メディアの状態は変更されません、帯域幅のコストが削減されます、およびクライアントでは、通常のポストバックに関連付けられているちらつきは発生しません。
 
@@ -111,7 +111,7 @@ Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みの�
 
 マークアップが有効なプロパティ:
 
-| **プロパティ名** | **型** | **説明** |
+| **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
 | AllowCustomErrors-Redirect | Bool | エラーを処理するために、web.config ファイルのカスタム エラー セクションを使用するかどうかを指定します。 |
 | AsyncPostBackError-Message | String | 取得または設定エラーが発生した場合、クライアントに送信するエラー メッセージ。 |
@@ -124,7 +124,7 @@ Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みの�
 
 コードのみのプロパティ:
 
-| **プロパティ名** | **型** | **説明** |
+| **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService-Manager | クライアントに送信される ASP.NET 認証サービス プロキシの詳細を取得します。 |
 | IsDebuggingEnabled | Bool | 取得するかどうかスクリプトを作成し、コードのデバッグが有効になっています。 |
@@ -136,7 +136,7 @@ Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みの�
 
 コードのパブリック メソッド:
 
-| **メソッド名** | **型** | **説明** |
+| **メソッド名** | **Type** | **説明** |
 | --- | --- | --- |
 | SetFocus(string) | Void | 要求が完了したときに、特定のコントロールに、クライアントのフォーカスを設定します。 |
 
@@ -185,7 +185,7 @@ ScriptManager コントロールは、スクリプトの文字列とユーザー
 
 マークアップが有効なプロパティ:
 
-| **プロパティ名** | **型** | **説明** |
+| **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
 | ChildrenAsTriggers | bool | 子コントロールがポストバックで更新を自動的に起動するかどうかを指定します。 |
 | RenderMode | 列挙型 (ブロック、インライン) | 方法は、コンテンツを視覚的に表示されますを指定します。 |
@@ -193,7 +193,7 @@ ScriptManager コントロールは、スクリプトの文字列とユーザー
 
 コードのみのプロパティ:
 
-| **プロパティ名** | **型** | **説明** |
+| **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | Updatepanel コントロールが現在の要求の部分的なレンダリングをサポートするかどうかを取得します。 |
 | ContentTemplate | ITemplate | 更新の要求のマークアップのテンプレートを取得します。 |
@@ -202,7 +202,7 @@ ScriptManager コントロールは、スクリプトの文字列とユーザー
 
 コードのパブリック メソッド:
 
-| **メソッド名** | **型** | **説明** |
+| **メソッド名** | **Type** | **説明** |
 | --- | --- | --- |
 | Update() | Void | 指定した updatepanel コントロールをプログラムで更新します。 それ以外の場合いつ UpdatePanel の部分的なレンダリングをトリガーするサーバーの要求を許可します。 |
 
@@ -280,7 +280,7 @@ Web サービスまたはページ メソッドを介して機能を組み込む
 
 マークアップが有効なプロパティ:
 
-| **プロパティ名** | **型** | **説明** |
+| **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
 | AssociatedUpdate-PanelID | String | この UpdateProgress を報告する必要がある updatepanel コントロールの ID を指定します。 |
 | DisplayAfter | Int | 非同期要求を開始した後、このコントロールが表示される前に、(ミリ秒単位)、タイムアウトを指定します。 |

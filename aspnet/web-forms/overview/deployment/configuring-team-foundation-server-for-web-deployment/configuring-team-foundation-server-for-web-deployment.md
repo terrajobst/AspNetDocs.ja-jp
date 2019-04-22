@@ -12,14 +12,14 @@ ms.openlocfilehash: 188ab63dd84be5559d5a3646eb95caa77ab01bd1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392002"
 ---
 # <a name="configuring-team-foundation-server-for-web-deployment"></a>Web 配置の Team Foundation Server を構成する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このチュートリアルでは、ソリューションを構築し、さまざまなターゲット環境に web コンテンツをデプロイする Team Foundation Server (TFS) 2010 を構成する方法を説明します。 これには、展開するコンテンツに自動的に、開発者が変更を行うたびに、継続的インテグレーション (CI) のシナリオが含まれます。 手動トリガーのシナリオで、管理者は、ビルドを検証し、テスト環境で検証したら、ステージング環境への特定のビルドの配置をトリガーする必要のある型を含めることもできます。 このチュートリアルでは、トピックのガイド全体の構成手順を含みます。
 > 

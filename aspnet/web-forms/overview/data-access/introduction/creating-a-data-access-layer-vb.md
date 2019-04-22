@@ -12,7 +12,7 @@ ms.openlocfilehash: e4715862d7bc89f37a74ef63ee09e69e6e2d2665
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396890"
 ---
 # <a name="creating-a-data-access-layer-vb"></a>データ アクセス層を作成する (VB)
@@ -37,7 +37,7 @@ Web 開発者は、私たちの生活に焦点を絞ってデータを操作し�
 データ アクセス層 (DAL) を作成する前にまず web サイトを作成し、データベースのセットアップに必要があります。 まず、新しいファイル システムに基づく ASP.NET web サイトを作成します。 これを行うには、ファイル メニューに移動し、新しい Web サイトを新しい Web サイト ダイアログ ボックスを表示するを選択します。 ASP.NET Web サイト テンプレートを選択、場所ドロップダウン リストをファイル システムに設定、web サイトを配置するフォルダーを選択および Visual Basic 言語に設定します。
 
 
-[![CNew File System-Based Web サイトを作成する](creating-a-data-access-layer-vb/_static/image2.png)](creating-a-data-access-layer-vb/_static/image1.png)
+[![新しいファイル システムに基づく Web サイトを作成します。](creating-a-data-access-layer-vb/_static/image2.png)](creating-a-data-access-layer-vb/_static/image1.png)
 
 **図 1**:New File System-Based Web サイトの作成 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image3.png))。
 
@@ -92,7 +92,7 @@ Northwind データベースをサーバー エクスプ ローラーに追加�
 これらのチュートリアルのアーキテクチャの厳密に型指定されたデータセットを使用します。 図 3 は、型指定されたデータセットを使用するアプリケーションの異なる層間のワークフローを示しています。
 
 
-[![Aデータ アクセス コードは、DAL に追いやら ll](creating-a-data-access-layer-vb/_static/image6.png)](creating-a-data-access-layer-vb/_static/image5.png)
+[![すべてのデータ アクセス コードは、DAL に追いやら](creating-a-data-access-layer-vb/_static/image6.png)](creating-a-data-access-layer-vb/_static/image5.png)
 
 **図 3**:すべてのデータ アクセス コードは、DAL に追いやら ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image7.png))。
 
@@ -102,7 +102,7 @@ Northwind データベースをサーバー エクスプ ローラーに追加�
 DAL を作成するには、型指定されたデータセットをプロジェクトに追加することで開始します。 これを実現するには、ソリューション エクスプ ローラーでプロジェクト ノードを右クリックし、新しい項目の追加を選択します。 テンプレートの一覧からデータセット オプションを選択し、名前を付けます`Northwind.xsd`します。
 
 
-[![C選択してプロジェクトに新しいデータセットを追加する](creating-a-data-access-layer-vb/_static/image9.png)](creating-a-data-access-layer-vb/_static/image8.png)
+[![プロジェクトに新しいデータセットを追加します。](creating-a-data-access-layer-vb/_static/image9.png)](creating-a-data-access-layer-vb/_static/image8.png)
 
 **図 4**:新しいデータセットをプロジェクトに追加することも ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image10.png))。
 
@@ -116,7 +116,7 @@ DAL を作成するには、型指定されたデータセットをプロジェ�
 使用するデータベースを選択するよう求められますが、TableAdapter 構成ウィザードを開始します。 ドロップダウン リストでは、サーバー エクスプ ローラーでそれらのデータベースを示しています。 サーバー エクスプ ローラーに、Northwind データベースを追加しなかった場合は、これを行うには、この時点で、新しい接続ボタンをクリックできます。
 
 
-[![Cドロップダウン リストから、Northwind データベースの選択](creating-a-data-access-layer-vb/_static/image12.png)](creating-a-data-access-layer-vb/_static/image11.png)
+[![ドロップダウン リストから、Northwind データベースを選択します。](creating-a-data-access-layer-vb/_static/image12.png)](creating-a-data-access-layer-vb/_static/image11.png)
 
 **図 5**:ドロップダウン リストから、Northwind データベースを選択 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image13.png))。
 
@@ -124,7 +124,7 @@ DAL を作成するには、型指定されたデータセットをプロジェ�
 データベースを選択し、[次へ] をクリックすると、求められます内の接続文字列を保存するかどうか、`Web.config`ファイル。 接続文字列を保存することによってします必要があるがハード TableAdapter のクラスにコードが、接続文字列情報が、今後変更された場合は、モ ノを簡略化されます。 構成ファイルで接続文字列を保存することを選択する場合に配置されて、`<connectionStrings>`は、このセクションで、[必要に応じて暗号化された](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)内で新しい ASP.NET 2.0 プロパティ ページで、後で変更のセキュリティの向上IIS GUI 管理ツール、管理者は最適な。
 
 
-[![Save Web.config への接続文字列](creating-a-data-access-layer-vb/_static/image15.png)](creating-a-data-access-layer-vb/_static/image14.png)
+[![接続文字列を Web.config に保存します。](creating-a-data-access-layer-vb/_static/image15.png)](creating-a-data-access-layer-vb/_static/image14.png)
 
 **図 6**:接続文字列を保存`Web.config`([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image16.png))。
 
@@ -134,7 +134,7 @@ DAL を作成するには、型指定されたデータセットをプロジェ�
 SQL クエリの定義を開始するには、TableAdapter クエリを発行する方最初指定する必要があります。 アドホック SQL ステートメントを使用して、新しいストアド プロシージャを作成または既存のストアド プロシージャを使用してできます。 これらのチュートリアルについては、アドホック SQL ステートメントを使用します。 参照してください[Brian Noyes](http://briannoyes.net/)の記事[Visual Studio 2005 のデータセット デザイナーでデータ アクセス層の構築](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)ストアド プロシージャを使用した例についてはします。
 
 
-[![Query アドホック SQL ステートメントを使用してデータを](creating-a-data-access-layer-vb/_static/image18.png)](creating-a-data-access-layer-vb/_static/image17.png)
+[![アドホック SQL ステートメントを使用して、データをクエリします。](creating-a-data-access-layer-vb/_static/image18.png)](creating-a-data-access-layer-vb/_static/image17.png)
 
 **図 7**:アドホック SQL ステートメントを使用してデータの照会 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image19.png))。
 
@@ -142,7 +142,7 @@ SQL クエリの定義を開始するには、TableAdapter クエリを発行す
 この時点で手動で SQL クエリで入力できます。 TableAdapter の最初のメソッドを作成するときに、対応する DataTable で表現する必要があるこれらの列を返すクエリに通常でします。 すべての列とのすべての行を返すクエリを作成するためには、`Products`テーブル。
 
 
-[![ESQL クエリに、テキスト ボックスの所属を入力](creating-a-data-access-layer-vb/_static/image21.png)](creating-a-data-access-layer-vb/_static/image20.png)
+[![テキスト ボックスに、SQL クエリを入力します。](creating-a-data-access-layer-vb/_static/image21.png)](creating-a-data-access-layer-vb/_static/image20.png)
 
 **図 8**:SQL クエリに、テキスト ボックスに入力します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image22.png))。
 
@@ -150,7 +150,7 @@ SQL クエリの定義を開始するには、TableAdapter クエリを発行す
 または、クエリ ビルダーを使用し、図 9 に示すように、クエリをグラフィカルに構築します。
 
 
-[![Create、クエリ視覚的に、クエリ エディターを使用](creating-a-data-access-layer-vb/_static/image24.png)](creating-a-data-access-layer-vb/_static/image23.png)
+[![クエリをグラフィカルに作成、クエリ エディターを使用](creating-a-data-access-layer-vb/_static/image24.png)](creating-a-data-access-layer-vb/_static/image23.png)
 
 **図 9**:クエリをグラフィカルに作成、クエリ エディターを使用 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image25.png))。
 
@@ -158,7 +158,7 @@ SQL クエリの定義を開始するには、TableAdapter クエリを発行す
 クエリを作成した後は、次の画面上に移動する前に、詳細オプション ボタンをクリックします。 Web サイト プロジェクトに「生成の Insert、Update、および Delete ステートメント」はのみ、既定で選択したオプションの詳細クラス ライブラリまたは Windows プロジェクトからこのウィザードを実行する場合は、「オプティミスティック同時実行制御を使用する」オプションも選択します。 オフのままに「オプティミスティック同時実行制御を使用する」オプション今のところです。 今後のチュートリアルでオプティミスティック同時実行制御をについて説明します。
 
 
-[![S生成を挿入、更新、および Delete ステートメントのみオプションを選択](creating-a-data-access-layer-vb/_static/image27.png)](creating-a-data-access-layer-vb/_static/image26.png)
+[![生成を挿入、更新、および Delete ステートメントのみオプションを選択します。](creating-a-data-access-layer-vb/_static/image27.png)](creating-a-data-access-layer-vb/_static/image26.png)
 
 **図 10**:生成を挿入、更新、および Delete ステートメントのみオプションを選択します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image28.png))。
 
@@ -173,7 +173,7 @@ TableAdapter のいずれかまたは両方のパターンを実装すること�
 選択した場合、最後のチェック ボックス"GenerateDBDirectMethods、"を作成します`Insert()`、 `Update()`、および`Delete()`TableAdapter のメソッド。 このオプションをオフのままにすると場合、すべての更新プログラムが、TableAdapter の単独で実行する必要があります`Update()`メソッドで型指定された DataSet、DataTable、1 つの DataRow または Datarow の配列。 (した場合は、図 9 での高度なプロパティからこのチェック ボックスのオプションをオフ、"生成の Insert、Update、および Delete ステートメントの設定は効果がありません)。このチェック ボックスをオンのままにしてみましょう。
 
 
-[![C開いたり GetProducts GetData からメソッド名](creating-a-data-access-layer-vb/_static/image30.png)](creating-a-data-access-layer-vb/_static/image29.png)
+[![GetData から GetProducts にメソッド名を変更します。](creating-a-data-access-layer-vb/_static/image30.png)](creating-a-data-access-layer-vb/_static/image29.png)
 
 **図 11**:メソッドの名前を変更`GetData`に`GetProducts`([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image31.png))。
 
@@ -181,7 +181,7 @@ TableAdapter のいずれかまたは両方のパターンを実装すること�
 [完了] をクリックしてウィザードを完了します。 ウィザードを閉じた後、先ほど作成した DataTable を示すデータセット デザイナーに戻ります。 内の列の一覧を表示できます、 `Products` DataTable (`ProductID`、`ProductName`など)、ほかのメソッド、 `ProductsTableAdapter` (`Fill()`と`GetProducts()`)。
 
 
-[![T彼の製品の DataTable と ProductsTableAdapter が型指定されたデータセットに追加されました](creating-a-data-access-layer-vb/_static/image33.png)](creating-a-data-access-layer-vb/_static/image32.png)
+[![製品の DataTable と ProductsTableAdapter が型指定されたデータセットに追加されました](creating-a-data-access-layer-vb/_static/image33.png)](creating-a-data-access-layer-vb/_static/image32.png)
 
 **図 12**:`Products` DataTable と`ProductsTableAdapter`型指定されたデータセットに追加されている ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image34.png))。
 
@@ -203,7 +203,7 @@ AllProducts.aspx.vb
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample3.vb)]
 
 
-[![TGridView で彼の製品の一覧が表示されます](creating-a-data-access-layer-vb/_static/image36.png)](creating-a-data-access-layer-vb/_static/image35.png)
+[![GridView に製品の一覧が表示されます。](creating-a-data-access-layer-vb/_static/image36.png)](creating-a-data-access-layer-vb/_static/image35.png)
 
 **図 13**:GridView に製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image37.png))。
 
@@ -225,7 +225,7 @@ AllProducts.aspx.vb
 最初に、アドホック SQL ステートメントまたは新規または既存のストアド プロシージャを使用してデータベースにアクセスするかどうかについて求められます。 もう一度、アドホック SQL ステートメントを使用するを選択します。 次に、SQL クエリの種類を使用するなどが求められます。 記述する、指定したカテゴリに属するすべての製品を取得するため、`SELECT`ステートメントの行を返します。
 
 
-[![C行を作成して、選択ステートメントを返しますの選択](creating-a-data-access-layer-vb/_static/image40.png)](creating-a-data-access-layer-vb/_static/image39.png)
+[![複数行を返す SELECT ステートメントを作成します。](creating-a-data-access-layer-vb/_static/image40.png)](creating-a-data-access-layer-vb/_static/image39.png)
 
 **図 15**:作成する、`SELECT`ステートメントが行を返します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image41.png))。
 
@@ -233,7 +233,7 @@ AllProducts.aspx.vb
 次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用すると、特定のカテゴリに属する製品だけを返すので、`SELECT`ステートメントから`GetProducts()`、以下を追加しますが、`WHERE`句:`WHERE CategoryID = @CategoryID`します。 `@CategoryID`パラメーター、メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする TableAdapter ウィザードを示します。
 
 
-[![E所属する指定されたカテゴリの製品をのみを返すクエリを入力](creating-a-data-access-layer-vb/_static/image43.png)](creating-a-data-access-layer-vb/_static/image42.png)
+[![指定されたカテゴリの製品を返すだけのクエリを入力します](creating-a-data-access-layer-vb/_static/image43.png)](creating-a-data-access-layer-vb/_static/image42.png)
 
 **図 16**:指定したカテゴリの製品をのみを返すクエリを入力します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image44.png))。
 
@@ -241,7 +241,7 @@ AllProducts.aspx.vb
 最後の手順で選択できますデータ アクセス パターンを使用して、できるだけでなく、生成されるメソッドの名前をカスタマイズします。 塗りつぶしのパターンに名前を変更してみましょう`FillByCategoryID`DataTable の戻り値のパターンを返すと (、`GetX`メソッド) を使用してみましょう`GetProductsByCategoryID`。
 
 
-[![CTableAdapter のメソッドの名前を選択する](creating-a-data-access-layer-vb/_static/image46.png)](creating-a-data-access-layer-vb/_static/image45.png)
+[![TableAdapter のメソッドの名前を選択します。](creating-a-data-access-layer-vb/_static/image46.png)](creating-a-data-access-layer-vb/_static/image45.png)
 
 **図 17**:TableAdapter のメソッドの名前を選択 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image47.png))。
 
@@ -259,7 +259,7 @@ AllProducts.aspx.vb
 これらのパラメーター化されたクエリは、データセット デザイナーから直接テストできます。 TableAdapter のメソッドを右クリックし、データのプレビューを選択します。 次に、パラメーターを使用して、[プレビュー] をクリックして値を入力します。
 
 
-[![Tホース飲み物のカテゴリに属するの製品が表示されます](creating-a-data-access-layer-vb/_static/image50.png)](creating-a-data-access-layer-vb/_static/image49.png)
+[![製品に属する飲み物のカテゴリにより、それらが表示されます。](creating-a-data-access-layer-vb/_static/image50.png)](creating-a-data-access-layer-vb/_static/image49.png)
 
 **図 19**:製品に属する飲み物のカテゴリにより、それらが表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image51.png))。
 
@@ -275,7 +275,7 @@ Beverages.aspx.vb
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample5.vb)]
 
 
-[![Tホース飲み物のカテゴリの製品が表示されます](creating-a-data-access-layer-vb/_static/image53.png)](creating-a-data-access-layer-vb/_static/image52.png)
+[![これらの製品、飲料カテゴリが表示されます。](creating-a-data-access-layer-vb/_static/image53.png)](creating-a-data-access-layer-vb/_static/image52.png)
 
 **図 20**:これらの製品、飲料カテゴリが表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image54.png))。
 
@@ -285,7 +285,7 @@ Beverages.aspx.vb
 一般的に使用を挿入、更新、およびデータを削除する 2 つのパターンがあります。 最初のパターンは、データベースの直接のパターンと呼ぶことに、そのメソッドを作成、呼び出されたときに、問題、 `INSERT`、 `UPDATE`、または`DELETE`コマンドを 1 つのデータベース レコードを操作するデータベースにします。 このようなメソッドは、挿入、更新、または削除する値を通常一連の対応スカラーの値 (整数、文字列、ブール値、Datetime、およびなど) で渡されます。 このパターンの使用など、 `Products` delete メソッドは、整数パラメーターでかかるテーブルを示す、`ProductID`の文字列に要する insert メソッド中に、削除するレコードの`ProductName`、の10進数`UnitPrice`、整数、`UnitsOnStock`など。
 
 
-[![Each Insert、Update、および削除要求は、すぐにデータベースに送信されます](creating-a-data-access-layer-vb/_static/image56.png)](creating-a-data-access-layer-vb/_static/image55.png)
+[![各挿入、更新、および削除要求は、すぐにデータベースに送信されます。](creating-a-data-access-layer-vb/_static/image56.png)](creating-a-data-access-layer-vb/_static/image55.png)
 
 **図 21**:各挿入、更新、および削除要求は、すぐにデータベースに送信されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image57.png))。
 
@@ -293,7 +293,7 @@ Beverages.aspx.vb
 バッチ更新パターンを呼ぶことに、その他のパターンでは、全体 DataSet、DataTable には、または 1 つのメソッドの呼び出しで DataRows のコレクションを更新します。 このパターンで開発者を削除します挿入、および DataTable の Datarow を変更し、更新メソッドにこれらの Datarow または DataTable を渡します。 このメソッドに渡された Datarow の列挙、かどうかがいる変更、追加、または削除されたを決定します (DataRow のを介して[RowState プロパティ](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx)値)、し、各レコードの適切なデータベースの要求を発行します。
 
 
-[![A今回の変更、データベースと、Update メソッドと同期されますが呼び出される](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
+[![すべての変更は、Update メソッドが呼び出されたときに、データベースと同期されます。](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
 
 **図 22**:すべての変更は、Update メソッドが呼び出されたときに、データベースと同期されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image60.png))。
 
@@ -303,7 +303,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 両方のデータ変更パターンを使用して、TableAdapter の`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`を発行するためのプロパティ、 `INSERT`、 `UPDATE`、および`DELETE`コマンドをデータベースにします。 検査および変更できる、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`データセット デザイナーで TableAdapter をクリックし、[プロパティ] ウィンドウでプロパティ。 (、TableAdapter とを選択するかどうかを確認、`ProductsTableAdapter`オブジェクトが 1 つのプロパティ ウィンドウで、ドロップダウン リストで選択します)。
 
 
-[![TTableAdapter を持ち、InsertCommand、UpdateCommand、および DeleteCommand プロパティ](creating-a-data-access-layer-vb/_static/image62.png)](creating-a-data-access-layer-vb/_static/image61.png)
+[![TableAdapter が InsertCommand、UpdateCommand、および DeleteCommand プロパティ](creating-a-data-access-layer-vb/_static/image62.png)](creating-a-data-access-layer-vb/_static/image61.png)
 
 **図 23**:TableAdapter が`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image63.png))。
 
@@ -311,7 +311,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 確認や、これらのデータベース コマンドのプロパティのいずれかの変更には、をクリックして、`CommandText`サブプロパティで、クエリ ビルダーが表示されます。
 
 
-[![C構成、INSERT、UPDATE、およびクエリ ビルダーでのステートメントの削除](creating-a-data-access-layer-vb/_static/image65.png)](creating-a-data-access-layer-vb/_static/image64.png)
+[![クエリ ビルダーでの INSERT、UPDATE、および DELETE ステートメントを構成します。](creating-a-data-access-layer-vb/_static/image65.png)](creating-a-data-access-layer-vb/_static/image64.png)
 
 **図 24**:構成、 `INSERT`、 `UPDATE`、および`DELETE`クエリ ビルダーでのステートメント ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image66.png))。
 
@@ -331,7 +331,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 このようなカスタム メソッドを作成するには、データセット デザイナーに戻ります。 TableAdapter を右クリックし、追加のクエリ、TableAdapter ウィザードに戻る を選択します。 2 番目の画面を作成するクエリの種類を指定できます。 新しい製品を追加して、新しく追加されたレコードの値を返しますメソッドを作成しましょう`ProductID`します。 そのため、作成することを選択、`INSERT`クエリ。
 
 
-[![CProducts テーブルに新しい行を追加するメソッドを作成する](creating-a-data-access-layer-vb/_static/image68.png)](creating-a-data-access-layer-vb/_static/image67.png)
+[![Products テーブルに新しい行を追加するメソッドを作成します。](creating-a-data-access-layer-vb/_static/image68.png)](creating-a-data-access-layer-vb/_static/image67.png)
 
 **図 25**:新しい行を追加するメソッドを作成、`Products`テーブル ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image69.png))。
 
@@ -339,7 +339,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 次の画面で、`InsertCommand`の`CommandText`が表示されます。 このクエリを追加することで補強`SELECT SCOPE_IDENTITY()`に挿入された最後の id 値を返しますクエリの末尾には、`IDENTITY`同じスコープ内の列。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については`SCOPE_IDENTITY()`とするとその理由[スコープを使用して\_@ の代わりに IDENTITY()@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx))。終了するかどうかを確認、`INSERT`をセミコロンでステートメントを追加する前に、`SELECT`ステートメント。
 
 
-[![Augment SCOPE_IDENTITY() 値を返すクエリ](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
+[![Scope_identity() で値を返すクエリを拡張します。](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
 
 **図 26**:返された場合にクエリを拡張、`SCOPE_IDENTITY()`値 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image72.png))。
 
@@ -347,7 +347,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 新しいメソッドの名前を最後に、`InsertProduct`します。
 
 
-[![Set InsertProduct に新しいメソッドの名前](creating-a-data-access-layer-vb/_static/image74.png)](creating-a-data-access-layer-vb/_static/image73.png)
+[![InsertProduct に新しいメソッドの名前を設定します。](creating-a-data-access-layer-vb/_static/image74.png)](creating-a-data-access-layer-vb/_static/image73.png)
 
 **図 27**:新しいメソッドの名前を設定`InsertProduct`([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image75.png))。
 
@@ -357,7 +357,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 既定では、影響を受けた行の数を返す、つまり、メソッドを問題非クエリ メソッドを挿入します。 ただし、必要、`InsertProduct`影響を受ける行の数ではなく、クエリによって返される値を返すメソッド。 これを行うには、調整、`InsertProduct`メソッドの`ExecuteMode`プロパティを`Scalar`します。
 
 
-[![Cスカラー ExecuteMode プロパティの変更](creating-a-data-access-layer-vb/_static/image77.png)](creating-a-data-access-layer-vb/_static/image76.png)
+[![スカラーの ExecuteMode プロパティを変更します。](creating-a-data-access-layer-vb/_static/image77.png)](creating-a-data-access-layer-vb/_static/image76.png)
 
 **図 28**:変更、`ExecuteMode`プロパティを`Scalar`([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image78.png))。
 
@@ -375,7 +375,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample9.sql)]
 
 
-[![UGetProducts() メソッドの SELECT ステートメントを更新する](creating-a-data-access-layer-vb/_static/image80.png)](creating-a-data-access-layer-vb/_static/image79.png)
+[![GetProducts() メソッドの SELECT ステートメントを更新します。](creating-a-data-access-layer-vb/_static/image80.png)](creating-a-data-access-layer-vb/_static/image79.png)
 
 **図 29**:更新プログラム、`SELECT`のステートメント、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image81.png))。
 
@@ -444,7 +444,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
       [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
 
 
-[![T彼はデータセット デザイナーの後、次の 4 つ Tableadapter が追加されました](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
+[![次の 4 つの Tableadapter を追加した後、データセット デザイナー](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
 
 **図 31**:データセット デザイナーの後、次の 4 つ Tableadapter が追加されています ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image85.png))。
 
@@ -454,7 +454,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 Tableadapter と型指定されたデータセットに追加されたデータ テーブルは、XML スキーマ定義ファイルとして表されます (`Northwind.xsd`)。 右クリックしてこのスキーマ情報を表示することができます、`Northwind.xsd`ソリューション エクスプ ローラーでファイルし、コードの表示を選択します。
 
 
-[![T彼 Northwinds 型指定されたデータセットの XML スキーマ定義 (XSD) ファイル](creating-a-data-access-layer-vb/_static/image87.png)](creating-a-data-access-layer-vb/_static/image86.png)
+[![型指定されたデータセットを Northwinds の XML スキーマ定義 (XSD) ファイル](creating-a-data-access-layer-vb/_static/image87.png)](creating-a-data-access-layer-vb/_static/image86.png)
 
 **図 32**:Northwinds 型指定されたデータセットの XML スキーマ定義 (XSD) ファイル ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image88.png))。
 
@@ -501,7 +501,7 @@ SuppliersAndProducts.aspx.vb
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample25.vb)]
 
 
-[![T彼の仕入先の会社名は、左の列、右側にその製品に表示されます](creating-a-data-access-layer-vb/_static/image92.png)](creating-a-data-access-layer-vb/_static/image91.png)
+[![左の列を右にあるその製品の仕入先の会社名が一覧表示します。](creating-a-data-access-layer-vb/_static/image92.png)](creating-a-data-access-layer-vb/_static/image91.png)
 
 **図 35**:仕入先の会社名が左の列、右側にその製品に表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-vb/_static/image93.png))。
 

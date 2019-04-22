@@ -12,7 +12,7 @@ ms.openlocfilehash: 2a4d991205351531129480bee221651021483967
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396253"
 ---
 # <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC で DropDownList ヘルパーを使用する
@@ -190,7 +190,7 @@ Starter とこのチュートリアルに付属する完全なサンプル プ�
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-上記のコードで HTML 属性と属性値を追加しましたが`class = "chzn-select"`します。 \@文字の前のクラスには、Razor ビュー エンジンとは無関係です。 `class` [ C#キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)します。 C# のキーワードが含まれている場合を除き、識別子として使用できません\@をプレフィックスとして。 上記の例で`@class`有効な識別子ですが、**クラス**できないためは**クラス**はキーワードです。
+上記のコードで HTML 属性と属性値を追加しましたが`class = "chzn-select"`します。 \@文字の前のクラスには、Razor ビュー エンジンとは無関係です。 `class` [c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)します。 C# のキーワードが含まれている場合を除き、識別子として使用できません\@をプレフィックスとして。 上記の例で`@class`有効な識別子ですが、**クラス**できないためは**クラス**はキーワードです。
 
 参照を追加、 *Chosen/chosen.jquery.js*と*Chosen/chosen.css*ファイル。 *Chosen/chosen.jquery.js*を実装して、選択したプラグインの機能的です。 *Chosen/chosen.css*ファイル、スタイル設定を提供します。 一番下にこれらの参照を追加、 *Views\Home\MultiSelectCountry.cshtml*ファイル。 次のコードでは、選択したプラグインを参照する方法を示します。
 

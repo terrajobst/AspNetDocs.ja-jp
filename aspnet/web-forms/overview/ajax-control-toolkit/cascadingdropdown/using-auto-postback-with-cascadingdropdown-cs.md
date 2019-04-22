@@ -12,7 +12,7 @@ ms.openlocfilehash: 50bba1b798ddfaf69dd23098e31d446a7e7b9a1f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394615"
 ---
 # <a name="using-auto-postback-with-cascadingdropdown-c"></a>CascadingDropDown で自動ポストバックを使用する (C#)
@@ -57,7 +57,7 @@ CascadingDropDown 値の型の配列を返します。 リスト項目のキャ�
 この方法では、ポストバックは、リスト内に実際に要素が、ユーザーがエントリを選択してにのみ実行されます。
 
 
-[![Sリストの要素の選択がポストバックを発生](using-auto-postback-with-cascadingdropdown-cs/_static/image2.png)](using-auto-postback-with-cascadingdropdown-cs/_static/image1.png)
+[![ポストバックを発生させるリスト要素の選択](using-auto-postback-with-cascadingdropdown-cs/_static/image2.png)](using-auto-postback-with-cascadingdropdown-cs/_static/image1.png)
 
 リスト要素を選択すると、ポストバックを発生させる ([フルサイズの画像を表示する をクリックします](using-auto-postback-with-cascadingdropdown-cs/_static/image3.png))。
 

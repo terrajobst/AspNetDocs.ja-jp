@@ -13,7 +13,7 @@ ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395292"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>ASP.NET Identity で SMS と電子メールを使用する 2 要素認証

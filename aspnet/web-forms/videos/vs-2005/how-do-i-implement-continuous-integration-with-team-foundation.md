@@ -12,7 +12,7 @@ ms.openlocfilehash: 80c9852395345f8ad7266dc469b34821d75e444b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394015"
 ---
 # <a name="how-do-i-implement-continuous-integration-with-team-foundation"></a>[How Do i:]Team Foundation で継続的インテグレーションを実装するか。
