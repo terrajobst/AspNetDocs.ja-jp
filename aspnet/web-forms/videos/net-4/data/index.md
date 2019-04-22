@@ -12,12 +12,12 @@ ms.openlocfilehash: ccd558f7777b1398bf1615ebbe7f18a82bc65985
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408330"
 ---
-# <a name="data"></a><span data-ttu-id="82a34-103">データ</span><span class="sxs-lookup"><span data-stu-id="82a34-103">Data</span></span>
+# <a name="data"></a><span data-ttu-id="fc7a1-103">データ</span><span class="sxs-lookup"><span data-stu-id="fc7a1-103">Data</span></span>
 
-> <span data-ttu-id="82a34-104">このビデオでは、データのコントロールを ASP.NET 4 の新機能を説明します。</span><span class="sxs-lookup"><span data-stu-id="82a34-104">This video shows you new features for ASP.NET 4 data controls.</span></span>
+> <span data-ttu-id="fc7a1-104">このビデオでは、データのコントロールを ASP.NET 4 の新機能を説明します。</span><span class="sxs-lookup"><span data-stu-id="fc7a1-104">This video shows you new features for ASP.NET 4 data controls.</span></span>
 
 
-- [<span data-ttu-id="82a34-105">永続的 GridView 行選択</span><span class="sxs-lookup"><span data-stu-id="82a34-105">Persistent GridView Row Selection</span></span>](aspnet-4-quick-hit-persistent-gridview-row-selection.md)
+- [<span data-ttu-id="fc7a1-105">永続的 GridView 行選択</span><span class="sxs-lookup"><span data-stu-id="fc7a1-105">Persistent GridView Row Selection</span></span>](aspnet-4-quick-hit-persistent-gridview-row-selection.md)

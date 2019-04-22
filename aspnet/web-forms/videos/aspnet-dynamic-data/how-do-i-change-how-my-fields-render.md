@@ -12,18 +12,18 @@ ms.openlocfilehash: d0ee7dc47c6ec5ffd76baa6827b81a9ff02c6bfc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381017"
 ---
-# <a name="how-do-i-change-how-my-fields-render"></a><span data-ttu-id="17abd-105">フィールドのレンダリング方法を変更する方法</span><span class="sxs-lookup"><span data-stu-id="17abd-105">How do I Change how my Fields render?</span></span>
+# <a name="how-do-i-change-how-my-fields-render"></a><span data-ttu-id="5c6c7-105">フィールドのレンダリング方法を変更する方法</span><span class="sxs-lookup"><span data-stu-id="5c6c7-105">How do I Change how my Fields render?</span></span>
 
-<span data-ttu-id="17abd-106">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="17abd-106">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="5c6c7-106">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="5c6c7-106">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-<span data-ttu-id="17abd-107">このビデオでは、データ フィールドを表示する方法を変更する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="17abd-107">In this video you learn how to change the way that data fields are rendered.</span></span> <span data-ttu-id="17abd-108">一部のフィールドのサードパーティ製のコントロールが接続されます。</span><span class="sxs-lookup"><span data-stu-id="17abd-108">You will plug in third-party controls for some fields.</span></span>
+<span data-ttu-id="5c6c7-107">このビデオでは、データ フィールドを表示する方法を変更する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="5c6c7-107">In this video you learn how to change the way that data fields are rendered.</span></span> <span data-ttu-id="5c6c7-108">一部のフィールドのサードパーティ製のコントロールが接続されます。</span><span class="sxs-lookup"><span data-stu-id="5c6c7-108">You will plug in third-party controls for some fields.</span></span>
 
-[<span data-ttu-id="17abd-109">&#9654;(13 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="17abd-109">&#9654; Watch video (13 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
+[<span data-ttu-id="5c6c7-109">&#9654;(13 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="5c6c7-109">&#9654; Watch video (13 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="17abd-110">[前へ](how-do-i-enable-inline-gridview-editing.md)
-> [次へ](how-do-i-handle-business-logic-exceptions.md)</span><span class="sxs-lookup"><span data-stu-id="17abd-110">[Previous](how-do-i-enable-inline-gridview-editing.md)
+> <span data-ttu-id="5c6c7-110">[前へ](how-do-i-enable-inline-gridview-editing.md)
+> [次へ](how-do-i-handle-business-logic-exceptions.md)</span><span class="sxs-lookup"><span data-stu-id="5c6c7-110">[Previous](how-do-i-enable-inline-gridview-editing.md)
 [Next](how-do-i-handle-business-logic-exceptions.md)</span></span>

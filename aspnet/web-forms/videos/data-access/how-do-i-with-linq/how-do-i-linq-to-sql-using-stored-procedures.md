@@ -12,18 +12,18 @@ ms.openlocfilehash: cbfa28aa6814df404337a8a5d739e2b3c15d31a5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385008"
 ---
-# <a name="how-do-i-linq-to-sql-using-stored-procedures"></a><span data-ttu-id="2b8e1-104">[How Do i:]LINQ to SQL:ストアド プロシージャの使用</span><span class="sxs-lookup"><span data-stu-id="2b8e1-104">[How Do I:] LINQ to SQL: Using Stored Procedures</span></span>
+# <a name="how-do-i-linq-to-sql-using-stored-procedures"></a><span data-ttu-id="d0d68-104">[How Do i:]LINQ to SQL:ストアド プロシージャの使用</span><span class="sxs-lookup"><span data-stu-id="d0d68-104">[How Do I:] LINQ to SQL: Using Stored Procedures</span></span>
 
-<span data-ttu-id="2b8e1-105">によって[Scott Stanfield](https://github.com/scottstanfield)</span><span class="sxs-lookup"><span data-stu-id="2b8e1-105">by [Scott Stanfield](https://github.com/scottstanfield)</span></span>
+<span data-ttu-id="d0d68-105">によって[Scott Stanfield](https://github.com/scottstanfield)</span><span class="sxs-lookup"><span data-stu-id="d0d68-105">by [Scott Stanfield](https://github.com/scottstanfield)</span></span>
 
-<span data-ttu-id="2b8e1-106">既存のストアド プロシージャと関数を使用することは LINQ では簡単です。</span><span class="sxs-lookup"><span data-stu-id="2b8e1-106">Using existing stored procedures and functions is easy with LINQ.</span></span> <span data-ttu-id="2b8e1-107">ストアド プロシージャを O/R マッピング画面にドラッグし、生成されたデータ コンテキスト オブジェクトから呼び出すことことだけです。</span><span class="sxs-lookup"><span data-stu-id="2b8e1-107">We simply drag the stored procedures onto the O/R mapping surface and call them from the generated Data Context object.</span></span>
+<span data-ttu-id="d0d68-106">既存のストアド プロシージャと関数を使用することは LINQ では簡単です。</span><span class="sxs-lookup"><span data-stu-id="d0d68-106">Using existing stored procedures and functions is easy with LINQ.</span></span> <span data-ttu-id="d0d68-107">ストアド プロシージャを O/R マッピング画面にドラッグし、生成されたデータ コンテキスト オブジェクトから呼び出すことことだけです。</span><span class="sxs-lookup"><span data-stu-id="d0d68-107">We simply drag the stored procedures onto the O/R mapping surface and call them from the generated Data Context object.</span></span>
 
-[<span data-ttu-id="2b8e1-108">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="2b8e1-108">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-using-stored-procedures)
+[<span data-ttu-id="d0d68-108">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="d0d68-108">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-using-stored-procedures)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="2b8e1-109">[前へ](how-do-i-linq-to-sql-custom-linqdatasource.md)
-> [次へ](how-do-i-linq-to-sql-updating-with-stored-procedures.md)</span><span class="sxs-lookup"><span data-stu-id="2b8e1-109">[Previous](how-do-i-linq-to-sql-custom-linqdatasource.md)
+> <span data-ttu-id="d0d68-109">[前へ](how-do-i-linq-to-sql-custom-linqdatasource.md)
+> [次へ](how-do-i-linq-to-sql-updating-with-stored-procedures.md)</span><span class="sxs-lookup"><span data-stu-id="d0d68-109">[Previous](how-do-i-linq-to-sql-custom-linqdatasource.md)
 [Next](how-do-i-linq-to-sql-updating-with-stored-procedures.md)</span></span>
