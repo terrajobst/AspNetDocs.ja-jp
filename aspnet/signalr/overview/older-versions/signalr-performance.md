@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f7415d0a4275a3864dc9eefb9588f17698147cd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412698"
 ---
 # <a name="signalr-performance-signalr-1x"></a>SignalR パフォーマンス (SignalR 1.x)
@@ -232,7 +232,7 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 - Web service \current Connections
 - Web Service\Maximum 接続
 
-**スレッド**
+**スレッド化**
 
 - .NET CLR LocksAndThreads\#の現在の論理スレッド
 - .NET CLR LocksAnd スレッド\#物理スレッドの現在の
@@ -243,6 +243,6 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 ASP.NET パフォーマンスの監視とチューニングの詳細については、次のトピックを参照してください。
 
-- [ASP.NET パフォーマンスの概要](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
+- [ASP.NET のパフォーマンスの概要](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [IIS 7.5、IIS 7.0、IIS 6.0 で ASP.NET のスレッドの使用状況](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
 - [&lt;applicationPool&gt;要素 (Web 設定)](https://msdn.microsoft.com/library/dd560842.aspx)

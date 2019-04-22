@@ -12,14 +12,14 @@ ms.openlocfilehash: 3dddc1fd38a5384e40f9fa109da9d8c1424ef01a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387257"
 ---
 # <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework のモックを作成するときに単体テストの ASP.NET Web API 2
 
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-[完成したプロジェクトをダウンロードします。](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > このガイダンスとアプリケーションは、Entity Framework を使用する Web API 2 アプリケーションの単体テストを作成する方法を説明します。 テストは、コンテキスト オブジェクトを渡すことを有効にするスキャフォールディングされたコント ローラーを変更する方法と Entity Framework で動作するテスト オブジェクトを作成する方法を示しています。
 >
@@ -44,8 +44,8 @@ ms.locfileid: "59387257"
 - [追加の依存関係の挿入](#dependency)
 - [テスト プロジェクトで NuGet パッケージをインストールします。](#testpackages)
 - [テストのコンテキストを作成します。](#testcontext)
-- [テストの作成](#tests)
-- [テストの実行](#runtests)
+- [テストを作成します。](#tests)
+- [テストを実行します。](#runtests)
 
 」の手順を既に完了している場合[ASP.NET Web API 2 で Unit Testing](unit-testing-with-aspnet-web-api.md)、セクションに進んで[コント ローラーの追加](#controller)します。
 

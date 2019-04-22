@@ -12,14 +12,14 @@ ms.openlocfilehash: de4bb063d2a6c1bdb4aeffdadb161ef19efd2b78
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390949"
 ---
 # <a name="part-3-creating-an-admin-controller"></a>第 3 部:管理者コントローラーの作成
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-controller"></a>管理者コント ローラーを追加します。
 

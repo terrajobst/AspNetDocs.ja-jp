@@ -12,7 +12,7 @@ ms.openlocfilehash: 0bc3127974341a65fb5f38ac0a974782099fffce
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385918"
 ---
 # <a name="displaying-summary-information-in-the-gridviews-footer-c"></a>GridView のフッターに概要情報を表示する (C#)
@@ -37,7 +37,7 @@ ms.locfileid: "59385918"
 このチュートリアルでは、これらの課題を克服する方法がわかります。 具体的には、GridView に表示される、選択したカテゴリの製品をドロップダウン リスト内のカテゴリを一覧表示されたページを作成します。 GridView では、在庫と注文でそのカテゴリの製品の平均価格と単位の合計数が表示されるフッター行が含まれます。
 
 
-[![Summary GridView のフッター行の情報が表示されます](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image2.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image1.png)
+[![GridView のフッター行に概要情報が表示されます。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image2.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image1.png)
 
 **図 1**:GridView のフッター行に概要情報が表示されます ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image3.png))。
 
@@ -51,12 +51,12 @@ GridView のフッターに概要情報を追加することに留意する前�
 開いて開始、`SummaryDataInFooter.aspx`ページで、`CustomFormatting`フォルダー。 DropDownList コントロールを追加し、設定、`ID`に`Categories`します。 次に、DropDownList のスマート タグから データ ソースのリンクをクリックし、という名前の新しい ObjectDataSource を追加することを選択`CategoriesDataSource`を呼び出す、`CategoriesBLL`クラスの`GetCategories()`メソッド。
 
 
-[![Add 新しい ObjectDataSource という CategoriesDataSource](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image4.png)
+[![CategoriesDataSource という名前の新しい ObjectDataSource を追加します。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image4.png)
 
 **図 2**:新しい ObjectDataSource という追加`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image6.png))。
 
 
-[![Have ObjectDataSource は、CategoriesBLL クラスの GetCategories() メソッドを呼び出す](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image7.png)
+[![ObjectDataSource CategoriesBLL クラスの GetCategories() メソッドの呼び出しがあります。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image7.png)
 
 **図 3**:ObjectDataSource の呼び出しがある、`CategoriesBLL`クラスの`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image9.png))。
 
@@ -64,7 +64,7 @@ GridView のフッターに概要情報を追加することに留意する前�
 DropDownList のデータ ソースの構成ウィザードはどのようなデータ フィールドの値を指定しなければ表示するかと DropDownList のの値に対応する1つ、ObjectDataSourceを構成した後、ウィザードを返します`ListItem`秒。 `CategoryName`フィールドを表示し、使用、`CategoryID`値として。
 
 
-[![Use、CategoryName CategoryID フィールドは、それぞれ、テキストと、リスト項目の値としておよび](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image10.png)
+[![テキストと、リスト項目の値として、区分名と [categoryid] フィールドをそれぞれ使用します。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image10.png)
 
 **図 4**:使用して、`CategoryName`と`CategoryID`フィールドに対する、`Text`と`Value`の`ListItem`s、それぞれ ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image12.png))。
 
@@ -72,7 +72,7 @@ DropDownList のデータ ソースの構成ウィザードはどのようなデ
 DropDownList がこの時点である (`Categories`) システムで、カテゴリを一覧表示します。 これで、選択したカテゴリに属しているこれらの製品を一覧表示する GridView を追加する必要があります。 ただし実行前に少し DropDownList のスマート タグで AutoPostBack を有効にするチェック ボックスをオンにします。 説明したように、*マスター/詳細のフィルター処理で、DropDownList* DropDownList を設定して、チュートリアル`AutoPostBack`プロパティを`true`ページ投稿されます戻る DropDownList の値が変更されるたびにします。 これによりに更新されますが、GridView 新しく選択したカテゴリの製品を表示します。 場合、`AutoPostBack`プロパティに設定されて`false`(既定)、ポストバックは発生しませんし、以下の製品が更新されないため、カテゴリを変更します。
 
 
-[![Cいったい DropDownList のスマート タグ内の AutoPostBack、有効にするチェック ボックス](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image13.png)
+[![DropDownList のスマート タグで有効にする AutoPostBack のチェック ボックスをオンします。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image13.png)
 
 **図 5**:チェック ボックスを有効にする AutoPostBack DropDownList のスマート タグ ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image15.png))。
 
@@ -80,7 +80,7 @@ DropDownList がこの時点である (`Categories`) システムで、カテゴ
 選択したカテゴリの製品を表示するために、ページに GridView コントロールを追加します。 GridView の設定`ID`に`ProductsInCategory`という名前の新しい ObjectDataSource にバインド`ProductsInCategoryDataSource`します。
 
 
-[![Add 新しい ObjectDataSource という ProductsInCategoryDataSource](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image16.png)
+[![ProductsInCategoryDataSource という名前の新しい ObjectDataSource を追加します。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image16.png)
 
 **図 6**:新しい ObjectDataSource という追加`ProductsInCategoryDataSource`([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image18.png))。
 
@@ -88,7 +88,7 @@ DropDownList がこの時点である (`Categories`) システムで、カテゴ
 呼び出すように ObjectDataSource を構成、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。
 
 
-[![HObjectDataSource Invoke GetProductsByCategoryID(categoryID) メソッド [ave](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image20.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image19.png)
+[![ObjectDataSource GetProductsByCategoryID(categoryID) メソッドの呼び出しがあります。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image20.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image19.png)
 
 **図 7**:ObjectDataSource の呼び出しがある、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image21.png))。
 
@@ -96,7 +96,7 @@ DropDownList がこの時点である (`Categories`) システムで、カテゴ
 以降、`GetProductsByCategoryID(categoryID)`メソッドは、入力パラメーターでは、ウィザードの最後の手順では、パラメーター値のソースを指定できます。 取得したパラメーターを指定すると、選択したカテゴリからこれらの製品を表示するために、 `Categories` DropDownList します。
 
 
-[![Get categoryID パラメーターの値から選択したカテゴリ DropDownList](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image22.png)
+[![選択したカテゴリ DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image22.png)
 
 **図 8**:取得、 *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image24.png))。
 
@@ -109,7 +109,7 @@ DropDownList がこの時点である (`Categories`) システムで、カテゴ
 この時点で、選択したカテゴリに属する製品の注文の名前、単価、在庫、および単位を示す完全に機能しているマスター/詳細レポートがあります。
 
 
-[![Get categoryID パラメーターの値から選択したカテゴリ DropDownList](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image25.png)
+[![選択したカテゴリ DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image25.png)
 
 **図 9**:取得、 *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image27.png))。
 
@@ -119,7 +119,7 @@ DropDownList がこの時点である (`Categories`) システムで、カテゴ
 GridView コントロールは、ヘッダーとフッターの両方の行を表示できます。 値に応じてこれらの行が表示されます、`ShowHeader`と`ShowFooter`プロパティをそれぞれ`ShowHeader`既定では`true`と`ShowFooter`に`false`します。 GridView にフッターを単に含める次のように設定します。 その`ShowFooter`プロパティを`true`します。
 
 
-[![SGridView を et ShowFooter プロパティを true に](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image29.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image28.png)
+[![GridView の ShowFooter プロパティを true に設定します。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image29.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image28.png)
 
 **図 10**:GridView の設定`ShowFooter`プロパティを`true`([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image30.png))。
 
@@ -127,7 +127,7 @@ GridView コントロールは、ヘッダーとフッターの両方の行を�
 フッター行は、GridView; で定義されているフィールドの各セルを持つただし、これらのセルが既定では空です。 ブラウザーで、進行状況を表示する時間がかかります。 `ShowFooter`プロパティ設定するようになりました`true`GridView には、空のフッター行が含まれています。
 
 
-[![T彼は GridView にフッター行にはが含まれています](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image32.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image31.png)
+[![GridView ここには、フッター行が含まれています。](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image32.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image31.png)
 
 **図 11**:GridView がフッター行が含まれています ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image33.png))。
 
@@ -149,7 +149,7 @@ GridView コントロールは、ヘッダーとフッターの両方の行を�
 画面ショット下の例では、この変更はフッターよりはっきり目立ちます。
 
 
-[![T彼は GridView のフッター行の背景色を赤ようになりました](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image35.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image34.png)
+[![GridView のフッター行が赤の背景色になりました](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image35.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image34.png)
 
 **図 12**:GridView のフッター行が赤の背景色を持つようになりました ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image36.png))。
 
@@ -203,7 +203,7 @@ GridView のフッターを表示、私たちが直面している次の課題�
 図 13 は、このコードを追加した後にレポートを示します。 注方法、`ToString("c")`通貨のような形式に平均価格の概要情報します。
 
 
-[![T彼は GridView のフッター行の背景色を赤ようになりました](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image38.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image37.png)
+[![GridView のフッター行が赤の背景色になりました](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image38.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image37.png)
 
 **図 13**:GridView のフッター行が赤の背景色を持つようになりました ([フルサイズの画像を表示する をクリックします](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image39.png))。
 

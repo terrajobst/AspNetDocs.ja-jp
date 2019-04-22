@@ -12,7 +12,7 @@ ms.openlocfilehash: b991227a452bf07505207a7d8d079210488c407f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407849"
 ---
 # <a name="aspnet-35---ajax"></a>ASP.NET 3.5 - AJAX
@@ -20,7 +20,7 @@ ms.locfileid: "59407849"
 > については、ASP.NET AJAX ライブラリ、Updatepanel とページの部分的な更新プログラム、認証、ローカリゼーション、およびデバッグします。
 
 
-- [ASP.NET AJAX の部分ページ更新について理解する](understanding-partial-page-updates-with-asp-net-ajax.md)
+- [ASP.NET AJAX の部分的ページ更新について理解する](understanding-partial-page-updates-with-asp-net-ajax.md)
 - [ASP.NET AJAX UpdatePanel トリガーについて理解する](understanding-asp-net-ajax-updatepanel-triggers.md)
 - [ASP.NET AJAX 認証とプロファイル アプリケーション サービスについて理解する](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
 - [ASP.NET AJAX ローカライズについて理解する](understanding-asp-net-ajax-localization.md)

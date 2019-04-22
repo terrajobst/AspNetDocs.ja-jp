@@ -12,7 +12,7 @@ ms.openlocfilehash: 38aea3b3480dde6ec6182a45c4f61f44eea8e05e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380224"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
@@ -326,7 +326,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
 
     ![参照 StoreBrowseGenre Disco を =](aspnet-mvc-4-fundamentals/_static/image10.png "StoreBrowseGenre をブラウズ Disco を =")
 
-    */Store/Browse を参照しますか。ジャンル Disco を =*
+    *Browsing /Store/Browse?Genre=Disco*
 3. ブラウザーを閉じます。
 
 <a id="Ex3Task3"></a>
@@ -1129,7 +1129,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 
     ![データベースを作成する](aspnet-mvc-4-fundamentals/_static/image65.png "データベース文字列を作成します。")
 
-    *データベースを作成する*
+    *データベースの作成*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-fundamentals/_static/image66.png "SQL データベースを指す接続文字列")

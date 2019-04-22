@@ -13,7 +13,7 @@ ms.openlocfilehash: 6f8b926c78097b68e6a159f2fdd30e7b8a6477a0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395174"
 ---
 # <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory を使った ASP.NET アプリの開発
@@ -142,7 +142,7 @@ Azure Active Directory でホストされる web アプリの認証を有効化�
 
 ## <a name="more-information"></a>説明
 
-- [詳細:Azure の web サイトと Azure AD を使用して組織の認証](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
+- 「[Deep Dive:Azure の web サイトと Azure AD を使用して組織の認証](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
 - [Azure AD Graph API の概要](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 - [Azure AD での認証シナリオ](https://msdn.microsoft.com/library/azure/dn499820.aspx)
 - [GitHub での azure AD コード サンプルします。](https://github.com/AzureADSamples)

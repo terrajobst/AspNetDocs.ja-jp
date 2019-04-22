@@ -12,14 +12,14 @@ ms.openlocfilehash: f5b7cecdd1a8dbd9be1bd781cec31c53c9096546
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383227"
 ---
 # <a name="deploying-database-projects"></a>データベース プロジェクトを配置する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > [!NOTE]
 > エンタープライズ展開シナリオの多くは、配置されたデータベースに増分更新を発行する機能が必要です。 代わりに、すべてのデプロイでは、既存のデータベース内のデータが失われることを意味上のデータベースを再作成することです。 Visual Studio 2010 を使用する場合は、増分データベース発行に推奨される方法は VSDBCMD を使用します。 ただし、次のバージョンの Visual Studio と Web 発行パイプライン (WPP) 増分直接公開をサポートするツールが含まれます。

@@ -12,7 +12,7 @@ ms.openlocfilehash: f1875ae95d79ec2a6762a547aabfbd03e0930b2c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386503"
 ---
 # <a name="using-modalpopup-with-a-repeater-control-vb"></a>Repeater コントロールで ModalPopup を使用する (VB)
@@ -49,7 +49,7 @@ AJAX Control Toolkit の ModalPopup コントロールには、クライアン�
 次に、モーダル ポップアップをトリガーするように、その横にあるボタンで、データ ソース内のすべての項目が表示されます。
 
 
-[![Tデータ ソースのエントリごとに、彼のモーダル ポップアップをトリガーできる](using-modalpopup-with-a-repeater-control-vb/_static/image2.png)](using-modalpopup-with-a-repeater-control-vb/_static/image1.png)
+[![データ ソースのエントリごとに、モーダル ポップアップをトリガーできます。](using-modalpopup-with-a-repeater-control-vb/_static/image2.png)](using-modalpopup-with-a-repeater-control-vb/_static/image1.png)
 
 データ ソースのエントリごとに、モーダル ポップアップをトリガーできます ([フルサイズの画像を表示する をクリックします](using-modalpopup-with-a-repeater-control-vb/_static/image3.png))。
 

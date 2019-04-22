@@ -12,7 +12,7 @@ ms.openlocfilehash: 952dbbc7759e5a8a654ab561bc54011dfb7f8d90
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380081"
 ---
 # <a name="batch-updating-c"></a>一括更新 (C#)
@@ -31,7 +31,7 @@ ms.locfileid: "59380081"
 このチュートリアルでは、それぞれの行が編集可能な (図 1 参照) は GridView を作成します。 各行がレンダリングされるので編集インターフェイス、s をそこでない列の編集の必要性、更新、およびキャンセル ボタン。 ページ上の 2 つの製品の更新ボタンがあります、代わりにをクリックすると、GridView の行を列挙し、データベースを更新します。
 
 
-[![Each GridView の行は、編集可能](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
+[![GridView の各行は編集可能なです。](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
 
 **図 1**:GridView の各行は編集可能な ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image2.png))。
 
@@ -57,12 +57,12 @@ Let s を始めましょう。
 GridView を作成するかと心配する前に編集可能な行が、s の製品情報を表示するだけで開始できるようにします。 開く、`BatchUpdate.aspx`ページで、`BatchData`フォルダーとツールボックスからデザイナーにドラッグする GridView。 GridView s 設定`ID`に`ProductsGrid`という名前の新しい ObjectDataSource にバインドするを選択して、スマート タグからとは、`ProductsDataSource`します。 構成からそのデータを取得する ObjectDataSource、`ProductsBLL`クラスの`GetProducts`メソッド。
 
 
-[![C構成、ObjectDataSource ProductsBLL クラスを使用する](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
+[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
 
 **図 2**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image4.png))。
 
 
-[![Retrieve GetProducts メソッドを使用して、製品データ](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
+[![GetProducts メソッドを使用して、製品データを取得します。](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
 
 **図 3**:使用して、製品データを取得、`GetProducts`メソッド ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image6.png))。
 
@@ -70,7 +70,7 @@ GridView を作成するかと心配する前に編集可能な行が、s の製
 GridView のような ObjectDataSource 変更機能が行ごとに設計されています。 一連のレコードを更新するには、データをバッチ処理し、BLL に渡します ASP.NET ページの分離コード クラスでのコードを記述する必要があります。 そのため、ドロップ ダウン リスト ObjectDataSource s で UPDATE、INSERT、および削除タブ設定を (なし)。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![S他に、UPDATE、INSERT、および削除のタブ (なし) をドロップダウン リスト](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
+[![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
 
 **図 4**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image8.png))。
 
@@ -107,7 +107,7 @@ GridView のスマート タグから、[フィールド] ダイアログ ボッ
 RequiredFieldValidator を次に、追加、`ItemTemplate`にユーザーが各製品の名前の値を提供することを確認します。 設定、`ControlToValidate`プロパティを ProductName、`ErrorMessage`プロパティには、製品の名前を指定する必要があります。 および`Text`プロパティを\*します。 追加を行った後、`ItemTemplate`図 6 のような画面になります。
 
 
-[![Tこれで、テキスト ボックスと、RequiredFieldValidator を搭載しています ProductName TemplateField](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
+[![ProductName TemplateField ここでには、テキスト ボックスと、RequiredFieldValidator が含まれます。](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
 
 **図 6**:`ProductName` TemplateField にはテキスト ボックスおよび RequiredFieldValidator を今すぐが含まれています ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image10.png))。
 
@@ -117,7 +117,7 @@ RequiredFieldValidator を次に、追加、`ItemTemplate`にユーザーが各�
 追加する、CompareValidator ことも、 `UnitPrice` s`ItemTemplate`ユーザーが入力した値が有効な通貨値 0.00 ドル以上であることを確認します。 検証の設定`ControlToValidate`UnitPrice、プロパティ、`ErrorMessage`にプロパティが有効な通貨値を入力する必要があります。 省略してください、通貨記号。 は、その`Text`プロパティを\*その`Type`プロパティを`Currency`その`Operator`プロパティを`GreaterThanEqual`、とその`ValueToCompare`プロパティを 0 にします。
 
 
-[![Add、CompareValidator の価格が入力することを確認するには、負でない通貨の値は](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
+[![価格の入力を確認の CompareValidator は負でない通貨の値を追加します。](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
 
 **図 7**:追加の価格が入力することを確認する CompareValidator が負でない通貨値 ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image12.png))。
 
@@ -135,12 +135,12 @@ RequiredFieldValidator を次に、追加、`ItemTemplate`にユーザーが各�
 ツールボックスからドラッグして、DropDownList、 `CategoryName` TemplateField s`ItemTemplate`設定、その`ID`に`Categories`。 この時点では通常、Dropdownlist のデータ ソースを定義、スマート タグを新しい ObjectDataSource を作成します。 ただし、これで ObjectDataSource により追加されます、 `ItemTemplate`、その結果、GridView の行ごとに作成された ObjectDataSource インスタンス。 代わりに、s GridView の TemplateFields の外部で ObjectDataSource を作成することができます。 テンプレートの編集を終了し、下にあるデザイナーには、ツールボックスからドラッグして、ObjectDataSource、 `ProductsDataSource` ObjectDataSource します。 名前を新しい ObjectDataSource`CategoriesDataSource`を使用するように構成し、`CategoriesBLL`クラスの`GetCategories`メソッド。
 
 
-[![C構成、ObjectDataSource CategoriesBLL クラスを使用する](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
+[![CategoriesBLL クラスを使用する ObjectDataSource を構成します。](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
 
 **図 8**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image14.png))。
 
 
-[![Retrieve メソッドを使用してデータをカテゴリ](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
+[![メソッドを使用してカテゴリ データを取得します。](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
 
 **図 9**:使用して、カテゴリ データを取得、`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image16.png))。
 
@@ -148,7 +148,7 @@ RequiredFieldValidator を次に、追加、`ItemTemplate`にユーザーが各�
 この ObjectDataSource は、データを取得するだけで使用される、ため (None) に、UPDATE および DELETE のタブで、ドロップダウン リストを設定します。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![Set UPDATE および DELETE タブ [(なし) で、ドロップダウン リスト](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
+[![セットの UPDATE および DELETE のタブ (なし) をドロップダウン リスト](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
 
 **図 10**:(なし) に、更新および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image18.png))。
 
@@ -161,7 +161,7 @@ RequiredFieldValidator を次に、追加、`ItemTemplate`にユーザーが各�
 `CategoriesDataSource`を作成および構成を返す、 `CategoryName` TemplateField の`ItemTemplate`DropDownList s のスマート タグから データ ソースのリンクをクリックして、します。 データ ソース構成ウィザードで選択、`CategoriesDataSource`最初のドロップダウン リストからオプションとを持っている`CategoryName`表示に使用し、`CategoryID`値として。
 
 
-[![B%%ind、CategoriesDataSource に DropDownList](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
+[![CategoriesDataSource DropDownList をバインドします。](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
 
 **図 11**:DropDownList をバインド、 `CategoriesDataSource` ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image20.png))。
 
@@ -190,7 +190,7 @@ RequiredFieldValidator を次に、追加、`ItemTemplate`にユーザーが各�
 私たちを進行状況を表示するを一時停止せず、GridView のテンプレートに変更の数を作成しています。 ブラウザーから進行状況を表示する時間がかかります。 使用して各行を表示する図 13 に示すよう、`ItemTemplate`インターフェイスの編集 cell が含まれています。
 
 
-[![Each GridView の行は、編集可能](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
+[![GridView の各行は編集可能なです。](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
 
 **図 13**:GridView の各行は編集可能な ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image22.png))。
 
@@ -223,7 +223,7 @@ GridView s 以降編集インターフェイスで定義されているその Te
 図 16 は、ボタンの Web コントロールを追加した後、ブラウザーで表示したときに、このページおよび書式設定の変更を示します。
 
 
-[![T彼ページようになりましたが含まれています 2 更新プログラムの製品ボタン](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
+[![ページここには、2 つの更新プログラムの製品ボタンが含まれています。](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
 
 **図 16**:ページようになりましたが含まれています 2 つの更新の製品のボタン ([フルサイズの画像を表示する をクリックします](batch-updating-cs/_static/image24.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 8e4fa3f87f09d8872dd4ccc1797c05c229768224
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388284"
 ---
 # <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>セキュリティ、認証、および ASP.NET Web API での承認

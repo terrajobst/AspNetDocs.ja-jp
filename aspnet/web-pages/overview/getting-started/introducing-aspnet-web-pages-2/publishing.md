@@ -12,7 +12,7 @@ ms.openlocfilehash: ece436d44908497d6cf10017ba1ee285bfb4a5b2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382103"
 ---
 # <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>WebMatrix を使用してサイトを発行する-ASP.NET Web Pages の概要

@@ -12,28 +12,28 @@ ms.openlocfilehash: b4c9e9eb85f6ba9a1e2b2d0a1bbaf027ee25bc0d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381849"
 ---
 # <a name="web-pages-guidance"></a>Web ページのガイダンス
 
-- [作業の開始](getting-started/index.md)
+- [はじめに](getting-started/index.md)
 
     - [Visual Studio で ASP.NET Web ページをプログラミングする](getting-started/program-asp-net-web-pages-in-visual-studio.md)
     - [ASP.NET Web プログラミング Razor 構文入門](getting-started/introducing-razor-syntax-c.md)
     - [ASP.NET Web ページ Visual Basic](getting-started/introducing-razor-syntax-vb.md)
     - [ASP.NET Web ページ (Razor) のよくあるご質問](getting-started/aspnet-web-pages-razor-faq.md)
     - [サイトから電子メールを送信する](getting-started/11-adding-email-to-your-web-site.md)
-    - [Web サイトにソーシャル ネットワークを追加する](getting-started/13-adding-social-networking-to-your-web-site.md)
+    - [Web サイトにソーシャル ネットワーキングを追加する](getting-started/13-adding-social-networking-to-your-web-site.md)
     - [ASP.NET Web ページの概要](getting-started/introducing-aspnet-web-pages-2/index.md)
 
-        - [作業の開始](getting-started/introducing-aspnet-web-pages-2/getting-started.md)
+        - [はじめに](getting-started/introducing-aspnet-web-pages-2/getting-started.md)
         - [プログラミングの基礎](getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
         - [データの表示](getting-started/introducing-aspnet-web-pages-2/displaying-data.md)
         - [HTML フォームの基本](getting-started/introducing-aspnet-web-pages-2/form-basics.md)
         - [フォームを使用してデータベース データを入力する](getting-started/introducing-aspnet-web-pages-2/entering-data.md)
         - [データベース データを更新する](getting-started/introducing-aspnet-web-pages-2/updating-data.md)
-        - [データベース データを削除する](getting-started/introducing-aspnet-web-pages-2/deleting-data.md)
+        - [データベース データを更新する](getting-started/introducing-aspnet-web-pages-2/deleting-data.md)
         - [一貫性のあるレイアウトを作成する](getting-started/introducing-aspnet-web-pages-2/layouts.md)
         - [WebMatrix を使用してサイトを公開する](getting-started/introducing-aspnet-web-pages-2/publishing.md)
 - [ルーティング](routing/index.md)
@@ -51,7 +51,7 @@ ms.locfileid: "59381849"
     - [ヘルパーをインストールする](ui-layouts-and-themes/installing-helpers.md)
     - [Twitter ヘルパーと ASP.NET Web ページ](ui-layouts-and-themes/twitter-helper.md)
     - [ASP.NET Web ページ サイトでマップを表示する](ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site.md)
-- [携帯](mobile/index.md)
+- [モバイル](mobile/index.md)
 
     - [モバイル デバイスで ASP.NET Web ページ サイトをレンダリングする](mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
 - [データの使用](data/index.md)

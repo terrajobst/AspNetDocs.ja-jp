@@ -12,7 +12,7 @@ ms.openlocfilehash: 8292fd43ffa2bc66b4daa8f0fc09569226d90bff
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379561"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 での非同期メソッドの使用
@@ -30,7 +30,7 @@ ASP.NET MVC 4[コント ローラー](https://msdn.microsoft.com/library/system.
 
 - [ホワイト ペーパー:.NET での非同期性](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [Async/await のよく寄せられる質問](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
-- [Async および Await を使用した非同期プログラミング](https://msdn.microsoft.com/vstudio/gg316360)
+- [Visual Studio の非同期プログラミング](https://msdn.microsoft.com/vstudio/gg316360)
 
 ## <a id="HowRequestsProcessedByTP"></a>  スレッド プール内に要求を処理する方法
 
@@ -166,7 +166,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
     - IIS マネージャーを開き、アプリケーション プール ウィンドウに移動します。
     - 対象のアプリケーション プールを右クリックし、選択**詳細設定**します。  
-        ![高度な](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
+        ![advanced](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
     - **詳細設定** ダイアログ ボックスで、変更*キューの長さ*5,000 に 1,000 から。  
         ![キューの長さ](using-asynchronous-methods-in-aspnet-mvc-4/_static/image5.png)  
   

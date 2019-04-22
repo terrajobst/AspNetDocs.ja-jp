@@ -12,7 +12,7 @@ ms.openlocfilehash: 179f6dd3a60f8c49770ee34af93d54defad0adc4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379415"
 ---
 # <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR 1.x による高頻度リアルタイム
@@ -45,7 +45,7 @@ ms.locfileid: "59379415"
 このチュートリアルには、次のセクションが含まれています。
 
 - [必須コンポーネント](#prerequisites)
-- [プロジェクトの作成](#createtheproject)
+- [プロジェクトを作成します。](#createtheproject)
 - [ASP.NET SignalR と JQuery.UI NuGet パッケージを追加します。](#nugetpackages)
 - [ベースのアプリケーションを作成します。](#baseapp)
 - [クライアントのループを追加します。](#clientloop)
@@ -195,4 +195,4 @@ SignalR 開発の概念に関する詳細については、SignalR のソース 
 
 - [SignalR プロジェクト](http://signalr.net)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)

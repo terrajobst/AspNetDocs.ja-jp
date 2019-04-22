@@ -12,7 +12,7 @@ ms.openlocfilehash: 3d8a6a102788cb6b5612e9bc537e1c13e7798c54
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378937"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio"></a>Visual Studio を使った ASP.NET の Web 配置
@@ -21,14 +21,14 @@ ms.locfileid: "59378937"
 
 
 - [はじめに](introduction.md)
-- [データベース配置の準備](preparing-databases.md)
+- [データベース展開の準備](preparing-databases.md)
 - [Web.config ファイル変換](web-config-transformations.md)
-- [プロジェクトのプロパティ](project-properties.md)
-- [テスト環境に配置する](deploying-to-iis.md)
+- [プロジェクト プロパティ](project-properties.md)
+- [テスト環境に展開する](deploying-to-iis.md)
 - [フォルダーのアクセス許可を設定する](setting-folder-permissions.md)
-- [運用環境に配置する](deploying-to-production.md)
-- [コード更新を配置する](deploying-a-code-update.md)
-- [データベース更新を配置する](deploying-a-database-update.md)
-- [コマンド ライン配置](command-line-deployment.md)
-- [追加ファイルの配置](deploying-extra-files.md)
+- [実稼働環境に展開する](deploying-to-production.md)
+- [コード更新を展開する](deploying-a-code-update.md)
+- [データベース更新を展開する](deploying-a-database-update.md)
+- [コマンド ライン展開](command-line-deployment.md)
+- [追加ファイルの展開](deploying-extra-files.md)
 - [トラブルシューティング](troubleshooting.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 8caa88d928517e1c71210cbe55e3961d4baf461a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381277"
 ---
 # <a name="iteration-4--make-the-application-loosely-coupled-c"></a>繰り返し #4 – アプリケーションを疎結合 (c#) を作成します。
@@ -137,7 +137,7 @@ EntityContactManagerRepository の具象クラスではなく IContactManagerRep
 
 リスト 4、ContactManagerService が含まれています。 連絡先のコント ローラー クラスからの検証ロジックが含まれています。
 
-**Listing 4 - Models\ContactManagerService.cs**
+**4 - Models\ContactManagerService.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample4.cs)]
 
@@ -173,7 +173,7 @@ IContactManagerService インターフェイスは、リスト 5 に含まれて
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample7.cs)]
 
-**Listing 8 - Models\Validation\IValidationDictionary.cs**
+**8 - Models\Validation\IValidationDictionary.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample8.cs)]
 

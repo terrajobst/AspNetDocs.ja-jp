@@ -12,7 +12,7 @@ ms.openlocfilehash: c820cb0679d90ed4625f4e389e44989dbde6c6f4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382538"
 ---
 # <a name="aspnet-web-forms-advanced-topics"></a>ASP.NET Web フォームの高度なトピック
@@ -20,4 +20,4 @@ ms.locfileid: "59382538"
 > 国際化、アクセシビリティ、および機能拡張を含む、ASP.NET Web フォーム アプリケーションのプログラミングの高度なトピックです。
 
 
-- [ASP.NET Web フォームの接続回復性とコマンド傍受](aspnet-web-forms-connection-resiliency-and-command-interception.md)
+- [ASP.NET Web フォームの接続復元性とコマンド傍受](aspnet-web-forms-connection-resiliency-and-command-interception.md)

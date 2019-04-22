@@ -12,7 +12,7 @@ ms.openlocfilehash: c0f11019c7410b756d592066a7fe33b3e26fd383
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407199"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 1。作業の開始
