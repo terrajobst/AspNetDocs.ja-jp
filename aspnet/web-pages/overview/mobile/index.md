@@ -12,12 +12,12 @@ ms.openlocfilehash: 552d047286adbc53e4161b412432cbf0b3bfb4c9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380302"
 ---
-# <a name="mobile"></a><span data-ttu-id="48cf3-103">携帯</span><span class="sxs-lookup"><span data-stu-id="48cf3-103">Mobile</span></span>
+# <a name="mobile"></a><span data-ttu-id="431bf-103">携帯</span><span class="sxs-lookup"><span data-stu-id="431bf-103">Mobile</span></span>
 
-> <span data-ttu-id="48cf3-104">ASP.NET Web Pages アプリケーションでのモバイル デバイスを操作する方法。</span><span class="sxs-lookup"><span data-stu-id="48cf3-104">How to work with Mobile devices in ASP.NET Web Pages applications.</span></span>
+> <span data-ttu-id="431bf-104">ASP.NET Web Pages アプリケーションでのモバイル デバイスを操作する方法。</span><span class="sxs-lookup"><span data-stu-id="431bf-104">How to work with Mobile devices in ASP.NET Web Pages applications.</span></span>
 
 
-- [<span data-ttu-id="48cf3-105">モバイル デバイスで ASP.NET Web ページ サイトをレンダリングする</span><span class="sxs-lookup"><span data-stu-id="48cf3-105">Rendering ASP.NET Web Pages Sites for Mobile Devices</span></span>](rendering-aspnet-web-pages-sites-for-mobile-devices.md)
+- [<span data-ttu-id="431bf-105">モバイル デバイスで ASP.NET Web ページ サイトをレンダリングする</span><span class="sxs-lookup"><span data-stu-id="431bf-105">Rendering ASP.NET Web Pages Sites for Mobile Devices</span></span>](rendering-aspnet-web-pages-sites-for-mobile-devices.md)

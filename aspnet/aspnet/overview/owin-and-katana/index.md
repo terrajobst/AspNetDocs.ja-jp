@@ -12,19 +12,19 @@ ms.openlocfilehash: a8ba1ca6b54ae58c23e51981cedebc636fba679e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385593"
 ---
-# <a name="owin-and-katana"></a><span data-ttu-id="13365-103">OWIN と Katana</span><span class="sxs-lookup"><span data-stu-id="13365-103">OWIN and Katana</span></span>
+# <a name="owin-and-katana"></a><span data-ttu-id="d0684-103">OWIN と Katana</span><span class="sxs-lookup"><span data-stu-id="d0684-103">OWIN and Katana</span></span>
 
-> <span data-ttu-id="13365-104">Katana とは、構築と .NET OWIN ベースの web アプリケーションの Open Web Interface をホストするためのコンポーネントの柔軟なセットです。</span><span class="sxs-lookup"><span data-stu-id="13365-104">Katana is a flexible set of components for building and hosting Open Web Interface for .NET (OWIN)-based web applications.</span></span>
+> <span data-ttu-id="d0684-104">Katana とは、構築と .NET OWIN ベースの web アプリケーションの Open Web Interface をホストするためのコンポーネントの柔軟なセットです。</span><span class="sxs-lookup"><span data-stu-id="d0684-104">Katana is a flexible set of components for building and hosting Open Web Interface for .NET (OWIN)-based web applications.</span></span>
 
 
-- [<span data-ttu-id="13365-105">プロジェクト Katana の概要</span><span class="sxs-lookup"><span data-stu-id="13365-105">An Overview of Project Katana</span></span>](an-overview-of-project-katana.md)
-- [<span data-ttu-id="13365-106">OWIN と Katana の概要</span><span class="sxs-lookup"><span data-stu-id="13365-106">Getting Started with OWIN and Katana</span></span>](getting-started-with-owin-and-katana.md)
-- [<span data-ttu-id="13365-107">Katana サンプル</span><span class="sxs-lookup"><span data-stu-id="13365-107">Katana Samples</span></span>](katana-samples.md)
-- [<span data-ttu-id="13365-108">OWIN スタートアップ クラス検出</span><span class="sxs-lookup"><span data-stu-id="13365-108">OWIN Startup Class Detection</span></span>](owin-startup-class-detection.md)
-- [<span data-ttu-id="13365-109">Katana で Windows 認証を有効にする</span><span class="sxs-lookup"><span data-stu-id="13365-109">Enabling Windows Authentication in Katana</span></span>](enabling-windows-authentication-in-katana.md)
-- [<span data-ttu-id="13365-110">IIS 統合パイプラインの OWIN ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="13365-110">OWIN Middleware in the IIS Integrated Pipeline</span></span>](owin-middleware-in-the-iis-integrated-pipeline.md)
-- [<span data-ttu-id="13365-111">OWIN OAuth 2.0 承認サーバー</span><span class="sxs-lookup"><span data-stu-id="13365-111">OWIN OAuth 2.0 Authorization Server</span></span>](owin-oauth-20-authorization-server.md)
-- [<span data-ttu-id="13365-112">Azure Worker ロールで OWIN をホストする</span><span class="sxs-lookup"><span data-stu-id="13365-112">Host OWIN in an Azure Worker Role</span></span>](host-owin-in-an-azure-worker-role.md)
+- [<span data-ttu-id="d0684-105">プロジェクト Katana の概要</span><span class="sxs-lookup"><span data-stu-id="d0684-105">An Overview of Project Katana</span></span>](an-overview-of-project-katana.md)
+- [<span data-ttu-id="d0684-106">OWIN と Katana の概要</span><span class="sxs-lookup"><span data-stu-id="d0684-106">Getting Started with OWIN and Katana</span></span>](getting-started-with-owin-and-katana.md)
+- [<span data-ttu-id="d0684-107">Katana サンプル</span><span class="sxs-lookup"><span data-stu-id="d0684-107">Katana Samples</span></span>](katana-samples.md)
+- [<span data-ttu-id="d0684-108">OWIN スタートアップ クラス検出</span><span class="sxs-lookup"><span data-stu-id="d0684-108">OWIN Startup Class Detection</span></span>](owin-startup-class-detection.md)
+- [<span data-ttu-id="d0684-109">Katana で Windows 認証を有効にする</span><span class="sxs-lookup"><span data-stu-id="d0684-109">Enabling Windows Authentication in Katana</span></span>](enabling-windows-authentication-in-katana.md)
+- [<span data-ttu-id="d0684-110">IIS 統合パイプラインの OWIN ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="d0684-110">OWIN Middleware in the IIS Integrated Pipeline</span></span>](owin-middleware-in-the-iis-integrated-pipeline.md)
+- [<span data-ttu-id="d0684-111">OWIN OAuth 2.0 承認サーバー</span><span class="sxs-lookup"><span data-stu-id="d0684-111">OWIN OAuth 2.0 Authorization Server</span></span>](owin-oauth-20-authorization-server.md)
+- [<span data-ttu-id="d0684-112">Azure Worker ロールで OWIN をホストする</span><span class="sxs-lookup"><span data-stu-id="d0684-112">Host OWIN in an Azure Worker Role</span></span>](host-owin-in-an-azure-worker-role.md)

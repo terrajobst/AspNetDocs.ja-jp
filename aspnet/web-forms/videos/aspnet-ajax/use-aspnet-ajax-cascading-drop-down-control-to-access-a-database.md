@@ -12,18 +12,18 @@ ms.openlocfilehash: be8cc54920a7c74b162aac8a809d8eaf8f2be08e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418106"
 ---
-# <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a><span data-ttu-id="c2783-103">ASP.NET AJAX カスケード ドロップ ダウン コントロールを使用し、データベースにアクセスする</span><span class="sxs-lookup"><span data-stu-id="c2783-103">Use ASP.NET AJAX Cascading Drop Down Control to Access a Database</span></span>
+# <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a><span data-ttu-id="dfd82-103">ASP.NET AJAX カスケード ドロップ ダウン コントロールを使用し、データベースにアクセスする</span><span class="sxs-lookup"><span data-stu-id="dfd82-103">Use ASP.NET AJAX Cascading Drop Down Control to Access a Database</span></span>
 
-<span data-ttu-id="c2783-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="c2783-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="dfd82-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="dfd82-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="c2783-105">このビデオではどのように ASP します。NET の標準の DropDownList では、AJAX 対応の ASP.NET AJAX Control toolkit CascadingDropDown コントロール エクステンダーを使用してになります。</span><span class="sxs-lookup"><span data-stu-id="c2783-105">This video demonstrates how ASP.NET's standard DropDownList can become AJAX-enabled using the CascadingDropDown control extender from the ASP.NET AJAX Control Toolkit.</span></span> <span data-ttu-id="c2783-106">また、データベースからデータを描画するために web フォームがいかに簡単かも表示されます。</span><span class="sxs-lookup"><span data-stu-id="c2783-106">You will also see how easy it is for a web form to draw data from a Database.</span></span>
+<span data-ttu-id="dfd82-105">このビデオではどのように ASP します。NET の標準の DropDownList では、AJAX 対応の ASP.NET AJAX Control toolkit CascadingDropDown コントロール エクステンダーを使用してになります。</span><span class="sxs-lookup"><span data-stu-id="dfd82-105">This video demonstrates how ASP.NET's standard DropDownList can become AJAX-enabled using the CascadingDropDown control extender from the ASP.NET AJAX Control Toolkit.</span></span> <span data-ttu-id="dfd82-106">また、データベースからデータを描画するために web フォームがいかに簡単かも表示されます。</span><span class="sxs-lookup"><span data-stu-id="dfd82-106">You will also see how easy it is for a web form to draw data from a Database.</span></span>
 
-[<span data-ttu-id="c2783-107">&#9654;(32 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="c2783-107">&#9654; Watch video (32 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database)
+[<span data-ttu-id="dfd82-107">&#9654;(32 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="dfd82-107">&#9654; Watch video (32 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="c2783-108">[前へ](two-simple-techniques-for-triggering-updates-to-update-panels.md)
-> [次へ](implement-infinite-data-patterns-in-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="c2783-108">[Previous](two-simple-techniques-for-triggering-updates-to-update-panels.md)
+> <span data-ttu-id="dfd82-108">[前へ](two-simple-techniques-for-triggering-updates-to-update-panels.md)
+> [次へ](implement-infinite-data-patterns-in-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="dfd82-108">[Previous](two-simple-techniques-for-triggering-updates-to-update-panels.md)
 [Next](implement-infinite-data-patterns-in-ajax.md)</span></span>

@@ -12,16 +12,16 @@ ms.openlocfilehash: 919a28e221ed87aef6cc05d95ab95264026180e6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421447"
 ---
-# <a name="aspnet-mvc-for-the-rest-of-us-part-4"></a><span data-ttu-id="f157d-103">残りの人のための ASP.NET MVC:第 4 部</span><span class="sxs-lookup"><span data-stu-id="f157d-103">ASP.NET MVC For the Rest of Us: Part 4</span></span>
+# <a name="aspnet-mvc-for-the-rest-of-us-part-4"></a><span data-ttu-id="e6e0a-103">残りの人のための ASP.NET MVC:第 4 部</span><span class="sxs-lookup"><span data-stu-id="e6e0a-103">ASP.NET MVC For the Rest of Us: Part 4</span></span>
 
-<span data-ttu-id="f157d-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f157d-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="e6e0a-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="e6e0a-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="f157d-105">このビデオでは、Microsoft の Joe Stagner は、ASP.NET MVC アプリケーションにコント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="f157d-105">In this video Microsoft's Joe Stagner adds a controller to an ASP.NET MVC application.</span></span>
+<span data-ttu-id="e6e0a-105">このビデオでは、Microsoft の Joe Stagner は、ASP.NET MVC アプリケーションにコント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="e6e0a-105">In this video Microsoft's Joe Stagner adds a controller to an ASP.NET MVC application.</span></span>
 
-[<span data-ttu-id="f157d-106">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="f157d-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-for-the-rest-of-us-part-4)
+[<span data-ttu-id="e6e0a-106">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="e6e0a-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-for-the-rest-of-us-part-4)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="f157d-107">前へ</span><span class="sxs-lookup"><span data-stu-id="f157d-107">Previous</span></span>](aspnet-mvc-for-the-rest-of-us-part-3.md)
+> [<span data-ttu-id="e6e0a-107">前へ</span><span class="sxs-lookup"><span data-stu-id="e6e0a-107">Previous</span></span>](aspnet-mvc-for-the-rest-of-us-part-3.md)

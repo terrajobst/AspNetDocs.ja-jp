@@ -12,13 +12,13 @@ ms.openlocfilehash: bd2b5370b5da4bc89a4f7db6b86e27a3bab15db1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381004"
 ---
-# <a name="aspnet-4-quick-hit--persistent-gridview-row-selection"></a><span data-ttu-id="76d0b-103">ASP.NET 4「クイック ヒット」– 永続的 GridView 行選択</span><span class="sxs-lookup"><span data-stu-id="76d0b-103">ASP.NET 4 "Quick Hit" – Persistent GridView Row Selection</span></span>
+# <a name="aspnet-4-quick-hit--persistent-gridview-row-selection"></a><span data-ttu-id="59a98-103">ASP.NET 4「クイック ヒット」– 永続的 GridView 行選択</span><span class="sxs-lookup"><span data-stu-id="59a98-103">ASP.NET 4 "Quick Hit" – Persistent GridView Row Selection</span></span>
 
-<span data-ttu-id="76d0b-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="76d0b-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="59a98-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="59a98-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="76d0b-105">このビデオでは、GridView コントロールの永続化された行の選択方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="76d0b-105">In this video you will learn about persisted row selection for the GridView control.</span></span> 
+<span data-ttu-id="59a98-105">このビデオでは、GridView コントロールの永続化された行の選択方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="59a98-105">In this video you will learn about persisted row selection for the GridView control.</span></span> 
 
-[<span data-ttu-id="76d0b-106">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="76d0b-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-persistent-gridview-row-selection)
+[<span data-ttu-id="59a98-106">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="59a98-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-persistent-gridview-row-selection)
