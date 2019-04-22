@@ -13,77 +13,77 @@ ms.openlocfilehash: a67db0bd061846af2db3599e0843ed7c6a22db1e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386516"
 ---
-# <a name="use-owin-to-self-host-aspnet-web-api"></a><span data-ttu-id="ab232-103">OWIN を使用して、ASP.NET Web API を自己ホスト</span><span class="sxs-lookup"><span data-stu-id="ab232-103">Use OWIN to Self-Host ASP.NET Web API</span></span> 
+# <a name="use-owin-to-self-host-aspnet-web-api"></a><span data-ttu-id="36ff1-103">OWIN を使用して、ASP.NET Web API を自己ホスト</span><span class="sxs-lookup"><span data-stu-id="36ff1-103">Use OWIN to Self-Host ASP.NET Web API</span></span> 
 
 
-> <span data-ttu-id="ab232-104">このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストするコンソール アプリケーションで ASP.NET Web API をホストする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="ab232-104">This tutorial shows how to host ASP.NET Web API in a console application, using OWIN to self-host the Web API framework.</span></span>
+> <span data-ttu-id="36ff1-104">このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストするコンソール アプリケーションで ASP.NET Web API をホストする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-104">This tutorial shows how to host ASP.NET Web API in a console application, using OWIN to self-host the Web API framework.</span></span>
 >
-> <span data-ttu-id="ab232-105">[.NET 用 Web インターフェイスを開き](http://owin.org)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。</span><span class="sxs-lookup"><span data-stu-id="ab232-105">[Open Web Interface for .NET](http://owin.org) (OWIN) defines an abstraction between .NET web servers and web applications.</span></span> <span data-ttu-id="ab232-106">OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションを分離します。</span><span class="sxs-lookup"><span data-stu-id="ab232-106">OWIN decouples the web application from the server, which makes OWIN ideal for self-hosting a web application in your own process, outside of IIS.</span></span>
+> <span data-ttu-id="36ff1-105">[.NET 用 Web インターフェイスを開き](http://owin.org)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-105">[Open Web Interface for .NET](http://owin.org) (OWIN) defines an abstraction between .NET web servers and web applications.</span></span> <span data-ttu-id="36ff1-106">OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションを分離します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-106">OWIN decouples the web application from the server, which makes OWIN ideal for self-hosting a web application in your own process, outside of IIS.</span></span>
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="ab232-107">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="ab232-107">Software versions used in the tutorial</span></span>
+> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="36ff1-107">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="36ff1-107">Software versions used in the tutorial</span></span>
 >
 >
-> - [<span data-ttu-id="ab232-108">Visual Studio 2017</span><span class="sxs-lookup"><span data-stu-id="ab232-108">Visual Studio 2017</span></span>](https://visualstudio.microsoft.com/downloads/) 
-> - <span data-ttu-id="ab232-109">Web API 5.2.7</span><span class="sxs-lookup"><span data-stu-id="ab232-109">Web API 5.2.7</span></span>
+> - [<span data-ttu-id="36ff1-108">Visual Studio 2017</span><span class="sxs-lookup"><span data-stu-id="36ff1-108">Visual Studio 2017</span></span>](https://visualstudio.microsoft.com/downloads/) 
+> - <span data-ttu-id="36ff1-109">Web API 5.2.7</span><span class="sxs-lookup"><span data-stu-id="36ff1-109">Web API 5.2.7</span></span>
 
 
 > [!NOTE]
-> <span data-ttu-id="ab232-110">完全なソース コードを検索するにはこのチュートリアルで[github.com/aspnet/samples](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/OwinSelfhostSample)します。</span><span class="sxs-lookup"><span data-stu-id="ab232-110">You can find the complete source code for this tutorial at [github.com/aspnet/samples](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/OwinSelfhostSample).</span></span>
+> <span data-ttu-id="36ff1-110">完全なソース コードを検索するにはこのチュートリアルで[github.com/aspnet/samples](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/OwinSelfhostSample)します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-110">You can find the complete source code for this tutorial at [github.com/aspnet/samples](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/OwinSelfhostSample).</span></span>
 
 
-## <a name="create-a-console-application"></a><span data-ttu-id="ab232-111">コンソール アプリケーションを作成する</span><span class="sxs-lookup"><span data-stu-id="ab232-111">Create a console application</span></span>
+## <a name="create-a-console-application"></a><span data-ttu-id="36ff1-111">コンソール アプリケーションを作成する</span><span class="sxs-lookup"><span data-stu-id="36ff1-111">Create a console application</span></span>
 
-<span data-ttu-id="ab232-112">**ファイル**] メニューの [**新規**を選択し、**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="ab232-112">On the **File** menu,  **New**, then select **Project**.</span></span> <span data-ttu-id="ab232-113">**インストール済み** **Visual C#** を選択します**Windows デスクトップ**選び**コンソール アプリ (.Net Framework)**。</span><span class="sxs-lookup"><span data-stu-id="ab232-113">From **Installed**, under **Visual C#**, select **Windows Desktop** and then select **Console App (.Net Framework)**.</span></span> <span data-ttu-id="ab232-114">"OwinSelfhostSample"プロジェクトの名前し、選択**OK**します。</span><span class="sxs-lookup"><span data-stu-id="ab232-114">Name the project "OwinSelfhostSample" and select **OK**.</span></span>
+<span data-ttu-id="36ff1-112">**ファイル**] メニューの [**新規**を選択し、**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-112">On the **File** menu,  **New**, then select **Project**.</span></span> <span data-ttu-id="36ff1-113">**インストール済み** **Visual C#** を選択します**Windows デスクトップ**選び**コンソール アプリ (.Net Framework)**。</span><span class="sxs-lookup"><span data-stu-id="36ff1-113">From **Installed**, under **Visual C#**, select **Windows Desktop** and then select **Console App (.Net Framework)**.</span></span> <span data-ttu-id="36ff1-114">"OwinSelfhostSample"プロジェクトの名前し、選択**OK**します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-114">Name the project "OwinSelfhostSample" and select **OK**.</span></span>
 
 [![](use-owin-to-self-host-web-api/_static/image7.png)](use-owin-to-self-host-web-api/_static/image7.png)
 
-## <a name="add-the-web-api-and-owin-packages"></a><span data-ttu-id="ab232-115">Web API と OWIN パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="ab232-115">Add the Web API and OWIN packages</span></span>
+## <a name="add-the-web-api-and-owin-packages"></a><span data-ttu-id="36ff1-115">Web API と OWIN パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-115">Add the Web API and OWIN packages</span></span>
 
-<span data-ttu-id="ab232-116">**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。</span><span class="sxs-lookup"><span data-stu-id="ab232-116">From the **Tools** menu, select **NuGet Package Manager**, then select **Package Manager Console**.</span></span> <span data-ttu-id="ab232-117">パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="ab232-117">In the Package Manager Console window, enter the following command:</span></span>
+<span data-ttu-id="36ff1-116">**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-116">From the **Tools** menu, select **NuGet Package Manager**, then select **Package Manager Console**.</span></span> <span data-ttu-id="36ff1-117">パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-117">In the Package Manager Console window, enter the following command:</span></span>
 
 `Install-Package Microsoft.AspNet.WebApi.OwinSelfHost`
 
-<span data-ttu-id="ab232-118">これは、WebAPI を OWIN 自己ホスト型のパッケージと必要なすべての OWIN パッケージでインストールされます。</span><span class="sxs-lookup"><span data-stu-id="ab232-118">This will install the WebAPI OWIN selfhost package and all the required OWIN packages.</span></span>
+<span data-ttu-id="36ff1-118">これは、WebAPI を OWIN 自己ホスト型のパッケージと必要なすべての OWIN パッケージでインストールされます。</span><span class="sxs-lookup"><span data-stu-id="36ff1-118">This will install the WebAPI OWIN selfhost package and all the required OWIN packages.</span></span>
 
 [![](use-owin-to-self-host-web-api/_static/image4.png)](use-owin-to-self-host-web-api/_static/image3.png)
 
-## <a name="configure-web-api-for-self-host"></a><span data-ttu-id="ab232-119">Web API の構成の自己ホスト</span><span class="sxs-lookup"><span data-stu-id="ab232-119">Configure Web API for self-host</span></span>
+## <a name="configure-web-api-for-self-host"></a><span data-ttu-id="36ff1-119">Web API の構成の自己ホスト</span><span class="sxs-lookup"><span data-stu-id="36ff1-119">Configure Web API for self-host</span></span>
 
-<span data-ttu-id="ab232-120">ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="ab232-120">In Solution Explorer, right-click the project and select **Add** / **Class** to add a new class.</span></span> <span data-ttu-id="ab232-121">クラスに `Startup` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="ab232-121">Name the class `Startup`.</span></span>
+<span data-ttu-id="36ff1-120">ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-120">In Solution Explorer, right-click the project and select **Add** / **Class** to add a new class.</span></span> <span data-ttu-id="36ff1-121">クラスに `Startup` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="36ff1-121">Name the class `Startup`.</span></span>
 
 ![](use-owin-to-self-host-web-api/_static/image5.png)
 
-<span data-ttu-id="ab232-122">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="ab232-122">Replace all of the boilerplate code in this file with the following:</span></span>
+<span data-ttu-id="36ff1-122">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="36ff1-122">Replace all of the boilerplate code in this file with the following:</span></span>
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample1.cs)]
 
-## <a name="add-a-web-api-controller"></a><span data-ttu-id="ab232-123">Web API コント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="ab232-123">Add a Web API controller</span></span>
+## <a name="add-a-web-api-controller"></a><span data-ttu-id="36ff1-123">Web API コント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-123">Add a Web API controller</span></span>
 
-<span data-ttu-id="ab232-124">次に、Web API コント ローラー クラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="ab232-124">Next, add a Web API controller class.</span></span> <span data-ttu-id="ab232-125">ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="ab232-125">In Solution Explorer, right-click the project and select **Add** / **Class** to add a new class.</span></span> <span data-ttu-id="ab232-126">クラスに `ValuesController` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="ab232-126">Name the class `ValuesController`.</span></span>
+<span data-ttu-id="36ff1-124">次に、Web API コント ローラー クラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-124">Next, add a Web API controller class.</span></span> <span data-ttu-id="36ff1-125">ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-125">In Solution Explorer, right-click the project and select **Add** / **Class** to add a new class.</span></span> <span data-ttu-id="36ff1-126">クラスに `ValuesController` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="36ff1-126">Name the class `ValuesController`.</span></span>
 
-<span data-ttu-id="ab232-127">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="ab232-127">Replace all of the boilerplate code in this file with the following:</span></span>
+<span data-ttu-id="36ff1-127">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="36ff1-127">Replace all of the boilerplate code in this file with the following:</span></span>
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample2.cs)]
 
-## <a name="start-the-owin-host-and-make-a-request-with-httpclient"></a><span data-ttu-id="ab232-128">OWIN ホストを起動し、HttpClient で要求を行う</span><span class="sxs-lookup"><span data-stu-id="ab232-128">Start the OWIN Host and make a request with HttpClient</span></span>
+## <a name="start-the-owin-host-and-make-a-request-with-httpclient"></a><span data-ttu-id="36ff1-128">OWIN ホストを起動し、HttpClient で要求を行う</span><span class="sxs-lookup"><span data-stu-id="36ff1-128">Start the OWIN Host and make a request with HttpClient</span></span>
 
-<span data-ttu-id="ab232-129">次のようにすべての Program.cs ファイルの定型コードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="ab232-129">Replace all of the boilerplate code in the Program.cs file with the following:</span></span>
+<span data-ttu-id="36ff1-129">次のようにすべての Program.cs ファイルの定型コードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="36ff1-129">Replace all of the boilerplate code in the Program.cs file with the following:</span></span>
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample3.cs)]
 
-## <a name="run-the-application"></a><span data-ttu-id="ab232-130">アプリケーションの実行</span><span class="sxs-lookup"><span data-stu-id="ab232-130">Run the application</span></span>
+## <a name="run-the-application"></a><span data-ttu-id="36ff1-130">アプリケーションの実行</span><span class="sxs-lookup"><span data-stu-id="36ff1-130">Run the application</span></span>
 
-<span data-ttu-id="ab232-131">アプリケーションを実行するには、Visual Studio で F5 キーを押します。</span><span class="sxs-lookup"><span data-stu-id="ab232-131">To run the application, press F5 in Visual Studio.</span></span> <span data-ttu-id="ab232-132">出力の内容は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="ab232-132">The output should look like the following:</span></span>
+<span data-ttu-id="36ff1-131">アプリケーションを実行するには、Visual Studio で F5 キーを押します。</span><span class="sxs-lookup"><span data-stu-id="36ff1-131">To run the application, press F5 in Visual Studio.</span></span> <span data-ttu-id="36ff1-132">出力の内容は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="36ff1-132">The output should look like the following:</span></span>
 
 [!code-console[Main](use-owin-to-self-host-web-api/samples/sample4.cmd)]
 
 ![](use-owin-to-self-host-web-api/_static/image6.png)
 
-## <a name="additional-resources"></a><span data-ttu-id="ab232-133">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="ab232-133">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="36ff1-133">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="36ff1-133">Additional resources</span></span>
 
-[<span data-ttu-id="ab232-134">プロジェクト Katana の概要</span><span class="sxs-lookup"><span data-stu-id="ab232-134">An Overview of Project Katana</span></span>](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+[<span data-ttu-id="36ff1-134">プロジェクト Katana の概要</span><span class="sxs-lookup"><span data-stu-id="36ff1-134">An Overview of Project Katana</span></span>](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
 
-[<span data-ttu-id="ab232-135">Azure Worker ロールにおける ASP.NET Web API をホストします。</span><span class="sxs-lookup"><span data-stu-id="ab232-135">Host ASP.NET Web API in an Azure Worker Role</span></span>](host-aspnet-web-api-in-an-azure-worker-role.md)
+[<span data-ttu-id="36ff1-135">Azure Worker ロールにおける ASP.NET Web API をホストします。</span><span class="sxs-lookup"><span data-stu-id="36ff1-135">Host ASP.NET Web API in an Azure Worker Role</span></span>](host-aspnet-web-api-in-an-azure-worker-role.md)

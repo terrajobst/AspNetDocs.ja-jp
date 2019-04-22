@@ -12,18 +12,18 @@ ms.openlocfilehash: a5cbe366b9733f1083223abc37afaa1142a3ff8c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388934"
 ---
-# <a name="multi-targeting-support-in-visual-studio-2008"></a><span data-ttu-id="67d0f-104">Visual Studio 2008 の Multi Targeting サポート</span><span class="sxs-lookup"><span data-stu-id="67d0f-104">Multi Targeting Support in Visual Studio 2008</span></span>
+# <a name="multi-targeting-support-in-visual-studio-2008"></a><span data-ttu-id="dbc65-104">Visual Studio 2008 の Multi Targeting サポート</span><span class="sxs-lookup"><span data-stu-id="dbc65-104">Multi Targeting Support in Visual Studio 2008</span></span>
 
-<span data-ttu-id="67d0f-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="67d0f-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="dbc65-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="dbc65-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="67d0f-106">Visual Studio 2008 のマルチ ターゲットを設定機能を示します。</span><span class="sxs-lookup"><span data-stu-id="67d0f-106">I will illustrate the MultiTarget feature of Visual Studio 2008.</span></span> <span data-ttu-id="67d0f-107">以前は、対象の .NET バージョンが一致するように Visual Studio のバージョンを選択する必要があります。</span><span class="sxs-lookup"><span data-stu-id="67d0f-107">In the past, you had to choose the version of Visual Studio to match the targeted .NET version.</span></span> <span data-ttu-id="67d0f-108">たとえば、Visual Studio 2005 では、.NET 2.5 で働いていました。</span><span class="sxs-lookup"><span data-stu-id="67d0f-108">For example, Visual Studio 2005 worked with .NET 2.5.</span></span> <span data-ttu-id="67d0f-109">ここで、Visual Studio 2008 では、アプリケーションに適切な .NET のバージョンを選択できます。</span><span class="sxs-lookup"><span data-stu-id="67d0f-109">Now, with Visual Studio 2008 you can choose the version of .NET appropriate for your application.</span></span>
+<span data-ttu-id="dbc65-106">Visual Studio 2008 のマルチ ターゲットを設定機能を示します。</span><span class="sxs-lookup"><span data-stu-id="dbc65-106">I will illustrate the MultiTarget feature of Visual Studio 2008.</span></span> <span data-ttu-id="dbc65-107">以前は、対象の .NET バージョンが一致するように Visual Studio のバージョンを選択する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dbc65-107">In the past, you had to choose the version of Visual Studio to match the targeted .NET version.</span></span> <span data-ttu-id="dbc65-108">たとえば、Visual Studio 2005 では、.NET 2.5 で働いていました。</span><span class="sxs-lookup"><span data-stu-id="dbc65-108">For example, Visual Studio 2005 worked with .NET 2.5.</span></span> <span data-ttu-id="dbc65-109">ここで、Visual Studio 2008 では、アプリケーションに適切な .NET のバージョンを選択できます。</span><span class="sxs-lookup"><span data-stu-id="dbc65-109">Now, with Visual Studio 2008 you can choose the version of .NET appropriate for your application.</span></span>
 
-[<span data-ttu-id="67d0f-110">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="67d0f-110">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
+[<span data-ttu-id="dbc65-110">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="dbc65-110">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="67d0f-111">[前へ](javascript-debugging-in-visual-studio-2008.md)
-> [次へ](intellisense-for-jscript-and-aspnet-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="67d0f-111">[Previous](javascript-debugging-in-visual-studio-2008.md)
+> <span data-ttu-id="dbc65-111">[前へ](javascript-debugging-in-visual-studio-2008.md)
+> [次へ](intellisense-for-jscript-and-aspnet-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="dbc65-111">[Previous](javascript-debugging-in-visual-studio-2008.md)
 [Next](intellisense-for-jscript-and-aspnet-ajax.md)</span></span>

@@ -12,13 +12,13 @@ ms.openlocfilehash: 70a21646031d135339fd0582f3b9436eb769faa5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388583"
 ---
-# <a name="intro-to-aspnet-web-forms"></a><span data-ttu-id="d140a-103">ASP.NET Web フォームの概要</span><span class="sxs-lookup"><span data-stu-id="d140a-103">Intro to ASP.NET Web Forms</span></span>
+# <a name="intro-to-aspnet-web-forms"></a><span data-ttu-id="cf55e-103">ASP.NET Web フォームの概要</span><span class="sxs-lookup"><span data-stu-id="cf55e-103">Intro to ASP.NET Web Forms</span></span>
 
-<span data-ttu-id="d140a-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="d140a-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="cf55e-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="cf55e-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-<span data-ttu-id="d140a-105">Scott Hanselman は、ASP.NET Web フォームを 5 分の概要を表示します。</span><span class="sxs-lookup"><span data-stu-id="d140a-105">Scott Hanselman presents a 5 minute introduction to ASP.NET Web Forms.</span></span>
+<span data-ttu-id="cf55e-105">Scott Hanselman は、ASP.NET Web フォームを 5 分の概要を表示します。</span><span class="sxs-lookup"><span data-stu-id="cf55e-105">Scott Hanselman presents a 5 minute introduction to ASP.NET Web Forms.</span></span>
 
-[<span data-ttu-id="d140a-106">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="d140a-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/5-minute-introduction-to-aspnet-web-forms)
+[<span data-ttu-id="cf55e-106">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="cf55e-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/5-minute-introduction-to-aspnet-web-forms)

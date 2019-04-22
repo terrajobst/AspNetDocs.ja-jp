@@ -12,18 +12,18 @@ ms.openlocfilehash: 408877e8f4891e420ecfc54d31c4c32753a21d06
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385476"
 ---
-# <a name="aspnet-4-quick-hit---jquery-syntax-for-microsoft-ajax"></a><span data-ttu-id="38f9e-103">ASP.NET 4「クイック ヒット」- jQuery Ajax の構文</span><span class="sxs-lookup"><span data-stu-id="38f9e-103">ASP.NET 4 "Quick Hit" - jQuery Syntax for Microsoft Ajax</span></span>
+# <a name="aspnet-4-quick-hit---jquery-syntax-for-microsoft-ajax"></a><span data-ttu-id="3f602-103">ASP.NET 4「クイック ヒット」- jQuery Ajax の構文</span><span class="sxs-lookup"><span data-stu-id="3f602-103">ASP.NET 4 "Quick Hit" - jQuery Syntax for Microsoft Ajax</span></span>
 
-<span data-ttu-id="38f9e-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="38f9e-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="3f602-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3f602-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="38f9e-105">このビデオでは、Microsoft Ajax の jQuery 構文の詳細について学習します。</span><span class="sxs-lookup"><span data-stu-id="38f9e-105">In this video you will learn about jQuery syntax for Microsoft Ajax.</span></span> 
+<span data-ttu-id="3f602-105">このビデオでは、Microsoft Ajax の jQuery 構文の詳細について学習します。</span><span class="sxs-lookup"><span data-stu-id="3f602-105">In this video you will learn about jQuery syntax for Microsoft Ajax.</span></span> 
 
-[<span data-ttu-id="38f9e-106">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="38f9e-106">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-jquery-syntax-for-microsoft-ajax)
+[<span data-ttu-id="3f602-106">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="3f602-106">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-jquery-syntax-for-microsoft-ajax)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="38f9e-107">[前へ](aspnet-4-quick-hit-the-scriptloader.md)
-> [次へ](aspnet-4-quick-hit-ajax-data-templates.md)</span><span class="sxs-lookup"><span data-stu-id="38f9e-107">[Previous](aspnet-4-quick-hit-the-scriptloader.md)
+> <span data-ttu-id="3f602-107">[前へ](aspnet-4-quick-hit-the-scriptloader.md)
+> [次へ](aspnet-4-quick-hit-ajax-data-templates.md)</span><span class="sxs-lookup"><span data-stu-id="3f602-107">[Previous](aspnet-4-quick-hit-the-scriptloader.md)
 [Next](aspnet-4-quick-hit-ajax-data-templates.md)</span></span>

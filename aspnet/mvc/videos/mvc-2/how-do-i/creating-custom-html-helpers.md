@@ -12,18 +12,18 @@ ms.openlocfilehash: f1761948f9bf5eb55e396b4334eca33cf34b899e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382590"
 ---
-# <a name="creating-custom-html-helpers"></a><span data-ttu-id="e0a49-104">カスタム HTML ヘルパーの作成</span><span class="sxs-lookup"><span data-stu-id="e0a49-104">Creating Custom HTML Helpers</span></span>
+# <a name="creating-custom-html-helpers"></a><span data-ttu-id="28ed7-104">カスタム HTML ヘルパーの作成</span><span class="sxs-lookup"><span data-stu-id="28ed7-104">Creating Custom HTML Helpers</span></span>
 
-<span data-ttu-id="e0a49-105">によって[Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="e0a49-105">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
+<span data-ttu-id="28ed7-105">によって[Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="28ed7-105">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
 
-<span data-ttu-id="e0a49-106">コンテンツの表示を生成するが簡単に新しい HTML ヘルパーを作成します。</span><span class="sxs-lookup"><span data-stu-id="e0a49-106">Create new HTML Helpers to make it easier to generate view content.</span></span> <span data-ttu-id="e0a49-107">Stephen Walther では、新しい HTML ヘルパーの作成の 2 つの簡単な方法を示します。</span><span class="sxs-lookup"><span data-stu-id="e0a49-107">Stephen Walther demonstrates two simple methods of creating new HTML Helpers.</span></span>
+<span data-ttu-id="28ed7-106">コンテンツの表示を生成するが簡単に新しい HTML ヘルパーを作成します。</span><span class="sxs-lookup"><span data-stu-id="28ed7-106">Create new HTML Helpers to make it easier to generate view content.</span></span> <span data-ttu-id="28ed7-107">Stephen Walther では、新しい HTML ヘルパーの作成の 2 つの簡単な方法を示します。</span><span class="sxs-lookup"><span data-stu-id="28ed7-107">Stephen Walther demonstrates two simple methods of creating new HTML Helpers.</span></span>
 
-[<span data-ttu-id="e0a49-108">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="e0a49-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
+[<span data-ttu-id="28ed7-108">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="28ed7-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="e0a49-109">[前へ](creating-unit-tests-for-aspnet-mvc-applications.md)
-> [次へ](creating-model-classes-with-linq-to-sql.md)</span><span class="sxs-lookup"><span data-stu-id="e0a49-109">[Previous](creating-unit-tests-for-aspnet-mvc-applications.md)
+> <span data-ttu-id="28ed7-109">[前へ](creating-unit-tests-for-aspnet-mvc-applications.md)
+> [次へ](creating-model-classes-with-linq-to-sql.md)</span><span class="sxs-lookup"><span data-stu-id="28ed7-109">[Previous](creating-unit-tests-for-aspnet-mvc-applications.md)
 [Next](creating-model-classes-with-linq-to-sql.md)</span></span>

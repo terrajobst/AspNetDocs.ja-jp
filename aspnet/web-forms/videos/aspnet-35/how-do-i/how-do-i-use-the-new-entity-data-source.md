@@ -12,18 +12,18 @@ ms.openlocfilehash: 1c02cea5bf9b899f400cbcd07a19fe5e213decdc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384680"
 ---
-# <a name="how-do-i-use-the-new-entity-data-source"></a><span data-ttu-id="f87a0-103">[How Do i:]新しいエンティティのデータ ソースを使用します。</span><span class="sxs-lookup"><span data-stu-id="f87a0-103">[How Do I:] Use the New Entity Data Source</span></span>
+# <a name="how-do-i-use-the-new-entity-data-source"></a><span data-ttu-id="31894-103">[How Do i:]新しいエンティティのデータ ソースを使用します。</span><span class="sxs-lookup"><span data-stu-id="31894-103">[How Do I:] Use the New Entity Data Source</span></span>
 
-<span data-ttu-id="f87a0-104">によって[Diego Vega](https://github.com/divega)</span><span class="sxs-lookup"><span data-stu-id="f87a0-104">by [Diego Vega](https://github.com/divega)</span></span>
+<span data-ttu-id="31894-104">によって[Diego Vega](https://github.com/divega)</span><span class="sxs-lookup"><span data-stu-id="31894-104">by [Diego Vega](https://github.com/divega)</span></span>
 
-<span data-ttu-id="f87a0-105">この入門ビデオ Diego Vega でわかります ASP.NET アプリケーションでエンティティのデータ ソースを使用する方法。</span><span class="sxs-lookup"><span data-stu-id="f87a0-105">In this introductory video Diego Vega will show you how to use the Entity Data Source in an ASP.NET Application.</span></span>
+<span data-ttu-id="31894-105">この入門ビデオ Diego Vega でわかります ASP.NET アプリケーションでエンティティのデータ ソースを使用する方法。</span><span class="sxs-lookup"><span data-stu-id="31894-105">In this introductory video Diego Vega will show you how to use the Entity Data Source in an ASP.NET Application.</span></span>
 
-[<span data-ttu-id="f87a0-106">&#9654;(11 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="f87a0-106">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-new-entity-data-source)
+[<span data-ttu-id="31894-106">&#9654;(11 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="31894-106">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-new-entity-data-source)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="f87a0-107">[前へ](how-do-i-get-started-with-the-entity-framework.md)
-> [次へ](how-do-i-serialize-a-graph-with-the-entity-framework.md)</span><span class="sxs-lookup"><span data-stu-id="f87a0-107">[Previous](how-do-i-get-started-with-the-entity-framework.md)
+> <span data-ttu-id="31894-107">[前へ](how-do-i-get-started-with-the-entity-framework.md)
+> [次へ](how-do-i-serialize-a-graph-with-the-entity-framework.md)</span><span class="sxs-lookup"><span data-stu-id="31894-107">[Previous](how-do-i-get-started-with-the-entity-framework.md)
 [Next](how-do-i-serialize-a-graph-with-the-entity-framework.md)</span></span>
