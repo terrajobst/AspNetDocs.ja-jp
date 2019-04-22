@@ -12,7 +12,7 @@ ms.openlocfilehash: 668815d58f2dc9a67cce441dfa267fa043a35091
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387205"
 ---
 # <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>JavaScript コードを使用してコントロールに動的に入力する (VB)
@@ -55,7 +55,7 @@ JavaScript の部分するようになりました。 `$find()` 、ASP.NET AJAX 
 ラジオ ボタン、JavaScript の式のコンテキスト内でなお`this.value`はまったく同じ情報を使用する場合は、現在のボタンの値を示します、`getDate()`メソッドを使用できます。
 
 
-[![A ボタンをクリックしますは、指定された形式で、サーバーから日付を取得](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
+[![ボタンをクリックして指定された形式で、サーバーから日付を取得します。](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
 
 ボタンをクリックしますが、指定された形式でサーバーから日付を取得 ([フルサイズの画像を表示する をクリックします](dynamically-populating-a-control-using-javascript-code-vb/_static/image3.png))。
 

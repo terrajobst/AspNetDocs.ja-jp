@@ -12,7 +12,7 @@ ms.openlocfilehash: b0099e82a6b49d37eb8151ab727da0260e423faf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384202"
 ---
 # <a name="basic-reporting"></a>基本レポート
@@ -22,7 +22,7 @@ ms.locfileid: "59384202"
 
 - [ObjectDataSource でデータを表示する (C#)](displaying-data-with-the-objectdatasource-cs.md)
 - [宣言パラメーター (C#)](declarative-parameters-cs.md)
-- [ObjectDataSource のパラメーター値をプログラムで設定する (C#)](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+- [ObjectDataSource のパラメーター値をプログラミングで設定する (C#)](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
 - [ObjectDataSource でデータを表示する (VB)](displaying-data-with-the-objectdatasource-vb.md)
 - [宣言パラメーター (VB)](declarative-parameters-vb.md)
-- [ObjectDataSource のパラメーター値をプログラムで設定する (VB)](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
+- [ObjectDataSource のパラメーター値をプログラミングで設定する (VB)](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)

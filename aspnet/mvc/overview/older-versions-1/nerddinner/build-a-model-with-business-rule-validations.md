@@ -12,14 +12,14 @@ ms.openlocfilehash: 078614c6e7ba18ac09bbd5e23b90b08c97aee658
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387309"
 ---
 # <a name="build-a-model-with-business-rule-validations"></a>ビジネス ルール検証でモデルをビルドする
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 3 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -116,7 +116,7 @@ NerdDinner アプリケーションを持つときは必ず DinnerRepository ク
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample2.cs)]
 
-*メモ:この章では後でこのクラスから IDinnerRepository インターフェイスの抽出がされ、コント ローラーでそれに依存関係の挿入を有効にします。 まず、ここを簡単に開始し、ときは必ず DinnerRepository クラスを直接操作だけです。*
+*注:この章では後でこのクラスから IDinnerRepository インターフェイスの抽出がされ、コント ローラーでそれに依存関係の挿入を有効にします。まず、ここを簡単に開始し、ときは必ず DinnerRepository クラスを直接操作だけです。*
 
 "Models"フォルダーを右クリックしを選択しましたが、このクラスを実装するために、**追加 -&gt;新しい項目の**メニュー コマンド。 "新しい項目の追加 ダイアログ ボックスでは、「クラス」テンプレートを選択し、ファイルの名前を"DinnerRepository.cs"しましたします。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: c9fdbe5f0e24aa3f09f11a67c6d13a32897e8b85
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388375"
 ---
 # <a name="dynamically-populating-a-control-vb"></a>コントロールに動的に入力する (VB)
@@ -66,7 +66,7 @@ Web サービスとして保存されます`DynamicPopulate.vb.asmx`します。
 ASP.NET ページをブラウザーで実行して、; ボタンをクリックします現在の日付が月-日-年の形式で表示されます。
 
 
-[![A サーバーから日付を取得するボタンをクリックします](dynamically-populating-a-control-vb/_static/image2.png)](dynamically-populating-a-control-vb/_static/image1.png)
+[![ボタンをクリックして、サーバーから日付を取得します。](dynamically-populating-a-control-vb/_static/image2.png)](dynamically-populating-a-control-vb/_static/image1.png)
 
 ボタンをクリックしますが、サーバーから日付を取得します ([フルサイズの画像を表示する をクリックします](dynamically-populating-a-control-vb/_static/image3.png))。
 

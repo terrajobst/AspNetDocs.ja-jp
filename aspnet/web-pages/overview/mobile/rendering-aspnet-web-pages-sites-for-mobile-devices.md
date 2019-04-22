@@ -12,7 +12,7 @@ ms.openlocfilehash: dbcd25331387f8606343e551302bc3ed1f9b2c25
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379509"
 ---
 # <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示
@@ -47,7 +47,7 @@ ASP.NET Web Pages サイトでデバイスに固有のページを作成する�
 2. という名前のファイルを作成する*Page1.Mobile.cshtml*既存のコンテンツを次のマークアップに置き換えます。 モバイル バージョンのページが小さい画面できれいに表示のナビゲーション セクションを省略することに注意してください。
 
     [!code-html[Main](rendering-aspnet-web-pages-sites-for-mobile-devices/samples/sample2.html)]
-3. デスクトップ ブラウザーを実行しを参照*Page1.cshtml*します。 ![mobilesites 1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
+3. デスクトップ ブラウザーを実行しを参照*Page1.cshtml*します。 ![mobilesites-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
 4. モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*します。 (通知を組み込んでいない *.mobile します。* URL の一部として、します。)要求されている場合でも*Page1.cshtml*、ASP.NET のレンダリング*Page1.Mobile.cshtml*します。
 
     ![mobilesites 2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)

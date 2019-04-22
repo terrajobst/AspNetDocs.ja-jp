@@ -12,7 +12,7 @@ ms.openlocfilehash: 53ca3bc4e550f488f3ae4c41f02a636e747107cb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384891"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルとデータ アクセス
@@ -163,7 +163,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
     ![接続プロパティ](aspnet-mvc-4-models-and-data-access/_static/image9.png "接続のプロパティ")
 
-    *接続プロパティ*
+    *接続のプロパティ*
 6. 生成されたクラスする必要がありますエンティティ接続文字列と同じ名前を指定しているため、その名前を**MusicStoreEntities**  をクリック**次**します。
 
     ![データ接続を選択する](aspnet-mvc-4-models-and-data-access/_static/image10.png "データ接続を選択します。")
@@ -181,7 +181,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
     ![エンティティの図](aspnet-mvc-4-models-and-data-access/_static/image12.png "エンティティ図")
 
-    *エンティティ図*
+    *エンティティの図*
 
     > [!NOTE]
     > T4 テンプレート (.tt) は、エンティティ クラスを生成するコードを実行し、同じ名前の既存のクラスが上書きされます。 この例では、クラスで&quot;アルバム&quot;、&quot;ジャンル&quot;と&quot;アーティスト&quot;が生成されたコードで上書きされます。
@@ -481,7 +481,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
     ![ジャンルによる参照](aspnet-mvc-4-models-and-data-access/_static/image24.png "ジャンルによる参照")
 
-    *Browsing /Store/Browse?genre=Pop*
+    *参照/ストア/参照? ジャンル Pop を =*
 
 <a id="Ex3Task3"></a>
 
@@ -692,7 +692,7 @@ ASP.NET MVC のモデルとデータ アクセスの基礎を学習するこの�
 
     ![データベースを作成する](aspnet-mvc-4-models-and-data-access/_static/image48.png "データベース文字列を作成します。")
 
-    *データベースを作成する*
+    *データベースの作成*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-models-and-data-access/_static/image49.png "SQL データベースを指す接続文字列")

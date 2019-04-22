@@ -12,14 +12,14 @@ ms.openlocfilehash: d5a72dbfe1530e457ec16df5c7d50b03b5f63502
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384215"
 ---
 # <a name="part-1-overview-and-creating-the-project"></a>第 1 部:概要とプロジェクトの作成
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 Entity Framework は、オブジェクト/リレーショナル マッピング フレームワークです。 ドメイン オブジェクトをコードでは、リレーショナル データベース内のエンティティにマップされます。 ほとんどの場合がありません、データベース層について心配する Entity Framework が自動的に処理ができます。 コードは、オブジェクトを操作して、変更がデータベースに保存されます。
 

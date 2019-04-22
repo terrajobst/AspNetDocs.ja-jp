@@ -12,14 +12,14 @@ ms.openlocfilehash: 97a60274d9306ea0ee332fcc1ab9e487355dbedb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384943"
 ---
 # <a name="creating-a-build-definition-that-supports-deployment"></a>配置をサポートするビルド定義を作成する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Team Foundation Server (TFS) 2010 での任意の種類のビルドを実行する場合は、チーム プロジェクト内のビルド定義を作成する必要があります。 このトピックでは、TFS で新しいビルド定義を作成する方法とチーム ビルドでビルド プロセスの一部として web 配置を制御する方法について説明します。
 

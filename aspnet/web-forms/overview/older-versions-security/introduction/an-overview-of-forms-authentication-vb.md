@@ -12,7 +12,7 @@ ms.openlocfilehash: 84b1c4c562603eddc5b82500700957bc78f236f4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386452"
 ---
 # <a name="an-overview-of-forms-authentication-vb"></a>フォーム認証 (VB) の概要
@@ -48,7 +48,7 @@ FormsAuthenticationModule は、UrlAuthorizationModule (および持ちます) �
 ログイン ページの責任では、ユーザーの資格情報が有効と、フォーム認証チケットを作成し、ユーザーをページにリダイレクトを参照してくださいを試行した場合はかどうかを決定します。 FormsAuthenticationModule は、ユーザーを識別するために使用する web サイト上のページへの後続の要求に認証チケットが含まれます。
 
 
-[![T彼のフォーム認証ワークフロー](an-overview-of-forms-authentication-vb/_static/image2.png)](an-overview-of-forms-authentication-vb/_static/image1.png)
+[![フォーム認証のワークフロー](an-overview-of-forms-authentication-vb/_static/image2.png)](an-overview-of-forms-authentication-vb/_static/image1.png)
 
 **図 01**:フォーム認証のワークフロー ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image3.png))。
 
@@ -85,7 +85,7 @@ Visual Studio 2008 では、Microsoft の無料版で、このシリーズ全体
 > Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。Web サイト プロジェクトと Web アプリケーション プロジェクト。 Web サイト プロジェクトでは、Web アプリケーション プロジェクトで Visual Studio .NET 2002年/2003 プロジェクト アーキテクチャを模倣する-プロジェクト ファイルが含まれていて、プロジェクトのソース コードを/bin フォルダーに配置されている 1 つのアセンブリにコンパイルは、プロジェクト ファイルが不足しています。 Visual Studio 2005 最初に唯一サポートされている Web サイト プロジェクトは、Service Pack 1。 Web アプリケーション プロジェクト モデルが再入がVisual Studio 2008 には、両方のプロジェクト モデルが用意されています。 Visual Web Developer 2005 および 2008 のエディション、ただし、のみがサポート Web サイト プロジェクト。 Web サイト プロジェクト モデルは使用されます。 Express 以外のエディションを使用しているし、使用するかどうか、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/library/aa730880(vs.80).aspx)代わりを自由に行う可能性があるいくつかの相違点、画面とではなく実行する必要があります手順に表示されるものとの間に注意してください、スクリーン ショットが示すように、これらのチュートリアルで説明する手順。
 
 
-[![CNew File System-Based Web サイトを作成する](an-overview-of-forms-authentication-vb/_static/image5.png)](an-overview-of-forms-authentication-vb/_static/image4.png)
+[![新しいファイル システムに基づく Web サイトを作成します。](an-overview-of-forms-authentication-vb/_static/image5.png)](an-overview-of-forms-authentication-vb/_static/image4.png)
 
 **図 02**:New File System-Based Web サイトの作成 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image6.png))。
 
@@ -95,7 +95,7 @@ Visual Studio 2008 では、Microsoft の無料版で、このシリーズ全体
 次に、Site.master をという名前のルート ディレクトリ内のサイトに新しいマスター ページを追加します。 [マスター ページ](https://msdn.microsoft.com/library/wtxbf3hh.aspx)ASP.NET ページに適用できるサイト全体のテンプレートを定義するページの開発者を有効にします。 マスター ページの主な利点は、サイトの全体的な外観定義できます 1 つの場所でこれにより簡単に更新したり、サイトのレイアウトを調整します。
 
 
-[![Add、マスター ページという名前の Site.master web サイト](an-overview-of-forms-authentication-vb/_static/image8.png)](an-overview-of-forms-authentication-vb/_static/image7.png)
+[![マスター ページを追加するという名前の web サイトに Site.master](an-overview-of-forms-authentication-vb/_static/image8.png)](an-overview-of-forms-authentication-vb/_static/image7.png)
 
 **図 03**:Web サイトにマスター ページという Site.master を追加 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image9.png))。
 
@@ -109,7 +109,7 @@ Visual Studio 2008 では、Microsoft の無料版で、このシリーズ全体
 上記で入力したマークアップをデザイン ビューに切り替えると、マスター ページのレイアウトを示します。 このマスター ページを使用する任意の ASP.NET ページには、MainContent リージョンのマークアップを指定する機能によりこの均一なレイアウトがあります。
 
 
-[![T彼マスター ページで、ときに表示をデザイン ビュー](an-overview-of-forms-authentication-vb/_static/image11.png)](an-overview-of-forms-authentication-vb/_static/image10.png)
+[![デザイン ビューで表示した場合、マスター ページ](an-overview-of-forms-authentication-vb/_static/image11.png)](an-overview-of-forms-authentication-vb/_static/image10.png)
 
 **図 04**:、マスター ページ、ときに表示をデザイン ビュー ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image12.png))。
 
@@ -121,12 +121,12 @@ Visual Studio 2008 では、Microsoft の無料版で、このシリーズ全体
 次に、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、Default.aspx という名前の新しい Web フォームを追加することもできます。 今回は、チェック ボックスをマスター ページを選択し、一覧から Site.master マスター ページを選択します。
 
 
-[![Add は、新しい Default.aspx ページを選択するマスター ページの選択](an-overview-of-forms-authentication-vb/_static/image14.png)](an-overview-of-forms-authentication-vb/_static/image13.png)
+[![マスター ページの選択を選択する新しい Default.aspx ページを追加します。](an-overview-of-forms-authentication-vb/_static/image14.png)](an-overview-of-forms-authentication-vb/_static/image13.png)
 
 **図 05**:追加する新しい Default.aspx ページを選択するマスター ページの選択 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image15.png))。
 
 
-[![Use Site.master マスター ページ](an-overview-of-forms-authentication-vb/_static/image17.png)](an-overview-of-forms-authentication-vb/_static/image16.png)
+[![Site.master マスター ページを使用してください。](an-overview-of-forms-authentication-vb/_static/image17.png)](an-overview-of-forms-authentication-vb/_static/image16.png)
 
 **図 06**:Site.master マスター ページを使用して ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image18.png))。
 
@@ -159,7 +159,7 @@ ASP.NET web サイトを作成して、フォーム認証を有効にするの�
 プロジェクトで Web.config ファイルがまだ含まれない場合は、1 つ今すぐを右クリックして、ソリューション エクスプ ローラーでプロジェクト名を新しい項目の追加 を選択して Web 構成ファイルを追加しを追加します。
 
 
-[![If# プロジェクトはまだ、web.config ファイルは、今すぐ追加](an-overview-of-forms-authentication-vb/_static/image20.png)](an-overview-of-forms-authentication-vb/_static/image19.png)
+[![プロジェクトがまだ Web.config を含めない場合、今すぐ追加します。](an-overview-of-forms-authentication-vb/_static/image20.png)](an-overview-of-forms-authentication-vb/_static/image19.png)
 
 **図 07**:場合、プロジェクトはいないまだ含める Web.config、今すぐ追加 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image21.png))。
 
@@ -191,7 +191,7 @@ ASP.NET web サイトを作成して、フォーム認証を有効にするの�
 最初のタスクを開始しましょう。 Login.aspx という名前のサイトのルート ディレクトリに新しい ASP.NET ページを追加し、Site.master マスター ページと関連付けます。
 
 
-[![Add、新しい ASP.NET ページという Login.aspx](an-overview-of-forms-authentication-vb/_static/image23.png)](an-overview-of-forms-authentication-vb/_static/image22.png)
+[![新しい ASP.NET ページの追加 Login.aspx という名前](an-overview-of-forms-authentication-vb/_static/image23.png)](an-overview-of-forms-authentication-vb/_static/image22.png)
 
 **図 08**:追加、新しい ASP.NET ページという Login.aspx ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image24.png))。
 
@@ -205,7 +205,7 @@ Login.aspx に 2 つの Textbox を追加し、ユーザー名とパスワード
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample4.aspx)]
 
 
-[![T彼のログイン ページを含む 2 つのテキスト ボックス、チェック ボックス、ボタン、およびラベル](an-overview-of-forms-authentication-vb/_static/image26.png)](an-overview-of-forms-authentication-vb/_static/image25.png)
+[![ログイン ページには、2 つのテキスト ボックス、チェック ボックス、ボタン、およびラベルが含まれています。](an-overview-of-forms-authentication-vb/_static/image26.png)](an-overview-of-forms-authentication-vb/_static/image25.png)
 
 **図 09**:ログイン ページを含む 2 つのテキスト ボックス、チェック ボックス、ボタン、およびラベル ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image27.png))。
 
@@ -251,7 +251,7 @@ FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked)
 ログイン ページをテストするには、ブラウザーでアクセスします。 まず言ったりのユーザー名とパスワードの問題など、無効な資格情報を入力します。 [ログイン] ボタンをクリックすると、ポストバックが発生し、InvalidCredentialsMessage ラベルが表示されます。
 
 
-[![T彼 InvalidCredentialsMessage ラベルは、表示されるときに入力する資格情報が無効です](an-overview-of-forms-authentication-vb/_static/image29.png)](an-overview-of-forms-authentication-vb/_static/image28.png)
+[![InvalidCredentialsMessage ラベルが表示されるときに入力する資格情報が無効](an-overview-of-forms-authentication-vb/_static/image29.png)](an-overview-of-forms-authentication-vb/_static/image28.png)
 
 **図 10**:InvalidCredentialsMessage ラベルが表示されるときに入力する資格情報が無効 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image30.png))。
 
@@ -287,12 +287,12 @@ Web サイトには、機密情報が含まれています、しない限り、�
 このコードでは、ブラウザーで Default.aspx を参照してください。 ログインにまだある場合は、ログイン ページへのリンクが表示されます (図 11 を参照してください)。 このリンクをクリックし、サイトにログインします。 手順 3. で説明したように資格情報を入力後する返されますが、Default.aspx に、この時間、ページが表示されます、ようこそ! メッセージ (図 12 を参照してください)。
 
 
-[![When にアクセスして、匿名でログのリンクが表示されます](an-overview-of-forms-authentication-vb/_static/image32.png)](an-overview-of-forms-authentication-vb/_static/image31.png)
+[![アクセスして、匿名でログのリンクが表示される場合](an-overview-of-forms-authentication-vb/_static/image32.png)](an-overview-of-forms-authentication-vb/_static/image31.png)
 
 **図 11**:匿名でアクセスして、ログのリンクが表示されます ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image33.png))。
 
 
-[![A様々 ユーザーは、ようこそに表示されます。 [メッセージ](an-overview-of-forms-authentication-vb/_static/image35.png)](an-overview-of-forms-authentication-vb/_static/image34.png)
+[![認証されたユーザーは、ようこそで表示されます。メッセージ](an-overview-of-forms-authentication-vb/_static/image35.png)](an-overview-of-forms-authentication-vb/_static/image34.png)
 
 **図 12**:認証されたユーザーは、ようこそで表示されます。 メッセージ ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image36.png))。
 
@@ -325,7 +325,7 @@ WelcomeBackMessage.Text = "Welcome back, " &amp; User.Identity.Name &amp; "!"
 図 13 は、(Scott のユーザーとしてログイン) の場合、この変更の効果を示します。
 
 
-[![Tようこそメッセージが含まれます彼は、現在ログインしてユーザーの名前]。(an-overview-of-forms-authentication-vb/_static/image38.png)](an-overview-of-forms-authentication-vb/_static/image37.png)
+[![ウェルカム メッセージを含むユーザーの名前で現在ログオンしています。](an-overview-of-forms-authentication-vb/_static/image38.png)](an-overview-of-forms-authentication-vb/_static/image37.png)
 
 **図 13**:ようこそメッセージには、現在ログインしてユーザーの名前が含まれています ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image39.png))。
 
@@ -354,7 +354,7 @@ Site.master、私たちのサイトのマスター ページを LoginView コン
 ツールボックスの [ログイン] タブは、LoginView、およびその他のログインに関連するコントロールに配置されます。
 
 
-[![Tまた、ツールボックスの LoginView コントロール](an-overview-of-forms-authentication-vb/_static/image41.png)](an-overview-of-forms-authentication-vb/_static/image40.png)
+[![ツールボックスで LoginView コントロール](an-overview-of-forms-authentication-vb/_static/image41.png)](an-overview-of-forms-authentication-vb/_static/image40.png)
 
 **図 14**:LoginView コントロールがツールボックスで ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image42.png))。
 
@@ -374,7 +374,7 @@ LoginView のテンプレートにこれらの追加を行った後マークア�
 これにより、Site.master マスター ページに、web サイト内の各ページに、ユーザーが認証されているかどうかに応じて、別のメッセージが表示されます。 図 15 は、ユーザー Jisun ブラウザーからアクセスすると、Default.aspx ページを示しています。 ようこそメッセージが 2 回繰り返されます Jisun: 左側 (LoginView コントロールを追加しました) を使用して、マスター ページのナビゲーション セクションでは 1 回と Default.aspx の中に 2 回コンテンツ (パネル コントロールとプログラム ロジック) 経由での領域。
 
 
-[![T彼 LoginView コントロールが表示されますようこそ、Jisun。](an-overview-of-forms-authentication-vb/_static/image44.png)](an-overview-of-forms-authentication-vb/_static/image43.png)
+[![LoginView コントロール表示の [ようこそ] のバックアップでは、Jisun します。](an-overview-of-forms-authentication-vb/_static/image44.png)](an-overview-of-forms-authentication-vb/_static/image43.png)
 
 **図 15**:LoginView コントロール表示の [ようこそ] のバックアップでは、Jisun します。 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image45.png))。
 
@@ -382,7 +382,7 @@ LoginView のテンプレートにこれらの追加を行った後マークア�
 マスター ページを追加、LoginView は、弊社サイト上のすべてのページに表示できます。 ただし、ある可能性があります web ページにこのメッセージを表示するはありません。 このような 1 つのページでは、ログイン ページへのリンクように見える場所にあるため、ログイン ページです。 マスター ページで ContentPlaceHolder の LoginView コントロールに配置しましたので、コンテンツ ページで、この既定のマークアップを無効にできます。 Login.aspx を開き、デザイナーに移動します。 コンテンツ コントロールを明示的に定義されていますされませんのででマスター ページで LoginContent ContentPlaceHolder の Login.aspx、ログイン ページは、このプレース ホルダーのマスター ページの既定のマークアップが表示されます。 透けてこのデザイナー - LoginContent ContentPlaceHolder (LoginView コントロール) の既定のマークアップを示しています。
 
 
-[![T彼のログイン ページは、マスター ページの LoginContent ContentPlaceHolder の既定のコンテンツ表示](an-overview-of-forms-authentication-vb/_static/image47.png)](an-overview-of-forms-authentication-vb/_static/image46.png)
+[![マスター ページの LoginContent ContentPlaceHolder のログイン ページがコンテンツにある既定値を示します](an-overview-of-forms-authentication-vb/_static/image47.png)](an-overview-of-forms-authentication-vb/_static/image46.png)
 
 **図 16**:ログイン ページは、マスター ページの LoginContent ContentPlaceHolder のコンテンツの既定の表示 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image48.png))。
 
@@ -396,7 +396,7 @@ LoginContent ContentPlaceHolder の既定のマークアップをオーバーラ
 図 17 では、この変更を行った後、ブラウザーからアクセスしたときの Login.aspx ページを示します。 こんにちは, 新戦力またはへようこそ のバックアップがないことに注意してください。*ユーザー名*左側のナビゲーションでメッセージ&lt;div&gt;は Default.aspx にアクセスするとします。
 
 
-[![T彼のログイン ページには、既定の LoginContent ContentPlaceHolder のマークアップが非表示に](an-overview-of-forms-authentication-vb/_static/image50.png)](an-overview-of-forms-authentication-vb/_static/image49.png)
+[![ログイン ページには、既定の LoginContent プレース ホルダーのマークアップが非表示になります](an-overview-of-forms-authentication-vb/_static/image50.png)](an-overview-of-forms-authentication-vb/_static/image49.png)
 
 **図 17**:ログイン ページには、既定の LoginContent ContentPlaceHolder のマークアップが非表示になります ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image51.png))。
 
@@ -427,12 +427,12 @@ LoginStatus が LoginView コントロールの外側にあるため、匿名、
 図 18 は、Jisun にアクセスしたときに、Default.aspx を示します。 左側の列がメッセージを表示することに注意してください、こそ、ログアウトのリンクと共に Jisun します。ログアウト LinkButton をクリックするとポストバックが発生する、Jisun が、システムでは、サインアウトおよび Logout.aspx にリダイレクトさせます。 図 19 に示すように達した Logout.aspx の Jisun 時間で彼女署名済みであるため匿名。 その結果、左側の列には、ストレンジャー、ログイン ページへのリンクの開始、テキストが表示されます。
 
 
-[![Default.aspx ようこそ、ログアウト LinkButton と共に Jisun を表示](an-overview-of-forms-authentication-vb/_static/image53.png)](an-overview-of-forms-authentication-vb/_static/image52.png)
+[![Default.aspx ようこそ、ログアウト LinkButton と共に Jisun を示しています。](an-overview-of-forms-authentication-vb/_static/image53.png)](an-overview-of-forms-authentication-vb/_static/image52.png)
 
 **図 18**:Default.aspx を示していますようこそ戻る]、[ログアウト LinkButton で Jisun に沿って ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image54.png))。
 
 
-[![Logout.aspx ようこそ、ログイン LinkButton と共に新戦力の表示](an-overview-of-forms-authentication-vb/_static/image56.png)](an-overview-of-forms-authentication-vb/_static/image55.png)
+[![Logout.aspx 示しますへようこそ、ログイン LinkButton と共に新戦力](an-overview-of-forms-authentication-vb/_static/image56.png)](an-overview-of-forms-authentication-vb/_static/image55.png)
 
 **図 19**:Logout.aspx 示しますへようこそ、ログイン LinkButton と共に新戦力 ([フルサイズの画像を表示する をクリックします](an-overview-of-forms-authentication-vb/_static/image57.png))。
 
@@ -459,7 +459,7 @@ LoginStatus が LoginView コントロールの外側にあるため、匿名、
 - [ログインの ASP.NET コントロール](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [Professional ASP.NET 2.0 のセキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN:978-0-7645-9698-8)
 - [&lt;認証&gt;要素](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [&lt;フォーム&gt;要素&lt;認証&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [&lt;forms&gt;要素&lt;authentication&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックのビデオ トレーニング
 

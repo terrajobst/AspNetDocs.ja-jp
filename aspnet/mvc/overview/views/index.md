@@ -12,7 +12,7 @@ ms.openlocfilehash: 737c15b4657ce8a67224c116bcad196020c45710
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388245"
 ---
 # <a name="aspnet-mvc-ui-layouts-and-themes"></a>ASP.NET MVC UI、レイアウト、およびテーマ
@@ -20,5 +20,5 @@ ms.locfileid: "59388245"
 > Razor 構文は、情報を表示するビュー (V は mvc) で使用する方法。
 
 
-- [ASP.NET MVC フォーム内での Page Inspector の使用](using-page-inspector-in-aspnet-mvc.md)
-- [動的に型指定されたビューと 厳密に型指定されたビュー](dynamic-v-strongly-typed-views.md)
+- [ASP.NET MVC で Page Inspector を使用する](using-page-inspector-in-aspnet-mvc.md)
+- [動的に型指定されたビューと厳密に型指定されたビュー](dynamic-v-strongly-typed-views.md)

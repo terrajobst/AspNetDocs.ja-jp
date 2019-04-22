@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f8eeeaa9bd77c0259f680198e57ade8d49cd06b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382622"
 ---
 # <a name="creating-an-action-vb"></a>アクションを作成する (VB)
@@ -57,7 +57,7 @@ ms.locfileid: "59382622"
 CompanySecrets() コント ローラーのアクションを起動するには、お使いのブラウザーのアドレス バーに/Work/CompanySecrets を入力しようとした場合は、図 1 で、エラー メッセージが表示されます。
 
 
-[![Invoking NonAction メソッド](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
+[![NonAction メソッドを呼び出す](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
 
 **図 01**:NonAction メソッドを呼び出す ([フルサイズの画像を表示する をクリックします](creating-an-action-vb/_static/image2.png))。
 

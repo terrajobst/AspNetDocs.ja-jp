@@ -12,7 +12,7 @@ ms.openlocfilehash: 25d21efaf2f01ee1c162408a3caf699ac818aaa7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384962"
 ---
 # <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS や電子メールで 2 要素認証する ASP.NET MVC 5 アプリ

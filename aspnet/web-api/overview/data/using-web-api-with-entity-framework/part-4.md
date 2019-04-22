@@ -12,14 +12,14 @@ ms.openlocfilehash: be4948e5443a5eb4e1824c63dd0c445a7ee1928e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384695"
 ---
 # <a name="handling-entity-relations"></a>エンティティ関係の処理
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、EF が関連エンティティを読み込む方法と、モデル クラス内で循環ナビゲーション プロパティを処理する方法のいくつかの詳細について説明します。 (ここでは、バック グラウンドの知識を提供し、チュートリアルを完了する必要はありません。 場合は、必要に応じて[パート 5](part-5.md)。)。
 

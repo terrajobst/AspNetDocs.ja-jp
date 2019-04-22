@@ -12,7 +12,7 @@ ms.openlocfilehash: a1b099aedc6fa0824df3281cca55543bcfd4d159
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386782"
 ---
 # <a name="how-to-enable-table-specific-routing-in-dynamic-data-applications"></a>動的データ アプリケーションでのテーブル固有ルーティングを有効にする方法

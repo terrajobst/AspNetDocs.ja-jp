@@ -13,7 +13,7 @@ ms.openlocfilehash: 2cec6138ffcd6019eae23c82abda2b96d7b0b625
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383461"
 ---
 # <a name="advanced-topics-for-aspnet-web-api"></a>ASP.NET Web API の詳細事項
@@ -26,6 +26,6 @@ ms.locfileid: "59383461"
 - [.NET クライアントから Web API を呼び出す (C#)](calling-a-web-api-from-a-net-client.md)
 - [Web API の HTTP メッセージ ハンドラー](http-message-handlers.md)
 - [Web API の HttpClient メッセージ ハンドラー](httpclient-message-handlers.md)
-- [Web API で HTML フォーム データを送信する:URL エンコード フォーム データ](sending-html-form-data-part-1.md)
-- [Web API で HTML フォーム データを送信する:ファイル アップロードとマルチパート MIME](sending-html-form-data-part-2.md)
+- [Web API で HTML フォーム データを送信します。Url エンコード フォーム データ](sending-html-form-data-part-1.md)
+- [Web API で HTML フォーム データを送信します。ファイルのアップロードとマルチパート MIME](sending-html-form-data-part-2.md)
 - [ASP.NET Web API の HTTP Cookie](http-cookies.md)

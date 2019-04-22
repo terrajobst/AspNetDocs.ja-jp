@@ -13,7 +13,7 @@ ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390273"
 ---
 # <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする
@@ -108,7 +108,7 @@ Web API フレームワークは、ASP.NET スタックの一部でありは HTT
 
     ![新しいプロジェクトを作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image1.png "新しいプロジェクトを作成します。")
 
-    *新規プロジェクトの作成*
+    *新しいプロジェクトを作成します。*
 2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下、 **(Visual C#) |Web**タブ。確認します **.NET Framework 4.5**がという名前を選択すると、 *GeekQuiz*、選択、**場所** をクリック**OK**。
 
     ![新しい ASP.NET Web アプリケーション プロジェクトを作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image2.png "新しい ASP.NET Web アプリケーション プロジェクトを作成します。")

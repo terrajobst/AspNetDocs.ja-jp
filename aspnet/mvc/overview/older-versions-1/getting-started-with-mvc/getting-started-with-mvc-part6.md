@@ -12,7 +12,7 @@ ms.openlocfilehash: f648e0cb53dd410105adc22401f19a5a15f9e8c1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380809"
 ---
 # <a name="adding-a-create-method-and-create-view"></a>Create メソッドと Create ビューの追加
@@ -38,7 +38,7 @@ ms.locfileid: "59380809"
 
 そのビューのデータ クラスと「ムービー」ビュー テンプレートを渡すことは、テンプレートの「作成」を「スキャフォールディング」することを示すことを選択します。
 
-[![Aビューを追加する](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
+[![ビューを追加します。](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
 [追加] ボタンをクリックした後 \Movies\Create.aspx ビュー テンプレートが作成されます。 "コンテンツの表示 ドロップダウン リストから 作成 を選択したため、ビューの追加 ダイアログに自動的に「スキャフォールディングされた」既定のコンテンツをします。 スキャフォールディングが作成、HTML&lt;フォーム&gt;進むには、メッセージの検証エラーの場所で、クラスの各プロパティのラベルとフィールドを作成して映画のスキャフォールディングを知っている、ため、します。
 
@@ -48,7 +48,7 @@ ms.locfileid: "59380809"
 
 みましょう今すぐ新しいムービーを作成し、データベースに追加します。 これには、アプリケーションを再度実行しているを参照してくださいし、"/映画"「作成」が、新しいムービーを追加するリンクの URL をクリックします。
 
-[![Create - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Windows Internet Explorer の作成-](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
 [作成] ボタンをクリックしてしましたと版もご利用戻る (HTTP POST 経由) を作成した/Movies/Create メソッドには、このフォーム上のデータ。 ときに、システムは自動的に URL から"numTimes"および"name"パラメーターを要したし、前のメソッドのパラメーターにマップすると同様、システムが自動的に投稿から、フォームのフィールドを取得、オブジェクトにマップされます。 この場合は、"ReleaseDate"や"Title"のような HTML のフィールドの値は、自動的に新しいムービーのインスタンスの適切なプロパティに格納されます。
 
@@ -58,7 +58,7 @@ ms.locfileid: "59380809"
 
 このムービー オブジェクトは、Create アクション メソッドの [HttpPost] バージョンに渡されたし、データベースに保存し、ムービーの一覧で、保存された結果を表示する Index() アクション メソッドに、ユーザーがリダイレクトされます。
 
-[![Mリスト - ovie Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 私たちは、ムービーが正しいこと、ただし、そのデータベースでタイトルなしでムービーを保存することは許可されませんにチェックインしていません。 私たちの知るユーザー データベースの前にエラーをスローする場合は便利になります。 検証のサポートをアプリケーションに追加することで、次を実行します。
 

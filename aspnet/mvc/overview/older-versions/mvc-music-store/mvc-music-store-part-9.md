@@ -12,7 +12,7 @@ ms.openlocfilehash: c7151351b087439f17457b254cd9e373af21cae3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380900"
 ---
 # <a name="part-9-registration-and-checkout"></a>第 9 部:登録と精算
@@ -78,7 +78,7 @@ Controllers フォルダーを右クリックし、空のコント ローラー 
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample4.cs)]
 
-*メモ:これは以前、StoreManagerController に行われた変更に似ていますが、Authorize 属性のユーザーが管理者ロールであることが必要な場合。 チェック アウト コント ローラーで要求しているユーザーがログインする管理者である必要はありませんが。*
+*注:これは以前、StoreManagerController に行われた変更に似ていますが、Authorize 属性のユーザーが管理者ロールであることが必要な場合。チェック アウト コント ローラーで要求しているユーザーがログインする管理者である必要はありませんが。*
 
 わかりやすくは、私たちはこのチュートリアルでは支払い情報を扱うはありません。 代わりに、ユーザーにキャンペーン コードを使用して、チェック アウトできるようにしています。 プロモーションをという名前の定数を使用してこのプロモーション コードを保存します。
 
@@ -108,7 +108,7 @@ AddressAndPayment POST メソッドは、同じパターンに従って、StoreM
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample8.cs)]
 
-*メモ:エラー ビューが自動的に作成お/Views/Shared フォルダーにプロジェクトを開始したとき。*
+*注:エラー ビューが自動的に作成お/Views/Shared フォルダーにプロジェクトを開始したとき。*
 
 完全な CheckoutController コードは次のとおりです。
 

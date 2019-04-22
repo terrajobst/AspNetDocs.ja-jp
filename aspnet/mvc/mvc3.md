@@ -12,7 +12,7 @@ ms.openlocfilehash: 42c28bb7082781ffdf8f2f0fb46f14387e614043
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389532"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
@@ -99,7 +99,7 @@ ASP.NET MVC 3 でスキャフォールディングの詳細については、次
 
     1. [概要:ASP.NET MVC 3 プロジェクトと MvcScaffolding パッケージのスキャフォールディングします。](http://blog.stevensanderson.com/2011/01/13/scaffold-your-aspnet-mvc-3-project-with-the-mvcscaffolding-package/)
     2. [標準的な使用法:一般的なユース ケースとオプション](http://blog.stevensanderson.com/2011/01/13/mvcscaffolding-standard-usage/)
-    3. [一対多リレーションシップ](http://blog.stevensanderson.com/2011/01/28/mvcscaffolding-one-to-many-relationships/)
+    3. [一対多のリレーションシップ](http://blog.stevensanderson.com/2011/01/28/mvcscaffolding-one-to-many-relationships/)
     4. [スキャフォールディング アクションと単体テスト](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
     5. [T4 テンプレートをオーバーライドします。](http://blog.stevensanderson.com/2011/04/06/mvcscaffolding-overriding-the-t4-templates/)
     6. [この投稿:カスタム スキャフォールダーの作成](http://blog.stevensanderson.com/2011/04/07/mvcscaffolding-creating-custom-scaffolders/)
@@ -133,11 +133,11 @@ Razor の新機能の一部を以下に示します。
 
 Razor では、次などの新しい HTML ヘルパーも含まれます。
 
-- `Chart`. ASP.NET 4 のグラフ コントロールと同じ機能を提供する、グラフを表示します。
-- `WebGrid`. ページングと並べ替え機能を備えたデータ グリッドを表示します。
-- `Crypto`. 正常に作成するアルゴリズムのハッシュを使用してでは、ソルトし、パスワードをハッシュします。
-- `WebImage`. イメージを表示します。
-- `WebMail`. 電子メールを送信します。
+- `Chart`。 ASP.NET 4 のグラフ コントロールと同じ機能を提供する、グラフを表示します。
+- `WebGrid`。 ページングと並べ替え機能を備えたデータ グリッドを表示します。
+- `Crypto`。 正常に作成するアルゴリズムのハッシュを使用してでは、ソルトし、パスワードをハッシュします。
+- `WebImage`。 イメージを表示します。
+- `WebMail`。 電子メールを送信します。
 
 Razor の詳細については、次のリソースを参照してください。
 

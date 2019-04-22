@@ -12,7 +12,7 @@ ms.openlocfilehash: b7722d5c282f07b35dd18d08911fa562dae6afc2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387933"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
@@ -26,7 +26,7 @@ ms.locfileid: "59387933"
 - [インストールに関する注記](#_Toc303253802)
 - [ドキュメント](#_Toc303253803)
 - [サポート](#_Toc303253804)
-- [ソフトウェア要件](#_Toc303253805)
+- [ソフトウェアの要件](#_Toc303253805)
 - [ASP.NET MVC 4、ASP.NET MVC 3 プロジェクトをアップグレードします。](#_Toc303253806)
 - [ASP.NET MVC 4 Beta の新機能](#_Toc303253807)
 

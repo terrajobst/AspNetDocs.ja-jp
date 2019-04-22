@@ -12,7 +12,7 @@ ms.openlocfilehash: d83fb53ddb40a31013bc724909fa149ce2e4c713
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387380"
 ---
 # <a name="using-textboxwatermark-with-validation-controls-vb"></a>検証コントロールと共に TextBoxWatermark を使用する (VB)
@@ -49,7 +49,7 @@ ms.locfileid: "59387380"
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-vb/samples/sample4.aspx)]
 
 
-[![T彼の検証ツールでは、フィールドにテキストがないことという苦情](using-textboxwatermark-with-validation-controls-vb/_static/image2.png)](using-textboxwatermark-with-validation-controls-vb/_static/image1.png)
+[![検証コントロール文句を言う フィールドにテキストがないこと](using-textboxwatermark-with-validation-controls-vb/_static/image2.png)](using-textboxwatermark-with-validation-controls-vb/_static/image1.png)
 
 検証コントロール文句を言う フィールドにテキストがないこと ([フルサイズの画像を表示する をクリックします](using-textboxwatermark-with-validation-controls-vb/_static/image3.png))。
 

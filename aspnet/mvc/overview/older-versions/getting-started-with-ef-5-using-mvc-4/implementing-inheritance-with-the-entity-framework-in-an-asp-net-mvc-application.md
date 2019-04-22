@@ -12,14 +12,14 @@ ms.openlocfilehash: fe2bc91c1bb37282389a45f662a34f8865dee301
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381069"
 ---
 # <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>ASP.NET MVC アプリケーション (10 の 8) で、Entity Framework による継承の実装
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -128,7 +128,7 @@ Table-per-Hierarchy 継承を構成するために Entity Framework に必要な
 
 実行、 `Update-Database` PMC でコマンド。 移行が処理する方法を認識しない既存のデータがあるので、コマンドはこの時点で失敗します。 次のエラーが発生しました。
 
-*ALTER TABLE ステートメントと競合して外部キー制約"FK\_dbo します。部門\_dbo します。Person\_PersonID"。 競合が発生したデータベース"ContosoUniversity"テーブル"dbo します。Person"です。 列 'PersonID'。*
+*ALTER TABLE ステートメントと競合して外部キー制約"FK\_dbo します。部門\_dbo します。Person\_PersonID"。競合が発生したデータベース"ContosoUniversity"テーブル"dbo します。Person"です。 列 'PersonID'。*
 
 開いている*移行\&lt; タイムスタンプ&gt;\_Inheritance.cs*と置換、`Up`メソッドを次のコード。
 

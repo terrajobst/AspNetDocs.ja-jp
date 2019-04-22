@@ -12,14 +12,14 @@ ms.openlocfilehash: 15bdaa588792c3cf4a8e6eee651e0675f959f942
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382236"
 ---
 # <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>ASP.NET MVC アプリケーション (4/10) のより複雑なデータ モデルを作成します。
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
 > 
@@ -48,7 +48,7 @@ ms.locfileid: "59382236"
 
 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用して、データベースの組み込み型よりも具体的であるデータ型を指定します。 この例では、追跡する必要があるのは、日付と時刻ではなく、日付のみです。 [DataType 列挙](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)など多くのデータ型を提供します*日付、時刻、PhoneNumber、Currency、EmailAddress*など。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 など、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)、日付セレクターを指定することができますと[DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) ("と発音*データ ダッシュ*) HTML 5 ブラウザーが認識できる属性。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を行いません。
 
-`DataType.Date` 表示される日付の形式を指定しません。 既定では、データ フィールドはサーバーの既定の書式に従って表示[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)します。
+`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドはサーバーの既定の書式に従って表示[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)します。
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
@@ -84,7 +84,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 アプリケーションを実行し、をクリックして、**学生**タブ。次のエラーが発生しました。
 
-*データベースが作成されたために、'[schoolcontext]' のコンテキストのバックアップ モデルが変更されました。 データベースを更新する Code First Migrations を使用する ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))。*
+*データベースが作成されたために、'[schoolcontext]' のコンテキストのバックアップ モデルが変更されました。データベースを更新する Code First Migrations を使用する ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))。*
 
 データベース モデルが、データベース スキーマの変更が必要な方法で変更され、Entity Framework では、ことが検出されました。 移行は、UI を使用して、データベースに追加したすべてのデータを失うことがなく、スキーマの更新を使用します。 によって作成されたデータを変更した場合、`Seed`メソッドは、その元の状態のために変更される、 [AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx)メソッドで使用している、`Seed`メソッド。 ([AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx)はデータベース用語から、"upsert"操作に相当します)。
 
@@ -152,7 +152,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 ### <a name="the-fullname-calculated-property"></a>FullName 集計プロパティ
 
-`FullName` 他の 2 つのプロパティを連結して作成される値を返す計算されるプロパティです。 したがってがのみ、`get`アクセサー、および no`FullName`データベース内の列が生成されます。
+`FullName` は集計プロパティであり、2 つの別のプロパティを連結して作成される値を返します。 したがってがのみ、`get`アクセサー、および no`FullName`データベース内の列が生成されます。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
@@ -358,7 +358,7 @@ PMC から入力、`add-migration`コマンド。
 
 この時点で、データベースを更新しようとすると、次のエラーが表示されます。
 
-*ALTER TABLE ステートメントと競合して外部キー制約"FK\_dbo します。コース\_dbo します。部門\_DepartmentID"。 競合が発生したのは、データベース "ContosoUniversity"、テーブル "dbo.Department"、列 'DepartmentID' です。*
+*ALTER TABLE ステートメントと競合して外部キー制約"FK\_dbo します。コース\_dbo します。部門\_DepartmentID"。競合が発生したデータベース"ContosoUniversity"テーブル"dbo します。部署"、列 'DepartmentID' です。*
 
 編集、 &lt;*タイムスタンプ&gt;\_Chap4.cs*ファイルを開き、次のコードを変更 (SQL ステートメントを追加し、変更、`AddColumn`ステートメント)。
 

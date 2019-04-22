@@ -12,7 +12,7 @@ ms.openlocfilehash: 32bf9ca36cb4e731d1daeccbc579109f1dcda1b1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384735"
 ---
 # <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a>VB または C# の命令ロジックによるカスタム フィールド検証を実装する方法\#

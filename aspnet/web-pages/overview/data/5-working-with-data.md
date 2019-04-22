@@ -12,7 +12,7 @@ ms.openlocfilehash: 0fc828e39cfcce22d4cc226954cf7d1731b04e42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379782"
 ---
 # <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web でのデータベース操作の概要
@@ -51,7 +51,7 @@ ms.locfileid: "59379782"
 
 このような画像データへの一般的な方法は、行と列を含むテーブルとしてです。 データベース用語では、各行は多くの場合にレコードとして参照します。 (フィールドとも呼ばれます) の各列には、データの種類ごとの値が含まれています。 名、姓の名、およびなど。
 
-| **ID** | **FirstName** | **LastName** | **アドレス** | **電子メール** | **電話番号** |
+| **ID** | **FirstName** | **LastName** | **Address** | **電子メール** | **電話** |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234 Main st. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
@@ -107,7 +107,7 @@ ms.locfileid: "59379782"
 2. Product テーブルを右クリックし、をクリックし、**データ**します。
 3. [編集] ペインで、次のレコードを入力します。
 
-    | **名前** | **説明** | **価格** |
+    | **Name** | **説明** | **価格** |
     | --- | --- | --- |
     | パン | 毎日斬新組み込まれています。 | 2.99 |
     | ストロベリー ショート ケーキ | ガーデンから有機的な strawberries で行われます。 | 9.99 |

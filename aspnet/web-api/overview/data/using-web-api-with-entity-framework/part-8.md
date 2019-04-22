@@ -12,14 +12,14 @@ ms.openlocfilehash: 3f48c5ad73ceb9a4873fbbb621b518553a498966
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389051"
 ---
 # <a name="display-item-details"></a>作業項目の表示
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、各書籍の詳細を表示する機能を追加します。 App.js では、次のコードをビュー モデルに追加します。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389207"
 ---
 # <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web ページ (Razor) トラブルシューティング ガイド
@@ -141,7 +141,7 @@ ASP.NET Web Pages (Razor) で、組み込みのセキュリティ (メンバー�
     *接続されているパーティが一定の時間、または確立された接続は接続されているホストが応答しなかったために失敗しました正しく応答しなかったために、接続試行が失敗しました*
 
     このエラーは通常、アプリケーションが SMTP サーバーに接続できなかったことを意味します。 サーバー名を確認して、ポート番号。
-- *メールボックスが使用できません。 サーバーの応答は次のとおりでした。5.1.0 &lt; someuser@invaliddomain &gt;拒否送信者: 無効な送信者のドメイン*
+- *メールボックスが使用できません。サーバーの応答は次のとおりでした。5.1.0 &lt; someuser@invaliddomain &gt;拒否送信者: 無効な送信者のドメイン*
 
     このメッセージは、ことを示すことができます、`From`アドレスが間違っているかがありません。
 - *指定の文字列は、電子メール アドレスに必要な形式ではありません。*

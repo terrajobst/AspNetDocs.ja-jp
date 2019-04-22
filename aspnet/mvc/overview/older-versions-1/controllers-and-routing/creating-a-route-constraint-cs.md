@@ -12,7 +12,7 @@ ms.openlocfilehash: 42c0ce5e158e2fe9387ac218ac0762b6362094f9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389577"
 ---
 # <a name="creating-a-route-constraint-c"></a>ルート制約を作成する (C#)
@@ -51,7 +51,7 @@ ms.locfileid: "59389577"
 Details() アクションには、整数パラメーターが必要ですが、ため、整数値以外のものを含む要求を行うと、エラーが発生します。 たとえば、URL/Product/apple をお使いのブラウザーに入力した場合は、図 1 エラー ページを表示がされます。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
 
 **図 01**:展開のページが表示 ([フルサイズの画像を表示する をクリックします](creating-a-route-constraint-cs/_static/image2.png))。
 

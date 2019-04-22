@@ -12,7 +12,7 @@ ms.openlocfilehash: ca47f6fe6d55153354d38fcf1ba5e844215279b2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389038"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework スキャフォールディングと移行
@@ -218,7 +218,7 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 
     ![SQL スクリプトを生成して](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image15.png "SQL スクリプトの生成")
 
-    *SQL スクリプトを生成する*
+    *SQL スクリプトの生成*
 
     ![SQL スクリプトの update](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image16.png "SQL スクリプトの更新")
 

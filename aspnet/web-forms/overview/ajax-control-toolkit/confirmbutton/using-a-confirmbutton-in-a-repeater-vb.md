@@ -12,7 +12,7 @@ ms.openlocfilehash: 4850493e7a16aa9364396d1bbd3fe3e0db0f47db
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388102"
 ---
 # <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Repeater で ConfirmButton を使用する (VB)
@@ -47,7 +47,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-aspx[Main](using-a-confirmbutton-in-a-repeater-vb/samples/sample3.aspx)]
 
 
-[![T彼の確認、データ ソースからの各エントリの横にあるボタンが表示されます](using-a-confirmbutton-in-a-repeater-vb/_static/image2.png)](using-a-confirmbutton-in-a-repeater-vb/_static/image1.png)
+[![データ ソースからの各エントリの横にある [確認] ボタンが表示されます。](using-a-confirmbutton-in-a-repeater-vb/_static/image2.png)](using-a-confirmbutton-in-a-repeater-vb/_static/image1.png)
 
 データ ソースからの各エントリの横にある [確認] ボタンが表示されます ([フルサイズの画像を表示する をクリックします](using-a-confirmbutton-in-a-repeater-vb/_static/image3.png))。
 

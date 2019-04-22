@@ -12,7 +12,7 @@ ms.openlocfilehash: bbc54a39ba6ca3771acd7c4da37795a23e8ee2df
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383383"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-c"></a>トランザクション内のデータベース変更をラップする (C#)
@@ -83,7 +83,7 @@ ms.locfileid: "59383383"
 他のフォルダーと同様`Default.aspx`を使用して、`SectionLevelTutorialListing.ascx`セクション内でチュートリアルを一覧表示するユーザー コントロール。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](wrapping-database-modifications-within-a-transaction-cs/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image1.png)
+[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](wrapping-database-modifications-within-a-transaction-cs/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image1.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image2.png))。
 
@@ -168,12 +168,12 @@ Let s が GridView のすべての製品一覧が表示され、ボタン Web �
 開いて開始、`Transactions.aspx`ページで、`BatchData`フォルダーとツールボックスからデザイナーにドラッグする GridView。 設定の`ID`に`Products`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`ProductsDataSource`します。 構成からそのデータをプルする ObjectDataSource、`ProductsBLL`クラスの`GetProducts`メソッド。 これが読み取り専用の GridView、ので設定ドロップダウン リストでは、UPDATE、INSERT、および (None) にタブを削除され、[完了] をクリックします。
 
 
-[![Figure 5:ProductsBLL クラスの GetProducts メソッドを使用して ObjectDataSource を構成する](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
+[![図 5:ObjectDataSource ProductsBLL クラスの GetProducts メソッドを使用して構成します。](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
 
 **図 5**:図 5:構成に使用する ObjectDataSource、`ProductsBLL`クラス s`GetProducts`メソッド ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image4.png))。
 
 
-[![S他に、UPDATE、INSERT、および削除のタブ (なし) をドロップダウン リスト](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
+[![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
 
 **図 6**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image6.png))。
 
@@ -191,7 +191,7 @@ Let s が GridView のすべての製品一覧が表示され、ボタン Web �
 この時点で Visual Studio でデザイン ビューのスクリーン ショット、図 7 に示すようなはずです。
 
 
-[![T彼のページには、GridView と 3 つのボタンの Web コントロールが含まれています](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
+[![ページには、GridView と 3 つのボタンの Web コントロールが含まれます。](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
 
 **図 7**:ページには、GridView と 3 つのボタンの Web コントロールが含まれています ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image8.png))。
 
@@ -210,12 +210,12 @@ Let s が GridView のすべての製品一覧が表示され、ボタン Web �
 この動作を示すためには、ブラウザーからこのページを参照してください。 最初に図 8 に示すようにデータの最初のページを参照する必要があります。 次に、変更のカテゴリ (とトランザクション) をクリックします。 ポストバックを発生させるし、すべての製品を更新しようとしています。 これは`CategoryID`、値が、外部キー制約違反になります (図 9 参照)。
 
 
-[![Tページングの GridView には、彼の製品が表示されます](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
+[![ページングの GridView に、製品が表示されます。](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
 
 **図 8**:ページングの GridView に、製品が表示されます ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image10.png))。
 
 
-[![Reassigning 外部キー制約違反のカテゴリの結果](wrapping-database-modifications-within-a-transaction-cs/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image11.png)
+[![外部キー制約に違反のカテゴリの結果を再割り当てします。](wrapping-database-modifications-within-a-transaction-cs/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image11.png)
 
 **図 9**:外部キー制約違反のカテゴリの結果を再割り当て ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image12.png))。
 
@@ -225,7 +225,7 @@ Let s が GridView のすべての製品一覧が表示され、ボタン Web �
 変更のカテゴリ (トランザクションなし) ボタンをクリックしてみましょう。 これは、同じ外部キー制約違反エラーになります (図 9 参照)、これらの製品が持つ`CategoryID`に有効な値が変更された値はロールバックされません。 ブラウザーの戻るボタンをクリックし、グリッドの更新 ボタンをクリックします。 図 10 に示すよう、`CategoryID`の最初の 8 つの製品を再割り当てされています。 たとえば、図 8 に変更が、 `CategoryID` 1、2 を図 10 it s での再割り当てが。
 
 
-[![Some 製品 CategoryID インポートされなかった値を更新中に他のユーザーが](wrapping-database-modifications-within-a-transaction-cs/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image13.png)
+[![製品区分のいくつかの値が更新中に他のユーザーがいません](wrapping-database-modifications-within-a-transaction-cs/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image13.png)
 
 **図 10**:一部の製品`CategoryID`インポートされなかった値を更新中に他のユーザーが ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-cs/_static/image14.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 67ca6b1dc68dc2dde4e24d4d6c6ddae04fc4bb6d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383487"
 ---
 # <a name="signalr-older-versions"></a>SignalR の以前のバージョン
@@ -20,16 +20,16 @@ ms.locfileid: "59383487"
 > 以前のバージョンの SignalR に関連するドキュメントです。
 
 
-- [チュートリアル: SignalR 1.x の概要](tutorial-getting-started-with-signalr.md)
-- [チュートリアル: SignalR 1.x と MVC 4 の概要](tutorial-getting-started-with-signalr-and-mvc-4.md)
-- [SignalR 1.x による高頻度リアルタイム](tutorial-high-frequency-realtime-with-signalr.md)
-- [チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト](tutorial-server-broadcast-with-aspnet-signalr.md)
+- [チュートリアル: SignalR の概要 1.x](tutorial-getting-started-with-signalr.md)
+- [チュートリアル: SignalR の概要 1.x と MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
+- [SignalR 1.x による高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)
+- [チュートリアル: ASP.NET SignalR によるサーバー ブロードキャスト 1.x](tutorial-server-broadcast-with-aspnet-signalr.md)
 - [ハブ API ガイド - サーバー](signalr-1x-hubs-api-guide-server.md)
 - [SignalR 1.x ハブ API ガイド - JavaScript クライアント](signalr-1x-hubs-api-guide-javascript-client.md)
 - [ハブ API ガイド - .NET クライアント](signalr-1x-hubs-api-guide-net-client.md)
 - [SignalR の接続有効期間イベントについて理解し、処理する](handling-connection-lifetime-events.md)
 - [SignalR 1.x でグループを使用する](working-with-groups.md)
-- [SignalR 1.x で SignalR ユーザーを接続にマッピングする](mapping-users-to-connections.md)
+- [SignalR 1.x でユーザーを接続にマッピングする](mapping-users-to-connections.md)
 - [SignalR セキュリティ入門 (SignalR 1.x)](introduction-to-security.md)
 - [SignalR ハブの認証と承認 (SignalR 1.x)](hub-authorization.md)
 - [SignalR 永続的接続の認証と承認 (SignalR 1.x)](persistent-connection-authorization.md)

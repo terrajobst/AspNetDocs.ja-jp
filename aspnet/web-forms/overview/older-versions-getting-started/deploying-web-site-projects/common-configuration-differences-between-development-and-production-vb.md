@@ -12,14 +12,14 @@ ms.openlocfilehash: 48af71fc5ff4dad3371687726660a5d914236df5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379379"
 ---
 # <a name="common-configuration-differences-between-development-and-production-vb"></a>開発と運用の間の一般的な構成の違い (VB)
 
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial05_ConfigDifferences_vb.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial05_ConfigDifferences_vb.pdf)
 
 > 前のチュートリアルでは、開発環境から運用環境にすべての関連ファイルをコピーすることによって、web サイトをデプロイしました。 ただし、環境ごとに一意の Web.config ファイルがあることが必要になります環境間構成の違いがあることは珍しくないです。 このチュートリアルは、一般的な構成の違いを調べ、個別の構成情報を保持するための戦略を調べる。
 

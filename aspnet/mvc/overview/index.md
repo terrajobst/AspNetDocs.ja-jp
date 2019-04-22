@@ -12,12 +12,12 @@ ms.openlocfilehash: 608eb755b00e1e5c9ff4323732ca39c629bc6e30
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390026"
 ---
 # <a name="aspnet-mvc-guidance"></a>ASP.NET MVC のガイダンス
 
-- [作業の開始](getting-started/index.md)
+- [はじめに](getting-started/index.md)
 - [UI、レイアウト、テーマ](views/index.md)
 - [セキュリティ、認証、承認](security/index.md)
 - [配置](deployment/index.md)
