@@ -12,15 +12,15 @@ ms.openlocfilehash: 958861f2a7df0beacf80cf9f2aa78a7c67db1532
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395434"
 ---
-# <a name="textboxwatermark"></a><span data-ttu-id="b83c9-103">TextBoxWatermark</span><span class="sxs-lookup"><span data-stu-id="b83c9-103">TextBoxWatermark</span></span>
+# <a name="textboxwatermark"></a><span data-ttu-id="17965-103">TextBoxWatermark</span><span class="sxs-lookup"><span data-stu-id="17965-103">TextBoxWatermark</span></span>
 
-> <span data-ttu-id="b83c9-104">このチュートリアルでは、ユーザーは、その入力を開始すると消えますメッセージのテキスト ボックスを表示する TextBoxWatermark コントロールを使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="b83c9-104">This tutorial shows how to use the TextBoxWatermark control to display a text box with a message that disappears when users start typing in it.</span></span>
+> <span data-ttu-id="17965-104">このチュートリアルでは、ユーザーは、その入力を開始すると消えますメッセージのテキスト ボックスを表示する TextBoxWatermark コントロールを使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="17965-104">This tutorial shows how to use the TextBoxWatermark control to display a text box with a message that disappears when users start typing in it.</span></span>
 
 
-- [<span data-ttu-id="b83c9-105">FormView で TextBoxWatermark を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="b83c9-105">Using TextBoxWatermark in a FormView (C#)</span></span>](using-textboxwatermark-in-a-formview-cs.md)
-- [<span data-ttu-id="b83c9-106">検証コントロールと共に TextBoxWatermark を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="b83c9-106">Using TextBoxWatermark With Validation Controls (C#)</span></span>](using-textboxwatermark-with-validation-controls-cs.md)
-- [<span data-ttu-id="b83c9-107">FormView で TextBoxWatermark を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="b83c9-107">Using TextBoxWatermark in a FormView (VB)</span></span>](using-textboxwatermark-in-a-formview-vb.md)
-- [<span data-ttu-id="b83c9-108">検証コントロールと共に TextBoxWatermark を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="b83c9-108">Using TextBoxWatermark With Validation Controls (VB)</span></span>](using-textboxwatermark-with-validation-controls-vb.md)
+- [<span data-ttu-id="17965-105">FormView で TextBoxWatermark を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="17965-105">Using TextBoxWatermark in a FormView (C#)</span></span>](using-textboxwatermark-in-a-formview-cs.md)
+- [<span data-ttu-id="17965-106">検証コントロールと共に TextBoxWatermark を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="17965-106">Using TextBoxWatermark With Validation Controls (C#)</span></span>](using-textboxwatermark-with-validation-controls-cs.md)
+- [<span data-ttu-id="17965-107">FormView で TextBoxWatermark を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="17965-107">Using TextBoxWatermark in a FormView (VB)</span></span>](using-textboxwatermark-in-a-formview-vb.md)
+- [<span data-ttu-id="17965-108">検証コントロールと共に TextBoxWatermark を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="17965-108">Using TextBoxWatermark With Validation Controls (VB)</span></span>](using-textboxwatermark-with-validation-controls-vb.md)

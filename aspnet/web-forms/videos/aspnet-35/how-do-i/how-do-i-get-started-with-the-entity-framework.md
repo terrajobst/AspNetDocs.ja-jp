@@ -12,18 +12,18 @@ ms.openlocfilehash: d6559ebcbce82911a4bfa37327f08bccfa3ee52d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396870"
 ---
-# <a name="how-do-i-get-started-with-the-entity-framework"></a><span data-ttu-id="421e9-103">[How Do i:]Entity Framework を概要します。</span><span class="sxs-lookup"><span data-stu-id="421e9-103">[How Do I:] Get Started with the Entity Framework</span></span>
+# <a name="how-do-i-get-started-with-the-entity-framework"></a><span data-ttu-id="81777-103">[How Do i:]Entity Framework を概要します。</span><span class="sxs-lookup"><span data-stu-id="81777-103">[How Do I:] Get Started with the Entity Framework</span></span>
 
-<span data-ttu-id="421e9-104">によって[Alex James](https://github.com/adjames)</span><span class="sxs-lookup"><span data-stu-id="421e9-104">by [Alex James](https://github.com/adjames)</span></span>
+<span data-ttu-id="81777-104">によって[Alex James](https://github.com/adjames)</span><span class="sxs-lookup"><span data-stu-id="81777-104">by [Alex James](https://github.com/adjames)</span></span>
 
-<span data-ttu-id="421e9-105">この入門ビデオで Alex James わかります時間の短時間で単純なエンティティ データ モデルを構築する方法。</span><span class="sxs-lookup"><span data-stu-id="421e9-105">In this introductory video, Alex James will show you how to build a simple Entity Data Model in a short amount of time.</span></span>
+<span data-ttu-id="81777-105">この入門ビデオで Alex James わかります時間の短時間で単純なエンティティ データ モデルを構築する方法。</span><span class="sxs-lookup"><span data-stu-id="81777-105">In this introductory video, Alex James will show you how to build a simple Entity Data Model in a short amount of time.</span></span>
 
-[<span data-ttu-id="421e9-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="421e9-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-the-entity-framework)
+[<span data-ttu-id="81777-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="81777-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-the-entity-framework)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="421e9-107">[前へ](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
-> [次へ](how-do-i-use-the-new-entity-data-source.md)</span><span class="sxs-lookup"><span data-stu-id="421e9-107">[Previous](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
+> <span data-ttu-id="81777-107">[前へ](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
+> [次へ](how-do-i-use-the-new-entity-data-source.md)</span><span class="sxs-lookup"><span data-stu-id="81777-107">[Previous](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
 [Next](how-do-i-use-the-new-entity-data-source.md)</span></span>

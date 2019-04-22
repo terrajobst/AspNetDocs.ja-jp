@@ -12,18 +12,18 @@ ms.openlocfilehash: 6283d5dfad46b8b2c8915d790d1e66e89ba3a5b8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391079"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a><span data-ttu-id="2c30b-104">[How Do i:]ASP.NET AJAX RoundedCorners エクステンダーを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="2c30b-104">[How Do I:] Use the ASP.NET AJAX RoundedCorners Extender?</span></span>
+# <a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a><span data-ttu-id="c9ab2-104">[How Do i:]ASP.NET AJAX RoundedCorners エクステンダーを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="c9ab2-104">[How Do I:] Use the ASP.NET AJAX RoundedCorners Extender?</span></span>
 
-<span data-ttu-id="2c30b-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="2c30b-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="c9ab2-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="c9ab2-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="2c30b-106">このビデオでは、方法、RoundedCorner エクステンダー コントロールを web ページ、柔軟性の高いルック アンド フィール魅力的な角を丸くをコンテンツ領域に追加することでわかります。</span><span class="sxs-lookup"><span data-stu-id="2c30b-106">In this video we see how the RoundedCorner extender control can give your web pages a softer look and feel by adding attractive round corners to content areas.</span></span>
+<span data-ttu-id="c9ab2-106">このビデオでは、方法、RoundedCorner エクステンダー コントロールを web ページ、柔軟性の高いルック アンド フィール魅力的な角を丸くをコンテンツ領域に追加することでわかります。</span><span class="sxs-lookup"><span data-stu-id="c9ab2-106">In this video we see how the RoundedCorner extender control can give your web pages a softer look and feel by adding attractive round corners to content areas.</span></span>
 
-[<span data-ttu-id="2c30b-107">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="2c30b-107">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-roundedcorners-extender)
+[<span data-ttu-id="c9ab2-107">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="c9ab2-107">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-roundedcorners-extender)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="2c30b-108">[前へ](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
-> [次へ](how-do-i-use-the-aspnet-ajax-timer-control.md)</span><span class="sxs-lookup"><span data-stu-id="2c30b-108">[Previous](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
+> <span data-ttu-id="c9ab2-108">[前へ](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
+> [次へ](how-do-i-use-the-aspnet-ajax-timer-control.md)</span><span class="sxs-lookup"><span data-stu-id="c9ab2-108">[Previous](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
 [Next](how-do-i-use-the-aspnet-ajax-timer-control.md)</span></span>

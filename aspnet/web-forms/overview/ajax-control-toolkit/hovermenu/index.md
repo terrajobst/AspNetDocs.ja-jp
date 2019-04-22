@@ -12,13 +12,13 @@ ms.openlocfilehash: aa9bf9e98258fe5219ad87d5828d9d7d93410da9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391599"
 ---
-# <a name="hovermenu"></a><span data-ttu-id="c7d06-103">HoverMenu</span><span class="sxs-lookup"><span data-stu-id="c7d06-103">HoverMenu</span></span>
+# <a name="hovermenu"></a><span data-ttu-id="4b27a-103">HoverMenu</span><span class="sxs-lookup"><span data-stu-id="4b27a-103">HoverMenu</span></span>
 
-> <span data-ttu-id="c7d06-104">このチュートリアルでは、ユーザーが要素の上にマウス ポインターを保持しているときにポップアップを表示する、HoverMenu コントロールを使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="c7d06-104">This tutorial shows how to use the HoverMenu control, which displays a popup when users hold the mouse pointer over an element.</span></span>
+> <span data-ttu-id="4b27a-104">このチュートリアルでは、ユーザーが要素の上にマウス ポインターを保持しているときにポップアップを表示する、HoverMenu コントロールを使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="4b27a-104">This tutorial shows how to use the HoverMenu control, which displays a popup when users hold the mouse pointer over an element.</span></span>
 
 
-- [<span data-ttu-id="c7d06-105">Repeater コントロールで HoverMenu を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="c7d06-105">Using HoverMenu with a Repeater Control (C#)</span></span>](using-hovermenu-with-a-repeater-control-cs.md)
-- [<span data-ttu-id="c7d06-106">Repeater コントロールで HoverMenu を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="c7d06-106">Using HoverMenu with a Repeater Control (VB)</span></span>](using-hovermenu-with-a-repeater-control-vb.md)
+- [<span data-ttu-id="4b27a-105">Repeater コントロールで HoverMenu を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="4b27a-105">Using HoverMenu with a Repeater Control (C#)</span></span>](using-hovermenu-with-a-repeater-control-cs.md)
+- [<span data-ttu-id="4b27a-106">Repeater コントロールで HoverMenu を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="4b27a-106">Using HoverMenu with a Repeater Control (VB)</span></span>](using-hovermenu-with-a-repeater-control-vb.md)
