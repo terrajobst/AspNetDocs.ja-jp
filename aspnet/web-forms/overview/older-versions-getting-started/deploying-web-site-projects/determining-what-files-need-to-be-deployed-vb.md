@@ -12,7 +12,7 @@ ms.openlocfilehash: fe19910d693a784b8dc207462591c9f4d51cec14
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382148"
 ---
 # <a name="determining-what-files-need-to-be-deployed-vb"></a>配置が必要なファイルを決定する (VB)
@@ -93,7 +93,7 @@ Microsoft は、Visual Studio 2005 Service Pack 1 がリリースされる Web �
 図 1 は、ブラウザーで表示したときに、書籍レビューの web サイトのスクリーン ショットを示します。 ここで、ページが表示 ~ Tech/TYASP35.aspx、書籍レビューする/*教える自分で ASP.NET 3.5 in 24 時間*します。 定義されているサイト マップ構造に基づいて、ページ左側にあるメニューの上部にまたがる階層リンク`Web.sitemap`します。 右上隅のイメージは、本の表紙にあるイメージの 1 つ、`Images`フォルダー。 内の CSS ファイルで明確に記述、カスケード スタイル シートの規則を使用して、web サイトの外観が定義されている、`Styles`包括的なページ レイアウトが、マスター ページで定義されている間は、フォルダー、`Site.master`します。
 
 
-[![T彼の web サイトの書籍のレビューには、タイトルのさまざまなレビューが提供しています](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
+[![書籍レビューの web サイトのタイトルのさまざまなレビューを提供しています](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
 **図 1**:タイトルのさまざまなレビューを提供する、書籍レビューの web サイト ([フルサイズの画像を表示する をクリックします](determining-what-files-need-to-be-deployed-vb/_static/image3.png))。
 
@@ -116,7 +116,7 @@ Web アプリケーション プロジェクト モデルは、明示的なコ�
 図 2 は、書籍レビューの Web アプリケーション プロジェクトを構成するファイルを示します。
 
 
-[![Tソリューション エクスプ ローラー ファイルを示します、Web アプリケーション プロジェクトを構成する。](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
+[![ソリューション エクスプ ローラーでは、Web アプリケーション プロジェクトを構成するファイルを一覧表示します。](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
 
 **図 2**:ソリューション エクスプ ローラーは、Web アプリケーション プロジェクトを構成するファイルを一覧表示します。
 
@@ -147,7 +147,7 @@ Visual Studio のビルド メニュー オプションは、Web アプリケー
 図 3 は、書籍レビューの Web サイト プロジェクトを構成するファイルを示します。
 
 
-[![Tソリューション エクスプ ローラー ファイルを示します、Web サイト プロジェクトを構成する。](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
+[![ソリューション エクスプ ローラーでは、Web サイト プロジェクトを構成するファイルを一覧表示します。](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
 
 **図 3**:ソリューション エクスプ ローラーは、Web サイト プロジェクトを構成するファイルを一覧表示します。
 

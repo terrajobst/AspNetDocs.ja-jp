@@ -12,7 +12,7 @@ ms.openlocfilehash: 69a6843783dad3d8fcd8a5b93c9d8a31f9bb8ec0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383240"
 ---
 # <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>DataList または Repeater コントロールのレポート データをページングする (VB)
@@ -53,7 +53,7 @@ ms.locfileid: "59383240"
 次に、開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン サーフェイスにフォルダー。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-vb.md)チュートリアルでは、サイト マップの列挙し、箇条書きリストに現在のセクションでこれらのチュートリアルを表示します。
 
 
-[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
+[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image4.png))。
 
@@ -110,7 +110,7 @@ DataList または Repeater コントロールで既定のページングを実�
 `GetProductsAsPagedDataSource`メソッドに追加、`ProductsBLL`クラスを作成できます DataList または Repeater を既定のページングを提供します。 開いて開始、`Paging.aspx`ページで、`PagingSortingDataListRepeater`フォルダーと、デザイナーは、DataList s を設定するのには、ツールボックスからドラッグ DataList`ID`プロパティを`ProductsDefaultPaging`します。 DataList s のスマート タグからの作成という名前の新しい ObjectDataSource`ProductsDefaultPagingDataSource`を使用してデータを取得するように構成し、`GetProductsAsPagedDataSource`メソッド。
 
 
-[![Create、ObjectDataSource と GetProductsAsPagedDataSource () メソッドを使用するように構成](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
+[![ObjectDataSource を作成し、GetProductsAsPagedDataSource () メソッドを使用するように構成](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
 
 **図 5**:ObjectDataSource を作成し、使用するように構成、 `GetProductsAsPagedDataSource` `()`メソッド ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))。
 
@@ -118,7 +118,7 @@ DataList または Repeater コントロールで既定のページングを実�
 UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。
 
 
-[![Set (None) に、UPDATE、INSERT、および DELETE のタブで、ドロップダウン リスト](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
+[![UPDATE、INSERT で、ドロップダウン リストを設定し、(なし) タブを削除します。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
 **図 6**:UPDATE、INSERT で、ドロップダウン リストを設定し、[(なし) タブを削除する ([フルサイズの画像を表示する] をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))。
 
@@ -130,7 +130,7 @@ UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブ
 具体的には、クエリ文字列フィールド pageIndex との pageSize を使用して、`pageIndex`と`pageSize`パラメーターをそれぞれ (図 7 を参照してください)。 少し、これらのパラメーターの既定値を設定するようにクエリ文字列値は、ユーザーが最初にこのページにアクセスする場合に存在できません。 `pageIndex`、既定値を 0 (これは、データの最初のページが表示されます) に設定し、`pageSize`を 4 秒の既定値。
 
 
-[![Use pageIndex および pageSize パラメーターのソースとして、クエリ文字列](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
+[![PageIndex および pageSize パラメーターのソースとして、クエリ文字列を使用します。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
 
 **図 7**:ソースとして、クエリ文字列を使用して、`pageIndex`と`pageSize`パラメーター ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image15.png))。
 
@@ -149,7 +149,7 @@ ObjectDataSource を構成すると、Visual Studio が自動的に作成され�
 最初に、ブラウザーからこのページにもアクセスしたとき、`pageIndex`も`pageSize`クエリ文字列パラメーターを指定します。 そのため、0 から 4 の既定値が使用されます。 図 8 に示す最初の 4 つの製品が表示される DataList でこの結果します。
 
 
-[![T彼は最初の 4 つの製品の一覧が表示されます](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
+[![最初の 4 つの製品の一覧が表示されます。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
 
 **図 8**:最初の 4 つの製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image18.png))。
 
@@ -157,7 +157,7 @@ ObjectDataSource を構成すると、Visual Studio が自動的に作成され�
 なし、ページングのインターフェイスが現在なく簡単には、データの 2 番目のページに移動するユーザーを意味します。 手順 4. でページング インターフェイスを作成します。 ここでは、ただし、ページングのみ実現できますで直接ページング条件を指定する、クエリ文字列。 たとえば、2 番目のページを表示するからブラウザーのアドレス バーに URL を変更`Paging.aspx`に`Paging.aspx?pageIndex=2`し、Enter キーを押します。 これが原因で表示されるデータの 2 番目のページ (図 9 参照)。
 
 
-[![T彼は 2 番目のページのデータが表示されます](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
+[![2 番目のページ データが表示されます。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
 
 **図 9**:2 番目のページ データが表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image21.png))。
 
@@ -238,12 +238,12 @@ Let s ページング インターフェイスの完了をユーザーに通知�
 図 10 に示します`Paging.aspx`初めてアクセスしたときにします。 DataList の; 最初の 4 つの製品が表示された既定値は、クエリ文字列は空であるため1 つ目と前のボタンが無効です。 [次へ] をクリックすると次の 4 つレコードを表示します (図 11 を参照してください)。1 つ目と前のボタンが有効になりました。
 
 
-[![T彼の最初のページのデータが表示されます](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
+[![最初のページ データが表示されます。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
 
 **図 10**:最初のページ データが表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image24.png))。
 
 
-[![T彼は 2 番目のページのデータが表示されます](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
+[![2 番目のページ データが表示されます。](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
 
 **図 11**:2 番目のページ データが表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image27.png))。
 

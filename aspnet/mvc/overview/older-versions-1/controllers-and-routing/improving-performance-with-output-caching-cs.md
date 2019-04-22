@@ -12,7 +12,7 @@ ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384767"
 ---
 # <a name="improving-performance-with-output-caching-c"></a>出力キャッシュでパフォーマンスを改善する (C#)
@@ -83,7 +83,7 @@ Location プロパティは、次の値のいずれかに設定できます。
 
 たとえば、リスト 3 のコント ローラーを現在のユーザー名を返す GetName() という名前のアクションを公開します。 ジャック、web サイトにログインし、GetName() アクションを呼び出す場合、アクションの文字列を返します"やあ Jack"。 その後、Jill は、web サイトにログインし、GetName() アクションを呼び出します場合、して彼女も表示されます"やあ Jack"の文字列。 文字列は、回線のモジュラー ジャックが最初にコント ローラー アクションを起動した後、すべてのユーザーの web サーバーでキャッシュされます。
 
-**Listing 3 – Controllers\BadUserController.cs**
+**3 – Controllers\BadUserController.cs を一覧表示します。**
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample3.cs)]
 

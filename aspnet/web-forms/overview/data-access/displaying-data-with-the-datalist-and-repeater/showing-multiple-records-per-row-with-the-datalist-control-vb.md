@@ -12,7 +12,7 @@ ms.openlocfilehash: 632db5152c84eb463ddc7bd5f5734a9fb3ae135c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382984"
 ---
 # <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList コントロールで複数のレコードを行ごとに表示する (VB)
@@ -31,7 +31,7 @@ ms.locfileid: "59382984"
 を通して、DataList のレイアウトをカスタマイズすることができます、`RepeatColumns`と`RepeatDirection`プロパティがそれぞれに、列の数が表示され、それらの項目がへとレイアウトされる垂直方向または水平方向にするかどうかを示します。 図 1 には、たとえば、次の 3 つの列を含むテーブルで製品情報を表示する DataList が表示されます。
 
 
-[![T彼 DataList 示します 3 つの製品の行ごと](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image1.png)
+[![DataList は、行ごとに 3 つの製品を示しています。](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image1.png)
 
 **図 1**:DataList 示します 3 つの製品の行ごと ([フルサイズの画像を表示する をクリックします](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image3.png))。
 
@@ -57,7 +57,7 @@ ms.locfileid: "59382984"
 ご協力をブラウザーでページを参照してください。 図 2 に示すよう、DataList は、製品の単一列、複数行のテーブルとしてレンダリングします。
 
 
-[![By 既定では、DataList は、単一列、複数行のテーブルとして表示します](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image4.png)
+[![既定では、単一列、複数行のテーブルとして DataList レンダリング](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image4.png)
 
 **図 2**:既定では、DataList は単一列、複数行のテーブルとしてレンダリングされます ([フルサイズの画像を表示する をクリックします。](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image6.png))。
 
@@ -69,7 +69,7 @@ ms.locfileid: "59382984"
 変更することで、`RepeatDirection`プロパティから`Vertical`に`Horizontal`DataList はデータ ソースの項目ごとに 1 つの列を作成する 1 つの行では、そのレコードをレンダリングします。 この効果を示すためには、DataList、デザイナーでをクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`RepeatDirection`プロパティから`Vertical`に`Horizontal`します。 すぐにそうと、デザイナー レイアウトを調整します DataList s、単一行、複数列のインターフェイスを作成する (図 3 を参照してください)。
 
 
-[![Tレイアウトを彼 RepeatDirection プロパティを指定する方法、方向 DataList s のアイテムが](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)
+[![RepeatDirection プロパティを指定する方法、方向 DataList の項目は配置には](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)
 
 **図 3**:`RepeatDirection`プロパティでは、方向、DataList のアイテムがどのように配置を ([フルサイズの画像を表示する をクリックします](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image9.png))。
 
@@ -77,7 +77,7 @@ ms.locfileid: "59382984"
 少量のデータを単一行を表示するときに、複数列テーブルには理想的な方法を実際の画面を最大化する可能性があります。 大量のデータは、ただし、1 つの行が必要になりますそのは t の右側には、オフ、画面上に収まるアイテムがプッシュの多数の列。 図 4 には、単一行 DataList でレンダリングした場合、製品が表示されます。 多くの製品 (80) があるので、ユーザーは、かなりの各製品に関する情報を表示する右にスクロールする必要があります。
 
 
-[![Fまたは、十分な大きさのデータ ソースの場合は、1 つの列 DataList が必要に水平方向にスクロール](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image10.png)
+[![十分な大きさのデータ ソースの場合は、1 つの列 DataList が必要になります水平方向にスクロール](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image10.png)
 
 **図 4**:十分に大きなデータ ソースの場合、単一列 DataList は必要な水平方向にスクロール ([フルサイズの画像を表示する をクリックします](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image12.png))。
 
@@ -89,7 +89,7 @@ ms.locfileid: "59382984"
 たとえば、s のテーブルの行ごとに 3 つの製品を表示することができます。 そのため、設定、`RepeatColumns`プロパティを 3 にします。 この変更を加えたら、少しブラウザーで結果を表示します。 図 5 に示す、製品が 3 つの列、複数行の表に表示されます。
 
 
-[![T1 行は、3 つあります製品が表示されます](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image13.png)
+[![行ごとに 3 つの製品が表示されます。](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image13.png)
 
 **図 5**:行ごとに 3 つの製品が表示されます ([フルサイズの画像を表示する をクリックします](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image15.png))。
 
@@ -97,7 +97,7 @@ ms.locfileid: "59382984"
 `RepeatDirection`プロパティは、DataList 内の項目のレイアウトに影響します。図 5 で結果を示しています、`RepeatDirection`プロパティに設定`Horizontal`します。 Chai、変更、およびアニス シロップの最初の 3 つの製品が左から右、上から下にレイアウトされることに注意してください。 次の 3 つの製品 (Cajun Seasoning Chef Anton s で始まる) は、最初の 3 つの下の行に表示されます。 変更、`RepeatDirection`プロパティ`Vertical`、ただし、上から下にこれらの製品レイアウト、左から右、図 6 に示すようにします。
 
 
-[![Here、製品は垂直方向にレイアウトされます](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image16.png)
+[![ここでは、製品が、垂直方向にレイアウト](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image16.png)
 
 **図 6**:ここでは、製品が垂直方向に配置されますが ([フルサイズの画像を表示する をクリックします](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image18.png))。
 

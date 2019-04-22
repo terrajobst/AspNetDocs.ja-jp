@@ -12,7 +12,7 @@ ms.openlocfilehash: ce82365b08f2cecd17fd9f34415987f3aac28a54
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419718"
 ---
 # <a name="aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work"></a>ASP.NET MVC Storefront 第 6 部:リポジトリ、および最初の UI 作業の仕上げ

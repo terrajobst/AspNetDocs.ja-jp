@@ -12,7 +12,7 @@ ms.openlocfilehash: 455d62d97808862f70692c46ae223f47270266f9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387621"
 ---
 # <a name="allowing-only-certain-characters-in-a-text-box-vb"></a>テキスト ボックスで特定の文字だけを許可する (VB)
@@ -56,7 +56,7 @@ ASP.NET AJAX Control Toolkit に含まれています、`FilteredTextBox`をテ�
 JavaScript が有効になっている場合は、文字を入力しようと複数のページを実行するには、アプリケーションは動作しません。ただし、桁の数字は、ページに表示されます。 しかし注意保護`FilteredTextBox`提供強固ではありません。JavaScript が有効になっている場合は、ASP などの追加の検証方法を使用する必要があるために、テキスト ボックスで、すべてのデータを入力する可能性があります。NET の検証コントロール。
 
 
-[![Oのみ () の桁を入力することがあります](allowing-only-certain-characters-in-a-text-box-vb/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-vb/_static/image1.png)
+[![数字のみを入力することがあります。](allowing-only-certain-characters-in-a-text-box-vb/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-vb/_static/image1.png)
 
 数字のみを入力することがあります ([フルサイズの画像を表示する をクリックします](allowing-only-certain-characters-in-a-text-box-vb/_static/image3.png))。
 

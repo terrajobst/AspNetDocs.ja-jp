@@ -12,14 +12,14 @@ ms.openlocfilehash: b0c9cd7ab36a8414e0d7d50a68b05bb09a5f24f1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387907"
 ---
 # <a name="enable-automated-unit-testing"></a>自動化された単体テストを有効にする
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 12 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -96,7 +96,7 @@ Visual Studio 2008 Professional (および上位エディション)、IDE 内で
 
 ![](enable-automated-unit-testing/_static/image5.png)
 
-*メモ:VS テストの結果ウィンドウでは、既定では、クラス名の列は表示されません。 これは、テスト結果 ウィンドウ内で右クリックし、列の追加/削除 メニューのコマンドを使用して追加できます。*
+*注:VS テストの結果ウィンドウでは、既定では、クラス名の列は表示されません。これは、テスト結果 ウィンドウ内で右クリックし、列の追加/削除 メニューのコマンドを使用して追加できます。*
 
 2 つのテストでは、時間に実行して、できる限りの秒の端数のみ渡されるときの両方を参照してください。 移動するようになりましたを特定のルールの検証を確認し、2 つのヘルパー メソッド - IsUserHost() と Dinner クラスに追加した IsUserRegistered() – をカバーするテストを作成してそれらを拡張できます。 Dinner クラスのためにこれらすべてのテストを持つことによりより簡単かつ安全に、今後の新しいビジネス ルールと検証を追加します。 夕食に新しいルール ロジックを追加し、数秒で、以前のロジックの機能のいずれかが破損していないことすることを確認します。
 

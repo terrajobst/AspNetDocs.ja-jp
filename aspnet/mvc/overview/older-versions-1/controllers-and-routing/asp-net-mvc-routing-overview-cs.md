@@ -12,7 +12,7 @@ ms.openlocfilehash: e2f2246e2126bd6e648f861bcb296fab62a748bb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380107"
 ---
 # <a name="aspnet-mvc-routing-overview-c"></a>ASP.NET MVC ルーティング概要 (C#)
@@ -95,7 +95,7 @@ Index() メソッドではリスト 4、1 つの整数パラメーターがあ�
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample5.cs)]
 
 
-[![Invoking コント ローラーのアクション パラメーターの値が必要とする](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
+[![パラメーターの値が必要とするコント ローラー アクションの呼び出し](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
 
 **図 01**:パラメーターの値が必要とするコント ローラー アクションの呼び出し ([フルサイズの画像を表示する をクリックします](asp-net-mvc-routing-overview-cs/_static/image2.png))。
 

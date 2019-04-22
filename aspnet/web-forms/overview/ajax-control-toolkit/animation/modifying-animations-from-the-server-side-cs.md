@@ -12,7 +12,7 @@ ms.openlocfilehash: 2d4c786ca10e77353ac8b4746138cb1e314585ae
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383786"
 ---
 # <a name="modifying-animations-from-the-server-side-c"></a>サーバー側 (c#) からアニメーションを変更します。
@@ -55,7 +55,7 @@ ms.locfileid: "59383786"
 [!code-html[Main](modifying-animations-from-the-server-side-cs/samples/sample6.html)]
 
 
-[![Tサーバー側を使用して、アニメーションが作成されたC#または VB コード](modifying-animations-from-the-server-side-cs/_static/image2.png)](modifying-animations-from-the-server-side-cs/_static/image1.png)
+[![サーバー側を使用して、アニメーションが作成されたC#または VB コード](modifying-animations-from-the-server-side-cs/_static/image2.png)](modifying-animations-from-the-server-side-cs/_static/image1.png)
 
 サーバー側を使用して、アニメーションが作成されたC#または VB コード ([フルサイズの画像を表示する をクリックします](modifying-animations-from-the-server-side-cs/_static/image3.png))。
 

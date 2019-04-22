@@ -12,7 +12,7 @@ ms.openlocfilehash: 723a38de4569b0bb58817c70aabb84fef8e19591
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395096"
 ---
 # <a name="using-browser-link-in-visual-studio-2013"></a>Visual Studio 2013 でブラウザー リンクの使用
@@ -64,7 +64,7 @@ Visual Studio で、変更、 &lt;h1&gt;のホーム ページの見出し。
 
 ![](using-browser-link/_static/image8.png)
 
-**メモ**
+**ノート**
 
 - Browser Link を有効にするには設定`debug=true`で、 [&lt;コンパイル&gt;](https://msdn.microsoft.com/library/s10awwz0(v=vs.85).aspx)プロジェクトの Web.config ファイル内の要素。
 - アプリケーションは、localhost 上で実行する必要があります。

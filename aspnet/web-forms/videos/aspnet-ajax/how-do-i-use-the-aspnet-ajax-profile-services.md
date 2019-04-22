@@ -12,7 +12,7 @@ ms.openlocfilehash: 54b82c52f0bd58a0184824a861b5f31754652ace
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420316"
 ---
 # <a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[How Do i:]ASP.NET AJAX プロファイル サービスを使用しますか。

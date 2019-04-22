@@ -12,7 +12,7 @@ ms.openlocfilehash: faad1530a499fd3f46a6a6c6e7c194ba6c55fa6c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386295"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE のセキュリティ更新を適用した後の 'サーバー アプリケーションは使用できません ' エラーの修正
@@ -62,7 +62,7 @@ Microsoft では、Internet Explorer のセキュリティ更新プログラム�
 | --- | --- | --- |
 | バージョン 1.0 | Windows 2000 Professional | いいえ |
 | バージョン 1.0 | Windows 2000 Server | いいえ |
-| バージョン 1.0 | Windows XP Professional | はい |
+| バージョン 1.0 | Windows XP Professional | [はい] |
 | バージョン 1.0 | Windows Server 2003 | いいえ |
 | バージョン 1.0 | Cassini と Windows XP ホーム | いいえ |
 | バージョン 1.1 | Windows 2000 Professional | いいえ |

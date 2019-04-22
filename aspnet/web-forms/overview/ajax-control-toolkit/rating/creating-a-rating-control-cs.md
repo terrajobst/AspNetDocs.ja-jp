@@ -12,7 +12,7 @@ ms.openlocfilehash: fa118b4d733d7848b838f80e9918d62ae60033af
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378976"
 ---
 # <a name="creating-a-rating-control-c"></a>評価コントロールを作成する (C#)
@@ -66,7 +66,7 @@ ms.locfileid: "59378976"
 ページを保存し、お使いのブラウザーに読み込みます。 (最初は空) の評価の項目をポイントすると、JavaScript の効果が発生します。評価の変更。 一連の星をクリックすると、現在の評価が保持されます。 最後に、フォームを送信するときに、サーバー側コードは、選択した評価を出力します。
 
 
-[![C最小限のコードで評価システムの作成](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
+[![最小限のコードで評価システムを作成します。](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
 
 最小限のコードで評価システムを作成する ([フルサイズの画像を表示する をクリックします](creating-a-rating-control-cs/_static/image3.png))。
 

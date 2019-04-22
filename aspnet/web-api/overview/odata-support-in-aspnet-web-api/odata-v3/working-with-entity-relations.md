@@ -12,14 +12,14 @@ ms.openlocfilehash: c78787aac83720eb9e8d6e9e0499f30a31951bc2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393861"
 ---
 # <a name="supporting-entity-relations-in-odata-v3-with-web-api-2"></a>Web API 2 OData v3 のエンティティ関係をサポート
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > ほとんどのデータ セットは、エンティティ間のリレーションシップを定義します。お客様が設定されている順序。ブックの「複数の作者により;製品では、仕入先があります。 クライアントは OData を使用して、エンティティ関係を移動できます。 製品を指定するには、業者を検索できます。 作成またはのリレーションシップを削除することもできます。 たとえば、製品の仕入先を設定できます。
 > 
@@ -105,7 +105,7 @@ OData では、2 つのエンティティ間のリレーションシップを作
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample11.cs)]
 
-この例では、ナビゲーション プロパティは、1 つ`Supplier`エンティティ。 ナビゲーション プロパティがコレクションである場合は、リンクを削除する URI は、関連エンティティのキーを含める必要があります。 例えば:
+この例では、ナビゲーション プロパティは、1 つ`Supplier`エンティティ。 ナビゲーション プロパティがコレクションである場合は、リンクを削除する URI は、関連エンティティのキーを含める必要があります。 例:
 
 [!code-console[Main](working-with-entity-relations/samples/sample12.cmd)]
 

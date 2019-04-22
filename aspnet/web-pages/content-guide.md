@@ -12,7 +12,7 @@ ms.openlocfilehash: 5e410ac0c6d3430c00e171775d842ee30eeab021
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383167"
 ---
 # <a name="webmatrix-content-guide"></a>WebMatrix コンテンツ ガイド
@@ -23,7 +23,7 @@ ms.locfileid: "59383167"
 
 WebMatrix は、Microsoft Windows 用の Web サイトを構築する簡単な方法を提供する一連のツールです。 これには、IIS Express (開発 web サーバー)、ASP.NET (web プログラミング フレームワーク)、および SQL Server Compact (埋め込みデータベース) が含まれます。 WebMatrix のクイック ツアーを表示するには、次を参照してください。 [WebMatrix の概要](https://www.microsoft.com/web/webmatrix/)します。 WebMatrix の最上位の機能を確認するを参照してください。 [WebMatrix 機能](https://www.microsoft.com/web/webmatrix/features/)します。
 
-| **シナリオ** | **Content** |
+| **シナリオ** | **コンテンツ** |
 | --- | --- |
 | WebMatrix を概要します。 | [WebMatrix の概要](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/intro.mp4)(ビデオ) [WebMatrix と ASP.NET Web Pages の概要](https://go.microsoft.com/fwlink/?LinkId=202889)[ゼロから始める](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/walkthrough1b.mp4)(ビデオ) ASP.NET Razor コードを使用して、カスタム web サイトを作成する方法について説明します。 [最初の web サイトを使用して WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208553) [Web Apps の使用開始](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/walkthrough2b.mp4)無料のオープン ソース アプリケーション独自のサイトを作成する (ビデオ) 機能を使用します。 |
 | コンポーネント (WebMatrix を含む) のインストールします。 | [Microsoft Web Platform Installer を使用して](https://www.iis.net/learn/install/web-platform-installer/using-the-microsoft-web-platform-installer) [Web プラットフォーム インストーラー 2.0 チュートリアル](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-20-walkthrough) [Web プラットフォーム インストーラーのリソース](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-resources) |
@@ -50,7 +50,7 @@ WebMatrix は、Microsoft Windows 用の Web サイトを構築する簡単な�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-**読み取り**
+**Read**
 
 - [WebMatrix の Microsoft Web キャンプ トレーニング キット](http://trainingkit.webcamps.ms/WebMatrix.htm)
 - [バグまたは提案を送信します。](https://go.microsoft.com/fwlink/?LinkId=195940)

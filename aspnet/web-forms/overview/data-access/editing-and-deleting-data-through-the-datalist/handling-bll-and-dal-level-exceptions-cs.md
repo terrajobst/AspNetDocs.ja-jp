@@ -12,7 +12,7 @@ ms.openlocfilehash: 5714b118a5894731820d8e9775c8f5c8a375856c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390130"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-c"></a>BLL レベルと DAL レベルの例外を処理する (C#)
@@ -41,7 +41,7 @@ ms.locfileid: "59390130"
 更新のワークフロー中に発生する例外の処理について気にし、前に、最初に作成、編集可能な DataList s を使用できます。 開く、`ErrorHandling.aspx`ページで、`EditDeleteDataList`フォルダー、DataList をデザイナーに追加設定その`ID`プロパティを`Products`、という名前の新しい ObjectDataSource を追加および`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラスの`GetProducts()`を選択するためのメソッドは、記録;、insert、UPDATE、ドロップダウン リストを設定し、(None) にタブを削除します。
 
 
-[![Return GetProducts() メソッドを使用して、製品情報](handling-bll-and-dal-level-exceptions-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-cs/_static/image1.png)
+[![GetProducts() メソッドを使用して、製品情報を返す](handling-bll-and-dal-level-exceptions-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-cs/_static/image1.png)
 
 **図 1**:使用して、製品情報を返す、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image3.png))。
 
@@ -60,7 +60,7 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 ブラウザーから進行状況を表示する少し (図 2 参照)。
 
 
-[![Each 製品には、[編集] ボタンが含まれています](handling-bll-and-dal-level-exceptions-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-cs/_static/image4.png)
+[![各製品には、[編集] ボタンが含まれています。](handling-bll-and-dal-level-exceptions-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-cs/_static/image4.png)
 
 **図 2**:各製品には、[編集] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image6.png))。
 
@@ -115,12 +115,12 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 `Try ... Catch`インプレース ブロック、ユーザーがよりわかりやすいエラー メッセージでは、図 4 と 5 つのスライド ショーとして表示されます。 DataList の例外が発生した場合に残っているメモは編集モードです。 制御フローに直ちにリダイレクト例外が発生した場合、ため、これは、`Catch`ブロック、編集済みの状態、DataList を返すコードをバイパスします。
 
 
-[![Aユーザーが必要なフィールドを付ける場合は、n のエラー メッセージが表示されます](handling-bll-and-dal-level-exceptions-cs/_static/image9.png)](handling-bll-and-dal-level-exceptions-cs/_static/image8.png)
+[![ユーザーが必要なフィールドを付ける場合、エラー メッセージが表示されます。](handling-bll-and-dal-level-exceptions-cs/_static/image9.png)](handling-bll-and-dal-level-exceptions-cs/_static/image8.png)
 
 **図 4**:ユーザーが必要なフィールドを付ける場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image10.png))。
 
 
-[![An のエラー メッセージは、表示されるときに入力を負の価格は](handling-bll-and-dal-level-exceptions-cs/_static/image12.png)](handling-bll-and-dal-level-exceptions-cs/_static/image11.png)
+[![エラー メッセージが表示されるときに入力を負の価格](handling-bll-and-dal-level-exceptions-cs/_static/image12.png)](handling-bll-and-dal-level-exceptions-cs/_static/image11.png)
 
 **図 5**:エラー メッセージが表示されるときに入力を負の価格 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image13.png))。
 

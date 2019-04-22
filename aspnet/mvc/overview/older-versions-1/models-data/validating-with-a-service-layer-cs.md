@@ -12,7 +12,7 @@ ms.openlocfilehash: 9b2a7e00b3c50a946ad0f2518880892f103a5c1b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387114"
 ---
 # <a name="validating-with-a-service-layer-c"></a>サービス層の検証 (C#)
@@ -80,7 +80,7 @@ IValidationDictionary インターフェイスは、リスト 6 で定義され�
 
 リスト 7、ModelStateWrapper クラスという名前でクラスでは、IValidationDictionary インターフェイスを実装します。 モデル状態ディクショナリをコンス トラクターに渡すことによって、ModelStateWrapper クラスをインスタンス化できます。
 
-**Listing 7 - Models\ModelStateWrapper.cs**
+**7 - Models\ModelStateWrapper.cs を一覧表示します。**
 
 [!code-csharp[Main](validating-with-a-service-layer-cs/samples/sample7.cs)]
 

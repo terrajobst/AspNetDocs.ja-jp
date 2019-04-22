@@ -13,7 +13,7 @@ ms.openlocfilehash: 8916f8b7a024636be1be055457081487f46a7936
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421629"
 ---
 # <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ルーティング規則では、ASP.NET Web API 2 Odata
@@ -101,7 +101,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 
 詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
 
-**プロパティ**
+**Properties**
 
 *Web API 2 が必要です。*
 

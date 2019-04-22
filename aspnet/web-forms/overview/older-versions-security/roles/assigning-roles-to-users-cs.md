@@ -12,7 +12,7 @@ ms.openlocfilehash: 93a0af00d9e32e044f408a1ca8a2cea73e906d66
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380289"
 ---
 # <a name="assigning-roles-to-users-c"></a>ユーザーにロールを割り当てる (C#)
@@ -57,7 +57,7 @@ ms.locfileid: "59380289"
 この CSS 定義では、ブラウザーで、大規模な赤いフォントを使用してラベルを表示するように指示します。 図 1 は、Visual Studio デザイナーでは、この効果を示します。
 
 
-[![T彼のラベルのプロパティ結果を CssClass、Large、赤いフォントで](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
+[![ラベルの CssClass プロパティは、大規模な赤いフォントで結果します。](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
 
 **図 1**:ラベルの`CssClass`大規模、赤いフォントでプロパティの結果 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image3.png))。
 
@@ -93,7 +93,7 @@ ms.locfileid: "59380289"
 このコードでする少し; ブラウザーを使用してページを参照してください。画面は、図 2 のようになります。 すべてのユーザー アカウントが入力されますドロップダウン リストで、その下に、各ロールは、チェック ボックスとして表示されます。 設定するため、`AutoPostBack`プロパティ DropDownList およびチェック ボックスの true の場合、チェックまたは役割をオフにする、選択したユーザーの変更がポストバックを発生します。 アクションは実行されません、ただし、これらのアクションを処理するコードを記述があるまだあるので。 次の 2 つのセクションでは、これらのタスクに取り組むします。
 
 
-[![T彼のページには、ユーザーおよびロールが表示されます](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
+[![ページは、ユーザーおよびロールが表示されます。](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
 
 **図 2**:ページには、ユーザーおよびロールが表示されます ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image6.png))。
 
@@ -135,7 +135,7 @@ ms.locfileid: "59380289"
 このページで、ブラウザーでテストする時間がかかります。 Tito のユーザーを選択し、Tito を管理者と管理者の両方のロールに追加します。
 
 
-[![Tito は、管理者と管理者の役割に追加されました](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
+[![Tito が管理者と管理者ロールに追加されました](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
 
 **図 3**:Tito が管理者と管理者ロールに追加されました ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image9.png))。
 
@@ -143,7 +143,7 @@ ms.locfileid: "59380289"
 次に、ドロップダウン リストからユーザー Bruce を選択します。 ポストバックがあるし、Repeater のチェック ボックスが更新を使用して、`CheckRolesForSelectedUser`します。 任意のロールにも Bruce がまだ属していないため、2 つのチェック ボックスはチェックされません。 次に、Bruce を管理者ロールに追加します。
 
 
-[![Bruce はスーパーバイザー ロールに追加されました](assigning-roles-to-users-cs/_static/image11.png)](assigning-roles-to-users-cs/_static/image10.png)
+[![Bruce が管理者ロールに追加されました](assigning-roles-to-users-cs/_static/image11.png)](assigning-roles-to-users-cs/_static/image10.png)
 
 **図 4**:Bruce が管理者ロールに追加されました ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image12.png))。
 
@@ -167,7 +167,7 @@ ms.locfileid: "59380289"
 最後の 2 行、`BindRolesToList`への役割のセットをバインドするメソッドが追加されて、 `RoleList` DropDownList コントロール。 図 5 は、ブラウザーから、システムの役割を含むドロップダウン リストで表示した場合は、最終結果を示します。
 
 
-[![T彼の役割は、RoleList DropDownList に表示されます](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
+[![ロールは RoleList DropDownList に表示されます。](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
 
 **図 5**:ロールが表示されます、 `RoleList` DropDownList ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image15.png))。
 
@@ -187,7 +187,7 @@ ms.locfileid: "59380289"
 インプレースでは、次のコードで、 `RolesUserList` GridView は選択したロールに属しているこれらのユーザーを表示する必要があります。 図 6 に示すように 2 つのメンバーの管理者ロールで構成されます。Bruce Tito.
 
 
-[![T彼は GridView には、選択したロールに属しているこれらのユーザーが一覧表示](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
+[![GridView には、選択したロールに属しているこれらのユーザーが一覧表示します。](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
 
 **図 6**:GridView を一覧表示、ユーザーに属している、選択したロール ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image18.png))。
 
@@ -199,7 +199,7 @@ ms.locfileid: "59380289"
 GridView に Delete ボタン フィールドを追加することで開始します。 最もフィールドの左側として表示され、変更は、このフィールドの`DeleteText`プロパティを「削除」(既定値) から"Remove"にします。
 
 
-[![Add](assigning-roles-to-users-cs/_static/image20.png)](assigning-roles-to-users-cs/_static/image19.png)
+[![追加します](assigning-roles-to-users-cs/_static/image20.png)](assigning-roles-to-users-cs/_static/image19.png)
 
 **図 7**:GridView に「削除」ボタンを追加 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image21.png))。
 
@@ -217,7 +217,7 @@ GridView に Delete ボタン フィールドを追加することで開始し�
 図 8 は、ユーザー Tito が管理者グループから削除された後に、ページを示します。
 
 
-[![Alas、Tito はスーパーバイザーでは不要になった](assigning-roles-to-users-cs/_static/image23.png)](assigning-roles-to-users-cs/_static/image22.png)
+[![悲しいかな、Tito が不要になった、監督者です。](assigning-roles-to-users-cs/_static/image23.png)](assigning-roles-to-users-cs/_static/image22.png)
 
 **図 8**:悲しいかな、Tito が不要になった、監督者 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image24.png))。
 
@@ -245,7 +245,7 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 ブラウザーでページにアクセスしからスーパーバイザー ロールを選択、 `RoleList` DropDownList します。 無効なユーザー名を入力してください: ユーザーがシステムに存在しないことを説明するメッセージが表示されます。
 
 
-[![You は、ロールに存在しないユーザーを追加することはできません](assigning-roles-to-users-cs/_static/image26.png)](assigning-roles-to-users-cs/_static/image25.png)
+[![ロールに存在しないユーザーを追加することはできません。](assigning-roles-to-users-cs/_static/image26.png)](assigning-roles-to-users-cs/_static/image25.png)
 
 **図 9**:ロールに存在しないユーザーを追加することはできません ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image27.png))。
 
@@ -253,7 +253,7 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 有効なユーザーを追加してみましょう。 管理者ロールに Tito を再度追加してください。
 
 
-[![Tito はもう一度、監督者!](assigning-roles-to-users-cs/_static/image29.png)](assigning-roles-to-users-cs/_static/image28.png)
+[![Tito はスーパーバイザーではもう一度です。](assigning-roles-to-users-cs/_static/image29.png)](assigning-roles-to-users-cs/_static/image28.png)
 
 **図 10**:Tito はスーパーバイザーではもう一度です。  ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image30.png))。
 
@@ -290,7 +290,7 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 次に、選択、"追加/削除`WizardSteps`..."CreateUserWizard のスマート タグからオプションを選択し、新しい追加`WizardStep`設定、その`ID`に`SpecifyRolesStep`します。 移動、 `SpecifyRolesStep WizardStep` 「記号を新しいアカウントの」手順の後が「完了」手順の前になるようにします。 設定、`WizardStep`の`Title`プロパティを"Roles"を指定、その`StepType`プロパティを`Step`、およびその`AllowReturn`プロパティを False にします。
 
 
-[![Add](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
+[![追加します](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
 
 **図 11**:[指定のロール"を追加`WizardStep`CreateUserWizard に ([フルサイズの画像を表示する] をクリックします](assigning-roles-to-users-cs/_static/image33.png))。
 
@@ -318,7 +318,7 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 ブラウザーからこのページを参照してください。 CreateUserWizard の最初の手順は、標準の「記号を新しいアカウントの」の手順は、新しいユーザーのユーザー名、パスワード、電子メール、およびその他の重要な情報の入力を求めるです。 Wanda をという名前の新しいユーザーを作成する情報を入力します。
 
 
-[![C新しいユーザーという Wanda を reate](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
+[![Wanda をという名前の新しいユーザーを作成します。](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
 
 **図 12**:新しいユーザーという Wanda の作成 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image36.png))。
 
@@ -326,7 +326,7 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 「ユーザーの作成」ボタンをクリックします。 CreateUserWizard は内部的に呼び出し、`Membership.CreateUser`方法、新しいユーザー アカウントと、進行状況に応じて次の手順に作成する「を指定するロール」。 ここでは、システムの役割が一覧表示されます。 監督者のチェック ボックスを確認し、[次へ] をクリックします。
 
 
-[![Mおきます Wanda スーパーバイザー ロールのメンバー](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
+[![Wanda スーパーバイザー ロールのメンバーにします。](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
 
 **図 13**:Wanda スーパーバイザー ロールのメンバーにする ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image39.png))。
 
@@ -334,7 +334,7 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 [次へ] をクリックすると、ポストバックと更新プログラム、 `ActiveStep` "Complete"の手順にします。 `ActiveStepChanged`イベント ハンドラーでは、最近作成されたユーザー アカウントが管理者ロールに割り当てられています。 これを確認するに戻り、`UsersAndRoles.aspx`ページし、上司からの選択、 `RoleList` DropDownList します。 図 14 に示すようスーパーバイザーは、3 人のユーザーので今すぐ構成します。Bruce、Tito、および Wanda です。
 
 
-[![Bすべての監督者として、ruce、Tito、Wanda は](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
+[![Bruce、Tito、および Wanda は、すべての管理者](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
 
 **図 14**:Bruce、Tito、Wanda はすべてスーパーバイザー ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-cs/_static/image42.png))。
 

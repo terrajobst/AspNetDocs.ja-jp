@@ -12,7 +12,7 @@ ms.openlocfilehash: ed54ba79635877faa3da774214057e7804432f65
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391885"
 ---
 # <a name="building-a-custom-database-driven-site-map-provider-vb"></a>カスタム データベース駆動型サイト マップ プロバイダーを構築する (VB)
@@ -31,7 +31,7 @@ ASP.NET 2.0 のサイト マップ機能により、XML ファイルなど、い
 既定の XML ベースのサイト マップ プロバイダーは、これらのチュートリアルについては、サイト マップ構造がなどの比較的静的な場合にも動作します。 多くのシナリオより動的なサイト マップが必要です。 各カテゴリと製品を web サイトの構造内のセクションとして表示される、図 1 に示すサイト マップを検討してください。 このサイト マップを使用したルート ノードに対応する web ページにアクセス可能性がありますすべてを一覧表示、カテゴリの特定のカテゴリの web ページにアクセスするとそのカテゴリの製品のリストし、特定の製品の web ページの表示はその製品 s の詳細を表示します。
 
 
-[![T彼はカテゴリと製品の構成サイト マップの構造](building-a-custom-database-driven-site-map-provider-vb/_static/image1.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image1.png)
+[![カテゴリおよび製品の構成サイト マップの構造](building-a-custom-database-driven-site-map-provider-vb/_static/image1.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image1.png)
 
 **図 1**:カテゴリおよび製品の構成サイト マップの構造 ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image2.png))。
 
@@ -84,12 +84,12 @@ ASP.NET 2.0 のサイト マップのシリアル化はプロバイダー モデ
 開く、`Default.aspx`ページで、`SiteMapProvider`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ GridView をその`ID`に`Categories`します。 GridView のスマート タグからという名前の新しい ObjectDataSource にバインド`CategoriesDataSource`を使用してそのデータを取得するように構成し、`CategoriesBLL`クラスの`GetCategories`メソッド。 この GridView はだけカテゴリが表示されますおよび、データ変更の機能を提供しません、ためは、UPDATE、INSERT でドロップダウン リストを設定し、(None) にタブを削除します。
 
 
-[![C構成カテゴリを返すメソッドを使用する ObjectDataSource](building-a-custom-database-driven-site-map-provider-vb/_static/image4.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image3.png)
+[![ObjectDataSource を返すメソッドを使用してカテゴリを構成します。](building-a-custom-database-driven-site-map-provider-vb/_static/image4.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image3.png)
 
 **図 4**:構成カテゴリを使用して返すを ObjectDataSource、`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image4.png))。
 
 
-[![S他に、UPDATE、INSERT、および削除のタブ (なし) をドロップダウン リスト](building-a-custom-database-driven-site-map-provider-vb/_static/image5.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image5.png)
+[![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](building-a-custom-database-driven-site-map-provider-vb/_static/image5.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image5.png)
 
 **図 5**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image6.png))。
 
@@ -112,7 +112,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 図 7 は`Default.aspx`とき、ブラウザーで表示します。 カテゴリの製品の表示をクリックするとリンクするのに`ProductsByCategory.aspx?CategoryID=categoryID`、手順 3. で作成しました。
 
 
-[![Each カテゴリでは、ビューの製品リンクを含むに沿って表示](building-a-custom-database-driven-site-map-provider-vb/_static/image7.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image7.png)
+[![各カテゴリは、ビューの製品リンクを含むに沿って表示](building-a-custom-database-driven-site-map-provider-vb/_static/image7.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image7.png)
 
 **図 7**:各カテゴリは、ビューの製品リンクを含む一覧に沿って ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image8.png))。
 
@@ -122,7 +122,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 開く、`ProductsByCategory.aspx`ページし、その名前を付け、GridView を追加`ProductsByCategory`します。 という名前の新しい ObjectDataSource を GridView にバインド、スマート タグから`ProductsByCategoryDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドと、ドロップダウン リストを UPDATE、INSERT、および DELETE タブ (None) に一覧表示します。
 
 
-[![Use ProductsBLL クラス GetProductsByCategoryID(categoryID) メソッド](building-a-custom-database-driven-site-map-provider-vb/_static/image8.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image9.png)
+[![ProductsBLL クラスの GetProductsByCategoryID(categoryID) メソッドを使用します。](building-a-custom-database-driven-site-map-provider-vb/_static/image8.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image9.png)
 
 **図 8**:使用して、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image10.png))。
 
@@ -130,7 +130,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 データ ソース構成ウィザードの最後の手順のパラメーターのソースの入力を求める*categoryID*します。 この情報はクエリ文字列フィールドを介して渡されるため`CategoryID`、ドロップダウン リストからクエリ文字列を選択し、図 9 に示すようには、QueryStringField ボックスには、CategoryID を入力します。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![Use categoryID パラメーターの CategoryID Querystring フィールド](building-a-custom-database-driven-site-map-provider-vb/_static/image9.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image11.png)
+[![CategoryID パラメーターの使用、CategoryID Querystring フィールド](building-a-custom-database-driven-site-map-provider-vb/_static/image9.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image11.png)
 
 **図 9**:使用して、`CategoryID`のクエリ文字列フィールド、 *categoryID*パラメーター ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image12.png))。
 
@@ -153,7 +153,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 表示に戻る`Default.aspx`飲み物のリンクをブラウザーや製品の表示をクリックします。 これは、移動`ProductsByCategory.aspx?CategoryID=1`飲み物のカテゴリに属している Northwind データベースの名前、価格、および製品の仕入先を表示する (図 11 を参照してください)。 自由にユーザーをカテゴリの一覧ページに戻るリンクを含めるには、このページをさらに強化 (`Default.aspx`) および DetailsView または FormView コントロールを選択したカテゴリの名前と説明が表示されます。
 
 
-[![T彼の飲み物の名前、価格、および仕入先が表示されます](building-a-custom-database-driven-site-map-provider-vb/_static/image11.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image13.png)
+[![飲み物の名前、価格、および仕入先が表示されます。](building-a-custom-database-driven-site-map-provider-vb/_static/image11.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image13.png)
 
 **図 11**:飲み物の名前、価格、および仕入先が表示されます ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image14.png))。
 
@@ -163,7 +163,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 最後のページ`ProductDetails.aspx`、選択した製品の詳細が表示されます。 開いている`ProductDetails.aspx`DetailsView をツールボックスからデザイナーにドラッグします。 DetailsView s を設定`ID`プロパティを`ProductInfo`クリアとその`Height`と`Width`プロパティの値。 スマート タグ、DetailsView をという名前の新しい ObjectDataSource にバインド`ProductDataSource`、構成からそのデータをプルする ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッド。 2. および手順 3. で作成された前の web ページと同様で、UPDATE、INSERT、ドロップダウン リストを設定し、(なし) タブを削除します。
 
 
-[![C構成、ObjectDataSource GetProductByProductID(productID) メソッドを使用する](building-a-custom-database-driven-site-map-provider-vb/_static/image12.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.png)
+[![ObjectDataSource GetProductByProductID(productID) メソッドを使用して構成します。](building-a-custom-database-driven-site-map-provider-vb/_static/image12.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.png)
 
 **図 12**:構成に使用する ObjectDataSource、`GetProductByProductID(productID)`メソッド ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image16.png))。
 
@@ -171,7 +171,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 データ ソース構成ウィザードの最後の手順は、元のメッセージが表示されます、 *productID*パラメーター。 このデータのクエリ文字列フィールドを取得するため`ProductID`、クエリ文字列と ProductID する QueryStringField テキスト ボックスに、ドロップダウン リストを設定します。 最後に、ウィザードを完了するには、[完了] をクリックします。
 
 
-[![CproductID ProductID のクエリ文字列フィールドからその値を取得するパラメーターを構成する](building-a-custom-database-driven-site-map-provider-vb/_static/image13.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image17.png)
+[![ProductID ProductID のクエリ文字列フィールドからその値を取得するパラメーターを構成します。](building-a-custom-database-driven-site-map-provider-vb/_static/image13.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image17.png)
 
 **図 13**:構成、 *productID*からその値を取得するパラメーター、 `ProductID` Querystring フィールド ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image18.png))。
 
@@ -184,7 +184,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 このページをテストするに戻る`Default.aspx`飲み物のカテゴリの製品の表示をクリックします。 飲み物の製品の一覧については、Chai 紅茶の詳細を表示するリンクをクリックします。 これは、移動`ProductDetails.aspx?ProductID=1`、Chai 紅茶 s (図 14 を参照してください) の詳細を表示します。
 
 
-[![Chai 紅茶 s 仕入先、カテゴリ、価格、およびその他の情報が表示されます](building-a-custom-database-driven-site-map-provider-vb/_static/image14.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image19.png)
+[![Chai 紅茶 s 仕入先、カテゴリ、価格、およびその他の情報が表示されます。](building-a-custom-database-driven-site-map-provider-vb/_static/image14.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image19.png)
 
 **図 14**:Chai 紅茶 s 仕入先、カテゴリ、価格、およびその他の情報が表示されます ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image20.png))。
 
@@ -196,7 +196,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 図 15 より詳細に側実装の詳細が、図 1 からの全般的なサイト マップ構造を示します。
 
 
-[![Each SiteMapNode は、プロパティのようにタイトル、Url、キー、および具合が](building-a-custom-database-driven-site-map-provider-vb/_static/image16.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.gif)
+[![各 SiteMapNode がプロパティのようにタイトル、Url、キー、およびなど](building-a-custom-database-driven-site-map-provider-vb/_static/image16.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.gif)
 
 **図 15**:各`SiteMapNode`プロパティなどが`Title`、 `Url`、`Key`など ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image17.gif))。
 
@@ -205,7 +205,7 @@ ObjectDataSource を作成して、GridView のフィールドをカスタマイ
 
 ときに、`SiteMap`クラスのプロパティにアクセス、メモリにいくつかの永続的なメディアからサイト マップ構造がシリアル化する必要があります。 ただし、サイト マップのシリアル化のロジックは難しくありませんにコード化された、`SiteMap`クラス。 代わりに、実行時に、`SiteMap`クラスは、どのサイト マップを決定します。*プロバイダー*シリアル化に使用します。 既定で、 [ `XmlSiteMapProvider`クラス](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx)を使用するサイト マップの構造を適切にフォーマットされた XML ファイルから読み取ります。 ただし、若干の開発では、独自のカスタム サイト マップ プロバイダーを作成することができます。
 
-すべてのサイト マップ プロバイダーを派生する必要があります、 [ `SiteMapProvider`クラス](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx)重要なメソッドを含む、およびサイトに必要なプロパティは、プロバイダーをマップが、実装の詳細の多くを省略します。 2 番目のクラスを[ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx)、拡張、`SiteMapProvider`クラスし、必要な機能のより堅牢に実装が含まれています。 内部的には、`StaticSiteMapProvider`格納、`SiteMapNode`のマップに、サイトのインスタンスを`Hashtable`などのメソッドを提供し、 `AddNode(child, parent)`、`RemoveNode(siteMapNode),`と`Clear()`を追加および削除`SiteMapNode`内部に`Hashtable`します。 `XmlSiteMapProvider` 派生`StaticSiteMapProvider`します。
+すべてのサイト マップ プロバイダーを派生する必要があります、 [ `SiteMapProvider`クラス](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx)重要なメソッドを含む、およびサイトに必要なプロパティは、プロバイダーをマップが、実装の詳細の多くを省略します。 2 番目のクラスを[ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx)、拡張、`SiteMapProvider`クラスし、必要な機能のより堅牢に実装が含まれています。 内部的には、`StaticSiteMapProvider`格納、`SiteMapNode`のマップに、サイトのインスタンスを`Hashtable`などのメソッドを提供し、 `AddNode(child, parent)`、`RemoveNode(siteMapNode),`と`Clear()`を追加および削除`SiteMapNode`内部に`Hashtable`します。 `XmlSiteMapProvider` は、`StaticSiteMapProvider` から派生しています。
 
 拡張するカスタム サイト マップ プロバイダーを作成するときに`StaticSiteMapProvider`、2 つの抽象メソッドをオーバーライドする必要があります: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx)と[ `GetRootNodeCore`](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx)します。 `BuildSiteMap`、その名前が示すように、は永続的なストレージからのサイト マップ構造体の読み込みと、メモリ内の構築を担当します。 `GetRootNodeCore` サイト マップのルート ノードを返します。
 
@@ -280,7 +280,7 @@ Web アプリケーションを使用するために、`NorthwindSiteMapProvider
 カスタム サイト マップ プロバイダーが作成されに登録されている`Web.config`、ナビゲーション コントロールを追加する準備ができたら、 `Default.aspx`、 `ProductsByCategory.aspx`、および`ProductDetails.aspx`ページで、`SiteMapProvider`フォルダー。 開いて開始、`Default.aspx`ページし、ドラッグ、`SiteMapPath`ツールボックスからデザイナーにします。 SiteMapPath コントロールはツールボックスの [ナビゲーション] セクションにあります。
 
 
-[![Add a SiteMapPath to Default.aspx](building-a-custom-database-driven-site-map-provider-vb/_static/image19.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image18.gif)
+[![Default.aspx に、SiteMapPath を追加します。](building-a-custom-database-driven-site-map-provider-vb/_static/image19.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image18.gif)
 
 **図 16**:追加する、SiteMapPath `Default.aspx` ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image20.gif))。
 
@@ -290,7 +290,7 @@ SiteMapPath コントロールでは、サイト マップ内の現在のペー�
 ブラウザーからこのページを表示する時間がかかります。 図 16 で追加された SiteMapPath がそのデータを抽出、既定のサイト マップ プロバイダーを使用して`Web.sitemap`します。 そのため、階層リンクを示しますホーム&gt;右上隅にある階層リンクと同じように、サイト マップをカスタマイズします。
 
 
-[![T既定のサイト マップ プロバイダーを使用して彼の階層リンク](building-a-custom-database-driven-site-map-provider-vb/_static/image22.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.gif)
+[![階層リンクは、既定のサイト マップ プロバイダーを使用します。](building-a-custom-database-driven-site-map-provider-vb/_static/image22.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.gif)
 
 **図 17**:階層リンクは、既定のサイト マップ プロバイダーを使用して ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image23.gif))。
 
@@ -298,7 +298,7 @@ SiteMapPath コントロールでは、サイト マップ内の現在のペー�
 手順 6 で作成したカスタム サイト マップ プロバイダーを使用して、SiteMapPath 図 16 に追加するのには、次のように設定します。 その[`SiteMapProvider`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemappath.sitemapprovider.aspx)を Northwind に名前に割り当てた、`NorthwindSiteMapProvider`で`Web.config`します。 残念ながら、デザイナーは、引き続き既定のサイト マップ プロバイダーを使用するが、このプロパティの変更を行った後、ブラウザーでページにアクセスする場合、階層リンクは、カスタム サイト マップ プロバイダーを今すぐ使用が表示されます。
 
 
-[![Tではカスタム サイト マップ プロバイダー NorthwindSiteMapProvider、彼の階層リンク](building-a-custom-database-driven-site-map-provider-vb/_static/image25.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image24.gif)
+[![階層リンクは、カスタム サイト マップ プロバイダー NorthwindSiteMapProvider を使うようになりました](building-a-custom-database-driven-site-map-provider-vb/_static/image25.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image24.gif)
 
 **図 18**:階層リンクは、カスタム サイト マップ プロバイダーを使用`NorthwindSiteMapProvider`([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image26.gif))。
 
@@ -306,7 +306,7 @@ SiteMapPath コントロールでは、サイト マップ内の現在のペー�
 機能的なユーザー インターフェイスを表示する SiteMapPath コントロール、`ProductsByCategory.aspx`と`ProductDetails.aspx`ページ。 これらのページは、設定、SiteMapPath を追加、`SiteMapProvider`を Northwind に両方のプロパティ。 `Default.aspx`クリック飲み物、製品の表示のリンクをし Chai 紅茶の詳細を表示するリンクをクリックします。 図 19 に示すよう、階層リンクには、現在のサイト マップ セクション (Chai 紅茶) とその先祖が含まれています。Beverages とすべてのカテゴリ。
 
 
-[![Tではカスタム サイト マップ プロバイダー NorthwindSiteMapProvider、彼の階層リンク](building-a-custom-database-driven-site-map-provider-vb/_static/image27.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.png)
+[![階層リンクは、カスタム サイト マップ プロバイダー NorthwindSiteMapProvider を使うようになりました](building-a-custom-database-driven-site-map-provider-vb/_static/image27.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.png)
 
 **図 19**:階層リンクは、カスタム サイト マップ プロバイダーを使用`NorthwindSiteMapProvider`([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image22.png))。
 
@@ -314,7 +314,7 @@ SiteMapPath コントロールでは、サイト マップ内の現在のペー�
 メニューを TreeView コントロールなど、SiteMapPath だけでなく、他のナビゲーション ユーザー インターフェイス要素を使用できます。 `Default.aspx`、 `ProductsByCategory.aspx`、および`ProductDetails.aspx`このチュートリアル用のダウンロード ページすべてメニューにコントロールがあります (図 20 を参照してください)。 参照してください[ASP.NET 2.0 の検査 s サイト ナビゲーション機能](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)と[サイト ナビゲーション コントロールを使用した](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/navigation/sitenavcontrols.aspx)のセクション、 [ASP.NET 2.0 クイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/)詳細については、ナビゲーション コントロールとサイトは、ASP.NET 2.0 のシステムをマップします。
 
 
-[![Tメニュー コントロール彼は、各カテゴリと製品の一覧に表示](building-a-custom-database-driven-site-map-provider-vb/_static/image29.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image28.gif)
+[![メニュー コントロールでは、各カテゴリと製品の一覧表示します。](building-a-custom-database-driven-site-map-provider-vb/_static/image29.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image28.gif)
 
 **図 20**:メニュー コントロールの一覧各カテゴリと製品の ([フルサイズの画像を表示する をクリックします](building-a-custom-database-driven-site-map-provider-vb/_static/image30.gif))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 206b0537b0c4355f919694bc05b3f7d6922f8272
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378396"
 ---
 # <a name="editing-inserting-and-deleting-data"></a>データの編集、挿入、削除
@@ -25,7 +25,7 @@ ms.locfileid: "59378396"
 - [ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (C#)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
 - [編集および挿入インターフェイスに検証コントロールを追加する (C#)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
 - [データ変更インターフェイスをカスタマイズする (C#)](customizing-the-data-modification-interface-cs.md)
-- [オプティミスティック同時実行制御を実装する (C#)](implementing-optimistic-concurrency-cs.md)
+- [オプティミスティック コンカレンシーを実装する (C#)](implementing-optimistic-concurrency-cs.md)
 - [削除時、クライアント側の確認を追加する (C#)](adding-client-side-confirmation-when-deleting-cs.md)
 - [ユーザーに基づいてデータ編集機能を制限する (C#)](limiting-data-modification-functionality-based-on-the-user-cs.md)
 - [データの挿入、更新、削除の概要 (VB)](an-overview-of-inserting-updating-and-deleting-data-vb.md)
@@ -33,6 +33,6 @@ ms.locfileid: "59378396"
 - [ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (VB)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
 - [編集および挿入インターフェイスに検証コントロールを追加する (VB)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
 - [データ変更インターフェイスをカスタマイズする (VB)](customizing-the-data-modification-interface-vb.md)
-- [オプティミスティック同時実行制御を実装する (VB)](implementing-optimistic-concurrency-vb.md)
+- [オプティミスティック コンカレンシーを実装する (VB)](implementing-optimistic-concurrency-vb.md)
 - [削除時、クライアント側の確認を追加する (VB)](adding-client-side-confirmation-when-deleting-vb.md)
 - [ユーザーに基づいてデータ編集機能を制限する (VB)](limiting-data-modification-functionality-based-on-the-user-vb.md)

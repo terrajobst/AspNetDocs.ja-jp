@@ -12,7 +12,7 @@ ms.openlocfilehash: 029234cf9a28a80c487504e4e0980c214e45f53a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381966"
 ---
 # <a name="adding-a-column-to-the-model"></a>モデルに列を追加する
@@ -28,11 +28,11 @@ Movie テーブルには、「評価」の列を追加してみましょう。 I
 
 次に示すように、「評価」列を追加します。 これで任意の評価があるない、ため、列は null を許容できます。 [保存] をクリックします。
 
-[![E映画のテーブルの編集で](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
+[![映画のテーブルの編集](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
 
 次に、ソリューション エクスプ ローラーに戻り、(これ \Models フォルダーには) Movies.edmx ファイルを開きます。 デザイン サーフェイス (白の領域) を右クリックし、データベースからモデルを更新を選択します。
 
-[![Movies - Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
+[![ビデオ - Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
 
 これにより、「の更新ウィザード」が起動します。 内に、[更新] タブをクリックし、[完了] をクリックします。 Movie モデル クラスは、新しい列と共に更新されます。
 
@@ -40,7 +40,7 @@ Movie テーブルには、「評価」の列を追加してみましょう。 I
 
 [完了] をクリックすると、新しい [評価] 列が、モデル内のムービー エンティティに追加されていますがわかります。
 
-[![Movie エンティティ](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
+[![ムービー エンティティ](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
 
 データベース モデルの列が追加されましたが、それに関するビューがわからない。
 
@@ -66,11 +66,11 @@ Movie テーブルには、「評価」の列を追加してみましょう。 I
 
 アプリを実行し、[作成] ページに追加されているデータベースの新しいフィールドをしたようになりました。 -新しいムービーを追加するには、この時点で評価 - と作成 をクリックします。
 
-[![CWindows Internet Explorer - ムービーの作成 ()](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
+[![Windows Internet Explorer - ムービーを作成します。](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
 
 作成 をクリックすると後、は、インデックス ページに送信している新しいムービーが記載されている場合、データベース内の新しい評価列
 
-[![Mリスト - ovie Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
+[![ムービーの一覧 - Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
 
 この基本的なチュートリアルでは、コント ローラー、ビューと関連付けると、ハード コーディングされたデータの受け渡しを行う作業を開始する必要があります。 作成しデータベースを設計して一部のデータの配置でします。 データベースからデータを取得し、HTML テーブルに表示されることです。 ユーザー データを追加、データベース自体から Web アプリケーション内で使用できるフォームを作成するを追加します。 私たちは、検証を追加し、JavaScript を使用して、クライアント側で検証が行われたします。 最後に、私たちに、データの新しい列を含めるデータベースを変更し、作成し、この新しいデータを表示する、2 つのページを更新します。
 

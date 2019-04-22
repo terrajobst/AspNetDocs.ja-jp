@@ -12,7 +12,7 @@ ms.openlocfilehash: 431d5a124017e2a23bfaa7579f63d61faf0b8ebd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379795"
 ---
 # <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-c"></a>マスター ページでタイトル、メタ タグ、その他の HTML ヘッダーを指定する (C#)
@@ -169,7 +169,7 @@ ASP.NET ページが要求されるたびに、一連のステージ、HTML に�
 図 5 は、`MultipleContentPlaceHolders.aspx`ページをブラウザーで表示する場合。 タイトルは、正確にファイル名 (拡張子)、小さいにページのことに注意してください。"MultipleContentPlaceHolders"。
 
 
-[![If タイトルが明示的に指定されていない、ページのファイル名が自動的に使用](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image5.png)
+[![ページのファイル名では、自動的に使用されますが、タイトルが明示的に指定しない場合は、](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image5.png)
 
 **図 05**:ページのファイル名では、自動的に使用されますが、タイトルが明示的に指定しない場合は、([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image7.png))。
 
@@ -191,7 +191,7 @@ ASP.NET には、ページ開発者と共に、SiteMapPath などのサイト �
 という名前の web サイトのルート フォルダーで、サイト マップ ファイルを作成して開始`Web.sitemap`します。 これを実現するには、ソリューション エクスプ ローラーで web サイトの名前を右クリックし、新しい項目の追加 を選択およびサイト マップ テンプレートを選択します。 ファイルの名前はことを確認します。`Web.sitemap`追加 をクリックします。
 
 
-[![Add ファイルという名前の web サイトのルート フォルダーに Web.sitemap](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image8.png)
+[![Web サイトのルート フォルダーへの Web.sitemap という名前のファイルを追加します。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image8.png)
 
 **図 06**:ファイルの名前を追加`Web.sitemap`web サイトのルート フォルダーに ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image10.png))。
 
@@ -224,7 +224,7 @@ ASP.NET には、ページ開発者と共に、SiteMapPath などのサイト �
 という名前の新しい SiteMapDataSource コントロールに、ListView をバインドするを選択して、データ ソース構成ウィザードから`LessonsDataSource`します。 SiteMapDataSource コントロールは、サイト マップのシステムからの階層構造を返します。
 
 
-[![B%%ind LessonsList ListView コントロールに SiteMapDataSource コントロール](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image12.png)
+[![SiteMapDataSource コントロール LessonsList ListView コントロールをバインドします。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image12.png)
 
 **図 08**:SiteMapDataSource コントロールをバインド、 `LessonsList` ListView コントロール ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image14.png))。
 
@@ -239,7 +239,7 @@ SiteMapDataSource コントロールを作成した後は、SiteMapDataSource �
 ListView のテンプレートを構成した後、web サイトを参照してください。 図 9 に示すよう、レッスンでは、1 つの箇条書き項目ホームを説明します。 ContentPlaceHolder の複数のコントロールのレッスンを使用して、バージョン情報の検索 SiteMapDataSource が、データの階層的なセットを返すために設計されていますが、ListView コントロールは、階層の 1 つのレベルのみを表示できます。 その結果、SiteMapDataSource によって返されたサイト マップ ノードの最初のレベルのみが表示されます。
 
 
-[![T彼のレッスン セクションを含む、1 つのリストの項目](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image15.png)
+[![レッスン セクションには、1 つのリスト項目が含まれています。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image15.png)
 
 **図 09**:レッスン セクションには、1 つのリスト項目が含まれています ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image17.png))。
 
@@ -254,7 +254,7 @@ ListView のテンプレートを構成した後、web サイトを参照して�
 開始ノードを省略する場合、SiteMapDataSource を構成し、ホーム箇条書き項目を明示的に追加する、レッスン セクションには、目的の出力ようになりましたが表示されます。
 
 
-[![T彼のレッスン セクションを含むホームとそれぞれの子ノードの行頭文字の項目](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image18.png)
+[![レッスンのセクションには、ホームとそれぞれの子ノードの箇条書き項目が含まれています](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image18.png)
 
 **図 10**:レッスンのセクションには、ホームとそれぞれの子ノードの箇条書き項目が含まれています ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image20.png))。
 

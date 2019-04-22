@@ -12,14 +12,14 @@ ms.openlocfilehash: abff97e5cc2663465fdf61f41ff69d17104fe8b6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379470"
 ---
 # <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>コントローラーとビューを使用し、リスティング/詳細 UI を実装する
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 4 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -93,9 +93,9 @@ ASP.NET MVC には、強力な URL ルーティング エンジンで Url をコ
 
 | **URL** | **コント ローラー クラス** | **アクション メソッド** | **渡されたパラメーター** |
 | --- | --- | --- | --- |
-| */Dinners/詳細/2* | DinnersController | Details(id) | id=2 |
-| */Dinners/編集/5* | DinnersController | Edit(id) | id=5 |
-| */Dinners/作成* | DinnersController | Create() | N/A |
+| */Dinners/Details/2* | DinnersController | Details(id) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(id) | id=5 |
+| */Dinners/Create* | DinnersController | Create() | N/A |
 | */Dinners* | DinnersController | Index() | N/A |
 | */Home* | HomeController | Index() | N/A |
 | */* | HomeController | Index() | N/A |

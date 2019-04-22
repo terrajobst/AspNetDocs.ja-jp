@@ -12,14 +12,14 @@ ms.openlocfilehash: ced8c1cdab4839068dab7608a1a9746d5302af07
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379106"
 ---
 # <a name="part-6-creating-product-and-order-controllers"></a>第 6 部:Product コントローラーと Order コントローラーの作成
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-a-products-controller"></a>製品のコント ローラーを追加します。
 

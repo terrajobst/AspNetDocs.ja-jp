@@ -12,7 +12,7 @@ ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380666"
 ---
 # <a name="iteration-5--create-unit-tests-vb"></a>繰り返し #5 – 単体テストを生成する (VB)
@@ -116,12 +116,12 @@ Moq を使用するには、次の手順を完了する必要があります。
 4. テスト プロジェクトにメニュー オプションを選択して、Moq アセンブリへの参照を追加**プロジェクトで、参照の追加**を開く、**参照の追加**ダイアログ。 [参照] タブの下には、Moq を解凍したフォルダーを参照して Moq.dll アセンブリを選択します。 をクリックして、 **OK** (図 2 参照) ボタンをクリックします。
 
 
-[![Unblocking Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
+[![Moq のブロック解除](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **図 01**:ブロック解除 Moq ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-vb/_static/image2.png))。
 
 
-[![RMoq を追加した後 eferences](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
+[![Moq を追加した後の参照](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **図 02**:Moq を追加した後の参照 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-vb/_static/image4.png))。
 
@@ -184,7 +184,7 @@ ContactManagerService クラスのインスタンスを作成するときに、�
 リスト 1 で単体テストを実行するには、メニュー オプションを選択して**ソリューション (CTRL + R、A) ですべてのテストを実行します。 テスト**します。 テスト結果 ウィンドウで、テストの結果が表示されます (図 4 参照)。
 
 
-[![T東部標準時の結果](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
+[![テスト結果](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **図 04**:テスト結果 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-vb/_static/image8.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 2d13fbfdb8d2fe66c5ff036060b9289017f79d14
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421538"
 ---
 # <a name="using-multiple-popup-controls-c"></a>複数のポップアップ コントロールを使用する (C#)
@@ -49,7 +49,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 テキスト フィールド内でクリックしたときに、カレンダーが表示されます、フィールドの下の日付を選択することができます。 (テキスト ボックスに、選択した日付は戻ってきてで取り上げる別のチュートリアルです。)
 
 
-[![T彼の予定表は、テキスト ボックスに、ユーザーがクリックしたときに表示されます](using-multiple-popup-controls-cs/_static/image2.png)](using-multiple-popup-controls-cs/_static/image1.png)
+[![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](using-multiple-popup-controls-cs/_static/image2.png)](using-multiple-popup-controls-cs/_static/image1.png)
 
 テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](using-multiple-popup-controls-cs/_static/image3.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 7f0c5ff599235157bd11f5f86a26b8882e0f29dc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381810"
 ---
 # <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Web Matrix と ASP.NET Web ページ (Razor) Beta 3 リリース Readme
@@ -117,8 +117,8 @@ ms.locfileid: "59381810"
 ドキュメントのこのセクションでは、新機能、変更、および Razor 構文を使用して ASP.NET Web Pages のベータ 3 リリースの既知の問題について説明します。
 
 - [新機能](#NewFeatures)
-- [変更内容](#Changes)
-- [懸案事項](#Issues)
+- [変更](#Changes)
+- [問題](#Issues)
 
 <a id="NewFeatures"></a>
 
@@ -454,7 +454,7 @@ ms.locfileid: "59381810"
 
 > 次のようなエラーが発生、WCF アプリケーションを参照します。
 > 
-> *ファイルまたはアセンブリを読み込むことができません ' Microsoft.Web.Administration、バージョン 7.0.0.0、カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' またはその依存関係の 1 つ。 指定されたファイルが見つかりません。*
+> *ファイルまたはアセンブリを読み込むことができません ' Microsoft.Web.Administration、バージョン 7.0.0.0、カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' またはその依存関係の 1 つ。指定されたファイルが見つかりません。*
 > 
 > これは、IIS Express の Beta リリースは、既定で WCF をサポートしないために発生します。
 > 

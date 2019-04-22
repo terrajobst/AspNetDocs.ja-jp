@@ -12,14 +12,14 @@ ms.openlocfilehash: 82134b8da7ab5ca49fef8e769128db9010fd231f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396331"
 ---
 # <a name="building-and-packaging-web-application-projects"></a>Web アプリケーション プロジェクトのビルドとパッケージ化
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > リモート サーバー環境に web アプリケーション プロジェクトを配置するときに、最初のタスクは、プロジェクトをビルドし、web 配置パッケージを生成します。 このトピックでは、web アプリケーション プロジェクトのビルド プロセスのしくみについて説明します。 具体的には、それについて説明します。
 > 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 3235fc58fbf93cb87946f8ebd4a478eff7ce80e3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386139"
 ---
 # <a name="dynamic-v-strongly-typed-views"></a>動的に型指定されたビューと 厳密に型指定されたビュー

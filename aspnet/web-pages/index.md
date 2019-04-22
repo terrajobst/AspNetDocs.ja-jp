@@ -12,7 +12,7 @@ ms.openlocfilehash: 832f89dfdecb71f2664431a4880978f7355246f4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420225"
 ---
 # <a name="aspnet-web-pages"></a>ASP.NET Web ページ
@@ -23,23 +23,23 @@ ms.locfileid: "59420225"
 
 - [ガイダンス](overview/index.md)
 
-    - [作業の開始](overview/getting-started/index.md)
+    - [はじめに](overview/getting-started/index.md)
 
         - [Visual Studio で ASP.NET Web ページをプログラミングする](overview/getting-started/program-asp-net-web-pages-in-visual-studio.md)
         - [ASP.NET Web プログラミング Razor 構文入門](overview/getting-started/introducing-razor-syntax-c.md)
         - [ASP.NET Web ページ Visual Basic](overview/getting-started/introducing-razor-syntax-vb.md)
         - [ASP.NET Web ページ (Razor) のよくあるご質問](overview/getting-started/aspnet-web-pages-razor-faq.md)
         - [サイトから電子メールを送信する](overview/getting-started/11-adding-email-to-your-web-site.md)
-        - [Web サイトにソーシャル ネットワークを追加する](overview/getting-started/13-adding-social-networking-to-your-web-site.md)
+        - [Web サイトにソーシャル ネットワーキングを追加する](overview/getting-started/13-adding-social-networking-to-your-web-site.md)
         - [ASP.NET Web ページの概要](overview/getting-started/introducing-aspnet-web-pages-2/index.md)
 
-            - [作業の開始](overview/getting-started/introducing-aspnet-web-pages-2/getting-started.md)
+            - [はじめに](overview/getting-started/introducing-aspnet-web-pages-2/getting-started.md)
             - [プログラミングの基礎](overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
             - [データの表示](overview/getting-started/introducing-aspnet-web-pages-2/displaying-data.md)
             - [HTML フォームの基本](overview/getting-started/introducing-aspnet-web-pages-2/form-basics.md)
             - [フォームを使用してデータベース データを入力する](overview/getting-started/introducing-aspnet-web-pages-2/entering-data.md)
             - [データベース データを更新する](overview/getting-started/introducing-aspnet-web-pages-2/updating-data.md)
-            - [データベース データを削除する](overview/getting-started/introducing-aspnet-web-pages-2/deleting-data.md)
+            - [データベース データを更新する](overview/getting-started/introducing-aspnet-web-pages-2/deleting-data.md)
             - [一貫性のあるレイアウトを作成する](overview/getting-started/introducing-aspnet-web-pages-2/layouts.md)
             - [WebMatrix を使用してサイトを公開する](overview/getting-started/introducing-aspnet-web-pages-2/publishing.md)
     - [ルーティング](overview/routing/index.md)
@@ -57,7 +57,7 @@ ms.locfileid: "59420225"
         - [ヘルパーをインストールする](overview/ui-layouts-and-themes/installing-helpers.md)
         - [Twitter ヘルパーと ASP.NET Web ページ](overview/ui-layouts-and-themes/twitter-helper.md)
         - [ASP.NET Web ページ サイトでマップを表示する](overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site.md)
-    - [携帯](overview/mobile/index.md)
+    - [モバイル](overview/mobile/index.md)
 
         - [モバイル デバイスで ASP.NET Web ページ サイトをレンダリングする](overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
     - [データの使用](overview/data/index.md)
@@ -107,21 +107,21 @@ ms.locfileid: "59420225"
 
         - [WebMatrix と ASP.NET Web ページの概要](videos/aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
         - [ASP.NET Web プログラミング Razor 構文入門](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
-        - [一貫性のある外観を作成する (第 1 部)](videos/aspnet-razor-pages/creating-a-consistent-look-part-1.md)
-        - [一貫性のある外観を作成する (第 2 部)](videos/aspnet-razor-pages/creating-a-consistent-look-part-2.md)
-        - [フォームの操作 (第 1 部)](videos/aspnet-razor-pages/working-with-forms-part-1.md)
-        - [フォームの操作 (第 2 部)](videos/aspnet-razor-pages/working-with-forms-part-2.md)
-        - [データの操作 (第 1 部)](videos/aspnet-razor-pages/working-with-data-part-1.md)
-        - [データの操作 (第 2 部)](videos/aspnet-razor-pages/working-with-data-part-2.md)
+        - [一貫性のある外観を作成する (パート 1)](videos/aspnet-razor-pages/creating-a-consistent-look-part-1.md)
+        - [一貫性のある外観を作成する (パート 2)](videos/aspnet-razor-pages/creating-a-consistent-look-part-2.md)
+        - [フォームの操作 (パート 1)](videos/aspnet-razor-pages/working-with-forms-part-1.md)
+        - [フォームの操作 (パート 2)](videos/aspnet-razor-pages/working-with-forms-part-2.md)
+        - [データの操作 (パート 1)](videos/aspnet-razor-pages/working-with-data-part-1.md)
+        - [データの操作 (パート 2)](videos/aspnet-razor-pages/working-with-data-part-2.md)
         - [グリッドでデータを表示する](videos/aspnet-razor-pages/displaying-data-in-a-grid.md)
-        - [グラフでデータを表示する (第 1 部)](videos/aspnet-razor-pages/displaying-data-in-a-chart-part-1.md)
-        - [グラフでデータを表示する (第 2 部)](videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2.md)
+        - [グラフでデータを表示する (パート 1)](videos/aspnet-razor-pages/displaying-data-in-a-chart-part-1.md)
+        - [グラフでデータを表示する (パート 2)](videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2.md)
         - [ファイルの処理](videos/aspnet-razor-pages/working-with-files.md)
         - [イメージの処理](videos/aspnet-razor-pages/working-with-images.md)
         - [ビデオの操作](videos/aspnet-razor-pages/working-with-video.md)
         - [Web サイトに電子メールを追加する](videos/aspnet-razor-pages/adding-email-to-your-web-site.md)
         - [Web サイトに検索を追加する](videos/aspnet-razor-pages/adding-search-to-your-web-site.md)
-        - [Web サイトにソーシャル ネットワークを追加する](videos/aspnet-razor-pages/adding-social-networking-to-your-website.md)
+        - [Web サイトにソーシャル ネットワーキングを追加する](videos/aspnet-razor-pages/adding-social-networking-to-your-website.md)
 - [Pluralsight の WebMatrix と Web ページのビデオ トレーニング](pluralsight.md)
 - [WebMatrix Readme](readme/index.md)
 

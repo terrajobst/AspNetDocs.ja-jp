@@ -12,7 +12,7 @@ ms.openlocfilehash: b8ec246c2f35f3d7fa5bcf67aa6f157195028176
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379522"
 ---
 # <a name="configuring-a-website-that-uses-application-services-vb"></a>アプリケーション サービスを使用する Web サイトを構成する (VB)
@@ -106,7 +106,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 その目的を説明するスプラッシュ画面を表示することで、ツールを開始します。 図 1 に示されている「セットアップ オプションを選択」画面に進みの横にあるをクリックします。 ここからは、追加のアプリケーション サービス、データベース オブジェクトまたはデータベースから削除できます。 運用データベースにこれらのオブジェクトを追加するため、"アプリケーション サービスの SQL Server を構成する"オプションを選択し、[次へ] をクリックします。
 
 
-[![Cアプリケーション サービスの SQL Server の構成を選択](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
+[![SQL Server アプリケーション サービスを構成します。](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
 
 **図 1**:SQL Server を構成するアプリケーション サービスの選択 ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image3.jpg))。
 
@@ -117,7 +117,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 > データベース サーバーと資格情報を入力した後にデータベースのドロップダウン リストを展開するときにエラーが発生する可能性があります。 `aspnet_regsql.exe`クエリ ツール、`sysdatabases`システム テーブルに、サーバーがこの情報は公開されているように、データベース サーバーを企業のロックをホストしている一部の web 上のデータベースの一覧を取得します。 このエラーが発生した場合は、ドロップダウン リストに直接、データベース名を入力できます。
 
 
-[![Supply データベースとツールの接続情報](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
+[![データベースの接続に関する情報、ツールを提供します。](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
 
 **図 2**:データベースとツールの接続情報を指定 ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image6.jpg))。
 
@@ -125,7 +125,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 後続の画面は、アプリケーション サービスのデータベース オブジェクトは、指定されたデータベースに追加する予定の実行、つまりされるアクションを要約します。 この操作の完了の横にある をクリックします。 しばらくすると、最後の画面が表示されます、(図 3 参照)、データベース オブジェクトが追加されたことを注意してください。
 
 
-[![Success! アプリケーション サービスのデータベース オブジェクトは、実稼働データベースに追加された](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
+[![Success!アプリケーション サービスのデータベース オブジェクトが、実稼働データベースに追加されました。](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
 
 **図 3**:正常に完了 アプリケーション サービス データベース オブジェクトに追加された運用データベース ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image9.jpg))。
 
@@ -133,7 +133,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 アプリケーション サービスのデータベース オブジェクトが、実稼働データベースに正常に追加されたことを確認するには、SQL Server Management Studio を開き、実稼働データベースに接続します。 データベースで、アプリケーション サービス データベースのテーブルがわかります図 4 に示すよう`aspnet_Applications`、 `aspnet_Membership`、`aspnet_Users`となります。
 
 
-[![Cデータベース オブジェクトが、実稼働データベースに追加されたことを onfirm](configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
+[![データベース オブジェクトが、実稼働データベースに追加されたことを確認します。](configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
 
 **図 4**:データベース オブジェクトが、実稼働データベースに追加されたことを確認します ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image12.jpg))。
 
@@ -172,7 +172,7 @@ ASP.NET Web サイト管理ツール (WSAT) 簡単に作成し、ユーザー �
 > 詳細については、メンバーシップとロール Api を使用して、ログインに関連する ASP.NET Web コントロールと共にお読みくださいのマイ[ *web サイトのセキュリティのチュートリアル*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。 CreateUserWizard コントロールをカスタマイズする方法の詳細を参照してください、 [*ユーザー アカウントを作成する*](../../older-versions-security/membership/creating-user-accounts-vb.md)と[*追加ユーザーの情報を格納する*](../../older-versions-security/membership/storing-additional-user-information-vb.md)チュートリアル、またはチェック アウト[ *Erich Peterson* ](http://www.erichpeterson.com/)記事[ *CreateUserWizard コントロールをカスタマイズする*](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx).
 
 
-[![Administrators できる新しいユーザー アカウントの作成](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
+[![管理者は、新しいユーザー アカウントを作成できます。](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
 
 **図 5**:管理者は新しいユーザー アカウントを作成 ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image15.jpg))。
 

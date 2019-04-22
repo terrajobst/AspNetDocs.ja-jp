@@ -12,7 +12,7 @@ ms.openlocfilehash: f0ba98d4049cd7ad10d5e1238d4580b3f767924b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420576"
 ---
 # <a name="limiting-data-modification-functionality-based-on-the-user-vb"></a>ユーザーに基づいてデータ編集機能を制限する (VB)
@@ -31,12 +31,12 @@ ms.locfileid: "59420576"
 このチュートリアルでは、訪問したユーザーに基づくデータ変更機能を動的に調整する方法を考察します。 具体的には、供給業者によって提供される製品を一覧表示する GridView と共に編集可能な DetailsView で仕入先情報を表示するページを作成します。 ページにアクセスするユーザーが会社からの場合は、できる限り:; 業者の情報を表示ユーザーのアドレスを編集します。および業者によって提供される製品の情報を編集します。 のみできる場合、ただし、ユーザーは、特定の企業が、表示および独自のアドレス情報を編集し、提供が中止されたとマークされていない独自の製品のみを編集できます。
 
 
-[![A 会社からユーザーには、業者の情報を編集できます](limiting-data-modification-functionality-based-on-the-user-vb/_static/image2.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image1.png)
+[![会社からユーザーが、業者の情報を編集できます。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image2.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image1.png)
 
 **図 1**:ユーザーからの会社は編集 Any 業者の情報 ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image3.png))。
 
 
-[![A ユーザーから特定のサプライヤーが専用のビューとその情報の編集](limiting-data-modification-functionality-based-on-the-user-vb/_static/image5.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image4.png)
+[![ユーザーが特定のサプライヤーが専用のビューと編集の情報](limiting-data-modification-functionality-based-on-the-user-vb/_static/image5.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image4.png)
 
 **図 2**:ユーザーが特定サプライヤーできますのみ表示し、情報の編集 ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image6.png))。
 
@@ -56,7 +56,7 @@ Let s を始めましょう。
 このチュートリアルでは、最初、手順は、この DropDownList を作成し、システムで、サプライヤーと設定を次に、です。 開く、`UserLevelAccess.aspx`ページで、`EditInsertDelete`フォルダー、DropDownList を追加が`ID`プロパティに設定されて`Suppliers`、という名前の新しい ObjectDataSource にこの DropDownList をバインドおよび`AllSuppliersDataSource`します。
 
 
-[![C新しい ObjectDataSource という AllSuppliersDataSource を reate](limiting-data-modification-functionality-based-on-the-user-vb/_static/image8.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image7.png)
+[![AllSuppliersDataSource という名前の新しい ObjectDataSource を作成します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image8.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image7.png)
 
 **図 3**:名前付き新しい ObjectDataSource 作成`AllSuppliersDataSource`([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image9.png))。
 
@@ -66,7 +66,7 @@ Let s を始めましょう。
 ObjectDataSource ウィザードを完了すると、構成することで、手順を完了、 `Suppliers` DropDownList が表示されるよう、`CompanyName`使用してデータ フィールド、`SupplierID`データ フィールドの各値として`ListItem`します。
 
 
-[![C構成、CompanyName と SupplierID データ フィールドを使用する仕入先 DropDownList](limiting-data-modification-functionality-based-on-the-user-vb/_static/image11.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image10.png)
+[![CompanyName と SupplierID データ フィールドを使用する仕入先の DropDownList を構成します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image11.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image10.png)
 
 **図 4**:構成、 `Suppliers` DropDownList を使用して、`CompanyName`と`SupplierID`データ フィールド ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image12.png))。
 
@@ -85,7 +85,7 @@ ObjectDataSource ウィザードを完了すると、構成することで、手
 図 5 は、ブラウザーで表示したときに、現在の進行状況のスクリーン ショットを示します。
 
 
-[![TSuppliers DropDownList 彼には、表示すべて ListItem、および 1 つの各仕入先が含まれています](limiting-data-modification-functionality-based-on-the-user-vb/_static/image14.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image13.png)
+[![Suppliers DropDownList には、すべての ListItem と各業者の 1 つを表示が含まれます](limiting-data-modification-functionality-based-on-the-user-vb/_static/image14.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image13.png)
 
 **図 5**:`Suppliers` DropDownList がすべて表示が含まれています`ListItem`、および 1 つの各仕入先 ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image15.png))。
 
@@ -112,7 +112,7 @@ S、DetailsView を使用して仕入先情報を表示することができま�
 この時点で、DetailsView を介してページングされることができでの選択に関係なく、選択した仕入先のアドレス情報を更新できる、 `Suppliers` DropDownList (図 6 参照)。
 
 
-[![Any 仕入先情報を表示したりして、そのアドレスを更新](limiting-data-modification-functionality-based-on-the-user-vb/_static/image17.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image16.png)
+[![仕入先情報を表示すること、やそのアドレスを更新](limiting-data-modification-functionality-based-on-the-user-vb/_static/image17.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image16.png)
 
 **図 6**:仕入先情報を表示できます、およびそのアドレスを更新 ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image18.png))。
 
@@ -124,7 +124,7 @@ S、DetailsView を使用して仕入先情報を表示することができま�
 名前のページに新しい ObjectDataSource を追加`SingleSupplierDataSource`します。 スマート タグ、データ ソースの構成 をクリックしを使用させる、`SuppliersBLL`クラスの`GetSupplierBySupplierID(supplierID)`メソッド。 同様、 `AllSuppliersDataSource` 、ObjectDataSource が、 `SingleSupplierDataSource` ObjectDataSource s`Update()`メソッドにマップする、`SuppliersBLL`クラスの`UpdateSupplierAddress`メソッド。
 
 
-[![C構成 SingleSupplierDataSource ObjectDataSource GetSupplierBySupplierID(supplierID) メソッドを使用する](limiting-data-modification-functionality-based-on-the-user-vb/_static/image20.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image19.png)
+[![GetSupplierBySupplierID(supplierID) メソッドを使用して SingleSupplierDataSource ObjectDataSource を構成します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image20.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image19.png)
 
 **図 7**:構成、 `SingleSupplierDataSource` ObjectDataSource を使用して、`GetSupplierBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image21.png))。
 
@@ -132,7 +132,7 @@ S、DetailsView を使用して仕入先情報を表示することができま�
 次に、パラメーターのソースを指定する re 求め、`GetSupplierBySupplierID(supplierID)`メソッドの`supplierID`入力パラメーター。 DropDownList を使用してから選択した供給業者の情報を表示するため、 `Suppliers` DropDownList の`SelectedValue`パラメーターのソースとしてのプロパティ。
 
 
-[![Use supplierID パラメーターのソースとして Suppliers DropDownList](limiting-data-modification-functionality-based-on-the-user-vb/_static/image23.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image22.png)
+[![Suppliers DropDownList を supplierID パラメーターのソースとして使用します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image23.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image22.png)
 
 **図 8**:使用して、`Suppliers`として DropDownList、`supplierID`パラメーター ソース ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image24.png))。
 
@@ -147,12 +147,12 @@ DetailsView コントロールに現在常に使用する構成されている�
 場所でのこのイベント ハンドラーと DetailsView コントロールでは、仕入先のすべてを参照してページング インターフェイスを使用する場合、"表示/編集 All"オプションを選択した場合を除き、選択したサプライヤーがようになりました示します。 図 9 は、"表示/編集 All"オプションを選択します。 ページを示していますユーザーがアクセスし、いずれかの供給を更新できるようにページング インターフェイスが存在することを確認します。 図 10 では、選択した Ma 商店株式会社の供給元に、ページを示します。 のみの Ma 商店株式会社 s の情報は、ここで表示して編集可能です。
 
 
-[![All 仕入先情報を表示および編集](limiting-data-modification-functionality-based-on-the-user-vb/_static/image26.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image25.png)
+[![表示および編集するには、すべての仕入先情報](limiting-data-modification-functionality-based-on-the-user-vb/_static/image26.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image25.png)
 
 **図 9**:すべての編集と仕入先情報を表示できます ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image27.png))。
 
 
-[![O仕入先の選択の情報のみ () は、Viewed と編集にする](limiting-data-modification-functionality-based-on-the-user-vb/_static/image29.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image28.png)
+[![選択したサプライヤーの情報のみを表示および編集できます。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image29.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image28.png)
 
 **図 10**:Viewed および編集された仕入先の選択の情報をできるだけ ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image30.png))。
 
@@ -171,7 +171,7 @@ DetailsView コントロールに現在常に使用する構成されている�
 このオーバー ロードに、作成 GridView コントロールとその関連付けられている ObjectDataSource を追加する準備が整いました。 ページへの新しい GridView、設定、`ID`プロパティを`ProductsBySupplier`、という名前の新しい ObjectDataSource を使用するように構成および`ProductsBySupplierDataSource`します。 この GridView は選択した業者によってこれらの製品を一覧表示するため、使用、`ProductsBLL`クラスの`GetProductsBySupplierID(supplierID)`メソッド。 マップすることも、`Update()`メソッドを新しい`UpdateProduct`オーバー ロードを作成しました。
 
 
-[![C構成、UpdateProduct オーバー ロードの作成に使用する ObjectDataSource](limiting-data-modification-functionality-based-on-the-user-vb/_static/image32.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image31.png)
+[![先ほど作成した UpdateProduct オーバー ロードを使用する ObjectDataSource を構成します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image32.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image31.png)
 
 **図 11**:構成に使用する ObjectDataSource、`UpdateProduct`先ほど作成したオーバー ロード ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image33.png))。
 
@@ -179,7 +179,7 @@ DetailsView コントロールに現在常に使用する構成されている�
 パラメーターのソースを選択するように求め re、`GetProductsBySupplierID(supplierID)`メソッドの`supplierID`入力パラメーター。 使用して、DetailsView で選択されている業者の製品を表示するので、 `SuppliersDetails` DetailsView コントロールの`SelectedValue`パラメーターのソースとしてのプロパティ。
 
 
-[![Use SuppliersDetails DetailsView の SelectedValue プロパティとして、パラメーター ソース](limiting-data-modification-functionality-based-on-the-user-vb/_static/image35.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image34.png)
+[![パラメーターのソースとして SuppliersDetails DetailsView の SelectedValue プロパティを使用します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image35.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image34.png)
 
 **図 12**:使用して、 `SuppliersDetails` DetailsView s`SelectedValue`パラメーターのソースとしてのプロパティ ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image36.png))。
 
@@ -194,7 +194,7 @@ DetailsView コントロールに現在常に使用する構成されている�
 この構成が完了、弊社のページに表示されます、GridView で選択されている業者によって提供される製品 (図 13 を参照してください)。 現在*任意*s の製品名または単位あたりの数量を更新することができます。 ただし、このような機能が廃止された製品の特定のサプライヤーに関連付けられているユーザーの禁止されているように、ページ ロジックを更新する必要があります。 この最後の部分では、手順 5 に取り組むします。
 
 
-[![T彼は選択されている業者によって提供される製品が表示されます](limiting-data-modification-functionality-based-on-the-user-vb/_static/image38.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image37.png)
+[![選択されている業者によって提供される製品が表示されます。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image38.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image37.png)
 
 **図 13**:選択されている業者によって提供される製品が表示されます ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image39.png))。
 
@@ -217,12 +217,12 @@ GridView s のイベント ハンドラーを作成`RowDataBound`イベント。
 このイベントにハンドラーが配置では、このページにアクセスをユーザーとして特定のサプライヤーからは提供が中止されたこれらの製品は、編集していないときに [編集] ボタンとしては表示されませんこれらの製品。 たとえば、Chef Anton の Gumbo ミックスでは、ニューオーリンズ Cajun Delights 業者の提供が中止された製品です。 この特定の仕入先のページにアクセスと、見えないようにからこの製品の編集 ボタンが非表示に (図 14 を参照してください)。 ただし、"表示/編集すべて Suppliers"を使用してアクセスして、[編集] ボタンは使用できます (図 15 参照) です。
 
 
-[![Fまたは、供給業者に固有のユーザー Chef Anton の Gumbo ミックスの編集] ボタンが非表示](limiting-data-modification-functionality-based-on-the-user-vb/_static/image41.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image40.png)
+[![供給業者に固有のユーザーの Chef Anton の Gumbo ミックスの編集 ボタンが非表示します。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image41.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image40.png)
 
 **図 14**:Chef Anton の Gumbo ミックスの編集 ボタンが非表示のサプライヤーに固有のユーザー ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image42.png))。
 
 
-[![Fまたは、すべての仕入先ユーザーを表示/編集、Chef Anton の Gumbo ミックスの編集] ボタンが表示されます](limiting-data-modification-functionality-based-on-the-user-vb/_static/image44.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image43.png)
+[![仕入先ユーザーをすべて表示/編集、Chef Anton の Gumbo ミックスの編集 ボタンが表示されます。](limiting-data-modification-functionality-based-on-the-user-vb/_static/image44.png)](limiting-data-modification-functionality-based-on-the-user-vb/_static/image43.png)
 
 **図 15**:仕入先ユーザーをすべて表示/編集、Chef Anton の Gumbo ミックスの編集 ボタンが表示されます ([フルサイズの画像を表示する をクリックします](limiting-data-modification-functionality-based-on-the-user-vb/_static/image45.png))。
 

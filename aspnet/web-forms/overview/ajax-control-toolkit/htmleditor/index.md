@@ -12,7 +12,7 @@ ms.openlocfilehash: cb86b45368f827f456fb7dc3f8190e90105c926e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378859"
 ---
 # <a name="htmleditor"></a>HTMLEditor
@@ -20,5 +20,5 @@ ms.locfileid: "59378859"
 > このチュートリアルでは、リッチ エディター、WYSIWYG または HTML コンテンツのソースの編集を提供する、HTMLEditor コントロールを使用する方法を示します。
 
 
-- [HTML エディター コントロール (C#)](how-do-i-use-the-html-editor-control-cs.md)
-- [HTML エディター コントロール (VB)](how-do-i-use-the-html-editor-control-vb.md)
+- [HTML エディター コード (C#)](how-do-i-use-the-html-editor-control-cs.md)
+- [HTML エディター コード (VB)](how-do-i-use-the-html-editor-control-vb.md)

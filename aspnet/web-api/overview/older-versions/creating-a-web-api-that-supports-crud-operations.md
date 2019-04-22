@@ -13,14 +13,14 @@ ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381355"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 で CRUD 操作を有効にします。
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
 > このチュートリアルは、ASP.NET Web API を使用して、ASP.NET の HTTP サービスで CRUD 操作をサポートする方法を示しています。 4.x です。
 > 

@@ -12,7 +12,7 @@ ms.openlocfilehash: cc9407ba15474f58437817c9536d6040e0ea2e84
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381447"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>DropShadow の Z インデックスを調整する (C#)
@@ -56,12 +56,12 @@ ASP.NET AJAX では最後に、`ScriptManager`コントロールが動作する 
 次に、 `DropShadowExtender` Menu コントロールとコントロールが不要に競合しません。
 
 
-[![B前:メニュー エントリは表示されません](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
+[![以前は：メニュー エントリが表示されていません。](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
 
 前:メニュー エントリは表示されません ([フルサイズの画像を表示する をクリックします](adjusting-the-z-index-of-a-dropshadow-cs/_static/image3.png))。
 
 
-[![A後に中断しました。メニュー エントリが表示されます](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
+[![設定後。メニュー エントリが表示されます。](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
 
 後:メニュー エントリが表示されます ([フルサイズの画像を表示する をクリックします](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))。
 

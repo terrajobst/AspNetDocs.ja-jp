@@ -12,7 +12,7 @@ ms.openlocfilehash: 0fb0a331a2a6e2af5c5097db8b57942525d24ffc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384306"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的デリバリー (Azure で現実世界のクラウド アプリの構築)
@@ -34,7 +34,7 @@ ms.locfileid: "59384306"
 
 次の図から[、Microsoft Patterns and Practices 電子書籍の継続的デリバリーについて](https://aka.ms/ReleasePipeline)一般的なワークフローを示しています。 元のコンテキストでのフル サイズを確認する画像をクリックします。
 
-[![Continuous 配信ワークフロー](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
+[![継続的デリバリーのワークフロー](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>クラウドでコスト効率に優れた CI と CD を使用する方法
 

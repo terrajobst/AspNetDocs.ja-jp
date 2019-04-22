@@ -12,7 +12,7 @@ ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390221"
 ---
 # <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトの訪問者情報 (分析) の追跡
@@ -86,5 +86,5 @@ ASP.NET Web ページには、いくつかの analytics ヘルパーが含まれ
 ## <a name="additional-resources"></a>その他のリソース
 
 - [Google Analytics サイト](https://www.google.com/analytics/)
-- [Yahoo! サイトを Web Analytics](http://help.yahoo.com/l/us/yahoo/ywa/)
+- [Yahoo!サイトを Web Analytics](http://help.yahoo.com/l/us/yahoo/ywa/)
 - [StatCounter サイト](http://statcounter.com/)

@@ -12,14 +12,14 @@ ms.openlocfilehash: fa0573738fee8f1decc13c9797f644002931e09d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381498"
 ---
 # <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 エンドポイントの作成
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > [Open Data Protocol](http://www.odata.org/) (OData) は、web のデータ アクセス プロトコル。 OData データ構造体、データを照会および CRUD 操作を通じてデータ セットを操作する一貫した方法を提供します (作成、読み取り、更新、および削除) します。 OData では、AtomPub (XML) と JSON 形式の両方をサポートします。 OData では、データに関するメタデータを公開する方法も定義します。 クライアントは、型情報と、データ セットの関係を検出するのにメタデータを使用できます。
 >

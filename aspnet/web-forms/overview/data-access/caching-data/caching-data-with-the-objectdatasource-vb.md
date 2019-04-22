@@ -12,7 +12,7 @@ ms.openlocfilehash: 6bde070dae3b295c8d7a04098b874d41fab54830
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380211"
 ---
 # <a name="caching-data-with-the-objectdatasource-vb"></a>ObjectDataSource でデータをキャッシュする (VB)
@@ -66,7 +66,7 @@ ObjectDataSource s のキャッシュ機能の探索を始める前に、この�
 などの他のフォルダーで`Default.aspx`で、`Caching`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Figure 2:Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加する](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
+[![図 2:Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
 
 **図 2**:図 2: 追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image4.png))。
 
@@ -91,7 +91,7 @@ ObjectDataSource s のキャッシュ機能の探索を始める前に、この�
 開いて開始、`ObjectDataSource.aspx`ページで、`Caching`フォルダー。 ツールボックスからデザイナーに、GridView をドラッグして、設定、`ID`プロパティを`Products`、という名前の新しい ObjectDataSource コントロールにバインドを選択して、スマート タグからとは、`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラス。
 
 
-[![C構成、ObjectDataSource ProductsBLL クラスを使用する](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
+[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
 
 **図 4**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image8.png))。
 
@@ -99,7 +99,7 @@ ObjectDataSource s のキャッシュ機能の探索を始める前に、この�
 このページでは、s GridView の s インターフェイスを通じて、ObjectDataSource にキャッシュされたデータが変更されたときの動作を検証できるように編集可能な GridView を作成することができます。 既定の設定に選択します タブで、ドロップダウン リストのままに`GetProducts()`、更新プログラム タブを選択した項目の変更が、`UpdateProduct`を受け入れるオーバー ロード`productName`、 `unitPrice`、および`productID`入力パラメーターとして。
 
 
-[![Set UpdateProduct の適切なオーバー ロードに更新] タブのドロップダウン リスト](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
+[![適切な UpdateProduct オーバー ロードに更新 タブのドロップダウン リストを設定します。](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
 
 **図 5**:更新プログラム タブのドロップダウン リストを適切に設定`UpdateProduct`オーバー ロード ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image11.png))。
 
@@ -114,7 +114,7 @@ GridView のスマート タグの編集を有効にするチェック ボック
 > GridView の編集インターフェイスをカスタマイズする方法のレビューが必要ですか。 そうである場合に戻って、[データ変更インターフェイスをカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)チュートリアル。
 
 
-[![EGridView サポート編集、並べ替え、およびページングを有効にする](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
+[![編集、並べ替え、およびページングを GridView サポートを有効にします。](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
 
 **図 6**:GridView 編集、並べ替え、およびページング サポートを有効にする ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image14.png))。
 
@@ -127,7 +127,7 @@ GridView のこれらの変更を加えたら、GridView コントロールと O
 図 7 に示す、編集可能な GridView には、名前、カテゴリ、および各データベースでは、製品の価格が一覧表示します。 テスト ページの機能の並べ替え結果をそれらを使用してページとレコードを編集します。
 
 
-[![Each 製品名、カテゴリ、および価格は、ソート可能、Pageable、編集可能な GridView に表示されます](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
+[![各製品名、カテゴリ、および価格は、ソート可能、Pageable、編集可能な GridView に表示されます。](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
 
 **図 7**:各製品名、カテゴリ、および価格は、ソート可能、Pageable、編集可能な GridView に表示されます ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image17.png))。
 
@@ -141,7 +141,7 @@ GridView のこれらの変更を加えたら、GridView コントロールと O
 データベースからデータを取得する頻度を完全に理解するには、s、データの再取得されたときを示すメッセージを表示することができます。 GridView という名前の上のラベルの Web コントロールを追加`ODSEvents`します。 クリアしますその`Text`プロパティとその`EnableViewState`プロパティを`False`します。 ラベルの下にあるボタンの Web コントロールを追加し、設定、`Text`ポストバックへのプロパティ。
 
 
-[![Add ラベルと、ページ上 GridView にボタン](caching-data-with-the-objectdatasource-vb/_static/image19.png)](caching-data-with-the-objectdatasource-vb/_static/image18.png)
+[![GridView の上のページに、ラベルとボタンを追加します。](caching-data-with-the-objectdatasource-vb/_static/image19.png)](caching-data-with-the-objectdatasource-vb/_static/image18.png)
 
 **図 8**:上記の GridView ページにラベルとボタンを追加 ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image20.png))。
 
@@ -156,12 +156,12 @@ ObjectDataSource は、要求をデータ アーキテクチャを作成する�
 ブラウザーでこのページを参照してください。 ページが初めてアクセスしたときに発生したテキスト選択イベントが表示されます。 ポストバックのボタンをクリックし、テキストが表示されないことに注意してください (と仮定すると GridView s`EnableViewState`プロパティに設定されて`True`、既定値)。 ポストバックの GridView がビューステートから再構築し、そのデータに対して ObjectDataSource には t が有効にするためです。 並べ替え、ページング、または、データを編集する一方、そのデータ ソースを再バインドする GridView とするイベントにテキストが再表示されますが発生したためです。
 
 
-[![WGridView が発生したイベントを選択すると、データ ソースにバインドし henever が表示されます](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
+[![発生するイベントが表示されるたびに、GridView がそのデータ ソースにバインドし、](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
 
 **図 9**:GridView がそのデータ ソースにバインドし、ときに発生するイベントが表示されます ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image23.png))。
 
 
-[![Cポストバックのボタンと、そのビューステートから再構築する GridView になる](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
+[![ビューステートから再構築する GridView をポストバック ボタンがクリックすると](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
 
 **図 10**:ポストバックのボタンをクリックすると、ビュー状態から再構築する GridView ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image26.png))。
 
@@ -180,7 +180,7 @@ ObjectDataSource は、要求をデータ アーキテクチャを作成する�
 S を構成できるように、 `ProductsDataSource` ObjectDataSource 絶対スケールで 30 秒間のデータをキャッシュします。 ObjectDataSource s 設定`EnableCaching`プロパティを`True`とその`CacheDuration`30 に設定するプロパティ。 ままに、`CacheExpirationPolicy`プロパティの既定の設定に`Absolute`します。
 
 
-[![C構成を 30 秒間のデータをキャッシュする ObjectDataSource](caching-data-with-the-objectdatasource-vb/_static/image28.png)](caching-data-with-the-objectdatasource-vb/_static/image27.png)
+[![30 秒間のデータをキャッシュする ObjectDataSource を構成します。](caching-data-with-the-objectdatasource-vb/_static/image28.png)](caching-data-with-the-objectdatasource-vb/_static/image27.png)
 
 **図 11**:30 秒間のデータをキャッシュする ObjectDataSource を構成する ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image29.png))。
 
