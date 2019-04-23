@@ -12,7 +12,7 @@ ms.openlocfilehash: 9c6dbfee1a1a05af7bdd82ad96b0ca52774274b1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383136"
 ---
 # <a name="role-based-authorization-c"></a>ロールベースの承認 (C#)
@@ -47,7 +47,7 @@ ASP.NET パイプラインに要求が入るたびに、要求元を識別する
 匿名ユーザーがどちらもサイトを訪問している場合、`FormsAuthenticationModule`も`RoleManagerModule`プリンシパル オブジェクトを作成します。
 
 
-[![Tまた、認証されたユーザーとフォーム認証の使用とロール Framework の ASP.NET パイプライン イベント](role-based-authorization-cs/_static/image2.png)](role-based-authorization-cs/_static/image1.png)
+[![フォーム認証、ロールのフレームワークを使用する場合は、認証されたユーザーの ASP.NET パイプライン イベント](role-based-authorization-cs/_static/image2.png)](role-based-authorization-cs/_static/image1.png)
 
 **図 1**:認証されたユーザーとフォーム認証の使用とロール Framework の ASP.NET パイプライン イベント ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image3.png))。
 
@@ -59,7 +59,7 @@ ASP.NET パイプラインに要求が入るたびに、要求元を識別する
 Cookie にユーザーのロールをキャッシュするロール framework が構成されている場合、 `RoleManagerModule` ASP.NET パイプラインの中に、cookie を作成します[`EndRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx)します。 この cookie は後続の要求で使用、 `PostAuthenticateRequest`、ときに、`RolePrincipal`オブジェクトが作成されます。 Cookie のデータが解析され、節約、ユーザーのロールの作成に使用される cookie が有効で切れていない場合、`RolePrincipal`への呼び出しを行うことから、`Roles`クラスは、ユーザーのロールを決定します。 図 2 は、このワークフローを示しています。
 
 
-[![Tユーザーのロール情報は、パフォーマンスを向上させる、Cookie に格納できる](role-based-authorization-cs/_static/image5.png)](role-based-authorization-cs/_static/image4.png)
+[![パフォーマンスを向上させるために、Cookie にユーザーのロール情報を格納できます。](role-based-authorization-cs/_static/image5.png)](role-based-authorization-cs/_static/image4.png)
 
 **図 2**:ユーザーのロール情報に格納できるパフォーマンスを向上させる Cookie ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image6.png))。
 
@@ -70,7 +70,7 @@ Cookie にユーザーのロールをキャッシュするロール framework �
 > 表 1 に示す構成設定は、結果として得られるロール キャッシュのクッキーのプロパティを指定します。 Cookie、そのしくみ、およびそのさまざまなプロパティの詳細については、読み取る[この Cookie チュートリアル](http://www.quirksmode.org/js/cookies.html)します。
 
 
-| <strong>プロパティ</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>説明</strong>                                                                                                                                                                                                                                                                                                                                                          |
+| <strong>Property</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>説明</strong>                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   `cacheRolesInCookie`    |                                                                                                                                                                                                                                                                                                                              クッキーのキャッシュを使用するかどうかを示すブール値。 既定値は `false` です。                                                                                                                                                                                                                                                                                                                              |
 |       `cookieName`        |                                                                                                                                                                                                                                                                                                                                     ロールのキャッシュのクッキーの名前。 既定値は"。ASPXROLES"です。                                                                                                                                                                                                                                                                                                                                     |
@@ -115,7 +115,7 @@ Cookie にユーザーのロールをキャッシュするロール framework �
 これを行うには、追加することで開始、`Web.config`ファイルを`Roles`フォルダー。
 
 
-[![Add ロール ディレクトリに Web.config ファイル](role-based-authorization-cs/_static/image8.png)](role-based-authorization-cs/_static/image7.png)
+[![ロールのディレクトリに Web.config ファイルを追加します。](role-based-authorization-cs/_static/image8.png)](role-based-authorization-cs/_static/image7.png)
 
 **図 3**:追加、`Web.config`ファイルを`Roles`ディレクトリ ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image9.png))。
 
@@ -129,7 +129,7 @@ Cookie にユーザーのロールをキャッシュするロール framework �
 変更を保存した後に`Web.config`管理者ロールではないユーザーとしてログインして、保護されたページのいずれかにアクセスするとします。 `UrlAuthorizationModule` ; 要求されたリソースにアクセスするためのアクセス許可がないことを検出、その結果、`FormsAuthenticationModule`ログイン ページにリダイレクトされます。 ログイン ページで、リダイレクトすることは、`UnauthorizedAccess.aspx`ページ (図 4 参照)。 この最終的にリダイレクトするログイン ページから`UnauthorizedAccess.aspx`コードのステップ 2 でのログイン ページに追加しましたが発生する、 <a id="_msoanchor_7"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-cs.md)チュートリアル。 具体的には、ログイン ページは、認証されたユーザーに自動的をリダイレクト`UnauthorizedAccess.aspx`、クエリ文字列が含まれている場合、`ReturnUrl`パラメーターがこのパラメーターとして、ユーザーはページを表示しようとした後、ログイン ページに到着したことを示します表示する権限。
 
 
-[![O管理者ロールのユーザーのみ () は、保護されているページを表示できます](role-based-authorization-cs/_static/image11.png)](role-based-authorization-cs/_static/image10.png)
+[![管理者ロールのユーザーのみが保護されたページを表示できます。](role-based-authorization-cs/_static/image11.png)](role-based-authorization-cs/_static/image10.png)
 
 **図 4**:のみの管理者ロールのユーザーが保護されているページを表示できます ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image12.png))。
 
@@ -137,7 +137,7 @@ Cookie にユーザーのロールをキャッシュするロール framework �
 ログオフし、管理者ロール内にあるユーザーとしてログインします。 これで 3 つの保護されたページを表示するはずです。
 
 
-[![Tito がアクセスできる、UsersAndRoles.aspx ページのため、彼は、管理者ロール](role-based-authorization-cs/_static/image14.png)](role-based-authorization-cs/_static/image13.png)
+[![Tito はことができます、UsersAndRoles.aspx ページのため、彼は、管理者ロールを参照してください。](role-based-authorization-cs/_static/image14.png)](role-based-authorization-cs/_static/image13.png)
 
 **図 5**:Tito がアクセスできる、`UsersAndRoles.aspx`ページのため、彼は、管理者ロール ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image15.png))。
 
@@ -167,7 +167,7 @@ GridView でシステム内のすべてのユーザー アカウントを一覧�
 設定、 `HeaderText` "Email"と「コメント」を 2 つの TemplateFields のプロパティ。
 
 
-[![T彼は GridView のフィールドでく構成でのフィールド] ダイアログ ボックス](role-based-authorization-cs/_static/image17.png)](role-based-authorization-cs/_static/image16.png)
+[![GridView のフィールドは、[フィールド] ダイアログ ボックスで構成できます。](role-based-authorization-cs/_static/image17.png)](role-based-authorization-cs/_static/image16.png)
 
 **図 6**:GridView のフィールドでくように構成からのフィールド ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image18.png))。
 
@@ -193,7 +193,7 @@ GridView でシステム内のすべてのユーザー アカウントを一覧�
 このコードでは、ブラウザーを使用してページを参照してください。 図 7 に示す、システムの各ユーザー アカウントに関する情報を一覧表示する GridView が表示されます。
 
 
-[![T彼 UserGrid GridView の一覧情報の各システム内のユーザー](role-based-authorization-cs/_static/image20.png)](role-based-authorization-cs/_static/image19.png)
+[![UserGrid GridView、システムで各ユーザーについての情報を一覧表示します。](role-based-authorization-cs/_static/image20.png)](role-based-authorization-cs/_static/image19.png)
 
 **図 7**:`UserGrid` GridView の一覧情報の各システム内のユーザー ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image21.png))。
 
@@ -239,7 +239,7 @@ GridView のためのイベント ハンドラーを作成して開始`RowEditin
 Rolegroup を管理するには、RoleGroup コレクション エディターを表示するコントロールのスマート タグから"Rolegroup 編集"リンクをクリックします。 2 つの新しい Rolegroup を追加します。 設定の最初の RoleGroup の`Roles`プロパティを"Administrators"、第 2 の「管理者」にします。
 
 
-[![MLoginView を管理ロールに固有のテンプレート、RoleGroup コレクション エディターを使用](role-based-authorization-cs/_static/image23.png)](role-based-authorization-cs/_static/image22.png)
+[![LoginView の役割に固有のテンプレート RoleGroup コレクション エディターを使用を管理します。](role-based-authorization-cs/_static/image23.png)](role-based-authorization-cs/_static/image22.png)
 
 **図 8**:LoginView の役割に固有のテンプレートを通じて、RoleGroup コレクション エディターを管理 ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image24.png))。
 
@@ -255,12 +255,12 @@ RoleGroup コレクション エディターを閉じるには、[ok] をクリ�
 次に、管理者ロールのメンバーであるユーザーとしてログインします。 今度はスーパーバイザー ロール固有はずのメッセージ (図 9 参照)。 (図 10 参照) メッセージのことがわかります管理者役割に固有のロールの管理者のユーザーとしてログインする場合。
 
 
-[![Bruce は、スーパーバイザー ロール固有のメッセージが表示されます](role-based-authorization-cs/_static/image26.png)](role-based-authorization-cs/_static/image25.png)
+[![Bruce は、スーパーバイザー ロール固有のメッセージが表示されます。](role-based-authorization-cs/_static/image26.png)](role-based-authorization-cs/_static/image25.png)
 
 **図 9**:Bruce スーパーバイザー ロール固有のメッセージが表示されます ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image27.png))。
 
 
-[![Tito は、管理者役割に固有のメッセージが表示されます](role-based-authorization-cs/_static/image29.png)](role-based-authorization-cs/_static/image28.png)
+[![Tito は、管理者役割に固有のメッセージが表示されます。](role-based-authorization-cs/_static/image29.png)](role-based-authorization-cs/_static/image28.png)
 
 **図 10**:Tito 管理者役割に固有のメッセージが表示されます ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image30.png))。
 
@@ -270,7 +270,7 @@ RoleGroup コレクション エディターを閉じるには、[ok] をクリ�
 図 11 は、LoginView コントロールをレンダリングするには、どのようなテンプレートを決定するために使用するワークフローを示しています。 1 つ以上の RoleGroup が指定された場合に、LoginView テンプレートがレンダリングことに注意してください、*最初*RoleGroup と一致します。 つまり、最初の RoleGroup としてスーパーバイザー RoleGroup と 2 つ目として管理者を配置しましたが場合、Tito このページを表示するときに彼はメッセージが表示されます、監督者。
 
 
-[![T決定するどのようなテンプレートのレンダリングするためのワークフローを彼 LoginView コントロール](role-based-authorization-cs/_static/image32.png)](role-based-authorization-cs/_static/image31.png)
+[![表示するには、どのようなテンプレートを決定するため、LoginView コントロールのワークフロー](role-based-authorization-cs/_static/image32.png)](role-based-authorization-cs/_static/image31.png)
 
 **図 11**:LoginView コントロールのワークフローを決定するものにするテンプレートのレンダリング ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image33.png))。
 
@@ -282,7 +282,7 @@ LoginView コントロールでは、ページにアクセスするユーザー�
 [Commandfield] コントロールをプログラムで参照する最も簡単な方法では、まず、テンプレートに変換します。 これを行うには、GridView のスマート タグから「列の編集」リンクをクリックして、「このフィールドを TemplateField に変換」リンクをクリックして、現在のフィールドの一覧から、[commandfield] を選択します。 TemplateField に、[commandfield] になります、`ItemTemplate`と`EditItemTemplate`します。 `ItemTemplate`編集と削除の Linkbutton 中に含まれています、 `EditItemTemplate` Linkbutton のキャンセルと更新プログラムを格納します。
 
 
-[![C変更を TemplateField に [commandfield](role-based-authorization-cs/_static/image35.png)](role-based-authorization-cs/_static/image34.png)
+[![[Commandfield] を TemplateField に変換します。](role-based-authorization-cs/_static/image35.png)](role-based-authorization-cs/_static/image34.png)
 
 **図 12**:変換を TemplateField に [commandfield] ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image36.png))。
 
@@ -313,25 +313,25 @@ GridView 列挙内のレコードでデータが GridView にバインドされ�
 > [Commandfield] を非表示にすることはまったくと非監督者と管理者以外がページにアクセスします。 ままを演習として、リーダーの。
 
 
-[![T非管理者と管理者以外のユーザーは、彼の編集と削除ボタンが非表示](role-based-authorization-cs/_static/image38.png)](role-based-authorization-cs/_static/image37.png)
+[![非管理者と管理者以外のユーザーの編集と削除ボタンを非表示します。](role-based-authorization-cs/_static/image38.png)](role-based-authorization-cs/_static/image37.png)
 
-**図 13**:非管理者と管理者以外のユーザーの編集と削除ボタンを非表示 ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image39.png))。
+**図 13**:非管理者と管理者以外のユーザーの編集と削除ボタンを非表示 ([フルサイズの画像を表示するをクリックします](role-based-authorization-cs/_static/image39.png))。
 
 
 管理者ロールに (ただし、管理者ロールにありません) に属しているユーザーはアクセスすると、彼と編集 ボタンが表示されます。
 
 
-[![W機会に恵まれました [編集] ボタンはスーパーバイザーに使用可能で、[削除] ボタンが非表示](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
+[![[削除] ボタンが非表示の編集ボタンはスーパーバイザーに使用可能が、](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
 
-**図 14**:[削除] ボタンが非表示の編集] ボタンは、スーパーバイザーに使用可能、([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image42.png))。
+**図 14**:[削除] ボタンが非表示の編集ボタンは、スーパーバイザーに使用可能、([フルサイズの画像を表示するをクリックします](role-based-authorization-cs/_static/image42.png))。
 
 
 管理者アクセスすると、編集、削除の各ボタンにアクセスしています。
 
 
-[![T彼の編集し、削除ボタンは使用可能な管理者](role-based-authorization-cs/_static/image44.png)](role-based-authorization-cs/_static/image43.png)
+[![編集および削除ボタンは使用可能な管理者向け](role-based-authorization-cs/_static/image44.png)](role-based-authorization-cs/_static/image43.png)
 
-**図 15**:編集および削除ボタンは使用可能な管理者 ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image45.png))。
+**図 15**:編集および削除ボタンは使用可能な管理者 ([フルサイズの画像を表示するをクリックします](role-based-authorization-cs/_static/image45.png))。
 
 
 ## <a name="step-3-applying-role-based-authorization-rules-to-classes-and-methods"></a>手順 3: ロール ベースの承認規則クラスとメソッドを適用します。
@@ -356,9 +356,9 @@ GridView 列挙内のレコードでデータが GridView にバインドされ�
 かどうか、何らかの方法で、管理者以外を実行しようと、`RowDeleting`イベント ハンドラーを実行する試行を非監督者または管理者以外の場合、または、 `RowUpdating` .NET ランタイムで発生するイベント ハンドラー、`SecurityException`します。
 
 
-[![Iセキュリティ コンテキストがメソッドを実行する権限がない f、SecurityException がスローされます](role-based-authorization-cs/_static/image47.png)](role-based-authorization-cs/_static/image46.png)
+[![セキュリティ コンテキストがメソッドを実行する権限がない場合、SecurityException がスローされます。](role-based-authorization-cs/_static/image47.png)](role-based-authorization-cs/_static/image46.png)
 
-**図 16**:セキュリティ コンテキストが、メソッドを実行する権限がない場合、`SecurityException`がスローされます ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image48.png))。
+**図 16**:セキュリティ コンテキストが、メソッドを実行する権限がない場合、`SecurityException`がスローされます ([フルサイズの画像を表示するをクリックします](role-based-authorization-cs/_static/image48.png))。
 
 
 多くのアプリケーションは、ASP.NET ページだけでなく、ビジネス ロジックとデータ アクセス レイヤーなど、さまざまな層を含むアーキテクチャもあります。 これらの層は、クラス ライブラリとして実装され、クラスとビジネス ロジックとデータに関連する機能を実行するためのメソッドを提供します。 `PrincipalPermission`属性はこれらの層もに承認規則を適用するために便利です。

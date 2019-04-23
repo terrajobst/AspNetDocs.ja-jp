@@ -12,21 +12,21 @@ ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407108"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
 - [概要](#overview)
 - [インストールに関する注記](#installation-notes)
-- [ソフトウェア要件](#software-requirements)
+- [ソフトウェアの要件](#software-requirements)
 - [ドキュメント](#documentation)
 - [サポート](#support)
 - [ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。](#upgrading)
 - [ASP.NET MVC 3 Tools Update (2011 年 4 月 12 日)](#tu-changes)
 
     - ["コント ローラーの追加 ダイアログ ボックスは、ビューとデータ アクセス コードを使用してコント ローラーをスキャフォールディングできますようになりました](#tu-AddControllerDialog)
-    - [機能強化、"ASP.NET MVC 3 新しいプロジェクト ダイアログ ボックス](#tu-ImprovementsNewDialogBox)
+    - [機能強化、"ASP.NET MVC 3 新しいプロジェクトダイアログ ボックス](#tu-ImprovementsNewDialogBox)
     - [プロジェクト テンプレートに Modernizr 1.7 が追加されました](#tu-Modernizr)
     - [プロジェクト テンプレートは、更新されたバージョンの jQuery、jQuery UI、および jQuery の検証](#tu-UpdatedJQuery)
     - [プロジェクト テンプレートでは、NuGet プレインストール パッケージとして ADO.NET Entity Framework 4.1 が追加されました](#tu-EF)
@@ -39,7 +39,7 @@ ms.locfileid: "59407108"
     - [修正済み。逆に空白の結果を含む Razor 式の一部を貼り付ける](#RTM-3)
     - [修正済み。構文の色付けと IntelliSense を無効にしますが、エディターで開かれている Razor ファイルの名前を変更します。](#RTM-4)
     - [既知の問題](#RTM-KI)
-    - [互換性に影響する変更点](#RTM-BC)
+    - [重大な変更](#RTM-BC)
 - [ASP.NET MVC 3 Release Candidate 2 (2010 年 12 月 10 日)](#_Toc2)
 
     - [JQuery 1.4.4、jQuery 検証 1.7、jQuery UI 1.8.6y UI 1.8.6 など、プロジェクト テンプレートの変更](#_Toc2_1)
@@ -55,26 +55,26 @@ ms.locfileid: "59407108"
     - [エンジン固有のファイル名をサポートするために、ビュー エンジンに追加された"FileExtensions"プロパティ](#_Toc2_10)
     - [固定"LabelFor"ヘルパー"For"属性の正しい値を出力するには](#_Toc2_11)
     - [モデル バインド中に明示的な値を優先する固定"RenderAction"メソッド](#_Toc2_12)
-    - [互換性に影響する変更点](#_Toc2_BC)
+    - [重大な変更](#_Toc2_BC)
     - [既知の問題](#_Toc2_KI)
 - [ASP.NET MVC 3 リリース候補 (2010 年 11 月 9 日)](#TOC_ASP_NET_3_RC)
 
     - [ASP.NET MVC 3 RC の新機能](#_Toc276711785)
     - [NuGet パッケージ マネージャー](#_Toc276711786)
-    - [新しいプロジェクト の改善 ダイアログ ボックス](#_Toc276711787)
+    - [[新しいプロジェクト] の改善ダイアログ ボックス](#_Toc276711787)
     - [Sessionless コント ローラー](#_Toc276711788)
     - [新しい検証属性](#_Toc276711789)
     - ["LabelFor"と"LabelForModel"メソッドの新しいオーバー ロード](#_Toc276711790)
     - [子アクションの出力キャッシュ](#_Toc276711791)
-    - ["ビューの追加 ダイアログ ボックスの機能強化](#_Toc276711792)
+    - ["ビューの追加ダイアログ ボックスの機能強化](#_Toc276711792)
     - [詳細な要求の検証](#_Toc276711793)
-    - [互換性に影響する変更点](#_Toc276711794)
+    - [重大な変更](#_Toc276711794)
     - [既知の問題](#_Toc276711795)
 - [ASP します。MVC 3 Beta ノート (2010 年 10 月 6 日)](#TOC_ASP_NET_3_Beta)
 
     - [ASP.NET MVC 3 のベータ版の新機能](#0.1__Toc274034215)
     - [NuPack パッケージ マネージャー](#0.1__Toc274034216)
-    - [強化された新しいプロジェクト ダイアログ ボックス](#0.1__Toc274034217)
+    - [強化された新しいプロジェクトダイアログ ボックス](#0.1__Toc274034217)
     - [厳密に指定する方法を簡略化された Razor ビューで型指定されたモデル](#0.1__Toc274034218)
     - [新しい ASP.NET Web ページのヘルパー メソッドをサポートします。](#0.1__Toc274034219)
     - [追加の依存関係挿入をサポート](#0.1__Toc274034220)
@@ -85,10 +85,10 @@ ms.locfileid: "59407108"
     - [VBHTML Razor 構文のサポート](#0.1__Toc274034225)
     - [ValidateInputAttribute をより細かく制御](#0.1__Toc274034226)
     - [ヘルパーの匿名オブジェクトを使用して指定された HTML 属性名にアンダー スコアをハイフンに変換します。](#0.1__Toc274034227)
-    - [バグ修正](#0.1__Toc274034228)
-    - [互換性に影響する変更点](#0.1__Toc274034229)
+    - [バグの修正](#0.1__Toc274034228)
+    - [重大な変更](#0.1__Toc274034229)
     - [既知の問題](#0.1__Toc274034230)
-- [免責情報](#0.1__Toc274034231)
+- [免責事項](#0.1__Toc274034231)
 
 <a id="overview"></a>
 ## <a name="overview"></a>概要
@@ -507,7 +507,7 @@ NuGet の詳細については、読み取り、 [Nuget のドキュメント](h
 
 既定のテンプレート、次に示します。
 
-空です。 最低限 ASP.NET MVC プロジェクトでの既定ディレクトリ構造、ASP.NET MVC をスタイル設定、既定値と既定の JavaScript ファイルを含む Scripts ディレクトリを含む Site.css ファイルを含む、ASP.NET MVC プロジェクトのファイルにはが含まれています。
+[空]。 最低限 ASP.NET MVC プロジェクトでの既定ディレクトリ構造、ASP.NET MVC をスタイル設定、既定値と既定の JavaScript ファイルを含む Scripts ディレクトリを含む Site.css ファイルを含む、ASP.NET MVC プロジェクトのファイルにはが含まれています。
 
 インターネット アプリケーションです。 ASP.NET MVC を使用したメンバーシップ プロバイダーを使用する方法を示すサンプルの機能が含まれています。
 
@@ -648,7 +648,7 @@ NuGet の詳細については、読み取り、 [NuGet のドキュメント](h
 
 既定のテンプレート、次に示します。
 
-空です。 最低限 ASP.NET MVC プロジェクトでの既定ディレクトリ構造を既定の ASP.NET MVC をスタイル設定、および既定の JavaScript ファイルを含む Scripts ディレクトリを含む小さい Site.css ファイルを含む、ASP.NET MVC プロジェクトのファイルにはが含まれています。
+[空]。 最低限 ASP.NET MVC プロジェクトでの既定ディレクトリ構造を既定の ASP.NET MVC をスタイル設定、および既定の JavaScript ファイルを含む Scripts ディレクトリを含む小さい Site.css ファイルを含む、ASP.NET MVC プロジェクトのファイルにはが含まれています。
 
 インターネット アプリケーションです。 ASP.NET MVC 内でのメンバーシップ プロバイダーを使用する方法を示すサンプルの機能が含まれています。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: a0aa547ee9c8fa29e9863c540046d2f8dbfdd45f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417820"
 ---
 # <a name="older-versions---mvc-3-and-4"></a>旧バージョン - MVC 3 と 4
@@ -22,8 +22,8 @@ ms.locfileid: "59417820"
 
 - [ASP.NET MVC 4 の概要](getting-started-with-aspnet-mvc4/index.md)
 
-    - [ASP.NET MVC 4 入門](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)
-    - [コントローラーを追加する](getting-started-with-aspnet-mvc4/adding-a-controller.md)
+    - [ASP.NET 4 入門](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)
+    - [コントローラーの追加](getting-started-with-aspnet-mvc4/adding-a-controller.md)
     - [ビューの追加](getting-started-with-aspnet-mvc4/adding-a-view.md)
     - [モデルの追加](getting-started-with-aspnet-mvc4/adding-a-model.md)
     - [コントローラーからモデルのデータにアクセスする](getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller.md)
@@ -44,7 +44,7 @@ ms.locfileid: "59417820"
     - [Repository and Unit of Work (リポジトリと作業単位) パターンを実装する](getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
     - [高度な Entity Framework シナリオ](getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
     - [章ダウンロードの構築](getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads.md)
-- [MVC 4 ハンズ オン ラボ](hands-on-labs/index.md)
+- [MVC 4 ハンズオン ラボ](hands-on-labs/index.md)
 
     - [ASP.NET MVC 4 の新機能](hands-on-labs/whats-new-in-aspnet-mvc-4.md)
     - [ASP.NET MVC 4 の基礎](hands-on-labs/aspnet-mvc-4-fundamentals.md)
@@ -59,7 +59,7 @@ ms.locfileid: "59417820"
 
     - [ASP.NET MVC 3 の概要 (C#)](getting-started-with-aspnet-mvc3/cs/index.md)
 
-        - [ASP.NET MVC 3 入門 (C#)](getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)
+        - [ASP.NET 3 入門 (C#)](getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)
         - [コントローラーの追加 (C#)](getting-started-with-aspnet-mvc3/cs/adding-a-controller.md)
         - [ビューの追加 (C#)](getting-started-with-aspnet-mvc3/cs/adding-a-view.md)
         - [モデルの追加 (C#)](getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
@@ -70,7 +70,7 @@ ms.locfileid: "59417820"
         - [Details メソッドと Delete メソッドの改善 (C#)](getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods.md)
     - [ASP.NET MVC 3 の概要 (VB.NET)](getting-started-with-aspnet-mvc3/vb/index.md)
 
-        - [ASP.NET MVC 3 入門 (VB)](getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3.md)
+        - [ASP.NET 3 入門 (VB)](getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3.md)
         - [コントローラーの追加 (VB)](getting-started-with-aspnet-mvc3/vb/adding-a-controller.md)
         - [ビューの追加 (VB)](getting-started-with-aspnet-mvc3/vb/adding-a-view.md)
         - [モデルの追加 (VB)](getting-started-with-aspnet-mvc3/vb/adding-a-model.md)
@@ -82,22 +82,22 @@ ms.locfileid: "59417820"
 - [Razor と控えめな JavaScript で MVC 3 を作成する](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md)
 - [MVC 3 Music Store](mvc-music-store/index.md)
 
-    - [第 1 部:概要とファイル -> 新しいプロジェクト](mvc-music-store/mvc-music-store-part-1.md)
-    - [第 2 部: Controllers](mvc-music-store/mvc-music-store-part-2.md)
-    - [第 3 部:Views と ViewModels](mvc-music-store/mvc-music-store-part-3.md)
-    - [第 4 部:モデルとデータ アクセス](mvc-music-store/mvc-music-store-part-4.md)
-    - [第 5 部:編集フォームとテンプレート](mvc-music-store/mvc-music-store-part-5.md)
-    - [第 6 部:モデル検証にデータ注釈を使用する](mvc-music-store/mvc-music-store-part-6.md)
-    - [第 7 部:メンバーシップと承認](mvc-music-store/mvc-music-store-part-7.md)
-    - [第 8 部:ショッピング カートと Ajax 更新](mvc-music-store/mvc-music-store-part-8.md)
-    - [第 9 部:登録と精算](mvc-music-store/mvc-music-store-part-9.md)
-    - [第 10 部:ナビゲーションとサイト デザインの最終更新、まとめ](mvc-music-store/mvc-music-store-part-10.md)
+    - [第 1 部: 概要とファイルは、[新しいプロジェクト]->します。](mvc-music-store/mvc-music-store-part-1.md)
+    - [第 2 部: コント ローラー](mvc-music-store/mvc-music-store-part-2.md)
+    - [パート 3:Views と ViewModels](mvc-music-store/mvc-music-store-part-3.md)
+    - [パート 4:モデルとデータ アクセス](mvc-music-store/mvc-music-store-part-4.md)
+    - [パート 5:編集フォームとテンプレート](mvc-music-store/mvc-music-store-part-5.md)
+    - [パート 6:モデル検証のためのデータ注釈の使用](mvc-music-store/mvc-music-store-part-6.md)
+    - [パート 7:メンバーシップと承認](mvc-music-store/mvc-music-store-part-7.md)
+    - [パート 8:ショッピング カートと Ajax 更新](mvc-music-store/mvc-music-store-part-8.md)
+    - [パート 9:登録と精算](mvc-music-store/mvc-music-store-part-9.md)
+    - [パート 10:ナビゲーションとサイト デザイン、まとめの最終更新](mvc-music-store/mvc-music-store-part-10.md)
 - [MVC 3 - HTML5 と jQuery UI 日付選択ポップアップ カレンダー](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index.md)
 
-    - [ASP.NET MVC の HTML5 と jQuery UI 日付選択ポップアップ カレンダー - 第 1 部](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-    - [ASP.NET MVC の HTML5 と jQuery UI 日付選択ポップアップ カレンダー - 第 2 部](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
+    - [ASP.NET MVC の HTML5 と jQuery UI 日付選択ポップアップ カレンダー - パート 1](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
+    - [ASP.NET MVC の HTML5 と jQuery UI 日付選択ポップアップ カレンダー - パート 2](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
     - [HTML5 と jQuery UI Datepicker ポップアップ カレンダー ASP.NET MVC - パート 3](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
-    - [ASP.NET MVC の HTML5 と jQuery UI 日付選択ポップアップ カレンダー - 第 4 部](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4.md)
+    - [ASP.NET MVC の HTML5 と jQuery UI 日付選択ポップアップ カレンダー - パート 4](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4.md)
 - [MVC 3 - DropDownList ボックスと jQuery の使用](working-with-the-dropdownlist-box-and-jquery/index.md)
 
     - [ASP.NET MVC で DropDownList ヘルパーを使用する](working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)

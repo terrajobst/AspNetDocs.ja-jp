@@ -12,7 +12,7 @@ ms.openlocfilehash: 61b3d54b73e33040baf93a8b7705dfb231835b40
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410449"
 ---
 # <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>挿入、更新、およびデータ (c#) の削除の概要
@@ -33,7 +33,7 @@ DAL で Tableadapter を作成したときにいずれ[、最初のチュート�
 加え、`Select()`メソッド、ObjectDataSource も`Insert()`、 `Update()`、および`Delete()`メソッド。 ように、`Select()`メソッドでは、これら 3 つのメソッドは、基になるオブジェクトでメソッドにマップすることができます。 挿入、更新、またはデータを削除するように構成、GridView、DetailsView、FormView コントロールは、基になるデータを変更するためユーザー インターフェイスを提供します。 このユーザー インターフェイスを呼び出す、 `Insert()`、 `Update()`、および`Delete()`基になるオブジェクトを呼び出して、ObjectDataSource のメソッドに関連付けられているメソッド (図 1 参照)。
 
 
-[![T彼は ObjectDataSource の Insert()、Update()、および Delete() メソッドは、BLL にプロキシとして機能](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image1.png)
+[![ObjectDataSource の Insert()、Update()、および Delete() メソッド、BLL にプロキシとして機能します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image1.png)
 
 **図 1**:ObjectDataSource の`Insert()`、 `Update()`、および`Delete()`メソッドは、BLL にプロキシとして機能 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image3.png))。
 
@@ -63,7 +63,7 @@ DAL で Tableadapter を作成したときにいずれ[、最初のチュート�
 などの他のフォルダーで`Default.aspx`で、`EditInsertDelete`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`ページの デザイン ビューの ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
+[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
 
 **図 3**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png))。
 
@@ -88,7 +88,7 @@ DAL で Tableadapter を作成したときにいずれ[、最初のチュート�
 開く、 `Basics.aspx`  ページで、ObjectDataSource をツールボックスからデザイナーにドラッグして、スマート タグからのデータ ソースの構成のリンクをクリックします。 以降、`ProductsBLL`は編集、挿入、および削除メソッドでは、このクラスを使用する ObjectDataSource を構成するだけの BLL クラスです。
 
 
-[![C構成、ObjectDataSource ProductsBLL クラスを使用する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
+[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
 
 **図 5**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))。
 
@@ -96,7 +96,7 @@ DAL で Tableadapter を作成したときにいずれ[、最初のチュート�
 次の画面のどのような方法を指定できます、`ProductsBLL`クラスは、ObjectDataSource にマップされます`Select()`、 `Insert()`、`Update()`と`Delete()`適切なタブを選択し、ドロップダウン リストからメソッドを選択します。 図 6 は、ここまでで見慣れた、ObjectDataSource のマップ`Select()`メソッドを`ProductsBLL`クラスの`GetProducts()`メソッド。 `Insert()`、 `Update()`、および`Delete()`メソッドは、上部にある一覧から適切なタブを選択して構成できます。
 
 
-[![HObjectDataSource を返すすべての製品の平均](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image12.png)
+[![ObjectDataSource 返すすべての製品](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image12.png)
 
 **図 6**:ObjectDataSource を返すすべての製品がある ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image14.png))。
 
@@ -104,17 +104,17 @@ DAL で Tableadapter を作成したときにいずれ[、最初のチュート�
 図 7、8、および 9 ObjectDataSource の更新、挿入、および削除を表示するタブで行います。 これらのタブを構成できるように、 `Insert()`、`Update()`と`Delete()`メソッドを呼び出す、`ProductsBLL`クラスの`UpdateProduct`、`AddProduct`と`DeleteProduct`メソッド、それぞれします。
 
 
-[![Mアジア太平洋 ProductBLL クラスの UpdateProduct メソッドに ObjectDataSource の Update() メソッド](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
+[![ObjectDataSource の Update() メソッドを ProductBLL クラスの UpdateProduct メソッドにマップします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
 
 **図 7**:ObjectDataSource のマップ`Update()`メソッドを`ProductBLL`クラスの`UpdateProduct`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))。
 
 
-[![Mアジア太平洋 ProductBLL クラスの AddProduct メソッドには、ObjectDataSource の Insert()](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
+[![ObjectDataSource の Insert() メソッドを ProductBLL クラスの AddProduct メソッドにマップします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
 
 **図 8**:ObjectDataSource のマップ`Insert()`メソッドを`ProductBLL`クラスの追加`Product`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))。
 
 
-[![Mアジア太平洋 ProductBLL クラスの DeleteProduct メソッドに ObjectDataSource の Delete() メソッド](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
+[![ObjectDataSource の Delete() メソッドを ProductBLL クラスの DeleteProduct メソッドにマップします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
 
 **図 9**:ObjectDataSource のマップ`Delete()`メソッドを`ProductBLL`クラスの`DeleteProduct`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))。
 
@@ -170,7 +170,7 @@ ObjectDataSource のスマート タグを GridView にバインドすると、2
 
 GridView は、[プロパティ] ウィンドウまたは宣言の構文を ObjectDataSource にバインドできます、そう必要があります手動で追加する適切な BoundField と`DataKeyNames`マークアップ。
 
-GridView コントロールは、行レベルの編集および削除するための組み込みサポートを提供します。 構成の削除をサポートするために GridView 列の削除 ボタンを追加します。 エンドユーザーは、特定の行の削除 ボタンをクリックすると、ポストバックに陥ります、GridView は、次の手順を実行します。
+GridView コントロールは、行レベルの編集および削除するための組み込みサポートを提供します。 構成の削除をサポートするために GridView 列の削除ボタンを追加します。 エンドユーザーは、特定の行の削除ボタンをクリックすると、ポストバックに陥ります、GridView は、次の手順を実行します。
 
 1. ObjectDataSource の`DeleteParameters`値が割り当てられています。
 2. ObjectDataSource の`Delete()`メソッドが呼び出される、指定されたレコードを削除します。
@@ -187,9 +187,9 @@ GridView コントロールは、行レベルの編集および削除するた�
 に GridView を削除する機能を追加するには、そのスマート タグに移動し、削除を有効にするチェック ボックスをオンします。
 
 
-![有効にする チェック ボックスを削除するを確認してください。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
+![有効にするチェック ボックスを削除するを確認してください。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
 
-**図 10**:有効にする チェック ボックスを削除するを確認してください。
+**図 10**:有効にするチェック ボックスを削除するを確認してください。
 
 
 GridView に、[commandfield] を追加するスマート タグから削除を有効にするチェック ボックスをオンします。 [Commandfield] で、次のタスクの 1 つ以上を実行するためのボタンの GridView 列を表示します。 レコードの編集、レコードを削除するレコードを選択します。 以前の動作を内のレコードを選択すると [commandfield] を説明しました、[マスター/詳細の選択可能なマスター GridView を使用すると詳細 DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)チュートリアル。
@@ -202,7 +202,7 @@ GridView に、[commandfield] を追加するスマート タグから削除を�
 この時点では、信じられないかもしれませんが、終わって GridView に削除のサポートを追加してください。 図 11 に示すようとブラウザーの削除 ボタンの列からこのページにアクセスが存在します。
 
 
-[![T彼 [commandfield] ボタンを追加、列の削除](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
+[![[Commandfield] 列の削除ボタンを追加します](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
 
 **図 11**:[Commandfield] ボタンを追加、列の削除 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image27.png))。
 
@@ -216,7 +216,7 @@ GridView に、[commandfield] を追加するスマート タグから削除を�
 メッセージがような例外が発生した商品を削除しようとすると場合は、"*ObjectDataSource 'ObjectDataSource1' 非ジェネリック メソッドのパラメーターを持つ ' DeleteProduct' が見つかりませんでした: productID、元\_ProductID*、"を削除し忘れた可能性があります、 `OldValuesParameterFormatString` ObjectDataSource からのプロパティ。 `OldValuesParameterFormatString`プロパティが指定されて、ObjectDataSource が両方に渡そう`productID`と`original_ProductID`に対する入力パラメーターは、`DeleteProduct`メソッド。 `DeleteProduct`、ただし、のみ 1 つ入力パラメーターを受け取り、そのため、例外。 削除、`OldValuesParameterFormatString`プロパティ (またはに設定すると`{0}`)、ObjectDataSource を元の入力パラメーターを渡すよう指示します。
 
 
-[![EOut OldValuesParameterFormatString プロパティがクリアされた nsure](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
+[![OldValuesParameterFormatString プロパティがクリアされたことを確認します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
 
 **図 12**:いることを確認、`OldValuesParameterFormatString`プロパティがされたクリア Out ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png))。
 
@@ -224,7 +224,7 @@ GridView に、[commandfield] を追加するスマート タグから削除を�
 削除した場合でも、`OldValuesParameterFormatString`プロパティはそれでも例外メッセージで商品を削除しようとするとき。"*、DELETE ステートメントと競合して参照制約 ' FK\_順序\_詳細\_製品の*"。Northwind データベースには間の外部キー制約が含まれています、`Order Details`と`Products`で 1 つまたは複数のレコードがある場合、製品をシステムから削除できないことを意味しているテーブル、`Order Details`テーブル。 Northwind データベースのすべての製品少なくとも 1 つのレコードを持つため`Order Details`製品、製品の関連付けられている注文の詳細レコードを削除する最初まで削除できません。
 
 
-[![A 外部キー制約は、製品の削除を禁止](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
+[![外部キー制約には、製品の削除が禁止されています](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
 
 **図 13**:外部キー制約には、製品の削除が禁止されています ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png))。
 
@@ -238,7 +238,7 @@ GridView に、[commandfield] を追加するスマート タグから削除を�
 削除のすべてのレコードから、`Order Details`テーブルの外部キー制約を回避するためにします。 Visual Studio でサーバー エクスプ ローラーに移動しを右クリックし、`NORTHWND.MDF`ノード、新しいクエリを選択します。 次に、クエリ ウィンドウでは、次の SQL ステートメントを実行します。 `DELETE FROM [Order Details]`
 
 
-[![Delete 受注明細テーブルからすべてのレコード](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
+[![受注明細テーブルからすべてのレコードを削除します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
 
 **図 14**:すべてのレコードを削除、`Order Details`テーブル ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png))。
 
@@ -283,7 +283,7 @@ GridView のスマート タグの編集を有効にするチェック ボック
 ですが基本的な編集のサポートを追加します。 編集インターフェイスはかなりおおざっぱ Figure16 に示す各 BoundField が`ReadOnly`プロパティに設定されて`false`(既定値) は、テキスト ボックスとしてレンダリングされます。 などのフィールドが含まれます`CategoryID`と`SupplierID`、他のテーブルにキーであります。
 
 
-[![C編集モードで行 Chai s の編集] ボタンの表示をクリックして](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
+[![Chai の編集ボタンをクリックして編集モードで、行を表示します](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
 
 **図 16**:編集モードで、行を表示します Chai s [編集] ボタンをクリックすると ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png))。
 
@@ -317,7 +317,7 @@ GridView のデータ変更機能を示すためを開始する、DetailsView �
 DetailsView、[commandfield] の既定の列コレクションの末尾に表示されるに注意してください。 DetailsView のフィールドとしてレンダリングされるので、行が編集、および DetailsView の下部にあるボタンを削除、[commandfield] は、挿入、行として表示されます。
 
 
-[![C構成のサポートの編集、挿入、および削除に DetailsView](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image42.png)
+[![編集、挿入、および削除をサポートする DetailsView を構成します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image42.png)
 
 **図 18**:サポートの編集、挿入、および削除に DetailsView を構成する ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image44.png))。
 
@@ -329,7 +329,7 @@ GridView と同様、同じイベントのシーケンスを開始する [Delete
 Visual Studio の設定でスマート タグの DetailsView をデータ ソースをバインドするときに、`InsertVisible`プロパティを`false`自動インクリメント フィールドに対してのみです。 読み取り専用のフィールドのような`CategoryName`と`SupplierName`、しない限り、「insert モード」のユーザー インターフェイスに表示されます、`InsertVisible`プロパティ明示的に`false`します。 これら 2 つのフィールドを設定する少し`InsertVisible`プロパティ`false`、スマート タグのリンクを DetailsView の宣言構文またはフィールドを編集します。 図 19 の設定の表示、`InsertVisible`プロパティを`false`編集フィールドをクリックしてリンクします。
 
 
-[![Northwind Traders ここでは、Acme 紅茶](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image45.png)
+[![Northwind Traders Acme 紅茶を提供します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image45.png)
 
 **図 19**:Northwind Traders ここでは、Acme 紅茶 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image47.png))。
 
@@ -337,7 +337,7 @@ Visual Studio の設定でスマート タグの DetailsView をデータ ソー
 設定した後、`InsertVisible`プロパティ、ビュー、`Basics.aspx`ブラウザーでページし、新しいボタンをクリックします。 新しい飲み物の場合は、追加するときに、図 20 は、DetailsView を示しています、製品ラインの Acme 紅茶します。
 
 
-[![Northwind Traders ここでは、Acme 紅茶](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image48.png)
+[![Northwind Traders Acme 紅茶を提供します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image48.png)
 
 **図 20**:Northwind Traders ここでは、Acme 紅茶 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image50.png))。
 
@@ -345,7 +345,7 @@ Visual Studio の設定でスマート タグの DetailsView をデータ ソー
 ポストバックに陥ります Acme 紅茶の詳細を入力し、[挿入] ボタンをクリックするとに新しいレコードを追加、`Products`データベース テーブル。 この DetailsView では、データベース テーブルに存在する順序で製品が一覧表示、ために必要がありますページ最後の製品、新製品を表示するには。
 
 
-[![DAcme 紅茶の詳細](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image51.png)
+[![Acme 紅茶の詳細](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image51.png)
 
 **図 21**:Acme 紅茶の詳細 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image53.png))。
 
@@ -372,7 +372,7 @@ FormView の宣言型マークアップを次に示します`ItemTemplate`FormVi
 図 22 示します FormView の`ItemTemplate`とき、ブラウザーで表示します。 下部にある、新規、編集、および Delete ボタンを持つ製品の各フィールドが表示されます。
 
 
-[![T照合 FormView ItemTemplate 彼には、新規、編集、および削除ボタンと共に各 Product フィールドが一覧表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
+[![照合 FormView ItemTemplate と共に新しい各 Product フィールドを一覧表示、編集、およびボタンの削除](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
 
 **図 22**:照合 FormView`ItemTemplate`一覧各製品フィールドに沿った新規、編集、削除ボタンと ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png))。
 
@@ -396,7 +396,7 @@ GridView と DetailsView を削除 ボタン、LinkButton や ImageButton をク
 図 23 Chai の編集 ボタンがクリックしてされた後に、ブラウザーで、フォーム ビューを示しています。 なお、`SupplierName`と`CategoryName`で表示されるフィールド、`ItemTemplate`だけから削除しましたが存在する場合は、不要になった、`EditItemTemplate`します。 [更新] ボタンがクリックされたときに、FormView GridView および DetailsView コントロールとして同じ一連の手順を進めします。
 
 
-[![By 既定、後は、各編集可能な製品フィールドをテキスト ボックスまたはチェック ボックスを示しています](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
+[![既定で、後に各編集可能な製品フィールドをテキスト ボックスまたはチェック ボックスが表示されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
 
 **図 23**:既定では、`EditItemTemplate`示します各編集可能な製品フィールドとしてテキスト ボックスまたはチェック ボックスをオン ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png))。
 
@@ -413,12 +413,12 @@ FormView の自動世代の注意が必要です、`InsertItemTemplate`します
 図 24 は、新しい製品を Acme コーヒーを追加するときにブラウザーで、フォーム ビューを示します。 なお、`SupplierName`と`CategoryName`で表示されるフィールド、`ItemTemplate`だけ削除しましたが存在する場合は、不要になった。 [挿入] ボタンで、同じ一連の手順として、DetailsView コントロールをフォーム ビュー処理の進行状況がクリックされたときに新しいレコードを追加、`Products`テーブル。 図 25 では、挿入された後、FormView で Acme コーヒー製品の詳細が示されます。
 
 
-[![TFormView の挿入のインターフェイスを決定後彼](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image60.png)
+[![FormView の挿入のインターフェイスを決定後、](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image60.png)
 
 **図 24**:`InsertItemTemplate` FormView の挿入インターフェイスによって決まります ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image62.png))。
 
 
-[![TFormView では、新製品、Acme コーヒーを彼の詳細が表示されます](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image63.png)
+[![FormView で Acme コーヒーの新しい製品の詳細が表示されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image63.png)
 
 **図 25**:FormView で Acme コーヒーの新しい製品の詳細が表示されます ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image65.png))。
 
