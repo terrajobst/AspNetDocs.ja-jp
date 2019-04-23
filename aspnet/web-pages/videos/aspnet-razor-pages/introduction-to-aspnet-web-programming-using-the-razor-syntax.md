@@ -12,18 +12,18 @@ ms.openlocfilehash: 70ca3370623117d7b3415ff8cd24572cba60c3bd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410228"
 ---
-# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a><span data-ttu-id="429c3-103">Introduction to ASP.NET Web Programming Using the Razor Syntax (Razor 構文を使用した ASP.NET Web プログラミングの概要)</span><span class="sxs-lookup"><span data-stu-id="429c3-103">Introduction to ASP.NET Web Programming Using the Razor Syntax</span></span>
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a><span data-ttu-id="fb0f7-103">Introduction to ASP.NET Web Programming Using the Razor Syntax (Razor 構文を使用した ASP.NET Web プログラミングの概要)</span><span class="sxs-lookup"><span data-stu-id="fb0f7-103">Introduction to ASP.NET Web Programming Using the Razor Syntax</span></span>
 
-<span data-ttu-id="429c3-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="429c3-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="fb0f7-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="fb0f7-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="429c3-105">ビデオの主役に ASP.NET Web プログラミング チュートリアルを使用する、Razor 構文の概要</span><span class="sxs-lookup"><span data-stu-id="429c3-105">Video accompaniment to the Introduction to ASP.NET Web Programming Using the Razor Syntax tutorial</span></span>
+<span data-ttu-id="fb0f7-105">ビデオの主役に ASP.NET Web プログラミング チュートリアルを使用する、Razor 構文の概要</span><span class="sxs-lookup"><span data-stu-id="fb0f7-105">Video accompaniment to the Introduction to ASP.NET Web Programming Using the Razor Syntax tutorial</span></span>
 
-[<span data-ttu-id="429c3-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="429c3-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-web-programming-using-the-razor-syntax)
+[<span data-ttu-id="fb0f7-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="fb0f7-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-web-programming-using-the-razor-syntax)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="429c3-107">[前へ](getting-started-with-webmatrix-and-aspnet-web-pages.md)
-> [次へ](creating-a-consistent-look-part-1.md)</span><span class="sxs-lookup"><span data-stu-id="429c3-107">[Previous](getting-started-with-webmatrix-and-aspnet-web-pages.md)
+> <span data-ttu-id="fb0f7-107">[前へ](getting-started-with-webmatrix-and-aspnet-web-pages.md)
+> [次へ](creating-a-consistent-look-part-1.md)</span><span class="sxs-lookup"><span data-stu-id="fb0f7-107">[Previous](getting-started-with-webmatrix-and-aspnet-web-pages.md)
 [Next](creating-a-consistent-look-part-1.md)</span></span>

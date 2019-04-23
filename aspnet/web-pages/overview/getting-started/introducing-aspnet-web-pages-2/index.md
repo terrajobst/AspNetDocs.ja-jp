@@ -12,20 +12,20 @@ ms.openlocfilehash: 324a9d7b8666cbd387ff6ea17e9d341fe2f38423
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409630"
 ---
-# <a name="introducing-aspnet-web-pages"></a><span data-ttu-id="0552e-103">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="0552e-103">Introducing ASP.NET Web Pages</span></span>
+# <a name="introducing-aspnet-web-pages"></a><span data-ttu-id="f0938-103">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="f0938-103">Introducing ASP.NET Web Pages</span></span>
 
-> <span data-ttu-id="0552e-104">ASP.NET Web ページ 2 の概要</span><span class="sxs-lookup"><span data-stu-id="0552e-104">Introducing ASP.NET Web Pages 2</span></span>
+> <span data-ttu-id="f0938-104">ASP.NET Web ページ 2 の概要</span><span class="sxs-lookup"><span data-stu-id="f0938-104">Introducing ASP.NET Web Pages 2</span></span>
 
 
-- [<span data-ttu-id="0552e-105">作業の開始</span><span class="sxs-lookup"><span data-stu-id="0552e-105">Getting Started</span></span>](getting-started.md)
-- [<span data-ttu-id="0552e-106">プログラミングの基礎</span><span class="sxs-lookup"><span data-stu-id="0552e-106">Programming Basics</span></span>](intro-to-web-pages-programming.md)
-- [<span data-ttu-id="0552e-107">データの表示</span><span class="sxs-lookup"><span data-stu-id="0552e-107">Displaying Data</span></span>](displaying-data.md)
-- [<span data-ttu-id="0552e-108">HTML フォームの基本</span><span class="sxs-lookup"><span data-stu-id="0552e-108">HTML Form Basics</span></span>](form-basics.md)
-- [<span data-ttu-id="0552e-109">フォームを使用してデータベース データを入力する</span><span class="sxs-lookup"><span data-stu-id="0552e-109">Entering Database Data by Using Forms</span></span>](entering-data.md)
-- [<span data-ttu-id="0552e-110">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="0552e-110">Updating Database Data</span></span>](updating-data.md)
-- [<span data-ttu-id="0552e-111">データベース データを削除する</span><span class="sxs-lookup"><span data-stu-id="0552e-111">Deleting Database Data</span></span>](deleting-data.md)
-- [<span data-ttu-id="0552e-112">一貫性のあるレイアウトを作成する</span><span class="sxs-lookup"><span data-stu-id="0552e-112">Creating a Consistent Layout</span></span>](layouts.md)
-- [<span data-ttu-id="0552e-113">WebMatrix を使用してサイトを公開する</span><span class="sxs-lookup"><span data-stu-id="0552e-113">Publishing a Site by Using WebMatrix</span></span>](publishing.md)
+- [<span data-ttu-id="f0938-105">はじめに</span><span class="sxs-lookup"><span data-stu-id="f0938-105">Getting Started</span></span>](getting-started.md)
+- [<span data-ttu-id="f0938-106">プログラミングの基礎</span><span class="sxs-lookup"><span data-stu-id="f0938-106">Programming Basics</span></span>](intro-to-web-pages-programming.md)
+- [<span data-ttu-id="f0938-107">データの表示</span><span class="sxs-lookup"><span data-stu-id="f0938-107">Displaying Data</span></span>](displaying-data.md)
+- [<span data-ttu-id="f0938-108">HTML フォームの基本</span><span class="sxs-lookup"><span data-stu-id="f0938-108">HTML Form Basics</span></span>](form-basics.md)
+- [<span data-ttu-id="f0938-109">フォームを使用してデータベース データを入力する</span><span class="sxs-lookup"><span data-stu-id="f0938-109">Entering Database Data by Using Forms</span></span>](entering-data.md)
+- [<span data-ttu-id="f0938-110">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="f0938-110">Updating Database Data</span></span>](updating-data.md)
+- [<span data-ttu-id="f0938-111">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="f0938-111">Deleting Database Data</span></span>](deleting-data.md)
+- [<span data-ttu-id="f0938-112">一貫性のあるレイアウトを作成する</span><span class="sxs-lookup"><span data-stu-id="f0938-112">Creating a Consistent Layout</span></span>](layouts.md)
+- [<span data-ttu-id="f0938-113">WebMatrix を使用してサイトを公開する</span><span class="sxs-lookup"><span data-stu-id="f0938-113">Publishing a Site by Using WebMatrix</span></span>](publishing.md)

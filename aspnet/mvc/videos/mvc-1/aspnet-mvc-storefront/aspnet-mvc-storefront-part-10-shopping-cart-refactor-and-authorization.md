@@ -12,18 +12,18 @@ ms.openlocfilehash: 57cac8d4fc2ee70689e625ed7c22cea0cb3bc4d9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408083"
 ---
-# <a name="aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization"></a><span data-ttu-id="a5390-103">ASP.NET MVC Storefront 第 10 部:ショッピング カートのリファクターと認証</span><span class="sxs-lookup"><span data-stu-id="a5390-103">ASP.NET MVC Storefront Part 10: Shopping Cart Refactor and Authorization</span></span>
+# <a name="aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization"></a><span data-ttu-id="8c66e-103">ASP.NET MVC Storefront 第 10 部:ショッピング カートのリファクターと認証</span><span class="sxs-lookup"><span data-stu-id="8c66e-103">ASP.NET MVC Storefront Part 10: Shopping Cart Refactor and Authorization</span></span>
 
-<span data-ttu-id="a5390-104">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="a5390-104">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="8c66e-104">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="8c66e-104">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="a5390-105">Rob はショッピング カートには、最初の go をリファクタリングし、ASP.NET メンバーシップを使用してメンバーシップ システムのコアを実装します。</span><span class="sxs-lookup"><span data-stu-id="a5390-105">Rob refactors the initial go at the Shopping Cart, and implements the core of a Membership System using ASP.NET Membership.</span></span>
+<span data-ttu-id="8c66e-105">Rob はショッピング カートには、最初の go をリファクタリングし、ASP.NET メンバーシップを使用してメンバーシップ システムのコアを実装します。</span><span class="sxs-lookup"><span data-stu-id="8c66e-105">Rob refactors the initial go at the Shopping Cart, and implements the core of a Membership System using ASP.NET Membership.</span></span>
 
-[<span data-ttu-id="a5390-106">&#9654;ビデオでは (25 分)</span><span class="sxs-lookup"><span data-stu-id="a5390-106">&#9654; Watch video (25 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization)
+[<span data-ttu-id="8c66e-106">&#9654;ビデオでは (25 分)</span><span class="sxs-lookup"><span data-stu-id="8c66e-106">&#9654; Watch video (25 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="a5390-107">[前へ](aspnet-mvc-storefront-part-9-the-shopping-cart.md)
-> [次へ](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)</span><span class="sxs-lookup"><span data-stu-id="a5390-107">[Previous](aspnet-mvc-storefront-part-9-the-shopping-cart.md)
+> <span data-ttu-id="8c66e-107">[前へ](aspnet-mvc-storefront-part-9-the-shopping-cart.md)
+> [次へ](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)</span><span class="sxs-lookup"><span data-stu-id="8c66e-107">[Previous](aspnet-mvc-storefront-part-9-the-shopping-cart.md)
 [Next](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)</span></span>

@@ -12,18 +12,18 @@ ms.openlocfilehash: 089716762848f3cd71a2cbf83eba349bb3e7b28b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410176"
 ---
-# <a name="visual-studio-2010-quick-hit---intellisense-smart-lists"></a><span data-ttu-id="9a9c2-103">Visual Studio 2010「クイック ヒット」- IntelliSense スマート一覧します。</span><span class="sxs-lookup"><span data-stu-id="9a9c2-103">Visual Studio 2010 "Quick Hit" - IntelliSense Smart Lists</span></span>
+# <a name="visual-studio-2010-quick-hit---intellisense-smart-lists"></a><span data-ttu-id="f9dfb-103">Visual Studio 2010「クイック ヒット」- IntelliSense スマート一覧します。</span><span class="sxs-lookup"><span data-stu-id="f9dfb-103">Visual Studio 2010 "Quick Hit" - IntelliSense Smart Lists</span></span>
 
-<span data-ttu-id="9a9c2-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="9a9c2-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="f9dfb-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f9dfb-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="9a9c2-105">このビデオでは、Visual Studio の IntelliSense でのフィルター処理 ボックスの一覧について学びます。</span><span class="sxs-lookup"><span data-stu-id="9a9c2-105">In this video you will learn about list filtering in Visual Studio's IntelliSense.</span></span>
+<span data-ttu-id="f9dfb-105">このビデオでは、Visual Studio の IntelliSense でのフィルター処理 ボックスの一覧について学びます。</span><span class="sxs-lookup"><span data-stu-id="f9dfb-105">In this video you will learn about list filtering in Visual Studio's IntelliSense.</span></span>
 
-[<span data-ttu-id="9a9c2-106">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="9a9c2-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-intellisense-smart-lists)
+[<span data-ttu-id="f9dfb-106">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="f9dfb-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-intellisense-smart-lists)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="9a9c2-107">[前へ](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
-> [次へ](visual-studio-2010-quick-hit-multi-monitor-support.md)</span><span class="sxs-lookup"><span data-stu-id="9a9c2-107">[Previous](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
+> <span data-ttu-id="f9dfb-107">[前へ](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
+> [次へ](visual-studio-2010-quick-hit-multi-monitor-support.md)</span><span class="sxs-lookup"><span data-stu-id="f9dfb-107">[Previous](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
 [Next](visual-studio-2010-quick-hit-multi-monitor-support.md)</span></span>

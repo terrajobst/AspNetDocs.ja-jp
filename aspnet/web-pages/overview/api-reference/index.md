@@ -12,12 +12,12 @@ ms.openlocfilehash: 87eee84da3d696d7294632a490b1a13c65794b26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410007"
 ---
-# <a name="api-reference"></a><span data-ttu-id="d72eb-103">API リファレンス</span><span class="sxs-lookup"><span data-stu-id="d72eb-103">API Reference</span></span>
+# <a name="api-reference"></a><span data-ttu-id="9d2f0-103">API リファレンス</span><span class="sxs-lookup"><span data-stu-id="9d2f0-103">API Reference</span></span>
 
-> <span data-ttu-id="d72eb-104">ASP.NET Web Pages の API リファレンス ドキュメント。</span><span class="sxs-lookup"><span data-stu-id="d72eb-104">API Reference documentation for ASP.NET Web Pages.</span></span>
+> <span data-ttu-id="9d2f0-104">ASP.NET Web Pages の API リファレンス ドキュメント。</span><span class="sxs-lookup"><span data-stu-id="9d2f0-104">API Reference documentation for ASP.NET Web Pages.</span></span>
 
 
-- [<span data-ttu-id="d72eb-105">ASP.NET API クイック リファレンス</span><span class="sxs-lookup"><span data-stu-id="d72eb-105">ASP.NET API Quick Reference</span></span>](asp-net-web-pages-api-reference.md)
+- [<span data-ttu-id="9d2f0-105">ASP.NET API クイック リファレンス</span><span class="sxs-lookup"><span data-stu-id="9d2f0-105">ASP.NET API Quick Reference</span></span>](asp-net-web-pages-api-reference.md)
