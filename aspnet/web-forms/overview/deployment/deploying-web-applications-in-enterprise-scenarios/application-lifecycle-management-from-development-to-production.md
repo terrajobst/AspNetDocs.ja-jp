@@ -12,14 +12,14 @@ ms.openlocfilehash: 3b7f154936222c85bd7897ea10cbb5ae9d1aa670
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408941"
 ---
 # <a name="application-lifecycle-management-from-development-to-production"></a>アプリケーション ライフサイクル管理:開発から運用環境まで
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、架空の会社がテスト、ステージング、実稼働環境で継続的な開発プロセスの一環として、ASP.NET web アプリケーションの展開を管理する方法を示しています。 トピック全体では、リンクは、詳しい情報と特定のタスクを実行する方法のチュートリアルに提供されます。
 > 

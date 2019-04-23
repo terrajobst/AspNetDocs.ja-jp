@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f50721b6f263b9cb025f5fa57c923dadeddcd28
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410592"
 ---
 # <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 と Visual Studio 2012 における新機能
@@ -75,7 +75,7 @@ ms.locfileid: "59410592"
 
         - [コードのアウトライン表示](#_Toc318097408)
         - [かっこの一致](#_Toc318097409)
-        - [定義へ移動](#_Toc318097410)
+        - [定義に移動](#_Toc318097410)
         - [ECMAScript5 のサポート](#_Toc318097411)
         - [DOM の IntelliSense](#_Toc318097412)
         - [VSDOC の署名のオーバー ロード](#_Toc318097413)
@@ -91,12 +91,12 @@ ms.locfileid: "59410592"
         - [スニペット](#_Toc318097422)
         - [カスタムのリージョン](#_Toc318097423)
     - [Page Inspector](#_Toc318097424)
-    - [置換](#_Toc318097425)
+    - [発行](#_Toc318097425)
 
-        - [プロファイルを発行する](#_Toc318097426)
+        - [発行プロファイル](#_Toc318097426)
         - [ASP.NET プリコンパイルとマージ](#_Toc318097427)
 - [IIS Express](#_Toc318097428)
-- [免責情報](#_Toc318097429)
+- [免責事項](#_Toc318097429)
 
 <a id="_Toc318097372"></a>
 ## <a name="aspnet-core-runtime-and-framework"></a>ASP.NET Core ランタイムおよびフレームワーク

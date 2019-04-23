@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f2cd9c752968f11efe74cce1c620d0b7cf6a467
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408590"
 ---
 # <a name="paging-and-sorting-report-data-vb"></a>レポート データのページングと並べ替え (VB)
@@ -91,7 +91,7 @@ ms.locfileid: "59408590"
 図 6 は、ブラウザーで表示したときにこれまで、進行状況を示します。 ページが各製品の名前、カテゴリ、供給業者、価格を示す 1 つの画面では、製品のすべてを一覧表示、ステータスの提供が中止されたことに注意してください。
 
 
-[![E製品のすべての一覧が表示されます](paging-and-sorting-report-data-vb/_static/image7.png)](paging-and-sorting-report-data-vb/_static/image6.png)
+[![各製品の一覧表示されます。](paging-and-sorting-report-data-vb/_static/image7.png)](paging-and-sorting-report-data-vb/_static/image6.png)
 
 **図 6**:各製品の一覧表示されます ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image8.png))。
 
@@ -101,7 +101,7 @@ ms.locfileid: "59408590"
 一覧表示する*すべて*の製品の 1 つの画面のデータを参照するためのユーザーの情報のオーバー ロードにつながることができます。 結果をより管理しやすくするためには、データのサイズの小さいページへのデータの分割を一度にデータの 1 つのページをステップにユーザーを許可できます。 実行するこのチェック ボックスをページングを有効にする GridView s のスマート タグから (GridView s 設定[`AllowPaging`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx)に`true`)。
 
 
-[![Cいったいページング Checkbox を有効にするページング サポートを追加する](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
+[![チェック ボックスを有効にするページング ページング サポートを追加するには](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
 
 **図 7**:チェック ボックスを有効にするページング ページング サポートを追加する ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image11.png))。
 
@@ -137,7 +137,7 @@ S GridView のページング インターフェイスの既定の外観を向�
 図 8 は GridView s のページングを有効にするチェック ボックスがチェックされた後、ブラウザーからアクセスしたときに、web ページと`PagerStyle`と`PagerSettings`を通じて構成を行って、`GridView.skin`ファイル。 注のみを表示する 10 個のレコードが表示され、ページング インターフェイスは、データの最初のページを表示することを示します。
 
 
-[![Wi 番目のページングが有効なレコードのサブセットのみを表示](paging-and-sorting-report-data-vb/_static/image13.png)](paging-and-sorting-report-data-vb/_static/image12.png)
+[![ページングが有効なレコードのサブセットのみが、一度に表示されます。](paging-and-sorting-report-data-vb/_static/image13.png)](paging-and-sorting-report-data-vb/_static/image12.png)
 
 **図 8**:ページングが有効なレコードのサブセットのみが、時に表示されます ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image14.png))。
 
@@ -145,7 +145,7 @@ S GridView のページング インターフェイスの既定の外観を向�
 ユーザーは、ページング インターフェイスのページ番号のいずれかをクリックすると、ポストバックに陥ります、ページが表示されたページのレコードを要求を再読み込みします。 図 9 では、データの最後のページを表示するオプトインの後、結果を示しています。 最後のページがのみ 1 つのレコードを持つことに注意してください。8 ページ分の唯一のレコードを含むページと 1 ページあたり 10 個のレコードの合計で 81 レコードがあるためにです。
 
 
-[![Cページ番号をクリックして、ポストバックが発生する、適切なレコードのサブセットが表示されます](paging-and-sorting-report-data-vb/_static/image16.png)](paging-and-sorting-report-data-vb/_static/image15.png)
+[![ポストバックが発生するページ番号をクリックし、レコードの適切なサブセットを示しています](paging-and-sorting-report-data-vb/_static/image16.png)](paging-and-sorting-report-data-vb/_static/image15.png)
 
 **図 9**:ポストバックが発生するページ番号をクリックし、適切なレコードのサブセットを示しています ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image17.png))。
 
@@ -182,7 +182,7 @@ S GridView のページング インターフェイスの既定の外観を向�
 これにより、ユーザーは、アクセスしているどのようなページとデータの合計数のページは、ことを示すメッセージを表示されています。
 
 
-[![T彼は現在のページ番号と合計ページ数が表示されます](paging-and-sorting-report-data-vb/_static/image19.png)](paging-and-sorting-report-data-vb/_static/image18.png)
+[![現在のページ番号と合計ページ数が表示されます。](paging-and-sorting-report-data-vb/_static/image19.png)](paging-and-sorting-report-data-vb/_static/image18.png)
 
 **図 10**:現在のページ番号と合計ページ数が表示されます ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image20.png))。
 
@@ -206,7 +206,7 @@ S GridView のページング インターフェイスの既定の外観を向�
 図 11 に示す GridView s を変更するだけで`PageIndex`プロパティにより、データを GridView に再バインドできます。 GridView s`DataBound`イベント ハンドラーでは、適切な DropDownList`ListItem`が選択されています。
 
 
-[![T彼のユーザーは、6 番目のページと、選択ページ 6 のドロップダウン リストの項目を自動的に実行](paging-and-sorting-report-data-vb/_static/image22.png)](paging-and-sorting-report-data-vb/_static/image21.png)
+[![ユーザーは、6 番目のページと、選択ページ 6 のドロップダウン リストの項目を自動的に実行](paging-and-sorting-report-data-vb/_static/image22.png)](paging-and-sorting-report-data-vb/_static/image21.png)
 
 **図 11**:ユーザーは、6 番目のページと、選択ページ 6 のドロップダウン リストの項目を自動的に実行 ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image23.png))。
 
@@ -231,7 +231,7 @@ GridView のスマート タグから並べ替えを有効にするオプショ�
 この CSS 追加した後、ブラウザーでページにアクセスして、画面よう図 12 になる必要があります。 具体的には、図 12 は、価格フィールドのヘッダーのリンクがクリックしてされた後、結果を示します。
 
 
-[![T彼は結果を昇順で UnitPrice によって並べ替えられている](paging-and-sorting-report-data-vb/_static/image25.png)](paging-and-sorting-report-data-vb/_static/image24.png)
+[![結果を昇順で UnitPrice によって並べ替えられています。](paging-and-sorting-report-data-vb/_static/image25.png)](paging-and-sorting-report-data-vb/_static/image24.png)
 
 **図 12**:結果があるによって並べ替え順序の昇順で UnitPrice ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image26.png))。
 
@@ -264,7 +264,7 @@ GridView の各フィールドが自動的には、ObjectDataSource を GridView
 1 回、`SortExpression`のプロパティが削除された、 `UnitPrice` BoundField、それによってユーザーの価格で、データの並べ替え妨げをリンクとしてではなくテキストとして、ヘッダーが表示されます。
 
 
-[![By SortExpression プロパティ、ユーザーは不要になったを削除するには、価格別の製品が並べ替え](paging-and-sorting-report-data-vb/_static/image29.png)](paging-and-sorting-report-data-vb/_static/image28.png)
+[![SortExpression プロパティを削除すると、ユーザーは不要になった価格で製品を並べ替える](paging-and-sorting-report-data-vb/_static/image29.png)](paging-and-sorting-report-data-vb/_static/image28.png)
 
 **図 14**:SortExpression プロパティを削除すると、ユーザーは不要になった製品で価格を並べ替える ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image30.png))。
 
@@ -283,7 +283,7 @@ GridView の各フィールドが自動的には、ObjectDataSource を GridView
 このボタンをクリックすると、製品の価格は、最もコストのかからない (図 15 参照) に最も負荷の高いものから順に並べ替えて最初のページにユーザーを返します。
 
 
-[![Cボタンの注文、製品から、最も負荷の高い、最小になる](paging-and-sorting-report-data-vb/_static/image32.png)](paging-and-sorting-report-data-vb/_static/image31.png)
+[![最も負荷の高い製品の注文 ボタンをクリックすると、最小](paging-and-sorting-report-data-vb/_static/image32.png)](paging-and-sorting-report-data-vb/_static/image31.png)
 
 **図 15**:製品から、最も負荷の高い、最小の注文 ボタンをクリックして ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-vb/_static/image33.png))。
 

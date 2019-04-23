@@ -12,7 +12,7 @@ ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409734"
 ---
 # <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理
@@ -131,7 +131,7 @@ ms.locfileid: "59409734"
 
     ![移行を有効にする](maintainable-azure-websites-managing-change-and-scale/_static/image1.png "Migrations を有効にします。")
 
-    *移行を有効にする*
+    *移行を有効にします。*
 
     > [!NOTE]
     > このコマンドを追加、**移行**というフォルダーにファイルを含むギーク Quiz プロジェクト**Configuration.cs**します。 **構成**クラスでは、コンテキストの移行の動作を構成できます。
@@ -198,7 +198,7 @@ ms.locfileid: "59409734"
 
     ![Add-migration](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "Add-migration")
 
-    *Add-Migration*
+    *追加の移行*
 
     > [!NOTE]
     > 移行ファイルが 2 つの方法で構成される**を**と**ダウン**します。

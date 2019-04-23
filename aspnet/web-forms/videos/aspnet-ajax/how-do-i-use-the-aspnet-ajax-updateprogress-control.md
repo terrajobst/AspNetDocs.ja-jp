@@ -12,7 +12,7 @@ ms.openlocfilehash: ce832e301c4f0cbec1aede3f7bb8a535a3b861e5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409592"
 ---
 # <a name="how-do-i-use-the-aspnet-ajax-updateprogress-control"></a>[How Do i:]ASP.NET AJAX UpdateProgress コントロールを使用しますか。

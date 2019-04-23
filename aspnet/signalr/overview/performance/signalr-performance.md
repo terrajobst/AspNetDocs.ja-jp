@@ -12,7 +12,7 @@ ms.openlocfilehash: b0da3032e22123f415bf9865e264832739c29f61
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409019"
 ---
 # <a name="signalr-performance"></a>SignalR パフォーマンス
@@ -268,7 +268,7 @@ A**バッファリング**ストリームが途中終了状態に入った 1 つ
 - Web service \current Connections
 - Web Service\Maximum 接続
 
-**スレッド**
+**スレッド化**
 
 - .NET CLR をロックおよびスレッド\\現在の論理スレッド数
 - .NET CLR をロックおよびスレッド\\物理的な現在のスレッドの数
@@ -279,6 +279,6 @@ A**バッファリング**ストリームが途中終了状態に入った 1 つ
 
 ASP.NET パフォーマンスの監視とチューニングの詳細については、次のトピックを参照してください。
 
-- [ASP.NET パフォーマンスの概要](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
+- [ASP.NET のパフォーマンスの概要](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [IIS 7.5、IIS 7.0、IIS 6.0 で ASP.NET のスレッドの使用状況](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
 - [&lt;applicationPool&gt;要素 (Web 設定)](https://msdn.microsoft.com/library/dd560842.aspx)

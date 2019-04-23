@@ -12,14 +12,14 @@ ms.openlocfilehash: 65b77b016e02c2d9c8ff2b925b1567f26a6a05cc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407914"
 ---
 # <a name="choosing-the-right-approach-to-web-deployment"></a>適切な Web 配置手法を選択する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) 2.0 以降を使用する場合は、3 つのアプローチを web サーバーにパッケージ化された web アプリケーションの取得に使用できます。 方法があります。
 > 

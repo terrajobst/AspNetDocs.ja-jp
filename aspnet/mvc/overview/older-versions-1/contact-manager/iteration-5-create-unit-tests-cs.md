@@ -12,7 +12,7 @@ ms.openlocfilehash: 68080859e205283f56d8f543bfa06b76bb22a39d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408863"
 ---
 # <a name="iteration-5--create-unit-tests-c"></a>繰り返し #5 – 単体テストの作成 (c#)
@@ -117,12 +117,12 @@ Moq を使用するには、次の手順を完了する必要があります。
 5. 次の手順を完了すると、図 2 よう、[参照] フォルダーになります。
 
 
-[![Unblocking Moq](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
+[![Moq のブロック解除](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
 
 **図 01**:ブロック解除 Moq ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image2.png))。
 
 
-[![RMoq を追加した後 eferences](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
+[![Moq を追加した後の参照](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
 
 **図 02**:Moq を追加した後の参照 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image4.png))。
 
@@ -185,7 +185,7 @@ ContactManagerService クラスのインスタンスを作成するときに、�
 リスト 1 で単体テストを実行するには、メニュー オプションを選択して**ソリューション (CTRL + R、A) ですべてのテストを実行します。 テスト**します。 テスト結果 ウィンドウで、テストの結果が表示されます (図 4 参照)。
 
 
-[![T東部標準時の結果](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
+[![テスト結果](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
 
 **図 04**:テスト結果 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image8.png))。
 

@@ -12,14 +12,14 @@ ms.openlocfilehash: 028631f8855e4d94bebb0e965de75c4025e22859
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409266"
 ---
 # <a name="part-7-creating-the-main-page"></a>第 7 部:メイン ページの作成
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-the-main-page"></a>メイン ページの作成
 
@@ -73,7 +73,7 @@ HTML では、データ バインディングやスクリプトではないい�
 
 そうは多くのコードが構築しましたを順を追って、ことを願っています設計はクリアされます。 HTML に一部の Knockout.js バインドを追加できます。
 
-**Products**
+**製品**
 
 製品の一覧については、バインドを次に示します。
 
@@ -91,7 +91,7 @@ HTML では、データ バインディングやスクリプトではないい�
 
 これにより、カートの配列を反復処理し、名前、価格、および数量を表示します。 ビュー モデルの関数にリンクの「削除」と"Order の作成"ボタンがバインドされていることに注意してください。
 
-**Orders**
+**注文**
 
 注文の一覧については、バインドを次に示します。
 

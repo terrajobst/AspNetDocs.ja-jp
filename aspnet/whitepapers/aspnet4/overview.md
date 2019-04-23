@@ -12,7 +12,7 @@ ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409721"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
@@ -42,7 +42,7 @@ ms.locfileid: "59409721"
 [コンテンツ配信ネットワーク サポート](#0.2__Toc253429252 "_Toc253429252")  
 [Scriptmanager コントロールの明示的なスクリプト](#0.2__Toc253429253 "_Toc253429253")
 
-**[Web フォーム](#0.2__Toc253429256 "_Toc253429256")**  
+**[Web Forms](#0.2__Toc253429256 "_Toc253429256")**  
 [Page.MetaKeywords Page.MetaDescription プロパティとメタ タグを設定](#0.2__Toc253429257 "_Toc253429257")  
 [個々 のコントロール ビュー ステートを有効にする](#0.2__Toc253429258 "_Toc253429258")  
 [ブラウザーの機能への変更](#0.2__Toc253429259 "_Toc253429259")  
@@ -89,7 +89,7 @@ ms.locfileid: "59409721"
 [1 回のクリックは、Web アプリケーションの発行](#0.2__Toc253429296 "_Toc253429296")  
 [Resources](#0.2__Toc253429297 "_Toc253429297")
 
-**[免責事項](#0.2__Toc253429298 "_Toc253429298")**
+**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -411,15 +411,15 @@ ASP.NET 4 で追加する 2 つのプロパティ、*ページ*クラス、 *Met
 
 これらの設定の効果は、ページが初めて読み込まれる、ブラウザーで次の出力で表示します。
 
-無効 `: [DynamicValue]`
+無効になっています。 `: [DynamicValue]`
 
-有効:`[DynamicValue]`
+有効になります。`[DynamicValue]`
 
 ポストバック後に、次の出力が表示されます。
 
-無効 `: [DeclaredValue]`
+無効になっています。 `: [DeclaredValue]`
 
-有効:`[DynamicValue]`
+有効になります。`[DynamicValue]`
 
 Label1 コントロール (が*に ViewStateMode*値に設定されて*無効*) がコードで設定されていた値を保持していません。 ただし、label2 制御 (が*に ViewStateMode*値に設定されて*有効*) の状態を保持しています。
 
@@ -982,9 +982,9 @@ ASP.NET 2.0 およびそれ以降のバージョンがシステムに固有の�
 既定では、テンプレートをサポートする次の ASP.NET Web サーバー コントロールが、インライン スタイルを適用するために使用する外部テーブルで自動的にラップします。
 
 - *FormView*
-- *ログイン*
+- *Login*
 - *PasswordRecovery*
-- *パスワードの変更*
+- *ChangePassword*
 - *ウィザード*
 - *CreateUserWizard*
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 488988bbf540cc809579a5ad5f80cb772ed6b1bf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408369"
 ---
 # <a name="multiple-contentplaceholders-and-default-content-vb"></a>複数の ContentPlaceHolders と既定のコンテンツ (VB)
@@ -37,7 +37,7 @@ ms.locfileid: "59408369"
 図 1 は`Default.aspx`とき、ブラウザーで表示します。 赤い丸で地域に対応するページ固有のマークアップは、`MainContent`します。
 
 
-[![T彼の丸リージョン単位で表示、領域現在カスタマイズ可能なページの](multiple-contentplaceholders-and-default-content-vb/_static/image2.png)](multiple-contentplaceholders-and-default-content-vb/_static/image1.png)
+[![領域を囲んだ領域を示しています、現在カスタマイズ可能なページの単位で](multiple-contentplaceholders-and-default-content-vb/_static/image2.png)](multiple-contentplaceholders-and-default-content-vb/_static/image1.png)
 
 **図 01**:ページの単位、領域現在カスタマイズ可能な丸領域で表示 ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image3.png))。
 
@@ -45,7 +45,7 @@ ms.locfileid: "59408369"
 図 1 に示すように、リージョンだけでなくも必要がある」のレッスンとニュースの下にある左の列にページ固有の項目を追加するセクション。 これを行うには、マスター ページに ContentPlaceHolder の別のコントロールを追加します。 作業を進めるには、開く、 `Site.master` Visual Web Developer でページをマスターし、"ニュース"セクションの後に、ツールボックスからデザイナーにプレース ホルダー コントロールをドラッグします。 ContentPlaceHolder の設定`ID`に`LeftColumnContent`します。
 
 
-[![Add にマスター ページの左の列プレース ホルダー コントロール](multiple-contentplaceholders-and-default-content-vb/_static/image5.png)](multiple-contentplaceholders-and-default-content-vb/_static/image4.png)
+[![ContentPlaceHolder コントロール、マスター ページの左側の列を追加します。](multiple-contentplaceholders-and-default-content-vb/_static/image5.png)](multiple-contentplaceholders-and-default-content-vb/_static/image4.png)
 
 **図 02**:[ContentPlaceHolder コントロール、マスター ページの左の列を追加する ([フルサイズの画像を表示する] をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image6.png))。
 
@@ -67,7 +67,7 @@ Visual Web Developer で、コンテンツが自動的に作成、web サイト�
 このマークアップを追加した後、ブラウザーを使用してページを参照してください。 図 3 に示すように、マークアップ配置、 `Content3` (赤の丸囲み)"ニュース"セクションの下にある左の列のコンテンツ コントロールが表示されます。 マークアップに配置`Content2`(青色の円で囲まれた) ページの右側の部分に表示されます。
 
 
-[![T彼左列ようになりましたが含まれていますページ固有のコンテンツの下に、"ニュース"セクション](multiple-contentplaceholders-and-default-content-vb/_static/image8.png)](multiple-contentplaceholders-and-default-content-vb/_static/image7.png)
+[![左側の列が"ニュース"セクションの下にあるページに固有な内容が含まれています](multiple-contentplaceholders-and-default-content-vb/_static/image8.png)](multiple-contentplaceholders-and-default-content-vb/_static/image7.png)
 
 **図 03**:左列ようになりましたが含まれていますページ固有のコンテンツの下に、"ニュース"セクション ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image9.png))。
 
@@ -81,7 +81,7 @@ Visual Web Developer で、コンテンツが自動的に作成、web サイト�
 コンテンツ コントロールを追加、`LeftColumnContent`に ContentPlaceHolder`About.aspx`し、[ContentPlaceHolder のスマート タグを展開し、カスタム コンテンツの作成] リンクをクリックします。
 
 
-[![T彼のデザインを表示 About.aspx を示しています LeftColumnContent プレース ホルダー](multiple-contentplaceholders-and-default-content-vb/_static/image11.png)](multiple-contentplaceholders-and-default-content-vb/_static/image10.png)
+[![About.aspx のデザイン ビューは、LeftColumnContent プレース ホルダーを示しています。](multiple-contentplaceholders-and-default-content-vb/_static/image11.png)](multiple-contentplaceholders-and-default-content-vb/_static/image10.png)
 
 **図 04**:デザイン ビュー`About.aspx`を示しています、 `LeftColumnContent` ContentPlaceHolder ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image12.png))。
 
@@ -97,7 +97,7 @@ ASP.NET では、すべてのコンテンツ ページがマスター ページ�
 現時点では、`Default.aspx`の 2 つのコンテンツ コントロールが含まれています、`head`と`MainContent`ContentPlaceHolders; のコンテンツ コントロールがない`LeftColumnContent`します。 その結果、`Default.aspx`が表示される、 `LeftColumnContent` ContentPlaceHolder の既定のコンテンツを使用します。 まだこのプレース ホルダーを既定のコンテンツを定義するがある、あるので、実際の効果はこのリージョンのマークアップは出力されませんするには。 この動作を確認するを参照してください。`Default.aspx`ブラウザーを使用します。 図 5 に示す、"ニュース"セクションの下にある左の列にマークアップは出力されません。
 
 
-[![No LeftColumnContent ContentPlaceHolder のコンテンツをレンダリング](multiple-contentplaceholders-and-default-content-vb/_static/image14.png)](multiple-contentplaceholders-and-default-content-vb/_static/image13.png)
+[![LeftColumnContent ContentPlaceHolder のコンテンツは表示されません。](multiple-contentplaceholders-and-default-content-vb/_static/image14.png)](multiple-contentplaceholders-and-default-content-vb/_static/image13.png)
 
 **図 05**:コンテンツがレンダリングされません、 `LeftColumnContent` ContentPlaceHolder ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image15.png))。
 
@@ -123,7 +123,7 @@ ContentPlaceHolder の既定のコンテンツとして、ユーザー名とパ�
 このマークアップを追加した後、マスター ページの [デザイン] ビューは図 6 のようになります。
 
 
-[![T彼のマスター ページには、Login コントロールが含まれています](multiple-contentplaceholders-and-default-content-vb/_static/image17.png)](multiple-contentplaceholders-and-default-content-vb/_static/image16.png)
+[![マスター ページには、Login コントロールが含まれます。](multiple-contentplaceholders-and-default-content-vb/_static/image17.png)](multiple-contentplaceholders-and-default-content-vb/_static/image16.png)
 
 **図 06**:マスター ページには、Login コントロールが含まれています ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image18.png))。
 
@@ -145,7 +145,7 @@ ContentPlaceHolder の既定のコンテンツとして、ユーザー名とパ�
 図 7 では、ブラウザーで表示した場合は、このページを示します。 このページのコンテンツ コントロールを指定するため、 `QuickLoginUI` ContentPlaceHolder、マスター ページで指定された既定のコンテンツを上書きします。 実質的な効果は、このページでビューがないレンダリングされます (図 6 参照) は、マスター ページのデザインで、Login コントロールが表示されることです。
 
 
-[![T彼のログイン ページは Represses QuickLoginUI ContentPlaceHolder の既定のコンテンツ](multiple-contentplaceholders-and-default-content-vb/_static/image20.png)](multiple-contentplaceholders-and-default-content-vb/_static/image19.png)
+[![ログイン ページ Represses QuickLoginUI ContentPlaceHolder の既定のコンテンツ](multiple-contentplaceholders-and-default-content-vb/_static/image20.png)](multiple-contentplaceholders-and-default-content-vb/_static/image19.png)
 
 **図 07**:ログイン ページ Represses、 `QuickLoginUI` ContentPlaceHolder の既定のコンテンツ ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image21.png))。
 
@@ -161,7 +161,7 @@ ContentPlaceHolder の既定のコンテンツとして、ユーザー名とパ�
 図 8 は`Default.aspx`とき、ブラウザーで表示します。 いることを思い出してください`Default.aspx`しか宣言型マークアップ - のいずれかで指定された 2 つのコンテンツ コントロール`head`とに 1 つずつ`MainContent`します。 その結果、既定のコンテンツ、`LeftColumnContent`と`QuickLoginUI`ContentPlaceHolders が表示されます。
 
 
-[![T彼の LeftColumnContent および QuickLoginUI ContentPlaceHolders のコンテンツの既定値が表示されます](multiple-contentplaceholders-and-default-content-vb/_static/image23.png)](multiple-contentplaceholders-and-default-content-vb/_static/image22.png)
+[![LeftColumnContent と QuickLoginUI ContentPlaceHolders の既定のコンテンツが表示されます。](multiple-contentplaceholders-and-default-content-vb/_static/image23.png)](multiple-contentplaceholders-and-default-content-vb/_static/image22.png)
 
 **図 08**:既定のコンテンツ、`LeftColumnContent`と`QuickLoginUI`ContentPlaceHolders が表示されます ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-vb/_static/image24.png))。
 

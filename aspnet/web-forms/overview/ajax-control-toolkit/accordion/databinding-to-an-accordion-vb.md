@@ -12,7 +12,7 @@ ms.openlocfilehash: dde3d60f82bb5f32fdd8b6b5cf8a0e1accebd1a7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408928"
 ---
 # <a name="databinding-to-an-accordion-vb"></a>アコーディオンにデータバインドする (VB)
@@ -59,7 +59,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-css[Main](databinding-to-an-accordion-vb/samples/sample6.css)]
 
 
-[![Tアコーディオンにデータは、データ ソースから直接取得されます](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
+[![アコーディオンにデータがデータ ソースから直接取得されます。](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
 
 アコーディオンにデータがデータ ソースから直接取得されます ([フルサイズの画像を表示する をクリックします](databinding-to-an-accordion-vb/_static/image3.png))。
 

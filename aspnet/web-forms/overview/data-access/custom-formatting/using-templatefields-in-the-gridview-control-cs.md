@@ -12,7 +12,7 @@ ms.openlocfilehash: 2e74327b6bcc84df1f341523c305dae9e5205dfd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408746"
 ---
 # <a name="using-templatefields-in-the-gridview-control-c"></a>GridView コントロールで TemplateFields を使用する (C#)
@@ -37,7 +37,7 @@ GridView は、一連からには、どのようなプロパティを示すフ�
 このチュートリアルでは従業員の一覧の外観をカスタマイズ TemplateFields を使用します。 すべての従業員、一覧に表示されますが、従業員が表示されます具体的には、1 つの列で、予定表コントロールと日数したされて使用することで、会社であることを示す [状態] 列で、雇用された日付の最初と最後の名前。
 
 
-[![TTemplateFields を使用して、表示をカスタマイズするに 3 つあります](using-templatefields-in-the-gridview-control-cs/_static/image2.png)](using-templatefields-in-the-gridview-control-cs/_static/image1.png)
+[![次の 3 つ TemplateFields を使用して、表示をカスタマイズするには](using-templatefields-in-the-gridview-control-cs/_static/image2.png)](using-templatefields-in-the-gridview-control-cs/_static/image1.png)
 
 **図 1**:次の 3 つ TemplateFields を使用して、表示をカスタマイズする ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image3.png))。
 
@@ -49,7 +49,7 @@ GridView は、一連からには、どのようなプロパティを示すフ�
 開く、`GridViewTemplateField.aspx`ページし、GridView をツールボックスからデザイナーにドラッグします。 GridView のスマート タグからを起動する新しい ObjectDataSource コントロールを追加することも、`EmployeesBLL`クラスの`GetEmployees()`メソッド。
 
 
-[![Add GetEmployees() メソッドを呼び出す新しい ObjectDataSource コントロール](using-templatefields-in-the-gridview-control-cs/_static/image5.png)](using-templatefields-in-the-gridview-control-cs/_static/image4.png)
+[![GetEmployees() メソッドを呼び出す新しい ObjectDataSource コントロールを追加します。](using-templatefields-in-the-gridview-control-cs/_static/image5.png)](using-templatefields-in-the-gridview-control-cs/_static/image4.png)
 
 **図 2**:新しい ObjectDataSource コントロールを追加するには、その呼び出します、`GetEmployees()`メソッド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image6.png))。
 
@@ -67,7 +67,7 @@ GridView は、一連からには、どのようなプロパティを示すフ�
 ブラウザーで、進行状況を表示する時間がかかります。 各従業員の 4 つの列のレコードを含むテーブルが表示この時点で: 従業員の姓、名、ユーザー名前のいずれか、もう 1 つのタイトルを雇用された日付の 1 つ。
 
 
-[![T彼は LastName、FirstName、タイトル、および HireDate フィールドは各従業員の表示](using-templatefields-in-the-gridview-control-cs/_static/image8.png)](using-templatefields-in-the-gridview-control-cs/_static/image7.png)
+[![各従業員の LastName、FirstName、タイトル、および HireDate フィールドが表示されます。](using-templatefields-in-the-gridview-control-cs/_static/image8.png)](using-templatefields-in-the-gridview-control-cs/_static/image7.png)
 
 **図 3**:`LastName`、 `FirstName`、 `Title`、および`HireDate`各従業員のフィールドが表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image9.png))。
 
@@ -81,7 +81,7 @@ GridView は、一連からには、どのようなプロパティを示すフ�
 既存の BoundField を TemplateField に変換するには、フィールドのダイアログ ボックスの GridView のスマート タグからの列の編集リンクをクリックします。 左下隅で、一覧から変換し、右下隅の"Convert このフィールドを TemplateField"リンクをクリックして BoundField を選択します。
 
 
-[![C変更、BoundField を TemplateField フィールド] ダイアログ ボックスから](using-templatefields-in-the-gridview-control-cs/_static/image11.png)](using-templatefields-in-the-gridview-control-cs/_static/image10.png)
+[![BoundField フィールド ダイアログ ボックスから TemplateField に変換します。](using-templatefields-in-the-gridview-control-cs/_static/image11.png)](using-templatefields-in-the-gridview-control-cs/_static/image10.png)
 
 **図 4**:フィールド ダイアログ ボックスから、TemplateField に BoundField を変換 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image12.png))。
 
@@ -101,7 +101,7 @@ TemplateField から成る 2 つのテンプレート、ご覧のとおり、`It
 デザイナーでそれを追加するには、GridView のスマート タグからのテンプレートの編集リンクをクリックします。 GridView のテンプレートの編集インターフェイスが表示されます。 このインターフェイスのスマート タグは、GridView でテンプレートの一覧を示します。 のみがあるため 1 つ TemplateField この時点で、ドロップダウン リストに記載のみのテンプレートは、これらのテンプレートの`FirstName`と共に TemplateField、`EmptyDataTemplate`と`PagerTemplate`します。 `EmptyDataTemplate`テンプレートは、指定されている場合、; GridView にバインドされたデータで結果がない場合は、GridView の出力を表示するために使用が、 `PagerTemplate`、指定した場合にページングをサポートする GridView ページング インターフェイスを表示するために使用します。
 
 
-[![T彼は GridView のテンプレートできますが編集を通じて、デザイナー](using-templatefields-in-the-gridview-control-cs/_static/image14.png)](using-templatefields-in-the-gridview-control-cs/_static/image13.png)
+[![GridView のテンプレートは、デザイナーで編集できます。](using-templatefields-in-the-gridview-control-cs/_static/image14.png)](using-templatefields-in-the-gridview-control-cs/_static/image13.png)
 
 **図 5**:GridView のテンプレートはする編集を通じて、デザイナー ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image15.png))。
 
@@ -109,7 +109,7 @@ TemplateField から成る 2 つのテンプレート、ご覧のとおり、`It
 表示することも、`LastName`で、 `FirstName` TemplateField ラベル コントロールをドラッグして、ツールボックスから、 `FirstName` TemplateField の`ItemTemplate`GridView でのテンプレート編集インターフェイス。
 
 
-[![Add FirstName TemplateField の ItemTemplate に Label Web コントロール](using-templatefields-in-the-gridview-control-cs/_static/image17.png)](using-templatefields-in-the-gridview-control-cs/_static/image16.png)
+[![FirstName TemplateField の ItemTemplate にラベル Web コントロールを追加します。](using-templatefields-in-the-gridview-control-cs/_static/image17.png)](using-templatefields-in-the-gridview-control-cs/_static/image16.png)
 
 **図 6**:ラベル Web コントロールを追加、 `FirstName` TemplateField の ItemTemplate ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image18.png))。
 
@@ -117,7 +117,7 @@ TemplateField から成る 2 つのテンプレート、ご覧のとおり、`It
 TemplateField に追加されたラベル Web コントロールが、この時点でその`Text`プロパティが"Label"に設定します。 このプロパティの値にバインドされるように変更する必要があります、`LastName`データ フィールドの代わりにします。 ラベル コントロールのスマート タグをクリックしてを実行し、DataBindings の編集オプションを選択します。
 
 
-[![Cラベルのスマート タグから編集 DataBindings オプションの選択](using-templatefields-in-the-gridview-control-cs/_static/image20.png)](using-templatefields-in-the-gridview-control-cs/_static/image19.png)
+[![ラベルのスマート タグから DataBindings の編集 オプションを選択します。](using-templatefields-in-the-gridview-control-cs/_static/image20.png)](using-templatefields-in-the-gridview-control-cs/_static/image19.png)
 
 **図 7**:ラベルのスマート タグから DataBindings の編集 オプションを選択 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image21.png))。
 
@@ -125,7 +125,7 @@ TemplateField に追加されたラベル Web コントロールが、この時�
 これは、[DataBindings] ダイアログ ボックスが表示されます。 ここからは、左側の一覧からのデータ バインドに参加し、右側のドロップダウン リストからデータをバインドするフィールドを選択し、プロパティを選択できます。 選択、`Text`左側からプロパティと`LastName`右側のフィールドし、[ok] をクリックします。
 
 
-[![B%%ind LastName データ フィールドにテキストのプロパティ](using-templatefields-in-the-gridview-control-cs/_static/image23.png)](using-templatefields-in-the-gridview-control-cs/_static/image22.png)
+[![[氏名] データ フィールドに Text プロパティをバインドします。](using-templatefields-in-the-gridview-control-cs/_static/image23.png)](using-templatefields-in-the-gridview-control-cs/_static/image22.png)
 
 **図 8**:バインド、`Text`プロパティを`LastName`データ フィールド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image24.png))。
 
@@ -137,7 +137,7 @@ TemplateField に追加されたラベル Web コントロールが、この時�
 ブラウザーからこのページを表示する時間がかかります。 ご覧のように、GridView にはも 4 つの列が含まれますただし、`FirstName`に列が表示されます*両方*、`FirstName`と`LastName`データ フィールドの値。
 
 
-[![Bその他、FirstName と LastName の値は 1 つの列に表示](using-templatefields-in-the-gridview-control-cs/_static/image26.png)](using-templatefields-in-the-gridview-control-cs/_static/image25.png)
+[![1 つの列、FirstName と LastName の値が表示されます。](using-templatefields-in-the-gridview-control-cs/_static/image26.png)](using-templatefields-in-the-gridview-control-cs/_static/image25.png)
 
 **図 9**:両方の`FirstName`と`LastName`値の 1 つの列に表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image27.png))。
 
@@ -148,7 +148,7 @@ TemplateField に追加されたラベル Web コントロールが、この時�
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample4.aspx)]
 
 
-[![Each 従業員の最初と最後の名前は、1 つの列に表示されます](using-templatefields-in-the-gridview-control-cs/_static/image29.png)](using-templatefields-in-the-gridview-control-cs/_static/image28.png)
+[![各従業員の最初と最後の名前は、1 つの列に表示されます。](using-templatefields-in-the-gridview-control-cs/_static/image29.png)](using-templatefields-in-the-gridview-control-cs/_static/image28.png)
 
 **図 10**:1 つの列に各従業員の最初と最後の名前が表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image30.png))。
 
@@ -160,7 +160,7 @@ TemplateField に追加されたラベル Web コントロールが、この時�
 これを行うには、変換することで開始、 `HiredDate` BoundField TemplateField にします。 単に、GridView のスマート タグに移動し、フィールド ダイアログ ボックスを立ち上げて、列の編集リンクをクリックします。 選択、 `HiredDate` BoundField し「変換このフィールドを TemplateField」。
 
 
-[![C変更、HiredDate BoundField を TemplateField](using-templatefields-in-the-gridview-control-cs/_static/image32.png)](using-templatefields-in-the-gridview-control-cs/_static/image31.png)
+[![HiredDate BoundField を TemplateField に変換します。](using-templatefields-in-the-gridview-control-cs/_static/image32.png)](using-templatefields-in-the-gridview-control-cs/_static/image31.png)
 
 **図 11**:変換、`HiredDate`を TemplateField に BoundField ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image33.png))。
 
@@ -170,7 +170,7 @@ TemplateField に追加されたラベル Web コントロールが、この時�
 予定表コントロールでテキストを置換するには、ラベルを削除して、予定表コントロールの追加、テンプレートを編集します。 デザイナーでは、GridView のスマート タグからテンプレートの編集を選択し、選択、 `HireDate` TemplateField の`ItemTemplate`ドロップダウン リストから。 次に、ラベル コントロールを削除し、カレンダー コントロールをツールボックスから、テンプレートの編集インターフェイスにドラッグします。
 
 
-[![Add HireDate TemplateField ItemTemplate の予定表コントロール](using-templatefields-in-the-gridview-control-cs/_static/image35.png)](using-templatefields-in-the-gridview-control-cs/_static/image34.png)
+[![予定表コントロールを追加、HireDate TemplateField の ItemTemplate](using-templatefields-in-the-gridview-control-cs/_static/image35.png)](using-templatefields-in-the-gridview-control-cs/_static/image34.png)
 
 **図 12**:予定表コントロールを追加、 `HireDate` TemplateField の`ItemTemplate`([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image36.png))。
 
@@ -180,7 +180,7 @@ GridView の各行がで予定表コントロールを含むこの時点でそ�
 予定表コントロールのスマート タグから DataBindings の編集を選択します。 次に、どちらもバインド`SelectedDate`と`VisibleDate`プロパティを`HiredDate`データ フィールド。
 
 
-[![B%%ind、SelectedDate と VisibleDate HiredDate データ フィールドのプロパティ](using-templatefields-in-the-gridview-control-cs/_static/image38.png)](using-templatefields-in-the-gridview-control-cs/_static/image37.png)
+[![SelectedDate と VisibleDate プロパティを HiredDate データ フィールドにバインドします。](using-templatefields-in-the-gridview-control-cs/_static/image38.png)](using-templatefields-in-the-gridview-control-cs/_static/image37.png)
 
 **図 13**:バインド、`SelectedDate`と`VisibleDate`プロパティを`HiredDate`データ フィールド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image39.png))。
 
@@ -192,7 +192,7 @@ GridView の各行がで予定表コントロールを含むこの時点でそ�
 ブラウザーでページを表示するときに、予定表は今すぐ従業員の採用日の月を表示し、特定の日付を選択します。
 
 
-[![T彼は従業員の HiredDate は予定表コントロールで表示](using-templatefields-in-the-gridview-control-cs/_static/image41.png)](using-templatefields-in-the-gridview-control-cs/_static/image40.png)
+[![従業員の HiredDate が予定表コントロールで表示されます。](using-templatefields-in-the-gridview-control-cs/_static/image41.png)](using-templatefields-in-the-gridview-control-cs/_static/image40.png)
 
 **図 14**:従業員の`HiredDate`カレンダー コントロールに表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image42.png))。
 
@@ -226,7 +226,7 @@ TemplateFields の 3 つ目の使用は、GridView のに関するメタデー�
 このメソッドを使用するには、データ バインディング構文を使用して、gridview TemplateField から呼び出す必要があります。 GridView のスマート タグで列の編集リンクをクリックし、新しい TemplateField を追加する新しい TemplateField を GridView に追加することで開始します。
 
 
-[![Add GridView に新しい TemplateField](using-templatefields-in-the-gridview-control-cs/_static/image44.png)](using-templatefields-in-the-gridview-control-cs/_static/image43.png)
+[![新しい TemplateField を GridView に追加します。](using-templatefields-in-the-gridview-control-cs/_static/image44.png)](using-templatefields-in-the-gridview-control-cs/_static/image43.png)
 
 **図 15**:新しい TemplateField を GridView に追加 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image45.png))。
 
@@ -252,7 +252,7 @@ TemplateField に追加した後、次が、GridView の宣言の構文を表示
 図 16 は、ブラウザーで表示したときに、完了したチュートリアルを示します。
 
 
-[![T彼は、従業員が、そのジョブのした日の数が表示されます](using-templatefields-in-the-gridview-control-cs/_static/image47.png)](using-templatefields-in-the-gridview-control-cs/_static/image46.png)
+[![従業員が、そのジョブのした日の数が表示されます。](using-templatefields-in-the-gridview-control-cs/_static/image47.png)](using-templatefields-in-the-gridview-control-cs/_static/image46.png)
 
 **図 16**:表示される、従業員が、そのジョブの日の数 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-gridview-control-cs/_static/image48.png))。
 

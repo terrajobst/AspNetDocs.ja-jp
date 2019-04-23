@@ -12,7 +12,7 @@ ms.openlocfilehash: 3227560c1d0c48f7738e26c87a0dbb140c410eee
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410098"
 ---
 # <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>TagBuilder クラスを使用して、HTML ヘルパー (c#) をビルドするには
@@ -60,12 +60,12 @@ TagBuilder.MergeAttribute() メソッドを使用して、TagBuilder に src 属
 
 イメージ ヘルパーを作成した後は、その他の標準の HTML ヘルパーのいずれかのように、ASP.NET MVC ビューで、ヘルパーを使用できます。 リスト 2 での表示では、イメージ ヘルパーを使用して、2 回、Xbox の同じイメージを表示 (図 1 参照)。 HTML 属性のコレクションの有無にかかわらず、Image() ヘルパーが呼び出されます。
 
-**Listing 2 - Home\Index.aspx**
+**2 - Home\Index.aspx を一覧表示します。**
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample2.aspx)]
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
 
 **図 01**:イメージ ヘルパーを使用して ([フルサイズの画像を表示する をクリックします](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))。
 

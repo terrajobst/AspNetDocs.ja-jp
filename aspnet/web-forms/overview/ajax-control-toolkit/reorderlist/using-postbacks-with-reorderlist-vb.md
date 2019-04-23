@@ -12,7 +12,7 @@ ms.openlocfilehash: 22c7eecb841ff67196d21e6efeeda63a3456c5cb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409084"
 ---
 # <a name="using-postbacks-with-reorderlist-vb"></a>ReorderList でポストバックを使用する (VB)
@@ -62,7 +62,7 @@ ms.locfileid: "59409084"
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample6.aspx)]
 
 
-[![Eポストバックをトリガーする ach の並べ替え](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
+[![ポストバックをトリガーするそれぞれの並べ替え](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
 
 ポストバックをトリガーするそれぞれの並べ替え ([フルサイズの画像を表示する をクリックします](using-postbacks-with-reorderlist-vb/_static/image3.png))。
 

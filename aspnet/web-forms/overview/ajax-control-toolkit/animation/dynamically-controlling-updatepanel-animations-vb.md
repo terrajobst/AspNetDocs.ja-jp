@@ -12,7 +12,7 @@ ms.openlocfilehash: 223fad7013a53212c0c822a87bd3e2fcc0a5f17f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408954"
 ---
 # <a name="dynamically-controlling-updatepanel-animations-vb"></a>UpdatePanel アニメーションを動的に制御する (VB)
@@ -58,7 +58,7 @@ ms.locfileid: "59408954"
 ブラウザーでファイルを実行します。 ボタンをクリックしたときに、常に 1 秒の間フェードのパネルで、現在の時刻が表示されます。
 
 
-[![T現在の時刻がフェードイン](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
+[![現在の時刻がフェードインします。](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
 
 現在の時刻がフェードイン ([フルサイズの画像を表示する をクリックします](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))。
 

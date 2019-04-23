@@ -12,7 +12,7 @@ ms.openlocfilehash: fb185c4147d516ab28d632b3e874b6f1d46f6576
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408421"
 ---
 # <a name="testing-the-strength-of-a-password-vb"></a>パスワードの強度をテストする (VB)
@@ -44,7 +44,7 @@ ms.locfileid: "59408421"
 ページを実行し、すぐに入力します。小文字、大文字、数字および記号を入力した後にのみ、パスワードは、unbreakable と見なされます。
 
 
-[![Now パスワードが (かなり) 良い](testing-the-strength-of-a-password-vb/_static/image2.png)](testing-the-strength-of-a-password-vb/_static/image1.png)
+[![パスワードが (かなり) 良いようになりました](testing-the-strength-of-a-password-vb/_static/image2.png)](testing-the-strength-of-a-password-vb/_static/image1.png)
 
 パスワードは (かなり) 良い ([フルサイズの画像を表示する をクリックします](testing-the-strength-of-a-password-vb/_static/image3.png))。
 

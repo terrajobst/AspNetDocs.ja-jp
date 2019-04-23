@@ -12,7 +12,7 @@ ms.openlocfilehash: f14784a1b5ae54873b9777dcdadd9dc32689ec5a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408434"
 ---
 # <a name="deployment"></a>配置
@@ -20,5 +20,5 @@ ms.locfileid: "59408434"
 > このチュートリアルでは、ASP.NET MVC と別のバージョンの IIS でのルーティングを使用する方法について説明します。
 
 
-- [ASP.NET MVC を使用して、さまざまなバージョンの IIS (C#)](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
-- [さまざまなバージョンの IIS と共に ASP.NET MVC を使用する (VB)](using-asp-net-mvc-with-different-versions-of-iis-vb.md)
+- [さまざまなバージョンの IIS と共に ASP.NET MVC (C#)](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+- [さまざまなバージョンの IIS と共に ASP.NET MVC (VB)](using-asp-net-mvc-with-different-versions-of-iis-vb.md)

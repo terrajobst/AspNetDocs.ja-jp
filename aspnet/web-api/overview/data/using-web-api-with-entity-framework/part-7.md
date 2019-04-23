@@ -12,14 +12,14 @@ ms.openlocfilehash: 62c4523c2c6fb399cfbc3716309a1379996d601c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408239"
 ---
 # <a name="create-the-view-ui"></a>ビューの作成 (UI)
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、アプリでは、HTML を定義し、HTML とビュー モデル間のデータ バインディングを追加する開始されます。
 
@@ -29,7 +29,7 @@ Views/Home/Index.cshtml ファイルを開きます。 次のように、その�
 
 ほとんどの`div`要素はあります[ブートス トラップ](http://getbootstrap.com/)のスタイルを設定します。 重要な要素は、のあるもの`data-bind`属性。 この属性は、HTML をビュー モデルにリンクします。
 
-例えば:
+例:
 
 [!code-html[Main](part-7/samples/sample2.html)]
 
@@ -39,7 +39,7 @@ Views/Home/Index.cshtml ファイルを開きます。 次のように、その�
 
 新しい値が割り当てられたときに`error`、Knockout でのテキストを更新する、`<p>`要素。
 
-`foreach`バインド通知の内容をループする Knockout、`books`配列。 Knockout、配列内の各項目を新規作成&lt;li&gt;要素。 バインドのコンテキスト内で、`foreach`配列項目のプロパティを参照してください。 例:
+`foreach`バインド通知の内容をループする Knockout、`books`配列。 Knockout、配列内の各項目を新規作成&lt;li&gt;要素。 バインドのコンテキスト内で、`foreach`配列項目のプロパティを参照してください。 例えば:
 
 [!code-html[Main](part-7/samples/sample4.html)]
 

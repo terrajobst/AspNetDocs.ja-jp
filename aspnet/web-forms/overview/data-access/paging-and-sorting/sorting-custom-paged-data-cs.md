@@ -12,7 +12,7 @@ ms.openlocfilehash: a65fe60dc44eb40591733ba9371e409f690fea52
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409240"
 ---
 # <a name="sorting-custom-paged-data-c"></a>カスタム ページングを適用したデータを並べ替える (C#)
@@ -71,7 +71,7 @@ ms.locfileid: "59409240"
 **図 1**:ストアド プロシージャの 3 つ入力パラメーターを異なる値をお試しください。
 
 
-[![T彼はストアド プロシージャの結果は、出力ウィンドウに表示されます](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
+[![ストアド プロシージャの結果は、出力ウィンドウに表示されます。](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
 
 **図 2**:ストアド プロシージャの結果は、出力ウィンドウに表示されます ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-cs/_static/image4.png))。
 
@@ -145,7 +145,7 @@ GridView の並べ替え機能を有効にするチェック ボックスを並�
 図 7 で並べ替えたときの結果の最初のページを示しています、`UnitPrice`で昇順に並べ替えます。
 
 
-[![T彼の結果は、UnitPrice ごとに表示](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
+[![結果は、UnitPrice 順に並べ替えられます。](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
 
 **図 7**:結果は、UnitPrice で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-cs/_static/image11.png))。
 
@@ -166,7 +166,7 @@ GridView の並べ替え機能を有効にするチェック ボックスを並�
 **図 9**:変更 CompanyName を仕入 BoundField の SortExpression
 
 
-[![T彼は業者によって結果を並べ替えるようになりました](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
+[![業者によって、結果を並べ替えるようになりました](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
 
 **図 10**:結果は今すぐで並べ替えられます Supplier ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-cs/_static/image16.png))。
 
