@@ -12,16 +12,16 @@ ms.openlocfilehash: 6478ad3c8ef599dcf17c998cb0ce3c71a0039223
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418795"
 ---
-# <a name="aspnet-mvc-storefront-part-24-finis"></a><span data-ttu-id="d1455-104">ASP.NET MVC Storefront 第 24 部:終わり</span><span class="sxs-lookup"><span data-stu-id="d1455-104">ASP.NET MVC Storefront Part 24: Finis</span></span>
+# <a name="aspnet-mvc-storefront-part-24-finis"></a><span data-ttu-id="a1152-104">ASP.NET MVC Storefront 第 24 部:終わり</span><span class="sxs-lookup"><span data-stu-id="a1152-104">ASP.NET MVC Storefront Part 24: Finis</span></span>
 
-<span data-ttu-id="d1455-105">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="d1455-105">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="a1152-105">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="a1152-105">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="d1455-106">これは MVC Storefront シリーズの最後のエピソードであり、これは少々 奇妙に思えるかもしれません。</span><span class="sxs-lookup"><span data-stu-id="d1455-106">This is the last episode in the MVC Storefront series and this might seem a bit odd.</span></span> <span data-ttu-id="d1455-107">間違いなく行います。 ASP.NET MVC、に関して最後スクリーン キャストはありません突然このシリーズでもよいと思います。</span><span class="sxs-lookup"><span data-stu-id="d1455-107">It's definitely not the last screencast I'll do with respect to ASP.NET MVC, but I think I've gone about as far as I can go with this series.</span></span>
+<span data-ttu-id="a1152-106">これは MVC Storefront シリーズの最後のエピソードであり、これは少々 奇妙に思えるかもしれません。</span><span class="sxs-lookup"><span data-stu-id="a1152-106">This is the last episode in the MVC Storefront series and this might seem a bit odd.</span></span> <span data-ttu-id="a1152-107">間違いなく行います。 ASP.NET MVC、に関して最後スクリーン キャストはありません突然このシリーズでもよいと思います。</span><span class="sxs-lookup"><span data-stu-id="a1152-107">It's definitely not the last screencast I'll do with respect to ASP.NET MVC, but I think I've gone about as far as I can go with this series.</span></span>
 
-[<span data-ttu-id="d1455-108">&#9654;ビデオ (27 分)</span><span class="sxs-lookup"><span data-stu-id="d1455-108">&#9654; Watch video (27 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
+[<span data-ttu-id="a1152-108">&#9654;ビデオ (27 分)</span><span class="sxs-lookup"><span data-stu-id="a1152-108">&#9654; Watch video (27 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="d1455-109">前へ</span><span class="sxs-lookup"><span data-stu-id="d1455-109">Previous</span></span>](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+> [<span data-ttu-id="a1152-109">前へ</span><span class="sxs-lookup"><span data-stu-id="a1152-109">Previous</span></span>](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)

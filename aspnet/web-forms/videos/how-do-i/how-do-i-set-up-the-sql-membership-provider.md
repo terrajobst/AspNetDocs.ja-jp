@@ -12,13 +12,13 @@ ms.openlocfilehash: 496c520163e75ca6a0e017e2459daa025f33f481
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412620"
 ---
-# <a name="how-do-i-set-up-the-sql-membership-provider"></a><span data-ttu-id="fc4fb-104">[How Do i:]SQL メンバーシップ プロバイダーをセットアップします。</span><span class="sxs-lookup"><span data-stu-id="fc4fb-104">[How Do I:] Set Up the SQL Membership Provider</span></span>
+# <a name="how-do-i-set-up-the-sql-membership-provider"></a><span data-ttu-id="d82bc-104">[How Do i:]SQL メンバーシップ プロバイダーをセットアップします。</span><span class="sxs-lookup"><span data-stu-id="d82bc-104">[How Do I:] Set Up the SQL Membership Provider</span></span>
 
-<span data-ttu-id="fc4fb-105">によって[Patrick hynds が](https://twitter.com/patrickhynds)</span><span class="sxs-lookup"><span data-stu-id="fc4fb-105">by [Patrick Hynds](https://twitter.com/patrickhynds)</span></span>
+<span data-ttu-id="d82bc-105">によって[Patrick hynds が](https://twitter.com/patrickhynds)</span><span class="sxs-lookup"><span data-stu-id="d82bc-105">by [Patrick Hynds](https://twitter.com/patrickhynds)</span></span>
 
-<span data-ttu-id="fc4fb-106">Join Patrick hynds がフォーム認証、ASP.NET 2.0 Web サイトを追加する SQL メンバーシップ プロバイダーを設定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="fc4fb-106">Join Patrick Hynds as he demonstrates how to set up the SQL Membership Provider to add Forms authentication to your ASP.NET 2.0 Web site.</span></span> <span data-ttu-id="fc4fb-107">いくつかのヒントとテクニック、aspnet を使用するなど、関連する\_regsql.exe ユーティリティは、ビデオ、記載されています。</span><span class="sxs-lookup"><span data-stu-id="fc4fb-107">There are a few tips and tricks involved, such as using the aspnet\_regsql.exe utility, which are covered in the video.</span></span>
+<span data-ttu-id="d82bc-106">Join Patrick hynds がフォーム認証、ASP.NET 2.0 Web サイトを追加する SQL メンバーシップ プロバイダーを設定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="d82bc-106">Join Patrick Hynds as he demonstrates how to set up the SQL Membership Provider to add Forms authentication to your ASP.NET 2.0 Web site.</span></span> <span data-ttu-id="d82bc-107">いくつかのヒントとテクニック、aspnet を使用するなど、関連する\_regsql.exe ユーティリティは、ビデオ、記載されています。</span><span class="sxs-lookup"><span data-stu-id="d82bc-107">There are a few tips and tricks involved, such as using the aspnet\_regsql.exe utility, which are covered in the video.</span></span>
 
-[<span data-ttu-id="fc4fb-108">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="fc4fb-108">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-set-up-the-sql-membership-provider)
+[<span data-ttu-id="d82bc-108">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="d82bc-108">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-set-up-the-sql-membership-provider)

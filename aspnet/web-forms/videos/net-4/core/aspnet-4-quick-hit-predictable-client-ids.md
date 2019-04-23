@@ -12,18 +12,18 @@ ms.openlocfilehash: f06dd645811e7c6bc4c5dea8cdceae629756e7bf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420472"
 ---
-# <a name="aspnet-4-quick-hit---predictable-client-ids"></a><span data-ttu-id="2f638-103">ASP.NET 4「クイック ヒット」- 予測可能なクライアント Id</span><span class="sxs-lookup"><span data-stu-id="2f638-103">ASP.NET 4 "Quick Hit" - Predictable Client IDs</span></span>
+# <a name="aspnet-4-quick-hit---predictable-client-ids"></a><span data-ttu-id="37a5b-103">ASP.NET 4「クイック ヒット」- 予測可能なクライアント Id</span><span class="sxs-lookup"><span data-stu-id="37a5b-103">ASP.NET 4 "Quick Hit" - Predictable Client IDs</span></span>
 
-<span data-ttu-id="2f638-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="2f638-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="37a5b-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="37a5b-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="2f638-105">このビデオでは、ClientIDMode プロパティについて説明しますが、コントロールのクライアント ID が生成される方法により正確に指定することができます。</span><span class="sxs-lookup"><span data-stu-id="2f638-105">In this video you will learn about the ClientIDMode property, which lets you specify more precisely how the client ID is generated for controls.</span></span> 
+<span data-ttu-id="37a5b-105">このビデオでは、ClientIDMode プロパティについて説明しますが、コントロールのクライアント ID が生成される方法により正確に指定することができます。</span><span class="sxs-lookup"><span data-stu-id="37a5b-105">In this video you will learn about the ClientIDMode property, which lets you specify more precisely how the client ID is generated for controls.</span></span> 
 
-[<span data-ttu-id="2f638-106">&#9654;ビデオでは (10 分)</span><span class="sxs-lookup"><span data-stu-id="2f638-106">&#9654; Watch video (10 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-predictable-client-ids)
+[<span data-ttu-id="37a5b-106">&#9654;ビデオでは (10 分)</span><span class="sxs-lookup"><span data-stu-id="37a5b-106">&#9654; Watch video (10 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-predictable-client-ids)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="2f638-107">[前へ](aspnet-4-quick-hit-clean-webconfig-files.md)
-> [次へ](aspnet-4-quick-hit-the-htmlencoder-utility-method.md)</span><span class="sxs-lookup"><span data-stu-id="2f638-107">[Previous](aspnet-4-quick-hit-clean-webconfig-files.md)
+> <span data-ttu-id="37a5b-107">[前へ](aspnet-4-quick-hit-clean-webconfig-files.md)
+> [次へ](aspnet-4-quick-hit-the-htmlencoder-utility-method.md)</span><span class="sxs-lookup"><span data-stu-id="37a5b-107">[Previous](aspnet-4-quick-hit-clean-webconfig-files.md)
 [Next](aspnet-4-quick-hit-the-htmlencoder-utility-method.md)</span></span>

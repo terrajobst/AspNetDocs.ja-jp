@@ -12,18 +12,18 @@ ms.openlocfilehash: 937451d8cfa5bb96ca6abebf440af86c2c2746ab
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411463"
 ---
-# <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a><span data-ttu-id="ce614-103">ASP.NET MVC Storefront 第 4 部:Linq To Sql スパイク</span><span class="sxs-lookup"><span data-stu-id="ce614-103">ASP.NET MVC Storefront Part 4: Linq To Sql Spike</span></span>
+# <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a><span data-ttu-id="e6ffd-103">ASP.NET MVC Storefront 第 4 部:Linq To Sql スパイク</span><span class="sxs-lookup"><span data-stu-id="e6ffd-103">ASP.NET MVC Storefront Part 4: Linq To Sql Spike</span></span>
 
-<span data-ttu-id="ce614-104">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="ce614-104">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="e6ffd-104">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="e6ffd-104">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="ce614-105">Rob「急増」を作成します - マイ データ アクセス パターン用の思考やインスピレーションをテストする - その Linq に Sql を確認する機能は動作します。</span><span class="sxs-lookup"><span data-stu-id="ce614-105">Rob creates a "spike" - a bit of functionality to test a thought or inspiration - to make sure that Linq To Sql will work for my data access pattern.</span></span>
+<span data-ttu-id="e6ffd-105">Rob「急増」を作成します - マイ データ アクセス パターン用の思考やインスピレーションをテストする - その Linq に Sql を確認する機能は動作します。</span><span class="sxs-lookup"><span data-stu-id="e6ffd-105">Rob creates a "spike" - a bit of functionality to test a thought or inspiration - to make sure that Linq To Sql will work for my data access pattern.</span></span>
 
-[<span data-ttu-id="ce614-106">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="ce614-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
+[<span data-ttu-id="e6ffd-106">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="e6ffd-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="ce614-107">[前へ](aspnet-mvc-storefront-part-3-pipes-and-filters.md)
-> [次へ](aspnet-mvc-storefront-part-5-globalization.md)</span><span class="sxs-lookup"><span data-stu-id="ce614-107">[Previous](aspnet-mvc-storefront-part-3-pipes-and-filters.md)
+> <span data-ttu-id="e6ffd-107">[前へ](aspnet-mvc-storefront-part-3-pipes-and-filters.md)
+> [次へ](aspnet-mvc-storefront-part-5-globalization.md)</span><span class="sxs-lookup"><span data-stu-id="e6ffd-107">[Previous](aspnet-mvc-storefront-part-3-pipes-and-filters.md)
 [Next](aspnet-mvc-storefront-part-5-globalization.md)</span></span>

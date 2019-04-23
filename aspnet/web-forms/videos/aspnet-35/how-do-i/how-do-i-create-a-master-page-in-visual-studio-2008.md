@@ -12,16 +12,16 @@ ms.openlocfilehash: b9eef4f60789e4e1f4e28e06b35e0dd76006998a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412061"
 ---
-# <a name="how-do-i-create-a-master-page-in-visual-studio-2008"></a><span data-ttu-id="82fb7-103">[How Do i:]Visual Studio 2008 でマスター ページを作成します。</span><span class="sxs-lookup"><span data-stu-id="82fb7-103">[How Do I:] Create a Master Page in Visual Studio 2008</span></span>
+# <a name="how-do-i-create-a-master-page-in-visual-studio-2008"></a><span data-ttu-id="821d0-103">[How Do i:]Visual Studio 2008 でマスター ページを作成します。</span><span class="sxs-lookup"><span data-stu-id="821d0-103">[How Do I:] Create a Master Page in Visual Studio 2008</span></span>
 
-<span data-ttu-id="82fb7-104">Asli Bilgin によって</span><span class="sxs-lookup"><span data-stu-id="82fb7-104">by Asli Bilgin</span></span>
+<span data-ttu-id="821d0-104">Asli Bilgin によって</span><span class="sxs-lookup"><span data-stu-id="821d0-104">by Asli Bilgin</span></span>
 
-<span data-ttu-id="82fb7-105">このビデオでは、Visual Studio 2008 に .NET 3.5 を使用して、シンプルなマスター ページを作成する方法を紹介します。</span><span class="sxs-lookup"><span data-stu-id="82fb7-105">In this video I will demonstrate how to create a simple Master Page using .NET 3.5 in Visual Studio 2008.</span></span>
+<span data-ttu-id="821d0-105">このビデオでは、Visual Studio 2008 に .NET 3.5 を使用して、シンプルなマスター ページを作成する方法を紹介します。</span><span class="sxs-lookup"><span data-stu-id="821d0-105">In this video I will demonstrate how to create a simple Master Page using .NET 3.5 in Visual Studio 2008.</span></span>
 
-[<span data-ttu-id="82fb7-106">&#9654;ビデオ (8 分)</span><span class="sxs-lookup"><span data-stu-id="82fb7-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-master-page-in-visual-studio-2008)
+[<span data-ttu-id="821d0-106">&#9654;ビデオ (8 分)</span><span class="sxs-lookup"><span data-stu-id="821d0-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-master-page-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="82fb7-107">次へ</span><span class="sxs-lookup"><span data-stu-id="82fb7-107">Next</span></span>](how-do-i-create-nested-master-page-in-visual-studio-2008.md)
+> [<span data-ttu-id="821d0-107">次へ</span><span class="sxs-lookup"><span data-stu-id="821d0-107">Next</span></span>](how-do-i-create-nested-master-page-in-visual-studio-2008.md)

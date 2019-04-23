@@ -12,18 +12,18 @@ ms.openlocfilehash: 1682565cb872ed999c1285ddd2641a7afe02c4d2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412087"
 ---
-# <a name="working-with-video"></a><span data-ttu-id="1f799-103">ビデオの操作</span><span class="sxs-lookup"><span data-stu-id="1f799-103">Working with Video</span></span>
+# <a name="working-with-video"></a><span data-ttu-id="50030-103">ビデオの操作</span><span class="sxs-lookup"><span data-stu-id="50030-103">Working with Video</span></span>
 
-<span data-ttu-id="1f799-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="1f799-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="50030-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="50030-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="1f799-105">ビデオの主役にビデオ チュートリアルを使用した作業</span><span class="sxs-lookup"><span data-stu-id="1f799-105">Video accompaniment to the Working with Video tutorial</span></span>
+<span data-ttu-id="50030-105">ビデオの主役にビデオ チュートリアルを使用した作業</span><span class="sxs-lookup"><span data-stu-id="50030-105">Video accompaniment to the Working with Video tutorial</span></span>
 
-[<span data-ttu-id="1f799-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="1f799-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-video)
+[<span data-ttu-id="50030-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="50030-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-video)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="1f799-107">[前へ](working-with-images.md)
-> [次へ](adding-email-to-your-web-site.md)</span><span class="sxs-lookup"><span data-stu-id="1f799-107">[Previous](working-with-images.md)
+> <span data-ttu-id="50030-107">[前へ](working-with-images.md)
+> [次へ](adding-email-to-your-web-site.md)</span><span class="sxs-lookup"><span data-stu-id="50030-107">[Previous](working-with-images.md)
 [Next](adding-email-to-your-web-site.md)</span></span>

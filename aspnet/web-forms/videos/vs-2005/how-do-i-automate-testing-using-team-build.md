@@ -12,18 +12,18 @@ ms.openlocfilehash: 9692a2a981d8521fa2e4f9344d2bcdfbf2e97ffd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416546"
 ---
-# <a name="how-do-i-automate-testing-using-team-build"></a><span data-ttu-id="be2c5-104">[How Do i:]チーム ビルドを使用してテストを自動化しますか。</span><span class="sxs-lookup"><span data-stu-id="be2c5-104">[How Do I:] Automate Testing using Team Build?</span></span>
+# <a name="how-do-i-automate-testing-using-team-build"></a><span data-ttu-id="24f75-104">[How Do i:]チーム ビルドを使用してテストを自動化しますか。</span><span class="sxs-lookup"><span data-stu-id="24f75-104">[How Do I:] Automate Testing using Team Build?</span></span>
 
-<span data-ttu-id="be2c5-105">によって[Chris Menegay](https://twitter.com/CMenegay)</span><span class="sxs-lookup"><span data-stu-id="be2c5-105">by [Chris Menegay](https://twitter.com/CMenegay)</span></span>
+<span data-ttu-id="24f75-105">によって[Chris Menegay](https://twitter.com/CMenegay)</span><span class="sxs-lookup"><span data-stu-id="24f75-105">by [Chris Menegay](https://twitter.com/CMenegay)</span></span>
 
-<span data-ttu-id="be2c5-106">このビデオでは Visual Studio Team System を使用して、チーム ビルド中に実行される自動テストを定義する方法とどのようにドリルダウンできますこれらのテストの結果を説明します。</span><span class="sxs-lookup"><span data-stu-id="be2c5-106">In this video we learn how to use Visual Studio Team System to define the automated tests that will run during a team build, and how we can drill down in to the results of those tests.</span></span> <span data-ttu-id="be2c5-107">私たちも学習、[テスト ツール ビルド タスク](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt)チーム ビルド中に実行するテストを指定する別の方法を提供します。</span><span class="sxs-lookup"><span data-stu-id="be2c5-107">We also learn that the [Test Tools Build Task](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt) provides an alternative way of specifying the tests to run during a team build.</span></span>
+<span data-ttu-id="24f75-106">このビデオでは Visual Studio Team System を使用して、チーム ビルド中に実行される自動テストを定義する方法とどのようにドリルダウンできますこれらのテストの結果を説明します。</span><span class="sxs-lookup"><span data-stu-id="24f75-106">In this video we learn how to use Visual Studio Team System to define the automated tests that will run during a team build, and how we can drill down in to the results of those tests.</span></span> <span data-ttu-id="24f75-107">私たちも学習、[テスト ツール ビルド タスク](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt)チーム ビルド中に実行するテストを指定する別の方法を提供します。</span><span class="sxs-lookup"><span data-stu-id="24f75-107">We also learn that the [Test Tools Build Task](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt) provides an alternative way of specifying the tests to run during a team build.</span></span>
 
-[<span data-ttu-id="be2c5-108">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="be2c5-108">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-automate-testing-using-team-build)
+[<span data-ttu-id="24f75-108">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="24f75-108">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-automate-testing-using-team-build)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="be2c5-109">[前へ](how-do-i-implement-continuous-integration-with-team-foundation.md)
-> [次へ](how-do-i-deploy-a-web-application-during-a-team-build.md)</span><span class="sxs-lookup"><span data-stu-id="be2c5-109">[Previous](how-do-i-implement-continuous-integration-with-team-foundation.md)
+> <span data-ttu-id="24f75-109">[前へ](how-do-i-implement-continuous-integration-with-team-foundation.md)
+> [次へ](how-do-i-deploy-a-web-application-during-a-team-build.md)</span><span class="sxs-lookup"><span data-stu-id="24f75-109">[Previous](how-do-i-implement-continuous-integration-with-team-foundation.md)
 [Next](how-do-i-deploy-a-web-application-during-a-team-build.md)</span></span>

@@ -12,13 +12,13 @@ ms.openlocfilehash: b3e62d86cf991567dc7e481046a496b28165cf39
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418782"
 ---
-# <a name="visual-studio-2013-web-editor-features---html-editor"></a><span data-ttu-id="7d7e2-103">Visual Studio 2013 Web エディター機能 - HTML エディター</span><span class="sxs-lookup"><span data-stu-id="7d7e2-103">Visual Studio 2013 Web Editor Features - HTML Editor</span></span>
+# <a name="visual-studio-2013-web-editor-features---html-editor"></a><span data-ttu-id="9f48d-103">Visual Studio 2013 Web エディター機能 - HTML エディター</span><span class="sxs-lookup"><span data-stu-id="9f48d-103">Visual Studio 2013 Web Editor Features - HTML Editor</span></span>
 
-<span data-ttu-id="7d7e2-104">によって[Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="7d7e2-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
+<span data-ttu-id="9f48d-104">によって[Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="9f48d-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
 
-<span data-ttu-id="7d7e2-105">Mads Kristensen の表示、HTML 要素すべての CSS クラスの完全な IntelliSense を含む Visual Studio 2013 での HTML エディターの機能を無効および ID で、プロジェクト、HTML エンティティ、リッチ スニペット、ドラッグ アンド ドロップ メディアは、AngularJS などの最新のライブラリのサポートKnockoutJS と Handlebars、およびさまざまなメタ タグ。</span><span class="sxs-lookup"><span data-stu-id="7d7e2-105">Mads Kristensen shows off HTML editor features in Visual Studio 2013, including full IntelliSense for HTML elements, all CSS classes and ID's in your project, HTML entities, rich snippets, drag and drop for media, support for modern libraries like AngularJS, KnockoutJS and Handlebars, and a variety of meta tags.</span></span>
+<span data-ttu-id="9f48d-105">Mads Kristensen の表示、HTML 要素すべての CSS クラスの完全な IntelliSense を含む Visual Studio 2013 での HTML エディターの機能を無効および ID で、プロジェクト、HTML エンティティ、リッチ スニペット、ドラッグ アンド ドロップ メディアは、AngularJS などの最新のライブラリのサポートKnockoutJS と Handlebars、およびさまざまなメタ タグ。</span><span class="sxs-lookup"><span data-stu-id="9f48d-105">Mads Kristensen shows off HTML editor features in Visual Studio 2013, including full IntelliSense for HTML elements, all CSS classes and ID's in your project, HTML entities, rich snippets, drag and drop for media, support for modern libraries like AngularJS, KnockoutJS and Handlebars, and a variety of meta tags.</span></span>
 
-[<span data-ttu-id="7d7e2-106">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="7d7e2-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2013-web-editor-features-html-editor)
+[<span data-ttu-id="9f48d-106">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="9f48d-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2013-web-editor-features-html-editor)
