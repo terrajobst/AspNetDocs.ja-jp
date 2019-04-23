@@ -12,7 +12,7 @@ ms.openlocfilehash: 149312e2ddf0a5023a4a12f5b05852f7da6b18f8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418171"
 ---
 # <a name="aspnet-mvc-overview"></a>ASP.NET MVC 概要
@@ -29,7 +29,7 @@ MVC は、多くの開発者が慣れ親しんでいる標準的な設計パタ�
 MVC フレームワークには、次のコンポーネントが含まれています。
 
 
-[![Invoking コント ローラーのアクション パラメーターの値が必要とする](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
+[![パラメーターの値が必要とするコント ローラー アクションの呼び出し](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
 
 **図 01**:パラメーターの値が必要とするコント ローラー アクションの呼び出し ([フルサイズの画像を表示する をクリックします](asp-net-mvc-overview/_static/image2.png))。
 

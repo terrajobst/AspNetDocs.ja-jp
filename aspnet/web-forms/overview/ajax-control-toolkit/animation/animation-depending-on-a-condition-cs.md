@@ -12,7 +12,7 @@ ms.openlocfilehash: c05f0976a135615f7a272b8057eb4c56677e5117
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412425"
 ---
 # <a name="animation-depending-on-a-condition-c"></a>条件に基づくアニメーション (C#)
@@ -53,7 +53,7 @@ ms.locfileid: "59412425"
 なお、小なり記号 (`<`) で、`ConditionScript`属性は () をエスケープする必要があります。 ときにないアニメーション実行される、このスクリプトを実行するまたは、2 つのいずれかまたは両方の操作を行います。
 
 
-[![T彼のパネルは、2 番目のアニメーション実行の 1 つ目にしていないため、サイズを変更せずフェードが](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
+[![パネルがフェードアウト、サイズを変更せず 1 つ目、2 番目のアニメーション実行していないため](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
 
 パネルがフェードアウト、サイズを変更せず 1 つ目、2 番目のアニメーション実行していないため ([フルサイズの画像を表示する をクリックします](animation-depending-on-a-condition-cs/_static/image3.png))。
 

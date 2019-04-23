@@ -12,7 +12,7 @@ ms.openlocfilehash: 51e5c6f5c1b4007e0e7f927a4d758f3784cdf22b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412724"
 ---
 # <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>ASP.NET MVC を使用し、映画データベース アプリケーションを 15 分で作成する (VB)
@@ -78,7 +78,7 @@ Visual Studio 2008 または Visual Web Developer 2008 をインストールし�
 Visual Studio 2008 で新しい ASP.NET MVC Web アプリケーション プロジェクトを作成してみましょう。 メニュー オプションを選択**ファイル、新しいプロジェクト**図 1 新しいプロジェクト ダイアログ ボックスが表示されます。 プログラミング言語と Visual Basic を選択し、ASP.NET MVC Web アプリケーション プロジェクト テンプレートを選択します。 プロジェクト MovieApp の名前を付け、[ok] ボタンをクリックします。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.png)
 
 **図 01**:[新しいプロジェクト] ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.png))。
 
@@ -93,7 +93,7 @@ Visual Studio 2008 で新しい ASP.NET MVC Web アプリケーション プロ�
 > Visual Web Developer では、テスト プロジェクトはサポートされません。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.png)
 
 **図 02**:単体テスト プロジェクトの作成 ダイアログ ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.png))。
 
@@ -120,7 +120,7 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 > サーバー エクスプ ローラー ウィンドウには、Visual Web Developer の場合、データベース エクスプ ローラー ウィンドウがという名前です。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image3.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.png)
 
 **図 03**:Microsoft SQL Server データベースを作成する ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.png))。
 
@@ -130,7 +130,7 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 <a id="0.2_table01"></a>
 
 
-| **列名** | **データ型** | **Null を許容** |
+| **列名** | **[データ型]** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
 | Title | nvarchar (100) | False |
@@ -141,7 +141,7 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 最初の列、Id 列には、2 つの特殊なプロパティがあります。 最初に、Id 列を主キー列としてマークする必要があります。 Id 列を選択すると、クリックして、**主キーの設定**(キーのようなアイコンは) ボタンをクリックします。 次に、Id 列が Id 列としてマークする必要があります。 列のプロパティ ウィンドウでは、Identity の指定 セクションまでスクロールしを展開します。 変更、 **Id**プロパティ値を**はい**します。 完了したら、図 4 ようテーブルになります。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image4.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.png)
 
 **図 04**:映画データベース テーブル ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.png))。
 
@@ -151,7 +151,7 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 テーブルの作成が完了したら、ムービー レコードの一部をテーブルに追加します。 サーバー エクスプ ローラー ウィンドウで映画のテーブルを右クリックし、メニュー オプションを選択**テーブル データの表示**します。 (図 5 参照)、お気に入りの映画の一覧を入力します。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.png)
 
 **図 05**:ムービーのレコードの入力 ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.png))。
 
@@ -178,7 +178,7 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 3. **データベース オブジェクトの選択**ステップ、[テーブル] ノードを展開し、映画のテーブルを選択します。 名前空間を入力*MovieApp.Models*  をクリックし、**完了**ボタンをクリックします。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image6.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.png)
 
 **図 06**:Entity Data Model ウィザードでデータベース モデルを生成する ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.png))。
 
@@ -186,7 +186,7 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 Entity Data Model ウィザードを完了すると、Entity Data Model のデザイナーが開きます。 デザイナーは、映画データベース テーブルを表示する必要があります (図 7 を参照してください)。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image7.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.png)
 
 **図 07**:Entity Data Model デザイナー ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.png))。
 
@@ -208,7 +208,7 @@ Entity Data Model ウィザードを完了すると、Entity Data Model のデ�
 次の手順を完了すると、リスト 1 で、コント ローラーが作成されます。 インデックスの詳細は、作成、という名前のメソッドが含まれていることを確認および編集します。 次のセクションを使用するこれらのメソッドを取得するために必要なコードを追加します。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image15.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image8.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image15.png)
 
 **図 08**:新しい ASP.NET MVC コント ローラーの追加 ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image16.png))。
 
@@ -248,12 +248,12 @@ Index() メソッドは、インデックスをという名前のビューを返
 次の手順を完了すると、Index.aspx をという名前の新しいビューは views \home フォルダーに追加されます。 リスト 3 では、インデックス ビューの内容が含まれます。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image17.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image17.png)
 
 **図 09**:コント ローラー アクションからビューの追加 ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image18.png))。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image19.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image19.png)
 
 **図 10**:ビューの追加 ダイアログで新しいビューを作成する ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image20.png))。
 
@@ -263,7 +263,7 @@ Index() メソッドは、インデックスをという名前のビューを返
 インデックス ビューには、すべての HTML テーブル内の映画データベース テーブルからムービー レコードが表示されます。 ビューには、For が含まれています。 各 ViewData.Model プロパティで表される各ムービーを反復処理するループします。 F5 キーを押すことによって、アプリケーションを実行すると、図 11 では、web ページが表示されます。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image21.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image11.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image21.png)
 
 **図 11**:インデックス ビュー ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image22.png))。
 
@@ -296,7 +296,7 @@ Visual Studio で簡単に新しいムービー データベースを作成す�
 5. をクリックして、**追加**新しいビューを作成するボタンをクリックします。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image23.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image12.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image23.png)
 
 **図 12**:作成ビューの追加 ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image24.png))。
 
@@ -317,7 +317,7 @@ Visual Studio は、自動的にリスト 5 で、ビューを生成します。
 フォームの検証を自動的に取得することに注意してください。 、映画のリリース日を入力を怠ると、または無効なリリース日を入力する、、フォームが再表示し、リリース日フィールドが強調表示されます。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image25.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image25.png)
 
 **図 13**:新しいムービーのデータベース レコードを作成する ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image26.png))。
 
@@ -337,7 +337,7 @@ Visual Studio は、自動的にリスト 5 で、ビューを生成します。
 次の手順を完了するには、views \home フォルダーに Edit.aspx をという名前の新しいビューが追加されます。 このビューには、ムービーのレコードを編集するための HTML フォームが含まれています。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image27.png)
+[![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image27.png)
 
 **図 14**:編集ビューの追加 ([フルサイズの画像を表示する をクリックします](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image28.png))。
 

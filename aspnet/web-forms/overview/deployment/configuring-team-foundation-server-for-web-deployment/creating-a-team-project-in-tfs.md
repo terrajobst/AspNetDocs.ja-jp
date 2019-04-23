@@ -12,14 +12,14 @@ ms.openlocfilehash: 1e727e8124e1f045f8ef25ab7a3d4efbafd4290a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411216"
 ---
 # <a name="creating-a-team-project-in-tfs"></a>TFS でチーム プロジェクトを作成する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、Team Foundation Server (TFS) 2010 で、新しいチーム プロジェクトを作成する方法について説明します。
 
@@ -106,8 +106,7 @@ ms.locfileid: "59411216"
 
    > [!NOTE]
    > 表示される、 <strong>HTTP 404 Not Found</strong>エラー二重 HTTP エンコード バグが発生しました。 この場合、この URL に置き換えます。   
-   > `[site_collection_URL]/_layouts/permsetup.aspx`
-   > 例:  
+   > `[site_collection_URL]/_layouts/permsetup.aspx` 例えば：  
    > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
 8. **このサイトのグループの設定**ページで、チーム プロジェクトを作成するユーザーを追加、**所有者**グループ化、およびクリックして **[ok]** します。
 

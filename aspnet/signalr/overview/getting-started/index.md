@@ -12,7 +12,7 @@ ms.openlocfilehash: 3e720dd895c609d5b35848dbc4d4a6989028ff7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418756"
 ---
 # <a name="signalr-getting-started"></a>SignalR の概要
@@ -26,4 +26,4 @@ ms.locfileid: "59418756"
 - [チュートリアル: SignalR 2 と MVC 5 の概要](tutorial-getting-started-with-signalr-and-mvc.md)
 - [チュートリアル: SignalR 2 による高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)
 - [チュートリアル: SignalR 2 によるサーバー ブロードキャスト](tutorial-server-broadcast-with-signalr.md)
-- [ハンズ オン ラボ:SignalR によるリアルタイム Web アプリ](real-time-web-applications-with-signalr.md)
+- [ハンズ オン ラボ:SignalR によるリアルタイムの Web アプリケーション](real-time-web-applications-with-signalr.md)

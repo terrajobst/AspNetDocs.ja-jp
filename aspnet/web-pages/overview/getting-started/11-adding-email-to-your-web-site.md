@@ -12,7 +12,7 @@ ms.openlocfilehash: 0263f736b96f8e8572536f3783d86c261d7c0512
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411229"
 ---
 # <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトから電子メールを送信します。
@@ -136,5 +136,5 @@ ms.locfileid: "59411229"
 
 
 - [ASP.NET Web ページ (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)
-- [簡易メール転送プロトコル (Simple Mail Transfer Protocol)](https://msdn.microsoft.com/library/aa480435.aspx)
+- [簡易メール転送プロトコル](https://msdn.microsoft.com/library/aa480435.aspx)
 - [ASP.NET Web ページのサイト全体の動作をカスタマイズします。](https://go.microsoft.com/fwlink/?LinkId=202906)

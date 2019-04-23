@@ -12,7 +12,7 @@ ms.openlocfilehash: 91523180501f1d1eb67586bf97649ad6226ec565
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413231"
 ---
 # <a name="creating-a-rating-control-vb"></a>評価コントロールを作成する (VB)
@@ -66,7 +66,7 @@ ms.locfileid: "59413231"
 ページを保存し、お使いのブラウザーに読み込みます。 (最初は空) の評価の項目をポイントすると、JavaScript の効果が発生します。評価の変更。 一連の星をクリックすると、現在の評価が保持されます。 最後に、フォームを送信するときに、サーバー側コードは、選択した評価を出力します。
 
 
-[![C最小限のコードで評価システムの作成](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
+[![最小限のコードで評価システムを作成します。](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
 
 最小限のコードで評価システムを作成する ([フルサイズの画像を表示する をクリックします](creating-a-rating-control-vb/_static/image3.png))。
 

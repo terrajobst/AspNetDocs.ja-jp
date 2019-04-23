@@ -12,7 +12,7 @@ ms.openlocfilehash: c7c0de7ade31e43e3b43495cb6755608872d506d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412750"
 ---
 # <a name="aspnet-and-visual-studio-2013"></a>ASP.NET と Visual Studio 2013
@@ -27,7 +27,7 @@ ms.locfileid: "59412750"
 - [Visual Studio 2013 Web エディター機能 - 公開](visual-studio-2013-web-editor-features-publishing.md)
 - [Visual Studio 2013 Web エディター機能 - Page Inspector](visual-studio-2013-web-editor-features-page-inspector.md)
 - [Visual Studio 2013 Web エディター機能 - HTML エディター](visual-studio-2013-web-editor-features-html-editor.md)
-- [Visual Studio 2013 Web エディター機能 - HTML5](visual-studio-2013-web-editor-features-html5.md)
+- [Visual Studio 2013 Web エディター機能 - HTML HTML5](visual-studio-2013-web-editor-features-html5.md)
 - [Visual Studio 2013 の ASP.NET スキャフォールディング](aspnet-scaffolding-overview.md)
 - [ブラウザー リンク](using-browser-link.md)
 - [Visual Studio 2013 の ASP.NET と Web ツールのリリース ノート](release-notes.md)

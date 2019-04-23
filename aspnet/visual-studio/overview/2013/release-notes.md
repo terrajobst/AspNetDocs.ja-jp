@@ -12,7 +12,7 @@ ms.openlocfilehash: 8234bd1b7eb74d9b03e507f00d9ad937314288be
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411281"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Visual Studio 2013 の ASP.NET と Web ツールのリリース ノート
@@ -26,7 +26,7 @@ ms.locfileid: "59411281"
 
 - [インストールに関する注記](#TOC1)
 - [ドキュメント](#TOC2)
-- [ソフトウェア要件](#TOC4)
+- [ソフトウェアの要件](#TOC4)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET および Web Tools for Visual Studio 2013 の新機能
 
@@ -135,7 +135,7 @@ Azure SDK for .NET 2.2 で Visual Studio 2013 で使用できます**サーバ�
 詳細については、次のリソースを参照してください。
 
 - [Azure App Service で ASP.NET web アプリを作成します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
-- [Visual Studio を使用して Azure App Service で web アプリをトラブルシューティングします。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Visual Studio を使用した Azure App Service での Web アプリのトラブルシューティング](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Web の発行の機能強化
@@ -408,7 +408,7 @@ SignalR セルフホスト (プロセスでホストされている SignalR ア�
 
 ### <a name="backward-compatible-server-support"></a>旧バージョンと互換性のあるサーバーのサポート
 
-以前のバージョンの SignalR、SignalR パッケージがクライアントで使用されると同一であるために必要なサーバーのバージョン。 シック クライアント アプリケーションを更新することは困難をサポートするために SignalR 2.0 サポート古いクライアントで新しいサーバー バージョンを使用します。 **メモ:SignalR 2.0 は、新しいクライアントと以前のバージョンで構築されたサーバーをサポートしていません。**
+以前のバージョンの SignalR、SignalR パッケージがクライアントで使用されると同一であるために必要なサーバーのバージョン。 シック クライアント アプリケーションを更新することは困難をサポートするために SignalR 2.0 サポート古いクライアントで新しいサーバー バージョンを使用します。 **注:SignalR 2.0 は、新しいクライアントと以前のバージョンで構築されたサーバーをサポートしていません。**
 
 <a id="remove40"></a>
 
@@ -520,9 +520,9 @@ Microsoft OWIN コンポーネント (Katana プロジェクトとも呼ばれ�
 
 OWIN と Katana の詳細については、次を参照してください。 [OWIN と Katana の新](../../../aspnet/overview/owin-and-katana/index.md)します。
 
-**メモ:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) IIS クラシック モードでアプリケーションを実行できません。 これらは、統合モードで実行する必要があります。**
+**注:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) IIS クラシック モードでアプリケーションを実行できません。 これらは、統合モードで実行する必要があります。**
 
-**メモ:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)完全信頼でアプリケーションを実行する必要があります。**
+**注:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)完全信頼でアプリケーションを実行する必要があります。**
 
 ### <a name="new-servers-and-hosts"></a>新しいサーバーとホスト
 
@@ -627,9 +627,9 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
 
     **Error**: 
 
-    *'/' アプリケーションにサーバー エラーがあります。*
+    *'/' アプリケーションでは、サーバー エラーです。*
 
-    <em>種類の要求 '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'または'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' が指定した ClaimsIdentity に存在しませんでした。 クレーム ベース認証を使用した偽造防止トークンのサポートを有効にするには、構成されている要求プロバイダーが提供している生成 ClaimsIdentity インスタンスでこれらの要求の両方をくださいを確認します。 代わりに、構成されている要求プロバイダーは、一意の識別子としてさまざまなクレームの種類を使用する場合は、AntiForgeryConfig.UniqueClaimTypeIdentifier 静的プロパティを設定して構成できます。</em>
+    <em>種類の要求 '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'または'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' が指定した ClaimsIdentity に存在しませんでした。クレーム ベース認証を使用した偽造防止トークンのサポートを有効にするには、構成されている要求プロバイダーが提供している生成 ClaimsIdentity インスタンスでこれらの要求の両方をくださいを確認します。代わりに、構成されている要求プロバイダーは、一意の識別子としてさまざまなクレームの種類を使用する場合は、AntiForgeryConfig.UniqueClaimTypeIdentifier 静的プロパティを設定して構成できます。</em>
 
     **対応策**: 
 

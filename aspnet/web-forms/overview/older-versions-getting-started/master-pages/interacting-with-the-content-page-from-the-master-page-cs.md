@@ -12,7 +12,7 @@ ms.openlocfilehash: a2b6d3a5ceb66c14a78b02182f49d76c72becbd4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413647"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-c"></a>マスター ページからコンテンツ ページと対話する (C#)
@@ -51,7 +51,7 @@ ms.locfileid: "59413647"
 最初の注文のビジネスでは、Northwind データベースから製品を一覧表示されたコンテンツ ページを作成します。 (前のチュートリアルでは、プロジェクトに Northwind データベースを追加しました[*コンテンツ ページからマスター ページと対話する*](interacting-with-the-master-page-from-the-content-page-cs.md))。新しい ASP.NET ページを追加して、開始、`~/Admin`という名前のフォルダー`Products.aspx`を確実にそれをバインドに、`Site.master`マスター ページ。 図 1 は、このページは、web サイトに追加した後、ソリューション エクスプ ローラーを示します。
 
 
-[![Add Admin フォルダーに新しい ASP.NET ページ](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
+[![Admin フォルダーに新しい ASP.NET ページを追加します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
 
 **図 01**:新しい ASP.NET ページの追加、`Admin`フォルダー ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))。
 
@@ -68,7 +68,7 @@ ms.locfileid: "59413647"
 戻り`Products.aspx`します。 コンテンツ コントロールで`MainContent`GridView コントロールを追加し、名前、`ProductsGrid`します。 GridView をという名前の新しい SqlDataSource コントロールにバインド`ProductsDataSource`します。
 
 
-[![B%%ind 新しい SqlDataSource コントロールを GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
+[![GridView を新しい SqlDataSource コントロールにバインドします。](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
 
 **図 02**:SqlDataSource コントロールを新しい GridView にバインド ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))。
 
@@ -76,7 +76,7 @@ ms.locfileid: "59413647"
 ウィザードは、Northwind データベースを使用するように構成します。 かどうかは、前のチュートリアルを実行して、名前付き接続文字列が必要`NorthwindConnectionString`で`Web.config`します。 図 3 に示すように、この接続文字列をドロップダウン リストから選択します。
 
 
-[![C構成、SqlDataSource、Northwind データベースを使用する](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
+[![Northwind データベースを使用する SqlDataSource を構成します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
 
 **図 03**:Northwind データベースを使用する SqlDataSource の構成 ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))。
 
@@ -84,7 +84,7 @@ ms.locfileid: "59413647"
 データ ソース コントロールを次に、指定`SELECT`ステートメント、Products テーブルのドロップダウン リストから選択し、返すことによって、`ProductName`と`UnitPrice`列 (図 4 参照)。 [次へ] をクリックし、データ ソースの構成ウィザードを完了し、[完了] します。
 
 
-[![Return、ProductName と Products テーブルから UnitPrice フィールド](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
+[![Products テーブルから、ProductName と UnitPrice フィールドを返す](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
 
 **図 04**:返す、`ProductName`と`UnitPrice`フィールドから、`Products`テーブル ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))。
 
@@ -95,7 +95,7 @@ ms.locfileid: "59413647"
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample2.aspx)]
 
 
-[![Each 製品とその価格は、GridView で表示されます](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
+[![各製品とその価格は、GridView で表示されます。](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
 
 **図 05**:各製品とその価格は、GridView で表示されます ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))。
 
@@ -111,7 +111,7 @@ ms.locfileid: "59413647"
 次に、その名前を付け、マスター ページに、SqlDataSource コントロールを追加`DoublePricesDataSource`します。 実行に使用されるこの SqlDataSource、`UPDATE`ステートメントのすべての価格の 2 倍にします。 具体的には、設定する必要があります、`ConnectionString`と`UpdateCommand`を適切な接続文字列プロパティと`UPDATE`ステートメント。 この SqlDataSource コントロールを呼び出す必要がありますし、`Update`メソッドと、`DoublePrice`ボタンをクリックします。 設定する、`ConnectionString`と`UpdateCommand`プロパティ、SqlDataSource コントロールを選択し、[プロパティ] ウィンドウに移動します。 `ConnectionString`プロパティ リストに既に格納されているこれらの接続文字列`Web.config`をドロップダウン リストで選択、`NorthwindConnectionString`図 6 に示すようにオプションします。
 
 
-[![C構成、SqlDataSource、NorthwindConnectionString を使用する](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
+[![SqlDataSource、NorthwindConnectionString を使用する構成します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
 
 **図 06**:構成に使用する SqlDataSource、 `NorthwindConnectionString` ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))。
 
@@ -124,7 +124,7 @@ ms.locfileid: "59413647"
 実行すると、このステートメントが 2 倍、`UnitPrice`内の各レコードの値、`Products`テーブル。
 
 
-[![Set SqlDataSource の UpdateCommand プロパティ](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
+[![SqlDataSource の UpdateCommand プロパティを設定します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
 
 **図 07**:SqlDataSource の設定`UpdateCommand`プロパティ ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))。
 
@@ -225,12 +225,12 @@ ms.locfileid: "59413647"
 図 8 と 9 は、この動作を示しています。 図 8 は、最初にアクセスする際、ページを示します。 両方の値を価格に注意してください、 `RecentProducts` (マスター ページの左側の列) で GridView と`ProductsGrid`GridView (で、[コンテンツ] ページ)。 図 9 番組の直後に画面と同じ、`DoublePrice`ボタンがクリックしてされました。 ご覧のように、新しい料金が両方の Gridview で瞬時に反映されます。
 
 
-[![T彼の価格の初期値](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
+[![価格の初期値](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
 
 **図 08**:価格の初期値 ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))。
 
 
-[![T彼は Just-Doubled 価格は、Gridview に表示されます](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
+[![Just-Doubled 価格は、Gridview に表示されます。](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
 
 **図 09**:Just-Doubled 価格は、Gridview に表示されます ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))。
 

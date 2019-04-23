@@ -12,7 +12,7 @@ ms.openlocfilehash: abedf2dbf6fbc632b1857bf447f70aeb8f826d81
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410826"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>チュートリアル: SignalR 1.x と MVC 4 の概要
@@ -174,4 +174,4 @@ SignalR がリアルタイムの web アプリケーションを構築するた�
 
 - [SignalR プロジェクト](http://signalr.net)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)

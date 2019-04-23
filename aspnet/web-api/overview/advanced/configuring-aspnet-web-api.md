@@ -13,7 +13,7 @@ ms.openlocfilehash: 39629ba404e536b29318db00bce8c4443a782497
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411944"
 ---
 # <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2 の構成
@@ -36,14 +36,14 @@ Web API の構成設定が定義されている、 [HttpConfiguration](https://m
 | メンバー | 説明 |
 | --- | --- |
 | **DependencyResolver** | コント ローラーの依存関係の挿入を有効にします。 参照してください[、Web API の依存関係競合回避モジュールを使用して](dependency-injection.md)します。 |
-| **フィルター** | アクション フィルター。 |
-| **フォーマッタ** | [メディア タイプ フォーマッタ](../formats-and-model-binding/media-formatters.md)です。 |
+| **Filters** | アクション フィルター。 |
+| **Formatters** | [メディア タイプ フォーマッタ](../formats-and-model-binding/media-formatters.md)です。 |
 | **IncludeErrorDetailPolicy** | サーバーが HTTP 応答メッセージで例外メッセージやスタック トレースなどのエラーの詳細を含めるかどうかを指定します。 参照してください[IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108))します。 |
-| **初期化子** | 最終初期化を実行する関数、**HttpConfiguration**です。 |
+| **Initializer** | 最終初期化を実行する関数、**HttpConfiguration**です。 |
 | **MessageHandlers** | [HTTP メッセージ ハンドラー](http-message-handlers.md)します。 |
 | **ParameterBindingRules** | コント ローラー アクションのパラメーターをバインドするための規則のコレクション。 |
-| **プロパティ** | 汎用プロパティ バッグ。 |
-| **ルート** | ルートのコレクション。 参照してください[ASP.NET Web API でルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)です。 |
+| **Properties** | 汎用プロパティ バッグ。 |
+| **Routes** | ルートのコレクション。 参照してください[ASP.NET Web API でルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)です。 |
 | **Services** | サービスのコレクション。 参照してください[Services](#services)です。 |
 
 

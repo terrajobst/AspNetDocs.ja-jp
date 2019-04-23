@@ -13,20 +13,20 @@ ms.openlocfilehash: c04719e06c6c0900c8f8268b73f833b525ea3dd6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410839"
 ---
 # <a name="aspnet-web-api"></a>ASP.NET Web API
 
 - [ガイダンス](overview/index.md)
 
-    - [作業の開始](overview/getting-started-with-aspnet-web-api/index.md)
+    - [はじめに](overview/getting-started-with-aspnet-web-api/index.md)
 
         - [Web API 2 の概要 (C#)](overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
         - [Web API 2 のアクションの結果](overview/getting-started-with-aspnet-web-api/action-results.md)
         - [ASP.NET Web フォームで Web API を使用する](overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
         - [Web API ヘルプ ページを作成する](overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-        - [ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+        - [ハンズ オン ラボ:ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルドします。](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
     - [ルーティング](overview/web-api-routing-and-actions/index.md)
 
         - [Web API のルーティング](overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -38,7 +38,7 @@ ms.locfileid: "59410839"
         - [Web API 2 と Entity Framework 6 を使用する](overview/data/using-web-api-with-entity-framework/index.md)
 
             - [プロジェクトの作成](overview/data/using-web-api-with-entity-framework/part-1.md)
-            - [モデルとコントローラーの追加](overview/data/using-web-api-with-entity-framework/part-2.md)
+            - [エージェントとコントローラーの追加](overview/data/using-web-api-with-entity-framework/part-2.md)
             - [データベースのシード](overview/data/using-web-api-with-entity-framework/part-3.md)
             - [エンティティ関係の処理](overview/data/using-web-api-with-entity-framework/part-4.md)
             - [データ転送オブジェクト (DTO) の作成](overview/data/using-web-api-with-entity-framework/part-5.md)
@@ -55,10 +55,10 @@ ms.locfileid: "59410839"
         - [OData v4](overview/odata-support-in-aspnet-web-api/odata-v4/index.md)
 
             - [OData v4 エンドポイントを作成する](overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint.md)
-            - [OData v4 クライアント アプリを作成する (C#)](overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app.md)
+            - [OData v4 クライアント アプリ (C#) を作成します。](overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app.md)
             - [OData v4 のエンティティ関係](overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4.md)
             - [OData v4 のアクションと関数](overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions.md)
-            - [OData v4 の包含](overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22.md)
+            - [OData v4 のコンテインメイト](overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22.md)
             - [OData v4 でシングルトンを作成する](overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22.md)
             - [OData v4 のオープン型](overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4.md)
             - [OData v4 の複合型継承](overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4.md)
@@ -103,19 +103,19 @@ ms.locfileid: "59410839"
         - [Web API のフォーム認証](overview/security/forms-authentication.md)
         - [統合 Windows 認証](overview/security/integrated-windows-authentication.md)
         - [SSL の使用](overview/security/working-with-ssl-in-web-api.md)
-    - [配置とホスティング](overview/hosting-aspnet-web-api/index.md)
+    - [展開とホスト](overview/hosting-aspnet-web-api/index.md)
 
         - [OWIN を使用し、Web API 2 をセルフホストする](overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
         - [Azure Worker ロールで Web API 2 をホストする](overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role.md)
-    - [詳細トピック](overview/advanced/index.md)
+    - [高度なトピック](overview/advanced/index.md)
 
         - [Web API 2 の構成](overview/advanced/configuring-aspnet-web-api.md)
         - [Web API 2 の依存関係挿入](overview/advanced/dependency-injection.md)
         - [.NET クライアントから Web API を呼び出す (C#)](overview/advanced/calling-a-web-api-from-a-net-client.md)
         - [Web API の HTTP メッセージ ハンドラー](overview/advanced/http-message-handlers.md)
         - [Web API の HttpClient メッセージ ハンドラー](overview/advanced/httpclient-message-handlers.md)
-        - [Web API で HTML フォーム データを送信する:URL エンコード フォーム データ](overview/advanced/sending-html-form-data-part-1.md)
-        - [Web API で HTML フォーム データを送信する:ファイル アップロードとマルチパート MIME](overview/advanced/sending-html-form-data-part-2.md)
+        - [Web API で HTML フォーム データを送信します。Url エンコード フォーム データ](overview/advanced/sending-html-form-data-part-1.md)
+        - [Web API で HTML フォーム データを送信します。ファイルのアップロードとマルチパート MIME](overview/advanced/sending-html-form-data-part-2.md)
         - [ASP.NET Web API の HTTP Cookie](overview/advanced/http-cookies.md)
     - [リリース](overview/releases/index.md)
 
@@ -135,16 +135,16 @@ ms.locfileid: "59410839"
             - [Product コントローラーと Order コントローラーの作成](overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
             - [メイン ページの作成](overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
         - [Web API 1 をセルフホストする (C#)](overview/older-versions/self-host-a-web-api.md)
-        - [ASP.NET Web API で RESTful API をビルドする](overview/older-versions/build-restful-apis-with-aspnet-web-api.md)
+        - [ASP.NET Web API で RESTful API をビルドする ](overview/older-versions/build-restful-apis-with-aspnet-web-api.md)
 - [ビデオ](videos/index.md)
 
     - [概要と入門](videos/getting-started/index.md)
 
         - [ASP.NET Web API](videos/getting-started/aspnet-web-api.md)
-        - [ASP.NET Web API、第 1 部:初めての Web API](videos/getting-started/your-first-web-api.md)
-        - [ASP.NET Web API、第 2 部:データの取得](videos/getting-started/getting-data.md)
-        - [ASP.NET Web API、第 3 部:削除と更新](videos/getting-started/delete-and-update.md)
-        - [ASP.NET Web API、第 4 部:ページングとクエリ実行](videos/getting-started/paging-and-querying.md)
-        - [ASP.NET Web API、第 5 部:カスタム検証](videos/getting-started/custom-validation.md)
-        - [ASP.NET Web API、第 6 部:承認](videos/getting-started/authorization.md)
+        - [ASP.NET Web API、パート 1:Web API の入門](videos/getting-started/your-first-web-api.md)
+        - [ASP.NET Web API、パート 2:データの取得](videos/getting-started/getting-data.md)
+        - [ASP.NET Web API、パート 3:削除および更新](videos/getting-started/delete-and-update.md)
+        - [ASP.NET Web API、パート 4:ページングとクエリ実行](videos/getting-started/paging-and-querying.md)
+        - [ASP.NET Web API、パート 5:カスタム検証](videos/getting-started/custom-validation.md)
+        - [ASP.NET Web API、パート 6:承認](videos/getting-started/authorization.md)
 - [Web API サンプル一覧](samples-list.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 129b6a8f411d482de75e7e5edc5cc919b4d2de52
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419523"
 ---
 # <a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホストする

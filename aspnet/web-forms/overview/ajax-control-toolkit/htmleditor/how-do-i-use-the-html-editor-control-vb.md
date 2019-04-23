@@ -12,7 +12,7 @@ ms.openlocfilehash: 5fa19ef52c4538f0db427eaa9a79b074c85001ac
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415870"
 ---
 # <a name="how-do-i-use-the-html-editor-control-vb"></a>HTML エディター コントロールの使用方法 (VB)
@@ -25,7 +25,7 @@ ms.locfileid: "59415870"
 このチュートリアルの目的は、AJAX Control Toolkit に含まれている HTML エディター コントロールの概要を提供するためにです。 HTML エディターには、リンクを追加するには、テキストの配置を変更するイメージの追加、フォント サイズを変更する、フォントを選択すると、背景色を変更する、前景色の色を変更するためのオプションと切り取りを実行するには、コピー、および貼り付けの操作 (図 1 参照)。
 
 
-[![T彼の HTML エディター](how-do-i-use-the-html-editor-control-vb/_static/image1.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image1.png)
+[![HTML エディター](how-do-i-use-the-html-editor-control-vb/_static/image1.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image1.png)
 
 **図 01**:HTML エディター ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-vb/_static/image2.png))。
 
@@ -33,7 +33,7 @@ ms.locfileid: "59415870"
 HTML エディターでは、デザイン モードを使用してコンテンツを入力できます。 または、HTML を直接入力することができます。 HTML コンテンツをプレビューするオプションも提供されます (図 2 参照)。
 
 
-[![Design、HTML、およびボタンのプレビュー](how-do-i-use-the-html-editor-control-vb/_static/image2.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image3.png)
+[![デザイン、HTML、およびプレビュー ボタン](how-do-i-use-the-html-editor-control-vb/_static/image2.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image3.png)
 
 **図 02**:デザイン、HTML、およびプレビュー ボタン ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-vb/_static/image4.png))。
 
@@ -49,7 +49,7 @@ HTML エディターを使用するには、ASP.NET ページで、前に、ペ�
 AJAX Control Toolkit のコントロールの残りの部分を使用して、ツールボックスには、HTML エディター コントロールがあります。 エディター コントロールという名前です (図 3 を参照してください)。
 
 
-[![T彼の HTML エディター コントロール](how-do-i-use-the-html-editor-control-vb/_static/image3.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image5.png)
+[![HTML エディター コントロール](how-do-i-use-the-html-editor-control-vb/_static/image3.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image5.png)
 
 **図 03**:HTML エディター コード ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-vb/_static/image6.png))。
 
@@ -63,7 +63,7 @@ HTML エディターをページにドラッグした後は、プロパティ �
 リスト 1 で、ページには、HTML エディター コントロール、Button コントロール、およびリテラル コントロールが含まれています。 リテラル コントロールの HTML エディターの内容が表示されます、ボタンをクリックすると (図 4 参照)。
 
 
-[![Submitting HTML エディターでフォーム](how-do-i-use-the-html-editor-control-vb/_static/image4.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image7.png)
+[![HTML エディターでフォームを送信します。](how-do-i-use-the-html-editor-control-vb/_static/image4.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image7.png)
 
 **図 04**:HTML エディターでフォームを送信する ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-vb/_static/image8.png))。
 
@@ -75,7 +75,7 @@ HTML エディターのコンテンツ プロパティは、HTML エディター
 正確にボタンをカスタマイズすることができます、エディターに表示されます。 たとえばをユーザーが HTML エディターを HTML モードに切り替えることを防ぐために、[HTML] タブを削除する場合があります。 または、ユーザーがフォーラムに過度に大きなテキストを作成できないようにするには、フォント サイズ ドロップダウン リストを削除したい場合があります (図 5 参照) を post メッセージします。
 
 
-[![A カスタマイズされた HTML エディター](how-do-i-use-the-html-editor-control-vb/_static/image5.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image9.png)
+[![カスタマイズされた HTML エディター](how-do-i-use-the-html-editor-control-vb/_static/image5.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image9.png)
 
 **図 05**:A HTML エディターのカスタマイズ ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-vb/_static/image10.png))。
 

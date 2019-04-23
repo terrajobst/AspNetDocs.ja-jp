@@ -12,7 +12,7 @@ ms.openlocfilehash: 1ab1ea8b277b48b3b72edb9dd45aa4cc2937ffa8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418054"
 ---
 # <a name="adding-a-view"></a>ビューの追加
@@ -75,7 +75,7 @@ ms.locfileid: "59418054"
 
 ![_LayoutCshtml](adding-a-view/_static/image7.png)
 
-レイアウト テンプレートを使用すると、1 つの場所で、サイトの HTML コンテナー レイアウトを指定し、そのサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` すべてのビューに固有のページをプレース ホルダー ショーを作成、&quot;ラップ&quot;レイアウト ページ。 バージョン情報のリンクを選択する場合など、 *Views\Home\About.cshtml*内でビューが表示される、`RenderBody`メソッド。
+レイアウト テンプレートを使用すると、1 つの場所で、サイトの HTML コンテナー レイアウトを指定し、そのサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` は、作成したビュー固有のページがすべて表示されるプレースホルダーで、レイアウト ページに&quot;ラップ&quot;されます。 バージョン情報のリンクを選択する場合など、 *Views\Home\About.cshtml*内でビューが表示される、`RenderBody`メソッド。
 
 レイアウト テンプレートからのサイトのタイトル見出しの変更&quot;貴社のロゴ&quot;に&quot;MVC ムービー&quot;します。
 

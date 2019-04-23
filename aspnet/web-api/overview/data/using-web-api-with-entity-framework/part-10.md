@@ -12,14 +12,14 @@ ms.openlocfilehash: a9a7b74a07c71b47253c0af304c7a26ffa4eaae5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417365"
 ---
 # <a name="publish-the-app-to-azure-azure-app-service"></a>Azure の Azure App Service にアプリを公開します。
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 最後の手順としては、Azure にアプリケーションを公開します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**発行**します。
 

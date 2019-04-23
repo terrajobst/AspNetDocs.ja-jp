@@ -12,7 +12,7 @@ ms.openlocfilehash: a6097a32f0a67436b786fcdd808964ac6b832439
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419575"
 ---
 # <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>データ アクセス層の接続レベルとコマンド レベルの設定を構成する (VB)
@@ -51,7 +51,7 @@ Microsoft .NET Framework には、具体的には、データを操作するよ�
 各 TableAdapter クラスには、`Connection`データベース接続情報を指定するプロパティ。 このプロパティのデータ型と`ConnectionString`値は、TableAdapter 構成ウィザードで選択したオプションによって決まります。 最初に型指定されたデータセットに TableAdapter を追加するときこのウィザード求められたとき、データベースのことを思い出してください。 ソース (図 1 参照)。 この最初の手順でドロップダウン リストには、サーバー エクスプ ローラーのデータ接続で他のすべてのデータベースと同様に、構成ファイルで指定されたデータベースにそれらが含まれています。 ドロップダウン リストで使用するデータベースが存在しない場合は、新しい接続 ボタンをクリックし、必要な接続情報を提供する新しいデータベース接続を指定できます。
 
 
-[![Tまた、TableAdapter 構成ウィザードの最初のステップ](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image1.png)
+[![TableAdapter 構成ウィザードの最初のステップ](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image1.png)
 
 **図 1**:TableAdapter 構成ウィザードの最初の手順 ([フルサイズの画像を表示する をクリックします](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image3.png))。
 
@@ -109,7 +109,7 @@ S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データ
 開く、`Northwind`データセットをクリックして、`ProductsTableAdapter`デザイナーで、[プロパティ] ウィンドウに移動します。 表示されます、`ConnectionModifier`が既定値に設定`Assembly`します。 させる、`Connection`プロパティの変更、型指定されたデータセットのアセンブリの外部で使用できる、`ConnectionModifier`プロパティを`Public`します。
 
 
-[![T彼の接続プロパティのアクセシビリティ レベルを構成するには、ConnectionModifier プロパティを介して](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image6.png)
+[![ConnectionModifier プロパティを使用して接続プロパティのアクセシビリティ レベルを構成することができます。](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image6.png)
 
 **図 4**:`Connection`を使用してプロパティのアクセシビリティ レベルを構成できます %s、`ConnectionModifier`プロパティ ([フルサイズの画像を表示する をクリックします](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image8.png))。
 

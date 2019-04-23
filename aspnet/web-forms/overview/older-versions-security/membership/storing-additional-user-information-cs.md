@@ -12,7 +12,7 @@ ms.openlocfilehash: 08b2e71553d9c1c8158debd05e19a3d1b146b319
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412360"
 ---
 # <a name="storing-additional-user-information-c"></a>追加のユーザー情報を格納する (C#)
@@ -45,7 +45,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 に、データベースをこのテーブルを追加する Visual Studio の データベース エクスプ ローラーに移動し、ドリルダウン、`SecurityTutorials`データベース。 [テーブル] フォルダーを右クリックし、新しいテーブルの追加を選択します。 新しいテーブルの列を定義できるようにするインターフェイスが表示されます。
 
 
-[![Add SecurityTutorials データベースに新しいテーブル](storing-additional-user-information-cs/_static/image2.png)](storing-additional-user-information-cs/_static/image1.png)
+[![SecurityTutorials データベースに新しいテーブルを追加します。](storing-additional-user-information-cs/_static/image2.png)](storing-additional-user-information-cs/_static/image1.png)
 
 **図 1**:新しいテーブルを追加、`SecurityTutorials`データベース ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image3.png))。
 
@@ -53,7 +53,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 次に、定義、`GuestbookComments`の列。 という名前の列を追加することで開始`CommentId`型の`uniqueidentifier`します。 この列は、ゲストブックの各コメントを一意に識別する、許可しないように`NULL`s し、テーブルの主キーとしてマークします。 値を指定するのではなく、`CommentId`フィールドでそれぞれ`INSERT`、ことを示す新しい`uniqueidentifier`値を自動的に生成するこのフィールドに`INSERT`列の既定値を設定して`NEWID()`。 Primary key、および設定として、既定値を指定して、最初のこのフィールドを追加した後、画面をスクリーン ショット、図 2 に示すようになる必要があります。
 
 
-[![Add プライマリ列という CommentId](storing-additional-user-information-cs/_static/image5.png)](storing-additional-user-information-cs/_static/image4.png)
+[![CommentId をという名前のプライマリ列を追加します。](storing-additional-user-information-cs/_static/image5.png)](storing-additional-user-information-cs/_static/image4.png)
 
 **図 2**:名前付き主列を追加`CommentId`([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image6.png))。
 
@@ -73,7 +73,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 外部キー リレーションシップ ダイアログ ボックスの左下隅の 追加 ボタンをクリックします。 リレーションシップに参加しているテーブルを定義する必要がありますが、新しい外部キー制約は追加します。
 
 
-[![Use テーブルの外部キー制約を管理する外部キー リレーションシップ] ダイアログ ボックス](storing-additional-user-information-cs/_static/image8.png)](storing-additional-user-information-cs/_static/image7.png)
+[![外部キー リレーションシップ ダイアログ ボックスを使用して、テーブルの外部キー制約を管理するには](storing-additional-user-information-cs/_static/image8.png)](storing-additional-user-information-cs/_static/image7.png)
 
 **図 3**:テーブルの外部キー制約を管理する外部キー リレーションシップ ダイアログ ボックスを使用して ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image9.png))。
 
@@ -81,7 +81,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 次に、右側の「テーブルと列の仕様」行にある省略記号アイコンをクリックします。 これは、テーブルと列 ダイアログ ボックス起動、主キー テーブルと列から外部キー列を指定する`GuestbookComments`テーブル。 具体的には、選択`aspnet_Users`と`UserId`として主キー テーブルと列、および`UserId`から、`GuestbookComments`外部キー列とテーブル (図 4 参照)。 主キーと外部キー テーブルと列を定義した後は、外部キー リレーションシップ ダイアログ ボックスに戻るには、ok をクリックします。
 
 
-[![E外部キー制約との間、aspnet_Users と GuesbookComments テーブル stablish](storing-additional-user-information-cs/_static/image11.png)](storing-additional-user-information-cs/_static/image10.png)
+[![外部キー制約との間、aspnet_Users と GuesbookComments テーブルを確立します。](storing-additional-user-information-cs/_static/image11.png)](storing-additional-user-information-cs/_static/image10.png)
 
 **図 4**:外部キー制約の間に確立、`aspnet_Users`と`GuesbookComments`テーブル ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image12.png))。
 
@@ -91,7 +91,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 親レコードが削除されたときに自動的に関連付けられている子レコードを削除するのには、外部キー制約を構成できます。 つまり、この外部キー制約をセットアップし、ユーザーのゲストブックのエントリは、自分のユーザー アカウントが削除されたときに自動的に削除できるようにできます。 これを実現するには、「の挿入と更新プログラムの仕様」セクションを展開し、Cascade に「ルールを削除する」プロパティを設定します。
 
 
-[![C連鎖削除をする外部キー制約を構成する](storing-additional-user-information-cs/_static/image14.png)](storing-additional-user-information-cs/_static/image13.png)
+[![連鎖削除する外部キー制約を構成します。](storing-additional-user-information-cs/_static/image14.png)](storing-additional-user-information-cs/_static/image13.png)
 
 **図 5**:連鎖削除をする外部キー制約を構成する ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image15.png))。
 
@@ -115,7 +115,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 という新しいテーブルは作成`UserProfiles`ホーム町、ホーム ページ、およびユーザーごとの署名を保存します。 データベース エクスプ ローラー ウィンドウで テーブル フォルダーを右クリックし、新しいテーブルを作成することもできます。 最初の列の名前を`UserId`にその型を設定および`uniqueidentifier`します。 禁止`NULL`値し、列を主キーとしてマークします。 次に、という名前の列を追加:`HomeTown`型の`nvarchar(50)`;`HomepageUrl`型の`nvarchar(100)`; 型のシグネチャと`nvarchar(500)`します。 これら 3 つの列の各を受け入れることができます、`NULL`値。
 
 
-[![Cユーザー テーブルを作成する](storing-additional-user-information-cs/_static/image17.png)](storing-additional-user-information-cs/_static/image16.png)
+[![ユーザー テーブルを作成します。](storing-additional-user-information-cs/_static/image17.png)](storing-additional-user-information-cs/_static/image16.png)
 
 **図 6**:作成、`UserProfiles`テーブル ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image18.png))。
 
@@ -133,7 +133,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 開く、`AdditionalUserInfo.aspx`ページで、`Membership`フォルダー設定 ページに DetailsView コントロールを追加し、その`ID`プロパティを`UserProfile`を消去してその`Width`と`Height`プロパティ。 DetailsView のスマート タグを展開し、新しいデータ ソース コントロールにバインドを選択します。 これが、データ ソース構成ウィザードを起動 (図 7 を参照してください)。 最初の手順では、データ ソースの種類を指定するように要求されます。 直接接続するため、`SecurityTutorials`データベースで、[データベース] アイコンを指定する、`ID`として`UserProfileDataSource`します。
 
 
-[![Add、新しい SqlDataSource コントロールという UserProfileDataSource](storing-additional-user-information-cs/_static/image20.png)](storing-additional-user-information-cs/_static/image19.png)
+[![UserProfileDataSource という名前の新しい SqlDataSource コントロールを追加します。](storing-additional-user-information-cs/_static/image20.png)](storing-additional-user-information-cs/_static/image19.png)
 
 **図 7**:追加する新しい SqlDataSource コントロールの名前付き`UserProfileDataSource`([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image21.png))。
 
@@ -141,7 +141,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 次の画面を使用するデータベースが求められます。 内の接続文字列を既に定義して`Web.config`の`SecurityTutorials`データベース。 この接続文字列名 – `SecurityTutorialsConnectionString` – ドロップダウン リストでなければなりません。 このオプションを選択し、[次へ] をクリックします。
 
 
-[![C選択ドロップダウン リストから SecurityTutorialsConnectionString](storing-additional-user-information-cs/_static/image23.png)](storing-additional-user-information-cs/_static/image22.png)
+[![SecurityTutorialsConnectionString をドロップダウン リストから選択します。](storing-additional-user-information-cs/_static/image23.png)](storing-additional-user-information-cs/_static/image22.png)
 
 **図 8**:選択`SecurityTutorialsConnectionString`ドロップダウン リストから ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image24.png))。
 
@@ -149,7 +149,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 後続の画面では、テーブルと列のクエリを指定するよう求められます。 選択、`UserProfiles`ドロップダウン リストからテーブルし、すべての列を確認します。
 
 
-[![Bリングのユーザー テーブルの列をすべてバックアップ](storing-additional-user-information-cs/_static/image26.png)](storing-additional-user-information-cs/_static/image25.png)
+[![移動ユーザー テーブルからのすべての列を返します](storing-additional-user-information-cs/_static/image26.png)](storing-additional-user-information-cs/_static/image25.png)
 
 **図 9**:表示から列のすべてが戻り、`UserProfiles`テーブル ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image27.png))。
 
@@ -159,7 +159,7 @@ ASP します。NET のメンバーシップ フレームワークでは、ユ�
 残念ながら、現在ログオンしてユーザーを返す元の組み込みパラメーターがない`UserId`値。 この値をプログラムで取得する必要があります。 そのため、「なし」の追加、パラメーターを追加するボタンをクリックし、ok をクリックして をクリックするソースのドロップダウン リストを設定します。
 
 
-[![Add に UserId 列フィルターのパラメーター](storing-additional-user-information-cs/_static/image29.png)](storing-additional-user-information-cs/_static/image28.png)
+[![UserId 列のフィルター パラメーターを追加します。](storing-additional-user-information-cs/_static/image29.png)](storing-additional-user-information-cs/_static/image28.png)
 
 **図 10**:Filter パラメーターを追加、`UserId`列 ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image30.png))。
 
@@ -187,7 +187,7 @@ SqlDataSource コントロールをプログラムで設定する必要があり
 Visual Studio の データベース エクスプ ローラーに移動し、テーブル フォルダーを展開します。 右クリックし、`aspnet_Users`テーブルは、テーブル内のレコードを表示する「テーブル データの表示」を選択し、同じこと`UserProfiles`テーブル。 図 11 では、垂直方向に並べて表示されたときに、これらの結果を示します。 データベースで発生している`aspnet_Users`Bruce、Fred、および Tito、レコードがレコードがありません、`UserProfiles`テーブル。
 
 
-[![Taspnet_Users の彼の内容とユーザー テーブルが表示されます](storing-additional-user-information-cs/_static/image32.png)](storing-additional-user-information-cs/_static/image31.png)
+[![Aspnet_Users の内容とユーザー テーブルが表示されます。](storing-additional-user-information-cs/_static/image32.png)](storing-additional-user-information-cs/_static/image31.png)
 
 **図 11**:内容、`aspnet_Users`と`UserProfiles`テーブルが表示されます ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image33.png))。
 
@@ -195,7 +195,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 新しいレコードを追加、`UserProfiles`テーブルの値を手動で入力して、 `HomeTown`、 `HomepageUrl`、および`Signature`フィールド。 有効なを取得する最も簡単な方法`UserId`、新しい値`UserProfiles`レコードは、選択する、`UserId`フィールドで特定のユーザー アカウントを`aspnet_Users`の表に、コピーして貼り付けます、`UserId`フィールドに`UserProfiles`します。 図 12 は、`UserProfiles`テーブル Bruce の新しいレコードが追加されました。
 
 
-[![A レコードは、Bruce のユーザーに追加されました](storing-additional-user-information-cs/_static/image35.png)](storing-additional-user-information-cs/_static/image34.png)
+[![Bruce のユーザーにレコードが追加されました](storing-additional-user-information-cs/_static/image35.png)](storing-additional-user-information-cs/_static/image34.png)
 
 **図 12**:レコードに追加された`UserProfiles`の Bruce ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image36.png))。
 
@@ -203,7 +203,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 戻り、 `AdditionalUserInfo.aspx`  ページで、Bruce として記録されます。 図 13 では、Bruce の設定が表示されます。
 
 
-[![T彼は現在のアクセスのユーザーは、His 設定の表示](storing-additional-user-information-cs/_static/image38.png)](storing-additional-user-information-cs/_static/image37.png)
+[![現在アクセスしてユーザーがいます。 彼の設定の表示](storing-additional-user-information-cs/_static/image38.png)](storing-additional-user-information-cs/_static/image37.png)
 
 **図 13**:現在アクセスしてユーザーがいます彼の設定の表示 ([フルサイズの画像を表示する をクリックします。](storing-additional-user-information-cs/_static/image39.png))。
 
@@ -223,7 +223,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 次に、パラメーターを作成し、SqlDataSource コントロールの"パラメーターの更新 ボタンをクリックして`UpdateParameters`ごとでは、パラメーターのコレクション、`UPDATE`ステートメント。 なし にパラメーター セットのすべてのソースを残す場合および ダイアログ ボックスに ok ボタンをクリックします。
 
 
-[![SSqlDataSource の UpdateCommand と UpdateParameters を指定する](storing-additional-user-information-cs/_static/image41.png)](storing-additional-user-information-cs/_static/image40.png)
+[![SqlDataSource の UpdateCommand と UpdateParameters を指定します。](storing-additional-user-information-cs/_static/image41.png)](storing-additional-user-information-cs/_static/image40.png)
 
 **図 14**:SqlDataSource の指定`UpdateCommand`と`UpdateParameters`([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image42.png))。
 
@@ -239,7 +239,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 ブラウザーからこのページをテストしてみてください。 対応するレコードを含む、ユーザーにアクセスすると`UserProfiles`ユーザーの設定が編集可能なインターフェイスで表示されます。
 
 
-[![TDetailsView 彼は、編集可能なインターフェイスを表示します](storing-additional-user-information-cs/_static/image44.png)](storing-additional-user-information-cs/_static/image43.png)
+[![DetailsView は編集可能なインターフェイスを表示します](storing-additional-user-information-cs/_static/image44.png)](storing-additional-user-information-cs/_static/image43.png)
 
 **図 15**:DetailsView は編集可能なインターフェイスを表示します ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image45.png))。
 
@@ -257,7 +257,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 戻り、`AdditionalUserInfo.aspx`ブラウザーでページし、データを更新します。 今回は、役立つステータス メッセージが表示されます。
 
 
-[![A ショート メッセージは、表示されるときに、設定を更新](storing-additional-user-information-cs/_static/image47.png)](storing-additional-user-information-cs/_static/image46.png)
+[![短いメッセージが表示されるときに、設定が更新されます。](storing-additional-user-information-cs/_static/image47.png)](storing-additional-user-information-cs/_static/image46.png)
 
 **図 16**:設定が更新されたときに、短いメッセージが表示されます ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image48.png))。
 
@@ -309,7 +309,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 図 17 の内容を示しています、`GuestbookComments`表の後、2 つのコメントが残されています。
 
 
-[![You は、GuestbookComments テーブル内のゲストブックのコメントを参照してください](storing-additional-user-information-cs/_static/image50.png)](storing-additional-user-information-cs/_static/image49.png)
+[![GuestbookComments テーブル内のゲストブックのコメントを確認できます。](storing-additional-user-information-cs/_static/image50.png)](storing-additional-user-information-cs/_static/image49.png)
 
 **図 17**:内のゲストブックのコメントを表示、`GuestbookComments`テーブル ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image51.png))。
 
@@ -335,7 +335,7 @@ ListView のスマート タグを開き、データ ソースのドロップダ
 残っているは返される列を指定します。 `GuestbookComments`テーブルの選択、 `Subject`、`Body`と`CommentDate`の列は返された場合、 `HomeTown`、 `HomepageUrl`、および`Signature`からの列、`UserProfiles`テーブルです戻って`UserName`から。`aspnet_Users`. また、追加する"`ORDER BY CommentDate DESC`"の末尾に、`SELECT`最も最近の投稿が最初に返されるようにクエリを実行します。 これらの選択を行った後、クエリ ビルダー インターフェイスは図 18 でスクリーン ショットのようになります。
 
 
-[![TGuestbookComments、ユーザー、および aspnet_Users テーブルを結合クエリを構築しています](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
+[![構築クエリ GuestbookComments、ユーザー、および aspnet_Users テーブルを結合します。](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
 
 **図 18**:構築されたクエリ`JOIN`s、 `GuestbookComments`、 `UserProfiles`、および`aspnet_Users`テーブル ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image54.png))。
 
@@ -355,7 +355,7 @@ ListView のスマート タグを開き、データ ソースのドロップダ
 ブラウザーでページを表示する時間がかかります。 ここに表示される手順 5. でゲストブックを追加したコメントを参照してください。
 
 
-[![Guestbook.aspx は、ゲストブックのコメントが表示されます](storing-additional-user-information-cs/_static/image56.png)](storing-additional-user-information-cs/_static/image55.png)
+[![Guestbook.aspx ここでは、ゲストブックのコメントを表示します。](storing-additional-user-information-cs/_static/image56.png)](storing-additional-user-information-cs/_static/image55.png)
 
 **図 19**:`Guestbook.aspx` ゲストブックのコメントが表示されます ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image57.png))。
 
@@ -402,7 +402,7 @@ CreateUserWizard コントロールは、そのワークフローの中にイベ
 参照してください、`EnhancedCreateUserWizard.aspx`ブラウザーでページし、新しいユーザー アカウントを作成します。 その後、Visual Studio に戻りの内容を確認して、`aspnet_Users`と`UserProfiles`(図 12 に行った) などのテーブルします。 新しいユーザー アカウントを表示する必要があります`aspnet_Users`と対応する`UserProfiles`行 (で`NULL`値`HomeTown`、 `HomepageUrl`、および`Signature`)。
 
 
-[![A 新しいユーザー アカウントとユーザー レコードが追加されました](storing-additional-user-information-cs/_static/image59.png)](storing-additional-user-information-cs/_static/image58.png)
+[![新しいユーザー アカウントとユーザー レコードが追加されました](storing-additional-user-information-cs/_static/image59.png)](storing-additional-user-information-cs/_static/image58.png)
 
 **図 20**:新しいユーザー アカウントと`UserProfiles`レコードが追加されています ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image60.png))。
 
@@ -438,7 +438,7 @@ CreateUserWizard コントロールの既定のマークアップは、2 つ定�
 図 21 は、ワークフローを示しています。 ときに、追加した`WizardStep`の前に、`CreateUserWizardStep`します。 追加のユーザー情報が、時間によって収集されたため、`CreatedUser`イベントが発生するすべての更新は、`CreatedUser`をこれらの入力を取得し、それらを使用してイベント ハンドラー、`INSERT`ステートメントのパラメーターの値 (なく`DBNull.Value`).
 
 
-[![T彼 CreateUserWizard ワークフロー、CreateUserWizardStep の直前に追加の wizardstep.](storing-additional-user-information-cs/_static/image62.png)](storing-additional-user-information-cs/_static/image61.png)
+[![CreateUserWizard ワークフロー、CreateUserWizardStep の直前に追加の wizardstep.](storing-additional-user-information-cs/_static/image62.png)](storing-additional-user-information-cs/_static/image61.png)
 
 **図 21**:CreateUserWizard ワークフローと、その他`WizardStep`Precedes、 `CreateUserWizardStep` ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image63.png))。
 
@@ -446,7 +446,7 @@ CreateUserWizard コントロールの既定のマークアップは、2 つ定�
 場合、カスタム`WizardStep`配置*後*、 `CreateUserWizardStep`、自分の出身地、ホームページ、または署名を入力する機会があるユーザーに提供する前に、ただし、ユーザー アカウントの作成プロセスが発生します。 このような場合は、この追加情報をデータベースに挿入される、ユーザー アカウントが作成されて、図 22 に示すように必要があります。
 
 
-[![T彼 CreateUserWizard ワークフローときに、追加 wizardstep が後に、CreateUserWizardStep](storing-additional-user-information-cs/_static/image65.png)](storing-additional-user-information-cs/_static/image64.png)
+[![CreateUserWizard ワークフロー、CreateUserWizardStep 後に関しては追加の wizardstep.](storing-additional-user-information-cs/_static/image65.png)](storing-additional-user-information-cs/_static/image64.png)
 
 **図 22**:CreateUserWizard ワークフローと、その他`WizardStep`後は、 `CreateUserWizardStep` ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image66.png))。
 
@@ -458,7 +458,7 @@ CreateUserWizard コントロールの既定のマークアップは、2 つ定�
 CreateUserWizard コントロールのスマート タグから選択して、"追加/削除`WizardStep`s"が表示されます、`WizardStep`コレクション エディター ダイアログ。 新しい追加`WizardStep`で、設定、`ID`に`UserSettings`、その`Title`「設定」してその`StepType`に`Step`。 後になるようにし、配置、 `CreateUserWizardStep` ("Sign Up Your の新しいアカウントの") と前に、 `CompleteWizardStep` (「完了」)、図 23 に示すようにします。
 
 
-[![Add CreateUserWizard コントロールに新しい wizardstep.](storing-additional-user-information-cs/_static/image68.png)](storing-additional-user-information-cs/_static/image67.png)
+[![CreateUserWizard コントロールに新しい wizardstep を追加します。](storing-additional-user-information-cs/_static/image68.png)](storing-additional-user-information-cs/_static/image67.png)
 
 **図 23**:新規追加`WizardStep`CreateUserWizard コントロールを ([フルサイズの画像を表示する をクリックします](storing-additional-user-information-cs/_static/image69.png))。
 

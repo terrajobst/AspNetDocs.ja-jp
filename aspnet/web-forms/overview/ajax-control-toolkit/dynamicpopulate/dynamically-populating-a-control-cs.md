@@ -12,7 +12,7 @@ ms.openlocfilehash: 42c1cd684196c026f1435cba289fc2535187087c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417300"
 ---
 # <a name="dynamically-populating-a-control-c"></a>コントロールに動的に入力する (C#)
@@ -66,7 +66,7 @@ Web サービスとして保存されます`DynamicPopulate.cs.asmx`します。
 ASP.NET ページをブラウザーで実行して、; ボタンをクリックします現在の日付が月-日-年の形式で表示されます。
 
 
-[![A サーバーから日付を取得するボタンをクリックします](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
+[![ボタンをクリックして、サーバーから日付を取得します。](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
 
 ボタンをクリックしますが、サーバーから日付を取得します ([フルサイズの画像を表示する をクリックします](dynamically-populating-a-control-cs/_static/image3.png))。
 

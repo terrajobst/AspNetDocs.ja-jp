@@ -12,7 +12,7 @@ ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412009"
 ---
 # <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>ハンズ オン ラボ:SignalR によるリアルタイム Web アプリ
@@ -175,7 +175,7 @@ SignalR をサポートしています**サーバー プッシュ**または**�
 
     ![新しい項目の追加](real-time-web-applications-with-signalr/_static/image11.png "新しい項目の追加")
 
-    *新しい項目の追加*
+    *新しい項目を追加します。*
 6. **新しい項目の追加**ダイアログ ボックスで、 **(Visual C#) |Web |SignalR**選択の左側のウィンドウでノード**SignalR ハブ クラス (v2)** ファイルの名前を中央のウィンドウから**StatisticsHub.cs**  をクリック**追加**します。
 
     ![新しい項目 ダイアログ ボックスを追加](real-time-web-applications-with-signalr/_static/image12.png "追加新しい項目 ダイアログ ボックス")
@@ -354,7 +354,7 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 
     ![Service Broker を有効にする](real-time-web-applications-with-signalr/_static/image26.png "Service Broker を有効にします。")
 
-    *Service Broker の有効化*
+    *Service Broker を有効にします。*
 
     > [!NOTE]
     > このクエリは、デッドロックを確認が表示された場合、DB に接続されているアプリケーションはありません。

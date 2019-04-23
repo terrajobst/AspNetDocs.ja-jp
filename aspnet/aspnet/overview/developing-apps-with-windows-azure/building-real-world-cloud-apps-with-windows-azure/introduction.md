@@ -12,7 +12,7 @@ ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412412"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure での実際のクラウド アプリの構築
@@ -100,7 +100,7 @@ Scott Guthrie を監視するすべてのユーザー*構築現実世界の Clou
     - 高可用性を有効にして、web とワーカーの層を疎結合することで、スケーラビリティが向上します。
     - デモ:Fix It アプリで azure storage キュー。
 - [他のクラウド アプリのパターンとガイダンス](more-patterns-and-guidance.md)します。
-- [付録:Fix It サンプル アプリケーション](the-fix-it-sample-application.md)
+- [付録:修正プログラム、サンプル アプリケーション](the-fix-it-sample-application.md)
 
     - 既知の問題
     - ベスト プラクティス

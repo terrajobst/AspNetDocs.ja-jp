@@ -12,13 +12,13 @@ ms.openlocfilehash: 6b415480fc3f1d86f74e5845eedb35d284806284
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412282"
 ---
 # <a name="web-development-best-practices"></a>Web 開発のベスト プラクティス
 
 
-- [ASP.NET では行わないことと、その代わりに行うこと](what-not-to-do-in-aspnet-and-what-to-do-instead.md)
+- [ASP.NET ではしないこと。その代わりにすること。](what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Async と Await](async-and-await.md)
 - [Azure で実世界のクラウド アプリをビルドする](../developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/index.md)
 - [ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)

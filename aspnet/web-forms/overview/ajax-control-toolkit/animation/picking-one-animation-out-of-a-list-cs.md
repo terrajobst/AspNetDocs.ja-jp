@@ -12,7 +12,7 @@ ms.openlocfilehash: 1cbb60431824ce642625c06cba6b5194aa547b1b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419705"
 ---
 # <a name="picking-one-animation-out-of-a-list-c"></a>一覧からアニメーションを 1 つ選択する (C#)
@@ -53,7 +53,7 @@ ms.locfileid: "59419705"
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample5.aspx)]
 
 
-[![O考えられる 3 つのアニメーションの 1 つは:パネルが広くなる](picking-one-animation-out-of-a-list-cs/_static/image2.png)](picking-one-animation-out-of-a-list-cs/_static/image1.png)
+[![考えられる 3 つのアニメーションのいずれか:パネルが広くなります。](picking-one-animation-out-of-a-list-cs/_static/image2.png)](picking-one-animation-out-of-a-list-cs/_static/image1.png)
 
 考えられる 3 つのアニメーションのいずれか:パネルが広くなる ([フルサイズの画像を表示する をクリックします](picking-one-animation-out-of-a-list-cs/_static/image3.png))。
 

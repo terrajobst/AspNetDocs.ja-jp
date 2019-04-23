@@ -12,7 +12,7 @@ ms.openlocfilehash: 0b00fd5dc12c21183ef61d7ebb23211a1aa4719e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418964"
 ---
 # <a name="get-started-with-the-ajax-control-toolkit-vb"></a>AJAX Control Toolkit の概要 (VB)
@@ -29,7 +29,7 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 [AJAX Control Toolkit](http://devexpress.com/act)は、ASP.NET コミュニティと ASP.NET チームのメンバーによって開発されたオープン ソース プロジェクトです。
 
 
-[![Downloading、AJAX Control Toolkit](get-started-with-the-ajax-control-toolkit-vb/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image1.png)
+[![AJAX Control Toolkit のダウンロード](get-started-with-the-ajax-control-toolkit-vb/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image1.png)
 
 **図 01**:AJAX Control Toolkit のダウンロード ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-vb/_static/image2.png))。
 
@@ -37,7 +37,7 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 ファイルをダウンロードした後、ファイルのブロックを解除する必要があります。 ファイルを右クリックし、プロパティを選択してをクリックして、**ブロック解除**(図 2 参照) ボタンをクリックします。
 
 
-[![Unblocking AJAX Control Toolkit の ZIP ファイル](get-started-with-the-ajax-control-toolkit-vb/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image3.png)
+[![AJAX Control Toolkit の ZIP ファイルをブロック解除](get-started-with-the-ajax-control-toolkit-vb/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image3.png)
 
 **図 02**:AJAX Control Toolkit の ZIP ファイルをブロック解除 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-vb/_static/image4.png))。
 
@@ -49,7 +49,7 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio または Visual Web Developer ツールボックスにこのツールキットを追加する、(図 3 を参照してください)。 そうすることだけドラッグできます toolkit のコントロールをページにそれを使用する場合。
 
 
-[![Aもたらし Control Toolkit は、ツールボックスに表示されます](get-started-with-the-ajax-control-toolkit-vb/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image5.png)
+[![AJAX Control Toolkit がツールボックスに表示されます。](get-started-with-the-ajax-control-toolkit-vb/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image5.png)
 
 **図 03**:AJAX Control Toolkit がツールボックスに表示されます ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-vb/_static/image6.png))。
 
@@ -61,7 +61,7 @@ AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio ま
 3. AJAX Control Toolkit という名前の新しいタブを入力します。
 
 
-[![Adding 新しいタブ](get-started-with-the-ajax-control-toolkit-vb/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image7.png)
+[![新しいタブを追加します。](get-started-with-the-ajax-control-toolkit-vb/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image7.png)
 
 **図 04**:新しいタブの追加 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-vb/_static/image8.png))。
 
@@ -72,7 +72,7 @@ AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio ま
 - AJAX Control Toolkit を解凍するを AjaxControlToolkit.dll アセンブリを選択する場所に移動します。
 
 
-[![Cツールボックスに追加する項目を選択](get-started-with-the-ajax-control-toolkit-vb/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image9.png)
+[![ツールボックスに追加する項目を選択します。](get-started-with-the-ajax-control-toolkit-vb/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image9.png)
 
 **図 05**:ツールボックスに追加する項目を選択 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-vb/_static/image10.png))。
 

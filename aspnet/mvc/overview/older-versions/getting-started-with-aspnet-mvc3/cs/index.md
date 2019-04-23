@@ -12,7 +12,7 @@ ms.openlocfilehash: b476e9010e47043f12ce00c222382786c66f5c4e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414310"
 ---
 # <a name="getting-started-with-aspnet-mvc-3-c"></a>ASP.NET MVC 3 の概要 (C#)
@@ -20,7 +20,7 @@ ms.locfileid: "59414310"
 > Microsoft Visual Web Developer 2010 Express を使用して C# を使用して ASP.NET MVC Web アプリケーションの構築の基礎です。
 
 
-- [ASP.NET MVC 3 (C#) の概要](intro-to-aspnet-mvc-3.md)
+- [ASP.NET 3 入門 (C#)](intro-to-aspnet-mvc-3.md)
 - [コントローラーの追加 (C#)](adding-a-controller.md)
 - [ビューの追加 (C#)](adding-a-view.md)
 - [モデルの追加 (C#)](adding-a-model.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 80289680e4d40ec903524d9f4752b71d13db790e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413504"
 ---
 # <a name="how-do-i-publish-and-analyze-test-results"></a>[How Do i:]発行し、テスト結果を分析しますか。

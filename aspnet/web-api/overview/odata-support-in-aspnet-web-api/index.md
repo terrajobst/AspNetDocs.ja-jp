@@ -13,7 +13,7 @@ ms.openlocfilehash: 08870e703c88afccd57232cc259e928a08e7a7a6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417885"
 ---
 # <a name="odata-in-aspnet-web-api"></a>ASP.NET web API OData
@@ -24,10 +24,10 @@ ms.locfileid: "59417885"
 - [OData v4](odata-v4/index.md)
 
     - [OData v4 エンドポイントを作成する](odata-v4/create-an-odata-v4-endpoint.md)
-    - [OData v4 クライアント アプリを作成する (C#)](odata-v4/create-an-odata-v4-client-app.md)
+    - [OData v4 クライアント アプリ (C#) を作成します。](odata-v4/create-an-odata-v4-client-app.md)
     - [OData v4 のエンティティ関係](odata-v4/entity-relations-in-odata-v4.md)
     - [OData v4 のアクションと関数](odata-v4/odata-actions-and-functions.md)
-    - [OData v4 の包含](odata-v4/odata-containment-in-web-api-22.md)
+    - [OData v4 のコンテインメイト](odata-v4/odata-containment-in-web-api-22.md)
     - [OData v4 でシングルトンを作成する](odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22.md)
     - [OData v4 のオープン型](odata-v4/use-open-types-in-odata-v4.md)
     - [OData v4 の複合型継承](odata-v4/complex-type-inheritance-in-odata-v4.md)

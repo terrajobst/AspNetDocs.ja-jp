@@ -12,14 +12,14 @@ ms.openlocfilehash: 242665b3ba2e2ad2157abbe2c44ae207f15e72ce
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410865"
 ---
 # <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 5 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -47,11 +47,11 @@ ms.locfileid: "59410865"
 
 | **URL** | **動詞** | **目的** |
 | --- | --- | --- |
-| */Dinners/編集/[id]* | GET | Dinner データが設定の編集可能な HTML フォームを表示します。 |
+| */Dinners/Edit/[id]* | GET | Dinner データが設定の編集可能な HTML フォームを表示します。 |
 | POST | 特定の夕食をデータベースには、フォームの変更を保存します。 |
-| */Dinners/作成* | GET | ユーザーが新しい Dinners を定義できる空の HTML フォームを表示します。 |
+| */Dinners/Create* | GET | ユーザーが新しい Dinners を定義できる空の HTML フォームを表示します。 |
 | POST | 新しい夕食を作成し、データベースに保存します。 |
-| */Dinners/削除/[id]* | GET | 削除の確認画面を表示します。 |
+| */Dinners/Delete/[id]* | GET | 削除の確認画面を表示します。 |
 | POST | データベースから指定の夕食を削除します。 |
 
 ### <a name="edit-support"></a>編集のサポート

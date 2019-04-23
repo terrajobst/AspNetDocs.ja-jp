@@ -12,7 +12,7 @@ ms.openlocfilehash: 87de6c92375594ab6ee726f1b66a94a0db793fd2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417053"
 ---
 # <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 - Visual Studio を利用した SQL Server Compact の Web 配置
@@ -20,15 +20,15 @@ ms.locfileid: "59417053"
 > このチュートリアル シリーズでは、SQL Server Compact 使用可能なインターネット経由でサード パーティのホスティング プロバイダーへのデプロイで使用する ASP.NET web アプリケーションを作成する方法を紹介します。 Visual Studio 2012 RC または Visual Studio 2010 が必要です。 展開の機能に関する最新の情報、または SQL Server Compact 以外の SQL Server のエディションをデプロイする方法についてを参照してください。 [Visual Studio を使用して ASP.NET Web 配置](../../deployment/visual-studio-web-deployment/introduction.md)します。
 
 
-- [Visual Studio による SQL Server Compact の Web 配置 - 概要](deployment-to-a-hosting-provider-introduction-1-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - SQL Server Compact データベースの配置](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - Web.Config ファイル変換](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - プロジェクト プロパティの構成](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - テスト環境として IIS に配置する](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - フォルダー アクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - 運用環境に配置する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - コード限定更新の配置](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - データベース更新の配置](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - SQL Server に移行する](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - SQL Server データベース更新の配置](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
-- [Visual Studio による SQL Server Compact の Web 配置 - トラブルシューティング](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - 概要](deployment-to-a-hosting-provider-introduction-1-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - SQL Server Compact データベースの展開](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - Web.Config ファイル変換](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - プロジェクト プロパティの構成](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - テスト環境として IIS に展開する](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - フォルダー アクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - 運用環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - コード限定更新の展開](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - データベース更新の展開](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - SQL Server に移行する](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - SQL Server データベース更新の展開](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+- [Visual Studio による SQL Server Compact の Web 展開 - トラブルシューティング](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: c3fe4a08a30aa2ed116dfa36ce6206dc9cbd07f8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415077"
 ---
 # <a name="tutorial-signalr-self-host"></a>チュートリアル: SignalR セルフホスト
@@ -21,7 +21,7 @@ ms.locfileid: "59415077"
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
 
 > このチュートリアルでは、SignalR 2 の自己ホスト型サーバーを作成する方法と、JavaScript クライアントで接続する方法を説明します。
 >

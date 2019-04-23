@@ -12,7 +12,7 @@ ms.openlocfilehash: 3f8073b468a431d5c4b0d222bf385c8c6d32b2a8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419094"
 ---
 # <a name="disabling-actions-during-animation-vb"></a>アニメーション中のアクションを無効にする (VB)
@@ -55,7 +55,7 @@ ms.locfileid: "59419094"
 ただし特定のシナリオでこれは無意味になるため、ボタンはフェードアウトし、は、アニメーションの最後に表示されません。
 
 
-[![Tアニメーションを実行するとすぐには、彼のボタンを無効になっています](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
+[![アニメーションを実行するとすぐに、ボタンが無効になっています](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
 
 アニメーションを実行するとすぐに、ボタンは無効 ([フルサイズの画像を表示する をクリックします](disabling-actions-during-animation-vb/_static/image3.png))。
 

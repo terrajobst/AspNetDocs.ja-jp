@@ -12,14 +12,14 @@ ms.openlocfilehash: f738d1c0b3cd99bb6df5f8b24dca907fa0b31f4d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413101"
 ---
 # <a name="configuring-parameters-for-web-package-deployment"></a>Web パッケージ配置のパラメーターを構成する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、リモートの IIS web サーバーに web パッケージを展開するときに、インターネット インフォメーション サービス (IIS) web アプリケーションの名前、接続文字列、およびサービスのエンドポイントなどのパラメーター値を設定する方法について説明します。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 63930ebe35e4c37e0cc7c0882582c48348cf201a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417664"
 ---
 # <a name="improving-the-details-and-delete-methods-vb"></a>Details メソッドと Delete メソッドの改善 (VB)
@@ -70,7 +70,7 @@ SQL Server Compact データベースにデータを格納する完全な ASP.NE
 
 アプリケーションをデプロイする場合は、最初のテスト、ローカルの IIS 7 サーバーでアプリケーションをことをお勧めします。 これを使用することができます[Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) ASP.NET アプリケーション用の IIS 設定を有効にリンクします。 次の展開のリンクを参照してください。
 
-- [ASP.NET 配置のコンテンツ マップ](https://msdn.microsoft.com/library/dd394698.aspx)
+- [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/dd394698.aspx)
 - [Enabling IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Web アプリケーション プロジェクトの配置](https://msdn.microsoft.com/library/dd394698.aspx)
 

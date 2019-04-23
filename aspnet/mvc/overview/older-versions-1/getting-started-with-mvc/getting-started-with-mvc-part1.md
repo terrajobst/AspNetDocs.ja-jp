@@ -12,7 +12,7 @@ ms.openlocfilehash: dcc2e703829cfa0b77575870feff451fd0738f56
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416494"
 ---
 # <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC 入門
@@ -32,11 +32,11 @@ ms.locfileid: "59416494"
 
 ここでは、アプリケーションをビルドの 2 つのスクリーン ショットです。 さまざまな列を持つ映画の単純なテーブルがあります。
 
-[![Mリスト - ovie Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[![ムービーの一覧 - Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
 フォームの作成は、ムービーの一覧に追加できます必要があります。
 
-[![CWindows Internet Explorer (2) - ムービーの作成 ()](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[![-ムービーを作成するには、Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
 ## <a name="skills-youll-learn"></a>学習内容
 
@@ -61,7 +61,7 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 ここで、選択 Visual C#、左側の「ASP.NET MVC 2 Web アプリケーション」を選択し、 プロジェクトに"Movies"という名前し、[ok] をクリックします。
 
-[![N新しいプロジェクト](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[![新しいプロジェクト](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
 右側にあるすべてのファイルとフォルダーを示す、アプリケーションで、ソリューション エクスプ ローラーです。 中央の大きなウィンドウは、コードを編集し、ほとんどの時間を費やす場所には。 Visual Studio は、何もせず、実用的なアプリケーションが現在あるため、作成した ASP.NET MVC プロジェクトの既定のテンプレートを使用! これは、単純な"Hello World! プロジェクト、およびそのは、アプリケーションを起動することをお勧めします。
 
@@ -73,11 +73,11 @@ Visual Basic または Visual C# を使用してアプリケーションを作�
 
 プログラムをコンパイルし、web ブラウザーでアプリケーションを起動する右側に緑色の矢印になります。
 
-*注: 代わりに、キーボードの f5 キーを押して、デバッグを選択または&gt;[デバッグ] メニューからデバッグを開始します。*
+*注:代わりに、キーボードの f5 キーを押して、デバッグを選択または&gt;[デバッグ] メニューからデバッグを開始します。*
 
 これは、結果、Visual Web Developer を開発 web サーバーを起動し、(はありません構成や手動の手順がこれを有効にするために必要)、web アプリケーションを実行します。 ブラウザーを起動し、アプリケーションのホーム ページを参照するように構成には、します。 以下の"localhost"の example.com のようなものであり、ブラウザーのアドレス バーに表示されるに注意してください。 Localhost は常に、ここで作成したアプリケーションを実行している独自のローカル コンピューターをポイントするためです。
 
-[![Home ページ](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
+[![ホーム ページ](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
 
 この既定のテンプレートはすぐする 2 つのページにアクセスして、基本的なログイン ページを示します。 このアプリケーションの動作を変更して、プロセスで ASP.NET MVC についてもう少し説明します。 ブラウザーを閉じて、いくつかのコードを変更することができます。
 

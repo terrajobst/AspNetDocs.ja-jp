@@ -12,14 +12,14 @@ ms.openlocfilehash: c85db4289698988ead44afd452da17054bab9f07
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417209"
 ---
 # <a name="create-a-new-aspnet-mvc-project"></a>新しい ASP.NET MVC プロジェクトを作成する
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 1 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
@@ -36,7 +36,7 @@ ms.locfileid: "59417209"
 
 ![](create-a-new-aspnet-mvc-project/_static/image1.png)
 
-*重要 : ダウンロードして、ASP.NET MVC で、新しいプロジェクト ダイアログに表示されませんが、それ以外の場合にインストールされていることを確認してください。 V2 を使用することができます、 [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)まだインストールしていない場合 (ASP.NET MVC は内で使用できる、"Web プラットフォーム-&gt;フレームワークおよびランタイム"セクション)。*
+*重要:ダウンロードして、ASP.NET MVC で、新しいプロジェクト ダイアログに表示されませんが、それ以外の場合にインストールされていることを確認してください。V2 を使用することができます、 [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)まだインストールしていない場合 (ASP.NET MVC は内で使用できる、"Web プラットフォーム-&gt;フレームワークおよびランタイム"セクション)。*
 
 "NerdDinner"を作成し、クリックして [ok] ボタンを作成する新しいプロジェクトという名前です。
 
@@ -46,7 +46,7 @@ ms.locfileid: "59417209"
 
 上記のダイアログ ボックスで、「テスト フレームワーク」ドロップダウン リストには、すべて使用可能な ASP.NET MVC 単体テスト プロジェクト テンプレートがコンピューターにインストールが設定されます。 NUnit や MBUnit、XUnit のバージョンをダウンロードできます。 組み込みの Visual Studio 単体テスト フレームワークもサポートされます。
 
-*メモ:Visual Studio の単体テスト フレームワークでは、Visual Studio 2008 Professional および以降のバージョンで使用できるのみです。 VS 2008 Standard Edition または Visual Web Developer 2008 Express を使用している場合は、ダウンロードしてこのダイアログ ボックスに表示するために、ASP.NET MVC の NUnit や MBUnit XUnit 拡張機能をインストールする必要があります。 インストールされているすべてのテスト フレームワークがない場合は、ダイアログは表示されません。*
+*注:Visual Studio の単体テスト フレームワークでは、Visual Studio 2008 Professional および以降のバージョンで使用できるのみです。VS 2008 Standard Edition または Visual Web Developer 2008 Express を使用している場合は、ダウンロードしてこのダイアログ ボックスに表示するために、ASP.NET MVC の NUnit や MBUnit XUnit 拡張機能をインストールする必要があります。インストールされているすべてのテスト フレームワークがない場合は、ダイアログは表示されません。*
 
 作成するテスト プロジェクトの既定の"NerdDinner.Tests"名前を使用して、「Visual Studio 単体テスト」フレームワーク オプションを使用しておします。 クリックしたとき、[ok] ボタンの Visual Studio はソリューションを単体テストのため、web アプリケーションのいずれかとその中の 2 つのプロジェクトの作成します。
 
@@ -64,9 +64,9 @@ Visual Studio で新しい ASP.NET MVC アプリケーションを作成する�
 | --- | --- |
 | **/コント ローラー** | URL 要求を処理するコント ローラー クラスを配置します。 |
 | **/モデル** | データの操作を表すクラスを配置します。 |
-| **/ビュー** | 出力のレンダリングを担当する UI テンプレート ファイルを配置します。 |
-| **/スクリプト** | JavaScript ライブラリのファイルとスクリプト (.js) を配置します。 |
-| **/コンテンツ** | CSS とイメージ ファイル、およびその他の非動的または非 JavaScript コンテンツを配置します。 |
+| **/Views** | 出力のレンダリングを担当する UI テンプレート ファイルを配置します。 |
+| **/Scripts** | JavaScript ライブラリのファイルとスクリプト (.js) を配置します。 |
+| **/Content** | CSS とイメージ ファイル、およびその他の非動的または非 JavaScript コンテンツを配置します。 |
 | **/アプリ\_データ** | データ ファイルの格納先は、読み取り/書き込みします。 |
 
 ASP.NET MVC では、この構造体は必要ありません。 実際には、大規模なアプリケーションで作業する開発者は通常、アプリケーションの間でパーティション分割より管理しやすいように複数のプロジェクト (例: データ モデル クラスは多くの場合、別のクラス ライブラリ プロジェクトで web アプリケーションから移動) します。 ただし、既定のプロジェクト構造は、アプリケーションの問題をクリーンに維持するために使用できる便利な既定のディレクトリ規則を提供しています。

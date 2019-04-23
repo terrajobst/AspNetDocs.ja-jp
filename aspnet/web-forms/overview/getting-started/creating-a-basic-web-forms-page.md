@@ -12,7 +12,7 @@ ms.openlocfilehash: bf3336c2467553ba3714bbd4fbb41a35a0490768
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410605"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Visual Studio 2013 を使用して基本的な ASP.NET 4.5 Web フォーム ページを作成するには
@@ -62,7 +62,7 @@ ms.locfileid: "59410605"
 3. 選択、**テンプレート** - &gt; **Visual C#**  - &gt; **Web**左側のテンプレート グループ。
 4. 選択、 **ASP.NET Web アプリケーション**中央の列のテンプレート。
 5. プロジェクトに名前を***BasicWebApp***  をクリックし、 **OK**ボタン。   
-![[新しいプロジェクト] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image2.png)
+![新しいプロジェクト ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image2.png)
 6. 次に、選択、 **Web フォーム**テンプレートをクリックして、 **OK**プロジェクトを作成するボタンをクリックします。  
 ![新しい ASP.NET プロジェクト ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image3.png)  
 
@@ -109,7 +109,7 @@ ms.locfileid: "59410605"
 2. **ソリューション エクスプ ローラー**、Web アプリケーションの名前を右クリックし (アプリケーション名は、このチュートリアルでは**BasicWebSite**)、をクリックし、**追加** - &gt;**新しい項目の**します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 3. 選択、 **Visual C#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**Web フォーム**中央から一覧表示し、名前を*名前*します。   
-    ![[新しい項目の追加] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image6.png)
+    ![新しい項目 ダイアログ ボックスを追加します。](creating-a-basic-web-forms-page/_static/image6.png)
 4. クリックして**追加**web ページ、プロジェクトを追加します。  
 Visual Studio では、新しいページを作成し、それを開きます。
 

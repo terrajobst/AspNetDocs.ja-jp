@@ -12,7 +12,7 @@ ms.openlocfilehash: 3a39e8d1979a743101d728eb3430e9aa0efb1252
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415636"
 ---
 # <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 の概要
@@ -39,7 +39,7 @@ ASP.NET Web フォームに慣れていない開発者は、このチュート�
 
 これらの領域を確認するには、次の内容を調査を検討してください。
 
-- [Visual C# について](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Visual C# の概要](https://msdn.microsoft.com/library/a72418yk.aspx)
 - [Web 開発](https://msdn.microsoft.com/beginner/bb308760.aspx)、 [HTML、CSS、JavaScript、SQL、PHP、JQuery](http://w3schools.com/)
 - [リレーショナル データベース](http://en.wikipedia.org/wiki/Relational_database)
 - [複数層アーキテクチャ](http://en.wikipedia.org/wiki/Multitier_architecture)

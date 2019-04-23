@@ -13,7 +13,7 @@ ms.openlocfilehash: 2620d9e2eaf3c7719d9a289e42bb91270708ae79
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419445"
 ---
 # <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>ASP.NET と Azure App Service にパスワードやその他の機密データを配置するためのベスト プラクティス
@@ -30,7 +30,7 @@ ms.locfileid: "59419445"
 - [開発環境でパスワードを使用](#pwd)
 - [開発環境での接続文字列の使用](#con)
 - [Web ジョブのコンソール アプリ](#wj)
-- [Azure へシークレットを展開](#da)
+- [シークレットを Azure に展開します。](#da)
 - [オンプレミスおよび PHP 向けのノート](#not)
 - [その他のリソース](#addRes)
 

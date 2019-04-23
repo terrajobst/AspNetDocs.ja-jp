@@ -12,7 +12,7 @@ ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411125"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
@@ -547,7 +547,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 
     ![ページについて](whats-new-in-aspnet-mvc-4/_static/image33.png "ページについて")
 
-    *About ページ*
+    *ページについて*
 8. 最後に、デスクトップ、Web ブラウザーでサイトを開きます。 デスクトップ ビューに影響なし以前の更新プログラムのことに注意してください。
 
     ![PhotoGallery デスクトップ ビュー](whats-new-in-aspnet-mvc-4/_static/image34.png "PhotoGallery デスクトップ ビュー")
@@ -876,7 +876,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 4. &quot;プログラムの追加&quot;ダイアログ ボックスで、次の値を使用します。
 
    - **プログラム**:C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(パスを適宜更新する)*
-   - **引数**:&quot;1&quot;
+   - **[引数]**:&quot;1&quot;
    - **フレンドリ名**: iPhone シミュレーター
 
      ![プログラムの追加](whats-new-in-aspnet-mvc-4/_static/image59.png "プログラムの追加")
@@ -1016,7 +1016,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 
     ![データベースを作成する](whats-new-in-aspnet-mvc-4/_static/image78.png "データベース文字列を作成します。")
 
-    *データベースを作成する*
+    *データベースの作成*
 7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL データベースを指す接続文字列")

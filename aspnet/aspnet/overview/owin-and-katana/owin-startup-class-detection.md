@@ -12,7 +12,7 @@ ms.openlocfilehash: e4d9424d691f92aacf078faed09689daa40a44fd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418340"
 ---
 # <a name="owin-startup-class-detection"></a>OWIN スタートアップ クラス検出
@@ -79,8 +79,7 @@ ms.locfileid: "59418340"
      > [!NOTE]
      > 上記のコードで私たちがコメント アウト、`OwinStartup`という名前のクラスを実行中の規則で属性としている証明書利用者`Startup`.-キーを押して***F5***アプリケーションを実行します。 更新を何回かクリックします。
 
-    ![](owin-startup-class-detection/_static/image4.png)
-  メモ:このチュートリアルでは、イメージ内の数字では、この数が一致しません。 ミリ秒文字列は、ページを更新するときに、新しい応答を表示する使用されます。
+    ![](owin-startup-class-detection/_static/image4.png) 注:このチュートリアルでは、イメージ内の数字では、この数が一致しません。 ミリ秒文字列は、ページを更新するときに、新しい応答を表示する使用されます。
   トレース情報を表示、**出力**ウィンドウ。
 
     ![](owin-startup-class-detection/_static/image5.png)

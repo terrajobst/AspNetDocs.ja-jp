@@ -12,7 +12,7 @@ ms.openlocfilehash: 08be9368049e97baecf9ae81e496950b1349d18f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414908"
 ---
 # <a name="getting-started-with-mvc"></a>MVC の概要
@@ -21,7 +21,7 @@ ms.locfileid: "59414908"
 
 
 - [ASP.NET MVC 入門](getting-started-with-mvc-part1.md)
-- [コントローラーを追加する](getting-started-with-mvc-part2.md)
+- [コントローラーの追加](getting-started-with-mvc-part2.md)
 - [ビューの追加](getting-started-with-mvc-part3.md)
 - [データベースの作成](getting-started-with-mvc-part4.md)
 - [コントローラーからモデルのデータにアクセスする](getting-started-with-mvc-part5.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 3db35464b448727ef3477a90149459a46e0f76d7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412165"
 ---
 # <a name="linq-videos-from-the-vb-team"></a>VB チームの LINQ ビデオ
@@ -26,4 +26,4 @@ ms.locfileid: "59412165"
 - [LINQ to XML 入門](how-do-i-get-started-with-linq-to-xml.md)
 - [XML IntelliSense を有効にして、XML 名前空間を使用する](how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
 - [SQL データから XML ドキュメントを作成する](how-do-i-create-xml-documents-from-sql-data.md)
-- [LINQ to XML を使用して Excel スプレッドシートを作成する](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)
+- [LINQ to XML を使用して Excel ワークシートを作成する](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)

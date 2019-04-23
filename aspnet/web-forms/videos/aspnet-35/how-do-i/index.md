@@ -12,7 +12,7 @@ ms.openlocfilehash: 8a7251971410ef2539e3957039de33af6e74371c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415454"
 ---
 # <a name="how-do-i"></a>操作方法
@@ -24,10 +24,10 @@ ms.locfileid: "59415454"
 - [Visual Studio 2008 で入れ子になったマスター ページを作成する](how-do-i-create-nested-master-page-in-visual-studio-2008.md)
 - [Visual Studio 2008 のカスケード スタイル シート](how-do-i-cascading-style-sheets-in-visual-studio-2008.md)
 - [Visual Studio 2008 .NET Framework を使用する](how-do-i-working-with-visual-studio-2008-net-framework.md)
-- [CSS ファイルに要素を追加し、新しい CSS をその場で作成する](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+- [CSS ファイルに要素を追加し、新しい CSS をオンザフライで作成する](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
 - [カスケード スタイル シートの高度な機能と管理](how-do-i-advance-cascading-style-sheet-features-and-management.md)
 - [.NET 2.0 Windows フォーム アプリケーションを .NET 3.5 に変換する](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
 - [Entity Framework の概要](how-do-i-get-started-with-the-entity-framework.md)
 - [新しいエンティティ データ ソースを使用する](how-do-i-use-the-new-entity-data-source.md)
-- [Entity Framework を使用してグラフをシリアル化する](how-do-i-serialize-a-graph-with-the-entity-framework.md)
-- [MSBuild を使用して ASP.NET のコンパイラおよびマージ ユーティリティを自動化する](how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities.md)
+- [Entity Framework でグラフをシリアル化する](how-do-i-serialize-a-graph-with-the-entity-framework.md)
+- [MSBuild を使用し、ASP.NET のコンパイラ ユーティリティとマージ ユーティリティを自動化する](how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 3162db9b0b3e8c057201d96e08133a086c384fe6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416988"
 ---
 # <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a>How Do i:LINQ to SQL:任意の SQL を実行する

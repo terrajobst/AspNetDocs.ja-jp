@@ -13,7 +13,7 @@ ms.openlocfilehash: d8340509484ab3f5ad241534bd0756545c5be84c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419328"
 ---
 # <a name="aspnet-identity-extensibility"></a>ASP.NET Identity の機能拡張
@@ -23,4 +23,4 @@ ms.locfileid: "59419328"
 
 - [ASP.NET Identity のカスタム ストレージ プロバイダーの概要](overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [カスタム MySQL ASP.NET Identity ストレージ プロバイダーの実装](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-- [ASP.NET Identity でユーザーの主キーを変更する](change-primary-key-for-users-in-aspnet-identity.md)
+- [ASP.NET Identity でユーザーのプライマリ キーを変更する](change-primary-key-for-users-in-aspnet-identity.md)

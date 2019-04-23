@@ -12,7 +12,7 @@ ms.openlocfilehash: 1023d9bef311e58fb5fb0bb24cde80e8320e6bac
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419055"
 ---
 # <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ:One ASP.NET:ASP.NET Web フォーム、MVC、Web API の統合
@@ -48,7 +48,7 @@ ms.locfileid: "59419055"
 このハンズオン ラボを完了する、次が必要。
 
 - [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/)以上
-- [Visual Studio 2013 更新プログラム 1](https://go.microsoft.com/fwlink/?LinkId=301714)
+- [Visual Studio 2013 Update 1](https://go.microsoft.com/fwlink/?LinkId=301714)
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
@@ -103,7 +103,7 @@ ms.locfileid: "59419055"
 
     ![新規プロジェクトの作成](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image1.png)
 
-    *新規プロジェクトの作成*
+    *新しいプロジェクトを作成します。*
 2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下、 **(Visual C#) |Web**タブをクリックし、確認 **.NET Framework 4.5**が選択されています。 プロジェクトの名前*MyHybridSite*、選択、**場所** をクリック**OK**します。
 
     ![新しい ASP.NET Web アプリケーション プロジェクト](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image2.png)

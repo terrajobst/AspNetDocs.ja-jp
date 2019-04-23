@@ -12,7 +12,7 @@ ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412178"
 ---
 # <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web ページの概要 - データを表示します。
@@ -333,7 +333,7 @@ WebMatrix のツリー ビューでは、ページを右クリックして**ブ�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Introduction to ASP.NET Web Programming Using the Razor Syntax (Razor 構文を使用した ASP.NET Web プログラミングの概要)](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
 
 > [!div class="step-by-step"]
 > [前へ](intro-to-web-pages-programming.md)
