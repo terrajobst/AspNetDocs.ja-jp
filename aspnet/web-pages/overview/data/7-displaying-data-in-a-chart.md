@@ -12,7 +12,7 @@ ms.openlocfilehash: f97f214abeaeb88634dd10aaebacc0d58e91ab84
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422461"
 ---
 # <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web Pages (Razor) を持つグラフ データを表示します。
@@ -40,10 +40,10 @@ ms.locfileid: "59422461"
 
 使用することができますグラフィカルな形式でデータを表示する場合は、`Chart`ヘルパー。 `Chart`ヘルパーのさまざまな種類のグラフでデータを表示するイメージをレンダリングできます。 書式設定とラベル付けに関して多くのオプションをサポートしています。 `Chart` 30 を超える種類のグラフ、場合によっては Microsoft Excel やその他のツールを使い慣れているグラフのすべての種類などをレンダリングできるヘルパー&#8212;面グラフ、横棒グラフ、縦棒グラフ、折れ線グラフ、およびと共に複数の円グラフ株価チャートをなどの特殊なグラフ。
 
-| **面グラフ**![説明。面グラフの画像](7-displaying-data-in-a-chart/_static/image1.jpg) | **横棒グラフ**![説明。横棒グラフの画像](7-displaying-data-in-a-chart/_static/image2.jpg) |
+| **面グラフ**![説明。面グラフの種類の画像](7-displaying-data-in-a-chart/_static/image1.jpg) | **横棒グラフ**![説明。横棒グラフの画像](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
-| **縦棒グラフ**![説明。縦棒グラフの画像](7-displaying-data-in-a-chart/_static/image3.jpg) | **折れ線グラフ**![説明。折れ線グラフの画像](7-displaying-data-in-a-chart/_static/image4.jpg) |
-| **円グラフ**![説明。円グラフの画像](7-displaying-data-in-a-chart/_static/image5.jpg) | **株価チャート**![説明。株価チャートの画像](7-displaying-data-in-a-chart/_static/image6.jpg) |
+| **縦棒グラフ**![説明。縦棒グラフの種類の画像](7-displaying-data-in-a-chart/_static/image3.jpg) | **折れ線グラフ**![説明。線グラフの種類の画像](7-displaying-data-in-a-chart/_static/image4.jpg) |
+| **円グラフ**![説明。円グラフの種類の画像](7-displaying-data-in-a-chart/_static/image5.jpg) | **株価チャート**![説明。株価チャートの画像](7-displaying-data-in-a-chart/_static/image6.jpg) |
 
 ### <a name="chart-elements"></a>グラフ要素
 

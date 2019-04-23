@@ -12,7 +12,7 @@ ms.openlocfilehash: 157a486af3d11dfbd7431680b6c9fe4f0e262892
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422396"
 ---
 # <a name="collapsing-and-expanding-a-panel-from-javascript-c"></a>JavaScript からパネルを折りたたむ/展開する (C#)
@@ -65,7 +65,7 @@ ASP.NET AJAX Control Toolkit の CollapsiblePanel コントロールはパネル
 [!code-javascript[Main](collapsing-and-expanding-a-panel-from-javascript-cs/samples/sample8.js)]
 
 
-[![T彼は 3 番目のボタンは、パネルの状態を変更します展開とバックに折りたたまれているから]。(collapsing-and-expanding-a-panel-from-javascript-cs/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image1.png)
+[![3 番目のボタンは、パネルの状態を変更しますから一番前と展開のために折りたたむ。](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image1.png)
 
 3 番目のボタンは、パネルの状態を変更: から一番前と展開のために折りたたむ ([フルサイズの画像を表示する をクリックします](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image3.png))。
 

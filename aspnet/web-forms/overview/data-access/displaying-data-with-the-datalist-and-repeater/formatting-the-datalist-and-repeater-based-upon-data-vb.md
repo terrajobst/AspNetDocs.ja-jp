@@ -12,7 +12,7 @@ ms.openlocfilehash: 8955e37aa084f339665bbd4dc0475f7be74f3b26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421603"
 ---
 # <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>データに基づいて DataList と Repeater を書式設定する (VB)
@@ -74,7 +74,7 @@ DataList コントロールの書式設定の変更項目全体の実装を使�
 DataList コントロールと ObjectDataSource 機能をレプリケートしているときと`Basics.aspx`に`Formatting.aspx`、DataList s を変更する少し`ID`プロパティから`DataList1`にわかりやすい`ItemDataBoundFormattingExample`します。 次に、ブラウザーで、DataList を表示します。 図 1 は、各製品の唯一の書式設定の違いは、背景色が交互に設定することです。
 
 
-[![TDataList コントロールでは、彼の製品が一覧表示](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
+[![DataList コントロールでは、製品が表示されています。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
 
 **図 1**:DataList コントロールでは、製品が表示されている ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))。
 
@@ -117,7 +117,7 @@ DataList コントロールと ObjectDataSource 機能をレプリケートし�
 `ItemDataBound`イベント ハンドラーが完了すると、再アクセス、`Formatting.aspx`ブラウザーでページ。 図 2 に示すように、20.00 ドルで、価格がこれらの製品は、名前と強調表示されている価格があります。
 
 
-[![Tホース製品小さい 20.00 ドルが強調表示されているよりも](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
+[![これらの製品よりも小さい 20.00 ドルが強調表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
 
 **図 2**:これらの製品よりも小さい 20.00 ドルが強調表示されます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))。
 
@@ -129,7 +129,7 @@ DataList コントロールと ObjectDataSource 機能をレプリケートし�
 `RepeaterItem`ただし、don t で、Repeater コントロールを構成するは、このようなスタイルのレベル プロパティを提供します。 図 2 で行ったのと同じよう、Repeater のテンプレート内での Web コントロールにスタイル プロパティのアプリケーションがそのため、必要に、Repeater のカスタム書式設定を適用します。
 
 
-[![T製品 [20.00 ドルを彼全体の製品品目が強調表示されます](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
+[![製品 20.00 ドルの製品項目全体が強調表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
 
 **図 3**:製品 [20.00 ドルの製品項目全体が強調表示されます ([フルサイズの画像を表示する] をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))。
 
@@ -141,7 +141,7 @@ DataList コントロールと ObjectDataSource 機能をレプリケートし�
 書式設定関数を示すためには、let s がある場合は、s の製品名の横にある [DISCONTINUED] のテキストを含める製品情報、s が廃止されました。 また、価格の強調表示されている黄色場合のある let s、20.00 ドル未満の秒 (で行ったよう、`ItemDataBound`イベント ハンドラーの例) 場合は、価格は、20.00 ドルが、s が高いことができますに実際の料金が表示されないまたは見積もり価格の代わりに、テキストをしてください。 図 4 は、商品の書式指定規則が適用されたこれらの一覧のスクリーン ショットを示します。
 
 
-[![Fまたは、高価な製品、価格については、置き換え、テキストを呼び出して見積もり価格にしてください](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
+[![高価な製品は、価格はテキストを呼び出して見積もり価格にしてください、置き換えられます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
 
 **図 4**:高価な製品には、価格は、テキストを呼び出して見積もり価格にしてくださいに置き換えられます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))。
 
@@ -182,7 +182,7 @@ DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロール�
 配置で書式設定関数を呼び出し、ブラウザーで、進行状況を表示するのには少しをを。 [DISCONTINUED] のテキストを含む提供が中止された製品と図 5 のようになります、画面として見積もり価格の呼び出しのテキストと、コストを超える 20.00 ドルの価格を持つこれらの製品が置き換えします。
 
 
-[![Fまたは、高価な製品、価格については、置き換え、テキストを呼び出して見積もり価格にしてください](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
+[![高価な製品は、価格はテキストを呼び出して見積もり価格にしてください、置き換えられます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
 
 **図 5**:高価な製品には、価格は、テキストを呼び出して見積もり価格にしてくださいに置き換えられます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))。
 

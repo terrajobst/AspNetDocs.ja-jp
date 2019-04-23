@@ -12,7 +12,7 @@ ms.openlocfilehash: 266d2e3fda54a9e584622ccd595e41229c96e6b0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420745"
 ---
 # <a name="adding-validation-to-the-model"></a>モデルに検証を追加する
@@ -49,7 +49,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 アプリケーションを実行し、次の実行時エラーがもう一度表示されます。
 
-***データベースが作成されたために、'MovieDBContext' コンテキストのバックアップ モデルが変更されました。 データベースを更新する Code First Migrations を使用する ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))。)).***
+***データベースが作成されたために、'MovieDBContext' コンテキストのバックアップ モデルが変更されました。データベースを更新する Code First Migrations を使用する ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))。***
 
 スキーマを更新するのに移行を使用します。 ソリューションをビルドし、開き、**パッケージ マネージャー コンソール**ウィンドウし、次のコマンドを入力します。
 

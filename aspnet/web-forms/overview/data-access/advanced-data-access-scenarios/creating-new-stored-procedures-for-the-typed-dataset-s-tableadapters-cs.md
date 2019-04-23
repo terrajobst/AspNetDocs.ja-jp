@@ -12,7 +12,7 @@ ms.openlocfilehash: 8ede51ea943fc7e2a3bb4e0c96a526648e4b8687
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422045"
 ---
 # <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>型指定された DataSet の TableAdapters に新しいストアド プロシージャを作成する (C#)
@@ -86,7 +86,7 @@ Tableadapter によって実行される SQL コマンドでは、アドホッ�
 などの他のフォルダーで`Default.aspx`で、`AdvancedDAL`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
 
 
-[![Add Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロール](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)
+[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png))。
 
@@ -111,7 +111,7 @@ Let s は、アドホック SQL ステートメントの代わりにストアド
 右クリックし、プロジェクトに新しいデータセットを追加、`DAL`フォルダー、新しい項目の追加 を選択して、図 4 に示すように、データセットのテンプレートを選択します。
 
 
-[![Add プロジェクトという NorthwindWithSprocs.xsd に新しい型指定されたデータセット](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image6.png)
+[![新しい型指定されたデータセットを NorthwindWithSprocs.xsd という名前のプロジェクトに追加します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image6.png)
 
 **図 4**:プロジェクトの名前に新しい型指定されたデータセットを追加`NorthwindWithSprocs.xsd`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png))。
 
@@ -121,7 +121,7 @@ Let s は、アドホック SQL ステートメントの代わりにストアド
 この次の画面から TableAdapter がデータベースにアクセスする方法を選択できます。 前のチュートリアルでは、最初のオプションを使用して SQL ステートメントを選択します。 このチュートリアルでは、2 つ目のオプションを選択、新しいストアド プロシージャを作成および [次へ] をクリックします。
 
 
-[![I新しいストアド プロシージャの作成に TableAdapter を読み取れません](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png)
+[![新しいストアド プロシージャを作成する TableAdapter を指示します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png)
 
 **図 5**:新しいストアド プロシージャを作成する TableAdapter の指示 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image11.png))。
 
@@ -134,7 +134,7 @@ Let s は、アドホック SQL ステートメントの代わりにストアド
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample4.sql)]
 
 
-[![E所属、SELECT クエリを入力](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image12.png)
+[![SELECT クエリを入力します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image12.png)
 
 **図 6**:入力、`SELECT`クエリ ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png))。
 
@@ -160,7 +160,7 @@ TableAdapter ウィザードによって自動的に作成するストアド プ
 入力した後、`SELECT`クエリを実行し、生成 Insert、Update および Delete のステートメントのオプションをオンになっていることを確認するには、[次へ] をクリックします。 図 8 では、この次の画面では、作成するストアド プロシージャの名前を選択、挿入、更新、およびデータの削除のメッセージが表示されます。 これらのストアド プロシージャ名を変更`Products_Select`、 `Products_Insert`、 `Products_Update`、および`Products_Delete`します。
 
 
-[![Rename ストアド プロシージャ](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
+[![ストアド プロシージャの名前を変更します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
 
 **図 8**:ストアド プロシージャの名前を変更 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image18.png))。
 
@@ -176,7 +176,7 @@ TableAdapter ウィザードが次の 4 つのストアド プロシージャの
 ストアド プロシージャの名前を付け、対応するメソッドの名前、tableadapter の横にあるをクリックします。 ときに、アドホック SQL ステートメントを使用すると同じようにすると、既存のデータ テーブルを埋めるか、新しいものを返すメソッドを作成できます。 TableAdapter が挿入、更新、およびレコードの削除の DB ダイレクト パターンを含めるかどうかも指定できます。 すべての 3 つチェック ボックスをオンにしたままにしますが、戻り値に DataTable メソッドの名前を変更`GetProducts`で示した図 10)。
 
 
-[![Nメソッドの入力名 () と GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)
+[![メソッドの名前を付けます塗りつぶしと GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)
 
 **図 10**:メソッドの名前を付けます`Fill`と`GetProducts`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png))。
 
@@ -184,7 +184,7 @@ TableAdapter ウィザードが次の 4 つのストアド プロシージャの
 ウィザードの手順の概要を表示するには、次へ をクリックします。 [完了] ボタンをクリックしてウィザードを完了します。 データセットのデザイナーで、今すぐに含める必要がありますに返されるウィザードの完了後、`ProductsDataTable`します。
 
 
-[![T新しく追加された ProductsDataTable を示しています彼データセットの Designer](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)
+[![DataSet の s デザイナーには、新しく追加された ProductsDataTable が表示されます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)
 
 **図 11**:新しく追加したデータセットのデザイナーを示しています`ProductsDataTable`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png))。
 
@@ -206,7 +206,7 @@ TableAdapter ウィザードが次の 4 つのストアド プロシージャの
 ストアド プロシージャの変更を表示またはサーバー エクスプ ローラーでその名前をダブルクリックしますまたは、代わりに、ストアド プロシージャを右クリックしして、開く を選択します。 図 13 では、`Products_Delete`開かれたときに、ストアド プロシージャをします。
 
 
-[![Stored プロシージャを開くことができると変更から内で Visual Studio](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png)
+[![ストアド プロシージャを開くし、Visual Studio 内からに変更されました](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png)
 
 **図 13**:ストアド プロシージャを開くことができると変更から内で Visual Studio ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png))。
 
@@ -250,7 +250,7 @@ TableAdapter ウィザードが次の 4 つのストアド プロシージャの
 または、デザイナーで TableAdapter を右クリックして、構成を選択してすべてのメソッドで使用されるパラメーターを更新することができます。 選択、挿入、更新、使用するストアド プロシージャを一覧表示、TableAdapter 構成ウィザードが表示され、パラメーターと共に、削除するストアド プロシージャが表示されます。 更新プログラムのドロップダウン リストをクリックする場合は、表示、`Products_Update`ストアド プロシージャは、ここで廃止されていますが、入力パラメーターが必要です`@Original_ProductID`(図 15 を参照してください)。 TableAdapter で使用されるパラメーターのコレクションを自動的に更新するには、[完了] をクリックします。
 
 
-[![You は、tableadapter のメソッドのパラメーター コレクションの更新の構成ウィザードを使用してもできます](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
+[![TableAdapter の構成ウィザードを使用してそのメソッドのパラメーターのコレクションを更新することもできます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
 
 **図 15**:また、tableadapter のメソッドのパラメーター コレクションの更新の構成ウィザードを使用することができます ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image33.png))。
 
@@ -270,7 +270,7 @@ TableAdapter を右クリックし、コンテキスト メニューから追加
 これにより、最初に TableAdapter がデータベースにアクセスする方法を要求すると、TableAdapter クエリ構成ウィザードが開始されます。 作成された新しいストアド プロシージャは、作成ストアド プロシージャの新しいオプションを選択し、[次へ] をクリックします。
 
 
-[![C作成する新しいストアド プロシージャ オプションの選択](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)
+[![作成、新しいストアド プロシージャ オプションの選択します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)
 
 **図 17**:作成、新しいストアド プロシージャ オプションの選択 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png))。
 
@@ -278,7 +278,7 @@ TableAdapter を右クリックし、コンテキスト メニューから追加
 次の画面には、行または単一のスカラー値のセットを返す、またはを実行するかどうかを実行するクエリの種類を識別するよう求められます、 `UPDATE`、 `INSERT`、または`DELETE`ステートメント。 以降、`GetProductByProductID(productID)`メソッドは行を返す、返す行のオプションが選択されており、[次へ] の選択のままにします。
 
 
-[![C選択をオプションの行を返す SELECT](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)
+[![選択 オプションの行を返す](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)
 
 **図 18**:[選択] オプションの行を返す ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png))。
 
@@ -289,7 +289,7 @@ TableAdapter を右クリックし、コンテキスト メニューから追加
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample9.sql)]
 
 
-[![R置換選択クエリを使用してストアド プロシージャ名](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)
+[![SELECT クエリでストアド プロシージャ名を置き換えます](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)
 
 **図 19**:ストアド プロシージャの名前を`SELECT`クエリ ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image43.png))。
 
@@ -297,7 +297,7 @@ TableAdapter を右クリックし、コンテキスト メニューから追加
 後続の画面では、作成されるストアド プロシージャの名前を付けます。 名前を入力します`Products_SelectByProductID`[次へ] をクリックします。
 
 
-[![N新しいストアド プロシージャ Products_SelectByProductID 名 ()](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image44.png)
+[![新しいストアド プロシージャ Products_SelectByProductID 名](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image44.png)
 
 **図 20**:新しいストアド プロシージャの名前を付けます`Products_SelectByProductID`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image46.png))。
 
@@ -305,7 +305,7 @@ TableAdapter を右クリックし、コンテキスト メニューから追加
 ウィザードの最後の手順では、メソッド名が生成だけでなく、塗りつぶしを使用するかどうかを示す、DataTable のパターンを変更するには、DataTable パターンでは、またはその両方を返すことができます。 このメソッドは、両方のオプションがオンのままには、メソッドの名前を変更`FillByProductID`と`GetProductByProductID`します。 実行し、ウィザードを完了するには、[完了] をクリックし、ウィザードの手順の概要を表示するには、[次へ] をクリックします。
 
 
-[![Rename FillByProductID を GetProductByProductID TableAdapter のメソッド](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image47.png)
+[![FillByProductID を GetProductByProductID メソッド、TableAdapter の名前を変更します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image47.png)
 
 **図 21**:TableAdapter のメソッドの名前を変更`FillByProductID`と`GetProductByProductID`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image49.png))。
 
@@ -335,7 +335,7 @@ TableAdapter が使用できる、新しいメソッドをウィザードを完�
 開く、`NewSprocs.aspx`ページで、`AdvancedDAL`フォルダーとその名前を付け、デザイナーには、ツールボックスからドラッグ GridView`Products`します。 GridView から s のスマート タグの選択という名前の新しい ObjectDataSource にバインドする`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス、図 22 に示すようにします。
 
 
-[![C構成、ObjectDataSource ProductsBLLWithSprocs クラスを使用する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image50.png)
+[![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image50.png)
 
 **図 22**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image52.png))。
 
@@ -345,7 +345,7 @@ TableAdapter が使用できる、新しいメソッドをウィザードを完�
 ObjectDataSource ウィザードが完了すると、Visual Studio は製品データ フィールドで、GridView に BoundFields と、CheckBoxField を追加します。 編集の有効化と削除を有効にするオプションをスマート タグの存在をチェックして、GridView s の組み込みの編集と削除機能に有効にします。
 
 
-[![T彼のページに含まれる編集と削除のサポートを有効に GridView](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image53.png)
+[![ページには編集および削除のサポートが有効で、GridView が含まれています](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image53.png)
 
 **図 23**:ページに含まれる GridView 編集と削除のサポートを有効に ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image55.png))。
 
@@ -362,7 +362,7 @@ ObjectDataSource ウィザードが完了すると、Visual Studio は製品デ�
 かどうかどうかは、GridView を拡張に関係なく、ブラウザーでページのコア機能をテストします。 図 24 に示すように 1 行当たりの編集と削除機能を提供する GridView では、製品がページに一覧表示します。
 
 
-[![T彼の製品は、Viewed、編集、および GridView から削除済みにする](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image56.png)
+[![製品を表示、編集、および GridView から削除できます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image56.png)
 
 **図 24**:製品を表示、編集、および GridView から削除 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image58.png))。
 

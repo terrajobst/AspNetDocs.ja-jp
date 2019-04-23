@@ -12,14 +12,14 @@ ms.openlocfilehash: 257bd06848adb949330856cc71eeb3d685e9d036
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421668"
 ---
 # <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシード
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは使用して[Code First Migrations](https://msdn.microsoft.com/data/jj591621)テスト データでデータベースをシードする EF でします。
 

@@ -13,18 +13,18 @@ ms.openlocfilehash: 304c0d71e5e18f9d3f0768464fe39d6e6946600d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422903"
 ---
 # <a name="web-api-guidance"></a>Web API のガイダンス
 
-- [作業の開始](getting-started-with-aspnet-web-api/index.md)
+- [はじめに](getting-started-with-aspnet-web-api/index.md)
 
     - [Web API 2 の概要 (C#)](getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
     - [Web API 2 のアクションの結果](getting-started-with-aspnet-web-api/action-results.md)
     - [ASP.NET Web フォームで Web API を使用する](getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
     - [Web API ヘルプ ページを作成する](getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-    - [ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする](getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+    - [ハンズ オン ラボ:ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルドします。](getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
 - [ルーティング](web-api-routing-and-actions/index.md)
 
     - [Web API のルーティング](web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -36,7 +36,7 @@ ms.locfileid: "59422903"
     - [Web API 2 と Entity Framework 6 を使用する](data/using-web-api-with-entity-framework/index.md)
 
         - [プロジェクトの作成](data/using-web-api-with-entity-framework/part-1.md)
-        - [モデルとコントローラーの追加](data/using-web-api-with-entity-framework/part-2.md)
+        - [エージェントとコントローラーの追加](data/using-web-api-with-entity-framework/part-2.md)
         - [データベースのシード](data/using-web-api-with-entity-framework/part-3.md)
         - [エンティティ関係の処理](data/using-web-api-with-entity-framework/part-4.md)
         - [データ転送オブジェクト (DTO) の作成](data/using-web-api-with-entity-framework/part-5.md)
@@ -53,10 +53,10 @@ ms.locfileid: "59422903"
     - [OData v4](odata-support-in-aspnet-web-api/odata-v4/index.md)
 
         - [OData v4 エンドポイントを作成する](odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint.md)
-        - [OData v4 クライアント アプリを作成する (C#)](odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app.md)
+        - [OData v4 クライアント アプリ (C#) を作成します。](odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app.md)
         - [OData v4 のエンティティ関係](odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4.md)
         - [OData v4 のアクションと関数](odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions.md)
-        - [OData v4 の包含](odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22.md)
+        - [OData v4 のコンテインメイト](odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22.md)
         - [OData v4 でシングルトンを作成する](odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22.md)
         - [OData v4 のオープン型](odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4.md)
         - [OData v4 の複合型継承](odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4.md)
@@ -101,19 +101,19 @@ ms.locfileid: "59422903"
     - [Web API のフォーム認証](security/forms-authentication.md)
     - [統合 Windows 認証](security/integrated-windows-authentication.md)
     - [SSL の使用](security/working-with-ssl-in-web-api.md)
-- [配置とホスティング](hosting-aspnet-web-api/index.md)
+- [展開とホスト](hosting-aspnet-web-api/index.md)
 
     - [OWIN を使用し、Web API 2 をセルフホストする](hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
     - [Azure Worker ロールで Web API 2 をホストする](hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role.md)
-- [詳細トピック](advanced/index.md)
+- [高度なトピック](advanced/index.md)
 
     - [Web API 2 の構成](advanced/configuring-aspnet-web-api.md)
     - [Web API 2 の依存関係挿入](advanced/dependency-injection.md)
     - [.NET クライアントから Web API を呼び出す (C#)](advanced/calling-a-web-api-from-a-net-client.md)
     - [Web API の HTTP メッセージ ハンドラー](advanced/http-message-handlers.md)
     - [Web API の HttpClient メッセージ ハンドラー](advanced/httpclient-message-handlers.md)
-    - [Web API で HTML フォーム データを送信する:URL エンコード フォーム データ](advanced/sending-html-form-data-part-1.md)
-    - [Web API で HTML フォーム データを送信する:ファイル アップロードとマルチパート MIME](advanced/sending-html-form-data-part-2.md)
+    - [Web API で HTML フォーム データを送信します。Url エンコード フォーム データ](advanced/sending-html-form-data-part-1.md)
+    - [Web API で HTML フォーム データを送信します。ファイルのアップロードとマルチパート MIME](advanced/sending-html-form-data-part-2.md)
     - [ASP.NET Web API の HTTP Cookie](advanced/http-cookies.md)
 - [リリース](releases/index.md)
 
@@ -133,4 +133,4 @@ ms.locfileid: "59422903"
         - [Product コントローラーと Order コントローラーの作成](older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
         - [メイン ページの作成](older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
     - [Web API 1 をセルフホストする (C#)](older-versions/self-host-a-web-api.md)
-    - [ASP.NET Web API で RESTful API をビルドする](older-versions/build-restful-apis-with-aspnet-web-api.md)
+    - [ASP.NET Web API で RESTful API をビルドする ](older-versions/build-restful-apis-with-aspnet-web-api.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: c7a1b9e82defaae71f0a911e5e4321f6e15ad8bf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422617"
 ---
 # <a name="performing-simple-validation-vb"></a>簡易検証を実行する (VB)
@@ -56,12 +56,12 @@ Html.ValidationMessage() と Html.ValidationSummary() ヘルパーは、ASP.NET 
 ビューを追加する前にアプリケーションをビルドすることを確認します。 それ以外の場合、クラスの一覧に表示されません、**データ クラスを表示**ドロップダウン リスト。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
 
 **図 01**:ビューの追加 ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image2.png))。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
+[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
 
 **図 02**:厳密に型指定されたビューを作成する ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image4.png))。
 
@@ -79,7 +79,7 @@ Html.ValidationMessage() ヘルパーは HTML フォームのフィールドの�
 図 3 のページは、不足しているフィールドと無効な値で、フォームが送信されたときに、検証ヘルパーによって表示されるエラー メッセージを示しています。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
+[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
 **図 03**:問題を含めて提出してビューを作成する ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image6.png))。
 
@@ -104,7 +104,7 @@ HTML の外観は、検証エラーがある場合にもフィールドが変更
 製品を作成するための HTML フォームを送信する、[price] フィールドと UnitsInStock フィールドの値に無効な値を入力すると、図 4 に表示される検証メッセージを取得します。 これらの検証エラー メッセージからどのようになるでしょうか。
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
+[![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
 
 **図 04**:検証エラーを prebinding ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image8.png))。
 

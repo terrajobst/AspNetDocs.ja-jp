@@ -12,7 +12,7 @@ ms.openlocfilehash: b858dfc24a14e182319122320d8bb6af3b8fcb3c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422695"
 ---
 # <a name="aspnet-35"></a>ASP.NET 3.5
@@ -26,22 +26,22 @@ ms.locfileid: "59422695"
     - [Visual Studio 2008 で入れ子になったマスター ページを作成する](how-do-i/how-do-i-create-nested-master-page-in-visual-studio-2008.md)
     - [Visual Studio 2008 のカスケード スタイル シート](how-do-i/how-do-i-cascading-style-sheets-in-visual-studio-2008.md)
     - [Visual Studio 2008 .NET Framework を使用する](how-do-i/how-do-i-working-with-visual-studio-2008-net-framework.md)
-    - [CSS ファイルに要素を追加し、新しい CSS をその場で作成する](how-do-i/how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+    - [CSS ファイルに要素を追加し、新しい CSS をオンザフライで作成する](how-do-i/how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
     - [カスケード スタイル シートの高度な機能と管理](how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management.md)
     - [.NET 2.0 Windows フォーム アプリケーションを .NET 3.5 に変換する](how-do-i/how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
     - [Entity Framework の概要](how-do-i/how-do-i-get-started-with-the-entity-framework.md)
     - [新しいエンティティ データ ソースを使用する](how-do-i/how-do-i-use-the-new-entity-data-source.md)
-    - [Entity Framework を使用してグラフをシリアル化する](how-do-i/how-do-i-serialize-a-graph-with-the-entity-framework.md)
-    - [MSBuild を使用して ASP.NET のコンパイラおよびマージ ユーティリティを自動化する](how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities.md)
+    - [Entity Framework でグラフをシリアル化する](how-do-i/how-do-i-serialize-a-graph-with-the-entity-framework.md)
+    - [MSBuild を使用し、ASP.NET のコンパイラ ユーティリティとマージ ユーティリティを自動化する](how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities.md)
 - [ASP.NET Ajax](aspnet-ajax/index.md)
 
     - [Visual Studio 2008 の ASP.NET AJAX サポート](aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
     - [既存の ASP.NET ページに AJAX 機能を追加する](aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
-    - [Web サイトに AJAX 対応 Web サービスを作成して使用する](aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
+    - [Web サイトで AJAX 対応 Web サービスを作成し、使用する](aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
     - [ASP.NET AJAX:ASP.NET AJAX のデモンストレーション](aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
     - [ADO.NET Data Services と ASP.NET AJAX サポート](aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
     - [ASP.NET Ajax History 入門](aspnet-ajax/introduction-to-aspnet-ajax-history.md)
-    - [スクリプトを結合して AJAX のパフォーマンスを改善する](aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)
+    - [スクリプトを結合し、AJAX のパフォーマンスを改善する](aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)
 - [Data コントロール](data-controls/index.md)
 
     - [ListView コントロール](data-controls/the-listview-control.md)

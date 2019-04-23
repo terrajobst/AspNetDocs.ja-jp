@@ -12,7 +12,7 @@ ms.openlocfilehash: f436044b0887d6b092ab18a6128019aa87747566
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422305"
 ---
 # <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部
@@ -46,7 +46,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 指定*Site.Master*のマスター ページとして。 これらのチュートリアルを作成するページのすべては、このマスター ページで使用されます。
 
-[![Image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
+[![image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
 
 **ソース**ビューで、追加、`h2`に見出し、`Content`という名前のコントロール`Content2`次の例のように。
 
@@ -66,7 +66,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 メモ:次のダイアログ ボックスをこの時点で発生した場合は、続行する前にプロジェクトをビルドする必要があります。
 
-[![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
+[![image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
 **構成データの選択**手順で、**人**の値として**EntitySetName**します。 **選択**、ことを確認、 ** を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、クリックして**完了**します。
 

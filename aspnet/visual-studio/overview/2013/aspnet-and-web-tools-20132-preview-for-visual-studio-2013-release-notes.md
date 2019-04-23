@@ -12,7 +12,7 @@ ms.openlocfilehash: 22d4d4afd6963f23d6cfef1745a859c20b69d599
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422994"
 ---
 # <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Visual Studio 2013 の ASP.NET と Web 2013.2 ツールのリリース ノート

@@ -12,7 +12,7 @@ ms.openlocfilehash: 1326d5453f205201af850a30c17f509645e15cb9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422201"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>コンテンツ ページからマスター ページと対話する (VB)
@@ -61,7 +61,7 @@ ms.locfileid: "59422201"
 Site.master マスター ページを開き、ラベルと GridView コントロールを追加、 `leftContent` `<div>`します。 ラベルのクリアします`Text`プロパティ、設定、`EnableViewState`プロパティを`False`とその`ID`プロパティを`GridMessage`; 設定 GridView の`ID`プロパティを`RecentProducts`。 次に、デザイナーには、GridView のスマート タグを展開し、新しいデータ ソースにバインドを選択します。 これにより、データ ソース構成ウィザードが起動します。 Northwind データベースのため、`App_Data`フォルダーは、Microsoft SQL Server データベース (図 1 参照) を選択して、SqlDataSource を作成することも; SqlDataSource を名前`RecentProductsDataSource`します。
 
 
-[![B%%ind SqlDataSource コントロールを GridView には、RecentProductsDataSource が名前付き](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
+[![RecentProductsDataSource SqlDataSource コントロールを GridView にバインドします。](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
 
 **図 01**:SqlDataSource コントロールの名前、GridView にバインド`RecentProductsDataSource`([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image3.png))。
 
@@ -69,7 +69,7 @@ Site.master マスター ページを開き、ラベルと GridView コントロ
 次の手順では、どのようなデータベースに接続するかを指定するよう求められます。 選択、`NORTHWIND.MDF`ドロップダウン リストからファイルをデータベースし、[次へ] をクリックします。 接続文字列を保存するがウィザードによって提供これはこのデータベースを使用して初めてであるため、`Web.config`します。 名前を使用して、接続文字列を格納することがある`NorthwindConnectionString`します。
 
 
-[![CNorthwind データベースに onnect](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
+[![Northwind データベースへの接続します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
 
 **図 02**:Northwind データベースへの接続 ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image6.png))。
 
@@ -87,7 +87,7 @@ Site.master マスター ページを開き、ラベルと GridView コントロ
 `TOP 5`キーワードは、クエリから最初の 5 つのレコードのみを返します。 `Products`テーブルの主キー、`ProductID`は、`IDENTITY`列は、テーブルに追加された新しい各製品が前のエントリより大きい値にあることを保証します。 そのためで結果を並べ替える`ProductID`降順以降最も最近では作成した製品を返します。
 
 
-[![Return 5 最も最近追加された製品](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
+[![最近追加された 5 つの製品を返す](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
 
 **図 03**:5 つ最も最近追加の製品を返す ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image9.png))。
 
@@ -102,7 +102,7 @@ Site.master マスター ページを開き、ラベルと GridView コントロ
 GridView を作成し、SqlDataSource コントロールを構成するには、このブラウザーから web サイトにアクセスします。 図 4 に示すよう、左下隅を最も最近、5 つの一覧を表示するグリッドを追加の製品が表示されます。
 
 
-[![T彼は GridView には、5 つ最も最近追加の製品が表示されます](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
+[![GridView には、5 つの最も最近追加された製品が表示されます。](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
 
 **図 04**:GridView には、5 つ最も最近追加された製品が表示されます ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image12.png))。
 
@@ -116,7 +116,7 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 ユーザーが新しい製品を追加するコンテンツ ページを作成する、次のタスクでは、`Products`テーブル。 新しいコンテンツ ページを追加、`Admin`という名前のフォルダー`AddProduct.aspx`を確実にそれをバインドに、`Site.master`マスター ページ。 図 5 は、このページは、web サイトに追加した後、ソリューション エクスプ ローラーを示します。
 
 
-[![Add Admin フォルダーに新しい ASP.NET ページ](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
+[![Admin フォルダーに新しい ASP.NET ページを追加します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
 
 **図 05**:新しい ASP.NET ページの追加、`Admin`フォルダー ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image15.png))。
 
@@ -145,7 +145,7 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 必要な作業は以上です。 このページをテストしてみましょう。 参照してください`AddProduct.aspx`ブラウザーで、(図 6 参照)、名前と価格を入力します。
 
 
-[![Add データベースに新しい製品](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
+[![データベースに新しい製品を追加します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
 
 **図 06**:データベースに新しい製品を追加 ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image18.png))。
 
@@ -199,7 +199,7 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 あるキャストしたので、厳密に型`Page.Master`プロパティ、サイトの種類をサイトに固有のメソッドとプロパティを参照できます。 図 7 に示す、パブリック プロパティ`GridMessageText`IntelliSense ドロップダウン リストに表示されます。
 
 
-[![IntelliSense は、マスター ページのパブリック プロパティおよびメソッドを表示](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
+[![IntelliSense は、マスター ページのパブリック プロパティおよびメソッドを示しています。](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
 
 **図 07**:IntelliSense は、マスター ページのパブリック プロパティとメソッドを示します ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image21.png))。
 
@@ -237,7 +237,7 @@ ASP.NET ページにアクセスするたびに発生する自動コード生成
 図 8 は、`AddProduct.aspx`データベースに新しい製品 - Scott の Soda - 後すぐにページが追加されました。 そのマスター ページのラベルに追加したばかりの製品名が記載されて、製品の価格など、GridView が更新されたことに注意してください。
 
 
-[![T彼はマスター ページのラベルと GridView Just-Added 製品を表示する](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
+[![マスター ページのラベルと GridView が単に追加された製品を表示します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
 
 **図 08**:マスター ページのラベルと GridView Just-Added 製品を表示する ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))。
 

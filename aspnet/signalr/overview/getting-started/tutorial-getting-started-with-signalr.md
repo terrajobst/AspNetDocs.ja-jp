@@ -9,12 +9,12 @@ ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: b1e8b6b1b300665f6cd2466766e9adcff52733da
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ecc235454d4b95ce660a4373387f44720826b076
+ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59422916"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905645"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2"></a>チュートリアル: SignalR 2 を使用したリアルタイムのチャット
 
@@ -60,6 +60,10 @@ SignalR を追加するこのセクションでは、Visual Studio 2017 と Sign
 1. **新しい項目の追加 - SignalRChat**選択**インストール済み** > **Visual C#**   >  **Web**し選択**OWIN Startup クラス**します。
 
 1. クラスの名前*スタートアップ*し、プロジェクトに追加します。
+
+1. 既定のコードで置き換えます*スタートアップ*クラスをこのコードで。
+
+    [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
 
 1. **ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **HTML ページ**します。
 
@@ -165,7 +169,7 @@ SignalRChat アプリケーションでは、2 つの基本的な SignalR 開発
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
@@ -175,7 +179,7 @@ SignalRChat アプリケーションでは、2 つの基本的な SignalR 開発
 
 * [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
 
-* [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+* [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>次の手順
 

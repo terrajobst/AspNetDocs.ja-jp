@@ -12,14 +12,14 @@ ms.openlocfilehash: 49c5f762fdd6d99f1af8a10d057852299a266e50
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421044"
 ---
 # <a name="nerddinner-wrap-up"></a>NerdDinner まとめ
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、NerdDinner チュートリアルの最後で、詳細する方法の情報が提供されます。
 > 

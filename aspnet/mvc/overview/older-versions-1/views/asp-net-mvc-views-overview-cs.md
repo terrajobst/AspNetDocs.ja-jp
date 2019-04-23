@@ -12,7 +12,7 @@ ms.openlocfilehash: b4c35761f9cd44c866242cfe6f4f2d924e81d754
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421330"
 ---
 # <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC ビュー概要 (C#)
@@ -104,7 +104,7 @@ Response.Write() を呼び出すことが多いためので、Microsoft でシ�
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
 **図 01**:標準ログイン フォーム ([フルサイズの画像を表示する をクリックします](asp-net-mvc-views-overview-cs/_static/image2.png))。
 

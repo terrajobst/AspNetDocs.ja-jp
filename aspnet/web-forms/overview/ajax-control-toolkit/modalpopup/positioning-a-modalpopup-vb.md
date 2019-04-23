@@ -12,7 +12,7 @@ ms.openlocfilehash: e37d2f4450c697f963d954c2fbb58e3ed20a1566
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421148"
 ---
 # <a name="positioning-a-modalpopup-vb"></a>ModalPopup の位置を決める (VB)
@@ -55,7 +55,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample6.aspx)]
 
 
-[![T指定された位置にある彼のモーダル ポップアップが表示されます](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
+[![指定した位置にモーダル ポップアップが表示されます。](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
 
 指定した位置にモーダル ポップアップが表示されます ([フルサイズの画像を表示する をクリックします](positioning-a-modalpopup-vb/_static/image3.png))。
 

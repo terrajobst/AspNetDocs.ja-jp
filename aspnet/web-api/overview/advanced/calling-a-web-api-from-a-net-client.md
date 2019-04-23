@@ -12,7 +12,7 @@ ms.openlocfilehash: 113600ca1e77ae9667465464da505478fc948c9b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421109"
 ---
 # <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
@@ -47,7 +47,7 @@ Visual Studio で、**HttpClientSample** という名前の新しい Windows コ
 
 上記のコードでは、完全なクライアント アプリです。
 
-`RunAsync` 実行および完了するまでブロックします。 **HttpClient**メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。 すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` が実行され、完了するまでブロックされます。 **HttpClient**メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。 すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
