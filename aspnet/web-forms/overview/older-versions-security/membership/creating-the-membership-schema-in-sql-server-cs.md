@@ -12,7 +12,7 @@ ms.openlocfilehash: 8a2cc19ea2ebd0e3be8ba5de40cd6c0c94dbc9dd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409279"
 ---
 # <a name="creating-the-membership-schema-in-sql-server-c"></a>SQL Server でメンバーシップ スキーマを作成する (C#)
@@ -58,7 +58,7 @@ ASP.NET アプリケーションのデータは通常、データベース内の
 ソリューション エクスプ ローラーを右クリックし、`App_Data`フォルダーと新しい項目の追加を選択します。 (表示されない場合、`App_Data`プロジェクトのフォルダーにソリューション エクスプ ローラーでプロジェクトを右クリックし、ASP.NET フォルダーの追加 を選択および選択`App_Data`)。という名前の新しい SQL データベースを追加することも、新しい項目の追加 ダイアログ ボックスから`SecurityTutorials.mdf`します。 このチュートリアルでは追加、`SqlMembershipProvider`スキーマがこのデータベースには追加作成後のチュートリアルで、アプリケーションのデータをキャプチャするテーブル。
 
 
-[![Add、新しい SQL Database という名前の SecurityTutorials.mdf Database App_Data フォルダー](creating-the-membership-schema-in-sql-server-cs/_static/image2.png)](creating-the-membership-schema-in-sql-server-cs/_static/image1.png)
+[![App_Data フォルダーに SecurityTutorials.mdf Database という名前の新しい SQL データベースを追加します。](creating-the-membership-schema-in-sql-server-cs/_static/image2.png)](creating-the-membership-schema-in-sql-server-cs/_static/image1.png)
 
 **図 1**:新しい SQL データベースの名前付き追加`SecurityTutorials.mdf`データベースを`App_Data`フォルダー ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image3.png))。
 
@@ -66,7 +66,7 @@ ASP.NET アプリケーションのデータは通常、データベース内の
 データベースを追加する、`App_Data`フォルダーが自動的に追加、データベース エクスプ ローラー ビュー。 (非-Express Edition バージョンの Visual Studio では、データベース エクスプ ローラー呼びますサーバー エクスプ ローラー。)データベース エクスプ ローラーに移動し、単に追加された順に展開`SecurityTutorials`データベース。 画面で [データベース エクスプ ローラーが表示されない場合表示] メニューに移動し、データベース エクスプ ローラーを選択または Ctrl + Alt + S をヒットします。 図 2 に示すよう、`SecurityTutorials`データベースが空でないテーブル、ビューがありませんおよびなしのストアド プロシージャが含まれています。
 
 
-[![TSecurityTutorials データベースは現在空である](creating-the-membership-schema-in-sql-server-cs/_static/image5.png)](creating-the-membership-schema-in-sql-server-cs/_static/image4.png)
+[![SecurityTutorials データベースは空です。](creating-the-membership-schema-in-sql-server-cs/_static/image5.png)](creating-the-membership-schema-in-sql-server-cs/_static/image4.png)
 
 **図 2**:`SecurityTutorials`データベースは現在空 ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image6.png))。
 
@@ -103,7 +103,7 @@ ASP.NET アプリケーションのデータは通常、データベース内の
 データベース ファイル上の Visual Studio によって課されるすべてのロックが閉じられていることを確認する Visual Studio を閉じることで開始します。 次に、SQL Server Management Studio を起動しに接続、 `localhost\InstanceName` SQL Server 2005 Express Edition のデータベース。 インスタンス名は、前述のように、可能性がありますが、`SQLExpress`します。 認証オプションでは、Windows 認証を選択します。
 
 
-[![CSQL Server 2005 Express Edition インスタンスに onnect](creating-the-membership-schema-in-sql-server-cs/_static/image8.png)](creating-the-membership-schema-in-sql-server-cs/_static/image7.png)
+[![SQL Server 2005 Express Edition のインスタンスに接続します。](creating-the-membership-schema-in-sql-server-cs/_static/image8.png)](creating-the-membership-schema-in-sql-server-cs/_static/image7.png)
 
 **図 3**:SQL Server 2005 Express Edition インスタンスへの接続 ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image9.png))。
 
@@ -113,12 +113,12 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 データベース フォルダーを右クリックし、コンテキスト メニューから接続を選択します。 これにより、データベースのアタッチ ダイアログ ボックスが表示されます。 ここでは、[追加] ボタンをクリックして、参照、`SecurityTutorials.mdf`データベース、および [ok] をクリックします。 図 4 の後、データベースのアタッチ ダイアログ ボックスを示しています、`SecurityTutorials.mdf`データベースが選択されています。 図 5 は、データベースが正常にアタッチされた後に、Management Studio のオブジェクト エクスプ ローラーを示します。
 
 
-[![Attach SecurityTutorials.mdf データベース](creating-the-membership-schema-in-sql-server-cs/_static/image11.png)](creating-the-membership-schema-in-sql-server-cs/_static/image10.png)
+[![SecurityTutorials.mdf データベースをアタッチします。](creating-the-membership-schema-in-sql-server-cs/_static/image11.png)](creating-the-membership-schema-in-sql-server-cs/_static/image10.png)
 
 **図 4**:アタッチ、`SecurityTutorials.mdf`データベース ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image12.png))。
 
 
-[![T彼は SecurityTutorials.mdf データベース] フォルダーにデータベースが表示されます](creating-the-membership-schema-in-sql-server-cs/_static/image14.png)](creating-the-membership-schema-in-sql-server-cs/_static/image13.png)
+[![SecurityTutorials.mdf データベースが、データベース フォルダーに表示します。](creating-the-membership-schema-in-sql-server-cs/_static/image14.png)](creating-the-membership-schema-in-sql-server-cs/_static/image13.png)
 
 **図 5**:`SecurityTutorials.mdf`データベース フォルダーにデータベースが表示されます ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image15.png))。
 
@@ -126,7 +126,7 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 図 5 に示すよう、`SecurityTutorials.mdf`データベースではなく abstruse 名前が付いています。 変更してみましょうを覚えやすい (および簡単な形式) の名前。 データベースを右クリックし、名前の変更をコンテキスト メニューから選択、および名前を変更`SecurityTutorialsDatabase`します。 ファイル名は変更されません、データベース名だけを使用して SQL Server を識別します。
 
 
-[![Rename SecurityTutorialsDatabase データベース](creating-the-membership-schema-in-sql-server-cs/_static/image17.png)](creating-the-membership-schema-in-sql-server-cs/_static/image16.png)
+[![SecurityTutorialsDatabase にデータベースの名前変更します。](creating-the-membership-schema-in-sql-server-cs/_static/image17.png)](creating-the-membership-schema-in-sql-server-cs/_static/image16.png)
 
 **図 6**:データベースの名前を変更`SecurityTutorialsDatabase`([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image18.png))。
 
@@ -140,7 +140,7 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 実行している、`aspnet_regsql.exe`コマンドライン引数を使用せずにツールが ASP.NET SQL Server セットアップ ウィザードのグラフィカル ユーザー インターフェイスを起動します。 ウィザードでは、簡単に追加または指定したデータベースでの ASP.NET アプリケーション サービスを削除できます。 図 7 に示すように、ウィザードの最初の画面では、ツールの目的について説明します。
 
 
-[![Use は、ASP.NET SQL Server セットアップ ウィザードでメンバーシップ スキーマを追加する](creating-the-membership-schema-in-sql-server-cs/_static/image20.png)](creating-the-membership-schema-in-sql-server-cs/_static/image19.png)
+[![ASP.NET SQL Server セットアップ ウィザードによりを使用してメンバーシップ スキーマを追加するには](creating-the-membership-schema-in-sql-server-cs/_static/image20.png)](creating-the-membership-schema-in-sql-server-cs/_static/image19.png)
 
 **図 7**:ASP.NET SQL Server セットアップ ウィザードを使用してメンバーシップ スキーマを追加する ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image21.png))。
 
@@ -148,19 +148,19 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 ウィザードの 2 番目の手順は、アプリケーション サービスを追加または削除するかどうかを私たちを要求します。 テーブル、ビュー、および必要なストアド プロシージャを追加するので、 `SqlMembershipProvider`、SQL Server の構成アプリケーション サービスのオプションを選択します。 後で、このスキーマをデータベースから削除する場合は、このウィザードを再実行が、代わりに既存のデータベース オプションのアプリケーション サービスの情報を削除を選択します。
 
 
-[![C選択アプリケーション サービスのオプションの構成の SQL Server](creating-the-membership-schema-in-sql-server-cs/_static/image23.png)](creating-the-membership-schema-in-sql-server-cs/_static/image22.png)
+[![選択、SQL Server アプリケーション サービスのオプションを構成](creating-the-membership-schema-in-sql-server-cs/_static/image23.png)](creating-the-membership-schema-in-sql-server-cs/_static/image22.png)
 
 **図 8**:SQL Server の構成をアプリケーションのサービス オプションの選択 ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image24.png))。
 
 
 3 番目の手順は、データベースについては、メッセージが表示されます。 サーバー名、認証情報、およびデータベース名。 このチュートリアルに従っている必要し、追加したかどうか、`SecurityTutorials.mdf`データベースを`App_Data`に接続されている`localhost\InstanceName`、名前を変更する`SecurityTutorialsDatabase`、次の値を使用します。
 
-- サーバー `localhost\InstanceName`
+- サーバー: `localhost\InstanceName`
 - Windows 認証
 - データベース: `SecurityTutorialsDatabase`
 
 
-[![E所属、データベースの情報を入力](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
+[![データベースの情報を入力します。](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
 
 **図 9**:データベース情報を入力します ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image27.png))。
 
@@ -174,7 +174,7 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 ウィザードの完了には、Visual Studio に戻り、データベース エクスプ ローラーに移動します。 [テーブル] フォルダーを展開します。 一連のプレフィックスで始まる名前のテーブルを表示する必要があります`aspnet_`します。 同様に、さまざまなビューとストアド プロシージャは、ビューとストアド プロシージャのフォルダーの下で確認できます。 これらのデータベース オブジェクトは、アプリケーションのサービス スキーマを構成します。 手順 3 でのメンバーシップと役割に固有のデータベース オブジェクトを見ていきます。
 
 
-[![A さまざまなテーブル、ビュー、およびストアド プロシージャは、データベースに追加されている](creating-the-membership-schema-in-sql-server-cs/_static/image29.png)](creating-the-membership-schema-in-sql-server-cs/_static/image28.png)
+[![さまざまなテーブル、ビュー、およびストアド プロシージャがデータベースに追加されました](creating-the-membership-schema-in-sql-server-cs/_static/image29.png)](creating-the-membership-schema-in-sql-server-cs/_static/image28.png)
 
 **図 10**:各種のテーブル、ビュー、およびストアド プロシージャがデータベースに追加されました ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image30.png))。
 
@@ -196,7 +196,7 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 メンバーシップとロールのフレームワークでは、1 つのユーザーおよびロール ストアは、多数の異なるアプリケーション間で共有できるように設計されています。 ロールのメンバーシップまたはフレームワークを使用する ASP.NET アプリケーションでは、使用するには、どのようなアプリケーション パーティションを指定する必要があります。 つまり、複数の web アプリケーションでは、同じユーザーおよびロール ストアを使用できます。 図 11 では、ユーザーおよびロールのストアは 3 つのアプリケーションにパーティション分割を示しています。HRSite、CustomerSite、および SalesSite です。 これら 3 つの web アプリケーションをそれぞれ独自の一意のユーザーとロールをまだ同じデータベース テーブルで、ユーザー アカウントとロール情報を物理的に格納すべて。
 
 
-[![User アカウント可能性がありますがパーティション間で複数のアプリケーション](creating-the-membership-schema-in-sql-server-cs/_static/image32.png)](creating-the-membership-schema-in-sql-server-cs/_static/image31.png)
+[![ユーザー アカウントは、複数のアプリケーションでパーティション分割することがあります。](creating-the-membership-schema-in-sql-server-cs/_static/image32.png)](creating-the-membership-schema-in-sql-server-cs/_static/image31.png)
 
 **図 11**:ユーザー アカウントがするパーティション分割されて間で複数のアプリケーション ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))。
 
@@ -251,7 +251,7 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 - `RoleName`
 - `ApplicationId`
 
-`RoleId` 主キー (と型の`uniqueidentifier`)。 `RoleName` 種類は`nvarchar(256)`します。 `ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`します。 複合`UNIQUE`の制約、`RoleName`と`ApplicationId`列の場合、特定のアプリケーションで各ロール名が一意であることを確認します。
+`RoleId` 主キー (と型の`uniqueidentifier`)。 `RoleName` は `nvarchar(256)` 型です。 `ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`します。 複合`UNIQUE`の制約、`RoleName`と`ApplicationId`列の場合、特定のアプリケーションで各ロール名が一意であることを確認します。
 
 `aspnet_UsersInRoles`テーブルは、ユーザーとロール間のマッピングとして機能します。 -2 つの列がある`UserId`と`RoleId`-複合主キーを構成しているとします。
 
@@ -351,7 +351,7 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 - [SQL Server Management Studio Express Edition をダウンロードします。](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 - [ASP.NET 2.0 を調べて s メンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [`<add>` Membership の Providers の要素](https://msdn.microsoft.com/library/whae3t94.aspx)
-- [`<membership>` 要素](https://msdn.microsoft.com/library/1b9hw62f.aspx)
+- [`<membership>`要素](https://msdn.microsoft.com/library/1b9hw62f.aspx)
 - [`<providers>`メンバーシップ要素](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [使用して`<clear />`プロバイダーを追加する場合](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
 - [直接操作、 `SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)

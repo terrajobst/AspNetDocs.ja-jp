@@ -12,7 +12,7 @@ ms.openlocfilehash: a6d6dc7b45d2891d3124794bf7b10f3a7d065130
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392444"
 ---
 # <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>マネージド コードでストアド プロシージャとユーザー定義関数を作成する (C#)
@@ -59,7 +59,7 @@ Ve を接続すると、オブジェクト エクスプ ローラー ウィン�
 Northwind データベースをアタッチする必要があります、`DataFiles`フォルダー (または任意の場所に移動したこと)、SQL Server 2005 Express Edition のデータベース インスタンスにします。 データベース フォルダーを右クリックし、コンテキスト メニューから、アタッチ オプションを選択します。 これは、データベースのアタッチ ダイアログ ボックスが表示されます。 [追加] ボタンをクリックして、適切なドリルダウン`NORTHWND.MDF`ファイルを開き、[ok] をクリックします。 この時点で、画面は図 2 のようなはずです。
 
 
-[![C適切なデータベース インスタンスに onnect](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
+[![適切なデータベース インスタンスに接続します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
 
 **図 2**:適切なデータベース インスタンスに接続 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))。
 
@@ -87,7 +87,7 @@ SQL Server 2005 でマネージ ストアド プロシージャまたは Udf を
 Visual Studio を開いてを開始します。 ファイル メニューから新しいプロジェクト ダイアログを表示する新しいプロジェクトを選択ボックス (図 4 参照)。 データベース プロジェクトの種類にドリルダウンし、右側に表示されているテンプレートから新しい SQL Server プロジェクトを作成します。 このプロジェクトの名前を選択しました`ManagedDatabaseConstructs`という名前のソリューション内に配置、および`Tutorial75`します。
 
 
-[![C新しい SQL Server プロジェクトを作成する](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
+[![新しい SQL Server プロジェクトを作成します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
 
 **図 4**:新しい SQL Server プロジェクトの作成 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image8.png))。
 
@@ -136,7 +136,7 @@ SQL Server のプロジェクトは、特定のデータベースに関連付け
 S を単にすべての提供が中止されました製品を返すストアド プロシージャを追加することで開始できるようにします。 新しいストアド プロシージャのファイルに名前`GetDiscontinuedProducts.cs`します。
 
 
-[![Add、新しいストアド プロシージャという GetDiscontinuedProducts.cs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
+[![GetDiscontinuedProducts.cs という名前の新しいストアド プロシージャを追加します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
 
 **図 8**:新しいストアド プロシージャという名前の追加`GetDiscontinuedProducts.cs`([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image14.png))。
 
@@ -173,7 +173,7 @@ S を単にすべての提供が中止されました製品を返すストアド
 上記のクエリを実行するには、ツールバーの実行アイコンをクリックします。
 
 
-[![UNorthwind データベースの互換性レベルを更新する](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
+[![Northwind データベースの互換性レベルを更新します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
 
 **図 9**:Northwind データベースの互換性レベルを更新 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))。
 
@@ -201,7 +201,7 @@ SQL Server Management Studio に戻り、[オブジェクト エクスプ ロー
 Northwind データベースの構成情報を確認し、入力して、コマンドを実行する`exec sp_configure`クエリ ウィンドウにします。 これは、設定に有効になっている clr が現在 0 に設定することを示しています。
 
 
-[![T彼は clr を有効になっている設定が設定されている 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
+[![Clr を有効になっている設定が設定されている 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
 
 **図 12**:Clr を有効になっている設定が設定されている 0 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image22.png))。
 
@@ -216,7 +216,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 完全な clr を有効になっている構成では、マネージを実行する準備が`GetDiscontinuedProducts`ストアド プロシージャ。 クエリ ウィンドウで入力し、コマンド`exec``GetDiscontinuedProducts`します。 対応するマネージ コードをストアド プロシージャを呼び出すことにより、`GetDiscontinuedProducts`メソッドを実行します。 このコードの問題、`SELECT`は廃止されましたされて呼び出し元のアプリケーションは、このインスタンスで SQL Server Management Studio は、このデータを返すすべての製品を返すクエリです。 Management Studio では、これらの結果を受信し、結果ウィンドウに表示します。
 
 
-[![T彼 GetDiscontinuedProducts ストアド プロシージャを返します。 すべて廃止の製品](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
+[![ストアド プロシージャが返すすべて GetDiscontinuedProducts 製品を廃止します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
 
 **図 13**:`GetDiscontinuedProducts`ストアド プロシージャを返しますすべて廃止の製品 ([フルサイズの画像を表示する をクリックします。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image25.png))。
 
@@ -239,7 +239,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 このコードを追加した後は、SQL Server のプロジェクトを再デプロイします。 次に、SQL Server Management Studio に戻るし、Stored Procedures フォルダーを更新します。 新しいエントリを参照する必要があります`GetProductsWithPriceLessThan`します。 クエリ ウィンドウで、入力し、コマンド`exec GetProductsWithPriceLessThan 25`、図 14 に示すように、25 ドル未満のすべての製品を一覧には。
 
 
-[![P$25 の下の roducts が表示されます](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
+[![$25 で製品が表示されます。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
 
 **図 14**:$25 で製品が表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))。
 
@@ -257,7 +257,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 新しいメソッドを追加すると、何度も過去のチュートリアルで使用すると、TableAdapter クエリ構成ウィザードが起動します。 最初の手順では、TableAdapter によるデータベースのアクセス方法を指定するよう求められます。 または、新規または既存のストアド プロシージャを使用して、アドホック SQL ステートメントを使用します。 既に作成され、登録しましたので、`GetDiscontinuedProducts`管理対象のストアド プロシージャ、データベースを使用して既存のストアド プロシージャ オプションと [次へ] を選択します。
 
 
-[![Cストアド プロシージャ オプションを使用して既存の選択](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
+[![既存のストアド プロシージャ オプションの使用を選択します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
 
 **図 15**:ストアド プロシージャ オプションを使用して既存の選択 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))。
 
@@ -265,7 +265,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 次の画面から私たちメソッドを呼び出すストアド プロシージャのメッセージが表示されます。 選択、`GetDiscontinuedProducts`マネージ ストアド プロシージャをドロップダウン リストから、[次へ] をクリックします。
 
 
-[![SGetDiscontinuedProducts マネージ ストアド プロシージャを選択](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
+[![選択、GetDiscontinuedProducts マネージ ストアド プロシージャ](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
 
 **図 16**:選択、`GetDiscontinuedProducts`マネージ ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))。
 
@@ -273,7 +273,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 ストアド プロシージャには、行、1 つの値、または何が返されるかどうかを指定するメッセージが表示されます。 `GetDiscontinuedProducts`セットを返します提供が中止された製品の行の最初のオプション (表形式のデータ) を選択し、[次へ] をクリックします。
 
 
-[![S表形式のデータ オプションを選択](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
+[![表形式のデータ オプションを選択します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
 
 **図 17**:表形式のデータ オプションを選択します ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image37.png))。
 
@@ -281,7 +281,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 ウィザードの最終画面では、データ アクセス パターンを使用し、結果として得られるメソッドの名前を指定できます。 チェック ボックスがオンと名の両方のメソッドのままに`FillByDiscontinued`と`GetDiscontinuedProducts`します。 ウィザードを完了するには、[完了] をクリックします。
 
 
-[![Name メソッド FillByDiscontinued と GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
+[![名前のメソッド FillByDiscontinued と GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
 
 **図 18**:メソッドの名前を付けます`FillByDiscontinued`と`GetDiscontinuedProducts`([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))。
 
@@ -291,7 +291,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 図 19 にメソッドを追加した後、データセット デザイナーのスクリーン ショットを示しています、`ProductsTableAdapter`の`GetDiscontinuedProducts`と`GetProductsWithPriceLessThan`ストアド プロシージャを管理します。
 
 
-[![Tここでは [新しいメソッドの追加が含まれます彼 ProductsTableAdapter](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
+[![ProductsTableAdapter には、この手順で追加された新しいメソッドが含まれています。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
 
 **図 19**:`ProductsTableAdapter`この手順で追加された新しいメソッドが含まれています ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image43.png))。
 
@@ -312,12 +312,12 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 開く、`ManagedFunctionsAndSprocs.aspx`ページで、`AdvancedDAL`フォルダーと、ツールボックスから、GridView をデザイナーにドラッグします。 GridView s 設定`ID`プロパティを`DiscontinuedProducts`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`DiscontinuedProductsDataSource`します。 構成からそのデータをプルする ObjectDataSource、`ProductsBLLWithSprocs`クラスの`GetDiscontinuedProducts`メソッド。
 
 
-[![C構成、ObjectDataSource ProductsBLLWithSprocs クラスを使用する](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
+[![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
 
 **図 20**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))。
 
 
-[![C[選択] タブのドロップダウン リストから GetDiscontinuedProducts メソッドの選択](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
+[![GetDiscontinuedProducts 方法を選択します タブで、ドロップダウン リストから選択します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
 
 **図 21**:選択、`GetDiscontinuedProducts`選択 タブで、ドロップダウン リストからメソッド ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image49.png))。
 
@@ -334,7 +334,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 マネージ ストアド プロシージャによって返される結果にパッケージ化、 `ProductsDataTable` DAL によってして返送、BLL は、プレゼンテーション層、GridView にバインドされているし、表示の場所に戻ります。 予想どおり、グリッドには廃止されましたが、これらの製品が一覧表示します。
 
 
-[![T彼の提供が中止された製品の一覧が表示されます](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
+[![廃止された製品が一覧表示します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
 
 **図 22**:廃止された製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image52.png))。
 
@@ -358,7 +358,7 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 追加した、 `udf_ComputeInventoryValue` Northwind データベースに UDF図 23 は、上記の出力を示しています。 `SELECT` Management Studio で表示した場合のクエリを実行します。 また、UDF がオブジェクト エクスプ ローラーでスカラー値関数のフォルダーの下に表示されていることに注意してください。
 
 
-[![Each 製品の在庫値が表示されている](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
+[![各製品の在庫値を一覧します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
 
 **図 23**:各製品の在庫値が表示されている ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image55.png))。
 
@@ -376,7 +376,7 @@ Udf は、表形式のデータを返すこともできます。 たとえば、
 追加した、 `udf_GetProductsByCategoryID` Northwind データベースに UDF図 24 は、上記の出力を示しています。 `SELECT` Management Studio で表示した場合のクエリを実行します。 表形式のデータを返す Udf は、オブジェクト エクスプ ローラーのテーブル値関数フォルダーにあります。
 
 
-[![T各飲み物は、彼 ProductID、ProductName、および CategoryID が一覧表示](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
+[![ProductID、ProductName、および CategoryID 各飲み物の一覧が表示されます。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
 
 **図 24**:`ProductID`、 `ProductName`、および`CategoryID`各飲み物の一覧表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))。
 
@@ -392,7 +392,7 @@ Udf は、表形式のデータを返すこともできます。 たとえば、
 マネージ UDF を追加する、`ManagedDatabaseConstructs`プロジェクト、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 新しい項目の追加 ダイアログ ボックスからユーザー定義テンプレートを選択し、新しい UDF ファイルに名前`udf_ComputeInventoryValue_Managed.cs`します。
 
 
-[![Add ManagedDatabaseConstructs プロジェクトに新しいマネージ UDF](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
+[![新しいマネージ UDF を ManagedDatabaseConstructs プロジェクトに追加します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
 
 **図 25**:新しいマネージ UDF を追加、`ManagedDatabaseConstructs`プロジェクト ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))。
 
@@ -444,7 +444,7 @@ UDF メソッドの入力パラメーターは、対応する SQL 型に注意�
 想像してデバッグする、`GetProductsWithPriceLessThan`ストアド プロシージャを管理します。 内のコードでブレークポイントを設定して始めたい、`GetProductsWithPriceLessThan`メソッド。
 
 
-[![Set GetProductsWithPriceLessThan メソッド内のブレークポイント](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
+[![GetProductsWithPriceLessThan メソッドにブレークポイントを設定します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
 
 **図 27**:ブレークポイントを設定、`GetProductsWithPriceLessThan`メソッド ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image65.png))。
 
@@ -459,7 +459,7 @@ UDF メソッドの入力パラメーターは、対応する SQL 型に注意�
 上記のスクリプトを入力するいると`Test.sql`デバッグ メニューに移動し、デバッグ開始 を選択するか、f5 キーを押してデバッグを開始、または、ツールバーの緑色の再生 アイコンです。 ソリューション内のプロジェクトをビルド、マネージ データベース オブジェクトを Northwind データベースに配置し、実行し、これは、`Test.sql`スクリプト。 この時点で、ブレークポイントにヒットして、たどることができます、`GetProductsWithPriceLessThan`メソッドを入力パラメーターの値を確認したりします。
 
 
-[![T彼 GetProductsWithPriceLessThan メソッド内のブレークポイントがヒットしました](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
+[![GetProductsWithPriceLessThan メソッド内のブレークポイントがヒットしました](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
 
 **図 28**:内のブレークポイント、`GetProductsWithPriceLessThan`メソッドがヒットしました ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))。
 
@@ -495,7 +495,7 @@ S を新規作成するこれらのタスクを示しています。 これら�
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample19.cmd)]
 
 
-[![Compile an アセンブリに GetProductsWithPriceGreaterThan.cs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
+[![GetProductsWithPriceGreaterThan.cs をアセンブリにコンパイルします。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
 
 **図 29**:コンパイル`GetProductsWithPriceGreaterThan.cs`an アセンブリに ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image71.png))。
 
@@ -511,7 +511,7 @@ S を新規作成するこれらのタスクを示しています。 これら�
 Management studio で、Northwind データベースの [プログラミング] フォルダーを展開します。 そのサブフォルダーの 1 つは、アセンブリです。 データベースを新しいアセンブリを手動で追加するには、アセンブリ フォルダーを右クリックし、コンテキスト メニューから新しいアセンブリを選択します。 この表示では、新しいアセンブリ ダイアログ ボックス (図 30) します。 [参照] ボタンをクリックして、`ManuallyCreatedDBObjects.dll`アセンブリだけコンパイルされると、し、データベースにアセンブリを追加するには、[ok] をクリックします。 表示しないように、`ManuallyCreatedDBObjects.dll`オブジェクト エクスプ ローラーでアセンブリ。
 
 
-[![Add データベースに ManuallyCreatedDBObjects.dll アセンブリ](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
+[![ManuallyCreatedDBObjects.dll アセンブリをデータベースに追加します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
 
 **図 30**:追加、`ManuallyCreatedDBObjects.dll`データベースにアセンブリ ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image74.png))。
 
@@ -536,7 +536,7 @@ Northwind データベースへのアセンブリが追加されていますま�
 上記のコマンドが製品の情報を表示する 32 の図に示すよう、 `UnitPrice` $24.95 より大きい。
 
 
-[![TManuallyCreatedDBObjects.dll 彼は、オブジェクト エクスプ ローラーで表示されます](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
+[![オブジェクト エクスプ ローラーで、ManuallyCreatedDBObjects.dll が一覧表示します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
 
 **図 32**:`ManuallyCreatedDBObjects.dll`オブジェクト エクスプ ローラーで表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image78.png))。
 

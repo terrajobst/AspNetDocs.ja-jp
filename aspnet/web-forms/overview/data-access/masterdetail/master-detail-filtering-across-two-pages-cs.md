@@ -12,7 +12,7 @@ ms.openlocfilehash: 451f9f2698780650c32e453b78b11f6babed88de
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405288"
 ---
 # <a name="masterdetail-filtering-across-two-pages-c"></a>2 つのページでマスター/詳細をフィルター処理する (C#)
@@ -56,12 +56,12 @@ ms.locfileid: "59405288"
 `SupplierListMaster.aspx`と`ProductsForSupplierDetails.aspx`仕入先の GridView を作成するページが作成された、次の手順は`SupplierListMaster.aspx`します。 GridView をページに追加し、新しい ObjectDataSource にバインドします。 この ObjectDataSource を使用する必要があります、`SuppliersBLL`クラスの`GetSuppliers()`all を返します。
 
 
-[![SSuppliersBLL クラスを選択](master-detail-filtering-across-two-pages-cs/_static/image3.png)](master-detail-filtering-across-two-pages-cs/_static/image2.png)
+[![SuppliersBLL クラスを選択します。](master-detail-filtering-across-two-pages-cs/_static/image3.png)](master-detail-filtering-across-two-pages-cs/_static/image2.png)
 
 **図 2**:選択、`SuppliersBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image4.png))。
 
 
-[![C構成、ObjectDataSource GetSuppliers() メソッドを使用する](master-detail-filtering-across-two-pages-cs/_static/image6.png)](master-detail-filtering-across-two-pages-cs/_static/image5.png)
+[![ObjectDataSource GetSuppliers() メソッドを使用して構成します。](master-detail-filtering-across-two-pages-cs/_static/image6.png)](master-detail-filtering-across-two-pages-cs/_static/image5.png)
 
 **図 3**:構成に使用する ObjectDataSource、`GetSuppliers()`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image7.png))。
 
@@ -71,7 +71,7 @@ ms.locfileid: "59405288"
 これを行うには、追加、[内](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx)GridView を GridView の行ごとにハイパーリンクを追加します。 GridView のスマート タグからの列の編集リンクをクリックして開始します。 次に、左上の一覧から、内を選択し、追加、内を GridView のフィールドの一覧に含める をクリックします。
 
 
-[![Add GridView に内](master-detail-filtering-across-two-pages-cs/_static/image9.png)](master-detail-filtering-across-two-pages-cs/_static/image8.png)
+[![GridView に内を追加します。](master-detail-filtering-across-two-pages-cs/_static/image9.png)](master-detail-filtering-across-two-pages-cs/_static/image8.png)
 
 **図 4**:GridView に内に追加 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image10.png))。
 
@@ -79,7 +79,7 @@ ms.locfileid: "59405288"
 内は、同じテキストを使用するように構成できますか URL で GridView 行ごとに、リンクの値または特定の行ごとにバインドされているデータ値にこれらの値を基本ことができます。 すべての行の値を静的なを指定するには、内を使用して`Text`または`NavigateUrl`プロパティ。 すべての行に対して同一にするリンク テキスト、たいので設定内の`Text`製品を表示するプロパティ。
 
 
-[![Set 製品の表示を内のテキストのプロパティ](master-detail-filtering-across-two-pages-cs/_static/image12.png)](master-detail-filtering-across-two-pages-cs/_static/image11.png)
+[![製品の表示内の Text プロパティを設定します。](master-detail-filtering-across-two-pages-cs/_static/image12.png)](master-detail-filtering-across-two-pages-cs/_static/image11.png)
 
 **図 5**:セット内の`Text`製品を表示するプロパティ ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image13.png))。
 
@@ -91,7 +91,7 @@ ms.locfileid: "59405288"
 これをチュートリアルを適用して、私たちは、設定する必要があります、`DataNavigateUrlFields`プロパティを`SupplierID`データ フィールドの値の行ごとにカスタマイズする必要がありますので、および`DataNavigateUrlFormatString`プロパティを`ProductsForSupplierDetails.aspx?SupplierID={0}`します。
 
 
-[![C構成に含める、適切なリンク URL ベースの時に、SupplierID 内](master-detail-filtering-across-two-pages-cs/_static/image15.png)](master-detail-filtering-across-two-pages-cs/_static/image14.png)
+[![SupplierID に基づいて適切なリンクの url 内を構成します。](master-detail-filtering-across-two-pages-cs/_static/image15.png)](master-detail-filtering-across-two-pages-cs/_static/image14.png)
 
 **図 6**:構成を適切なリンク URL ベースの時に含める内、 `SupplierID` ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image16.png))。
 
@@ -104,7 +104,7 @@ ms.locfileid: "59405288"
 表示する少し、`SupplierListMaster.aspx`ページがブラウザーを使用します。 図 7 に示すよう、ページ現在すべての製品の表示のリンクを含む仕入先を紹介します。 製品の表示をクリックするとリンクをクリックすると、`ProductsForSupplierDetails.aspx`業者に沿ったを渡して、`SupplierID`クエリ文字列。
 
 
-[![Each 仕入先の行では、ビューの製品リンクを含む](master-detail-filtering-across-two-pages-cs/_static/image18.png)](master-detail-filtering-across-two-pages-cs/_static/image17.png)
+[![各仕入先の行には、ビューの製品リンクが含まれています。](master-detail-filtering-across-two-pages-cs/_static/image18.png)](master-detail-filtering-across-two-pages-cs/_static/image17.png)
 
 **図 7**:供給業者の各行には、ビューの製品リンクが含まれています ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image19.png))。
 
@@ -114,17 +114,17 @@ ms.locfileid: "59405288"
 この時点で、`SupplierListMaster.aspx`ページがユーザーに送信して`ProductsForSupplierDetails.aspx`、選択した業者を渡す`SupplierID`クエリ文字列。 チュートリアルの最後の手順での GridView に製品を表示する`ProductsForSupplierDetails.aspx`が`SupplierID`equals、`SupplierID`クエリ文字列が渡されます。 GridView を追加することで、このスタートを実行する、`ProductsForSupplierDetails.aspx`という名前の新しい ObjectDataSource コントロールを使用して、ページ`ProductsBySupplierDataSource`を呼び出す、`GetProductsBySupplierID(supplierID)`からメソッド、`ProductsBLL`クラス。
 
 
-[![Add 新しい ObjectDataSource という ProductsBySupplierDataSource](master-detail-filtering-across-two-pages-cs/_static/image21.png)](master-detail-filtering-across-two-pages-cs/_static/image20.png)
+[![ProductsBySupplierDataSource という名前の新しい ObjectDataSource を追加します。](master-detail-filtering-across-two-pages-cs/_static/image21.png)](master-detail-filtering-across-two-pages-cs/_static/image20.png)
 
 **図 8**:新しい ObjectDataSource という追加`ProductsBySupplierDataSource`([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image22.png))。
 
 
-[![SProductsBLL クラスを選択](master-detail-filtering-across-two-pages-cs/_static/image24.png)](master-detail-filtering-across-two-pages-cs/_static/image23.png)
+[![ProductsBLL クラスを選択します。](master-detail-filtering-across-two-pages-cs/_static/image24.png)](master-detail-filtering-across-two-pages-cs/_static/image23.png)
 
 **図 9**:選択、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image25.png))。
 
 
-[![HObjectDataSource Invoke GetProductsBySupplierID(supplierID) メソッド [ave](master-detail-filtering-across-two-pages-cs/_static/image27.png)](master-detail-filtering-across-two-pages-cs/_static/image26.png)
+[![ObjectDataSource GetProductsBySupplierID(supplierID) メソッドの呼び出しがあります。](master-detail-filtering-across-two-pages-cs/_static/image27.png)](master-detail-filtering-across-two-pages-cs/_static/image26.png)
 
 **図 10**:ObjectDataSource の呼び出しがある、`GetProductsBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image28.png))。
 
@@ -132,7 +132,7 @@ ms.locfileid: "59405288"
 データ ソース構成ウィザードの最後の手順では、ソースを提供するよう求められます、`GetProductsBySupplierID(supplierID)`メソッドの *`supplierID`* パラメーター。 クエリ文字列値を使用するパラメーターのソースをクエリ文字列に設定し、QueryStringField ボックスに、使用するクエリ文字列値の名前を入力します (`SupplierID`)。
 
 
-[![Populate supplierID SupplierID クエリ文字列値からパラメーター値](master-detail-filtering-across-two-pages-cs/_static/image30.png)](master-detail-filtering-across-two-pages-cs/_static/image29.png)
+[![SupplierID SupplierID クエリ文字列値からパラメーター値の設定します。](master-detail-filtering-across-two-pages-cs/_static/image30.png)](master-detail-filtering-across-two-pages-cs/_static/image29.png)
 
 **図 11**:設定、 *`supplierID`* からパラメーター値、`SupplierID`クエリ文字列値 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image31.png))。
 
@@ -140,7 +140,7 @@ ms.locfileid: "59405288"
 必要な作業は以上です。 図 12 は、`ProductsForSupplierDetails.aspx`から東京 Traders リンクをクリックしてアクセスしたときにページ`SupplierListMaster.aspx`します。
 
 
-[![T製品が東京 Traders によって提供される彼が表示されます](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
+[![東京 Traders によって提供される製品が表示されます。](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
 
 **図 12**:東京 Traders によって提供される製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image34.png))。
 
@@ -152,12 +152,12 @@ ms.locfileid: "59405288"
 まず上記製品 GridView、FormView を追加します。 という名前の新しい ObjectDataSource コントロールを作成`SuppliersDataSource`を呼び出す、`SuppliersBLL`クラスの`GetSupplierBySupplierID(supplierID)`メソッド。
 
 
-[![SSuppliersBLL クラスを選択](master-detail-filtering-across-two-pages-cs/_static/image36.png)](master-detail-filtering-across-two-pages-cs/_static/image35.png)
+[![SuppliersBLL クラスを選択します。](master-detail-filtering-across-two-pages-cs/_static/image36.png)](master-detail-filtering-across-two-pages-cs/_static/image35.png)
 
 **図 13**:選択、`SuppliersBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image37.png))。
 
 
-[![HObjectDataSource Invoke GetSupplierBySupplierID(supplierID) メソッド [ave](master-detail-filtering-across-two-pages-cs/_static/image39.png)](master-detail-filtering-across-two-pages-cs/_static/image38.png)
+[![ObjectDataSource GetSupplierBySupplierID(supplierID) メソッドの呼び出しがあります。](master-detail-filtering-across-two-pages-cs/_static/image39.png)](master-detail-filtering-across-two-pages-cs/_static/image38.png)
 
 **図 14**:ObjectDataSource の呼び出しがある、`GetSupplierBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image40.png))。
 
@@ -165,7 +165,7 @@ ms.locfileid: "59405288"
 同様、`ProductsBySupplierDataSource`が、 *`supplierID`* パラメーターの値が割り当て、`SupplierID`クエリ文字列値。
 
 
-[![Populate supplierID SupplierID クエリ文字列値からパラメーター値](master-detail-filtering-across-two-pages-cs/_static/image42.png)](master-detail-filtering-across-two-pages-cs/_static/image41.png)
+[![SupplierID SupplierID クエリ文字列値からパラメーター値の設定します。](master-detail-filtering-across-two-pages-cs/_static/image42.png)](master-detail-filtering-across-two-pages-cs/_static/image41.png)
 
 **図 15**:設定、 *`supplierID`* からパラメーター値、`SupplierID`クエリ文字列値 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image43.png))。
 
@@ -180,7 +180,7 @@ FormView のデザイン ビューで ObjectDataSource をフォーム ビュー
 図 16 のスクリーン ショットを示しています、`ProductsForSupplierDetails.aspx`ページ上で詳述仕入先の情報が含まれています。
 
 
-[![T彼は製品の一覧に、サプライヤーに関する概要が含まれています](master-detail-filtering-across-two-pages-cs/_static/image45.png)](master-detail-filtering-across-two-pages-cs/_static/image44.png)
+[![製品の一覧には、供給業者に関する概要が含まれています。](master-detail-filtering-across-two-pages-cs/_static/image45.png)](master-detail-filtering-across-two-pages-cs/_static/image44.png)
 
 **図 16**:製品の一覧には、サプライヤーに関する概要が含まれています ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image46.png))。
 
@@ -190,7 +190,7 @@ FormView のデザイン ビューで ObjectDataSource をフォーム ビュー
 ユーザーを向上させるためにこのレポートに存在するためのエクスペリエンスのいくつか追加することですね、`ProductsForSupplierDetails.aspx`ページ。 現在、唯一の方法から参照できます、`ProductsForSupplierDetails.aspx`仕入先の一覧に戻るページは、ブラウザーの戻るボタンをクリックします。 ハイパーリンク コントロールを追加してみましょう、`ProductsForSupplierDetails.aspx`にリンク バック ページ`SupplierListMaster.aspx`、マスター リストに戻るユーザーの別の方法を提供します。
 
 
-[![Add SupplierListMaster.aspx に戻す、ユーザーにハイパーリンク コントロール](master-detail-filtering-across-two-pages-cs/_static/image48.png)](master-detail-filtering-across-two-pages-cs/_static/image47.png)
+[![SupplierListMaster.aspx のために、ユーザーがバックアップにハイパーリンクを追加します。](master-detail-filtering-across-two-pages-cs/_static/image48.png)](master-detail-filtering-across-two-pages-cs/_static/image47.png)
 
 **図 17**:バックアップする、ユーザーへのハイパーリンク コントロールを追加`SupplierListMaster.aspx`([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image49.png))。
 
@@ -200,7 +200,7 @@ FormView のデザイン ビューで ObjectDataSource をフォーム ビュー
 既定では、Northwinds データベース内のすべてのサプライヤーは、少なくとも 1 つの製品を提供します。 ただし、このチュートリアルでは手動で変更しました、`Products`テーブル Escargots Nouveaux 仕入先は任意の製品と関連付けられなくようにします。 図 18 では、この変更が行われた後、Escargots Nouveaux 詳細ページを利用します。
 
 
-[![U供給業者がすべての製品を提供しないユーザーに通知されます](master-detail-filtering-across-two-pages-cs/_static/image51.png)](master-detail-filtering-across-two-pages-cs/_static/image50.png)
+[![供給業者がすべての製品を提供しないユーザーに通知されます。](master-detail-filtering-across-two-pages-cs/_static/image51.png)](master-detail-filtering-across-two-pages-cs/_static/image50.png)
 
 **図 18**:供給業者がすべての製品を提供しないユーザーに通知されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image52.png))。
 

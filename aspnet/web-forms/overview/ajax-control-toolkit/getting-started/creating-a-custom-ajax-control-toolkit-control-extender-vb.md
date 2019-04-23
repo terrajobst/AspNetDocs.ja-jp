@@ -12,7 +12,7 @@ ms.openlocfilehash: 8336fecf60296c44ebcf6cbd6010f9d5daed2923
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415961"
 ---
 # <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>カスタム AJAX Control Toolkit コントロール エクステンダーを作成する (VB)
@@ -79,7 +79,7 @@ S の web サイトが開始できるようにします。 Web サイトを作�
 次の手順を完了すると、図 1 よう、ソリューション エクスプ ローラー ウィンドウになります。
 
 
-[![Sweb サイトとクラス ライブラリ プロジェクトとソリューション](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
+[![Web サイトとクラス ライブラリ プロジェクトとソリューション](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
 
 **図 01**:Web サイトとクラス ライブラリ プロジェクトとソリューション ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image9.png))。
 
@@ -100,7 +100,7 @@ S の web サイトが開始できるようにします。 Web サイトを作�
 プロジェクトを右クリックし、プロパティを選択すると、[参照] タブをクリックして追加したすべての適切な参照が確認できます (図 2 参照)。
 
 
-[![R必要な参照 eferences フォルダー](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image10.png)
+[![必要な参照と参照 フォルダー](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image10.png)
 
 **図 02**:必要な参照と参照 フォルダー ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image12.png))。
 
@@ -144,7 +144,7 @@ WebResource および ClientScriptResource 属性は、このエクステンダ�
 
 コントロール エクステンダーのクライアント側のコンポーネントには、動作は呼び出されます。 DisabledButton 動作を無効にすると、ボタンを有効にすると、実際のロジックが含まれています。 動作の JavaScript コードは、リスト 3 に含まれます。
 
-**Listing 3 - DisabledButton.js**
+**3 - DisabledButton.js を一覧表示します。**
 
 [!code-javascript[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample3.js)]
 
@@ -155,7 +155,7 @@ Initialize() メソッドは、keyup イベント ハンドラーを動作のタ
 埋め込みリソースとしてリスト 3 の JavaScript ファイルをコンパイルする必要がありますに注意してください。 ソリューション エクスプ ローラー ウィンドウで、ファイルを選択、プロパティ シートを開き、値を割り当てる*埋め込まれたリソース*を**ビルド アクション**プロパティ (図 3 を参照してください)。 このオプションは、Visual Studio と Visual Web Developer の両方で使用できます。
 
 
-[![Adding 埋め込みリソースとしての JavaScript ファイル](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image13.png)
+[![埋め込みリソースとしての JavaScript ファイルを追加します。](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image13.png)
 
 **図 03**:埋め込みリソースとしての JavaScript ファイルを追加する ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image15.png))。
 
@@ -184,7 +184,7 @@ DisabledButton コントロール エクステンダーを作成することが�
 次の手順を完了すると、DisabledButton コントロール エクステンダーがツールボックスに表示する必要があります (図 4 参照)。
 
 
-[![Dツールボックスで isabledButton](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image16.png)
+[![ツールボックスで DisabledButton](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image16.png)
 
 **図 04**:ツールボックスで DisabledButton ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image18.png))。
 
@@ -206,7 +206,7 @@ DisabledButton コントロール エクステンダーを作成することが�
 2. DisabledButton エクステンダーを選択し、クリックして、 **OK**ボタンをクリックします。
 
 
-[![T彼はエクステンダー ウィザード ダイアログ](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
+[![Extender ウィザード ダイアログ](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
 
 **図 05**:Extender ウィザード ダイアログ ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image21.png))。
 
@@ -218,7 +218,7 @@ DisabledButton コントロール エクステンダーを作成することが�
 3. 値を割り当てる*保存*DisabledText プロパティと値を*btnSave* TargetButtonID プロパティにします。
 
 
-[![Setting エクステンダーのプロパティ](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
+[![エクステンダー プロパティの設定](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
 
 **図 06**:エクステンダー プロパティの設定 ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image24.png))。
 
@@ -226,7 +226,7 @@ DisabledButton コントロール エクステンダーを作成することが�
 (F5 キーを押して)、ページを実行すると、ボタン コントロールは最初に無効になります。 テキスト ボックスにテキストの入力を開始するとすぐに、コントロールがボタンには、(図 7 を参照) が有効になります。
 
 
-[![T彼の DisabledButton エクステンダーの操作](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
+[![DisabledButton エクステンダーの操作](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
 
 **図 07**:DisabledButton エクステンダーの操作 ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image27.png))。
 

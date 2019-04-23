@@ -12,7 +12,7 @@ ms.openlocfilehash: b1660c0d20b76d97ee00acf1080c3eca1f596be2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412672"
 ---
 # <a name="using-sql-cache-dependencies-vb"></a>SQL キャッシュ依存関係を使用する (VB)
@@ -87,7 +87,7 @@ Visual Studio を閉じることで開始します。 次に接続する SQL Ser
 サーバーに接続したら、Management Studio は、サーバーを表示して、データベース、セキュリティ、およびその他のサブフォルダーがあります。 データベース フォルダーを右クリックし、アタッチ オプションを選択します。 データベースのアタッチ ダイアログが表示されます (図 2 を参照してください)。 追加ボタンをクリックし、 `NORTHWND.MDF` database フォルダーで、web アプリケーションの s`App_Data`フォルダー。
 
 
-[![Attach、NORTHWND します。App_Data フォルダーから MDF データベース](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
+[![NORTHWND をアタッチします。App_Data フォルダーから MDF データベース](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
 
 **図 2**:アタッチ、`NORTHWND.MDF`からデータベース、`App_Data`フォルダー ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image2.png))。
 
@@ -143,7 +143,7 @@ Visual Studio に開き直すと後、は、サーバー エクスプ ローラ�
 SQL キャッシュ依存関係を宣言して使用を示すため、開く、`SqlCacheDependencies.aspx`ページで、`Caching`フォルダーとツールボックスからデザイナーにドラッグする GridView。 GridView s 設定`ID`に`ProductsDeclarative`という名前の新しい ObjectDataSource にバインドするを選択して、スマート タグからとは、`ProductsDataSourceDeclarative`します。
 
 
-[![C新しい ObjectDataSource という ProductsDataSourceDeclarative を reate](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
+[![ProductsDataSourceDeclarative という名前の新しい ObjectDataSource を作成します。](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
 
 **図 5**:名前付き新しい ObjectDataSource 作成`ProductsDataSourceDeclarative`([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image4.png))。
 
@@ -151,12 +151,12 @@ SQL キャッシュ依存関係を宣言して使用を示すため、開く、`
 構成を使用する ObjectDataSource、`ProductsBLL`クラスを選択します タブをドロップダウン リストを設定`GetProducts()`します。 更新プログラム タブで、選択、 `UpdateProduct` - 次の 3 つの入力パラメーターを持つオーバー ロード`productName`、`unitPrice`と`productID`します。 INSERT および DELETE の各タブで (なし) ドロップダウン リストを設定します。
 
 
-[![U次の 3 つの入力パラメーターを持つオーバー ロード UpdateProduct se](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
+[![次の 3 つの入力パラメーターを持つ UpdateProduct オーバー ロードを使用します。](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
 
 **図 6**:UpdateProduct のオーバー ロードを使用して、3 つの入力パラメーター ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image6.png))。
 
 
-[![Set (なし) を挿入および削除のタブのドロップダウン リスト](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
+[![(なし) を挿入および削除のタブのドロップダウン リストを設定します。](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
 
 **図 7**:(なし) をドロップダウン リストを挿入および削除のタブの設定 ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image8.png))。
 
@@ -178,7 +178,7 @@ ObjectDataSource s のイベント ハンドラーを次に、作成`Selecting`�
 次に、ブラウザーからこのページを参照してください。 以降任意のキャッシュ、ページ、並べ替え、またはグリッド ページを編集するたびに実装するには、まだ ve する必要がありますテキスト、表示するイベントが発生すると、図 8 に示すよう。
 
 
-[![T彼は ObjectDataSource のするイベントは、各時間、編集、GridView はページングまたは並べ替えが発生](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
+[![ObjectDataSource のするイベントは、各時間、編集、GridView はページングまたは並べ替えが発生しました。](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
 
 **図 8**:ObjectDataSource s`Selecting`イベント発生の各時刻が GridView はページング、編集、または並べ替え ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image10.png))。
 
@@ -197,7 +197,7 @@ ObjectDataSource s のイベント ハンドラーを次に、作成`Selecting`�
 GridView `SqlCacheDependencies.aspx` - 2 つのテーブルからデータを表示します。`Products`と`Categories`(製品 s`CategoryName`を使用してフィールドを取得、`JOIN`で`Categories`)。 そのため、2 つの SQL キャッシュ依存関係を指定します。NorthwindDB:Products;NorthwindDB:Categories します。
 
 
-[![C構成のサポートのキャッシュを使用して SQL キャッシュ依存関係の製品およびカテゴリを ObjectDataSource](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
+[![SQL キャッシュ依存関係を製品と分類を使用して、キャッシュをサポートするために、ObjectDataSource を構成します。](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
 
 **図 9**:サポートのキャッシュを使用して SQL キャッシュ依存関係を ObjectDataSource を構成する`Products`と`Categories`([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image12.png))。
 
@@ -207,7 +207,7 @@ GridView `SqlCacheDependencies.aspx` - 2 つのテーブルからデータを表
 テキストが新しいブラウザー ウィンドウを開き、編集、挿入、および削除のセクションで基本チュートリアルに移動、グリッドのページングとするイベントがないことに注意が呼び出された後 (`~/EditInsertDelete/Basics.aspx`)。 名前または製品の価格を更新します。 次からの最初のブラウザー ウィンドウに表示データの別のページ、グリッドの並べ替えや行の編集 ボタンをクリックします。 データされた基になるデータベースの変更 (図 10 参照)、この時点では、発生するイベントが再び表示されます。 テキストが表示されない場合は、しばらく待ってからもう一度やり直してください。 変更のポーリングのサービスをチェックすることに注意してください、`Products`テーブルすべて`pollTime`ミリ秒、基になるデータが更新されたときと、キャッシュされたデータが削除されるときの遅延があるようにします。
 
 
-[![Modifying の製品テーブルの削除にキャッシュされている製品のデータ](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
+[![製品のキャッシュされたデータを削除する、Products テーブルを変更します。](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
 
 **図 10**:製品のキャッシュ データを削除して、Products テーブルの変更 ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image14.png))。
 
@@ -241,17 +241,17 @@ GridView `SqlCacheDependencies.aspx` - 2 つのテーブルからデータを表
 この機能をテストするには、既存の下に、GridView を追加します。 `ProductsDeclarative` GridView。 この新しい GridView s 設定`ID`に`ProductsProgrammatic`、スマート タグをという名前の新しい ObjectDataSource にバインドし、`ProductsDataSourceProgrammatic`します。 構成を使用する ObjectDataSource、`ProductsCL`ドロップダウン リストの選択とに更新 タブの設定クラス`GetProducts`と`UpdateProduct`、それぞれします。
 
 
-[![C構成、ObjectDataSource ProductsCL クラスを使用する](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
+[![ProductsCL クラスを使用する ObjectDataSource を構成します。](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
 
 **図 11**:構成に使用する ObjectDataSource、`ProductsCL`クラス ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image16.png))。
 
 
-[![Sタブを選択してドロップダウン リストから GetProducts メソッドを選択](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
+[![GetProducts メソッドをタブのドロップダウン一覧から選択します](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
 
 **図 12**:選択、 `GetProducts`  タブを選択してドロップダウン リストからメソッド ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image18.png))。
 
 
-[![C選択更新] タブのドロップダウン リストから UpdateProduct メソッド](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
+[![UpdateProduct メソッドを更新プログラム タブのドロップダウン一覧から選択します。](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
 
 **図 13**:更新プログラム タブのドロップダウン リストから UpdateProduct メソッドを選択 ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-vb/_static/image20.png))。
 
@@ -306,7 +306,7 @@ GridView のいくつかのページのページングの後に 2 番目のブ�
 - [クエリ通知を作成します。](https://msdn.microsoft.com/library/ms188669.aspx)
 - [使用した ASP.NET のキャッシュ、`SqlCacheDependency`クラス](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
 - [ASP.NET SQL Server の登録ツール (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
-- [概要: `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
+- [概要 `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>執筆者紹介
 
