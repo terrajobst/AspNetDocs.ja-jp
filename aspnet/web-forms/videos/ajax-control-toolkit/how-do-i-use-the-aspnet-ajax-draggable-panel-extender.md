@@ -12,18 +12,18 @@ ms.openlocfilehash: c6e7a23c2b642f0aab12a88b5aae6a215ad1e74c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404638"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-draggable-panel-extender"></a><span data-ttu-id="4656e-104">[How Do i:]ASP.NET AJAX ドラッグ可能パネル エクステンダーを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="4656e-104">[How Do I:] Use the ASP.NET AJAX Draggable Panel Extender?</span></span>
+# <a name="how-do-i-use-the-aspnet-ajax-draggable-panel-extender"></a><span data-ttu-id="ce233-104">[How Do i:]ASP.NET AJAX ドラッグ可能パネル エクステンダーを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="ce233-104">[How Do I:] Use the ASP.NET AJAX Draggable Panel Extender?</span></span>
 
-<span data-ttu-id="4656e-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4656e-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="ce233-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ce233-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="4656e-106">ASP.NET AJAX ドラッグ可能パネル エクステンダーでは、web ページの周りにパネルを移動するユーザーを許可するヘッダー領域を持つコンテンツ パネルを行うことができます。</span><span class="sxs-lookup"><span data-stu-id="4656e-106">With the ASP.NET AJAX Draggable Panel Extender you can provide a content panel with a header area that allows the user to move the panel around the web page.</span></span>
+<span data-ttu-id="ce233-106">ASP.NET AJAX ドラッグ可能パネル エクステンダーでは、web ページの周りにパネルを移動するユーザーを許可するヘッダー領域を持つコンテンツ パネルを行うことができます。</span><span class="sxs-lookup"><span data-stu-id="ce233-106">With the ASP.NET AJAX Draggable Panel Extender you can provide a content panel with a header area that allows the user to move the panel around the web page.</span></span>
 
-[<span data-ttu-id="4656e-107">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="4656e-107">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-draggable-panel-extender)
+[<span data-ttu-id="ce233-107">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="ce233-107">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-draggable-panel-extender)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="4656e-108">[前へ](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)
-> [次へ](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)</span><span class="sxs-lookup"><span data-stu-id="4656e-108">[Previous](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)
+> <span data-ttu-id="ce233-108">[前へ](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)
+> [次へ](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)</span><span class="sxs-lookup"><span data-stu-id="ce233-108">[Previous](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)
 [Next](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)</span></span>

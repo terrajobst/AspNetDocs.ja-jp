@@ -12,11 +12,11 @@ ms.openlocfilehash: 97a1d761c545a4087b006890b031a14c14c6d886
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399035"
 ---
-# <a name="async-and-await"></a><span data-ttu-id="11f12-103">Async と Await</span><span class="sxs-lookup"><span data-stu-id="11f12-103">Async and Await</span></span>
+# <a name="async-and-await"></a><span data-ttu-id="6ff34-103">Async と Await</span><span class="sxs-lookup"><span data-stu-id="6ff34-103">Async and Await</span></span>
 
-<span data-ttu-id="11f12-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="11f12-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="6ff34-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="6ff34-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="11f12-105">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="11f12-105">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/async-and-await)
+[<span data-ttu-id="6ff34-105">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="6ff34-105">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/async-and-await)

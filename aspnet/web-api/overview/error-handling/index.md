@@ -13,13 +13,13 @@ ms.openlocfilehash: 62df1c144cdb14c83eb1407713dc051d39a1def7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401037"
 ---
-# <a name="error-handling-in-aspnet-web-api"></a><span data-ttu-id="172ca-103">ASP.NET Web API でのエラー処理</span><span class="sxs-lookup"><span data-stu-id="172ca-103">Error Handling in ASP.NET Web API</span></span>
+# <a name="error-handling-in-aspnet-web-api"></a><span data-ttu-id="945ed-103">ASP.NET Web API でのエラー処理</span><span class="sxs-lookup"><span data-stu-id="945ed-103">Error Handling in ASP.NET Web API</span></span>
 
-> <span data-ttu-id="172ca-104">ASP.NET Web API で例外を処理する方法。</span><span class="sxs-lookup"><span data-stu-id="172ca-104">How to handle exceptions in ASP.NET Web API.</span></span>
+> <span data-ttu-id="945ed-104">ASP.NET Web API で例外を処理する方法。</span><span class="sxs-lookup"><span data-stu-id="945ed-104">How to handle exceptions in ASP.NET Web API.</span></span>
 
 
-- [<span data-ttu-id="172ca-105">Web API の例外処理</span><span class="sxs-lookup"><span data-stu-id="172ca-105">Exception Handling in Web API</span></span>](exception-handling.md)
-- [<span data-ttu-id="172ca-106">Web API 2 のグローバル エラー処理</span><span class="sxs-lookup"><span data-stu-id="172ca-106">Global Error Handling in Web API 2</span></span>](web-api-global-error-handling.md)
+- [<span data-ttu-id="945ed-105">Web API の例外処理</span><span class="sxs-lookup"><span data-stu-id="945ed-105">Exception Handling in Web API</span></span>](exception-handling.md)
+- [<span data-ttu-id="945ed-106">Web API 2 のグローバル エラー処理</span><span class="sxs-lookup"><span data-stu-id="945ed-106">Global Error Handling in Web API 2</span></span>](web-api-global-error-handling.md)

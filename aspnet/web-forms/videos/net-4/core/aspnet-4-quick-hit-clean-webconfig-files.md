@@ -12,18 +12,18 @@ ms.openlocfilehash: 09c9066ac83b7952ebf629022bea9dd92f5b43f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403754"
 ---
-# <a name="aspnet-4-quick-hit---clean-webconfig-files"></a><span data-ttu-id="84507-104">ASP.NET 4「クイック ヒット」- Web.Config ファイルのクリーニング</span><span class="sxs-lookup"><span data-stu-id="84507-104">ASP.NET 4 "Quick Hit" - Clean Web.Config Files</span></span>
+# <a name="aspnet-4-quick-hit---clean-webconfig-files"></a><span data-ttu-id="b6e4f-104">ASP.NET 4「クイック ヒット」- Web.Config ファイルのクリーニング</span><span class="sxs-lookup"><span data-stu-id="b6e4f-104">ASP.NET 4 "Quick Hit" - Clean Web.Config Files</span></span>
 
-<span data-ttu-id="84507-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="84507-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="b6e4f-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="b6e4f-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="84507-106">このビデオでは、主要な構成要素が machine.config ファイルに移動された方法がわかります。</span><span class="sxs-lookup"><span data-stu-id="84507-106">In this video you will see how the major configuration elements have been moved to the machine.config file.</span></span> <span data-ttu-id="84507-107">これにより、Web.config ファイルで ASP.NET 4 アプリケーションを空にするか、行の最小数を含めることができます。</span><span class="sxs-lookup"><span data-stu-id="84507-107">This allows the Web.config file in ASP.NET 4 applications to either be empty or contain a minimum number of lines.</span></span>
+<span data-ttu-id="b6e4f-106">このビデオでは、主要な構成要素が machine.config ファイルに移動された方法がわかります。</span><span class="sxs-lookup"><span data-stu-id="b6e4f-106">In this video you will see how the major configuration elements have been moved to the machine.config file.</span></span> <span data-ttu-id="b6e4f-107">これにより、Web.config ファイルで ASP.NET 4 アプリケーションを空にするか、行の最小数を含めることができます。</span><span class="sxs-lookup"><span data-stu-id="b6e4f-107">This allows the Web.config file in ASP.NET 4 applications to either be empty or contain a minimum number of lines.</span></span>
 
-[<span data-ttu-id="84507-108">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="84507-108">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-clean-webconfig-files)
+[<span data-ttu-id="b6e4f-108">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="b6e4f-108">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-clean-webconfig-files)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="84507-109">[前へ](aspnet-4-quick-hit-auto-start.md)
-> [次へ](aspnet-4-quick-hit-predictable-client-ids.md)</span><span class="sxs-lookup"><span data-stu-id="84507-109">[Previous](aspnet-4-quick-hit-auto-start.md)
+> <span data-ttu-id="b6e4f-109">[前へ](aspnet-4-quick-hit-auto-start.md)
+> [次へ](aspnet-4-quick-hit-predictable-client-ids.md)</span><span class="sxs-lookup"><span data-stu-id="b6e4f-109">[Previous](aspnet-4-quick-hit-auto-start.md)
 [Next](aspnet-4-quick-hit-predictable-client-ids.md)</span></span>

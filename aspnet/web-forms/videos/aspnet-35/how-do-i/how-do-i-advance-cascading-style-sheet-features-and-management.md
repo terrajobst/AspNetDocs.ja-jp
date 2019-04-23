@@ -12,18 +12,18 @@ ms.openlocfilehash: 67b2b6da28b474835020031f957da058eedca7a7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397410"
 ---
-# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="46bc5-104">[How Do i:]カスケード スタイル シートの機能と管理を進める</span><span class="sxs-lookup"><span data-stu-id="46bc5-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
+# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="ab44b-104">[How Do i:]カスケード スタイル シートの機能と管理を進める</span><span class="sxs-lookup"><span data-stu-id="ab44b-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
 
-<span data-ttu-id="46bc5-105">Asli Bilgin によって</span><span class="sxs-lookup"><span data-stu-id="46bc5-105">by Asli Bilgin</span></span>
+<span data-ttu-id="ab44b-105">Asli Bilgin によって</span><span class="sxs-lookup"><span data-stu-id="ab44b-105">by Asli Bilgin</span></span>
 
-<span data-ttu-id="46bc5-106">このビデオでは、前のビデオから基本的なカスケード スタイル シートに作成します。</span><span class="sxs-lookup"><span data-stu-id="46bc5-106">In this video we will build upon the basic Cascading Style Sheet from a previous video.</span></span> <span data-ttu-id="46bc5-107">私たちは、先ほど作成した要素と、次に、カスタム クラスを作成しますが、基本機能を越えてページに進みます。</span><span class="sxs-lookup"><span data-stu-id="46bc5-107">We will advance beyond the basics where we just created elements and now we will create custom classes.</span></span> <span data-ttu-id="46bc5-108">クラスは、ビルド スタイル シート ウィザードの Visual Studio 2008 を管理する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="46bc5-108">We will then learn how to manage classes with the Build Style Sheet Wizard of Visual Studio 2008.</span></span>
+<span data-ttu-id="ab44b-106">このビデオでは、前のビデオから基本的なカスケード スタイル シートに作成します。</span><span class="sxs-lookup"><span data-stu-id="ab44b-106">In this video we will build upon the basic Cascading Style Sheet from a previous video.</span></span> <span data-ttu-id="ab44b-107">私たちは、先ほど作成した要素と、次に、カスタム クラスを作成しますが、基本機能を越えてページに進みます。</span><span class="sxs-lookup"><span data-stu-id="ab44b-107">We will advance beyond the basics where we just created elements and now we will create custom classes.</span></span> <span data-ttu-id="ab44b-108">クラスは、ビルド スタイル シート ウィザードの Visual Studio 2008 を管理する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="ab44b-108">We will then learn how to manage classes with the Build Style Sheet Wizard of Visual Studio 2008.</span></span>
 
-[<span data-ttu-id="46bc5-109">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="46bc5-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
+[<span data-ttu-id="ab44b-109">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="ab44b-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="46bc5-110">[前へ](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
-> [次へ](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span><span class="sxs-lookup"><span data-stu-id="46bc5-110">[Previous](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+> <span data-ttu-id="ab44b-110">[前へ](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+> [次へ](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span><span class="sxs-lookup"><span data-stu-id="ab44b-110">[Previous](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
 [Next](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span></span>

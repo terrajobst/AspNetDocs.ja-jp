@@ -12,18 +12,18 @@ ms.openlocfilehash: 2374b70d1359c3a070d2b07c84e37c0a504e118c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400023"
 ---
-# <a name="two-simple-techniques-for-triggering-updates-to-update-panels"></a><span data-ttu-id="2554d-104">更新パネルの更新をトリガーする 2 つの簡単な手法</span><span class="sxs-lookup"><span data-stu-id="2554d-104">Two Simple Techniques for Triggering Updates to Update Panels</span></span>
+# <a name="two-simple-techniques-for-triggering-updates-to-update-panels"></a><span data-ttu-id="ed8d7-104">更新パネルの更新をトリガーする 2 つの簡単な手法</span><span class="sxs-lookup"><span data-stu-id="ed8d7-104">Two Simple Techniques for Triggering Updates to Update Panels</span></span>
 
-<span data-ttu-id="2554d-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="2554d-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="ed8d7-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ed8d7-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="2554d-106">このビデオでは、2 つの更新プログラムの単純な手法を紹介します。</span><span class="sxs-lookup"><span data-stu-id="2554d-106">In this video I will demonstrate two simple update techniques.</span></span> <span data-ttu-id="2554d-107">最初に、選択されたインデックスを使用して変更イベント、ドロップダウン リスト コントロールから更新パネルを更新するためのイベント トリガーとして。</span><span class="sxs-lookup"><span data-stu-id="2554d-107">First, using the selected index changed event from the drop down list control as an event trigger for updating update panels.</span></span> <span data-ttu-id="2554d-108">2 つ、AJAX 更新パネルに含まれるコントロールに関連付けられているスタイル シートのクラスを動的に変更します。</span><span class="sxs-lookup"><span data-stu-id="2554d-108">And two, dynamically changing the associated style sheet class with controls contained within the AJAX update panel.</span></span>
+<span data-ttu-id="ed8d7-106">このビデオでは、2 つの更新プログラムの単純な手法を紹介します。</span><span class="sxs-lookup"><span data-stu-id="ed8d7-106">In this video I will demonstrate two simple update techniques.</span></span> <span data-ttu-id="ed8d7-107">最初に、選択されたインデックスを使用して変更イベント、ドロップダウン リスト コントロールから更新パネルを更新するためのイベント トリガーとして。</span><span class="sxs-lookup"><span data-stu-id="ed8d7-107">First, using the selected index changed event from the drop down list control as an event trigger for updating update panels.</span></span> <span data-ttu-id="ed8d7-108">2 つ、AJAX 更新パネルに含まれるコントロールに関連付けられているスタイル シートのクラスを動的に変更します。</span><span class="sxs-lookup"><span data-stu-id="ed8d7-108">And two, dynamically changing the associated style sheet class with controls contained within the AJAX update panel.</span></span>
 
-[<span data-ttu-id="2554d-109">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="2554d-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/two-simple-techniques-for-triggering-updates-to-update-panels)
+[<span data-ttu-id="ed8d7-109">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="ed8d7-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/two-simple-techniques-for-triggering-updates-to-update-panels)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="2554d-110">[前へ](how-do-i-retrieve-values-from-server-side-ajax-controls.md)
-> [次へ](use-aspnet-ajax-cascading-drop-down-control-to-access-a-database.md)</span><span class="sxs-lookup"><span data-stu-id="2554d-110">[Previous](how-do-i-retrieve-values-from-server-side-ajax-controls.md)
+> <span data-ttu-id="ed8d7-110">[前へ](how-do-i-retrieve-values-from-server-side-ajax-controls.md)
+> [次へ](use-aspnet-ajax-cascading-drop-down-control-to-access-a-database.md)</span><span class="sxs-lookup"><span data-stu-id="ed8d7-110">[Previous](how-do-i-retrieve-values-from-server-side-ajax-controls.md)
 [Next](use-aspnet-ajax-cascading-drop-down-control-to-access-a-database.md)</span></span>

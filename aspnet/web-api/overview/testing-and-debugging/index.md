@@ -12,16 +12,16 @@ ms.openlocfilehash: 8b1241294f28441c19a34ef5471883db9d50a529
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398060"
 ---
-# <a name="testing-and-debugging-aspnet-web-api"></a><span data-ttu-id="74d19-103">テストと ASP.NET Web API のデバッグ</span><span class="sxs-lookup"><span data-stu-id="74d19-103">Testing and Debugging ASP.NET Web API</span></span>
+# <a name="testing-and-debugging-aspnet-web-api"></a><span data-ttu-id="de765-103">テストと ASP.NET Web API のデバッグ</span><span class="sxs-lookup"><span data-stu-id="de765-103">Testing and Debugging ASP.NET Web API</span></span>
 
-> <span data-ttu-id="74d19-104">テストと ASP.NET Web API のデバッグ</span><span class="sxs-lookup"><span data-stu-id="74d19-104">Testing and debugging ASP.NET Web API</span></span>
+> <span data-ttu-id="de765-104">テストと ASP.NET Web API のデバッグ</span><span class="sxs-lookup"><span data-stu-id="de765-104">Testing and debugging ASP.NET Web API</span></span>
 
 
-- [<span data-ttu-id="74d19-105">Web API 2 のトレース</span><span class="sxs-lookup"><span data-stu-id="74d19-105">Tracing in Web API 2</span></span>](tracing-in-aspnet-web-api.md)
-- [<span data-ttu-id="74d19-106">Web API 2 の単体テスト</span><span class="sxs-lookup"><span data-stu-id="74d19-106">Unit Testing Web API 2</span></span>](unit-testing-with-aspnet-web-api.md)
-- [<span data-ttu-id="74d19-107">ASP.NET Web API 2 の単体テスト コントローラー</span><span class="sxs-lookup"><span data-stu-id="74d19-107">Unit Testing Controllers in ASP.NET Web API 2</span></span>](unit-testing-controllers-in-web-api.md)
-- [<span data-ttu-id="74d19-108">Web API 2 の単体テスト時に Entity Framework のモックを作成する</span><span class="sxs-lookup"><span data-stu-id="74d19-108">Mocking Entity Framework when Unit Testing Web API 2</span></span>](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
-- [<span data-ttu-id="74d19-109">Web API 2 アプリケーションの公開後、HTTP 405 エラーのトラブルシューティングを行う</span><span class="sxs-lookup"><span data-stu-id="74d19-109">Troubleshooting HTTP 405 Errors after Publishing Web API 2 Applications</span></span>](troubleshooting-http-405-errors-after-publishing-web-api-applications.md)
+- [<span data-ttu-id="de765-105">Web API 2 のトレース</span><span class="sxs-lookup"><span data-stu-id="de765-105">Tracing in Web API 2</span></span>](tracing-in-aspnet-web-api.md)
+- [<span data-ttu-id="de765-106">Web API 2 の単体テスト</span><span class="sxs-lookup"><span data-stu-id="de765-106">Unit Testing Web API 2</span></span>](unit-testing-with-aspnet-web-api.md)
+- [<span data-ttu-id="de765-107">ASP.NET Web API 2 の単体テスト コントローラー</span><span class="sxs-lookup"><span data-stu-id="de765-107">Unit Testing Controllers in ASP.NET Web API 2</span></span>](unit-testing-controllers-in-web-api.md)
+- [<span data-ttu-id="de765-108">Web API 2 の単体テスト時に Entity Framework のモックを作成する</span><span class="sxs-lookup"><span data-stu-id="de765-108">Mocking Entity Framework when Unit Testing Web API 2</span></span>](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
+- [<span data-ttu-id="de765-109">Web API 2 アプリケーションの公開後、HTTP 405 エラーのトラブルシューティングを行う</span><span class="sxs-lookup"><span data-stu-id="de765-109">Troubleshooting HTTP 405 Errors after Publishing Web API 2 Applications</span></span>](troubleshooting-http-405-errors-after-publishing-web-api-applications.md)

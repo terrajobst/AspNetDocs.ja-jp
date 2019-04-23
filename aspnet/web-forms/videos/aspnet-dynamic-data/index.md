@@ -12,28 +12,28 @@ ms.openlocfilehash: 11fca6096a1ada5df95971f2c77c8e72660ad864
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400153"
 ---
-# <a name="aspnet-dynamic-data"></a><span data-ttu-id="69b05-103">ASP.NET 動的データ</span><span class="sxs-lookup"><span data-stu-id="69b05-103">ASP.NET Dynamic Data</span></span>
+# <a name="aspnet-dynamic-data"></a><span data-ttu-id="a7e96-103">ASP.NET 動的データ</span><span class="sxs-lookup"><span data-stu-id="a7e96-103">ASP.NET Dynamic Data</span></span>
 
-> <span data-ttu-id="69b05-104">ASP.NET Dynamic Data を使用して作成するには、アプリケーションを自動的にスキャフォールディングする方法は、データ アクセスを実行する方法を理解します。</span><span class="sxs-lookup"><span data-stu-id="69b05-104">How to use ASP.NET Dynamic Data to create scaffolded applications that automatically know how to perform data access.</span></span>
+> <span data-ttu-id="a7e96-104">ASP.NET Dynamic Data を使用して作成するには、アプリケーションを自動的にスキャフォールディングする方法は、データ アクセスを実行する方法を理解します。</span><span class="sxs-lookup"><span data-stu-id="a7e96-104">How to use ASP.NET Dynamic Data to create scaffolded applications that automatically know how to perform data access.</span></span>
 
 
-- [<span data-ttu-id="69b05-105">初めてのスキャフォールディングと動的データの概要</span><span class="sxs-lookup"><span data-stu-id="69b05-105">Your First Scaffold and What is Dynamic Data</span></span>](your-first-scaffold-and-what-is-dynamic-data.md)
-- [<span data-ttu-id="69b05-106">インライン GridView 編集を有効にする</span><span class="sxs-lookup"><span data-stu-id="69b05-106">Enable Inline GridView Editing</span></span>](how-do-i-enable-inline-gridview-editing.md)
-- [<span data-ttu-id="69b05-107">フィールドのレンダリング方法を変更する</span><span class="sxs-lookup"><span data-stu-id="69b05-107">Change how my Fields render</span></span>](how-do-i-change-how-my-fields-render.md)
-- [<span data-ttu-id="69b05-108">ビジネス ロジック例外を処理する</span><span class="sxs-lookup"><span data-stu-id="69b05-108">Handle Business Logic Exceptions</span></span>](how-do-i-handle-business-logic-exceptions.md)
-- [<span data-ttu-id="69b05-109">カスタム ページを作る</span><span class="sxs-lookup"><span data-stu-id="69b05-109">Make Custom Pages</span></span>](how-do-i-make-custom-pages.md)
-- [<span data-ttu-id="69b05-110">不明なデータ型を表示する</span><span class="sxs-lookup"><span data-stu-id="69b05-110">Display Unknown datatypes</span></span>](how-do-i-display-unknown-datatypes.md)
-- [<span data-ttu-id="69b05-111">ListView および DetailsView コントロールで DynamicControl を使用する</span><span class="sxs-lookup"><span data-stu-id="69b05-111">Use a DynamicControl in ListView and DetailsView Controls</span></span>](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
-- [<span data-ttu-id="69b05-112">動的データ入門</span><span class="sxs-lookup"><span data-stu-id="69b05-112">Getting Started with Dynamic Data</span></span>](getting-started-with-dynamic-data.md)
-- [<span data-ttu-id="69b05-113">ASP.NET 動的データ アプリケーションでテンプレートの編集を始める</span><span class="sxs-lookup"><span data-stu-id="69b05-113">Begin Editing the Templates in ASP.NET Dynamic Data Applications</span></span>](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
-- [<span data-ttu-id="69b05-114">URL ルーティングによる動的データ アプリケーションの変更を始める</span><span class="sxs-lookup"><span data-stu-id="69b05-114">Begin Modifying Dynamic Data Applications with URL Routing</span></span>](begin-modifying-dynamic-data-applications-with-url-routing.md)
-- [<span data-ttu-id="69b05-115">ASP.NET 動的データ アプリケーションでインライン編集を有効にする</span><span class="sxs-lookup"><span data-stu-id="69b05-115">Enable In-Line Editing in ASP.NET Dynamic Data Applications</span></span>](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)
-- [<span data-ttu-id="69b05-116">動的データ アプリケーションのテーブル固有ルーティングを有効にする</span><span class="sxs-lookup"><span data-stu-id="69b05-116">Enable Table Specific Routing in Dynamic Data Applications</span></span>](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)
-- [<span data-ttu-id="69b05-117">ASP.NET 動的データ アプリケーションで属性評価を使用する</span><span class="sxs-lookup"><span data-stu-id="69b05-117">Use Attribute Validation in ASP.NET Dynamic Data Applications</span></span>](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)
-- [<span data-ttu-id="69b05-118">VB または C# の命令ロジックによるカスタム フィールド検証を実装する</span><span class="sxs-lookup"><span data-stu-id="69b05-118">Implement Custom Field Validation with Imperative Logic in VB or C#</span></span>](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
-- [<span data-ttu-id="69b05-119">DynamicData データ グリッドから列を削除する</span><span class="sxs-lookup"><span data-stu-id="69b05-119">Remove Columns From Your DynamicData Data Grids</span></span>](how-to-remove-columns-from-your-dynamicdata-data-grids.md)
-- [<span data-ttu-id="69b05-120">ASP.NET 動的データ アプリケーションでテーブル固有のカスタム フォームを作成する</span><span class="sxs-lookup"><span data-stu-id="69b05-120">Create Table Specific Custom Forms in an ASP.NET Dynamic Data Application</span></span>](how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
-- [<span data-ttu-id="69b05-121">ASP.NET 動的データ カスタム フォームの書式設定</span><span class="sxs-lookup"><span data-stu-id="69b05-121">ASP.NET Dynamic Data Custom Form Formatting</span></span>](aspnet-dynamic-data-custom-form-formatting.md)
+- [<span data-ttu-id="a7e96-105">初めてのスキャフォールディングと動的データ概要</span><span class="sxs-lookup"><span data-stu-id="a7e96-105">Your First Scaffold and What is Dynamic Data</span></span>](your-first-scaffold-and-what-is-dynamic-data.md)
+- [<span data-ttu-id="a7e96-106">インライン GridView 編集を有効にする</span><span class="sxs-lookup"><span data-stu-id="a7e96-106">Enable Inline GridView Editing</span></span>](how-do-i-enable-inline-gridview-editing.md)
+- [<span data-ttu-id="a7e96-107">フィールドのレンダリング方法を変更する</span><span class="sxs-lookup"><span data-stu-id="a7e96-107">Change how my Fields render</span></span>](how-do-i-change-how-my-fields-render.md)
+- [<span data-ttu-id="a7e96-108">ビジネス ロジック例外を処理する</span><span class="sxs-lookup"><span data-stu-id="a7e96-108">Handle Business Logic Exceptions</span></span>](how-do-i-handle-business-logic-exceptions.md)
+- [<span data-ttu-id="a7e96-109">カスタム ページを作る</span><span class="sxs-lookup"><span data-stu-id="a7e96-109">Make Custom Pages</span></span>](how-do-i-make-custom-pages.md)
+- [<span data-ttu-id="a7e96-110">不明なデータ型を表示する</span><span class="sxs-lookup"><span data-stu-id="a7e96-110">Display Unknown datatypes</span></span>](how-do-i-display-unknown-datatypes.md)
+- [<span data-ttu-id="a7e96-111">ListView コントロールと DetailsView コントロールで DynamicControl を使用する</span><span class="sxs-lookup"><span data-stu-id="a7e96-111">Use a DynamicControl in ListView and DetailsView Controls</span></span>](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
+- [<span data-ttu-id="a7e96-112">動的データ入門</span><span class="sxs-lookup"><span data-stu-id="a7e96-112">Getting Started with Dynamic Data</span></span>](getting-started-with-dynamic-data.md)
+- [<span data-ttu-id="a7e96-113">ASP.NET 動的データ アプリケーションでテンプレートの編集を始める</span><span class="sxs-lookup"><span data-stu-id="a7e96-113">Begin Editing the Templates in ASP.NET Dynamic Data Applications</span></span>](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
+- [<span data-ttu-id="a7e96-114">URL ルーティングによる動的データ アプリケーションの変更を始める</span><span class="sxs-lookup"><span data-stu-id="a7e96-114">Begin Modifying Dynamic Data Applications with URL Routing</span></span>](begin-modifying-dynamic-data-applications-with-url-routing.md)
+- [<span data-ttu-id="a7e96-115">ASP.NET 動的データ アプリケーションでインライン編集を有効にする</span><span class="sxs-lookup"><span data-stu-id="a7e96-115">Enable In-Line Editing in ASP.NET Dynamic Data Applications</span></span>](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)
+- [<span data-ttu-id="a7e96-116">動的データ アプリケーションのテーブル固有ルーティングを有効にする</span><span class="sxs-lookup"><span data-stu-id="a7e96-116">Enable Table Specific Routing in Dynamic Data Applications</span></span>](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)
+- [<span data-ttu-id="a7e96-117">ASP.NET 動的データ アプリケーションで属性評価を使用する</span><span class="sxs-lookup"><span data-stu-id="a7e96-117">Use Attribute Validation in ASP.NET Dynamic Data Applications</span></span>](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)
+- [<span data-ttu-id="a7e96-118">VB または C# の命令ロジックによるカスタム フィールド検証を実装する</span><span class="sxs-lookup"><span data-stu-id="a7e96-118">Implement Custom Field Validation with Imperative Logic in VB or C#</span></span>](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
+- [<span data-ttu-id="a7e96-119">DynamicData データ グリッドから列を削除する</span><span class="sxs-lookup"><span data-stu-id="a7e96-119">Remove Columns From Your DynamicData Data Grids</span></span>](how-to-remove-columns-from-your-dynamicdata-data-grids.md)
+- [<span data-ttu-id="a7e96-120">ASP.NET 動的データ アプリケーションでテーブル固有のカスタム フォームを作成する</span><span class="sxs-lookup"><span data-stu-id="a7e96-120">Create Table Specific Custom Forms in an ASP.NET Dynamic Data Application</span></span>](how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
+- [<span data-ttu-id="a7e96-121">ASP.NET 動的データ カスタム フォームの初期設定</span><span class="sxs-lookup"><span data-stu-id="a7e96-121">ASP.NET Dynamic Data Custom Form Formatting</span></span>](aspnet-dynamic-data-custom-form-formatting.md)

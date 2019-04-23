@@ -12,13 +12,13 @@ ms.openlocfilehash: 5ff91ddabb637d663a4a14f26521d405bc78de71
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398723"
 ---
-# <a name="change-the-visual-style-of-a-web-page"></a><span data-ttu-id="43b01-103">Web ページのビジュアル スタイルを変更する</span><span class="sxs-lookup"><span data-stu-id="43b01-103">Change the Visual Style of a Web Page</span></span>
+# <a name="change-the-visual-style-of-a-web-page"></a><span data-ttu-id="4f7b9-103">Web ページのビジュアル スタイルを変更する</span><span class="sxs-lookup"><span data-stu-id="4f7b9-103">Change the Visual Style of a Web Page</span></span>
 
-<span data-ttu-id="43b01-104">によって[Advaiya](https://twitter.com/Advaiyasolns)</span><span class="sxs-lookup"><span data-stu-id="43b01-104">by [Advaiya](https://twitter.com/Advaiyasolns)</span></span>
+<span data-ttu-id="4f7b9-104">によって[Advaiya](https://twitter.com/Advaiyasolns)</span><span class="sxs-lookup"><span data-stu-id="4f7b9-104">by [Advaiya](https://twitter.com/Advaiyasolns)</span></span>
 
-<span data-ttu-id="43b01-105">第 3 部を取得、ページより美しいことができるようにする CSS とスタイル シートの使用を開始できます。</span><span class="sxs-lookup"><span data-stu-id="43b01-105">Part 3 gets you started with CSS and style sheets so you can make your page more beautiful.</span></span>
+<span data-ttu-id="4f7b9-105">第 3 部を取得、ページより美しいことができるようにする CSS とスタイル シートの使用を開始できます。</span><span class="sxs-lookup"><span data-stu-id="4f7b9-105">Part 3 gets you started with CSS and style sheets so you can make your page more beautiful.</span></span>
 
-[<span data-ttu-id="43b01-106">&#9654;ビデオ (4 分)</span><span class="sxs-lookup"><span data-stu-id="43b01-106">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/change-the-visual-style-of-a-web-page)
+[<span data-ttu-id="4f7b9-106">&#9654;ビデオ (4 分)</span><span class="sxs-lookup"><span data-stu-id="4f7b9-106">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/change-the-visual-style-of-a-web-page)

@@ -12,15 +12,15 @@ ms.openlocfilehash: 176fd901a927d85cc048b5af07afb120d15c70e9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399251"
 ---
-# <a name="slider"></a><span data-ttu-id="b1e29-103">スライダー</span><span class="sxs-lookup"><span data-stu-id="b1e29-103">Slider</span></span>
+# <a name="slider"></a><span data-ttu-id="697c1-103">スライダー</span><span class="sxs-lookup"><span data-stu-id="697c1-103">Slider</span></span>
 
-> <span data-ttu-id="b1e29-104">このチュートリアルでは、スライダー コントロールを使用して、ユーザーがマウスを使用して制御できるグラフィカルなスライダーを表示する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="b1e29-104">This tutorial shows how to use the Slider control to display a graphical slider that users can control using the mouse.</span></span>
+> <span data-ttu-id="697c1-104">このチュートリアルでは、スライダー コントロールを使用して、ユーザーがマウスを使用して制御できるグラフィカルなスライダーを表示する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="697c1-104">This tutorial shows how to use the Slider control to display a graphical slider that users can control using the mouse.</span></span>
 
 
-- [<span data-ttu-id="b1e29-105">スライダー コントロール (自動ポストバックあり) (C#)</span><span class="sxs-lookup"><span data-stu-id="b1e29-105">Slider Control With Auto-Postback (C#)</span></span>](using-the-slider-control-with-auto-postback-cs.md)
-- [<span data-ttu-id="b1e29-106">スライダー コントロールをデータバインドする (C#)</span><span class="sxs-lookup"><span data-stu-id="b1e29-106">Databinding the Slider Control (C#)</span></span>](databinding-the-slider-control-cs.md)
-- [<span data-ttu-id="b1e29-107">スライダー コントロール (自動ポストバックあり) (VB)</span><span class="sxs-lookup"><span data-stu-id="b1e29-107">Slider Control With Auto-Postback (VB)</span></span>](using-the-slider-control-with-auto-postback-vb.md)
-- [<span data-ttu-id="b1e29-108">スライダー コントロールをデータバインドする (VB)</span><span class="sxs-lookup"><span data-stu-id="b1e29-108">Databinding the Slider Control (VB)</span></span>](databinding-the-slider-control-vb.md)
+- [<span data-ttu-id="697c1-105">スライダー コントロール (自動ポストバックあり) (C#)</span><span class="sxs-lookup"><span data-stu-id="697c1-105">Slider Control With Auto-Postback (C#)</span></span>](using-the-slider-control-with-auto-postback-cs.md)
+- [<span data-ttu-id="697c1-106">スライダー コントロールをデータバインドする (C#)</span><span class="sxs-lookup"><span data-stu-id="697c1-106">Databinding the Slider Control (C#)</span></span>](databinding-the-slider-control-cs.md)
+- [<span data-ttu-id="697c1-107">スライダー コントロール (自動ポストバックあり) (VB)</span><span class="sxs-lookup"><span data-stu-id="697c1-107">Slider Control With Auto-Postback (VB)</span></span>](using-the-slider-control-with-auto-postback-vb.md)
+- [<span data-ttu-id="697c1-108">スライダー コントロールをデータバインドする (VB)</span><span class="sxs-lookup"><span data-stu-id="697c1-108">Databinding the Slider Control (VB)</span></span>](databinding-the-slider-control-vb.md)
