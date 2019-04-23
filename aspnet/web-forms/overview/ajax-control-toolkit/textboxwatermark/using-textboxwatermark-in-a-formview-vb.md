@@ -12,7 +12,7 @@ ms.openlocfilehash: 056e89b20ccab0e56b1fab422c817d842beff446
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400842"
 ---
 # <a name="using-textboxwatermark-in-a-formview-vb"></a>FormView で TextBoxWatermark を使用する (VB)
@@ -49,7 +49,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 挿入モードに、ユーザーが変更されたときに今すぐ、`FormView`制御の場合に感謝します。 新しい仕入先が事前入力のテキスト フィールド、`TextBoxWatermarkExtender`コントロール。 テキスト ボックス内をクリックには、充てんテキストが表示されなくなることができます。
 
 
-[![Tフィールドに彼の透かしエクステンダーに由来](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
+[![フィールド内のウォーターマークに由来エクステンダー](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
 
 フィールドに透かしエクステンダーに由来 ([フルサイズの画像を表示する をクリックします](using-textboxwatermark-in-a-formview-vb/_static/image3.png))。
 

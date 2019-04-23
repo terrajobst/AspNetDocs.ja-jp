@@ -12,7 +12,7 @@ ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403585"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト
@@ -43,12 +43,12 @@ ms.locfileid: "59403585"
 このチュートリアルには、次のセクションが含まれています。
 
 - [必須コンポーネント](#prerequisites)
-- [プロジェクトの作成](#createproject)
+- [プロジェクトを作成します。](#createproject)
 - [SignalR の NuGet パッケージを追加します。](#nugetpackages)
 - [サーバー コードを設定します。](#server)
 - [クライアント コードを設定します。](#client)
-- [アプリケーションをテストする](#test)
-- [ログの有効化](#enablelogging)
+- [アプリケーションをテストします。](#test)
+- [ログ記録を有効にします。](#enablelogging)
 - [インストールして、完全な StockTicker サンプルを確認してください。](#fullsample)
 - [次の手順](#nextsteps)
 
@@ -415,4 +415,4 @@ SignalR 開発のより高度な概念については、SignalR のソース コ
 - [ASP.NET SignalR](https://asp.net/signalr/)
 - [SignalR プロジェクト](http://signalr.net/)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)

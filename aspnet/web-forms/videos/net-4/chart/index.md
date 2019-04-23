@@ -12,7 +12,7 @@ ms.openlocfilehash: c3b2a46119873baf18e953a2d221d544feccbc26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407303"
 ---
 # <a name="chart"></a>グラフ
@@ -20,5 +20,5 @@ ms.locfileid: "59407303"
 > この一連のビデオでは、ASP.NET グラフ コントロールを使用して、視覚的に説得力のあるデータの表示を作成する方法を示します。
 
 
-- [Chart Control](aspnet-4-quick-hit-chart-control.md)
-- [Visual Studio 2010 の新しい Chart コントロールの概要](aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
+- [Chart コントロール](aspnet-4-quick-hit-chart-control.md)
+- [Visual Studio 2010 の新しい Chart コントロール概要](aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)

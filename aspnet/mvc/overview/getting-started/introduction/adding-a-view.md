@@ -9,7 +9,7 @@ ms.openlocfilehash: 42469611f94b374d6692a1c2017aced77a0a414c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403858"
 ---
 # <a name="adding-a-view"></a>ビューの追加
@@ -68,7 +68,7 @@ ms.locfileid: "59403858"
 
 ![_LayoutCshtml](adding-a-view/_static/image7.png)
 
-レイアウト テンプレートを使用すると、1 つの場所で、サイトの HTML コンテナー レイアウトを指定し、そのサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` すべてのビューに固有のページをプレース ホルダー ショーを作成、&quot;ラップ&quot;レイアウト ページ。 たとえば、選択した場合、**について**リンクを*Views\Home\About.cshtml*内でビューが表示される、`RenderBody`メソッド。
+レイアウト テンプレートを使用すると、1 つの場所で、サイトの HTML コンテナー レイアウトを指定し、そのサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` は、作成したビュー固有のページがすべて表示されるプレースホルダーで、レイアウト ページに&quot;ラップ&quot;されます。 たとえば、選択した場合、**について**リンクを*Views\Home\About.cshtml*内でビューが表示される、`RenderBody`メソッド。
 
 タイトル要素の内容を変更します。 変更、 [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx)からレイアウト テンプレート&quot;アプリケーション名&quot;に&quot;MVC ムービー&quot;とコント ローラーから`Home`に`Movies`します。 完全なレイアウト ファイルは、以下に示します。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 34fd3fb357c7a6c33b3a551b0cda7029e807da2c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399061"
 ---
 # <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>MVC 5 を使用する Entity Framework 6 Code First の概要
@@ -23,8 +23,8 @@ ms.locfileid: "59399061"
 - [Entity Framework データ モデルを作成する](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 - [基本 CRUD 機能を実装する](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
 - [並べ替え、フィルター処理、ページング](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-- [接続回復性とコマンド傍受](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-- [Code First Migrations と配置](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+- [接続復元性とコマンド傍受](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+- [Code First Migrations と展開](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 - [より複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
 - [関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 - [関連データの更新](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

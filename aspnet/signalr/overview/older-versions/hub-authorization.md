@@ -12,7 +12,7 @@ ms.openlocfilehash: af97ff2488841b2d65e50122691736603be2a686
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401414"
 ---
 # <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>SignalR ハブの認証と承認 (SignalR 1.x)
@@ -37,7 +37,7 @@ ms.locfileid: "59401414"
     - [フォーム認証 cookie](#cookie)
     - [Windows 認証](#windows)
     - [接続ヘッダー](#header)
-    - [証明書](#certificate)
+    - [[MSSQLSERVER のプロトコルのプロパティ]](#certificate)
 
 <a id="authorizeattribute"></a>
 

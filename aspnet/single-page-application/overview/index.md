@@ -12,7 +12,7 @@ ms.openlocfilehash: ba656ecc14204d833e9dc18b941a2c19ec5e06ef
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397729"
 ---
 # <a name="single-page-application-overview"></a>シングル ページ アプリケーションの概要

@@ -12,7 +12,7 @@ ms.openlocfilehash: 7834b5c418de9d05ee870641cfd7c7f9956ab210
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403000"
 ---
 # <a name="ui-and-navigation"></a>UI とナビゲーション
@@ -212,7 +212,7 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 
 > [!NOTE] 
 > 
-> **ヒント**
+> **ヒント。**
 > 
 > 開発時に入力してコードを追加するときにことオブジェクトの有効なメンバーが見つかったため、厳密に型指定されたデータ コントロールは、IntelliSense に基づく利用可能なメンバーを表示することを特定する必要があります。 IntelliSense は、プロパティ、メソッド、およびオブジェクトなどのコードを入力すると、コードのコンテキストに適した選択肢を提供します。
 

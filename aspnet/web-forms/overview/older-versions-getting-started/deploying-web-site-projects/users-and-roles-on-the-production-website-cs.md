@@ -12,14 +12,14 @@ ms.openlocfilehash: 691de0a29ce4798d2f18a58141b833db9cddb2d5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396604"
 ---
 # <a name="users-and-roles-on-the-production-website-c"></a>ユーザーとロール、運用環境の web サイト (c#)
 
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_cs.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_cs.pdf)
 
 > ASP.NET web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成して作成、編集、およびユーザーとロールを削除するための web ベースのユーザー インターフェイスを提供します。 残念ながら、WSAT のみ機能、localhost からアクセスすると、ブラウザーから、実稼働 web サイトの管理ツールにアクセスできないことを意味します。 良い知らせは、ユーザーと運用上の役割を管理できるようにするための回避策があることです。 このチュートリアルでは、これらの回避策や他のユーザーで検索します。
 

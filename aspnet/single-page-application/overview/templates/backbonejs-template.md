@@ -12,7 +12,7 @@ ms.openlocfilehash: 8148974eacd1db05947ba54fe40776df69f92290
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404118"
 ---
 # <a name="backbone-template"></a>Backbone テンプレート
@@ -72,7 +72,7 @@ Backbone.js SPA テンプレートを使用して対話型のクライアント�
 
 Backbone.js では、ルーターは、クライアント側のページのルーティングとアクションおよびイベントへの接続のためのメソッドを提供します。 テンプレートは、router.ts の 1 つのルーターを定義します。 ルーターは activable ビューを作成し、ビューを切り替えるときに状態を保持します。 (Activable ビューは、次のセクションで説明します)。プロジェクトの 2 つのダミー ビューが最初に、ホームおよびします。 ルートが不明である場合に表示される NotFound ビューもあります。
 
-**Views**
+**ビュー**
 
 ビューは、~/Scripts/application/ビューで定義されます。 ビュー、activable ビューとビューのモーダル ダイアログの 2 種類があります。 Activable ビューは、ルーターによって呼び出されます。 Activable のビューが表示されるとその他のすべての activable ビューは非アクティブになります。 Activable のビューを作成すると、ビューを拡張、`Activable`オブジェクト。
 
@@ -110,7 +110,7 @@ Flashbar.ts プラグインでは、さまざまな種類のフィードバッ�
 
 これで、サーバー側を見てみましょう。
 
-**Controllers**
+**コントローラー**
 
 シングル ページ アプリケーションでは、サーバーは、ユーザー インターフェイス内の小さなロールのみを再生します。 通常、サーバー、初期ページをレンダリングおよび送信し、JSON データを受信します。
 

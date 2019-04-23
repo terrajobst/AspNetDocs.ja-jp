@@ -12,7 +12,7 @@ ms.openlocfilehash: 49458c6d498b492b138247cb9257cd934e472ba6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399542"
 ---
 # <a name="creating-a-movie-database-application-in-15-minutes-with-aspnet-mvc"></a>ASP.NET MVC を使用し、映画データベース アプリケーションを 15 分で作成する

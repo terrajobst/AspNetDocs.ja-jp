@@ -12,7 +12,7 @@ ms.openlocfilehash: 20de66ab773a9172fd8ae8ea713c361c289b944c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398542"
 ---
 # <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC で DropDownList ヘルパーをスキャフォールディングするしくみを確認する
@@ -99,7 +99,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 使用することができます、 [fiddler ツール](http://www.fiddler2.com/fiddler2/)ポストされたフォーム値を確認するその ASP.NET MVC のモデル バインドを使用してアルバム オブジェクトを作成します。
 
-![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png).
+![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image7.png)。
 
 ### <a name="refactoring-the-viewbag-selectlist-creation"></a>ViewBag SelectList 作成のリファクタリング
 

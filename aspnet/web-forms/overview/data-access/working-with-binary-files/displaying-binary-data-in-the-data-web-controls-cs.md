@@ -12,7 +12,7 @@ ms.openlocfilehash: c6c41ba5b5414da689e63ef521f1cf22e0b55701
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404287"
 ---
 # <a name="displaying-binary-data-in-the-data-web-controls-c"></a>データ Web コントロールにバイナリ データを表示する (C#)
@@ -41,7 +41,7 @@ ms.locfileid: "59404287"
 このチュートリアルのダウンロードで 7 つの PDF パンフレット ファイルがあります、`~/Brochures`フォルダー、シーフード以外のカテゴリのそれぞれに 1 つ。 意図しないすべてのレコードにバイナリ データが関連付けられているシナリオを処理する方法を説明するシーフード パンフレットの追加を省略するとは。 更新する、`Categories`これらの値を持つテーブルを右クリックします、`Categories`ノード サーバー エクスプ ローラーからテーブル データの表示を選択します。 図 1 に示すよう、パンフレットのある各カテゴリのパンフレット ファイルへの仮想パスを入力します。 パンフレット シーフード カテゴリがないために、以下のままにしてその`BrochurePath`列の値として`NULL`します。
 
 
-[![Manually Categories テーブルの BrochurePath 列の値を入力してください](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.png)
+[![カテゴリ表の BrochurePath 列の値を手動で入力します。](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.png)
 
 **図 1**:値を手動で入力、`Categories`テーブル s`BrochurePath`列 ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.png))。
 
@@ -53,17 +53,17 @@ ms.locfileid: "59404287"
 GridView のデザイナーには、ツールボックスからドラッグして開始、`DisplayOrDownloadData.aspx`ページで、`BinaryData`フォルダー。 GridView s 設定`ID`に`Categories`GridView s のスマート タグを新しいデータ ソースにバインドを選択します。 具体的には、という名前を ObjectDataSource にバインド`CategoriesDataSource`を使用してデータを取得する、`CategoriesBLL`オブジェクト`GetCategories()`メソッド。
 
 
-[![C新しい ObjectDataSource という CategoriesDataSource を reate](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.png)
+[![CategoriesDataSource という名前の新しい ObjectDataSource を作成します。](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.png)
 
 **図 2**:名前付き新しい ObjectDataSource 作成`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.png))。
 
 
-[![C構成、ObjectDataSource CategoriesBLL クラスを使用する](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.png)
+[![CategoriesBLL クラスを使用する ObjectDataSource を構成します。](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.png)
 
 **図 3**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image6.png))。
 
 
-[![R一覧のカテゴリを使用して、GetCategories() メソッド etrieve](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image7.png)
+[![GetCategories() メソッドを使用してカテゴリの一覧を取得します。](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image7.png)
 
 **図 4**:一覧のカテゴリを使用して、取得、`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image8.png))。
 
@@ -76,7 +76,7 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 ブラウザーからこのページを表示 (図 5 を参照してください)。 8 つのカテゴリの各が一覧表示されます。 7 つのカテゴリと`BrochurePath`値が、`BrochurePath`それぞれ BoundField に表示される値。 シーフードを持つ、`NULL`値その`BrochurePath`、空のセルを表示します。
 
 
-[![Each カテゴリの名前、説明、および BrochurePath 値が表示されている](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image9.png)
+[![各カテゴリの名前、説明、および BrochurePath 値が一覧表示します。](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image9.png)
 
 **図 5**:各カテゴリの名前、説明、および`BrochurePath`値が表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image10.png))。
 
@@ -92,12 +92,12 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 図 7 に示すように、リンクの列を GridView これ追加されます。 ビューのパンフレットのリンクをクリックをいずれか、ブラウザーで直接、PDF を表示またはユーザー PDF reader がインストールされているかどうかによって、ファイルをダウンロードして、ブラウザーの設定を確認します。
 
 
-[![A カテゴリのパンフレットは、ビュー パンフレットのリンクをクリックして表示する](displaying-binary-data-in-the-data-web-controls-cs/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.png)
+[![カテゴリの s パンフレット ビュー パンフレットのリンクをクリックして表示できます。](displaying-binary-data-in-the-data-web-controls-cs/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.png)
 
 **図 7**:カテゴリ表示パンフレットのリンクをクリックしてパンフレットを表示できる s ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image12.png))。
 
 
-[![Tカテゴリのパンフレット PDF 彼が表示されます](displaying-binary-data-in-the-data-web-controls-cs/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image13.png)
+[![S パンフレット PDF カテゴリが表示されます。](displaying-binary-data-in-the-data-web-controls-cs/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image13.png)
 
 **図 8**:S パンフレット PDF カテゴリが表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image14.png))。
 
@@ -131,7 +131,7 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 図 10 は、これらの変更が適用された後に、ページを示します。 なおシーフード カテゴリの`BrochurePath`フィールドなしパンフレットに利用可能なテキストが表示されます。
 
 
-[![Tこれらのカテゴリせず、パンフレット テキストなしパンフレットの使用可能な彼が表示されます](displaying-binary-data-in-the-data-web-controls-cs/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image15.png)
+[![これらのカテゴリせず、パンフレットのテキストなしパンフレット利用が表示されます。](displaying-binary-data-in-the-data-web-controls-cs/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image15.png)
 
 **図 10**:これらのカテゴリせず、パンフレットのテキストなしパンフレット利用が表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image16.png))。
 
@@ -168,7 +168,7 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 参照するくださいとこのページを作成すると、特定のカテゴリの画像を表示できる`DisplayCategoryPicture.aspx?CategoryID=categoryID`します。 図 11 はから表示できます、飲料カテゴリの画像`DisplayCategoryPicture.aspx?CategoryID=1`します。
 
 
-[![T彼の飲み物のカテゴリの画像が表示されます](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image17.png)
+[![画像が表示されます、飲料カテゴリ s](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image17.png)
 
 **図 11**:画像が表示されます、飲料カテゴリ s ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image18.png))。
 
@@ -208,7 +208,7 @@ Soothe と同様に、ImageField を追加した後、GridView s の宣言型構
 ブラウザーからこのページを表示する時間がかかります。 各レコードが今すぐ、カテゴリの画像を含んだ方法に注意してください。
 
 
-[![T各の行の彼のカテゴリの画像が表示されます](displaying-binary-data-in-the-data-web-controls-cs/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image19.png)
+[![各の行のカテゴリの画像が表示されます。](displaying-binary-data-in-the-data-web-controls-cs/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image19.png)
 
 **図 13**:各の行のカテゴリの画像が表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-cs/_static/image20.png))。
 

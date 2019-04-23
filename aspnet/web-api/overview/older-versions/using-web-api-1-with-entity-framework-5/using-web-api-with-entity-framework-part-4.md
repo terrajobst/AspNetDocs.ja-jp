@@ -12,14 +12,14 @@ ms.openlocfilehash: 54b3afac9b19962b02336a35909b208c4e3f7504
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400556"
 ---
 # <a name="part-4-adding-an-admin-view"></a>第 4 部:管理ビューの追加
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-view"></a>管理ビューを追加します。
 

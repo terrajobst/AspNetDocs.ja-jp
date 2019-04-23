@@ -12,7 +12,7 @@ ms.openlocfilehash: ea11b464329a755d5625797327f5a0a3ccb0f426
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400588"
 ---
 # <a name="net-4"></a>.NET 4
@@ -28,8 +28,8 @@ ms.locfileid: "59400588"
     - [AJAX データ テンプレート](ajax/aspnet-4-quick-hit-ajax-data-templates.md)
 - [グラフ](chart/index.md)
 
-    - [Chart Control](chart/aspnet-4-quick-hit-chart-control.md)
-    - [Visual Studio 2010 の新しい Chart コントロールの概要](chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
+    - [Chart コントロール](chart/aspnet-4-quick-hit-chart-control.md)
+    - [Visual Studio 2010 の新しい Chart コントロール概要](chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
 - [コア](core/index.md)
 
     - [自動開始](core/aspnet-4-quick-hit-auto-start.md)

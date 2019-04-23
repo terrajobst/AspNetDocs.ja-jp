@@ -12,7 +12,7 @@ ms.openlocfilehash: 2fb954cca01b2201f574a86233af5aa6731568b0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401219"
 ---
 # <a name="implementing-optimistic-concurrency-c"></a>オプティミスティック同時実行制御を実装する (C#)
@@ -31,7 +31,7 @@ ms.locfileid: "59401219"
 たとえば、こと Jisun と Sam、2 人のユーザーが両方ページにアクセスして、アプリケーションで更新および削除の GridView コントロールを使用して、製品への訪問者を許可されているとします。 両方は、ほぼ同時に、gridview 編集ボタンをクリックします。 Jisun では、製品名を「Chai 紅茶」に変更し、[更新] ボタンをクリックします。 最終的には、`UPDATE`を設定すると、データベースに送信されるステートメント*すべて*の製品の更新可能なフィールド (Jisun では、1 つのフィールドのみ更新される場合でも`ProductName`)。 この時点では、データベースは、「Chai 紅茶」、飲み物、供給業者の風変わりな液体は、この特定の製品のカテゴリの値がします。 ただし、Sam の画面に GridView として表示されます、製品名の編集可能な GridView 行"Chai"。 Jisun の変更がコミットされた後、数秒 Sam は調味料にカテゴリを更新し、更新プログラムをクリックします。 これは、結果、 `UPDATE` "Chai"に、製品名を設定しているデータベースに送信されたステートメント、`CategoryID`対応する飲み物のカテゴリの ID、および具合にします。 Jisun の製品名の変更が上書きされました。 図 1 は、この一連のイベントをグラフィカルに示しています。
 
 
-[![When 2 つのユーザーに同時に更新プログラム、レコードが潜在的な 1 人のユーザーの変更を他を上書きするため](implementing-optimistic-concurrency-cs/_static/image2.png)](implementing-optimistic-concurrency-cs/_static/image1.png)
+[![2 人のユーザー レコードを同時に更新するときに、その他の s を上書きするがあります s の潜在的 1 人のユーザーの変更](implementing-optimistic-concurrency-cs/_static/image2.png)](implementing-optimistic-concurrency-cs/_static/image1.png)
 
 **図 1**:ときに 2 人のユーザーを同時に更新レコードが s 可能性の 1 つのユーザーの変更を上書きするため、他の ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image3.png))。
 
@@ -55,7 +55,7 @@ ms.locfileid: "59401219"
 オプティミスティック同時実行制御は、更新または削除プロセスを開始するときと同様、更新または削除されるレコードが同じ値があることを確認することによって機能します。 たとえば、編集可能な GridView で [編集] ボタンをクリックすると、レコードの値はデータベースから読み取るありテキスト ボックスや他の Web コントロールに表示されます。 これらの元の値は、GridView で保存されます。 後で、ユーザーは、自分の変更を行います、[更新] ボタンをクリックして、後に元の値と新しい値を送受信するビジネス ロジック層、し、データ アクセス層まで。 データ アクセス層は、ユーザーが編集を開始した元の値は、データベースに引き続き値と同じ場合のみ、レコードを更新する SQL ステートメントを実行する必要があります。 図 2 は、このイベントのシーケンスを示しています。
 
 
-[![Fまたはを正常に更新または削除、元の値が現在のデータベースの値と等しくする必要があります](implementing-optimistic-concurrency-cs/_static/image5.png)](implementing-optimistic-concurrency-cs/_static/image4.png)
+[![正常に更新または削除、元の値は現在のデータベースの値と等しくする必要があります。](implementing-optimistic-concurrency-cs/_static/image5.png)](implementing-optimistic-concurrency-cs/_static/image4.png)
 
 **図 2**:更新プログラムまたは成功を元の値必要がありますと等しいデータベースの現在の値を Delete ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image6.png))。
 
@@ -78,7 +78,7 @@ ms.locfileid: "59401219"
 新しい型指定されたデータセットを作成するを右クリックし、`DAL`内のフォルダー、`App_Code`フォルダーという名前の新しいデータセットを追加および`NorthwindOptimisticConcurrency`します。 最初のチュートリアルで説明したように行うのために追加されます新しい TableAdapter を TableAdapter 構成ウィザードを自動的に起動する、型指定されたデータセット。 データベースへの接続 - を使用して Northwind データベースの同じ接続を指定するよう指示最初の画面で、`NORTHWNDConnectionString`設定から`Web.config`します。
 
 
-[![C同じ Northwind データベースに onnect](implementing-optimistic-concurrency-cs/_static/image8.png)](implementing-optimistic-concurrency-cs/_static/image7.png)
+[![同じ Northwind データベースへの接続します。](implementing-optimistic-concurrency-cs/_static/image8.png)](implementing-optimistic-concurrency-cs/_static/image7.png)
 
 **図 3**:同じ Northwind データベースへの接続 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image9.png))。
 
@@ -86,7 +86,7 @@ ms.locfileid: "59401219"
 次に、データを照会する方法についてよう求められます。 アドホック SQL ステートメントでは、新しいストアド プロシージャ、または既存のストアド プロシージャ。 元の DAL でアドホック SQL クエリを使用するとため、このオプションを使用ここでも。
 
 
-[![Sアドホック SQL ステートメントを使用して取得するデータを指定](implementing-optimistic-concurrency-cs/_static/image11.png)](implementing-optimistic-concurrency-cs/_static/image10.png)
+[![アドホック SQL ステートメントを使用して取得するデータを指定します。](implementing-optimistic-concurrency-cs/_static/image11.png)](implementing-optimistic-concurrency-cs/_static/image10.png)
 
 **図 4**:アドホック SQL ステートメントを使用して取得するデータを指定 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image12.png))。
 
@@ -97,7 +97,7 @@ ms.locfileid: "59401219"
 [!code-sql[Main](implementing-optimistic-concurrency-cs/samples/sample2.sql)]
 
 
-[![Use 元の DAL の製品 TableAdapter から同じ SQL クエリ](implementing-optimistic-concurrency-cs/_static/image14.png)](implementing-optimistic-concurrency-cs/_static/image13.png)
+[![元の DAL で製品 TableAdapter から同じ SQL クエリを使用します。](implementing-optimistic-concurrency-cs/_static/image14.png)](implementing-optimistic-concurrency-cs/_static/image13.png)
 
 **図 5**:同じ SQL クエリを使用して、`Products`元の DAL の TableAdapter ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image15.png))。
 
@@ -105,7 +105,7 @@ ms.locfileid: "59401219"
 次の画面上に移動すると、前に、詳細オプション ボタンをクリックします。 この TableAdapter 採用のオプティミスティック同時実行制御には、「オプティミスティック同時実行制御を使用して、」チェック ボックスにチェックします。
 
 
-[![E有効にするチェックによってオプティミスティック同時実行制御、&quot;オプティミスティック同時実行制御を使用して、&quot;チェック ボックス](implementing-optimistic-concurrency-cs/_static/image17.png)](implementing-optimistic-concurrency-cs/_static/image16.png)
+[![当座預金でオプティミスティック同時実行制御を有効にする、&quot;オプティミスティック同時実行制御を使用して、&quot;チェック ボックス](implementing-optimistic-concurrency-cs/_static/image17.png)](implementing-optimistic-concurrency-cs/_static/image16.png)
 
 **図 6**:[オプティミスティック同時実行制御を使用する] チェック ボックスをオンにオプティミスティック同時実行制御を有効にする ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image18.png))。
 
@@ -113,7 +113,7 @@ ms.locfileid: "59401219"
 最後に、TableAdapter に datatable し、; DataTable を返すデータ アクセス パターンを使用することを示しますDB のダイレクト メソッドを作成することも示します。 GetProducts に GetData の戻り値は、メソッド名 DataTable パターンを変更、名前付け規則をミラーリングするように、元の DAL で使用しています。
 
 
-[![HTableAdapter 利用すべてのデータ アクセス パターン [ave](implementing-optimistic-concurrency-cs/_static/image20.png)](implementing-optimistic-concurrency-cs/_static/image19.png)
+[![すべてのデータ アクセス パターンを利用する TableAdapter があります。](implementing-optimistic-concurrency-cs/_static/image20.png)](implementing-optimistic-concurrency-cs/_static/image19.png)
 
 **図 7**:TableAdapter 利用すべてのデータ アクセス パターンがある ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image21.png))。
 
@@ -121,7 +121,7 @@ ms.locfileid: "59401219"
 データセット デザイナー ウィザードを完了すると、厳密に型が含まれます`Products`DataTable および TableAdapter。 DataTable の名前を変更する少し`Products`に`ProductsOptimisticConcurrency`DataTable のタイトル バーを右クリックして、コンテキスト メニューから名前の変更を選択して行うことができます。
 
 
-[![A 型指定された DataSet に DataTable と TableAdapter が追加されました](implementing-optimistic-concurrency-cs/_static/image23.png)](implementing-optimistic-concurrency-cs/_static/image22.png)
+[![型指定された DataSet に DataTable と TableAdapter が追加されました。](implementing-optimistic-concurrency-cs/_static/image23.png)](implementing-optimistic-concurrency-cs/_static/image22.png)
 
 **図 8**:DataTable と型指定されたデータセットに追加された TableAdapter ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image24.png))。
 
@@ -143,7 +143,7 @@ ms.locfileid: "59401219"
 これを行うには、TableAdapter のタイトル バーを右クリックし (領域権利、`Fill`と`GetProducts`メソッド名)、コンテキスト メニューから追加のクエリを選択します。 これにより、TableAdapter クエリの構成ウィザードが起動します。 TableAdapter の初期構成では、作成することと、`GetProductByProductID(productID)`アドホック SQL ステートメントを使用するメソッド (図 4 参照)。 以降、`GetProductByProductID(productID)`メソッドは、特定の製品に関する情報を返します、このクエリがあることを示す、`SELECT`行を返す型のクエリを実行します。
 
 
-[![Mクエリを入力として裏庭、&quot;を行を返す SELECT&quot;](implementing-optimistic-concurrency-cs/_static/image26.png)](implementing-optimistic-concurrency-cs/_static/image25.png)
+[![クエリの型としてマークする&quot;を行を返す SELECT&quot;](implementing-optimistic-concurrency-cs/_static/image26.png)](implementing-optimistic-concurrency-cs/_static/image25.png)
 
 **図 9**:クエリの型としてマークする"`SELECT`行を返す"([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image27.png))。
 
@@ -151,7 +151,7 @@ ms.locfileid: "59401219"
 次の画面を事前に読み込まれた、TableAdapter の既定のクエリで、使用する SQL クエリ求められたら。 句に含める既存のクエリを補強`WHERE ProductID = @ProductID`図 10 に示すようにします。
 
 
-[![Add を特定の製品レコードを返す Pre-Loaded クエリに WHERE 句](implementing-optimistic-concurrency-cs/_static/image29.png)](implementing-optimistic-concurrency-cs/_static/image28.png)
+[![追加、WHERE 句を事前に読み込まれたクエリが特定の製品レコードを返す](implementing-optimistic-concurrency-cs/_static/image29.png)](implementing-optimistic-concurrency-cs/_static/image28.png)
 
 **図 10**:追加、`WHERE`句を Pre-Loaded クエリが特定の製品レコードを返す ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image30.png))。
 
@@ -159,7 +159,7 @@ ms.locfileid: "59401219"
 最後に、生成されたメソッド名を変更`FillByProductID`と`GetProductByProductID`します。
 
 
-[![Rename FillByProductID を GetProductByProductID メソッド](implementing-optimistic-concurrency-cs/_static/image32.png)](implementing-optimistic-concurrency-cs/_static/image31.png)
+[![FillByProductID を GetProductByProductID メソッドの名前を変更します。](implementing-optimistic-concurrency-cs/_static/image32.png)](implementing-optimistic-concurrency-cs/_static/image31.png)
 
 **図 11**:メソッドの名前を変更`FillByProductID`と`GetProductByProductID`([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image33.png))。
 
@@ -232,7 +232,7 @@ DAL BLL 完了とは、システムに組み込まれているオプティミス
 開いて開始、`OptimisticConcurrency.aspx`ページで、`EditInsertDelete`フォルダーと、デザイナーの設定への GridView の追加、`ID`プロパティを`ProductsGrid`します。 という名前の新しい ObjectDataSource を作成することを選択、GridView のスマート タグから`ProductsOptimisticConcurrencyDataSource`します。 この ObjectDataSource オプティミスティック同時実行制御をサポートする DAL を使用するので、構成を使用するよう、`ProductsOptimisticConcurrencyBLL`オブジェクト。
 
 
-[![Have ProductsOptimisticConcurrencyBLL オブジェクトを使用して ObjectDataSource](implementing-optimistic-concurrency-cs/_static/image36.png)](implementing-optimistic-concurrency-cs/_static/image35.png)
+[![ObjectDataSource 使用 ProductsOptimisticConcurrencyBLL オブジェクトがあります。](implementing-optimistic-concurrency-cs/_static/image36.png)](implementing-optimistic-concurrency-cs/_static/image35.png)
 
 **図 13**:ObjectDataSource の使用、`ProductsOptimisticConcurrencyBLL`オブジェクト ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image37.png))。
 
@@ -294,7 +294,7 @@ ObjectDataSource のプロパティが正しく構成されている、GridView 
 これが重要な理由を表示するには、ブラウザーでページを参照するのにはしばらくかかります。 予想どおり、GridView には、左端の列で、編集、削除ボタンでは、各製品が一覧表示します。
 
 
-[![TGridView では、彼の製品が一覧表示](implementing-optimistic-concurrency-cs/_static/image39.png)](implementing-optimistic-concurrency-cs/_static/image38.png)
+[![製品を GridView に表示されます。](implementing-optimistic-concurrency-cs/_static/image39.png)](implementing-optimistic-concurrency-cs/_static/image38.png)
 
 **図 14**:製品を GridView に表示される ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image40.png))。
 
@@ -302,7 +302,7 @@ ObjectDataSource のプロパティが正しく構成されている、GridView 
 任意の製品の削除 ボタンをクリックした場合、`FormatException`がスローされます。
 
 
-[![Attempting Any 製品の結果に、FormatException を削除する](implementing-optimistic-concurrency-cs/_static/image42.png)](implementing-optimistic-concurrency-cs/_static/image41.png)
+[![FormatException で、製品の結果を削除しようとしています。](implementing-optimistic-concurrency-cs/_static/image42.png)](implementing-optimistic-concurrency-cs/_static/image41.png)
 
 **図 15**:製品の結果を削除しようとして、 `FormatException` ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image43.png))。
 
@@ -323,7 +323,7 @@ ObjectDataSource のプロパティが正しく構成されている、GridView 
 この問題を解決するには、製品の削除 ボタンをもう一度クリックしてください。 この時間が表示されます、 `InvalidOperationException` ObjectDataSource が BLL の呼び出しを試行するときに`UpdateProduct`メソッド。
 
 
-[![TObjectDataSource 彼には、送信する入力パラメーターを持つメソッドが見つかりません](implementing-optimistic-concurrency-cs/_static/image45.png)](implementing-optimistic-concurrency-cs/_static/image44.png)
+[![ObjectDataSource は、送信する入力パラメーターを持つメソッドを見つけることができません。](implementing-optimistic-concurrency-cs/_static/image45.png)](implementing-optimistic-concurrency-cs/_static/image44.png)
 
 **図 16**:ObjectDataSource は、送信する入力パラメーターを持つメソッドを見つけることができません ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image46.png))。
 
@@ -342,7 +342,7 @@ ObjectDataSource のプロパティが正しく構成されている、GridView 
 その他のブラウザー ウィンドウ インスタンスでただし、製品名 TextBox であっても、"Chai"。 この 2 番目のブラウザー ウィンドウでは、更新、`UnitPrice`に`25.00`します。 オプティミスティック同時実行制御のサポートがない場合、2 番目のブラウザー インスタンスでの更新 をクリックしては、製品名を変更"Chai"、最初のブラウザー インスタンスによって行われた変更が上書きされます。 採用されているオプティミスティック同時実行制御、ただし、2 番目のブラウザー インスタンスでの更新ボタンをクリックすると結果を[DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx)します。
 
 
-[![W同時実行制御違反が検出されると、hen、DBConcurrencyException がスローされます](implementing-optimistic-concurrency-cs/_static/image48.png)](implementing-optimistic-concurrency-cs/_static/image47.png)
+[![同時実行制御違反が検出されると、DBConcurrencyException がスローされます。](implementing-optimistic-concurrency-cs/_static/image48.png)](implementing-optimistic-concurrency-cs/_static/image47.png)
 
 **図 17**:同時実行制御違反が検出されたときに、`DBConcurrencyException`がスローされます ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image49.png))。
 
@@ -369,7 +369,7 @@ ObjectDataSource のプロパティが正しく構成されている、GridView 
 これらのラベルを追加すると、Visual Studio のデザイナーがこのよう図 18 になります。
 
 
-[![Two ラベル コントロールがページに追加されました](implementing-optimistic-concurrency-cs/_static/image51.png)](implementing-optimistic-concurrency-cs/_static/image50.png)
+[![2 つのラベル コントロールがページに追加されました](implementing-optimistic-concurrency-cs/_static/image51.png)](implementing-optimistic-concurrency-cs/_static/image50.png)
 
 **図 18**:2 つのラベル コントロールに追加されたページ ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image52.png))。
 
@@ -388,7 +388,7 @@ ObjectDataSource のプロパティが正しく構成されている、GridView 
 `DBConcurrencyException`例外では、このイベント ハンドラーの表示、`UpdateConflictMessage`コントロールのラベルし、例外が処理されたことを示します。 場所でこのコードでは、レコードを更新するときに、同時実行制御違反が発生した場合、ユーザーの変更は失われます、ため、同時に別のユーザーの変更が上書きされるとします。 具体的には、GridView が編集済みの状態に返され、現在のデータベースのデータにバインドします。 これにより、他のユーザーの変更により、以前は表示されませんでした、GridView の行が更新されます。 さらに、`UpdateConflictMessage`ラベル コントロールをユーザーに説明が発生します。 このイベントのシーケンス図 19 の詳細を示します。
 
 
-[![A ユーザーの更新プログラムは、同時実行制御違反の表面に失われます](implementing-optimistic-concurrency-cs/_static/image54.png)](implementing-optimistic-concurrency-cs/_static/image53.png)
+[![ユーザーの更新プログラムは、同時実行制御違反の表面に失われます](implementing-optimistic-concurrency-cs/_static/image54.png)](implementing-optimistic-concurrency-cs/_static/image53.png)
 
 **図 19**:ユーザーの更新プログラムは、同時実行制御違反の表面に失われます ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image55.png))。
 
@@ -409,7 +409,7 @@ BLL メソッドの戻り値を通じて ObjectDataSource の後のレベルの�
 同時実行違反が発生した場合、ユーザーの削除要求が取り消されました。 ページと Delete ボタンをクリックしたときに彼に読み込まれるまでの間には、そのレコードのユーザーに発生した変更を示す GridView が更新されます。 このような違反には、ときに、`DeleteConflictMessage`ラベルが表示されるだけです (図 20 を参照してください) の変更点について説明します。
 
 
-[![A 同時実行制御違反が発生した場合は、ユーザーの削除がキャンセル](implementing-optimistic-concurrency-cs/_static/image57.png)](implementing-optimistic-concurrency-cs/_static/image56.png)
+[![同時実行制御違反が発生した場合、ユーザーの削除が取り消されました](implementing-optimistic-concurrency-cs/_static/image57.png)](implementing-optimistic-concurrency-cs/_static/image56.png)
 
 **図 20**:同時実行制御違反が発生した場合、ユーザーの削除が取り消されました ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-cs/_static/image58.png))。
 

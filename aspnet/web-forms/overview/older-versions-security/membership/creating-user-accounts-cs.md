@@ -12,7 +12,7 @@ ms.openlocfilehash: cce8770eb0f60c4306d4560e9a4e72fa1a59f618
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406510"
 ---
 # <a name="creating-user-accounts-c"></a>ユーザー アカウントを作成する (C#)
@@ -57,7 +57,7 @@ ms.locfileid: "59406510"
 この時点で、プロジェクトのソリューション エクスプ ローラーのスクリーン ショット、図 1 に示すようなはずです。
 
 
-[![F新しいページに追加されているメンバーシップ フォルダー ive](creating-user-accounts-cs/_static/image2.png)](creating-user-accounts-cs/_static/image1.png)
+[![メンバーシップのフォルダーに 5 つの新しいページが追加されました](creating-user-accounts-cs/_static/image2.png)](creating-user-accounts-cs/_static/image1.png)
 
 **図 1**:5 つ新しいページに追加されている、`Membership`フォルダー ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image3.png))。
 
@@ -81,7 +81,7 @@ ms.locfileid: "59406510"
 既定のサイト マップ プロバイダーという名前の適切にフォーマットされた XML ファイルが必要ですが`Web.sitemap`ルート ディレクトリが存在します。 この既定のプロバイダーを使用していることからこのようなファイルを追加し、適切な XML 形式で、サイト マップの構造を定義する必要があります。 ファイルを追加するには、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 という名前のサイト マップの種類のファイルを追加することを選択 ダイアログ ボックスで`Web.sitemap`します。
 
 
-[![Add ファイルという名前のプロジェクトのルート ディレクトリに Web.sitemap](creating-user-accounts-cs/_static/image5.png)](creating-user-accounts-cs/_static/image4.png)
+[![プロジェクトのルート ディレクトリに Web.sitemap という名前のファイルを追加します。](creating-user-accounts-cs/_static/image5.png)](creating-user-accounts-cs/_static/image4.png)
 
 **図 2**:ファイルの名前を追加`Web.sitemap`プロジェクトのルート ディレクトリに ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image6.png))。
 
@@ -95,7 +95,7 @@ XML のサイト マップ ファイルは、階層構造として、web サイ�
 上記のサイト マップのマークアップは、図 3 に示すように階層を定義します。
 
 
-[![T階層ナビゲーション構造を表すサイト マップしています](creating-user-accounts-cs/_static/image8.png)](creating-user-accounts-cs/_static/image7.png)
+[![階層ナビゲーション構造を表すサイト マップ](creating-user-accounts-cs/_static/image8.png)](creating-user-accounts-cs/_static/image7.png)
 
 **図 3**:サイト マップが階層ナビゲーション構造を表します ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image9.png))。
 
@@ -117,7 +117,7 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 図 4 は、手順 2. で作成したサイト マップ構造で表示される出力を上記のマークアップを示します。 Repeater は、バニラの順序なしリスト マークアップ; を出力します。定義されているカスケード スタイル シートのルール`Styles.css`美しくて心地よいレイアウトを担当します。 上記のマークアップのしくみの詳細についてを参照してください、[マスター ページとサイト ナビゲーション](https://asp.net/learn/data-access/tutorial-03-cs.aspx)チュートリアル。
 
 
-[![T彼のナビゲーション ユーザー インターフェイスは、レンダリングされるリストを使用して入れ子になった順序なし](creating-user-accounts-cs/_static/image11.png)](creating-user-accounts-cs/_static/image10.png)
+[![ナビゲーション ユーザー インターフェイスが表示されるリストを使用して入れ子になった順序付けられていません。](creating-user-accounts-cs/_static/image11.png)](creating-user-accounts-cs/_static/image10.png)
 
 **図 4**:ナビゲーション ユーザー インターフェイスが表示されるリストを使用して入れ子になった順序なし ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image12.png))。
 
@@ -133,7 +133,7 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 図 5 にアクセスしたときに、SiteMapPath の出力を示しています`~/Membership/CreatingUserAccounts.aspx`します。
 
 
-[![T現在のページとその先祖彼階層リンク表示しますサイト マップ](creating-user-accounts-cs/_static/image14.png)](creating-user-accounts-cs/_static/image13.png)
+[![階層リンクには、現在のページが表示されます。 および、サイトでは、その先祖のマップ](creating-user-accounts-cs/_static/image14.png)](creating-user-accounts-cs/_static/image13.png)
 
 **図 5**:階層リンクは、サイト マップの現在のページとその先祖を表示します ([フルサイズの画像を表示する をクリックします。](creating-user-accounts-cs/_static/image15.png))。
 
@@ -174,7 +174,7 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 この時点で、画面のスクリーン ショット、図 6 に示すようなはずです。
 
 
-[![Add CreatingUserAccounts.aspx ページに、さまざまな Web コントロール](creating-user-accounts-cs/_static/image17.png)](creating-user-accounts-cs/_static/image16.png)
+[![CreatingUserAccounts.aspx ページに、さまざまな Web コントロールを追加します。](creating-user-accounts-cs/_static/image17.png)](creating-user-accounts-cs/_static/image16.png)
 
 **図 6**:さまざまな Web コントロールを追加、`CreatingUserAccounts.aspx`ページ ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image18.png))。
 
@@ -194,17 +194,17 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 呼び出した後`CreateUser`で渡し`createStatus`、`switch`に割り当てられている値に応じて、適切なメッセージを出力するステートメントが使用される`createStatus`します。 図 7 は、新しいユーザーが正常に作成されたときに、出力を示します。 図 8 と 9 は、ユーザー アカウントが作成されていない場合、出力を表示します。 図 8 には、訪問者は、メンバーシップ プロバイダーの構成設定に記述されたパスワードの強度の要件を満たしていない、5 文字のパスワードを入力します。 図 9 で、訪問者が既存のユーザー名 (図 7 で作成されたもの) でユーザー アカウントを作成しようとするは。
 
 
-[![A 新しいユーザー アカウントは、正常に作成されました](creating-user-accounts-cs/_static/image20.png)](creating-user-accounts-cs/_static/image19.png)
+[![新しいユーザー アカウントが正常に作成されました](creating-user-accounts-cs/_static/image20.png)](creating-user-accounts-cs/_static/image19.png)
 
 **図 7**:新しいユーザー アカウントが正常に作成されました ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image21.png))。
 
 
-[![T指定されたパスワードが脆弱すぎますため、彼のユーザー アカウントは作成されません](creating-user-accounts-cs/_static/image23.png)](creating-user-accounts-cs/_static/image22.png)
+[![指定されたパスワードが脆弱すぎますために、ユーザー アカウントは作成されません。](creating-user-accounts-cs/_static/image23.png)](creating-user-accounts-cs/_static/image22.png)
 
 **図 8**:指定されたパスワードが脆弱すぎますために、ユーザー アカウントは作成されません ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image24.png))。
 
 
-[![Tユーザー名は既に使用されているために、彼のユーザー アカウントは作成されません](creating-user-accounts-cs/_static/image26.png)](creating-user-accounts-cs/_static/image25.png)
+[![ユーザー アカウントが作成されたため、ユーザー名は既に使用中](creating-user-accounts-cs/_static/image26.png)](creating-user-accounts-cs/_static/image25.png)
 
 **図 9**:ユーザー アカウントが作成されたため、ユーザー名は既に使用中 ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image27.png))。
 
@@ -216,7 +216,7 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 いくつかのユーザー アカウントを作成した後の内容を一覧表示して、アカウントが作成されたことを確認、`aspnet_Users`と`aspnet_Membership`内のテーブル、`SecurityTutorials.mdf`データベース。 図 10 に示すようを使用して 2 つのユーザーを追加した、`CreatingUserAccounts.aspx`ページ。Tito としました。
 
 
-[![T次にメンバーシップ ユーザー ストア 2 人のユーザーに示します。Tito と Bruce](creating-user-accounts-cs/_static/image29.png)](creating-user-accounts-cs/_static/image28.png)
+[![メンバーシップ ユーザー ストアには、2 人のユーザーがあります。Tito と Bruce](creating-user-accounts-cs/_static/image29.png)](creating-user-accounts-cs/_static/image28.png)
 
 **図 10**:メンバーシップ ユーザー ストアには、2 人のユーザーがあります。Tito と Bruce ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image30.png))。
 
@@ -246,7 +246,7 @@ CreateUserWizard コントロールの既定のインターフェイスと動作
 戻り、`CreatingUserAccounts.aspx`ページで、`Membership`フォルダーをデザインまたは分割モードに切り替えるし、ページの上部に CreateUserWizard コントロールを追加します。 CreateUserWizard コントロールをツールボックスのログイン コントロール セクションをファイリングします。 コントロールを追加すると、次のように設定します。 その`ID`プロパティを`RegisterUser`します。 画面は、図 11 で、CreateUserWizard は、新しいユーザーのユーザー名、パスワード、電子メール アドレス、およびセキュリティの質問および答えのテキスト ボックスを持つインターフェイスをレンダリングします。
 
 
-[![TCreateUserWizard コントロール彼は、ジェネリック作成ユーザー インターフェイスを表示します](creating-user-accounts-cs/_static/image32.png)](creating-user-accounts-cs/_static/image31.png)
+[![CreateUserWizard コントロール レンダリング汎用的なユーザー インターフェイスを作成します。](creating-user-accounts-cs/_static/image32.png)](creating-user-accounts-cs/_static/image31.png)
 
 **図 11**:CreateUserWizard コントロールは汎用的な作成ユーザー インターフェイスを表示します ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image33.png))。
 
@@ -267,7 +267,7 @@ CreateUserWizard コントロールはその名のとおりから派生は、[�
 CreateUserWizard コントロールの動作を見てみましょう。 参照してください、`CreatingUserAccounts.aspx`ページがブラウザーを使用します。 CreateUserWizard のインターフェイスにいくつかの無効な値を入力して起動します。 空のまま、"ユーザー名 ボックス、パスワードの強度の要件に準拠していないパスワードを入力してください。 CreateUserWizard、適切なエラー メッセージが表示されます。 図 12 は、十分に強力なパスワードを使用してユーザーを作成する際に出力を示します。
 
 
-[![T彼 CreateUserWizard 自動的に挿入検証コントロール](creating-user-accounts-cs/_static/image35.png)](creating-user-accounts-cs/_static/image34.png)
+[![CreateUserWizard に自動的に検証コントロールを挿入します。](creating-user-accounts-cs/_static/image35.png)](creating-user-accounts-cs/_static/image34.png)
 
 **図 12**:CreateUserWizard に自動的に挿入検証コントロール ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image36.png))。
 
@@ -275,7 +275,7 @@ CreateUserWizard コントロールの動作を見てみましょう。 参照�
 次に、CreateUserWizard に適切な値を入力し、「ユーザーの作成」ボタンをクリックします。 必須のフィールドが入力されているし、パスワードの強度が十分なと仮定すると、CreateUserWizard はメンバーシップ フレームワークを通じて新しいユーザー アカウントを作成し、表示、`CompleteWizardStep`のインターフェイスを (図 13 を参照してください)。 CreateUserWizard を呼び出し、バック グラウンドで、`Membership.CreateUser`メソッド、手順 5. で行ったのと同じようです。
 
 
-[![A 新しいユーザー アカウントが、正常に作成されました](creating-user-accounts-cs/_static/image38.png)](creating-user-accounts-cs/_static/image37.png)
+[![新しいユーザー アカウントが正常に作成されました](creating-user-accounts-cs/_static/image38.png)](creating-user-accounts-cs/_static/image37.png)
 
 **図 13**:新しいユーザー アカウントが正常に作成された ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image39.png))。
 
@@ -299,7 +299,7 @@ CreateUserWizard コントロールの既定のユーザー インターフェ�
 更新、 `RegisterUser` CreateUserWizard コントロール [キャンセル] ボタンを表示して、訪問者に送信する`Default.aspx`[キャンセル] または [続行] ボタンがクリックされたとき。 これを行うには、設定、`DisplayCancelButton`プロパティを True に、どちらも、`CancelDestinationPageUrl`と`ContinueDestinationPageUrl`プロパティを"~/Default.aspx"。 図 14 は、ブラウザーで表示した場合は、更新された CreateUserWizard を示します。
 
 
-[![TCreateUserWizardStep 彼には、[キャンセル] ボタンが含まれています](creating-user-accounts-cs/_static/image41.png)](creating-user-accounts-cs/_static/image40.png)
+[![CreateUserWizardStep には、[キャンセル] ボタンが含まれています。](creating-user-accounts-cs/_static/image41.png)](creating-user-accounts-cs/_static/image40.png)
 
 **図 14**:`CreateUserWizardStep` [キャンセル] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image42.png))。
 
@@ -337,7 +337,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 図 15 のスクリーン ショットを示しています。`CreatingUserAccounts.aspx`ユーザーが先頭のスペースを持つユーザー名を入力します。
 
 
-[![U先頭または末尾のスペースで sernames は許可されていません](creating-user-accounts-cs/_static/image44.png)](creating-user-accounts-cs/_static/image43.png)
+[![先頭または末尾のスペースでのユーザー名は許可されていません](creating-user-accounts-cs/_static/image44.png)](creating-user-accounts-cs/_static/image43.png)
 
 **図 15**:先頭または末尾のスペースでのユーザー名は許可されていません ([フルサイズの画像を表示する をクリックします](creating-user-accounts-cs/_static/image45.png))。
 

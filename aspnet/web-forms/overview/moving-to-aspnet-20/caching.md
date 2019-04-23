@@ -12,7 +12,7 @@ ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400205"
 ---
 # <a name="caching"></a>キャッシュ
@@ -213,7 +213,7 @@ ASP.NET 2.0 でのキャッシュの構成にいくつかの変更がありま�
 
 | **要素** | **説明** |
 | --- | --- |
-| **キャッシュ** | 省略可能な要素です。 アプリケーションのグローバル キャッシュ設定を定義します。 |
+| **cache** | 省略可能な要素です。 アプリケーションのグローバル キャッシュ設定を定義します。 |
 | **outputCache** | 省略可能な要素です。 アプリケーション全体の出力キャッシュ設定を指定します。 |
 | **outputCacheSettings** | 省略可能な要素です。 アプリケーションのページに適用できる出力キャッシュ設定を指定します。 |
 | **sqlCacheDependency** | 省略可能な要素です。 ASP.NET アプリケーションの SQL キャッシュ依存関係を構成します。 |

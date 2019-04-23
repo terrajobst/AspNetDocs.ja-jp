@@ -12,7 +12,7 @@ ms.openlocfilehash: 94885984ebad90523369dcf5771d0f77a753008f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405665"
 ---
 # <a name="iteration-6--use-test-driven-development-c"></a>繰り返し #6 – テスト駆動開発 (c#) を使用します。
@@ -113,7 +113,7 @@ Contact Manager アプリケーションの前のイテレーションでは、�
 ContactManager.Tests プロジェクトで、Controllers フォルダーを右クリックして新しい単体テストの作成を選択すると**追加]、[新しいテスト**を選択して、**単体テスト**テンプレート (図 1 参照)。 名前の新しい単位が GroupControllerTest.cs をテストし、をクリックして、 **OK**ボタンをクリックします。
 
 
-[![Adding GroupControllerTest 単体テスト](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
+[![GroupControllerTest 単体テストを追加します。](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
 
 **図 01**:GroupControllerTest 単体テストを追加する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image2.png))。
 
@@ -130,7 +130,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 リスト 2 でのグループのコント ローラー クラスには、単体テストに合格するために必要なコードの最低限が含まれています。 Index() アクションは、グループ (グループ クラスは、リスト 3 で定義されます) の静的にコード化された一覧を返します。
 
-**Listing 2 - Controllers\GroupController.cs**
+**2 - Controllers\GroupController.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample2.cs)]
 
@@ -152,7 +152,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 リスト 4 のテストは、新しいグループを持つメソッドは、Index() メソッドによって返されるグループの一覧に、グループを追加します。 Create() を呼び出すことを確認します。 つまり、新しいグループを作成した場合、必要のある Index() メソッドによって返されるグループの一覧から戻り、新しいグループを取得できません。
 
-**Listing 4 - Controllers\GroupControllerTest.cs**
+**4 - Controllers\GroupControllerTest.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample4.cs)]
 
@@ -160,7 +160,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 リスト 5 で変更されたグループ コント ローラーには、必要な最小限新しいテストに合格するために必要な変更にはが含まれています。
 
-**Listing 5 - Controllers\GroupController.cs**
+**5 - Controllers\GroupController.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample5.cs)]
 
@@ -174,7 +174,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 6 を一覧表示するには、この意図を表す新しいテストが含まれています。 このテストでは、モデルの状態の検証エラー メッセージに名前の結果を指定せずにグループを作成しようとすることを確認します。
 
-**Listing 6 - Controllers\GroupControllerTest.cs**
+**6 - Controllers\GroupControllerTest.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample6.cs)]
 
@@ -184,7 +184,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample7.cs)]
 
-**Listing 8 - Controllers\GroupController.cs**
+**8 - Controllers\GroupController.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample8.cs)]
 
@@ -204,7 +204,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 11 を一覧表示するには、IContactManagerRepository インターフェイスを実装する新しい FakeContactManagerRepository クラスが含まれています。 を IContactManagerRepository インターフェイスも実装する EntityContactManagerRepository クラスとは異なり、新しい FakeContactManagerRepository クラスは、データベースと通信しません。 FakeContactManagerRepository クラスは、データベースのプロキシとしてのメモリ内コレクションを使用します。 このクラス、単体テストで偽リポジトリ層として使用します。
 
-**Listing 9 - Controllers\GroupController.cs**
+**9 - Controllers\GroupController.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample9.cs)]
 
@@ -223,7 +223,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 最後に、これらの変更をアプリケーションの設計には、いくつかの単体テストを変更することが必要です。 これで、単体テストを実行するときに、FakeContactManagerRepository を使用する必要があります。 更新された GroupControllerTest クラスは、12 の一覧に含まれます。
 
-**Listing 12 - Controllers\GroupControllerTest.cs**
+**12 - Controllers\GroupControllerTest.cs を一覧表示します。**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample13.cs)]
 
@@ -243,7 +243,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 <a id="0.11_table01"></a>
 
 
-| **列名** | **データ型** | **Null を許容** |
+| **列名** | **[データ型]** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | int | False |
 | 名前 | nvarchar (50) | False |
@@ -267,12 +267,12 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 9. Contacts テーブルに対する変更を保存する [保存] ボタンをクリックします。
 
 
-[![Cデータベース テーブルのリレーションシップの作成](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
+[![データベース テーブルのリレーションシップを作成します。](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
 
 **図 03**:データベース テーブルのリレーションシップを作成する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image6.png))。
 
 
-[![Sテーブルのリレーションシップを pecifying](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
+[![テーブルのリレーションシップを指定します。](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
 
 **図 04**:テーブルのリレーションシップを指定する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image8.png))。
 
@@ -288,7 +288,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 5. Contact エンティティの下部に表示されるグループ ナビゲーション プロパティを右クリックします。 名前を変更、*グループ*ナビゲーション プロパティを*グループ*(単数形)。
 
 
-[![Updating データベースから Entity Framework モデル](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
+[![データベースから Entity Framework モデルを更新しています](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
 
 **図 05**:データベースから Entity Framework モデルを更新しています ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image10.png))。
 
@@ -296,7 +296,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 次の手順を完了すると、データ モデルは、連絡先とグループの両方のテーブルを表します。 エンティティ デザイナーは、両方のエンティティを表示する必要があります (図 6 参照)。
 
 
-[![Entity デザイナーを表示して、グループにお問い合わせください](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
+[![エンティティ デザイナーのグループと連絡先を表示します。](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
 
 **図 06**:エンティティ デザイナーのグループと連絡先を表示する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image12.png))。
 
@@ -329,7 +329,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 - Views\Group\Delete.aspx - 連絡先グループの削除確認フォームを表示します
 
 
-[![T彼グループ インデックス ビュー](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
+[![グループのインデックス ビュー](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
 
 **図 07**:グループのインデックス ビュー ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image14.png))。
 
@@ -343,7 +343,7 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 このチュートリアルに付属する Visual Studio アプリケーションを調べることで変更されたビューを表示できます。 たとえば、図 8 は、連絡先のインデックス ビューを示しています。
 
 
-[![T彼の連絡先のインデックス ビュー](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
+[![連絡先のインデックス ビュー](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
 
 **図 08**:連絡先の Index ビュー ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-cs/_static/image16.png))。
 

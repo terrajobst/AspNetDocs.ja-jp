@@ -12,7 +12,7 @@ ms.openlocfilehash: 9558d4131205b3d696f8ce70476ff575fbccf20e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407693"
 ---
 # <a name="accessing-the-database-directly-from-an-aspnet-page"></a>ASP.NET ページからデータベースに直接アクセスする
@@ -23,8 +23,8 @@ ms.locfileid: "59407693"
 - [SqlDataSource コントロールでデータにクエリを実行する (C#)](querying-data-with-the-sqldatasource-control-cs.md)
 - [パラメーター化されたクエリと SqlDataSource を使用する (C#)](using-parameterized-queries-with-the-sqldatasource-cs.md)
 - [SqlDataSource でデータを挿入、更新、削除する (C#)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
-- [SqlDataSource でオプティミスティック同時実行制御を実装する (C#)](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+- [SqlDataSource でオプティミスティック コンカレンシーを実装する (C#)](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
 - [SqlDataSource コントロールでデータにクエリを実行する (VB)](querying-data-with-the-sqldatasource-control-vb.md)
 - [パラメーター化されたクエリと SqlDataSource を使用する (VB)](using-parameterized-queries-with-the-sqldatasource-vb.md)
 - [SqlDataSource でデータを挿入、更新、削除する (VB)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
-- [SqlDataSource でオプティミスティック同時実行制御を実装する (VB)](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+- [SqlDataSource でオプティミスティック コンカレンシーを実装する (VB)](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)

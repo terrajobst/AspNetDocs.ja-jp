@@ -12,14 +12,14 @@ ms.openlocfilehash: f2d60b977475e048a3a74aabff4adc768ee22baf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402649"
 ---
 # <a name="unit-testing-aspnet-web-api-2"></a>単体テストの ASP.NET Web API 2
 
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-[完成したプロジェクトをダウンロードします。](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトをソリューションに含めるし、コント ローラー メソッドから返された値をチェックするテスト メソッドを記述する方法を示します。
 >
@@ -43,8 +43,8 @@ ms.locfileid: "59402649"
     - [単体テスト プロジェクトを既存のアプリケーションに追加します。](#addtoexisting)
 - [Web API 2 アプリケーションを設定します。](#setupproject)
 - [テスト プロジェクトで NuGet パッケージをインストールします。](#testpackages)
-- [テストの作成](#tests)
-- [テストの実行](#runtests)
+- [テストを作成します。](#tests)
+- [テストを実行します。](#runtests)
 
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>必須コンポーネント

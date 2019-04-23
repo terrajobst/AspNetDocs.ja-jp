@@ -12,14 +12,14 @@ ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401752"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要します。
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
 このチュートリアルでは、web を製品の一覧を返す API を作成するのに ASP.NET Web API を使用します。
 

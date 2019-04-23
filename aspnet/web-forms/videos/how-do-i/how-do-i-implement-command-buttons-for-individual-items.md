@@ -12,7 +12,7 @@ ms.openlocfilehash: efbc7477832664b6efa5798c9a8cc63bfd148d04
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403117"
 ---
 # <a name="how-do-i-implement-command-buttons-for-individual-items"></a>[How Do i:]個々 のアイテムのコマンド ボタンを実装します

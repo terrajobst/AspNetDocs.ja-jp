@@ -12,7 +12,7 @@ ms.openlocfilehash: 388637d67594d6431a134673cf85b3b18098136e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402753"
 ---
 # <a name="performing-batch-updates-c"></a>バッチ更新を実行する (C#)
@@ -29,7 +29,7 @@ ms.locfileid: "59402753"
 [前のチュートリアル](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)アイテム レベル DataList を作成する方法について確認しました。 編集可能な標準の GridView、DataList 内の各項目に含まれるように編集ボタンで、クリックされると、項目の編集可能になります。 この項目のレベルも随時更新のみがデータの編集の動作、中に特定のユース ケース シナリオには多くのレコードを編集するユーザーが必要です。 ユーザーが数十個のレコードを編集する必要があるし、編集 をクリックして、自分の変更を行い、1 つの更新 をクリックしてしなければ、クリックしての量は、生産性を妨げられることができます。 DataList で完全に編集を提供することですより適切なオプションでは、このような状況では、1 つの where*すべて*その項目の編集モードでページ上のすべての更新ボタンをクリックして値を編集できますが (図 1 参照)。
 
 
-[![Each 完全に編集可能な DataList 内の項目を変更できる](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
+[![完全に編集可能な DataList 内の各項目を変更できます。](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
 
 **図 1**:完全に編集可能な DataList 内の各項目を変更できます ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image3.png))。
 
@@ -50,7 +50,7 @@ DataList で完全に編集可能にする*すべて*の`DataListItem`編集可�
 開いて開始、`BatchUpdate.aspx`ページで、DataList コントロールを追加し、設定、`ID`プロパティを`Suppliers`します。 という名前の新しい ObjectDataSource コントロールを追加することを選択、DataList s のスマート タグから`SuppliersDataSource`します。
 
 
-[![C新しい ObjectDataSource という SuppliersDataSource を reate](performing-batch-updates-cs/_static/image5.png)](performing-batch-updates-cs/_static/image4.png)
+[![SuppliersDataSource という名前の新しい ObjectDataSource を作成します。](performing-batch-updates-cs/_static/image5.png)](performing-batch-updates-cs/_static/image4.png)
 
 **図 2**:名前付き新しい ObjectDataSource 作成`SuppliersDataSource`([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image6.png))。
 
@@ -58,12 +58,12 @@ DataList で完全に編集可能にする*すべて*の`DataListItem`編集可�
 構成を使用してデータを取得する ObjectDataSource、`SuppliersBLL`クラスの`GetSuppliers()`メソッド (図 3 を参照してください)。 前のチュートリアルではなく、ObjectDataSource を仕入先情報の更新と同様、ビジネス ロジック層を直接操作を行います。 します。 そのため、更新プログラム] タブで [(なし) ドロップダウン リストを設定 (図 4 参照)。
 
 
-[![Retrieve GetSuppliers() メソッドを使用して仕入先情報](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
+[![GetSuppliers() メソッドを使用して仕入先情報を取得します。](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
 
 **図 3**:使用して仕入先情報を取得、`GetSuppliers()`メソッド ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image9.png))。
 
 
-[![Set (None) に更新] タブでのドロップダウン リスト](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
+[![更新プログラム タブで、ドロップダウン リストを (なし) を設定します。](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
 
 **図 4**:更新プログラム] タブで [(なし) ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image12.png))。
 
@@ -87,7 +87,7 @@ DataList で完全に編集可能にする*すべて*の`DataListItem`編集可�
 これらの変更を行った後は、ブラウザーからこのページを参照してください。 図 5 に示すよう各 DataList 項目はテキストとして仕入先の名前を表示し、アドレス、市区町村、国を表示するテキスト ボックスを使用します。
 
 
-[![Each DataList で業者には、編集可能](performing-batch-updates-cs/_static/image14.png)](performing-batch-updates-cs/_static/image13.png)
+[![各仕入先、DataList では編集可能なです。](performing-batch-updates-cs/_static/image14.png)](performing-batch-updates-cs/_static/image13.png)
 
 **図 5**:各仕入先、DataList では編集可能な ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image15.png))。
 
@@ -104,7 +104,7 @@ DataList とセットの上ボタン Web コントロールを追加すること
 図 6 は、更新プログラムのすべてのボタンを追加した後に、ページを示します。
 
 
-[![Two 更新プログラムのすべてのボタンがページに追加されました](performing-batch-updates-cs/_static/image17.png)](performing-batch-updates-cs/_static/image16.png)
+[![2 つの更新プログラムすべてのボタンがページに追加されました](performing-batch-updates-cs/_static/image17.png)](performing-batch-updates-cs/_static/image16.png)
 
 **図 6**:2 つの更新プログラムすべてのボタンがページに追加されました ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image18.png))。
 

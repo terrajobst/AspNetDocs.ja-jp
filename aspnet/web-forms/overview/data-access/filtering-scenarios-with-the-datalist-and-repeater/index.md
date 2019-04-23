@@ -12,7 +12,7 @@ ms.openlocfilehash: 94c467aabb53298299584b80626f9b2234dbebfe
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404066"
 ---
 # <a name="filtering-scenarios-with-the-datalist-and-repeater"></a>DataList と Repeater でシナリオをフィルター処理する
@@ -22,7 +22,7 @@ ms.locfileid: "59404066"
 
 - [DropDownList でマスター/詳細をフィルター処理する (C#)](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
 - [2 つのページでマスター/詳細をフィルター処理する (C#)](master-detail-filtering-acess-two-pages-datalist-cs.md)
-- [マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (C#)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+- [マスター レコードの箇条書き一覧と詳細 DataList を使用してマスター/詳細を表示する (C#)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
 - [DropDownList でマスター/詳細をフィルター処理する (VB)](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
 - [2 つのページでマスター/詳細をフィルター処理する (VB)](master-detail-filtering-acess-two-pages-datalist-vb.md)
-- [マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (VB)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)
+- [マスター レコードの箇条書き一覧と詳細 DataList を使用してマスター/詳細を表示する (VB)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)

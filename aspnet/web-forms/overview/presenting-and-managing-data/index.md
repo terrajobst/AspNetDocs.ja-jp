@@ -12,7 +12,7 @@ ms.openlocfilehash: c1bd52b47b42005ed22f107b9f8aaa65c0ed111a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402025"
 ---
 # <a name="working-with-data-in-aspnet-web-forms"></a>ASP.NET Web フォームでデータを扱う
@@ -20,7 +20,7 @@ ms.locfileid: "59402025"
 > コントロールを使用してデータにアクセスする方法および要求間の情報を永続化する方法。
 
 
-- [Visual Studio 2013 のモデル バインドと Web フォーム](model-binding/index.md)
+- [Visual Studio 2013 のモデル バインディングと Web フォーム](model-binding/index.md)
 
     - [データの取得と表示](model-binding/retrieving-data.md)
     - [データの更新、削除、作成](model-binding/updating-deleting-and-creating-data.md)

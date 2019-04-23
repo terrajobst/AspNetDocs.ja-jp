@@ -12,7 +12,7 @@ ms.openlocfilehash: 963850e1048d4fde573f28244fd32d0c4232fda4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399191"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-vb"></a>Repeater コントロールで HoverMenu を使用する (VB)
@@ -53,7 +53,7 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 データ ソース内のすべての項目をポップアップを右側に表示されます (`PopupPosition`属性) に 50 ミリ秒の遅延の後 (`PopDelay`属性)。
 
 
-[![Trepeater 内の各項目の横にある彼ホバー メニューが表示されます](using-hovermenu-with-a-repeater-control-vb/_static/image2.png)](using-hovermenu-with-a-repeater-control-vb/_static/image1.png)
+[![Repeater 内の各項目の横にあるホバー メニューが表示されます。](using-hovermenu-with-a-repeater-control-vb/_static/image2.png)](using-hovermenu-with-a-repeater-control-vb/_static/image1.png)
 
 Repeater 内の各項目の横にあるホバー メニューが表示されます ([フルサイズの画像を表示する をクリックします](using-hovermenu-with-a-repeater-control-vb/_static/image3.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: ee1b17ac4802ecbd92e571a62c491bc9a49a3560
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401596"
 ---
 # <a name="aspnet-mvc-performance"></a>ASP.NET MVC のパフォーマンス
@@ -21,5 +21,5 @@ ms.locfileid: "59401596"
 
 
 - [ASP.NET MVC 4 での非同期メソッドの使用](using-asynchronous-methods-in-aspnet-mvc-4.md)
-- [Glimpse を使用して ASP.NET MVC アプリをプロファイルおよびデバッグする](profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+- [Glimpse で ASP.NET MVC アプリをプロファイリングし、デバッグする](profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
 - [バンドルと縮小](bundling-and-minification.md)

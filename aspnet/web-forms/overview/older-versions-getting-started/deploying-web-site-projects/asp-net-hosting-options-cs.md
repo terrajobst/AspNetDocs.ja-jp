@@ -12,14 +12,14 @@ ms.openlocfilehash: 90285eac8e45d542c4ccca3e3db00493546aac57
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398450"
 ---
 # <a name="aspnet-hosting-options-c"></a>ASP.NET ホスティングのオプション (C#)
 
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_cs.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_cs.pdf)
 
 > ASP.NET web アプリケーションの通常設計、作成、およびテスト ローカル開発環境、およびリリースの準備が整うと、運用環境にデプロイされる必要があります。 このチュートリアルでは、展開プロセスの概要を提供し、このチュートリアル シリーズの概要として機能します。
 

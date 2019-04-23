@@ -12,7 +12,7 @@ ms.openlocfilehash: e4545f36d5a2668bc6a21249a89a94ece9bb2ca2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397982"
 ---
 # <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET と Web Tools 2012.2 のリリース ノート
@@ -23,7 +23,7 @@ ms.locfileid: "59397982"
 - [インストールに関する注記](#_Installation)
 - [ドキュメント](#_Documentation)
 - [サポート](#_Support)
-- [ソフトウェア要件](#_Software_Requirements)
+- [ソフトウェアの要件](#_Software_Requirements)
 - [ASP.NET および Web Tools 2012.2 の新機能](#_New_Features_in)
 
     - [ツール](#_Tooling)

@@ -12,7 +12,7 @@ ms.openlocfilehash: f8bb91de9642814a79d0fddd642928c25c58ebfd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402844"
 ---
 # <a name="executing-several-animations-at-the-same-time-vb"></a>(VB) と同時に複数のアニメーションを実行
@@ -55,7 +55,7 @@ ms.locfileid: "59402844"
 実際: このスクリプトを実行すると、パネルが表示し (いったように複数の幅と高さの半分) のサイズを変更されと同時にフェードアウトします。
 
 
-[![T彼はパネルがフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更](executing-several-animations-at-the-same-time-vb/_static/image2.png)](executing-several-animations-at-the-same-time-vb/_static/image1.png)
+[![パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更](executing-several-animations-at-the-same-time-vb/_static/image2.png)](executing-several-animations-at-the-same-time-vb/_static/image1.png)
 
 パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更 ([フルサイズの画像を表示する をクリックします](executing-several-animations-at-the-same-time-vb/_static/image3.png))。
 

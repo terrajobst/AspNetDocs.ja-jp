@@ -12,7 +12,7 @@ ms.openlocfilehash: b6a2450dd824396e1540b52395022f48e41aab70
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403052"
 ---
 # <a name="batch-deleting-vb"></a>一括削除 (VB)
@@ -31,7 +31,7 @@ ms.locfileid: "59403052"
 使い慣れたインターフェイスを削除する最も一般的なバッチのいずれかがオンラインの電子メール クライアントを使用するすべてのユーザーが既に: 対応する削除すべてチェック項目を含むグリッドの各行のチェック ボックス ボタン (図 1 参照)。 このチュートリアルではなく短いため既にすべての web ベースのインターフェイスと 1 つのアトミック操作として一連のレコードを削除するメソッドの両方を作成する前のチュートリアルで困難な作業を完了しました。 [のチェック ボックスの GridView 列を追加する](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md)チュートリアルで、チェック ボックスの列を含む GridView を作成した、[トランザクション内のデータベース変更のラッピング](wrapping-database-modifications-within-a-transaction-vb.md)チュートリアル内のメソッドを作成しましたトランザクションを使用して、削除は BLL、`List<T>`の`ProductID`値。 このチュートリアルではに基づいて進められますし例を削除する作業バッチを作成する過去の経験をマージします。
 
 
-[![Eすべて行にはには、チェック ボックスが含まれています](batch-deleting-vb/_static/image1.gif)](batch-deleting-vb/_static/image1.png)
+[![各行には、チェック ボックスが含まれています。](batch-deleting-vb/_static/image1.gif)](batch-deleting-vb/_static/image1.png)
 
 **図 1**:行ごとにチェック ボックスが含まれています ([フルサイズの画像を表示する をクリックします](batch-deleting-vb/_static/image2.png))。
 
@@ -41,7 +41,7 @@ ms.locfileid: "59403052"
 インターフェイスの削除バッチを既に作成したので、[のチェック ボックスの GridView 列を追加する](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md)チュートリアルでは単にコピーできます`BatchDelete.aspx`ゼロから作成するのではなく。 開いて開始、`BatchDelete.aspx`ページで、`BatchData`フォルダーと`CheckBoxField.aspx`ページで、`EnhancedGridView`フォルダー。 `CheckBoxField.aspx`  ページで、ソース ビューに移動して、マークアップ間のコピー、`<asp:Content>`図 2 に示すようにタグを付けます。
 
 
-[![Copy、宣言型マークアップの CheckBoxField.aspx をクリップボードに](batch-deleting-vb/_static/image2.gif)](batch-deleting-vb/_static/image3.png)
+[![CheckBoxField.aspx の宣言型マークアップをクリップボードにコピーします。](batch-deleting-vb/_static/image2.gif)](batch-deleting-vb/_static/image3.png)
 
 **図 2**:コピーの宣言型マークアップ`CheckBoxField.aspx`をクリップボードに ([フルサイズの画像を表示する をクリックします](batch-deleting-vb/_static/image4.png))。
 
@@ -54,7 +54,7 @@ ms.locfileid: "59403052"
 宣言型マークアップとソース コードをコピー後をテストするのには少し`BatchDelete.aspx`ブラウザーで表示することによって。 製品の名前、カテゴリ、およびチェック ボックスと共に価格を一覧表示する行ごとに GridView で最初の 10 個の製品を一覧表示する GridView が表示されます。 3 つのボタンが表示されます。すべて選択してください、すべてをオフにし、選択した製品を削除します。 すべてをオフにしてすべてのチェック ボックスをクリア中に、すべてのチェック ボックスを選択すべてチェック ボタンをクリックします。 選択した製品の削除 をクリックしてには、一覧表示するメッセージが表示されます、 `ProductID` 、選択した製品の値は、製品を実際に削除されません。
 
 
-[![T彼 CheckBoxField.aspx からインターフェイス BatchDeleting.aspx に移動しました](batch-deleting-vb/_static/image3.gif)](batch-deleting-vb/_static/image5.png)
+[![CheckBoxField.aspx からインターフェイス BatchDeleting.aspx に移動しました](batch-deleting-vb/_static/image3.gif)](batch-deleting-vb/_static/image5.png)
 
 **図 3**:インターフェイス`CheckBoxField.aspx`に移動しました`BatchDeleting.aspx`([フルサイズの画像を表示する をクリックします](batch-deleting-vb/_static/image6.png))。
 
@@ -82,12 +82,12 @@ ms.locfileid: "59403052"
 図 4 は、削除の行の数を選択して、GridView を示します。 図 5 は、選択した製品の削除 ボタンがクリックしてされた後すぐに画面を示しています。 図 5 に注意してください、`ProductID`削除されたレコードの値は、GridView の下のラベルに表示され、これらの行が GridView ではなくなりました。
 
 
-[![T彼は選択した製品は削除されます](batch-deleting-vb/_static/image4.gif)](batch-deleting-vb/_static/image7.png)
+[![選択した製品は削除されます。](batch-deleting-vb/_static/image4.gif)](batch-deleting-vb/_static/image7.png)
 
 **図 4**:選択した製品は削除されます ([フルサイズの画像を表示する をクリックします](batch-deleting-vb/_static/image8.png))。
 
 
-[![T彼は削除された製品の ProductID 値は、「GridView の下に一覧表示](batch-deleting-vb/_static/image5.gif)](batch-deleting-vb/_static/image9.png)
+[![削除された製品の ProductID 値は、GridView の下に一覧表示](batch-deleting-vb/_static/image5.gif)](batch-deleting-vb/_static/image9.png)
 
 **図 5**:削除された製品`ProductID`値は、GridView の下に表示されている ([フルサイズの画像を表示する をクリックします](batch-deleting-vb/_static/image10.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 178d839f67d70670b3b5acf470acb7ae8cf1c33f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405808"
 ---
 # <a name="fighting-bots-c"></a>ボットと戦う (C#)
@@ -65,7 +65,7 @@ ms.locfileid: "59405808"
 このスクリプトを実行し、JavaScript を非アクティブ化または最初の 2 秒内で、フォームの送信や 7 回 30 秒以内にフォームを送信、ときに、エラー メッセージが表示されます。 このコントロールを使用して、賢明なただし、そのためユーザーの 5 ~ 10% が失敗ユーザーの約 90 ~ 95% の JavaScript のアクティブ化されるため、 `NoBot`'s をテストします。
 
 
-[![T彼のエラー メッセージは、bot によって発生した可能性があります](fighting-bots-cs/_static/image2.png)](fighting-bots-cs/_static/image1.png)
+[![このエラー メッセージをボットで発生する可能性があります。](fighting-bots-cs/_static/image2.png)](fighting-bots-cs/_static/image1.png)
 
 このエラー メッセージをボットで発生する可能性があります ([フルサイズの画像を表示する をクリックします](fighting-bots-cs/_static/image3.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 91c96cc413e63ad2fc160ffbb473c4f3e1ada3e4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401063"
 ---
 # <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Razor と控えめな JavaScript で MVC 3 を作成する
@@ -36,7 +36,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 チュートリアルを開始する Visual Studio 2010 を開き、使用して新しいプロジェクトを作成、 *ASP.NET MVC 3 Web アプリケーション*テンプレート。 アプリケーションの名前を&quot;Mvc3Razor&quot;します。
 
-[![N新しい MVC 3 プロジェクト](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
+[![新しい MVC 3 プロジェクト](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
 
 **新しい ASP.NET MVC 3 プロジェクト**ダイアログ ボックスで、**インターネット アプリケーション**、Razor ビュー エンジンを選択し、クリックして**OK**します。
 
@@ -45,7 +45,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 このチュートリアルではない使用する、ASP.NET メンバーシップ プロバイダー ログオンおよびメンバーシップに関連付けられているすべてのファイルを削除できるようにします。 **ソリューション エクスプ ローラー**、次のファイルとディレクトリを削除します。
 
 - *Controllers\AccountController*
-- *される models \accountmodels*
+- *Models\AccountModels*
 - *Views\Shared\\_LogOnPartial*
 - *Views\Account* (およびこのディレクトリ内のすべてのファイル)
 

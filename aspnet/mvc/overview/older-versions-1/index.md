@@ -12,7 +12,7 @@ ms.openlocfilehash: 5827542a951a4b65d1c9b02b0ad15ed988bf1456
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399633"
 ---
 # <a name="older-versions---mvc-1-and-2"></a>旧バージョン - MVC 1 と 2
@@ -29,7 +29,7 @@ ms.locfileid: "59399633"
 - [MVC の概要](getting-started-with-mvc/index.md)
 
     - [ASP.NET MVC 入門](getting-started-with-mvc/getting-started-with-mvc-part1.md)
-    - [コントローラーを追加する](getting-started-with-mvc/getting-started-with-mvc-part2.md)
+    - [コントローラーの追加](getting-started-with-mvc/getting-started-with-mvc-part2.md)
     - [ビューの追加](getting-started-with-mvc/getting-started-with-mvc-part3.md)
     - [データベースの作成](getting-started-with-mvc/getting-started-with-mvc-part4.md)
     - [コントローラーからモデルのデータにアクセスする](getting-started-with-mvc/getting-started-with-mvc-part5.md)
@@ -88,8 +88,8 @@ ms.locfileid: "59399633"
     - [カスタム ルート制約を作成する (VB)](controllers-and-routing/creating-a-custom-route-constraint-vb.md)
 - [配置](deployment/index.md)
 
-    - [さまざまなバージョンの IIS と共に ASP.NET MVC を使用する (C#)](deployment/using-asp-net-mvc-with-different-versions-of-iis-cs.md)
-    - [さまざまなバージョンの IIS と共に ASP.NET MVC を使用する (VB)](deployment/using-asp-net-mvc-with-different-versions-of-iis-vb.md)
+    - [さまざまなバージョンの IIS と共に ASP.NET MVC (C#)](deployment/using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+    - [さまざまなバージョンの IIS と共に ASP.NET MVC (VB)](deployment/using-asp-net-mvc-with-different-versions-of-iis-vb.md)
 - [セキュリティ](security/index.md)
 
     - [フォーム認証でユーザーを認証する (C#)](security/authenticating-users-with-forms-authentication-cs.md)
@@ -104,20 +104,20 @@ ms.locfileid: "59399633"
     - [ASP.NET MVC アプリケーションの単体テストを作成する (VB)](unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb.md)
 - [連絡先マネージャー](contact-manager/index.md)
 
-    - [繰り返し #1 – アプリケーションを作成する (c#)](contact-manager/iteration-1-create-the-application-cs.md)
-    - [繰り返し #2 – アプリケーションの外観を便利な (c#) を作成します。](contact-manager/iteration-2-make-the-application-look-nice-cs.md)
-    - [繰り返し #3 – フォーム検証を追加する (c#)](contact-manager/iteration-3-add-form-validation-cs.md)
-    - [繰り返し #4 – アプリケーションを疎結合 (c#) を作成します。](contact-manager/iteration-4-make-the-application-loosely-coupled-cs.md)
-    - [繰り返し #5 – 単体テストの作成 (c#)](contact-manager/iteration-5-create-unit-tests-cs.md)
-    - [繰り返し #6 – テスト駆動開発 (c#) を使用します。](contact-manager/iteration-6-use-test-driven-development-cs.md)
-    - [繰り返し #7 – Ajax 機能を追加 (c#)](contact-manager/iteration-7-add-ajax-functionality-cs.md)
+    - [繰り返し #1 – アプリケーションを作成する (C#)](contact-manager/iteration-1-create-the-application-cs.md)
+    - [繰り返し #2 – アプリケーションの外観を良くする (C#)](contact-manager/iteration-2-make-the-application-look-nice-cs.md)
+    - [繰り返し #3 – フォーム検証を追加する (C#)](contact-manager/iteration-3-add-form-validation-cs.md)
+    - [繰り返し #4 – アプリケーションを疎結合にする (C#)](contact-manager/iteration-4-make-the-application-loosely-coupled-cs.md)
+    - [繰り返し #5 – 単体テストを作成する (C#)](contact-manager/iteration-5-create-unit-tests-cs.md)
+    - [繰り返し #6 – テスト駆動型開発を使用する (C#)](contact-manager/iteration-6-use-test-driven-development-cs.md)
+    - [繰り返し #7 – Ajax 機能を追加する (C#)](contact-manager/iteration-7-add-ajax-functionality-cs.md)
     - [繰り返し #1 – アプリケーションを作成する (VB)](contact-manager/iteration-1-create-the-application-vb.md)
-    - [繰り返し #2 – アプリケーションの外観を良くする (VB) を作成します。](contact-manager/iteration-2-make-the-application-look-nice-vb.md)
+    - [繰り返し #2 – アプリケーションの外観を良くする (VB)](contact-manager/iteration-2-make-the-application-look-nice-vb.md)
     - [繰り返し #3 – フォーム検証を追加する (VB)](contact-manager/iteration-3-add-form-validation-vb.md)
-    - [繰り返し #4 – アプリケーションを疎結合 (VB) を作成します。](contact-manager/iteration-4-make-the-application-loosely-coupled-vb.md)
-    - [繰り返し #5 – 単体テストを生成する (VB)](contact-manager/iteration-5-create-unit-tests-vb.md)
-    - [繰り返し #6 – テスト駆動開発 (VB) を使用します。](contact-manager/iteration-6-use-test-driven-development-vb.md)
-    - [繰り返し #7 – Ajax 機能を追加 (VB)](contact-manager/iteration-7-add-ajax-functionality-vb.md)
+    - [繰り返し #4 – アプリケーションを疎結合にする (VB)](contact-manager/iteration-4-make-the-application-loosely-coupled-vb.md)
+    - [繰り返し #5 – 単体テストを作成する (VB)](contact-manager/iteration-5-create-unit-tests-vb.md)
+    - [繰り返し #6 – テスト駆動型開発を使用する (VB)](contact-manager/iteration-6-use-test-driven-development-vb.md)
+    - [繰り返し #7 – Ajax 機能を追加する (VB)](contact-manager/iteration-7-add-ajax-functionality-vb.md)
 - [NerdDinner](nerddinner/index.md)
 
     - [NerdDinner チュートリアルの紹介](nerddinner/introducing-the-nerddinner-tutorial.md)
@@ -127,10 +127,10 @@ ms.locfileid: "59399633"
     - [コントローラーとビューを使用し、リスティング/詳細 UI を実装する](nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui.md)
     - [CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する](nerddinner/provide-crud-create-read-update-delete-data-form-entry-support.md)
     - [ViewData を使用し、ViewModel クラスを実装する](nerddinner/use-viewdata-and-implement-viewmodel-classes.md)
-    - [マスター ページと部分を利用して UI を再使用する](nerddinner/re-use-ui-using-master-pages-and-partials.md)
+    - [マスター ページと部分的ビューを利用して UI を再使用する](nerddinner/re-use-ui-using-master-pages-and-partials.md)
     - [効率的なデータ ページングを実装する](nerddinner/implement-efficient-data-paging.md)
     - [認証と承認を利用した安全なアプリケーション](nerddinner/secure-applications-using-authentication-and-authorization.md)
-    - [AJAX を使用し、動的更新を配信する](nerddinner/use-ajax-to-deliver-dynamic-updates.md)
+    - [AJAX を使用し、動的更新を届ける](nerddinner/use-ajax-to-deliver-dynamic-updates.md)
     - [AJAX を使用し、マッピング シナリオを実装する](nerddinner/use-ajax-to-implement-mapping-scenarios.md)
     - [自動化された単体テストを有効にする](nerddinner/enable-automated-unit-testing.md)
     - [NerdDinner まとめ](nerddinner/nerddinner-wrap-up.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: a7b8b85ba1cf5c18e605eb8114a305272baf41a6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404872"
 ---
 # <a name="creating-custom-routes-vb"></a>カスタム ルートを作成する (VB)
@@ -61,7 +61,7 @@ ASP.NET MVC アプリケーションでは既定のルーティング テーブ�
 **図 1 - パラメーターの変換からのエラー**
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
 **図 01**:パラメーターの変換からのエラー ([フルサイズの画像を表示する をクリックします](creating-custom-routes-vb/_static/image2.png))。
 

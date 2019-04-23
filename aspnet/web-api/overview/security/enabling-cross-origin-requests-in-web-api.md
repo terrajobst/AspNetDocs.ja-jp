@@ -12,7 +12,7 @@ ms.openlocfilehash: 9d3016d98fa6c3a55359c6dab0737407b29925f1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403832"
 ---
 # <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのクロス オリジン要求を有効にします。
@@ -45,10 +45,10 @@ ms.locfileid: "59403832"
 
 次の URL は、上の URL とは生成元が異なります。
 
-- `http://example.net` -別のドメイン
-- `http://example.com:9000/foo.html` -別のポート
-- `https://example.com/foo.html` -別の配色
-- `http://www.example.com/foo.html` -別のサブドメイン
+- `http://example.net` - 異なるドメイン 
+- `http://example.com:9000/foo.html` - 異なるポート
+- `https://example.com/foo.html` - 異なるスキーム
+- `http://www.example.com/foo.html` - 異なるサブドメイン
 
 > [!NOTE]
 > Internet Explorer では、配信元を比較するときに、ポートは考慮されません。

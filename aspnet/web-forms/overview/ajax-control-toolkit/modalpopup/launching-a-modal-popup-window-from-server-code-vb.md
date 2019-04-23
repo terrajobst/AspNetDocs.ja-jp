@@ -12,7 +12,7 @@ ms.openlocfilehash: 55ee67150d1567a0334988a06ff0fcca8a89bbd4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404053"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-vb"></a>サーバー コードからモーダル ポップアップ ウィンドウを起動する (VB)
@@ -65,7 +65,7 @@ ASP.NET AJAX; に基づいてすべての web ページと同様別のターゲ�
 `$find()`関数はページ上の名前付き要素を探してでサーバー側の ID をパラメーターとして必要があります。 そのため、 `$find("mpe")` ModalPopup コントロールのクライアントの表現を返します。 その`show()`メソッドにより、ポップアップが表示されます。
 
 
-[![T彼のモーダル ポップアップを表示するときに、ボタンのいずれかがクリックされた](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
+[![モーダル ポップアップを表示するときに、ボタンのいずれかがクリックされます。](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
 
 モーダル ポップアップを表示するときに、ボタンのいずれかがクリックされた ([フルサイズの画像を表示する をクリックします](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))。
 

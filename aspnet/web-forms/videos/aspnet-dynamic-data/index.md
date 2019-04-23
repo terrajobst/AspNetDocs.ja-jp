@@ -12,7 +12,7 @@ ms.openlocfilehash: 11fca6096a1ada5df95971f2c77c8e72660ad864
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400153"
 ---
 # <a name="aspnet-dynamic-data"></a>ASP.NET 動的データ
@@ -20,13 +20,13 @@ ms.locfileid: "59400153"
 > ASP.NET Dynamic Data を使用して作成するには、アプリケーションを自動的にスキャフォールディングする方法は、データ アクセスを実行する方法を理解します。
 
 
-- [初めてのスキャフォールディングと動的データの概要](your-first-scaffold-and-what-is-dynamic-data.md)
+- [初めてのスキャフォールディングと動的データ概要](your-first-scaffold-and-what-is-dynamic-data.md)
 - [インライン GridView 編集を有効にする](how-do-i-enable-inline-gridview-editing.md)
 - [フィールドのレンダリング方法を変更する](how-do-i-change-how-my-fields-render.md)
 - [ビジネス ロジック例外を処理する](how-do-i-handle-business-logic-exceptions.md)
 - [カスタム ページを作る](how-do-i-make-custom-pages.md)
 - [不明なデータ型を表示する](how-do-i-display-unknown-datatypes.md)
-- [ListView および DetailsView コントロールで DynamicControl を使用する](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
+- [ListView コントロールと DetailsView コントロールで DynamicControl を使用する](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
 - [動的データ入門](getting-started-with-dynamic-data.md)
 - [ASP.NET 動的データ アプリケーションでテンプレートの編集を始める](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
 - [URL ルーティングによる動的データ アプリケーションの変更を始める](begin-modifying-dynamic-data-applications-with-url-routing.md)
@@ -36,4 +36,4 @@ ms.locfileid: "59400153"
 - [VB または C# の命令ロジックによるカスタム フィールド検証を実装する](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
 - [DynamicData データ グリッドから列を削除する](how-to-remove-columns-from-your-dynamicdata-data-grids.md)
 - [ASP.NET 動的データ アプリケーションでテーブル固有のカスタム フォームを作成する](how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
-- [ASP.NET 動的データ カスタム フォームの書式設定](aspnet-dynamic-data-custom-form-formatting.md)
+- [ASP.NET 動的データ カスタム フォームの初期設定](aspnet-dynamic-data-custom-form-formatting.md)

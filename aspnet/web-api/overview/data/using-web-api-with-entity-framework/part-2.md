@@ -12,14 +12,14 @@ ms.openlocfilehash: 57dacda421968f341284d89c9a3ad80040c16e25
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405080"
 ---
 # <a name="add-models-and-controllers"></a>モデルとコントローラーの追加
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、データベースのエンティティを定義するモデル クラスを追加します。 これらのエンティティに対する CRUD 操作を実行する Web API コント ローラーを追加します。
 

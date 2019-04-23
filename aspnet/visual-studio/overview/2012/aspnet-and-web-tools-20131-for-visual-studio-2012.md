@@ -12,7 +12,7 @@ ms.openlocfilehash: 17315dbbbdc08412e4e928256783c221a8a2cb20
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406809"
 ---
 # <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Visual Studio 2012 の ASP.NET と Web 2013.1 ツールのリリース ノート
@@ -25,10 +25,10 @@ ms.locfileid: "59406809"
 ## <a name="contents"></a>目次
 
 - [インストールに関する注記](#install)
-- [ソフトウェア要件](#requirements)
+- [ソフトウェアの要件](#requirements)
 - ASP.NET および Web Tools 2013.1 for Visual Studio 2012 の新機能
 
-    - [ブートス トラップ](#bootstrap)
+    - [Bootstrap](#bootstrap)
     - [テンプレート](#templates)
 
         - [ASP.NET MVC 5 テンプレート](#mvc5template)

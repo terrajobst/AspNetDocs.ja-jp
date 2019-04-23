@@ -12,7 +12,7 @@ ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403910"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure で現実世界のクラウド アプリの構築)
@@ -72,7 +72,7 @@ Visual Studio で、アプリでの New Relic NuGet パッケージをインス�
 
 戻り、 **New Relic**ページで、**アドオン** タブをクリックして、ポータルの**管理**します。 ポータルでは、シングル サインオン認証を使用して、資格情報をもう一度入力する必要はありませんので、New Relic の管理ポータルに送信します。 [概要] ページは、さまざまなパフォーマンスの統計情報を表示します。 (概要ページの完全なサイズを表示する画像をクリックします。)
 
-[![N新しい Relic 監視タブ](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![新しい Relic 監視 タブ](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 統計情報を確認できますのほんの一部を次に示します。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: d2f9d48618a102df7ea24a6d2a80b5c3026c7752
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405405"
 ---
 # <a name="older-versions---data-access"></a>旧バージョン - データ アクセス
@@ -32,10 +32,10 @@ ms.locfileid: "59405405"
 
     - [ObjectDataSource でデータを表示する (C#)](basic-reporting/displaying-data-with-the-objectdatasource-cs.md)
     - [宣言パラメーター (C#)](basic-reporting/declarative-parameters-cs.md)
-    - [ObjectDataSource のパラメーター値をプログラムで設定する (C#)](basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+    - [ObjectDataSource のパラメーター値をプログラミングで設定する (C#)](basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
     - [ObjectDataSource でデータを表示する (VB)](basic-reporting/displaying-data-with-the-objectdatasource-vb.md)
     - [宣言パラメーター (VB)](basic-reporting/declarative-parameters-vb.md)
-    - [ObjectDataSource のパラメーター値をプログラムで設定する (VB)](basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
+    - [ObjectDataSource のパラメーター値をプログラミングで設定する (VB)](basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
 - [マスター/詳細](masterdetail/index.md)
 
     - [DropDownList でマスター/詳細をフィルター処理する (C#)](masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md)
@@ -65,7 +65,7 @@ ms.locfileid: "59405405"
     - [ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (C#)](editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
     - [編集および挿入インターフェイスに検証コントロールを追加する (C#)](editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
     - [データ変更インターフェイスをカスタマイズする (C#)](editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md)
-    - [オプティミスティック同時実行制御を実装する (C#)](editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)
+    - [オプティミスティック コンカレンシーを実装する (C#)](editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)
     - [削除時、クライアント側の確認を追加する (C#)](editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md)
     - [ユーザーに基づいてデータ編集機能を制限する (C#)](editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
     - [データの挿入、更新、削除の概要 (VB)](editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)
@@ -73,7 +73,7 @@ ms.locfileid: "59405405"
     - [ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (VB)](editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
     - [編集および挿入インターフェイスに検証コントロールを追加する (VB)](editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
     - [データ変更インターフェイスをカスタマイズする (VB)](editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)
-    - [オプティミスティック同時実行制御を実装する (VB)](editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)
+    - [オプティミスティック コンカレンシーを実装する (VB)](editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)
     - [削除時、クライアント側の確認を追加する (VB)](editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md)
     - [ユーザーに基づいてデータ編集機能を制限する (VB)](editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb.md)
 - [ページングと並べ替え](paging-and-sorting/index.md)
@@ -88,15 +88,15 @@ ms.locfileid: "59405405"
     - [カスタマイズされた並べ替えユーザー インターフェイスを作成する (VB)](paging-and-sorting/creating-a-customized-sorting-user-interface-vb.md)
 - [カスタム ボタン アクション](custom-button-actions/index.md)
 
-    - [GridView にボタンを追加し、応答する (C#)](custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs.md)
-    - [GridView にボタンを追加し、応答する (VB)](custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb.md)
+    - [GridView にボタンを追加し、ボタンに応答する (C#)](custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs.md)
+    - [GridView にボタンを追加し、ボタンに応答する (VB)](custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb.md)
 - [DataList と Repeater でデータを表示する](displaying-data-with-the-datalist-and-repeater/index.md)
 
-    - [DataList および Repeater コントロールでデータを表示する (C#)](displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md)
+    - [DataList コントロールと Repeater コントロールでデータを表示する (C#)](displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md)
     - [データに基づいて DataList と Repeater を書式設定する (C#)](displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs.md)
     - [DataList コントロールで複数のレコードを行ごとに表示する (C#)](displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs.md)
     - [入れ子になったデータ Web コントロール (C#)](displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs.md)
-    - [DataList および Repeater コントロールでデータを表示する (VB)](displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+    - [DataList コントロールと Repeater コントロールでデータを表示する (VB)](displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb.md)
     - [データに基づいて DataList と Repeater を書式設定する (VB)](displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb.md)
     - [DataList コントロールで複数のレコードを行ごとに表示する (VB)](displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb.md)
     - [入れ子になったデータ Web コントロール (VB)](displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb.md)
@@ -104,10 +104,10 @@ ms.locfileid: "59405405"
 
     - [DropDownList でマスター/詳細をフィルター処理する (C#)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
     - [2 つのページでマスター/詳細をフィルター処理する (C#)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs.md)
-    - [マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (C#)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+    - [マスター レコードの箇条書き一覧と詳細 DataList を使用してマスター/詳細を表示する (C#)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
     - [DropDownList でマスター/詳細をフィルター処理する (VB)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
     - [2 つのページでマスター/詳細をフィルター処理する (VB)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb.md)
-    - [マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (VB)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)
+    - [マスター レコードの箇条書き一覧と詳細 DataList を使用してマスター/詳細を表示する (VB)](filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)
 - [DataList でデータを編集し、削除する](editing-and-deleting-data-through-the-datalist/index.md)
 
     - [DataList のデータの編集と削除の概要 (C#)](editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
@@ -135,11 +135,11 @@ ms.locfileid: "59405405"
     - [SqlDataSource コントロールでデータにクエリを実行する (C#)](accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs.md)
     - [パラメーター化されたクエリと SqlDataSource を使用する (C#)](accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs.md)
     - [SqlDataSource でデータを挿入、更新、削除する (C#)](accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
-    - [SqlDataSource でオプティミスティック同時実行制御を実装する (C#)](accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+    - [SqlDataSource でオプティミスティック コンカレンシーを実装する (C#)](accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
     - [SqlDataSource コントロールでデータにクエリを実行する (VB)](accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)
     - [パラメーター化されたクエリと SqlDataSource を使用する (VB)](accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb.md)
     - [SqlDataSource でデータを挿入、更新、削除する (VB)](accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
-    - [SqlDataSource でオプティミスティック同時実行制御を実装する (VB)](accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+    - [SqlDataSource でオプティミスティック コンカレンシーを実装する (VB)](accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
 - [GridView を拡張する](enhancing-the-gridview/index.md)
 
     - [ラジオ ボタンの GridView 列を追加する (C#)](enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs.md)
@@ -153,11 +153,11 @@ ms.locfileid: "59405405"
     - [ファイルのアップロード (C#)](working-with-binary-files/uploading-files-cs.md)
     - [データ Web コントロールにバイナリ データを表示する (C#)](working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs.md)
     - [新しいレコードを追加するとき、ファイル アップロード オプションを含める (C#)](working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs.md)
-    - [既存のバイナリ データの更新と削除 (C#)](working-with-binary-files/updating-and-deleting-existing-binary-data-cs.md)
+    - [既存のバイナリ データを更新し、削除する (C#)](working-with-binary-files/updating-and-deleting-existing-binary-data-cs.md)
     - [ファイルのアップロード (VB)](working-with-binary-files/uploading-files-vb.md)
     - [データ Web コントロールにバイナリ データを表示する (VB)](working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb.md)
     - [新しいレコードを追加するとき、ファイル アップロード オプションを含める (VB)](working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb.md)
-    - [既存のバイナリ データの更新と削除 (VB)](working-with-binary-files/updating-and-deleting-existing-binary-data-vb.md)
+    - [既存のバイナリ データを更新し、削除する (VB)](working-with-binary-files/updating-and-deleting-existing-binary-data-vb.md)
 - [キャッシュされたデータ](caching-data/index.md)
 
     - [ObjectDataSource でデータをキャッシュする (C#)](caching-data/caching-data-with-the-objectdatasource-cs.md)

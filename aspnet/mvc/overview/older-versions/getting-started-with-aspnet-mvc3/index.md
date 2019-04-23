@@ -12,7 +12,7 @@ ms.openlocfilehash: 20fdfd00826d1b033c2d5dd9500915cb784896e5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406458"
 ---
 # <a name="getting-started-with-aspnet-mvc3"></a>ASP.NET MVC 3 の概要
@@ -22,7 +22,7 @@ ms.locfileid: "59406458"
 
 - [ASP.NET MVC 3 の概要 (C#)](cs/index.md)
 
-    - [ASP.NET MVC 3 入門 (C#)](cs/intro-to-aspnet-mvc-3.md)
+    - [ASP.NET 3 入門 (C#)](cs/intro-to-aspnet-mvc-3.md)
     - [コントローラーの追加 (C#)](cs/adding-a-controller.md)
     - [ビューの追加 (C#)](cs/adding-a-view.md)
     - [モデルの追加 (C#)](cs/adding-a-model.md)
@@ -33,7 +33,7 @@ ms.locfileid: "59406458"
     - [Details メソッドと Delete メソッドの改善 (C#)](cs/improving-the-details-and-delete-methods.md)
 - [ASP.NET MVC 3 の概要 (VB.NET)](vb/index.md)
 
-    - [ASP.NET MVC 3 入門 (VB)](vb/intro-to-aspnet-mvc-3.md)
+    - [ASP.NET 3 入門 (VB)](vb/intro-to-aspnet-mvc-3.md)
     - [コントローラーの追加 (VB)](vb/adding-a-controller.md)
     - [ビューの追加 (VB)](vb/adding-a-view.md)
     - [モデルの追加 (VB)](vb/adding-a-model.md)

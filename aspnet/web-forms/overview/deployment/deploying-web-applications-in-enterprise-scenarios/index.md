@@ -12,7 +12,7 @@ ms.openlocfilehash: f1f1e78a3b8d631d9a78c5aad8dc8c3b00c883fe
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404378"
 ---
 # <a name="aspnet-4---enterprise-deployment-introduction"></a>ASP.NET 4 - エンタープライズ配置の概要
@@ -20,6 +20,6 @@ ms.locfileid: "59404378"
 > この一連のチュートリアルでは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。
 
 
-- [Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを配置する](deploying-web-applications-in-enterprise-scenarios.md)
-- [エンタープライズ Web 配置:シナリオの概要](enterprise-web-deployment-scenario-overview.md)
-- [アプリケーション ライフサイクル管理:開発から運用環境まで](application-lifecycle-management-from-development-to-production.md)
+- [Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを展開する](deploying-web-applications-in-enterprise-scenarios.md)
+- [エンタープライズ Web 展開:シナリオの概要](enterprise-web-deployment-scenario-overview.md)
+- [アプリケーション ライフ サイクル管理:開発運用環境から](application-lifecycle-management-from-development-to-production.md)

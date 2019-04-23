@@ -12,7 +12,7 @@ ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401743"
 ---
 # <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 の Web フォームの新機能
@@ -396,11 +396,11 @@ ASP.NET 4.5 では、Web フォームのデータ注釈検証について説明�
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5 では、既存のデータ注釈のコレクションを拡張しました。 これらは、一部のデータ注釈を使用することができます: [CreditCard] [Phone] [EmailAddress]、[範囲] [比較]、[Url] [FileExtensions]、[Required]、[キー]、[正規表現]。
+    > .NET framework 4.5 では、既存のデータ注釈のコレクションを拡張しました。 これらは、一部のデータ注釈を使用することができます: [CreditCard] [Phone] [EmailAddress]、[範囲] [比較]、[Url] [FileExtensions]、[Required]、[Key]、[正規表現]。
     > 
     > いくつかの使用例:
     > 
-    > [キー]: Specifies that an attribute is the unique identifier
+    > [Key]: Specifies that an attribute is the unique identifier
     > 
     > [Range(0.4, 0.5, ErrorMessage=&quot;{Write an error message}&quot;]: Double range
     > 
@@ -790,7 +790,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 
     ![データベースを作成する](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "データベース文字列を作成します。")
 
-    *データベースを作成する*
+    *データベースの作成*
 7. Azure SQL データベースへの接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "SQL データベースを指す接続文字列")

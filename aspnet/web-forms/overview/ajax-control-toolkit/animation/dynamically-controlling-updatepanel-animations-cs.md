@@ -12,7 +12,7 @@ ms.openlocfilehash: 0767b66a035069629c15e658c1e75ea78a7bd07b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407654"
 ---
 # <a name="dynamically-controlling-updatepanel-animations-c"></a>UpdatePanel アニメーションを動的に制御する (C#)
@@ -58,7 +58,7 @@ ms.locfileid: "59407654"
 ブラウザーでファイルを実行します。 ボタンをクリックしたときに、常に 1 秒の間フェードのパネルで、現在の時刻が表示されます。
 
 
-[![T現在の時刻がフェードイン](dynamically-controlling-updatepanel-animations-cs/_static/image2.png)](dynamically-controlling-updatepanel-animations-cs/_static/image1.png)
+[![現在の時刻がフェードインします。](dynamically-controlling-updatepanel-animations-cs/_static/image2.png)](dynamically-controlling-updatepanel-animations-cs/_static/image1.png)
 
 現在の時刻がフェードイン ([フルサイズの画像を表示する をクリックします](dynamically-controlling-updatepanel-animations-cs/_static/image3.png))。
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: ce7f7a27e1f89a89959aad2f8f5d0fb5e4879795
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396558"
 ---
 # <a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[操作方法]。ユーザー選択に基づいてセカンダリ ユーザー コントロールでデータを同期する

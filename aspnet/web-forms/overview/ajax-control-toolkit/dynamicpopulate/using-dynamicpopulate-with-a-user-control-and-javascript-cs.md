@@ -12,7 +12,7 @@ ms.openlocfilehash: 0462d8357d83115e751a818d3c9feb4b4274e212
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402545"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>ユーザー コントロールと JavaScript で DynamicPopulate を使用する (C#)
@@ -67,7 +67,7 @@ A &lt; `label` &gt;要素を使用して、サーバーから取得したデー�
 以上です。 ページに期待どおりに動作します。ユーザーがラジオ ボタンの 1 つクリックする、Toolkit でコントロールが web サービスを呼び出すし、目的の形式で、現在の日付を表示します。
 
 
-[![T彼のラジオ ボタンは、ユーザー コントロール内に存在](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
+[![ラジオ ボタンがユーザー コントロール内に存在します。](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 
 ユーザー コントロールでオプション ボタンが存在する ([フルサイズの画像を表示する をクリックします](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))。
 

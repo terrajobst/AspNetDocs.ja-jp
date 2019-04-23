@@ -12,7 +12,7 @@ ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407355"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要
@@ -443,13 +443,13 @@ ASP.NET は、データ型を自動的に決定することができます、通
 
 :::row:::
     :::column:::
-    <strong>演算子</strong>
+    <strong>Operator</strong>
     :::column-end:::
     :::column:::
     <strong>説明</strong>
     :::column-end:::
     :::column:::
-    <strong>使用例</strong>
+    <strong>例</strong>
     :::column-end:::
 :::row-end:::
 
@@ -751,8 +751,8 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 プロパティを使用して、`Page`など多くの情報を取得するオブジェクト。
 
-- `Request`. 既に説明したように行われる要求、ページ、ユーザー id などの URL をブラウザーの種類を含む、現在の要求に関する情報のコレクションになります。
-- `Response`. これは、サーバー コードの実行が終了したら、ブラウザーに送信される応答 (ページ) に関する情報のコレクションです。 たとえば、このプロパティを使用すると、応答に情報を書き込みます。 
+- `Request`。 既に説明したように行われる要求、ページ、ユーザー id などの URL をブラウザーの種類を含む、現在の要求に関する情報のコレクションになります。
+- `Response`。 これは、サーバー コードの実行が終了したら、ブラウザーに送信される応答 (ページ) に関する情報のコレクションです。 たとえば、このプロパティを使用すると、応答に情報を書き込みます。 
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample58.cshtml)]
 

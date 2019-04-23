@@ -12,7 +12,7 @@ ms.openlocfilehash: 9dbaf1cbf7eb89a47c1e7e388c4dc35b9900b97d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399113"
 ---
 # <a name="getting-started-with-aspnet-mvc-3-vbnet"></a>ASP.NET MVC 3 の概要 (VB.NET)
@@ -20,7 +20,7 @@ ms.locfileid: "59399113"
 > Microsoft Visual Web Developer 2010 Express VB.NET を使用してを使用して ASP.NET MVC Web アプリケーションの構築の基礎です。
 
 
-- [ASP.NET MVC 3 入門 (VB)](intro-to-aspnet-mvc-3.md)
+- [ASP.NET 3 入門 (VB)](intro-to-aspnet-mvc-3.md)
 - [コントローラーの追加 (VB)](adding-a-controller.md)
 - [ビューの追加 (VB)](adding-a-view.md)
 - [モデルの追加 (VB)](adding-a-model.md)

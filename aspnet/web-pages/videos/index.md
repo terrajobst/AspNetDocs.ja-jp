@@ -12,7 +12,7 @@ ms.openlocfilehash: 86b90a21f59ee0ad52a3e6f7db19d4714282105c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401141"
 ---
 # <a name="videos"></a>ビデオ
@@ -37,18 +37,18 @@ ms.locfileid: "59401141"
 
     - [WebMatrix と ASP.NET Web ページの概要](aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
     - [ASP.NET Web プログラミング Razor 構文入門](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
-    - [一貫性のある外観を作成する (第 1 部)](aspnet-razor-pages/creating-a-consistent-look-part-1.md)
-    - [一貫性のある外観を作成する (第 2 部)](aspnet-razor-pages/creating-a-consistent-look-part-2.md)
-    - [フォームの操作 (第 1 部)](aspnet-razor-pages/working-with-forms-part-1.md)
-    - [フォームの操作 (第 2 部)](aspnet-razor-pages/working-with-forms-part-2.md)
-    - [データの操作 (第 1 部)](aspnet-razor-pages/working-with-data-part-1.md)
-    - [データの操作 (第 2 部)](aspnet-razor-pages/working-with-data-part-2.md)
+    - [一貫性のある外観を作成する (パート 1)](aspnet-razor-pages/creating-a-consistent-look-part-1.md)
+    - [一貫性のある外観を作成する (パート 2)](aspnet-razor-pages/creating-a-consistent-look-part-2.md)
+    - [フォームの操作 (パート 1)](aspnet-razor-pages/working-with-forms-part-1.md)
+    - [フォームの操作 (パート 2)](aspnet-razor-pages/working-with-forms-part-2.md)
+    - [データの操作 (パート 1)](aspnet-razor-pages/working-with-data-part-1.md)
+    - [データの操作 (パート 2)](aspnet-razor-pages/working-with-data-part-2.md)
     - [グリッドでデータを表示する](aspnet-razor-pages/displaying-data-in-a-grid.md)
-    - [グラフでデータを表示する (第 1 部)](aspnet-razor-pages/displaying-data-in-a-chart-part-1.md)
-    - [グラフでデータを表示する (第 2 部)](aspnet-razor-pages/displaying-data-in-a-chart-part-2.md)
+    - [グラフでデータを表示する (パート 1)](aspnet-razor-pages/displaying-data-in-a-chart-part-1.md)
+    - [グラフでデータを表示する (パート 2)](aspnet-razor-pages/displaying-data-in-a-chart-part-2.md)
     - [ファイルの処理](aspnet-razor-pages/working-with-files.md)
     - [イメージの処理](aspnet-razor-pages/working-with-images.md)
     - [ビデオの操作](aspnet-razor-pages/working-with-video.md)
     - [Web サイトに電子メールを追加する](aspnet-razor-pages/adding-email-to-your-web-site.md)
     - [Web サイトに検索を追加する](aspnet-razor-pages/adding-search-to-your-web-site.md)
-    - [Web サイトにソーシャル ネットワークを追加する](aspnet-razor-pages/adding-social-networking-to-your-website.md)
+    - [Web サイトにソーシャル ネットワーキングを追加する](aspnet-razor-pages/adding-social-networking-to-your-website.md)

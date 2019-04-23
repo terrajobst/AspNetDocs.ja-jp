@@ -12,14 +12,14 @@ ms.openlocfilehash: d774a8e13e108d1be4c39e1e909d3d9683968a0d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404924"
 ---
 # <a name="understanding-the-project-file"></a>プロジェクト ファイルについて理解する
 
 によって[Jason Lee](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Microsoft Build Engine (MSBuild) プロジェクト ファイルは、ビルドおよび配置プロセスの中核にあります。 このトピックでは、MSBuild とプロジェクト ファイルの概念の概要から始まります。 これには、プロジェクトのファイルを使用して、プロジェクト ファイルを使用して、実際のアプリケーションをデプロイする方法の例を使用して動作時に遭遇するが、主要なコンポーネントについて説明します。
 > 

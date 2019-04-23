@@ -13,7 +13,7 @@ ms.openlocfilehash: 36933f42806b82437f0ba8e59ad1c90024ed6b9e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401232"
 ---
 # <a name="getting-started-with-aspnet-identity"></a>ASP.NET Identity の概要
@@ -25,4 +25,4 @@ ms.locfileid: "59401232"
 - [ASP.NET Identity 推奨リソース](aspnet-identity-recommended-resources.md)
 - [ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 - [Azure Active Directory を使った ASP.NET アプリの開発](developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [ASP.NET Identity:EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+- [ASP.NET Identity:EntityFramework MySQL プロバイダーと MySQL ストレージを使用して (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)

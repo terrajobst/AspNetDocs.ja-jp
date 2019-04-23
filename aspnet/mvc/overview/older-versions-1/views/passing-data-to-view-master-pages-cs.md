@@ -12,14 +12,14 @@ ms.openlocfilehash: 863fe772a1d79201b83da8498bf7e981acf7fd0e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401076"
 ---
 # <a name="passing-data-to-view-master-pages-c"></a>ビュー マスター ページにデータを渡す (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_CS.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_CS.pdf)
 
 > このチュートリアルの目的では、ビューのマスター ページのコント ローラーからデータを渡す方法について説明します。 ビュー マスター ページにデータを渡すための 2 つの方法を説明します。 最初に、保守が困難なアプリケーションで結果の簡単なソリューションについて説明します。 次に、少しより保守性の高いアプリケーションで結果が、多くの初期作業を必要とするより良いソリューションを確認します。
 
@@ -33,7 +33,7 @@ ms.locfileid: "59401076"
 映画データベース アプリケーションを作成して、アプリケーション内の各ページでムービーのカテゴリの一覧を表示することを想像してみてください (図 1 参照)。 さらに、ムービーのカテゴリの一覧がデータベース テーブルに格納されていることに想像してください。 その場合は、合理的をデータベースからカテゴリを取得し、ビュー マスター ページ内のムービーのカテゴリの一覧を表示します。
 
 
-[![Dビュー マスター ページに isplaying ムービー カテゴリ](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
+[![ビュー マスター ページでムービーのカテゴリを表示します。](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
 
 **図 01**:ビュー マスター ページでムービーのカテゴリの表示 ([フルサイズの画像を表示する をクリックします](passing-data-to-view-master-pages-cs/_static/image3.png))。
 
@@ -59,7 +59,7 @@ Index() と Details() アクションの両方がデータを表示する 2 つ�
 Details() アクションには、カテゴリや映画をという名前の 2 つのキーも追加します。 カテゴリ キーは、もう一度、ビュー マスター ページで表示される映画カテゴリの一覧を表します。 映画キーは、詳細ビュー ページで表示される特定のカテゴリにムービーのリストを表します (図 2 参照)。
 
 
-[![T彼は詳細ビュー](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
+[![詳細ビュー](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
 
 **図 02**:詳細ビュー ([フルサイズの画像を表示する をクリックします](passing-data-to-view-master-pages-cs/_static/image6.png))。
 

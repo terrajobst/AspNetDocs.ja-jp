@@ -12,7 +12,7 @@ ms.openlocfilehash: f92fa38a42fe73d22085e5a88b66ea6df0d68191
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403767"
 ---
 # <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[How Do i:]単体テストのより迅速にコードを記述しますか。

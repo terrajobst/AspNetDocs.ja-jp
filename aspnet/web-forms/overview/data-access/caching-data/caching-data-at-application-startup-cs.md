@@ -12,14 +12,14 @@ ms.openlocfilehash: 7e858fe4c1f8e93f6e6fa30b33f5682945d03c32
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403078"
 ---
 # <a name="caching-data-at-application-startup-c"></a>アプリケーションの起動時にデータをキャッシュする (C#)
 
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF をダウンロードします。](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
+[PDF のダウンロード](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
 
 > 一部のデータが頻繁に使用する Web アプリケーションで、一部のデータの使用は頻度の低い。 頻繁に使用されるデータと呼ばれる手法を事前に読み込むことによって、ASP.NET アプリケーションのパフォーマンスを改善できます。 このチュートリアルでは、事前対応型の読み込みは、アプリケーションの起動時にキャッシュにデータを読み込むを 1 つの方法を示します。
 
@@ -119,7 +119,7 @@ ms.locfileid: "59403078"
 > 既にある場合、`Global.asax`ファイルで、プロジェクトでは、グローバル アプリケーション クラスが項目の種類は、新しい項目の追加 ダイアログ ボックスは表示されません。
 
 
-[![Add、Global.asax ファイル、Web アプリケーションのルート ディレクトリ](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
+[![Web アプリケーションのルート ディレクトリに、Global.asax ファイルを追加します。](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
 **図 3**:追加、 `Global.asax` Your Web アプリケーションのルート ディレクトリにファイル ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image5.png))。
 
@@ -142,7 +142,7 @@ ms.locfileid: "59403078"
 必要な作業は以上です。 アプリケーションの起動時に、`LoadStaticCache()`メソッドは、BLL から供給業者の情報を取得し、静的メンバー変数に保存 (を使用して最終的にどのようなキャッシュに格納するか、`StaticCache`クラス)。 この動作を確認するためにブレークポイントを設定、`Application_Start`メソッドと、アプリケーションを実行します。 アプリケーションの開始時にブレークポイントをヒットしたことに注意してください。 ただし、後続の要求も、実行、`Application_Start`メソッドを実行します。
 
 
-[![Use にブレークポイントを Application_Start イベント ハンドラーは、実行されていることを確認してください](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
+[![Application_Start イベント ハンドラーが実行されていることを確認するブレークポイントを使用してください。](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
 **図 4**:確認するブレークポイントを使用している、`Application_Start`イベント ハンドラーが実行されている ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image8.png))。
 
@@ -158,12 +158,12 @@ ms.locfileid: "59403078"
 開いて開始、`AtApplicationStartup.aspx`ページで、`Caching`フォルダー。 GridView をデザイナーの設定には、ツールボックスからドラッグしてその`ID`プロパティを`Suppliers`します。 次に、GridView のスマート タグからをという名前の新しい ObjectDataSource を作成する選択`SuppliersCachedDataSource`します。 構成を使用する ObjectDataSource、`StaticCache`クラスの`GetSuppliers()`メソッド。
 
 
-[![C構成、ObjectDataSource StaticCache クラスを使用する](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
+[![StaticCache クラスを使用する ObjectDataSource を構成します。](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
 
 **図 5**:構成を使用する ObjectDataSource、`StaticCache`クラス ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image11.png))。
 
 
-[![Use GetSuppliers() メソッド キャッシュ仕入先データを取得する](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
+[![GetSuppliers() メソッドを使用して、キャッシュされた仕入先データを取得するには](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
 
 **図 6**:使用して、`GetSuppliers()`キャッシュ仕入先データを取得するメソッド ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image14.png))。
 
@@ -176,7 +176,7 @@ ms.locfileid: "59403078"
 図 7 では、ブラウザーで表示する際、ページを示します。 出力は同じ BLL からデータをプルしますが`SuppliersBLL`クラスが使用して、`StaticCache`クラスは、アプリケーションの起動時にキャッシュされたとして仕入先データを返します。 ブレークポイントを設定することができます、`StaticCache`クラスの`GetSuppliers()`この動作を確認するメソッド。
 
 
-[![TGridView ではキャッシュされた仕入先データが表示されます](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
+[![キャッシュの仕入先データが GridView に表示されます。](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
 
 **図 7**:キャッシュの仕入先データが GridView に表示されます ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image17.png))。
 

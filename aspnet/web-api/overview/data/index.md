@@ -13,7 +13,7 @@ ms.openlocfilehash: 9c5ef1e85f0b5ca7ead67dfe28a3a43f3e5c464a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400036"
 ---
 # <a name="working-with-data-in-aspnet-web-api"></a>ASP.NET Web API でデータを扱う
@@ -24,7 +24,7 @@ ms.locfileid: "59400036"
 - [Web API 2 と Entity Framework 6 を使用する](using-web-api-with-entity-framework/index.md)
 
     - [プロジェクトの作成](using-web-api-with-entity-framework/part-1.md)
-    - [モデルとコントローラーの追加](using-web-api-with-entity-framework/part-2.md)
+    - [エージェントとコントローラーの追加](using-web-api-with-entity-framework/part-2.md)
     - [データベースのシード](using-web-api-with-entity-framework/part-3.md)
     - [エンティティ関係の処理](using-web-api-with-entity-framework/part-4.md)
     - [データ転送オブジェクト (DTO) の作成](using-web-api-with-entity-framework/part-5.md)

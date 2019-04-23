@@ -12,7 +12,7 @@ ms.openlocfilehash: bb9ae940ba90620a6a4c2d373117635f80e14588
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397449"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure で実世界のクラウド アプリをビルドする
@@ -35,4 +35,4 @@ ms.locfileid: "59397449"
 - [分散キャッシュ](distributed-caching.md)
 - [キューを中心とした作業のパターン](queue-centric-work-pattern.md)
 - [その他のパターンとガイダンス](more-patterns-and-guidance.md)
-- [付録:Fix It サンプル アプリケーション](the-fix-it-sample-application.md)
+- [付録:修正プログラム、サンプル アプリケーション](the-fix-it-sample-application.md)

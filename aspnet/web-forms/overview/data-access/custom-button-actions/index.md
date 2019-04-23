@@ -12,7 +12,7 @@ ms.openlocfilehash: f1e03432d543d94fb03c579b39c09fa2da809e75
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399178"
 ---
 # <a name="custom-button-actions"></a>カスタム ボタン アクション
@@ -20,5 +20,5 @@ ms.locfileid: "59399178"
 > この短い一連のチュートリアルでは、アプリケーションで必要なすべてのアクションを実行することができます、GridView、DetailsView コントロールにボタンを追加する方法を示します。
 
 
-- [GridView にボタンを追加し、応答する (C#)](adding-and-responding-to-buttons-to-a-gridview-cs.md)
-- [GridView にボタンを追加し、応答する (VB)](adding-and-responding-to-buttons-to-a-gridview-vb.md)
+- [GridView にボタンを追加し、ボタンに応答する (C#)](adding-and-responding-to-buttons-to-a-gridview-cs.md)
+- [GridView にボタンを追加し、ボタンに応答する (VB)](adding-and-responding-to-buttons-to-a-gridview-vb.md)

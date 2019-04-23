@@ -12,7 +12,7 @@ ms.openlocfilehash: 7374b1afafa9ca63309f3c0369c5efd808f7f28a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401986"
 ---
 # <a name="webmatrix-readme"></a>WebMatrix Readme
@@ -120,8 +120,8 @@ ms.locfileid: "59401986"
 ドキュメントのこのセクションでは、新機能、変更、および Razor 構文を使用して ASP.NET Web Pages の 1.0 リリースの既知の問題について説明します。
 
 - [新機能](#NewFeatures)
-- [変更内容](#Changes)
-- [懸案事項](#Issues)
+- [変更](#Changes)
+- [問題](#Issues)
 
 #### <a id="NewFeatures"></a>  新機能
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 4fe34858aadb705ffb59e06ba805493d89aa4028
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403208"
 ---
 # <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>TagBuilder クラスを使用して、HTML ヘルパー (VB) をビルドするには
@@ -65,7 +65,7 @@ TagBuilder.MergeAttribute() メソッドを使用して、TagBuilder に src 属
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-vb/samples/sample2.aspx)]
 
 
-[![T彼は新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.png)
+[![[新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.png)
 
 **図 01**:イメージ ヘルパーを使用して ([フルサイズの画像を表示する をクリックします](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image2.png))。
 

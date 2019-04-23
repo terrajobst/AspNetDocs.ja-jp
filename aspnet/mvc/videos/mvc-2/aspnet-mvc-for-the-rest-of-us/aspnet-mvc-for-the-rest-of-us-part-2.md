@@ -12,7 +12,7 @@ ms.openlocfilehash: 17a144dfe2fb9f34ceb15644b44828ec6aeaf577
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399672"
 ---
 # <a name="aspnet-mvc-for-the-rest-of-us-part-2"></a>残りの人のための ASP.NET MVC:第 2 部

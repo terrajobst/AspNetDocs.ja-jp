@@ -12,7 +12,7 @@ ms.openlocfilehash: 8b1241294f28441c19a34ef5471883db9d50a529
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398060"
 ---
 # <a name="testing-and-debugging-aspnet-web-api"></a>テストと ASP.NET Web API のデバッグ

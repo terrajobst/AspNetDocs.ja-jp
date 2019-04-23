@@ -12,7 +12,7 @@ ms.openlocfilehash: 188f98d013707178e50858f8ea26d8cf2af06bea
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406016"
 ---
 # <a name="presetting-list-entries-with-cascadingdropdown-c"></a>CascadingDropDown で一覧のエントリを事前設定する (C#)
@@ -53,7 +53,7 @@ CascadingDropDown 値の型の配列を返します。 リスト項目のキャ�
 ブラウザーでページの読み込みが挿入されますをドロップダウン リストに 3 つのベンダーでは、あらかじめ選択されている 2 つ目。
 
 
-[![T彼の一覧が入力し、自動的にあらかじめ選択されています](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)
+[![リストが入力され、自動的にあらかじめ選択されています](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)
 
 リストが入力され、自動的にあらかじめ選択されています ([フルサイズの画像を表示する をクリックします](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png))。
 

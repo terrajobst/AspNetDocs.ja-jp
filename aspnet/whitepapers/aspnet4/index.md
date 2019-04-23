@@ -12,10 +12,10 @@ ms.openlocfilehash: 7a73b6657e6f074cac5e63c907924a8cae68e60e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397189"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
 
 - [ASP.NET 4 と Visual Studio 2010 Web 開発の概要](overview.md)
-- [ASP.NET 4 の破壊的変更](breaking-changes.md)
+- [ASP.NET 4 の互換性に影響する変更](breaking-changes.md)

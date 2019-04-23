@@ -12,7 +12,7 @@ ms.openlocfilehash: 68c1acdaaf1e6674f4dc3bcca0557382407ca147
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400114"
 ---
 # <a name="authentication"></a>認証
@@ -31,7 +31,7 @@ ms.locfileid: "59400114"
 - [メンバーシップ スキーマと連動するように SQL を構成する](configuring-sql-to-work-with-membership-schemas.md)
 - [既定のメンバーシップ スキーマのメンバーシップ設定を変更する](changing-membership-settings-in-the-default-membership-schema.md)
 - [ユーザーの作成ウィザードでユーザー アカウントを作成する](creating-user-accounts-with-the-create-user-wizard.md)
-- [ユーザー アカウントをプログラムで作成する](creating-user-accounts-programmatically.md)
+- [ユーザー アカウントをプログラミングで作成する](creating-user-accounts-programmatically.md)
 - [ユーザーを手動で検証する](validating-users-manually.md)
 - [ログイン コントロールでユーザーを検証する](validating-users-with-the-login-control.md)
 - [メンバーシップ システムにユーザーを追加する](adding-users-to-your-membership-system.md)

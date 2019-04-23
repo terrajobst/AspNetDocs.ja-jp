@@ -12,13 +12,13 @@ ms.openlocfilehash: c681415920bb0bfb4bc1c012e42fb5a528db93ca
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406835"
 ---
 # <a name="using-web-api-2-with-entity-framework-6"></a>Web API 2 と Entity Framework 6 を使用する
 
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 > このチュートリアルは、バック エンドを ASP.NET Web API を使用して web アプリケーションの作成の基本を説明します。 チュートリアルでは、クライアント側の JavaScript アプリケーションのデータ層、および Knockout.js Entity Framework 6 を使用します。 このチュートリアルでは、アプリを Azure App Service Web Apps にデプロイする方法も示します。
 >
