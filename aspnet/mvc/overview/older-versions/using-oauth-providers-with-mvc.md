@@ -12,7 +12,7 @@ ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396983"
 ---
 # <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 で OAuth プロバイダーを使用する
@@ -52,7 +52,7 @@ Visual Studio で、新しい ASP.NET MVC 4 Web アプリケーションを作�
 
 ![プロジェクトを作成します。](using-oauth-providers-with-mvc/_static/image1.png)
 
-新しい ASP.NET MVC 4 プロジェクト] ウィンドウで、次のように選択します。**インターネット アプリケーション**して**Razor**ビュー エンジンとして。
+新しい ASP.NET MVC 4 プロジェクト ウィンドウで、次のように選択します。**インターネット アプリケーション**して**Razor**ビュー エンジンとして。
 
 ![インターネット アプリケーションを選択します。](using-oauth-providers-with-mvc/_static/image2.png)
 
@@ -113,7 +113,7 @@ Facebook から id とシークレットを受信したできた AuthConfig フ�
 
 このチュートリアルでは、外部プロバイダーのボタンでログをカスタマイズする方法は説明しません。 詳細については、次を参照してください。 [Oauth/openid を使用する場合は、ログイン UI をカスタマイズする](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx)します。
 
-Facebook の資格情報でログインする Facebook] ボタンをクリックします。 外部プロバイダーのいずれかを選択すると、そのサイトにリダイレクトされ、ログインにそのサービスによってメッセージが表示するは。
+Facebook の資格情報でログインする Facebook ボタンをクリックします。 外部プロバイダーのいずれかを選択すると、そのサイトにリダイレクトされ、ログインにそのサービスによってメッセージが表示するは。
 
 次の図は、Facebook のログイン画面を示しています。 Oauthmvcexample という名前のサイトにログインする、Facebook アカウントを使用していることを示します。
 
@@ -152,7 +152,7 @@ Facebook の資格情報でログインした後は、ページは、サイト�
 3. コマンドを実行**IgnoreChanges 追加移行初期 –**
 4. コマンドを実行**データベースの更新**
 
-ここで、新しいプロパティを追加します。 Models] フォルダーで、AccountModels.cs ファイルを開き RegisterExternalLoginModel クラスを探します。 RegisterExternalLoginModel クラスは、認証プロバイダーから返される値を保持します。 FullName とリンクを以下の強調表示されているという名前のプロパティを追加します。
+ここで、新しいプロパティを追加します。 Models フォルダーで、AccountModels.cs ファイルを開き RegisterExternalLoginModel クラスを探します。 RegisterExternalLoginModel クラスは、認証プロバイダーから返される値を保持します。 FullName とリンクを以下の強調表示されているという名前のプロパティを追加します。
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample4.cs?highlight=9-13)]
 
@@ -185,7 +185,7 @@ UsersContext クラスでは、新しいクラスの DbSet プロパティを作
 
 - ID
 - name
--  リンクをクリックする
+- リンクをクリックする
 - 性別
 - accesstoken
 
@@ -215,7 +215,7 @@ UsersContext クラスでは、新しいクラスの DbSet プロパティを作
 
 アプリケーションを実行し、保存された追加情報を新しいユーザーを登録する、ほぼ準備が整いました。 サイトに既に登録されていないアカウントが必要です。 別のテスト アカウントを使用か、内の行を削除することができます、 **UserProfile**と**web ページ\_OAuthMembership**で再利用するアカウントのテーブル。 これらの行を削除すると、アカウントが再登録するようになります。
 
-アプリケーションを実行し、新しいユーザーを登録します。 この時間には確認] ページが含まれているより多くの値に注意してください。
+アプリケーションを実行し、新しいユーザーを登録します。 この時間には確認 ページが含まれているより多くの値に注意してください。
 
 ![register](using-oauth-providers-with-mvc/_static/image12.png)
 
