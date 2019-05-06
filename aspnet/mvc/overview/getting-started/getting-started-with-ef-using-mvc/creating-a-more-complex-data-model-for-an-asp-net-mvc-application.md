@@ -351,7 +351,7 @@ Entity Framework を自動的に作成、`CourseInstructor`して、テーブル
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample33.cs)]
 
-作成するときに、`Course`オブジェクトを初期化する、`Instructors`ナビゲーション プロパティをコードを使用して空のコレクションとして`Instructors = new List<Instructor>()`します。 追加が可能になります。`Instructor`これに関連するエンティティ`Course`を使用して、`Instructors.Add`メソッド。 空のリストを作成していない場合はできるこれらの関係を追加するため、`Instructors`プロパティは null にして、必要はありません、`Add`メソッド。 コンス トラクターに、リストの初期化を追加することもできます。
+作成するときに、`Course`オブジェクトを初期化する、`Instructors`ナビゲーション プロパティをコードを使用して空のコレクションとして`Instructors = new List<Instructor>()`します。 追加が可能になります。`Instructor`これに関連するエンティティ`Course`を使用して、`Instructors.Add`メソッド。 空のリストを作成していない場合はできるこれらの関係を追加するため、`Instructors`プロパティは null にして、必要はありません、`Add`メソッド。 コンストラクターに、リストの初期化を追加することもできます。
 
 ## <a name="add-a-migration"></a>移行を追加する
 

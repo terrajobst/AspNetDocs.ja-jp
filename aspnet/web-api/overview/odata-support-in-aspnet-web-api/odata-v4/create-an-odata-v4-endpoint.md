@@ -99,7 +99,7 @@ Web.config ファイルを開き、内の次のセクションを追加、**構�
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample5.cs)]
 
-コンス トラクターの`"name=ProductsContext"`接続文字列の名前を指定します。
+コンストラクターの`"name=ProductsContext"`接続文字列の名前を指定します。
 
 ## <a name="configure-the-odata-endpoint"></a>OData エンドポイントを構成します。
 

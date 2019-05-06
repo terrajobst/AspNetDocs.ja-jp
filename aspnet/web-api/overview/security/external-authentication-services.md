@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/security/external-authentication-services
-title: ASP.NET Web API を使用した外部認証サービス (c#) |Microsoft Docs
+title: ASP.NET Web API を使用した外部認証サービス (C#) |Microsoft Docs
 author: rmcmurray
 description: ASP.NET Web API で外部の認証サービスの使用について説明します。
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57064919"
 ---
-# <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API を使用した外部認証サービス (c#)
+# <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API を使用した外部認証サービス (C#)
 
 展開のセキュリティ オプションの visual Studio 2017 と ASP.NET 4.7.2[シングル ページ アプリケーション](../../../single-page-application/index.md)(SPA) と[Web API](../../index.md)サービスがいくつかありますが、外部認証サービスと統合するにはOauth/openid とソーシャル メディア サービスの認証:Microsoft アカウント、Twitter、Facebook、および Google。  
 
@@ -83,7 +83,7 @@ Visual Studio 2017 を起動し、選択**新しいプロジェクト**スター
 
 <!-- [![](external-authentication-services/_static/image6.png "Click to Expand the Image")](external-authentication-services/_static/image5.png) -->
 
-ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、選択**インストール済み**展開**Visual C#** します。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション (.Net Framework)** します。 プロジェクトの名前を入力し、クリックして**OK**します。
+ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、選択**インストール済み**展開**Visual C#** します。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション (.Net Framework)** します。 プロジェクトの名前を入力し、クリックして**OK**します。
 
 [![](external-authentication-services/_static/image71.png "クリックして、イメージの展開")](external-authentication-services/_static/image71.png)
 

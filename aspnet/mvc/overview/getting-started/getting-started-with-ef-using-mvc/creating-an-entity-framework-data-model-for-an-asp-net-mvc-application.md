@@ -174,7 +174,7 @@ Entity Framework がという名前が場合に、外部キー プロパティ�
 
 ### <a name="specify-the-connection-string"></a>接続文字列を指定します。
 
-(これは後で、Web.config ファイルに追加されます) 接続文字列の名前で、コンス トラクターに渡されます。
+(これは後で、Web.config ファイルに追加されます) 接続文字列の名前で、コンストラクターに渡されます。
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs?highlight=1)]
 

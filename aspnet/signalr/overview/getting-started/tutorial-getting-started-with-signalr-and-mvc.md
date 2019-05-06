@@ -37,7 +37,7 @@ ms.locfileid: "57065749"
 
 このセクションでは、Visual Studio 2017 と SignalR 2 を使用して、空の ASP.NET MVC 5 アプリケーションを作成し、SignalR ライブラリの追加、チャット アプリケーションを作成する方法を示します。
 
-1. Visual Studio で、c# ASP.NET アプリケーションを作成するには、.NET Framework 4.5 を対象として、SignalRChat、という名前を付けます [ok] をクリックします。
+1. Visual Studio で、C# ASP.NET アプリケーションを作成するには、.NET Framework 4.5 を対象として、SignalRChat、という名前を付けます [ok] をクリックします。
 
     ![Web を作成します。](tutorial-getting-started-with-signalr-and-mvc/_static/image1.png)
 

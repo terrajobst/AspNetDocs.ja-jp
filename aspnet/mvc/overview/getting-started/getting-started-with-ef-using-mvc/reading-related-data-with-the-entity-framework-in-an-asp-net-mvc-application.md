@@ -78,7 +78,7 @@ Dto を使用していない場合は、遅延読み込みを無効にして、�
 ここでは、その他[遅延読み込みを無効にする](https://msdn.microsoft.com/data/jj574232):
 
 - 特定のナビゲーション プロパティでは、省略、`virtual`キーワード、プロパティを宣言するときにします。
-- すべてのナビゲーション プロパティの設定`LazyLoadingEnabled`に`false`、コンテキスト クラスのコンス トラクターに次のコードを配置します。
+- すべてのナビゲーション プロパティの設定`LazyLoadingEnabled`に`false`、コンテキスト クラスのコンストラクターに次のコードを配置します。
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 

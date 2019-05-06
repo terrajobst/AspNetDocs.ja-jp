@@ -36,7 +36,7 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
 
 2. Visual Studio で、**[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択します。
 
-3. **新しいプロジェクト**ダイアログ ボックスで、 **Visual c#** > **クラウド**、左側のカテゴリを選び、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**選択 **[ok]** します。
+3. **新しいプロジェクト**ダイアログ ボックスで、 **Visual C#** > **クラウド**、左側のカテゴリを選び、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**選択 **[ok]** します。
 
    ![新しいクラウド アプリケーション](using-signalr-performance-counters-in-an-azure-web-role/_static/image1.png)
 
