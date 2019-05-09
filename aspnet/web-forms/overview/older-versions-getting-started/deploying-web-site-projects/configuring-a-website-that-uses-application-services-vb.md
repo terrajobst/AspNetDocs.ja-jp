@@ -158,7 +158,7 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-vb/samples/sample4.xml)]
 
-設定の詳細については、`applicationName`属性とその根拠を参照してください[ *Scott Guthrie* ](https://weblogs.asp.net/scottgu/) s ブログの投稿「 [*常 applicationName の設定ASP.NET メンバーシップとその他のプロバイダーを構成するときにプロパティ*](https://weblogs.asp.net/scottgu/443634)します。
+`applicationName`属性とその背後にある理論的根拠の設定に関するより多くの議論については、[ *Scott Guthrie* ](https://weblogs.asp.net/scottgu/) ブログの投稿「 [*Always set the "applicationName" property when configuring ASP.NET 2.0 Membership and other Providers*](https://weblogs.asp.net/scottgu/443634) 」を参照してください。
 
 ### <a name="managing-user-accounts-in-the-production-environment"></a>運用環境でのユーザー アカウントの管理
 
