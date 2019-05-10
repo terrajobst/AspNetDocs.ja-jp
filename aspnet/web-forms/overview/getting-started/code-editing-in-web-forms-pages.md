@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3473ad476fbbebc58e12586334b4600f57cf17ed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397371"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134237"
 ---
 # <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web フォームのコードを編集する
 
@@ -31,7 +31,6 @@ ms.locfileid: "59397371"
 - コード スニペットを挿入します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
-
 
 このチュートリアルを完了するための要件は次のとおりです。
 
@@ -65,14 +64,11 @@ ms.locfileid: "59397371"
 
     Visual Studio では、Web フォーム テンプレートに基づく事前構築済みの機能を含む新しいプロジェクトを作成します。
 
-
 ## <a name="creating-a-new-aspnet-web-forms-page"></a>新しい ASP.NET Web フォーム ページの作成
-
 
 新しい Web フォーム アプリケーションを作成する場合、 **ASP.NET Web アプリケーション**プロジェクト テンプレートを Visual Studio の ASP.NET ページ (Web フォーム ページ) という名前を追加します*Default.aspx*他のいくつかのファイルだけでなく、フォルダーを選択します。 使用することができます、 *Default.aspx*ページ、Web アプリケーションのホーム ページとして。 ただし、このチュートリアルでは作成し、新しいページを使用します。
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Web アプリケーションにページを追加するには
-
 
 1. **ソリューション エクスプ ローラー**、Web アプリケーションの名前を右クリックし (アプリケーション名は、このチュートリアルでは**BasicWebSite**)、をクリックし、**追加** - &gt;**新しい項目の**します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
@@ -82,14 +78,11 @@ ms.locfileid: "59397371"
  Visual Studio では、新しいページを作成し、それを開きます。
 4. 次に、この新しいページを既定のスタートアップ ページとして設定します。 **ソリューション エクスプ ローラー**、という名前の新しいページを右クリックして*名前*選択**スタート ページとして設定**します。 次に、進行状況をテストするには、このアプリケーションを実行したとき、ブラウザーでこの新しいページに自動的に表示されます。
 
-
 ## <a name="correcting-inline-coding-errors"></a>インライン コード エラーを修正します。
-
 
 Visual Studio でコード エディターを使用して、コードを記述すると、コード エディターに、エラーを修正するのに役立ちますエラーを加えた場合、エラーを回避するのに役立ちます。 このチュートリアルでは、コード エディターでのエラー修正機能を示す行を記述します。
 
 ### <a name="to-correct-simple-coding-errors-in-visual-studio"></a>Visual Studio での単純なコーディング エラーを修正するには
-
 
 1. **デザイン**ビューで、空白のページのハンドラーを作成するをダブルクリック、**ロード**ページのイベント。   
    コードを記述する場所としてのみ、イベント ハンドラーを使用しています。
@@ -109,7 +102,6 @@ Visual Studio でコード エディターを使用して、コードを記述�
     > [!NOTE] 
     > 
     > Visual Studio での設定を選択して書式設定、現在のコードを表示する**ツール** - &gt; **オプション** - &gt; **フォントと色**します。
-
 
 ## <a name="refactoring-and-renaming"></a>リファクタリングと名前を変更します。
 
@@ -156,7 +148,6 @@ Visual Studio でコード エディターを使用して、コードを記述�
 
 ### <a name="to-use-refactoring-to-rename-a-variable"></a>リファクタリングを使用して、変数の名前を変更するには
 
-
 1. ** をクリックして**イベント ハンドラーでは、次の行を見つけます。
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
@@ -173,7 +164,6 @@ Visual Studio でコード エディターを使用して、コードを記述�
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample7.cs)]
 
     変数`alist`この行の名前は変更されず、変数と同じ値を表していないため、`alist`名前を変更しました。 変数`alist`で、`DisplayArray`宣言は、そのメソッドのローカル変数。 これは、リファクタリングを使用して、変数の名前を変更するが、エディターで単純に検索および置換操作を実行するよりも異なることを示しています操作している変数のセマンティクスの知識がある変数を名前変更をリファクタリングします。
-
 
 ## <a name="inserting-snippets"></a>スニペットの挿入
 

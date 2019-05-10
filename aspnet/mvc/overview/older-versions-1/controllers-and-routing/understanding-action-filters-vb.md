@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: e83812f2-c53e-4a43-a7c1-d64c59ecf694
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bbedc11b9b1225b1047350c1c84a116ecef0c380
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fb3ed252a9232a2f5a1ad4257156a142bbe5b174
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407407"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123172"
 ---
 # <a name="understanding-action-filters-vb"></a>アクション フィルターについて理解する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59407407"
 [PDF のダウンロード](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_VB.pdf)
 
 > このチュートリアルの目的では、アクション フィルターについて説明します。 アクション フィルターは、コント ローラーのアクションまたは全体コント ローラー--アクションを実行する方法を変更するに適用できる属性です。
-
 
 ## <a name="understanding-action-filters"></a>アクション フィルターについて理解します。
 
@@ -48,11 +47,9 @@ ms.locfileid: "59407407"
 
 繰り返しを起動する場合、`Index()`お使いのブラウザーのアドレス バーに URL データ/インデックスを入力して、更新操作ボタンを複数回同時には 10 秒間表示されます。 出力、`Index()`アクションが (図 1 参照)、10 秒間キャッシュされます。
 
-
 [![キャッシュされる時間](understanding-action-filters-vb/_static/image2.png)](understanding-action-filters-vb/_static/image1.png)
 
 **図 01**:時間のキャッシュ ([フルサイズの画像を表示する をクリックします](understanding-action-filters-vb/_static/image3.png))。
-
 
 リスト 1、1 つのアクション フィルター – で、`OutputCache`アクション フィルター – に適用されます、`Index()`メソッド。 が必要な場合は、同じアクションに複数のアクション フィルターを適用できます。 両方を適用するなど、`OutputCache`と`HandleError`同じアクションにアクション フィルター。
 
@@ -106,11 +103,9 @@ ASP.NET MVC フレームワークには、次の 4 つの異なる種類のフ�
 
 リストの 2 で、 `OnActionExecuting()`、 `OnActionExecuted()`、 `OnResultExecuting()`、および`OnResultExecuted()`すべてのメソッドを呼び出す、`Log()`メソッド。 メソッドと現在のルート データの名前に渡される、`Log()`メソッド。 `Log()`メソッドは、Visual Studio の出力ウィンドウにメッセージを書き込みます (図 2 参照)。
 
-
 [![Visual Studio の出力ウィンドウへの書き込み](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
 
 **図 02**:Visual Studio の出力ウィンドウへの書き込み ([フルサイズの画像を表示する をクリックします](understanding-action-filters-vb/_static/image6.png))。
-
 
 リスト 3 の Home コント ローラーは、全体のコント ローラー クラスに、ログのアクション フィルターを適用する方法を示しています。 たびに、Home コント ローラーによって公開されるアクションのいずれかが呼び出される – か、`Index()`メソッドまたは`About()`メソッド – Visual Studio の出力ウィンドウに、アクションがログに記録する処理の段階です。
 

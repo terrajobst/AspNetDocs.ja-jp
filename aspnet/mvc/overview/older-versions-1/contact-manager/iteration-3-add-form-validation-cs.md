@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 51a0d175-913b-43d8-95e3-840fb96ad1a9
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 973878ef0afd62035b3fc840371e6c6223c8951c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af2e86e820f60f0a3d8e3db8f78eba67ef63579a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413790"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123960"
 ---
 # <a name="iteration-3--add-form-validation-c"></a>繰り返し #3 – フォーム検証を追加する (c#)
 
@@ -23,9 +23,7 @@ ms.locfileid: "59413790"
 
 > 3 番目のイテレーションでは、基本的なフォーム検証を追加します。 ユーザーは、必要なフォームのフィールドを完了しなくても、フォームを送信できないようにようにします。 また、電子メール アドレスと電話番号を検証しました。
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
-  
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。
 
@@ -45,16 +43,13 @@ ms.locfileid: "59413790"
 
 - 繰り返し #7 - Ajax 機能を追加します。 7 番目のイテレーションで改良、応答性と、アプリケーションのパフォーマンスの Ajax のサポートを追加します。
 
-
 ## <a name="this-iteration"></a>このイテレーション
 
 Contact Manager アプリケーションの 2 番目のイテレーションでは、基本的なフォーム検証を追加します。 により、ユーザーが必要なフォーム フィールドの値を入力しなくても、連絡先を送信できないようにします。 また、電話番号、電子メール アドレスが (図 1 参照) を検証しました。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
 
 **図 01**:検証を使用して、フォーム ([フルサイズの画像を表示する をクリックします](iteration-3-add-form-validation-cs/_static/image2.png))。
-
 
 このイテレーションでは、コント ローラー アクションに直接検証ロジックを追加します。 一般に、これは、ASP.NET MVC アプリケーションに検証を追加することをお勧めの方法ではありません。 別のアプリケーションの検証ロジックを配置するほうが効果的[サービス層](http://martinfowler.com/eaaCatalog/serviceLayer.html)します。 次のイテレーションは、アプリケーションを保守しやすくなりますように Contact Manager アプリケーションをリファクタリングします。
 
@@ -86,7 +81,6 @@ HTML フォーム上にすぐに表示される Html.ValidationSummary() ヘル�
 > 
 > 検証エラー メッセージの外観をカスタマイズするには、このセクションで説明されているスタイル シートのクラスを変更することができます。
 
-
 ## <a name="adding-validation-logic-to-the-create-action"></a>検証ロジックを追加する、アクションの作成
 
 現在のところ、作成ビューは検証エラー メッセージをすべてのメッセージを生成するためのロジックを作成していないために表示されません。 検証エラー メッセージを表示するためには、ModelState にエラー メッセージを追加する必要があります。
@@ -94,7 +88,6 @@ HTML フォーム上にすぐに表示される Html.ValidationSummary() ヘル�
 > [!NOTE] 
 > 
 > UpdateModel() メソッドのエラー メッセージに追加 ModelState 自動的にフォーム フィールドの値をプロパティに割り当てエラーがある場合にします。 たとえば、"apple"の文字列を DateTime 値を受け入れる BirthDate プロパティに割り当てるしようとした場合、UpdateModel() メソッドに追加しますエラー ModelState。
-
 
 リスト 2 で修正された Create() メソッドには、新しい連絡先は、データベースに挿入される前に、Contact クラスのプロパティを検証する新しいセクションが含まれています。
 
@@ -116,7 +109,6 @@ HTML フォーム上にすぐに表示される Html.ValidationSummary() ヘル�
 > [!NOTE] 
 > 
 > 正規表現のリポジトリから電話番号、電子メール アドレスを検証するための正規表現が表示されました [*http://regexlib.com*](http://regexlib.com)
-
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>編集の操作に検証ロジックを追加します。
 

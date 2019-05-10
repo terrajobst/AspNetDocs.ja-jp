@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e97b66aed789cf6f2b2b503ae86e773ac03d74e0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: df863fc6740847101c9900750a3f257c19ced9fd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392938"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134202"
 ---
 # <a name="users-and-roles-on-the-production-website-vb"></a>ユーザーとロール、運用 web サイト (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59392938"
 [PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
 
 > ASP.NET web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成して作成、編集、およびユーザーとロールを削除するための web ベースのユーザー インターフェイスを提供します。 残念ながら、WSAT のみ機能、localhost からアクセスすると、ブラウザーから、実稼働 web サイトの管理ツールにアクセスできないことを意味します。 良い知らせは、ユーザーと運用上の役割を管理できるようにするための回避策があることです。 このチュートリアルでは、これらの回避策や他のユーザーで検索します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -80,7 +79,6 @@ WSAT は、3 つのセクションに分かれています。
 
 > [!NOTE]
 > 接続文字列を変更することを忘れないでください、`databaseConnectionStrings.config`完了すると、開発用データベースにファイルから文字列 's 接続、開発を使用してサイトをテストするときに運用データで作業する WSAT それ以外の場合の操作環境。 ここで説明した技法により、WSAT を使用して、リモート ユーザーおよびロールを管理する、中に、その他の WSAT 構成オプション (アクセス規則、SMTP 設定、トレースおよびデバッグ設定、およびなど) のいずれかの変更が、を変更ことに留意してください。`Web.config`ファイル。 その結果、開発環境と運用環境にない設定に加えられた変更が適用されます。
-
 
 ## <a name="creating-custom-user-and-role-management-web-pages"></a>カスタム ユーザーおよびロール管理 Web ページの作成
 

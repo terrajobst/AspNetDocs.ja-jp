@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 9969a68a3e1aa043845fb5affd6d3b73dec4136d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8656f4a4211c2e97d71d76dd2f799412539896ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425393"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118843"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データ ストレージ オプション (Azure で現実世界のクラウド アプリの構築)
 
@@ -21,8 +21,7 @@ ms.locfileid: "58425393"
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、[第 1 章](introduction.md)を参照してください。
-
+> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
 ほとんどの人は、リレーショナル データベースに使用され、クラウド アプリを設計するときにその他のデータ ストレージ オプションは見落とされがちになります。 結果は、そのため、最適なパフォーマンス、高い費用は、または最悪の場合があります[NoSQL](http://en.wikipedia.org/wiki/NoSQL) (非リレーショナル) データベースでは、いくつかのタスクをリレーショナル データベースよりも効率的に処理できます。 お客様は、重要なデータ ストレージの問題を解決するための尋ね、ときに多くの場合、NoSQL オプションのいずれかならば、強化、リレーショナル データベースがあるため。 そのような状況で、顧客がでした方場合は、運用環境にアプリを展開する前に、NoSQL ソリューションを実装する必要があります。
 

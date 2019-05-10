@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: c42fa327c324ac2b721268c56782a24755ec7225
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 91b99e6e250342851aea6860164b6f6af54818d1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391066"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119322"
 ---
 # <a name="deploying-web-packages"></a>Web パッケージを配置する
 
@@ -37,7 +37,6 @@ ms.locfileid: "59391066"
 > - 」の説明に従って、web アプリケーションをパッケージ化し、[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
 > - 変更した、 *SetParameters.xml* 」の説明に従って、ターゲット環境の適切なパラメーター値を提供するファイル[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)します。
 
-
 実行して、[*プロジェクト名*]*. deploy.cmd*ファイルは web パッケージを配置する最も簡単な方法です。 具体的を使用して、 *. deploy.cmd*ファイルは、これら MSDeploy.exe を直接使用する利点を提供しています。
 
 - Web デプロイ パッケージの場所を指定する必要はありません&#x2014;、 *. deploy.cmd*ファイルが既にあるを知っています。
@@ -52,9 +51,7 @@ ms.locfileid: "59391066"
 
 *. Deploy.cmd*ファイルには、さまざまなコマンド ライン オプションがサポートしています。 コマンド プロンプトから、ファイルを実行するときにこの基本的な構文を示します。
 
-
 [!code-console[Main](deploying-web-packages/samples/sample1.cmd)]
-
 
 いずれかを指定する必要があります、 **/T**フラグまたは **/Y**試用版の実行または実際の展開をそれぞれ実行するかどうかを示すフラグ、(同じコマンド内に両方のフラグを使用しないでください)。 このテーブルには、これらのフラグの目的について説明します。
 
@@ -71,7 +68,6 @@ ms.locfileid: "59391066"
 
 > [!NOTE]
 > という名前のファイルも作成、ビルド プロセスでは、web パッケージを作成するたびに*readme.txt-[プロジェクト名] .deploy*これらの展開オプションをについて説明します。
-
 
 これらのフラグに加え、追加として Web 配置操作の設定を指定できます *. deploy.cmd*パラメーター。 追加設定を指定するは、基になる MSDeploy.exe コマンドに渡さだけです。 これらの設定の詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。
 
@@ -94,9 +90,7 @@ ms.locfileid: "59391066"
 
 説明するためを使用する方法、 *. deploy.cmd*ファイルには、展開プロセスが簡略化され、生成を取得しを実行するときに実行する MSDeploy.exe コマンドについて見て*ContactManager.Mvc.deploy.cmd*上記のオプションを使用します。
 
-
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
-
 
 使用しての詳細については、 *. deploy.cmd* web パッケージ展開を参照してくださいファイル[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
 
@@ -152,13 +146,10 @@ MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.
 
 連絡先のマネージャーのサンプル ソリューションで見て、 **PublishWebPackages**ターゲット、 *Publish.proj*ファイル。 このターゲットは、それぞれに 1 回実行 *. deploy.cmd*という名前の項目一覧で識別されるファイル**PublishPackages**します。 ターゲットの各引数の値の完全なセットを構築するプロパティと項目のメタデータを使用して *. deploy.cmd*ファイルおよび、使用、 **Exec**コマンドを実行するタスク。
 
-
 [!code-xml[Main](deploying-web-packages/samples/sample8.xml)]
-
 
 > [!NOTE]
 > サンプル ソリューションでは、および一般的なカスタムのプロジェクト ファイルの概要で、プロジェクト ファイルのモデルのより広範な概要については、次を参照してください。[プロジェクト ファイルを理解する](understanding-the-project-file.md)と[ビルド プロセスを理解する](understanding-the-build-process.md)します。
-
 
 ## <a name="endpoint-considerations"></a>エンドポイントに関する考慮事項
 
@@ -166,33 +157,24 @@ MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.
 
 Web デプロイのリモート エージェント サービスを使用した展開先の web サーバーを構成する場合は、変換先として、ターゲット サービスの URL を指定します。
 
-
 [!code-console[Main](deploying-web-packages/samples/sample9.cmd)]
-
 
 または、サーバー名だけを指定するには、変換先としてし、Web Deploy は、リモート エージェント サービスの URL を推論します。
 
-
 [!code-console[Main](deploying-web-packages/samples/sample10.cmd)]
-
 
 Web 配置ハンドラーを使用した展開先の web サーバーを構成する場合は、変換先として、IIS Web 管理サービス (WMSvc) のエンドポイント アドレスを指定する必要があります。 既定では、形式をとります。
 
-
 [!code-console[Main](deploying-web-packages/samples/sample11.cmd)]
-
 
 いずれかを使用してこれらのエンドポイントのいずれかの対象にすることができます、 *. deploy.cmd*ファイルまたは直接 MSDeploy.exe します。 ただし、」の説明に従って管理者以外のユーザーとして Web 配置ハンドラーを配置する場合[Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)サービスのエンドポイント アドレスにクエリ文字列を追加する必要があります。
 
-
 [!code-console[Main](deploying-web-packages/samples/sample12.cmd)]
-
 
 これは、管理者以外のユーザーが IIS サーバー レベルのアクセスを持っていないためです。そのユーザーは、特定の IIS web サイトへのアクセスのみが。 Web 発行パイプライン (WPP) でのバグが原因の書き込み時に実行することはできません、 *. deploy.cmd*ファイルのクエリ文字列を含むエンドポイント アドレスを使用します。 このシナリオで直接 MSDeploy.exe を使用して、web パッケージを展開する必要があります。
 
 > [!NOTE]
 > Web デプロイのリモート エージェントのサービスと Web 配置ハンドラーの詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)します。 これらのエンドポイントにデプロイする環境に固有のプロジェクト ファイルを構成する方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
-
 
 ## <a name="authentication-considerations"></a>認証に関する注意点
 

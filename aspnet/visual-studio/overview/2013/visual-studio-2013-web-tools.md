@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fb987dd9b26ad9f0e8a88fd881bde4505ec4148
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421070"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115894"
 ---
 # <a name="hands-on-lab-visual-studio-2013-web-tools"></a>ハンズ オン ラボ:Visual Studio 2013 Web ツール
 
@@ -28,7 +28,6 @@ ms.locfileid: "59421070"
 > すべてこの電源は、拡張機能、強力な新しい機能によって、ニーズに合わせてのエディターの拡張を簡単に使用できます。 Web Essentials は、Visual Studio に拡張を (主に) web 関連のコレクションです。 (特に、CSS) の新しい IntelliSense 入力候補、ブラウザー リンクの新機能、自動の多くが含まれています JSHint の JavaScript ファイル、HTML、CSS、および最新の web 開発に不可欠な他の多くの機能の新しい警告します。
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>概要
@@ -64,7 +63,6 @@ ms.locfileid: "59421070"
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>コード スニペットの使用
 
@@ -72,7 +70,6 @@ ms.locfileid: "59421070"
 
 > [!NOTE]
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
-
 
 ---
 
@@ -87,9 +84,8 @@ ms.locfileid: "59421070"
 > [!NOTE]
 > Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
 
-
 <a id="Exercise1"></a>
-### <a name="exercise-1-working-with-browser-link-and-web-essentials"></a>手順 1:Browser Link と Web Essentials の使用
+### <a name="exercise-1-working-with-browser-link-and-web-essentials"></a>演習 1:Browser Link と Web Essentials の使用
 
 **Web Essentials**はさまざまな web 開発体験をはるかに高速より快適に焦点を合わせた、最新の web 開発用の便利な機能を追加する Visual Studio 拡張機能です。 Web Essentials は、Visual Studio の拡張機能ギャラリーからインストールできます。
 
@@ -338,7 +334,7 @@ ms.locfileid: "59421070"
 5. 値を変更、**コンテンツ**属性を*GeekQuiz*ファイルを保存します。
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-taking-advantage-of-code-snippets-and-intellisense"></a>手順 2:コード スニペットと IntelliSense の活用
+### <a name="exercise-2-taking-advantage-of-code-snippets-and-intellisense"></a>演習 2:コード スニペットと IntelliSense の活用
 
 Web essentials、余分な機能を持つ、HTML エディターが拡張されました。 この演習では、web アプリケーションの開発に役立つものをいくつかの新しい機能が表示されます。
 

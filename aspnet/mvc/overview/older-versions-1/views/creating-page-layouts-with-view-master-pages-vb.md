@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: d34f90a1-6de3-482a-a326-f87fdcbaaaff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 175e78d7ccc669c29c63dcb53af7aad1608c7d15
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6891953654d8ae81bbec8d78d38f97f3847201cc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117219"
 ---
 # <a name="creating-page-layouts-with-view-master-pages-vb"></a>ビュー マスター ページでページ レイアウトを作成する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59422357"
 [PDF のダウンロード](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_VB.pdf)
 
 > このチュートリアルでは、ビュー マスター ページを利用して、アプリケーションで複数のページの一般的なページ レイアウトを作成する方法について説明します。 たとえば、ビュー マスター ページを使用する 2 つの列 ページのレイアウトを定義して、web アプリケーション内のページのすべての 2 つの列のレイアウトを使用します。
-
 
 ## <a name="creating-page-layouts-with-view-master-pages"></a>ビュー マスター ページとページ レイアウトを作成します。
 
@@ -36,11 +35,9 @@ ms.locfileid: "59422357"
 
 2 つの列のレイアウトを定義するビュー マスター ページを作成してみましょう。 追加する新しいビュー マスター ページ、MVC プロジェクトを views \shared フォルダーを右クリックしてメニュー オプションを選択する**追加]、[新しい項目の**、MVC ビュー マスター ページ テンプレートを選択して (図 1 参照)。
 
-
 [![ビュー マスター ページを追加します。](creating-page-layouts-with-view-master-pages-vb/_static/image2.png)](creating-page-layouts-with-view-master-pages-vb/_static/image1.png)
 
 **図 01**:ビュー マスター ページを追加する ([フルサイズの画像を表示する をクリックします](creating-page-layouts-with-view-master-pages-vb/_static/image3.png))。
-
 
 アプリケーションでは、1 つ以上のビュー マスター ページを作成できます。 各ビュー マスター ページには、別のページ レイアウトを定義できます。 たとえば、特定のページが 2 つの列のレイアウトおよびその他のページ 3 列のレイアウトをたい場合があります。
 
@@ -54,29 +51,23 @@ ms.locfileid: "59422357"
 
 リスト 1 でマスター ページには 2 つのビューの本文`<div>`2 つの列に対応するタグ。 列のカスケード スタイル シートのクラスは両方に適用`<div>`タグ。 このクラスは、マスター ページの上部で宣言されているスタイル シートで定義されます。 デザイン ビューに切り替えることで、ビュー マスター ページを表示する方法をプレビューすることができます。 ソース コード エディターの左下にある [デザイン] タブをクリックします (図 2 参照)。
 
-
 [![デザイナーでマスター ページのプレビュー](creating-page-layouts-with-view-master-pages-vb/_static/image5.png)](creating-page-layouts-with-view-master-pages-vb/_static/image4.png)
 
 **図 02**:デザイナーでマスター ページのプレビュー ([フルサイズの画像を表示する をクリックします](creating-page-layouts-with-view-master-pages-vb/_static/image6.png))。
-
 
 ### <a name="creating-a-view-content-page"></a>ビュー コンテンツ ページの作成
 
 ビュー マスター ページを作成した後は、1 つまたは複数のビューにビュー マスター ページに基づくコンテンツ ページを作成できます。 Views \home フォルダーを右クリックして、ホーム コント ローラーの Index ビュー コンテンツ ページを作成するなど、選択**追加、新しい項目の**選択、 **MVC ビュー コンテンツ ページ**入力テンプレート(図 3 参照) にボタン名 Index.aspx、したりの追加 をクリックします。
 
-
 [![ビュー コンテンツ ページを追加します。](creating-page-layouts-with-view-master-pages-vb/_static/image8.png)](creating-page-layouts-with-view-master-pages-vb/_static/image7.png)
 
 **図 03**:ビューのコンテンツ ページの追加 ([フルサイズの画像を表示する をクリックします](creating-page-layouts-with-view-master-pages-vb/_static/image9.png))。
 
-
 [追加] ボタンをクリックした後はビュー コンテンツ ページに関連付けられたビュー マスター ページを選択することができますの新しいダイアログが表示されます (図 4 参照)。 前のセクションで作成した Site.master ビュー マスター ページに移動することができます。
-
 
 [![マスター ページの選択](creating-page-layouts-with-view-master-pages-vb/_static/image11.png)](creating-page-layouts-with-view-master-pages-vb/_static/image10.png)
 
 **図 04**:マスター ページの選択 ([フルサイズの画像を表示する をクリックします](creating-page-layouts-with-view-master-pages-vb/_static/image12.png))。
-
 
 Site.master マスター ページに基づいて、新しいビュー コンテンツ ページを作成した後は、リスト 2 でファイルを取得します。
 
@@ -100,11 +91,9 @@ Site.master マスター ページに基づいて、新しいビュー コンテ
 
 リスト 3 でビューが要求されると、図 5 ページを表示します。 ビューが 2 つの列でページを表示することに注意してください。 さらに、ビュー マスター ページからコンテンツを持つビュー コンテンツ ページからコンテンツがマージされることに注意してください。
 
-
 [![インデックス ビューのコンテンツ ページ](creating-page-layouts-with-view-master-pages-vb/_static/image14.png)](creating-page-layouts-with-view-master-pages-vb/_static/image13.png)
 
 **図 05**:インデックス ビューのコンテンツ ページ ([フルサイズの画像を表示する をクリックします](creating-page-layouts-with-view-master-pages-vb/_static/image15.png))。
-
 
 ### <a name="modifying-view-master-page-content"></a>ビュー マスター ページのコンテンツを変更します。
 
@@ -116,9 +105,7 @@ Site.master マスター ページに基づいて、新しいビュー コンテ
 
 インデックス ビューがブラウザーに表示されると、ブラウザーのタイトル バーに目的のタイトルが表示されます。
 
-
 [![ブラウザーのタイトル バー](creating-page-layouts-with-view-master-pages-vb/_static/image17.png)](creating-page-layouts-with-view-master-pages-vb/_static/image16.png)
-
 
 マスター ビュー ページが動作する、title 属性の順序で満たす必要がある 1 つの重要な要件があります。 ビュー マスター ページに含める必要があります、`<head runat="server">`タグは、通常ではなく`<head>`のヘッダーのタグ。 場合、`<head>`タグに runat は含まれません ="server"属性、タイトルは表示されません。 マスター ページが含まれていますが、必要な既定のビュー`<head runat="server">`タグ。
 

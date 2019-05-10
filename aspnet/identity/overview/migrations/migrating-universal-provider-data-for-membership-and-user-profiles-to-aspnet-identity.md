@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1043dce4cdd62f94ae9d2344a9301c1b03426f3d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: de154dde122886976054159ad745982669ca9315
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422266"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121384"
 ---
 # <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>メンバーシップとユーザー プロファイルのユニバーサル プロバイダー データを ASP.NET Identity に移行する (C#)
 
@@ -22,14 +22,12 @@ ms.locfileid: "59422266"
 
 > このチュートリアルでは、ユーザーとロールのデータと既存のアプリケーションを ASP.NET Identity のモデルのユニバーサル プロバイダーを使用して作成されたユーザー プロファイル データを移行するために必要な手順について説明します。 ここで説明したアプローチはユーザー プロファイル データを移行すると、SQL のメンバーシップも使用したアプリケーションで使用できます。
 
-
 Visual Studio 2013 のリリースでは、ASP.NET チームは、新しい ASP.NET Id システムを導入して、詳細については、そのリリース[ここ](../../index.md)します。 Web アプリケーションを移行するアーティクルが[新しい Id システムを SQL メンバーシップ](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)、この記事では、次のユーザーとロール管理のためのプロバイダー モデルを既存のアプリケーションを移行する手順を示しています。新しい Id モデル。 このチュートリアルの焦点は、主にシームレスにそれを新しいシステムにフックするユーザー プロファイル データの移行になります。 移行すると、ユーザーとロールについては、SQL メンバーシップに似ています。 SQL メンバーシップもアプリケーションでは、プロファイル データを移行する方法を使用できます。
 
 たとえば、プロバイダー モデルを使用して Visual Studio 2012 を使用して作成された web アプリで開始します。 しますプロファイル管理のためのコードを追加、ユーザーを登録、ユーザーのプロファイル データを追加、データベース スキーマを移行し、ユーザーおよびロール管理用の Id システムを使用するアプリケーションを変更します。 移行のテストとしてユニバーサル プロバイダーを使用して作成されたユーザーにログインできるようにする必要があり、新しいユーザーが登録できる必要があります。
 
 > [!NOTE]
 > 完全なサンプルを見つけることができます[ https://github.com/suhasj/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations)します。
-
 
 ## <a name="profile-data-migration-summary"></a>プロファイル データの移行の概要
 

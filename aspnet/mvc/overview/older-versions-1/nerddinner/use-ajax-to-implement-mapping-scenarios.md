@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: f731990a-0a81-4d62-81df-87d676cdedd6
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 90705b897f5cb3787bae35b48057eaf66abde579
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7fc90f978b9f9eca511feca70a3c0d02ec69b940
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402168"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125510"
 ---
 # <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX を使用し、マッピング シナリオを実装する
 
@@ -26,7 +26,6 @@ ms.locfileid: "59402168"
 > 手順 11 では、NerdDinner アプリケーションでは、作成、編集または表示 dinners dinner の場所をグラフィカルに表示するユーザーを有効にするのに AJAX マッピング サポートを統合する方法を示します。
 > 
 > 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
-
 
 ## <a name="nerddinner-step-11-integrating-an-ajax-map"></a>NerdDinner 手順 11:AJAX のマップを統合します。
 

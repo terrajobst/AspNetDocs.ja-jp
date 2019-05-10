@@ -8,12 +8,12 @@ ms.date: 10/15/2014
 ms.assetid: 92c84846-f0ea-4b5e-94b6-5004874eb060
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 29c3670ad7ab93acb0be878e5bd961d0ea446eee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7492c4aa4c2a0a8aeed64c3462bda8fc51f35a6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396233"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134310"
 ---
 # <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>個々 のアカウントと ASP.NET Web API 2.2 でのローカル ログインを使用して Web API をセキュリティで保護します。
 
@@ -29,7 +29,6 @@ ms.locfileid: "59396233"
 > - [Visual Studio 2013 Update 3](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - [Web API 2.2](../releases/whats-new-in-aspnet-web-api-22.md)
 > - [ASP.NET Identity 2.1](../../../identity/index.md)
-
 
 Visual Studio 2013 で、Web API プロジェクト テンプレートを使用して認証用の 3 つのオプション。
 
@@ -239,7 +238,6 @@ OAuth のミドルウェアのユーザー アカウントについて何も認�
 
 > [!NOTE]
 > 具体的には、アプリの MVC 部分は、cookie に資格情報を格納するフォーム認証を使用する可能性があります。 Cookie ベースの認証には、CSRF 攻撃を防ぐため、偽造防止トークンの使用が必要です。 Web Api、問題の 1、偽造防止トークンをクライアントに送信する web API の便利な方法がないためにです。 (この問題の詳細については、次を参照してください[Web API での CSRF 攻撃の防止](preventing-cross-site-request-forgery-csrf-attacks.md)。)。呼び出す**しないように SuppressDefaultHostAuthentication** Web API が cookie に格納されている資格情報から CSRF 攻撃に対して脆弱でないことを確認します。
-
 
 クライアントが保護されたリソースを要求すると次 Web API パイプラインでの動作に示します。
 

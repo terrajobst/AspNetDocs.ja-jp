@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: cb33b28c-3025-4bd1-a1fa-eaa3af7bb56f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c66e066bd3e241e667924dacc114f57151df822a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ebba935383819935ad85c95245666f4eaf6a0dca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389558"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123464"
 ---
 # <a name="creating-an-action-c"></a>アクションを作成する (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC のコント ローラーに新しいアクションを追加する方法について説明します。 メソッドを操作するための要件について説明します。
-
 
 このチュートリアルの目的では、新しいコント ローラーのアクションを作成する方法について説明します。 アクション メソッドの要件について説明します。 メソッドがアクションとして公開されないようにする方法を学びます。
 
@@ -55,7 +54,6 @@ ms.locfileid: "59389558"
 [!code-csharp[Main](creating-an-action-cs/samples/sample2.cs)]
 
 CompanySecrets() コント ローラーのアクションを起動するには、お使いのブラウザーのアドレス バーに/Work/CompanySecrets を入力しようとした場合は、図 1 で、エラー メッセージが表示されます。
-
 
 [![NonAction メソッドを呼び出す](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
 
