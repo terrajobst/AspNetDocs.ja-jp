@@ -8,17 +8,16 @@ ms.date: 11/14/2011
 ms.assetid: 5cc304e2-0013-4c26-8fe6-e897a533809f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: b4e8dfe9deaf8ee4196d327d94d9b99f568bd11d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d28441e3ea3ae1ee999b52f9ab0b42ec8862f472
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405769"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132222"
 ---
 # <a name="cascadingdropdown"></a>CascadingDropdown
 
 > このチュートリアルでは、CascadingDropDown コントロールを使用して、ユーザーが選択を行うときに更新関連のドロップダウン リストを作成する方法を示します。
-
 
 - [CascadingDropDown を使用して一覧に入力する (C#)](filling-a-list-using-cascadingdropdown-cs.md)
 - [データベースで CascadingDropDown を使用する (C#)](using-cascadingdropdown-with-a-database-cs.md)

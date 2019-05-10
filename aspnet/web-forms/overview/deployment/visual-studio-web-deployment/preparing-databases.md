@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 786be61d48f26e5765eac0c8d6fad7551897f711
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 72d69c0690c52c41f899e6cbe7cc656e537fe112
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387687"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131101"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用して ASP.NET Web の展開:データベース配置の準備
 
@@ -22,7 +22,6 @@ ms.locfileid: "59387687"
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -134,7 +133,6 @@ Code First Migrations を使用する場合は、以降は使用する必要は�
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 
-
 ## <a name="create-scripts-for-membership-database-deployment"></a>メンバーシップ データベースの配置のスクリプトを作成します。
 
 Contoso University アプリケーションでは、ASP.NET メンバーシップ システムとフォーム認証を使用して、ユーザー認証および承認します。 **更新クレジット**ページには、管理者ロールのユーザーにのみにアクセスします。
@@ -160,14 +158,12 @@ Contoso University アプリケーションでは、ASP.NET メンバーシッ�
 > [!NOTE]
 > (ASP.NET Identity という名前になりました)、新しい ASP.NET メンバーシップ システムは、Visual Studio 2013 で導入されました。 新しいシステムでは、アプリケーションとメンバーシップ テーブルの両方を同じデータベースに保持することができ、両方を展開する Code First Migrations を使用することができます。 サンプル アプリケーションでは、Code First Migrations を使用して展開することはできません前 ASP.NET メンバーシップ システムを使用します。 このメンバーシップ データベースを配置する手順は、Entity Framework Code First によって作成されていない SQL Server データベースを配置する、アプリケーションが必要なその他のシナリオにも適用されます。
 
-
 ここで、通常は必要ありません開発で必要のある運用環境で同じデータ。 最初に、サイトを展開するときに、ほとんどまたはすべてのテストを作成するユーザー アカウントを除外する一般的なは。 ダウンロードしたプロジェクトの 2 つのメンバーシップ データベースがそのため、: *aspnet ContosoUniversity.mdf*開発ユーザーと*aspnet-ContosoUniversity-Prod.mdf*運用環境のユーザーとします。 このチュートリアルでは、ユーザー名が両方のデータベースで同じ:*管理者*と*nonadmin*します。 両方のユーザー パスワードを使用して*devpwd* 、開発データベースと*prodpwd*実稼働データベースでします。
 
 開発ユーザーは、テスト環境とステージング環境と運用環境を運用環境のユーザーにデプロイします。 そのためにはこのチュートリアルで開発用に 1 つと、運用環境用に 2 つの SQL スクリプトを作成し、以降のチュートリアルでは、それらを実行する、発行プロセスを構成します。
 
 > [!NOTE]
 > メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするには、ハッシュのルーチンも、これは、移行元コンピューターには、移行先サーバーで異なるハッシュを生成しないことを確認してください。 既定のアルゴリズムを変更しない限り、ASP.NET ユニバーサル プロバイダーを使用する場合に、同じハッシュを生成、されます。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、 **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Web.config ファイル内の要素。
-
 
 SQL Server Management Studio (SSMS) を使用して、またはサード パーティ製ツールを使用して、データ デプロイ スクリプトを手動で作成することができます。 このチュートリアルの残りの部分が SSMS では、その方法を示しますをインストールして SSMS を使用しない場合は、プロジェクトの完成版からスクリプトを入手して、ソリューション フォルダーに格納する場所のセクションにスキップします。
 

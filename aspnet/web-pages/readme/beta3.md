@@ -8,12 +8,12 @@ ms.date: 01/10/2011
 ms.assetid: ffa3d5c9-91e5-4da3-b409-560b0c7fbbf0
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 7f0c5ff599235157bd11f5f86a26b8882e0f29dc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: dc1d9237c04a7fcdbf4db6ccc8c36d255f6de003
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381810"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124109"
 ---
 # <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Web Matrix と ASP.NET Web ページ (Razor) Beta 3 リリース Readme
 
@@ -41,7 +41,6 @@ ms.locfileid: "59381810"
 
 > Microsoft WebMatrix のベータ版は、数分でインストールする無料の web 開発スタックです。 データベース プログラミング フレームワークが 1 つ、統合されたエクスペリエンスを作成すると、web サーバーが統合されています。 WebMatrix のベータ版を使用して、コーディング、テスト、および独自の ASP.NET または PHP web のサイトを公開する方法を効率化、または WebMatrix のベータ版を使用して、DotNetNuke、Umbraco、WordPress、Joomla などの一般的なオープン ソース アプリを使用して新しい web サイトを開始することができます。 WebMatrix のベータ版では、同じ強力な web サーバー、データベース エンジン、および円滑かつシームレスに開発から運用環境への移行を使用すると、インターネット上の web サイトを実行するフレームワークの環境を使用します。
 
-
 <a id="Installation_Notes"></a>
 
 ## <a name="installation"></a>インストール
@@ -50,13 +49,11 @@ ms.locfileid: "59381810"
 > 
 > インストール中に問題がある場合を参照してください[Microsoft Web Platform Installer に関する問題をトラブルシューティング](https://go.microsoft.com/fwlink/?LinkId=196212)します。
 
-
 <a id="Installation_Notes0"></a>
 
 ## <a name="instructions-for-publishing-applications"></a>アプリケーションを発行する手順
 
 > 参照してください[でアプリケーションを公開する手順](https://go.microsoft.com/fwlink/?LinkID=196149)
-
 
 <a id="Known_Issues"></a>
 
@@ -80,12 +77,10 @@ ms.locfileid: "59381810"
 > - Windows XP SP3
 > - Windows Server 2003 SP2
 
-
 #### <a name="issue-cannot-install-webmatrix-beta-3-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>問題:Microsoft Visual Studio 2008 SP1 がない場合に Microsoft Visual Studio 2008 がインストールされている場合、WebMatrix の Beta 3 をインストールことはできません。
 
 > **回避策**  
 > インストール[Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) Microsoft ダウンロード センターから。
-
 
 #### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>問題:SQL Server Compact 4.0 の一部のアセンブリが GAC にインストールされていません
 
@@ -101,14 +96,12 @@ ms.locfileid: "59381810"
 >   
 > SQL Server Compact 4.0 を再インストールします。
 
-
 #### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>問題:SQL Server Compact のコマンドラインを使用してアンインストールできません。
 
 > SQL Server Compact のコマンド ライン オプションを使用してのアンインストールは、このリリースでは機能しません。
 > 
 > **回避策**  
 > 使用*プログラムと機能*Windows コントロール パネルの Microsoft SQL Server Compact 4.0 をアンインストールします。
-
 
 <a id="Known_Issues_ASPNET"></a>
 
@@ -134,7 +127,6 @@ ms.locfileid: "59381810"
 > 
 > [!code-cshtml[Main](beta3/samples/sample1.cshtml)]
 
-
 <a id="Changes"></a>
 
 #### <a name="changes-in-beta-3-for-aspnet-web-pages-with-razor-syntax"></a>Razor 構文を使用して ASP.NET Web Pages の Beta 3 の変更
@@ -142,7 +134,6 @@ ms.locfileid: "59381810"
 #### <a name="change-hrefattribute-method-removed"></a>変更:"HrefAttribute"メソッドの削除
 
 > `HrefAttribute`のメソッド、`WebPage`クラスは削除されました。 このヘルパーは Url の安全でない文字のエンコードに使用されました。 ASP.NET Razor 文字列を自動的にエンコードするためは必要なくなりました。 (新しい使用`Html.Raw`エンコードされていない文字列をレンダリングするメソッド)。
-
 
 #### <a name="change-syntax-for-declarative-helper-helpers-changed"></a>変更:構文の宣言型"@helper"ヘルパーの変更
 
@@ -158,16 +149,13 @@ ms.locfileid: "59381810"
 > 
 > 注意、`@{ }`ヘルパーの最初のコードの周りの文字は使用されなくなりました。 これは、ヘルパーの内容が既定では、コード ブロックとして扱われるためにです。 ヘルパーは、オープンで始まる、マークアップを出力します。`<a>`タグ。 場合は、ヘルパーは、プレーン テキストまたは終了タグを含まないタグをレンダリングする必要があります (たとえば、`<meta>`タグ)、表示される内容がである必要があります`<text></text>`タグ。
 
-
 #### <a name="change-webpagecontexthttpcontext-removed"></a>変更:"WebPageContext.HttpContext" removed
 
 > `WebPageContext.HttpContext`プロパティが削除されました。 代わりに、`HttpContext.Current` を使用してください。 (、`WebPageContext.HttpContext`プロパティが単にこれをラップします)。
 
-
 #### <a name="change-facebook-helper-moved-to-new-package"></a>変更:新しいパッケージに移動"Facebook"ヘルパー
 
 > `Facebook`ヘルパー ページに移動しました、 *Facebook.Helper*ライブラリが含まれています、`Facebook`ヘルパーと機能を追加します。 必要がありますとしてインストールするこのライブラリを別のパッケージ「ヘルパーでマネージャーのパッケージをインストールする」」の説明に従って、チュートリアルでは[ASP.NET ページの概要](https://go.microsoft.com/fwlink/?LinkId=202889)します。
-
 
 #### <a name="change-membership-role-and-security-types-moves-to-new-assembly"></a>変更:メンバーシップ、ロール、およびセキュリティの種類は、新しいアセンブリに移動します
 
@@ -178,13 +166,11 @@ ms.locfileid: "59381810"
 > - `SimpleRoleProvider`
 > - `WebSecurity`
 
-
 #### <a name="change-tagbuilder-class-moved-to-systemwebwebpagesdll-assembly"></a>変更:System.Web.WebPages.dll アセンブリに移動"TagBuilder"クラス
 
 > `TagBuilde` System.Web.WebPages.dll アセンブリに移動しました r クラス。 以前は、これは、ASP.NET MVC の一部であるアセンブリででした。 この変更により、ASP.NET MVC を使用するためにインストールする必要はありません、`TagBuilder`クラス。
 > 
 > ただし、クラスは、引き続き、`System.Web.Mvc`名前空間。 使用するには、`TagBuilder`クラス (たとえば、カスタム ASP.NET Razor ヘルパー)、名前空間を参照する必要があります (たとえば、追加することで`@using System.Web.Mvc`をコードに)。
-
 
 #### <a name="change-request-validation-syntax-changed-validation-class-removed"></a>変更:要求の検証の構文が変更されてください。「検証」クラスの削除
 
@@ -197,7 +183,6 @@ ms.locfileid: "59381810"
 > 自動の要求の検証を無効にするを呼び出す、`Request.Unvalidated`メソッド、フィールドまたはの要求の検証をバイパスするその他の投稿オブジェクトの名前を渡します。 このメソッドを使用してすべての項目の検証をバイパスすることができます、 `Form`、 `QueryString`、 `Cookies`、および`ServerVariables`コレクション。 次の例を使用する方法を示して、`Unvalidated`メソッド。
 > 
 > [!code-csharp[Main](beta3/samples/sample4.cs)]
-
 
 <a id="Issues"></a>
 
@@ -212,13 +197,11 @@ ms.locfileid: "59381810"
 > **回避策**  
 > 渡された名前を確認、`InitializeDatabaseConnection`メソッドと一致するユーザー プロファイル、メンバーシップ データベースにテーブルまたはことを確認、`autoCreateTables`パラメーターが false に設定します。
 
-
 #### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>問題:「SQL Server のユーザー インスタンスの生成に失敗しました」エラー
 
 > WebMatrix Web アプリケーションが SQL Server Express を使用して、Windows 7 または Windows Server 2008 R2 に IIS 7.5 を実行している場合は、SQL Server が実行時にユーザーのローカル アプリケーション パスを取得できませんかを示すエラーが表示可能性があります。
 > 
 > **回避策**(通常は NETWORK SERVICE) でアプリケーションを実行する Windows アカウントが、アプリケーションのルート フォルダーとサブフォルダーの読み取り/書き込みアクセス許可をなどがあるかどうかを確認*アプリ\_データ*. 詳細については、サポート技術情報の記事で使用可能な[SQL Server Express ユーザー インスタンスと ASP.net Web アプリケーション プロジェクトに関する問題を](https://support.microsoft.com/kb/2002980)します。
-
 
 #### <a name="issue-in-visual-studio-namespaces-for-custom-assemblies-dlls-are-not-imported-automatically"></a>問題:Visual Studio で、カスタム アセンブリ (Dll) の名前空間が自動的にインポートされません。
 
@@ -227,13 +210,11 @@ ms.locfileid: "59381810"
 > **回避策**  
 > 含まれて、`using`ステートメント (`imports` Visual Basic で) を参照するエンティティをデザイン時に認識されません。
 
-
 #### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>問題:Visual Studio IntelliSense およびプロジェクトで使用できるテンプレートのみ ASP.NET MVC version 3
 
 > ASP.NET Web Pages をインストールすることもはインストールされません tools for Visual Studio ASP.NET Web Pages アプリケーション用の IntelliSense およびプロジェクトのテンプレートなど。
 > 
 > **回避策**を Visual Studio での ASP.NET Web Pages アプリケーション用の IntelliSense およびプロジェクト テンプレートを使用するインストール ASP.NET MVC 3 RC、Web Platform Installer を使用するか、または[スタンドアロン インストーラー](https://go.microsoft.com/fwlink/?LinkID=191797)します。
-
 
 #### <a name="issue-lthelpergt-class-cannot-be-found-error"></a>問題:"&lt;ヘルパー&gt;クラスが見つかりません"エラー
 
@@ -241,7 +222,6 @@ ms.locfileid: "59381810"
 > 
 > **回避策**  
 > コメント アウトの実行、サイトのすべてのヘルパーを呼び出し、 *\_管理者*ページ、およびパッケージまたはを使用するヘルパーを含むパッケージをインストールします。 パッケージをインストールしたら後のヘルパーを参照している行のコメントを解除できます。
-
 
 #### <a name="issue-deploying-beta-3-aspnet-razor-assemblies-to-the-bin-folder-might-not-work-on-hosting-sites"></a>問題:ホストするサイトでは Bin フォルダーに 3 ASP.NET Razor のベータ版のアセンブリの展開が機能しません。
 
@@ -253,7 +233,6 @@ ms.locfileid: "59381810"
 > 
 > **回避策**が表示されるエラー プロバイダーのバージョン間の競合によりことを確認するホスティング プロバイダーに問い合わせて、アセンブリと自分の。 そうである場合、ホスティング プロバイダーが、サーバーの GAC にアセンブリを更新することを要求します。
 
-
 #### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>問題:読み取りフィードまたはプロキシ サーバー経由で他の外部データ
 
 > プロキシ情報を構成する必要がありますが、サイトを実行しているサーバーがプロキシ サーバーの背後にある場合は、 *Web.config*ファイルをサイトの外部から送信される情報を読み取ることができるようにします。 たとえば、使用する場合、`ReCaptcha`ヘルパー、ヘルパーは、reCAPTCHA サービスと通信がプロキシ サーバーによってブロックされる可能性があります。 同様に、フィード、パッケージ マネージャーによって使用されているフィードなどの ASP.NET Web Pages を使用するには、プロキシ構成を必要があります。
@@ -264,7 +243,6 @@ ms.locfileid: "59381810"
 > 
 > プロキシ サーバーを構成する方法の詳細については、次を参照してください。 [&lt;プロキシ&gt;要素 (ネットワーク設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web サイト。
 
-
 #### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>問題:「Microsoft.Web.Infrastructure.dll を読み込むことができません」エラー
 
 > すべての適切なアセンブリを除く GAC にインストールは Razor 構文を使用して、Beta 1 バージョンの ASP.NET Web ページを以前にインストールし、Beta 3 をインストールした場合、 *Microsoft.Web.Infrastructure.dll*します。 結果として、ASP.NET Razor ページを実行するときにエラーが表示されることを示します*Microsoft.Web.Infrastructure.dll*読み込めませんでした。
@@ -273,7 +251,6 @@ ms.locfileid: "59381810"
 > 
 > **回避策**  
 > コントロール パネルで、ASP.NET Web Pages をアンインストールします。 ベータ 3 リリースの再インストールします。
-
 
 #### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>問題:.NET Framework version 4 をアンインストールする Razor 構文を使用して ASP.NET Web ページを無効にします
 
@@ -287,14 +264,12 @@ ms.locfileid: "59381810"
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
 
-
 #### <a name="issue-applications-previously-deployed-with-aspnet-assemblies-in-the-bin-folder-experience-errors"></a>問題:以前にデプロイした ASP.NET アセンブリを Bin フォルダーを使用したアプリケーション エラーが発生します。
 
 > デプロイでは、ASP.NET Web Pages アセンブリのコピー中に (たとえば、 *Microsoft.WebPages.dll*) に、 *Bin*サーバー上の web サイトのフォルダー。 (デプロイ時に自動的にこの発生した可能性または開発者が明示的にアセンブリをコピーするためです)。ただし、ベータ 3 リリースがインストールされているときにエラーが発生した特定の種類が見つからないエラーなどです。 これは、さまざまな ASP.NET Web ページの種類は、ベータ 3 リリースの異なる名前空間に移動されたために発生します。
 > 
 > **回避策**   
 > クリア、 *Bin*デプロイしたアプリケーションのフォルダー、フォルダーに新しいアセンブリをコピー (またはアプリケーションを再配置) し、アプリケーションを再起動します。
-
 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>問題:拡張子のない Url に IIS 7 または IIS 7.5.cshtml/.vbhtml ファイルが見つからない
 
@@ -312,7 +287,6 @@ ms.locfileid: "59381810"
 > 
 > [!code-xml[Main](beta3/samples/sample7.xml)]
 
-
 #### <a name="issue-using-web-application-project-or-aspnet-mvc-and-aspnet-web-pages-in-the-same-application"></a>問題:同じアプリケーションでの Web アプリケーション プロジェクトまたは ASP.NET MVC と ASP.NET Web ページの使用
 
 > Web アプリケーション プロジェクトまたは ASP.NET MVC アプリケーションでは、ASP.NET Web Pages を使用していた、エラーは表示がありますを*WebPageHttpApplication*が見つかりません。
@@ -327,7 +301,6 @@ ms.locfileid: "59381810"
 > [!code-csharp[Main](beta3/samples/sample9.cs)]
 > 
 > これが、有効で導入された変更を反転、Beta 1 リリースの ASP.NET Web ページ Razor 構文を使用します。
-
 
 #### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>問題:SQL Server Compact がインストールされていないコンピューターにアプリケーションを展開します。
 
@@ -345,7 +318,6 @@ ms.locfileid: "59381810"
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
-
 
 #### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>問題:データベースとの WebGrid ヘルパーは、Visual Basic で中程度の信頼では機能しません
 
@@ -380,7 +352,6 @@ ms.locfileid: "59381810"
 > 
 > [!code-vb[Main](beta3/samples/sample16.vb)]
 
-
 #### <a name="issue-microsoft-visual-c-2008-runtime-libraries-are-required"></a>問題:Microsoft Visual C 2008 ランタイム ライブラリが必要です。
 
 > ネイティブ Dll の SQL Server Compact 4.0 には、Microsoft Visual C 2008 ランタイム ライブラリ (x86、IA64、および x64)、Service Pack 1 が必要があります。
@@ -392,7 +363,6 @@ ms.locfileid: "59381810"
 > 
 > [!NOTE]
 > .NET Framework 2.0、3.0 をインストールすることに注意してください。 または、4 は*いない*Visual c 2008 ランタイム ライブラリ SP1 をインストールします。
-
 
 #### <a name="issue-if-sql-server-compact-is-installed-prior-to-installing-net-framework-on-the-computer-its-provider-invariant-name-is-not-registered-in-the-net-framework-machineconfig-file"></a>問題:SQL Server Compact がインストールされている場合、コンピューターに .NET Framework をインストールする前に、そのプロバイダーの不変名は、.NET Framework の machine.config ファイルでは登録されていません
 
@@ -408,7 +378,6 @@ ms.locfileid: "59381810"
 > 
 > 再インストールし、 [SQL Server Compact 4.0 CTP1](https://www.microsoft.com/downloads/details.aspx?FamilyID=0d2357ea-324f-46fd-88fc-7364c80e4fdb&amp;displaylang=en)します。
 
-
 <a id="Known_Issues_Installing_Applications"></a>
 
 ### <a name="installing-applications"></a>アプリケーションのインストール
@@ -417,7 +386,6 @@ ms.locfileid: "59381810"
 
 > **回避策**  
 > なし。 アプリケーションをインストールするにはしばらくかかる場合がありますが、正常にインストールされます。
-
 
 <a id="Known_Issues_Publishing_Applications"></a>
 
@@ -430,14 +398,12 @@ ms.locfileid: "59381810"
 > **回避策**  
 > 確認して、サイトでリンク先の URL を発行する前に、**発行設定** ダイアログ ボックスが始まる`http://`または`https://`します。
 
-
 #### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>問題:"データベースを発行できませんでしたエラーで失敗 MySQL データベースのパブリッシュします。 これは、場合に発生、リモート データベースは、スクリプトを実行できません。"
 
 > さまざまな理由からこのエラーが発生します。 このエラーが表示できる理由の 1 つは、データベース スクリプトには、単一引用符文字 (') が含まれているし、対象の MySQL データベースの既定の文字セットを utf-8 ではないです。
 > 
 > **回避策**  
 > 既定の文字が utf-8 に、リモートの MySQL データベースの設定を設定します。
-
 
 <a id="Known_Issues_Other_Issues"></a>
 
@@ -448,7 +414,6 @@ ms.locfileid: "59381810"
 > 内のテキストを入力した場合に、サイトのレポートを実行すると、 *URL フィルター*ボックスし、をクリックして*検索*、何も起こりません。 これは、このコントロールが中に機能していないため、 *Group By*レポートの状態に設定されて*問題の種類*、既定値します。
 > 
 > **回避策**で、 *Group By*  タブのリボンで、次のようにクリックします。 *URL*ソース URL を、別のエントリをグループ化します。 テキスト ボックスと、エントリをフィルター処理するボタンはこの状態中に機能します。
-
 
 #### <a name="issue-wcf-applications-fail-to-run-with-iis-express"></a>問題:WCF アプリケーションの IIS Express の実行に失敗します。
 
@@ -469,7 +434,6 @@ ms.locfileid: "59381810"
 > 
 >     [!code-console[Main](beta3/samples/sample19.cmd)]
 
-
 #### <a name="issue-webmatrix-beta-3-is-unable-to-perform-certain-tasks-that-require-elevation"></a>問題:WebMatrix の Beta 3 は昇格が必要な特定のタスクを実行できません。
 
 > Beta 3 の WebMatrix では、次の状況で追加コンポーネントのインストールなどの昇格が必要な特定のタスクを実行できません。
@@ -483,14 +447,12 @@ ms.locfileid: "59381810"
 > - Windows Vista または Windows 7 で UAC を有効にします。
 > - Windows xp では、Administrators セキュリティ グループにユーザーを追加します。
 
-
 #### <a name="issue-site-from-web-gallery-is-disabled"></a>問題:「Web ギャラリーからサイト」は無効です。
 
 > **Web ギャラリーからのサイト**Web Platform Installer 3.0 がインストールされていない場合に、オプションが無効になっています。
 > 
 > **回避策**  
 > インストール、 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/fwlink/?LinkID=194638)します。
-
 
 #### <a name="issue-on-windows-server-2003-iis-express-does-not-start-for-a-non-administrative-user"></a>問題:Windows Server 2003 で IIS Express が起動しない管理者以外のユーザーの
 
@@ -501,14 +463,12 @@ ms.locfileid: "59381810"
 >   
 > [管理者以外のユーザーによって開始されたアプリケーションは、アプリケーションが Windows Vista、Windows Server 2003、または Windows XP で実行されているコンピューターの HTTP トラフィックをリッスンできません。](https://support.microsoft.com/kb/939786)
 
-
 #### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>問題:Google Chrome を実行 オプションとしてご利用いただけません
 
 > Google Chrome が ブラウザーの一覧に表示されない**実行**上、**ホーム**タブ。
 > 
 > **回避策**  
 > Google Chrome の一部のバージョンを登録しないで自体正しく Windows の既定のプログラム機能。 この問題を回避するには、Google Chrome を開始 をクリックして、*カスタマイズと制御 Google Chrome*  メニューのをクリックして*オプション*、順にクリックします*Make Google Chrome、既定のブラウザー*します。
-
 
 #### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>問題:「外部キー」ダイアログ ボックスは、プライマリ キーを入力できません。
 
@@ -517,14 +477,12 @@ ms.locfileid: "59381810"
 > **回避策**  
 > これは意図的なものであり、 主キー テーブルの主キーの名前を入力する必要はありません。
 
-
 #### <a name="issue-the-relationships-button-is-disabled"></a>問題:「リレーションシップ」ボタンが無効になっています
 
 > **リレーションシップ**下ボタン、**テーブル** タブで、**データベース**SQL Server Compact データベースのワークスペースが無効になっています。
 > 
 > **回避策**  
 > なし。 SQL Server Compact は、テーブル間のリレーションシップはサポートしません。
-
 
 #### <a name="issue-parameterized-sql-queries-throw-exceptions"></a>問題:パラメーター化 SQL クエリが例外をスローします。
 
@@ -536,7 +494,6 @@ ms.locfileid: "59381810"
 > [!code-sql[Main](beta3/samples/sample20.sql)]
 > 
 > [!code-vb[Main](beta3/samples/sample21.vb)]
-
 
 <a id="More_Info"></a>
 

@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 58f3ec28914a604aa911cc3cb73733f0d58fd49f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 678eb7089e95e3d221d6b2d82034a62aefa75757
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390417"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131835"
 ---
 # <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web ページの概要 - 一貫性のあるレイアウトを作成します。
 
@@ -26,7 +26,6 @@ ms.locfileid: "59390417"
 > - どのようなレイアウト ページは次のとおりです。
 > - 動的なコンテンツとレイアウト ページを結合する方法。
 > - レイアウト ページに値を渡す方法。
-
 
 ## <a name="about-layouts"></a>レイアウトについて
 
@@ -167,7 +166,6 @@ ASP.NET に Movies.cshtml ページのコンテンツをマージ、  *\_Layout.
 > 使用して任意の数の値を渡すことができます、`Page`オブジェクト。 レイアウト ページにムービー情報を渡す場合は、ようなものを使用して値を渡すこともできます`Page.MovieTitle`と`Page.Genre`と`Page.MovieYear`します。 (または、情報を格納するために作成する他の任意の名前。)唯一の要件: これは明らかな可能性があります-コンテンツ ページとレイアウト ページ内の同じ名前を使用する必要があります。
 > 
 > 使用して渡す情報、`Page`オブジェクトは、レイアウト ページに表示するテキストだけに限定されません。 レイアウト ページに値を渡すことができ、レイアウト ページのコードが、ページのセクションを表示するかどうかを決定する値を使用できますし、どのような *.css*を使用するファイル。 値を渡す、`Page`オブジェクトが値をその他のようなコードで使用します。 値が [コンテンツ] ページで生成され、レイアウト ページに渡されるだけです。
-
 
 開く、 *AddMovie.cshtml*ページし、のタイトルを提供するコードの先頭に行を追加、 *AddMovie.cshtml*ページ。
 

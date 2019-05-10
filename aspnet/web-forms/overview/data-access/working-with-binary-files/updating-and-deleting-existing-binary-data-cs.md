@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 35798f21-1606-434b-83f8-30166906ef49
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fea82090954fb7ace59b9978e9ce7ec857db60b2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 882da1a321584cf97f826bb08c272ece348679cb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394914"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132824"
 ---
 # <a name="updating-and-deleting-existing-binary-data-c"></a>既存のバイナリ データの更新と削除 (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59394914"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_57_CS.exe)または[PDF のダウンロード](updating-and-deleting-existing-binary-data-cs/_static/datatutorial57cs1.pdf)
 
 > 前のチュートリアルでは、方法、GridView コントロールを簡単に編集し、テキスト データを削除しました。 このチュートリアルではどの GridView コントロールもなりますを編集し、そのバイナリ データをデータベースに保存またはファイル システムに格納されているかどうか、バイナリ データを削除することがわかります。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -36,24 +35,19 @@ DAL が自動生成`Insert`、 `Update`、および`Delete`メソッドがこれ
 
 型指定されたデータセットを開くし、デザイナーを右クリックし、`CategoriesTableAdapter`のヘッダー、TableAdapter クエリ構成ウィザードを起動するコンテキスト メニューから追加のクエリを選択します。 このウィザードは、TableAdapter のクエリがデータベースにアクセスする方法を求めてして開始します。 SQL ステートメントを使用を選択し、[次へ] をクリックします。 次の手順では、生成されるクエリの種類を要求します。 クエリを作成する新しいレコードを追加する re 経過、`Categories`テーブルを更新プログラムを選択し、[次へ] をクリックします。
 
-
 [![更新オプションを選択します。](updating-and-deleting-existing-binary-data-cs/_static/image1.gif)](updating-and-deleting-existing-binary-data-cs/_static/image1.png)
 
 **図 1**:更新オプションを選択します ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image2.png))。
 
-
 ここで指定する必要があります、 `UPDATE` SQL ステートメント。 ウィザードが自動的に提案を`UPDATE`TableAdapter のメイン クエリに対応するステートメント (更新する 1 つ、 `CategoryName`、 `Description`、および`BrochurePath`値)。 ステートメントを変更できるように、`Picture`列がスコープに含める、`@Picture`パラメーター、次のように。
-
 
 [!code-sql[Main](updating-and-deleting-existing-binary-data-cs/samples/sample1.sql)]
 
 ウィザードの最後の画面を使用して、新しい TableAdapter メソッドの名前を付けるよう求められます。 入力`UpdateWithPicture`[完了] をクリックします。
 
-
 [![新しい TableAdapter メソッド UpdateWithPicture 名](updating-and-deleting-existing-binary-data-cs/_static/image2.gif)](updating-and-deleting-existing-binary-data-cs/_static/image3.png)
 
 **図 2**:新しい TableAdapter メソッド名前`UpdateWithPicture`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image4.png))。
-
 
 ## <a name="step-2-adding-the-business-logic-layer-methods"></a>手順 2: ビジネス ロジック層のメソッドを追加します。
 
@@ -61,13 +55,11 @@ DAL を更新するだけでなく、BLL、更新、およびカテゴリを削�
 
 カテゴリを削除するを使用してできます、`CategoriesTableAdapter`が自動生成`Delete`メソッド。 次のメソッドを追加、`CategoriesBLL`クラス。
 
-
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample2.cs)]
 
 Let s はこのチュートリアルでは、代わりに、バイナリの画像データを呼び出す 1 つのカテゴリを更新するための 2 つのメソッドを作成、`UpdateWithPicture`メソッドに追加した、`CategoriesTableAdapter`を受け取るもうだけ`CategoryName`、 `Description`、および`BrochurePath`値を使用して`CategoriesTableAdapter`クラスの自動生成`Update`ステートメント。 2 つのメソッドを使用して背後にある"the rationale"では、状況によっては、ユーザーはその他のフィールドと共に、新しい画像をアップロードする場合、ユーザーが必要がありますカテゴリの画像を更新する可能性があります。 アップロードされた画像のバイナリ データで使用できます、`UPDATE`ステートメント。 それ以外の場合は、ユーザーを更新すると、名前と説明の利用のみ可能性があります。 場合、`UPDATE`ステートメントのバイナリ データが必要ですが、`Picture`列も、その d する必要がありますもその情報を提供します。 画像データ編集中のレコードを戻して、データベースへの追加のトリップが必要になります。 そのため、2 つ必要`UPDATE`メソッド。 ビジネス ロジック層は、どれを使用するがカテゴリを更新するときに画像データを提供するかどうかに基づいて決定されます。
 
 そのため、2 つの方法を追加、`CategoriesBLL`という名前の両方のクラス`UpdateCategory`します。 1 つ目は 3 つをそのまま使用する必要があります`string`s、`byte`配列、および`int`入力としてパラメーターは 2 番目、3 つ`string`s と`int`。 `string`カテゴリの名前、説明、およびパンフレット ファイルのパスは、入力パラメーター、`byte`配列は、カテゴリの画像のバイナリ コンテンツ、`int`識別、`CategoryID`を更新するレコードの。 最初のオーバー ロードが、渡されたで 2 番目の場合を呼び出す通知`byte`配列が`null`:
-
 
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample3.cs)]
 
@@ -77,11 +69,9 @@ Let s はこのチュートリアルでは、代わりに、バイナリの画�
 
 開いて開始、`UploadInDetailsView.aspx`ページ。 宣言型構文内のすべてのコピー、`<asp:Content>`要素を図 3 に示すようにします。 次に、`UpdatingAndDeleting.aspx`内では、このマークアップを貼り付けると、`<asp:Content>`要素。 同様からコードをコピー、`UploadInDetailsView.aspx`ページの分離コード クラスを`UpdatingAndDeleting.aspx`します。
 
-
 [![宣言型マークアップを UploadInDetailsView.aspx からコピーします。](updating-and-deleting-existing-binary-data-cs/_static/image3.gif)](updating-and-deleting-existing-binary-data-cs/_static/image5.png)
 
 **図 3**:コピーから宣言型マークアップ`UploadInDetailsView.aspx`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image6.png))。
-
 
 宣言型マークアップとコードをコピーした後、次を参照してください。`UpdatingAndDeleting.aspx`します。 出力は同じで、同じユーザー エクスペリエンスの表示と同様`UploadInDetailsView.aspx`ページ、前のチュートリアルから。
 
@@ -93,43 +83,34 @@ Let s はこのチュートリアルでは、代わりに、バイナリの画�
 
 ここでは、(None) に更新 タブのドロップダウン リストの設定が削除 s タブのドロップダウン リストに設定をそのまま`DeleteCategory`します。 更新のサポートを追加する手順 6 では、このウィザードに戻っています。
 
-
 [![ObjectDataSource DeleteCategory メソッドを使用して構成します。](updating-and-deleting-existing-binary-data-cs/_static/image4.gif)](updating-and-deleting-existing-binary-data-cs/_static/image7.png)
 
 **図 4**:構成に使用する ObjectDataSource、`DeleteCategory`メソッド ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image8.png))。
 
-
 > [!NOTE]
 > ウィザードを完了すると、Visual Studio はキーおよびフィールドの更新する場合は、Web のデータが再生成するフィールドを制御を依頼することがあります。 [はい] を選択した、フィールドのカスタマイズが上書きされますので、いいえを選択します。
-
 
 ObjectDataSource の値を含めるようになりましたが、`DeleteMethod`プロパティと同様に、`DeleteParameter`します。 ウィザードを使用して、メソッドを指定する、Visual Studio が ObjectDataSource s を設定することを思い出してください`OldValuesParameterFormatString`プロパティを`original_{0}`、更新プログラムの問題を引き起こすし、メソッドの呼び出しを削除します。 そのため、このプロパティを完全に消去またはのいずれか、既定値にリセット`{0}`します。 この ObjectDataSource プロパティ上のメモリを更新する必要がある場合を参照してください、[挿入の概要、更新、およびデータの削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)チュートリアル。
 
 ウィザードを完了し、修正した後、 `OldValuesParameterFormatString`ObjectDataSource s の宣言型マークアップは次のようになります。
 
-
 [!code-aspx[Main](updating-and-deleting-existing-binary-data-cs/samples/sample4.aspx)]
 
 ObjectDataSource を構成した後に、GridView s のスマート タグから削除を有効にするチェック ボックスをオン GridView に削除する機能を追加します。 これは、[commandfield] が GridView に追加されますが`ShowDeleteButton`プロパティに設定されて`true`。
-
 
 [![Gridview を削除するためのサポートを有効にします。](updating-and-deleting-existing-binary-data-cs/_static/image5.gif)](updating-and-deleting-existing-binary-data-cs/_static/image9.png)
 
 **図 5**:削除すると、gridview のサポートを有効にする ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image10.png))。
 
-
 削除の機能をテストする時間がかかります。 間の外部キーがある、`Products`テーブル s`CategoryID`と`Categories`テーブルの`CategoryID`ので、最初の 8 つのカテゴリのいずれかを削除しようとした場合、外部キー制約の違反例外が表示されます。 Out には、この機能をテストするには、パンフレットと図の両方を提供する、新しいカテゴリを追加します。 図 6 に示すように、私のテスト カテゴリには、という名前のテスト パンフレット ファイルが含まれています。`Test.pdf`とテスト画像。 図 7 は、テスト カテゴリを追加した後に、GridView を示します。
-
 
 [![パンフレットと画像があるテスト カテゴリを追加します。](updating-and-deleting-existing-binary-data-cs/_static/image6.gif)](updating-and-deleting-existing-binary-data-cs/_static/image11.png)
 
 **図 6**:パンフレットとイメージのテスト カテゴリを追加 ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image12.png))。
 
-
 [![テスト カテゴリを挿入した後、GridView に表示されます。](updating-and-deleting-existing-binary-data-cs/_static/image7.gif)](updating-and-deleting-existing-binary-data-cs/_static/image13.png)
 
 **図 7**:テスト カテゴリを挿入した後、GridView に表示されます ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image14.png))。
-
 
 Visual Studio で、ソリューション エクスプ ローラーを更新します。 新しいファイルを表示する必要があります、`~/Brochures`フォルダー、 `Test.pdf` (図 8 参照)。
 
@@ -137,11 +118,9 @@ Visual Studio で、ソリューション エクスプ ローラーを更新し�
 
 ワークフローの削除が正常にからテスト カテゴリのレコードを削除中に、`Categories`テーブル、web サーバーのファイル システムからそのパンフレット ファイルを削除しなかった。 ソリューション エクスプ ローラーを更新し、そのことがわかります`Test.pdf`に残っている間は、`~/Brochures`フォルダー。
 
-
 ![Test.pdf ファイルは、Web サーバーのファイル システムから削除されませんでした。](updating-and-deleting-existing-binary-data-cs/_static/image8.gif)
 
 **図 8**:`Test.pdf`ファイルは、Web サーバーのファイル システムから削除されませんでした
-
 
 ## <a name="step-5-removing-the-deleted-category-s-brochure-file"></a>手順 5: 削除されたカテゴリのパンフレット ファイルを削除します。
 
@@ -149,14 +128,12 @@ Visual Studio で、ソリューション エクスプ ローラーを更新し�
 
 GridView s [ `RowDeleting`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx)発生 ObjectDataSource s delete コマンドが呼び出されたときにその[`RowDeleted`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx)後に起動します。 次のコードを使用してこれら 2 つのイベントのイベント ハンドラーを作成します。
 
-
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample5.cs)]
 
 `RowDeleting`イベント ハンドラー、`CategoryID`行の GridView %s から削除されているがグラブ`DataKeys`を使用してこのイベント ハンドラーにアクセスできる、コレクション、`e.Keys`コレクション。 次に、`CategoriesBLL`クラスの`GetCategoryByCategoryID(categoryID)`が削除されるレコードに関する情報を返すために呼び出されます。 場合、返された`CategoriesDataRow`オブジェクトがない`NULL``BrochurePath`ページ変数に格納し、値`deletedCategorysPdfPath`でファイルを削除できるように、`RowDeleted`イベント ハンドラー。
 
 > [!NOTE]
 > 取得するのではなく、`BrochurePath`に関する詳細情報、`Categories`レコードの削除中、`RowDeleting`イベント ハンドラー、または追加、 `BrochurePath` GridView s`DataKeyNames`プロパティ レコードの値にアクセスを通じて、`e.Keys`コレクション。 そうは若干 GridView のビュー ステートのサイズを増やすが必要なコードの量を減らすになり、旅行をデータベースに保存します。
-
 
 %S 基になる delete コマンドが呼び出された ObjectDataSource GridView s 後`RowDeleted`イベント ハンドラーが発生します。 データの削除中に例外がない場合は、値を`deletedCategorysPdfPath`PDF は、ファイル システムから削除されます。 この余分なコードはその画像に関連付けられているカテゴリのバイナリ データをクリーンアップするには必要ないことに注意してください。 S 削除ためデータベースに直接画像データが格納されている、ため、`Categories`行では、そのカテゴリの画像データも削除されます。
 
@@ -170,34 +147,27 @@ GridView s [ `RowDeleting`イベント](https://msdn.microsoft.com/library/syste
 
 ObjectDataSource のウィザードからのデータ ソースの構成のリンクをクリックして、2 番目の手順に進みます。 ため、`DataObjectMethodAttribute`で使用される`CategoriesBLL`の更新プログラムのドロップダウン リストを自動的に代入する、`UpdateCategory`を 4 つの入力パラメーターを受け取るオーバー ロード (すべての列が`Picture`)。 5 つのパラメーターでオーバー ロードを使用するように変更します。
 
-
 [![画像のパラメーターを含む UpdateCategory メソッドを使用して ObjectDataSource を構成します。](updating-and-deleting-existing-binary-data-cs/_static/image9.gif)](updating-and-deleting-existing-binary-data-cs/_static/image15.png)
 
 **図 9**:構成に使用する ObjectDataSource、`UpdateCategory`メソッドのパラメーターを含む`Picture`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image16.png))。
-
 
 ObjectDataSource の値を含めるようになりましたが、`UpdateMethod`プロパティに対応する`UpdateParameter`s。 Visual Studio が ObjectDataSource s を設定するように手順 4. で、`OldValuesParameterFormatString`プロパティを`original_{0}`データ ソース構成ウィザードを使用する場合。 更新プログラムで問題が発生するをメソッドの呼び出しを削除します。 そのため、このプロパティを完全に消去またはのいずれか、既定値にリセット`{0}`します。
 
 ウィザードを完了し、修正した後、 `OldValuesParameterFormatString`ObjectDataSource s の宣言型マークアップは、次のようになります。
 
-
 [!code-aspx[Main](updating-and-deleting-existing-binary-data-cs/samples/sample6.aspx)]
 
 GridView s 組み込み編集機能を有効にするには、GridView s のスマート タグの編集を有効にするオプションをオンにします。 設定すると、[commandfield] s`ShowEditButton`プロパティを`true`、さらに編集ボタン (および編集される行の更新プログラムおよび [キャンセル] ボタン) の結果として得られる。
-
 
 [![サポートの編集を GridView を構成します。](updating-and-deleting-existing-binary-data-cs/_static/image10.gif)](updating-and-deleting-existing-binary-data-cs/_static/image17.png)
 
 **図 10**:構成のサポートを編集する GridView ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image18.png))。
 
-
 ブラウザーでページにアクセスし、いずれかの行の編集ボタンをクリックします。 `CategoryName`と`Description`BoundFields がテキスト ボックスとしてレンダリングされます。 `BrochurePath` TemplateField がない、`EditItemTemplate`を表示し続けるため、その`ItemTemplate`パンフレットへのリンク。 `Picture` ImageField を持つテキスト ボックスとしてレンダリング`Text`プロパティには、ImageField s の値が割り当てられている`DataImageUrlField`値、ここで`CategoryID`します。
-
 
 [![GridView の BrochurePath の編集インターフェイスが不足しています](updating-and-deleting-existing-binary-data-cs/_static/image11.gif)](updating-and-deleting-existing-binary-data-cs/_static/image19.png)
 
 **図 11**:GridView の編集インターフェイスがない`BrochurePath`([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image20.png))。
-
 
 ## <a name="customizing-thebrochurepaths-editing-interface"></a>カスタマイズ、`BrochurePath`s 編集インターフェイス
 
@@ -217,22 +187,17 @@ GridView s のスマート タグからのテンプレートの編集リンク�
 
 最初の設定`ListItem`s`Selected`プロパティを`true`します。
 
-
 ![次の 3 つのリスト項目を RadioButtonList に追加します。](updating-and-deleting-existing-binary-data-cs/_static/image12.gif)
 
 **図 12**:3 つ追加`ListItem`RadioButtonList s
 
-
 という名前の FileUpload コントロールを追加、RadioButtonList、下にある`BrochureUpload`します。 設定の`Visible`プロパティを`false`します。
-
 
 [![後に、RadioButtonList と FileUpload コントロールを追加します。](updating-and-deleting-existing-binary-data-cs/_static/image13.gif)](updating-and-deleting-existing-binary-data-cs/_static/image21.png)
 
 **図 13**:RadioButtonList と FileUpload コントロールを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image22.png))。
 
-
 この RadioButtonList は、ユーザーの 3 つのオプションを提供します。 考え方は、アップロードの新しいパンフレット、最後のオプションが選択されている場合にのみ、FileUpload コントロールが表示されることです。 これを実現するには、RadioButtonList s のイベント ハンドラーを作成`SelectedIndexChanged`イベントと、次のコードを追加します。
-
 
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample7.cs)]
 
@@ -240,16 +205,13 @@ RadioButtonList と FileUpload コントロールでは、テンプレート内�
 
 このコードを少し編集インターフェイスをテストします。 行の編集 ボタンをクリックします。 最初に、現在のパンフレットを使用する オプションを選択してください。 選択されたインデックスの変更がポストバックを発生します。 3 番目のオプションが選択されている場合は、FileUpload コントロールが表示されたら、それ以外の場合は表示されません。 図 14 は、編集 ボタンがクリックされた最初; ときに編集インターフェイスを示しています図 15 は、新しいパンフレットのアップロード オプションを選択した後に、インターフェイスを示します。
 
-
 [![最初に、使用して現在パンフレット オプションを選択します。](updating-and-deleting-existing-binary-data-cs/_static/image14.gif)](updating-and-deleting-existing-binary-data-cs/_static/image23.png)
 
 **図 14**:最初に、使用して現在パンフレット オプションが選択されている ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image24.png))。
 
-
 [![FileUpload コントロール アップロード新しいパンフレット オプションの表示の選択](updating-and-deleting-existing-binary-data-cs/_static/image15.gif)](updating-and-deleting-existing-binary-data-cs/_static/image25.png)
 
 **図 15**:FileUpload コントロール アップロード新しいパンフレット オプションの表示の選択 ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image26.png))。
-
 
 ## <a name="saving-the-brochure-file-and-updating-thebrochurepathcolumn"></a>パンフレットを保存するファイルと更新、`BrochurePath`列
 
@@ -266,11 +228,9 @@ GridView s の Update ボタンがクリックされたときにその`RowUpdati
 
 これら 2 つのメソッドのコードに従います。 間の類似性に注意してください`ProcessBrochureUpload`と DetailsView の`ItemInserting`前のチュートリアルからのイベント ハンドラー。 このチュートリアルではこれらの新しいメソッドを使用するには、DetailsView のイベント ハンドラーを更新しました。 DetailsView s のイベント ハンドラーへの変更を表示するには、このチュートリアルに関連付けられているコードをダウンロードします。
 
-
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample8.cs)]
 
 GridView s`RowUpdating`と`RowUpdated`イベント ハンドラーを使用して、`ProcessBrochureUpload`と`DeleteRememberedBrochurePath`メソッドは、次のコードに示すとして。
-
 
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample9.cs)]
 
@@ -288,32 +248,25 @@ ImageField は簡単にデータベースのデータに基づくイメージの
 
 ImageField s 編集インターフェイスをカスタマイズするには、TemplateField に変換する必要があります。 GridView s のスマート タグから列の編集リンクをクリックしてを選択、ImageField TemplateField リンクにこのフィールドに変換 をクリックします。
 
-
 ![ImageField を TemplateField に変換します。](updating-and-deleting-existing-binary-data-cs/_static/image16.gif)
 
 **図 16**:ImageField を TemplateField に変換します。
 
-
 ImageField をこの方法で TemplateField に変換するには、2 つのテンプレートを TemplateField が生成されます。 次の宣言型構文に示すよう、 `ItemTemplate` 、イメージ Web が含まれているコントロール`ImageUrl`ImageField s に基づくデータ バインディング構文を使用してプロパティに割り当てられている`DataImageUrlField`と`DataImageUrlFormatString`プロパティ。 `EditItemTemplate` TextBox が含まれていますが`Text`プロパティによって指定された値にバインドする、`DataImageUrlField`プロパティ。
-
 
 [!code-aspx[Main](updating-and-deleting-existing-binary-data-cs/samples/sample10.aspx)]
 
 更新する必要があります、 `EditItemTemplate` FileUpload コントロールを使用します。 テンプレートの編集 、s のスマート タグの GridView からリンクを選び、 `Picture` TemplateField の`EditItemTemplate`ドロップダウン リストから。 テンプレートでは、これを削除するテキスト ボックスが表示されます。 次に、ツールボックスから FileUpload コントロールをドラッグして、テンプレートの設定にその`ID`に`PictureUpload`します。 また、カテゴリの画像を変更するには、新しい画像を指定するテキストを追加します。 同じカテゴリの画像を維持するには、空のままに、フィールド、テンプレートにします。
 
-
 [![FileUpload コントロールを後に追加します。](updating-and-deleting-existing-binary-data-cs/_static/image17.gif)](updating-and-deleting-existing-binary-data-cs/_static/image27.png)
 
 **図 17**:FileUpload コントロールを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image28.png))。
 
-
 編集インターフェイスをカスタマイズしたら、ブラウザーで、進行状況を表示します。 読み取り専用モードで行を表示するときに前に、が、画像の列を表示します FileUpload コントロールでテキストとして編集 ボタンをクリックすると、カテゴリ s の画像が表示されます。
-
 
 [![編集インターフェイスには、FileUpload コントロールが含まれています。](updating-and-deleting-existing-binary-data-cs/_static/image18.gif)](updating-and-deleting-existing-binary-data-cs/_static/image29.png)
 
 **図 18**:FileUpload コントロールが編集インターフェイスに含まれています ([フルサイズの画像を表示する をクリックします](updating-and-deleting-existing-binary-data-cs/_static/image30.png))。
-
 
 呼び出す、ObjectDataSource が構成されていることを思い出してください、`CategoriesBLL`クラス s`UpdateCategory`として画像のバイナリ データを入力として受け取るメソッドを`byte`配列。 この配列がある場合、`null`値、ただし、代替`UpdateCategory`オーバー ロードを呼び出すと、問題、 `UPDATE` SQL ステートメントを変更しない、`Picture`のままとなりますカテゴリの現在の列の画像をそのまま保存されます。 そのため、GridView s で`RowUpdating`イベント ハンドラーをプログラムで参照する必要があります、 `PictureUpload` FileUpload を制御し、ファイルがアップロードされたかどうかを決定します。 1 つはアップロードされませんでしたとしている場合、私たち*いない*の値を指定する、`picture`パラメーター。 その一方でファイルがアップロードされた場合、 `PictureUpload` JPG ファイルであることを確認する、FileUpload コントロール。 であるかどうかは、そのバイナリ コンテンツを ObjectDataSource に送信できます、`picture`パラメーター。
 
@@ -321,13 +274,11 @@ ImageField をこの方法で TemplateField に変換するには、2 つのテ�
 
 GridView s の先頭に次のコードを追加`RowUpdating`イベント ハンドラー。 このコードが t たくないので、パンフレット ファイルを保存するコードの前にすることが重要ですが、無効な画像ファイルをアップロードする場合は、web サーバーのファイル システムにパンフレットを保存します。
 
-
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample11.cs)]
 
 `ValidPictureUpload(FileUpload)`画像ファイルがアップロードされた場合のみ呼び出されます。 メソッドは、その唯一の入力パラメーターとして FileUpload コントロールで受け取り、JPG にアップロードされたファイルがアップロードされたファイルの拡張機能を確認します。 ファイルをアップロードしないかどうか、画像のパラメーターが設定されていないと、そのため、既定値を使用`null`します。 画像がアップロードされた場合と`ValidPictureUpload`返します`true`、`picture`メソッドを返す場合は、パラメーターにアップロードされた画像のバイナリ データが割り当てられている`false`更新のワークフローは取り消され、イベント ハンドラーが終了しました。
 
 `ValidPictureUpload(FileUpload)`メソッドのコードは、DetailsView s からリファクタリングされました`ItemInserting`イベントのハンドラーします。
-
 
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample12.cs)]
 
@@ -342,12 +293,10 @@ GridView s の先頭に次のコードを追加`RowUpdating`イベント ハン�
 
 カテゴリを編集すると、JPG イメージをアップロードして、イメージ レンダリングされません、ブラウザーでため、`DisplayCategoryPicture.aspx`ページが最初の 8 つのカテゴリの画像から最初の 78 バイトを削除します。 OLE ヘッダーの削除を実行するコードを削除することで、これを修正します。 この後、`DisplayCategoryPicture.aspx``Page_Load`イベント ハンドラーは次のコードだけである必要があります。
 
-
 [!code-vb[Main](updating-and-deleting-existing-binary-data-cs/samples/sample13.vb)]
 
 > [!NOTE]
 > `UpdatingAndDeleting.aspx`ページ s を挿入して、インターフェイスの編集は、さらに作業を使用できます。 `CategoryName`と`Description`GridView、DetailsView で BoundFields TemplateFields に変換する必要があります。 `CategoryName`により`NULL`値、RequiredFieldValidator を追加する必要があります。 および`Description`テキスト ボックスが複数行テキスト ボックスに変換される可能性があります。 ままにこれらの最後の仕上げを演習としてできます。
-
 
 ## <a name="summary"></a>まとめ
 

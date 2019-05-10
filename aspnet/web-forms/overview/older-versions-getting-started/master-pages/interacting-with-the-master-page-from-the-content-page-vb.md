@@ -8,12 +8,12 @@ ms.date: 07/11/2008
 ms.assetid: 081fe010-ba0f-4e7d-b4ba-774840b601c2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1326d5453f205201af850a30c17f509645e15cb9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 04642dbcd62fe24d4e0fa379b90cbf4122c57066
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422201"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134075"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>コンテンツ ページからマスター ページと対話する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59422201"
 [コードのダウンロード](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_06_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_06_VB.pdf)
 
 > メソッドを呼び出して、コンテンツ ページのコードからのマスター ページなどのプロパティを設定する方法について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -45,7 +44,6 @@ ms.locfileid: "59422201"
 > [!NOTE]
 > ポストバックのたびに基になるデータ ソースに、再バインドするために GridView のビュー ステートを無効にした場合でもまだ表示されませんだけで追加したレコードのデータがページのライフ サイクル、データベース オブジェクトに新しいレコードを追加する場合よりも前の GridView にバインドされているためase。
 
-
 マスター ページで、単に追加されたレコードが表示されるように、これを解決するには、ポストバックにそのデータ ソースを再バインドする GridView を指示する必要があります GridView の*後*新しいレコードがデータベースに追加されています。 新しいレコード (とそのイベント ハンドラー) が [コンテンツ] ページが更新する必要がある GridView に追加するためのインターフェイスがマスター ページのため、コンテンツおよびマスター ページ間の相互作用が必要です。
 
 [コンテンツ] ページで、イベント ハンドラーからマスター ページの表示を更新すると、コンテンツ、マスター ページの相互作用のための最も一般的なニーズの 1 つは、ため、このトピックでさらに詳しく見ていきましょう。 このチュートリアルのダウンロードには、という名前の Microsoft SQL Server 2005 Express Edition データベースが含まれている`NORTHWIND.MDF`で web サイトの`App_Data`フォルダー。 Northwind データベースには、製品、従業員、および Northwind traders 社という架空の会社の売上情報が格納されます。
@@ -55,24 +53,19 @@ ms.locfileid: "59422201"
 > [!NOTE]
 > このチュートリアルは、ASP.NET 内のデータの操作の詳細を掘り下げてはされません。 データとデータを挿入するためのコンテンツ ページを表示するマスター ページを設定するための手順は、完全なまだ手軽なです。 データを挿入すると、SqlDataSource コントロールと GridView コントロールを使用して表示に関する詳細については、このチュートリアルの最後に、それ以上の測定値のセクションでリソースを参照してください。
 
-
 ## <a name="step-1-displaying-the-five-most-recently-added-products-in-the-master-page"></a>手順 1: マスター ページで、製品を最後に追加の 5 つの表示
 
 Site.master マスター ページを開き、ラベルと GridView コントロールを追加、 `leftContent` `<div>`します。 ラベルのクリアします`Text`プロパティ、設定、`EnableViewState`プロパティを`False`とその`ID`プロパティを`GridMessage`; 設定 GridView の`ID`プロパティを`RecentProducts`。 次に、デザイナーには、GridView のスマート タグを展開し、新しいデータ ソースにバインドを選択します。 これにより、データ ソース構成ウィザードが起動します。 Northwind データベースのため、`App_Data`フォルダーは、Microsoft SQL Server データベース (図 1 参照) を選択して、SqlDataSource を作成することも; SqlDataSource を名前`RecentProductsDataSource`します。
-
 
 [![RecentProductsDataSource SqlDataSource コントロールを GridView にバインドします。](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
 
 **図 01**:SqlDataSource コントロールの名前、GridView にバインド`RecentProductsDataSource`([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image3.png))。
 
-
 次の手順では、どのようなデータベースに接続するかを指定するよう求められます。 選択、`NORTHWIND.MDF`ドロップダウン リストからファイルをデータベースし、[次へ] をクリックします。 接続文字列を保存するがウィザードによって提供これはこのデータベースを使用して初めてであるため、`Web.config`します。 名前を使用して、接続文字列を格納することがある`NorthwindConnectionString`します。
-
 
 [![Northwind データベースへの接続します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
 
 **図 02**:Northwind データベースへの接続 ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image6.png))。
-
 
 データ ソース構成ウィザードでは、データを取得するためのクエリを指定して、2 つの手段を提供します。
 
@@ -81,19 +74,15 @@ Site.master マスター ページを開き、ラベルと GridView コントロ
 
 製品を最後に追加した 5 を返すため、カスタム SQL ステートメントを指定する必要があります。 次を使用して、`SELECT`クエリ。
 
-
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample1.sql)]
 
 `TOP 5`キーワードは、クエリから最初の 5 つのレコードのみを返します。 `Products`テーブルの主キー、`ProductID`は、`IDENTITY`列は、テーブルに追加された新しい各製品が前のエントリより大きい値にあることを保証します。 そのためで結果を並べ替える`ProductID`降順以降最も最近では作成した製品を返します。
-
 
 [![最近追加された 5 つの製品を返す](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
 
 **図 03**:5 つ最も最近追加の製品を返す ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image9.png))。
 
-
 ウィザードを完了すると、Visual Studio に表示する GridView の 2 つの BoundFields が生成されます、`ProductName`と`UnitPrice`フィールドは、データベースから返されます。 この時点でマスター ページの宣言型マークアップは、次のようなマークアップを含める必要があります。
-
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample2.aspx)]
 
@@ -101,30 +90,24 @@ Site.master マスター ページを開き、ラベルと GridView コントロ
 
 GridView を作成し、SqlDataSource コントロールを構成するには、このブラウザーから web サイトにアクセスします。 図 4 に示すよう、左下隅を最も最近、5 つの一覧を表示するグリッドを追加の製品が表示されます。
 
-
 [![GridView には、5 つの最も最近追加された製品が表示されます。](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
 
 **図 04**:GridView には、5 つ最も最近追加された製品が表示されます ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image12.png))。
 
-
 > [!NOTE]
 > 自由に、GridView の外観をクリーンアップできます。 いくつかの候補が表示されている書式設定を含める`UnitPrice`通貨と背景色とフォントを使用して、グリッドの外観を改善する値。
-
 
 ## <a name="step-2-creating-a-content-page-to-add-new-products"></a>手順 2: 新しい製品を追加するコンテンツ ページの作成
 
 ユーザーが新しい製品を追加するコンテンツ ページを作成する、次のタスクでは、`Products`テーブル。 新しいコンテンツ ページを追加、`Admin`という名前のフォルダー`AddProduct.aspx`を確実にそれをバインドに、`Site.master`マスター ページ。 図 5 は、このページは、web サイトに追加した後、ソリューション エクスプ ローラーを示します。
 
-
 [![Admin フォルダーに新しい ASP.NET ページを追加します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
 
 **図 05**:新しい ASP.NET ページの追加、`Admin`フォルダー ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image15.png))。
 
-
 そのことを思い出してください、 [*マスター ページのタイトル、メタ タグ、およびその他の HTML ヘッダーを指定する*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)という名前のカスタム ベース ページ クラスを作成したチュートリアル`BasePage`いた場合、ページのタイトルを生成します。明示的に設定します。 移動して、`AddProduct.aspx`ページの分離コード クラスし、派生させる`BasePage`(の代わりにから`System.Web.UI.Page`)。
 
 最後に、更新、`Web.sitemap`このレッスンのエントリを追加するファイル。 下に次のマークアップを追加、`<siteMapNode>`コントロール ID の名前付けの問題のレッスン。
-
 
 [!code-xml[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample3.xml)]
 
@@ -132,11 +115,9 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 
 戻り`AddProduct.aspx`します。 コンテンツ コントロールで、 `MainContent` ContentPlaceHolder、DetailsView コントロールを追加し、名前を付けます`NewProduct`します。 DetailsView をという名前の新しい SqlDataSource コントロールにバインド`NewProductDataSource`します。 手順 1. で SqlDataSource、Northwind データベースを使用するように、ウィザードを構成し、カスタム SQL ステートメントを指定するようにします。 データベースに項目を追加、DetailsView を使用するため、両方とも指定する必要があります、`SELECT`ステートメントおよび`INSERT`ステートメント。 次を使用して、`SELECT`クエリ。
 
-
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample4.sql)]
 
 次に、[挿入] タブから次の追加`INSERT`ステートメント。
-
 
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample5.sql)]
 
@@ -144,17 +125,14 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 
 必要な作業は以上です。 このページをテストしてみましょう。 参照してください`AddProduct.aspx`ブラウザーで、(図 6 参照)、名前と価格を入力します。
 
-
 [![データベースに新しい製品を追加します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
 
 **図 06**:データベースに新しい製品を追加 ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image18.png))。
-
 
 新しい製品の価格と名前で入力すると、[挿入] ボタンをクリックします。 これにより、ポストバックするためのフォームです。 ポストバック時に、SqlDataSource コントロールの`INSERT`ステートメントが実行されます。 その 2 つのパラメーターは、DetailsView の 2 つの TextBox コントロールにユーザーが入力した値が格納されます。 残念ながら、視覚的なフィードバック、挿入が発生したことはありません。 表示するには、新しいレコードが追加されたことを確認するメッセージを用意すると良いでしょう。 ままを演習として、リーダーの。 また、DetailsView から新しいレコードを追加した後のマスター ページに GridView まだを示しています; 前に、と、同じ 5 つのレコードこれは、単に追加されたレコードには含まれません。 後の手順でこの問題を解決する方法を考察します。
 
 > [!NOTE]
 > 何らかの形式の視覚的なフィードバック、挿入が成功したことを追加するだけでも検証をインクルードする DetailsView の挿入のインターフェイスを更新することをぜひなります。 現時点では、検証することはありません。 ユーザーの無効な値を入力した場合、`UnitPrice`フィールドに、"すぎます安価ですが、"システムがその文字列を 10 進数に変換しようとするとポストバック時に、例外がスローされます。 挿入する、カスタマイズの詳細については、インターフェイスを参照してください、 [*データ変更インターフェイスをカスタマイズ*チュートリアル](https://asp.net/learn/data-access/tutorial-20-vb.aspx)からマイ[データのチュートリアルシリーズの操作](../../data-access/index.md).
-
 
 ## <a name="step-3-creating-public-properties-and-methods-in-the-master-page"></a>手順 3: マスター ページで、パブリック プロパティおよびメソッドを作成します。
 
@@ -162,11 +140,9 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 
 ラベル コントロールは、マスター ページ内でプロテクト メンバー変数として実装されるため、コンテンツ ページから直接アクセスできません。 Web コントロールを公開または使用されるプロパティのいずれかを指定できますプロキシとして機能するマスター ページ内のパブリック プロパティの作成に必要なコンテンツ ページから (または、さらに言えば、マスター ページ内の任意の Web コントロール)、マスター ページ内のラベルを使用するには アクセスします。 ラベルを公開する、マスター ページの分離コード クラスに次の構文を追加`Text`プロパティ。
 
-
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample6.vb)]
 
 新しいレコードを追加するときに、`Products`コンテンツ ページからテーブル、`RecentProducts`マスター ページに GridView がその基になるデータ ソースを再バインドする必要があります。 GridView の呼び出しを再バインドするその`DataBind`メソッド。 マスター ページに GridView にコンテンツのページにプログラムでアクセスできないためパブリック メソッドを作成、マスター ページで、呼び出されたときにする必要があります、GridView にデータを再バインドします。 マスター ページの分離コード クラスには、次のメソッドを追加します。
-
 
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample7.vb)]
 
@@ -174,7 +150,6 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 
 > [!NOTE]
 > マスター ページのプロパティとメソッドをマークすることを忘れないでください`Public`します。 かどうかを明示的に表していませんこれらのプロパティとメソッドとして`Public`、コンテンツ ページからアクセスはできません。
-
 
 ## <a name="step-4-calling-the-master-pages-public-members-from-a-content-page"></a>手順 4: コンテンツ ページからマスター ページのパブリック メンバーを呼び出す
 
@@ -193,20 +168,16 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 
 `Master`プロパティ型のオブジェクトを返します[ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (も内にある、`System.Web.UI`名前空間) から派生するすべてのマスター ページ元となる基本型です。 パブリック プロパティを使用またはキャストする必要があります、web サイトのマスター ページで定義されているメソッドに、そのため、`MasterPage`から返されたオブジェクト、`Master`プロパティを適切な型。 という名前のマスター ページファイルのため`Site.master`、分離コード クラスの名前が`Site`します。 そのため、次のコードのキャスト、`Page.Master`プロパティのインスタンスを`Site`クラス。
 
-
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample8.vb)]
 
 あるキャストしたので、厳密に型`Page.Master`プロパティ、サイトの種類をサイトに固有のメソッドとプロパティを参照できます。 図 7 に示す、パブリック プロパティ`GridMessageText`IntelliSense ドロップダウン リストに表示されます。
-
 
 [![IntelliSense は、マスター ページのパブリック プロパティおよびメソッドを示しています。](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
 
 **図 07**:IntelliSense は、マスター ページのパブリック プロパティとメソッドを示します ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image21.png))。
 
-
 > [!NOTE]
 > マスター ページファイルの名前を付けた場合`MasterPage.master`マスター ページの分離コード クラス名は`MasterPage`します。 これにより、あいまいなコード型からキャストする場合に`System.Web.UI.MasterPage`を`MasterPage`クラス。 つまり、Web サイト プロジェクト モデルを使用する場合は少し困難ですができますが、キャスト先と型を完全に修飾する必要があります。 推奨されるか、マスター ページを作成するときに名前を付けることが何か以外であることを確認する`MasterPage.master`または、さらに、マスター ページへの参照を厳密に型指定を作成します。
-
 
 ### <a name="creating-a-strongly-typed-reference-with-themastertypedirective"></a>厳密に型指定された参照を作成する、`@MasterType`ディレクティブ
 
@@ -216,7 +187,6 @@ ASP.NET ページにアクセスするたびに発生する自動コード生成
 
 使用して、 [ `@MasterType`ディレクティブ](https://msdn.microsoft.com/library/ms228274.aspx)コンテンツ ページのマスター ページの型の ASP.NET エンジンに通知します。 `@MasterType`ディレクティブは、いずれかのマスター ページの型名またはそのファイルのパスを受け入れることができます。 指定する、`AddProduct.aspx`ページ使用`Site.master`としてマスター ページでは、次のディレクティブを追加のページのトップへ`AddProduct.aspx`:
 
-
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample9.aspx)]
 
 このディレクティブをという名前のプロパティを使用してマスター ページへの厳密に型指定された参照を追加する、ASP.NET エンジンに指示`Master`します。 `@MasterType`インプレース ディレクティブを呼び出し、`Site.master`マスター ページのパブリック プロパティとメソッド経由で直接、`Master`任意にキャストしないプロパティ。
@@ -224,11 +194,9 @@ ASP.NET ページにアクセスするたびに発生する自動コード生成
 > [!NOTE]
 > 省略した場合、`@MasterType`ディレクティブ構文では、`Page.Master`と`Master`同じを返します: マスター ページを柔軟に型指定されたオブジェクト。 含める場合は、`@MasterType`ディレクティブ、`Master`指定されたマスター ページへの参照を厳密に型指定されたを返します。 `Page.Master`、ただし、まだ厳密に型の参照を返します。 詳しい理由について、これに該当する方法と、`Master`プロパティを構築時に、`@MasterType`ディレクティブが含まれるを参照してください[K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx)のブログ エントリ[ `@MasterType` ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx).
 
-
 ### <a name="updating-the-master-page-after-adding-a-new-product"></a>新しい製品を追加した後、マスター ページを更新しています
 
 更新する準備ができましたマスター ページのパブリック プロパティおよびコンテンツ ページからメソッドを呼び出す方法がわかっているので、`AddProduct.aspx`ページの新しい製品を追加した後、マスター ページが更新されるようにします。 手順 4 の先頭に DetailsView コントロールのイベント ハンドラーを作成した`ItemInserting`イベントで、新しい製品がデータベースに追加された後すぐに実行します。 イベント ハンドラーに次のコードを追加します。
-
 
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample10.vb)]
 
@@ -236,11 +204,9 @@ ASP.NET ページにアクセスするたびに発生する自動コード生成
 
 図 8 は、`AddProduct.aspx`データベースに新しい製品 - Scott の Soda - 後すぐにページが追加されました。 そのマスター ページのラベルに追加したばかりの製品名が記載されて、製品の価格など、GridView が更新されたことに注意してください。
 
-
 [![マスター ページのラベルと GridView が単に追加された製品を表示します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
 
 **図 08**:マスター ページのラベルと GridView Just-Added 製品を表示する ([フルサイズの画像を表示する をクリックします](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))。
-
 
 ## <a name="summary"></a>まとめ
 

@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 98e521f348cdf1c2bd563f96badbaea6b23f4bcf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc4db5b1fcedca675a18f1b78e28f65e51b6cf09
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398957"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132752"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server - 10/12 への移行
 
@@ -24,7 +24,6 @@ ms.locfileid: "59398957"
 > この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
 > 
 > Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -89,11 +88,9 @@ Contoso University アプリケーションが 2 つの SQL Server Compact デ�
 > [!NOTE]
 > このスクリプトは、このチュートリアルで指定されている SQL Server 2008 と Windows 7 で IIS 設定の動作設計されています。 または、Windows の SQL Server の別のバージョンを使用している場合、または IIS を設定するコンピューターに異なる場合は、このスクリプトへの変更が必要な場合があります。 SQL Server スクリプトの詳細については、次を参照してください。 [SQL Server オンライン ブックの「](https://go.microsoft.com/fwlink/?LinkId=132511)します。
 
-
 > [!NOTE] 
 > 
 > **セキュリティに関する注意**このスクリプトは、db\_、運用環境でがありますが、実行時にデータベースにアクセスするユーザーに対する所有者アクセス許可。 一部のシナリオで、展開にのみアクセス許可を更新し、実行時のデータを読み書きするのみのアクセス許可を持つ別のユーザーを指定します。 データベースの完全スキーマを持つユーザーを指定する場合があります。 詳細については、次を参照してください。 **Code First Migrations に対する自動の Web.config の変更をレビュー**で[テスト環境として IIS への配置](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)します。
-
 
 ## <a name="configuring-database-deployment-for-the-test-environment"></a>テスト環境用データベース デプロイの構成
 

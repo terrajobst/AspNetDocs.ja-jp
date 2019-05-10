@@ -8,12 +8,12 @@ ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: d35c0057f5c29e399e45d0a58467de7f106d9994
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6b5ab979518615356baaeeb824e0a621eb59a38f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389974"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130784"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアントから OData サービスを呼び出す (C#)
 
@@ -29,7 +29,6 @@ ms.locfileid: "59389974"
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (Visual Studio 2012 で動作)
 > - [WCF Data Services クライアント ライブラリ](https://msdn.microsoft.com/library/cc668772.aspx)
 > - Web API 2. (この OData サービスの例は Web API 2 を使用して構築していますが、クライアント アプリケーションは Web API に依存しません)。
-
 
 このチュートリアルで説明します、OData サービスを呼び出すクライアント アプリケーションを作成します。 OData サービスでは、次のエンティティを公開します。
 
@@ -57,7 +56,6 @@ Visual Studio での OData サービスのプロジェクトを開くことで�
 
 > [!NOTE]
 > 残りの手順は、コンソール プロジェクトを参照してください。
-
 
 ソリューション エクスプ ローラーで右クリックして**参照**選択**サービス参照の追加**します。
 
@@ -201,7 +199,6 @@ $Select および $expand の詳細については、展開しを参照してく
 
 > [!NOTE]
 > マージと PATCH なぜでしょうか。 元の HTTP 1.1 の仕様 ([RCF 2616](http://tools.ietf.org/html/rfc2616))「部分更新」のセマンティクスを持つ任意の HTTP メソッドを定義しませんでした。 部分的な更新をサポートするためには、OData 仕様には、MERGE メソッドが定義されています。 2010 では、 [RFC 5789](http://tools.ietf.org/html/rfc5789)部分的な更新プログラムの PATCH メソッドを定義します。 この履歴の一部を読み取ることができます[ブログの投稿](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx)WCF Data Services のブログにします。 今日では、修正プログラムがマージに適しています。 Web API のスキャフォールディングによって作成された OData コント ローラーには、両方の方法がサポートしています。
-
 
 エンティティ (PUT セマンティクス) 全体を置換する場合は、指定、 **ReplaceOnUpdate**オプション。 これにより、HTTP PUT 要求を送信する WCF です。
 

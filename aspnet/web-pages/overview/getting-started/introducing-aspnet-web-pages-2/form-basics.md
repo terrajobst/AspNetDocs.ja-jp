@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: f88f7a31551abda029bee0ec16aa35ce2ef5d2f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f57661077ec3bb13f3d4ec41b130bda4d2fb9070
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385957"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132958"
 ---
 # <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web ページの HTML フォームの基本の概要
 
@@ -33,7 +33,6 @@ ms.locfileid: "59385957"
 > 
 > - `Request` オブジェクト。
 > - SQL`Where`句。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -82,7 +81,6 @@ ms.locfileid: "59385957"
 > 
 > (HTTP 動詞の詳細については、次を参照してください、[メソッド定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)W3C サイトの記事「。)。
 
-
 ほとんどのユーザー入力要素が HTML`<input>`要素。 ような外観`<input type="type" name="name">,`場所*型*するユーザー入力コントロールの種類を示します。 これらの要素は、一般的なものです。
 
 - テキスト ボックス: `<input type="text">`
@@ -104,7 +102,6 @@ ms.locfileid: "59385957"
 > ご存知のように、HTML は状態遷移と最新バージョン (HTML5) より直感的な方法はユーザー情報を入力するためのサポートが含まれています。 たとえば、HTML5 で (ページの開発者向け) ことがわかりますページ日付を入力するユーザーをします。 ブラウザーに自動的に表示できます日を手動で入力するように求めるのではなく、予定表。 ただし、HTML5 では、新機能と、まだサポートのすべてのブラウザーでされません。
 > 
 > ASP.NET Web ページには、ユーザーのブラウザーを使用する入力 HTML5 がサポートされています。 新しい属性のアイデア、 `<input>` 、HTML5 の要素を参照してください[HTML&lt;入力&gt;type 属性](http://www.w3schools.com/html/html_form_input_types.asp)W3Schools サイト。
-
 
 ## <a name="creating-the-form"></a>フォームの作成
 
@@ -176,7 +173,6 @@ WebMatrix で、**ファイル** ワークスペースで、開く、 *Movies.cs
 > 
 > 固有のものし、のサブセットを使用することをお勧め`Request`のように、該当する、`Request.Form`または`Request.QueryString`します。 このチュートリアルで作成しているページの単純な場合、おそらく本当にも行いません。 ただしより複雑なページを作成するとき、明示的なバージョンを使用`Request.Form`または`Request.QueryString`ページには、フォーム (または複数の形式) が含まれている場合に発生する可能性のある問題を回避するための cookie やクエリ文字列の値。
 
-
 ## <a name="creating-a-query-by-using-a-search-term"></a>検索用語を使用してクエリを作成します。
 
 ユーザーが入力した検索語句を取得する方法がわかったら、それを使用するクエリを作成することができます。 データベースからムービーのすべての項目を取得するには、このステートメントのような SQL クエリを使用していることを注意してください。
@@ -218,7 +214,6 @@ SQL ステートメントが大文字小文字が区別はありません。 念
 > **重要**。 プレース ホルダーを使用して (のように`@0`) は SQL コマンドに値を渡す*非常に重要な*セキュリティ。 ここに表示、変数のデータのプレース ホルダーでは、唯一の方法は SQL コマンドを構築する必要があります。
 > 
 > ありません (連結) のリテラル テキストと、ユーザーから取得した値、まとめて配置することで、SQL ステートメントを構築します。 サイトに SQL ステートメントにユーザー入力の連結が表示されます、 *SQL インジェクション攻撃を受ける*悪意のあるユーザーが、データベースをハッキングするページに値を送信します。 (詳細、情報の記事で[SQL インジェクション](https://msdn.microsoft.com/library/ms161953.aspx)MSDN web サイトです)。
-
 
 ## <a name="updating-the-movies-page-with-search-code"></a>コードの検索と映画 ページを更新しています
 
@@ -280,7 +275,6 @@ WebMatrix で、実行、 *Movies.cshtml*ページ。 ジャンルのテキス�
 
 > [!NOTE]
 > 「思い出せない」パスワードを使用するテキスト ボックスの値。 コードを使用して、[パスワード] フィールドに入力できるようにする、セキュリティ ホールがあります。
-
 
 ページを再度実行し、ジャンルを入力し、クリックして**検索ジャンル**します。 この時間だけでなくは表示、検索の結果がテキスト ボックスでは、前回の入力は記憶。
 

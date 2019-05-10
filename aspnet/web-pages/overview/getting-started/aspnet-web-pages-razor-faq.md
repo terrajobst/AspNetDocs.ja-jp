@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: b0e51b2fb73370164af1a38af5e5e15e24608843
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6fa1b668e915af856a693e79eafb7180ed504dc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418652"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133199"
 ---
 # <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web ページ (Razor) のよくあるご質問
 
@@ -33,7 +33,6 @@ ms.locfileid: "59418652"
 >   
 > 
 > このチュートリアルは、ASP.NET Web Pages 2、WebMatrix 2 では、Visual Studio 2012 とも動作します。
-
 
 - [ASP.NET Web ページ、ASP.NET Web フォーム、ASP.NET MVC の違いは何ですか。](#Whats_the_difference_between_ASP.NET_Web_Pages,_ASP.NET_Web_Forms,_and_ASP.NET_MVC)
 - [Web ページを使用するために WebMatrix ですか。](#Do_I_need_WebMatrix_in_order_to_work_with_Web_Pages)
@@ -130,7 +129,6 @@ JQuery と ASP.NET Web Pages を使用する方法を説明したいくつかの
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>その他のリソース
-
 
 [ASP.NET Web ページ (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)
 

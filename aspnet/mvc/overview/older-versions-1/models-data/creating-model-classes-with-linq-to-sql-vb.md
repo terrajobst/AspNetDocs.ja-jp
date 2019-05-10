@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: a4a25a75-d71f-4509-98b4-df72e748985a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 212287ea384cf54f9eda477e6f706637d10dd54a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5e2f6af6ef425625cfc11570a73d2eea3516c996
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419900"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122531"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-vb"></a>LINQ to SQL でモデル クラスを作成する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59419900"
 [PDF のダウンロード](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_VB.pdf)
 
 > このチュートリアルの目的では、1 つの ASP.NET MVC アプリケーションのモデル クラスを作成する方法について説明します。 このチュートリアルでは、モデル クラスを構築し、活用して Microsoft LINQ to SQL データベースへのアクセスを実行する方法について説明します。
-
 
 このチュートリアルの目的では、1 つの ASP.NET MVC アプリケーションのモデル クラスを作成する方法について説明します。 このチュートリアルでは、モデル クラスを構築し、活用して Microsoft LINQ to SQL データベースへのアクセスを実行する方法について説明します。
 
@@ -42,14 +41,11 @@ MVC モデルには、MVC ビューまたは MVC コント ローラーに含ま
 
 -このチュートリアルではモデル クラスを作成する方法を説明するためにアプリケーションの作成簡単なムービー データベース。 最初の手順では、新しいデータベースを作成します。 アプリを右クリックして\_メニュー オプションを選択して、ソリューション エクスプ ローラー ウィンドウで、データ フォルダー**追加]、[新しい項目の**します。 SQL Server データベースのテンプレートを選択して、MoviesDB.mdf、名前を付けます をクリックして、**追加**(図 1 参照) ボタンをクリックします。
 
-
 [![新しい SQL Server データベースを追加します。](creating-model-classes-with-linq-to-sql-vb/_static/image2.png)](creating-model-classes-with-linq-to-sql-vb/_static/image1.png)
 
 **図 01**:新しい SQL Server データベースの追加 ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image3.png))。
 
-
 新しいデータベースを作成した後、アプリで MoviesDB.mdf ファイルをダブルクリックして、データベースを開くことができます\_データ フォルダー。 MoviesDB.mdf ファイルをダブルクリックすると、サーバー エクスプ ローラー ウィンドウを開きます (図 2 参照)。
-
 
 |   | サーバー エクスプ ローラー ウィンドウは Visual Web Developer を使用する場合、データベース エクスプ ローラー ウィンドウと呼ばれます。 |
 |---|----------------------------------------------------------------------------------------------------|
@@ -59,14 +55,11 @@ MVC モデルには、MVC ビューまたは MVC コント ローラーに含ま
 
 **図 02**:サーバー エクスプ ローラー ウィンドウを使用して ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image6.png))。
 
-
 1 つのテーブルをムービーを表すデータベースに追加する必要があります。 [テーブル] フォルダーを右クリックし、メニュー オプションを選択**新しいテーブルの追加**します。 このメニュー オプションを選択すると、テーブル デザイナーを開きます (図 3 を参照してください)。
-
 
 [![サーバー エクスプ ローラー ウィンドウの使用](creating-model-classes-with-linq-to-sql-vb/_static/image8.png)](creating-model-classes-with-linq-to-sql-vb/_static/image7.png)
 
 **図 03**:テーブル デザイナー ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image9.png))。
-
 
 このデータベース テーブルに、次の列を追加する必要があります。
 
@@ -86,19 +79,15 @@ Id 列に 2 つの特別な作業を行う必要があります。 最初に、�
 
 MVC モデルは、LINQ を tblMovie データベースのテーブルを表す SQL クラスに含まれます。 これらの LINQ to SQL クラスを作成する最も簡単な方法では、Models フォルダーを右クリックして、**追加、新しい項目の**、LINQ to SQL クラス テンプレートの選択、Movie.dbml、名前のクラスを提供および をクリックして、**追加**(図 4 参照) ボタンをクリックします。
 
-
 [![LINQ to SQL クラスを作成](creating-model-classes-with-linq-to-sql-vb/_static/image11.png)](creating-model-classes-with-linq-to-sql-vb/_static/image10.png)
 
 **図 04**:LINQ to SQL クラスを作成 ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image12.png))。
 
-
 ムービーの LINQ to SQL クラスを作成した後にすぐに、オブジェクト リレーショナル デザイナーが表示されます。 LINQ to SQL クラスを表す特定のデータベース テーブルを作成するには、オブジェクト リレーショナル デザイナー、サーバー エクスプ ローラー ウィンドウからデータベース テーブルをドラッグすることができます。 オブジェクト リレーショナル デザイナーに tblMovie データベース テーブルを追加する必要があります (図 4 参照)。
-
 
 [![オブジェクト リレーショナル デザイナーの使用](creating-model-classes-with-linq-to-sql-vb/_static/image14.png)](creating-model-classes-with-linq-to-sql-vb/_static/image13.png)
 
 **図 05**:オブジェクト リレーショナル デザイナーを使用して ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image15.png))。
-
 
 既定では、オブジェクト リレーショナル デザイナーは、デザイナーにドラッグするデータベース テーブルとまったく同じ名前のクラスを作成します。 ただし、クラス、tblMovie を呼び出したきます。 そのため、デザイナーでクラスの名前をクリックし、ムービーにクラスの名前を変更します。
 
@@ -134,19 +123,15 @@ HomeController クラスと、インデックス ビューを変更した後、�
 
 TblMovies データベース テーブルにレコードを追加するには、サーバー エクスプ ローラー ウィンドウ (Visual Web Developer でのデータベース エクスプ ローラー ウィンドウ) で tblMovies データベース テーブルを右クリックし、メニュー オプションを選択**テーブル データの表示**します。 (図 5 参照) に表示されるグリッドを使用して、ムービーのレコードを挿入できます。
 
-
 [![映画を挿入します。](creating-model-classes-with-linq-to-sql-vb/_static/image17.png)](creating-model-classes-with-linq-to-sql-vb/_static/image16.png)
 
 **図 06**:映画の挿入 ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image18.png))。
 
-
 TblMovies テーブルにいくつかのデータベース レコードを追加すると、アプリケーションを実行する、図 7 ページが表示されます。 箇条書きリストには、すべてのムービーのデータベース レコードが表示されます。
-
 
 [![インデックスが表示されたムービーを表示します。](creating-model-classes-with-linq-to-sql-vb/_static/image20.png)](creating-model-classes-with-linq-to-sql-vb/_static/image19.png)
 
 **図 07**:インデックスが表示されたムービーを表示する ([フルサイズの画像を表示する をクリックします](creating-model-classes-with-linq-to-sql-vb/_static/image21.png))。
-
 
 ## <a name="using-the-repository-pattern"></a>リポジトリ パターンを使用します。
 

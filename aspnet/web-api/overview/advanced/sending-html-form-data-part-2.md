@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: a7f3c1b5-69d9-4261-b082-19ffafa5f16a
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 70e150a32f208cf75086f959d484d86e8501c6bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f5aaebb96f631dfb6b0da1fbca96cd93a6a7fe2d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59419926"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126227"
 ---
 # <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>ASP.NET Web API で HTML フォーム データを送信します。ファイル アップロードとマルチパート MIME
 
@@ -26,7 +26,6 @@ ms.locfileid: "59419926"
 
 > [!NOTE]
 > [完成したプロジェクトをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-API-File-Upload-a8c0fb0d)します。
-
 
 ファイルをアップロードするための HTML フォームの例を次に示します。
 
@@ -44,7 +43,6 @@ ms.locfileid: "59419926"
 
 > [!NOTE]
 > 一部の境界には、ランダムなコンポーネントが含まれています (&quot;41184676334&quot;) 境界文字列が表示されないこと誤ってメッセージ部分の内部ことを確認します。
-
 
 各メッセージ部分には、後に一部の内容が 1 つまたは複数のヘッダーが含まれています。
 

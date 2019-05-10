@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: d49940cb-d38c-456a-b800-5f0eb705d09f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f833868d9dbf51a9714b9bbe6730a24badc169d0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6ed3777e72adbb1a648a6f5215820d597a13bc92
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391014"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124502"
 ---
 # <a name="using-textboxwatermark-with-validation-controls-c"></a>検証コントロールと共に TextBoxWatermark を使用する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59391014"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark2CS.pdf)
 
 > AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックするは空になります。 ユーザーがテキストを入力しなくても、ボックスのまま、指定済みのテキストが表示されます。 これは、同じ ページで、ASP.NET 検証コントロールと衝突する可能性がありますが、これらの問題を克服することがあります。
-
 
 ## <a name="overview"></a>概要
 
@@ -47,7 +46,6 @@ ms.locfileid: "59391014"
 最後に、検証コントロールには、エラー メッセージ発行いない場合、フィールド内のテキストを出力するいくつかのサーバー側コードを追加します。
 
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-cs/samples/sample4.aspx)]
-
 
 [![検証コントロール文句を言う フィールドにテキストがないこと](using-textboxwatermark-with-validation-controls-cs/_static/image2.png)](using-textboxwatermark-with-validation-controls-cs/_static/image1.png)
 

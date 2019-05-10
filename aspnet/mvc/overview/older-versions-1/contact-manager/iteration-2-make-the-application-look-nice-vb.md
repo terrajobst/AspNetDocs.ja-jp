@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f65cb436-e493-46fd-9608-384b27385aa1
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 21f7974fe066543d6db1d17d462398a998d0171e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cd392baaefcfc9eef3551bc534e0b912ccd349cc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382578"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123969"
 ---
 # <a name="iteration-2--make-the-application-look-nice-vb"></a>繰り返し #2 – アプリケーションの外観を良くする (VB) を作成します。
 
@@ -23,9 +23,7 @@ ms.locfileid: "59382578"
 
 > このイテレーションで、アプリケーションの見た目を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>ASP.NET MVC 連絡先管理アプリケーション (VB) の構築
-  
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションでは、一連の連絡先の情報-名前、電話番号と電子メール アドレス-がユーザーを格納することができます。
 
@@ -49,11 +47,9 @@ ms.locfileid: "59382578"
 
 このイテレーションの目的は、Contact Manager アプリケーションの外観を向上させることです。 現時点では、連絡先マネージャーでは、(図 1 参照)、既定の ASP.NET MVC ビュー マスター ページとカスケード スタイル シートを使用します。 不適切な場合は、これらがないが t するその他のすべての ASP.NET MVC web サイトのように、連絡先のマネージャーをしないようにします。 カスタムのファイルでこれらのファイルを置換します。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image1.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image1.png)
 
 **図 01**:ASP.NET MVC アプリケーションの既定の外観 ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image2.png))。
-
 
 このイテレーションでは、アプリケーションのビジュアル デ ザインを向上する 2 つの方法を説明します。 最初に、無料の ASP.NET MVC デザイン テンプレートをダウンロードする ASP.NET MVC の設計のギャラリーの利用する方法が説明します。 ASP.NET MVC デザイン ギャラリーでは、何もしないで、プロの web アプリケーションを作成することができます。
 
@@ -67,11 +63,9 @@ ASP.NET MVC の設計のギャラリーとは、Microsoft によって提供さ�
 
 ASP.NET MVC の設計のギャラリーでは、ASP.NET MVC プロジェクトで使用するためには、具体的には作成された無料の web サイト デザインのコレクションをホストします。 コミュニティのメンバーでは、設計がアップロードされます。 ギャラリーへの訪問者は、お気に入りの設計に投票できます (図 2 参照)。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image2.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image3.png)
 
 **図 02**:ASP.NET MVC の設計のギャラリー ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image4.png))。
-
 
 このチュートリアルを執筆ギャラリーで最も人気のある設計、David Hauser 年 10 月を付けた設計です。 次の手順を実行して、ASP.NET MVC プロジェクトのこの設計を使用できます。
 
@@ -82,29 +76,23 @@ ASP.NET MVC の設計のギャラリーでは、ASP.NET MVC プロジェクト�
 5. Visual Studio ソリューション エクスプ ローラー ウィンドウで ContactManager プロジェクト ノードを右クリックし、メニュー オプションを選択**貼り付け**(図 4 参照)。
 6. Visual Studio のメニュー オプションを選択**編集の検索し、置換、クイック置換**と置換 *[MyProjectName]* で*ContactManager* (図 5 を参照してください)。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image3.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image5.png)
 
 **図 03**:Web からダウンロードしたファイルのブロックを解除 ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image6.png))。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image4.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image7.png)
 
 **図 04**:ソリューション エクスプ ローラーでファイルを上書きする ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image8.png))。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image5.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image9.png)
 
 **図 05**:[プロジェクト名] に置き換えて ContactManager ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image10.png))。
 
-
 次の手順を完了すると、web アプリケーションは、新しいデザインを使用します。 図 6 ページは、年 10 月の設計と Contact Manager アプリケーションの外観を示しています。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image6.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image11.png)
 
 **図 06**:ContactManager 年 10 月のテンプレートを使用して ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image12.png))。
-
 
 ## <a name="creating-a-custom-aspnet-mvc-design"></a>カスタム ASP.NET MVC の設計を作成します。
 
@@ -114,11 +102,9 @@ ASP.NET MVC デザイン ギャラリーでは、さまざまなデザイン ス
 
 イテレーション 1 Contact Manager を zip 形式し、デザイン会社にプロジェクトを送信します。 Visual Studio (残念なことに!) を所有せずが問題を表示しませんでした。 Microsoft Visual Web Developer を無料でダウンロードすることができました、 [ https://www.asp.net ](https://www.asp.net) web サイトを Visual Web Developer で Contact Manager アプリケーションを開きます。 いくつかの日には、図 7 の設計を生成されると必要があります。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)
 
 **図 07**:ASP.NET MVC の Contact Manager デザイン ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image14.png))。
-
 
 2 つの主なファイルの新しいデザインを行いました。 新しいカスケード スタイル シート ファイルと新しいビュー マスター ページ ファイルです。 ビュー マスター ページには、レイアウトとビューの ASP.NET MVC アプリケーションで共有のコンテンツが含まれています。 たとえば、ビュー マスター ページにヘッダー、ナビゲーション タブ、およびフッターに表示される図 7 されます。 Views \shared フォルダー Site.Master 既存ビュー マスター ページが上書きされましたデザイン社では、新しい Site.Master ファイルには
 
@@ -138,11 +124,9 @@ Html.ActionLink() メソッドは、全体の HTML ハイパーリンクを表�
 
 さらに、新しいデザインが選択および選択されていない [両方] タブが含まれることに注意してください。 たとえば、図 8 に、**新しい連絡先の作成**タブが選択されていると、**個人用の連絡先** タブが選択されていません。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image8.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image15.png)
 
 **図 08**:選択し、タブを選択解除 ([フルサイズの画像を表示する をクリックします](iteration-2-make-the-application-look-nice-vb/_static/image16.png))。
-
 
 選択および選択されていない [両方] タブの表示をサポートするには、MenuItemHelper という名前のカスタム HTML ヘルパーを作成しました。 このヘルパー メソッドをレンダリングするか、 &lt;li&gt;タグまたは&lt;li クラス =「選択」&gt;タグ ヘルパーに渡されるコント ローラーとアクション名に、現在のコント ローラーとアクションが対応するかどうかによって異なります。 リスト 1 で、MenuItemHelper のコードが含まれています。
 

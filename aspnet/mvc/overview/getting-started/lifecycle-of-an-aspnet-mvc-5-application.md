@@ -8,12 +8,12 @@ ms.date: 02/28/2014
 ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
-ms.openlocfilehash: 952d13fec206bdb8d398cead70d10335731f583d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f4a9b3fb61552b070db11fba617b5627fcd71cd5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402220"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124081"
 ---
 # <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>ASP.NET MVC 5 アプリケーションのライフサイクル
 
@@ -31,7 +31,6 @@ ms.locfileid: "59402220"
 - 配置およびオーバーライド可能なすべてのメソッドの目的、[コント ローラー](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx)要求処理パイプライン内のオブジェクト。 あるか、任意の 1 つのメソッドをオーバーライドする必要がある可能性がありますが、する効果の適切なライフ サイクルの段階でコードを記述するには、アプリケーションのライフ サイクルでのロールを理解するため重要です。
 - 驚くほど衝撃的アップ コンテンツの各フィルターの種類 (認証、承認、アクション、および結果) が呼び出される方法を示す図。
 - 詳細ビューで、関心のある各ポイントから役に立つ記事やブログにリンクします。
-
 
 ## <a name="next-steps"></a>次の手順
 

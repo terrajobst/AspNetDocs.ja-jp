@@ -8,12 +8,12 @@ ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 4542ad3ac3e321629bb4de3cd4df12c22ff6cb20
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8f8bcfb7d9d2416a2699776cadbdaae8e12415ba
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414622"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131798"
 ---
 # <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web ページの概要 - データベースのデータを更新しています
 
@@ -37,7 +37,6 @@ ms.locfileid: "59414622"
 > - SQL`Update`コマンド。
 > - `Database.Execute` メソッド。
 > - フィールドを非表示 (`<input type="hidden">`)。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -129,7 +128,6 @@ ms.locfileid: "59414622"
 > 
 > 当然ながら、名前付きパラメーターを使用するパラメーターの名前を認識する必要があります。 WebMatrix IntelliSense できます*表示*する、名前が、できません現在情報を入力できます。
 
-
 ## <a name="creating-the-edit-page"></a>[編集] ページを作成します。
 
 作成できるようになりました、 *EditMovie*ページ。 ユーザーがクリックすると、**編集**リンクでは、このページの最終的なします。
@@ -206,7 +204,6 @@ ms.locfileid: "59414622"
 > 
 > **重要な**、 `Where` id 句は非常に重要ではデータベースがデータベースを知っている方法であるためですを更新するレコード。 のままにする場合、`Where`句では、データベースを更新*すべて*データベース内のレコード。 ほとんどの場合、障害になります。
 
-
 コードでは、更新する値は、プレース ホルダーを使用して、SQL ステートメントに渡されます。 前に付いているものを繰り返す: セキュリティ上の理由から、*のみ*SQL ステートメントに値を渡すプレース ホルダーを使用します。
 
 コードを使用した後`db.Execute`を実行する、`Update`変更内容を表示、一覧のページに戻るステートメントにリダイレクトします。
@@ -222,7 +219,6 @@ ms.locfileid: "59414622"
 > もちろん、`Query`メソッドは、1 つだけデータベースの行を返す可能性があります。 ただし、ASP.NET で常の結果が処理、`Query`コレクションとしてのメソッド。 メソッドに 1 行だけが返される場合でも、その 1 つの行をコレクションから抽出する必要があります。 状況ではそのため、場所を*知る*1 行のみが返されます、これは、ビットを使用する方が便利`QuerySingle`します。
 > 
 > 特定の種類のデータベース操作を実行するその他のいくつかの方法はあります。 データベースのメソッドの一覧を見つけることができます、 [ASP.NET Web Pages API のクイック リファレンス](../../api-reference/asp-net-web-pages-api-reference.md#Data)します。
-
 
 ## <a name="making-validation-for-the-id-more-robust"></a>信頼性の高い ID より検証を行う
 

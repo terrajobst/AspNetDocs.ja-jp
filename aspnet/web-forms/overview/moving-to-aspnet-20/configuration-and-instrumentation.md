@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 21ebbaee-7ed8-45ae-b6c1-c27c88342e48
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: b06f105b16087f97788e0ab360af41f538d2c1ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cd5bedce5459e8cf8e72df8de69ebd82f2d97789
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131718"
 ---
 # <a name="configuration-and-instrumentation"></a>構成とインストルメンテーション
 
 によって[Microsoft](https://github.com/microsoft)
 
 > 主要な構成の変更と ASP.NET 2.0 のインストルメンテーションがあります。 新しい ASP.NET 構成 API では、プログラムで実行できる構成の変更ができます。 多くの新しい構成設定が存在するさらに、新しい構成とインストルメンテーションを許可します。
-
 
 主要な構成の変更と ASP.NET 2.0 のインストルメンテーションがあります。 新しい ASP.NET 構成 API では、プログラムで実行できる構成の変更ができます。 多くの新しい構成設定が存在するさらに、新しい構成とインストルメンテーションを許可します。
 
@@ -40,7 +39,6 @@ ASP.NET 構成 API には、プログラムによる Web サイトおよびア�
 > [!NOTE]
 > 構成 API では、IIS アプリケーションの作成をサポートしません。
 
-
 ## <a name="working-with-local-and-remote-configuration-settings"></a>ローカルおよびリモートの構成設定の操作
 
 構成オブジェクトまたはアプリケーションや Web サイトなどの論理エンティティに、コンピューターなどの特定の物理エンティティに適用される構成設定のマージされたビューを表します。 指定された論理エンティティは、ローカル コンピューターまたはリモート サーバー上に存在します。 指定されたエンティティの構成ファイルが存在しない場合、構成オブジェクトは、Machine.config ファイルで定義されている既定の構成設定を表します。
@@ -58,7 +56,6 @@ ASP.NET 構成 API には、プログラムによる Web サイトおよびア�
 
 > [!NOTE]
 > Path パラメーターを受け取る静的 GetSection メソッドを使用する場合、path パラメーターは、コードが実行されているアプリケーションを指す必要があります。 それ以外の場合、パラメーターは無視され、現在実行中のアプリケーションの構成情報が返されます。
-
 
 ### <a name="writing"></a>書き込み
 
@@ -97,7 +94,6 @@ WebConfigurationManager クラスは、ASP.NET 構成ファイルからの読み
 
 > [!NOTE]
 > /ProductInfo パスが存在しない場合、上記のコードを返すこととして、指定した既定の構成、machine.config ファイルに注意してください。
-
 
 構成オブジェクトを作成したらに、構成設定をドリルダウンし、getsection メソッドまたは GetSectionGroup メソッドを使用できます。 次の例では、上記の ProductInfo アプリケーションの権限借用設定への参照を取得します。
 
@@ -199,7 +195,6 @@ Wmi イベントを転送することもできます。 グローバルの Web.c
 
 > [!NOTE]
 > これらの電子メール プロバイダーのどちらが構成されています。 Web.config ファイルに追加する必要があります。
-
 
 これらの 2 つの電子メール プロバイダーの主な違いは、SimpleMailWebEventProvider が変更できない汎用テンプレートで電子メールを送信します。 サンプルの Web.config ファイルは、次の規則を使用して構成済みのプロバイダーの一覧にこの電子メール プロバイダーを追加します。
 
@@ -313,7 +308,6 @@ ASP.NET コンパイル ツールが場所でアプリケーションをコン�
 > [!NOTE]
 > 入れ子になったアプリケーションを含むアプリケーションのコンパイルでは、入れ子になったアプリケーションをコンパイルしません。 入れ子になったアプリケーションを個別にコンパイルする必要があります。
 
-
 ### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[展開のアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
 
 TargetDir パラメーターを指定するには、デプロイ (ターゲットの場所にコンパイル) 用にアプリケーションをコンパイルします。 TargetDir は、Web アプリケーションの最終的な場所またはコンパイル済みのアプリケーションをさらに展開できます。 使用して、 **-u**オプションは、このような方法を変更することは、コンパイルされたアプリケーションの特定のファイルを再コンパイルなしでアプリケーションをコンパイルします。 Aspnet\_compiler.exe 区別の静的および動的なファイルの種類を作成されたアプリケーションを作成するときに異なる方法で処理します。
@@ -371,7 +365,6 @@ MSI Windows Installer を使用して Web アプリケーションの配置な�
 2. 新しい Web 構成ファイルをサイトに追加します。
 3. Web.config ファイルには、次を追加します。
 
-
 [!code-xml[Main](configuration-and-instrumentation/samples/sample14.xml)]
 
 Web.config ファイルに変更を保存する権限があることをこれによりします。
@@ -381,22 +374,18 @@ Web.config ファイルに変更を保存する権限があることをこれに
 3. ボタン コントロールの ID を変更**btnToggleDebug**とテキストを**デバッグ ステータスを切り替える**します。
 4. Default.aspx の分離コード ファイルのコード ビューを開き、追加、**を使用して**ステートメント**System.Web.Configuration**次のようにします。
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample15.cs)]
 
 1. 2 つのプライベート変数を追加するクラスとページ\_次に示すように、Init メソッド。
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample16.cs)]
 
 1. 次のコード ページを追加\_負荷。
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample17.cs)]
 
 1. 保存し、default.aspx を参照します。 ラベル コントロールが現在のデバッグ状態を表示することに注意してください。
 2. デザイナーでボタン コントロールをダブルクリックし、ボタン コントロールのクリック イベントを次のコードを追加します。
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample18.cs)]
 
@@ -413,16 +402,13 @@ Web.config ファイルに変更を保存する権限があることをこれに
 4. Default.aspx に新しいラベルを追加します。 変更する ID **lblLogAppEvents**します。
 5. Default.aspx の分離コード ビューを開き、次に示すように、HealthMonitoringSection 型の新しい変数の宣言を追加します。
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample19.cs)]
 
 1. 次のコード ページで、既存のコードを追加\_Init:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample20.cs)]
 
 1. DropDownList をダブルクリックし、SelectedIndexChanged イベントを次のコードを追加します。
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample21.cs)]
 

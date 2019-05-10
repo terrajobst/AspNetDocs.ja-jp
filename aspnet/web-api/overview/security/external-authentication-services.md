@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/security/external-authentication-services
-title: ASP.NET Web API を使用した外部認証サービス (C#) |Microsoft Docs
+title: ASP.NET Web API を使用した外部認証サービス (c#) |Microsoft Docs
 author: rmcmurray
 description: ASP.NET Web API で外部の認証サービスの使用について説明します。
 ms.author: riande
@@ -8,14 +8,14 @@ ms.date: 01/28/2019
 ms.assetid: 3bb8eb15-b518-44f5-a67d-a27e051aedc6
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: de9b64e6c582059ec66ab352f60773f50af7b1ff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b2571552a3f8040ff42bfa0a9fa48981f71a1e4b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57064919"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133584"
 ---
-# <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API を使用した外部認証サービス (C#)
+# <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API を使用した外部認証サービス (c#)
 
 展開のセキュリティ オプションの visual Studio 2017 と ASP.NET 4.7.2[シングル ページ アプリケーション](../../../single-page-application/index.md)(SPA) と[Web API](../../index.md)サービスがいくつかありますが、外部認証サービスと統合するにはOauth/openid とソーシャル メディア サービスの認証:Microsoft アカウント、Twitter、Facebook、および Google。  
 
@@ -73,7 +73,6 @@ Visual Studio 2017 と ASP.NET 4.7.2 やすく外部認証サービスとの統�
 > [!NOTE]
 > 必要に応じては、外部認証サービスの設定に、FQDN を追加する必要があります。 この要件は、クライアントによって使用される FQDN と一致する、アプリケーションの設定で FQDN を必要とするいくつかの外部認証サービスに対するセキュリティ制約に基づいています。 (この手順は各外部認証サービスの大幅に異なります。 これは必要なかどうかに表示するには、各外部認証サービスとこれらの設定を構成する方法のドキュメントを参照する必要があります)。IIS Express を参照してください、この環境をテストするために FQDN を使用して構成する必要がある場合、[完全修飾ドメイン名を使用する IIS Express を構成する](#FQDN)このチュートリアルの後半の「します。
 
-
 <a id="SAMPLE"></a>
 ## <a name="create-a-sample-web-application"></a>サンプル Web アプリケーションを作成します。
 
@@ -83,7 +82,7 @@ Visual Studio 2017 を起動し、選択**新しいプロジェクト**スター
 
 <!-- [![](external-authentication-services/_static/image6.png "Click to Expand the Image")](external-authentication-services/_static/image5.png) -->
 
-ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、選択**インストール済み**展開**Visual C#** します。 **Visual C#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション (.Net Framework)** します。 プロジェクトの名前を入力し、クリックして**OK**します。
+ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、選択**インストール済み**展開**Visual C#** します。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション (.Net Framework)** します。 プロジェクトの名前を入力し、クリックして**OK**します。
 
 [![](external-authentication-services/_static/image71.png "クリックして、イメージの展開")](external-authentication-services/_static/image71.png)
 
@@ -110,7 +109,7 @@ F5 キーをビルドして、web アプリケーションのデバッグを押�
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Facebook 認証を有効にします。
 
-Facebook を使用して認証では、Facebook 開発者アカウントを作成する必要があります、プロジェクトが必要し、なりますアプリケーション ID と秘密キーの Facebook から機能するためにします。 Facebook 開発者アカウントを作成して、アプリケーション ID と秘密キーの取得については、[ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)を参照してください。
+Facebook を使用して認証では、Facebook 開発者アカウントを作成する必要があります、プロジェクトが必要し、なりますアプリケーション ID と秘密キーの Facebook から機能するためにします。 Facebook 開発者アカウントを作成して、アプリケーション ID と秘密キーの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)します。
 
 1 回、アプリケーション ID とシークレット キーを取得した、web アプリケーションの Facebook 認証を有効にする、次の手順を使用します。
 
@@ -138,8 +137,7 @@ Facebook を使用して認証では、Facebook 開発者アカウントを作�
 <a id="GOOGLE"></a>
 ## <a name="enabling-google-authentication"></a>Enabling Google Authentication
 
-Google を使用して、認証では、Google developer アカウントを作成する必要があります、プロジェクトが機能するためにアプリケーション ID と Google からの秘密鍵を必要は。 Google developer アカウントを作成して、アプリケーション ID と秘密キーの取得については、[ https://developers.google.com](https://developers.google.com)を参照してください。
-
+Google を使用して、認証では、Google developer アカウントを作成する必要があります、プロジェクトが機能するためにアプリケーション ID と Google からの秘密鍵を必要は。 Google developer アカウントを作成して、アプリケーション ID と秘密キーの取得については、次を参照してください。 [ https://developers.google.com](https://developers.google.com)します。
 
 Web アプリケーション用に Google 認証を有効にするには、次の手順を使用します。
 
@@ -170,7 +168,7 @@ Web アプリケーション用に Google 認証を有効にするには、次�
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Microsoft 認証を有効にします。
 
-Microsoft 認証では、開発者アカウントを作成する必要があり、機能するために、クライアント ID とクライアント シークレットが必要です。 Microsoft 開発者アカウントを作成して、クライアント ID とクライアント シークレットの取得については、[ https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070)を参照してください。
+Microsoft 認証では、開発者アカウントを作成する必要があり、機能するために、クライアント ID とクライアント シークレットが必要です。 Microsoft 開発者アカウントを作成して、クライアント ID とクライアント シークレットの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070)します。
 
 1 回、コンシューマー キーとコンシューマー シークレットを取得した、次の手順を使用して web アプリケーション用に Microsoft 認証を有効にします。
 
@@ -201,7 +199,7 @@ Microsoft 認証では、開発者アカウントを作成する必要があり�
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Twitter 認証を有効にします。
 
-Twitter の認証では、開発者アカウントを作成する必要があり、機能するために、コンシューマー キーとコンシューマー シークレットが必要です。 Twitter 開発者アカウントを作成して、コンシューマー キーとコンシューマー シークレットの取得については、[ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)を参照してください。
+Twitter の認証では、開発者アカウントを作成する必要があり、機能するために、コンシューマー キーとコンシューマー シークレットが必要です。 Twitter 開発者アカウントを作成して、コンシューマー キーとコンシューマー シークレットの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)します。
 
 1 回、コンシューマー キーとコンシューマー シークレットを取得した、web アプリケーション用に Twitter 認証を有効にする、次の手順を使用します。
 
@@ -244,7 +242,7 @@ OAuth および OpenID を使用するアプリケーションの作成に関す
 <a id="FQDN"></a>
 ### <a name="configure-iis-express-to-use-a-fully-qualified-domain-name"></a>IIS Express で完全修飾ドメイン名を使用する構成します。
 
-一部の外部認証プロバイダーは、アプリケーションのような HTTP アドレスを使用してテストをサポートしていません`http://localhost:port/`します。 この問題を回避するには、は、静的な完全修飾ドメイン名 (FQDN) のマッピング、HOSTS ファイルに追加し、テストおよびデバッグの FQDN を使用する Visual Studio 2017 でプロジェクトのオプションを構成します。 これを行うには、次の手順を使用します。
+一部の外部認証プロバイダーは、アプリケーションのような HTTP アドレスを使用してテストをサポートしていません`http://localhost:port/`します。 この問題を回避するには、は、静的な完全修飾ドメイン名 (FQDN) のマッピング、HOSTS ファイルに追加し、テストおよびデバッグの FQDN を使用する Visual Studio 2017 でプロジェクトのオプションを構成します。 そのためには、次の手順に従います。
 
 - ホスト ファイル マッピング静的 FQDN を追加します。
 

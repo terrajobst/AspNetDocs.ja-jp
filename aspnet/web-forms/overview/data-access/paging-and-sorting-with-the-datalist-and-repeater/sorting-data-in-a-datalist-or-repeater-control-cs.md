@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: f52c302a-1b7c-46fe-8a13-8412c95cbf6d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d45e5cb1efd5f67acc94f4118d96c62ea08dc617
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e3512758dbfdf43d788eca643fe48ca918c142fe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387153"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128061"
 ---
 # <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>DataList または Repeater コントロールのデータを並べ替える (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59387153"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_45_CS.exe)または[PDF のダウンロード](sorting-data-in-a-datalist-or-repeater-control-cs/_static/datatutorial45cs1.pdf)
 
 > このチュートリアルでは、ここに並べ替えを DataList と Repeater、サポートを含める方法と、DataList または Repeater データのページングし、並べ替えできますを構築する方法について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -50,31 +49,25 @@ DataList または Repeater コントロールでのこの機能をレプリケ�
 
 並べ替え関連の機能のいずれかの実装について気にし、前に、s を Repeater コントロールでは、製品の一覧を表示して起動を使用できます。 開いて開始、`Sorting.aspx`ページで、`PagingSortingDataListRepeater`フォルダー。 Repeater コントロールを追加、web ページで、設定をその`ID`プロパティを`SortableProducts`します。 Repeater s のスマート タグからの作成という名前の新しい ObjectDataSource`ProductsDataSource`からデータを取得するように構成し、`ProductsBLL`クラスの`GetProducts()`メソッド。 INSERT、UPDATE、および DELETE の各タブで、ドロップダウン リストから (なし) オプションを選択します。
 
-
 [![ObjectDataSource を作成し、GetProductsAsPagedDataSource() メソッドを使用するように構成します。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image1.png)
 
 **図 1**:ObjectDataSource を作成し、使用するように構成、`GetProductsAsPagedDataSource()`メソッド ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image3.png))。
-
 
 [![UPDATE、INSERT で、ドロップダウン リストを設定し、(なし) タブを削除します。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image5.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image4.png)
 
 **図 2**:UPDATE、INSERT で、ドロップダウン リストを設定し、[(なし) タブを削除する ([フルサイズの画像を表示する] をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image6.png))。
 
-
 異なり、DataList で Visual Studio は自動的に作成されません、`ItemTemplate`データ ソースにバインドした後、Repeater コントロール。 さらに、これを追加します`ItemTemplate`宣言に、Repeater コントロールのスマート タグ DataList s であるテンプレートの編集オプションが不足しています。 Let s を使用して同じ`ItemTemplate`s の製品名、供給業者、およびカテゴリに表示される前のチュートリアルから。
 
 追加した後、 `ItemTemplate`Repeater、ObjectDataSource s 宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample1.aspx)]
 
 図 3 は、ブラウザーで表示した場合は、このページを示します。
 
-
 [![各製品の名前、供給業者、およびカテゴリが表示されます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
 
 **図 3**:各製品名、供給業者、およびカテゴリが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image9.png))。
-
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>手順 3: データの並べ替えを ObjectDataSource に指示します。
 
@@ -82,18 +75,15 @@ Repeater で表示されるデータを並べ替えるには、データを並�
 
 ObjectDataSource に、ASP.NET ページから並べ替え情報を渡すためのイベント ハンドラーを作成、`Selecting`イベントと、次のコードを使用します。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample2.cs)]
 
 *SortExpression* (ProductName) など、データの並べ替えにデータ フィールドの名前の値を割り当てる必要があります。 並べ替えの方向に関連するプロパティがない、降順でデータを並べ替える場合が文字列 DESC を追加するために、 *sortExpression* (ProductName DESC) などの値。
 
 使用して別のハード コーディングされた値をみましょう*sortExpression*し、ブラウザーで結果をテストします。 図 4 に示すとして ProductName DESC を使用する場合、 *sortExpression*製品がアルファベットの逆順での名前で並べ替えられます。
 
-
 [![製品は名前がアルファベット順の逆順で順に並べ替えられます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
 
 **図 4**:製品はアルファベット順の逆で、名前で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))。
-
 
 ## <a name="step-4-creating-the-sorting-interface-and-remembering-the-sort-expression-and-direction"></a>手順 4: 並べ替えのインターフェイスを作成し、並べ替え式と方向を記憶
 
@@ -103,40 +93,32 @@ LinkButton に各並べ替え可能なフィールドのヘッダー テキス�
 
 `ListItem` `Text` (名) などの任意の値にプロパティを設定することができますが、 `Value` (ProductName) などのデータ フィールドの名前にプロパティを設定する必要があります。 降順で結果の並べ替えには、ProductName DESC のように、データ フィールドの名前に文字列 DESC を追加します。
 
-
 ![ListItem を各並べ替え可能なデータ フィールドの追加します。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
 
 **図 5**:追加、`ListItem`各並べ替え可能なデータ フィールド
-
 
 最後に、次のドロップダウン リストの右側にボタンの Web コントロールを追加します。 設定の`ID`に`RefreshRepeater`とその`Text`プロパティを更新します。
 
 作成した後、`ListItem`の更新 ボタンを追加して、DropDownList とボタンの宣言構文を次のようななります。
 
-
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample3.aspx)]
 
 完全な並べ替えの DropDownList で次に更新する必要が ObjectDataSource s ある`Selecting`イベント ハンドラーの使用、選択するように`SortBy``ListItem`s`Value`ハード コーディングされた並べ替え式ではなくプロパティ。
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample4.cs)]
 
 最初のページにアクセスすると、この時点で、製品は初期状態で並べ替えられます、`ProductName`ほどのデータ フィールド s、 `SortBy` `ListItem`既定で選択されます (図 6 参照)。 さまざまな並べ替えカテゴリなどのオプションと [更新] を選択、ポストバックを発生させるし、再、図 7 に示すように、それらのカテゴリ名で、データを並べ替えます。
 
-
 [![製品は、最初の名前で並べ替え](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image15.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)
 
 **図 6**:製品が最初に、名前で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image16.png))。
-
 
 [![製品がカテゴリで並べ替えられます](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image18.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)
 
 **図 7**:製品がカテゴリで並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image19.png))。
 
-
 > [!NOTE]
 > 更新 ボタンをクリックすると、データを自動的に再度並べ替えた Repeater s のビュー ステートが無効になっている、ため、原因となり、ポストバックのたびにそのデータ ソースにバインドする中継ぎ局です。 ドロップダウン リスト、並べ替えの変更が有効な Repeater のビュー ステートのままにしている場合、一覧は並べ替え順序に影響を必要はありません。 これを解決するには、[更新] ボタンのイベント ハンドラーを作成`Click`イベントとそのデータ ソースを Repeater を再バインド (s Repeater を呼び出すことによって`DataBind()`メソッド)。
-
 
 ## <a name="remembering-the-sort-expression-and-direction"></a>並べ替え式と方向を記憶
 
@@ -150,11 +132,9 @@ LinkButton に各並べ替え可能なフィールドのヘッダー テキス�
 
 [前のチュートリアル](paging-report-data-in-a-datalist-or-repeater-control-cs.md)DataList で既定のページングを実装する方法について確認しました。 S、ページングされたデータの並べ替え機能は、この前の例を拡張することができます。 開いて開始、`SortingWithDefaultPaging.aspx`と`Paging.aspx`ページで、`PagingSortingDataListRepeater`フォルダー。 `Paging.aspx`  ページで、ページの宣言型マークアップを表示する ソース ボタンをクリックします。 選択したテキストをコピー (図 8 参照) の宣言型マークアップを貼り付けます`SortingWithDefaultPaging.aspx`間、`<asp:Content>`タグ。
 
-
 [![宣言型マークアップをレプリケート、 &lt;Asp:content&gt; SortingWithDefaultPaging.aspx Paging.aspx からタグ](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image21.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)
 
 **図 8**:宣言型マークアップをレプリケート、`<asp:Content>`からタグ`Paging.aspx`に`SortingWithDefaultPaging.aspx`([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image22.png))。
-
 
 宣言型マークアップをコピーした後、メソッドとプロパティをコピー、`Paging.aspx`ページの分離コード クラスに分離コード クラスを s`SortingWithDefaultPaging.aspx`します。 表示する次に、少し、`SortingWithDefaultPaging.aspx`ブラウザーでページ。 同じ機能と外観を示す必要があります`Paging.aspx`します。
 
@@ -165,7 +145,6 @@ LinkButton に各並べ替え可能なフィールドのヘッダー テキス�
 このチュートリアルの前半で ObjectDataSource s から、並べ替え式を指定することで並べ替えのサポートを追加しました`Selecting`イベント ハンドラー。 これは、ObjectDataSource に並べ替えることができる、このようなオブジェクトが返される場合もと動作、`ProductsDataTable`によって返される、`GetProducts()`メソッド。 ただし、`PagedDataSource`によって返されるオブジェクト、`GetProductsAsPagedDataSource`メソッドは、その内部データ ソースの並べ替えをサポートしていません。 代わりから返される結果を並べ替える必要があります、`GetProducts()`メソッド*する前に*を入力しました、`PagedDataSource`します。
 
 これを実現するで新しいメソッドを作成、`ProductsBLL`クラス、`GetProductsSortedAsPagedDataSource(sortExpression, pageIndex, pageSize)`します。 並べ替え、`ProductsDataTable`によって返される、`GetProducts()`メソッドを指定、`Sort`プロパティの既定の`DataTableView`:
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample5.cs)]
 
@@ -179,16 +158,13 @@ ObjectDataSource %s 更新`SelectMethod`プロパティを呼び出す新しい`
 
 これらの変更後よう ObjectDataSource s の宣言型マークアップになります。
 
-
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample6.aspx)]
 
 この時点で、`SortingWithDefaultPaging.aspx`ページは、製品名、その結果をアルファベット順に並べ替えが (図 9 参照)。 既定では、商品名の値として渡されるため、これは、`GetProductsSortedAsPagedDataSource`メソッド s *sortExpression*パラメーター。
 
-
 [![既定では、結果が商品名で並べ替えられます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image24.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)
 
 **図 9**:既定では、結果は並べ`ProductName`([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image25.png))。
-
 
 手動で追加する場合、`sortExpression`などのクエリ文字列フィールド`SortingWithDefaultPaging.aspx?sortExpression=CategoryName`結果は並べ替え、指定した`sortExpression`します。 ただし、この`sortExpression`データの別のページに移動するときに、パラメーターは、クエリ文字列に含まれません。 米国にバックアップが実際には、ボタン、[次へ] または最後のページをクリックすると`Paging.aspx`! さらに、s が現在の並べ替えインターフェイスなし。 ユーザーは、ページングされたデータの並べ替え順序を変更できる唯一の方法は、クエリ文字列を直接操作することによってです。
 
@@ -198,31 +174,25 @@ ObjectDataSource %s 更新`SelectMethod`プロパティを呼び出す新しい`
 
 現在、`RedirectUser`メソッドは、のみ 1 つの入力パラメーターを表示するページのインデックスを受け取ります。 ただし、新機能、クエリ文字列で指定した以外の並べ替え式を使用してデータの特定のページにユーザーをリダイレクトする場合もあります。 すぐにこのページには、一連の指定した列でデータを並べ替えるためのボタンの Web コントロールが含まれる並べ替えインターフェイスを作成します。 これらのボタンのいずれかがクリックされたときに適切に並べ替える式の値を渡して、ユーザーをリダイレクトします。 この機能を提供する 2 つのバージョンを作成、`RedirectUser`メソッド。 1 つ目は、2 つ目は、ページのインデックスおよび並べ替え式を受け入れる中に、表示するページのインデックスだけを受け入れる必要があります。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample7.cs)]
 
 このチュートリアルでは最初の例では、DropDownList を使用して並べ替えインターフェイスを作成しました。 この例では、let s 使用によって並べ替え DataList いずれかの上に配置する 3 つのボタンの Web コントロール`ProductName`、1 つの`CategoryName`とに 1 つ`SupplierName`。 3 つのボタンの Web コントロールの設定を追加、`ID`と`Text`プロパティ適切に。
-
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample8.aspx)]
 
 次に、作成、`Click`ごとにイベント ハンドラー。 イベント ハンドラーを呼び出す必要があります、`RedirectUser`適切な並べ替え式を使用して最初のページにユーザーを返すメソッド。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample9.cs)]
 
 データがアルファベット順に並べ替え、製品名によって、ページを最初にアクセスして、ときに (戻るは図 9 を参照してください)。 データの 2 番目のページに進みカテゴリ ボタンによって、並べ替えをクリックして [次へ] ボタンをクリックします。 カテゴリ名で並べ替えられた、データの最初のページに戻ること (図 10 参照)。 同様に、サプライヤー ボタンによって、並べ替えをクリックすると、仕入先データの最初のページから開始して、データが並べ替えられます。 を通じて、データをページングと並べ替えの基準が記憶されます。 図 11 は、カテゴリでの並べ替えとデータの 13 番目のページに昇格し、後のページを示します。
-
 
 [![製品はカテゴリ順に並べ替えられます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image27.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)
 
 **図 10**:製品はカテゴリで並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image28.png))。
 
-
 [![並べ替え式は記憶とページングを通じてデータ](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image30.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image29.png)
 
 **図 11**:並べ替え式は記憶とページングを通じて、データ ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image31.png))。
-
 
 ## <a name="step-6-custom-paging-through-records-in-a-repeater"></a>手順 6: Repeater 内のレコードをカスタム ページング
 
@@ -236,53 +206,41 @@ DataList 例では、非効率的な既定のページングの手法を使用�
 
 開く、`SortingWithCustomPaging.aspx`ページで、`PagingSortingDataListRepeater`フォルダー設定 ページで、Repeater に追加し、その`ID`プロパティを`Products`します。 Repeater s のスマート タグからの作成という名前の新しい ObjectDataSource`ProductsDataSource`します。 データを選択するように構成、`ProductsBLL`クラスの`GetProductsPaged`メソッド。
 
-
 [![ObjectDataSource ProductsBLL クラスの GetProductsPaged メソッドを使用して構成します。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image33.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image32.png)
 
 **図 12**:構成に使用する ObjectDataSource、`ProductsBLL`クラス s`GetProductsPaged`メソッド ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image34.png))。
 
-
 UPDATE、INSERT でドロップダウン リストを設定 (None) にタブを削除して、[次へ] ボタンをクリックします。 データ ソースの構成ウィザードでのソースをようになりましたが、`GetProductsPaged`メソッド s *startRowIndex*と*maximumRows*パラメーターを入力します。 実際には、これらの入力パラメーターは無視されます。 代わりに、 *startRowIndex*と*maximumRows*経由で値が渡された、 `Arguments` ObjectDataSource s プロパティ`Selecting`イベント ハンドラーを指定した方法と同じように、*sortExpression*でこのチュートリアルの最初のデモです。 そのため、パラメーター ソースを None に設定ウィザードで、ドロップダウン リストままにします。
-
 
 [![[なし] に、パラメーター ソースの設定をそのまま使用します。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image36.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image35.png)
 
 **図 13**:[なし] にパラメーターのソースの設定のままに ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image37.png))。
 
-
 > [!NOTE]
 > *いない*ObjectDataSource s 設定`EnablePaging`プロパティを`true`。 これにより、独自に自動的に含める ObjectDataSource *startRowIndex*と*maximumRows*パラメーターを`SelectMethod`s 既存のパラメーター リスト。 `EnablePaging`プロパティは、バインドのカスタム ページングされた GridView、DetailsView、FormView コントロールにデータがこれらのコントロールは、ObjectDataSource s から特定の動作を想定しているため場合に便利な場合にのみ使用できます`EnablePaging`プロパティが`true`します。 DataList と Repeater のページング サポートを手動で追加するがあるためこのプロパティに設定のままに`false`(既定)、ように、ASP.NET ページ内に直接必要な機能に焼き付けるします。
 
-
 最後に、Repeater s を定義`ItemTemplate`s の製品名、カテゴリ、および仕入先が表示されるようにします。 これらの変更後 Repeater、ObjectDataSource s の宣言構文に、次のようになります。
-
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample10.aspx)]
 
 ご協力にブラウザーを使用してページにアクセスし、レコードが返されないことに注意してください。 これはを指定するには、まだ ve、 *startRowIndex*と*maximumRows*パラメーターの値の両方でそのため、0 の値を渡されます。 これらの値を指定するには、ObjectDataSource s のイベント ハンドラーを作成`Selecting`イベントとこれらのパラメーター値をプログラムでの 0 から 5、ハード コーディングされた値にそれぞれ設定します。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample11.cs)]
 
 この変更によりは、ブラウザーで表示したときに、ページには、最初の 5 つの製品が表示されます。
-
 
 [![最初の 5 つのレコードが表示されます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image39.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image38.png)
 
 **図 14**:最初の 5 つのレコードが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image40.png))。
 
-
 > [!NOTE]
 > 図 14 に示される製品が発生するために、製品名で並べ替えられます、`GetProductsPaged`効率的なカスタム ページング クエリを実行するストアド プロシージャで結果を並べ替えます`ProductName`します。
 
-
 ページをステップ ユーザーを許可するためには、開始行インデックスおよび行の最大数を追跡し、ポストバック間でこれらの値を保存する必要があります。 既定のページングの例ではこれらの値を保持するのにクエリ文字列フィールドを使用しましたこのデモでは、s が、ページ ビュー状態でこの情報を保持することができます。 次の 2 つのプロパティを作成します。
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample12.cs)]
 
 使用するように選択するとイベント ハンドラーのコードを次に、更新、`StartRowIndex`と`MaximumRows`0 および 5 のハード コーディングされた値ではなくプロパティ。
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample13.cs)]
 
@@ -292,41 +250,33 @@ UPDATE、INSERT でドロップダウン リストを設定 (None) にタブを�
 
 Let 用途に同じ最初、Previous、次に、最後のページングのインターフェイスは、どのようなページのデータを表示するコントロールが表示されているラベル Web を含むの既定のページング例、および合計ページ数の存在で使用されます。 次の 4 つのボタンの Web コントロールと Repeater の下のラベルを追加します。
 
-
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample14.aspx)]
 
 次に、作成`Click`4 つのボタンのイベント ハンドラー。 これらのボタンがクリックされたときに更新する必要があります、`StartRowIndex`と Repeater にデータを再バインドします。 First、Previous、および [次へ] ボタンのコードが単純で、最後のボタンの操作を行います方針データの最後のページの開始行インデックスでしょうか このインデックスと経由の合計レコードの数がページングされているかを把握する必要があります、次へと最終ボタンを有効にするかどうかを判断できるを計算します。 これを呼び出すことによって確認できます、`ProductsBLL`クラスの`TotalNumberOfProducts()`メソッド。 Let s という名前の読み取り専用、ページ レベルのプロパティを作成する`TotalRowCount`の結果を返す、`TotalNumberOfProducts()`メソッド。
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample15.cs)]
 
 このプロパティを持つ最後のページの開始行インデックスを判断できますようになりました。 具体的には、その結果の整数値の秒の`TotalRowCount`で割った値 1 を引いた`MaximumRows`を掛けた`MaximumRows`。 私たちが記述できるように、`Click`ページング インターフェイスの 4 つのボタンのイベント ハンドラー。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample16.cs)]
 
 最後に、最後のページを表示するときに、データと、次へと最終ボタンの最初のページを表示するときにページング インターフェイスで 1 つ目と前のボタンを無効にする必要があります。 これを実現するには、ObjectDataSource に次のコードを追加`Selecting`イベント ハンドラー。
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample17.cs)]
 
 これらを追加した後`Click`イベント ハンドラーと、コードを有効にまたは現在の開始行インデックスに基づいて、ページング インターフェイス要素を無効にするには、ブラウザーでページをテストします。 図 15 に示した最初のページを最初にアクセスすると、[戻る] ボタンは無効です。 最後をクリックすると、最後のページを表示中には、[次へ] をクリックすると、データの 2 番目のページが表示されます (図 16、17 を参照してください)。 データの最後のページを表示するときに、次へと最後のボタンが無効です。
 
-
 [![最初の製品ページを表示するときに、前と最後のボタンが無効にします。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image42.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image41.png)
 
 **図 15**:最初の製品ページを表示するときに、前と最後のボタンが無効に ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image43.png))。
-
 
 [![2 つ目の製品ページが表示されます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image45.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image44.png)
 
 **図 16**:2 つ目の製品ページが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image46.png))。
 
-
 [![クリックすると過去のデータの最後のページを表示します。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image48.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image47.png)
 
 **図 17**:最後のクリックしてには、データの最終的なページが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image49.png))。
-
 
 ## <a name="step-7-including-sorting-support-with-the-custom-paged-repeater"></a>手順 7: Repeater をページング サポートをカスタムの並べ替えを含む
 
@@ -340,40 +290,32 @@ Let 用途に同じ最初、Previous、次に、最後のページングのイ�
 
 ObjectDataSource s を更新することで開始`SelectMethod`プロパティと追加、 *sortExpression* `Parameter`します。 確認、 *sortExpression* `Parameter` s`Type`プロパティに設定されて`String`します。 これら最初の 2 つのタスクを完了すると、ObjectDataSource s の宣言型マークアップは、次のようになります。
 
-
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample18.aspx)]
 
 次に、ページ レベル必要があります`SortExpression`ビューステートにシリアル化する値を持つプロパティです。 並べ替え式の値が設定されていない場合は、既定値として ProductName を使用します。
-
 
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample19.cs)]
 
 ObjectDataSource を呼び出す前に、`GetProductsPagedAndSorted`メソッドを設定する必要があります、 *sortExpression* `Parameter`の値に、`SortExpression`プロパティ。 `Selecting`イベント ハンドラーでは、次のコード行を追加します。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample20.cs)]
 
 残っているは、並べ替えのインターフェイスを実装します。 最後の例で行ったよう s 製品名、カテゴリ、または供給業者によって結果の並べ替えにユーザーを許可する 3 つのボタンの Web コントロールを使用して実装されている並べ替えインターフェイスを持っていることができます。
-
 
 [!code-aspx[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample21.aspx)]
 
 作成`Click`これら 3 つのボタン コントロールのイベント ハンドラー。 イベント ハンドラーのリセット、`StartRowIndex`を 0 に設定、`SortExpression`適切な値、および Repeater にデータを再バインドします。
 
-
 [!code-csharp[Main](sorting-data-in-a-datalist-or-repeater-control-cs/samples/sample22.cs)]
 
 すべてが s で終了です。 カスタム ページングと並べ替えを実装する手順の数値の中の手順が既定のページングの必要なものによく似ています。 図 18 では、カテゴリ別に並べ替えてときにデータの最後のページを表示するときに、製品が表示されます。
-
 
 [![カテゴリ別に並べ替え、データの最後のページが表示されます。](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image51.png)](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image50.png)
 
 **図 18**:カテゴリ別に並べ替え、データの最後のページが表示されます ([フルサイズの画像を表示する をクリックします](sorting-data-in-a-datalist-or-repeater-control-cs/_static/image52.png))。
 
-
 > [!NOTE]
 > 前の例、並べ替え式として使用された仕入業者によって並べ替えるときにします。 ただし、カスタムのページングの実装の CompanyName を使用する必要があります。 ため、これは、ストアド プロシージャをカスタム ページングを実装する責任を負います`GetProductsPagedAndSorted`に並べ替え式を渡します、`ROW_NUMBER()`キーワード、`ROW_NUMBER()`キーワードは、別名ではなく、実際の列名が必要です。 したがって、使用する必要があります`CompanyName`(内の列の名前、`Suppliers`テーブル) で使用される別名ではなく、`SELECT`クエリ (`SupplierName`) の並べ替え式。
-
 
 ## <a name="summary"></a>まとめ
 

@@ -8,12 +8,12 @@ ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401752"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125233"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要します。
 
@@ -52,7 +52,6 @@ Visual Studio を起動し、選択**新しいプロジェクト**から、**開
 
 > [!NOTE]
 > 使用して Web API プロジェクトを作成することも、 &quot;Web API&quot;テンプレート。 Web API テンプレートでは、ASP.NET MVC を使用して、API のヘルプ ページを提供します。 MVC せず Web API を表示する必要があるために、このチュートリアルでは、空のテンプレートを使っています。 一般に、Web API を使用して ASP.NET MVC を把握する必要はありません。
-
 
 ## <a name="adding-a-model"></a>モデルの追加
 
@@ -93,7 +92,6 @@ Web api で、*コント ローラー*は HTTP 要求を処理するオブジェ
 
 > [!NOTE]
 > コント ローラーをという名前のフォルダーに、コント ローラーを配置する必要はありません。 フォルダー名が、ソース ファイルを整理する便利な方法だけです。
-
 
 このファイルがまだ開いていない場合、は、開くファイルをダブルクリックします。 次のようにこのファイル内のコードに置き換えます。
 

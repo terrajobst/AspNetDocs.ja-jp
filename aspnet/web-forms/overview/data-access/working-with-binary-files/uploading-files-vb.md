@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: f7c00fbd-652c-433d-8ed3-0e5168a4d4df
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7f342a7749ac175c3335f260324d69a0cce30202
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 03c64f839d11249f912b534476d02607d0c2b7d5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399750"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133839"
 ---
 # <a name="uploading-files-vb"></a>ファイルのアップロード (VB)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59399750"
 
 > サーバーのファイル システムまたはデータベースのいずれかで保存が Web サイト (Word や PDF ドキュメントなど) のバイナリ ファイルをアップロードするユーザーを許可する方法について説明します。
 
-
 ## <a name="introduction"></a>はじめに
 
 すべてのチュートリアルでは、私たちだけテキスト データを解析してきた ve してきました。 ただし、多くのアプリケーションでは、テキストとバイナリ データの両方をキャプチャするデータ モデルがあります。 オンライン dating サイトは、ユーザーが自分のプロファイルに関連付ける画像をアップロードを許可する可能性があります。 マイクロソフトの人材募集の web サイトには、ユーザーが、再開として Microsoft Word や PDF ドキュメントのアップロードができるように可能性があります。
@@ -32,7 +31,6 @@ ms.locfileid: "59399750"
 
 > [!NOTE]
 > アプリケーションのデータ モデルの一部であるバイナリ データとして呼ば、 [BLOB](http://en.wikipedia.org/wiki/Binary_large_object)、バイナリ ラージ オブジェクトの略語です。 これらのチュートリアルで選択しました用語のバイナリ データを使用する用語 BLOB は同義です。
-
 
 ## <a name="step-1-creating-the-working-with-binary-data-web-pages"></a>手順 1: バイナリ データの Web ページで、作業を作成します。
 
@@ -44,42 +42,33 @@ ms.locfileid: "59399750"
 - `UploadInDetailsView.aspx`
 - `UpdatingAndDeleting.aspx`
 
-
 ![バイナリ データに関連するチュートリアルについては、ASP.NET ページを追加します。](uploading-files-vb/_static/image1.gif)
 
 **図 1**:バイナリ データに関連するチュートリアルについては、ASP.NET ページを追加します。
 
-
 などの他のフォルダーで`Default.aspx`で、`BinaryData`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
-
 
 [![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](uploading-files-vb/_static/image2.gif)](uploading-files-vb/_static/image1.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image2.png))。
 
-
 最後に、これらのページを追加するエントリとして、`Web.sitemap`ファイル。 具体的には、次のマークアップを追加、向上した後、GridView `<siteMapNode>`:
-
 
 [!code-xml[Main](uploading-files-vb/samples/sample1.xml)]
 
 更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューで、バイナリ データのチュートリアルを使用した作業の項目できるようになりました。
 
-
 ![サイト マップ データのバイナリのチュートリアルを使用した作業のエントリになりました](uploading-files-vb/_static/image3.gif)
 
 **図 3**:サイト マップ データのバイナリのチュートリアルを使用した作業のエントリになりました
-
 
 ## <a name="step-2-deciding-where-to-store-the-binary-data"></a>手順 2: バイナリ データを格納する場所を決定します。
 
 2 つの場所のいずれかで、アプリケーションのデータ モデルに関連付けられているバイナリ データを格納できますデータベースに格納されているファイルへの参照で web サーバーのファイル システム上。または、データベース自体内で直接 (図 4 参照)。 それぞれのアプローチは、独自の長所と短所のセットを備え、効率的に詳細な議論について。
 
-
 [![ファイル システム上またはデータベースで直接、バイナリ データを格納することができます。](uploading-files-vb/_static/image4.gif)](uploading-files-vb/_static/image3.png)
 
 **図 4**:ファイル システム上またはデータベースで直接、バイナリ データを格納することができます ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image4.png))。
-
 
 Northwind データベースに関連付ける各製品の画像を拡張したいことを想像してください。 1 つのオプションは、web サーバーのファイル システムでこれらのイメージ ファイルを格納および内のパスを記録すること、`Products`テーブル。 この方法により、d を追加、`ImagePath`列を`Products`型のテーブル`varchar(200)`、おそらくします。 Web サーバーのファイル システムにその画像を格納する可能性があります Chai のユーザーが画像をアップロードすると、`~/Images/Tea.jpg`ここで、`~`アプリケーションの物理パスを表します。 つまり、物理パスにある web サイトが root 化されている場合`C:\Websites\Northwind\`、`~/Images/Tea.jpg`と等価になります`C:\Websites\Northwind\Images\Tea.jpg`します。 Chai レコードを更新するイメージ ファイルをアップロードした後には、私たちの d、`Products`テーブルようにその`ImagePath`列には、新しいイメージのパスが参照されています。 使用して`~/Images/Tea.jpg`単`Tea.jpg`すべての製品イメージは、アプリケーション内に配置することを決定した場合`Images`フォルダー。
 
@@ -98,7 +87,6 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 > [!NOTE]
 > Microsoft SQL Server 2000 およびそれ以前のバージョンで、`varbinary`データ型には、最大 8,000 バイトの制限が必要があります。 最大 2 GB のバイナリ データを格納する、 [ `image`データ型](https://msdn.microsoft.com/library/ms187993.aspx)代わりに使用する必要があります。 追加`MAX`SQL Server 2005、ただしで、`image`データ型が非推奨とされました。 これは、秒でもサポートされますの下位互換性のためを Microsoft が発表した、`image`データ型は、SQL Server の将来のバージョンで削除される予定です。
 
-
 表示が、以前のデータ モデルを使用する場合、`image`データ型。 Northwind データベースの s`Categories`テーブルには、`Picture`カテゴリのイメージ ファイルのバイナリ データの格納に使用できる列です。 型のこの列は、Northwind データベースには、Microsoft Access や SQL Server の以前のバージョンでは、そのルートがあるので`image`します。
 
 このチュートリアルと、次の 3 つの場合は、両方のアプローチを使用します。 `Categories`テーブルが既に、`Picture`カテゴリの画像のバイナリ コンテンツを格納するための列。 追加の列を追加します`BrochurePath`印刷品質、光沢のあるカテゴリの概要を提供するために使用する web サーバーのファイル システム上の PDF へのパスを格納するため、します。
@@ -109,11 +97,9 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 
 新しい追加`varchar(200)`列を`Categories`という名前のテーブル`BrochurePath`でき、 `NULL` s と保存 アイコンをクリックします (または Ctrl + S をヒット)。
 
-
 [![Categories テーブルに BrochurePath 列を追加します。](uploading-files-vb/_static/image5.gif)](uploading-files-vb/_static/image5.png)
 
 **図 5**:追加、`BrochurePath`列を`Categories`テーブル ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image6.png))。
-
 
 ## <a name="step-4-updating-the-architecture-to-use-thepictureandbrochurepathcolumns"></a>手順 4: 使用するアーキテクチャの更新、`Picture`と`BrochurePath`列
 
@@ -131,11 +117,9 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 
 これら 2 つの列を追加して、開始、`CategoriesDataTable`します。 右クリックし、`CategoriesDataTable`ヘッダー、コンテキスト メニューの 追加とし、列のオプションを選択します。 これは、新しい作成`DataColumn`という名前の DataTable に`Column1`します。 この列の名前を変更`Picture`します。 [プロパティ] ウィンドウから次のように設定します。、 `DataColumn` s`DataType`プロパティを`System.Byte[]`(これは、ドロップダウン リストで、オプションではありません) も入力する必要があります。
 
-
 [![データ型を持つが system.byte[] DataColumn という名前の画像を作成します。](uploading-files-vb/_static/image6.gif)](uploading-files-vb/_static/image7.png)
 
 **図 6**:作成、`DataColumn`名前付き`Picture`が`DataType`は`System.Byte[]`([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image8.png))。
-
 
 もう 1 つ追加`DataColumn`DataTable には、とします`BrochurePath`既定値を使用して`DataType`値 (`System.String`)。
 
@@ -145,61 +129,48 @@ Northwind データベースに関連付ける各製品の画像を拡張した�
 
 TableAdapter のメインのクエリを更新するを右クリックし、`CategoriesTableAdapter`のヘッダー、コンテキスト メニューから、構成オプションを選択します。 私たちのテーブル アダプター構成ウィザードが起動さまざまな過去のチュートリアルで確認したところです。 更新に戻すクエリ、 `BrochurePath` [完了] をクリックします。
 
-
 [![更新プログラムも BrochurePath を返す SELECT ステートメントで列リスト](uploading-files-vb/_static/image7.gif)](uploading-files-vb/_static/image9.png)
 
 **図 7**:列リストを更新、`SELECT`ステートメントを返すことも`BrochurePath`([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image10.png))。
 
-
 Tableadapter をアドホック SQL ステートメントを使用する場合は、すべての列リストを更新、メイン クエリで列リストを更新、`SELECT`クエリは TableAdapter のメソッド。 つまり、`GetCategoryByCategoryID(categoryID)`を返すメソッドが更新されました、`BrochurePath`列は、意図したとする可能性があります。 ただし、それも更新で列リスト、`GetCategoriesAndNumberOfProducts()`メソッドは、各カテゴリの製品の数を返すサブクエリを削除します。 そのため、このメソッドの s を更新する必要があります`SELECT`クエリ。 右クリックし、`GetCategoriesAndNumberOfProducts()`メソッドは、の構成を選択し、元に戻す、`SELECT`元の値に戻すクエリ。
-
 
 [!code-sql[Main](uploading-files-vb/samples/sample2.sql)]
 
 特定のカテゴリ s を返す新しい TableAdapter メソッドを次に、作成`Picture`列の値。 右クリックし、`CategoriesTableAdapter`のヘッダー、TableAdapter クエリ構成ウィザードを起動するクエリの追加オプションを選択します。 このウィザードの最初の手順は、アドホック SQL ステートメントを使用してデータをクエリする場合、新しいストアド プロシージャ、または、既存ことを確認します。 SQL ステートメントを使用を選択し、[次へ] をクリックします。 以降の行を返すことを 2 番目の手順からオプションの行を返す SELECT を選択します。
 
-
 [![SQL ステートメントのオプションを選択します。](uploading-files-vb/_static/image8.gif)](uploading-files-vb/_static/image11.png)
 
 **図 8**:SQL ステートメントのオプションを選択します ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image12.png))。
-
 
 [![行を返すので、クエリでは、Categories テーブルからレコードを返すは、選択を選択します](uploading-files-vb/_static/image9.gif)](uploading-files-vb/_static/image13.png)
 
 **図 9**:複数行を返す選択選択、Categories テーブルからレコードが返されますので ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image14.png))。
 
-
 3 番目の手順では、次の SQL クエリを入力し、[次へ] をクリックします。
-
 
 [!code-sql[Main](uploading-files-vb/samples/sample3.sql)]
 
 最後の手順では、新しいメソッドの名前を選択します。 使用`FillCategoryWithBinaryDataByCategoryID`と`GetCategoryWithBinaryDataByCategoryID`塗りつぶし DataTable 戻って DataTable パターン、それぞれします。 ウィザードを完了するには、[完了] をクリックします。
 
-
 [![TableAdapter のメソッドの名前を選択します。](uploading-files-vb/_static/image10.gif)](uploading-files-vb/_static/image15.png)
 
 **図 10**:Tableadapter のメソッドの名前を選択 ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image16.png))。
 
-
 > [!NOTE]
 > テーブル アダプター クエリ構成ウィザードの完了後に、新しいコマンド テキスト データを返すことスキーマと、メイン クエリのスキーマと異なることを通知 ダイアログ ボックスを参照してください可能性があります。 つまり、ウィザードが注目を TableAdapter のメイン クエリ`GetCategories()`先ほど作成した 1 つは異なるスキーマを返します。 これは、ここで必要なため、このメッセージを無視することができます。
-
 
 また、留意場合は、アドホック SQL ステートメントを使用しているし、後で TableAdapter のメイン クエリでの変更ウィザードを使用して、それが変更、`GetCategoryWithBinaryDataByCategoryID`メソッドの`SELECT`ステートメントの列リストからそれらの列を含める、メインのクエリ (つまり、削除は、`Picture`クエリからの列)。 返される列のリストを手動で更新する必要があります、`Picture`で行ったような列、`GetCategoriesAndNumberOfProducts()`この手順で前にメソッド。
 
 2 つを追加した後`DataColumn`s、`CategoriesDataTable`と`GetCategoryWithBinaryDataByCategoryID`メソッドを`CategoriesTableAdapter`、型指定されたデータセット デザイナーでこれらのクラス図 11 のスクリーン ショットのようになります。
 
-
 ![データセット デザイナーには、メソッド、新しい列が含まれます。](uploading-files-vb/_static/image11.gif)
 
 **図 11**:データセット デザイナーには、メソッド、新しい列が含まれます。
 
-
 ## <a name="updating-the-business-logic-layer-bll"></a>ビジネス ロジック層 (BLL) の更新
 
 DAL を更新すると、残っているは、新しいメソッドを追加するビジネス ロジック層 (BLL) を強化する`CategoriesTableAdapter`メソッド。 次のメソッドを追加、`CategoriesBLL`クラス。
-
 
 [!code-vb[Main](uploading-files-vb/samples/sample4.vb)]
 
@@ -211,22 +182,17 @@ ASP.NET 2.0 の新[FileUpload Web コントロール](https://msdn.microsoft.com
 
 ファイルのアップロードを示すためには、開く、`FileUpload.aspx`ページで、`BinaryData`フォルダー、FileUpload コントロールをツールボックスからデザイナーにドラッグおよび s コントロール設定`ID`プロパティを`UploadTest`します。 設定ボタン Web コントロールを次に、追加の`ID`と`Text`プロパティを`UploadButton`し、それぞれ、選択したファイルをアップロードします。 最後に、クリアします、ボタンの下にラベル Web コントロールを配置、`Text`プロパティとその`ID`プロパティを`UploadDetails`します。
 
-
 [![FileUpload コントロールを ASP.NET ページに追加します。](uploading-files-vb/_static/image12.gif)](uploading-files-vb/_static/image17.png)
 
 **図 12**:FileUpload コントロールを ASP.NET ページに追加 ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image18.png))。
 
-
 図 13 は、ブラウザーで表示した場合は、このページを示します。 ユーザーが自分のコンピューターからファイルを選択できるファイルの選択 ダイアログ ボックスを表示、参照ボタンをクリックするとに注意してください。 ファイルを選択すると、選択したファイルのアップロード ボタンをクリックしてにより選択したファイルのバイナリ コンテンツを web サーバーに送信するポストバックが発生します。
-
 
 [![ユーザーが自分のコンピューターからサーバーにアップロードするファイルを選択できます。](uploading-files-vb/_static/image13.gif)](uploading-files-vb/_static/image19.png)
 
 **図 13**:ユーザーは自分のコンピューターをサーバーからアップロードするファイルを選択することができます ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image20.png))。
 
-
 ポストバックでアップロードされたファイルをファイル システムに保存できます。 またはバイナリ データは、Stream を使用して直接協力できます。 この例では、%s を作成できるように、`~/Brochures`フォルダーし、アップロードされたファイルを保存します。 追加することで開始、`Brochures`フォルダーのルート ディレクトリのサブフォルダーとしてサイトにします。 イベント ハンドラーを次に、作成、 `UploadButton` s`Click`イベントと、次のコードを追加します。
-
 
 [!code-vb[Main](uploading-files-vb/samples/sample5.vb)]
 
@@ -235,21 +201,17 @@ FileUpload コントロールは、さまざまなアップロードされたデ
 > [!NOTE]
 > 確認するファイルをアップロードすることを確認する、`HasFile`プロパティ場合に警告を表示、s`False`を使用することや、 [RequiredFieldValidator コントロール](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx)代わりにします。
 
-
 FileUpload s`SaveAs(filePath)`を指定したアップロードされたファイルを保存します。 *filePath*します。 *filePath*必要があります、*物理パス*(`C:\Websites\Brochures\SomeFile.pdf`) ではなく*仮想* *パス*(`/Brochures/SomeFile.pdf`)。 [ `Server.MapPath(virtPath)`メソッド](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx)仮想パスを受け取り、その対応する物理パスを返します。 仮想パスは、ここでは、`~/Brochures/fileName`ここで、 *fileName*アップロードされたファイルの名前を指定します。 参照してください[を使用して Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml)仮想および物理パスと使用の詳細については`Server.MapPath`します。
 
 完了した後、`Click`イベント ハンドラーでは、ブラウザーでページをテストする少し。 [参照] ボタンをクリックして、ハード ドライブからファイルを選択し、選択したファイルのアップロード ボタンをクリックします。 ポストバックに保存する前に、ファイルに関する情報が表示される web サーバーに、選択したファイルの内容を送り、`~/Brochures`フォルダー。 ファイルをアップロードした後は、Visual Studio に戻り、ソリューション エクスプ ローラーで [更新] ボタンをクリックします。 ~/Brochures フォルダーにアップロードしたファイルが表示する必要があります。
-
 
 [![Web サーバーにアップロードされたファイル EvolutionValley.jpg](uploading-files-vb/_static/image14.gif)](uploading-files-vb/_static/image21.png)
 
 **図 14**:ファイル`EvolutionValley.jpg`Web サーバーにアップロードされました ([フルサイズの画像を表示する をクリックします](uploading-files-vb/_static/image22.png))。
 
-
 ![EvolutionValley.jpg が ~/Brochures フォルダーに保存されました](uploading-files-vb/_static/image15.gif)
 
 **図 15**:`EvolutionValley.jpg` 保存された、`~/Brochures`フォルダー
-
 
 ## <a name="subtleties-with-saving-uploaded-files-to-the-file-system"></a>アップロードされたファイルをファイル システムに保存する際に細部について
 

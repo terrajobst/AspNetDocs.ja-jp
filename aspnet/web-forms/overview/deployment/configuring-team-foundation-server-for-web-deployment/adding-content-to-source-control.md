@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 86c14aab-c2dd-4f73-b40c-c6d52fa44950
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a609b761543e4994aa4a7f86636bd16e9cd74683
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 16073dd2fb0ea1cc4ddbc94c843181933dc174c1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396721"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131544"
 ---
 # <a name="adding-content-to-source-control"></a>ソース管理にコンテンツを追加する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59396721"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、ソース管理では、Team Foundation Server (TFS) 2010 にコンテンツを追加する方法について説明します。 ソリューションとプロジェクトを TFS でチーム プロジェクトに追加する方法について説明し、フレームワーク、またはアセンブリなどの外部の依存関係をソース管理に追加する方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -116,7 +115,6 @@ ms.locfileid: "59396721"
 
 > [!NOTE]
 > パッケージ フォルダーを含めることは、Visual Studio 2010 用の NuGet 拡張機能を使用して、ソリューションに、Entity Framework、または同様のリソースを追加するときの動作の一般的な例です。
-
 
 **ソース管理にプロジェクト以外のコンテンツを追加するには**
 

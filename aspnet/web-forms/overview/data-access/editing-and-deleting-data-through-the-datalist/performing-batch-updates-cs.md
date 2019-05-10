@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 57743ca7-5695-4e07-aed1-44b297f245a9
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 388637d67594d6431a134673cf85b3b18098136e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 01234dfab50cf608c934cb72ed06d0ad0ee58438
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402753"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133637"
 ---
 # <a name="performing-batch-updates-c"></a>バッチ更新を実行する (C#)
 
@@ -23,16 +23,13 @@ ms.locfileid: "59402753"
 
 > 完全に編集を作成する方法について説明します DataList ですべての項目が編集モードと ページの すべて更新 ボタンをクリックして値を保存できます。
 
-
 ## <a name="introduction"></a>はじめに
 
 [前のチュートリアル](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)アイテム レベル DataList を作成する方法について確認しました。 編集可能な標準の GridView、DataList 内の各項目に含まれるように編集ボタンで、クリックされると、項目の編集可能になります。 この項目のレベルも随時更新のみがデータの編集の動作、中に特定のユース ケース シナリオには多くのレコードを編集するユーザーが必要です。 ユーザーが数十個のレコードを編集する必要があるし、編集 をクリックして、自分の変更を行い、1 つの更新 をクリックしてしなければ、クリックしての量は、生産性を妨げられることができます。 DataList で完全に編集を提供することですより適切なオプションでは、このような状況では、1 つの where*すべて*その項目の編集モードでページ上のすべての更新ボタンをクリックして値を編集できますが (図 1 参照)。
 
-
 [![完全に編集可能な DataList 内の各項目を変更できます。](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
 
 **図 1**:完全に編集可能な DataList 内の各項目を変更できます ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image3.png))。
-
 
 このチュートリアルでは完全に編集可能な DataList を使用して仕入先のアドレス情報を更新するユーザーを有効にする方法を説明します。
 
@@ -49,48 +46,38 @@ DataList で完全に編集可能にする*すべて*の`DataListItem`編集可�
 
 開いて開始、`BatchUpdate.aspx`ページで、DataList コントロールを追加し、設定、`ID`プロパティを`Suppliers`します。 という名前の新しい ObjectDataSource コントロールを追加することを選択、DataList s のスマート タグから`SuppliersDataSource`します。
 
-
 [![SuppliersDataSource という名前の新しい ObjectDataSource を作成します。](performing-batch-updates-cs/_static/image5.png)](performing-batch-updates-cs/_static/image4.png)
 
 **図 2**:名前付き新しい ObjectDataSource 作成`SuppliersDataSource`([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image6.png))。
 
-
 構成を使用してデータを取得する ObjectDataSource、`SuppliersBLL`クラスの`GetSuppliers()`メソッド (図 3 を参照してください)。 前のチュートリアルではなく、ObjectDataSource を仕入先情報の更新と同様、ビジネス ロジック層を直接操作を行います。 します。 そのため、更新プログラム] タブで [(なし) ドロップダウン リストを設定 (図 4 参照)。
-
 
 [![GetSuppliers() メソッドを使用して仕入先情報を取得します。](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
 
 **図 3**:使用して仕入先情報を取得、`GetSuppliers()`メソッド ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image9.png))。
 
-
 [![更新プログラム タブで、ドロップダウン リストを (なし) を設定します。](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
 
 **図 4**:更新プログラム] タブで [(なし) ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image12.png))。
 
-
 ウィザードを完了すると、Visual Studio を自動的に生成 DataList の`ItemTemplate`Label Web コントロール内のデータ ソースによって返される各データ フィールドの表示にします。 代わりに、編集用のインターフェイスを提供するように、このテンプレートを変更する必要があります。 `ItemTemplate` DataList s のスマート タグからのテンプレートの編集オプションを使用して、デザイナー、または宣言型構文を通じて直接カスタマイズできます。
 
 テキスト、として、サプライヤーの名前を表示しますが、仕入先の住所や市区町村、国の値のテキスト ボックスが含まれています編集インターフェイスを作成する時間がかかります。 これらの変更を加えたら、ページの宣言構文は次のようなになります。
-
 
 [!code-aspx[Main](performing-batch-updates-cs/samples/sample1.aspx)]
 
 > [!NOTE]
 > このチュートリアルとに、このチュートリアルでは、DataList にも、そのビュー ステートを有効になっている必要があります。
 
-
 `ItemTemplate`は 2 つの新しい CSS クラスを使用して`SupplierPropertyLabel`と`SupplierPropertyValue`に追加されましたが、`Styles.css`クラスし、同じスタイル設定を使用するように構成、`ProductPropertyLabel`と`ProductPropertyValue`CSS クラス。
-
 
 [!code-css[Main](performing-batch-updates-cs/samples/sample2.css)]
 
 これらの変更を行った後は、ブラウザーからこのページを参照してください。 図 5 に示すよう各 DataList 項目はテキストとして仕入先の名前を表示し、アドレス、市区町村、国を表示するテキスト ボックスを使用します。
 
-
 [![各仕入先、DataList では編集可能なです。](performing-batch-updates-cs/_static/image14.png)](performing-batch-updates-cs/_static/image13.png)
 
 **図 5**:各仕入先、DataList では編集可能な ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image15.png))。
-
 
 ## <a name="step-2-adding-an-update-all-button"></a>手順 2: 更新プログラムのすべてのボタンを追加します。
 
@@ -98,16 +85,13 @@ DataList で完全に編集可能にする*すべて*の`DataListItem`編集可�
 
 DataList とセットの上ボタン Web コントロールを追加することにより、その`ID`プロパティを`UpdateAll1`します。 次に、設定、DataList、下にある 2 つ目のボタンの Web コントロールを追加、`ID`に`UpdateAll2`します。 設定、`Text`すべて更新する 2 つのボタンのプロパティ。 最後に、2 つのボタン イベント ハンドラーを作成`Click`イベント。 3 番目のメソッドにそのロジックをリファクタリングする let s の各イベント ハンドラーで更新ロジックを複製するのではなく`UpdateAllSupplierAddresses`、イベント ハンドラーをこの 3 つ目のメソッドを呼び出すだけです。
 
-
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample3.cs)]
 
 図 6 は、更新プログラムのすべてのボタンを追加した後に、ページを示します。
 
-
 [![2 つの更新プログラムすべてのボタンがページに追加されました](performing-batch-updates-cs/_static/image17.png)](performing-batch-updates-cs/_static/image16.png)
 
 **図 6**:2 つの更新プログラムすべてのボタンがページに追加されました ([フルサイズの画像を表示する をクリックします](performing-batch-updates-cs/_static/image18.png))。
-
 
 ## <a name="step-3-updating-all-of-the-suppliers-address-information"></a>手順 3: すべての仕入先のアドレス情報を更新しています
 
@@ -115,14 +99,12 @@ DataList とセットの上ボタン Web コントロールを追加すること
 
 コレクション`DataListItem`DataList s を介してアクセスできるよう、DataList、その構成をインスタンス化[`Items`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx)します。 参照を`DataListItem`、対応するを取得できます`SupplierID`から、`DataKeys`コレクションとプログラムでテキスト ボックスに Web コントロールの内の参照、`ItemTemplate`次のコードに示すように。
 
-
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample4.cs)]
 
 いずれかの更新プログラムのすべてのボタンをクリックすると、`UpdateAllSupplierAddresses`メソッドは、それぞれを反復処理`DataListItem`で、 `Suppliers` DataList、および呼び出し、`SuppliersBLL`クラスの`UpdateSupplierAddress`メソッドは、対応する値を渡します。 アドレス、市区町村、国のパスの入力以外の値は、の値`Nothing`に`UpdateSupplierAddress`(空白文字列の場合) ではなく、データベースになる`NULL`の基になるレコードのフィールド。
 
 > [!NOTE]
 > 拡張機能としてバッチ更新が実行された後に、いくつかの確認メッセージを提供するページに状態ラベル Web コントロールを追加します。
-
 
 ## <a name="updating-only-those-addresses-that-have-been-modified"></a>変更されたアドレスのみを更新しています
 
@@ -132,7 +114,6 @@ ADO.NET DataTable、DataAdapter クラスは、のみ、変更、削除、およ
 
 `SuppliersBLL`クラスに 1 つの仕入先のレコードの最初の読み込み、指定した仕入先のアドレス情報を更新しました、`SuppliersDataTable`し、設定、 `Address`、 `City`、および`Country`次のコードを使用して列の値。
 
-
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample5.cs)]
 
 このコードは、単純では、渡されたアドレス、市区町村、および国の値に割り当てます、`SuppliersRow`で、`SuppliersDataTable`値が変更されたかどうかに関係なく。 これらの変更により、 `SuppliersRow` s`RowState`プロパティを変更済みとしてマークされます。 ときにデータ アクセス層 s`Update`メソッドが呼び出されると、認識する、`SupplierRow`変更されており、したがって送信、`UPDATE`データベースにコマンド。
@@ -140,7 +121,6 @@ ADO.NET DataTable、DataAdapter クラスは、のみ、変更、削除、およ
 しかし、これらとは異なる場合のみ、渡されたアドレス、市区町村、および国の値を割り当てるには、このメソッドにコードを追加しました、 `SuppliersRow` s の既存の値。 アドレス、市区町村、国が同じである既存のデータとしてのケースでは変更されない、 `SupplierRow` s`RowState`としてマークされている左を unchanged に指定します。 最終的な結果がいるときに DAL s`Update`メソッドが呼び出されると、データベースの呼び出しは行われませんので、`SuppliersRow`が変更されていません。
 
 この変更を適用するには、渡されたアドレス、市区町村、国の値を次のコードを無条件に割り当てることがステートメントに置き換えます。
-
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample6.cs)]
 
@@ -150,7 +130,6 @@ ADO.NET DataTable、DataAdapter クラスは、のみ、変更、削除、およ
 
 > [!NOTE]
 > 毎回、`UpdateSupplierAddress`メソッドが呼び出される、更新されたレコードに関する情報を取得、データベースへの呼び出しが確立します。 次に、データに変更がある場合は、テーブルの行を更新するデータベースへの別の呼び出しが行われます。 作成して最適化されますが、このワークフロー、`UpdateSupplierAddress`を受け取るメソッド オーバー ロードを`EmployeesDataTable`を持つインスタンス*すべて*からの変更の`BatchUpdate.aspx`ページ。 データベースに 1 回の呼び出しは、すべてのレコードの取得を行う可能性がありますし、`Suppliers`テーブル。 2 つの結果セットを列挙し、でき、変更が発生したレコードのみを更新できませんできます。
-
 
 ## <a name="summary"></a>まとめ
 

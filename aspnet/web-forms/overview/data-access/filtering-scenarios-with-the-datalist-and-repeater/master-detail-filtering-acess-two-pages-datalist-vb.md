@@ -8,12 +8,12 @@ ms.date: 10/30/2010
 ms.assetid: f1a1be2c-6fd9-4a09-916e-aa1b98d5cf17
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f71e4814d59ef1817d5a64f778ba6d572fc19145
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3378875cc80a90c53ab74e8973b806e28855444a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422734"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131607"
 ---
 # <a name="masterdetail-filtering-across-two-pages-vb"></a>2 つのページでマスター/詳細をフィルター処理する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59422734"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_34_VB.exe)または[PDF のダウンロード](master-detail-filtering-acess-two-pages-datalist-vb/_static/datatutorial34vb1.pdf)
 
 > このチュートリアルでは 2 つのページ間でマスター/詳細レポートを分離する方法について説明します。 「マスター」のページでは、クリックされるは、ユーザーに移動「詳細」ページ 2 列 DataList で、選択したカテゴリに属しているこれらの製品がどのように表示されているときにカテゴリの一覧を表示するために、Repeater コントロールを使用します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -36,11 +35,9 @@ ms.locfileid: "59422734"
 
 マスター/詳細レポートを作成する最初の手順では、「マスター」のレコードを表示することによって開始します。 そのため、最初のタスクは、「マスター」のページにカテゴリを表示します。 開く、`CategoryListMaster.aspx`ページで、`DataListRepeaterFiltering`フォルダーは、Repeater コントロールを追加し、新しい ObjectDataSource を追加することを選択、スマート タグから。 データにアクセスするように新しい ObjectDataSource を構成、`CategoriesBLL`クラスの`GetCategories`メソッド (図 1 参照)。
 
-
 [![CategoriesBLL クラスのメソッドを使用する ObjectDataSource を構成します。](master-detail-filtering-acess-two-pages-datalist-vb/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image1.png)
 
 **図 1**:構成に使用する ObjectDataSource、`CategoriesBLL`クラスの`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image3.png))。
-
 
 次に、箇条書きリスト内の項目として各カテゴリの名前と説明が表示されるよう、Repeater のテンプレートを定義します。 それでは、各カテゴリについて心配されていない詳細ページへのリンク。 次は、Repeater、ObjectDataSource の宣言型マークアップを示します。
 
@@ -48,11 +45,9 @@ ms.locfileid: "59422734"
 
 完全なこのマークアップで少し、ブラウザーで進行状況を表示します。 図 2 が示すように、Repeater は各カテゴリの名前と説明を示す箇条書きリストとしてレンダリングします。
 
-
 [![各カテゴリは箇条書きリストの項目として表示されます。](master-detail-filtering-acess-two-pages-datalist-vb/_static/image5.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image4.png)
 
 **図 2**:各カテゴリは箇条書きリストの項目として表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image6.png))。
-
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>手順 2: 詳細ページへのリンクにカテゴリ名を変換します。
 
@@ -72,29 +67,23 @@ ms.locfileid: "59422734"
 
 に従っている場合は、ページのアンカー要素、またはハイパーリンク コントロールのアプローチを使用する自由します。 各カテゴリ名へのリンクとして表示するブラウザーを使用してページを表示するときに、アプローチに関係なく`ProductsForCategoryDetails.aspx`の適切なを渡して、`CategoryID`値 (図 3 を参照してください)。
 
-
 [![カテゴリ名が ProductsForCategoryDetails.aspx にリンクするようになりました](master-detail-filtering-acess-two-pages-datalist-vb/_static/image8.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image7.png)
 
 **図 3**:カテゴリ名今すぐへのリンク`ProductsForCategoryDetails.aspx`([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image9.png))。
-
 
 ## <a name="step-3-listing-the-products-that-belong-to-the-selected-category"></a>手順 3: 選択したカテゴリに属する製品の一覧を表示します。
 
 `CategoryListMaster.aspx` 、「詳細」ページの実装に注目する準備ができました ページで完全な`ProductsForCategoryDetails.aspx`します。 このページを開き、DataList をツールボックスからデザイナーにドラッグして設定その`ID`プロパティを`ProductsInCategory`します。 次に、DataList のスマート タグから新しい ObjectDataSource をその名前を付け、ページに追加する選択`ProductsInCategoryDataSource`します。 呼び出すように構成、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド; セット (None) に、INSERT、UPDATE、および DELETE のタブで、ドロップダウン リストを一覧表示します。
 
-
 [![ObjectDataSource ProductsBLL クラスの GetProductsByCategoryID(categoryID) メソッドを使用して構成します。](master-detail-filtering-acess-two-pages-datalist-vb/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image10.png)
 
 **図 4**:構成に使用する ObjectDataSource、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image12.png))。
 
-
 以降、`GetProductsByCategoryID(categoryID)`メソッドは入力パラメーターを受け取ります (*`categoryID`*)、データ ソースの選択ウィザードは私たちにパラメーターのソースを指定する機会を提供します。 パラメーターのソースを QueryStringField を使用してクエリ文字列に設定`CategoryID`します。
-
 
 [![パラメーターのソースとしてクエリ文字列フィールドの CategoryID を使用します。](master-detail-filtering-acess-two-pages-datalist-vb/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image13.png)
 
 **図 5**:クエリ文字列フィールドを使用して`CategoryID`パラメーターのソースとして ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image15.png))。
-
 
 Visual Studio が自動的に作成、データ ソースの選択ウィザードが完了したら、前のチュートリアルでご覧いただいたよう、 `ItemTemplate` DataList を各データ フィールドの名前と値の一覧を表示するのです。 このテンプレートは、製品の名前、供給業者、および料金のみを一覧表示するものに置き換えます。 DataList を設定しても、`RepeatColumns`プロパティを 2。 これらの変更後、DataList コントロールと ObjectDataSource の宣言型マークアップは次のようになります。
 
@@ -102,11 +91,9 @@ Visual Studio が自動的に作成、データ ソースの選択ウィザー�
 
 開始アクションでこのページを表示する、`CategoryListMaster.aspx`ページは、次に、カテゴリの箇条書きリストにあるリンクをクリックします。 これを実行する`ProductsForCategoryDetails.aspx`に沿って渡す、`CategoryID`を通じて、クエリ文字列。 `ProductsInCategoryDataSource`で ObjectDataSource`ProductsForCategoryDetails.aspx`指定したカテゴリの製品のみを取得し、DataList では、行ごとに 2 つの製品の表示に表示します。 図 6 のスクリーン ショットに示す`ProductsForCategoryDetails.aspx`飲み物を表示するときにします。
 
-
 [![飲み物を表示すると、行ごとに 2 つ](master-detail-filtering-acess-two-pages-datalist-vb/_static/image17.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image16.png)
 
 **図 6**:飲み物を表示すると、行ごとに 2 つ ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image18.png))。
-
 
 ## <a name="step-4-displaying-category-information-on-productsforcategorydetailsaspx"></a>手順 4: ProductsForCategoryDetails.aspx カテゴリ情報を表示します。
 
@@ -114,11 +101,9 @@ Visual Studio が自動的に作成、データ ソースの選択ウィザー�
 
 これを実現する追加 Repeater コントロールの上の FormView`ProductsForCategoryDetails.aspx`します。 次に、新しい ObjectDataSource をという名前の FormView のスマート タグからのページに追加`CategoryDataSource`を使用するように構成し、`CategoriesBLL`クラスの`GetCategoryByCategoryID(categoryID)`メソッド。
 
-
 [![CategoriesBLL クラスの GetCategoryByCategoryID(categoryID) メソッドを通じてカテゴリに関する情報にアクセス](master-detail-filtering-acess-two-pages-datalist-vb/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image19.png)
 
 **図 7**:を通じてカテゴリに関する情報へのアクセス、`CategoriesBLL`クラスの`GetCategoryByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image21.png))。
-
 
 同様、 `ProductsInCategoryDataSource` ObjectDataSource は、手順 3. で追加、`CategoryDataSource`のデータ ソースの構成ウィザードでのソースが米国、`GetCategoryByCategoryID(categoryID)`メソッドのパラメーターを入力します。 正確な設定と同じにする前に、パラメーター ソースをクエリ文字列、QueryStringField 値に設定を使用して、 `CategoryID` (戻るは図 5 を参照してください)。
 
@@ -131,11 +116,9 @@ Visual Studio が自動的に作成、データ ソースの選択ウィザー�
 > [!NOTE]
 > カテゴリの一覧に戻り、ユーザーが取る FormView 上のハイパーリンク コントロールを追加しましただけでなく、FormView (`CategoryListMaster.aspx`)。 このリンクを別の場所に配置する、または完全に省略する自由です。
 
-
 [![カテゴリ情報は、ページの上部に表示されるようになりました](master-detail-filtering-acess-two-pages-datalist-vb/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image22.png)
 
 **図 8**:カテゴリ情報は、ページの上部に表示されるようになりました ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image24.png))。
-
 
 ## <a name="step-5-displaying-a-message-if-no-products-belong-to-the-selected-category"></a>手順 5: 選択したカテゴリに属して製品が存在しない場合は、メッセージを表示します。
 
@@ -157,11 +140,9 @@ Visual Studio が自動的に作成、データ ソースの選択ウィザー�
 
 データベースを適宜更新した後に戻り、`CategoryListMaster.aspx`ページし、生成のリンクをクリックします。 生成カテゴリに属するすべての製品は不要であるために、図 9 に示すように、「... 選択したカテゴリの製品がありません」メッセージが表示されます。
 
-
 [![なしでは、製品の選択したカテゴリに属するがある場合、メッセージが表示されます。](master-detail-filtering-acess-two-pages-datalist-vb/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image25.png)
 
 **図 9**:なしでは、製品の選択したカテゴリに属するがある場合、メッセージが表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image27.png))。
-
 
 ## <a name="summary"></a>まとめ
 

@@ -8,12 +8,12 @@ ms.date: 06/26/2014
 ms.assetid: 47202362-3808-4add-9a69-c9d1f91d5e4e
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
 msc.type: authoredcontent
-ms.openlocfilehash: 14d4b01a2ea8a4582294053416b626e7f1801b50
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a0016cf2cc7bffe6268664395ccb38e140090310
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59411515"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126122"
 ---
 # <a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリ (C#) の作成
 
@@ -27,7 +27,6 @@ Visual Studio の新しいインスタンスを開始し、新しいコンソー
 
 > [!NOTE]
 > OData サービスを含んでいる同じ Visual Studio ソリューションにコンソール アプリを追加することもできます。
-
 
 ## <a name="install-the-odata-client-code-generator"></a>OData Client Code Generator をインストールする
 
@@ -43,7 +42,6 @@ Visual Studio から ProductService プロジェクトを実行します。 既�
 
 > [!NOTE]
 > 同じソリューションに両方のプロジェクトを配置する場合は ProductService プロジェクトがデバッグをせずに実行されていることを確認してください。 次の手順では、コンソール アプリケーション プロジェクトを変更している間、サービスが実行され続けている必要があります。
-
 
 ## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
 

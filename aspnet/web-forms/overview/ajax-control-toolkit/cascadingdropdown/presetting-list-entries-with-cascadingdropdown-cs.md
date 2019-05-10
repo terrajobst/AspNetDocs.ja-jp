@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 04c79748-0f21-4a3b-aba5-e1ce3161c32e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 188f98d013707178e50858f8ea26d8cf2af06bea
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 51bbf0d3b15e9107c4388bf12193b488491c8b32
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406016"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132212"
 ---
 # <a name="presetting-list-entries-with-cascadingdropdown-c"></a>CascadingDropDown で一覧のエントリを事前設定する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59406016"
 [コードのダウンロード](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingDropDown2CS.pdf)
 
 > CascadingDropDown コントロール、AJAX Control Toolkit では、もう 1 つの DropDownList の値が 1 つの DropDownList の読み込みの変更に関連付けられているように、DropDownList コントロールを拡張します。 ほんの少しのコード リストの要素は、データが動的に読み込まれると既に選択されてことができます。
-
 
 ## <a name="overview"></a>概要
 
@@ -51,7 +50,6 @@ CascadingDropDown 値の型の配列を返します。 リスト項目のキャ�
 [!code-aspx[Main](presetting-list-entries-with-cascadingdropdown-cs/samples/sample5.aspx)]
 
 ブラウザーでページの読み込みが挿入されますをドロップダウン リストに 3 つのベンダーでは、あらかじめ選択されている 2 つ目。
-
 
 [![リストが入力され、自動的にあらかじめ選択されています](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)
 

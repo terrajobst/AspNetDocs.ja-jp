@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: fae968c9-1902-487d-b053-86a46dd52c3f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 27823e6b65dda80391d494af6f8d8da539bc3334
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e3f99cbe31707f535809da0ad12f67832040b0d2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393211"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131234"
 ---
 # <a name="dynamically-adding-an-accordion-pane-vb"></a>アコーディオン ウィンドウ (VB) を動的に追加します。
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393211"
 [コードのダウンロード](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2VB.pdf)
 
 > AJAX Control Toolkit で、アコーディオン コントロールは、複数のペインを示し、うち 1 つを同時に表示できます。 パネルがページ自体には、通常は宣言されているが、サーバー側のコードは、同じ結果を実現するために使用できます。
-
 
 ## <a name="overview"></a>概要
 
@@ -53,7 +52,6 @@ AJAX Control Toolkit で、アコーディオン コントロールは、複数�
 例を完了するには、アコーディオン コントロールで参照されている 2 つの CSS クラスは、ブラウザーのスタイル情報を提供します。
 
 [!code-css[Main](dynamically-adding-an-accordion-pane-vb/samples/sample6.css)]
-
 
 [![アコーディオンにデータはサーバー側コードによって動的に追加されました](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
 

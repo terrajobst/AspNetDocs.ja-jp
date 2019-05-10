@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: 3a8a9d9f-82dd-4959-b7c6-960e9ce95df1
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c64e1ea1562c3a0cfe4fb33f1c3033bb9c31bd2c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ff3adc5db8114dcca2c66d937e1706f0bac0d30
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402740"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117541"
 ---
 # <a name="validating-with-the-idataerrorinfo-interface-vb"></a>IDataErrorInfo インターフェイスの検証 (VB)
 
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther では、モデル クラスで IDataErrorInfo インターフェイスを実装することによってカスタムの検証エラー メッセージを表示する方法を示します。
-
 
 このチュートリアルの目的では、ASP.NET MVC アプリケーションで検証を実行するための 1 つの方法をについて説明します。 必要なフォーム フィールドの値を指定せず、HTML フォームを送信されないようにする方法について説明します。 このチュートリアルでは、IErrorDataInfo インターフェイスを使用して検証を実行する方法について説明します。
 
@@ -30,7 +29,6 @@ ms.locfileid: "59402740"
 
 <a id="0.6_table01"></a>
 
-
 | **列名** | **[データ型]** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
@@ -38,19 +36,15 @@ ms.locfileid: "59402740"
 | ディレクター | nvarchar (100) | False |
 | DateReleased | DateTime | False |
 
-
 このチュートリアルでは、私のデータベース モデル クラスを生成するのに Microsoft Entity Framework を使用します。 Entity Framework によって生成されたムービー クラスは、図 1 に表示されます。
-
 
 [![ムービー エンティティ](validating-with-the-idataerrorinfo-interface-vb/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image1.png)
 
 **図 01**:ムービー エンティティ ([フルサイズの画像を表示する をクリックします](validating-with-the-idataerrorinfo-interface-vb/_static/image2.png))。
 
-
 > [!NOTE] 
 > 
 > Entity Framework を使用して、データベース モデル クラスを生成する方法の詳細については、拙著のチュートリアルという、Entity Framework でモデル クラスを作成するを参照してください。
-
 
 ## <a name="the-controller-class"></a>コント ローラー クラス
 
@@ -72,11 +66,9 @@ ms.locfileid: "59402740"
 
 ムービー クラスは、Entity Framework によって生成されます。 ソリューション エクスプ ローラー ウィンドウで、MoviesDBModel.edmx ファイルを展開すると、コード エディターで MoviesDBModel.Designer.vb ファイルを開き、ムービー クラスのコードを確認できます (図 2 参照)。
 
-
 [![ムービー エンティティのコード](validating-with-the-idataerrorinfo-interface-vb/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image3.png)
 
 **図 02**:ムービー エンティティのコード ([フルサイズの画像を表示する をクリックします](validating-with-the-idataerrorinfo-interface-vb/_static/image4.png))。
-
 
 ムービー クラスは、部分クラスです。 ムービー クラスの機能を拡張する同じ名前の別の部分クラスを追加できることを意味します。 新しい部分クラスに、検証ロジックを追加します。
 
@@ -110,7 +102,6 @@ OnChanging メソッドは、対応するプロパティが変更される前に
 > [!NOTE] 
 > 
 > 部分メソッドは、実装する必要はありませんが、クラスで定義されたメソッドです。 部分メソッドを実装しない場合、コンパイラがメソッド シグネチャを削除し、メソッドのためにすべての呼び出しには、部分メソッドに関連付けられている実行時のコストはありません。 Visual Studio コード エディターで、キーワードを入力して、部分メソッドに追加できます*部分*後にスペースを実装するパーシャルの一覧を表示します。
-
 
 **Listing 3 - Models\Movie.vb**
 
@@ -146,11 +137,9 @@ DefaultModelBinder クラスは、IDataErrorInfo インターフェイスを実�
 
 変更されたムービー クラスを使用する任意の方法で、Home コント ローラーを変更する必要はありません。 図 3 に表示されるページは、タイトルまたはディレクター フォーム フィールドの値が入力されていないときの動作を示しています。
 
-
 [![アクション メソッドを自動的に作成します。](validating-with-the-idataerrorinfo-interface-vb/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image5.png)
 
 **図 03**:欠損値を含むフォーム ([フルサイズの画像を表示する をクリックします](validating-with-the-idataerrorinfo-interface-vb/_static/image6.png))。
-
 
 DateReleased 値が自動的に検証されたことに注意してください。 DateReleased プロパティが NULL 値を受け付けないので、DefaultModelBinder は、値があるないときに自動的にこのプロパティの検証エラーを生成します。 DateReleased プロパティのエラー メッセージを変更する場合は、カスタム モデル バインダーを作成する必要があります。
 

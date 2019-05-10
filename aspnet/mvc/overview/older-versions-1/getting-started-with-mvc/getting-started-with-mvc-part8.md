@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: 7ae696b9-348f-4993-8ebb-a838acbe0c28
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 029234cf9a28a80c487504e4e0980c214e45f53a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1cf092c3db3959d6f47006f1be2ba82833c5dc06
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381966"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122846"
 ---
 # <a name="adding-a-column-to-the-model"></a>モデルに列を追加する
 
 [Scott Hanselman](https://github.com/shanselman)による
 
 > これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
-
 
 このセクションではここに、データベースのスキーマ変更を加えるし、アプリケーション内で、変更を処理した方法を説明します。
 

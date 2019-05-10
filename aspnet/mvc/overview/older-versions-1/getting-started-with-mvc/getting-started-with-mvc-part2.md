@@ -8,12 +8,12 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 84f9c822f041808184b2c586ce933ba3b24615dc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e2a298584473f57c2b14edf507f0f6886d906ea3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419835"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123063"
 ---
 # <a name="adding-a-controller"></a>コントローラーを追加する
 
@@ -24,7 +24,6 @@ ms.locfileid: "59419835"
 >
 >
 > これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
-
 
 MVC は、モデル、ビュー、コント ローラーの略です。 MVC は、各パーツがある他とは異なる責任になるようにアプリケーションを開発するためのパターンです。
 

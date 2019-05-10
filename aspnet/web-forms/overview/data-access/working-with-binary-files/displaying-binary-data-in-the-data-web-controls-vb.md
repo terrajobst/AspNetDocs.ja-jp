@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f8207d1b25882b2cef269b64b43500d14c32976
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 05c4f0dd8517e348d72c28ea915960a4a725e46e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133593"
 ---
 # <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>データ Web コントロールにバイナリ データを表示する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59394290"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_55_VB.exe)または[PDF のダウンロード](displaying-binary-data-in-the-data-web-controls-vb/_static/datatutorial55vb1.pdf)
 
 > このチュートリアルでは、Web ページで、イメージ ファイルの表示、PDF ファイルの [ダウンロード] リンクのプロビジョニングなどをバイナリ データを表示するオプションに注目します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -40,11 +39,9 @@ ms.locfileid: "59394290"
 
 このチュートリアルのダウンロードで 7 つの PDF パンフレット ファイルがあります、`~/Brochures`フォルダー、シーフード以外のカテゴリのそれぞれに 1 つ。 意図しないすべてのレコードにバイナリ データが関連付けられているシナリオを処理する方法を説明するシーフード パンフレットの追加を省略するとは。 更新する、`Categories`これらの値を持つテーブルを右クリックします、`Categories`ノード サーバー エクスプ ローラーからテーブル データの表示を選択します。 図 1 に示すよう、パンフレットのある各カテゴリのパンフレット ファイルへの仮想パスを入力します。 パンフレット シーフード カテゴリがないために、以下のままにしてその`BrochurePath`列の値として`NULL`します。
 
-
 [![カテゴリ表の BrochurePath 列の値を手動で入力します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.png)
 
 **図 1**:値を手動で入力、`Categories`テーブル s`BrochurePath`列 ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.png))。
-
 
 ## <a name="step-2-providing-a-download-link-for-the-brochures-in-a-gridview"></a>手順 2: GridView のパンフレットのダウンロード リンクを提供します。
 
@@ -52,55 +49,43 @@ ms.locfileid: "59394290"
 
 GridView のデザイナーには、ツールボックスからドラッグして開始、`DisplayOrDownloadData.aspx`ページで、`BinaryData`フォルダー。 GridView s 設定`ID`に`Categories`GridView s のスマート タグを新しいデータ ソースにバインドを選択します。 具体的には、という名前を ObjectDataSource にバインド`CategoriesDataSource`を使用してデータを取得する、`CategoriesBLL`オブジェクト`GetCategories()`メソッド。
 
-
 [![CategoriesDataSource という名前の新しい ObjectDataSource を作成します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.png)
 
 **図 2**:名前付き新しい ObjectDataSource 作成`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.png))。
-
 
 [![CategoriesBLL クラスを使用する ObjectDataSource を構成します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.png)
 
 **図 3**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image6.png))。
 
-
 [![GetCategories() メソッドを使用してカテゴリの一覧を取得します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.png)
 
 **図 4**:一覧のカテゴリを使用して、取得、`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.png))。
 
-
 データ ソース構成ウィザードを完了すると、Visual Studio が自動的に追加する、BoundField、`Categories`の GridView、 `CategoryID`、 `CategoryName`、 `Description`、 `NumberOfProducts`、および`BrochurePath``DataColumn`秒。 さあ、削除、`NumberOfProducts`以降 BoundField、`GetCategories()`メソッドのクエリでは、この情報は取得されません。 削除も、 `CategoryID` BoundField の名前を変更し、`CategoryName`と`BrochurePath`BoundFields`HeaderText`プロパティをカテゴリやパンフレット、それぞれします。 これらの変更を行った後、次のよう GridView コントロールと ObjectDataSource s 宣言型マークアップになります。
-
 
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample1.aspx)]
 
 ブラウザーからこのページを表示 (図 5 を参照してください)。 8 つのカテゴリの各が一覧表示されます。 7 つのカテゴリと`BrochurePath`値が、`BrochurePath`それぞれ BoundField に表示される値。 シーフードを持つ、`NULL`値その`BrochurePath`、空のセルを表示します。
 
-
 [![各カテゴリの名前、説明、および BrochurePath 値が一覧表示します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.png)
 
 **図 5**:各カテゴリの名前、説明、および`BrochurePath`値が表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.png))。
 
-
 テキストを表示するのではなく、`BrochurePath`パンフレットへのリンクを作成する列。 これを行うには、削除、 `BrochurePath` BoundField 内に置き換えます。 新しい内 s 設定`HeaderText`プロパティ、パンフレットをその`Text`パンフレットを表示するプロパティとその`DataNavigateUrlFields`プロパティを`BrochurePath`。
-
 
 ![BrochurePath 用内を追加します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image6.gif)
 
 **図 6**:内を追加します。 `BrochurePath`
 
-
 図 7 に示すように、リンクの列を GridView これ追加されます。 ビューのパンフレットのリンクをクリックをいずれか、ブラウザーで直接、PDF を表示またはユーザー PDF reader がインストールされているかどうかによって、ファイルをダウンロードして、ブラウザーの設定を確認します。
-
 
 [![カテゴリの s パンフレット ビュー パンフレットのリンクをクリックして表示できます。](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.png)
 
 **図 7**:カテゴリ表示パンフレットのリンクをクリックしてパンフレットを表示できる s ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image12.png))。
 
-
 [![S パンフレット PDF カテゴリが表示されます。](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.png)
 
 **図 8**:S パンフレット PDF カテゴリが表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image14.png))。
-
 
 ## <a name="hiding-the-view-brochure-text-for-categories-without-a-brochure"></a>パンフレットなしのカテゴリ ビュー パンフレットのテキストを非表示
 
@@ -110,19 +95,15 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 選択して、内を TemplateField にオン、`BrochurePath`列の編集 ダイアログ ボックス内をクリック、Convert でこのフィールドを TemplateField にリンクします。
 
-
 ![内を TemplateField に変換します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.gif)
 
 **図 9**:内を TemplateField に変換します。
 
-
 これを TemplateField が作成されます、`ItemTemplate`ハイパーリンク Web を格納しているいるコントロール`NavigateUrl`プロパティにバインドする、`BrochurePath`値。 このマークアップ メソッドの呼び出しを置き換えます`GenerateBrochureLink`の値を渡して、 `BrochurePath`:
-
 
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample2.aspx)]
 
 次に、作成、`Protected`メソッドは、asp.net ページという名前の分離コード クラス`GenerateBrochureLink`を返す、`String`を受け入れると、`Object`入力パラメーターとして。
-
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample3.vb)]
 
@@ -130,18 +111,15 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 図 10 は、これらの変更が適用された後に、ページを示します。 なおシーフード カテゴリの`BrochurePath`フィールドなしパンフレットに利用可能なテキストが表示されます。
 
-
 [![これらのカテゴリせず、パンフレットのテキストなしパンフレット利用が表示されます。](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image15.png)
 
 **図 10**:これらのカテゴリせず、パンフレットのテキストなしパンフレット利用が表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image16.png))。
-
 
 ## <a name="step-3-adding-a-web-page-to-display-a-category-s-picture"></a>手順 3: カテゴリの画像を表示する Web ページを追加します。
 
 ユーザーにアクセスする ASP.NET ページ、ASP.NET ページの HTML が表示されます。 受信した HTML では、テキストだけでは、し、バイナリ データが含まれていません。 画像、サウンド ファイルなど、Macromedia Flash アプリケーション、埋め込み Windows Media Player のビデオなどの追加のバイナリ データは、web サーバー上の別のリソースとして存在します。 HTML では、これらのファイルへの参照が含まれていますが、ファイルの実際の内容は含まれません。
 
 たとえば、html 形式で、`<img>`要素を使用して、画像の参照を`src`属性は、イメージ ファイルを指すようになります。
-
 
 [!code-html[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample4.html)]
 
@@ -151,13 +129,11 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 新しい ASP.NET ページの追加、`BinaryData`という名前のフォルダー`DisplayCategoryPicture.aspx`します。 これを行うときに、マスター ページの選択 チェック ボックスをオフのままにします。 このページが必要ですが、`CategoryID`値で、クエリ文字列とそのカテゴリ s のバイナリ データを返します。`Picture`列。 このページは、バイナリ データ、およびその他に何も返される、ために、HTML セクション内のマークアップに必要はありません。 したがって、左下隅の [ソース] タブをクリックし、ページのマークアップを除くのすべてを削除、`<%@ Page %>`ディレクティブ。 つまり、 `DisplayCategoryPicture.aspx` s 宣言型マークアップする必要がありますが単一行で構成されます。
 
-
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample5.aspx)]
 
 表示された場合、`MasterPageFile`属性、`<%@ Page %>`ディレクティブを削除します。
 
 ページ分離コード クラスで次のコードを追加、`Page_Load`イベント ハンドラー。
-
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample6.vb)]
 
@@ -167,14 +143,11 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 参照するくださいとこのページを作成すると、特定のカテゴリの画像を表示できる`DisplayCategoryPicture.aspx?CategoryID=categoryID`します。 図 11 はから表示できます、飲料カテゴリの画像`DisplayCategoryPicture.aspx?CategoryID=1`します。
 
-
 [![画像が表示されます、飲料カテゴリ s](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image17.png)
 
 **図 11**:画像が表示されます、飲料カテゴリ s ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image18.png))。
 
-
 アクセスすると、if `DisplayCategoryPicture.aspx?CategoryID=categoryID`、"system.byte[]' を入力するには、"System.DBNull"型のオブジェクトはキャストできません。 を読み取る例外が発生した、原因と考えられるこの 2 つの点があります。 まず、`Categories`テーブル s`Picture`列では許可`NULL`値。 `DisplayCategoryPicture.aspx`  ページで、ただし、前提としていますがない`NULL`値が存在します。 `Picture`のプロパティ、`CategoriesDataTable`がある場合に直接アクセスすることはできません、`NULL`値。 許可する場合`NULL`の値を`Picture`d する次の条件を追加する列。
-
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample7.vb)]
 
@@ -185,7 +158,6 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 > [!NOTE]
 > 毎回、`DisplayCategoryPicture.aspx`がアクセスすると、データベースにアクセスし、指定したカテゴリの画像データが返されます。 カテゴリの画像が、ユーザーが最後に表示するために変更されていない場合、これは無駄な努力します。 HTTP では、さいわい、*条件付きの取得*します。 条件付きの GET と HTTP 要求を行うクライアントに送信に沿って、 [ `If-Modified-Since` HTTP ヘッダー](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)クライアントは、web サーバーからこのリソースを取得する最後の日時を提供します。 Web サーバーが応答がこの日付が指定されているために、コンテンツが変更されていない場合、 [Not Modified 状態コード (304)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)せず、要求されたリソースのコンテンツを送信するとします。 簡単に言えば、この手法により、web サーバーが変更されていない場合、クライアントが最終アクセス後にリソースのコンテンツのバックアップに送信する必要がなくなります。
 
-
 この動作を実装するただし、追加する必要があります、`PictureLastModified`列を`Categories`ときにキャプチャするテーブル、`Picture`列が最後に更新されたコードを確認すると、`If-Modified-Since`ヘッダー。 詳細については、`If-Modified-Since`ヘッダーと条件付きの GET ワークフローを参照してください。 [RSS ハッカーの条件付き GET を HTTP](http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers)と[A 深く見て ASP.NET ページの HTTP 要求を実行する](http://aspnet.4guysfromrolla.com/articles/122204-1.aspx)します。
 
 ## <a name="step-4-displaying-the-category-pictures-in-a-gridview"></a>手順 4: GridView のカテゴリの画像を表示します。
@@ -194,24 +166,19 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 S を強化できるように、`Categories`で GridView`DisplayOrDownloadData.aspx`各カテゴリの画像を表示する、ImageField を追加することで。 単に、ImageField を追加し、設定、`DataImageUrlField`と`DataImageUrlFormatString`プロパティ`CategoryID`と`DisplayCategoryPicture.aspx?CategoryID={0}`、それぞれします。 これを表示する GridView の列が作成されます、`<img>`要素が`src`属性参照`DisplayCategoryPicture.aspx?CategoryID={0}`ここで、{0}は GridView 行 s に置き換えられます`CategoryID`値。
 
-
 ![GridView に、ImageField を追加します。](displaying-binary-data-in-the-data-web-controls-vb/_static/image12.gif)
 
 **図 12**:GridView に、ImageField を追加します。
 
-
 Soothe と同様に、ImageField を追加した後、GridView s の宣言型構文になります次。
-
 
 [!code-aspx[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample8.aspx)]
 
 ブラウザーからこのページを表示する時間がかかります。 各レコードが今すぐ、カテゴリの画像を含んだ方法に注意してください。
 
-
 [![各の行のカテゴリの画像が表示されます。](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image19.png)
 
 **図 13**:各の行のカテゴリの画像が表示されます ([フルサイズの画像を表示する をクリックします](displaying-binary-data-in-the-data-web-controls-vb/_static/image20.png))。
-
 
 ## <a name="summary"></a>まとめ
 

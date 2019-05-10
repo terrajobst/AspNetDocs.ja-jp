@@ -8,12 +8,12 @@ ms.date: 05/12/2009
 ms.assetid: c1e6b51c-3bc3-4bf7-9916-9991197af3dd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82fae91e40ec2f1508fe5c82992eeef4abc4e19a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1acafaadaf373b488b9e85b7ba31f08cd3b53e85
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127102"
 ---
 # <a name="using-ajax-control-toolkit-controls-and-control-extenders-c"></a>AJAX Control Toolkit のコントロールとコントロール エクステンダーを使用する (C#)
 
@@ -21,13 +21,11 @@ ms.locfileid: "59419224"
 
 > ASP.NET ページに AJAX Control Toolkit のコントロールとエクステンダーを追加する方法について説明します。
 
-
 AJAX Control Toolkit には、コントロールとコントロール エクステンダーのセットが含まれています。 この簡単なチュートリアルでは、ASP.NET ページにコントロールとコントロール エクステンダーの両方を追加する方法について説明します。
 
 > [!NOTE] 
 > 
 > AJAX Control Toolkit をインストールして、AJAX Control Toolkit を Visual Studio または Visual Web Developer ツールボックスに追加する手順については、チュートリアルを参照してください。 [、AJAX Control Toolkit の概要](get-started-with-the-ajax-control-toolkit-cs.md)します。
-
 
 ## <a name="using-ajax-control-toolkit-controls"></a>AJAX Control Toolkit のコントロールを使用します。
 
@@ -43,21 +41,17 @@ AJAX Control Toolkit には、コントロールとコントロール エクス�
 4. メニュー オプションを選択して、web サイトを実行**デバッグ、デバッグの開始**または F5 キーを押します。
 5. 図 3 のページが表示されます。
 
-
 [![HTML エディター コントロールの選択](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image1.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image1.png)
 
 **図 01**:HTML エディター コントロールを選択 ([フルサイズの画像を表示する をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image2.png))。
-
 
 [![Visual Studio のデザイナーで編集して ScriptManager コントロール](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image2.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image3.png)
 
 **図 02**:Scriptmanager コントロールと編集コントロールでの visual Studio デザイナー ([フルサイズの画像を表示する をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image4.png))。
 
-
 [![DisplayEditor.aspx ページ](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image3.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image5.png)
 
 **図 03**:DisplayEditor.aspx ページ ([フルサイズの画像を表示する をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image6.png))。
-
 
 ## <a name="using-ajax-control-toolkit-control-extenders"></a>AJAX Control Toolkit コントロール エクステンダーを使用します。
 
@@ -75,29 +69,23 @@ ConfirmButton コントロール エクステンダーを使用して、次の�
 6. デザイナーでボタン コントロールを選択し、エクステンダー、Button1 の展開\_ConfirmButtonExtender ノードで、[プロパティ] ウィンドウ (図 6 参照)。 値を割り当てる*本当ですか?* ConfirmText プロパティにします。
 7. メニュー オプションを選択して、ページの実行**デバッグ、デバッグの開始**または F5 キーを押します。
 
-
 [![Extender の追加のタスク オプション](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image4.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image7.png)
 
 **図 04**:[Extender の追加のタスクのオプション ([フルサイズの画像を表示する] をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image8.png))。
-
 
 [![ConfirmButton コントロール エクステンダーを選択します。](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image5.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image9.png)
 
 **図 05**:ConfirmButton コントロール エクステンダーを選択すると ([フルサイズの画像を表示する をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image10.png))。
 
-
 [![ConfirmButton プロパティの設定](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image6.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image11.png)
 
 **図 06**:ConfirmButton プロパティの設定 ([フルサイズの画像を表示する をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image12.png))。
 
-
 ページが開いたら、ボタンが表示されます。 ボタンをクリックすると、図 7 確認のダイアログ ボックスを取得します。
-
 
 [![確認のダイアログ ボックスを表示します。](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image7.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image13.png)
 
 **図 07**:確認のダイアログ ボックスを表示する ([フルサイズの画像を表示する をクリックします](using-ajax-control-toolkit-controls-and-control-extenders-cs/_static/image14.png))。
-
 
 通常ドラッグしないコントロール エクステンダーをページに注意してください。 代わりに、使用、 **Extender の追加**タスク ページに既に追加したコントロールにエクステンダーを追加するオプション。 さらに、設定することコントロール エクステンダー プロパティを開いて拡張されるコントロールのプロパティ シートに注意してください。
 

@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ae53e23dda3ac63e26590edab692188bb44e9f65
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 838ee5b3620c50ca5f29ff8cb2c2ac876d3041d8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413205"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133305"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの展開。12 の第 1 の概要
 
@@ -30,7 +30,6 @@ ms.locfileid: "59413205"
 > チュートリアルでは、Visual Studio で ASP.NET を使用する方法を理解すると仮定します。 ない場合は、開始点としてを[基本的な ASP.NET Web フォームのチュートリアル](../tailspin-spyworks/tailspin-spyworks-part-1.md)または[基本的な ASP.NET MVC チュートリアル](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)します。
 > 
 > チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET 展開に関するフォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)します。
-
 
 ## <a name="overview"></a>概要
 

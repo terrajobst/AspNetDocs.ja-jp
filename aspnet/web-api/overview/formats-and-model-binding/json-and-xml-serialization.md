@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00fa07f00eabf7e6c883c5e9ceaf9a38a8f49605
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408278"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126165"
 ---
 # <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON と ASP.NET Web API での XML シリアル化
 
@@ -221,7 +221,6 @@ JSON 内のオブジェクト参照を保持するために次のコードを追
 
 > [!NOTE]
 > オブジェクト参照は、json 標準ではありません。 この機能を使用する前に、クライアントが、結果を解析できるかどうかを検討してください。 サイクルをグラフから削除するには、単に方がよい場合があります。 たとえば、部門には、従業員からのリンクは本当に必要ありませんこの例では。
-
 
 XML 内のオブジェクト参照を保持するには、2 つのオプションがあります。 簡単な方法は、追加する`[DataContract(IsReference=true)]`モデル クラスにします。 *IsReference*パラメーターには、オブジェクト参照が可能になります。 注意して**DataContract**オプトイン、シリアル化は、追加する必要がありますも**DataMember**プロパティに属性します。
 

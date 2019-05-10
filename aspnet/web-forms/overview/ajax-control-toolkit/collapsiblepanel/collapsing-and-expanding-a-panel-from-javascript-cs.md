@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: de5500be-75e5-461a-8064-b70ae52ea6a4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 157a486af3d11dfbd7431680b6c9fe4f0e262892
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1509d25583b7e4826a4581d373bed417dacaccdf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422396"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132888"
 ---
 # <a name="collapsing-and-expanding-a-panel-from-javascript-c"></a>JavaScript からパネルを折りたたむ/展開する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59422396"
 [コードのダウンロード](http://download.microsoft.com/download/8/a/a/8aab3c3e-de6f-463f-805c-5fda567eef6e/CollapsiblePanel1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/collapsiblepanel1CS.pdf)
 
 > ASP.NET AJAX Control Toolkit の CollapsiblePanel コントロールはパネルを拡張し、その内容を折りたたむし、もう一度展開する機能を提供します。 これら 2 つのアクションは、カスタム JavaScript コードからトリガーすることもできます。
-
 
 ## <a name="overview"></a>概要
 
@@ -63,7 +62,6 @@ ASP.NET AJAX Control Toolkit の CollapsiblePanel コントロールはパネル
 3 番目のボタンは、パネルの状態を切り替えます。 から折りたたまれているを展開すると、その逆。 `CollapsiblePanelExtender`公開、`toggle()`はまさにメソッド: パネルの状態を反転させます。 別の方法もあります (によって内部的に使用される、`toggle()`メソッド)。`get_Collapsed()`のメソッド、`CollapsiblePanelExtender()`パネルが折りたたまれているかどうかどうかがわかります。 いずれかを展開し、この関数の戻り値の値に応じて、パネルは、(`_doOpen()`メソッド)、または折りたたまれている (`_doClose()`) メソッド。
 
 [!code-javascript[Main](collapsing-and-expanding-a-panel-from-javascript-cs/samples/sample8.js)]
-
 
 [![3 番目のボタンは、パネルの状態を変更しますから一番前と展開のために折りたたむ。](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image1.png)
 

@@ -8,12 +8,12 @@ ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: c0f11019c7410b756d592066a7fe33b3e26fd383
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2f14707eb058d438495dd2bc4c17b976c471fc97
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407199"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131342"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 1。作業の開始
 
@@ -45,7 +45,6 @@ ms.locfileid: "59407199"
 > ## <a name="questions"></a>質問
 > 
 > チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework と LINQ to エンティティ フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)します。
-
 
 `EntityDataSource`コントロールでは、非常に高速にアプリケーションを作成することができますが、通常必要膨大なビジネス ロジックとデータ アクセス ロジックを保持すること、 *.aspx*ページ。 作成するには多くの開発時間が事前投資できます、アプリケーションで複雑化し、継続的なメンテナンスを必要とする場合は、 *n 層*または*層*アプリケーション構造これは、保守しやすくなります。 このアーキテクチャを実装するには、ビジネス ロジック層 (BLL) とデータ アクセス層 (DAL) からプレゼンテーション層を分離します。 この構造体を実装する方法の 1 つが使用するには、`ObjectDataSource`コントロールの代わりに、`EntityDataSource`コントロール。 使用すると、`ObjectDataSource`コントロール、データ アクセス コードを実装しでを呼び出す *.aspx*ページが多くの同じコントロールを使用するその他のデータ ソース コントロールの機能です。 これにより、n 層のアプローチの利点とデータ アクセスの Web フォーム コントロールを使用する利点を組み合わせることができます。
 
@@ -102,7 +101,6 @@ Visual studio で作成した Contoso University web アプリケーションを
 > 
 > 行を削除できませんが、変更を保存した後、`Person`テーブルの人物が部門の管理者である場合。 実稼働アプリケーションでは、データベースの制約により、削除、または連鎖削除を指定するときに特定のエラー メッセージを指定するは。 連鎖削除を指定する方法の例は、次を参照してください。 [。 Entity Framework と ASP.NET – 開始パート 2 を取得する](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)します。
 
-
 ### <a name="adding-a-view-to-the-database"></a>データベースにビューを追加します。
 
 新しい*Departments.aspx*部門の管理者をユーザーが選択できるように、「姓, 名」の形式で名前を持つ、インストラクターのドロップダウン リストを提供したいページを作成することで、します。 そのために容易にできるように、データベースでビューが作成されます。 ビューは、ドロップダウン リストで必要なデータだけで構成されます: (適切に書式設定) 完全な名前とレコードのキー。
@@ -136,7 +134,6 @@ Visual studio で作成した Contoso University web アプリケーションを
 > [!NOTE]
 > **出力**と**エラー一覧**ツールがプライマリに自動的に作成されたことを通知する警告メッセージが表示される windows の新しいキーの`vInstructorName`ビュー。 これは通常の動作です。
 
-
 新しいを参照するとき`vInstructorName`コード内のエンティティ、たくに小文字"v"を付けることのデータベースの規則を使用します。 そのため、エンティティとモデルのエンティティ セットを変更します。
 
 開く、**モデル ブラウザー**します。 表示`vInstructorName`としてエンティティ型とビューを一覧表示します。
@@ -159,7 +156,6 @@ Visual studio で作成した Contoso University web アプリケーションを
 
 > [!NOTE]
 > 一般的な方法では、各エンティティ型のリポジトリ クラスを作成します。 このチュートリアルでは、複数のエンティティ型の 1 つのリポジトリ クラスが使用されます。 リポジトリ パターンの詳細については、内の投稿を参照してください。 [、Entity Framework チームのブログ](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx)と[Julie Lerman のブログ](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/)します。
-
 
 `GetDepartments`メソッドを返します、`IEnumerable`オブジェクトではなく、`IQueryable`リポジトリ オブジェクト自体が破棄された後でも、返されたコレクションが使用可能なことを確認するにはオブジェクトです。 `IQueryable`オブジェクトによってデータベース アクセス、アクセスはなく、リポジトリ オブジェクトは、データ バインド コントロールが、データをレンダリングしようとしています。 時間によって破棄される可能性があります。 などの別の種類のコレクションを返すことができます、`IList`オブジェクトの代わりに、`IEnumerable`オブジェクト。 ただし、返す、`IEnumerable`オブジェクトは、一般的な読み取り専用リスト処理タスクをなど、実行できることにより、`foreach`ループと、LINQ クエリことはできませんを追加またはそのような変更であることを示唆する、コレクション内の項目を削除データベースに保存します。
 
@@ -309,7 +305,6 @@ Visual studio で作成した Contoso University web アプリケーションを
 
 > [!NOTE]
 > 追加しなかった行を編集することはできません (つまり、データベース内に既に)、データベースでは無効なデータのためデータベースで作成された行の管理者とは、受講者です。 これらのいずれかを編集しようとする場合のようなエラーを報告するエラー ページが表示されます。 `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
-
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
 

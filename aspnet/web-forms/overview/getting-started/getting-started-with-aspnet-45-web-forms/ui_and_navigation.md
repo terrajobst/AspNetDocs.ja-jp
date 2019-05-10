@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7834b5c418de9d05ee870641cfd7c7f9956ab210
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 06816f3555a806d41caf562b910a4ec4427b13bd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403000"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134231"
 ---
 # <a name="ui-and-navigation"></a>UI とナビゲーション
 
@@ -22,7 +22,6 @@ ms.locfileid: "59403000"
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
-
 
 このチュートリアルでは、Wingtip Toys のストア フロント アプリケーションの機能をサポートするために既定の Web アプリケーションの UI を変更します。 また、単純なを追加、データには、ナビゲーションがバインドされています。 このチュートリアルでは、「データ アクセス層を作成する」前のチュートリアルに基づいており、Wingtip Toys のチュートリアル シリーズのパートです。
 
@@ -75,7 +74,6 @@ ASP.NET Web フォームを使用すると、動的なコンテンツを Web ア
 > [!NOTE] 
 > 
 > *Machine.config*またすべての可能な構成設定について詳しく説明します。
-
 
 ### <a name="web-server-controls"></a>Web サーバー コントロール
 
@@ -181,7 +179,6 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 > 
 > ASP.NET Web アプリケーション テンプレートを使用して、 *Bundle.config* Bootstrap CSS ファイルのパスを格納するプロジェクトのルートにあるファイル。
 
-
 ### <a name="modifying-the-default-navigation"></a>既定のナビゲーションの変更
 
 内にあるナビゲーションの順序なしリスト要素を変更することで、アプリケーション内の各ページの既定のナビゲーションを変更することができます、 *Site.Master*ページ。
@@ -196,7 +193,6 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 > [!NOTE] 
 > 
 > チルダ (`~`) ことを指定する文字が使用される、`href`パスは、プロジェクトのルートで開始されます。
-
 
 ### <a name="adding-a-data-control-to-display-navigation-data"></a>ナビゲーションのデータを表示するデータ コントロールを追加します。
 
@@ -215,7 +211,6 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 > **ヒント。**
 > 
 > 開発時に入力してコードを追加するときにことオブジェクトの有効なメンバーが見つかったため、厳密に型指定されたデータ コントロールは、IntelliSense に基づく利用可能なメンバーを表示することを特定する必要があります。 IntelliSense は、プロパティ、メソッド、およびオブジェクトなどのコードを入力すると、コードのコンテキストに適した選択肢を提供します。
-
 
 次の手順では、実装、`GetCategories`データを取得します。
 
@@ -253,7 +248,6 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 > [!NOTE] 
 > 
 > 場合、*アプリ\_データ*フォルダーが表示されていないか、フォルダーが空の場合は、選択、**更新**アイコンをクリックし、 **すべてのファイル**の上部にあるアイコン**ソリューション エクスプ ローラー**ウィンドウ。 幅を拡張、**ソリューション エクスプ ローラー** windows は、すべての可能なアイコンを表示する必要があります。
-
 
 含まれるデータを検査することができますので、 *wingtiptoys.mdf*データベース ファイルを使用して、**サーバー エクスプ ローラー**ウィンドウ。
 

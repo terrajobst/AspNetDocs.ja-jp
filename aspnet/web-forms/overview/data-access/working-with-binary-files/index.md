@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: 2d08658a-16c4-4877-9f43-c6503adda7bf
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files
 msc.type: chapter
-ms.openlocfilehash: 2382e37a0ce02d318840cf29266075bbb30cae4d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 35ef53b66f4c21b5cf486d791ae40bc1ca953998
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391170"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131122"
 ---
 # <a name="working-with-binary-files"></a>バイナリ ファイルの操作
 
 > これらのチュートリアルでは、ユーザーがそれらを保存できるフォルダーまたはデータベース サーバーにバイナリ ファイル (Word や PDF ドキュメントなど) をアップロードできるようにする方法を示します。
-
 
 - [ファイルのアップロード (C#)](uploading-files-cs.md)
 - [データ Web コントロールにバイナリ データを表示する (C#)](displaying-binary-data-in-the-data-web-controls-cs.md)

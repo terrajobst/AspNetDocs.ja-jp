@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: d76f607f1d5e779d43ee15d8f2d697e7b0f147ae
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9354a7b97a7df9020a681f709e16a92650cfcf0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380120"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132967"
 ---
 # <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力します。
 
@@ -36,7 +36,6 @@ ms.locfileid: "59380120"
 > - SQL`Insert Into`ステートメント
 > - `Validation`ヘルパー。
 > - `Response.Redirect` メソッド。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -155,7 +154,6 @@ WebMatrix 内のファイルのツリー ビューで右クリックし、 *AddM
 > 値が null の場合と、空の文字列だけが正確に理解しておく必要です。 コードで、 *AddMovie*  ページを使用して、テキスト ボックスの値を取得する`Request.Form["title"]`という具合です。 ときに、ページ最初の実行 (前に、ボタンをクリックすると)、値の`Request.Form["title"]`が null です。 フォームを送信するときに、`Request.Form["title"]`の値を取得、`title`テキスト ボックス。 、明確ではありませんが、空のテキスト ボックスが null 以外ではないです。空の文字列だけがあります。 したがって、ボタンに応答コードを実行する をクリックして、`Request.Form["title"]`空の文字列が含まれる。
 > 
 > この区別が重要な理由 作成したときに、*映画*テーブル、明示的にそれほどある null のフィールドがありませんでしたが。 ここで新しい映画は、入力フォームがあり、空白のフィールドを終了しています。 ジャンルまたは年の値がない新しいムービーを保存しようとしたときから不満があがるにデータベースが予測されるは。 ポイントですが、&mdash;場合でも、これらのテキスト ボックスを空白のままにすると、値 null は空の文字列です。 これらの列は空のデータベースに新しいムービーを保存できますしたらその結果、&mdash;いない null です。 &mdash; 値。 そのため、ユーザーがユーザーの入力の検証を行うには空の文字列を送信しないかどうかを確認する必要あります。
-
 
 ### <a name="the-validation-helper"></a>検証ヘルパー
 

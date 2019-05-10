@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 017eceb8567859fdbe28bb87af844eee20dfa525
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ba54454bcb6f5e4ceb269b128a6b72a4b75f64be
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415480"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131411"
 ---
 # <a name="taking-web-applications-offline-with-web-deploy"></a>Web 配置の際、Web アプリをオフラインにする
 
@@ -22,7 +22,6 @@ ms.locfileid: "59415480"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、インターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して自動展開の期間の web アプリケーションをオフラインする方法について説明します。 Web アプリケーションを参照するユーザーをリダイレクト、*アプリ\_offline.htm*デプロイが完了するまでのファイルします。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -70,18 +69,13 @@ ms.locfileid: "59415480"
 > [!NOTE]
 > 次の手順を使用しているカスタム MSBuild プロジェクト ファイルをデプロイ プロセスを制御する」の説明に従って前提としています。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。 Visual Studio から直接デプロイする場合、は、別のアプローチを使用する必要があります。 Sayed Ibrahim Hashimi で 1 つの方法を説明する[かかる Your Web App オフライン中に公開する方法](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx)します。
 
-
 展開する、*アプリ\_オフライン*ファイル変換先の IIS の web サイトに MSDeploy.exe を使用して呼び出す必要があります、 [Web Deploy **contentPath**プロバイダー](https://technet.microsoft.com/library/dd569034(WS.10).aspx)します。 **ContentPath**プロバイダーは、サポートの物理ディレクトリのパスと IIS の web サイトまたはアプリケーションのパスの両方と、Visual Studio プロジェクトのフォルダーと IIS web アプリケーションの間のファイルを同期するための理想的な選択肢になります。 ファイルを展開するには、MSDeploy コマンドのようにこのする必要があります。
-
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
 
-
 展開プロセスの最後に、接続先サイトから、ファイルを削除するには、MSDeploy コマンドのようにこのする必要があります。
 
-
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample2.cmd)]
-
 
 ビルドと展開プロセスの一環としてこれらのコマンドを自動化するには、カスタム MSBuild プロジェクト ファイルに統合する必要があります。 次の手順では、これを行う方法について説明します。
 
@@ -129,9 +123,7 @@ Web 発行パイプライン (WPP) という項目一覧を使用して**FilesFo
 
 *. Wpp.targets*このファイルのようになります。
 
-
 [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample8.xml)]
-
 
 この例での重要な点を次に示します。
 
@@ -160,7 +152,6 @@ Web 発行パイプライン (WPP) という項目一覧を使用して**FilesFo
 
 > [!NOTE]
 > デプロイが失敗した場合、*アプリ\_offline.htm*ファイルが配置に保持され、アプリケーションがオフラインのままにします。 これは、通常、目的の動作です。 アプリケーションをオンラインに戻す、削除して、*アプリ\_offline.htm* web サーバーからのファイル。 また、エラーを修正して、展開を成功させるを実行する場合、*アプリ\_offline.htm*ファイルは削除されます。
-
 
 ## <a name="conclusion"></a>まとめ
 

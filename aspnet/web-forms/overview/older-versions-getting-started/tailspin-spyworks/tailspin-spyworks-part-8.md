@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: db8db4e3bff8047b48a7528b5146873ab6d84714
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 707dc9d87ae324a7897c971a451e40bc54c96cb3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398684"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130603"
 ---
 # <a name="part-8-final-pages-exception-handling-and-conclusion"></a>第 8 部:最終ページ、例外処理、まとめ
 
@@ -22,7 +22,6 @@ ms.locfileid: "59398684"
 > Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
 > 
 > このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 8 では、ページ、および例外処理についての連絡のページを追加します。 これは、シリーズのまとめです。
-
 
 ## <a id="_Toc260221680"></a>  ページ (ASP.NET から電子メールを送信する) にお問い合わせください。
 

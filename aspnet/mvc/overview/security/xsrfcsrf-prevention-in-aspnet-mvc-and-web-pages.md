@@ -8,12 +8,12 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: de0e9cc168b9f18fd2bd83329106df45d7551b1a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a6e10c52d83dc3c29ab2f9f6bb0c05cfbbf6aad1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126364"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC と Web ページの XSRF/CSRF 防止
 
@@ -24,7 +24,6 @@ ms.locfileid: "59386561"
 > XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシング攻撃には、対象とのやり取りが必要です。 フィッシング攻撃では、悪意のある web サイトがターゲットの web サイト、し、対象は、攻撃者に機密情報を提供することにようにだまされます。 XSRF 攻撃では、ある必要はありません多くの場合、相互作用に攻撃対象です。 代わりに、自動的にすべての関連クッキーを模擬 web サイトに送信するブラウザーで、攻撃者が証明書利用者です。
 > 
 > 詳細については、次を参照してください。、 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page)(OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))します。
-
 
 ## <a name="anatomy-of-an-attack"></a>攻撃の分析
 
