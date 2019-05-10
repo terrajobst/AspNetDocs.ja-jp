@@ -8,32 +8,31 @@ ms.date: 05/18/2012
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: 3e5b9d1a3bac0cf1ab042f473f8fd508069000a5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 50a249d0e64cff2a8c4f16f38f530b6d52f755de
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408577"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133173"
 ---
-# <a name="getting-started-with-aspnet-web-pages"></a><span data-ttu-id="67a6f-103">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="67a6f-103">Getting Started with ASP.NET Web Pages</span></span>
+# <a name="getting-started-with-aspnet-web-pages"></a><span data-ttu-id="e4b1c-103">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="e4b1c-103">Getting Started with ASP.NET Web Pages</span></span>
 
-> <span data-ttu-id="67a6f-104">どのような Web ページと WebMatrix は、さらにすべてをインストール、最初に、サイトを展開する方法です。</span><span class="sxs-lookup"><span data-stu-id="67a6f-104">What Web Pages and WebMatrix are, plus how to install everything, get started, and deploy sites.</span></span>
+> <span data-ttu-id="e4b1c-104">どのような Web ページと WebMatrix は、さらにすべてをインストール、最初に、サイトを展開する方法です。</span><span class="sxs-lookup"><span data-stu-id="e4b1c-104">What Web Pages and WebMatrix are, plus how to install everything, get started, and deploy sites.</span></span>
 
+- [<span data-ttu-id="e4b1c-105">Visual Studio で ASP.NET Web ページをプログラミングする</span><span class="sxs-lookup"><span data-stu-id="e4b1c-105">Program ASP.NET Web Pages in Visual Studio</span></span>](program-asp-net-web-pages-in-visual-studio.md)
+- [<span data-ttu-id="e4b1c-106">ASP.NET Web プログラミング Razor 構文入門</span><span class="sxs-lookup"><span data-stu-id="e4b1c-106">Intro to ASP.NET Web Programming Razor Syntax</span></span>](introducing-razor-syntax-c.md)
+- [<span data-ttu-id="e4b1c-107">ASP.NET Web ページ Visual Basic</span><span class="sxs-lookup"><span data-stu-id="e4b1c-107">ASP.NET Web Pages Visual Basic</span></span>](introducing-razor-syntax-vb.md)
+- [<span data-ttu-id="e4b1c-108">ASP.NET Web ページ (Razor) のよくあるご質問</span><span class="sxs-lookup"><span data-stu-id="e4b1c-108">ASP.NET Web Pages (Razor) FAQ</span></span>](aspnet-web-pages-razor-faq.md)
+- [<span data-ttu-id="e4b1c-109">サイトから電子メールを送信する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-109">Sending Email from Your Site</span></span>](11-adding-email-to-your-web-site.md)
+- [<span data-ttu-id="e4b1c-110">Web サイトにソーシャル ネットワーキングを追加する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-110">Adding Social Networking to Your Website</span></span>](13-adding-social-networking-to-your-web-site.md)
+- [<span data-ttu-id="e4b1c-111">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="e4b1c-111">Introducing ASP.NET Web Pages</span></span>](introducing-aspnet-web-pages-2/index.md)
 
-- [<span data-ttu-id="67a6f-105">Visual Studio で ASP.NET Web ページをプログラミングする</span><span class="sxs-lookup"><span data-stu-id="67a6f-105">Program ASP.NET Web Pages in Visual Studio</span></span>](program-asp-net-web-pages-in-visual-studio.md)
-- [<span data-ttu-id="67a6f-106">ASP.NET Web プログラミング Razor 構文入門</span><span class="sxs-lookup"><span data-stu-id="67a6f-106">Intro to ASP.NET Web Programming Razor Syntax</span></span>](introducing-razor-syntax-c.md)
-- [<span data-ttu-id="67a6f-107">ASP.NET Web ページ Visual Basic</span><span class="sxs-lookup"><span data-stu-id="67a6f-107">ASP.NET Web Pages Visual Basic</span></span>](introducing-razor-syntax-vb.md)
-- [<span data-ttu-id="67a6f-108">ASP.NET Web ページ (Razor) のよくあるご質問</span><span class="sxs-lookup"><span data-stu-id="67a6f-108">ASP.NET Web Pages (Razor) FAQ</span></span>](aspnet-web-pages-razor-faq.md)
-- [<span data-ttu-id="67a6f-109">サイトから電子メールを送信する</span><span class="sxs-lookup"><span data-stu-id="67a6f-109">Sending Email from Your Site</span></span>](11-adding-email-to-your-web-site.md)
-- [<span data-ttu-id="67a6f-110">Web サイトにソーシャル ネットワーキングを追加する</span><span class="sxs-lookup"><span data-stu-id="67a6f-110">Adding Social Networking to Your Website</span></span>](13-adding-social-networking-to-your-web-site.md)
-- [<span data-ttu-id="67a6f-111">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="67a6f-111">Introducing ASP.NET Web Pages</span></span>](introducing-aspnet-web-pages-2/index.md)
-
-    - [<span data-ttu-id="67a6f-112">はじめに</span><span class="sxs-lookup"><span data-stu-id="67a6f-112">Getting Started</span></span>](introducing-aspnet-web-pages-2/getting-started.md)
-    - [<span data-ttu-id="67a6f-113">プログラミングの基礎</span><span class="sxs-lookup"><span data-stu-id="67a6f-113">Programming Basics</span></span>](introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
-    - [<span data-ttu-id="67a6f-114">データの表示</span><span class="sxs-lookup"><span data-stu-id="67a6f-114">Displaying Data</span></span>](introducing-aspnet-web-pages-2/displaying-data.md)
-    - [<span data-ttu-id="67a6f-115">HTML フォームの基本</span><span class="sxs-lookup"><span data-stu-id="67a6f-115">HTML Form Basics</span></span>](introducing-aspnet-web-pages-2/form-basics.md)
-    - [<span data-ttu-id="67a6f-116">フォームを使用してデータベース データを入力する</span><span class="sxs-lookup"><span data-stu-id="67a6f-116">Entering Database Data by Using Forms</span></span>](introducing-aspnet-web-pages-2/entering-data.md)
-    - [<span data-ttu-id="67a6f-117">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="67a6f-117">Updating Database Data</span></span>](introducing-aspnet-web-pages-2/updating-data.md)
-    - [<span data-ttu-id="67a6f-118">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="67a6f-118">Deleting Database Data</span></span>](introducing-aspnet-web-pages-2/deleting-data.md)
-    - [<span data-ttu-id="67a6f-119">一貫性のあるレイアウトを作成する</span><span class="sxs-lookup"><span data-stu-id="67a6f-119">Creating a Consistent Layout</span></span>](introducing-aspnet-web-pages-2/layouts.md)
-    - [<span data-ttu-id="67a6f-120">WebMatrix を使用してサイトを公開する</span><span class="sxs-lookup"><span data-stu-id="67a6f-120">Publishing a Site by Using WebMatrix</span></span>](introducing-aspnet-web-pages-2/publishing.md)
+    - [<span data-ttu-id="e4b1c-112">はじめに</span><span class="sxs-lookup"><span data-stu-id="e4b1c-112">Getting Started</span></span>](introducing-aspnet-web-pages-2/getting-started.md)
+    - [<span data-ttu-id="e4b1c-113">プログラミングの基礎</span><span class="sxs-lookup"><span data-stu-id="e4b1c-113">Programming Basics</span></span>](introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
+    - [<span data-ttu-id="e4b1c-114">データの表示</span><span class="sxs-lookup"><span data-stu-id="e4b1c-114">Displaying Data</span></span>](introducing-aspnet-web-pages-2/displaying-data.md)
+    - [<span data-ttu-id="e4b1c-115">HTML フォームの基本</span><span class="sxs-lookup"><span data-stu-id="e4b1c-115">HTML Form Basics</span></span>](introducing-aspnet-web-pages-2/form-basics.md)
+    - [<span data-ttu-id="e4b1c-116">フォームを使用してデータベース データを入力する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-116">Entering Database Data by Using Forms</span></span>](introducing-aspnet-web-pages-2/entering-data.md)
+    - [<span data-ttu-id="e4b1c-117">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-117">Updating Database Data</span></span>](introducing-aspnet-web-pages-2/updating-data.md)
+    - [<span data-ttu-id="e4b1c-118">データベース データを更新する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-118">Deleting Database Data</span></span>](introducing-aspnet-web-pages-2/deleting-data.md)
+    - [<span data-ttu-id="e4b1c-119">一貫性のあるレイアウトを作成する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-119">Creating a Consistent Layout</span></span>](introducing-aspnet-web-pages-2/layouts.md)
+    - [<span data-ttu-id="e4b1c-120">WebMatrix を使用してサイトを公開する</span><span class="sxs-lookup"><span data-stu-id="e4b1c-120">Publishing a Site by Using WebMatrix</span></span>](introducing-aspnet-web-pages-2/publishing.md)
