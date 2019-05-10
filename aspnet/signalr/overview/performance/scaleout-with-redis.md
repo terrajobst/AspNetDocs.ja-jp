@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 78efe409ab59df17ae71c26d4e280cc9971a64d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 58a7affa1769523955adc76455a1c33be6f49751
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393251"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114309"
 ---
 # <a name="signalr-scaleout-with-redis"></a>Redis による SignalR スケールアウト
 
@@ -38,7 +38,6 @@ ms.locfileid: "59393251"
 >
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
-
 このチュートリアルでは使用して[Redis](http://redis.io/) 2 つの IIS インスタンスに配置されている SignalR アプリケーション間でメッセージを配信します。
 
 Redis はメモリ内のキー値ストアです。 パブリッシュ/サブスクライブ モデルでのメッセージング システムもサポートしています。 SignalR で Redis バック プレーンでは、パブリッシュ/サブスクライブ機能を使用して、他のサーバーにメッセージを転送します。
@@ -57,7 +56,6 @@ Redis はメモリ内のキー値ストアです。 パブリッシュ/サブス
 > [!NOTE]
 >
 > Redis による SignalR スケール アウトは、Redis クラスターをサポートしていません。
-
 
 ## <a name="overview"></a>概要
 

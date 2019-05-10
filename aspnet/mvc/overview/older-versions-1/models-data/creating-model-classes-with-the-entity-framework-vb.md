@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b3c6726c2d08e2e6ac37501f2ab455e427df82bb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f6c896c6f5f6d898ac6f99d5998fb29cb73bcb10
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414056"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117603"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-vb"></a>Entity Framework でモデル クラスを作成する (VB)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 エンティティ ウィザードを使用して、ADO.NET Entity Data Model を作成する方法について説明します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションを構築します。
-
 
 このチュートリアルの目的では、ASP.NET MVC アプリケーションを構築するときに、Microsoft Entity Framework を使用してデータ アクセス クラスを作成する方法について説明します。 このチュートリアルは、Microsoft Entity Framework の以前の知識を負いません。 このチュートリアルの目的は、Entity Framework を使用して、選択、挿入、更新、およびデータベースのレコードを削除する方法を理解します。
 
@@ -30,13 +29,11 @@ Microsoft Entity Framework は、オブジェクト リレーショナル マッ
 > 
 > ASP.NET MVC と Entity Framework の Microsoft 必須の接続がありません。 ASP.NET MVC で使用できる Entity Framework のいくつかの選択肢があります。 たとえば、Microsoft LINQ to SQL や NHibernate など、SubSonic などその他の O/RM ツールを使用して、MVC のモデル クラスをビルドすることができます。
 
-
 ASP.NET MVC を使用した Microsoft Entity Framework を使用する方法について説明するには、簡単なサンプル アプリケーションをビルドします。 表示し、映画データベース レコードを編集することができます、映画データベース アプリケーションを作成します。
 
 このチュートリアルでは、Visual Studio 2008 または Service Pack 1 の Visual Web Developer 2008 があることを前提としています。 Entity Framework を使用するために Service Pack 1 を必要があります。 Visual Studio 2008 Service Pack 1 または Service Pack 1 の Visual Web Developer は、次のアドレスからダウンロードできます。
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
-
 
 ## <a name="creating-the-movie-sample-database"></a>ムービーのサンプル データベースの作成
 
@@ -108,9 +105,7 @@ Entity Data Model を作成した後は、エンティティ デザイナーを�
 
 保存ボタン (フロッピー ディスクのアイコン) をクリックして変更を行った後に、エンティティ データ モデルを保存してください。 バック グラウンドでは、エンティティ デザイナーは、Visual Basic .NET クラスのセットを生成します。 ソリューション エクスプ ローラー ウィンドウから MoviesDBModel.Designer.vb ファイルを開くことで、これらのクラスを表示できます。
 
-
 次に、エンティティ デザイナーを使用するときに、変更が上書きされますので、.designer.vb ファイル内のコードを変更しないでください。 .Designer.vb ファイルで定義されたエンティティ クラスの機能を拡張するかどうかは、作成することができます*部分クラス*で個別のファイル。
-
 
 #### <a name="selecting-database-records-with-the-entity-framework"></a>Entity Framework でのデータベース レコードを選択します。
 
@@ -158,9 +153,7 @@ Add() の最初のアクションでは、ビューを単純に返します。 �
 
 2 番目の Add() アクションは、ASP.NET MVC TryUpdateModel() メソッドのヘルプで、Entity Framework Movie クラスの新しいインスタンスを作成します。 TryUpdateModel() メソッドは、Add() メソッドに渡される FormCollection 内のフィールドを受け取り、Movie クラスに HTML フォーム フィールドの値を割り当てます。
 
-
 Entity Framework を使用する場合は、tryupdatemodel に渡します"または"UpdateModel メソッドを使用して、エンティティ クラスのプロパティを更新する場合、プロパティの「ホワイト リスト」を指定してください。
-
 
 次に、Add() アクションは、いくつかの簡単なフォーム検証を実行します。 アクションは、タイトルとディレクターの両方のプロパティに値があることを確認します。 検証エラーがある場合、検証エラー メッセージは、ModelState に追加されます。
 

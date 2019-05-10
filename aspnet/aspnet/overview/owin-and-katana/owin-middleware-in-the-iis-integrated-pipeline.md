@@ -8,19 +8,18 @@ ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 484c01f19014639cc30244ed4f4d014794594aa2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bb1211de0a3fe876f5640538034ab5a58b3a070c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59391703"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118222"
 ---
 # <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
 
 によって[Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > この記事では、IIS 統合パイプラインで OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を示していて、上、OMC パイプライン イベントを設定する方法で実行します。 確認する必要があります[プロジェクト Katana の概要を](an-overview-of-project-katana.md)と[OWIN スタートアップ クラス検出](owin-startup-class-detection.md)このチュートリアルを読む前にします。 このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )、Chris Ross、Praburaj Thiagarajan、Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) )。
-
 
 [OWIN](an-overview-of-project-katana.md)ミドルウェア コンポーネント (OMCs) は、サーバーに依存しないパイプラインで実行する主な用途は、IIS 統合パイプラインも、OMC を実行することは (**クラシック モードが*いない*サポート**)。 パッケージ マネージャー コンソール (PMC) から、次のパッケージをインストールすることで、IIS 統合パイプラインで動作する、OMC ことができます。
 

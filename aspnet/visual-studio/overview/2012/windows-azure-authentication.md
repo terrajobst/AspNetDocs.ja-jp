@@ -8,12 +8,12 @@ ms.date: 02/20/2013
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: cd3eed8c14103d29a66acd475fafe5ff3122a960
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 46dd491b275b43be4e76c029b53f9454146663ae
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421584"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126192"
 ---
 # <a name="windows-azure-authentication"></a>Windows Azure 認証
 
@@ -26,7 +26,6 @@ ms.locfileid: "58421584"
 > 組織のオンプレミスの Active Directory と Windows Azure Active Directory テナント間の同期をセットアップする方法の詳細については、「[実装および管理を使用して AD FS 2.0 シングル サインオン](https://technet.microsoft.com/library/jj205462.aspx)します。
 >
 > Windows Azure Active Directory が現在として使用できますが、[無料のプレビュー サービス](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。
-
 
 ## <a name="requirements"></a>要件:
 
@@ -96,7 +95,7 @@ Windows Azure を有効にする認証は、アプリケーションに、次の
 
 ## <a name="deploy-the-application-to-windows-azure"></a>Windows Azure へのアプリケーションをデプロイします。
 
-完全な手順については、[ASP.NET Web アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)を参照してください。
+完全な手順については、次を参照してください。 [ASP.NET Web アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)します。
 
 Windows Azure Authentication を Azure Web サイトを使用してアプリケーションを発行するには。
 

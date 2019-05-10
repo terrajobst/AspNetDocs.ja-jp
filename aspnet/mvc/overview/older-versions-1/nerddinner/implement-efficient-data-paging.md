@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: adea836d-dbc2-4005-94ea-53aef09e9e34
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: ff12bc43ad68fdc4bbcd478624f47ea0d2774c2d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d9a0dba381b71755ac626f76d52bc5bcb434447
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125643"
 ---
 # <a name="implement-efficient-data-paging"></a>効率的なデータ ページングを実装する
 
@@ -26,7 +26,6 @@ ms.locfileid: "59399308"
 > 手順 8 では、dinners 一度に数千ものを表示するには、代わりには、のみ - 一度に 10 個の今後の dinners を表示し、戻るページし、SEO フレンドリな方法で、一覧全体を転送するエンドユーザーを許可するありますようにする、/Dinners URL にページング サポートを追加する方法を示します。
 > 
 > 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
-
 
 ## <a name="nerddinner-step-8-paging-support"></a>NerdDinner 手順 8:ページングのサポート
 

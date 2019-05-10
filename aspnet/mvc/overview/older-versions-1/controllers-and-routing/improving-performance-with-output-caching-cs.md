@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 548c5bea2e9cf26e0574e72d2c0ea204dbd90f9c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384767"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123378"
 ---
 # <a name="improving-performance-with-output-caching-c"></a>出力キャッシュでパフォーマンスを改善する (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、出力キャッシュを活用して、ASP.NET MVC web アプリケーションのパフォーマンスを大幅に向上する方法を説明します。 同じコンテンツは、新しいユーザーがアクションを呼び出すたびに作成する必要はありません、コント ローラー アクションから返される結果をキャッシュする方法について説明します。
-
 
 このチュートリアルの目的では、出力キャッシュを活用して、ASP.NET MVC アプリケーションのパフォーマンスを大幅に向上する方法について説明します。 出力キャッシュでは、コント ローラーのアクションによって返されるコンテンツをキャッシュすることができます。 これにより、同じコンテンツは同じコント ローラー アクションが呼び出されるたびに生成する必要ありません。
 
@@ -78,7 +77,6 @@ Location プロパティは、次の値のいずれかに設定できます。
 > 
 > ·ServerAndClient
 
-
 既定では、Location プロパティ値を持ちます。 ただし、キャッシュ、ブラウザーでのみ、またはサーバー上でのみにすることがありますもあります。 たとえば、ユーザーごとに合わせてカスタマイズされた情報をキャッシュする場合は必要がありますいないサーバー上の情報をキャッシュしました。 別のユーザーに異なる情報を表示する場合は、クライアント上にのみ情報をキャッシュする必要があります。
 
 たとえば、リスト 3 のコント ローラーを現在のユーザー名を返す GetName() という名前のアクションを公開します。 ジャック、web サイトにログインし、GetName() アクションを呼び出す場合、アクションの文字列を返します"やあ Jack"。 その後、Jill は、web サイトにログインし、GetName() アクションを呼び出します場合、して彼女も表示されます"やあ Jack"の文字列。 文字列は、回線のモジュラー ジャックが最初にコント ローラー アクションを起動した後、すべてのユーザーの web サーバーでキャッシュされます。
@@ -134,7 +132,6 @@ VaryByParam プロパティは、次の値に設定できます。
 > none = しない別のキャッシュされたバージョンを作成します。
 > 
 > パラメーターのリストをセミコロン、リスト内のフォームまたはクエリ文字列パラメーターのいずれかによって異なりますたびに異なるキャッシュされたバージョンの作成を =
-
 
 ## <a name="creating-a-cache-profile"></a>キャッシュ プロファイルを作成します。
 

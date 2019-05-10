@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fe19910d693a784b8dc207462591c9f4d51cec14
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00d820ff2fb0925d299bb17713435f8612e4b25a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382148"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130633"
 ---
 # <a name="determining-what-files-need-to-be-deployed-vb"></a>配置が必要なファイルを決定する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59382148"
 [コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
 
 > 開発環境から運用環境にデプロイする必要があるファイルは、ASP.NET アプリケーションが Web サイト モデルまたは Web アプリケーションのモデルを使用してビルドするかどうかに部分的に依存します。 これらの 2 つのプロジェクト モデルと、プロジェクト モデルが展開に与える影響について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -48,7 +47,7 @@ ASP.NET web ページは、宣言型マークアップとソース コードに�
 
 | **コンパイル モデル** | **マークアップの部分のファイルを展開しますか。** | **ソース コード ファイルを展開しますか。** | **アセンブリを展開`Bin`ディレクトリでしょうか。** |
 | --- | --- | --- | --- |
-| 明示的なコンパイル | [はい] | × | はい |
+| 明示的なコンパイル | [はい] | × | [はい] |
 | 自動のコンパイル | [はい] | [はい] | [はい] (存在する場合) |
 
 **表 1:展開するファイルの種類は、使用コンパイル モデルに依存します。**
@@ -92,20 +91,16 @@ Microsoft は、Visual Studio 2005 Service Pack 1 がリリースされる Web �
 
 図 1 は、ブラウザーで表示したときに、書籍レビューの web サイトのスクリーン ショットを示します。 ここで、ページが表示 ~ Tech/TYASP35.aspx、書籍レビューする/*教える自分で ASP.NET 3.5 in 24 時間*します。 定義されているサイト マップ構造に基づいて、ページ左側にあるメニューの上部にまたがる階層リンク`Web.sitemap`します。 右上隅のイメージは、本の表紙にあるイメージの 1 つ、`Images`フォルダー。 内の CSS ファイルで明確に記述、カスケード スタイル シートの規則を使用して、web サイトの外観が定義されている、`Styles`包括的なページ レイアウトが、マスター ページで定義されている間は、フォルダー、`Site.master`します。
 
-
 [![書籍レビューの web サイトのタイトルのさまざまなレビューを提供しています](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
 **図 1**:タイトルのさまざまなレビューを提供する、書籍レビューの web サイト ([フルサイズの画像を表示する をクリックします](determining-what-files-need-to-be-deployed-vb/_static/image3.png))。
-
 
 このアプリケーションは、データベースを使用しません。各レビューは、アプリケーションで別の web ページとして実装されます。 このチュートリアル (および次のいくつかのチュートリアル) は、データベースがない web アプリケーションを配置する方法を説明します。 ただし、今後のチュートリアルでレビュー、読者のコメント、および、データベース内の他の情報を格納するには、このアプリケーションを強化し、データ駆動型 web アプリケーションを正しく展開を実行する必要がある手順について説明します。
 
 > [!NOTE]
 > これらのチュートリアルでは、web ホスト プロバイダーと ASP.NET アプリケーションをホストに集中し、ASP などの補助的なトピックの情報を表示しません。NET のサイト マップ システムまたは基本ページ クラスを使用します。 これらのテクノロジの詳細についてと、チュートリアル全体でその他のトピックの詳細については各チュートリアルの最後に、関連項目」セクションを参照してください。
 
-
 このチュートリアルのダウンロードは、web アプリケーションの 2 つのコピーは、さまざまな Visual Studio プロジェクトの種類としてそれぞれ実装します。BookReviewsWAP、Web アプリケーション プロジェクト、および BookReviewsWSP、Web サイト プロジェクト。 両方のプロジェクトでは、Visual Web Developer 2008 SP1 で作成された、ASP.NET 3.5 SP1 を使用します。 使用するには、これらのプロジェクトは、デスクトップに内容を解凍して開始します。 Web アプリケーション プロジェクト (BookReviewsWAP) を開くに移動します。、`BookReviewsWAP`フォルダーとソリューション ファイルをダブルクリックして`BookReviewsWAP.sln`します。 (BookReviewsWSP) Web サイト プロジェクトを開くには、Visual Studio を起動し、[ファイル] メニューから Web サイトを開くオプションを選択を参照、`BookReviewsWSP`フォルダー、デスクトップで [ok] をクリックします。
-
 
 どのようなファイルでこのチュートリアルの外観で残りの 2 つのセクション、アプリケーションをデプロイするときに、運用環境にコピーする必要があります。 次の 2 つのチュートリアル - [ *Your サイトを使用して FTP のデプロイ*](deploying-your-site-using-an-ftp-client-vb.md)と[*を展開するサイトを使用して Visual Studio* ](deploying-your-site-using-visual-studio-vb.md) -さまざまな方法を示しますweb ホスト プロバイダーにこれらのファイルをコピーします。
 
@@ -115,15 +110,12 @@ Web アプリケーション プロジェクト モデルは、明示的なコ�
 
 図 2 は、書籍レビューの Web アプリケーション プロジェクトを構成するファイルを示します。
 
-
 [![ソリューション エクスプ ローラーでは、Web アプリケーション プロジェクトを構成するファイルを一覧表示します。](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
 
 **図 2**:ソリューション エクスプ ローラーは、Web アプリケーション プロジェクトを構成するファイルを一覧表示します。
 
-
 > [!NOTE]
 > 図 2 に示すよう ASP.NET ページの分離コード ファイルはソリューション エクスプ ローラーで Visual Basic の Web アプリケーション プロジェクトのない表示されます。 ページの分離コード クラスを表示するには、ソリューション エクスプ ローラーでページを右クリックし、コードの表示を選択します。
-
 
 明示的に最新のソース コードをアセンブリにコンパイルするために、アプリケーションを構築することにより、Web アプリケーション プロジェクト モデルの開始を使用して開発された ASP.NET アプリケーションを展開できます。 次に、次のファイルを運用環境にコピーします。
 
@@ -135,7 +127,6 @@ Web アプリケーション プロジェクト モデルは、明示的なコ�
 > [!NOTE]
 > 図 2 に示すよう、`BasePage`という名前のフォルダーに配置するプロジェクトでクラス ファイルとしてクラスが実装されている`HelperClasses`します。 プロジェクトがコンパイルされたときのコード、`BasePage.vb`ファイルは、ASP.NET ページの分離コード クラスと 1 つのアセンブリにコンパイルされます`BookReviewsWAP.dll`します。 ASP.NET という名前の特別なフォルダーには、`App_Code`は Web サイト プロジェクトのクラス ファイルを保持するために設計されています。 内のコード、`App_Code`フォルダーが自動的にコンパイルされ、したがって、Web アプリケーション プロジェクトでない使用する必要があります。 という名前の通常のフォルダーで、アプリケーションのクラス ファイルを配置する代わりに、 `HelperClasses`、または`Classes`、または類似したものです。 または、別のクラス ライブラリ プロジェクトでクラス ファイルを配置することができます。
 
-
 ASP.NET に関連するマークアップ ファイル内のアセンブリのコピーに加え、`Bin`フォルダーもコピーする必要がクライアント側のサポート ファイルのイメージと CSS ファイルの他のサーバー側のサポート ファイルと`Web.config`と`Web.sitemap`します。 これらクライアント側とサーバー側では、明示的または自動のコンパイルを使用するかどうかに関係なく、運用環境にコピーするファイルの必要性をサポートします。
 
 ## <a name="determining-the-files-to-deploy-for-the-web-site-project-files"></a>Web サイト プロジェクトのファイルを配置するファイルを決定します。
@@ -146,11 +137,9 @@ Visual Studio のビルド メニュー オプションは、Web アプリケー
 
 図 3 は、書籍レビューの Web サイト プロジェクトを構成するファイルを示します。
 
-
 [![ソリューション エクスプ ローラーでは、Web サイト プロジェクトを構成するファイルを一覧表示します。](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
 
 **図 3**:ソリューション エクスプ ローラーは、Web サイト プロジェクトを構成するファイルを一覧表示します。
-
 
 Web サイト プロジェクトを配置するには、すべての ASP.NET に関連するファイル、コード ファイルと共に ASP.NET ページ、マスター ページ、およびユーザー コントロールのマークアップのページを含む - 運用環境にコピーする必要があります。 など、任意のクラス ファイルをコピーする必要がありますも`BasePage.vb`します。 なお、`BasePage.vb`ファイルにある、`App_Code`クラス ファイルの Web サイト プロジェクトで使用される特別な ASP.NET フォルダーのフォルダー。 内のクラス ファイルと同様に、運用環境で作成する必要がある特別なフォルダー、`App_Code`開発環境でのフォルダーにコピーする必要があります、`App_Code`運用上のフォルダー。
 
@@ -158,7 +147,6 @@ ASP.NET マークアップとソース コード ファイルをコピーする�
 
 > [!NOTE]
 > Web サイト プロジェクトでは、明示的なコンパイルも使用できます。 今後のチュートリアルでは、明示的に Web サイト プロジェクトをコンパイルする方法を説明します。
-
 
 ## <a name="summary"></a>まとめ
 

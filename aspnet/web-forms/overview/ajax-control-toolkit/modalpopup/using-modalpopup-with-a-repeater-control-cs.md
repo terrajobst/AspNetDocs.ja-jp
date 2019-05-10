@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: d686d84a-1c58-492e-8a77-3eb5a0cfe918
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/using-modalpopup-with-a-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 91758b7c329b78bcb3a3ab301650d6da6164d1a3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f6d17fb9c09a9b0a7dda7335491c10e136a91170
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411190"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115383"
 ---
 # <a name="using-modalpopup-with-a-repeater-control-c"></a>Repeater コントロールで ModalPopup を使用する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59411190"
 [コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup2CS.pdf)
 
 > AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 Repeater 内でこのコントロールを使用することもできます。
-
 
 ## <a name="overview"></a>概要
 
@@ -47,7 +46,6 @@ AJAX Control Toolkit の ModalPopup コントロールには、クライアン�
 [!code-aspx[Main](using-modalpopup-with-a-repeater-control-cs/samples/sample4.aspx)]
 
 次に、モーダル ポップアップをトリガーするように、その横にあるボタンで、データ ソース内のすべての項目が表示されます。
-
 
 [![データ ソースのエントリごとに、モーダル ポップアップをトリガーできます。](using-modalpopup-with-a-repeater-control-cs/_static/image2.png)](using-modalpopup-with-a-repeater-control-cs/_static/image1.png)
 

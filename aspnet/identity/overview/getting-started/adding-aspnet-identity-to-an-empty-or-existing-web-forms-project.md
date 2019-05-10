@@ -9,15 +9,14 @@ ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 8f66cdb46e4cd02509092ea3bdcb7af9c292eb8f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8e82951d57f0b8052ee3f6530a7470be7d030206
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121439"
 ---
 # <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する
-
 
 > このチュートリアルは、追加する方法を示します[ASP.NET Identity](introduction-to-aspnet-identity.md) (ASP.NET の新しいメンバーシップ システム) を ASP.NET アプリケーション。
 > 

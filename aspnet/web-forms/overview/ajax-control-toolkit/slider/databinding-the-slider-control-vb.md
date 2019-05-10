@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 4f3ba53f-d166-422d-b29c-403348057836
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a60e09b7cdda7f924a4287aab8cda32fef5a53ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8f122545340ec131f693569ba749448b32f07908
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419770"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124750"
 ---
 # <a name="databinding-the-slider-control-vb"></a>スライダー コントロールをデータバインドする (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59419770"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/Slider0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/slider0VB.pdf)
 
 > スライダー コントロール、AJAX Control Toolkit では、マウスを使用して制御できるグラフィカルなスライダーを提供します。 スライダーの現在の位置を別の ASP.NET コントロールにバインドすることになります。
-
 
 ## <a name="overview"></a>概要
 
@@ -43,7 +42,6 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-aspx[Main](databinding-the-slider-control-vb/samples/sample3.aspx)]
 
 双方向でのデータ バインドの動作、ブラウザーでご覧のとおり: スライダーの位置を更新して、テキスト ボックスに新しい値を入力します。 2 番目のテキスト ボックスは読み取り専用にする場合は、そこに値を手動で更新するユーザーを複雑になるように、テキスト フィールドに簡単な保護を追加できます。
-
 
 [![スライダーとテキスト ボックスが同期](databinding-the-slider-control-vb/_static/image2.png)](databinding-the-slider-control-vb/_static/image1.png)
 

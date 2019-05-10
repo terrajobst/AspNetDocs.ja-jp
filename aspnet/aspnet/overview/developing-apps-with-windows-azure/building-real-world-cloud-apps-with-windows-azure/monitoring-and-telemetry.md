@@ -8,12 +8,12 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fc8f6cdefe1e940f3e3eafc2b9acc9144690284
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403910"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118732"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure で現実世界のクラウド アプリの構築)
 
@@ -23,14 +23,12 @@ ms.locfileid: "59403910"
 
 > **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
-
 多くの人は、そのアプリケーションがダウンしてタイミングを把握できるように顧客に依存します。 ない本当にベスト プラクティスどこでも、そして特に、クラウドではありません。 多くの場合に発生した事象に関する最小限または誤解を招くのデータを取得する通知は取得されたらと、簡単な通知の保証はありません。 適切なテレメトリとアプリ、および場合は、何が起こってを認識してありますできますログ記録システムにを使用するトラブルシューティングに役立つ情報をすぐに確認して不適切な移動します。
 
 ## <a name="buy-or-rent-a-telemetry-solution"></a>新規購入またはレンタル テレメトリ ソリューション
 
 > [!NOTE]
 > この記事では、以前に書かれました[Application Insights](/azure/application-insights/app-insights-overview)リリースされました。 Application Insights は、Azure での製品利用統計情報ソリューションに対して推奨されるアプローチです。 参照してください[ASP.NET web サイトの Application Insights を設定](/azure/application-insights/app-insights-asp-net)詳細についてはします。
-
 
 クラウド環境に関する優れた点の 1 つは、購入またはレンタル勝利に非常に簡単であります。 製品利用統計情報は、例を示します。 多大な労力なし、非常に低コストで、実行中に本当に適切なテレメトリ システムを取得できます。 一連の Azure と統合される優れたパートナーがあり、無料のプランがある一部の何もの基本的なテレメトリを取得できます。 ここで、のほんの一部現在利用 on Azure:
 

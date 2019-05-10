@@ -8,12 +8,12 @@ ms.date: 05/21/2008
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 866aea01488cee26a7419fe12b7ffa7a0655e9ce
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ef4cc44a5d1adb936beea421a295ae84052d3c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385047"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116609"
 ---
 # <a name="creating-a-site-wide-layout-using-master-pages-c"></a>マスター ページを利用してサイト全体レイアウトを作成する (C#)
 
@@ -23,16 +23,13 @@ ms.locfileid: "59385047"
 
 > このチュートリアルでは、マスター ページの基本を説明します。 つまり、マスター ページとは、マスター ページはどのように 1 つ作成コンテンツ プレース ホルダーは、方法は 1 つ ASP.NET ページを作成、変更する方法、マスター ページは自動的に反映されます、関連付けられているコンテンツのページでマスター ページを使用します。
 
-
 ## <a name="introduction"></a>はじめに
 
 適切に設計された web サイトの 1 つの属性は、サイト全体の一貫性のあるページ レイアウトです。 www.asp.net web サイトを例にとってみましょう。 この記事の執筆時は、すべてのページには、上部と、ページの下部に同じ内容があります。 図 1 は、各ページの最上部のマイクロソフト コミュニティの一覧が灰色のバーが表示されます。 下には、サイトのロゴ、先サイトが翻訳済み、言語とコアのセクションでは、の一覧。ホーム、概要、説明、ダウンロード、およびなど。 同様に、ページの下部には、 www.asp.net 、著作権、およびプライバシーに関する声明へのリンク上の広告に関する情報が含まれます。
 
-
 [![www.asp.net web サイトは、すべてのページにわたって一貫したルック アンド フィールを採用しています](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
 <strong>図 01</strong>:一貫性のある検索とすべてのページ間で感じる www.asp.net web サイトを採用しています ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))。
-
 
 適切に設計されたサイトの別の属性は、簡単にすると、サイトの外観を変更できます。 図 1 が 2008 年 3 月の時点で www.asp.net ホームページを示していますが、ルック アンド フィールをここで、このチュートリアルのパブリケーションの変更可能性があります。 おそらく上部のメニュー項目には、MVC フレームワークの新しいセクションが含まれますが展開されます。 いるか、おそらくさまざまな色、フォント、およびレイアウトをまったく新しいデザイン出現します。 このような変更をサイト全体に適用すると、高速で単純なプロセス、サイトを構成する web ページの何千もの変更を必要としない必要があります。
 
@@ -64,28 +61,22 @@ ASP.NET version 2.0 では前のページで一般的なマークアップを配
 > [!NOTE]
 > ASP.NET version 2.0 以降には、主要な概念とマスター ページの機能が変更されていません。 ただし、Visual Studio 2008 は、Visual Studio 2005 で欠けている機能、入れ子になったマスター ページのデザイン時サポートを提供します。 今後のチュートリアルでは入れ子になったマスター ページを使用して紹介します。
 
-
 図 2 は、 www.asp.net のマスター ページの外観を示しています。 マスター ページは、web ページごとの一意のコンテンツが配置されている中間、左、プレース ホルダーと - 上部、下部にあるとすべてのページの右側にマークアップの一般的なサイト全体レイアウトを定義に注意してください。
-
 
 ![マスター ページは、コンテンツ ページのコンテンツをページごとに、サイト全体レイアウトや編集可能な領域を定義します。](creating-a-site-wide-layout-using-master-pages-cs/_static/image4.png)
 
 **図 02**:マスター ページは、コンテンツ ページのコンテンツをページごとに、サイト全体レイアウトや編集可能な領域を定義します。
 
-
 マスター ページを定義した後は、チェック ボックスのティックで新しい ASP.NET ページにバインドできます。 コンテンツ ページと呼ばれる、これらの ASP.NET ページには、各マスター ページの ContentPlaceHolder のコントロールのコンテンツ コントロールが含まれます。 [コンテンツ] ページがブラウザーからアクセスしたときに、ASP.NET エンジンはマスター ページのコントロール階層を作成しは適切な場所にコンテンツ ページのコントロール階層を挿入します。 この結合されたコントロールの階層が表示され、結果の HTML がエンドユーザーのブラウザーに返されます。 その結果、コンテンツ ページは、そのマスター ページ、プレース ホルダー コントロールの外部で定義されている一般的なマークアップと、独自のコンテンツ コントロール内で定義されているページ固有のマークアップの両方を出力します。 図 3 は、この概念を示します。
-
 
 [![要求されたページのマークアップは、マスター ページに組み合わされ、](creating-a-site-wide-layout-using-master-pages-cs/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image5.png)
 
 **図 03**:マスター ページに、要求されたページのマークアップが組み合わされ ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image7.png))。
 
-
 マスター ページの動作について説明しましたが、これでマスター ページと Visual Web Developer を使用して、関連付けられているコンテンツ ページの作成を見てをみましょう。
 
 > [!NOTE]
 > できるだけ多くを達成するために ASP.NET web サイトを構築するでは、このチュートリアル シリーズで作成 ASP.NET 3.5 と Visual Studio 2008 では、Microsoft の無料版[Visual Web Developer 2008](https://www.microsoft.com/express/vwd/)します。 持っていない - ご心配なく ASP.NET 3.5 にアップグレードする場合は、これらのチュートリアルの作業で説明する概念も同じように asp.net 2.0 と Visual Studio 2005。 ただし、一部のデモ アプリケーションが .NET framework version 3.5; の新機能を使用できます。3.5 に固有の機能を使用している場合は、バージョン 2.0 では、同様の機能を実装する方法について説明しますので、注意にが含まれます。 その結果、.NET Framework version 3.5 では、各チュートリアルの対象から使用可能なデモ アプリケーションをダウンロードするを忘れないでください、 `Web.config` 3.5 に固有の構成要素と 3.5 に固有の名前空間への参照を含むファイル、`using` ASP.NET ページの分離コード クラス内のステートメント。 要約すると、ダウンロード可能な web アプリケーションでは、コンピューターに .NET 3.5 をインストールするがまだある場合は、最初から 3.5 固有のマークアップを削除しないでは機能しません`Web.config`します。 参照してください[詳細に分析する ASP.NET Version 3.5 の`Web.config`ファイル](http://www.4guysfromrolla.com/articles/121207-1.aspx)このトピックの詳細についてはします。 削除する必要がありますも、 `using` 3.5 に固有の名前空間を参照するステートメント。
-
 
 ## <a name="step-1-creating-a-master-page"></a>手順 1: マスター ページを作成します。
 
@@ -94,19 +85,15 @@ ASP.NET version 2.0 では前のページで一般的なマークアップを配
 > [!NOTE]
 > Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。Web サイト プロジェクトと Web アプリケーション プロジェクト。 Web サイト プロジェクトで Visual Studio .NET 2002年/2003 プロジェクト アーキテクチャを模倣する Web アプリケーション プロジェクト - プロジェクト ファイルが含まれていて、プロジェクトのソース コードに配置されている 1 つのアセンブリにコンパイルは、プロジェクト ファイルがない、 `/bin`フォルダー。 Visual Studio 2005 最初に唯一サポートされている Web サイトのプロジェクトが、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/library/aa730880(vs.80).aspx)Service Pack 1; 再導入されましたVisual Studio 2008 には、両方のプロジェクト モデルが用意されています。 Visual Web Developer 2005 および 2008 のエディション、ただし、のみがサポート Web サイト プロジェクト。 このチュートリアル シリーズで、デモの Web サイト プロジェクト モデルを使用します。 Express 以外のエディションを使用している、代わりに、Web アプリケーション プロジェクト モデルを使用する場合は、自由に行うがあることをいくつかの相違点、画面と手順を示すスクリーン ショットと instructio 行う必要がありますに表示されるものとの間に注意してください。これらのチュートリアルで提供される ns.
 
-
 [![新しいファイル システムに基づく Web サイトを作成します。](creating-a-site-wide-layout-using-master-pages-cs/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image8.png)
 
 **図 04**:New File System-Based Web サイトの作成 ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image10.png))。
 
-
 次に、プロジェクト名を右クリックし、新しい項目の追加 を選択し、マスター ページ テンプレートを選択して、ルート ディレクトリ内のサイトにマスター ページを追加します。 マスター ページが、拡張子で終わることに注意してください。`.master`します。 この新しいマスター ページの名前`Site.master`追加 をクリックします。
-
 
 [![マスター ページを追加するという名前の web サイトに Site.master](creating-a-site-wide-layout-using-master-pages-cs/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image11.png)
 
 **図 05**:マスター ページの名前付きの追加`Site.master`web サイトに ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image13.png))。
-
 
 Visual Web Developer では新しいマスター ページファイルを追加すると、次の宣言型マークアップでマスター ページが作成されます。
 
@@ -126,16 +113,13 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 > [!NOTE]
 > マスター ページを設計することを確認し、マスター ページには、Web フォームが含まれています。 この Web フォーム内でその少なくとも 1 つのプレース ホルダー コントロールに表示されます。
 
-
 ### <a name="creating-a-simple-site-layout"></a>単純なサイト レイアウトを作成します。
 
 展開しましょう`Site.master`のすべてのページが共有サイト レイアウトを作成する既定の宣言型マークアップ: 一般的なヘッダーは左側のナビゲーション、ニュースとその他のサイトのコンテンツとフッターの"Microsoft ASP.NET での電源"アイコンを表示します。 図 6 は、ブラウザーでそのコンテンツ ページのいずれかを表示するときに、マスター ページの最終結果を示します。 図 6 に赤い丸のリージョンにアクセスしたページに固有です (`Default.aspx`)。 その他のコンテンツは、マスター ページで定義され、したがって一貫性のあるすべてのコンテンツ ページ。
 
-
 [![マスター ページは、上、左、および下の部分のマークアップを定義します](creating-a-site-wide-layout-using-master-pages-cs/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image14.png)
 
 **図 06**:マスター ページの定義上、左、および下の部分のマークアップ ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image16.png))。
-
 
 図 6 に示すようにサイトのレイアウトを実現するために更新することで開始、`Site.master`マスター ページを次の宣言型マークアップを格納できるようにします。
 
@@ -152,7 +136,6 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 > [!NOTE]
 > CSS と web ページの書式設定の詳細については、この記事の範囲を超えてです。 チェック アウトの詳細については、CSS、 [CSS チュートリアル](http://www.w3schools.com/css/default.asp)で[W3Schools.com](http://www.w3schools.com/)します。 このチュートリアルの付属のコードをダウンロードして、CSS の設定で再生することも`Styles.css`さまざまな書式指定規則の効果を確認します。
 
-
 ### <a name="creating-a-master-page-using-an-existing-design-template"></a>既存のデザイン テンプレートを使用してマスター ページを作成します。
 
 長年にわたり数小規模から中規模企業用の ASP.NET web アプリケーションを構築しました。 一部のクライアントが、;、使用する既存のサイトのレイアウト他のユーザーには、有能なグラフィックス デザイナーとして採用されました。 いくつか委託 web サイトのレイアウトをデザインすることになります。 図 6 でわかるとおり、web サイトのレイアウトをデザインするプログラマのマルチタスクが通常、医師では、税 open-heart surgery 実行、会計士を持つものとして同程度に賢明です。
@@ -161,7 +144,6 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 
 > [!NOTE]
 > Microsoft はいくつかありますも[ASP.NET デザイン スタート キット テンプレートを無料](https://msdn.microsoft.com/asp.net/aa336613.aspx)Visual Studio で新しい Web サイト ダイアログ ボックスに統合されます。
-
 
 ## <a name="step-2-creating-associated-content-pages"></a>手順 2: コンテンツ ページは関連付けを作成します。
 
@@ -172,16 +154,13 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 > [!NOTE]
 > Web サイト プロジェクト モデルではなく、Web アプリケーション プロジェクト モデルを使用して ASP.NET web サイトを作成した場合は、図 7 に示すように新しい項目の追加 ダイアログ ボックスの"マスター ページの選択 チェック ボックスは表示されません。 コンテンツを作成するには、ページで、Web アプリケーション プロジェクトを使用してモデルは、Web フォーム テンプレートではなく、Web コンテンツ フォーム テンプレートを選択してください。 Web コンテンツ フォーム テンプレートを選択し、追加をクリックすると、図 8 ダイアログ ボックスが表示されますマスター ページの選択と同じです。
 
-
 [![新しいコンテンツ ページを追加します。](creating-a-site-wide-layout-using-master-pages-cs/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image17.png)
 
 **図 07**:新しいコンテンツ ページの追加 ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image19.png))。
 
-
 [![Site.master マスター ページを選択します。](creating-a-site-wide-layout-using-master-pages-cs/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image20.png)
 
 **図 08**:選択、`Site.master`マスター ページ ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image22.png))。
-
 
 新しいコンテンツ ページには、次の宣言型マークアップに示すよう、`@Page`ことを指すマスター ページとコンテンツ コントロール、マスター ページの ContentPlaceHolder のコントロールの各ディレクティブ。
 
@@ -190,28 +169,23 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 > [!NOTE]
 > 名前「を作成する、単純なサイト レイアウト」セクションで手順 1. で`ContentPlaceHolder1`に`MainContent`します。 このプレース ホルダー コントロールの名前を変更するがない場合`ID`同様に、コンテンツ ページの宣言型マークアップが少し異なります、マークアップの前に示したからです。 つまり、2 つ目コンテンツ コントロールの`ContentPlaceHolderID`が反映されます、`ID`マスター ページの対応するプレース ホルダーを制御します。
 
-
 ページのコンテンツ ページを表示するときに、ASP.NET エンジンする必要があります fuse のコントロールをそのマスター ページの ContentPlaceHolder のコントロールのコンテンツします。 ASP.NET エンジンからのコンテンツ ページのマスター ページを決定する、`@Page`ディレクティブの`MasterPageFile`属性。 このコンテンツ ページが連結、上記のマークアップに示す`~/Site.master`します。
 
 マスター ページが 2 つのプレース ホルダー コントロール -`head`と`MainContent`-Visual Web Developer は、2 つのコンテンツ コントロールを生成します。 各コンテンツ コントロールを使用して特定のプレース ホルダーを参照してその`ContentPlaceHolderID`プロパティ。
 
 ここで、デザイン時サポート、サイト全体のテンプレートの以前の技術上のマスター ページ光沢です。 図 9 は、 `About.aspx` Visual Web Developer のデザイン ビューで表示した場合、コンテンツ ページです。 マスター ページのコンテンツが表示されることに注意してください、これは淡色表示と変更ことはできません。 マスター ページの ContentPlaceHolders に対応するコンテンツ コントロールは、ただし、編集できます。 同様の他の ASP.NET ページでソースまたはデザイン ビューを通じて Web コントロールを追加して、コンテンツ ページのインターフェイスを作成できます。
 
-
 [![コンテンツ ページの [デザイン] ビューは、両方の特定のページとマスター ページ内容を表示します。](creating-a-site-wide-layout-using-master-pages-cs/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image23.png)
 
 **図 09**:コンテンツ ページのデザイン ビューが表示されます、ページ固有と両方マスター ページの内容 ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image25.png))。
-
 
 ### <a name="adding-markup-and-web-controls-to-the-content-page"></a>コンテンツのページにマークアップおよび Web コントロールを追加します。
 
 一部のコンテンツを作成する少し、`About.aspx`ページ。 図 10 で、"について、Author"見出しと、いくつかの段落のテキストを入力したを参照してください。 が、自由にも、Web コントロールを追加できます。 このインターフェイスを作成した後、次を参照してください。、`About.aspx`ページがブラウザーを使用します。
 
-
 [![ブラウザーを使用して About.aspx ページを参照してください。](creating-a-site-wide-layout-using-master-pages-cs/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image26.png)
 
 **図 10**:参照してください、 `About.aspx` 、ブラウザーでページ ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image28.png))。
-
 
 要求されたコンテンツ ページと関連付けられているマスター ページが組み合わされ、し、web サーバーに完全に全体として表示されることを理解しておく必要があります。 エンドユーザーのブラウザーで、結果として得られる、融合型の HTML が送信されます。 これを確認するには、[表示] メニューに移動し、ソースを選択して、ブラウザーが受信した HTML を表示します。 フレームなしまたは 1 つのウィンドウに 2 つの異なる web ページを表示するための他の特殊な手法ことに注意してください。
 
@@ -232,7 +206,6 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 > [!NOTE]
 > Visual Web Developer を追加、新しい ASP.NET アプリケーションを作成するときに、`Default.aspx`マスター ページにバインドされていないページ。 さあ、使用の演習用の既存の ASP.NET ページのコンテンツ ページに変換する場合は、`Default.aspx`します。 または、削除`Default.aspx`「マスター ページの選択」 をチェックします。 この時間が、再度追加します。
 
-
 ## <a name="step-3-updating-the-master-pages-markup"></a>手順 3: マスター ページのマークアップを更新しています
 
 マスター ページの主な利点の 1 つは、単一のマスター ページは、サイトで多数のページの全体的なレイアウトを定義する使用可能性があります。 そのため、サイトの外観を更新するには、1 つのファイルのマスター ページを更新が必要です。
@@ -247,15 +220,12 @@ Visual Web Developer では新しいマスター ページファイルを追加�
 
 上記のコードの設定、ラベルの`Text`プロパティを現在の日付と時間、曜日、月、および 2 桁の日の名前として書式設定されます (図 11 を参照してください)。 この変更により、ページのいずれかを見直します。 図 11 に示すように、マスター ページに変更が含まれて、結果として得られるマークアップが更新されます。
 
-
 [![マスター ページへの変更が反映されるときに表示する、コンテンツ ページ](creating-a-site-wide-layout-using-master-pages-cs/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image29.png)
 
 **図 11**:マスター ページへの変更が反映されるときに表示する、コンテンツ ページ ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-cs/_static/image31.png))。
 
-
 > [!NOTE]
 > この例に示すように、マスター ページはサーバー側の Web コントロール、コード、およびイベント ハンドラーを含めることができます。
-
 
 ## <a name="summary"></a>まとめ
 

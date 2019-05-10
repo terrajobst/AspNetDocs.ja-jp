@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c02a633013f061c09141d4f98871848c011a799e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420758"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116709"
 ---
 # <a name="server-controls"></a>サーバー コントロール
 
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET 2.0 では、さまざまな方法でサーバー コントロールを強化します。 このモジュールでいくつかの方法は、ASP.NET 2.0 には、アーキテクチャの変更について説明し、Visual Studio 2005 は、サーバー コントロールを処理します。
-
 
 ASP.NET 2.0 では、さまざまな方法でサーバー コントロールを強化します。 このモジュールでいくつかの方法は、ASP.NET 2.0 には、アーキテクチャの変更について説明し、Visual Studio 2005 は、サーバー コントロールを処理します。
 
@@ -59,15 +58,11 @@ ASP.NET 2.0 では、コントロールの状態は、コントロールの状�
 > [!NOTE]
 > ビュー ステートとコントロールの状態が永続化、 \_ \_VIEWSTATE 隠しフォーム フィールド。
 
-
 このビデオでは、ビュー ステートとコントロールの状態のチュートリアルです。
-
 
 ![](server-controls/_static/image1.png)
 
-
 [開いているビデオを全画面](server-controls/_static/state1.wmv)
-
 
 サーバー コントロールで読み取りし、書き込み状態を制御するためには、3 つの手順を行う必要があります。
 
@@ -114,7 +109,6 @@ Asp.net 1.x では、構成ファイルに含まれている、 &lt;browserCaps&
 > [!NOTE]
 > ControlAdapter クラスは抽象クラスです。
 
-
 ほぼ同じように、 &lt;browserCaps&gt; 1.x では、ブラウザー定義ファイルのセクションでは、正規の式を使用して、要求側のブラウザーを識別するために、ユーザー エージェント文字列を解析します。 これは、ユーザー エージェントに対して特定の機能を定義しています。 ControlAdapter Render メソッドを使用してコントロールをレンダリングします。 そのため、Render メソッドをオーバーライドする場合呼び出す必要はありませんレンダリング、基本クラス。 これは、アダプターで、コントロール自体の 1 回、2 回発生するレンダリングにあります。
 
 ## <a name="developing-a-custom-adapter"></a>カスタム アダプターの開発
@@ -157,21 +151,17 @@ ASP.NET 2.0 で新しいサーバー コントロールを次に示します。 
 
 ImageMap コントロールをポストバックを開始または URL に移動できるイメージにホット スポットを追加することができます。 使用可能なホット スポットの 3 つの種類があります。[Circlehotspot]、RectangleHotSpot、および PolygonHotSpot です。 ホット スポットは、Visual Studio またはプログラムによってコードでは、コレクション エディターを使用して追加されます。 イメージにホット スポットを描画するために使用可能なユーザー インターフェイスはありません。 座標とサイズやホット スポットの半径は、宣言によって指定する必要があります。 また、デザイナーでのホット スポットの視覚的表現はありません。 ホット スポットは、URL に移動するように構成、URL は、ホット スポットの NavigateUrl プロパティを使用して指定されます。 投稿の場合は、プロパティを使用すると、サーバー側コードで取得できる、ポストバックで文字列を渡す PostBackValue のホット スポットをバックアップします。
 
-
 ![Visual Studio で hotSpot コレクション エディター](server-controls/_static/image1.jpg)
 
 **図 1**:Visual Studio で hotSpot コレクション エディター
-
 
 ## <a name="bulletedlist-control"></a>BulletedList コントロール
 
 BulletedList コントロールは、バインドされたデータを簡単にできる箇条書きリストです。 一覧に (番号) 順序を指定できます BulletStyle プロパティを使用して順序付けられていないか。 リスト内の各項目は ListItem オブジェクトによって表されます。
 
-
 ![Visual Studio で BulletedList コントロール](server-controls/_static/image1.gif)
 
 **図 2**:Visual Studio で BulletedList コントロール
-
 
 ## <a name="hiddenfield-control"></a>HiddenField コントロール
 
@@ -204,15 +194,11 @@ ASP.NET 開発者向けの「ページ」パネルを使用するのか、ペー
 > [!NOTE]
 > ウィザード コントロールは、ASP.NET コントロールの状態を使用して、状態の追跡を保持します。 そのため、EnableViewState プロパティは、任意に損害を与えることがなく、false に設定できます。
 
-
 このビデオでは、ウィザード コントロールのチュートリアルです。
-
 
 ![](server-controls/_static/image2.png)
 
-
 [開いているビデオを全画面](server-controls/_static/wizard1.wmv)
-
 
 ## <a name="localize-control"></a>コントロールをローカライズします。
 

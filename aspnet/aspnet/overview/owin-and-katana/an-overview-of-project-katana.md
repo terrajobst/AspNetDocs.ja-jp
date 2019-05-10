@@ -8,19 +8,18 @@ ms.date: 08/30/2013
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 72f70faa151007558ecbb270143ecd5b37c2134d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1f28db822930cdfd2ebf4cf9bb27d173f4aa4201
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392574"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118292"
 ---
 # <a name="an-overview-of-project-katana"></a>プロジェクト Katana の概要
 
 によって[Howard dierking が](https://github.com/howarddierking)
 
 > 10 年以上にわたってきましたが、ASP.NET フレームワークとプラットフォームが無数の Web サイトとサービスの開発を有効にします。 Web アプリケーションの開発戦略に進化してきましたが、フレームワークに ASP.NET MVC や ASP.NET Web API などのテクノロジの手順で展開できるされています。 プロジェクトのように Web アプリケーションの開発では、クラウド コンピューティングの世界に次の革新的な手順を受け取り、 [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET)に柔軟で移植可能で、有効にすると、ASP.NET アプリケーション コンポーネントの基になるセットを提供します。軽量で、パフォーマンスの向上 – と別の方法で、プロジェクト[Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET)クラウドは、ASP.NET アプリケーションを最適化します。
-
 
 ## <a name="why-katana--why-now"></a>なぜ Katana – なぜ今取り組むでしょうか。
 
@@ -214,7 +213,6 @@ Katana 2.0 のミドルウェア コンポーネントは主に異なる認証�
 ## <a name="conclusion"></a>まとめ
 
  作成し、それによってにより開発者はさらに別の Web フレームワークについて説明しますが、の先頭から Katana プロジェクトの目標をされていません。 代わりに、目標は以前よりも可能な多くの選択肢を .NET Web アプリケーションの開発者に提供する抽象化を作成するようにしています。 置き換え可能なコンポーネントのセットに一般的な Web アプリケーション スタックの論理層を分割しては、Katana プロジェクトは、これらのコンポーネントの意味がどのような比率で向上させるために、スタック全体のコンポーネントを使用できます。 簡単な OWIN 抽象化の周りのすべてのコンポーネントを構築することにより Katana によりフレームワークおよびさまざまな別のサーバーとホスト間で移植できる基盤に構築されたアプリケーションを使用できます。 スタックのコントロールには、開発者を配置すること、Katana を行うことにより、開発者がどのように軽量の ultimate の選択を行ったことか、機能豊富などのように自分の Web スタックがする必要があります。  
-  
 
 ## <a name="for-more-information-about-katana"></a>Katana の詳細については
 

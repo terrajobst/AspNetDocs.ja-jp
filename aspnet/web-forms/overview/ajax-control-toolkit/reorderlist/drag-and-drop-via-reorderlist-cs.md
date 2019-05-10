@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 6350ee8e-11d6-4aff-b51c-942878014835
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 988aa9252cfd93067888734006e6003347f1fb5e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8adeceba0d43d6baf1af944a910750ca0682b097
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414752"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124932"
 ---
 # <a name="drag-and-drop-via-reorderlist-c"></a>ReorderList 経由でドラッグ アンド ドロップする (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59414752"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList5.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist5CS.pdf)
 
 > ReorderList コントロール、AJAX Control Toolkit では、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧を提供します。 リストの現在の順序は、サーバーに保存されます。
-
 
 ## <a name="overview"></a>概要
 
@@ -43,19 +42,15 @@ ms.locfileid: "59414752"
 - `description` (varchar (50)、NULL)
 - `position` (int, NULL)
 
-
 [![AJAX のテーブルのレイアウト](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
 
 AJAX のテーブルのレイアウト ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-cs/_static/image3.png))。
 
-
 次に、表に、いくつかの値を設定します。 なお、`position`列は、要素の並べ替え順序を保持します。
-
 
 [![AJAX の表に、初期データ](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
 
 AJAX の表に、初期データ ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-cs/_static/image6.png))。
-
 
 次の手順を生成する必要があります、`SqlDataSource`新しいデータベースとそのテーブルでの通信を制御します。 データ ソースをサポートする必要があります、`SELECT`と`UPDATE`SQL コマンド。 リストの要素の順序が変更された後で、ときに、`ReorderList`コントロールは、データ ソースの 2 つの値を自動的に送信する`Update`コマンド: 新しい位置と、要素の ID。 そのため、データ ソースのニーズ、`<UpdateParameters>`これら 2 つの値のセクション。
 
@@ -81,7 +76,6 @@ AJAX の表に、初期データ ([フルサイズの画像を表示する を�
 [!code-aspx[Main](drag-and-drop-via-reorderlist-cs/samples/sample4.aspx)]
 
 ブラウザーでこの例を実行し、リスト項目を少し変更します。 次に、ページを再度読み込んでか、データベースを見てください。 変更後の位置が保持されているし、は、値でも反映されます、`position`データベース内の列のマークアップを使用して、任意のコードは一切だけです。
-
 
 [![新しい一覧項目の順序に従って、データベースで変更データ](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
 

@@ -8,12 +8,12 @@ ms.date: 08/19/2008
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d988b2ed6b7d1760557cbfbb543afa85b320c984
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 844d7209d3efbe0acf92fbc25e9b06c25c4d269a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402441"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125424"
 ---
 # <a name="preventing-javascript-injection-attacks-vb"></a>JavaScript インジェクション攻撃を防ぐ (VB)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59402441"
 
 > JavaScript インジェクション攻撃およびクロス サイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、これらの種類の HTML コンテンツをエンコードして攻撃を簡単に倒す方法について説明します。
 
-
 このチュートリアルの目的では、ASP.NET MVC アプリケーションで JavaScript インジェクション攻撃を防止する方法について説明します。 このチュートリアルでは、web サイト、JavaScript インジェクション攻撃を防御する 2 つの方法について説明します。 表示データをエンコードすることによって JavaScript インジェクション攻撃を回避する方法について説明します。 そのまま使用するデータをエンコードすることによって JavaScript インジェクション攻撃を回避する方法を説明します。
 
 ## <a name="what-is-a-javascript-injection-attack"></a>JavaScript インジェクション攻撃を受けるとは何ですか。
@@ -32,11 +31,9 @@ ms.locfileid: "59402441"
 
 顧客フィードバック web サイトを作成することを想像してください (図 1 参照)。 Web サイトにアクセスし、製品を使用した経験のフィードバックを入力できます。 顧客は、ユーザーのフィードバックを送信するときに、フィードバックはフィードバック ページに再表示されます。
 
-
 [![カスタマー フィードバックの web サイト](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
 **図 01**:カスタマー フィードバックの web サイト ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-vb/_static/image3.png))。
-
 
 顧客フィードバック web サイトを使用して、`controller`リスト 1 でします。 これは、`controller`という名前の 2 つのアクションを含む`Index()`と`Create()`します。
 
@@ -64,11 +61,9 @@ ms.locfileid: "59402441"
 
 このテキストは、警告メッセージ ボックスを表示する JavaScript スクリプトを表します。 このスクリプトを送信するフィードバックにだれかが後のフォームのメッセージ<em>Boo!</em>すべてのユーザー アクセス、カスタマー フィードバックの web サイト、将来 (図 2 参照) されるたびに表示されます。
 
-
 [![JavaScript インジェクション](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
 
 **図 02**:JavaScript インジェクション ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-vb/_static/image6.png))。
-
 
 ここで、JavaScript インジェクション攻撃への初期応答には、無関心可能性があります。 JavaScript インジェクション攻撃がの型だけであると思うかもしれません*ねらい*攻撃です。 JavaScript インジェクション攻撃を受けるをコミットすることによってはだれ何か本当に有害なことができますと思われる場合があります。
 
@@ -92,11 +87,9 @@ JavaScript インジェクション攻撃を防ぐの簡単な方法では HTML 
 
 これは平均値を HTML 文字列をエンコードするでしょうか。 文字列をエンコードする HTML と危険な文字など`<`と`>`など HTML エンティティ参照に置き換え`&lt;`と`&gt;`します。 したがって、文字列`<script>alert("Boo!")</script>`html エンコードされる場合に変換を取得`&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`します。 エンコードされた文字列は、ブラウザーによって解釈される場合は、JavaScript スクリプトとして実行されなくなります。 代わりに、図 3 害のないページを取得します。
 
-
 [![JavaScript の敗北攻撃](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
 **図 03**:JavaScript の攻撃を阻止 ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-vb/_static/image9.png))。
-
 
 インシデントを`Index`リスト 3 での値のみを表示します。`feedback.Message`はエンコードされます。 値`feedback.EntryDate`がエンコードされていません。 のみ、ユーザーによって入力されたデータをエンコードする必要があります。 EntryDate の値が、コント ローラーで生成されたためする必要がありますを HTML をエンコードしません。 この値。
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 239c7aa8-d09a-4d02-9c0e-6bd52be5f0d5
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: d915cb5d7d40bb2cc355a5e45befe124a7b60dc4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b3293a9b6a35a162d4e27f061dfd3bfd28e0eda5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398489"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126000"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web 配置発行の Web サーバーを構成する (リモート エージェント)
 
@@ -30,7 +30,6 @@ ms.locfileid: "59398489"
 > - 使用*オフライン展開*します。 このアプローチには、web サーバーの最低限の構成が必要ですが、サーバー管理者は、サーバー上に web パッケージのコピーし IIS マネージャーからインポートする必要があります手動でします。
 > 
 > 主な機能、利点、およびこれらのアプローチの欠点の詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)します。
-
 
 ## <a name="is-the-web-deploy-remote-agent-the-right-approach-for-you"></a>Web では、リモート エージェントの適切なアプローチを展開するのでしょうか。
 
@@ -64,7 +63,6 @@ ms.locfileid: "59398489"
 > [!NOTE]
 > コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。 リモート エージェント サービスは、IIS 6 で以降はサポートされするドメインに参加させる必要はありません。 ただし、このチュートリアルの手順では開発され、IIS 7.5 でテストし、他のバージョンの手順が異なる場合があります。
 
-
 ## <a name="install-products-and-components"></a>製品とコンポーネントをインストールします。
 
 このセクションで、web サーバーで必要な製品とコンポーネントのインストールを説明します。 開始する前に、サーバーが完全に最新であることを確認する Windows 更新プログラムを実行することをお勧めは。
@@ -78,7 +76,6 @@ ms.locfileid: "59398489"
 
 > [!NOTE]
 > このチュートリアルでは、Web Platform Installer をインストールに必要なコンポーネントの構成の使用について説明します。 Web Platform Installer を使用する必要はありません、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、次を参照してください。 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)します。
-
 
 **必要な製品とコンポーネントをインストールするには**
 
@@ -184,7 +181,6 @@ Web サイト コンテンツを配信するためには、アプリケーショ
 
 > [!NOTE]
 > IIS 7.5 でアプリケーション プール id の詳細については、[アプリケーション プール Id ](https://go.microsoft.com/?linkid=9805123) を参照してください。
-
 
 **IIS の web サイトのフォルダーのアクセス許可を構成するには**
 

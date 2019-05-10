@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 2b5d2a355a27bfe9a3aa8b2fa4a2de79c7f74314
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6894d01af7cd142a5579f73ae5209ca13756ca52
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387127"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120751"
 ---
 # <a name="adding-validation"></a>検証の追加
 
@@ -84,7 +84,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 > [!NOTE]
 > コンマを使用するロケールを英語以外の jQuery の検証をサポートするために (「,」)、小数点を NuGet を含める必要がありますこのチュートリアルで前述のようにグローバル化します。
 
-
 どのフォームが自動的に赤い境界線の色を強調表示に使用無効なデータが含まれ、それぞれの横にある該当する検証エラー メッセージが生成するテキスト ボックスに注意してください。 エラーは、(JavaScript と jQuery を使用している) クライアント側とサーバー側 (ユーザーが JavaScript を無効にしている場合) の両方に適用されます。
 
 実際のメリットは、1 行のコードを変更する必要はありませんでした、`MoviesController`クラスまたは、 *Create.cshtml*この検証 UI を有効にするために表示します。 このチュートリアルで前に作成したコントローラーとビューにより、`Movie` モデル クラスのプロパティで検証属性を使って指定した検証規則が自動的に取得されます。 `Edit` アクション メソッドを使って検証をテストします。同じ検証が適用されます。
@@ -135,9 +134,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
-
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
-
 
 `ApplyFormatInEditMode`設定では、指定した書式設定も適用されることを編集するためのテキスト ボックスが表示されたら、値を指定します。 (たくないをいくつかのフィールドをたとえば、通貨の値のたくない、テキスト ボックスに通貨記号を編集するためです)。
 
@@ -155,7 +152,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
 > 使用する jQuery の日付検証を無効にする必要があります、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)します。 これは一般にコンパイルを使用して、モデルで日付をハードコーディングすることをお勧め、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)をお勧めします。
-
 
 次のコードは、1 行で複数の属性を組み合わせる例です。
 

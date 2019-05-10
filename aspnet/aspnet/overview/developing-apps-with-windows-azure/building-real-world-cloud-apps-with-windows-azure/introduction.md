@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7daf08a88c614288170d676e665403cda244218a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118661"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure での実際のクラウド アプリの構築
 
@@ -24,7 +24,6 @@ ms.locfileid: "59412412"
 > この電子書籍手法について説明、パターンに基づいた現実世界のクラウド ソリューションを構築します。 パターンは、ほかのアーキテクチャとコーディングのプラクティス、開発プロセスに適用されます。
 > 
 > Scott Guthrie によって開発され、2013 年 6 月の Norwegian 開発者 Conference (NDC) で自分が配信プレゼンテーションに基づいて、コンテンツ ([パート 1](http://vimeo.com/68215538)、[パート 2](http://vimeo.com/68215602)) とで Microsoft Tech Ed オーストラリア2013 年 9 月 ([パート 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)、[パート 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325))。 [その他の多く](more-patterns-and-guidance.md#acknowledgments)更新およびビデオから記述形式への移行中に、コンテンツを増強します。
-
 
 ## <a name="intended-audience"></a>対象読者
 

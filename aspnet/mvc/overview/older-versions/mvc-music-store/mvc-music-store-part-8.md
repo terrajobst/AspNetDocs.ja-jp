@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 2ba210d8c541c6c330dda74706470fa73a81474a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 89897ad41b217764cbd17317d4bf5d6a5c5d488f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379483"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112908"
 ---
 # <a name="part-8-shopping-cart-with-ajax-updates"></a>第 8 部:ショッピング カートと Ajax 更新
 
@@ -24,7 +24,6 @@ ms.locfileid: "59379483"
 > MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
 >   
 > このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 8 では、ショッピング カートと Ajax 更新について説明します。
-
 
 ユーザー登録を行わない、カートにアルバムを配置する を許可しますが、完全なチェック アウトをゲストとして登録する必要があります。 買い物とチェック アウト プロセスが 2 つのコント ローラーに区切られる: 匿名で、カートにアイテムを追加できるように、ShoppingCart コント ローラーとチェック アウト プロセスを処理するチェック アウト コント ローラー。 このセクションでショッピング カートの開始をし、次のセクションで、清算処理をビルドします。
 
@@ -156,7 +155,6 @@ ShoppingCart クラスは、次のメソッドを公開します。
 ![](mvc-music-store-part-8/_static/image8.png)
 
 ショッピング カートのアイテムをカートに追加する登録されていないユーザーが作業を構築しました。 次のセクションで登録し、チェック アウト プロセスを完了することができます。
-
 
 > [!div class="step-by-step"]
 > [前へ](mvc-music-store-part-7.md)

@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: fa0573738fee8f1decc13c9797f644002931e09d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e31bf3215155b4b45bcf2eb90dd6947caf99b7f8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381498"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125263"
 ---
 # <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 エンドポイントの作成
 
@@ -35,7 +35,6 @@ ms.locfileid: "59381498"
 > - [Fiddler の Web デバッグ プロキシ (省略可能)](http://www.fiddler2.com)
 >
 > Web API OData のサポートが追加された[ASP.NET および Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=282650)します。 ただし、このチュートリアルでは、Visual Studio 2013 で追加されたスキャフォールディングを使用します。
-
 
 このチュートリアルでは、クライアントを照会できる単純な OData エンドポイントを作成します。 C# クライアント エンドポイントも作成します。 このチュートリアルを完了すると、次の一連のチュートリアルは、エンティティ関係、アクションを含む、多くの機能を追加する方法を示すし、$展開/$ を選択します。
 
@@ -77,7 +76,6 @@ Visual Studio を起動し、選択**新しいプロジェクト**スタート �
 
 > [!NOTE]
 > 慣例により、モデル クラスは、Models フォルダーに配置されます。 独自のプロジェクトでこの規則に従う必要はありませんが、このチュートリアルを使用します。
-
 
 Product.cs ファイルでは、次のクラス定義を追加します。
 

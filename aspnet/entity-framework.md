@@ -8,23 +8,21 @@ ms.author: riande
 ms.date: 03/12/2010
 msc.legacyurl: /entity-framework
 msc.type: content
-ms.openlocfilehash: 26862565b23f60baf3698c0c6d63c7daa147abe0
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: c6fe7605a7386621bd4a962b3c3b011fb80b11c8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905658"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118249"
 ---
 # <a name="entity-framework"></a>Entity Framework
 
 Entity Framework (EF) は、.NET 開発者は、ドメイン固有オブジェクトを使用してリレーショナル データを操作できるようにするオブジェクト リレーショナル マッパーです。 開発者が通常記述しなければならないデータアクセス コードの多くが不要になります。
 
-
 - [これを取得します。](https://msdn.com/data/ee712906)これをプロジェクトに追加して、この強力な O/RM の利用を開始
 - [概要します。](https://msdn.com/data/ee712907)ビデオと、データを最大限に活用するのに役立つチュートリアル、ガイドを参照してください。
 - [ヘルプを取得します。](https://msdn.com/data/hh913619)専門家からヘルプを取得し、Stack Overflow で、データのコミュニティに貢献する方法を確認します。
 - [影響を与えます。](https://github.com/aspnet/EntityFramework6)GitHub サイトにアクセスして、Entity Framework、オープン開発モデルのことをさらにどのように役立つを紹介します。
-
 
 ASP.NET で Entity Framework を使用します。
 

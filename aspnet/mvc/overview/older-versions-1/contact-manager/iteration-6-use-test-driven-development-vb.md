@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd252b94e55f02215a2733f218e68b26486691f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b166a1c6af29206d43558fa7de447c3f4da2ddfe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123870"
 ---
 # <a name="iteration-6--use-test-driven-development-vb"></a>繰り返し #6 – テスト駆動開発 (VB) を使用します。
 
@@ -23,9 +23,7 @@ ms.locfileid: "59397111"
 
 > この 6 番目のイテレーションでは、アプリケーションに新しい機能を追加には、まず単体テストの記述、単体テストに対してコードを記述します。 このイテレーションは、連絡先グループを追加します。
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>ASP.NET MVC 連絡先管理アプリケーション (VB) の構築
-  
 
 このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。
 
@@ -73,7 +71,6 @@ Contact Manager アプリケーションの前のイテレーションでは、�
 > 
 > Michael Feathers の書籍を読むことを勧めはテスト駆動開発の詳細については、**レガシー コードを効率的に作業**します。
 
-
 このイテレーションでは、Contact Manager アプリケーションに新しい機能を追加します。 連絡先グループのサポートを追加します。 ビジネスなどのカテゴリに連絡先を整理する連絡先グループと友人のグループを使用することができます。
 
 この新しい機能のテスト駆動開発のプロセスに従って、アプリケーションに追加します。 最初に、単体テストを記述し、すべてのこれらのテストに対して、コードを記述します。
@@ -112,11 +109,9 @@ Contact Manager アプリケーションの前のイテレーションでは、�
 
 ContactManager.Tests プロジェクトで、Controllers フォルダーを右クリックして新しい単体テストの作成を選択すると**追加]、[新しいテスト**を選択して、**単体テスト**テンプレート (図 1 参照)。 名前の新しい単位が GroupControllerTest.vb をテストし、をクリックして、 **OK**ボタンをクリックします。
 
-
 [![GroupControllerTest 単体テストを追加します。](iteration-6-use-test-driven-development-vb/_static/image1.jpg)](iteration-6-use-test-driven-development-vb/_static/image1.png)
 
 **図 01**:GroupControllerTest 単体テストを追加する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image2.png))。
-
 
 リスト 1 で最初の単体テストが含まれています。 このテストでは、グループのコント ローラーの Index() メソッドがグループのセットを返しますを確認します。 テストは、グループのコレクションがビュー内のデータで返されることを確認します。
 
@@ -140,11 +135,9 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 最初の単体テストが正常に完了後に GroupController とグループのクラスをプロジェクトを追加します (図 2 参照)。 テストに合格するために必要な最低限の作業を行っています。 時間を記念することをお勧めします。
 
-
 [![Success!](iteration-6-use-test-driven-development-vb/_static/image2.jpg)](iteration-6-use-test-driven-development-vb/_static/image3.png)
 
 **図 02**:Success!([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image4.png))。
-
 
 ## <a name="creating-contact-groups"></a>連絡先グループを作成します。
 
@@ -216,11 +209,9 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample11.vb)]
 
-
 使用して EntityContactManagerRepository クラスで CreateGroup() と ListGroups() メソッドを実装するインターフェイスが必要です IContactManagerRepository を変更します。 これを行う laziest で時間のかからない方法は、次のようにスタブ メソッドを追加します。
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample12.vb)]
-
 
 最後に、これらの変更をアプリケーションの設計には、いくつかの単体テストを変更することが必要です。 これで、単体テストを実行するときに、FakeContactManagerRepository を使用する必要があります。 更新された GroupControllerTest クラスは、12 の一覧に含まれます。
 
@@ -243,12 +234,10 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 <a id="0.12_table01"></a>
 
-
 | **列名** | **[データ型]** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | int | False |
 | 名前 | nvarchar (50) | False |
-
 
 次に、Contacts テーブルからすべてのデータを削除する必要があります (それ以外の場合、私たちはできません連絡先およびグループのテーブル間のリレーションシップを作成する)。 この場合は、以下の手順に従ってください。
 
@@ -267,16 +256,13 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 8. 外部キーのリレーションシップ ダイアログを閉じる閉じる ボタンをクリックします。
 9. Contacts テーブルに対する変更を保存する [保存] ボタンをクリックします。
 
-
 [![データベース テーブルのリレーションシップを作成します。](iteration-6-use-test-driven-development-vb/_static/image3.jpg)](iteration-6-use-test-driven-development-vb/_static/image5.png)
 
 **図 03**:データベース テーブルのリレーションシップを作成する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image6.png))。
 
-
 [![テーブルのリレーションシップを指定します。](iteration-6-use-test-driven-development-vb/_static/image4.jpg)](iteration-6-use-test-driven-development-vb/_static/image7.png)
 
 **図 04**:テーブルのリレーションシップを指定する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image8.png))。
-
 
 ### <a name="updating-our-data-model"></a>このデータ モデルを更新します。
 
@@ -288,19 +274,15 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 4. グループ エンティティを右クリックし、メニュー オプションを選択**の名前を変更**します。 名前を変更、*グループ*エンティティ*グループ*(単数形)。
 5. Contact エンティティの下部に表示されるグループ ナビゲーション プロパティを右クリックします。 名前を変更、*グループ*ナビゲーション プロパティを*グループ*(単数形)。
 
-
 [![データベースから Entity Framework モデルを更新しています](iteration-6-use-test-driven-development-vb/_static/image5.jpg)](iteration-6-use-test-driven-development-vb/_static/image9.png)
 
 **図 05**:データベースから Entity Framework モデルを更新しています ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image10.png))。
 
-
 次の手順を完了すると、データ モデルは、連絡先とグループの両方のテーブルを表します。 エンティティ デザイナーは、両方のエンティティを表示する必要があります (図 6 参照)。
-
 
 [![エンティティ デザイナーのグループと連絡先を表示します。](iteration-6-use-test-driven-development-vb/_static/image6.jpg)](iteration-6-use-test-driven-development-vb/_static/image11.png)
 
 **図 06**:エンティティ デザイナーのグループと連絡先を表示する ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image12.png))。
-
 
 ### <a name="creating-our-repository-classes"></a>リポジトリ クラスを作成します。
 
@@ -329,11 +311,9 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 - Views\Group\Index.aspx - 連絡先グループの一覧を表示
 - Views\Group\Delete.aspx - 連絡先グループの削除確認フォームを表示します
 
-
 [![グループのインデックス ビュー](iteration-6-use-test-driven-development-vb/_static/image7.jpg)](iteration-6-use-test-driven-development-vb/_static/image13.png)
 
 **図 07**:グループのインデックス ビュー ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image14.png))。
-
 
 連絡先グループが含まれるように、次の既存のビューを変更する必要があります。
 
@@ -343,11 +323,9 @@ Visual Studio ではリスト 1 で最初に、コードを入力すると、大
 
 このチュートリアルに付属する Visual Studio アプリケーションを調べることで変更されたビューを表示できます。 たとえば、図 8 は、連絡先のインデックス ビューを示しています。
 
-
 [![連絡先のインデックス ビュー](iteration-6-use-test-driven-development-vb/_static/image8.jpg)](iteration-6-use-test-driven-development-vb/_static/image15.png)
 
 **図 08**:連絡先の Index ビュー ([フルサイズの画像を表示する をクリックします](iteration-6-use-test-driven-development-vb/_static/image16.png))。
-
 
 ## <a name="summary"></a>まとめ
 

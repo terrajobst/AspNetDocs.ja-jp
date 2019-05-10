@@ -8,12 +8,12 @@ ms.date: 03/02/2009
 ms.assetid: 204b7e86-f560-4611-8adb-785b33e777b9
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 180b34e45ae97c64c82906c93aa647c4924d8539
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 60636b79ab5fc06ca904dee90ce74f256e046d12
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123626"
 ---
 # <a name="creating-a-controller-vb"></a>コントローラーを作成する (VB)
 
@@ -21,29 +21,23 @@ ms.locfileid: "59398112"
 
 > このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションをコント ローラーを追加する方法について説明します。
 
-
 このチュートリアルの目的では、作成する新しい ASP.NET MVC コント ローラーについて説明します。 Visual Studio コント ローラーの追加 メニュー オプションを使用して、クラス ファイルを手動で作成して、コント ローラーを作成する方法について説明します。
 
 ### <a name="using-the-add-controller-menu-option"></a>使用して、コント ローラーのメニュー オプションの追加
 
 新しいコント ローラーを作成する最も簡単な方法は、Visual Studio ソリューション エクスプ ローラー ウィンドウで、Controllers フォルダーを右クリックして、選択、**追加、コント ローラー**メニュー オプション (図 1 参照)。 このメニュー オプションを選択すると表示、**コント ローラーの追加**ダイアログ (図 2 参照)。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](creating-a-controller-vb/_static/image1.jpg)](creating-a-controller-vb/_static/image1.png)
 
 **図 01**:新しいコント ローラーの追加 ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image2.png))。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](creating-a-controller-vb/_static/image2.jpg)](creating-a-controller-vb/_static/image3.png)
 
 **図 02**:コント ローラーの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image4.png))。
 
-
 コント ローラー名の最初の部分が強調表示されますが、**コント ローラーの追加**ダイアログ。 サフィックスを持つすべてのコント ローラー名が終了する必要があります*コント ローラー*します。 たとえば、という名前のコント ローラーを作成することができます *「productcontroller」* がという名前のコント ローラー以外*製品*します。
 
-
 不足しているコント ローラーを作成する場合、*コント ローラー*コント ローラーを起動することはできませんし、サフィックスが付いています。 これを行わない--この間違いを犯す後に自分の人生に膨大な時間を無駄しました。
-
 
 **Listing 1 - Controllers\ProductController.vb**
 
@@ -55,11 +49,9 @@ Controllers フォルダーで、常にコント ローラーを作成する必�
 
 コント ローラーを作成するときに自動的に作成、更新、および詳細のアクション メソッドを生成するオプションがある (図 3 を参照してください)。 このオプションを選択する場合は、リスト 2 でコント ローラー クラスが生成されます。
 
-
 [![アクション メソッドを自動的に作成します。](creating-a-controller-vb/_static/image3.jpg)](creating-a-controller-vb/_static/image5.png)
 
 **図 03**:アクション メソッドを自動的に作成する ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image6.png))。
-
 
 **Listing 2 - Controllers\CustomerController.vb**
 
@@ -75,11 +67,9 @@ ASP.NET MVC コント ローラーは、単なるクラスです。 場合は、
 2. 新しいクラス PersonController.vb の名前を指定し、をクリックして、**追加**ボタンをクリックします。
 3. (リスト 3 参照)、基本 System.Web.Mvc.Controller クラスからクラスを継承するので、結果として得られるクラス ファイルを変更します。
 
-
 [![新しいクラスを作成します。](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
 
 **図 04**:新しいクラスを作成する ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image8.png))。
-
 
 **Listing 3 - Controllers\PersonController.vb**
 

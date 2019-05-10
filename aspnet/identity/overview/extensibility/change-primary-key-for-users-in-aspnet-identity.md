@@ -9,12 +9,12 @@ ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 212b07494381d13f6ded96a41b846dcdf7e8ff16
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 540a355819ac2b2e58d7c73284899f6ca2f684d1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393744"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118092"
 ---
 # <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity でユーザーの主キーを変更する
 
@@ -29,7 +29,6 @@ ms.locfileid: "59393744"
 > 
 > - Visual Studio 2013 with Update 2 (またはそれ以降)
 > - ASP.NET Identity 2.1 以降
-
 
 このチュートリアルでは、手順を実行するには、Visual Studio 2013 Update 2 (またはそれ以降) と ASP.NET Web アプリケーション テンプレートから作成された web アプリケーションが必要です。 更新プログラム 3 で変更するテンプレートです。 このトピックでは、更新プログラム 2 と Update 3 でテンプレートを変更する方法を示します。
 

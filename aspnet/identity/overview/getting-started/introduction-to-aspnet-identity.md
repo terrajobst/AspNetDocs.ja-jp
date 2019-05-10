@@ -9,18 +9,16 @@ ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 34a0d62d7afcaffa8fbac0bc774d9266efb6b165
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0268dfc16cd2cfb1e79ee14997a4c5eb247af950
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413049"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121564"
 ---
 # <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity 入門
 
-
 > ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 のバックしているので 2005年では、web アプリケーションは、通常は認証と承認に処理の方法で多くの変更されているし。 ASP.NET Identity では、メンバーシップ システムべきは、web、電話、またはタブレット向けのモダン アプリケーションを作成するときに改めて注目です。
-
 
 ## <a name="background-membership-in-aspnet"></a>背景: ASP.NET のメンバーシップ
 
@@ -122,7 +120,6 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
    によって署名彼女は、ユーザーが正常に作成された場合、`SignInAsync`メソッド。  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample6.cs?highlight=12)]
-
 
    `SignInManager.SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)します。 ASP.NET Identity と OWIN クッキー認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなど、ユーザーのすべての要求についての情報があります。   
  

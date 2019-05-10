@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
-ms.openlocfilehash: 482119a97f30e24472231897e8db31685c451a0f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5bb9ee8f758a25afa6baf3ccbaf7d5864754c7df
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400790"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113356"
 ---
 # <a name="breezeknockout-template"></a>Breeze/Knockout テンプレート
 
@@ -22,7 +22,6 @@ ms.locfileid: "59400790"
 > Ward Bell によって Breeze/knockout の MVC テンプレートが作成されました
 > 
 > [Breeze/knockout MVC テンプレートをダウンロードします。](https://go.microsoft.com/fwlink/?LinkId=282649)
-
 
 「シングル ページ アプリケーション」の聞いた (SPA) とは何か疑問に思います。 読み取ることについて、中には自分で発生するとではなく。 しかし、サンプルをダウンロードする時間を持つでしょうか。 Visual Studio が得られたら、SPA の使用例を必要があり、ASP.NET mvc 4 の「Breeze/knockout シングル ページ アプリケーション」テンプレート秒 60 では未満で実行されています。
 

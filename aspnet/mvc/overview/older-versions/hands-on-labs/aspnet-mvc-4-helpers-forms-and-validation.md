@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 639a8e0e5fd9557221c95aee1bef0294df047ae8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0e2605a4188eaf814f6ab0ebfeaabed4457bcfa3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406315"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112506"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 ヘルパー、フォーム、検証
 
@@ -90,13 +90,12 @@ ms.locfileid: "59406315"
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**60 分**
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Creating_the_Store_Manager_controller_and_its_Index_view"></a>
-### <a name="exercise-1-creating-the-store-manager-controller-and-its-index-view"></a>手順 1:ストア マネージャー コント ローラーとそのインデックス ビューを作成します。
+### <a name="exercise-1-creating-the-store-manager-controller-and-its-index-view"></a>演習 1:ストア マネージャー コント ローラーとそのインデックス ビューを作成します。
 
 この演習では、CRUD 操作をサポートするには、データベースおよび最後に、インデックス ビュー テンプレートを活用 ASP.NET MVC のスキャフォールディングを生成からアルバムのリストを返すため、インデックス アクション メソッドをカスタマイズする新しいコント ローラーを作成する方法について説明しますHTML テーブルのアルバムのプロパティを表示する機能。
 
@@ -177,7 +176,6 @@ ms.locfileid: "59406315"
 > [!NOTE]
 > **スキャフォールディング**ASP.NET MVC でのサポートは、アルバムのモデルのすべてのフィールドの一覧を表示する単純なビュー テンプレートを生成します。 **スキャフォールディング**厳密に型指定されたビューで開始する簡単な方法を提供します。 ビュー テンプレートを手動で記述するのではなくすばやくスキャフォールディング既定のテンプレートを生成し、し、生成されたコードを変更することができます。
 
-
 1. 作成したコードを確認します。 生成されたフィールドの一覧を次の一部となる HTML テーブルを**スキャフォールディング**が表形式のデータを表示するために使用しています。
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
@@ -205,7 +203,7 @@ ms.locfileid: "59406315"
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Adding_an_HTML_Helper"></a>
-### <a name="exercise-2-adding-an-html-helper"></a>手順 2:HTML ヘルパーを追加します。
+### <a name="exercise-2-adding-an-html-helper"></a>演習 2:HTML ヘルパーを追加します。
 
 StoreManager インデックス ページには、1 つの潜在的な問題があります。タイトル、アーティスト名のプロパティ両方できる、テーブルを書式設定をスローするのに十分な長さ。 この演習では、そのテキストを切り捨てるカスタム HTML ヘルパーを追加する方法を学びます。
 
@@ -224,7 +222,6 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
 
 > [!NOTE]
 > 詳細について**拡張メソッド**、こちらの msdn 記事をご覧ください。 [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
-
 
 1. 開く、**開始**ソリューションがある**ソース/Ex2-AddingAnHTMLHelper/開始/** フォルダー。 使用を続ける可能性がありますそれ以外の場合、**エンド**ソリューションは、前の演習を完了して取得します。
 
@@ -404,7 +401,7 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Adding_a_Create_View"></a>
-### <a name="exercise-4-adding-a-create-view"></a>手順 4:作成ビューの追加
+### <a name="exercise-4-adding-a-create-view"></a>演習 4:作成ビューの追加
 
 これで、 **StoreManagerController**をサポートしています、**編集**格納できるようにするビューの作成テンプレートを追加する方法について説明しますが、この演習では、機能マネージャーは、アプリケーションに新しいアルバムを追加します。
 
@@ -505,7 +502,7 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
 <a id="Exercise5"></a>
 
 <a id="Exercise_5_Handling_Deletion"></a>
-### <a name="exercise-5-handling-deletion"></a>手順 5:削除の処理
+### <a name="exercise-5-handling-deletion"></a>演習 5:削除の処理
 
 アルバムを削除する機能はまだ実装されていません。 これは、この演習の詳細になります。 内の 2 つの個別のメソッドを使用して、削除のシナリオを実装する前に、ように、 **StoreManagerController**クラス。
 
@@ -665,7 +662,6 @@ StoreManager インデックス ページには、1 つの潜在的な問題が�
 
 > [!NOTE]
 > 控えめな jQuery では、データ、ajax プレフィックス JavaScript を使用して、インライン クライアント スクリプトの出力をそのままの状態ではなく、サーバー上のアクション メソッドを呼び出します。
-
 
 <a id="Ex7Task1"></a>
 

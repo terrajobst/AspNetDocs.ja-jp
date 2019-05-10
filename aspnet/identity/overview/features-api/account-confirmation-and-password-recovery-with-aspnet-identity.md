@@ -9,12 +9,12 @@ ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2e4cd21d66e69590fb1642d7974e4b7f82cba0cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ded3a9d931cc4cd4b99c1cb5012469fe66209f76
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118026"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>ASP.NET Identity での確認とパスワードの回復をアカウント (C#)
 
@@ -66,7 +66,6 @@ ms.locfileid: "59396422"
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET Web アプリを作成する
 
 インストールと実行によって開始[Visual Studio 2017](https://visualstudio.microsoft.com/)します。
-
 
 1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームは ASP.NET Identity をもサポートするため、web フォーム アプリで同じ手順を実行できます。
 2. 認証の変更**個々 のユーザー アカウント**します。
@@ -153,7 +152,6 @@ OWIN`AuthenticationManager.SignIn`メソッドで、`ClaimsIdentity`とし、ユ
 > [!WARNING]
 > このサンプルでは、セキュリティ設定を変更する場合は、運用アプリを加えられた変更を明示的に呼び出すのセキュリティ監査を受ける必要があります。
 
-
 ## <a name="examine-the-code-in-appstartidentityconfigcs"></a>アプリでコードを調べる\_Start\IdentityConfig.cs
 
 アカウントを作成しに追加する方法を示します、*管理者*ロール。 サンプルの電子メールを管理者アカウントを使用する電子メールと置き換える必要があります。 管理者アカウントを作成するには、現在最も簡単な方法は、プログラム的に、`Seed`メソッド。 作成し、ユーザーとロールを管理することがツールを将来があることと思います。 サンプル コードには、ユーザーとロールを作成および管理することは、ロールとユーザー管理ページを実行する管理者アカウントがあります。 このサンプルでは、DB のシード処理時に、管理者アカウントが作成されます。
@@ -184,14 +182,12 @@ OWIN`AuthenticationManager.SignIn`メソッドで、`ClaimsIdentity`とし、ユ
 > [!NOTE]
 > 電子メール クライアントには、頻繁にテキスト メッセージ (HTML なし) のみがそのまま使用します。 テキストおよび HTML でメッセージを指定する必要があります。 上記の SendGrid サンプルでは、これは、`myMessage.Text`と`myMessage.Html`上記のコード。
 
-
 次のコードは、電子メールを使用して送信する方法を示します、 [MailMessage](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx)クラス`message.Body`リンクのみを返します。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
 > [!WARNING]
 > セキュリティ - ソース コード内の機密データは store ことはありません。 アカウントと資格情報は、appSetting で格納されます。 Azure では安全に保管するこれらの値で、 **[構成](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portal でのタブ。 参照してください[ASP.NET と Azure へパスワードやその他の機密データを展開するためのベスト プラクティス](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)します。
-
 
 アプリを実行するには、電子メール エイリアス登録リンクを選択して確認の電子メール、SendGrid の資格情報を入力します。 これを行う方法について、 [Outlook.com](http://outlook.com)電子メール アカウントは、John Atten の[ C# Outlook.Com SMTP ホスト用の SMTP 構成](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx)彼と[ASP.NET Identity 2.0。アカウントの検証を設定し、2 要素認証](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx)投稿します。
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: b8283698-7b82-42a8-8d83-3aeb18ca7fcc
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 1f2dc0fea9eeca64b9389881470353c5cca473e0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bc7bb676a71af4ec3451aa3adf3c03ce3b5200d5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396318"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114762"
 ---
 # <a name="web-deployment-in-the-enterprise"></a>エンタープライズの Web 配置
 
@@ -24,7 +24,6 @@ ms.locfileid: "59396318"
 > このチュートリアルでは、エンタープライズ規模の web アプリケーションを開発、テスト、ステージング、および運用環境のデプロイを管理するときに発生する課題の多くを達成する方法について説明します。 このチュートリアルには、さまざまな一般的なタスクと手順について説明する概念とタスク指向のコンテンツの組み合わせと共に参照ソリューションが含まれています。
 > 
 > これらのチュートリアルのイタリア語の翻訳を参照してください。 [ http://www.lucamorelli.it](http://www.lucamorelli.it)します。
-
 
 ## <a name="enterprise-deployment-challenges"></a>エンタープライズ展開の課題
 

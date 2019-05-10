@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 28ad8f80-b8a5-444e-b478-8b15a846060c
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 68080859e205283f56d8f543bfa06b76bb22a39d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 32e81cce34a0e0b1f6b01934334e1b66dce89651
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408863"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123919"
 ---
 # <a name="iteration-5--create-unit-tests-c"></a>繰り返し #5 – 単体テストの作成 (c#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59408863"
 [コードをダウンロードします。](iteration-5-create-unit-tests-cs/_static/contactmanager_5_cs1.zip)
 
 > 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスの模擬テストを実行し、コント ローラーと検証ロジックの単体テストをビルドします。
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
 
@@ -43,7 +42,6 @@ ms.locfileid: "59408863"
 - 繰り返し #6 - は、テスト駆動開発を使用します。 この 6 番目のイテレーションでは、アプリケーションに新しい機能を追加には、まず単体テストの記述、単体テストに対してコードを記述します。 このイテレーションは、連絡先グループを追加します。
 
 - 繰り返し #7 - Ajax 機能を追加します。 7 番目のイテレーションで改良、応答性と、アプリケーションのパフォーマンスの Ajax のサポートを追加します。
-
 
 ## <a name="this-iteration"></a>このイテレーション
 
@@ -69,7 +67,6 @@ Contact Manager アプリケーションの前のイテレーションより緩�
 > 
 > さまざまな単体テスト フレームワークの NUnit、xUnit.net、MbUnit などがあります。 このチュートリアルでは、単体テスト フレームワークに含まれている Visual Studio を使用します。 ただし、同じくらい簡単に使用できますような別のフレームワークの 1 つ。
 
-
 ## <a name="what-gets-tested"></a>どのようなテストを取得します
 
 理想の世界では、すべてのコードは単体テストでカバーなります。 理想の世界では、完璧なセーフティ ネットがあります。 任意のアプリケーションのコード行を変更して、すぐに把握、単体テストを実行することによって、変更が既存の機能を中断するかどうかをすることができます。
@@ -88,11 +85,9 @@ Contact Manager アプリケーションの前のイテレーションより緩�
 > 
 > 書き込みは、データ アクセス ロジックのテストや、ビュー ロジックをお勧め単体テストを記述する場合、中には、関数型構築または統合テスト時にこれらのテストが非常に役に立つできます。
 
-
 > [!NOTE] 
 > 
 > ASP.NET MVC は、Web フォーム ビュー エンジンです。 Web フォームのビュー エンジンは、web サーバーに依存するその他のビュー エンジンはできない可能性があります。
-
 
 ## <a name="using-a-mock-object-framework"></a>モック オブジェクト フレームワークを使用します。
 
@@ -116,16 +111,13 @@ Moq を使用するには、次の手順を完了する必要があります。
 4. ContactManager.Tests プロジェクトの [参照] フォルダーを右クリックして、Moq アセンブリへの参照を追加**参照の追加**します。 [参照] タブの下には、Moq を解凍したフォルダーを参照して Moq.dll アセンブリを選択します。 をクリックして、 **OK**ボタンをクリックします。
 5. 次の手順を完了すると、図 2 よう、[参照] フォルダーになります。
 
-
 [![Moq のブロック解除](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
 
 **図 01**:ブロック解除 Moq ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image2.png))。
 
-
 [![Moq を追加した後の参照](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
 
 **図 02**:Moq を追加した後の参照 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image4.png))。
-
 
 ## <a name="creating-unit-tests-for-the-service-layer"></a>サービス層の単体テストの作成
 
@@ -137,11 +129,9 @@ ContactManager.Tests プロジェクトでモデルをという名前の新し�
 > 
 > 一般に、ASP.NET MVC プロジェクトのフォルダー構造と一致するテスト プロジェクトのフォルダー構造が必要です。 たとえば、コント ローラーのフォルダー、モデルのテストで、Models フォルダーにコント ローラーのテストを配置しなど。
 
-
 [![Models\ContactManagerServiceTest.cs](iteration-5-create-unit-tests-cs/_static/image3.jpg)](iteration-5-create-unit-tests-cs/_static/image5.png)
 
 **図 03**:Models\ContactManagerServiceTest.cs ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image6.png))。
-
 
 最初に、ContactManagerService クラスによって公開される CreateContact() メソッドをテストします。 次の 5 つのテストを作成します。
 
@@ -159,9 +149,7 @@ ContactManager.Tests プロジェクトでモデルをという名前の新し�
 
 [!code-csharp[Main](iteration-5-create-unit-tests-cs/samples/sample1.cs)]
 
-
 リスト 1 で、Contact クラスを使用しているため、テスト プロジェクトに Microsoft Entity Framework への参照を追加する必要があります。 System.Data.Entity アセンブリへの参照を追加します。
-
 
 1 を一覧表示するには、[TestInitialize] 属性で装飾された Initialize() という名前のメソッドが含まれています。 各単体テストの実行前に、このメソッドが自動的に呼び出される (回呼び出された 5 各単体テストの直前)。 Initialize() メソッドは、次のコード行で、モック リポジトリを作成します。
 
@@ -173,7 +161,6 @@ ContactManager.Tests プロジェクトでモデルをという名前の新し�
 > 
 > Moq フレームワークを使用する場合は、区別\_mockRepository と\_mockRepository.Object します。 以前のモックを指す&lt;IContactManagerRepository&gt;モック リポジトリの動作を指定するためのメソッドを含むクラスです。 後者の IContactManagerRepository インターフェイスを実装する実際のモック リポジトリを参照します。
 
-
 ContactManagerService クラスのインスタンスを作成するときに、モック リポジトリは Initialize() メソッドで使用されます。 すべての個々 の単体テストは、ContactManagerService クラスのこのインスタンスを使用します。
 
 1 を一覧表示するには、単体テストのそれぞれに対応する 5 つのメソッドが含まれています。 これらの各メソッドは、[TestMethod] 属性で修飾されます。 単体テストを実行すると、この属性を持つ任意のメソッドが呼び出されます。 つまり、[TestMethod] 属性で装飾した任意のメソッドは、単体テストです。
@@ -184,11 +171,9 @@ ContactManagerService クラスのインスタンスを作成するときに、�
 
 リスト 1 で単体テストを実行するには、メニュー オプションを選択して**ソリューション (CTRL + R、A) ですべてのテストを実行します。 テスト**します。 テスト結果 ウィンドウで、テストの結果が表示されます (図 4 参照)。
 
-
 [![テスト結果](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
 
 **図 04**:テスト結果 ([フルサイズの画像を表示する をクリックします](iteration-5-create-unit-tests-cs/_static/image8.png))。
-
 
 ## <a name="creating-unit-tests-for-controllers"></a>コント ローラーの単体テストの作成
 
@@ -212,7 +197,6 @@ CreateValidContact() の単体テストでは、サービス層の次のコー�
 
 場合は、サービス層には値 false が返されるときに、メソッドの動作は予想し Create() はビューを作成するを返す必要があります。 そうすること、コント ローラーを表示検証エラー メッセージでビューを作成し、ユーザーがその無効な連絡先のプロパティを訂正する機会。
 
-
 コント ローラーの単体テストをビルドする予定の場合は、コント ローラーのアクションからの明示的なビューの名前を返す必要があります。 たとえば、次のようにビューを返さない。
 
 return View();
@@ -222,7 +206,6 @@ return View();
 return View("Create");
 
 ビューを返すときに、明示的なことがない場合、ViewResult.ViewName プロパティは空の文字列を返します。
-
 
 **Listing 2 - Controllers\ContactControllerTest.cs**
 

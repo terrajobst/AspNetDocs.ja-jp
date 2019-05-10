@@ -8,15 +8,14 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e39fd3f2fc9d4e791002450085215096c222fcd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412009"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120007"
 ---
 # <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>ハンズ オン ラボ:SignalR によるリアルタイム Web アプリ
-
 
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
@@ -66,7 +65,6 @@ ms.locfileid: "59412009"
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>コード スニペットの使用
 
@@ -74,7 +72,6 @@ ms.locfileid: "59412009"
 
 > [!NOTE]
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
-
 
 ---
 
@@ -91,9 +88,8 @@ ms.locfileid: "59412009"
 > [!NOTE]
 > Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
 
-
 <a id="Exercise1"></a>
-### <a name="exercise-1-working-with-real-time-data-using-signalr"></a>手順 1:SignalR を使用してリアルタイムのデータの使用
+### <a name="exercise-1-working-with-real-time-data-using-signalr"></a>演習 1:SignalR を使用してリアルタイムのデータの使用
 
 全体を行うことができますチャットの使用が例としては、多くの場合、リアルタイム Web 機能を備えたより。 ユーザーは、新しいデータまたは長いポーリングが新しいデータを取得する Ajax ページの実装を表示する web ページを更新します。 いつでも SignalR を使用することができます。
 
@@ -250,7 +246,7 @@ SignalR をサポートしています**サーバー プッシュ**または**�
     *応答の後に更新された統計情報ページ*
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-scaling-out-using-sql-server"></a>手順 2:SQL Server を使用したスケール アウト
+### <a name="exercise-2-scaling-out-using-sql-server"></a>演習 2:SQL Server を使用したスケール アウト
 
 選択できます一般に、web アプリケーションをスケーリングするときに*スケール アップ*と*スケール アウト*オプション。 *スケール アップ*中にその他のリソース (CPU、RAM など) で大規模なサーバーを使用することを意味*スケール アウト*負荷を処理するサーバーを追加することを意味します。 後者の場合、問題は、クライアント別のサーバーにルーティングできることです。 1 つのサーバーに接続されているクライアントは、別のサーバーから送信されたメッセージを受信しません。
 
@@ -274,7 +270,6 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 > - [サーバー ブロードキャスト](tutorial-server-broadcast-with-signalr.md)(株価情報など)。バック プレーンがこのシナリオに動作するは、サーバー メッセージが送信される速度を制御するためです。
 > - [クライアントで](tutorial-getting-started-with-signalr.md)(チャットなど)。このシナリオでバック プレーン場合があります、ボトルネックのメッセージの数に合わせてクライアントの数メッセージの数が増加した場合は、それに比例して増えるクライアントが参加します。
 > - [高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)(リアルタイムのゲームなど)。このシナリオでは、バック プレーンは推奨されません。
-
 
 この演習では使用して**SQL Server**間でメッセージを配布する、**ギーク Quiz**アプリケーション。 完全な効果を取得するために、構成を設定する方法については、1 つのテスト マシンでこれらのタスクを実行するは、SignalR アプリケーションを 2 つまたは複数のサーバーをデプロイする必要があります。 サーバーのいずれか、または別の専用サーバーでは、SQL Server をインストールすることもする必要があります。
 

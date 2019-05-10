@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 0ad0b3c63741803e05274df4da3fcbe5481d32a4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 138ccb5800e801d382c11e3989ec3e3c074a79fe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391936"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115704"
 ---
 # <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の依存関係の挿入
 
@@ -30,7 +30,6 @@ ms.locfileid: "59391936"
 > - Web API 2
 > - [Unity Application Block](https://www.nuget.org/packages/Unity/)
 > - Entity Framework 6 の (バージョン 5 の機能も)
-
 
 ## <a name="what-is-dependency-injection"></a>依存関係の挿入とは何ですか。
 
@@ -88,7 +87,6 @@ IoC コンテナーは、依存関係の管理を担当するソフトウェア 
 > [!NOTE]
 > "IoC"「の制御の反転」の略フレームワークからアプリケーション コードを呼び出す、一般的なパターンは。 IoC コンテナーを構築、オブジェクト、コントロールの通常のフローの「反転」をします。
 
-
 このチュートリアルで使用して[Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns から&amp;プラクティス。 (その他の一般的なライブラリを含める[Castle Windsor](http://www.castleproject.org/)、 [Spring.Net](http://www.springframework.net/)、 [Autofac](https://code.google.com/p/autofac/)、 [Ninject](http://www.ninject.org/)、および[StructureMap](http://structuremap.github.io/documentation/).)NuGet パッケージ マネージャーを使用して、Unity をインストールすることができます。 **ツール** メニューの選択 Visual Studio で**NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
@@ -99,7 +97,6 @@ IoC コンテナーは、依存関係の管理を担当するソフトウェア 
 
 > [!NOTE]
 > 場合、 **GetService**返すかメソッドは、型を解決することはできません、 **null**します。 場合、 **GetServices**メソッドは、型を解決することはできません、空のコレクション オブジェクトを返す必要があります。 不明な型の例外をスローしません。
-
 
 ## <a name="configuring-the-dependency-resolver"></a>依存関係競合回避モジュールを構成します。
 

@@ -8,17 +8,16 @@ ms.date: 08/08/2011
 ms.assetid: caeb0bcb-b2e3-4c37-a1d5-420bb4e917ac
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks
 msc.type: chapter
-ms.openlocfilehash: cdd26f05aef75d1511482ae357f62258fbffce25
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ccb083a3ccb3228b8efe27a34d599e118ad84dff
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422318"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121952"
 ---
 # <a name="aspnet-4---tailspin-spyworks"></a>ASP.NET 4 - Tailspin Spyworks
 
 > ASP.NET 4 の新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法。
-
 
 - [第 1 部: 新しいプロジェクトのファイル](tailspin-spyworks-part-1.md)
 - [第 2 部: データ アクセス層](tailspin-spyworks-part-2.md)

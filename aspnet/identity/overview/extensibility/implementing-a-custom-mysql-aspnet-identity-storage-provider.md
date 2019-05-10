@@ -9,12 +9,12 @@ ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 224fa56a455affcbbdf76eceee5422850415037e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 227a48d76f099f948d89f38219e25ced026d7dcd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420771"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118112"
 ---
 # <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>カスタム MySQL ASP.NET Identity ストレージ プロバイダーの実装
 
@@ -31,7 +31,6 @@ ms.locfileid: "59420771"
 > - MVC アプリケーション プロジェクトにカスタム実装を既定の ASP.NET Identity ストレージの実装を置き換える方法を示します。
 > 
 > このチュートリアルは Raquel Soares De Almeida と Rick Anderson によって書き込まれた最初 ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )。 サンプル プロジェクトは、Identity 2.0 Suhas Joshi によって更新されました。 トピックは、Tom FitzMacken によって Identity 2.0 に更新されました。
-
 
 ## <a name="download-completed-project"></a>プロジェクトのダウンロードが完了しました
 

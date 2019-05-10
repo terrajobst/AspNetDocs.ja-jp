@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: f5b7cecdd1a8dbd9be1bd781cec31c53c9096546
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 221808758492aedb8e8329364e511df28fd11105
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383227"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119314"
 ---
 # <a name="deploying-database-projects"></a>データベース プロジェクトを配置する
 
@@ -23,7 +23,6 @@ ms.locfileid: "59383227"
 
 > [!NOTE]
 > エンタープライズ展開シナリオの多くは、配置されたデータベースに増分更新を発行する機能が必要です。 代わりに、すべてのデプロイでは、既存のデータベース内のデータが失われることを意味上のデータベースを再作成することです。 Visual Studio 2010 を使用する場合は、増分データベース発行に推奨される方法は VSDBCMD を使用します。 ただし、次のバージョンの Visual Studio と Web 発行パイプライン (WPP) 増分直接公開をサポートするツールが含まれます。
-
 
 Contact Manager サンプル ソリューションを開くには、Visual Studio 2010 で、データベース プロジェクトに 4 つのファイルを含むプロパティ フォルダーが含まれることがわかります。
 
@@ -81,9 +80,7 @@ Contact Manager サンプル ソリューションを開くには、Visual Studi
 
 VSDBCMD ユーティリティを使用して、データベース スキーマ (.dbschema ファイル) または配置マニフェスト (.deploymanifest ファイル) を使用してデータベースを展開できます。 実際には、配置マニフェストを使用すると、さまざまな展開のプロパティの既定値を指定し、配置前または配置後 SQL スクリプトを実行するように、配置マニフェストをほぼ常に使用します。 デプロイにこの VSDBCMD コマンドを使用するなど、 **ContactManager**データベースをテスト環境でデータベース サーバー。
 
-
 [!code-console[Main](deploying-database-projects/samples/sample1.cmd)]
-
 
 この場合、次のようになります。
 
@@ -107,21 +104,17 @@ MSBuild プロジェクト ファイルから、VSDBCMD を使用する方法の
 
 .Deploymanifest ファイルを使用している場合の動作ははるかに複雑です。 これは、.deploymanifest ファイルには、プロパティ名が含まれているため**DeployToDatabase**も、データベースが展開されているかどうかを決定します。
 
-
 [!code-xml[Main](deploying-database-projects/samples/sample2.xml)]
-
 
 このプロパティの値は、データベース プロジェクトのプロパティに従って設定されます。 設定した場合、**アクション展開**に**デプロイ スクリプト (.sql) 作成**、値になります**False**。 設定した場合、**アクション展開**に**デプロイ スクリプト (.sql) を作成し、データベースに展開**、値になります**True**します。
 
 > [!NOTE]
 > これらの設定は、特定のビルド構成とプラットフォームに関連付けられます。 設定を構成する場合など、**デバッグ**構成し、発行を使用して、**リリース**の構成の設定は使用されません。
 
-
 ![](deploying-database-projects/_static/image3.png)
 
 > [!NOTE]
 > このシナリオで、**アクション展開**に常に設定する必要があります**デプロイ スクリプト (.sql) 作成**Visual Studio 2010、データベースの配置をしたくないので。 つまり、 **DeployToDatabase**プロパティは常に**False**します。
-
 
 ときに、 **DeployToDatabase**プロパティが指定されて、 **/dd**プロパティの値がある場合は、スイッチに、プロパティはオーバーライドのみ**false**:
 

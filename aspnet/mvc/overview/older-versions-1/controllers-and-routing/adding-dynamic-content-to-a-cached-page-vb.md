@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 68acd884-fb57-4486-a1be-aaa93e380780
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0dae280dfa3028df5fda95c4366132c99a0dc3b7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f2f4372498e5a38bbfcb96d6e9f6338b0ef4df1f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409201"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123666"
 ---
 # <a name="adding-dynamic-content-to-a-cached-page-vb"></a>キャッシュされたページに動的コンテンツを追加する (VB)
 
@@ -21,16 +21,13 @@ ms.locfileid: "59409201"
 
 > 同じページで、動的およびキャッシュ済みコンテンツを混在させる方法について説明します。 キャッシュ後置換では、バナー広告またはキャッシュされた出力されたページ内のニュース項目などの動的なコンテンツを表示することができます。
 
-
 出力キャッシュの利用して、ASP.NET MVC アプリケーションのパフォーマンスを大幅に向上できます。 ページ、ページが要求されるたびに、再生成するのではなくページを 1 回生成し、複数のユーザー用のメモリにキャッシュすることができます。
 
 問題があります。 場合、ページに動的なコンテンツを表示する必要がありますか。 たとえば、バナー広告をページに表示することを想像してください。 すべてのユーザーがまったく同じ提供情報を認識するようにキャッシュするバナー広告は必要ありません。 その方法も収益を上げるはありません。
 
 さいわい、簡単なソリューションがあります。 呼ばれる ASP.NET フレームワークの機能の利用*キャッシュ後の置換*します。 キャッシュ後の置換を使用すると、メモリにキャッシュされているページで動的なコンテンツを置き換えることができます。
 
-
 通常、出力する場合、このページを使用して、キャッシュ、 &lt;OutputCache&gt;属性、ページは、サーバーとクライアント (web ブラウザー) の両方でキャッシュされます。 キャッシュ後の置換を使用すると、ページがサーバー上でのみキャッシュされます。
-
 
 #### <a name="using-post-cache-substitution"></a>キャッシュ後の置換を使用します。
 

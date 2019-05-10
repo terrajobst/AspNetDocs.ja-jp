@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 129d4338-1315-4f40-89b5-2b84b807707d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 18b1e5251b6c98352c8dc3cb59f631e9aa19804d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a5f798341fc56f1c164ee8cb6aa98620a7a45eb0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393811"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119561"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393811"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_18_VB.exe)または[PDF のダウンロード](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/datatutorial18vb1.pdf)
 
 > このチュートリアルは、挿入、更新、または ASP.NET データ Web コントロールの削除操作中に例外が発生する必要があります、親しみやすい、わかりやすいエラー メッセージを表示する方法が表示されます。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -44,16 +43,13 @@ ms.locfileid: "59393811"
 
 このシナリオに対応する必要がありますの別のオーバー ロード、`UpdateProduct`メソッドは、4 つのパラメーターを受け取る 1: 製品の名前、単価、在庫、および ID の単位 次のメソッドを追加、`ProductsBLL`クラス。
 
-
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample1.vb)]
 
 この方法で完全なこれら 4 つの特定の製品フィールドを編集できます。 ASP.NET ページを作成する準備ができました。 開く、`ErrorHandling.aspx`ページで、`EditInsertDelete`フォルダー、デザイナーを使用してページに GridView を追加します。 新しい ObjectDataSource では、GridView にバインド マッピング、`Select()`メソッドを`ProductsBLL`クラスの`GetProducts()`メソッドと`Update()`メソッドを`UpdateProduct`オーバー ロードを作成します。
 
-
 [![次の 4 つの入力パラメーターを受け取る UpdateProduct メソッド オーバー ロードを使用します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image1.png)
 
 **図 1**:使用して、`UpdateProduct`メソッドをオーバー ロードすることを受け入れる次の 4 つ入力パラメーター ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image3.png))。
-
 
 これで、ObjectDataSource が作成されます、 `UpdateParameters` 4 つのパラメーターおよびフィールドを持つ GridView の各製品のフィールドのコレクション。 ObjectDataSource の宣言型マークアップを割り当てます、`OldValuesParameterFormatString`プロパティ値`original_{0}`、という名前の入力パラメーターの予定がない、BLL クラスのために例外が発生する`original_productID`で渡されます。 この設定を完全宣言型構文を削除することを忘れないでください (既定の値に設定または`{0}`)。
 
@@ -61,40 +57,31 @@ ms.locfileid: "59393811"
 
 前のチュートリアルで書式を設定する方法を説明しました、 `UnitPrice` BoundField 読み取り専用モードと編集モードの両方の通貨として。 同じここで見ていきます。 BoundField の設定が必要ですこのことを思い出してください`DataFormatString`プロパティを`{0:c}`その`HtmlEncode`プロパティを`false`、およびその`ApplyFormatInEditMode`に`true`図 2 に示すように、します。
 
-
 [![通貨として表示する UnitPrice BoundField を構成します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image4.png)
 
 **図 2**:構成、 `UnitPrice` BoundField を通貨として表示する ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image6.png))。
 
-
 書式設定、`UnitPrice`編集インターフェイスでの通貨での GridView のイベント ハンドラーの作成を必要とされる`RowUpdating`を通貨形式の文字列を解析するイベントを`decimal`値。 いることを思い出してください、`RowUpdating`の最後のチュートリアルからのイベント ハンドラーが、ユーザーが指定したことを確認するチェックもを`UnitPrice`値。 ただし、このチュートリアルでは、価格を省略するユーザーがみましょう。
-
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample2.vb)]
 
 含まれています、GridView、 `QuantityPerUnit` BoundField がこの BoundField 表示用のみにする必要があり、ユーザーは編集できません。 これを配置する BoundFields' を設定するだけ`ReadOnly`プロパティを`true`します。
 
-
 [![読み取り専用 QuantityPerUnit BoundField を行う](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image8.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image7.png)
 
 **図 3**:ように、 `QuantityPerUnit` BoundField 読み取り専用 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image9.png))。
 
-
 最後に、GridView のスマート タグの編集を有効にするチェック ボックスを確認します。 次の手順を完了した後、`ErrorHandling.aspx`ページのデザイナーはよう図 4 になります。
-
 
 [![すべて削除、必要な BoundFields とチェック チェック ボックスの編集を有効にします。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image10.png)
 
 **図 4**:[必要な BoundFields 以外のすべてを削除し、チェックを有効にする編集ボックスをオン ([フルサイズの画像を表示する] をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image12.png))。
 
-
 この時点でのすべての製品の一覧がある`ProductName`、 `QuantityPerUnit`、 `UnitPrice`、および`UnitsInStock`フィールドです。 ただし、のみ、 `ProductName`、 `UnitPrice`、と`UnitsInStock`のフィールドを編集できます。
-
 
 [![ユーザー今すぐ簡単に編集できます製品の名前、価格、およびストック フィールド内のユニット](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image13.png)
 
 **図 5**:ユーザーできます今すぐ簡単に編集の製品の名前、価格、および単位で在庫フィールド ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image15.png))。
-
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>手順 2: DAL レベルの例外を適切に処理
 
@@ -104,11 +91,9 @@ Web アプリケーションを構成する方法と、アプリケーション�
 
 図 6 を指定せず、製品を更新する際に発生した画面を示しています、`ProductName`値。 これは、既定の送信されるときに詳細なエラー レポートが表示される`localhost`します。
 
-
 [![製品の名前が表示されます例外の詳細を省略します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image17.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image16.png)
 
 **図 6**:製品の名前は例外の詳細を表示を省略すると ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image18.png))。
-
 
 このような例外の詳細は、アプリケーションをテストするときに便利ですが、例外が発生した場合、このような画面で、エンド ユーザーを表示するは未満に最適です。 可能性の高いエンドユーザーが不明な`NoNullAllowedException`は理由が原因か。 製品を更新しようとしています。 問題があったことを説明するわかりやすいメッセージをユーザーに表示することをお勧めします。
 
@@ -116,14 +101,11 @@ Web アプリケーションを構成する方法と、アプリケーション�
 
 ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパティを`ExceptionDetails`を消去して、`Text`プロパティ。 このメッセージに、ユーザーの目を描画するために次のように設定します。 その`CssClass`プロパティを`Warning`、に追加の CSS クラスは、`Styles.css`前のチュートリアルでのファイル。 この CSS クラスにより、ラベルのテキストは、赤、斜体、太字、特大のフォントで表示されることを思い出してください。
 
-
 [![ラベルの Web コントロールをページに追加します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image19.png)
 
 **図 7**:ラベルの Web コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image21.png))。
 
-
 例外が発生するこのラベルの Web コントロールは表示のみすぐにした後、設定、`Visible`プロパティを false に、`Page_Load`イベント ハンドラー。
-
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample3.vb)]
 
@@ -132,21 +114,16 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 > [!NOTE]
 > 設定の必要性を削除または、`ExceptionDetails`コントロールの`Visible`プロパティ`Page_Load`を割り当てることによってその`Visible`プロパティ`false`宣言の構文とそのビュー ステートを (そのの設定を無効にします。`EnableViewState`プロパティを`false`)。 今後のチュートリアルでは、この代替アプローチを使用します。
 
-
 次の手順は GridView のイベント ハンドラーを作成する、ラベル コントロールを追加、`RowUpdated`イベント。 デザイナーで、GridView を選択、[プロパティ] ウィンドウに移動し、稲妻のアイコン、GridView のイベントを一覧表示をクリックします。 GridView のあるエントリはず`RowUpdating`イベント、このチュートリアルで前にこのイベントのイベント ハンドラーを作成しました。 イベント ハンドラーを作成、`RowUpdated`イベントもします。
-
 
 ![GridView の RowUpdated イベントのイベント ハンドラーを作成します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image22.png)
 
 **図 8**:GridView のイベント ハンドラーを作成`RowUpdated`イベント
 
-
 > [!NOTE]
 > 分離コード クラス ファイルの上部にあるドロップダウン リストにより、イベント ハンドラーを作成することもできます。 GridView を左側のドロップダウン リストから選択し、`RowUpdated`右側の 1 つからのイベント。
 
-
 このイベント ハンドラーを作成すると、次のコードが ASP.NET ページの分離コード クラスに追加されます。
-
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample4.vb)]
 
@@ -164,29 +141,24 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 
 この次のコードでは、これらの目標を実現します。
 
-
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample5.vb)]
 
 このイベント ハンドラーが始まるかどうかをチェックして`e.Exception`は`null`します。 そうでない場合、`ExceptionDetails`ラベルの`Visible`プロパティに設定されて`true`とその`Text`プロパティを「問題があった、製品を更新しています」。 スローされた実際の例外の詳細が存在する、`e.Exception`オブジェクトの`InnerException`プロパティ。 この内部例外を調べるしに、便利な追加のメッセージが追加されます、特定の型の場合、`ExceptionDetails`ラベルの`Text`プロパティ。 最後に、`ExceptionHandled`と`KeepInEditMode`プロパティに設定されて`true`します。
 
 図 9 は、製品の名前を省略する場合にこのページのスクリーン ショットを示します図 10 では、不正なを入力するときに、結果が表示されます`UnitPrice`値 (-50 の場合)。
 
-
 [![ProductName BoundField が値を含める必要があります。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image24.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image23.png)
 
 **図 9**:`ProductName` BoundField が値を含める必要があります ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image25.png))。
-
 
 [![UnitPrice の負の値は許可されていません](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image27.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image26.png)
 
 **図 10**:負の値`UnitPrice`値は許可されていません ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image28.png))。
 
-
 設定して、`e.ExceptionHandled`プロパティを`true`、`RowUpdated`イベント ハンドラーに例外を処理したことが示されます。 そのため、例外が ASP.NET ランタイムに伝達されません。
 
 > [!NOTE]
 > 図 9 および 10 は、ユーザー入力が無効のために発生した例外を処理するために正常な方法を表示します。 理想的には、ただし、このような無効な入力は、決してリーチ、ビジネス ロジック層最初の段階で、ASP.NET ページを呼び出す前に、ユーザーの入力が有効なことを確認する必要があります、`ProductsBLL`クラスの`UpdateProduct`メソッド。 ビジネス ロジック層に送信されたデータを確実に編集および挿入インターフェイスに検証コントロールを追加する方法を見て、次のチュートリアルでは、ビジネス ルールに準拠しています。 検証コントロールの呼び出しを防ぐだけでなく、`UpdateProduct`メソッドまで、ユーザーが指定したデータが有効ですが、データ エントリの問題を識別するためも、ユーザー エクスペリエンスをより多くの情報を提供します。
-
 
 ## <a name="step-3-gracefully-handling-bll-level-exceptions"></a>手順 3: BLL レベルの例外を適切に処理
 
@@ -194,20 +166,16 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 
 `UpdateProduct`オーバー ロードは、このチュートリアルで作成、禁止するビジネス規則を追加して、`UnitPrice`フィールドを元の 2 倍以上である新しい値に設定されてから`UnitPrice`値。 これを行うには、調整、`UpdateProduct`オーバー ロードするように、このチェックを実行し、スロー、`ApplicationException`規則に違反する場合。 更新されたメソッドが次に示します。
 
-
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample6.vb)]
 
 この変更により、既存の価格に 2 回以上である価格の更新が発生、`ApplicationException`がスローされます。 この BLL 発生した、DAL から発生する例外と同様に`ApplicationException`検出され、gridview の処理は`RowUpdated`イベント ハンドラー。 実際には、`RowUpdated`イベント ハンドラーのコードでは、書き込まれるが正しくこの例外を検出し、表示、`ApplicationException`の`Message`プロパティの値。 図 11 は、ユーザーがその現在の価格 19.95 ドルの 2 倍以上である、50.00 ドルに Chai の価格を更新しようとしたとき画面を示しています。
-
 
 [![ビジネス ルールは、製品の価格が 2 倍以上の価格の上昇を禁止します。](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image29.png)
 
 **図 11**:ビジネス ルールの製品の価格が 2 倍以上 Disallow 価格の上昇 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/_static/image31.png))。
 
-
 > [!NOTE]
 > 理想的には、ビジネス ロジック ルール リファクタリングのうち、`UpdateProduct`メソッドのオーバー ロードと共通のメソッドにします。 これについては、リーダーの演習として残してください。
-
 
 ## <a name="summary"></a>まとめ
 

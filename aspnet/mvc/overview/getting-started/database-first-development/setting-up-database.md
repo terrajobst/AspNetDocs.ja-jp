@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a760767839a834a9c7e9fe358a3fd806a833261f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57055909"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121178"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>チュートリアル: EF Database First の MVC 5 の使用の概要します。
 
@@ -35,16 +35,13 @@ MVC、Entity Framework、および ASP.NET のスキャフォールディング�
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-
 ## <a name="set-up-the-database"></a>データベースを設定します。
 
 場合、既存のデータベース環境を模倣するためには最初に自動的に入力データ、データベースが作成され、データベースに接続する web アプリケーションを作成し。
 
-
 このチュートリアルは、Visual Studio 2017 で LocalDB を使用して開発されました。 LocalDB は、代わりに既存のデータベース サーバーを使用することができますが、によって、バージョンの Visual Studio とデータベースの種類では、すべて Visual Studio でデータ ツールの可能性がありますがサポートされません。 ツールが、データベースの利用できない場合は、データベースの管理スイートに含まれるデータベース固有の手順の一部を実行する必要があります。
 
-
-Visual Studio のバージョンのデータベース ツールの問題があれば、データベース ツールの最新バージョンをインストールしておくことを確認します。 更新またはデータベース ツールをインストールする方法については、[Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027)を参照してください。
+Visual Studio のバージョンのデータベース ツールの問題があれば、データベース ツールの最新バージョンをインストールしておくことを確認します。 更新またはデータベース ツールをインストールする方法については、次を参照してください。 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027)します。
 
 Visual Studio を起動し、作成、 **SQL Server データベース プロジェクト**します。 プロジェクトに名前を**ContosoUniversityData**します。
 
@@ -76,7 +73,7 @@ Visual Studio を起動し、作成、 **SQL Server データベース プロジ
 
 [!code-sql[Main](setting-up-database/samples/sample4.sql)]
 
-データベース プロジェクトをデプロイするたびに、配置後スクリプトが実行されるに注意してください。 そのため、このスクリプトを記述するときに、要件を慎重に検討する必要があります。 場合によっては、プロジェクトを配置するたびに既知のデータ セットから開始する可能性があります。 それ以外の場合、何らかの方法で既存のデータを変更することがありますしません。 お客様の要件に基づき、配置後スクリプトまたはスクリプトに含める必要がある必要があるかどうかを決定できます。 配置後スクリプトを使用してデータベースの作成についての詳細については、[などのデータを SQL Server データベース プロジェクトで](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx)を参照してください。
+データベース プロジェクトをデプロイするたびに、配置後スクリプトが実行されるに注意してください。 そのため、このスクリプトを記述するときに、要件を慎重に検討する必要があります。 場合によっては、プロジェクトを配置するたびに既知のデータ セットから開始する可能性があります。 それ以外の場合、何らかの方法で既存のデータを変更することがありますしません。 お客様の要件に基づき、配置後スクリプトまたはスクリプトに含める必要がある必要があるかどうかを決定できます。 配置後スクリプトを使用してデータベースの作成についての詳細については、次を参照してください。[などのデータを SQL Server データベース プロジェクトで](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx)します。
 
 4 つの SQL スクリプト ファイルがない実際のテーブルがあるようになりました。 Localdb にデータベース プロジェクトをデプロイする準備が整いました。 Visual Studio で構築して、データベース プロジェクトをデプロイする [スタート] ボタン (または f5 キー) をクリックします。 チェック、**出力** タブをビルド、配置が成功したことを確認します。
 
@@ -90,9 +87,9 @@ Visual Studio を起動し、作成、 **SQL Server データベース プロジ
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-Code First の開発の基本的な例を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)します。 高度な例では、[ASP.NET MVC 4 アプリケーションの Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。
+Code First の開発の基本的な例を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)します。 高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションの Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
 
-Entity Framework を使用する方法の選択に関するガイダンスについては、[Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)を参照してください。
+Entity Framework を使用する方法の選択に関するガイダンスについては、次を参照してください。 [Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
 
 ## <a name="next-steps"></a>次の手順
 

@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: d5c8262d48c79616ca3069c37077ba99ffafb650
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6523d09e41fe10475d1bcb7fca06b2e0e2d3182c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426050"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118197"
 ---
 # <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 承認サーバー
 
@@ -34,7 +34,6 @@ ms.locfileid: "58426050"
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
 > チュートリアルに直接関連付けられていない質問がある場合でこれらを投稿[Katana プロジェクト github](https://github.com/aspnet/AspNetKatana/)します。 チュートリアルに関する意見やご質問は、ページの下部にあるコメント セクションを参照してください。
-
 
 [OAuth 2.0 framework](http://tools.ietf.org/html/rfc6749) HTTP サービスへのアクセス制限を取得するサード パーティ製アプリができるようにします。 保護されたリソースにアクセスするリソース所有者の資格情報を使用する代わりに、クライアントがアクセス トークンを取得します (これは、文字列、特定のスコープ、有効期間、およびその他のアクセス属性を示す)。 アクセス トークンは、リソース所有者の承認をサード パーティ製のクライアントに、承認サーバーによって発行されます。
 
@@ -175,7 +174,6 @@ IETF の OAuth 2 を参照してください[リソース所有者パスワー�
 > [!NOTE]
 > 上記のコード、チュートリアルのこのセクションで説明するものでは、安全では使用する必要がありますまたは実稼働アプリ。 リソース所有者の資格情報は確認しません。 すべての資格情報が有効でありの新しい id を作成します。 前提としています。 新しい id は、アクセス トークンを生成し、更新トークンに使用されます。 セキュリティで保護されたアカウント管理コードには、コードに置き換えてください。
 
-
 ### <a name="client-credentials-grant"></a>クライアントの資格情報の付与
 
 IETF の OAuth 2 を参照してください[クライアント資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.4)セクションのようになりました。
@@ -195,7 +193,6 @@ IETF の OAuth 2 を参照してください[クライアント資格情報付�
 
 > [!NOTE]
 > 上記のコード、チュートリアルのこのセクションで説明するものでは、安全では使用する必要がありますまたは実稼働アプリ。 セキュリティで保護されたクライアント管理コードには、コードに置き換えてください。
-
 
 ### <a name="refresh-token"></a>更新トークン
 
@@ -274,7 +271,6 @@ Startup クラスを作成し、認証と Web API を構成します。 参照�
 > [!WARNING]
 > セキュリティの運用アプリで無効 SSL ことはありません。 ログイン資格情報は、ネットワーク経由でクリア テキストで送信されるようになりました。 上記のコードは、ローカル サンプルのデバッグと探索のためだけです。
 
-
 ### <a name="implicit-grant-client"></a>暗黙的な許可クライアント
 
 このクライアントは、JavaScript を使用してください。
@@ -296,7 +292,6 @@ Startup クラスを作成し、認証と Web API を構成します。 参照�
 
 > [!NOTE]
 > JavaScript を外部ファイルに移動し、Razor マークアップを埋め込まないことをお勧めします。 このサンプルをシンプルにするが統合されました。
-
 
 ### <a name="resource-owner-password-credentials-grant-client"></a>リソース所有者のパスワードの資格情報付与クライアント
 

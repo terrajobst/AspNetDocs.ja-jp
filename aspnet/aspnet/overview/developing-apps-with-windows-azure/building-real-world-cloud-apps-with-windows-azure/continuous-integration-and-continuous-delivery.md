@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0fb0a331a2a6e2af5c5097db8b57942525d24ffc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 25767303e3a8a3bfd9fc6c7c10cda32d73e9994d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384306"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118858"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的デリバリー (Azure で現実世界のクラウド アプリの構築)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59384306"
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
-
 
 最初の 2 つは、開発プロセスのパターンが推奨される[自動化すべて](automate-everything.md)と[ソース管理](source-control.md)プロセスの 3 つ目のパターンは、これらを結合します。 継続的インテグレーション (CI) では、開発者が、ソース リポジトリにコードをチェックインするたびに、ビルドが自動的にトリガーを意味します。 継続的デリバリー (CD) は、この 1 つの手順をさらには: さらに詳細なテストを実行できる環境にアプリケーションを自動的に展開後、ビルド、自動化された単体テストが成功するとします。
 
@@ -50,7 +49,6 @@ Azure DevOps サービスは、さまざまな展開を計画からのアプリ�
 - 自動化されたロード テストをサポートします。 ロード テスト、クラウド アプリに不可欠ですが手遅れになるまでは軽視されがちです。 数千のボトルネックを見つけるし、スループットを向上できるように、ユーザーによってアプリを頻繁に使用をシミュレートするロード テスト-運用環境にアプリをリリースする前にします。
 - リアルタイム コミュニケーションと小規模なアジャイル チームのコラボレーションを容易にするチーム ルーム コラボレーションをサポートします。
 - アジャイル プロジェクト管理をサポートします。
-
 
 継続的インテグレーションと配信機能を Azure DevOps サービスの詳細については、次を参照してください。 [Azure DevOps ドキュメント](/azure/devops/index)します。
 

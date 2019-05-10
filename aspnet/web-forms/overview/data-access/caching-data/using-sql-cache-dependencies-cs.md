@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 0e91842c-7f10-4aed-8c23-4ee3e2774014
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e70a21e2752c7c8fc8be332a98e1cf7e40b01412
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b6bc905abbe3b875b0cbe839090e43dae8f491a7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417690"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116893"
 ---
 # <a name="using-sql-cache-dependencies-c"></a>SQL キャッシュ依存関係を使用する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59417690"
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_CS.zip)または[PDF のダウンロード](using-sql-cache-dependencies-cs/_static/datatutorial61cs1.pdf)
 
 > 最も単純なキャッシュ戦略では、キャッシュされたデータを一定の時間後に期限切れを許可です。 ただし、この単純なアプローチでは、キャッシュされたデータには長時間保持されている古いデータや最新のデータが短時間に期限が切れていますが、基になるデータ ソースとの関連付けが保持されません。 SQL database には、基になるデータが変更されましたまでキャッシュされたデータが保持されるように SqlCacheDependency クラスを使用することをお勧めします。 方法は、このチュートリアルで説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -48,25 +47,20 @@ ASP.NET ランタイムは、現在を追跡`changeId`テーブルを使用し�
 
 ポーリング アプローチではデータベースは上記で説明したインフラストラクチャを含むをセットアップする必要があります: 定義済みのテーブル (`AspNet_SqlCacheTablesForChangeNotification`)、いくつかのストアド プロシージャ、および web での SQL キャッシュ依存関係で使用できるテーブルの各トリガーアプリケーション。 これらのテーブル、ストアド プロシージャ、およびトリガーは、コマンド ライン プログラムで作成できます`aspnet_regsql.exe`は、`$WINDOWS$\Microsoft.NET\Framework\version`フォルダー。 作成する、`AspNet_SqlCacheTablesForChangeNotification`テーブルと関連付けられているストアド プロシージャ、コマンドラインから次を実行します。
 
-
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample1.cmd)]
 
 > [!NOTE]
 > 指定されたデータベースのログインがあります。 これらのコマンドを実行する、 [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx)と[ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx)ロール。 T-SQL では、データベースに送信を確認する、`aspnet_regsql.exe`コマンド ライン プログラムを参照してください[このブログ エントリ](http://scottonwriting.net/sowblog/posts/10709.aspx)します。
 
-
 たとえば、Microsoft SQL Server データベースにポーリングするためのインフラストラクチャを追加するという`pubs`という名前のデータベース サーバー `ScottsServer` Windows 認証を使用して、適切なディレクトリに移動し、コマンドラインから入力します。
-
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample2.cmd)]
 
 データベース レベルのインフラストラクチャが追加されると、SQL キャッシュ依存関係で使用されるこれらのテーブルにトリガーを追加する必要があります。 使用して、`aspnet_regsql.exe`コマンド ライン プログラムをもう一度が使用してテーブル名を指定、`-t`スイッチを使用してではなく、`-ed`使用を切り替える`-et`、次のように。
 
-
 [!code-html[Main](using-sql-cache-dependencies-cs/samples/sample3.html)]
 
 トリガーを追加する、`authors`と`titles`でテーブル、`pubs`上のデータベース`ScottsServer`を使用します。
-
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample4.cmd)]
 
@@ -78,32 +72,25 @@ ASP.NET ランタイムは、現在を追跡`changeId`テーブルを使用し�
 
 Visual Studio を閉じることで開始します。 次に接続する SQL Server Management Studio を開き、`localhost\SQLExpress`サーバーが Windows 認証を使用します。
 
-
 ![Localhost \sqlexpress サーバーにアタッチします。](using-sql-cache-dependencies-cs/_static/image1.gif)
 
 **図 1**:アタッチ、`localhost\SQLExpress`サーバー
 
-
 サーバーに接続したら、Management Studio は、サーバーを表示して、データベース、セキュリティ、およびその他のサブフォルダーがあります。 データベース フォルダーを右クリックし、アタッチ オプションを選択します。 データベースのアタッチ ダイアログが表示されます (図 2 を参照してください)。 追加ボタンをクリックし、 `NORTHWND.MDF` database フォルダーで、web アプリケーションの s`App_Data`フォルダー。
-
 
 [![NORTHWND をアタッチします。App_Data フォルダーから MDF データベース](using-sql-cache-dependencies-cs/_static/image2.gif)](using-sql-cache-dependencies-cs/_static/image1.png)
 
 **図 2**:アタッチ、`NORTHWND.MDF`からデータベース、`App_Data`フォルダー ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image2.png))。
 
-
 これにより、データベース フォルダーに、データベースが追加されます。 データベース名、データベース ファイルへの完全パスであるか、完全なパスの先頭に、 [GUID](http://en.wikipedia.org/wiki/Globally_Unique_Identifier)します。 Aspnet を使用する場合に、この時間のかかるデータベース名を入力しなくてもすむようにする\_regsql.exe コマンド ライン ツール、名前の変更だけデータベースを右クリックしてよりわかりやすい名前にデータベースをアタッチおよび選択する名前を変更します。 Ve DataTutorials に自分のデータベースの名前を変更します。
-
 
 ![わかりやすい名前に、アタッチされたデータベースの名前を変更します。](using-sql-cache-dependencies-cs/_static/image3.gif)
 
 **図 3**:わかりやすい名前に、アタッチされたデータベースの名前を変更します。
 
-
 ## <a name="step-3-adding-the-polling-infrastructure-to-the-northwind-database"></a>手順 3: Northwind データベースへのポーリングのインフラストラクチャの追加
 
 これで、私たちがアタッチされている、`NORTHWND.MDF`からデータベース、`App_Data`ポーリング インフラストラクチャを追加する準備ができたらフォルダー、します。 DataTutorials にデータベースの名前を変更している、仮定は、次の 4 つのコマンドを実行します。
-
 
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample5.cmd)]
 
@@ -111,16 +98,13 @@ Visual Studio を閉じることで開始します。 次に接続する SQL Ser
 
 Visual Studio に開き直すと後、は、サーバー エクスプ ローラーを使用して、データベースにドリルダウンします。 新しいテーブルに注意してください (`AspNet_SqlCacheTablesForChangeNotification`)、新しいストアド プロシージャ、およびトリガーで、 `Products`、 `Categories`、および`Suppliers`テーブル。
 
-
 ![データベースが、ポーリングのために必要なインフラストラクチャが含まれています](using-sql-cache-dependencies-cs/_static/image4.gif)
 
 **図 4**:データベースが、ポーリングのために必要なインフラストラクチャが含まれています
 
-
 ## <a name="step-4-configuring-the-polling-service"></a>手順 4: ポーリングのサービスを構成します。
 
 必要なテーブル、トリガー、およびストアド プロシージャを作成した後には、データベースを最後の手順はこれを行うポーリングのサービスを構成する`Web.config`(ミリ秒単位) およびポーリング間隔を使用するデータベースを指定することで。 次のマークアップは、1 秒ごとに、Northwind データベースをポーリングします。
-
 
 [!code-xml[Main](using-sql-cache-dependencies-cs/samples/sample6.xml)]
 
@@ -133,7 +117,6 @@ Visual Studio に開き直すと後、は、サーバー エクスプ ローラ�
 > [!NOTE]
 > 上記の例では、1 つは、`pollTime`値、`<sqlCacheDependency>`が要素を指定できます必要に応じて、`pollTime`値、`<add>`要素。 これは、指定されたデータベースが複数存在し、データベースごとのポーリング間隔をカスタマイズする場合に便利です。
 
-
 ## <a name="step-5-declaratively-working-with-sql-cache-dependencies"></a>手順 5: SQL キャッシュ依存関係の宣言によって操作
 
 手順 1 ~ 4 では、必要なデータベース インフラストラクチャをセットアップし、ポーリング システムを構成する方法について説明しました。 このインフラストラクチャを導入するには、プログラムまたは宣言型のいずれかの手法を使用して関連の SQL キャッシュ依存項目データ キャッシュに追加したことようになりましたできます。 この手順で SQL キャッシュ依存関係を宣言して使用する方法を考察します。 手順 6 では、プログラムによる方法も取り上げます。
@@ -142,34 +125,27 @@ Visual Studio に開き直すと後、は、サーバー エクスプ ローラ�
 
 SQL キャッシュ依存関係を宣言して使用を示すため、開く、`SqlCacheDependencies.aspx`ページで、`Caching`フォルダーとツールボックスからデザイナーにドラッグする GridView。 GridView s 設定`ID`に`ProductsDeclarative`という名前の新しい ObjectDataSource にバインドするを選択して、スマート タグからとは、`ProductsDataSourceDeclarative`します。
 
-
 [![ProductsDataSourceDeclarative という名前の新しい ObjectDataSource を作成します。](using-sql-cache-dependencies-cs/_static/image5.gif)](using-sql-cache-dependencies-cs/_static/image3.png)
 
 **図 5**:名前付き新しい ObjectDataSource 作成`ProductsDataSourceDeclarative`([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image4.png))。
 
-
 構成を使用する ObjectDataSource、`ProductsBLL`クラスを選択します タブをドロップダウン リストを設定`GetProducts()`します。 更新プログラム タブで、選択、 `UpdateProduct` - 次の 3 つの入力パラメーターを持つオーバー ロード`productName`、`unitPrice`と`productID`します。 INSERT および DELETE の各タブで (なし) ドロップダウン リストを設定します。
-
 
 [![次の 3 つの入力パラメーターを持つ UpdateProduct オーバー ロードを使用します。](using-sql-cache-dependencies-cs/_static/image6.gif)](using-sql-cache-dependencies-cs/_static/image5.png)
 
 **図 6**:UpdateProduct のオーバー ロードを使用して、3 つの入力パラメーター ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image6.png))。
 
-
 [![(なし) を挿入および削除のタブのドロップダウン リストを設定します。](using-sql-cache-dependencies-cs/_static/image7.gif)](using-sql-cache-dependencies-cs/_static/image7.png)
 
 **図 7**:(なし) をドロップダウン リストを挿入および削除のタブの設定 ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image8.png))。
-
 
 データ ソース構成ウィザードを完了すると、Visual Studio と作成されます BoundFields CheckBoxFields GridView で各データ フィールド。 すべてのフィールドの削除が`ProductName`、 `CategoryName`、および`UnitPrice`、し、必要に応じて、これらのフィールドを書式設定します。 GridView のスマート タグからは、ページングを有効にする、並べ替えを有効にするには、および編集を有効にするチェック ボックスを確認します。 Visual Studio で ObjectDataSource s は設定`OldValuesParameterFormatString`プロパティを`original_{0}`します。 適切に機能するには、GridView の編集機能のためには、宣言型構文またはその既定値に設定から完全このプロパティを削除するか`{0}`します。
 
 最後に、GridView とセットの上のラベルの Web コントロールを追加、`ID`プロパティを`ODSEvents`とその`EnableViewState`プロパティを`false`します。 これらの変更を行った後、ページ s 宣言型マークアップは、次のようになります。 注がさまざまな SQL キャッシュ依存関係の機能を検証する必要のない GridView のフィールドに見た目のカスタマイズを加えました。
 
-
 [!code-aspx[Main](using-sql-cache-dependencies-cs/samples/sample7.aspx)]
 
 ObjectDataSource s のイベント ハンドラーを次に、作成`Selecting`イベントでするのに対して、次のコードを追加します。
-
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample8.cs)]
 
@@ -177,14 +153,11 @@ ObjectDataSource s のイベント ハンドラーを次に、作成`Selecting`�
 
 次に、ブラウザーからこのページを参照してください。 以降任意のキャッシュ、ページ、並べ替え、またはグリッド ページを編集するたびに実装するには、まだ ve する必要がありますテキスト、表示するイベントが発生すると、図 8 に示すよう。
 
-
 [![ObjectDataSource のするイベントは、各時間、編集、GridView はページングまたは並べ替えが発生しました。](using-sql-cache-dependencies-cs/_static/image8.gif)](using-sql-cache-dependencies-cs/_static/image9.png)
 
 **図 8**:ObjectDataSource s`Selecting`イベント発生の各時刻が GridView はページング、編集、または並べ替え ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image10.png))。
 
-
 説明したように、 [ObjectDataSource でデータをキャッシュ](caching-data-with-the-objectdatasource-cs.md)チュートリアルでは、設定、`EnableCaching`プロパティを`true`ObjectDataSource で指定した期間のデータをキャッシュすると、その`CacheDuration`プロパティ。 ObjectDataSource があります、 [ `SqlCacheDependency`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx)パターンを使用して、キャッシュされたデータに 1 つまたは複数の SQL キャッシュ依存関係を追加します。
-
 
 [!code-css[Main](using-sql-cache-dependencies-cs/samples/sample9.css)]
 
@@ -193,24 +166,19 @@ ObjectDataSource s のイベント ハンドラーを次に、作成`Selecting`�
 > [!NOTE]
 > SQL キャッシュ依存関係を使用する*と*時間に基づいて有効期限を設定して`EnableCaching`に`true`、`CacheDuration`の時間間隔と`SqlCacheDependency`データベースとテーブル名にします。 時間ベースの有効期限に達したとき、またはポーリング システムは、基になるデータベースのデータが変更されたことを最初に発生した方をノート、ObjectDataSource はそのデータを削除します。
 
-
 GridView `SqlCacheDependencies.aspx` - 2 つのテーブルからデータを表示します。`Products`と`Categories`(製品 s`CategoryName`を使用してフィールドを取得、`JOIN`で`Categories`)。 そのため、2 つの SQL キャッシュ依存関係を指定します。NorthwindDB:Products;NorthwindDB:Categories します。
-
 
 [![SQL キャッシュ依存関係を製品と分類を使用して、キャッシュをサポートするために、ObjectDataSource を構成します。](using-sql-cache-dependencies-cs/_static/image9.gif)](using-sql-cache-dependencies-cs/_static/image11.png)
 
 **図 9**:サポートのキャッシュを使用して SQL キャッシュ依存関係を ObjectDataSource を構成する`Products`と`Categories`([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image12.png))。
 
-
 キャッシュをサポートする ObjectDataSource を構成した後、ブラウザーを使用してページを再検討します。 テキスト選択イベントが発生した最初のページ アクセス時に表示する必要がありますが、ページング、並べ替え、または編集 または キャンセル ボタンをクリックするとすぐ移動する必要があります。 これは、ObjectDataSource のキャッシュにデータを読み込んだ後に備えてメモリにまでため、`Products`または`Categories`テーブルが変更されるものや、データが GridView により更新されました。
 
 テキストが新しいブラウザー ウィンドウを開き、編集、挿入、および削除のセクションで基本チュートリアルに移動、グリッドのページングとするイベントがないことに注意が呼び出された後 (`~/EditInsertDelete/Basics.aspx`)。 名前または製品の価格を更新します。 次からの最初のブラウザー ウィンドウに表示データの別のページ、グリッドの並べ替えや行の編集 ボタンをクリックします。 データされた基になるデータベースの変更 (図 10 参照)、この時点では、発生するイベントが再び表示されます。 テキストが表示されない場合は、しばらく待ってからもう一度やり直してください。 変更のポーリングのサービスをチェックすることに注意してください、`Products`テーブルすべて`pollTime`ミリ秒、基になるデータが更新されたときと、キャッシュされたデータが削除されるときの遅延があるようにします。
 
-
 [![製品のキャッシュされたデータを削除する、Products テーブルを変更します。](using-sql-cache-dependencies-cs/_static/image10.gif)](using-sql-cache-dependencies-cs/_static/image13.png)
 
 **図 10**:製品のキャッシュ データを削除して、Products テーブルの変更 ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image14.png))。
-
 
 ## <a name="step-6-programmatically-working-with-thesqlcachedependencyclass"></a>手順 6: プログラムでの操作、`SqlCacheDependency`クラス
 
@@ -218,48 +186,39 @@ GridView `SqlCacheDependencies.aspx` - 2 つのテーブルからデータを表
 
 ポーリング システムと、`SqlCacheDependency`オブジェクトは、特定のデータベースとテーブルのペアを関連付ける必要があります。 たとえば、次のコードを作成、`SqlCacheDependency`オブジェクトは、Northwind データベース %s に基づく`Products`テーブル。
 
-
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample10.cs)]
 
 2 つの入力パラメーターを`SqlCacheDependency`コンス トラクターは、データベースとテーブル名では、それぞれします。 ObjectDataSource s 使用するような`SqlCacheDependency`プロパティは、使用するデータベース名で指定された値と同じです、`name`の属性、`<add>`要素`Web.config`します。 テーブル名は、データベース テーブルの実際の名前です。
 
 関連付ける、`SqlCacheDependency`でデータ キャッシュに追加された項目のいずれかの操作を使用して、`Insert`依存関係を受け取るメソッド オーバー ロードします。 次のコードを追加*値*に無期限の期間のデータ キャッシュに関連付けます、`SqlCacheDependency`上、`Products`テーブル。 つまり、*値*をポーリング システムが検出されたため、またはメモリ制約によってそれが削除されるまで、キャッシュに残ります、`Products`キャッシュ以降にそのテーブルが変更されています。
 
-
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample11.cs)]
 
 キャッシュ レイヤー s`ProductsCL`クラスが現在のデータをキャッシュ、 `Products` 60 秒間の時間ベースの有効期限を使用してテーブルします。 S SQL キャッシュ依存関係を代わりに使用するように、このクラスを更新できるようにします。 `ProductsCL`クラスの`AddCacheItem`メソッドで、データをキャッシュに追加する責任を負いますが、現在、次のコードが含まれています。
-
 
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample12.cs)]
 
 使用するには、このコードを更新、`SqlCacheDependency`オブジェクトの代わりに、`MasterCacheKeyArray`依存関係をキャッシュします。
 
-
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample13.cs)]
 
 この機能をテストするには、既存の下に、GridView を追加します。 `ProductsDeclarative` GridView。 この新しい GridView s 設定`ID`に`ProductsProgrammatic`、スマート タグをという名前の新しい ObjectDataSource にバインドし、`ProductsDataSourceProgrammatic`します。 構成を使用する ObjectDataSource、`ProductsCL`ドロップダウン リストの選択とに更新 タブの設定クラス`GetProducts`と`UpdateProduct`、それぞれします。
-
 
 [![ProductsCL クラスを使用する ObjectDataSource を構成します。](using-sql-cache-dependencies-cs/_static/image11.gif)](using-sql-cache-dependencies-cs/_static/image15.png)
 
 **図 11**:構成に使用する ObjectDataSource、`ProductsCL`クラス ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image16.png))。
 
-
 [![GetProducts メソッドをタブのドロップダウン一覧から選択します](using-sql-cache-dependencies-cs/_static/image12.gif)](using-sql-cache-dependencies-cs/_static/image17.png)
 
 **図 12**:選択、 `GetProducts`  タブを選択してドロップダウン リストからメソッド ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image18.png))。
-
 
 [![UpdateProduct メソッドを更新プログラム タブのドロップダウン一覧から選択します。](using-sql-cache-dependencies-cs/_static/image13.gif)](using-sql-cache-dependencies-cs/_static/image19.png)
 
 **図 13**:更新プログラム タブのドロップダウン リストから UpdateProduct メソッドを選択 ([フルサイズの画像を表示する をクリックします](using-sql-cache-dependencies-cs/_static/image20.png))。
 
-
 データ ソース構成ウィザードを完了すると、Visual Studio と作成されます BoundFields CheckBoxFields GridView で各データ フィールド。 このページに追加する最初の GridView ですべてのフィールドを削除するようが`ProductName`、 `CategoryName`、および`UnitPrice`、し、必要に応じて、これらのフィールドを書式設定します。 GridView のスマート タグからは、ページングを有効にする、並べ替えを有効にするには、および編集を有効にするチェック ボックスを確認します。 同様、 `ProductsDataSourceDeclarative` ObjectDataSource、Visual Studio の設定は、 `ProductsDataSourceProgrammatic` ObjectDataSource s`OldValuesParameterFormatString`プロパティを`original_{0}`します。 GridView s の編集機能を適切に機能は、このプロパティを設定するためにバックアップ`{0}`(または宣言型構文とプロパティの割り当てを完全に削除) します。
 
 これらのタスクを完了すると、結果として得られる GridView コントロールと ObjectDataSource 宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](using-sql-cache-dependencies-cs/samples/sample14.aspx)]
 
@@ -272,7 +231,6 @@ GridView のいくつかのページのページングの後に 2 番目のブ�
 > [!NOTE]
 > この遅延はで GridView を使用して、製品の 1 つを編集するときに表示される可能性が高く、`SqlCacheDependencies.aspx`します。 [アーキテクチャでデータをキャッシュ](caching-data-in-the-architecture-cs.md)チュートリアルが追加されました、`MasterCacheKeyArray`キャッシュすることで編集されているデータを確認する依存関係、`ProductsCL`クラスの`UpdateProduct`メソッドは、キャッシュから削除されました。 このキャッシュの依存関係を置き換えただし、変更するときに、`AddCacheItem`この手順で前にメソッドとそのため、`ProductsCL`クラスは引き続きポーリング システム ノートへの変更まで、キャッシュされたデータを表示、`Products`テーブル。 再導入する方法を見て、`MasterCacheKeyArray`手順 7. で依存関係をキャッシュします。
 
-
 ## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>手順 7: キャッシュされた項目と複数の依存関係の関連付け
 
 いることを思い出してください、`MasterCacheKeyArray`キャッシュの依存関係がいることを確認するために使用が*すべて*内に関連付けられている任意の 1 つの項目が更新されたときに、製品関連のデータをキャッシュから削除します。 たとえば、`GetProductsByCategoryID(categoryID)`メソッド キャッシュ`ProductsDataTables`インスタンスごとに一意*categoryID*値。 これらのオブジェクトのいずれかが削除される場合、`MasterCacheKeyArray`キャッシュの依存関係により、他のユーザーがも削除されるようになります。 このキャッシュの依存関係を持たないキャッシュされたデータが変更されたときにされるその他の製品のキャッシュされたデータが最新でない可能性がありますに発生する可能性が存在します。 その結果、そのことが重要に維持するということ、 `MasterCacheKeyArray` SQL キャッシュ依存関係を使用する場合は、依存関係をキャッシュします。 ただし、データをキャッシュ s`Insert`メソッドは、1 つの依存関係オブジェクトのみが許可されます。
@@ -283,14 +241,12 @@ GridView のいくつかのページのページングの後に 2 番目のブ�
 
 更新されたコードを次に示します、`ProductsCL`クラスの`AddCacheItem`メソッド。 メソッドを作成、`MasterCacheKeyArray`キャッシュ依存関係と共に`SqlCacheDependency`オブジェクトを`Products`、 `Categories`、および`Suppliers`テーブル。 これらすべてを 1 つに結合されます`AggregateCacheDependency`という名前のオブジェクト`aggregateDependencies`に渡されたし、`Insert`メソッド。
 
-
 [!code-csharp[Main](using-sql-cache-dependencies-cs/samples/sample15.cs)]
 
 この新しいコードをテストします。内容に変わって、 `Products`、 `Categories`、または`Suppliers`テーブルが削除されるキャッシュされたデータが発生します。 さらに、`ProductsCL`クラス s`UpdateProduct`メソッドは、GridView を使用して製品を編集するときに呼び出される、削除、`MasterCacheKeyArray`これにより、キャッシュされた依存関係をキャッシュ`ProductsDataTable`が削除されると、次の再取得するデータ要求。
 
 > [!NOTE]
 > SQL キャッシュ依存関係はでも使用できます[出力キャッシュ](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx)します。 この機能のデモについては、次を参照してください。[ASP.NET を使用して SQL Server でのキャッシュを出力](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx)します。
-
 
 ## <a name="summary"></a>まとめ
 

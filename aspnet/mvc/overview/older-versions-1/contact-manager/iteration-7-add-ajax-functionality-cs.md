@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34fce0bef5163ba0423ea00cf4b7507947c45c68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7c8eb3d3688674dd2c220b4bd1b5982f2610d0eb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398073"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123836"
 ---
 # <a name="iteration-7--add-ajax-functionality-c"></a>繰り返し #7 – Ajax 機能を追加 (c#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59398073"
 [コードをダウンロードします。](iteration-7-add-ajax-functionality-cs/_static/contactmanager_7_cs1.zip)
 
 > 7 番目のイテレーションで改良、応答性と、アプリケーションのパフォーマンスの Ajax のサポートを追加します。
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
 
@@ -92,11 +91,9 @@ JavaScript をサポートするブラウザーで Contact Manager アプリケ�
 
 S の連絡先を表示するビューの領域を更新のみ連絡先グループ をクリックするように、インデックス ビューを変更することで開始できるようにします。 図 1 で赤いボックスには、リージョン更新することにはが含まれています。
 
-
 [![連絡先のみを更新しています](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
 
 **図 01**:連絡先のみを更新 ([フルサイズの画像を表示する をクリックします](iteration-7-add-ajax-functionality-cs/_static/image2.png))。
-
 
 最初の手順は、別の部分 (ビュー ユーザー コントロール) に非同期的に更新するビューの一部を分離します。 連絡先のテーブルを表示する Index ビューのセクションでは、リスト 1 で部分に移動されました。
 
@@ -132,9 +129,7 @@ Index() アクションが、Ajax 要求によって呼び出されたときに�
 
 上位と下位レベルの両方のブラウザーの場合、変更したのインデックス ビューには機能します。 連絡先のグループをクリックすると、お使いのブラウザーが JavaScript をサポートしている、連絡先の一覧を含むビューの領域だけが更新されます。 その一方で、お使いのブラウザーは JavaScript をサポートしていない場合は、ビュー全体が更新されます。
 
-
 この更新されたインデックス ビューには、1 つの問題があります。 連絡先グループをクリックすると、選択したグループが強調表示されません。 グループの一覧表示されるので、Ajax 要求中に更新されるリージョンの外で、適切なグループが強調表示されませんが。 次のセクションでこの問題を修正します。
-
 
 ## <a name="adding-jquery-animation-effects"></a>JQuery アニメーション効果を追加します。
 
@@ -192,11 +187,9 @@ ASP.NET AJAX ブラウザーの履歴、3 つの作業を行う必要があり�
 
 現時点では、連絡先を削除する必要があります、削除 リンクをクリックし、削除の確認 ページに表示される 削除 ボタンをクリックする (図 2 参照)。 これは、多くのページ要求でデータベースのレコードを削除するような簡単な処理を行うように見えます。
 
-
 [![削除の確認ページ](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
 
 **図 02**:削除の確認 ページ ([フルサイズの画像を表示する をクリックします](iteration-7-add-ajax-functionality-cs/_static/image4.png))。
-
 
 削除の確認ページをスキップし、インデックス ビューから直接連絡先を削除することも考えになります。 このアプローチを採用するセキュリティ ホール、アプリケーションを開かれるために、この衝動を避ける必要があります。 一般がないは、web アプリケーションの状態を変更する操作を呼び出すときに HTTP GET 操作を実行します。 削除を実行するときに、HTTP POST を実行する、さらには、HTTP DELETE 操作したりします。
 
@@ -213,7 +206,6 @@ Ajax.ImageActionLink() メソッドに次の呼び出しでは、[削除] リン
 > [!NOTE] 
 > 
 > ASP.NET MVC フレームワークの標準の一部でない、Ajax.ImageActionLink() します。 Ajax.ImageActionLink() は、連絡先マネージャー プロジェクトに含まれるカスタム ヘルパー メソッドです。
-
 
 AjaxOptions パラメーターには、2 つのプロパティがあります。 最初に、確認プロパティは、ポップアップの JavaScript の確認ダイアログの表示に使用されます。 次に、HttpMethod プロパティは、HTTP DELETE 操作の実行に使用されます。
 

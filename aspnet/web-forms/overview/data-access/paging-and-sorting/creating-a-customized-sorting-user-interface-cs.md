@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 6f81b633-9d01-4e52-ae4a-2ea6bc109475
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34a182278cfa57369643ab151492532bc92bd623
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af4f91ffed7b8884a7441b5ccf4f390aba867fed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393497"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121904"
 ---
 # <a name="creating-a-customized-sorting-user-interface-c"></a>カスタマイズされた並べ替えユーザー インターフェイスを作成する (C#)
 
@@ -23,18 +23,15 @@ ms.locfileid: "59393497"
 
 > 長いリストを表示するには、データが並べ替えられたときに、非常に役に立ちます行の区切り記号を導入することで関連するデータをグループ化します。 このチュートリアルでは、このような並べ替えユーザー インターフェイスを作成する方法がわかります。
 
-
 ## <a name="introduction"></a>はじめに
 
 データを並べ替えるの長いリストを表示する場合がごく少数の並べ替えられた列で別の値がある場合、エンドユーザー方が難しい、正確に、違い境界にあります。 たとえば、9 個までのさまざまなカテゴリの選択肢は、データベースで 81 の製品が (8 つの一意のカテゴリだけでなく、`NULL`オプション)。 シーフード カテゴリに該当する製品を調べることに興味を持っているユーザーの場合を考えます。 一覧表示されたページから*すべて*彼女のおすすめをカテゴリ別にグループ化の結果の並べ替えにはの単一の GridView では、製品、ユーザーが決定可能性がありますすべてのシーフード製品化します。 カテゴリで並べ替えの後、ユーザー、必要があります、リストを探してみましょうシーフードでグループ化した製品の開始位置と終了を探してします。 結果はでアルファベット順に並べ替えられますのでシーフード製品カテゴリ名は、難しくはありませんが、グリッド内の項目の一覧を密接にスキャンが必要です。
 
 並べ替えられたグループ間の境界を強調表示するには、多くの web サイトは、このようなグループ間の区切り記号を追加するユーザー インターフェイスを使用します。 図 1 のような区切り記号は、ユーザーはより迅速に特定のグループを検索して、その境界を特定するだけでなく、データにどのような個別のグループの存在を確認できます。
 
-
 [![各カテゴリ グループが明確に識別](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
 
 **図 1**:各カテゴリ グループが明確に識別される ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-cs/_static/image3.png))。
-
 
 このチュートリアルでは、このような並べ替えユーザー インターフェイスを作成する方法がわかります。
 
@@ -44,16 +41,13 @@ ms.locfileid: "59393497"
 
 のみが含まれるように、GridView を次に、構成、 `ProductName`、 `CategoryName`、 `SupplierName`、および`UnitPrice`BoundFields と提供が中止された CheckBoxField します。 GridView のスマート タグの並べ替えを有効にするチェック ボックスをオンの並べ替えをサポートする GridView を最後に、構成 (設定して、またはその`AllowSorting`プロパティを`true`)。 追加を行った後、 `CustomSortingUI.aspx`  ページで、宣言型マークアップは、次のようになります。
 
-
 [!code-aspx[Main](creating-a-customized-sorting-user-interface-cs/samples/sample1.aspx)]
 
 ブラウザーできませんでしたが、進行状況を表示する時間がかかります。 図 2 は、そのデータがカテゴリでアルファベット順で並べ替えられる場合、並べ替え可能な GridView を示します。
 
-
 [![並べ替え可能な GridView のデータはカテゴリで並べ替え](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
 
 **図 2**:データのカテゴリで並べ替え並べ替え可能な GridView s ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-cs/_static/image6.png))。
-
 
 ## <a name="step-2-exploring-techniques-for-adding-the-separator-rows"></a>手順 2: 区切り記号の行を追加するための手法を探索
 
@@ -73,11 +67,9 @@ GridView に追加の行を追加するのには、3 つの選択肢がありま
 
 GridView をデータ ソースにバインドすると、ときに作成、`GridViewRow`データ ソースによって返されるレコードごとにします。 そのため、GridView にバインドする前に、データ ソースにレコードの区切り記号を追加することで、必要な区切り行を挿入しましたできます。 図 3 は、この概念を示します。
 
-
 ![1 つの手法では、データ ソースへの行の区切り記号の追加](creating-a-customized-sorting-user-interface-cs/_static/image7.png)
 
 **図 3**:1 つの手法では、データ ソースへの行の区切り記号の追加
-
 
 特殊な区切りのレコードがないために、引用符で囲まれた用語の区切り記号レコードを使用します。代わりに、私たちする必要があります何らかの方法でフラグ、データ ソースの特定のレコードが通常のデータ行ではなく、区切り記号として機能します。 この例については、再バインドします、`ProductsDataTable`インスタンスから構成されると、GridView を`ProductRows`します。 レコードを区切り記号の行としてフラグを設定して可能性があります、`CategoryID`プロパティを`-1`(ため、このような値は、通常存在でした)。
 
@@ -99,22 +91,18 @@ GridView にバインドする前に、データをメッセージングでは�
 
 各並べ替えグループ間の区切り記号の行を追加するには、ことを直接操作できますこのコントロールの階層構造が作成されたら。 ページが表示されるまで、最後に s の GridView コントロール階層が作成されたことを確信できます。 このため、この方法をオーバーライド、`Page`クラスの`Render`メソッド、必要な区切り記号の行に含めるこの時点で GridView s の最終的なコントロール階層を更新します。 図 4 は、このプロセスを示します。
 
-
 [![代替手法が s の GridView コントロール階層を操作します。](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
 
 **図 4**:代替手法が GridView のコントロール階層を操作する ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-cs/_static/image10.png))。
-
 
 このチュートリアルでは、この後者のアプローチ、並べ替えのユーザー エクスペリエンスのカスタマイズを使用します。
 
 > [!NOTE]
 > コードはで提供される例に基づく m は、このチュートリアルでは提示[Teemu Keiski](http://aspadvice.com/blogs/joteke/default.aspx) s ブログ エントリ「 [GridView 並べ替えのグループ化ビットを再生](http://aspadvice.com/blogs/joteke/archive/2006/02/11/15130.aspx)します。
 
-
 ## <a name="step-3-adding-the-separator-rows-to-the-gridview-s-control-hierarchy"></a>手順 3: GridView のコントロール階層に区切り記号の行を追加
 
 この追加の最後に、ページのライフ サイクルが、実際の GridView c を実行するため、そのコントロールの階層構造が作成され、そのページのアクセス時に、最後に作成された後に、GridView s のコントロール階層に区切り行を追加するいたしますソース階層が HTML に表示されています。 これには、最新の可能なポイントは、`Page`クラスの`Render`イベントで、次のメソッド シグネチャを使用して分離コード クラスを無効にできます。
-
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample2.cs)]
 
@@ -125,16 +113,13 @@ GridView にバインドする前に、データをメッセージングでは�
 > [!NOTE]
 > GridView ページが最初に読み込まれたときに、特定の列で並べ替えられる場合は、呼び出す GridView の`Sort`メソッドの最初のページ参照してください (ただし、以降のポストバックではなく)。 これを実現するには、この呼び出しを追加、`Page_Load`内にイベント ハンドラー、`if (!Page.IsPostBack)`条件。 参照、[レポート データの並べ替えとページング](paging-and-sorting-report-data-cs.md)チュートリアルの情報の詳細については、`Sort`メソッド。
 
-
 データが並べ替えられているを次のタスクではどのような列を確認すると仮定すると、によってデータが並べ替えられたし、から s 列での相違点を検索する行をスキャンする値します。 次のコードでは、データが並べ替えられているし、データが並べ替えられて、列を検索することを保証します。
-
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample3.cs)]
 
 GridView がまだを並べ替え、GridView の`SortExpression`プロパティが設定されていません。 そのため、だけ使用するこのプロパティがいくつかの値を持つ場合は、区切り記号の行を追加します。 場合は、次に、データの並べ替え、列のインデックスを確認する必要があります。 これは GridView s ループ`Columns`コレクションを持つ列の検索`SortExpression`プロパティが GridView 秒に等しい`SortExpression`プロパティ。 取得私たちもの列のインデックスだけでなく、`HeaderText`プロパティで、区切り記号の行を表示するときに使用されます。
 
 データを並べ替える列のインデックスを含む最後に、GridView の行を列挙します。 行ごとに並べ替えられた列の値が、前の行の並べ替えられています列の値と異なるかどうかを判断する必要があります。 新しいを挿入する必要がありますので場合、`GridViewRow`コントロール階層にインスタンス。 これは、次のコードで実現されます。
-
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample4.cs)]
 
@@ -143,33 +128,27 @@ GridView がまだを並べ替え、GridView の`SortExpression`プロパティ�
 > [!NOTE]
 > 特定の行の並べ替え列の値を決定するセル s 使用`Text`プロパティ。 これは、BoundFields に適してがない TemplateFields、CheckBoxFields、必要に応じて機能にします。 間もなく代替 GridView フィールドに対応する方法についてを説明します。
 
-
 `currentValue`と`lastValue`変数と比較します。 これらが異なる場合は、コントロールの階層構造に新しい区切り記号の行を追加する必要があります。 インデックスを決定することでこれは、`GridViewRow`で、`Table`オブジェクト`Rows`コレクションの新規作成`GridViewRow`と`TableCell`インスタンス、および追加し、`TableCell`と`GridViewRow`に、コントロールの階層。
 
 区切り記号が $s 内の単一行を行に注意してください`TableCell`、GridView の幅全体にまたがるように書式設定を使用して書式設定、 `SortHeaderRowStyle` CSS クラス、ありその`Text`(カテゴリ) など、並べ替えるグループの両方が表示されるような名前プロパティにと(飲み物) などのグループの値です。 最後に、`lastValue`の値が更新され`currentValue`します。
 
 並べ替えのグループ ヘッダー行の書式設定に使用する CSS クラス`SortHeaderRowStyle`で指定する必要があります、`Styles.css`ファイル。 自由にどのようなスタイル設定にアピールします。次を使用しました。
 
-
 [!code-css[Main](creating-a-customized-sorting-user-interface-cs/samples/sample5.css)]
 
 BoundField で並べ替えるときに現在のコードでは、並べ替えのインターフェイスは並べ替えグループ ヘッダーを追加 (業者によって並べ替えるときに、スクリーン ショットを表示する図 5 を参照してください)。 ただし、(CheckBoxField や TemplateField) などのフィールドの種類を並べ替えるときに、並べ替えのグループ ヘッダーが (図 6 参照) が見つかりません。
-
 
 [![並べ替えのインターフェイスに BoundFields で並べ替えるときに並べ替えられたグループ ヘッダーが含まれます](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
 
 **図 5**:並べ替えインターフェイスが含まれています並べ替えグループ ヘッダーとして並べ替え BoundFields ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-cs/_static/image13.png))。
 
-
 [![並べ替えのグループ ヘッダーが不足しているときに並べ替え、CheckBoxField です。](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
 
 **図 6**:並べ替えのグループ ヘッダーが不足しているときに並べ替え、CheckBoxField ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-cs/_static/image16.png))。
 
-
 コードは現在だけに使用して、CheckBoxField して並べ替えるときに、並べ替えのグループ ヘッダーが見つからない理由は、 `TableCell` s`Text`行ごとに並べ替えられた列の値を決定するプロパティ。 CheckBoxFields、用、 `TableCell` s`Text`プロパティが空の文字列は、代わりに、値が内にあるチェック ボックスを Web コントロールで使用できる、 `TableCell` s`Controls`コレクション。
 
 BoundFields 以外のフィールド型を処理するために、コードを拡張する必要があります、`currentValue`変数に代入するチェック ボックスでの存在を確認、 `TableCell` s`Controls`コレクション。 使用する代わりに`currentValue = gvr.Cells[sortColumnIndex].Text`、このコードを次に置き換えます。
-
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample6.cs)]
 
@@ -177,15 +156,12 @@ BoundFields 以外のフィールド型を処理するために、コードを�
 
 上記のコードの追加、並べ替えのグループ ヘッダーは廃止された CheckBoxField で並べ替えるときに存在するようになりました (図 7 を参照してください)。
 
-
 [![並べ替えのグループ ヘッダーは現在存在するときに並べ替え、CheckBoxField です。](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
 
 **図 7**:並べ替えのグループ ヘッダーは現在存在するときに並べ替え、CheckBoxField ([フルサイズの画像を表示する をクリックします](creating-a-customized-sorting-user-interface-cs/_static/image19.png))。
 
-
 > [!NOTE]
 > 製品がある場合`NULL`の値をデータベース、 `CategoryID`、 `SupplierID`、または`UnitPrice`フィールド、それらの値は、GridView で空の文字列として既定で表示でこれらの製品の区切り記号の行のテキストを意味`NULL`カテゴリのような値は読み取ら: (が s は、カテゴリ後名なし: などのカテゴリ。飲み物)。 ここに表示される値の場合は、BoundFields か設定できます[`NullDisplayText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx)テキストを表示するかを割り当てるときに、Render メソッドで条件付きステートメントを追加することができます、`currentValue`に区切り記号行の`Text`プロパティ。
-
 
 ## <a name="summary"></a>まとめ
 

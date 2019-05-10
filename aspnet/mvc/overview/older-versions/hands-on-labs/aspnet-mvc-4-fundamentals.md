@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 38aea3b3480dde6ec6182a45c4f61f44eea8e05e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 95e9b9f55b2080c0ed01dc34e3a32f9f1c905644
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117248"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
 
@@ -108,13 +108,12 @@ MVC パターンでは、これらの要素間の疎結合を提供しながら�
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**60 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Creating_MusicStore_ASPNET_MVC_Web_Application_Project"></a>
-### <a name="exercise-1-creating-musicstore-aspnet-mvc-web-application-project"></a>手順 1:MusicStore ASP.NET MVC Web アプリケーション プロジェクトを作成します。
+### <a name="exercise-1-creating-musicstore-aspnet-mvc-web-application-project"></a>演習 1:MusicStore ASP.NET MVC Web アプリケーション プロジェクトを作成します。
 
 この演習では、Visual Studio 2012 Express でのメイン フォルダーの組織と、Web、ASP.NET MVC アプリケーションを作成する方法を学びます。 さらに、新しいコント ローラーを追加し、アプリケーションのホーム ページに単純な文字列を表示する方法を学習します。
 
@@ -210,7 +209,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Creating_a_Controller"></a>
-### <a name="exercise-2-creating-a-controller"></a>手順 2:コント ローラーの作成
+### <a name="exercise-2-creating-a-controller"></a>演習 2:コント ローラーの作成
 
 この演習では、ミュージック ストア アプリケーションの単純な機能を実装するコント ローラーを更新する方法を学びます。 そのコント ローラーには、次の特定の要求の各に対応するアクション メソッドを定義します。
 
@@ -359,7 +358,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Creating_a_View"></a>
-### <a name="exercise-4-creating-a-view"></a>手順 4:ビューを作成します。
+### <a name="exercise-4-creating-a-view"></a>演習 4:ビューを作成します。
 
 これまでにするがされてを返す文字列コント ローラー アクションから。 コント ローラーのしくみを理解するのに便利ですが、実際の Web アプリケーションの構築方法いないをお勧めします。 ビューは、テンプレート ファイルを使用して、ブラウザーに HTML を生成するためのより優れたアプローチを提供するコンポーネントです。
 
@@ -471,7 +470,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
 <a id="Exercise5"></a>
 
 <a id="Exercise_5_Creating_a_View_Model"></a>
-### <a name="exercise-5-creating-a-view-model"></a>手順 5:ビュー モデルを作成します。
+### <a name="exercise-5-creating-a-view-model"></a>演習 5:ビュー モデルを作成します。
 
 ここまでは、ハードコーディングされた HTML を表示するビューを作成したが、動的な web アプリケーションを作成するには、テンプレートの表示は、コント ローラーから情報を受信する必要があります。 目的のために使用する 1 つの一般的な手法は、 **ViewModel**パターンで、適切な HTML 応答を生成するために必要なすべての情報をパッケージ化するコント ローラーを使用します。
 
@@ -945,7 +944,6 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 
 > [!NOTE]
 > また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
-
 
 ---
 

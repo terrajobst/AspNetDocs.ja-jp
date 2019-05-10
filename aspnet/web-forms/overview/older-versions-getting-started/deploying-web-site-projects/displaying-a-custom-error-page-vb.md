@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 14873c5d-81a9-455b-bd71-30fb555583e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dc3ff989b6861fe62cce0199a62adef6107206d5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 961959300f5481a297ed8a9a17131c076d1dfd69
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384189"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116706"
 ---
 # <a name="displaying-a-custom-error-page-vb"></a>カスタム エラー ページを表示する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59384189"
 [コードのダウンロード](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_vb.pdf)
 
 > ユーザーに表示される内容を ASP.NET web アプリケーションでランタイム エラーが発生します。 方法によって異なります。 web サイトの&lt;customErrors&gt;構成します。 既定では、ユーザーは、実行時エラーが発生したことを掲げ見苦しいの黄色い画面に表示されます。 このチュートリアルでは、サイトのルック アンド フィールに一致するカスタム エラー ページを表示、美しくて心地よいこれらの設定をカスタマイズする方法を示します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -47,7 +46,6 @@ ms.locfileid: "59384189"
 > [!NOTE]
 > デモの web アプリケーションでは、このエラーを再現するダウンロードは`Genre.aspx?ID=foo`直接「、ランタイム エラーを生成する」リンクをクリックしてまたは`Default.aspx`します。
 
-
 表示される例外情報に注意してください**図 1**します。 例外メッセージでは、「変換に失敗した文字の文字列から uniqueidentifier に変換するときに」することは、ページの上部に存在します。 例外の種類`System.Data.SqlClient.SqlException`も、表示されます。 スタック トレースもあります。
 
 [![](displaying-a-custom-error-page-vb/_static/image2.png)](displaying-a-custom-error-page-vb/_static/image1.png)
@@ -61,7 +59,6 @@ YSOD の他の種類に、ランタイム エラー YSOD、**図 2**します。
 
 > [!NOTE]
 > 従うし、web ホストとして DiscountASP.NET を使用している場合、ライブ サイトにアクセスすると、ランタイム エラー YSOD は表示されませんお気付きです。 DiscountASP.NET があるそのサーバーが既定では、例外の詳細 YSOD を表示するように構成するためです。 良い知らせは、追加してこの既定の動作をオーバーライドすることができます、`<customErrors>`セクションを`Web.config`ファイル。 「構成エラー ページが表示される」セクションを調べ、`<customErrors>`この後説明します。
-
 
 [![](displaying-a-custom-error-page-vb/_static/image5.png)](displaying-a-custom-error-page-vb/_static/image4.png)
 
@@ -84,7 +81,8 @@ YSOD の他の種類に、ランタイム エラー YSOD、**図 2**します。
 - 構成情報、`<customErrors>`セクションと
 - かどうか、ユーザーは、ローカルまたはリモートでサイトを訪問は。
 
-[ `<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)で`Web.config`がどのようなエラー ページが表示に影響する 2 つの属性:`defaultRedirect`と`mode`します。 `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラーの YSOD ではなく、カスタム エラー ページが表示することを示します。 `mode`属性が必要ですし、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`します。 これらの値には、次の動作があります。
+[ `<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)で`Web.config`がどのようなエラー ページが表示に影響する 2 つの属性:`defaultRedirect`と`mode`します。 
+  `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラーの YSOD ではなく、カスタム エラー ページが表示することを示します。 `mode`属性が必要ですし、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`します。 これらの値には、次の動作があります。
 
 - `On` -カスタム エラー ページまたはランタイム エラーの YSOD がローカルまたはリモートいるかどうかに関係なく、すべての訪問者に表示されていることを示します。
 - `Off` -例外の詳細 YSOD がローカルまたはリモートいるかどうかに関係なく、すべての訪問者に表示されることを指定します。
@@ -139,7 +137,6 @@ ASP.NET が動作しますモード属性を設定している場合、それ以
 > [!NOTE]
 > チェック アウト[404 エラー ページ、1 つ以上の時間](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)効果的な 404 エラー ページを作成する方法のガイダンスについてはします。
 
-
 [![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**図 7**:カスタム 404 エラー ページより対象が絞られたメッセージが表示されます。 `Oops.aspx`  
  ([フルサイズの画像を表示する をクリックします](displaying-a-custom-error-page-vb/_static/image20.png))。 
 
@@ -147,7 +144,6 @@ ASP.NET が動作しますモード属性を設定している場合、それ以
 
 > [!NOTE]
 > カスタム エラー ページは、ASP.NET エンジンによって処理されるリソースに要求が行われた場合にのみ表示されます。 説明したように、 [Core の相違点の間で IIS と ASP.NET 開発サーバー](core-differences-between-iis-and-the-asp-net-development-server-vb.md)チュートリアル, web サーバーが特定の要求を処理自体。 既定では、IIS web 画像や HTML ファイルなどの静的コンテンツのサーバー プロセスの要求を使用、ASP.NET エンジンを呼び出さずにします。 その結果、ユーザーが存在しないイメージ ファイルを要求した場合は戻る ASP ではなく、IIS の既定の 404 エラー メッセージ。NET のでは、エラー ページを構成します。
-
 
 ## <a name="summary"></a>まとめ
 

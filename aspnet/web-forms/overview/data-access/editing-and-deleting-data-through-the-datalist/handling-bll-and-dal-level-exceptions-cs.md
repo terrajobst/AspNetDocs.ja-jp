@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: f8fd58e2-f932-4f08-ab3d-fbf8ff3295d2
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5714b118a5894731820d8e9775c8f5c8a375856c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3edd37259a3624757dd5bc69ffba7159c9b85ad1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113743"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-c"></a>BLL レベルと DAL レベルの例外を処理する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59390130"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_38_CS.exe)または[PDF のダウンロード](handling-bll-and-dal-level-exceptions-cs/_static/datatutorial38cs1.pdf)
 
 > このチュートリアルでは、もらえるように編集可能な DataList の更新のワークフロー中に発生した例外を処理する方法がわかります。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -35,38 +34,30 @@ ms.locfileid: "59390130"
 > [!NOTE]
 > *編集の 概要と、DataList でデータを削除する*を更新するため、ObjectDataSource を使用して編集および DataList からデータを削除するためのさまざまな手法を説明したチュートリアルでは、いくつかのテクニックを紹介し、削除しています。 これらの手法を採用する場合は、ObjectDataSource s を通じて BLL または DAL から例外を処理することができます`Updated`または`Deleted`イベント ハンドラー。
 
-
 ## <a name="step-1-creating-an-editable-datalist"></a>手順 1: 編集可能な DataList を作成します。
 
 更新のワークフロー中に発生する例外の処理について気にし、前に、最初に作成、編集可能な DataList s を使用できます。 開く、`ErrorHandling.aspx`ページで、`EditDeleteDataList`フォルダー、DataList をデザイナーに追加設定その`ID`プロパティを`Products`、という名前の新しい ObjectDataSource を追加および`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラスの`GetProducts()`を選択するためのメソッドは、記録;、insert、UPDATE、ドロップダウン リストを設定し、(None) にタブを削除します。
-
 
 [![GetProducts() メソッドを使用して、製品情報を返す](handling-bll-and-dal-level-exceptions-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-cs/_static/image1.png)
 
 **図 1**:使用して、製品情報を返す、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image3.png))。
 
-
 ObjectDataSource ウィザードを完了すると、Visual Studio が自動的に作成、 `ItemTemplate` DataList にします。 これを置き換える、`ItemTemplate`を各製品の名前と価格を表示し、Edit ボタンが含まれています。 次に、作成、`EditItemTemplate`名と価格と更新のキャンセル ボタンのテキスト ボックスに Web コントロールを使用します。 DataList s を最後に、設定`RepeatColumns`プロパティを 2。
 
 これらの変更後、ページ s 宣言型マークアップは、次のようになります。 再確認をとることによって、編集、Cancel、および更新 ボタンがその`CommandName`プロパティを編集、キャンセル、および更新、それぞれに設定します。
-
 
 [!code-aspx[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample1.aspx)]
 
 > [!NOTE]
 > このチュートリアルでは、DataList のビュー ステートを有効にする必要があります。
 
-
 ブラウザーから進行状況を表示する少し (図 2 参照)。
-
 
 [![各製品には、[編集] ボタンが含まれています。](handling-bll-and-dal-level-exceptions-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-cs/_static/image4.png)
 
 **図 2**:各製品には、[編集] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image6.png))。
 
-
 現時点では、[編集] ボタンのみポストバックが発生することは t まだ、製品を編集できるようにします。 DataList s のイベント ハンドラーの作成に必要な編集を有効にする`EditCommand`、 `CancelCommand`、および`UpdateCommand`イベント。 `EditCommand`と`CancelCommand`イベントは、DataList s を簡単に更新`EditItemIndex`プロパティは、DataList にデータを再バインドします。
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample2.cs)]
 
@@ -74,16 +65,13 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 
 ここでは、let s だけを使用して、まったく同じコードから、`UpdateCommand`内のイベント ハンドラー、*編集の概要と、DataList でデータを削除する*チュートリアル。 手順 2 で例外を適切に処理するコードを追加します。
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample3.cs)]
 
 無効な入力が発生した場合の適切な形式で単価、5.00 ドルなどの無効な単位価格の値または例外が発生する製品の名前の省略形でとります。 以降、`UpdateCommand`イベント ハンドラーが例外コードをこの時点で処理を含まない、例外が、ASP.NET の実行時までバブルは、エンドユーザーに表示されます (図 3 を参照してください)。
 
-
 ![ハンドルされない例外が発生したときに、エンドユーザーがエラー ページ](handling-bll-and-dal-level-exceptions-cs/_static/image7.png)
 
 **図 3**:ハンドルされない例外が発生したときに、エンドユーザーがエラー ページ
-
 
 ## <a name="step-2-gracefully-handling-exceptions-in-the-updatecommand-event-handler"></a>手順 2: UpdateCommand イベント ハンドラーで例外を適切に処理
 
@@ -93,13 +81,11 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 
 エラーが発生したときに、表示されるラベルを 1 回のみします。 以降のポストバックでは、s のラベルの警告メッセージが表示されます。 S のラベルをクリアするかこれを実現できます`Text`プロパティや設定、`Visible`プロパティを`False`で、`Page_Load`イベント ハンドラー (で行ったよう、[処理 BLL - と ASP の DAL レベルの例外.NET ページ](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)チュートリアル) またはラベルの表示状態のサポートを無効にします。 後者のオプションを使用して、s のことができます。
 
-
 [!code-aspx[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample4.aspx)]
 
 例外が発生したときに例外の詳細を割り当てます、`ExceptionDetails`ラベル コントロールの`Text`プロパティ。 以降のポストバックでは、そのビュー ステートが無効になっているため、`Text`プロパティ %s プログラムによる変更が失わ、既定のテキスト (空の文字列)、これにより、警告メッセージを非表示に戻します。
 
 追加する便利なメッセージがページに表示するには、エラーが発生した場合を判断する、`Try ... Catch`へのブロック、`UpdateCommand`イベント ハンドラー。 `Try`部分には、例外につながる可能性のあるコードが含まれています。 中に、`Catch`ブロックに例外が発生した場合に実行されるコードが含まれています。 チェック アウト、[例外処理の基本事項](https://msdn.microsoft.com/library/2w8f0bss.aspx)詳細については、.NET Framework のドキュメントのセクションで、`Try ... Catch`ブロックします。
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample5.cs)]
 
@@ -107,23 +93,19 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 
 詳細については、キャッチされた例外の種類に基づいて、メッセージ テキストを作成して、エンドユーザーに提供できます。 次のコードとほぼ同じフォームで使用されていたに戻り、[処理 BLL - と DAL レベルの例外で、ASP.NET ページ](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)チュートリアルでは、このレベルの詳細。
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample6.cs)]
 
 このチュートリアルでは、単に呼び出す、`DisplayExceptionDetails`からメソッド、`Catch`ブロックでキャッチされた渡す`Exception`インスタンス (`ex`)。
 
 `Try ... Catch`インプレース ブロック、ユーザーがよりわかりやすいエラー メッセージでは、図 4 と 5 つのスライド ショーとして表示されます。 DataList の例外が発生した場合に残っているメモは編集モードです。 制御フローに直ちにリダイレクト例外が発生した場合、ため、これは、`Catch`ブロック、編集済みの状態、DataList を返すコードをバイパスします。
 
-
 [![ユーザーが必要なフィールドを付ける場合、エラー メッセージが表示されます。](handling-bll-and-dal-level-exceptions-cs/_static/image9.png)](handling-bll-and-dal-level-exceptions-cs/_static/image8.png)
 
 **図 4**:ユーザーが必要なフィールドを付ける場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image10.png))。
 
-
 [![エラー メッセージが表示されるときに入力を負の価格](handling-bll-and-dal-level-exceptions-cs/_static/image12.png)](handling-bll-and-dal-level-exceptions-cs/_static/image11.png)
 
 **図 5**:エラー メッセージが表示されるときに入力を負の価格 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-cs/_static/image13.png))。
-
 
 ## <a name="summary"></a>まとめ
 

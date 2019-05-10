@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8caa88d928517e1c71210cbe55e3961d4baf461a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ce8e3c4ff8a59be9f2f572813db599604216119d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381277"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117796"
 ---
 # <a name="iteration-4--make-the-application-loosely-coupled-c"></a>繰り返し #4 – アプリケーションを疎結合 (c#) を作成します。
 
@@ -22,7 +22,6 @@ ms.locfileid: "59381277"
 [コードをダウンロードします。](iteration-4-make-the-application-loosely-coupled-cs/_static/contactmanager_4_cs1.zip)
 
 > この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 たとえば、Repository パターンと依存関係の注入パターンを使用するようにアプリケーションをリファクタリングします。
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>連絡先管理 ASP.NET MVC アプリケーション (c#) の構築
 
@@ -54,7 +53,6 @@ ms.locfileid: "59381277"
 > 
 > (SRP) クラスを変更する 1 つ以上の理由がないことはありません必要があります。 大規模な単一責任の原則違反は、コント ローラー、検証、およびデータベース ロジックを混在させます。
 
-
 アプリケーションを変更する必要があるいくつかの理由があります。 アプリケーションに新しい機能を追加する必要があります、アプリケーションでは、バグを修正する必要があります。 またはアプリケーションの機能を実装する方法を変更する必要があります。 アプリケーションは、静的なことはほとんどありません。 拡張し、時間の経過と共に変化する傾向があります。
 
 たとえば、変更、データ アクセス層を実装する方法を決定することに想像してください。 右、Contact Manager アプリケーションを使用して Microsoft Entity Framework がデータベースにアクセスします。 ただし、ADO.NET Data Services や NHibernate などの新規または別のデータ アクセス テクノロジに移行することがあります。 ただし、データ アクセス コードを検証し、コント ローラーのコードから分離されてないため、データ アクセスに直接関連付けられていないその他のコードを変更することがなく、アプリケーションでデータ アクセス コードを変更する方法はありません。
@@ -66,7 +64,6 @@ ms.locfileid: "59381277"
 > [!NOTE] 
 > 
 > リファクタリングは、既存の機能が失われないようにアプリケーションを書き直しのプロセスです。
-
 
 ## <a name="using-the-repository-software-design-pattern"></a>リポジトリのソフトウェア設計パターンを使用
 
@@ -105,7 +102,6 @@ EntityContactManagerRepository の具象クラスではなく IContactManagerRep
 > 
 > メニュー オプションのリファクタリング、インターフェイスの抽出を選択して、Visual Studio 内の具象クラスからインターフェイスをすばやく作成できます。 たとえば、まず EntityContactManagerRepository クラスを作成でき、IContactManagerRepository インターフェイスを自動的に生成するインターフェイスの抽出を使用できます。
 
-
 ## <a name="using-the-dependency-injection-software-design-pattern"></a>依存関係の挿入ソフトウェア設計パターンを使用
 
 別のリポジトリ クラスには、データ アクセス コードを移行しましたが、このクラスを使用して、連絡先のコント ローラーを変更する必要があります。 依存関係の挿入、コント ローラーで、リポジトリ クラスを使用すると呼ばれるソフトウェアの設計パターンの利用されます。
@@ -127,7 +123,6 @@ EntityContactManagerRepository の具象クラスではなく IContactManagerRep
 > [!NOTE] 
 > 
 > IContactManagerRepository インターフェイスの特定の実装から連絡先のコント ローラー クラスを完全に分離する場合を行う StructureMap や Microsoft などの依存関係の挿入をサポートするフレームワークを活用Entity Framework (MEF)。 依存関係の挿入のフレームワークを利用してしないコードで具象クラスを参照する必要があります。
-
 
 ## <a name="creating-a-service-layer"></a>サービス層の作成
 

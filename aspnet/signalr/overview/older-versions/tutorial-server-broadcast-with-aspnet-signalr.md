@@ -8,12 +8,12 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68908be34f6b010e512677fe5f5e31bfdefab592
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403585"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116065"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト
 
@@ -26,7 +26,6 @@ ms.locfileid: "59403585"
 > このチュートリアルで作成するアプリケーションでは、株価情報、サーバー ブロードキャストの機能の一般的なシナリオをシミュレートします。
 > 
 > このチュートリアルでコメントは、ようこそ。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com)にて投稿してください。
-
 
 ## <a name="overview"></a>概要
 
@@ -54,7 +53,6 @@ ms.locfileid: "59403585"
 
 > [!NOTE]
 > 新しい SignalR.Sample パッケージをインストールするには、アプリケーションの構築の手順を実行しない場合は、**空の ASP.NET Web アプリケーション**プロジェクト、およびコードの説明を取得する次の手順を通読します。 このチュートリアルの最初の部分が、SignalR.Sample コードのサブセットについて説明し、2 番目の部分が SignalR.Sample パッケージの追加機能の主な機能を説明します。
-
 
 <a id="prerequisites"></a>
 

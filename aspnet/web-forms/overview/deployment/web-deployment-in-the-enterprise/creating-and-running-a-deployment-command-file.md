@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: c61560e9-9f6c-4985-834a-08a3eabf9c3c
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: cbad35c9ef83b41e9d3f9a48ff37672d22338e7e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f1477ff423e4898385066a35b42503f3c70dcc68
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395226"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119458"
 ---
 # <a name="creating-and-running-a-deployment-command-file"></a>配置コマンド ファイルを作成し、実行する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59395226"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、シングル ステップの再現可能なプロセスとして Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して展開を実行できるようにするコマンド ファイルを構築する方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、 [Contact Manager](the-contact-manager-solution.md)ソリューション&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -41,9 +40,7 @@ ms.locfileid: "59395226"
 
 *Publish.proj*ファイルの使用、**インポート**環境固有のプロジェクト ファイルをインポートする要素。
 
-
 [!code-xml[Main](creating-and-running-a-deployment-command-file/samples/sample1.xml)]
-
 
 そのため、MSBuild.exe を使用して構築および連絡先マネージャー ソリューションをデプロイするときにする必要があります。
 
@@ -52,19 +49,14 @@ ms.locfileid: "59395226"
 
 これを行うには、MSBuild コマンドのようにこのする必要があります。
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample2.cmd)]
-
 
 ここでは、反復可能なシングル ステップの展開に移動する簡単なステップになります。 行う必要があるは、.cmd ファイルに、MSBuild コマンドを追加することだけです。 連絡先マネージャー ソリューションでは、Publish フォルダーにという名前のファイルが含まれます。*発行 Dev.cmd*はまさにこの役割をします。
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample3.cmd)]
-
 
 > [!NOTE]
 > **/Fl**という名前のログ ファイルを作成する msbuild でスイッチ*msbuild.log になります*MSBuild.exe が呼び出された作業ディレクトリにします。
-
 
 実行を展開または連絡先マネージャー ソリューションを再デプロイを行う必要があるだけです、*発行 Dev.cmd*ファイル。 ファイルを実行すると、MSBuild が行われます。
 
@@ -99,19 +91,14 @@ ms.locfileid: "59395226"
 
 ビルドとマルチ プロジェクト ソリューションを特定の送信先の環境に展開の迅速かつ簡単な方法を提供、MSBuild の手順を含むコマンド ファイルを作成します。 繰り返し、ソリューションを複数の展開先環境を配置する必要がある場合は、複数のコマンド ファイルを作成できます。 各コマンド ファイルで MSBuild コマンドが同じユニバーサル プロジェクト ファイルをビルドが別の環境に固有のプロジェクト ファイルを指定できます。 たとえば、テスト環境、開発者に発行したり、コマンド ファイルには、この MSBuild コマンドが含まれます。
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample4.cmd)]
-
 
 ステージング環境に発行するコマンド ファイルには、この MSBuild コマンドが含まれます。
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample5.cmd)]
-
 
 > [!NOTE]
 > 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
-
 
 プロパティをオーバーライドするか、MSBuild コマンドの他の各種のスイッチを設定して各環境のビルド プロセスをカスタマイズすることもできます。 詳細については、次を参照してください。 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)します。
 

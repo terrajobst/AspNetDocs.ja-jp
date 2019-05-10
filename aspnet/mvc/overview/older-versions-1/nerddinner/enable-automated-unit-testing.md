@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: b0c9cd7ab36a8414e0d7d50a68b05bb09a5f24f1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 09a7aa186605a6cce48ee94028425ded957c00d3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387907"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117353"
 ---
 # <a name="enable-automated-unit-testing"></a>自動化された単体テストを有効にする
 
@@ -26,7 +26,6 @@ ms.locfileid: "59387907"
 > 手順 12 では、一連の自動化された単体テスト、NerdDinner 機能を確認して、これにより、アプリケーションを今後の機能強化と変更できるという確信を開発する方法を示します。
 > 
 > 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
-
 
 ## <a name="nerddinner-step-12-unit-testing"></a>NerdDinner 手順 12:単体テスト
 
@@ -88,7 +87,7 @@ Dinner クラスを実行する 2 つのテストを追加の最初の数値を�
 
 記述する場合、個々 のテストを回避するテストが多すぎる行います。 代わりに各テストは、(これはそれがより簡単にエラーの原因を特定) 1 つの概念のみを確認する必要があります。 試して、アサート ステートメント テストごとに 1 つのみがあることをお勧めします。 1 つ以上のテスト メソッドでステートメントのアサートがある場合は、すべて使用されている同じ概念をテストするを確認します。 確かでない場合は、別のテストを作成します。
 
-### <a name="running-tests"></a>テストの実行
+### <a name="running-tests"></a>テストを実行しています
 
 Visual Studio 2008 Professional (および上位エディション)、IDE 内でプロジェクトを Visual Studio の単体テストの実行に使用できる組み込みのテスト ランナーが含まれます。 選択できる、**テスト -&gt;実行 -&gt;ソリューションのすべてのテスト**メニュー コマンド (または ctrl キーを R では、タイプ A) すべての単体テストを実行します。 または特定のテスト クラスまたはテスト メソッド内でカーソルを配置し、使用して別の方法として、**テスト -&gt;実行 -&gt;の現在のコンテキストのテスト**単体テストのサブセットを実行するメニュー コマンド (または ctrl キーを R では、T 型)。
 
@@ -264,7 +263,6 @@ ControllerContext プロパティとメソッドの任意の数をモックす�
 フォーム ポストされた UpdateModel() ヘルパー メソッドを使用する値の指定を示す 2 つのテストを以下に示します。 これは、作成して、FormCollection オブジェクトの作成がされ、コント ローラーの"ValueProvider"プロパティに割り当てます。
 
 最初のテストを正常に保存、ブラウザーがリダイレクトされるは、詳細のアクションを確認します。 2 番目のテストは、無効な入力が投稿されたときにエラー メッセージでは、編集ビューをもう一度再アクションに表示されることを確認します。
-
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample17.cs)]
 

@@ -9,19 +9,18 @@ ms.custom: seoapril2019
 ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: 8916f8b7a024636be1be055457081487f46a7936
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 63df4a82cd8df92631485b2544117844cfd0ca56
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421629"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130463"
 ---
 # <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ルーティング規則では、ASP.NET Web API 2 Odata
 
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > この記事には、OData エンドポイントの ASP.NET 4.x でその Web API 2 のルーティング規則がについて説明します。
-
 
 Web API OData の要求を取得、コント ローラー名とアクション名を要求がマップされます。 マッピングは、HTTP メソッドと URI に基づきます。 たとえば、`GET /odata/Products(1)`マップ`ProductsController.GetProduct`します。
 
@@ -53,7 +52,6 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 
 > [!NOTE]
 > OData パス セグメントが URI セグメントを常に対応していません。 たとえば、「1」は、パス セグメントと見なされます。
-
 
 **コント ローラーの名前。** コント ローラー名は常にリソース パスのルートにある設定エンティティから派生します。 たとえば、リソース パスが`/Products(1)/Supplier`、Web API がという名前のコント ローラーの検索`ProductsController`します。
 
