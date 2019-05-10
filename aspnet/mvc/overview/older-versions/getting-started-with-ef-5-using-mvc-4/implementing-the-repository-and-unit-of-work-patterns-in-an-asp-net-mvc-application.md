@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 44761193-04ba-4990-9f90-145d3c10a716
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 71ff3c269c5d1ed43a67d19442eda8e9d4728295
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d0d6c9dd5234c8085b5c1dea5552854486314010
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405704"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129786"
 ---
 # <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>ASP.NET MVC アプリケーション (9/10) で、リポジトリと Unit of Work パターンを実装します。
 
@@ -26,7 +26,6 @@ ms.locfileid: "59405704"
 > > [!NOTE] 
 > > 
 > > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 前のチュートリアルでの冗長なコードを削減する継承を使用して、`Student`と`Instructor`エンティティ クラスです。 このチュートリアルでは、CRUD 操作のリポジトリと unit of work パターンを使用するいくつかの点を確認します。 このいずれかで、前のチュートリアルでは、ように、コードの新しいページを作成するのではなく、既に作成したページの動作を変更します。
 
@@ -51,7 +50,6 @@ ms.locfileid: "59405704"
 
 > [!NOTE]
 > リポジトリと unit of work パターンを実装する方法はたくさんあります。 クラスの作業の単位の有無は、リポジトリ クラスを使用することができます。 すべてのエンティティ型、または種類ごとに 1 つ 1 つのリポジトリを実装することができます。 種類ごとに 1 つを実装する場合は、別のクラス、ジェネリック基底クラスと派生クラスまたは抽象基本クラスおよび派生クラスを使用できます。 リポジトリでビジネス ロジックを含むまたはデータ アクセス ロジックに制限できます。 使用して、データベース コンテキスト クラスに抽象化レイヤーを構築することもできます[IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx)の代わりにインターフェイスがあります[DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx)種類、エンティティ セット。 このチュートリアルで示すように抽象化レイヤーを実装する方法は、いないすべてのシナリオおよび環境の推奨事項を考慮するための 1 つのオプションです。
-
 
 ## <a name="creating-the-student-repository-class"></a>学生のリポジトリ クラスを作成します。
 
@@ -142,7 +140,6 @@ CRUD のメソッドでコンテキストの代わりに、リポジトリと呼
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample16.sql)]
 > 
 > (次のチュートリアルでは、SQL Server に送信されるクエリを調査する方法を説明します)。
-
 
 次のセクションでは、データベースでこの作業を行う必要がありますを指定するためのリポジトリ メソッドを実装する方法を示します。
 

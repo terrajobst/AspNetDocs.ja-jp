@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 09279194-bcf9-4b59-a09d-c68e5926a758
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 70640ac12b52d50c92d1d7f65c1116b2ec36d883
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3cfba5648dd7b9cacdc439de132bea48ee7447b1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381771"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127141"
 ---
 # <a name="deploying-your-site-using-an-ftp-client-vb"></a>FTP クライアントを使用してサイトを配置する (VB)
 
@@ -23,17 +23,14 @@ ms.locfileid: "59381771"
 
 > ASP.NET アプリケーションをデプロイする最も簡単な方法では、開発環境から運用環境に必要なファイルを手動でコピーします。 このチュートリアルでは、FTP クライアントを使用して、web ホスト プロバイダーをデスクトップからファイルを取得する方法を示します。
 
-
 ## <a name="introduction"></a>はじめに
 
 前のチュートリアルには、いくつかの ASP.NET ページ、マスター ページ、カスタム ベースで構成されますが、単純なの書籍レビューの ASP.NET web アプリケーションが導入された`Page`クラス、イメージの数と、次の 3 つの CSS スタイル シート。 このアプリケーションは、アプリケーションをインターネットへの接続を使用してアクセスできるすべてのユーザーがこの時点で、web ホスト プロバイダーをデプロイする準備ができました!
-
 
 ディスカッション、 [*を決定する必要のあるファイルを展開する*](determining-what-files-need-to-be-deployed-vb.md)チュートリアルでは、web ホスト プロバイダーにコピーする必要があるファイルがわかっています。 (どのようなファイルをコピーすることを思い出してくださいは、アプリケーションが自動的にまたは明示的にコンパイルされたかに依存)。しかし、開発環境 (当社のデスクトップ) から運用環境 (web ホスト プロバイダーによって管理される web サーバー) まで、ファイルを得でしょうか。 [ **F** ile **T** ransfer **P** rotocol (FTP)](http://en.wikipedia.org/wiki/File_Transfer_Protocol)はネットワーク経由で 1 台のコンピューターから別のファイルをコピーするため、一般的に使用されるプロトコルです。 もう 1 つのオプションは、FrontPage Server Extensions (FPSE) です。 このチュートリアルでは、スタンドアロン FTP クライアント ソフトウェアを使用して、開発環境から運用環境に必要なファイルを展開するについて説明します。
 
 > [!NOTE]
 > Visual Studio には、FTP を使用して web サイトを発行するためのツールが含まれています。次のチュートリアルでは、これらのツールと FPSE を使用するツールを見てがについて説明します。
-
 
 FTP の必要がありますを使用してファイルをコピーする、 *FTP クライアント*開発環境にします。 FTP クライアントが実行しているコンピューターにインストールされているコンピューターからファイルをコピーするように設計されたアプリケーション、 *FTP サーバー*します。 (Web ホスト プロバイダーは、ほとんどと同様に、FTP 経由でファイル転送をサポートする場合は、web サーバーで実行されている FTP サーバー)。さまざまな FTP クライアント アプリケーションは使用できます。 Web ブラウザーは、FTP クライアントとしても倍精度浮動小数点ことができます。 私のお気に入りの FTP クライアントとこのチュートリアルで使用する 1 つは[FileZilla](http://filezilla-project.org/)Windows、Linux、および mac コンピューターで利用可能な無料のオープン ソースの FTP クライアント。 任意の FTP クライアントが機能、のでどうぞご自由に最も慣れている場合どのようなクライアントを使用します。
 
@@ -68,11 +65,9 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 > [!NOTE]
 > それらは無視されますと、実稼働サーバー上のソース コード ファイルがある場合も問題はありません。 ASP.NET は、web サイトの訪問者がアクセス可能なソース コード ファイルが、実稼働サーバー上に存在する場合でもがれないように、既定でソース コード ファイルへの HTTP 要求が禁止されます。 (ユーザーがアクセスしようしている場合は、`http://www.yoursite.com/Default.aspx.vb`のファイル - これらの型を説明するエラー ページが表示されます`.vb`ファイル - が禁止されています)。
 
-
 [![FTP クライアントを使用して、必要なファイルをデスクトップから、Web ホスト プロバイダーにある Web サーバーにコピーします。](deploying-your-site-using-an-ftp-client-vb/_static/image2.png)](deploying-your-site-using-an-ftp-client-vb/_static/image1.png)
 
 **図 1**:FTP クライアントを使用して、自分のデスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーする ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-an-ftp-client-vb/_static/image3.png))。
-
 
 サイトの配置後に少しサイトをテストします。 かどうかドメイン名を購入し、DNS の設定を構成、適切にドメイン名を入力して、サイトにアクセスすることができます。 また、web ホスト プロバイダーする必要がありますが指定する、サイトへの URL にするようになります*accountname*.*webhostprovider*.com または*webhostprovider*.com/*accountname*します。 たとえば、ASP.NET の割引でアカウント URL は:`http://httpruntime.web703.discountasp.net`します。
 
@@ -81,11 +76,9 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 > [!NOTE]
 > アプリケーションの表示時間がかかることを確認するときにエラーが発生した場合は、ファイルの正しいセットをデプロイします。 次に、問題に関するすべての手がかりを表示するかどうかに表示するエラー メッセージを確認します。 次に、web ホスト会社のヘルプデスクを有効にするか適切なフォーラムに質問を投稿、 [ASP.NET フォーラム](https://forums.asp.net/)します。
 
-
 [![書籍レビュー サイトでは、インターネット接続があればだれでもアクセスできるようになりました。](deploying-your-site-using-an-ftp-client-vb/_static/image5.png)](deploying-your-site-using-an-ftp-client-vb/_static/image4.png)
 
 **図 2**:インターネット接続があればだれでも、書籍レビューのサイトがアクセスできるようになりました ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-an-ftp-client-vb/_static/image6.png))。
-
 
 ## <a name="deploying-the-book-review-web-site-project"></a>書籍レビューの Web サイト プロジェクトを配置します。
 
@@ -97,7 +90,6 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 
 > [!NOTE]
 > プロジェクトは BookReviewsWSP プロジェクトの配置を試したい BookReviewsWAP が既に展開されている場合は、まず BookReviewsWAP をデプロイするときにアップロードされたファイル、web サーバー上のすべてを削除して、BookReviewsWSP のファイルを展開します。
-
 
 - `~/Default.aspx`
 - `~/Default.aspx.vb`
@@ -123,11 +115,9 @@ FTP の必要がありますを使用してファイルをコピーする、 *FT
 
 図 3 は、必要なファイルをコピーした後、FileZilla を示します。 ご覧のように、ASP.NET ソース コード ファイルなど`About.aspx.vb`は、コード ファイルを自動を使用する場合に展開する必要があるため、ローカル コンピューター (開発環境) と web ホスト プロバイダー (運用環境) の両方に存在コンパイルします。
 
-
 [![FTP クライアントを使用して、デスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーするには](deploying-your-site-using-an-ftp-client-vb/_static/image8.png)](deploying-your-site-using-an-ftp-client-vb/_static/image7.png)
 
 **図 3**:FTP クライアントを使用して、自分のデスクトップから Web ホスト プロバイダーの Web サーバーに必要なファイルをコピーする ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-an-ftp-client-vb/_static/image9.png))。
-
 
 ユーザー エクスペリエンスは、アプリケーションのコンパイル モデルの影響を受けません。 同じ ASP.NET ページにアクセスして、外観し動作は同じ Web アプリケーション プロジェクト モデルまたは Web サイト プロジェクト モデルを使用して、web サイトが作成されたかどうか。
 
@@ -139,7 +129,6 @@ Web アプリケーションの開発とデプロイは、1 回限りのプロ�
 
 > [!NOTE]
 > プロジェクトに新しい ASP.NET ページを追加またはコードに関連する変更すると、いつでも、内のアセンブリを更新するプロジェクトをリビルドする必要がありますが明示的なコンパイルを使用する場合に注意する必要があります、`Bin`フォルダー。 その結果、(その他の新規および更新されたコンテンツと共に) の運用上の web アプリケーションを更新するときに、運用環境にこの更新されたアセンブリをコピーする必要があります。
-
 
 変更されているいずれかを理解することも、`Web.config`または内のファイル、`Bin`ディレクトリが停止し、web サイトのアプリケーション プールを再起動します。 使用して、セッション状態に格納されている場合、`InProc`モード (既定)、サイトの訪問者は、これらのキー ファイルが変更されるたびに、そのセッションの状態に失われます。 この危険を避けるためには、検討を使用してセッションを格納する、`StateServer`または`SQLServer`モード。 このトピックの詳細については、読み取る[セッション状態モード](https://msdn.microsoft.com/library/ms178586.aspx)します。
 

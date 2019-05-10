@@ -8,19 +8,18 @@ ms.date: 05/12/2009
 ms.assetid: 96b56eca-a892-45a4-96b4-67e61178650a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4428ef0a6cec4c348bc48d069b990798508c21d4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7850e745f5985688c95fc7f649ccbb06b2f66e20
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127163"
 ---
 # <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>カスタム AJAX Control Toolkit コントロール エクステンダーを作成する (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > カスタム エクステンダーを使用すると、カスタマイズし、新しいクラスを作成することがなく ASP.NET コントロールの機能を拡張できます。
-
 
 このチュートリアルでは、カスタム AJAX Control Toolkit コントロール エクステンダーを作成する方法について説明します。 便利で新しいエクステンダーをテキスト ボックスにテキストを入力するときに有効と無効のボタンの状態を変更するが、単純なを作成します。 このチュートリアルを読むと、次の独自のコントロール エクステンダーを使用して ASP.NET AJAX ツールキットを拡張することができます。
 
@@ -36,19 +35,15 @@ DisabledButton extender の名前は、新しいコントロール エクステ�
 
 テキスト ボックスとボタン コントロールに DisabledButton エクステンダーをフックするとします。 任意のテキストを入力する前に、ボタンが無効にし、ボタンをクリックし、テキスト ボックスに次のようになります。
 
-
 [![](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image2.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image1.png)
 
 ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image3.png))。
 
-
 テキストの入力を開始した後、ボタンが有効になっているし、ボタンをクリックし、テキスト ボックスに次のようになります。
-
 
 [![](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image5.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image4.png)
 
 ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image6.png))。
-
 
 このコントロール エクステンダーを作成するには、次の 3 つのファイルを作成する必要があります。
 
@@ -78,11 +73,9 @@ S の web サイトが開始できるようにします。 Web サイトを作�
 
 次の手順を完了すると、図 1 よう、ソリューション エクスプ ローラー ウィンドウになります。
 
-
 [![Web サイトとクラス ライブラリ プロジェクトとソリューション](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image7.png)
 
 **図 01**:Web サイトとクラス ライブラリ プロジェクトとソリューション ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image9.png))。
-
 
 次に、すべてのクラス ライブラリ プロジェクトに必要なアセンブリ参照を追加する必要があります。
 
@@ -99,11 +92,9 @@ S の web サイトが開始できるようにします。 Web サイトを作�
 
 次の手順を完了すると、図 2 よう、クラス ライブラリ プロジェクト参照 フォルダーになります。
 
-
 [![必要な参照と参照 フォルダー](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image10.png)
 
 **図 02**:必要な参照と参照 フォルダー ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image12.png))。
-
 
 ## <a name="creating-the-custom-control-extender"></a>カスタム コントロール エクステンダーを作成します。
 
@@ -122,9 +113,7 @@ S の web サイトが開始できるようにします。 Web サイトを作�
 
 WebResource 属性は、アセンブリに埋め込む MyControlBehavior.js JavaScript ファイル、カスタム エクステンダーはコンパイル時に使用されます。 ClientScriptResource 属性は web ページで、カスタム エクステンダーを使用する場合は、アセンブリから MyControlBehavior.js スクリプトを取得するために使用します。
 
-
 WebResource および ClientScriptResource 属性操作するためには、埋め込みリソースとしての JavaScript ファイルをコンパイルする必要があります。 ソリューション エクスプ ローラー ウィンドウで、ファイルを選択、プロパティ シートを開き、値を割り当てる*埋め込まれたリソース*を**ビルド アクション**プロパティ。
-
 
 コントロールのエクステンダーが TargetControlType 属性も含まれることに注意してください。 この属性を使用して、コントロール エクステンダーによって拡張されたコントロールの種類を指定します。 リストの 1 の場合は、コントロール エクステンダーがテキスト ボックスの拡張に使用されます。
 
@@ -154,11 +143,9 @@ Initialize() メソッドは、keyup イベント ハンドラーを動作のタ
 
 埋め込みリソースとしてリスト 3 の JavaScript ファイルをコンパイルする必要がありますに注意してください。 ソリューション エクスプ ローラー ウィンドウで、ファイルを選択、プロパティ シートを開き、値を割り当てる*埋め込まれたリソース*を**ビルド アクション**プロパティ (図 3 を参照してください)。 このオプションは、Visual Studio と Visual Web Developer の両方で使用できます。
 
-
 [![埋め込みリソースとしての JavaScript ファイルを追加します。](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image13.png)
 
 **図 03**:埋め込みリソースとしての JavaScript ファイルを追加する ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image15.png))。
-
 
 ## <a name="creating-the-custom-extender-designer"></a>カスタム エクステンダー デザイナーの作成
 
@@ -183,11 +170,9 @@ DisabledButton コントロール エクステンダーを作成することが�
 
 次の手順を完了すると、DisabledButton コントロール エクステンダーがツールボックスに表示する必要があります (図 4 参照)。
 
-
 [![ツールボックスで DisabledButton](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image16.png)
 
 **図 04**:ツールボックスで DisabledButton ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image18.png))。
-
 
 次に、新しい ASP.NET ページを作成する必要があります。 この場合は、以下の手順に従ってください。
 
@@ -196,7 +181,6 @@ DisabledButton コントロール エクステンダーを作成することが�
 3. TextBox コントロールをページにドラッグします。
 4. ボタン コントロールをページにドラッグします。
 5. [プロパティ] ウィンドウでボタンの ID プロパティ値に変更<em>btnSave</em>とテキスト プロパティに値*保存\**。
-  
 
 標準の ASP.NET の TextBox とボタン コントロールと、ページを作成しました。
 
@@ -205,11 +189,9 @@ DisabledButton コントロール エクステンダーを作成することが�
 1. 選択、 **Extender の追加**タスク オプション エクステンダー ウィザード ダイアログを開きます (図 5 を参照してください)。 ダイアログ ボックスに、カスタムの DisabledButton エクステンダーが含まれていることに注意してください。
 2. DisabledButton エクステンダーを選択し、クリックして、 **OK**ボタンをクリックします。
 
-
 [![Extender ウィザード ダイアログ](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image19.png)
 
 **図 05**:Extender ウィザード ダイアログ ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image21.png))。
-
 
 最後に、DisabledButton エクステンダーのプロパティを設定することができます。 DisabledButton エクステンダーのプロパティを変更するには、TextBox コントロールのプロパティを変更します。
 
@@ -217,19 +199,15 @@ DisabledButton コントロール エクステンダーを作成することが�
 2. エクステンダー ノードを展開し、[プロパティ] ウィンドウ (図 6 参照)。
 3. 値を割り当てる*保存*DisabledText プロパティと値を*btnSave* TargetButtonID プロパティにします。
 
-
 [![エクステンダー プロパティの設定](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image22.png)
 
 **図 06**:エクステンダー プロパティの設定 ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image24.png))。
 
-
 (F5 キーを押して)、ページを実行すると、ボタン コントロールは最初に無効になります。 テキスト ボックスにテキストの入力を開始するとすぐに、コントロールがボタンには、(図 7 を参照) が有効になります。
-
 
 [![DisabledButton エクステンダーの操作](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image25.png)
 
 **図 07**:DisabledButton エクステンダーの操作 ([フルサイズの画像を表示する をクリックします](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image27.png))。
-
 
 ## <a name="summary"></a>まとめ
 

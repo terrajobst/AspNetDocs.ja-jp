@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 72d90cd0-b3d9-454c-b2eb-ed0d9812f32c
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: a580b678a943695969b7f3acd2f7a033bd0b6ee3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 64215d556ded0850537a13856fe69b094116ebca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379769"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130325"
 ---
 # <a name="improvements-in-visual-studio-2005"></a>Visual Studio 2005 の機能強化
 
 によって[Microsoft](https://github.com/microsoft)
 
 > Visual Studio 2005 では、Web アプリケーション開発者の改善と Web プロジェクトの機能強化の長いリストを提供します。
-
 
 Visual Studio 2005 では、Web アプリケーション開発者の改善と Web プロジェクトの機能強化の長いリストを提供します。 Visual Studio .NET 2002 および 2003 は、強力なありました多く Web プロジェクトが処理された方法でします。 Visual Studio 2005 では、これらの苦情に対処するために、多数の新しい機能を追加します。 Visual Studio .NET 2003 Web アプリケーションのコンパイルの処理方法を好む方を参照してください。 [Web Application Projects](https://go.microsoft.com/fwlink/?LinkId=57870)します。
 
@@ -36,7 +35,6 @@ Visual Studio 2005 では、ローカル プロジェクトでは、FrontPage Se
 
 > [!NOTE]
 > FrontPage Server Extensions は、リモートのプロジェクトの作成、開始なども必要です。
-
 
 ## <a name="aspnet-development-server"></a>ASP.NET 開発サーバー
 
@@ -64,12 +62,9 @@ Web 開発者では、Visual Studio 2005 でプロジェクトの作成に使用
 
 ここをクリックすると、Visual Studio 2005 で Web プロジェクトの作成のビデオ チュートリアルを表示します。
 
-
 ![](improvements-in-visual-studio-2005/_static/image1.png)
 
-
 [開いているビデオを全画面](improvements-in-visual-studio-2005/_static/creating_projects1.wmv)
-
 
 ### <a name="file-system-projects"></a>ファイル システムのプロジェクト
 
@@ -77,7 +72,6 @@ Web 開発者では、Visual Studio 2005 でプロジェクトの作成に使用
 
 > [!NOTE]
 > ASP.NET 開発サーバーお客様には、いくつか混乱が生じる可能性があります。 IISs ディレクトリ構造 (例: c:/inetpub/wwwroot) にファイル システムに Web プロジェクトを作成する場合、Visual Studio 2005 内から起動すると、ASP.NET 開発サーバーを使用して、Web サイトが参照も。 そのため、IIS 構成 (つまり、認証メソッド) は適用されません。
-
 
 既定の web プロジェクトがたくさん削除もでオーバーヘッドののみが含まれています、Default.aspx ページ、default.cs ファイル、およびアプリ/_Data フォルダー。 Web.config および特別なフォルダー (つまりアプリ/(_c)) は、必要とされるために追加されます。 Web プロジェクトには、必要なフォルダー、ファイルのみが含まれます。
 
@@ -90,22 +84,17 @@ HTTP のプロジェクトには、プロジェクトのローカル IIS Web サ
 > [!NOTE]
 > Vs###/_tmp.htm ファイルと get/_aspx/_ver.aspx はバージョン情報を決定するのには使用されません。
 
-
 HTTP の既定のオプションは、ローカルの IIS です。 このオプションは、どのサイトが利用できるかを判断する IIS メタベースとコンテンツを作成する場所を読み取ります。 ツリー ビューで選択して、別のフォルダーまたは仮想ディレクトリを選択できます。 ことができますも、新しい仮想ディレクトリを作成、フォルダー、アプリケーションとしてのマークを付けるだけでなくこのダイアログ ボックスから既存の仮想ディレクトリを削除します。
-
 
 ![場所 ダイアログ ボックスの選択](improvements-in-visual-studio-2005/_static/image1.gif)
 
 **図 1**:場所 ダイアログ ボックスの選択
 
-
 異なりをチェックする場合、Visual Studio の以前のバージョンで、 **Secure Sockets Layer を使用して**チェック ボックスをオンし、SSL 証明書が参照する URL と一致しませんで求めるかどうかは、セキュリティの警告 ダイアログが表示されます続行するようにします。 証明書が一致するものではない場合は、Visual Studio .NET 2003 を使用して、プロジェクトの作成は失敗します。
-
 
 ![セキュリティ アラートに関する SSL 証明書](improvements-in-visual-studio-2005/_static/image2.gif)
 
 **図 2**:セキュリティ アラートに関する SSL 証明書
-
 
 ### <a name="note-on-host-headers"></a>ホスト ヘッダーに関する注意事項
 
@@ -113,19 +102,15 @@ HTTP の既定のオプションは、ローカルの IIS です。 このオプ
 
 リモート サイトのオプションを選択した場合、新しい Web サイトの送信先 URL を入力するように、ダイアログ ボックスを変更します。 有効になっている FrontPage Server Extensions をあるサーバーで URL を指定する必要があります。 FrontPage Server Extensions を使用してローカル Web サーバーで動作する場合は、リモートのサイト オプションを使用し、ローカル URL を指定します。
 
-
 ![リモート サーバー上の Web サイトの作成](improvements-in-visual-studio-2005/_static/image1.jpg)
 
 **図 3**:リモート サーバー上の Web サイトの作成
 
-
 SSL 証明書が一致しない場合は、SSL 経由でリモート サイトでのアプリケーションを作成するときに、確認のダイアログ ボックスはローカル IIS オプションを使用するときに表示されるダイアログよりも若干異なります。
-
 
 ![リモート サイトのセキュリティの警告](improvements-in-visual-studio-2005/_static/image3.gif)
 
 **図 4**:リモート サイトのセキュリティの警告
-
 
 <a id="_Toc116100243"></a>
 
@@ -136,14 +121,11 @@ Visual Studio 2005 では、FTP 経由で Web サイトを作成するオプシ�
 > [!NOTE]
 > 一時フォルダーの場所が c:/Documents and Settings/&lt;ユーザー&gt;/ローカルの設定/Temp/VWDWebCache/&lt;Server&gt;/_&lt;アプリケーション名&gt;
 
-
 FTP のオプションを使用する場合の場所の選択 ダイアログが表示されます。 このダイアログを次に示すように、必要な FTP 接続情報を入力します。
-
 
 ![FTP の場所 ダイアログ ボックスの選択](improvements-in-visual-studio-2005/_static/image2.jpg)
 
 **図 5**:FTP の場所 ダイアログ ボックスの選択
-
 
 ## <a name="lab-setup-ftp-site-and-create-a-project"></a>ラボ:FTP サイトをセットアップし、プロジェクトを作成します。
 
@@ -199,7 +181,6 @@ FTP のオプションを使用する場合の場所の選択 ダイアログが
 > [!NOTE]
 > 読み込む型/_Default できないことを示すエラーが発生する場合は、Web サイトを以前のバージョンではなく ASP.NET 2.0 を実行していることを確認します。 インターネット インフォメーション サービスで、[ASP.NET] タブから行うことができます。
 
-
 ## <a name="opening-web-projects"></a>Web プロジェクトを開く
 
 Web プロジェクトを開くと、プロジェクトの作成と似ています。 次のセクションでは、IDE 内で作業しているの監視する領域を呼び出します。 HTTP と FTP を使用して Web プロジェクトでの作業についても説明します。
@@ -212,11 +193,9 @@ Web プロジェクトを開くには、[ファイル] メニューから開く 
 
 このモジュールの前に示したよう Visual Studio は不要になったプロジェクト ファイルを使用します。 そのため、ファイル システムから Web サイトを開くには選択した場合、選択したフォルダーが Visual Studio で最初に Web プロジェクトとして作成されていない場合でも、任意のフォルダーを選択するオプションがある実際にします。 たとえば、Web サイトとマイ ドキュメント フォルダーを開くことができ、Visual Studio が問題なくそれを開き、次に示すように、ファイルを表示します。
 
-
 ![Web サイトとして開いたマイ ドキュメント](improvements-in-visual-studio-2005/_static/image3.jpg)
 
 **図 6**:*マイ ドキュメント*として Web サイトを開く
-
 
 Visual Studio では、追加のファイルとフォルダーが必要な場合にのみ作成するため、追加のファイルまたはフォルダーは追加されませんを開いた場所にします。 このアーキテクチャの副作用は、ことはできないので、ファイル システム上の Web サイトの入れ子です。 たとえば、次のディレクトリ構造を検討してください。
 
@@ -234,11 +213,9 @@ IIS メタベース (ローカル IIS) または FrontPage Server Extensions (�
 
 場合でも、Visual Studio IDE 内で現在開かれているアプリケーションの下に入れ子になっているアプリケーションのアイコンが表示されます、ことはできません、コンテンツを参照するように展開します。 ただしにそれらを開くためにダブルクリックすることができます。 操作を実行するとするか、web アプリケーションを開く (および現在開いているソリューションを置き換える) を求めるダイアログが表示されますか、現在のソリューションに Web アプリケーションを追加します。
 
-
 ![入れ子になったアプリケーション アイコンをダブルクリックするとこのダイアログ ボックスが表示されます。](improvements-in-visual-studio-2005/_static/image4.jpg)
 
 **図 7**:入れ子になったアプリケーション アイコンをダブルクリックするとこのダイアログ ボックスが表示されます。
-
 
 <a id="_Toc116100247"></a>
 
@@ -250,11 +227,9 @@ C:/Documents and Settings/&lt;ユーザー&gt;/ローカルの設定/Temp/VWDWeb
 
 FTP を使用する場合、Visual Studio は、次に示すように参照できるように、プロジェクトのベース URL を指定する必要があります。 ベース URL を指定しない場合は、Visual Studio 求められますの初めての Web サイトでページを参照しようとしました。
 
-
 ![FTP サイトのベース URL を指定します。](improvements-in-visual-studio-2005/_static/image5.jpg)
 
 **図 8**:FTP サイトのベース URL を指定します。
-
 
 ## <a name="improvements-in-compilation"></a>コンパイルの機能強化
 
@@ -265,27 +240,21 @@ Visual Studio 2002 および 2003 の場合に、Web アプリケーションは
 > [!NOTE]
 > MSBuild コマンド ライン ユーティリティを ASP.NET Web アプリケーションを構築することもできます。 そのツールについては、第 9 章で説明します。
 
-
 もう 1 つのコンパイルの拡張機能は、ビルド メニューで新しいビルド ページ オプションです。 この機能は、変更をよりすばやくコンパイルできるように、現在ページ (と共に、コース、および依存関係の) のみを再構築する開発者を使用できます。 C# の IntelliSense などの更新のためのバック グラウンド コンパイルを提供しません、ためような利点が非常にこの機能から、単に 1 つのページを再構築が簡単に更新する IntelliSense を使用するためです。
 
 プロジェクトのビルド プロパティを使用して、スタートアップ ページが実行される前に発生するビルドの種類を構成できます。 開発者は、Visual Studio はコードの変更後のアプリケーションをより迅速にデバッグを開始できるように、現在のページをビルドのみを選択できます。
-
 
 ![ビルド ページ開始アクション](improvements-in-visual-studio-2005/_static/image6.jpg)
 
 **図 9**:ビルド ページ開始アクション
 
-
 Visual Studio および ASP.NET のアーキテクチャにもう 1 つの優れた機能強化は編集の領域であり、続行します。 Visual Studio 2005 で開発者がプロジェクトのデバッグを開始およびデバッガーのデタッチなくプロジェクトでコード変更を加えます。 実際には、新しいクラスを追加、プロジェクトのデバッグを開始することが文字どおり、そのクラスにコードを追加、そのクラスの新しいインスタンスを作成するページにコードを追加およびデバッガーをデタッチすることがなく、クラスのメソッドを実行します。 新しいコードを実行することは、文字どおり、ブラウザーの更新としてほど簡単です。
 
 ここをクリックすると、編集のビデオ チュートリアルを参照してください。 して Visual Studio 2005 の機能を続行します。
 
-
 ![](improvements-in-visual-studio-2005/_static/image2.png)
 
-
 [開いているビデオを全画面](improvements-in-visual-studio-2005/_static/editcontinue1.wmv)
-
 
 堅牢なエディット コンティニュの機能で ASP.NET 2.0 と Visual Studio 2005 は、ASP.NET アプリケーションのアーキテクチャの変更が原因です。 Asp.net 1.x では、Visual Studio 2002/2003 で作成されたアプリケーションは、/bin フォルダーに格納されたプライマリ アセンブリにコンパイルされました。 すべてクラスをページなど、アプリケーションがその 1 つの DLL にコンパイルされたのです。 時に、ASP.NET はすべてのコントロール、マークアップ、およびページ内での ASP.NET コードをコンパイルし、ASP.NET 一時フォルダーにそれらの Dll をコピーします。
 
@@ -293,28 +262,21 @@ Visual Studio 2005 が ASP.NET 2.0 を使用して、実行時に 2 つのコン
 
 ここをクリックすると、ユーザー コントロールのデザイナー サポートのビデオ チュートリアルを参照してください。
 
-
 ![](improvements-in-visual-studio-2005/_static/image3.png)
 
-
 [開いているビデオを全画面](improvements-in-visual-studio-2005/_static/usercontrols1.wmv)
-
 
 > [!NOTE]
 > ユーザー コントロールがページから削除されたときに、@Registerディレクティブは、マークアップに保持し、ユーザー コントロールが Web サイトから削除された場合、パーサー エラーを回避するために手動で削除する必要があります。
 
-
 Visual Studio のコンパイル モデルの別の機能強化は、Web サイトの発行機能です。 発行機能では、Web サイトをプリコンパイル、ために、開発者は、何も要求時にコンパイルする必要があるの追加のパフォーマンスを利用できます。 展開するソース コードを持たないように、アプリ/(_c) フォルダー内のすべてのソース コードは、dll の生成にもプリコンパイルにします。
-
 
 ![Web サイトの発行 ダイアログ](improvements-in-visual-studio-2005/_static/image7.jpg)
 
 **図 10**:Web サイトの発行 ダイアログ
 
-
 > [!NOTE]
 > Aspnet/_compile.exe ユーティリティは、ASP.NET Web アプリケーションを事前にコンパイルすることもできます。 そのツールについては、第 9 章で説明します。
-
 
 ときに次に示すよう、Temporary ASP.NET Files フォルダーに格納する Web サイトでは、プリコンパイル済みファイルを発行されます。 使用するファイル、 *.compiled*ファイル拡張子が dll の特定の依存関係を定義する XML ファイル。 Web フォームまたはユーザー コントロールが始まるランダムの Dll にコンパイルされる*アプリ/_Web/_* します。
 
@@ -327,15 +289,12 @@ Visual Studio のコンパイル モデルの別の機能強化は、Web サイ�
 > [!NOTE]
 > Asp.net 1.x では、厳密な名前付きアセンブリをグローバル アセンブリ キャッシュ (GAC) にインストールする必要があります。 ASP.NET 2.0 で厳密な名前付きアセンブリを GAC にインストールする必要はありません。
 
-
 ![ASP.NET アプリケーションのコンパイル済みファイル](improvements-in-visual-studio-2005/_static/image8.jpg)
 
 **図 11**:ASP.NET アプリケーションのコンパイル済みファイル
 
-
 > [!NOTE]
 > 上記のアプリケーションでは、web.config ファイルはありませんでした。 あるされていた場合にが呼び出された*PrecompiledApp.config* Web の発行後にサイトのプロセス。
-
 
 ## <a name="improvements-in-deployment"></a>展開の強化
 
@@ -348,15 +307,11 @@ Web サイトのコピー ダイアログは、左側のフレームと右側の
 > [!NOTE]
 > ローカルの IIS インスタンスで新しい Web サイトを作成するとき、FrontPage 2002 Server Extensions がインストールされている場合は、SharePoint サーバーの Web サイトの作成はサポートされていないことを示すエラー メッセージが表示されます。 その場合は、FrontPage 2000 Server の拡張機能をインストールまたは FrontPage サーバー拡張機能を削除するオプションがあります。
 
-
 Web サイトのコピー機能のビデオ チュートリアルについては、ここをクリックします。
-
 
 ![](improvements-in-visual-studio-2005/_static/image4.png)
 
-
 [開いているビデオを全画面](improvements-in-visual-studio-2005/_static/copysite1.wmv)
-
 
 ## <a name="improvements-in-debugging"></a>デバッグ機能の強化
 
@@ -389,19 +344,15 @@ Visual Studio 2005 でのリモート デバッグの要件は、非常に簡単
 
 Msvsmon.exe を実行するときに、リモート デバッグ用にブロックされるポートに関するエラーが発生する可能性があります。 幸いにも、次に示すようは、警告ダイアログ ボックスで右からポート簡単に解除します。
 
-
 ![Windows ファイアウォールは、リモート デバッグをブロックして、通知](improvements-in-visual-studio-2005/_static/image9.jpg)
 
 **図 12**:Windows ファイアウォールは、リモート デバッグをブロックして、通知
 
-
 デバッグに必要なポートをブロック解除が後、は、次に示すように、リモート デバッグ モニターが表示されます。 このインターフェイスから接続を監視し、変更するアクセス許可を簡単にデバッグできます。
-
 
 ![リモート デバッグ モニター](improvements-in-visual-studio-2005/_static/image10.jpg)
 
 **図 13**:リモート デバッグ モニター
-
 
 FTP 経由で開かれた Web アプリケーションをリモートでデバッグすることもできます。 手順は、について説明したものと同じです。 ただし、このモジュールで前述したように FTP プロジェクトの参照のベース URL を指定する必要があります。
 
@@ -413,12 +364,9 @@ FTP 経由で開かれた Web アプリケーションをリモートでデバ�
 
 このラボのビデオ チュートリアルについては、ここをクリックします。
 
-
 ![](improvements-in-visual-studio-2005/_static/image5.png)
 
-
 [開いているビデオを全画面](improvements-in-visual-studio-2005/_static/remdebug1.wmv)
-
 
 このラボでは、1 つの実行中の Visual Studio 2005 と、その他の実行されている IIS 5 以上の 2 つのマシンがある必要があります。
 
@@ -426,7 +374,6 @@ FTP 経由で開かれた Web アプリケーションをリモートでデバ�
 
 > [!NOTE]
 > IIS のリモート インスタンス、または FTP 経由で Web サイトを作成することができます。
-
 
 1. リモートの Web サーバーからは、UNC パスを使用して開発用コンピューターで msvsmon.exe を検索し、実行します。  
  Msvsmon.exe の既定の場所は、//server/c$/Program ファイル/Microsoft Visual Studio 8/Common7/IDE/リモート デバッガー x86 です。
@@ -444,11 +391,9 @@ ASP.NET 開発サーバーとは、制限付きの Web サーバーです。 リ
 
 ある c:/Windows/Microsoft.NET/Framework/v2.0./ WebDev.WebServer.exe ファイルを実行して、コマンドラインを使用して、ASP.NET 開発サーバーを起動できる*/*  /  */*/*. 次のダイアログ ボックスでは、使用可能なパラメーターが表示されます。
 
-
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)
 
 **図 14**
-
 
 > [!NOTE]
 > ASP.NET 開発サーバーは、コマンドラインを使用して明示的に起動すると、サポートされていません。

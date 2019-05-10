@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a6ae18529afc4df799d95d8b7a98f9bc5add9485
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 65b13065ae5324ce64ec1b87b2127e5277542fb8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125670"
 ---
 # <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 の破壊的変更
 
 > このドキュメントでは、行われた .NET Framework のバージョンの ASP.NET 4 Beta 1 とベータ 2 リリースを含む、以前のリリースを使用して作成されたアプリケーションに影響を与える可能性のある 4 のリリースの変更について説明します。
 > 
 > [このホワイト ペーパーをダウンロードします。](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_Breaking_Changes.pdf)
-
 
 <a id="0.1__Toc256768952"></a><a id="0.1__Toc256770056"></a>
 
@@ -112,7 +111,6 @@ ASP.NET ページのページ パーサー (`.aspx`ファイル) およびユー
 > [!NOTE]
 > **HttpBrowserCapabilities**オブジェクト (ページのによって公開される**Request.Browser**プロパティ) のブラウザーの定義ファイルによって駆動されます。 そのため、ASP.NET 4 では、このオブジェクトのプロパティへのアクセスによって返される情報は、ASP.NET の以前のバージョンで返される情報よりも異なる可能性があります。
 
-
 次のフォルダーから、ブラウザー定義ファイルをコピーして、古いブラウザー定義ファイルに戻すことができます。
 
 [!code-console[Main](breaking-changes/samples/sample5.cmd)]
@@ -195,7 +193,6 @@ ASP.NET では、暗号化とハッシュ アルゴリズムの両方を使用�
 アプリケーションを`childwebapp`フォルダーは IIS 7 または IIS 7.5 で開始し、構成エラーをレポートには失敗します。 エラー テキストには、次のようなメッセージが含まれます。
 
 - `The requested page cannot be accessed because the related configuration data for the page is invalid.`
-  
 
 - `The configuration section 'configSections' cannot be read because it is missing a section declaration.`
 
@@ -227,7 +224,6 @@ IIS 6 では、アプリケーションで、`childwebapp`フォルダーも失�
 
 > [!NOTE]
 > 次の例では、行を読みやすくするため改行されています。
-
 
 [!code-xml[Main](breaking-changes/samples/sample8.xml)]
 
@@ -283,7 +279,7 @@ ASP.NET 4 で**HttpRequest**プロパティは、次の値を代わりにあり�
 
 ## <a name="aspnet-20-applications-might-generate-httpexception-errors-that-reference-eurlaxd"></a>ASP.NET 2.0 アプリケーションで eurl.axd を参照する HttpException エラーを生成可能性があります
 
-IIS 6 で ASP.NET 4 を有効にすると、(Windows Server 2003 または Windows Server 2003 R2 のいずれか) で IIS 6 で実行される ASP.NET 2.0 アプリケーションは、次のエラーを生成可能性があります。
+ASP.NET 4 を IIS 6 で有効にした後、(Windows Server 2003 または Windows Server 2003 R2 の) IIS 6 で実行された ASP.NET 2.0 アプリケーションで次のようなエラーが発生する可能性があります。
 
 `System.Web.HttpException: Path '/[yourApplicationRoot]/eurl.axd/[Value]' was not found.`
 
@@ -314,7 +310,6 @@ ASP.NET 4 が Web サイトを実行するために必要な場合は、その�
 
 > [!NOTE]
 > 設定**EnableExtensionlessUrls**を 1 に拡張子のない URL の動作を有効にします。 これは、既定の設定値が指定されていない場合です。
-
 
 <a id="0.1__Toc252995494"></a><a id="0.1__Toc255587643"></a><a id="0.1__Toc256770154"></a><a id="0.1__Toc245724862"></a>
 
@@ -372,7 +367,6 @@ ASP.NET 1.1 および 2.0 の新しいの動作に部分的に信頼された AS
 > [!NOTE]
 > **HtmlEncode**と**HtmlDecode**の機能、 **System.Web.HttpUtility**クラスは、新しい .NET Framework 4 に移動された**System.Net.WebUtility**クラス。 使用されている唯一の ASP.NET 機能する場合は、変更、新しいアプリケーションのコード**WebUtility**クラスの代わりにします。
 
-
 ASP.NET 4 の既定の CA の実装への変更の概要を次に示します。
 
 - ASP.NET アプリケーション ドメインは、同種のアプリケーション ドメインで、ようになりました。 部分信頼および完全信頼の許可セットだけは、アプリケーション ドメインで使用できます。
@@ -399,7 +393,6 @@ Web サイト プロジェクトは、system.web.applicationservices.dll へは�
 ただし、特定のメンバーシップの種類を使用して、ASP.NET の以前のバージョンからアップグレードされたクラス ライブラリは、ASP.NET 4 プロジェクトで使用すると、コンパイルに失敗します。 たとえば、クラス ライブラリ プロジェクトが失敗するをコンパイルして、次のようなエラーを報告します。
 
 - `The type 'System.Web.Security.MembershipUser' is defined in an assembly that is not referenced. You must add a reference to assembly 'System.Web.ApplicationServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.`
-  
 
 - `The type name 'MembershipUser' could not be found. This type has been forwarded to assembly 'System.Web.ApplicationServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. Consider adding a reference to that assembly.`
 

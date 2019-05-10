@@ -8,12 +8,12 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: 3f36f0c504678e1e8b40aef99db81ab99101568b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 96873c8f2b0ad2415f371aceb651400c801a3338
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383936"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125658"
 ---
 # <a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET Web 配置 - 推奨リソース
 
@@ -24,7 +24,6 @@ ms.locfileid: "59383936"
 > > [!NOTE] 
 > > 
 > > 最新のリリースをインストールする場合にのみ使用可能な展開機能について説明するこれらのリソース、 [Visual Studio Web 発行の更新](https://go.microsoft.com/fwlink/?LinkID=208120)します。 一部の機能は、Visual Studio 2012 または Visual Studio 2013 でのみ使用できます。
-
 
 このトピックは、次のセクションで構成されています。
 
@@ -48,9 +47,7 @@ ms.locfileid: "59383936"
 - [特定の展開の質問のヘルプ](#gettinghelp)
 - [その他のリソース](#additional)
 
-
 <a id="understanding"></a>
-
 
 ## <a name="understanding-deployment-options-for-web-projects"></a>Web プロジェクトの配置オプションを理解します。
 
@@ -59,17 +56,13 @@ ms.locfileid: "59383936"
 - [Visual Studio 2012 Web 公開機能の強化](../visual-studio/overview/2012/visual-studio-2012-web-publishing-improvements.md)(Scott Hanselman によるビデオ)。
 - [VS 2010 で Web 配置の概要の Post](http://vishaljoshi.blogspot.com/2009/09/overview-post-for-web-deployment-in-vs.html) (Vishal Joshi のブログ)。 以前のブログ投稿が Visual Studio 2010 のリソースの一部は、for Visual Studio 2012 関連のある情報にリンクします。
 
-
 <a id="findinghosting"></a>
-
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>ホスティング プロバイダーの ASP.NET アプリケーションの検索
 
 - [ASP.NET ホスティング](https://asp.net/hosting)
 
-
 <a id="fromvs"></a>
-
 
 ## <a name="deploying-a-web-application-from-visual-studio"></a>Visual Studio から web アプリケーションを展開します。
 
@@ -78,7 +71,6 @@ ms.locfileid: "59383936"
 - [方法: Web プロジェクトを使用して 1 回のクリックの発行 Visual Studio でのデプロイ](https://msdn.microsoft.com/library/dd465337.aspx)(Visual Studio Web 発行ウィザードの情報を参照)。
 - [SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションを展開する](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md)します。 これは、以前のバージョンの**Visual Studio を使用して ASP.NET Web 配置**このセクションの上部に表示します。 SQL Server Compact データベースをデプロイする方法と SQL Server Compact から SQL Server の製品版に移行する方法については主に便利なここでは。
 - [.NET 多層アプリケーションを使用してストレージ テーブル、キュー、および Blob](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (Microsoft Azure サイト)。 チュートリアル シリーズの 5 つのパートでは、MVC プロジェクトを作成し、Windows Azure のクラウド サービスにデプロイする方法を示します。
-
 
 <a id="package"></a>
 ## <a name="deploying-a-web-application-by-creating-and-installing-a-web-deployment-package"></a>作成と web 配置パッケージをインストールした web アプリケーションの配置
@@ -91,9 +83,7 @@ ms.locfileid: "59383936"
 
 次のセクションを参照してください。
 
-
 <a id="ci"></a>
-
 
 ## <a name="deploying-a-web-application-using-a-continuous-integration-ci-process"></a>継続的インテグレーション (CI) プロセスを使用して web アプリケーションを展開します。
 
@@ -107,9 +97,7 @@ ms.locfileid: "59383936"
 
 参照してください[デプロイ中にオフラインがアプリケーションを必ず](aspnet-web-deployment-content-map.md#appoffline)このページの後半。
 
-
 <a id="transforms"></a>
-
 
 ## <a name="using-webconfig-transformations-to-change-settings-in-the-destination-webconfig-file-or-appconfig-file-during-deployment"></a>Web.config 変換を使用して、デプロイ時に対象の Web.config ファイルまたは app.config ファイルで設定を変更するには
 
@@ -121,9 +109,7 @@ ms.locfileid: "59383936"
 - [Codeplex.com のリリース (XML ドキュメントの変換) XDT](https://blogs.msdn.com/b/webdev/archive/2013/04/23/xdt-xml-document-transform-released-on-codeplex-com.aspx) (.NET Web 開発とツールのブログ)。 Web.config ファイル変換エンジンのソース コードの公開を発表し、それを使用するいくつかのツールを一覧表示します。
 - [Windows Azure Web サイト:アプリケーション文字列と接続文字列の動作](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(Microsoft Azure のブログ)。 代わりに Web.config 変換の移行先環境が Windows Azure Web サイトを変換する場合`appSettings`または`connectionStrings`します。
 
-
 <a id="webdeployparms"></a>
-
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Web 配置パラメーターを使用して、デプロイ時に、コピー先の web アプリケーションの設定を変更するには
 
@@ -134,9 +120,7 @@ ms.locfileid: "59383936"
 - [Web デプロイのパラメーター化とします。Web.config 変換](http://vishaljoshi.blogspot.com/2010/06/parameterization-vs-webconfig.html)(Vishal Joshi のブログ)。
 - [Windows Azure Web サイト:アプリケーション文字列と接続文字列の動作](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(Microsoft Azure のブログ)。 移行先環境が Windows Azure Web サイトと、パラメーター化する場合の代わりに Web 配置パラメーター`appSettings`または`connectionStrings`します。
 
-
 <a id="appoffline"></a>
-
 
 ## <a name="making-sure-an-application-is-off-line-during-deployment"></a>デプロイ時にオフラインはことを確認して、アプリケーションを作成します。
 
@@ -146,9 +130,7 @@ ms.locfileid: "59383936"
 - [Web アプリをオフラインと usechecksum の更新の発行](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx)(Microsoft の Web 開発のブログ)。 アプリの使用を自動化するためのもう 1 つのオプション\_offline.htm ファイル。
 - [Web デプロイ 3.5 RTW](https://blogs.iis.net/msdeploy/archive/2013/07/09/webdeploy-3-5-rtw.aspx) (IIS.net サイト)。 カスタム アプリの Web デプロイ 3.5 の新機能\_offline.htm ファイル。
 
-
 <a id="databasewithweb"></a>
-
 
 ## <a name="deploying-a-database-or-changes-to-a-database-as-part-of-web-application-deployment"></a>データベースまたは変更をデプロイする web アプリケーションのデプロイの一部としてデータベース
 
@@ -160,9 +142,7 @@ ms.locfileid: "59383936"
 
 作成し、web デプロイ パッケージをインストールしてこのページの前の継続的インテグレーション (CI) プロセスを使用して web アプリケーションを配置する web アプリケーションの展開にも参照してください。
 
-
 <a id="databaseseparate"></a>
-
 
 ## <a name="deploying-a-database-separately-from-web-application-deployment"></a>Web アプリケーションのデプロイから個別にデータベースを展開します。
 
@@ -174,9 +154,7 @@ ms.locfileid: "59383936"
 - [Windows Azure にデータを中心としたアプリケーションを移行する](https://msdn.microsoft.com/library/jj156154.aspx)(MSDN)。
 - [Windows Azure SQL データベースに SQL Server データベースを移行する](https://msdn.microsoft.com/library/windowsazure/jj156160.aspx)(MSDN)。
 
-
 <a id="aspnetmembership"></a>
-
 
 ## <a name="deploying-a-web-application-that-uses-aspnet-application-services-such-as-membership-and-profiling"></a>サービスのメンバーシップやプロファイリングなどの ASP.NET アプリケーションを使用する web アプリケーションを展開します。
 
@@ -186,9 +164,7 @@ ms.locfileid: "59383936"
 - [アプリケーション サービスを使用する web サイトを構成する](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md)します。 Web サイトのプロジェクトも web アプリケーション プロジェクトに関連します。
 - [ユーザーと実稼働 web サイト ロール](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs.md)します。 Web サイトのプロジェクトも web アプリケーション プロジェクトに関連します。
 
-
 <a id="precompiling"></a>
-
 
 ## <a name="precompiling-for-deployment"></a>展開のためのプリコンパイル
 
@@ -196,18 +172,14 @@ ms.locfileid: "59383936"
 - [パッケージ/発行 タブで、プロジェクト プロパティ](https://msdn.microsoft.com/library/dd410108.aspx)(MSDN)。
 - [[詳細設定] ダイアログ ボックスをプリコンパイル](https://msdn.microsoft.com/library/hh475319.aspx)(MSDN)。
 
-
 <a id="intranet"></a>
-
 
 ## <a name="deploying-an-intranet-web-application"></a>イントラネット web アプリケーションを展開します。
 
 - [Visual Studio 2013 で ASP.NET を使用したオンプレミス組織認証オプション (ADFS) を使用して](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)(Vittorio bertocci ブログです。)。
 - [ASP.NET MVC を使用してイントラネット サイトを作成する方法](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)(MSDN)。 Visual Studio 2010 では、以前のチュートリアル書き込まれるには、イントラネット プロジェクト テンプレートが Visual Studio 2013 で導入された大きな変更は反映されません。
 
-
 <a id="automating"></a>
-
 
 ## <a name="automating-common-deployment-tasks-that-are-not-automated-out-of-the-box"></a>すぐが自動化されていない展開の一般的なタスクを自動化します。
 
@@ -220,26 +192,20 @@ ms.locfileid: "59383936"
 - [.NET アセンブリのパッケージ方法](https://blogs.msdn.com/webdevtools/archive/2010/02/19/how-to-package-com-component.aspx)(Web 開発ツールのブログ)。 アセンブリを GAC に展開する方法。
 - [すべての初期化、Windows の Azure VM の Web サーバーの IIS、Web デプロイ、およびその他のものをスクリプト](http://www.tugberkugurlu.com/archive/script-out-everything-initialize-your-windows-azure-vm-for-your-web-server-with-iis-web-deploy-and-other-stuff)(Tugberk Ugurlu のブログ)。
 
-
 <a id="configuringservers"></a>
-
 
 ## <a name="configuring-web-servers-so-that-developers-can-deploy-web-applications-to-them-using-web-deploy"></a>開発者は、Web Deploy を使用して web アプリケーションをデプロイできるように、web サーバーを構成します。
 
 - [管理者と管理者以外の展開のインストールと構成の Web Deploy](https://www.iis.net/learn/install/installing-publishing-technologies/installing-and-configuring-web-deploy) (IIS.net サイト)。
 
-
 <a id="hostingprovider"></a>
-
 
 ## <a name="configuring-servers-for-a-hosting-provider"></a>ホスティング プロバイダーのサーバーを構成します。
 
 - [Microsoft ASP.NET 4 ホスティング展開ガイド](https://go.microsoft.com/fwlink/?LinkId=191365)(Microsoft ダウンロード センター)。
 - [プロファイル XML ファイルを生成](https://www.iis.net/learn/web-hosting/joining-the-web-hosting-gallery/generate-a-profile-xml-file)(IIS.net サイト)。
 
-
 <a id="troubleshooting"></a>
-
 
 ## <a name="troubleshooting-deployment-problems"></a>展開に関する問題のトラブルシューティング
 
@@ -252,18 +218,14 @@ ms.locfileid: "59383936"
 - [開発と運用の間の一般的な構成違い](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs.md)します。
 - [中程度の信頼で ASP.NET アプリケーションをホストしている](http://www.4guysfromrolla.com/articles/100307-1.aspx)(4 Guys Rolla サイトから)。
 
-
 <a id="gettinghelp"></a>
-
 
 ## <a name="getting-help-with-a-specific-deployment-question"></a>特定の展開の質問のヘルプ
 
 - [ASP.NET の構成と展開フォーラム](https://forums.asp.net/26.aspx/1?Configuration and Deployment)します。
 - [StackOverflow.com](http://www.StackOverflow.com)します。
 
-
 <a id="additional"></a>
-
 
 ## <a name="additional-resources"></a>その他のリソース
 

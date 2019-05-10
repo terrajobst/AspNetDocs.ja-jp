@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: eaef475a-ca91-47ea-a4a7-d074005ed80c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: cf2cee3888228069e59e9e44ffc2bc56fbba10e3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c60eece9223c47304786d7b0d0ca4b11ac0572e9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415662"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130999"
 ---
 # <a name="part-5-business-logic"></a>第 5 部:ビジネス ロジック
 
@@ -22,7 +22,6 @@ ms.locfileid: "59415662"
 > Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
 > 
 > このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 5 では、いくつかのビジネス ロジックを追加します。
-
 
 ## <a id="_Toc260221671"></a>  一部のビジネス ロジックを追加します。
 

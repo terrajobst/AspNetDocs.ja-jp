@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f11d22a7-5d32-4ad0-8a9b-276460a61c06
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0e57eb85242a0d6fa8ca9eef7f6c741862069d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f778549d3e26989a2e71ef21171adec521842729
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408798"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132120"
 ---
 # <a name="manually-installing-web-packages"></a>Web パッケージを手動でインストールする
 
@@ -29,7 +29,6 @@ ms.locfileid: "59408798"
 > 
 > これらのシナリオで、ポート、移行先サーバー上に web パッケージと IIS に手動でインポートする唯一の選択肢があります。 Web アプリケーションを公開するための非常に効果的な手法ではまだが、このアプローチは、自動化された展開のため、&#x2014;単に、web サーバーに 1 つの zip ファイルをコピーし、ウィザードを使用してインポートする手順を説明します。
 
-
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
 ## <a name="task-overview"></a>タスクの概要
@@ -44,7 +43,6 @@ IIS に web 配置パッケージをインポートするこれらの高度な�
 
 > [!NOTE]
 > このトピックでと組み合わせて使用最適[Web 配置発行 (オフライン展開) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)、必要なコンポーネントをインストールし、パッケージのインポート用の IIS の web サイトを準備する方法を説明しています。
-
 
 ## <a name="create-a-web-deployment-package"></a>Web 配置パッケージを作成します。
 
@@ -68,9 +66,7 @@ Visual Studio 2010 でいつでも、web アプリケーション プロジェ�
 
 コマンドラインから web 配置パッケージを作成するには呼び出すことによって、**パッケージ**MSBuild を使用して、web アプリケーション プロジェクトのターゲット。 このコマンドのようになります。
 
-
 [!code-console[Main](manually-installing-web-packages/samples/sample1.cmd)]
-
 
 どちらのアプローチを使用して、最終的な結果は同じです。 WPP は、web アプリケーション プロジェクトの出力フォルダー内のさまざまな関連リソースと共にの zip ファイルとして web 配置パッケージを作成します。
 

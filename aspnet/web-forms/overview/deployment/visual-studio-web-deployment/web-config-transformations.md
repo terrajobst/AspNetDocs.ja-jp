@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 15a5984048ba2aca9fedcb7bc4bb77eb440f21ee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 595723d9c6ea9cc40bb0ae896524ee828c4ebce2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128426"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio を使用して ASP.NET Web の展開:Web.config ファイル変換
 
@@ -22,7 +22,6 @@ ms.locfileid: "59379457"
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -106,7 +105,6 @@ Web 配置パラメーターを使用して、さまざまな種類の設定に�
 > 
 > **セキュリティに関する注意**で実稼働アプリケーションでは、一般にエラーの詳細を表示または公共の場所にその情報を格納することはありません。 攻撃者は、エラー情報を使用して、サイトの脆弱性を検出することができます。 独自のアプリケーションで ELMAH を使用する場合は、セキュリティ上のリスクを最小限に抑える ELMAH を構成します。 このチュートリアルの例では ELMAH しない推奨される構成を検討してください。 アプリケーションはファイルを作成できる必要があるフォルダーを処理する方法を説明するために実装されている一例です。 詳細については、次を参照してください。 [ELMAH エンドポイントをセキュリティで保護する](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)します。
 
-
 ## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>処理する設定プロファイル変換ファイルを発行します。
 
 一般的なシナリオとして*Web.config*ファイルの設定を環境に展開するごとに変える必要があります。 たとえば、WCF サービスを呼び出すアプリケーションは、テストおよび運用環境で別のエンドポイントを必要があります。 Contoso University アプリケーションには、この種類の設定が含まれます。 この設定は、開発、テスト、運用などは、in、環境を示すサイトのページに表示されるインジケーターを制御します。 設定値は、アプリケーションが"(Dev)"を追加するかどうかを決定します。 または"(テスト)"メインの見出しに、 *Site.Master*マスター ページ。
@@ -131,7 +129,6 @@ Contoso University の web ページで設定されている値の読み取り`a
 
 > [!NOTE]
 > この設定のため、 `<appSettings>` Azure アプリ サービスの「Web アプリにデプロイするときに、変換を指定するための別の方法がある要素、[を指定する Web.config 設定を Azure](#watransforms)で以前このトピックの「します。
-
 
 ## <a name="setting-connection-strings"></a>接続文字列の設定
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 307719f30c9efc8001f63f3ab068e50f82e1c5c0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b0a66cf62c34a59ca5c89c2f380093165e765100
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59399620"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129899"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Movie モデルとテーブルに新しいフィールドを追加する
 
@@ -21,7 +21,6 @@ ms.locfileid: "59399620"
 
 > > [!NOTE]
 > > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全ではるかに簡単に従うしより多くの機能を示します。
-
 
 このセクションでは、変更がデータベースに適用されるため、モデル クラスにいくつかの変更を移行するのに Entity Framework Code First Migrations を使用します。
 
@@ -69,7 +68,6 @@ Visual Studio を開き、 *Configuration.cs*ファイル。 置換、`Seed`メ�
 > 
 > Code First Migrations を呼び出し、`Seed`すべて移行後のメソッド (呼び出しは、**データベースを更新**パッケージ マネージャー コンソールで)、このメソッドは、既に挿入されている、または場合に、それらを挿入する行を更新し、まだ存在しません。
 
-
 **CTRL + SHIFT+B プロジェクトをビルドするキーを押します。**(、次の手順が失敗する場合、この時点でビルドはありません)。
 
 次の手順が作成するには、`DbMigration`初回移行のためのクラス。 移行が作成することは、新しいデータベースを削除する、 *movie.mdf*前の手順でファイル。
@@ -102,7 +100,7 @@ Code First Migrations は、別のクラス ファイルを作成、*移行*フ�
 
 使用して、アプリケーションをビルド、**ビルド** &gt;**ビルド ムービー**コマンドまたは CTRL-b shift キーを押してメニュー
 
-更新した、`Model`クラスもする必要がある更新、 *\Views\Movies\Index.cshtml*と*\Views\Movies\Create.cshtml*新しいを表示するためにテンプレートを表示`Rating`ブラウザー ビューでのプロパティ。
+更新した、`Model`クラスもする必要がある更新、 *\Views\Movies\Index.cshtml* と *\Views\Movies\Create.cshtml* 新しいを表示するためにテンプレートを表示`Rating`ブラウザー ビューでのプロパティ。
 
 開く、<em>\Views\Movies\Index.cshtml</em>追加ファイルを開き、`<th>Rating</th>`直後の列ヘッダー、<strong>価格</strong>列。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新<em>Index.cshtml</em>ビュー テンプレートのようになります。
 
@@ -122,13 +120,11 @@ Code First Migrations は、別のクラス ファイルを作成、*移行*フ�
 
 ため、このエラーが表示されている更新された`Movie`アプリケーションでモデル クラスは、スキーマの異なる、`Movie`既存のデータベースのテーブル。 (データベース テーブルに `Rating` 列はありません)。
 
-
 このエラーを解決するための手法がいくつかあります。
 
 1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 テスト データベースでアクティブな開発を行うときに、このアプローチは非常に便利簡単にまとめてモデルとデータベース スキーマを進化させることができます。 短所は、データベース内の既存のデータが失われる-ようにする*しない*実稼働データベースでこのアプローチを使用する! データベースにテスト データを自動的にシード初期化子を使用するは、多くの場合、アプリケーションを開発する生産性の高い方法です。 Entity Framework データベースの初期化子の詳細については、Tom Dykstra を参照してください。 [ASP.NET MVC/Entity Framework チュートリアル](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 3. Code First Migrations を使用して、データベース スキーマを更新します。
-
 
 このチュートリアルでは、Code First Migrations を利用します。
 

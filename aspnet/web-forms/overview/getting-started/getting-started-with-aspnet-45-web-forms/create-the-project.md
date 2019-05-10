@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 9e2cd1beca03b81140b9d58c5e43dbf7c6b8808b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1819704a4cfd3e6b82de1d8db916e729459d244f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393055"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130911"
 ---
 # <a name="create-the-project"></a>プロジェクトの作成
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393055"
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
-
 
 このチュートリアルでが作成、および確認するには、ASP.NET の機能に精通することができる、Visual Studio で、既定のプロジェクトを実行します。 また、Visual Studio 環境を確認します。
 
@@ -83,7 +82,6 @@ ms.locfileid: "59393055"
 > 
 > - [ASP.NET Web API](../../../../web-api/index.md) -さまざまなブラウザーやモバイル デバイスなどのクライアントに提供される HTTP サービスを構築するためのフレームワークです。
 > - [ASP.NET SignalR](../../../../signalr/index.md) -をリアルタイム web 機能の開発を容易にするライブラリ。
-
 
 ### <a name="reviewing-the-project"></a>プロジェクトのレビュー
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 61e0206d-7f32-4018-992d-0a51b48b37dc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 45683fc2b40f58a6344ec8670e6a93df89b587fe
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b40bb8b06ae7c89a33ae2aead9578cf507503531
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59402909"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129943"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
 
@@ -21,7 +21,6 @@ ms.locfileid: "59402909"
 
 > > [!NOTE]
 > > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全ではるかに簡単に従うしより多くの機能を示します。
-
 
 このセクションで作成します新しい`MoviesController`クラスし、映画のデータを取得し、ビュー テンプレートを使用してブラウザーで表示するコードを記述します。
 
@@ -120,7 +119,6 @@ Entity Framework Code First が検出されたデータベース接続文字列�
 > [!NOTE]
 > データベース エクスプ ローラーが表示されない場合から、**ツール**メニューの **データベースへの接続**、キャンセルして、**データ ソースの選択**ダイアログ。 これにより、開いているデータベース エクスプ ローラー。
 
-
 > [!NOTE]
 > VWD または Visual Studio 2010 を使用して次の次のいずれかのようなエラーを表示します。
 > 
@@ -128,7 +126,6 @@ Entity Framework Code First が検出されたデータベース接続文字列�
 > - &quot;これらの列は、ユーザー コードによって処理されなかった&quot;渡された SqlConnection では、初期カタログが指定されていません。
 > 
 > インストールする必要がある、 [SQL Server Data Tools](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)と[LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)します。 確認、`MovieDBContext`前のページで指定された接続文字列。
-
 
 右クリックし、`Movies`テーブルを選択**テーブル データの表示**作成したデータを表示します。
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: e079318b37563b1b7afe0f842f5b463541de0a81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c54449e778eac96133cccdc90d86cbbaf05a70f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405431"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132111"
 ---
 # <a name="shopping-cart"></a>ショッピング カート
 
@@ -22,7 +22,6 @@ ms.locfileid: "59405431"
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
-
 
 このチュートリアルでは、ショッピング カートを Wingtip Toys のサンプルの ASP.NET Web フォーム アプリケーションに追加するために必要なビジネス ロジックについて説明します。 このチュートリアルでは、前のチュートリアルでは、データ項目と詳細を表示」に基づいており、Wingtip 玩具店のチュートリアル シリーズのパートです。 このチュートリアルを完了すると、ときに、サンプル アプリのユーザーは追加、削除、およびショッピング カートに製品を変更することになります。
 
@@ -49,7 +48,6 @@ ms.locfileid: "59405431"
 > [!NOTE] 
 > 
 > ASP.NET セッション状態は、期限切れ後、ユーザーが、サイトのままになるユーザー固有の情報を格納する便利な場所です。 セッション状態の不正使用はパフォーマンスに影響を持つ大規模なサイトで、セッションの状態の動作もデモンストレーションの目的で使用するライトです。 Wingtip Toys のサンプル プロジェクトでは、セッション状態が、サイトをホストする web サーバーでインプロセスでストアドは、外部のプロバイダーを使用しないセッション状態を使用する方法を示します。 アプリケーションの複数のインスタンスを提供する大規模なサイト、または異なるサーバーで、アプリケーションの複数のインスタンスを実行するサイトについては、使用を検討して**Windows Azure キャッシュ サービス**します。 このキャッシュ サービスでは、外部 web サイトには、インプロセス セッション状態を使用しての問題を解決する分散キャッシュ サービスを提供します。 詳細については、「 [ASP.NET セッション状態で、Windows Azure Web サイトを使用する方法](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider)します。
-
 
 ### <a name="add-cartitem-as-a-model-class"></a>モデル クラスとして CartItem を追加します。
 
@@ -128,7 +126,6 @@ ms.locfileid: "59405431"
 > [!NOTE] 
 > 
 > 分離コードを変更する (*AddToCart.aspx.cs*) のこのページでは、ページの UI ではなく (*AddToCart.aspx*)。
-
 
 #### <a name="to-create-the-add-to-cart-functionality"></a>カートに追加を作成する機能。
 
@@ -215,7 +212,6 @@ ms.locfileid: "59405431"
 > [!NOTE] 
 > 
 > 上記のコードは、null 許容型を使用して"`int?`"。 Null 許容型では、基になる型とも null 値をすべての値を表すことができます。 詳細については、「 [null 許容型を使用して](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx)います。
-
 
 ### <a name="modify-the-shopping-cart-display"></a>ショッピング カートの表示を変更します。
 

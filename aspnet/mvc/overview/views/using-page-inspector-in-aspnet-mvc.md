@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: ef0ae42e1c6114849a311164eac242db6dab2b1d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5da3e142c52a770f59222c21d9f9a53cbbdbf498
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385801"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126352"
 ---
 # <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
 
@@ -27,7 +27,7 @@ Tim Ammann、
 > 
 > このチュートリアルでは、次のセクションがあります。
 > 
-> - [必須コンポーネント](#_1_prerequisites)
+> - [前提条件](#_1_prerequisites)
 > - [Web アプリケーションを作成します。](#_2_creating_a)
 > - [ビューを参照する Page Inspector を使用します。](#_3_using_page)
 > - [検査モードを有効にします。](#_4_inspection_mode)
@@ -38,7 +38,6 @@ Tim Ammann、
 > - [CSS カラー ピッカーを使用します。](#css_color_picker)
 > - [Javascript の動的なページ要素のマッピング](#map_dynamic_elements)
 
-
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>必須コンポーネント
@@ -47,7 +46,6 @@ Tim Ammann、
 
 > [!NOTE]
 > Page Inspector の最新バージョンを取得する[Web Platform Installer](https://go.microsoft.com/fwlink/?LinkId=255386) for .NET 2.0、Windows Azure SDK をインストールします。
-
 
 Page Inspector には、Microsoft Web Developer Tools が付属しています。 最新バージョンは、1.3 です。 どのバージョンを確認するが、Visual Studio を実行して**Microsoft Visual Studio**から、**ヘルプ**メニュー。
 
@@ -179,7 +177,6 @@ Page Inspector のブラウザー ウィンドウで変更がどのすぐにプ�
 > [!NOTE]
 > この機能には、Page Inspector のバージョン 1.3 が必要です。
 
-
 CSS 自動同期機能を使用すると、CSS ファイルを直接編集して、Page Inspector のブラウザー内ですぐに変更を確認できます。
 
 クリックして**検査**Page Inspector を検査モードにします。
@@ -238,7 +235,6 @@ Page Inspector がすぐに変更を検出、 *Site.css*更新バーで、アラ
 
 > [!NOTE]
 > SPA テンプレートが必要です、 [ASP.NET and Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)を更新します。
-
 
 Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**します。 左側で、展開**Visual c#** を選択します**Web**、し、 **ASP.NET MVC4 Web アプリケーション**します。 **[OK]** をクリックします。
 

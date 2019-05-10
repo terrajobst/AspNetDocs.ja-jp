@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: c7151351b087439f17457b254cd9e373af21cae3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 040bc0ccef889fb9a7c3d9b5ce88c75b7b754248
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380900"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129623"
 ---
 # <a name="part-9-registration-and-checkout"></a>第 9 部:登録と精算
 
@@ -24,7 +24,6 @@ ms.locfileid: "59380900"
 > MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
 >   
 > このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 9 では、登録と精算について説明します。
-
 
 このセクションでを作成します、CheckoutController 買い物客のアドレスと支払い情報を収集します。 ユーザーはこのコント ローラーが承認を要求するために、チェックインする前に、サイトを登録することが求められます。
 
@@ -158,7 +157,6 @@ AddressAndPayment POST メソッドは、同じパターンに従って、StoreM
 これは、一般的なエラー ページであるため、コンテンツは非常に単純です。 ユーザーがそれらのアクションをもう一度お試したい場合は、履歴に前のページに移動するには、メッセージとのリンクを含めます。
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample13.cshtml)]
-
 
 > [!div class="step-by-step"]
 > [前へ](mvc-music-store-part-8.md)

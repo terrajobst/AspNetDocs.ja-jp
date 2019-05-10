@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f86212c1cb559c164342997fb0e4208339b5e3cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc629f84bbf8c271780a8e7deba3d04d23d5fbb1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421122"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129818"
 ---
 # <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>関連データ (5/10) ASP.NET MVC アプリケーションで Entity Framework での読み取り
 
@@ -26,7 +26,6 @@ ms.locfileid: "59421122"
 > > [!NOTE] 
 > > 
 > > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 前のチュートリアルでは、School データ モデルを完了しました。 このチュートリアルでを読み取るし、関連データを表示、つまり、Entity Framework がナビゲーション プロパティに読み込まれるデータ。
 
@@ -176,7 +175,6 @@ Instructor インデックス ページには、3 つのテーブルが表示さ
 > 
 > [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cshtml)]
 
-
 このコードは、ビュー モデルのインスタンスを作成し、インストラクターのリストに配置することから始めます。 コードでの一括読み込みを指定、 `Instructor.OfficeAssignment` 、`Instructor.Courses`ナビゲーション プロパティ。
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs?highlight=3-4)]
@@ -237,7 +235,6 @@ Instructor インデックス ページには、3 つのテーブルが表示さ
 
 > [!NOTE]
 > *.Css*ファイルは、ブラウザーによってキャッシュされます。 アプリケーションを実行するときに、変更が見つからない場合は、ハードの更新 (CTRL キーを押しながらクリックすると、**更新** ボタン、または、ctrl キーを押しながら f5 キーを押します)。
-
 
 ページを実行し、インストラクターを選択します。 選択したインストラクターに割り当てられたコースを表示するグリッドを表示し、各コースに割り当てられた部門の名前を表示します。
 

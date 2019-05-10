@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 15d4652b-d5aa-4172-b186-2c7f96ba316d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 70d2efb789d694a0aaecc046615c7b3622079dc1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 05a3ace3d8fef9c1f3593f7948e42b4725d70134
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385359"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130571"
 ---
 # <a name="part-1-file--new-project"></a>第 1 部:ファイル -> 新しいプロジェクト
 
@@ -23,7 +23,6 @@ ms.locfileid: "59385359"
 > 
 > このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 1 部では、概要とファイル]/[新しいプロジェクトについて説明します。
 
-
 ## <a id="_Toc260221666"></a>  概要
 
 このチュートリアルでは、ASP.NET WebForms の概要についてです。 私たちはゆっくりと開始されます、初心者レベルの web 開発のエクスペリエンスは問題ありません。
@@ -31,7 +30,6 @@ ms.locfileid: "59385359"
 ビルドするアプリケーションは、シンプルなオンライン ストアです。
 
 ![](tailspin-spyworks-part-1/_static/image1.jpg)
-
 
 訪問者には、カテゴリ別の製品を参照できます。
 
@@ -54,7 +52,6 @@ ms.locfileid: "59385359"
 、順序付けの後に、単純な確認画面が参照してください。
 
 ![](tailspin-spyworks-part-1/_static/image7.jpg)
-
 
 まず、Visual Studio 2010 では、新しい ASP.NET WebForms プロジェクトを作成して、段階的に機能している完全なアプリケーションを作成する機能を追加します。 その過程について説明しますデータベースへのアクセス、リストやグリッド ビュー、データ更新のページ、データの検証、マスター ページを使用して、一貫性のあるページ レイアウト、AJAX、検証、ユーザーのメンバーシップ。
 

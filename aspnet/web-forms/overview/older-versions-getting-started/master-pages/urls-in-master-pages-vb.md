@@ -8,12 +8,12 @@ ms.date: 06/10/2008
 ms.assetid: 43d1e83c-0092-4dcf-977c-e709c4dce7c3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 35fcf02c20e3d20f9cb75f6a25aeb1ddac016b4e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 856d0c588535838c73d52ee47648fcb5928cf5b7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393770"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128604"
 ---
 # <a name="urls-in-master-pages-vb"></a>マスター ページの URL (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393770"
 [コードのダウンロード](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_VB.pdf)
 
 > マスター ページの Url が相対ディレクトリ コンテンツのページとは別のマスター ページファイルにより中断できる方法について説明します。 使用して Url をリベースを見て ~ 宣言の構文と ResolveUrl と ResolveClientUrl をプログラムでを使用します。 (も見てください。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -36,13 +35,11 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 
 たとえば、web サイトには、 `~/Images/` 、1 つのイメージ ファイルとフォルダー`PoweredByASPNET.gif`します。 マスター ページファイル`Site.master`が、`<img>`内の要素、`footerContent`次のマークアップでリージョン。
 
-
 [!code-html[Main](urls-in-master-pages-vb/samples/sample1.html)]
 
 `src`属性の値、`<img>`値で始まらないために、要素が相対 URL`/`または`http://`します。 つまり、`src`属性の値を検索するようブラウザーに指示、`Images`という名前のファイル用のサブフォルダー`PoweredByASPNET.gif`します。
 
 コンテンツ ページを訪問する際に上記のマークアップは、ブラウザーに直接送信されます。 アクセスする少し`About.aspx`し、ブラウザーに送信される HTML ソースを表示します。 マスター ページで、正確な同じマークアップをブラウザーに送信されたことがあります。
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample2.html)]
 
@@ -51,17 +48,13 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 > [!NOTE]
 > [*マスター ページのタイトル、メタ タグ、およびその他の HTML ヘッダーを指定する*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)という名前のカスタム ベース ページ クラスを作成したチュートリアル`BasePage`コンテンツ ページのタイトルを自動的に設定されます (場合、明示的に割り当てられていません)。 派生して、新しく作成されたページの分離コード クラスを用意することを忘れないでください`BasePage`この機能を利用できるようにします。
 
-
 このコンテンツ ページを作成した後、ソリューション エクスプ ローラーは図 1 のようになります。
-
 
 ![新しいフォルダーと ASP.NET ページ、プロジェクトに追加されています](urls-in-master-pages-vb/_static/image1.png)
 
 **図 01**:新しいフォルダーと ASP.NET ページ、プロジェクトに追加されています
 
-
 次に、更新、`Web.sitemap`ファイルに含める新しい`<siteMapNode>`このレッスンのエントリ。 次の XML は、完全な`Web.sitemap`マークアップで、3 つ目の追加が含まれています`<siteMapNode>`要素。
-
 
 [!code-xml[Main](urls-in-master-pages-vb/samples/sample3.xml)]
 
@@ -69,16 +62,13 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 
 `~/Admin/Default.aspx`同じ HTML コンテンツ ページを送信、`footerContent`されているが、リージョン、`About.aspx`ページ。
 
-
 [!code-html[Main](urls-in-master-pages-vb/samples/sample4.html)]
 
 `<img>`要素の`src`属性は、相対 URL をブラウザーが検索しようとした場合、 `Images` web ページのフォルダーの場所を基準としたフォルダーです。 つまり、イメージ ファイルには、ブラウザーが検索`Admin/Images/PoweredByASPNET.gif`します。
 
-
 [![PoweredByASPNET.gif イメージ ファイルが見つかりません](urls-in-master-pages-vb/_static/image3.png)](urls-in-master-pages-vb/_static/image2.png)
 
 **図 02**:`PoweredByASPNET.gif`イメージ ファイルが見つかりません ([フルサイズの画像を表示する をクリックします](urls-in-master-pages-vb/_static/image4.png))。
-
 
 ### <a name="replacing-relative-urls-with-absolute-urls"></a>相対 Url を絶対 Url を置き換える
 
@@ -91,11 +81,9 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 
 更新する少し、`<img>`要素の`src`属性上に示した形式のいずれかを使用して絶対 URL をし、アクセス、`~/Admin/Default.aspx`ブラウザーを使用してページ。 この時間、ブラウザーの検索し、表示が正しく、`PoweredByASPNET.gif`イメージ ファイル (図 3 を参照してください)。
 
-
 [![PoweredByASPNET.gif イメージが表示されるようになりました](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
 
 **図 03**:`PoweredByASPNET.gif`イメージが表示されるようになりました ([フルサイズの画像を表示する をクリックします](urls-in-master-pages-vb/_static/image7.png))。
-
 
 動作の絶対 URL をハードコーディングしますが、密に、web サイトのサーバーとフォルダーの場所は、変更を HTML を結合します。 形式の絶対 URL を使用して`http://localhost:3908/...`Visual Studio の組み込みの ASP.NET 開発 Web サーバーを起動するたびに自動的に選択前に localhost のポート番号は脆弱です。 同様に、`http://localhost`部分は、ローカルでテストする場合にのみ有効です。 URL ベースをような変更は、別のものに、コードを実稼働サーバーにデプロイすると`http://www.yourserver.com`します。 フォームの絶対 URL`/ASPNET_MasterPages_Tutorial_04_VB/...`多くの場合、このアプリケーションのパスが開発と運用サーバーの間とは異なるために、同じの脆弱性からも低下します。
 
@@ -110,7 +98,6 @@ Web ページ上の URL はモード、*相対 URL*場合は、web サイトの�
 > [!NOTE]
 > すべての ASP.NET サーバー コントロールがから派生するため、`Control`クラス、すべてのサーバー コントロールのあるへのアクセス、`ResolveClientUrl`メソッド。 でも、`Page`クラスから派生、`Control`クラス、つまり、ASP.NET ページの分離コード クラスから直接このメソッドを使用することができます。
 
-
 ### <a name="usingin-the-declarative-markup"></a>使用して`~`宣言型マークアップ
 
 いくつかの ASP.NET Web コントロールには、URL に関連するプロパティが含まれます: ハイパーリンク コントロールは、`NavigateUrl`プロパティです。 コントロールにイメージを`ImageUrl`; のプロパティ。 これらのコントロールにその URL に関連するプロパティの値を渡す、レンダリングされるときに`ResolveClientUrl`します。 その結果、これらのプロパティが含まれている場合、`~`有効な相対 url を web アプリケーションのルートを示すために、URL が変更されます。
@@ -119,29 +106,24 @@ ASP.NET サーバー コントロールのみを変換することに留意し�
 
 内のイメージのマークアップを修正する`Site.master`、既存`<img>`ASP.NET イメージ Web コントロールを持つ要素。 イメージの Web コントロールの設定`ID`に`PoweredByImage`その`ImageUrl`プロパティを`~/Images/PoweredByASPNET.gif`、およびその`AlternateText`プロパティ「ASP.NET によって強化された!」を
 
-
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample5.aspx)]
 
 マスター ページにこの変更を行った後に再アクセス、`~/Admin/Default.aspx`ページをもう一度です。 この時間、`PoweredByASPNET.gif`イメージ ファイル、ページに表示されます (図 3 を参照してください)。 イメージ Web コントロールを描画するタイミングには、`ResolveClientUrl`を解決する方法、`ImageUrl`プロパティの値。 `~/Admin/Default.aspx` 、 `ImageUrl` HTML ソースの表示の例を次に、適切な相対 URL に変換されます。
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample6.html)]
 
 > [!NOTE]
 > URL ベースの Web コントロールのプロパティで使用されているだけでなく、`~`を呼び出す場合にも使用できます、`Response.Redirect`と`Server.MapPath`他のユーザーの間でのメソッド。 また、`ResolveClientUrl`メソッドは、必要な場合は、ASP.NET またはマスター ページの宣言型のマークアップから直接呼び出すことができます。 参照してください[Fritz Onion](https://www.pluralsight.com/blogs/fritz/)のブログ エントリ[Using`ResolveClientUrl`マークアップで](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx)します。
 
-
 ## <a name="fixing-the-master-pages-remaining-relative-urls"></a>マスター ページの相対 Url の残りの修正
 
 加え、`<img>`内の要素、`footerContent`マスター ページには、注意が必要な 1 つの複数の相対 URL を修正しました。 `topContent`領域には、「マスター ページ チュートリアルでは、」を指すリンクが含まれています。`Default.aspx`します。
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample7.html)]
 
 この URL は相対であるため、ユーザーに送信されます、`Default.aspx`がアクセスして、[コンテンツ] ページのフォルダー内のページ。 このリンクを常にポイントして`Default.aspx`に置き換える必要があります。 ルート フォルダーに、`<a>`ハイパーリンク Web を持つ要素を制御、使用できるように、`~`表記します。
 
 削除、`<a>`要素マークアップと、その場所にハイパーリンク コントロールを追加します。 ハイパーリンクの設定`ID`に`lnkHome`その`NavigateUrl`プロパティを`~/Default.aspx`、およびその`Text`プロパティを「マスター ページのチュートリアル」
-
 
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample8.aspx)]
 
@@ -151,13 +133,11 @@ ASP.NET サーバー コントロールのみを変換することに留意し�
 
 [ *、サイト全体レイアウトを使用してマスター ページを作成する*](creating-a-site-wide-layout-using-master-pages-vb.md)チュートリアルが追加されました、`<link>`を`Styles.css`ファイル、`<head>`リージョン。
 
-
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample9.aspx)]
 
 中に、`<link>`要素の`href`属性は、相対的な実行時に適切なパスに自動的に変換されます。 説明したように、 [*マスター ページのタイトル、メタ タグ、およびその他の HTML ヘッダーを指定する*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)チュートリアルでは、`<head>`リージョンが実際には、サーバー側コントロールを可能にすると、変更、表示されるようにその内部のコントロールの内容。
 
 これを確認するには、見直し、`~/Admin/Default.aspx`ページし、ブラウザーに送信される HTML ソースを表示します。 次のスニペットに示すように、`<link>`要素の`href`属性は、適切な相対 URL を自動的に変更されている`../Styles.css`します。
-
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample10.html)]
 

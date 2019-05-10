@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 89a1d2bc-fdfd-4c5c-a3b0-49a08baaf63a
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 90285eac8e45d542c4ccca3e3db00493546aac57
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0ec92a3b719116d8ef457156788ac451a300dbfc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398450"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130663"
 ---
 # <a name="aspnet-hosting-options-c"></a>ASP.NET ホスティングのオプション (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59398450"
 [PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_cs.pdf)
 
 > ASP.NET web アプリケーションの通常設計、作成、およびテスト ローカル開発環境、およびリリースの準備が整うと、運用環境にデプロイされる必要があります。 このチュートリアルでは、展開プロセスの概要を提供し、このチュートリアル シリーズの概要として機能します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -57,7 +56,6 @@ Web アプリケーションの構成情報は、通常、内に、`Web.config`�
 
 Web アプリケーションの構成の変更だけでなく手順 1 も作業が伴います、web サーバーとデータベースを構成します。 たとえば、ASP.NET ページを作成するか、web サーバー上のディレクトリからファイルを削除します。 場合これらのファイル システムの変更を許可するように構成する web サーバーが必要。 同様に、アクセス許可、または認証の設定、データベースに作成する必要がある可能性があります。
 
-
 手順 2 では、重要な ASP.NET ページと、開発および運用環境の間のサポート ファイルのセットを同期する必要があります。 ASP の特定のセット。2 つの環境間で同期する必要がある NET に関連するファイルは、Visual Studio で作成し、次のチュートリアルでは、詳細については、プロジェクトの種類によって異なります[*を決定する必要のあるファイル展開*](determining-what-files-need-to-be-deployed-cs.md)。 3 番目と 4 番目のチュートリアル - [ *Your サイトを使用して FTP のデプロイ*](deploying-your-site-using-an-ftp-client-cs.md)と[*を展開するサイトを使用して Visual Studio* ](deploying-your-site-using-visual-studio-cs.md) -確認さまざまなツールと手法のこれらのファイルを同期します。
 
 使用されている通常の 2 つのデータベースがあるデータ駆動型アプリケーションを構築するときに: 1 つは開発、運用環境に 1 つ。 開発中は、開発データベースのスキーマは新しいテーブル、列、ストアド プロシージャ、トリガー、およびを含めるように変更することがあります。 または削除するか、既存のデータベース オブジェクトの名前を変更するように変更可能性があります。 これらの変更が行われた時間と、アプリケーションが運用環境に展開される時刻の間では、開発および運用データベースは同期。この非同期処理は、展開プロセス中に修正する必要があります。 今後のチュートリアルでは、これらの課題が検査されます。
@@ -69,7 +67,6 @@ ASP.NET アプリケーションは、.NET Framework とインターネット �
 > [!NOTE]
 > [IIS](https://www.iis.net/) Microsoft のエンタープライズ グレードの web サーバーです。 Windows Server 2008 および Windows Vista の特定のエディションなどの Windows のホーム以外のエディションに付属しています。 Visual Studio には、ASP.NET 開発 Web サーバーが含まれている ASP.NET アプリケーションを開発環境で処理するために IIS をインストールする必要はありません。 ただし、ASP.NET 開発 Web サーバーでは、ローカル接続のみを受け入れるし、運用環境で使用することはできません。
 
-
 Web ホスト プロバイダーには、サイトを展開する前に、ビジネスを行うには、どのような会社をまず決定する必要があります。 無数の web ホスティング。 marketplace での会社があります。"web ホスト会社"の検索では、5 件以上の結果を返します。 どうやって見つけたらが適しているでしょうか。 などの web サイトには、お気に入りの検索エンジンが優れた出発点[TopHosts](http://www.tophosts.com/)と[HostCritique](http://www.hostcritique.net/)、さまざまなホスティング サービスを比較しています。 任意の推奨事項については、仕事仲間と同僚を確認することもお勧め推奨事項を求めることも、[オープン フォーラムをホストしている](https://forums.asp.net/158.aspx)にここでは、 [ASP.NET フォーラム](https://forums.asp.net/)します。
 
 通常、web ホスティング企業は、共有ホスティング プランを提供し、専用のホスティング プラン。 1 つの web server ホスト数百ものでない場合に何十もの異なる web サイトをホストを共有します。 専用ホスティングでは、サイトとサイトを単独で機能する会社からコンピューターをリースします。 共有ホスティング プランには、ASP.NET ページでは、1 か月 9.95 ドル用 Microsoft Access データベース、5 GB のディスク領域、および 100 GB の帯域幅の月間送信トラフィックを操作する機能のサポートが含まれます。 別の共有ホスティング プランには、ASP.NET ページでは、1 か月あたり 19.95 ドルの Microsoft SQL Server 2008 データベース サーバー、10 GB のディスク領域と 250 GB の帯域幅の月間送信トラフィックへのアクセスのサポートが含まれます。 専用のホスティング プランは、通常、ごとに 1 か月、プランのパフォーマンスを向上させるいくつか数百ドルをはるかに高く、コストと共有よりも詳細に制御をホストしているオプション。 選択したプランによって異なります、予算、トラフィックの量、web サイトを受信して、機能する見込みがあることが必要があります。
@@ -78,7 +75,6 @@ Web ホスト プロバイダーには、サイトを展開する前に、ビジ
 
 > [!NOTE]
 > いくつかの web ホスティング企業は、.NET などの特定のテクノロジ スタックに業務を集中または[LAMP](http://en.wikipedia.org/wiki/LAMP_stack) (**L** inux、 **A** pache、 **M**ySQL、および**P** HP)、選択した会社が ASP.NET アプリケーションをホストするようにします。 また、ASP.NET アプリケーションのビルドに使用しているのバージョンをサポートすることを確認します。 およびデータ ドリブン アプリケーションを作成する場合、web ホストは、同じデータベース サーバーとバージョンを使用していることを確認します。
-
 
 ## <a name="summary"></a>まとめ
 

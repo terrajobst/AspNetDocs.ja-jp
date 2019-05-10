@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 81ba9116-d485-40c0-8ff6-7e9ae23e0a0c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7d8807962e5cf668358e03821d5fd3bf755a0e7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1df265f8eaaf32d42342d39594dbba940cab0793
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418886"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128133"
 ---
 # <a name="picking-one-animation-out-of-a-list-vb"></a>一覧からアニメーションを 1 つ選択する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59418886"
 [コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5VB.pdf)
 
 > アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 フレームワークでは、いくつかの JavaScript コードの評価によって、アニメーションの一覧からアニメーションを 1 つを選択するプログラマもできます。
-
 
 ## <a name="overview"></a>概要
 
@@ -51,7 +50,6 @@ ms.locfileid: "59418886"
 次のマークアップでは、次の 3 つのサブアニメーションを定義します。幅、高さのサイズ変更とフェードアウトをサイズ変更します。JavaScript コード (`Math.floor(3 * Math.random())`) 3 つのアニメーションのいずれかが実行されるため、0 ~ 2 の数値を取得します。
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample5.aspx)]
-
 
 [![考えられる 3 つのアニメーションのいずれか:パネルが広くなります。](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
 

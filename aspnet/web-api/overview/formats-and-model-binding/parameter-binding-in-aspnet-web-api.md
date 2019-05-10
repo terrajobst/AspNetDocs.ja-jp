@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f121f12ce689a079412bbd5392fde4fea863ff1f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da0b9e12fcbe5cd2bfb5478162b7453d34931edf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401973"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127519"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API のパラメーター バインド
 
@@ -173,7 +173,6 @@ ETag を取得するかどうかを示す列挙体も定義します、`if-match
 
 > [!NOTE]
 > 場合、 **ExecuteBindingAsync**メソッドは、要求メッセージの本文を読み取り、上書き、 **WillReadBody**プロパティが true を返します。 要求本文には、読み取りしか実行 1 回、Web API 規則を適用する 1 つだけにバインドするようにするバッファリングされていないストリームは、メッセージ本文を読み取ることができます可能性があります。
-
 
 カスタムを適用する**HttpParameterBinding**から派生した属性を定義する**ParameterBindingAttribute**します。 `ETagParameterBinding`、1 つずつ、2 つの属性を定義します`if-match`ヘッダーと 1 つずつ`if-none-match`ヘッダー。 抽象基本クラスから派生させます。
 

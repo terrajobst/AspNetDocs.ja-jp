@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 35b115d6b4f84084e78e429bbb4842670e57bba4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391482"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132258"
 ---
 # <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API を使用した RESTful Api を構築します。
 
@@ -33,7 +33,6 @@ ms.locfileid: "59391482"
 > 
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)します。
-
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>目的
@@ -71,13 +70,12 @@ ms.locfileid: "59391482"
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**60 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Create_a_Read-Only_Web_API"></a>
-### <a name="exercise-1-create-a-read-only-web-api"></a>手順 1:読み取り専用の Web API を作成します。
+### <a name="exercise-1-create-a-read-only-web-api"></a>演習 1:読み取り専用の Web API を作成します。
 
 この演習では、連絡先のマネージャーの読み取り専用の GET メソッドを実装します。
 
@@ -272,7 +270,7 @@ ms.locfileid: "59391482"
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Create_a_ReadWrite_Web_API"></a>
-### <a name="exercise-2-create-a-readwrite-web-api"></a>手順 2:読み取り/書き込み Web API を作成します。
+### <a name="exercise-2-create-a-readwrite-web-api"></a>演習 2:読み取り/書き込み Web API を作成します。
 
 この演習では、POST を実装したと PUT メソッドのデータ編集機能を有効にする連絡先のマネージャー。
 
@@ -420,7 +418,6 @@ ms.locfileid: "59391482"
 
 > [!NOTE]
 > また、Azure の次に、このアプリケーションを展開できます[付録 c:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixC)します。
-
 
 ---
 

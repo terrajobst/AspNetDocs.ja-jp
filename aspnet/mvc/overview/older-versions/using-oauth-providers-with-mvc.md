@@ -8,12 +8,12 @@ ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5dfd1305376a62f4987caea242ca0f6aac1018e9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396983"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129635"
 ---
 # <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 で OAuth プロバイダーを使用する
 
@@ -24,7 +24,6 @@ ms.locfileid: "59396983"
 > 外部資格情報を使用して、ASP.NET MVC 5 web アプリケーションを参照してください。 [Facebook と Google の OAuth2 や OpenID サインオンでの ASP.NET MVC 5 アプリケーションの作成](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。
 > 
 > 数百万のユーザーでは、これらの外部プロバイダーを持つアカウントが既にあるため、大きな利点を提供して web サイトでこれらの資格情報を有効にするとします。 これらのユーザーを作成し、一連の資格情報を覚えていない場合、サイトにサインアップする傾向があります。 また、これらのプロバイダーのいずれかで、ユーザーがログインに後、は、ソーシャル プロバイダーの操作を組み込むことができます。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -185,7 +184,7 @@ UsersContext クラスでは、新しいクラスの DbSet プロパティを作
 
 - ID
 - name
-- リンクをクリックする
+-  リンクをクリックする
 - 性別
 - accesstoken
 

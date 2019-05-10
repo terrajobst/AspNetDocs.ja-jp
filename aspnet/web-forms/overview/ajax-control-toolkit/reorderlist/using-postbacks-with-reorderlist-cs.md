@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 70d5d106-b547-442c-a7fd-3492b3e3d646
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6f8f74b74080104980e1db866d695fe7c6d9d5fc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 86fb3475b8c2a9578b59945e40539183b967bbed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393354"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124708"
 ---
 # <a name="using-postbacks-with-reorderlist-c"></a>ReorderList でポストバックを使用する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393354"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4CS.pdf)
 
 > ReorderList コントロール、AJAX Control Toolkit では、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧を提供します。 一覧の順序が変更されるたびにポストバックの変更のサーバーに通知する必要があります。
-
 
 ## <a name="overview"></a>概要
 
@@ -60,7 +59,6 @@ ms.locfileid: "59393354"
 最後に、ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`ScriptManager`ページにコントロールを配置する必要があります。
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-cs/samples/sample6.aspx)]
-
 
 [![ポストバックをトリガーするそれぞれの並べ替え](using-postbacks-with-reorderlist-cs/_static/image2.png)](using-postbacks-with-reorderlist-cs/_static/image1.png)
 

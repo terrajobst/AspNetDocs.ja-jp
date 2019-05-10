@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: 878f6c31-972d-45f4-8849-5c633b511409
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 3eef7934fac8c16dc7517ca16cab67c0ae55907f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0ed70876ed8c2eab450e0543874613bf34f75cb8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398021"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130013"
 ---
 # <a name="adding-validation-to-the-model-vb"></a>モデルに検証を追加する (VB)
 
@@ -28,7 +28,6 @@ ms.locfileid: "59398021"
 > Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
 > 
 > VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/adding-validation-to-the-model.md)このチュートリアルの。
-
 
 このセクションでは検証ロジックを追加します、`Movie`モデル ユーザーが作成またはアプリケーションを使用してムービーを編集するときに検証規則が適用されているを確認します。
 

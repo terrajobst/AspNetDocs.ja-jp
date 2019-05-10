@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 86781a1f46ce0c01a5d70b1f0cf8a81f3f96a032
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 15c9d4dcb9e2c6b9f6adf54d65d15737b32cca3b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405925"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129736"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 依存関係挿入
 
@@ -57,7 +57,6 @@ ms.locfileid: "59405925"
 > [!NOTE]
 > 依存関係の挿入は抽象ファクトリ デザイン パターンと比較場合がありますが、両方のアプローチのわずかな違いがあります。 DI には、フレームワーク、ファクトリと、登録済みサービスを呼び出すことによって依存関係を解決するために、背後にある作業があります。
 
-
 依存関係の注入パターンを理解したところで ASP.NET MVC 4 を適用する方法をこの演習全体を通じて学習がします。 依存関係挿入を使用して開始、**コント ローラー**にデータベース アクセス サービスが含まれます。 次に、依存関係の挿入が適用されますが、**ビュー**サービスを使用して、情報を表示します。 最後に、ソリューション内のカスタム アクション フィルターを挿入する ASP.NET MVC 4 のフィルターに、DI を拡張します。
 
 このハンズオン ラボでは、学習する方法。
@@ -69,7 +68,6 @@ ms.locfileid: "59405925"
 
 > [!NOTE]
 > このラボは、依存関係の解決の Unity.Mvc3 NuGet パッケージを使用して、ASP.NET MVC 4 で動作する任意の依存関係挿入フレームワークを調整することができます。
-
 
 <a id="Prerequisites"></a>
 
@@ -107,13 +105,12 @@ ms.locfileid: "59405925"
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**30 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Injecting_a_Controller"></a>
-### <a name="exercise-1-injecting-a-controller"></a>手順 1:コント ローラーを挿入します。
+### <a name="exercise-1-injecting-a-controller"></a>演習 1:コント ローラーを挿入します。
 
 この演習では、Unity は NuGet パッケージを使用して統合することにより、ASP.NET MVC のコント ローラーで依存関係の挿入を使用する方法を学びます。 そのため、サービスをデータ アクセス ロジックを分離する、MvcMusicStore コント ローラーに含まれます。 サービスはコント ローラーのコンス トラクターは、のヘルプで依存関係の挿入を使用して、解決に新しい依存関係を作成**Unity**します。
 
@@ -137,12 +134,10 @@ ms.locfileid: "59405925"
 > 
 > 依存関係を解決するには、コント ローラーを抽象ファクトリ (指定した型の任意のオブジェクトを返すクラス) で作成する必要があります。
 
-
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample2.cs)]
 
 > [!NOTE]
 > クラスは、パラメーターなしのコンス トラクターが宣言されていないため、サービス オブジェクトを送信することがなく、StoreController を作成するとき、エラーが発生します。
-
 
 <a id="Ex1Task1"></a>
 
@@ -181,7 +176,6 @@ ms.locfileid: "59405925"
 > Unity.Mvc3 パッケージは、ASP.NET MVC 3 では、用に設計されましたが、ASP.NET MVC 4 と完全な互換性です。
 > 
 > Unity では、インスタンス オプション サポートで軽量で拡張可能な依存関係挿入コンテナーにし、型のインターセプトします。 あらゆる種類の .NET アプリケーションで使用するための汎用コンテナーになります。 などの依存関係の注入メカニズムで見つかったすべての一般的な機能を提供します。 オブジェクトの作成、コンテナーにコンポーネントの構成を遅らせることで、ランタイムと柔軟性の依存関係を指定することによって要件を抽象化します。
-
 
 1. インストール**Unity.Mvc3**で NuGet パッケージ、 **MvcMusicStore**プロジェクト。 これを行うには、開く、**パッケージ マネージャー コンソール**から**ビュー** | **その他の Windows**します。
 2. 次のコマンドを実行します。
@@ -247,7 +241,7 @@ ms.locfileid: "59405925"
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Injecting_a_View"></a>
-### <a name="exercise-2-injecting-a-view"></a>手順 2:ビューを挿入します。
+### <a name="exercise-2-injecting-a-view"></a>演習 2:ビューを挿入します。
 
 この演習では、Unity の統合を ASP.NET MVC 4 の新機能を含むビューの依存関係の挿入を使用する方法を学びます。 このため、ストア ビューの参照、これは、メッセージと、次の図に記載内にカスタム サービスを呼び出します。
 
@@ -310,7 +304,6 @@ ms.locfileid: "59405925"
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample11.cs)]
-
 
 1. 作成、/**ファクトリ**プロジェクトのルート フォルダー内のフォルダー。
 2. 含める**CustomViewPageActivator.cs**からソリューションに**ソース/資産/** に**ファクトリ**フォルダー。 そのためには右クリックし、 **/Factories**フォルダーで、**追加 |既存項目の**選び**CustomViewPageActivator.cs**します。 このクラスは、実装、 **IViewPageActivator** Unity コンテナーを保持するインターフェイス。

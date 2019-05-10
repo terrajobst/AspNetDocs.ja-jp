@@ -8,12 +8,12 @@ ms.date: 03/24/2008
 ms.assetid: fd208ee9-69cc-4467-9783-b4e039bdd1d3
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6bedfd2b6ff0b50b3b863d26dccaacf687ed5907
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9efe20a1e8a5982d7494914a0ed865db0ab0f52e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403273"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130195"
 ---
 # <a name="assigning-roles-to-users-vb"></a>ユーザーにロールを割り当てる (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59403273"
 [コードのダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.10.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial10_AssigningRoles_vb.pdf)
 
 > このチュートリアルでは、どのようなユーザー ロールに属しているを管理するために 2 つの ASP.NET ページを作成します。 最初のページがどのようなユーザーが特定のロールに属しているかを確認する機能が含まれますが属する特定のユーザー ロールと、割り当てまたは特定のロールから、特定のユーザーを削除する機能。 2 番目のページではの強化点 CreateUserWizard コントロールを新しく作成したユーザーが属しているロールを指定するステップが含まれるようにします。 これは、管理者が新しいユーザー アカウントを作成することがあるシナリオで役立ちます。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -43,7 +42,6 @@ ms.locfileid: "59403273"
 > [!NOTE]
 > ドロップダウン リストを使用してユーザー アカウントでない web サイトの最適な選択肢が何百ものユーザー アカウントがある可能性があります。 ドロップダウン リストは、ユーザーが比較的短い形式の一覧からオプションの 1 つの項目を選択できるように設計されています。 すばやく手に負えなくリスト項目の数が増える。 可能性のある多数のユーザー アカウントがある web サイトを構築する場合たい場合があります、代替のユーザー インターフェイスの使用を検討してページング可能な GridView またはフィルター可能なインターフェイスを一覧表示する、文字を選択するビジターを求めるなどしのみこれらのユーザーが選択されている文字で始まるがユーザー名を示します。
 
-
 ## <a name="step-1-building-the-by-user-user-interface"></a>手順 1: "ユーザー"によってユーザー インターフェイスの構築
 
 開く、`UsersAndRoles.aspx`ページ。 ページの上部にある、という名前のラベルの Web コントロールを追加`ActionStatus`クリアとその`Text`プロパティ。 私たちはのようなメッセージを表示する、実行される操作に関するフィードバックを提供するこのラベルを使用して、「ユーザー Tito が追加された、管理者ロールに」または「ユーザー Jisun はスーパーバイザー ロールから削除されましたが」。 これらを行うためにメッセージが目立つ設定で、ラベルの`CssClass`プロパティを"Important"にします。
@@ -56,11 +54,9 @@ ms.locfileid: "59403273"
 
 この CSS 定義では、ブラウザーで、大規模な赤いフォントを使用してラベルを表示するように指示します。 図 1 は、Visual Studio デザイナーでは、この効果を示します。
 
-
 [![ラベルの CssClass プロパティは、大規模な赤いフォントで結果します。](assigning-roles-to-users-vb/_static/image2.png)](assigning-roles-to-users-vb/_static/image1.png)
 
 **図 1**:ラベルの`CssClass`大規模、赤いフォントでプロパティの結果 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image3.png))。
-
 
 次に、設定ページに、DropDownList を追加、`ID`プロパティを`UserList`、設定とその`AutoPostBack`プロパティを True にします。 システム内のすべてのユーザーの一覧を表示するのにこの DropDownList を使用します。 この DropDownList MembershipUser オブジェクトのコレクションにバインドされます。 DropDownList MembershipUser オブジェクトの UserName プロパティの表示 (および、リスト項目の値として使用) するため、設定の DropDownList の`DataTextField`と`DataValueField`プロパティが"UserName"にします。
 
@@ -83,7 +79,6 @@ ms.locfileid: "59403273"
 > [!NOTE]
 > `Membership.GetAllUsers`メソッドに 2 つのオーバー ロードがあります。 もう 1 つの入力パラメーターを受け取らずし、ユーザーのすべてを返しますを受け取り、ページのインデックスと、ページ サイズの整数値で指定されたユーザーのサブセットのみを返します。 大量のページング可能なユーザー インターフェイス要素に表示されているユーザー アカウントがある場合に、それらのすべてではなくユーザー アカウントの正確なサブセットだけを返すため 2 番目のオーバー ロードはより効率的にユーザーを使用してページを使用できます。
 
-
 `BindRolesToList`メソッドを呼び出すことによって開始、`Roles`クラスの[`GetAllRoles`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx)システムの役割を格納する文字列配列が返されます。 この文字列の配列は、Repeater にバインドします。
 
 最後に、ページが最初に読み込まれたときに、これら 2 つのメソッドを呼び出す必要があります。 `Page_Load` イベント ハンドラーに次のコードを追加します。
@@ -92,11 +87,9 @@ ms.locfileid: "59403273"
 
 このコードでする少し; ブラウザーを使用してページを参照してください。画面は、図 2 のようになります。 すべてのユーザー アカウントが入力されますドロップダウン リストで、その下に、各ロールは、チェック ボックスとして表示されます。 設定するため、`AutoPostBack`プロパティ DropDownList およびチェック ボックスの true の場合、チェックまたは役割をオフにする、選択したユーザーの変更がポストバックを発生します。 アクションは実行されません、ただし、これらのアクションを処理するコードを記述があるまだあるので。 次の 2 つのセクションでは、これらのタスクに取り組むします。
 
-
 [![ページは、ユーザーおよびロールが表示されます。](assigning-roles-to-users-vb/_static/image5.png)](assigning-roles-to-users-vb/_static/image4.png)
 
 **図 2**:ページには、ユーザーおよびロールが表示されます ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image6.png))。
-
 
 ### <a name="checking-the-roles-the-selected-user-belongs-to"></a>選択したユーザーが所属するロールのチェック
 
@@ -108,7 +101,6 @@ ms.locfileid: "59403273"
 
 > [!NOTE]
 > `Linq.Enumerable.Contains(Of String)(...)`構文は、ASP.NET version 2.0 を使用している場合はコンパイルされません。 `Contains(Of String)`メソッドの一部である、 [LINQ ライブラリ](http://en.wikipedia.org/wiki/Language_Integrated_Query)、これは新しい ASP.NET 3.5 にします。 ASP.NET version 2.0 を使用している場合は、使用、 [ `Array.IndexOf(Of String)`メソッド](https://msdn.microsoft.com/library/eha9t187.aspx)代わりにします。
-
 
 `CheckRolesForSelectedUser`メソッドは、2 つのケースで呼び出される必要があります: およびページが最初に読み込まれたときに、 `UserList` DropDownList の選択されたインデックスを変更します。 したがってからこのメソッドを呼び出す、`Page_Load`イベント ハンドラー (呼び出し後に`BindUsersToUserList`と`BindRolesToList`)。 また、イベント ハンドラーを作成の DropDownList の`SelectedIndexChanged`イベントそこからこのメソッドを呼び出すとします。
 
@@ -134,19 +126,15 @@ ms.locfileid: "59403273"
 
 このページで、ブラウザーでテストする時間がかかります。 Tito のユーザーを選択し、Tito を管理者と管理者の両方のロールに追加します。
 
-
 [![Tito が管理者と管理者ロールに追加されました](assigning-roles-to-users-vb/_static/image8.png)](assigning-roles-to-users-vb/_static/image7.png)
 
 **図 3**:Tito が管理者と管理者ロールに追加されました ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image9.png))。
 
-
 次に、ドロップダウン リストからユーザー Bruce を選択します。 ポストバックがあるし、Repeater のチェック ボックスが更新を使用して、`CheckRolesForSelectedUser`します。 任意のロールにも Bruce がまだ属していないため、2 つのチェック ボックスはチェックされません。 次に、Bruce を管理者ロールに追加します。
-
 
 [![Bruce が管理者ロールに追加されました](assigning-roles-to-users-vb/_static/image11.png)](assigning-roles-to-users-vb/_static/image10.png)
 
 **図 4**:Bruce が管理者ロールに追加されました ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image12.png))。
-
 
 さらの機能を検証する、`CheckRolesForSelectedUser`メソッド、Tito または Bruce 以外のユーザーを選択します。 チェック ボックスが自動的にチェックする方法を確認して、任意のロールに属していないことを示します。 Tito に戻ります。 管理者と管理者の両方のチェック ボックスをチェックする必要があります。
 
@@ -166,11 +154,9 @@ ms.locfileid: "59403273"
 
 最後の 2 行、`BindRolesToList`への役割のセットをバインドするメソッドが追加されて、 `RoleList` DropDownList コントロール。 図 5 は、ブラウザーから、システムの役割を含むドロップダウン リストで表示した場合は、最終結果を示します。
 
-
 [![ロールは RoleList DropDownList に表示されます。](assigning-roles-to-users-vb/_static/image14.png)](assigning-roles-to-users-vb/_static/image13.png)
 
 **図 5**:ロールが表示されます、 `RoleList` DropDownList ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image15.png))。
-
 
 ### <a name="displaying-the-users-that-belong-to-the-selected-role"></a>選択したロールに属しているユーザーを表示します。
 
@@ -186,11 +172,9 @@ ms.locfileid: "59403273"
 
 インプレースでは、次のコードで、 `RolesUserList` GridView は選択したロールに属しているこれらのユーザーを表示する必要があります。 図 6 に示すように 2 つのメンバーの管理者ロールで構成されます。Bruce Tito.
 
-
 [![GridView には、選択したロールに属しているこれらのユーザーが一覧表示します。](assigning-roles-to-users-vb/_static/image17.png)](assigning-roles-to-users-vb/_static/image16.png)
 
 **図 6**:GridView を一覧表示、ユーザーに属している、選択したロール ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image18.png))。
-
 
 ### <a name="removing-users-from-the-selected-role"></a>選択したロールからユーザーを削除します。
 
@@ -198,11 +182,9 @@ ms.locfileid: "59403273"
 
 GridView に Delete ボタン フィールドを追加することで開始します。 最もフィールドの左側として表示され、変更は、このフィールドの`DeleteText`プロパティを「削除」(既定値) から"Remove"にします。
 
-
 [![追加します](assigning-roles-to-users-vb/_static/image20.png)](assigning-roles-to-users-vb/_static/image19.png)
 
 **図 7**:GridView に「削除」ボタンを追加 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image21.png))。
-
 
 ポストバックに陥ります「削除」ボタンがクリックされたときに、GridView の`RowDeleting`イベントが発生します。 このイベントのイベント ハンドラーを作成し、選択したロールからユーザーを削除するコードを記述する必要があります。 イベント ハンドラーを作成し、次のコードを追加します。
 
@@ -213,14 +195,11 @@ GridView に Delete ボタン フィールドを追加することで開始し�
 > [!NOTE]
 > 「削除」ボタンには、あらゆる種類のロールからユーザーを削除する前に、ユーザーから送信される確認は不要です。 ユーザーの確認のいくつかのレベルを追加することをお勧めします。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、次を参照してください。[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-vb.aspx)します。
 
-
 図 8 は、ユーザー Tito が管理者グループから削除された後に、ページを示します。
-
 
 [![悲しいかな、Tito が不要になった、監督者です。](assigning-roles-to-users-vb/_static/image23.png)](assigning-roles-to-users-vb/_static/image22.png)
 
 **図 8**:悲しいかな、Tito が不要になった、監督者 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image24.png))。
-
 
 ### <a name="adding-new-users-to-the-selected-role"></a>選択したロールに新しいユーザーの追加
 
@@ -241,22 +220,17 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 > [!NOTE]
 > 指定したユーザーは既にに属していないこと、選択したロールを確認するには使用、 [ `Roles.IsUserInRole(userName, roleName)`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx)を示すブール値を返すかどうか*userName* のメンバーである*roleName*します。 内でもう一度このメソッドは使用して、 <a id="_msoanchor_2"> </a>[次のチュートリアル](role-based-authorization-vb.md)ロールベースの承認に注目するとします。
 
-
 ブラウザーでページにアクセスしからスーパーバイザー ロールを選択、 `RoleList` DropDownList します。 無効なユーザー名を入力してください: ユーザーがシステムに存在しないことを説明するメッセージが表示されます。
-
 
 [![ロールに存在しないユーザーを追加することはできません。](assigning-roles-to-users-vb/_static/image26.png)](assigning-roles-to-users-vb/_static/image25.png)
 
 **図 9**:ロールに存在しないユーザーを追加することはできません ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image27.png))。
 
-
 有効なユーザーを追加してみましょう。 管理者ロールに Tito を再度追加してください。
-
 
 [![Tito はスーパーバイザーではもう一度です。](assigning-roles-to-users-vb/_static/image29.png)](assigning-roles-to-users-vb/_static/image28.png)
 
 **図 10**:Tito はスーパーバイザーではもう一度です。  ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image30.png))。
-
 
 ## <a name="step-3-cross-updating-the-by-user-and-by-role-interfaces"></a>手順 3: クロス更新、ユーザー"によって"と"ロール"によってインターフェイス
 
@@ -289,11 +263,9 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 
 次に、選択、"追加/削除`WizardSteps`..."CreateUserWizard のスマート タグからオプションを選択し、新しい追加`WizardStep`設定、その`ID`に`SpecifyRolesStep`します。 移動、 `SpecifyRolesStep WizardStep` 「記号を新しいアカウントの」手順の後が「完了」手順の前になるようにします。 設定、`WizardStep`の`Title`プロパティを"Roles"を指定、その`StepType`プロパティを`Step`、およびその`AllowReturn`プロパティを False にします。
 
-
 [![追加します](assigning-roles-to-users-vb/_static/image32.png)](assigning-roles-to-users-vb/_static/image31.png)
 
 **図 11**:[指定のロール"を追加`WizardStep`CreateUserWizard に ([フルサイズの画像を表示する] をクリックします](assigning-roles-to-users-vb/_static/image33.png))。
-
 
 この変更後、次のよう CreateUserWizard の宣言型マークアップになります。
 
@@ -317,27 +289,21 @@ GridView の下にあるテキスト ボックスに追加します。 設定、
 
 ブラウザーからこのページを参照してください。 CreateUserWizard の最初の手順は、標準の「記号を新しいアカウントの」の手順は、新しいユーザーのユーザー名、パスワード、電子メール、およびその他の重要な情報の入力を求めるです。 Wanda をという名前の新しいユーザーを作成する情報を入力します。
 
-
 [![Wanda をという名前の新しいユーザーを作成します。](assigning-roles-to-users-vb/_static/image35.png)](assigning-roles-to-users-vb/_static/image34.png)
 
 **図 12**:新しいユーザーという Wanda の作成 ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image36.png))。
 
-
 「ユーザーの作成」ボタンをクリックします。 CreateUserWizard は内部的に呼び出し、`Membership.CreateUser`方法、新しいユーザー アカウントと、進行状況に応じて次の手順に作成する「を指定するロール」。 ここでは、システムの役割が一覧表示されます。 監督者のチェック ボックスを確認し、[次へ] をクリックします。
-
 
 [![Wanda スーパーバイザー ロールのメンバーにします。](assigning-roles-to-users-vb/_static/image38.png)](assigning-roles-to-users-vb/_static/image37.png)
 
 **図 13**:Wanda スーパーバイザー ロールのメンバーにする ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image39.png))。
 
-
 [次へ] をクリックすると、ポストバックと更新プログラム、 `ActiveStep` "Complete"の手順にします。 `ActiveStepChanged`イベント ハンドラーでは、最近作成されたユーザー アカウントが管理者ロールに割り当てられています。 これを確認するに戻り、`UsersAndRoles.aspx`ページし、上司からの選択、 `RoleList` DropDownList します。 図 14 に示すようスーパーバイザーは、3 人のユーザーので今すぐ構成します。Bruce、Tito、および Wanda です。
-
 
 [![Bruce、Tito、および Wanda は、すべての管理者](assigning-roles-to-users-vb/_static/image41.png)](assigning-roles-to-users-vb/_static/image40.png)
 
 **図 14**:Bruce、Tito、Wanda はすべてスーパーバイザー ([フルサイズの画像を表示する をクリックします](assigning-roles-to-users-vb/_static/image42.png))。
-
 
 ## <a name="summary"></a>まとめ
 

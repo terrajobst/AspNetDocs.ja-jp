@@ -8,19 +8,18 @@ ms.date: 02/27/2014
 ms.assetid: 69fb02e0-f5b7-4c35-878c-fa87164fc785
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 1d83ede97ec37166d8dec32ff9e21c65423f3fc5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cfa635d4fd14d031993c5b452325cbe334f82dc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408486"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126433"
 ---
 # <a name="preventing-open-redirection-attacks-c"></a>オープン リダイレクト攻撃の防止 (C#)
 
 [Jon Galloway](https://github.com/jongalloway) による
 
 > このチュートリアルでは、ASP.NET MVC アプリケーションでオープン リダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、ASP.NET MVC 3 で AccountController で加えられた変更について説明し、既存の ASP.NET MVC 1.0 と 2 つのアプリケーションでこれらの変更を適用する方法を示します。
-
 
 ## <a name="what-is-an-open-redirection-attack"></a>オープン リダイレクト攻撃とは何ですか。
 

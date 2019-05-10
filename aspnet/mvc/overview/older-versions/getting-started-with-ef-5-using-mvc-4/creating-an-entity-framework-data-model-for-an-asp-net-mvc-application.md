@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 4ba029b6-ee7c-4e45-a0e7-b703c37e5d9a
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: eeed594e785b99146140dcd2833a95bf6e467823
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: abb59f16759a7d32c6900baf96fe3a1299170922
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390442"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129796"
 ---
 # <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC アプリケーション (1 の 10) の Entity Framework データ モデルを作成します。
 
@@ -57,7 +57,6 @@ ms.locfileid: "59390442"
 > ## <a name="original-version-of-the-tutorial"></a>このチュートリアルの元のバージョン
 > 
 > このチュートリアルの元のバージョンが表示されます、 [EF 4.1/MVC 3 の電子書籍](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#GettingStartedwiththeEntityFramework4.1usingASP.NETMVC)します。
-
 
 ## <a name="the-contoso-university-web-application"></a>Contoso University の Web アプリケーション
 
@@ -130,7 +129,6 @@ Visual Studio を開き、新しいプロジェクトを作成 (C#) という名
 
 > [!NOTE]
 > これらのエンティティ クラスのすべての作成を完了する前に、プロジェクトをコンパイルしようとすると、コンパイラ エラーが表示されます。
-
 
 ### <a name="the-student-entity"></a>Student エンティティ
 

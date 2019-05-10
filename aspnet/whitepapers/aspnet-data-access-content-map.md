@@ -8,12 +8,12 @@ ms.date: 07/25/2013
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: d120c184f6cf7dd0db075bbfac17214d7467664a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1bb5c15f8b34c516dcc2d3c5723eb74b133a9188
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383721"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125681"
 ---
 # <a name="aspnet-data-access---recommended-resources"></a>ASP.NET データ アクセス - 推奨リソース
 
@@ -22,7 +22,6 @@ ms.locfileid: "59383721"
 > 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com)スレッド、または他リンクに役立つ、[電子メールの送信](mailto:aspnetue@microsoft.com?subject=Data Access Content Map)リンクを使用します。
 > 
 > 最後の更新された 4/3/2014
-
 
 このトピックは、次のセクションで構成されています。
 
@@ -74,7 +73,6 @@ ms.locfileid: "59383721"
 <a id="cf"></a>
 
 ### <a name="using-entity-framework-code-first"></a>最初に Entity Framework Code を使用
-  
 
 次のチュートリアルでは、ダウンロード可能なサンプル アプリケーションを提供します。
 
@@ -94,7 +92,6 @@ ms.locfileid: "59383721"
 <a id="efcfmigrations"></a>
 
 ### <a name="using-entity-framework-code-first-migrations"></a>Entity Framework Code First Migrations を使用します。
-  
 
 ほとんどのカバー移行上に示したコードの最初のチュートリアル。 次のリソースを参照してください。
 

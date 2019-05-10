@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fbbb9e2ef6ce540f0ab422d2b80e4a5409076c83
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409721"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132928"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
 
 > このドキュメントは、ASP.NET と Visual Studio 2010 での.net Framework 4 に含まれている数多くの新しい機能の概要を提供します。
 > 
 > [このホワイト ペーパーをダウンロードします。](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
-
 
 **目次**
 
@@ -145,7 +144,6 @@ ASP.NET 4 を出力キャッシュ プロバイダー機能拡張の追加によ
 > 
 > 詳細については、次を参照してください。 [Application Warm-Up](https://www.iis.net/extensions/applicationwarmup%20on%20the%20IIS.net) 、IIS.net Web サイト。 ウォーム アップ機能を使用する方法について説明するチュートリアルでは、次を参照してください。[入門 IIS 7.5 アプリケーション ウォーム アップ モジュール](https://www.iis.net/learn/manage)、IIS.net Web サイト。
 
-
 Auto-start 機能を使用して、IIS 管理者では、次の構成を使用して自動的に起動する IIS 7.5 におけるアプリケーション プールを設定、`applicationHost.config`ファイル。
 
 [!code-xml[Main](overview/samples/sample5.xml)]
@@ -206,7 +204,6 @@ ASP.NET 4 では、URL の文字のチェックで使用される文字を構成
 
 > [!NOTE]
 > ASP.NET 4 は、無効な URL 文字は、IETF の RFC 2396 で定義されているため、常に 0x00 ~ 0x1F の ASCII の範囲内の文字が含まれている URL パスを拒否するメモ ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt))。 IIS 6 を実行するバージョンの Windows Server または以降では、http.sys プロトコルのデバイス ドライバーに自動的に拒否 Url でこれらの文字。
-
 
 <a id="0.2__Toc253429245"></a><a id="0.2__Toc243304619"></a>
 
@@ -270,7 +267,6 @@ ASP.NET 4 では、CLR で導入された新しいリソースの監視の機能
 
 > [!NOTE]
 > 注、`aspnet.config`ファイルは、.NET Framework がインストールされているディレクトリ。 `Web.config`ファイル。
-
 
 ときに、 *appDomainResourceMonitoring*機能が有効になって、2 つの新しいパフォーマンス カウンターは、[ASP.NET アプリケーション] のパフォーマンス カテゴリで利用可能な: *% プロセッサ時間のマネージ*と*マネージ メモリの使用*します。 これらのパフォーマンス カウンターの両方は、推定の CPU 時間と個別の ASP.NET アプリケーションのマネージ メモリの使用率を追跡するために新しい CLR アプリケーション ドメインのリソースの管理機能を使用します。 その結果、ASP.NET 4 で管理者ようになりましたがある 1 つのワーカー プロセスで実行されている個々 のアプリケーションのリソースの消費をより詳細に表示します。
 
@@ -678,7 +674,6 @@ ASP.NET は、適切なルートを自動的に動作 (正しい URL を生成�
 > [!NOTE]
 > レンダリングされたコントロールの Id が一意であることを確認することに注意してください。 そうでない場合は、クライアントなど、個々 の HTML 要素の一意の Id を必要とする任意の機能を壊すことできます*document.getElementById*関数。
 
-
 #### <a name="creating-predictable-client-ids-in-data-bound-controls"></a>データ バインド コントロールで予測可能なクライアント Id を作成します。
 
 *ClientID*の従来のアルゴリズムによってデータ連結リスト コントロール内のコントロールは、生成される値を実際に予測可能でないです。 *ClientIDMode*機能を使用して、詳細にどのようにこれらの Id を生成を制御できます。
@@ -1004,12 +999,10 @@ ASP.NET 2.0 およびそれ以降のバージョンがシステムに固有の�
 
 > Content
 
-
 この機能強化できますやすくスタイル、CSS を使用してコントロールのコンテンツのため、コントロールによって予期しないタグは表示されません。
 
 > [!NOTE]
 > 注この変更が不要になったため、デザイナーの Visual Studio 2010 でのオート フォーマット関数のサポートを無効にする*テーブル*オート フォーマット オプションによって生成されるスタイル属性をホストできる要素。
-
 
 <a id="0.2__Toc253429270"></a><a id="0.2__Toc243304644"></a>
 
@@ -1057,7 +1050,6 @@ ASP.NET 4 で、 *CheckBoxList*と*RadioButtonList*コントロールに次の�
 
 > [!NOTE]
 > 設定するかどうかに注意してください*この*に*OrderedList*または*UnorderedList*、 *RepeatDirection*プロパティが使用できなくできますとは。マークアップまたはコード内でプロパティが設定されている場合は、実行時に例外をスローします。 プロパティがない値 CSS を代わりを使用してこれらのコントロールのレイアウトが定義されているためです。
-
 
 <a id="0.2__Toc253429272"></a><a id="0.2__Toc243304646"></a>
 
@@ -1146,7 +1138,6 @@ ASP.NET MVC は、2009 年 3 月で、アドオン、フレームワークとし
 
 > [!NOTE]
 > 注詳細についてを参照してください、[動的データ ドキュメント](https://msdn.microsoft.com/library/cc488545.aspx)MSDN ライブラリ。
-
 
 ASP.NET 4 では、データ駆動型 Web サイトをすばやく構築するためのさらに多くの電力を開発者に提供する動的なデータが強化されました。
 

@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
-ms.openlocfilehash: 4a47f51b08b66dfe9636b3992786df19d0ad72ad
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 28940947253e0af43886cf1231f8aaf4615526cc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414934"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125482"
 ---
 # <a name="understanding-the-aspnet-mvc-execution-process"></a>ASP.NET MVC 実行プロセスを理解する
 
@@ -21,14 +21,12 @@ ms.locfileid: "59414934"
 
 > ASP.NET MVC フレームワークがステップ バイ ステップのブラウザー要求を処理する方法について説明します。
 
-
 ASP.NET MVC ベースの Web アプリケーションへの要求が最初に通過、 **UrlRoutingModule**オブジェクトで、HTTP モジュールです。 このモジュールは、要求を解析し、ルートの選択を実行します。 **UrlRoutingModule**オブジェクトが現在の要求と一致する最初のルート オブジェクトを選択します。 (ルート オブジェクトを実装するクラスは、 **RouteBase**と通常のインスタンスでは、**ルート**クラスです)。ルートが一致しない場合、 **UrlRoutingModule**オブジェクトは、何も実行でき、フォールバックする通常の ASP.NET または IIS 要求処理要求。
 
 選択されている**ルート**オブジェクト、 **UrlRoutingModule**オブジェクトを取得、 **IRouteHandler**オブジェクトに関連付けられている、**ルート**オブジェクト。 通常、MVC アプリケーションのこのインスタンスになります。 の**MvcRouteHandler**します。 **IRouteHandler**インスタンスを作成、 **IHttpHandler**オブジェクトを渡します、 **IHttpContext**オブジェクト。 既定で、 **IHttpHandler** MVC がのインスタンス、 **MvcHandler**オブジェクト。 **MvcHandler**オブジェクトが、最終的には、要求を処理するコント ローラーを選択します。
 
 > [!NOTE]
 > IIS 7.0 で ASP.NET MVC Web アプリケーションを実行すると、ファイル名拡張子の MVC プロジェクトの必要はありません。 ただし、IIS 6.0 では、ハンドラーが必要です、ASP.NET ISAPI DLL には、.mvc ファイル名拡張子をマップすること。
-
 
 モジュールとハンドラーは、ASP.NET MVC フレームワークのエントリ ポイントです。 次の操作を実行します。
 

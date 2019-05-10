@@ -8,19 +8,18 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 79d6b38c6464a749db9cd6d35e1f277b0adf2a02
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129434"
 ---
 # <a name="bundling-and-minification"></a>バンドルと縮小
 
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > バンドルと縮小は、2 つの手法を要求の読み込み時間を向上させるために ASP.NET 4.5 で使用することができます。 バンドルと縮小は、サーバーへの要求の数が減り、(CSS および JavaScript を使用します。) など、要求された資産のサイズを小さくして読み込み時間を向上します。
-
 
 現在の主要なブラウザーのほとんどの数を制限する[同時接続](http://www.browserscope.org/?category=network)ごとに 6 つの各ホスト名。 6 つの要求が処理中に、ホスト上の資産に対する追加要求はブラウザーによってキューすることを意味します。 次の図では、IE F12 開発者ツール ネットワーク タブは、サンプル アプリケーションのバージョン情報の表示に必要な資産のタイミングを示します。
 
@@ -96,7 +95,6 @@ F12 開発者ツールを使用したデバッグの詳細については、MSDN
 
 > [!NOTE]
 > しない限り、`EnableOptimizations`は`true`または debug 属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルや縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations` debug 属性をオーバーライド、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
-
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>バンドルを使用して、ASP.NET Web フォームと Web ページの縮小
 

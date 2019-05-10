@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 38ac8250-8854-444c-b9ab-8998faa41c5a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0462d8357d83115e751a818d3c9feb4b4274e212
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 387cad748428249273cf9708b794dd8864cf982f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402545"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125051"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>ユーザー コントロールと JavaScript で DynamicPopulate を使用する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59402545"
 [コードのダウンロード](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
 
 > ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、ページで、ページを更新せず、ターゲット コントロールに、結果の値を設定します。 カスタムのクライアント側の JavaScript コードを使用して、カタログの作成をトリガーすることもできます。 ただし、エクステンダーは、ユーザー コントロールが存在するときに実行される特別な注意があります。
-
 
 ## <a name="overview"></a>概要
 
@@ -65,7 +64,6 @@ A &lt; `label` &gt;要素を使用して、サーバーから取得したデー�
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
 以上です。 ページに期待どおりに動作します。ユーザーがラジオ ボタンの 1 つクリックする、Toolkit でコントロールが web サービスを呼び出すし、目的の形式で、現在の日付を表示します。
-
 
 [![ラジオ ボタンがユーザー コントロール内に存在します。](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 

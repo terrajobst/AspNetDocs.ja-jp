@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 680739cbcf54bc9ca7a3bd8167d043ff537eaad5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ec5ad784978b2d5191d59398fc4b5ed25ae516fb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417534"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128406"
 ---
 # <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトでの HTML フォームの操作
 
@@ -42,7 +42,6 @@ ms.locfileid: "59417534"
 >   
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
-
 
 ## <a name="creating-a-simple-html-form"></a>単純な HTML フォームを作成します。
 
@@ -89,7 +88,6 @@ ms.locfileid: "59417534"
 > HTML エンコード文字列を表示する任意の時間を使用する (入力)、ユーザーから取得したことをお勧めすることをお勧めします。 ない場合は、ユーザーできる悪意のあるスクリプトを実行するか、別のものを web ページ、サイトのセキュリティを侵害するか、望ましくないだけであるを取得しようとします。 (これは、特に重要な場合はユーザー入力を取得、別の場所を格納し、それを後で表示&#8212;ブログ コメント、ユーザーのレビュー、またはそのようなものとしてなど)。
 > 
 > 自動的に ASP.NET Web Pages のこれらの問題を防ぐため HTML エンコード任意のテキスト コンテンツをコードから出力します。 たとえば、変数またはなどのコードを使用して、式のコンテンツを表示する`@MyVar`、ASP.NET Web ページが自動的に出力をエンコードします。
-
 
 ## <a name="validating-user-input"></a>ユーザー入力の検証
 

@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: bfb23aafb814010e8651965dad91ca20a37fd786
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ec9904e0bff090be0f504036ae73977cfca0cb31
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404625"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130834"
 ---
 # <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 では、Azure Worker ロールをホストします。
 
@@ -32,7 +32,6 @@ ms.locfileid: "59404625"
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
-
 
 ## <a name="create-a-microsoft-azure-project"></a>Microsoft Azure プロジェクトを作成します。
 
@@ -123,7 +122,6 @@ WorkerRole.cs の完全なコードを次に示します。
 
 > [!NOTE]
 > 次のような例外が発生した場合を参照してください[このブログの投稿](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx)問題を回避します。 "ファイルまたはアセンブリを読み込むことができません ' Microsoft.Owin、バージョン 2.0.2.0、カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' またはその依存関係の 1 つ。 指定したアセンブリのマニフェスト定義では、アセンブリ参照は一致しません。 (HRESULT からの例外: 0x80131040)"
-
 
 コンピューティング エミュレーターでは、エンドポイントに、ローカル IP アドレスが割り当てられます。 コンピューティング エミュレーター UI を表示することによって、IP アドレスを見つけることができます。 タスク バー通知領域のエミュレーター アイコンを右クリックして**コンピューティング エミュレーター UI**します。
 

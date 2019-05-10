@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: a5f0439f-18b2-4c89-96ab-75b02c616f46
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9eca21cba09da8a01d2ed1a8391b9ff367d7231
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3b3b96232f46e7f9e7cbd47b109bf4b7056ed34a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395447"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132352"
 ---
 # <a name="logging-error-details-with-elmah-vb"></a>ELMAH でエラーの詳細をログに記録する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59395447"
 [コードのダウンロード](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_vb.pdf)
 
 > エラー ログのモジュールとハンドラー (ELMAH) には、実稼働環境で実行時エラーのログを別のアプローチが用意されています。 ELMAH は、エラーをフィルター処理、RSS フィードとして、web ページからのエラー ログを表示するか、コンマ区切りファイルとしてダウンロードする機能などの機能が含まれる無料のオープン ソース エラー ログ記録ライブラリです。 このチュートリアルでは、ダウンロードして ELMAH を構成します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -36,7 +35,6 @@ ms.locfileid: "59395447"
 
 > [!NOTE]
 > 状態監視システムと ELMAH 両方長所と短所の独自セットがあります。 お客様のニーズ両方のシステムをどのような 1 つに合ったを決定することです。
-
 
 ## <a name="adding-elmah-to-an-aspnet-web-application"></a>ELMAH を ASP.NET Web アプリケーションに追加します。
 
@@ -56,12 +54,10 @@ ELMAH 1.0 BETA 3 (10617 ビルド)、記事の執筆時点で最新バージョ�
 > [!NOTE]
 > `Elmah.dll`ダウンロードの保存されている`Bin`フォルダーで、異なる .NET Framework バージョンとリリース ビルドかデバッグ ビルドのサブフォルダーがあります。 適切なフレームワークのバージョンには、リリース ビルドを使用します。 たとえば、ASP.NET 3.5 の web アプリケーションを作成する場合は、コピー、`Elmah.dll`ファイルから、`Bin\net-3.5\Release`フォルダー。
 
-
 次に、Visual Studio を開き、ソリューション エクスプ ローラーと選択、コンテキスト メニューから 参照の追加の web サイトの名前を右クリックして、アセンブリをプロジェクトに追加します。 参照の追加 ダイアログ ボックスが表示されます。 [参照] タブに移動し、選択、`Elmah.dll`ファイル。 このアクションを追加、`Elmah.dll`ファイルを web アプリケーションの`Bin`フォルダー。
 
 > [!NOTE]
 > Web アプリケーション プロジェクト (WAP) の種類が表示されない、`Bin`ソリューション エクスプ ローラーでフォルダー。 代わりに、[参照] フォルダーの下でこれらの項目が一覧表示します。
-
 
 `Elmah.dll` ELMAH システムで使用されるクラスがアセンブリに含まれています。 これらのクラスは、3 つのカテゴリに分類されます。
 
@@ -100,7 +96,6 @@ ELMAH で web サイトの構成オプションを探します`Web.config`とい
 > [!NOTE]
 > ELMAH ASP.NET 1.x アプリケーションを構成する場合は、削除、`requirePermission="false"`属性を`<section>`上記の要素。
 
-
 上記の構文の登録、カスタム`<elmah>`セクションと、サブセクション: `<security>`、 `<errorLog>`、 `<errorMail>`、および`<errorFilter>`します。
 
 次に、追加、`<elmah>`セクション`Web.config`します。 このセクションと同じレベルで表示する必要があります、`<system.web>`要素。 内で、`<elmah>`セクションを追加、`<security>`と`<errorLog>`のセクションでは次のように。
@@ -113,7 +108,6 @@ ELMAH で web サイトの構成オプションを探します`Web.config`とい
 
 > [!NOTE]
 > ELMAH は、エラーをログに、XML ファイル、Microsoft Access データベース、Oracle データベース、および他のデータ ストアを使用できる追加のエラー ログ プロバイダーに同梱されています。 このサンプルを参照してください`Web.config`これら代替エラーのログ プロバイダーを使用する方法については、ELMAH のダウンロードに含まれているファイル。
-
 
 ### <a name="step-4-creating-the-error-log-source-infrastructure"></a>手順 4: エラー ログのソースのインフラストラクチャを作成します。
 
@@ -137,7 +131,6 @@ ELMAH の`SqlErrorLog`プロバイダーが指定された Microsoft SQL Server 
 
 > [!NOTE]
 > 使用することも、 `elmah.axd` ELMAH テスト エラーを生成するように指示するページ。 アクセスして`elmah.axd/test`(、 `http://localhost/BookReviews/elmah.axd/test`) ELMAH 型の例外をスローすると、`Elmah.TestException`は、エラー メッセージ。"これは、テスト例外を無視してかまいません。"
-
 
 **図 3**にアクセスすると、エラー ログを表示`elmah.axd`開発環境から。
 
@@ -184,7 +177,6 @@ ELMAH 構成の取り消しを`<security>`設定セクション、`allowRemoteAc
 > [!NOTE]
 > 管理者ロールと Scott、Jisun、Alice のシステムでは、3 人のユーザーが追加された、 [*サービスを構成する、web サイトを使用してアプリケーション*チュートリアル](configuring-a-website-that-uses-application-services-vb.md)します。 ユーザー Scott と Jisun 管理者ロールのメンバーであります。 認証と承認の詳細についてを参照してください、 [web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。
 
-
 リモート ユーザーによって実稼働環境でのエラー ログを表示できます。再び参照**図 3**、 **4**、および**5**のエラー ログの web ページのスクリーン ショット。 ただし、ユーザーが匿名または非管理者が、エラー ログ ページを表示しようとしています。 自動的にリダイレクトされますログイン ページに (`Login.aspx`)、として**図 7**を示しています。
 
 [![](logging-error-details-with-elmah-vb/_static/image18.png)](logging-error-details-with-elmah-vb/_static/image17.png)
@@ -229,7 +221,6 @@ ELMAH の`ErrorLogModule`HTTP モジュールが、指定されたログ ソー�
 
 > [!NOTE]
 > エラーは、登録する必要がありますをフィルター処理を使用するには、導入、 `ErrorFilterModule` HTTP モジュールです。
-
 
 `<equal>`内の要素、`<test>`セクションはアサーションと呼ばれます。 アサーションが true に評価される場合は、ELMAH のログからエラーがフィルター処理します。 その他のアサーション利用可能: `<greater>`、 `<greater-or-equal>`、 `<not-equal>`、 `<lesser>`、`<lesser-or-equal>`など。 使用してアサーションを組み合わせることも、`<and>`と`<or>`ブール演算子。 さらに、でも、アサーションとして単純な JavaScript 式を含めるしたり、独自のアサーションを c# または Visual Basic で記述できます。
 

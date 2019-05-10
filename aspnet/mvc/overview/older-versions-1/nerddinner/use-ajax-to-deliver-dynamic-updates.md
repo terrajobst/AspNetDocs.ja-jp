@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 56ebc40aa500b62811bac0a5041fa9aa4f91f4ae
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3edc02fec546609505b5e085440fa684abe7acd0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391053"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128231"
 ---
 # <a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX を使用し、動的更新を配信する
 
@@ -26,7 +26,6 @@ ms.locfileid: "59391053"
 > 手順 10 の実装では、dinner の詳細 ページ内で統合された Ajax ベースのアプローチを使用して、夕食に参加している関心 RSVP にログインしているユーザーのサポートします。
 > 
 > 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
-
 
 ## <a name="nerddinner-step-10-ajax-enabling-rsvps-accepts"></a>NerdDinner 手順 10:AJAX の予約の有効化を受け入れる
 

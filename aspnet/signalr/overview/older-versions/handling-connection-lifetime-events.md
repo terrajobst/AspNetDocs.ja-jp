@@ -8,12 +8,12 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: a8121a2d7c4ed14e296dc72c72ca7c25939a2b50
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fb671e730a1d41c07b350bf1d64ac1d0b1be55c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414011"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128795"
 ---
 # <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>SignalR で接続の有効期間イベントの処理の理解と 1.x
 
@@ -28,7 +28,6 @@ ms.locfileid: "59414011"
 > - [ハブ クラスでの接続の有効期間イベントを処理する方法](index.md)
 > - [JavaScript クライアントでの接続の有効期間イベントを処理する方法](index.md)
 > - [.NET クライアントでの接続の有効期間イベントを処理する方法](index.md)
-
 
 ## <a name="overview"></a>概要
 
@@ -132,7 +131,6 @@ SignalR 接続の有効期間イベント、クライアントで発生する可
 > 
 > [!IMPORTANT]
 > ここで説明するイベントの順序は保証されません。 SignalR は、このスキームに従って、予測可能な方法で接続の有効期間イベントを発生させるすべての試行が、ネットワーク イベントの多くのバリエーションとトランスポート Api などの基になる通信フレームワークがそれらに対応する多くの方法があります。 たとえば、`Reconnected`クライアントが再接続するとき、イベントが発生しないまたは`OnConnected`接続を確立する試行が成功すると、サーバー上のハンドラーが実行可能性があります。 このトピックでは、特定の一般的な状況によって通常生成される効果のみについて説明します。
-
 
 <a id="clientdisconnect"></a>
 

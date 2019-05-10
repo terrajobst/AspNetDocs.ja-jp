@@ -8,19 +8,18 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: de65e01b888d9ed15da3903f086b40c49b32b9fb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 62050f561440a2c0fbbe91ec49fb1f9e30885e9f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402415"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130355"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > コード サンプルで、このチュートリアルの MVC 5 バージョンがないようになりました[ASP.NET MVC 5 モバイル Web アプリケーションを Azure Websites をデプロイ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/)します。
-
 
 このチュートリアルでは、ASP.NET MVC 4 Web アプリケーションでモバイル機能を使用する方法の基本を説明します。 このチュートリアルで使用することができます[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)または Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer または VWD&quot;)。 ですが既にある場合は、Visual Studio の professional バージョンを使用できます。
 
@@ -214,7 +213,6 @@ ASP.NET MVC 4 の重要な新機能は、モバイル ブラウザー全般、�
 > [!NOTE]
 > Internet Explorer 9 を使用しているし、表示されない場合、`BundleMobileConfig`黄色の枠線の上をクリックして、[互換表示ボタン](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![(オフ) 互換表示 ボタンの画像](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(オフ) 互換表示 ボタンの画像")アウトラインから変更アイコン IE で![(オフ) 互換表示 ボタンの画像](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(オフ) 互換表示 ボタンの画像")を純色![(on) 互換表示 ボタンの画像](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(on) 互換表示 ボタンの画像")します。 または FireFox または Chrome では、このチュートリアルを表示できます。
 
-
 開く、 *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml*ファイルを開き、次のマークアップを追加、`Html.Partial`呼び出し。
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample12.cshtml)]
@@ -229,7 +227,6 @@ ASP.NET MVC 4 の重要な新機能は、モバイル ブラウザー全般、�
 
 > [!NOTE]
 > によって、モバイル固有のコードをデバッグすることができます[ユーザー エージェント文字列を設定](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/)IE または Chrome iPhone、し F-12 developer tools を使用します。 モバイル ブラウザーに表示されない場合は、**ホーム**、**スピーカー**、**タグ**、および**日付**リンクがボタンとして、jQuery Mobile への参照スクリプトおよび CSS ファイルが正しくない可能性があります。
-
 
 表示スタイルの変更だけでなく**モバイル ビューを表示する**リンクがモバイル ビューからデスクトップ ビューに切り替えることができます。 選択、**デスクトップ ビュー**リンク、およびデスクトップ ビューが表示されます。
 
@@ -251,7 +248,6 @@ ASP.NET MVC 4 の重要な新機能は、モバイル ブラウザー全般、�
 > 次の見出しを追加して、 *views \shared\\_Layout.cshtml*ファイル。
 >
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
-
 
 参照、 *AllTags*デスクトップ ブラウザーでページ。 ビュー切り替えウィジェットは、モバイル レイアウト ページにのみ追加されるため、デスクトップ ブラウザーでは表示されません。 チュートリアルの後半でデスクトップ ビューにビュー切り替えウィジェットを追加する方法がわかります。
 

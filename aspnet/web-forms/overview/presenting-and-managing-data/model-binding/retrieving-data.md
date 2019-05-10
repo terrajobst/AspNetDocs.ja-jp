@@ -8,15 +8,14 @@ ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: 29baaf2917e47ac46a78a252721be725b4e9b58f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 08cb65f9ef8f5c36070454e011f41554d81f333f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131538"
 ---
 # <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>取得して、モデル バインディングと web フォームでデータの表示
-
 
 > このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。
 > 
@@ -34,7 +33,6 @@ ms.locfileid: "59398476"
 > - Microsoft Visual Studio 2017 または Microsoft Visual Studio Community 2017
 >   
 > このチュートリアルは Visual Studio 2012 と Visual Studio 2013 も機能しますはユーザー インターフェイスとプロジェクト テンプレートでは、いくつか違いがあります。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -96,7 +94,6 @@ ms.locfileid: "59398476"
    4. Web フォームのマスター ページで、選択**Site.Master**します。
    
    5. **[OK]** を選択します。
-   
 
 ## <a name="add-the-data-model"></a>データ モデルを追加する
 

@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: ab55ca81-ab9b-44a0-8700-dc6da2599335
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 40fec3a2ef4ee8d5e4abe4be4dfa144720a88a41
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 402be340f1ea3344675e7b859cea8c5130cfc8ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59391183"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129644"
 ---
 # <a name="part-4-models-and-data-access"></a>第 4 部:モデルとデータ アクセス
 
@@ -24,7 +24,6 @@ ms.locfileid: "59391183"
 > MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。
 > 
 > このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 4 では、モデルとデータ アクセスについて説明します。
-
 
 これまでにしただけされて渡して「ダミー データ」、コント ローラーからテンプレートを表示します。 これで、実際のデータベースをフックする準備ができました。 このチュートリアルでのテーマは、SQL Server Compact Edition (SQL CE とよく呼ばれます) を使用する方法として、データベース エンジン。 SQL CE は、任意のインストールや構成は、ローカルの開発は非常に便利ですが不要の無料の埋め込み、ファイルのベース データベースです。
 

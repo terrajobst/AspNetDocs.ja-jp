@@ -8,12 +8,12 @@ ms.date: 01/13/2008
 ms.assetid: 07e15538-2f29-40c6-b2e7-e6115075ac83
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f6fb4348e6ff703d329331b908e41763f24bb1f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 75ed2e2d0d9e15d186cf39ddd376beae99a06b30
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402948"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132277"
 ---
 # <a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59402948"
 [PDF のダウンロード](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_cs.pdf)
 
 > これは、web フォームでの訪問者を認証、特定のページと機能にアクセスを承認および ASP.NET アプリケーションでユーザー アカウントを管理するための手法を紹介するチュートリアル シリーズの最初のチュートリアルです。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -45,7 +44,6 @@ ms.locfileid: "59402948"
 
 > [!NOTE]
 > セキュリティは、技術的、物理的な幅を示す任意のアプリケーションの重要な側面で、ポリシーの決定し、高度な計画とドメインに関する知識が必要です。 セキュリティで保護された web アプリケーションを開発するためのガイドとして、このチュートリアル シリーズが想定されていません。 代わりに、フォーム認証、承認、ユーザー アカウント、およびロールに特に焦点を当てます。 このシリーズでは、いくつかのセキュリティ概念をいただければ、これらの問題が説明した、中に、他のユーザーが残って未探索します。
-
 
 ## <a name="authentication-authorization-user-accounts-and-roles"></a>認証、承認、ユーザー アカウント、およびロール
 
@@ -75,11 +73,9 @@ Windows 認証のワークフローは、次の認証方法の 1 つを使用し
 
 すべての 3 つの手法がほぼ同じ方法で作業: 不正な匿名の要求が到着した、web サーバーは、その承認を示す HTTP 応答が引き続き必要です。 ブラウザーでは、し (図 1 参照)、ユーザー名とパスワードをユーザーに求めるモーダル ダイアログ ボックスを表示します。 この情報は、HTTP ヘッダーを使用して web サーバーに送信されます。
 
-
 ![モーダル ダイアログ ボックスには、ユーザー自身の資格情報のメッセージが表示されます。](security-basics-and-asp-net-support-cs/_static/image1.png)
 
 **図 1**:モーダル ダイアログ ボックスには、ユーザー自身の資格情報のメッセージが表示されます。
-
 
 指定された資格情報は、web サーバーの Windows のユーザー ストアに対して検証されます。 つまり、web アプリケーションで認証された各ユーザーが組織で Windows アカウントを必要する必要があります。 これは、イントラネットのシナリオで一般的です。 実際をイントラネットの設定で Windows 統合認証を使用する場合、ブラウザーに自動的に提供 web サーバー図 1 に示すダイアログ ボックスを抑制するため、ネットワークにログオンするために使用する資格情報を使用します。 Windows 認証は、イントラネット アプリケーションに適していますが、そのことはできません、通常はインターネット アプリケーションのサイトでサインアップするすべてのユーザー用の Windows アカウントを作成したくないので。
 
@@ -93,11 +89,9 @@ Windows 認証のワークフローは、次の認証方法の 1 つを使用し
 
 ユーザーがログインに成功すると、後続の HTTP 要求には、フォーム認証チケットが含まれます。 フォーム認証システムが単にユーザーを識別 - ユーザーが要求されたリソースにアクセスできるかどうかを決定する承認システムです。
 
-
 ![フォーム認証のワークフロー](security-basics-and-asp-net-support-cs/_static/image2.png)
 
 **図 2**:フォーム認証のワークフロー
-
 
 次の 2 つのチュートリアルでは、非常に大きい詳細でフォーム認証について詳しくは[フォーム認証の概要を](an-overview-of-forms-authentication-cs.md)と[フォーム認証の構成と高度なトピック](forms-authentication-configuration-and-advanced-topics-cs.md)します。 詳細については、ASP します。NET の認証オプションを参照してください[ASP.NET 認証](https://msdn.microsoft.com/library/eeyk640h.aspx)します。
 
@@ -113,7 +107,6 @@ ASP.NET には、特定のユーザーが特定のファイルまたはディレ
 このようなページ レベルの調整は、宣言またはプログラムによって実現できます。 さまざまなコンテンツを表示するドラッグするだけです、認証済みユーザーよりも匿名、 [LoginView コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx)ページにその AnonymousTemplate と LoggedInTemplate テンプレートに、適切なコンテンツを入力します。 現在の要求が認証されているかどうか、ユーザーが、およびどのような役割をプログラムで判断する代わりに、(ある場合) に属しています。 この情報は、またはページのグリッド パネルまたはパネルで列を非表示に使用できます。
 
 このシリーズでは、承認に焦点を 3 つのチュートリアルが用意されています。 ***ユーザー ベースの承認***; の特定のユーザー アカウントのページまたはディレクトリ内のページへのアクセスを制限する方法を説明します***ロール ベース承認***レベルは、最後に、ロールの承認規則を指定するのには、***を表示するコンテンツに基づいて、現在ログインしてユーザー***チュートリアルでは、特定の変更ページの内容とページにアクセスするユーザーを基に機能します。 詳細については、ASP します。NET の承認のオプションを参照してください[ASP.NET 承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)します。
-
 
 ## <a name="user-accounts-and-roles"></a>ユーザー アカウントとロール
 
@@ -139,11 +132,9 @@ Microsoft では、.NET Framework のメンバーシップ プロバイダーの
 
 このチュートリアル シリーズは、SqlMembershipProvider のみに焦点を当てています。
 
-
 [![プロバイダー モデルにより、さまざまな実装にシームレスに電源接続時に、フレームワーク&lt;/strong&gt;](security-basics-and-asp-net-support-cs/_static/image4.png)](security-basics-and-asp-net-support-cs/_static/image3.png)
 
 **図 03**:プロバイダー モデルにより、さまざまな実装にシームレスに電源接続時に、フレームワーク ([フルサイズの画像を表示する をクリックします](security-basics-and-asp-net-support-cs/_static/image5.png))。
-
 
 プロバイダー モデルの利点は、別の実装の Microsoft、サード パーティ ベンダー、または個人の開発者が開発したおよびメンバーシップ フレームワークにシームレスに接続されていることです。 たとえば、Microsoft がリリースされました[Microsoft Access データベースのメンバーシップ プロバイダー](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi)します。 メンバーシップ プロバイダーの詳細についてを参照してください、 [Provider Toolkit](https://msdn.microsoft.com/asp.net/aa336558.aspx)、メンバーシップ プロバイダー、サンプルのカスタム プロバイダー、100 を超えるページのプロバイダー モデルのドキュメントのチュートリアルが含まれています、組み込みのメンバーシップ プロバイダー (つまり、ActiveDirectoryMembershipProvider および SqlMembershipProvider) には、ソース コードを完了します。
 

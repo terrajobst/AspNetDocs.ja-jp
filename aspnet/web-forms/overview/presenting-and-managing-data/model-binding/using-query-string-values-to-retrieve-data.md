@@ -8,12 +8,12 @@ ms.date: 02/27/2014
 ms.assetid: b90978bd-795d-4871-9ade-1671caff5730
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 7ba95f24085c403c669bc5d6df4dee7c87fbd90a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 143ddcb40b576a3129e659b90bfc8321c061a547
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414245"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130237"
 ---
 # <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>モデル バインディングと web フォームでデータをフィルター処理クエリ文字列の値を使用します。
 
@@ -26,7 +26,6 @@ ms.locfileid: "59414245"
 > このチュートリアルで作成したプロジェクトで、[以前](retrieving-data.md)系列の部分。
 > 
 > できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。 これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
-
 
 ## <a name="what-youll-build"></a>構築します
 
