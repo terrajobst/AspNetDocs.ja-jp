@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: 87313792-0a96-4caf-89fc-1457d54e5c1e
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8c57345c510ad0afccaabf377fda35afbfc05e17
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 57dc82d02d38adc2514aa2c02c6f156ed0fb88a6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383409"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122064"
 ---
 # <a name="understanding-models-views-and-controllers-c"></a>モデル、ビュー、コントローラーを理解する (C#)
 
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > モデル、ビュー、およびコント ローラーと混同するでしょうか。 このチュートリアルで Stephen Walther がわかる ASP.NET MVC アプリケーションのさまざまな部分。
-
 
 このチュートリアルでは ASP.NET MVC の概要をモデル、ビュー、およびコント ローラー。 つまり、M を説明 '、V'、および C' ASP.NET MVC でします。
 
@@ -32,47 +31,37 @@ ASP.NET MVC Web アプリケーションを作成するための既定の Visual
 
 Visual Studio 2008 を起動することで、MVC テンプレートを使用して、新しい ASP.NET MVC アプリケーションを作成して、新規プロジェクト ファイル メニュー オプションを選択すると、(図 1 参照)。 新しいプロジェクト] ダイアログで [プロジェクトの種類 (Visual Basic または c#)、好みのプログラミング言語を選択し、[ **ASP.NET MVC Web アプリケーション**テンプレート] の下。 [Ok] ボタンをクリックします。
 
-
 [![新しいプロジェクト ダイアログ ボックス](understanding-models-views-and-controllers-cs/_static/image1.jpg)](understanding-models-views-and-controllers-cs/_static/image1.png)
 
 **図 01**:新しいプロジェクト ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image2.png))。
 
-
 新しい ASP.NET MVC アプリケーションを作成するときに、**単体テスト プロジェクトの作成**ダイアログでは、(図 2 参照) が表示されます。 このダイアログ ボックスでは、ASP.NET MVC アプリケーションのテスト用のソリューションで別のプロジェクトを作成することができます。 オプションを選択**単体テスト プロジェクトを作成できません** をクリックし、 **OK**ボタン。
-
 
 [![単体テスト ダイアログ ボックスを作成します。](understanding-models-views-and-controllers-cs/_static/image2.jpg)](understanding-models-views-and-controllers-cs/_static/image3.png)
 
 **図 02**:単体テスト ダイアログ ボックスの作成 ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image4.png))。
 
-
 新しい ASP.NET MVC アプリケーションが作成されます。 複数のフォルダーと、ソリューション エクスプ ローラー ウィンドウ内のファイルが表示されます。 具体的には、モデル、ビュー、およびコント ローラーという 3 つのフォルダーが表示されます。 フォルダー名から推察のとおり、これらのフォルダーには、モデル、ビュー、およびコント ローラーを実装するためのファイルが含まれます。
 
 Controllers フォルダーを展開する場合、AccountController.cs という名前のファイルと HomeController.cs をという名前のファイルが表示されます。 Views フォルダーを展開する場合は、アカウント ホーム共有という 3 つのサブフォルダーが表示されます。 ホーム フォルダーを展開する場合は、About.aspx と Index.aspx (図 3 参照) という 2 つの追加ファイルが表示されます。 これらのファイルは、既定の ASP.NET MVC テンプレートに含まれているサンプル アプリケーションを構成します。
-
 
 [![ソリューション エクスプ ローラー ウィンドウ](understanding-models-views-and-controllers-cs/_static/image3.jpg)](understanding-models-views-and-controllers-cs/_static/image5.png)
 
 **図 03**:ソリューション エクスプ ローラー ウィンドウ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image6.png))。
 
-
 サンプル アプリケーションを実行するには、メニュー オプションを選択して**デバッグ、デバッグの開始**します。 または、F5 キーを押してことができます。
 
 ASP.NET アプリケーションを初めて実行すると、デバッグ モードを有効にすることをお勧めの図 4 ダイアログが表示されます。 [Ok] ボタンをクリックし、アプリケーションを実行します。
-
 
 [![デバッグの有効になっていません ダイアログ](understanding-models-views-and-controllers-cs/_static/image4.jpg)](understanding-models-views-and-controllers-cs/_static/image7.png)
 
 **図 04**:有効になっていないダイアログをデバッグ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image8.png))。
 
-
 ASP.NET MVC アプリケーションを実行すると、Visual Studio は、web ブラウザーでアプリケーションを起動します。 サンプル アプリケーションは、2 つだけのページで構成されます。 インデックス ページと [About] ページ。 まず、アプリケーションの起動時に、インデックス ページ (図 5 参照) が表示されます。 上部のメニューのリンクをクリックして、About ページに移動することができます、アプリケーションの右。
-
 
 [![インデックス ページ](understanding-models-views-and-controllers-cs/_static/image10.png)](understanding-models-views-and-controllers-cs/_static/image9.png)
 
 **図 05**:インデックス ページ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image11.png))。
-
 
 お使いのブラウザーのアドレス バーに Url に注意してください。 たとえば、バージョン情報 メニューのリンクをクリックするとブラウザーのアドレス バーで URL に変更 **/ホーム/について**します。
 

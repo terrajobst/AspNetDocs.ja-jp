@@ -8,12 +8,12 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 615120684d032562ba2570e22b2dcdeaeaae340e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: de838ab6b3a299eb1e5ebeb9fa3c583478ce3e56
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404092"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117067"
 ---
 # <a name="dependency-injection-in-signalr-1x"></a>SignalR 1.x の依存関係挿入
 
@@ -75,7 +75,6 @@ SignalR は、作成する必要があるたびに、この匿名関数が呼び
 
 > [!NOTE]
 > "IoC"「の制御の反転」の略フレームワークからアプリケーション コードを呼び出す、一般的なパターンは。 IoC コンテナーを構築、オブジェクト、コントロールの通常のフローの「反転」をします。
-
 
 ## <a name="using-ioc-containers-in-signalr"></a>SignalR の IoC コンテナーの使用
 

@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 09f8389a04c5600ca9ee8365a9dc5a0d607c0a4d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bcb71b2b5a484e8756406867e08e8aa699a9024d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403923"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127917"
 ---
 # <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 ページ モデル
 
 によって[Microsoft](https://github.com/microsoft)
 
 > Asp.net 1.x では、開発者は、インライン コード モデルとコード分離コード モデルの選択を必要があります。 Src 属性または分離コード属性を使用して、分離コードを実装することも、@Pageディレクティブ。 ASP.NET 2.0 では、開発者はインライン コードと分離コードの間の選択肢があるが分離コード モデルを大幅に強化されました。
-
 
 Asp.net 1.x では、開発者は、インライン コード モデルとコード分離コード モデルの選択を必要があります。 Src 属性または分離コード属性を使用して、分離コードを実装することも、@Pageディレクティブ。 ASP.NET 2.0 では、開発者はインライン コードと分離コードの間の選択肢があるが分離コード モデルを大幅に強化されました。
 
@@ -47,12 +46,10 @@ ASP.NET 2.0 の分離コード ファイルでの一般的なクラス定義は�
 > [!NOTE]
 > C# および Visual Basic は、部分クラスがサポートされているマネージ言語のみです。 そのため、j# を使用する開発者は ASP.NET 2.0 で分離コード モデルを使用できません。
 
-
 新しいモデルは、開発者は自分が作成したコードのみを含むコード ファイルがあるようになりましたので、分離コード モデルを強化します。 分離コード ファイル内の変数宣言のインスタンスが存在しないためもコードとコンテンツの完全な分離を提供します。
 
 > [!NOTE]
 > ASPX ページの部分クラスは、イベントのバインドが行われる場所であるために、Visual Basic 開発者は、分離コードでイベントをバインドする Handles キーワードを使用して、わずかなパフォーマンスが向上を実現できます。 C# には、同等のキーワードがありません。
-
 
 ## <a name="new--page-directive-attributes"></a>新しい @ Page ディレクティブの属性
 
@@ -128,12 +125,9 @@ ASP.NET 2.0 の @ Page ディレクティブのもう 1 つの新しい機能は
 
 **しれません**@ Page ディレクティブの属性を基底クラスでしれませんプロパティの初期値を設定する*こんにちは!* します。 次のビデオは、@ Page ディレクティブを使用して、基底クラスのパブリック プロパティの初期値の設定のチュートリアルです。
 
-
 ![](the-asp-net-2-0-page-model/_static/image1.png)
 
-
 [開いているビデオを全画面](the-asp-net-2-0-page-model/_static/setprop1.wmv)
-
 
 ## <a name="new-public-properties-of-the-page-class"></a>ページ クラスの新しいパブリック プロパティ
 
@@ -365,12 +359,9 @@ Asp.net 1.x では、ポストバックが同じページに投稿するため�
 
 次のビデオは、ページ間ポストバックのチュートリアルです。
 
-
 ![](the-asp-net-2-0-page-model/_static/image2.png)
 
-
 [開いているビデオを全画面](the-asp-net-2-0-page-model/_static/xpage1.wmv)
-
 
 ## <a name="more-details-on-cross-page-postbacks"></a>詳細については、ページ間ポストバック
 
@@ -423,16 +414,12 @@ ASP.NET で多くの競合の問題は、(Web サービスまたはデータベ�
 
 次のビデオは、非同期のページ要求のチュートリアルです。
 
-
 ![](the-asp-net-2-0-page-model/_static/image3.png)
-
 
 [開いているビデオを全画面](the-asp-net-2-0-page-model/_static/async1.wmv)
 
-
 > [!NOTE]
 > EndEventHandler が完了するまで、非同期ページは、ブラウザーに表示されません。 非同期要求非同期コールバックに似ている一部の開発者はことは間違いありませんと考えてください。 いるものを実現する重要です。 非同期要求のメリットは、最初のワーカー スレッドなど、IO バインドであるため競合を減らす、サービスの新しい要求をスレッド プールに返されることです。
-
 
 ## <a name="script-callbacks-in-aspnet-20"></a>ASP.NET 2.0 におけるスクリプト コールバック
 
@@ -459,14 +446,12 @@ ASP.NET スクリプト コールバックに参加するいると、ページ�
 > [!NOTE]
 > \_\_doPostBack は、クライアント スクリプト コールバック シナリオでのページにレンダリングされます。 ただし、コールバックは使用されません。
 
-
 Web フォームの引数\_DoCallback クライアント側の関数は、サーバー側関数に通常のページで呼び出されます GetCallbackEventReference を通じて提供\_ロードします。 このよう GetCallbackEventReference を通常の呼び出しになります。
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample12.cs)]
 
 > [!NOTE]
 > この場合、cm、ClientScriptManager のインスタンスです。 ClientScriptManager クラスについては、このモジュールで後で説明します。
-
 
 GetCallbackEventReference のいくつかのオーバー ロードされたバージョンがあります。 この場合、引数は次のとおりです。
 
@@ -522,12 +507,9 @@ ICallbackEventHandler には、コードで実装する必要がある 2 つの�
 
 上記の手順を完了すると後、は、ASP.NET 2.0 のスクリプト コールバックを実行する準備が完了したら。
 
-
 ![](the-asp-net-2-0-page-model/_static/image4.png)
 
-
 [開いているビデオを全画面](the-asp-net-2-0-page-model/_static/callback1.wmv)
-
 
 ASP.NET におけるスクリプト コールバックは、XMLHttp 呼び出すをサポートするブラウザーでサポートされます。 すべての最新のブラウザーを含む使用今日。 Internet Explorer は、その他の最新のブラウザー (今後の IE 7 を含む) が、組み込みの XMLHttp オブジェクトを使用して、XMLHttp ActiveX オブジェクトを使用します。 プログラムで使用することができます、ブラウザーがコールバックをサポートする場合を決定する、 **Request.Browser.SupportCallback**プロパティ。 このプロパティは返します**true**要求元のクライアント スクリプト コールバックをサポートしている場合。
 
@@ -537,7 +519,6 @@ ASP.NET 2.0 でのクライアント スクリプトが ClientScriptManager ク�
 
 > [!NOTE]
 > スクリプトがページに正常に登録された後後続しようとすると、同じスクリプトを登録するは、2 回目が登録されていないスクリプトの結果となるだけ。 重複するスクリプトは追加されず、例外が発生しません。 不要な計算を回避するためには、複数回登録しないでように、スクリプトが既に登録されてかどうかを判断するために使用できる方法があります。
-
 
 現在のすべての ASP.NET 開発者に馴染み深い ClientScriptManager のメソッドがあります。
 
@@ -580,7 +561,6 @@ RegisterClientScriptInclude タグは、外部スクリプト ファイルにリ
 > [!NOTE]
 > スクリプト ブロックは、ページの下部に表示されます。
 
-
 IsClientScriptIncludeRegistered メソッドを使用して、スクリプトは既に登録されているかを判断します。 これにより、スクリプトを再登録を試行しないようにすることができます。
 
 ## <a name="registerstartupscript"></a>RegisterStartupScript
@@ -590,13 +570,11 @@ RegisterStartupScript メソッドは、RegisterClientScriptBlock メソッド�
 > [!NOTE]
 > RegisterStartupScript を関数を登録した場合、クライアント側のコードで明示的に呼び出すまでその関数が実行されません。
 
-
 IsStartupScriptRegistered メソッドを使用して、スクリプトは既に登録されているかを判断を回避しようとするスクリプトを再登録します。
 
 ## <a name="other-clientscriptmanager-methods"></a>その他の ClientScriptManager メソッド
 
 ここでは、ClientScriptManager クラスの他の便利なメソッドの一部です。
-
 
 |  <strong>GetCallbackEventReference</strong>   |                                                 このモジュールで前述したスクリプト コールバックを参照してください。                                                 |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -606,4 +584,3 @@ IsStartupScriptRegistered メソッドを使用して、スクリプトは既に
 | <strong>RegisterClientScriptResource</strong> |     Web リソースをページに登録します。 これらは、リソース アセンブリに埋め込まれていると、新しい WebResource.axd ハンドラーによって処理されます。      |
 |     <strong>RegisterHiddenField</strong>      |                                                 ページに隠しフォーム フィールドを登録します。                                                 |
 |  <strong>RegisterOnSubmitStatement</strong>   |                                  HTML フォームが送信されるときに実行されるクライアント側のコードを登録します。                                   |
-

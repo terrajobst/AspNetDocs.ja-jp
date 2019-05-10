@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: fe47a018-f6d0-4979-80e7-5b1fa75a5865
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 97a60274d9306ea0ee332fcc1ab9e487355dbedb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e11c91a824446572aaf0b3bc6954b9b8ffb4eaff
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384943"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133954"
 ---
 # <a name="creating-a-build-definition-that-supports-deployment"></a>配置をサポートするビルド定義を作成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59384943"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Team Foundation Server (TFS) 2010 での任意の種類のビルドを実行する場合は、チーム プロジェクト内のビルド定義を作成する必要があります。 このトピックでは、TFS で新しいビルド定義を作成する方法とチーム ビルドでビルド プロセスの一部として web 配置を制御する方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -40,7 +39,6 @@ ms.locfileid: "59384943"
 
 > [!NOTE]
 > ビルド定義の詳細については、次を参照してください。[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)します。
-
 
 このトピックでは、開発者が新しいコンテンツでチェックするとき、ビルドがトリガーできるため、CI を使用するビルド定義を作成する方法を説明します。 ビルドが成功すると、ビルド サービスは、ソリューションをテスト環境を配置するカスタムのプロジェクト ファイルを実行します。
 
@@ -60,7 +58,6 @@ ms.locfileid: "59384943"
 
 > [!NOTE]
 > この手順&#x2014;、1 つが自動でプロセスをビルド、テスト、およびソリューションを配置します&#x2014;テスト環境へのデプロイに最も合ったする可能性があります。 ステージングおよび運用環境を既に確認され、テスト環境で検証前のビルドからコンテンツを配置する可能性の高い多くできました。 この方法は次のトピックで説明されている[特定のビルドを展開する](deploying-a-specific-build.md)します。
-
 
 ### <a name="who-performs-this-procedure"></a>この手順を実行しますか。
 
@@ -142,7 +139,6 @@ CI を使用するビルド定義を構成した場合は、2 つの方法で、
 
 > [!NOTE]
 > デプロイ ロジックを実行するビルドは、ビルド サーバー先の環境に必要なすべてのアクセス許可を付与が失敗する可能性があります。 詳細については、次を参照してください。[チーム ビルド展開のアクセス許可を構成する](configuring-permissions-for-team-build-deployment.md)します。
-
 
 ## <a name="monitor-the-build-process"></a>ビルド プロセスを監視します。
 

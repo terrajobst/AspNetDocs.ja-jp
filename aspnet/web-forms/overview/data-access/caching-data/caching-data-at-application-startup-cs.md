@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e858fe4c1f8e93f6e6fa30b33f5682945d03c32
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d0fff78885ed90825f3e3a612f1582c004b317e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403078"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119737"
 ---
 # <a name="caching-data-at-application-startup-c"></a>アプリケーションの起動時にデータをキャッシュする (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59403078"
 [PDF のダウンロード](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
 
 > 一部のデータが頻繁に使用する Web アプリケーションで、一部のデータの使用は頻度の低い。 頻繁に使用されるデータと呼ばれる手法を事前に読み込むことによって、ASP.NET アプリケーションのパフォーマンスを改善できます。 このチュートリアルでは、事前対応型の読み込みは、アプリケーションの起動時にキャッシュにデータを読み込むを 1 つの方法を示します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -35,18 +34,15 @@ ms.locfileid: "59403078"
 > [!NOTE]
 > 主体的および対応の読み込みと長所と短所、および実装の推奨事項のリスト間の相違点の詳細についてを参照してください、 [、キャッシュの内容を管理する](https://msdn.microsoft.com/library/ms978503.aspx)のセクション、 [.NET Framework アプリケーションのアーキテクチャ ガイドのキャッシュ](https://msdn.microsoft.com/library/ms978498.aspx)します。
 
-
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>手順 1: アプリケーションの起動時にキャッシュするデータを決定します。
 
 キャッシュの例は、事後対応型の読み込みを使用して生成するデータを定期的に変更し、長い exorbitantly 受け取らないでうまく前の 2 つのチュートリアルの作業で調べる。 事後対応型の読み込みで使用される有効期限は余分な場合は、キャッシュされたデータが変更ことはありません。 同様に、キャッシュ データが生成する極端に時間を受け取る場合は、それらのユーザー要求が検索に時間がかかる待機中、基になるデータに耐えられるキャッシュを空になりますが取得されます。 静的なデータとアプリケーションの起動時に生成する非常に長い時間がかかるデータのキャッシュを検討してください。
 
 データベースには、多くの動的がありますが、値を頻繁に変更する、ほとんどが、かなりの静的データもあります。 たとえば、ほぼすべてのデータ モデルでは、選択肢の固定セットから特定の値を含む 1 つまたは複数の列があります。 A`Patients`データベース テーブルがあります、`PrimaryLanguage`列を持つ一連の値は、英語、スペイン語、フランス語、ロシア語、日本語、およびの可能性があります。 多くの場合、このような列を使用して実装*ルックアップ テーブル*します。 英語またはフランス語の文字列を格納するのではなく、`Patients`テーブル、2 番目のテーブルが作成を一般的には、それぞれの値のレコードを持つ 2 つの列の一意の識別子と文字列による説明 - を持ちます。 `PrimaryLanguage`内の列、`Patients`テーブルが参照テーブルに対応する一意識別子を格納します。 図 1 の場合は、John doe さんを患者の第一言語は英語、Ed ジョンソンはロシア語です。
 
-
 ![言語の表は、Patients テーブルで使用される参照テーブルです。](caching-data-at-application-startup-cs/_static/image1.png)
 
 **図 1**:`Languages`テーブルで使用される参照テーブル、`Patients`テーブル
-
 
 内のレコードによって設定されます、使用可能な言語のドロップダウン リストには編集または作成の新しい患者のユーザー インターフェイスが含まれます、`Languages`テーブル。 このインターフェイスは、毎回キャッシュを使用しないシステムがアクセスしたクエリを実行する必要があります、`Languages`テーブル。 これは無駄な不要な参照テーブルの値の変更頻度の非常に低いため場合、これまでです。
 
@@ -60,13 +56,11 @@ ms.locfileid: "59403078"
 
 クラスを使用する場合通常クラスする必要があります最初にインスタンス化前に、そのメンバーにアクセスすることができます。 たとえばから、ビジネス ロジック層のクラスのいずれかのメソッドを呼び出すためにする必要があります最初にインスタンスを作成、クラスの。
 
-
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample1.cs)]
 
 呼び出すことができます前に*SomeMethod*操作または*SomeProperty*を使用して、クラスのインスタンスを作成する必要があります最初、`new`キーワード。 *SomeMethod*と*SomeProperty*は特定のインスタンスに関連付けられます。 これらのメンバーの有効期間は、関連付けられているオブジェクトの有効期間に関連付けられています。 *静的メンバー*、一方では、変数、プロパティ、メソッド間で共有される*すべて*クラスのインスタンスと、その結果、有効期間は、クラスと同じくらいにあります。 静的メンバーがキーワードで表される`static`します。
 
 静的メンバーだけでなくアプリケーションの状態を使用してデータをキャッシュできます。 各 ASP.NET アプリケーションでは、すべてのユーザーとアプリケーションのページで共有されている名前/値コレクションを保持します。 使用してこのコレクションにアクセスできる、 [ `HttpContext`クラス](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)の[`Application`プロパティ](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)、ASP.NET ページの分離コード クラスから使用して次のようにします。
-
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
 
@@ -78,14 +72,11 @@ ms.locfileid: "59403078"
 
 という名前の新しいクラスの作成を開始する`StaticCache.cs`で、`CL`フォルダー。
 
-
 ![CL フォルダーに StaticCache.cs クラスを作成します。](caching-data-at-application-startup-cs/_static/image2.png)
 
 **図 2**:作成、`StaticCache.cs`クラス、`CL`フォルダー
 
-
 このキャッシュからデータを返すメソッドと同様に、適切なキャッシュ ストアに起動時にデータを読み込むメソッドを追加する必要があります。
-
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample3.cs)]
 
@@ -93,13 +84,11 @@ ms.locfileid: "59403078"
 
 静的メンバー変数を使用して、キャッシュ ストアとしてではなく別の方法として使用できますアプリケーションの状態やデータのキャッシュ。 次のコードでは、アプリケーションの状態の使用によるクラスを示します。
 
-
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample4.cs)]
 
 `LoadStaticCache()`、仕入先の情報がアプリケーション変数に格納されている*キー*します。 適切な型として返されます (`Northwind.SuppliersDataTable`) から`GetSuppliers()`します。 アプリケーションの状態を使用して ASP.NET ページの分離コード クラスにアクセスできる間`Application["key"]`を使用しなければならないアーキテクチャで`HttpContext.Current.Application["key"]`現在を取得するために`HttpContext`します。
 
 同様に、データ キャッシュは、次のコードに示すとしてのキャッシュ ストアとして使用できます。
-
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
@@ -107,7 +96,6 @@ ms.locfileid: "59403078"
 
 > [!NOTE]
 > このチュートリアルのダウンロードの実装、`StaticCache`クラスの静的メンバー変数のアプローチを使用します。 アプリケーションの状態とデータのキャッシュの手法のコードは、クラス ファイル内のコメントで使用できます。
-
 
 ## <a name="step-4-executing-code-at-application-startup"></a>手順 4: アプリケーションの起動時にコードを実行します。
 
@@ -118,11 +106,9 @@ ms.locfileid: "59403078"
 > [!NOTE]
 > 既にある場合、`Global.asax`ファイルで、プロジェクトでは、グローバル アプリケーション クラスが項目の種類は、新しい項目の追加 ダイアログ ボックスは表示されません。
 
-
 [![Web アプリケーションのルート ディレクトリに、Global.asax ファイルを追加します。](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
 **図 3**:追加、 `Global.asax` Your Web アプリケーションのルート ディレクトリにファイル ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image5.png))。
-
 
 既定の`Global.asax`ファイル テンプレートには、サーバー側で 5 つのメソッドが含まれています。`<script>`タグ。
 
@@ -136,20 +122,16 @@ ms.locfileid: "59403078"
 
 これらのチュートリアルにのみ必要があるコードを追加、`Application_Start`メソッドは、そのを自由に、他のユーザーを削除します。 `Application_Start`を呼び出すだけで、`StaticCache`クラスの`LoadStaticCache()`メソッドは、読み込みおよび仕入先の情報をキャッシュします。
 
-
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
 必要な作業は以上です。 アプリケーションの起動時に、`LoadStaticCache()`メソッドは、BLL から供給業者の情報を取得し、静的メンバー変数に保存 (を使用して最終的にどのようなキャッシュに格納するか、`StaticCache`クラス)。 この動作を確認するためにブレークポイントを設定、`Application_Start`メソッドと、アプリケーションを実行します。 アプリケーションの開始時にブレークポイントをヒットしたことに注意してください。 ただし、後続の要求も、実行、`Application_Start`メソッドを実行します。
-
 
 [![Application_Start イベント ハンドラーが実行されていることを確認するブレークポイントを使用してください。](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
 **図 4**:確認するブレークポイントを使用している、`Application_Start`イベント ハンドラーが実行されている ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image8.png))。
 
-
 > [!NOTE]
 > ヒットしない場合、`Application_Start`ブレークポイント デバッグを開始するときに、アプリケーションが既に開始します。 強制的に変更して再度実行するアプリケーション、`Global.asax`または`Web.config`ファイルし、し、もう一度お試しください。 単に追加 (または削除できます)、アプリケーションを迅速に再起動するこれらのファイルのいずれかの末尾に空白行。
-
 
 ## <a name="step-5-displaying-the-cached-data"></a>手順 5: キャッシュされたデータを表示します。
 
@@ -157,29 +139,23 @@ ms.locfileid: "59403078"
 
 開いて開始、`AtApplicationStartup.aspx`ページで、`Caching`フォルダー。 GridView をデザイナーの設定には、ツールボックスからドラッグしてその`ID`プロパティを`Suppliers`します。 次に、GridView のスマート タグからをという名前の新しい ObjectDataSource を作成する選択`SuppliersCachedDataSource`します。 構成を使用する ObjectDataSource、`StaticCache`クラスの`GetSuppliers()`メソッド。
 
-
 [![StaticCache クラスを使用する ObjectDataSource を構成します。](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
 
 **図 5**:構成を使用する ObjectDataSource、`StaticCache`クラス ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image11.png))。
-
 
 [![GetSuppliers() メソッドを使用して、キャッシュされた仕入先データを取得するには](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
 
 **図 6**:使用して、`GetSuppliers()`キャッシュ仕入先データを取得するメソッド ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image14.png))。
 
-
 ウィザードを完了すると、Visual Studio が自動的に追加 BoundFields のデータ フィールドの各`SuppliersDataTable`します。 GridView、ObjectDataSource の宣言型マークアップは次のようになります。
-
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample7.aspx)]
 
 図 7 では、ブラウザーで表示する際、ページを示します。 出力は同じ BLL からデータをプルしますが`SuppliersBLL`クラスが使用して、`StaticCache`クラスは、アプリケーションの起動時にキャッシュされたとして仕入先データを返します。 ブレークポイントを設定することができます、`StaticCache`クラスの`GetSuppliers()`この動作を確認するメソッド。
 
-
 [![キャッシュの仕入先データが GridView に表示されます。](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
 
 **図 7**:キャッシュの仕入先データが GridView に表示されます ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image17.png))。
-
 
 ## <a name="summary"></a>まとめ
 

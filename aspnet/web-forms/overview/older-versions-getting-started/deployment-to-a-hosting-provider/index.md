@@ -8,17 +8,16 @@ ms.date: 11/29/2011
 ms.assetid: 6798c7e4-f08e-4802-9fa5-443f67d5df62
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider
 msc.type: chapter
-ms.openlocfilehash: 87de6c92375594ab6ee726f1b66a94a0db793fd2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bb9a47eeb4197348e85bb469b68c0055e7c696a0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417053"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119445"
 ---
 # <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 - Visual Studio を利用した SQL Server Compact の Web 配置
 
 > このチュートリアル シリーズでは、SQL Server Compact 使用可能なインターネット経由でサード パーティのホスティング プロバイダーへのデプロイで使用する ASP.NET web アプリケーションを作成する方法を紹介します。 Visual Studio 2012 RC または Visual Studio 2010 が必要です。 展開の機能に関する最新の情報、または SQL Server Compact 以外の SQL Server のエディションをデプロイする方法についてを参照してください。 [Visual Studio を使用して ASP.NET Web 配置](../../deployment/visual-studio-web-deployment/introduction.md)します。
-
 
 - [Visual Studio による SQL Server Compact の Web 展開 - 概要](deployment-to-a-hosting-provider-introduction-1-of-12.md)
 - [Visual Studio による SQL Server Compact の Web 展開 - SQL Server Compact データベースの展開](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

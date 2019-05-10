@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c33812ab9d758c3155a2f75f59bfb63c55487dc7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9bb26e4364d1e32a428b34bd03918303206d21c9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396409"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122426"
 ---
 # <a name="displaying-a-table-of-database-data-vb"></a>データベース データの表を表示する (VB)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59396409"
 
 > このチュートリアルでは、一連のデータベース レコードを表示する 2 つの方法を紹介します。 一連の HTML テーブルのデータベース レコードを書式設定の 2 つの方法を紹介します。 最初に、ビュー内で直接、データベース レコードの書式を設定する方法を紹介します。 次に、方法を利用するパーシャルのデータベース レコードを書式設定時に紹介します。
 
-
 このチュートリアルの目的では、ASP.NET MVC アプリケーションでデータベースのデータの HTML テーブルを表示する方法について説明します。 まず、Visual Studio に含まれるスキャフォールディング ツールを使用して、一連のレコードを自動的に表示するビューを生成する方法について説明します。 次に、データベース レコードを書式設定時に一部のテンプレートとして使用する方法について説明します。
 
 ## <a name="create-the-model-classes"></a>モデル クラスを作成します。
@@ -32,7 +31,6 @@ ms.locfileid: "59396409"
 
 <a id="0.4_table01"></a>
 
-
 | **列名** | **[データ型]** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
@@ -40,13 +38,11 @@ ms.locfileid: "59396409"
 | ディレクター | Nvarchar (50) | False |
 | DateReleased | DateTime | False |
 
-
 ASP.NET MVC アプリケーションで映画のテーブルを表すためには、モデル クラスを作成する必要があります。 このチュートリアルでは、モデル クラスを作成するのに Microsoft Entity Framework を使用します。
 
 > [!NOTE] 
 > 
 > このチュートリアルでは、Microsoft Entity Framework を使用します。 ただし、LINQ to SQL、NHibernate、または ADO.NET を含む、ASP.NET MVC アプリケーションからデータベースと対話する多様なテクノロジを使用することができますを理解しておく必要です。
-
 
 エンティティ データ モデル ウィザードを起動する次の手順に従います。
 
@@ -60,19 +56,15 @@ ASP.NET MVC アプリケーションで映画のテーブルを表すために�
 2. **データ接続の選択**ステップで、使用、 *MoviesDB.mdf*データ接続と名前*MoviesDBEntities*接続の設定。 をクリックして、**次**ボタンをクリックします。
 3. **データベース オブジェクトの選択**ステップ、[テーブル] ノードを展開し、映画のテーブルを選択します。 名前空間を入力*モデル* をクリックし、**完了**ボタンをクリックします。
 
-
 [![LINQ to SQL クラスを作成](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
 
 **図 01**:LINQ to SQL クラスを作成 ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image2.png))。
 
-
 Entity Data Model ウィザードを完了すると、Entity Data Model のデザイナーが開きます。 デザイナーは、ムービー エンティティを表示する必要があります (図 2 参照)。
-
 
 [![Entity Data Model デザイナー](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
 
 **図 02**:Entity Data Model デザイナー ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image4.png))。
-
 
 続行する前に 1 つの変更を行う必要があります。 という名前のモデル クラスを生成するエンティティのデータ ウィザード*映画*映画データベース テーブルを表します。 映画クラスを使用して、特定のムービーを表す、ためにクラスの名前を変更する必要があります*ムービー*の代わりに*映画*(単数形ではなく複数形)。
 
@@ -82,19 +74,15 @@ Entity Data Model ウィザードを完了すると、Entity Data Model のデ�
 
 あるので、データベース レコードを表す方法、映画のコレクションを返すコント ローラーを作成できます。 Visual Studio ソリューション エクスプ ローラー ウィンドウで、Controllers フォルダーを右クリックし、メニュー オプションを選択します**追加、コント ローラー** (図 3 を参照してください)。
 
-
 [![コント ローラーのメニューに追加します。](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
 
 **図 03**:コント ローラーの追加 メニュー ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image6.png))。
 
-
 ときに、**コント ローラーの追加**ダイアログが表示されたら、MovieController コント ローラー名を入力します (図 4 参照)。 をクリックして、**追加**新しいコント ローラーを追加するボタンをクリックします。
-
 
 [![コント ローラーの追加 ダイアログ](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
 
 **図 04**:コント ローラーの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image8.png))。
-
 
 データベースのレコードのセットを返すように、ムービー コント ローラーによって公開される Index() アクションを変更する必要があります。 コント ローラーを変更して、リスト 1 でコント ローラーのように見えます。
 
@@ -112,19 +100,15 @@ HTML テーブルの一連のデータベース レコードを表示する最�
 
 Index() アクションを右クリックし、メニュー オプションを選択**ビューの追加**(図 5 を参照してください)。
 
-
 [![ビューの追加](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
 
 **図 05**:ビューの追加 ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image10.png))。
 
-
 **ビューの追加**ダイアログ ボックスで、チェック ボックスをラベル付け**厳密に型指定されたビューを作成**。 としてムービー クラスの選択、**データ クラスを表示**します。 選択*一覧*として、**コンテンツを表示**(図 6 参照)。 これらのオプションを選択すると、ムービーの一覧を表示する厳密に型指定されたビューが生成されます。
-
 
 [![ビューの追加 ダイアログ](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
 
 **図 06**:ビューの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image12.png))。
-
 
 クリックした後、**追加**ボタン、リスト 2 でビューが自動的に生成されます。 このビューには、映画のコレクションを反復処理し、各ビデオのプロパティの表示に必要なコードが含まれています。
 
@@ -134,11 +118,9 @@ Index() アクションを右クリックし、メニュー オプションを�
 
 アプリケーションを実行するには、メニュー オプションを選択して**デバッグ、デバッグの開始** (または、F5 キー)。 アプリケーションを実行すると、Internet Explorer が起動します。 /Movie URL に移動すると、図 7 ページが表示されます。
 
-
 [![映画のテーブル](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
 
 **図 07**:映画のテーブル ([フルサイズの画像を表示する をクリックします](displaying-a-table-of-database-data-vb/_static/image14.png))。
-
 
 図 7 内のデータベース レコードのグリッドの外観について何も満足できない場合は、インデックス ビューだけ変更できます。 たとえば、変更、 *DateReleased*ヘッダーを*リリース日*インデックス ビューを変更することで。
 
@@ -174,9 +156,7 @@ Index() アクションを右クリックし、メニュー オプションを�
 
 変更したのインデックス ビューは、データベース レコードのまったく同じ HTML テーブルを表示します。 ただし、ビューが大幅に簡略化されました。
 
-
 RenderPartial() メソッドは、文字列を返さないため、ほとんどの他のヘルパー メソッドとは異なる。 RenderPartial() メソッドを使用して、呼び出す必要がありますので、 &lt;%html.renderpartial()&gt;の代わりに&lt;% = Html.RenderPartial() %&gt;します。
-
 
 ## <a name="summary"></a>まとめ
 

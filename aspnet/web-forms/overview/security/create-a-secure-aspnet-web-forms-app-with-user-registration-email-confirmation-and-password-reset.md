@@ -8,19 +8,18 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 3df728891103de9c8e461ab9507237c9b14e8251
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af3653bc164810126bc3bf8f1b1794d75642d807
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133805"
 ---
 # <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>ユーザー登録、電子メール確認、パスワード リセットを利用し、安全な ASP.NET Web フォームを作成する (C#)
 
 によって[Erik Reitan](https://github.com/Erikre)
 
 > このチュートリアルでは、ユーザーの登録、確認の電子メールと、ASP.NET Identity メンバーシップ システムを使用してパスワード リセットによる ASP.NET Web フォーム アプリをビルドする方法を示します。 このチュートリアルは、Rick Anderson のに基づいてが[MVC チュートリアル](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -43,7 +42,6 @@ ms.locfileid: "59390689"
 
 > [!NOTE]
 > 警告 :インストールする必要があります[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降に、このチュートリアルを完了します。
-
 
 1. 新しいプロジェクトを作成 (**ファイル** - &gt; **新しいプロジェクト**) を選択し、 **ASP.NET Web アプリケーション**テンプレートと、最新の .NET Frameworkバージョンから、**新しいプロジェクト** ダイアログ ボックス。
 2. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、 **Web フォーム**テンプレート。 既定の認証としてのままに**個々 のユーザー アカウント**します。 Azure でアプリをホストする場合は、ままにして、**クラウドでホスト**チェック ボックスをオンします。   
@@ -95,7 +93,6 @@ SendGrid は、このチュートリアルが記述されたからの API を変
 ### <a name="enable-email-confirmation"></a>確認の電子メールを有効にします。
 
  確認の電子メールを有効にするには、次の手順を使用して登録コードを変更します。  
- 
 
 1. *アカウント*フォルダーを開き、 *Register.aspx.cs*分離コードと更新、`CreateUser_Click`メソッドは、次の強調表示されている変更を有効にします。 
 

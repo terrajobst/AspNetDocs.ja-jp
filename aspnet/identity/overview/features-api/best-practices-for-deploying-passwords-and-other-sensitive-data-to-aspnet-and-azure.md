@@ -9,12 +9,12 @@ ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 2620d9e2eaf3c7719d9a289e42bb91270708ae79
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0e02df967df8acf346b9fcd1c75dbe304cc5407b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419445"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121560"
 ---
 # <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>ASP.NET と Azure App Service にパスワードやその他の機密データを配置するためのベスト プラクティス
 
@@ -25,7 +25,6 @@ ms.locfileid: "59419445"
 > サンプル コードは、単純な web ジョブ コンソール アプリと、データベース接続文字列パスワード、Twilio、Google と SendGrid セキュリティで保護されたキーへのアクセスが必要な ASP.NET MVC アプリです。
 > 
 > オンプレミスでの設定と PHP も説明します。
-
 
 - [開発環境でパスワードを使用](#pwd)
 - [開発環境での接続文字列の使用](#con)
@@ -54,7 +53,6 @@ ASP.NET ランタイム内のマークアップを含む外部ファイルの内
 > [!WARNING]
 > セキュリティ - 追加しないでください、*シークレット .config*をプロジェクトにファイルまたはソース管理にチェックインします。 既定では、Visual Studio の設定、`Build Action`に`Content`、つまり、ファイルが展開されています。 詳細については、次を参照してください[理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?。](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) 任意の拡張機能を使用することができますが、*シークレット .config*ようにすることをお勧めファイル、 *.config*構成ファイルが IIS によって提供されないように、します。 また、 *AppSettingsSecrets.config*ファイルは上からの 2 つのディレクトリ レベルでは、 *web.config*ファイル、ソリューションのディレクトリからは完全にします。 ソリューションのディレクトリからファイルを移動することによって&quot;git 追加\*&quot;リポジトリに追加されません。
 
-
 <a id="con"></a>
 ## <a name="working-with-connection-strings-in-the-development-environment"></a>開発環境での接続文字列の使用
 
@@ -67,14 +65,11 @@ Visual Studio を使用する新しい ASP.NET プロジェクトを作成する
 > [!NOTE]
 > 使用する場合、`configSource`接続文字列を外部ファイルに移動する前に示した属性し Visual studio で新しい web サイトを作成、データベースを使用しているし、データベースを構成するオプションが表示されなくを検出するために行うことはできませんとする puVisual Studio から Azure への blish します。 使用する場合、`configSource`属性、PowerShell を使用するには、web サイトとデータベースを作成して展開するまたはを作成、web サイトと、データベース、ポータルで発行する前にします。 [新規 AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3)スクリプトが新しい web サイトおよびデータベースに作成されます。
 
-
 > [!WARNING]
 > セキュリティ - とは異なり、 *AppSettingsSecrets.config*ファイル、外部接続文字列のファイルは、ルートと同じディレクトリである必要があります*web.config*ファイル、対策を講じることを確認する必要がありますソース リポジトリにチェックインしません。
 
-
 > [!NOTE]
 > **シークレット ファイルのセキュリティ警告:** テストと開発における運用シークレットを使用しないことをお勧めします。 テストまたは開発での運用環境のパスワードを使用すると、これらの機密情報がリークします。
-
 
 <a id="wj"></a>
 ## <a name="webjobs-console-apps"></a>Web ジョブのコンソール アプリ
@@ -105,7 +100,6 @@ Web アプリを Azure にデプロイするときに、 *AppSettingsSecrets.con
 > [!WARNING]
 > セキュリティ - パスワードやその他のシークレットをそのララェホの PowerShell スクリプトを使用して機密データを展開する目的の実行、PowerShell スクリプトに含めないでください。 [Get-credential](https://technet.microsoft.com/library/hh849815.aspx)コマンドレットは、パスワードを取得するセキュリティで保護されたメカニズムを提供します。 UI プロンプトを使用して、パスワードのリークを防止できます。
 
-
 ### <a name="deploying-db-connection-strings"></a>DB 接続文字列の展開
 
 DB の接続文字列は、アプリの設定を同様に処理されます。 Visual Studio から web アプリをデプロイする場合、接続文字列が構成します。 これは、ポータルで確認できます。 接続文字列を設定することをお勧めの方法は、PowerShell を使用したです。 PowerShell スクリプトの例については、web サイトとデータベースを作成し、接続文字列を設定、web サイトでダウンロード[新規 AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3)から、 [Azure スクリプト ライブラリ](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure)します。
@@ -125,6 +119,5 @@ DB の接続文字列は、アプリの設定を同様に処理されます。 V
 接続文字列 + アプリの設定、ダウンロード、PowerShell の例については、web アプリとデータベースを作成するスクリプトを設定[新規 AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3)から、 [Azure スクリプト ライブラリ](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure)します。 
 
 Stefan Schackow を参照してください。 [Windows Azure Web サイト。アプリケーション文字列と接続文字列のしくみ](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)
-
 
 Barry Dorrans 頂いた ( [ @blowdart ](https://twitter.com/blowdart) ) と Carlos Farre レビューします。

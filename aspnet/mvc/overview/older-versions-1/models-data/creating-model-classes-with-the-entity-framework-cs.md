@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 61644169-e8b1-45dd-bf96-9c2301b69879
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 29f7dded2f6fc2e8ce588dab2949b59ddb6f1fc4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2e0e365c287fc455015d237ea466301335805d14
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388908"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122448"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework でモデル クラスを作成する (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 エンティティ ウィザードを使用して、ADO.NET Entity Data Model を作成する方法について説明します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションを構築します。
-
 
 このチュートリアルの目的では、ASP.NET MVC アプリケーションを構築するときに、Microsoft Entity Framework を使用してデータ アクセス クラスを作成する方法について説明します。 このチュートリアルは、Microsoft Entity Framework の以前の知識を負いません。 このチュートリアルの目的は、Entity Framework を使用して、選択、挿入、更新、およびデータベースのレコードを削除する方法を理解します。
 
@@ -32,11 +31,9 @@ ASP.NET MVC を使用した Microsoft Entity Framework を使用する方法に�
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
-
 > [!NOTE] 
 > 
 > ASP.NET MVC と Entity Framework の Microsoft 必須の接続がありません。 ASP.NET MVC で使用できる Entity Framework のいくつかの選択肢があります。 たとえば、Microsoft LINQ to SQL や NHibernate など、SubSonic などその他の O/RM ツールを使用して、MVC のモデル クラスをビルドすることができます。
-
 
 ## <a name="creating-the-movie-sample-database"></a>ムービーのサンプル データベースの作成
 
@@ -108,9 +105,7 @@ Entity Data Model を作成した後は、エンティティ デザイナーを�
 
 保存ボタン (フロッピー ディスクのアイコン) をクリックして変更を行った後に、エンティティ データ モデルを保存してください。 バック グラウンドでは、エンティティ デザイナーは、一連の c# クラスを生成します。 ソリューション エクスプ ローラー ウィンドウから MoviesDBModel.Designer.cs ファイルを開くことで、これらのクラスを表示できます。
 
-
 次に、エンティティ デザイナーを使用するときに、変更が上書きされますので、Designer.cs ファイル内のコードを変更しないでください。 Designer.cs ファイルで定義されたエンティティ クラスの機能を拡張するかどうかは、作成することができます*部分クラス*で個別のファイル。
-
 
 #### <a name="selecting-database-records-with-the-entity-framework"></a>Entity Framework でのデータベース レコードを選択します。
 
@@ -122,9 +117,7 @@ Entity Data Model を作成した後は、エンティティ デザイナーを�
 
 リスト 1 で、コント ローラーがコンス トラクターが含まれることに注意してください。 コンス トラクターによって初期化という名前のクラスレベル フィールド\_db します。 \_Db フィールドは、Microsoft Entity Framework によって生成されたデータベースのエンティティを表します。 \_Db フィールドは、エンティティ デザイナーによって生成された MoviesDBEntities クラスのインスタンスです。
 
-
 TheMoviesDBEntities クラスを Home コント ローラーを使用するためには、MovieEntityApp.Models 名前空間をインポートする必要があります (*MVCProjectName*します。モデルの場合)。
-
 
 \_Db フィールドは、映画データベース テーブルからレコードを取得する Index() 操作内で使用します。 式\_db します。MovieSet では、映画データベース テーブルからすべてのレコードを表します。 ムービー オブジェクトのジェネリック コレクションをムービーのセットに変換する ToList() メソッドが使用される (リスト&lt;ムービー&gt;)。
 
@@ -162,9 +155,7 @@ Add() の最初のアクションでは、ビューを単純に返します。 �
 
 2 番目の Add() アクションは、ASP.NET MVC TryUpdateModel() メソッドのヘルプで、Entity Framework Movie クラスの新しいインスタンスを作成します。 TryUpdateModel() メソッドは、Add() メソッドに渡される FormCollection 内のフィールドを受け取り、Movie クラスに HTML フォーム フィールドの値を割り当てます。
 
-
 Entity Framework を使用する場合は、tryupdatemodel に渡します"または"UpdateModel メソッドを使用して、エンティティ クラスのプロパティを更新する場合、プロパティの「ホワイト リスト」を指定してください。
-
 
 次に、Add() アクションは、いくつかの簡単なフォーム検証を実行します。 アクションは、タイトルとディレクターの両方のプロパティに値があることを確認します。 検証エラーがある場合、検証エラー メッセージは、ModelState に追加されます。
 

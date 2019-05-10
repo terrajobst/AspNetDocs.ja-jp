@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fa05645db9d43a836cc75b399153dd2e2c288f7c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1e93a5314129b2a05ede603ae9c01cd57b574f88
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388767"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127039"
 ---
 # <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>実稼働データベースを使用するように Web アプリケーションを構成する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59388767"
 [コードのダウンロード](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_cs.pdf)
 
 > 前のチュートリアルで既に説明した、これは開発および運用環境間で異なる構成情報珍しくありません。 これは、データベースの接続文字列は、開発および運用環境の間で異なるとデータ ドリブン web アプリケーション、特に当てはまります。 このチュートリアルより詳細に適切な接続文字列を含める、運用環境を構成する方法について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -44,7 +43,6 @@ Web アプリケーションは、情報を使用して、*接続文字列*デ�
 - `AttachDbFilename` -データベース ファイルの場所を指定します。 値には、プレース ホルダーが含まれています。 `|DataDirectory|`、アプリケーションの秒の完全なパスに解決される`App_Data`実行時にフォルダー。
 - `Integrated Security` -(false)、データベースまたは現在の Windows にアカウントの資格情報 (true) に接続するときに指定されたユーザー名/パスワードを使用するかどうかを示すブール値。
 - `User Instance` -SQL Server Express エディションにローカル コンピューターの管理者以外のユーザー接続し、SQL Server Express Edition のデータベースへの接続を許可するかどうかを示す特定の構成オプション。 参照してください[SQL Server Express ユーザー インスタンス](https://msdn.microsoft.com/library/ms254504.aspx)この設定の詳細についてはします。
-  
 
 使用可能な接続文字列オプションは、データベースに接続して使用されている ADO.NET データベース プロバイダーによって異なります。 たとえば、データベースとは異なります、Oracle データベースに接続するために使用する Microsoft SQL Server に接続するため接続文字列。 同様に、SqlClient プロバイダーを使用して Microsoft SQL Server データベースに接続するときに、OLE DB プロバイダーを使用するよりも、別の接続文字列を使用します。
 
@@ -52,19 +50,15 @@ Web アプリケーションは、情報を使用して、*接続文字列*デ�
 
 Visual Studio を開き、サーバー エクスプ ローラー ウィンドウに移動します (Visual Web developer では、このウィンドウと呼ばれるデータベース エクスプ ローラー)。 データ接続オプションを右クリックし、コンテキスト メニューから 接続の追加オプションを選択します。 図 1 に示すようにウィザードが表示されます。 適切なデータ ソースを選択し、[続行] をクリックします。
 
-
 [![サーバー エクスプ ローラーに新しいデータベースを追加します。](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image1.jpg) 
 
 **図 1**:サーバー エクスプ ローラーに新しいデータベースを追加する ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image3.jpg))。
 
-
 次に、さまざまなデータベース接続情報を指定 (図 2 参照)。 Web ホスティング会社にサインアップしたときに、データベース サーバー名、データベース名、ユーザー名とパスワードを使用して、データベースに接続して、具合のデータベースに接続する方法の情報を指定した必要があります。 この情報を入力したら、このウィザードを完了して、データベースをサーバー エクスプ ローラーに追加する [ok] をクリックします。
-
 
 [![データベースの接続情報を指定します](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image4.jpg) 
 
 **図 2**:データベースの接続情報を指定します ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image6.jpg))。
-
 
 サーバー エクスプ ローラーで、実稼働環境のデータベースが表示されます。 サーバー エクスプ ローラーからデータベースを選択し、[プロパティ] ウィンドウに移動します。 あるデータベースの接続文字列で接続文字列をという名前のプロパティが表示されます。 運用環境と、SqlClient プロバイダーを Microsoft SQL Server データベースを使用するいると仮定すると、接続文字列は、次のようになります。
 
@@ -87,14 +81,11 @@ Visual Studio を開き、サーバー エクスプ ローラー ウィンドウ
 > [!NOTE]
 > 誤ってデプロイする場合、`Web.config`運用上のアプリケーションがデータベースに接続しようとすると、エラーになりますが、開発データベースの接続文字列を含むファイル。 としてマニフェストにこのエラーを`SqlException`で、サーバーが見つからなかったか、アクセスできなかったことを報告するメッセージ。
 
-
 サイトを運用環境にデプロイすると、ブラウザーを使用して実稼働サイトを参照してください。 データ ドリブン アプリケーションをローカルに実行する場合と同じユーザー エクスペリエンスをお楽しみくださいし、表示されます。 もちろん実稼働環境で、web サイトにアクセスすると、サイトが搭載されています、実稼働データベース サーバーが、開発、データベースでは、開発環境で web サイトにアクセスします。 図 3 は、*教える自分で ASP.NET 3.5 in 24 時間*(ブラウザーのアドレス バーに URL に注意してください) の実稼働環境で web サイトからのページを確認します。
-
 
 [![データ ドリブン アプリケーションでは、ここで使用可能なに運用環境です。](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image7.jpg) 
 
 **図 3**:データ ドリブン アプリケーションでは、ここで使用可能なに運用環境です。 ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image9.jpg))。
-
 
 ### <a name="storing-connection-strings-in-a-separate-configuration-file"></a>別の構成ファイルで接続文字列を保存します。
 
@@ -113,14 +104,11 @@ DatabaseConnectionStrings.dev.config ファイルのコピーを作成し、data
 > [!NOTE]
 > できるファイルの名前を構成 databaseConnectionStrings.config、以外のものを場合は d など`connectionStrings.config`または`dbInfo.config`します。 ただし、ファイルに名前を必ず、`.config`拡張機能として`.config`ファイルは、既定で処理されない、ASP.NET エンジン。 などの場合、別の名前、ファイル、 `connectionStrings.txt`、ユーザーは、ブラウザーをポイントでした[www.yoursite.com/ConfigSettings/connectionStrings.txt](http://www.yoursite.com/ConfigSettings/connectionStrings.txt)し、ファイルの内容を表示。
 
-
 この時点で、`ConfigSections`フォルダーは、3 つのファイル (図 4 参照) を含める必要があります。 DatabaseConnectionStrings.dev.config と databaseConnectionStrings.production.config ファイルには、開発および運用環境では、接続文字列がそれぞれ含まれます。 DatabaseConnectionStrings.config ファイルには、実行時に web アプリケーションによって使用される接続文字列情報が含まれています。 その結果、databaseConnectionStrings.config ファイルが運用環境で databaseConnectionStrings.config ファイルと同じになりますが、開発環境で databaseConnectionStrings.dev.config ファイルに同じであります。databaseConnectionStrings.production.config します。
-
 
 [![ConfigSections](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image11.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image10.jpg) 
 
 **図 4**:ConfigSections ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image12.jpg))。
-
 
 今すぐに指示する必要があります`Web.config`databaseConnectionStrings.config ファイルの接続文字列のストアを使用します。 `Web.config`を開いて、既存の `<connectionStrings>` 要素を次の XAML に置き換えます。
 
@@ -132,7 +120,6 @@ DatabaseConnectionStrings.dev.config ファイルのコピーを作成し、data
 
 > [!NOTE]
 > いずれかの情報を指定することがあります`Web.config`内の要素別のファイルおよび使用して、`configSource`内からそのファイルを参照する属性`Web.config`します。
-
 
 ## <a name="summary"></a>まとめ
 

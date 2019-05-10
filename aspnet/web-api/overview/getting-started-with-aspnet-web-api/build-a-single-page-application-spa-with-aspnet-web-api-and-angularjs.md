@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 86833a890da759e489dd11dc9afb128a9b7a75e3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390273"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125256"
 ---
 # <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする
 
@@ -34,7 +34,6 @@ ms.locfileid: "59390273"
 > 
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -66,7 +65,6 @@ ms.locfileid: "59390273"
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>コード スニペットの使用
 
@@ -74,7 +72,6 @@ ms.locfileid: "59390273"
 
 > [!NOTE]
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
-
 
 ---
 
@@ -91,9 +88,8 @@ ms.locfileid: "59390273"
 > [!NOTE]
 > Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
 
-
 <a id="Exercise1"></a>
-### <a name="exercise-1-creating-a-web-api"></a>手順 1:Web API を作成します。
+### <a name="exercise-1-creating-a-web-api"></a>演習 1:Web API を作成します。
 
 SPA の重要な部分の 1 つは、サービス層です。 UI とその呼び出しに対する応答で返されるデータによって送信される Ajax 呼び出しを処理するため、します。 取得されたデータが解析され、クライアントで使用するためにコンピューターが判読できる形式で表示されます。
 
@@ -251,7 +247,6 @@ Visual Studio によって提供される ASP.NET スキャフォールディン
 > 
 > ![Internet Explorer オプション](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image9.png)
 
-
 1. キーを押して**F5**ソリューションを実行します。 **ログイン**ページがブラウザーに表示する必要があります。
 
     > [!NOTE]
@@ -296,7 +291,7 @@ Visual Studio によって提供される ASP.NET スキャフォールディン
 8. Visual Studio とキーを押してに戻って**shift キーを押しながら f5 キーを押して**デバッグを停止します。
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-creating-the-spa-interface"></a>手順 2:SPA のインターフェイスを作成します。
+### <a name="exercise-2-creating-the-spa-interface"></a>演習 2:SPA のインターフェイスを作成します。
 
 この演習ではまず作成ギーク Quiz、web フロント エンド部分を使用してシングル ページ アプリケーションの対話**AngularJS**します。 また、リッチなアニメーションを実行し、コンテキストの切り替え、次に、1 つの質問から移行する場合の視覚効果を提供する CSS3 のユーザー エクスペリエンス、強化されます。
 
@@ -309,7 +304,6 @@ Visual Studio のパッケージ マネージャー コンソールから Angula
 
 > [!NOTE]
 > AngularJS の詳細についてを参照してください[ [ http://angularjs.org/ ](http://angularjs.org/)](http://angularjs.org/)します。
-
 
 1. 開く**Visual Studio Express 2013 for Web**を開くと、 **GeekQuiz.sln**ソリューション、**ソース/Ex2-CreatingASPAInterface/開始**フォルダー。 または、前の手順で取得したソリューションを続行できます。
 2. 開く、**パッケージ マネージャー コンソール**から**ツール** > **NuGet パッケージ マネージャー**します。 インストールするには、次のコマンドを入力、 **AngularJS.Core** NuGet パッケージ。

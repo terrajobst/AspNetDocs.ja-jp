@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 19cda45ce1b425462ec491bcc86b7a0b76dec162
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9c4a4d035c78b4f4c53942219ccfa3048c7a82b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409799"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133817"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio を使用して ASP.NET Web の展開:運用環境に配置する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59409799"
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -41,7 +40,6 @@ Azure アカウントがない場合は、ほんの数分で無料試用版ア�
 > [!NOTE]
 > このチュートリアルを作成したので、Azure App Service には、ステージングと運用環境を作成するためのプロセスの多くを自動化する新しい機能が追加されました。 参照してください[を設定すると、Azure App Service で web アプリのステージング環境](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/)します。
 
-
 説明したように、[環境のテストのチュートリアルへのデプロイ](deploying-to-iis.md)最も信頼性の高いテスト環境は運用環境の web サイトと同様にしているホスティング プロバイダーの web サイト。 多くのホスティング プロバイダーには、重要な追加の費用に対してこの利点を比較検討する必要が、Azure でステージング アプリとして追加の無料の web アプリを作成することができます。 データベースが必要であり、実稼働データベースの経費をそのため、追加の費用なし] または [最小です。 Azure でお支払いいただきます。 各データベースに対してではなく、使用するデータベース記憶域の量、ステージング環境で使用する追加のストレージの量を最小限になります。
 
 説明したように、[テスト環境のチュートリアルへのデプロイ](deploying-to-iis.md)、ステージング環境と運用環境の 1 つのデータベースに、2 つのデータベースをデプロイすることにします。 それらを分離する場合は、プロセスは同じになりますが、環境ごとに、追加のデータベースを作成し、発行プロファイルを作成するときに、各データベースの正しいコピー先文字列が選択されます。 します。
@@ -50,7 +48,6 @@ Azure アカウントがない場合は、ほんの数分で無料試用版ア�
 
 > [!NOTE]
 > 次の手順では、Azure 管理ポータルを使用して Azure App Service で web アプリを作成する方法を示します。 Azure SDK の最新のバージョンで行うことができますもこのサーバー エクスプ ローラーを使用して、Visual Studio を離れることがなく。 Visual Studio 2013 での発行 ダイアログ ボックスから直接 web アプリを作成することもできます。 詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成します。](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
-
 
 1. [Azure 管理ポータル](https://manage.windowsazure.com/)、 をクリックして**Websites**、順にクリックします**新規**します。
 2. クリックして**web サイト**、 をクリックし、**カスタム作成**します。
@@ -97,7 +94,6 @@ Web アプリとステージング環境のデータベースを作成して、�
 
 > [!NOTE]
 > この手順でダウンロードして、発行プロファイルを作成する方法を示します、 *.publishsettings*ファイルで、サード パーティのホスティング プロバイダーも Azure のだけでなく動作します。 最新の Azure SDK することもできます、Visual Studio から直接 Azure に接続し、Azure アカウント内にある web アプリの一覧から選択します。 Visual Studio 2013 ではから Azure にサインインすることができます、 **Web の発行**ダイアログから、または、**サーバー エクスプ ローラー**ウィンドウ。 詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)です。
-
 
 ### <a name="download-the-publishsettings-file"></a>.Publishsettings ファイルをダウンロードします。
 
@@ -165,7 +161,6 @@ Web アプリとステージング環境のデータベースを作成して、�
 
 > [!NOTE]
 > このセクションでは、環境のインジケーターの Web.config 変換を設定する方法を示します。 インジケーターがあるため、`<appSettings>`要素では、Azure App Service にデプロイするときに、変換を指定するための別の方法があります。 詳細については、次を参照してください。[を指定する Web.config の設定を Azure で](web-config-transformations.md#watransforms)します。
-
 
 1. **ソリューション エクスプ ローラー**、展開**プロパティ**、順に展開**PublishProfiles**します。
 2. 右クリック*Staging.pubxml*、 をクリックし、**構成変換の追加**します。

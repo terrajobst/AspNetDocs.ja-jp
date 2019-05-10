@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fc5c99ce6c5da7d004b95462a3338aefbed31b36
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 94c84a6d40b594bbab16ca1778c545389b40f595
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388713"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126103"
 ---
 # <a name="adding-client-side-confirmation-when-deleting-vb"></a>削除時、クライアント側の確認を追加する (VB)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59388713"
 
 > これまでに作成したインターフェイスで、ユーザーは編集ボタンをクリックするためのものと削除 ボタンをクリックしてデータを誤って削除できます。 このチュートリアルでは、Delete ボタンがクリックされたときに表示されるクライアント側の確認 ダイアログ ボックスを追加します。
 
-
 ## <a name="introduction"></a>はじめに
 
 過去のいくつかのチュートリアルで ve 連携して、挿入、編集、および削除機能を提供する、アプリケーションのアーキテクチャ、ObjectDataSource、およびデータ Web コントロールを使用する方法について説明します。 確認したらインターフェイスを削除するきませんでしたが、削除で構成されたクリックされたときに、ポストバックが発生する ObjectDataSource s を呼び出すボタンであり、`Delete()`メソッド。 `Delete()`メソッドは、実際の発行、データ アクセス層に呼び出しを伝達するビジネス ロジック層から構成されているメソッドを呼び出します`DELETE`ステートメントはデータベースにします。
@@ -32,11 +31,9 @@ ms.locfileid: "59388713"
 
 JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載されていて、(図 1 参照) をキャンセルするモーダル ダイアログ ボックス内のテキストとして、文字列入力パラメーターを表示します。 `confirm(string)`関数によってどのようなボタンがクリックされたブール値を返します (`true`、ユーザーが [ok] をクリックすると、および`false`[キャンセル] をクリックした場合)。
 
-
 ![JavaScript confirm(string) メソッドは、モーダルのクライアント側のメッセージ ボックスを表示します](adding-client-side-confirmation-when-deleting-vb/_static/image1.png)
 
 **図 1**:JavaScript`confirm(string)`メソッドは、クライアント側のモーダルのメッセージ ボックスを表示します。
-
 
 値の場合、フォームの送信中に`false`が、フォームの送信をキャンセルし、クライアント側のイベント ハンドラーから返されます。 この機能を使用する場合は、この削除ボタン s のクライアント側ができる`onclick`イベント ハンドラーの呼び出しの値を返す`confirm("Are you sure you want to delete this product?")`します。 ユーザーが [キャンセル] をクリックすると`confirm(string)`原因と、フォームの送信をキャンセルするため、false が返されます。 ポストバックでの Delete ボタンがクリックされた製品は削除されません。 ただし、ユーザーは確認のダイアログ ボックスで [ok] をクリックすると場合、は、ポストバックがに伴って続行され、製品が削除されます。 参照してください[を使用して JavaScript s`confirm()`フォームの送信を制御するメソッド](http://www.webreference.com/programming/javascript/confirm/)この手法の詳細についてはします。
 
@@ -45,13 +42,11 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 > [!NOTE]
 > クライアント側の確認方法を使用して、このチュートリアルで説明しているようで、ユーザーが JavaScript をサポートするブラウザーでアクセスしているし、JavaScript が有効であること。 特定のユーザーの場合は true。 これらの前提条件のいずれかの場合は、削除ボタンをクリックするとはすぐがポストバックを (確認メッセージ ボックスが表示されない)。
 
-
 ## <a name="step-1-creating-a-formview-that-supports-deletion"></a>手順 1: 削除をサポートする、フォーム ビューの作成
 
 フォーム ビューを追加して、開始、`ConfirmationOnDelete.aspx`ページで、`EditInsertDelete`フォルダー、バックアップを使用して製品情報をプルする新しい ObjectDataSource にバインドすること、`ProductsBLL`クラスの`GetProducts()`メソッド。 ObjectDataSource をまた構成ように、`ProductsBLL`クラス s `DeleteProduct(productID)` ObjectDataSource s メソッドにマップされて`Delete()`メソッド; INSERT および UPDATE のタブのドロップダウン リストが (None) に設定されていることを確認します。 最後に、FormView s のスマート タグでページングを有効にするチェック ボックスを確認します。
 
 これらの手順の後は、新しい ObjectDataSource s の宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample1.aspx)]
 
@@ -59,23 +54,19 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 
 削除、FormView s のみをサポートする ObjectDataSource コントロールにバインドされているため`ItemTemplate`のみの削除 ボタン、新機能と更新プログラムのボタンのないを提供します。 ただし、FormView s の宣言型マークアップが、余分な含まれ`EditItemTemplate`と`InsertItemTemplate`、これを削除することができます。 カスタマイズする少し、`ItemTemplate`ができるので、製品のサブセットのみのデータ フィールドを示しています。 私で製品の名前を表示するように構成 ve、 `<h3>` (削除) と共にその業者とカテゴリ名の上の見出しです。
 
-
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample2.aspx)]
 
 これらの変更は、ユーザーを削除 ボタンをクリックするだけで、製品を削除することができます、一度に 1 つの製品を通じて切り替えるできる web ページを完全に機能があります。 図 2 は、ブラウザーで表示したときにこれまで、進行状況のスクリーン ショットを示します。
 
-
 [![FormView には、1 つの製品についての情報が表示されます。](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
 
 **図 2**:FormView 表示情報について、1 つの製品 ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-vb/_static/image4.png))。
-
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>手順 2: 削除ボタン クライアント側の onclick イベントから confirm(string) 関数を呼び出す
 
 最後の手順は、FormView を作成すると、このような削除ボタンを構成するときに、s が、JavaScript、訪問者によってクリックされた`confirm(string)`関数が呼び出されます。 ボタンや LinkButton、ImageButton のクライアント側へのクライアント側スクリプトの追加`onclick`イベントの使用により実現できます、 `OnClientClick property`、これは ASP.NET 2.0 に新しいします。 値が必要なため、`confirm(string)`このプロパティを設定する関数が返されるだけです。 `return confirm('Are you certain that you want to delete this product?');`
 
 この変更後に削除 LinkButton s の宣言型構文ようになります。
-
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample3.aspx)]
 
@@ -84,11 +75,9 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 > [!NOTE]
 > 渡された文字列、 `confirm(string)` JavaScript 関数は、アポストロフィ (引用符ではなく) で区切られます。 JavaScript ではいずれかの文字を使用して文字列を区切ることができます。 渡された文字列の区切り記号のようにアポストロフィここで使用`confirm(string)`を使用する区切り記号では、あいまいさを持ち込んでいない、`OnClientClick`プロパティの値。
 
-
 [![確認メッセージは、今すぐ表示と削除 ボタンをクリックして](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
 
 **図 3**:確認メッセージは、今すぐ表示と削除 ボタンをクリックして ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))。
-
 
 ## <a name="step-3-configuring-the-onclientclick-property-for-the-delete-button-in-a-commandfield"></a>手順 3: [Commandfield]、[削除] ボタンの OnClientClick プロパティを構成します。
 
@@ -97,21 +86,17 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 > [!NOTE]
 > S [削除] ボタンを設定するときに`OnClientClick`プロパティで、適切な`DataBound`へのアクセスがあるイベント ハンドラーでは、データは、現在のレコードにバインドされました。 つまり、「は Chai 製品を削除しますか?」など、特定のレコードの詳細を含めるに確認メッセージを拡張できます。 このようなカスタマイズは、データ バインディング構文を使用してテンプレートのこともできます。
 
-
 実際に設定する、 `OnClientClick` CommandField、let s に削除ボタンのプロパティ ページに GridView を追加します。 この GridView、FormView を使用する同じ ObjectDataSource コントロールの使用を構成します。 GridView s のみ製品の名前、カテゴリ、および仕入先が含まれる BoundFields 制限もできます。 最後に、GridView s のスマート タグからの削除を有効にするチェック ボックスを確認します。 GridView s に、[commandfield] を追加します`Columns`コレクションとその`ShowDeleteButton`プロパティに設定`true`します。
 
 これらの変更を行った後、次のように GridView s の宣言型マークアップになります。
-
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample4.aspx)]
 
 [Commandfield] には、GridView s からプログラムでアクセスできる 1 つ削除 LinkButton のインスタンスが含まれています。`RowDataBound`イベント ハンドラー。 設定できる、参照とその`OnClientClick`プロパティに応じて。 イベント ハンドラーを作成、`RowDataBound`を次のコードを使用してイベント。
 
-
 [!code-vb[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample5.vb)]
 
 このイベント ハンドラーは、データ行 (削除 ボタンを持つもの) と連携し、プログラムで、削除 ボタンを参照して開始します。 [全般] では、次のパターンを使用します。
-
 
 [!code-vb[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample6.vb)]
 
@@ -126,18 +111,15 @@ JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載され
 > [!NOTE]
 > この手法が、DetailsView で [commandfield] で [削除] ボタンをプログラムでアクセスすることもできます。 DetailsView、ただし、d を作成、イベント ハンドラーを`DataBound`DetailsView があるないため、イベント、`RowDataBound`イベント。
 
-
 [![GridView の削除 ボタンをクリックすると、カスタマイズされた確認ダイアログ ボックスが表示されます。](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
 
 **図 4**:GridView の削除 ボタンをクリックするとカスタマイズの確認 ダイアログ ボックスが表示されます ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))。
-
 
 ## <a name="using-templatefields"></a>TemplateFields を使用します。
 
 [Commandfield] の欠点の 1 つは、そのボタンは、インデックスを通じてアクセスする必要があり、結果のオブジェクトは、適切なボタンの種類 (ボタンや LinkButton、ImageButton) にキャストする必要があります。 実行時まで検出できない問題への招待の「マジック ナンバー」およびハード コーディングされた型を使用します。 たとえば、または別の開発者は、いくつかの時点を将来 (Edit ボタン) などの変更で [commandfield] に新しいボタンを追加する場合、`ButtonType`プロパティ、既存のコードは、エラーを発生させずはコンパイルされますが、例外が発生する可能性があります、ページにアクセスまたは、コードの記述方法と、加えられた変更によって、予期しない動作します。
 
 別のアプローチでは、TemplateFields GridView および DetailsView のコマンドに変換します。 これを TemplateField が生成されます、 `ItemTemplate` LinkButton (またはボタンまたは ImageButton) を持つ各ボタン、[commandfield] にします。 これらのボタン`OnClientClick`、フォーム ビューで表示した場合、または適切なプログラムでアクセスできるに、プロパティを宣言によって、割り当てられることができます`DataBound`イベント ハンドラーを次のパターンを使用します。
-
 
 [!code-vb[Main](adding-client-side-confirmation-when-deleting-vb/samples/sample7.vb)]
 

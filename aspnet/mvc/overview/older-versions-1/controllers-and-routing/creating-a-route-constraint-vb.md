@@ -8,19 +8,18 @@ ms.date: 02/16/2009
 ms.assetid: b7cce113-c82c-45bf-b97b-357e5d9f7f56
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8c7b2274ff396f222382488ed877599e86ae5b99
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 205742dd8f866c8828008c8aac7ab3f98b173ceb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412685"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123419"
 ---
 # <a name="creating-a-route-constraint-vb"></a>ルート制約を作成する (VB)
 
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > このチュートリアルでは、Stephen Walther は、正規表現のルート制約を作成して、ブラウザーが一致するルートを要求する方法を制御する方法について説明します。
-
 
 ルート制約を使用すると、特定のルートに一致するブラウザーの要求を制限できます。 正規表現を使用して、ルート制約を指定することができます。
 
@@ -50,11 +49,9 @@ ms.locfileid: "59412685"
 
 Details() アクションには、整数パラメーターが必要ですが、ため、整数値以外のものを含む要求を行うと、エラーが発生します。 たとえば、URL/Product/apple をお使いのブラウザーに入力した場合は、図 1 エラー ページを表示がされます。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
 
 **図 01**:展開のページが表示 ([フルサイズの画像を表示する をクリックします](creating-a-route-constraint-vb/_static/image2.png))。
-
 
 本当にする内容は、のみ一致する適切な整数 productId を含む Url です。 ルートに一致する Url を制限するのにルートを定義するときに制約を使用できます。 リスト 3 で修正された製品のルートには、整数にのみ一致する正規表現の制約が含まれています。
 

@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: 789bf26df82d275c45e633de50c3cce1d82838b6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a3a53aa88abbe1bcaaea7d691406800c8f9b988b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59406627"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134548"
 ---
 # <a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET の IIS ディレクトリのアクセス拒否
 
 > このホワイト ペーパーでは、必要な作業が、ASP.NET アプリケーションの要求には、エラーが返された場合について説明します"へのアクセスを拒否*DirectoryName*ディレクトリ。 起動しないディレクトリの変更を監視します。"
 > 
 > ASP.NET 1.0 と ASP.NET 1.1 に適用されます。
-
 
 小なりを使用して ASP.NET V1 RTM 実行されるように特権 windows アカウント、ローカル コンピューターで"ASPNET"アカウントとして登録します。
 

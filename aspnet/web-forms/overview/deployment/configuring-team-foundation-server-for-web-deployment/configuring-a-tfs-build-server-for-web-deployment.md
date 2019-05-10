@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f8400241-4f4b-4bbd-9994-54fb64909e6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 1500415c7ee017776c59acb05a2eaefc6956a41b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b3aaf7234706d149a3c784347528923f662c3511
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404707"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133880"
 ---
 # <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置の TFS ビルド サーバーを構成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59404707"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、チーム ビルドとインターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して、ソリューション構築、デプロイする Team Foundation Server (TFS) ビルド サーバーを準備する方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -103,7 +102,6 @@ ms.locfileid: "59404707"
 
 > [!NOTE]
 > 展開プロセスには、VSDBCMD.exe または SQLCMD.exe などのツールの使用が含まれている場合は、ビルド サーバーでこれらがインストールされていることを確認する必要があります。 VSDBCMD.exe Visual Studio ツールは、Team Foundation ビルドをインストールするときに通常、サーバーに追加します。 SQLCMD.exe は、SQL Server ツールです。 SQLCMD.exe からのスタンドアロン バージョンをダウンロードすることができます、 [Microsoft SQL Server 2008 R2 Feature Pack](https://go.microsoft.com/?linkid=9805134)ページ。
-
 
 ## <a name="conclusion"></a>まとめ
 

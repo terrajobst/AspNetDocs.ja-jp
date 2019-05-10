@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 5b033582-1646-42c2-b20d-7edc8814e970
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9228fd7bb1a816dc1e7e068c47ee603b91c6c218
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c6bf4712fb734cf14420fd62c9eaf190a2c28168
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389779"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123991"
 ---
 # <a name="iteration-1--create-the-application-vb"></a>繰り返し #1 – アプリケーションを作成する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59389779"
 [コードをダウンロードします。](iteration-1-create-the-application-vb/_static/contactmanager_1_vb1.zip)
 
 > 最初のイテレーションを作成、連絡先マネージャー最も簡単な方法で考えられるします。 基本的なデータベース操作のサポートを追加します。作成、読み取り、更新、および削除 (CRUD)。
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>ASP.NET MVC 連絡先管理アプリケーション (VB) の構築
 
@@ -70,7 +69,6 @@ ASP.NET MVC アプリケーションでは、Visual Studio 2008 または Visual
 > 
 > Visual Web Developer と ASP.NET MVC アプリケーションの場合は、Visual Web Developer Service Pack 1 インストールが必要です。 Service Pack 1 では、Web アプリケーション プロジェクトを作成することはできません。
 
-
 ASP.NET MVC フレームワーク。 ASP.NET MVC フレームワークは、次のアドレスからダウンロードできます。
 
 [https://www.asp.net/mvc](../../../index.md)
@@ -87,14 +85,11 @@ ASP.NET MVC フレームワーク。 ASP.NET MVC フレームワークは、次�
 
 ASP.NET MVC Web アプリケーション プロジェクト。 Visual Studio を起動し、メニュー オプションを選択**ファイル]、[新しいプロジェクト**します。 **新しいプロジェクト**ダイアログでは、(図 1 参照) が表示されます。 選択、 **Web**プロジェクトの種類と**ASP.NET MVC Web アプリケーション**テンプレート。 新しいプロジェクトに名前を*ContactManager* [ok] ボタンをクリックします。
 
-
 上部にあるドロップダウン リストから選択されている .NET Framework 3.5 があることを確認の右、**新しいプロジェクト**ダイアログ。 それ以外の場合、ASP.NET MVC Web アプリケーション テンプレートは表示されません。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image1.jpg)](iteration-1-create-the-application-vb/_static/image1.png)
 
 **図 01**:新しいプロジェクト ダイアログ ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image2.png))。
-
 
 ASP.NET MVC アプリケーション、**単体テスト プロジェクトの作成**ダイアログが表示されます。 このダイアログ ボックスを使用すると、作成し、ASP.NET MVC アプリケーションを作成するときに、単体テスト プロジェクトをソリューションに追加することを指定します。 オプションを選択する必要がありますが、このイテレーションの単体テストを構築することはありません、**はい、単体テスト プロジェクトを作成**後のイテレーションで単体テストを追加する予定なので。 最初に新しい ASP.NET MVC プロジェクトを作成するときは、テスト プロジェクトを追加するは、ASP.NET MVC プロジェクトが作成された後にテスト プロジェクトを追加するよりもはるかに簡単です。
 
@@ -102,19 +97,15 @@ ASP.NET MVC アプリケーション、**単体テスト プロジェクトの�
 > 
 > Visual Web Developer では、テスト プロジェクトはサポートされていません、Visual Web Developer を使用する場合、単体テスト プロジェクトの作成ダイアログを取得しないできません。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image2.jpg)](iteration-1-create-the-application-vb/_static/image3.png)
 
 **図 02**:単体テスト プロジェクトの作成 ダイアログ ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image4.png))。
 
-
 ASP.NET MVC アプリケーションは、Visual Studio ソリューション エクスプ ローラー ウィンドウに表示されます (図 3 を参照してください)。 表示されないが、ソリューション エクスプ ローラー ウィンドウを表示 メニュー オプションを選択して、このウィンドウを開くことができますし、場合**ビュー、ソリューション エクスプ ローラー**します。 2 つのプロジェクトがソリューションに含まれることに注意してください。 ASP.NET MVC プロジェクトとテストのプロジェクト。 ContactManager は ASP.NET MVC プロジェクトの名前し、ContactManager.Tests はテスト プロジェクトの名前します。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image3.jpg)](iteration-1-create-the-application-vb/_static/image5.png)
 
 **図 03**:ソリューション エクスプ ローラー ウィンドウ ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image6.png))。
-
 
 ## <a name="deleting-the-project-sample-files"></a>プロジェクトのサンプル ファイルを削除します。
 
@@ -140,11 +131,9 @@ Microsoft SQL Server、Oracle、MySQL、および IBM DB2 データベースを�
 
 アプリを右クリックして新しいデータベースを作成\_メニュー オプションを選択して、ソリューション エクスプ ローラー ウィンドウで、データ フォルダー**追加]、[新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、**データ**カテゴリと**SQL Server データベース**テンプレート (図 4 参照)。 新しいデータベース ContactManagerDB.mdf 名し、[ok] ボタンをクリックします。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image4.jpg)](iteration-1-create-the-application-vb/_static/image7.png)
 
 **図 04**:新しい Microsoft SQL Server Express データベースを作成する ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image8.png))。
-
 
 新しいデータベースを作成した後、データベースがアプリに表示\_ソリューション エクスプ ローラー ウィンドウで、データ フォルダー。 サーバー エクスプ ローラー ウィンドウを開き、データベースに接続する ContactManager.mdf ファイルをダブルクリックします。
 
@@ -152,19 +141,15 @@ Microsoft SQL Server、Oracle、MySQL、および IBM DB2 データベースを�
 > 
 > サーバー エクスプ ローラー ウィンドウには、Microsoft Visual Web Developer の場合、データベース エクスプ ローラー ウィンドウが呼び出されます。
 
-
 サーバー エクスプ ローラー ウィンドウを使用すると、データベース テーブル、ビュー、トリガー、ストアド プロシージャなどの新しいデータベース オブジェクトを作成します。 [テーブル] フォルダーを右クリックし、メニュー オプションを選択**新しいテーブルの追加**します。 (図 5 を参照してください)、データベースのテーブル デザイナーが表示されます。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image5.jpg)](iteration-1-create-the-application-vb/_static/image9.png)
 
 **図 05**:データベースのテーブル デザイナー ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image10.png))。
 
-
 次の列を含むテーブルを作成する必要があります。
 
 <a id="0.2_table01"></a>
-
 
 | **列名** | **[データ型]** | **Null を許容します。** |
 | --- | --- | --- |
@@ -173,7 +158,6 @@ Microsoft SQL Server、Oracle、MySQL、および IBM DB2 データベースを�
 | LastName | nvarchar (50) | False |
 | 電話番号 | nvarchar (50) | False |
 | 電子メール | nvarchar(255) | False |
-
 
 最初の列、Id 列は特殊です。 Id 列と主キー列として Id 列をマークする必要があります。 列にある列のプロパティ (図 6 下部にあるを参照) を展開し、Id の指定のプロパティの下にスクロールして、Id 列を指定します。 設定、 **(Id)** プロパティ値を**はい**します。
 
@@ -193,7 +177,6 @@ ASP.NET MVC アプリケーションは、モデル、ビュー、およびコ�
 > 
 > ASP.NET MVC フレームワークは、任意の方法で Microsoft Entity Framework には関連付けられません。 ASP.NET MVC は、NHibernate、LINQ to SQL、または ADO.NET を含む別のデータベース アクセス テクノロジで使用できます。
 
-
 データ モデル クラスを作成する次の手順に従います。
 
 1. ソリューション エクスプ ローラー ウィンドウで、Models フォルダーを右クリックして**追加、新しい項目の**します。 **新しい項目の追加**ダイアログでは、(図 6 参照) が表示されます。
@@ -202,36 +185,29 @@ ASP.NET MVC アプリケーションは、モデル、ビュー、およびコ�
 4. **データ接続の選択**ステップ、ContactManagerDB.mdf データベースを選択し、名前を入力*ContactManagerDBEntities*エンティティ接続設定が (図 8 参照)。
 5. **データベース オブジェクトの選択**ステップで、テーブル (図 9 参照) というラベルの付いたチェック ボックスをオンします。 データ モデル (だけ 1 つである、Contacts テーブル)、データベースに含まれるすべてのテーブルが含まれます。 名前空間を入力*モデル*します。 ウィザードを完了するには、[完了] をクリックします。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image6.jpg)](iteration-1-create-the-application-vb/_static/image11.png)
 
 **図 06**:新しい項目の追加 ダイアログ ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image12.png))。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image7.jpg)](iteration-1-create-the-application-vb/_static/image13.png)
 
 **図 07**:モデル コンテンツの選択 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image14.png))。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image8.jpg)](iteration-1-create-the-application-vb/_static/image15.png)
 
 **図 08**:データ接続の選択 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image16.png))。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image9.jpg)](iteration-1-create-the-application-vb/_static/image17.png)
 
 **図 09**:データベース オブジェクトの選択 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image18.png))。
 
-
 Entity Data Model ウィザードを完了すると、Entity Data Model のデザイナーが表示されます。 デザイナーでは、モデル化される各テーブルに対応するクラスが表示されます。 連絡先をという名前の 1 つのクラスが表示されます。
 
 Entity Data Model ウィザードでは、データベース テーブル名に基づくクラス名を生成します。 ほとんどの場合、ウィザードによって生成されたクラスの名前を変更する必要があります。 デザイナーで、Contacts クラスを右クリックし、メニュー オプションを選択**の名前を変更**します。 連絡先 (複数) から、クラスの名前を変更するには (単数) にお問い合わせください。 クラス名を変更した後は、図 10 のようなクラスが表示されます。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image10.jpg)](iteration-1-create-the-application-vb/_static/image19.png)
 
 **図 10**:連絡先クラス ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image20.png))。
-
 
 この時点で、データベース モデルを作成しました。 データベースに特定の連絡先レコードを表す、Contact クラスを使用できます。
 
@@ -241,11 +217,9 @@ Entity Data Model ウィザードでは、データベース テーブル名に�
 
 ホーム コント ローラーのクラスを作成するには、ソリューション エクスプ ローラー ウィンドウで、Controllers フォルダーを右クリックし、メニュー オプションを選択する**追加、コント ローラー** (図 11 を参照してください)。 チェック ボックスに注意してください**アクション メソッドの作成、更新、および詳細のシナリオを追加**します。 クリックする前にこのチェック ボックスがオンになっていることを確認、**追加**ボタンをクリックします。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image11.jpg)](iteration-1-create-the-application-vb/_static/image21.png)
 
 **図 11**:Home コント ローラーの追加 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image22.png))。
-
 
 Home コント ローラーを作成するときに、リスト 1 で、クラスを取得します。
 
@@ -271,19 +245,15 @@ Index() メソッドは、ビューを連絡先データベースのテーブル
 
 Index() メソッドを右クリックし、メニュー オプションを選択して、インデックス ビューを作成する**ビューの追加**(図 12 を参照してください)。 このメニュー オプションを選択すると表示、**ビューの追加**ダイアログ (図 13 を参照してください)。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image12.jpg)](iteration-1-create-the-application-vb/_static/image23.png)
 
 **図 12**:インデックス ビューの追加 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image24.png))。
 
-
 **ビューの追加**ダイアログ ボックスで、チェック ボックスをラベル付け**厳密に型指定されたビューを作成**。 ビューのデータ クラス ContactManager.Contact とコンテンツ リストの表示を選択します。 これらのオプションを選択するには、連絡先のレコードの一覧を表示するビューが生成されます。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image13.jpg)](iteration-1-create-the-application-vb/_static/image25.png)
 
 **図 13**:ビューの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image26.png))。
-
 
 クリックすると、**追加** ボタン、リスト 3 のインデックス ビューを生成します。 通知、&lt;ページ % @ %&gt;ディレクティブ ファイルの先頭に表示されます。 インデックス ビューが継承、ViewPage&lt;IEnumerable&lt;ContactManager.Models.Contact&gt; &gt;クラス。 つまり、ビュー モデル クラスは、Contact エンティティの一覧を表します。
 
@@ -299,19 +269,15 @@ Index ビューの本文には、各モデルのクラスによって表され�
 
 インデックス ビューを変更した後は、Contact Manager アプリケーションを実行できます。 [デバッグ開始] メニュー オプション、デバッグを選択するか、f5 キーを押すだけです。 初めてアプリケーションを実行するダイアログ ボックスを図 14 に取得します。 オプションを選択**デバッグを有効にする Web.config ファイルを変更**[ok] ボタンをクリックします。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image14.jpg)](iteration-1-create-the-application-vb/_static/image27.png)
 
 **図 14**:デバッグの有効化 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image28.png))。
 
-
 既定では、インデックス ビューが返されます。 このビューでは、連絡先データベースのテーブルからデータをすべて一覧表示されます (図 15 を参照してください)。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image15.jpg)](iteration-1-create-the-application-vb/_static/image29.png)
 
 **図 15**:インデックス ビュー ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image30.png))。
-
 
 インデックス ビューに、ビューの下部にある場合は、新規作成というラベルの付いたリンクが含まれることに注意してください。 次のセクションでは、新しい連絡先を作成する方法について説明します。
 
@@ -335,19 +301,15 @@ Create() メソッドの本文には、Entity Framework がデータベースに
 
 2 つの Create() メソッドのいずれかを右クリックし、メニュー オプションを選択して新しい連絡先を作成するための HTML フォームを生成する**ビューの追加**(図 16 を参照してください)。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image16.jpg)](iteration-1-create-the-application-vb/_static/image31.png)
 
 **図 16**:作成ビューの追加 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image32.png))。
 
-
 **ビューの追加**ダイアログ ボックスで、 **ContactManager.Contact**クラスおよび**作成**コンテンツの表示のオプション (図 17 を参照してください)。 クリックすると、**追加**ボタン、作成ビューが自動的に生成されます。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image17.jpg)](iteration-1-create-the-application-vb/_static/image33.png)
 
 **図 17**:展開のページが表示 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image34.png))。
-
 
 ビュー作成するにはには、各連絡先クラスのプロパティのフォームのフィールドが含まれています。 ビューを作成するためのコードは、リスト 5 に含まれます。
 
@@ -357,11 +319,9 @@ Create() メソッドの本文には、Entity Framework がデータベースに
 
 Create() メソッドを変更し、作成ビューを追加した後は、連絡先マネージャー アプリケーションを実行し、新しい連絡先を作成することができます。 をクリックして、**新規作成**作成ビューに移動するインデックス ビューに表示されるリンク。 図 18 に表示する必要があります。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image18.jpg)](iteration-1-create-the-application-vb/_static/image35.png)
 
 **図 18**:Create View ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image36.png))。
-
 
 ## <a name="editing-contacts"></a>連絡先の編集
 
@@ -379,11 +339,9 @@ Entity Framework は、データベースに変更された連絡先を保存に
 
 Edit() メソッドを右クリックし、追加のビュー メニュー オプションを選択して編集フォームを含むビューを生成することができます。 ビューの追加] ダイアログ ボックスで、[、 **ContactManager.Models.Contact**クラスおよび**編集**コンテンツを表示 (図 19 を参照してください)。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image19.jpg)](iteration-1-create-the-application-vb/_static/image37.png)
 
 **図 19**:ビューの編集の追加 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image38.png))。
-
 
 [追加] ボタンをクリックすると、新しい編集ビューが自動的に生成されます。 生成される HTML フォームには、各連絡先クラス (7 のリストを参照) のプロパティに対応するフィールドが含まれています。
 
@@ -399,7 +357,6 @@ Edit() メソッドを右クリックし、追加のビュー メニュー オ�
 > 
 > 後で、7 では、イテレーションでよう変更 Contact Manager Ajax の削除、1 つの手順をサポートするようします。
 
-
 2 つの新しい Delete() メソッドは、8 の一覧に含まれます。
 
 **8 - Controllers\HomeController.vb (削除メソッド) を一覧表示します。**
@@ -408,31 +365,25 @@ Edit() メソッドを右クリックし、追加のビュー メニュー オ�
 
 最初の Delete() メソッドは、連絡先のレコードをデータベースから削除するための確認フォームを返します (Figure20 を参照してください)。 2 番目の Delete() メソッドは、データベースに対して実際の削除操作を実行します。 データベースから元の連絡先の取得が完了した後は、データベースの削除を実行する、Entity Framework DeleteObject() と SaveChanges() メソッドが呼び出されます。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image20.jpg)](iteration-1-create-the-application-vb/_static/image39.png)
 
 **図 20**:削除の確定ビュー ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image40.png))。
-
 
 (図 21 を参照してください) に連絡先レコードを削除するためのリンクが含まれているように、インデックス ビューを変更する必要があります。 [編集] リンクを含む同じテーブル セルに次のコードを追加する必要があります。
 
 {.id = item.Id})%&gt;
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image21.jpg)](iteration-1-create-the-application-vb/_static/image41.png)
 
 **図 21**:[編集] リンクをビューにインデックス ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image42.png))。
-
 
 次に、削除確定ビューを作成する必要があります。 ホーム コント ローラー クラスの Delete() メソッドを右クリックし、追加のビュー メニュー オプションを選択します。 (図 22 を参照してください) ビューの追加 ダイアログが表示されます。
 
 異なりは、リスト、作成、編集ビューの場合、ビューの追加ダイアログには、削除ビューを作成するオプションがありません。 代わりに、選択、 **ContactManager.Models.Contact**データ クラスと**空**コンテンツを表示します。 コンテンツのオプションでは、自分たちが、ビューを作成することが必要、空のビューを選択します。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image22.jpg)](iteration-1-create-the-application-vb/_static/image43.png)
 
 **図 22**:削除確認ビューの追加 ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image44.png))。
-
 
 一覧表示する 9 Delete ビューのコンテンツが含まれています。 このビューには、確認のフォームが含まれます (図 21 を参照) を削除するかどうか、特定の連絡先があります。
 
@@ -446,26 +397,21 @@ Edit() メソッドを右クリックし、追加のビュー メニュー オ�
 
 この問題は、簡単に修正します。 最初に、Home コント ローラーの名前をリファクターする必要があります。 HomeController クラスにでは、Visual Studio コード エディターを開き、クラスの名前を右クリックしてメニュー オプションを選択**の名前を変更**します。 このメニュー オプションを選択すると、名前の変更 ダイアログが開きます。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image23.jpg)](iteration-1-create-the-application-vb/_static/image45.png)
 
 **図 23**:コント ローラーの名前のリファクタリング ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image46.png))。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image24.jpg)](iteration-1-create-the-application-vb/_static/image47.png)
 
 **図 24**:名前の変更 ダイアログを使用して ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image48.png))。
 
-
 コント ローラー クラスの名前を変更すると、Visual Studio にも、Views フォルダー内のフォルダーの名前が更新されます。 \Views\Contact フォルダーには、visual Studio は \Views\Home フォルダーを変更します。
 
 この変更を行った後、アプリケーションは、ホーム コント ローラーを不要になったがあります。 アプリケーションを実行すると、図 25 のエラー ページが表示されます。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-vb/_static/image25.jpg)](iteration-1-create-the-application-vb/_static/image49.png)
 
 **図 25**:既定のコント ローラーなし ([フルサイズの画像を表示する をクリックします](iteration-1-create-the-application-vb/_static/image50.png))。
-
 
 Home コント ローラーではなく、連絡先のコント ローラーを使用する Global.asax ファイル内の既定のルートを更新する必要があります。 Global.asax ファイルを開き、既定のルート (10 のリストを参照) で使用される既定のコント ローラーを変更します。
 

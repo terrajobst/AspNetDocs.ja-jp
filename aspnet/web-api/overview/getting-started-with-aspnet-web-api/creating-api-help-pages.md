@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: e3f6a9b8a6835b034a075d580cd9a33136969990
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8308dab8bd66aa8f5a3c5fb4133fc7a3df78f671
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395018"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125243"
 ---
 # <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API のヘルプ ページの作成
 
@@ -92,7 +92,6 @@ XML ドキュメントを有効にするようになりました。 ソリュー
 
 > [!NOTE]
 > ヒント :メソッド上の行にキャレットを配置し、次の 3 つのスラッシュを入力する場合、Visual Studio は自動的に XML 要素を挿入します。 空白を入力します。
-
 
 今すぐビルドし、もう一度アプリケーションを実行し、ヘルプ ページに移動します。 API テーブル内のドキュメント文字列が表示されます。
 

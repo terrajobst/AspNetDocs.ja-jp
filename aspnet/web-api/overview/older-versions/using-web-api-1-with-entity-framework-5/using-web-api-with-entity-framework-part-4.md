@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 792f4513-a508-4d14-a0dd-1a2fe282c7bb
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 54b3afac9b19962b02336a35909b208c4e3f7504
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e045b17434d46fa1b6e7942db95ecad67c34a46
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400556"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134758"
 ---
 # <a name="part-4-adding-an-admin-view"></a>第 4 部:管理ビューの追加
 
@@ -52,7 +52,6 @@ ms.locfileid: "59400556"
 > [!NOTE]
 > サンプル プロジェクトでは、いくつかその他の表面的な変更、"Your logo here"という文字列の置換などをしました。 これらのアプリケーションの機能は影響はありません。 プロジェクトをダウンロードして、ファイルを比較することができます。
 
-
 アプリケーションを実行し、ホーム ページの上部に表示される"Admin"リンクをクリックします。 管理者 ページは、次のようになります。
 
 ![](using-web-api-with-entity-framework-part-4/_static/image3.png)
@@ -79,7 +78,6 @@ AdminController.cs ファイルを開き、追加、 **Authorize**全体に属�
 
 > [!NOTE]
 > MVC と Web API の両方を定義**Authorize**異なる名前空間内の属性。 MVC を使用して**System.Web.Mvc.AuthorizeAttribute**Web API を使用しますが、 **System.Web.Http.AuthorizeAttribute**します。
-
 
 今すぐ管理者のみでは、管理者 ページを表示できます。 また、管理コント ローラーに HTTP 要求を送信する場合、要求は認証クッキーを含める必要があります。 それ以外の場合は、サーバーが HTTP 401 (未承認) 応答を送信します。 これでわかる Fiddler に GET 要求を送信することによって`http://localhost:*port*/api/admin`します。
 

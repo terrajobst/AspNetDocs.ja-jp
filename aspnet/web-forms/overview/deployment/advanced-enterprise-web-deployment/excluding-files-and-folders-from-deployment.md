@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f4cc2d40-6a78-429b-b06f-07d000d4caad
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 4da291af4042e6e09c6917703b160ca717eecd15
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a262ce43d7199fb1015d54d0b7c213857c360946
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133889"
 ---
 # <a name="excluding-files-and-folders-from-deployment"></a>配置からファイルとフォルダーを除外する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59407992"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、方法できますから除外するファイルとフォルダー web 配置パッケージをビルドして、web アプリケーション プロジェクトをパッケージ化について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -48,7 +47,6 @@ Visual Studio で web アプリケーション プロジェクトのプロパテ
 > [!NOTE]
 > このファイルに含めるファイルを決定するロジックが含まれています。   
 > *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
-
 
 ## <a name="excluding-specific-files-and-folders"></a>特定のファイルとフォルダーを除外
 
@@ -77,9 +75,7 @@ Visual Studio で web アプリケーション プロジェクトのプロパテ
 
 これは、この基本的な構造 *. wpp.targets*ファイル。
 
-
 [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample1.xml)]
-
 
 各項目がという名前の項目メタデータ要素が含まれることに注意してください**FromTarget**します。 これは、任意の値であり、ビルド プロセスには影響しません特定のファイルまたはフォルダーが省略された理由を示すためにだけ機能する場合、ユーザーが、ビルド ログをレビューします。
 

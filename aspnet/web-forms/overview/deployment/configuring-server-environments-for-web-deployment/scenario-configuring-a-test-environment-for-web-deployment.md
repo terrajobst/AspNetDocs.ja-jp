@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 44a22ac7-1fc7-4174-b946-c6129fb6a19b
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7ea8c74a6621200e3a0d52a7c37fed6b5eeff4e5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d580e550f2461837f0e8a4e477273348b49cb53e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391625"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132393"
 ---
 # <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>シナリオ:Web 配置のテスト環境を構成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59391625"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、開発者の一般的な web 展開シナリオについて説明しますまたはテスト環境とのような環境をセットアップするには完了する必要があるタスクについて説明します。
-
 
 開発者は、web アプリケーションで作業、現実的な設定で、アプリケーションに変更をテストに使用できるサーバー環境にアクセスで多くの場合、与えられます。 この種の開発またはテスト環境には、通常、これらの特徴があります。
 
@@ -47,7 +46,6 @@ ms.locfileid: "59391625"
 
 > [!NOTE]
 > 使用することも[オンデマンドで Web デプロイ](https://technet.microsoft.com/library/ee517345(WS.10).aspx)(「一時エージェント」)。 要件と制約の観点から、リモート エージェントのアプローチに似ています。
-
 
 この場合は、開発者は、移行先サーバーで管理者特権を持ってし、テスト環境では厳密なセキュリティ制約には、リモート エージェントを使用して展開をサポートするテスト web サーバーを構成するため、論理的な選択です。 これはそれほど複雑であり、Web 配置ハンドラー アプローチよりも少ない初期の構成が必要です。 また、リモート アクセス展開をサポートするデータベース サーバーを構成する必要もあります。
 

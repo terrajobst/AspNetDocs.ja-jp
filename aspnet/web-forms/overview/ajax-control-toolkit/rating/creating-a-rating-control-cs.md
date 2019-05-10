@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 969fb28f-2bff-4fc4-b24a-27f5e2534a37
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fa118b4d733d7848b838f80e9918d62ae60033af
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1fde131086d4fb29c499f7f7c6281153c2766166
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378976"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125058"
 ---
 # <a name="creating-a-rating-control-c"></a>評価コントロールを作成する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59378976"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0CS.pdf)
 
 > 多くの web サイトから e コマース、コミュニティ サイトにユーザーは、レート記事や項目を提供します。 通常はコーディング上の工夫が必要ですが、Control Toolkit、破棄する必要は。
-
 
 ## <a name="overview"></a>概要
 
@@ -64,7 +63,6 @@ ms.locfileid: "59378976"
 [!code-aspx[Main](creating-a-rating-control-cs/samples/sample5.aspx)]
 
 ページを保存し、お使いのブラウザーに読み込みます。 (最初は空) の評価の項目をポイントすると、JavaScript の効果が発生します。評価の変更。 一連の星をクリックすると、現在の評価が保持されます。 最後に、フォームを送信するときに、サーバー側コードは、選択した評価を出力します。
-
 
 [![最小限のコードで評価システムを作成します。](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
 

@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 24ad086d-865e-433c-9ac9-05f1a553da16
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 0edab77cd973af129e54c7867265f86b47c349a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ed7414c0b27fc41360e259bfb0a4c82e88a4e15
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410137"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128674"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用して ASP.NET Web の展開:はじめに
 
@@ -30,7 +30,6 @@ ms.locfileid: "59410137"
 > チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET 展開に関するフォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)または[StackOverflow](http://stackoverflow.com)します。
 > 
 > このコンテンツはの無料電子書籍としても[TechNet の電子書籍ギャラリー](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -133,7 +132,6 @@ SDK の依存関係の数がコンピューターに既にある、によって�
 
 > [!NOTE]
 > このチュートリアルは、Azure SDK のバージョン 1.8.1 で記述されています。 その後、追加機能を持つ新しいバージョンがリリースされました。 チュートリアルでは、これらの機能とその詳細情報が存在するリソースへのリンクは言うまでも更新されました。
-
 
 手順とスクリーン ショットは、Windows 8 に基づきますが、チュートリアルでは、Windows 7 の相違点を説明します。
 

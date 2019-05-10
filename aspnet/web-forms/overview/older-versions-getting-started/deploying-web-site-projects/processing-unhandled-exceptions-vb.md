@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d917982d5bd97bf1fa9d926e761c6fe847bb0574
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c28f520f710f77689548158e88d87d1051235d8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394199"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124231"
 ---
 # <a name="processing-unhandled-exceptions-vb"></a>未処理の例外を処理する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59394199"
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples)します ([ダウンロード方法](/aspnet/core/tutorials/index#how-to-download-a-sample))。
 
 > 運用環境で web アプリケーションでランタイム エラーが発生したときは、重要なは、開発者に通知して、エラーを記録して、時間で、後で診断することがあります。 このチュートリアルでは、ASP.NET のランタイム エラーを処理およびカスタム コードが実行されるたびに、ASP.NET の実行時までの未処理の例外バブルの 1 つの方法で検索の概要を示します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -34,7 +33,6 @@ ms.locfileid: "59394199"
 
 > [!NOTE]
 > このチュートリアルで調査情報は、いくつか一意またはカスタマイズされた方法で未処理の例外を処理する必要がある場合に便利です。 だけする必要がある例外をログに、開発者に通知する場合、移動する方法は、エラーのログ記録ライブラリを使用します。 次の 2 つのチュートリアルでは、このような 2 つのライブラリの概要を示します。
-
 
 ## <a name="executing-code-when-theerrorevent-is-raised"></a>ときにコードを実行する、`Error`イベントが発生します
 
@@ -56,7 +54,6 @@ ms.locfileid: "59394199"
 > [!NOTE]
 > ASP.NET アプリケーションをデプロイするときにコピーする必要があります、`Global.asax`運用環境へのファイル。 `Global.asax.vb` WAP で作成されると、ファイルはこのコードは、プロジェクトのアセンブリにコンパイルされるので、運用環境にコピーする必要はありません。
 
-
 Visual Studio のグローバル アプリケーション クラス テンプレートで作成されたイベント ハンドラーが完全ではありません。 いずれかのイベント ハンドラーを追加する`HttpApplication`イベント、イベント ハンドラーの名前を付けて`Application_EventName`します。 次のコードを追加するなど、`Global.asax`のイベント ハンドラーを作成するファイル、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample1.vb)]
@@ -65,7 +62,6 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 
 > [!NOTE]
 > *HTTP モジュール*のイベント ハンドラーを定義する別の方法を提供して`HttpApplication`イベント。 HTTP モジュールは、別のクラス ライブラリに直接 web アプリケーション プロジェクト内に配置または分離が可能なクラス ファイルとして作成されます。 クラス ライブラリ分割すること、ために、HTTP モジュールは作成するための柔軟で再利用可能なモデルを提供`HttpApplication`イベント ハンドラー。 一方、`Global.asax`ファイルは特定が存在する場所、web アプリケーションに HTTP モジュールをこの時点ではのアセンブリを削除するだけでは web サイトへの HTTP モジュールの追加のアセンブリにコンパイルできます、`Bin`フォルダーと登録、モジュールで`Web.config`します。 このチュートリアルは、作成すると、HTTP モジュールを使用して検索しませんが、次の 2 つのチュートリアルで使用される 2 つのエラーのログ記録ライブラリは、HTTP モジュールとして実装されます。 HTTP モジュールの利点の詳細についてを参照してください[を使用して HTTP モジュールは、プラグ可能な ASP.NET コンポーネントを作成するためのハンドラー](https://msdn.microsoft.com/library/aa479332.aspx)します。
-
 
 ## <a name="retrieving-information-about-the-unhandled-exception"></a>ハンドルされない例外に関する情報を取得します。
 
@@ -92,7 +88,6 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 > [!NOTE]
 > `<system.net>`要素にはで使用される SMTP サーバーの設定が含まれています、`SmtpClient`クラス、電子メールを送信するときにします。 Web ホスティング会社可能性がありますが、アプリケーションからの電子メールの送信に使用できる SMTP サーバー。 Web アプリケーションで使用する必要があります、SMTP サーバー設定については、web ホストのサポート セクションを参照してください。
 
-
 次のコードを追加、`Application_Error`エラーが発生したときに、開発者に電子メールを送信するイベント ハンドラー。
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample4.vb)]
@@ -105,7 +100,6 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 
 > [!NOTE]
 > 値を変更しますが、web アプリケーションでこのコードを使用する前に、`ToAddress`と`FromAddress`定数support@example.comにどのような電子メール エラー通知の電子メール アドレスに送信する必要があり、由来します。 SMTP サーバー設定を指定する必要も、`<system.net>`セクション`Web.config`します。 使用する SMTP サーバーの設定を決定する、web ホスト プロバイダーを参照してください。
-
 
 コード エラーがあるときにいつでも、開発者は送信電子メール メッセージ、エラーの概要し、YSOD が含まれていますが、されます。 前のチュートリアルで Genre.aspx へのアクセスで渡して、無効な実行時エラーを示す`ID`など、クエリ文字列を通じて値`Genre.aspx?ID=foo`します。 ページにアクセスして、`Global.asax`インプレースでファイルが生成されます、同じユーザー エクスペリエンスの前のチュートリアルで開発環境で引き続きものを運用環境で学習中に、例外の詳細黄色い画面の死亡事故を参照してくださいカスタム エラー ページを参照してください。 この既存の動作に加え、開発者にメールが送信されます。
 

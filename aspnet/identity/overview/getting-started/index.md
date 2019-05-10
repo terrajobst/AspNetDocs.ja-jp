@@ -9,17 +9,16 @@ ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: 36933f42806b82437f0ba8e59ad1c90024ed6b9e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 78679828dadacc1ba36eeaced9c21b741806ba47
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401232"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121512"
 ---
 # <a name="getting-started-with-aspnet-identity"></a>ASP.NET Identity の概要
 
 > ASP.NET の Id システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 プロファイルのサポート、OAuth 統合が含まれています、OWIN を使用機能しは Visual Studio 2013 に付属の ASP.NET テンプレートに含まれています。
-
 
 - [ASP.NET Identity 入門](introduction-to-aspnet-identity.md)
 - [ASP.NET Identity 推奨リソース](aspnet-identity-recommended-resources.md)

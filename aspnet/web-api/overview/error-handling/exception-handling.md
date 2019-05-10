@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 08b3663c1f9a08b8b3600113c32aeffb36c0d990
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: dbdbab6aefec840e2fec9e9cd33f3d124093750e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399321"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125314"
 ---
 # <a name="exception-handling-in-aspnet-web-api"></a>ASP.NET Web API での例外処理
 
@@ -49,7 +49,6 @@ Web API が記述することで例外を処理する方法をカスタマイズ
 
 > [!NOTE]
 > ASP.NET Web API での例外フィルターは、ASP.NET MVC と似ています。 ただし、個別に、別の名前空間と関数で宣言されています。 具体的には、 **HandleErrorAttribute** MVC で使用されるクラスでは、Web API コント ローラーによってスローされた例外は処理されません。
-
 
 ここでは、変換を行うフィルター **NotImplementedException**例外に HTTP 状態コード、501 Not Implemented:
 

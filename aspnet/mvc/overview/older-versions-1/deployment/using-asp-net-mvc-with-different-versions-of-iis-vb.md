@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: 1c1283b2-6956-4937-b568-d30de432ce23
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0446a125845134d2fad869094a540c960f6b0a25
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b754175c853c20eec6be3521376b62d62f33106d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406471"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123212"
 ---
 # <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>さまざまなバージョンの IIS と共に ASP.NET MVC を使用する (VB)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、異なるバージョンのインターネット インフォメーション サービスで ASP.NET MVC、および URL ルーティングを使用する方法について説明します。 IIS 7.0 (クラシック モード)、IIS 6.0 では、以前のバージョンの IIS と ASP.NET MVC を使用するためのさまざまな方法を学習します。
-
 
 ASP.NET MVC フレームワークは、コント ローラー アクションへのブラウザー要求をルーティングする ASP.NET ルーティングに依存します。 ASP.NET ルーティングを利用するには、web サーバーで追加の構成手順を実行する必要があります。 すべては、インターネット インフォメーション サービス (IIS) と処理モードは、アプリケーションの要求のバージョンによって異なります。
 
@@ -53,18 +52,15 @@ Microsoft Windows XP Professional には、IIS 5.1 が含まれています。 I
 
 既定では、2 つのアプリケーション プールをサポートするために IIS を構成します。**DefaultAppPool**と**クラシック .NET AppPool**します。 DefaultAppPool が選択されている場合は、統合された要求の処理モードでアプリケーションが実行されます。 従来の .NET AppPool が選択されている場合は、従来の要求の処理モードでは、アプリケーションが実行されています。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.png)
 
 **図 1**:要求の処理モードの検出 ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.png))。
-
 
 アプリケーションの編集 ダイアログ ボックス内で要求の処理モードを変更できることに注意してください。 [選択] ボタンをクリックし、アプリケーションに関連付けられているアプリケーション プールを変更します。 クラシックから ASP.NET アプリケーションを統合モードに変更するときに互換性の問題が認識はことに注意してください。 詳細については、次の記事を参照してください。
 
 - Windows Vista および Windows Server 2008 - 上の iis 7.0 の ASP.NET 1.1 のアップグレード [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
 
 - Iis 7.0 の ASP.NET の統合 [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
-
 
 ASP.NET アプリケーションは、DefaultAppPool を使用している場合は、ASP.NET のルーティング (とそのため ASP.NET MVC) を機能を取得する追加の手順を実行する必要はありません。 ただし、ASP.NET アプリケーションは、従来の .NET AppPool を使用し、読み取りを保持するように構成、さらに作業があります。
 
@@ -96,11 +92,9 @@ Web サーバー (たとえば、アプリケーションは、インターネ�
 
 残念ながら、古いバージョンの IIS、ASP.NET フレームワークにこれらの要求が転送されません。 そのため、これらの要求をコント ローラーにルーティングされません。 たとえば、URL/Home/インデックスのブラウザー要求を行う場合は、図 2 に、エラー ページが表示されます。
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.png)
 
 **図 2**:404 Not Found エラーが発生する ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.png))。
-
 
 古いバージョンの IIS は、ASP.NET フレームワークにのみ特定の要求をマップします。 適切なファイル拡張子を持つ URL に対して要求があります。 たとえば、/SomePage.aspx の要求は、ASP.NET フレームワークにマップを取得します。 ただし、/SomePage.htm 要求されていません。
 
@@ -116,9 +110,7 @@ Web サーバー (たとえば、アプリケーションは、インターネ�
 
 [!code-vb[Main](using-asp-net-mvc-with-different-versions-of-iis-vb/samples/sample2.vb)]
 
-
 重要:、Global.asax ファイルを変更した後にもう一度 ASP.NET MVC アプリケーションのビルドに注意してください。
-
 
 リスト 2 で、Global.asax ファイルに 2 つの重要な変更があります。 Global.asax で定義されている 2 つのルートはようになりました。 既定のルートの最初のルート URL パターンは、ようになります。
 
@@ -138,9 +130,7 @@ Web サーバー (たとえば、アプリケーションは、インターネ�
 
 ルート テーブルに次の変更を行った後は、すべてのアプリケーションのリンクが、これらの新しい URL パターンと互換性があるかどうかを確認する必要があります。 つまり、.mvc 拡張機能にはすべてのリンクが含まれているを確認します。 Html.ActionLink() のヘルパー メソッドを使用して、リンクを生成する場合何も変更する必要がありません。
 
-
 Registermvc.wcf スクリプトを使用する代わりに IIS を手動で ASP.NET フレームワークにマップされている新しい拡張機能を追加できます。 新しい拡張機能を自分で追加するときに、チェック ボックスをオンにというラベルが付いたこと確認**ファイルが存在することを確認**はチェックされません。
-
 
 ## <a name="hosted-server"></a>ホストされているサーバー
 
@@ -172,11 +162,9 @@ IIS 7.0 の場合、ワイルドカード スクリプト マップを有効に�
 6. MVC の名前を入力します。
 7. をクリックして、 **OK**ボタン
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.png)
 
 **図 3**:IIS 7.0 でワイルドカード スクリプト マップの作成 ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image6.png))。
-
 
 IIS 6.0 ではワイルドカード スクリプト マップを作成する次の手順に従います。
 
@@ -189,19 +177,15 @@ IIS 6.0 ではワイルドカード スクリプト マップを作成する次�
 7. チェック ボックスをオフに**ファイルの存在を確認します。**
 8. をクリックして、 **OK**ボタン
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image7.png)
 
 **図 4**:IIS 6.0 ではワイルドカード スクリプト マップの作成 ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image8.png))。
 
-
 ワイルドカード スクリプト マップを有効にした後は、ルートのルートを含むように、Global.asax ファイルのルート テーブルを変更する必要があります。 それ以外の場合、アプリケーションのルート ページの要求を行うときに、図 5 で、エラー ページが表示されます。 リスト 4 変更後の Global.asax ファイルを使用することができます。
-
 
 [![[新しいプロジェクト] ダイアログ ボックス](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image9.png)
 
 **図 5**:ルートのルートのエラーがありません ([フルサイズの画像を表示する をクリックします](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image10.png))。
-
 
 **4 - Global.asax (ルートのルートで変更) を一覧表示します。**
 

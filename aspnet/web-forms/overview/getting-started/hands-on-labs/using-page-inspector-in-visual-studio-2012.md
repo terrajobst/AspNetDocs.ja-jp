@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f42b1be2697ba7d1145b3e334fe8f4ebf019cd12
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396564"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133555"
 ---
 # <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012 で Page Inspector を使用する
 
@@ -36,7 +36,6 @@ ms.locfileid: "59396564"
 > このラボでは、拡張機能とソース フォルダーにサンプル Web アプリケーションに軽微な変更を適用することで以前に説明する新機能について説明します。
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)します。
-
 
 <a id="Objectives"></a>
 
@@ -74,13 +73,12 @@ ms.locfileid: "59396564"
 > [!NOTE]
 > 各演習は、各演習を他のユーザーとは別にすることができますが、この演習の Begin フォルダーにあるソリューションを伴います。 演習のソース コード内で、対応する手順」の手順を完了に起因するコードを Visual Studio ソリューションを格納した End フォルダーを検索することもされます。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**30 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Using_Page_Inspector_in_ASPNET_MVC_Projects"></a>
-### <a name="exercise-1-using-page-inspector-in-aspnet-mvc-projects"></a>手順 1:ASP.NET MVC プロジェクトで Page Inspector の使用
+### <a name="exercise-1-using-page-inspector-in-aspnet-mvc-projects"></a>演習 1:ASP.NET MVC プロジェクトで Page Inspector の使用
 
 この演習では、プレビュー、およびデバッグする方法について説明します、 **ASP.NET MVC 4**ソリューションを使用して**Page Inspector**します。 まず、簡単な簡単なツールについては、Web のプロセスのデバッグを容易にする機能を実行します。 次に、スタイルの問題を含む web ページで作業します。 Page Inspector を使用して、問題を生成するソース コードを検索し、その修正方法を学習します。
 
@@ -271,7 +269,7 @@ ASP.NET MVC 4 の実際の WYSIWYG が存在しないためスタイルの問題
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Using_Page_Inspector_in_WebForms_Projects"></a>
-### <a name="exercise-2-using-page-inspector-in-webforms-projects"></a>手順 2:WebForms プロジェクトで Page Inspector の使用
+### <a name="exercise-2-using-page-inspector-in-webforms-projects"></a>演習 2:WebForms プロジェクトで Page Inspector の使用
 
 この演習では、プレビュー、Page Inspector を使用して、WebForms ソリューションをデバッグする方法を学びます。 については、Page Inspector の機能を Web のプロセスのデバッグを容易にするツールの簡単な概要をまず実行します。 次に、スタイルの問題を含む web ページで作業します。 Page Inspector を使用して、問題を生成するソース コードを検索し、その修正方法を学習します。
 

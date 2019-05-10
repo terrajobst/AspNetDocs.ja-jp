@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 095a5572c755446e0661c052ca9de82d636429fd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390221"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134598"
 ---
 # <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトの訪問者情報 (分析) の追跡
 
@@ -35,7 +35,6 @@ ms.locfileid: "59390221"
 > 
 > - ASP.NET Web Pages (Razor) 2
 > - ASP.NET Web Helpers Library (NuGet パッケージ)
-
 
 Analytics は、ユーザーが、サイトを使用する方法を理解できるように、web サイト上のトラフィックを測定するテクノロジの一般的な用語です。 多くの分析サービスは、使用可能な Google、Yahoo、StatCounter、およびその他のユーザーからサービスを含みます。
 
@@ -60,7 +59,6 @@ ASP.NET Web ページには、いくつかの analytics ヘルパーが含まれ
 
 > [!NOTE]
 > Analytics アカウントを作成するときにをトラッキングするサイトの URL を登録します。 (トラフィックのみユーザーは)、実際のトラフィックが追跡するされない場合は、ローカル コンピューター上のすべてをテストするため、サイトの統計情報を記録および表示することはできません。 この手順は、ページを analytics ヘルパーを追加する方法を示します。 サイトを発行するときに、ライブ サイトは、分析プロバイダーに情報が送信されます。
-
 
 1. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)、既に追加していない場合。
 2. Google アナリティクスでアカウントを作成し、アカウント名を記録します。

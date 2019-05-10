@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: a5c7804c2336e91dc171b5da52819436472e81cf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c5da14a6856f551343b6fb14f0aedc659e792f6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59412451"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122065"
 ---
 # <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 アプリケーションから Web API を呼び出す (C#)
 
@@ -40,7 +40,6 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 > [!NOTE]
 > Web API と、ローカル システム上の Windows Phone 8 プロジェクトの間の接続をテストしようとするで手順を実行する必要があります、 *[にローカルで Web API アプリケーション、Windows Phone 8 エミュレーターを接続します。コンピューター](https://go.microsoft.com/fwlink/?LinkId=324014)* に関する記事をテスト環境を設定します。
 
-
 <a id="STEP1"></a>
 ### <a name="step-1-creating-the-web-api-bookstore-project"></a>手順 1: Web API の書店プロジェクトの作成
 
@@ -50,20 +49,16 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 2. クリックして**ファイル**、し**新しい**、し**プロジェクト**します。
 3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**インストール済み**、し**テンプレート**、し**Visual c#**、し**Web**します。
 
-
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
    |-----------------------------------------------------------------------------------------------------------------------------------------------------|
    |                                                                展開するイメージをクリックします。                                                                |
 
-
 4. 強調表示**ASP.NET Web アプリケーション**、入力**BookStore**プロジェクト名、およびクリックの **[ok]** します。
 5. ときに、**新しい ASP.NET プロジェクト** ダイアログ ボックスが表示されたら、選択、 **Web API**テンプレート、およびクリック**OK**。
-
 
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image4.png)](calling-web-api-from-a-windows-phone-8-application/_static/image3.png) |
    |-----------------------------------------------------------------------------------------------------------------------------------------------------|
    |                                                                展開するイメージをクリックします。                                                                |
-
 
 6. Web API プロジェクトが開いたら、プロジェクトから、サンプル コント ローラーを削除します。
 
@@ -195,8 +190,6 @@ F5 キーを押すと、Visual Studio がエミュレーターを起動両方、
 
 エラー メッセージでタップすると、エラーに関する詳細が表示されます。
 
-
 | [![](calling-web-api-from-a-windows-phone-8-application/_static/image16.png)](calling-web-api-from-a-windows-phone-8-application/_static/image15.png) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                                 展開するイメージをクリックします。                                                                 |
-

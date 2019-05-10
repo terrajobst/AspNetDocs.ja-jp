@@ -8,19 +8,18 @@ ms.date: 12/03/2010
 ms.assetid: aaadd9bb-5508-448c-ad57-5497dff90e13
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 0fd943eba4c6d80bba5ca6c4d69cbd3a8927513d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ff6a808dd501df8056c0fb0784a8e42e094d5db7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391513"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132069"
 ---
 # <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォーム - パート 8
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、次を参照してください[シリーズの最初のチュートリアル。](the-entity-framework-and-aspnet-getting-started-part-1.md)
-
 
 ## <a name="using-dynamic-data-functionality-to-format-and-validate-data"></a>Dynamic Data 機能を使用して書式設定およびデータを検証するには
 

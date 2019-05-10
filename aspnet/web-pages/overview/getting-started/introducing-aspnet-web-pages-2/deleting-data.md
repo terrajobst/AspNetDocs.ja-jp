@@ -8,12 +8,12 @@ ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: e9ffe0ea3e2bf817675a4a771d3471ec6eb91133
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c8620fc1abc61d514bdc039c66f7a84e67e89abe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406744"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133494"
 ---
 # <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web ページの概要 - データベースのデータを削除します。
 
@@ -33,7 +33,6 @@ ms.locfileid: "59406744"
 > - `WebGrid`ヘルパー。
 > - SQL`Delete`コマンド。
 > - `Database.Execute` SQL を実行するメソッドを`Delete`コマンド。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -86,7 +85,6 @@ ms.locfileid: "59406744"
 > アプリでは、ユーザーがレコードを変更することができます、ときにも編集するため、ユーザーに、レコードを提示するがあります。 レコードを削除するのには、この手順を省略したくなる場合があります。 ただし、その手順をスキップするはありません。 (これはも、レコードをことを目的とするレコードを削除しようとしていることを確認します。 ユーザーに便利です)。
 > 
 > 後続のチュートリアル セットでは、ユーザーがレコードを削除する前にログインする必要がありますので、ログイン機能を追加する方法を確認します。
-
 
 という名前のページを作成する*DeleteMovie.cshtml*と新機能を次のマークアップ ファイルで置換します。
 

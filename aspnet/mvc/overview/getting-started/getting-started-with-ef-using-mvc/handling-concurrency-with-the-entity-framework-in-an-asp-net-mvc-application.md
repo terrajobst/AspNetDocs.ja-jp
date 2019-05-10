@@ -9,12 +9,12 @@ ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 11b1bc316f730e31b4a01924765db3c982783652
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 43c5fdff5601c9bff32300d3460de0079a498d28
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383019"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120910"
 ---
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>チュートリアル: ASP.NET MVC 5 アプリでの EF による同時実行を処理します。
 
@@ -26,14 +26,12 @@ ms.locfileid: "59383019"
 
 このチュートリアルでは、次の作業を行いました。
 
-
 > [!div class="checklist"]
 > * コンカレンシーの競合について学習する
 > * オプティミスティック同時実行制御を追加します。
 > * 部門のコント ローラーを変更します。
 > * テスト同時実行の処理
 > * [削除] ページを更新する
-
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

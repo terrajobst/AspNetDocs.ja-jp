@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: cc764f3b-6921-486a-8f44-c6ccd1249acd
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: ad5f32a08270ce318c03e1b29acd74d12bbb3d3b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da914986ff020879dfe634967b39b32250cbf43b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394056"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120849"
 ---
 # <a name="adding-a-controller"></a>コントローラーを追加する
 
@@ -34,13 +34,11 @@ MVC の略*モデル-ビュー-コント ローラー*します。 MVC は、う
 
 コント ローラー クラスを作成してから始めましょう。 **ソリューション エクスプ ローラー**を右クリックし、*コント ローラー*フォルダーをクリック**追加**、し**コント ローラー**します。
 
-
 ![](adding-a-controller/_static/image1.png)
 
 **スキャフォールディングの追加**ダイアログ ボックスで、をクリックして**MVC 5 コント ローラー - 空**、 をクリックし、**追加**。
 
 ![](adding-a-controller/_static/image2.png)  
- 
 
 新しいコント ローラー"HelloWorldController"という名前を**追加**します。
 
@@ -80,7 +78,6 @@ URL の最初の部分を実行するコント ローラー クラスを決定�
 
 > [!NOTE]
 > セキュリティに関するメモ :使用上のコード[HttpUtility.HtmlEncode](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx)悪意のある入力 (つまり JavaScript) からアプリケーションを保護します。 詳細については、「[方法: 文字列に HTML エンコーディングを適用することで、Web アプリケーションでのスクリプトによる攻略から保護](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx)します。
-
 
  アプリケーションを実行し、URL の例を参照 (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`)。 URL の `name` と `numtimes` に違う値を指定してみてください。 [ASP.NET MVC モデル バインド システム](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx)メソッドのパラメーターに、アドレス バーにクエリ文字列から名前付きパラメーターを自動的にマップされます。
 

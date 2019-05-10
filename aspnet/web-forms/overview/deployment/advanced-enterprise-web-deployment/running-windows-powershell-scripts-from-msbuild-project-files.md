@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 198f8c907cf866bd0fd1ae67cf7169a63dda4bc9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7b09c07b8b7c2a61ca534f7a66a929593f3d04ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384703"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131565"
 ---
 # <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行する
 
@@ -35,7 +35,6 @@ ms.locfileid: "59384703"
 > 
 > このトピックでは、Microsoft Build Engine (MSBuild) プロジェクト ファイルでカスタム ターゲットからローカルとリモートの両方に、Windows PowerShell スクリプトを実行する方法を示します。
 
-
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
 これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを格納しています。すべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
@@ -55,15 +54,11 @@ ms.locfileid: "59384703"
 
 という名前のサンプル Windows PowerShell スクリプトを使用して、このトピックのタスクで**LogDeploy.ps1** MSBuild からスクリプトを実行する方法について説明します。 **LogDeploy.ps1**スクリプトには、ログ ファイルを単一行のエントリを書き込む単純な関数が含まれています。
 
-
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
-
 
 **LogDeploy.ps1**スクリプトは 2 つのパラメーターを受け取ります。 最初のパラメーターは、エントリを追加するログ ファイルに完全なパスを表すし、2 番目のパラメーターは、ログ ファイルに記録する、配置先を表します。 スクリプトを実行するときに、この形式でログ ファイルに行が追加されます。
 
-
 [!code-html[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample2.html)]
-
 
 させる、 **LogDeploy.ps1** MSBuild を使用可能なスクリプト、する必要があります。
 
@@ -82,21 +77,15 @@ ms.locfileid: "59384703"
 
 構文の観点から MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行しているが通常コマンド プロンプトから、Windows PowerShell スクリプトを実行すると同じ。 実行可能ファイル、powershell.exe を起動し、使用する必要がある、 **– コマンド**スイッチを実行する Windows PowerShell のコマンドを提供します。 (Windows PowerShell v2 を使用することも、 **– ファイル**切り替えます)。 コマンドは、この形式を実行する必要があります。
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample3.cmd)]
-
 
 例えば:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample4.cmd)]
-
 
 スクリプトへのパスにスペースが含まれている場合は、ファイルのパスを単一引用符の前にアンパサンドで囲む必要があります。 コマンドを囲むために既に使用しているため、二重引用符を使用することはできません。
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample5.cmd)]
-
 
 MSBuild からこのコマンドを呼び出す場合は、いくつか追加の考慮事項にもあります。 最初に、含める必要がある、 **– NonInteractive**スクリプトをサイレント モードで実行されるようにするフラグ。 次に、含める必要がある、 **– ExecutionPolicy**フラグを適切な引数の値。 これには、Windows PowerShell はスクリプトに適用され、スクリプトの実行を防ぐことがあります既定の実行ポリシーをオーバーライドすることができます、実行ポリシーを指定します。 これらの引数の値から選択できます。
 
@@ -114,15 +103,11 @@ MSBuild からこのコマンドを呼び出す場合は、いくつか追加の
 
 - これらの変更を行ったときに、コマンドがこのようになります。
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample6.cmd)]
-
 
 カスタム MSBuild プロジェクト ファイル内には、新しいターゲットを作成して使用することができます、 **Exec**このコマンドを実行するタスク。
 
-
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample7.xml)]
-
 
 この例に注意してください。
 
@@ -139,34 +124,24 @@ Windows PowerShell がリモート コンピューターでスクリプトを実
 > [!NOTE]
 > 使用する前に、 **Invoke-command**リモート コンピューターでスクリプトを Windows PowerShell を実行するコマンドレット、リモートのメッセージを受け入れるように WinRM リスナーを構成する必要があります。 コマンドを実行してこれを行う**winrm quickconfig**リモート コンピューター。 詳細については、次を参照してください。[インストールと構成の Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx)します。
 
-
 実行するこの構文を使用する、Windows PowerShell ウィンドウから、 **LogDeploy.ps1**リモート コンピューター上のスクリプト。
 
-
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample8.ps1)]
-
 
 > [!NOTE]
 > 使用するさまざまな他の方法がある**Invoke-command**スクリプトを実行するが、この方法が最も簡単なパラメーター値を指定して、パスにスペースを管理する必要がある場合。
 
-
 これをコマンド プロンプトから実行するときに実行可能ファイル、Windows PowerShell を起動して使用する必要があります、 **– コマンド**の説明を指定するパラメーター。
-
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample9.cmd)]
 
-
 前に、いくつか追加のスイッチを行い、MSBuild からコマンドを実行すると、予約済み XML 文字をエスケープする必要があります。
-
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample10.cmd)]
 
-
 使用できると同様に、最後に、 **Exec**コマンドを実行するカスタム MSBuild ターゲット内のタスク。
 
-
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample11.xml)]
-
 
 Windows PowerShell がで指定したコンピューターでスクリプトを実行、ビルド プロセスの一部としてこのターゲットを実行するときに、 **– computername**引数。
 

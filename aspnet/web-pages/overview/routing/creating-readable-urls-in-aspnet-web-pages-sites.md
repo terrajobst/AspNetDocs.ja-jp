@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: a8aac1ac-89de-4415-afe0-97a41c6423d2
 msc.legacyurl: /web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: bfce6120b76d68a3f212639eafa6aa091d7e345d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 832db8e144cab730f16c78f67c12feb9b7c92c7c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59381784"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131767"
 ---
 # <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトでわかりやすい Url を作成します。
 
@@ -33,7 +33,6 @@ ms.locfileid: "59381784"
 >   
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
-
 
 ## <a name="about-routing"></a>ルーティングについて
 
@@ -77,7 +76,6 @@ ASP.NET 要求を処理するときにルーティングする方法を特定す
 > [!NOTE]
 > 明確にする特定のページ要求 (を含む要求、 *.cshtml*ファイル名拡張子) が期待するのと同じように動作します。 ような要求`http://www.contoso.com/a/b.cshtml`ページの実行は*b.cshtml*問題なく。
 
-
 ページ内では、ページのパス情報を取得できます`UrlData`ディクショナリであるプロパティ。 という名前のファイルがあると*ViewCustomers.cshtml*し、サイトがこの要求を取得します。
 
 `http://mysite.com/myWebSite/ViewCustomers/1000`
@@ -88,7 +86,6 @@ ASP.NET 要求を処理するときにルーティングする方法を特定す
 
 > [!NOTE]
 > ルーティングと、完全なファイル名が関与しない、ためにありますあいまいさが同じであるページがあるとが異なるファイル名拡張子の名前 (たとえば、 *MyPage.cshtml*と*MyPage.html*). ルーティングの問題を回避するために、その拡張機能でのみが異なる名前を持つサイトのページがないことを確認することをお勧めします。
-
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース

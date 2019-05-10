@@ -8,15 +8,14 @@ ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 3a39e8d1979a743101d728eb3430e9aa0efb1252
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ad491193c0d669464721d82f86a78b79f45b93aa
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415636"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131377"
 ---
 # <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 の概要
-
 
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -116,7 +115,6 @@ ASP.NET Web フォームに慣れていない開発者は、このチュート�
 ![Wingtip Toys の製品](introduction-and-overview/_static/image2.png)
 
 特定の製品を選択した場合は、製品の詳細が表示されます。
-
 
 ![Wingtip Toys の製品の詳細](introduction-and-overview/_static/image3.png)
 

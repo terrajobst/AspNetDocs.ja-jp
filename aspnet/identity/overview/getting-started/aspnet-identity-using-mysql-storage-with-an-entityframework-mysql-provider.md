@@ -9,19 +9,18 @@ ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 6a73efb7d577cc70ca5ebaa69e8fdd03f3735ae4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e89ed139657c5ce9ddcc56879946c62038919483
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59379665"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121445"
 ---
 # <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity:EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)
 
 によって[Maurycy Markowski](https://github.com/maumar)、 [Raquel Soares De Almeida](https://github.com/raquelsa)、 [Robert McMurray](https://github.com/rmcmurray)
 
 > このチュートリアルでは、既定のデータ ストレージ メカニズムを置き換える方法[ **ASP.NET Identity** ](introduction-to-aspnet-identity.md) (SQL クライアント プロバイダー) を EntityFramework MySQL プロバイダーを使用します。
-
 
 このチュートリアルでは、次のトピックを取り上げます。
 
@@ -90,7 +89,6 @@ EntityFramework MySQL database に接続するためには、MySQL プロバイ�
 > [!NOTE]
 > これは、アセンブリのプレリリース版であり、バグを含めることができますようです。 実稼働環境では、プレリリース バージョンのプロバイダーを使用する必要があります。
 
-
 [展開の次の画像をクリックします。]
 
 [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image22.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image21.png)
@@ -101,7 +99,6 @@ EntityFramework MySQL database に接続するためには、MySQL プロバイ�
 
 > [!NOTE]
 > 次の例には、MySql.Data.dll の特定のアセンブリのバージョンが含まれています。 アセンブリのバージョンが変更された場合は、適切なバージョンを使用して、適切な構成設定を変更する必要があります。
-
 
 1. Visual Studio 2013 で、プロジェクトの Web.config ファイルを開きます。
 2. 次の構成の設定は、Entity Framework の既定のデータベース プロバイダーとファクトリ定義を見つけます。
@@ -131,7 +128,6 @@ Entity Framework Code First を使用して、 **MigrationHistory**テーブル 
 
 > [!NOTE]
 > Azure またはオンプレミスでホストされているデータベースを使用しているかどうかに SQL Server インスタンスに接続している場合、この手順は必要ありません。
-
 
 Mysql カスタム Entity Framework の初期化子を作成するには、次の手順を使用します。
 

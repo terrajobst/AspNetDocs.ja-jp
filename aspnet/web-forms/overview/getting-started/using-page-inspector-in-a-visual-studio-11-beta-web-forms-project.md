@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: c39e1cf42fde382a9e74d7f865f0dac1aa62ddc8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c165bbea505b4cb8eae1312cdd587f4ed36541a0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384241"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127948"
 ---
 # <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web フォームで Visual Studio 2012 の Page Inspector を使用する
 
@@ -25,7 +25,7 @@ Tim Ammann、
 > 
 > このチュートリアルでは、次のセクションがあります。
 > 
-> [必須コンポーネント](#_1_prerequisites)
+> [前提条件](#_1_prerequisites)
 > 
 > [Web アプリケーションを作成します。](#_2_creating_a)
 > 
@@ -43,7 +43,6 @@ Tim Ammann、
 > 
 > [CSS カラー ピッカーを使用します。](#css_color_picker)
 
-
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>必須コンポーネント
@@ -52,7 +51,6 @@ Tim Ammann、
 
 > [!NOTE]
 > Page Inspector の最新バージョンを取得する[Web Platform Installer](https://go.microsoft.com/fwlink/?LinkId=255386) for .NET 2.0、Azure SDK をインストールします。
-
 
 Page Inspector には、Microsoft Web Developer Tools が付属しています。 最新バージョンは、1.3 です。 どのバージョンを確認するが、Visual Studio を実行して**Microsoft Visual Studio**から、**ヘルプ**メニュー。
 
@@ -190,7 +188,6 @@ Page Inspector のブラウザー ウィンドウで変更がどのすぐにプ�
 
 > [!NOTE]
 > この機能には、Page Inspector のバージョン 1.3 が必要です。
-
 
 CSS 自動同期機能を使用すると、CSS ファイルを直接編集して、Page Inspector のブラウザー内ですぐに変更を確認できます。
 

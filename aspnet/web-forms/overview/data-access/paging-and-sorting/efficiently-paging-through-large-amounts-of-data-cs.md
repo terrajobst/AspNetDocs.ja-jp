@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21f37dc1ffbcb7e8e15e4bed261b68ffc0388c21
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2031c8d43afbdcdae3110ce3d7c3ec9e88c7261a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388427"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133318"
 ---
 # <a name="efficiently-paging-through-large-amounts-of-data-c"></a>大量のデータを効率的にページングする (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59388427"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_25_CS.exe)または[PDF のダウンロード](efficiently-paging-through-large-amounts-of-data-cs/_static/datatutorial25cs1.pdf)
 
 > データ プレゼンテーション コントロールの既定のページング オプションは適していません大量のデータを使用する場合、データのサブセットのみが表示される場合でも、その基になるデータ ソース コントロールが、すべてのレコードを取得します。 このような状況では、する必要がありますにカスタムにページングします。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -37,7 +36,6 @@ ms.locfileid: "59388427"
 
 > [!NOTE]
 > カスタム ページングが発生した正確なパフォーマンスの向上は、レコードをポケットベル通知とデータベース サーバー上に配置されている負荷の合計数によって異なります。 このチュートリアルの最後には、カスタム ページング経由で取得したパフォーマンスの利点を紹介するいくつかの大まかなメトリックも取り上げます。
-
 
 ## <a name="step-1-understanding-the-custom-paging-process"></a>手順 1: カスタム ページング処理について理解します。
 
@@ -62,47 +60,37 @@ ms.locfileid: "59388427"
 
 表示されているページのレコードの正確なサブセットを取得する方法を調べる前に、最初からページングされるレコードの合計数を返す方法を見て s を使用できます。 この情報は、ページングのユーザー インターフェイスを適切に構成するために必要です。 使用して、特定の SQL クエリによって返されるレコードの合計数を取得できます、 [ `COUNT`集計関数](https://msdn.microsoft.com/library/ms175997.aspx)します。 たとえば、内のレコードの合計数を決定するため、`Products`テーブル、次のクエリを使用できます。
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample1.sql)]
 
 この情報を返す、DAL にメソッドを追加して使用できます。 具体的には、DAL メソッドを作成します`TotalNumberOfProducts()`を実行する、`SELECT`前に示したステートメント。
 
 開いて開始、`Northwind.xsd`でデータセットの型指定されたファイル、`App_Code/DAL`フォルダー。 次に、右クリックし、`ProductsTableAdapter`デザイナーでクエリの追加を選択します。 として前のチュートリアルで確認したところこれは、DAL に新しいメソッドを追加することにより、呼び出されると、特定の SQL ステートメントまたはストアド プロシージャを実行します。 同様に、TableAdapter には、前のチュートリアルでのメソッドが、このいずれかのアドホック SQL ステートメントを使用するを選択します。
 
-
 ![アドホック SQL ステートメントを使用します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image1.png)
 
 **図 1**:アドホック SQL ステートメントを使用します。
 
-
 次の画面を作成するクエリの種類を指定できます。 このクエリは内のレコードの合計数に 1 つのスカラー値に返すため、`Products`テーブルの選択、`SELECT`単一の値のオプションが返されます。
-
 
 ![1 つの値を返す SELECT ステートメントを使用するクエリを構成します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image2.png)
 
 **図 2**:1 つの値を返す SELECT ステートメントを使用するクエリを構成します。
 
-
 使用するクエリの種類を示す後、は、次に、クエリを指定します必要があります。
-
 
 ![製品のクエリから選択 COUNT(*) を使用します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image3.png)
 
 **図 3**:SELECT count (\*) FROM 製品クエリ
 
-
 最後に、メソッドの名前を指定します。 使用して、前述の s として`TotalNumberOfProducts`します。
-
 
 ![DAL メソッド TotalNumberOfProducts を名前します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image4.png)
 
 **図 4**:DAL メソッド TotalNumberOfProducts を名前します。
 
-
 [完了] をクリックした後、ウィザードが追加されます、 `TotalNumberOfProducts` DAL に対するメソッド。 場合に、SQL クエリの結果、DAL で返すスカラーのメソッドが null 許容型を返す`NULL`します。 この`COUNT`、ただし、常に返されます以外`NULL`値; に関係なく、DAL メソッドが null 許容の整数を返します。
 
 DAL メソッドだけでなく、BLL のメソッドも必要です。 開く、`ProductsBLL`クラス ファイルを追加、 `TotalNumberOfProducts` DAL s 単に呼び出すメソッドを`TotalNumberOfProducts`メソッド。
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample2.cs)]
 
@@ -127,41 +115,33 @@ DAL で BLL 開始行インデックスをそのまま使用するメソッド�
 
 `ROW_NUMBER()`キーワードでは、次の構文を使用して特定の順序で返された各レコードに順位付けが関連付けられています。
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample3.sql)]
 
 `ROW_NUMBER()` 指定された順序に関しては、各レコードのランクを指定する数値を返します。 たとえば、製品ごとの多い順にランクを表示する、最小コストの高い使えば、次のクエリ。
-
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample4.sql)]
 
 図 5 は、このクエリに Visual Studio で [クエリ] ウィンドウから実行したときに、秒の結果を示します。 製品は行ごとの価格のランクとの価格で並べ替えられますことに注意してください。
 
-
 ![価格のランクが含まれている各返されるレコード](efficiently-paging-through-large-amounts-of-data-cs/_static/image5.png)
 
 **図 5**:価格のランクが含まれている各返されるレコード
 
-
 > [!NOTE]
 > `ROW_NUMBER()` 多くの新しい順位付け関数の 1 つは SQL Server 2005 で使用できます。 詳細については詳しい`ROW_NUMBER()`、読み取り、その他の順位付け関数と共に[Microsoft SQL Server 2005 でランク付けされた結果を返す](http://www.4guysfromrolla.com/webtech/010406-1.shtml)します。
-
 
 指定した結果を順位付けと`ORDER BY`内の列、`OVER`句 (`UnitPrice`、上の例では)、SQL Server は、結果を並べ替える必要があります。 これは、結果には、順序付けられる列経由でクラスター化インデックスがある場合は、クイック操作またはカバリングがあるかどうか、インデックスしますが、それ以外の場合コストが高くすることができます。 十分な大きさのクエリのパフォーマンスを向上させるで使用される結果が順序付けられた列の非クラスター化インデックスを追加することを検討してください。 参照してください[順位付け関数と SQL Server 2005 のパフォーマンス](http://www.sql-server-performance.com/ak_ranking_functions.asp)用にパフォーマンスに関する考慮事項について詳しく説明します。
 
 によって返されるランク付け情報`ROW_NUMBER()`で直接使用することはできません、`WHERE`句。 派生テーブルを使用して、返される、`ROW_NUMBER()`で表示できますし、結果、`WHERE`句。 次のクエリは派生テーブルを使用して、と共に、ProductName および [単価] 列を返すなど、`ROW_NUMBER()`結果、および、使用、`WHERE`句をのみこれらの製品価格ランクを返すの 11 ~ 20。
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample5.sql)]
 
 少しさらに、この概念を拡張するには、目的の行の開始インデックスと行の最大数の値を指定されたデータの特定のページを取得するには、この方法を利用できます。
-
 
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample6.html)]
 
 > [!NOTE]
 > このチュートリアルで後でわかりますが、 *`StartRowIndex`* によって提供される ObjectDataSource のインデックスは、0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`より厳密に大きい *`StartRowIndex`* 以下と等しい、 *`StartRowIndex`*  + *`MaximumRows`*.
-
 
 これまで方法を説明してきた`ROW_NUMBER()`できる、開始行インデックスと行の最大数の値を指定されたデータの特定のページを取得するため、今すぐ必要があります DAL BLL 内のメソッドとしてこのロジックを実装します。
 
@@ -169,67 +149,51 @@ DAL で BLL 開始行インデックスをそのまま使用するメソッド�
 
 前のセクションでは、アドホック SQL ステートメントとして DAL メソッドを作成しました。 残念ながら、T-SQL パーサーのように TableAdapter ウィザードは t によって使用される Visual Studio で、`OVER`で使用される構文、`ROW_NUMBER()`関数。 そのため、ストアド プロシージャとしてこの DAL メソッドを作成する必要があります。 [表示] メニュー (またはヒット Ctrl + Alt + S) からサーバー エクスプ ローラーを選択し、展開、`NORTHWND.MDF`ノード。 新しいストアド プロシージャを追加するストアド プロシージャ ノードを右クリックし、新しいストアド プロシージャの追加を選択 (図 6 参照)。
 
-
 ![新しいストアド プロシージャを製品を使用するページングの追加します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image6.png)
 
 **図 6**:新しいストアド プロシージャを製品を使用するページングの追加します。
 
-
 このストアド プロシージャは、2 つの整数の入力パラメーター - を受け入れる必要があります`@startRowIndex`と`@maximumRows`を使用して、`ROW_NUMBER()`関数に並べ、`ProductName`フィールドに、指定したより大きい行のみを返す`@startRowIndex`と未満または等しい`@startRowIndex`  +  `@maximumRow`秒。 新しいストアド プロシージャに次のスクリプトを入力し、データベースにストアド プロシージャを追加する [保存] アイコンをクリックします。
-
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample7.sql)]
 
 ストアド プロシージャを作成すると、少しテストしてみましょう。右クリックし、`GetProductsPaged`ストアド プロシージャのサーバー エクスプ ローラーでの名前および Execute オプションを選択します。 Visual Studio から求められます、入力パラメーターの`@startRowIndex`と`@maximumRow`s (図 7 を参照してください)。 値を変化し、結果を確認します。
 
-
 ![値を入力、@startRowIndexと@maximumRowsパラメーター](efficiently-paging-through-large-amounts-of-data-cs/_static/image7.png)
 
 <strong>図 7</strong>:値を入力、@startRowIndexと@maximumRowsパラメーター
 
-
 後のパラメーターの値を入力してこれらの選択、結果を出力ウィンドウが表示されます。 図 8 は、10 の両方を渡すときに結果を示しています、`@startRowIndex`と`@maximumRows`パラメーター。
-
 
 [![レコードに含まれる 2 番目のページ データが返されます](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
 
 **図 8**:レコードに含まれる 2 番目のページ データが返されます ([フルサイズの画像を表示する をクリックします](efficiently-paging-through-large-amounts-of-data-cs/_static/image10.png))。
 
-
 これで作成されるストアド プロシージャを作成する準備ができたら、`ProductsTableAdapter`メソッド。 開く、`Northwind.xsd`で右クリックして、型指定されたデータセット、`ProductsTableAdapter`クエリの追加オプションを選択します。 アドホック SQL ステートメントを使用してクエリを作成する代わりには、既存のストアド プロシージャを使用してそれを作成します。
-
 
 ![既存のストアド プロシージャを使用して、DAL メソッドの作成します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image11.png)
 
 **図 9**:既存のストアド プロシージャを使用して、DAL メソッドの作成します。
 
-
 次に、呼び出すストアド プロシージャを選択するように求められます。 選択、`GetProductsPaged`ストアド プロシージャをドロップダウン リストから。
-
 
 ![選択、GetProductsPaged ストアド プロシージャをドロップダウン リストから](efficiently-paging-through-large-amounts-of-data-cs/_static/image12.png)
 
 **図 10**:選択、GetProductsPaged ストアド プロシージャをドロップダウン リストから
 
-
 次の画面で、要求するデータの種類は、ストアド プロシージャによって返される: 表形式のデータ、1 つの値または値はありません。 以降、`GetProductsPaged`ストアド プロシージャが複数のレコードが返される、表形式のデータを返すことを示します。
-
 
 ![ストアド プロシージャが表形式のデータを返すことを示します](efficiently-paging-through-large-amounts-of-data-cs/_static/image13.png)
 
 **図 11**:ストアド プロシージャが表形式のデータを返すことを示します
 
-
 最後に、作成するメソッドの名前を指定します。 前のチュートリアルとしてください DataTable を返すメソッドの両方の塗りつぶしを使用して DataTable を作成します。 最初のメソッドの名前を付けます`FillPaged`、もう 1 つ`GetProductsPaged`します。
-
 
 ![名前のメソッド FillPaged と GetProductsPaged](efficiently-paging-through-large-amounts-of-data-cs/_static/image14.png)
 
 **図 12**:名前のメソッド FillPaged と GetProductsPaged
 
-
 さらに、製品の特定のページを返す DAL メソッドを作成する必要もあります BLL にこのような機能を提供します。 DAL のメソッドと同様 BLL の GetProductsPaged メソッドは、開始行インデックスと行の最大数を指定するための 2 つの整数入力を受け入れる必要があり、指定した範囲内にあるレコードだけを返す必要があります。 DAL の GetProductsPaged メソッドにダウン呼び出しだけでそのように ProductsBLL クラスで BLL のメソッドを作成します。
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample8.cs)]
 
@@ -239,34 +203,27 @@ DAL で BLL 開始行インデックスをそのまま使用するメソッド�
 
 完全なレコードの特定のサブセットにアクセスするための BLL と DAL メソッドを使ってカスタム ページングを使用して、基になるレコードからそのページを制御 GridView を作成する準備が整いました。 開いて開始、`EfficientPaging.aspx`ページで、`PagingAndSorting`フォルダーは、ページに GridView を追加し、新しい ObjectDataSource コントロールを使用するように構成します。 過去のチュートリアルでは、多くの場合がありました ObjectDataSource を使用するように構成、`ProductsBLL`クラスの`GetProducts`メソッド。 今回は、ただし、使用する、`GetProductsPaged`メソッド代わりに、以降、`GetProducts`メソッドを返します。*すべて*データベースでは、製品の一方`GetProductsPaged`レコードの特定のサブセットだけを返します。
 
-
 ![ObjectDataSource ProductsBLL クラスの GetProductsPaged メソッドを使用して構成します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image15.png)
 
 **図 13**:ObjectDataSource ProductsBLL クラスの GetProductsPaged メソッドを使用して構成します。
-
 
 以降再読み取り専用の GridView を作成するには、INSERT、UPDATE でメソッドのドロップダウン リストを設定する少しし、(None) にタブを削除します。
 
 次のソースの ObjectDataSource ウィザード要求私たち、`GetProductsPaged`メソッド s`startRowIndex`と`maximumRows`パラメーターの値を入力します。 これらの入力パラメーターは、GridView で、自動的には設定実際には、単純に [なし] に、元のまま、[完了] をクリックします。
 
-
 ![入力パラメーターのソースを None のままにします](efficiently-paging-through-large-amounts-of-data-cs/_static/image16.png)
 
 **図 14**:入力パラメーターのソースを None のままにします
 
-
 ObjectDataSource ウィザードの完了後は、GridView は各製品のデータ フィールドのも、BoundField または CheckBoxField に含まれます。 自由に、必要に応じて、GridView の外観を調整できます。 のみを表示することを選択したら、 `ProductName`、 `CategoryName`、 `SupplierName`、 `QuantityPerUnit`、および`UnitPrice`BoundFields します。 また、そのスマート タグでページングを有効にするチェック ボックスをオンにページングをサポートするために、GridView を構成します。 これらの変更後に GridView コントロールと ObjectDataSource 宣言型マークアップを次のようになります。
-
 
 [!code-aspx[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample9.aspx)]
 
 ブラウザーを使用してページを閲覧する場合、GridView はありません場所を検索します。
 
-
 ![GridView は表示されません。](efficiently-paging-through-large-amounts-of-data-cs/_static/image17.png)
 
 **図 15**:GridView は表示されません。
-
 
 ObjectDataSource は両方の値として 0 を現在使用されているので、GridView が不足しているが、 `GetProductsPaged` `startRowIndex`と`maximumRows`パラメーターを入力します。 そのため、SQL クエリの結果は、レコードを返さないされ、したがって、GridView は表示されません。
 
@@ -279,28 +236,22 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 
 これらの変更を行った後、次のよう ObjectDataSource s の宣言型構文になります。
 
-
 [!code-aspx[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample10.aspx)]
 
 なお、`EnablePaging`と`SelectCountMethod`プロパティが設定されていると、`<asp:Parameter>`要素が削除されました。 図 16 は、これらの変更が行われた後に、[プロパティ] ウィンドウのスクリーン ショットを示します。
-
 
 ![カスタム ページングを使用するには、ObjectDataSource コントロールを構成します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image18.png)
 
 **図 16**:カスタム ページングを使用するには、ObjectDataSource コントロールを構成します。
 
-
 これらの変更を行った後は、ブラウザーからこのページを参照してください。 表示されている場合、10 個の製品が表示アルファベット順でします。 一度にデータの 1 つのページをステップに時間がかかります。 エンドユーザーの観点から既定のページングとカスタム ページングの視覚的な違いはありませんが、カスタム ページングをより効率的のページを大量データのように、特定のページに表示する必要があるレコードのみを取得します。
-
 
 [![製品名、Ordered、データを使用してカスタム ページングのページは、します。](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
 
 **図 17**:製品名、Ordered、データがページを使用してのカスタム ページング ([フルサイズの画像を表示する をクリックします](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))。
 
-
 > [!NOTE]
 > カスタムのページングを使用したページは ObjectDataSource s によって返される値をカウント`SelectCountMethod`GridView のビュー ステートに格納されます。 他の変数の GridView、 `PageIndex`、 `EditIndex`、 `SelectedIndex`、`DataKeys`コレクション、および具合に格納されている*コントロールの状態*、GridView 秒の値に関係なく保持する`EnableViewState`プロパティ。 `PageCount`値が永続化される最後のページに移動するリンクを含むページング インターフェイスを使用する場合は、ビュー ステートを使用して、ポストバック間で、GridView ビュー状態が有効にすることが重要です。 (ページ、ページング インターフェイスは直接リンクを最後に含まれていない場合、ビュー ステートが無効にできます。)
-
 
 最後のページ リンクをクリックすると、ポストバックが発生して、GridView を更新するように指示しますその`PageIndex`プロパティ。 GridView の割り当ての最後のページ リンクをクリックすると、その`PageIndex`プロパティをいずれかの値より小さい、`PageCount`プロパティ。 無効にすると、ビュー ステート、`PageCount`ポストバック間で値が失われることと`PageIndex`代わりに最大の整数値が代入されます。 GridView が乗算することによって開始行インデックスを決定しようとした次に、`PageSize`と`PageCount`プロパティ。 これは、結果、`OverflowException`のため、製品が許可されている整数値の最大サイズを超えています。
 
@@ -308,11 +259,9 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 
 現在のカスタム ページングの実装では、を通じて、データをページングする順序が、作成するときに、静的に指定する必要があります、`GetProductsPaged`ストアド プロシージャ。 ただし、GridView s のスマート タグがページングを有効にするオプションだけでなくで並べ替えを有効にするのチェック ボックスが含まれていることに注意が可能性があります。 残念ながら、現在カスタム ページング実装を GridView に並べ替えのサポートを追加しても、データの現在表示されているページのレコードには並べ替えのみです。 などもページングをサポートし、製品名の降順で、データの最初のページを表示するときに並べ替え、GridView を構成する場合は、ページ 1 で、製品の順序が反転されます。 無視、71 他の製品がアルファベット順に; マーガリン後に、逆のアルファベット順の順序で並べ替えるときに、最初の製品としてマーガリンを示しますこのような図 18 に示すよう最初のページのレコードだけが、並べ替え中と見なされます。
 
-
 [![並べ替えられた、データにのみ表示されます、現在のページ](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
 
 **図 18**:並べ替えられた、データにのみ表示されます、現在のページ ([フルサイズの画像を表示する をクリックします](efficiently-paging-through-large-amounts-of-data-cs/_static/image24.png))。
-
 
 並べ替えのみデータの現在のページに適用されます、BLL s から、データが取得された後、並べ替えが行われているため、`GetProductsPaged`メソッド、およびこのメソッドは、特定のページのレコードを返しますのみです。 正しく並べ替えを実装する必要がある並べ替え式を渡す、`GetProductsPaged`メソッドのデータの特定のページを返す前に、データを適切に付けられるようにします。 これで、次のチュートリアルを実行する方法を見ていきます。
 
@@ -333,11 +282,9 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 
 このアプローチは、更新されるため、`PageIndex`手順 1 の後、手順 2. の前にします。 そのため、手順 2 で、適切なレコード セットが返されます。 これを実現するには、次のようなコードを使用します。
 
-
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample11.cs)]
 
 別の回避策は、ObjectDataSource s のイベント ハンドラーを作成する`RowDeleted`イベントを設定して、`AffectedRows`プロパティ値の 1 にします。 GridView の更新手順 1. で (ただし、手順 2 でデータを再取得する前に) レコードを削除すると、その`PageIndex`プロパティの場合は、操作の影響を受けた 1 つまたは複数の行。 ただし、 `AffectedRows` ObjectDataSource でプロパティが設定されていないと、そのためこの手順を省略するとします。 この手順を実行する方法の 1 つが手動で設定するには、`AffectedRows`プロパティの場合は、削除操作が正常に完了します。 これは、次のようなコードを使用して実行できます。
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample12.cs)]
 
@@ -351,14 +298,12 @@ ObjectDataSource は両方の値として 0 を現在使用されているので
 
 僕の本の記事[SQL Server 2005 で ASP.NET 2.0 でカスタム ページング](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)、これら 2 つのページング手法をデータベース テーブルのページングとの間のパフォーマンスの違いを示すために実行したいくつかのパフォーマンス テストが含まれています50,000 個のレコード。 これらのテストで SQL Server レベルでクエリを実行する時間の両方を検証しました (を使用して[SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)) と、ASP.NET ページを使用して[ASP.NET トレース機能](https://msdn.microsoft.com/library/y13fw6we.aspx)します。 注意してこれらのテストが 1 人のアクティブなユーザーには、開発ボックス上で実行およびしたがって科学でないロード パターンの一般的な web サイトを模倣しないにしてください。 関係なく、結果は、十分に大量のデータを使用する場合、既定およびカスタム ページングの実行時間の相対的な違いを示しています。
 
-
 |  | **平均実行時間 (秒)** | **読み取り** |
 | --- | --- | --- |
 | **既定の SQL Profiler のページング** | 1.411 | 383 |
 | **カスタム ページング SQL Profiler** | 0.002 | 29 |
 | **ページングの既定の ASP.NET トレース** | 2.379 | *該当なし* |
 | **カスタム ページング ASP.NET トレース** | 0.029 | *該当なし* |
-
 
 ご覧のように、データの特定のページを取得する平均 354 未満の読み取りに必要なし、短時間で完了します。 ASP.NET ページで、カスタム ページが 1/100 に近いでレンダリングできる<sup>th</sup>かかった時間の既定のページングを使用する場合。 参照してください[筆者の記事](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)コードおよびデータベースと共にこれらの結果の詳細については、独自の環境でこれらのテストを再現するためにダウンロードできます。
 

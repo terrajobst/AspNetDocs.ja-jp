@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f824bd5e080d42a9df3525ca47b87bcef407f7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b713b56e149f196794b3223ba88e3b41bf3e34c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405626"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123374"
 ---
 # <a name="improving-performance-with-output-caching-vb"></a>出力キャッシュでパフォーマンスを改善する (VB)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、出力キャッシュを活用して、ASP.NET MVC web アプリケーションのパフォーマンスを大幅に向上する方法を説明します。 同じコンテンツは、新しいユーザーがアクションを呼び出すたびに作成する必要はありません、コント ローラー アクションから返される結果をキャッシュする方法について説明します。
-
 
 このチュートリアルの目的では、出力キャッシュを活用して、ASP.NET MVC アプリケーションのパフォーマンスを大幅に向上する方法について説明します。 出力キャッシュでは、コント ローラーのアクションによって返されるコンテンツをキャッシュすることができます。 これにより、同じコンテンツは同じコント ローラー アクションが呼び出されるたびに生成する必要ありません。
 
@@ -36,9 +35,7 @@ ms.locfileid: "59405626"
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample1.vb)]
 
-
 ASP.NET MVC のベータ バージョンでは、出力キャッシュは機能しませんように URL [ http://www.MySite.com/](http://www.mysite.com/)します。 代わりに、ような URL を入力する必要があります[ http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index)します。
-
 
 リストの 1 の Index() アクションの出力は 10 秒間キャッシュされます。 場合は、大幅に長くキャッシュ期間を指定できます。 たとえば、1 日のコント ローラー アクションの出力をキャッシュする場合できます指定する必要が 86400 秒のキャッシュ有効期間 (60 秒\*60 分\*24 時間)。
 
@@ -79,7 +76,6 @@ Location プロパティは、次の値のいずれかに設定できます。
 > ·[なし]
 > 
 > ·ServerAndClient
-
 
 既定では、Location プロパティ値を持ちます。 ただし、キャッシュ、ブラウザーでのみ、またはサーバー上でのみにすることがありますもあります。 たとえば、ユーザーごとに合わせてカスタマイズされた情報をキャッシュする場合は必要がありますいないサーバー上の情報をキャッシュしました。 別のユーザーに異なる情報を表示する場合は、クライアント上にのみ情報をキャッシュする必要があります。
 
@@ -136,7 +132,6 @@ VaryByParam プロパティは、次の値に設定できます。
 > none = しない別のキャッシュされたバージョンを作成します。
 > 
 > パラメーターのリストをセミコロン、リスト内のフォームまたはクエリ文字列パラメーターのいずれかによって異なりますたびに異なるキャッシュされたバージョンの作成を =
-
 
 #### <a name="creating-a-cache-profile"></a>キャッシュ プロファイルを作成します。
 

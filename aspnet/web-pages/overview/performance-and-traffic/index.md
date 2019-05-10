@@ -8,17 +8,16 @@ ms.date: 09/08/2014
 ms.assetid: ce798572-e7dc-44c1-a7fe-a029820e195e
 msc.legacyurl: /web-pages/overview/performance-and-traffic
 msc.type: chapter
-ms.openlocfilehash: 36cfc3435a832eaf8a6aeb24ff91fa03b99f2e39
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e8e27d316d93faec096f04c74a35fde462ce1eb6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128418"
 ---
 # <a name="performance"></a>パフォーマンス
 
 > サイトのトラフィックを測定する方法とパフォーマンスを向上させるコンテンツをキャッシュする方法。
-
 
 - [Web サイトのパフォーマンスをキャッシュで改善する](15-caching-to-improve-the-performance-of-your-website.md)
 - [トラフィックの分析](14-analyzing-traffic.md)

@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: b0cf4a34-2c1d-4717-bb54-ff029e722990
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ca34f670202a35c627a514d3394fa430f5d8f26
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3b0a9509c0600f3598fd1218a7b383430548d4c0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396344"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123239"
 ---
 # <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC を使用して、さまざまなバージョンの IIS (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > このチュートリアルでは、異なるバージョンのインターネット インフォメーション サービスで ASP.NET MVC、および URL ルーティングを使用する方法について説明します。 IIS 7.0 (クラシック モード)、IIS 6.0 では、以前のバージョンの IIS と ASP.NET MVC を使用するためのさまざまな方法を学習します。
-
 
 ASP.NET MVC フレームワークは、コント ローラー アクションへのブラウザー要求をルーティングする ASP.NET ルーティングに依存します。 ASP.NET ルーティングを利用するには、web サーバーで追加の構成手順を実行する必要があります。 すべては、インターネット インフォメーション サービス (IIS) と処理モードは、アプリケーションの要求のバージョンによって異なります。
 

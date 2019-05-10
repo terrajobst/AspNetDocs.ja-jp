@@ -8,17 +8,16 @@ ms.date: 02/29/2012
 ms.assetid: ba1fabb4-31a3-4ebf-8327-41a6bbba6eaf
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 5f50721b6f263b9cb025f5fa57c923dadeddcd28
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 32fbf7c25b00f3f0796c4c3fdd38ca2a86c89199
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410592"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133686"
 ---
 # <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 と Visual Studio 2012 における新機能
 
 > このドキュメントでは、新機能と ASP.NET 4.5 で追加される予定の機能強化について説明します。 Visual Studio 2012 での web 開発の強化についても説明します。 このドキュメントでは、2012 年 2 月 29 日発行されました。
-
 
 - [ASP.NET Core ランタイムおよびフレームワーク](#_Toc318097372)
 
@@ -190,10 +189,8 @@ ASP.NET 4.5 を選択して検証されていない入力操作を簡単にす�
 
 [!code-csharp[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample6.cs)]
 
-
 > [!WARNING]
 > セキュリティ -*未検証要求データを使用して、注意してください。* ASP.NET 4.5 では、未検証の要求のプロパティと非常に特定の未検証要求データのアクセスが容易にコレクションを追加します。 ただし、危険なテキストがない、ユーザーに表示されることを確認する要求の生データのカスタム検証を実行することも必要があります。
-
 
 <a id="_Toc318097382"></a>
 ### <a name="antixss-library"></a>AntiXSS ライブラリ
@@ -383,11 +380,9 @@ ASP.NET 4.5 には Web フォームには、データを操作するためのい
 
 この問題を解決するには、ASP.NET 4.5 では、コントロールにバインドされたデータのデータ型を宣言する機能を追加します。 これを行う新しい*ItemType*プロパティ。 このプロパティを設定すると、データ バインディング式のスコープ内で 2 つの新しい型指定された変数が利用に。*項目*と*BindItem*します。 変数は厳密に型指定、ため、Visual Studio の開発エクスペリエンスのすべてのメリットを取得します。
 
-
 双方向のデータ バインディング式を使用して、 *BindItem*変数。
 
 [!code-aspx[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample21.aspx)]
-
 
 データ バインディングをサポートする ASP.NET Web フォーム フレームワークのほとんどのコントロールがサポートするために更新されました、 *ItemType*プロパティ。
 

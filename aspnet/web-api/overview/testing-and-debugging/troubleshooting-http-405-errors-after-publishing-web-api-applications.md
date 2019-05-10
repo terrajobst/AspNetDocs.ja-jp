@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: ce5b617cc1032d190cc2450aa554b462ea6f6156
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 336df47dd4bda813839913676f12a51b899c0cf9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025329"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121981"
 ---
 # <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Web API アプリケーションを公開した後は HTTP 405 エラーのトラブルシューティング
 
@@ -24,7 +24,6 @@ ms.locfileid: "57025329"
 > 
 > - [インターネット インフォメーション サービス (IIS)](https://www.iis.net/) (バージョン 7 以降)
 > - [Web API](../../index.md) 
-
 
 Web API アプリケーションは、通常、いくつかの一般的な HTTP 動詞を使用します。GET、POST、PUT、DELETE、および場合によっては修正プログラムを適用します。 開発者が、実行可能性がありますまたは Visual Studio で開発サーバーで正しく機能する Web API コント ローラーが返すが状態になります、実稼働サーバー上の別の IIS モジュールによってこれらの動詞が実装されている場合に、HTTP 405 実稼働サーバーに配置されるとエラーが発生します。 幸いにもこの問題は、簡単に解決しますが、解像度の発行に値する問題が発生している理由の説明。
 
@@ -58,18 +57,13 @@ HTTP 405 エラーをトラブルシューティングする方法を学習す�
 
 次の例の HTTP 要求と応答で HTTP クライアントが、web サーバー上の Web API アプリケーションに値を入力しようとして、PUT メソッドではない状態が許可されている HTTP エラーを返しますの状況を示しています。
 
-
 HTTP 要求:
-
 
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample1.cmd)]
 
-
 HTTP 応答:
 
-
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample2.cmd)]
-
 
 この例では、HTTP クライアントは、web サーバー上の Web API アプリケーションの URL に有効な JSON 要求を送信が、サーバーを PUT メソッドが、URL の許可されないことを示す HTTP 405 エラー メッセージを返しました。 これに対し、要求 URI で Web API アプリケーションのルートが一致しなかった場合、サーバーが返す HTTP 404***見つかりません***エラー。
 

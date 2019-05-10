@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 301af8ed877b58624e419c04f605c41f27dbdd0c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401743"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132085"
 ---
 # <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 の Web フォームの新機能
 
@@ -40,7 +40,6 @@ ms.locfileid: "59401743"
 > 公式の ASP.NET ポータルで ASP.NET WebForms 4.5 の新機能の例についてをご覧ください。[ASP.NET 4.5 と Visual Studio 2012 の新機能](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)します。
-
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>目的
@@ -83,13 +82,12 @@ ms.locfileid: "59401743"
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**60 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Model_Binding_in_ASPNET_Web_Forms"></a>
-### <a name="exercise-1-model-binding-in-aspnet-web-forms"></a>手順 1:ASP.NET Web フォームでのモデル バインド
+### <a name="exercise-1-model-binding-in-aspnet-web-forms"></a>演習 1:ASP.NET Web フォームでのモデル バインド
 
 ASP.NET Web フォームの新しいバージョンには、多数のデータを使用する場合、エクスペリエンスの向上に重点を置いた機能が導入されています。 この演習では、厳密に型指定されたデータ コントロールについて説明し、モデル バインドします。
 
@@ -325,7 +323,7 @@ ASP.NET MVC 4 を使用している場合、モデルのバインディング �
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Data_Validation"></a>
-### <a name="exercise-2-data-validation"></a>手順 2:データの検証
+### <a name="exercise-2-data-validation"></a>演習 2:データの検証
 
 この演習では、ASP.NET 4.5 でのデータ検証の新機能について学びます。 Web フォームで新しい控え目な検証機能を確認します。 ユーザー入力の検証をアプリケーションのモデル クラスでデータ注釈を使用して、最後に、オンまたはオフを個別のコントロール ページの要求の検証を有効にする方法を学習します。
 
@@ -610,7 +608,6 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 
 > [!NOTE]
 > また、Azure の次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
-
 
 ---
 

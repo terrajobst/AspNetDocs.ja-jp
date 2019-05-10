@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: 7998b5bb2983410479123514661a4ddb67afc8c6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 12ed7827f7392e559e04121386f7cd045de8462b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130930"
 ---
 # <a name="the-contact-manager-solution"></a>連絡先マネージャー ソリューション
 
@@ -24,7 +24,6 @@ ms.locfileid: "59398372"
 > これは、[一連のチュートリアル](web-deployment-in-the-enterprise.md)サンプル ソリューションを使用して&#x2014;連絡先マネージャー ソリューション&#x2014;に現実的な複雑さのレベルを持つエンタープライズ規模のアプリケーションを表します。 このトピックでは、連絡先マネージャー ソリューションを紹介し、ソリューションの主要なコンポーネントについて説明します、このようなエンタープライズ環境では、さまざまな対象プラットフォームのアプリケーションを展開する際の課題を識別します。
 > 
 > これらのチュートリアルで、トピックを操作するときは、エンタープライズ展開シナリオに固有の課題を満たす方法について説明するリファレンス実装として連絡先マネージャー ソリューションを使用できます。 次のトピックでは、 [、連絡先マネージャー ソリューションの設定を](setting-up-the-contact-manager-solution.md)、ダウンロードして、開発者ワークステーションでソリューションを実行する方法について説明します。
-
 
 ## <a name="solution-overview"></a>ソリューションの概要
 
@@ -45,7 +44,6 @@ ms.locfileid: "59398372"
 
 > [!NOTE]
 > ASP.NET MVC 3 web アプリケーションでは、ASP.NET メンバーシップ プロバイダーを使用するときに、web アプリケーション内のすべてのページは匿名アクセスを許可します。 これは明らかに現実的な構成です。 ただし、ソリューションをすると、配置、およびユーザー アカウントとロールを構成しなくても、ソリューションをテストしやすくには、この方法で設定します。
-
 
 ## <a name="deployment-challenges"></a>展開の課題
 

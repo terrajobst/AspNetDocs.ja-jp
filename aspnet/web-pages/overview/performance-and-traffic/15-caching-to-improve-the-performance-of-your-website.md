@@ -8,12 +8,12 @@ ms.date: 02/14/2014
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: 10b853966ba80b673e1a6786987893f919369e7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 01796d3ca699a6af5d9162b22a926551435c2040
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412906"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134589"
 ---
 # <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>パフォーマンス向上のための ASP.NET Web Pages (Razor) サイトでデータのキャッシュ
 
@@ -38,7 +38,6 @@ ms.locfileid: "59412906"
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
-
 ユーザーは、サイトからページを要求するたびに要求に対処するために作業を web サーバーにします。 ページの一部で、サーバーは、データベースからデータの取得などの (比較的) に長い時間がかかるタスクを実行する必要があります。 場合でも、これらのタスクを絶対の用語で時間の長い使用しないサイトには、大量のトラフィックが発生した場合、一連の複雑なまたは低速のタスクを実行する web サーバーとなる個々 の要求が、多くの作業追加できます。 これにより、サイトのパフォーマンスが最終的には影響します。
 
 このような状況で、web サイトのパフォーマンスを向上させる方法の 1 つでは、データをキャッシュします。 情報は、各ユーザーに変更する必要はありませんし時間は、サイトが同じ情報については、繰り返しの要求を取得します再フェッチまたは再計算するには、代わりに、機密性の高い 1 回のデータをフェッチして結果を格納します。 次回の要求を受信については、するだけを元にキャッシュから。
@@ -47,7 +46,6 @@ ms.locfileid: "59412906"
 
 > [!NOTE]
 > キャッシュ内のエントリ削除の可能性あり上の理由から他にも、期限が切れるしました。 など、web サーバーが一時的が残り少なくなったら、メモリとメモリを再利用できる 1 つの方法は、キャッシュからエントリをスローすることによって。 わかる、情報をキャッシュに配置した場合でもを確認して必要なときではまだありますがあります。
-
 
 Web サイトが、現在の気温と天気予報を表示するページを想像してください。 この種の情報を取得するには、外部のサービスに要求を送信する可能性があります。 この情報は多く (たとえば 2 時間期間) 内で変更されないため、および外部の呼び出しは、時間と帯域幅が必要なため、キャッシュの候補を勧めします。
 
@@ -77,7 +75,6 @@ ASP.NET には、`WebCache`をキャッシュにデータを追加し、サイ�
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
-
 
 - [グラフでデータを表示する](https://go.microsoft.com/fwlink/?LinkId=202895)
 - [WebCache API リファレンス](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx)(MSDN)

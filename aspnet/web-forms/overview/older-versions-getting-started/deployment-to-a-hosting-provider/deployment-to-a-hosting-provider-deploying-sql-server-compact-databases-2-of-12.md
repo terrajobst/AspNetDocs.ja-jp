@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: cc8568847e050e868a3e7563b5fc1fc6fbf25d86
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b265d210ff3b1eeb8697a973cc245f6c97b3eb07
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405483"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134174"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server Compact データベースに 12 の 2 を展開します。
 
@@ -24,7 +24,6 @@ ms.locfileid: "59405483"
 > この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
 > 
 > Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -144,7 +143,6 @@ Configuration.cs ファイルを開き、内のコメントを置き換える、
 > 
 > この例を示すに対する、このチュートリアルでは、`AddOrUpdate`メソッドで、 `Seed` Code First Migrations のメソッド`Configuration`クラス。 Code First Migrations を呼び出し、`Seed`メソッドすべての移行後に、このメソッドは、既に挿入されている、またはまだ存在していない場合は、それらを挿入する行を更新します。 `AddOrUpdate`メソッドには、シナリオに最適な選択肢をできない可能性があります。 詳細については、次を参照してください。 [EF 4.3 AddOrUpdate メソッドを使用して対処](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)Julie Lerman のブログ。
 
-
 CTRL + SHIFT+B プロジェクトをビルドするキーを押します。
 
 次の手順が作成するには、`DbMigration`初回移行のためのクラス。 既に存在するデータベースを削除する必要があるため、新しいデータベースを作成するには、この移行します。 SQL Server Compact データベースに含まれる *.sdf*内のファイル、*アプリ\_データ*フォルダー。 **ソリューション エクスプ ローラー**、展開*アプリ\_データ*2 つの SQL Server Compact データベースを表示する ContosoUniversity プロジェクトでこれがによって表されます *.sdf*。ファイル。
@@ -187,7 +185,6 @@ Contoso University アプリケーションでは、ASP.NET メンバーシッ�
 
 > [!NOTE]
 > メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするには、ハッシュのルーチンも、これは、移行元コンピューターには、移行先サーバーで異なるハッシュを生成しないことを確認してください。 既定のアルゴリズムを変更しない限り、ASP.NET ユニバーサル プロバイダーを使用する場合に、同じハッシュを生成、されます。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、 **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** Web.config ファイル内の要素。
-
 
 Code First Migrations では、メンバーシップ データベースが管理されませんし、ようになります (School データベースの) テスト アカウントを使用してデータベースをシードする自動初期化子はありません。 そのため、使用可能なテスト データを保持する、新しいものを作成する前に、テスト データベースのコピーを作成します。
 

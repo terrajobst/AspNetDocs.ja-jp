@@ -8,12 +8,12 @@ ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 11e70493478d6810d63ba6b3ac813e32f03052eb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ef4ee57496337fb13b4d1c09c058e89e04eb3138
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381329"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114598"
 ---
 # <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX ローカライズについて理解する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59381329"
 [PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
 > ローカリゼーションとは、設計し、アプリケーションまたはアプリケーション コンポーネントに特定の言語とカルチャのサポートを統合するプロセスです。 Microsoft ASP.NET プラットフォームの標準の ASP.NET アプリケーションのローカライズを標準 .NET ローカライズ モデルを統合することによって広範なサポートを提供します。Microsoft AJAX フレームワークでは、ローカライズを実行できる多様なシナリオをサポートする統合モデルを利用します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -105,16 +104,13 @@ JavaScript の正規表現の構文、1 つのスラッシュ内のテキスト�
 1. F5 キーを押します。 メッセージが表示されたら、デバッグを有効にします。 ページが読み込まれるときに、削除ボタンをクリックします。 求められます英語で (ただし、コンピューターは、既定ではスペイン語のリソースを優先する設定が) 確認のために注意してください。
 2. ブラウザー ウィンドウを閉じて、default.aspx に戻ります。 @Pageヘッダー ディレクティブ、ES-ES 持つカルチャと UICulture 置換 auto。 ブラウザーで web アプリケーションをもう一度を起動するには、もう一度 F5 キーを押します。 この時点では、スペイン語でファイルの削除を求められることに注意してください。
 
-
 [![](understanding-asp-net-ajax-localization/_static/image2.png)](understanding-asp-net-ajax-localization/_static/image1.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-localization/_static/image3.png))。
 
-
 [![](understanding-asp-net-ajax-localization/_static/image5.png)](understanding-asp-net-ajax-localization/_static/image4.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-localization/_static/image6.png))。
-
 
 このチュートリアルでは、いくつかのバリエーションがあることに注意してください。 たとえば、スクリプトでしたを登録する、ScriptManager コントロール プログラムでページの読み込み中に。
 

@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 9e4d5cac-b071-440c-b044-20b6d0c964fb
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 102e4c2f1fe122669021a159b60f0943fe92fbf2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8d509c5f15bb4d5014e53b8dc2a736454238e72c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396448"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122227"
 ---
 # <a name="secure-applications-using-authentication-and-authorization"></a>認証と承認を利用した安全なアプリケーション
 
@@ -26,7 +26,6 @@ ms.locfileid: "59396448"
 > 手順 9 は、ユーザーが登録する必要があるように、認証と承認 NerdDinner アプリケーションでは、セキュリティで保護するを追加する方法を示します新しい dinners と、dinner をホストしているユーザーのみを作成するには、サイトへのログインが後で編集できます。
 > 
 > 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
-
 
 ## <a name="nerddinner-step-9-authentication-and-authorization"></a>NerdDinner 手順 9:認証と承認
 

@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 2dcb44a4-5cbf-4d62-b363-718104082d86
 msc.legacyurl: /mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 149312e2ddf0a5023a4a12f5b05852f7da6b18f8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 73965c71f37de13e3813df089a253fde528ea7ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418171"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128226"
 ---
 # <a name="aspnet-mvc-overview"></a>ASP.NET MVC 概要
 
@@ -21,18 +21,15 @@ ms.locfileid: "59418171"
 
 > ASP.NET MVC アプリケーションと ASP.NET Web フォーム アプリケーションの違いについて説明します。 ASP.NET MVC アプリケーションを作成するタイミングを決定する方法について説明します。
 
-
 モデル-ビュー-コント ローラー (MVC) アーキテクチャ パターンでは、アプリケーションを 3 つの主要なコンポーネントに: モデル、ビュー、およびコント ローラー。 ASP.NET MVC フレームワークは、MVC ベースの Web アプリケーションを作成するための ASP.NET Web フォーム パターンの代替を提供します。 ASP.NET MVC フレームワークは、軽量で高度にテスト可能なプレゼンテーション フレームワークです (Web フォーム ベースのアプリケーションと同様に) マスター ページやメンバーシップ ベースの認証などの既存の ASP.NET 機能と統合されています。 MVC フレームワークが定義されている、 **System.Web.Mvc**名前空間のサポートされている基本的な一部となって、 **System.Web**名前空間。   
   
 MVC は、多くの開発者が慣れ親しんでいる標準的な設計パターンです。 Web アプリケーションの種類によっては、MVC フレームワークを得られます。 Web フォームとポストバックに基づく従来の ASP.NET アプリケーションのパターンを使用して、他のユーザーは引き続き。 その他の種類の Web アプリケーションでは、2 つのアプローチを結合します。どちらのアプローチでは、もう一方は含まれません。   
   
 MVC フレームワークには、次のコンポーネントが含まれています。
 
-
 [![パラメーターの値が必要とするコント ローラー アクションの呼び出し](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
 
 **図 01**:パラメーターの値が必要とするコント ローラー アクションの呼び出し ([フルサイズの画像を表示する をクリックします](asp-net-mvc-overview/_static/image2.png))。
-
 
 - **モデル**します。 モデル オブジェクトは、アプリケーションのデータのドメインのロジックを実装するアプリケーションの部分です。 多くの場合、モデル オブジェクトは、取得し、モデルの状態をデータベースに格納します。 たとえば、Product オブジェクト可能性があります、データベースから情報を取得、操作、および SQL Server の製品テーブルに戻り更新情報を書き込みます。
 

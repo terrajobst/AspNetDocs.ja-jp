@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 2e861511-450e-4752-a61e-4a01933f9b6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 586508039b9a3d78492aa02a77a1f29c64668b5e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d76e715cdbf6ec484fa0ff98b3b3d1d8dfd3961
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409695"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125846"
 ---
 # <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>シナリオ:Web 配置の運用環境を構成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59409695"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、運用環境の一般的な web 展開シナリオと類似した環境を設定するには完了する必要があるタスクについて説明します。
-
 
 運用環境では、web アプリケーションまたは web サイトの最終的な宛先です。 この段階では、アプリケーション テストされました、ステージング環境に配置されている、「ライブ移動します」する準備ができました 運用環境の特性は、性質と、web コンテンツの目的で、組織、対象ユーザー、およびその他の要因の多くのサイズによって広く異なることができます。 エンタープライズ規模のシナリオでは、これらの特性が、実稼働環境にあります。
 
@@ -33,7 +32,6 @@ ms.locfileid: "59409695"
 
 > [!NOTE]
 > 複数のサーバーをスケール アウト データベースの配置はこのチュートリアルの範囲外です。 この領域の詳細についてを参照してください[SQL Server オンライン ブックの「](https://technet.microsoft.com/library/ms130214.aspx)します。
-
 
 たとえば、[チュートリアルのシナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)、チーム ビルド サーバーには、ユーザーが連絡先マネージャー ソリューションをビルドし、1 つのステップでステージング環境に配置できるビルド定義が含まれています。 運用環境の管理者の実稼働 web サーバー上に web パッケージをコピーしてインポートする必要があります手動でアプリケーションがセキュリティ要件と、ネットワーク インフラストラクチャによって課される制約のため、運用環境にデプロイする準備ができたときインターネット インフォメーション サービス (IIS) マネージャーを使用します。
 

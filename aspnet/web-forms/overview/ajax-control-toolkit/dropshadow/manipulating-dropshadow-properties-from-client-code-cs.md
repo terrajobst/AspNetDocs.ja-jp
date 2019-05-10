@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: c83ca3e6-c0bf-4158-a166-40c1ab0f33da
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3bf4b8fe85780135c821fbb7fcceefd326dce656
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2c71b859fb50eaf6c66a4103fb878104ce10eba3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134321"
 ---
 # <a name="manipulating-dropshadow-properties-from-client-code-c"></a>クライアント コードから DropShadow プロパティを操作する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59381343"
 [コードのダウンロード](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow2CS.pdf)
 
 > DropShadow コントロール、AJAX Control Toolkit では、影付きのパネルを拡張します。 クライアントの JavaScript コードを使用して、このエクステンダーのプロパティを変更することもできます。
-
 
 ## <a name="overview"></a>概要
 
@@ -53,7 +52,6 @@ ASP.NET AJAX では、`ScriptManager`コントロールが動作する Control T
 JavaScript 関数`changeOpacity()`まず見つける必要がありますし、`DropShadowExtender`ページ上のコントロール。 ASP.NET AJAX の定義、`$find()`正確にタスクのメソッド。 次に、`get_Opacity()`メソッドは現在の不透明度を取得、`set_Opacity()`メソッドはそれを設定します。 JavaScript コードは、現在の不透明度値を代入するし、`<label>`要素。
 
 [!code-html[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample6.html)]
-
 
 [![クライアント側で不透明度が変更されました。](manipulating-dropshadow-properties-from-client-code-cs/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-cs/_static/image1.png)
 
