@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: d2d7982a4e0175824ffede965dc8206219485df2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: aa842aeb228abc763540d8ca8dafdfdca0b8b395
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396474"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109016"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX の部分ページ更新について理解する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59396474"
 [PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
 > おそらく、ASP.NET AJAX Extensions の最も目につく機能はないコードの変更と最小限のマークアップの変更を使用して、サーバーに完全なポストバックを実行しなくても、部分的なまたは増分ページ更新プログラムを実行する機能です。 利点は、広範な – (Adobe Flash や Windows Media) など、マルチ メディアの状態は変更されません、帯域幅のコストが削減されます、およびクライアントでは、通常のポストバックに関連付けられているちらつきは発生しません。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -48,7 +47,6 @@ ms.locfileid: "59396474"
 
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>チュートリアル: 既存のプロジェクトへの部分的なレンダリングの統合
 
-
 1. Microsoft Visual Studio 2008 では、新しい ASP.NET Web サイト プロジェクトを作成しようとして<em>ファイル</em> <em>- &gt;新規</em> <em>- &gt; のWebサイト</em>し、ダイアログ ボックスから ASP.NET Web サイトを選択します。 ことができます、どのような名前、およびファイル システムまたはインターネット インフォメーション サービス (IIS) にインストールすることがあります。
 2. 基本的な ASP.NET マークアップに空の既定のページが表示されます (サーバー側のフォームと`@Page`ディレクティブ)。 という名前のラベルにドロップ`Label1`ボタンと呼ばれると`Button1`フォーム要素内でページ上にします。 自由にそのテキスト プロパティを設定することがあります。
 3. デザイン ビューで、ダブルクリック`Button1`分離コードのイベント ハンドラーを生成します。 このイベント ハンドラー内で次のように設定します。 `Label1.Text` 、 をクリックします。 .
@@ -64,11 +62,9 @@ ms.locfileid: "59396474"
 1. F5 キーを押して、web サイトを起動します。 Visual Studio には、デバッグを有効にする web.config ファイルを追加するように求められますそのためです。 ボタンをクリックするとは、ラベルのテキストを変更するにページが更新され、ページが再描画されるように簡単なちらつきがあることに注意してください。
 2. ブラウザー ウィンドウを閉じた後、Visual Studio には、マークアップのページを返します。 Visual Studio のツールボックスで下へスクロールし、[AJAX Extensions] タブを見つけてください。 (以前のバージョンの AJAX または Atlas 拡張機能を使用しているため、このタブがあるありません、このホワイト ペーパーの後半で AJAX の拡張機能のツールボックス項目を登録するためのチュートリアルを参照してください場合や、Windows インストーラーのダウンロード可能な最新バージョンをインストールweb サイトから)。
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image2.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image1.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))。
-
 
 1. <em>既知の問題:</em>Visual Studio 2008 が AJAX Extensions のツールボックス項目をインポート、ASP.NET 2.0 AJAX Extensions にインストールされている、Visual Studio 2005 が既にコンピューターに Visual Studio 2008 をインストールする場合。 コンポーネントにツールヒントを調べることで、大文字と小文字がこれかどうかを判断できます。バージョン 3.5.0.0 言わする必要があります。 バージョン 2.0.0.0 以降と言っているならが、古いツールボックス アイテムをインポートし、Visual Studio のツールボックス アイテムの選択 ダイアログを使用して手動でインポートする必要があります。 デザイナーを使用してバージョン 2 のコントロールを追加することはできません。
 
@@ -76,11 +72,9 @@ ms.locfileid: "59396474"
 3. ドラッグ終了`</asp:UpdatePanel>`ラップ ラベルとボタンのコントロールと、要素が整形式にようにボタンの要素の末尾を越えたタグします。
 4. オープン後`<asp:UpdatePanel>`タグ、開始新しいタグを開始します。 IntelliSense 確認が求めるされる 2 つのオプションに注意してください。 この場合、作成、`<ContentTemplate>`タグ。 マークアップが正しく構成されているように、ラベルとボタンの周囲には、このタグをラップしてください。
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))。
-
 
 1. 任意の場所、`<form>`要素をダブルクリックして、ScriptManager コントロールを含める、`ScriptManager`ツールボックスの項目。
 2. 編集、`<asp:ScriptManager>`タグ、属性が含まれるように`EnablePartialRendering= true`します。
@@ -93,11 +87,9 @@ ms.locfileid: "59396474"
 
 1. Visual Studio 2008 の新機能新機能。ASP.NET Web サイトで自動的にプロジェクト テンプレートは、ASP.NET AJAX Extensions に必要なすべての参照が含まれています、含まれていますが付属している web.config のコメント追加を有効にすることができる構成情報のセクションのコメント機能。 Visual Studio 2005 では、ASP.NET 2.0 AJAX Extensions がインストールされたときのようなテンプレートがありました。 ただし、Visual Studio 2008 で AJAX の拡張機能は、オプトアウト既定で (つまり、既定では、参照されるが参照として削除されることができます)。
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))。
-
 
 1. F5 キーを押して、web サイトを起動します。 部分的なレンダリングをサポートするために必要なソース コードの変更がなかった - マークアップのみが変更された方法に注意してください。
 
@@ -233,16 +225,13 @@ UpdatePanel は、JavaScript の XMLHttpRequest のコンテキスト内での A
 
 その他のものをフォームまたはコントロールの市区町村と都道府県のフィールドを設定することになっている postal code テキスト ボックスがあるフォームを検討してください。 このフォームは、最終的には、ユーザーの名前、アドレス、および連絡先情報を含む、メンバーシップ情報を収集します。 特定のプロジェクトの要件に基づいて、考慮に入れるさまざまな設計の考慮事項があります。
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image11.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image10.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))。
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image14.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image13.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))。
-
 
 このアプリケーションの元のイテレーションでは、コントロールは、郵便番号、市区町村、および状態を含む、ユーザー登録データの全体を組み込むことでビルドされました。 コントロール全体が、UpdatePanel 内でラップし、Web フォームにドロップします。 ユーザーが郵便番号を入力すると、UpdatePanel は、イベント (バックエンド、トリガーを指定することで、または ChildrenAsTriggers プロパティが true に設定を使用して、いずれかに対応する TextChanged イベント) を検出します。 AJAX ポストバック、UpdatePanel 内のフィールドのすべて FireBug によってキャプチャされます (右側の図を参照してください)。
 
@@ -252,11 +241,9 @@ ASP.NET AJAX がプレゼンテーションを更新する方法を確認する�
 
 DOM の再生成には、さまざまなその他の問題がトリガーされます。
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image17.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image16.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))。
-
 
 - フォーカスがある HTML 要素は、UpdatePanel 内では、フォーカスが失われます。 そのため、郵便番号のテキスト ボックスを終了する Tab キーが押されたユーザーが次の宛先がでした都道府県のテキスト ボックス。 ただし、UpdatePanel には、表示が更新されるとは、フォームには、フォーカスがあったが不要になったし、Tab キーを押してが開始した (リンク) などのフォーカス要素の強調表示します。
 - カスタムのクライアント側スクリプトの任意の型が使用されて関数で DOM 要素をアクセス、参照が保持されている場合場合がありますが機能しなくなります部分ポストバック後にします。

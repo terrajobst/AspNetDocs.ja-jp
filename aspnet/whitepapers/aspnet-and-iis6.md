@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: 5a5537bf-2aaa-49e7-839f-9e6522b829d8
 msc.legacyurl: /whitepapers/aspnet-and-iis6
 msc.type: content
-ms.openlocfilehash: dbdf6d2815a05465b0ffb7bb322c9f80af13a251
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2e7812f34481afe9a71927c0d9ba2a9abc9632e4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59405158"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106804"
 ---
 # <a name="running-aspnet-11-with-iis-60"></a>IIS 6.0 で ASP.NET 1.1 を実行する
 
 > Windows Server 2003 には、IIS 6.0 と ASP.NET 1.1 の両方が含まれているときに、これらのコンポーネントは、既定で無効にします。 このホワイト ペーパーでは、IIS 6.0 と ASP.NET 1.1 を有効にする方法について説明し、IIS と ASP.NET から最適なパフォーマンスを取得するいくつかの構成設定を推奨します。
 > 
 > ASP.NET 1.1 および IIS 6.0 に適用されます。
-
 
 ASP.NET 1.1 に付属 Windows Server 2003 は、インターネット インフォメーション サーバー (IIS) バージョン 6.0 の最新のバージョンも含まれます。 IIS 6.0 および ASP.NET 1.1 がシームレスに統合するように設計および ASP.NET の新しい IIS 6.0 ワーカー プロセス モデルを今すぐ既定値します。
 

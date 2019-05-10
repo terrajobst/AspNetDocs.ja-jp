@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: a86c0276-6481-46ee-8b4f-8c2009399ee9
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f8073b468a431d5c4b0d222bf385c8c6d32b2a8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fcfa03998778888f2e64a8079d3119ce86de7fc3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419094"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108817"
 ---
 # <a name="disabling-actions-during-animation-vb"></a>アニメーション中のアクションを無効にする (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59419094"
 [コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation7.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation7VB.pdf)
 
 > アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 マウス クリックしてなどの操作もサポートしています。 ただしマウスのクリックでは、アニメーションを起動するときに、アニメーションの中にマウスのクリックを無効にすることをお勧めします。
-
 
 ## <a name="overview"></a>概要
 
@@ -53,7 +52,6 @@ ms.locfileid: "59419094"
 [!code-xml[Main](disabling-actions-during-animation-vb/samples/sample5.xml)]
 
 ただし特定のシナリオでこれは無意味になるため、ボタンはフェードアウトし、は、アニメーションの最後に表示されません。
-
 
 [![アニメーションを実行するとすぐに、ボタンが無効になっています](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
 

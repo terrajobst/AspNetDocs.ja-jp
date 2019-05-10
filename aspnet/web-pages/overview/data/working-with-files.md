@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 4a62cce3af57b507882744f948ce208becdb03ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3ff852232212ddda4930597731911be60c092667
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382304"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108945"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでファイルの使用
 
@@ -48,7 +48,6 @@ ms.locfileid: "59382304"
 >   
 > 
 > このチュートリアルは、WebMatrix 3 でも機能します。
-
 
 <a id="Creating_a_Text_File"></a>
 ## <a name="creating-a-text-file-and-writing-data-to-it"></a>テキスト ファイルを作成し、データを書き込む
@@ -145,7 +144,6 @@ ms.locfileid: "59382304"
 > 
 > Microsoft Excel を使用して、コンマ区切りファイルとしてのスプレッドシートに含まれるデータを保存することができます (*.csv*ファイル)。 この場合、Excel 形式ではなく、プレーン テキストで、ファイルが保存されます。 スプレッドシート内の各行は、テキスト ファイル内での改行で区切られます、各データ項目はコンマで区切られます。 コード内で、データ ファイルの名前を変更するだけで、Excel のコンマ区切りファイルを読み取るには、前の例に示すようにコードを使用できます。
 
-
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>ファイルを削除します。
 
@@ -154,7 +152,6 @@ ms.locfileid: "59382304"
 > [!NOTE] 
 > 
 > **重要な**を運用環境の web サイトを通常できるユーザーを制限、データを変更します。 サイトのタスクを実行するユーザーを承認する方法についてとメンバーシップを設定する方法については、次を参照してください。[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904)します。
-
 
 1. という名前のサブフォルダーを作成、web サイトで*イメージ*します。
 2. 1 つまたは複数のコピー *.jpg*へのファイル、*イメージ*フォルダー。
@@ -255,7 +252,6 @@ ms.locfileid: "59382304"
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
-
 
 [ASP.NET Web ページ サイトでの画像の操作](https://go.microsoft.com/fwlink/?LinkId=202897)
 

@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 85554606-47cb-4e4f-9848-eed9da579056
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fd3bf46394f562462c561bf06370d2f372e47d0a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c0278841b7b0701f09b2de5115e06da87aed49cf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415264"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109036"
 ---
 # <a name="creating-a-business-logic-layer-c"></a>ビジネス ロジック層を作成する (C#)
 
@@ -23,18 +23,15 @@ ms.locfileid: "59415264"
 
 > このチュートリアルでは、プレゼンテーション層と DAL 間のデータ交換の仲介役として機能するビジネス ロジック層 (BLL) に、ビジネス ルールを集中管理する方法がわかります。
 
-
 ## <a name="introduction"></a>はじめに
 
 作成したデータ アクセス層 (DAL)、[最初のチュートリアル](creating-a-data-access-layer-cs.md)明確に分離、データ アクセス ロジックをプレゼンテーション ロジックから。 ただし、DAL は、プレゼンテーション層から、データ アクセスの詳細を明確に区分、中に適用される任意のビジネス ルールは実行されません。 たとえば、アプリケーションのすることも許可しないように、`CategoryID`または`SupplierID`のフィールド、`Products`ときに変更するテーブル、`Discontinued`フィールドが 1 に設定または状況は禁止勤続の規則を適用する可能性があります、従業員が入社後にユーザーによって管理されます。 もう 1 つの一般的なシナリオは、特定のロール内のユーザーの承認などのみが製品を削除できますまたはを変更することができます、`UnitPrice`値。
 
 このチュートリアルでは、プレゼンテーション層と DAL 間のデータ交換の仲介役として機能するビジネス ロジック層 (BLL) にこれらのビジネス ルールを集中管理する方法がわかります。 実際のアプリケーションで、別のクラス ライブラリ プロジェクトとして、BLL を実装する必要があります。ただし、これらのチュートリアルを実装します BLL を一連のクラスとして、`App_Code`プロジェクト構造を簡略化するためのフォルダー。 図 1 は、プレゼンテーション層、BLL は、DAL 間のアーキテクチャの関係を示しています。
 
-
 ![BLL はデータ アクセス層とプレゼンテーション層を分離し、ビジネス ルールを課す](creating-a-business-logic-layer-cs/_static/image1.png)
 
 **図 1**:BLL はデータ アクセス層とプレゼンテーション層を分離し、ビジネス ルールを課す
-
 
 ## <a name="step-1-creating-the-bll-classes"></a>手順 1: BLL クラスを作成します。
 
@@ -44,17 +41,14 @@ BLL は DAL; の各 TableAdapter に 1 つ、4 つのクラスから構成され
 
 内の 4 つの BLL クラス ファイルを次に、作成、`BLL`サブフォルダーです。 これを行うを右クリックし、`BLL`サブフォルダーを追加、新しいアイテムの選択し、クラス テンプレートを選択します。 4 つのクラスの名前を付けます`ProductsBLL`、 `CategoriesBLL`、 `SuppliersBLL`、および`EmployeesBLL`します。
 
-
 ![4 つの新しいクラスを App_Code フォルダーに追加します。](creating-a-business-logic-layer-cs/_static/image2.png)
 
 **図 2**:次の 4 つの新しいクラスを追加、`App_Code`フォルダー
-
 
 次に、単に最初のチュートリアルから Tableadapter に定義されたメソッドをラップするクラスの各メソッドを追加しましょう。 ここでは、これらのメソッドはだけ; DAL を直接呼び出しますすべての必要なビジネス ロジックを追加する後で取り上げます。
 
 > [!NOTE]
 > Visual Studio Standard Edition を使用している場合、またはの上 (なら、*いない*Visual Web Developer を使用して)、視覚的に使用して、クラスを設計することができます必要に応じて、[クラス デザイナー](https://msdn.microsoft.com/library/default.asp?url=/library/dv_vstechart/html/clssdsgnr.asp)します。 参照してください、[クラス デザイナー ブログ](https://blogs.msdn.com/classdesigner/default.aspx)Visual Studio のこの新機能の詳細についてはします。
-
 
 `ProductsBLL`クラスの 7 つのメソッドの合計を追加する必要があります。
 
@@ -67,7 +61,6 @@ BLL は DAL; の各 TableAdapter に 1 つ、4 つのクラスから構成され
 - `DeleteProduct(productID)` データベースから、指定された製品を削除します。
 
 ProductsBLL.cs
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample1.cs)]
 
@@ -107,7 +100,6 @@ ProductsBLL.cs
 
 注目すべき 1 つのメソッドは、`SuppliersBLL`クラスの`UpdateSupplierAddress`メソッド。 このメソッドは、業者のアドレス情報だけを更新するためのインターフェイスを提供します。 内部的には、このメソッドの読み込み、`SupplierDataRow`指定したオブジェクト`supplierID`(を使用して`GetSupplierBySupplierID`)、そのアドレスに関連するプロパティを設定し呼び出して、`SupplierDataTable`の`Update`メソッド。 `UpdateSupplierAddress`メソッド次のとおりです。
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample2.cs)]
 
 この記事のダウンロード、BLL クラスの完全な実装を参照してください。
@@ -116,21 +108,17 @@ ProductsBLL.cs
 
 最初のチュートリアルではプログラムでは、型指定されたデータセットを直接操作する例を説明しましたが、BLL クラスの追加により、プレゼンテーション層は動作 BLL に対して代わりにします。 `AllProducts.aspx`から最初のチュートリアルでは、例、`ProductsTableAdapter`に次のコードに示すように、GridView に製品の一覧をバインドに使用されました。
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample3.cs)]
 
 コードの最初の行を置き換えるだけですが変更が必要されるクラスの新しい BLL を使用するが、`ProductsTableAdapter`オブジェクトを`ProductBLL`オブジェクト。
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample4.cs)]
 
 BLL クラスは、ObjectDataSource を使用して (型指定されたデータセットのことができます)、宣言によってもアクセスできます。 ここで説明するさらに詳しく ObjectDataSource で、次のチュートリアル。
 
-
 [![GridView に製品の一覧が表示されます。](creating-a-business-logic-layer-cs/_static/image4.png)](creating-a-business-logic-layer-cs/_static/image3.png)
 
 **図 3**:GridView に製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-a-business-logic-layer-cs/_static/image5.png))。
-
 
 ## <a name="step-3-adding-field-level-validation-to-the-datarow-classes"></a>手順 3: DataRow クラスにフィールド レベルの検証を追加します。
 
@@ -145,24 +133,19 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 
 データベースでのこれらの規則を適用するだけでなくもを適用するデータセットのレベル。 実際には、フィールド長、値が必須または省略可能なのかどうか既に DataColumns のそれぞれの DataTable のセットをキャプチャします。 自動的に提供される既存のフィールド レベルの検証を表示するには、データセット デザイナーに移動し、Datatable のいずれかからフィールドを選択して、[プロパティ] ウィンドウに移動し。 図 4 に示すよう、`QuantityPerUnit`で DataColumn、`ProductsDataTable`が 20 文字の最大長を許可して`NULL`値。 設定する場合、`ProductsDataRow`の`QuantityPerUnit`プロパティを 20 文字より長い文字列値に、`ArgumentException`がスローされます。
 
-
 [![DataColumn は、フィールド レベルの基本的な検証を提供します。](creating-a-business-logic-layer-cs/_static/image7.png)](creating-a-business-logic-layer-cs/_static/image6.png)
 
 **図 4**:DataColumn は、基本的なフィールド レベルの検証 ([フルサイズの画像を表示する をクリックします](creating-a-business-logic-layer-cs/_static/image8.png))。
 
-
 残念ながら、指定できない、境界のチェックなど、`UnitPrice`プロパティ ウィンドウで、0 以上の値がある必要があります。 この種類のフィールド レベルの検証を提供するために、DataTable のイベント ハンドラーを作成する必要[ColumnChanging](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx)イベント。 説明したように、[前のチュートリアル](creating-a-data-access-layer-cs.md)、部分クラスを使用して型指定されたデータセットによって作成された DataSet、Datatable、および DataRow オブジェクトを拡張することができます。 作成するこの手法を使用して、`ColumnChanging`のイベント ハンドラー、`ProductsDataTable`クラス。 クラスを作成して開始、`App_Code`という名前のフォルダー`ProductsDataTable.ColumnChanging.cs`します。
-
 
 [![App_Code フォルダーに新しいクラスを追加します。](creating-a-business-logic-layer-cs/_static/image10.png)](creating-a-business-logic-layer-cs/_static/image9.png)
 
 **図 5**:新しいクラスを追加、`App_Code`フォルダー ([フルサイズの画像を表示する をクリックします](creating-a-business-logic-layer-cs/_static/image11.png))。
 
-
 イベント ハンドラーを次に、作成、`ColumnChanging`によりイベント、 `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、および`ReorderLevel`列の値 (ない場合`NULL`) より大きいかゼロに等しい。 このような任意の列が範囲外にある場合は、スロー、`ArgumentException`します。
 
 ProductsDataTable.ColumnChanging.cs
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample5.cs)]
 
@@ -180,13 +163,11 @@ BLL クラスには、アプリケーションのビジネス ルールに準拠
 
 場合は、このビジネス ルールを適用する、`UpdateProducts`メソッドをチェックすることで始めたい`Discontinued`に設定された`true`を呼び出すと、場合`GetProductsBySupplierID`製品の数を判断するこの製品の仕入先から購入します。 1 つの製品のこの業者から購入だけの場合にスローします、`ApplicationException`します。
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample6.cs)]
 
 ## <a name="responding-to-validation-errors-in-the-presentation-tier"></a>プレゼンテーション層の検証エラーへの応答
 
 プレゼンテーション層から、BLL を呼び出すときに例外が発生したまたは ASP.NET バブリングそれらを処理しようとするかどうかを判断できます (これが発生、`HttpApplication`の`Error`イベント)。 BLL をプログラムで使用する場合は、例外を処理するには、使用、 [try… catch](https://msdn.microsoft.com/library/0yd65esw.aspx)ブロックは、次の例を示します。
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample7.cs)]
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62e5c5622743447e1119141469c894dc905e6b43
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5699f72af6b8d7f18d1a2c631dfdedd63c66e1e6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381056"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133852"
 ---
 # <a name="configuring-permissions-for-team-build-deployment"></a>チーム ビルド配置のアクセス許可を構成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59381056"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、自動化されたビルド プロセスの一部として、コンテンツを web サーバーとデータベース サーバーをデプロイするビルド サーバーを有効にするアクセス許可を構成する方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -36,7 +35,6 @@ Team Foundation Server (TFS) 2010年のビルド サービスをインストー�
 
 > [!NOTE]
 > ネットワーク サービス アカウントは、他のコンピューターへの認証にコンピューター アカウントを使用します。 コンピューター アカウント形式になります * [ドメイン名]\[マシン名] ***$**&#x2014;など**FABRIKAM\TFSBUILD$** します。 そのため、ビルド サービスが Network Service の id を使用して、実行する場合は、ビルド サーバーのコンピューター アカウント id に必要なアクセス許可を付与する必要があります。
-
 
 ## <a name="configuring-web-server-permissions"></a>Web サーバーのアクセス許可の構成
 

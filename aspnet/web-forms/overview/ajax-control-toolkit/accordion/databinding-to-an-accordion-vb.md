@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: b19f0875-7d3e-4ecf-baa1-a0c693c765b3
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordion-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dde3d60f82bb5f32fdd8b6b5cf8a0e1accebd1a7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a5032fa1438594796ea774776f13f4909f24f2fe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408928"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108406"
 ---
 # <a name="databinding-to-an-accordion-vb"></a>アコーディオンにデータバインドする (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59408928"
 [コードのダウンロード](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion1VB.pdf)
 
 > AJAX Control Toolkit で、アコーディオン コントロールは、複数のペインを示し、うち 1 つを同時に表示できます。 パネルは通常、ページ自体内で宣言が、データ ソースへのバインドは柔軟性を提供します。
-
 
 ## <a name="overview"></a>概要
 
@@ -57,7 +56,6 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 このサンプルを完了するまでにはアコーディオン コントロールで参照されている 2 つの CSS クラスを定義する必要があります (のプロパティで`HeaderCssClass`と`ContentCssClass`)。 次のマークアップを格納、`<head>`ページのセクション。
 
 [!code-css[Main](databinding-to-an-accordion-vb/samples/sample6.css)]
-
 
 [![アコーディオンにデータがデータ ソースから直接取得されます。](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
 

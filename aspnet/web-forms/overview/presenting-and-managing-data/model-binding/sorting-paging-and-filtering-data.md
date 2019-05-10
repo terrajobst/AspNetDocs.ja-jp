@@ -8,12 +8,12 @@ ms.date: 02/27/2014
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 1159d75ec5b2f7e5ac94da0a15acf24b5400798b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f8e64392af6110f36c6af98c4e4e9481c94a0d82
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59387476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106934"
 ---
 # <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>並べ替え、ページング、およびモデルのバインディングと web フォームを使用してデータをフィルター処理
 
@@ -26,7 +26,6 @@ ms.locfileid: "59387476"
 > このチュートリアルは、最初に作成されたプロジェクトでビルド[一部](retrieving-data.md)シリーズの。
 > 
 > できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。 これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
-
 
 ## <a name="what-youll-build"></a>構築します
 
@@ -59,7 +58,7 @@ Web アプリケーションを実行して、レコードは、1 ページに�
 
 ## <a name="filter-records-by-user-selection"></a>ユーザーの選択でレコードをフィルター処理します。
 
-モデル バインドでは、モデル バインディングのメソッドでパラメーターの値を設定する方法を指定することを可能にするいくつかの属性を追加します。 これらの属性は、 **System.Web.ModelBinding**名前空間。 それには以下が含まれます。
+モデル バインドでは、モデル バインディングのメソッドでパラメーターの値を設定する方法を指定することを可能にするいくつかの属性を追加します。 これらの属性は、 **System.Web.ModelBinding**名前空間。 Windows コモン コントロールには以下が含まれます。
 
 - コントロール
 - クッキー

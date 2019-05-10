@@ -8,12 +8,12 @@ ms.date: 01/18/2008
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 98869574adb8ac85a2b6dad8db2a583e013150fe
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 98c13d076e20f8f57fc551cbcffe140d42c652da
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393178"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108381"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>メンバーシップ ユーザー ストアに対してユーザー資格情報を確認する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393178"
 [コードのダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_vb.pdf)
 
 > このチュートリアルでは、プログラムによる方法と、ログイン コントロールの両方を使用して、メンバーシップ ユーザー ストアに対してユーザーの資格情報を検証する方法を説明します。 ログイン コントロールの外観と動作をカスタマイズする方法に注目するはもします。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -42,11 +41,9 @@ ms.locfileid: "59393178"
 
 このログイン ページを更新しましょう (~/`Login.aspx`) メンバーシップ フレームワークのユーザー ストアに対して指定された資格情報を検証します。 このログイン ページを作成したに戻り、 <a id="Tutorial02"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-vb.md)チュートリアルでは、ユーザー名とパスワードの 2 つのテキスト ボックスで、インターフェイスの作成をチェック ボックスをオンし、ログイン ボタンに、そのアカウントを記憶する (図 1 参照)。 コードでは、ハード コーディングされた (Scott/パスワード、Jisun/パスワード、および Sam/パスワード) は、ユーザー名とパスワードのペアのリストに対して入力した資格情報を検証します。 <a id="Tutorial03"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)チュートリアルは、フォームに追加情報を格納する、ログイン ページのコードを更新しました認証チケットの`UserData`プロパティ。
 
-
 [![ログイン ページのインターフェイスには、2 つのテキスト ボックス、CheckBoxList、およびボタンが含まれます。](validating-user-credentials-against-the-membership-user-store-vb/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image1.png)
 
 **図 1**:ログイン ページのインターフェイスを含む 2 つのテキスト ボックス、CheckBoxList、およびボタン ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image3.png))。
-
 
 ログイン ページのユーザー インターフェイスは変わらないことができますが、ログイン ボタンのボタンに置き換える必要があります`Click`メンバーシップ フレームワークのユーザー ストアに対してユーザーを検証するコードを持つイベント ハンドラー。 イベント ハンドラーは、そのコードは次のように表示されるように更新します。
 
@@ -60,7 +57,6 @@ ms.locfileid: "59393178"
 
 > [!NOTE]
 > 自分のパスワードを含む、資格情報がで web サーバーにインターネット経由で転送されるときに、ユーザーは自分の資格情報を入力し、ログイン ページのフォームを送信する、*プレーン テキスト*します。 つまり、ネットワーク トラフィックをスニッフィング ハッカーは、ユーザー名とパスワードを確認できます。 これを防ぐにを使用して、ネットワーク トラフィックを暗号化するために不可欠[セキュリティで保護されたソケット レイヤー (SSL)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer)します。 これにより、web サーバーによって受信されるまで、ブラウザーを離れる時点から、資格情報 (およびその全体のページの HTML マークアップ) を暗号化することが保証されます。
-
 
 ### <a name="how-the-membership-framework-handles-invalid-login-attempts"></a>メンバーシップ フレームワークが無効なログイン試行を処理する方法
 
@@ -78,30 +74,24 @@ ms.locfileid: "59393178"
 > [!NOTE]
 > 1 つの欠点、`ValidateUser`メソッドは、指定された資格情報が有効でない場合に提供されません理由についても説明します。 資格情報、ユーザー ストアに一致するユーザー名とパスワードの組み合わせがないため、ユーザーが承認されていないため、またはユーザーがロックアウトされているために有効なことがあります。手順 4 は、そのログインが失敗したときに、ユーザーに詳細なメッセージを表示する方法が表示されます。
 
-
 ## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>手順 2: ログインの Web コントロールを使用して資格情報の収集
 
 [ログイン Web コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)に戻り作成したものとよく似ています、既定のユーザー インターフェイスを表示、 <a id="Tutorial02"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-vb.md)チュートリアル。 ログイン コントロールを使用することと保存訪問者の資格情報を収集するインターフェイスを作成するための作業します。 さらに、Login コントロールが自動的にサインイン (送信された資格情報が有効なを想定) ユーザーのためご保存コードを記述する必要がなくなります。
 
 更新`Login.aspx`、手動で作成したインターフェイスを交換およびコードでは、Login コントロール。 既存のマークアップを削除することで起動し、コードで`Login.aspx`します。 削除しても、最初から、または単にコメント アウトする可能性があります。宣言型マークアップをコメントに、それを囲む、`<%--`と`--%>`区切り記号。 これらの区切り記号を手動で入力することができますか、図 2 に示すよう、コメント アウトし、ツールバーのアイコンを選択した行をコメントをクリックするテキストを選択します。 同様に、選択した行のアイコンをコメントを使用すると、分離コード クラスで選択したコードをコメント アウトします。
 
-
 [![既存の宣言型マークアップと Login.aspx 内のソース コード コメント](validating-user-credentials-against-the-membership-user-store-vb/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image4.png)
 
 **図 2**:コメントを既存宣言型マークアップと Login.aspx でソース コード ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image6.png))。
 
-
 > [!NOTE]
 > Visual Studio 2005 で宣言型マークアップを表示するときに、選択した行のアイコンをコメントは使用できません。 Visual Studio 2008 を使用していない場合は、手動で追加する必要があります。、`<%--`と`--%>`区切り記号。
 
-
 次に、ログイン コントロールをページにツールボックスからドラッグし、設定、`ID`プロパティを`myLogin`します。 この時点で、画面に図 3 のようになります。 ログイン コントロールの既定のインターフェイスがユーザー名とパスワードを次回チェック ボックスをオンおよびログの ボタンのテキスト ボックス コントロールが含まれることに注意してください。 `RequiredFieldValidator`の 2 つのテキスト ボックス コントロール。
-
 
 [![Login コントロールをページに追加します。](validating-user-credentials-against-the-membership-user-store-vb/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image7.png)
 
 **図 3**:Login コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image9.png))。
-
 
 完了します。 ログイン コントロールのログイン ボタンがクリックされたときにポストバックが発生し、Login コントロールが呼び出す、`Membership.ValidateUser`メソッド、入力したユーザー名とパスワードを渡します。 資格情報が有効でない場合、Login コントロールには、このようなことを示すメッセージが表示されます。 ただし、資格情報が有効で場合、Login コントロールは、フォーム認証チケットを作成し、ユーザーを適切なページにリダイレクトします。
 
@@ -114,11 +104,9 @@ Login コントロールでは、4 つの要因を使って、正常にログイ
 
 図 4 は、方法を示しています、Login コントロールがそのページの適切な意思決定に到着するこれら 4 つのパラメーターを使用します。
 
-
 [![Login コントロールをページに追加します。](validating-user-credentials-against-the-membership-user-store-vb/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image10.png)
 
 **図 4**:Login コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image12.png))。
-
 
 ブラウザーを使用してサイトを訪問し、メンバーシップ フレームワークで既存のユーザーとしてログインして、ログイン コントロールをテストする時間がかかります。
 
@@ -139,16 +127,13 @@ Login コントロールは、そのユーザー インターフェイス コン
 > [!NOTE]
 > 次のセクションで、ログイン コントロールのレイアウトを構成するに注目レイアウト コントロールのユーザー インターフェイス要素の正確なレイアウトを定義するテンプレートを使用します。
 
-
 設定して、ログイン コントロールのプロパティの設定をまとめ、 [ `CreateUserText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx)と[`CreateUserUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx)にまだ登録されていませんか? アカウントを作成します。 `~/Membership/CreatingUserAccounts.aspx`、それぞれします。 これで作成したページを指す、ログイン コントロールのインターフェイスにハイパーリンクを追加、 <a id="Tutorial05"> </a>[前のチュートリアル](creating-user-accounts-vb.md)します。 ログイン コントロールの[ `HelpPageText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx)と[`HelpPageUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx)と[ `PasswordRecoveryText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx)と[ `PasswordRecoveryUrl` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx)ヘルプ ページと、パスワード回復ページへのリンクを表示、同じ方法で作業します。
 
 これらのプロパティの変更を行った後、ログイン コントロールの宣言型マークアップと外観のようなります図 5 に示されています。
 
-
 [![ログイン コントロールのプロパティの値の外観を決定します。](validating-user-credentials-against-the-membership-user-store-vb/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image13.png)
 
 **図 5**:外観をディクテーション ログイン コントロールのプロパティの値 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image15.png))。
-
 
 ### <a name="configuring-the-login-controls-layout"></a>ログイン コントロールのレイアウトを構成します。
 
@@ -163,23 +148,18 @@ Login コントロールは、そのユーザー インターフェイス コン
 
 指定された電子メール アドレス、電子メール アドレス宛に一致する場合にのみユーザーを認証し、ユーザー名、パスワード、および電子メール アドレスのユーザー入力を求めるようにしてみましょう Login コントロールを更新します。 まず、ログイン コントロールのインターフェイスをテンプレートに変換する必要があります。 ログイン コントロールのスマート タグから変換テンプレート オプションを選択します。
 
-
 [![Login コントロールをテンプレートに変換します。](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
 
 **図 6**:Login コントロールをテンプレートに変換 ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))。
 
-
 > [!NOTE]
 > Login コントロールの template 前のバージョンに戻すには、コントロールのスマート タグからのリセット リンクをクリックします。
 
-
 Login コントロールをテンプレートに変換を追加、 `LayoutTemplate` HTML 要素およびユーザー インターフェイスを定義する Web コントロールを使用するコントロールの宣言型マークアップにします。 図 7 に示すようコントロールをテンプレートに変換するさまざまなプロパティから削除プロパティ ウィンドウなど`TitleText`、`CreateUserUrl`などのように、ため、テンプレートを使用する場合、これらのプロパティ値は無視されます。
-
 
 [![以下のプロパティは、使用可能なときのログイン コントロールがテンプレートに変換されます。](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
 
 **図 7**:以下のプロパティは、使用可能なときのログイン コントロールがテンプレートに変換されます ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))。
-
 
 内の HTML マークアップ、`LayoutTemplate`必要に応じて変更することがあります。 同様に、自由にテンプレートに新しい Web コントロールを追加します。 ただし、重要なは、そのログイン コントロールのコア Web コントロールがテンプレートに保持され、割り当てられた保持は`ID`値。 具体的には、削除したりしないでの名前を変更、`UserName`または`Password`、テキスト ボックス、`RememberMe`チェック ボックスをオン、 `LoginButton`  ボタン、`FailureText`ラベル、または`RequiredFieldValidator`コントロール。
 
@@ -189,11 +169,9 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 
 追加した後、 `Email`  ボックスに、ブラウザーを使用してページを参照してください。 図 8 に示すよう、ログイン コントロールのユーザー インターフェイスの 3 つ目のテキスト ボックスに追加されました。
 
-
 [![Login コントロールのユーザーの電子メール アドレス テキスト ボックスになりました](validating-user-credentials-against-the-membership-user-store-vb/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image22.png)
 
 **図 8**:Login コントロールのユーザーの電子メール アドレス テキスト ボックスになりました ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image24.png))。
-
 
 この時点では、Login コントロールがまだを使用して、`Membership.ValidateUser`指定された資格情報を検証するメソッド。 値が同様に、入力、 `Email` TextBox は、ユーザーがログインできるかどうかに影響を与えません。 手順 3 では、資格情報、ユーザー名とパスワードが有効とファイルの電子メール アドレスが一致する指定した電子メール アドレスの場合有効と見なされるのみログイン コントロールの認証ロジックをオーバーライドする方法に注目します。
 
@@ -207,15 +185,12 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 
 図 9 には、認証ワークフローのフロー チャートが用意されています。
 
-
 [![ログイン コントロールの認証ワークフロー](validating-user-credentials-against-the-membership-user-store-vb/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image25.png)
 
 **図 9**:ログイン コントロールの認証ワークフロー ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image27.png))。
 
-
 > [!NOTE]
 > 使用する場合を迷っている場合、`FailureAction`の`RedirectToLogin`オプションのページで、次のシナリオを検討してください。 今すぐ、`Site.master`マスター ページは、現在、こんにちは、よそ者に表示されるテキスト、匿名ユーザーに表示したときに、左側の列をいますが、ログイン コントロールでそのテキストを置き換えますしたいことを想像してください。 匿名ユーザーがログイン ページに直接アクセスを必要とするのではなく、サイトの任意のページからのログインをこのようにするとします。 ただし、ユーザーは、マスター ページでレンダリングのログイン コントロールを使用してログインできなくなりますが場合、有意義なことをログイン ページにリダイレクトする (`Login.aspx`) そのページの可能性には、その他については、リンク、およびリンクを作成するなどの他のヘルプが含まれているため、新しいアカウントまたはマスター ページに追加されませんでした - 紛失のパスワードを取得します。
-
 
 ### <a name="creating-theauthenticateevent-handler"></a>作成、`Authenticate`イベント ハンドラー
 
@@ -246,15 +221,12 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 
 このコードでは、適切なユーザー名、パスワード、および電子メール アドレスを入力する、有効なユーザーとしてログインを試みます。 もう一度お試しくださいがこの時間は意図的に正しくない電子メール アドレスを使用して (図 10 参照)。 最後に、試して、存在しないユーザー名を使用して 3 回目です。 最初のケースでする必要がありますが正常にログオンして、サイトが最後の 2 つの場合、ログイン コントロールの無効な資格情報のメッセージが表示されます。
 
-
 [![Tito が正しくない電子メール アドレスを指定するときにログインできません。](validating-user-credentials-against-the-membership-user-store-vb/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image28.png)
 
 **図 10**:Tito ことはできませんログのときに指定が正しくない電子メール アドレス ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image30.png))。
 
-
 > [!NOTE]
 > 手順 1 で、方法、メンバーシップ フレームワークを処理無効なログイン試行のセクションで説明したときに、`Membership.ValidateUser`の無効なログイン試行を追跡し、特定数を超える場合、ユーザーをロックアウトするメソッドが呼び出され、無効な資格情報を渡して、指定された時間ウィンドウ内の無効な試行のしきい値。 以降、カスタム認証ロジックの呼び出し、`ValidateUser`メソッド、間違ったパスワードの有効なユーザー名には、無効なログイン試行カウンターが 1 ずつ増分されますが、このカウンターは、ユーザー名とパスワードは、有効な場合は加算されませんが、電子メール アドレスが正しくありません。 ハッカーがユーザー名とパスワードがユーザーの電子メール アドレスを決定するブルート フォース手法を使用する必要がないために、この動作は、適切な可能性があります。
-
 
 ## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>手順 4: ログイン コントロールの無効な資格情報のメッセージの向上
 
@@ -279,11 +251,9 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 
 このコードをテストするには、意図的しようとすると、既存のユーザーとしてログインしますが、正しくないパスワードを使用します。 10 分間のタイム フレーム内の行で 5 回を行い、アカウントをロックアウトします。図 11 に示す試行は常に (正しいパスワード) でも失敗しますが、ここでは、その後のログインよりわかりやすい表示と、アカウントが無効なログインの回数が多すぎるためロックされています。 アカウント ロック解除されたメッセージが管理者にお問い合わせください。
 
-
 [![Tito が無効なログインを何度もを実行して、ロックアウトされています。](validating-user-credentials-against-the-membership-user-store-vb/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image31.png)
 
 **図 11**:Tito 実行が無効なログインも間違えるとがされてロックアウト ([フルサイズの画像を表示する をクリックします](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png))。
-
 
 ## <a name="summary"></a>まとめ
 

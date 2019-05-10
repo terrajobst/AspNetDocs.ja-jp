@@ -8,17 +8,16 @@ ms.date: 02/24/2012
 ms.assetid: 257373bb-eab0-47bc-b5a2-37a9e91666d6
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team
 msc.type: chapter
-ms.openlocfilehash: 3db35464b448727ef3477a90149459a46e0f76d7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fae7bc473ecbc655400220aa158dbd5285ae1ea8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412165"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106827"
 ---
 # <a name="linq-videos-from-the-vb-team"></a>VB チームの LINQ ビデオ
 
 > これらのビデオでは、1 時間と Visual Studio 2008 に含まれる Visual Basic 9.0 の新しい LINQ 言語機能に重点を置いてコンテンツの半分を提供します。
-
 
 - [LINQ 入門](how-do-i-get-started-with-linq.md)
 - [クエリのグループ化と集計を行う](how-do-i-perform-group-and-aggregate-queries.md)

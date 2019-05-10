@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: c6a4aa4eb563fd77d5afd9248175d5f5b7984d19
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 81d134cbd3231b9a0d5537ccbd1bbfe6419254af
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57042599"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108711"
 ---
 # <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>ASP.NET Web API を使用して OData v4 エンドポイントを作成します。 
 
@@ -33,7 +33,7 @@ ms.locfileid: "57042599"
 >
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
 >
-> OData バージョン 3 では、[OData v3 エンドポイントの作成](../odata-v3/creating-an-odata-endpoint.md)を参照してください。
+> OData バージョン 3 では、次を参照してください。 [OData v3 エンドポイントの作成](../odata-v3/creating-an-odata-endpoint.md)です。
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 
@@ -44,8 +44,6 @@ Visual Studio で、**ファイル**メニューから **新規** &gt; **プロ�
 [![](create-an-odata-v4-endpoint/_static/image7.png)](create-an-odata-v4-endpoint/_static/image7.png)
 
 **[OK]** を選択します。
-
-
 
 [![](create-an-odata-v4-endpoint/_static/image8.png)](create-an-odata-v4-endpoint/_static/image8.png)
 
@@ -70,7 +68,6 @@ A*モデル*は、アプリケーションでのデータ エンティティを�
 > [!NOTE]
 > 慣例により、モデル クラスは、Models フォルダーに配置されますが、独自のプロジェクトでこの規則に従う必要はありません。
 
-
 クラスに `Product` という名前を付けます。 Product.cs ファイルでは、次のように定型コードを置き換えます。
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample2.cs)]
@@ -83,7 +80,6 @@ A*モデル*は、アプリケーションでのデータ エンティティを�
 
 > [!NOTE]
 > Web API OData では、EF は必要ありません。 データベース エンティティをモデルに変換できる任意のデータ アクセス層を使用します。
-
 
 最初に、EF の NuGet パッケージをインストールします。 **[ツール]** メニューで、**[NuGet パッケージ マネージャー]** &gt; **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール ウィンドウで、次のように入力します。
 
@@ -99,7 +95,7 @@ Web.config ファイルを開き、内の次のセクションを追加、**構�
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample5.cs)]
 
-コンストラクターの`"name=ProductsContext"`接続文字列の名前を指定します。
+コンス トラクターの`"name=ProductsContext"`接続文字列の名前を指定します。
 
 ## <a name="configure-the-odata-endpoint"></a>OData エンドポイントを構成します。
 
@@ -131,7 +127,6 @@ A*コント ローラー*は HTTP 要求を処理するクラスです。 各エ
 > [!NOTE]
 > このチュートリアルは、OData v3 の使用のバージョン、**コント ローラーの追加**スキャフォールディングします。 現時点では、OData v4 のスキャフォールディングではありません。
 
-
 次のように ProductsController.cs の定型コードを置き換えます。
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample8.cs)]
@@ -148,7 +143,7 @@ A*コント ローラー*は HTTP 要求を処理するクラスです。 各エ
 
 パラメーターなしのバージョンの`Get`メソッド全体の製品のコレクションを返します。 `Get`メソッドを*キー*キーで製品を次のパラメーター (この場合、`Id`プロパティ)。
 
-**[EnableQuery]** 属性は、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更するクライアントを使用できます。 詳細については、[OData クエリ オプションをサポートしている](../supporting-odata-query-options.md)を参照してください。
+**[EnableQuery]** 属性は、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更するクライアントを使用できます。 詳細については、次を参照してください。 [OData クエリ オプションをサポートしている](../supporting-odata-query-options.md)します。
 
 ## <a name="add-an-entity-to-the-entity-set"></a>エンティティ、エンティティ セットを追加します。
 

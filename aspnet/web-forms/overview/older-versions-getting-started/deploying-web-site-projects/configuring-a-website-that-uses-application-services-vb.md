@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 9c31a42f-d8bb-4c0f-9ccc-597d4f70ac42
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b8ec246c2f35f3d7fa5bcf67aa6f157195028176
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 43c6dbdc2155f50e2302b7c8929f378065e2f509
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379522"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106919"
 ---
 # <a name="configuring-a-website-that-uses-application-services-vb"></a>アプリケーション サービスを使用する Web サイトを構成する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59379522"
 [コードのダウンロード](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_09_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial09_AppServicesConfig_vb.pdf)
 
 > ASP.NET version 2.0 では、一連の .NET Framework の一部であり、一連の web アプリケーションに豊富な機能を追加するために使用できるビルド ブロックのサービスとして使用するアプリケーション サービスが導入されました。 このチュートリアルでは、アプリケーション サービスを使用する実稼働環境で web サイトを構成する方法について説明し、ユーザー アカウントと実稼働環境でロールの管理に関する一般的な問題に対処します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -34,7 +33,6 @@ ASP.NET version 2.0 に導入された、一連の*アプリケーション サ�
 - **サイト マップ**- 階層リンク メニューなどのナビゲーション コントロールを使用して表示する階層構造の形式でサイトの論理構造を定義するための api。
 - **パーソナル化**と共に最もよく使用、カスタマイズの基本設定を維持するための api - [ *WebParts*](https://msdn.microsoft.com/library/e0s9t4ck.aspx)します。
 - **正常性の監視**- パフォーマンス、セキュリティ、エラー、および実行中の web アプリケーションの他のシステム正常性メトリックを監視するための api。
-  
 
 アプリケーション サービスの Api は特定の実装に関連付けられていません。 使用して、特定のアプリケーション サービスに指示する代わりに、*プロバイダー*、し、そのプロバイダーが特定のテクノロジを使用してサービスを実装します。 Web ホスト会社でホストされているインターネット ベースの web アプリケーションの最もよく使用されるプロバイダーとは、SQL Server データベースの実装を使用して、それらのプロバイダーです。 たとえば、`SqlMembershipProvider`は Microsoft SQL Server データベースのユーザー アカウント情報を格納するメンバーシップ API 用のプロバイダーです。
 
@@ -42,7 +40,6 @@ ASP.NET version 2.0 に導入された、一連の*アプリケーション サ�
 
 > [!NOTE]
 > Api を使用して設計されたアプリケーション サービス、 [*プロバイダー モデル*](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)s、API の実行時に提供する実装の詳細を許可する設計パターン。 .NET Framework を使用できるなど、アプリケーション サービス プロバイダーが付属しています、`SqlMembershipProvider`と`SqlRoleProvider`Membership の providers は、SQL Server を使用してロール Api データベースの実装。 作成することもでき、プラグイン、カスタム プロバイダー。 実際には、書籍レビューの web アプリケーションに既にがサイト マップ API 用カスタム プロバイダーが含まれます (`ReviewSiteMapProvider`)、データからサイト マップを構築する、`Genres`と`Books`データベース内のテーブル。
-
 
 このチュートリアルでは、メンバーシップとロール Api を使用する、書籍レビューの web アプリケーションを拡張する方法を参照してください。 SQL Server データベースの実装でアプリケーション サービスを使用し、最後に、ユーザー アカウントと実稼働環境でロールの管理に関する一般的な問題に対処する web アプリケーションを配置する方法をについて説明します。
 
@@ -53,7 +50,6 @@ ASP.NET version 2.0 に導入された、一連の*アプリケーション サ�
 > [!NOTE]
 > 書籍レビューの web アプリケーションで 3 つのユーザー アカウントを作成したら。Scott、Jisun、および Alice です。 次の 3 つのすべてのユーザー パスワードは、同じである:**パスワード。** Scott と Jisun が管理者の役割では、Alice はありません。 サイト %s の非管理ページは、匿名ユーザーに引き続きアクセスできます。 それを管理する場合を除き、サイトにサインインする必要がないは、その場合は、管理者ロールのユーザーとしてにサインインする必要があります。
 
-
 認証および匿名ユーザーの別のユーザー インターフェイスを含める、書籍レビューのアプリケーションのマスター ページが更新されました。 匿名ユーザーのサイトにアクセスする場合は、右上隅でログイン リンクが表示されます。 認証されたユーザーが、メッセージが表示されます"こそ*username*!" ログアウトへのリンク。S ログイン ページもあります (`~/Login.aspx`)、訪問者を認証するため、ユーザー インターフェイスとロジックを提供する、ログイン Web コントロールを含むです。 管理者のみには、新しいアカウントを作成できます。 (作成と管理のユーザー アカウントのページは、`~/Admin`フォルダー)。
 
 ### <a name="configuring-the-membership-and-roles-apis"></a>メンバーシップとロール Api を構成します。
@@ -62,7 +58,6 @@ ASP.NET version 2.0 に導入された、一連の*アプリケーション サ�
 
 > [!NOTE]
 > このチュートリアルは、メンバーシップとロール Api をサポートするために web アプリケーションを構成する方法の詳細についてはではありません。 これらの Api とそれらを使用する web サイトを構成するために必要な手順を詳しく見るには、「マイ[ *web サイトのセキュリティのチュートリアル*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。
-
 
 SQL Server データベースとアプリケーション サービスを使用するロール情報が格納されているとするユーザー アカウント データベースにこれらのプロバイダーで使用されるデータベース オブジェクトを追加する必要があります。 これらの必要なデータベース オブジェクトには、さまざまなテーブル、ビュー、およびストアド プロシージャが含まれます。 それ以外の場合、指定されていない限り、`SqlMembershipProvider`と`SqlRoleProvider`という名前の SQL Server Express Edition データベースを使用して、プロバイダー クラス`ASPNETDB`アプリケーション s 内にある`App_Data`フォルダーは自動的に作成されたそのようなデータベースが存在しない場合実行時にこれらのプロバイダーで必要なデータベース オブジェクト。
 
@@ -73,7 +68,6 @@ SQL Server データベースとアプリケーション サービスを使用�
 [!code-xml[Main](configuring-a-website-that-uses-application-services-vb/samples/sample1.xml)]
 
 `Web.config`ファイルの`<authentication>`要素がフォーム ベース認証をサポートするために構成されていることもできます。
-  
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-vb/samples/sample2.xml)]
 
@@ -100,43 +94,34 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 > [!NOTE]
 > `aspnet_regsql.exe`ツールは、指定したデータベースでデータベース オブジェクトを作成します。 これは、データを移行しませんでは、データベース オブジェクト開発用データベースから運用データベースにします。 開発用データベースの実稼働データベースにユーザー アカウントとロール情報をコピーすることを意味する場合で説明する方法を使用して、*データベースを配置する*チュートリアル。
 
-
 運用環境のデータベースを使用するデータベース オブジェクトを追加する方法を見て s をできるように、`aspnet_regsql.exe`ツール。 Windows エクスプ ローラーを開き %WINDIR%\ コンピューターに .NET Framework version 2.0 のディレクトリに移動して開始します。Microsoft.NET\Framework\v2.0.50727 します。 表示されます、`aspnet_regsql.exe`ツール。 このツールは、コマンドラインで使用できますが、グラフィカル ユーザー インターフェイスも含まれています。ダブルクリックして、`aspnet_regsql.exe`のグラフィカルなコンポーネントを起動するファイル。
 
 その目的を説明するスプラッシュ画面を表示することで、ツールを開始します。 図 1 に示されている「セットアップ オプションを選択」画面に進みの横にあるをクリックします。 ここからは、追加のアプリケーション サービス、データベース オブジェクトまたはデータベースから削除できます。 運用データベースにこれらのオブジェクトを追加するため、"アプリケーション サービスの SQL Server を構成する"オプションを選択し、[次へ] をクリックします。
 
-
 [![SQL Server アプリケーション サービスを構成します。](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
 
 **図 1**:SQL Server を構成するアプリケーション サービスの選択 ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image3.jpg))。
-
 
 「、サーバーとデータベースの選択」画面については、データベースに接続するように要求されます。 データベース サーバー、セキュリティ資格情報と、web ホスト会社によって提供されたデータベース名を入力し、[次へ] をクリックします。
 
 > [!NOTE]
 > データベース サーバーと資格情報を入力した後にデータベースのドロップダウン リストを展開するときにエラーが発生する可能性があります。 `aspnet_regsql.exe`クエリ ツール、`sysdatabases`システム テーブルに、サーバーがこの情報は公開されているように、データベース サーバーを企業のロックをホストしている一部の web 上のデータベースの一覧を取得します。 このエラーが発生した場合は、ドロップダウン リストに直接、データベース名を入力できます。
 
-
 [![データベースの接続に関する情報、ツールを提供します。](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
 
 **図 2**:データベースとツールの接続情報を指定 ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image6.jpg))。
 
-
 後続の画面は、アプリケーション サービスのデータベース オブジェクトは、指定されたデータベースに追加する予定の実行、つまりされるアクションを要約します。 この操作の完了の横にある をクリックします。 しばらくすると、最後の画面が表示されます、(図 3 参照)、データベース オブジェクトが追加されたことを注意してください。
-
 
 [![Success!アプリケーション サービスのデータベース オブジェクトが、実稼働データベースに追加されました。](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
 
 **図 3**:正常に完了 アプリケーション サービス データベース オブジェクトに追加された運用データベース ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image9.jpg))。
 
-
 アプリケーション サービスのデータベース オブジェクトが、実稼働データベースに正常に追加されたことを確認するには、SQL Server Management Studio を開き、実稼働データベースに接続します。 データベースで、アプリケーション サービス データベースのテーブルがわかります図 4 に示すよう`aspnet_Applications`、 `aspnet_Membership`、`aspnet_Users`となります。
-
 
 [![データベース オブジェクトが、実稼働データベースに追加されたことを確認します。](configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
 
 **図 4**:データベース オブジェクトが、実稼働データベースに追加されたことを確認します ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image12.jpg))。
-
 
 使用する必要がありますのみ、`aspnet_regsql.exe`ツールまたはアプリケーション サービスの使用を開始した後は、最初に、最初に、web アプリケーションをデプロイするときにします。 これらのデータベースとオブジェクトは、再追加または変更する必要はありませんが、実稼働データベースでは。
 
@@ -153,12 +138,11 @@ ASP.NET は、優れたが付属しています[ *Web サイト管理ツール (
 > [!NOTE]
 > 場合、自分で、このような場合は、一致しないで実稼働環境にコピーするユーザー アカウントを使って検索`ApplicationId`値 - これらが正しくないを更新するクエリを記述する`ApplicationId`値を`ApplicationId`運用環境で使用します。 更新と、開発環境で作成されたアカウントを持つユーザーは運用上の web アプリケーションにサインインできるがようになりました。
 
-
 良い知らせは、同じ 2 つの環境を使用していることを確認するための簡単な手順が`ApplicationId`- 明示的に設定されて、`applicationName`属性`Web.config`アプリケーション サービス プロバイダーのすべての。 明示的に設定されている、`applicationName`で属性"BookReviews"を`<membership>`と`<roleManager>`要素からこのスニペットとして`Web.config`を示しています。
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-vb/samples/sample4.xml)]
 
-設定の詳細については、`applicationName`属性とその根拠を参照してください[ *Scott Guthrie* ](https://weblogs.asp.net/scottgu/) s ブログの投稿「 [*常 applicationName の設定ASP.NET メンバーシップとその他のプロバイダーを構成するときにプロパティ*](https://weblogs.asp.net/scottgu/443634)します。
+`applicationName`属性とその背後にある理論的根拠の設定に関するより多くの議論については、[ *Scott Guthrie* ](https://weblogs.asp.net/scottgu/) ブログの投稿「 [*Always set the "applicationName" property when configuring ASP.NET 2.0 Membership and other Providers*](https://weblogs.asp.net/scottgu/443634) 」を参照してください。
 
 ### <a name="managing-user-accounts-in-the-production-environment"></a>運用環境でのユーザー アカウントの管理
 
@@ -171,11 +155,9 @@ ASP.NET Web サイト管理ツール (WSAT) 簡単に作成し、ユーザー �
 > [!NOTE]
 > 詳細については、メンバーシップとロール Api を使用して、ログインに関連する ASP.NET Web コントロールと共にお読みくださいのマイ[ *web サイトのセキュリティのチュートリアル*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。 CreateUserWizard コントロールをカスタマイズする方法の詳細を参照してください、 [*ユーザー アカウントを作成する*](../../older-versions-security/membership/creating-user-accounts-vb.md)と[*追加ユーザーの情報を格納する*](../../older-versions-security/membership/storing-additional-user-information-vb.md)チュートリアル、またはチェック アウト[ *Erich Peterson* ](http://www.erichpeterson.com/)記事[ *CreateUserWizard コントロールをカスタマイズする*](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx).
 
-
 [![管理者は、新しいユーザー アカウントを作成できます。](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
 
 **図 5**:管理者は新しいユーザー アカウントを作成 ([フルサイズの画像を表示する をクリックします](configuring-a-website-that-uses-application-services-vb/_static/image15.jpg))。
-
 
 WSAT チェック アウトの完全な機能が必要なかどうかは[*ローリング、独自の Web サイト管理ツール*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)、Dan Clem を著者には、カスタム WSAT のようなツールを構築する処理手順について説明します。 Dan は、アプリケーションのソース コード (内の C# の場合) を共有し、ホストされる web サイトに追加するための手順を提供します。
 

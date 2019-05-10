@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: 493b2a66-816c-485c-8315-952ed1085ccc
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 191d194d4aaad15ac6c5187105d49a03a2f06bf2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 624d99ccbb0da1281b8c9cd8503507f22742e7a7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413348"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132313"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。12 の 5 - テスト環境として IIS に展開します。
 
@@ -24,7 +24,6 @@ ms.locfileid: "59413348"
 > この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
 > 
 > Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 
@@ -56,7 +55,6 @@ IIS をインストールして展開する前に行うために、サイト実�
 
 > [!NOTE]
 > Entity Framework Code First Migrations を使用している場合は、バージョン 5.0 を行ったことを確認または後でインストールされていること。 Entity Framework バージョン 4.3 での移行には、データベース スキーマを更新するには完全な信頼が必要です。
-
 
 ## <a name="installing-iis-and-web-deploy"></a>インストールを実行する IIS および Web デプロイします。
 

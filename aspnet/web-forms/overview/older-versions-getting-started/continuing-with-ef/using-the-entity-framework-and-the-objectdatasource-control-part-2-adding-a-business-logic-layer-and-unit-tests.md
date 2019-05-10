@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 4d436b0e5d605027cfcf5243f615f9ac167c5888
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 24344cc33d7c26d7c408db26c0530ef2c708a7d3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388050"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133453"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 2。ビジネス ロジック層と単体テストの追加
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](https://asp.net/entity-framework/tutorials#Getting%20Started)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
-
 
 前のチュートリアルでは、Entity Framework を使用して n 層 web アプリケーションを作成し、`ObjectDataSource`コントロール。 このチュートリアルでは、ビジネス ロジック層 (BLL) とデータ アクセス層 (DAL) を個別に維持しながら、ビジネス ロジックを追加する方法と、BLL の自動化された単体テストを作成する方法を示します。
 
@@ -72,7 +71,6 @@ ms.locfileid: "59388050"
 
 > [!NOTE]
 > Entity Framework の継承クラスからそれらをインスタンス化しているため、エンティティ オブジェクトがまだない永続化非依存には技術的には、`EntityObject`クラス。 使用することができますの完了の永続化非依存、 *plain old CLR object*、または*Poco*から継承されるオブジェクトの代わりに、`EntityObject`クラス。 このチュートリアルの範囲を超えては Poco を使用します。 詳細については、次を参照してください[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) 、MSDN web サイトです。)。
-
 
 接続できるので、`ObjectDataSource`コントロールをビジネス ロジックは、クラスの代わりに、リポジトリにし前に、と同様の動作を確認します。
 

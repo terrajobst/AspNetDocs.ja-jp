@@ -8,12 +8,12 @@ ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 3dddc1fd38a5384e40f9fa109da9d8c1424ef01a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 258450107ee7443c4efd43a3b8e4851249745227
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387257"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108170"
 ---
 # <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework のモックを作成するときに単体テストの ASP.NET Web API 2
 
@@ -119,7 +119,6 @@ StoreAppContext.cs ファイルを開き、次の強調表示された変更を�
 
 - StoreAppContext クラス IStoreAppContext インターフェイスを実装します。
 - MarkAsModified メソッドを実装します。
-
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample4.cs?highlight=6,14-17)]
 

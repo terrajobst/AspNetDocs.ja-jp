@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 67b25f4c-2823-42b6-b07d-1d650b3fd711
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 268403a7b832596421120a24c64580f63eb987c3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ae21259a14378ea6b41f5d45cf2cac6954175dfa
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383903"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109104"
 ---
 # <a name="using-the-formviews-templates-vb"></a>FormView のテンプレート (VB) を使用します。
 
@@ -22,7 +22,6 @@ ms.locfileid: "59383903"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_14_VB.exe)または[PDF のダウンロード](using-the-formview-s-templates-vb/_static/datatutorial14vb1.pdf)
 
 > DetailsView とは異なり、FormView いないフィールドで構成されます。 代わりに、テンプレートを使用して、フォーム ビューがレンダリングされます。 取り上げるこのチュートリアルでは、FormView コントロールを使用して、データの小さい固定表示を表示します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -39,21 +38,17 @@ DetailsView とは異なり、FormView いないフィールドで構成され�
 
 取り上げるこのチュートリアルでは、FormView コントロールを使用して、製品の小さい固定表示を表示します。 名前、カテゴリ、供給業者とに、フォーム ビューのフィールドではなく`ItemTemplate`ヘッダー要素の組み合わせを使用してこれらの値が表示されます、 `<table>` (図 1 参照)。
 
-
 [![FormView は、DetailsView でグリッドのようなレイアウトのブレーク アウト](using-the-formview-s-templates-vb/_static/image2.png)](using-the-formview-s-templates-vb/_static/image1.png)
 
 **図 1**:FormView が Grid-Like レイアウト表示から、DetailsView で中断されます ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-vb/_static/image3.png))。
-
 
 ## <a name="step-1-binding-the-data-to-the-formview"></a>手順 1: FormView にデータをバインド
 
 開く、`FormView.aspx`ページし、FormView をツールボックスからデザイナーにドラッグします。 まず、フォーム ビューを追加するときに私たちに指示する灰色のボックスとして表示される`ItemTemplate`が必要です。
 
-
 [![ItemTemplate が提供されるまで、デザイナーで、フォーム ビューをレンダリングできません。](using-the-formview-s-templates-vb/_static/image5.png)](using-the-formview-s-templates-vb/_static/image4.png)
 
 **図 2**:デザイナーまででレンダリング、FormView できません、`ItemTemplate`提供されます ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-vb/_static/image6.png))。
-
 
 `ItemTemplate` (宣言構文) を手動で作成することができますか、フォーム ビューをデザイナーによってデータ ソース コントロールにバインドすることによって自動作成をすることができます。 この自動作成`ItemTemplate`HTML、リストの各フィールドとラベルの名前を制御が含まれている`Text`プロパティ フィールドの値にバインドします。 このアプローチも自動で作成、`InsertItemTemplate`と`EditItemTemplate`、どちらもはの各データ ソース コントロールによって返されるデータ フィールドの入力コントロールに設定されます。
 
@@ -62,7 +57,6 @@ DetailsView とは異なり、FormView いないフィールドで構成され�
 はなく構築する場合、 `ItemTemplate` 、手動で追加し、ツールボックスからデザイナーにドラッグすることによって、ObjectDataSource を構成します。 ただし、しないと、デザイナーから、フォーム ビューのデータ ソースを設定します。 代わりに、ソース ビューに移動し、手動で設定する FormView の`DataSourceID`プロパティを`ID`ObjectDataSource の値。 次に、手動で追加、`ItemTemplate`します。
 
 どのようなアプローチに関係なくは、するために、この時点で、フォーム ビューの宣言型マークアップを決定しました。
-
 
 [!code-aspx[Main](using-the-formview-s-templates-vb/samples/sample1.aspx)]
 
@@ -76,7 +70,6 @@ FormView のスマート タグでページングを有効にするチェック 
 
 次のマークアップの後のフォーム ビューの宣言型マークアップを示しています、`ItemTemplate`の構造が完了します。
 
-
 [!code-aspx[Main](using-the-formview-s-templates-vb/samples/sample2.aspx)]
 
 注意してデータ バインディング構文 -`<%# Eval("ProductName") %>`例は、テンプレートの出力に直接挿入することができます。 つまり、その必要がありますに割り当てられませんラベル コントロールの`Text`プロパティ。 たとえば、ある、`ProductName`に表示される値、`<h3>`要素を使用して`<h3><%# Eval("ProductName") %></h3>`、製品の Chai としてレンダーする`<h3>Chai</h3>`します。
@@ -87,16 +80,13 @@ FormView のスマート タグでページングを有効にするチェック 
 
 `ItemTemplate`製品情報がより滑らかな方法で表示されます、完了します。 (図 4) このチュートリアルでは、FormView によって生成される出力の最後のチュートリアル (図 3) からの出力を DetailsView を比較します。
 
-
 [![剛体 DetailsView 出力](using-the-formview-s-templates-vb/_static/image8.png)](using-the-formview-s-templates-vb/_static/image7.png)
 
 **図 3**:剛体 DetailsView 出力 ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-vb/_static/image9.png))。
 
-
 [![滑らかな FormView 出力](using-the-formview-s-templates-vb/_static/image11.png)](using-the-formview-s-templates-vb/_static/image10.png)
 
 **図 4**:流体 FormView 出力 ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-vb/_static/image12.png))。
-
 
 ## <a name="summary"></a>まとめ
 

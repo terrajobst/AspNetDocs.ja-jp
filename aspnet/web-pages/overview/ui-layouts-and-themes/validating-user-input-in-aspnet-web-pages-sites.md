@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e6f8e1051d09d11f1756bfada44a73ba7c2a1db2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392990"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108600"
 ---
 # <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトでユーザー入力の検証
 
@@ -42,7 +42,6 @@ ms.locfileid: "59392990"
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
-
 この記事は、次のセクションで構成されています。
 
 - [ユーザー入力の検証の概要](#Overview_of_User_Input_Validation)
@@ -65,7 +64,6 @@ ms.locfileid: "59392990"
 > [!NOTE] 
 > 
 > **重要な**セキュリティの重要なもユーザー入力を検証します。 ユーザーがフォームに入力できる値を制限する場合は、サイトのセキュリティを脅かす可能性のある値を入力だれかができます可能性を低くします。
-
 
 <a id="Validating_User_Input"></a>
 ## <a name="validating-user-input"></a>ユーザー入力の検証
@@ -114,7 +112,6 @@ ASP.NET Web ページ 2 では、使用することができます、`Validator`
 > [!NOTE]
 > クライアント側の検証を使用する場合でも、検証はサーバー コードでも、常に実行されます。 ユーザーがクライアント ベースの検証をバイパスする場合に、セキュリティ対策はサーバー コードで検証を実行します。
 
-
 1. ページで、次の JavaScript ライブラリを登録します。  
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
@@ -159,7 +156,6 @@ ASP.NET Web ページ 2 では、使用することができます、`Validator`
 > [!NOTE]
 > に対して、CSS クラスを ASP.NET Web ページ 2 で、クライアントの検証を使用していない場合、`<input>`要素 (`input-validation-error`と`input-validation-valid`影響はありません。
 
-
 ### <a name="static-and-dynamic-error-display"></a>静的および動的なエラーの表示
 
 CSS 規則などはペアになって`validation-summary-errors`と`validation-summary-valid`します。 これらのペアを使用して、両方の条件の規則を定義できます。 エラー状態と、"normal"(エラーではない) 条件。 エラーがない場合でも、エラーの表示のマークアップが常に表示されることを理解しておく必要があります。 たとえば、次のページがある、`Html.ValidationSummary`メソッドのマークアップで、ページのソースには、次のマークアップ、ページが初めて要求された場合でも。
@@ -182,7 +178,6 @@ HTML フォームから直接取得しない情報を検証するがある場合
 > [!NOTE] 
 > 
 > **重要な**から取得した値を常に検証*任意*フォーム フィールドの値、クエリ文字列値、cookie の値を含むソース。 (おそらくの悪意のある目的で) これらの値を変更するユーザーを簡単になります。 したがって、アプリケーションを保護するためにこれらの値を確認する必要があります。
-
 
 次の例では、クエリ文字列で渡される値を検証する方法を示します。 コードでは、値が空でないことと、これは、整数であることをテストします。
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 4f4bf092-c400-471f-a876-78fda0417890
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 992cea256302231ee7031a21c798117b73eaa01c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f8a374be79a41b34dc8f17fa8d44c6e0680984d7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384325"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108624"
 ---
 # <a name="url-routing"></a>URL ルーティング
 
@@ -22,7 +22,6 @@ ms.locfileid: "59384325"
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
-
 
 このチュートリアルでは、URL ルーティングをサポートするために、Wingtip Toys のサンプル アプリケーションを変更します。 ルーティングは、検索エンジンによってサポートされているより、覚えやすくわかりやすい Url を使用する web アプリケーションを使用します。 このチュートリアルでは、「メンバーシップと管理」の前のチュートリアルに基づいており、Wingtip Toys のチュートリアル シリーズのパートです。
 
@@ -82,7 +81,6 @@ Wingtip Toys のサンプル アプリケーションの起動時、ときに呼
 > **Optional**
 > 
 > 移動することによって、コードを管理しやすい検索可能性があります、`RegisterCustomRoutes`メソッドを別のクラスにします。 *ロジック*フォルダーを個別に作成`RouteActions`クラス。 上移動`RegisterCustomRoutes`からメソッド、 *Global.asax.cs*ファイルを新しい`RoutesActions`クラス。 使用して、`RoleActions`クラスおよび`createAdmin`メソッドを呼び出す方法の例として、`RegisterCustomRoutes`からメソッド、 *Global.asax.cs*ファイル。
-
 
 お気付きかもしれません、`RegisterRoutes`メソッドの呼び出しを使用して、`RouteConfig`の先頭にあるオブジェクト、`Application_Start`イベント ハンドラー。 この呼び出しは、既定のルーティングを実装するために行われます。 Visual Studio の Web フォーム テンプレートを使用してアプリケーションを作成したときに既定のコードとしては含まれています。
 

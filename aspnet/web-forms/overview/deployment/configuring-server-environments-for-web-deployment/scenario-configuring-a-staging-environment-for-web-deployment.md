@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 5a8e49b7-5317-4125-b107-7e2466b47bb3
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7e66c6cd8c7296b889dfe6cc1ebd1eb62cda10ea
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: eaa61ca850817f8dd98955b59e94be93389bf256
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384332"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106845"
 ---
 # <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>シナリオ:Web 配置のステージング環境を構成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59384332"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、ステージング環境の一般的な web 展開シナリオと同様の環境をセットアップするには完了する必要があるタスクについて説明します。
-
 
 多くの組織では、web アプリケーションまたは web サイトの更新をプレビューするのにステージング環境を使用します。 これは、方法により、組織内のユーザーを探索し、サイトの「挿入、ライブ」またはつまりは運用環境にデプロイする前に、新しい機能やコンテンツを確認してください。 現実的なプレビューを提供するために、可能な限り、運用環境をレプリケートするは、ステージング環境は設計されています。 この種のステージング環境には、通常、これらの特徴があります。
 
@@ -33,7 +32,6 @@ ms.locfileid: "59384332"
 
 > [!NOTE]
 > 複数のサーバーをスケール アウト データベースの配置はこのチュートリアルの範囲外です。 この領域の詳細についてを参照してください[SQL Server オンライン ブックの「](https://technet.microsoft.com/library/ms130214.aspx)します。
-
 
 たとえば、当社[チュートリアルのシナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)、Team Foundation Server (TFS) は、連絡先マネージャー ソリューションを管理します。 TFS 管理者は、Rob Walters がにより、開発者は必要に応じて、ステージング環境へ配置をトリガーするビルド定義を作成します。
 

@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: 393df4a8-b1db-44c4-9db7-2b533ca887d0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 0bc24a59e09728a5ecb6e18378c4cde0c8e046f2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 29d2bd61e8361b130e7b9415dad4fe1d5b847945
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387452"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109305"
 ---
 # <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 の新機能
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [Entity Framework の概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
-
 
 前のチュートリアルでは、Entity Framework を使用する web アプリケーションのパフォーマンスを最大化するためのいくつかのメソッドを説明しました。 このチュートリアルは、Entity Framework の version 4 で最も重要な新機能の一部を確認し、すべての新しい機能をより詳細な概要を提供するリソースにリンクします。 このチュートリアルでは強調表示されている機能を以下に示します。
 

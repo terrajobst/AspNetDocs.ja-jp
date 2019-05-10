@@ -8,12 +8,12 @@ ms.date: 05/12/2009
 ms.assetid: 0d86a1e7-a910-4ab2-b85c-7a9ea6906c39
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d534984449fd7265872f040e648ccaea3e740ba6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ac510ab353878038c1c7a103bfbf6d32fb1b2686
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108157"
 ---
 # <a name="using-the-colorpicker-control-extender-c"></a>ColorPicker コントロール エクステンダー (c#) を使用します。
 
@@ -21,18 +21,15 @@ ms.locfileid: "59391872"
 
 > ColorPicker では、popup コントロールの UI を使用したクライアント側の色を選択機能を提供する ASP.NET AJAX エクステンダーです。 ASP.NET の TextBox コントロールにアタッチできます。 です。
 
-
 このチュートリアルの目的では、AJAX Control Toolkit ColorPicker コントロール エクステンダーを使用する方法について説明します。 ColorPicker コントロール エクステンダーでは、色を選択することができます、ポップアップ ダイアログが表示されます。 ColorPicker は、ユーザーが色を選択するための直感的なユーザー インターフェイスを提供したい場合に便利です。
 
 ## <a name="extending-a-textbox-control-with-the-colorpicker-control-extender"></a>ColorPicker コントロール エクステンダーを TextBox コントロールを拡張します。
 
 たとえば、ユーザーがカスタマイズされたビジネス カードを作成できるようにする web サイトを作成することに想像してください。 訪問者は、名刺のテキストを入力し、色を選択できます。 リスト 1 での ASP.NET ページには、txtCardText txtCardColor という 2 つのテキスト ボックス コントロールが含まれています。 フォームを送信すると、選択した値が表示されます (図 1 参照)。
 
-
 [![ビジネスのカードを作成するための簡単なフォーム](using-the-colorpicker-control-extender-cs/_static/image1.jpg)](using-the-colorpicker-control-extender-cs/_static/image1.png)
 
 **図 01**:ビジネスのカードを作成するための簡単なフォーム ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-cs/_static/image2.png))。
-
 
 **1 - CreateCard.aspx を一覧表示します。**
 
@@ -42,11 +39,9 @@ ms.locfileid: "59391872"
 
 ColorPicker コントロール エクステンダーを使用して、優れたユーザー エクスペリエンスを作成することができます。 TextBox コントロールにフォーカスを移動すると、ColorPicker に色のダイアログが表示されます (図 2 参照)。
 
-
 [![ColorPicker コントロール エクステンダー](using-the-colorpicker-control-extender-cs/_static/image2.jpg)](using-the-colorpicker-control-extender-cs/_static/image3.png)
 
 **図 02**:ColorPicker コントロール エクステンダー ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-cs/_static/image4.png))。
-
 
 ColorPicker コントロール エクステンダーを使用して、リスト 1 でフォームを 2 つの手順を完了する必要があります。
 
@@ -59,16 +54,13 @@ ColorPicker を使用する前に、ページに、ScriptManager を追加する
 
 ColorPicker コントロール エクステンダーをページに追加する最も簡単な方法は、デザイン ビューでです。 TxtCardColor テキスト ボックスの上にマウスを移動する場合は、スマート タスク オプションは、可能で表示されます。 エクステンダーを追加する (図 3 を参照してください)。 このオプションを選択する場合、Extender ウィザードでは、(図 4 参照) が表示されます。
 
-
 [![Extender の追加](using-the-colorpicker-control-extender-cs/_static/image3.jpg)](using-the-colorpicker-control-extender-cs/_static/image5.png)
 
 **図 03**:Extender の追加 ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-cs/_static/image6.png))。
 
-
 [![エクステンダーのウィザードを使用してコントロール エクステンダーを選択します。](using-the-colorpicker-control-extender-cs/_static/image4.jpg)](using-the-colorpicker-control-extender-cs/_static/image7.png)
 
 **図 04**:エクステンダーのウィザードを使用してコントロール エクステンダーを選択すると ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-cs/_static/image8.png))。
-
 
 ColorPicker エクステンダー txtCardColor テキスト ボックスを拡張する ColorPicker エクステンダーを選択することができます。 ダイアログ ボックスを閉じるには、[ok] をクリックします。
 
@@ -101,11 +93,9 @@ ColorPicker PopupButtonID プロパティは、色の選択 ボタンを関連�
 
 SampleControlID プロパティは、関連付ける、ColorPicker で選択した色を表示するコントロールに使用されます。 ColorPicker は、現在選択されている色にこのコントロールの背景色を変更します。
 
-
 [![ボタンのカラー ピッカー ダイアログを表示します。](using-the-colorpicker-control-extender-cs/_static/image5.jpg)](using-the-colorpicker-control-extender-cs/_static/image9.png)
 
 **図 05**:ボタンのカラー ピッカー ダイアログを表示する ([フルサイズの画像を表示する をクリックします](using-the-colorpicker-control-extender-cs/_static/image10.png))。
-
 
 ## <a name="summary"></a>まとめ
 

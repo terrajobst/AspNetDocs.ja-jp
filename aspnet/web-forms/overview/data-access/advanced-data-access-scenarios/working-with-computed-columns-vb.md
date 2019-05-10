@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9ded6526a2c4f1063843f3448ba3a2023686f529
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ba01931dd4c728067975f2949d4ed81adcd97e2f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421174"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108619"
 ---
 # <a name="working-with-computed-columns-vb"></a>計算列を使用する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59421174"
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_71_VB.zip)または[PDF のダウンロード](working-with-computed-columns-vb/_static/datatutorial71vb1.pdf)
 
 > データベース テーブルを作成するときは、Microsoft SQL Server を使用すると、その値は通常、同じデータベース レコードには、その他の値を参照する式から計算されます、計算列を定義できます。 このような値とは、Tableadapter を使用する場合は、特別な考慮事項を必要とすると、データベースは読み取り専用です。 このチュートリアルでは、計算列によってもたらされる課題に対応する方法について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -42,7 +41,6 @@ Northwind データベースには計算列はないので、私たちは自分�
 
 開いて開始、`Suppliers`テーブル定義を右クリックして、`Suppliers`サーバー エクスプ ローラーでテーブルし、テーブル定義を開くのコンテキスト メニューから選択します。 これが可能になるかどうか、テーブルとそれらのデータ型などのプロパティの列が表示されます`NULL`s など。 計算列を追加するには、テーブルの定義に列の名前を入力して起動します。 列のプロパティ ウィンドウで計算列の指定 セクション (数式) テキスト ボックスに次に、その式を入力します (図 1 参照)。 計算列の名前を`FullContactName`し、次の式を使用します。
 
-
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample1.sql)]
 
 Sql 文字列を連結できることに注意してください。 を使用して、`+`演算子。 `CASE`と従来のプログラミング言語での条件付きステートメントに使用できます。 上記の式で、`CASE`としてステートメントを読み取ることができます。場合`ContactTitle`ない`NULL`出力し、`ContactTitle`それ以外の場合に、コンマで連結した値が何を出力します。 詳細の有用性について、`CASE`ステートメントを参照してください[SQL の電源`CASE`ステートメント](http://www.4guysfromrolla.com/webtech/102704-1.shtml)します。
@@ -50,19 +48,15 @@ Sql 文字列を連結できることに注意してください。 を使用し
 > [!NOTE]
 > 使用する代わりに、`CASE`ステートメントは、ここでは、別の方法として使用できます`ISNULL(ContactTitle, '')`します。 [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) 返します*checkExpression* NULL 以外の場合、それ以外の場合を返します*replacementValue*します。 中にいずれか`ISNULL`または`CASE`作業は、このインスタンスより複雑なシナリオでの柔軟性、`CASE`ステートメントは、によって照合されることはできません`ISNULL`。
 
-
 この計算列を追加した後、画面が図 1 でスクリーン ショットのようになります。
-
 
 [![Suppliers テーブルを FullContactName をという名前の計算列を追加します。](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
 
 **図 1**:計算列という追加`FullContactName`を`Suppliers`テーブル ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image3.png))。
 
-
 計算列の名前を付け、その式を入力して後に、変更を保存の表に、ツールバーの [保存] アイコンをクリックして、[ファイル] メニューに移動して保存を選択または Ctrl + S を押す`Suppliers`します。
 
 テーブルを保存だけで追加した列を含む、サーバー エクスプ ローラーを更新する必要があります、`Suppliers`テーブル列のリスト。 (式) のテキスト ボックスに入力された式が不要な空白文字を削除、列名を角かっこで囲まれている同等の式を自動的に調整されてさらに、(`[]`) より明示的に表示するためにかっこが含まれています操作の順序:
-
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample2.sql)]
 
@@ -71,18 +65,15 @@ Microsoft SQL Server の計算列の詳細についてを参照してくださ�
 > [!NOTE]
 > 計算列は既定では、テーブルに物理的に格納されませんが代わりに、クエリで参照されるたびに再計算されます。 ただし、永続化は、チェック ボックスをオンは、物理的にテーブルに計算列を格納する SQL Server を指示できます。 これにより、計算列の値を使用するクエリのパフォーマンスを向上させることができます、計算列上に作成されるインデックス、`WHERE`句。 参照してください[計算列でインデックスを作成する](https://msdn.microsoft.com/library/ms189292.aspx)詳細についてはします。
 
-
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>手順 2: 計算列の値を表示します。
 
 Let s を表示するには、1 分でデータ アクセス層の作業を始める前に、`FullContactName`値。 サーバー エクスプ ローラーを右クリックし、`Suppliers`テーブル名と、コンテキスト メニューから新しいクエリを選択します。 これは、クエリに含めるには、どのようなテーブルを選択することを要求するクエリ ウィンドウが表示されます。 追加、`Suppliers`テーブルし、[閉じる] をクリックします。 次に、確認、 `CompanyName`、 `ContactName`、 `ContactTitle`、および`FullContactName`Suppliers テーブルから列。 最後に、クエリを実行し、結果を表示するには、ツールバーの赤色の感嘆符アイコンをクリックします。
 
 図 2 は、結果が含まれます`FullContactName`が一覧表示、 `CompanyName`、 `ContactName`、および`ContactTitle`形式を使用して列`ContactName`(`ContactTitle`、 `CompanyName`)。
 
-
 [![FullContactName 形式 ContactName (部署、CompanyName) を使用します。](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
 
 **図 2**:`FullContactName`形式を使用して`ContactName`(`ContactTitle`、 `CompanyName`) ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image6.png))。
-
 
 ## <a name="step-3-adding-thesupplierstableadapterto-the-data-access-layer"></a>手順 3: 追加、`SuppliersTableAdapter`データ アクセス層に
 
@@ -96,32 +87,25 @@ Let s を表示するには、1 分でデータ アクセス層の作業を始�
 
 開いて開始、`NorthwindWithSprocs`データセットで、`~/App_Code/DAL`フォルダー。 デザイナーを右クリックし、コンテキスト メニューから新しい TableAdapter を追加することもできます。 これにより、TableAdapter 構成ウィザードが起動します。 データをクエリするデータベースを指定 (`NORTHWNDConnectionString`から`Web.config`) [次へ] をクリックします。 クエリまたは変更するための任意のストアド プロシージャを作成しないしましたので、`Suppliers`テーブルで、新しいストアド プロシージャはオプション ウィザードを作成し、次へ を作成 を選択します。
 
-
 [![作成する新しいストアド プロシージャ オプションを選択します。](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
 
 **図 3**:作成する新しいストアド プロシージャ オプションの選択 ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image9.png))。
 
-
 後続の手順には、メイン クエリのことが求められます。 返す次のクエリを入力して、 `SupplierID`、 `CompanyName`、 `ContactName`、および`ContactTitle`各仕入先の列。 このクエリは、計算列を意図的省略に注意してください (`FullContactName`); 手順 4. でこの列を含めるように対応するストアド プロシージャが更新されます。
-
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample3.sql)]
 
 ウィザードでは、メインのクエリを入力し、次にクリックするを生成する 4 つのストアド プロシージャの名前を付けることができます。 これらのストアド プロシージャの名前を付けます`Suppliers_Select`、 `Suppliers_Insert`、 `Suppliers_Update`、および`Suppliers_Delete`図 4 に示すようにします。
 
-
 [![自動生成ストアド プロシージャの名前をカスタマイズします。](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
 
 **図 4**:Auto-Generated ストアド プロシージャの名前をカスタマイズ ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image12.png))。
 
-
 ウィザードの次の手順では、メソッド、TableAdapter の名前し、データにアクセスして更新するために使用するパターンを指定できます。 すべての 3 つチェック ボックスをオンにしたままにしますが、名前を変更、`GetData`メソッドを`GetSuppliers`します。 ウィザードを完了するには、[完了] をクリックします。
-
 
 [![GetSuppliers に GetData メソッドの名前を変更します。](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
 
 **図 5**:名前の変更、`GetData`メソッドを`GetSuppliers`([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image15.png))。
-
 
 [完了] をクリックすると、ウィザードは 4 つのストアド プロシージャを作成し、型指定されたデータセットに TableAdapter と対応する DataTable を追加します。
 
@@ -134,26 +118,21 @@ Let s を表示するには、1 分でデータ アクセス層の作業を始�
 
 サーバー エクスプ ローラーに移動し、ストアド プロシージャ フォルダーにドリル ダウンを開始します。 開く、`Suppliers_Select`ストアド プロシージャと更新プログラム、`SELECT`クエリに含まれる、`FullContactName`計算列。
 
-
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample4.sql)]
 
 ツールバーの 保存 アイコンをクリックすると、Ctrl + S を押す、または保存を選択して、ストアド プロシージャに変更を保存`Suppliers_Select`ファイル メニュー オプション。
 
 次に、データセット デザイナーに戻り、右クリックし、 `SuppliersTableAdapter`、コンテキスト メニューから構成を選択します。 なお、`Suppliers_Select`列が含まれています、`FullContactName`データ列がコレクション内の列。
 
-
 [![DataTable の列を更新するには、TableAdapter の構成ウィザードを実行します。](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
 
 **図 6**:Tableadapter の DataTable の列を更新する構成ウィザードを実行 ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image18.png))。
 
-
 ウィザードを完了するには、[完了] をクリックします。 これに対応する列を自動的に追加されます、`SuppliersDataTable`します。 TableAdapter ウィザードでは、ことを検出するのに十分なスマート、`FullContactName`列が計算列および読み取り専用です。 その結果、s の列を設定`ReadOnly`プロパティを`true`します。 これを確認するから列を選択、`SuppliersDataTable`し、[プロパティ] ウィンドウに移動します (図 7 を参照してください)。 なお、`FullContactName`列 s`DataType`と`MaxLength`プロパティが適宜設定もします。
-
 
 [![FullContactName 列が読み取り専用としてマークされています。](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
 
 **図 7**:`FullContactName`列は読み取り専用とマークされている ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image21.png))。
-
 
 ## <a name="step-5-adding-agetsupplierbysupplieridmethod-to-the-tableadapter"></a>手順 5: 追加、`GetSupplierBySupplierID`TableAdapter にメソッド
 
@@ -161,32 +140,25 @@ Let s を表示するには、1 分でデータ アクセス層の作業を始�
 
 右クリックし、`SuppliersTableAdapter`データセット デザインで、コンテキスト メニューから、クエリの追加オプションを選択します。 手順 3 で行ったように、私たちにとって新しいストアド プロシージャの作成 オプションを選択して、新しいストアド プロシージャを生成するウィザード (参照図 3 のこの手順のスクリーン ショット)。 このメソッドでは、複数の列を持つレコードを返します、ため複数行を返す SELECT である SQL クエリを使用し、[次へ] をクリックすることを示します。
 
-
 [![選択 オプションを複数行を返す](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
 
 **図 8**:[選択] オプションを複数行を返す ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image24.png))。
 
-
 後続の手順では、このメソッドを使用するクエリの場合、us ように求められます。 特定仕入先が、メインのクエリとしては、同じデータ フィールドを返すと、次を入力します。
-
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample5.sql)]
 
 次の画面は、自動生成されるストアド プロシージャの名前にします。 このストアド プロシージャの名前を付けます`Suppliers_SelectBySupplierID`[次へ] をクリックします。
 
-
 [![ストアド プロシージャ Suppliers_SelectBySupplierID 名](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
 
 **図 9**:ストアド プロシージャの名前を付けます`Suppliers_SelectBySupplierID`([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image27.png))。
 
-
 最後に、ウィザードの指示、データの場合、us へのアクセス パターンと、TableAdapter を使用するメソッドの名前。 両方のチェック ボックスがオンのままにしますが、名前を変更、`FillBy`と`GetDataBy`メソッド`FillBySupplierID`と`GetSupplierBySupplierID`、それぞれします。
-
 
 [![名前、TableAdapter メソッド FillBySupplierID と GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
 
 **図 10**:TableAdapter のメソッドの名前を付けます`FillBySupplierID`と`GetSupplierBySupplierID`([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image30.png))。
-
 
 ウィザードを完了するには、[完了] をクリックします。
 
@@ -196,7 +168,6 @@ Let s を表示するには、1 分でデータ アクセス層の作業を始�
 
 という名前の新しいクラス ファイルを作成`SuppliersBLLWithSprocs`で、`~/App_Code/BLL`フォルダーし、次のコードを追加します。
 
-
 [!code-vb[Main](working-with-computed-columns-vb/samples/sample6.vb)]
 
 などの他の BLL クラス`SuppliersBLLWithSprocs`が、 `Protected` `Adapter`プロパティのインスタンスを返す、`SuppliersTableAdapter`クラスと共に使用する 2 つ`Public`メソッド:`GetSuppliers`と`UpdateSupplier`します。 `GetSuppliers`メソッドの呼び出しを返します、 `SuppliersDataTable` 、対応するによって返される`GetSupplier`データ アクセス層のメソッド。 `UpdateSupplier`メソッド呼び出し DAL 秒に更新されている特定の仕入先に関する情報を取得`GetSupplierBySupplierID(supplierID)`メソッド。 これは、後更新、 `CategoryName`、 `ContactName`、および`ContactTitle`プロパティとデータ アクセス層の s を呼び出すことによって、これらの変更をデータベースにコミット`Update`メソッドで変更された`SuppliersRow`オブジェクト。
@@ -204,16 +175,13 @@ Let s を表示するには、1 分でデータ アクセス層の作業を始�
 > [!NOTE]
 > 除く`SupplierID`と`CompanyName`、Suppliers テーブルのすべての列を許可する`NULL`値。 そのため場合、渡されたで`contactName`または`contactTitle`パラメーターは`Nothing`、対応するを設定する必要があります`ContactName`と`ContactTitle`プロパティを`NULL`データベース値を使用して、`SetContactNameNull`と`SetContactTitleNull`メソッドでは、それぞれします。
 
-
 ## <a name="step-7-working-with-the-computed-column-from-the-presentation-layer"></a>手順 7: プレゼンテーション層から計算列の使用
 
 追加された計算列で、`Suppliers`テーブルと、DAL と BLL 適宜更新されるようで動作する ASP.NET ページを作成する準備ができました、`FullContactName`計算列。 開いて開始、`ComputedColumns.aspx`ページで、`AdvancedDAL`フォルダーとツールボックスからデザイナーにドラッグする GridView。 GridView s 設定`ID`プロパティを`Suppliers`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`SuppliersDataSource`します。 構成を使用する ObjectDataSource、`SuppliersBLLWithSprocs`クラスを追加しましたは手順 6. でバックアップし、[次へ] をクリックします。
 
-
 [![SuppliersBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
 
 **図 11**:構成に使用する ObjectDataSource、`SuppliersBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image33.png))。
-
 
 定義されている 2 つのメソッドがある、`SuppliersBLLWithSprocs`クラス:`GetSuppliers`と`UpdateSupplier`します。 いることを確認これら 2 つのメソッドは、SELECT で指定と、それぞれのタブを更新 ObjectDataSource の構成を完了するには、[完了] をクリックします。
 
@@ -223,30 +191,24 @@ BoundFields を GridView に追加するだけでなく、データ ソース �
 
 GridView と ObjectDataSource にこれらの編集を行った後、宣言型マークアップは次のようになります。
 
-
 [!code-aspx[Main](working-with-computed-columns-vb/samples/sample7.aspx)]
 
 次に、ブラウザーからこのページを参照してください。 含むグリッドの各仕入先が表示されている図 12 に示すよう、`FullContactName`として書式設定された値が他の 3 つの列を連結したものでは単に列`ContactName`(`ContactTitle`、 `CompanyName`)。
-
 
 [![各仕入先がグリッドに一覧表示します。](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
 
 **図 12**:各仕入先のグリッドが記載されています ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image36.png))。
 
-
 特定のサプライヤーがポストバックを発生するがその行で表示、編集ボタンをクリックして (図 13 を参照してください) の編集インターフェイスします。 最初の 3 つの列は、既定のインターフェイスの編集でレンダリング - いるテキスト ボックス コントロール`Text`プロパティがデータ フィールドの値に設定します。 `FullContactName`テキストとしてただし、列のままです。 GridView、データ ソース構成ウィザードの完了時に、BoundFields が追加されたときに、 `FullContactName` BoundField s`ReadOnly`プロパティに設定されました`True`ため、対応する`FullContactName`内の列、 `SuppliersDataTable`その`ReadOnly`プロパティに設定`True`します。 手順 4 で説明したように、 `FullContactName` s`ReadOnly`プロパティに設定されました`True`TableAdapter の列が計算列が検出されたためです。
-
 
 [![FullContactName 列が編集できません。](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
 
 **図 13**:`FullContactName`列が編集できない ([フルサイズの画像を表示する をクリックします](working-with-computed-columns-vb/_static/image39.png))。
 
-
 1 つまたは複数の編集可能な列の値を更新して更新 をクリックします。 注方法、`FullContactName`秒の値が変更を反映するように自動的に更新します。
 
 > [!NOTE]
 > GridView 現在使用して BoundFields 編集可能なフィールドの編集インターフェイス、既定値します。 以降、`CompanyName`フィールドは必須です、それを含む、RequiredFieldValidator TemplateField に変換します。 ままを演習として興味を持った読者にします。 参照してください、[編集および挿入インターフェイスに検証コントロールを追加](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)チュートリアル手順について、BoundField を TemplateField に変換して、検証コントロールを追加します。
-
 
 ## <a name="summary"></a>まとめ
 

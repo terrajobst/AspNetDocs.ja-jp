@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 22e99600-8d18-4a94-a20e-a3a62bb63798
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 727ef89069d3f1ddf22e993e1e3dceb144a43389
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ec517b1b88afdf60bfd9f286294971e769f1bb3e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390624"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109177"
 ---
 # <a name="customizing-the-data-modification-interface-c"></a>データ変更インターフェイスをカスタマイズする (C#)
 
@@ -23,18 +23,15 @@ ms.locfileid: "59390624"
 
 > このチュートリアルでは、標準のテキスト ボックスを置き換えることで、編集可能な GridView のインターフェイスをカスタマイズする方法に注目し、代替の入力 Web コントロールを含む チェック ボックスを制御します。
 
-
 ## <a name="introduction"></a>はじめに
 
 BoundFields と CheckBoxFields GridView および DetailsView コントロールで使用される読み取り専用、編集、および挿入可能なインターフェイスをレンダリングするには、その機能のためのデータの変更のプロセスを簡略化します。 追加の宣言型マークアップまたはコードを追加する必要はありませんは、これらのインターフェイスを表示できます。 ただし、BoundField および CheckBoxField のインターフェイスには、多くの場合、実際のシナリオで必要なカスタマイズ機能が不足しています。 GridView、DetailsView で編集可能または挿入可能なインターフェイスをカスタマイズするためには、代わりに、TemplateField を使用する必要があります。
 
 [前のチュートリアル](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)検証 Web コントロールを追加して、データ変更インターフェイスをカスタマイズする方法を説明しました。 このチュートリアルでは、BoundField と CheckBoxField の標準のテキスト ボックスに置き換える実際のデータ コレクションの Web コントロールと代替の入力 Web コントロールを含む チェック ボックス コントロールをカスタマイズする方法について説明します。 具体的には、製品の名前、カテゴリ、供給業者、および提供が中止された状態を更新できる編集可能な GridView をビルドします。 特定の行を編集するには、category と supplier フィールドは、Dropdownlist としてレンダリングされますから選択するサプライヤーと利用可能なカテゴリのセットを含みます。 さらに、2 つのオプションを提供する RadioButtonList コントロールで CheckBoxField の既定のチェック ボックスを置き換えること。「アクティブ」と「廃止」。
 
-
 [![GridView の編集インターフェイスには、Dropdownlist、オプション ボタンが含まれています。](customizing-the-data-modification-interface-cs/_static/image2.png)](customizing-the-data-modification-interface-cs/_static/image1.png)
 
 **図 1**:GridView のインターフェイスが含まれています Dropdownlist を編集し、オプション ボタン ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image3.png))。
-
 
 ## <a name="step-1-creating-the-appropriateupdateproductoverload"></a>手順 1: 適切な作成`UpdateProduct`オーバー ロード
 
@@ -48,23 +45,19 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 
 次のコードは、新しい`UpdateProduct`でオーバー ロード、`ProductsBLL`クラス。
 
-
 [!code-csharp[Main](customizing-the-data-modification-interface-cs/samples/sample1.cs)]
 
 ## <a name="step-2-crafting-the-editable-gridview"></a>手順 2: 編集可能な GridView を練る
 
 `UpdateProduct`オーバー ロードを追加、編集可能な GridView を作成する準備ができました。 開く、`CustomizedUI.aspx`ページで、`EditInsertDelete`フォルダーと GridView コントロールをデザイナーに追加します。 次に、GridView のスマート タグから新しい ObjectDataSource を作成します。 構成を使用して製品情報を取得する ObjectDataSource、`ProductBLL`クラスの`GetProducts()`メソッドを使用して製品データを更新して、`UpdateProduct`オーバー ロードを作成したばかりです。 INSERT および DELETE のタブからは、ドロップダウン リストから () を選択します。
 
-
 [![先ほど作成した UpdateProduct オーバー ロードを使用する ObjectDataSource を構成します。](customizing-the-data-modification-interface-cs/_static/image5.png)](customizing-the-data-modification-interface-cs/_static/image4.png)
 
 **図 2**:構成に使用する ObjectDataSource、`UpdateProduct`先ほど作成したオーバー ロード ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image6.png))。
 
-
 データ変更のチュートリアル全体で見たように Visual Studio によって作成された ObjectDataSource の宣言構文を割り当てます、`OldValuesParameterFormatString`プロパティを`original_{0}`します。 これは、もちろん、機能しません、ビジネス ロジック層で、メソッドは、元の予定がないため`ProductID`で渡される値。 このため、前のチュートリアルで行ったように、宣言型構文からこのプロパティの割り当てを削除するか、代わりに、このプロパティの値を設定には少しを要する`{0}`します。
 
 この変更後、次のよう ObjectDataSource の宣言型マークアップになります。
-
 
 [!code-aspx[Main](customizing-the-data-modification-interface-cs/samples/sample2.aspx)]
 
@@ -79,25 +72,20 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 
 これらの変更後、デザイナーはようになります図 3 は、次に示す GridView の宣言型構文を使用します。
 
-
 [![GridView から不要なフィールドを削除します。](customizing-the-data-modification-interface-cs/_static/image8.png)](customizing-the-data-modification-interface-cs/_static/image7.png)
 
 **図 3**:GridView から不要なフィールドを削除 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image9.png))。
-
 
 [!code-aspx[Main](customizing-the-data-modification-interface-cs/samples/sample3.aspx)]
 
 この時点で、GridView の読み取り専用の動作が完了しました。 データを表示するには、各製品が製品の名前、カテゴリ、供給業者、表示、GridView の行として表示され、ステータスの提供が中止されました。
 
-
 [![GridView の読み取り専用のインターフェイスは、完了です。](customizing-the-data-modification-interface-cs/_static/image11.png)](customizing-the-data-modification-interface-cs/_static/image10.png)
 
 **図 4**:GridView の読み取り専用のインターフェイスは、完了 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image12.png))。
 
-
 > [!NOTE]
 > 説明したよう[、更新、および削除するデータ挿入の 概要のチュートリアル](an-overview-of-inserting-updating-and-deleting-data-cs.md)s のビュー ステートが GridView に (既定の動作) が有効になっていることがきわめて重要です。 GridView 秒に設定した場合`EnableViewState`プロパティを`false`、同時実行ユーザーが誤って削除または編集を記録するというリスクを実行します。 参照してください[警告。同時実行を発行するサポートの編集を ASP.NET 2.0 Gridview と DetailsView/FormViews や削除、およびをビュー ステートが無効になっている](http://scottonwriting.net/sowblog/posts/10054.aspx)詳細についてはします。
-
 
 ## <a name="step-3-using-a-dropdownlist-for-the-category-and-supplier-editing-interfaces"></a>手順 3: Category と Supplier インターフェイスの編集の DropDownList を使用します。
 
@@ -116,61 +104,48 @@ BoundFields と CheckBoxFields GridView および DetailsView コントロール
 
 変換することで開始、`SupplierName`と`CategoryName`で TemplateFields を BoundFields: GridView のスマート タグからの列の編集リンクをクリックし; 左下に一覧から、BoundField を選択しをクリックして、"には、このフィールドを変換、TemplateField"をリンクします。 変換プロセスは両方と TemplateField を作成、`ItemTemplate`と`EditItemTemplate`宣言の構文を次のように、します。
 
-
 [!code-aspx[Main](customizing-the-data-modification-interface-cs/samples/sample4.aspx)]
 
 BoundField が読み取り専用としてマークされているため両方、`ItemTemplate`と`EditItemTemplate`ラベル Web が含まれているコントロール`Text`プロパティが適用されるデータ フィールドにバインドされます (`CategoryName`、上記の構文で)。 変更する必要があります、 `EditItemTemplate`、DropDownList コントロールと Label Web コントロールを置換します。
 
 前のチュートリアルできたよう、デザイナーを使用または宣言型構文から直接テンプレートを編集できます。 デザイナーで編集、GridView のスマート タグからのテンプレートの編集リンクをクリックしを選択して、カテゴリ フィールドの操作`EditItemTemplate`します。 ラベルの Web コントロールを削除し、DropDownList の ID プロパティを設定、DropDownList コントロールに置き換えます`Categories`します。
 
-
 [![ テキスト ボックスを削除し、後に、DropDownList を追加](customizing-the-data-modification-interface-cs/_static/image14.png)](customizing-the-data-modification-interface-cs/_static/image13.png)
 
 **図 5**: テキスト ボックスを削除し、DropDownList を追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image15.png))。
 
-
 次に、利用可能なカテゴリで DropDownList を設定する必要があります。 DropDownList のスマート タグから データ ソースのリンクをクリックし、という名前の新しい ObjectDataSource を作成することを選択`CategoriesDataSource`します。
-
 
 [![CategoriesDataSource という名前の新しい ObjectDataSource コントロールを作成します。](customizing-the-data-modification-interface-cs/_static/image17.png)](customizing-the-data-modification-interface-cs/_static/image16.png)
 
 **図 6**:新しい ObjectDataSource コントロールの名前付き作成`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image18.png))。
 
-
 この ObjectDataSource を返すすべてのカテゴリには、バインドして、`CategoriesBLL`クラスの`GetCategories()`メソッド。
-
 
 [![ObjectDataSource を CategoriesBLL の GetCategories() メソッドにバインドします。](customizing-the-data-modification-interface-cs/_static/image20.png)](customizing-the-data-modification-interface-cs/_static/image19.png)
 
 **図 7**:バインドを ObjectDataSource、`CategoriesBLL`の`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image21.png))。
 
-
 最後に、DropDownList の設定を構成するよう、`CategoryName`フィールドは、各 DropDownList に表示される`ListItem`で、`CategoryID`フィールドの値として使用します。
-
 
 [![区分名 フィールドが表示されますが、CategoryID を値として使用あり](customizing-the-data-modification-interface-cs/_static/image23.png)](customizing-the-data-modification-interface-cs/_static/image22.png)
 
 **図 8**:`CategoryName`フィールドが表示されると、`CategoryID`値として使用 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image24.png))。
 
-
 これらの宣言型マークアップを変更した後、`EditItemTemplate`で、 `CategoryName` TemplateField には DropDownList と ObjectDataSource の両方が含まれます。
-
 
 [!code-aspx[Main](customizing-the-data-modification-interface-cs/samples/sample5.aspx)]
 
 > [!NOTE]
 > DropDownList、`EditItemTemplate`そのビュー ステートを有効になっている必要があります。 DropDownList の宣言型構文をデータ バインディング構文に追加できるだけとなどのデータ バインド コマンド`Eval()`と`Bind()`はビュー ステートが有効になっているコントロールにのみ表示されます。
 
-
 という名前の DropDownList を追加するには、この手順を繰り返します`Suppliers`を`SupplierName`TemplateField の`EditItemTemplate`します。 DropDownList を追加するこのプロセスでは、`EditItemTemplate`と別の ObjectDataSource を作成します。 `Suppliers` DropDownList の ObjectDataSource、ただし、行う必要がありますを呼び出す、`SuppliersBLL`クラスの`GetSuppliers()`メソッド。 さらに、構成、 `Suppliers` DropDownList を表示する、`CompanyName`フィールドし、を使用して、`SupplierID`フィールドの値としてその`ListItem`秒。
 
 2 つに、Dropdownlist を追加した後`EditItemTemplate`s、ブラウザーでページを読み込むし、Chef Anton の Cajun Seasoning 製品の編集 ボタンをクリックします。 図 9 に示す、製品のカテゴリと仕入先の列は、利用可能なカテゴリと仕入先から選択を含むドロップダウン リストとしてレンダリングされます。 ただし、注意、*最初*両方のドロップダウン リスト内の項目は、供給業者、として場合でも、ニューオーリンズ Cajun によって提供される Condiment は、Chef Anton の Cajun Seasoning で、既定 (飲み物のカテゴリ) と風変わり液体で選択されますDelights します。
 
-
 [![既定では、ドロップダウン リストの最初の項目が選択されています。](customizing-the-data-modification-interface-cs/_static/image26.png)](customizing-the-data-modification-interface-cs/_static/image25.png)
 
 **図 9**:既定では、ドロップダウン リストの最初の項目が選択されている ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image27.png))。
-
 
 さらに、更新プログラムをクリックすると、見つかります製品の`CategoryID`と`SupplierID`値に設定されます`NULL`します。 動作が原因となったため、望ましくないこれらの両方で Dropdownlist、`EditItemTemplate`製品の基になるデータから、データのフィールドにバインドされていないことを s。
 
@@ -180,19 +155,15 @@ BoundField が読み取り専用としてマークされているため両方、
 
 または、デザイナーを使用してテンプレートを編集して DropDownList のスマート タグから DataBindings の編集リンクをクリックすると、DropDownList の databindings を設定できます。 次に、いることを示す、`SelectedValue`プロパティにバインドする必要があります、`CategoryID`双方向データ バインドを使用してフィールド (図 10 参照)。 バインドを宣言的またはデザイナーのプロセスを繰り返し、`SupplierID`のデータ フィールドを`Suppliers`DropDownList します。
 
-
 [![CategoryID を双方向データ バインドを使用して、次のドロップダウン リストの SelectedValue プロパティにバインドします。](customizing-the-data-modification-interface-cs/_static/image29.png)](customizing-the-data-modification-interface-cs/_static/image28.png)
 
 **図 10**:バインド、 `CategoryID` DropDownList のする`SelectedValue`プロパティを使用して双方向データ バインド ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image30.png))。
 
-
 バインドが適用されたら、 `SelectedValue` 2 つの Dropdownlist のプロパティを編集した製品のカテゴリと仕入先の列は既定で、現在の製品の値。 更新プログラムをクリックすると、`CategoryID`と`SupplierID`のドロップダウン リストを選択した項目の値に渡される、`UpdateProduct`メソッド。 データ バインド ステートメントを追加した後、図 11 は、チュートリアルを示しています。Chef Anton の Cajun Seasoning のドロップダウン リストを選択した項目が正しく Condiment とニューオーリンズ Cajun Delights 方法に注意してください。
-
 
 [![編集の製品の現在のカテゴリと仕入先の値が既定で選択されています。](customizing-the-data-modification-interface-cs/_static/image32.png)](customizing-the-data-modification-interface-cs/_static/image31.png)
 
 **図 11**:編集の製品の現在のカテゴリと仕入先の値が既定で選択されている ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image33.png))。
-
 
 ## <a name="handlingnullvalues"></a>処理`NULL`値
 
@@ -205,7 +176,6 @@ BoundField が読み取り専用としてマークされているため両方、
 
 開始するには、両方の Dropdownlist の`AppendDataBoundItems`プロパティを`true`します。 次に、追加、 `NULL` `ListItem` 、次を追加することで`<asp:ListItem>`など宣言型マークアップが表示されるように各 DropDownList 要素。
 
-
 [!code-aspx[Main](customizing-the-data-modification-interface-cs/samples/sample6.aspx)]
 
 選択して"(None)"を使用するテキスト値としてこの`ListItem`、希望される場合も空の文字列であることに変更することができます。
@@ -213,16 +183,13 @@ BoundField が読み取り専用としてマークされているため両方、
 > [!NOTE]
 > 説明したように、*マスター/詳細のフィルター処理で、DropDownList*チュートリアルでは、 `ListItem` s は、DropDownList をクリックして、デザイナーでの DropDownList に追加できる`Items`プロパティ ウィンドウでプロパティ (表示されます、`ListItem`コレクション エディター)。 ただし、追加することを確認する、 `NULL` `ListItem`このチュートリアルでは、宣言型構文を使用します。 使用する場合、`ListItem`コレクション エディターでは、生成された宣言型構文を省略は、`Value`のような宣言型マークアップを作成する、空の文字列が割り当てられている場合に、設定全体:`<asp:ListItem>(None)</asp:ListItem>`します。 これは、無害に見えるかもしれませんが、欠損値が、使用する DropDownList、`Text`代わりにプロパティ値。 このことを意味`NULL``ListItem`は選択すると、"(None)"値が試行されますに割り当てられる、 `CategoryID`、例外が発生します。 明示的に設定して`Value=""`、`NULL`に値が割り当てられる`CategoryID`ときに、 `NULL` `ListItem`が選択されています。
 
-
 サプライヤーの DropDownList の次の手順を繰り返します。
 
 この追加`ListItem`、編集インターフェイスに割り当てることができますようになりました`NULL`値を製品の`CategoryID`と`SupplierID`フィールド、図 12 に示すようにします。
 
-
 [![製品のカテゴリまたは仕入先の NULL 値を割り当てる (なし)](customizing-the-data-modification-interface-cs/_static/image35.png)](customizing-the-data-modification-interface-cs/_static/image34.png)
 
 **図 12**:割り当てる [(なし)、`NULL`製品のカテゴリまたは仕入先の値 ([フルサイズの画像を表示する] をクリックします](customizing-the-data-modification-interface-cs/_static/image36.png))。
-
 
 ## <a name="step-4-using-radiobuttons-for-the-discontinued-status"></a>手順 4: 提供が中止された状態のオプション ボタンを使用します。
 
@@ -232,11 +199,9 @@ BoundField が読み取り専用としてマークされているため両方、
 
 両方のチェック ボックスを置き換える、`ItemTemplate`と`EditItemTemplate`RadioButtonList コントロールでは、設定の両方 RadioButtonLists の`ID`プロパティを`DiscontinuedChoice`します。 次を示す、RadioButtonLists する必要がありますが含まれる 2 つのラジオ ボタン、1 つのラベルの付いた「アクティブ」値"False"に「廃止」というラベルの付いた 1 つの値は"True"です。 入力するか、これを実現する、`<asp:ListItem>`内の要素の宣言構文または使用から直接、`ListItem`デザイナーからコレクション エディター。 図 13 では、`ListItem`コレクション エディターの後、2 つのラジオ ボタンのオプションが指定されています。
 
-
 [![追加します。](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
 
 **図 13**:「アクティブ」と「中止」オプションを RadioButtonList に追加 ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image39.png))。
-
 
 以降で RadioButtonList、`ItemTemplate`編集可能にすることはできません設定その`Enabled`プロパティを`false`したまま、`Enabled`プロパティを`true`(既定値) で RadioButtonList の`EditItemTemplate`します。 これにより、読み取り専用で非編集行でラジオ ボタンが作成されますが、編集された行のオプション ボタンの値を変更する許可。
 
@@ -244,20 +209,16 @@ RadioButtonList コントロールを割り当てる必要があります`Select
 
 2 つの RadioButtonLists を追加して、それらを構成したら、 `Discontinued` TemplateField の宣言型マークアップのようになります。
 
-
 [!code-aspx[Main](customizing-the-data-modification-interface-cs/samples/sample7.aspx)]
 
 これらの変更により、 `Discontinued` (図 14 を参照してください) ラジオ ボタンのペアのリストにチェック ボックスの一覧から列を変換されました。 該当するラジオ ボタンが選択されている製品を編集するときと、他のオプション ボタンを選択し、[更新] をクリックして、製品の提供が中止された状態を更新できます。
-
 
 [![提供が中止されたチェック ボックスがラジオ ボタンの組み合わせに置き換えられています。](customizing-the-data-modification-interface-cs/_static/image41.png)](customizing-the-data-modification-interface-cs/_static/image40.png)
 
 **図 14**:提供が中止されたチェック ボックスをオンに置き換えられているラジオ ボタンのペア ([フルサイズの画像を表示する をクリックします](customizing-the-data-modification-interface-cs/_static/image42.png))。
 
-
 > [!NOTE]
 > 以降、`Discontinued`内の列、`Products`データベースことはできません`NULL`値必要はありませんキャプチャについて心配する`NULL`インターフェイスの情報。 場合、ただし、`Discontinued`列を含めたり`NULL`値は 3 つ目を追加するラジオ ボタンを使用してリストにその`Value`空の文字列に設定 (`Value=""`) category と supplier Dropdownlist のと同様、します。
-
 
 ## <a name="summary"></a>まとめ
 

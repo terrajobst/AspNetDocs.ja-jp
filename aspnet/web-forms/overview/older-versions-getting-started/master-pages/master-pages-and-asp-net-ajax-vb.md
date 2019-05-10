@@ -8,12 +8,12 @@ ms.date: 07/11/2008
 ms.assetid: 0ee9318c-29bb-4d58-b1dc-94e575b8ae10
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5a968bbbe5bdb6f8daad2c11c18c2b704c3bed8b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 81d1cfbbb8157b97ca25d56e97209f8e6cbb4183
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134045"
 ---
 # <a name="master-pages-and-aspnet-ajax-vb"></a>マスター ページと ASP.NET AJAX (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59385502"
 [コードのダウンロード](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_08_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_08_VB.pdf)
 
 > ASP.NET AJAX とマスター ページを使用するためのオプションについて説明します。 ScriptManagerProxy クラスを使用して調べるマスターに scriptmanager コントロールを使用するかどうかに応じて、さまざまな JS ファイルが読み込まれているページまたはコンテンツ ページ方法について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -35,11 +34,9 @@ ASP.NET AJAX フレームワークで AJAX 対応 web ページを構築する�
 > [!NOTE]
 > このチュートリアルをデザインするか、ASP.NET AJAX フレームワークで AJAX 対応 web アプリケーションを構築は探索されません。 AJAX の使用に関する詳細については、ASP.NET AJAX のビデオとチュートリアルについては、さらに関連項目」セクションでこのチュートリアルの最後に記載したこれらのリソースを参照してください。
 
-
 ## <a name="examining-the-markup-emitted-by-the-scriptmanager-control"></a>ScriptManager コントロールによって出力されるマークアップを調べる
 
 ScriptManager コントロールは、その構成は、ASP.NET AJAX クライアント ライブラリを JavaScript ファイルをダウンロードするブラウザーに指示するマークアップを出力します。 また、インライン JavaScript のビットをこのライブラリを初期化するページに追加します。 次のマークアップは、ScriptManager コントロールを含むページのレンダリングされた出力に追加されるコンテンツを示しています。
-
 
 [!code-html[Main](master-pages-and-asp-net-ajax-vb/samples/sample1.html)]
 
@@ -49,7 +46,6 @@ ScriptManager コントロールは、その構成は、ASP.NET AJAX クライ�
 
 > [!NOTE]
 > マスター ページのユーザー インターフェイス内での AJAX 機能などの場合は、少々 の選択肢があるない -、マスター ページで、scriptmanager コントロールを含める必要があります。
-
 
 マスター ページに、scriptmanager コントロールを追加する 1 つの欠点で上記のスクリプトが出力されること*すべて* ページで、かどうかに関係なく、必要に応じて。 これは、明確にする (マスター ページ) を使用して含まれている ScriptManager をまだ ASP.NET AJAX フレームワークの機能を使用しないこれらのページの帯域幅を無駄につながります。 しかし、帯域幅が無駄にどの程度でしょうか。
 
@@ -61,7 +57,6 @@ ScriptManager コントロールは、その構成は、ASP.NET AJAX クライ�
 > [!NOTE]
 > まだ感じた場合、ScriptManager コントロールを配置するマスター ページで、Web フォームを検討してください。 (、`<form runat="server">`マスター ページのマークアップ)。 ポストバック モデルを使用するすべての ASP.NET ページには、正確に 1 つの Web フォームを含める必要があります。 Web フォームを追加するその他のコンテンツの追加: 隠しフォーム フィールドの数を`<form>`タグ自体、必要に応じて、JavaScript でスクリプトからポストバックを開始する機能します。 このマークアップは、ページをポストバックしない必要はありません。 マスター ページから Web フォームを削除して、手動で追加することが必要な各コンテンツ ページでは、この余分なマークアップを除去する可能性があります。 ただし、マスター ページで、Web フォームの利点から特定のコンテンツ ページに不必要に追加することの欠点を上回る。
 
-
 ## <a name="step-1-adding-a-scriptmanager-control-to-the-master-page"></a>手順 1: マスター ページに ScriptManager コントロールを追加します。
 
 ASP.NET AJAX フレームワークを使用するすべての web ページには、ScriptManager コントロールを正確に 1 つを含める必要があります。 この要件により、通常は理にかなってすべてのコンテンツ ページの ScriptManager コントロールを自動的に含まれているように、1 つのマスター ページの ScriptManager コントロールを配置します。 さらに、scriptmanager コントロールは、ASP.NET AJAX サーバー コントロールの UpdatePanel コントロールと UpdateProgress コントロールなどのいずれかの前にする必要があります。 そのため、Web フォーム内でプレース ホルダー コントロールの前に、scriptmanager コントロールを配置することをお勧めします。
@@ -70,11 +65,9 @@ ASP.NET AJAX フレームワークを使用するすべての web ページに�
 
 Scriptmanager コントロールをページに追加すると、次のように変更します。 その`ID`から`ScriptManager1`に`MyManager`します。
 
-
 [![マスター ページに、scriptmanager コントロールを追加します。](master-pages-and-asp-net-ajax-vb/_static/image2.png)](master-pages-and-asp-net-ajax-vb/_static/image1.png)
 
 **図 01**:マスター ページに、scriptmanager コントロールを追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image3.png))。
-
 
 ## <a name="step-2-using-the-aspnet-ajax-framework-from-a-content-page"></a>手順 2: コンテンツ ページから、ASP.NET AJAX フレームワークを使用します。
 
@@ -82,16 +75,13 @@ Scriptmanager コントロールをページに追加すると、次のように
 
 という名前のルート ディレクトリに新しいページを作成して開始`ShowRandomProduct.aspx`します。 この新しいページにバインドすることを忘れないでください、`Site.master`マスター ページ。
 
-
 [![新しい ASP.NET ページ、web サイトを追加します。](master-pages-and-asp-net-ajax-vb/_static/image5.png)](master-pages-and-asp-net-ajax-vb/_static/image4.png)
 
 **図 02**:新しい ASP.NET ページ、web サイトを追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image6.png))。
 
-
 指定することを思い出してくださいをという名前のカスタム ベース ページ クラスを作成したタイトル、メタ タグ、およびマスター ページの [SKM1] チュートリアルでは、その他の HTML ヘッダー`BasePage`明示的に設定されていない場合は、ページのタイトルを生成しました。 移動して、`ShowRandomProduct.aspx`ページの分離コード クラスし、派生させる`BasePage`(の代わりにから`System.Web.UI.Page`)。
 
 最後に、更新、`Web.sitemap`このレッスンのエントリを追加するファイル。 下に次のマークアップを追加、`<siteMapNode>`マスターの場合にコンテンツ ページの相互作用のレッスン。
-
 
 [!code-xml[Main](master-pages-and-asp-net-ajax-vb/samples/sample2.xml)]
 
@@ -103,37 +93,29 @@ Scriptmanager コントロールをページに追加すると、次のように
 
 最初のタスクでは、UpdatePanel 内でランダムに選択した製品についての情報を表示します。 DetailsView コントロールを updatepanel コントロールにドラッグすることで開始します。 DetailsView コントロールの設定`ID`プロパティを`ProductInfo`クリアとその`Height`と`Width`プロパティ。 DetailsView のスマート タグを展開し、データ ソースの選択ドロップダウン リストから、DetailsView をという名前の新しい SqlDataSource コントロールにバインドする選択`RandomProductDataSource`します。
 
-
 [![DetailsView を新しい SqlDataSource コントロールにバインドします。](master-pages-and-asp-net-ajax-vb/_static/image8.png)](master-pages-and-asp-net-ajax-vb/_static/image7.png)
 
 **図 03**:DetailsView を新しい SqlDataSource コントロールにバインド ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image9.png))。
 
-
 SqlDataSource コントロールを使用して Northwind データベースへの接続を構成、 `NorthwindConnectionString` (これは、[コンテンツ] ページ [SKM2] チュートリアルからマスター ページと対話するで作成した)。 ときに、select ステートメントの構成では、カスタム SQL ステートメントを指定し、次のクエリを入力選択します。
-
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-vb/samples/sample3.sql)]
 
 `TOP 1`キーワード、`SELECT`句は、クエリによって返される最初のレコードのみを返します。 `NEWID()`関数は、新しいグローバル一意識別子値 (GUID) を生成しで使用できる、`ORDER BY`句をランダムな順序でテーブルのレコードを返します。
 
-
 [![1 つをランダムに選択したレコードを取得する SqlDataSource を構成します。](master-pages-and-asp-net-ajax-vb/_static/image11.png)](master-pages-and-asp-net-ajax-vb/_static/image10.png)
 
 **図 04**:構成を 1 つのランダムに選択したレコードを返す SqlDataSource ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image12.png))。
 
-
 ウィザードの完了後に、Visual Studio は、BoundField、上記のクエリによって返される 2 つの列を作成します。 この時点で、ページの宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-vb/samples/sample4.aspx)]
 
 図 5 は、`ShowRandomProduct.aspx`ページをブラウザーで表示する場合。 ページを再読み込みするブラウザーの更新 ボタンをクリックします。表示する必要があります、`ProductName`と`UnitPrice`新しいランダムに選択されたレコードの値。
 
-
 [![ランダムな製品の名前と価格が表示されます。](master-pages-and-asp-net-ajax-vb/_static/image14.png)](master-pages-and-asp-net-ajax-vb/_static/image13.png)
 
 **図 05**:ランダムな製品の名前と価格が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image15.png))。
-
 
 ### <a name="automatically-displaying-a-new-product-every-15-seconds"></a>自動的に新しい製品を表示する 15 秒ごと
 
@@ -141,11 +123,9 @@ ASP.NET AJAX フレームワークには、指定の時刻にポストバック�
 
 これを行うには、ツールボックスからタイマーをドラッグし、updatepanel コントロールにドロップします。 変更する、タイマーの`ID`から`Timer1`に`ProductTimer`とその`Interval`プロパティ 60000 から 15000 にします。 `Interval`プロパティは、ポストバック間のミリ秒数を示します。 15000 に設定すると、15 秒ごとに、部分ページ ポストバックをトリガーするタイマーです。 この時点で、タイマーの宣言型マークアップは、次のようになります。
 
-
 [!code-aspx[Main](master-pages-and-asp-net-ajax-vb/samples/sample5.aspx)]
 
 タイマーのイベント ハンドラーを作成`Tick`イベント。 このイベント ハンドラーで DetailsView を呼び出すことによって、DetailsView にデータをバインドし直す必要があります`DataBind`メソッド。 そう、DetailsView、データ ソース コントロールからデータを再取得するように指示しますを選択し、ランダムにで、新しい表示が、選択したレコードだけです (ときに、ブラウザーの更新 ボタンをクリックして、ページの再読み込み) など。
-
 
 [!code-vb[Main](master-pages-and-asp-net-ajax-vb/samples/sample6.vb)]
 
@@ -153,21 +133,17 @@ ASP.NET AJAX フレームワークには、指定の時刻にポストバック�
 
 何が起こってよりわかりやすく表示、表示が最後に更新された時刻を表示する UpdatePanel に Label コントロールを追加してみましょう。 UpdatePanel 内のラベルの Web コントロールを追加、`ID`に`LastUpdateTime`、オフとその`Text`プロパティ。 次に、UpdatePanel のイベント ハンドラーを作成`Load`イベントと、ラベルに現在の時刻を表示します。 (UpdatePanel の`Load`完全または部分ページ ポストバックごとでイベントが発生しました)。
 
-
 [!code-vb[Main](master-pages-and-asp-net-ajax-vb/samples/sample7.vb)]
 
 完全なこの変更は、ページには、現在表示されている製品が読み込まれた時間が含まれます。 図 6 は、最初にアクセスする際、ページを示します。 図 7 では、Timer コントロールが「オン」と、新しい製品についての情報を表示する、UpdatePanel が更新された後、ページが 15 秒後に示します。
-
 
 [![ページの読み込み時にランダムに選択した製品が表示されます。](master-pages-and-asp-net-ajax-vb/_static/image17.png)](master-pages-and-asp-net-ajax-vb/_static/image16.png)
 
 **図 06**:ページの読み込み時にランダムに選択した製品が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image18.png))。
 
-
 [![15 秒に、新しいランダムに選択した製品が表示されます。](master-pages-and-asp-net-ajax-vb/_static/image20.png)](master-pages-and-asp-net-ajax-vb/_static/image19.png)
 
 **図 07**:15 秒に、新しいランダムに選択した製品が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image21.png))。
-
 
 ## <a name="step-3-using-the-scriptmanagerproxy-control"></a>手順 3: ScriptManagerProxy コントロールを使用します。
 
@@ -177,7 +153,6 @@ ASP.NET AJAX framework クライアント ライブラリの必要なスクリ�
 
 > [!NOTE]
 > ASP.NET ページには、存在する 1 つ以内の ScriptManager コントロールだけを設定できます。 そのため、マスター ページで、ScriptManager コントロールが既に定義されている場合は、コンテンツ ページに ScriptManager コントロールを追加できません。 ScriptManagerProxy の唯一の目的は、開発者は、マスター ページで、scriptmanager コントロールの定義が、まだページごとに scriptmanager コントロールのカスタマイズを追加する機能の手段を提供します。
-
 
 ScriptManagerProxy コントロールの動作を確認するで UpdatePanel を強化しましょう`ShowRandomProduct.aspx`クライアント側スクリプトを使用して、一時停止または再開 Timer コントロール ボタンを追加します。 タイマー コントロールでは、この目的の機能を実現するために使用できる 3 つのクライアント側方法があります。
 
@@ -189,32 +164,25 @@ ScriptManagerProxy コントロールの動作を確認するで UpdatePanel を
 
 という名前の web サイトで新しいフォルダーを作成して開始`Scripts`します。 という名前の Scripts フォルダーに新しいファイルを次に、追加`TimerScript.js`の JScript ファイルの種類。
 
-
 [![新しい JavaScript ファイルを Scripts フォルダーに追加します。](master-pages-and-asp-net-ajax-vb/_static/image23.png)](master-pages-and-asp-net-ajax-vb/_static/image22.png)
 
 **図 08**:新しい JavaScript ファイルを追加、`Scripts`フォルダー ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image24.png))。
-
 
 [![新しい JavaScript ファイルが web サイトに追加されました](master-pages-and-asp-net-ajax-vb/_static/image26.png)](master-pages-and-asp-net-ajax-vb/_static/image25.png)
 
 **図 09**:新しい JavaScript ファイルが web サイトに追加されました ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image27.png))。
 
-
 次のスクリプトを次に、追加、`TimerScript.js`ファイル。
-
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-vb/samples/sample8.cs)]
 
 今すぐにこのカスタム JavaScript ファイルを登録する必要があります`ShowRandomProduct.aspx`します。 戻り`ShowRandomProduct.aspx`ScriptManagerProxy コントロールをページに追加は、設定しその`ID`に`MyManagerProxy`します。 カスタム JavaScript を登録するには、は、ファイルはデザイナーで ScriptManagerProxy コントロールを選択し、[プロパティ] ウィンドウに移動します。 スクリプトをタイトル、プロパティのいずれかです。 このプロパティを選択するには、図 10 に示すように、ScriptReference コレクション エディターが表示されます。 新しいスクリプト参照を含めるパス プロパティでスクリプト ファイルへのパスを入力して [追加] ボタンをクリックします。`~/Scripts/TimerScript.js`します。
 
-
 [![ScriptManagerProxy コントロールへのスクリプト参照を追加します。](master-pages-and-asp-net-ajax-vb/_static/image29.png)](master-pages-and-asp-net-ajax-vb/_static/image28.png)
 
 **図 10**:ScriptManagerProxy コントロールへのスクリプト参照の追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image30.png))。
 
-
 マークアップを含むように更新した後、宣言型のスクリプト参照、ScriptManagerProxy コントロールを追加する、`<Scripts>`を 1 つのコレクション`ScriptReference`エントリ、次のマークアップ スニペットとして示します。
-
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-vb/samples/sample9.aspx)]
 
@@ -222,23 +190,19 @@ ScriptManagerProxy コントロールの動作を確認するで UpdatePanel を
 
 今すぐ呼び出し、`ToggleTimer`関数で定義されている`TimerScript.js`でクライアント スクリプトから、`ShowRandomProduct.aspx`ページ。 UpdatePanel 内で、次の HTML を追加します。
 
-
 [!code-aspx[Main](master-pages-and-asp-net-ajax-vb/samples/sample10.aspx)]
 
 これには、「一時停止」というテキスト付きのボタンが表示されます。 たびに、クリックすると、JavaScript 関数`ToggleTimer`ボタンへの参照を渡すという、`id`タイマー コントロールの値 (`ProductTimer`)。 取得するための構文に注意してください、`id`タイマー コントロールの値。 `<%=ProductTimer.ClientID%>` 値を出力、`ProductTimer`タイマー コントロールの`ClientID`プロパティ。 コンテンツ ページ [SKM3] チュートリアルでは名前付けコントロール ID で、サーバー側の違いを説明しました`ID`値と、結果として得られるクライアント側`id`値、および方法`ClientID`クライアント側に返します`id`。
 
 図 11 では、まずブラウザーからアクセスすると、このページを示します。 タイマーが現在実行されているし、15 秒に表示されている製品情報を更新します。 図 12 では、一時停止 ボタンがクリックしてされた後に、画面が表示されます。 一時停止 ボタンをクリックすると、タイマーを停止し、"Resume"するボタンのテキストを更新します。 製品情報が更新 (および 15 秒ごとに更新し続ける) と、ユーザーが再開をクリックします。
 
-
 [![タイマー コントロールを停止する [一時停止] ボタンをクリックします。](master-pages-and-asp-net-ajax-vb/_static/image32.png)](master-pages-and-asp-net-ajax-vb/_static/image31.png)
 
 **図 11**:タイマー コントロールを停止する [一時停止] ボタンをクリックします ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image33.png))。
 
-
 [![タイマーを再起動する [再開] ボタンをクリックします](master-pages-and-asp-net-ajax-vb/_static/image35.png)](master-pages-and-asp-net-ajax-vb/_static/image34.png)
 
 **図 12**:タイマーを再起動する [再開] ボタンをクリックします ([フルサイズの画像を表示する をクリックします](master-pages-and-asp-net-ajax-vb/_static/image36.png))。
-
 
 ## <a name="summary"></a>まとめ
 

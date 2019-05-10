@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: a172979a-1318-4318-a9c6-4f9560d26267
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 865e901618b48bc4bfdc6d7a3ca4e8868d4cb46b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ae8cb1a322afb95c5d2e8d5e73c7825c7b2fe5a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412984"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108308"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>複数の環境のためにデータベース配置をカスタマイズする
 
@@ -30,7 +30,6 @@ ms.locfileid: "59412984"
 > 複数の変換先にデータベース プロジェクトを展開するときは、各ターゲット環境のデータベースの配置プロパティをカスタマイズするとする多くの場合。 たとえば、テスト環境では通常再作成するデプロイごとに、データベース ステージングまたは運用環境では多く可能性が高く、データを保持するために増分更新を行うには。
 > 
 > Visual Studio 2010 データベース プロジェクトでは、展開の設定は、展開構成 (.sqldeployment) ファイル内に格納されます。 このトピックでは、環境に固有の展開構成ファイルを作成し、VSDBCMD パラメーターとして使用する 1 つを指定する方法を説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -76,11 +75,9 @@ ms.locfileid: "59412984"
 | **展開する前にデータベースをバックアップします。** | False | おそらく | True |
 | **ターゲット データベースにあるオブジェクトに対して DROP ステートメントを生成しますが、データベース プロジェクトではないです。** | False | True | True |
 | **CLR 型の更新に ALTER ASSEMBLY ステートメントを使用しません。** | False | False | False |
-  
 
 > [!NOTE]
 > データベースの配置プロパティと環境の考慮事項の詳細については、次を参照してください。 [、概要のデータベース プロジェクトの設定](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)、[方法。展開の詳細のプロパティを構成](https://msdn.microsoft.com/library/dd172125.aspx)、[をビルドおよび分離開発環境にデータベースを配置](https://msdn.microsoft.com/library/dd193409.aspx)、および[ビルドしてデータベースをデプロイするステージング環境または運用環境](https://msdn.microsoft.com/library/dd193413.aspx).
-
 
 複数の送信先へのデータベース プロジェクトの配置をサポートするには、各ターゲット環境の展開構成ファイルを作成する必要があります。
 
@@ -104,13 +101,10 @@ Visual Studio 2010 内で (デバッグやリリース) などのソリューシ
 
 展開構成ファイルを VSDBCMD を指定するには使用、 **/p: DeploymentConfigurationFile**切り替えるし、ファイルへの完全パスを指定します。 これにより、配置マニフェストを識別する展開構成ファイルが上書きされます。 たとえば、展開するこの VSDBCMD コマンドを使用する可能性があります、 **ContactManager**テスト環境にデータベース。
 
-
 [!code-console[Main](customizing-database-deployments-for-multiple-environments/samples/sample1.cmd)]
-
 
 > [!NOTE]
 > 出力ディレクトリにファイルをコピーするときに、ビルド プロセスが .sqldeployment ファイルを変更可能性がありますに注意してください。
-
 
 配置前または配置後の SQL スクリプトでの SQL コマンド変数を使用する場合、デプロイで、環境固有の .sqlcmdvars ファイルを関連付けるには、同様のアプローチを使用できます。 この場合、使用して、 **/p: SqlCommandVariablesFile** .sqlcmdvars ファイルを識別するためにスイッチします。
 
@@ -118,9 +112,7 @@ Visual Studio 2010 内で (デバッグやリリース) などのソリューシ
 
 使用して MSBuild プロジェクト ファイルから VSDBCMD コマンドを呼び出すことができます、 **Exec** MSBuild ターゲット内のタスク。 最も単純な形式でこのようなことになります。
 
-
 [!code-xml[Main](customizing-database-deployments-for-multiple-environments/samples/sample2.xml)]
-
 
 - 実際には、プロジェクト ファイルを簡単に読み取るし、再利用するために、さまざまなコマンド ライン パラメーターを格納するプロパティを作成します。 これにより、環境固有のプロジェクト ファイルのプロパティの値を提供する、または MSBuild のコマンドラインからの既定値をオーバーライドするユーザーを簡単にします。 説明されている分割プロジェクト ファイルの方法を使用するかどうかは[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、それに応じて、ビルド方法および 2 つのファイルのプロパティを分割する必要があります。
 - 展開構成ファイル名、データベース接続文字列および先のデータベース名などの環境に固有の設定は、環境固有のプロジェクト ファイルに移動してください。

@@ -8,12 +8,12 @@ ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 18056c917b32680678c536229e8e26d5cc7db161
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1087d9120411e51fd61d073169a88cac6cdaf15b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395135"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109492"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX 認証とプロファイル アプリケーション サービスについて理解する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59395135"
 [PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
 > 認証サービスにより、ユーザー、認証クッキーを受信するために資格情報を指定して、ゲートウェイ サービスのカスタム ユーザー プロファイルを許可するのには ASP.NET によって提供されます。 ASP.NET AJAX の認証サービスの使用は、フォーム認証を使用中のアプリケーション (ログインの制御など) しない機能しなくなります AJAX 認証サービスにアップグレードすることで、標準の ASP.NET フォーム認証と互換性のあります。
-
 
 ## <a name="introduction"></a>はじめに
 

@@ -8,12 +8,12 @@ ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 2010de510cf44bba1b95d29dbdb573ab78f452f7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 02c511f0e99e306daaf595da5bc618fe738e806c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411359"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106787"
 ---
 # <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>SMS 2 要素認証を利用し、ASP.NET Web フォームを作成する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59411359"
 [電子メールと SMS 2 要素認証での ASP.NET Web フォーム アプリをダウンロードします。](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
 
 > このチュートリアルでは、2 要素認証を使用して ASP.NET Web フォーム アプリをビルドする方法を示します。 このチュートリアルは、「チュートリアルを補完するものが[ユーザー登録をセキュリティで保護された ASP.NET Web フォーム アプリケーションを作成、電子メール確認、パスワード リセットを](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)します。 さらに、このチュートリアルは、Rick Anderson に基づいてが[MVC チュートリアル](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -42,7 +41,6 @@ ms.locfileid: "59411359"
 
 > [!NOTE]
 > 重要 : インストールする必要があります[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降に、このチュートリアルを完了します。
-
 
 1. 新しいプロジェクトを作成 (**ファイル** - &gt; **新しいプロジェクト**) を選択し、 **ASP.NET Web アプリケーション**.NET Framework と共にテンプレートバージョン 4.5.2 から、**新しいプロジェクト** ダイアログ ボックス。
 2. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、 **Web フォーム**テンプレート。 既定の認証としてのままに**個々 のユーザー アカウント**します。 をクリックし、 **OK**新しいプロジェクトを作成します。  

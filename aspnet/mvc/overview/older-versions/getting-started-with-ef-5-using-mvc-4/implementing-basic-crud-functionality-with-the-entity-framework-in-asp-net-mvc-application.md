@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: f7bace3f-b85a-47ff-b5fe-49e81441cdf9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: be1fcf2c7a0eec5473b2e3a10f51d7e22656b671
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d42c13b01d798b6c35327826812e853d327eeae9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112489"
 ---
 # <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>ASP.NET MVC アプリケーション (2/10) で Entity Framework での基本的な CRUD 機能を実装します。
 
@@ -27,12 +27,10 @@ ms.locfileid: "59402207"
 > > 
 > > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
-
 前のチュートリアルでは、保存し、Entity Framework と SQL Server LocalDB を使用してデータを表示する MVC アプリケーションを作成しました。 このチュートリアルで確認およびカスタマイズ、CRUD (作成、読み取り、更新、削除)、MVC スキャフォールディングが自動的にコント ローラーとビューを作成するコードです。
 
 > [!NOTE]
 > コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 これらのチュートリアルを簡潔にするには、このシリーズの後のチュートリアルまでリポジトリを実装するされません。
-
 
 このチュートリアルでは、次の web ページを作成します。
 

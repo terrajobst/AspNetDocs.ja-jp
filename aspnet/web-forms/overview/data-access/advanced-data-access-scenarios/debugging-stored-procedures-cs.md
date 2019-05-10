@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: c655c324-2ffa-4c21-8265-a254d79a693d
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9ac206edee58542ced24ce89adc3393d7a3c1c37
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 89e151e851b5a852ec4fd6966c40e9b8e94f12b1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392171"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108344"
 ---
 # <a name="debugging-stored-procedures-c"></a>ストアド プロシージャのデバッグ (C#)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59392171"
 
 > Visual Studio Professional および Team System のエディションを使用すると、ブレークポイントを設定し、SQL Server 内のストアド プロシージャにステップ、アプリケーション コードのデバッグと同じくらい簡単ストアド プロシージャをデバッグできます。 このチュートリアルでは、ダイレクト データベース デバッグと、アプリケーションは、ストアド プロシージャのデバッグについて説明します。
 
-
 ## <a name="introduction"></a>はじめに
 
 Visual Studio では、豊富なデバッグ エクスペリエンスを提供します。 いくつかのキーストロークやマウスの数回のクリックで、プログラムの実行を停止し、その状態と制御フローを確認するブレークポイントを使用することも可能です。 と共に、アプリケーション コードをデバッグするには、Visual Studio は、SQL Server 内からストアド プロシージャのデバッグのサポートを提供します。 ASP.NET 分離コード クラスまたはビジネス ロジック層のクラスのコード内でブレークポイントを設定することができますと同様、すぎることができますに配置するストアド プロシージャ内で。
@@ -32,7 +31,6 @@ Visual Studio では、豊富なデバッグ エクスペリエンスを提供�
 
 > [!NOTE]
 > 残念ながら、ストアド プロシージャのみにステップ インでき Professional およびチーム システムのバージョンの Visual Studio でデバッグします。 Visual Web Developer、または standard のバージョンの Visual Studio を使用している場合は、ストアド プロシージャをデバッグするために必要な手順について説明しますが、コンピューターに次の手順をレプリケートすることはできません、読むへようこそ。
-
 
 ## <a name="sql-server-debugging-concepts"></a>SQL Server デバッグの概念
 
@@ -58,25 +56,20 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 
 以降、`Products_SelectByCategoryID`ストアド プロシージャが必要ですが、`@CategoryID`入力パラメーターは、この値を提供するように求められます。 飲み物に関する情報を返す、1 を入力します。
 
-
 ![値 1 を使用して、@CategoryIDパラメーター](debugging-stored-procedures-cs/_static/image1.png)
 
 **図 1**:値 1 を使用して、`@CategoryID`パラメーター
 
-
 値を指定した後、`@CategoryID`パラメーター、ストアド プロシージャを実行します。 を完了するまで実行するのではなく、デバッガーが停止の最初のステートメントを実行します。 ストアド プロシージャの現在の位置を示す、余白の黄色の矢印に注意してください。 表示および [ウォッチ] ウィンドウで、またはストアド プロシージャでパラメーター名の上に置くことによって、パラメーター値を編集できます。
-
 
 [![ストアド プロシージャの最初のステートメントでデバッガーが停止しました](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
 
 **図 2**:ストアド プロシージャの最初のステートメントでデバッガーが停止した ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image4.png))。
 
-
 一度に 1 つのストアド プロシージャのステートメントをステップには、ツールバーの [ステップ オーバー] ボタンをクリックします。 または F10 キーを押してください。 `Products_SelectByCategoryID`ストアド プロシージャには、1 つが含まれています`SELECT`ステートメントでは、1 つのステートメントをステップは f10 キーを押すと、ストアド プロシージャの実行が完了します。 ストアド プロシージャが完了すると、その出力は、出力ウィンドウに表示され、デバッガーが終了します。
 
 > [!NOTE]
 > ステートメント レベルで発生する T-SQL デバッグステップ インすることはできません、`SELECT`ステートメント。
-
 
 ## <a name="step-2-configuring-the-website-for-application-debugging"></a>手順 2: アプリケーションのデバッグの web サイトを構成します。
 
@@ -84,22 +77,18 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 
 アプリケーションから呼び出されるストアド プロシージャのデバッグを始めることができます、前に、SQL Server デバッガーと統合する ASP.NET web アプリケーションに指示する必要があります。 ソリューション エクスプ ローラーで web サイト名を右クリックして開始 (`ASPNET_Data_Tutorial_74_CS`)。 コンテキスト メニューからプロパティ ページのオプションを選択し、左側で、開始オプション項目を選択し、デバッガーのセクションでは SQL Server のチェック ボックスをオン (図 3 を参照してください)。
 
-
 [![アプリケーションのプロパティ ページで、SQL Server のチェック ボックスをオンします。](debugging-stored-procedures-cs/_static/image6.png)](debugging-stored-procedures-cs/_static/image5.png)
 
 **図 3**:アプリケーションのプロパティ ページで SQL Server のチェック ボックスをオン ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image7.png))。
-
 
 さらに、接続プールが無効にするために、アプリケーションで使用されるデータベース接続文字列を更新する必要があります。 データベースへの接続が閉じられたときに、対応する`SqlConnection`オブジェクトが使用可能な接続のプールに配置されます。 データベースへの接続を確立するときに、使用可能な接続オブジェクトをこのプールから取得できるではなく作成し、新しい接続を確立することです。 このプールの接続オブジェクトのによってパフォーマンスが向上し、既定で有効です。 ただし、デバッグするときにデバッグ インフラストラクチャは、プールから取得された接続を使用する場合正しく確立しないため、接続がプールを無効にします。
 
 無効になっている接続プールを更新、`NORTHWNDConnectionString`で`Web.config`設定が含まれるように`Pooling=false`します。
 
-
 [!code-xml[Main](debugging-stored-procedures-cs/samples/sample1.xml)]
 
 > [!NOTE]
 > 完了したら、ASP.NET アプリケーションを使用して SQL Server、デバッグを必ず接続プールを削除することで元に戻す、`Pooling`接続文字列からの設定 (または設定することで`Pooling=true`)。
-
 
 この時点で ASP.NET アプリケーションは Visual Studio web アプリケーションから呼び出されたときに、SQL Server データベース オブジェクトをデバッグすることを許可するように構成されています。 後は、ストアド プロシージャにブレークポイントを追加し、デバッグを開始するだけです。
 
@@ -107,51 +96,40 @@ Visual Studio では、データベース オブジェクトを直接デバッ�
 
 開く、`Products_SelectByCategoryID`ストアド プロシージャとの先頭にブレークポイントを設定、`SELECT`ステートメントの余白の適切な場所をクリックしてまたはの開始時にカーソルを配置することで、`SELECT`ステートメントと f9 キーを押します。 図 4 に示すように、ブレークポイントは余白に赤い丸が表示されます。
 
-
 [![ブレークポイントを設定、Products_SelectByCategoryID でストアド プロシージャ](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
 
 **図 4**:ブレークポイントを設定、`Products_SelectByCategoryID`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image10.png))。
 
-
 SQL データベース オブジェクトのクライアント アプリケーションからデバッグするためには、アプリケーションのデバッグをサポートするために、データベースを構成することが欠かせません。 最初にブレークポイントを設定すると、この設定を切り替えることが自動的に必要がありますを再確認することをお勧めします。 右クリックし、`NORTHWND.MDF`サーバー エクスプ ローラー ノード。 コンテキスト メニューには、チェックされたメニュー項目というアプリケーションのデバッグを含める必要があります。
-
 
 ![アプリケーションのデバッグ オプションが有効になっていることを確認します。](debugging-stored-procedures-cs/_static/image11.png)
 
 **図 5**:アプリケーションのデバッグ オプションが有効になっていることを確認します。
 
-
 ブレークポイントを設定およびアプリケーションのデバッグ オプションを有効に、ASP.NET アプリケーションから呼び出されたときに、ストアド プロシージャをデバッグする準備が整いました。 デバッグ メニューに移動して、デバッガーを起動し、ツールバーの再生 アイコンが緑をクリックして、f5 キーを押して、デバッグの開始 を選択します。 デバッガーを起動され、web サイトを起動します。
 
 `Products_SelectByCategoryID`でストアド プロシージャが作成された、[型指定されたデータセット s Tableadapter の既存のストアド プロシージャの使用](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)チュートリアル。 対応する web ページ (`~/AdvancedDAL/ExistingSprocs.aspx`) このストアド プロシージャによって返される結果を表示する GridView が含まれています。 ブラウザーからこのページを参照してください。 ページ内のブレークポイントに達すると、`Products_SelectByCategoryID`ストアド プロシージャにヒットして、Visual Studio に制御が返されます。 同じように手順 1 で、ビュー、ストアド プロシージャのステートメントをステップできパラメーター値を変更できます。
-
 
 [![ExistingSprocs.aspx ページは、飲み物を最初に表示されます。](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
 
 **図 6**:`ExistingSprocs.aspx`ページは、飲み物を最初に表示されます ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image14.png))。
 
-
 [![ストアド プロシージャのブレークポイントに達しました](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
 
 **図 7**:ブレークポイントに達するストアド プロシージャ %s ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image17.png))。
 
-
 図 7 に示すの値のウォッチ ウィンドウとして、`@CategoryID`パラメーターが 1 です。 これは、ため、`ExistingSprocs.aspx`が飲み物のカテゴリで、製品を最初に表示されます ページ、 `CategoryID` 1 の値。 ドロップダウン リストから別のカテゴリを選択します。 これによりポストバックが発生して、再実行します、`Products_SelectByCategoryID`ストアド プロシージャ。 この時間が、もう一度、ブレークポイントにヒット、`@CategoryID`パラメーター s の値がドロップダウン リストを選択したアイテムを反映して`CategoryID`します。
-
 
 [![ドロップダウン リストから別のカテゴリを選択します。](debugging-stored-procedures-cs/_static/image19.png)](debugging-stored-procedures-cs/_static/image18.png)
 
 **図 8**:ドロップダウン リストから別のカテゴリを選択 ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image20.png))。
 
-
 [![@CategoryIDパラメーターは、Web ページから選択したカテゴリを反映](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
 
 **図 9**:`@CategoryID`パラメーターは、Web ページからカテゴリを選択が反映されます ([フルサイズの画像を表示する をクリックします](debugging-stored-procedures-cs/_static/image23.png))。
 
-
 > [!NOTE]
 > 場合内のブレークポイント、`Products_SelectByCategoryID`にアクセスすると、ストアド プロシージャがヒットしない、 `ExistingSprocs.aspx`  ページを ASP.NET アプリケーションのプロパティ ページの デバッガー セクションで、SQL Server のチェック ボックスがチェックされている、接続プールがされているかどうかを確認無効な場合、およびデータベースのオプションのアプリケーションのデバッグが有効になっています。 引き続き再表示される場合は問題が発生 Visual Studio を再起動し、もう一度やり直してください。
-
 
 ## <a name="debugging-t-sql-database-objects-on-remote-instances"></a>リモート インスタンスで T-SQL でのデータベース オブジェクトのデバッグ
 
@@ -166,14 +144,12 @@ Visual Studio と同じコンピューター上の SQL Server データベース
 
 例は、点をわかりやすく必要があります。 という名前の Windows アカウントがあることを想像してみてください`SQLDebug`Windows ドメイン内で。 このアカウントは有効なログインとのメンバーとして、リモートの SQL Server インスタンスに追加する必要があります、`sysadmin`ロール。 次に、Visual Studio からリモートの SQL Server インスタンスをデバッグするには必要がありますとして Visual Studio を実行する、`SQLDebug`ユーザー。 これにログとして、ワークステーションからログインすることによって行うことが`SQLDebug`、簡単なアプローチでも、Visual Studio を起動しは、独自の資格情報を使用して、ワークステーションにログインし、使用することと`runas.exe`として Visual Studio を起動する、`SQLDebug`ユーザー。 `runas.exe` 別のユーザー アカウントの名前で実行される特定のアプリケーションを使用します。 として Visual Studio を起動する`SQLDebug`コマンドラインで次のステートメントを入力する可能性があります。
 
-
 [!code-console[Main](debugging-stored-procedures-cs/samples/sample2.cmd)]
 
 このプロセスの詳細については、次を参照してください[William R. Vaughn](http://betav.com/BLOG/billva/) s*銀河を Visual Studio と SQL Server、第 7 版ガイド*だけでなく[How To:。デバッグ用の SQL Server のアクセス許可の設定](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx)します。
 
 > [!NOTE]
 > 開発用コンピューターには、Windows XP Service Pack 2 が実行されている場合は、リモート デバッグを許可するインターネット接続ファイアウォールを構成する必要があります。 [方法:SQL Server 2005 のデバッグを有効にする](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx)記事では、これには 2 つの手順に関する注意事項: 追加する必要があります (a) で Visual Studio ホスト コンピューターで、`Devenv.exe`例外の一覧と、TCP 135 ポートを開くと (b) にリモート (SQL) コンピューターには、TCP 135 を開く必要がありますポートし、追加`sqlservr.exe`例外の一覧にします。 ドメイン ポリシーでは、ネットワーク通信を IPSec を通じて行う必要がある場合、UDP 4500 と UDP 500 のポートを開く必要があります。
-
 
 ## <a name="summary"></a>まとめ
 

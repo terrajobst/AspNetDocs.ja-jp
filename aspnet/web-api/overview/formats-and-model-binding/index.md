@@ -9,17 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 2d520763-3860-4b3f-8b99-ac71fb01cf37
 msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
-ms.openlocfilehash: 9d5b58871147b84cb4d8bde73d3139655e4cd3e6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4b746140c00456a51c0ca2942b62f11d4dcbc4a0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388739"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112801"
 ---
 # <a name="serialization-and-model-binding-in-aspnet-web-api"></a>シリアル化および ASP.NET Web API でのモデル バインド
 
 > ASP.NET Web API が HTTP メッセージをドメイン モデルにバインドする方法と、メディアを使用する方法は、Web API で書式設定します。
-
 
 - [Web API 2 のメディア フォーマッタ](media-formatters.md)
 - [Web API の JSON と XML シリアル化](json-and-xml-serialization.md)

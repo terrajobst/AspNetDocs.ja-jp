@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 3e8b0627-3eb7-488e-807e-067cba7cec05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3951ab4562e2c172f418c74136d511f0f9f50454
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7efdb13ae67c8485fc35bf759901fec85c31669c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109270"
 ---
 # <a name="strategies-for-database-development-and-deployment-c"></a>データベースの開発と配置のための戦略 (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59415844"
 [PDF のダウンロード](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial10_DBDevel_cs.pdf)
 
 > 最初に、データ駆動型アプリケーションをデプロイするときに、開発環境を運用環境で無条件、データベースをコピーできます。 ブラインドを実行する、以降のデプロイでのコピーで、実稼働データベースに入力データが上書きされます。 代わりに、データベースを展開するには、開発用データベースを実稼働データベースへの最後の配置以降に行われた変更を適用する必要があります。 このチュートリアルは、これらの課題を調べ、chronicling と最後の配置以降のデータベースに加えられた変更を適用することを支援するさまざまな方法を提供しています。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -54,13 +53,11 @@ ms.locfileid: "59415844"
 
 <a id="0.4_table01"></a>
 
-
 | **変更日** | **変更の詳細** |
 | --- | --- |
 | 2009-02-03: | 追加された列`DepartmentID`(`int`、NOT NULL) を`Employees`テーブル。 外部キー制約を追加`Departments.DepartmentID`に`Employees.DepartmentID`します。 |
 | 2009-02-05: | 削除された列`TotalWeight`から、`Orders`テーブル。 既にでキャプチャしたデータが関連付けられている`OrderDetails`レコード。 |
 | 2009-02-12: | 作成、`ProductCategories`テーブル。 次の 3 つの列がある: `ProductCategoryID` (`int`、 `IDENTITY`、 `NOT NULL`)、 `CategoryName` (`nvarchar(50)`、 `NOT NULL`)、および`Active`(`bit`、 `NOT NULL`)。 主キー制約を追加`ProductCategoryID`、既定値は 1 ~`Active`します。 |
-
 
 このアプローチの欠点を数多くあります。 まず、automation のことを期待することはありません。 いつでもこれらの変更は、アプリケーションの展開時に開発者が手動で実装する必要があります変更、一度に 1 つずつなどデータベースに適用する必要。 さらに、変更ログを使用してベースラインからのデータベースの特定のバージョンを再構築する場合は、そのため時間がかかりますますます多くログのサイズの拡大に合わせて。 このメソッドのもう 1 つは、わかりやすくするため、各変更ログ エントリの詳細レベルは左から人の変更を記録することです。 複数の開発者のチームで他よりも詳細なより読みやすい、またはより正確なのエントリが作成一部可能性があります。 また、入力ミスおよびその他の人に関連するデータ エントリ エラー場合があります。
 
@@ -70,7 +67,6 @@ Prose で、変更ログが、正直なところ、できません非常に高�
 
 > [!NOTE]
 > 変更ログの情報は技術的には、展開時までに必要なだけの変更履歴を維持することをお勧めします。 1 つを保持することではなく変更のログ ファイル、成長し続けることを検討データベース バージョンごとに別の変更のログ ファイル。 通常はするバージョン、データベースが展開されている各時間。 変更ログのログを維持することにより、ベースラインから開始を再作成する任意のデータベース バージョン バージョン 1 以降では変更ログ スクリプトを実行してとを再作成する必要があります、バージョンに到達するまで続行します。
-
 
 ## <a name="recording-the-sql-change-statements"></a>変更の SQL ステートメントを記録
 
@@ -95,18 +91,14 @@ Prose でデータベースの変更を文書化は簡単ですが、開発者�
 > [!NOTE]
 > この記事の執筆時に、現在のバージョンの SQL の比較は、395 ドルのコストを Standard Edition では、バージョン 7.1 では、でした。 14 日間の無料試用版をダウンロードして理解できます。
 
-
 SQL Compare の開始時に比較プロジェクト ダイアログ ボックスが開き、保存されている SQL Compare プロジェクトを表示します。 新しいプロジェクトを作成します。 比較するデータベースに関する情報を入力するプロジェクト構成ウィザードが起動 (図 1 参照)。 開発および運用環境のデータベースの情報を入力します。
-
 
 [![開発と実稼働データベースを比較します。](strategies-for-database-development-and-deployment-cs/_static/image2.jpg)](strategies-for-database-development-and-deployment-cs/_static/image1.jpg)
 
 **図 1**:開発と実稼働データベースの比較 ([フルサイズの画像を表示する をクリックします](strategies-for-database-development-and-deployment-cs/_static/image3.jpg))。
 
-
 > [!NOTE]
 > かどうか、開発環境のデータベースには、SQL Express Edition のデータベース ファイルで、`App_Data`図 1 に示すダイアログ ボックスで選択するには、SQL Server Express データベース サーバーでデータベースを登録する必要がありますが、web サイトのフォルダー。 これを実現する最も簡単な方法では、SQL Server Management Studio (SSMS) を開き、SQL Server Express データベース サーバーに接続して、データベースをアタッチします。 SSMS のコンピューターにインストールされていない場合は、ダウンロードしてから無料でインストール[*バージョンの SQL Server 2008 Management Studio Basic*](https://www.microsoft.com/downloads/details.aspx?FamilyId=7522A683-4CB2-454E-B908-E805E9BD4E28&amp;displaylang=en)します。
-
 
 に加えて、比較するデータベースを選択すると、さまざまなオプション タブから比較設定を指定することもできます。1 つのオプションをオンにすることがありますが、「無視制約とインデックス名」 前のチュートリアルで追加されています、アプリケーション サービスの開発と運用環境のデータベースにデータベース オブジェクトを思い出してください。 使用した場合、`aspnet_regsql.exe`ツールを開発および運用データベースとの間に主キーと一意の制約名が異なることがわかりますし、実稼働データベースでこれらのオブジェクトを作成します。 その結果、SQL Compare フラグが設定されるすべての異なるとしてアプリケーション サービスのテーブル。 「を無視する制約とインデックス名」のままにすることができますか、オフにして、制約名を同期または SQL の比較をこれらの相違を無視するように指示します。
 
@@ -115,11 +107,9 @@ SQL Compare の開始時に比較プロジェクト ダイアログ ボックス
 > [!NOTE]
 > このチュートリアルで行われたデータ モデルの変更は、データベースの比較ツールを使用して説明するために行われました。 今後のチュートリアルでデータベースにこれらの変更が表示されますされません。
 
-
 [![SQL の比較は、開発と実稼働データベースの違いを示します](strategies-for-database-development-and-deployment-cs/_static/image5.jpg)](strategies-for-database-development-and-deployment-cs/_static/image4.jpg)
 
 **図 2**:SQL の比較には、開発の間の相違点と実稼働データベースが一覧表示されます ([フルサイズの画像を表示する をクリックします](strategies-for-database-development-and-deployment-cs/_static/image6.jpg))。
-
 
 グループにデータベース オブジェクトを分解 SQL Compare、どのようなオブジェクトをすばやく表示する両方のデータベースに存在しますが、さまざまなオブジェクトが 1 つのデータベースが、一方に存在してがオブジェクトは同じです。 両方のデータベースに存在しますが、異なる 2 つのオブジェクトがあるように、:`Authors`テーブルで、追加の列がある、および`Books`テーブルで、1 つ削除します。 開発用データベース、つまり、新しく作成にのみ存在する 1 つのオブジェクトがある`Ratings`テーブル。 117 オブジェクトは両方のデータベースで同じですが。
 
@@ -127,17 +117,14 @@ SQL Compare の開始時に比較プロジェクト ダイアログ ボックス
 
 相違点を確認し、同期するオブジェクトを選択すると、した後は、次の手順は、開発用データベースに一致するように、運用データベースのスキーマを更新するために必要な SQL コマンドを生成します。 これは、同期ウィザードによって実現されます。 オブジェクトを同期して、操作をまとめたものです。 同期ウィザードを確認します (図 3 参照) を計画します。 データベースをすぐに同期したり、都合のよいタイミングで実行できる SQL コマンドのスクリプトを生成できます。
 
-
 [![同期ウィザードを使用して、データベース スキーマを同期](strategies-for-database-development-and-deployment-cs/_static/image8.jpg)](strategies-for-database-development-and-deployment-cs/_static/image7.jpg)
 
 **図 3**:データベース スキーマの同期の同期ウィザードを使用して ([フルサイズの画像を表示する をクリックします](strategies-for-database-development-and-deployment-cs/_static/image9.jpg))。
-
 
 データベースの比較ツールなどの Red Gate Software の SQL Compare s、ポイント アンド クリックするだけの実稼働データベースには、開発データベースのスキーマに変更を適用します。
 
 > [!NOTE]
 > SQL Compare を比較し、2 つのデータベースを同期*スキーマ*します。 残念ながら、ありませんを比較し、2 つのデータベース テーブル内のデータを同期します。 Red Gate Software という製品を提供して[ *SQL データの比較*](http://www.red-gate.com/products/SQL_Data_Compare/)を比較し、2 つのデータベース間でデータを同期するが、SQL の比較から別の製品であり別 395 ドルのコストします。
-
 
 ## <a name="taking-the-application-offline-during-deployment"></a>デプロイ時にアプリケーションをオフライン
 
