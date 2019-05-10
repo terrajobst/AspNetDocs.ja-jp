@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 0c6e4c2f-fcdb-4978-9656-1990c6f15727
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 48404f449ce2641bdff55b9ad75aa5eec1aee46b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f701d1fbabc3e1a97c3750d00e96bf8dba1105cd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403299"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129716"
 ---
 # <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>第 10 部:ナビゲーションとサイト デザインの最終更新、まとめ
 
@@ -24,7 +24,6 @@ ms.locfileid: "59403299"
 > MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
 >   
 > このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 10 では、ナビゲーションとサイト デザイン、結論を最終的な更新プログラムについて説明します。
-
 
 私たちのサイトのすべての主要な機能が終了しましたが、サイト ナビゲーション、ホーム ページで、およびストアの参照ページに追加するいくつかの機能、まだいます。
 
@@ -133,7 +132,6 @@ GenreMenu コント ローラーのアクションを右クリックし、次に
 ## <a name="conclusion"></a>まとめ
 
 ASP.NET MVC 簡単見たなどのデータベース アクセス、メンバーシップ、AJAX、高度な web サイトを作成します。 非常に短時間です。 このチュートリアルが願って、独自の ASP.NET MVC アプリケーションの構築を開始する必要があるツールです。
-
 
 > [!div class="step-by-step"]
 > [前へ](mvc-music-store-part-9.md)

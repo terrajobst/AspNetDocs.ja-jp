@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 7963890b-4ea3-4a1c-b65d-6098a3d56f62
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 54dd3bae21e661e0b17cab6a71f0df33b6712bcd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1216b1cbc3ac0e3fd4850ab1e924ae4299207137
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388557"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132667"
 ---
 # <a name="handling-postbacks-from-a-modalpopup-c"></a>ModalPopup からポストバックを処理する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59388557"
 [コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup3.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup3CS.pdf)
 
 > AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ポップアップでポストバックが作成されたときに、特別な注意を実行する必要があります。
-
 
 ## <a name="overview"></a>概要
 
@@ -53,7 +52,6 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 また、現在の名前と電子メールを使用モーダル ポップアップ内のテキスト ボックス コントロールを入力する必要があります。 ただしこれは必要な場合にのみポストバックは発生しません。 ポストバックの場合、ASP.NET の viewstate の機能は自動的に、テキスト ボックスに適切な値を入力します。
 
 [!code-csharp[Main](handling-postbacks-from-a-modalpopup-cs/samples/sample6.cs)]
-
 
 [![モーダル ポップアップがポストバックを発生させる](handling-postbacks-from-a-modalpopup-cs/_static/image2.png)](handling-postbacks-from-a-modalpopup-cs/_static/image1.png)
 

@@ -8,12 +8,12 @@ ms.date: 07/18/2007
 ms.assetid: 2da25f6a-757e-4e7b-a812-1575288d8f7a
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 25e34512abc779bfef2d2bb99a8b62de073e8ed6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a019162b16f225429fbb9473a68049f1e80462b7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381486"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131202"
 ---
 # <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>型指定された DataSet の TableAdapters に既存のストアド プロシージャを使用する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59381486"
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_68_VB.zip)または[PDF のダウンロード](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/datatutorial68vb1.pdf)
 
 > 前のチュートリアルでは、TableAdapter ウィザードを使用して、新しいストアド プロシージャを生成する方法について説明しました。 このチュートリアルではは、既存のストアド プロシージャと同じ TableAdapter ウィザードを機能させる方法について説明します。 データベースに新しいストアド プロシージャを手動で追加する方法も説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -33,21 +32,17 @@ ms.locfileid: "59381486"
 > [!NOTE]
 > [トランザクション内のデータベース変更のラッピング](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)チュートリアルがトランザクションをサポートする TableAdapter にメソッドを追加しました (`BeginTransaction`、`CommitTransaction`など)。 または、トランザクションは、データ アクセス層のコードに変更を必要としないストアド プロシージャ内に完全に管理できます。 このチュートリアルでは、トランザクションのスコープ内でストアド プロシージャのステートメントを実行するために使用する T-SQL コマンドについて説明します。
 
-
 ## <a name="step-1-adding-stored-procedures-to-the-northwind-database"></a>手順 1: Northwind データベースにストアド プロシージャを追加します。
 
 Visual Studio では、簡単に新しいストアド プロシージャをデータベースに追加できます。 Let s のすべての列を返す、Northwind データベースに新しいストアド プロシージャを追加する、`Products`を持つ特定のテーブル`CategoryID`値。 サーバー エクスプ ローラー ウィンドウからのデータベース ダイアグラム、テーブル、ビュー、およびなど、そのフォルダーが表示されるように、Northwind データベースを展開します。 前のチュートリアルで説明したように、ストアド プロシージャ フォルダーには、データベースの既存のストアド プロシージャが含まれています。 新しいストアド プロシージャを追加するには、Stored Procedures フォルダーを右クリックし、コンテキスト メニューから新しいストアド プロシージャの追加オプションを選択します。
-
 
 [![ストアド プロシージャのフォルダーを右クリックし、新しいストアド プロシージャの追加](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image1.png)
 
 **図 1**:ストアド プロシージャ フォルダーを右クリックし、新しいストアド プロシージャを追加 ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png))。
 
-
 図 1 に示すようは、ストアド プロシージャを作成するために必要な SQL スクリプトの輪郭をスクリプト ウィンドウを Visual Studio に開きます新しいストアド プロシージャの追加オプションを選択します。 私たちの仕事をしながらこのスクリプトを実行するか、この時点で、ストアド プロシージャをデータベースに追加されます。
 
 次のスクリプトを入力します。
-
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample1.sql)]
 
@@ -57,11 +52,9 @@ Visual Studio では、簡単に新しいストアド プロシージャをデ�
 
 図 2 は後の Visual Studio、`Products_SelectByCategoryID`ストアド プロシージャが保存されました。
 
-
 [![ストアド プロシージャ Products_SelectByCategoryID がデータベースに追加されました](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image4.png)
 
 **図 2**:ストアド プロシージャ`Products_SelectByCategoryID`がデータベースに追加されました ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png))。
-
 
 ## <a name="step-2-configuring-the-tableadapter-to-use-an-existing-stored-procedure"></a>手順 2: 既存のストアド プロシージャを使用する TableAdapter を構成します。
 
@@ -69,46 +62,36 @@ Visual Studio では、簡単に新しいストアド プロシージャをデ�
 
 開いて開始、`NorthwindWithSprocs`データセット。 右クリックし、 `ProductsTableAdapter` TableAdapter クエリ構成ウィザードを起動するには、クエリの追加を選択します。 [前のチュートリアル](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)ある TableAdapter の私たちにとって、新しいストアド プロシージャを作成することにしました。 このチュートリアルでは、ただし、する新しい TableAdapter メソッドを既存ワイヤ`Products_SelectByCategoryID`ストアド プロシージャ。 そのため、ウィザードの最初の手順から既存のストアド プロシージャを使用する オプションを選択し、し、次へ をクリックします。
 
-
 [![既存のストアド プロシージャ オプションの使用を選択します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)
 
 **図 3**:ストアド プロシージャ オプションを使用して既存の選択 ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png))。
 
-
 次の画面では、ドロップダウン リストでは、ストアド プロシージャをデータベース %s でに設定を提供します。 ストアド プロシージャを選択するには、左側と右側 (あれば) が返されるデータ フィールドに入力パラメーターが一覧表示します。 選択、`Products_SelectByCategoryID`ストアド プロシージャの一覧から、[次へ] をクリックします。
-
 
 [![選択、Products_SelectByCategoryID ストアド プロシージャ](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)
 
 **図 4**:選択、`Products_SelectByCategoryID`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png))。
 
-
 次の画面で、求められたときデータの種類は、ストアド プロシージャによって返され、回答は、TableAdapter のメソッドによって返される型を決定します。 たとえば、表形式のデータが返されることを示すことがある場合、メソッドは、`ProductsDataTable`インスタンス ストアド プロシージャによって返されるレコードを格納します。 これに対し、このストアド プロシージャが 1 つの値を返すことを指定する場合、TableAdapter を返します、`Object`ストアド プロシージャによって返される最初のレコードの最初の列の値を割り当てることができます。
 
 以降、`Products_SelectByCategoryID`ストアド プロシージャは、特定のカテゴリに属している、- 表形式のデータの最初の回答を選択し、[次へ] をクリックします。 すべての製品を返します。
-
 
 [![ストアド プロシージャが表形式のデータを返すことを示します](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)
 
 **図 5**:ストアド プロシージャが表形式のデータを返すことを示します ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image15.png))。
 
-
 残っているはこれらのメソッド名を使用して後に使用するメソッドのパターンを示すです。 DataTable オプションがオンになっているが、メソッドの名前を変更 DataTable と戻り値のままに、両方の塗りつぶし`FillByCategoryID`と`GetProductsByCategoryID`します。 ウィザードが実行するタスクの概要を確認するのには、[次へ] をクリックします。 すべてが正しい場合、[完了] をクリックします。
-
 
 [![名前のメソッド FillByCategoryID と GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
 
 **図 6**:メソッドの名前を付けます`FillByCategoryID`と`GetProductsByCategoryID`([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image18.png))。
 
-
 > [!NOTE]
 > TableAdapter のメソッドを先ほど作成した`FillByCategoryID`と`GetProductsByCategoryID`、型の入力パラメーターを想定`Integer`します。 この入力パラメーターの値が使用してストアド プロシージャに渡されるその`@CategoryID`パラメーター。 変更する場合、`Products_SelectByCategory`ストアド プロシージャのパラメーター、またこれら TableAdapter のメソッドのパラメーターを更新する必要があります。 説明したように、[前のチュートリアル](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)、2 つの方法のいずれかにできます: 手動で追加または削除によってパラメーターまたはパラメーターのコレクションから、TableAdapter ウィザードを再実行しています。
-
 
 ## <a name="step-3-adding-agetproductsbycategoryidcategoryidmethod-to-the-bll"></a>手順 3: 追加、`GetProductsByCategoryID(categoryID)`BLL にメソッド
 
 `GetProductsByCategoryID` DAL メソッドの完全なビジネス ロジック層では、このメソッドへのアクセスを提供すること、次の手順です。 開く、`ProductsBLLWithSprocs`クラス ファイルと、次のメソッドを追加します。
-
 
 [!code-vb[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample2.vb)]
 
@@ -121,57 +104,45 @@ Visual Studio では、簡単に新しいストアド プロシージャをデ�
 > [!NOTE]
 > マスター/詳細インターフェイスの作成 Dropdownlist を前のチュートリアルを使用します。 このようなマスター/詳細レポートの実装に関する詳細についてを参照してください、[マスター/詳細のフィルター処理で、DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-vb.md)チュートリアル。
 
-
 開く、`ExistingSprocs.aspx`ページで、`AdvancedDAL`フォルダーと、ツールボックスからデザイナーにドラッグ DropDownList します。 DropDownList s 設定`ID`プロパティを`Categories`とその`AutoPostBack`プロパティを`True`します。 次に、スマート タグ、という名前の新しい ObjectDataSource に DropDownList をバインド`CategoriesDataSource`します。 データを取得するために、ObjectDataSource を構成、`CategoriesBLL`クラスの`GetCategories`メソッド。 UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。
-
 
 [![CategoriesBLL クラスのメソッドからデータを取得します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image19.png)
 
 **図 7**:データの取得、`CategoriesBLL`クラス s`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png))。
 
-
 [![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image22.png)
 
 **図 8**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png))。
-
 
 ObjectDataSource ウィザードを完了すると、構成を表示する DropDownList、`CategoryName`データ フィールドを使用して、`CategoryID`フィールドとして、`Value`各`ListItem`します。
 
 この時点では、DropDownList、ObjectDataSource s の宣言型マークアップは、次のようなする必要があります。
 
-
 [!code-aspx[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample3.aspx)]
 
 次に、GridView を DropDownList の下に配置することをデザイナーにドラッグします。 GridView s 設定`ID`に`ProductsByCategory`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`ProductsByCategoryDataSource`します。 構成、 `ProductsByCategoryDataSource` ObjectDataSource を使用する、`ProductsBLLWithSprocs`してクラスを使用してそのデータを取得する、`GetProductsByCategoryID(categoryID)`メソッド。 データを表示するこの GridView のみ使用するため、UPDATE、INSERT でのドロップダウン リストの設定し (None) にタブを削除して [次へ] をクリックします。
-
 
 [![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image25.png)
 
 **図 9**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png))。
 
-
 [![GetProductsByCategoryID(categoryID) メソッドからのデータを取得します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)
 
 **図 10**:データの取得、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image30.png))。
 
-
 タブで選択した方法には、ウィザードの最後の手順では、私たちを求めるパラメーター s のソースのため、パラメーターが期待しています。 パラメーターのソースのドロップダウン リストをコントロールに設定し、選択、 `Categories` ControlID のドロップダウン リストからのコントロール。 ウィザードを完了するには、[完了] をクリックします。
-
 
 [![カテゴリの DropDownList の categoryID パラメーターのソースとして使用します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
 
 **図 11**:使用して、 `Categories` DropDownList のソースとして、`categoryID`パラメーター ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image33.png))。
 
-
 ObjectDataSource ウィザードを完了するとは、Visual Studio は各製品のデータ フィールドのも、BoundFields と、CheckBoxField に追加されます。 自由に、必要に応じて、これらのフィールドをカスタマイズできます。
 
 ブラウザーを使用してページを参照してください。 ときに、飲料カテゴリが選択されているページと対応する製品にアクセスでは、グリッドに表示されます。 図 12 として、別のカテゴリをドロップダウン リストの変更とを示しています、ポストバックが発生し、新しく選択したカテゴリの製品とグリッドを再度読み込みます。
 
-
 [![生成カテゴリの製品が表示されます。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image34.png)
 
 **図 12**:生成カテゴリの製品が表示されます ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png))。
-
 
 ## <a name="step-5-wrapping-a-stored-procedure-s-statements-within-the-scope-of-a-transaction"></a>手順 5: トランザクションのスコープ内で、ストアド プロシージャのステートメントの折り返し
 
@@ -192,7 +163,6 @@ ObjectDataSource ウィザードを完了するとは、Visual Studio は各製�
 
 次のテンプレートを使用して T-SQL 構文では、このパターンを実装できます。
 
-
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample4.sql)]
 
 テンプレートを定義することで開始、`TRY...CATCH`コンス トラクターを初めて使用する SQL Server 2005 をブロックします。 使用するような`Try...Catch`Visual Basic での SQL ブロック`TRY...CATCH`ブロック内のステートメントの実行、`TRY`ブロックします。 制御が移りますすぐに任意のステートメントでは、エラーが発生した場合、`CATCH`ブロックします。
@@ -202,31 +172,25 @@ ObjectDataSource ウィザードを完了するとは、Visual Studio は各製�
 > [!NOTE]
 > 以降、`TRY...CATCH`ブロックは新しい SQL Server 2005 には、Microsoft SQL Server の以前のバージョンを使用している場合、上記のテンプレートは機能しません。 SQL Server 2005 を使用していない場合を参照してください[SQL Server ストアド プロシージャでのトランザクションの管理](http://www.4guysfromrolla.com/webtech/080305-1.shtml)の他のバージョンの SQL Server で動作するテンプレート。
 
-
 具体的な例を見て s を使用できます。 間に外部キー制約が存在する、`Categories`と`Products`テーブル、つまり各`CategoryID`フィールドに、`Products`をテーブルにマップする必要があります、`CategoryID`値、`Categories`テーブル。 外部キー制約に違反など、製品に関連付けられたカテゴリを削除しようとしています。 この制約に違反するすべての操作の結果します。 これを確認するには、バイナリ データのセクションを使用した作業の例では更新および削除する既存のバイナリ データを再検討 (`~/BinaryData/UpdatingAndDeleting.aspx`)。 このページは、編集、削除ボタン (図 13 を参照してください)、と共にシステムに各カテゴリを一覧表示されますが、外部キー制約違反のため、削除が失敗した飲み物のなどの製品が関連付けられているカテゴリを削除しようとした場合 (図 14 を参照してください)。
-
 
 [![各カテゴリが編集と削除ボタンの GridView に表示されます。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image37.png)
 
 **図 13**:編集と削除ボタンの GridView に各カテゴリが表示されます ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png))。
 
-
 [![持つ既存の製品カテゴリを削除することはできません。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image40.png)
 
 **図 14**:持つ既存の製品カテゴリを削除することはできません ([フルサイズの画像を表示する をクリックします](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png))。
 
-
 ただし、製品に関連付けられているかどうかに関係なく削除するカテゴリをできるようにすることに想像してください。 製品のカテゴリを削除するか、また、既存の製品を削除することを想像してください (別のオプションは単にその製品を設定することが`CategoryID`値を`NULL`)。 この機能は、外部キー制約の連鎖ルールによって実装できます。 受け取るストアド プロシージャを作成または、`@CategoryID`入力パラメーターと、呼び出されると、削除に明示的にすべての関連する製品とし、指定したカテゴリ。
 
 このようなストアド プロシージャで最初の試みは、次のようになります。
-
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample5.sql)]
 
 これは、関連付けられている製品と分類に間違いなく削除されます、ことはないため、トランザクションの傘下にします。 その他の外部キー制約があることを想像してみてください`Categories`、特定の削除を禁止`@CategoryID`値。 問題は、このような場合にすべての製品が削除されること、カテゴリを削除する前に。 最終的な結果は、このようなカテゴリには、このストアド プロシージャは削除することの製品すべてさせながらも、カテゴリ別のテーブル内のレコードは関連がそれ以降のままです。
 
 ストアド プロシージャがラップされて場合、トランザクションのスコープ内で、削除を`Products`テーブルはロールバックされます失敗した削除が発生した場合`Categories`します。 次のストアド プロシージャのスクリプトは、2 つの間の原子性を確保するためにトランザクションを使用して`DELETE`ステートメント。
-
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample6.sql)]
 
@@ -239,28 +203,22 @@ ObjectDataSource ウィザードを完了するとは、Visual Studio は各製�
 > [!NOTE]
 > このチュートリアルで先ほど作業した、`NorthwindWithSprocs`データセット。 そのデータセットは 1 つのエンティティのみがある`ProductsDataTable`カテゴリを使用する必要があります。 そのため、データ アクセス レイヤー I m を参照するについて言及している場合は、このチュートリアルの残りの部分の`Northwind`データセットで最初に作成した 1 つ、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-vb.md)チュートリアル。
 
-
 開いている Northwind データセットの選択、 `CategoriesTableAdapter`、し、[プロパティ] ウィンドウに移動します。 プロパティ ウィンドウが表示されます、 `InsertCommand`、 `UpdateCommand`、 `DeleteCommand`、および`SelectCommand`TableAdapter と、その名前と接続情報を使用します。 展開、`DeleteCommand`プロパティをその詳細を参照してください。 図 15 に示すよう、 `DeleteCommand` s`CommandType`プロパティのテキストとして送信するように指示しますのテキストに設定されて、`CommandText`アドホック SQL クエリとしてプロパティ。
-
 
 ![[プロパティ] ウィンドウでプロパティを表示するデザイナーで、CategoriesTableAdapter を選択します](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image43.png)
 
 **図 15**:選択、`CategoriesTableAdapter`プロパティ ウィンドウでプロパティを表示するデザイナー
 
-
 これらの設定を変更するには、(DeleteCommand) テキスト プロパティ ウィンドウを選択し、ドロップダウン リストから (新規) を選択します。 設定をクリアします、 `CommandText`、 `CommandType`、および`Parameters`プロパティ。 次に、設定、`CommandType`プロパティを`StoredProcedure`、ストアド プロシージャの名前を入力し、 `CommandText` (`dbo.Categories_Delete`)。 必ずこの順序で最初のプロパティを入力する場合、`CommandType`をクリックし、 `CommandText` -Visual Studio がパラメーター コレクションを自動的に設定します。 この順序でこれらのプロパティを入力しない場合はパラメーター コレクション エディターを使ってパラメーターを手動で追加する必要があります。 どちらの場合、s (図 16 を参照してください)、適切なパラメーターの設定の変更が加えられましたことを確認するパラメーター コレクション エディターをするためのパラメーター プロパティで省略記号をクリックすることをお勧めします。 すべてのパラメーター ダイアログ ボックスが表示されない場合は、追加、`@CategoryID`パラメーター手動で (を追加する必要はありません、`@RETURN_VALUE`パラメーター)。
-
 
 ![パラメーターの設定が正しいことを確認します。](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
 
 **図 16**:パラメーターの設定が正しいことを確認します。
 
-
 DAL が更新されたら、カテゴリを削除は自動的に関連付けられた製品をすべて削除し、トランザクションの傘下に行います。 これを確認するには、更新および削除する既存のバイナリ データのページに戻り、カテゴリの 1 つの Delete ボタンをクリックします。 マウスの 1 つシングル クリックで、カテゴリとの関連付けられている製品すべては削除されます。
 
 > [!NOTE]
 > テストする前に、`Categories_Delete`ストアド プロシージャには、選択したカテゴリと製品数を削除することが考えられます、データベースのバックアップ コピーを作成することをお勧めします。 使用する場合、`NORTHWND.MDF`データベース`App_Data`、単に Visual Studio を終了し、MDF および LDF ファイルをコピー`App_Data`他のフォルダーにします。 機能をテストした後は、Visual Studio を閉じることで、データベースを戻すことができ、置き換える現在 MDF および LDF ファイル`App_Data`バックアップ コピーを使用します。
-
 
 ## <a name="summary"></a>まとめ
 

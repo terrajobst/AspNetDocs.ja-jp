@@ -8,17 +8,16 @@ ms.date: 02/15/2012
 ms.assetid: a35183ac-cbcb-4070-9233-6331cde921ad
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4
 msc.type: chapter
-ms.openlocfilehash: 0cce120be702ffa4c21e56cbbbe472aebf7f1889
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a73935f74d696bad9070c56b506d3aa2dbcceb25
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402259"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129855"
 ---
 # <a name="getting-started-with-aspnet-mvc-4"></a>ASP.NET MVC 4 の概要
 
 > このチュートリアル シリーズでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。
-
 
 - [ASP.NET 4 入門](intro-to-aspnet-mvc-4.md)
 - [コントローラーの追加](adding-a-controller.md)

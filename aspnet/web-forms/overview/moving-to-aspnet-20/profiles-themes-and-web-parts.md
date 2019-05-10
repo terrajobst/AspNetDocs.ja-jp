@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cf5c45781be6d003d28c6aa27efa08032579a6dd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390039"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132783"
 ---
 # <a name="profiles-themes-and-web-parts"></a>プロファイル、テーマ、Web パーツ
 
 によって[Microsoft](https://github.com/microsoft)
 
 > 主要な構成の変更と ASP.NET 2.0 のインストルメンテーションがあります。 新しい ASP.NET 構成 API では、プログラムで実行できる構成の変更ができます。 多くの新しい構成設定が存在するさらに、新しい構成とインストルメンテーションを許可します。
-
 
 ASP.NET 2.0 では、カスタマイズされた Web サイトの領域も大幅に改善を表します。 既に説明した、メンバーシップ機能だけでなく ASP.NET プロファイル、テーマ、および Web パーツを大幅に改善の Web サイトでのパーソナル化。
 
@@ -155,16 +154,13 @@ Web アプリケーションの最も重要な側面の 1 つは、サイト全�
 
 **図 1**ないテーマが適用、少量の ASP.NET ページ参照を示しています。 **図 2**テーマが適用された、同じファイルを示しています。 背景色とテキストの色は、CSS ファイルを使用して構成されます。 テキスト ボックス、ボタンの外観は、上記のスキン ファイルで構成されます。
 
-
 ![テーマなし](profiles-themes-and-web-parts/_static/image1.gif)
 
 **図 1**:テーマなし
 
-
 ![テーマの適用](profiles-themes-and-web-parts/_static/image2.gif)
 
 **図 2**:テーマの適用
-
 
 上記のスキン ファイルは、すべてのテキスト ボックス コントロールとボタン コントロールの既定のスキンを定義します。 すべての TextBox コントロールとボタン コントロールがページ上に挿入がこの外観になることを意味します。 使用してこれらのコントロールの特定のインスタンスに適用できるスキンを定義することも、 **SkinID**コントロールのプロパティ。
 
@@ -329,7 +325,6 @@ Web パーツ コントロールのセットが大きいが、するのには、
 > [!NOTE]
 > Web パーツのパーソナル化を有効にすることが何もする必要はありません。既定では、Web パーツ コントロール セットには有効です。 サイトで Web パーツ ページを初めて実行すると、ASP.NET はユーザーの個人用設定を格納する既定のパーソナル化プロバイダーを設定します。 パーソナル化の詳細については、Web パーツ パーソナル化の概要を参照してください。
 
-
 ### <a name="to-create-a-page-for-containing-web-parts-controls"></a>Web パーツ コントロールを格納するためのページを作成するには
 
 1. 既定のページを閉じて、閉じという名前のサイトに新しいページを追加します。
@@ -402,11 +397,9 @@ Web パーツ ゾーンのレイアウトがで指定された、&lt;テンプ�
 
 **2 つのゾーンでの web パーツ デモ ページ**
 
-
 ![Web パーツ VS チュートリアル 1 のスクリーン ショット](profiles-themes-and-web-parts/_static/image3.gif)
 
 **図 3**:Web パーツ VS チュートリアル 1 のスクリーン ショット
-
 
 タイトルには、各コントロールのバーは、コントロールで実行できる使用可能なアクションの動詞メニューへのアクセスを提供する下向き矢印です。 コントロールのいずれかの動詞メニューをクリックし、クリックして、**最小化**動詞と、コントロールが最小化されたことに注意してください。 動詞メニューからクリックして**復元**、通常のサイズに、制御が返されます。
 
@@ -449,11 +442,9 @@ Web パーツは、ユーザー別に 1 つのゾーンからドラッグして�
 
 ### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Web パーツ デモ ページ個人用リンク コントロールの移動
 
-
 ![Web パーツ VS チュートリアル 2 のスクリーン ショット](profiles-themes-and-web-parts/_static/image4.gif)
 
 **図 4**:Web パーツ VS チュートリアル 2 のスクリーン ショット
-
 
 1. をクリックして、**表示モード**ドロップダウン メニューを選択し、**参照**します。 ページが更新される、ゾーン名が消え、および**個人用リンク**まま配置する場所を制御します。
 2. にパーソナル化が動作していることを示すために、ブラウザーを閉じて、ページを再度読み込みます。 加えた変更は、今後のブラウザー セッションに保存されます。
@@ -467,22 +458,18 @@ Web パーツは、ユーザー別に 1 つのゾーンからドラッグして�
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>編集モードでの web パーツ デモ ページ
 
-
 ![Web パーツ VS チュートリアル 3 スクリーンショット](profiles-themes-and-web-parts/_static/image5.gif)
 
 **図 5**:Web パーツ VS チュートリアル 3 スクリーンショット
-
 
 1. をクリックして、**表示モード**メニューを選択し、**参照**ブラウズ モードに戻ります。
 2. 次のスクリーン ショットに示すように、タイトルが更新され、境界線コントロールようになりましたが。
 
 ### <a name="edited-web-parts-demo-page"></a>編集した Web パーツのデモ ページ
 
-
 ![Web パーツ VS チュートリアル 4 スクリーンショット](profiles-themes-and-web-parts/_static/image6.gif)
 
 **図 4**:Web パーツ VS チュートリアル 4 スクリーンショット
-
 
 ### <a name="adding-web-parts-at-run-time"></a>実行時に Web パーツの追加
 

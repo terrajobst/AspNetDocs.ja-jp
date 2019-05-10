@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: ca47f6fe6d55153354d38fcf1ba5e844215279b2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2b26224390af70e19ca0593abe93a6867140f8ab
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389038"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129723"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework スキャフォールディングと移行
 
@@ -72,13 +72,12 @@ ASP.NET MVC 4 コント ローラーのメソッドに慣れてまたは、完�
 > [!NOTE]
 > この演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 演習を通して追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**30 分**
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Using_ASPNET_MVC_4_Scaffolding_with_Entity_Framework_Migrations"></a>
-### <a name="exercise-1-using-aspnet-mvc-4-scaffolding-with-entity-framework-migrations"></a>手順 1:Entity Framework の移行と ASP.NET MVC 4 のスキャフォールディングを使用します。
+### <a name="exercise-1-using-aspnet-mvc-4-scaffolding-with-entity-framework-migrations"></a>演習 1:Entity Framework の移行と ASP.NET MVC 4 のスキャフォールディングを使用します。
 
 ASP.NET MVC のスキャフォールディングにより、アプリケーションで、データベース層と対話するために必要なロジックを作成する、標準化された方法で CRUD 操作を生成する簡単な方法を提供します。
 

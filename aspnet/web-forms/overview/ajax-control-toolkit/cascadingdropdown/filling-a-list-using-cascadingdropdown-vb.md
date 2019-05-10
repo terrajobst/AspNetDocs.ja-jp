@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 5236695e-5c70-4887-baee-0bfb0afb3448
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 663dfc76dc3d07dbe9ddca002dc07cb3f9acdb1c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4cf5637eed1ecf8a09e8a98fa0193b6d162fd92b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419341"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130487"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-vb"></a>CascadingDropDown を使用して一覧に入力する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59419341"
 [コードのダウンロード](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0VB.pdf)
 
 > CascadingDropDown コントロール、AJAX Control Toolkit では、もう 1 つの DropDownList の値が 1 つの DropDownList の読み込みの変更に関連付けられているように、DropDownList コントロールを拡張します。 (たとえば、1 つのリストは、私たちの状態の一覧を提供します。 し、[次へ] の一覧は、その状態の主な都市で埋められます)。解決するために最初のチャレンジでは、実際にこのコントロールを使用して、ドロップダウン リストを入力します。
-
 
 ## <a name="overview"></a>概要
 
@@ -59,7 +58,6 @@ JavaScript コード、`CascadingDropDown`エクステンダーは、次のシ�
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-vb/samples/sample5.aspx)]
 
 ブラウザーでページの読み込みと、次の 3 つの仕入先を格納するリストがトリガーされます。
-
 
 [![リストが自動的に入力します。](filling-a-list-using-cascadingdropdown-vb/_static/image2.png)](filling-a-list-using-cascadingdropdown-vb/_static/image1.png)
 

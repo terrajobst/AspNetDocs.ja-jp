@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 243db2ec-8f67-4a5e-a382-4ddcec4b4164
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: cd6391582f05ab80c4bd45a455a2ce488d1186c1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ca26ff6776daa13bc4f8b06c2eba61afcfefba2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59418327"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126247"
 ---
 # <a name="http-cookies-in-aspnet-web-api"></a>ASP.NET Web API の HTTP Cookie
 
@@ -26,7 +26,7 @@ ms.locfileid: "59418327"
 
 ここでは、HTTP レベルで cookie を実装する方法について概説します。 詳細についてを参照してください[RFC 6265](http://tools.ietf.org/html/rfc6265)します。
 
-Cookie とは、サーバーが HTTP 応答で送信するデータの一部です。 (省略可能)、クライアントはクッキーを格納し、後続の要求で返します。 これにより、クライアントとサーバー状態を共有できます。 サーバーには cookie を設定するには、応答 Set-cookie ヘッダーが含まれています。 Cookie の形式は、省略可能な属性を持つ、名前と値のペアです。 例:
+Cookie とは、サーバーが HTTP 応答で送信するデータの一部です。 (省略可能)、クライアントはクッキーを格納し、後続の要求で返します。 これにより、クライアントとサーバー状態を共有できます。 サーバーには cookie を設定するには、応答 Set-cookie ヘッダーが含まれています。 Cookie の形式は、省略可能な属性を持つ、名前と値のペアです。 例えば:
 
 [!code-powershell[Main](http-cookies/samples/sample1.ps1)]
 
@@ -81,7 +81,6 @@ A **CookieHeaderValue**のコレクションを含む**CookieState**インスタ
 
 > [!NOTE]
 > RFC 6265 は、cookie のデータの構造を定義しません。
-
 
 使用して、 **CookieHeaderValue**クラス、cookie のデータの名前と値のペアの一覧を渡すことができます。 これらの名前と値のペアは、Set-cookie ヘッダーの URL でエンコードされたフォーム データとしてエンコードされます。
 

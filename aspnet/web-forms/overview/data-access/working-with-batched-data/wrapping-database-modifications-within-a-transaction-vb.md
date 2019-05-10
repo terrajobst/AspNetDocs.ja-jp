@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 7d821db5-6cbb-4b38-af14-198f9155fc82
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2fc7ba3d62d41685c234756709707ff14f81b316
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c759df39f30b69264187babdb6d3422aff17e99c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380315"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132827"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-vb"></a>トランザクション内のデータベース変更をラップする (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59380315"
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_63_VB.zip)または[PDF のダウンロード](wrapping-database-modifications-within-a-transaction-vb/_static/datatutorial63vb1.pdf)
 
 > このチュートリアルでは、更新、削除、およびデータのバッチを挿入するのには 4 つの 1 つ目です。 このチュートリアルではは、データベースのトランザクションが確実にすべての手順が成功したか、またはすべての手順が失敗する、アトミック操作として実行するバッチ変更を許可する方法について説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -38,7 +37,6 @@ ms.locfileid: "59380315"
 
 > [!NOTE]
 > バッチのトランザクション内のデータを変更するときに常に原子性は必要ありません。 一部のシナリオで成功、一部のデータ変更が許容される場合があり、ときなど、他のユーザーが同じバッチ内で失敗電子メールのセットの web ベースの電子メール クライアントから削除します。 データベース エラーの途中を削除での処理が s 場合、s がエラーなしで処理されるこれらのレコードが削除されたまま、許容される可能性があります。 このような場合は、DAL はデータベース トランザクションをサポートするように変更するのには必要ありません。 その他のバッチ操作シナリオは、ただし、原子性が重要です。 顧客は、1 つの銀行口座から自分の資金を移動すると、は、2 つの操作を実行する必要があります。 資金の最初のアカウントから差し引かれます、2 番目に追加する必要があります。 銀行可能性があります、成功の最初の手順が発生しても問題ないが、2 番目の手順が失敗する、中に、お客様は不安を感じていることは明確になります。 ぜひこのチュートリアルを使用してバッチ挿入でそれらを使用して、更新、および次の 3 つのチュートリアルでビルドするインターフェイスを削除する予定がない場合でも、データベース トランザクションをサポートするために DAL の機能強化を実装するため。
-
 
 ## <a name="an-overview-of-transactions"></a>トランザクションの概要
 
@@ -56,9 +54,7 @@ ms.locfileid: "59380315"
 > [!NOTE]
 > [ `TransactionScope`クラス](https://msdn.microsoft.com/library/system.transactions.transactionscope.aspx)で、`System.Transactions`名前空間により、開発者は、トランザクションのスコープ内で一連のステートメントをプログラムでラップして複数の関連する複雑なトランザクションのサポートが含まれています2 つの異なるデータベースまたはでも異種の種類の Microsoft SQL Server データベース、Oracle データベース、Web サービスなどのデータ ストアなどのソース。 このチュートリアルではなく ADO.NET トランザクションの使用を決定したら、`TransactionScope`クラスは ADO.NET がデータベース トランザクションと多くの場合より固有であるために、はるかに少ないリソースを消費します。 さらに、一部のシナリオで、`TransactionScope`クラスは、Microsoft 分散トランザクション コーディネーター (MSDTC) を使用します。 構成、実装、およびパフォーマンスの問題周囲の MSDTC によりではなく特殊および高度なトピックと、これらのチュートリアルの範囲を超えています。
 
-
 呼び出すことによって、トランザクションが開始された ado.net SqlClient プロバイダーを使用する場合、 [ `SqlConnection`クラス](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx)s [ `BeginTransaction`メソッド](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.begintransaction.aspx)、返された、 [ `SqlTransaction`オブジェクト](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.aspx)します。 構成のトランザクションが内に配置するデータ変更ステートメントを`try...catch`ブロックします。 ステートメントでエラーが発生した場合、`try`への転送の実行をブロック、 `catch` 、トランザクションをロールバックを使用して、ブロック、`SqlTransaction`オブジェクト[`Rollback`メソッド](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.rollback.aspx)します。 すべてのステートメントへの呼び出しで完全に成功する場合、`SqlTransaction`オブジェクト[`Commit`メソッド](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.commit.aspx)の最後に、`try`ブロックがトランザクションをコミットします。 次のコード スニペットは、このパターンを示しています。 参照してください[トランザクションでデータベースの整合性を維持](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)構文と ADO.NET を使用したトランザクションを使用しての例を示します。
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample1.vb)]
 
@@ -74,32 +70,25 @@ ms.locfileid: "59380315"
 - `BatchDelete.aspx`
 - `BatchInsert.aspx`
 
-
 ![SqlDataSource に関連するチュートリアルについては、ASP.NET ページに追加します。](wrapping-database-modifications-within-a-transaction-vb/_static/image1.gif)
 
 **図 1**:SqlDataSource に関連するチュートリアルについては、ASP.NET ページに追加します。
 
-
 他のフォルダーと同様`Default.aspx`を使用して、`SectionLevelTutorialListing.ascx`セクション内でチュートリアルを一覧表示するユーザー コントロール。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
-
 
 [![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](wrapping-database-modifications-within-a-transaction-vb/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image1.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image2.png))。
 
-
 最後に、これら 4 つのページを追加するエントリとして、`Web.sitemap`ファイル。 具体的には、次のマークアップを追加、カスタマイズした後、サイト マップ`<siteMapNode>`:
-
 
 [!code-xml[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample2.xml)]
 
 更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューには、バッチ化されたデータのチュートリアルを使用した作業項目が含まれています。
 
-
 ![サイト マップ データのバッチ処理のチュートリアルを使用した作業のエントリになりました](wrapping-database-modifications-within-a-transaction-vb/_static/image3.gif)
 
 **図 3**:サイト マップ データのバッチ処理のチュートリアルを使用した作業のエントリになりました
-
 
 ## <a name="step-2-updating-the-data-access-layer-to-support-database-transactions"></a>手順 2: データベース トランザクションをサポートするために、データ アクセス層を更新しています
 
@@ -111,14 +100,11 @@ ms.locfileid: "59380315"
 
 型指定されたデータセット`Northwind.xsd`にある、`App_Code`フォルダーの`DAL`サブフォルダーです。 内のサブフォルダーを作成、`DAL`という名前のフォルダー`TransactionSupport`という名前の新しいクラス ファイルを追加および`ProductsTableAdapter.TransactionSupport.vb`(図 4 参照)。 このファイルは、の実装の一部を保持する、`ProductsTableAdapter`トランザクションを使用してデータの変更を実行するためのメソッドが含まれます。
 
-
 ![TransactionSupport をという名前のフォルダーと ProductsTableAdapter.TransactionSupport.vb をという名前のクラス ファイルを追加します。](wrapping-database-modifications-within-a-transaction-vb/_static/image4.gif)
 
 **図 4**:という名前のフォルダーを追加`TransactionSupport`とという名前のクラス ファイル `ProductsTableAdapter.TransactionSupport.vb`
 
-
 次のコードを入力してください、`ProductsTableAdapter.TransactionSupport.vb`ファイル。
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample3.vb)]
 
@@ -130,13 +116,11 @@ ms.locfileid: "59380315"
 
 これらのメソッドは完全なメソッドを追加 re 準備ができて`ProductsDataTable`または BLL 一連のトランザクションの傘下にコマンドを実行します。 次のメソッドは、バッチ更新パターンを使用して、更新、`ProductsDataTable`インスタンスのトランザクションを使用します。 トランザクションを開始するときに呼び出すことによって、`BeginTransaction`メソッドおよび、使用、`Try...Catch`データ変更ステートメントを発行するブロック。 場合に呼び出し、`Adapter`オブジェクト`Update`メソッドの結果、例外、実行は、転送、`catch`ブロックで、トランザクションはロールバックおよび再スローされる例外。 いることを思い出してください、`Update`メソッドの指定された行を列挙することによってバッチ更新パターンを実装する`ProductsDataTable`と実行のために必要な`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`s。 いずれかのエラーでこれらのコマンドの結果で場合、トランザクションがロールバック、トランザクションの秒の有効期間中に加えられた以前の変更を元に戻します。 必要があります、`Update`ステートメントがエラーなく完了、トランザクションが完全にコミットします。
 
-
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample4.vb)]
 
 追加、`UpdateWithTransaction`メソッドを`ProductsTableAdapter`部分クラスに関連するクラス`ProductsTableAdapter.TransactionSupport.vb`します。 または、このメソッドは、ビジネス ロジック層 s に追加できませんでした`ProductsBLL`いくつかの軽微な構文の変更をクラス。 キーワードでは具体的には、`Me`で`Me.BeginTransaction()`、 `Me.CommitTransaction()`、および`Me.RollbackTransaction()`に置き換える必要があります`Adapter`(することを思い出してください`Adapter`内のプロパティの名前を指定します`ProductsBLL`型の`ProductsTableAdapter`)。
 
 `UpdateWithTransaction`メソッドが、バッチ更新パターンを使用しますが、一連の DB 直接呼び出しは、次のメソッドのように、トランザクションのスコープ内でも使用できます。 `DeleteProductsWithTransaction`メソッドは入力として受け取ります、`List(Of T)`型の`Integer`、これは、`ProductID`削除します。 メソッドの呼び出しを使用してトランザクションを開始する`BeginTransaction`し、、`Try`ブロック、DB ダイレクト パターンを呼び出して、指定されたリストを反復処理`Delete`メソッドごとに`ProductID`値。 呼び出しのいずれか`Delete`が失敗に制御が移ります、`Catch`トランザクションのロールバックをブロックし、再スローされる例外。 呼び出す場合`Delete`トランザクションがコミットし、成功します。 このメソッドを追加、`ProductsBLL`クラス。
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample5.vb)]
 
@@ -154,12 +138,10 @@ ms.locfileid: "59380315"
 
 開く、`ProductsBLL`クラス ファイルをという名前のメソッドを追加`UpdateWithTransaction`その単に呼び出し、対応する DAL メソッドまでです。 2 つの新しいメソッドはず`ProductsBLL`: `UpdateWithTransaction`、追加して`DeleteProductsWithTransaction`、手順 3. で追加されました。
 
-
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample6.vb)]
 
 > [!NOTE]
 > これらのメソッドは含めないでください、`DataObjectMethodAttribute`の他のほとんどのメソッドに割り当てられている属性、`ProductsBLL`クラスのため、ASP.NET ページの分離コード クラスから直接これらのメソッドを呼び出すことができます。 いることを思い出してください`DataObjectMethodAttribute`どのような方法はウィザードと (SELECT、UPDATE、INSERT、または DELETE) は、どのようなタブの データ ソースの構成 ObjectDataSource 秒で表示される必要がありますにフラグを設定するために使用します。 GridView では、バッチを編集または削除の組み込みサポートがありません、ため、コーディングは宣言型のアプローチを使用するのではなく、プログラムでこれらのメソッドを呼び出すがあります。
-
 
 ## <a name="step-5-atomically-updating-database-data-from-the-presentation-layer"></a>手順 5: プレゼンテーション層からデータベースのデータをアトミックに更新
 
@@ -167,37 +149,29 @@ Let s が GridView のすべての製品一覧が表示され、ボタン Web �
 
 開いて開始、`Transactions.aspx`ページで、`BatchData`フォルダーとツールボックスからデザイナーにドラッグする GridView。 設定の`ID`に`Products`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`ProductsDataSource`します。 構成からそのデータをプルする ObjectDataSource、`ProductsBLL`クラスの`GetProducts`メソッド。 これが読み取り専用の GridView、ので設定ドロップダウン リストでは、UPDATE、INSERT、および (None) にタブを削除され、[完了] をクリックします。
 
-
 [![ObjectDataSource ProductsBLL クラスの GetProducts メソッドを使用して構成します。](wrapping-database-modifications-within-a-transaction-vb/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image3.png)
 
 **図 5**:構成に使用する ObjectDataSource、`ProductsBLL`クラス s`GetProducts`メソッド ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image4.png))。
-
 
 [![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](wrapping-database-modifications-within-a-transaction-vb/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image5.png)
 
 **図 6**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image6.png))。
 
-
 データ ソース構成ウィザードを完了すると、Visual Studio は BoundFields と製品のデータ フィールドの CheckBoxField 作成されます。 これらのフィールドを除くのすべてを削除`ProductID`、 `ProductName`、`CategoryID`と`CategoryName`の名前を変更し、`ProductName`と`CategoryName`BoundFields`HeaderText`製品およびカテゴリで、プロパティをそれぞれします。 スマート タグからページングを有効にするオプションをオンにします。 これらの変更を加えたら、GridView コントロールと ObjectDataSource s の宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample7.aspx)]
 
 次に、GridView、上記の 3 つのボタンの Web コントロールを追加します。 グリッドの更新、(とトランザクションの変更のカテゴリに 2 つ目の s および変更のカテゴリ (トランザクションなし) に 3 つ目の 1 つの s を最初のボタンのテキスト プロパティを設定します。
 
-
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample8.aspx)]
 
 この時点で Visual Studio でデザイン ビューのスクリーン ショット、図 7 に示すようなはずです。
-
 
 [![ページには、GridView と 3 つのボタンの Web コントロールが含まれます。](wrapping-database-modifications-within-a-transaction-vb/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image7.png)
 
 **図 7**:ページには、GridView と 3 つのボタンの Web コントロールが含まれています ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image8.png))。
 
-
 秒の 3 つのボタンの各イベント ハンドラーを作成`Click`イベントと、次のコードを使用します。
-
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample9.vb)]
 
@@ -209,26 +183,21 @@ Let s が GridView のすべての製品一覧が表示され、ボタン Web �
 
 この動作を示すためには、ブラウザーからこのページを参照してください。 最初に図 8 に示すようにデータの最初のページを参照する必要があります。 次に、変更のカテゴリ (とトランザクション) をクリックします。 ポストバックを発生させるし、すべての製品を更新しようとしています。 これは`CategoryID`、値が、外部キー制約違反になります (図 9 参照)。
 
-
 [![ページングの GridView に、製品が表示されます。](wrapping-database-modifications-within-a-transaction-vb/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image9.png)
 
 **図 8**:ページングの GridView に、製品が表示されます ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image10.png))。
-
 
 [![外部キー制約に違反のカテゴリの結果を再割り当てします。](wrapping-database-modifications-within-a-transaction-vb/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image11.png)
 
 **図 9**:外部キー制約違反のカテゴリの結果を再割り当て ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image12.png))。
 
-
 ブラウザーの戻るボタンをクリックして、グリッドの更新 ボタンをクリックします。 データの更新時に図 8 に示すように、まったく同じ出力が表示されます。 でも、製品の一部が`CategoryID`s が法的に変更された値と、データベースの更新がロールバックされた外部キー制約違反が発生しました。
 
 変更のカテゴリ (トランザクションなし) ボタンをクリックしてみましょう。 これは、同じ外部キー制約違反エラーになります (図 9 参照)、これらの製品が持つ`CategoryID`に有効な値が変更された値はロールバックされません。 ブラウザーの戻るボタンをクリックし、グリッドの更新 ボタンをクリックします。 図 10 に示すよう、`CategoryID`の最初の 8 つの製品を再割り当てされています。 たとえば、図 8 に変更が、 `CategoryID` 1、2 を図 10 it s での再割り当てが。
 
-
 [![製品区分のいくつかの値が更新中に他のユーザーがいません](wrapping-database-modifications-within-a-transaction-vb/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image13.png)
 
 **図 10**:一部の製品`CategoryID`インポートされなかった値を更新中に他のユーザーが ([フルサイズの画像を表示する をクリックします](wrapping-database-modifications-within-a-transaction-vb/_static/image14.png))。
-
 
 ## <a name="summary"></a>まとめ
 

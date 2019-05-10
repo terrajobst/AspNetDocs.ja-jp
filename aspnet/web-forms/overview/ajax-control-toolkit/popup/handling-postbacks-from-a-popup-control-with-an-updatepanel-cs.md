@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 1f68f59d-9c1e-4cf3-b304-c13ae6b7203e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dff813f0f3e4da26a32fd6305e476d24484e0e7c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6b43822825de37903d6a15c3000ed896faae4d64
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415090"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132504"
 ---
 # <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>ポップアップ コントロールからポストバックを処理する (UpdatePanel あり) (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59415090"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2CS.pdf)
 
 > AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップ内ポストバックが発生した場合に実行する必要があります。
-
 
 ## <a name="overview"></a>概要
 
@@ -48,11 +47,9 @@ AJAX Control Toolkit で PopupControl エクステンダーには、その他の
 
 カレンダーの日付では、関連付けられているテキスト ボックスで、選択した日付が表示されます をクリックするたびに日付の選択コントロールを作成することができます現在入手多くの web サイト。
 
-
 [![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image1.png)
 
 テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image3.png))。
-
 
 [![テキスト ボックス内に配置する日付をクリックすると](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image4.png)
 

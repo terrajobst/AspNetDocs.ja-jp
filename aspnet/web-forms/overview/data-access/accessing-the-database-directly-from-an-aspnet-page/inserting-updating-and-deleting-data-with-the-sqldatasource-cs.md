@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: a526f0ec-779e-4a2b-a476-6604090d25ce
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a1f0f929e2e2ee01a4567cb502e5fd908d8c90b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 43b16a8de51a3a67ea87f5d2a1e53b8f655c8f26
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402792"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132442"
 ---
 # <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>SqlDataSource でデータを挿入、更新、削除する (C#)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59402792"
 
 > 前のチュートリアルでは、ObjectDataSource コントロールを挿入、更新、およびデータの削除の許可する方法について説明しました。 SqlDataSource コントロールが、同じ操作をサポートしていますが、アプローチは、さまざまなと、このチュートリアルは、挿入、更新、およびデータを削除する SqlDataSource を構成する方法を示します。
 
-
 ## <a name="introduction"></a>はじめに
 
 説明したよう[、概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)と共に、DetailsView コントロールと FormView コントロールは、挿入、削除の機能をサポート、GridView コントロールは、組み込みの更新を提供します。編集、および機能を削除しています。 これらのデータ変更機能を記述する必要があるコードを記述しなくてもデータ ソース コントロールに直接接続することができます。 [概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)を挿入、更新、および GridView、DetailsView、FormView コントロールを使用した削除を容易にする、ObjectDataSource を使用して確認します。 または、SqlDataSource、ObjectDataSource の代わりに使用できます。
@@ -32,7 +31,6 @@ ms.locfileid: "59402792"
 
 > [!NOTE]
 > 以降既に説明した、挿入、編集、および GridView、DetailsView の機能を削除してコントロールと FormView コントロール、このチュートリアルはこれらの操作をサポートするために、SqlDataSource コントロールを構成するのに注意してください。 以降で、編集、挿入、および削除するデータのチュートリアルを GridView、DetailsView、FormView、戻り値内でこれらの機能を実装する方法を復習する場合は、 [、概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)します。
-
 
 ## <a name="step-1-specifyinginsertupdate-anddeletestatements"></a>手順 1: 指定する`INSERT`、`UPDATE`、および`DELETE`ステートメント
 
@@ -49,11 +47,9 @@ ms.locfileid: "59402792"
 
 開いて開始、`InsertUpdateDelete.aspx`と`Querying.aspx`ページから、`SqlDataSource`フォルダー。 上のデザイナーから、 `Querying.aspx`  ページで、最初の例から、SqlDataSource や GridView を選択します (、`ProductsDataSource`と`GridView1`コントロール)。 2 つのコントロールを選択すると、[編集] メニューに移動およびコピーを選択 (または ctrl キーを押しながら C キーを押すだけ)。 デザイナーに移動して次に、`InsertUpdateDelete.aspx`コントロールに貼り付けます。 に 2 つのコントロールを移動したら`InsertUpdateDelete.aspx`ブラウザーでページをテストします。 値を表示する必要があります、 `ProductID`、 `ProductName`、および`UnitPrice`内のレコードのすべての列、`Products`データベース テーブル。
 
-
 [![すべての製品が一覧表示されます ProductID によって順序付け](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
 
 **図 1**:すべての製品が一覧表示されます並べ`ProductID`([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.png))。
-
 
 ## <a name="adding-the-sqldatasource-sdeletecommandanddeleteparametersproperties"></a>SqlDataSource s を追加する`DeleteCommand`と`DeleteParameters`プロパティ
 
@@ -70,15 +66,12 @@ ms.locfileid: "59402792"
 
 デザイナーから`InsertUpdateDelete.aspx`、 をクリックして、 `ProductsDataSource` SqlDataSource プロパティ ウィンドウを表示し (表示 メニューから、プロパティ ウィンドウを選択または f4 キーを押すだけで)。 省略記号のセットが表示されます、DeleteQuery プロパティを選択します。
 
-
 ![[プロパティ] ウィンドウから DeleteQuery プロパティを選択します。](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.gif)
 
 **図 2**:[プロパティ] ウィンドウから DeleteQuery プロパティを選択します。
 
-
 > [!NOTE]
 > SqlDataSource されないでは、DeleteQuery プロパティがあります。 DeleteQuery の組み合わせは、代わりに、`DeleteCommand`と`DeleteParameters`プロパティと、デザイナーでウィンドウを表示するときに、[プロパティ] ウィンドウでのみ表示されます。 ソース ビューのプロパティ ウィンドウを見る場合、`DeleteCommand`プロパティ代わりにします。
-
 
 コマンドおよびパラメーターのエディター ダイアログ ボックスを表示、DeleteQuery プロパティで省略記号ボックス (図 3 参照) をクリックします。 このダイアログ ボックスから指定できます、 `DELETE` SQL ステートメントのパラメーターを指定します。 次のクエリを入力、`DELETE`コマンド テキスト ボックス (か、手動でまたはしたい場合に、クエリ ビルダーを使用して)。
 
@@ -86,17 +79,14 @@ ms.locfileid: "59402792"
 
 次に、追加するパラメーターの更新ボタンをクリックして、`@ProductID`パラメーター以下のパラメーターの一覧にします。
 
-
 [![[プロパティ] ウィンドウから DeleteQuery プロパティを選択します。](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
 
 **図 3**:[プロパティ] ウィンドウから、DeleteQuery プロパティを選択します ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.png))。
-
 
 *いない*(そのパラメーターのソース: None のままに) このパラメーターの値を指定します。 GridView に削除のサポートを追加すると、GridView は自動的にこのパラメーター値を入力の値を使用してその`DataKeys`の Delete ボタンがクリックされた行のコレクション。
 
 > [!NOTE]
 > 使用されるパラメーター名、`DELETE`クエリ*する必要があります*の名前と同じである、 `DataKeyNames` GridView、DetailsView、またはフォーム ビュー内の値。 内のパラメーターは、`DELETE`ステートメントの名前は意図的`@ProductID`(の代わりに、たとえば、 `@ID`)、Products テーブル (とそのため、gridview DataKeyNames 値) の主キー列名があるため、`ProductID`します。
-
 
 場合、パラメーター名と`DataKeyNames`値は t の一致、GridView ことはできませんを自動的に割り当てるパラメーターの値、`DataKeys`コレクション。
 
@@ -110,25 +100,20 @@ ms.locfileid: "59402792"
 
 `DeleteCommand`プロパティの追加、GridView s のスマート タグには、削除を有効にするオプションが含まれています。 このチェック ボックスを確認してください。 説明したよう[、概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)、これが原因で、GridView で [commandfield] を追加するその`ShowDeleteButton`プロパティに設定`true`します。 ページがブラウザーからアクセスしたときに、4 に示すを図には、[削除] ボタンが含まれます。 このページをテストするには、一部の製品を削除します。
 
-
 [![GridView の行ごとに Delete ボタンが含まれています](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
 
 **図 4**:GridView の行ごとに、[削除] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.png))。
-
 
 [削除] ボタンをクリックすると、ポストバックが発生する、GridView を割り当てます、`ProductID`パラメーター値の`DataKeys`が [削除] ボタンがクリックしてされ、SqlDataSource s を呼び出す行のコレクション値`Delete()`メソッド。 SqlDataSource コントロール: データベースに接続し、実行、`DELETE`ステートメント。 GridView が SqlDataSource、戻す (を不要になっただけ削除されたレコードを含む) の製品の現在のセットを表示する、再バインドします。
 
 > [!NOTE]
 > GridView を使用しているため、 `DataKeys` 、SqlDataSource パラメーターを設定するコレクションが s の重要なを GridView s`DataKeyNames`プロパティと主キーを構成する列に設定する SqlDataSource の`SelectCommand`を返しますこれらの列。 さらに、その SqlDataSource s でパラメーターの名前、重要な`DeleteCommand`に設定されている`@ProductID`します。 場合、`DataKeyNames`プロパティが設定されていないか、パラメーターの名前が付いていません`@ProductsID`、削除ボタンをクリックすると、ポストバックが発生しますが、実際に任意のレコードは削除されません。
 
-
 図 5 は、この相互作用をグラフィカルに示しています。 参照、 [、イベントに関連付けられている挿入、更新、および削除の確認](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)挿入、更新、およびデータ Web コントロールからの削除に関連付けられているイベントのチェーンについては詳細なチュートリアルです。
-
 
 ![SqlDataSource の Delete() メソッドを呼び出し、GridView で [削除] ボタンをクリックして](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.gif)
 
 **図 5**:SqlDataSource s を呼び出す、GridView で [削除] ボタンをクリックすると`Delete()`メソッド
-
 
 ## <a name="step-2-automatically-generating-theinsertupdate-anddeletestatements"></a>手順 2: 自動的に生成する、`INSERT`、`UPDATE`、および`DELETE`ステートメント
 
@@ -136,27 +121,21 @@ ms.locfileid: "59402792"
 
 この自動生成オプションを探索して使用できます。 デザイナーに、DetailsView を追加`InsertUpdateDelete.aspx`設定とその`ID`プロパティを`ManageProducts`します。 次に、DetailsView s のスマート タグから、SqlDataSource という名前を作成し、新しいデータ ソースを作成する選択`ManageProductsDataSource`します。
 
-
 [![ManageProductsDataSource という名前の新しい SqlDataSource を作成します。](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
 
 **図 6**:名前付き新しい SqlDataSource 作成`ManageProductsDataSource`([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.png))。
 
-
 使用することを選択、データ ソースの構成ウィザードから、`NORTHWINDConnectionString`接続文字列を [次へ] をクリックします。 Select ステートメントの画面の構成 から選択したテーブルまたはビューのオプション ボタンから列を指定のままにし、選択、`Products`ドロップダウン リストからテーブル。 選択、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`チェック ボックスの一覧から列。
-
 
 [![ProductID、ProductName、UnitPrice、および提供が中止された列を返す、Products テーブルを使用して、](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
 
 **図 7**:使用して、`Products`テーブルを返す、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`列 ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image10.png))。
 
-
 自動的に生成する`INSERT`、`UPDATE`と`DELETE`選択したテーブルと列に基づいて、ステートメントは高度なボタンをクリックし、確認の生成`INSERT`、`UPDATE`と`DELETE`ステートメントのチェック ボックスをオンします。
-
 
 ![チェック ボックスをオンの生成を挿入、更新、および DELETE ステートメントを確認してください。](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.gif)
 
 **図 8**:確認の生成`INSERT`、 `UPDATE`、および`DELETE`ステートメント チェック ボックス
-
 
 生成`INSERT`、 `UPDATE`、および`DELETE`選択されているテーブルが主キーと主キー列 (または列) が返される列の一覧に含まれている場合に、ステートメントのチェック ボックスをチェック可能なだけになります。 選択可能なオプティミスティック同時実行制御チェック ボックスを使用生成 1 回`INSERT`、 `UPDATE`、および`DELETE`拡張は、ステートメントのチェック ボックスをオンされましたが、 `WHERE` 、最終的な句`UPDATE`と`DELETE`オプティミスティック同時実行制御を提供するステートメント。 ここでは、オフのままにこのチェック ボックスをオンします。次のチュートリアルでは、SqlDataSource コントロールでオプティミスティック同時実行をについて説明します。
 
@@ -172,17 +151,14 @@ DetailsView のデータの変更機能を有効にする、挿入を有効に�
 
 ブラウザーでページにアクセスし、編集、削除、および DetailsView に含まれる新しいボタンに注意してください。 各 BoundField を表示する編集モードにある DetailsView をオンに編集ボタンをクリックを`ReadOnly`プロパティに設定されて`false`(既定)、テキスト ボックスとチェック ボックスとして CheckBoxField として。
 
-
 [![DetailsView s 既定の編集インターフェイス](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
 
 **図 9**:DetailsView s 編集インターフェイスの既定の ([フルサイズの画像を表示する をクリックします](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image12.png))。
-
 
 同様に、現在選択されている製品を削除したり、システムに新しい製品を追加できます。 以降、`InsertCommand`ステートメントでのみ動作、 `ProductName`、 `UnitPrice`、および`Discontinued`列、他の列がいずれか`NULL`または挿入時にデータベースによって割り当てられた既定値。 場合、ObjectDataSource と同様、`InsertCommand`ない列で使用できる任意のデータベース テーブルがありません`NULL`s としない既定の値を持つ SQL エラーが発生を実行する際、`INSERT`ステートメント。
 
 > [!NOTE]
 > DetailsView s を挿入して、インターフェイスの編集には、あらゆる種類のカスタマイズや検証が不足しています。 検証コントロールを追加する、またはインターフェイスをカスタマイズするには、TemplateFields、BoundFields に変換する必要があります。 参照してください、[編集および挿入インターフェイスに検証コントロールを追加](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)と[データ変更インターフェイスをカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md)詳細についてはチュートリアル。
-
 
 また、留意更新および削除、DetailsView を使用する、現在の製品 s`DataKey`場合にのみ存在する値、`DataKeyNames`プロパティが構成されています。 場合は、編集または削除は、影響を与えないが表示されたら、確認、`DataKeyNames`プロパティを設定します。
 
@@ -198,7 +174,6 @@ DetailsView のデータの変更機能を有効にする、挿入を有効に�
 
 > [!NOTE]
 > データに対応するフィールドがないパラメーターの追加は、コントロールを Web、ときに、これらのパラメーターの値がなんらかの方法で値を割り当てる必要があることに留意してください。 これらの値を指定できます。 ハード コーディングされたで直接、`InsertCommand`または`UpdateCommand`(クエリ文字列、セッション状態、ページで、上の Web コントロール) は、いくつかの事前定義されたソースから取得できます。 または、前のチュートリアルで説明したようにプログラムで、割り当てることができます。
-
 
 ## <a name="summary"></a>まとめ
 

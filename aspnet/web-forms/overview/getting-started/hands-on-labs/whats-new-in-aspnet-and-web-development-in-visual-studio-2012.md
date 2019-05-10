@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 3833e3f3c6c49ff2b317ad04aff33c9119cb1f41
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 80c77ec65ed86b06e417d3f6ba608e404c46768b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132099"
 ---
 # <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Visual Studio 2012 の ASP.NET と Web 開発の新機能
 
@@ -30,7 +30,6 @@ ms.locfileid: "59420212"
 > このラボでは、拡張機能とソース フォルダーにサンプル Web アプリケーションに軽微な変更を適用することで以前に説明する新機能について説明します。
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)します。
-
 
 <a id="Objectives"></a>
 
@@ -70,7 +69,7 @@ ms.locfileid: "59420212"
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Whats_New_in_the_CSS_Editor"></a>
-### <a name="exercise-1-whats-new-in-the-css-editor"></a>手順 1:新機能については、CSS エディターです。
+### <a name="exercise-1-whats-new-in-the-css-editor"></a>演習 1:新機能については、CSS エディターです。
 
 Web 開発者は、CSS の編集に関連する問題の多くをよく知って必要があります。 CSS スタイルの最も大きな問題の 1 つは、ブラウザーの間の互換性です。 多くの場合、スタイルを適用すると、サイト、わかります表示が異なること別のブラウザーまたはデバイスで開く場合行われます。 そのため、その視覚的な問題、最後に 1 つのブラウザーで動作することを行ったときに壊れている、他のユーザーに認識する修正にかなりの時間を費やす可能性があります。
 
@@ -204,7 +203,7 @@ Visual Studio には、開発者は、アクセス、動作、および CSS ス�
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Whats_New_in_the_HTML_Editor"></a>
-### <a name="exercise-2-whats-new-in-the-html-editor"></a>手順 2:新しい HTML エディターの新機能
+### <a name="exercise-2-whats-new-in-the-html-editor"></a>演習 2:新しい HTML エディターの新機能
 
 Visual Studio では、HTML エディターの強化には。 このバージョンに含まれる拡張機能の一部は、HTML ドキュメント、HTML5 のスニペット、HTML の開始と終了タグが一致する、および HTML 検証のスマート インデントです。 この演習では、web サイトのマークアップで作業するときに、これらの変更が、自在に操作できることを改善する方法がわかります。
 
@@ -331,7 +330,6 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
 > [!NOTE]
 > Visual Studio の以前のバージョンではスマート インデントされた使用可能な HTML エディターではなく、XML エディターにします。
 
-
 1. スマート インデントに HTML エディターでインデント構成が設定されていることを確認します。 そのためには次のように選択します、**ツール |。オプション**メニュー オプションと選択し、**テキスト エディター |HTML |タブ**画面の左側のウィンドウでページ。 スマート インデント オプションを選択します。
 
     ![HTML エディター設定](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "HTML エディターの設定")
@@ -433,7 +431,6 @@ Visual Studio には、アクセス可能で、構成されたコードのモー
 > [!NOTE]
 > Visual Studio 2010 では、Visual Studio 2012 ECMAScript5 のコンプライアンスを提供しますが、ECMAStript3 のコンプライアンスが実装されています。
 
-
 1. 開いている**ECMA5script5.js**の下にある、 **Scripts\custom**プロジェクト フォルダーです。 今すぐ ECMAScript5 の標準の検証をテストします。
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample8.html)]
@@ -494,11 +491,10 @@ Visual Studio には、アクセス可能で、構成されたコードのモー
 > [!NOTE]
 > GotoDefinition.js ファイルを保存する前に構文エラーがないことを確認します。
 
-
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Bundling_and_Minification"></a>
-### <a name="exercise-4-bundling-and-minification"></a>手順 4:バンドルと縮小
+### <a name="exercise-4-bundling-and-minification"></a>演習 4:バンドルと縮小
 
 何回か、web サイトは 1 つ以上の JavaScript または CSS ファイルか。 これは、バンドルと縮小に役立つファイル サイズを小さくし、高速で実行するサイトをごく一般的なシナリオです。 ASP.NET 4.5 の新機能でバンドルは、JS または CSS ファイルのセットを 1 つの要素にパックし、(必須ではない空白を削除する、コメントを削除する、識別子の削減) コンテンツを縮小してサイズを縮小します。
 
@@ -675,7 +671,6 @@ Visual Studio には、アクセス可能で、構成されたコードのモー
 
 > [!NOTE]
 > また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
-
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ

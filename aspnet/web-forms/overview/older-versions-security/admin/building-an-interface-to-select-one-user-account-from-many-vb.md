@@ -8,12 +8,12 @@ ms.date: 04/01/2008
 ms.assetid: da53380c-a16b-41c7-a20d-24343c735c52
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d7dd82ed4140b5ac6993483fb16af6a1b249be51
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e25e94b172bb4b1652b87842d45cbbb78a464c0a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383900"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131310"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>多くの中からユーザー アカウントを 1 つ選択するインターフェイスを構築する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59383900"
 [コードのダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.12.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_vb.pdf)
 
 > このチュートリアルでは、ページング、フィルター可能の grid でのユーザー インターフェイスを作成します。 具体的には、ユーザー インターフェイスは、ユーザー名と一致するユーザーを表示する GridView コントロールの開始文字に基づく結果をフィルター処理するためのある一連の構成されます。 まず、GridView でユーザー アカウントのすべてを一覧表示します。 次に、手順 3 であるフィルターを追加します。 手順 4 がフィルター処理された結果をページングします。 特定のユーザー アカウントの管理タスクを実行するは、後のチュートリアルから 4 までの手順 2 で構築されたインターフェイスを使用するされます。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -55,11 +54,9 @@ ASP.NET ページで、`Administration`管理者のユーザー専用のフォ�
 
 この時点で、プロジェクトのソリューション エクスプ ローラーのスクリーン ショット、図 1 に示すようなはずです。
 
-
 [![4 つの新しいページと Web.config ファイルが web サイトに追加されました](building-an-interface-to-select-one-user-account-from-many-vb/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image1.png)
 
 **図 1**:4 つの新しいページと`Web.config`ファイルは、web サイトに追加されている ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image3.png))。
-
 
 最後に、サイト マップを更新 (`Web.sitemap`) にエントリを含める、`ManageUsers.aspx`ページ。 追加した後、次の XML、`<siteMapNode>`チュートリアルでは、ロールを追加しました。
 
@@ -67,11 +64,9 @@ ASP.NET ページで、`Administration`管理者のユーザー専用のフォ�
 
 更新サイト マップでは、ブラウザーを使用してサイトを参照してください。 図 2 に示す、左側のナビゲーションには、管理のチュートリアルのアイテムが含まれます。
 
-
 [![サイト マップには、「ユーザーの管理ノードが含まれていますいます。](building-an-interface-to-select-one-user-account-from-many-vb/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image4.png)
 
 **図 2**:サイト マップにはノードという名前のユーザー管理が含まれています ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image6.png))。
-
 
 ## <a name="step-2-listing-all-user-accounts-in-a-gridview"></a>手順 2: GridView を内のすべてのユーザー アカウントを一覧表示します。
 
@@ -81,11 +76,9 @@ ASP.NET ページで、`Administration`管理者のユーザー専用のフォ�
 
 GridView で目的のユーザー アカウントの情報を表示するために設定、GridView の`AutoGenerateColumns`プロパティを False の BoundFields を追加し、 `UserName`、 `Email`、および`Comment`プロパティとの CheckBoxFields、 `IsApproved`、`IsLockedOut`、および`IsOnline`プロパティ。 コントロールの宣言型マークアップまたはフィールド ダイアログ ボックスを使用して、この構成を適用できます。 図 3 は、自動生成フィールド チェック ボックスがオフになっていると、BoundFields と CheckBoxFields が追加して構成した後に、フィールドのスクリーン ショットのダイアログ ボックスを示します。
 
-
 [![GridView に 3 つ BoundFields と 3 つ CheckBoxFields を追加します。](building-an-interface-to-select-one-user-account-from-many-vb/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image7.png)
 
 **図 3**:GridView に 3 つ BoundFields と 3 つ CheckBoxFields を追加 ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image9.png))。
-
 
 GridView を構成した後、その宣言型マークアップが次のようなことを確認します。
 
@@ -97,11 +90,9 @@ GridView を構成した後、その宣言型マークアップが次のよう�
 
 ブラウザーでページをテストする時間がかかります。 図 4 に示すよう、 `UserAccounts` GridView がシステムにユーザー名、電子メール アドレス、およびすべてのユーザーの場合は、その他の関連するアカウント情報を一覧表示されます。
 
-
 [![ユーザーのアカウントは、gridview 一覧します。](building-an-interface-to-select-one-user-account-from-many-vb/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image10.png)
 
 **図 4**:ユーザーのアカウントは、gridview 一覧 ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image12.png))。
-
 
 ## <a name="step-3-filtering-the-results-by-the-first-letter-of-the-username"></a>手順 3: ユーザー名の最初の文字で結果をフィルター処理
 
@@ -121,15 +112,12 @@ GridView を構成した後、その宣言型マークアップが次のよう�
 
 図 5 は、`ManageUsers.aspx`ページをブラウザーで表示する場合。
 
-
 [![リピータが 27 のフィルタ リング Linkbutton を一覧表示します。](building-an-interface-to-select-one-user-account-from-many-vb/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image13.png)
 
 **図 5**:Repeater を一覧表示 27 フィルター Linkbutton ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image15.png))。
 
-
 > [!NOTE]
 > ユーザー名は、数字や句読点などの任意の文字で開始できます。 これらのアカウントを表示するには、管理者はすべて LinkButton オプションを使用して、必要があります。 または、LinkButton を返す数値で始まるすべてのユーザー アカウントを追加できます。 ままを演習として、リーダーの。
-
 
 ポストバックが発生するフィルターの Linkbutton をクリックすると、Repeater のさせ`ItemCommand`イベント、まだために、グリッド内の変更はありませんが、結果をフィルター処理するコードを記述します。 `Membership`クラスが含まれています、 [ `FindUsersByName`メソッド](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx)ユーザー名を持つ指定した検索パターンに一致するユーザー アカウントを返します。 このメソッドを使用しているユーザー名がで指定された文字で始まるには、これらのユーザー アカウントを取得することができます、`CommandName`フィルター選択された LinkButton がクリックされるのです。
 
@@ -151,11 +139,9 @@ Repeater のイベント ハンドラーを作成`ItemCommand`イベント。 �
 
 このコードでフィルター処理の機能をテストします。 ページが初めてアクセスした場合、すべてのユーザー アカウントが表示されます (バックアップは図 5 を参照してください)。 A LinkButton をクリックすると、ポストバックが発生して、A で始まるユーザー アカウントのみを表示する、結果をフィルター処理します。
 
-
 [![フィルター処理の Linkbutton を使用して、ユーザー名は、特定の文字で始まるユーザーを表示するには](building-an-interface-to-select-one-user-account-from-many-vb/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image16.png)
 
 **図 6**:フィルタ リング Linkbutton を使用して、それらのユーザーをで始まるユーザー名、特定の文字を表示する ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image18.png))。
-
 
 ## <a name="step-4-updating-the-gridview-to-use-paging"></a>手順 4: ページングを使用して、GridView を更新しています
 
@@ -171,7 +157,6 @@ GridView コントロールには、ページングの 2 つの種類があり�
 > [!NOTE]
 > 既定とカスタム ページング、さらにカスタム ページングを実装に伴う課題の違いの詳細についてを参照してください[効率的にページングを大規模な量のデータ](https://asp.net/learn/data-access/tutorial-25-vb.aspx)します。 既定およびカスタム ページングのパフォーマンスの違いのいくつかの分析では、次を参照してください。 [SQL Server 2005 での ASP.NET でカスタム ページング](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)します。
 
-
 カスタム ページングを実装するために、GridView により表示されるレコードの正確なサブセットを取得するには、いくつかメカニズムまず必要あります。 良い知らせは、`Membership`クラスの`FindUsersByName`メソッドがページのインデックスと、ページ サイズを指定することができるようにするオーバー ロードと、そのレコードの範囲内にあるユーザー アカウントのみを返します。
 
 具体的には、このオーバー ロードが、次のシグネチャを持つ: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)`](https://msdn.microsoft.com/library/fa5st8b2.aspx)します。
@@ -180,7 +165,6 @@ GridView コントロールには、ページングの 2 つの種類があり�
 
 > [!NOTE]
 > によって返されるデータ`FindUsersByName`; ユーザー名で並べ替えられますが、並べ替えの条件をカスタマイズすることはできません。
-
 
 GridView は、カスタムのページングを使用するが、ObjectDataSource コントロールにバインドした場合のみを構成できます。 カスタム ページングを実装する ObjectDataSource コントロール、2 つの方法が必要ですが開始行インデックスおよび表示するにはレコードの最大数に渡される 1 つと正確な; スパン内に含まれるレコードのサブセットを返します。でレコードの合計数を返すメソッドのポケットベル通知します。 `FindUsersByName`オーバー ロードは、ページのインデックスと、ページ サイズを受け入れるし、使用してレコードの合計数を返します、`ByRef`パラメーター。 したがって、インターフェイスの不一致があります。
 
@@ -196,11 +180,9 @@ GridView は、カスタムのページングを使用するが、ObjectDataSour
 
 図 7 では、Visual Web Developer のデザイン ビューで表示した場合は、次の 4 つ Linkbutton を示します。
 
-
 [![次に、まず、前を追加して、最後の GridView の下にあります。](building-an-interface-to-select-one-user-account-from-many-vb/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image19.png)
 
 **図 7**:前、[次へと最終 Linkbutton の下に、GridView を最初に、追加 ([フルサイズの画像を表示する] をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image21.png))。
-
 
 ### <a name="keeping-track-of-the-current-page-index"></a>現在のページ インデックスの管理
 
@@ -226,16 +208,13 @@ GridView は、カスタムのページングを使用するが、ObjectDataSour
 
 図 8 と 9 は、アクションでカスタム ページング インターフェイスを表示します。 図 8 は、`ManageUsers.aspx`ページすべてのユーザー アカウントのデータの最初のページを表示する場合。 13 のアカウントの 10 個しかが表示されることに注意してください。 [次へ] または最後のリンクをクリックすると、ポストバックで更新プログラム、 `PageIndex` 1、およびバインド グリッドへのアカウントのユーザーの 2 ページ目に (図 9 参照)。
 
-
 [![最初の 10 のユーザー アカウントが表示されます。](building-an-interface-to-select-one-user-account-from-many-vb/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image22.png)
 
 **図 8**:最初の 10 のユーザー アカウントが表示されます ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image24.png))。
 
-
 [![次のリンクをクリックするとユーザー アカウントの 2 ページ目を表示します](building-an-interface-to-select-one-user-account-from-many-vb/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image25.png)
 
 **図 9**:ユーザー アカウントの 2 番目のページの次のリンクをクリックすると表示されます ([フルサイズの画像を表示する をクリックします](building-an-interface-to-select-one-user-account-from-many-vb/_static/image27.png))。
-
 
 ## <a name="summary"></a>まとめ
 

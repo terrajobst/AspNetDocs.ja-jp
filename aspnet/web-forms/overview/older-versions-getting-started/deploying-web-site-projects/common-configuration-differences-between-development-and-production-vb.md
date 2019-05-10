@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 548e75f6-4d6c-4cb4-8da8-417915eb8393
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 48af71fc5ff4dad3371687726660a5d914236df5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5ff344bdff379a72a5fc3d26ab66afb095cd2e0d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379379"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125749"
 ---
 # <a name="common-configuration-differences-between-development-and-production-vb"></a>開発と運用の間の一般的な構成の違い (VB)
 
@@ -23,9 +23,7 @@ ms.locfileid: "59379379"
 
 > 前のチュートリアルでは、開発環境から運用環境にすべての関連ファイルをコピーすることによって、web サイトをデプロイしました。 ただし、環境ごとに一意の Web.config ファイルがあることが必要になります環境間構成の違いがあることは珍しくないです。 このチュートリアルは、一般的な構成の違いを調べ、個別の構成情報を保持するための戦略を調べる。
 
-
 ## <a name="introduction"></a>はじめに
-
 
 最後の 2 つのチュートリアルは、単純な web アプリケーションを配置する方法を説明しました。 [ *FTP クライアントを使用してサイトを展開する*](deploying-your-site-using-an-ftp-client-vb.md)チュートリアルではスタンドアロン FTP クライアントを使用して、運用環境まで、開発環境から、必要なファイルをコピーする方法を示しました。 このチュートリアルでは、 [*を展開するサイトを使用して Visual Studio*](deploying-your-site-using-visual-studio-vb.md)、Visual Studio の Web サイトのコピー ツールと発行 オプションを使用してデプロイ時に参照します。 両方のチュートリアルでは、運用環境のすべてのファイルは、開発環境でのファイルのコピーをでした。 ただし、構成ファイルで、開発環境と異なるものを運用環境では珍しいはありません。 Web アプリケーションの構成に保存する、`Web.config`ファイルし、通常、データベース、web、および電子メール サーバーなどの外部リソースに関する情報が含まれます。 ハンドルされない例外が発生したときに実行するアクションのコースなど、特定の状況でアプリケーションの動作が綴ったもします。
 
@@ -40,7 +38,6 @@ Web アプリケーションをデプロイするときに、実稼働環境で�
 > [!NOTE]
 > 今後のチュートリアルでは、この時点で、構成ファイルでデータベース接続文字列を格納する方法の詳細をについて説明、データ ドリブンのアプリケーションの配置を確認できます。
 
-
 開発および運用環境の動作目的が大幅に異なります。 開発環境で web アプリケーションがによって作成される、テスト、およびデバッグ対象の開発者の小規模なグループ。 運用環境でその同じアプリケーションが多数の同時ユーザーによって参照されています。 ASP.NET には、多く開発者がテストと、アプリケーションのデバッグに役立つ機能にはが含まれていますが、パフォーマンスおよびセキュリティ上の理由から運用環境でのこれらの機能を無効にする必要があります。 このようないくつかの構成設定を見てみましょう。
 
 ### <a name="configuration-settings-that-impact-performance"></a>パフォーマンスに影響する構成設定
@@ -51,7 +48,6 @@ Debug 属性で最も重要な属性の 1 つ、`<compilation>`要素。 場合�
 
 > [!NOTE]
 > `WebResource.axd` 組み込み HTTP ハンドラー 2.0 で導入された ASP.NET サーバー コントロールの使用など、スクリプト ファイル、イメージ、CSS ファイル、およびその他のコンテンツの埋め込みリソースを取得します。 方法の詳細についての`WebResource.axd`しくみと、カスタム サーバー コントロールから埋め込みリソースにアクセスの使用方法を参照してください。[にアクセスする埋め込みリソースで、URL を使用して`WebResource.axd`](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx)します。
-
 
 `<compilation>`要素の`debug`属性に設定は、通常、開発環境では"true"です。 実際には、この属性は、web アプリケーションをデバッグするためには、"true"に設定する必要があります。Visual Studio から ASP.NET アプリケーションをデバッグしようとするかどうか、`debug`属性が"false"に設定、Visual Studio はまで、アプリケーションをデバッグすることはできませんを説明するメッセージを表示、`debug`属性が"true"とに設定この変更を行えるに提供します。
 
@@ -71,7 +67,6 @@ ASP.NET アプリケーションでハンドルされない例外が発生した
 
 > [!NOTE]
 > 既定の`<customErrors>`セクションの設定は、ページが localhost、を通じて参照されていると、それ以外の場合、一般的なランタイム エラー ページを表示している場合にのみ、例外の詳細がメッセージを示しています。 これは理想的ではありませんが、既定の動作が非ローカルの訪問者に例外の詳細を表示しないことを把握することを確保することは。 今後のチュートリアルを調べ、`<customErrors>`詳細セクションと実稼働環境でエラーが発生したときに表示されるカスタム エラー ページが存在する方法について説明します。
-
 
 開発時に役に立つもう 1 つの ASP.NET 機能をトレースしています。 トレース、有効な場合、各受信要求に関する情報を記録および特別な web ページでは、提供`Trace.axd`、最新の要求の詳細を表示するためです。 有効にして使用してトレースを構成することができます、 [ `<trace>`要素](https://msdn.microsoft.com/library/6915t83k.aspx)で`Web.config`します。
 
@@ -111,7 +106,6 @@ Web アプリケーションのビルド Web 展開プロジェクトを展開�
 
 > [!NOTE]
 > Web 展開プロジェクトは、Visual Studio アドインとして実装され、Visual Studio Express Editions (Visual Web Developer を含む) は、アドインをサポートしていませんので、Visual Web Developer で Web 展開プロジェクトを使用することはできません。
-
 
 ## <a name="summary"></a>まとめ
 

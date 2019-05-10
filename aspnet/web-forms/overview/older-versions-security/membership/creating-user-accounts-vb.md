@@ -8,12 +8,12 @@ ms.date: 01/18/2008
 ms.assetid: 9ef3e893-bebe-4b13-9fe5-8b71720dd85e
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 95231452831b5e328447709fad0329f63ae7a9f5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 493a117130b2229f8dc7b8bcb90e2a79df779569
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395824"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125738"
 ---
 # <a name="creating-user-accounts-vb"></a>ユーザー アカウントを作成する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59395824"
 [コードのダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_05_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial05_CreatingUsers_vb.pdf)
 
 > このチュートリアルでは、(SqlMembershipProvider) を使用してメンバーシップ フレームワークを使用して、新しいユーザー アカウントを作成するをについて説明します。 ASP、プログラムと、新しいユーザーを作成する方法が表示されます。NET のビルトインの CreateUserWizard コントロール。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -56,11 +55,9 @@ ms.locfileid: "59395824"
 
 この時点で、プロジェクトのソリューション エクスプ ローラーのスクリーン ショット、図 1 に示すようなはずです。
 
-
 [![メンバーシップのフォルダーに 5 つの新しいページが追加されました](creating-user-accounts-vb/_static/image2.png)](creating-user-accounts-vb/_static/image1.png)
 
 **図 1**:5 つ新しいページに追加されている、`Membership`フォルダー ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image3.png))。
-
 
 各ページが 2 つのコンテンツ コントロールは、マスター ページの ContentPlaceHolders ごとに 1 つがある必要があります、この時点では、:`MainContent`と`LoginContent`します。
 
@@ -80,11 +77,9 @@ ms.locfileid: "59395824"
 
 既定のサイト マップ プロバイダーという名前の適切にフォーマットされた XML ファイルが必要ですが`Web.sitemap`ルート ディレクトリが存在します。 この既定のプロバイダーを使用していることからこのようなファイルを追加し、適切な XML 形式で、サイト マップの構造を定義する必要があります。 ファイルを追加するには、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 という名前のサイト マップの種類のファイルを追加することを選択 ダイアログ ボックスで`Web.sitemap`します。
 
-
 [![プロジェクトのルート ディレクトリに Web.sitemap という名前のファイルを追加します。](creating-user-accounts-vb/_static/image5.png)](creating-user-accounts-vb/_static/image4.png)
 
 **図 2**:ファイルの名前を追加`Web.sitemap`プロジェクトのルート ディレクトリに ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image6.png))。
-
 
 XML のサイト マップ ファイルは、階層構造として、web サイトの構造を定義します。 この階層関係がの先祖を使用して XML ファイルでモデル化、`<siteMapNode>`要素。 `Web.sitemap`で開始する必要があります、`<siteMap>`を正確に 1 つを持つ親ノード`<siteMapNode>`子。 この最上位`<siteMapNode>`要素は、階層のルートを表すし、任意の数の子孫ノードの場合があります。 各`<siteMapNode>`要素を含める必要があります、`title`属性し、必要に応じて含めることができます`url`と`description`; 他のユーザーの間での属性は、各空でない`url`属性は一意である必要があります。
 
@@ -94,11 +89,9 @@ XML のサイト マップ ファイルは、階層構造として、web サイ�
 
 上記のサイト マップのマークアップは、図 3 に示すように階層を定義します。
 
-
 [![階層ナビゲーション構造を表すサイト マップ](creating-user-accounts-vb/_static/image8.png)](creating-user-accounts-vb/_static/image7.png)
 
 **図 3**:サイト マップが階層ナビゲーション構造を表します ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image9.png))。
-
 
 ## <a name="step-3-updating-the-master-page-to-include-a-navigational-user-interface"></a>手順 3: マスター ページのナビゲーション ユーザー インターフェイスを更新しています
 
@@ -116,11 +109,9 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 
 図 4 は、手順 2. で作成したサイト マップ構造で表示される出力を上記のマークアップを示します。 Repeater は、バニラの順序なしリスト マークアップ; を出力します。定義されているカスケード スタイル シートのルール`Styles.css`美しくて心地よいレイアウトを担当します。 上記のマークアップのしくみの詳細についてを参照してください、[マスター ページとサイト ナビゲーション](https://asp.net/learn/data-access/tutorial-03-vb.aspx)チュートリアル。
 
-
 [![ナビゲーション ユーザー インターフェイスが表示されるリストを使用して入れ子になった順序付けられていません。](creating-user-accounts-vb/_static/image11.png)](creating-user-accounts-vb/_static/image10.png)
 
 **図 4**:ナビゲーション ユーザー インターフェイスが表示されるリストを使用して入れ子になった順序なし ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image12.png))。
-
 
 ### <a name="adding-breadcrumb-navigation"></a>階層リンク ナビゲーションを追加します。
 
@@ -132,11 +123,9 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 
 図 5 にアクセスしたときに、SiteMapPath の出力を示しています`~/Membership/CreatingUserAccounts.aspx`します。
 
-
 [![階層リンクには、現在のページが表示されます。 および、サイトでは、その先祖のマップ](creating-user-accounts-vb/_static/image14.png)](creating-user-accounts-vb/_static/image13.png)
 
 **図 5**:階層リンクは、サイト マップの現在のページとその先祖を表示します ([フルサイズの画像を表示する をクリックします。](creating-user-accounts-vb/_static/image15.png))。
-
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>手順 4: カスタム プリンシパルおよび Id ロジックの削除
 
@@ -146,7 +135,6 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 
 > [!NOTE]
 > コメントまたは内のコードを削除した後`Global.asax`でコードをコメント アウトする必要があります`Default.aspx's`をキャストする分離コード クラス、`User.Identity`プロパティを`CustomIdentity`インスタンス。
-
 
 ## <a name="step-5-programmatically-creating-a-new-user"></a>手順 5: プログラムで新しいユーザーの作成
 
@@ -177,11 +165,9 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 
 この時点で、画面のスクリーン ショット、図 6 に示すようなはずです。
 
-
 [![CreatingUserAccounts.aspx ページに、さまざまな Web コントロールを追加します。](creating-user-accounts-vb/_static/image17.png)](creating-user-accounts-vb/_static/image16.png)
 
 **図 6**:さまざまな Web コントロールを追加、 `CreatingUserAccounts.aspx Page` ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image18.png))。
-
 
 `SecurityQuestion`ラベルと`SecurityAnswer`テキスト ボックスには、定義済みのセキュリティの質問を表示し、ユーザーの回答を収集するためのものです。 おり、独自のセキュリティの質問を定義するには、各ユーザーを許可することがユーザー単位のユーザーごとにセキュリティの質問と回答の両方が格納されていることに注意してください。 ただし、この例には、つまり、ユニバーサル セキュリティの質問を使用することに。好きな色とは何ですか。
 
@@ -197,39 +183,31 @@ ASP.NET には、さまざまなユーザー インターフェイスを設計�
 
 呼び出した後`CreateUser`で渡し`createStatus`、`Select Case`に割り当てられている値に応じて、適切なメッセージを出力するステートメントが使用される`createStatus`します。 図 7 は、新しいユーザーが正常に作成されたときに、出力を示します。 図 8 と 9 は、ユーザー アカウントが作成されていない場合、出力を表示します。 図 8 には、訪問者は、メンバーシップ プロバイダーの構成設定に記述されたパスワードの強度の要件を満たしていない、5 文字のパスワードを入力します。 図 9 で、訪問者が既存のユーザー名 (図 7 で作成されたもの) でユーザー アカウントを作成しようとするは。
 
-
 [![新しいユーザー アカウントが正常に作成されました](creating-user-accounts-vb/_static/image20.png)](creating-user-accounts-vb/_static/image19.png)
 
 **図 7**:新しいユーザー アカウントが正常に作成されました ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image21.png))。
-
 
 [![指定されたパスワードが脆弱すぎますために、ユーザー アカウントは作成されません。](creating-user-accounts-vb/_static/image23.png)](creating-user-accounts-vb/_static/image22.png)
 
 **図 8**:指定されたパスワードが脆弱すぎますために、ユーザー アカウントは作成されません ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image24.png))。
 
-
 [![ユーザー アカウントが作成されたため、ユーザー名は既に使用中](creating-user-accounts-vb/_static/image26.png)](creating-user-accounts-vb/_static/image25.png)
 
 **図 9**:ユーザー アカウントが作成されたため、ユーザー名は既に使用中 ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image27.png))。
 
-
 > [!NOTE]
 > 最初の 2 つのいずれかを使用する場合は、成功または失敗を判断する方法と思うかもしれません`CreateUser`もメソッドがオーバー ロードを持つ型のパラメーターの`MembershipCreateStatus`します。 これらの最初の 2 つのオーバー ロードのスロー、 [ `MembershipCreateUserException`例外](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.aspx)を含む、障害が発生した場合、 [ `StatusCode`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.statuscode.aspx)型の`MembershipCreateStatus`します。
 
-
 いくつかのユーザー アカウントを作成した後の内容を一覧表示して、アカウントが作成されたことを確認、`aspnet_Users`と`aspnet_Membership`内のテーブル、`SecurityTutorials.mdf`データベース。 図 10 に示すようを使用して 2 つのユーザーを追加した、`CreatingUserAccounts.aspx`ページ。Tito としました。
-
 
 [![メンバーシップ ユーザー ストアには、2 人のユーザーがあります。Tito と Bruce](creating-user-accounts-vb/_static/image29.png)](creating-user-accounts-vb/_static/image28.png)
 
 **図 10**:メンバーシップ ユーザー ストアには、2 人のユーザーがあります。Tito と Bruce ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image30.png))。
 
-
 メンバーシップ ユーザー ストアはこれで、Bruce と Tito のアカウントの情報が含まれていますが、あるサイトにログオンするには、Bruce または Tito できる機能を実装します。 現時点では、`Login.aspx`ユーザーの資格情報を検証は 1 組のユーザー名/パスワードのハード コーディングされたセットに対して*いない*メンバーシップ フレームワークに対して指定された資格情報を検証します。 ここでの新しいユーザー アカウントを表示するため、`aspnet_Users`と`aspnet_Membership`テーブルが十分でする必要があります。 次のチュートリアルで *<a id="_msoanchor_9"> </a>[を検証するユーザー資格情報に対して、メンバーシップ ユーザー ストア](validating-user-credentials-against-the-membership-user-store-vb.md)*、メンバーシップ ストアの検証に使用するログイン ページを更新します。
 
 > [!NOTE]
 > すべてのユーザーに表示されない場合、`SecurityTutorials.mdf`データベース、可能性があります、web アプリケーションは既定のメンバーシップ プロバイダーを使用して`AspNetSqlMembershipProvider`、使用、`ASPNETDB.mdf`そのユーザーのストアとしてのデータベース。 この問題を確認するのには、ソリューション エクスプ ローラーで [更新] ボタンをクリックします。 という名前のデータベースの場合`ASPNETDB.mdf`に追加されて、`App_Data`フォルダー、問題になります。 手順 4. に戻り、  *<a id="_msoanchor_10"> </a> [SQL Server でメンバーシップ スキーマを作成する](creating-the-membership-schema-in-sql-server-vb.md)* メンバーシップ プロバイダーを適切に構成する方法についてのチュートリアル。
-
 
 ほとんどのシナリオを作成ユーザー アカウント、訪問者は、ユーザー名、パスワード、電子メール、および新しいアカウントの作成時点で、必要なその他の情報を入力するいくつかのインターフェイスが表示されます。 この手順で手動でこのようなインターフェイスの構築について説明しましたし、使用する方法を説明し、、`Membership.CreateUser`プログラムで新しいユーザー アカウントを追加する方法、ユーザーの入力に基づいています。 このコードは、新しいユーザー アカウントを作成しました。 フォロー アップを作成したばかりのユーザー アカウントでは、サイトにユーザーのログインまたはユーザーに確認メールを送信するなどのアクションは実行しませんでした。 追加の手順で、ボタンの追加のコードが必要になります`Click`イベント ハンドラー。
 
@@ -249,11 +227,9 @@ CreateUserWizard コントロールの既定のインターフェイスと動作
 
 戻り、`CreatingUserAccounts.aspx`ページで、`Membership`フォルダーをデザインまたは分割モードに切り替えるし、ページの上部に CreateUserWizard コントロールを追加します。 CreateUserWizard コントロールをツールボックスのログイン コントロール セクションをファイリングします。 コントロールを追加すると、次のように設定します。 その`ID`プロパティを`RegisterUser`します。 画面は、図 11 で、CreateUserWizard は、新しいユーザーのユーザー名、パスワード、電子メール アドレス、およびセキュリティの質問および答えのテキスト ボックスを持つインターフェイスをレンダリングします。
 
-
 [![CreateUserWizard コントロール レンダリング汎用的なユーザー インターフェイスを作成します。](creating-user-accounts-vb/_static/image32.png)](creating-user-accounts-vb/_static/image31.png)
 
 **図 11**:CreateUserWizard コントロールは汎用的な作成ユーザー インターフェイスを表示します ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image33.png))。
-
 
 手順 5 で作成したインターフェイスを持つ CreateUserWizard コントロールによって生成される既定のユーザー インターフェイスを比較する少し見てみましょう。 まず、CreateUserWizard コントロールは、手動で作成されたインターフェイスの定義済みのセキュリティの質問に対してセキュリティの質問と回答の両方を指定するビジターをできます。 CreateUserWizard コントロールのインターフェイスには、インターフェイスのフォーム フィールドの検証を実装するためにまだがありましたが、検証コントロールも含まれます。 および CreateUserWizard コントロール インターフェイスには (を十分にテキストが、パスワードを入力し、テキスト ボックスの パスワードの比較が等しい CompareValidator) とパスワードの確認テキスト ボックスが含まれています。
 
@@ -270,23 +246,18 @@ CreateUserWizard コントロールはその名のとおりから派生は、[�
 
 CreateUserWizard コントロールの動作を見てみましょう。 参照してください、`CreatingUserAccounts.aspx`ページがブラウザーを使用します。 CreateUserWizard のインターフェイスにいくつかの無効な値を入力して起動します。 お試しくださいパスワード強度の要件に適合しないパスワードを入力するか、ユーザー名テキスト ボックスを空のままです。 CreateUserWizard、適切なエラー メッセージが表示されます。 図 12 は、十分に強力なパスワードを使用してユーザーを作成する際に出力を示します。
 
-
 [![CreateUserWizard に自動的に検証コントロールを挿入します。](creating-user-accounts-vb/_static/image35.png)](creating-user-accounts-vb/_static/image34.png)
 
 **図 12**:CreateUserWizard に自動的に挿入検証コントロール ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image36.png))。
 
-
 次に、CreateUserWizard に適切な値を入力し、ユーザーの作成 ボタンをクリックします。 必須のフィールドが入力されているし、パスワードの強度が十分なと仮定すると、CreateUserWizard はメンバーシップ フレームワークを通じて新しいユーザー アカウントを作成し、表示、`CompleteWizardStep`のインターフェイスを (図 13 を参照してください)。 CreateUserWizard を呼び出し、バック グラウンドで、`Membership.CreateUser`メソッド、手順 5. で行ったのと同じようです。
-
 
 [![新しいユーザー アカウントが正常に作成されました](creating-user-accounts-vb/_static/image38.png)](creating-user-accounts-vb/_static/image37.png)
 
 **図 13**:新しいユーザー アカウントが正常に作成された ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image39.png))。
 
-
 > [!NOTE]
 > 図 13 に示すよう、`CompleteWizardStep`のインターフェイスには、続行ボタンが含まれています。 ただし、この時点でのみクリックしては、同じページに訪問者を残したまま、ポストバックを実行します。 カスタマイズ CreateUserWizard の外観と動作からのプロパティ セクションでに訪問者の送信は、このボタンのある方法を紹介`Default.aspx`(またはその他のいくつかのページ)。
-
 
 新しいユーザー アカウントを作成すると、Visual Studio に戻り、確認、`aspnet_Users`と`aspnet_Membership`アカウントが正常に作成されたことを確認する図 10 で行ったようにテーブルです。
 
@@ -302,11 +273,9 @@ CreateUserWizard コントロールの既定のユーザー インターフェ�
 
 更新、 `RegisterUser` CreateUserWizard コントロール [キャンセル] ボタンを表示して、訪問者に送信する`Default.aspx`[キャンセル] または [続行] ボタンがクリックされたとき。 これを行うには、設定、`DisplayCancelButton`とプロパティを True に、`CancelDestinationPageUrl`と`ContinueDestinationPageUrl`プロパティを ~/Default.aspx です。 図 14 は、ブラウザーで表示した場合は、更新された CreateUserWizard を示します。
 
-
 [![CreateUserWizardStep には、[キャンセル] ボタンが含まれています。](creating-user-accounts-vb/_static/image41.png)](creating-user-accounts-vb/_static/image40.png)
 
 **図 14**:`CreateUserWizardStep` [キャンセル] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image42.png))。
-
 
 訪問者は、ユーザー名、パスワード、電子メール アドレス、およびセキュリティの質問および回答の入力、ユーザーの作成 をクリックするは、新しいユーザー アカウントが作成され、訪問者を新しく作成したユーザーとして記録されます。 ページにアクセスするユーザーが自分で新しいアカウントを作成することと仮定すると、これが目的の動作である可能性がありますです。 ただし、新しいユーザー アカウントを追加する管理者を許可することがあります。 これにより、ユーザー アカウントが作成されますが (および新しく作成したアカウントではなく) 管理者として、管理者がログインしたままとします。 この動作は、ブール値を変更できます[`LoginCreatedUser`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx)します。
 
@@ -318,7 +287,6 @@ CreateUserWizard コントロールの既定のユーザー インターフェ�
 
 > [!NOTE]
 > `CreateUserWizard`コントロールの`MailDefinition`プロパティには、新しいアカウントが作成されるときに送信される電子メール メッセージの詳細だけを指定します。 電子メール メッセージを実際に送信する方法については含まれません (は、SMTP のサーバーまたはメール ドロップ ディレクトリを使用するかどうか、認証情報、およびなど)。 これらの低レベルの詳細で定義する必要があります、`<system.net>`セクション`Web.config`します。 これらの構成設定と ASP.NET 2.0 から電子メールを送信すると、一般の詳細についてを参照してください、 [SystemNetMail.com でよく寄せられる質問](http://www.systemnetmail.com/)および筆者の記事[ASP.NET 2.0 での電子メールの送信](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)します。
-
 
 ### <a name="extending-the-createuserwizards-behavior-using-event-handlers"></a>イベント ハンドラーを使用して、CreateUserWizard の動作を拡張します。
 
@@ -340,15 +308,12 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 図 15 のスクリーン ショットを示しています。`CreatingUserAccounts.aspx`ユーザーが先頭のスペースを持つユーザー名を入力します。
 
-
 [![先頭または末尾のスペースでのユーザー名は許可されていません](creating-user-accounts-vb/_static/image44.png)](creating-user-accounts-vb/_static/image43.png)
 
 **図 15**:先頭または末尾のスペースでのユーザー名は許可されていません ([フルサイズの画像を表示する をクリックします](creating-user-accounts-vb/_static/image45.png))。
 
-
 > [!NOTE]
 > CreateUserWizard コントロールの使用例が表示されます`CreatedUser`内のイベント、  *<a id="_msoanchor_11"> </a>[追加ユーザーの情報を格納する](storing-additional-user-information-vb.md)* チュートリアル。
-
 
 ## <a name="summary"></a>まとめ
 

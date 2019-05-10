@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 8a07210c-eb0e-485e-9ee8-82a101520e65
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e37d2f4450c697f963d954c2fbb58e3ed20a1566
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d5cfcd2ff8956b54f241ee7002aa00a0bd47469e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421148"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132651"
 ---
 # <a name="positioning-a-modalpopup-vb"></a>ModalPopup の位置を決める (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59421148"
 [コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup4.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup4VB.pdf)
 
 > AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし、コントロールは、ポップアップを配置する組み込みの機能を提供していません。
-
 
 ## <a name="overview"></a>概要
 
@@ -53,7 +52,6 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 および`stopMoving()`関数には、ポップアップには、このことができますが閉じられたときにトリガー、`ModalPopupExtender`コントロール。
 
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample6.aspx)]
-
 
 [![指定した位置にモーダル ポップアップが表示されます。](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
 

@@ -8,12 +8,12 @@ ms.date: 02/27/2014
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 5e9cbb4ca4c45fabfa53f9e3d2537250f1231ba0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c8d711dd44950116f3a3e09d5d12c507918c543f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59421967"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132010"
 ---
 # <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>モデル バインディングと web フォームで JQuery UI Datepicker の統合
 
@@ -26,7 +26,6 @@ ms.locfileid: "59421967"
 > このチュートリアルで作成したプロジェクトで、[最初](retrieving-data.md)と[2 番目](updating-deleting-and-creating-data.md)系列の部分。
 > 
 > できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。 これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
-
 
 ## <a name="what-youll-build"></a>構築します
 

@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: a79cca143df9a10b4255796a6d034688713e4e52
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d55f01bd2204a2fdb26664827b92c72d68e00a89
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379756"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129803"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>ASP.NET MVC アプリケーション (7/10) で Entity Framework での同時実行の処理
 
@@ -26,7 +26,6 @@ ms.locfileid: "59379756"
 > > [!NOTE] 
 > > 
 > > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 前の 2 つのチュートリアルでは、関連するデータと連携してください。 このチュートリアルでは、同時実行を処理する方法を示します。 使用する web ページを作成します、`Department`エンティティ、およびページの編集し、削除を`Department`エンティティは、同時実行エラーを処理します。 次の図は、同時実行の競合が発生した場合に表示される一部のメッセージを含む、インデックスと Delete ページを示しています。
 

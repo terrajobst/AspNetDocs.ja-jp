@@ -8,12 +8,12 @@ ms.date: 05/12/2009
 ms.assetid: 16dc5c11-65be-4eae-a818-9fad7f8259c6
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3bbbe0c8240a2a77edee8d39a76bf865c95f345e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7478b090ec52778572d70065983de6be8bdb4e6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381095"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128178"
 ---
 # <a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX Control Toolkit の概要 (C#)
 
@@ -21,26 +21,21 @@ ms.locfileid: "59381095"
 
 > AJAX Control Toolkit の使用を開始するために必要なについて説明します。
 
-
 AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET アプリケーションで使用できるが含まれています。 このチュートリアルでは、AJAX Control Toolkit をダウンロードして、toolkit のコントロールを Visual Studio または Visual Web Developer Express ツールボックスに追加する方法について説明します。
 
 ## <a name="downloading-the-ajax-control-toolkit"></a>AJAX Control Toolkit のダウンロード
 
 [AJAX Control Toolkit](http://devexpress.com/act)は、ASP.NET コミュニティと ASP.NET チームのメンバーによって開発されたオープン ソース プロジェクトです。 
 
-
 [![AJAX Control Toolkit のダウンロード](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
 
 **図 01**:AJAX Control Toolkit のダウンロード ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image2.png))。
 
-
 ファイルをダウンロードした後、ファイルのブロックを解除する必要があります。 ファイルを右クリックし、プロパティを選択してをクリックして、**ブロック解除**(図 2 参照) ボタンをクリックします。
-
 
 [![AJAX Control Toolkit の ZIP ファイルをブロック解除](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
 
 **図 02**:AJAX Control Toolkit の ZIP ファイルをブロック解除 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image4.png))。
-
 
 ファイルのブロックを解除すると後、は、ファイルを解凍することができます。ファイルを右クリックして、**すべて展開**メニュー オプション。 ここで、Visual Studio または Visual Web Developer ツールボックスにこのツールキットを追加する準備が整いました。
 
@@ -48,11 +43,9 @@ AJAX Control Toolkit には、30 を超える無料コントロール、ASP.NET 
 
 AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio または Visual Web Developer ツールボックスにこのツールキットを追加する、(図 3 を参照してください)。 そうすることだけドラッグできます toolkit のコントロールをページにそれを使用する場合。
 
-
 [![AJAX Control Toolkit がツールボックスに表示されます。](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
 
 **図 03**:AJAX Control Toolkit がツールボックスに表示されます ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image6.png))。
-
 
 最初に、AJAX Control Toolkit の タブをツールボックスに追加する必要があります。 これらの手順に従います。
 
@@ -60,22 +53,18 @@ AJAX Control Toolkit を使用する最も簡単な方法は、Visual Studio ま
 2. [全般] タブの下にあるツールボックスを右クリックし、メニュー オプションを選択**タブの追加**(図 4 参照)。
 3. AJAX Control Toolkit という名前の新しいタブを入力します。
 
-
 [![新しいタブを追加します。](get-started-with-the-ajax-control-toolkit-cs/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image7.png)
 
 **図 04**:新しいタブの追加 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image8.png))。
-
 
 次に、新しいタブに、AJAX Control Toolkit コントロールを追加する必要があります。この場合は、以下の手順に従ってください。
 
 - AJAX Control Toolkit] タブの下を右クリックし、メニュー オプションを選択 **[アイテムの選択 (図 5 参照)** します。
 - AJAX Control Toolkit を解凍するを AjaxControlToolkit.dll アセンブリを選択する場所に移動します。
 
-
 [![ツールボックスに追加する項目を選択します。](get-started-with-the-ajax-control-toolkit-cs/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image9.png)
 
 **図 05**:ツールボックスに追加する項目を選択 ([フルサイズの画像を表示する をクリックします](get-started-with-the-ajax-control-toolkit-cs/_static/image10.png))。
-
 
 次の手順を完了するは、ツールボックスに toolkit のコントロールのすべて表示されます。
 

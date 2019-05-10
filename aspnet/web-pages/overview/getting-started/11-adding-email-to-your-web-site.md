@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 0263f736b96f8e8572536f3783d86c261d7c0512
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 23e9717329525fb5a0ed505c9dc94505d4f9dbbe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411229"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130545"
 ---
 # <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトから電子メールを送信します。
 
@@ -39,7 +39,6 @@ ms.locfileid: "59411229"
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
-
 <a id="Sending_Email_Messages"></a>
 ## <a name="sending-email-messages-from-your-website"></a>Web サイトから電子メール メッセージの送信
 
@@ -57,7 +56,6 @@ ms.locfileid: "59411229"
 
 > [!NOTE]
 > この例を簡潔にするに、コードを初期化します、`WebMail`ヘルパーの右側で使用するページ。 ただし、実際の web サイトであるグローバル ファイルの場合は、このような初期化コードを配置することをお勧めを初期化する、 `WebMail` web サイトのすべてのファイルのヘルパー。 詳細については、次を参照してください。[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers)します。
-
 
 1. 新しい web サイトを作成します。
 2. という名前の新しいページを追加*EmailRequest.cshtml*し、次のマークアップを追加します。 
@@ -133,7 +131,6 @@ ms.locfileid: "59411229"
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
-
 
 - [ASP.NET Web ページ (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)
 - [簡易メール転送プロトコル](https://msdn.microsoft.com/library/aa480435.aspx)

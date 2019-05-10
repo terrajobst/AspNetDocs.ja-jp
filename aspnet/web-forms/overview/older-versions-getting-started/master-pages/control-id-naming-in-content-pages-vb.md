@@ -8,12 +8,12 @@ ms.date: 06/10/2008
 ms.assetid: dbb024a6-f043-4fc5-ad66-56556711875b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dd60d02c2c3840edd4c0e1244623fcea0cb2db0b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 27ceb8b30aaad2ad0ed7af5cd852af4acf599c31
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386321"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131688"
 ---
 # <a name="control-id-naming-in-content-pages-vb"></a>コンテンツ ページのコントロール ID の名前付け (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59386321"
 [コードのダウンロード](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_VB.pdf)
 
 > ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindControl) を使用して困難なコントロールのプログラムで操作を行うためには示しています。 この問題と回避策を見ます。 結果の ClientID 値をプログラムでアクセスする方法についても説明します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -33,7 +32,6 @@ ms.locfileid: "59386321"
 > [!NOTE]
 > [ `INamingContainer`インターフェイス](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx)を特定の ASP.NET サーバー コントロールが、名前付けコンテナーとして機能する必要があることを示すために使用します。 `INamingContainer`インターフェイス サーバー コントロールを実装する必要がありますすべてのメソッドを詳しく規定は、代わりに、マーカーとして使用されます。 表示されるマークアップを生成するには、コントロールは、このインターフェイスを実装している場合、ASP.NET エンジン自動的にプレフィックスの`ID`子属性の値が表示される`id`属性の値。 このプロセスは手順 2. でさらに詳しく説明します。
 
-
 名前付けコンテナーはだけでなく、レンダリングされた変更`id`属性、値がどのコントロール参照できるはプログラムで、ASP.NET ページの分離コード クラスからにも影響します。 `FindControl("controlID")`メソッドは、通常、Web コントロールをプログラムで参照を使用します。 ただし、`FindControl`名前付けコンテナーを通じて侵入はありません。 そのため、直接使用できません、 `Page.FindControl` GridView またはその他の名前付けコンテナー内のコントロールを参照するメソッド。
 
 する surmised 可能性がありますが、マスター ページと ContentPlaceHolders 両方として実装されます名前付けコンテナー。 このチュートリアルではマスター ページに HTML 要素を調べる`id`値とを使用して、コンテンツ ページ内の Web コントロールをプログラムで参照する方法に`FindControl`します。
@@ -42,34 +40,27 @@ ms.locfileid: "59386321"
 
 このチュートリアルで説明する概念を示すためには、当社の web サイトに新しい ASP.NET ページを追加してみましょう。 という名前の新しいコンテンツ ページを作成する`IDIssues.aspx`ルート フォルダーにバインドすることを`Site.master`マスター ページ。
 
-
 ![コンテンツ ページ IDIssues.aspx をルート フォルダーに追加します。](control-id-naming-in-content-pages-vb/_static/image1.png)
 
 **図 01**:コンテンツ ページの追加`IDIssues.aspx`ルート フォルダーに
 
-
 Visual Studio には、マスター ページの 4 つの ContentPlaceHolders の各コンテンツ コントロールを自動的に作成されます。 説明したとおり、 [*の複数の ContentPlaceHolders と既定のコンテンツ*](multiple-contentplaceholders-and-default-content-vb.md)チュートリアルでは、コンテンツ コントロールが存在しない場合、マスター ページの既定のプレース ホルダーのコンテンツが代わりに生成されます。 `QuickLoginUI`と`LeftColumnContent`ContentPlaceHolders このページの適切な既定のマークアップを含めることが進み、それに対応する削除からのコンテンツ コントロール`IDIssues.aspx`します。 この時点では、コンテンツ ページの宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](control-id-naming-in-content-pages-vb/samples/sample1.aspx)]
 
 [*マスター ページのタイトル、メタ タグ、およびその他の HTML ヘッダーを指定する*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)ベース ページのカスタム クラスを作成したチュートリアル (`BasePage`) である場合に自動的にページのタイトルを構成します。明示的に設定します。 `IDIssues.aspx`この機能を使用する ページで、ページの分離コード クラスがから派生する必要があります、`BasePage`クラス (の代わりに`System.Web.UI.Page`)。 次のように見えるように、分離コード クラスの定義を変更します。
 
-
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample2.vb)]
 
 最後に、更新、`Web.sitemap`このレッスンで新しいエントリを追加するファイル。 追加、`<siteMapNode>`要素その`title`と`url`属性を「コントロール ID 名前付けの問題」と`~/IDIssues.aspx`、それぞれします。 この追加を行った後、`Web.sitemap`ファイルのマークアップは、次のようになります。
-
 
 [!code-xml[Main](control-id-naming-in-content-pages-vb/samples/sample3.xml)]
 
 図 2 に示すように、新しいサイト マップ エントリ`Web.sitemap`レッスン」の左側の列にすぐに反映されます。
 
-
 ![レッスン セクションがへのリンクが含まれています&quot;ID の名前付けの問題を制御します。&quot;](control-id-naming-in-content-pages-vb/_static/image2.png)
 
 **図 02**:レッスン セクションが「コントロール ID の名前付けの問題」へのリンクが含まれています
-
 
 ## <a name="step-2-examining-the-renderedidchanges"></a>手順 2: 確認、レンダリングされた`ID`の変更
 
@@ -77,19 +68,15 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 
 この時点で、コンテンツ コントロールの宣言型マークアップは、次のようになります。
 
-
 [!code-aspx[Main](control-id-naming-in-content-pages-vb/samples/sample4.aspx)]
 
 図 3 は、Visual Studio のデザイナーを使用して表示する際、ページを示します。
-
 
 [![このページには、次の 3 つの Web コントロールが含まれます。、テキスト ボックス、ボタン、およびラベル](control-id-naming-in-content-pages-vb/_static/image4.png)](control-id-naming-in-content-pages-vb/_static/image3.png)
 
 **図 03**:ページが含まれます次の 3 つ Web コントロール: テキスト ボックス、ボタン、およびラベル ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image5.png))。
 
-
 ブラウザーを使用してページを参照してくださいし、HTML ソースを表示します。 下の例では、マークアップとして、`id`テキスト ボックス、ボタン、およびラベルの Web コントロールの HTML 要素の値は、の組み合わせ、 `ID` Web コントロールの値と`ID`ページ内の名前付けコンテナーの値。
-
 
 [!code-html[Main](control-id-naming-in-content-pages-vb/samples/sample5.html)]
 
@@ -97,18 +84,14 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 
 図 4 は、この動作を示します。 表示を決定する`id`の`Age` ボックスに、開始、 `ID` 、TextBox コントロールの値`Age`します。 次に、動作、コントロールの階層構造です。 各名前付けコンテナー (ピーチ色でそれらのノード) に表示される現在のプレフィックス`id`名前付けコンテナーの`id`します。
 
-
 ![レンダリングされた id 属性は、ベースで、ID 値の名前付けコンテナー](control-id-naming-in-content-pages-vb/_static/image6.png)
 
 **図 04**:レンダリングされた`id`属性は、基に、`ID`名前付けコンテナーの値
 
-
 > [!NOTE]
 > 前述のように、 `ctl00` 、レンダリングされたの部分`id`属性を構成、`ID`がマスター ページで、値が疑問この`ID`値が付属しています。 指定しなかった、任意の場所で、コンテンツまたはマスター ページ。 ほとんどのサーバー コントロール、ASP.NET ページには、ページの宣言型マークアップを明示的に追加されます。 `MainContent`のマークアップで指定されたプレース ホルダー コントロール`Site.master`、 `Age` TextBox が定義されている`IDIssues.aspx`のマークアップ。 指定すること、`ID`コントロールのプロパティ ウィンドウから、または宣言型構文からのこれらの型の値。 自体は、マスター ページと同様に、他のコントロールは、宣言型マークアップで定義されていません。 その結果、その`ID`私たちにとって、値を自動的に生成する必要があります。 ASP.NET のエンジン セット、`ID`時に、それらのコントロール Id を持つが明示的に設定されていない値。 名前付けパターンを使用して`ctlXX`ここで、 *XX*は連の整数値です。
 
-
 マスター ページ自体名前付けコンテナーとして機能のため、マスター ページで定義されている Web コントロールも変更されてレンダリングされた`id`属性の値。 たとえば、`DisplayDate`ラベルでマスター ページに追加しました、 [*マスター ページで、サイト全体レイアウトを作成する*](creating-a-site-wide-layout-using-master-pages-vb.md)チュートリアルでは、次のマークアップを表示。
-
 
 [!code-html[Main](control-id-naming-in-content-pages-vb/samples/sample6.html)]
 
@@ -125,18 +108,15 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 > [!NOTE]
 > 使用する必要はありませんもちろん、`FindControl`この例のラベルとテキスト ボックス コントロールを参照します。 直接使用して参照でした、`ID`プロパティの値。 使用して`FindControl`を使用する場合の動作を説明するためにここ`FindControl`コンテンツ ページから。
 
-
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample7.vb)]
 
 呼び出しに使用する構文、`FindControl`の最初の 2 つの行にメソッドが若干`SubmitButton_Click`と同じ意味ですが。 すべての ASP.NET サーバー コントロールを含めることを思い出してください、`FindControl`メソッド。 これが含まれています、`Page`クラス、すべて ASP.NET からは分離コード クラスから派生する必要があります。 そのため、`FindControl("controlID")`呼び出しと同じですが`Page.FindControl("controlID")`、オーバーライドするいないと仮定すると、`FindControl`分離コード クラスまたはカスタム基底クラス メソッド。
 
 このコードを入力した後、次を参照してください。、`IDIssues.aspx`ブラウザーからページで、お客様の年齢を入力し、[送信] ボタンをクリックします。 [送信] ボタンをクリックすると、`NullReferenceException`が発生します (図 5 を参照してください)。
 
-
 [![NullReferenceException が発生します](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)
 
 **図 05**:A`NullReferenceException`が発生します ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image9.png))。
-
 
 ブレークポイントを設定した場合、`SubmitButton_Click`イベント ハンドラーの両方を呼び出すことがわかります`FindControl`返す`Nothing`します。 `NullReferenceException`にアクセスするときに発生、`Age`テキスト ボックスの`Text`プロパティ。
 
@@ -148,11 +128,9 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 
 使用する`FindControl`参照に、`Results`ラベルまたは`Age` ボックスを呼び出す必要があります`FindControl`同じ名前付けコンテナー内の先祖コントロールから。 図 4 が示すように、`MainContent`プレース ホルダー コントロールは、唯一の先祖の`Results`または`Age`同じ名前付けコンテナー内にあります。 つまり、呼び出し、`FindControl`からメソッド、`MainContent`コントロールを次のコード スニペットで示すように正しく返すへの参照、`Results`または`Age`コントロール。
 
-
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample8.vb)]
 
 ただしで動作したことはできません、`MainContent`マスター ページで、プレース ホルダーが定義されているために、上記の構文を使用して、コンテンツ ページの分離コード クラスから得ることです。 使用する代わりに、私たちが`FindControl`への参照を取得する`MainContent`します。 コードに置き換えます、`SubmitButton_Click`イベント ハンドラーで、次の変更。
-
 
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample9.vb)]
 
@@ -160,23 +138,19 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 
 使用する前に`FindControl`への参照を取得する`MainContent`、マスター ページのコントロールへの参照をまず必要があります。 マスター ページへの参照を取得したらへの参照を取得できます、`MainContent`プレース ホルダーを使用して`FindControl`、そこを参照して、`Results`ラベルと`Age`TextBox (を使用して、もう一度、 `FindControl`)。 しかし、マスター ページへの参照を取得する方法をでしょうか。 調べることによって、`id`出力されるマークアップ内の属性は明らかですが、マスター ページの`ID`値は`ctl00`。 したがって、使用してでした`Page.FindControl("ctl00")`マスター ページへの参照を取得するへの参照を取得し、そのオブジェクトを使用`MainContent`など。 次のスニペットは、このロジックを示しています。
 
-
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample10.vb)]
 
 これでこのコードが確実に機能しますが、マスター ページの自動生成された`ID`は常に`ctl00`します。 ありません、自動生成された値を推測することをお勧めします。
 
 さいわい、マスター ページへの参照はからアクセスできる、`Page`クラスの`Master`プロパティ。 使用することではなく、そのため、`FindControl("ctl00")`にアクセスするためにマスター ページの参照を取得する、 `MainContent` ContentPlaceHolder、代わりに使用できる`Page.Master.FindControl("MainContent")`します。 更新プログラム、`SubmitButton_Click`イベント ハンドラーを次のコード。
 
-
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample11.vb)]
 
 今回は、ブラウザーでページにアクセスして、お客様の年齢を入力し、[送信] ボタンをクリックしてメッセージを表示、`Results`ラベル、期待どおりにします。
 
-
 [![ユーザーの年齢がラベルに表示されます。](control-id-naming-in-content-pages-vb/_static/image11.png)](control-id-naming-in-content-pages-vb/_static/image10.png)
 
 **図 06**:ユーザーの年齢がラベルに表示されます ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image12.png))。
-
 
 ### <a name="recursively-searching-through-naming-containers"></a>再帰的に名前付けコンテナーを検索
 
@@ -189,35 +163,28 @@ Visual Studio には、マスター ページの 4 つの ContentPlaceHolders �
 > [!NOTE]
 > 拡張メソッドは、c# 3.0 および Visual Basic 9 では、.NET Framework version 3.5 および Visual Studio 2008 に付属している言語に新しい機能です。 つまり、開発者が、特別な構文を使用、既存のクラス型の新しいメソッドを作成するための拡張機能メソッドを使用します。 この便利な機能の詳細については、筆者の記事を参照してください[拡張メソッドで基本型機能を拡張する](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)します。
 
-
 拡張メソッドを作成するには、新しいファイルを追加、`App_Code`という名前のフォルダー`PageExtensionMethods.vb`します。 という名前の拡張メソッドを追加`FindControlRecursive`の入力として受け取る、`String`という名前のパラメーター`controlID`します。 適切に機能する拡張メソッドとクラスをマークすることが重要な`Module`拡張メソッドが付いていると、`<Extension()>`属性。 さらに、拡張メソッドをすべて受け入れる必要があります最初のパラメーターとして、型のオブジェクトに拡張メソッドが適用されます。
 
 次のコードを追加、`PageExtensionMethods.vb`これを定義するファイル`Module`、`FindControlRecursive`拡張メソッド。
-
 
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample12.vb)]
 
 このコードに戻ります、`IDIssues.aspx`ページの分離コード クラスと現在のコメント`FindControl`メソッドの呼び出し。 呼び出しに置き換える`Page.FindControlRecursive("controlID")`します。 拡張メソッドの優れている点は、IntelliSense のドロップダウン リスト内で直接表示します。 図 7 に示す、入力すると`Page`期間を押すと、`FindControlRecursive`メソッドは、IntelliSense と共に他のドロップダウン リストに含まれている`Control`クラス メソッド。
 
-
 [![拡張メソッドは IntelliSense ドロップダウン リストに含まれる](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
 
 **図 07**:拡張メソッドは IntelliSense ドロップダウン リストに含まれる ([フルサイズの画像を表示する をクリックします](control-id-naming-in-content-pages-vb/_static/image15.png))。
 
-
 次のコードを入力します、`SubmitButton_Click`イベント ハンドラーをページにアクセスして、お客様の年齢を入力し、[送信] ボタンをクリックしをテストします。 図 6 に戻るように、結果の出力は、メッセージ、「歳の年齢は」!
-
 
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample13.vb)]
 
 > [!NOTE]
 > 拡張メソッドは、Visual Studio 2005 を使用している場合に、c# 3.0 および Visual Basic 9 では、新しいため、拡張メソッドを使用することはできません。 代わりに、実装する必要があります、`FindControlRecursive`ヘルパー クラスのメソッド。 [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx)で彼のブログ記事では、このような例が用意されて[メーザの ASP.NET ページと`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)します。
 
-
 ## <a name="step-4-using-the-correctidattribute-value-in-client-side-script"></a>手順 4: 適切なを使用して`id`属性の値でクライアント側スクリプト
 
 Web コントロールのレンダリングでこのチュートリアルの概要を記載の通り`id`属性が特定の HTML 要素をプログラムで参照するクライアント側スクリプトで使用多くの場合。 次の JavaScript で HTML 要素を参照する場合など、`id`し、その値をモーダル メッセージ ボックスに表示します。
-
 
 [!code-csharp[Main](control-id-naming-in-content-pages-vb/samples/sample14.cs)]
 
@@ -227,11 +194,9 @@ ASP.NET ページには、名前付けコンテナー、レンダリングされ
 
 良い知らせは、`id`表示される属性値は、Web コントロールのサーバー側コードでアクセス可能な[`ClientID`プロパティ](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx)します。 このプロパティを使用して確認する必要があります、`id`クライアント側スクリプトで使用される値の属性します。 たとえば、ページに JavaScript 関数を追加するため、呼び出されるの値を表示、 `Age` 、モーダル メッセージ ボックスにテキスト ボックスに次のコードを追加する、`Page_Load`イベント ハンドラー。
 
-
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample15.vb)]
 
 上記のコードの値を挿入する、`Age`テキスト ボックスの`ClientID`プロパティへの JavaScript 呼び出しに`getElementById`します。 ブラウザーからこのページを参照してください、HTML ソースを表示すると、次の JavaScript コードがあります。
-
 
 [!code-html[Main](control-id-naming-in-content-pages-vb/samples/sample16.html)]
 
@@ -239,7 +204,6 @@ ASP.NET ページには、名前付けコンテナー、レンダリングされ
 
 > [!NOTE]
 > この JavaScript の例は、単なるサーバー コントロールによって表示される HTML 要素を正しく参照する JavaScript 関数を追加する方法を示します。 この関数を使用するには、ドキュメントが読み込まれるとき、または特定のユーザーの操作には、関数を呼び出す追加の JavaScript を作成する必要があります。 これらの詳細についてはおよび関連するトピックを読む[クライアント側スクリプトの操作](https://msdn.microsoft.com/library/aa479302.aspx)します。
-
 
 ## <a name="summary"></a>まとめ
 

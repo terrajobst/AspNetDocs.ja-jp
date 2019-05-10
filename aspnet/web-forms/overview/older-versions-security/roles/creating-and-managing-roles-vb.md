@@ -8,12 +8,12 @@ ms.date: 03/24/2008
 ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ef00ae5ddac44f17aed040db7df04a5c0f896caf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c6c18e78701ba6a62bf07cc1bc18e4f9e8d2cb3f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386334"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130994"
 ---
 # <a name="creating-and-managing-roles-vb"></a>ロールを作成し、管理する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59386334"
 [コードのダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.09.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_vb.pdf)
 
 > このチュートリアルでは、ロールのフレームワークを構成するために必要な手順について説明します。 次は、web ページを作成および削除するロールを作成します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -47,11 +46,9 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 
 この時点で、プロジェクトのソリューション エクスプ ローラーのスクリーン ショット、図 1 に示すようなはずです。
 
-
 [![[ロール] フォルダーに 4 つの新しいページが追加されました](creating-and-managing-roles-vb/_static/image2.png)](creating-and-managing-roles-vb/_static/image1.png)
 
 **図 1**:次の 4 つ新しいページに追加されている、`Roles`フォルダー ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image3.png))。
-
 
 各ページが 2 つのコンテンツ コントロールは、マスター ページの ContentPlaceHolders ごとに 1 つがある必要があります、この時点では、:`MainContent`と`LoginContent`します。
 
@@ -67,11 +64,9 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 
 更新サイト マップでは、ブラウザーを使用してサイトを参照してください。 図 2 に示す、左側のナビゲーションには、ロール チュートリアルについては、アイテムが含まれます。
 
-
 [![[ロール] フォルダーに 4 つの新しいページが追加されました](creating-and-managing-roles-vb/_static/image5.png)](creating-and-managing-roles-vb/_static/image4.png)
 
 **図 2**:次の 4 つ新しいページに追加されている、`Roles`フォルダー ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image6.png))。
-
 
 ## <a name="step-2-specifying-and-configuring-the-roles-framework-provider"></a>手順 2: 指定して、ロール Framework プロバイダーの構成
 
@@ -107,7 +102,6 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 > [!NOTE]
 > 使用して、上記の構成マークアップを示しています、`<roleManager>`要素の`enabled`と`defaultProvider`属性。 ロールのフレームワークがユーザー単位のユーザーごとにロール情報を関連付ける方法に影響するその他の属性を数多くあります。 これらの設定では説明、 <a id="_msoanchor_8"> </a> [*ロールベースの承認*](role-based-authorization-vb.md)チュートリアル。
 
-
 ## <a name="step-3-examining-the-roles-api"></a>手順 3: ロール API を調べる
 
 使用して、ロールのフレームワークの機能が公開されている、 [ `Roles`クラス](https://msdn.microsoft.com/library/system.web.security.roles.aspx)、ロール ベースの操作を実行するための 13 個の共有メソッドが含まれています。 作成して、手順 4 でのロールを削除するのに注目し、6 を使用、 [ `CreateRole` ](https://msdn.microsoft.com/library/system.web.security.roles.createrole.aspx)と[ `DeleteRole` ](https://msdn.microsoft.com/library/system.web.security.roles.deleterole.aspx)メソッドを追加またはロールをシステムから削除します。
@@ -121,7 +115,6 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 > [!NOTE]
 > これらのメソッドのいずれかが呼び出されることに留意してください、`Roles`クラスが構成済みのプロバイダーへの呼び出しを代行させます。 ここでは、つまり、呼び出しに送信されている、`SqlRoleProvider`します。 `SqlRoleProvider`呼び出されたメソッドに基づいて、適切なデータベース操作を実行します。 たとえば、コード`Roles.CreateRole("Administrators")`結果、`SqlRoleProvider`を実行する、`aspnet_Roles_CreateRole`ストアド プロシージャに新しいレコードを挿入する、`aspnet_Roles`管理者という名前のテーブル。
 
-
 このチュートリアルの残りの部分を使用して調べ、`Roles`クラスの`CreateRole`、 `GetAllRoles`、および`DeleteRole`システムの役割を管理する方法。
 
 ## <a name="step-4-creating-new-roles"></a>手順 4: 新しいロールの作成
@@ -130,7 +123,6 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 
 > [!NOTE]
 > CreateRoleWizard Web コントロールはありませんが、中には、 [ASP.NET Web サイト管理ツール](https://msdn.microsoft.com/library/ms228053.aspx)、これは、ローカルの ASP.NET アプリケーションを表示して、web アプリケーションの構成の管理を支援するように設計します。 ただし、私しない ASP.NET Web サイトの管理ツールの 2 つの理由の大ファンです。 まず、少しバグが、ユーザー エクスペリエンスが望ましい場合に多くのまま。 次に、ASP.NET Web サイトの管理ツールは設計されています、ローカルでのみ動作するライブ サイトの役割をリモートで管理する必要がある場合、独自のロールの管理 web ページを構築する必要があります。 これら 2 つの理由から、このチュートリアルと次の重点的に ASP.NET Web サイトの管理ツールに依存するのではなく、必要なロール、web ページで、管理ツールを構築します。
-
 
 開く、`ManageRoles.aspx`ページで、`Roles`フォルダーと、ページに、テキスト ボックスとボタンの Web コントロールを追加します。 TextBox コントロールの設定`ID`プロパティを`RoleName`とボタンの`ID`と`Text`プロパティ`CreateRoleButton`とロールの作成、それぞれします。 この時点では、ページの宣言型マークアップは、次のようになります。
 
@@ -145,22 +137,17 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 > [!NOTE]
 > 疑問が起こる、ユーザーに任意の値を入力しない場合、`RoleName`テキスト ボックス。 値が渡された場合、`CreateRole`メソッドは`Nothing`または空の文字列、例外が発生しました。 同様に、ロール名にコンマが含まれている場合は、例外が発生します。 その結果、ページには、ユーザーが役割を移行して、コンマが含まれていないことを確認する検証コントロールを含める必要があります。 私を演習としては、リーダーのままにします。
 
-
 Administrators というロールを作成してみましょう。 参照してください、`ManageRoles.aspx`ブラウザーでページで、管理者、テキスト ボックスに入力 (図 3 参照)、ロールの作成 ボタンを順にクリックします。
-
 
 [![管理者ロールを作成します。](creating-and-managing-roles-vb/_static/image8.png)](creating-and-managing-roles-vb/_static/image7.png)
 
 **図 3**:管理者ロールを作成 ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image9.png))。
 
-
 何がどうなりますか。 ポストバックが発生したが、実際には、ロールが視覚的な合図がありませんがシステムに追加します。 手順 5 を視覚的なフィードバックを含めるには、このページを更新します。 ここでは、ただし、ことを確認に移動して、ロールが作成されたこと、`SecurityTutorials.mdf`データベースとデータを表示する、`aspnet_Roles`テーブル。 図 4 に示すよう、`aspnet_Roles`テーブルに追加したばかりの管理者ロールのレコードが含まれています。
-
 
 [![Aspnet_Roles テーブルでは、行を持つ管理者は、](creating-and-managing-roles-vb/_static/image11.png)](creating-and-managing-roles-vb/_static/image10.png)
 
 **図 4**:`aspnet_Roles`テーブルでは、行を持つ管理者は、([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image12.png))。
-
 
 ## <a name="step-5-displaying-the-roles-in-the-system"></a>手順 5: システムの役割を表示します。
 
@@ -174,11 +161,9 @@ Administrators というロールを作成してみましょう。 参照して�
 
 このコードでは、ブラウザーを使用してページを参照してください。 図 5 に示す項目というラベルの付いた 1 つの列のグリッドが表示されます。 グリッドには、手順 4 で追加された管理者ロールに 1 行が含まれています。
 
-
 [![GridView には、1 つの列で、役割が表示されます。](creating-and-managing-roles-vb/_static/image14.png)](creating-and-managing-roles-vb/_static/image13.png)
 
 **図 5**:GridView には、1 つの列で、役割が表示されます ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image15.png))。
-
 
 GridView のため、項目というラベルの付いた唯一の列を表示する GridView の`AutoGenerateColumns`プロパティ内の各プロパティの列を自動的に作成する GridView が True (既定値) に設定されてその`DataSource`します。 配列には、GridView では、1 つの列のため、配列内の要素を表す 1 つのプロパティがあります。
 
@@ -195,18 +180,15 @@ GridView の設定で開始`AutoGenerateColumns`プロパティを False にし�
 > [!NOTE]
 > データ バインディング構文を使用して、配列の内容が表示される`<%# Container.DataItem %>`します。 配列の内容を表示する GridView にバインドされている場合にこの構文を使用する理由の詳細な説明では、このチュートリアルの範囲外です。 この問題の詳細についてを参照してください[データ Web コントロールにスカラーの配列をバインド](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx)します。
 
-
 現時点では、`RoleList`ページが初めてアクセスしたときに、GridView がロールの一覧にバインドされているだけです。 新しいロールが追加されるたびに、グリッドを更新する必要があります。 これを行うには、更新、`CreateRoleButton`ボタンの`Click`イベント ハンドラーを呼び出すため、`DisplayRolesInGrid`メソッドの場合は、新しいロールを作成します。
 
 [!code-vb[Main](creating-and-managing-roles-vb/samples/sample11.vb)]
 
 ユーザーが新しいロールを追加するときに今すぐ、`RoleList`視覚的なフィードバック、ロールが正常に作成されたことを提供する GridView、ポストバックのだけで追加したロールを示しています。 これを示すためには、次を参照してください。、`ManageRoles.aspx`ブラウザーでページと、監督者をという名前のロールを追加します。 ロールの作成 ボタンをクリックすると、ポストバックが発生したりして、グリッドが更新され、管理者として、新しいロール、監督者などがあります。
 
-
 [![スーパーバイザー ロールが追加されました](creating-and-managing-roles-vb/_static/image17.png)](creating-and-managing-roles-vb/_static/image16.png)
 
 **図 6**:スーパーバイザー ロールが追加されました ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image18.png))。
-
 
 ## <a name="step-6-deleting-roles"></a>手順 6: ロールを削除します。
 
@@ -219,11 +201,9 @@ GridView の設定で開始`AutoGenerateColumns`プロパティを False にし�
 
 GridView を拡張してみましょう`ManageRoles.aspx`に Delete ボタンであり、クリックすると、選択したロールを削除します。 最初、フィールド ダイアログ ボックスに移動し、commandfield オプションの下にある削除 ボタンを追加して GridView に Delete ボタンを追加します。 列の左端のボタンをクリックし、設定の削除を行うその`DeleteText`ロールを削除するプロパティ。
 
-
 [![RoleList GridView に Delete ボタンを追加します。](creating-and-managing-roles-vb/_static/image20.png)](creating-and-managing-roles-vb/_static/image19.png)
 
 **図 7**:削除ボタンを追加して、 `RoleList` GridView ([フルサイズの画像を表示する をクリックします](creating-and-managing-roles-vb/_static/image21.png))。
-
 
 削除ボタンを追加すると、GridView の宣言型マークアップを次のようになります。
 
@@ -237,7 +217,6 @@ GridView のイベント ハンドラーを次に、作成`RowDeleting`イベン
 
 > [!NOTE]
 > ロールの削除 ボタンでは、あらゆる種類のロールを削除する前に、ユーザーから送信される確認は必要ありません。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、次を参照してください。[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-vb.aspx)します。
-
 
 ## <a name="summary"></a>まとめ
 

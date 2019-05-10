@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: fd0914ed62a280fea290b9f1b150fc25c8ed6d40
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a15f5bf5f659d151e91ef9e53c5ad55bcd8e2b01
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130405"
 ---
 # <a name="deploying-database-role-memberships-to-test-environments"></a>テスト環境にデータベース ロール メンバーシップを配置する
 
@@ -32,7 +32,6 @@ ms.locfileid: "59385333"
 > このシナリオで自動的にデータベース ユーザーを作成し、展開プロセスの一部としてデータベース ロールのメンバーシップを割り当てると便利です。
 > 
 > 重要な要素は、この操作する必要がある条件付きの場合、ターゲット環境に基づくです。 操作をスキップする場合は、ステージングまたは運用環境にデプロイします。 操作を行うロールのメンバーシップを展開する場合は、開発者にデプロイする場合、またはテスト環境は、します。 このトピックでは、この課題に対処する 1 つの方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -79,13 +78,10 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 理想的には、データベース プロジェクトを展開するときに、配置後スクリプトの一部として必要な TRANSACT-SQL スクリプトを実行するとします。 ただし、配置後スクリプトでは、ソリューション構成またはビルド プロパティに基づく条件付きロジックを実行することはありません。 MSBuild プロジェクト ファイルから直接作成して、SQL スクリプトを実行する方法が、**ターゲット**sqlcmd.exe コマンドを実行する要素。 このコマンドを使用して、対象のデータベースでスクリプトを実行することができます。
 
-
 [!code-console[Main](deploying-database-role-memberships-to-test-environments/samples/sample2.cmd)]
-
 
 > [!NOTE]
 > Sqlcmd コマンド ライン オプションの詳細については、次を参照してください。 [sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)します。
-
 
 このコマンドを埋め込むには、MSBuild ターゲットで、前に、スクリプトを実行するどのような条件を考慮する必要があります。
 
@@ -100,15 +96,11 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 環境固有のプロジェクト ファイルでは、データベース サーバー名、ターゲット データベース名、およびユーザー ロールのメンバーシップをデプロイするかどうかを指定するブール型プロパティを定義する必要があります。
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample3.xml)]
-
 
 ユニバーサル プロジェクト ファイルでは、sqlcmd 実行可能ファイルの場所とを実行する SQL スクリプトの場所を指定する必要があります。 これらのプロパティは、移行先の環境に関係なく同じになります。 Sqlcmd コマンドを実行する MSBuild ターゲットを作成する必要があります。
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample4.xml)]
-
 
 その他のターゲットに役立つことが考えられます sqlcmd 実行可能ファイルの場所は、静的なプロパティとして追加することに注意してください。 これに対し、として定義する SQL スクリプトの場所と sqlcmd コマンドの構文、ターゲット内の動的プロパティに属していない場合は必要なターゲットが実行される前にします。 ここで、 **DeployTestDBPermissions**ターゲットは、これらの条件が満たされた場合にのみ実行されます。
 
@@ -117,9 +109,7 @@ Transact SQL スクリプトを作成するには、多くのさまざまな方�
 
 最後に、忘れずに、ターゲットを起動します。 *Publish.proj*ファイル、これを行う既定の依存関係の一覧にターゲットを追加して**FullPublish**ターゲット。 いることを確認する必要がある、 **DeployTestDBPermissions**までターゲットは実行されません、 **PublishDbPackages**ターゲットが実行されています。
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample5.xml)]
-
 
 ## <a name="conclusion"></a>まとめ
 

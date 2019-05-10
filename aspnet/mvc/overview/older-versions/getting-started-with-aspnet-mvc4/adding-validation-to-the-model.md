@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 266d2e3fda54a9e584622ccd595e41229c96e6b0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 25037d2994354c92f9fe831c948393df32e120a1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420745"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129919"
 ---
 # <a name="adding-validation-to-the-model"></a>モデルに検証を追加する
 
@@ -21,7 +21,6 @@ ms.locfileid: "59420745"
 
 > > [!NOTE]
 > > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全ではるかに簡単に従うしより多くの機能を示します。
-
 
 このセクションでは検証ロジックを追加します、`Movie`モデル ユーザーが作成またはアプリケーションを使用してムービーを編集するときに検証規則が適用されているを確認します。
 
@@ -79,7 +78,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 > [!NOTE]
 > コンマを使用するロケールを英語以外の jQuery の検証をサポートするために (&quot;、&quot;) と小数点を含める必要があります*globalize.js*と特定*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`します。 次のコードは操作する Views\Movies\Edit.cshtml ファイルへの変更、 &quot;FR-FR&quot;カルチャ。
-
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample6.cshtml)]
 

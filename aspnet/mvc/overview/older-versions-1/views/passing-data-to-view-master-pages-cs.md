@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: 5fee879b-8bde-42a9-a434-60ba6b1cf747
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 863fe772a1d79201b83da8498bf7e981acf7fd0e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 852492211ace3cd14593e4a61a8015d49d3a41db
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401076"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130172"
 ---
 # <a name="passing-data-to-view-master-pages-c"></a>ビュー マスター ページにデータを渡す (C#)
 
@@ -23,7 +23,6 @@ ms.locfileid: "59401076"
 
 > このチュートリアルの目的では、ビューのマスター ページのコント ローラーからデータを渡す方法について説明します。 ビュー マスター ページにデータを渡すための 2 つの方法を説明します。 最初に、保守が困難なアプリケーションで結果の簡単なソリューションについて説明します。 次に、少しより保守性の高いアプリケーションで結果が、多くの初期作業を必要とするより良いソリューションを確認します。
 
-
 ## <a name="passing-data-to-view-master-pages"></a>ビュー マスター ページにデータを渡す
 
 このチュートリアルの目的では、ビューのマスター ページのコント ローラーからデータを渡す方法について説明します。 ビュー マスター ページにデータを渡すための 2 つの方法を説明します。 最初に、保守が困難なアプリケーションで結果の簡単なソリューションについて説明します。 次に、少しより保守性の高いアプリケーションで結果が、多くの初期作業を必要とするより良いソリューションを確認します。
@@ -32,11 +31,9 @@ ms.locfileid: "59401076"
 
 映画データベース アプリケーションを作成して、アプリケーション内の各ページでムービーのカテゴリの一覧を表示することを想像してみてください (図 1 参照)。 さらに、ムービーのカテゴリの一覧がデータベース テーブルに格納されていることに想像してください。 その場合は、合理的をデータベースからカテゴリを取得し、ビュー マスター ページ内のムービーのカテゴリの一覧を表示します。
 
-
 [![ビュー マスター ページでムービーのカテゴリを表示します。](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
 
 **図 01**:ビュー マスター ページでムービーのカテゴリの表示 ([フルサイズの画像を表示する をクリックします](passing-data-to-view-master-pages-cs/_static/image3.png))。
-
 
 ここで問題があります。 マスター ページでムービーのカテゴリの一覧を取得する方法 マスター ページで、モデル クラスのメソッドを直接呼び出すたくなります。 つまり、することは避けて、マスター ページの右データベースからデータを取得するためのコードが含まれます。 ただし、データベースにアクセスする MVC コント ローラーをバイパスすると、MVC アプリケーションを構築するための主な利点の 1 つである懸念事項の明確な分離が違反していました。
 
@@ -58,11 +55,9 @@ Index() と Details() アクションの両方がデータを表示する 2 つ�
 
 Details() アクションには、カテゴリや映画をという名前の 2 つのキーも追加します。 カテゴリ キーは、もう一度、ビュー マスター ページで表示される映画カテゴリの一覧を表します。 映画キーは、詳細ビュー ページで表示される特定のカテゴリにムービーのリストを表します (図 2 参照)。
 
-
 [![詳細ビュー](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
 
 **図 02**:詳細ビュー ([フルサイズの画像を表示する をクリックします](passing-data-to-view-master-pages-cs/_static/image6.png))。
-
 
 インデックス ビューは、リスト 2 に含まれています。 データの表示で映画項目によって表されるムービーのリストが反復だけです。
 

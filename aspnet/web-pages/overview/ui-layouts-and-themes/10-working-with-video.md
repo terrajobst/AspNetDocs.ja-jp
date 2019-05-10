@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 204611513860e268001596b9c7ac9e9c023caa12
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 516d46f38ce8910209f4207c474b0404bf012950
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399854"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130949"
 ---
 # <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにビデオを表示します。
 
@@ -40,7 +40,6 @@ ms.locfileid: "59399854"
 >   
 > 
 > このチュートリアルは、WebMatrix 3 でも機能します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -88,7 +87,6 @@ ms.locfileid: "59399854"
 > [!NOTE]
 > Silverlight がまだわからない場合: *.xap*ファイルは、圧縮されたファイルのレイアウトの指示を含む、 *.xaml*ファイル、アセンブリ、および省略可能なリソースのマネージ コード。 作成することができます、 *.xap* Silverlight アプリケーション プロジェクトとして Visual Studio でのファイル。
 
-
 `Silverlight`ビデオ プレーヤーをプレーヤーに対して指定した設定とに用意されている設定の両方を使用して、 *.xap*ファイル。
 
 > [!TIP] 
@@ -101,7 +99,6 @@ ms.locfileid: "59399854"
 > - `application/x-shockwave-flash`
 > - `application/x-mplayer2`
 > - `application/x-silverlight-2`
-
 
 <a id="Playing_Flash"></a>
 ## <a name="playing-flash-swf-videos"></a>フラッシュ (.swf) のビデオの再生
@@ -179,7 +176,6 @@ MediaPlayer のビデオのオーディオ レベルを設定して制御する�
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
-
 
 [Silverlight の概要](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 

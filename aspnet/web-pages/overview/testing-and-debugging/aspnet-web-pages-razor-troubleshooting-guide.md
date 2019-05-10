@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fc03767c16f46c1e282d24ee3a7df2409a7c38bb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128570"
 ---
 # <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web ページ (Razor) トラブルシューティング ガイド
 
@@ -28,7 +28,6 @@ ms.locfileid: "59389207"
 >   
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 および ASP.NET Web Pages 1.0 により連携します。
-
 
 このトピックは、次のセクションで構成されています。
 
@@ -150,7 +149,6 @@ ASP.NET Web Pages (Razor) で、組み込みのセキュリティ (メンバー�
 
 > [!NOTE]
 > エラーが表示されるマークアップを削除 (`@errorMessage`) ページからライブ サイトに発行する前にします。 いないユーザーがサーバーから取得するエラー メッセージが表示できるようにすることをお勧めします。
-
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>その他のリソース

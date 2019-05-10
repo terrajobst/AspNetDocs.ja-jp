@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 7871dc05-2750-470f-8b4c-3a52511949bc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dc49d7467db01e62db147c7083ed62379d23940
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68f8bdeeb85bc66cf790c2005cf0f0ff24b3b653
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394160"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129769"
 ---
 # <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>ASP.NET MVC アプリケーション (6/10) で Entity Framework で関連データの更新
 
@@ -26,7 +26,6 @@ ms.locfileid: "59394160"
 > > [!NOTE] 
 > > 
 > > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 前のチュートリアルには、関連データが表示されます。このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは適切な外部キー フィールドを更新することで行うことができます。 多対多のリレーションシップで Entity Framework は結合テーブルを直接公開、ため、明示的に追加し、該当するナビゲーション プロパティからエンティティを削除する必要があります。
 
@@ -194,14 +193,12 @@ ms.locfileid: "59394160"
 一部のコース割り当てを変更し、クリックして**保存**します。 行った変更が Index ページに反映されます。
 
  メモ:インストラクター コース データを編集するには、コースの数に制限がある場合にも動作します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。  
- 
 
 ## <a name="update-the-delete-method"></a>Update、Delete メソッド
 
 インストラクターが削除されたときに (ある場合) は、office の割り当てのレコードが削除されるので、HttpPost Delete メソッドのコードを変更します。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs?highlight=6,10)]
-
 
 管理者として、学科に割り当てられている講師を削除しようとすると、参照整合性エラーが表示されます。 参照してください[このチュートリアルの現在のバージョン](../../getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)追加のコードを instructor を管理者として、インストラクターが割り当てられている任意の部門から自動的に削除されます。
 

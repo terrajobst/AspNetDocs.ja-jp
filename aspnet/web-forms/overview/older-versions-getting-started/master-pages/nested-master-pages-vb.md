@@ -8,12 +8,12 @@ ms.date: 07/28/2008
 ms.assetid: 14d9aa1b-4dca-43a0-aa9d-a6e891fee019
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8ba4bc5dc7ae2478413049ebb2943cbbe52e11e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 10cb11d75b278acc5dfbdf3d7560c3e268ad6e7d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396786"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132060"
 ---
 # <a name="nested-master-pages-vb"></a>入れ子にされたマスター ページ (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59396786"
 [コードのダウンロード](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.pdf)
 
 > 別の 1 つのマスター ページを入れ子にする方法を示します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -43,14 +42,12 @@ ms.locfileid: "59396786"
 > [!NOTE]
 > 入れ子になったマスター ページは、.NET Framework のバージョン 2.0 以降、可能なされています。 ただし、Visual Studio 2005 では、入れ子になったマスター ページのデザイン時サポートが含まれませんでした。 良い知らせは、Visual Studio 2008 が入れ子になったマスター ページのデザイン時の豊富なエクスペリエンスを提供します。 入れ子になったマスター ページを使用して興味のある Visual Studio 2005 を使用している場合は、チェック アウト[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ「 [VS 2005 のデザイン時入れ子になったマスター ページのヒント](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)します。
 
-
 ## <a name="the-benefits-of-nested-master-pages"></a>入れ子になったマスター ページの利点があります。
 
 多くの web サイトがある、包括的なサイトのデザインとカスタマイズされたデザイン複数ページの特定の種類に固有です。 たとえば、デモ web アプリケーションで作成しました、初歩的な管理 セクション (ページ、`~/Admin`フォルダー)。 現在の web ページ、`~/Admin`フォルダーでは、同じマスター ページを使用して、[管理] セクションではなく、それらのページとして (つまり、`Site.master`または`Alternate.master`ユーザーの選択に応じて、)。
 
 > [!NOTE]
 > ここでは、私たちのサイトに 1 つのマスター ページに振る舞う`Site.master`します。 このチュートリアルの後半で 2 つ (以上) のマスター ページを使用して、「を使用して、入れ子になったマスター ページの [管理] セクション」で始まるの入れ子になったマスター ページを使用して対処します。
-
 
 追加情報やリンクされていない場合は、サイトの他のページ内に存在する管理ページのレイアウトをカスタマイズするように依頼されたことを想像してください。 この要件を実装するために 4 つの手法があります。
 
@@ -73,21 +70,17 @@ ms.locfileid: "59396786"
 
 という名前の新しいフォルダーを作成する`NestedMasterPages`という名前のフォルダーに新しいマスター ページファイルを追加および`Simple.master`します。 (図 1 参照ソリューション エクスプ ローラーのスクリーン ショットの後、このフォルダーとファイルが追加されました。)ドラッグ、`AlternateStyles.css`デザイナーの ソリューション エクスプ ローラーからスタイル シート ファイル。 これを追加、`<link>`要素のスタイル シート ファイルを`<head>`要素の後に、マスター ページの`<head>`要素のマークアップのようになります。
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample1.aspx)]
 
 Web フォーム内で次のマークアップを次に、追加`Simple.master`:
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample2.aspx)]
 
 このマークアップでは、ネイビー カラーの背景に白のフォントを大規模にページの上部にある「入れ子になったマスター ページ (単純)」というリンクが表示されます。 下には、`MainContent`プレース ホルダーです。 図 1 は、 `Simple.master` Visual Studio デザイナーで読み込まれるときに、マスター ページ。
 
-
 [![入れ子になったマスター ページ、[管理] ページに特定のコンテンツを定義します](nested-master-pages-vb/_static/image2.png)](nested-master-pages-vb/_static/image1.png)
 
 **図 01**:入れ子になったマスター ページを定義コンテンツに固有の管理セクションのページ ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image3.png))。
-
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>手順 2: 単純な入れ子になったマスター ページを作成します。
 
@@ -100,19 +93,15 @@ Web フォーム内で次のマークアップを次に、追加`Simple.master`:
 > [!NOTE]
 > Web サイト プロジェクト モデルではなく、Web アプリケーション プロジェクト モデルを使用して ASP.NET web サイトを作成した場合は、図 2 に示すように新しい項目の追加 ダイアログ ボックスの"マスター ページの選択 チェック ボックスは表示されません。 Web アプリケーション プロジェクト モデルを使用する場合は、入れ子になったマスター ページを作成するには、(マスター ページ テンプレート) ではなく、入れ子になったマスター ページ テンプレートを選択する必要があります。 入れ子になったマスター ページ テンプレートを選択し、追加をクリックすると、図 3 に示すダイアログ ボックスが表示されますマスター ページの選択と同じです。
 
-
 [![チェック、&quot;マスター ページを選択&quot;入れ子になったマスター ページを追加するチェック ボックス](nested-master-pages-vb/_static/image5.png)](nested-master-pages-vb/_static/image4.png)
 
 **図 02**:入れ子になったマスター ページを追加する [マスター ページを選択する] チェック ボックスをオン ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image6.png))。
-
 
 [![入れ子になったマスター ページを Simple.master マスター ページにバインドします。](nested-master-pages-vb/_static/image8.png)](nested-master-pages-vb/_static/image7.png)
 
 **図 03**:入れ子になったマスター ページへのバインド、`Simple.master`マスター ページ ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image9.png))。
 
-
 入れ子になったマスター ページの宣言型マークアップ次に示すにはには、マスター ページの最上位レベルの 2 つのプレース ホルダー コントロールを参照する 2 つのコンテンツ コントロールが含まれています。
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample3.aspx)]
 
@@ -120,16 +109,13 @@ Web フォーム内で次のマークアップを次に、追加`Simple.master`:
 
 テキスト「こんにちは, SimpleNested から!」を表示するように、この入れ子になったマスター ページを更新します。 対応するコンテンツ コントロールで、`MainContent`プレース ホルダー コントロール。
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
 この追加した場合、入れ子になったマスター ページを保存しする場合は、新しいコンテンツ ページを追加し、`NestedMasterPages`という名前のフォルダー`Default.aspx`にバインドし、`SimpleNested.master`マスター ページ。 このページを追加すると驚かれるかもしれませんがないこと (図 4 参照) のコンテンツ コントロールを表示します。 コンテンツ ページにアクセスできるだけその*親*マスター ページの ContentPlaceHolders します。 `SimpleNested.master` ContentPlaceHolder コントロール; が含まれていません。そのため、このマスター ページにバインドされている任意のコンテンツ ページには、任意のコンテンツ コントロールを含めることはできません。
 
-
 [![新しいコンテンツ ページにコンテンツ コントロールが含まれていません](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
 
 **図 04**:新しいコンテンツ ページが含まれていますいいえコンテンツ コントロール ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image12.png))。
-
 
 入れ子になったマスター ページの更新は行う必要があります (`SimpleNested.master`) プレース ホルダー コントロールを追加します。 通常、入れ子になったマスター ページにできるため、その子のマスター ページまたはコンテンツ ページ、最上位マスター ページの ContentPlaceHolder のいずれかを使用するようにその親のマスター ページで定義されている各の ContentPlaceHolder、プレース ホルダーを含める必要があります。コントロール。
 
@@ -138,9 +124,7 @@ Web フォーム内で次のマークアップを次に、追加`Simple.master`:
 > [!NOTE]
 > 入れ子になったマスター ページ内のプレース ホルダー コントロールの最上位マスター ページの ContentPlaceHolders と同じ名前付けお勧めしますが、この名前付けの対称性は必要ありません。 任意の名前、入れ子になったマスター ページで ContentPlaceHolder のコントロールを付与できます。 ただし、方が簡単に対応する ContentPlaceHolders を記憶する場合は、最上位マスター ページと入れ子になったマスター ページと同じ名前を使用して、ページのどのリージョンです。
 
-
 これらの追加を行った後、`SimpleNested.master`マスター ページの宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample5.aspx)]
 
@@ -148,34 +132,27 @@ Web フォーム内で次のマークアップを次に、追加`Simple.master`:
 
 図 5 は、関連する 3 つのエンティティ`Simple.master`、 `SimpleNested.master`、および`Default.aspx`- とを相互に関連付ける方法。 図が示すように入れ子になったマスター ページは、その親のプレース ホルダーのコンテンツ コントロールを実装します。 これらのリージョンでは、コンテンツ ページにアクセスできるようにする必要があります、入れ子になったマスター ページはコンテンツ コントロールに独自の ContentPlaceHolders を追加する必要があります。
 
-
 [![最上位レベルと入れ子になったマスター ページ コンテンツ ページのレイアウトを決定します。](nested-master-pages-vb/_static/image14.png)](nested-master-pages-vb/_static/image13.png)
 
 **図 05**:最上位と入れ子になったマスター ページ、コンテンツ ページのレイアウトを音声入力 ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image15.png))。
 
-
 この動作は、方法 [コンテンツ] ページまたはマスター ページはその親マスター ページを理解しているかを示しています。 この動作は、Visual Studio デザイナーによっても示されます。 図 6 に示すのデザイナー`Default.aspx`します。 明確のデザイナーに表示されますコンテンツ ページの編集可能なリージョンと、特定の部分ではありませんが、入れ子になったマスター ページからは何が編集可能なリージョンとリージョンが最上位マスター ページからを明確にしません。
-
 
 [![コンテンツ ページの現在には入れ子になったマスター ページの ContentPlaceHolders のコンテンツ コントロールが含まれています](nested-master-pages-vb/_static/image17.png)](nested-master-pages-vb/_static/image16.png)
 
 **図 06**:コンテンツ ページようになりましたが含まれていますコンテンツ コントロールの入れ子になったマスター ページの ContentPlaceHolders ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image18.png))。
 
-
 ## <a name="step-3-adding-a-second-simple-nested-master-page"></a>手順 3: 2 番目単純入れ子になったマスター ページを追加します。
 
 入れ子になったマスター ページの利点は、複数の入れ子になったマスター ページがある場合に顕著です。 この特典を示すためには、別の入れ子になったマスター ページを作成、`NestedMasterPages`フォルダー; 名前の新しい入れ子になったマスター ページ`SimpleNestedAlternate.master`にバインドし、`Simple.master`マスター ページ。 手順 2 で行ったように、入れ子になったマスター ページのコンテンツ コントロールを 2 つのプレース ホルダー コントロールを追加します。 また、テキスト「こんにちは, SimpleNestedAlternate から!」を追加します。 マスター ページの最上位レベルに対応するコンテンツ コントロールで`MainContent`プレース ホルダーです。 これらの変更を行った後、新しい入れ子になったマスター ページの宣言型マークアップは次のようになります。
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample6.aspx)]
 
 という名前のコンテンツ ページを作成する`Alternate.aspx`で、`NestedMasterPages`フォルダーにバインドし、`SimpleNestedAlternate.master`入れ子になったマスター ページ。 テキスト「こんにちは, 代替から!」を追加します。 対応するコンテンツ コントロールで`MainContent`します。 図 7 は`Alternate.aspx`Visual Studio デザイナーで表示した場合。
 
-
 [![Alternate.aspx が SimpleNestedAlternate.master マスター ページにバインドされています。](nested-master-pages-vb/_static/image20.png)](nested-master-pages-vb/_static/image19.png)
 
 **図 07**:`Alternate.aspx`にバインドされて、`SimpleNestedAlternate.master`マスター ページ ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image21.png))。
-
 
 図 7 図 6 デザイナーにデザイナーを比較します。 両方のコンテンツ ページは、最上位マスター ページで定義されている同じレイアウトを共有 (`Simple.master`)、つまり「入れ子になったマスター ページのチュートリアル (単純)」タイトル。 テキスト「こんにちは, SimpleNested から!」の親マスター ページ - で定義された個別の内容をまだ両方があります。 図 6 で「こんにちは, SimpleNestedAlternate から!」 図 7。 確かに、これらの相違をここしますですが、意味のある違いを含めるには、この例を拡張できます。 たとえば、`SimpleNested.master`ページはそのコンテンツのページに固有のオプションのメニューを含めることができますが、`SimpleNestedAlternate.master`をバインドするコンテンツ ページに関連する情報があります。
 
@@ -183,16 +160,13 @@ Web フォーム内で次のマークアップを次に、追加`Simple.master`:
 
 包括的なサイトのレイアウトを変更しました容易さを示すためには、開く、`Simple.master`マスター ページとの間で、次のマークアップを追加、`topContent`と`mainContent``<div>`要素。
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample7.aspx)]
 
 バインドされる各ページの上部に 2 つのリンクが追加されます`Simple.master`、 `SimpleNested.master`、または`SimpleNestedAlternate.master`; 入れ子になったすべてのマスター ページとそのコンテンツのページにすぐにこれらの変更が適用されます。 図 8 は`Alternate.aspx`とき、ブラウザーで表示します。 (図 7 と比較して) ページの上部にあるリンクの追加に注意してください。
 
-
 [![その入れ子になったマスター ページとそのコンテンツのページにすぐに反映されますが、最上位マスター ページに変更されました](nested-master-pages-vb/_static/image23.png)](nested-master-pages-vb/_static/image22.png)
 
 **図 08**:その入れ子になったマスター ページとそのコンテンツのページにすぐに反映されますが、最上位マスター ページに変更 ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image24.png))。
-
 
 ## <a name="using-a-nested-master-page-for-the-administration-section"></a>[管理] セクションに入れ子になったマスター ページを使用します。
 
@@ -218,19 +192,15 @@ Web フォーム内で次のマークアップを次に、追加`Simple.master`:
 
 2 番目のオプションを使用してみましょう。 単一ファイルを作成入れ子になったマスター ページで、`~/Admin`という名前のフォルダー`AdminNested.master`します。 両方`Site.master`と`Alternate.master`プレース ホルダー コントロールのセットが同じ、ともかくマスター ページをバインドするにバインドすることをお勧めしましたが`Site.master`整合性のためです。
 
-
 [![~/Admin フォルダーには、入れ子になったマスター ページを追加します。](nested-master-pages-vb/_static/image26.png)](nested-master-pages-vb/_static/image25.png)
 
 **図 09**:入れ子になったマスター ページを追加、`~/Admin`フォルダー。 ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image27.png))。
 
-
 Visual Studio 4 が加算されますので、入れ子になったマスター ページは 4 つのプレース ホルダー コントロールでマスター ページにバインドするコンテンツ コントロールを新しい入れ子になったマスター ページ ファイルの初期のマークアップ。 同様、最上位マスター ページの ContentPlaceHolder のコントロールと同じ名前を付けます手順 2. および 3.、各コンテンツ コントロールでは、プレース ホルダー コントロールを追加します。 次のマークアップに対応するコンテンツ コントロールに追加することも、`MainContent`プレース ホルダー。
-
 
 [!code-html[Main](nested-master-pages-vb/samples/sample8.html)]
 
 次に、定義、 `instructions` CSS クラス、`Styles.css`と`AlternateStyles.css`CSS ファイル。 次の CSS ルールがスタイルを使用する HTML 要素を原因と、`instructions`明るい黄色の背景の色を黒い実線の境界線を表示するクラス。
-
 
 [!code-css[Main](nested-master-pages-vb/samples/sample9.css)]
 
@@ -238,18 +208,15 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 入れ子になったマスター ページへの追加を行った後、宣言型マークアップは次のようになります。
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample10.aspx)]
 
 各コンテンツ コントロールは、プレース ホルダー コントロールと ContentPlaceHolder のコントロールの`ID`プロパティには、最上位マスター ページの対応するプレース ホルダー コントロールと同じ値が割り当てられます。 管理セクションに固有のマークアップがさらに表示されます、`MainContent`プレース ホルダーです。
 
 図 10 に示します、 `AdminNested.master` Visual Studio のデザイナーで表示した場合の入れ子になったマスター ページ。 上部にある黄色のボックスの指示を確認できます、`MainContent`コンテンツ コントロール。
 
-
 [![入れ子になったマスター ページは、管理者の方法を紹介の最上位マスター ページを拡張します。](nested-master-pages-vb/_static/image29.png)](nested-master-pages-vb/_static/image28.png)
 
 **図 10**:入れ子になったマスター ページは、管理者の方法を紹介の最上位マスター ページを拡張します。 ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image30.png))。
-
 
 ## <a name="step-5-updating-the-existing-content-pages-to-use-the-new-nested-master-page"></a>手順 5: 新しい入れ子になったマスター ページを使用する既存のコンテンツ ページの更新
 
@@ -259,26 +226,21 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 新しいクラス ファイルを追加して、開始、`App_Code`という名前のフォルダー`AdminBasePage.vb`します。 `AdminBasePage`拡張`BasePage`をオーバーライドし、`SetMasterPageFile`メソッド。 そのメソッドで割り当てる、`MasterPageFile`値"~/Admin/AdminNested.master"。 クラスのこれらの変更を行った後、次のようなファイルにする必要がありますなります。
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample11.vb)]
 
 派生してセクションの管理で、既存のコンテンツ ページに今すぐ必要があります`AdminBasePage`の代わりに`BasePage`します。 内の各コンテンツ ページの分離コード クラス ファイルに移動して、`~/Admin`フォルダーこの変更を加えます。 たとえば、`~/Admin/Default.aspx`から分離コード クラスの宣言を変更する場合します。
-
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample12.vb)]
 
 移動先:
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample13.vb)]
 
 図 11 を示して 方法最上位マスター ページ (`Site.master`または`Alternate.master`)、入れ子になったマスター ページ (`AdminNested.master`)、および管理セクションのコンテンツ ページが互いに関連します。
 
-
 [![入れ子になったマスター ページ、[管理] ページに特定のコンテンツを定義します](nested-master-pages-vb/_static/image32.png)](nested-master-pages-vb/_static/image31.png)
 
 **図 11**:入れ子になったマスター ページを定義コンテンツに固有の管理セクションのページ ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image33.png))。
-
 
 ## <a name="step-6-mirroring-the-master-pages-public-methods-and-properties"></a>手順 6: ミラーリングのマスター ページのパブリック メソッドとプロパティ
 
@@ -288,11 +250,9 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 させる必要があります。 これを解決する、`AdminNested.master`分離コード クラスを拡張`BaseMasterPage`します。 入れ子になったマスター ページの分離コード クラスの宣言を更新します。
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample14.vb)]
 
 移動先:
-
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample15.vb)]
 
@@ -302,21 +262,17 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 これを実現する、次を追加することで開始`@MasterType`の先頭にディレクティブ`AdminNested.master`:
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample16.aspx)]
 
 いることを思い出してください、`@MasterType`ディレクティブでは、厳密に型指定されたプロパティをという名前の分離コード クラスに追加`Master`します。 オーバーライドして、`RefreshRecentProductsGrid`と`GridMessageText`メンバーへの呼び出しを委任して、`Master`メソッドの対応します。
-
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample17.vb)]
 
 このコードでアクセスし、[管理] セクションのコンテンツ ページを使用できる必要があります。 図 12 は、`~/Admin/Products.aspx`ページをブラウザーで表示する場合。 ご覧のように、ページには、管理手順ボックスで、入れ子になったマスター ページで定義されているが含まれます。
 
-
 [![[管理] セクションのコンテンツ ページが各ページの上部にある手順を含める](nested-master-pages-vb/_static/image35.png)](nested-master-pages-vb/_static/image34.png)
 
 **図 12**:各ページの上部にある管理セクションを含める手順ではコンテンツ ページ ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image36.png))。
-
 
 ## <a name="step-7-using-the-appropriate-top-level-master-page-at-runtime"></a>手順 7: 実行時に適切な最上位マスター ページの使用
 
@@ -326,18 +282,15 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 そのため、入れ子になったのマスター ページを設定する必要があります`MasterPageFile`コンテンツ ページのプロパティ。 唯一のコンテンツ ページを使用する、`AdminNested.master`からマスター ページを派生`AdminBasePage`します。 そのためがこのロジックを格納することができます。 手順 5 でオーバーライドされました、`SetMasterPageFile`メソッドを設定するページ オブジェクトの`MasterPageFile`プロパティを"~/Admin/AdminNested.master"。 Update`SetMasterPageFile`も、マスター ページを設定する`MasterPageFile`プロパティをセッションに保存された結果。
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample18.vb)]
 
 `GetMasterPageFileFromSession`メソッドを追加しました、`BasePage`クラスでは、前のチュートリアルでは、セッション変数の値に基づいて、適切なマスター ページのファイル パスを返します。
 
 この変更、ユーザーのマスター ページの選択は、[管理] セクションに持ち越します。 図 13 では図 12、形式が、ユーザーがそのマスター ページの選択範囲を変更した後、同じページ`Alternate.master`します。
 
-
 [![入れ子になった管理ページが、ユーザーが選択した最上位マスター ページを使用します。](nested-master-pages-vb/_static/image38.png)](nested-master-pages-vb/_static/image37.png)
 
 **図 13**:入れ子になったの管理 ページは、最上位マスター ページで選択されて、ユーザーを使用して ([フルサイズの画像を表示する をクリックします](nested-master-pages-vb/_static/image39.png))。
-
 
 ## <a name="summary"></a>まとめ
 

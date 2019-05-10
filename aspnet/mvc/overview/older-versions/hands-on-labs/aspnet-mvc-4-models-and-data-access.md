@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 634ea84b-f904-4afe-b71b-49cccef4d9cc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 53ca3bc4e550f488f3ae4c41f02a636e747107cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 90635b617930d0a9c126795f4c8790d542e33dc9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384891"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129689"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルとデータ アクセス
 
@@ -53,7 +53,6 @@ Code First アプローチでは、フレームワークを組み合わせて、
 > 
 > 全体を検証する場合**ミュージック ストア**で見つかりますチュートリアル アプリケーション[MVC-ミュージック ストア](https://github.com/evilDave/MVC-Music-Store)します。
 
-
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
@@ -90,13 +89,12 @@ Code First アプローチでは、フレームワークを組み合わせて、
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**35 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Adding_a_Database"></a>
-### <a name="exercise-1-adding-a-database"></a>手順 1:データベースを追加します。
+### <a name="exercise-1-adding-a-database"></a>演習 1:データベースを追加します。
 
 この演習では、そのデータを使用するために、ソリューションに MusicStore アプリケーションのテーブルを持つデータベースを追加する方法を学びます。 データベースがモデルでは、生成され、ソリューションに追加、ハード コーディングされた値を使用する代わりに、データベースから取得されたデータにビュー テンプレートを提供する StoreController クラスを変更します。
 
@@ -186,7 +184,6 @@ Code First アプローチでは、フレームワークを組み合わせて、
     > [!NOTE]
     > T4 テンプレート (.tt) は、エンティティ クラスを生成するコードを実行し、同じ名前の既存のクラスが上書きされます。 この例では、クラスで&quot;アルバム&quot;、&quot;ジャンル&quot;と&quot;アーティスト&quot;が生成されたコードで上書きされます。
 
-
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Building_the_Application"></a>
@@ -265,7 +262,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Creating_a_Database_Using_Code_First"></a>
-### <a name="exercise-2-creating-a-database-using-code-first"></a>手順 2:最初のコードを使用してデータベースを作成します。
+### <a name="exercise-2-creating-a-database-using-code-first"></a>演習 2:最初のコードを使用してデータベースを作成します。
 
 この演習では、Code First アプローチを使用して、MusicStore アプリケーションのテーブルを含むデータベースを作成する方法とそのデータにアクセスする方法を説明します。
 
@@ -273,7 +270,6 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
 > [!NOTE]
 > 演習 1 を完了したし、Database First アプローチでは以前、今すぐに別のプロセスで同じ結果を取得する方法を学習します。 手順 1 と共通のタスクは、読みやすくマークされています。 手順 1 を完了していないコードの最初の方法を学習したい場合は、この演習からを起動し、トピックの完全なカバレッジを取得できます。
-
 
 <a id="Ex2Task1"></a>
 
@@ -383,7 +379,6 @@ Code First アプローチでは、フレームワークを組み合わせて、
 > このタスクは、演習 1 と共通です。
 > 
 > 演習 1 を完了する場合は、次の手順は、両方の方法で同じを記録しては (データベースの最初の Code first または)。 これらは同じで、モデルでは、データをリンクする方法が、データ エンティティへのアクセスは、コント ローラーから透過的ながまだします。
-
 
 1. 開いている**Controllers\StoreController.cs**のインスタンスを保持するクラスに次のフィールドを追加し、 **MusicStoreEntities**という名前のクラス**storeDB**:
 

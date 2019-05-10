@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: c979535f-48a3-4ec4-a633-a77889b86ddb
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab58aee6f1203beaf3990536b059f8209e66547
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6bede6b36c24ade928ab052e14daec1e017bd0b2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393484"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131938"
 ---
 # <a name="deploying-a-specific-build"></a>特定のビルドを配置する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59393484"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、web のパッケージと新しい変換先のステージング環境または運用環境と同じように、特定の以前のビルドからのデータベース スクリプトをデプロイする方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -47,21 +46,15 @@ ms.locfileid: "59393484"
 > [!NOTE]
 > **OutputRoot**一般的に使用されるプロパティの名前を指定します。 Visual c# および Visual Basic のプロジェクト ファイルでは、すべてのビルド出力のルートの場所を格納するには、このプロパティも宣言します。
 
-
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
-
 
 Web パッケージを展開し、データベースを別の場所からスクリプトをプロジェクト ファイルの場合&#x2014;などの以前の TFS ビルドの出力&#x2014;だけをオーバーライドする必要があります、 **OutputRoot**プロパティ。 チーム ビルド サーバーで、関連するビルド フォルダーにプロパティ値を設定する必要があります。 コマンドラインから MSBuild を実行する場合は、値を指定できます**OutputRoot**コマンドライン引数として。
 
-
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
-
 
 実際には、ただしはもスキップする、**ビルド**ターゲット&#x2014;ビルド出力を使用する予定がない場合、ソリューションの構築に意味がありません。 これをコマンドラインから実行するターゲットを指定して実行できます。
 
-
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
-
 
 ただし、ほとんどの場合、TFS ビルド定義に、デプロイ ロジックを構築するします。 これにより、ユーザーに、**ビルドをキューに**TFS サーバーに接続を持つ任意の Visual Studio 環境からデプロイを開始するためのアクセス許可。
 

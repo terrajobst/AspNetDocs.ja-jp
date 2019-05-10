@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: 3975a52f-bd15-4edd-8f3d-1df93672515b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3227560c1d0c48f7738e26c87a0dbb140c410eee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c8eaea9932a30c744b9a69861619ce9458b5a23a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410098"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130306"
 ---
 # <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>TagBuilder クラスを使用して、HTML ヘルパー (c#) をビルドするには
 
 によって[Stephen Walther](https://github.com/StephenWalther)
 
 > Stephen Walther TagBuilder クラスという名前の ASP.NET MVC フレームワークで便利なユーティリティ クラスを紹介します。 TagBuilder クラスを使用すると、HTML タグを簡単に構築します。
-
 
 ASP.NET MVC フレームワークには、TagBuilder クラスで HTML ヘルパーを作成するときに使用できるという便利なユーティリティ クラスが含まれています。 TagBuilder クラスでは、クラスの名前からわかるように、使用する HTML タグを簡単に構築できます。 この簡単なチュートリアルでは、TagBuilder クラスの概要が提供され、HTML を表示する単純な HTML ヘルパーをビルドするときに、このクラスを使用する方法を学習します&lt;img&gt;タグ。
 
@@ -33,7 +32,6 @@ TagBuilder クラスは、System.Web.Mvc 名前空間に含まれます。 5 つ
 - MergeAttribute() - には、タグに属性を追加することができます。 このメソッドの複数のオーバー ロードがあります。
 - SetInnerText() - には、タグの内部テキ ストを設定することができます。 内部テキ ストは、HTML が自動的にエンコードします。
 - ToString() のでは、タグをレンダリングすることができます。 通常のタグ、開始タグ、終了タグ、または自己終了タグを作成するかどうかを指定することができます。
-  
 
 TagBuilder クラスでは、次の 4 つの重要なプロパティがあります。
 
@@ -64,11 +62,9 @@ TagBuilder.MergeAttribute() メソッドを使用して、TagBuilder に src 属
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample2.aspx)]
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
 
 **図 01**:イメージ ヘルパーを使用して ([フルサイズの画像を表示する をクリックします](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))。
-
 
 Index.aspx ビューの上部にあるイメージ ヘルパーに関連付けられている名前空間をインポートする必要がありますに注意してください。 次のディレクティブを使用して、ヘルパーがインポートされます。
 

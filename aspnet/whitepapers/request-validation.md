@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: d721bb14b9907ae594d1d5207b6f802e84326c9c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 807cccd6fe1acdd6359b014387abd3878840d4cd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414726"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130496"
 ---
 # <a name="request-validation---preventing-script-attacks"></a>要求検証 - スクリプト攻撃を防ぐ
 
 > このホワイト ペーパーでは、ここで、既定では、アプリケーションが回避エンコードされていない HTML コンテンツがサーバーに送信を処理する ASP.NET の要求の検証機能について説明します。 アプリケーションは HTML のデータを安全に処理するように設計されている場合は、この要求の検証機能を無効にできます。
 > 
 > ASP.NET 1.1 および ASP.NET 2.0 に適用されます。
-
 
 要求の検証は ASP.NET のバージョン 1.1 では、以降の機能は、サーバーがコンテナーのコンテンツのエンコードされていない HTML を受け入れることを防ぎます。 この機能は、クライアント スクリプト コードや HTML 知らないうちに、サーバーに送信された、保存、およびできる他のユーザーに提示されますいくつかのスクリプト インジェクション攻撃を防ぐために設計されています。 すべての入力データを検証して、HTML エンコード時に適切なことをまだ強くお勧めします。
 
@@ -48,7 +47,7 @@ ASP.NET 要求の検証機能は、事前にそのコンテンツを許可する
 
 ![](request-validation/_static/image3.png)
 
-エラー メッセージの状態を '可能性のある危険な Request.Form 値が検出された' し、詳細は何が発生したと動作を変更する方法を正確に説明を提供します。 例:
+エラー メッセージの状態を '可能性のある危険な Request.Form 値が検出された' し、詳細は何が発生したと動作を変更する方法を正確に説明を提供します。 例えば:
 
 要求の検証には、危険性のあるクライアントの入力値が検出され、要求の処理は中止されました。 この値は、クロスサイト スクリプティング攻撃などのアプリケーションのセキュリティを侵害する試行を示す可能性があります。 要求の検証を無効に設定できます`validateRequest=false`Page ディレクティブまたは構成セクション。 ただし、アプリケーションに明示的にチェックするすべての入力ケースでこのを強くお勧めします。
 

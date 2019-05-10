@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 3cf765df-d311-4f68-a295-c9685ceea830
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: eea0761ac85693553808e581a8712c822d19c226
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 50f49af502b75aa5ad52756a76a5e7340aca53f7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390481"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131946"
 ---
 # <a name="deploying-membership-databases-to-enterprise-environments"></a>エンタープライズ環境にメンバーシップ データベースを配置する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59390481"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、重要な考慮事項と課題の克服とテスト、ステージング、または実稼働環境では、(より一般的にはメンバーシップ データベースと呼ばれる) データベースのサービスの ASP.NET アプリケーションを準備する必要がありますについて説明します。 これらの課題を満たすために使用できる方法も説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 

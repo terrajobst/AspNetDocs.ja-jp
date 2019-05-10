@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d9edcd61e52941c0fd69e645da7e2cf467a632ac
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131779"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要
 
@@ -36,14 +36,12 @@ ms.locfileid: "59407355"
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
-
 ## <a name="the-top-8-programming-tips"></a>8 つのプログラミング Tips
 
 このセクションでは、Razor 構文を使用して ASP.NET サーバー コードの記述を開始する際に知っておく必要ないくつかのヒントを示します。
 
 > [!NOTE]
 > Razor 構文は C# プログラミング言語に基づいており、ASP.NET Web Pages を最もよく使用されている言語です。 ただし、Razor 構文は、Visual Basic 言語と Visual Basic で実行することもできます。 表示されるものをもサポートします。 詳細については、「付録」を参照してください。 [Visual Basic 言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)します。
-
 
 記事の後半でこれらのプログラミング手法のほとんどについての詳細が表示されます。
 
@@ -66,7 +64,6 @@ ms.locfileid: "59407355"
 > 目的がマークアップとしてタグをレンダリングする HTML マークアップを出力するかどうか (たとえば`<p></p>`段落のまたは`<em></em>`テキストを強調するために) を参照してください[を組み合わせることのテキスト、マークアップ、およびコード ブロック内のコード](#BM_CombiningTextMarkupAndCode)この記事で後述します。
 > 
 > 詳細について、HTML でのエンコード[フォームを使用する](https://go.microsoft.com/fwlink/?LinkId=202892)。
-
 
 ### <a name="2-you-enclose-code-blocks-in-braces"></a>2.中カッコでコードブロックを囲む
 
@@ -116,7 +113,6 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 > [!NOTE]
 > 注意、 `@` verbatim 文字列リテラル (C#) をマークして、ASP.NET ページ内のコードをマークする、文字を使用します。
 
-
 ### <a name="6-code-is-case-sensitive"></a>6.コードは大文字小文字を区別
 
 C# のキーワード (など`var`、 `true`、および`if`) し、変数名では大文字小文字を区別します。 次のコード行が 2 つの異なる変数を作成`lastName`と `LastName.`
@@ -127,7 +123,6 @@ C# のキーワード (など`var`、 `true`、および`if`) し、変数名で
 
 > [!NOTE]
 > Visual Basic ではキーワードと変数は*いない*大文字小文字を区別します。
-
 
 ### <a name="7-much-of-your-coding-involves-objects"></a>7.コーディングのほとんどには、オブジェクトが含まれます
 
@@ -161,7 +156,6 @@ C# のキーワード (など`var`、 `true`、および`if`) し、変数名で
 > Web ページ (HTTP) で使用されるプロトコルは、サーバーに要求を行うために使用するメソッド (動詞) の非常に限られた数をサポートします。 2 つの最も一般的なは、ページの読み取りに使用される、GET と POST のページを送信するために使用されます。 一般に、初めてユーザーの要求 ページでは、ページの要求が GET を使用します。 ユーザーが、フォームに入力し、送信ボタンをクリックし場合、ブラウザーは POST 要求をサーバーには。
 > 
 > Web プログラミング、かどうか、ページを要求する、POST または GET としてページを処理する方法がわかるように、知っておくと便利がよくあります。 使用する ASP.NET Web ページで、`IsPost`プロパティを要求が GET または POST がかどうかを参照してください。 要求が、投稿の場合、`IsPost`プロパティが true を返すし、フォーム上のテキスト ボックスの値などの読み取りを行うことができます。 値に応じて異なる方法でページを処理する方法がわかります多くの例に示します`IsPost`します。
-
 
 ## <a name="a-simple-code-example"></a>単純なコード例
 
@@ -217,7 +211,6 @@ Razor 構文では、専門家がいるかどうかは、初心者と生産性�
 > アプリケーションは、実際の顧客情報を使用する必要があるのインスタンスが作成されます (または*をインスタンス化*) customer オブジェクト。 個々 の顧客は、別のインスタンス、`Customer`クラス。 すべてのインスタンスを同じプロパティとメソッドをサポートしていますが、各 customer オブジェクトが一意であるために、各インスタンスのプロパティの値は通常は異なります。 1 人の顧客のオブジェクトで、`LastName`プロパティが"Smith"をする可能性がありますもう 1 つの customer オブジェクトに、`LastName`プロパティで"Jones。"可能性があります。
 > 
 > 同様に、すべて個別の web ページ サイトでは、`Page`オブジェクトのインスタンスでは、`Page`クラス。 ページ上のボタンは、`Button`オブジェクトのインスタンスでは、`Button`クラス、という具合です。 各インスタンスがその独自の特性がすべてに基づいているオブジェクトのクラスの定義で指定されています。
-
 
 ## <a name="basic-syntax"></a>基本構文
 
@@ -439,7 +432,6 @@ ASP.NET は、データ型を自動的に決定することができます、通
 ## <a name="operators"></a>演算子
 
 演算子は、キーワードまたは式の中で実行するコマンドの種類を ASP.NET に指示する文字です。 C# 言語 (とそれに基づいている Razor 構文) は、多くの演算子をサポートしていますが、開始するいくつかを認識するだけで済みます。 次の表では、最も一般的な演算子をまとめたものです。
-
 
 :::row:::
     :::column:::
@@ -832,7 +824,6 @@ Razor 構文は、メソッドにパラメーターを渡すための 2 つの�
 > [!NOTE]
 > 使用を避けることをお勧めします。、`Response.Redirect`メソッド`try/catch`ステートメント、ページで、例外が生じるためです。
 
-
 次の例では、最初の要求でテキスト ファイルを作成し、ファイルを開くユーザーを切り替えるボタンを表示するページを示します。 例は、例外が発生されるように意図的に不適切なファイル名を使用します。 コードが含まれています`catch`可能性のある例外の 2 つのステートメント: `FileNotFoundException`、ファイル名が間違っている場合に発生して`DirectoryNotFoundException`ASP.NET は、フォルダーにも見つからない場合に発生します。 (コメントを解除できます、ステートメントの例では、すべてが適切に動作しているときの動作を確認するためにします。)
 
 コードが例外を処理していない場合は、前のスクリーン ショットのようなエラー ページが表示されます。 ただし、`try/catch`セクションでは、ユーザーがこの種のエラーが表示されることを防ぐのに役立ちます。
@@ -843,12 +834,9 @@ Razor 構文は、メソッドにパラメーターを渡すための 2 つの�
 
 **Visual Basic を使用したプログラミング**
 
-
 [付録:Visual Basic 言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)
 
-
 **リファレンス ドキュメント**
-
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 

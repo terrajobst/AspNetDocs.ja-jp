@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: 28970e1b-1845-4015-86ef-121e52a6c397
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 387c0ab407df2badfd8ff848b6a13c68769fbba7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c723134e829da23db8a43ef228db47ce9826f3e8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129989"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Movie モデルとテーブルに新しいフィールドを追加する (VB)
 
@@ -28,7 +28,6 @@ ms.locfileid: "59379860"
 > Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
 > 
 > VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/adding-a-new-field.md)このチュートリアルの。
-
 
 このセクションではモデル クラスにいくつかの変更を加えるし、モデルの変更に合わせてデータベース スキーマを更新する方法について説明します。
 
@@ -80,7 +79,6 @@ Code First 自動的に削除し、アプリケーションのモデルを変更
 > [!NOTE] 
 > 
 > **警告**を自動的に削除して、開発またはテスト データベースを使用している場合にのみ、データベースを再作成するには、この方法を有効にする必要がありますと*決して*実際のデータを格納している実稼働データベースでします。 実稼働サーバー上で使用すると、データ損失につながることができます。
-
 
 **ソリューション エクスプ ローラー**を右クリックして、*モデル*フォルダーで、**追加**、し、**クラス**します。
 

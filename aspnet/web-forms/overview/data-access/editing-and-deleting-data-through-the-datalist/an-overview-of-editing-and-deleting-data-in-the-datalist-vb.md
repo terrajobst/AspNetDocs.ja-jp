@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 9410a23c-9697-4f07-bd71-e62b0ceac655
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4bea4e70dd0c06fbcb0374d1c6a869c06d7e68b7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 196d567f294aa4da927689a056454696bf2306af
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387946"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131631"
 ---
 # <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>DataList (VB) でのデータ編集と削除の概要
 
@@ -22,7 +22,6 @@ ms.locfileid: "59387946"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_36_VB.exe)または[PDF のダウンロード](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/datatutorial36vb1.pdf)
 
 > DataList は、組み込みの編集と削除機能がない、中にこのチュートリアルでは方法について説明します編集およびその基になるデータの削除をサポートする DataList を作成します。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -34,7 +33,6 @@ ms.locfileid: "59387946"
 
 > [!NOTE]
 > など、DataList、Repeater コントロールには、帯の挿入、更新、または削除する機能が不足しています。 このような機能を追加することができます、DataList には、プロパティおよび Repeater に見つかりませんでしたを簡単にこのような機能を追加するイベントが含まれます。 そのため、このチュートリアルと将来的に編集および削除が確認されるは、DataList に厳密に集中します。
-
 
 ## <a name="step-1-creating-the-editing-and-deleting-tutorials-web-pages"></a>手順 1: 編集および削除のチュートリアルの Web ページを作成します。
 
@@ -50,32 +48,25 @@ ms.locfileid: "59387946"
 - `ConfirmationOnDelete.aspx`
 - `UserLevelAccess.aspx`
 
-
 ![チュートリアルについては、ASP.NET ページに追加します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image1.png)
 
 **図 1**:チュートリアルについては、ASP.NET ページに追加します。
 
-
 などの他のフォルダーで`Default.aspx`で、`EditDeleteDataList`フォルダーは、そのセクションでは、チュートリアルを一覧表示されます。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
-
 
 [![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image2.png)
 
 **図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image4.png))。
 
-
 最後に、ページに追加するエントリとして、`Web.sitemap`ファイル。 具体的には、DataList と Repeater によるマスター/詳細レポートの後に、次のマークアップを追加`<siteMapNode>`:
-
 
 [!code-xml[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample1.xml)]
 
 更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューで、DataList の編集および削除のチュートリアルの項目できるようになりました。
 
-
 ![サイト マップ DataList の編集および削除のチュートリアルのエントリになりました](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image5.png)
 
 **図 3**:サイト マップ DataList の編集および削除のチュートリアルのエントリになりました
-
 
 ## <a name="step-2-examining-techniques-for-updating-and-deleting-data"></a>手順 2: データ更新および削除の手法を調べる
 
@@ -106,49 +97,39 @@ GridView でのデータ編集と削除は、GridView と ObjectDataSource が�
 
 開いて開始、`Basics.aspx`ページで、`EditDeleteDataList`フォルダーと、デザイン ビューでは、DataList をページに追加します。 次に、DataList s のスマート タグから新しい ObjectDataSource を作成します。 製品データを使用して、構成を使用するよう、`ProductsBLL`クラス。 取得する*すべて*、製品の選択、`GetProducts()`メソッドで、[選択] タブ。
 
-
 [![ProductsBLL クラスを使用する ObjectDataSource を構成します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image6.png)
 
 **図 4**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image8.png))。
-
 
 [![GetProducts() メソッドを使用して、製品情報を返す](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image9.png)
 
 **図 5**:使用して、製品情報を返す、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image11.png))。
 
-
 など、GridView、DataList はいない新しいデータを挿入するために設計されていますこのため、挿入 タブで、ドロップダウン リストからオプション (なし)。(なし) の UPDATE および DELETE の各タブのため、更新および削除は、BLL を介してプログラムで実行されます。
-
 
 [![ObjectDataSource の挿入でドロップダウン リストを一覧表示、更新、およびタブの削除 (None) に設定されていることを確認します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image12.png)
 
 **図 6**:ObjectDataSource の INSERT、UPDATE、および削除のタブで、ドロップダウン リストは、(なし) に設定されていることを確認します ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image14.png))。
-
 
 ObjectDataSource を構成した後、デザイナーに戻る、[完了] をクリックします。 ObjectDataSource 構成、Visual Studio を自動的に完了したときに、過去の例で確認したところを作成するよう、 `ItemTemplate` DropDownList の各データ フィールドを表示します。 これを置き換える`ItemTemplate`製品の名前と価格を表示するものにします。 また、設定、`RepeatColumns`プロパティを 2。
 
 > [!NOTE]
 > 説明したように、*概要の挿入、更新、およびデータの削除*チュートリアルでは、ObjectDataSource、アーキテクチャでは、削除する必要がありますを使用してデータを変更するときに、 `OldValuesParameterFormatString` ObjectDataSource %s からのプロパティ宣言型マークアップ (またはその既定値にリセットする`{0}`)。 このチュートリアルでただし、使用している、ObjectDataSource のみデータを取得します。 そのため、私たち ObjectDataSource s を変更する必要はありません`OldValuesParameterFormatString`プロパティの値 (ですが、これを行うには t が低下する)。
 
-
 DataList の既定値に置き換えた後`ItemTemplate`をカスタマイズしたものでは、ページの宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample2.aspx)]
 
 ブラウザーから進行状況を表示する時間がかかります。 図 7 に示すよう、DataList では、2 つの列の各製品の製品名および単価が表示されます。
 
-
 [![2 つの列 DataList で製品名と価格の表示します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image15.png)
 
 **図 7**:製品の名前と価格は、2 つの列 DataList に表示されます ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image17.png))。
-
 
 > [!NOTE]
 > DataList は、多数の更新および削除のプロセスに必要なプロパティと、これらの値は、ビュー ステートに格納されます。 そのため、編集またはデータの削除をサポート DataList を構築することが DataList s のビューステートが有効にすることが重要です。  
 >   
 > 鋭い読者なら、可能性があることが編集可能な Gridview、DetailsViews、および FormViews を作成するときに、ビュー ステートを無効にすることを思い出してください。 ASP.NET 2.0 Web コントロールを含めることができますので、これは*状態コントロール*、ビュー ステートがみなし essential のようなポストバック間で永続化状態。
-
 
 無効にするだけで、GridView での状態は、単純な状態情報が省略されますが (を編集および削除するために必要な状態を含む) コントロールの状態を維持します。 ASP.NET 1.x タイム フレームで作成されている、DataList コントロールの状態は使用されませんし、したがって、ビュー ステートを有効になっている必要があります。 参照してください[コントロールの状態とします。ビュー ステート](https://msdn.microsoft.com/library/1whwt1k7.aspx)コントロールの状態とビュー ステートとは異なる方法の詳細については、目的の。
 
@@ -160,30 +141,24 @@ DataList では、その一方で、テンプレートを使用してそのア�
 
 `EditItemTemplate` (DataList s のスマート タグからのテンプレートの編集 オプションを選択) を宣言的またはデザイナーのいずれかに作成できます。 テンプレートの編集オプションを使用して、まず、スマート タグのテンプレートの編集リンクをクリックし、、`EditItemTemplate`ドロップダウン リストから項目。
 
-
 [![DataList s の後で作業することを選択します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image18.png)
 
 **図 8**:DataList s で作業することを選択`EditItemTemplate`([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image20.png))。
 
-
 次に、製品名を入力: と価格: ツールボックスから 2 つのテキスト ボックス コントロールをドラッグし、`EditItemTemplate`デザイナー上のインターフェイス。 テキスト ボックスの設定`ID`プロパティ`ProductName`と`UnitPrice`します。
-
 
 [![製品の名前と価格のテキスト ボックスを追加します。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image21.png)
 
 **図 9**:価格、製品名のテキスト ボックスを追加 ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image23.png))。
-
 
 対応する製品のデータ フィールド値をバインドする必要があります、 `Text` 2 つのテキスト ボックスのプロパティ。 テキスト ボックスのスマート タグから DataBindings の編集リンクをクリックし、適切なデータ フィールドを関連付ける、`Text`プロパティ、図 10 に示すようにします。
 
 > [!NOTE]
 > バインドするときに、`UnitPrice`データ フィールドをテキスト ボックスの価格`Text`フィールドに、可能性があります形式にすると、通貨値 (`{0:C}`)、通常の数値 (`{0:N}`)、または書式設定されていないままにします。
 
-
 ![ProductName と UnitPrice データ フィールドをテキスト ボックスのテキストのプロパティにバインドします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image24.png)
 
 **図 10**:バインド、`ProductName`と`UnitPrice`データ フィールドを`Text`テキスト ボックスのプロパティ
-
 
 図 10 DataBindings の編集 ダイアログ ボックスでは方法に注意してください。*いない*双方向データ バインドのチェック ボックスで、GridView、DetailsView、TemplateField または FormView のテンプレートを編集するときに存在するが含まれます。 双方向データ バインド機能に対応する ObjectDataSource 秒に自動的に割り当てられる入力 Web コントロールに入力された値が許可されている`InsertParameters`または`UpdateParameters`挿入またはデータを更新するとき。 DataList が双方向データ バインドをサポートしていませんおわかりに後で、このチュートリアルではユーザーが変更され、データを更新する準備が彼女の後に、プログラムによってこれらのテキスト ボックスにアクセスする必要があります`Text`プロパティとその値を渡す、。適切な`UpdateProduct`メソッドで、`ProductsBLL`クラス。
 
@@ -197,14 +172,11 @@ DataList では、その一方で、テンプレートを使用してそのア�
 
 追加、 `EditItemTemplate` 2 つのボタンの Web コントロール、1 つ持つ`CommandName`Update と他の設定を [キャンセル] に設定されています。 これら 2 つのボタンの Web コントロールを追加した後、デザイナーに、次のようになります。
 
-
 [![更新プログラムを追加し、キャンセル、後にボタン](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image25.png)
 
 **図 11**:更新とキャンセル ボタンを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image27.png))。
 
-
 `EditItemTemplate`完了、DataList s 宣言型マークアップのようになります次。
-
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample3.aspx)]
 
@@ -214,11 +186,9 @@ DataList では、その一方で、テンプレートを使用してそのア�
 
 この編集 ボタンを追加した後、ブラウザーでページを表示するみましょう。 これにより、各製品の一覧は、[編集] ボタンを含める必要があります。
 
-
 [![更新プログラムを追加し、キャンセル、後にボタン](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image28.png)
 
 **図 12**:更新とキャンセル ボタンを追加、 `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image30.png))。
-
 
 ボタンをクリックすると、ポストバックを発生させるは*いない*製品のリストを編集モードにします。 製品を編集可能にするには、する必要があります。
 
@@ -227,18 +197,15 @@ DataList では、その一方で、テンプレートを使用してそのア�
 
 DataList s 以降`EditCommand`イベント編集ボタンがクリックされたときに発生、作成、`EditCommand`イベント ハンドラーを次のコード。
 
-
 [!code-vb[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample4.vb)]
 
 `EditCommand`イベント ハンドラーが型のオブジェクトに渡される`DataListCommandEventArgs`への参照を含む、2 番目の入力パラメーターとして、`DataListItem`ある編集ボタンがクリックされた (`e.Item`)。 イベント ハンドラーは、DataList s をまず設定`EditItemIndex`を`ItemIndex`は編集可能なの`DataListItem`DataList s を呼び出すことによって、DataList にデータを再バインドと`DataBind()`メソッド。
 
 このイベント ハンドラーを追加した後、ブラウザーでページを再検討します。 [編集] ボタンをクリックすると、今すぐでは、製品のクリックされた編集可能な (図 13 参照)。
 
-
 [![編集ボタンが編集可能な製品をクリックします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image31.png)
 
 **図 13**:製品編集可能で、[編集] をクリックすると、([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image33.png))。
-
 
 ## <a name="step-6-saving-the-user-s-changes"></a>手順 6: ユーザーの変更を保存
 
@@ -250,7 +217,6 @@ DataList のすべての読み取り専用モードでは、その項目を表�
 2. DataList のデータを再バインドします。 No 以降`DataListItem` `ItemIndex` DataList s に対応して es `EditItemIndex`、全体の DataList は読み取り専用モードで表示されます。
 
 次のイベント ハンドラーのコードでは、次の手順を実行できます。
-
 
 [!code-vb[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample5.vb)]
 
@@ -269,7 +235,6 @@ DataList のすべての読み取り専用モードでは、その項目を表�
 
 次のコードは、4 つの手順を実装します。
 
-
 [!code-vb[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample6.vb)]
 
 イベント ハンドラーを編集した製品 s で読み取ることによって開始`ProductID`から、`DataKeys`コレクション。 次に、2 つのテキスト ボックス、`EditItemTemplate`参照されると、その`Text`ローカル変数に格納されているプロパティ`productNameValue`と`unitPriceValue`。 使用して、`Decimal.Parse()`メソッドから値を読み取る、`UnitPrice`いる場合、値を入力するためのテキスト ボックスに通貨記号、それが正常に変換できる、`Decimal`値。
@@ -277,26 +242,21 @@ DataList のすべての読み取り専用モードでは、その項目を表�
 > [!NOTE]
 > 値、`ProductName`と`UnitPrice`テキスト ボックスのテキストのプロパティが指定された値がある場合に、テキスト ボックスが productNameValue と unitPriceValue 変数に割り当てられるのみです。 それ以外の場合、値の`Nothing`、変数の使用のデータベースでデータを更新の影響は`NULL`値。 コードが変換を処理するは、空のデータベースへの文字列`NULL`値で、GridView、DetailsView、FormView コントロールで編集インターフェイスの既定の動作です。
 
-
 値を読み取った後、`ProductsBLL`クラス s`UpdateProduct`メソッドが呼び出されると、製品の名前を渡して、価格設定、および`ProductID`。 イベント ハンドラーのように正確な同じロジックを使用して編集済みの状態、DataList を返すことによって完了、`CancelCommand`イベント ハンドラー。
 
 `EditCommand`、 `CancelCommand`、および`UpdateCommand`イベント ハンドラーの完了、訪問者には、製品の価格と名前を編集できます。 図 14-16 は、アクションのこの編集ワークフローを表示します。
-
 
 [![ページにアクセスして、すべての製品は読み取り専用モードで](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image34.png)
 
 **図 14**:すべての製品が読み取り専用モードでは、ページを最初にアクセスして、ときに ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image36.png))。
 
-
 [![製品名の価格を更新するには、[編集] ボタンをクリックします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image37.png)
 
 **図 15**:製品名または価格を更新するには、[編集] ボタンをクリックします ([フルサイズの画像を表示する をクリックします。](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image39.png))。
 
-
 [![値を変更した後、読み取り専用モードに戻るに更新 をクリックして](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image40.png)
 
 **図 16**:読み取り専用モードに戻るの更新プログラムをクリックして、値を変更した後 ([フルサイズの画像を表示する をクリックします](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/_static/image42.png))。
-
 
 ## <a name="step-7-adding-delete-capabilities"></a>手順 7: 削除の機能を追加します。
 
@@ -312,11 +272,9 @@ S に削除 ボタンを追加することで開始できるように、`ItemTem
 
 [編集] ボタンの横にある [削除] ボタンを追加、`ItemTemplate`設定、その`CommandName`プロパティを削除します。 このボタンを追加した後、DataList s が制御`ItemTemplate`宣言構文のようにする必要があります。
 
-
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample7.aspx)]
 
 DataList s のイベント ハンドラーを次に、作成`DeleteCommand`イベントは、次のコードを使用します。
-
 
 [!code-vb[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-vb/samples/sample8.vb)]
 

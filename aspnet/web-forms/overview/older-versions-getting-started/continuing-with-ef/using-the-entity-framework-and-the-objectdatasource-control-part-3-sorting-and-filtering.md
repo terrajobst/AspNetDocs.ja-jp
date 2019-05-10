@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: 2990bd10-590d-43d5-9529-6b503ce5455d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
 msc.type: authoredcontent
-ms.openlocfilehash: 19726a728fc6d94552c315b38315a29c269d97db
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 603120864528b9a5ff81214270eb9a7f1b68b347
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380419"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130679"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 3。並べ替えとフィルター処理
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](https://asp.net/entity-framework/tutorials#Getting%20Started)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
-
 
 前のチュートリアルでは、Entity Framework を使用する n 層 web アプリケーションでリポジトリ パターンを実装し、`ObjectDataSource`コントロール。 このチュートリアルでは、並べ替えとフィルター処理を実行してマスター/詳細のシナリオを処理する方法を示します。 次の機能強化を追加します、 *Departments.aspx*ページ。
 

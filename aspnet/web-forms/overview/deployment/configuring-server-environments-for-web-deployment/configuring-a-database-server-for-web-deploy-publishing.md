@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 2cd99e23904276e89cf043a2332ad07c0f01716d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ade3c1ba1c470092f512436f39b8831458408c2c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131575"
 ---
 # <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web 配置発行のデータベース サーバーを構成する
 
@@ -24,7 +24,6 @@ ms.locfileid: "59415350"
 > このトピックでは、web 配置および発行をサポートするために SQL Server 2008 R2 データベース サーバーを構成する方法について説明します。
 > 
 > このトピックで説明するタスクは、すべての展開シナリオに共通&#x2014;(Web 配置) IIS Web 配置ツールのリモート エージェント サービス、Web 配置ハンドラー、またはオフライン展開を使用して、web サーバーが構成されているかにかかわらず、またはアプリケーションが 1 つの web サーバーまたはサーバー ファームで実行します。 データベースをデプロイする方法は、セキュリティ要件とその他の考慮事項に従って変更できます。 たとえば、データベース、サンプル データの有無を展開する場合があり、ユーザー ロールのマッピングを展開または展開後に手動で構成する場合があります。 ただし、データベース サーバーを構成する方法は同じです。
-
 
 Web 配置をサポートするためにデータベース サーバーを構成する追加の製品やツールをインストールする必要はありません。 データベース サーバーと web サーバーが別々 のコンピューターで実行すると仮定すると単純にする必要があります。
 
@@ -46,7 +45,6 @@ Web 配置をサポートするためにデータベース サーバーを構成
 
 > [!NOTE]
 > コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューターのドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)します。 静的 IP アドレスの構成の詳細については、次を参照してください。[静的 IP アドレス構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)します。 SQL Server をインストールする方法の詳細については、次を参照してください。 [SQL Server 2008 R2 のインストール](https://technet.microsoft.com/library/bb500395.aspx)します。
-
 
 ## <a name="enable-remote-access-to-sql-server"></a>SQL Server へのリモート アクセスを有効にします。
 
@@ -96,11 +94,9 @@ SQL Server の既定のインスタンスを使用するいると仮定するト
 | --- | --- | --- | --- |
 | 受信 | どれでも可 | 1433 | TCP |
 | 送信 | 1433 | どれでも可 | TCP |
-  
 
 > [!NOTE]
 > 技術的には、クライアント コンピューターは、SQL Server との通信に 1024 ~ 5000 のランダムに割り当てられた TCP ポートを使用し、それに応じてファイアウォールの規則を制限することができます。 SQL Server のポートとファイアウォールの詳細については、次を参照してください。 [SQL ファイアウォール経由で通信するために必要な TCP/IP ポート番号](https://go.microsoft.com/?linkid=9805125)と[方法。特定の TCP ポート (SQL Server 構成マネージャー) でサーバーをリッスンするように構成](https://msdn.microsoft.com/library/ms177440.aspx)します。
-
 
 ほとんどの Windows Server 環境では、データベース サーバーで Windows ファイアウォールを構成する必要あります可能性があります。 既定では、Windows ファイアウォールは、ルールによって特に禁止されている場合を除き、すべての送信トラフィックを許可します。 Web サーバーをデータベースにアクセスを有効にするには、SQL Server インスタンスが使用するポート番号で TCP トラフィックを許可する受信規則を構成する必要があります。 SQL Server の既定のインスタンスを使用している場合は、このルールを構成する次の手順を使用できます。
 
@@ -136,7 +132,6 @@ Web アプリケーションが 1 台のサーバーではなく、サーバー 
 
 > [!NOTE]
 > アプリケーション プール id とネットワークのリソースへのアクセスの詳細については、次を参照してください。[アプリケーション プール Id](https://go.microsoft.com/?linkid=9805123)します。
-
 
 さまざまな方法でこれらのタスクの方法があります。 ログインを作成するには、ことができますか。
 
@@ -182,14 +177,12 @@ SQL Server ログインは、ために展開するデータベースに依存す
 > [!NOTE]
 > サーバー プロジェクトとデータベース プロジェクトの詳細については、次を参照してください。 [Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/library/ff678491.aspx)します。
 
-
 ## <a name="configure-permissions-for-the-deployment-account"></a>展開アカウントのアクセス許可を構成します。
 
 展開を実行するに使用するアカウントが SQL Server の管理者でない場合は、このアカウントのログインを作成する必要がありますをも。 メンバーである必要があります、データベースを作成するには、アカウント、 **dbcreator**サーバー ロールまたは同等のアクセス許可があります。
 
 > [!NOTE]
 > データベースを配置する Web デプロイまたは VSDBCMD を使用する場合は、(SQL Server インスタンスが混合モード認証をサポートするために構成されている) 場合、Windows 資格情報または SQL Server 資格情報を使用できます。 次の手順では、Windows 資格情報を使用したいもなんら SQL Server ユーザー名とパスワードの展開を構成するときに、接続文字列の指定を使用する必要があること前提としています。
-
 
 **展開アカウントのアクセス許可を設定するには**
 

@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: e9803150-452d-4521-97e3-d75d5599383c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6baf5447d31d00b89cb7ddf526553456fecbbf6e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e493ecfb31716355f33c320bb4467fcef1a2437d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409474"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132565"
 ---
 # <a name="fighting-bots-vb"></a>ボットと戦う (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59409474"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/NoBot0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/nobot0VB.pdf)
 
 > 自動のボット雇いスパム、ユーザーが介入せずコメント フォームを送信すると、web ログやその他の web サイトを設置します。 ASP.NET AJAX Control Toolkit で NoBot コントロールは、こうしたボットの対策に役立つことができます。
-
 
 ## <a name="overview"></a>概要
 
@@ -63,7 +62,6 @@ ms.locfileid: "59409474"
 [!code-aspx[Main](fighting-bots-vb/samples/sample4.aspx)]
 
 このスクリプトを実行し、JavaScript を非アクティブ化または最初の 2 秒内で、フォームの送信や 7 回 30 秒以内にフォームを送信、ときに、エラー メッセージが表示されます。 このコントロールを使用して、賢明なただし、そのためユーザーの 5 ~ 10% が失敗ユーザーの約 90 ~ 95% の JavaScript のアクティブ化されるため、 `NoBot`'s をテストします。
-
 
 [![このエラー メッセージをボットで発生する可能性があります。](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
 

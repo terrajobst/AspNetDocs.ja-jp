@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: e1fec43e-1daf-49d2-b0c7-7f1b930455cc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 42c1cd684196c026f1435cba289fc2535187087c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1b3e944e45e8d2b746b2e42360693c245d93901f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132858"
 ---
 # <a name="dynamically-populating-a-control-c"></a>コントロールに動的に入力する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59417300"
 [コードのダウンロード](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)
 
 > ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、ページで、ページを更新せず、ターゲット コントロールに、結果の値を設定します。
-
 
 ## <a name="overview"></a>概要
 
@@ -64,7 +63,6 @@ Web サービスとして保存されます`DynamicPopulate.cs.asmx`します。
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample5.aspx)]
 
 ASP.NET ページをブラウザーで実行して、; ボタンをクリックします現在の日付が月-日-年の形式で表示されます。
-
 
 [![ボタンをクリックして、サーバーから日付を取得します。](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
 
