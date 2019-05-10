@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e91ba6a0c4d2f9cad6d88119e7f33931b7ba5772
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cbf0c5f15399e49673f7c77006211ccff953346d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108787"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>DataList の編集インターフェイスに検証コントロールを追加する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59412802"
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe)または[PDF のダウンロード](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
 
 > このチュートリアルではより安全な方法での編集ユーザー インターフェイスを提供するために、DataList の後に検証コントロールを追加するがいかに簡単か見ていきます。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -44,11 +43,9 @@ ms.locfileid: "59412802"
 2. ページの宣言型マークアップ (ページの下部にある [ソース] ボタンをクリックします) に移動します。
 3. 内のテキストをコピー、`<asp:Content>`と`</asp:Content>`図 1 としてタグ (行 3 ~ 32)。
 
-
 [![内のテキストのコピー、 &lt;Asp:content&gt;コントロール](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
 
 **図 2**:内のテキストのコピー、`<asp:Content>`コントロール ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png))。
-
 
 1. 開く、`UIValidation.aspx`ページ
 2. ページの宣言型マークアップに移動します。
@@ -58,11 +55,9 @@ ms.locfileid: "59412802"
 
 コンテンツとコードからの上に移動した後は`ErrorHandling.aspx`に`UIValidation.aspx`ブラウザーでページをテストする少し。 同じ出力を参照してください。 これら 2 つのページ (図 2 参照) のそれぞれで同じ機能を体験してください。
 
-
 [![UIValidation.aspx ページは ErrorHandling.aspx の機能を模倣しています](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
 
 **図 2**:`UIValidation.aspx`ページ内の機能を模倣する`ErrorHandling.aspx`([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png))。
-
 
 ## <a name="step-2-adding-the-validation-controls-to-the-datalist-s-edititemtemplate"></a>手順 2: DataList の秒後に、検証コントロールを追加します。
 
@@ -81,24 +76,19 @@ ms.locfileid: "59412802"
 > [!NOTE]
 > While ASP.NET 1.x がこれらの同じ 5 つの検証コントロール、ASP.NET 2.0 にはさまざまな機能強化が追加、ブラウザー Internet Explorer だけでなく、パーティションの検証コントロールをページにする機能がサポートされるクライアント側スクリプト 2 メイン検証グループ。 2.0 の検証コントロールの新機能に関する詳細についてを参照してください[詳細に分析する ASP.NET 2.0 の検証コントロール](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)します。
 
-
 S DataList s に、必要な検証コントロールを追加することで開始できるように`EditItemTemplate`します。 DataList s のスマート タグからのテンプレートの編集リンクをクリックして、デザイナー、または宣言型構文を通じて、このタスクを実行できます。 デザイン ビューからのテンプレートの編集オプションを使用して、プロセスを s ステップを使用できます。 DataList の編集を選択した後`EditItemTemplate`、テンプレートの編集インターフェイスに、ツールボックスからドラッグして、RequiredFieldValidator を追加後に配置、`ProductName`テキスト ボックス。
-
 
 [![ProductName テキスト ボックスの後に、後に、RequiredFieldValidator を追加します。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
 
 **図 3**:RequiredFieldValidator を追加、 `EditItemTemplate After` 、 `ProductName` TextBox ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png))。
 
-
 すべての検証コントロールは、1 つの ASP.NET Web コントロールの入力を検証することで動作します。 そのため、追加した RequiredFieldValidator が検証を示す必要があります、`ProductName`テキスト ボックスですこれは、検証コントロールの設定で[`ControlToValidate`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)を、`ID`の。適切な Web コントロール (`ProductName`、このインスタンスで)。 次に、設定、 [ `ErrorMessage`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)するには、製品の名前を指定する必要があります、 [ `Text`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)に\*します。 `Text`プロパティの値を指定されている場合は、検証が失敗した場合、検証コントロールによって表示されるテキスト。 `ErrorMessage`場合を必要なプロパティ値が ValidationSummary コントロールによって使用される、`Text`プロパティの値を省略すると、`ErrorMessage`プロパティの値が無効な入力の検証コントロールによって表示されます。
 
 これら 3 つ、RequiredFieldValidator のプロパティを設定した後、画面を図 4 のようなはずです。
 
-
 [![RequiredFieldValidator の ControlToValidate、エラー メッセージ、およびテキストのプロパティを設定します。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
 
 **図 4**:RequiredFieldValidator s 設定`ControlToValidate`、 `ErrorMessage`、および`Text`プロパティ ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))。
-
 
 RequiredFieldValidator を追加すると、`EditItemTemplate`すべて残ってはボックス製品の価格のために必要な検証を追加することです。 以降、`UnitPrice`は省略可能なレコードを編集するには、こと、RequiredFieldValidator に追加する必要はありません。 ただし、いることを確認する CompareValidator を追加する必要があります、 `UnitPrice`、指定した場合は、0 以上でありが正しく、通貨として書式設定します。
 
@@ -106,16 +96,13 @@ CompareValidator の追加、`EditItemTemplate`設定とその`ControlToValidate
 
 DataList s、これらの 2 つの検証コントロールを追加した後`EditItemTemplate`s 宣言の構文に、次のようになります。
 
-
 [!code-aspx[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample1.aspx)]
 
 これらの変更を行った後は、ブラウザーでページを開きます。 名前を省略するか、製品を編集するときに、無効な価格の値を入力しようとすると、テキスト ボックスの横にある場合は、アスタリスクが表示されます。 図 5 に示すよう 19.95 ドルなどの通貨記号を含む価格の値は無効と見なされます。 CompareValidator s `Currency` `Type` (コンマ、ピリオド、カルチャ設定によってなど) の桁区切り記号と先頭プラスまたはマイナス記号、できますが、*いない*通貨記号を許可します。 この動作は、編集インターフェイスをレンダリング現在ユーザーに perplex 可能性があります、`UnitPrice`通貨形式を使用します。
 
-
 [![無効な入力をテキスト ボックスの横にアスタリスクが表示されます。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
 
 **図 5**:アスタリスクが表示されますへの無効な入力をテキスト ボックス ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))。
-
 
 として検証機能の中では、ユーザーが許容されないレコードを編集するときに、通貨記号を手動で削除する必要があります。 さらに、存在が有効な場合、編集の入力のどちらも、更新プログラムもキャンセル ボタンのクリックされると、ポストバックを呼び出すときにインターフェイスです。 理想的には、[キャンセル] ボタンは、ユーザーの入力の妥当性に関係なく、編集済みの状態を DataList を返します。 また、DataList s で製品情報を更新する前に、ページ データが有効であることを確認する必要があります`UpdateCommand`としてユーザーのブラウザーは JavaScript サポートがないかがクライアント側ロジックをバイパスすることができます、検証コントロールのイベント ハンドラーサポートを無効になっています。
 
@@ -133,7 +120,6 @@ CompareValidator s を使用する場合`Currency``Type`、検証対象の入力
 
 > [!NOTE]
 > 編集可能なインターフェイスから通貨書式を削除するときに便利です、テキスト ボックスの外側のテキストとして通貨記号を配置します。 これは、通貨記号を提供する必要のないユーザーにヒントとして機能します。
-
 
 ## <a name="fixing-the-cancel-button"></a>[キャンセル] ボタンを修正
 
@@ -153,7 +139,6 @@ ASP.NET 検証コントロールのすべてのポストバック時にすぐに
 
 先頭に次のコードを追加、`UpdateCommand`イベント ハンドラーの直前に、`Try`ブロック。
 
-
 [!code-vb[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample2.vb)]
 
 これにより、送信されたデータが有効な場合にのみ更新する製品を試みます。 ほとんどのユーザーは、検証コントロールのクライアント側スクリプトにより、無効なデータをポストバックすることはできませんが、JavaScript をサポートするブラウザーのないユーザー、またはを JavaScript のサポートを無効になっていることができます、クライアント側のチェックをバイパスし、無効なデータを送信します。
@@ -161,18 +146,15 @@ ASP.NET 検証コントロールのすべてのポストバック時にすぐに
 > [!NOTE]
 > を GridView にデータを更新する場合でも、明示的にチェックする必要ありませんでしたが、鋭い読者なら、を呼び出し、`Page.IsValid`ページ分離コード クラスのプロパティ。 これは、GridView を参照しているため、`Page.IsValid`プロパティの値を返す場合にのみ更新プログラムを続行のみと`True`します。
 
-
 ## <a name="step-3-summarizing-data-entry-problems"></a>手順 3: データ エントリの問題の要約
 
 ASP.NET には、5 つの検証コントロールのほか、 [ValidationSummary コントロール](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)が表示される、`ErrorMessage`の無効なデータが検出された検証コントロール。 この概要データは、モーダル、クライアント側のメッセージ ボックスから web ページ上のテキストとして表示できます。 S をクライアント側のメッセージ ボックス検証問題の集計を含めるには、このチュートリアルを拡張することができます。
 
 これを実現するには、ツールボックスからデザイナーに ValidationSummary コントロールをドラッグします。 ValidationSummary コントロールは t の場所は問題で、以降にのみ、メッセージ ボックスとしての概要を表示するように構成します。 コントロールを追加すると、次のように設定します。 その[`ShowSummary`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)に`False`とその[`ShowMessageBox`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)に`True`します。 これにより、検証エラーがクライアント側のメッセージ ボックス データベースで集計されます (図 6 参照)。
 
-
 [![検証エラーがクライアント側のメッセージ ボックスにまとめます](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
 
 **図 6**:クライアント側のメッセージ ボックスで検証エラーをまとめます ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))。
-
 
 ## <a name="summary"></a>まとめ
 

@@ -8,12 +8,12 @@ ms.date: 12/16/2011
 ms.assetid: c71bb9b2-7136-4ce6-a40a-cc4d9978cfb7
 msc.legacyurl: /web-forms/pluralsight
 msc.type: content
-ms.openlocfilehash: ae41660d96260991defc23c75d2dda5b9183585e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 57885b3b05b3107bbd678791d38e7166a727e5de
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400283"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113106"
 ---
 # <a name="web-forms-video-training-from-pluralsight"></a>Pluralsight の Web フォーム ビデオ トレーニング
 
@@ -29,11 +29,9 @@ ms.locfileid: "59400283"
 - [ASP.NET 動的データを使用します。](https://pluralsight.com/training/Player?author=dan-wahlin&name=webforms-08&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 - [Web 配置](https://pluralsight.com/training/Player?author=fritz-onion&name=webforms-09&mode=live&clip=0&course=aspdotnet-webforms4-intro)
 
-
 "このコースでは、Pluralsight の Dan Wahlin によって記録されたは ASP.NET Web フォーム導入として優れています。 彼の完全なカバレッジは、.NET Framework の概要で始まり、インストールして、Visual Studio を使用する方法を続行、(サーバー コントロール、データ アクセス、および Ajax を含む)、アプリケーションを構築する方法について説明したうえの展開手法で終了します。 Dan の場合は true。 ASP.NET の専門家であり、この無料のコースを見逃さないように、優れたプレゼンター!"
 
 Scott Hanselman、主席プログラム マネージャー、Web プラットフォームおよび Microsoft Azure のツール
-
 
 ![pluralsight-logo-playbutton](pluralsight/_static/image1.png)
 

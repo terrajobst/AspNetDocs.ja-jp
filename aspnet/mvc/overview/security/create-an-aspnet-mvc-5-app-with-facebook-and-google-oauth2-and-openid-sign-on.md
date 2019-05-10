@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f78100178d5cdc25a10603907e77fe81386877a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8432a7610ac7be79ad03651a5fac21a62b0ca1f0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59386464"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112956"
 ---
 # <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn、Google の OAuth2 サインオンを使用して ASP.NET MVC 5 アプリを作成する (C#)
 
@@ -27,7 +27,6 @@ ms.locfileid: "59386464"
 > 
 > メンバーシップ API を使用してロールを追加する方法と、ユーザーのプロファイル データを追加する方法についても説明します。 このチュートリアルの執筆者[Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter 私に従ってください: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) )。
 
-
 <a id="start"></a>
 ## <a name="getting-started"></a>作業の開始
 
@@ -36,11 +35,9 @@ ms.locfileid: "59386464"
 > [!NOTE]
 > Visual Studio をインストールする必要があります[2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521)またはそれ以降は、Google OAuth 2 を使用して、SSL の警告せずにローカルでデバッグします。
 
-
 クリックして**新しいプロジェクト**から、**開始** ページで、かすることができます、メニューを使用してを選択**ファイル**、し**新しいプロジェクト**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image1.png)  
- 
 
 <a id="1st"></a>
 ## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
@@ -56,7 +53,6 @@ ms.locfileid: "59386464"
 選択した場合**クラウドでホスト**、[構成] ダイアログを完了します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image4.png)
-
 
 ### <a name="use-nuget-to-update-to-the-latest-owin-middleware"></a>NuGet を使用して、OWIN ミドルウェアを最新に更新するには
 
@@ -161,7 +157,6 @@ Google や Facebook などの認証プロバイダーに接続するには SSL �
 
 > [!WARNING]
 > 現在の Facebook OAuth2 認証の手順では、次を参照してください[構成の Facebook 認証。](/aspnet/core/security/authentication/social/facebook-logins)
-
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>メンバーシップ データを調べる

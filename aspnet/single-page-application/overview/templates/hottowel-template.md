@@ -8,12 +8,12 @@ ms.date: 02/09/2013
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: 017f550e2caffe1b20823e9b1880cbb4e968005a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f3457840d1597d06c1a1b1ec2a865dd70726446c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379938"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113340"
 ---
 # <a name="hot-towel-template"></a>Hot Towel テンプレート
 
@@ -30,13 +30,11 @@ ms.locfileid: "59379938"
 > 
 > ホットのタオル:ない SPA に移動する場合。
 
-
 SPA を構築したいが、開始する場所を決定することはできませんか? ホット タオルを使用し、秒単位では、SPA とその上に構築する必要があるすべてのツールをしましたします。
 
 ホットのタオルでは、ASP.NET を使用したシングル ページ アプリケーション (SPA) を構築するための出発点を作成します。 すぐするモジュール式の構造を提供、コード、ビューのナビゲーション、データ バインディング、豊富なデータ管理および単純ですが、洗練されたスタイルをします。 ホット タオルは、すべてのプラミングではないアプリに集中できるように、SPA を構築する必要があるものを提供します。
 
 > SPA を構築について詳しく学習[John Papa のビデオ、チュートリアル、および Pluralsight コース](http://johnpapa.net/spa?vsix)します。
-
 
 ## <a name="application-structure"></a>アプリケーションの構造
 

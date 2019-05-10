@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: c0c214ea32ad13b3a63be9ef84bcb4b8bc7311aa
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 709a9ebf8f3396842bee0d87e621c00ae1418ec1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393582"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113638"
 ---
 # <a name="signalr-scaleout-with-sql-server"></a>SQL Server による SignalR スケールアウト
 
@@ -37,7 +37,6 @@ ms.locfileid: "59393582"
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
-
 
 このチュートリアルでは、2 つの IIS インスタンスで配置されている SignalR アプリケーション間でメッセージを配布するのに SQL Server を使用します。 1 つのテスト コンピューターで、このチュートリアルを実行することもできますが、完全な効果を取得するには SignalR アプリケーションを 2 つまたは複数のサーバーをデプロイする必要があります。 サーバーのいずれか、または別の専用サーバーでは、SQL Server をインストールすることもする必要があります。 別のオプションでは、Azure で Vm を使用してチュートリアルを実行します。
 
@@ -87,7 +86,6 @@ Service Broker を有効にするには、次の SQL クエリを使用します
 
 > [!NOTE]
 > このクエリは、デッドロックを確認が表示された場合、DB に接続されているアプリケーションはありません。
-
 
 トレースを有効にした場合、トレースが表示されます Service Broker が有効になっているかどうか。
 

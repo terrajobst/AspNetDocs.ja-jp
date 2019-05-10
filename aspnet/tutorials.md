@@ -6,12 +6,12 @@ description: ASP.NET アプリケーションを開発するためのステッ�
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
-ms.openlocfilehash: 240260a496ee797556ca5dbd2c8faec79d23ac64
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: 106b4b88d2e7de90900b7a73570ecd6140e2db66
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113191"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET のチュートリアル
 
@@ -81,7 +81,6 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [Web API で HTML フォーム データを送信します。Url エンコード フォーム データ](web-api/overview/advanced/sending-html-form-data-part-1.md)
 * [Web API で HTML フォーム データを送信します。ファイルのアップロードとマルチパート MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
 
-
 ## <a name="web-pages"></a>Web ページ
 
 * [Visual Studio で ASP.NET Web ページをプログラミングする](web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio.md)
@@ -111,7 +110,6 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [トラフィックの分析](web-pages/overview/performance-and-traffic/14-analyzing-traffic.md)
 * [ASP.NET Web ページ (Razor) サイトでアセットをバンドルし、小さくする](web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
 
-
 ## <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 * [チュートリアル: SignalR 2 の概要](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
@@ -129,7 +127,6 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [チュートリアル: SignalR セルフホスト](signalr/overview/deployment/tutorial-signalr-self-host.md)
 * [Azure App Service の Web アプリで SignalR を使用する](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
-
 ## <a name="aspnet-identity"></a>ASP.NET Identity
 
 * [ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する](identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
@@ -141,7 +138,6 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [ASP.NET Identity でユーザーのプライマリ キーを変更する](identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity.md)
 * [既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する](identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 * [メンバーシップとユーザー プロファイルのユニバーサル プロバイダー データを ASP.NET Identity に移行する (C#)](identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
-
 
 ## <a name="owin-and-katana"></a>OWIN と Katana
 

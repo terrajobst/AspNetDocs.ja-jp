@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 213eea41-1ab4-4371-8b24-1a1a66c515de
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6d6dc7b45d2891d3124794bf7b10f3a7d065130
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cd33627c3aae1826e59d685938f722754d1c256b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392444"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108286"
 ---
 # <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>マネージド コードでストアド プロシージャとユーザー定義関数を作成する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59392444"
 [コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_CS.zip)または[PDF のダウンロード](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/datatutorial75cs1.pdf)
 
 > Microsoft SQL Server 2005 は、開発者がマネージ コードからデータベース オブジェクトを作成する .NET 共通言語ランタイムと統合します。 このチュートリアルでは、マネージ ストアド プロシージャを作成する方法を示していて、ユーザー定義関数は、Visual Basic または c# のコードを管理します。 これらのエディションの Visual Studio を使用すると、このようなマネージ データベース オブジェクトをデバッグする方法をも参照してください。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -37,7 +36,6 @@ Microsoft SQL Server 2005 では、前にストアド プロシージャおよ�
 > [!NOTE]
 > マネージ データベース オブジェクトは、対応する SQL 経由でいくつかの利点を提供します。 豊富な言語機能と使いやすさと既存のコードとロジックを再利用する機能は、主な利点です。 マネージ データベース オブジェクトは多くの手続き型のロジックを含まないデータのセットを使用する場合に、効率が低下する可能性があります。 T-SQL とマネージ コードの使用の詳細についてはメリットに、チェック アウト、[の利点がありますを使用してマネージ コードのデータベース オブジェクトを作成する](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx)します。
 
-
 ## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>手順 1: Northwind データベースを移動します。`App_Data`
 
 すべてチュートリアルのこれまでとして web アプリケーションの s で Microsoft SQL Server 2005 Express Edition のデータベース ファイルを使用が`App_Data`フォルダー。 データベースを配置する`App_Data`を配布して、1 つのディレクトリ内に配置された追加の構成手順、チュートリアルをテストする必要はありませんすべてのファイルと、これらのチュートリアルを実行している簡略化します。
@@ -48,33 +46,26 @@ Microsoft SQL Server 2005 では、前にストアド プロシージャおよ�
 
 SQL Server Management Studio を起動します。 図 1 に示すように接続するには、どのようなサーバーで Management Studio を開始します。 サーバー名を localhost \sqlexpress を入力、認証ドロップダウン リストで、[Windows 認証を選択および接続] をクリックします。
 
-
 ![適切なデータベース インスタンスに接続します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image1.png)
 
 **図 1**:適切なデータベース インスタンスに接続します。
-
 
 Ve を接続すると、オブジェクト エクスプ ローラー ウィンドウは、データベース、セキュリティ情報、管理オプション、およびなどを含む SQL Server 2005 Express Edition データベースのインスタンスに関する情報を一覧表示します。
 
 Northwind データベースをアタッチする必要があります、`DataFiles`フォルダー (または任意の場所に移動したこと)、SQL Server 2005 Express Edition のデータベース インスタンスにします。 データベース フォルダーを右クリックし、コンテキスト メニューから、アタッチ オプションを選択します。 これは、データベースのアタッチ ダイアログ ボックスが表示されます。 [追加] ボタンをクリックして、適切なドリルダウン`NORTHWND.MDF`ファイルを開き、[ok] をクリックします。 この時点で、画面は図 2 のようなはずです。
 
-
 [![適切なデータベース インスタンスに接続します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
 
 **図 2**:適切なデータベース インスタンスに接続 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))。
 
-
 > [!NOTE]
 > Management Studio を使用して SQL Server 2005 Express Edition インスタンスに接続するときに、データベースのアタッチ ダイアログ ボックスはできません、マイ ドキュメントなどのユーザー プロファイル ディレクトリにドリルダウンできます。 そのため、確認を配置、`NORTHWND.MDF`と`NORTHWND_log.LDF`以外のユーザー プロファイル ディレクトリ内のファイル。
 
-
 データベースのアタッチに [ok] ボタンをクリックします。 データベースのアタッチ ダイアログ ボックスが閉じられ、オブジェクト エクスプ ローラーは、単に接続されたデータベースを表示する必要がありますようになりました。 Northwind データベースのような名前が`9FE54661B32FDD967F51D71D0D5145CC_LINE ARTICLES\DATATUTORIALS\VOLUME 3\CSHARP\73\ASPNET_DATA_TUTORIAL_75_CS\APP_DATA\NORTHWND.MDF`します。 データベースで右クリックし、名前の変更を選択して、Northwind にデータベースを変更します。
-
 
 ![Northwind データベースをデータベースの名前変更します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image5.png)
 
 **図 3**:Northwind データベースをデータベースの名前変更します。
-
 
 ## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>手順 2: Visual Studio で新しいソリューションと SQL Server プロジェクトを作成します。
 
@@ -83,51 +74,40 @@ SQL Server 2005 でマネージ ストアド プロシージャまたは Udf を
 > [!NOTE]
 > Visual Web Developer edition または Visual Studio の Standard edition を使用している場合は、代わりに、手動のアプローチを使用する必要があります。 手順 13 では、次の手順を手動で実行するための詳細な手順を提供します。 次の手順を使用する Visual Studio のバージョンでも適用する必要がありますの重要な SQL Server の構成手順が含まれるので、手順 13 を読む前に 12 までの手順 2 を読み取ることをお勧めします。
 
-
 Visual Studio を開いてを開始します。 ファイル メニューから新しいプロジェクト ダイアログを表示する新しいプロジェクトを選択ボックス (図 4 参照)。 データベース プロジェクトの種類にドリルダウンし、右側に表示されているテンプレートから新しい SQL Server プロジェクトを作成します。 このプロジェクトの名前を選択しました`ManagedDatabaseConstructs`という名前のソリューション内に配置、および`Tutorial75`します。
-
 
 [![新しい SQL Server プロジェクトを作成します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
 
 **図 4**:新しい SQL Server プロジェクトの作成 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image8.png))。
 
-
 ソリューションと SQL Server プロジェクトを作成する新しいプロジェクト ダイアログ ボックスで ok ボタンをクリックします。
 
 SQL Server のプロジェクトは、特定のデータベースに関連付けられます。 その結果、新しい SQL Server プロジェクトを作成した後すぐが要求されたこの情報を指定します。 図 5 は、手順 1. で SQL Server 2005 Express Edition のデータベース インスタンスで登録した Northwind データベースを指すように入力された新しいデータベースの参照ダイアログ ボックスを示します。
-
 
 ![SQL Server のプロジェクトに Northwind データベースを関連付ける](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image9.png)
 
 **図 5**:SQL Server のプロジェクトに Northwind データベースを関連付ける
 
-
 マネージ ストアド プロシージャおよび Udf は、このプロジェクト内で作成デバッグ、SQL または CLR デバッグの接続のサポートを有効にする必要があります。 (図 5 と)、新しいデータベースと SQL Server のプロジェクトを関連付けるときに、Visual Studio 求められたとき、接続で SQL/CLR のデバッグを有効にするかどうか (図 6 参照)。 [はい] をクリックします。
-
 
 ![SQL/CLR デバッグを有効にします。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image10.png)
 
 **図 6**:SQL/CLR デバッグを有効にします。
 
-
 この時点で新しい SQL Server のプロジェクトがソリューションに追加されています。 という名前のフォルダーが含まれている`Test Scripts`という名前のファイルと`Test.sql`プロジェクトで作成したマネージ データベース オブジェクトのデバッグに使用されます。 手順 12 でのデバッグを紹介します。
 
 このプロジェクトに、新しいマネージ ストアド プロシージャおよび Udf を追加しましたできますようになりましたが、実行できるようにする前にまずが含まれます、既存の web アプリケーションにはソリューション。 [ファイル] メニューから追加のオプションを選択し、既存の Web サイトを選択します。 適切な web サイトのフォルダーを参照し、[ok] をクリックします。 図 7 に示す、これを 2 つのプロジェクトを含めるソリューションが更新されます。 web サイト、および`ManagedDatabaseConstructs`SQL Server プロジェクト。
-
 
 ![ソリューション エクスプ ローラーが 2 つのプロジェクトが含まれています](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image11.png)
 
 **図 7**:ソリューション エクスプ ローラーが 2 つのプロジェクトが含まれています
 
-
 `NORTHWNDConnectionString`値`Web.config`で現在参照されて、`NORTHWND.MDF`ファイル、`App_Data`フォルダー。 このデータベースから削除したため`App_Data`を明示的に登録し、これに応じて拡大縮小を更新する SQL Server 2005 Express Edition のデータベース インスタンスで、`NORTHWNDConnectionString`値。 開く、`Web.config`ファイルで、web サイトと変更、`NORTHWNDConnectionString`値、接続文字列を読み取るようにする:`Data Source=localhost\SQLExpress;Initial Catalog=Northwind;Integrated Security=True`します。 この変更後、`<connectionStrings>`セクション`Web.config`次のようになります。
-
 
 [!code-xml[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample1.xml)]
 
 > [!NOTE]
 > 説明したように、[前のチュートリアル](debugging-stored-procedures-cs.md)クライアント アプリケーションから SQL Server オブジェクトをデバッグするときなど、ASP.NET web サイトでは、接続プールを無効にする必要があります。 上記の接続文字列は、接続プールを無効にします ( `Pooling=false` )。 ASP.NET web サイトから管理対象のストアド プロシージャ、Udf のデバッグを行わない場合は、接続プールを有効にします。
-
 
 ## <a name="step-3-creating-a-managed-stored-procedure"></a>手順 3: マネージ ストアド プロシージャを作成します。
 
@@ -135,14 +115,11 @@ SQL Server のプロジェクトは、特定のデータベースに関連付け
 
 S を単にすべての提供が中止されました製品を返すストアド プロシージャを追加することで開始できるようにします。 新しいストアド プロシージャのファイルに名前`GetDiscontinuedProducts.cs`します。
 
-
 [![GetDiscontinuedProducts.cs という名前の新しいストアド プロシージャを追加します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
 
 **図 8**:新しいストアド プロシージャという名前の追加`GetDiscontinuedProducts.cs`([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image14.png))。
 
-
 これにより、次の内容で新しい c# クラス ファイルが作成されます。
-
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample2.cs)]
 
@@ -150,14 +127,12 @@ S を単にすべての提供が中止されました製品を返すストアド
 
 次のコードを作成、`SqlCommand`オブジェクトと設定その`CommandText`に、`SELECT`から列をすべて返すクエリを`Products`製品のテーブルです`Discontinued`1 equals をフィールドします。 コマンドを実行し、結果をクライアント アプリケーションに送信します。 このコードを追加、`GetDiscontinuedProducts`メソッド。
 
-
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample3.cs)]
 
 すべてのマネージ データベース オブジェクトへのアクセスがある、 [ `SqlContext`オブジェクト](https://msdn.microsoft.com/library/ms131108.aspx)呼び出し元のコンテキストを表します。 `SqlContext`にアクセスできるように、 [ `SqlPipe`オブジェクト](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx)経由でその[`Pipe`プロパティ](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx)します。 これは、`SqlPipe`オブジェクトは、SQL Server データベースと呼び出し元のアプリケーション間の情報の終端に使用します。 その名のとおり、 [ `ExecuteAndSend`メソッド](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx)、渡されたでを実行します`SqlCommand`オブジェクトと、結果がクライアント アプリケーションを送信します。
 
 > [!NOTE]
 > マネージ データベース オブジェクトは、ストアド プロシージャ、Udf、セットベースのロジックではなく、手続き型のロジックを使用するに最適です。 手続き型のロジックでは、行単位ごとにデータのセットの操作またはスカラーのデータを扱う必要があります。 `GetDiscontinuedProducts`先ほど作成した、ただし、メソッドに手続き型のロジックは関係しません。 そのため、これは理想的にとして実装する T-SQL ストアド プロシージャ。 マネージ ストアド プロシージャを作成および展開するために必要な手順を示すためにマネージ ストアド プロシージャとして実装されます。
-
 
 ## <a name="step-4-deploying-the-managed-stored-procedure"></a>手順 4: マネージ ストアド プロシージャを展開します。
 
@@ -167,47 +142,37 @@ S を単にすべての提供が中止されました製品を返すストアド
 
 データベースの互換性レベルを更新するには、Management Studio で新しいクエリ ウィンドウを開きし、入力します。
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample4.sql)]
 
 上記のクエリを実行するには、ツールバーの実行アイコンをクリックします。
-
 
 [![Northwind データベースの互換性レベルを更新します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
 
 **図 9**:Northwind データベースの互換性レベルを更新 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))。
 
-
 互換性レベルを更新した後は、SQL Server のプロジェクトを再デプロイします。 この時間、展開は、エラーなしで完了する必要があります。
 
 SQL Server Management Studio に戻り、[オブジェクト エクスプ ローラーで Northwind データベースを右クリックしておよび更新] を選択します。 次に、プログラミング フォルダーにドリル ダウンし、アセンブリ フォルダーを展開します。 図 10 に示す、Northwind データベースが含まれていますによって生成されたアセンブリには、`ManagedDatabaseConstructs`プロジェクト。
-
 
 ![ManagedDatabaseConstructs アセンブリは、Northwind データベースに登録されました](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image18.png)
 
 **図 10**:`ManagedDatabaseConstructs`アセンブリは、Northwind データベースに登録されました
 
-
 また Stored Procedures フォルダーを展開します。 という名前のストアド プロシージャが表示されます`GetDiscontinuedProducts`します。 このストアド プロシージャが、展開プロセスとへのポインターによって作成された、`GetDiscontinuedProducts`メソッドで、`ManagedDatabaseConstructs`アセンブリ。 ときに、`GetDiscontinuedProducts`ストアド プロシージャを実行すると、さらに、実行、`GetDiscontinuedProducts`メソッド。 これは、マネージ ストアド プロシージャであるために、Management Studio を使用は編集できません (そのため、ストアド プロシージャ名の横にあるロック アイコン)。
-
 
 ![GetDiscontinuedProducts ストアド プロシージャは、ストアド プロシージャ フォルダーに一覧表示します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image19.png)
 
 **図 11**:`GetDiscontinuedProducts`ストアド プロシージャが、ストアド プロシージャ フォルダーに記載されています
 
-
 マネージ ストアド プロシージャを呼び出し前になりませんハードルがまだ: マネージ コードの実行を防ぐために、データベースを構成します。 この新しいクエリ ウィンドウを開きを実行することを確認、`GetDiscontinuedProducts`ストアド プロシージャ。 次のエラー メッセージが表示されます.NET Framework でのユーザー コードの実行が無効です。 Clr enabled 構成オプションを有効にします。
 
 Northwind データベースの構成情報を確認し、入力して、コマンドを実行する`exec sp_configure`クエリ ウィンドウにします。 これは、設定に有効になっている clr が現在 0 に設定することを示しています。
-
 
 [![Clr を有効になっている設定が設定されている 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
 
 **図 12**:Clr を有効になっている設定が設定されている 0 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image22.png))。
 
-
 図 12 では、各構成設定が示した 4 つの値を持つことに注意してください: 最小値と最大値および構成と実行の値。 Clr を有効になっている設定の構成値を更新するには、次のコマンドを実行します。
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample5.sql)]
 
@@ -215,11 +180,9 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 
 完全な clr を有効になっている構成では、マネージを実行する準備が`GetDiscontinuedProducts`ストアド プロシージャ。 クエリ ウィンドウで入力し、コマンド`exec``GetDiscontinuedProducts`します。 対応するマネージ コードをストアド プロシージャを呼び出すことにより、`GetDiscontinuedProducts`メソッドを実行します。 このコードの問題、`SELECT`は廃止されましたされて呼び出し元のアプリケーションは、このインスタンスで SQL Server Management Studio は、このデータを返すすべての製品を返すクエリです。 Management Studio では、これらの結果を受信し、結果ウィンドウに表示します。
 
-
 [![ストアド プロシージャが返すすべて GetDiscontinuedProducts 製品を廃止します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
 
 **図 13**:`GetDiscontinuedProducts`ストアド プロシージャを返しますすべて廃止の製品 ([フルサイズの画像を表示する をクリックします。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image25.png))。
-
 
 ## <a name="step-5-creating-managed-stored-procedures-that-accept-input-parameters"></a>手順 5: マネージ ストアド プロシージャの作成を入力パラメーターを受け取る
 
@@ -231,18 +194,15 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 
 更新プログラム、`GetProductsWithPriceLessThan`メソッドの定義を受け入れるように、 [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx)という名前の入力パラメーター`price`と書き込みを実行し、クエリの結果を返すコード。
 
-
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample6.cs)]
 
 `GetProductsWithPriceLessThan`メソッドの定義とコードの定義とのコードを密接に似る、`GetDiscontinuedProducts`手順 3 で作成したメソッド。 唯一の違いを`GetProductsWithPriceLessThan`メソッドは入力パラメーターとして受け取ります (`price`)、 `SqlCommand` s クエリにはパラメーターが含まれています (`@MaxPrice`) にパラメーターを追加し、 `SqlCommand` s`Parameters`コレクションが、値を割り当て、`price`変数。
 
 このコードを追加した後は、SQL Server のプロジェクトを再デプロイします。 次に、SQL Server Management Studio に戻るし、Stored Procedures フォルダーを更新します。 新しいエントリを参照する必要があります`GetProductsWithPriceLessThan`します。 クエリ ウィンドウで、入力し、コマンド`exec GetProductsWithPriceLessThan 25`、図 14 に示すように、25 ドル未満のすべての製品を一覧には。
 
-
 [![$25 で製品が表示されます。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
 
 **図 14**:$25 で製品が表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))。
-
 
 ## <a name="step-6-calling-the-managed-stored-procedure-from-the-data-access-layer"></a>手順 6: データ アクセス層から管理対象のストアド プロシージャを呼び出す
 
@@ -253,53 +213,41 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 > [!NOTE]
 > Northwind データベースから移動しているため、 `App_Data` SQL Server 2005 Express Edition のデータベース インスタンスにフォルダー、この変更を反映するように Web.config 内の対応する接続文字列を更新することが不可欠です。 手順 2. で説明した更新、`NORTHWNDConnectionString`値`Web.config`します。 この更新プログラムを忘れた場合と、クエリを追加するには、エラー メッセージ失敗が表示されます。 接続が見つかりません`NORTHWNDConnectionString`オブジェクトの`Web.config`ダイアログ ボックス、TableAdapter に新しいメソッドを追加しようとしています。 このエラーを解決するには、[ok] をクリックしに移動し、`Web.config`し、更新、`NORTHWNDConnectionString`手順 2. で説明したように値します。 TableAdapter にメソッドを再度追加してみます。 この時間がエラーなく動作する必要があります。
 
-
 新しいメソッドを追加すると、何度も過去のチュートリアルで使用すると、TableAdapter クエリ構成ウィザードが起動します。 最初の手順では、TableAdapter によるデータベースのアクセス方法を指定するよう求められます。 または、新規または既存のストアド プロシージャを使用して、アドホック SQL ステートメントを使用します。 既に作成され、登録しましたので、`GetDiscontinuedProducts`管理対象のストアド プロシージャ、データベースを使用して既存のストアド プロシージャ オプションと [次へ] を選択します。
-
 
 [![既存のストアド プロシージャ オプションの使用を選択します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
 
 **図 15**:ストアド プロシージャ オプションを使用して既存の選択 ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))。
 
-
 次の画面から私たちメソッドを呼び出すストアド プロシージャのメッセージが表示されます。 選択、`GetDiscontinuedProducts`マネージ ストアド プロシージャをドロップダウン リストから、[次へ] をクリックします。
-
 
 [![選択、GetDiscontinuedProducts マネージ ストアド プロシージャ](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
 
 **図 16**:選択、`GetDiscontinuedProducts`マネージ ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))。
 
-
 ストアド プロシージャには、行、1 つの値、または何が返されるかどうかを指定するメッセージが表示されます。 `GetDiscontinuedProducts`セットを返します提供が中止された製品の行の最初のオプション (表形式のデータ) を選択し、[次へ] をクリックします。
-
 
 [![表形式のデータ オプションを選択します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
 
 **図 17**:表形式のデータ オプションを選択します ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image37.png))。
 
-
 ウィザードの最終画面では、データ アクセス パターンを使用し、結果として得られるメソッドの名前を指定できます。 チェック ボックスがオンと名の両方のメソッドのままに`FillByDiscontinued`と`GetDiscontinuedProducts`します。 ウィザードを完了するには、[完了] をクリックします。
-
 
 [![名前のメソッド FillByDiscontinued と GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
 
 **図 18**:メソッドの名前を付けます`FillByDiscontinued`と`GetDiscontinuedProducts`([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))。
 
-
 という名前のメソッドを作成するには、この手順を繰り返します`FillByPriceLessThan`と`GetProductsWithPriceLessThan`で、`ProductsTableAdapter`の`GetProductsWithPriceLessThan`ストアド プロシージャを管理します。
 
 図 19 にメソッドを追加した後、データセット デザイナーのスクリーン ショットを示しています、`ProductsTableAdapter`の`GetDiscontinuedProducts`と`GetProductsWithPriceLessThan`ストアド プロシージャを管理します。
-
 
 [![ProductsTableAdapter には、この手順で追加された新しいメソッドが含まれています。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
 
 **図 19**:`ProductsTableAdapter`この手順で追加された新しいメソッドが含まれています ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image43.png))。
 
-
 ## <a name="step-7-adding-corresponding-methods-to-the-business-logic-layer"></a>手順 7: ビジネス ロジック層への対応するメソッドの追加
 
 できたので、追加の手順 4. と 5. でマネージ ストアド プロシージャを呼び出すためのメソッドのデータ アクセス層を更新しました、ビジネス ロジック層に対応するメソッドを追加する必要があります。 次の 2 つのメソッドを追加、`ProductsBLLWithSprocs`クラス。
-
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample7.cs)]
 
@@ -311,21 +259,17 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 
 開く、`ManagedFunctionsAndSprocs.aspx`ページで、`AdvancedDAL`フォルダーと、ツールボックスから、GridView をデザイナーにドラッグします。 GridView s 設定`ID`プロパティを`DiscontinuedProducts`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`DiscontinuedProductsDataSource`します。 構成からそのデータをプルする ObjectDataSource、`ProductsBLLWithSprocs`クラスの`GetDiscontinuedProducts`メソッド。
 
-
 [![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
 
 **図 20**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))。
-
 
 [![GetDiscontinuedProducts 方法を選択します タブで、ドロップダウン リストから選択します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
 
 **図 21**:選択、`GetDiscontinuedProducts`選択 タブで、ドロップダウン リストからメソッド ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image49.png))。
 
-
 このグリッドを表示製品情報だけを使用するためでは、UPDATE、INSERT、ドロップダウン リストを設定し (None) にタブを削除して [完了] をクリックします。
 
 ウィザードを完了すると、Visual Studio が自動的に追加 BoundField または CheckBoxField 内の各データ フィールドの`ProductsDataTable`します。 これらのフィールドを除くのすべてを削除する少し`ProductName`と`Discontinued`位置、GridView をポイントして ObjectDataSource s の宣言型マークアップは、次のようになります。
-
 
 [!code-aspx[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample8.aspx)]
 
@@ -333,11 +277,9 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 
 マネージ ストアド プロシージャによって返される結果にパッケージ化、 `ProductsDataTable` DAL によってして返送、BLL は、プレゼンテーション層、GridView にバインドされているし、表示の場所に戻ります。 予想どおり、グリッドには廃止されましたが、これらの製品が一覧表示します。
 
-
 [![廃止された製品が一覧表示します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
 
 **図 22**:廃止された製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image52.png))。
-
 
 さらに実際には、ページに、テキスト ボックスと別の GridView を追加します。 この GridView を呼び出すことによって、テキスト ボックスに入力された金額よりも小さい、製品の表示がある、`ProductsBLLWithSprocs`クラスの`GetProductsWithPriceLessThan`メソッド。
 
@@ -347,43 +289,34 @@ Northwind データベースの構成情報を確認し、入力して、コマ�
 
 次の UDF は、特定の製品の在庫の推定値を計算します。 これは、3 つの入力パラメーターで考慮することで、 `UnitPrice`、 `UnitsInStock`、および`Discontinued`- 特定の製品の値し、型の値を返します`money`します。 乗算することによって、在庫の推定値を計算、`UnitPrice`によって、`UnitsInStock`します。 この値は、提供が中止された項目の半分になります。
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample9.sql)]
 
 この UDF は、データベースに追加されると、プログラミング フォルダー、し、関数、および、スカラー値関数を展開して Management Studio を検出することができます。 使用できます、`SELECT`クエリようになります。
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample10.sql)]
 
 追加した、 `udf_ComputeInventoryValue` Northwind データベースに UDF図 23 は、上記の出力を示しています。 `SELECT` Management Studio で表示した場合のクエリを実行します。 また、UDF がオブジェクト エクスプ ローラーでスカラー値関数のフォルダーの下に表示されていることに注意してください。
 
-
 [![各製品の在庫値を一覧します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
 
 **図 23**:各製品の在庫値が表示されている ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image55.png))。
 
-
 Udf は、表形式のデータを返すこともできます。 たとえば、特定のカテゴリに属する製品を返す UDF を作成できます。
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample11.sql)]
 
 `udf_GetProductsByCategoryID` UDF を受け入れる、`@CategoryID`入力パラメーターと、指定の結果を返します`SELECT`クエリ。 この UDF を参照できます、作成した後、 `FROM` (または`JOIN`) の句、`SELECT`クエリ。 次の例が返されます、 `ProductID`、 `ProductName`、および`CategoryID`ごと、飲み物の値。
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample12.sql)]
 
 追加した、 `udf_GetProductsByCategoryID` Northwind データベースに UDF図 24 は、上記の出力を示しています。 `SELECT` Management Studio で表示した場合のクエリを実行します。 表形式のデータを返す Udf は、オブジェクト エクスプ ローラーのテーブル値関数フォルダーにあります。
-
 
 [![ProductID、ProductName、および CategoryID 各飲み物の一覧が表示されます。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
 
 **図 24**:`ProductID`、 `ProductName`、および`CategoryID`各飲み物の一覧表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))。
 
-
 > [!NOTE]
 > 作成と Udf の使用に関する詳細については、チェック アウト[ユーザー定義関数の概要](http://www.sqlteam.com/item.asp?ItemID=1955)します。 チェック アウトも[利点と Drawbacks of User-Defined 関数](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)します。
-
 
 ## <a name="step-10-creating-a-managed-udf"></a>手順 10: マネージ UDF を作成します。
 
@@ -391,19 +324,15 @@ Udf は、表形式のデータを返すこともできます。 たとえば、
 
 マネージ UDF を追加する、`ManagedDatabaseConstructs`プロジェクト、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 新しい項目の追加 ダイアログ ボックスからユーザー定義テンプレートを選択し、新しい UDF ファイルに名前`udf_ComputeInventoryValue_Managed.cs`します。
 
-
 [![新しいマネージ UDF を ManagedDatabaseConstructs プロジェクトに追加します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
 
 **図 25**:新しいマネージ UDF を追加、`ManagedDatabaseConstructs`プロジェクト ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))。
 
-
 ユーザー定義関数のテンプレートを作成、`partial`という名前のクラス`UserDefinedFunctions`クラス ファイルの名前と同じ名前を持つメソッドを (`udf_ComputeInventoryValue_Managed`、このインスタンスで)。 使用してこのメソッドを装飾、 [ `SqlFunction`属性](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx)、マネージ UDF としてメソッドのフラグを設定します。
-
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample13.cs)]
 
 `udf_ComputeInventoryValue`メソッドが返す現在、 [ `SqlString`オブジェクト](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx)入力パラメーターは受け付けられません。 3 つの入力パラメーターを受け入れるように、メソッド定義を更新する必要があります`UnitPrice`、 `UnitsInStock`、および`Discontinued`- を返します、`SqlMoney`オブジェクト。 インベントリの値を計算するためのロジックは、T-SQL と同じ`udf_ComputeInventoryValue`UDF します。
-
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample14.cs)]
 
@@ -413,7 +342,6 @@ UDF メソッドの入力パラメーターは、対応する SQL 型に注意�
 
 > [!NOTE]
 > `SqlMoney`オブジェクトは、2 つのみを`SqlMoney`を乗算するインスタンス。 できません、`SqlMoney`インスタンスにリテラルの浮動小数点数が乗算されます。 そのため、半分にする`inventoryValue`新しいによって乗算します`SqlMoney`0.5 の値を持つインスタンス。
-
 
 ## <a name="step-11-deploying-the-managed-udf"></a>手順 11: マネージ UDF を展開します。
 
@@ -426,7 +354,6 @@ UDF メソッドの入力パラメーターは、対応する SQL 型に注意�
 
 このマネージ UDF をテストするには、Management Studio 内から次のクエリを実行します。
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample15.sql)]
 
 このコマンドは、マネージ`udf ComputeInventoryValue_Managed`、T-SQL ではなく UDF `udf_ComputeInventoryValue` UDF が、出力は同じです。 UDF の出力のスクリーン ショットを表示する図 23 を参照します。
@@ -435,34 +362,27 @@ UDF メソッドの入力パラメーターは、対応する SQL 型に注意�
 
 [ストアド プロシージャのデバッグ](debugging-stored-procedures-cs.md)デバッグ Visual Studio での SQL Server のオプションは、3 つを説明したチュートリアル。ダイレクト データベース デバッグ、アプリケーションのデバッグ、および SQL Server のプロジェクトからデバッグします。 クライアント アプリケーションと SQL Server のプロジェクトから直接オブジェクトは、ダイレクト データベース デバッグを使用してデバッグすることはできませんが、デバッグできるは、データベースを管理します。 デバッグを行うためには、ただし、SQL Server 2005 データベース必要があります SQL/CLR のデバッグを許可します。 最初に作成したときにを思い出してください、`ManagedDatabaseConstructs`プロジェクトが Visual Studio をご希望 SQL/CLR デバッグ (手順 2. で図 6 参照) を有効にしたいかどうか。 この設定は、サーバー エクスプ ローラー ウィンドウからデータベースを右クリックして変更できます。
 
-
 ![データベースで SQL/CLR デバッグを許可します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image62.png)
 
 **図 26**:データベースで SQL/CLR デバッグを許可します。
 
-
 想像してデバッグする、`GetProductsWithPriceLessThan`ストアド プロシージャを管理します。 内のコードでブレークポイントを設定して始めたい、`GetProductsWithPriceLessThan`メソッド。
-
 
 [![GetProductsWithPriceLessThan メソッドにブレークポイントを設定します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
 
 **図 27**:ブレークポイントを設定、`GetProductsWithPriceLessThan`メソッド ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image65.png))。
 
-
 最初に、SQL Server のプロジェクトからのマネージ データベース オブジェクトのデバッグについて s を使用できます。 -2 つのプロジェクトがソリューションに含まれているため、`ManagedDatabaseConstructs`と共に Visual Studio を起動するように指示する必要があります。 SQL Server プロジェクトからデバッグするには、web サイトの SQL Server のプロジェクト、 `ManagedDatabaseConstructs` SQL Server プロジェクトのデバッグを開始するとします。 右クリックし、`ManagedDatabaseConstructs`ソリューション エクスプ ローラーでプロジェクトし、コンテキスト メニューからスタートアップ プロジェクト オプションとして、セットを選択します。
 
 ときに、`ManagedDatabaseConstructs`で SQL ステートメントを実行しますが、デバッガーからプロジェクトを起動、`Test.sql`ファイルにある、`Test Scripts`フォルダー。 たとえば、テストするため、`GetProductsWithPriceLessThan`マネージ ストアド プロシージャは、既存`Test.sql`ファイルのコンテンツを呼び出す次のステートメントを使用して、`GetProductsWithPriceLessThan`を渡してストアド プロシージャを管理、 `@CategoryID` 14.95 の値。
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample16.sql)]
 
 上記のスクリプトを入力するいると`Test.sql`デバッグ メニューに移動し、デバッグ開始 を選択するか、f5 キーを押してデバッグを開始、または、ツールバーの緑色の再生 アイコンです。 ソリューション内のプロジェクトをビルド、マネージ データベース オブジェクトを Northwind データベースに配置し、実行し、これは、`Test.sql`スクリプト。 この時点で、ブレークポイントにヒットして、たどることができます、`GetProductsWithPriceLessThan`メソッドを入力パラメーターの値を確認したりします。
 
-
 [![GetProductsWithPriceLessThan メソッド内のブレークポイントがヒットしました](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
 
 **図 28**:内のブレークポイント、`GetProductsWithPriceLessThan`メソッドがヒットしました ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))。
-
 
 SQL データベース オブジェクトのクライアント アプリケーションからデバッグするためには、アプリケーションのデバッグをサポートするために、データベースを構成することが欠かせません。 サーバー エクスプ ローラーでデータベースを右クリックして、アプリケーションのデバッグ オプションをオンになっていることを確認してください。 さらに、SQL デバッガーと統合して、接続プールを無効にする ASP.NET アプリケーションを構成する必要があります。 次の手順のステップ 2 で詳しく説明された、[ストアド プロシージャのデバッグ](debugging-stored-procedures-cs.md)チュートリアル。
 
@@ -479,50 +399,40 @@ SQL Server プロジェクトを簡単に作成、コンパイル、およびマ
 
 S を新規作成するこれらのタスクを示しています。 これらの製品を返すストアド プロシージャを管理対象の`UnitPrice`が指定された値より大きい。 という名前のコンピューターに新しいファイルを作成`GetProductsWithPriceGreaterThan.cs`ファイルに次のコードを入力し、(することができますを使用して、Visual Studio、メモ帳または任意のテキスト エディターこれを実現する)。
 
-
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample17.cs)]
 
 このコードはほぼと同じで、`GetProductsWithPriceLessThan`手順 5. で作成したメソッド。 唯一の違いは、メソッド名、`WHERE`句、およびクエリで使用されるパラメーターの名前。 戻り、`GetProductsWithPriceLessThan`メソッド、`WHERE`句を読み取る:`WHERE UnitPrice < @MaxPrice`します。 ここで、`GetProductsWithPriceGreaterThan`を使用して:`WHERE UnitPrice > @MinPrice`します。
 
 これで、このクラスをアセンブリにコンパイルする必要があります。 コマンドラインから保存したディレクトリに移動、`GetProductsWithPriceGreaterThan.cs`ファイルを開き、c# コンパイラを使用して (`csc.exe`) アセンブリにクラス ファイルをコンパイルします。
 
-
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample18.cmd)]
 
 場合、フォルダーを含む`csc.exe`で s システムではなく`PATH`、完全パスを参照する必要があります`%WINDOWS%\Microsoft.NET\Framework\version\`、次のように。
 
-
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample19.cmd)]
-
 
 [![GetProductsWithPriceGreaterThan.cs をアセンブリにコンパイルします。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
 
 **図 29**:コンパイル`GetProductsWithPriceGreaterThan.cs`an アセンブリに ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image71.png))。
-
 
 `/t`フラグは、c# クラス ファイルを (実行可能ファイルではなく) DLL にコンパイルする必要がありますを指定します。 `/out`フラグは、生成されたアセンブリの名前を指定します。
 
 > [!NOTE]
 > コンパイルではなく、`GetProductsWithPriceGreaterThan.cs`また使用することがコマンドラインからのクラス ファイル[Visual c# Express Edition](https://msdn.microsoft.com/vstudio/express/visualcsharp/)または Visual Studio Standard Edition で別のクラス ライブラリ プロジェクトを作成します。 S ren Jacob Lauritsen がこのような Visual c# Express Edition プロジェクトのコードを用意して、`GetProductsWithPriceGreaterThan`ストアド プロシージャと 2 つの管理ストアド プロシージャおよび UDF は、3、5、および 10 の手順で作成します。 Ren s プロジェクトには、対応するデータベース オブジェクトを追加するために必要な T-SQL コマンドも含まれています。
 
-
 アセンブリにコンパイルされたコードで、SQL Server 2005 のデータベース内でアセンブリを登録する準備が整いました。 これは、コマンドを使用して、T-SQL で実行できる`CREATE ASSEMBLY`、または SQL Server Management Studio を使用します。 注目を使用すると、Management Studio を使用してことができます。
 
 Management studio で、Northwind データベースの [プログラミング] フォルダーを展開します。 そのサブフォルダーの 1 つは、アセンブリです。 データベースを新しいアセンブリを手動で追加するには、アセンブリ フォルダーを右クリックし、コンテキスト メニューから新しいアセンブリを選択します。 この表示では、新しいアセンブリ ダイアログ ボックス (図 30) します。 [参照] ボタンをクリックして、`ManuallyCreatedDBObjects.dll`アセンブリだけコンパイルされると、し、データベースにアセンブリを追加するには、[ok] をクリックします。 表示しないように、`ManuallyCreatedDBObjects.dll`オブジェクト エクスプ ローラーでアセンブリ。
-
 
 [![ManuallyCreatedDBObjects.dll アセンブリをデータベースに追加します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
 
 **図 30**:追加、`ManuallyCreatedDBObjects.dll`データベースにアセンブリ ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image74.png))。
 
-
 ![オブジェクト エクスプ ローラーで、ManuallyCreatedDBObjects.dll が一覧表示します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image75.png)
 
 **図 31**:`ManuallyCreatedDBObjects.dll`オブジェクト エクスプ ローラーで表示されます
 
-
 Northwind データベースへのアセンブリが追加されていますまだに関連付ける必要があるストアド プロシージャ、`GetProductsWithPriceGreaterThan`アセンブリのメソッド。 これを実現するには、新しいクエリ ウィンドウを開き、次のスクリプトを実行します。
-
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample20.sql)]
 
@@ -530,16 +440,13 @@ Northwind データベースへのアセンブリが追加されていますま�
 
 上記のスクリプトを実行した後、オブジェクト エクスプ ローラーでストアド プロシージャ フォルダーを更新します。 -ストアド プロシージャの新しいエントリが表示`GetProductsWithPriceGreaterThan`の横にあるロック アイコンがあります。 このストアド プロシージャをテストするには、入力し、クエリ ウィンドウで、次のスクリプトを実行します。
 
-
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample21.sql)]
 
 上記のコマンドが製品の情報を表示する 32 の図に示すよう、 `UnitPrice` $24.95 より大きい。
 
-
 [![オブジェクト エクスプ ローラーで、ManuallyCreatedDBObjects.dll が一覧表示します。](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
 
 **図 32**:`ManuallyCreatedDBObjects.dll`オブジェクト エクスプ ローラーで表示されます ([フルサイズの画像を表示する をクリックします](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image78.png))。
-
 
 ## <a name="summary"></a>まとめ
 

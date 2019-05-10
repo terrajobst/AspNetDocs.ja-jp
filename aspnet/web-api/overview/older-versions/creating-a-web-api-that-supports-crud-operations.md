@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3c2a41482b7f9b60a8864b853df23ab5991b6da7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108756"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 で CRUD 操作を有効にします。
 
@@ -29,7 +29,6 @@ ms.locfileid: "59381355"
 > 
 > - Visual Studio 2012
 > - Web API 1 (Web API 2 での動作も)
-
 
 CRUD の略&quot;作成、読み取り、更新、および削除、&quot; 4 つの基本的なデータベース操作であります。 多くの HTTP サービスでは、REST api または REST のような Api を介して、CRUD 操作もモデルします。
 
@@ -136,7 +135,6 @@ ASP.NET MVC を使用する場合、し、既に慣れてコント ローラー�
 > [!NOTE]
 > 場合によっては、コント ローラーをという名前のフォルダーに、コント ローラーを配置する必要はありません。 フォルダー名は重要です。ソース ファイルを整理する便利な方法では単純にすることをお勧めします。
 
-
 **コント ローラーの追加**ProductsController.cs Controllers フォルダーをという名前のファイルを作成します。 このファイルがまだ開いていない場合、は、開くファイルをダブルクリックします。 次の追加**を使用して**ステートメント。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
@@ -147,7 +145,6 @@ ASP.NET MVC を使用する場合、し、既に慣れてコント ローラー�
 
 > [!NOTE]
 > 呼び出す`new ProductRepository()`コント ローラーでないにとって最善の設計では、コント ローラーの特定の実装に結び付けるため`IProductRepository`します。 優れたアプローチでは、次を参照してください。 [Web API の依存関係競合回避モジュールを使用して](../advanced/dependency-injection.md)します。
-
 
 ## <a name="getting-a-resource"></a>リソースの取得
 
@@ -205,7 +202,6 @@ ASP.NET Web API を簡単に HTTP 応答メッセージを操作します。 強
 
 > [!NOTE]
 > この例では検証されません、`Product`します。 モデルの検証については、次を参照してください。 [Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)します。
-
 
 ## <a name="updating-a-resource"></a>リソースの更新
 

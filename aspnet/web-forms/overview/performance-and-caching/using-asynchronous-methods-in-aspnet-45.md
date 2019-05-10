@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: a47d428830fa6c43bcb9ce797d65b73891b44618
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ef5402da1e97d2c5e5d98ff2d04dadca1180453b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381888"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112332"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 での非同期メソッドの使用
 
@@ -32,7 +32,6 @@ ms.locfileid: "59381888"
 > 
 > このチュートリアルの完全なサンプルが提供されます。  
 > [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/) [GitHub](https://github.com/)サイト。
-
 
 ASP.NET 4.5 Web ページの組み合わせで[.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx)型のオブジェクトを返す非同期メソッドを登録することができます[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)します。 .NET Framework 4 と呼ばれる非同期のプログラミング概念を導入する、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)ASP.NET 4.5 をサポートし、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)します。 タスクがによって表される、**タスク**型と関連する型を[System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx)名前空間。 この非同期サポートに基づいて、.NET Framework 4.5、 [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)操作できるようにするキーワード[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)前よりもはるかに単純なオブジェクト非同期のアプローチです。 [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードは簡略記法を示すためのコードがコードの他のいくつかの一部で非同期的に待機します。 [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードは、タスク ベースの非同期メソッドとしてメソッドをマークするために使用できるヒントを表します。 組み合わせ**await**、 **async**、および**タスク**オブジェクトにより、.NET 4.5 で非同期コードを記述するためのはるかに簡単です。 非同期メソッドの場合、新しいモデルと呼ばれる、*タスクベースの非同期パターン*(**タップ**)。 このチュートリアルは、非同期プログラミングを使用して知識があることを前提[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードと[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間。
 

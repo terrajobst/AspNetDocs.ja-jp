@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
-ms.openlocfilehash: 74fc0f4cb7d3ed7d1ef091cdb8fa829091af5a7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9742be7d718384c1b108d5f2c0c43e8e8d4fe8a9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388687"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108667"
 ---
 # <a name="configuring-deployment-properties-for-a-target-environment"></a>ターゲット環境の配置プロパティを構成する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59388687"
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、特定のターゲット環境にサンプルの連絡先マネージャー ソリューションをデプロイするために環境固有のプロパティを構成する方法について説明します。
-
 
 このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)ソリューション&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
@@ -64,7 +63,6 @@ Web パッケージ自体の内容の環境に固有のプロジェクト ファ
 
 この表は、サンプルの環境に固有のプロジェクト ファイル内の各プロパティの目的は、 *Env Dev.proj*を指定する必要があります値のいくつかの指針を示します。
 
-
 |                                                        プロパティ名                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |              <strong>MSDeployComputerName</strong>変換先の web サーバーまたはサービス エンドポイントの名前。               |                                                                                                                                                                                                                                              移行先の web サーバーでリモート エージェント サービスをデプロイする場合は、対象コンピューターの名前を指定できます (たとえば、 <strong>TESTWEB1</strong>または<strong>TESTWEB1.fabrikam.net</strong>)、またはリモートを指定できますエージェントのエンドポイント (たとえば、 `http://TESTWEB1/MSDEPLOYAGENTSERVICE`)。 展開いずれの場合も同じように動作します。 移行先の web サーバーで Web 配置ハンドラーに配置する場合、サービス エンドポイントを指定し、クエリ文字列パラメーターとして、IIS web サイトの名前を含めます (たとえば、 `https://STAGEWEB1:8172/MSDeploy.axd?site=DemoSite`)。                                                                                                                                                                                                                                              |
@@ -87,9 +85,7 @@ Web パッケージ自体の内容の環境に固有のプロジェクト ファ
 - Web 配置で NTLM 認証を使用してを指示しています。 Web Deploy は、Microsoft Build Engine (MSBuild) を呼び出すために使用する資格情報を使用して実行されます。
 - デプロイに統合認証を使用している、 **ContactManager**データベース TESTDB1 をします。 MSBuild を呼び出すために使用する資格情報を使用して、データベースが配置されます。
 
-
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample1.xml)]
-
 
 ### <a name="example-2x2014deployment-to-the-web-deploy-handler-endpoint"></a>例 2&#x2014;web 配置ハンドラーのエンドポイントをデプロイします。
 
@@ -100,9 +96,7 @@ Web パッケージ自体の内容の環境に固有のプロジェクト ファ
 - Web 配置でリモート コンピューターで FABRIKAM\stagingdeployer アカウントを借用する必要があることを指定しています。
 - デプロイには、SQL Server 認証を使用している、 **ContactManager** STAGEDB1 データベース。
 
-
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample2.xml)]
-
 
 ## <a name="conclusion"></a>まとめ
 

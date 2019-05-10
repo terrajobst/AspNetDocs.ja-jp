@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 219149e1-3ee9-4b79-8fe4-7433f6b7d15b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d9c566a301c8b64e33e67b0e9415a5955b5436e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f6ca48ff8bc4be982e0eff55d8d9c3385176897b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388219"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108230"
 ---
 # <a name="executing-several-animations-at-the-same-time-c"></a>(C#) と同時に複数のアニメーションを実行
 
@@ -22,7 +22,6 @@ ms.locfileid: "59388219"
 [コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation2CS.pdf)
 
 > アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
-
 
 ## <a name="overview"></a>概要
 
@@ -53,7 +52,6 @@ ms.locfileid: "59388219"
 [!code-aspx[Main](executing-several-animations-at-the-same-time-cs/samples/sample5.aspx)]
 
 実際: このスクリプトを実行すると、パネルが表示し (いったように複数の幅と高さの半分) のサイズを変更されと同時にフェードアウトします。
-
 
 [![パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更](executing-several-animations-at-the-same-time-cs/_static/image2.png)](executing-several-animations-at-the-same-time-cs/_static/image1.png)
 

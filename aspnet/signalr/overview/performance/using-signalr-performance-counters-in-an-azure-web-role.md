@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 8e17e945bc144731dd149bd7ddfc9e29160eaf0b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 969a2ce43a7cb8d649555daf282f900401c0c914
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57049199"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113598"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Azure Web ロールで SignalR パフォーマンス カウンターの使用
 
@@ -36,7 +36,7 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
 
 2. Visual Studio で、**[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択します。
 
-3. **新しいプロジェクト**ダイアログ ボックスで、 **Visual C#** > **クラウド**、左側のカテゴリを選び、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**選択 **[ok]** します。
+3. **新しいプロジェクト**ダイアログ ボックスで、 **Visual c#** > **クラウド**、左側のカテゴリを選び、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**選択 **[ok]** します。
 
    ![新しいクラウド アプリケーション](using-signalr-performance-counters-in-an-azure-web-role/_static/image1.png)
 
@@ -88,7 +88,6 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
     ![コピーを常にコピーする出力ディレクトリに設定します。](using-signalr-performance-counters-in-an-azure-web-role/_static/image8.png)
 
 15. 前の手順を繰り返して、 *SignalRPerfCounterInstall.cmd*ファイル。
-
 
 16. 右クリックし、 *SignalRPerfCounterInstall.cmd*ファイルおよび選択**プログラムから開く**します。 表示されるダイアログ ボックスで、次のように選択します。**バイナリ エディター**選択と**OK**します。
 
@@ -147,7 +146,7 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
 
     [!code-xml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample10.xml)]
 
-29. Azure サブスクリプションにアプリケーションを展開します。 アプリケーションを Azure にデプロイする方法の詳細については、[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)を参照してください。
+29. Azure サブスクリプションにアプリケーションを展開します。 アプリケーションを Azure にデプロイする方法の詳細については、次を参照してください。[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)します。
 
 30. 数分待ってから。 **Cloud Explorer**先ほど構成したストレージ アカウントを見つけて、検索、`WADPerformanceCountersTable`内のテーブル。 テーブルのデータで SignalR カウンターが表示されます。 テーブルが表示されない場合は、Azure ストレージの資格情報を再入力する必要があります。 選択する必要があります、**更新**ボタンをクリックして、テーブルで**Cloud Explorer**または選択、**更新**テーブル内のデータを表示するテーブルを開くウィンドウのボタン。
 

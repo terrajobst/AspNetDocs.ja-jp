@@ -8,19 +8,18 @@ ms.date: 06/27/2014
 ms.assetid: 4064ab14-26ee-4d5c-ae58-1bdda525ad06
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 935448a1f9770e1f11460c95997aa778c4208c9f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 218449c18759b306e425c55f8e7b573d837b4658
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403338"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113122"
 ---
 # <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Web API 2.2 を使用して OData v4 でシングルトンを作成します。
 
 Zoe ルオ語で
 
 > これまでは、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセスできます。 OData v4、シングルトンおよびコンテインメント、web Api 2.2 をサポートする 2 つの追加オプションを提供します。
-
 
 この記事では、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。 どのようなシングルトン、およびこれを使用する利点については、次を参照してください。[シングルトンを使用して、特別なエンティティを定義する](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx)します。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。 
 

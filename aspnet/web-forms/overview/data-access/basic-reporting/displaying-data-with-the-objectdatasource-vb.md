@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: d62c3a63-0940-4019-874e-4a4047df0c1c
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9817a7b2fcb3cd5b4f8524d182baeaaf33c39fda
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0f3d5b207144c5fb0e3f0b959bff9a28b69cc35e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383396"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109601"
 ---
 # <a name="displaying-data-with-the-objectdatasource-vb"></a>ObjectDataSource でデータを表示する (VB)
 
@@ -23,26 +23,21 @@ ms.locfileid: "59383396"
 
 > このチュートリアルは、行のコードを記述することがなく、前のチュートリアルで作成した BLL から取得されたデータをバインドするこのコントロールを使用して、ObjectDataSource コントロール。
 
-
 ## <a name="introduction"></a>はじめに
 
 このアプリケーション アーキテクチャと web サイト ページ、レイアウトと完了のさまざまなデータおよびレポート関連の一般的なタスクを実行する方法の探索を開始する準備ができました。 前のチュートリアルでは、プログラムでデータ Web コントロール、ASP.NET ページで、DAL と BLL からデータをバインドする方法を説明しました。 この構文を割り当てるデータ Web コントロールの`DataSource`プロパティを表示し、コントロールを呼び出してデータを`DataBind()`メソッドが、ASP.NET 1.x アプリケーションで使用したパターンと、2.0 アプリケーションでは使用を続行できます。 ただし、ASP.NET 2.0 の新しいデータ ソース コントロールは、宣言型データを操作する方法を提供します。 これらのコントロールを使用して、行のコードを記述することがなく、前のチュートリアルで作成した BLL から取得されたデータをバインドすることができます。
 
 ASP.NET 2.0 の 5 つの組み込みのデータ ソース コントロールが付属[SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx)、 [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx)、 [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx)、 [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx)、および[SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx)独自に構築することはできます[カスタム データ ソース コントロール](https://msdn.microsoft.com/library/default.asp?url=/library/dnvs05/html/DataSourceCon1.asp)必要な場合、します。 このチュートリアルのアプリケーション アーキテクチャを開発してきたために使用する、ObjectDataSource BLL クラスに対して。
 
-
 ![ASP.NET 2.0 には、5 つの組み込みのデータ ソース コントロールが含まれています。](displaying-data-with-the-objectdatasource-vb/_static/image1.png)
 
 **図 1**:ASP.NET 2.0 には、5 つの組み込みのデータ ソース コントロールが含まれています。
 
-
 ObjectDataSource は、その他のオブジェクトを操作するためのプロキシとして機能します。 ObjectDataSource を構成する指定しますこの基になるオブジェクトとそのメソッドと ObjectDataSource のマップ`Select`、 `Insert`、 `Update`、および`Delete`メソッド。 この基になるオブジェクトが指定されているし、そのメソッドは、ObjectDataSource にマップされている、ObjectDataSource をデータ Web コントロールにバインドできますがします。 ASP.NET は、Web コントロール、GridView、DetailsView、RadioButtonList、および、DropDownList を含む他のユーザーの間で多くのデータに付属します。 ページのライフ サイクル中にデータ Web コントロールがその ObjectDataSource を呼び出すことによってこれを実現するのには、バインドされているデータにアクセスする必要があります`Select`メソッド; データ Web コントロールでは、挿入、更新、サポートしているか、削除、呼び出し可能に場合、ObjectDataSource の`Insert`、 `Update`、または`Delete`メソッド。 これらの呼び出しは、次の図に示すように、適切な基になるオブジェクトのメソッドを ObjectDataSource でルーティングされます。
-
 
 [![ObjectDataSource がプロキシとして機能します。](displaying-data-with-the-objectdatasource-vb/_static/image3.png)](displaying-data-with-the-objectdatasource-vb/_static/image2.png)
 
 **図 2**:プロキシとして機能する ObjectDataSource ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image4.png))。
-
 
 ObjectDataSource を使用して、挿入するためのメソッドを呼び出すことが、更新、またはデータの削除、だけに注目しましょう。 データを返す今後のチュートリアルは、ObjectDataSource とデータを変更する Web コントロールのデータを使用して説明します。
 
@@ -53,37 +48,29 @@ ObjectDataSource を使用して、挿入するためのメソッドを呼び出
 > [!NOTE]
 > データ Web コントロールをページに追加するは、最初または、し、スマート タグから選択するとき、&lt;新しいデータ ソース&gt;ドロップダウン リストからオプション。
 
-
 ObjectDataSource の基になるオブジェクトとそのオブジェクトのメソッドに ObjectDataSource のマップ方法を指定するには、ObjectDataSource のスマート タグからのデータ ソースの構成のリンクをクリックします。
-
 
 [![をクリックして、スマート タグからのデータ ソースのリンクを構成します。](displaying-data-with-the-objectdatasource-vb/_static/image6.png)](displaying-data-with-the-objectdatasource-vb/_static/image5.png)
 
 **図 3**:スマート タグから構成データのソース リンクをクリックします ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image7.png))。
 
-
 データ ソース構成ウィザードが表示されます。 最初に、ObjectDataSource が使用するには、オブジェクトを指定する必要があります。 この画面で、ドロップダウン リストで修飾されているオブジェクトのみを一覧表示「データ コンポーネントのみを表示する」のチェック ボックスをオンにした場合、`DataObject`属性。 現在、リストには、型指定されたデータセットと、前のチュートリアルで作成した BLL クラスで Tableadapter が含まれています。 追加することを忘れた場合、`DataObject`属性のビジネス ロジック層のクラスには表示されませんにこの一覧にします。 その場合は、BLL クラス (および型指定された DataSet、Datatable、Datarow でその他のクラス) を含める必要がありますが、すべてのオブジェクトを表示する「データ コンポーネントのみを表示する」のチェック ボックスをオフにします。
 
 この最初の画面から選択、`ProductsBLL`ドロップダウン リストからクラスし、[次へ] をクリックします。
-
 
 [![ObjectDataSource コントロールを使用するオブジェクトを指定します。](displaying-data-with-the-objectdatasource-vb/_static/image9.png)](displaying-data-with-the-objectdatasource-vb/_static/image8.png)
 
 **図 4**:ObjectDataSource コントロールを使用するオブジェクトを指定 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image10.png))。
 
-
 次の画面で、ウィザードでは、ObjectDataSource を呼び出す必要があるどのような方法を選択するように求められます。 ドロップダウン リストでは、前の画面から選択したオブジェクトにデータを返すメソッドが一覧表示します。 ここでわかります`GetProductByProductID`、 `GetProducts`、 `GetProductsByCategoryID`、および`GetProductsBySupplierID`します。 選択、`GetProducts`メソッド をクリックして、ドロップダウン リストから 完了 (追加した場合、`DataObjectMethodAttribute`を`ProductBLL`の前のチュートリアルでは、このオプションで示すように、メソッドは既定で選択されます)。
-
 
 [![タブからデータを返す方法を選択します。](displaying-data-with-the-objectdatasource-vb/_static/image12.png)](displaying-data-with-the-objectdatasource-vb/_static/image11.png)
 
 **図 5**:データを返す処理の方法を選択 タブから選択 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image13.png))。
 
-
 ## <a name="configure-the-objectdatasource-manually"></a>ObjectDataSource を手動で構成します。
 
 ObjectDataSource のデータ ソース構成ウィザードを使用してオブジェクトを指定し、関連付けるオブジェクトのメソッドが呼び出される簡単な方法を提供します。 ただし、プロパティ ウィンドウを使用するか、宣言型マークアップで直接そのプロパティを介して ObjectDataSource を構成することができます。 設定するだけです、`TypeName`プロパティを使用するには、基になるオブジェクトの型と`SelectMethod`データを取得するときに呼び出されるメソッドにします。
-
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample1.aspx)]
 
@@ -97,30 +84,23 @@ ObjectDataSource のによって返されるデータを表示するページに
 
 GridView コントロールをツールボックスから追加`SimpleDisplay.aspx`のデザイン画面。 GridView のスマート タグからには、手順 1. で追加された ObjectDataSource コントロールを選択します。 ObjectDataSource からのデータによって返される各プロパティの GridView に、BoundField 自動的に作成されます`Select`メソッド (つまり、製品データ テーブルで定義されたプロパティ)。
 
-
 [![GridView がページに追加されて、ObjectDataSource にバインド](displaying-data-with-the-objectdatasource-vb/_static/image15.png)](displaying-data-with-the-objectdatasource-vb/_static/image14.png)
 
 **図 6**:GridView に追加された、ページと ObjectDataSource にバインド ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image16.png))。
 
-
 カスタマイズ、再配置、またはスマート タグからの列の編集オプションをクリックして、GridView の BoundFields を削除し、ことができます。
-
 
 [![列の編集 ダイアログ ボックスの GridView の BoundFields を管理します。](displaying-data-with-the-objectdatasource-vb/_static/image18.png)](displaying-data-with-the-objectdatasource-vb/_static/image17.png)
 
 **図 7**:GridView の BoundFields 経由の編集の列 ダイアログ ボックスの管理 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image19.png))。
 
-
 GridView の BoundFields、削除を変更する少し、 `ProductID`、 `SupplierID`、 `CategoryID`、 `QuantityPerUnit`、 `UnitsInStock`、 `UnitsOnOrder`、および`ReorderLevel`BoundFields します。 左下にある一覧から、BoundField を選択し、削除ボタンをクリックして (赤色の X) を削除するだけです。 BoundFields を次に、再配置できるように、`CategoryName`と`SupplierName`BoundFields の前に、 `UnitPrice` BoundField をこれら BoundFields を選択し、上矢印をクリックします。 設定、`HeaderText`プロパティに残り BoundFields の`Products`、 `Category`、 `Supplier`、および`Price`、それぞれします。 次が、 `Price` BoundField を設定して、BoundField が通貨として書式設定`HtmlEncode`プロパティを False に、その`DataFormatString`プロパティを`{0:c}`します。 最後に、水平方向に整列、`Price`右側に、 `Discontinued`  チェック ボックスを使用して、センター、 `ItemStyle` / `HorizontalAlign`プロパティ。
 
-
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample2.aspx)]
-
 
 [![GridView の BoundFields がカスタマイズされています。](displaying-data-with-the-objectdatasource-vb/_static/image21.png)](displaying-data-with-the-objectdatasource-vb/_static/image20.png)
 
 **図 8**:GridView の BoundFields がカスタマイズされている ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image22.png))。
-
 
 ## <a name="using-themes-for-a-consistent-look"></a>一貫した外観のテーマの使用
 
@@ -132,50 +112,39 @@ GridView の BoundFields、削除を変更する少し、 `ProductID`、 `Suppli
 
 という名前のプロジェクトに新しいスキン ファイルを追加して開始`GridView.skin`をソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。
 
-
 [![GridView.skin をという名前のスキン ファイルを追加します。](displaying-data-with-the-objectdatasource-vb/_static/image24.png)](displaying-data-with-the-objectdatasource-vb/_static/image23.png)
 
 **図 9**:スキン ファイルの名前を追加`GridView.skin`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image25.png))。
 
-
 スキン ファイルに存在する、テーマに配置することが必要、`App_Themes`フォルダー。 このようなフォルダーはまだありません、ために、Visual Studio は、最初のスキンを追加するときに、私たちの 1 つを作成する提供してください。 作成するには、[はい] をクリックして、`App_Theme`フォルダーと新しい配置`GridView.skin`ファイルがあります。
-
 
 [![App_Theme フォルダーを作成する Visual Studio で自動的に](displaying-data-with-the-objectdatasource-vb/_static/image27.png)](displaying-data-with-the-objectdatasource-vb/_static/image26.png)
 
 **図 10**:Visual Studio で作成できるように、`App_Theme`フォルダー ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image28.png))。
 
-
 これで新しいテーマが作成されます、`App_Themes`スキン ファイルを使用して、GridView をという名前のフォルダー`GridView.skin`します。
-
 
 ![GridView のテーマに追加された App_Theme フォルダー](displaying-data-with-the-objectdatasource-vb/_static/image29.png)
 
 **図 11**:GridView のテーマに追加されて、`App_Theme`フォルダー
 
-
 DataWebControls を GridView のテーマの名前を変更 (GridView フォルダーを右クリックし、`App_Theme`フォルダー名の変更を選択)。 次のマークアップを次に、入力、`GridView.skin`ファイル。
-
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample3.aspx)]
 
 これは、既定のプロパティを定義、 `CssClass`-DataWebControls テーマを使用しているページで、GridView の関連するプロパティ。 DetailsView、すぐ使用する Web コントロールのデータの別のスキンを追加してみましょう。 新しいスキンをという名前の DataWebControls テーマに追加`DetailsView.skin`し、次のマークアップを追加します。
 
-
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample4.aspx)]
 
 テーマを定義すると、最後の手順は、ASP.NET ページにテーマを適用します。 ページごとに、または web サイト内のすべてのページのテーマを適用できます。 このテーマを使用して、web サイトのすべてのページにしましょう。 これを実現するには、次のマークアップを追加`Web.config`の`<system.web>`セクション。
-
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-vb/samples/sample5.xml)]
 
 必要な作業は以上です。 `styleSheetTheme`設定では、テーマで指定したプロパティが必要があることを示します*いない*コントロール レベルで指定されたプロパティを上書きします。 テーマの設定がコントロールの設定を優先する必要がありますを指定するには、使用、`theme`属性の代わりに`styleSheetTheme`残念ながら、テーマの設定は、Visual Studio のデザイン ビューでは表示されません。 参照してください[ASP.NET のテーマおよびスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)と[サーバー側のスタイルを使用してテーマ](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)テーマとスキン; の詳細については、次を参照してください[How To:。ASP.NET のテーマを適用](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx)テーマを使用するページの設定に関する詳細。
 
-
 [![GridView は、製品の名前、カテゴリ、供給業者、価格、および提供が中止された情報が表示されます。](displaying-data-with-the-objectdatasource-vb/_static/image31.png)](displaying-data-with-the-objectdatasource-vb/_static/image30.png)
 
 **図 12**:製品の名前、カテゴリ、供給業者、価格、および情報の提供が中止された GridView が表示されます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image32.png))。
-
 
 ## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>DetailsView で一度に 1 つのレコードを表示します。
 
@@ -183,32 +152,25 @@ GridView にバインドされているデータ ソース コントロールに
 
 DetailsView コントロールを追加して開始*上*で GridView`SimpleDisplay.aspx`します。 次に、GridView として同じ ObjectDataSource コントロールにバインドします。 ObjectDataSource のによって返されるオブジェクト内の各プロパティの DetailsView に追加されます、BoundField、GridView でよう`Select`メソッド。 唯一の違いは、垂直方向にではなく水平方向に DetailsView の BoundFields が配置されています。
 
-
 [![ページに、DetailsView を追加し、ObjectDataSource にバインドします。](displaying-data-with-the-objectdatasource-vb/_static/image34.png)](displaying-data-with-the-objectdatasource-vb/_static/image33.png)
 
 **図 13**:ページに、DetailsView を追加し、ObjectDataSource にバインドする ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image35.png))。
 
-
 GridView のような ObjectDataSource によって返されるデータのカスタマイズされた表示を提供する DetailsView の BoundFields を調整できます。 図 14 は、その BoundFields 後、DetailsView を示しています。 と`CssClass`GridView の例のような外観を作成するプロパティが構成されています。
-
 
 [![DetailsView は、1 つのレコードを示しています。](displaying-data-with-the-objectdatasource-vb/_static/image37.png)](displaying-data-with-the-objectdatasource-vb/_static/image36.png)
 
 **図 14**:DetailsView は 1 つのレコードを示しています ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image38.png))。
 
-
 DetailsView はそのデータ ソースによって返される最初のレコードしか表示されないことに注意してください。 ステップ実行のすべてのレコードを 1 つずつ、ユーザーを許可するには、DetailsView のページングを有効にするする必要があります。 これを行うには、Visual Studio に戻り、DetailsView のスマート タグでページングを有効にするチェック ボックスをオンします。
-
 
 [![DetailsView コントロールでページングを有効にします。](displaying-data-with-the-objectdatasource-vb/_static/image40.png)](displaying-data-with-the-objectdatasource-vb/_static/image39.png)
 
 **図 15**:DetailsView コントロールでページングを有効にする ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image41.png))。
 
-
 [![ページングが有効になっている、DetailsView では、製品のいずれかを表示します。](displaying-data-with-the-objectdatasource-vb/_static/image43.png)](displaying-data-with-the-objectdatasource-vb/_static/image42.png)
 
 **図 16**:DetailsView で任意の製品を表示するユーザーはページングが有効な ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image44.png))。
-
 
 後でチュートリアルをページングについて説明します。
 
@@ -220,22 +182,17 @@ DetailsView はかなり柔軟性に欠けるで ObjectDataSource から返さ�
 
 FormView コントロールを追加、`SimpleDisplay.aspx`ページのデザイン画面。 最初に、フォーム ビューが表示されます灰色のブロックとして、少なくとも、コントロールを提供する必要があるかを知らせる`ItemTemplate`します。
 
-
 [![FormView する必要がありますが、ItemTemplate を含める](displaying-data-with-the-objectdatasource-vb/_static/image46.png)](displaying-data-with-the-objectdatasource-vb/_static/image45.png)
 
 **図 17**:FormView 必要があります、 `ItemTemplate` ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image47.png))。
 
-
 FormView をバインドするには、既定値を作成、FormView のスマート タグからのデータ ソース コントロールに直接`ItemTemplate`自動的に (と共に、`EditItemTemplate`と`InsertItemTemplate`場合は、ObjectDataSource コントロールの`InsertMethod`と`UpdateMethod`プロパティが設定されます)。 ただし、この例で、フォーム ビューにデータをバインドして指定の`ItemTemplate`手動でします。 FormView の設定で開始`DataSourceID`プロパティを`ID`、ObjectDataSource コントロールの`ObjectDataSource1`します。 次に、作成、 `ItemTemplate` 、製品の名前と価格を表示するよう、`<h4>`要素およびフォント サイズで下にはカテゴリや出荷業者の名前。
 
-
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample6.aspx)]
-
 
 [![最初の製品 (Chai) がカスタム形式で表示されます。](displaying-data-with-the-objectdatasource-vb/_static/image49.png)](displaying-data-with-the-objectdatasource-vb/_static/image48.png)
 
 **図 18**:最初の製品 (Chai) がカスタム形式で表示されます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-objectdatasource-vb/_static/image50.png))。
-
 
 `<%# Eval(propertyName) %>`データ バインディング構文を示します。 `Eval`メソッド FormView コントロールにバインドされている現在のオブジェクトの指定したプロパティの値を返します。 Alex Homer の記事[簡体字と ASP.NET 2.0 でのデータ バインディング構文の拡張](http://www.15seconds.com/issue/040630.htm)データ バインドの詳細の入出力について。
 

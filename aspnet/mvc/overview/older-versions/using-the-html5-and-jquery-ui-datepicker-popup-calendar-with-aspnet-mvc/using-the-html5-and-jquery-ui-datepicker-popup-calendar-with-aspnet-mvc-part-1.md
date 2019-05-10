@@ -8,19 +8,18 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 31a01f250e4f5473e954f040e1a506dbaf61be76
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6e7d31d96a36b55e2e1a9a475e2d90526cc6a5b2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393590"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112394"
 ---
 # <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - 第 1 部での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、エディターのテンプレート、画面テンプレート、および ASP.NET MVC Web アプリケーションで jQuery UI datepicker ポップアップ カレンダーを使用する方法の基本を説明します。
-
 
 このチュートリアルがエディターのテンプレート、画面テンプレート、および jQuery を使用する方法の基礎を講義[UI datepicker ポップアップ カレンダー](http://plugins.jquery.com/project/datepicker) ASP.NET MVC Web アプリケーションにします。 このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用することができます (&quot;Visual Web Developer&quot;)、これは、Microsoft Visual Studio の無料バージョンまたはが既にある場合は、Visual Studio 2010 SP1 を使用することができます。
 

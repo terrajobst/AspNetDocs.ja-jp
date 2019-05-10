@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: e4b8f059974dec33d6305e7b84919550713bf4e4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3aff277a6e09504d9f7b610478c27af00c1d2d94
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108521"
 ---
 # <a name="aspnet-error-handling"></a>ASP.NET エラー処理
 
@@ -22,7 +22,6 @@ ms.locfileid: "59409890"
 [Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
-
 
 このチュートリアルでは、エラー処理およびエラーのログ記録を含む Wingtip Toys のサンプル アプリケーションを変更します。 エラー処理により、アプリケーションを適切にエラーを処理し、それに従ってエラー メッセージを表示します。 エラーのログ記録は検出と発生したエラーを修正できます。 このチュートリアルでは、「URL ルーティング」前のチュートリアルに基づいており、Wingtip Toys のチュートリアル シリーズのパートです。
 

@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: 4e43455e-dfa1-42db-83cb-c987703f04b5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 116c557ad0d6c158f983da75668e634c9eb9747c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5630200a1ad1d30f6d89b38e15179f15b699fa9f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379593"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108581"
 ---
 # <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>ASP.NET 4 Web アプリケーションで Entity Framework 4.0 でパフォーマンスの最大化
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 > このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](https://asp.net/entity-framework/tutorials#Getting%20Started)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
-
 
 前のチュートリアルでは、同時実行の競合を処理する方法を説明しました。 このチュートリアルでは、Entity Framework を使用する ASP.NET web アプリケーションのパフォーマンスを向上させるためのオプションを使用します。 パフォーマンスを最大化するため、またはパフォーマンスの問題を診断するためのいくつかの方法について説明します。
 
@@ -43,7 +42,6 @@ ms.locfileid: "59379593"
 > Web アプリケーションのパフォーマンスは、要求と応答データのサイズのデータベースにクエリがキューに入れること、サーバー要求の数、およびどの程度の速度、および任意の効率も処理できる速度などを含む、さまざまな要因の影響を受けるクライアント スクリプト ライブラリを使用する場合があります。 パフォーマンスがアプリケーションでは、重要な場合、またはテストまたは経験によってアプリケーションのパフォーマンスが満足されていないことが表示されている場合は、パフォーマンス チューニングの通常のプロトコルに従ってください。 パフォーマンスのボトルネックの発生場所を確認する測定し、アプリケーション全体のパフォーマンスに大きな影響を与える点を解決します。
 > 
 > このトピックを具体的には ASP.NET で Entity Framework のパフォーマンスを向上することができます可能性のある方法で主に重点を置いています。 ここで、推奨事項は、データ アクセスでは、アプリケーションでパフォーマンスのボトルネックのいずれかの判断した場合に便利です。 ここで説明するメソッドと見なすべきではないように、点を除いて&quot;ベスト プラクティス&quot;一般に、これらの多くは例外的な状況でのみ、または非常に特定の種類をパフォーマンスのボトルネックのアドレスを適切な。
-
 
 チュートリアルを開始するには、Visual Studio を起動し、前のチュートリアルで作業していた Contoso University web アプリケーションを開きます。
 
@@ -179,7 +177,6 @@ Contoso University のアプリケーション パフォーマンスを向上さ
 > [!NOTE]
 > Visual Studio Ultimate がある場合にのみ、次の手順を実行することができます。
 
-
 復元元のコードに、`GetDepartmentsByName`メソッド、および実行し、 *Departments.aspx*デバッガーでのページ。
 
 Visual Studio で、選択、**デバッグ**メニュー、 **IntelliTrace**、し**IntelliTrace イベント**します。
@@ -219,14 +216,12 @@ Visual Studio で、選択、**デバッグ**メニュー、 **IntelliTrace**、
 > [!NOTE]
 > 遅延のままにする遅延読み込みから読み込みを有効にすると、パターンの繰り返し、同じクエリをここでは、「することもあります。 回避する通常のパターンでは、主テーブルのすべての行に関連するデータの遅延読み込みです。 1 つの結合クエリが複雑すぎて効率的ことを確認できたので、しない限り、通常ことができます、一括読み込みを使用する主要なクエリを変更することでこのような場合のパフォーマンスを向上させるためにします。
 
-
 ## <a name="pre-generating-views"></a>生成前のビュー
 
 ときに、`ObjectContext`オブジェクトが新しいアプリケーション ドメインで最初に作成、Entity Framework には、一連のデータベースへのアクセスに使用されるクラスが生成されます。 これらのクラスと呼ばれます*ビュー*、非常に大きなデータ モデルがあれば、これらのビューを生成する遅れることが、ページの最初の要求に応答を web サイトの新しいアプリケーション ドメインの初期化後にします。 実行時ではなく、コンパイル時に、ビューを作成して、この最初の要求の遅延を減らすことができます。
 
 > [!NOTE]
 > アプリケーションは、非常に大規模なデータ モデルを持っていない場合、または大きなデータ モデルが IIS のリサイクル後、最初のページ要求のみに影響するパフォーマンスの問題に関する問題がない場合は、このセクションをスキップできます。 ビューの作成がインスタンス化するたびに行われないとき、`ObjectContext`オブジェクト、ビューは、アプリケーション ドメインでキャッシュされるためです。 そのため、IIS でアプリケーションを頻繁にリサイクルしている場合を除き、ほとんどのページ要求が有利事前生成済みのビュー。
-
 
 使用してビューを事前に生成することができます、 *EdmGen.exe*コマンド ライン ツールを使用して、または、*テキスト テンプレート変換ツールキット*(T4) テンプレート。 このチュートリアルでは、T4 テンプレートを使用します。
 
