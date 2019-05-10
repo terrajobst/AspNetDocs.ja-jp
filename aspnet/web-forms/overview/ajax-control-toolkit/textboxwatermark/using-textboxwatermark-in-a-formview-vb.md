@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 41497361-7fba-4825-b36c-f58d79522a88
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 056e89b20ccab0e56b1fab422c817d842beff446
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7dd213e632f6114b0ef468e97943e789e71a474a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400842"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124528"
 ---
 # <a name="using-textboxwatermark-in-a-formview-vb"></a>FormView で TextBoxWatermark を使用する (VB)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59400842"
 [コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark1VB.pdf)
 
 > AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックするは空になります。 ユーザーがテキストを入力しなくても、ボックスのまま、指定済みのテキストが表示されます。 これは、FormView コントロール内で可能性があります。
-
 
 ## <a name="overview"></a>概要
 
@@ -47,7 +46,6 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 [!code-aspx[Main](using-textboxwatermark-in-a-formview-vb/samples/sample3.aspx)]
 
 挿入モードに、ユーザーが変更されたときに今すぐ、`FormView`制御の場合に感謝します。 新しい仕入先が事前入力のテキスト フィールド、`TextBoxWatermarkExtender`コントロール。 テキスト ボックス内をクリックには、充てんテキストが表示されなくなることができます。
-
 
 [![フィールド内のウォーターマークに由来エクステンダー](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
 

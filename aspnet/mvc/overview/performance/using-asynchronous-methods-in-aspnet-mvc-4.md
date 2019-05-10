@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8292fd43ffa2bc66b4daa8f0fc09569226d90bff
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8d42ebf770e1b75e2867cca36e71423ba9467ee2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112435"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 での非同期メソッドの使用
 
@@ -22,7 +22,6 @@ ms.locfileid: "59379561"
 > このチュートリアルが非同期 ASP.NET MVC Web アプリケーションを使用して、構築の基礎を講義[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11)、これは Microsoft Visual Studio の無料バージョンです。 使用することも[Visual Studio 2012](https://www.microsoft.com/visualstudio/11)します。
 > 
 > このチュートリアルでは github の完全なサンプルが提供されます。 [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/)
-
 
 ASP.NET MVC 4[コント ローラー](https://msdn.microsoft.com/library/system.web.mvc.controller(VS.108).aspx)クラスを組み合わせて[.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx)型のオブジェクトを返す非同期アクション メソッドを記述することができます[タスク&lt;ActionResult&gt;](https://msdn.microsoft.com/library/dd321424(VS.110).aspx). .NET Framework 4 と呼ばれる非同期のプログラミング概念を導入する、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)し、ASP.NET MVC 4 サポート[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)します。 タスクがによって表される、**タスク**型と関連する型を[System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx)名前空間。 この非同期サポートに基づいて、.NET Framework 4.5、 [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)操作できるようにするキーワード[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)前よりもはるかに単純なオブジェクト非同期のアプローチです。 [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードは簡略記法を示すためのコードがコードの他のいくつかの一部で非同期的に待機します。 [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードは、タスク ベースの非同期メソッドとしてメソッドをマークするために使用できるヒントを表します。 組み合わせ**await**、 **async**、および**タスク**オブジェクトにより、.NET 4.5 で非同期コードを記述するためのはるかに簡単です。 非同期メソッドの場合、新しいモデルと呼ばれる、*タスクベースの非同期パターン*(**タップ**)。 このチュートリアルは、非同期プログラミングを使用して知識があることを前提[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードと[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間。
 

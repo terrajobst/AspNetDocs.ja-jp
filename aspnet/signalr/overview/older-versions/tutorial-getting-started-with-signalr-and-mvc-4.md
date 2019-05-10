@@ -8,12 +8,12 @@ ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: abedf2dbf6fbc632b1857bf447f70aeb8f826d81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9186915df6d5de6bc20dfc0adabc54056d2f3a8c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410826"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113853"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>チュートリアル: SignalR 1.x と MVC 4 の概要
 
@@ -22,7 +22,6 @@ ms.locfileid: "59410826"
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このチュートリアルでは、ASP.NET SignalR を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 4 アプリケーションに追加し、チャットを送信し、メッセージを表示するビューを作成します。
-
 
 ## <a name="overview"></a>概要
 
@@ -76,7 +75,6 @@ ms.locfileid: "59410826"
 
 > [!NOTE]
 > Visual Studio 2012 を使用して、インストールされている場合、 [ASP.NET and Web Tools 2012.2 update](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation)、ハブ クラスを作成する新しい SignalR 項目テンプレートを使用することができます。 右クリックし、 **Hubs**フォルダー、をクリックして**追加 |新しい項目の**、 **SignalR ハブ クラス (v1)**、クラスの名前と**ChatHub.cs**します。
-
 
 1. コードに置き換えます、 **ChatHub**クラスを次のコード。
 
@@ -151,7 +149,6 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 > [!NOTE]
 > JQuery でサーバー クラスとそのメンバーへの参照がキャメル ケースです。 コード サンプルを参照して、C# **ChatHub**クラスとしての jquery **chatHub**します。 参照する場合、`ChatHub`クラス jquery では通常 pascal 形式で、C# の場合と大文字小文字の区別 ChatHub.cs クラス ファイルを編集します。 追加、`using`を参照するステートメント、`Microsoft.AspNet.SignalR.Hubs`名前空間。 追加し、`HubName`属性を`ChatHub`クラス、たとえば`[HubName("ChatHub")]`します。 参照を jQuery を最後に、更新、`ChatHub`クラス。
 
-
 次のコードでは、スクリプトでコールバック関数を作成する方法を示します。 サーバー上のハブ クラスは、各クライアントにコンテンツの更新をプッシュするには、この関数を呼び出します。 省略可能な呼び出し、 `htmlEncode`  ページで、スクリプト インジェクションを防止する手段として表示する前に関数を HTML に方法が表示されますが、メッセージの内容をエンコードします。
 
 [!code-html[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample7.html)]
@@ -160,7 +157,6 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 
 > [!NOTE]
 > このアプローチにより、イベント ハンドラーが実行される前に、接続が確立されていること。
-
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample8.js)]
 

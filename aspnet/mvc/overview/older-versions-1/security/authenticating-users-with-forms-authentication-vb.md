@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 4341f5b1-6fe5-44c5-8b8a-18fa84f80177
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a4e8dc3ce5764c6b2ec59c7e3f507064f8a8cb5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a2c2140631d59a7f8b21aa73613a92ea5c7a91d0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422162"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122082"
 ---
 # <a name="authenticating-users-with-forms-authentication-vb"></a>フォーム認証でユーザーを認証する (VB)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > [Authorize] 属性を使用する方法について説明します、MVC アプリケーションで特定のページで保護するパスワード。 Web サイトの管理ツールを使用して作成し、ユーザーとロールを管理する方法について説明します。 また、ユーザー アカウントとロールの情報が格納される場所を構成する方法も説明します。
-
 
 このチュートリアルの目的は、フォームを使用する方法について説明するパスワードへの認証は、ASP.NET MVC アプリケーション内のビューを保護します。 Web サイトの管理ツールを使用して、ユーザーとロールを作成する方法について説明します。 また、不正なユーザーがコント ローラー アクションを呼び出すことを防止する方法も説明します。 最後に、ユーザー名とパスワードを格納する場所を構成する方法について説明します。
 
@@ -117,7 +116,6 @@ ASP.NET SQL Server セットアップ ウィザードを使用すると、ネッ
 > 
 > 
 > C:\Windows\Microsoft.NET\Framework\v2.0.50727
-
 
 必要なデータベース オブジェクトを作成した後は、MVC アプリケーションで使用されるデータベース接続を変更する必要があります。 Web 構成 (web.config) ファイルで、ApplicationServices 接続文字列を変更するは、実稼働データベースを指すようにします。 たとえば、リスト 3 の変更後の接続は MyProductionDB (元の ApplicationServices 接続文字列コメント アウトされている) という名前のデータベースを指します。
 

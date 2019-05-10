@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2be57655b8c9b76b94e1d9a7ae5fbee27545a0a9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406770"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113088"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要
 
@@ -36,12 +36,10 @@ ms.locfileid: "59406770"
 > 
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
-
 Razor 構文を使用する ASP.NET Web ページを使用するほとんどの例は C# を使用します。 Razor 構文では、Visual Basic もサポートされています。 Visual Basic での ASP.NET web ページをプログラミングで web ページを作成する、 *.vbhtml*ファイル名拡張子、Visual Basic コードを追加します。 この記事では、Visual Basic 言語と ASP.NET web ページを作成する構文の概要を示します。
 
 > [!NOTE]
 > Microsoft WebMatrix の既定の web サイト テンプレート (**パン屋さん**、**フォト ギャラリー**、および**スターター サイト**など) は C# および Visual Basic のバージョンで使用できます。 NuGet パッケージとしてでは、Visual Basic テンプレートをインストールできます。 Web サイト テンプレートがという名前のフォルダーで、サイトのルート フォルダーにインストールされている*Microsoft テンプレート*します。
-
 
 ## <a name="the-top-8-programming-tips"></a>8 つのプログラミング Tips
 
@@ -66,7 +64,6 @@ Razor 構文を使用する ASP.NET Web ページを使用するほとんどの�
 > 目的がマークアップとしてタグをレンダリングする HTML マークアップを出力するかどうか (たとえば`<p></p>`段落のまたは`<em></em>`テキストを強調するために) を参照してください[を組み合わせることのテキスト、マークアップ、およびコード ブロック内のコード](#BM_CombiningTextMarkupAndCode)この記事で後述します。
 > 
 > 詳細での HTML エンコードについて[ASP.NET Web Pages サイトでの HTML フォームを使用する](https://go.microsoft.com/fwlink/?LinkId=202892)します。
-
 
 ### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2.コードのコード ブロックを囲むとしています.終了コード
 
@@ -151,7 +148,6 @@ Visual Basic 言語は大文字小文字が区別されません。 プログラ
 > Web ページ (HTTP) で使用されるプロトコルは、メソッドの非常に限られた数をサポートしています (&quot;動詞&quot;) サーバーに要求を行うに使用します。 2 つの最も一般的なは、ページの読み取りに使用される、GET と POST のページを送信するために使用されます。 一般に、初めてユーザーの要求 ページでは、ページの要求が GET を使用します。 かどうか、ユーザーは、フォームに入力して、クリックして**送信**ブラウザー、サーバーへの POST 要求。
 > 
 > Web プログラミング、かどうか、ページを要求する、POST または GET としてページを処理する方法がわかるように、知っておくと便利がよくあります。 使用する ASP.NET Web ページで、`IsPost`プロパティを要求が GET または POST がかどうかを参照してください。 要求が、投稿の場合、`IsPost`プロパティが true を返すし、フォーム上のテキスト ボックスの値などの読み取りを行うことができます。 値に応じて異なる方法でページを処理する方法がわかります多くの例に示します`IsPost`します。
-
 
 ## <a name="a-simple-code-example"></a>単純なコード例
 
@@ -272,7 +268,6 @@ ASP.NET は、データ型を自動的に決定することができます、通
 
 次の表では、変数の一般的ないくつかの変換とテスト方法を示します。
 
-
 :::row:::
     :::column:::
         <strong>Method</strong>
@@ -369,11 +364,9 @@ ASP.NET は、データ型を自動的に決定することができます、通
     :::column-end:::
 :::row-end:::
 
-
 ## <a name="operators"></a>演算子
 
 演算子は、キーワードまたは式の中で実行するコマンドの種類を ASP.NET に指示する文字です。 Visual Basic は、多くの演算子をサポートしていますが、ASP.NET web ページの開発を開始するいくつかを認識するだけで済みます。 次の表では、最も一般的な演算子をまとめたものです。
-
 
 :::row:::
     :::column:::
@@ -732,7 +725,6 @@ Visual Basic と Razor 構文を使用しているときにパラメーターを
 
 > [!NOTE]
 > 使用を避けることをお勧めします。、`Response.Redirect`メソッド`Try/Catch`ステートメント、ページで、例外が生じるためです。
-
 
 次の例では、最初の要求でテキスト ファイルを作成し、ファイルを開くユーザーを切り替えるボタンを表示するページを示します。 例は、例外が発生されるように意図的に不適切なファイル名を使用します。 コードが含まれています`Catch`可能性のある例外の 2 つのステートメント: `FileNotFoundException`、ファイル名が間違っている場合に発生して`DirectoryNotFoundException`ASP.NET は、フォルダーにも見つからない場合に発生します。 (コメントを解除できます、ステートメントの例では、すべてが適切に動作しているときの動作を確認するためにします。)
 

@@ -8,19 +8,18 @@ ms.date: 02/16/2009
 ms.assetid: 3cd08f02-8763-490a-b625-2ac96a24b73f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7b7324c9e0518697c0978b96b0123cb44133722b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 58f72e390f0053d136ef00ddbda0b071ba225d98
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418938"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123358"
 ---
 # <a name="creating-custom-routes-c"></a>カスタム ルートを作成する (C#)
 
 によって[Microsoft](https://github.com/microsoft)
 
 > ASP.NET MVC アプリケーションにカスタム ルートを追加する方法について説明します。 このチュートリアルでは、Global.asax ファイルの既定のルート テーブルを変更する方法について説明します。
-
 
 このチュートリアルでは、ASP.NET MVC アプリケーションにカスタム ルートを追加する方法について説明します。 カスタム ルートを使用して、Global.asax ファイルの既定のルート テーブルを変更する方法について説明します。
 
@@ -60,11 +59,9 @@ ms.locfileid: "59418938"
 
 **図 1 - パラメーターの変換からのエラー**
 
-
 [![[新しいプロジェクト] ダイアログ ボックス](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
 
 **図 01**:パラメーターの変換からのエラー ([フルサイズの画像を表示する をクリックします](creating-custom-routes-cs/_static/image2.png))。
-
 
 ## <a name="summary"></a>まとめ
 

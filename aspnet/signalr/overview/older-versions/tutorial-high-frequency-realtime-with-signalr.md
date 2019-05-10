@@ -8,12 +8,12 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 179f6dd3a60f8c49770ee34af93d54defad0adc4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e37e63a410952ec170cbbaadeeb54eae7e82b3b5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379415"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113694"
 ---
 # <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR 1.x による高頻度リアルタイム
 
@@ -28,7 +28,6 @@ ms.locfileid: "59379415"
 > このチュートリアルで導入された概念には、リアルタイムのゲームでのアプリケーションおよびその他のシミュレーション アプリケーションがあります。
 > 
 > このチュートリアルでコメントは、ようこそ。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com)にて投稿してください。
-
 
 ## <a name="overview"></a>概要
 

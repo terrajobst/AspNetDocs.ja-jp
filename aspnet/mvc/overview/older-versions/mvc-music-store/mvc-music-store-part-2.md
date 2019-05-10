@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b452c59f16107be6d356f86e6c313ba3229dbce6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9dc2226f4951d4bed122df37d35bbb94730a00ad
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392756"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112406"
 ---
 # <a name="part-2-controllers"></a>第 2 部: Controllers
 
@@ -24,7 +24,6 @@ ms.locfileid: "59392756"
 > MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
 >   
 > このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 第 2 部では、コント ローラーについて説明します。
-
 
 従来の web フレームワークでは、受信した Url は通常ディスク上のファイルにマップされます。 例: のような要求 URL の"/ディスク上のファイル"または"/されず"、「繰り返し」または「されず」ファイルで処理される可能性があります。
 
@@ -136,7 +135,6 @@ ASP.NET MVC では、何も構成しなくても簡単に実行できます。 A
 - ASP.NET 開発サーバーを使用して、web サイトを実行する方法を学習しました
 - 2 つのコント ローラー クラスを作成しました: テンプレートを使用して、StoreController
 - URL 要求に応答し、ブラウザーに返されるテキストが、コント ローラーにアクション メソッドを追加しました
-
 
 > [!div class="step-by-step"]
 > [前へ](mvc-music-store-part-1.md)

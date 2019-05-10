@@ -8,12 +8,12 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 1dadbdb6fa1dc58b855402f1d6f18e8af861f756
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 34fe2cdb10c4b41a6e8cac7fb1741d53c02dfc80
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399360"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114403"
 ---
 # <a name="enabling-signalr-tracing"></a>SignalR トレースを有効にする
 
@@ -37,7 +37,6 @@ ms.locfileid: "59399360"
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
-
 
 トレースが有効にすると、SignalR アプリケーションは、イベントのログ エントリを作成します。 クライアントとサーバーの両方からイベントを記録することができます。 サーバー ログの接続、スケール アウトのプロバイダー、およびメッセージ バスのイベントをトレースしています。 クライアント ログの接続イベントをトレースしています。 SignalR 2.1 以降では、クライアントのトレースはハブ呼び出しメッセージの完全な内容を記録します。
 
@@ -64,7 +63,7 @@ ms.locfileid: "59399360"
 
 サーバーのイベント カテゴリには、次のようなメッセージがあります。
 
-| ソース | メッセージ |
+| ソース | [メッセージ] |
 | --- | --- |
 | SignalR.SqlMessageBus | SQL Message Bus スケール アウトのプロバイダーのセットアップ、データベースの操作、エラー、およびタイムアウト イベント |
 | SignalR.ServiceBusMessageBus | Service bus スケール アウト プロバイダーのトピックで作成し、サブスクリプション、エラー、およびメッセージングのイベント |

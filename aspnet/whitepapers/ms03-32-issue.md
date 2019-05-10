@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: faad1530a499fd3f46a6a6c6e7c194ba6c55fa6c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e0b6776cbfe22e341ac7105f03daac5074b480fc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121552"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE のセキュリティ更新を適用した後の 'サーバー アプリケーションは使用できません ' エラーの修正
 
 > このホワイト ペーパーでは、Windows XP Professional で実行されている ASP.NET 1.0 アプリケーションに影響する Internet Explorer の ms 03 32 のセキュリティ更新プログラムの問題を修正する修正プログラムについて説明します。
 > 
 > ASP.NET 1.0 と Windows XP Professional に適用されます。
-
 
 Microsoft では、Internet Explorer のセキュリティ更新プログラムの ms 03 32 セキュリティ更新プログラムで Windows XP で実行されている ASP.NET 1.0 問題点を確認します。 この修正プログラムは、手動、または、Windows Update サイトから最新の重要な更新プログラムを入手してインストールできます。
 

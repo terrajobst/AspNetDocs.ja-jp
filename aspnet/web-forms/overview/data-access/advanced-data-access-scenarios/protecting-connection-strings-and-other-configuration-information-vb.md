@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: cd17dbe1-c5e1-4be8-ad3d-57233d52cef1
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc5f283a6f97a83fdb157f54e5b3b020254f5203
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: acd0b423eb13c476c59f30ad55af20314c7a7079
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404846"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116923"
 ---
 # <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>接続文字列とその他の構成情報を保護する (VB)
 
@@ -23,18 +23,15 @@ ms.locfileid: "59404846"
 
 > ASP.NET アプリケーションは、通常、構成情報を Web.config ファイルに格納します。 この情報の一部は小文字が区別し、保護を保証します。 既定でこのファイルは発生しません Web サイトの訪問者が、管理者や、ハッカー可能性があります Web サーバーのファイル システムにアクセスし、ファイルの内容を表示します。 このチュートリアルでは ASP.NET 2.0 では、Web.config ファイルのセクションを暗号化して機密情報を保護することを説明します。
 
-
 ## <a name="introduction"></a>はじめに
 
 ASP.NET アプリケーションの構成情報がよくという XML ファイルに格納されている`Web.config`します。 これらのチュートリアルの過程で更新した、`Web.config`いくつかの時間。 作成するときに、`Northwind`で型指定されたデータセット、[最初のチュートリアル](../introduction/creating-a-data-access-layer-vb.md)、たとえば、接続文字列情報を自動的に追加されたに`Web.config`で、`<connectionStrings>`セクション。 後の「、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-vb.md)チュートリアルでは、手動で更新しました`Web.config`を追加する、`<pages>`要素は、すべてのプロジェクト内の ASP.NET ページを使用することを示す、`DataWebControls`テーマ。
 
 `Web.config` 、接続文字列などの機密データを含めることができますが重要ですがの内容`Web.config`安全で承認されていないビューアーから非表示を保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能は、返す ASP.NET エンジンによって処理されます、*この種類のページが提供されない*図 1 に表示されるメッセージ。 つまり、訪問者を表示できない、 `Web.config` s の内容を入力するだけでファイル http://www.YourServer.com/Web.config ブラウザーのアドレス バーにします。
 
-
 [![Web.config で、ブラウザーを返します。 ページのこの型にアクセスして、メッセージは処理されません。](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)
 
 **図 1**:訪問`Web.config`を通じて、ブラウザーを返しますページの種類、このメッセージは提供されませんが ([フルサイズの画像を表示する をクリックします。](protecting-connection-strings-and-other-configuration-information-vb/_static/image3.png))。
-
 
 しかし、攻撃者を使用して表示するその他のいくつかの悪用を検索することができない場合、`Web.config`ファイルの内容を s でしょうか。 攻撃者何がこの情報を使用し、内の機密情報の保護を強化する手順を実行できる`Web.config`でしょうか。 ほとんどのセクションでさいわい、`Web.config`機密情報は含まれません。 ASP.NET ページによって使用されるテーマの既定の名前がわかっている場合に、攻撃者が利用するどのような損害ことができますか。
 
@@ -49,7 +46,6 @@ ASP.NET アプリケーションの構成情報がよくという XML ファイ�
 
 > [!NOTE]
 > このチュートリアルの最後に、ASP.NET アプリケーションからデータベースに接続するための Microsoft s の推奨事項を参照してください。 接続文字列を暗号化するには、安全な方法でデータベースに接続していることを確認して、システムを強化することができます。
-
 
 ## <a name="step-1-exploring-aspnet-20-s-protected-configuration-options"></a>手順 1: Asp.net 2.0 の保護の構成オプション
 
@@ -69,7 +65,6 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 > [!NOTE]
 > `RSAProtectedConfigurationProvider`と`DPAPIProtectedConfigurationProvider`にプロバイダーが登録されている、`machine.config`プロバイダーの名前を含むファイル`RsaProtectedConfigurationProvider`と`DataProtectionConfigurationProvider`、それぞれします。 暗号化または適切なプロバイダー名を指定する必要があります。 構成情報を暗号化解除 (`RsaProtectedConfigurationProvider`または`DataProtectionConfigurationProvider`) 実際の型名ではなく (`RSAProtectedConfigurationProvider`と`DPAPIProtectedConfigurationProvider`)。 検索することができます、`machine.config`ファイル、`$WINDOWS$\Microsoft.NET\Framework\version\CONFIG`フォルダー。
 
-
 ## <a name="step-2-programmatically-encrypting-and-decrypting-configuration-sections"></a>手順 2: 構成セクションを暗号化および暗号化プログラム
 
 数行のコードでは、暗号化または指定したプロバイダーを使用して特定の構成セクションを復号化できます。 コードでわかるとおり、だけで済みますをプログラムで、適切な構成セクションを参照を呼び出すその`ProtectSection`または`UnprotectSection`メソッド、および、呼び出し、`Save`メソッドの変更を保持します。 さらに、.NET Framework には、暗号化および構成情報を復号化できる便利なコマンド ライン ユーティリティが含まれています。 手順 3 では、このコマンド ライン ユーティリティを紹介します。
@@ -82,21 +77,17 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 
 この時点で、画面は図 2 のようなはずです。
 
-
 [![テキスト ボックスと 2 つのボタンの Web コントロールをページに追加します。](protecting-connection-strings-and-other-configuration-information-vb/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image4.png)
 
 **図 2**:テキスト ボックスと 2 つのボタンの Web コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-vb/_static/image6.png))。
 
-
 次に、読み込んでの内容を表示するコードを記述する必要があります`Web.config`で、`WebConfigContents`テキスト ボックスに、ページが最初に読み込まれます。 ページの分離コード クラスには、次のコードを追加します。 このコードでは、という名前のメソッドを追加します`DisplayWebConfig`からそれを呼び出すと、`Page_Load`イベント ハンドラーと`Page.IsPostBack`は`False`:。
-
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample1.vb)]
 
 `DisplayWebConfig`メソッドは、 [ `File`クラス](https://msdn.microsoft.com/library/system.io.file.aspx)にアプリケーションを開きます`Web.config`ファイル、 [ `StreamReader`クラス](https://msdn.microsoft.com/library/system.io.streamreader.aspx)文字列であり、にその内容を読み取る[`Path`クラス](https://msdn.microsoft.com/library/system.io.path.aspx)への物理パスを生成する、`Web.config`ファイル。 これら 3 つのクラスは、すべてで、 [ `System.IO`名前空間](https://msdn.microsoft.com/library/system.io.aspx)します。 その結果、追加する必要がありますには、`Imports``System.IO`分離コード クラスか、または、これらのクラス名をプレフィックスの先頭にステートメント `System.IO.`
 
 次に、2 つのボタン コントロールのイベント ハンドラーを追加する必要があります`Click`イベントの暗号化し、復号化に必要なコードを追加し、`<connectionStrings>`セクションでは、DPAPI プロバイダー マシン レベル キーを使用します。 デザイナーでは、各追加ボタンをダブルクリックして、`Click`分離コード内のイベント ハンドラー クラスを次のコードを追加。
-
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample2.vb)]
 
@@ -110,14 +101,11 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 
 上記のコードを入力するとテストを参照してください、`EncryptingConfigSections.aspx`ページがブラウザーを使用します。 内容を一覧表示されたページを表示する必要があります最初に`Web.config`で、`<connectionStrings>`セクションがプレーン テキストで表示されます (図 3 を参照してください)。
 
-
 [![テキスト ボックスと 2 つのボタンの Web コントロールをページに追加します。](protecting-connection-strings-and-other-configuration-information-vb/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image7.png)
 
 **図 3**:テキスト ボックスと 2 つのボタンの Web コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-vb/_static/image9.png))。
 
-
 接続文字列の暗号化 ボタンをクリックします。 返されたマークアップが投稿された要求の検証が有効になっている場合、 `WebConfigContents` TextBox が生成されます、 `HttpRequestValidationException`、可能性のある危険なメッセージを表示する`Request.Form`クライアントからの値が検出されました。 要求の検証は、ASP.NET 2.0 では既定で有効に、エンコードされていない HTML を含むポストバックとは、スクリプト インジェクション攻撃を防ぐために設計されています。 このチェックは、ページ、またはアプリケーション レベルでを無効にすることができます。 このページを無効に、設定、`ValidateRequest`設定`False`で、`@Page`ディレクティブ。 `@Page`ディレクティブがページの宣言型マークアップの上部にあるが見つかりました。
-
 
 [!code-aspx[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample3.aspx)]
 
@@ -125,28 +113,22 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 
 ページの要求の検証を無効にした後、接続文字列の暗号化 ボタンをクリックすると、もう一度お試しください。 構成ファイルのアクセス、ポストバックのおよびその`<connectionStrings>`セクション DPAPI プロバイダーを使用して暗号化します。 テキスト ボックスが、新しい表示を更新し`Web.config`コンテンツ。 図 4 に示すよう、`<connectionStrings>`情報が暗号化されています。
 
-
 [![クリックすると、暗号化接続文字列 ボタンは暗号化、 &lt;connectionString&gt;セクション](protecting-connection-strings-and-other-configuration-information-vb/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image10.png)
 
 **図 4**:クリックすると、暗号化接続文字列 ボタンは暗号化、`<connectionString>`セクション ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-vb/_static/image12.png))。
 
-
 暗号化された`<connectionStrings>`でコンテンツの一部ですが、自分のコンピューターで生成されたセクションの次に、`<CipherData>`簡潔にするための要素が削除されました。
-
 
 [!code-xml[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample4.xml)]
 
 > [!NOTE]
 > `<connectionStrings>`要素の暗号化を実行するために使用するプロバイダーを指定します (`DataProtectionConfigurationProvider`)。 この情報によって使用されます、`UnprotectSection`メソッド、接続文字列の暗号化を解除 ボタンがクリックされたとき。
 
-
 接続文字列の情報にアクセスするときに`Web.config`- かによって、コードの記述、SqlDataSource コントロールから、または、型指定されたデータセットを Tableadapter から自動生成されたコード - は、自動的に暗号化解除します。 つまり余分なコードまたは暗号化、復号化するためのロジックを追加する必要はありません`<connectionString>`セクション。 これを示すために、基本レポートのセクションから単純な表示チュートリアルなど、この時点でアクセス前のチュートリアルのいずれか (`~/BasicReporting/SimpleDisplay.aspx`)。 図 5 に示すよう、チュートリアルはとってい、ASP.NET ページで、暗号化された接続文字列情報の自動的に暗号化解除することを示すとおりに動作します。
-
 
 [![データ アクセス層には、接続文字列情報を自動的に復号化します](protecting-connection-strings-and-other-configuration-information-vb/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image13.png)
 
 **図 5**:データ アクセス層には、接続文字列情報を自動的に復号化します ([フルサイズの画像を表示する をクリックします](protecting-connection-strings-and-other-configuration-information-vb/_static/image15.png))。
-
 
 元に戻す、`<connectionStrings>`戻るをプレーン テキスト形式のセクションで、接続文字列の暗号化を解除 ボタンをクリックします。 ポストバックの内の接続文字列を表示する必要があります`Web.config`プレーン テキストでします。 この時点で、画面に最初にこのページ (図 3 参照) にアクセスしたときと同じようになります。
 
@@ -156,27 +138,22 @@ RSA および DPAPI プロバイダー キーを暗号化と復号化ルーチ�
 
 次のステートメントで構成セクションを暗号化するために使用する一般的な構文を示しています、`aspnet_regiis.exe`コマンド ライン ツール。
 
-
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample5.cmd)]
 
 *セクション*構成セクション (connectionStrings) などの暗号化には、*物理\_ディレクトリ*、web アプリケーションのルート ディレクトリへの完全な物理パスと*プロバイダー* (DataProtectionConfigurationProvider) などを使用する保護された構成プロバイダーの名前を指定します。 または、web アプリケーションが IIS に登録されている場合は、次の構文を使用して物理パスではなく仮想パスを入力できます。
-
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample6.cmd)]
 
 次`aspnet_regiis.exe`例暗号化、`<connectionStrings>`マシン レベル キーで DPAPI プロバイダーを使用してセクションします。
 
-
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample7.cmd)]
 
 同様に、`aspnet_regiis.exe`構成セクションを復号化するコマンド ライン ツールを使用できます。 使用する代わりに、`-pef`スイッチを使用して`-pdf`(またはその代わりに`-pe`を使用して、 `-pd`)。 また、復号化するときに、プロバイダー名は必要ないことに注意してください。
-
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample8.cmd)]
 
 > [!NOTE]
 > 実行する必要がありますコンピューターに固有のキーを使用して DPAPI プロバイダーを使用しているため`aspnet_regiis.exe`元となる web ページの処理が同じコンピューターから。 たとえば、実稼働サーバーに暗号化された Web.config ファイルをアップロードして、ローカル開発用コンピューターからこのコマンド ライン プログラムを実行する場合、実稼働サーバーできなくが暗号化の後に、接続文字列情報を復号化するには開発用コンピューターに固有のキーを使用します。 RSA プロバイダーは別のコンピューターに RSA キーをエクスポートすることは、この制限がありません。
-
 
 ## <a name="understanding-database-authentication-options"></a>データベース認証オプションの理解
 
@@ -201,7 +178,6 @@ Integrated Security = True とユーザー名とパスワードの欠如は、Wi
 
 > [!NOTE]
 > SQL Server で利用可能な認証のさまざまな種類の詳細については、次を参照してください[Building Secure ASP.NET Applications:。認証、承認、およびセキュリティで保護された通信](https://msdn.microsoft.com/library/aa302392.aspx)します。 さらに接続文字列例については、Windows と SQL 認証の構文の違いを示すを参照してください[ConnectionStrings.com](http://www.connectionstrings.com/)します。
-
 
 ## <a name="summary"></a>まとめ
 

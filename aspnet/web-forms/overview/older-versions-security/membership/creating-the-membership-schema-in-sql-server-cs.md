@@ -8,12 +8,12 @@ ms.date: 01/18/2008
 ms.assetid: b4ac129d-1b8e-41ca-a38f-9b19d7c7bb0e
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a2cc19ea2ebd0e3be8ba5de40cd6c0c94dbc9dd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b172990c87a1433678d05e004a592d44802ff25d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113650"
 ---
 # <a name="creating-the-membership-schema-in-sql-server-c"></a>SQL Server でメンバーシップ スキーマを作成する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59409279"
 [コードのダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_04_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial04_MembershipSetup_cs.pdf)
 
 > このチュートリアルでは、を使用するには、データベースに必要なスキーマを追加するための手法を調べることで開始します。 次に、スキーマ内のキー テーブルの確認はされ、目的と重要性について説明します。 このチュートリアルでは、ASP.NET アプリケーションのメンバーシップ フレームワークが使用するプロバイダーを確認する方法を見てで終わります。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -54,22 +53,17 @@ ASP.NET アプリケーションのデータは通常、データベース内の
 > [!NOTE]
 > このチュートリアル シリーズ全体では、使用、 [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) 、アプリケーション テーブルを格納するデータベースと`SqlMembershipProvider`スキーマ。 この決定が 2 つの理由: 最初に、により、コスト - 無料 - Express Edition は SQL Server 2005; の強みで最もアクセス可能なバージョンSQL Server 2005 Express Edition データベースを配置して、web アプリケーションの直接の第 2 に、`App_Data`フォルダー、特別なセットアップ指示せず、再デプロイして、データベースをパッケージ化し、web アプリケーションはまとめて 1 つの ZIP ファイルに簡単になりますまたは、構成オプション。 非-Express Edition のバージョンの SQL Server を使用して作業を進めるにする場合もかまいません。 手順はほぼ同じです。 `SqlMembershipProvider`スキーマは任意のバージョンの Microsoft SQL Server 2000 を使用し、セットアップします。
 
-
 ソリューション エクスプ ローラーを右クリックし、`App_Data`フォルダーと新しい項目の追加を選択します。 (表示されない場合、`App_Data`プロジェクトのフォルダーにソリューション エクスプ ローラーでプロジェクトを右クリックし、ASP.NET フォルダーの追加 を選択および選択`App_Data`)。という名前の新しい SQL データベースを追加することも、新しい項目の追加 ダイアログ ボックスから`SecurityTutorials.mdf`します。 このチュートリアルでは追加、`SqlMembershipProvider`スキーマがこのデータベースには追加作成後のチュートリアルで、アプリケーションのデータをキャプチャするテーブル。
-
 
 [![App_Data フォルダーに SecurityTutorials.mdf Database という名前の新しい SQL データベースを追加します。](creating-the-membership-schema-in-sql-server-cs/_static/image2.png)](creating-the-membership-schema-in-sql-server-cs/_static/image1.png)
 
 **図 1**:新しい SQL データベースの名前付き追加`SecurityTutorials.mdf`データベースを`App_Data`フォルダー ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image3.png))。
 
-
 データベースを追加する、`App_Data`フォルダーが自動的に追加、データベース エクスプ ローラー ビュー。 (非-Express Edition バージョンの Visual Studio では、データベース エクスプ ローラー呼びますサーバー エクスプ ローラー。)データベース エクスプ ローラーに移動し、単に追加された順に展開`SecurityTutorials`データベース。 画面で [データベース エクスプ ローラーが表示されない場合表示] メニューに移動し、データベース エクスプ ローラーを選択または Ctrl + Alt + S をヒットします。 図 2 に示すよう、`SecurityTutorials`データベースが空でないテーブル、ビューがありませんおよびなしのストアド プロシージャが含まれています。
-
 
 [![SecurityTutorials データベースは空です。](creating-the-membership-schema-in-sql-server-cs/_static/image5.png)](creating-the-membership-schema-in-sql-server-cs/_static/image4.png)
 
 **図 2**:`SecurityTutorials`データベースは現在空 ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image6.png))。
-
 
 ## <a name="step-2-adding-thesqlmembershipproviderschema-to-the-database"></a>手順 2: 追加、`SqlMembershipProvider`データベースにスキーマ
 
@@ -77,7 +71,6 @@ ASP.NET アプリケーションのデータは通常、データベース内の
 
 > [!NOTE]
 > `aspnet_regsql.exe`ツールには、コマンドラインの機能と、グラフィカル ユーザー インターフェイスの両方が用意されています。 グラフィカル インターフェイスはよりユーザー フレンドリなとこのチュートリアルで説明されます。 コマンド ライン インターフェイスときに便利ですが追加、`SqlMembershipProvider`を自動化する必要があるスキーマ、またはスクリプトのテスト シナリオを自動化ビルドのようにします。
-
 
 `aspnet_regsql.exe`ツールを使用して追加または削除*ASP.NET アプリケーション サービス*指定された SQL Server データベースにします。 ASP.NET アプリケーション サービスのスキーマを網羅する、`SqlMembershipProvider`と`SqlRoleProvider`、他の ASP.NET 2.0 フレームワークの SQL ベースのプロバイダーのスキーマとします。 情報の 2 つのビットを提供する必要があります、`aspnet_regsql.exe`ツール。
 
@@ -99,37 +92,29 @@ ASP.NET アプリケーションのデータは通常、データベース内の
 > [!NOTE]
 > デスクトップにインストールされている SQL Server 2005 の非-Express Edition のバージョンもいる場合、完全なバージョンの Management Studio がインストールされている可能性があります。 Express Edition を以下に示すとおり、同じ手順を次に、データベース名を判断するのに完全なバージョンを使用することができます。
 
-
 データベース ファイル上の Visual Studio によって課されるすべてのロックが閉じられていることを確認する Visual Studio を閉じることで開始します。 次に、SQL Server Management Studio を起動しに接続、 `localhost\InstanceName` SQL Server 2005 Express Edition のデータベース。 インスタンス名は、前述のように、可能性がありますが、`SQLExpress`します。 認証オプションでは、Windows 認証を選択します。
-
 
 [![SQL Server 2005 Express Edition のインスタンスに接続します。](creating-the-membership-schema-in-sql-server-cs/_static/image8.png)](creating-the-membership-schema-in-sql-server-cs/_static/image7.png)
 
 **図 3**:SQL Server 2005 Express Edition インスタンスへの接続 ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image9.png))。
 
-
 SQL Server 2005 Express Edition のインスタンスに接続したら、Management Studio には、データベース、セキュリティ設定、サーバー オブジェクト、およびなどのフォルダーが表示されます。 データベース タブを展開する場合が表示されますが、`SecurityTutorials.mdf`データベースが*いない*最初にデータベースをアタッチする必要があります - データベース インスタンスに登録します。
 
 データベース フォルダーを右クリックし、コンテキスト メニューから接続を選択します。 これにより、データベースのアタッチ ダイアログ ボックスが表示されます。 ここでは、[追加] ボタンをクリックして、参照、`SecurityTutorials.mdf`データベース、および [ok] をクリックします。 図 4 の後、データベースのアタッチ ダイアログ ボックスを示しています、`SecurityTutorials.mdf`データベースが選択されています。 図 5 は、データベースが正常にアタッチされた後に、Management Studio のオブジェクト エクスプ ローラーを示します。
-
 
 [![SecurityTutorials.mdf データベースをアタッチします。](creating-the-membership-schema-in-sql-server-cs/_static/image11.png)](creating-the-membership-schema-in-sql-server-cs/_static/image10.png)
 
 **図 4**:アタッチ、`SecurityTutorials.mdf`データベース ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image12.png))。
 
-
 [![SecurityTutorials.mdf データベースが、データベース フォルダーに表示します。](creating-the-membership-schema-in-sql-server-cs/_static/image14.png)](creating-the-membership-schema-in-sql-server-cs/_static/image13.png)
 
 **図 5**:`SecurityTutorials.mdf`データベース フォルダーにデータベースが表示されます ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image15.png))。
 
-
 図 5 に示すよう、`SecurityTutorials.mdf`データベースではなく abstruse 名前が付いています。 変更してみましょうを覚えやすい (および簡単な形式) の名前。 データベースを右クリックし、名前の変更をコンテキスト メニューから選択、および名前を変更`SecurityTutorialsDatabase`します。 ファイル名は変更されません、データベース名だけを使用して SQL Server を識別します。
-
 
 [![SecurityTutorialsDatabase にデータベースの名前変更します。](creating-the-membership-schema-in-sql-server-cs/_static/image17.png)](creating-the-membership-schema-in-sql-server-cs/_static/image16.png)
 
 **図 6**:データベースの名前を変更`SecurityTutorialsDatabase`([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image18.png))。
-
 
 この時点でのサーバーとデータベースの名前がわかって、`SecurityTutorials.mdf`データベース ファイル:`localhost\InstanceName`と`SecurityTutorialsDatabase`、それぞれします。 アプリケーション サービスをインストールする準備ができました、`aspnet_regsql.exe`ツール。
 
@@ -139,19 +124,15 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 
 実行している、`aspnet_regsql.exe`コマンドライン引数を使用せずにツールが ASP.NET SQL Server セットアップ ウィザードのグラフィカル ユーザー インターフェイスを起動します。 ウィザードでは、簡単に追加または指定したデータベースでの ASP.NET アプリケーション サービスを削除できます。 図 7 に示すように、ウィザードの最初の画面では、ツールの目的について説明します。
 
-
 [![ASP.NET SQL Server セットアップ ウィザードによりを使用してメンバーシップ スキーマを追加するには](creating-the-membership-schema-in-sql-server-cs/_static/image20.png)](creating-the-membership-schema-in-sql-server-cs/_static/image19.png)
 
 **図 7**:ASP.NET SQL Server セットアップ ウィザードを使用してメンバーシップ スキーマを追加する ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image21.png))。
 
-
 ウィザードの 2 番目の手順は、アプリケーション サービスを追加または削除するかどうかを私たちを要求します。 テーブル、ビュー、および必要なストアド プロシージャを追加するので、 `SqlMembershipProvider`、SQL Server の構成アプリケーション サービスのオプションを選択します。 後で、このスキーマをデータベースから削除する場合は、このウィザードを再実行が、代わりに既存のデータベース オプションのアプリケーション サービスの情報を削除を選択します。
-
 
 [![選択、SQL Server アプリケーション サービスのオプションを構成](creating-the-membership-schema-in-sql-server-cs/_static/image23.png)](creating-the-membership-schema-in-sql-server-cs/_static/image22.png)
 
 **図 8**:SQL Server の構成をアプリケーションのサービス オプションの選択 ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image24.png))。
-
 
 3 番目の手順は、データベースについては、メッセージが表示されます。 サーバー名、認証情報、およびデータベース名。 このチュートリアルに従っている必要し、追加したかどうか、`SecurityTutorials.mdf`データベースを`App_Data`に接続されている`localhost\InstanceName`、名前を変更する`SecurityTutorialsDatabase`、次の値を使用します。
 
@@ -159,29 +140,23 @@ SQL Server 2005 Express Edition のインスタンスに接続したら、Manage
 - Windows 認証
 - データベース: `SecurityTutorialsDatabase`
 
-
 [![データベースの情報を入力します。](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
 
 **図 9**:データベース情報を入力します ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image27.png))。
-
 
 データベースの情報を入力した後、[次へ] をクリックします。 最後の手順では、実行される手順をまとめたものです。 次に、アプリケーション サービスをインストールし、ウィザードを完了し、[完了] をクリックします。
 
 > [!NOTE]
 > Management Studio を使用してデータベースをアタッチし、データベース ファイルの名前を変更した場合、データベースをデタッチおよび Management Studio を閉じて、Visual Studio をもう一度開くことを確認します。 デタッチするには、`SecurityTutorialsDatabase`データベース、データベース名を右クリックして、タスク メニューからデタッチします。
 
-
 ウィザードの完了には、Visual Studio に戻り、データベース エクスプ ローラーに移動します。 [テーブル] フォルダーを展開します。 一連のプレフィックスで始まる名前のテーブルを表示する必要があります`aspnet_`します。 同様に、さまざまなビューとストアド プロシージャは、ビューとストアド プロシージャのフォルダーの下で確認できます。 これらのデータベース オブジェクトは、アプリケーションのサービス スキーマを構成します。 手順 3 でのメンバーシップと役割に固有のデータベース オブジェクトを見ていきます。
-
 
 [![さまざまなテーブル、ビュー、およびストアド プロシージャがデータベースに追加されました](creating-the-membership-schema-in-sql-server-cs/_static/image29.png)](creating-the-membership-schema-in-sql-server-cs/_static/image28.png)
 
 **図 10**:各種のテーブル、ビュー、およびストアド プロシージャがデータベースに追加されました ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image30.png))。
 
-
 > [!NOTE]
 > `aspnet_regsql.exe`ツールのグラフィカル ユーザー インターフェイスは、アプリケーション全体のサービス スキーマをインストールします。 実行するときに、`aspnet_regsql.exe`コマンドラインからどのような特定のアプリケーション サービスをインストール (または削除) のコンポーネントを指定できます。 そのため、テーブルだけを追加する場合は、ビュー、およびストアド プロシージャのために必要な`SqlMembershipProvider`と`SqlRoleProvider`実行プロバイダー`aspnet_regsql.exe`コマンドラインから。 または、手動で実行できます、適切な T-SQL のサブセットで使用されるスクリプトを作成する`aspnet_regsql.exe`します。 これらのスクリプトにある、`WINDIR%\Microsoft.Net\Framework\v2.0.50727\`のような名前のフォルダー `InstallCommon.sql`、`InstallMembership.sql`、`InstallRoles.sql`、 `InstallProfile.sql`、`InstallSqlState.sql`など。
-
 
 この時点で必要なデータベース オブジェクトを作成しましたが、`SqlMembershipProvider`します。 ただし、あとに使用することをメンバーシップ フレームワークに指示する、 `SqlMembershipProvider` (versus、たとえば、 `ActiveDirectoryMembershipProvider`) して、`SqlMembershipProvider`を使用する必要があります、`SecurityTutorials`データベース。 使用するには、どのようなプロバイダーを指定する方法と手順 4. で選択したプロバイダーの設定をカスタマイズする方法に注目します。 まずは、作成されたデータベース オブジェクトについて詳しく説明してみましょう。
 
@@ -195,11 +170,9 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 
 メンバーシップとロールのフレームワークでは、1 つのユーザーおよびロール ストアは、多数の異なるアプリケーション間で共有できるように設計されています。 ロールのメンバーシップまたはフレームワークを使用する ASP.NET アプリケーションでは、使用するには、どのようなアプリケーション パーティションを指定する必要があります。 つまり、複数の web アプリケーションでは、同じユーザーおよびロール ストアを使用できます。 図 11 では、ユーザーおよびロールのストアは 3 つのアプリケーションにパーティション分割を示しています。HRSite、CustomerSite、および SalesSite です。 これら 3 つの web アプリケーションをそれぞれ独自の一意のユーザーとロールをまだ同じデータベース テーブルで、ユーザー アカウントとロール情報を物理的に格納すべて。
 
-
 [![ユーザー アカウントは、複数のアプリケーションでパーティション分割することがあります。](creating-the-membership-schema-in-sql-server-cs/_static/image32.png)](creating-the-membership-schema-in-sql-server-cs/_static/image31.png)
 
 **図 11**:ユーザー アカウントがするパーティション分割されて間で複数のアプリケーション ([フルサイズの画像を表示する をクリックします](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))。
-
 
 `aspnet_Applications`テーブルは、これらのパーティションを定義します。 ユーザー アカウント情報を格納するデータベースを使用する各アプリケーションは、このテーブル内の行によって表されます。 `aspnet_Applications`テーブルには 4 つの列: `ApplicationId`、 `ApplicationName`、 `LoweredApplicationName`、および`Description`します。 `ApplicationId` 種類は[ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx)テーブルの主キー`ApplicationName`アプリケーションごとに一意のわかりやすい名前を提供します。
 
@@ -242,7 +215,6 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 > [!NOTE]
 > 特定の暗号化またはハッシュのアルゴリズムで使用される、`SqlMembershipProvider`の設定によって決まりますが、`<machineKey>`要素。 手順 3 では、この構成要素を説明した、 <a id="Tutorial3"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md)チュートリアル。
 
-
 ### <a name="storing-roles-and-role-associations"></a>ロールとロールの関連付けを格納します。
 
 ロール フレームワークでは、ロールのセットを定義し、どのようなユーザー ロールに属しているを指定できます。 この情報は 2 つのテーブルを使用して、データベースのキャプチャ:`aspnet_Roles`と`aspnet_UsersInRoles`します。 内の各レコード、`aspnet_Roles`テーブルは、特定のアプリケーション ロールを表します。 ほぼ同じように、 `aspnet_Users` 、テーブル、`aspnet_Roles`ディスカッションに関連する 3 つの列をテーブルには。
@@ -272,7 +244,6 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 > [!NOTE]
 > 表 2 に記載されているすべての既定値で定義された既定値を参照してください、`SqlMembershipProvider`クラス。 注意してくださいで構成設定はすべて`AspNetSqlMembershipProvider`の既定値に対応して、`SqlMembershipProvider`クラス。 たとえば、メンバーシップ プロバイダーに、指定されていない場合、`requiresUniqueEmail`の既定値を true に設定します。 ただし、`AspNetSqlMembershipProvider`の値を明示的に指定して、この既定値をオーバーライド`false`します。
 
-
 | **設定&lt;\_o3a\_p/&gt;** | **説明&lt;\_o3a\_p/&gt;** |
 | --- | --- |
 | `ApplicationName` | メンバーシップ フレームワークにより、複数のアプリケーション パーティションに分割する 1 人のユーザー ストアのことを思い出してください。 この設定は、メンバーシップ プロバイダーによって使用されているアプリケーション パーティションの名前を示します。 かどうかはこの値が明示的に指定されていない、アプリケーションの仮想ルート パスの値に、実行時に、設定されています。 |
@@ -298,7 +269,6 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 
 > [!NOTE]
 > 同じ方法でロール フレームワークの動作: で、既定の登録済みのロール プロバイダーがある`machine.config`でのアプリケーションによるごとに登録されているプロバイダーをカスタマイズすることが、`Web.config`します。 今後のチュートリアルでは、ロールのフレームワークとその構成マークアップの詳細についてを究明します。
-
 
 ### <a name="customizing-thesqlmembershipprovidersettings"></a>カスタマイズ、`SqlMembershipProvider`設定
 
@@ -332,7 +302,6 @@ ASP.NET アプリケーションのメンバーシップとロールのフレー
 
 > [!NOTE]
 > メンバーシップ フレームワークにより、複数のアプリケーション パーティションに分割する 1 人のユーザー ストアのことを思い出してください。 メンバーシップ プロバイダーの`applicationName`設定は、ユーザー ストアを使用する場合、プロバイダーを使用して、どのようなアプリケーションを示します。 値を明示的に設定することが重要では、`applicationName`構成設定のため場合、`applicationName`が実行時に、web アプリケーションの仮想ルートのパスに割り当てられていることを明示的に設定されていません。 正常に機能しますが、アプリケーションの仮想ルートのパスが変更されない限り、アプリケーションを別のパスに移動する場合、`applicationName`設定が変更されます。 この場合、別のアプリケーション パーティションの操作に使用されていたよりも、メンバーシップ プロバイダーが開始されます。 別のアプリケーション パーティションに移動する前に作成されたユーザー アカウントが存在し、それらのユーザーがサイトにログインできなくなります。 この問題の詳細な議論については、次を参照してください。[は常に設定、`applicationName`プロパティときに構成する ASP.NET 2.0 メンバーシップとその他のプロバイダー](https://weblogs.asp.net/scottgu/443634)します。
-
 
 ## <a name="summary"></a>まとめ
 

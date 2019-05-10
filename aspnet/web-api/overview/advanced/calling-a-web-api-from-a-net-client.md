@@ -8,12 +8,12 @@ ms.date: 11/24/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 113600ca1e77ae9667465464da505478fc948c9b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ca3b9424f30f48c7b8c71b850ffeca64244b123b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421109"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112841"
 ---
 # <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 
@@ -166,7 +166,7 @@ resp.Content.ReadAsAsync<IEnumerable<Product>>(formatters);
 
 クライアント アプリをテストします。
 
-1. [ダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)サーバー アプリを実行します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) サーバー アプリが動作を確認します。 たとえば、`http://localhost:64195/api/products`製品の一覧を返す必要があります。
+1. [ダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)サーバー アプリを実行します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/#how-to-download-a-sample) サーバー アプリが動作を確認します。 たとえば、`http://localhost:64195/api/products`製品の一覧を返す必要があります。
 2. HTTP 要求のベース URI を設定します。 サーバー アプリで使用されるポートにポート番号を変更します。
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

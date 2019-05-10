@@ -8,12 +8,12 @@ ms.author: riande
 ms.date: 03/12/2010
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 1ab51453913b387ffecf898536eb55b7418b0285
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: d4b96bd2ff99bb30ff59b9697a27e33acb0f719d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905632"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120095"
 ---
 # <a name="aspnet-overview"></a>ASP.NET 概要
 
@@ -100,10 +100,6 @@ Webhook は、Web API と SaaS サービスをまとめて配線の単純なパ�
 Webhook は、Dropbox、GitHub、Instagram、MailChimp、PayPal、Slack、Trello、およびその他を含むサービスの数が多いによって公開されます。 たとえば、WebHook では、こと、ファイルが Dropbox では、変更または GitHub でコード変更がコミットされた、PayPal の支払いが開始されたまたは Trello カードが作成されてを指定できます。
 
 [Webhook を詳細します。](webhooks/index.md)
-
-
-
-
 
 <!--
 Create Deployment TOC based on https://www.asp.net/aspnet/overview/deployment

@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 63d85ec5f1f2fbadd92fd0210e67332df30aab5a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 48428ff4ab5888253ed93ac41e79006eec823ad2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419601"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112927"
 ---
 # <a name="part-1-overview-and-file-new-project"></a>第 1 部:概要とファイル -> 新しいプロジェクト
 
@@ -24,7 +24,6 @@ ms.locfileid: "59419601"
 > MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
 >   
 > このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 1 では、概要とファイルの&gt;新しいプロジェクト。
-
 
 ## <a name="overview"></a>概要
 
@@ -74,11 +73,9 @@ MVC のミュージック ストアは、紹介し、web 開発用の ASP.NET MV
 
 Visual Studio 2010 SP1 または Visual Web Developer 2010 Express SP1 (Visual Studio 2010 の無料版) のいずれかを使用するには、アプリケーションをビルドします。 使用する、SQL Server Compact (も無料)、データベースをホストします。 始める前に、以下の前提条件がインストールされていることを確認します。
 
-
 - [Visual Studio Web Developer Express SP1 の前提条件]
 - [ASP.NET MVC 3 Tools Update]
 - [SQL Server Compact 4.0] - ランタイムとツールの両方のサポートを含む
-
 
 ### <a name="creating-a-new-aspnet-mvc-3-project"></a>新しい ASP.NET MVC 3 プロジェクトを作成します。
 

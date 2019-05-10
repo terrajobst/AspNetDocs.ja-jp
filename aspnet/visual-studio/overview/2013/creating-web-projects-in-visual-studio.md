@@ -8,12 +8,12 @@ ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: a62c821159cd097507019d5efb29e01958ec9fba
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3a446be8e2dff2ac66e2432c51b2d9f43bcb817d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398105"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113180"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web プロジェクトを作成する
 
@@ -29,7 +29,6 @@ ms.locfileid: "59398105"
 > - 新機能など、MVC のみに対して提供するために使用するフォームが Web[自動テスト プロジェクトの作成](#testproj)と[イントラネット サイト テンプレート](#winauth)します。
 > 
 > Azure Cloud Services や Azure Mobile Services の web プロジェクトを作成する方法については、次を参照してください[Azure Cloud Services と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/)と[Azure Mobile Services .NET を使用したランキング アプリケーションの作成。バックエンド](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)します。
-
 
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>必須コンポーネント
@@ -350,7 +349,6 @@ Azure AD のオプションのいずれかを試すにはまだ、アカウン�
 > Azure AD のオプションのいずれかを選択した場合、プロジェクトには、データベースが必要です。 と Azure AD テナントのグローバル管理者アカウントにサインインする必要があります。 組織のアカウント名とパスワードを入力します (たとえば、 admin@contoso.onmicrosoft.com)、Azure AD テナントの管理者権限を持っています。
 > 
 > **Microsoft アカウントの資格情報を入力しないでください (たとえば、 contoso@hotmail.com) でサインイン ダイアログ ボックス。**
-
 
 <a id="orgauthsingle"></a>
 ### <a name="cloud---single-organization-authentication"></a>クラウド - 単一の組織の認証

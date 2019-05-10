@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1023d9bef311e58fb5fb0bb24cde80e8320e6bac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 165d104b5d3ef3281af449cc8673ad96f531d628
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419055"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113080"
 ---
 # <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ:One ASP.NET:ASP.NET Web フォーム、MVC、Web API の統合
 
@@ -26,7 +26,6 @@ ms.locfileid: "59419055"
 > Visual Studio 2013 には、アプリケーションのビルドし、すべての ASP.NET テクノロジを 1 つのプロジェクトで使用できる新しい、統一されたプロジェクト システムが導入されています。 この機能は、プロジェクトとそれに伴うスティックの開始時に 1 つのテクノロジを選択する必要はありませんし、代わりに 1 つのプロジェクト内の複数の ASP.NET フレームワークの使用が推奨します。
 > 
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>概要
@@ -62,7 +61,6 @@ ms.locfileid: "59419055"
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>コード スニペットの使用
 
@@ -70,7 +68,6 @@ ms.locfileid: "59419055"
 
 > [!NOTE]
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
-
 
 ---
 
@@ -88,9 +85,8 @@ ms.locfileid: "59419055"
 > [!NOTE]
 > Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
 
-
 <a id="Exercise1"></a>
-### <a name="exercise-1-creating-a-new-web-forms-project"></a>手順 1:新しい Web フォーム プロジェクトを作成します。
+### <a name="exercise-1-creating-a-new-web-forms-project"></a>演習 1:新しい Web フォーム プロジェクトを作成します。
 
 この演習では、Visual Studio 2013 を使用して新しい Web フォーム サイトを作成する、 **One ASP.NET**同じアプリケーションで Web フォーム、MVC、Web API のコンポーネントを簡単に統合することができるプロジェクト エクスペリエンスの統合します。 生成されたソリューションを調査して、その部分を特定し、最後に、Web サイトのアクションが表示されます。
 
@@ -177,7 +173,7 @@ ms.locfileid: "59419055"
 6. Visual Studio とキーを押してに戻って**shift キーを押しながら f5 キーを押して**デバッグを停止します。
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-creating-an-mvc-controller-using-scaffolding"></a>手順 2:スキャフォールディングを使用した MVC コント ローラーを作成
+### <a name="exercise-2-creating-an-mvc-controller-using-scaffolding"></a>演習 2:スキャフォールディングを使用した MVC コント ローラーを作成
 
 この演習では、アクションと Razor ビューを 1 行のコードを記述することがなく、CRUD 操作を実行すると、ASP.NET MVC 5 コント ローラーを作成する Visual Studio で提供される ASP.NET スキャフォールディング フレームワークの利点がかかります。 スキャフォールディングのプロセスは、SQL database にデータ コンテキストおよびデータベース スキーマを生成するのに Entity Framework Code First では使用します。
 
@@ -189,7 +185,6 @@ Entity Framework Code First のモデリング ワークフローできますこ
 
 > [!NOTE]
 > Entity Framework に関する詳細については、[ここ](../../../entity-framework.md)します。
-
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-new-model"></a>タスク 1 – 新しいモデルを作成します。
@@ -342,7 +337,6 @@ Web API フレームワークは、ASP.NET スタックの一部であり、容�
 > ![Internet Explorer オプション](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image27.png)
 > 
 > **F12 開発者ツール**このハンズオン ラボでカバーされていない機能の幅広いセットがあります。 詳細については、する場合を参照してください。 [F12 開発者ツールを使用して](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85))します。
-
 
 1. キーを押して**F5**ソリューションを実行します。
 

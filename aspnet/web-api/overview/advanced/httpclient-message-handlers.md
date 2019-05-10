@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 5a4b6c80-b2e9-4710-8969-d5076f7f82b8
 msc.legacyurl: /web-api/overview/advanced/httpclient-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: bd52396064cd7007ee17705ba86b02aaf27cb4f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 265bd9b2f48ed7d1e955f3c4947d10fd589b3e17
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59401726"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115438"
 ---
 # <a name="httpclient-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API の HttpClient メッセージ ハンドラー
 
@@ -32,7 +32,6 @@ A*メッセージ ハンドラー*は HTTP 要求を受信し、HTTP 応答を�
 
 > [!NOTE]
 > また、ASP.NET Web API は、サーバー側でメッセージのハンドラーを使用します。 詳細については、次を参照してください。 [HTTP メッセージ ハンドラー](http-message-handlers.md)します。
-
 
 ## <a name="custom-message-handlers"></a>カスタム メッセージ ハンドラー
 

@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: 0a9181f741452e4abe256c9eab04615ce9819ff1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f25182f3f841c963866319dd934c0c28b4eb95b0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112893"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio を使用して ASP.NET Web の展開:フォルダーのアクセス許可を設定する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59421694"
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
-
 
 ## <a name="overview"></a>概要
 

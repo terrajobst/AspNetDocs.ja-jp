@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 2f67d8ef-73ca-447d-a0cc-6e3168431e6a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1fd12181e26012c59bde3e6fe153c196d8bf0d31
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc2d9c7a571a8f76e9d935784810280c348b6bb8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413192"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132624"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-c"></a>サーバー コードからモーダル ポップアップ ウィンドウを起動する (C#)
 
@@ -22,7 +22,6 @@ ms.locfileid: "59413192"
 [コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1CS.pdf)
 
 > AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオにモーダル ポップアップを開くが、サーバー側でトリガーされる必要があります。
-
 
 ## <a name="overview"></a>概要
 
@@ -63,7 +62,6 @@ ASP.NET AJAX; に基づいてすべての web ページと同様別のターゲ�
 [!code-javascript[Main](launching-a-modal-popup-window-from-server-code-cs/samples/sample8.js)]
 
 `$find()`関数はページ上の名前付き要素を探してでサーバー側の ID をパラメーターとして必要があります。 そのため、 `$find("mpe")` ModalPopup コントロールのクライアントの表現を返します。 その`show()`メソッドにより、ポップアップが表示されます。
-
 
 [![モーダル ポップアップを表示するときに、ボタンのいずれかがクリックされます。](launching-a-modal-popup-window-from-server-code-cs/_static/image2.png)](launching-a-modal-popup-window-from-server-code-cs/_static/image1.png)
 

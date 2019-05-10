@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: adb6e990d0ca98df38c47adf8c37fdffeb6d3d73
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411125"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112996"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
 
@@ -83,13 +83,12 @@ ASP.NET MVC 4 は、既に確立されている設計パターンと、ASP.NET �
 > [!NOTE]
 > 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-
 この演習の所要時間を推定するには。**60 分**します。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_New_ASPNET_MVC_4_Project_Templates"></a>
-### <a name="exercise-1-new-aspnet-mvc-4-project-templates"></a>手順 1:新しい ASP.NET MVC 4 プロジェクト テンプレート
+### <a name="exercise-1-new-aspnet-mvc-4-project-templates"></a>演習 1:新しい ASP.NET MVC 4 プロジェクト テンプレート
 
 この演習では、ASP.NET MVC 4 プロジェクト テンプレートでの機能強化について説明します。 インターネット アプリケーション テンプレートに加えて MVC 3 に既に存在するこのバージョンになりましたモバイル アプリケーションの別のテンプレート。 最初に、各テンプレートの関連する機能の一部になります。 次に、適切なアプローチを使用して、さまざまなプラットフォームでは正常にページのレンダリングの作業します。
 
@@ -223,7 +222,6 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 8. 新しいテンプレートを使用しても、**ビューポート メタ タグ**します。 ほとんどのモバイル ブラウザーが仮想ブラウザー ウィンドウの幅を定義または&quot;ビューポート&quot;、これは、モバイル デバイスの実際の幅より大きい。 これにより、モバイル ブラウザーに仮想表示内で web ページ全体を表示できます。 **ビューポート メタ タグ**により、web 開発者はモバイル デバイスで、幅、高さ、およびブラウザーの領域のスケールを設定する**します。** モバイル アプリケーション用の ASP.NET MVC 4 テンプレートは、デバイスの幅にビューポートを設定 (&quot;幅 = デバイスの幅&quot;) レイアウト テンプレート (*views \shared\_Layout.cshtml*) できるように、すべて、ページには、デバイスの画面幅に設定、ビューポートがあります。 ビューポートのメタ タグによって既定のブラウザー ビューは変更されないことに注意してください。
 9. 開いている **\_Layout.cshtml**にある、**ビュー |共有**フォルダー、およびコメント ビューポート メタ タグ。 アプリケーションを実行されていない場合は既に開かれるとの相違点を確認します。
 
-
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
 ![ビューポートの meta タグをコメント後サイト](whats-new-in-aspnet-mvc-4/_static/image15.png "ビューポートのメタ タグをコメント化した後、サイト")
@@ -231,7 +229,6 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 *ビューポートの meta タグをコメント化した後、サイト*
 10. Visual Studio で、キーを押します**SHIFT** + **f5 キーを押して**アプリケーションのデバッグを停止します。
 11. ビューポートの meta タグをコメント解除します。
-
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
 
@@ -249,7 +246,6 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 > [!NOTE]
 > メディア クエリの基本的な形式です。@media \[のスコープ: すべて |ハンドヘルド |印刷 |プロジェクション |画面\](プロパティ: 値と.プロパティ: 値)
 
-
 メディア クエリの例: &gt;  **@mediaすべてと (幅の最大値。1000 ピクセル) と (幅の最小値。700px) {}:** 700 px と 1000 ピクセルの間ですべて解決のため
 
 > **@media 画面と (幅の最小値。400 px) と (幅の最大値。700px) { ... }:** 画面には。 解像度は、400 ~ 700 px にする必要があります。
@@ -257,7 +253,6 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 > **@media ハンドヘルドと (幅の最小値。20em)、画面と (幅の最小値。20em) { ... }:** ハンドヘルド デバイス (モバイルおよびデバイス)、および画面。 幅の最小値は、20em より大きくする必要があります。
 > 
 > 詳細についてを見つけることができます、 [W3C サイト](http://www.w3.org/TR/css3-mediaqueries/)します。
-
 
 アダプティブ レンダリングの動作方法を今すぐ調査、ASP.NET MVC の読みやすさを向上させる 4 既定の web サイト テンプレート。
 
@@ -292,7 +287,7 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Creating_the_Photo_Gallery_Web_Application"></a>
-### <a name="exercise-2-creating-the-photo-gallery-web-application"></a>手順 2:フォト ギャラリーの Web アプリケーションを作成します。
+### <a name="exercise-2-creating-the-photo-gallery-web-application"></a>演習 2:フォト ギャラリーの Web アプリケーションを作成します。
 
 この演習では、写真を表示する、フォト ギャラリーのアプリケーションで機能します。 ASP.NET MVC 4 プロジェクト テンプレートから開始し、サービスから写真を取得し、ホーム ページに表示するための機能を追加します。
 
@@ -584,7 +579,6 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 5. 開いている **\_Layout.iPhone.cshtml**前の手順で作成しました。
 6. データ ロールの属性を設定すると div 要素を検索**ページ**を変更して、**データ テーマ**属性を&quot; **、**&quot;します。
 
-
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
 これで、ASP.NET MVC 4 アプリケーションで 3 つのレイアウトがあります。
@@ -602,7 +596,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Using_Asynchronous_Controllers"></a>
-### <a name="exercise-4-using-asynchronous-controllers"></a>手順 4:非同期コント ローラーを使用します。
+### <a name="exercise-4-using-asynchronous-controllers"></a>演習 4:非同期コント ローラーを使用します。
 
 Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミングでの非同期性を提供する c# および Visual Basic の新しい言語機能について説明します。 この新しい基盤は、-のようなと約同期プログラミングと同程度に簡単に非同期プログラミングになります。 使用して ASP.NET MVC 4 での非同期アクション メソッドを記述することができるよう、 **AsyncController**クラス。 実行時間の長い非同期アクション メソッドを使用する、非 CPU バインド要求です。 要求の処理中に作業を実行してから、Web サーバーのブロックを回避できます。 AsyncController クラスは、通常の実行時間の長い Web サービス呼び出しに使用されます。
 
@@ -696,7 +690,6 @@ Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミン
 
 > [!NOTE]
 > また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 d:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixD)します。
-
 
 <a id="Summary"></a>
 

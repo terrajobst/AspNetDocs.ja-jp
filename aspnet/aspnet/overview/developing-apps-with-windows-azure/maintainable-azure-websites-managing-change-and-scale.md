@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c88bae40a8aa092037c0b359ee391acaf161cf10
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409734"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118295"
 ---
 # <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理
 
@@ -34,7 +34,6 @@ ms.locfileid: "59409734"
 > すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
 >
 > このトピックの詳しい内容について詳細を参照してください、 [Azure 電子書籍の実際のクラウド アプリの構築](building-real-world-cloud-apps-with-windows-azure/introduction.md)します。
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>概要
@@ -79,7 +78,6 @@ ms.locfileid: "59409734"
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>コード スニペットの使用
 
@@ -87,7 +85,6 @@ ms.locfileid: "59409734"
 
 > [!NOTE]
 > ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
-
 
 ---
 
@@ -107,9 +104,8 @@ ms.locfileid: "59409734"
 > [!NOTE]
 > Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
 
-
 <a id="Exercise1"></a>
-### <a name="exercise-1-using-entity-framework-migrations"></a>手順 1:Entity Framework の移行を使用します。
+### <a name="exercise-1-using-entity-framework-migrations"></a>演習 1:Entity Framework の移行を使用します。
 
 アプリケーションを開発しているときに、データ モデルが時間の経過と共に変更可能性があります。 これらの変更に影響する可能性、データベース内の既存のモデル (新しいバージョンを作成する) 場合と、データベースのエラーを防ぐために最新の状態を維持することが重要です。
 
@@ -241,7 +237,7 @@ ms.locfileid: "59409734"
     *新しい制約を示す*
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-deploying-a-web-app-to-staging"></a>手順 2:ステージング Web アプリを展開します。
+### <a name="exercise-2-deploying-a-web-app-to-staging"></a>演習 2:ステージング Web アプリを展開します。
 
 **Web アプリを Azure App Service で**ステージングされた発行を実行することができます。 ステージングされた発行では、既定の運用サイトごとにステージング サイト スロットを作成し、ダウンタイムなしでこれらのスロットをスワップすることができます。 これは、パブリックにリリースする前に変更を検証、段階的サイトのコンテンツを統合し、変更が期待どおりに動作していない場合はロールバックを本当に便利です。
 
@@ -249,7 +245,6 @@ ms.locfileid: "59409734"
 
 > [!NOTE]
 > ステージングされた発行を有効にするのには、web アプリである必要があります**標準モード**します。 Web アプリを標準モードに変更する場合は、追加料金が発生することに注意してください。 価格の詳細については、次を参照してください。 [App Service の価格](https://azure.microsoft.com/pricing/details/app-service/)します。
-
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>タスク 1 – Azure App Service で Web アプリの作成
@@ -576,7 +571,7 @@ Web アプリがステージング環境で正しく動作していることを�
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample16.cmd)]
 
 <a id="Exercise4"></a>
-### <a name="exercise-4-scaling-using-azure-storage"></a>手順 4:Azure Storage を使用したスケーリング
+### <a name="exercise-4-scaling-using-azure-storage"></a>演習 4:Azure Storage を使用したスケーリング
 
 **Blob**は大量の非構造化テキストまたはバイナリ データなど、ビデオ、オーディオ、イメージを格納する最も簡単な方法です。 記憶域をアプリケーションの静的コンテンツを移動するは、画像またはドキュメントをブラウザーに直接配信することによって、アプリケーションをスケールするのに役立ちます。
 
@@ -726,11 +721,10 @@ Web アプリがステージング環境で正しく動作していることを�
     *URL リダイレクトの確認*
 
 <a id="Exercise5"></a>
-### <a name="exercise-5-using-autoscale-for-web-apps"></a>手順 5:Web アプリの自動スケールの使用
+### <a name="exercise-5-using-autoscale-for-web-apps"></a>演習 5:Web アプリの自動スケールの使用
 
 > [!NOTE]
 > Web ロードのサポートを必要があるために、この手順は省略可能で&amp;パフォーマンス テストで使用可能なだけ**Visual Studio 2013 Ultimate Edition**します。 Visual Studio 2013 の特定の機能の詳細については、のバージョンを比較[ここ](https://www.microsoft.com/visualstudio/eng/products/compare)します。
-
 
 **Azure App Service Web Apps**実行されている web アプリの自動スケール機能を提供して**標準モード**します。 自動スケールは、Azure の負荷に応じて、web アプリのインスタンス数の自動スケールを使用できます。 自動スケールを有効にすると、Azure は、web アプリの CPU が 5 分ごとに 1 回チェックし、その時点で必要に応じてインスタンスが追加されます。 CPU 使用率が低い場合インスタンスが削除されます 2 時間おきに web アプリのパフォーマンスが低下しないことを確認します。
 

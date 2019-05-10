@@ -8,12 +8,12 @@ ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: db8f336f3fd9a88dfb32f99510fc53cd7b4a5178
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 63c555358d06a9506bb5c8c993800c3307108192
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415987"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114443"
 ---
 # <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>方法: モバイル ページを ASP.NET Web フォーム / MVC アプリケーションに追加する
 
@@ -25,7 +25,6 @@ ms.locfileid: "59415987"
 > **まとめ**
 > 
 > ここで説明するには、ASP.NET Web フォームからモバイル デバイス用に最適化されたページに提供するさまざまな方法を説明します。/MVC アプリケーションでは、幅広い種類のデバイスを対象とするときに考慮すべき問題を設計およびアーキテクチャを示します。 このドキュメントでは、3.5 に ASP.NET 2.0 から ASP.NET モバイル コントロールの旧式である理由と最新の代替手段はいくつかについて説明も説明します。
-
 
 ## <a name="contents"></a>目次
 
@@ -158,7 +157,6 @@ ASP の中にします。2 つの主なケースなことができない場合�
 
 > [!NOTE]
 > この方法では、通常はコードの一部が重複しているため (モバイル ページは、デスクトップのページをいくつかの類似点を共有する可能性の高い、)、一般的なビジネス ロジックまたはデータ アクセス コード共有の基になる層やサービスに排除することが重要です。 それ以外の場合、倍精度浮動小数点の作成と、アプリケーションの保守作業をします。
-
 
 #### <a name="redirecting-mobile-visitors-to-your-mobile-pages"></a>モバイル ユーザー、モバイル ページにリダイレクトします。
 
@@ -310,7 +308,6 @@ Web.config ファイルの fiftyOne セクションに追加された次の要�
 
 > [!NOTE]
 > *できます*51Degrees.mobi Foundation のリダイレクトの機能が、ASP.NET MVC アプリケーションではルーティング パラメーターは使用しませんまたは MVC フィルターを設定することによって、プレーンな Url の観点から、リダイレクト構成を定義する必要がありますアクション。 これはためです (この記事の執筆時点) で 51Degrees.mobi Foundation では、フィルターやルーティングは認識しません。
-
 
 ### <a name="disabling-transcoders-and-proxy-servers"></a>トランスコーダーとプロキシ サーバーを無効にします。
 

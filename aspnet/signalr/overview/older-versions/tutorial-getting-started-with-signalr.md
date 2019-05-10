@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 288f5017acde5a103460ace688933609fba0b02c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 87a90b47ae30bee43e0b0c1e078597db54b8e67d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391027"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113868"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR 1.x の概要
 
@@ -22,7 +22,6 @@ ms.locfileid: "59391027"
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、送信し、メッセージを表示する HTML ページを作成します。
-
 
 ## <a name="overview"></a>概要
 
@@ -148,7 +147,6 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 > [!NOTE]
 > JQuery でサーバー クラスとそのメンバーへの参照がキャメル ケースです。 コード サンプルを参照して、C# **ChatHub**クラスとしての jquery **chatHub**します。
 
-
 次のコードは、スクリプトのコールバック関数を作成する方法です。 サーバー上のハブ クラスは、各クライアントにコンテンツの更新をプッシュするには、この関数を呼び出します。 HTML が表示する前にコンテンツをエンコードする 2 つの行は省略可能ですし、スクリプト インジェクションを防止する簡単な方法を表示します。
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample7.html)]
@@ -157,7 +155,6 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 
 > [!NOTE]
 > このアプローチでは、イベント ハンドラーが実行される前に、接続が確立されていることを保証します。
-
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample8.js)]
 

@@ -8,12 +8,12 @@ ms.date: 03/12/2008
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: e3821eee8c7bf2c2f9b45ea75ade2bd5b3b8ef19
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c61d10c28ba3975cb6fbadc6eda1f7a3c9406dfc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406263"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114606"
 ---
 # <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel トリガーについて理解する
 
@@ -22,7 +22,6 @@ ms.locfileid: "59406263"
 [PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
 > Visual Studio でのマークアップ エディターで作業しているときにお気付き (IntelliSense) から、UpdatePanel コントロールの 2 つの子要素があることです。 ページ (または 1 つを使用している場合、ユーザー コントロール) 上のコントロールを指定するトリガー要素は、その 1 つの要素が存在する UpdatePanel コントロールは、部分的なレンダリングがトリガーされます。
-
 
 ## <a name="introduction"></a>はじめに
 
@@ -76,11 +75,9 @@ Visual Studio でのマークアップ エディターで作業していると�
 
 1. F5 キーを押して、プロジェクトをビルドして実行します。 更新の両方のパネルをクリックするとは、両方のラベルのテキストと変更に注意してください。ただし、このパネルの Update をクリックすると、Label1 のみに更新します。
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image2.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image1.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))。
-
 
 ## <a name="under-the-hood"></a>*内部的な処理*
 
@@ -90,11 +87,9 @@ Visual Studio でのマークアップ エディターで作業していると�
 
 このパネルの更新 ボタンをクリックして、現在のサーバー時刻で最上位の UpdatePanel が更新されますを注意してください。 、FireBug では、要求を確認するようにコンソール タブを選択します。 最初に POST 要求パラメーターを確認します。
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image5.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image4.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-updatepanel-triggers/_static/image6.png))。
-
 
 UpdatePanel に示されて、サーバー側の AJAX コード ScriptManager1 パラメーターを使用してコントロール ツリーが発生した正確な注:`Button1`の`UpdatePanel1`コントロール。 両方のパネルの更新 ボタンをクリックします。 パイプで区切られた一連の変数を文字列に設定をわかります応答を検証するには、次に、具体的には、最上位の UpdatePanel がわかります`UpdatePanel1`が全体、HTML ブラウザーに送信します。 AJAX のクライアント スクリプト ライブラリには、UpdatePanel の元の HTML コンテンツを使用して新しいコンテンツが置換されます、`.innerHTML`プロパティ、ため、サーバーは、HTML としてサーバーから変更されたコンテンツを送信します。
 
@@ -104,11 +99,9 @@ UpdatePanel に示されて、サーバー側の AJAX コード ScriptManager1 �
 
 たとえば、チェック ボックス コントロール.NET Reflector でクラスの逆アセンブリを調べます。 これを行うには、System.Web アセンブリが、開いていることを確認しに移動します、`System.Web.UI.WebControls.CheckBox`クラス、開く、`RenderInputTag`メソッド。 チェックする条件を探して、`AutoPostBack`プロパティ。
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image8.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image7.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-updatepanel-triggers/_static/image9.png))。
-
 
 自動ポストバックが有効な場合、 `CheckBox` (、AutoPostBack プロパティが true) を使用して、結果を制御`<input>`ASP.NET イベントでのスクリプトの処理されたタグが表示されるため、`onclick`属性。 次に、フォームの送信の傍受は、互換性に影響する可能性がある不正確な文字列置換を使用することによって発生する可能性の変更可能性を回避するために支援 nonintrusively、ページに挿入する ASP.NET AJAX を使用できます。 これにより、さらに、*任意*コードを追加しなくても、UpdatePanel のコンテナー内での使用をサポートするために ASP.NET AJAX の機能を利用するカスタムの ASP.NET コントロール。
 
@@ -128,11 +121,9 @@ UpdatePanel に示されて、サーバー側の AJAX コード ScriptManager1 �
 
 このページの背後にある考え方は、ドロップダウン リストが 2 つ目のラベルを表示する 3 つの色のいずれかを選択することで、両方が太字かどうかと、ラベルが、日付と時刻を表示するかどうかのチェック ボックスを決定することです。 チェック ボックスには、AJAX の更新する必要がありますされませんが、ドロップダウン リストは、しない、UpdatePanel 内で格納されている場合でも。
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image11.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image10.png)
 
 ([フルサイズの画像を表示する をクリックします](understanding-asp-net-ajax-updatepanel-triggers/_static/image12.png))。
-
 
 上記のスクリーン ショットで明らかには、最近のボタンがクリックされるは下部にある時間に依存しない、最上位の時間を更新する更新このパネルの右ボタンをしました。 日付もオフになって、数回のクリックの間で日付が一番下のラベルに表示します。 最後に関心のあるは、下部にあるラベルの色: コントロールの状態が重要なことについては、ラベルのテキストよりも最近更新されたユーザーだと思って AJAX ポストバック中に保持します。 *ただし*時刻は更新されませんでした。 時間がの永続性を自動的に再生成、 \_\_コントロールがサーバーに再表示されているときに、ASP.NET ランタイムによって解釈されるページの VIEWSTATE フィールド。 ASP.NET AJAX サーバー コードでは、状態を変更する方法、コントロールは認識しませんビューステートから単純に再作成し、適切なイベントが実行されます。
 
