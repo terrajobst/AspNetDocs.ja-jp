@@ -19,11 +19,11 @@ ms.locfileid: "65120095"
 
 ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript を使用して web アプリケーションを構築するための無料の web フレームワークです。 Web API を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
 
-[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。  参照してください、 [ASP.NET と ASP.NET Core のどちらを選択する方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)します。
+[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。 [ASP.NET と ASP.NET Core の選択方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) を参照してください。
 
 ## <a name="get-started"></a>作業開始
 
-インストール[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community edition、Windows 上の ASP.NET の無料の IDE です。
+ASP.NET on Windows の無料の IDE [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community edition をインストールしてください。
 
 ## <a name="websites-and-web-applications"></a>Web サイトと web アプリケーション
 
