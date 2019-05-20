@@ -19,7 +19,7 @@ ms.locfileid: "65120095"
 
 ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript を使用して web アプリケーションを構築するための無料の web フレームワークです。 Web API を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
 
-[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。 [ASP.NET と ASP.NET Core のどちらを選択する方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) を参照してください。
+[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。 [ASP.NET と ASP.NET Core の選択方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) を参照してください。
 
 ## <a name="get-started"></a>作業開始
 
