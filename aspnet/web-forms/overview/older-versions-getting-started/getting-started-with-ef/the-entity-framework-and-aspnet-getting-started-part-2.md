@@ -67,7 +67,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 [![image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
-**構成データの選択**手順で、**人**の値として**EntitySetName**します。 **選択**、ことを確認、 ** を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、クリックして**完了**します。
+**構成データの選択**手順で、**人**の値として**EntitySetName**します。 **選択**、ことを確認、 **を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、クリックして**完了**します。
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-2/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image17.png)
 

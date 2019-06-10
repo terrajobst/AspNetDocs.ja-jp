@@ -116,7 +116,7 @@ Visual Studio 2010 および Web Deploy を使用してを展開するいくつ�
 
 ![Publish_Web_wizard_Profile_tab](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image9.png)
 
-ドロップダウン リストで選択**&lt;新規.&gt;**.
+ドロップダウン リストで選択 **&lt;新規.&gt;** .
 
 **新しいプロファイル** ダイアログ ボックスが"Test"を入力し、クリックして**OK**します。
 

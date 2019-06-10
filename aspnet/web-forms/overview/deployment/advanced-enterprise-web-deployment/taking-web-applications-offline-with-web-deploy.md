@@ -128,7 +128,7 @@ Web 発行パイプライン (WPP) という項目一覧を使用して**FilesFo
 この例での重要な点を次に示します。
 
 - **BeforeTargets**属性内の直前に実行するかを指定することによって、WPP にこのターゲットの挿入、 **CopyAllFilesToSingleFolderForPackage**ターゲット。
-- **FilesForPackagingFromProject**項目は、 **DestinationRelativePath**からファイルの名前を変更するメタデータ値*アプリ\_オフライン template.htm**アプリ\_offline.htm*ように、一覧に追加されます。
+- **FilesForPackagingFromProject**項目は、 **DestinationRelativePath**からファイルの名前を変更するメタデータ値*アプリ\_オフライン template.htm* *アプリ\_offline.htm*ように、一覧に追加されます。
 
 次の手順は、これを追加する方法を示します *. wpp.targets*ファイルを web アプリケーション プロジェクト。
 
@@ -137,7 +137,7 @@ Web 発行パイプライン (WPP) という項目一覧を使用して**FilesFo
 1. Visual Studio 2010 でソリューションを開きます。
 2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックして (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
 3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに「 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.
+4. **名前**ボックスに「 *[プロジェクト名]* **.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

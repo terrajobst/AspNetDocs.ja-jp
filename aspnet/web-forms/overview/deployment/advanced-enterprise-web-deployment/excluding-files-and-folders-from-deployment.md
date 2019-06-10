@@ -88,7 +88,7 @@ Visual Studio で web アプリケーション プロジェクトのプロパテ
 1. Visual Studio 2010 でソリューションを開きます。
 2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックして (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
 3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに「 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.
+4. **名前**ボックスに「 *[プロジェクト名]* **.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 

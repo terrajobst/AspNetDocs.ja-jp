@@ -85,7 +85,7 @@ GridView を使用する前に示したを最初に作成したマスター/詳�
 
 **図 7**:選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image17.png))。
 
-値のソースの私たち ObjectDataSource ウィザードで [次へ] をクリックすると、入力、`GetProductsByCategoryID(categoryID)`メソッドの*`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`します。
+値のソースの私たち ObjectDataSource ウィザードで [次へ] をクリックすると、入力、`GetProductsByCategoryID(categoryID)`メソッドの *`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`します。
 
 [![CategoryID パラメーター カテゴリの DropDownList の値に設定されます。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image18.png)
 

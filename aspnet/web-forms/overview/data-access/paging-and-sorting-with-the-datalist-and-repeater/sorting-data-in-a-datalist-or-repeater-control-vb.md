@@ -140,7 +140,7 @@ LinkButton に各並べ替え可能なフィールドのヘッダー テキス�
 
 ## <a name="enhancing-productsbll-to-include-a-default-paging-and-sorting-method"></a>ページングと並べ替え方法には、既定値を含める ProductsBLL の強化
 
-前のチュートリアルで作成した、`GetProductsAsPagedDataSource(pageIndex, pageSize)`メソッドで、`ProductsBLL`返されるクラス、`PagedDataSource`オブジェクト。 これは、`PagedDataSource`オブジェクトが設定されている*すべて*、製品の (BLL s を使用して`GetProducts()`メソッド)、指定したに対応するレコードのみを DataList にバインドされると、 *pageIndex**pageSize*入力パラメーターが表示されます。
+前のチュートリアルで作成した、`GetProductsAsPagedDataSource(pageIndex, pageSize)`メソッドで、`ProductsBLL`返されるクラス、`PagedDataSource`オブジェクト。 これは、`PagedDataSource`オブジェクトが設定されている*すべて*、製品の (BLL s を使用して`GetProducts()`メソッド)、指定したに対応するレコードのみを DataList にバインドされると、 *pageIndex* *pageSize* 入力パラメーターが表示されます。
 
 このチュートリアルの前半で ObjectDataSource s から、並べ替え式を指定することで並べ替えのサポートを追加しました`Selecting`イベント ハンドラー。 これは、ObjectDataSource に並べ替えることができる、このようなオブジェクトが返される場合もと動作、`ProductsDataTable`によって返される、`GetProducts()`メソッド。 ただし、`PagedDataSource`によって返されるオブジェクト、`GetProductsAsPagedDataSource`メソッドは、その内部データ ソースの並べ替えをサポートしていません。 代わりから返される結果を並べ替える必要があります、`GetProducts()`メソッド*する前に*を入力しました、`PagedDataSource`します。
 

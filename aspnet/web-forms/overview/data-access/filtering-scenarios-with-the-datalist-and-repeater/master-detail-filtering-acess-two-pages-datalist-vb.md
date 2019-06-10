@@ -51,7 +51,7 @@ ms.locfileid: "65131607"
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>手順 2: 詳細ページへのリンクにカテゴリ名を変換します。
 
-特定のカテゴリの詳細」の情報を表示するユーザーを許可するには、クリックされると、2 番目のページにユーザーがかかります。 ときに、それぞれに箇条書きリスト項目のリンクを追加する (`ProductsForCategoryDetails.aspx`)。 そうすると、この 2 番目のページでは、DataList を使用して、選択したカテゴリの製品が表示されます。 リンクがクリックしてされたカテゴリを決定するために渡す必要がクリックされたカテゴリの`CategoryID`のメカニズムによって 2 ページ目にします。 ページ間でスカラーのデータを転送する最も簡単な最も簡単な方法は、クエリ文字列を通じてこのチュートリアルでを使用するオプションです。 具体的には、 `ProductsForCategoryDetails.aspx` 、選択したページに期待される*`categoryID`* という名前のクエリ文字列フィールドを介して渡される値を`CategoryID`します。 たとえば、飲み物のカテゴリの製品を表示するため、`CategoryID`は 1 で、ユーザーがアクセスしてください`ProductsForCategoryDetails.aspx?CategoryID=1`します。
+特定のカテゴリの詳細」の情報を表示するユーザーを許可するには、クリックされると、2 番目のページにユーザーがかかります。 ときに、それぞれに箇条書きリスト項目のリンクを追加する (`ProductsForCategoryDetails.aspx`)。 そうすると、この 2 番目のページでは、DataList を使用して、選択したカテゴリの製品が表示されます。 リンクがクリックしてされたカテゴリを決定するために渡す必要がクリックされたカテゴリの`CategoryID`のメカニズムによって 2 ページ目にします。 ページ間でスカラーのデータを転送する最も簡単な最も簡単な方法は、クエリ文字列を通じてこのチュートリアルでを使用するオプションです。 具体的には、 `ProductsForCategoryDetails.aspx` 、選択したページに期待される *`categoryID`* という名前のクエリ文字列フィールドを介して渡される値を`CategoryID`します。 たとえば、飲み物のカテゴリの製品を表示するため、`CategoryID`は 1 で、ユーザーがアクセスしてください`ProductsForCategoryDetails.aspx?CategoryID=1`します。
 
 ハイパーリンク Web コントロール、または HTML アンカー要素が追加する必要があります Repeater に箇条書きリストの各項目のハイパーリンクを作成する (`<a>`) に、`ItemTemplate`します。 がハイパーリンクであるシナリオが表示されたら、同じ行ごとに、どちらの方法で十分です。 たいリピータの場合、アンカー要素を使用します。 アンカー要素を使用するには、Repeater の ItemTemplate を更新します。
 
@@ -79,7 +79,7 @@ ms.locfileid: "65131607"
 
 **図 4**:構成に使用する ObjectDataSource、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-acess-two-pages-datalist-vb/_static/image12.png))。
 
-以降、`GetProductsByCategoryID(categoryID)`メソッドは入力パラメーターを受け取ります (*`categoryID`*)、データ ソースの選択ウィザードは私たちにパラメーターのソースを指定する機会を提供します。 パラメーターのソースを QueryStringField を使用してクエリ文字列に設定`CategoryID`します。
+以降、`GetProductsByCategoryID(categoryID)`メソッドは入力パラメーターを受け取ります ( *`categoryID`* )、データ ソースの選択ウィザードは私たちにパラメーターのソースを指定する機会を提供します。 パラメーターのソースを QueryStringField を使用してクエリ文字列に設定`CategoryID`します。
 
 [![パラメーターのソースとしてクエリ文字列フィールドの CategoryID を使用します。](master-detail-filtering-acess-two-pages-datalist-vb/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image13.png)
 

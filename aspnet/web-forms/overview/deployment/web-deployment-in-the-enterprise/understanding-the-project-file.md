@@ -83,7 +83,7 @@ ASP.NET web アプリケーションおよび ASP.NET MVC web アプリケーシ
 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
-プロパティ値を取得する形式を使用する **$(***PropertyName***) * * *。* たとえばの値を取得するため、 **ServerName**入力プロパティ。
+プロパティ値を取得する形式を使用する * *$(***PropertyName***)***。* たとえばの値を取得するため、 **ServerName**入力プロパティ。
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
 

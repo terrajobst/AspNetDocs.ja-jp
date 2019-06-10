@@ -131,7 +131,7 @@ Contoso University の web ページで設定されている値の読み取り`a
 
 ## <a name="setting-connection-strings"></a>接続文字列の設定
 
-ほとんどの場合にする必要はありません接続文字列の変換を設定するため、発行プロファイルの接続文字列を指定することができます。 SQL Server Compact データベースをデプロイするときに例外があるし、Entity Framework Code First Migrations を使用して、移行先サーバー上のデータベースを更新します。 このシナリオでは、データベース スキーマを更新するため、サーバーで使用される追加の接続文字列を指定する必要があります。 この変換を設定するには、追加、 **&lt;connectionStrings&gt;** 要素の開始後すぐに**&lt;構成&gt;** 両方のタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
+ほとんどの場合にする必要はありません接続文字列の変換を設定するため、発行プロファイルの接続文字列を指定することができます。 SQL Server Compact データベースをデプロイするときに例外があるし、Entity Framework Code First Migrations を使用して、移行先サーバー上のデータベースを更新します。 このシナリオでは、データベース スキーマを更新するため、サーバーで使用される追加の接続文字列を指定する必要があります。 この変換を設定するには、追加、 **&lt;connectionStrings&gt;** 要素の開始後すぐに **&lt;構成&gt;** 両方のタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
