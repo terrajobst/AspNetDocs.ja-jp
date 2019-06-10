@@ -88,7 +88,7 @@ ms.locfileid: "65108308"
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. **新しい展開構成ファイル** ダイアログ ボックスで、ファイルのわかりやすい名前を付けます (たとえば、 **TestEnvironment.sqldeployment**)、順にクリックします**保存**。
-4. *[Filename]***.sqldeployment** ページで、展開先の環境の要件に適合する配置プロパティを設定し、ファイルを保存します。
+4. *[Filename]* **.sqldeployment** ページで、展開先の環境の要件に適合する配置プロパティを設定し、ファイルを保存します。
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. データベース プロジェクトで、[プロパティ] フォルダーに新しいファイルが追加されたことに注意してください。

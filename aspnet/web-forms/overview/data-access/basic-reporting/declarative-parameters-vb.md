@@ -104,7 +104,7 @@ ObjectDataSource の宣言型マークアップは、最初の例と若干異な
 
 ## <a name="showing-all-suppliers-by-default"></a>既定ですべての仕入先の表示
 
-はなく最初のページを表示するときに なし の仕入先よりも可能性がありますを表示する*すべて*最初は、サプライヤーに、ユーザー ボックスに、国の名前を入力して、一覧を縮小することができます。 テキスト ボックスが空で、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された`Nothing`の*`country`* 入力パラメーター。 これは、 `Nothing` DAL のに値が渡されます`GetSupplierByCountry(country)`メソッドは、データベースに変換されます`NULL`値、`@Country`次のクエリ パラメーター。
+はなく最初のページを表示するときに なし の仕入先よりも可能性がありますを表示する*すべて*最初は、サプライヤーに、ユーザー ボックスに、国の名前を入力して、一覧を縮小することができます。 テキスト ボックスが空で、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された`Nothing`の *`country`* 入力パラメーター。 これは、 `Nothing` DAL のに値が渡されます`GetSupplierByCountry(country)`メソッドは、データベースに変換されます`NULL`値、`@Country`次のクエリ パラメーター。
 
 [!code-sql[Main](declarative-parameters-vb/samples/sample3.sql)]
 
