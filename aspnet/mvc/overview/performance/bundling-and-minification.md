@@ -199,12 +199,12 @@ IE9 F12 開発者ツールを実行して、以前に読み込まれたページ
 
 ## <a name="less-coffeescript-scss-sass-bundling"></a>LESS、CoffeeScript、SCSS、バンドルを Sass します。
 
-バンドルと縮小のフレームワークなど、中間言語を処理するためのメカニズムを提供する[SCSS](http://sass-lang.com/)、 [Sass](http://sass-lang.com/)、[少ない](http://www.dotlesscss.org/)または[Coffeescript](http://coffeescript.org/)、し、結果として得られるバンドルに縮小などの変換を適用します。 たとえば、追加する[*.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
+バンドルと縮小のフレームワークなど、中間言語を処理するためのメカニズムを提供する[SCSS](http://sass-lang.com/)、 [Sass](http://sass-lang.com/)、[少ない](http://www.dotlesscss.org/)または[Coffeescript](http://coffeescript.org/)、し、結果として得られるバンドルに縮小などの変換を適用します。 たとえば、追加する[.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
 
 1. 以下の内容を格納するフォルダーを作成します。 次の例では、*コンテンツ\\MyLess*フォルダー。
-2. 追加、 [*.less](http://www.dotlesscss.org/) NuGet パッケージ**ドット**をプロジェクトにします。  
+2. 追加、 [.less](http://www.dotlesscss.org/) NuGet パッケージ**ドット**をプロジェクトにします。  
     ![NuGet ドットなしのインストール](bundling-and-minification/_static/image9.png)
-3. 実装するクラスを追加、 [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイス。 *.Less トランス フォームをプロジェクトに次のコードを追加します。
+3. 実装するクラスを追加、 [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイス。 .Less トランス フォームをプロジェクトに次のコードを追加します。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
 4. 小さいファイルのバンドルを作成、`LessTransform`と[CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx)変換します。 次のコードを追加、`RegisterBundles`メソッドで、*アプリ\\開始 (_s)\\BundleConfig.cs*ファイル。

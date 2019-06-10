@@ -263,7 +263,7 @@ ASP.NET MVC 4 の重要な新機能は、モバイル ブラウザー全般、�
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-ときに`RequireConsistentDisplayMode`に設定されている`true`、モバイル レイアウト (<em>\_Layout.Mobile.cshtml</em>) モバイル ビューにのみ使用されます。 (これは、ビュー ファイルの形式がある<em>* * ViewName</em><em>します。*.Mobile.cshtml</em>)。設定することがあります`RequireConsistentDisplayMode`に`true`モバイル レイアウトが非モバイル ビューでうまくいかない場合。 以下のスクリーン ショット、<em>スピーカー</em>ページが表示される`RequireConsistentDisplayMode`に設定されている`true`します。
+ときに`RequireConsistentDisplayMode`に設定されている`true`、モバイル レイアウト (<em>\_Layout.Mobile.cshtml</em>) モバイル ビューにのみ使用されます。 (これは、ビュー ファイルの形式がある<em>**ViewName</em><em>します.Mobile.cshtml</em>)。設定することがあります`RequireConsistentDisplayMode`に`true`モバイル レイアウトが非モバイル ビューでうまくいかない場合。 以下のスクリーン ショット、<em>スピーカー</em>ページが表示される`RequireConsistentDisplayMode`に設定されている`true`します。
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 
