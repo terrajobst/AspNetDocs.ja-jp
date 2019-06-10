@@ -47,7 +47,7 @@ ms.locfileid: "65130188"
 
 アプリケーションを使用して、再コンパイル、**デバッグ** &gt;**ビルド ムービー**メニュー コマンド。
 
-更新した、`Model`クラスもする必要がある更新、 *\Views\Movies\Index.cshtml*と*\Views\Movies\Create.cshtml*新しいをサポートするためにテンプレートを表示`Rating`プロパティ。
+更新した、`Model`クラスもする必要がある更新、 *\Views\Movies\Index.cshtml* と *\Views\Movies\Create.cshtml* 新しいをサポートするためにテンプレートを表示`Rating`プロパティ。
 
 開く、 *\Views\Movies\Index.cshtml*追加ファイルを開き、`<th>Rating</th>`直後の列ヘッダー、**価格**列。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新*Index.cshtml*ビュー テンプレートのようになります。
 

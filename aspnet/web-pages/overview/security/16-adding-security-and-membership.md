@@ -130,7 +130,7 @@ WebMatrix で、使用することができます、**スターター サイト*
 サイトには、その他のユーザーが自分のアカウントを管理できる機能が含まれています。 ユーザーは、次の操作を行うことができます。
 
 - 自分のパスワードを変更します。 ログインしたら、ユーザー名 (つまり、リンク) をクリックすることができます。 これは、ページに新しいパスワードを作成することができます (*Account/ChangePassword.cshtml*)。
-- 忘れたパスワードを回復します。 リンクがあるログイン ページで、(**パスワードを忘れたでしたか?**) ページにユーザーを受け取る (*Account/ForgotPassword.cshtml*) 電子メール アドレスを入力することができます。 サイトがそれらには、新しいパスワードを設定するをクリックできるリンクを含む電子メール メッセージを送信します (*Account/PasswordReset.cshtml*)。
+- 忘れたパスワードを回復します。 リンクがあるログイン ページで、(**パスワードを忘れたでしたか?** ) ページにユーザーを受け取る (*Account/ForgotPassword.cshtml*) 電子メール アドレスを入力することができます。 サイトがそれらには、新しいパスワードを設定するをクリックできるリンクを含む電子メール メッセージを送信します (*Account/PasswordReset.cshtml*)。
 
 後で説明するよう、外部のサイトを使用してログインできますもユーザーを作成することもできます。
 
@@ -166,7 +166,7 @@ WebMatrix で、使用することができます、**スターター サイト*
 複数のページへのアクセスをセキュリティで保護は、これを行うことができます。
 
 - 各ページには、セキュリティ チェックを追加します。
-- 作成、  *\_PageStart.cshtml*保護対象のページを保存し、追加セキュリティ チェックがフォルダー内のページ。  *\_PageStart.cshtml*ページは、フォルダー内のすべてのページのグローバル ページの一種として機能します。 この手法はで詳しく説明[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access)します。
+- 作成、  *\_PageStart.cshtml*保護対象のページを保存し、追加セキュリティ チェックがフォルダー内のページ。 *\_PageStart.cshtml* ページは、フォルダー内のすべてのページのグローバル ページの一種として機能します。 この手法はで詳しく説明[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access)します。
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>ユーザー (ロール) のグループのセキュリティを作成します。
 
