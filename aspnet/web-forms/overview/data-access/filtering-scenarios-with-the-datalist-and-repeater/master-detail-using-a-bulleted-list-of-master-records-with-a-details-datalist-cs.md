@@ -63,7 +63,7 @@ CSS クラスを追加して、マークアップでを構成したら、 `Categ
 
 完全なマークアップを囲む Repeater および DataList 秒、Repeater にカテゴリ データをバインドする準備ができたら制御します。 ただし、図 1 内のカテゴリの箇条書きリストに示す各カテゴリの名前だけでなく必要もありますカテゴリに関連付けられている製品の数を表示します。 この情報にアクセスできますか。
 
-- **ASP.NET ページの分離コード クラスからこの情報を決定します。** 特定の指定された*`categoryID`* 呼び出すことによって関連付けられている製品の数を決定しました、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`* します。 作成できる、 `ItemDataBound` 、Repeater にバインドされている各カテゴリの呼び出しを Repeater のイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力にその数が含まれています。
+- **ASP.NET ページの分離コード クラスからこの情報を決定します。** 特定の指定された *`categoryID`* 呼び出すことによって関連付けられている製品の数を決定しました、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`* します。 作成できる、 `ItemDataBound` 、Repeater にバインドされている各カテゴリの呼び出しを Repeater のイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力にその数が含まれています。
 - **更新プログラム、`CategoriesDataTable`に型指定されたデータセットで、`NumberOfProducts`列。** 今後更新できるし、`GetCategories()`メソッドで、`CategoriesDataTable`にこの情報が含まれますか、または、`GetCategories()`として-を新規作成は、`CategoriesDataTable`というメソッド`GetCategoriesAndNumberOfProducts()`。
 
 これらの手法の両方のシナリオについて s を使用できます。 最初の方法は、データ アクセス レイヤーを更新する必要があるので、実装する方が簡単ただし、データベースと複数の通信が必要です。 呼び出し、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッドで、`ItemDataBound`イベント ハンドラーは、Repeater に表示されるカテゴリごとに、余分なデータベース呼び出しを追加します。 この手法では、 *N* +、1 つのデータベース呼び出し、 *N* Repeater に表示されるカテゴリの数です。 各カテゴリに関する情報を 2 つ目のアプローチでは、製品の数が返される、`CategoriesBLL`クラス s `GetCategories()` (または`GetCategoriesAndNumberOfProducts()`) メソッドを 1 つだけのトリップでデータベースになります。
@@ -186,7 +186,7 @@ LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパテ
 
 **図 12**:構成に使用する ObjectDataSource`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image34.png))。
 
-以降、`GetProductsByCategoryID(categoryID)`メソッドに入力パラメーターが必要ですが (*`categoryID`*)、データ ソース構成ウィザードでは、パラメーター %s のソースを指定できます。 コントロールを処理するパラメーターのソースのドロップダウン リストを設定カテゴリは、GridView、DataList に指定されていた、私たちの d、`ID`データ Web コントロールの。 ただし、Repeater の欠如以降、`SelectedValue`プロパティ パラメーターのソースとして使用できません。 チェックすると、見つかります ControlID のドロップダウン リストが 1 つのコントロールにはのみ含まれている`ID``CategoryProducts`、 `ID` DataList の。
+以降、`GetProductsByCategoryID(categoryID)`メソッドに入力パラメーターが必要ですが ( *`categoryID`* )、データ ソース構成ウィザードでは、パラメーター %s のソースを指定できます。 コントロールを処理するパラメーターのソースのドロップダウン リストを設定カテゴリは、GridView、DataList に指定されていた、私たちの d、`ID`データ Web コントロールの。 ただし、Repeater の欠如以降、`SelectedValue`プロパティ パラメーターのソースとして使用できません。 チェックすると、見つかります ControlID のドロップダウン リストが 1 つのコントロールにはのみ含まれている`ID``CategoryProducts`、 `ID` DataList の。
 
 ここでは、パラメーター ソースのドロップダウン リストを None に設定します。 カテゴリ、Repeater の LinkButton がクリックされたときにこのパラメーターの値をプログラムによって割り当てられるためです。
 
