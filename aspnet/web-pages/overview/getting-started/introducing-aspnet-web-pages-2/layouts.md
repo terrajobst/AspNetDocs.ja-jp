@@ -133,7 +133,7 @@ ASP.NET に Movies.cshtml ページのコンテンツをマージ、  *\_Layout.
 
 ## <a name="passing-title-information-to-the-layout-page"></a>レイアウト ページにタイトル情報を渡す
 
- *\_Layout.cshtml*作成したページには、 `<title>` "My ムービー Site"に設定されている要素。 ほとんどのブラウザー タブのテキストとしてこの要素の内容を表示します。
+*\_Layout.cshtml* 作成したページには、 `<title>` "My ムービー Site"に設定されている要素。 ほとんどのブラウザー タブのテキストとしてこの要素の内容を表示します。
 
 ![ページの&lt;タイトル&gt;ブラウザー タブで表示される要素](layouts/_static/image8.png)
 

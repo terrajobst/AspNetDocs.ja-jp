@@ -164,7 +164,7 @@ MSBuild では、この命令を処理という名前の項目リストを作成
 
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
-これは、例の*ターゲット バッチ処理*します。 MSBuild プロジェクト ファイルでは、バッチ処理は、コレクションを反復処理するための手法です。 値、**出力**属性、 **「% (DbPublishPackages.Identity)」** を参照、 **Identity**のメタデータのプロパティ、 **DbPublishPackages**項目のリスト。 この表記法では、**Outputs=%***(ItemList.ItemMetadataName)*、として変換されます。
+これは、例の*ターゲット バッチ処理*します。 MSBuild プロジェクト ファイルでは、バッチ処理は、コレクションを反復処理するための手法です。 値、**出力**属性、 **「% (DbPublishPackages.Identity)」** を参照、 **Identity**のメタデータのプロパティ、 **DbPublishPackages**項目のリスト。 この表記法では、**Outputs=%** *(ItemList.ItemMetadataName)* 、として変換されます。
 
 - 内の項目を分割**DbPublishPackages**同じが含まれている項目のバッチに**Identity**メタデータ値。
 - バッチごとに 1 回のターゲットを実行します。
@@ -178,7 +178,7 @@ MSBuild では、この命令を処理という名前の項目リストを作成
 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
-この場合、 **%(DbPublishPackages.DatabaseConnectionString)**、 **%(DbPublishPackages.TargetDatabase)**、および **%(DbPublishPackages.FullPath)** すべてを参照してくださいメタデータの値、 **DbPublishPackages**項目コレクション。  **\_Cmd**プロパティを使って、 **Exec**タスクは、コマンドを呼び出します。
+この場合、 **%(DbPublishPackages.DatabaseConnectionString)** 、 **%(DbPublishPackages.TargetDatabase)** 、および **%(DbPublishPackages.FullPath)** すべてを参照してくださいメタデータの値、 **DbPublishPackages**項目コレクション。 **\_Cmd** プロパティを使って、 **Exec** タスクは、コマンドを呼び出します。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
 

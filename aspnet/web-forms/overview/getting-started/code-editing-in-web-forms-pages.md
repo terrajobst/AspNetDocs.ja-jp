@@ -148,7 +148,7 @@ Visual Studio でコード エディターを使用して、コードを記述�
 
 ### <a name="to-use-refactoring-to-rename-a-variable"></a>リファクタリングを使用して、変数の名前を変更するには
 
-1. ** をクリックして**イベント ハンドラーでは、次の行を見つけます。
+1.  **をクリックして** イベント ハンドラーでは、次の行を見つけます。
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
 2. 変数名を右クリックして`alist`、選択**リファクタリング**を選び、**の名前を変更**します。
