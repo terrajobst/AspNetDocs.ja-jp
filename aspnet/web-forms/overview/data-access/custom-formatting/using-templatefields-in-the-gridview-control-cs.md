@@ -80,7 +80,7 @@ GridView は、一連からには、どのようなプロパティを示すフ�
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample2.aspx)]
 
-TemplateField から成る 2 つのテンプレート、ご覧のとおり、`ItemTemplate`ラベルを持つが`Text`の値に設定されて、`FirstName`データ フィールド、および`EditItemTemplate`TextBox で制御が`Text`プロパティも設定されて`FirstName`データ フィールド。 データ バインディング構文 -`<%# Bind("fieldName") %>`のことを示しますデータ フィールド*`fieldName`* Web コントロールの指定したプロパティにバインドされます。
+TemplateField から成る 2 つのテンプレート、ご覧のとおり、`ItemTemplate`ラベルを持つが`Text`の値に設定されて、`FirstName`データ フィールド、および`EditItemTemplate`TextBox で制御が`Text`プロパティも設定されて`FirstName`データ フィールド。 データ バインディング構文 -`<%# Bind("fieldName") %>`のことを示しますデータ フィールド *`fieldName`* Web コントロールの指定したプロパティにバインドされます。
 
 追加する、`LastName`データ フィールドの値で別のラベルの Web コントロールを追加する必要があります。 この TemplateField を、`ItemTemplate`バインドとその`Text`プロパティを`LastName`します。 これは、手動でまたはデザイナーのいずれかに実現できます。 手動では、単に適切な宣言型構文を追加、 `ItemTemplate`:
 

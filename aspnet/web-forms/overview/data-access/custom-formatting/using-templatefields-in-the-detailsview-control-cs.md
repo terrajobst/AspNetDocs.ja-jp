@@ -110,7 +110,7 @@ Label Web コントロールで使用されるデータ バインディング構
 価格と在庫 TemplateField、価格と在庫情報が表示されるように static のマークアップ、ラベルの Web コントロール、およびデータ バインディング構文を追加するようになります。
 
 *UnitPrice*  
-(**在庫/注文。***UnitsInStock* / *UnitsOnOrder*)
+( **在庫/注文。** *UnitsInStock*  /  *UnitsOnOrder*)
 
 このタスクを実行した後、DetailsView の宣言型マークアップは、次のような検索する必要があります。
 

@@ -181,7 +181,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 
     > [!NOTE] 
     > 
-    > 内のすべてのコントロールは、**フォーム**要素、属性を持つ**runat =&quot;server&quot;** します。 **Runat =&quot;server&quot;** 属性と**asp:** プレフィックスは、によって処理される ASP.NET サーバー ページが実行されるように、コントロールのタグは、コントロールをマークします。 外部コード**&lt;フォームの runat =&quot;サーバー&quot; &gt;** と**&lt;スクリプトの runat =&quot;server&quot; &gt;** 要素は、ASP.NET コードが持つ開始タグを含む要素内にある必要がありますブラウザーにそのまま送信は、 **runat =&quot;server&quot;** 属性。
+    > 内のすべてのコントロールは、**フォーム**要素、属性を持つ**runat =&quot;server&quot;** します。 **Runat =&quot;server&quot;** 属性と**asp:** プレフィックスは、によって処理される ASP.NET サーバー ページが実行されるように、コントロールのタグは、コントロールをマークします。 外部コード **&lt;フォームの runat =&quot;サーバー&quot;&gt;** と **&lt;スクリプトの runat =&quot;server&quot;&gt;** 要素は、ASP.NET コードが持つ開始タグを含む要素内にある必要がありますブラウザーにそのまま送信は、 **runat =&quot;server&quot;** 属性。
 4. 追加のプロパティを次に、追加は、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 配置後に、挿入ポイントを直接**Asp:label**で、 **&lt;Asp:label&gt;** タグ、およびキーを押します**space キーを押す**します。
 
     設定できる使用可能なプロパティの一覧を表示するドロップダウン リストが表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 呼ばれるこの機能により、 **IntelliSense**で役立つ**ソース**サーバー コントロール、HTML 要素、およびその他の項目の構文を使用して、ページのビュー。 次の図は、 **IntelliSense**のドロップダウン リスト、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。
@@ -213,7 +213,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
     > [!NOTE] 
     > 
     > コントロールをダブルクリック**デザイン**ビューは、イベント ハンドラーを作成するいくつかの方法の 1 つにすぎません。
-3. 内で、 **Button1\_クリックして**イベント ハンドラーで、「 **Label1**ピリオドが続く (**.**)。
+3. 内で、 **Button1\_クリックして**イベント ハンドラーで、「 **Label1**ピリオドが続く ( **.** )。
 
     後にピリオドを入力すると、 **ID**ラベルの (**Label1**)、Visual Studio の利用可能なメンバーの一覧を表示する、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールが、次に示すように図。 メンバー プロパティでは通常、メソッド、またはイベント。
 
@@ -242,7 +242,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
     入力した名前が表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 ボタンをクリックするとに、ページが Web サーバーにポストされたことに注意してください。 ASP.NET ページを再作成、コードを実行 (この場合、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの[ をクリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント ハンドラーが実行される)、し、ブラウザーに新しいページを送信します。 ブラウザーのステータス バーを視聴する場合、ページことのラウンド トリップ Web サーバーに、ボタンをクリックするたびが確認できます。
 3. ブラウザーで表示 ページの右クリックして実行しているページのソース**ソースの表示**します。
 
-    ページのソース コードでは、サーバー コードなし HTML を表示します。 具体的には、表示されない、 **&lt;asp:&gt;** で作業していた要素**ソース**ビュー。 ページの実行時に ASP.NET がサーバー コントロールを処理し、コントロールを表す機能を実行するページに HTML 要素をレンダリングします。 たとえば、 **&lt;Asp:button&gt;** コントロールが HTML としてレンダリングされる**&lt;入力の種類 =&quot;送信&quot;&gt;** 要素。
+    ページのソース コードでは、サーバー コードなし HTML を表示します。 具体的には、表示されない、 **&lt;asp:&gt;** で作業していた要素**ソース**ビュー。 ページの実行時に ASP.NET がサーバー コントロールを処理し、コントロールを表す機能を実行するページに HTML 要素をレンダリングします。 たとえば、 **&lt;Asp:button&gt;** コントロールが HTML としてレンダリングされる **&lt;入力の種類 =&quot;送信&quot;&gt;** 要素。
 4. ブラウザーを閉じます。
 
 ## <a name="working-with-additional-controls"></a>その他のコントロールの操作
@@ -269,7 +269,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 4. **スキームを選択**一覧で、選択**単純な**順にクリックします**OK**します。
 5. 切り替える**ソース**ビュー。
 
-    確認できます、  **&lt;asp: 予定表&gt;** 要素。 この要素は、先ほど作成した単純なコントロールの要素よりも長いです。 これも含まれています、サブ要素など**&lt;この&gt;**、さまざまな書式設定を表します。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)制御**ソース**ビュー。 (正確なマークアップに表示される**ソース**からの図は、ビューが若干異なる場合があります)。
+    確認できます、  **&lt;asp: 予定表&gt;** 要素。 この要素は、先ほど作成した単純なコントロールの要素よりも長いです。 これも含まれています、サブ要素など **&lt;この&gt;** 、さまざまな書式設定を表します。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)制御**ソース**ビュー。 (正確なマークアップに表示される **ソース** からの図は、ビューが若干異なる場合があります)。
 
     ![ソース ビュー内のコントロールをカレンダー](creating-a-basic-web-forms-page/_static/image15.png "予定表のソース ビュー内のコントロール")
 

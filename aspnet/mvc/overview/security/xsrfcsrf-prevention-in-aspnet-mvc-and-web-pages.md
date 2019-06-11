@@ -106,7 +106,7 @@ ANTI-XSRF トークンを生成するには、呼び出し、 [ @Html.AntiForger
 - フィールドのトークンに埋め込まれたユーザー名は、現在ログインしているユーザーのユーザー名と一致しません。
 - *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)* メソッドが返される*false*します。
 
-ANTI-XSRF 機能は、トークンの生成または検証中に追加のチェックも実行でき、例外がスローされているこれらのチェック中にエラーがあります。 参照してください、 [WIF/ACS]、[クレーム ベース認証](#_WIF_ACS)と**[構成と拡張機能](#_Configuration_and_extensibility)** 詳細については、セクション。
+ANTI-XSRF 機能は、トークンの生成または検証中に追加のチェックも実行でき、例外がスローされているこれらのチェック中にエラーがあります。 参照してください、 [WIF/ACS]、[クレーム ベース認証](#_WIF_ACS)と **[構成と拡張機能](#_Configuration_and_extensibility)** 詳細については、セクション。
 
 <a id="_Scenarios_with_special"></a>
 
