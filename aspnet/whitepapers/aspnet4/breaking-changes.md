@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: 65b13065ae5324ce64ec1b87b2127e5277542fb8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8ccad3b40a723c92a3164de082e1f94577141008
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125670"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411208"
 ---
 # <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 の破壊的変更
 
@@ -317,11 +317,11 @@ ASP.NET 4 が Web サイトを実行するために必要な場合は、その�
 
 ASP.NET 4 に変更する変更が含まれています、**アクション**HTML の属性**フォーム**拡張子なしの URL は、既定のドキュメントに解決されると、要素が表示されます。 既定のドキュメントに解決する拡張子なしの URL の例があります[ http://contoso.com/](http://contoso.com/)への要求の結果として得られる、 [ http://contoso.com/Default.aspx](http://contoso.com/Default.aspx)します。
 
-ASP.NET 4 がこれで HTML を表示します**フォーム**要素の**アクション**拡張子なしの url をマップされている既定のドキュメントを持つ要求が行われたときに、空の文字列として属性値。 などの ASP.NET 要求の以前のリリースで[ http://contoso.com ](http://contoso.com)への要求になる`Default.aspx`します。 そのドキュメントを開くに**フォーム**タグは、次の例のようにレンダリングされます。
+ASP.NET 4 がこれで HTML を表示します**フォーム**要素の**アクション**拡張子なしの url をマップされている既定のドキュメントを持つ要求が行われたときに、空の文字列として属性値。 などの ASP.NET 要求の以前のリリースで[ http://contoso.com ](http://contoso.com)への要求になる`Default.aspx` します。 そのドキュメントを開くに**フォーム**タグは、次の例のようにレンダリングされます。
 
 `<form action="Default.aspx" />`
 
-ASP.NET 4 では、要求で[ http://contoso.com ](http://contoso.com)への要求の結果も`Default.aspx`します。 ただし、ASP.NET は、HTML を開くようになりましたをレンダリング**フォーム**次の例のようにタグ。
+ASP.NET 4 では、要求で[ http://contoso.com ](http://contoso.com)への要求の結果も`Default.aspx` します。 ただし、ASP.NET は、HTML を開くようになりましたをレンダリング**フォーム**次の例のようにタグ。
 
 `<form action="" />`
 
@@ -362,7 +362,7 @@ ASP.NET 1.1 および 2.0 の新しいの動作に部分的に信頼された AS
 - 1 つのアプリケーション ドメイン内の複数の異なるアクセス許可セットが許可されます。
 - 明示的なアクセス許可のアサーションが ASP.NET またはその他の .NET Framework コードのみが、スタックのときに呼び出される、GAC でアセンブリが必要ではありません。
 
-1 つのシナリオを .NET Framework 4 で元に戻すことはできません。 非 Web 部分信頼アプリケーションでは、System.Web.dll および System.Web.Extensions.dll で特定の Api を呼び出すことができなくします。 .NET Framework の以前のバージョンでは非 Web 部分的に信頼されたアプリケーションは明示的に許可する<strong>AspNetHostingPermission</strong>アクセス許可。 これらのアプリケーションを使用して<strong>System.Web.HttpUtility</strong>、型、 <strong>System.Web.ClientServices\< 。/strong > *、名前空間と型は、メンバーシップ、ロール、およびプロファイルに関連します。 非 Web 部分信頼のアプリケーションからこれらの型の呼び出しは、.NET Framework 4 ではサポートされていません。
+1 つのシナリオを .NET Framework 4 で元に戻すことはできません。 非 Web 部分信頼アプリケーションでは、System.Web.dll および System.Web.Extensions.dll で特定の Api を呼び出すことができなくします。 .NET Framework の以前のバージョンでは非 Web 部分的に信頼されたアプリケーションは明示的に許可する**AspNetHostingPermission**アクセス許可。 これらのアプリケーションを使用して**System.Web.HttpUtility**、型、 **System.Web.ClientServices\* 。** 、名前空間と型は、メンバーシップ、ロール、およびプロファイルに関連します。 非 Web 部分信頼のアプリケーションからこれらの型の呼び出しは、.NET Framework 4 ではサポートされていません。
 
 > [!NOTE]
 > **HtmlEncode**と**HtmlDecode**の機能、 **System.Web.HttpUtility**クラスは、新しい .NET Framework 4 に移動された**System.Net.WebUtility**クラス。 使用されている唯一の ASP.NET 機能する場合は、変更、新しいアプリケーションのコード**WebUtility**クラスの代わりにします。
@@ -371,7 +371,7 @@ ASP.NET 4 の既定の CA の実装への変更の概要を次に示します。
 
 - ASP.NET アプリケーション ドメインは、同種のアプリケーション ドメインで、ようになりました。 部分信頼および完全信頼の許可セットだけは、アプリケーション ドメインで使用できます。
 - ASP.NET の部分的な信頼の許可セットは、エンタープライズ レベル、コンピューター レベルまたはユーザー レベルの CAS ポリシーから依存しません。
-- 3.5 および 3.5 SP1 に付属する ASP.NET アセンブリが .NET Framework 4 の透過性モデルを使用する変換されました。
+- 3\.5 および 3.5 SP1 に付属する ASP.NET アセンブリが .NET Framework 4 の透過性モデルを使用する変換されました。
 - ASP.NET の使用**AspNetHostingPermission**属性が大幅に削減されました。 ASP.NET のパブリック Api からこの属性のほとんどのインスタンスがなくなりました。
 - 透明色としてアセンブリを明示的にマークする、ASP.NET ビルド プロバイダーによって作成される動的にコンパイルされたアセンブリが更新されました。
 - ASP.NET のすべてのアセンブリは APTCA 属性は、Web ホスティング環境でのみ受け入れられます、このような方法でマークされているようになりました。 ClickOnce などの部分的に信頼された以外の Web ホスティング環境は ASP.NET のアセンブリを呼び出すことができません。

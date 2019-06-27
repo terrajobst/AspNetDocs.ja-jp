@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: c42ec77b5d5107f3ef70e13b779fc1bebef70a14
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 264f2ec5c497682f5e3e202dd69a835ff228e75b
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120703"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410867"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Edit メソッドと Edit ビューの確認
 
@@ -21,7 +21,7 @@ ms.locfileid: "65120703"
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-このセクションで、生成された調べます`Edit`アクション メソッドとムービー コント ローラーのビュー。 最初の見栄えをよくリリース日を短い楽しまかかります。 開く、 *Models\Movie.cs*ファイルし、次の強調表示された行を追加します。
+このセクションで、生成された調べます`Edit`アクション メソッドとムービー コント ローラーのビュー。 最初の見栄えをよくリリース日を短い楽しま移動します。 開く、 *Models\Movie.cs*ファイルし、次の強調表示された行を追加します。
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample1.cs?highlight=2,12-14)]
 
@@ -100,12 +100,12 @@ ms.locfileid: "65120703"
 英語 (米国) のコンピューターを使用している場合は、このセクションをスキップし、次のチュートリアルに移動します。 このチュートリアルの Globalize バージョンをダウンロードする[ここ](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=16475)します。 国際化に関する優れた 2 部構成チュートリアルを参照してください[Nadeem の ASP.NET MVC 5 の国際化](http://afana.me/post/aspnet-mvc-internationalization.aspx)します。
 
 > [!NOTE]
-> コンマを使用するロケールを英語以外の jQuery の検証をサポートするために (&quot;、&quot;) する必要があります、小数点と英語 (米国) 以外の日付形式は、 *globalize.js*と特定*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`します。 JQuery の英語以外の検証は、NuGet から取得できます。 (インストールしないでください Globalize 英語ロケールを使用している場合。)
+> コンマを使用するロケールを英語以外の jQuery の検証をサポートするために (&quot;、&quot;) する必要があります、小数点と英語 (米国) 以外の日付形式は、 *globalize.js*と特定*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat` します。 JQuery の英語以外の検証は、NuGet から取得できます。 (インストールしないでください Globalize 英語ロケールを使用している場合。)
 
 1. **ツール**ボタンをクリックし**NuGet パッケージ マネージャー**、 をクリックし、**ソリューションの NuGet パッケージの管理**します。
 
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. 左側のウィンドウで次のように選択します<strong>参照 *。</strong> 。*(下図を参照してください)。
+2. 左側のウィンドウで次のように選択します<strong>参照 *。</strong> 。* (下図を参照してください)。
 3. 入力ボックスに、次のように入力します。 * Globalize * *。
 
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) 選択`jQuery.Validation.Globalize`、選択`MvcMovie`クリック**インストール**。 *Scripts\jquery.globalize\globalize.js*ファイルがプロジェクトに追加されます。 *Scripts\jquery.globalize\cultures\*フォルダーが多数のカルチャの JavaScript ファイルに格納されます。 このパッケージをインストールするために 5 分かかる可能性がありますに注意してください。

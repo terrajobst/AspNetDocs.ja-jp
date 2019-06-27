@@ -9,12 +9,12 @@ ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 8e476f8a4172ebbe55819cda1ceb5458426243bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fa4b22438fffe4f5b95a877e96eb4ec26b6de8d9
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381901"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410894"
 ---
 # <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity 推奨リソース
 
@@ -147,7 +147,6 @@ ms.locfileid: "59381901"
 - ブログ:[ASP.NET Identity の実装](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
 - チュートリアル:[基本の Id アカウントを設定し、外部の DB をポイントして](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx)します。 によって[ @xivSolutions](https://twitter.com/xivSolutions)します。
 - チュートリアル[:カスタム MySQL ASP.NET Identity ストレージ プロバイダーを実装します。](../extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-- [CodeFluent エンティティ](http://blog.codefluententities.com/2014/04/30/asp-net-identity-v2-and-codefluent-entities/)によって[SoftFluent](http://www.softfluent.com/)
 - [Azure Table Storage](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) James Randall でします。
 - Azure テーブル ストレージ:[AspNet.Identity.TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage)によって[ @stuartleeks](https://twitter.com/stuartleeks)します。
 - [CouchDB/Daniel Wertheim によって Cloudant します。](https://github.com/danielwertheim/mycouch.aspnet.identity)

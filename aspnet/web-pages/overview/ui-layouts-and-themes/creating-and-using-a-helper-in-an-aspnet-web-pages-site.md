@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 1f5109324ff3ce919e88fe976587a179eeaa5a5d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 380663951094c9fc7d5f0601e30995fa073a204b
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116023"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410963"
 ---
 # <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトで作成およびヘルパー
 
@@ -71,7 +71,7 @@ ms.locfileid: "65116023"
     作成したヘルパーを呼び出すには、次のように使用します。`@`ヘルパーの名前と場所、ヘルパーは、ドットのファイル名が続きます。 (複数のフォルダーがある場合、*アプリ\_コード*フォルダー、構文を使用する`@FolderName.FileName.HelperName`入れ子になったフォルダー レベルのいずれかのヘルパーを呼び出す)。 かっこ内の引用符で追加したテキストは、ヘルパーは、web ページの注意事項の一部として表示されるテキストです。
 3. ページを保存し、ブラウザーで実行します。 ヘルパー、ヘルパーが呼び出されている右注項目を生成する: 2 つの段落の間。
 
-    ![ヘルパーが、指定したテキストを囲むボックスを配置するマークアップを生成する方法と、ブラウザーでページを示すスクリーン ショット。](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.jpg)
+    ![ヘルパーが、指定したテキストを囲むボックスを配置するマークアップを生成する方法と、ブラウザーでページを示すスクリーン ショット。](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
 
 ## <a name="additional-resources"></a>その他のリソース
 

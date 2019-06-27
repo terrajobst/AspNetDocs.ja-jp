@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9041167af076d80ebf294e054ffe51293d11e888
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5612f2f25d06feb904a205505ed8f048d2263266
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57033179"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410927"
 ---
 # <a name="tutorial-use-async-and-stored-procedures-with-ef-in-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリでの EF で非同期とストアド プロシージャを使用します。
 
@@ -48,7 +48,7 @@ Web サーバーでは、利用できるスレッド数に限りがあります�
 
 .NET の以前のバージョンで非同期コードのテストの記述とは、複雑なエラーが発生しやすく、デバッグが困難にします。 .NET 4.5 での書き込み、テスト、および非同期コードのデバッグはずっと簡単にしないようにする理由がない限り非同期コードを記述する、一般にする必要があります。 非同期のコードで少量のオーバーヘッド、挿入されたが、パフォーマンスに影響はごくわずかであり、中にトラフィックが多い場合のトラフィックが少ない場合、潜在的なパフォーマンスの向上は実体です。
 
-非同期プログラミングの詳細については、[ブロッキング呼び出しを回避するために .NET 4.5 の非同期サポート](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices.md#async)を参照してください。
+非同期プログラミングの詳細については、次を参照してください。[ブロッキング呼び出しを回避するために .NET 4.5 の非同期サポート](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices.md#async)します。
 
 ## <a name="create-department-controller"></a>部門のコント ローラーを作成します。
 
@@ -113,7 +113,7 @@ Details と Delete ビューでは、次のコードを使用します。
 
     `add-migration DepartmentSP`
 
-    開いている*移行\&lt; タイムスタンプ&gt;\_DepartmentSP.cs*でコードを表示する、`Up`を作成するメソッドの挿入、更新、および Delete ストアド プロシージャ。
+    開いている*移行\\&lt;タイムスタンプ&gt;\_DepartmentSP.cs*でコードを表示する、`Up`を作成するメソッドの挿入、更新、および Delete ストアド プロシージャ。
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs?highlight=3-4,26-27,42-43)]
 3. パッケージの管理コンソールで、次のコマンドを入力します。
@@ -126,7 +126,7 @@ Details と Delete ビューでは、次のコードを使用します。
 
      ![部門 Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-コードは、最初に格納されている既定のプロシージャ名を作成します。 既存のデータベースを使用している場合は、データベースで既に定義されているストアド プロシージャを使用するには、ストアド プロシージャの名前をカスタマイズする必要があります。 その方法については、[エンティティ フレームワーク コード最初挿入/更新/削除ストアド プロシージャ](https://msdn.microsoft.com/data/dn468673)を参照してください。
+コードは、最初に格納されている既定のプロシージャ名を作成します。 既存のデータベースを使用している場合は、データベースで既に定義されているストアド プロシージャを使用するには、ストアド プロシージャの名前をカスタマイズする必要があります。 その方法については、次を参照してください。[エンティティ フレームワーク コード最初挿入/更新/削除ストアド プロシージャ](https://msdn.microsoft.com/data/dn468673)します。
 
 ストアド プロシージャは生成されたものをカスタマイズする場合は、移行のためのスキャフォールディングされたコードを編集できます`Up`ストアド プロシージャを作成するメソッド。 これにより変更が反映されますたびに移行が実行され、デプロイ後に運用環境で移行を自動的に実行すると、実稼働データベースに適用されます。
 

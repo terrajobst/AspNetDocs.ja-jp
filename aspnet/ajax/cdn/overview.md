@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 6040f1fa32e9df340ebf3f8635b9d07be871ee40
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7b0b42c02439fdb76bceecc80af881e1d58e470d
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118927"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410822"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -776,7 +776,7 @@ Datatable の jQuery プラグインの次のリリースは、この CDN でホ
 
 ### <a name="respond-releases-on-the-cdn"></a>Cdn のリリースを応答します。
 
-次のリリースの [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") 応答が CDN にホストされています。
+次のリリースの[応答](https://github.com/scottjehl/Respond "応答")CDN でホストされています。
 
 #### <a name="respond-version-142"></a>応答バージョン 1.4.2
 
@@ -1030,7 +1030,7 @@ Datatable の jQuery プラグインの次のリリースは、この CDN でホ
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-311"></a>3.1.1 ブートス トラップのバージョン
+#### <a name="bootstrap-version-311"></a>3\.1.1 ブートス トラップのバージョン
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.min.js

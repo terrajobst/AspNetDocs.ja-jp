@@ -6,12 +6,12 @@ description: ASP.NET Webhook のソース コードと NuGet パッケージへ�
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
-ms.openlocfilehash: ff716b476f7dc69b6071d3febd5b5871e4f02689
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f88d9247f9d8aa0c5edc1ffc462be21d9319a725
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57027189"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410800"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>ASP.NET Webhook のソース コードと NuGet パッケージ
 
@@ -25,6 +25,6 @@ Microsoft ASP.NET Webhook はモジュールの Microsoft ASP.NET ファミリ�
 
 * [一般的な](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common):送信者と受信者の間で共有される一般的なパッケージです。
 
-* [送信者](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom):他のユーザーに、独自の Webhook の送信をサポートしているパッケージのセット。 Webhook に送信するための機能がで詳しく説明されている[送信 Webhook](sending/index.md)します。
+* [送信者](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom):他のユーザーに、独自の Webhook の送信をサポートしているパッケージのセット。 Webhook に送信するための機能がで詳しく説明されている[送信 Webhook](sending/senders)します。
 
 * [受信側](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers):他のユーザーからの Webhook の受信をサポートしているパッケージのセット。 Webhook を受信するための機能がで詳しく説明されている[受信 Webhook](receiving/index.md)します。

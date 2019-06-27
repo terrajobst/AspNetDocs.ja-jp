@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 39f4eb7b0859cf52fe3ed2531e9c349b465b9327
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4f0b021ca6ca151544dd9fb0587ed9e0cf14ff65
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116864"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411238"
 ---
 # <a name="caching"></a>キャッシュ
 
@@ -94,7 +94,7 @@ SQL Server 7、2000、SQL キャッシュ依存関係のポーリングに基づ
 | AspNet\_SqlCacheUnRegisterTableStoredProcedure | 通知テーブルにエントリを削除することで、テーブルを SQL キャッシュ依存関係の登録を解除し、トリガーを削除します。 |
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | 変更されたテーブルの changeId をインクリメントして通知テーブルを更新します。 ASP.NET では、この値を使用して、データが変更されたかどうかを判断します。 次に示す、このストアド プロシージャ、トリガー、テーブルが有効になっているときに作成して実行されます。 |
 
-- SQL Server のトリガーと呼ばれる ***テーブル\_名前 *\_AspNet\_SqlCacheNotification\_トリガー**テーブルが作成されます。 このトリガーの実行、AspNet\_SqlCacheUpdateChangeIdStoredProcedure、INSERT、UPDATE、または DELETE がテーブルで実行されるとします。
+- SQL Server のトリガーと呼ばれる **_テーブル\_名前_\_AspNet\_SqlCacheNotification\_トリガー**テーブルが作成されます。 このトリガーの実行、AspNet\_SqlCacheUpdateChangeIdStoredProcedure、INSERT、UPDATE、または DELETE がテーブルで実行されるとします。
 - SQL Server のロールと呼ばれる**aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess**データベースに追加されます。
 
 **Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** SQL サーバーの役割が、AspNet に EXEC アクセス許可を持つ\_SqlCachePollingStoredProcedure します。 ポーリング モデル正常に動作するためには、aspnet にプロセス アカウントを追加する必要があります\_ChangeNotification\_ReceiveNotificationsOnlyAccess ロール。 Aspnet\_regsql.exe ツールはこの処理を実行しません。
@@ -263,7 +263,7 @@ ASP.NET 2.0 でのキャッシュの構成にいくつかの変更がありま�
     - プライベート バイト制限に近づいている非常にしています
     - 使用可能なメモリが近くまたは 10% 未満
 - 効果的にトリミングを無効にして、使用可能なメモリ不足の状態をキャッシュすることによって設定できます&lt;キャッシュ percentagePhysicalMemoryUseLimit/&gt; 100。
-- 1.x とは異なり 2.0 は場合は、中断、トリムおよび収集の呼び出しは前回の GC。プライベート バイト、または (キャッシュ) のメモリ制限の 1% 以上のマネージ ヒープのサイズ、収集は縮小されませんでした。
+- 1\.x とは異なり 2.0 は場合は、中断、トリムおよび収集の呼び出しは前回の GC。プライベート バイト、または (キャッシュ) のメモリ制限の 1% 以上のマネージ ヒープのサイズ、収集は縮小されませんでした。
 
 ## <a name="lab1-custom-cache-dependencies"></a>実習 1:カスタム キャッシュ依存関係
 

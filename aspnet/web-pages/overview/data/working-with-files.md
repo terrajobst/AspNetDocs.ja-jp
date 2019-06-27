@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 3ff852232212ddda4930597731911be60c092667
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 684c47a8a8480dc040e5144144577c94c35d39e5
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108945"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411190"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでファイルの使用
 
@@ -22,7 +22,7 @@ ms.locfileid: "65108945"
 > この記事では、読み取り、書き込み、追加、削除、および ASP.NET Web Pages (Razor) サイトでファイルをアップロードする方法について説明します。
 > 
 > > [!NOTE]
-> > イメージをアップロードし、それらを操作する場合 (反転またはサイズ変更など) を参照してください[ASP.NET Web ページ サイトでのイメージを操作](https://go.microsoft.com/fwlink/?LinkId=202897)します。
+> > イメージをアップロードし、それらを操作する場合 (反転またはサイズ変更など) を参照してください[ASP.NET Web ページ サイトでのイメージを操作](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images)します。
 > 
 > 
 > **学習内容。** 
@@ -72,7 +72,7 @@ ms.locfileid: "65108945"
 
     変数を作成し (`dataFile`) 内のデータを格納するファイルの名前と場所を格納しています。 場所の設定には、いくつかの特別な処理が必要です。 ような絶対パスをコードで参照する不適切な手法は、web サイトで*C:\Folder\File.txt* web サーバー上のファイル。 Web サイトを移動すると、絶対パスは問題になります。 さらに、ホストされているサイトの (、お使いコンピューターではなく) 通常もわからない、正しいパスが、コードを記述するときに。
 
-    場合によっては (現時点では、ファイルを書き込むため) などは、完全なパスする必要があります。 ソリューションは、使用する、`MapPath`のメソッド、`Server`オブジェクト。 これは、web サイトへの完全なパスを返します。 ユーザーが、web サイトのルートのパスを取得する、`~`演算子 (represen には、サイトの仮想ルート) に`MapPath`します。 (など、サブフォルダー名を渡すこともできます *~/App\_データ/*、そのサブフォルダーのパスを取得します)。完全なパスを作成するにはどのようなメソッドを返します上に追加の情報を連結できます。 この例では、ファイル名を追加します。 (詳細でファイルとフォルダーのパスを操作する方法について[ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths))。
+    場合によっては (現時点では、ファイルを書き込むため) などは、完全なパスする必要があります。 ソリューションは、使用する、`MapPath`のメソッド、`Server`オブジェクト。 これは、web サイトへの完全なパスを返します。 ユーザーが、web サイトのルートのパスを取得する、`~`演算子 (represen には、サイトの仮想ルート) に`MapPath`します。 (など、サブフォルダー名を渡すこともできます *~/App\_データ/* 、そのサブフォルダーのパスを取得します)。完全なパスを作成するにはどのようなメソッドを返します上に追加の情報を連結できます。 この例では、ファイル名を追加します。 (詳細でファイルとフォルダーのパスを操作する方法について[ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths))。
 
     ファイルを保存、*アプリ\_データ*フォルダー。 このフォルダーは」の説明に従って、データ ファイルの格納に使用する asp.net の特別なフォルダー [ASP.NET Web Pages サイトでのデータベース操作の概要](https://go.microsoft.com/fwlink/?LinkId=195209)します。
 
@@ -142,12 +142,12 @@ ms.locfileid: "65108945"
 > 
 > **Microsoft Excel のコンマ区切りファイルからデータを表示します。**
 > 
-> Microsoft Excel を使用して、コンマ区切りファイルとしてのスプレッドシートに含まれるデータを保存することができます (*.csv*ファイル)。 この場合、Excel 形式ではなく、プレーン テキストで、ファイルが保存されます。 スプレッドシート内の各行は、テキスト ファイル内での改行で区切られます、各データ項目はコンマで区切られます。 コード内で、データ ファイルの名前を変更するだけで、Excel のコンマ区切りファイルを読み取るには、前の例に示すようにコードを使用できます。
+> Microsoft Excel を使用して、コンマ区切りファイルとしてのスプレッドシートに含まれるデータを保存することができます ( *.csv*ファイル)。 この場合、Excel 形式ではなく、プレーン テキストで、ファイルが保存されます。 スプレッドシート内の各行は、テキスト ファイル内での改行で区切られます、各データ項目はコンマで区切られます。 コード内で、データ ファイルの名前を変更するだけで、Excel のコンマ区切りファイルを読み取るには、前の例に示すようにコードを使用できます。
 
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>ファイルを削除します。
 
-使用することができます、web サイトからファイルを削除する、`File.Delete`メソッド。 この手順は、ユーザーがイメージを削除できるようにする方法を示します (*.jpg*ファイル) から、*イメージ*フォルダー、ファイルの名前がわかっている場合。
+使用することができます、web サイトからファイルを削除する、`File.Delete`メソッド。 この手順は、ユーザーがイメージを削除できるようにする方法を示します ( *.jpg*ファイル) から、*イメージ*フォルダー、ファイルの名前がわかっている場合。
 
 > [!NOTE] 
 > 

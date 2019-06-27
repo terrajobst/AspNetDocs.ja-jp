@@ -8,12 +8,12 @@ ms.date: 03/10/2014
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 7d580b3812c4a09d6bc8d34c46dc82339ba40ee8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3f63ce68ae4c13970ac0df196167ace0b22b592c
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133372"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411254"
 ---
 # <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトで一貫したレイアウトを作成します。
 
@@ -53,7 +53,7 @@ ms.locfileid: "65133372"
 
 この手順では、個別のファイル内にある 2 つのコンテンツ ブロック (ヘッダーおよびフッター) を参照するページを作成します。 サイト内の任意のページで、これらの同じコンテンツ ブロックを使用できます。 完了したら、このようなページが表示されます。
 
-![RenderPage メソッドの呼び出しが含まれているページの実行の結果をブラウザーでページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image2.jpg)
+![RenderPage メソッドの呼び出しが含まれているページの実行の結果をブラウザーでページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image2.png)
 
 1. という名前のファイルを作成、web サイトのルート フォルダーに*Index.cshtml*します。
 2. 次のように既存のマークアップに置き換えます。
@@ -118,7 +118,7 @@ ms.locfileid: "65133372"
     これは、レイアウト ページを使用するページです。 ページの上部にあるコード ブロックでは、このコンテンツを書式設定に使用するレイアウト ページを示します。
 7. 実行*Content1.cshtml*ブラウザーでします。 レンダリングされたページが、形式を使用しで定義されているスタイル シート *\_Layout1.cshtml*とテキスト (コンテンツ) で定義されている*Content1.cshtml*します。
 
-    ![[イメージ]](3-creating-a-consistent-look/_static/image4.jpg)
+    ![[イメージ]](3-creating-a-consistent-look/_static/image4.png)
 
     手順 6 には、同じレイアウト ページを共有できますし、追加のコンテンツ ページの作成を繰り返します。
 
@@ -148,7 +148,7 @@ ms.locfileid: "65133372"
     このコンテンツ ページには、ページの上部にあるコード ブロックが含まれています。 各名前付きセクションは、セクション ブロックに含まれます。 ページの残りの部分には、既定の (無名) のコンテンツ セクションが含まれています。
 4. 実行*Content2.cshtml*ブラウザーでします。
 
-    ![RenderSection メソッドの呼び出しが含まれているページの実行の結果をブラウザーでページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image6.jpg)
+    ![RenderSection メソッドの呼び出しが含まれているページの実行の結果をブラウザーでページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image6.png)
 
 ## <a name="making-content-sections-optional"></a>省略可能なコンテンツ セクションを行う
 
@@ -165,7 +165,7 @@ ms.locfileid: "65133372"
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample12.cshtml)]
 2. ページを保存し、ブラウザーで実行することです。 [コンテンツ] ページは、レイアウト ページ、つまりヘッダー セクションで定義されているセクションのコンテンツを提供しないため、エラー メッセージが表示されます。
 
-    ![ページを実行する場合に発生するエラーを示すスクリーン ショットが RenderSection メソッドを呼び出しますが、対応するセクションが指定されていません。](3-creating-a-consistent-look/_static/image7.jpg)
+    ![ページを実行する場合に発生するエラーを示すスクリーン ショットが RenderSection メソッドを呼び出しますが、対応するセクションが指定されていません。](3-creating-a-consistent-look/_static/image7.png)
 3. *Shared*フォルダーを開き、  *\_Layout2.cshtml*ページし、この行に置き換えます。
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample13.js)]
@@ -210,10 +210,10 @@ ms.locfileid: "65133372"
     [!code-html[Main](3-creating-a-consistent-look/samples/sample18.html)]
 4. 実行、 *Content3.cshtml*ブラウザーでページ。 ページの左側に表示される一覧で、ページが表示されます、**リストの非表示に**下部にあるボタンをクリックします。
 
-    ![リストと「一覧の非表示にする」ことを示すボタンを含むページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image10.jpg)
+    ![リストと「一覧の非表示にする」ことを示すボタンを含むページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image10.png)
 5. クリックして**一覧を表示しない**します。 一覧が表示されなくなり、ボタンに変わります**リストの表示**します。
 
-    ![リストとの一覧を表示する というボタンが含まれていないページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image11.jpg)
+    ![リストとの一覧を表示する というボタンが含まれていないページを示すスクリーン ショット。](3-creating-a-consistent-look/_static/image11.png)
 6. をクリックして、**リストの表示**ボタン、および一覧が再び表示されます。
 
 ## <a name="additional-resources"></a>その他のリソース
