@@ -2,18 +2,18 @@
 uid: web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
 title: '[How Do i:]ASP.NET AJAX での動的な部分ページ更新を実装するか。 | Microsoft Docs'
 author: JoeStagner
-description: このビデオでは、Microsoft ASP.NET AJAX を使用して ASP.NET アプリケーションに動的部分ページ更新を追加する方法を学びます。 具体的には、表示されます ho.
+description: このビデオでは、Microsoft ASP.NET AJAX を使用して ASP.NET アプリケーションに動的部分ページ更新を追加する方法を学びます。
 ms.author: riande
 ms.date: 01/25/2007
 ms.assetid: 7559a912-2753-4866-a140-a4c6cefee00c
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: c032609a440ea8cb0d6e11759994581011daf70c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8d8258e90b107e09c2f7328907b080fb0f9f9f6b
+ms.sourcegitcommit: a256895f6160acc28d75424b8ab5d03b4e74412e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410202"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471380"
 ---
 # <a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX での動的な部分ページ更新を実装するか。
 
