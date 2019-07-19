@@ -131,7 +131,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 > 
 > これらのメソッドをオーバーライドする派生クラスに、独自のフィルター処理のコードを実行できます。
 
-1. 開く、**開始**ソリューションがある**\Source\Ex01-LoggingActions\Begin**フォルダー。
+1. 開く、**開始**ソリューションがある **\Source\Ex01-LoggingActions\Begin**フォルダー。
 
    1. 続行する前に、いくつか不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
@@ -235,7 +235,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 
 このタスクでには、フィルターの実行順序を管理する方法を学習、StoreController クラスに挿入する新しいカスタム アクション フィルター作成されます。
 
-1. 開く、**開始**ソリューションがある**\Source\Ex02-ManagingMultipleActionFilters\Begin**フォルダー。 使用を続ける可能性がありますそれ以外の場合、**エンド**ソリューションは、前の演習を完了して取得します。
+1. 開く、**開始**ソリューションがある **\Source\Ex02-ManagingMultipleActionFilters\Begin**フォルダー。 使用を続ける可能性がありますそれ以外の場合、**エンド**ソリューションは、前の演習を完了して取得します。
 
     1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
     2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
@@ -369,7 +369,7 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
 1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。

@@ -497,7 +497,7 @@ Web アプリがステージング環境で正しく動作していることを�
     ![コードを選択します。](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
 
     *コードを選択します。*
-4. 選択したコードを右クリックし、展開、**リファクタリング**メニュー選択し、**メソッドの抽出しています.**.
+4. 選択したコードを右クリックし、展開、**リファクタリング**メニュー選択し、**メソッドの抽出しています.** .
 
     ![新しいメソッドとして、コードを抽出](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
 
@@ -616,18 +616,18 @@ Web アプリがステージング環境で正しく動作していることを�
 
 1. Visual Studio のインスタンスに切り替え、 **GeekQuiz**前の演習からソリューション。
 2. メニュー バーから選択**ビュー**  をクリックし、**サーバー エクスプ ローラー**します。
-3. **サーバー エクスプ ローラー**を右クリックし、 **Azure**ノード**を Azure に接続しています.**.サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
+3. **サーバー エクスプ ローラー**を右クリックし、 **Azure**ノード**を Azure に接続しています.** .サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
 
     ![Windows Azure への接続します。](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
     *Azure への接続します。*
-4. 展開、 **Azure**ノードを右クリックし**ストレージ**選択と**外部ストレージのアタッチしています.**.
+4. 展開、 **Azure**ノードを右クリックし**ストレージ**選択と**外部ストレージのアタッチしています.** .
 5. **新しいストレージ アカウントの追加** ダイアログ ボックスに、入力、**アカウント名**と**アカウント キー** 、前のタスクとクリックで取得した**OK**.
 
     ![新しいストレージ アカウント ダイアログ ボックスを追加します。](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
 
     *新しいストレージ アカウント ダイアログ ボックスを追加します。*
-6. ストレージ アカウントは、下に表示する必要があります、**ストレージ**ノード。 ストレージ アカウントを展開し、右クリックして**Blob**選択**Blob コンテナーの作成.**.
+6. ストレージ アカウントは、下に表示する必要があります、**ストレージ**ノード。 ストレージ アカウントを展開し、右クリックして**Blob**選択**Blob コンテナーの作成.** .
 
     ![Blob コンテナーを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "Blob コンテナーを作成します。")
 
@@ -776,12 +776,12 @@ Web アプリがステージング環境で正しく動作していることを�
     ![[Webtest1] への要求の追加](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "[webtest1] への要求の追加")
 
     *[Webtest1] への要求の追加*
-4. **プロパティ**ウィンドウ、新しい要求のノードの更新、 **Url** web アプリの URL を指すプロパティ (例: *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
+4. **プロパティ**ウィンドウ、新しい要求のノードの更新、 **Url** web アプリの URL を指すプロパティ (例: *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)* ).
 
     ![Url プロパティを変更する](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Url プロパティを変更します。")
 
     *Url プロパティを変更します。*
-5. **WebTest1.webtest**ウィンドウで、右クリック**WebTest1**  をクリック**ループの追加.**.
+5. **WebTest1.webtest**ウィンドウで、右クリック**WebTest1**  をクリック**ループの追加.** .
 
     ![[Webtest1] へのループの追加](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "WebTest1 にループの追加")
 
@@ -800,7 +800,7 @@ Web アプリがステージング環境で正しく動作していることを�
     ![ループの最初と最後の項目を選択する](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "ループの最初と最後の項目を選択します。")
 
     *ループの最初と最後の項目を選択します。*
-8. **ソリューション エクスプ ローラー**を右クリックし、 **WebAndLoadTestProject**プロジェクトで、展開、**追加**メニュー選択し、**ロード テストしています.**.
+8. **ソリューション エクスプ ローラー**を右クリックし、 **WebAndLoadTestProject**プロジェクトで、展開、**追加**メニュー選択し、**ロード テストしています.** .
 
     ![WebAndLoadTestProject プロジェクトへのロード テストの追加](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "WebAndLoadTestProject プロジェクトへのロード テストの追加")
 

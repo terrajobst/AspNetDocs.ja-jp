@@ -258,7 +258,7 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
 1. 開く、 **PhotoGallery.sln**選択をタスク 1 で作成したソリューション、 **PhotoGallery**プロジェクト。 キーを押して**F5**ソリューションを実行します。
 2. ブラウザーの幅を半分にまたはより小さいの元のサイズの四半期に、windows の設定のサイズを変更します。 ヘッダー内の項目で発生する内容に注意してください。一部の要素は、ヘッダーの表示領域には表示されません。
-3. 開いている**Site.css**ファイルで Visual Studio ソリューション エクスプ ローラーから**コンテンツ**プロジェクト フォルダーです。 キーを押して**CTRL + F**を Visual Studio の統合された検索を開いたり書き込んだりする**@media**を検索する、 **CSS メディア クエリ**します。
+3. 開いている**Site.css**ファイルで Visual Studio ソリューション エクスプ ローラーから**コンテンツ**プロジェクト フォルダーです。 キーを押して**CTRL + F**を Visual Studio の統合された検索を開いたり書き込んだりする **@media** を検索する、 **CSS メディア クエリ**します。
 
     このテンプレートで定義されているメディア クエリの条件は、この方法では動作します。ときに、ブラウザーのウィンドウのサイズを下回って**850 px**、適用される CSS ルールがこのメディア ブロック内で定義されています。
 
@@ -538,7 +538,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
     ![デスクトップ ビューに表示の切り替えを表示](whats-new-in-aspnet-mvc-4/_static/image32.png "デスクトップ ビューにレンダリングされるビュー スイッチャー")
 
     *デスクトップ ビューにレンダリングされるビュー スイッチャー*
-7. もう一度モバイル ビューに切り替えるしを参照**に関する**ページ (http://localhost[port]/Home/About)。 、、About.Mobile.cshtml ビューを作成していない場合でも、[About] ページが表示されます、モバイル レイアウトを使用して (\_Layout.Mobile.cshtml)。
+7. もう一度モバイル ビューに切り替えるしを参照**に関する**ページ (http://localhost [port]/Home/About)。 、、About.Mobile.cshtml ビューを作成していない場合でも、[About] ページが表示されます、モバイル レイアウトを使用して (\_Layout.Mobile.cshtml)。
 
     ![ページについて](whats-new-in-aspnet-mvc-4/_static/image33.png "ページについて")
 
@@ -568,7 +568,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
 
-新しい登録が**DefaultDisplayMode という&quot;iPhone&quot;**、静的な内で**DisplayModeProvider.Instance.Modes**静的リストに対して照合されます。各受信要求。 受信要求には、文字列が含まれている場合&quot;iPhone&quot;、ASP.NET MVC は名前を含むビューを検索、 &quot;iPhone&quot;サフィックス。 パラメーターに 0 を特定する方法は、新しいモードを示しますたとえば、このビューは、一般的なよりも具体的&quot;.mobile&quot;モバイル デバイスからの要求と一致するルール。
+新しい登録が**DefaultDisplayMode という&quot;iPhone&quot;** 、静的な内で**DisplayModeProvider.Instance.Modes**静的リストに対して照合されます。各受信要求。 受信要求には、文字列が含まれている場合&quot;iPhone&quot;、ASP.NET MVC は名前を含むビューを検索、 &quot;iPhone&quot;サフィックス。 パラメーターに 0 を特定する方法は、新しいモードを示しますたとえば、このビューは、一般的なよりも具体的&quot;.mobile&quot;モバイル デバイスからの要求と一致するルール。
 
 このコードの実行、iPhone ブラウザーが要求を生成するときに、後に、アプリケーションで使用、 **views \shared\\_Layout.iPhone.cshtml**レイアウトは次の手順で作成されます。
 
@@ -577,7 +577,7 @@ jQuery モバイル デバイスの既定テーマにはには、文字が与え
 
 4. コピーを作成、  **\_Layout.Mobile.cshtml**ファイル、 **views \shared**フォルダーへのコピーの名前を変更および&quot;  **\_Layout.iPhone.cshtml**&quot;.
 5. 開いている **\_Layout.iPhone.cshtml**前の手順で作成しました。
-6. データ ロールの属性を設定すると div 要素を検索**ページ**を変更して、**データ テーマ**属性を&quot; **、**&quot;します。
+6. データ ロールの属性を設定すると div 要素を検索**ページ**を変更して、**データ テーマ**属性を&quot; **、** &quot;します。
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
@@ -755,7 +755,7 @@ Microsoft .NET Framework 4.5 では、新しい基盤の .NET プログラミン
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>付録 B:For Web Express 2012 の Visual Studio のインストール
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
 1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; *Visual Studio Express 2012 for Web と Windows Azure SDK*&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
@@ -869,7 +869,7 @@ IPhone のシミュレートされたデバイスで、サイトを実行する�
 4. &quot;プログラムの追加&quot;ダイアログ ボックスで、次の値を使用します。
 
    - **プログラム**:C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(パスを適宜更新する)*
-   - **[引数]**:&quot;1&quot;
+   - **[引数]** :&quot;1&quot;
    - **フレンドリ名**: iPhone シミュレーター
 
      ![プログラムの追加](whats-new-in-aspnet-mvc-4/_static/image59.png "プログラムの追加")

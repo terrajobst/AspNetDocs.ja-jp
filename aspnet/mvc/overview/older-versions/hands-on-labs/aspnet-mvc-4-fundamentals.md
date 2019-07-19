@@ -44,7 +44,7 @@ ms.locfileid: "65117248"
 <a id="ASPNET_MVC_4_Essentials"></a>
 ### <a name="aspnet-mvc-4-essentials"></a>ASP.NET MVC 4 Essentials
 
-ミュージック ストア アプリケーションを使用して構築されます**Model View Controller (MVC)**、3 つの主要なコンポーネントにアプリケーションを分離するアーキテクチャのパターン。
+ミュージック ストア アプリケーションを使用して構築されます**Model View Controller (MVC)** 、3 つの主要なコンポーネントにアプリケーションを分離するアーキテクチャのパターン。
 
 - **モデル**:モデル オブジェクトは、ドメイン ロジックを実装するアプリケーションの部分です。 多くの場合、モデル オブジェクトも取得し、モデルの状態をデータベースに格納します。
 - **ビュー:** ビューは、アプリケーションのユーザー インターフェイス (UI) を表示するコンポーネントです。 通常、この UI は、モデル データから作成されます。 例は、テキスト ボックスとアルバム オブジェクトの現在の状態に基づいてドロップダウン リストを表示するアルバムの編集ビューになります。
@@ -309,7 +309,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
 > [!NOTE]
-> 使用している、 **HttpUtility.HtmlEncode**するユーティリティ メソッドのようなリンクを含むビューに Javascript を挿入することからように  **/ストア/参照でしょうか。ジャンル =&lt;スクリプト&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;** します。
+> 使用している、 **HttpUtility.HtmlEncode**するユーティリティ メソッドのようなリンクを含むビューに Javascript を挿入することからように  **/ストア/参照でしょうか。ジャンル =&lt;スクリプト&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt; /script&gt;** します。
 > 
 > 詳細については、次を参照してください[こちらの msdn 記事](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx)します。
 
@@ -393,7 +393,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
     > [!NOTE]
-    > ご存じですか。 Visual Studio 2012 は、スニペットを HTML、コード ファイルでよく使用されるコードを追加するが簡単にします。 」と入力して試して**&lt;div&gt;** キーを押すと**タブ**挿入を完了するには、2 回**div**タグ。
+    > ご存じですか。 Visual Studio 2012 は、スニペットを HTML、コード ファイルでよく使用されるコードを追加するが簡単にします。 」と入力して試して **&lt;div&gt;** キーを押すと**タブ**挿入を完了するには、2 回**div**タグ。
 
 <a id="Ex4Task2"></a>
 
@@ -613,7 +613,7 @@ MVC framework を使用して ASP.NET アプリケーションでは、ユーザ
     > The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
     > 
     > You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
-2. ジャンルのリストをループ**StoreIndexViewModel** HTML を作成および**&lt;ul&gt;** を使用して、 **foreach**ループします。
+2. ジャンルのリストをループ**StoreIndexViewModel** HTML を作成および **&lt;ul&gt;** を使用して、 **foreach**ループします。
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample15.cshtml)]
@@ -834,7 +834,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 
     > [!NOTE]
     > 構文を使用することも**ViewBag [&quot;Starred&quot;]** プロパティにアクセスします。
-2. 星のアイコン**&quot;starred.png&quot;** に含まれている、 **Source\Assets\Images**このラボのフォルダー。 アプリケーションに追加するからコンテンツをドラッグして、 **Windows エクスプ ローラー**ウィンドウに、**ソリューション エクスプ ローラー** Visual Web Developer Express を次に示すように。
+2. 星のアイコン **&quot;starred.png&quot;** に含まれている、 **Source\Assets\Images**このラボのフォルダー。 アプリケーションに追加するからコンテンツをドラッグして、 **Windows エクスプ ローラー**ウィンドウに、**ソリューション エクスプ ローラー** Visual Web Developer Express を次に示すように。
 
     ![星のイメージをソリューションに追加](aspnet-mvc-4-fundamentals/_static/image34.png "星のイメージをソリューションに追加")
 
@@ -871,7 +871,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 #### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>タスク 1:ASP.NET MVC 4 のインターネット アプリケーション テンプレートの表示
 
 1. 既に開かれていない場合は開始**VS Express for Web**
-2. 選択、**ファイル |新しい |プロジェクト**メニュー コマンド。 **新しいプロジェクト**ダイアログ ボックスで、 **(Visual C#) |Web**左側のウィンドウでテンプレート ツリーを選び、 **ASP.NET MVC 4 Web アプリケーション**します。 **名前**プロジェクト*MusicStore*し、更新、**ソリューション名**に*開始*、し、場所を選択します (または既定値のままに) をクリック **[ok]**.
+2. 選択、**ファイル |新しい |プロジェクト**メニュー コマンド。 **新しいプロジェクト**ダイアログ ボックスで、 **(Visual C#) |Web**左側のウィンドウでテンプレート ツリーを選び、 **ASP.NET MVC 4 Web アプリケーション**します。 **名前**プロジェクト*MusicStore*し、更新、**ソリューション名**に*開始*、し、場所を選択します (または既定値のままに) をクリック **[ok]** .
 
     ![新しい ASP.NET MVC 4 プロジェクトを作成する](aspnet-mvc-4-fundamentals/_static/image36.png "新しい ASP.NET MVC 4 プロジェクトを作成します。")
 
@@ -969,7 +969,7 @@ A **StoreBrowseViewModel**が選択されているジャンルと一致するア
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
 1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。

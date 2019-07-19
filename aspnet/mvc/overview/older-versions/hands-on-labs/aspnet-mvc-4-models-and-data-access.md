@@ -113,7 +113,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
       > [!NOTE]
       > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
-2. 追加**MvcMusicStore**データベース ファイル。 このハンズオン ラボと呼ばれる作成済みのデータベースを使用して**MvcMusicStore.mdf**します。 そのためには、右クリック**アプリ\_データ**フォルダーをポイントして**追加**順にクリックします**既存項目の**します。 参照する**\Source\Assets**を選択し、 **MvcMusicStore.mdf**ファイル。
+2. 追加**MvcMusicStore**データベース ファイル。 このハンズオン ラボと呼ばれる作成済みのデータベースを使用して**MvcMusicStore.mdf**します。 そのためには、右クリック**アプリ\_データ**フォルダーをポイントして**追加**順にクリックします**既存項目の**します。 参照する **\Source\Assets**を選択し、 **MvcMusicStore.mdf**ファイル。
 
     ![既存の項目を追加する](aspnet-mvc-4-models-and-data-access/_static/image2.png "既存の項目の追加")
 
@@ -286,7 +286,7 @@ Code First アプローチでは、フレームワークを組み合わせて、
 
       > [!NOTE]
       > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
-2. 追加、 **SampleData.cs**ファイルを**モデル**フォルダー。 そのためには、右クリック**モデル**フォルダーをポイントして**追加**順にクリックします**既存項目の**します。 参照する**\Source\Assets**を選択し、 **SampleData.cs**ファイル。
+2. 追加、 **SampleData.cs**ファイルを**モデル**フォルダー。 そのためには、右クリック**モデル**フォルダーをポイントして**追加**順にクリックします**既存項目の**します。 参照する **\Source\Assets**を選択し、 **SampleData.cs**ファイル。
 
     ![サンプル データは、コードを入力](aspnet-mvc-4-models-and-data-access/_static/image18.png "サンプル データは、コードを設定")
 
@@ -529,7 +529,7 @@ ASP.NET MVC のモデルとデータ アクセスの基礎を学習するこの�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
 1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。

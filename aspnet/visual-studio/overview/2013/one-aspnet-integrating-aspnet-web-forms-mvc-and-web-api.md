@@ -154,7 +154,7 @@ ms.locfileid: "65113080"
     *フレンドリな Url*
 
     > [!NOTE]
-    > ご覧のように、URL 変更**にお問い合わせください/** します。 始まる**ASP.NET 4**、URL ルーティング機能は、Web フォームに追加された、Url などの記述できるように*[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* の代わりに *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. 詳細についてを参照してください[URL ルーティング](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)します。
+    > ご覧のように、URL 変更**にお問い合わせください/** します。 始まる**ASP.NET 4**、URL ルーティング機能は、Web フォームに追加された、Url などの記述できるように *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* の代わりに *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)* . 詳細についてを参照してください[URL ルーティング](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)します。
 3. これで、アプリケーションに統合認証フローについて学びます。 これを行うには、次のようにクリックします。**登録**ページの右上隅にします。
 
     ![新しいユーザーを登録します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
@@ -192,7 +192,7 @@ Entity Framework Code First のモデリング ワークフローできますこ
 ここで定義する、**人**クラスは、MVC コント ローラーとビューを作成するスキャフォールディングのプロセスによって使用されるモデルになります。 作成から始めます、 **Person**モデル クラス、およびコント ローラーでの CRUD 操作が自動的に作成スキャフォールディング機能を使用します。
 
 1. 開いている**Visual Studio Express 2013 for Web**と**MyHybridSite.sln**ソリューション、**ソース/Ex2-MvcScaffolding/開始**フォルダー。 または、前の手順で取得したソリューションを続行できます。
-2. **ソリューション エクスプ ローラー**を右クリックし、**モデル**のフォルダー、 **MyHybridSite**順に選択して**追加 |クラス.**.
+2. **ソリューション エクスプ ローラー**を右クリックし、**モデル**のフォルダー、 **MyHybridSite**順に選択して**追加 |クラス.** .
 
     ![Person モデル クラスを追加します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image11.png)
 
@@ -214,7 +214,7 @@ Entity Framework Code First のモデリング ワークフローできますこ
 
 これで、 **Person**モデルを作成、CRUD コント ローラー アクションとビューを作成する Entity Framework と ASP.NET MVC のスキャフォールディングを使用する**人**します。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、**コント ローラー**のフォルダー、 **MyHybridSite**順に選択して**追加 |新規スキャフォールディング アイテム.**.
+1. **ソリューション エクスプ ローラー**を右クリックし、**コント ローラー**のフォルダー、 **MyHybridSite**順に選択して**追加 |新規スキャフォールディング アイテム.** .
 
     ![新しいスキャフォールディングされたコント ローラーの作成](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image13.png)
 
@@ -229,7 +229,7 @@ Entity Framework Code First のモデリング ワークフローできますこ
     ![スキャフォールディングある MVC コント ローラーを追加します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image15.png)
 
     *スキャフォールディングある MVC コント ローラーを追加します。*
-4. [**データ コンテキスト クラス**、] をクリックして**新しいデータ コンテキスト.**.
+4. [**データ コンテキスト クラス**、] をクリックして**新しいデータ コンテキスト.** .
 
     ![新しいデータ コンテキストを作成します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image16.png)
 
@@ -296,7 +296,7 @@ Web API フレームワークは、ASP.NET スタックの一部であり、容�
 
     > [!NOTE]
     > 手順 3 から Begin ソリューションを起動した場合、以下のキーを押して**CTRL + SHIFT + B**ソリューションをビルドします。
-2. **ソリューション エクスプ ローラー**を右クリックし、**コント ローラー**のフォルダー、 **MyHybridSite**順に選択して**追加 |新規スキャフォールディング アイテム.**.
+2. **ソリューション エクスプ ローラー**を右クリックし、**コント ローラー**のフォルダー、 **MyHybridSite**順に選択して**追加 |新規スキャフォールディング アイテム.** .
 
     ![新しいスキャフォールディングされたコント ローラーの作成](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image23.png)
 

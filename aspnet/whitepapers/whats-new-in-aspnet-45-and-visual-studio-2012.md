@@ -400,7 +400,7 @@ ASP.NET 4.5 には Web フォームには、データを操作するためのい
 
 [!code-aspx[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample22.aspx)]
 
-作成する、 *GetCategories*ページのコード内のメソッド。 単純な select 操作のメソッド パラメーターは必要ありませんし返す必要があります、 *IEnumerable*または*IQueryable*オブジェクト。 場合、新しい*ItemType*プロパティが設定されます (下で説明したようにできるが、データ バインド式に厳密に型指定[データ コントロールを厳密に型指定された](#_Toc318097386)前)、これらのインターフェイスのジェネリック バージョン返される必要があります: *IEnumerable&lt;T&gt;* または*IQueryable&lt;T&gt;* で、 *T*パラメーターの型と一致する、 *ItemType*プロパティ (たとえば、 *IQueryable&lt;カテゴリ&gt;*)。
+作成する、 *GetCategories*ページのコード内のメソッド。 単純な select 操作のメソッド パラメーターは必要ありませんし返す必要があります、 *IEnumerable*または*IQueryable*オブジェクト。 場合、新しい*ItemType*プロパティが設定されます (下で説明したようにできるが、データ バインド式に厳密に型指定[データ コントロールを厳密に型指定された](#_Toc318097386)前)、これらのインターフェイスのジェネリック バージョン返される必要があります: *IEnumerable&lt;T&gt;* または*IQueryable&lt;T&gt;* で、 *T*パラメーターの型と一致する、 *ItemType*プロパティ (たとえば、 *IQueryable&lt;カテゴリ&gt;* )。
 
 次の例のコードを示しています、 *GetCategories*メソッド。 この例では、Northwind サンプル データベースで Entity Framework Code First モデルを使用します。 コードは、クエリが、関連する製品での各カテゴリの詳細を返すことを確認して、 *Include*メソッド。 (これにより、 *TemplateField*マークアップ内の要素では、各カテゴリの製品の数を表示を必要とせず、 [n + 1 選択](http://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem))。
 
@@ -742,7 +742,7 @@ Visual Studio 2012 Release Candidate の JavaScript エディターがまった�
 <a id="_Toc318097413"></a>
 #### <a name="vsdoc-signature-overloads"></a>VSDOC の署名のオーバー ロード
 
-IntelliSense の詳細なコメントは今すぐ新しい JavaScript 関数のオーバー ロードを別々 の宣言された*&lt;署名&gt;* 要素は、この例で示すようにします。
+IntelliSense の詳細なコメントは今すぐ新しい JavaScript 関数のオーバー ロードを別々 の宣言された *&lt;署名&gt;* 要素は、この例で示すようにします。
 
 [!code-csharp[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample35.cs)]
 
@@ -787,7 +787,7 @@ CSS エディターは、提供する、カスケードする規則が論理的�
 
 ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image28.png)
 
-階層インデントを適用する場合にも維持するためにも、一般的なセレクターのハッキングがサポートされます。 Internet Explorer 7 をターゲットに使用される一般的なセレクターの裏技は、前に、セレクターを付加する*\*:first-child + html*します。 その規則を使用して、階層のインデントを保持します。
+階層インデントを適用する場合にも維持するためにも、一般的なセレクターのハッキングがサポートされます。 Internet Explorer 7 をターゲットに使用される一般的なセレクターの裏技は、前に、セレクターを付加する *\*:first-child + html*します。 その規則を使用して、階層のインデントを保持します。
 
 ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image29.png)
 

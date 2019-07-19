@@ -143,7 +143,7 @@ Web API での OData ルーティング規約を説明する前に、OData Uri �
 
 両方の方法のその要求には、規則が適用されない場合、メソッドは null を返します。
 
-**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている**[した ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **した ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**した ODataPathSegment**します。
+**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている **[した ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **した ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**した ODataPathSegment**します。
 
 **ODataPath.TemplatePath**プロパティは、文字列を連結したものを表すすべてのパス セグメント。 たとえば、URI は、 `/Products(1)/Supplier`、パス テンプレートが&quot;~/entityset/key/navigation&quot;します。 セグメントが URI セグメントに直接対応していないことに注意してください。 たとえば、エンティティ キー (1) は、それ自体として表されます。**した ODataPathSegment**します。
 

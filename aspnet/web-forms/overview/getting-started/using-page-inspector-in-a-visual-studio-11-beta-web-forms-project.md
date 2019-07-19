@@ -243,7 +243,7 @@ Visual Studio 2012 CSS エディターを選択し、色の挿入を容易にす
 
 ![Intellisense フィルター処理された値](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-コロンを入力します。 この場合、完全な背景色のプロパティ名が挿入されます。 型**#** または**rgb (**、カラー ピッカーのバーが表示されます。
+コロンを入力します。 この場合、完全な背景色のプロパティ名が挿入されます。 型 **#** または**rgb (** 、カラー ピッカーのバーが表示されます。
 
 ![CSS カラー ピッカーのバー](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 

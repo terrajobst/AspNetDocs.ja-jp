@@ -143,7 +143,7 @@ Visual Studio には、開発者は、アクセス、動作、および CSS ス�
     *不透明度のカラー ピッカー*
 
     > [!NOTE]
-    > CSS3 で RGBA (赤、緑、青、アルファ) の色の定義では、1 つの項目の色の不透明度値を定義することができます。 異なり**不透明度 -** のような CSS 属性**-** RGBA 色は、最新のブラウザーと互換性があります。
+    > CSS3 で RGBA (赤、緑、青、アルファ) の色の定義では、1 つの項目の色の不透明度値を定義することができます。 異なり**不透明度 -** のような CSS 属性 **-** RGBA 色は、最新のブラウザーと互換性があります。
 
 <a id="Ex1Task3"></a>
 
@@ -293,7 +293,7 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
 
     > [!NOTE]
     > ビデオや図など、Visual Studio に含まれる複数のスニペットを試すこともできます。
-5. ここで、ページの一部のコントロールを挿入してみてください。 挿入しようとするなど、 **GridView**コントロールが入力する代わりに**&lt;合わせる、** の入力を開始 **&lt;GV**します。 IntelliSense の一覧を示していますが、 **: asp GridView**コントロール。
+5. ここで、ページの一部のコントロールを挿入してみてください。 挿入しようとするなど、 **GridView**コントロールが入力する代わりに **&lt;合わせる、** の入力を開始 **&lt;GV**します。 IntelliSense の一覧を示していますが、 **: asp GridView**コントロール。
 
     HTML エディターでの IntelliSense は、タイトルの大文字と小文字の検索と部分一致する (要素を取得するすべての用語を含む) に現在提供します。
 
@@ -301,7 +301,7 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
 
     *IntelliSense のリストを使用した GridView を挿入します。*
 
-    入力した場合**&lt;グリッド**という用語に一致するすべての項目が表示されますが、Visual Studio をお勧めしますが、 **gridview**コントロール。
+    入力した場合 **&lt;グリッド**という用語に一致するすべての項目が表示されますが、Visual Studio をお勧めしますが、 **gridview**コントロール。
 
     ![IntelliSense リスト部分に一致すると、GridView を挿入する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image31.png "IntelliSense リスト部分に一致すると、GridView を挿入します。")
 
@@ -410,7 +410,7 @@ Visual Studio には、アクセス可能で、構成されたコードのモー
     ![JavaScript での HTML5 の JavaScript 機能](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image39.png "JavaScript での HTML5 の JavaScript 機能")
 
     *JavaScript での HTML5 の JavaScript 機能*
-6. 任意の始め角かっこをクリックして (**{**) から、スクリプト コードし、角かっこが強調表示されていることに注意してください。
+6. 任意の始め角かっこをクリックして ( **{** ) から、スクリプト コードし、角かっこが強調表示されていることに注意してください。
 
     ![角かっこが強調表示されている](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image40.png "角かっこが強調表示されます")
 
@@ -442,7 +442,7 @@ Visual Studio には、アクセス可能で、構成されたコードのモー
 
     *JavaScript の検証エラー メッセージ*
 3. コメント アウト、  **&quot;strict 使用&quot;** 方向とエラーが非表示になりますが、警告のままにすることがわかります。
-4. ファイルの最後の行のような任意の文字列を書き込む**&quot;テスト&quot;** (文字列であることを示す引用符を含む)。 IntelliSense の一覧を表示し、選択する文字列の横にあるピリオドを書き込み、**トリミング**オプション。
+4. ファイルの最後の行のような任意の文字列を書き込む **&quot;テスト&quot;** (文字列であることを示す引用符を含む)。 IntelliSense の一覧を表示し、選択する文字列の横にあるピリオドを書き込み、**トリミング**オプション。
 
     ECMAScript5 の標準で文字列値および変数もメソッドを持つ文字列定義、トリミング、大文字、検索し、置換と同様にします。
 
@@ -684,7 +684,7 @@ Visual Studio には、アクセス可能で、構成されたコードのモー
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
 1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
