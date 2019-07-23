@@ -113,7 +113,7 @@ ObjectDataSource でと`ProductsByCategory`DropDownList には、ページが構
 
 ## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>手順 3: 選択した製品の詳細を表示する、DetailsView を使用します。
 
-最後の手順では、DetailsView で選択した製品の詳細を表示します。 ページに、DetailsView を追加するこれを実現するに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータをプルするには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の*`productID`* パラメーター。
+最後の手順では、DetailsView で選択した製品の詳細を表示します。 ページに、DetailsView を追加するこれを実現するに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータをプルするには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の *`productID`* パラメーター。
 
 [![ProductsBLL クラスを使用します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image43.png)
 

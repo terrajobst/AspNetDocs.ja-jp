@@ -35,7 +35,7 @@ ms.locfileid: "65131827"
 
 フォーム認証を使用する web サイトでは、ユーザー ログオンの web サイトにログイン ページにアクセスして資格情報を入力します。 これらの資格情報は、ユーザー ストアに対してと比較されます。 有効な場合は、ユーザーの間でフォーム認証チケット、id および訪問者の信頼性を示すセキュリティ トークンが付与されます。
 
-メンバーシップ フレームワークを対象にユーザーを検証するには、使用、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)します。 `ValidateUser`メソッドは 2 つの入力パラメーター - *`username`* と*`password`* -資格情報が有効かどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで調べる、`ValidateUser`メソッドが実際の検証を構成したメンバーシップ プロバイダーを委任します。
+メンバーシップ フレームワークを対象にユーザーを検証するには、使用、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)します。 `ValidateUser`メソッドは 2 つの入力パラメーター - *`username`* と *`password`* -資格情報が有効かどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで調べる、`ValidateUser`メソッドが実際の検証を構成したメンバーシップ プロバイダーを委任します。
 
 `SqlMembershipProvider`を使用して、指定したユーザーのパスワードを取得することによって指定された資格情報を検証、`aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャ。 いることを思い出してください、 `SqlMembershipProvider` 3 つの形式のいずれかを使用してユーザーのパスワードを格納: clear、暗号化、またはハッシュします。 `aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャは、未加工の形式でパスワードを返します。 暗号化またはハッシュされたパスワードの場合、`SqlMembershipProvider`変換、 *`password`* に渡された値、`ValidateUser`暗号化をそれと同等のメソッド、または状態をハッシュされから返された結果と比較、データベース。 データベースに格納されているパスワードには、ユーザーが入力した書式設定されたパスワードが一致すると、資格情報が無効です。
 
@@ -202,7 +202,7 @@ Login コントロールをテンプレートに変換を追加、 `LayoutTempla
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>決定し、指定された資格情報を検証しています
 
-使用して、ログイン コントロールの[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 Web コントロールに入力された値を決定するために (など、`Email`テキスト ボックスに、前の手順で追加された) を使用して*`LoginControlID`* `.FindControl`("*`controlID`*") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティは等しく *`controlID`* します。 参照を取得する例を`Email` ボックスに、次のコードを使用します。
+使用して、ログイン コントロールの[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 Web コントロールに入力された値を決定するために (など、`Email`テキスト ボックスに、前の手順で追加された) を使用して *`LoginControlID`* `.FindControl`(" *`controlID`* ") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティは等しく *`controlID`* します。 参照を取得する例を`Email` ボックスに、次のコードを使用します。
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 

@@ -71,7 +71,7 @@ DropDownList にどのようなデータ ソースのフィールドを表示す
 
 **図 7**:選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image21.png))。
 
-メソッドの値のこと、ObjectDataSource ウィザードでこのメソッドを選択すると、入力*`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`します。
+メソッドの値のこと、ObjectDataSource ウィザードでこのメソッドを選択すると、入力 *`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`します。
 
 [![CategoryID パラメーター カテゴリの DropDownList の値に設定されます。](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
 
@@ -118,7 +118,7 @@ DropDownList に新しいリスト アイテムを追加する [プロパティ]
 
 **図 13**:初期ページ負荷のない製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))。
 
-製品が表示されないときに「- カテゴリを選択--」リスト アイテムが選択されているため、理由は、値は`-1`でデータベースに製品がないと、`CategoryID`の`-1`します。 これは、この時点で完了し、目的の動作です。 場合、 ただし、表示する場合*すべて*のカテゴリの「- カテゴリを選択--」リスト アイテムを選択するに戻り、`ProductsBLL`クラスし、カスタマイズ、`GetProductsByCategoryID(categoryID)`メソッドを呼び出すため、`GetProducts()`メソッド場合渡されたで*`categoryID`* パラメーターが 0 未満。
+製品が表示されないときに「- カテゴリを選択--」リスト アイテムが選択されているため、理由は、値は`-1`でデータベースに製品がないと、`CategoryID`の`-1`します。 これは、この時点で完了し、目的の動作です。 場合、 ただし、表示する場合*すべて*のカテゴリの「- カテゴリを選択--」リスト アイテムを選択するに戻り、`ProductsBLL`クラスし、カスタマイズ、`GetProductsByCategoryID(categoryID)`メソッドを呼び出すため、`GetProducts()`メソッド場合渡されたで *`categoryID`* パラメーターが 0 未満。
 
 [!code-csharp[Main](master-detail-filtering-with-a-dropdownlist-cs/samples/sample2.cs)]
 
