@@ -624,7 +624,7 @@ ASP.NET は、適切なルートを自動的に動作 (正しい URL を生成�
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-ルート パラメーターの searchterm の値が使用しての例では、@companynameパラメーター、*選択*ステートメント。
+ルート パラメーターの searchterm の値が使用しての例では、@companynameパラメーター、 *選択* ステートメント。
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
