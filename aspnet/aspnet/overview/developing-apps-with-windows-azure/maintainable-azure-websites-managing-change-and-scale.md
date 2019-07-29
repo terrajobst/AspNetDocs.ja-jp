@@ -298,7 +298,7 @@ ms.locfileid: "65118295"
     >
     > ![Azure App Service モード](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure App Service のモード")
     >
-    > 使用する場合**Shared**または**標準**モードができます、アプリに移動して、web アプリ用のカスタム ドメインを管理する**構成**をクリックしてメニュー**ドメインの管理***ドメイン名*します。
+    > 使用する場合**Shared**または**標準**モードができます、アプリに移動して、web アプリ用のカスタム ドメインを管理する**構成**をクリックしてメニュー **ドメインの管理** *ドメイン名* します。
     >
     > ![ドメインの管理](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "ドメインの管理")
     >
