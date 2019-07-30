@@ -63,9 +63,9 @@ Visual Studio で web プロジェクトを実行すると、ポート番号が�
 
 | Authors |  |
 | --- | -- |
-| Api/作成者します。 | すべての著者を取得します。 |
-| GET api の作成者/{id} | ID で作成者を取得します。 |
-| 投稿の作成者/api | 新しい作成者を作成します。 |
+| GET api/authors | すべての著者を取得します。 |
+| GET api/authors/{id} | ID で作成者を取得します。 |
+| POST /api/authors | 新しい作成者を作成します。 |
 | PUT /api/authors/{id} | 既存の作成者を更新します。 |
 | DELETE /api/authors/{id} | 作成者を削除します。 |
 
@@ -73,7 +73,7 @@ Visual Studio で web プロジェクトを実行すると、ポート番号が�
 | --- | -- |
 | GET /api/books | すべてのブックを取得します。 |
 | GET /api/books/{id} | ID での書籍を入手します。 |
-| Api/ブックを投稿します。 | 新しいブックを作成します。 |
+| POST /api/books | 新しいブックを作成します。 |
 | PUT /api/books/{id} | 既存のブックを更新します。 |
 | DELETE /api/books/{id} | ブックを削除します。 |
 
