@@ -7,12 +7,12 @@ ms.author: riande
 title: ASP.NET のドキュメント
 ms.date: 08/24/2018
 description: ASP.NET および ASP.NET Web アプリケーションを構築する方法を説明します。 ドキュメント、コード例、チュートリアル、その他を入手します。
-ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4bfa5b2a161cdf67f3d2df0057bd68958d8a5769
+ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384722"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68810742"
 ---
 <!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
@@ -27,7 +27,7 @@ ms.locfileid: "59384722"
                         <ul id="core_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>ASP.NET Core は、Windows、Mac、または Linux で最新のクラウド ベースの Web アプリケーションをビルドするための、新しいオープン ソースのクロスプラットフォーム .NET Framework です。</p>
+                                    <p>ASP.NET Core は、Windows、Mac、または Linux 上で最新のクラウドベースの Web アプリケーションを構築するための、オープンソースのクロスプラットフォーム .NET Framework です。</p>
                                     <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">ASP.NET Core と ASP.NET の両方の利点を確認</a>し、自分に適したものを選択します。</p>
                                 </div>
                             </li>
@@ -118,7 +118,7 @@ ms.locfileid: "59384722"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Fundamentals</h3>
+                                                    <h3>基礎</h3>
                                                     <p>ASP.NET Core の基礎について説明します。</p>
                                                 </div>
                                             </div>
@@ -148,7 +148,6 @@ ms.locfileid: "59384722"
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">ASP.NET Core ドキュメントやサンプルへの投稿</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Visual Studio 2015/project.json バージョンのドキュメントの検索</a></p>
                                 </div>
                             </li>
                         </ul>
