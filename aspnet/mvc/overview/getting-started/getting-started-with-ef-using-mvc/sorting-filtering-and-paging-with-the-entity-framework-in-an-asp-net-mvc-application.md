@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'チュートリアル: 並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でのページングの追加 |Microsoft Docs'
+title: 'チュートリアル: ASP.NET MVC アプリケーションで、並べ替え、フィルター処理、およびページングを Entity Framework に追加する |Microsoft Docs'
 author: tdykstra
-description: このチュートリアルで並べ替え、フィルター処理、およびページング機能を追加する、**学生**インデックス ページです。 単純なグループ化 ページを作成します。
+description: このチュートリアルでは、並べ替え、フィルター処理、およびページング機能を**Students**インデックスページに追加します。 また、単純なグループ化ページも作成します。
 ms.author: riande
 ms.date: 01/14/2019
 ms.assetid: d5723e46-41fe-4d09-850a-e03b9e285bfa
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: b7b5d3d3931f752f2effc044ca8cc52eab22da0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d9fadc12aa83a8095f364cf39e5376243a7d0670
+ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57056419"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68810759"
 ---
-# <a name="tutorial-add-sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>チュートリアル: 並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でのページングを追加します。
+# <a name="tutorial-add-sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>チュートリアル: ASP.NET MVC アプリケーションでの Entity Framework による並べ替え、フィルター処理、およびページングの追加
 
-[前のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)の基本的な CRUD 操作の web ページのセットを実装する`Student`エンティティ。 このチュートリアルで並べ替え、フィルター処理、およびページング機能を追加する、**学生**インデックス ページです。 単純なグループ化 ページを作成します。
+前の[チュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)では、エンティティに対する`Student`基本的な CRUD 操作用の一連の web ページを実装しています。 このチュートリアルでは、並べ替え、フィルター処理、およびページング機能を**Students**インデックスページに追加します。 また、単純なグループ化ページも作成します。
 
-次の図は、ページがどのように完了するとします。 列見出しとは、ユーザーがクリックしてその列で並べ替えを行うことができるリンクです。 列見出しを繰り返しクリックすると、昇順と降順の並べ替え順序が切り替えられます。
+次の図は、完了したときのページの外観を示しています。 列見出しとは、ユーザーがクリックしてその列で並べ替えを行うことができるリンクです。 列見出しを繰り返しクリックすると、昇順と降順の並べ替え順序が切り替えられます。
 
 ![Students_Index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
@@ -29,7 +29,7 @@ ms.locfileid: "57056419"
 > [!div class="checklist"]
 > * 列の並べ替えリンクを追加する
 > * [検索] ボックスを追加する
-> * ページングを追加します。
+> * ページングの追加
 > * About ページを作成する
 
 ## <a name="prerequisites"></a>必須コンポーネント
@@ -38,23 +38,23 @@ ms.locfileid: "57056419"
 
 ## <a name="add-column-sort-links"></a>列の並べ替えリンクを追加する
 
-Student インデックス ページに並べ替えを追加、変更します、`Index`のメソッド、`Student`コント ローラーのコードを追加し、`Student`ビューにインデックスします。
+学生用インデックスページに並べ替えを追加するには、 `Index` `Student`コントローラーのメソッドを変更`Student`し、インデックスビューにコードを追加します。
 
-### <a name="add-sorting-functionality-to-the-index-method"></a>Index メソッドに並べ替え機能を追加します。
+### <a name="add-sorting-functionality-to-the-index-method"></a>Index メソッドに並べ替え機能を追加する
 
-- *Controllers\StudentController.cs*、置換、`Index`メソッドを次のコード。
+- *Controllers\StudentController.cs*で、 `Index`メソッドを次のコードに置き換えます。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-このコードは、URL 内の文字列から `sortOrder` パラメーターを受け取ります。 クエリ文字列の値は、アクション メソッドのパラメーターとして、ASP.NET MVC によって提供されます。 パラメーターは、必要に応じて後にアンダー スコアと降順を指定するには、"desc"文字列は"Name"または「日付」、文字列です。 既定の並べ替え順序は昇順です。
+このコードは、URL 内の文字列から `sortOrder` パラメーターを受け取ります。 クエリ文字列値は、ASP.NET MVC によってアクションメソッドのパラメーターとして提供されます。 パラメーターは、"Name" または "Date" の文字列であり、必要に応じてアンダースコアと文字列 "desc" を降順で指定します。 既定の並べ替え順序は昇順です。
 
-インデックス ページが初めて要求されたときには、クエリ文字列はありません。 受講者がで昇順に表示される`LastName`でフォールスルー ケースによって確立されると、既定値は、`switch`ステートメント。 ユーザーが列見出しハイパーリンクをクリックすると、適切な `sortOrder` 値がクエリ文字列で提供されます。
+インデックス ページが初めて要求されたときには、クエリ文字列はありません。 学生は昇順`LastName`で表示されます。これは、 `switch`ステートメントのフォールスルーケースによって確立される既定の設定です。 ユーザーが列見出しハイパーリンクをクリックすると、適切な `sortOrder` 値がクエリ文字列で提供されます。
 
-2 つ`ViewBag`変数を使用するビューは、適切なクエリ文字列の値を持つ列見出しのハイパーリンクを構成できます。
+次の`ViewBag` 2 つの変数を使用して、ビューが列見出しのハイパーリンクと適切なクエリ文字列値を構成できるようにします。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-これらは、三項ステートメントです。 1 つ目の指定された場合、`sortOrder`パラメーターが null または空の場合、`ViewBag.NameSortParm`に設定する必要があります"名\_desc"、それ以外の空の文字列に設定する必要があります。 これらの 2 つのステートメントを使用して、次のようにビューで列見出しのハイパーリンクの設定することができます。
+これらは、三項ステートメントです。 最初の`sortOrder`パラメーターは、パラメーターが null または空の場合`ViewBag.NameSortParm` 、を "name\_desc" に設定する必要があることを指定します。それ以外の場合は、空の文字列に設定する必要があります。 これらの 2 つのステートメントを使用して、次のようにビューで列見出しのハイパーリンクの設定することができます。
 
 | 既定の並べ替え順 | 姓のハイパーリンク | 日付のハイパーリンク |
 | --- | --- | --- |
@@ -63,62 +63,62 @@ Student インデックス ページに並べ替えを追加、変更します�
 | 日付の昇順 | ascending | descending |
 | 日付の降順 | ascending | ascending |
 
-メソッドを使用して[LINQ to Entities](/dotnet/framework/data/adonet/ef/language-reference/linq-to-entities)を並べ替え列を指定します。 コードを作成、<xref:System.Linq.IQueryable%601>する前に変数、`switch`ステートメントでは、変更で、`switch`ステートメント、および呼び出し、`ToList`メソッドの後、`switch`ステートメント。 `IQueryable` 変数を作成および変更するときに、データベースに送信されるクエリはありません。 変換するまで、クエリが実行されない、`IQueryable`などのメソッドを呼び出すことによって、コレクションにオブジェクト`ToList`します。 そのため、このコード結果まで実行されない 1 つのクエリ、`return View`ステートメント。
+このメソッドは[LINQ to Entities](/dotnet/framework/data/adonet/ef/language-reference/linq-to-entities)を使用して、並べ替えの基準となる列を指定します。 このコードは、 <xref:System.Linq.IQueryable%601>ステートメントの`switch`前に変数`switch`を作成し、ステートメントで変更し、 `ToList`ステートメントの`switch`後にメソッドを呼び出します。 `IQueryable` 変数を作成および変更するときに、データベースに送信されるクエリはありません。 クエリは、など`IQueryable` `ToList`のメソッドを呼び出すことによって、オブジェクトをコレクションに変換するまで実行されません。 このため、このコードでは、 `return View`ステートメントまで実行されない1つのクエリが生成されます。
 
-各並べ替え順序の異なる LINQ ステートメントを記述する代わりに、LINQ ステートメントを動的に作成できます。 動的な LINQ の詳細については、[動的 LINQ](https://go.microsoft.com/fwlink/?LinkID=323957)を参照してください。
+各並べ替え順序に対して異なる LINQ ステートメントを記述する代わりに、LINQ ステートメントを動的に作成することもできます。 動的 LINQ の詳細については、「 [DYNAMIC linq](https://go.microsoft.com/fwlink/?LinkID=323957)」を参照してください。
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>列見出しのハイパーリンクを Student インデックス ビューに追加します。
+### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>列見出しのハイパーリンクを Student インデックスビューに追加する
 
-1. *Views\Student\Index.cshtml*、置換、`<tr>`と`<th>`見出し行を強調表示されたコードの要素。
+1. *Views\Student\Index.cshtml*で、見出し行`<tr>`の`<th>`要素と要素を、強調表示されたコードに置き換えます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cshtml?highlight=5-15)]
 
-   このコードは、情報を使用して、`ViewBag`適切なクエリを含むハイパーリンクを設定するプロパティの文字列値。
+   このコードでは、プロパティの`ViewBag`情報を使用して、適切なクエリ文字列値を持つハイパーリンクを設定します。
 
-2. ページを実行し、をクリックして、**姓**と**加入契約日**その並べ替えを確認する列見出しに動作します。
+2. ページを実行し、 **[Last Name]** と **[Enrollment Date]** 列見出しをクリックして、並べ替えが機能することを確認します。
 
-   クリックした後、**姓**見出しで、学生は最後の名前の降順に表示されます。
+   **最後の名前**の見出しをクリックすると、学生が姓の降順で表示されます。
 
 ## <a name="add-a-search-box"></a>[検索] ボックスを追加する
 
-Students インデックス ページにフィルターを追加するにが、ビューにテキスト ボックスと送信ボタンを追加しで対応する変更を行い、`Index`メソッド。 テキスト ボックスを使用して、姓と名の最後のフィールドで検索する文字列を入力できます。
+Students インデックスページにフィルターを追加するには、テキストボックスと [送信] ボタンをビューに追加し、 `Index`メソッドに対応する変更を行います。 テキストボックスを使用すると、[名] および [姓] フィールドで検索する文字列を入力できます。
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Index メソッドにフィルター機能を追加する
 
-- *Controllers\StudentController.cs*、置換、`Index`メソッドを次のコード (変更が強調表示されます)。
+- *Controllers\StudentController.cs*で、 `Index`メソッドを次のコードに置き換えます (変更は強調表示されています)。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-コードを追加、`searchString`パラメーターを`Index`メソッド。 インデックス ビューに追加するテキスト ボックスから検索する文字列値を受け取ります。 さらに、`where`名または姓を持つは、検索文字列を含む受講者のみを選択する LINQ ステートメントの句。 ステートメントを追加する、<xref:System.Linq.Queryable.Where%2A>句を検索する値がある場合にのみ実行します。
+このコードは、 `searchString` `Index`メソッドにパラメーターを追加します。 インデックス ビューに追加するテキスト ボックスから検索する文字列値を受け取ります。 また、最初の`where`名前または姓に検索文字列が含まれている学生だけを選択するように、LINQ ステートメントに句を追加します。 <xref:System.Linq.Queryable.Where%2A>句を追加するステートメントは、検索する値がある場合にのみ実行されます。
 
 > [!NOTE]
-> 多くの場合は、Entity Framework のエンティティ セットまたはメモリ内コレクションの拡張メソッドとして同じメソッドを呼び出すことができます。 結果は、通常は同じが、場合によっては異なる場合があります。
+> 多くの場合、Entity Framework のエンティティセットまたはメモリ内のコレクションの拡張メソッドとして、同じメソッドを呼び出すことができます。 通常、結果は同じですが、場合によっては異なる場合があります。
 >
-> .NET Framework の実装など、`Contains`メソッドが、空の文字列を渡しますが、Entity Framework provider for SQL Server Compact 4.0 は、空の文字列には、ゼロ行を返すときに、すべての行を返します。 例のコードではそのため (配置すること、`Where`内のステートメント、`if`ステートメント) は、すべてのバージョンの SQL Server と同じ結果を取得することを確認します。 .NET Framework の実装も、`Contains`メソッドは、既定では、大文字小文字の比較を実行しますが、Entity Framework の SQL Server プロバイダーは、既定では大文字の比較を実行します。 そのため、呼び出し、`ToUpper`メソッド、テストを明示的に大文字をにより返されます、リポジトリを使用するには、後でコードを変更すると、結果は変化しません、`IEnumerable`コレクションの代わりに、`IQueryable`オブジェクト。 (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。
+> たとえば、 `Contains`メソッドの .NET Framework 実装では、空の文字列を渡すとすべての行が返されますが、SQL Server Compact 4.0 の Entity Framework プロバイダーは空の文字列に対して0行を返します。 したがって、この例のコード (ステートメント`Where` `if`内にステートメントを記述する) を使用すると、SQL Server のすべてのバージョンで同じ結果が得られるようになります。 また、 `Contains`メソッドの .NET Framework 実装では、既定で大文字と小文字を区別した比較が実行されますが、Entity Framework SQL Server プロバイダーは既定で大文字と小文字を区別しない比較を実行します。 したがって、 `ToUpper`メソッドを呼び出してテストを明示的に大文字小文字を区別しないようにすると、後でリポジトリを使用するようにコードを変更しても`IQueryable` 、オブジェクトではなくコレクションが`IEnumerable`返されるようになります。 (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。
 >
-> Null 処理が異なる別のデータベース プロバイダーまたは使用する場合も場合があります、`IQueryable`を使用する場合は、オブジェクトを比較する`IEnumerable`コレクション。 たとえば、一部のシナリオで、`Where`などの条件`table.Column != 0`を持つ列が返されない可能性があります`null`値として。 詳細については、['where' 句で null 変数が正しく処理](https://data.uservoice.com/forums/72025-entity-framework-feature-suggestions/suggestions/1015361-incorrect-handling-of-null-variables-in-where-cl)を参照してください。
+> また、Null 処理は、データベースプロバイダーによって異なる場合や、 `IQueryable` `IEnumerable`コレクションを使用する場合と比較してオブジェクトを使用する場合には異なる場合があります。 たとえば、一部のシナリオ`Where`では、などの条件`table.Column != 0`で値`null`としての列が返されないことがあります。 既定では、EF は、メモリ内で動作するように、null 値間の等価性をデータベースで機能させるために、追加の SQL 演算子を生成します。ただし、EF6 で[Usedatabasenullsemantics](https://docs.microsoft.com/dotnet/api/system.data.entity.infrastructure.dbcontextconfiguration.usedatabasenullsemantics)フラグを設定するか、または EF Core で[UseRelationalNulls](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.infrastructure.relationaldbcontextoptionsbuilder-2.userelationalnulls)メソッドを呼び出すことができます。この動作を構成します。
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Student インデックス ビューに検索ボックスを追加します。
+### <a name="add-a-search-box-to-the-student-index-view"></a>学生用インデックスビューに検索ボックスを追加する
 
-1. *Views\Student\Index.cshtml*、開始する直前に強調表示されたコードを追加`table`キャプション、テキスト ボックスを作成するにはタグと**検索**ボタンをクリックします。
+1. *Views\Student\Index.cshtml*で、キャプション、テキストボックス、および**検索**ボタン`table`を作成するために、開始タグの直前に強調表示されているコードを追加します。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cshtml?highlight=4-11)]
 
-2. ページを実行し、検索文字列を入力し をクリックして**検索**フィルターが動作していることを確認します。
+2. ページを実行し、検索文字列を入力して **[検索]** をクリックし、フィルター処理が機能していることを確認します。
 
-   URL に「、」検索文字列、これをこのページにブックマークを設定した場合はありません一覧を取得するフィルター選択されたブックマークを使用する場合は意味が含まれていないことを確認します。 これは適用されますも、列の並べ替えリンク リスト全体を並べ替えられます。 変更を**検索**フィルター条件のチュートリアルの後半でクエリ文字列を使用するボタン。
+   URL に "an" という検索文字列が含まれていないことに注意してください。つまり、このページにブックマークを指定すると、ブックマークを使用するとフィルター処理された一覧が表示されません。 これは、一覧全体を並べ替えるため、列の並べ替えリンクにも適用されます。 このチュートリアルの後の方で、フィルター条件にクエリ文字列を使用するように **[検索]** ボタンを変更します。
 
-## <a name="add-paging"></a>ページングを追加します。
+## <a name="add-paging"></a>ページングの追加
 
-Students インデックス ページには、ページングを追加するをインストールして起動します、 **PagedList.Mvc** NuGet パッケージ。 その後で追加の変更、`Index`メソッドへのページングのリンクを追加し、`Index`ビュー。 **PagedList.Mvc**優れた多くのページングと ASP.NET MVC でのパッケージの並べ替えの 1 つとここでその使用のためのものとしてその他のオプションの上の推奨事項ではなく、例としてのみです。
+Students インデックスページにページングを追加するには、まず**PagedList** NuGet パッケージをインストールします。 次に、 `Index`メソッドに追加の変更を加え、ページングリンク`Index`をビューに追加します。 **PagedList**は、ASP.NET Mvc 用の多くの優れたページングおよび並べ替えパッケージの1つです。この使用方法は、他のオプションよりも推奨されるものではなく、例としてのみ使用することを目的としています。
 
-### <a name="install-the-pagedlistmvc-nuget-package"></a>PagedList.MVC NuGet パッケージをインストールします。
+### <a name="install-the-pagedlistmvc-nuget-package"></a>PagedList NuGet パッケージをインストールする
 
-NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **PagedList**依存関係としてパッケージします。 **PagedList**パッケージのインストール、`PagedList`のコレクションの種類と拡張子メソッド`IQueryable`と`IEnumerable`コレクション。 拡張メソッドが 1 つのデータのページを作成、`PagedList`コレクションのうち、`IQueryable`または`IEnumerable`、および`PagedList`いくつかのプロパティとメソッドをページングを容易にするコレクションを提供します。 **PagedList.Mvc**パッケージは、ページング ボタンを表示するページング ヘルパーをインストールします。
+NuGet **PagedList**パッケージは、 **PagedList**パッケージを依存関係として自動的にインストールします。 **PagedList**パッケージは、コレクション`PagedList`と`IEnumerable`コレクションの`IQueryable`コレクション型および拡張メソッドをインストールします。 `PagedList`拡張メソッドは、 `IQueryable`または`IEnumerable`からコレクション内の1ページのデータを作成し`PagedList`ます。コレクションには、ページングを容易にするいくつかのプロパティとメソッドが用意されています。 **PagedList**パッケージは、ページングボタンを表示するページングヘルパーをインストールします。
 
-1. **ツール**メニューの  **NuGet パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
+1. **[ツール]** メニューの **[NuGet パッケージマネージャー]** をポイントし、 **[パッケージマネージャーコンソール]** をクリックします。
 
-2. **パッケージ マネージャー コンソール**ウィンドウで、ことを確認、**パッケージ ソース**は**nuget.org**と**既定のプロジェクト**は**ContosoUniversity**、次のコマンドを入力します。
+2. **パッケージマネージャーコンソール**ウィンドウで、**パッケージソース**が**nuget.org**で、**既定のプロジェクト**が**ContosoUniversity**であることを確認し、次のコマンドを入力します。
 
    ```text
    Install-Package PagedList.Mvc
@@ -128,52 +128,51 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 ### <a name="add-paging-functionality-to-the-index-method"></a>Index メソッドにページング機能を追加する
 
-1. *Controllers\StudentController.cs*、追加、`using`のステートメント、`PagedList`名前空間。
+1. *Controllers\StudentController.cs*で、 `using` `PagedList`名前空間のステートメントを追加します。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-2. 
-  `Index` メソッドを次のコードで置き換えます。
+2. `Index` メソッドを次のコードで置き換えます。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs?highlight=1,3,7-16,41-43)]
 
-   このコードを追加、`page`パラメーター、現在の並べ替え順序パラメーター、およびメソッド シグネチャに、現在のフィルター パラメーター。
+   このコードは、 `page`パラメーター、現在の並べ替え順序パラメーター、および現在のフィルターパラメーターをメソッドシグネチャに追加します。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-   初めてページが表示されます、またはユーザーには、ページングまたは並べ替えのリンクをクリックしていない、すべてのパラメーターが null です。 ページングのリンクがクリックされた場合、`page`変数には表示するページ番号が含まれています。
+   ページが初めて表示されたとき、またはユーザーがページングまたは並べ替えリンクをクリックしていない場合は、すべてのパラメーターが null になります。 ページングリンクをクリックすると、表示`page`するページ番号が変数に格納されます。
 
-   A`ViewBag`このページングの中に同じ並べ替え順序を維持するために、ページング リンクに含める必要があるために、プロパティは、ビューで、現在の並べ替え順序を提供します。
+   プロパティ`ViewBag`は、ページング中に並べ替え順序を同じにするためにページングリンクに含める必要があるため、現在の並べ替え順序でビューを提供します。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-   別のプロパティ、 `ViewBag.CurrentFilter`、現在のフィルター文字列でビューを提供します。 ページング中にフィルターの設定を維持するために、ページングのリンクにこの値を含める必要があり、ページが再表示されるときに、この値をテキスト ボックスに復元する必要があります。 ページングの中に検索文字列を変更した場合は、新しいフィルターのために別のデータが表示されるため、ページを 1 にリセットする必要があります。 テキスト ボックスに値を入力し、[送信] ボタンが押されたときに、検索文字列が変更されます。 その場合は、`searchString`パラメーターが null ではありません。
+   もう1つ`ViewBag.CurrentFilter`のプロパティは、現在のフィルター文字列を使用してビューを提供します。 ページング中にフィルターの設定を維持するために、ページングのリンクにこの値を含める必要があり、ページが再表示されるときに、この値をテキスト ボックスに復元する必要があります。 ページングの中に検索文字列を変更した場合は、新しいフィルターのために別のデータが表示されるため、ページを 1 にリセットする必要があります。 テキストボックスに値を入力し、[送信] ボタンを押すと、検索文字列が変更されます。 この場合、 `searchString`パラメーターは null ではありません。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-   メソッドの最後に、`ToPagedList`拡張メソッド、受講者を`IQueryable`オブジェクトがページングをサポートするコレクション型の受講者の 1 つのページに学生クエリを変換します。 その学生の 1 つのページは、ビューに渡されます。
+   メソッドの最後で、students `ToPagedList` `IQueryable`オブジェクトの拡張メソッドは、ページングをサポートするコレクション型の1ページに学生クエリを変換します。 これにより、学生の1つのページがビューに渡されます。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-   `ToPagedList` メソッドは、ページ番号を受け取ります。 2 つの疑問符を表す、 [null 合体演算子](/dotnet/csharp/language-reference/operators/null-coalescing-operator)します。 null 合体演算子は null 許容型の既定値を定義します。式 `(page ?? 1)` は、値がある場合は `page` の値を返し、`page` が null の場合は 1 を返すことを意味します。
+   `ToPagedList` メソッドは、ページ番号を受け取ります。 2つの疑問符は、 [null 合体演算子](/dotnet/csharp/language-reference/operators/null-coalescing-operator)を表します。 null 合体演算子は null 許容型の既定値を定義します。式 `(page ?? 1)` は、値がある場合は `page` の値を返し、`page` が null の場合は 1 を返すことを意味します。
 
-### <a name="add-paging-links-to-the-student-index-view"></a>Student インデックス ビューにページングのリンクを追加します。
+### <a name="add-paging-links-to-the-student-index-view"></a>Student インデックスビューにページングリンクを追加する
 
-1. *Views\Student\Index.cshtml*、既存のコードを次のコードに置き換えます。 変更が強調表示されます。
+1. *Views\Student\Index.cshtml*で、既存のコードを次のコードに置き換えます。 変更が強調表示されます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=1-3,6,9,14,17,24,30,55-56,58-59)]
 
    ページの上部にある `@model` ステートメントは、ビューが `List` オブジェクトの代わりに `PagedList` オブジェクトを取得するようになったことを指定します。
 
-   `using`ステートメント`PagedList.Mvc`ページング ボタンの MVC ヘルパーにアクセスします。
+   `using` の`PagedList.Mvc`ステートメントは、ページングボタンの MVC ヘルパーへのアクセスを提供します。
 
-   コードのオーバー ロードを使用して[BeginForm](/previous-versions/aspnet/dd492719(v=vs.108))することを指定する、 [FormMethod.Get](/previous-versions/aspnet/dd460179(v=vs.100))します。
+   このコードでは、 [Beginform](/previous-versions/aspnet/dd492719(v=vs.108))のオーバーロードを使用して、 [Formmethod. Get](/previous-versions/aspnet/dd460179(v=vs.100))を指定できます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-   既定の[BeginForm](/previous-versions/aspnet/dd492719(v=vs.108))フォーム データをパラメーターとして渡されると、URL ではなく HTTP メッセージの本文にクエリ文字列は、投稿を送信します。 HTTP GET を指定すると、フォーム データがクエリ文字列として URL で渡され、ユーザーが URL をブックマークできるようになります。 [HTTP GET を使用するための W3C のガイドライン](http://www.w3.org/2001/tag/doc/whenToUseGet.html)アクションは結果として更新しない場合は、GET を使用することをお勧めします。
+   既定の[Beginform](/previous-versions/aspnet/dd492719(v=vs.108))は POST を使用してフォームデータを送信します。つまり、パラメーターは URL ではなく、クエリ文字列として渡されます。 HTTP GET を指定すると、フォーム データがクエリ文字列として URL で渡され、ユーザーが URL をブックマークできるようになります。 [HTTP get を使用する場合の W3C ガイドライン](http://www.w3.org/2001/tag/doc/whenToUseGet.html)では、アクションによって更新されない場合に get を使用することをお勧めします。
 
-   テキスト ボックスは、新しいページをクリックすると、現在の検索文字列を表示できるように、現在の検索文字列で初期化されます。
+   テキストボックスは現在の検索文字列で初期化されるため、新しいページをクリックすると、現在の検索文字列を確認できます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cshtml?highlight=1)]
 
@@ -181,17 +180,17 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cshtml?highlight=1)]
 
-   ページの現在のページとの合計数が表示されます。
+   現在のページとページの合計数が表示されます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
 
-   表示するページがない場合は、「の 0 ページ 0」が表示されます。 (その場合、ページ番号は、ページ数より大きいため、 `Model.PageNumber` 1 に設定されてと`Model.PageCount`は 0 です)。
+   表示するページがない場合は、"Page 0 of 0" が表示されます。 (その場合、が 1 `Model.PageNumber` `Model.PageCount`で、が0であるため、ページ番号がページ数を超えています)。
 
-   によってページング ボタンが表示されます、`PagedListPager`ヘルパー。
+   ページングボタンは、 `PagedListPager`ヘルパーによって次のように表示されます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 
-   `PagedListPager`ヘルパーはさまざまな Url を含むおよびスタイル設定、カスタマイズ可能なオプションを提供します。 詳細については、[TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) 、GitHub サイトでを参照してください。
+   ヘルパー `PagedListPager`には、url やスタイルなど、カスタマイズできる多くのオプションが用意されています。 詳細については、GitHub サイトの「 [TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) 」を参照してください。
 
 2. ページを実行します。
 
@@ -199,58 +198,57 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 ## <a name="create-an-about-page"></a>About ページを作成する
 
-Contoso University web サイトのページについて、登録日付ごとに登録した受講者の数を表示します。 これには、グループ化とグループに関する簡単な計算が必要です。 これを実行するためには、次の手順を実行します。
+Contoso 大学の web サイトの [About] ページには、登録日ごとに登録された学生の数が表示されます。 これには、グループ化とグループに関する簡単な計算が必要です。 これを実行するためには、次の手順を実行します。
 
 - ビューに渡す必要があるデータのビュー モデル クラスを作成します。
-- 変更、`About`メソッドで、`Home`コント ローラー。
-- 変更、`About`ビュー。
+- `Home`コントローラーの`About`メソッドを変更します。
+- ビューを`About`変更します。
 
-### <a name="create-the-view-model"></a>ビュー モデルを作成します。
+### <a name="create-the-view-model"></a>ビューモデルを作成する
 
-作成、 *ViewModels*プロジェクト フォルダー内のフォルダー。 クラス ファイルを追加、そのフォルダー内*EnrollmentDateGroup.cs*テンプレート コードを次のコードに置き換えます。
+プロジェクトフォルダーに*viewmodel*フォルダーを作成します。 そのフォルダーで、クラスファイル*EnrollmentDateGroup.cs*を追加し、テンプレートコードを次のコードに置き換えます。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
 ### <a name="modify-the-home-controller"></a>Home コントローラーを変更する
 
-1. *HomeController.cs*、次の追加`using`ファイルの上部にあるステートメント。
+1. *HomeController.cs*で、ファイルの先頭`using`に次のステートメントを追加します。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
-2. クラスの中かっこの直後に、データベース コンテキストのクラスの変数を追加します。
+2. クラスの左中かっこの直後に、データベースコンテキストのクラス変数を追加します。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs?highlight=3)]
 
-3. 
-  `About` メソッドを次のコードで置き換えます。
+3. `About` メソッドを次のコードで置き換えます。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs)]
 
    LINQ ステートメントは、登録日で受講者エンティティをグループ化し、各グループ内のエンティティの数を計算して、結果を `EnrollmentDateGroup` ビュー モデル オブジェクトのコレクションに格納します。
 
-4. 追加、`Dispose`メソッド。
+4. メソッドを`Dispose`追加します。
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
 ### <a name="modify-the-about-view"></a>About ビューを変更する
 
-1. コードに置き換えます、 *Views\Home\About.cshtml*を次のコード ファイル。
+1. *Views\Home\About.cshtml*ファイルのコードを次のコードに置き換えます。
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cshtml)]
 
-2. アプリを実行し、をクリックして、**について**リンク。
+2. アプリを実行し、 **[バージョン情報]** リンクをクリックします。
 
-   テーブルに、登録日付ごとの生徒の数が表示されます。
+   登録日ごとの生徒の数がテーブルに表示されます。
 
    ![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したプロジェクトをダウンロードします。](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
+[完成したプロジェクトをダウンロードする](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+その他の Entity Framework リソースへのリンクについては[、「ASP.NET Data Access-推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)」を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 
@@ -259,9 +257,9 @@ Contoso University web サイトのページについて、登録日付ごとに
 > [!div class="checklist"]
 > * 列の並べ替えリンクを追加する
 > * [検索] ボックスを追加する
-> * ページングを追加します。
+> * ページングの追加
 > * About ページを作成する
 
-接続の回復性とコマンド傍受を使用する方法については、次の記事に進んでください。
+次の記事に進み、接続の回復性とコマンドインターセプトの使用方法を学習してください。
 > [!div class="nextstepaction"]
-> [接続の回復性とコマンド傍受](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [接続の回復性とコマンドのインターセプト](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
