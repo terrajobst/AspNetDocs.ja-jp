@@ -308,11 +308,11 @@ Windows Azure SQL Database とは、SQL Server テクノロジに基づいて構
     ![発行設定のインポート](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image19.png)
 3. 以前、Windows Azure サブスクリプションを Visual Studio に追加していない場合は、次の手順を実行します。 これらの手順で追加、サブスクリプション下で、ドロップダウン リストを一覧表示するため**Windows Azure の web サイトからのインポート**web サイトが含まれます。
 
-    a.  **発行プロファイルのインポート**ダイアログ ボックスで、をクリックして**Windows Azure の web サイトからのインポート**、順にクリックします**Windows Azure サブスクリプションの追加**します。
+    a. **発行プロファイルのインポート**ダイアログ ボックスで、をクリックして**Windows Azure の web サイトからのインポート**、順にクリックします**Windows Azure サブスクリプションの追加**します。
 
     ![Windows Azure サブスクリプションを追加します。](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image20.png)
 
-    b.  **Windows Azure サブスクリプションのインポート**ダイアログ ボックスで、をクリックして**サブスクリプション ファイルのダウンロード**します。
+    b. **Windows Azure サブスクリプションのインポート**ダイアログ ボックスで、をクリックして**サブスクリプション ファイルのダウンロード**します。
 
     ![サブスクリプション ファイルのダウンロード](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image21.png)
 
@@ -341,7 +341,7 @@ Windows Azure SQL Database とは、SQL Server テクノロジに基づいて構
     ![検証が成功した接続](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image27.png)
 7. 開く、**リモート接続文字列**下のドロップダウン リスト**SchoolContext**作成したデータベースの接続文字列を選択します。
 8. 選択**実行 Code First Migrations (アプリケーションの起動時に実行)** します。
-9. オフに**実行時にこの接続文字列を使用して**の**UserContext (DefaultConnection)**、このアプリケーションは、メンバーシップ データベースを使用していないためです。   
+9. オフに**実行時にこの接続文字列を使用して**の**UserContext (DefaultConnection)** 、このアプリケーションは、メンバーシップ データベースを使用していないためです。   
   
     ![Settings tab](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image28.png)
 10. **[次へ]** をクリックします。
