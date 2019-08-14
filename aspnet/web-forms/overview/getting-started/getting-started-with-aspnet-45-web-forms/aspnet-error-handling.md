@@ -309,7 +309,7 @@ ELMAH ログの表示は簡単ですが最初に、ELMAH は、ログに記録�
 
 ## <a name="tutorial-series-conclusion"></a>チュートリアル シリーズのまとめ
 
-*次に沿ったいただきありがとうございます。この一連のチュートリアルでは、ASP.NET Web フォームを使い慣れてきたら役立つと思います。詳細については、Web フォームの機能 ASP.NET 4.5 と Visual Studio 2013 で使用可能な場合を参照してください* [*ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート*](../../../../visual-studio/overview/2013/release-notes.md) *.また、必ずで説明したチュートリアルを見て、*  * **次の手順****セクションと defintely お試し、* [*無料試用版の Azure*](https://azure.microsoft.com/pricing/free-trial/)* .*
+*次に沿ったいただきありがとうございます。この一連のチュートリアルでは、ASP.NET Web フォームを使い慣れてきたら役立つと思います。詳細については、Web フォームの機能 ASP.NET 4.5 と Visual Studio 2013 で使用可能な場合を参照してください* [*ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート*](../../../../visual-studio/overview/2013/release-notes.md) *.また、必ずで説明したチュートリアルを見て、 ** **次の手順** **セクションと defintely お試し、* [*無料試用版の Azure*](https://azure.microsoft.com/pricing/free-trial/)* .*
 
 ![ありがとうございます - Erik](aspnet-error-handling/_static/image10.png)  
 
