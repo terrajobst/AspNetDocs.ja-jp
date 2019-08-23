@@ -5,19 +5,19 @@ author: rick-anderson
 description: ASP.NET、web サイト、web アプリケーション、および web API を作成するための無償のフレームワークを紹介します。
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
 ms.author: riande
-ms.date: 03/12/2010
+ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: d4b96bd2ff99bb30ff59b9697a27e33acb0f719d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9a6d08849f09c9d7a779df64f70e8770d2af3c87
+ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120095"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995285"
 ---
 # <a name="aspnet-overview"></a>ASP.NET 概要
 
-ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript を使用して web アプリケーションを構築するための無料の web フレームワークです。 Web API を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
+ASP.NET は、HTML、CSS、および JavaScript を使用して優れた web サイトや web アプリケーションを構築するための無料の web フレームワークです。 Web API を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
 
 [ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。  [ASP.NET と ASP.NET Core の選択方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) を参照してください。
 
@@ -27,79 +27,79 @@ ASP.NET on Windows の無料の IDE [Visual Studio 2017](https://visualstudio.mi
 
 ## <a name="websites-and-web-applications"></a>Web サイトと web アプリケーション
 
- ASP.NET は、web アプリケーションを作成するための 3 つのフレームワークを提供します。Web フォーム、ASP.NET MVC、および ASP.NET Web ページ。 3 つすべてのフレームワークが安定し、完成度の高いと、これらのいずれかで優れた web アプリケーションを作成することができます。 選択したどのようなフレームワークに関係なくすべての利点と ASP.NET の機能のすべての場所が表示されます。
+ ASP.NET は、web アプリケーションを作成するための3つのフレームワークを提供します。Web フォーム、ASP.NET MVC、および ASP.NET Web ページ。 この3つのフレームワークはすべて安定して成熟しており、いずれのフレームワークでも優れた web アプリケーションを作成できます。 どのようなフレームワークを選択しても、どこにいても ASP.NET のすべての利点と機能が得られます。
 
-各フレームワークには、さまざまな開発スタイルが対象とします。 選択した 1 つは、プログラミングの資産 (知識、スキル、および開発環境) の組み合わせ、アプリケーションを作成してに慣れている開発アプローチの種類によって異なります。
+各フレームワークは、別の開発スタイルを対象としています。 どちらを選択するかは、プログラミングアセット (知識、スキル、および開発エクスペリエンス) の組み合わせ、作成するアプリケーションの種類、および使い慣れた開発アプローチによって異なります。
 
-それらの間を選択する方法のいくつかのアイデアと各フレームワークの概要を次に示します。 動画で紹介する場合を参照してください[ASP.NET を使用した web サイトの作成](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET)と[Web ツールとは何ですか?。](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)
+各フレームワークの概要と、それらを選択する方法に関するいくつかのアイデアを以下に示します。 ビデオの概要については、「 [ASP.NET を使用した Web サイトの作成](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET)」および「 [Web ツールとは](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)」を参照してください。
 
-|   | 経験がある場合 | 開発スタイル | 専門知識 |
+|   | の経験がある場合 | 開発スタイル | 家 |
 |-----------|----------------------|-----------------------------------------------------|----------------|
-| Web フォーム | Win フォーム、WPF、.NET | HTML マークアップをカプセル化するコントロールの豊富なライブラリを使用して迅速な開発 | 中程度、高度な RAD |
-| MVC       | Ruby on Rails、.NET  | 完全に制御 HTML マークアップ、コードとマークアップ、分離された、簡単にテストを記述できます。 モバイルおよび単一ページ アプリケーション (SPA) に最適です。 | 中程度、高度です |
-| Web ページ  | クラシック ASP、PHP     | HTML マークアップと同じファイルにまとめてコード | 新しい、中程度 |
+| Web フォーム | Win フォーム、WPF、.NET | HTML マークアップをカプセル化するコントロールの豊富なライブラリを使用した迅速な開発 | ミッドレベル、高度な RAD |
+| MVC       | Ruby on Rails、.NET  | HTML マークアップ、コードとマークアップの分離、およびテストの記述を簡単に行うことができます。 モバイルアプリケーションとシングルページアプリケーション (SPA) に最適な選択肢です。 | ミッドレベル、詳細 |
+| Web ページ  | Classic ASP、PHP     | 同じファイル内の HTML マークアップとコードの組み合わせ | 新規、中間レベル |
 
 ### <a name="web-forms"></a>Web フォーム
 
-ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトを構築できます。 デザイン サーフェスや数百のコントロールとコンポーネントを洗練された強力な UI 駆動型サイトとデータ アクセスを迅速に構築できます。
+ASP.NET Web フォームを使用すると、使い慣れたドラッグアンドドロップのイベントドリブンモデルを使用して、動的な web サイトを構築できます。 デザインサーフェイスと数百のコントロールやコンポーネントを使用すると、データアクセスを使用して高度で強力な UI 駆動型サイトをすばやく構築できます。
 
-[Web フォームを詳細します。](web-forms/index.md)
+[Web フォームについての詳細情報](web-forms/index.md)
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC には、懸念事項の明確に分離できるようにしてを提供するマークアップを完全に制御楽しいもののアジャイル開発のための動的な web サイトを構築する強力なパターンに基づく方法。 ASP.NET MVC には、最新の web 標準を使用して、高度なアプリケーションを作成するための高速、tdd 向けの開発が可能な多くの機能が含まれています。
+ASP.NET MVC には、動的な web サイトを構築するための強力なパターンベースの方法が用意されています。これにより、問題を明確に分離し、アジャイル開発のためのマークアップを完全に制御できます。 ASP.NET MVC には、最新の web 標準を使用する高度なアプリケーションを作成するための、TDD に適した迅速な開発を可能にする多くの機能が含まれています。
 
-[MVC を詳細します。](mvc/index.md)
+[MVC の詳細情報](mvc/index.md)
 
 ### <a name="aspnet-web-pages"></a>ASP.NET Web ページ
 
-ASP.NET Web ページと Razor 構文は、サーバー コードを組み合わせて動的 web コンテンツを作成する HTML の高速で、わかりやすく、軽量な方法を提供します。 データベースに接続し、動画の追加、ソーシャル ネットワーク サイトへのリンク多く際に役立つ多くの機能は、最新の web 標準に準拠する美しいサイトを作成します。
+ASP.NET Web ページと Razor 構文は、サーバーコードと HTML を組み合わせて動的な Web コンテンツを作成するための高速でわかりやすく、軽量な方法を提供します。 データベースに接続し、ビデオを追加し、ソーシャルネットワーキングサイトにリンクします。また、最新の web 標準に準拠した美しいサイトの作成に役立つ多くの機能が追加されています。
 
-[Web ページを詳細します。](web-pages/index.md)
+[Web ページについての詳細情報](web-pages/index.md)
 
 ### <a name="notes-about-web-forms-mvc-and-web-pages"></a>Web フォーム、MVC、および Web ページに関する注意事項
 
-次の 3 つすべての ASP.NET フレームワークは、.NET Framework に基づいており、ASP.NET および .NET のコア機能を共有します。 たとえば、3 つすべてのフレームワークが、メンバーシップに基づくログインのセキュリティ モデルを提供し、3 つすべての共有機能の ASP.NET core の一部である要求や処理のセッションを管理するための同じ機能。
+3つの ASP.NET フレームワークはすべて、.NET と ASP.NET の .NET Framework と共有のコア機能をベースとしています。 たとえば、3つのすべてのフレームワークでは、メンバーシップに基づいたログインセキュリティモデルが提供されます。また、3つすべては、コア ASP.NET 機能の一部である要求の管理、セッションの処理などのために同じ機能を共有します。
 
-さらに、3 つのフレームワークが完全に独立していないし、いずれかを選択しても別の使用はでは。 フレームワークは、同じ web アプリケーションで共存させることができます、ためにはさまざまなフレームワークを使用して記述されたアプリケーションの個々 のコンポーネントを表示する珍しくありません。 たとえば、データ アクセスと管理の部分はデータ コントロールと単純なデータ アクセスを活用するために Web フォームで開発中に、マークアップを最適化するために MVC アプリの顧客向けの部分を開発する可能性があります。
+また、3つのフレームワークは完全に独立しているわけではなく、どちらを選択しても、別のフレームワークを使用することはできません。 フレームワークは同じ web アプリケーション内に共存できるため、異なるフレームワークを使用して記述されたアプリケーションの個々のコンポーネントを確認することは珍しくありません。 たとえば、データ アクセスと管理の部分はデータ コントロールと単純なデータ アクセスを活用するために Web フォームで開発中に、マークアップを最適化するために MVC アプリの顧客向けの部分を開発する可能性があります。
 
 ## <a name="web-apis"></a>Web API
 
-ASP.NET Web API をさまざまなブラウザーやモバイル デバイスなどのクライアントに提供される HTTP サービスを構築するが容易にするフレームワークです。 ASP.NET Web API は、.NET Framework に基づいて RESTful アプリケーションを構築するのに最適なプラットフォームです。
+ASP.NET Web API は、ブラウザーやモバイルデバイスを含む広範なクライアントに接続できる HTTP サービスを簡単に構築できるフレームワークです。 ASP.NET Web API は、.NET Framework に基づいて RESTful アプリケーションを構築するのに最適なプラットフォームです。
 
-[Web API の詳細について説明します](web-api/index.md)
+[Web API についての詳細情報](web-api/index.md)
 
 <!-- Put first under Web API TOC:  Watch video (9 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/services-and-aspnet -->
 
-## <a name="real-time-technologies"></a>リアルタイム テクノロジ
+## <a name="real-time-technologies"></a>リアルタイムテクノロジ
 
-ASP.NET SignalR は、ASP.NET 開発者向けの新しいライブラリをリアルタイム web 機能の開発が容易です。 SignalR では、サーバーとクライアント間の双方向通信を許可します。 サーバーに接続されているクライアントにすぐに利用可能になったコンテンツをプッシュできます。 SignalR では、Web ソケットの場合をサポートし、古いブラウザーの互換性のあるその他の手法にフォールバックします。 SignalR には接続管理用の API が含まれています (接続し、切断イベントなど)、接続、および承認をグループ化します。
+ASP.NET SignalR は、リアルタイム web 機能の開発を容易にする ASP.NET 開発者向けの新しいライブラリです。 SignalR を使用すると、サーバーとクライアント間で双方向通信を行うことができます。 サーバーは、使用可能になったらすぐに、接続されているクライアントにコンテンツをプッシュできます。 SignalR は Web ソケットをサポートしており、以前のブラウザーと互換性のある他の手法にフォールバックします。 SignalR には接続管理用の API が含まれています (接続し、切断イベントなど)、接続、および承認をグループ化します。
 
-[詳細については、SignalR は](signalr/index.md)
+[SignalR についての詳細情報](signalr/index.md)
 
 <!-- Put first under SignalR TOC:  Watch video (6 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/signalr-and-the-real-time-web -->
 
-## <a name="mobile-apps-and-sites"></a>モバイル アプリとサイト
+## <a name="mobile-apps-and-sites"></a>モバイルアプリとサイト
 
-ASP.NET に電源、レスポンシブ デザイン Twitter Bootstrap フレームワークを使用して、モバイル web サイトと同様に Web API バック エンドでは、ネイティブ モバイル アプリを使用できます。 ネイティブ モバイル アプリを構築する場合は、ハンドルのデータ アクセス、認証、およびアプリのプッシュ通知を JSON ベースの Web API の作成が容易になります。 応答性の高いモバイル サイトを構築する場合は、任意の CSS フレームワークまたはオープンのグリッド システムするか、jQuery Mobile または Sencha や PhoneGap の優れたモバイル アプリケーションなどの強力なモバイル システムを選択を使用することができます。
+ASP.NET では、Web API バックエンドを使用してネイティブモバイルアプリを作成できます。また、Twitter ブートストラップなどの応答性の高い設計フレームワークを使用してモバイル Web サイトを作成することもできます。 ネイティブモバイルアプリを構築している場合は、アプリのデータアクセス、認証、およびプッシュ通知を処理するための JSON ベースの Web API を簡単に作成できます。 応答性の高いモバイルサイトを構築する場合は、任意の CSS フレームワークを使用するか、好みのグリッドシステムを開くか、jQuery Mobile や Sencha などの強力なモバイルシステムと PhoneGap を使用した優れたモバイルアプリケーションを選択することができます。
 
-[モバイル アプリとサイトの開発に関する詳細します。](mobile/index.md)
+[モバイルアプリとサイト開発の詳細情報](mobile/index.md)
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
-## <a name="single-page-applications"></a>シングル ページ アプリケーション
+## <a name="single-page-applications"></a>シングルページアプリケーション
 
-ASP.NET Single Page Application (SPA) を使用して、HTML 5、CSS 3、JavaScript を使用して重要なクライアント側の対話を含むアプリケーションを構築できます。 Visual Studio には、knockout.js と ASP.NET Web API を使用してシングル ページ アプリケーションを構築するためのテンプレートが含まれています。 組み込みの SPA テンプレートだけでなくコミュニティによって作成された SPA テンプレートもダウンロードできます。
+ASP.NET Single Page Application (SPA) を使用すると、HTML 5、CSS 3、および JavaScript を使用したクライアント側の重要な相互作用を含むアプリケーションを構築できます。 Visual Studio には、ノックアウトと ASP.NET Web API を使用してシングルページアプリケーションを構築するためのテンプレートが含まれています。 組み込みの SPA テンプレートに加えて、コミュニティによって作成された SPA テンプレートをダウンロードすることもできます。
 
-[シングル ページ アプリの開発に関する詳細します。](single-page-application/index.md)
+[シングルページアプリの開発についての詳細情報](single-page-application/index.md)
 
 ## <a name="webhooks"></a>Web フック
 
-Webhook は、Web API と SaaS サービスをまとめて配線の単純なパブリッシュ/サブスクライブ モデルを提供する軽量な HTTP パターンです。 サービスで、イベントが発生したときに通知が登録されているサブスクライバーに HTTP POST 要求の形式で送信されます。 POST 要求には、それに従って動作する受信者を表すことができます、イベントに関する情報が含まれています。
+Webhook は、Web API と SaaS サービスをまとめて配線の単純なパブリッシュ/サブスクライブ モデルを提供する軽量な HTTP パターンです。 サービスでイベントが発生すると、登録されたサブスクライバーに対して HTTP POST 要求の形式で通知が送信されます。 POST 要求には、イベントに関する情報が含まれています。これにより、受信側がそれに応じて動作できるようになります。
 
-Webhook は、Dropbox、GitHub、Instagram、MailChimp、PayPal、Slack、Trello、およびその他を含むサービスの数が多いによって公開されます。 たとえば、WebHook では、こと、ファイルが Dropbox では、変更または GitHub でコード変更がコミットされた、PayPal の支払いが開始されたまたは Trello カードが作成されてを指定できます。
+Webhook は、Dropbox、GitHub、Instagram、MailChimp、PayPal、余裕、Trello など、多数のサービスによって公開されています。 たとえば、WebHook は、Dropbox でファイルが変更されたこと、またはコード変更が GitHub でコミットされたか、または PayPal で支払いが開始されたか、または Trello でカードが作成されたことを示すことができます。
 
-[Webhook を詳細します。](webhooks/index.md)
+[Webhook に関する詳細情報](webhooks/index.md)
 
 <!--
 Create Deployment TOC based on https://www.asp.net/aspnet/overview/deployment
