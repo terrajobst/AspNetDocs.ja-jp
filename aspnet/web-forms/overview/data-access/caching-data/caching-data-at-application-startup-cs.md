@@ -1,177 +1,177 @@
 ---
 uid: web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
-title: アプリケーションの起動 (c#) にデータをキャッシュ |Microsoft Docs
+title: アプリケーションの起動時にデータをC#キャッシュする () |Microsoft Docs
 author: rick-anderson
-description: 一部のデータが頻繁に使用する Web アプリケーションで、一部のデータの使用は頻度の低い。 この ASP.NET アプリケーション b のパフォーマンスを改善できる.
+description: どの Web アプリケーションでも、一部のデータは頻繁に使用され、一部のデータはあまり使用されません。 ASP.NET アプリケーション b のパフォーマンスを向上させることができます。
 ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2d0fff78885ed90825f3e3a612f1582c004b317e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a0b55b0df1b7843120de284891e16178df23fabe
+ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119737"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386552"
 ---
 # <a name="caching-data-at-application-startup-c"></a>アプリケーションの起動時にデータをキャッシュする (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [PDF のダウンロード](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
 
-> 一部のデータが頻繁に使用する Web アプリケーションで、一部のデータの使用は頻度の低い。 頻繁に使用されるデータと呼ばれる手法を事前に読み込むことによって、ASP.NET アプリケーションのパフォーマンスを改善できます。 このチュートリアルでは、事前対応型の読み込みは、アプリケーションの起動時にキャッシュにデータを読み込むを 1 つの方法を示します。
+> どの Web アプリケーションでも、一部のデータは頻繁に使用され、一部のデータはあまり使用されません。 頻繁に使用されるデータ (キャッシュと呼ばれます) を事前に読み込むことで、ASP.NET アプリケーションのパフォーマンスを向上させることができます。 このチュートリアルでは、プロアクティブな読み込みの1つの方法を示します。この方法では、アプリケーションの起動時にデータをキャッシュに読み込みます。
 
 ## <a name="introduction"></a>はじめに
 
-2 つの前のチュートリアル、プレゼンテーション層と層のキャッシュのデータ キャッシュについて説明しました。 [ObjectDataSource でデータをキャッシュ](caching-data-with-the-objectdatasource-cs.md)プレゼンテーション層でデータをキャッシュする ObjectDataSource のキャッシュ機能を使用しました。 [アーキテクチャでデータをキャッシュ](caching-data-in-the-architecture-cs.md)新しい、個別のキャッシュ レイヤーでのキャッシュを確認します。 両方のために使用するこれらのチュートリアル*事後対応型の読み込み*でデータ キャッシュを操作します。 事後対応型の読み込み、データが要求されるたびに、キャッシュ内にあるかどうかをシステムは最初にチェックします。 されていない場合、キャッシュに格納し、データベースなど、元のソースからデータを取得します。 事後対応型の読み込みの主な利点は、簡単に実装します。 不均一なパフォーマンスは、要求間での短所の 1 つです。 上記のチュートリアルからキャッシュ レイヤーを使用して、製品情報を表示するページを想像してください。 このページは、初めてアクセスしたか、メモリの制約または指定した有効期限に到達したことにより、キャッシュされたデータが削除された後に初めてアクセス、データをデータベースから取得する必要があります。 そのため、キャッシュによってこれらのユーザー要求を処理できるユーザーの要求よりも長くかかります。
+前の2つのチュートリアルでは、プレゼンテーション層とキャッシュ層のデータのキャッシュについて説明しました。 [Objectdatasource を使用したデータのキャッシュ](caching-data-with-the-objectdatasource-cs.md)では、objectdatasource のキャッシュ機能を使用して、プレゼンテーション層にデータをキャッシュする方法を検討しました。 [アーキテクチャのデータをキャッシュ](caching-data-in-the-architecture-cs.md)することで、新しい個別のキャッシュレイヤーでキャッシュが検証されます。 これらのチュートリアルでは、どちらもデータキャッシュを使用した*リアクティブな読み込み*を使用していました。 リアクティブ読み込みでは、データが要求されるたびに、システムはまずキャッシュ内にあるかどうかを確認します。 そうでない場合は、データベースなどの元のソースからデータを取得し、キャッシュに格納します。 リアクティブ読み込みの主な利点は、実装が簡単になることです。 欠点の1つは、要求間での不均一なパフォーマンスです。 前のチュートリアルのキャッシュレイヤーを使用して製品情報を表示するページを想像してください。 このページに初めてアクセスしたとき、またはメモリの制約によってキャッシュデータが削除された後に初めてアクセスした場合、または指定した有効期限に達した場合は、データをデータベースから取得する必要があります。 そのため、これらのユーザーの要求は、キャッシュによって処理されるユーザーの要求よりも長くかかります。
 
-*プロアクティブな読み込み*前に、必要なキャッシュされたデータを読み込むことで要求間で別のキャッシュ管理戦略を滑らかになり、パフォーマンスを提供します。 通常、事前対応型の読み込みは、定期的にチェック、または基になるデータへの更新されたときに通知するいくつかのプロセスを使用します。 このプロセスは、最新に保つためにキャッシュを更新します。 事前対応型の読み込みが遅いデータベース接続、Web サービス、またはその他の動作の遅い特にデータ ソースからデータを基になる場合に特に便利です。 事前対応型の読み込みには、この方法は、作成、管理、および展開プロセスの変更を確認し、キャッシュを更新する必要があるを実装することが困難。
+*プロアクティブな読み込み*は、キャッシュされたデータを必要とする前に読み込むことによって、要求間でパフォーマンスを低下させる代替キャッシュ管理戦略を提供します。 通常、プロアクティブな読み込みでは、基になるデータが更新されたときに定期的にチェックされるか通知されるプロセスを使用します。 その後、キャッシュを更新して最新の状態に保ちます。 プロアクティブ読み込みは、基になるデータが低速データベース接続、Web サービス、またはその他の特に低速なデータソースから取得される場合に特に便利です。 ただし、このプロアクティブな読み込みには、変更を確認してキャッシュを更新するプロセスを作成、管理、および展開する必要があるため、実装がより困難になります。
 
-事前対応型の読み込み、およびいきますでこのチュートリアルでは、型の別のフレーバーでは、アプリケーションの起動時にキャッシュにデータを読み込んでいます。 この方法は、データベース ルックアップ テーブル内のレコードなどの静的データをキャッシュに特に便利です。
+プロアクティブな読み込みの別のフレーバーと、このチュートリアルで調査する型は、アプリケーションの起動時にキャッシュにデータを読み込みます。 この方法は、データベースルックアップテーブルのレコードなどの静的データをキャッシュする場合に特に便利です。
 
 > [!NOTE]
-> 主体的および対応の読み込みと長所と短所、および実装の推奨事項のリスト間の相違点の詳細についてを参照してください、 [、キャッシュの内容を管理する](https://msdn.microsoft.com/library/ms978503.aspx)のセクション、 [.NET Framework アプリケーションのアーキテクチャ ガイドのキャッシュ](https://msdn.microsoft.com/library/ms978498.aspx)します。
+> プロアクティブとリアクティブの読み込みの違い、および長所、短所、実装に関する推奨事項の一覧については、「.NET 用のキャッシュアーキテクチャガイド」の[キャッシュの内容の管理](https://msdn.microsoft.com/library/ms978503.aspx)に関するセクションを参照してください。 [フレームワークアプリケーション](https://msdn.microsoft.com/library/ms978498.aspx)。
 
-## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>手順 1: アプリケーションの起動時にキャッシュするデータを決定します。
+## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>手順 1: アプリケーションの起動時にキャッシュするデータを決定する
 
-キャッシュの例は、事後対応型の読み込みを使用して生成するデータを定期的に変更し、長い exorbitantly 受け取らないでうまく前の 2 つのチュートリアルの作業で調べる。 事後対応型の読み込みで使用される有効期限は余分な場合は、キャッシュされたデータが変更ことはありません。 同様に、キャッシュ データが生成する極端に時間を受け取る場合は、それらのユーザー要求が検索に時間がかかる待機中、基になるデータに耐えられるキャッシュを空になりますが取得されます。 静的なデータとアプリケーションの起動時に生成する非常に長い時間がかかるデータのキャッシュを検討してください。
+前の2つのチュートリアルで検証したリアクティブな読み込みを使用したキャッシュの例は、定期的に変更される可能性があり、生成に exorbitantly 時間がかかることのないデータでもうまく機能します。 ただし、キャッシュされたデータが変更されない場合、リアクティブな読み込みで使用される有効期限は余分になります。 同様に、キャッシュされているデータの生成に非常に長い時間がかかる場合、キャッシュが空であるという要求を持つユーザーは、基になるデータを取得する間に長時間待機する必要があります。 アプリケーションの起動時に生成に非常に長い時間がかかる静的データとデータをキャッシュすることを検討してください。
 
-データベースには、多くの動的がありますが、値を頻繁に変更する、ほとんどが、かなりの静的データもあります。 たとえば、ほぼすべてのデータ モデルでは、選択肢の固定セットから特定の値を含む 1 つまたは複数の列があります。 A`Patients`データベース テーブルがあります、`PrimaryLanguage`列を持つ一連の値は、英語、スペイン語、フランス語、ロシア語、日本語、およびの可能性があります。 多くの場合、このような列を使用して実装*ルックアップ テーブル*します。 英語またはフランス語の文字列を格納するのではなく、`Patients`テーブル、2 番目のテーブルが作成を一般的には、それぞれの値のレコードを持つ 2 つの列の一意の識別子と文字列による説明 - を持ちます。 `PrimaryLanguage`内の列、`Patients`テーブルが参照テーブルに対応する一意識別子を格納します。 図 1 の場合は、John doe さんを患者の第一言語は英語、Ed ジョンソンはロシア語です。
+データベースには動的で頻繁に変化する多くの値がありますが、ほとんどの場合、静的なデータが大量にあります。 たとえば、ほぼすべてのデータモデルには、固定された一連の選択肢から特定の値を含む1つまたは複数の列があります。 データベース`Patients`テーブルには、英語`PrimaryLanguage` 、スペイン語、フランス語、ロシア語、日本語などの値のセットを持つ列が含まれている場合があります。 多くの場合、これらの種類の列は*参照テーブル*を使用して実装されます。 文字列 English やフランス語を`Patients`テーブルに格納するのではなく、一般的に2つの列 (一意の識別子と文字列の説明) を含む2つのテーブルが作成されます。これには、可能な値ごとにレコードが付きます。 `Patients`テーブルの列には、対応する一意の識別子が参照テーブルに格納されます。 `PrimaryLanguage` 図1では、患者 John Doe の主要言語は英語ですが、Ed ジョンソンはロシア語です。
 
-![言語の表は、Patients テーブルで使用される参照テーブルです。](caching-data-at-application-startup-cs/_static/image1.png)
+![言語テーブルは、患者テーブルによって使用されるルックアップテーブルです。](caching-data-at-application-startup-cs/_static/image1.png)
 
-**図 1**:`Languages`テーブルで使用される参照テーブル、`Patients`テーブル
+**図 1**:テーブルは、 `Patients`テーブルによって使用される参照テーブルです。 `Languages`
 
-内のレコードによって設定されます、使用可能な言語のドロップダウン リストには編集または作成の新しい患者のユーザー インターフェイスが含まれます、`Languages`テーブル。 このインターフェイスは、毎回キャッシュを使用しないシステムがアクセスしたクエリを実行する必要があります、`Languages`テーブル。 これは無駄な不要な参照テーブルの値の変更頻度の非常に低いため場合、これまでです。
+新しい患者を編集または作成するためのユーザーインターフェイスには、 `Languages`テーブル内のレコードによって設定される使用可能な言語のドロップダウンリストが含まれます。 キャッシュを使用しない場合、このインターフェイスにアクセスするたびに`Languages` 、システムはテーブルに対してクエリを実行する必要があります。 これは、参照テーブルの値が非常に頻繁に変更されるため、無駄が不要であり、不要です。
 
-キャッシュでした、`Languages`前のチュートリアルで同じ事後対応型の読み込みの手法を使用してデータ。 事後対応型の読み込みでは、ただし、静的な参照テーブルのデータは必要ありません時間ベースの期限を使用します。 事後対応型の読み込みを使用して、キャッシュがまったくないキャッシュよりも良いでしょう中、に事前に参照テーブルのデータをアプリケーションの起動時にキャッシュに読み込む最善の方法があります。
+前のチュートリアルで`Languages`検証したのと同じリアクティブ読み込み手法を使用してデータをキャッシュできます。 ただし、リアクティブな読み込みでは、時間ベースの有効期限が使用されますが、これは静的なルックアップテーブルデータには必要ありません。 事後対応型の読み込みを使用したキャッシュは、キャッシュがまったくないことよりも優れていますが、アプリケーションの起動時に参照テーブルのデータをキャッシュに事前に読み込むことをお勧めします。
 
-このチュートリアルでは、ルックアップ テーブルのデータをキャッシュおよびその他の静的情報する方法に注目します。
+このチュートリアルでは、参照テーブルのデータとその他の静的な情報をキャッシュする方法について説明します。
 
 ## <a name="step-2-examining-the-different-ways-to-cache-data"></a>手順 2: データをキャッシュするさまざまな方法を調べる
 
-情報は、さまざまな方法を使用して ASP.NET アプリケーションでプログラムによってキャッシュされます。 私たち ve 既に前のチュートリアルで、データ キャッシュを使用する方法を説明します。 または、オブジェクトできるプログラムでキャッシュを使用して*静的メンバー*または*アプリケーション状態*します。
+さまざまな方法を使用して、ASP.NET アプリケーションで情報をプログラムでキャッシュすることができます。 前のチュートリアルでデータキャッシュを使用する方法については既に説明しました。 また、*静的メンバー*または*アプリケーションの状態*を使用して、オブジェクトをプログラムでキャッシュすることもできます。
 
-クラスを使用する場合通常クラスする必要があります最初にインスタンス化前に、そのメンバーにアクセスすることができます。 たとえばから、ビジネス ロジック層のクラスのいずれかのメソッドを呼び出すためにする必要があります最初にインスタンスを作成、クラスの。
+クラスを使用する場合は、通常、クラスをインスタンス化してから、そのメンバーにアクセスできるようにする必要があります。 たとえば、ビジネスロジック層のクラスの1つからメソッドを呼び出すためには、まずクラスのインスタンスを作成する必要があります。
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample1.cs)]
 
-呼び出すことができます前に*SomeMethod*操作または*SomeProperty*を使用して、クラスのインスタンスを作成する必要があります最初、`new`キーワード。 *SomeMethod*と*SomeProperty*は特定のインスタンスに関連付けられます。 これらのメンバーの有効期間は、関連付けられているオブジェクトの有効期間に関連付けられています。 *静的メンバー*、一方では、変数、プロパティ、メソッド間で共有される*すべて*クラスのインスタンスと、その結果、有効期間は、クラスと同じくらいにあります。 静的メンバーがキーワードで表される`static`します。
+*Somemethod*を呼び出したり、何かの*プロパティ*を使用したりする前に、まず、 `new`キーワードを使用してクラスのインスタンスを作成する必要があります。 *Somemethod*とその他の*プロパティ*は、特定のインスタンスに関連付けられています。 これらのメンバーの有効期間は、関連付けられているオブジェクトの有効期間に関連付けられています。 一方、*静的メンバー*は、クラスの*すべて*のインスタンス間で共有される変数、プロパティ、およびメソッドであり、その結果、クラスの有効期間が設定されます。 静的メンバーは、キーワード`static`によって示されます。
 
-静的メンバーだけでなくアプリケーションの状態を使用してデータをキャッシュできます。 各 ASP.NET アプリケーションでは、すべてのユーザーとアプリケーションのページで共有されている名前/値コレクションを保持します。 使用してこのコレクションにアクセスできる、 [ `HttpContext`クラス](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)の[`Application`プロパティ](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)、ASP.NET ページの分離コード クラスから使用して次のようにします。
+静的メンバーに加えて、アプリケーションの状態を使用してデータをキャッシュすることもできます。 各 ASP.NET アプリケーションは、アプリケーションのすべてのユーザーとページで共有される名前と値のコレクションを保持します。 このコレクションは、 [ `HttpContext`クラス](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)の[ `Application`プロパティ](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)を使用してアクセスでき、次のように ASP.NET ページの分離コードクラスから使用されます。
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
 
-データ キャッシュは、時間および依存関係に基づく切れ、キャッシュ項目の優先度などのメカニズムを提供するデータのキャッシュの多くの高度な API を提供します。 静的メンバーとアプリケーションの状態の場合は、このような機能をページの開発者によって手動で追加する必要があります。 アプリケーションの有効期間にわたってアプリケーションの起動時にデータをキャッシュする場合はただし、データ キャッシュの利点は議論の余地です。 このチュートリアルでは、静的データのキャッシュのすべての 3 つの手法を使用するコードを紹介します。
+データキャッシュには、データをキャッシュするための豊富な API が用意されています。これにより、時間と依存関係ベースの expiries、キャッシュ項目の優先度などのメカニズムが提供されます。 静的メンバーとアプリケーションの状態を使用する場合、このような機能は、ページの開発者が手動で追加する必要があります。 ただし、アプリケーションの有効期間中、アプリケーションの起動時にデータをキャッシュする場合、データキャッシュの利点は議論です。 このチュートリアルでは、静的なデータをキャッシュする3つの手法をすべて使用するコードを見ていきます。
 
-## <a name="step-3-caching-thesupplierstable-data"></a>手順 3: キャッシュ、`Suppliers`テーブル データ
+## <a name="step-3-caching-thesupplierstable-data"></a>手順 3: テーブルデータ`Suppliers`のキャッシュ
 
-データベース テーブルの日付に実装した Northwind は、従来のルックアップ テーブルを含めないでください。 4 つのデータ テーブルは、値が静的でないすべてのモデル テーブルを DAL に実装されます。 DAL および新しいクラスとメソッドを BLL に新しい DataTable を追加する時間を費やすのではなくこのチュートリアルでは想像してみましょうだけを`Suppliers`テーブルのデータは静的です。 そのため、アプリケーションの起動時にこのデータをキャッシュします。
+日付に実装した Northwind データベーステーブルには、従来のルックアップテーブルは含まれていません。 この4つの Datatable は、値が非静的であるすべてのモデルテーブルに対して実装されています。 このチュートリアルでは、新しい DataTable を DAL に追加してから、新しいクラスとメソッドを BLL に追加するのではなく、 `Suppliers`テーブルのデータが静的であることを示すだけです。 このため、アプリケーションの起動時にこのデータをキャッシュすることができます。
 
-という名前の新しいクラスの作成を開始する`StaticCache.cs`で、`CL`フォルダー。
+開始するには、 `StaticCache.cs` `CL`フォルダーにという名前の新しいクラスを作成します。
 
-![CL フォルダーに StaticCache.cs クラスを作成します。](caching-data-at-application-startup-cs/_static/image2.png)
+![CL フォルダーに StaticCache.cs クラスを作成する](caching-data-at-application-startup-cs/_static/image2.png)
 
-**図 2**:作成、`StaticCache.cs`クラス、`CL`フォルダー
+**図 2**:フォルダーにクラスを`StaticCache.cs`作成します。 `CL`
 
-このキャッシュからデータを返すメソッドと同様に、適切なキャッシュ ストアに起動時にデータを読み込むメソッドを追加する必要があります。
+このキャッシュからデータを返すメソッドだけでなく、スタートアップ時にデータを読み込むメソッドを追加する必要があります。
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample3.cs)]
 
-上記の例では、静的メンバー変数、`suppliers`からの結果を保持するために、`SuppliersBLL`クラスの`GetSuppliers()`メソッドから呼び出される、`LoadStaticCache()`メソッド。 `LoadStaticCache()`メソッドは、アプリケーションの開始中に呼び出されます。 このデータはアプリケーションの起動時に読み込まれると、仕入先データを使用する必要がある任意のページを呼び出すことができます、`StaticCache`クラスの`GetSuppliers()`メソッド。 そのため、仕入先を取得するデータベースへの呼び出しのみアプリケーションの起動時に 1 回行われます。
+上記のコードでは、静的メンバー変数`suppliers`を使用して、 `SuppliersBLL`クラスの`GetSuppliers()`メソッドの結果を保持します。これ`LoadStaticCache()`は、メソッドから呼び出されます。 メソッド`LoadStaticCache()`は、アプリケーションの開始時に呼び出されることを意図しています。 アプリケーションの起動時にこのデータが読み込まれると、supplier データを操作する必要があるすべての`StaticCache`ページで`GetSuppliers()`クラスのメソッドを呼び出すことができます。 そのため、サプライヤーを取得するためのデータベースへの呼び出しは、アプリケーションの起動時に1回だけ行われます。
 
-静的メンバー変数を使用して、キャッシュ ストアとしてではなく別の方法として使用できますアプリケーションの状態やデータのキャッシュ。 次のコードでは、アプリケーションの状態の使用によるクラスを示します。
+静的メンバー変数をキャッシュストアとして使用するのではなく、アプリケーションの状態またはデータキャッシュを使用することもできます。 次のコードは、アプリケーションの状態を使用するクラスを示しています。
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample4.cs)]
 
-`LoadStaticCache()`、仕入先の情報がアプリケーション変数に格納されている*キー*します。 適切な型として返されます (`Northwind.SuppliersDataTable`) から`GetSuppliers()`します。 アプリケーションの状態を使用して ASP.NET ページの分離コード クラスにアクセスできる間`Application["key"]`を使用しなければならないアーキテクチャで`HttpContext.Current.Application["key"]`現在を取得するために`HttpContext`します。
+で`LoadStaticCache()`は、supplier 情報はアプリケーション変数*キー*に格納されます。 これは、から`Northwind.SuppliersDataTable` `GetSuppliers()`適切な型 () として返されます。 アプリケーションの状態には、を使用して`Application["key"]`ASP.NET ページの分離コードクラスでアクセスできますが、現在`HttpContext.Current.Application["key"]` `HttpContext`のを取得するために使用する必要があるアーキテクチャでは、を使用する必要があります。
 
-同様に、データ キャッシュは、次のコードに示すとしてのキャッシュ ストアとして使用できます。
+同様に、次のコードに示すように、データキャッシュをキャッシュストアとして使用することもできます。
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
-時間ベースの期限なしでデータ キャッシュに項目を追加するには、使用、`System.Web.Caching.Cache.NoAbsoluteExpiration`と`System.Web.Caching.Cache.NoSlidingExpiration`入力パラメーターとして値。 この特定のオーバー ロードのデータ キャッシュの`Insert`指定できればようにメソッドが選択されて、*優先度*キャッシュ項目の。 優先順位を使用して、使用可能なメモリが不足しているときに、キャッシュから清掃を行うには、どのような項目を決定します。 ここでは、優先順位を使用`NotRemovable`、これにより、このキャッシュ項目を清掃するされません。
+時間ベースの有効期限なしでデータキャッシュに項目を追加するには、 `System.Web.Caching.Cache.NoAbsoluteExpiration`入力`System.Web.Caching.Cache.NoSlidingExpiration`パラメーターとしておよびの値を使用します。 このデータキャッシュの`Insert`メソッドの特定のオーバーロードが選択され、キャッシュ項目の*優先順位*を指定できるようになりました。 優先順位は、使用可能なメモリが不足しているときにキャッシュからどの項目を清掃するかを決定するために使用されます。 ここでは、この`NotRemovable`キャッシュ項目が清掃されないようにする優先順位を使用します。
 
 > [!NOTE]
-> このチュートリアルのダウンロードの実装、`StaticCache`クラスの静的メンバー変数のアプローチを使用します。 アプリケーションの状態とデータのキャッシュの手法のコードは、クラス ファイル内のコメントで使用できます。
+> このチュートリアルのダウンロードでは`StaticCache` 、静的メンバー変数のアプローチを使用してクラスを実装しています。 アプリケーションの状態とデータキャッシュの手法のコードについては、クラスファイルのコメントを参照してください。
 
-## <a name="step-4-executing-code-at-application-startup"></a>手順 4: アプリケーションの起動時にコードを実行します。
+## <a name="step-4-executing-code-at-application-startup"></a>手順 4: 実行 (アプリケーションの起動時にコードを)
 
-という名前の特殊なファイルの作成に必要なコードを実行するには、web アプリケーションの初回起動時に`Global.asax`します。 このファイルは、アプリケーションで、セッションでのイベント ハンドラーを含めることができ、要求レベルのイベントとそれがここで、アプリケーションが起動されるたびに実行されるコードを追加できます。
+Web アプリケーションが初めて起動したときにコードを実行するには、と`Global.asax`いう名前の特殊なファイルを作成する必要があります。 このファイルには、アプリケーション、セッション、および要求レベルのイベントのイベントハンドラーを含めることができます。ここでは、アプリケーションが起動するたびに実行されるコードを追加できます。
 
-追加、`Global.asax`ファイルを Visual Studio のソリューション エクスプ ローラーで web サイト プロジェクト名を右クリックし、新しい項目の追加を選択して、web アプリケーションのルート ディレクトリにします。 新しい項目の追加 ダイアログ ボックスで、グローバル アプリケーション クラスの項目の種類を選択し、追加 ボタンをクリックします。
+Visual Studio `Global.asax`のソリューションエクスプローラーで web サイトプロジェクト名を右クリックし、[新しい項目の追加] を選択して、web アプリケーションのルートディレクトリにファイルを追加します。 [新しい項目の追加] ダイアログボックスで、グローバルアプリケーションクラスの項目の種類を選択し、[追加] ボタンをクリックします。
 
 > [!NOTE]
-> 既にある場合、`Global.asax`ファイルで、プロジェクトでは、グローバル アプリケーション クラスが項目の種類は、新しい項目の追加 ダイアログ ボックスは表示されません。
+> プロジェクトに既に`Global.asax`ファイルがある場合、グローバルアプリケーションクラスの項目の種類は、[新しい項目の追加] ダイアログボックスに表示されません。
 
-[![Web アプリケーションのルート ディレクトリに、Global.asax ファイルを追加します。](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
+[![Web アプリケーションのルートディレクトリに global.asax ファイルを追加します。](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
-**図 3**:追加、 `Global.asax` Your Web アプリケーションのルート ディレクトリにファイル ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image5.png))。
+**図 3**:Web アプリケーション`Global.asax`のルートディレクトリにファイルを追加します ([クリックすると、フルサイズの画像が表示](caching-data-at-application-startup-cs/_static/image5.png)されます)
 
-既定の`Global.asax`ファイル テンプレートには、サーバー側で 5 つのメソッドが含まれています。`<script>`タグ。
+既定`Global.asax`のファイルテンプレートには、サーバー側`<script>`のタグ内に次の5つのメソッドが含まれています。
 
-- **`Application_Start`** 初回起動時に web アプリケーションを実行します。
-- **`Application_End`** アプリケーションのシャット ダウン時に実行
-- **`Application_Error`** ハンドルされない例外がアプリケーションに到達するたびに実行します。
-- **`Session_Start`** 新しいセッションが作成されるときに実行します
-- **`Session_End`** セッションが期限切れか、破棄されたときに実行されます。
+- **`Application_Start`** web アプリケーションが初めて起動したときに実行します
+- **`Application_End`** アプリケーションのシャットダウン時に実行されます
+- **`Application_Error`** 未処理の例外がアプリケーションに到達するたびに実行します
+- **`Session_Start`** 新しいセッションが作成されたときに実行します
+- **`Session_End`** セッションの有効期限が切れたとき、または破棄されたときに実行します
 
-`Application_Start`イベント ハンドラーは、アプリケーションのライフ サイクル中に 1 回だけ呼び出されます。 アプリケーションの起動時と、最初に、ASP.NET のリソースが、アプリケーションから要求されたアプリケーションが再起動されるまでの実行を継続の内容を変更することによって発生することが、`/Bin`フォルダーを変更する`Global.asax`、変更、内容、`App_Code`フォルダー、または変更、`Web.config`ファイル、その他の原因です。 参照してください[ASP.NET アプリケーションのライフ サイクルの概要](https://msdn.microsoft.com/library/ms178473.aspx)の詳細については、アプリケーションのライフ サイクルにします。
+イベント`Application_Start`ハンドラーは、アプリケーションのライフサイクル中に1回だけ呼び出されます。 アプリケーションから最初に ASP.NET リソースが要求されたときにアプリケーションが起動し、アプリケーションが再起動されるまで実行が継続されます。これ`/Bin`は、フォルダー `Global.asax`の内容を変更し、変更し、その他の`App_Code`原因で、フォルダー内`Web.config`の内容、またはファイルを変更します。 アプリケーションのライフサイクルの詳細については、 [「ASP.NET アプリケーションのライフサイクルの概要」](https://msdn.microsoft.com/library/ms178473.aspx)を参照してください。
 
-これらのチュートリアルにのみ必要があるコードを追加、`Application_Start`メソッドは、そのを自由に、他のユーザーを削除します。 `Application_Start`を呼び出すだけで、`StaticCache`クラスの`LoadStaticCache()`メソッドは、読み込みおよび仕入先の情報をキャッシュします。
+これらのチュートリアルでは、コードを`Application_Start`メソッドに追加するだけで済むため、他のコードは自由に削除できます。 で`Application_Start`は、 `StaticCache`クラスの`LoadStaticCache()`メソッドを呼び出すだけで、仕入先情報を読み込んでキャッシュすることができます。
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
-必要な作業は以上です。 アプリケーションの起動時に、`LoadStaticCache()`メソッドは、BLL から供給業者の情報を取得し、静的メンバー変数に保存 (を使用して最終的にどのようなキャッシュに格納するか、`StaticCache`クラス)。 この動作を確認するためにブレークポイントを設定、`Application_Start`メソッドと、アプリケーションを実行します。 アプリケーションの開始時にブレークポイントをヒットしたことに注意してください。 ただし、後続の要求も、実行、`Application_Start`メソッドを実行します。
+必要な作業は以上です。 アプリケーションの起動時に、 `LoadStaticCache()`メソッドは BLL から supplier の情報を取得し、静的メンバー変数 (または、 `StaticCache`クラスで使用して終了した任意のキャッシュストア) に格納します。 この動作を確認するには、 `Application_Start`メソッドにブレークポイントを設定し、アプリケーションを実行します。 アプリケーションの開始時にブレークポイントがヒットすることに注意してください。 ただし、後続の要求では`Application_Start`メソッドが実行されません。
 
-[![Application_Start イベント ハンドラーが実行されていることを確認するブレークポイントを使用してください。](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
+[![ブレークポイントを使用して、Application_Start イベントハンドラーが実行されていることを確認します。](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
-**図 4**:確認するブレークポイントを使用している、`Application_Start`イベント ハンドラーが実行されている ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image8.png))。
+**図 4**:ブレークポイントを使用して、 `Application_Start`イベントハンドラーが実行されていることを確認します ([クリックすると、フルサイズの画像が表示](caching-data-at-application-startup-cs/_static/image8.png)されます)
 
 > [!NOTE]
-> ヒットしない場合、`Application_Start`ブレークポイント デバッグを開始するときに、アプリケーションが既に開始します。 強制的に変更して再度実行するアプリケーション、`Global.asax`または`Web.config`ファイルし、し、もう一度お試しください。 単に追加 (または削除できます)、アプリケーションを迅速に再起動するこれらのファイルのいずれかの末尾に空白行。
+> 最初にデバッグを開始し`Application_Start`たときにブレークポイントにヒットしない場合は、アプリケーションが既に起動していることが原因です。 `Global.asax`または`Web.config`ファイルを変更してアプリケーションを強制的に再起動してから、操作をやり直してください。 これらのファイルのいずれかの末尾に空白行を追加 (または削除) するだけで、アプリケーションをすばやく再起動できます。
 
-## <a name="step-5-displaying-the-cached-data"></a>手順 5: キャッシュされたデータを表示します。
+## <a name="step-5-displaying-the-cached-data"></a>手順 5: キャッシュされたデータの表示
 
-この時点で、`StaticCache`クラスを介してアクセスできるアプリケーションの起動時にキャッシュされた仕入先データのバージョンには、その`GetSuppliers()`メソッド。 プレゼンテーション層からこのデータを使用するには、ObjectDataSource を使用して、またはプログラムで呼び出すことができます、`StaticCache`クラスの`GetSuppliers()`ASP.NET ページの分離コード クラスのメソッド。 ObjectDataSource や GridView コントロールを使用して、キャッシュされた仕入先の情報を表示するを見てみましょう。
+この時点で、 `StaticCache`クラスには、アプリケーションの起動時にキャッシュされる supplier データのバージョンがあり、 `GetSuppliers()`そのメソッドを使用してアクセスできます。 プレゼンテーション層からこのデータを操作するには、ObjectDataSource を使用するか、ASP.NET ページ`StaticCache`の分離`GetSuppliers()`コードクラスからクラスのメソッドをプログラムによって呼び出します。 ObjectDataSource コントロールと GridView コントロールを使用して、キャッシュされた業者情報を表示する方法を見てみましょう。
 
-開いて開始、`AtApplicationStartup.aspx`ページで、`Caching`フォルダー。 GridView をデザイナーの設定には、ツールボックスからドラッグしてその`ID`プロパティを`Suppliers`します。 次に、GridView のスマート タグからをという名前の新しい ObjectDataSource を作成する選択`SuppliersCachedDataSource`します。 構成を使用する ObjectDataSource、`StaticCache`クラスの`GetSuppliers()`メソッド。
+まず、 `Caching`フォルダーの`AtApplicationStartup.aspx`ページを開きます。 GridView をツールボックスからデザイナーにドラッグし、 `ID`プロパティをに`Suppliers`設定します。 次に、GridView のスマートタグから、という名前`SuppliersCachedDataSource`の新しい ObjectDataSource を作成します。 `StaticCache`クラスの`GetSuppliers()`メソッドを使用するように ObjectDataSource を構成します。
 
-[![StaticCache クラスを使用する ObjectDataSource を構成します。](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
+[![StaticCache クラスを使用するように ObjectDataSource を構成する](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
 
-**図 5**:構成を使用する ObjectDataSource、`StaticCache`クラス ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image11.png))。
+**図 5**:`StaticCache`クラスを使用するように ObjectDataSource を構成します ([クリックすると、フルサイズのイメージが表示](caching-data-at-application-startup-cs/_static/image11.png)されます)
 
-[![GetSuppliers() メソッドを使用して、キャッシュされた仕入先データを取得するには](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
+[![GetSuppliers () メソッドを使用して、キャッシュされた仕入先データを取得します。](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
 
-**図 6**:使用して、`GetSuppliers()`キャッシュ仕入先データを取得するメソッド ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image14.png))。
+**図 6**:メソッドを使用して、キャッシュされた Supplier データを取得します ([クリックすると、フルサイズの画像が表示](caching-data-at-application-startup-cs/_static/image14.png)されます) `GetSuppliers()`
 
-ウィザードを完了すると、Visual Studio が自動的に追加 BoundFields のデータ フィールドの各`SuppliersDataTable`します。 GridView、ObjectDataSource の宣言型マークアップは次のようになります。
+ウィザードを完了すると、Visual Studio によっての各データフィールド`SuppliersDataTable`に対して boundfields が自動的に追加されます。 GridView および ObjectDataSource の宣言型マークアップは、次のようになります。
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample7.aspx)]
 
-図 7 では、ブラウザーで表示する際、ページを示します。 出力は同じ BLL からデータをプルしますが`SuppliersBLL`クラスが使用して、`StaticCache`クラスは、アプリケーションの起動時にキャッシュされたとして仕入先データを返します。 ブレークポイントを設定することができます、`StaticCache`クラスの`GetSuppliers()`この動作を確認するメソッド。
+図7は、ブラウザーを使用して表示するときのページを示しています。 出力は、BLL の`SuppliersBLL`クラスからデータを取得したのと同じですが、 `StaticCache`クラスを使用すると、アプリケーションの起動時にキャッシュされた仕入先データが返されます。 クラスの`StaticCache` `GetSuppliers()`メソッドにブレークポイントを設定して、この動作を確認できます。
 
-[![キャッシュの仕入先データが GridView に表示されます。](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
+[![キャッシュされた仕入先データが GridView に表示される](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
 
-**図 7**:キャッシュの仕入先データが GridView に表示されます ([フルサイズの画像を表示する をクリックします](caching-data-at-application-startup-cs/_static/image17.png))。
+**図 7**:キャッシュされた仕入先データが GridView に表示されます ([クリックすると、フルサイズの画像が表示](caching-data-at-application-startup-cs/_static/image17.png)されます)
 
 ## <a name="summary"></a>まとめ
 
-すべてのほとんどのデータ モデルには、かなり静的データ、通常、ルックアップ テーブルの形式で実装にはが含まれています。 この情報は、静的であるために、この情報を表示する必要があるたびに、データベースを継続的にアクセスする理由はありません。 さらに、その静的な性質により、そこにデータをキャッシュ有効期限の必要性がない場合。 このチュートリアルでは、このようなデータを取得し、データ キャッシュ、アプリケーションの状態、および静的メンバー変数を介した、それをキャッシュする方法を説明しました。 この情報は、アプリケーションの起動時にキャッシュされは、アプリケーションの有効期間全体でキャッシュに残ります。
+ほとんどのデータモデルには、通常、参照テーブルの形式で実装される、静的なデータが大量に含まれています。 この情報は静的であるため、この情報を表示する必要があるたびにデータベースに継続的にアクセスする理由はありません。 さらに、静的な性質上、データをキャッシュする場合、有効期限は不要です。 このチュートリアルでは、このようなデータを取得し、データキャッシュ、アプリケーションの状態、および静的メンバー変数にキャッシュする方法を説明しました。 この情報はアプリケーションの起動時にキャッシュされ、アプリケーションの有効期間中はキャッシュに残ります。
 
-このチュートリアルで、過去の 2 つ ve 切れの時間ベースを使用するほか、アプリケーションの有効期間のデータのキャッシュについて説明しました。 データベースのデータをキャッシュする場合、時間ベースの有効期限が遅くなりますあります。 キャッシュを定期的にフラッシュするではなく、基になるデータベースのデータが変更されたときにのみ、キャッシュされた項目を削除するのに最適があります。 この理想は、次のチュートリアルで取り上げる SQL キャッシュ依存関係を使用して可能です。
+このチュートリアルと過去2つでは、時間ベースの expiries を使用するだけでなく、アプリケーションの有効期間中のデータのキャッシュについても説明しました。 ただし、データベースデータをキャッシュする場合は、時間ベースの有効期限が理想的な値よりも小さくなることがあります。 キャッシュを定期的にフラッシュするのではなく、基になるデータベースデータが変更された場合にのみ、キャッシュされた項目を削除することをお勧めします。 これは、次のチュートリアルで説明する SQL キャッシュ依存関係を使用することによって可能です。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 彼は、に[ mitchell@4GuysFromRolla.comアクセスできます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください[http://ScottOnWriting.NET](http://ScottOnWriting.NET)。これは、「」にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Teresa Murphy および Zack Jones でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Teresa Murphy と Zack Jones でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、に[ mitchell@4GuysFromRolla.com行をドロップします。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](caching-data-in-the-architecture-cs.md)
