@@ -10,10 +10,10 @@ ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: d7cc83a5b78a60f575f5c3065079679189296a0c
-ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
+ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "58425276"
 ---
 # <a name="tutorial-learn-about-advanced-ef-scenarios-for-an-mvc-5-web-app"></a>チュートリアル: MVC 5 Web アプリの高度な EF シナリオについて説明します。
@@ -212,7 +212,7 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-多数のエンティティを追跡していて、これらのメソッドのいずれかをループ内で何度も呼び出す場合、Autodetection の[有効な](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティを使用して自動変更検出を一時的に無効にすると、パフォーマンスが大幅に向上する可能性があります。 詳細については、MSDN の「[変更を自動的に検出](https://msdn.microsoft.com/data/jj556205)する」を参照してください。
+多数のエンティティを追跡していて、これらのメソッドのいずれかをループ内で何度も呼び出す場合、 [autodetection の有効な](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティを使用して自動変更検出を一時的に無効にすると、パフォーマンスが大幅に向上する可能性があります。 詳細については、MSDN の「[変更を自動的に検出](https://msdn.microsoft.com/data/jj556205)する」を参照してください。
 
 ## <a name="automatic-validation"></a>自動検証
 
