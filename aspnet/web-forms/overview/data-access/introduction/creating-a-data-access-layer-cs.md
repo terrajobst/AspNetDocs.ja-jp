@@ -198,7 +198,7 @@ AllProducts.aspx.cs
 
 **図 15**:作成 を選択、**SELECT**ステートメントが行を返します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image41.png))。
 
-次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用すると、特定のカテゴリに属する製品だけを返すので、<strong>選択</strong>ステートメントから<strong>GetProducts()</strong>、以下を追加しますが、<strong>場所</strong>句:<strong>場所 CategoryID = @CategoryID</strong>します。 <strong>@CategoryID</strong>パラメーター、メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする TableAdapter ウィザードを示します。
+次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用すると、特定のカテゴリに属する製品だけを返すので、<strong>選択</strong>ステートメントから<strong>GetProducts()</strong>、以下を追加しますが、<strong>WHERE</strong>句:<strong>WHERE CategoryID = @CategoryID</strong>します。 <strong>@CategoryID</strong>パラメーター、メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする TableAdapter ウィザードを示します。
 
 [![指定されたカテゴリの製品を返すだけのクエリを入力します](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
 
