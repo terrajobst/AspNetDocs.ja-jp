@@ -47,7 +47,7 @@ Get メソッドを開いたまま、Post、Put、および Delete メソッド�
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample4.cs?highlight=1)]
 
-`MapProducts`メソッドが返す、 **IQueryable**ので、他のクエリ パラメーターと結果を作成します。 これで確認できます、`GetProduct`メソッドで、追加、**場所**句をクエリ。
+`MapProducts`メソッドが返す、 **IQueryable**ので、他のクエリ パラメーターと結果を作成します。 これで確認できます、`GetProduct`メソッドで、追加、**where**句をクエリ。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample5.cs?highlight=2)]
 
