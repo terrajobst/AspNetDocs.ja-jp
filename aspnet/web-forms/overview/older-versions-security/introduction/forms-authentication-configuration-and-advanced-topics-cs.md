@@ -187,9 +187,9 @@ Microsoft では、すべての設定を使用して強くお勧めします。
 
 | **属性** | **説明** |
 | --- | --- |
-| 復号化 | 暗号化に使用されるアルゴリズムを示します。 この属性は次の 4 つの値のいずれかであることができます: - 自動 - 既定では、キー decryptionKey 属性の長さに基づくアルゴリズムを決定します。 -AES - を使用して、 [Advanced Encryption Standard (AES)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)アルゴリズム。 DES - を使用して、[データ暗号化標準 (DES)](http://en.wikipedia.org/wiki/Data_Encryption_Standard)このアルゴリズムは脆弱な計算と見なされます、使用できません。 3 - des-を使用して、 [Triple DES](http://en.wikipedia.org/wiki/Triple_DES)アルゴリズムで、3 回、DES アルゴリズムを適用することで動作します。 |
+| decryption | 暗号化に使用されるアルゴリズムを示します。 この属性は次の 4 つの値のいずれかであることができます: - 自動 - 既定では、キー decryptionKey 属性の長さに基づくアルゴリズムを決定します。 -AES - を使用して、 [Advanced Encryption Standard (AES)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)アルゴリズム。 DES - を使用して、[データ暗号化標準 (DES)](http://en.wikipedia.org/wiki/Data_Encryption_Standard)このアルゴリズムは脆弱な計算と見なされます、使用できません。 3 - des-を使用して、 [Triple DES](http://en.wikipedia.org/wiki/Triple_DES)アルゴリズムで、3 回、DES アルゴリズムを適用することで動作します。 |
 | decryptionKey | 暗号化アルゴリズムで使用されるシークレット キー。 この値に、(復号化の値に基づく) 適切な長さ、自動生成、またはいずれかの値を使用すると、追加の 16 進数文字列 IsolateApps します。 IsolateApps を追加するには、ASP.NET アプリケーションごとに一意の値を使用するように指示します。 既定では AutoGenerate, IsolateApps です。 |
-| 検証 | 検証に使用されるアルゴリズムを示します。 この属性は次の 4 つの値のいずれかであることができます: - AES - は、Advanced Encryption Standard (AES) アルゴリズムを使用します。 MD5 の使用、[メッセージ ダイジェスト 5 (MD5)](http://en.wikipedia.org/wiki/MD5)アルゴリズム。 -SHA1 - を使用して、 [SHA1](http://en.wikipedia.org/wiki/Sha1)アルゴリズム (既定)。 -3 des、Triple DES アルゴリズムを使用します。 |
+| validation | 検証に使用されるアルゴリズムを示します。 この属性は次の 4 つの値のいずれかであることができます: - AES - は、Advanced Encryption Standard (AES) アルゴリズムを使用します。 MD5 の使用、[メッセージ ダイジェスト 5 (MD5)](http://en.wikipedia.org/wiki/MD5)アルゴリズム。 -SHA1 - を使用して、 [SHA1](http://en.wikipedia.org/wiki/Sha1)アルゴリズム (既定)。 -3 des、Triple DES アルゴリズムを使用します。 |
 | validationKey | 検証アルゴリズムで使用されるシークレット キー。 この値に、(検証の値に基づく) 適切な長さ、自動生成、またはいずれかの値を使用すると、追加の 16 進数文字列 IsolateApps します。 IsolateApps を追加するには、ASP.NET アプリケーションごとに一意の値を使用するように指示します。 既定では AutoGenerate, IsolateApps です。 |
 
 **表 2.** :&lt;MachineKey&gt;要素の属性
