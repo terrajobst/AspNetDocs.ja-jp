@@ -24,7 +24,7 @@ ms.locfileid: "65132772"
 
 > このトピックで、アプリケーションは、Twitter ヘルパーを WebMatrix 3 プロジェクトに追加する方法を示します。 Twitter ヘルパー コードが含まれ、ヘルパー メソッドを呼び出す方法を示しています。
 > 
-> Twitter.cshtml ファイル用のこのコードは、開発された**Tian パン**Microsoft の。
+> Twitter.cshtml ファイル用のこのコードは、開発された**Tian Pan**Microsoft の。
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 
@@ -44,7 +44,7 @@ WebMatrix のインストール方法の詳細については、次を参照し�
 
 ## <a name="add-twitter-helper-to-your-project"></a>Twitter ヘルパーをプロジェクトに追加します。
 
-Twitter ヘルパーを追加するには、最初に、という名前のフォルダーを追加**アプリ\_コード**をプロジェクトにします。 という名前のファイルを作成し、 **Twitter.cshtml**します。
+Twitter ヘルパーを追加するには、最初に、という名前のフォルダーを追加**App\_Code**をプロジェクトにします。 という名前のファイルを作成し、 **Twitter.cshtml**します。
 
 ![App_Code フォルダー](twitter-helper/_static/image1.png)
 
