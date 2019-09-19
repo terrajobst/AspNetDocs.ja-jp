@@ -27,7 +27,7 @@ ms.locfileid: "65108984"
 
 Web 開発者は、私たちの生活に焦点を絞ってデータを操作します。 コードを取得し、変更、および web ページを収集して集計データを格納するデータベースを作成します。 これは、時間のかかるを ASP.NET 2.0 ではこれらの一般的なパターンを実装するテクニックを紹介する一連の最初のチュートリアルです。 まず、作成、[ソフトウェア アーキテクチャ](http://en.wikipedia.org/wiki/Software_architecture)でのデータ アクセス層 (DAL) ビジネス ロジック層 (BLL)、型指定されたデータセットを使用して構成されていますが、カスタムのビジネス ルールを強制し、プレゼンテーション層が ASP.NET の構成ページ共通のページ レイアウトを共有します。 レポートに移動します、このバックエンド土台をレイアウトされてが後を表示する方法を示す集計、収集、および web アプリケーションからデータを検証します。 簡潔であり、プロセスを視覚的に順番に多数のスクリーン ショットの手順を説明には、これらのチュートリアルが適しています。 各チュートリアルは、c# および Visual Basic バージョンで使用可能なために使用する完全なコードのダウンロードが含まれています。 (この最初のチュートリアルでは、非常に長い時間がかかるが、残りの部分をより消化しやすいチャンク単位で表示されます)。
 
-配置で Northwind データベースの Microsoft SQL Server 2005 Express Edition バージョンこれらのチュートリアルを使用する、**アプリ\_データ**ディレクトリ。 データベースのファイルに加えて、**アプリ\_データ**フォルダーは、別のデータベース バージョンを使用する場合にも、データベースを作成するための SQL スクリプトを格納します。 これらのスクリプトもあり[マイクロソフトから直接ダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en)したい場合は、します。 Northwind データベースの別の SQL Server バージョンを使用する場合は、更新する必要があります。、 **NORTHWNDConnectionString**アプリケーションの設定**Web.config**ファイル。 Web アプリケーションは、ファイル システム ベースの Web サイト プロジェクトとして Visual Studio 2005 Professional Edition を使用して構築されました。 ただし、すべてのチュートリアルでは、動作は、Visual Studio 2005 の無料版と同様[Visual Web Developer](https://msdn.microsoft.com/vstudio/express/vwd/)します。  
+配置で Northwind データベースの Microsoft SQL Server 2005 Express Edition バージョンこれらのチュートリアルを使用する、**App\_Data**ディレクトリ。 データベースのファイルに加えて、**App\_Data**フォルダーは、別のデータベース バージョンを使用する場合にも、データベースを作成するための SQL スクリプトを格納します。 これらのスクリプトもあり[マイクロソフトから直接ダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en)したい場合は、します。 Northwind データベースの別の SQL Server バージョンを使用する場合は、更新する必要があります。、 **NORTHWNDConnectionString**アプリケーションの設定**Web.config**ファイル。 Web アプリケーションは、ファイル システム ベースの Web サイト プロジェクトとして Visual Studio 2005 Professional Edition を使用して構築されました。 ただし、すべてのチュートリアルでは、動作は、Visual Studio 2005 の無料版と同様[Visual Web Developer](https://msdn.microsoft.com/vstudio/express/vwd/)します。  
   
 このチュートリアルでは、最初から開始をデータ アクセス層 (DAL)、続いて 2 番目のチュートリアルでは、ビジネス ロジック層 (BLL) を作成してページ レイアウトと 3 番目のナビゲーションで作業を作成します。 チュートリアルでは、3 つが、基盤の上に構築した後は、最初の 3 つに配置されます。 この最初のチュートリアルで説明、そのため、Visual Studio を起動および作業を開始するのには多くがあります。
 
@@ -39,19 +39,19 @@ Web 開発者は、私たちの生活に焦点を絞ってデータを操作し�
 
 **図 1**:New File System-Based Web サイトの作成 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image3.png))。
 
-これで新しい web サイトが作成されます、 **Default.aspx** ASP.NET ページと**アプリ\_データ**フォルダー。
+これで新しい web サイトが作成されます、 **Default.aspx** ASP.NET ページと**App\_Data**フォルダー。
 
 作成された web サイトを次の手順は Visual Studio のサーバー エクスプ ローラーで、データベースへの参照を追加します。 サーバー エクスプ ローラーにデータベースを追加するには、テーブル、ストアド プロシージャ、ビュー、および Visual Studio 内からのすべてを追加できます。 テーブルのデータを表示またはクエリ ビルダーを使用して手動でまたは視覚的に、独自のクエリを作成もできます。 さらに、dal に型指定されたデータセットを構築するときに型指定されたデータセットを構築するためのデータベースへのポイントの Visual Studio に必要があります。 その時点では、この接続情報を提供することができます、Visual Studio でサーバー エクスプ ローラーで既に登録されているデータベースのドロップダウン リストが自動的に設定されます。
 
-Northwind データベースをサーバー エクスプ ローラーに追加する手順は、SQL Server 2005 Express Edition データベースを使用するかどうかに依存、**アプリ\_データ**フォルダーまたは Microsoft SQL Server 2000 または 2005 があるかどうか代わりに使用するデータベース サーバーのセットアップ。
+Northwind データベースをサーバー エクスプ ローラーに追加する手順は、SQL Server 2005 Express Edition データベースを使用するかどうかに依存、**App\_Data**フォルダーまたは Microsoft SQL Server 2000 または 2005 があるかどうか代わりに使用するデータベース サーバーのセットアップ。
 
 ## <a name="using-a-database-in-theapp_datafolder"></a>アプリケーションでデータベースを使用して\_DataFolder
 
-ダウンロードした websit に配置されている Northwind データベースの SQL Server 2005 Express Edition のバージョンを使用することができる場合に、接続するには、SQL Server 2000 または 2005年データベース サーバーがないか、データベース サーバーにデータベースを追加しなくてもすむようにしたい、杯**アプリ\_データ**フォルダー (**NORTHWND します。MDF**)。
+ダウンロードした websit に配置されている Northwind データベースの SQL Server 2005 Express Edition のバージョンを使用することができる場合に、接続するには、SQL Server 2000 または 2005年データベース サーバーがないか、データベース サーバーにデータベースを追加しなくてもすむようにしたい、杯**App\_Data**フォルダー (**NORTHWND.MDF**)。
 
-データベースに配置、**アプリ\_データ**フォルダーがサーバー エクスプ ローラーに自動的に追加します。 SQL Server 2005 Express Edition をコンピューターにインストールがあると仮定すると NORTHWND という名前のノードが表示されます。サーバー エクスプ ローラーで MDF を展開し、そのテーブル、ビュー、ストアド プロシージャ、および具合 (図 2 参照) を調べることができます。
+データベースに配置、**App\_Data**フォルダーがサーバー エクスプ ローラーに自動的に追加します。 SQL Server 2005 Express Edition をコンピューターにインストールがあると仮定すると NORTHWND という名前のノードが表示されます。サーバー エクスプ ローラーで MDF を展開し、そのテーブル、ビュー、ストアド プロシージャ、および具合 (図 2 参照) を調べることができます。
 
-**アプリ\_データ** フォルダーは、Microsoft Access にも格納できる **.mdb** SQL Server の対応するように自動的に追加サーバー エクスプ ローラーになるファイル。 常に、SQL Server オプションのいずれかを使用しない場合は[、Microsoft Access バージョンの Northwind データベース ファイルのダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN)にドロップし、**アプリ\_データ**ディレクトリ。 ただし、おいてとして Access データベースではないとして SQL Server では、機能豊富な web サイトのシナリオで使用するものではありません。 さらに、いくつかの 35 + チュートリアルへのアクセスでサポートされていない特定のデータベース レベルの機能が使用されます。
+**App\_Data** フォルダーは、Microsoft Access にも格納できる **.mdb** SQL Server の対応するように自動的に追加サーバー エクスプ ローラーになるファイル。 常に、SQL Server オプションのいずれかを使用しない場合は[、Microsoft Access バージョンの Northwind データベース ファイルのダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN)にドロップし、**App\_Data**ディレクトリ。 ただし、おいてとして Access データベースではないとして SQL Server では、機能豊富な web サイトのシナリオで使用するものではありません。 さらに、いくつかの 35 + チュートリアルへのアクセスでサポートされていない特定のデータベース レベルの機能が使用されます。
 
 ## <a name="connecting-to-the-database-in-a-microsoft-sql-server-2000-or-2005-database-server"></a>Microsoft SQL Server 2000 または 2005 のデータベース サーバーでデータベースに接続します。
 
@@ -276,7 +276,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 
 ## <a name="creating-custom-insert-update-and-delete-methods"></a>作成するカスタムの挿入、更新、および Delete メソッド
 
-**Insert()** 、 **Update()** 、および**Delete()** DB ダイレクト メソッドによって作成されたメソッドを少し面倒で、特に多数の列を持つテーブルのことができます。 IntelliSense のヘルプが特にはっきりしない内容なし、前のコード例を見て**製品**テーブルの列に各入力パラメーターにマップされて、 **Update()** と**Insert()** メソッド。 ときにのみする 1 つの列または 2 つの更新またはカスタマイズされた時間がある可能性があります**Insert()** は、おそらく、メソッドは新しく挿入されたレコードの値を返す**IDENTITY** (自動インクリメント)フィールド。
+**Insert()** 、 **Update()** 、および**Delete()** DB ダイレクト メソッドによって作成されたメソッドを少し面倒で、特に多数の列を持つテーブルのことができます。 IntelliSense のヘルプが特にはっきりしない内容なし、前のコード例を見て**Products**テーブルの列に各入力パラメーターにマップされて、 **Update()** と**Insert()** メソッド。 ときにのみする 1 つの列または 2 つの更新またはカスタマイズされた時間がある可能性があります**Insert()** は、おそらく、メソッドは新しく挿入されたレコードの値を返す**IDENTITY** (自動インクリメント)フィールド。
 
 このようなカスタム メソッドを作成するには、データセット デザイナーに戻ります。 TableAdapter を右クリックし、追加のクエリ、TableAdapter ウィザードに戻る を選択します。 2 番目の画面を作成するクエリの種類を指定できます。 新しい製品を追加して、新しく追加されたレコードの値を返しますメソッドを作成しましょう**ProductID**します。 そのため、作成することを選択、**INSERT**クエリ。
 
@@ -284,11 +284,11 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 
 **図 25**:新しい行を追加するメソッドを作成、**製品**テーブル ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image69.png))。
 
-次の画面で、 **InsertCommand**の**CommandText**が表示されます。 追加することでこのクエリを拡張する **選択スコープ\_IDENTITY()** に挿入された最後の id 値を返しますクエリの最後に、 **IDENTITY** 同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については **スコープ\_IDENTITY()** と多くの場合にその理由[スコープを使用して\_IDENTITY() の代わりに @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).)終了するかどうかを確認、**挿入**をセミコロンでステートメントを追加する前に、**選択**ステートメント。
+次の画面で、 **InsertCommand**の**CommandText**が表示されます。 追加することでこのクエリを拡張する **SELECT SCOPE\_IDENTITY()** に挿入された最後の id 値を返しますクエリの最後に、 **IDENTITY** 同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については **SCOPE\_IDENTITY()** と多くの場合にその理由[スコープを使用して\_IDENTITY() の代わりに @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).)終了するかどうかを確認、**INSERT**をセミコロンでステートメントを追加する前に、**SELECT**ステートメント。
 
 [![Scope_identity() で値を返すクエリを拡張します。](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
 
-**図 26**:返された場合にクエリを拡張、**スコープ\_IDENTITY()** 値 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image72.png))。
+**図 26**:返された場合にクエリを拡張、**SCOPE\_IDENTITY()** 値 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image72.png))。
 
 新しいメソッドの名前を最後に、 **InsertProduct**します。
 
@@ -318,7 +318,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 
 [![GetProducts() メソッドの SELECT ステートメントを更新します。](creating-a-data-access-layer-cs/_static/image80.png)](creating-a-data-access-layer-cs/_static/image79.png)
 
-**図 29**:更新プログラム、**選択**のステートメント、 **GetProducts()** メソッド ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image81.png))。
+**図 29**:更新プログラム、**SELECT**のステートメント、 **GetProducts()** メソッド ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image81.png))。
 
 更新した後、 **GetProducts()** メソッドを使用して、この新しいクエリを DataTable には、2 つの新しい列が含まれます。**CategoryName**と**仕入**します。
 
@@ -401,7 +401,7 @@ Tableadapter と型指定されたデータセットに追加されたデータ 
 
 自動生成されたコードでは、優れた時間の節約をすることができます、コードは非常に一般的な多くの場合であり、アプリケーションの独自のニーズに合わせてカスタマイズする必要があります。 自動生成されたコードでは、拡張のリスクは「再生」し、カスタマイズした内容を上書きする可能性があります、コードを生成したツールで決定します。 .NET 2.0 の新しい部分クラスの概念では、複数のファイルをクラスに分割する簡単です。 これにより、自動生成されたクラスに、カスタマイズが上書きされる Visual Studio について心配することがなく、独自のメソッド、プロパティ、およびイベントを追加することができます。
 
-DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()** メソッドを**SuppliersRow**クラス。 **SuppliersRow** クラスを表します 1 つのレコード、 **Suppliers** テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように **GetProducts()** ものを返します。指定された業者の製品です。 これで新しいクラス ファイルが作成を実現する、**アプリ\_コード**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
+DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()** メソッドを**SuppliersRow**クラス。 **SuppliersRow** クラスを表します 1 つのレコード、 **Suppliers** テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように **GetProducts()** ものを返します。指定された業者の製品です。 これで新しいクラス ファイルが作成を実現する、**App\_Code**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample22.cs)]
 
