@@ -53,9 +53,9 @@ Entity Framework バージョン 4 では、code first と呼ばれる開発パ�
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample3.cs)]
 
-### <a name="adding-the-appdata-folder"></a>アプリの追加\_データ フォルダー
+### <a name="adding-the-appdata-folder"></a>App\_Dataフォルダーの追加
 
-アプリを追加します\_データ ディレクトリ、SQL Server Express のデータベース ファイルを保持するために、プロジェクトにします。 アプリ\_データが既にデータベースへのアクセスの適切なセキュリティ アクセス許可のある ASP.NET の特殊なディレクトリ。 [プロジェクト] メニューから選択し、ASP.NET フォルダーの追加、アプリ\_データ。
+プロジェクトに App\_Data ディレクトリを追加して、SQL Server Express データベースファイルを保持します。 App\_Data は、ASP.NET の特殊なディレクトリであり、データベースアクセスのための正しいセキュリティアクセス許可が既にあります。 [プロジェクト] メニューから ASP.NET フォルダーの追加、App\_Data の順に選択します。
 
 ![](mvc-music-store-part-4/_static/image1.png)
 
