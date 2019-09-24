@@ -44,7 +44,7 @@ WebMatrix のインストール方法の詳細については、次を参照し�
 
 ## <a name="add-twitter-helper-to-your-project"></a>Twitter ヘルパーをプロジェクトに追加します。
 
-Twitter ヘルパーを追加するには、最初に、という名前のフォルダーを追加**アプリ\_コード**をプロジェクトにします。 という名前のファイルを作成し、 **Twitter.cshtml**します。
+Twitter ヘルパーを追加するには、最初に、という名前のフォルダーを追加**App\_Code**をプロジェクトにします。 という名前のファイルを作成し、 **Twitter.cshtml**します。
 
 ![App_Code フォルダー](twitter-helper/_static/image1.png)
 
