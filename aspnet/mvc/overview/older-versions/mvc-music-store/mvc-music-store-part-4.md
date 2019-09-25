@@ -53,7 +53,9 @@ Entity Framework バージョン 4 では、code first と呼ばれる開発パ�
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample3.cs)]
 
+
 ### <a name="adding-the-appdata-folder"></a>App\_Dataフォルダーの追加
+
 
 プロジェクトに App\_Data ディレクトリを追加して、SQL Server Express データベースファイルを保持します。 App\_Data は、ASP.NET の特殊なディレクトリであり、データベースアクセスのための正しいセキュリティアクセス許可が既にあります。 [プロジェクト] メニューから ASP.NET フォルダーの追加、App\_Data の順に選択します。
 
@@ -115,7 +117,7 @@ MusicStoreEntities クラスは Entity Framework によって保持され、デ�
 
 ### <a name="updating-store-browse-and-details-to-use-live-data"></a>ストアの参照や詳細情報を使用して、ライブ データを更新しています
 
-ストア/参照で? ジャンル =*[一部ジャンル]* 、アクション メソッドを検索するジャンルを名前でします。 のみが期待 1 つの結果、これまでジャンルの同名の 2 つのエントリがあるべきではないため、使用できるようにします。このような適切なジャンル オブジェクトのクエリを LINQ で Single() 拡張機能 (入力せずにこのまだ)。
+ストア/参照で? ジャンル = *[一部ジャンル]* 、アクション メソッドを検索するジャンルを名前でします。 のみが期待 1 つの結果、これまでジャンルの同名の 2 つのエントリがあるべきではないため、使用できるようにします。このような適切なジャンル オブジェクトのクエリを LINQ で Single() 拡張機能 (入力せずにこのまだ)。
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample9.cs)]
 
