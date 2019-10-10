@@ -117,7 +117,7 @@ ASP.NET Web フォームの新しいバージョンには、多数のデータ�
 4. 次の追加ステートメントを使用します。
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample2.cs)]
-5. **ページ\_ロード**メソッドでは、顧客のリストと repeater を設定するコードを追加します。
+5. **Page\_Load**メソッドでは、顧客のリストと repeater を設定するコードを追加します。
 
     (コード スニペット -*フォーム ラボ - Ex01 - バインドのお客様のデータ ソースを Web*)
 
@@ -359,7 +359,7 @@ ASP.NET MVC 4 を使用している場合、モデルのバインディング �
     [!code-xml[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample22.xml)]
 
     > [!NOTE]
-    > このプロパティを設定することも、 &quot;**ページ\_ロード**&quot;控え目な検証をいくつかのページに対してのみ有効にする場合のイベント。
+    > このプロパティを設定することも、 &quot;**Page\_Load**&quot;控え目な検証をいくつかのページに対してのみ有効にする場合のイベント。
 7. 開いている**CustomerDetails.aspx**キーを押します**F5** Web アプリケーションを起動します。
 8. IE の開発者ツールを開く F12 キーを押します。 開発者ツールが開いたら、スクリプト タブを選択します。選択**CustomerDetails.aspx**ローカル サイトからブラウザーに読み込まれたページに jQuery を実行するスクリプトが必要なことに注意してください メニューおよび take から。
 
