@@ -166,7 +166,7 @@ TableAdapter のいずれかまたは両方のパターンを実装すること�
 
 このコードでは、データ アクセスに固有のコードの 1 つのビットを記述する必要ありませんでした。 すべての ADO.NET クラスをインスタンス化する必要はなく、任意の SQL クエリ、接続文字列を参照する必要がなかったか、ストアド プロシージャします。 代わりに、TableAdapter は、私たちにとって低レベルのデータ アクセス コードを提供します。
 
-この例で使用される各オブジェクトは、厳密に型指定、Visual Studio の IntelliSense とコンパイル時の型チェックを提供することができますも。 TableAdapter によって返されるすべてのデータ テーブルの ASP.NET データなど、GridView、DetailsView、DropDownList、CheckBoxList、およびその他のいくつかの Web コントロールにバインドできます。 によって返された DataTable をバインドする次の例を示しています、 **GetProducts()** メソッドをコード内の十分な 3 行だけで、GridView、**ページ\_ロード**イベント ハンドラー。
+この例で使用される各オブジェクトは、厳密に型指定、Visual Studio の IntelliSense とコンパイル時の型チェックを提供することができますも。 TableAdapter によって返されるすべてのデータ テーブルの ASP.NET データなど、GridView、DetailsView、DropDownList、CheckBoxList、およびその他のいくつかの Web コントロールにバインドできます。 によって返された DataTable をバインドする次の例を示しています、 **GetProducts()** メソッドをコード内の十分な 3 行だけで、GridView、**Page\_Load**イベント ハンドラー。
 
 AllProducts.aspx
 
@@ -180,7 +180,7 @@ AllProducts.aspx.cs
 
 **図 13**:GridView に製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image37.png))。
 
-この例は、ASP.NET ページの 3 行のコードを記述したことを必須**ページ\_ロード**イベント ハンドラー、後でチュートリアルは、ObjectDataSource を使用して宣言してからデータを取得する方法について説明します、DAL します。 ObjectDataSource ではコードを記述する必要がありますいないと、ページングと並べ替えのサポートもが得!
+この例は、ASP.NET ページの 3 行のコードを記述したことを必須**Page\_Load**イベント ハンドラー、後でチュートリアルは、ObjectDataSource を使用して宣言してからデータを取得する方法について説明します、DAL します。 ObjectDataSource ではコードを記述する必要がありますいないと、ページングと並べ替えのサポートもが得!
 
 ## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>手順 3: データ アクセス層にメソッドをパラメーター化を追加します。
 
