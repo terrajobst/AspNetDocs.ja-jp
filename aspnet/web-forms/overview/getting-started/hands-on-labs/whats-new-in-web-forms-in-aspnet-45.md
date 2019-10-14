@@ -504,7 +504,7 @@ Asp.net 要求の検証機能では、特定のレベルのクロス サイト �
 
     *残りのフィールドで有効になっている要求の検証*
 
-    ASP.NET Web フォーム 4.5 には、遅延要求の検証を実行する新しい要求の検証モードが含まれています。 設定する要求の検証モード**4.5**、コードへのアクセスの場合は、 *Request.Form [&quot;キー&quot;]*、ASP.NET 4.5 の要求の検証はのみトリガー要求の検証フォームのコレクションでその要素を特定します。
+    ASP.NET Web フォーム 4.5 には、遅延要求の検証を実行する新しい要求の検証モードが含まれています。 設定する要求の検証モード**4.5**、コードへのアクセスの場合は、 *Request.Form [&quot;キー&quot;]* 、ASP.NET 4.5 の要求の検証はのみトリガー要求の検証フォームのコレクションでその要素を特定します。
 
     さらに、ASP.NET 4.5 には、Microsoft ANTI-XSS ライブラリ v4.0 からコア エンコーディング ルーチンが含まれています。 ANTI-XSS エンコーディング ルーチンは、新しいによって実装される*AntiXssEncoder* 、新しい型が見つかった**System.Web.Security.AntiXss**名前空間。 **EncoderType**パラメーターを使用するように構成*AntiXssEncoder*、すべての出力を新しいエンコード ルーチンを使用して ASP.NET 内で自動的にエンコードします。
 8. ASP.NET 4.5 の要求の検証には、データを要求されていない検証済みのアクセスもサポートしています。 ASP.NET 4.5 で追加、新しいコレクションのプロパティを**HttpRequest**と呼ばれるオブジェクト**Unvalidated**します。 移動すると**HttpRequest.Unvalidated**のすべての要求のデータ、フォーム、クエリ文字列、Cookie、Url などの一般的な情報にアクセスします。
@@ -629,7 +629,7 @@ Web サイトで時間のかかる操作では、長時間割り当てられて�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
 
 1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Azure SDK</em>&quot;します。
 2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。

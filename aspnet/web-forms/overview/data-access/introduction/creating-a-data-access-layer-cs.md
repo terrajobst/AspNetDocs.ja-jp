@@ -97,11 +97,11 @@ DAL を作成するには、型指定されたデータセットをプロジェ�
 
 **図 4**:新しいデータセットをプロジェクトに追加することも ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image10.png))。
 
-データセットを追加するように求められたら、[追加] をクリックした後、**アプリ\_コード**フォルダー、[はい] を選択します。 型指定されたデータセットのデザイナーが表示されます、され、型指定されたデータセットを最初に TableAdapter を追加することができます、TableAdapter 構成ウィザードが開始されます。
+データセットを追加するように求められたら、[追加] をクリックした後、**App\_Code**フォルダー、[はい] を選択します。 型指定されたデータセットのデザイナーが表示されます、され、型指定されたデータセットを最初に TableAdapter を追加することができます、TableAdapter 構成ウィザードが開始されます。
 
 厳密に型指定されたデータのコレクションをとして型指定されたデータセット厳密に型指定された DataTable インスタンス、厳密に型指定された DataRow インスタンスのそれぞれの順番で構成されていますから構成されます。 このチュートリアル シリーズで使用する必要がある、基になるデータベース テーブルのそれぞれの厳密に型指定された DataTable を作成します。 DataTable の作成から始めましょう、**Products**テーブル。
 
-厳密に型指定された Datatable には、その基になるデータベース テーブルからデータにアクセスする方法に関する情報が含まれていないことに留意してください。 DataTable に表示するデータを取得するためには、データ アクセス層として機能する TableAdapter クラスを使用します。 この**製品**DataTable には、TableAdapter にはメソッドが含まれて、 **GetProducts()** 、 **GetProductByCategoryID (*categoryID*)** など、プレゼンテーション層からを起動します。 DataTable の役割では、レイヤー間でデータを渡すために使用、厳密に型指定されたオブジェクトとして機能です。
+厳密に型指定された Datatable には、その基になるデータベース テーブルからデータにアクセスする方法に関する情報が含まれていないことに留意してください。 DataTable に表示するデータを取得するためには、データ アクセス層として機能する TableAdapter クラスを使用します。 この**Products**DataTable には、TableAdapter にはメソッドが含まれて、 **GetProducts()** 、 **GetProductByCategoryID (*categoryID*)** など、プレゼンテーション層からを起動します。 DataTable の役割では、レイヤー間でデータを渡すために使用、厳密に型指定されたオブジェクトとして機能です。
 
 使用するデータベースを選択するよう求められますが、TableAdapter 構成ウィザードを開始します。 ドロップダウン リストでは、サーバー エクスプ ローラーでそれらのデータベースを示しています。 サーバー エクスプ ローラーに、Northwind データベースを追加しなかった場合は、これを行うには、この時点で、新しい接続ボタンをクリックできます。
 
@@ -154,7 +154,7 @@ TableAdapter のいずれかまたは両方のパターンを実装すること�
 
 **図 11**:メソッドの名前を変更**GetData**に**GetProducts** ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image31.png))。
 
-[完了] をクリックしてウィザードを完了します。 ウィザードを閉じた後、先ほど作成した DataTable を示すデータセット デザイナーに戻ります。 内の列の一覧を表示できます、**製品**DataTable (**ProductID**、 **ProductName**など)、メソッドのほか、 **ProductsTableAdapter** (**Fill()** と**GetProducts()** )。
+[完了] をクリックしてウィザードを完了します。 ウィザードを閉じた後、先ほど作成した DataTable を示すデータセット デザイナーに戻ります。 内の列の一覧を表示できます、**Products**DataTable (**ProductID**、 **ProductName**など)、メソッドのほか、 **ProductsTableAdapter** (**Fill()** と**GetProducts()** )。
 
 [![製品の DataTable と ProductsTableAdapter が型指定されたデータセットに追加されました](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
 
