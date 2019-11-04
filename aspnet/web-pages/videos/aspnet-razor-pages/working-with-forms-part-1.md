@@ -2,28 +2,28 @@
 uid: web-pages/videos/aspnet-razor-pages/working-with-forms-part-1
 title: フォームの操作 (パート 1) |Microsoft Docs
 author: JoeStagner
-description: ビデオの主役にフォームのチュートリアル (パート 1) を使用した作業
+description: フォームの操作に関するチュートリアルのビデオ最適 (パート 1)
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: bf751e1f-7db9-4039-be55-d1ee33769c3a
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-forms-part-1
 msc.type: video
-ms.openlocfilehash: 812bbe4acc6ae7f364bab98d3ffc4be0f1388c2b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: dcbc86e137f8e4d2539f27bf6d188df90119d867
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378411"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445506"
 ---
-# <a name="working-with-forms-part-1"></a><span data-ttu-id="efc47-103">フォームの操作 (第 1 部)</span><span class="sxs-lookup"><span data-stu-id="efc47-103">Working with Forms (Part 1)</span></span>
+# <a name="working-with-forms-part-1"></a><span data-ttu-id="4081f-103">フォームの操作 (第 1 部)</span><span class="sxs-lookup"><span data-stu-id="4081f-103">Working with Forms (Part 1)</span></span>
 
-<span data-ttu-id="efc47-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="efc47-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="4081f-104">[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4081f-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="efc47-105">ビデオの主役にフォームのチュートリアル (パート 1) を使用した作業</span><span class="sxs-lookup"><span data-stu-id="efc47-105">Video accompaniment to the Working with Forms tutorial (Part 1)</span></span>
+<span data-ttu-id="4081f-105">フォームの操作に関するチュートリアルのビデオ最適 (パート 1)</span><span class="sxs-lookup"><span data-stu-id="4081f-105">Video accompaniment to the Working with Forms tutorial (Part 1)</span></span>
 
-[<span data-ttu-id="efc47-106">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="efc47-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-forms-part-1)
+<span data-ttu-id="4081f-106">[&#9654;ビデオを見る (14 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-forms-(part-1))</span><span class="sxs-lookup"><span data-stu-id="4081f-106">[&#9654; Watch video (14 minutes)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-forms-(part-1))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="efc47-107">[前へ](creating-a-consistent-look-part-2.md)
-> [次へ](working-with-forms-part-2.md)</span><span class="sxs-lookup"><span data-stu-id="efc47-107">[Previous](creating-a-consistent-look-part-2.md)
+> <span data-ttu-id="4081f-107">[前へ](creating-a-consistent-look-part-2.md)
+> [次へ](working-with-forms-part-2.md)</span><span class="sxs-lookup"><span data-stu-id="4081f-107">[Previous](creating-a-consistent-look-part-2.md)
 [Next](working-with-forms-part-2.md)</span></span>
