@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-5
-title: データ転送オブジェクト (Dto) の作成 |Microsoft Docs
+title: データ転送オブジェクトの作成 (Dto) |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,48 +8,48 @@ ms.date: 06/16/2014
 ms.assetid: 0fd07176-b74b-48f0-9fac-0f02e3ffa213
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 1af29955e8040c34840d4c77fc2006f59d2324dd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fc0463420207eba764014b8ec7123c5150e38247
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395278"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445759"
 ---
 # <a name="create-data-transfer-objects-dtos"></a>データ転送オブジェクト (DTO) の作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
-権利、web API、クライアントにデータベースのエンティティを公開します。 クライアントは、データベース テーブルに直接マップされるデータを受け取ります。 ただし、ない常にお勧めします。 クライアントに送信するデータの形状を変更することがあります。 たとえば、次の操作を行います。
+現在、web API では、データベースエンティティがクライアントに公開されています。 クライアントは、データベーステーブルに直接マップされるデータを受信します。 ただし、これは必ずしも良いアイデアではありません。 場合によっては、クライアントに送信するデータの形状を変更する必要があります。 たとえば、次の操作を行います。
 
-- (前のセクションを参照してください)、循環参照を削除します。
-- 表示するのには、クライアントは想定されていない特定のプロパティを非表示にします。
-- ペイロードのサイズを軽減するために、いくつかのプロパティを省略します。
-- クライアントの方が便利にする、入れ子になったオブジェクトを含むオブジェクト グラフを平坦化します。
-- 「オーバーポスティング」脆弱性を回避します。 (を参照してください[モデルの検証](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md)オーバーポスティング攻撃の詳細についてはします)。
-- データベース層から、サービス層を分離します。
+- 循環参照を削除します (前のセクションを参照してください)。
+- クライアントが表示することが想定されていない特定のプロパティを非表示にします。
+- ペイロードサイズを減らすために、いくつかのプロパティを省略します。
+- 入れ子になったオブジェクトを含むオブジェクトグラフをフラット化して、クライアントにとってより使いやすいようにします。
+- "過剰投稿" の脆弱性を回避します。 (詳細については、「[モデルの検証](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md)」を参照してください)。
+- サービス層とデータベース層を分離します。
 
-定義することがこれを実現する、*データ転送オブジェクト*(DTO)。 DTO は、ネットワーク経由でデータを送信する方法を定義するオブジェクトです。 書籍エンティティとそのしくみを見てみましょう。 Models フォルダーでは、2 つの DTO クラスを追加します。
+これを実現するには、*データ転送オブジェクト*(DTO) を定義します。 DTO は、データがネットワーク経由で送信される方法を定義するオブジェクトです。 Book エンティティのしくみを見てみましょう。 [モデル] フォルダーで、次の2つの DTO クラスを追加します。
 
 [!code-csharp[Main](part-5/samples/sample1.cs)]
 
-`BookDetailDTO`クラスには、すべての点を除いて、書籍モデルのプロパティが含まれています`AuthorName`作成者の名前を保持する文字列です。 `BookDTO`クラスにはからプロパティのサブセットが含まれています`BookDetailDTO`します。
+`BookDetailDto` クラスには、書籍モデルのすべてのプロパティが含まれています。ただし、`AuthorName` は作成者名を保持する文字列である点が異なります。 `BookDto` クラスには、`BookDetailDto`のプロパティのサブセットが含まれています。
 
-2 つの GET メソッドを次に、置換、 `BooksController` Dto を返すバージョンのクラス。 LINQ を使用します**選択**書籍エンティティから Dto に変換するステートメント。
+次に、`BooksController` クラスの2つの GET メソッドを、Dto を返すバージョンに置き換えます。 ここでは、LINQ **Select**ステートメントを使用して、Book エンティティから dto に変換します。
 
 [!code-csharp[Main](part-5/samples/sample2.cs)]
 
-ここで、新しいによって生成された SQL は、`GetBooks`メソッド。 EF が、LINQ を変換することを確認できます**選択**SQL SELECT ステートメントにします。
+ここでは、新しい `GetBooks` メソッドによって生成される SQL を示します。 EF が LINQ **select**を SQL select ステートメントに変換することを確認できます。
 
 [!code-sql[Main](part-5/samples/sample3.sql)]
 
-最後に、変更、 `PostBook` DTO を返すメソッド。
+最後に、DTO を返すように `PostBook` メソッドを変更します。
 
 [!code-csharp[Main](part-5/samples/sample4.cs)]
 
 > [!NOTE]
-> このチュートリアルで変換しています Dto を手動でコード。 ようなライブラリを使用することも[AutoMapper](http://automapper.org/)変換を自動的に処理します。
+> このチュートリアルでは、コード内の Dto に手動で変換します。 別の方法として、自動変換を自動的に処理する[Automapper](http://automapper.org/)などのライブラリを使用することもできます。
 > 
 > [!div class="step-by-step"]
 > [前へ](part-4.md)

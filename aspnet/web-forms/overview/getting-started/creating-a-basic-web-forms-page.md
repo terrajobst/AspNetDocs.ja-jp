@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: Visual Studio 2013 を使用して基本的な ASP.NET 4.5 Web フォーム ページを作成するには
+title: Visual Studio 2013 を使用した基本的な ASP.NET 4.5 Web フォームページの作成
 author: Erikre
 description: ''
 ms.author: riande
@@ -8,308 +8,307 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 80254135d2d363ea151e2ea70aeca988b33b0d4d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5d13a51128eecd92a82cfd06054448582a348e11
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134657"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445677"
 ---
-# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Visual Studio 2013 を使用して基本的な ASP.NET 4.5 Web フォーム ページを作成するには
-# 
+# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Visual Studio 2013 を使用した基本的な ASP.NET 4.5 Web フォームページの作成
 
-によって[Erik Reitan](https://github.com/Erikre)
+[Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
-このチュートリアルの概要を Web の開発環境を提供します。 [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)し[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)します。 このチュートリアルでは、単純な ASP.NET Web フォーム ページを作成する方法し、の新しいページを作成するコントロールを追加、コードを記述する基本的な方法を示しています。
+このチュートリアルでは、 [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)の web 開発環境の概要と、 [web 用 Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web)について説明します。 このチュートリアルでは、簡単な ASP.NET Web フォームページを作成し、新しいページを作成し、コントロールを追加し、コードを記述するための基本的な手法について説明します。
 
 このチュートリアルでは、以下のタスクを行います。
 
-- ファイル システム Web フォーム アプリケーション プロジェクトを作成します。
-- Visual Studio を理解します。
-- ASP.NET ページを作成します。
-- コントロールを追加します。
-- イベント ハンドラーを追加します。
-- 実行していると、Visual Studio からページをテストします。
+- ファイルシステム Web フォームアプリケーションプロジェクトを作成する。
+- Visual Studio について理解を深める。
+- ASP.NET ページを作成しています。
+- コントロールを追加しています。
+- イベントハンドラーを追加しています。
+- Visual Studio からのページの実行とテスト。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>必要条件
 
 このチュートリアルを完了するための要件は次のとおりです。
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)します。 .NET Framework は、自動的にインストールされます。 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Web 用 Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web)。 .NET Framework は自動的にインストールされます。 
 
     > [!NOTE] 
     > 
-    > Microsoft Visual Studio 2013 および Microsoft Visual Studio Express 2013 for Web は多くの場合、呼びます Visual Studio とこのチュートリアル シリーズです。  
+    > このチュートリアルシリーズでは、多くの場合、Web 用の Microsoft Visual Studio 2013 と Microsoft Visual Studio Express 2013 を Visual Studio と呼びます。  
     >   
-    > Visual Studio を使用している場合は、このチュートリアルの前提条件が選択されている、 **Web 開発**設定のコレクションを初めて Visual Studio を起動します。 詳細については、「[方法 :Web 開発環境の設定を選択して](https://msdn.microsoft.com/library/ff521558.aspx)します。
+    > Visual Studio を使用している場合、このチュートリアルでは、Visual Studio を初めて起動したときに設定の**Web 開発**コレクションが選択されていることを前提としています。 詳細については、「[方法: Web 開発環境の設定を選択する](https://msdn.microsoft.com/library/ff521558.aspx)」を参照してください。
 
-## <a name="creating-a-web-application-project-and-a-page"></a>Web アプリケーション プロジェクトと、ページの作成
+## <a name="creating-a-web-application-project-and-a-page"></a>Web アプリケーションプロジェクトとページの作成
 
 <a id="sectionToggle0"></a>
 
-チュートリアルのこの部分では、Web アプリケーション プロジェクトを作成し、新しいページを追加します。 また、HTML テキストを追加し、お使いのブラウザーでページを実行します。
+チュートリアルのこの部分では、Web アプリケーションプロジェクトを作成し、そこに新しいページを追加します。 また、HTML テキストを追加し、ブラウザーでページを実行します。
 
-### <a name="to-create-a-web-application-project"></a>Web アプリケーション プロジェクトを作成するには
+### <a name="to-create-a-web-application-project"></a>Web アプリケーションプロジェクトを作成するには
 
 1. Microsoft Visual Studio を開きます。
 2. **[ファイル]** メニューの **[新しいプロジェクト]** を選択します。  
-    ![[ファイル] メニュー](creating-a-basic-web-forms-page/_static/image1.png)
+    ![ファイル メニュー](creating-a-basic-web-forms-page/_static/image1.png)
 
     **[新しいプロジェクト]** ダイアログ ボックスが表示されます。
-3. 選択、**テンプレート** - &gt; **Visual C#**  - &gt; **Web**左側のテンプレート グループ。
-4. 選択、 **ASP.NET Web アプリケーション**中央の列のテンプレート。
-5. プロジェクトに名前を***BasicWebApp***  をクリックし、 **OK**ボタン。   
-![新しいプロジェクト ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image2.png)
-6. 次に、選択、 **Web フォーム**テンプレートをクリックして、 **OK**プロジェクトを作成するボタンをクリックします。  
-![新しい ASP.NET プロジェクト ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image3.png)  
+3. 左側にある [**テンプレート** -&gt; **Visual C#**  -&gt; **Web**テンプレート] グループを選択します。
+4. 中央の列で**ASP.NET Web アプリケーション**テンプレートを選択します。
+5. プロジェクトに***Basicwebapp***という名前を指定し、 **[OK]** ボタンをクリックします。   
+[新しいプロジェクトの ![] ダイアログボックス](creating-a-basic-web-forms-page/_static/image2.png)
+6. 次に、 **[Web フォーム]** テンプレートを選択し、 **[OK]** ボタンをクリックしてプロジェクトを作成します。  
+[新しい ASP.NET プロジェクトの ![] ダイアログボックス](creating-a-basic-web-forms-page/_static/image3.png)  
 
-    Visual Studio では、Web フォーム テンプレートに基づく事前構築済みの機能を含む新しいプロジェクトを作成します。 提供するだけでなく、 *Home.aspx*  ページで、 *About.aspx*  ページで、 *Contact.aspx* 、ページしますが、ユーザーを登録し、保存するメンバーシップ機能も含まれています自分の資格情報、web サイトにログインできるようにします。 既定では、Visual Studio が表示、ページで新しいページが作成されると、**ソース**ビュー、ページの HTML 要素を確認できます。 次の図で表示される**ソース**という名前の新しい Web ページを作成した場合に表示*BasicWebApp.aspx*します。  
+    Visual Studio によって、Web フォームテンプレートに基づく事前構築済みの機能を含む新しいプロジェクトが作成されます。 これは *、default.aspx ページ*、 *About .aspx*ページ、および*Contact .aspx*ページを提供するだけでなく、ユーザーが web サイトにログインできるように、ユーザーを登録して資格情報を保存するメンバーシップ機能も備えています。 新しいページが作成されると、既定では、Visual Studio によってページが**ソース**ビューに表示されます。このページでは、ページの HTML 要素を確認できます。 次の図は、 *Basicwebapp*という名前の新しい Web ページを作成した場合に**ソース**ビューに表示される内容を示しています。  
     ![ソース ビュー](creating-a-basic-web-forms-page/_static/image4.png)
 
-### <a name="a-tour-of-the-visual-studio-web-development-environment"></a>Visual Studio の Web 開発環境のツアー
+### <a name="a-tour-of-the-visual-studio-web-development-environment"></a>Visual Studio Web 開発環境のツアー
 
-ページの変更を続行する前に、Visual Studio 開発環境について理解するおくと便利です。 次の図は、windows と Visual Studio と Visual Studio Express for Web で利用できるツールを示しています。
+ページを変更する前に、Visual Studio 開発環境について理解しておくと役に立ちます。 次の図は、Visual Studio で使用できるウィンドウとツール、および Web 用の Visual Studio Express を示しています。
 
 > [!NOTE] 
 > 
-> この図では、既定の windows とウィンドウの場所を示します。 **ビュー**メニューでは、追加のウィンドウを表示および再配置し、好みに合わせて大きさを変更することができます。 既に変更されて場合、ウィンドウを整列する、表示される内容と図が一致しません。
+> この図は、既定のウィンドウとウィンドウの場所を示しています。 **[表示]** メニューを使用すると、他のウィンドウを表示したり、ユーザーの好みに合わせてウィンドウの位置を変更したりすることができます。 ウィンドウの配置が既に変更されている場合、表示される内容は図と一致しません。
 
  Visual Studio 環境
 
 ![Visual Studio 環境](creating-a-basic-web-forms-page/_static/image5.png)
 
-### <a name="familiarize-yourself-with-the-web-designer"></a>Web デザイナーに慣れ親しみ
+### <a name="familiarize-yourself-with-the-web-designer"></a>Web デザイナーについて理解する
 
-上の図を確認し、次の一覧に一致するテキスト ウィンドウやツールを使用する、最もよくについて説明します。 (すべての windows とここは表示されているツールだけでマーク、前の図。)
+上の図を確認し、テキストを次の一覧と照合します。これは、最も一般的に使用される windows およびツールを示しています。 (表示されているすべてのウィンドウとツールがここに記載されているわけではありませんが、前の図でマークされているもののみ)。
 
-- ツールバー。 テキストや、検索テキストを書式設定するためのコマンドを提供します。 一部のツールバーで作業している場合にのみ使用可能な**デザイン**ビュー。
-- **ソリューション エクスプ ローラー**ウィンドウ。 Web アプリケーションでは、ファイルとフォルダーを表示します。
-- ドキュメント ウィンドウです。 タブ付きウィンドウで作業しているドキュメントを表示します。 タブをクリックしてドキュメントを切り替えることができます。
-- **プロパティ**ウィンドウ。 ページ、HTML 要素、コントロール、およびその他のオブジェクトの設定を変更することができます。
-- タブを表示します。 同じドキュメントのさまざまなビューが表示されます。 **デザイン**ビューは、WYSIWYG に近い編集サーフェイス。 **ソース**ビューは、ページの HTML エディター。 **分割**ビューでは、両方が表示されます、**デザイン**ビューと**ソース**ドキュメントのビュー。 使用する、**デザイン**と**ソース**このチュートリアルの後半でのビュー。 Web ページを開きたい場合**デザイン**ビュー、**ツール** メニューのをクリックして**オプション**を選択、 **HTML デザイナー**ノード、および変更、**ページで開始**オプション。
-- **ツールボックス**します。 コントロールと、ページ上にドラッグできる HTML 要素を提供します。 **ツールボックス**要素が共通の関数によってグループ化されます。
-- S **ーバー エクスプ ローラー**します。 データベース接続が表示されます。 サーバー エクスプ ローラーが表示されない場合は、表示 メニューで、サーバー エクスプ ローラー をクリックします。
+- ツールバー. テキストの書式設定、テキストの検索などを行うためのコマンドを提供します。 一部のツールバーは、 **[デザイン]** ビューで作業している場合にのみ使用できます。
+- **ソリューションエクスプローラー**ウィンドウ。 Web アプリケーション内のファイルとフォルダーを表示します。
+- ドキュメントウィンドウ。 タブ付きウィンドウで作業中のドキュメントを表示します。 タブをクリックして、ドキュメントを切り替えることができます。
+- **プロパティ**ウィンドウ。 ページ、HTML 要素、コントロール、およびその他のオブジェクトの設定を変更できます。
+- タブを表示します。 同じドキュメントのさまざまなビューを表示します。 **デザイン**ビューは、ほぼ WYSIWYG の編集サーフェイスです。 **ソース**ビューは、ページの HTML エディターです。 **分割**ビュードキュメントの**デザイン**ビューと**ソース**ビューの両方を表示します。 このチュートリアルの後半では、**デザイン**ビューと**ソース**ビューを使用します。 **デザイン**ビューで Web ページを開く場合は、 **[ツール]** メニューの **[オプション]** をクリックし、 **[HTML デザイナー]** ノードを選択し、 **[開始ページの開始]** オプションを変更します。
+- **ツールボックス**。 ページにドラッグできるコントロールと HTML 要素を提供します。 **ツールボックス**要素は、共通の関数によってグループ化されます。
+- 秒の**エクスプローラー**。 データベース接続を表示します。 サーバーエクスプローラー表示されていない場合は、[表示] メニューの [サーバーエクスプローラー] をクリックします。
 
-### <a name="creating-a-new-aspnet-web-forms-page"></a>新しい ASP.NET Web フォーム ページの作成
+### <a name="creating-a-new-aspnet-web-forms-page"></a>新しい ASP.NET Web フォームページの作成
 
-新しい Web フォーム アプリケーションを作成する場合、 **ASP.NET Web アプリケーション**プロジェクト テンプレートを Visual Studio の ASP.NET ページ (Web フォーム ページ) という名前を追加します*Default.aspx*他のいくつかのファイルだけでなく、フォルダーを選択します。 使用することができます、 *Default.aspx*ページ、Web アプリケーションのホーム ページとして。 ただし、このチュートリアルでは作成し、新しいページを使用します。
+**ASP.NET Web アプリケーション**プロジェクトテンプレートを使用して新しい Web フォームアプリケーションを作成すると、Visual Studio によって、 *default.aspx*という名前の ASP.NET ページ (Web フォームページ) とその他のいくつかのファイルとフォルダーが追加されます。 *Default.aspx*ページは、Web アプリケーションのホームページとして使用できます。 ただし、このチュートリアルでは、新しいページを作成して操作します。
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Web アプリケーションにページを追加するには
 
-1. 閉じる、 *Default.aspx*ページ。 これを行うには、ファイル名を表示するタブをクリックし、閉じるオプションをクリックします。
-2. **ソリューション エクスプ ローラー**、Web アプリケーションの名前を右クリックし (アプリケーション名は、このチュートリアルでは**BasicWebSite**)、をクリックし、**追加** - &gt;**新しい項目の**します。   
+1. *Default.aspx*ページを閉じます。 これを行うには、ファイル名が表示されているタブをクリックし、[閉じる] オプションをクリックします。
+2. **ソリューションエクスプローラー**で、Web アプリケーション名 (このチュートリアルではアプリケーション名は**basicwebsite**) を右クリックし、[ -の**追加**] をクリックして &gt;**新しい項目**を追加します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-3. 選択、 **Visual C#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**Web フォーム**中央から一覧表示し、名前を*名前*します。   
-    ![新しい項目 ダイアログ ボックスを追加します。](creating-a-basic-web-forms-page/_static/image6.png)
-4. クリックして**追加**web ページ、プロジェクトを追加します。  
-Visual Studio では、新しいページを作成し、それを開きます。
+3. 左側の **[ C# Visual** -&gt; **Web**テンプレート] グループを選択します。 次に、中央の一覧から **[Web フォーム]** を選択し、 *firstwebpage ページ*にという名前を指定します。   
+    [新しい項目の追加] ダイアログボックス ![](creating-a-basic-web-forms-page/_static/image6.png)
+4. **[追加]** をクリックして、web ページをプロジェクトに追加します。  
+新しいページが作成されて開きます。
 
-### <a name="adding-html-to-the-page"></a>ページに HTML を追加します。
+### <a name="adding-html-to-the-page"></a>ページへの HTML の追加
 
-このチュートリアルでは、ページに静的テキストを追加します。
+チュートリアルのこの部分では、いくつかの静的テキストをページに追加します。
 
-### <a name="to-add-text-to-the-page"></a>テキスト ページを追加するには
+### <a name="to-add-text-to-the-page"></a>テキストをページに追加するには
 
-1. ドキュメント ウィンドウの下部で、をクリックして、**デザイン** タブに切り替える**デザイン**ビュー。
+1. ドキュメントウィンドウの下部にある **[デザイン]** タブをクリックして、**デザイン**ビューに切り替えます。
 
-    デザイン ビューでは、WYSIWYG に近い方法で、現在のページが表示されます。 この時点では、必要はありません、テキストや ページで、コントロール、ページは空白で、四角形の輪郭を示す破線。 この四角形を表す、 **div**ページ上の要素。
-2. 破線で示されている四角形の内側をクリックします。
-3. 型**Visual Web Developer へようこそ**キーを押します**ENTER** 2 回です。
+    デザインビューには、現在のページが WYSIWYG に似た方法で表示されます。 この時点では、ページにテキストやコントロールはありません。そのため、四角形の輪郭を示す破線を除き、ページは空白になります。 この四角形は、ページ上の**div**要素を表します。
+2. 破線で囲まれた四角形の内側をクリックします。
+3. 「 **Visual Web Developer へようこそ**」と入力し、 **enter**キーを2回押します。
 
-    次の図で入力したテキスト**デザイン**ビュー。
+    次の図は、 **[デザイン]** ビューで入力したテキストを示しています。
 
-    ![デザイン ビューでの開始テキスト](creating-a-basic-web-forms-page/_static/image7.png "デザイン ビューでの開始テキスト")
-4. 切り替える**ソース**ビュー。
+    ![デザインビューのようこそテキスト](creating-a-basic-web-forms-page/_static/image7.png "デザイン ビューの開始テキスト")
+4. **ソース**ビューに切り替えます。
 
-    HTML を表示できます**ソース**で入力したときに作成したビュー**デザイン**ビュー。  
-    ![静的テキストを含む Web ページ](creating-a-basic-web-forms-page/_static/image8.png)
+    **デザイン**ビューで入力したときに作成した HTML が**ソース**ビューに表示されます。  
+    静的なテキスト](creating-a-basic-web-forms-page/_static/image8.png) を含む Web ページ ![
 
-### <a name="running-the-page"></a>ページを実行します。
+### <a name="running-the-page"></a>ページを実行しています
 
-ページにコントロールを追加して続行する前に、最初に実行できます。
+ページにコントロールを追加する前に、最初にコントロールを実行することができます。
 
-### <a name="to-run-the-page"></a>ページの実行
+### <a name="to-run-the-page"></a>ページを実行するには
 
-1. **ソリューション エクスプ ローラー**、右クリック*名前*選択と**スタート ページとして設定**します。
-2. キーを押して**CTRL + F5**ページを実行します。
+1. **ソリューションエクスプローラー**で、[ *firstwebpage ページ*] を右クリックし、 **[スタートページとして設定]** を選択します。
+2. CTRL キーを押し**ながら F5**キーを押して、ページを実行します。
 
-    ページがブラウザーに表示されます。 作成したページには、ファイル名拡張子が *.aspx*、現在の HTML ページのように実行されます。
+    ページがブラウザーに表示されます。 作成したページのファイル名拡張子は *.aspx*ですが、現在は HTML ページと同じように実行されます。
 
-    ブラウザーでページを表示するもでページを右クリックしてできます**ソリューション エクスプ ローラー**選択**ブラウザーで表示**します。
-3. Web アプリケーションを停止するブラウザーを閉じます。
+    ブラウザーにページを表示するには、**ソリューションエクスプローラー**のページを右クリックし、 **[ブラウザーで表示]** を選択することもできます。
+3. ブラウザーを閉じて、Web アプリケーションを停止します。
 
-## <a name="adding-and-programming-controls"></a>追加して、コントロールのプログラミング
+## <a name="adding-and-programming-controls"></a>コントロールの追加とプログラミング
 
 <a id="sectionToggle1"></a>
 
-これで、ページにサーバー コントロールを追加します。 ボタン、ラベル、テキスト ボックス、およびその他の使い慣れたコントロールなどのサーバー コントロールでは、Web フォーム ページの一般的なフォーム処理機能を提供します。 ただし、クライアントではなく、サーバーで実行されるコードでコントロールをプログラミングできます。
+次に、サーバーコントロールをページに追加します。 ボタン、ラベル、テキストボックス、その他の使い慣れたコントロールなどのサーバーコントロールは、Web フォームページの一般的なフォーム処理機能を提供します。 ただし、クライアントではなく、サーバー上で実行されるコードを使用してコントロールをプログラミングできます。
 
-追加、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロール、 [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロールと[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールをページと、処理するコードを記述、 [ をクリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベントを[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロール。
+[ボタンコントロール、](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) [テキストボックス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロール、および[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールをページに追加し、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの[クリック](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベントを処理するコードを記述します。
 
 ### <a name="to-add-controls-to-the-page"></a>ページにコントロールを追加するには
 
-1. をクリックして、**デザイン** タブに切り替える**デザイン**ビュー。
-2. 末尾にカーソルを置きます、 **Visual Web Developer へようこそ**テキストとキーを押して**ENTER**で確保するために 5 つ以上の時間、 **div**要素のボックスです。
-3. **ツールボックス**、展開、**標準**が展開されていない場合にグループ化します。  
-展開する必要がありますに注意してください、**ツールボックス**表示するための左側のウィンドウ。
-4. ドラッグ、 [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)ページ上に制御し、ドロップの途中で、 **div**を持つ要素のボックス**Visual Web Developer へようこそ**最初の行にします。
-5. ドラッグ、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)ページ上に制御しの右側にドロップ、 [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロール。
-6. ドラッグ、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)ページ上に制御し、下の個別の行にドロップ、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロール。
-7. 上にカーソルを配置、 [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) 、制御し、入力**名を入力します:** します。
+1. **デザインビューに**切り替えるには、 **[デザイン]** タブをクリックします。
+2. **[Visual Web Developer テキストへようこそ]** の末尾にカーソルを置き、 **enter**キーを5回押すと、 **[div]** 要素 ボックスにいくつかの領域が作成されます。
+3. **ツールボックス**で、**標準**のグループがまだ展開されていない場合は展開します。  
+表示するには、左側の **[ツールボックス]** ウィンドウを展開する必要があることに注意してください。
+4. [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロールをページにドラッグし、最初の行で **[Visual Web Developer へようこそ]** と表示されている **[div]** 要素 ボックスの中央にドロップします。
+5. [ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールをページにドラッグし、[テキストボックス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロールの右側にドロップします。
+6. [Label](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールをページにドラッグし、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの下の別の行にドロップします。
+7. [テキストボックス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロールの上に挿入ポイントを置き、「**名前を入力**してください:」と入力します。
 
-    この静的な HTML テキストがのキャプション、 [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロール。 静的な HTML と同じページ上のサーバー コントロールを混在させることができます。 次の図は、3 つのコントロールでの表示方法を示します**デザイン**ビュー。
+    この静的 HTML テキストは、 [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx)コントロールのキャプションです。 同じページに、静的な HTML コントロールとサーバーコントロールを混在させることができます。 次の図は、3つのコントロールが**デザイン**ビューにどのように表示されるかを示しています。
 
-    ![デザイン ビューで 3 つのコントロール](creating-a-basic-web-forms-page/_static/image9.png "デザイン ビューで 3 つのコントロール")
+    ![デザインビューの3つのコントロール](creating-a-basic-web-forms-page/_static/image9.png "デザイン ビューの 3 つのコントロール")
 
 ### <a name="setting-control-properties"></a>コントロールのプロパティの設定
 
-Visual Studio では、ページ上のコントロールのプロパティを設定するさまざまな方法を提供します。 このチュートリアルでは、両方のプロパティを設定**デザイン**ビューと**ソース**ビュー。
+Visual Studio には、ページ上のコントロールのプロパティを設定するためのさまざまな方法が用意されています。 チュートリアルのこの部分では、**デザイン**ビューと**ソース**ビューの両方でプロパティを設定します。
 
 ### <a name="to-set-control-properties"></a>コントロールのプロパティを設定するには
 
-1. 最初に、表示、**プロパティ**からを選択して、windows、**ビュー**メニュー -&gt; **その他の Windows**  - &gt; **プロパティ ウィンドウ**します。 選択または**F4**を表示する、**プロパティ**ウィンドウ。
-2. 選択、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロール、し、**プロパティ**ウィンドウで、設定の値**テキスト**に**表示名**します。 入力したテキストは、次の図に示すように、デザイナーで、ボタンに表示されます。
+1. 最初に、 **[表示]** メニューの [**その他のウィンドウ**を&gt;] をクリックして **[プロパティ**] ウィンドウを表示し、&gt;**プロパティウィンドウ** -ます。 または、 **F4**キーを選択して、 **[プロパティ]** ウィンドウを表示することもできます。
+2. [ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールを選択し、 **[プロパティ]** ウィンドウで、 **[テキスト]** の値を **[表示名]** に設定します。 次の図に示すように、入力したテキストがデザイナーのボタンに表示されます。
 
-    ![ボタン設定テキスト](creating-a-basic-web-forms-page/_static/image10.png "設定ボタンのテキスト")
-3. 切り替える**ソース**ビュー。
+    ![ボタンのテキストを設定する](creating-a-basic-web-forms-page/_static/image10.png "ボタン設定テキスト")
+3. **ソース**ビューに切り替えます。
 
-    **ソース**ビューには、Visual Studio のサーバー コントロールの作成した要素を含む、ページの HTML が表示されます。 コントロールは、HTML に似た構文で宣言**asp:** 属性を含めると**runat =&quot;server&quot;** します。
+    **ソース**ビューサーバーコントロール用に Visual Studio によって作成された要素を含む、ページの HTML が表示されます。 コントロールは、HTML に似た構文を使用して宣言されます。ただし、タグには、プレフィックス**asp:** が使用され、 **runat =&quot;server&quot;** 属性が含まれる点が異なります。
 
-    コントロールのプロパティは、属性として宣言されます。 たとえば、設定、[テキスト](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.text.aspx)プロパティを[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールを手順 1 で、実際の設定、**テキスト**コントロールのマークアップ内の属性。
+    コントロールプロパティは属性として宣言されます。 たとえば、手順1で[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの[text](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.text.aspx)プロパティを設定した場合、実際には、コントロールのマークアップで**テキスト**属性を設定していました。
 
     > [!NOTE] 
     > 
-    > 内のすべてのコントロールは、**フォーム**要素、属性を持つ**runat =&quot;server&quot;** します。 **Runat =&quot;server&quot;** 属性と**asp:** プレフィックスは、によって処理される ASP.NET サーバー ページが実行されるように、コントロールのタグは、コントロールをマークします。 外部コード **&lt;フォームの runat =&quot;サーバー&quot;&gt;** と **&lt;スクリプトの runat =&quot;server&quot;&gt;** 要素は、ASP.NET コードが持つ開始タグを含む要素内にある必要がありますブラウザーにそのまま送信は、 **runat =&quot;server&quot;** 属性。
-4. 追加のプロパティを次に、追加は、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 配置後に、挿入ポイントを直接**Asp:label**で、 **&lt;Asp:label&gt;** タグ、およびキーを押します**space キーを押す**します。
+    > すべてのコントロールは**フォーム**要素内にあり、 **runat =&quot;server&quot;** 属性も持っています。 **Runat =&quot;server&quot;** 属性と、コントロールタグの**asp:** prefix は、ページの実行時にサーバー上の ASP.NET によって処理されるようにコントロールをマークします。 &lt;の外部のコード**runat =&quot;server&quot;&gt;** および **&lt;script runat =&quot;server&quot;** 要素は変更されずにブラウザーに送信されます。そのため、ASP.NET コードは要素内に存在する必要があります。開始タグに**runat =&quot;server&quot;** 属性が含まれている。
+4. 次に、 [Label](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールにプロパティを追加します。 **&lt;asp: label&gt;** タグの**asp: label**の直後に挿入ポイントを置き、 **space**キーを押します。
 
-    設定できる使用可能なプロパティの一覧を表示するドロップダウン リストが表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 呼ばれるこの機能により、 **IntelliSense**で役立つ**ソース**サーバー コントロール、HTML 要素、およびその他の項目の構文を使用して、ページのビュー。 次の図は、 **IntelliSense**のドロップダウン リスト、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。
+    ドロップダウンリストが表示され、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールに設定できる使用可能なプロパティの一覧が表示されます。 **IntelliSense**と呼ばれるこの機能を使用すると、ページ上のサーバーコントロール、HTML 要素、およびその他の項目の構文で**ソース**ビューを使用できます。 次の図は、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールの**IntelliSense**ドロップダウンリストを示しています。
 
     ![IntelliSense 属性](creating-a-basic-web-forms-page/_static/image11.png "IntelliSense 属性")
-5. 選択**ForeColor**し、等号 (=) を入力します。
+5. **[ForeColor]** を選択し、等号を入力します。
 
     IntelliSense では、色の一覧が表示されます。
 
     > [!NOTE] 
     > 
-    > 表示することができます、 **IntelliSense**ドロップダウン リストを押して、いつでも**CTRL + J**コードを表示するときにします。
-6. 色を選択、 **[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** コントロールのテキスト。 白の背景を読み取る十分に暗い色を選択することを確認します。
+    > **IntelliSense**のドロップダウンリストは、コードを表示するときに**CTRL + J**キーを押すことでいつでも表示できます。
+6. **[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** コントロールのテキストの色を選択します。 白い背景に読み取るのに十分な暗い色を選択していることを確認します。
 
-    **ForeColor**属性には、二重引用符を含め、選択した色が完了しました。
+    **ForeColor**属性は、終わりの引用符を含め、選択した色で完成します。
 
-### <a name="programming-the-button-control"></a>ボタン コントロールのプログラミング
+### <a name="programming-the-button-control"></a>ボタンコントロールのプログラミング
 
-このチュートリアルでは、名前を読み取り、ユーザーがテキスト ボックスを入力しで名前を表示するコードを記述する、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。
+このチュートリアルでは、ユーザーがテキストボックスに入力した名前を読み取り、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールに名前を表示するコードを記述します。
 
-### <a name="add-a-default-button-event-handler"></a>既定のボタン イベント ハンドラーを追加します。
+### <a name="add-a-default-button-event-handler"></a>既定のボタンイベントハンドラーを追加する
 
-1. 切り替える**デザイン**ビュー。
-2. ダブルクリックして、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロール。
+1. **デザイン**ビューに切り替えます。
+2. [ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールをダブルクリックします。
 
-    既定では、Visual Studio の分離コード ファイルに切り替わりますのスケルトン イベント ハンドラーを作成、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの既定のイベントを[クリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント。 分離コード ファイルは、(c#) など、サーバー コードから、UI のマークアップ (HTML など) を分離します。   
-   カーソルがこのイベント ハンドラーのコードを追加します。
+    既定では、Visual Studio は分離コードファイルに切り替えて、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの既定のイベント ( [click](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント) のスケルトンイベントハンドラーを作成します。 分離コードファイルは、(などのC#) サーバーコードから UI マークアップ (HTML など) を分離します。   
+   カーソルがこのイベントハンドラー用に追加されたコードに配置されています。
 
     > [!NOTE] 
     > 
-    > コントロールをダブルクリック**デザイン**ビューは、イベント ハンドラーを作成するいくつかの方法の 1 つにすぎません。
-3. 内で、 **Button1\_クリックして**イベント ハンドラーで、「 **Label1**ピリオドが続く ( **.** )。
+    > **デザイン**ビューでコントロールをダブルクリックすることは、イベントハンドラーを作成するいくつかの方法の1つです。
+3. **Button1\_クリック**イベントハンドラーで、「 **Label1**の後にピリオド ( **.** )」と入力します。
 
-    後にピリオドを入力すると、 **ID**ラベルの (**Label1**)、Visual Studio の利用可能なメンバーの一覧を表示する、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールが、次に示すように図。 メンバー プロパティでは通常、メソッド、またはイベント。
+    ラベルの**ID**の後にピリオド (**Label1**) を入力すると、次の図に示すように、Visual Studio では、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールに使用できるメンバーの一覧が表示されます。 メンバーは、通常、プロパティ、メソッド、またはイベントです。
 
-    ![コード ビューでの IntelliSense](creating-a-basic-web-forms-page/_static/image12.png "コード ビューでの IntelliSense")
-4. [完了]、**クリックして**を読み取り、次のコード例で示すように、ボタンのイベント ハンドラー。
+    ![コードビューの IntelliSense](creating-a-basic-web-forms-page/_static/image12.png "コード ビューの IntelliSense")
+4. 次のコード例に示すように、ボタンの**クリック**イベントハンドラーを完成させます。
 
     [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample1.cs?highlight=3)]
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample2.vb?highlight=2)]
-5. 表示に戻り、**ソース**ビューを右クリックし、HTML マークアップの*名前*で、**ソリューション エクスプ ローラー**を選択して**ビューマークアップ**します。
-6. スクロールして、 **&lt;Asp:button&gt;** 要素。 なお、 **&lt;Asp:button&gt;** 要素が属性を持つようになりました**onclick =&quot;Button1\_クリックして&quot;** します。
+5. **ソリューションエクスプローラー**で*firstwebpage ページ*を右クリックし、 **[マークアップの表示]** を選択して、HTML マークアップの**ソース**ビューの表示に戻ります。
+6. **&lt;asp: Button&gt;** 要素までスクロールします。 **&lt;asp: Button&gt;** 要素には、 **[Onclick =&quot;Button1\_クリックして&quot;]** という属性があります。
 
-    この属性のバインド ボタンの[クリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント前の手順でコード化されたハンドラー メソッドにします。
+    この属性は、ボタンの[click](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベントを、前の手順でコード化したハンドラーメソッドにバインドします。
 
-    イベント ハンドラー メソッドは、任意の名前を持つことができます。表示される名前は、Visual Studio によって作成された既定の名前です。 重要な点は、名前に使用する、 **OnClick** HTML 属性では分離コードで定義されているメソッドの名前と一致する必要があります。
+    イベントハンドラーメソッドには任意の名前を付けることができます。表示される名前は、Visual Studio によって作成された既定の名前です。 重要な点は、HTML の**OnClick**属性に使用される名前が、分離コードで定義されたメソッドの名前と一致する必要があることです。
 
-### <a name="running-the-page"></a>ページを実行します。
+### <a name="running-the-page"></a>ページを実行しています
 
-ページ上のサーバー コントロールをテストできます。
+これで、ページ上のサーバーコントロールをテストできるようになりました。
 
-### <a name="to-run-the-page"></a>ページの実行
+### <a name="to-run-the-page"></a>ページを実行するには
 
-1. キーを押して**CTRL + F5**ブラウザーでページを実行します。 エラーが発生する場合は、上記の手順を再確認します。
-2. テキスト ボックスに名前を入力し、をクリックして、**表示名**ボタンをクリックします。
+1. CTRL キーを押し**ながら F5**キーを押して、ブラウザーでページを実行します。 エラーが発生した場合は、上記の手順を再確認してください。
+2. テキストボックスに名前を入力し、 **[表示名]** ボタンをクリックします。
 
-    入力した名前が表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 ボタンをクリックするとに、ページが Web サーバーにポストされたことに注意してください。 ASP.NET ページを再作成、コードを実行 (この場合、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの[ をクリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント ハンドラーが実行される)、し、ブラウザーに新しいページを送信します。 ブラウザーのステータス バーを視聴する場合、ページことのラウンド トリップ Web サーバーに、ボタンをクリックするたびが確認できます。
-3. ブラウザーで表示 ページの右クリックして実行しているページのソース**ソースの表示**します。
+    入力した名前が[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールに表示されます。 このボタンをクリックすると、ページが Web サーバーにポストされます。 次に、ASP.NET はページを再作成し、コードを実行し (この場合は[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの[click](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベントハンドラーが実行されます)、ブラウザーに新しいページを送信します。 ブラウザーでステータスバーを見ると、ボタンをクリックするたびに Web サーバーへのラウンドトリップが行われていることがわかります。
+3. ブラウザーで、ページを右クリックし、 **[ソースの表示]** を選択して、実行中のページのソースを表示します。
 
-    ページのソース コードでは、サーバー コードなし HTML を表示します。 具体的には、表示されない、 **&lt;asp:&gt;** で作業していた要素**ソース**ビュー。 ページの実行時に ASP.NET がサーバー コントロールを処理し、コントロールを表す機能を実行するページに HTML 要素をレンダリングします。 たとえば、 **&lt;Asp:button&gt;** コントロールが HTML としてレンダリングされる **&lt;入力の種類 =&quot;送信&quot;&gt;** 要素。
+    ページソースコードでは、サーバーコードなしで HTML が表示されます。 具体的には、**ソース**ビューで使用していた **&lt;asp:&gt;** の要素は表示されません。 ページを実行すると、ASP.NET によってサーバーコントロールが処理され、コントロールを表す機能を実行するページに HTML 要素がレンダリングされます。 たとえば、 **&lt;asp: Button&gt;** コントロールは、HTML **&lt;input type =&quot;submit&quot;&gt;** 要素としてレンダリングされます。
 4. ブラウザーを閉じます。
 
-## <a name="working-with-additional-controls"></a>その他のコントロールの操作
+## <a name="working-with-additional-controls"></a>追加のコントロールの操作
 
 <a id="sectionToggle2"></a>
 
-このチュートリアルでは、機能、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)一度に 1 か月間の日付を表示するコントロール。 [カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールで作業しているボタン、テキスト ボックス、およびラベルよりもさらに複雑なコントロールし、サーバー コントロールのいくつか他の機能を示しています。
+チュートリアルのこの部分では、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールを操作します。このコントロールには、月に日付が表示されます。 [Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールは、使用していたボタン、テキストボックス、ラベルよりも複雑なコントロールで、サーバーコントロールのいくつかの機能を示しています。
 
-このセクションでは追加、 [System.Web.UI.WebControls.Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールをページと書式設定します。
+このセクションでは、 [WebControls](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールをページに追加して、書式を設定します。
 
-### <a name="to-add-a-calendar-control"></a>カレンダー コントロールを追加するには
+### <a name="to-add-a-calendar-control"></a>カレンダーコントロールを追加するには
 
-1. Visual Studio に切り替えます**デザイン**ビュー。
-2. **標準**のセクション、**ツールボックス**、ドラッグ、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)ページ上に制御し、下にドロップ、 **div**要素ですその他のコントロールが含まれています。
+1. Visual Studio で、 **[デザイン]** ビューに切り替えます。
+2. **ツールボックス**の **[標準]** セクションで、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールをページにドラッグし、他のコントロールを含む**div**要素の下にドロップします。
 
-    カレンダーのスマート タグ パネルが表示されます。 パネルには、選択したコントロールの最も一般的なタスクを実行しやすくコマンドが表示されます。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールで表示される**デザイン**ビュー。
+    カレンダーのスマートタグパネルが表示されます。 パネルには、選択したコントロールに対して最も一般的なタスクを簡単に実行できるようにするコマンドが表示されます。 次の図は、 **[デザイン]** ビューで表示される[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールを示しています。
 
-    ![デザイン ビューでコントロールをカレンダー](creating-a-basic-web-forms-page/_static/image13.png "カレンダーのデザイン ビューでコントロール")
-3. スマート タグ パネルで、選択**オート フォーマット**します。
+    ![デザインビューの Calendar コントロール](creating-a-basic-web-forms-page/_static/image13.png "デザイン ビューの Calender コントロール")
+3. スマートタグパネルで、 **[オートフォーマット]** を選択します。
 
-    **オート フォーマット** ダイアログ ボックスが表示されたら、予定表の書式指定スキームを選択できます。 次の図は、**オート フォーマット**の ダイアログ ボックス、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロール。
+    **[オートフォーマット]** ダイアログボックスが表示されます。このダイアログボックスでは、カレンダーの書式設定スキームを選択できます。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールの **[オートフォーマット]** ダイアログボックスを示しています。
 
-    ![オート フォーマット ダイアログ ボックス (Calendar コントロール)](creating-a-basic-web-forms-page/_static/image14.png "オート フォーマット ダイアログ ボックス (Calendar コントロール)")
-4. **スキームを選択**一覧で、選択**単純な**順にクリックします**OK**します。
-5. 切り替える**ソース**ビュー。
+    ![[オートフォーマット] ダイアログボックス (カレンダーコントロール)](creating-a-basic-web-forms-page/_static/image14.png "[自動フォーマット] ダイアログ ボックス (Calender コントロール)")
+4. **[スキームの選択]** の一覧から **[Simple]** を選択し、 **[OK]** をクリックします。
+5. **ソース**ビューに切り替えます。
 
-    確認できます、  **&lt;asp: 予定表&gt;** 要素。 この要素は、先ほど作成した単純なコントロールの要素よりも長いです。 これも含まれています、サブ要素など **&lt;この&gt;** 、さまざまな書式設定を表します。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)制御**ソース**ビュー。 (正確なマークアップに表示される **ソース** からの図は、ビューが若干異なる場合があります)。
+    **&lt;asp: Calendar&gt;** 要素が表示されます。 この要素は、前に作成した単純なコントロールの要素よりもはるかに長くなります。 また、さまざまな書式設定を表す **&lt;WeekEndDayStyle&gt;** などのサブ要素が含まれています。 次の図は、**ソース**ビューの[Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールを示しています。 (**ソース**ビューに表示される正確なマークアップは、図とは少し異なる場合があります)。
 
-    ![ソース ビュー内のコントロールをカレンダー](creating-a-basic-web-forms-page/_static/image15.png "予定表のソース ビュー内のコントロール")
+    ![ソースビューの Calendar コントロール](creating-a-basic-web-forms-page/_static/image15.png "ソース ビューの Calender コントロール")
 
-### <a name="programming-the-calendar-control"></a>予定表コントロールのプログラミング
+### <a name="programming-the-calendar-control"></a>カレンダーコントロールのプログラミング
 
-プログラムがのこのセクションで、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)現在選択されている日付を表示するコントロール。
+このセクションでは、現在選択されている日付を表示するように[Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールをプログラミングします。
 
-### <a name="to-program-the-calendar-control"></a>予定表コントロールのプログラミング
+### <a name="to-program-the-calendar-control"></a>カレンダーコントロールをプログラミングするには
 
-1. **デザイン**ビューで、ダブルクリック、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロール。
+1. **デザイン**ビューで、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールをダブルクリックします。
 
-    新しいイベント ハンドラーが作成され、という名前の分離コード ファイルに表示される*FirstWebPage.aspx.cs*します。
-2. [完了]、 [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx)イベント ハンドラーを次のコード。
+    新しいイベントハンドラーが作成され、 *FirstWebPage.aspx.cs*という名前の分離コードファイルに表示されます。
+2. 次のコードを使用して、 [Selectionchanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx)イベントハンドラーを完成させます。
 
     [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
 
-    上記のコードは、ラベル コントロールのテキストを予定表コントロールの選択した日付に設定します。
+    上のコードは、ラベルコントロールのテキストをカレンダーコントロールの選択された日付に設定します。
 
-### <a name="running-the-page"></a>ページを実行します。
+### <a name="running-the-page"></a>ページを実行しています
 
-予定表をテストできます。
+これで、カレンダーをテストできるようになりました。
 
-### <a name="to-run-the-page"></a>ページの実行
+### <a name="to-run-the-page"></a>ページを実行するには
 
-1. キーを押して**CTRL + F5**ブラウザーでページを実行します。
+1. CTRL キーを押し**ながら F5**キーを押して、ブラウザーでページを実行します。
 2. カレンダーの日付をクリックします。
 
-    をクリックした日付が表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。
-3. ブラウザーでページのソース コードを表示します。
+    クリックした日付が[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールに表示されます。
+3. ブラウザーで、ページのソースコードを表示します。
 
-    なお、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールとしてページに表示されて、**テーブル**、として毎日を**td**要素。
+    [カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールは、各日が**td**要素として**テーブル**としてページにレンダリングされていることに注意してください。
 4. ブラウザーを閉じます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 <a id="nextStepsToggle"></a>
 
-このチュートリアルでは、Visual Studio のページ デザイナーの基本機能を説明しました。 作成し、Visual Studio で Web フォーム ページを編集する方法を理解したところでその他の機能を探索する可能性があります。 たとえば、以下を実行します。
+このチュートリアルでは、Visual Studio ページデザイナーの基本的な機能について説明しました。 これで、Visual Studio で Web フォームページを作成および編集する方法を理解できたので、他の機能を調べることもできます。 たとえば、次のような操作を行うことができます。
 
-- ASP.NET Web フォームの詳細について次のステップ バイ ステップ チュートリアル シリーズして[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。
-- カスケード スタイル シート (CSS) について説明します。 詳細については、次を参照してください。 [CSS の概要での作業](https://msdn.microsoft.com/library/bb398931.aspx)します。
+- ASP.NET Web フォームの詳細については、 [ASP.NET 4.5 Web フォームおよび Visual Studio 2013 でのはじめに](getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)チュートリアルシリーズの手順に関するページを参照してください。
+- カスケードスタイルシート (CSS) の詳細については、こちらを参照してください。 詳細については、「 [CSS の使用の概要](https://msdn.microsoft.com/library/bb398931.aspx)」を参照してください。
