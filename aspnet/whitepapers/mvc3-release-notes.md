@@ -8,83 +8,83 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 46d051a5eba6501cf36910b7674ce6400597de8a
+ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407108"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74057016"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
 - [概要](#overview)
-- [インストールに関する注記](#installation-notes)
-- [ソフトウェアの要件](#software-requirements)
+- [インストールに関する注意事項](#installation-notes)
+- [ソフトウェア要件](#software-requirements)
 - [ドキュメント](#documentation)
 - [サポート](#support)
-- [ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。](#upgrading)
-- [ASP.NET MVC 3 Tools Update (2011 年 4 月 12 日)](#tu-changes)
+- [ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 Tools Update にアップグレードする](#upgrading)
+- [ASP.NET MVC 3 Tools 更新プログラム (2011 年4月12日)](#tu-changes)
 
-    - ["コント ローラーの追加 ダイアログ ボックスは、ビューとデータ アクセス コードを使用してコント ローラーをスキャフォールディングできますようになりました](#tu-AddControllerDialog)
-    - [機能強化、"ASP.NET MVC 3 新しいプロジェクトダイアログ ボックス](#tu-ImprovementsNewDialogBox)
-    - [プロジェクト テンプレートに Modernizr 1.7 が追加されました](#tu-Modernizr)
-    - [プロジェクト テンプレートは、更新されたバージョンの jQuery、jQuery UI、および jQuery の検証](#tu-UpdatedJQuery)
-    - [プロジェクト テンプレートでは、NuGet プレインストール パッケージとして ADO.NET Entity Framework 4.1 が追加されました](#tu-EF)
-    - [プロジェクト テンプレートは、NuGet プレインストール パッケージとして JavaScript ライブラリを含める](#tu-JavaScriptLibsNuget)
+    - [[コントローラーの追加] ダイアログボックスで、コントローラーをビューおよびデータアクセスコードにスキャフォールディングできるようになりました](#tu-AddControllerDialog)
+    - [[ASP.NET MVC 3 New Project (新しいプロジェクトの追加)] ダイアログボックスの機能強化](#tu-ImprovementsNewDialogBox)
+    - [プロジェクトテンプレートに Modernizr 1.7 が含まれるようになりました](#tu-Modernizr)
+    - [プロジェクトテンプレートには、jQuery、jQuery UI、および jQuery Validation の更新バージョンが含まれています](#tu-UpdatedJQuery)
+    - [プロジェクトテンプレートに、事前にインストールされた NuGet パッケージとして ADO.NET Entity Framework 4.1 が含まれるようになりました](#tu-EF)
+    - [プロジェクトテンプレートには、プレインストールされた NuGet パッケージとしての JavaScript ライブラリが含まれています](#tu-JavaScriptLibsNuget)
     - [既知の問題](#tu-KI)
-- [ASP.NET MVC 3 RTM (2011 年 1 月 13 日)](#MVC3RTM)
+- [ASP.NET MVC 3 RTM (2011 年1月13日)](#MVC3RTM)
 
-    - [変更:バージョンの jQuery UI 1.8.7 するように更新](#RTM-1)
-    - [変更:既定値を DataAnnotationsModelMetadataProvider を ModelMetadataProvider 変更](#RTM-2)
-    - [修正済み。逆に空白の結果を含む Razor 式の一部を貼り付ける](#RTM-3)
-    - [修正済み。構文の色付けと IntelliSense を無効にしますが、エディターで開かれている Razor ファイルの名前を変更します。](#RTM-4)
+    - [変更: jQuery UI のバージョンを1.8.7 に更新しました](#RTM-1)
+    - [変更: 既定の ModelMetadataProvider を Data注釈の内容に変更しました。](#RTM-2)
+    - [修正: 空白を含む Razor 式の一部を貼り付けると、元に戻されます。](#RTM-3)
+    - [修正: エディターで開いた Razor ファイルの名前を変更すると、構文の色付けと IntelliSense が無効になります。](#RTM-4)
     - [既知の問題](#RTM-KI)
     - [重大な変更](#RTM-BC)
-- [ASP.NET MVC 3 Release Candidate 2 (2010 年 12 月 10 日)](#_Toc2)
+- [ASP.NET MVC 3 リリース候補 2 (2010 年12月10日)](#_Toc2)
 
-    - [JQuery 1.4.4、jQuery 検証 1.7、jQuery UI 1.8.6y UI 1.8.6 など、プロジェクト テンプレートの変更](#_Toc2_1)
-    - [追加された"AdditionalMetadataAttribute"クラス](#_Toc2_2)
-    - [強化されたビューのスキャフォールディング](#_Toc2_3)
-    - [追加された Html.Raw メソッド](#_Toc2_3)
-    - [名前が変更された"Controller.ViewModel"プロパティと"ViewBag"を"View"プロパティ](#_Toc2_4)
-    - [名前が変更された"ControllerSessionStateAttribute"クラス"SessionStateAttribute"を](#_Toc2_5)
-    - [「ため」に名前を変更した RemoteAttribute"Fields"プロパティ](#_Toc2_6)
-    - ["AllowHtmlAttribute"を"SkipRequestValidationAttribute"の名前を変更します。](#_Toc2_7)
-    - [最初に、役立つエラー メッセージを表示する変更された"Html.ValidationMessage"メソッド](#_Toc2_8)
-    - [固定@model空白の文書に追加の宣言](#_Toc2_9)
-    - [エンジン固有のファイル名をサポートするために、ビュー エンジンに追加された"FileExtensions"プロパティ](#_Toc2_10)
-    - [固定"LabelFor"ヘルパー"For"属性の正しい値を出力するには](#_Toc2_11)
-    - [モデル バインド中に明示的な値を優先する固定"RenderAction"メソッド](#_Toc2_12)
+    - [JQuery 1.4.4、jQuery Validation 1.7、jQuery UI 1.8.6 y UI 1.8.6 を含むようにプロジェクトテンプレートが変更されました。](#_Toc2_1)
+    - ["AdditionalMetadataAttribute" クラスを追加しました](#_Toc2_2)
+    - [ビューのスキャフォールディングの向上](#_Toc2_3)
+    - [追加された Html. Raw メソッド](#_Toc2_3)
+    - ["Controller. ビュー名" プロパティと "View" プロパティの名前を "ViewBag" に変更しました](#_Toc2_4)
+    - ["ControllerSessionStateAttribute" クラスの名前を "SessionStateAttribute" に変更しました](#_Toc2_5)
+    - [RemoteAttribute "Fields" プロパティの名前を "AdditionalFields" に変更しました](#_Toc2_6)
+    - ["SkipRequestValidationAttribute" を "AllowHtmlAttribute" に変更しました](#_Toc2_7)
+    - [最初の役に立つエラーメッセージを表示するように "Html. ValidationMessage" メソッドを変更しました](#_Toc2_8)
+    - [ドキュメントに空白を追加しないように @model 宣言を修正した](#_Toc2_9)
+    - [エンジン固有のファイル名をサポートするための "FileExtensions" プロパティをビューエンジンに追加しました](#_Toc2_10)
+    - ["For" 属性の正しい値を出力するように "LabelFor" ヘルパーを修正しています](#_Toc2_11)
+    - [モデルバインド中に明示的な値の優先順位を指定するように "RenderAction" メソッドを修正した](#_Toc2_12)
     - [重大な変更](#_Toc2_BC)
     - [既知の問題](#_Toc2_KI)
-- [ASP.NET MVC 3 リリース候補 (2010 年 11 月 9 日)](#TOC_ASP_NET_3_RC)
+- [ASP.NET MVC 3 リリース候補 (2010 年11月9日)](#TOC_ASP_NET_3_RC)
 
     - [ASP.NET MVC 3 RC の新機能](#_Toc276711785)
-    - [NuGet パッケージ マネージャー](#_Toc276711786)
-    - [[新しいプロジェクト] の改善ダイアログ ボックス](#_Toc276711787)
-    - [Sessionless コント ローラー](#_Toc276711788)
+    - [NuGet パッケージマネージャー](#_Toc276711786)
+    - [[新しいプロジェクト] ダイアログボックスの機能強化](#_Toc276711787)
+    - [セッションレスコントローラー](#_Toc276711788)
     - [新しい検証属性](#_Toc276711789)
-    - ["LabelFor"と"LabelForModel"メソッドの新しいオーバー ロード](#_Toc276711790)
+    - ["LabelFor" メソッドと "LabelForModel" メソッドの新しいオーバーロード](#_Toc276711790)
     - [子アクションの出力キャッシュ](#_Toc276711791)
-    - ["ビューの追加ダイアログ ボックスの機能強化](#_Toc276711792)
+    - [[ビューの追加] ダイアログボックスの機能強化](#_Toc276711792)
     - [詳細な要求の検証](#_Toc276711793)
     - [重大な変更](#_Toc276711794)
     - [既知の問題](#_Toc276711795)
-- [ASP します。MVC 3 Beta ノート (2010 年 10 月 6 日)](#TOC_ASP_NET_3_Beta)
+- [ASP.MVC 3 ベータノート (2010 年10月6、)](#TOC_ASP_NET_3_Beta)
 
-    - [ASP.NET MVC 3 のベータ版の新機能](#0.1__Toc274034215)
-    - [NuPack パッケージ マネージャー](#0.1__Toc274034216)
-    - [強化された新しいプロジェクトダイアログ ボックス](#0.1__Toc274034217)
-    - [厳密に指定する方法を簡略化された Razor ビューで型指定されたモデル](#0.1__Toc274034218)
-    - [新しい ASP.NET Web ページのヘルパー メソッドをサポートします。](#0.1__Toc274034219)
-    - [追加の依存関係挿入をサポート](#0.1__Toc274034220)
-    - [控えめな jQuery ベースの Ajax のサポート](#0.1__Toc274034221)
-    - [控えめな jQuery 検証のサポート](#0.1__Toc274034222)
-    - [クライアント検証と控えめな JavaScript の新しいアプリケーション全体のフラグ](#0.1__Toc274034223)
+    - [ASP.NET MVC 3 Beta の新機能](#0.1__Toc274034215)
+    - [NuPack パッケージマネージャー](#0.1__Toc274034216)
+    - [強化された [新しいプロジェクト] ダイアログボックス](#0.1__Toc274034217)
+    - [Razor ビューで厳密に型指定されたモデルを指定するための簡略化された方法](#0.1__Toc274034218)
+    - [新しい ASP.NET Web ページヘルパーメソッドのサポート](#0.1__Toc274034219)
+    - [追加の依存関係の挿入のサポート](#0.1__Toc274034220)
+    - [控えめな jQuery ベースの Ajax の新しいサポート](#0.1__Toc274034221)
+    - [控えめな jQuery 検証の新しいサポート](#0.1__Toc274034222)
+    - [クライアント検証と控えめな JavaScript のための新しいアプリケーション全体のフラグ](#0.1__Toc274034223)
     - [ビューの実行前に実行されるコードの新しいサポート](#0.1__Toc274034224)
-    - [VBHTML Razor 構文のサポート](#0.1__Toc274034225)
-    - [ValidateInputAttribute をより細かく制御](#0.1__Toc274034226)
-    - [ヘルパーの匿名オブジェクトを使用して指定された HTML 属性名にアンダー スコアをハイフンに変換します。](#0.1__Toc274034227)
+    - [VBHTML Razor 構文の新しいサポート](#0.1__Toc274034225)
+    - [ValidateInputAttribute をより細かく制御する](#0.1__Toc274034226)
+    - [ヘルパーは、匿名オブジェクトを使用して指定された HTML 属性名のアンダースコアをハイフンに変換します](#0.1__Toc274034227)
     - [バグの修正](#0.1__Toc274034228)
     - [重大な変更](#0.1__Toc274034229)
     - [既知の問題](#0.1__Toc274034230)
@@ -93,38 +93,38 @@ ms.locfileid: "59407108"
 <a id="overview"></a>
 ## <a name="overview"></a>概要
 
-このドキュメントでは、Visual Studio 2010 用の ASP.NET MVC 3 RTM のリリースについて説明します。 ASP.NET MVC は、モデル-ビュー-コント ローラー (MVC) パターンを使用して、Web アプリケーションを開発するためのフレームワークです。 ASP.NET MVC 3 インストーラーには、次のコンポーネントが含まれています。
+このドキュメントでは、Visual Studio 2010 用 ASP.NET MVC 3 RTM のリリースについて説明します。 ASP.NET MVC は、モデルビューコントローラー (MVC) パターンを使用する Web アプリケーションを開発するためのフレームワークです。 ASP.NET MVC 3 インストーラーには、次のコンポーネントが含まれています。
 
-- ASP.NET MVC 3 ランタイム コンポーネント
+- ASP.NET MVC 3 ランタイムコンポーネント
 - ASP.NET MVC 3 Visual Studio 2010 ツール
-- ASP.NET Web ページの実行時コンポーネント
+- 実行時コンポーネントの ASP.NET Web ページ
 - ASP.NET Web ページ Visual Studio 2010 ツール
-- Microsoft .NET (NuGet) 用のパッケージ マネージャー
-- Razor 構文のサポートを有効にする Visual Studio 2010 用の更新プログラム。 (詳細は、サポート技術情報記事 2483190 を参照してください)。
+- .NET 用 Microsoft パッケージマネージャー (NuGet)
+- Razor 構文のサポートを有効にする Visual Studio 2010 の更新プログラム。 (詳細については、サポート技術情報の記事2483190を参照してください。)
 
-ASP.NET MVC 3 の各リリース前のバージョンのリリース ノートの完全なセットは、次の URL で ASP.NET web サイトにあります。
+各プレリリース版の ASP.NET MVC 3 のリリースノートは、ASP.NET の web サイトの次の URL に記載されています。
 
 https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
 <a id="installation-notes"></a>
-## <a name="installation-notes"></a>インストールに関する注記
+## <a name="installation-notes"></a>インストールに関する注意事項
 
-ASP.NET MVC 3 RTM、Web Platform Installer (Web PI) を使用してをインストールするには、次のページを参照してください。
+Web Platform Installer (Web PI) を使用して ASP.NET MVC 3 RTM をインストールするには、次のページを参照してください。
 
 [https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
 
-または、次のページから Visual Studio 2010 の ASP.NET MVC 3 rtm インストーラーをダウンロードできます。
+または、次のページから ASP.NET MVC 3 RTM for Visual Studio 2010 のインストーラーをダウンロードすることもできます。
 
 https://go.microsoft.com/fwlink/?LinkID=208140
 
-ASP.NET MVC 3 をインストールできるし、サイド バイ サイドでを実行できる ASP.NET MVC 2 とします。
+ASP.NET MVC 3 はインストールでき、ASP.NET MVC 2 とサイドバイサイドで実行できます。
 
 <a id="software-requirements"></a>
 ## <a name="software-requirements"></a>ソフトウェア要件
 
-ASP.NET MVC 3 ランタイム コンポーネントには、次のソフトウェアが必要です。
+ASP.NET MVC 3 ランタイムコンポーネントには、次のソフトウェアが必要です。
 
-- .NET framework version 4。 
+- .NET Framework バージョン4。 
 
     ASP.NET MVC 3 Visual Studio 2010 ツールには、次のソフトウェアが必要です。
 - Visual Studio 2010 または Visual Web Developer 2010 Express。
@@ -132,397 +132,397 @@ ASP.NET MVC 3 ランタイム コンポーネントには、次のソフトウ�
 <a id="documentation"></a>
 ## <a name="documentation"></a>ドキュメント
 
-ASP.NET MVC のドキュメントは、次の URL で MSDN Web サイトで入手できます。
+ASP.NET MVC のドキュメントは、MSDN Web サイトの次の URL から入手できます。
 
 [https://go.microsoft.com/fwlink/?LinkId=205717](https://go.microsoft.com/fwlink/?LinkId=205717)
 
-チュートリアルと ASP.NET MVC に関する他の情報は、次の URL で ASP.NET Web サイトの MVC ページ入手できます。
+ASP.NET MVC に関するチュートリアルやその他の情報については、ASP.NET Web サイトの MVC ページの次の URL を参照してください。
 
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>サポート
+## <a name="support"></a>Support
 
-これは、完全にサポートされているリリースです。 テクニカル サポートの利用に関する情報をご覧、 [Microsoft サポート web サイト](https://support.microsoft.com/)します。
+これは完全にサポートされているリリースです。 テクニカルサポートを受ける方法については、 [Microsoft サポート web サイト](https://support.microsoft.com/)を参照してください。
 
-自由に、ASP.NET コミュニティのメンバーが非公式のサポートを提供することが頻繁に、ASP.NET MVC フォーラムへのこのリリースに関する質問を投稿します。
+また、このリリースに関する質問を ASP.NET MVC フォーラムに投稿してください。 ASP.NET コミュニティのメンバーは、多くの場合、非公式なサポートを提供できます。
 
 [https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
-## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。
+## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 Tools Update にアップグレードする
 
-ASP.NET MVC 3 は、ASP.NET MVC 2 と並行 ASP.NET MVC 3、ASP.NET MVC 2 アプリケーションをアップグレードするタイミングを選択できる柔軟性を提供する、同じコンピューターにインストールできます。
+ASP.NET MVC 3 は、ASP.NET MVC 2 とサイドバイサイドで同じコンピューターにインストールできます。これにより、ASP.NET MVC 2 アプリケーションを ASP.NET MVC 3 にアップグレードするタイミングを柔軟に選択できます。
 
-バージョン 3 に既存の ASP.NET MVC 2 アプリケーションを手動でアップグレードするには、次の操作を行います。
+既存の ASP.NET MVC 2 アプリケーションをバージョン3に手動でアップグレードするには、次の手順を実行します。
 
-1. コンピューターに新しい空の ASP.NET MVC 3 プロジェクトを作成します。 このプロジェクトは、アップグレードに必要ないくつかのファイルが格納されます。
-2. ASP.NET MVC 3 プロジェクトから ASP.NET MVC 2 プロジェクトの対応する場所に、次のファイルをコピーします。 新しいファイル名 (jquery-1.5.1.js) に対応する jQuery ライブラリへの参照を更新する必要があります。 
+1. コンピューターに新しい空の ASP.NET MVC 3 プロジェクトを作成します。 このプロジェクトには、アップグレードに必要ないくつかのファイルが含まれています。
+2. ASP.NET MVC 3 プロジェクトの次のファイルを、ASP.NET MVC 2 プロジェクトの対応する場所にコピーします。 新しいファイル名 (jQuery-1.5.1) を考慮して、jQuery ライブラリへの参照を更新する必要があります。 
 
-    - /Views/Web.config
-    - /packages.config
-    - /scripts/\*.js
-    - /Content/themes/\*.\*
-3. コピー、*パッケージ*ソリューションの .sln ファイルがあるディレクトリでは、ソリューションのルートに空の ASP.NET MVC 3 プロジェクト ソリューションのルート フォルダー。
-4. ASP.NET MVC 2 プロジェクトに区分が含まれている場合、/Views/Web.config ファイルのコピー、*ビュー*各領域のフォルダー。
-5. ASP.NET MVC 2 プロジェクトの両方の Web.config ファイルでグローバルに検索し、ASP.NET MVC のバージョンを置き換えます。 次を検索します。 
+    - /方法/構成
+    - /パッケージ
+    - /スクリプト/\*.js
+    - /\*します。\*
+3. 空の ASP.NET MVC 3 プロジェクトソリューションのルートにある*packages*フォルダーをソリューションのルートにコピーします。このフォルダーは、ソリューションの .sln ファイルが配置されているディレクトリにあります。
+4. ASP.NET MVC 2 プロジェクトに領域が含まれている場合は、/ビューファイルを各領域の*Views*フォルダーにコピーします。
+5. ASP.NET MVC 2 プロジェクトの Web.config ファイルの両方で、ASP.NET MVC バージョンをグローバルに検索して置き換えます。 次のものを探します。 
 
     [!code-console[Main](mvc3-release-notes/samples/sample1.cmd)]
 
-    これは、次のように置き換えます。
+    次のように置き換えます。
 
     [!code-console[Main](mvc3-release-notes/samples/sample2.cmd)]
-6. ソリューション エクスプ ローラーへの参照を削除*System.Web.Mvc* (を指す、DLL からバージョン 2) への参照を追加し、 *System.Web.Mvc* (v3.0.0.0 へ)。
-7. System.Web.WebPages.dll および System.Web.Helpers.dll への参照を追加します。 これらのアセンブリは、次のフォルダーに配置されます。 
+6. ソリューションエクスプローラーで、(バージョン2の DLL を指す) system.web *. mvc*への参照を削除し、3.0.0.0 への*参照 (v) を追加*します。
+7. System.web. web ページ .dll と system.servicemodel への参照を追加します。 これらのアセンブリは、次のフォルダーにあります。 
 
-    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
-    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
-8. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 プロジェクト名をもう一度右クリックし、編集*ProjectName*.csproj します。
-9. 検索、 *ProjectTypeGuids*要素と置換 {F85E285D-A4E0-4152-9332-AB1D724D3325} {E53F8FEA-EAE0-44A6-8774-FFD645390401}。
-10. 変更を保存し、プロジェクトを右クリックし、プロジェクトの再読み込みを選択します。
-11. アプリケーションのルートの Web.config ファイルに次の設定を追加、*アセンブリ*セクション。 
+    - % ProgramFiles% \Microsoft NET\ASP.NET MVC 3 \ アセンブリ
+    - % ProgramFiles% \Microsoft NET\ASP.NET Web Pages\v1.0\Assemblies
+8. ソリューションエクスプローラーで、プロジェクト名を右クリックし、[プロジェクトのアンロード] を選択します。 次に、プロジェクト名をもう一度右クリックし、[ *ProjectName*. .Csproj の編集] を選択します。
+9. *Projecttypeguids*要素を見つけ、{F85E285D-A4E0-4152-9332-AB1D724D3325} を {E53F8FEA-EAE0-44A6-8774-FFD645390401} に置き換えます。
+10. 変更を保存し、プロジェクトを右クリックして、[プロジェクトの再読み込み] を選択します。
+11. アプリケーションのルートの Web.config ファイルで、次の設定を*assemblies*セクションに追加します。 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample3.xml)]
-12. プロジェクトでは、ASP.NET MVC 2 を使用してコンパイルされたすべてのサード パーティ製ライブラリを参照する場合は、強調表示されている次のコードを追加*bindingRedirect*要素下のアプリケーション ルートの Web.config ファイルを*構成*セクション。 
+12. ASP.NET MVC 2 を使用してコンパイルされたサードパーティ製のライブラリをプロジェクトが参照する場合は、次の強調表示されている*bindingRedirect*要素を、アプリケーションルートの web.config ファイルに*構成*セクションの下に追加します。 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample4.xml)]
 
 <a id="tu-changes"></a>
-## <a name="changes-in-aspnet-mvc-3-tools-update"></a>ASP.NET MVC 3 での変更ツールを更新します。
+## <a name="changes-in-aspnet-mvc-3-tools-update"></a>ASP.NET MVC 3 Tools Update の変更点
 
-このセクションでは、ASP.NET MVC 3 RTM リリース以降、ASP.NET MVC 3 Tools Update リリースで行われた変更について説明します。
+このセクションでは、ASP.NET MVC 3 RTM リリース以降、ASP.NET MVC 3 Tools Update リリースで加えられた変更について説明します。
 
 <a id="tu-AddControllerDialog"></a>
-### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>"コント ローラーの追加 ダイアログ ボックスは、ビューとデータ アクセス コードを使用してコント ローラーをスキャフォールディングできますようになりました
+### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>[コントローラーの追加] ダイアログボックスで、コントローラーをビューおよびデータアクセスコードにスキャフォールディングできるようになりました
 
-スキャフォールディングをコント ローラーとビュー、アプリケーションをすばやく生成できます。 コードが生成されたら、プロジェクトの要件に合わせて編集できます。
+スキャフォールディングは、アプリケーションのコントローラーとビューを迅速に生成する方法です。 生成されたコードは、プロジェクトの要件に合わせて編集できます。
 
-起動する、*コント ローラーの追加*ASP.NET MVC 3、ダイアログ ボックスを右クリックし、*コント ローラー*フォルダー*ソリューション エクスプ ローラー*、 をクリックして*追加*、 をクリックし、*コント ローラー*します。 ダイアログ ボックスは、スキャフォールディングの追加オプションを提供する拡張されています。
+ASP.NET MVC 3 の [*コントローラーの追加*] ダイアログボックスを起動するには、*ソリューションエクスプローラー*で [*コントローラー* ] フォルダーを右クリックし、[*追加*] をクリックして、[*コントローラー*] をクリックします。 このダイアログボックスは、追加のスキャフォールディングオプションを提供するように強化されています。
 
 ![](mvc3-release-notes/_static/image1.png)
 
-次の 3 つスキャフォールディング テンプレートは使用可能な既定です。
+既定では、3つのスキャフォールディングテンプレートを使用できます。
 
-#### <a name="empty-controller"></a>空のコント ローラー
+#### <a name="empty-controller"></a>空のコントローラー
 
-このテンプレートには、空のコント ローラー ファイルが生成されます。 このテンプレートはしないことに相当*作成、編集、詳細のアクションを追加、削除、シナリオ*ASP.NET MVC の以前のバージョン。 これを選択すると、さらにオプションの使用はありません。
+このテンプレートでは、空のコントローラーファイルが生成されます。 このテンプレートは、以前のバージョンの ASP.NET MVC の*作成、編集、詳細、削除の各シナリオに対して [アクションの追加*] チェックボックスをオンにすることと同じです。 このオプションを選択した場合、それ以上のオプションは使用できません。
 
-#### <a name="controller-with-empty-readwrite-actions"></a>空の読み取り/書き込みアクションがコント ローラー
+#### <a name="controller-with-empty-readwrite-actions"></a>空の読み取り/書き込みアクションがあるコントローラー
 
-このテンプレートは、メソッドの実装コードではなく、すべての必要なアクション メソッドを含むコント ローラー ファイルを生成します。 このテンプレートはことに相当*作成、編集、詳細のアクションを追加、削除、シナリオ*ASP.NET MVC の以前のバージョン。 これを選択すると、さらにオプションの使用はありません。
+このテンプレートは、必要なアクションメソッドがすべて含まれているが、メソッドに実装コードがないコントローラーファイルを生成します。 このテンプレートは、以前のバージョンの ASP.NET MVC の*作成、編集、詳細、削除の各シナリオに対する追加アクション*を確認することと同じです。 このオプションを選択した場合、それ以上のオプションは使用できません。
 
-#### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>読み取り/書き込みアクションと Entity Framework を使用して、ビュー コント ローラー
+#### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>Entity Framework を使用した、読み取り/書き込みアクションとビューを備えたコントローラー
 
-このテンプレートでは、作業データ入力ユーザー インターフェイスをすばやく作成することができます。 一般的な要件と、次のシナリオの範囲を処理するコードが生成されます。
+このテンプレートを使用すると、作業中のデータ入力ユーザーインターフェイスをすばやく作成できます。 次のような一般的な要件とシナリオを処理するコードが生成されます。
 
-- *データ アクセス*します。 生成されたコードは、データベース内でエンティティを読み書きします。 既存のデータ コンテキスト クラスを選択した場合、または新しい生成テンプレートを使用する場合、Entity Framework Code First アプローチで動作*DbContext*クラス。 既存の選択した場合は、Entity Framework Database First または Model First アプローチでも動作*ObjectContext*クラス。
-- *検証*です。 生成されたコードは、モデル クラスで宣言されている規則に従ってフォーム送信が検証できるように、ASP.NET MVC のモデル バインドとメタデータ機能を使用します。 など、組み込みの検証の規則が含まれます、*必要*と*StringLength*属性、およびカスタム検証規則。
-- *一対多リレーションシップ*します。 モデル クラス間に一対多外部キー リレーションシップを定義する場合、生成されたコードには関連エンティティを選択するためのドロップダウン リストが生成されます。 たとえば、次に Entity Framework Code First の規則に従うモデル クラスを定義します。 
+- *データアクセス*。 生成されたコードは、データベース内のエンティティの読み取りと書き込みを行います。 既存のデータコンテキストクラスを選択した場合、またはテンプレートに新しい*Dbcontext*クラスを生成させる場合は、Entity Framework Code First の方法で動作します。 また、既存の*ObjectContext*クラスを選択した場合は、Entity Framework Database First または Model First アプローチでも機能します。
+- *検証*。 生成されたコードは、モデルクラスで宣言された規則に従ってフォーム送信が検証されるように、ASP.NET MVC モデルバインディングとメタデータ機能を使用します。 これには、*必須*の属性や*stringlength*属性などの組み込みの検証規則や、カスタム検証規則が含まれます。
+- *一対多のリレーションシップ*。 モデルクラス間に一対多の外部キーリレーションシップを定義すると、生成されたコードによって、関連エンティティを選択するためのドロップダウンリストが生成されます。 たとえば、次のモデルクラスを Entity Framework Code First 規則に従って定義できます。 
 
     [!code-csharp[Main](mvc3-release-notes/samples/sample5.cs)]
 
-    コント ローラーをスキャフォールディングすると、*製品*クラス、そのビューにより、ユーザーを選択する、*カテゴリ*オブジェクトごとに*製品*インスタンス。
+    その後、 *product*クラスのコントローラーをスキャフォールディングすると、そのビューでは、ユーザーが各*製品*インスタンスの*カテゴリ*オブジェクトを選択できるようになります。
 
-    このテンプレートの追加のオプションを使用して、*コント ローラーの追加* ダイアログ ボックス。 *モデル クラス*ソリューションを作成または編集できるユーザー データの種類を決定するはどのモデル クラスを選択できます。
-- Entity Framework Code First を使用する場合は、どのモデル クラスを選択できます。
-- Entity Framework Database First または Entity Framework Model First を使用している場合は、概念モデルで定義されているエンティティ クラスを選択することを確認します。
+    このテンプレートは、[コントローラーの*追加*] ダイアログボックスで追加のオプションを有効にします。 [*モデルクラス*] では、ソリューション内の任意のモデルクラスを選択できます。これにより、ユーザーが作成または編集できるデータの種類が決まります。
+- Entity Framework Code First を使用する場合は、任意のモデルクラスを選択できます。
+- Entity Framework Database First または Entity Framework Model First を使用している場合は、概念モデルで定義されているエンティティクラスを選択してください。
 
-*データ コンテキスト クラス*、これらの選択を行うことができます。
+*データコンテキストクラス*では、次の選択を行うことができます。
 
-- Code First を使用して、既存のデータ コンテキスト クラスではありませんしたい場合 * * 新しいデータ コンテキスト * *。 データ コンテキスト クラスが、しが生成されます。
-- 既存のデータ コンテキスト クラスを Code First を使用する場合は、ここで選択します。 選択したモデル クラスを永続化が更新されます。
-- Database First または Model First を使用している場合は、ここで、オブジェクト コンテキスト クラスを選択します。
+- Code First を使用し、既存のデータコンテキストクラスがない場合は、* * [新しいデータコンテキスト] * * を選択します。 その後、データコンテキストクラスが生成されます。
+- Code First を使用し、既存のデータコンテキストクラスを使用する場合は、ここで選択します。 これは、選択したモデルクラスを保持するように更新されます。
+- Database First または Model First を使用している場合は、ここでオブジェクトコンテキストクラスを選択します。
 
-ビューの場合、使用するビュー エンジンを選択または任意のビューをスキャフォールディングしたくない場合、[なし] を選択します。
+ビューの場合は、使用するビューエンジンを選択するか、ビューをスキャフォールディングしない場合は [なし] を選択します。
 
-高度なオプションを選択するさらに、生成されたビューのオプションを指定します。 たとえば、レイアウトまたはマスター ページを使用を選択できます。
+[詳細設定] を選択すると、生成されるビューのオプションをさらに指定できます。 たとえば、使用するレイアウトまたはマスターページを選択できます。
 
 <a id="tu-ImprovementsNewDialogBox"></a>
-### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>機能強化、"ASP.NET MVC 3 新しいプロジェクト ダイアログ ボックス
+### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>[ASP.NET MVC 3 New Project (新しいプロジェクトの追加)] ダイアログボックスの機能強化
 
-新しい ASP.NET MVC 3 プロジェクトの作成に使用する ダイアログ ボックスには、次に示すように複数の機能強化が含まれます。
+新しい ASP.NET MVC 3 プロジェクトの作成に使用するダイアログボックスには、次に示すように、複数の機能強化が含まれています。
 
 ![](mvc3-release-notes/_static/image2.png)
 
-#### <a name="new-intranet-project-template"></a>新しい「イントラネット プロジェクト」テンプレート
+#### <a name="new-intranet-project-template"></a>新しい "イントラネットプロジェクト" テンプレート
 
-プロジェクト テンプレートの一覧には、新しいイントラネット アプリケーション テンプレートが用意されています。 このテンプレートには、フォーム認証ではなく Windows 認証を使用して web アプリケーションを構築するための設定が含まれています。 イントラネット アプリケーションには、プロジェクトのテンプレートにカプセル化することはできません、いくつかの IIS 設定が必要であるため、テンプレートには、プロジェクト テンプレートを IIS で使用する方法についての readme ファイルが含まれます。 ドキュメントを新しいイントラネット アプリケーション テンプレートは、次の URL で MSDN web サイトで使用できます。
+プロジェクトテンプレートの一覧には、新しいイントラネットアプリケーションテンプレートが含まれています。 このテンプレートには、フォーム認証ではなく Windows 認証を使用して web アプリケーションを構築するための設定が含まれています。 イントラネットアプリケーションでは、プロジェクトテンプレートにカプセル化できないいくつかの IIS 設定が必要であるため、テンプレートには、プロジェクトテンプレートを IIS で動作させるための手順を示す readme ファイルが含まれています。 新しいイントラネットアプリケーションテンプレートのドキュメントについては、MSDN web サイトの次の URL を参照してください。
 
 [https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
-#### <a name="project-templates-are-now-html5-enabled"></a>プロジェクト テンプレートが HTML5 に対応
+#### <a name="project-templates-are-now-html5-enabled"></a>プロジェクトテンプレートが HTML5 で有効になりました
 
-新しいプロジェクト ダイアログ ボックスにプロジェクト テンプレートは、HTML5 固有の機能を追加するオプションが追加されました。 オプションをオンにすると、新たに HTML5 が含まれているビューを生成する`<header>`、 `<footer>`、および`<navigation>`要素。
+[新しいプロジェクト] ダイアログボックスに、HTML5 固有の機能をプロジェクトテンプレートに追加するオプションが表示されるようになりました。 このオプションを選択すると、新しい HTML5 `<header>`、`<footer>`、および `<navigation>` 要素を含むビューが生成されます。
 
-以前のバージョンのブラウザーは、HTML5 固有のタグをサポートしないことに注意してください。 この制限に対処するため、HTML5 プロジェクト テンプレートに Modernizr ライブラリへの参照が含まれます。 (詳しくは、次のセクションを参照してください)。
+以前のバージョンのブラウザーでは、HTML5 固有のタグがサポートされていないことに注意してください。 この制限に対処するために、HTML5 プロジェクトテンプレートには、Modernizr ライブラリへの参照が含まれています。 (次のセクションを参照してください)。
 
 <a id="tu-Modernizr"></a>
-### <a name="project-templates-now-include-modernizr-17"></a>プロジェクト テンプレートに Modernizr 1.7 が追加されました
+### <a name="project-templates-now-include-modernizr-17"></a>プロジェクトテンプレートに Modernizr 1.7 が含まれるようになりました
 
-Modernizr は、これらの機能をサポートしていないブラウザーで、CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクト用のテンプレートに事前にインストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、次を参照してください。 [ http://www.modernizr.com/](http://www.modernizr.com/)します。
+Modernizr は、これらの機能をまだサポートしていないブラウザーで CSS 3 と HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクトのテンプレートに、事前にインストールされた NuGet パッケージとして含まれています。 Modernizr の詳細については、「 [http://www.modernizr.com/](http://www.modernizr.com/)」を参照してください。
 
 <a id="tu-UpdatedJQuery"></a>
-### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクト テンプレートは、更新されたバージョンの jQuery、jQuery UI、および jQuery の検証
+### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクトテンプレートには、jQuery、jQuery UI、および jQuery Validation の更新バージョンが含まれています
 
-プロジェクト テンプレートには、次のバージョンの jQuery スクリプトが追加されました。
+プロジェクトテンプレートには、次のバージョンの jQuery スクリプトが含まれるようになりました。
 
 - jQuery 1.5.1
-- jQuery 検証 1.8
+- jQuery 検証1.8
 - jQuery UI 1.8.11
 
-これらのライブラリは、NuGet プレインストール パッケージとして含まれています。
+これらのライブラリは、事前にインストールされた NuGet パッケージとして含まれています。
 
 <a id="tu-EF"></a>
-### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>プロジェクト テンプレートでは、NuGet プレインストール パッケージとして ADO.NET Entity Framework 4.1 が追加されました
+### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>プロジェクトテンプレートに、事前にインストールされた NuGet パッケージとして ADO.NET Entity Framework 4.1 が含まれるようになりました
 
-ADO.NET の Entity Framework 4.1 には、Code First 機能が含まれています。 コードは、既存の Database First と Model First パターンの代替を提供する ADO.NET Entity Framework の新しい開発パターンを最初です。
+ADO.NET Entity Framework 4.1 には、Code First 機能が含まれています。 Code First は、既存の Database First および Model First パターンの代わりに使用できる、ADO.NET Entity Framework の新しい開発パターンです。
 
-コードはまず、Visual Basic または c# で記述された POCO クラス ("plain old CLR object") を使用して、モデルの定義をフォーカスしています。 これらのクラスは、既存のデータベースにマップすることができますし、またはデータベース スキーマの生成に使用します。 使用して追加の構成を指定する*DataAnnotations*属性または fluent Api を使用します。
+Code First は、Visual Basic またはC#で記述された POCO クラス ("PLAIN old CLR objects") を使用してモデルを定義することに重点を置いています。 これらのクラスは、既存のデータベースにマップすることも、データベーススキーマを生成するために使用することもできます。 *Dataannotations*属性を使用するか、fluent api を使用して、追加の構成を指定できます。
 
-コード Firstwith ASP.NET MVC を使用するためのドキュメントは、次の Url で ASP.NET web サイトで使用できます。
+Code Firstwith ASP.NET MVC の使用に関するドキュメントは、ASP.NET の web サイトの次の Url にあります。
 
 [https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
-### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>プロジェクト テンプレートは、NuGet プレインストール パッケージとして JavaScript ライブラリを含める
+### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>プロジェクトテンプレートには、プレインストールされた NuGet パッケージとしての JavaScript ライブラリが含まれています
 
-それらをインストールすることで (たとえば、Modernizr ライブラリ) に記載されている JavaScript ファイルがプロジェクトに含まれています新しい ASP.NET MVC 3 プロジェクトを作成するときに、プロジェクト テンプレートで、Scripts フォルダーにスクリプトを直接追加する代わりに NuGet を使用します。内容。 これにより、NuGet を使用して、スクリプトの新しいバージョンがリリースされたときに、最新バージョンに、スクリプトを更新することができます。
+新しい ASP.NET MVC 3 プロジェクトを作成する場合、プロジェクトには、プロジェクトテンプレートの Scripts フォルダーにスクリプトを直接追加するのではなく、NuGet を使用してインストールした JavaScript ファイル (Modernizr ライブラリなど) が含まれます。内容. これにより、新しいバージョンのスクリプトがリリースされたときに、NuGet を使用してスクリプトを最新バージョンに更新できます。
 
-たとえば、jQuery の新しいリリースの頻度を指定するには、プロジェクト テンプレートに含まれる jQuery のバージョンがある時点で期限切れ。 ただし、jQuery はインストールされている NuGet パッケージとして含まれるため、通知されます NuGet ダイアログ ボックスで、jQuery の新しいバージョンが利用可能な場合。
+たとえば、新しい jQuery リリースの頻度により、プロジェクトテンプレートに含まれている jQuery のバージョンは、ある時点で最新の状態になります。 ただし、jQuery はインストール済みの NuGet パッケージとして含まれているため、新しいバージョンの jQuery が使用可能な場合は、[NuGet] ダイアログボックスに通知されます。
 
-JQuery には、ファイル名にバージョン番号が含まれているため、jQuery を最新バージョンに更新も更新が必要です、`<script>`新しいファイル名を使用する jQuery ファイルを参照するタグ。 その他のスクリプトが含まれるライブラリでは、スクリプト名 でバージョン番号は含まれないので、最新バージョンにより簡単に更新することができます。
+JQuery にはファイル名にバージョン番号が含まれているので、jQuery を最新バージョンに更新するには、jQuery ファイルを参照する `<script>` タグを更新して、新しいファイル名を使用する必要もあります。 その他のスクリプトライブラリには、スクリプト名にバージョン番号が含まれていないため、より簡単に最新バージョンに更新できます。
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>既知の問題
 
-- 場合によっては、インストール、エラー メッセージ「インストールに失敗しましたエラー コード (0x80070643)」で失敗します。 この問題を回避する方法については、次を参照してください。[サポート技術情報の記事 2531566](https://support.microsoft.com/kb/2531566)します。
-- コント ローラーを追加するためのスキャフォールディングでは、Entity Framework 内でエンティティ継承サポートを利用するエンティティはスキャフォールディングされません。 たとえば、ベースを指定*人*クラスによって継承される、*学生*クラスをスキャフォールディング、*学生*クラスと、生成されたコード コンパイルされていません。
-- ソリューション フォルダー内で新しい ASP.NET MVC 3 プロジェクトを作成するには、原因、 *NullReferenceException*エラー。 回避策では、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューション フォルダーに移動しています。
-- Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper がインストールされているあり ASP.NET MVC 3 での Razor IntelliSense サポートを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)併用する方法が説明されています Hadi Hariri のブログ、します。
-- インストール中に、使用許諾契約書への同意 ダイアログ ボックスのものよりも小さなウィンドウで、ライセンス条項が表示されます。
-- Razor ビューを編集するときに (.cshtml または *。vbhtml*ファイル)、ビュー。 ASP.NET MVC 3 では、Razor ビューのスニペットは含まれません.ASP.NET MVC 用のコード スニペットを aspxselecting スニペットが表示されます。
-- ASP.NET MVC 3 for Visual Web Developer Express で Visual Studio がインストールされていない、コンピューターにインストールし、後で Visual Studio をインストールして場合に、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードしたコンポーネントを共有します。 Visual Web Developer Express があるし、後で Visual Web Developer Express インストール コンピューターに Visual Studio for ASP.NET MVC 3 をインストールする場合、同じ問題が適用されます。
+- 場合によっては、インストールが失敗し、"インストールに失敗しました。エラーコード (0x80070643)" というエラーメッセージが表示されることがあります。 この問題を回避する方法については、サポート技術情報の[記事 2531566](https://support.microsoft.com/kb/2531566)を参照してください。
+- コントローラーを追加するためのスキャフォールディングでは、Entity Framework 内でのエンティティの継承サポートを利用するエンティティはスキャフォールディングません。 たとえば、 *student*クラスによって継承される基本*Person*クラスを指定した場合、*学生*クラスをスキャフォールディングすると、コンパイルされないコードが生成されます。
+- ソリューションフォルダー内に新しい ASP.NET MVC 3 プロジェクトを作成すると、 *NullReferenceException*エラーが発生します。 この問題を回避するには、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューションフォルダーに移動します。
+- Razor 構文の IntelliSense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法について説明しています。
+- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- Razor ビュー (cshtml またはを編集する場合。*vbhtml*ファイル)、ビュー。 ASP.NET MVC 3 には Razor ビューのスニペットは含まれていません。「」を参照してください。ASP.NET MVC のコードスニペットを選択すると、のスニペットが表示されます。
+- Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
 
 <a id="MVC3RTM"></a>
-## <a name="changes-in-aspnet-mvc-3-rtm"></a>ASP.NET MVC 3 RTM での変更
+## <a name="changes-in-aspnet-mvc-3-rtm"></a>ASP.NET MVC 3 RTM での変更点
 
-このセクションでは、変更と RC2 リリース後、ASP.NET MVC 3 RTM リリースで行われたバグ修正について説明します。
+このセクションでは、RC2 リリース以降の ASP.NET MVC 3 RTM リリースで行われた変更点とバグ修正について説明します。
 
 <a id="RTM-1"></a>
-### <a name="change-updated-the-version-of-jquery-ui-to-187"></a>変更:バージョンの jQuery UI 1.8.7 するように更新
+### <a name="change-updated-the-version-of-jquery-ui-to-187"></a>変更: jQuery UI のバージョンを1.8.7 に更新しました
 
-Visual Studio の ASP.NET MVC プロジェクト テンプレートは、jQuery UI ライブラリの最新バージョンを含むように更新されました。 テンプレートには、jQuery、関連付けられている CSS とイメージ ファイルなどの UI に必要なリソース ファイルの最小セットも含まれます。
+Visual Studio 用の ASP.NET MVC プロジェクトテンプレートが更新され、jQuery UI ライブラリの最新バージョンが追加されました。 テンプレートには、関連する CSS ファイルやイメージファイルなど、jQuery UI で必要な最小限のリソースファイルも含まれています。
 
 <a id="RTM-2"></a>
-### <a name="change-changed-the-default-modelmetadataprovider-back-to-dataannotationsmodelmetadataprovider"></a>変更:既定値を DataAnnotationsModelMetadataProvider を ModelMetadataProvider 変更
+### <a name="change-changed-the-default-modelmetadataprovider-back-to-dataannotationsmodelmetadataprovider"></a>変更: 既定の ModelMetadataProvider を Data注釈の内容に変更しました。
 
-導入された ASP.NET MVC 3 の RC2 リリースを*CachedDataAnnotationsMetadataProvider*クラスに提供される既存の上にキャッシュ*DataAnnotationsModelMetadataProvider*クラスとして、パフォーマンスの向上。 変更を元に戻すしで利用可能な計画の MVC プロジェクトに移動するため、この実装でに報告されたいくつかのバグのただし、 [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack)します。
+ASP.NET MVC 3 の RC2 リリースでは、パフォーマンス向上のために、既存の*Data注釈*の CachedDataAnnotationsMetadataProvider クラスの上にキャッシュを提供するクラスが導入されました。 ただし、一部のバグはこの実装で報告されたため、変更は元に戻され、 [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack)で利用できる MVC 計画プロジェクトに移動されました。
 
 <a id="RTM-3"></a>
-### <a name="fixed-pasting-part-of-a-razor-expression-that-contains-whitespace-results-in-it-being-reversed"></a>修正済み。逆に空白の結果を含む Razor 式の一部を貼り付ける
+### <a name="fixed-pasting-part-of-a-razor-expression-that-contains-whitespace-results-in-it-being-reversed"></a>修正: 空白を含む Razor 式の一部を貼り付けると、元に戻されます。
 
-ASP.NET MVC 3 のプレリリース バージョンは、Razor ファイルに空白を含む Razor 式の一部を貼り付けると、結果の式が逆になります。 たとえば、次の Razor コード ブロックがあるとします。
+ASP.NET MVC 3 のプレリリース版では、Razor ファイルに空白を含む Razor 式の一部を貼り付けると、結果として得られる式が反転されます。 たとえば、次の Razor コードブロックについて考えてみます。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample6.cshtml)]
 
-最初のメソッドでテキスト"最初 param"を選択し、2 番目のメソッドに引数として貼り付けます場合、結果はとおりです。
+最初のメソッドで "first param" というテキストを選択し、2番目のメソッドに引数として貼り付けると、結果は次のようになります。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample7.cshtml)]
 
-正しい動作は、貼り付け操作は次のようになります。
+正しい動作では、貼り付け操作の結果は次のようになります。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample8.cshtml)]
 
-式が正しく貼り付け操作中に保持されるように RTM リリースでこの問題は修正されています。
+この問題は、貼り付け操作中に式が正しく保持されるように、RTM リリースで修正されました。
 
 <a id="RTM-4"></a>
-### <a name="fixed-renaming-a-razor-file-that-is-opened-in-the-editor-disables-syntax-colorization-and-intellisense"></a>修正済み。構文の色付けと IntelliSense を無効にしますが、エディターで開かれている Razor ファイルの名前を変更します。
+### <a name="fixed-renaming-a-razor-file-that-is-opened-in-the-editor-disables-syntax-colorization-and-intellisense"></a>修正: エディターで開いた Razor ファイルの名前を変更すると、構文の色付けと IntelliSense が無効になります。
 
-エディター ウィンドウで、ファイルを開いたときに、ソリューション エクスプ ローラーを使用して Razor ファイルの名前を変更すると、構文の強調表示、IntelliSense ファイルの動作を停止します。 強調表示するためにこれを修正されていて、IntelliSense は、名前の変更後も保持します。
+ファイルがエディターウィンドウで開かれているときにソリューションエクスプローラーを使用して Razor ファイルの名前を変更すると、そのファイルに対して構文の強調表示や IntelliSense の動作が停止します。 これは修正され、名前の変更後に強調表示と IntelliSense が維持されるようになりました。
 
 <a id="RTM-KI"></a>
 ## <a name="known-issues"></a>既知の問題
 
-- 場合は、NuGet パッケージ マネージャー コンソールが開いているときに Visual Studio 2010 SP1 Beta を閉じると、Visual Studio がクラッシュして再起動しようとしています。 これは、問題を修正する予定の Visual Studio 2010 SP1 の RTM リリースでします。
-- ASP.NET MVC 3 インストーラーでは、NuGet パッケージ マネージャーの初期のバージョンをインストールすることのみです。 最初のバージョンをインストールした後、NuGet はインストールすることができ、Visual Studio 拡張機能マネージャーを使用して更新します。 NuGet がインストールされて既にある場合は、NuGet の最新バージョンに更新するには、Visual Studio 拡張機能ギャラリーに移動します。
-- ソリューション フォルダー内で新しい ASP.NET MVC 3 プロジェクトを作成するには、原因、 *NullReferenceException*エラー。 回避策では、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューション フォルダーに移動しています。
-- インストーラーが完了する ASP.NET MVC の以前のバージョンよりもかなり長くかかる場合があります。 Visual Studio 2010 のコンポーネントを更新するためです。
-- Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper がインストールされているあり ASP.NET MVC 3 での Razor IntelliSense サポートを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)併用する方法が説明されています Hadi Hariri のブログ、します。
-- ASP.NET MVC 3 のベータ版で作成した CCSHTML と VBHTML のビューでは、ビルド アクションが正しく設定されていない、プロジェクトが発行されたときにこれらを表示する結果の型が省略されています。 これらのファイルのビルド アクションの値は、"Content"に設定する必要があります。 ASP.NET MVC 3 RTM が、新しいファイルの場合は、この問題を修正、プレリリース版で作成されたプロジェクトの既存のファイルの設定を修正しません。
+- NuGet パッケージマネージャーコンソールが開いているときに Visual Studio 2010 SP1 Beta を閉じると、Visual Studio がクラッシュし、再起動が試行されます。 これは、Visual Studio 2010 SP1 の RTM リリースで修正される予定です。
+- ASP.NET MVC 3 インストーラーでは、NuGet パッケージマネージャーの初期バージョンのみをインストールできます。 初期バージョンをインストールした後、Visual Studio 拡張機能マネージャーを使用して NuGet をインストールし、更新することができます。 NuGet が既にインストールされている場合は、Visual Studio 拡張機能ギャラリーにアクセスして、最新バージョンの NuGet に更新してください。
+- ソリューションフォルダー内に新しい ASP.NET MVC 3 プロジェクトを作成すると、 *NullReferenceException*エラーが発生します。 この問題を回避するには、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューションフォルダーに移動します。
+- インストーラーを完了するには、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。 これは、Visual Studio 2010 のコンポーネントを更新するためです。
+- Razor 構文の IntelliSense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法について説明しています。
+- ASP.NET MVC 3 のベータ版で作成された CCSHTML および VBHTML ビューには、ビルドアクションが正しく設定されていません。その結果、プロジェクトの発行時にこれらのビューの種類が省略されます。 これらのファイルのビルドアクション値は、"Content" に設定する必要があります。 ASP.NET MVC 3 RTM では、新しいファイルのこの問題を修正しますが、プレリリースバージョンで作成されたプロジェクトの既存のファイルの設定は修正されません。
 - ![](mvc3-release-notes/_static/image3.png)
-- インストール中に、使用許諾契約書への同意 ダイアログ ボックスのものよりも小さなウィンドウで、ライセンス条項が表示されます。
-- Razor ビュー (.cshtml ファイル) を編集するときは、Visual Studio でのコント ローラーに移動 メニュー項目を使用可能にすることはできませんし、コード スニペットはありません。
-- ASP.NET MVC 3 for Visual Web Developer Express で Visual Studio がインストールされていない、コンピューターにインストールし、後で Visual Studio をインストールして場合に、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードしたコンポーネントを共有します。 Visual Web Developer Express があるし、後で Visual Web Developer Express インストール コンピューターに Visual Studio for ASP.NET MVC 3 をインストールする場合、同じ問題が適用されます。
+- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- Razor ビュー (cshtml ファイル) を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
+- Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
 
 <a id="RTM-BC"></a>
 ## <a name="breaking-changes"></a>互換性に影響する変更点
 
-- ASP.NET MVC の以前のバージョンでは、アクション フィルターは、いくつかの場合を除く要求ごと作成します。 この動作が保証された動作が実装の詳細だけで、されていないことと、フィルターのコントラクトがステートレスに考慮すべきでした。 ASP.NET MVC 3 では、フィルターがより積極的にキャッシュされます。 そのため、不適切なインスタンスの状態を格納するカスタム アクション フィルターは、壊れている場合があります。
-- 例外フィルターの実行の順序が同じである例外フィルターの変更された*順序*値。 ASP.NET MVC 2 以降では、同じであるコント ローラー上の例外がフィルター*順序*アクション メソッドで例外フィルターの前に実行されるため、アクション メソッドの値します。 通常、ある場合、この例外フィルターが適用されるときに指定されていない*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
-- という名前の新しいプロパティ*FileExtensions*に追加された、 *VirtualPathProviderViewEngine*基本クラス。 ASP.NET では、(名前) ではなくパスでビューを検索、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューのみが考慮されます。 これは、Web フォーム ビューのファイルのカスタム拡張機能を有効にするには、カスタム ビルド プロバイダーが登録されているし、プロバイダー名ではなく、完全なパスを使用してこれらのビューが参照して、アプリケーションで重大な変更です。 回避の値を変更するには、 *FileExtensions*プロパティをカスタムのファイル拡張子が含まれます。
-- 直接実装するカスタム コント ローラー ファクトリの実装、 *IControllerFactory*インターフェイスは、新しい実装を提供する必要があります*GetControllerSessionBehavior*がメソッドこのリリースでは、インターフェイスに追加されます。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる*DefaultControllerFactory*します。
+- 以前のバージョンの ASP.NET MVC では、アクションフィルターは、いくつかのケースを除き、要求ごとに作成されます。 この動作は保証される動作ではありませんが、実装の詳細だけでなく、フィルターのコントラクトによってステートレスであると見なされていました。 ASP.NET MVC 3 では、フィルターはより積極的にキャッシュされます。 そのため、インスタンスの状態を不適切に格納するカスタムアクションフィルターが壊れている可能性があります。
+- 同じ*順序*の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターと同じ*順序*値を持つコントローラー上の例外フィルターが、アクションメソッドの例外フィルターの前に実行されます。 これは通常、特定の*順序*の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、 *order*プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
+- *FileExtensions*という名前の新しいプロパティが*Virtualpathproviderviewengine*基本クラスに追加されました。 ASP.NET が (名前ではなく) パスによってビューを検索する場合、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューだけが考慮されます。 これは、Web フォームビューでカスタムファイル拡張子を有効にするためにカスタムビルドプロバイダーが登録されているアプリケーションの互換性に影響する変更点です。また、プロバイダーは名前ではなく完全パスを使用してこれらのビューを参照します。 回避策として、 *FileExtensions*プロパティの値を変更して、カスタムファイル拡張子を含めることができます。
+- *IControllerFactory*インターフェイスを直接実装するカスタムコントローラーファクトリの実装では、このリリースのインターフェイスに追加された新しい*Getcontroller sessionbehavior*メソッドの実装を提供する必要があります。 一般に、このインターフェイスを直接実装せずに、代わりに*Defaultコントローラーファクトリ*からクラスを派生させることをお勧めします。
 
 <a id="_Toc2"></a>
-## <a name="changes-in-aspnet-mvc-3-rc2"></a>ASP.NET MVC 3 RC2 での変更
+## <a name="changes-in-aspnet-mvc-3-rc2"></a>ASP.NET MVC 3 RC2 の変更点
 
-このセクションでは、RC のリリース以降、ASP.NET MVC 3 RC2 リリースで行われた変更 (新機能とバグの修正) について説明します。
+このセクションでは、RC リリース以降の ASP.NET MVC 3 RC2 リリースで行われた変更 (新機能とバグ修正) について説明します。
 
 <a id="_Toc2_1"></a>
-### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>JQuery 1.4.4、jQuery 検証 1.7、jQuery UI 1.8.6 など、プロジェクト テンプレートの変更
+### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>JQuery 1.4.4、jQuery Validation 1.7、jQuery UI 1.8.6 を含むようにプロジェクトテンプレートが変更されました
 
-ASP.NET MVC 3 のプロジェクト テンプレートでは、jQuery、jQuery の検証、および jQuery の最新バージョンが追加 UI。 jQuery UI は、プロジェクト テンプレートに新たに追加し、便利なユーザー インターフェイス ウィジェットを提供します。 JQuery UI の詳細については、自分のホーム ページを参照してください: [ http://jqueryui.com/](http://jqueryui.com/)します。
+ASP.NET MVC 3 のプロジェクトテンプレートには、jQuery、jQuery Validation、jQuery UI の最新バージョンが含まれるようになりました。 jQuery UI は、プロジェクトテンプレートに新しく追加されたもので、便利なユーザーインターフェイスウィジェットを提供します。 JQuery UI の詳細については、ホームページの「 [http://jqueryui.com/](http://jqueryui.com/)」を参照してください。
 
 <a id="_Toc2_2"></a>
-### <a name="added-additionalmetadataattribute-class"></a>追加された"AdditionalMetadataAttribute"クラス
+### <a name="added-additionalmetadataattribute-class"></a>"AdditionalMetadataAttribute" クラスを追加しました
 
-使用することができます、 *AdditionalMetadataAttribute*を設定するクラス、 *ModelMetadata.AdditionalValues*モデル プロパティのディクショナリ。
+*Additionalmetadataattribute*クラスを使用して、モデルプロパティの*Modelmetadata. additionalvalues*ディクショナリを設定できます。
 
-たとえば、ビュー モデルに、管理者にのみ表示されるプロパティがあるとします。 そのモデル AdminOnly をキーと true として次の例のように、値として使用して、新しい属性で注釈を付けることができます。
+たとえば、ビューモデルに、管理者にのみ表示する必要があるプロパティがあるとします。 このモデルには、次の例に示すように、キーとして AdminOnly を使用し、値として true を使用して、新しい属性で注釈を付けることができます。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample9.cs)]
 
-このメタデータは、製品のビュー モデルが表示されるときに、表示またはエディターのテンプレートを使用されます。 メタデータ情報を解釈するアプリケーション開発者としての開発者次第です。
+このメタデータは、製品ビューモデルがレンダリングされるときに、任意の表示またはエディターテンプレートで使用できるようになります。 アプリケーション開発者は、メタデータ情報を解釈する必要があります。
 
 <a id="_Toc2_3"></a>
-### <a name="improved-view-scaffolding"></a>強化されたビューのスキャフォールディング
+### <a name="improved-view-scaffolding"></a>ビューのスキャフォールディングの向上
 
-ここではビューのスキャフォールディングを使用する T4 テンプレートなどのテンプレート ヘルパー メソッドの呼び出しの生成*EditorFor*などのヘルパーではなく*TextBoxFor*します。 この変更は、ビューの追加 ダイアログ ボックスのビューを生成するときに、データ注釈属性の形式でモデルのメタデータのサポートを向上します。
+スキャフォールディングビューに使用される T4 テンプレートで、 *TextBoxFor*などのヘルパーではなく、 *editorfor*のようなテンプレートヘルパーメソッドの呼び出しが生成されるようになりました。 この変更により、[ビューの追加] ダイアログボックスでビューが生成されたときのデータ注釈属性の形式で、モデルのメタデータのサポートが向上します。
 
-ビューの追加のスキャフォールディングには、検出機能の向上と規則に基づいて、モデルの主キーの情報の使用状況も含まれています。 たとえば、ビューの追加 ダイアログ ボックスはこの情報を使用して主キーの値が編集可能なフォームのフィールドとスキャフォールディングしないことを確認します。
+また、[ビューの追加] スキャフォールディングには、規則に基づいて、モデルの主キー情報の検出と使用が改善されています。 たとえば、[ビューの追加] ダイアログボックスでは、この情報を使用して、主キーの値が編集可能なフォームフィールドとしてスキャフォールディングされないようにします。
 
-既定の編集とテンプレートの作成には、クライアントの検証に必要な jQuery スクリプトへの参照が含まれます。
+既定の編集テンプレートと作成テンプレートには、クライアント検証に必要な jQuery スクリプトへの参照が含まれています。
 
 <a id="_Toc2_4"></a>
-### <a name="added-htmlraw-method"></a>追加された Html.Raw メソッド
+### <a name="added-htmlraw-method"></a>追加された Html. Raw メソッド
 
-既定では、Razor はすべての値を HTML エンコード エンジンを表示します。 次のコード スニペットがあいさつの変数の内部 HTML をエンコードするとしてページに表示されるように、`<strong>Hello World!</strong>`します。
+既定では、Razor ビューエンジンはすべての値を HTML エンコードします。 たとえば、次のコードスニペットは、`<strong>Hello World!</strong>`としてページに表示されるように、あいさつ変数内の HTML をエンコードします。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
-新しい*Html.Raw*メソッドは、コンテンツの安全がわかっている場合は、エンコードされていない HTML を表示する簡単な方法を提供します。 次の例が、同じ文字列が表示されますが、文字列がマークアップとしてレンダリングされます。
+新しい*html の未加工*のメソッドを使用すると、コンテンツが安全であることがわかっている場合に、エンコードされていない Html を簡単に表示できます。 次の例では、同じ文字列を表示しますが、文字列はマークアップとして表示されます。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample11.cshtml)]
 
 <a id="_Toc2_5"></a>
-### <a name="renamed-controllerviewmodel-property-and-the-view-property-to-viewbag"></a>名前が変更された"Controller.ViewModel"プロパティと"ViewBag"を"View"プロパティ
+### <a name="renamed-controllerviewmodel-property-and-the-view-property-to-viewbag"></a>"Controller. ビュー名" プロパティと "View" プロパティの名前を "ViewBag" に変更しました
 
-以前は、 *ViewModel*プロパティの*コント ローラー*に対応する、*ビュー*ビューのプロパティ。 値をアクセスする方法を提供これら両方のプロパティ、 *ViewDataDictionary*オブジェクトの動的なプロパティ アクセサーの構文を使用します。 両方のプロパティは、混乱を避けるためより一貫したものと同じである名前に変更されています。
+以前は、*コントローラー*のビュー*モデル*プロパティは、ビューの*view*プロパティにこれしていました。 これらのプロパティはどちらも、動的なプロパティアクセサー構文を使用して*ViewDataDictionary*オブジェクトの値にアクセスする方法を提供します。 混乱を回避し、一貫性を高めるために、両方のプロパティの名前が同じに変更されました。
 
 <a id="_Toc2_6"></a>
-### <a name="renamed-controllersessionstateattribute-class-to-sessionstateattribute"></a>名前が変更された"ControllerSessionStateAttribute"クラス"SessionStateAttribute"を
+### <a name="renamed-controllersessionstateattribute-class-to-sessionstateattribute"></a>"ControllerSessionStateAttribute" クラスの名前を "SessionStateAttribute" に変更しました
 
-*ControllerSessionStateAttribute*クラスは、ASP.NET MVC 3 の RC リリースで導入されました。 簡潔にするプロパティが変更されました。
+*ControllerSessionStateAttribute*クラスは、ASP.NET MVC 3 の RC リリースで導入されました。 プロパティの名前がより簡潔に変更されました。
 
 <a id="_Toc2_7"></a>
-### <a name="renamed-remoteattribute-fields-property-to-additionalfields"></a>「ため」に名前を変更した RemoteAttribute"Fields"プロパティ
+### <a name="renamed-remoteattribute-fields-property-to-additionalfields"></a>RemoteAttribute "Fields" プロパティの名前を "AdditionalFields" に変更しました
 
-*RemoteAttribute*クラスの*フィールド*ユーザー間で混乱の原因となったプロパティ。 このプロパティの名前を変更する*ため*その意図を明確にします。
+*Remoteattribute*クラスの*Fields*プロパティによって、ユーザー間でいくつかの混乱が発生しました。 このプロパティの名前を*Additionalfields*に変更すると、その意図が明確になります。
 
 <a id="_Toc2_8"></a>
-### <a name="renamed-skiprequestvalidationattribute-to-allowhtmlattribute"></a>"AllowHtmlAttribute"を"SkipRequestValidationAttribute"の名前を変更します。
+### <a name="renamed-skiprequestvalidationattribute-to-allowhtmlattribute"></a>"SkipRequestValidationAttribute" を "AllowHtmlAttribute" に変更しました
 
-*SkipRequestValidationAttribute*に属性が変更されました*AllowHtmlAttribute*をわかりやすく、用途を表します。
+*SkipRequestValidationAttribute*属性の名前が*AllowHtmlAttribute*に変更され、目的の用途がより適切に表されました。
 
 <a id="_Toc2_9"></a>
-### <a name="changed-htmlvalidationmessage-method-to-display-the-first-useful-error-message"></a>最初に、役立つエラー メッセージを表示する変更された"Html.ValidationMessage"メソッド
+### <a name="changed-htmlvalidationmessage-method-to-display-the-first-useful-error-message"></a>最初の役に立つエラーメッセージを表示するように "Html. ValidationMessage" メソッドを変更しました
 
-*Html.ValidationMessage*最初のエラーを表示するだけではなく最初の有用なエラー メッセージを表示するメソッドが修正されました。
+最初のエラーを表示するのではなく、最初の便利なエラーメッセージを表示するように*Html の ValidationMessage*メソッドが修正されました。
 
-モデルのバインド中に、 *ModelState*ディクショナリは、モデル自体からなど、プロパティに関するエラー メッセージで複数のソースから設定できます (実装している場合*IValidatableObject*)、およびプロパティがアクセスされているときにスローされる例外、プロパティに適用される検証属性から。
+モデルバインド中に、 *Modelstate*ディクショナリは、プロパティに関するエラーメッセージを含む複数のソースから作成できます。これには、モデル自体 ( *IValidatableObject*を実装している場合)、プロパティに適用された検証属性、およびプロパティにアクセスしている間にスローされた例外が含まれます。
 
-ときに、 *Html.ValidationMessage*メソッド検証メッセージを表示する、これらは一般にないため、エンドユーザーは、例外が含まれているモデル状態エントリをスキップします。 代わりに、このメソッドは最初の検証メッセージを例外に関連付けられていないと、そのメッセージが表示されます。 このようなメッセージが検出されない場合の既定値は、最初の例外に関連付けられている一般的なエラー メッセージです。
+Html の*validationmessage*メソッドは、検証メッセージを表示するときに、例外を含むモデル状態エントリをスキップします。これは通常、エンドユーザー向けのものではないためです。 代わりに、メソッドは、例外に関連付けられていない最初の検証メッセージを検索し、そのメッセージを表示します。 このようなメッセージが見つからない場合、既定では、最初の例外に関連付けられている一般的なエラーメッセージが表示されます。
 
 <a id="_Toc2_10"></a>
-### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>固定@model空白の文書に追加の宣言
+### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>ドキュメントに空白を追加しないように @model 宣言を修正した
 
-以前のリリースで、 *@model*ビューの上部にある宣言が表示される HTML 出力に空白行を追加します。 これは、宣言は空白を挿入しないように修正されています。
+以前のリリースでは、ビューの上部にある `@model` 宣言によって、表示される HTML 出力に空白行が追加されました。 これは修正され、宣言によって空白が導入されないようになっています。
 
 <a id="_Toc2_11"></a>
-### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>エンジン固有のファイル名をサポートするために、ビュー エンジンに追加された"FileExtensions"プロパティ
+### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>エンジン固有のファイル名をサポートするための "FileExtensions" プロパティをビューエンジンに追加しました
 
-ビュー エンジンは、次の例のように、明示的なビューのパスを使用してビューを返すことができます。
+ビューエンジンは、次の例のように、明示的なビューパスを使用してビューを返すことができます。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample12.cs)]
 
-最初のビュー エンジンは、常にビューをレンダリングしようとします。 既定では、Web フォーム ビュー エンジンは、最初のビュー エンジンです。Web フォームのエンジンは、Razor ビューをレンダリングできません、ためエラーが発生します。 ビュー エンジンのようになりましたが、 *FileExtensions*ファイル拡張子を指定するために使用するプロパティをサポートします。 このプロパティは、ASP.NET では、ビュー エンジンが、ファイルを表示できるかどうかが判断した場合にチェックされます。 これは重大な変更と詳細についてに含まれる、[重大な変更](#_Toc2_BC)このドキュメントの「します。
+最初のビューエンジンは、常にビューを表示しようとします。 既定では、Web フォームビューエンジンは最初のビューエンジンです。Web フォームエンジンは Razor ビューを表示できないため、エラーが発生します。 ビューエンジンには、サポートするファイル拡張子を指定するための*FileExtensions*プロパティが用意されました。 このプロパティは、ASP.NET がビューエンジンがファイルを表示できるかどうかを判断するときにチェックされます。 これは互換性に影響する変更点で、詳細については、このドキュメントの「互換性に影響する[変更点](#_Toc2_BC)」を参照してください。
 
 <a id="_Toc2_12"></a>
-### <a name="fixed-labelfor-helper-to-emit-the-correct-value-for-the-for-attribute"></a>固定"LabelFor"ヘルパー"For"属性の正しい値を出力するには
+### <a name="fixed-labelfor-helper-to-emit-the-correct-value-for-the-for-attribute"></a>"For" 属性の正しい値を出力するように "LabelFor" ヘルパーを修正しています
 
-バグはどこで修正された、 *LabelFor*レンダリング メソッドを*の*と一致する属性、*入力*要素の*名前*属性の代わりにID の W3C に従って、*の*属性に一致する必要があります、*入力*要素の id。
+バグが修正されました。*このメソッドでは、ID*ではなく、*入力*要素の*name*属性に一致する for 属性が*に*よって表示されます。 W3C によれば、 *for*属性は*入力*要素の ID と一致している必要があります。
 
 <a id="_Toc2_13"></a>
-### <a name="fixed-renderaction-method-to-give-explicit-values-precedence-during-model-binding"></a>モデル バインド中に明示的な値を優先する固定"RenderAction"メソッド
+### <a name="fixed-renderaction-method-to-give-explicit-values-precedence-during-model-binding"></a>モデルバインド中に明示的な値の優先順位を指定するように "RenderAction" メソッドを修正した
 
-以前のバージョンでは、明示的な値に渡された、 *RenderAction*メソッドは現在のフォーム値を優先して子アクション内でのモデル バインド中に無視されているされました。 この修正により、明示的な値がモデル バインド中に優先順位を取得します。
+以前のバージョンでは、 *renderaction*メソッドに渡された明示的な値は、子アクション内のモデルバインド時に現在のフォーム値を優先して無視されていました。 修正により、モデルバインド中に明示的な値が優先されるようになります。
 
 <a id="_Toc2_BC"></a>
 ## <a name="breaking-changes"></a>互換性に影響する変更点
 
-- ASP.NET MVC の以前のバージョンでは、アクション フィルターが 1 回のような場合を除く要求作成されました。 この動作が保証された動作が実装の詳細だけで、されていないことと、フィルターのコントラクトがステートレスに考慮すべきでした。 ASP.NET MVC 3 では、フィルターがより積極的にキャッシュされます。 そのため、不適切なインスタンスの状態を格納するカスタム アクション フィルターは、壊れている場合があります。
-- 例外フィルターの実行の順序が同じである例外フィルターの変更された*順序*値。 ASP.NET MVC 2 以降では、同じがあったコント ローラー上の例外がフィルター*順序*アクション メソッドで例外フィルターの前に実行されたアクション メソッドの値します。 通常、ある場合、この例外フィルターが適用されたときに指定されていない*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
-- という名前の新しいプロパティ*FileExtensions*に追加された、 *VirtualPathProviderViewEngine*基本クラス。 ASP.NET では、(名前) ではなくパスでビューを検索、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューのみが考慮されます。 これは、Web フォーム ビューのファイルのカスタム拡張機能を有効にするには、カスタム ビルド プロバイダーが登録されているし、プロバイダー名ではなく、完全なパスを使用してこれらのビューが参照して、アプリケーションで重大な変更です。 回避の値を変更するには、 *FileExtensions*プロパティをカスタムのファイル拡張子が含まれます。
-- 直接実装するカスタム コント ローラー ファクトリの実装、 *IControllerFactory*インターフェイスは、新しい実装を提供する必要があります*GetControllerSessionBehavior*がメソッドこのリリースでは、インターフェイスに追加されます。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる*DefaultControllerFactory*します。
+- 以前のバージョンの ASP.NET MVC では、いくつかのケースを除き、要求ごとにアクションフィルターが作成されました。 この動作は保証される動作ではありませんが、実装の詳細だけでなく、フィルターのコントラクトによってステートレスであると見なされていました。 ASP.NET MVC 3 では、フィルターはより積極的にキャッシュされます。 そのため、インスタンスの状態を不適切に格納するカスタムアクションフィルターが壊れている可能性があります。
+- 同じ*順序*の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターの前に、アクションメソッドと同じ*順序*値を持つコントローラーの例外フィルターが実行されました。 これは通常、特定の*順序*の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、 *order*プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
+- *FileExtensions*という名前の新しいプロパティが*Virtualpathproviderviewengine*基本クラスに追加されました。 ASP.NET が (名前ではなく) パスによってビューを検索する場合、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューだけが考慮されます。 これは、Web フォームビューでカスタムファイル拡張子を有効にするためにカスタムビルドプロバイダーが登録されているアプリケーションの互換性に影響する変更点です。また、プロバイダーは名前ではなく完全パスを使用してこれらのビューを参照します。 回避策として、 *FileExtensions*プロパティの値を変更して、カスタムファイル拡張子を含めることができます。
+- *IControllerFactory*インターフェイスを直接実装するカスタムコントローラーファクトリの実装では、このリリースのインターフェイスに追加された新しい*Getcontroller sessionbehavior*メソッドの実装を提供する必要があります。 一般に、このインターフェイスを直接実装せずに、代わりに*Defaultコントローラーファクトリ*からクラスを派生させることをお勧めします。
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>既知の問題
 
-- ASP.NET MVC 3 インストーラーでは、NuGet パッケージ マネージャーの初期のバージョンをインストールすることのみです。 最初のバージョンをインストールした後、NuGet はインストールすることができ、Visual Studio 拡張機能マネージャーを使用して更新します。 NuGet がインストールされて既にある場合は、NuGet の最新バージョンに更新するには、Visual Studio 拡張機能ギャラリーに移動します。
-- ソリューション フォルダー内で新しい ASP.NET MVC 3 プロジェクトを作成するには、原因、 *NullReferenceException*エラー。 回避策では、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューション フォルダーに移動しています。
-- インストーラーが完了する ASP.NET MVC の以前のバージョンよりもかなり長くかかる場合があります。 Visual Studio 2010 のコンポーネントを更新するためです。
-- Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper がインストールされているあり ASP.NET MVC 3 RC2 での Razor IntelliSense サポートを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)併用する方法が説明されています Hadi Hariri のブログ、します。
-- ASP.NET MVC 3 のベータ版で作成された CSHTML と VBHTML のビューでは、ビルド アクションが正しく設定されていない、プロジェクトが発行されたときにこれらを表示する結果の型が省略されています。 *ビルド アクション*値は、これらのファイルは、コンテンツに設定する必要があります"。 ASP.NET MVC 3 RC2 では、新しいファイルの場合は、この問題が修正がベータ版で作成されたプロジェクトの既存のファイルの設定を修正しません。![](mvc3-release-notes/_static/image4.png)
-- インストール中に、使用許諾契約書への同意 ダイアログ ボックスのものよりも小さなウィンドウで、ライセンス条項が表示されます。
-- Razor ビュー (.cshtml ファイル) を編集するときは、Visual Studio でのコント ローラーに移動 メニュー項目を使用可能にすることはできませんし、コード スニペットはありません。
-- ASP.NET MVC 3 for Visual Web Developer Express で Visual Studio がインストールされていない、コンピューターにインストールし、後で Visual Studio をインストールして場合に、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードしたコンポーネントを共有します。 Visual Web Developer Express があるし、後で Visual Web Developer Express インストール コンピューターに Visual Studio for ASP.NET MVC 3 をインストールする場合、同じ問題が適用されます。
-- ASP.NET MVC 3 RC 2 をインストールしても、NuGet は更新されない場合、既にインストールされていること。 NuGet をアップグレードするには、Visual Studio 拡張機能マネージャーに移動する必要がありますとして表示、利用可能な更新。 NuGet は、そこから最新のリリースにアップグレードできます。
+- ASP.NET MVC 3 インストーラーでは、NuGet パッケージマネージャーの初期バージョンのみをインストールできます。 初期バージョンをインストールした後、Visual Studio 拡張機能マネージャーを使用して NuGet をインストールし、更新することができます。 NuGet が既にインストールされている場合は、Visual Studio 拡張機能ギャラリーにアクセスして、最新バージョンの NuGet に更新してください。
+- ソリューションフォルダー内に新しい ASP.NET MVC 3 プロジェクトを作成すると、 *NullReferenceException*エラーが発生します。 この問題を回避するには、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューションフォルダーに移動します。
+- インストーラーを完了するには、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。 これは、Visual Studio 2010 のコンポーネントを更新するためです。
+- Razor 構文の IntelliSense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 RC2 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法に関する記事をご覧ください。
+- ASP.NET MVC 3 のベータ版で作成された CSHTML および VBHTML ビューには、ビルドアクションが正しく設定されていません。その結果、プロジェクトの発行時にこれらのビューの種類が省略されます。 これらのファイルの*ビルドアクション*値は、[コンテンツ] に設定する必要があります。 ASP.NET MVC 3 RC2 は、新しいファイルに対してこの問題を修正しますが、ベータバージョンで作成されたプロジェクトの既存のファイルの設定は修正しません。![](mvc3-release-notes/_static/image4.png)
+- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- Razor ビュー (cshtml ファイル) を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
+- Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
+- ASP.NET MVC 3 RC 2 をインストールすると、NuGet は更新されません (既にインストールされている場合)。 NuGet をアップグレードするには、Visual Studio 拡張機能マネージャーにアクセスして、使用可能な更新プログラムとして表示する必要があります。 NuGet は、そこから最新リリースにアップグレードできます。
 
 <a id="TOC_ASP_NET_3_RC"></a>
-## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 のリリース候補
+## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 リリース候補
 
-ASP.NET MVC リリース候補は、2010 年 11 月 9 日にリリースされました。
+ASP.NET MVC リリース候補は、2010年11月9日にリリースされました。
 
 <a id="_Toc276711785"></a>
 ## <a name="new-features-in-aspnet-mvc-3-rc"></a>ASP.NET MVC 3 RC の新機能
 
-このセクションが導入された機能について説明します、ベータ版リリース以降、ASP.NET MVC 3 RC リリースでします。
+このセクションでは、ベータリリース以降、ASP.NET MVC 3 RC リリースで導入された機能について説明します。
 
 <a id="_Toc276711786"></a>
 ### <a name="nuget-package-manager"></a>NuGet パッケージ マネージャー
 
-ASP.NET MVC 3 には、(旧称 NuPack)、Visual Studio プロジェクトにライブラリとツールを追加するための統合パッケージ管理ツールである NuGet パッケージ マネージャーが含まれています。 このツールは、開発者は、ソース ツリーにライブラリを取得する現在実行中の手順を自動化します。
+ASP.NET MVC 3 には、NuGet パッケージマネージャー (旧称 NuPack) が含まれています。これは、ライブラリとツールを Visual Studio プロジェクトに追加するための統合パッケージ管理ツールです。 このツールを使用すると、開発者がライブラリをソースツリーに取り込むための手順が自動化されます。
 
-コマンド ライン ツール、Visual Studio のコンテキスト メニューから Visual Studio 2010 内の統合されたコンソール ウィンドウと一連の PowerShell コマンドレットは、NuGet を使用することができます。
+NuGet は、Visual Studio 2010 内の統合されたコンソールウィンドウ、Visual Studio のコンテキストメニュー、および一連の PowerShell コマンドレットとして、コマンドラインツールとして使用できます。
 
-NuGet の詳細については、読み取り、 [Nuget のドキュメント](https://docs.microsoft.com/nuget/)します。
+NuGet の詳細については、 [nuget のドキュメント](https://docs.microsoft.com/nuget/)を参照してください。
 
 <a id="_Toc276711787"></a>
-### <a name="improved-new-project-dialog-box"></a>新しいプロジェクト の改善 ダイアログ ボックス
+### <a name="improved-new-project-dialog-box"></a>[新しいプロジェクト] ダイアログボックスの機能強化
 
-新しいプロジェクトを作成するときに、[新しいプロジェクト] ダイアログ ボックスできるようになりました、ビュー エンジンも ASP.NET MVC プロジェクトの種類を指定します。
+新しいプロジェクトを作成すると、[新しいプロジェクト] ダイアログボックスで、ビューエンジンと ASP.NET MVC プロジェクトの種類を指定できるようになりました。
 
 ![](mvc3-release-notes/_static/image5.png)
 
-このリリースでは、テンプレート、およびビュー エンジンの表示 ダイアログ ボックスの一覧を変更するためのサポートが含まれます。
+このリリースでは、ダイアログボックスに一覧表示されているテンプレートおよびビューエンジンの一覧の変更がサポートされています。
 
-既定のテンプレート、次に示します。
+既定のテンプレートは次のとおりです。
 
-[空]。 最低限 ASP.NET MVC プロジェクトでの既定ディレクトリ構造、ASP.NET MVC をスタイル設定、既定値と既定の JavaScript ファイルを含む Scripts ディレクトリを含む Site.css ファイルを含む、ASP.NET MVC プロジェクトのファイルにはが含まれています。
+[空]。 ASP.NET MVC プロジェクトの最小限のファイルセットを格納します。これには、ASP.NET MVC プロジェクトの既定のディレクトリ構造、既定の ASP.NET MVC スタイルを含むサイト .css ファイル、および既定の JavaScript ファイルを含む Scripts ディレクトリが含まれます。
 
-インターネット アプリケーションです。 ASP.NET MVC を使用したメンバーシップ プロバイダーを使用する方法を示すサンプルの機能が含まれています。
+インターネットアプリケーション。 ASP.NET MVC でメンバーシッププロバイダーを使用する方法を示すサンプル機能が含まれています。
 
-ダイアログ ボックスに表示されるプロジェクト テンプレートの一覧は、Windows レジストリで指定されます。
+ダイアログボックスに表示されるプロジェクトテンプレートの一覧は、Windows レジストリで指定されます。
 
 <a id="_Toc276711788"></a>
-### <a name="sessionless-controllers"></a>Sessionless コント ローラー
+### <a name="sessionless-controllers"></a>セッションレスコントローラー
 
-新しい*ControllerSessionStateAttribute*うえでセッション状態の動作の制御コント ローラーを指定して、 [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx)列挙値。
+新しい*ControllerSessionStateAttribute*を使用すると、 [SessionState](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx)列挙値を指定することで、コントローラーのセッション状態の動作をより細かく制御できます。
 
-次の例では、すべての要求をコント ローラーのセッション状態をオフにする方法を示します。
+次の例は、コントローラーに対するすべての要求のセッション状態をオフにする方法を示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample13.cs)]
 
-次の例では、コント ローラーにすべての要求の読み取り専用のセッション状態を設定する方法を示します。
+次の例は、コントローラーに対するすべての要求に対して読み取り専用のセッション状態を設定する方法を示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample14.cs)]
 
@@ -531,130 +531,130 @@ NuGet の詳細については、読み取り、 [Nuget のドキュメント](h
 
 #### <a name="compareattribute"></a>CompareAttribute
 
-新しい*CompareAttribute*検証属性では、モデルの 2 つの異なるプロパティの値を比較することができます。 次の例では、 *ComparePassword*プロパティに一致する必要があります、*パスワード*有効にするのにはフィールド。
+新しい*compareattribute*検証属性を使用すると、モデルの2つの異なるプロパティの値を比較できます。 次の例では、有効にするために、 *comparepassword*プロパティが*パスワード*フィールドと一致している必要があります。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample15.cs)]
 
 #### <a name="remoteattribute"></a>RemoteAttribute
 
-新しい*RemoteAttribute*によって実際の検証ロジックを実行するサーバーでメソッドを呼び出すクライアント側の検証、jQuery 検証プラグインのリモート検証の検証属性を利用します。
+新しい*Remoteattribute*検証属性は、jQuery validation プラグインのリモート検証を利用します。これにより、クライアント側の検証で、実際の検証ロジックを実行するサーバー上でメソッドを呼び出すことができます。
 
-次の例では、*ユーザー名*プロパティは、 *RemoteAttribute*適用します。 クライアント検証がという名前のアクションを呼び出して、編集ビューでは、このプロパティを編集するには、 *UserNameAvailable*上、 *UsersController*このフィールドを検証するためにクラス。
+次の例では、 *UserName*プロパティに*remoteattribute*が適用されています。 このプロパティを編集ビューで編集すると、クライアント検証は、このフィールドを検証するため*に、* *UserNameAvailable*という名前のアクションを、このフィールドに対して呼び出します。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample16.cs)]
 
-次の例は、対応するコント ローラーを示しています。
+次の例は、対応するコントローラーを示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample17.cs)]
 
-既定では、属性が適用されるプロパティ名はクエリ文字列パラメーターとしてアクション メソッドに送信されます。
+既定では、属性が適用されるプロパティ名は、クエリ文字列パラメーターとしてアクションメソッドに送信されます。
 
 <a id="_Toc276711790"></a>
-### <a name="new-overloads-for-labelfor-and-labelformodel-methods"></a>"LabelFor"と"LabelForModel"メソッドの新しいオーバー ロード
+### <a name="new-overloads-for-labelfor-and-labelformodel-methods"></a>"LabelFor" メソッドと "LabelForModel" メソッドの新しいオーバーロード
 
-新しいオーバー ロードが追加されました、 *LabelFor*と*LabelForModel*できるメソッドは、ラベルのテキストを指定します。 次の例では、これらのオーバー ロードを使用する方法を示します。
+ラベルのテキストを指定できる*labelfor*および*labelformodel*メソッドに新しいオーバーロードが追加されました。 これらのオーバーロードを使用する方法を次の例に示します。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample18.cshtml)]
 
 <a id="_Toc276711791"></a>
 ### <a name="child-action-output-caching"></a>子アクションの出力キャッシュ
 
-*OutputCacheAttribute*を使用して呼び出される子アクションの出力がキャッシュをサポートしています、 *Html.RenderAction*または*Html.Action*ヘルパー メソッド。 次の例では、別のアクションを呼び出すビューを示します。
+*Outputcacheattribute*は、 *Html の renderaction*または*html. action*ヘルパーメソッドを使用して呼び出される子アクションの出力キャッシュをサポートしています。 次の例は、別のアクションを呼び出すビューを示しています。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample19.cshtml)]
 
-*GetDate*アクションは、注釈が付けられた、 *OutputCacheAttribute*:
+*GetDate*アクションには、 *outputcacheattribute*で注釈が付けられています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample20.cs)]
 
-このコードを実行すると、Html.Action("GetDate") への呼び出しの結果が 100 秒間キャッシュされます。
+このコードを実行すると、Html. Action ("GetDate") の呼び出しの結果が100秒間キャッシュされます。
 
 <a id="_Toc276711792"></a>
-### <a name="add-view-dialog-box-improvements"></a>"ビューの追加 ダイアログ ボックスの機能強化
+### <a name="add-view-dialog-box-improvements"></a>[ビューの追加] ダイアログボックスの機能強化
 
-厳密に型指定されたビューを追加するときにビューの追加 ダイアログ ボックスは多くの中核となる .NET Framework 型などの以前のリリースでより詳細に該当しない種類を今すぐフィルター処理します。 また、クラスの名前と種類を検索しやすくなる完全修飾型名ではなくリストの並べ替えようになりました。 たとえば、型名は次の例のように表示されます。
+厳密に型指定されたビューを追加すると、[ビューの追加] ダイアログボックスでは、以前のリリース (多くのコア .NET Framework 型など) よりも適用できない型が除外されるようになりました。 また、リストは、完全修飾型名ではなくクラス名で並べ替えられるようになりました。これにより、型を簡単に見つけることができます。 たとえば、型名は次の例のように表示されるようになりました。
 
-クラス名 (名前空間)
+ClassName (名前空間)
 
-以前のリリースでこのされて表示される次のよう。
+以前のリリースでは、これは次のように表示されていました。
 
-Namespace.ClassName
+Namespace. ClassName
 
 <a id="_Toc276711793"></a>
 ### <a name="granular-request-validation"></a>詳細な要求の検証
 
-*除外*プロパティの*ValidateInputAttribute*は存在しません。 代わりに、モデルの特定のプロパティのモデル バインド中にスキップされた要求の検証には、使用、新しい*SkipRequestValidationAttribute*します。
+*Validateinputattribute*の*Exclude*プロパティは存在しません。 代わりに、モデルバインド中にモデルの特定のプロパティに対して要求の検証をスキップするには、新しい*SkipRequestValidationAttribute*を使用します。
 
-たとえば、アクション メソッドは、ブログの投稿を編集するために使用します。
+たとえば、ブログの投稿を編集するためにアクションメソッドが使用されているとします。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample21.cs)]
 
-次の例では、ブログの投稿のビュー モデルを示します。
+次の例は、ブログ投稿のビューモデルを示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample22.cs)]
 
-ユーザーは、Description プロパティの一部のマークアップを送信する、モデル バインドは要求の検証のため失敗します。 ブログの投稿の説明のモデル バインド中に要求の検証を無効にするには、適用、 *SkipRequpestValidationAttribute*プロパティのこの例で示すように: です。
+ユーザーが Description プロパティのマークアップを送信すると、要求の検証によってモデルバインドが失敗します。 ブログ投稿の説明のモデルバインド中に要求の検証を無効にするには、次の例に示すように、 *SkipRequpestValidationAttribute*をプロパティに適用します。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample23.cs)]
 
-または、モデルのすべてのプロパティで要求の検証を無効に、次のように適用します。 *ValidateInputAttribute*の値を持つ*false*アクション メソッドに。
+または、モデルのすべてのプロパティの要求の検証を無効にするには、アクションメソッドに値が*false*の*validateinputattribute*を適用します。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample24.cs)]
 
 <a id="_Toc276711794"></a>
 ## <a name="breaking-changes"></a>互換性に影響する変更点
 
-- 例外フィルターの実行の順序が同じである例外フィルターの変更された*順序*値。 ASP.NET MVC 2 以降では、同じがあったコント ローラー上の例外がフィルター*順序*アクション メソッドで例外フィルターの前に実行されたアクション メソッドのようにします。 通常、ある場合、この例外フィルターが適用されたときに指定されていない*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
-- という新しいプロパティを追加*FileExtensions*を*VirtualPathProviderViewEngine*基本クラス。 検索時にビューのパスで、名前ではなく) に含まれているファイル拡張子を持つビューにのみ、この新しいプロパティで指定された一覧と見なされます。 これは、web フォーム ビューのファイルのカスタム拡張機能を有効にするカスタム ビルド プロバイダーを登録し、名前ではなく、完全なパスを使用してこれらのビューを参照している方のための互換性に影響する変更です。 回避の値を変更するには、 *FileExtensions*プロパティをカスタムのファイル拡張子が含まれます。
+- 同じ*順序*の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターは、アクションメソッドの例外フィルターの前に実行さ*れてい*た、コントローラー上の例外フィルターが実行されました。 これは通常、特定の*順序*の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、 *order*プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
+- *Virtualpathproviderviewengine*基本クラスに*FileExtensions*という名前の新しいプロパティを追加しました。 (名前ではなく) パスによってビューを検索する場合、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューだけが考慮されます。 これは、カスタムビルドプロバイダーを登録して web フォームビューのカスタムファイル拡張子を有効にし、名前ではなく完全パスを使用してそれらのビューを参照している場合に、互換性に影響する変更点です。 回避策として、 *FileExtensions*プロパティの値を変更して、カスタムファイル拡張子を含めることができます。
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>既知の問題
 
-- インストーラーは、Visual Studio 2010 のコンポーネントを更新するため、完了する ASP.NET MVC の以前のバージョンよりもかなり長くかかる場合があります。
-- ビューの追加のスキャフォールディング astrongly を選択するときに、ビューのスキャフォールディング書き込み専用プロパティを入力します。 これらは、スキャフォールディングによって常に無視する必要があります。 ビューの追加 ダイアログは、「編集」または「作成」のビューを生成するときにも読み取り専用プロパティをスキャフォールディングします。 読み取り専用プロパティを表示およびリスト ビューのスキャフォールディングのみ必要があります。
-- ASP.NET MVC 3 を Async CTP と共にインストールすると、デバッグが機能しません。 ASP.NET MVC 3 では、Async CTP と並行してインストールをすることはできません。 デバッグを修復する Async CTP をアンインストールします。 詳細については、「[このブログの投稿](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html)ASP.NET MVC 3 RC すべて部分アンインストールの詳細。
-- Razor Intellisense では、Resharper がインストールされている場合は機能しません。 ReSharper をインストールしてお読みください ASP.NET MVC 3 RC での Razor intellisense サポートの利用する[このブログの投稿](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)jetbrains を併用する方法について説明します。
-- ASP.NET MVC 3 のベータ版で作成された CSHTML と VBHTML のビューがありませんビルド アクションが正しく公開からそれらが省略されます。 *ビルド アクション*は、これらのファイルは、"Content"に設定する必要があります。 ASP.NET MVC 3 RC では、新しいファイルの場合は、この問題が修正がベータ版で作成されたプロジェクトの既存のファイルの設定を修正しません。
-- インストーラーは、Visual Studio 2010 のコンポーネントを更新するため、完了する ASP.NET MVC の以前のバージョンよりもかなり長くかかる場合があります。
-- ビューの追加のスキャフォールディング ビューのスキャフォールディング"Edit"を選択すると、厳密に型指定されたときに読み取り専用プロパティを指定します。 同様に、書き込み専用プロパティは「表示」ビューをスキャフォールディングします。
-- インストール中に、使用許諾契約書への同意 ダイアログ ボックスのものよりも小さなウィンドウで、ライセンス条項が表示されます。
-- Visual Studio Async CTP をインストールすると、リリースでは、Razor、ASP.NET MVC 3 のツールのインストールの一部として含まれている競合が発生します。 Visual Studio Async CTP と Razor リリースの両方を同じコンピューターにインストールしないでことを確認します。
-- Razor ビュー (.cshtml ファイル) を編集するときは、Visual Studio でのコント ローラーに移動 メニュー項目を使用可能にすることはできませんし、コード スニペットはありません。
+- インストーラーは、Visual Studio 2010 のコンポーネントを更新するため、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。
+- Astrongly に型指定されたビューを選択するときの Add View スキャフォールディングは、書き込み専用のプロパティをスキャフォールディングします。 これらは、スキャフォールディングによって常に無視されます。 [ビューの追加] ダイアログボックスでは、[編集] ビューまたは [作成] ビューを生成するときに、読み取り専用プロパティもスキャフォールディングされます。 読み取り専用プロパティは、表示ビューとリストビューに対してのみスキャフォールディングにする必要があります。
+- 非同期 CTP と共に ASP.NET MVC 3 がインストールされている場合、デバッグは機能しません。 ASP.NET MVC 3 は、非同期 CTP とサイドバイサイドでインストールすることはできません。 デバッグを修復するには、非同期 CTP をアンインストールしてください。 詳細については、ASP.NET MVC 3 RC のすべての部分のアンインストールに関する[ブログ投稿](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html)を参照してください。
+- Razor Intellisense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 RC で Razor intellisense サポートを利用する場合は、JetBrains からの[このブログ](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)記事をお読みください。これを使用する方法については、こちらを参照してください。
+- ASP.NET MVC 3 のベータ版で作成された CSHTML ビューおよび VBHTML ビューには、発行から除外されるビルドアクションが正しくありません。 これらのファイルの*ビルドアクション*は、"Content" に設定する必要があります。 ASP.NET MVC 3 RC では、新しいファイルに対してこの問題を修正しますが、Beta で作成されたプロジェクトの既存のファイルの設定は修正されません。
+- インストーラーは、Visual Studio 2010 のコンポーネントを更新するため、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。
+- "Edit" 厳密に型指定されたビューを選択すると、ビューの追加スキャフォールディングは読み取り専用のプロパティをスキャフォールディングします。 同様に、書き込み専用プロパティは、"Display" ビューではスキャフォールディングです。
+- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- Visual Studio Async CTP をインストールすると、ASP.NET MVC 3 ツールのインストールの一部として含まれている Razor リリースとの競合が発生します。 Visual Studio Async CTP と Razor リリースの両方を同じコンピューターにインストールしないようにしてください。
+- Razor ビュー (cshtml ファイル) を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
 
 <a id="TOC_ASP_NET_3_Beta"></a>
-## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 のベータ版
+## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 ベータ版
 
-ASP.NET MVC 3 のベータ版は、2010 年 10 月 6 日にリリースされました。 次のノートは、ベータ リリースに固有し、更新や変更前の ASP.NET MVC 3 のリリース候補のセクションで参照されている影響を受けます。
+ASP.NET MVC 3 Beta は、2010年10月6日にリリースされました。 次の注意事項は、ベータリリースに固有のものであり、上の「ASP.NET MVC 3 リリース候補」セクションで参照されている更新または変更の対象となります。
 
-## <a id="0.1__Toc274034215"></a>  新しい Featuresin ASP.NET MVC 3 のベータ版
+## <a id="0.1__Toc274034215"></a>ASP.NET MVC 3 Beta の新特長
 
-<a id="0.1__Default_validation_system"></a>このセクションが導入された機能について説明します、ASP.NET MVC 3 のベータ リリースでします。
+<a id="0.1__Default_validation_system"></a>このセクションでは、ASP.NET MVC 3 ベータリリースで導入された機能について説明します。
 
-### <a id="0.1__Toc274034216"></a>  NuGet パッケージ マネージャー
+### <a id="0.1__Toc274034216"></a>NuGet パッケージマネージャー
 
-ASP.NET MVC 3 では、NuGet パッケージ マネージャーは、追加のライブラリの統合パッケージ管理ツールおよび Visual Studio プロジェクトのツールが含まれています。 ほとんどの場合、開発者は、ソース ツリーにライブラリを取得する現在実行中の手順を自動化します。
+ASP.NET MVC 3 には、ライブラリとツールを Visual Studio プロジェクトに追加するための統合パッケージ管理ツールである NuGet パッケージマネージャーが含まれています。 ほとんどの場合、開発者がライブラリをソースツリーに取り込むために使用する手順が自動化されます。
 
-コマンド ライン ツール、Visual Studio のコンテキスト メニューから Visual Studio 2010 内の統合されたコンソール ウィンドウおよび PowerShell コマンドレットのセットは、NuGet を使用することができます。
+NuGet は、Visual Studio 2010 内の統合されたコンソールウィンドウ、Visual Studio のコンテキストメニュー、および PowerShell コマンドレットのセットとして、コマンドラインツールとして使用できます。
 
-NuGet の詳細については、読み取り、 [NuGet のドキュメント](https://docs.microsoft.com/nuget/)します。
+NuGet の詳細については、 [nuget のドキュメント](https://docs.microsoft.com/nuget/)を参照してください。
 
-### <a id="0.1__Toc274034217"></a>  強化された新しいプロジェクト ダイアログ ボックス
+### <a id="0.1__Toc274034217"></a>強化された [新しいプロジェクト] ダイアログボックス
 
-新しいプロジェクトを作成するときに、[新しいプロジェクト] ダイアログ ボックスできるようになりました、ビュー エンジンも ASP.NET MVC プロジェクトの種類を指定します。
+新しいプロジェクトを作成すると、[新しいプロジェクト] ダイアログボックスで、ビューエンジンと ASP.NET MVC プロジェクトの種類を指定できるようになりました。
 
 ![](mvc3-release-notes/_static/image6.png)
 
-このリリースでは、テンプレート、およびビュー エンジンの表示 ダイアログ ボックスの一覧を変更するためのサポートが含まれていません。
+このリリースでは、ダイアログボックスに一覧表示されているテンプレートおよびビューエンジンの一覧の変更はサポートされていません。
 
-既定のテンプレート、次に示します。
+既定のテンプレートは次のとおりです。
 
-[空]。 最低限 ASP.NET MVC プロジェクトでの既定ディレクトリ構造を既定の ASP.NET MVC をスタイル設定、および既定の JavaScript ファイルを含む Scripts ディレクトリを含む小さい Site.css ファイルを含む、ASP.NET MVC プロジェクトのファイルにはが含まれています。
+[空]。 ASP.NET MVC プロジェクトの最小限のファイルセットを格納します。これには、ASP.NET MVC プロジェクトの既定のディレクトリ構造、既定の ASP.NET MVC スタイルを含む小さなサイト .css ファイル、および既定の JavaScript ファイルを含む Scripts ディレクトリが含まれます。
 
-インターネット アプリケーションです。 ASP.NET MVC 内でのメンバーシップ プロバイダーを使用する方法を示すサンプルの機能が含まれています。
+インターネットアプリケーション。 ASP.NET MVC 内でメンバーシッププロバイダーを使用する方法を示すサンプル機能が含まれています。
 
-### <a id="0.1__Toc274034218"></a>  厳密に指定する方法を簡略化された Razor ビューで型指定されたモデル
+### <a id="0.1__Toc274034218"></a>Razor ビューで厳密に型指定されたモデルを指定するための簡略化された方法
 
-新しいを使用して、厳密に型指定の Razor ビューのモデルの種類を指定する方法を簡略化された@modelCSHTML ビューのディレクティブと@ModelTypeVBHTML ビューのディレクティブ。 ASP.NET MVC の以前のバージョンでは、Razor の厳密に型指定されたモデル ビューのこのように指定します。
+厳密に型指定された Razor ビューのモデル型を指定する方法は、CSHTML ビュー用の新しい @model ディレクティブと、VBHTML ビュー用の @ModelType ディレクティブを使用することによって簡略化されています。 以前のバージョンの ASP.NET MVC では、この方法で Razor ビューに厳密に型指定されたモデルを指定します。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample25.cshtml)]
 
@@ -662,205 +662,205 @@ NuGet の詳細については、読み取り、 [NuGet のドキュメント](h
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>  新しい ASP.NET Web ページのヘルパー メソッドをサポートします。
+### <a id="0.1__Toc274034219"></a>新しい ASP.NET Web ページヘルパーメソッドのサポート
 
-新しい ASP.NET Web Pages テクノロジには、一連ビューとコント ローラーによく使用される機能を追加するのに便利なヘルパー メソッドにはが含まれています。 ASP.NET MVC 3 では、コント ローラーとビュー内でこれらのヘルパー メソッドを使用して、(適切な場所) をサポートします。 これらのメソッドは、System.Web.Helpers アセンブリ内に格納されます。 次の表では、ASP.NET Web Pages のヘルパー メソッドのいくつかを示します。
+新しい ASP.NET Web ページテクノロジには、一般的に使用される機能をビューおよびコントローラーに追加するのに役立つ一連のヘルパーメソッドが含まれています。 ASP.NET MVC 3 では、コントローラーとビュー内でのこれらのヘルパーメソッドの使用がサポートされています (該当する場合)。 これらのメソッドは、system.servicemodel アセンブリに含まれています。 次の表に、ASP.NET Web ページヘルパーメソッドのいくつかを示します。
 
-| **ヘルパー** | **説明** |
+| **パー** | **説明** |
 | --- | --- |
-| グラフ | ビュー内のグラフを表示します。 Chart.ToWebImage、Chart.Save、Chart.Write などのメソッドが含まれています。 |
-| Crypto | 正常に作成するアルゴリズムのハッシュを使用してでは、ソルトし、パスワードをハッシュします。 |
-| WebGrid | オブジェクト (通常は、データベースからのデータ) のコレクションをグリッドとして表示します。 ページングと並べ替えをサポートします。 |
-| WebImage | イメージを表示します。 |
-| WebMail | 電子メールを送信します。 |
+| グラフ | ビュー内のグラフを表示します。 Chart. ToWebImage、Chart. Save、および Chart. Write などのメソッドが含まれています。 |
+| 暗号 | ハッシュアルゴリズムを使用して、適切なソルトおよびハッシュされたパスワードを作成します。 |
+| WebGrid | オブジェクト (通常はデータベースのデータ) のコレクションをグリッドとして表示します。 ページングと並べ替えをサポートします。 |
+| WebImage | イメージをレンダリングします。 |
+| Web メール | 電子メールを送信します。 |
 
-ヘルパーと基本的な構文を示すクイック リファレンスのトピックでは使用可能な次の URL で ASP.NET Razor 構文のドキュメントの一部として。
+ヘルパーと基本構文の一覧に関するクイックリファレンストピックは、次の URL にある ASP.NET Razor 構文のドキュメントの一部として入手できます。
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>  追加の依存関係挿入をサポート
+### <a id="0.1__Toc274034220"></a>追加の依存関係の挿入のサポート
 
-ASP.NET MVC 3 Preview 1 リリースのビルド、現在のリリースには、2 つの新しいサービスや既存の 4 つのサービスのサポートを追加し、依存関係の解決と共通サービス ロケーターのサポートの強化が含まれます。
+現在のリリースでは、ASP.NET MVC 3 Preview 1 リリースを基盤として、2つの新しいサービスと4つの既存サービスのサポートが追加され、依存関係の解決と共通サービスロケーターのサポートが強化されています。
 
-#### <a name="new-icontrolleractivator-interface-for-fine-grained-controller-instantiation"></a>きめ細かなコント ローラー インスタンスを作成して新しい IControllerActivator インターフェイス
+#### <a name="new-icontrolleractivator-interface-for-fine-grained-controller-instantiation"></a>粒度の細かいコントローラーのインスタンス化用の新しい IControllerActivator インターフェイス
 
-新しい IControllerActivator インターフェイスは、依存関係の挿入を使用してコント ローラーがインスタンス化する方法をより細かく管理を提供します。 次の例は、インターフェイスを示しています。
+新しい IControllerActivator インターフェイスを使用すると、依存関係の挿入によってコントローラーをインスタンス化する方法をより細かく制御できます。 次の例は、インターフェイスを示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample27.cs)]
 
-コント ローラー ファクトリの役割には、この操作を比較します。 コント ローラー ファクトリは、コント ローラーの種類を検索するため、そのコント ローラーの種類のインスタンスをインスタンス化するための両方を担当する IControllerFactory インターフェイスの実装です。
+これをコントローラーファクトリの役割と比較します。 コントローラーファクトリは IControllerFactory インターフェイスを実装したものであり、コントローラーの種類を特定し、そのコントローラーの種類のインスタンスをインスタンス化するための役割を担います。
 
-コント ローラー アクティベーターがコント ローラーの種類のインスタンスをインスタンス化のみを担当します。 コント ローラーの種類の参照は行いません。 適切なコント ローラーの種類を特定すると、コント ローラー ファクトリは、コント ローラーの実際のインスタンス化を処理するために IControllerActivator のインスタンスに委任する必要があります。
+コントローラーアクティベーターは、コントローラー型のインスタンスをインスタンス化するためだけに責任を持ちます。 コントローラーの種類の検索は実行されません。 コントローラーファクトリは、適切なコントローラーの種類を特定した後、コントローラーの実際のインスタンス化を処理するために、IControllerActivator のインスタンスに代行させる必要があります。
 
-DefaultControllerFactory クラスには、IControllerFactory インスタンスを受け取る新しいコンス トラクターがあります。 既定のコント ローラーの種類のルックアップ動作をオーバーライドすることがなく、コント ローラーの作成のこの側面を管理する依存関係の挿入を適用できます。
+Defaultコントローラーファクトリクラスには、IControllerFactory インスタンスを受け入れる新しいコンストラクターがあります。 これにより、依存関係の挿入を適用して、コントローラーの作成のこの側面を管理できます。既定のコントローラーの型の参照動作をオーバーライドする必要はありません。
 
-#### <a name="iservicelocator-interface-replaced-with-idependencyresolver"></a>IDependencyResolver を置き換え IServiceLocator インターフェイス
+#### <a name="iservicelocator-interface-replaced-with-idependencyresolver"></a>IServiceLocator インターフェイスが Iservicelocator に置き換えられました
 
-コミュニティからのフィードバックに基づき、ASP.NET MVC 3 のベータ リリースは、ASP.NET MVC のニーズに応じたスリムにした IDependencyResolver インターフェイスを持つ、IServiceLocator インターフェイスの使用を交換することが。 次の例は、新しいインターフェイスを示しています。
+コミュニティからのフィードバックに基づき、ASP.NET MVC 3 ベータリリースでは、IServiceLocator インターフェイスの使用が ASP.NET MVC のニーズに固有の規模小さくダウンの Iservicelocator インターフェイスに置き換えられました。 次の例は、新しいインターフェイスを示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample28.cs)]
 
-この変更の一環として、DependencyResolver クラスを使用して、ServiceLocator クラスも置き換えられました。 依存関係競合回避モジュールの登録は、ASP.NET MVC の以前のバージョンと同様です。
+この変更の一環として、ServiceLocator クラスも DependencyResolver クラスに置き換えられました。 依存関係競合回避モジュールの登録は、以前のバージョンの ASP.NET MVC に似ています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample29.cs)]
 
-このインターフェイスの実装は、要求された型に対して登録されているサービスを提供する基になる依存関係挿入コンテナーに単に委任必要があります。
+このインターフェイスの実装は、要求された型の登録済みサービスを提供するために、基になる依存関係挿入コンテナーに単純にデリゲートする必要があります。
 
-要求された型の登録済みのサービスがない場合は、ASP.NET MVC は GetService から null を返すと、GetServices から空のコレクションを返すには、このインターフェイスの実装が必要です。
+要求された型の登録済みサービスがない場合、ASP.NET MVC は、GetService から null を返し、GetServices から空のコレクションを返すために、このインターフェイスの実装を想定しています。
 
-新しい DependencyResolver クラスを使用して、新しい IDependencyResolver インターフェイスまたは共通サービス ロケーターのインターフェイス (IServiceLocator) のいずれかを実装するクラスを登録できます。 共通サービス ロケーターの詳細については、次を参照してください。 [github CommonServiceLocator](https://github.com/unitycontainer/commonservicelocator)します。
+新しい DependencyResolver クラスを使用すると、新しい IDependencyResolver インターフェイスまたは共通サービスロケーターインターフェイス (Idependencyresolver) のいずれかを実装するクラスを登録できます。 一般的なサービスロケーターの詳細については、 [GitHub の「Commonservicelocator](https://github.com/unitycontainer/commonservicelocator)」を参照してください。
 
 <a id="0.1__Breaking_Changes"></a>
 
-#### <a name="new-iviewactivator-interface-for-fine-grained-view-page-instantiation"></a>詳細なビュー ページ インスタンス化用の新しい IViewActivator インターフェイス
+#### <a name="new-iviewactivator-interface-for-fine-grained-view-page-instantiation"></a>詳細ビューページのインスタンス化用の新しい IViewActivator インターフェイス
 
-新しい IViewPageActivator インターフェイスは、依存関係の挿入を使用してページの表示がインスタンス化する方法をより細かく管理を提供します。 これは、WebFormView インスタンスと RazorView インスタンスの両方に適用されます。 次の例は、新しいインターフェイスを示しています。
+新しい IViewPageActivator インターフェイスでは、依存関係の挿入によってビューページをインスタンス化する方法をより細かく制御できます。 これは、WebFormView インスタンスと RazorView インスタンスの両方に適用されます。 次の例は、新しいインターフェイスを示しています。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample30.cs)]
 
-これらのクラスは、できる ViewPage、ViewUserControl、WebViewPage 型がインスタンス化する方法を制御するために依存関係の挿入を使用する、IViewPageActivator コンス トラクター引数を受け入れるようになりました。
+これらのクラスは IViewPageActivator コンストラクター引数を受け取るようになりました。これにより、依存関係の挿入を使用して、ViewPage、ViewUserControl、および WebViewPage 型のインスタンス化方法を制御できます。
 
-#### <a name="new-dependency-resolver-support-for-existing-services"></a>既存のサービスの新しい依存関係競合回避モジュールのサポート
+#### <a name="new-dependency-resolver-support-for-existing-services"></a>既存のサービスに対する新しい依存関係競合回避モジュールのサポート
 
 新しいリリースには、次のサービスの依存関係解決のサポートが含まれています。
 
-- モデル検証プロバイダー。 ModelValidatorProvider を実装するクラスは、依存関係競合回避モジュールに登録することができ、システムがクライアント側とサーバー側の検証をサポートするために使用されます。
-- モデル メタデータ プロバイダー。 ModelMetadataProvider を実装する 1 つのクラスは、依存関係競合回避モジュールに登録することができ、システムは、テンプレート、および検証システムのメタデータを提供することを使用します。
-- 値プロバイダー。 ValueProviderFactory を実装するクラスは、依存関係競合回避モジュールに登録することができ、システムが、コント ローラーによって、モデル バインド中に使用される値プロバイダーの作成に使用されます。
-- モデル バインダー。 IModelBinderProvider を実装するクラスは、依存関係競合回避モジュールに登録することができ、システムが、モデル バインド システムで使用されるモデル バインダーの作成に使用されます。
+- モデル検証プロバイダー。 ModelValidatorProvider を実装するクラスは、依存関係競合回避モジュールに登録できます。また、これらのクラスを使用して、クライアント側およびサーバー側の検証をサポートします。
+- モデルメタデータプロバイダー。 ModelMetadataProvider を実装する1つのクラスを依存関係競合回避モジュールに登録すると、システムはそれを使用してテンプレートおよび検証システムのメタデータを提供します。
+- 値プロバイダー。 ValueProviderFactory を実装するクラスは、依存関係競合回避モジュールに登録できます。また、システムはこれらのクラスを使用して、コントローラーおよびモデルバインド中に使用される値プロバイダーを作成します。
+- モデルバインダー。 にを実装するクラスは、依存関係競合回避モジュールに登録できます。また、これらのクラスを使用して、モデルバインドシステムによって使用されるモデルバインダーが作成されます。
 
-### <a id="0.1__Toc274034221"></a>  控えめな jQuery ベースの Ajax のサポート
+### <a id="0.1__Toc274034221"></a>控えめな jQuery ベースの Ajax の新しいサポート
 
-ASP.NET MVC には、次などの Ajax ヘルパー メソッドが含まれます。
+ASP.NET MVC には、次のような Ajax ヘルパーメソッドが含まれています。
 
-- Ajax.ActionLink
-- Ajax.RouteLink
-- Ajax.BeginForm
-- Ajax.BeginRouteForm
+- Html.actionlink
+- Ajax. Teltelink
+- Ajax. BeginForm
+- Ajax. BeginRouteForm
 
-これらのメソッドでは、JavaScript を使用して、完全なポストバックを使用するのではなく、サーバーに、アクション メソッドを呼び出します。 この機能が活用するために jQuery unobtrusive の方法で更新されました。 インライン クライアント スクリプトを生成するそのままの状態ではなくこれらのヘルパー メソッドの動作から分離マークアップを使用して HTML5 属性を生成することによって、*データ ajax*プレフィックス。 動作は、適切な JavaScript ファイルを参照することによって、マークアップに適用されます。 次の JavaScript ファイルが参照されていることを確認します。
+これらのメソッドは、JavaScript を使用して、完全なポストバックを使用するのではなく、サーバー上でアクションメソッドを呼び出します。 この機能は、jQuery を控えめな方法で利用するように更新されました。 これらのヘルパーメソッドは、インラインクライアントスクリプトを出力するのではなく、*データ ajax*プレフィックスを使用して HTML5 属性を出力することによって、マークアップからの動作を分離します。 次に、適切な JavaScript ファイルを参照することによって、動作がマークアップに適用されます。 次の JavaScript ファイルが参照されていることを確認します。
 
-- jquery-1.4.1.js
-- jquery.unobtrusive.ajax.js
+- jquery-1.4.1
+- jquery。 node.js
 
-この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルで既定で有効ですが、既存のプロジェクトは既定では無効します。 詳細については、次を参照してください。[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
+この機能は、ASP.NET MVC 3 の新しいプロジェクトテンプレートの Web.config ファイルでは既定で有効になっていますが、既存のプロジェクトでは既定で無効になっています。 詳細については、このドキュメントで後述する「[クライアント検証と控えめな JavaScript のためのアプリケーション全体のフラグの追加](#0.1_AddedApplicationWideFlagsForClientValida)」を参照してください。
 
-### <a id="0.1__Toc274034222"></a>  控えめな jQuery 検証のサポート
+### <a id="0.1__Toc274034222"></a>控えめな jQuery 検証の新しいサポート
 
-既定では、ASP.NET MVC 3 のベータ版は、控えめな方法でクライアント側の検証を実行するには jQuery の検証を使用します。 控えめなクライアント検証を有効にするには、ビュー内から次のような呼び出しを行います。
+既定では、ASP.NET MVC 3 Beta は、クライアント側の検証を実行するために、控えめな方法で jQuery 検証を使用します。 控えめなクライアント検証を有効にするには、ビュー内から次のような呼び出しを行います。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample31.cs)]
 
-これは、ViewContext.UnobtrusiveJavaScriptEnabled プロパティが、次の呼び出しを行うにはできる true に設定されていることが必要です。
+これを行うには、UnobtrusiveJavaScriptEnabled プロパティが true に設定されている必要があります。これは、次の呼び出しを行うことによって行うことができます。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample32.cs)]
 
-また、次の JavaScript ファイルが参照されていることを確認してください。
+また、次の JavaScript ファイルが参照されていることを確認します。
 
-- jquery-1.4.1.js
-- jquery.validate.js
-- jquery.validate.unobtrusive.js
+- jquery-1.4.1
+- jquery. .js の検証
+- jquery. 検証 (控えめ)
 
-この機能は、新規の ASP.NET MVC 3 プロジェクト テンプレートでは、Web.config ファイルでは既定で有効になっているが、既存のプロジェクトは既定では無効になります。 詳細については、次を参照してください。[のクライアント検証と控えめな JavaScript アプリケーション全体のフラグを新しい](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
+この機能は、ASP.NET MVC 3 の新しいプロジェクトテンプレートの Web.config ファイルでは既定で有効になっていますが、既存のプロジェクトでは既定で無効になっています。 詳細については、このドキュメントで後述する「[クライアント検証と控えめな JavaScript のための新しいアプリケーション全体のフラグ](#0.1_AddedApplicationWideFlagsForClientValida)」を参照してください。
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  クライアント検証と控えめな JavaScript の新しいアプリケーション全体のフラグ
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>クライアント検証と控えめな JavaScript のための新しいアプリケーション全体のフラグ
 
-有効にするか、クライアントの検証と控えめな JavaScript の次の例のように、HtmlHelper クラスの静的メンバーを使用してグローバルに無効にします。
+次の例のように、HtmlHelper クラスの静的メンバーを使用して、クライアント検証と控えめな JavaScript をグローバルに有効または無効にすることができます。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample33.cs)]
 
-既定のプロジェクト テンプレートは、既定では、控えめな JavaScript を有効にします。 有効にするか、次の設定を使用して、アプリケーションのルート Web.config ファイルでこれらの機能を無効にします。
+既定のプロジェクトテンプレートでは、既定で控えめに設定された JavaScript が有効になります。 また、次の設定を使用して、アプリケーションのルート Web.config ファイルでこれらの機能を有効または無効にすることもできます。
 
 [!code-xml[Main](mvc3-release-notes/samples/sample34.xml)]
 
-既定では、これらの機能を有効にすることができます、ため、新しいオーバー ロードは HtmlHelper クラスに次の例に示すようには、既定の設定を上書きすることが導入されました。
+これらの機能は既定で有効にできるため、次の例に示すように、既定の設定をオーバーライドできる HtmlHelper クラスに新しいオーバーロードが導入されました。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample35.cs)]
 
-旧バージョンと互換性のため、これら両方の機能は既定で無効です。
+旧バージョンとの互換性のために、これらの機能はどちらも既定で無効になっています。
 
-### <a id="0.1__Toc274034224"></a>  ビューの実行前に実行されるコードの新しいサポート
+### <a id="0.1__Toc274034224"></a>ビューの実行前に実行されるコードの新しいサポート
 
-という名前のファイルを挿入できるように\_viewstart.cshtml (または\_viewstart.vbhtml) で Views ディレクトリをそのディレクトリとそのサブディレクトリ内の複数のビューの間で共有されるコードを追加します。 次のコードを配置するなど、 \_viewstart.cshtml ~/Views フォルダー ページ。
+Views ディレクトリに \_viewstart. cshtml (または \_viewstart. vbhtml) という名前のファイルを配置し、そのディレクトリとそのサブディレクトリ内の複数のビュー間で共有されるコードを追加できるようになりました。 たとえば、次のコードを、~/Views フォルダーの \_viewstart. cshtml ページに配置できます。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample36.cshtml)]
 
-これには、Views フォルダー内のすべてのビューとそのサブフォルダー再帰的にレイアウト ページを設定します。 ときに、ビュー、表示されるコード、 \_viewstart.cshtml ファイルは、コードの表示を実行する前に、実行します。 \_Viewstart.cshtml コードは、そのフォルダー内のすべてのビューに適用されます。
+これにより、Views フォルダー内のすべてのビューとそのすべてのサブフォルダーのレイアウトページが再帰的に設定されます。 ビューを表示すると、ビューコードの実行前に、\_viewstart. cshtml ファイルのコードが実行されます。 \_viewstart. cshtml コードは、そのフォルダー内のすべてのビューに適用されます。
 
-既定では、コードで、 \_viewstart.cshtml ファイルは、任意のサブフォルダー内のビューにも適用されます。 ただし、個別のサブフォルダーでは、独自のバージョンのことが、 \_viewstart.cshtml ファイルの場合も、ローカル バージョンは、優先順位にします。 たとえば、HomeController のすべてのビューに共通するコードを実行する配置を\_~/Views/Home フォルダーにある viewstart.cshtml ファイル。
+既定では、\_viewstart. cshtml ファイルのコードは、サブフォルダー内のビューにも適用されます。 ただし、個々のサブフォルダーには、独自のバージョンの \_viewstart. cshtml ファイルを含めることができます。この場合は、ローカルバージョンが優先されます。 たとえば、HomeController のすべてのビューに共通するコードを実行するには、~/ビューの/Home フォルダーに viewstart. cshtml ファイル \_します。
 
-### <a id="0.1__Toc274034225"></a>  VBHTML Razor 構文のサポート
+### <a id="0.1__Toc274034225"></a>VBHTML Razor 構文の新しいサポート
 
-ASP.NET MVC の以前のプレビューには、c# に基づく Razor 構文を使用してビューのサポートが含まれています。 これらのビューは、.cshtml ファイルの拡張機能を使用します。 Razor をサポートするために進行中の作業の一環として、ASP.NET MVC 3 のベータ版では、.vbhtml ファイル拡張機能を使用する Visual Basic での Razor 構文のサポートが導入されています。
+前の ASP.NET MVC プレビューには、にC#基づく Razor 構文を使用したビューのサポートが含まれていました。 これらのビューでは、ファイル拡張子を使用します。 Razor をサポートするための進行中の作業の一部として、ASP.NET MVC 3 ベータ版では Visual Basic の Razor 構文のサポートが導入されています。これは、拡張子が vbhtml のファイルです。
 
-VBHTML ページで Visual Basic 構文の使用の概要については、次の URL でチュートリアルを参照してください。
+VBHTML ページで Visual Basic 構文を使用する方法の概要については、次の URL にあるチュートリアルを参照してください。
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>  ValidateInputAttribute をより細かく制御
+### <a id="0.1__Toc274034226"></a>ValidateInputAttribute をより細かく制御する
 
-ASP.NET MVC には、受信要求に、可能性のある悪意のある入力が含まれていないことを確認するコアの ASP.NET 要求の検証インフラストラクチャを呼び出す ValidateInputAttribute クラスが常に含まれます。 既定では、入力の検証を有効にします。 次の例のように、ValidateInputAttribute 属性を使用して要求の検証を無効にすることができます。
+ASP.NET MVC には、常に ValidateInputAttribute クラスが含まれています。このクラスは、コア ASP.NET request 検証インフラストラクチャを呼び出して、受信要求に悪意のある可能性のある入力が含まれていないことを確認します。 既定では、入力の検証が有効になっています。 次の例に示すように、ValidateInputAttribute 属性を使用して、要求の検証を無効にすることができます。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample37.cs)]
 
-ただし、多くの web アプリケーションでは、残りのフィールドがないときに、HTML を許可する必要がある個々 のフォーム フィールドがあります。 ValidateInputAttribute クラスでは、要求の検証に含まれないフィールドの一覧を指定できます。
+ただし、多くの web アプリケーションには、HTML を許可する必要がある個々のフォームフィールドがありますが、残りのフィールドには使用できません。 ValidateInputAttribute クラスで、要求の検証に含まれていないフィールドの一覧を指定できるようになりました。
 
-たとえば、ブログ エンジンを開発している場合、フィールドの本文および概要のマークアップを許可する可能性があります。 これらのフィールドは、各プロパティの名前 ("Body"および「概要」) に対応する name 属性を持つ 2 つの入力要素によって表される可能性があります。 要求を無効にするのみ、これらのフィールドの検証が (コンマ区切り) 次の例のように、ValidateInput クラスの除外するプロパティの名前を指定します。
+たとえば、ブログエンジンを開発している場合は、[本文] フィールドと [概要] フィールドでマークアップを許可することができます。 これらのフィールドは2つの input 要素で表され、それぞれにプロパティ名に対応する name 属性があります ("Body" と "Summary")。 これらのフィールドに対してのみ要求の検証を無効にするには、次の例に示すように、ValidateInput クラスの Exclude プロパティで名前 (コンマ区切り) を指定します。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>  ヘルパーの匿名オブジェクトを使用して指定された HTML 属性名にアンダー スコアをハイフンに変換します。
+### <a id="0.1__Toc274034227"></a>ヘルパーは、匿名オブジェクトを使用して指定された HTML 属性名のアンダースコアをハイフンに変換します
 
-ヘルパー メソッドを使用して、次の例のように、匿名オブジェクトを使用して属性の名前/値ペアを指定できます。
+ヘルパーメソッドでは、次の例に示すように、匿名オブジェクトを使用して属性の名前と値のペアを指定できます。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample39.cs)]
 
-ハイフンは、ASP.NET でプロパティの名前を使用できないため、属性名でハイフンを使用するこのアプローチを使用しません。 ただし、ハイフンはカスタム HTML5 属性にとって重要です。たとえば、HTML5 では、「データの」プレフィックスが使用されます。
+この方法では、ASP.NET のプロパティ名にハイフンを使用することはできないため、属性名にハイフンを使用することはできません。 ただし、カスタム HTML5 属性ではハイフンが重要です。たとえば、HTML5 では "data-" プレフィックスが使用されます。
 
-同時に、アンダー スコアは、HTML では、属性名は使用できませんが、プロパティ名で有効です。 そのため、匿名のオブジェクトを使用して属性を指定して、属性名がアンダー スコアを含める場合は、およびに、ヘルパー メソッドは、アンダー スコアをハイフンに変換されます。 たとえば、次のヘルパー構文は、アンダー スコアを使用します。
+同時に、アンダースコアを HTML の属性名に使用することはできませんが、プロパティ名では有効です。 したがって、匿名オブジェクトを使用して属性を指定し、属性名にアンダースコアが含まれている場合、ヘルパーメソッドはアンダースコアをハイフンに変換します。 たとえば、次のヘルパー構文では、アンダースコアを使用します。
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample40.cs)]
 
-前の例は、ヘルパーの実行時に、次のマークアップを表示します。
+前の例では、ヘルパーを実行すると、次のマークアップがレンダリングされます。
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>  バグの修正
+## <a id="0.1__Toc274034228"></a>バグの修正
 
-EditorFor と DisplayFor テンプレート ヘルパーの既定のオブジェクト テンプレートは、DisplayAttribute.Order プロパティで指定された順序付けできるようになりました。 (以前のバージョンで順序の設定が使用されません。)
+EditorFor および DisplayFor テンプレートヘルパーの既定のオブジェクトテンプレートで、Displayfor. Order プロパティに指定された順序がサポートされるようになりました。 (以前のバージョンでは、注文の設定は使用されませんでした)。
 
-クライアント検証をここでは、検証属性が適用されているオーバーライドされたプロパティの検証をサポートします。
+クライアント検証で、検証属性が適用されているオーバーライドされたプロパティの検証がサポートされるようになりました。
 
-JsonValueProviderFactory は既定で登録されているようになりました。
+JsonValueProviderFactory が既定で登録されるようになりました。
 
-## <a id="0.1__Toc274034229"></a>  重大な変更
+## <a id="0.1__Toc274034229"></a>重大な変更
 
-例外フィルターの実行の順序には、同じ順序の値を持つ例外フィルターが変更されました。 ASP.NET MVC 2 以降では、上の例外フィルターと同じ順序で、コント ローラー アクション メソッドで例外フィルターの前に実行されたアクション メソッドのようにします。 指定された順序値を指定せずに例外フィルターが適用されたときにこの通常される場合。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと順序のプロパティが明示的に指定されている場合、フィルターが指定した順序で実行されます。
+同じ順序の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターと同じ順序で、アクションメソッドの例外フィルターが実行されました。 これは通常、特定の順序の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、Order プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
 
-## <a id="0.1__Toc274034230"></a>  既知の問題
+## <a id="0.1__Toc274034230"></a>既知の問題
 
-インストール中に、使用許諾契約書への同意 ダイアログ ボックスのものよりも小さなウィンドウで、ライセンス条項が表示されます。
+インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
 
-Razor ビューには、IntelliSense のサポートも構文の強調表示はありません。 Visual Studio での Razor 構文のサポートを今後のリリースの一部として含めるされると予想されます。
+Razor ビューには、IntelliSense のサポートや構文の強調表示がありません。 Visual Studio での Razor 構文のサポートは、今後のリリースの一部として含まれることが予想されます。
 
-Razor ビュー (CSHTML ファイル) を編集するとき、 <a id="0.1__Toc224729061"> </a> <a id="0.1__Toc238051347"> </a> Visual Studio でのコント ローラーに移動 メニュー項目を使用可能にすることはできませんし、コード スニペットではありません。
+Razor ビュー (CSHTML ファイル) <a id="0.1__Toc224729061"></a> <a id="0.1__Toc238051347"></a>を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
 
-使用する場合、@model厳密に型指定された CSHTML を指定する構文を表示、言語固有のショートカットの種類が認識されません。 たとえば、 @model int は機能しませんが、 @model Int32 は動作します。 このバグの回避策では、モデルの種類を指定する場合は、実際の型名を使用します。
+厳密に型指定された CSHTML ビューを指定するために @model 構文を使用する場合、型の言語固有のショートカットは認識されません。 たとえば、@model int は機能しませんが、@model Int32 が機能します。 このバグの回避策は、モデルの種類を指定するときに実際の型名を使用することです。
 
-使用する場合、@model厳密に型指定された CSHTML ビューを指定するための構文 (または@ModelTypeVBHTML 厳密に型指定されたビューを指定)、null 許容型と配列の宣言がサポートされていません。 たとえば、 @model int? はサポートされていません。 代わりに、`@model Nullable<Int32>`します。 構文@modelstring[] もサポートされていません。 代わりに、`@model IList<string>`します。
+@model 構文を使用して、厳密に型指定された CSHTML ビュー (または厳密に型指定された VBHTML ビューを指定する @ModelType) を指定する場合、null 許容型および配列宣言はサポートされません。 たとえば、@model int?はサポートされていません。 代わりに、`@model Nullable<Int32>`を使用します。 文字列 [] @model 構文もサポートされていません。代わりに、`@model IList<string>`を使用します。
 
-ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 にアップグレードする場合は、Web.config ファイルの appSettings セクションに、次を追加することを確認してください。
+ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 にアップグレードする場合は、web.config ファイルの appSettings セクションに次の項目を追加してください。
 
 [!code-xml[Main](mvc3-release-notes/samples/sample42.xml)]
 
-フォーム認証を常に認証されていないユーザーをリダイレクト ~/Account/ログイン、Web.config で使用されるフォーム認証設定を無視するを原因となる既知の問題があります。回避策では、次のアプリ設定を追加します。
+フォーム認証によって認証されていないユーザーが常に ~/アカウントにリダイレクトされるという既知の問題があります。これは、web.config で使用されるフォーム認証設定を無視します。この回避策は、次のアプリ設定を追加することです。
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>  免責事項
+## <a id="0.1__Toc274034231"></a>免責事項
 
-© 2011 Microsoft Corporation. All rights reserved. このドキュメントが提供される"としてのです"。 情報および見解 URL やその他のインターネット Web サイトの参照を含め、このドキュメントでは、予告なく変更可能性があります。 お客様は、その使用に関するリスクを負うものとします。
+© 2011 Microsoft Corporation. All rights reserved. このドキュメントは "その他" として提供されます。 このドキュメントに記載されている情報や見解は、URL やその他のインターネット Web サイトの参照を含め、予告なしに変更される可能性があります。 お客様は、その使用に関するリスクを負うものとします。
 
 このドキュメントは、Microsoft 製品の知的財産権に関する法的な権利をお客様に許諾するものではありません。 内部的な参照目的に限り、このドキュメントを複製して使用することができます。

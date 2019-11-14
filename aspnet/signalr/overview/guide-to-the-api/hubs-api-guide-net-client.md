@@ -1,46 +1,46 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-net-client
-title: ASP.NET SignalR ハブ API ガイド - .NET クライアント (c#) |Microsoft Docs
+title: ASP.NET SignalR Hub API ガイド-.NET クライアント (C#) |Microsoft Docs
 author: bradygaster
-description: このドキュメントでは、Windows ストア (WinRT)、WPF、Silverlight、および短所など、.NET クライアントでは、バージョン 2 の SignalR のハブ API を使用して紹介しています.
+description: このドキュメントでは、Windows ストア (WinRT)、WPF、Silverlight、短所など、.NET クライアントで SignalR バージョン2用のハブ API を使用する方法の概要を説明します。
 ms.author: bradyg
 ms.date: 01/15/2019
 ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 122e918287a21f8f511e91ced03bbb2878dda01d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d3536f1c15cd7dad7cd660becf0577e5c131f707
+ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74057006"
 ---
-# <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>ASP.NET SignalR ハブ API ガイド - .NET クライアント (c#)
+# <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>ASP.NET SignalR Hub API ガイド-.NET クライアント (C#)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> このドキュメントでは、SignalR など、Windows ストア (WinRT)、WPF、Silverlight、およびコンソール アプリケーションの .NET クライアントのバージョン 2 の Hubs API の使用の概要を示します。
+> このドキュメントでは、Windows ストア (WinRT)、WPF、Silverlight、コンソールアプリケーションなど、.NET クライアントで SignalR バージョン2用のハブ API を使用する方法の概要を説明します。
 >
-> SignalR ハブの API では、サーバーからに接続されているクライアントとサーバーのクライアントからのリモート プロシージャ コール (Rpc) を作成することができます。 サーバー コードで、クライアントから呼び出すことができるメソッドを定義して、クライアント上で実行されるメソッドを呼び出します。 クライアント コードで、サーバーから呼び出すことができるメソッドを定義して、サーバー上で実行されるメソッドを呼び出します。 SignalR は、のすべてのクライアントとサーバーが処理されます。
+> SignalR Hub API を使用すると、サーバーから接続されたクライアントおよびクライアントからサーバーへのリモートプロシージャコール (Rpc) を行うことができます。 サーバーコードでは、クライアントから呼び出すことができるメソッドを定義し、クライアントで実行するメソッドを呼び出すことができます。 クライアントコードでは、サーバーから呼び出すことができるメソッドを定義し、サーバーで実行されるメソッドを呼び出すことができます。 SignalR は、クライアントとサーバーのすべての組み込みを処理します。
 >
-> SignalR では、永続的な接続と呼ばれる下位レベル API も提供します。 概要については、SignalR、ハブ、および永続的な接続は、または完全な SignalR アプリケーションを構築する方法を示すチュートリアルについてを参照してください。 [SignalR - Getting Started](../getting-started/index.md)します。
+> SignalR には、永続的な接続と呼ばれる下位レベルの API も用意されています。 SignalR、ハブ、および永続的な接続の概要、または完全な SignalR アプリケーションを構築する方法を示すチュートリアルについては、[はじめに SignalR](../getting-started/index.md)を参照してください。
 >
-> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 > - .NET 4.5
-> - SignalR 2 のバージョン
+> - SignalR バージョン2
 >
 >
 >
-> ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
+> ## <a name="previous-versions-of-this-topic"></a>このトピックの前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> 以前のバージョンの SignalR の詳細については、「[古いバージョンの SignalR](../older-versions/index.md)」を参照してください。
 >
-> ## <a name="questions-and-comments"></a>意見やご質問
+> ## <a name="questions-and-comments"></a>質問とコメント
 >
-> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
+> このチュートリアルの気に入った点と、ページの下部にあるコメントで改善できることについて、フィードバックをお寄せください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
 ## <a name="overview"></a>概要
 
@@ -49,62 +49,62 @@ ms.locfileid: "65119705"
 - [クライアントのセットアップ](#clientsetup)
 - [接続を確立する方法](#establishconnection)
 
-    - [Silverlight クライアントからドメイン間の接続](#slcrossdomain)
+    - [Silverlight クライアントからのクロスドメイン接続](#slcrossdomain)
 - [接続を構成する方法](#configureconnection)
 
-    - [WPF クライアントでの同時接続の最大数を設定する方法](#maxconnections)
+    - [WPF クライアントで同時接続の最大数を設定する方法](#maxconnections)
     - [クエリ文字列パラメーターを指定する方法](#querystring)
-    - [トランスポート メソッドを指定する方法](#transport)
+    - [トランスポート方法を指定する方法](#transport)
     - [HTTP ヘッダーを指定する方法](#httpheaders)
     - [クライアント証明書を指定する方法](#clientcertificate)
-- [ハブ プロキシを作成する方法](#proxy)
-- [サーバーが呼び出すことができるクライアントでメソッドを定義する方法](#callclient)
+- [ハブプロキシの作成方法](#proxy)
+- [サーバーが呼び出すことができるクライアント上のメソッドを定義する方法](#callclient)
 
-    - [パラメーターなしのメソッド](#clientmethodswithoutparms)
-    - [パラメーターの型を指定するパラメーターを持つメソッド](#clientmethodswithparmtypes)
-    - [パラメーターの動的オブジェクトを指定するパラメーターを持つメソッド](#clientmethodswithdynamparms)
+    - [パラメーターのないメソッド](#clientmethodswithoutparms)
+    - [パラメーターを持つメソッド、パラメーターの型の指定](#clientmethodswithparmtypes)
+    - [パラメーターを持つメソッド (パラメーターの動的オブジェクトの指定)](#clientmethodswithdynamparms)
     - [ハンドラーを削除する方法](#removehandler)
-- [クライアントからサーバーのメソッドを呼び出す方法](#callserver)
-- [接続の有効期間イベントを処理する方法](#connectionlifetime)
-- [エラーを処理する方法](#handleerrors)
+- [クライアントからサーバーメソッドを呼び出す方法](#callserver)
+- [接続の有効期間イベントの処理方法](#connectionlifetime)
+- [エラーの処理方法](#handleerrors)
 - [クライアント側のログ記録を有効にする方法](#logging)
-- [WPF、Silverlight、およびコンソール アプリケーションのコード サンプル、サーバーが呼び出すことができるクライアント メソッド](#wpfsl)
+- [サーバーが呼び出すことができるクライアントメソッドの WPF、Silverlight、コンソールアプリケーションのコードサンプル](#wpfsl)
 
-サンプル .NET クライアント プロジェクトでは、次のリソースを参照してください。
+.NET クライアントプロジェクトのサンプルについては、次のリソースを参照してください。
 
-- [gustavo armenta/SignalR サンプル](https://github.com/gustavo-armenta/SignalR-Samples)github.com (WinRT、Silverlight、コンソール アプリの例)。
-- [DamianEdwards/SignalR MoveShapeDemo/MoveShape.Desktop](https://github.com/DamianEdwards/SignalR-MoveShapeDemo/tree/master/MoveShape/MoveShape.Desktop) github.com (WPF など)。
-- [SignalR/Microsoft.AspNet.SignalR.Client.Samples](https://github.com/SignalR/SignalR/tree/master/samples/Microsoft.AspNet.SignalR.Client.Samples) github.com (コンソール アプリなど)。
+- [gustavo-SignalR-](https://github.com/gustavo-armenta/SignalR-Samples) GitHub.com on (WinRT、Silverlight、コンソールアプリの例)。
+- [DamianEdwards/SignalR-MoveShapeDemo/MoveShape](https://github.com/DamianEdwards/SignalR-MoveShapeDemo/tree/master/MoveShape/MoveShape.Desktop) on GITHUB.COM (WPF の例)。
+- [SignalR/SignalR](https://github.com/SignalR/SignalR/tree/master/samples/Microsoft.AspNet.SignalR.Client.Samples) on GitHub.com (コンソールアプリの例) を使用します。
 
-サーバーや JavaScript クライアントをプログラミングする方法に関するドキュメントについては、次のリソースを参照してください。
+サーバーまたは JavaScript クライアントのプログラミング方法に関するドキュメントについては、次のリソースを参照してください。
 
-- [SignalR ハブ API ガイド - サーバー](hubs-api-guide-server.md)
-- [SignalR ハブ API ガイド - JavaScript クライアント](hubs-api-guide-javascript-client.md)
+- [SignalR Hub API ガイド-サーバー](hubs-api-guide-server.md)
+- [SignalR Hub API ガイド-JavaScript クライアント](hubs-api-guide-javascript-client.md)
 
-.NET 4.5 バージョンの API は API のリファレンス トピックへのリンクです。 .NET 4 を使用している場合は、次を参照してください。 [.NET 4 のバージョンを API のトピックの](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)します。
+API リファレンストピックへのリンクは、.NET 4.5 バージョンの API です。 .NET 4 を使用している場合は、 [.net 4 バージョンの API に関するトピック](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)を参照してください。
 
 <a id="clientsetup"></a>
 
 ## <a name="client-setup"></a>クライアントのセットアップ
 
-インストール、 [Microsoft.AspNet.SignalR.Client](http://nuget.org/packages/Microsoft.AspNet.SignalR.Client) NuGet パッケージ (いない、 [Microsoft.AspNet.SignalR](http://nuget.org/packages/microsoft.aspnet.signalr)パッケージ)。 このパッケージは、.NET 4 および .NET 4.5 の両方の WinRT、Silverlight、WPF、コンソール アプリケーション、および Windows Phone のクライアントをサポートします。
+[SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR.Client) NuGet パッケージをインストールします ( [SignalR](http://nuget.org/packages/microsoft.aspnet.signalr)パッケージではありません)。 このパッケージは、.NET 4 と .NET 4.5 の両方に対して、WinRT、Silverlight、WPF、コンソールアプリケーション、および Windows Phone クライアントをサポートします。
 
-SignalR が存在するクライアントのバージョンがサーバー上にあるバージョンと異なる場合は、SignalR は、違いに適応することが多くの場合。 たとえば、SignalR バージョン 2 を実行しているサーバーでは、1.1.x がインストールされているクライアントだけでなくバージョン 2 がインストールされているクライアントをサポートは。 かどうか、サーバー上のバージョンと、クライアントのバージョンの間の差が多すぎる、またはクライアントがサーバーよりも新しい場合は、SignalR がスローされます、`InvalidOperationException`クライアントが接続を確立しようとした場合に例外が発生します。 エラー メッセージは"`You are using a version of the client that isn't compatible with the server. Client version X.X, server version X.X`"。
+クライアントにインストールされている SignalR のバージョンが、サーバー上のバージョンと異なる場合、SignalR は多くの場合、差分に適合することができます。 たとえば、SignalR version 2 を実行しているサーバーは、バージョン2がインストールされているクライアントだけでなく、1.1 がインストールされているクライアントをサポートします。 サーバー上のバージョンとクライアントのバージョンの違いが大きすぎる場合、またはクライアントがサーバーより新しい場合、SignalR は、クライアントが接続を確立しようとすると `InvalidOperationException` 例外をスローします。 エラーメッセージは "`You are using a version of the client that isn't compatible with the server. Client version X.X, server version X.X`" です。
 
 <a id="establishconnection"></a>
 
 ## <a name="how-to-establish-a-connection"></a>接続を確立する方法
 
-作成する必要が接続を確立する前に、`HubConnection`オブジェクトし、プロキシを作成します。 接続を確立するために呼び出す、`Start`メソッドを`HubConnection`オブジェクト。
+接続を確立するには、`HubConnection` オブジェクトを作成し、プロキシを作成する必要があります。 接続を確立するには、`HubConnection` オブジェクトの `Start` メソッドを呼び出します。
 
-[!code-csharp[Main](hubs-api-guide-net-client/samples/sample1.cs?highlight=1,4)]
+[!code-csharp[Main](hubs-api-guide-net-client/samples/sample1.cs?highlight=1,5)]
 
 > [!NOTE]
-> JavaScript クライアントには、呼び出す前に少なくとも 1 つのイベント ハンドラーを登録する必要が、`Start`メソッドは、接続を確立します。 これは、.NET クライアントの必要はありません。 JavaScript クライアントは、生成されたプロキシ コードに自動的に存在するすべてのハブ プロキシをサーバーを作成、およびハンドラーの登録は、どのハブを指定する方法、クライアントが使用します。 .NET クライアントのハブ プロキシ手動で作成するため、SignalR のプロキシを作成するのいずれかのハブを使用することを想定しています。
+> JavaScript クライアントの場合は、`Start` メソッドを呼び出して接続を確立する前に、少なくとも1つのイベントハンドラーを登録する必要があります。 これは、.NET クライアントには必要ありません。 JavaScript クライアントの場合、生成されたプロキシコードは、サーバー上に存在するすべてのハブのプロキシを自動的に作成し、ハンドラーを登録することは、クライアントが使用するハブを指定する方法です。 ただし、.NET クライアントの場合はハブプロキシを手動で作成するので、SignalR はプロキシを作成するハブを使用することを前提としています。
 
-サンプル コードは、既定値を使用して"/signalr"SignalR サービスに接続するための URL。 別の基本 URL を指定する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバー -/signalr URL](hubs-api-guide-server.md#signalrurl)します。
+このサンプルコードでは、既定の "/signalr" URL を使用して SignalR サービスに接続します。 別のベース URL を指定する方法については、「 [ASP.NET SignalR HUB API Guide-Server-/SIGNALR URL](hubs-api-guide-server.md#signalrurl)」を参照してください。
 
-`Start`メソッドを非同期的に実行します。 後続行のコードは、接続が確立された後まで実行されないようにするには、次のように使用します。 `await` ASP.NET 4.5 の非同期メソッドまたは`.Wait()`同期メソッドにします。 使用しない`.Wait()`WinRT クライアント。
+`Start` メソッドは、非同期的に実行されます。 接続が確立されるまで後続のコード行が実行されないようにするには、ASP.NET 4.5 非同期メソッドで `await` を使用するか、同期メソッドで `.Wait()` します。 WinRT クライアントでは `.Wait()` を使用しないでください。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample2.cs?highlight=1)]
 
@@ -112,68 +112,68 @@ SignalR が存在するクライアントのバージョンがサーバー上に
 
 <a id="slcrossdomain"></a>
 
-### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight クライアントからドメイン間の接続
+### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight クライアントからのクロスドメイン接続
 
-Silverlight クライアントからドメイン間の接続を有効にする方法については、次を参照してください。[使用可能なドメインの境界を越えてサービスを行う](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx)します。
+Silverlight クライアントからのクロスドメイン接続を有効にする方法については、「[ドメインの境界を越えてサービスを利用可能](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx)にする」を参照してください。
 
 <a id="configureconnection"></a>
 
 ## <a name="how-to-configure-the-connection"></a>接続を構成する方法
 
-接続を確立する前に、次のオプションのいずれかを指定できます。
+接続を確立する前に、次のいずれかのオプションを指定できます。
 
-- 同時接続数を制限します。
+- 同時接続数の制限。
 - クエリ文字列パラメーター。
-- トランスポート メソッド。
+- トランスポートメソッド。
 - HTTP ヘッダー。
 - クライアント証明書。
 
 <a id="maxconnections"></a>
 
-### <a name="how-to-set-the-maximum-number-of-concurrent-connections-in-wpf-clients"></a>WPF クライアントでの同時接続の最大数を設定する方法
+### <a name="how-to-set-the-maximum-number-of-concurrent-connections-in-wpf-clients"></a>WPF クライアントで同時接続の最大数を設定する方法
 
-、WPF のクライアントでは、2 の既定値からの同時接続の最大数を増やす必要があります。 推奨値には 10 です。
+WPF クライアントでは、同時接続の最大数を既定値の2から増やすことが必要になる場合があります。 推奨値は10です。
 
-[!code-csharp[Main](hubs-api-guide-net-client/samples/sample4.cs?highlight=4)]
+[!code-csharp[Main](hubs-api-guide-net-client/samples/sample4.cs?highlight=5)]
 
-詳細については、次を参照してください。 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)します。
+詳細については、「 [Servicepointmanager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)」を参照してください。
 
 <a id="querystring"></a>
 
 ### <a name="how-to-specify-query-string-parameters"></a>クエリ文字列パラメーターを指定する方法
 
-クライアントが接続するときに、サーバーにデータを送信する場合は、接続オブジェクトをクエリ文字列パラメーターを追加できます。 次の例では、クライアント コードで、クエリ文字列パラメーターを設定する方法を示します。
+クライアントが接続するときにサーバーにデータを送信する場合は、接続オブジェクトにクエリ文字列パラメーターを追加できます。 次の例は、クライアントコードでクエリ文字列パラメーターを設定する方法を示しています。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample5.cs)]
 
-次の例では、サーバー コードでクエリ文字列パラメーターを読み取る方法を示します。
+次の例は、サーバーコードでクエリ文字列パラメーターを読み取る方法を示しています。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample6.cs?highlight=5)]
 
 <a id="transport"></a>
 
-### <a name="how-to-specify-the-transport-method"></a>トランスポート メソッドを指定する方法
+### <a name="how-to-specify-the-transport-method"></a>トランスポート方法を指定する方法
 
-接続するプロセスの一環として、SignalR クライアントは、通常サーバーとクライアントの両方でサポートされている最適なトランスポートを決定する、サーバーとネゴシエートします。 使用するトランスポートを既に知っている場合は、このネゴシエーション プロセスをバイパスできます。 トランスポートの方法を指定するには、Start メソッドにトランスポート オブジェクトで渡します。 次の例では、クライアント コードでトランスポート メソッドを指定する方法を示します。
+接続プロセスの一環として、SignalR クライアントは、サーバーとクライアントの両方でサポートされている最適なトランスポートを決定するために、通常はサーバーとネゴシエートします。 使用するトランスポートが既にわかっている場合は、このネゴシエーションプロセスを省略できます。 トランスポートメソッドを指定するには、トランスポートオブジェクトを Start メソッドに渡します。 次の例は、クライアントコードでトランスポートメソッドを指定する方法を示しています。
 
-[!code-csharp[Main](hubs-api-guide-net-client/samples/sample7.cs?highlight=4)]
+[!code-csharp[Main](hubs-api-guide-net-client/samples/sample7.cs?highlight=5)]
 
-[Microsoft.AspNet.SignalR.Client.Transports](https://msdn.microsoft.com/library/jj918090(v=vs.111).aspx)名前空間には、トランスポートを指定する際、次のクラスが含まれています。
+[SignalR](https://msdn.microsoft.com/library/jj918090(v=vs.111).aspx)名前空間には、トランスポートを指定するために使用できる次のクラスが含まれています。
 
 - [LongPollingTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.longpollingtransport(v=vs.111).aspx)
 - [ServerSentEventsTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.serversenteventstransport(v=vs.111).aspx)
-- [WebSocketTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (サーバーとクライアントの両方が .NET 4.5 を使用した場合にのみ表示されます)。
-- [AutoTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (クライアントとサーバーの両方でサポートされている最適なトランスポートを自動的に選択します。 これは、既定のトランスポートです。 渡すをこれには、`Start`メソッドが何もで渡されていないのと同じ効果です)。
+- [WebSocketTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (サーバーとクライアントの両方で .net 4.5 が使用されている場合にのみ使用可能)
+- [Autotransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (クライアントとサーバーの両方でサポートされている最適なトランスポートを自動的に選択します。 これは既定のトランスポートです。 このを `Start` メソッドに渡すことは、何も渡していないのと同じ効果があります)。
 
-ブラウザーでのみ使用されているために、ForeverFrame トランスポートはこの一覧に含まれていません。
+このリストには、ブラウザーでのみ使用されているため、この一覧には、事前にフレームトランスポートが含まれていません。
 
-サーバー コードでの転送方法を確認する方法については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーのコンテキスト プロパティからのクライアントに関する情報を取得する方法](hubs-api-guide-server.md#contextproperty)します。 トランスポートとフォールバックの詳細については、次を参照してください。 [SignalR のトランスポートとフォールバックの概要](../getting-started/introduction-to-signalr.md#transports)します。
+サーバーコードでトランスポート方法を確認する方法については、「 [ASP.NET SignalR HUB API Guide-server-Context プロパティからクライアントに関する情報を取得する方法](hubs-api-guide-server.md#contextproperty)」を参照してください。 トランスポートとフォールバックの詳細については、「 [SignalR とフォールバックの概要](../getting-started/introduction-to-signalr.md#transports)」を参照してください。
 
 <a id="httpheaders"></a>
 
 ### <a name="how-to-specify-http-headers"></a>HTTP ヘッダーを指定する方法
 
-HTTP ヘッダーを設定するには、使用、`Headers`接続オブジェクトのプロパティ。 次の例では、HTTP ヘッダーを追加する方法を示します。
+HTTP ヘッダーを設定するには、connection オブジェクトの `Headers` プロパティを使用します。 次の例は、HTTP ヘッダーを追加する方法を示しています。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample8.cs?highlight=2)]
 
@@ -181,93 +181,93 @@ HTTP ヘッダーを設定するには、使用、`Headers`接続オブジェク
 
 ### <a name="how-to-specify-client-certificates"></a>クライアント証明書を指定する方法
 
-クライアント証明書を追加するには、使用、`AddClientCertificate`接続オブジェクトのメソッド。
+クライアント証明書を追加するには、接続オブジェクトの `AddClientCertificate` メソッドを使用します。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample9.cs?highlight=2)]
 
 <a id="proxy"></a>
 
-## <a name="how-to-create-the-hub-proxy"></a>ハブ プロキシを作成する方法
+## <a name="how-to-create-the-hub-proxy"></a>ハブプロキシの作成方法
 
-ハブは、サーバーから呼び出すことができるクライアントでメソッドを定義するとで、サーバーでのハブ メソッドを呼び出すには、呼び出すことによって、ハブのプロキシの作成`CreateHubProxy`接続オブジェクトにします。 文字列に渡す`CreateHubProxy`は、ハブ クラスの名前またはで指定された名前、`HubName`属性が 1 つは、サーバーで使用されていた場合。 大文字と小文字が一致する名前です。
+ハブがサーバーから呼び出すことができるメソッドを定義し、サーバーのハブでメソッドを呼び出すためには、接続オブジェクトで `CreateHubProxy` を呼び出して、ハブのプロキシを作成します。 `CreateHubProxy` に渡す文字列は、ハブクラスの名前、またはサーバーで使用されていた場合は `HubName` 属性によって指定された名前です。 名前の一致では大文字と小文字が区別されません。
 
-**サーバー上のハブ クラス**
+**サーバー上のハブクラス**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample10.cs?highlight=1)]
 
-**ハブ クラス用のクライアント プロキシを作成します。**
+**ハブクラスのクライアントプロキシを作成する**
 
-[!code-csharp[Main](hubs-api-guide-net-client/samples/sample11.cs?highlight=2)]
+[!code-csharp[Main](hubs-api-guide-net-client/samples/sample11.cs?highlight=3)]
 
-使用してハブ クラスを修飾する場合、`HubName`属性、その名前を使用します。
+`HubName` 属性を使用してハブクラスを装飾する場合は、その名前を使用します。
 
-**サーバー上のハブ クラス**
+**サーバー上のハブクラス**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample12.cs)]
 
-**ハブ クラス用のクライアント プロキシを作成します。**
+**ハブクラスのクライアントプロキシを作成する**
 
-[!code-csharp[Main](hubs-api-guide-net-client/samples/sample13.cs?highlight=2)]
+[!code-csharp[Main](hubs-api-guide-net-client/samples/sample13.cs?highlight=3)]
 
-呼び出す場合`HubConnection.CreateHubProxy`で複数回、同じ`hubName`、キャッシュされた同じ`IHubProxy`オブジェクト。
+同じ `hubName`で複数回 `HubConnection.CreateHubProxy` を呼び出すと、キャッシュされた同じ `IHubProxy` オブジェクトが取得されます。
 
 <a id="callclient"></a>
 
-## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>サーバーが呼び出すことができるクライアントでメソッドを定義する方法
+## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>サーバーが呼び出すことができるクライアント上のメソッドを定義する方法
 
-サーバーが呼び出すことができるメソッドを定義するプロキシを使用して、`On`イベント ハンドラーを登録するメソッド。
+サーバーが呼び出すことができるメソッドを定義するには、プロキシの `On` メソッドを使用してイベントハンドラーを登録します。
 
-大文字と小文字が一致するメソッドの名前です。 たとえば、`Clients.All.UpdateStockPrice`サーバーで実行`updateStockPrice`、 `updatestockprice`、または`UpdateStockPrice`クライアント。
+メソッド名の一致では、大文字と小文字が区別されません。 たとえば、サーバー上の `Clients.All.UpdateStockPrice` は、クライアントで `updateStockPrice`、`updatestockprice`、または `UpdateStockPrice` を実行します。
 
-別のクライアント プラットフォームでは、UI を更新するメソッドのコードを記述する方法のさまざまな要件があります。 WinRT (Windows ストア .NET) クライアントの表示例を示します。 WPF、Silverlight、およびコンソール アプリケーションの例がで提供される[別のセクションでは、このトピックで後述](#wpfsl)します。
+UI を更新するためのメソッドコードを記述する方法については、クライアントプラットフォームによって要件が異なります。 ここでは、WinRT (Windows ストア .NET) クライアントの例を示します。 WPF、Silverlight、コンソールアプリケーションの例については、[このトピックで後述する別のセクション](#wpfsl)で説明します。
 
 <a id="clientmethodswithoutparms"></a>
 
-### <a name="methods-without-parameters"></a>パラメーターなしのメソッド
+### <a name="methods-without-parameters"></a>パラメーターのないメソッド
 
-処理しているメソッドにパラメーターがあるない場合は、非ジェネリック オーバー ロードを使用して、`On`メソッド。
+処理しているメソッドにパラメーターがない場合は、`On` メソッドの非ジェネリックオーバーロードを使用します。
 
-**パラメーターなしのクライアント メソッドを呼び出すサーバー コード**
+**パラメーターを指定せずにクライアントメソッドを呼び出すサーバーコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample14.cs?highlight=5)]
 
-**パラメーターなしのサーバーからメソッドの WinRT クライアント コードが呼び出されます ([WPF および Silverlight の例をこのトピックの後半を参照してください](#wpfsl))。**
+**パラメーターのないサーバーから呼び出されるメソッドの WinRT クライアントコード ([このトピックで後述する「WPF と Silverlight の例」を参照してください](#wpfsl))**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample15.cs)]
 
 <a id="clientmethodswithparmtypes"></a>
 
-### <a name="methods-with-parameters-specifying-the-parameter-types"></a>パラメーターの型を指定するパラメーターを持つメソッド
+### <a name="methods-with-parameters-specifying-the-parameter-types"></a>パラメーターを使用したメソッドとパラメーターの型の指定
 
-処理しているメソッドにパラメーターがある場合は、パラメーターの型を指定のジェネリック型として、`On`メソッド。 ジェネリック オーバー ロードがある、`On`メソッドを使用すると、最大 8 個のパラメーター (Windows Phone 7 では 4) を指定します。 次の例に 1 つのパラメーターを送信、`UpdateStockPrice`メソッド。
+処理中のメソッドにパラメーターがある場合は、`On` メソッドのジェネリック型としてパラメーターの型を指定します。 `On` メソッドの汎用的なオーバーロードによって、最大8個のパラメーター (Windows Phone 7 では 4) を指定できるようになります。 次の例では、1つのパラメーターが `UpdateStockPrice` メソッドに送信されます。
 
-**サーバー コードのパラメーターを持つクライアント メソッドを呼び出す**
+**パラメーターを使用してクライアントメソッドを呼び出すサーバーコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample16.cs?highlight=3)]
 
-**パラメーターに使用される Stock クラス**
+**パラメーターに使用されるストッククラス**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample17.cs)]
 
-**パラメーターを持つサーバーからメソッドの WinRT クライアント コードが呼び出されます ([WPF および Silverlight の例をこのトピックの後半を参照してください](#wpfsl))。**
+**パラメーターを使用してサーバーから呼び出されるメソッドの WinRT クライアントコード ([このトピックで後述する「WPF と Silverlight の例」を参照してください](#wpfsl))**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample18.cs?highlight=1,5)]
 
 <a id="clientmethodswithdynamparms"></a>
 
-### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>パラメーターの動的オブジェクトを指定するパラメーターを持つメソッド
+### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>パラメーターを持つメソッド (パラメーターの動的オブジェクトの指定)
 
-ジェネリック型としてパラメーターを指定する代わりに、`On`メソッドでは、動的オブジェクトとしてパラメーターを指定することができます。
+`On` メソッドのジェネリック型としてパラメーターを指定する代わりに、パラメーターを動的オブジェクトとして指定することもできます。
 
-**サーバー コードのパラメーターを持つクライアント メソッドを呼び出す**
+**パラメーターを使用してクライアントメソッドを呼び出すサーバーコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample19.cs?highlight=3)]
 
-**パラメーターに使用される Stock クラス**
+**パラメーターに使用されるストッククラス**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample20.cs)]
 
-**パラメーターの動的オブジェクトを使用して、パラメーターを持つサーバーからメソッドの WinRT クライアント コードが呼び出されます ([WPF および Silverlight の例をこのトピックの後半を参照してください](#wpfsl))。**
+**パラメーターの動的オブジェクトを使用して、パラメーターを使用してサーバーから呼び出されるメソッドの WinRT クライアントコード ([このトピックで後述する「WPF と Silverlight の例」を参照](#wpfsl))**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample21.cs?highlight=1,5)]
 
@@ -275,86 +275,86 @@ HTTP ヘッダーを設定するには、使用、`Headers`接続オブジェク
 
 ### <a name="how-to-remove-a-handler"></a>ハンドラーを削除する方法
 
-ハンドラーを削除するには、呼び出すその`Dispose`メソッド。
+ハンドラーを削除するには、その `Dispose` メソッドを呼び出します。
 
-**サーバーから呼び出されるメソッドのクライアント コード**
+**サーバーから呼び出されるメソッドのクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample22.cs?highlight=1)]
 
-**クライアントのコード ハンドラーを削除するには**
+**ハンドラーを削除するクライアントコード**
 
 [!code-css[Main](hubs-api-guide-net-client/samples/sample23.css?highlight=1)]
 
 <a id="callserver"></a>
 
-## <a name="how-to-call-server-methods-from-the-client"></a>クライアントからサーバーのメソッドを呼び出す方法
+## <a name="how-to-call-server-methods-from-the-client"></a>クライアントからサーバーメソッドを呼び出す方法
 
-サーバー上のメソッドを呼び出すを使用して、`Invoke`ハブ プロキシのメソッド。
+サーバーでメソッドを呼び出すには、ハブプロキシで `Invoke` メソッドを使用します。
 
-サーバー メソッドが戻り値を持たない場合は、非ジェネリック オーバー ロードを使用して、`Invoke`メソッド。
+サーバーメソッドに戻り値がない場合は、`Invoke` メソッドの非ジェネリックオーバーロードを使用します。
 
-**サーバー コードのメソッドの戻り値がありません。**
+**戻り値のないメソッドのサーバーコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample24.cs?highlight=3)]
 
-**戻り値を持たないメソッドを呼び出すクライアント コード**
+**戻り値を持たないメソッドを呼び出すクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample25.cs?highlight=1)]
 
-サーバー メソッドの戻り値の場合は、戻り値の型を指定のジェネリック型として、`Invoke`メソッド。
+サーバーメソッドに戻り値がある場合は、`Invoke` メソッドのジェネリック型として戻り値の型を指定します。
 
-**サーバー コードのメソッドの戻り値があり、複雑な型パラメーターを受け取る**
+**戻り値を持ち、複合型パラメーターを受け取るメソッドのサーバーコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample26.cs?highlight=1)]
 
-**パラメーターと戻り値に使用される Stock クラス**
+**パラメーターと戻り値に使用されるストッククラス**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample27.cs)]
 
-**ASP.NET 4.5 の非同期メソッドで複合型のパラメーターを受け取って戻り値を持つメソッドを呼び出すクライアント コード**
+**ASP.NET 4.5 async メソッドで戻り値を持ち、複合型パラメーターを取るメソッドを呼び出すクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample28.cs?highlight=1-2)]
 
-**戻り値を同期メソッドで複合型のパラメーターを受け取るメソッドを呼び出すクライアント コード**
+**同期メソッドで戻り値を持ち、複合型パラメーターを受け取るメソッドを呼び出すクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample29.cs?highlight=1-2)]
 
-`Invoke`メソッドが非同期で実行し、返します、`Task`オブジェクト。 指定しない場合は`await`または`.Wait()`、呼び出すメソッドの実行が完了する前に次のコード行が実行されます。
+`Invoke` メソッドは非同期的に実行され、`Task` オブジェクトを返します。 `await` または `.Wait()`を指定しない場合は、呼び出すメソッドが実行を終了する前に、次のコード行が実行されます。
 
 <a id="connectionlifetime"></a>
 
-## <a name="how-to-handle-connection-lifetime-events"></a>接続の有効期間イベントを処理する方法
+## <a name="how-to-handle-connection-lifetime-events"></a>接続の有効期間イベントの処理方法
 
-SignalR は、次の接続に処理できる有効期間イベントを提供します。
+SignalR は、次のように処理できる接続の有効期間イベントを提供します。
 
-- `Received`:接続でデータを受信したときに発生します。 受信したデータを提供します。
-- `ConnectionSlow`:クライアントが低速または削除が頻繁に接続を検出したときに発生します。
-- `Reconnecting`:基になるトランスポートの再接続を開始するときに発生します。
-- `Reconnected`:基になるトランスポートが再接続されたときに発生します。
-- `StateChanged`:接続状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続に関する情報の状態の値を参照してください[ConnectionState 列挙](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)します。
-- `Closed`:接続が切断されたときに発生します。
+- `Received`: 接続でデータを受信したときに発生します。 受信したデータを提供します。
+- `ConnectionSlow`: クライアントが低速または頻繁に切断される接続を検出したときに発生します。
+- `Reconnecting`: 基になるトランスポートが再接続を開始したときに発生します。
+- `Reconnected`: 基になるトランスポートが再接続されたときに発生します。
+- `StateChanged`: 接続状態が変化したときに発生します。 以前の状態と新しい状態を提供します。 接続状態の値の詳細については、「 [Connectionstate 列挙型](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)」を参照してください。
+- `Closed`: 接続が切断されたときに発生します。
 
-たとえば、致命的ではありませんが、断続的な接続の問題が発生するエラーを警告メッセージを表示する場合は、パフォーマンスの低下や頻繁になど、接続の削除を処理、`ConnectionSlow`イベント。
+たとえば、致命的ではないが、断続的な接続の問題 (パフォーマンスの低下や頻繁に接続の切断など) が発生した場合に、警告メッセージを表示するには、`ConnectionSlow` イベントを処理します。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample30.cs)]
 
-詳細については、次を参照してください。 [SignalR の接続の有効期間イベントの処理と理解](handling-connection-lifetime-events.md)します。
+詳細については、「 [SignalR での接続の有効期間イベントの理解と処理](handling-connection-lifetime-events.md)」を参照してください。
 
 <a id="handleerrors"></a>
 
-## <a name="how-to-handle-errors"></a>エラーを処理する方法
+## <a name="how-to-handle-errors"></a>エラーの処理方法
 
-場合は、サーバー上の詳細なエラー メッセージを明示的に有効にしない、SignalR が返すエラーが発生した例外オブジェクトには、エラーに関する最小限の情報が含まれています。 呼び出しなど`newContosoChatMessage`失敗した場合、エラー オブジェクトにエラー メッセージが含まれています"`There was an error invoking Hub method 'contosoChatHub.newContosoChatMessage'.`"送信の詳細なエラー メッセージを有効にする場合は、セキュリティ上の理由の詳細なエラー メッセージを運用環境でクライアントには推奨されませんトラブルシューティングのため、サーバーで次のコードを使用します。
+サーバーで詳細なエラーメッセージを明示的に有効にしないと、エラーに関する最小限の情報が、エラーの後に SignalR によって返される例外オブジェクトに含まれます。 たとえば、`newContosoChatMessage` の呼び出しが失敗した場合、エラーオブジェクトのエラーメッセージには、セキュリティ上の理由により、実稼働環境でクライアントに詳細なエラーメッセージを送信する "`There was an error invoking Hub method 'contosoChatHub.newContosoChatMessage'.`" が含まれます。ただし、トラブルシューティングのために詳細なエラーメッセージを有効にする場合は、サーバーで次のコードを使用してください。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample31.cs?highlight=2)]
 
 <a id="handleerrors"></a>
 
-SignalR が発生したエラーを処理するためのハンドラーを追加できる、`Error`接続オブジェクトのイベント。
+SignalR が発生するエラーを処理するには、connection オブジェクトに `Error` イベントのハンドラーを追加します。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample32.cs)]
 
-メソッドの呼び出しからエラーを処理するには、try-catch ブロックでコードをラップします。
+メソッドの呼び出しで発生したエラーを処理するには、try-catch ブロックでコードをラップします。
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample33.cs)]
 
@@ -362,54 +362,54 @@ SignalR が発生したエラーを処理するためのハンドラーを追加
 
 ## <a name="how-to-enable-client-side-logging"></a>クライアント側のログ記録を有効にする方法
 
-クライアント側のログ記録を有効にするには設定、`TraceLevel`と`TraceWriter`接続オブジェクトのプロパティ。
+クライアント側のログ記録を有効にするには、接続オブジェクトの `TraceLevel` と `TraceWriter` のプロパティを設定します。
 
-[!code-csharp[Main](hubs-api-guide-net-client/samples/sample34.cs?highlight=2-3)]
+[!code-csharp[Main](hubs-api-guide-net-client/samples/sample34.cs?highlight=3-4)]
 
 <a id="wpfsl"></a>
 
-## <a name="wpf-silverlight-and-console-application-code-samples-for-client-methods-that-the-server-can-call"></a>WPF、Silverlight、およびコンソール アプリケーションのコード サンプル、サーバーが呼び出すことができるクライアント メソッド
+## <a name="wpf-silverlight-and-console-application-code-samples-for-client-methods-that-the-server-can-call"></a>サーバーが呼び出すことができるクライアントメソッドの WPF、Silverlight、コンソールアプリケーションのコードサンプル
 
-サーバーが呼び出すことができるクライアント メソッドを定義する前に示したコード サンプルは、WinRT クライアントに適用されます。 次のサンプルでは、WPF、Silverlight、およびコンソール アプリケーションのクライアントの同等のコードを表示します。
+サーバーが呼び出すことができるクライアントメソッドを定義するために、前に示したコードサンプルは WinRT クライアントに適用されます。 次のサンプルは、WPF、Silverlight、およびコンソールアプリケーションクライアントの同等のコードを示しています。
 
-### <a name="methods-without-parameters"></a>パラメーターなしのメソッド
+### <a name="methods-without-parameters"></a>パラメーターのないメソッド
 
-**パラメーターなしのサーバーから呼び出されるメソッドの WPF クライアント コード**
+**パラメーターを指定せずにサーバーから呼び出されるメソッドの WPF クライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample35.cs?highlight=1)]
 
-**パラメーターなしのサーバーから呼び出されるメソッドの Silverlight クライアント コード**
+**パラメーターを指定せずにサーバーから呼び出されるメソッドの Silverlight クライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample36.cs?highlight=1)]
 
-**メソッドのコンソール アプリケーションのクライアント コードは、パラメーターなしのサーバーから呼び出されます**
+**パラメーターを指定せずにサーバーから呼び出されるメソッドのコンソールアプリケーションクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample37.cs?highlight=1)]
 
-### <a name="methods-with-parameters-specifying-the-parameter-types"></a>パラメーターの型を指定するパラメーターを持つメソッド
+### <a name="methods-with-parameters-specifying-the-parameter-types"></a>パラメーターを使用したメソッドとパラメーターの型の指定
 
-**パラメーターを持つサーバーから呼び出されるメソッドの WPF クライアント コード**
+**パラメーターを使用してサーバーから呼び出されるメソッドの WPF クライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample38.cs?highlight=1,4)]
 
-**パラメーターを持つサーバーから呼び出されるメソッドの Silverlight クライアント コード**
+**パラメーターを使用してサーバーから呼び出されるメソッドの Silverlight クライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample39.cs?highlight=1,5)]
 
-**パラメーターを持つサーバーからメソッドのコンソール アプリケーションのクライアント コードが呼び出されます**
+**パラメーターを使用してサーバーから呼び出されるメソッドのコンソールアプリケーションクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample40.cs?highlight=1-2)]
 
-### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>パラメーターの動的オブジェクトを指定するパラメーターを持つメソッド
+### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>パラメーターを持つメソッド (パラメーターの動的オブジェクトの指定)
 
-**パラメーターの動的オブジェクトを使用して、パラメーターを持つサーバーから呼び出されるメソッドの WPF クライアント コード**
+**パラメーターに動的オブジェクトを使用して、パラメーターを使用してサーバーから呼び出されるメソッドの WPF クライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample41.cs?highlight=1,4)]
 
-**パラメーターの動的オブジェクトを使用して、パラメーターを持つサーバーから呼び出されるメソッドの Silverlight クライアント コード**
+**パラメーターの動的オブジェクトを使用して、パラメーターを使用してサーバーから呼び出されるメソッドの Silverlight クライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample42.cs?highlight=1,5)]
 
-**パラメーターの動的オブジェクトを使用して、パラメーターを持つサーバーからメソッドのコンソール アプリケーションのクライアント コードが呼び出されます**
+**パラメーターに動的オブジェクトを使用して、パラメーターを使用してサーバーから呼び出されるメソッドのコンソールアプリケーションクライアントコード**
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample43.cs?highlight=1-2)]
