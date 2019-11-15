@@ -1,174 +1,174 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
-title: データ アクセス層を作成 (c#) |Microsoft Docs
+title: データアクセス層 (C#) を作成するMicrosoft Docs
 author: rick-anderson
-description: このチュートリアルでは、最初から開始を作成、データ アクセス層 (DAL)、型指定されたデータセットを使用して、データベース内の情報にアクセスします。
+description: このチュートリアルでは、最初から開始し、型指定されたデータセットを使用してデータアクセス層 (DAL) を作成し、データベース内の情報にアクセスします。
 ms.author: riande
 ms.date: 04/05/2010
 ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e4019ce141a12f20edd488b708682a76e2a3d3fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5aaf97dc8448dcb7b94ef2e4e23f34fd37ac4426
+ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108984"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74115249"
 ---
 # <a name="creating-a-data-access-layer-c"></a>データ アクセス層を作成する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [PDF のダウンロード](creating-a-data-access-layer-cs/_static/datatutorial01cs1.pdf)
 
-> このチュートリアルでは、最初から開始を作成、データ アクセス層 (DAL)、型指定されたデータセットを使用して、データベース内の情報にアクセスします。
+> このチュートリアルでは、最初から開始し、型指定されたデータセットを使用してデータアクセス層 (DAL) を作成し、データベース内の情報にアクセスします。
 
-## <a name="introduction"></a>はじめに
+## <a name="introduction"></a>概要
 
-Web 開発者は、私たちの生活に焦点を絞ってデータを操作します。 コードを取得し、変更、および web ページを収集して集計データを格納するデータベースを作成します。 これは、時間のかかるを ASP.NET 2.0 ではこれらの一般的なパターンを実装するテクニックを紹介する一連の最初のチュートリアルです。 まず、作成、[ソフトウェア アーキテクチャ](http://en.wikipedia.org/wiki/Software_architecture)でのデータ アクセス層 (DAL) ビジネス ロジック層 (BLL)、型指定されたデータセットを使用して構成されていますが、カスタムのビジネス ルールを強制し、プレゼンテーション層が ASP.NET の構成ページ共通のページ レイアウトを共有します。 レポートに移動します、このバックエンド土台をレイアウトされてが後を表示する方法を示す集計、収集、および web アプリケーションからデータを検証します。 簡潔であり、プロセスを視覚的に順番に多数のスクリーン ショットの手順を説明には、これらのチュートリアルが適しています。 各チュートリアルは、c# および Visual Basic バージョンで使用可能なために使用する完全なコードのダウンロードが含まれています。 (この最初のチュートリアルでは、非常に長い時間がかかるが、残りの部分をより消化しやすいチャンク単位で表示されます)。
+Web 開発者として、データの操作を中心にしています。 データを格納するデータベース、データを取得および変更するコード、収集して集計するための web ページを作成します。 これは、ASP.NET 2.0 でこれらの共通パターンを実装するための手法を紹介する、長いシリーズの最初のチュートリアルです。 まず、型指定されたデータセットを使用するデータアクセス層 (DAL)、カスタムビジネスルールを適用するビジネスロジック層 (BLL)、および共通ページレイアウトを共有する ASP.NET ページで構成されるプレゼンテーション層で構成される[ソフトウェアアーキテクチャ](http://en.wikipedia.org/wiki/Software_architecture)の作成から始めます。 このバックエンドの基礎を説明した後、レポートを作成し、web アプリケーションのデータを表示、要約、収集、検証する方法を示します。 これらのチュートリアルは簡潔にすることを目的としており、プロセスを視覚的に説明するためのさまざまなスクリーンショットを含む詳細な手順を説明しています。 各チュートリアルは、およびC# Visual Basic バージョンで使用でき、使用されている完全なコードのダウンロードが含まれています。 (この最初のチュートリアルでは非常に時間がかかりますが、残りの部分はより多くの消化チャンクで示されています)。
 
-配置で Northwind データベースの Microsoft SQL Server 2005 Express Edition バージョンこれらのチュートリアルを使用する、**App\_Data**ディレクトリ。 データベースのファイルに加えて、**App\_Data**フォルダーは、別のデータベース バージョンを使用する場合にも、データベースを作成するための SQL スクリプトを格納します。 これらのスクリプトもあり[マイクロソフトから直接ダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en)したい場合は、します。 Northwind データベースの別の SQL Server バージョンを使用する場合は、更新する必要があります。、 **NORTHWNDConnectionString**アプリケーションの設定**Web.config**ファイル。 Web アプリケーションは、ファイル システム ベースの Web サイト プロジェクトとして Visual Studio 2005 Professional Edition を使用して構築されました。 ただし、すべてのチュートリアルでは、動作は、Visual Studio 2005 の無料版と同様[Visual Web Developer](https://msdn.microsoft.com/vstudio/express/vwd/)します。  
+これらのチュートリアルでは、**アプリ\_データ**ディレクトリに配置されている Microsoft SQL Server 2005 Express Edition バージョンの Northwind データベースを使用します。 データベースファイルに加えて、 **App\_Data**フォルダーには、別のデータベースバージョンを使用する場合に備えて、データベースを作成するための SQL スクリプトも含まれています。 これらのスクリプトは、必要に応じて[Microsoft から直接ダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en)することもできます。 別の SQL Server バージョンの Northwind データベースを使用する場合は、アプリケーションの**web.config**ファイルの**NORTHWNDConnectionString**設定を更新する必要があります。 Web アプリケーションは、Visual Studio 2005 Professional Edition をファイルシステムベースの Web サイトプロジェクトとして使用して構築されました。 ただし、すべてのチュートリアルは、Visual Studio 2005、 [Visual Web Developer](https://msdn.microsoft.com/vstudio/express/vwd/)の無料版でも同様に機能します。  
   
-このチュートリアルでは、最初から開始をデータ アクセス層 (DAL)、続いて 2 番目のチュートリアルでは、ビジネス ロジック層 (BLL) を作成してページ レイアウトと 3 番目のナビゲーションで作業を作成します。 チュートリアルでは、3 つが、基盤の上に構築した後は、最初の 3 つに配置されます。 この最初のチュートリアルで説明、そのため、Visual Studio を起動および作業を開始するのには多くがあります。
+このチュートリアルでは、最初から開始し、データアクセス層 (DAL) を作成します。次に、2番目のチュートリアルでビジネスロジック層 (BLL) を作成し、3番目のページレイアウトとナビゲーションを操作します。 3番目のチュートリアルの後のチュートリアルは、最初の3つの基盤に基づいて構築されます。 この最初のチュートリアルでは詳しく説明しているので、Visual Studio を起動して始めましょう。
 
-## <a name="step-1-creating-a-web-project-and-connecting-to-the-database"></a>手順 1: Web プロジェクトを作成し、データベースに接続します。
+## <a name="step-1-creating-a-web-project-and-connecting-to-the-database"></a>手順 1: Web プロジェクトの作成とデータベースへの接続
 
-データ アクセス層 (DAL) を作成する前にまず web サイトを作成し、データベースのセットアップに必要があります。 まず、新しいファイル システムに基づく ASP.NET web サイトを作成します。 これを行うには、ファイル メニューに移動し、新しい Web サイトを新しい Web サイト ダイアログ ボックスを表示するを選択します。 ASP.NET Web サイト テンプレートの選択、場所ドロップダウン リストをファイル システムに設定、web サイトを配置するフォルダーを選択および c# 言語を設定します。
+データアクセス層 (DAL) を作成するには、まず web サイトを作成し、データベースをセットアップする必要があります。 まず、新しいファイルシステムベースの ASP.NET web サイトを作成します。 これを行うには、[ファイル] メニューの [新しい Web サイト] をクリックし、[新しい Web サイト] ダイアログボックスを表示します。 ASP.NET Web サイトテンプレートを選択し、[場所] ドロップダウンリストを [ファイルシステム] に設定して、Web サイトを配置するフォルダーを選択C#し、言語をに設定します。
 
-[![新しいファイル システムに基づく Web サイトを作成します。](creating-a-data-access-layer-cs/_static/image2.png)](creating-a-data-access-layer-cs/_static/image1.png)
+[新しいファイルシステムベースの Web サイトを作成 ![には](creating-a-data-access-layer-cs/_static/image2.png)](creating-a-data-access-layer-cs/_static/image1.png)
 
-**図 1**:New File System-Based Web サイトの作成 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image3.png))。
+**図 1**: 新しいファイルシステムベースの Web サイトを作成[する (クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image3.png)されます)
 
-これで新しい web サイトが作成されます、 **Default.aspx** ASP.NET ページと**App\_Data**フォルダー。
+これにより、 **default.aspx** ASP.NET ページと**App\_Data**フォルダーを使用して新しい web サイトが作成されます。
 
-作成された web サイトを次の手順は Visual Studio のサーバー エクスプ ローラーで、データベースへの参照を追加します。 サーバー エクスプ ローラーにデータベースを追加するには、テーブル、ストアド プロシージャ、ビュー、および Visual Studio 内からのすべてを追加できます。 テーブルのデータを表示またはクエリ ビルダーを使用して手動でまたは視覚的に、独自のクエリを作成もできます。 さらに、dal に型指定されたデータセットを構築するときに型指定されたデータセットを構築するためのデータベースへのポイントの Visual Studio に必要があります。 その時点では、この接続情報を提供することができます、Visual Studio でサーバー エクスプ ローラーで既に登録されているデータベースのドロップダウン リストが自動的に設定されます。
+Web サイトが作成されたので、次の手順では、Visual Studio のサーバーエクスプローラーでデータベースへの参照を追加します。 サーバーエクスプローラーにデータベースを追加することで、Visual Studio 内からテーブル、ストアドプロシージャ、ビューなどを追加できます。 また、クエリビルダーを使用して、テーブルデータを表示したり、独自のクエリを作成したりすることもできます。 さらに、DAL 用に型指定されたデータセットを作成する場合は、型指定されたデータセットを構築するデータベースを Visual Studio にポイントする必要があります。 この接続情報はその時点で提供できますが、Visual Studio では、サーバーエクスプローラーに既に登録されているデータベースのドロップダウンリストが自動的に作成されます。
 
-Northwind データベースをサーバー エクスプ ローラーに追加する手順は、SQL Server 2005 Express Edition データベースを使用するかどうかに依存、**App\_Data**フォルダーまたは Microsoft SQL Server 2000 または 2005 があるかどうか代わりに使用するデータベース サーバーのセットアップ。
+Northwind データベースをサーバーエクスプローラーに追加する手順は、**アプリ\_Data**フォルダーで SQL Server 2005 Express Edition データベースを使用するかどうか、または代わりに使用する Microsoft SQL Server 2000 または2005データベースサーバーのセットアップがあるかどうかによって異なります。
 
-## <a name="using-a-database-in-theapp_datafolder"></a>アプリケーションでデータベースを使用して\_DataFolder
+## <a name="using-a-database-in-the-app_data-folder"></a>App\_Data フォルダー内のデータベースの使用
 
-ダウンロードした websit に配置されている Northwind データベースの SQL Server 2005 Express Edition のバージョンを使用することができる場合に、接続するには、SQL Server 2000 または 2005年データベース サーバーがないか、データベース サーバーにデータベースを追加しなくてもすむようにしたい、杯**App\_Data**フォルダー (**NORTHWND.MDF**)。
+接続する SQL Server 2000 または2005データベースサーバーがない場合、または単にデータベースサーバーにデータベースを追加する必要がない場合は、ダウンロードした web サイトの**アプリ\_データ**フォルダー (northwnd.mdf) にある SQL Server 2005 Express Edition バージョンの Northwind データベースを使用でき**ます。MDF**)。
 
-データベースに配置、**App\_Data**フォルダーがサーバー エクスプ ローラーに自動的に追加します。 SQL Server 2005 Express Edition をコンピューターにインストールがあると仮定すると NORTHWND という名前のノードが表示されます。サーバー エクスプ ローラーで MDF を展開し、そのテーブル、ビュー、ストアド プロシージャ、および具合 (図 2 参照) を調べることができます。
+**App\_Data**フォルダーに配置されたデータベースがサーバーエクスプローラーに自動的に追加されます。 コンピューターに SQL Server 2005 Express Edition がインストールされていると仮定すると、NORTHWND.MDF という名前のノードが表示されます。サーバーエクスプローラーの MDF。テーブル、ビュー、ストアドプロシージャなどを展開し、探索することができます (図2を参照)。
 
-**App\_Data** フォルダーは、Microsoft Access にも格納できる **.mdb** SQL Server の対応するように自動的に追加サーバー エクスプ ローラーになるファイル。 常に、SQL Server オプションのいずれかを使用しない場合は[、Microsoft Access バージョンの Northwind データベース ファイルのダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN)にドロップし、**App\_Data**ディレクトリ。 ただし、おいてとして Access データベースではないとして SQL Server では、機能豊富な web サイトのシナリオで使用するものではありません。 さらに、いくつかの 35 + チュートリアルへのアクセスでサポートされていない特定のデータベース レベルの機能が使用されます。
+**アプリの\_データ**フォルダーには、Microsoft access の **.mdb**ファイルも保持できます。このファイルは、対応する SQL Server と同様に、サーバーエクスプローラーに自動的に追加されます。 SQL Server オプションを使用しない場合は、常に[Microsoft access バージョンの Northwind データベースファイルをダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN)して、**アプリの\_データ**ディレクトリにドロップできます。 ただし、Access データベースは SQL Server ほど機能が豊富ではなく、web サイトのシナリオで使用するように設計されていないことに注意してください。 さらに、35以上のチュートリアルでは、Access でサポートされていないデータベースレベルの機能がいくつか使用されています。
 
-## <a name="connecting-to-the-database-in-a-microsoft-sql-server-2000-or-2005-database-server"></a>Microsoft SQL Server 2000 または 2005 のデータベース サーバーでデータベースに接続します。
+## <a name="connecting-to-the-database-in-a-microsoft-sql-server-2000-or-2005-database-server"></a>Microsoft SQL Server 2000 または2005データベースサーバーでのデータベースへの接続
 
-また、データベース サーバーにインストールされている Northwind データベースに接続することがあります。 データベース サーバーにまだインストールされている Northwind データベースがない場合最初にする必要がありますに追加するデータベース サーバーでこのチュートリアルのダウンロードまたはインストール スクリプトを実行して[Northwind の SQL Server 2000 のバージョンをダウンロードインストール スクリプトと](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en)Microsoft の web サイトから直接します。
+または、データベースサーバーにインストールされている Northwind データベースに接続することもできます。 データベースサーバーに Northwind データベースがまだインストールされていない場合は、まず、このチュートリアルのダウンロードに含まれているインストールスクリプトを実行するか、 [northwind およびインストールスクリプトの SQL Server 2000 バージョン](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en)を Microsoft の web サイトから直接ダウンロードして、データベースサーバーに追加する必要があります。
 
-インストールされているデータベースを作成したら、Visual Studio の [サーバー エクスプ ローラーには、データ接続] ノードを右クリックし、接続の追加を移動します。 ビューに移動して、サーバー エクスプ ローラーが表示されないかどうかは/サーバー エクスプ ローラーまたはヒット Ctrl + Alt + S。 これには、認証情報、およびデータベース名への接続にサーバーを指定できます、接続の追加 ダイアログ ボックスが表示されます。 データベース接続情報を構成し、ok ボタンをクリックしてしました、一度データベースがデータ接続 ノードの下にノードとして追加されます。 そのテーブル、ビュー、ストアド プロシージャ、および具合を探索するデータベース ノードを展開することができます。
+データベースがインストールされたら、Visual Studio のサーバーエクスプローラーにアクセスし、[データ接続] ノードを右クリックして、[接続の追加] を選択します。 サーバーエクスプローラーが表示されない場合は、ビューまたはサーバーエクスプローラーにアクセスするか、Ctrl + Alt + S キーを押します。 [接続の追加] ダイアログボックスが表示されます。このダイアログボックスでは、接続先のサーバー、認証情報、およびデータベース名を指定できます。 データベース接続情報を正しく構成し、[OK] ボタンをクリックすると、データベースは [データ接続] ノードの下にノードとして追加されます。 データベースノードを展開して、テーブル、ビュー、ストアドプロシージャなどを調べることができます。
 
-![データベース サーバーの Northwind データベースに接続を追加します。](creating-a-data-access-layer-cs/_static/image4.png)
+![データベースサーバーの Northwind データベースに接続を追加する](creating-a-data-access-layer-cs/_static/image4.png)
 
-**図 2**:データベース サーバーの Northwind データベースに接続を追加します。
+**図 2**: データベースサーバーの Northwind データベースに接続を追加する
 
-## <a name="step-2-creating-the-data-access-layer"></a>手順 2: データ アクセス層の作成
+## <a name="step-2-creating-the-data-access-layer"></a>手順 2: データアクセス層の作成
 
-使用する場合、データの 1 つは、(web アプリケーションでは、プレゼンテーション層を ASP.NET ページの構成) で、プレゼンテーション層に直接データに固有のロジックを埋め込むことです。 ASP.NET ページのコード部分で ADO.NET コードを記述またはマークアップの部分から SqlDataSource コントロールを使用する形式の時間がかかります。 いずれの場合も、このアプローチは、データ アクセス ロジックをプレゼンテーション層と密に結合します。 推奨のアプローチは、プレゼンテーション層からデータ アクセス ロジックを分離するただし、です。 この別のレイヤーを使用して、DAL を簡単に言えば、データ アクセス層と呼ばは、通常、別のクラス ライブラリ プロジェクトとして実装します。 この階層型アーキテクチャのメリットはも記載されています (これらの利点については、このチュートリアルの最後に「それ以上の読み取り」セクションを参照してください)、このシリーズでは採用するアプローチします。
+データを操作する場合は、データ固有のロジックをプレゼンテーション層に直接埋め込む方法があります (web アプリケーションでは、ASP.NET ページがプレゼンテーション層を構成します)。 これは、ASP.NET ページのコード部分で ADO.NET コードを記述したり、マークアップ部分からの SqlDataSource コントロールを使用したりすることがあります。 どちらの場合も、この方法を使用すると、データアクセスロジックがプレゼンテーション層と緊密に結合されます。 ただし、データアクセスロジックをプレゼンテーション層から分離することをお勧めします。 この分離レイヤーは、データアクセス層として使用され、略して DAL は、通常、別個のクラスライブラリプロジェクトとして実装されます。 この多層アーキテクチャのメリットについては、このチュートリアルの最後にある「詳細情報」セクションを参照してください。これらの利点については、このシリーズで説明します。
 
-など、データベースへの接続を作成する基になるデータ ソースに固有のすべてのコードを発行**SELECT**、**INSERT**、 **UPDATE**、および**DELETE**コマンドとでは、DAL に存在する必要があります。 プレゼンテーション層は、このようなデータ アクセス コードへの参照を含めることはできませんにすべてのデータを要求の DAL の呼び出しを行う代わりにする必要があります。 通常、データ アクセス レイヤーには、基になるデータベースのデータにアクセスするためのメソッドが含まれます。 たとえば、Northwind データベースには**Products**と**Categories**販売および所属するカテゴリの製品を記録するテーブル。 DAL などのメソッドになります。
+データベースへの接続の作成、 **SELECT**、 **INSERT**、 **UPDATE**、および**DELETE**コマンドの発行など、基になるデータソースに固有のすべてのコードは、DAL に配置する必要があります。 プレゼンテーション層には、このようなデータアクセスコードへの参照を含めないでください。ただし、すべてのデータ要求に対して DAL を呼び出す必要があります。 通常、データアクセス層には、基になるデータベースデータにアクセスするためのメソッドが含まれています。 たとえば、Northwind データベースには、販売用の製品とそれが属するカテゴリを記録する**products**テーブルと**categories**テーブルがあります。 この DAL では、次のような方法があります。
 
-- **GetCategories()、** これには、すべてのカテゴリに関する情報を返します
-- **GetProducts()** 、これには、すべての製品に関する情報を返します
-- **GetProductsByCategoryID(*categoryID*)** , which will return all products that belong to a specified category
-- **GetProductByProductID (*productID*)** 、これは、特定の製品に関する情報を返します
+- **GetCategories ()。** すべてのカテゴリに関する情報が返されます。
+- **Getproducts ()。** すべての製品に関する情報が返されます。
+- **Getproducts Bycategoryid (*categoryid*)。** 指定されたカテゴリに属するすべての製品を返します。
+- **Getproductbyproductid (*productid*)。** 特定の製品に関する情報を返します。
 
-これらのメソッドが呼び出されるはデータベースに接続する、適切なクエリを発行し、結果を返します。 これらの結果を返すどのようにすることが重要です。 単に、これらのメソッドにデータセットまたは DataReader データベース クエリによって設定されますを返すことができますを使用してこれらの結果が返される理想的*厳密に型指定されたオブジェクト*します。 厳密に型指定されたオブジェクトは、反対に、弱い型指定のオブジェクトは 1 つのスキーマが実行時まで不明、コンパイル時にスキーマが定義されている厳格です。
+これらのメソッドは、呼び出されると、データベースに接続し、適切なクエリを発行して、結果を返します。 これらの結果を返す方法は重要です。 これらのメソッドは、単にデータベースクエリによって設定されたデータセットまたは DataReader を返すことができますが、これらの結果は、*厳密に型指定*されたオブジェクトを使用して返す必要があります 厳密に型指定されたオブジェクトとは、コンパイル時にスキーマが厳格に定義されているオブジェクトのことです。一方、弱い型指定のオブジェクトとは、スキーマが実行時までわからないことを意味します。
 
-たとえば、DataReader と DataSet (既定) は疎に型指定されたオブジェクトでそれらを設定するために使用するデータベース クエリによって返される列のスキーマが定義されているためです。 大まかに型指定された DataTable から特定の列にアクセスするには、ような構文を使用する必要があります。<strong><em>DataTable</em>.Rows[<em>index</em>]["<em>columnName</em>"]</strong>. DataTable のこの例での柔軟な型指定は、文字列または序数インデックスを使用して列名にアクセスする必要があるという事実によって発生します。 厳密に型指定された DataTable では、その一方で、必要があります、プロパティとして実装されている列の各結果として次のようなコード。<strong><em>DataTable</em>.Rows[<em>index</em>].*columnName</strong>* .
+たとえば、DataReader とデータセット (既定では) は、値の設定に使用されるデータベースクエリによって返される列によってスキーマが定義されているため、疎に型指定されたオブジェクトです。 疎型の DataTable から特定の列にアクセスするには、次のような構文を使用する必要があります。  <strong><em>datatable</em>です。Rows [<em>index</em>] ["<em>columnName</em>"]</strong>。 この例では、DataTable の厳密な型指定は、文字列または序数のインデックスを使用して列名にアクセスする必要があることを示しています。 一方、厳密に型指定された DataTable では、それぞれの列がプロパティとして実装され、次のようなコードが作成さ<strong>れます。行 [<em>インデックス</em>]。*columnName</strong>* 。
 
-厳密に型指定されたオブジェクトを返すには、開発者は、独自のカスタム ビジネス オブジェクトを作成するか、型指定されたデータセットを使用できます。 ビジネス オブジェクトは、プロパティを持つ通常ビジネス オブジェクトの基になるデータベース テーブルの列を反映するクラスを表している開発者によって実装されます。 型指定されたデータセットは、データベース スキーマとそのメンバーは、厳密に型指定されたこのスキーマに従ってに基づいて Visual Studio によって生成されたクラスです。 型指定されたデータセット自体は、ADO.NET DataSet、DataTable、および DataRow クラスを拡張するクラスで構成されます。 Datatable の厳密に型指定されただけでなく型指定されたデータセットもが追加されました、Tableadapter はデータセットのデータ テーブルを設定し、元のデータベースにデータ テーブル内の変更を伝達するためのメソッドを持つクラス。
+厳密に型指定されたオブジェクトを返すために、開発者は独自のカスタムビジネスオブジェクトを作成したり、型指定されたデータセットを使用したりできます。 ビジネスオブジェクトは、ビジネスオブジェクトが表す基になるデータベーステーブルの列をプロパティに反映するクラスとして、開発者によって実装されます。 型指定されたデータセットは、データベーススキーマに基づいて Visual Studio によって生成されるクラスであり、そのメンバーはこのスキーマに従って厳密に型指定されます。 型指定されたデータセット自体は、ADO.NET データセット、DataTable、および DataRow クラスを拡張するクラスで構成されています。 厳密に型指定された Datatable に加えて、型指定されたデータセットには Tableadapter も含まれるようになりました。 Tableadapter は、データセットの Datatable にデータを格納し、Datatable 内の変更をデータベースに反映するためのメソッドを持つクラスです。
 
 > [!NOTE]
-> 長所と短所のカスタム ビジネス オブジェクトと型指定されたデータセットを使用する方法の詳細についてを参照してください[データ層コンポーネントの設計と層間のデータの受け渡し](https://msdn.microsoft.com/library/ms978496.aspx)します。
+> 型指定されたデータセットを使用する場合とカスタムビジネスオブジェクトを使用する場合の長所と短所の詳細については、「[データ層コンポーネントの設計」および「階層を介したデータの引き渡し](https://msdn.microsoft.com/library/ms978496.aspx)」を参照してください。
 
-これらのチュートリアルのアーキテクチャの厳密に型指定されたデータセットを使用します。 図 3 は、型指定されたデータセットを使用するアプリケーションの異なる層間のワークフローを示しています。
+これらのチュートリアルのアーキテクチャには、厳密に型指定されたデータセットを使用します。 図3は、型指定されたデータセットを使用するアプリケーションのさまざまな層間のワークフローを示しています。
 
-[![すべてのデータ アクセス コードは、DAL に追いやら](creating-a-data-access-layer-cs/_static/image6.png)](creating-a-data-access-layer-cs/_static/image5.png)
+[すべてのデータアクセスコードが DAL に作業 ![](creating-a-data-access-layer-cs/_static/image6.png)](creating-a-data-access-layer-cs/_static/image5.png)
 
-**図 3**:すべてのデータ アクセス コードは、DAL に追いやら ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image7.png))。
+**図 3**: すべてのデータアクセスコードが DAL に作業 ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image7.png)されます)
 
-## <a name="creating-a-typed-dataset-and-table-adapter"></a>型指定されたデータセットとテーブル アダプターの作成
+## <a name="creating-a-typed-dataset-and-table-adapter"></a>型指定されたデータセットとテーブルアダプターの作成
 
-DAL を作成するには、型指定されたデータセットをプロジェクトに追加することで開始します。 これを実現するには、ソリューション エクスプ ローラーでプロジェクト ノードを右クリックし、新しい項目の追加を選択します。 テンプレートの一覧からデータセット オプションを選択し、名前を付けます**Northwind.xsd**します。
+DAL の作成を開始するには、まず、型指定されたデータセットをプロジェクトに追加します。 これを行うには、ソリューションエクスプローラーでプロジェクトノードを右クリックし、[新しい項目の追加] を選択します。 テンプレートの一覧から [データセット] オプションを選択し、「 **Northwind. xsd**」という名前を指定します。
 
-[![プロジェクトに新しいデータセットを追加します。](creating-a-data-access-layer-cs/_static/image9.png)](creating-a-data-access-layer-cs/_static/image8.png)
+[新しいデータセットをプロジェクトに追加することを選択 ![](creating-a-data-access-layer-cs/_static/image9.png)](creating-a-data-access-layer-cs/_static/image8.png)
 
-**図 4**:新しいデータセットをプロジェクトに追加することも ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image10.png))。
+**図 4**: プロジェクトに新しいデータセットを追加することを選択する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image10.png)される)
 
-データセットを追加するように求められたら、[追加] をクリックした後、**App\_Code**フォルダー、[はい] を選択します。 型指定されたデータセットのデザイナーが表示されます、され、型指定されたデータセットを最初に TableAdapter を追加することができます、TableAdapter 構成ウィザードが開始されます。
+[追加] をクリックした後、データセットを**アプリ\_コード**フォルダーに追加するよう求められたら、[はい] を選択します。 次に、型指定されたデータセットのデザイナーが表示され、TableAdapter 構成ウィザードが開始されます。これにより、最初の TableAdapter を型指定されたデータセットに追加できます。
 
-厳密に型指定されたデータのコレクションをとして型指定されたデータセット厳密に型指定された DataTable インスタンス、厳密に型指定された DataRow インスタンスのそれぞれの順番で構成されていますから構成されます。 このチュートリアル シリーズで使用する必要がある、基になるデータベース テーブルのそれぞれの厳密に型指定された DataTable を作成します。 DataTable の作成から始めましょう、**Products**テーブル。
+型指定されたデータセットは、厳密に型指定されたデータのコレクションとして機能します。これは、厳密に型指定された DataTable インスタンスで構成されており、それぞれが厳密に型指定された DataRow インスタンスで構成されています。 ここでは、このチュートリアルシリーズで使用する必要がある基になるデータベーステーブルごとに、厳密に型指定された DataTable を作成します。 **Products**テーブルの DataTable の作成から始めましょう。
 
-厳密に型指定された Datatable には、その基になるデータベース テーブルからデータにアクセスする方法に関する情報が含まれていないことに留意してください。 DataTable に表示するデータを取得するためには、データ アクセス層として機能する TableAdapter クラスを使用します。 この**Products**DataTable には、TableAdapter にはメソッドが含まれて、 **GetProducts()** 、 **GetProductByCategoryID (*categoryID*)** など、プレゼンテーション層からを起動します。 DataTable の役割では、レイヤー間でデータを渡すために使用、厳密に型指定されたオブジェクトとして機能です。
+厳密に型指定された Datatable には、基になるデータベーステーブルからデータにアクセスする方法に関する情報が含まれていないことに注意してください。 DataTable にデータを設定するためにデータを取得するには、データアクセス層として機能する TableAdapter クラスを使用します。 **製品**の DataTable の場合、TableAdapter には**getproducts ()** 、 **getproductbycategoryid (*categoryid*)** などのメソッドが含まれます。これはプレゼンテーション層から呼び出されます。 DataTable のロールは、レイヤー間でデータを渡すために使用される、厳密に型指定されたオブジェクトとして機能します。
 
-使用するデータベースを選択するよう求められますが、TableAdapter 構成ウィザードを開始します。 ドロップダウン リストでは、サーバー エクスプ ローラーでそれらのデータベースを示しています。 サーバー エクスプ ローラーに、Northwind データベースを追加しなかった場合は、これを行うには、この時点で、新しい接続ボタンをクリックできます。
+TableAdapter 構成ウィザードでは、最初に、使用するデータベースを選択するように求めるメッセージが表示されます。 ドロップダウンリストには、サーバーエクスプローラー内のそれらのデータベースが表示されます。 Northwind データベースをサーバーエクスプローラーに追加しなかった場合は、この時点で [新しい接続] ボタンをクリックすると、この操作を行うことができます。
 
-[![ドロップダウン リストから、Northwind データベースを選択します。](creating-a-data-access-layer-cs/_static/image12.png)](creating-a-data-access-layer-cs/_static/image11.png)
+[ドロップダウンリストから Northwind データベースを選択 ![には](creating-a-data-access-layer-cs/_static/image12.png)](creating-a-data-access-layer-cs/_static/image11.png)
 
-**図 5**:ドロップダウン リストから、Northwind データベースを選択 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image13.png))。
+**図 5**: ドロップダウンリストから Northwind データベースを選択[する (クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image13.png)されます)
 
-データベースを選択し、[次へ] をクリックすると、求められます内の接続文字列を保存するかどうか、 **Web.config**ファイル。 接続文字列を保存することによってします必要があるがハード TableAdapter のクラスにコードが、接続文字列情報が、今後変更された場合は、モ ノを簡略化されます。 配置されている構成ファイルに接続文字列を保存することを選択する場合、 **&lt;connectionStrings&gt;** 可能性があるセクション[オプションで暗号化された](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)改善セキュリティや IIS の GUI 管理ツールでは、管理者にとってより適切な新しい ASP.NET 2.0 プロパティ ページで後で変更されました。
+データベースを選択して [次へ] をクリックすると、 **web.config ファイルに**接続文字列を保存するかどうかを確認するメッセージが表示されます。 接続文字列を保存することで、TableAdapter クラスにハードコーディングされないようにすることができます。これにより、接続文字列情報が将来変更された場合の処理が簡単になります。 構成ファイルに接続文字列を保存することを選択した場合は、 **&lt;connectionStrings&gt;** セクションに配置されます。これは、[必要に応じて暗号化](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)してセキュリティを強化することも、後で IIS GUI 管理ツール内の新しい ASP.NET 2.0 プロパティページを使用して変更することもできます。これは、管理者にとって理想的です。
 
-[![接続文字列を Web.config に保存します。](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
+[接続文字列を web.config に保存 ![には](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
 
-**図 6**:接続文字列を保存**Web.config** ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image16.png))。
+**図 6**: 接続文字列を Web.config に保存する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image16.png)され**ます**)
 
-次に、最初の厳密に型指定された DataTable のスキーマを定義し、厳密に型指定されたデータセットを設定するときに使用する、TableAdapter の最初のメソッドを提供する必要があります。 これら 2 つの手順は、DataTable に反映されるように、テーブルから列を返すクエリを作成して同時に実行されます。 ウィザードの最後に紹介メソッドの名前をこのクエリにします。 化は、後であれば、プレゼンテーション層からこのメソッドを呼び出すことができます。 メソッドは、定義済みのクエリを実行し、厳密に型指定された DataTable を設定します。
+次に、厳密に型指定された最初の DataTable のスキーマを定義し、厳密に型指定されたデータセットを作成するときに TableAdapter で使用する最初のメソッドを指定する必要があります。 この2つの手順は、DataTable に反映するテーブルから列を返すクエリを作成することによって、同時に実行されます。 ウィザードの最後で、このクエリにメソッド名を指定します。 これが完了したら、プレゼンテーション層からこのメソッドを呼び出すことができます。 メソッドは、定義されたクエリを実行し、厳密に型指定された DataTable を設定します。
 
-SQL クエリの定義を開始するには、TableAdapter クエリを発行する方最初指定する必要があります。 アドホック SQL ステートメントを使用して、新しいストアド プロシージャを作成または既存のストアド プロシージャを使用してできます。 これらのチュートリアルについては、アドホック SQL ステートメントを使用します。 参照してください[Brian Noyes](http://briannoyes.net/)の記事[Visual Studio 2005 のデータセット デザイナーでデータ アクセス層の構築](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)ストアド プロシージャを使用した例についてはします。
+SQL クエリの定義を開始するには、まず TableAdapter でクエリを発行する方法を指定する必要があります。 アドホック SQL ステートメントを使用するか、新しいストアドプロシージャを作成するか、既存のストアドプロシージャを使用することができます。 これらのチュートリアルでは、アドホック SQL ステートメントを使用します。 ストアドプロシージャの使用例については、 [Brian Noyes](http://briannoyes.net/)の記事「 [Visual Studio 2005 データセットデザイナーを使用してデータアクセス層を構築](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)する」を参照してください。
 
-[![アドホック SQL ステートメントを使用して、データをクエリします。](creating-a-data-access-layer-cs/_static/image18.png)](creating-a-data-access-layer-cs/_static/image17.png)
+[アドホック SQL ステートメントを使用してデータのクエリを実行 ![には](creating-a-data-access-layer-cs/_static/image18.png)](creating-a-data-access-layer-cs/_static/image17.png)
 
-**図 7**:アドホック SQL ステートメントを使用してデータの照会 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image19.png))。
+**図 7**: アドホック SQL ステートメントを使用してデータにクエリを実行[する (クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image19.png)されます)
 
-この時点で手動で SQL クエリで入力できます。 TableAdapter の最初のメソッドを作成するときに、対応する DataTable で表現する必要があるこれらの列を返すクエリに通常でします。 すべての列とのすべての行を返すクエリを作成するためには、**Products**テーブル。
+この時点で、手動で SQL クエリを入力できます。 TableAdapter で最初のメソッドを作成する場合は、通常、対応する DataTable で表現する必要がある列を返すクエリを使用します。 これを実現するには、 **Products**テーブルからすべての列とすべての行を返すクエリを作成します。
 
-[![テキスト ボックスに、SQL クエリを入力します。](creating-a-data-access-layer-cs/_static/image21.png)](creating-a-data-access-layer-cs/_static/image20.png)
+[テキストボックスに SQL クエリを入力 ![には](creating-a-data-access-layer-cs/_static/image21.png)](creating-a-data-access-layer-cs/_static/image20.png)
 
-**図 8**:SQL クエリに、テキスト ボックスに入力します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image22.png))。
+**図 8**: テキストボックスに SQL クエリを入力[する (クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image22.png)されます)
 
-または、クエリ ビルダーを使用し、図 9 に示すように、クエリをグラフィカルに構築します。
+または、図9に示すように、クエリビルダーを使用し、クエリをグラフィカルに作成します。
 
-[![クエリをグラフィカルに作成、クエリ エディターを使用](creating-a-data-access-layer-cs/_static/image24.png)](creating-a-data-access-layer-cs/_static/image23.png)
+[クエリエディターを使用してクエリをグラフィカルに作成 ![には](creating-a-data-access-layer-cs/_static/image24.png)](creating-a-data-access-layer-cs/_static/image23.png)
 
-**図 9**:クエリをグラフィカルに作成、クエリ エディターを使用 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image25.png))。
+**図 9**: クエリエディターを使用してクエリをグラフィカルに作成[する (クリックしてフルサイズのイメージを表示する](creating-a-data-access-layer-cs/_static/image25.png))
 
-クエリを作成した後は、次の画面上に移動する前に、詳細オプション ボタンをクリックします。 Web サイト プロジェクトに「生成の Insert、Update、および Delete ステートメント」はのみ、既定で選択したオプションの詳細クラス ライブラリまたは Windows プロジェクトからこのウィザードを実行する場合は、「オプティミスティック同時実行制御を使用する」オプションも選択します。 オフのままに「オプティミスティック同時実行制御を使用する」オプション今のところです。 今後のチュートリアルでオプティミスティック同時実行制御をについて説明します。
+クエリを作成した後、次の画面に移動する前に、[詳細オプション] ボタンをクリックします。 Web サイトプロジェクトでは、[Insert、Update、および Delete ステートメントの生成] が既定で選択されている唯一の詳細設定オプションです。クラスライブラリまたは Windows プロジェクトからこのウィザードを実行する場合は、[オプティミスティック同時実行制御を使用する] オプションも選択されます。 ここでは、[オプティミスティック同時実行制御を使用する] オプションをオフのままにします。 オプティミスティック同時実行制御については、今後のチュートリアルで確認します。
 
-[![生成を挿入、更新、および Delete ステートメントのみオプションを選択します。](creating-a-data-access-layer-cs/_static/image27.png)](creating-a-data-access-layer-cs/_static/image26.png)
+[![[Insert、Update、および Delete ステートメントを生成する] オプションのみを選択します。](creating-a-data-access-layer-cs/_static/image27.png)](creating-a-data-access-layer-cs/_static/image26.png)
 
-**図 10**:生成を挿入、更新、および Delete ステートメントのみオプションを選択します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image28.png))。
+**図 10**: [Insert、Update、および Delete ステートメントを生成する] オプションのみを選択[する (クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image28.png)されます)
 
-高度なオプションを確認した後、最後の画面に進むには、[次へ] をクリックします。 ここで、TableAdapter に追加する方法を選択するように求められます。 データを設定するための 2 つのパターンがあります。
+詳細設定オプションを確認したら、[次へ] をクリックして最後の画面に進みます。 ここでは、TableAdapter に追加するメソッドを選択するよう求められます。 データの読み込みには、次の2つのパターンがあります。
 
-- **Datatable**メソッドが作成をパラメーターとして DataTable の受け取りを設定するこの方法に基づいて、クエリの結果。 ADO.NET データ アダプター クラスは、たとえば、このパターンを実装、 **Fill()** メソッドです。
-- **DataTable を返す**このアプローチでメソッドを作成およびする DataTable を入力し、メソッドの戻り値は、それを返します。
+- この方法で DataTable にデータを**格納**します。 datatable をパラメーターとして受け取り、クエリの結果に基づいてデータを設定するメソッドが作成されます。 たとえば、ADO.NET DataAdapter クラスは、このパターンを**Fill ()** メソッドと共に実装します。
+- この方法で**datatable を返し**ます。メソッドは datatable を作成してデータを格納し、メソッドの戻り値として返します。
 
-TableAdapter のいずれかまたは両方のパターンを実装することができます。 ここで提供されるメソッドの名前を変更することもできます。 後者のパターンをこれらのチュートリアル全体で使用するだけでも、両方のチェック ボックスがオンになっているがみましょうままにします。 また、名前ではなくジェネリック**GetData**メソッドを**GetProducts**します。
+TableAdapter では、これらのパターンのいずれかまたは両方を実装できます。 ここで指定したメソッドの名前を変更することもできます。 両方のチェックボックスをオンのままにしておきますが、これらのチュートリアルでは後者のパターンのみを使用します。 また、代わりに汎用の**GetData**メソッドを**getproducts**に変更してみましょう。
 
-選択した場合、最後のチェック ボックス"GenerateDBDirectMethods、"を作成します**Insert()** 、 **Update()** 、および**Delete()** TableAdapter のメソッド。 このオプションをオフのままにすると、すべての更新する必要があります操作には、TableAdapter の唯一 **Update()** メソッド、型指定された DataSet、DataTable、単一の DataRow または Datarow の配列を取得します。 (した場合は、図 9 での高度なプロパティからこのチェック ボックスのオプションをオフ、"生成の Insert、Update、および Delete ステートメントの設定は効果がありません)。このチェック ボックスをオンのままにしてみましょう。
+オンにすると、最後のチェックボックス "GenerateDBDirectMethods" によって、TableAdapter の**Insert ()** 、 **Update ()** 、および**Delete ()** の各メソッドが作成されます。 このオプションをオフのままにした場合、すべての更新は、型指定されたデータセット、DataTable、単一の DataRow、または Datarow の配列を受け取る TableAdapter の唯一の**Update ()** メソッドを使用して実行する必要があります。 (図9の詳細プロパティから [Insert、Update、および Delete ステートメントを生成する] オプションをオフにした場合、このチェックボックスの設定は効果がありません)。このチェックボックスはオンのままにしておきます。
 
-[![GetData から GetProducts にメソッド名を変更します。](creating-a-data-access-layer-cs/_static/image30.png)](creating-a-data-access-layer-cs/_static/image29.png)
+[メソッド名を GetData から GetProducts に変更 ![には](creating-a-data-access-layer-cs/_static/image30.png)](creating-a-data-access-layer-cs/_static/image29.png)
 
-**図 11**:メソッドの名前を変更**GetData**に**GetProducts** ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image31.png))。
+**図 11**: メソッド名を**GetData**から**getproducts**に変更する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image31.png)されます)
 
-[完了] をクリックしてウィザードを完了します。 ウィザードを閉じた後、先ほど作成した DataTable を示すデータセット デザイナーに戻ります。 内の列の一覧を表示できます、**Products**DataTable (**ProductID**、 **ProductName**など)、メソッドのほか、 **ProductsTableAdapter** (**Fill()** と**GetProducts()** )。
+[完了] をクリックしてウィザードを完了します。 ウィザードを閉じると、先ほど作成した DataTable を示すデータセットデザイナーに戻ります。 **Products** DataTable (**ProductID**、 **ProductName**など) の列の一覧に加えて、 **ProductsTableAdapter** (**Fill ()** および**getproducts ()** ) のメソッドも表示されます。
 
-[![製品の DataTable と ProductsTableAdapter が型指定されたデータセットに追加されました](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
+[![Products DataTable と ProductsTableAdapter が、型指定されたデータセットに追加されました。](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
 
-**図 12**:**製品**DataTable と**ProductsTableAdapter**型指定されたデータセットに追加されている ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image34.png))。
+**図 12**: **Products** DataTable と**ProductsTableAdapter**が型指定されたデータセットに追加された (クリックすると、[フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image34.png)されます)
 
-この時点で 1 つの DataTable に型指定されたデータセットがある (**Northwind.Products**) と厳密に型指定されたデータ アダプター クラス (**NorthwindTableAdapters.ProductsTableAdapter**) で、 **GetProducts()** メソッドです。 これらのオブジェクトのようなコードからすべての製品の一覧へのアクセスに使用できます。
+この時点で、1つの DataTable (**Northwind products**) と、 **getproducts ()** メソッドを使用した厳密に型指定された DataAdapter クラス (**NorthwindTableAdapters**) を持つ型指定されたデータセットがあります。 これらのオブジェクトを使用して、次のようなコードからすべての製品の一覧にアクセスできます。
 
 [!code-html[Main](creating-a-data-access-layer-cs/samples/sample1.html)]
 
-このコードでは、データ アクセスに固有のコードの 1 つのビットを記述する必要ありませんでした。 すべての ADO.NET クラスをインスタンス化する必要はなく、任意の SQL クエリ、接続文字列を参照する必要がなかったか、ストアド プロシージャします。 代わりに、TableAdapter は、私たちにとって低レベルのデータ アクセス コードを提供します。
+このコードでは、データアクセス固有のコードを1ビット記述する必要はありませんでした。 ADO.NET クラスをインスタンス化する必要はありませんでした。接続文字列、SQL クエリ、またはストアドプロシージャを参照する必要はありませんでした。 代わりに、TableAdapter によって、低レベルのデータアクセスコードが提供されます。
 
-この例で使用される各オブジェクトは、厳密に型指定、Visual Studio の IntelliSense とコンパイル時の型チェックを提供することができますも。 TableAdapter によって返されるすべてのデータ テーブルの ASP.NET データなど、GridView、DetailsView、DropDownList、CheckBoxList、およびその他のいくつかの Web コントロールにバインドできます。 によって返された DataTable をバインドする次の例を示しています、 **GetProducts()** メソッドをコード内の十分な 3 行だけで、GridView、**Page\_Load**イベント ハンドラー。
+この例で使用される各オブジェクトも厳密に型指定されているため、Visual Studio で IntelliSense とコンパイル時の型チェックを行うことができます。 また、TableAdapter によって返されるすべての Datatable を ASP.NET データ Web コントロール (GridView、DetailsView、DropDownList、CheckBoxList など) にバインドすることもできます。 次の例は、 **Getproducts ()** メソッドによって返される DataTable を、scan Load イベントハンドラーの **\_ページ**内の3行のコードだけで GridView にバインドする方法を示しています。
 
-AllProducts.aspx
+AllProducts .aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample2.aspx)]
 
@@ -176,57 +176,57 @@ AllProducts.aspx.cs
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample3.cs)]
 
-[![GridView に製品の一覧が表示されます。](creating-a-data-access-layer-cs/_static/image36.png)](creating-a-data-access-layer-cs/_static/image35.png)
+[製品の一覧が GridView に表示される ![](creating-a-data-access-layer-cs/_static/image36.png)](creating-a-data-access-layer-cs/_static/image35.png)
 
-**図 13**:GridView に製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image37.png))。
+**図 13**: 製品の一覧が GridView に表示される ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image37.png)されます)
 
-この例は、ASP.NET ページの 3 行のコードを記述したことを必須**Page\_Load**イベント ハンドラー、後でチュートリアルは、ObjectDataSource を使用して宣言してからデータを取得する方法について説明します、DAL します。 ObjectDataSource ではコードを記述する必要がありますいないと、ページングと並べ替えのサポートもが得!
+この例では、ASP.NET ページの**ページ\_Load**イベントハンドラーに3行のコードを記述する必要がありましたが、今後のチュートリアルでは、ObjectDataSource を使用して DAL からデータを宣言によって取得する方法を確認します。 ObjectDataSource を使用すると、コードを記述する必要がなくなり、ページングや並べ替えもサポートされます。
 
-## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>手順 3: データ アクセス層にメソッドをパラメーター化を追加します。
+## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>手順 3: データアクセス層へのパラメーター化されたメソッドの追加
 
-この時点で、 **ProductsTableAdapter** クラスには 1 つのメソッドが **GetProducts()** データベース内のすべての製品が返されます。 すべての製品を使用することは間違いなく役立ちますが、中には、特定の製品、または特定のカテゴリに属するすべての製品に関する情報を取得する場合します。 このような機能をデータ アクセス層に追加するには、パラメーター化されたメソッド、TableAdapter に追加できます。
+この時点で、 **ProductsTableAdapter**クラスには、 **getproducts ()** という1つのメソッドがあります。このメソッドは、データベース内のすべての製品を返します。 すべての製品を使用できるということは確かに便利ですが、特定の製品、または特定のカテゴリに属するすべての製品に関する情報を取得することが必要になる場合もあります。 データアクセス層にこのような機能を追加するには、パラメーター化されたメソッドを TableAdapter に追加します。
 
-追加してみましょう。、 **GetProductsByCategoryID (*categoryID*)** メソッドです。 データセット デザイナーに戻り、DAL に新しいメソッドを追加するのには右クリック、 **ProductsTableAdapter** セクション、およびクエリの追加を選択します。
+ここで、 **Get$ Bycategoryid (*categoryid*)** メソッドを追加します。 DAL に新しいメソッドを追加するには、データセットデザイナーに戻り、 **[ProductsTableAdapter]** セクションを右クリックして、[クエリの追加] を選択します。
 
-![TableAdapter を右クリックして、クエリを追加](creating-a-data-access-layer-cs/_static/image38.png)
+![TableAdapter を右クリックし、[クエリの追加] を選択します。](creating-a-data-access-layer-cs/_static/image38.png)
 
-**図 14**:TableAdapter を右クリックして、クエリを追加
+**図 14**: TableAdapter を右クリックし、[クエリの追加] を選択する
 
-最初に、アドホック SQL ステートメントまたは新規または既存のストアド プロシージャを使用してデータベースにアクセスするかどうかについて求められます。 もう一度、アドホック SQL ステートメントを使用するを選択します。 次に、SQL クエリの種類を使用するなどが求められます。 記述する、指定したカテゴリに属するすべての製品を取得するため、**SELECT**ステートメントの行を返します。
+まず、アドホック SQL ステートメントまたは新規または既存のストアドプロシージャを使用してデータベースにアクセスするかどうかを確認するメッセージが表示されます。 アドホック SQL ステートメントをもう一度使用してみましょう。 次に、使用する SQL クエリの種類を尋ねられます。 指定されたカテゴリに属するすべての製品を返す必要があるため、行を返す**SELECT**ステートメントを記述します。
 
-[![複数行を返す SELECT ステートメントを作成します。](creating-a-data-access-layer-cs/_static/image40.png)](creating-a-data-access-layer-cs/_static/image39.png)
+[行を返す SELECT ステートメントの作成を選択 ![には](creating-a-data-access-layer-cs/_static/image40.png)](creating-a-data-access-layer-cs/_static/image39.png)
 
-**図 15**:作成 を選択、**選択**ステートメントが行を返します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image41.png))。
+**図 15**: 行を返す**SELECT**ステートメントの作成を選択する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image41.png)されます)
 
-次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用すると、特定のカテゴリに属する製品だけを返すので、<strong>選択</strong>ステートメントから<strong>GetProducts()</strong>、以下を追加しますが、<strong>場所</strong>句:<strong>場所 CategoryID = @CategoryID</strong>します。 <strong>@CategoryID</strong>パラメーター、メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする TableAdapter ウィザードを示します。
+次の手順では、データへのアクセスに使用する SQL クエリを定義します。 特定のカテゴリに属する製品のみを返すようにするため、 <strong>Getproducts ()</strong>と同じ<strong>SELECT</strong>ステートメントを使用しますが、次の<strong>where</strong>句を追加します。ここで、 <strong>CategoryID = @CategoryID</strong>です。 <strong>@CategoryID</strong>パラメーターは、作成するメソッドが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とすることを TableAdapter ウィザードに示します。
 
-[![指定されたカテゴリの製品を返すだけのクエリを入力します](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
+[指定したカテゴリの製品のみを返すクエリを入力 ![](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
 
-**図 16**:指定したカテゴリの製品をのみを返すクエリを入力します ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image44.png))。
+**図 16**: 指定したカテゴリの製品のみを返すクエリを入力する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image44.png)されます)
 
-最後の手順で選択できますデータ アクセス パターンを使用して、できるだけでなく、生成されるメソッドの名前をカスタマイズします。 塗りつぶしのパターンに名前を変更してみましょう<strong>FillByCategoryID</strong>および戻り値の DataTable 戻りパターン (、<strong>取得*X</strong>* メソッド)、使用してみましょう<strong>GetProductsByCategoryID</strong>します。
+最後の手順では、使用するデータアクセスパターンを選択したり、生成されるメソッドの名前をカスタマイズしたりすることができます。 Fill パターンの場合は、名前を<strong>Fillbycategoryid</strong>に変更し、DataTable return パターン ( <strong>Get*X</strong>* メソッド) を返すには、 <strong>get$ bycategoryid</strong>を使用します。
 
-[![TableAdapter のメソッドの名前を選択します。](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
+[TableAdapter メソッドの名前を選択 ![には](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
 
-**図 17**:TableAdapter のメソッドの名前を選択 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image47.png))。
+**図 17**: TableAdapter メソッドの名前を選択する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image47.png)されます)
 
-ウィザードを完了すると、データセット デザイナーには、新しい TableAdapter のメソッドが含まれています。
+ウィザードを完了すると、データセットデザイナーに新しい TableAdapter メソッドが追加されます。
 
-![カテゴリは、照会する、製品できるようになりました](creating-a-data-access-layer-cs/_static/image48.png)
+![これで、製品のカテゴリ別にクエリを実行できるようになりました](creating-a-data-access-layer-cs/_static/image48.png)
 
-**図 18**:カテゴリは、照会する、製品できるようになりました
+**図 18**: カテゴリ別に製品を照会できるようになりました。
 
-追加する、 **GetProductByProductID(*productID*)** メソッドと同じ手法を使用します。
+同じ手法を使用して**Getproductbyproductid (*productID*)** メソッドを追加してみましょう。
 
-これらのパラメーター化されたクエリは、データセット デザイナーから直接テストできます。 TableAdapter のメソッドを右クリックし、データのプレビューを選択します。 次に、パラメーターを使用して、[プレビュー] をクリックして値を入力します。
+これらのパラメーター化クエリは、データセットデザイナーから直接テストできます。 TableAdapter のメソッドを右クリックし、[データのプレビュー] を選択します。 次に、パラメーターに使用する値を入力し、[プレビュー] をクリックします。
 
-[![製品に属する飲み物のカテゴリにより、それらが表示されます。](creating-a-data-access-layer-cs/_static/image50.png)](creating-a-data-access-layer-cs/_static/image49.png)
+[飲料カテゴリに属する製品 ![が表示されます。](creating-a-data-access-layer-cs/_static/image50.png)](creating-a-data-access-layer-cs/_static/image49.png)
 
-**図 19**:製品に属する飲み物のカテゴリにより、それらが表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image51.png))。
+**図 19**: 飲み物カテゴリに属する製品が表示されます ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image51.png)されます)
 
-**GetProductsByCategoryID (*categoryID*)** メソッド、DAL で、指定されたカテゴリの製品のみを表示する ASP.NET ページ今すぐ作成できます。 次の例では、すべての製品飲み物のカテゴリに含まれるが、 **CategoryID** 1。
+DAL の**Getproducts Bycategoryid (*categoryID*)** メソッドを使用して、指定したカテゴリの製品のみを表示する ASP.NET ページを作成できるようになりました。 次の例では、飲料カテゴリに含まれるすべての製品を示しています。このカテゴリには、 **CategoryID**が1です。
 
-Beverages.asp
+飲み物
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample4.aspx)]
 
@@ -234,120 +234,120 @@ Beverages.aspx.cs
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample5.cs)]
 
-[![これらの製品、飲料カテゴリが表示されます。](creating-a-data-access-layer-cs/_static/image53.png)](creating-a-data-access-layer-cs/_static/image52.png)
+[[飲料] カテゴリの製品 ![表示されます。](creating-a-data-access-layer-cs/_static/image53.png)](creating-a-data-access-layer-cs/_static/image52.png)
 
-**図 20**:これらの製品、飲料カテゴリが表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image54.png))。
+**図 20**: 飲料カテゴリのこれらの製品が表示される ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image54.png)されます)
 
-## <a name="step-4-inserting-updating-and-deleting-data"></a>手順 4: 挿入、更新、およびデータを削除します。
+## <a name="step-4-inserting-updating-and-deleting-data"></a>手順 4: データの挿入、更新、および削除
 
-一般的に使用を挿入、更新、およびデータを削除する 2 つのパターンがあります。 最初のパターンは、データベースの直接のパターンと呼ぶことに、そのメソッドを作成、呼び出されたときに、問題、**INSERT**、 **UPDATE**、または**DELETE**コマンドを1 つのデータベース レコードを操作するデータベース。 このようなメソッドは、挿入、更新、または削除する値を通常一連の対応スカラーの値 (整数、文字列、ブール値、Datetime、およびなど) で渡されます。 このパターンの使用など、**Products**delete メソッドは、整数パラメーターでかかるテーブルを示す、 **ProductID**でしますが、insert メソッドを削除するレコードの文字列、 **ProductName**の 10 進数、 **UnitPrice**、整数、 **UnitsOnStock**など。
+データの挿入、更新、および削除には、一般的に使用される2つのパターンがあります。 最初のパターンでは、データベースダイレクトパターンを呼び出します。このパターンでは、呼び出されたときに、1つのデータベースレコードで動作するデータベースに対して**INSERT**、 **UPDATE**、または**DELETE**コマンドを発行するメソッドを作成します。 通常、このようなメソッドは、挿入、更新、または削除する値に対応する一連のスカラー値 (整数、文字列、ブール値、DateTimes など) で渡されます。 たとえば、 **Products**テーブルに対してこのパターンを使用した場合、delete メソッドは、削除するレコードの**ProductID**を示す整数パラメーターを受け取ります。一方、Insert メソッドは、 **ProductName**の文字列、 **UnitPrice**の10進数、 **UnitsOnStock**の整数などを受け取ります。
 
-[![各挿入、更新、および削除要求は、すぐにデータベースに送信されます。](creating-a-data-access-layer-cs/_static/image56.png)](creating-a-data-access-layer-cs/_static/image55.png)
+[挿入、更新、および削除の各要求がデータベースに直ちに送信さ ![](creating-a-data-access-layer-cs/_static/image56.png)](creating-a-data-access-layer-cs/_static/image55.png)
 
-**図 21**:各挿入、更新、および削除要求は、すぐにデータベースに送信されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image57.png))。
+**図 21**: 挿入、更新、および削除の各要求がすぐにデータベースに送信される ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image57.png)されます)
 
-バッチ更新パターンを呼ぶことに、その他のパターンでは、全体 DataSet、DataTable には、または 1 つのメソッドの呼び出しで DataRows のコレクションを更新します。 このパターンで開発者を削除します挿入、および DataTable の Datarow を変更し、更新メソッドにこれらの Datarow または DataTable を渡します。 このメソッドに渡された Datarow の列挙、かどうかがいる変更、追加、または削除されたを決定します (DataRow のを介して[RowState プロパティ](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx)値)、し、各レコードの適切なデータベースの要求を発行します。
+もう1つのパターン (バッチ更新パターンと呼ばれます) は、1つのメソッド呼び出しでデータセット、DataTable、または Datarow のコレクション全体を更新することです。 このパターンでは、開発者が DataTable 内の Datarow を削除、挿入、変更し、それらの Datarow または DataTable を update メソッドに渡します。 このメソッドは、渡された Datarow を列挙し、変更、追加、または削除された (DataRow の[RowState プロパティ](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx)値を使用して) かどうかを判断し、各レコードに対して適切なデータベース要求を発行します。
 
-[![すべての変更は、Update メソッドが呼び出されたときに、データベースと同期されます。](creating-a-data-access-layer-cs/_static/image59.png)](creating-a-data-access-layer-cs/_static/image58.png)
+[更新メソッドが呼び出されたときに、すべての変更がデータベースと同期さ ![](creating-a-data-access-layer-cs/_static/image59.png)](creating-a-data-access-layer-cs/_static/image58.png)
 
-**図 22**:すべての変更は、Update メソッドが呼び出されたときに、データベースと同期されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image60.png))。
+**図 22**: 更新メソッドが呼び出されたときにすべての変更がデータベースと同期される ([クリックしてフルサイズの画像を表示する](creating-a-data-access-layer-cs/_static/image60.png))
 
-TableAdapter では、既定では、バッチ更新パターンを使用するも DB 直接パターンをサポートします。 TableAdapter を作成するときに、詳細プロパティから「を生成する挿入、更新、および Delete ステートメント」オプションを選択おため、 **ProductsTableAdapter** が含まれています、 **Update()** メソッドこれは、バッチ更新パターンを実装します。 具体的には、TableAdapter が含まれています、 **Update()** 型指定されたデータセットを厳密に型指定された DataTable、または 1 つまたは複数の Datarow に渡すことができるメソッドです。 中断した場合、"GenerateDBDirectMethods"チェック ボックスと DB 直接パターン、TableAdapter を作成してもによって実装されて **Insert()** 、 **Update()** 、および **Delete()** メソッドです。
+TableAdapter では、既定でバッチ更新パターンが使用されますが、DB direct パターンもサポートされています。 TableAdapter の作成時に詳細プロパティから [Insert、Update、Delete ステートメントの生成] オプションを選択したため、 **ProductsTableAdapter**には、バッチ更新パターンを実装する**update ()** メソッドが含まれています。 具体的には、TableAdapter には、型指定されたデータセット、厳密に型指定された DataTable、または1つ以上の Datarow に渡すことができる**Update ()** メソッドが含まれています。 最初に TableAdapter を作成するときに [GenerateDBDirectMethods] チェックボックスをオンにした場合、 **Insert ()** 、 **Update ()** 、および**Delete ()** の各メソッドを使用して DB direct パターンも実装されます。
 
-両方のデータ変更パターンを使用して、TableAdapter の**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**を発行するためのプロパティ、**INSERT**、 **UPDATE**、および**DELETE**コマンドをデータベースにします。 検査および変更できる、 **InsertCommand**、 **UpdateCommand**、および**DeleteCommand**データセット デザイナーで TableAdapter をクリックし、次のプロパティプロパティ ウィンドウ。 (、TableAdapter とを選択するかどうかを確認、 **ProductsTableAdapter**オブジェクトが 1 つのプロパティ ウィンドウで、ドロップダウン リストで選択します)。
+どちらのデータ変更パターンでも、TableAdapter の**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティを使用して、 **INSERT**、 **UPDATE**、および**DELETE**コマンドをデータベースに発行します。 データセットデザイナーで TableAdapter をクリックし、プロパティウィンドウに移動することで、 **InsertCommand**、 **UpdateCommand**、および**DeleteCommand**の各プロパティを確認および変更できます。 (TableAdapter が選択されていること、および**ProductsTableAdapter**オブジェクトがプロパティウィンドウのドロップダウンリストで選択されていることを確認してください)。
 
-[![TableAdapter が InsertCommand、UpdateCommand、および DeleteCommand プロパティ](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
+[TableAdapter に InsertCommand、UpdateCommand、および DeleteCommand プロパティがある ![](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**図 23**:TableAdapter が**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティ ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image63.png))。
+**図 23**: TableAdapter には**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティがあります ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image63.png)されます)
 
-確認や、これらのデータベース コマンドのプロパティのいずれかの変更には、をクリックして、 **CommandText**サブプロパティで、クエリ ビルダーが表示されます。
+これらのデータベースコマンドのプロパティのいずれかを確認または変更するには、 **CommandText**サブプロパティをクリックします。これにより、クエリビルダーが表示されます。
 
-[![クエリ ビルダーでの INSERT、UPDATE、および DELETE ステートメントを構成します。](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
+[クエリビルダーで INSERT、UPDATE、および DELETE ステートメントを構成 ![には](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**図 24**:構成、**挿入**、**更新**と**削除**クエリ ビルダーでのステートメント ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image66.png))。
+**図 24**: クエリビルダーで**INSERT**、 **UPDATE**、および**DELETE**ステートメントを構成する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image66.png)されます)
 
-次のコード例では、すべての製品を提供が中止されたしないと 25 のユニットがある在庫以下の価格の 2 倍にバッチ更新パターンを使用する方法を示します。
+次のコード例では、バッチ更新パターンを使用して、廃止されておらず、25単位の在庫があるすべての製品の価格を2倍にする方法を示します。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample6.cs)]
 
-次のコードでは、プログラムで特定の製品を削除してから、1 つを更新する DB 直接パターンを使用して、新しくを追加する方法を示します。
+次のコードは、DB ダイレクトパターンを使用して、プログラムで特定の製品を削除してから更新し、新しい製品を追加する方法を示しています。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample7.cs)]
 
-## <a name="creating-custom-insert-update-and-delete-methods"></a>作成するカスタムの挿入、更新、および Delete メソッド
+## <a name="creating-custom-insert-update-and-delete-methods"></a>カスタムの Insert、Update、および Delete メソッドの作成
 
-**Insert()** 、 **Update()** 、および**Delete()** DB ダイレクト メソッドによって作成されたメソッドを少し面倒で、特に多数の列を持つテーブルのことができます。 IntelliSense のヘルプが特にはっきりしない内容なし、前のコード例を見て**Products**テーブルの列に各入力パラメーターにマップされて、 **Update()** と**Insert()** メソッド。 ときにのみする 1 つの列または 2 つの更新またはカスタマイズされた時間がある可能性があります**Insert()** は、おそらく、メソッドは新しく挿入されたレコードの値を返す**IDENTITY** (自動インクリメント)フィールド。
+DB ダイレクトメソッドによって作成される**Insert ()** 、 **Update ()** 、および**Delete ()** の各メソッドは、特に多くの列を持つテーブルでは、少し面倒な場合があります。 前のコード例では、IntelliSense のヘルプを使用せずに、 **Update ()** および**Insert ()** の各メソッドに対して各入力パラメーターにマップされている**Products**テーブル列は特に明確ではありません。 1つまたは2つの列のみを更新する必要がある場合や、新しく挿入されたレコードの**id** (自動インクリメント) フィールドの値を返すようにカスタマイズされた**Insert ()** メソッドが必要な場合があります。
 
-このようなカスタム メソッドを作成するには、データセット デザイナーに戻ります。 TableAdapter を右クリックし、追加のクエリ、TableAdapter ウィザードに戻る を選択します。 2 番目の画面を作成するクエリの種類を指定できます。 新しい製品を追加して、新しく追加されたレコードの値を返しますメソッドを作成しましょう**ProductID**します。 そのため、作成することを選択、**INSERT**クエリ。
+このようなカスタムメソッドを作成するには、データセットデザイナーに戻ります。 TableAdapter を右クリックし、[クエリの追加] を選択して、TableAdapter ウィザードに戻ります。 2番目の画面では、作成するクエリの種類を指定できます。 新しい製品を追加し、新しく追加したレコードの**ProductID**の値を返すメソッドを作成してみましょう。 そのため、**挿入**クエリを作成することを選択します。
 
-[![Products テーブルに新しい行を追加するメソッドを作成します。](creating-a-data-access-layer-cs/_static/image68.png)](creating-a-data-access-layer-cs/_static/image67.png)
+[Products テーブルに新しい行を追加するメソッドを作成 ![には](creating-a-data-access-layer-cs/_static/image68.png)](creating-a-data-access-layer-cs/_static/image67.png)
 
-**図 25**:新しい行を追加するメソッドを作成、**製品**テーブル ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image69.png))。
+**図 25**: **Products**テーブルに新しい行を追加するメソッドを作成する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image69.png)されます)
 
-次の画面で、 **InsertCommand**の**CommandText**が表示されます。 追加することでこのクエリを拡張する **SELECT SCOPE\_IDENTITY()** に挿入された最後の id 値を返しますクエリの最後に、 **IDENTITY** 同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については **SCOPE\_IDENTITY()** と多くの場合にその理由[スコープを使用して\_IDENTITY() の代わりに @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).)終了するかどうかを確認、**INSERT**をセミコロンでステートメントを追加する前に、**SELECT**ステートメント。
+次の画面で、 **InsertCommand**の**CommandText**が表示されます。 クエリの最後に**SELECT SCOPE\_identity ()** を追加することによって、このクエリを拡張します。これにより、同じスコープ内の**id**列に挿入された最後の id 値が返されます。 (**スコープ\_id ()** の詳細と、 [@@IDENTITYの代わりに scope\_identity () を使用](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx)する理由の詳細については、[技術ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)を参照してください。**SELECT**ステートメントを追加する前に、必ずセミコロンで**挿入**ステートメントを終了してください。
 
-[![Scope_identity() で値を返すクエリを拡張します。](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
+[SCOPE_IDENTITY () 値を返すようにクエリを拡張 ![](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
 
-**図 26**:返された場合にクエリを拡張、**SCOPE\_IDENTITY()** 値 ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image72.png))。
+**図 26**:**スコープ\_IDENTITY ()** 値を返すようにクエリを拡張する ([クリックしてフルサイズのイメージを表示する](creating-a-data-access-layer-cs/_static/image72.png))
 
-新しいメソッドの名前を最後に、 **InsertProduct**します。
+最後に、新しいメソッドに**Insertproduct**という名前を指定します。
 
-[![InsertProduct に新しいメソッドの名前を設定します。](creating-a-data-access-layer-cs/_static/image74.png)](creating-a-data-access-layer-cs/_static/image73.png)
+[新しいメソッド名を InsertProduct に設定 ![](creating-a-data-access-layer-cs/_static/image74.png)](creating-a-data-access-layer-cs/_static/image73.png)
 
-**図 27**:新しいメソッドの名前を設定**InsertProduct** ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image75.png))。
+**図 27**: 新しいメソッド名を**insertproduct**に設定する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image75.png)されます)
 
-戻ると、データセット デザイナーに表示されている、 **ProductsTableAdapter**含まれる新しいメソッドは**InsertProduct**します。 この新しいメソッドが、パラメーター内の各列がないかどうか、**Products**テーブル、可能性は終了していません、**INSERT**をセミコロンでステートメント。 構成、 **InsertProduct**メソッド セミコロンで区切る必要があることを確認し、**INSERT**と**SELECT**ステートメント。
+データセットデザイナーに戻ると、 **ProductsTableAdapter**に新しいメソッド**insertproduct**が含まれていることがわかります。 この新しいメソッドに**Products**テーブル内の各列のパラメーターがない場合、**挿入**ステートメントをセミコロンで終了することを忘れた可能性があります。 **Insertproduct**メソッドを構成し、 **INSERT**ステートメントと**SELECT**ステートメントをセミコロンで区切るようにします。
 
-既定では、影響を受けた行の数を返す、つまり、メソッドを問題非クエリ メソッドを挿入します。 ただし、必要、 **InsertProduct**影響を受ける行の数ではなく、クエリによって返される値を返すメソッド。 これを行うには、調整、 **InsertProduct**メソッドの**ExecuteMode**プロパティを**Scalar**します。
+既定では、insert メソッドはクエリ以外のメソッドを発行します。つまり、影響を受ける行の数を返すことを意味します。 ただし、 **Insertproduct**メソッドでは、クエリによって返された値を返し、影響を受けた行数は返さないようにする必要があります。 これを実現するには、 **Insertproduct**メソッドの**executemode**プロパティを**スカラー**に調整します。
 
-[![スカラーの ExecuteMode プロパティを変更します。](creating-a-data-access-layer-cs/_static/image77.png)](creating-a-data-access-layer-cs/_static/image76.png)
+[ExecuteMode プロパティをスカラーに変更 ![には](creating-a-data-access-layer-cs/_static/image77.png)](creating-a-data-access-layer-cs/_static/image76.png)
 
-**図 28**:変更、 **ExecuteMode**プロパティを**スカラー** ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image78.png))。
+**図 28**: **executemode**プロパティを**スカラー**に変更する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image78.png)されます)
 
-次のコードはこの新しい**InsertProduct**メソッドの動作。
+次のコードは、この新しい**Insertproduct**メソッドの動作を示しています。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample8.cs)]
 
-## <a name="step-5-completing-the-data-access-layer"></a>手順 5: データ アクセス層の完了
+## <a name="step-5-completing-the-data-access-layer"></a>手順 5: データアクセス層を完成させる
 
-なお、 **ProductsTableAdapters**クラスを返します、 **CategoryID**と**SupplierID**値から、**Products**テーブルが含まれていない、 **CategoryName**列から、**Categories**テーブルまたは**CompanyName**列から、 **Suppliers**テーブル、製品情報を表示するときに表示する必要がある列は可能性があります。 TableAdapter の最初のメソッドの強化点は**GetProducts()** 、両方を含める、 **CategoryName**と**CompanyName**列の値は、更新は、これらの新しい列を含める厳密に型指定された DataTable です。
+**ProductsTableAdapters**クラスは**Products**テーブルから**CategoryID**および**仕入**先の値を返しますが、 **Categories**テーブルまたは**仕入先**テーブルの**CompanyName**列の [**区分**値] 列は含まれていませんが、これらは製品情報を表示するときに表示する列である可能性があることに注意してください。 TableAdapter の初期メソッド**Getproducts ()** を拡張して、 **[区分]** 値 と **[CompanyName]** の両方の列の値を含めることができます。これにより、これらの新しい列が含まれるように、厳密に型指定された DataTable が更新されます。
 
-これで問題が発生、ただし、挿入すると、TableAdapter のメソッドとして更新、およびデータの削除がこの最初のメソッドに基づいています。 さいわい、自動生成されたメソッドの挿入、更新、および削除は影響を受ける内のサブクエリ、**SELECT**句。 クエリを追加するよう注意して**Categories**と**Suppliers**サブクエリとしてなく**JOIN**s、避けデータを変更するため、これらのメソッドを作り直す必要です。 右クリックし、 **GetProducts()** メソッドで、 **ProductsTableAdapter** 構成を選択します。 次に、調整、**SELECT**次のような句。
+ただし、この方法では、データの挿入、更新、および削除の TableAdapter のメソッドがこの初期の方法に基づいているため、問題が発生する可能性があります。 幸い、挿入、更新、および削除のための自動生成されたメソッドは、 **SELECT**句のサブクエリの影響を受けません。 **結合**を使用するのではなく、**カテゴリ**や**サプライヤー**にクエリをサブクエリとして追加することで、データを変更するためにこれらのメソッドを再作成する必要がなくなります。 **ProductsTableAdapter**の**getproducts ()** メソッドを右クリックし、[構成] を選択します。 次に、 **SELECT**句を次のように調整します。
 
 [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample9.sql)]
 
-[![GetProducts() メソッドの SELECT ステートメントを更新します。](creating-a-data-access-layer-cs/_static/image80.png)](creating-a-data-access-layer-cs/_static/image79.png)
+[GetProducts () メソッドの SELECT ステートメントを ![更新します。](creating-a-data-access-layer-cs/_static/image80.png)](creating-a-data-access-layer-cs/_static/image79.png)
 
-**図 29**:更新プログラム、**SELECT**のステートメント、 **GetProducts()** メソッド ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image81.png))。
+**図 29**: **getproducts ()** メソッドの**SELECT**ステートメントを更新する ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image81.png)されます)
 
-更新した後、 **GetProducts()** メソッドを使用して、この新しいクエリを DataTable には、2 つの新しい列が含まれます。**CategoryName**と**仕入**します。
+**Getproducts ()** メソッドを更新してこの新しいクエリを使用すると、DataTable に2つの新しい列 (**区分**テーブルと**SupplierName**) が追加されます。
 
-![製品の DataTable が 2 つの新しい列](creating-a-data-access-layer-cs/_static/image82.png)
+![Products DataTable には2つの新しい列があります。](creating-a-data-access-layer-cs/_static/image82.png)
 
-**図 30**:**製品**DataTable が 2 つの新しい列
+**図 30**: **Products** DataTable に2つの新しい列がある
 
-更新する、 **SELECT** 句、 **GetProductsByCategoryID(*categoryID*)** メソッドもします。
+**Get$ Bycategoryid (*categoryID*)** メソッドの**SELECT**句も更新します。
 
-更新する場合、 **GetProducts()** **SELECT**を使用して**JOIN**構文データセット デザイナーは、挿入、更新、および削除する方法を自動生成することはできませんDB の直接のパターンを使用してデータベースのデータ。 代わりに、手動で作成してはるかを扱ったようにする必要があります、 **InsertProduct**このチュートリアルで先ほどメソッド。 さらに、手動でする必要があります提供、 **InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティ値が、バッチ更新パターンを使用する場合。
+**Getproducts ()** を更新する場合は、[ **JOIN**構文を使用する **] を選択**すると、データセットデザイナーで DB direct パターンを使用してデータベースデータの挿入、更新、および削除を行うためのメソッドを自動生成できなくなります。 代わりに、このチュートリアルの前の「 **Insertproduct**メソッド」で行ったのと同じように手動で作成する必要があります。 さらに、バッチ更新パターンを使用する場合は、手動で**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティの値を指定する必要があります。
 
-## <a name="adding-the-remaining-tableadapters"></a>残りの Tableadapter を追加します。
+## <a name="adding-the-remaining-tableadapters"></a>残りの Tableadapter の追加
 
-これまでは、1 つのデータベース テーブルの 1 つの TableAdapter の操作でのみ確認しました。 ただし、Northwind データベースには、web アプリケーションで使用する必要がありますをいくつかの関連テーブルが含まれています。 データ テーブルに関連する型指定されたデータセットを複数含めることができます。 そのため、完了、DAL にこれらのチュートリアルで使用する他のテーブルのデータ テーブルを追加する必要があります。 に型指定されたデータセットを新しい TableAdapter を追加するデータセット デザイナーを開き、デザイナーで、右クリックして追加 を選択/TableAdapter。 新しい DataTable と TableAdapter の作成を調べるこのチュートリアルで前にウィザードについて説明します。
+これまでは、1つのデータベーステーブルに対して1つの TableAdapter を操作するだけでした。 ただし、Northwind データベースには、web アプリケーションで使用する必要がある関連テーブルがいくつか含まれています。 型指定されたデータセットには、関連する複数の Datatable を含めることができます。 そのため、DAL を完了するには、これらのチュートリアルで使用する他のテーブルの Datatable を追加する必要があります。 型指定されたデータセットに新しい TableAdapter を追加するには、データセットデザイナーを開き、デザイナーで右クリックして、[追加/TableAdapter] を選択します。 これにより、新しい DataTable と TableAdapter が作成され、このチュートリアルの前半で説明したウィザードが表示されます。
 
-次の Tableadapter と次のクエリを使用してメソッドを作成に数分かかります。 なお内のクエリ、 **ProductsTableAdapter**各 product の category と supplier の名前を取得するサブクエリが含まれます。 さらに、に従ってしたら、追加している場合既に、 **ProductsTableAdapter** クラスの **GetProducts()** と **GetProductsByCategoryID(*categoryID*)** メソッドです。
+次のクエリを使用して、次の Tableadapter とメソッドを作成します。 **ProductsTableAdapter**のクエリには、各製品のカテゴリ名と仕入先名を取得するサブクエリが含まれていることに注意してください。 また、 **ProductsTableAdapter**クラスの**getproducts ()** メソッドと**getproducts bycategoryid (*categoryid*)** メソッドを既に追加してある場合もあります。
 
 - **ProductsTableAdapter**
 
-  - **GetProducts**: 
+  - **Getproducts**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
-  - **GetProductsByCategoryID**: 
+  - **Get製品 Bycategoryid**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
-  - **GetProductsBySupplierID**: 
+  - **Get製品 By仕入**先: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
-  - **GetProductByProductID**: 
+  - **Getproductbyproductid**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
 - **CategoriesTableAdapter**
@@ -355,12 +355,12 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
   - **GetCategories**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
-  - **GetCategoryByCategoryID**: 
+  - **Getカテゴリ Bycategoryid**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-  - **GetSuppliers**: 
+  - **Getsuppliers**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
   - **GetSuppliersByCountry**: 
@@ -381,48 +381,48 @@ TableAdapter では、既定では、バッチ更新パターンを使用する�
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
-[![次の 4 つの Tableadapter を追加した後、データセット デザイナー](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
+[4つの Tableadapter が追加された後のデータセットデザイナーの ![](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
 
-**図 31**:データセット デザイナーの後、次の 4 つ Tableadapter が追加されています ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image85.png))。
+**図 31**: 4 つの Tableadapter を追加した後のデータセットデザイナー ([クリックすると、フルサイズのイメージが表示](creating-a-data-access-layer-cs/_static/image85.png)されます)
 
-## <a name="adding-custom-code-to-the-dal"></a>DAL にカスタム コードを追加します。
+## <a name="adding-custom-code-to-the-dal"></a>DAL へのカスタムコードの追加
 
-Tableadapter と型指定されたデータセットに追加されたデータ テーブルは、XML スキーマ定義ファイルとして表されます (**Northwind.xsd**)。 右クリックしてこのスキーマ情報を表示することができます、 **Northwind.xsd**ソリューション エクスプ ローラーでファイルし、コードの表示を選択します。
+型指定されたデータセットに追加された Tableadapter と Datatable は、XML スキーマ定義ファイル (**Northwind .xsd**) として表現されます。 このスキーマ情報を表示するには、ソリューションエクスプローラーで**Northwind .xsd**ファイルを右クリックし、[コードの表示] を選択します。
 
-[![型指定されたデータセットを Northwinds の XML スキーマ定義 (XSD) ファイル](creating-a-data-access-layer-cs/_static/image87.png)](creating-a-data-access-layer-cs/_static/image86.png)
+[Northwinds 型指定されたデータセットの XML スキーマ定義 (XSD) ファイルの ![](creating-a-data-access-layer-cs/_static/image87.png)](creating-a-data-access-layer-cs/_static/image86.png)
 
-**図 32**:Northwinds 型指定されたデータセットの XML スキーマ定義 (XSD) ファイル ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image88.png))。
+**図 32**: Northwinds に型指定されたデータセットの XML スキーマ定義 (XSD) ファイル ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image88.png)されます)
 
-このスキーマ情報は、コンパイル時または実行時に (必要な) 場合、この時点でをステップ実行できますが、デバッガーでデザイン時に c# または Visual Basic のコードに変換されます。 この自動生成されたコード」をご覧くださいクラス ビューとドリル TableAdapter または型指定されたデータセット クラスにします。 画面上のクラス ビューが表示されない場合は、表示 メニューに移動するかと、そこから選択します Ctrl + Shift + C をヒットします。 クラス ビューから、プロパティ、メソッド、および、型指定されたデータセットおよび TableAdapter クラスのイベントを確認できます。 特定のメソッドのコードを表示するには、クラス ビューでは、メソッド名をダブルクリックまたは右クリックし、定義へ移動 を選択します。
+このスキーマ情報は、コンパイルC#時または実行時 (必要な場合) に、デザイン時にコードに変換または Visual Basic します。その時点でデバッガーでステップスルーすることができます。 この自動生成されたコードを表示するには、クラスビューに移動し、TableAdapter または型指定されたデータセットクラスにドリルダウンします。 画面にクラスビューが表示されない場合は、[表示] メニューに移動し、そこから選択するか、Ctrl + Shift + C キーを押します。 クラスビューから、型指定されたデータセットと TableAdapter クラスのプロパティ、メソッド、およびイベントを確認できます。 特定のメソッドのコードを表示するには、クラスビューでメソッド名をダブルクリックするか、それを右クリックして [定義へのジャンプ] を選択します。
 
-![クラス ビューから定義へ移動を選択して、自動生成されたコードを検査します。](creating-a-data-access-layer-cs/_static/image89.png)
+![[定義へのジャンプ] を選択して、自動生成されたコードを調べクラスビュー](creating-a-data-access-layer-cs/_static/image89.png)
 
-**図 33**:クラス ビューから定義へ移動を選択して、自動生成されたコードを検査します。
+**図 33**: [クラスビューからの定義へのジャンプ] を選択して、自動生成されたコードを検査する
 
-自動生成されたコードでは、優れた時間の節約をすることができます、コードは非常に一般的な多くの場合であり、アプリケーションの独自のニーズに合わせてカスタマイズする必要があります。 自動生成されたコードでは、拡張のリスクは「再生」し、カスタマイズした内容を上書きする可能性があります、コードを生成したツールで決定します。 .NET 2.0 の新しい部分クラスの概念では、複数のファイルをクラスに分割する簡単です。 これにより、自動生成されたクラスに、カスタマイズが上書きされる Visual Studio について心配することがなく、独自のメソッド、プロパティ、およびイベントを追加することができます。
+自動生成されるコードは、かなりの時間の節約になりますが、多くの場合、コードは非常に一般的であり、アプリケーションの固有のニーズを満たすようにカスタマイズする必要があります。 ただし、自動生成されたコードを拡張するリスクは、コードを生成したツールによって "再生成" され、カスタマイズが上書きされる可能性があるということです。 .NET 2.0 の新しい部分クラスの概念を使用すると、複数のファイルにクラスを簡単に分割できます。 これにより、Visual Studio によるカスタマイズの上書きを気にせずに、独自のメソッド、プロパティ、およびイベントを自動生成されたクラスに追加できます。
 
-DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()** メソッドを**SuppliersRow**クラス。 **SuppliersRow** クラスを表します 1 つのレコード、 **Suppliers** テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように **GetProducts()** ものを返します。指定された業者の製品です。 これで新しいクラス ファイルが作成を実現する、**App\_Code**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
+DAL をカスタマイズする方法を示すために、 **Getproducts ()** メソッドを**SuppliersRow**クラスに追加してみましょう。 **SuppliersRow**クラスは、**仕入先**テーブル内の1つのレコードを表します。各供給業者は、プロバイダーをゼロにすることができます。したがって、 **Getproducts ()** は、指定された仕入先の製品を返します。 これを実現するには、 **SuppliersRow.cs**という名前の新しいクラスファイルを**アプリ\_コード**フォルダーに作成し、次のコードを追加します。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample22.cs)]
 
-この部分クラスがコンパイラに指示する場合の構築、 **Northwind.SuppliersRow**クラスを**GetProducts()** メソッドを定義しました。 プロジェクトを構築し、クラス ビューに戻るかどうかが表示されます**GetProducts()** のメソッドとして一覧表示されます。 **Northwind.SuppliersRow**します。
+この部分クラスは、定義した**Getproducts ()** メソッドを含めるように**SuppliersRow**クラスをビルドするときに、コンパイラに指示します。 プロジェクトをビルドし、クラスビューに戻ると、 **SuppliersRow**のメソッドとして**getproducts ()** が表示されるようになります。
 
-![GetProducts() メソッドは Northwind.SuppliersRow クラスの一部になりました](creating-a-data-access-layer-cs/_static/image90.png)
+![GetProducts () メソッドが SuppliersRow クラスの一部になりました。](creating-a-data-access-layer-cs/_static/image90.png)
 
-**図 34**:**GetProducts()** メソッドの一員となったは、 **Northwind.SuppliersRow**クラス
+**図 34**: **getproducts ()** メソッドが、 **SuppliersRow**クラスの一部になっている
 
-**GetProducts()** として、次のコードに示す特定の業者の製品のセットを列挙するメソッドを使用するようになりました。
+次のコードに示すように、 **Getproducts ()** メソッドを使用して、特定の業者の製品セットを列挙できるようになりました。
 
 [!code-html[Main](creating-a-data-access-layer-cs/samples/sample23.html)]
 
-このデータは、ASP のいずれかでも表示されます。NET のデータ Web コントロール。 次のページでは、2 つのフィールドと GridView コントロールを使用します。
+このデータは、任意の ASP で表示することもできます。NET のデータ Web コントロール。 次のページでは、GridView コントロールと2つのフィールドが使用されています。
 
-- 各仕入先の名前を表示する BoundField と
-- によって返される結果にバインドされている BulletedList コントロールを含む TemplateField、 **GetProducts()** 各仕入先のメソッドです。
+- 各業者の名前を表示する BoundField
+- 各仕入先の**Getproducts ()** メソッドによって返される結果にバインドされる BulletedList コントロールを含む TemplateField。
 
-今後のチュートリアルでこのようなマスター/詳細レポートを表示する方法を考察します。 説明に追加されたカスタム メソッドを使用するためにここでは、この例の目的は、 **Northwind.SuppliersRow**クラス。
+このようなマスター/詳細レポートを今後のチュートリアルで表示する方法について説明します。 ここでは、この例は、 **SuppliersRow**クラスに追加されたカスタムメソッドの使用方法を示すように設計されています。
 
-SuppliersAndProducts.aspx
+SuppliersAndProducts
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample24.aspx)]
 
@@ -430,43 +430,43 @@ SuppliersAndProducts.aspx.cs
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample25.cs)]
 
-[![左の列を右にあるその製品の仕入先の会社名が一覧表示します。](creating-a-data-access-layer-cs/_static/image92.png)](creating-a-data-access-layer-cs/_static/image91.png)
+[仕入先の会社名が左側の列に一覧表示されている ![、右側に製品が表示されます。](creating-a-data-access-layer-cs/_static/image92.png)](creating-a-data-access-layer-cs/_static/image91.png)
 
-**図 35**:仕入先の会社名が左の列、右側にその製品に表示されます ([フルサイズの画像を表示する をクリックします](creating-a-data-access-layer-cs/_static/image93.png))。
+**図 35**: 仕入先の会社名が左側の列に一覧表示され、右側に製品が表示される ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-cs/_static/image93.png)されます)
 
 ## <a name="summary"></a>まとめ
 
-ときに DAL を作成する web アプリケーションを構築する必要がある、プレゼンテーション層の作成を開始する前に発生している、最初の手順のいずれか。 Visual Studio を使用して、行のコードを記述することがなく、10 ~ 15 分に実行できるタスクは、型指定されたデータセットに基づいて DAL を作成します。 今後のチュートリアルはこの DAL に基づいて進められます。 [次のチュートリアル](creating-a-business-logic-layer-cs.md)をビジネス ルールの数を定義し、別のビジネス ロジック層で実装する方法を参照してください。
+Web アプリケーションを構築する場合、DAL は、プレゼンテーション層の作成を開始する前に最初に実行する手順の1つである必要があります。 Visual Studio では、型指定されたデータセットに基づいて DAL を作成するタスクは、コード行を記述しなくても10-15 分で実現できます。 前のチュートリアルでは、この DAL を基にしています。 次の[チュートリアル](creating-a-business-logic-layer-cs.md)では、さまざまなビジネスルールを定義し、それらを個別のビジネスロジックレイヤーに実装する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ## <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [厳密に型指定された Tableadapter と VS 2005 および ASP.NET 2.0 でのデータ テーブルを使用して DAL の構築](https://weblogs.asp.net/scottgu/435498)
-- [データ層のコンポーネントを設計して、層間のデータを渡す](https://msdn.microsoft.com/library/ms978496.aspx)
-- [Visual Studio 2005 のデータセット デザイナーでデータ アクセス層を構築します。](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
-- [ASP.NET 2.0 の構成情報の暗号化アプリケーション](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
+- [VS 2005 および ASP.NET 2.0 での厳密に型指定された Tableadapter と Datatable を使用した DAL の構築](https://weblogs.asp.net/scottgu/435498)
+- [データ層コンポーネントの設計と層によるデータの受け渡し](https://msdn.microsoft.com/library/ms978496.aspx)
+- [Visual Studio 2005 データセットデザイナーを使用してデータアクセス層を構築する](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
+- [ASP.NET 2.0 アプリケーションの構成情報の暗号化](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
 - [TableAdapter の概要](https://msdn.microsoft.com/library/bz9tthwx.aspx)
 - [型指定されたデータセットの操作](https://msdn.microsoft.com/library/esbykkzb.aspx)
-- [Visual Studio 2005 および ASP.NET 2.0 でアクセスを厳密に型指定されたデータを使用します。](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
-- [TableAdapter のメソッドを拡張する方法](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
-- [ストアド プロシージャからのスカラー データの取得](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
+- [Visual Studio 2005 および ASP.NET 2.0 での厳密に型指定されたデータアクセスの使用](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
+- [TableAdapter メソッドを拡張する方法](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
+- [ストアドプロシージャからスカラーデータを取得する](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
-### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックのビデオ トレーニング
+### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックのビデオトレーニング
 
 - [ASP.NET アプリケーションのデータ アクセス層](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
-- [データ グリッドにデータセットを手動でバインドする方法](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
-- [ASP アプリケーションからのデータセットとフィルターを操作する方法](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
+- [データセットを Datagrid に手動でバインドする方法](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
+- [ASP アプリケーションからデータセットとフィルターを操作する方法](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Ron 緑、Hilton Giesenow、Dennis Patterson、Liz Shulok、Abel Gomez、および Carlos Santos でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Ron Green、Hilton Giesenow、Patterson が、Liz Shulok、Abel Gomez、および Carlos Santos でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [次へ](creating-a-business-logic-layer-cs.md)
