@@ -15,15 +15,15 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/02/2019
 ms.locfileid: "73445620"
 ---
-# <a name="displaying-data-in-a-chart-part-2"></a><span data-ttu-id="c4db6-103">グラフでデータを表示する (第 2 部)</span><span class="sxs-lookup"><span data-stu-id="c4db6-103">Displaying Data in a Chart (Part 2)</span></span>
+# <a name="displaying-data-in-a-chart-part-2"></a><span data-ttu-id="4a7cb-103">グラフでデータを表示する (第 2 部)</span><span class="sxs-lookup"><span data-stu-id="4a7cb-103">Displaying Data in a Chart (Part 2)</span></span>
 
-<span data-ttu-id="c4db6-104">[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="c4db6-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="4a7cb-104">[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4a7cb-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="c4db6-105">グラフでのデータの表示に関するビデオの最適 (パート 2) チュートリアル</span><span class="sxs-lookup"><span data-stu-id="c4db6-105">Video accompaniment to the Displaying Data in a Chart (Part 2) tutorial</span></span>
+<span data-ttu-id="4a7cb-105">グラフでのデータの表示に関するビデオの最適 (パート 2) チュートリアル</span><span class="sxs-lookup"><span data-stu-id="4a7cb-105">Video accompaniment to the Displaying Data in a Chart (Part 2) tutorial</span></span>
 
-<span data-ttu-id="c4db6-106">[&#9654;ビデオを見る (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))</span><span class="sxs-lookup"><span data-stu-id="c4db6-106">[&#9654; Watch video (9 minutes)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))</span></span>
+<span data-ttu-id="4a7cb-106">[&#9654;ビデオを見る (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))</span><span class="sxs-lookup"><span data-stu-id="4a7cb-106">[&#9654; Watch video (9 minutes)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="c4db6-107">[前へ](displaying-data-in-a-chart-part-1.md)
-> [次へ](working-with-files.md)</span><span class="sxs-lookup"><span data-stu-id="c4db6-107">[Previous](displaying-data-in-a-chart-part-1.md)
+> <span data-ttu-id="4a7cb-107">[前へ](displaying-data-in-a-chart-part-1.md)
+> [次へ](working-with-files.md)</span><span class="sxs-lookup"><span data-stu-id="4a7cb-107">[Previous](displaying-data-in-a-chart-part-1.md)
 [Next](working-with-files.md)</span></span>
