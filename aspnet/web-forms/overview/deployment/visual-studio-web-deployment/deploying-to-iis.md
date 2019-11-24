@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
-title: Visual Studio を使用した ASP.NET Web デプロイ:テストに配置しています |Microsoft Docs
+title: 'Visual Studio を使用した ASP.NET Web デプロイ: テストへの配置 |Microsoft Docs'
 author: tdykstra
 description: このチュートリアルシリーズでは、ASP.NET web アプリケーションをデプロイ (発行) して、Web Apps またはサードパーティのホスティングプロバイダーに Azure App Service する方法について説明します。
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/13/2019
 ms.locfileid: "70985853"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用した ASP.NET Web デプロイ:テスト環境に配置する
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用した ASP.NET Web 配置: テストへの配置
 
 [Tom Dykstra](https://github.com/tdykstra)
 
@@ -43,7 +43,7 @@ ms.locfileid: "70985853"
 
 Visual Studio で web サーバーを使用する方法の詳細については、「 [Visual studio の Web サーバー」を](https://msdn.microsoft.com/library/58wxa9w5.aspx)参照してください。 ASP.NET web プロジェクトを参照してください。
 
-促すチュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](troubleshooting.md)を確認してください。
+リマインダー: チュートリアルを実行するときにエラーメッセージが表示されたり、機能しない場合は、必ず[トラブルシューティングのページ](troubleshooting.md)を確認してください。
 
 ## <a name="download-the-contoso-university-starter-project"></a>Contoso 大学 starter プロジェクトをダウンロードする
 
@@ -67,7 +67,7 @@ Contoso 大学の Visual Studio starter ソリューションとプロジェク�
 
      IIS 7 がインストールされることを示すメッセージが表示されます。 このリンクは、Windows 8 の IIS 8 で機能します。ただし、Windows 8 以降では、次の手順を実行して、ASP.NET 4.7 がインストールされていることを確認してください。
 
-   * [**コントロールパネル]**  > の **[プログラム** > **と機能** > ] **[Windows の機能の有効化または無効化**] を開きます。
+   * [**コントロールパネル]** を開き、[プログラムと機能]**の [Windows の機能の有効化または無効化**] ** >  > ** の [プログラム**と機能** > ] を開きます。
 
    * **インターネットインフォメーションサービス**、 **World Wide Web Services**、**アプリケーション開発機能**を展開します。
    
@@ -91,7 +91,7 @@ IIS をインストールした後、 **Iis マネージャー**を実行して�
 
 3. **[接続]** ウィンドウで、サーバーノードを展開し、 **[アプリケーションプール]** を選択します。 次の図に示すように、 **[アプリケーションプール]** ウィンドウで、 **DefaultAppPool**が .net framework version 4 に割り当てられている場合は、次のセクションに進みます。
 
-   ![Inetmgr_showing_ 4.0 プール (_d)](deploying-to-iis/_static/image5a.png)
+   ![Inetmgr_showing_4。0_app_pools](deploying-to-iis/_static/image5a.png)
 
 4. 2つのアプリケーションプールのみが表示され、両方が .NET Framework 2.0 に設定されている場合は、IIS に ASP.NET 4 をインストールします。
 
@@ -109,7 +109,7 @@ IIS をインストールした後、 **Iis マネージャー**を実行して�
 
 7. **[アプリケーションプールの編集]** ダイアログボックスで、 **.net clr バージョン**を **.net clr v v4.0.30319**に変更します。 **[OK]** を選択します。
 
-   ![Selecting_ _4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
+   ![Selecting_。 NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
 
 これで、IIS に web アプリケーションを発行する準備ができました。 ただし、まず、テスト用のデータベースを作成します。
 
@@ -119,7 +119,7 @@ IIS をインストールした後、 **Iis マネージャー**を実行して�
 
 LocalDB は IIS で動作するように設計されていないため、テスト環境には SQL Server Express がインストールされている必要があります。 SQL Server Express Visual Studio 2010 を使用している場合は、既定でインストールされています。 Visual Studio 2012 以降を使用している場合は、SQL Server Express をインストールします。
 
-SQL Server Express をインストールするには、ダウンロードセンター [からダウンロードしてインストールします。Microsoft SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express)。 
+SQL Server Express をインストールするには、[ダウンロードセンター (Microsoft SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express)) からダウンロードしてインストールします。 
 
 SQL Server インストールセンターの最初のページで、**新規 SQL Server スタンドアロンインストールを実行するか、既存のインストールに機能を追加**して、既定の選択肢を受け入れる指示に従います。 インストールウィザードで、既定の設定をそのまま使用します。 インストールオプションの詳細については、「インストール[ウィザードからの SQL Server のインストール (セットアップ)](https://msdn.microsoft.com/library/ms143219.aspx)」を参照してください。
 
@@ -144,7 +144,7 @@ Visual Studio の **表示** メニューで、**サーバーエクスプロー�
 
 ![Aspnet の作成-ContosoUniversity](deploying-to-iis/_static/image9.png)
 
-同じ手順に従って、という名前`ContosoUniversity`の新しい SQL Server Express School データベースを作成します。
+同じ手順に従って、`ContosoUniversity`という名前の新しい SQL Server Express School データベースを作成します。
 
 **サーバーエクスプローラー**には、2つの新しいデータベースが表示されます。
 
@@ -164,7 +164,7 @@ Visual Studio で、Contoso 大学ソリューションを開きます。 (プ�
 > このスクリプトは、このチュートリアルで指定されているように、Windows 10、Windows 8、または Windows 7 の IIS 設定を使用して、SQL Server Express 2012 以降とで動作するように設計されています。 異なるバージョンの SQL Server または Windows を使用している場合、またはコンピューターに IIS を別の方法でセットアップする場合は、このスクリプトの変更が必要になることがあります。 SQL Server スクリプトの詳細については、「 [SQL Server オンラインブック](https://go.microsoft.com/fwlink/?LinkId=132511)」を参照してください。
 
 > [!NOTE] 
-> **セキュリティ**に関する注意このスクリプトは`db_owner` 、実行時にデータベースにアクセスする権限をユーザーに付与します。これは、運用環境で使用するものです。 場合によっては、完全なデータベーススキーマ更新権限を持つユーザーを配置に対してのみ指定し、データの読み取りと書き込みのみを行う権限を持つ別のユーザーを実行時に指定することができます。 詳細については、このチュートリアルで後述する「 [Code First Migrations に対する web.config の自動変更のレビュー](#reviewingmigrations) 」を参照してください。
+> **セキュリティ**に関する注意このスクリプトは、実行時にデータベースにアクセスするユーザーに `db_owner` アクセス許可を付与します。これは、運用環境で使用するものです。 場合によっては、完全なデータベーススキーマ更新権限を持つユーザーを配置に対してのみ指定し、データの読み取りと書き込みのみを行う権限を持つ別のユーザーを実行時に指定することができます。 詳細については、このチュートリアルで後述する「 [Code First Migrations に対する web.config の自動変更のレビュー](#reviewingmigrations) 」を参照してください。
 
 <a id="publish"></a>
 
@@ -215,7 +215,7 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 6. **[サイト名]** に「 *Default Web Site/ContosoUniversity」と*入力します。
 
-7. **[宛先 URL]** に *http://localhost/ContosoUniversity* 「」と入力します。
+7. **[宛先 URL]** に「 *http://localhost/ContosoUniversity* 」と入力します。
 
    **送信先 URL**の設定は必須ではありません。 Visual Studio がアプリケーションの配置を完了すると、既定のブラウザーが自動的にこの URL に表示されます。 配置後にブラウザーが自動的に開かないようにする場合は、このボックスを空白のままにします。
 
@@ -229,9 +229,9 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 10. **[構成]** ボックスの一覧で、配置するビルド構成を指定します。 **リリース**の既定値に設定したままにします。 このチュートリアルでは、デバッグビルドを配置しません。
 
-11. [**ファイルの発行オプション]** を展開します。 [**アプリ\_データ] フォルダーから [除外するファイル**] を選択します。
+11. [**ファイルの発行オプション]** を展開します。 **アプリ\_データフォルダーから ファイルを除外する** を選択します。
 
-    テスト環境では、アプリケーションは、アプリケーション *\_データ*フォルダー内の .mdf ファイルではなく、ローカル SQL Server Express インスタンスに作成したデータベースにアクセスします。
+    テスト環境では、アプリケーションは、 *App\_Data*フォルダー内の .mdf ファイルではなく、ローカル SQL Server Express インスタンスで作成したデータベースにアクセスします。
 
 12. [**発行時にプリコンパイル**を解除し、**ターゲットで追加ファイルを削除**する] チェックボックスをオフにします。
 
@@ -246,7 +246,7 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
     > 
     > たとえば、ルートフォルダーにプロジェクトを配置するときに、サーバーのサブフォルダーに web アプリケーションがある場合、サブフォルダーは削除されます。 Contoso.com のメインサイト用に1つのプロジェクトがあり、contoso.com/blog にブログ用の別のプロジェクトがあるとします。 ブログアプリケーションはサブフォルダーにあります。 メインサイトの展開時に [**ターゲットで追加ファイルを削除**する] を選択すると、ブログアプリケーションが削除されます。
     > 
-    > 別の例では、\_アプリデータフォルダーが予期せず削除される可能性があります。 SQL Server Compact などの一部のデータベースでは、アプリケーション\_データフォルダーにデータベースファイルが格納されます。 最初の配置の後、以降の配置ではデータベースファイルをコピーしないようにするため、[パッケージ/発行 Web] タブで [ **\_アプリデータを除外**する] を選択します。この操作を実行すると、[**変換先で追加のファイルを削除**する] を選択\_した場合、次回の発行時にデータベースファイルとアプリデータフォルダー自体が削除されます。
+    > 別の例では、アプリ\_データフォルダーが予期せず削除される可能性があります。 SQL Server Compact などの一部のデータベースでは、アプリケーション\_データフォルダーにデータベースファイルが格納されます。 最初の配置の後、以降の配置ではデータベースファイルをコピーしないようにするため、[パッケージ/発行 Web] タブの [**アプリ\_データを除外**する] を選択します。その後、[**ターゲットで追加ファイルを削除**する] を選択した場合、データベースファイルとアプリ\_データフォルダー自体は、次回の発行時に削除されます。
 
 ### <a name="configure-deployment-for-the-membership-database"></a>メンバーシップデータベースの配置を構成する
 
@@ -258,7 +258,7 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
    配置プロセスでは、配置された Web.config ファイルにこの接続文字列を格納します。これは、この接続文字列を**実行時に使用する**ためです。
 
-    **サーバーエクスプローラー**から接続文字列を取得することもできます。 **サーバーエクスプローラー**で、 **[データ接続]** を展開し、  **&lt;machinename&gt;\sqlexpress.aspnet-ContosoUniversity**データベースを選択します。次に、 **[プロパティ]** ウィンドウで**接続文字列をコピーします。** 値。 この接続文字列には、を削除`Pooling=False`できる1つの追加設定があります。
+    **サーバーエクスプローラー**から接続文字列を取得することもできます。 **サーバーエクスプローラー**で、 **[データ接続]** を展開し、 **&lt;machinename&gt;\sqlexpress.aspnet-ContosoUniversity**データベースを選択します。次に、 **[プロパティ]** ウィンドウで、**接続文字列**の値をコピーします。 この接続文字列には、`Pooling=False`削除できる追加の設定が1つあります。
 
 2. **[データベースの更新]** を選択します。
 
@@ -276,9 +276,9 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 ### <a name="configure-deployment-for-the-application-database"></a>アプリケーションデータベースの展開の構成
 
-`DbContext` Visual Studio が Entity Framework クラスを検出すると、データベース セクションにエントリが作成されます。このエントリには、データベースの**更新** チェックボックスではなく **Code First Migrations の実行** チェックボックスがあります。 このチュートリアルでは、このチェックボックスを使用して Code First Migrations 展開を指定します。
+Visual Studio によって Entity Framework `DbContext` クラスが検出されると、[データベース **] セクションに**エントリが作成されます。このエントリには、 **[データベースの更新]** チェックボックスではなく **[Code First Migrations の実行]** チェックボックスがあります。 このチュートリアルでは、このチェックボックスを使用して Code First Migrations 展開を指定します。
 
-場合によっては、 `DbContext`データベースを使用していても、データベースを配置するために移行ではなく dbdacfx プロバイダーを使用することがあります。 そのような場合は、MSDN の ASP.NET Web デプロイに関する FAQ で、「[移行せずに Code First データベースをデプロイする操作方法](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations)」を参照してください。
+場合によっては、`DbContext` データベースを使用していても、データベースを配置するために移行ではなく dbDacFx プロバイダーを使用したい場合があります。 そのような場合は、MSDN の ASP.NET Web デプロイに関する FAQ で、「[移行せずに Code First データベースをデプロイする操作方法](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations)」を参照してください。
 
 次の手順は、ダイアログボックスの **[データベース]** セクションの**schoolcontext.cs**データベースに適用されます。
 
@@ -292,7 +292,7 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 2. **[Code First Migrations の実行 (アプリケーションの起動時に実行)]** を選択します。
 
-   このオプションを選択すると、配置プロセスによって、配置された`MigrateDatabaseToLatestVersion` web.config ファイルが初期化子を指定するように構成されます。 この初期化子は、配置後にアプリケーションが初めてデータベースにアクセスしたときに、データベースを最新バージョンに自動的に更新します。
+   このオプションを選択すると、配置プロセスによって、配置された Web.config ファイルが `MigrateDatabaseToLatestVersion` 初期化子を指定するように構成されます。 この初期化子は、配置後にアプリケーションが初めてデータベースにアクセスしたときに、データベースを最新バージョンに自動的に更新します。
 
 ### <a name="configure-publish-profile-transforms"></a>発行プロファイルの変換を構成する
 
@@ -344,7 +344,7 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 環境インジケーターには、"(Dev)" ではなく "(Test)" と表示されます。これは、環境インジケーターの*web.config 変換が*成功したことを示しています。
 
-インストラクターページを実行し**て、Code First**がインストラクターのデータでデータベースをシード処理したことを確認します。 このページを選択すると、Code First によってデータベースが作成され、メソッドが`Seed`実行されるため、読み込みに数分かかる場合があります。 (これは、アプリケーションがデータベースにアクセスしようとしていないためにホームページを使用していた場合には行われませんでした)。
+インストラクターページを実行し**て、Code First**がインストラクターのデータでデータベースをシード処理したことを確認します。 このページを選択すると、Code First によってデータベースが作成され、`Seed` メソッドが実行されるため、読み込みに数分かかる場合があります。 (これは、アプリケーションがデータベースにアクセスしようとしていないためにホームページを使用していた場合には行われませんでした)。
 
 **[Students]** タブを選択して、デプロイされたデータベースに学生がいないことを確認します。
 
@@ -366,13 +366,13 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 ![Database_Publish 接続文字列](deploying-to-iis/_static/image22.png)
 
-この追加の接続文字列を使用すると、データベーススキーマの更新用に1つのユーザーアカウントを指定し、アプリケーションデータアクセスに別のユーザーアカウントを指定することができます。 たとえば、db **\_所有者**ロールを Code First Migrations **\_** に割り当て、db datareader **\_ロールを**アプリケーションに割り当てることができます。 これは、アプリケーション内の悪意のある可能性のあるコードによってデータベーススキーマが変更されないようにする、一般的な多層防御パターンです。 (たとえば、SQL インジェクション攻撃が成功した場合に発生する可能性があります)。これらのチュートリアルでは、このパターンは使用しません。 このパターンをシナリオに実装するには、次の手順を実行します。
+この追加の接続文字列を使用すると、データベーススキーマの更新用に1つのユーザーアカウントを指定し、アプリケーションデータアクセスに別のユーザーアカウントを指定することができます。 たとえば、db **\_所有者**ロールを、 **db\_datawriter**ロールと共に Code First Migrations および**db\_** アプリケーションに割り当てることができます。 これは、アプリケーション内の悪意のある可能性のあるコードによってデータベーススキーマが変更されないようにする、一般的な多層防御パターンです。 (たとえば、SQL インジェクション攻撃が成功した場合に発生する可能性があります)。これらのチュートリアルでは、このパターンは使用しません。 このパターンをシナリオに実装するには、次の手順を実行します。
 
-1. Web の**発行**ウィザードの **[設定]** タブで、完全なデータベーススキーマ更新権限を持つユーザーを指定する接続文字列を入力します。 **[実行時にこの接続文字列を使用する]** チェックボックスをオフにします。 配置された web.config ファイルで、これが`DatabasePublish`接続文字列になります。
+1. Web の**発行**ウィザードの **[設定]** タブで、完全なデータベーススキーマ更新権限を持つユーザーを指定する接続文字列を入力します。 **[実行時にこの接続文字列を使用する]** チェックボックスをオフにします。 配置された Web.config ファイルで、これが `DatabasePublish` 接続文字列になります。
 
 2. アプリケーションで実行時に使用する接続文字列の Web.config ファイル変換を作成します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
 これで、開発用コンピューター上の IIS にアプリケーションを配置し、そこでテストしました。
 

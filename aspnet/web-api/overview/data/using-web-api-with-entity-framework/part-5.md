@@ -17,7 +17,7 @@ ms.locfileid: "73445759"
 ---
 # <a name="create-data-transfer-objects-dtos"></a>データ転送オブジェクト (DTO) の作成
 
-[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
