@@ -1,144 +1,144 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: Visual Studio を使用して ASP.NET Web の展開:コマンドライン展開 |Microsoft Docs
+title: 'Visual Studio を使用した ASP.NET Web デプロイ: コマンドラインデプロイ |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを使用して、.
+description: このチュートリアルシリーズでは、ASP.NET web アプリケーションをデプロイ (発行) して、Web Apps またはサードパーティのホスティングプロバイダーに Azure App Service する方法について説明します。
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e6fc995ca812a461247989204caff580d06e2343
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 13cfe4492398b59f2c80394689cc113ccb218c60
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134262"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74634199"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用して ASP.NET Web の展開:コマンド ライン配置
+# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用した ASP.NET Web デプロイ: コマンドライン展開
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[スタートプロジェクトのダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
+> このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、Visual Studio web を呼び出す方法、コマンドラインからのパイプラインを発行します。 これはし場合に便利です[デプロイ プロセスを自動化](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)行う代わりに、手動で Visual Studio で、通常を使用して、[ソース コードのバージョン管理システム](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)。
+このチュートリアルでは、コマンドラインから Visual Studio web 発行パイプラインを呼び出す方法について説明します。 これは、Visual Studio で手動ではなく、[ソースコードのバージョン管理システム](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)を使用して、[配置プロセスを自動化](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)する場合に便利です。
 
-## <a name="make-a-change-to-deploy"></a>変更をデプロイするには
+## <a name="make-a-change-to-deploy"></a>デプロイを変更する
 
-現在、[About] ページでは、テンプレート コードが表示されます。
+現在、[バージョン情報] ページには、テンプレートコードが表示されます。
 
-![[About] ページのテンプレート コード](command-line-deployment/_static/image1.png)
+![テンプレートコードを使用したページの概要](command-line-deployment/_static/image1.png)
 
-受講者の登録の概要を表示するコードに置き換えます。
+これを、学生登録の概要を表示するコードに置き換えます。
 
-開く、 *About.aspx*  ページで、すべての内部マークアップを削除、 `MainContent` `Content`要素、およびその場所に次のマークアップを挿入します。
+*About .aspx*ページを開き、`MainContent` `Content` 要素内のすべてのマークアップを削除し、その場所に次のマークアップを挿入します。
 
 [!code-aspx[Main](command-line-deployment/samples/sample1.aspx)]
 
-プロジェクトを実行し、選択、**について**ページ。
+プロジェクトを実行し、 **[バージョン情報]** ページを選択します。
 
 ![About ページ](command-line-deployment/_static/image2.png)
 
-## <a name="deploy-to-test-by-using-the-command-line"></a>コマンドラインを使用してテストを展開します。
+## <a name="deploy-to-test-by-using-the-command-line"></a>コマンドラインを使用してテストに配置する
 
-もう 1 つのデータベースの変更、aspnet ContosoUniversity データベースのための無効化 dbDacFx データベース展開を展開しません。 開く、 **Web の発行**ウィザード、および、3 つの発行プロファイルをクリア、 **Update Database**チェック ボックスをオン、**設定**タブ。
+別のデータベースの変更を配置しないので、ContosoUniversity データベースの dbDacFx データベースの配置を無効にしてください。 Web の**発行**ウィザードを開き、3つの発行プロファイルのそれぞれで、 **[設定]** タブの **[データベースの更新]** チェックボックスをオフにします。
 
-Windows 8 のスタート ページで、検索**VS2012 用開発者コマンド プロンプト**します。
+Windows 8 のスタートページで、 **VS2012 の開発者コマンドプロンプト**を検索します。
 
-アイコンを右クリックして**VS2012 用開発者コマンド プロンプト**クリック**管理者として実行**します。
+**VS2012 の [開発者コマンドプロンプト**] のアイコンを右クリックし、 **[管理者として実行]** をクリックします。
 
-ソリューション ファイルへのパスをソリューション ファイルへのパスに置き換えて、コマンド プロンプトで次のコマンドを入力します。
+コマンドプロンプトで次のコマンドを入力し、ソリューションファイルへのパスをソリューションファイルへのパスに置き換えます。
 
 [!code-console[Main](command-line-deployment/samples/sample2.cmd)]
 
-MSBuild では、ソリューションがビルドされ、テスト環境に展開します。
+MSBuild によってソリューションがビルドされ、テスト環境に配置されます。
 
 ![コマンド ライン出力](command-line-deployment/_static/image3.png)
 
-ブラウザーを開きに移動`http://localhost/ContosoUniversity`、 をクリックし、**について**ページ展開が成功したことを確認します。
+ブラウザーを開き、`http://localhost/ContosoUniversity`にアクセスし、 **[バージョン情報]** ページをクリックして、展開が成功したことを確認します。
 
-学生のテストを作成していない場合は、下の空のページが表示されます、**学生本文の統計情報**見出し。 移動して、**受講者**] ページで [**受講者の追加**、いくつかの受講者を追加し、しに戻ります、**について**学生の統計情報を表示するページ。
+テストで学生を作成していない場合は、 **[Student Body Statistics]** \ (学生の本文 \) の見出しの下に空のページが表示されます。 **学生**のページにアクセスして、 **[学生の追加]** をクリックし、いくつかの学生を追加してから、 **[バージョン情報]** ページに戻って学生の統計情報を表示します。
 
-![テスト環境でのページについて](command-line-deployment/_static/image4.png)
+![テスト環境のページについて](command-line-deployment/_static/image4.png)
 
-## <a name="key-command-line-options"></a>キーのコマンド ライン オプション
+## <a name="key-command-line-options"></a>キーのコマンドラインオプション
 
-ソリューション ファイルのパスと 2 つのプロパティを MSBuild に渡されるが入力したコマンド:
+入力したコマンドによって、ソリューションファイルのパスと2つのプロパティが MSBuild に渡されました。
 
 [!code-console[Main](command-line-deployment/samples/sample3.cmd)]
 
-### <a name="deploying-the-solution-versus-deploying-individual-projects"></a>個々 のプロジェクトの配置とソリューションのデプロイ
+### <a name="deploying-the-solution-versus-deploying-individual-projects"></a>ソリューションの配置と個々のプロジェクトの配置
 
-ソリューション ファイルを指定すると、すべてのプロジェクトがビルドするために、ソリューションとします。 ソリューションに複数の web プロジェクトがあれば、次の MSBuild の動作が適用されます。
+ソリューションファイルを指定すると、ソリューション内のすべてのプロジェクトがビルドされます。 ソリューションに複数の web プロジェクトがある場合は、次の MSBuild 動作が適用されます。
 
-- コマンドラインで指定したプロパティは、すべてのプロジェクトに渡されます。 そのため、各 web プロジェクトには、指定した名前の発行プロファイルが必要です。 指定した場合`/p:PublishProfile=Test`、各 web プロジェクトがという名前の発行プロファイルをいる必要があります*テスト*します。
-- 正常にもう 1 つを構築することも時に 1 つのプロジェクトを発行する可能性があります。 詳細については、stackoverflow スレッドを参照してください。 [2 つのパッケージに MSBuild が失敗した](http://stackoverflow.com/questions/14226451/msbuild-fails-with-two-packages)します。
+- コマンドラインで指定したプロパティは、すべてのプロジェクトに渡されます。 したがって、各 web プロジェクトには、指定した名前の発行プロファイルが必要です。 `/p:PublishProfile=Test`を指定する場合、各 web プロジェクトには*Test*という名前の発行プロファイルが必要です。
+- 1つのプロジェクトがビルドされない場合は、そのプロジェクトが正常に発行される可能性があります。 詳細については、「stackoverflow スレッド[MSBuild が2つのパッケージで失敗](http://stackoverflow.com/questions/14226451/msbuild-fails-with-two-packages)する」を参照してください。
 
-ソリューションではなく、個々 のプロジェクトを指定する場合は、Visual Studio のバージョンを指定するパラメーターを追加する必要があります。 Visual Studio 2012 を使用している場合、コマンド ラインが次の例のようになります。
+ソリューションではなく個々のプロジェクトを指定する場合は、Visual Studio のバージョンを指定するパラメーターを追加する必要があります。 Visual Studio 2012 を使用している場合、コマンドラインは次の例のようになります。
 
 [!code-console[Main](command-line-deployment/samples/sample4.cmd?highlight=1)]
 
-Visual Studio 2010 のバージョン番号は 10.0 です。 詳細については、次を参照してください。 [Visual Studio プロジェクトの互換性と VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) Sayed Hashimi's ブログ。
+Visual Studio 2010 のバージョン番号は10.0 です。 詳細については、作成者 Hashimi のブログの「 [Visual Studio プロジェクトの互換性と VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) 」を参照してください。
 
-### <a name="specifying-the-publish-profile"></a>発行プロファイルを指定します。
+### <a name="specifying-the-publish-profile"></a>発行プロファイルの指定
 
-発行プロファイルを指定するには、名前またはへの完全パスで、 *.pubxml*ファイルを次の例に示すようにします。
+発行プロファイルは、次の例に示すように、名前または*pubxml*ファイルへの完全パスを使用して指定できます。
 
 [!code-console[Main](command-line-deployment/samples/sample5.cmd?highlight=1)]
 
-### <a name="web-publish-methods-supported-for-command-line-publishing"></a>Web の発行コマンド ライン パブリッシングでサポートされるメソッド
+### <a name="web-publish-methods-supported-for-command-line-publishing"></a>コマンドライン発行でサポートされている Web 発行方法
 
-発行方法の 3 つのコマンドラインによる発行がサポートされます。
+コマンドライン発行では、次の3つの発行方法がサポートされています。
 
-- `MSDeploy` Web Deploy を使用して発行します。
-- `Package` Web デプロイ パッケージを作成して発行します。 作成した MSBuild コマンドから個別にパッケージをインストールする必要があります。
-- `FileSystem` -指定したフォルダーにファイルをコピーして発行します。
+- `MSDeploy`-Web 配置を使用して発行します。
+- `Package`-Web 配置パッケージを作成して発行します。 パッケージを作成する MSBuild コマンドとは別にパッケージをインストールする必要があります。
+- `FileSystem`-指定したフォルダーにファイルをコピーして発行します。
 
-### <a name="specifying-the-build-configuration-and-platform"></a>ビルド構成とプラットフォームを指定します。
+### <a name="specifying-the-build-configuration-and-platform"></a>ビルド構成とプラットフォームの指定
 
-Visual Studio またはコマンド ラインでは、ビルド構成とプラットフォームを設定する必要があります。 発行プロファイルがという名前のプロパティを含める`LastUsedBuildConfiguration`と`LastUsedPlatform`が、プロジェクトをビルドする方法を決定するためにこれらのプロパティを設定することはできません。 詳細については、次を参照してください。 [MSBuild: 構成プロパティを設定する方法](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx)Sayed Hashimi's ブログ。
+ビルド構成とプラットフォームは、Visual Studio またはコマンドラインで設定する必要があります。 発行プロファイルには `LastUsedBuildConfiguration` と `LastUsedPlatform`という名前のプロパティが含まれますが、プロジェクトのビルド方法を決定するためにこれらのプロパティを設定することはできません。 詳細については、「MSBuild: 作成者 Hashimi のブログで[構成プロパティを設定する方法](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx)」を参照してください。
 
-## <a name="deploy-to-staging"></a>ステージングへのデプロイします。
+## <a name="deploy-to-staging"></a>ステージング環境へのデプロイ
 
-Azure にデプロイするには、コマンドラインにパスワードを追加する必要があります。 暗号化された形式で格納されているが Visual Studio で発行プロファイルでパスワードを保存した場合は、 *. >.pubxml.user*ファイル。 コマンド ライン パラメーターでパスワードを渡すことが、コマンドラインの展開を行うと、そのファイルは MSBuild によってアクセスされません。
+Azure にデプロイするには、コマンドラインにパスワードを追加する必要があります。 Visual Studio の発行プロファイルにパスワードを保存した場合、パスワードは暗号化された形式で*pubxml. user*ファイルに格納されていました。 このファイルは、コマンドラインの展開を行うときに MSBuild によってアクセスされることはないため、コマンドラインパラメーターでパスワードを渡す必要があります。
 
-1. 必要なパスワードをコピー、 *.publishsettings*ステージング web サイトを以前ダウンロードしたファイル。 パスワードの値である、 `userPWD` Web デプロイのための属性`publishProfile`要素。
+1. 以前にステージング web サイト用にダウンロードした *.publishsettings*ファイルから必要なパスワードをコピーします。 パスワードは、Web 配置 `publishProfile` 要素の `userPWD` 属性の値です。
 
-    ![Web デプロイのパスワード](command-line-deployment/_static/image5.png)
-2. Windows 8 のスタート ページで、検索**VS2012 用開発者コマンド プロンプト**、コマンド プロンプトを開く アイコンをクリックします。 (に管理者として開きます今度はローカル コンピューターの IIS に配置を行わないためする必要はありません)。
-3. ソリューション ファイルへのパスをパスに、ソリューション ファイルとパスワードを自分のパスワードに置き換えて、コマンド プロンプトで次のコマンドを入力します。
+    ![Web 配置パスワード](command-line-deployment/_static/image5.png)
+2. Windows 8 のスタートページで、 **VS2012 の開発者コマンドプロンプト**を検索し、アイコンをクリックしてコマンドプロンプトを開きます。 (ローカルコンピューター上の IIS には展開されないため、この時点で管理者として開く必要はありません)。
+3. コマンドプロンプトで次のコマンドを入力します。ソリューションファイルへのパスは、ソリューションファイルへのパスとパスワードで置き換えます。
 
     [!code-console[Main](command-line-deployment/samples/sample6.cmd)]
 
-    このコマンドラインに追加のパラメーターが含まれることに注意してください:`/p:AllowUntrustedCertificate=true`します。 このチュートリアルが書き込まれていると、`AllowUntrustedCertificate`コマンドラインから Azure に発行するときに、プロパティを設定する必要があります。 このバグの修正プログラムがリリースされると、そのパラメーターは必要ありません。
-4. ブラウザーを開き、ステージング サイトの URL に移動して をクリックし、**について**ページ展開が成功したことを確認します。
+    このコマンドラインには、追加のパラメーターとして `/p:AllowUntrustedCertificate=true`が含まれていることに注意してください。 このチュートリアルの執筆中は、コマンドラインから Azure に発行するときに、`AllowUntrustedCertificate` のプロパティを設定する必要があります。 このバグの修正がリリースされた場合、そのパラメーターは必要ありません。
+4. ブラウザーを開き、ステージングサイトの URL にアクセスし、 **[バージョン情報]** ページをクリックして、デプロイが成功したことを確認します。
 
-    テスト環境の既に説明したように統計を表示するいくつかの受講者を作成する必要があります、**について**ページ。
+    テスト環境で既に説明したように、 **[バージョン情報]** ページで統計を表示するには、いくつかの学生を作成する必要がある場合があります。
 
-## <a name="deploy-to-production"></a>運用環境にデプロイします。
+## <a name="deploy-to-production"></a>運用環境へのデプロイ
 
-運用環境に展開するプロセスは、ステージング プロセスに似ています。
+運用環境にデプロイするプロセスは、ステージングのプロセスに似ています。
 
-1. 必要なパスワードをコピー、 *.publishsettings*実稼働 web サイトを以前ダウンロードしたファイル。
-2. 開いている**VS2012 用開発者コマンド プロンプト**します。
-3. ソリューション ファイルへのパスをパスに、ソリューション ファイルとパスワードを自分のパスワードに置き換えて、コマンド プロンプトで次のコマンドを入力します。
+1. 前の手順でダウンロードした *.publishsettings*ファイルから必要なパスワードをコピーします。
+2. **VS2012 の開発者コマンドプロンプトを**開きます。
+3. コマンドプロンプトで次のコマンドを入力します。ソリューションファイルへのパスは、ソリューションファイルへのパスとパスワードで置き換えます。
 
     [!code-console[Main](command-line-deployment/samples/sample7.cmd)]
 
-    実際の運用サイトの場合も、データベースの変更があった場合は通常をコピーする、*アプリ\_offline.htm*ファイルを展開する前に、サイトと配置の成功後に削除します。
-4. ブラウザーを開き、ステージング サイトの URL に移動して をクリックし、**について**ページ展開が成功したことを確認します。
+    実際の運用サイトでも、データベースの変更があった場合は、通常、展開の前に*アプリ\_offline .htm*ファイルをサイトにコピーし、展開が正常に完了した後に削除します。
+4. ブラウザーを開き、ステージングサイトの URL にアクセスし、 **[バージョン情報]** ページをクリックして、デプロイが成功したことを確認します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-コマンドラインを使用してアプリケーションの更新プログラムを配置したようになりました。
+これで、コマンドラインを使用してアプリケーションの更新プログラムが展開されました。
 
-![テスト環境でのページについて](command-line-deployment/_static/image6.png)
+![テスト環境のページについて](command-line-deployment/_static/image6.png)
 
-次のチュートリアルでは、web を拡張する方法の例が表示されますパイプラインを発行します。 この例では、プロジェクトに含まれていないファイルを配置する方法を示します。
+次のチュートリアルでは、web 発行パイプラインを拡張する方法の例を紹介します。 この例では、プロジェクトに含まれていないファイルを配置する方法を示します。
 
 > [!div class="step-by-step"]
 > [前へ](deploying-a-database-update.md)

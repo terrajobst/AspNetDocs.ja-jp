@@ -1,245 +1,245 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
-title: 検証コントロールを追加、編集および挿入インターフェイス (VB) |Microsoft Docs
+title: 編集および挿入インターフェイスに検証コントロールを追加する (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、詳細を提供するには、後とデータ Web コントロールの後に検証コントロールを追加するがいかに簡単か見て.
+description: このチュートリアルでは、データ Web コントロールの EditItemTemplate と Insertitemposition に検証コントロールを簡単に追加する方法について説明します。
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 02547e73dc1920f4c9228a9acd6a45344a875a55
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5c5ad110ee0836f0a464b02a2b29254e2e06381e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134702"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74571348"
 ---
 # <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>編集および挿入インターフェイスに検証コントロールを追加する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_19_VB.exe)または[PDF のダウンロード](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/datatutorial19vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_19_VB.exe)または[PDF のダウンロード](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/datatutorial19vb1.pdf)
 
-> このチュートリアルではより安全な方法でユーザー インターフェイスを提供するには、後とデータ Web コントロールの後に検証コントロールを追加するがいかに簡単か見ていきます。
+> このチュートリアルでは、データ Web コントロールの EditItemTemplate と Insertitemposition に検証コントロールを追加して、より簡単なユーザーインターフェイスを提供することがいかに簡単かを説明します。
 
 ## <a name="introduction"></a>はじめに
 
-例で GridView および DetailsView コントロールしました、過去、3 つのチュートリアルがすべてされてから成る BoundFields CheckBoxFields (フィールドの種類、GridView や DetailsView をデータ ソースにバインドするときに、Visual Studio によって自動的に追加コントロールのスマート タグ経由)。 GridView、DetailsView 内の行を編集するには、読み取り専用ではないこれら BoundFields は、テキスト ボックスに変換されます、エンドユーザーが、既存のデータを変更できます。 同様に、ときに挿入する新しいレコードに DetailsView コントロール、その BoundFields を`InsertVisible`プロパティに設定されて`True`(既定)、ユーザーが新しいレコードのフィールドの値を指定できる空のテキスト ボックスとしてレンダリングされます。 同様に、CheckBoxFields で、標準的な読み取り専用のインターフェイスは無効になっては、有効になっているチェック ボックスを編集および挿入インターフェイスに変換されます。
+前の3つのチュートリアルで調査した例の GridView および DetailsView コントロールはすべて、BoundFields と CheckBoxFields (GridView または DetailsView をデータソースにバインドするときに Visual Studio によって自動的に追加されたフィールド型) で構成されています。スマートタグを使用して制御します。 GridView または DetailsView で行を編集するときに、読み取り専用ではない連結されたフィールドは、エンドユーザーが既存のデータを変更できるテキストボックスに変換されます。 同様に、新しいレコードを DetailsView コントロールに挿入する場合、`InsertVisible` プロパティが `True` (既定値) に設定されている連結フィールドは空のテキストボックスとしてレンダリングされ、ユーザーは新しいレコードのフィールド値を指定できます。 同様に、標準の読み取り専用インターフェイスで無効になっている CheckBoxFields は、編集および挿入インターフェイスで有効なチェックボックスに変換されます。
 
-編集および挿入 BoundField と CheckBoxField インターフェイスの既定値は便利ですが、インターフェイスには、あらゆる種類の検証が不足しています。 省略することなどのデータ エントリ ミスを行うかどうか、`ProductName`フィールドまたはに対して無効な値を入力する`UnitsInStock`(-50) など、例外が発生しますからのアプリケーション アーキテクチャ内で。 中で説明するよう、この例外を適切に処理することができます、[前のチュートリアル](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)、編集、またはユーザー インターフェイスの挿入をユーザーがこのような無効なデータを入力するを防ぐために検証コントロールを含める理想的には、最初に配置します。
+BoundField と CheckBoxField の既定の編集および挿入インターフェイスは役に立ちますが、インターフェイスには何の種類の検証もありません。 ユーザーが `ProductName` フィールドを省略したり、`UnitsInStock` に無効な値 (-50 など) を入力したりしたときに、データ入力の誤りが発生した場合は、アプリケーションアーキテクチャの深さ内から例外が発生します。 この例外は、[前のチュートリアル](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)で説明したように適切に処理できますが、ユーザーが最初に無効なデータを入力しないようにするための検証コントロールが、編集または挿入ユーザーインターフェイスに含まれていることが理想的です。
 
-カスタマイズされた編集または挿入のインターフェイスを提供するためには、BoundField または CheckBoxField TemplateField に置き換える必要があります。 TemplateFields、された説明のトピックで、 [GridView コントロールで TemplateFields を使用して](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md)と[DetailsView コントロールで TemplateFields を使用して](../custom-formatting/using-templatefields-in-the-detailsview-control-vb.md)のチュートリアルでは、複数ので構成できますテンプレートを定義するインターフェイスを異なる行の状態を分離します。 TemplateField の`ItemTemplate`を使用するか GridView、DetailsView コントロールで行または読み取り専用フィールドを表示するときに対し、`EditItemTemplate`と`InsertItemTemplate`編集モードをそれぞれ挿入に使用するインターフェイスを示します。
+カスタマイズされた編集または挿入インターフェイスを提供するには、BoundField または CheckBoxField を TemplateField に置き換える必要があります。 TemplateFields は、 [GridView コントロールでの TemplateFields の使用](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md)に関するトピックであり、 [DetailsView コントロールのチュートリアルでは templatefields](../custom-formatting/using-templatefields-in-the-detailsview-control-vb.md)を使用して、さまざまな行の状態に対して個別のインターフェイスを定義する複数のテンプレートで構成されています。 TemplateField の `ItemTemplate` は、DetailsView コントロールまたは GridView コントロールで読み取り専用のフィールドまたは行を表示するときに使用されます。一方、`EditItemTemplate` と `InsertItemTemplate` は、それぞれ編集モードと挿入モードで使用するインターフェイスを示します。
 
-このチュートリアルでは見てに TemplateField の検証コントロールを追加するがいかに簡単か`EditItemTemplate`と`InsertItemTemplate`より安全な方法でユーザー インターフェイスを提供します。 具体的には、このチュートリアルでは、例で作成した、 [、イベントに関連付けられている挿入、更新、および削除の確認](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)適切な検証をインクルードするインターフェイスのチュートリアルと編集および挿入を強化します。
+このチュートリアルでは、TemplateField の `EditItemTemplate` に検証コントロールを追加して、より簡単なユーザーインターフェイスを提供する `InsertItemTemplate` 方法について説明します。 具体的には、このチュートリアルでは、「[挿入、更新、削除に関連するイベントの調査](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)」で作成した例を使用して、適切な検証を含むように編集および挿入インターフェイスを強化します。
 
-## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>手順 1: 例をレプリケートする[挿入、更新、および削除に関連付けられているイベントを調べる](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
+## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>手順 1:[挿入、更新、および削除に関連付けられたイベントを調べる](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)例をレプリケートする
 
-[、イベントに関連付けられている挿入、更新、および削除の確認](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)チュートリアルの名前と、編集可能な GridView では、製品の価格を一覧表示するページを作成しました。 さらに、ページには、DetailsView が含まれますが`DefaultMode`プロパティに設定されました`Insert`、それによって、常に、挿入モードでレンダリングします。 この DetailsView からのユーザーでした新製品の価格と名前を入力、挿入 をクリックしておよびシステムに加えることが (図 1 参照)。
+[「挿入、更新、および削除](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)」チュートリアルに関連するイベントを確認すると、編集可能な GridView で製品の名前と価格を記載したページが作成されました。 また、ページには、`DefaultMode` プロパティが `Insert`に設定されている DetailsView が含まれており、これによって常に挿入モードでレンダリングされます。 この DetailsView から、ユーザーは新しい製品の名前と価格を入力し、[挿入] をクリックして、システムに追加することができます (図1を参照)。
 
-[![前の例では、新しい製品を追加および編集する既存のユーザーには、します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image1.png)
+[前の例を ![すると、新しい製品を追加したり、既存の製品を編集したりすることができます。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image1.png)
 
-**図 1**:新しい製品の追加と編集の既存の前の例は、ユーザー ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image3.png))。
+**図 1**: 前の例では、ユーザーが新しい製品を追加し、既存の製品を編集できるようにします ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image3.png)されます)
 
-このチュートリアルの目標は、検証コントロールを提供するには、DetailsView と GridView を拡張します。 具体的には、この検証ロジックを行います。
+このチュートリアルの目的は、検証コントロールを提供するように DetailsView と GridView を拡張することです。 特に、検証ロジックは次のようになります。
 
-- 挿入または製品を編集するときに名前を提供することが必要です。
-- レコードを挿入するときに、価格が提供することが必要です。価格、必要がありますもいますが、gridview のプログラム ロジックを使用にレコードを編集するには、`RowUpdating`以前のチュートリアルからに既に存在するイベント ハンドラー
-- 価格に入力された値が有効な通貨の形式であることを確認します。
+- 製品の挿入時または編集時に名前を指定する必要があります
+- レコードを挿入するときに価格を指定する必要があります。レコードを編集する場合でも価格は必要ですが、前のチュートリアルで既に存在している GridView の `RowUpdating` イベントハンドラーでプログラムロジックを使用します。
+- 価格に入力した値が有効な通貨書式であることを確認します。
 
-最初の例をレプリケートする必要がありますに検証を含める前の例の拡張について考えることができます、前に、`DataModificationEvents.aspx`このチュートリアルでは、ページにページ`UIValidation.aspx`します。 両方の経由でコピーする必要があります。 これを実現する、`DataModificationEvents.aspx`ページの宣言型マークアップとそのソース コード。 まず、次の手順を実行することによって宣言型マークアップにコピーします。
+前の例を補強して検証を含める方法については、まず、`DataModificationEvents.aspx` ページからこのチュートリアルのページ (`UIValidation.aspx`) にこの例をレプリケートする必要があります。 これを実現するには、`DataModificationEvents.aspx` ページの宣言型マークアップとソースコードの両方をコピーする必要があります。 次の手順を実行して、最初に宣言マークアップをコピーします。
 
-1. 開く、 `DataModificationEvents.aspx` Visual Studio でのページ
-2. ページの宣言型マークアップ (ページの下部にある [ソース] ボタンをクリックします) に移動します。
-3. 内のテキストをコピー、`<asp:Content>`と`</asp:Content>`図 2 タグ (行 3 ~ 44)。
+1. Visual Studio で [`DataModificationEvents.aspx`] ページを開く
+2. ページの宣言型マークアップにアクセスします (ページの下部にある [ソース] ボタンをクリックします)。
+3. 図2に示すように、`<asp:Content>` タグと `</asp:Content>` タグ (行 3 ~ 44) 内のテキストをコピーします。
 
-[![内のテキストのコピー、 &lt;Asp:content&gt;コントロール](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image5.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image4.png)
+[&lt;asp: Content&gt; コントロール内のテキストをコピー ![には](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image5.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image4.png)
 
-**図 2**:内のテキストのコピー、`<asp:Content>`コントロール ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image6.png))。
+**図 2**: `<asp:Content>` コントロール内のテキストをコピー[する (クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image6.png)されます)
 
-1. 開く、`UIValidation.aspx`ページ
-2. ページの宣言型マークアップに移動します。
-3. 内のテキストを貼り付け、`<asp:Content>`コントロール。
+1. [`UIValidation.aspx`] ページを開く
+2. ページの宣言型マークアップにアクセスする
+3. `<asp:Content>` コントロール内にテキストを貼り付けます。
 
-ソース コードをコピーするには、開く、`DataModificationEvents.aspx.vb`ページし、同様のテキストをコピー*内*、`EditInsertDelete_DataModificationEvents`クラス。 3 つのイベント ハンドラーをコピー (`Page_Load`、 `GridView1_RowUpdating`、および`ObjectDataSource1_Inserting`)、操作を行いますが、**いない**クラス宣言をコピーします。 コピーしたテキストを貼り付ける*内*、`EditInsertDelete_UIValidation`クラス`UIValidation.aspx.vb`します。
+ソースコードをコピーするには、[`DataModificationEvents.aspx.vb`] ページを開き、`EditInsertDelete_DataModificationEvents` クラス*内*のテキストだけをコピーします。 3つのイベントハンドラー (`Page_Load`、`GridView1_RowUpdating`、および `ObjectDataSource1_Inserting`) をコピーしますが、クラス宣言**はコピーしないでください。** コピーしたテキストを `UIValidation.aspx.vb`の `EditInsertDelete_UIValidation` クラス*内*に貼り付けます。
 
-コンテンツとコードからの上に移動した後は`DataModificationEvents.aspx`に`UIValidation.aspx`ブラウザーで、進行状況をテストする少し。 出力は同じで、これら 2 つのページのそれぞれで同じ機能が発生することがわかります (のスクリーン ショットを図 1 に戻って`DataModificationEvents.aspx`の動作)。
+コンテンツとコードを `DataModificationEvents.aspx` から `UIValidation.aspx`に移動したら、ブラウザーで進行状況をテストしてみましょう。 同じ出力が表示され、これらの2つの各ページで同じ機能が使用されます (「操作中」 `DataModificationEvents.aspx` のスクリーンショットについては、図1を参照してください)。
 
-## <a name="step-2-converting-the-boundfields-into-templatefields"></a>手順 2: TemplateFields、BoundFields に変換します。
+## <a name="step-2-converting-the-boundfields-into-templatefields"></a>手順 2: BoundFields を TemplateFields に変換する
 
-検証コントロールを編集および挿入インターフェイスに追加するには、し GridView、DetailsView コントロールで使用される BoundFields を TemplateFields に変換する必要があります。 これを実現するにはの スマート タグの GridView および DetailsView の列の編集とフィールドの編集リンクをそれぞれクリックします。 BoundFields のそれぞれを選択し、「このフィールドを TemplateField に変換」リンクをクリックします。
+編集および挿入インターフェイスに検証コントロールを追加するには、DetailsView コントロールと GridView コントロールで使用される BoundFields を TemplateFields に変換する必要があります。 これを実現するには、GridView および DetailsView のスマートタグの [列の編集] リンクと [フィールドの編集] リンクをそれぞれクリックします。 ここで、各 BoundFields を選択し、[このフィールドを TemplateField に変換する] リンクをクリックします。
 
-[![TemplateFields の GridView、DetailsView の BoundFields の各変換します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image7.png)
+[各 DetailsView のおよび GridView の BoundFields を TemplateFields に変換 ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image7.png)
 
-**図 3**:各 BoundFields に TemplateFields の GridView、DetailsView の変換 ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image9.png))。
+**図 3**: DetailsView の各フィールドと GridView の Boundfields を templatefields に変換[する (クリックしてフルサイズのイメージを表示する](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image9.png))
 
-TemplateField フィールド ダイアログ ボックスで、BoundField に変換するには、BoundField 自体として同じ読み取り専用、編集、および挿入インターフェイスを示す TemplateField が生成されます。 次のマークアップの宣言構文を示しています、`ProductName`フィールドを TemplateField に変換された後、DetailsView で。
+[フィールド] ダイアログボックスを使用して BoundField を TemplateField に変換すると、BoundField 自体と同じ読み取り専用、編集、および挿入インターフェイスを示す TemplateField が生成されます。 次のマークアップは、TemplateField に変換された後の DetailsView の `ProductName` フィールドの宣言構文を示しています。
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample1.aspx)]
 
-注この TemplateField が自動的に作成された 3 つのテンプレートを持っている`ItemTemplate`、 `EditItemTemplate`、および`InsertItemTemplate`します。 `ItemTemplate` 1 つのデータ フィールドの値が表示されます (`ProductName`) ラベル Web コントロールを使用するときに、`EditItemTemplate`と`InsertItemTemplate`、テキスト ボックスのデータ フィールドに関連付けるテキスト ボックスに Web コントロールでデータ フィールドの値を提示`Text`プロパティが双方向データ バインドを使用します。 削除することはのみを使用している、DetailsView でこのページを挿入するため、`ItemTemplate`と`EditItemTemplate`2 つの TemplateFields からそのままでも問題はありませんが。
+この TemplateField には、`ItemTemplate`、`EditItemTemplate`、`InsertItemTemplate`という3つのテンプレートが自動的に作成されていることに注意してください。 `ItemTemplate` には、ラベル Web コントロールを使用して1つのデータフィールド値 (`ProductName`) が表示されます。一方、`EditItemTemplate` と `InsertItemTemplate` では、双方向のデータバインディングを使用して、データフィールドをテキストボックスの `Text` プロパティに関連付けている TextBox Web コントロールにデータフィールド値が表示されます。 ここでは、挿入のためにこのページの DetailsView のみを使用しているので、2つの TemplateFields から `ItemTemplate` と `EditItemTemplate` を削除できますが、そのままにしても問題はありません。
 
-GridView、DetailsView の機能を挿入する、変換、GridView の組み込みをサポートしていないので`ProductName`だけ結果でフィールドを TemplateField、`ItemTemplate`と`EditItemTemplate`:
+GridView では DetailsView の組み込み挿入機能がサポートされていないため、GridView の `ProductName` フィールドを TemplateField に変換すると、`ItemTemplate` と `EditItemTemplate`のみになります。
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample2.aspx)]
 
-"Convert このフィールドを TemplateField"をクリックすると、Visual Studio が持つテンプレートが変換された BoundField のユーザー インターフェイスを模倣 TemplateField を作成します。 これを確認するには、ブラウザーからこのページを参照してください。 TemplateFields の動作と外観が同じである、エクスペリエンスを BoundFields が代わりに使用する場合があります。
+[このフィールドを TemplateField に変換する] をクリックすると、Visual Studio によって TemplateField が作成され、そのテンプレートが変換された BoundField のユーザーインターフェイスを模倣します。 これを確認するには、ブラウザーを使用してこのページにアクセスします。 代わりに、BoundFields が使用されていた場合は、TemplateFields の外観と動作が同じであることがわかります。
 
 > [!NOTE]
-> 自由に、必要に応じて、テンプレートの編集インターフェイスをカスタマイズできます。 など、テキスト ボックスにすることがあります、`UnitPrice`よりも小さいボックスとしてレンダリング TemplateFields、`ProductName`テキスト ボックス。 これを実現するには、テキスト ボックスの設定できます`Columns`プロパティに適切な値を使用して絶対の幅を提供または、`Width`プロパティ。 次のチュートリアルでは、テキスト ボックスに Web コントロールの代替データ エントリを置き換えることにより、編集用のインターフェイスを完全にカスタマイズする方法がわかります。
+> 必要に応じて、テンプレートの編集インターフェイスを自由にカスタマイズできます。 たとえば、`UnitPrice` TemplateFields のテキストボックスを、`ProductName` テキストボックスよりも小さなテキストボックスとして表示したい場合があります。 これを実現するには、TextBox の `Columns` プロパティを適切な値に設定するか、`Width` プロパティを使用して絶対幅を指定します。 次のチュートリアルでは、テキストボックスを代替データ入力 Web コントロールに置き換えることにより、編集インターフェイスを完全にカスタマイズする方法について説明します。
 
-## <a name="step-3-adding-the-validation-controls-to-the-gridviewsedititemtemplate-s"></a>手順 3: GridView のする検証コントロールを追加する`EditItemTemplate`s
+## <a name="step-3-adding-the-validation-controls-to-the-gridviewsedititemtemplate-s"></a>手順 3: GridView の`EditItemTemplate` s に検証コントロールを追加する
 
-データ入力フォームを構築するときに、必須の各フィールドに入力し、指定されたすべての入力は有効で正しい形式の値であることは重要です。 ユーザーの入力が有効であることを確認するには、ASP.NET では、1 つの入力コントロールの値の検証に使用するように設計された 5 つの組み込みの検証コントロールが用意されています。
+データ入力フォームを構築するときは、ユーザーが必要なフィールドを入力し、指定されたすべての入力が有効で適切に書式設定された値であることが重要です。 ユーザーの入力が有効であることを確認するために、ASP.NET には、単一の入力コントロールの値を検証するために使用するように設計された5つの組み込みの検証コントロールが用意されています。
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx)により値が指定されているようになります
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx)値を別の Web コントロールの値または定数の値を検証しますまたは、値の形式が指定されたデータ型に対して有効であることを確認。
-- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx)値が値の範囲内であることを確認
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx)に対して値を検証、[正規表現](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx)に対して、ユーザー定義のカスタム メソッドの値を検証します。
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx)は、値が指定されていることを確認します。
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx)は、別の Web コントロール値または定数値に対して値を検証したり、指定されたデータ型に対して値の形式が有効であることを確認したりします。
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx)値が値の範囲内にあることを確認します。
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) [正規表現](http://en.wikipedia.org/wiki/Regular_expression)に対して値を検証します。
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx)カスタムのユーザー定義メソッドに対して値を検証します。
 
-これら 5 つのコントロールの詳細については、チェック アウト、[検証コントロール セクション](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx)の[ASP.NET クイック スタート チュートリアル](https://asp.net/QuickStart/aspnet/)します。
+これらの5つのコントロールの詳細については、 [ASP.NET のクイックスタートチュートリアル](https://asp.net/QuickStart/aspnet/)の[「検証コントロール」セクション](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx)を参照してください。
 
-このチュートリアルでの GridView と DetailsView の RequiredFieldValidator を使用する必要があります`ProductName`TemplateFields と DetailsView ので、RequiredFieldValidator `UnitPrice` TemplateField します。 さらに、両方のコントロールに、CompareValidator を追加する必要があります`UnitPrice`TemplateFields 確実に価格を入力が 0 以上の値を持つしが有効な通貨の形式で表示されます。
+このチュートリアルでは、DetailsView と GridView の `ProductName` TemplateFields の両方で RequiredFieldValidator と、DetailsView の `UnitPrice` TemplateField の RequiredFieldValidator を使用する必要があります。 さらに、入力した価格の値が0以上で、有効な通貨形式で表示されるように、両方のコントロールの `UnitPrice` TemplateFields に CompareValidator を追加する必要があります。
 
 > [!NOTE]
-> While ASP.NET 1.x がこれらの同じ 5 つの検証コントロール、ASP.NET 2.0 にはさまざまな機能強化が追加、メインの 2 つのクライアント側スクリプトの中、サポート、Internet Explorer 以外のブラウザーにページ上のパーティションの検証コントロールの機能検証グループ。 2.0 の検証コントロールの新機能に関する詳細についてを参照してください[詳細に分析する ASP.NET 2.0 の検証コントロール](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)します。
+> ASP.NET 1.x にはこれらの5つの検証コントロールがありましたが、ASP.NET 2.0 には、Internet Explorer 以外のブラウザーでのクライアント側スクリプトの主なサポートと、ページ上の検証コントロールをパーティション分割する機能の2つがあります。検証グループ。 2\.0 の新しい検証コントロール機能の詳細については、「 [ASP.NET 2.0 の検証コントロールの解説」](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)を参照してください。
 
-必要な検証コントロールを追加してみましょう、 `EditItemTemplate` GridView の TemplateFields で s。 これを実現するには、テンプレートの編集インターフェイスを表示する GridView のスマート タグからのテンプレートの編集リンクをクリックします。 ここでは、ドロップダウン リストから編集するには、どのテンプレートを選択できます。 編集インターフェイスを拡張するので、検証コントロールを追加する必要があります、`ProductName`と`UnitPrice`の`EditItemTemplate`秒。
+まず、必要な検証コントロールを GridView の TemplateFields の `EditItemTemplate` に追加します。 これを実現するには、GridView のスマートタグの [テンプレートの編集] リンクをクリックして、テンプレート編集インターフェイスを表示します。 ここでは、ドロップダウンリストから編集するテンプレートを選択できます。 編集インターフェイスを拡張する必要があるため、`ProductName` と `UnitPrice`の `EditItemTemplate` に検証コントロールを追加する必要があります。
 
 [![ProductName と UnitPrice の EditItemTemplates を拡張する必要があります。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image11.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image10.png)
 
-**図 4**:拡張する必要があります、`ProductName`と`UnitPrice`の`EditItemTemplate`s ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image12.png))。
+**図 4**: `ProductName` と `UnitPrice`の `EditItemTemplate` を拡張する必要があります ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image12.png)されます)
 
-`ProductName` `EditItemTemplate`、テキスト ボックスの後に配置する、テンプレートの編集インターフェイスに、ツールボックスからドラッグして、RequiredFieldValidator を追加します。
+`ProductName` `EditItemTemplate`で、[ツールボックス] から RequiredFieldValidator を追加し、テキストボックスの後に配置します。
 
-[![ProductName 後に、RequiredFieldValidator を追加します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image14.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image13.png)
+[RequiredFieldValidator を ProductName EditItemTemplate に追加 ![には](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image14.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image13.png)
 
-**図 5**:RequiredFieldValidator を追加、 `ProductName` `EditItemTemplate` ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image15.png))。
+**図 5**: `ProductName` `EditItemTemplate` に RequiredFieldValidator を追加する ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image15.png)されます)
 
-すべての検証コントロールは、1 つの ASP.NET Web コントロールの入力を検証することで動作します。 そのため、RequiredFieldValidator を追加しましたが、テキスト ボックスに対して検証する必要があることを示す必要があります、 `EditItemTemplate`; この検証コントロールの設定によって実現されます[ControlToValidate プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)に、`ID` Web コントロールを適切なのです。 テキスト ボックスは現在ではなくあまりが`ID`の`TextBox1`が、適切なものに変更してみましょう。 テンプレートのテキスト ボックスをクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`ID`から`TextBox1`に`EditProductName`します。
+すべての検証コントロールは、単一の ASP.NET Web コントロールの入力を検証することによって機能します。 そのため、追加した RequiredFieldValidator が `EditItemTemplate`のテキストボックスに対して検証する必要があることを示す必要があります。これは、検証コントロールの[ControlToValidate プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)を適切な Web コントロールの `ID` に設定することによって実現されます。 現在、テキストボックスには、`TextBox1`の nondescript `ID` がありますが、それをより適切なものに変更してみましょう。 テンプレートのテキストボックスをクリックし、プロパティウィンドウから、`ID` を `TextBox1` から `EditProductName`に変更します。
 
-[![テキスト ボックスの ID を EditProductName に変更します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
+[テキストボックスの ID を EditProductName に変更 ![には](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
 
-**図 6**:変更、テキスト ボックスの`ID`に`EditProductName`([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image18.png))。
+**図 6**: テキストボックスの `ID` を `EditProductName` に変更する ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image18.png)されます)
 
-RequiredFieldValidator を次に、設定`ControlToValidate`プロパティを`EditProductName`します。 最後に、設定、 [ErrorMessage プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)「製品の名前を提供する必要があります」と[Text プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)に"\*"。 `Text`プロパティの値を指定されている場合は、検証が失敗した場合、検証コントロールによって表示されるテキスト。 `ErrorMessage`場合を必要なプロパティ値が ValidationSummary コントロールによって使用される、`Text`プロパティの値を省略すると、`ErrorMessage`プロパティの値が無効な入力の検証コントロールによって表示されるテキストでも。
+次に、RequiredFieldValidator の `ControlToValidate` プロパティを `EditProductName`に設定します。 最後に、 [ErrorMessage プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)を "製品の名前を指定する必要があります" と[Text プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)を "\*" に設定します。 `Text` プロパティ値 (指定されている場合) は、検証が失敗した場合に検証コントロールによって表示されるテキストです。 必須である `ErrorMessage` プロパティ値は、ValidationSummary コントロールによって使用されます。`Text` プロパティ値を省略した場合、`ErrorMessage` プロパティ値は、無効な入力に対して検証コントロールによって表示されるテキストでもあります。
 
-これら 3 つ、RequiredFieldValidator のプロパティを設定した後、画面を図 7 のようなはずです。
+RequiredFieldValidator の3つのプロパティを設定した後、画面は図7のようになります。
 
-[![RequiredFieldValidator の ControlToValidate、エラー メッセージ、およびテキストのプロパティを設定します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image19.png)
+[RequiredFieldValidator の ControlToValidate、ErrorMessage、および Text プロパティを設定 ![には](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image19.png)
 
-**図 7**:RequiredFieldValidator の設定`ControlToValidate`、 `ErrorMessage`、および`Text`プロパティ ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image21.png))。
+**図 7**: RequiredFieldValidator の `ControlToValidate`、`ErrorMessage`、および `Text` の各プロパティを設定[する (クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image21.png)されます)
 
-RequiredFieldValidator を追加すると、 `ProductName` `EditItemTemplate`残っては必要な検証を追加することはすべて、 `UnitPrice` `EditItemTemplate`。 しました、このページのため、`UnitPrice`レコードを編集する省略可能な場合に、追加、RequiredFieldValidator 必要はありません。 ただし、いることを確認する CompareValidator を追加する必要があります、 `UnitPrice`、指定した場合は、0 以上でありが正しく、通貨として書式設定します。
+`ProductName` `EditItemTemplate`に追加された RequiredFieldValidator を使用すると、必要な検証が `UnitPrice` `EditItemTemplate`に追加されます。 このページでは、`UnitPrice` はレコードを編集するときには省略可能であると判断したため、RequiredFieldValidator を追加する必要はありません。 ただし、CompareValidator を追加して、指定されている場合は、`UnitPrice`が通貨として正しく書式設定され、0以上であることを確認する必要があります。
 
-CompareValidator を追加する前に、 `UnitPrice` `EditItemTemplate`、最初からテキスト ボックスに Web コントロールの ID を変更してみましょう`TextBox2`に`EditUnitPrice`します。 この変更を行った後、CompareValidator の追加設定その`ControlToValidate`プロパティを`EditUnitPrice`その`ErrorMessage`「価格は 0 以上にする必要がありますし、通貨記号を含めることはできません、」プロパティとその`Text`プロパティを"\*".
+`UnitPrice` `EditItemTemplate`に CompareValidator を追加する前に、まず、TextBox Web コントロールの ID を `TextBox2` から `EditUnitPrice`に変更してみましょう。 この変更を行った後、CompareValidator を追加し、その `ControlToValidate` プロパティを `EditUnitPrice`に設定します。その `ErrorMessage` プロパティを「0以上である必要があり、通貨記号を含めることはできません」と `Text` プロパティを「\*」に設定します。
 
-いることを示す、`UnitPrice`値が 0 以上、CompareValidator を設定する必要があります[演算子プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx)に`GreaterThanEqual`その[ValueToCompare プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx)「0」をその[プロパティを入力して](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx)に`Currency`します。 次の宣言型構文に示す、 `UnitPrice` TemplateField の`EditItemTemplate`後、これらの変更が加えられました。
+`UnitPrice` 値が0以上である必要があることを示すには、CompareValidator の[Operator プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx)を `GreaterThanEqual`に、 [valuetocompare プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx)を "0" に設定し、その[Type プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx)を `Currency`に設定します。 次の宣言構文は、これらの変更が加えられた後の `UnitPrice` TemplateField の `EditItemTemplate` を示しています。
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample3.aspx)]
 
-これらの変更を行った後は、ブラウザーでページを開きます。 名前を省略するか、製品を編集するときに、無効な価格の値を入力しようとすると、テキスト ボックスの横にある場合は、アスタリスクが表示されます。 図 8 に示すよう 19.95 ドルなどの通貨記号を含む価格の値は無効と見なされます。 CompareValidator の`Currency` `Type` (コンマ、ピリオド、カルチャ設定によってなど) の桁区切り記号と先頭プラスまたはマイナス記号、できますが、*いない*通貨記号を許可します。 この動作は、編集インターフェイスをレンダリング現在ユーザーに perplex 可能性があります、`UnitPrice`通貨形式を使用します。
+これらの変更を行った後、ブラウザーでページを開きます。 製品を編集するときに名前を省略したり、無効な価格値を入力しようとしたりすると、テキストボックスの横にアスタリスクが表示されます。 図8に示すように、$19.95 などの通貨記号を含む価格値は無効と見なされます。 CompareValidator の `Currency` `Type` では、桁区切り記号 (カルチャの設定によってはコンマやピリオドなど) と先頭の正符号または負符号を使用できますが、通貨記号は許可*されません*。 この動作は、現在、編集インターフェイスが通貨書式を使用して `UnitPrice` を表示するときに、ユーザーによって変更される可能性があります。
 
 > [!NOTE]
-> することを思い出してください、*イベントは、挿入、更新、および削除に関連付けられている*BoundField の設定のチュートリアル`DataFormatString`プロパティを`{0:c}`を通貨として書式設定するためにします。 さらに、設定、`ApplyFormatInEditMode`プロパティを true に、書式設定するインターフェイスの編集の原因で、GridView、`UnitPrice`通貨として。 Visual Studio がこれらの設定の説明し、テキスト ボックスの書式設定、BoundField を TemplateField に変換するときに`Text`プロパティをデータ バインディング構文を使用して通貨として`<%# Bind("UnitPrice", "{0:c}") %>`します。
+> *挿入、更新、および削除のチュートリアルに関連付けられ*ているイベントで、BoundField の `DataFormatString` プロパティを `{0:c}` に設定して、通貨として書式設定することを思い出してください。 さらに、`ApplyFormatInEditMode` プロパティを true に設定すると、GridView の編集インターフェイスによって `UnitPrice` が通貨として書式設定されます。 BoundField を TemplateField に変換すると、Visual Studio はこれらの設定を書き留め、データバインド構文 `<%# Bind("UnitPrice", "{0:c}") %>`を使用して、テキストボックスの `Text` プロパティを通貨として書式設定します。
 
-[![無効な入力をテキスト ボックスの横にアスタリスクが表示されます。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image22.png)
+[無効な入力のテキストボックスの横にアスタリスクが表示され ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image22.png)
 
-**図 8**:アスタリスクが表示されますへの無効な入力をテキスト ボックス ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image24.png))。
+**図 8**: 無効な入力のテキストボックスの横にアスタリスクが表示される ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image24.png)されます)
 
-として検証機能の中では、ユーザーが許容されないレコードを編集するときに、通貨記号を手動で削除する必要があります。 この問題を解決するのには、3 つのオプションがあります。
+検証はそのままの状態で機能しますが、ユーザーはレコードを編集するときに通貨記号を手動で削除する必要があります。これは許容できません。 これを解決するには、次の3つのオプションがあります。
 
-1. 構成、`EditItemTemplate`ように、`UnitPrice`値が通貨として書式設定されません。
-2. CompareValidator の削除と、正しく書式設定された通貨値を正しくチェック RegularExpressionValidator に置き換えることによって、通貨記号を入力するユーザーを許可します。 ここでの問題は、通貨値を検証する正規表現が美しいことし、カルチャ設定を反映する場合は、コードの記述になります。
-3. 検証コントロールを完全に削除し、gridview のサーバー側の検証ロジックに依存`RowUpdating`イベント ハンドラー。
+1. `UnitPrice` の値が通貨として書式設定されないように `EditItemTemplate` を構成します。
+2. ユーザーが通貨記号を入力できるようにするには、CompareValidator を削除し、適切に書式設定された通貨値を適切にチェックする RegularExpressionValidator に置き換えます。 ここでの問題は、通貨の値を検証する正規表現が、カルチャの設定を組み込む必要がある場合にコードを記述しなければならないということです。
+3. 検証コントロールを完全に削除し、GridView の `RowUpdating` イベントハンドラーでサーバー側の検証ロジックに依存します。
 
-この演習ではオプション 1 を使用します。 現在、`UnitPrice`は、テキスト ボックス内のデータ バインディング式のための通貨として書式設定、 `EditItemTemplate`:`<%# Bind("UnitPrice", "{0:c}") %>`します。 バインド ステートメントを変更する`Bind("UnitPrice", "{0:n2}")`、有効桁数 2 桁の番号として、結果の書式を設定します。 これ行う宣言型構文またはから DataBindings の編集リンクをクリックして直接、 `EditUnitPrice`  テキスト ボックスに、 `UnitPrice` TemplateField の`EditItemTemplate`(図 9 および 10 を参照してください)。
+この演習では、オプション #1 に移りましょう。 現在、`UnitPrice` は、`EditItemTemplate`: `<%# Bind("UnitPrice", "{0:c}") %>`のテキストボックスのデータバインド式により、通貨として書式設定されます。 Bind ステートメントを `Bind("UnitPrice", "{0:n2}")`に変更します。これにより、結果が2桁の精度で数値として書式設定されます。 これを行うには、宣言型の構文を使用するか、`UnitPrice` TemplateField の `EditItemTemplate` の [`EditUnitPrice`] ボックスの [連結の編集] リンクをクリックします (図9と10を参照)。
 
-[![テキスト ボックスの DataBindings の編集リンクをクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image25.png)
+[テキストボックスの [連結の編集] リンクをクリック ![ます。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image25.png)
 
-**図 9**:テキスト ボックスの [DataBindings の編集リンクをクリックします ([フルサイズの画像を表示する] をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image27.png))。
+**図 9**: テキストボックスの [相互接続の編集] リンクをクリック[する (クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image27.png)されます)
 
-[![バインド ステートメントで、書式指定子を指定します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image28.png)
+[![、バインドステートメントで書式指定子を指定します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image28.png)
 
-**図 10**:指定の書式指定子、`Bind`ステートメント ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image30.png))。
+**図 10**: `Bind` ステートメントで書式指定子を指定[する (クリックしてフルサイズのイメージを表示する](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image30.png))
 
-この変更によりは、編集インターフェイスで書式設定された料金は、グループ区切り記号としてコンマと、小数点区切り文字としてピリオドが含まれていますが、通貨記号をオフのままです。
+この変更により、編集インターフェイスの書式設定された価格には、桁区切り記号としてコンマが、小数点区切り文字としてピリオドが付きますが、通貨記号はオフのままになります。
 
 > [!NOTE]
-> `UnitPrice` `EditItemTemplate` RequiredFieldValidator、ポストバックを発生したりして、更新ロジックを開始する許可が含まれていません。 ただし、`RowUpdating`からコピーされたイベント ハンドラー、 *、イベントに関連付けられている挿入、更新、および削除の確認*チュートリアルにあるプログラムによるチェックが含まれています、`UnitPrice`提供されます。 このロジックを削除するには、そのまま使用でお気軽に、または、RequiredFieldValidator への追加、 `UnitPrice` `EditItemTemplate`します。
+> `UnitPrice` `EditItemTemplate` には RequiredFieldValidator が含まれていないため、議論にポストバックし、更新ロジックを開始することができます。 ただし、「*挿入、更新、および削除」チュートリアルに関連付けられているイベントを調べ*てからコピーした `RowUpdating` イベントハンドラーには、`UnitPrice` が確実に提供されるようにプログラムによる確認が含まれています。 このロジックを削除するか、そのままにしておくか、`UnitPrice` `EditItemTemplate`に RequiredFieldValidator を追加してください。
 
-## <a name="step-4-summarizing-data-entry-problems"></a>手順 4: データ エントリの問題の要約
+## <a name="step-4-summarizing-data-entry-problems"></a>手順 4: データ入力の問題の概要
 
-ASP.NET には、5 つの検証コントロールのほか、 [ValidationSummary コントロール](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)が表示される、`ErrorMessage`の無効なデータが検出された検証コントロール。 この概要データは、モーダル、クライアント側のメッセージ ボックスから web ページ上のテキストとして表示できます。 クライアント側のメッセージ ボックス検証問題の集計を含めるには、このチュートリアルを強化しましょう。
+5つの検証コントロールに加えて、ASP.NET には[Validationsummary コントロール](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)が含まれています。このコントロールには、無効なデータを検出した検証コントロールの `ErrorMessage` が表示されます。 この概要データは、web ページ上のテキストとして、またはモーダルのクライアント側のメッセージボックスを使用して表示できます。 このチュートリアルを強化し、検証の問題を要約するクライアント側のメッセージボックスを追加してみましょう。
 
-これを実現するには、ツールボックスからデザイナーに ValidationSummary コントロールをドラッグします。 検証コントロールの位置は関係ありません本当にのみ、メッセージ ボックスとしての概要を表示するように構成していきますので。 コントロールを追加すると、次のように設定します。 その[ShowSummary プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)に`False`とその[ShowMessageBox プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)に`True`します。 これにより、検証エラーは、クライアント側のメッセージ ボックスにまとめたものです。
+これを実現するには、[ツールボックス] から [ValidationSummary] コントロールをデザイナーにドラッグします。 検証コントロールの場所は、概要を messagebox としてのみ表示するように構成するため、本当に重要ではありません。 コントロールを追加した後、 [Showsummary プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)を `False` に設定し、 [showsummary プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)を `True`に設定します。 この追加により、すべての検証エラーがクライアント側のメッセージボックスにまとめられます。
 
-[![検証エラーがクライアント側のメッセージ ボックスにまとめます](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)
+[検証エラーがクライアント側のメッセージボックスにまとめられている ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)
 
-**図 11**:クライアント側のメッセージ ボックスで検証エラーをまとめます ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image33.png))。
+**図 11**: 検証エラーがクライアント側のメッセージボックスにまとめられている ([クリックしてフルサイズのイメージを表示する](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image33.png))
 
-## <a name="step-5-adding-the-validation-controls-to-the-detailsviewsinsertitemtemplate"></a>手順 5: DetailsView のする検証コントロールを追加します。`InsertItemTemplate`
+## <a name="step-5-adding-the-validation-controls-to-the-detailsviewsinsertitemtemplate"></a>手順 5: DetailsView の`InsertItemTemplate` に検証コントロールを追加する
 
-このチュートリアルでは、DetailsView の挿入インターフェイスに検証コントロールを追加します。 DetailsView のテンプレートに検証コントロールを追加するプロセスは、手順 3 で説明されているのと同じです。そのため、この手順では、タスクによって breeze します。 GridView のと同様`EditItemTemplate`s、ことをお勧めする名前を変更する、 `ID` 、あまりからテキスト ボックスの s`TextBox1`と`TextBox2`に`InsertProductName`と`InsertUnitPrice`します。
+このチュートリアルでは、検証コントロールを DetailsView の挿入インターフェイスに追加します。 DetailsView のテンプレートに検証コントロールを追加するプロセスは、手順3で確認したものと同じです。このため、この手順では簡単に説明します。 GridView の `EditItemTemplate` で行ったように、テキストボックスの `ID` の名前を nondescript `TextBox1` から `InsertProductName` に変更し、`TextBox2` することをお勧めします。
 
-RequiredFieldValidator を追加、 `ProductName` `InsertItemTemplate`します。 設定、`ControlToValidate`を`ID`テンプレートでは、テキスト ボックスの`Text`プロパティを"\*"とその`ErrorMessage`プロパティを「製品の名前を指定する必要があります」。
+`ProductName` `InsertItemTemplate`に RequiredFieldValidator を追加します。 `ControlToValidate` を、テンプレートのテキストボックスの `ID` に設定し、その `Text` プロパティを "\*" に設定し、その `ErrorMessage` プロパティを「製品の名前を指定する必要があります」に設定します。
 
-`UnitPrice`の RequiredFieldValidator を追加する新しいレコードを追加するときに、このページに必要な、 `UnitPrice` `InsertItemTemplate`設定、その`ControlToValidate`、`Text`と`ErrorMessage`プロパティ適切にします。 CompareValidator を最後に、追加、 `UnitPrice` `InsertItemTemplate`同様に、構成、 `ControlToValidate`、 `Text`、 `ErrorMessage`、 `Type`、 `Operator`、および`ValueToCompare`を使用したときと同じようにプロパティ`UnitPrice`の gridview の CompareValidator`EditItemTemplate`します。
+新しいレコードを追加するときにこのページに `UnitPrice` が必要になるため、`UnitPrice` `InsertItemTemplate`に RequiredFieldValidator を追加し、その `ControlToValidate`、`Text`、および `ErrorMessage` の各プロパティを適切に設定します。 最後に、CompareValidator を `UnitPrice` `InsertItemTemplate` に追加して、`ControlToValidate`、`Text`、`ErrorMessage`、`Type`、`Operator`、および `ValueToCompare` の各プロパティを構成します。これは、GridView の `UnitPrice`で `EditItemTemplate`の CompareValidator を使用したのと同じです。
 
-これらの検証コントロールを追加すると、新しい成果物の名前が指定されていない場合、またはその価格が負の数値である場合は、システムに追加または不正にフォーマットすることはできません。
+これらの検証コントロールを追加した後、名前が指定されていない場合、またはその価格が負の数値または不適切な形式である場合、システムに新しい製品を追加することはできません。
 
-[![DetailsView の挿入インターフェイスに検証ロジックが追加されました](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image34.png)
+[![検証ロジックが DetailsView の挿入インターフェイスに追加されました](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image34.png)
 
-**図 12**:DetailsView の挿入インターフェイスに検証ロジックが追加されました ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image36.png))。
+**図 12**: DetailsView の挿入インターフェイスに検証ロジックが追加されました ([クリックすると、フルサイズのイメージが表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image36.png)されます)
 
-## <a name="step-6-partitioning-the-validation-controls-into-validation-groups"></a>手順 6: 検証コントロールの検証グループにパーティション分割
+## <a name="step-6-partitioning-the-validation-controls-into-validation-groups"></a>手順 6: 検証コントロールを検証グループに分割する
 
-ページは、2 つの異なる論理的に検証コントロールのセットで構成されます。 インターフェイスの編集、GridView に対応すると、DetailsView に対応するインターフェイスを挿入するのです。 ポストバックが発生した場合、既定*すべて*ページの検証コントロールがチェックされます。 ただし、レコードを編集するときに、検証する検証コントロールを DetailsView の挿入インターフェイスのほしくありません。 図 13 ユーザーが、製品を完全に有効な値を編集するときに、現在のジレンマを示していますを挿入のインターフェイスで、名前と価格値は空であるために、クリックして更新プログラムが、検証エラーを発生します。
+このページは、論理的に異なる2つの検証コントロールセットで構成されています。これは、GridView の編集インターフェイスに対応するものと、DetailsView の挿入インターフェイスに対応するものです。 既定では、ポストバックが発生すると、ページ上の*すべて*の検証コントロールがチェックされます。 ただし、レコードを編集するときに、DetailsView の挿入インターフェイスの検証コントロールで検証を行わないようにします。 図13は、ユーザーが完全に有効な値を持つ製品を編集しているときの現在のジレンマを示しています。 [更新] をクリックすると、挿入インターフェイスの名前と価格値が空白になっているため、検証エラーが発生します。
 
-[![挿入インターフェイスの検証コントロールを起動すると、製品を更新](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image37.png)
+[製品を更新 ![と、挿入インターフェイスの検証コントロールが起動されます。](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image37.png)
 
-**図 13**:挿入するインターフェイスの検証コントロールを起動すると、製品を更新 ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image39.png))。
+**図 13**: 製品を更新すると、挿入インターフェイスの検証コントロールが起動します ([クリックすると、フルサイズのイメージが表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image39.png)されます)
 
-ASP.NET 2.0 の検証コントロールは、検証を使用してグループに分割することができます、`ValidationGroup`プロパティ。 グループ内の検証コントロールのセットを関連付けるを設定するだけの`ValidationGroup`プロパティを同じ値にします。 このチュートリアルでは、設定、`ValidationGroup`を GridView の TemplateFields の検証コントロールのプロパティ`EditValidationControls`と`ValidationGroup`に DetailsView の TemplateFields のプロパティ`InsertValidationControls`します。 これらの変更は、宣言型マークアップで直接実行できますか、デザイナーの使用時のプロパティ ウィンドウからインターフェイスのテンプレートを編集します。
+ASP.NET 2.0 の検証コントロールは、`ValidationGroup` プロパティを使用して検証グループにパーティション分割できます。 グループ内の一連の検証コントロールを関連付けるには、単に `ValidationGroup` プロパティを同じ値に設定します。 このチュートリアルでは、GridView の TemplateFields フィールドの検証コントロールの `ValidationGroup` プロパティを `EditValidationControls` に設定し、DetailsView の TemplateFields の `ValidationGroup` プロパティを `InsertValidationControls`に設定します。 これらの変更は、宣言マークアップで直接行うことも、デザイナーのテンプレートの編集インターフェイスを使用する場合はプロパティウィンドウを使用して行うこともできます。
 
-だけでなく、検証コントロール、ボタン、および ASP.NET 2.0 のボタンに関連するコントロールを含めることも、`ValidationGroup`プロパティ。 検証グループの検証コントロールの有効性チェックは同じボタンでポストバックが発生した場合にのみ`ValidationGroup`プロパティの設定。 DetailsView の [挿入] ボタンをトリガーするためになど、 `InsertValidationControls` CommandField を設定する必要があります。 検証グループ`ValidationGroup`プロパティを`InsertValidationControls`(図 14 を参照してください)。 GridView をさらに、設定 [commandfield] の`ValidationGroup`プロパティを`EditValidationControls`します。
+検証コントロールに加えて、ASP.NET 2.0 のボタンおよびボタン関連のコントロールには `ValidationGroup` プロパティも含まれています。 検証グループの検証コントロールは、同じ `ValidationGroup` プロパティ設定を持つボタンによってポストバックが発生した場合にのみ、有効性がチェックされます。 たとえば、DetailsView の Insert ボタンを使用して `InsertValidationControls` 検証グループをトリガーするには、CommandField の `ValidationGroup` プロパティを `InsertValidationControls` に設定する必要があります (図14を参照)。 さらに、GridView の CommandField's `ValidationGroup` プロパティを `EditValidationControls`に設定します。
 
-[![セット、DetailsView の InsertValidationControls CommandField の ValidationGroup プロパティ](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image40.png)
+[DetailsView の CommandField's ValidationGroup プロパティを InsertValidationControls に設定 ![](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image40.png)
 
-**図 14**:DetailsView の設定 [commandfield] の`ValidationGroup`プロパティを`InsertValidationControls`([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image42.png))。
+**図 14**: DetailsView の commandfield's `ValidationGroup` プロパティを `InsertValidationControls` に設定する ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image42.png)されます)
 
-これらの変更後の GridView、DetailsView TemplateFields とコマンドに次のようななる必要があります。
+これらの変更が完了すると、DetailsView および GridView の TemplateFields および CommandFields は次のようになります。
 
 DetailsView の TemplateFields および CommandField
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample4.aspx)]
 
-GridView の CommandField と TemplateFields
+GridView の CommandField フィールドと TemplateFields
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample5.aspx)]
 
-この時点で、編集に固有の検証コントロール起動 GridView の Update ボタンがクリックされたときのみと insert 固有の検証コントロールの火災 DetailsView の挿入 ボタンをクリックすると、図 13 で強調表示されている問題を解決する場合にのみです。 ただし、この変更により、ValidationSummary コントロールは表示されなくなります無効なデータを入力するときにします。 ValidationSummary コントロールも含まれています、`ValidationGroup`プロパティと、そのグループの検証でそれらの検証コントロールの概要情報は表示のみ。 そのため、このページのいずれかで 2 つの検証コントロールに必要があります、`InsertValidationControls`検証グループの 1 つと`EditValidationControls`します。
+この時点で、編集固有の検証コントロールは、GridView の [更新] ボタンがクリックされ、DetailsView の [挿入] ボタンがクリックされたときにのみ、挿入固有の検証コントロールが起動し、図13で強調表示されている問題を解決します。 ただし、この変更により、無効なデータを入力したときに ValidationSummary コントロールが表示されなくなりました。 ValidationSummary コントロールには、`ValidationGroup` プロパティも含まれており、検証グループ内の検証コントロールの概要情報のみが表示されます。 したがって、このページには、`InsertValidationControls` 検証グループ用と `EditValidationControls`用の2つの検証コントロールが必要です。
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample6.aspx)]
 
-これにより、チュートリアルが完了しました。
+この追加により、チュートリアルは完了です。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-BoundFields には、両方の挿入と編集インターフェイスを提供できます、インターフェイス、カスタマイズできません。 一般的には、編集および挿入インターフェイスに必要な入力の有効な形式で入力をことを確認する検証コントロールを追加します。 これを実現する TemplateFields に、BoundFields を変換して、検証コントロールを適切なテンプレートに追加する必要があります。 このチュートリアルでは拡張の例では、 *、イベントに関連付けられている挿入、更新、および削除の確認*インターフェイスと GridView の挿入のチュートリアルでは、両方、DetailsView に検証コントロールを追加インターフェイスを編集します。 さらに、ValidationSummary コントロールを使用する検証の概要情報を表示する方法と、ページの検証コントロールを個別の検証グループに分割する方法を説明しました。
+BoundFields は挿入と編集の両方のインターフェイスを提供できますが、インターフェイスはカスタマイズできません。 一般的には、ユーザーが必要な入力を正しい形式で入力できるように、編集および挿入インターフェイスに検証コントロールを追加します。 これを実現するには、BoundFields を TemplateFields に変換し、適切なテンプレートに検証コントロールを追加する必要があります。 このチュートリアルでは、「*挿入、更新、および削除」チュートリアルに関連付けられているイベントを調べ*、DetailsView の挿入インターフェイスと GridView の編集インターフェイスの両方に検証コントロールを追加して、この例を拡張しています。 さらに、ValidationSummary コントロールを使用して概要検証情報を表示する方法と、ページ上の検証コントロールを個別の検証グループに分割する方法についても説明しました。
 
-このチュートリアルで説明したように TemplateFields を含める検証コントロールを編集および挿入インターフェイスを使用できます。 TemplateFields 拡張することも、追加の入力 Web コントロールを含める方が適切な Web コントロールによって置き換えられるテキスト ボックスを有効にします。 次のチュートリアルでは、外部キーを編集するときに最適なデータ バインド DropDownList コントロールと TextBox コントロールを置換する方法を見ていきます (など`CategoryID`または`SupplierID`で、`Products`テーブル)。
+このチュートリアルで説明したように、TemplateFields を使用すると、編集および挿入インターフェイスを拡張して検証コントロールを含めることができます。 TemplateFields を拡張して追加の入力 Web コントロールを含めることもできます。これにより、テキストボックスをより適切な Web コントロールに置き換えることができます。 次のチュートリアルでは、テキストボックスコントロールをデータバインド DropDownList コントロールに置き換える方法について説明します。これは、外部キー (`CategoryID`、`Products` テーブル内の `SupplierID` など) を編集する場合に最適です。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Liz Shulok と Zack Jones でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Liz Shulok と Zack Jones でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)

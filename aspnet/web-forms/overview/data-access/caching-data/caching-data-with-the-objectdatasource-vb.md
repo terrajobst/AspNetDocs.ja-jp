@@ -1,54 +1,54 @@
 ---
 uid: web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
-title: ObjectDataSource (VB) でデータをキャッシュ |Microsoft Docs
+title: ObjectDataSource (VB) を使用したデータのキャッシュMicrosoft Docs
 author: rick-anderson
-description: キャッシュすると、低速と高速な Web アプリケーションの違いを意味します。 このチュートリアルでは、ASP.NET でのキャッシュで詳しく説明する 4 つの 1 つ目は.
+description: キャッシュは、低速で高速な Web アプリケーションの違いを意味します。 このチュートリアルでは、ASP.NET でのキャッシュの詳細について説明します。
 ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: 2e56a733-5512-48a6-9276-70a65bbe4d5d
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bdec60c1d031cb8b6516f03801b5306a1c9fbe09
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 16f20d9a0f4f677073174d680418b278dba40b07
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108224"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74612227"
 ---
 # <a name="caching-data-with-the-objectdatasource-vb"></a>ObjectDataSource でデータをキャッシュする (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_58_VB.exe)または[PDF のダウンロード](caching-data-with-the-objectdatasource-vb/_static/datatutorial58vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_58_VB.exe)または[PDF のダウンロード](caching-data-with-the-objectdatasource-vb/_static/datatutorial58vb1.pdf)
 
-> キャッシュすると、低速と高速な Web アプリケーションの違いを意味します。 このチュートリアルでは、ASP.NET でのキャッシュで詳しく説明する 4 つの 1 つ目です。 キャッシュの主な概念と ObjectDataSource コントロールを通じて、プレゼンテーション層にキャッシュを適用する方法について説明します。
+> キャッシュは、低速で高速な Web アプリケーションの違いを意味します。 このチュートリアルでは、ASP.NET でのキャッシュの詳細について説明します。 キャッシュの主要な概念と、ObjectDataSource コントロールを介してプレゼンテーション層にキャッシュを適用する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-コンピューター サイエンス、*キャッシュ*データまたは取得のコストが情報を取得し、アクセスする方が手軽な場所にそのコピーを格納するプロセスです。 データ ドリブンのアプリケーションでは、大規模で複雑なクエリはよく、アプリケーションの実行時間の大部分を消費します。 このようなアプリケーションのパフォーマンス、次は、アプリケーション メモリに負荷の高いデータベース クエリの結果を格納することで多くの場合、改善できます。
+コンピューターサイエンスでは、*キャッシュ*とは、アクセスしやすくなる場所にデータまたは情報を格納するのにコストがかかる情報を取得するプロセスです。 データドリブンアプリケーションでは、大規模で複雑なクエリは、通常、アプリケーションの実行時間の大部分を消費します。 このようなアプリケーションのパフォーマンスは、多くの場合、負荷の高いデータベースクエリの結果をアプリケーションのメモリに格納することで改善できます。
 
-ASP.NET 2.0 には、さまざまなキャッシュ オプションが用意されています。 キャッシュできる、web ページ全体またはユーザー コントロールにレンダリングされますマークアップ*出力キャッシュ*します。 ObjectDataSource や SqlDataSource コントロールでは、コントロール レベルでキャッシュするためにも、データを許可するキャッシュの機能を提供します。 ASP.NET s*データ キャッシュ*により、ページ開発者は、プログラムでのキャッシュ オブジェクトをリッチなキャッシュ API を提供します。 このチュートリアルと ObjectDataSource s の使用について説明します、次の 3 つのデータ キャッシュだけでなく、機能をキャッシュします。 起動時にアプリケーション全体のデータをキャッシュする方法と新しい SQL キャッシュ依存関係を使用してキャッシュされたデータを保持する方法についても説明します。 これらのチュートリアルでは、出力キャッシュは表示されません。 出力キャッシュの詳細については、次を参照してください。 [ASP.NET 2.0 で出力キャッシュ](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)します。
+ASP.NET 2.0 には、さまざまなキャッシュオプションが用意されています。 *出力キャッシュ*を使用して、web ページまたはユーザーコントロールに表示されるマークアップ全体をキャッシュできます。 ObjectDataSource および SqlDataSource コントロールはキャッシュ機能も提供しているため、コントロールレベルでデータをキャッシュできます。 および ASP.NET s*データキャッシュ*は、ページ開発者がオブジェクトをプログラムによってキャッシュできるようにする、豊富なキャッシュ API を提供します。 このチュートリアルと次の3つのチュートリアルでは、ObjectDataSource のキャッシュ機能とデータキャッシュを使用して検証します。 また、起動時にアプリケーション全体のデータをキャッシュする方法と、SQL キャッシュの依存関係を使用してキャッシュされたデータを最新の状態に保つ方法についても説明します。 これらのチュートリアルでは、出力キャッシュについては説明しません。 出力キャッシュの詳細については、「 [ASP.NET 2.0 の出力キャッシュ](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)」を参照してください。
 
-キャッシュを適用できるアーキテクチャでは、任意の場所でデータ アクセス層からのプレゼンテーション レイヤーを通して行われます。 このチュートリアルでは、ObjectDataSource コントロールを通じて、プレゼンテーション層にキャッシュを適用することに紹介します。 について説明します、次のチュートリアルでは、ビジネス ロジック層でデータをキャッシュします。
+キャッシュは、データアクセス層からプレゼンテーション層まで、アーキテクチャ内の任意の場所で適用できます。 このチュートリアルでは、ObjectDataSource コントロールを介してプレゼンテーション層にキャッシュを適用する方法について説明します。 次のチュートリアルでは、ビジネスロジック層のキャッシュデータについて説明します。
 
-## <a name="key-caching-concepts"></a>キーのキャッシュの概念
+## <a name="key-caching-concepts"></a>キーキャッシュの概念
 
-秒のアプリケーションを大幅に改善できるキャッシュ全体のパフォーマンスとスケーラビリティが生成する負荷の高いデータを取得しより効率的にアクセスできる場所にそのコピーを格納します。 キャッシュは、実際、基になるデータのコピーだけを保持しているため、古いかかるまたは*古い*、基になるデータが変更された場合。 このページの開発者がキャッシュ項目があるされる条件を指定できます*削除*キャッシュからいずれかを使用します。
+キャッシュを使用すると、アプリケーションのパフォーマンスとスケーラビリティを大幅に向上させることができます。データを生成して、より効率的にアクセスできる場所に格納することによって、アプリケーションの全体的なパフォーマンスとスケーラビリティを向上させることができます。 キャッシュは、実際の基になるデータのコピーだけを保持しているため、基になるデータが変更された場合、古くなったり、*古く*なったりする可能性があります。 これに対処するために、ページ開発者は、次のいずれかを使用して、キャッシュ項目がキャッシュから*削除*される条件を示すことができます。
 
-- **時間ベースの条件**絶対またはスライド時間のキャッシュに項目を追加することがあります。 たとえば、ページの開発者は、60 秒間の期間に可能性があります。 絶対時間の場合は、キャッシュされた項目にアクセスした頻度に関係なく、キャッシュに追加された後、60 秒が削除されます。 スライディング継続時間が、キャッシュされた項目は最終アクセス後に 60 秒間に削除されます。
-- **依存関係に基づく条件**依存関係がキャッシュに追加されたときに項目を関連付けることができます。 項目 %s の依存関係が変更されたときに、キャッシュから削除されます。 ファイルを別のキャッシュ項目または 2 つの組み合わせ、依存関係があります。 ASP.NET 2.0 では、開発者は、キャッシュに項目を追加して、それを基になるデータベースのデータが変更されたときの削除を有効にする SQL キャッシュ依存関係もできます。 近日出版予定の SQL キャッシュ依存関係を究明する[を使用して SQL キャッシュ依存関係](using-sql-cache-dependencies-vb.md)チュートリアル。
+- **時間ベースの条件**キャッシュに項目を追加することができます。 たとえば、ページ開発者は、60秒という期間を示すことができます。 絶対期間では、キャッシュされた項目は、アクセスされた頻度に関係なく、キャッシュに追加された後、60秒間削除されます。 スライディング継続時間では、キャッシュされた項目は最後のアクセスから60秒後に削除されます。
+- **依存関係ベースの条件**キャッシュに追加されたときに、依存関係を項目に関連付けることができます。 項目の依存関係が変更されると、項目はキャッシュから削除されます。 依存関係には、ファイル、別のキャッシュ項目、またはその2つの組み合わせを使用できます。 ASP.NET 2.0 では、SQL キャッシュの依存関係も許可されます。これにより、開発者は項目をキャッシュに追加し、基になるデータベースデータが変更されたときに削除することができます。 Sql キャッシュの依存関係については、後の[「](using-sql-cache-dependencies-vb.md) sql キャッシュの依存関係」のチュートリアルで確認します。
 
-指定された削除条件に関係なく、キャッシュ内の項目があります*清掃*前に、時間ベースまたは依存関係に基づく条件は満たされました。 キャッシュのキャパシティに達して新しいファイルを追加する前に、既存の項目を削除してください。 その結果、使用する場合プログラムでキャッシュされたデータが s を常に想定することが重要、キャッシュされたデータいない存在できます。 次のチュートリアルでは、プログラムでキャッシュからデータにアクセスするときに使用するパターンについて説明します*アーキテクチャでデータをキャッシュ*します。
+指定された削除条件に関係なく、キャッシュ内の項目は、時間ベースまたは依存関係ベースの条件が満たされる前に*清掃*されることがあります。 キャッシュが容量に達した場合は、既存の項目を削除してから、新しい項目を追加する必要があります。 その結果、プログラムを使用してキャッシュされたデータを操作するときは、キャッシュされたデータが存在しないと常に想定することが重要です。 次のチュートリアルでは、プログラムによってキャッシュからデータにアクセスするときに使用するパターンについて説明します。*アーキテクチャでのデータのキャッシュ*に関する記事をご覧ください。
 
-キャッシュは、アプリケーションから複数のパフォーマンスをつかんでの経済的な手段を提供します。 として[Steven Smith](http://aspadvice.com/blogs/ssmith/)彼の記事で示される[ASP.NET キャッシュします。技術とベスト プラクティス](https://msdn.microsoft.com/library/aa478965.aspx):
+キャッシュは、アプリケーションのパフォーマンスを向上させる経済的な手段を提供します。 ASP.NET の記事では、[秋山 Smith](http://aspadvice.com/blogs/ssmith/)示されるとして、次のよう[な手法とベストプラクティス](https://msdn.microsoft.com/library/aa478965.aspx)をご紹介します。
 
-キャッシュは、上達するための十分なパフォーマンス、多くの時間と分析を必要とせず、適切な方法です。 メモリが低コスト、30 秒、1 日または週に、コードまたはデータベースの最適化を試みるをかける代わりに、出力をキャッシュすることによって必要なパフォーマンスを得ることができる場合のキャッシュ ソリューションを実行するため ([ok] は秒前-30 のデータと仮定) 移動します。 最終的には、不適切なデザインはおそらく追いつきます、使用するため、コースのアプリケーションを正しく設計するとき必要があります。 良いための十分なパフォーマンスを向上を取得する場合は、キャッシュできる優れた [方法]、そのためには時間がある場合、後で、アプリケーションをリファクターする時間を購入します。
+キャッシュを使用すると、時間と分析を頻繁に行うことなく、十分なパフォーマンスを得ることができます。 メモリは安価であるため、コードまたはデータベースの最適化を試みる1日または1週間ではなく、30秒間の出力をキャッシュすることによって、必要なパフォーマンスを得ることができます。キャッシュソリューション (30 秒前のデータが ok であることを前提としています) とに移動します。 最終的には、設計が悪いと、アプリケーションを正しく設計する必要があります。 しかし、現在、十分なパフォーマンスを発揮する必要がある場合は、キャッシュが優れた [アプローチ] であるため、後でアプリケーションをリファクタリングする時間を確保できます。
 
-キャッシュと、ほどのパフォーマンスの強化が提供することができます、適用可能でないすべての状況でなど、データをリアルタイムで頻繁に更新を使用するかも間もなく有効期間の古いデータが許容されないアプリケーションとします。 ただし、大半のアプリケーションでは、キャッシュの使用します。 ASP.NET 2.0 でのキャッシュの詳細についてを参照してください、[パフォーマンス キャッシュ](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/default.aspx)のセクション、 [ASP.NET 2.0 クイック スタート チュートリアル](https://quickstarts.asp.net/QuickStartv20/aspnet/)します。
+キャッシュを使用すると、ほどのパフォーマンスを向上させることができますが、リアルタイムで頻繁に更新されるデータを使用するアプリケーションや、間もなく期限切れになる古いデータを使用できない場合など、すべての状況で適用することはできません。 しかし、ほとんどのアプリケーションでは、キャッシュを使用する必要があります。 ASP.NET 2.0 でのキャッシュの背景については、 [ASP.NET 2.0 のクイックスタートチュートリアル](https://quickstarts.asp.net/QuickStartv20/aspnet/)の[パフォーマンスのキャッシュ](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/default.aspx)に関するセクションを参照してください。
 
-## <a name="step-1-creating-the-caching-web-pages"></a>手順 1: Web ページのキャッシュを作成します。
+## <a name="step-1-creating-the-caching-web-pages"></a>手順 1: キャッシュ Web ページの作成
 
-ObjectDataSource s のキャッシュ機能の探索を始める前に、このチュートリアルと、次の 3 つの必要がありますが、web サイト プロジェクトで ASP.NET ページを作成する最初に少し s を使用できます。 という名前の新しいフォルダーを追加することで開始`Caching`します。 次に、次の ASP.NET ページを使用する各ページに関連付けることを確認、そのフォルダーに追加、`Site.master`マスター ページ。
+ObjectDataSource のキャッシュ機能の探索を開始する前に、まず、このチュートリアルに必要な ASP.NET ページを web サイトプロジェクトに作成し、次の3つについて説明します。 まず、`Caching`という名前の新しいフォルダーを追加します。 次に、次の ASP.NET ページをそのフォルダーに追加します。各ページは `Site.master` マスターページに関連付けられていることを確認してください。
 
 - `Default.aspx`
 - `ObjectDataSource.aspx`
@@ -56,160 +56,160 @@ ObjectDataSource s のキャッシュ機能の探索を始める前に、この�
 - `AtApplicationStartup.aspx`
 - `SqlCacheDependencies.aspx`
 
-![キャッシュに関連するチュートリアルについては、ASP.NET ページに追加します。](caching-data-with-the-objectdatasource-vb/_static/image1.png)
+![キャッシュ関連のチュートリアルの ASP.NET ページを追加する](caching-data-with-the-objectdatasource-vb/_static/image1.png)
 
-**図 1**:キャッシュに関連するチュートリアルについては、ASP.NET ページに追加します。
+**図 1**: キャッシュ関連のチュートリアルの ASP.NET ページを追加する
 
-などの他のフォルダーで`Default.aspx`で、`Caching`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
+他のフォルダーと同様に、`Caching` フォルダー内の `Default.aspx` には、そのセクションのチュートリアルが一覧表示されます。 `SectionLevelTutorialListing.ascx` ユーザーコントロールがこの機能を提供していることを思い出してください。 したがって、ソリューションエクスプローラーからページデザインビューにドラッグして、このユーザーコントロールを `Default.aspx` に追加します。
 
-[![図 2:Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
+[![図 2: default.aspx に SectionLevelTutorialListing ユーザーコントロールを追加する](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
 
-**図 2**:図 2: 追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image4.png))。
+**図 2**: 図 2: `Default.aspx` に `SectionLevelTutorialListing.ascx` ユーザーコントロールを追加する ([クリックすると、フルサイズの画像が表示](caching-data-with-the-objectdatasource-vb/_static/image4.png)されます)
 
-最後に、これらのページを追加するエントリとして、`Web.sitemap`ファイル。 具体的には、バイナリ データで作業した後、次のマークアップを追加`<siteMapNode>`:
+最後に、これらのページをエントリとして `Web.sitemap` ファイルに追加します。 具体的には、バイナリデータ `<siteMapNode>`の操作後に、次のマークアップを追加します。
 
 [!code-xml[Main](caching-data-with-the-objectdatasource-vb/samples/sample1.xml)]
 
-更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューで、チュートリアルについては、キャッシュ項目できるようになりました。
+`Web.sitemap`を更新した後、ブラウザーを使用してチュートリアル web サイトを表示します。 左側のメニューには、キャッシュのチュートリアルの項目が含まれるようになりました。
 
-![サイト マップのチュートリアルでは、キャッシュ エントリになりました](caching-data-with-the-objectdatasource-vb/_static/image5.png)
+![サイトマップにキャッシュチュートリアルのエントリが含まれるようになりました。](caching-data-with-the-objectdatasource-vb/_static/image5.png)
 
-**図 3**:サイト マップのチュートリアルでは、キャッシュ エントリになりました
+**図 3**: サイトマップにキャッシュチュートリアルのエントリが含まれるようになった
 
-## <a name="step-2-displaying-a-list-of-products-in-a-web-page"></a>手順 2: Web ページで製品の一覧を表示します。
+## <a name="step-2-displaying-a-list-of-products-in-a-web-page"></a>手順 2: Web ページに製品の一覧を表示する
 
-このチュートリアルでは、ObjectDataSource コントロール s 組み込みキャッシュ機能を使用する方法について説明します。 これらの機能を見て、前に、まず必要がありますのページから作業をします。 Let s は、製品情報を一覧から、ObjectDataSource によって取得された、GridView を使用する web ページを作成、`ProductsBLL`クラス。
+このチュートリアルでは、ObjectDataSource コントロール s に組み込まれているキャッシュ機能の使用方法について説明します。 ただし、これらの機能を確認する前に、最初にページを使用する必要があります。 GridView を使用して `ProductsBLL` クラスから ObjectDataSource によって取得された製品情報を一覧表示する web ページを作成します。
 
-開いて開始、`ObjectDataSource.aspx`ページで、`Caching`フォルダー。 ツールボックスからデザイナーに、GridView をドラッグして、設定、`ID`プロパティを`Products`、という名前の新しい ObjectDataSource コントロールにバインドを選択して、スマート タグからとは、`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラス。
+まず、`Caching` フォルダーの [`ObjectDataSource.aspx`] ページを開きます。 GridView をツールボックスからデザイナーにドラッグし、その `ID` プロパティを `Products`に設定します。そのスマートタグから、`ProductsDataSource`という名前の新しい ObjectDataSource コントロールにバインドします。 `ProductsBLL` クラスで動作するように ObjectDataSource を構成します。
 
-[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
+[製品の Bll クラスを使用するように ObjectDataSource を構成 ![には](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
 
-**図 4**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image8.png))。
+**図 4**: `ProductsBLL` クラスを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](caching-data-with-the-objectdatasource-vb/_static/image8.png))
 
-このページでは、s GridView の s インターフェイスを通じて、ObjectDataSource にキャッシュされたデータが変更されたときの動作を検証できるように編集可能な GridView を作成することができます。 既定の設定に選択します タブで、ドロップダウン リストのままに`GetProducts()`、更新プログラム タブを選択した項目の変更が、`UpdateProduct`を受け入れるオーバー ロード`productName`、 `unitPrice`、および`productID`入力パラメーターとして。
+このページでは、編集可能な GridView を作成して、ObjectDataSource でキャッシュされたデータが GridView のインターフェイスを通じて変更された場合の動作を確認できるようにします。 [選択] タブのドロップダウンリストを既定値の `GetProducts()`のままにします。ただし、[更新] タブで選択した項目を、`productName`、`unitPrice`、および `productID` を入力パラメーターとして受け取る `UpdateProduct` のオーバーロードに変更します。
 
-[![適切な UpdateProduct オーバー ロードに更新 タブのドロップダウン リストを設定します。](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
+[[更新] タブのドロップダウンリストを適切な UpdateProduct オーバーロードに設定 ![](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
 
-**図 5**:更新プログラム タブのドロップダウン リストを適切に設定`UpdateProduct`オーバー ロード ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image11.png))。
+**図 5**: [更新] タブのドロップダウンリストを適切な `UpdateProduct` オーバーロードに設定する ([クリックすると、フルサイズの画像が表示](caching-data-with-the-objectdatasource-vb/_static/image11.png)されます)
 
-最後に、(なし) を挿入および削除のタブで、ドロップダウン リストを設定し、[完了] をクリックします。 データ ソース構成ウィザードを完了すると、Visual Studio 設定 ObjectDataSource s`OldValuesParameterFormatString`プロパティを`original_{0}`します。 説明したように、[挿入の概要、更新、およびデータの削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)チュートリアルでは、このプロパティは、宣言構文から削除するか、その既定値に戻す設定する必要がある`{0}`、更新したワークフローのためにエラーを行わずに続行します。
+最後に、[挿入] タブと [削除] タブのドロップダウンリストを (なし) に設定し、[完了] をクリックします。 データソースの構成ウィザードの完了時に、Visual Studio は ObjectDataSource s `OldValuesParameterFormatString` プロパティを `original_{0}`に設定します。 [「データの挿入、更新、削除の概要](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)」のチュートリアルで説明したように、このプロパティは、宣言構文から削除するか、既定値の `{0}`に戻す必要があります。これにより、更新ワークフローはエラーなしで続行されます。
 
-さらに、ウィザードの完了時に Visual Studio にフィールドを追加、GridView の各製品のデータ フィールドの。 削除以外のすべて、 `ProductName`、 `CategoryName`、および`UnitPrice`BoundFields します。 次に、更新、`HeaderText`各製品カテゴリで、価格、およびこれら BoundFields のプロパティそれぞれします。 以降、`ProductName`フィールドは必須です、BoundField を TemplateField に変換し、RequiredFieldValidator への追加、`EditItemTemplate`します。 同様に、変換、`UnitPrice`を TemplateField BoundField、ユーザーが入力した値が有効な通貨の値より大きいまたは 0 に等しい s であることを確認する CompareValidator を追加します。 これらの変更だけでなく自由に右揃えなど、美的な変更を実行、`UnitPrice`値、または書式設定を指定する、`UnitPrice`その読み取り専用と編集インターフェイスのテキスト。
+さらに、ウィザードの完了時に、Visual Studio によって各製品データフィールドの GridView にフィールドが追加されます。 `ProductName`、`CategoryName`、および `UnitPrice` BoundFields 以外はすべて削除します。 次に、それぞれの BoundFields の `HeaderText` プロパティを、それぞれ Product、Category、および Price に更新します。 `ProductName` フィールドが必要であるため、BoundField を TemplateField に変換し、`EditItemTemplate`に RequiredFieldValidator を追加します。 同様に、`UnitPrice` BoundField を TemplateField に変換し、CompareValidator を追加して、ユーザーが入力した値が0以上の有効な通貨値であることを確認します。 これらの変更に加えて、`UnitPrice` 値を右揃えにしたり、読み取り専用インターフェイスと編集インターフェイスで `UnitPrice` テキストの書式設定を指定したりするなど、美しい変更を自由に実行できます。
 
-GridView のスマート タグの編集を有効にするチェック ボックスをオンして、GridView を編集可能です。 ページングを有効にして、並べ替えを有効にするチェック ボックスも確認してください。
+Gridview s スマートタグの [編集を有効にする] チェックボックスをオンにして、GridView を編集可能にします。 また、[ページングを有効にし、並べ替えを有効にする] チェックボックスをオンにします。
 
 > [!NOTE]
-> GridView の編集インターフェイスをカスタマイズする方法のレビューが必要ですか。 そうである場合に戻って、[データ変更インターフェイスをカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)チュートリアル。
+> GridView の編集インターフェイスをカスタマイズする方法を確認する必要がありますか。 その場合は、[データ変更インターフェイスのカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)に関するチュートリアルを参照してください。
 
-[![編集、並べ替え、およびページングを GridView サポートを有効にします。](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
+[編集、並べ替え、およびページングのために GridView サポートを有効にする ![](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
 
-**図 6**:GridView 編集、並べ替え、およびページング サポートを有効にする ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image14.png))。
+**図 6**: 編集、並べ替え、ページングのために GridView のサポートを有効にする ([クリックしてフルサイズのイメージを表示する](caching-data-with-the-objectdatasource-vb/_static/image14.png))
 
-GridView のこれらの変更を加えたら、GridView コントロールと ObjectDataSource s の宣言型マークアップを次のようになります。
+これらの GridView を変更した後、GridView および ObjectDataSource の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](caching-data-with-the-objectdatasource-vb/samples/sample2.aspx)]
 
-図 7 に示す、編集可能な GridView には、名前、カテゴリ、および各データベースでは、製品の価格が一覧表示します。 テスト ページの機能の並べ替え結果をそれらを使用してページとレコードを編集します。
+図7に示すように、編集可能な GridView には、データベース内の各製品の名前、カテゴリ、および価格が表示されます。 ページの機能をテストして、結果の並べ替え、ページの表示、レコードの編集を行います。
 
-[![各製品名、カテゴリ、および価格は、ソート可能、Pageable、編集可能な GridView に表示されます。](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
+[各製品の名前、カテゴリ、価格が、並べ替え可能で、ページング可能で編集可能な GridView に表示さ ![](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
 
-**図 7**:各製品名、カテゴリ、および価格は、ソート可能、Pageable、編集可能な GridView に表示されます ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image17.png))。
+**図 7**: 各製品の名前、カテゴリ、価格は、並べ替え可能で、ページング可能な編集可能な GridView に一覧表示されます ([クリックすると、フルサイズの画像が表示](caching-data-with-the-objectdatasource-vb/_static/image17.png)されます)
 
-## <a name="step-3-examining-when-the-objectdatasource-is-requesting-data"></a>手順 3: データの要求は、ときに、ObjectDataSource を調べる
+## <a name="step-3-examining-when-the-objectdatasource-is-requesting-data"></a>手順 3: ObjectDataSource がデータを要求していることを調べる
 
-`Products` GridView を呼び出すことによって表示するには、そのデータを取得、`Select`のメソッド、 `ProductsDataSource` ObjectDataSource します。 この ObjectDataSource は、ビジネス ロジック層 s のインスタンスを作成します。`ProductsBLL`クラスと呼び出しの`GetProducts()`メソッドをさらに、データ アクセス層の s を呼び出す`ProductsTableAdapter`s`GetProducts()`メソッド。 DAL メソッドは、Northwind データベースに接続し、構成済みの問題`SELECT`クエリ。 このデータは、DAL では、パッケージ化に返されます、`NorthwindDataTable`します。 DataTable オブジェクトには、GridView に返されます ObjectDataSource に返されます BLL が返されます。 GridView を作成し、`GridViewRow`オブジェクトごとに`DataRow`DataTable には、および各`GridViewRow`がクライアントに返され、秒のユーザーのブラウザーで表示される HTML に最終的にレンダリングされます。
+`Products` GridView は、`ProductsDataSource` ObjectDataSource の `Select` メソッドを呼び出すことによって、表示するデータを取得します。 この ObjectDataSource は、ビジネスロジック層 s `ProductsBLL` クラスのインスタンスを作成し、その `GetProducts()` メソッドを呼び出します。このメソッドは、データアクセス層 s `ProductsTableAdapter` s `GetProducts()` メソッドを呼び出します。 DAL メソッドは Northwind データベースに接続し、構成された `SELECT` クエリを発行します。 このデータは DAL に返され、`NorthwindDataTable`でパッケージ化されます。 DataTable オブジェクトが BLL に返され、それが ObjectDataSource に返されます。これにより、GridView にそれが返されます。 次に、GridView は DataTable 内の各 `DataRow` に対して `GridViewRow` オブジェクトを作成します。各 `GridViewRow` は、最終的にクライアントに返され、ビジターのブラウザーに表示される HTML にレンダリングされます。
 
-この一連のイベントは、GridView は、その基になるデータにバインドする必要があるたびに発生します。 ページが初めてアクセスした、または、GridView を並べ替えるときに、編集、またはインターフェイスの削除は、その組み込みを使用して GridView のデータを変更するときに、データの 1 つのページから移動するときに場合に起こります。 GridView のビュー ステートが無効になっている場合は、各ポストバックもに、GridView に再バインドできます。 GridView も明示的に再バインドできるそのデータを呼び出すことによってその`DataBind()`メソッド。
+この一連のイベントは、GridView が基になるデータにバインドする必要があるたびに発生します。 これは、ページが最初にアクセスされたとき、データの1ページから別のページに移動したとき、GridView を並べ替えるとき、または組み込みの編集または削除インターフェイスを使用して GridView のデータを変更したときに発生します。 GridView のビューステートが無効になっている場合は、すべてのポストバックに加えて、GridView も再バインドされます。 GridView は、その `DataBind()` メソッドを呼び出すことによって、そのデータに明示的に再バインドすることもできます。
 
-データベースからデータを取得する頻度を完全に理解するには、s、データの再取得されたときを示すメッセージを表示することができます。 GridView という名前の上のラベルの Web コントロールを追加`ODSEvents`します。 クリアしますその`Text`プロパティとその`EnableViewState`プロパティを`False`します。 ラベルの下にあるボタンの Web コントロールを追加し、設定、`Text`ポストバックへのプロパティ。
+データベースからデータを取得する頻度を十分に把握するために、データが再取得されるタイミングを示すメッセージを表示します。 `ODSEvents`という名前の GridView の上にラベル Web コントロールを追加します。 `Text` プロパティをクリアし、その `EnableViewState` プロパティを `False`に設定します。 ラベルの下にボタン Web コントロールを追加し、その `Text` プロパティを [ポストバック] に設定します。
 
-[![GridView の上のページに、ラベルとボタンを追加します。](caching-data-with-the-objectdatasource-vb/_static/image19.png)](caching-data-with-the-objectdatasource-vb/_static/image18.png)
+[GridView の上のページにラベルとボタンを追加 ![には](caching-data-with-the-objectdatasource-vb/_static/image19.png)](caching-data-with-the-objectdatasource-vb/_static/image18.png)
 
-**図 8**:上記の GridView ページにラベルとボタンを追加 ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image20.png))。
+**図 8**: GridView の上のページにラベルとボタンを追加する ([クリックすると、フルサイズの画像が表示](caching-data-with-the-objectdatasource-vb/_static/image20.png)されます)
 
-ワークフローの間にデータ アクセス、ObjectDataSource の`Selecting`基になるオブジェクトが作成される前に、イベントが発生し、構成されているメソッドが呼び出されます。 このイベントのイベント ハンドラーを作成し、次のコードを追加します。
+データアクセスワークフロー中に、ObjectDataSource s `Selecting` イベントは、基になるオブジェクトが作成され、構成されたメソッドが呼び出される前に発生します。 このイベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](caching-data-with-the-objectdatasource-vb/samples/sample3.vb)]
 
-ObjectDataSource は、要求をデータ アーキテクチャを作成するたびに、ラベル テキスト選択イベントを発生が表示されます。
+ObjectDataSource がデータのアーキテクチャに要求を行うたびに、ラベルには [イベントが発生しました] というテキストが表示されます。
 
-ブラウザーでこのページを参照してください。 ページが初めてアクセスしたときに発生したテキスト選択イベントが表示されます。 ポストバックのボタンをクリックし、テキストが表示されないことに注意してください (と仮定すると GridView s`EnableViewState`プロパティに設定されて`True`、既定値)。 ポストバックの GridView がビューステートから再構築し、そのデータに対して ObjectDataSource には t が有効にするためです。 並べ替え、ページング、または、データを編集する一方、そのデータ ソースを再バインドする GridView とするイベントにテキストが再表示されますが発生したためです。
+ブラウザーでこのページを参照してください。 ページが最初に表示されたときに、[イベントが発生しました] というテキストが表示されます。 [ポストバック] ボタンをクリックすると、テキストが表示されなくなります (GridView の `EnableViewState` プロパティが `True`、既定値に設定されていることを前提としています)。 これは、ポストバック時に GridView がビューステートから再構築されるため、データの ObjectDataSource には変わりません。 ただし、データの並べ替え、ページング、または編集を行うと、GridView がそのデータソースに再バインドされるため、[イベントが発生しました] というテキストが再び表示されます。
 
-[![発生するイベントが表示されるたびに、GridView がそのデータ ソースにバインドし、](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
+[GridView がそのデータソースに再バインドされるたびに、[イベントが発生しました] を選択すると ![](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
 
-**図 9**:GridView がそのデータ ソースにバインドし、ときに発生するイベントが表示されます ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image23.png))。
+**図 9**: GridView がそのデータソースに再バインドしている場合は、[イベントが発生しました] が表示されます ([クリックすると、フルサイズの画像が表示](caching-data-with-the-objectdatasource-vb/_static/image23.png)されます)
 
-[![ビューステートから再構築する GridView をポストバック ボタンがクリックすると](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
+[ポストバックボタンをクリック ![と、GridView がビューステートから再構築されます。](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
 
-**図 10**:ポストバックのボタンをクリックすると、ビュー状態から再構築する GridView ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image26.png))。
+**図 10**: [ポストバック] ボタンをクリックすると、GridView がビューステートから再構築されます ([クリックすると、フルサイズのイメージが表示](caching-data-with-the-objectdatasource-vb/_static/image26.png)されます)
 
-データがを介してページングまたは並べ替えられて、毎回データベースのデータを取得するは無駄と思われる場合があります。 結局のところ、以降既定のページングを使用して、ObjectDataSource が取得してすべてのレコードの最初のページを表示するときに。 GridView で並べ替えとページングのサポートが提供されない場合でも、データを取得、データベースからすべてのユーザー (および、ビュー ステートが無効になっている場合、すべてのポストバックの) ページが初めてアクセスした各時間。 これらのデータベースを追加要求は余分な GridView には、すべてのユーザーに同じデータが表示されている場合。 返される結果をキャッシュできない、`GetProducts()`メソッドおよび bind、GridView に結果をキャッシュしますか?
+データがページングまたは並べ替えられるたびに、データベースのデータを取得することは無駄に見えるかもしれません。 結局のところ、既定のページングを使用しているため、ObjectDataSource は最初のページを表示するときにすべてのレコードを取得しました。 GridView で並べ替えとページングのサポートが提供されていない場合でも、任意のユーザーがページに最初にアクセスしたとき (ビューステートが無効になっている場合は、すべてのポストバックで)、データベースからデータを取得する必要があります。 ただし、GridView がすべてのユーザーに対して同じデータを表示している場合、これらの追加のデータベース要求は不要です。 `GetProducts()` メソッドから返された結果をキャッシュして、それらのキャッシュされた結果に GridView をバインドしないのはなぜですか。
 
-## <a name="step-4-caching-the-data-using-the-objectdatasource"></a>手順 4: ObjectDataSource を使用してデータのキャッシュ
+## <a name="step-4-caching-the-data-using-the-objectdatasource"></a>手順 4: ObjectDataSource を使用してデータをキャッシュする
 
-いくつかのプロパティを設定するだけでは、ASP.NET のデータ キャッシュで取得したデータを自動的にキャッシュする ObjectDataSource を構成できます。 ObjectDataSource のキャッシュに関連するプロパティを次に示します。
+いくつかのプロパティを設定するだけで、取得したデータを ASP.NET データキャッシュに自動的にキャッシュするように ObjectDataSource を構成できます。 次の一覧は、ObjectDataSource のキャッシュ関連のプロパティをまとめたものです。
 
-- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx)に設定する必要があります`True`キャッシュを有効にします。 既定値は `False` です。
-- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx)時間 (秒)、データがキャッシュされている量。 既定値は 0 です。 場合は、ObjectDataSource にデータはキャッシュのみ`EnableCaching`は`True`と`CacheDuration`0 より大きい値に設定されます。
-- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx)に設定することができます`Absolute`または`Sliding`します。 場合`Absolute`、ObjectDataSource が取得するデータをキャッシュ`CacheDuration`秒; 場合`Sliding`、データにアクセスされていない後でのみ有効期限が切れる`CacheDuration`秒。 既定値は `Absolute` です。
-- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx)このプロパティを使用して、既存のキャッシュ依存関係と ObjectDataSource s のキャッシュ エントリを関連付けます。 ObjectDataSource のデータ エントリ途中で削除できるキャッシュから期限切れに関連付けられた`CacheKeyDependency`します。 このプロパティは、SQL キャッシュ依存関係を関連付ける ObjectDataSource のキャッシュに最もよく使用は、トピックについて説明します、将来[を使用して SQL キャッシュ依存関係](using-sql-cache-dependencies-vb.md)チュートリアル。
+- キャッシュを有効にするには、 [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx)を `True` に設定する必要があります。 既定値は、 `False`です。
+- [Cacheduration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx)データがキャッシュされる時間の長さ (秒単位)。 既定値は 0 です。 ObjectDataSource は、`EnableCaching` が `True`、`CacheDuration` がゼロより大きい値に設定されている場合にのみデータをキャッシュします。
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx)は、`Absolute` または `Sliding`に設定できます。 `Absolute`した場合、ObjectDataSource は取得したデータを `CacheDuration` 秒間キャッシュします。`Sliding`した場合、データは、`CacheDuration` 秒間アクセスされていない場合にのみ有効期限が切れます。 既定値は、 `Absolute`です。
+- [Cachekeydependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx)このプロパティを使用して、ObjectDataSource のキャッシュエントリと既存のキャッシュ依存関係を関連付けます。 ObjectDataSource s データエントリは、関連付けられた `CacheKeyDependency`を期限切れにすることで、キャッシュから早期に削除できます。 このプロパティは、SQL キャッシュの依存関係を ObjectDataSource のキャッシュと関連付けるために最も一般的に使用されます。これについては、後で[Sql キャッシュの依存関係](using-sql-cache-dependencies-vb.md)のチュートリアルを使用して説明します。
 
-S を構成できるように、 `ProductsDataSource` ObjectDataSource 絶対スケールで 30 秒間のデータをキャッシュします。 ObjectDataSource s 設定`EnableCaching`プロパティを`True`とその`CacheDuration`30 に設定するプロパティ。 ままに、`CacheExpirationPolicy`プロパティの既定の設定に`Absolute`します。
+では、`ProductsDataSource` ObjectDataSource を構成して、データを30秒間、絶対スケールにキャッシュします。 ObjectDataSource s `EnableCaching` プロパティを `True` に設定し、その `CacheDuration` プロパティを30に設定します。 `CacheExpirationPolicy` プロパティは、既定の `Absolute`に設定したままにします。
 
-[![30 秒間のデータをキャッシュする ObjectDataSource を構成します。](caching-data-with-the-objectdatasource-vb/_static/image28.png)](caching-data-with-the-objectdatasource-vb/_static/image27.png)
+[データを30秒間キャッシュするように ObjectDataSource を構成 ![には](caching-data-with-the-objectdatasource-vb/_static/image28.png)](caching-data-with-the-objectdatasource-vb/_static/image27.png)
 
-**図 11**:30 秒間のデータをキャッシュする ObjectDataSource を構成する ([フルサイズの画像を表示する をクリックします](caching-data-with-the-objectdatasource-vb/_static/image29.png))。
+**図 11**: データを30秒間キャッシュするように ObjectDataSource を構成する ([クリックすると、フルサイズのイメージが表示](caching-data-with-the-objectdatasource-vb/_static/image29.png)されます)
 
-変更を保存し、ブラウザーでこのページを再検討します。 選択すると発生するイベントのテキストは最初に、データがキャッシュ内のページに初めてアクセスするときにも表示されます。 以降のポストバック トリガー並べ替え、ポストバックのボタンをクリックしてページング、または編集 または キャンセル ボタンをクリックすると、*いない*テキストを再表示するイベントが発生します。 これは、ため、 `Selecting` 、ObjectDataSource がその基になるオブジェクトからのデータを取得するときにのみイベントが発生した、`Selecting`データ キャッシュからデータを取り込む場合、イベントは発生しません。
+変更を保存し、ブラウザーでこのページを再閲覧します。 最初にページにアクセスしたときに選択したイベントが表示されます。これは、データがキャッシュ内にないためです。 ただし、ポストバックボタンのクリック、並べ替え、ページング、または [編集] ボタンまたは [キャンセル] ボタンのクリックによってトリガーされる後続のポストバックでは、選択したイベントが発生したテキストは表示*されません* これは、ObjectDataSource が基になるオブジェクトからデータを取得するときにのみ、`Selecting` イベントが発生するためです。データがデータキャッシュからプルされた場合、`Selecting` イベントは発生しません。
 
-30 秒後、データをキャッシュから削除されます。 場合、データをキャッシュから削除もは ObjectDataSource s `Insert`、 `Update`、または`Delete`メソッドが呼び出されます。 そのため、30 秒が経過または [更新] ボタンがクリックしてされた並べ替え、ページング、またはその基になるオブジェクトからのデータを取得する ObjectDataSource により、編集、または [キャンセル] ボタンをクリックすると後のテキストが発生するイベントを表示するときに、`Selecting`イベントが発生します。 返される結果は、データ キャッシュに配置されます。
+30秒後に、データがキャッシュから削除されます。 ObjectDataSource s `Insert`、`Update`、または `Delete` メソッドが呼び出されると、データもキャッシュから削除されます。 その結果、30秒が経過するか、[更新] ボタンがクリックされた後、[編集] または [キャンセル] ボタンをクリックすると、ObjectDataSource によって基になるオブジェクトからデータが取得され、`Selecting` イベントが発生したときに選択したイベントが表示されます。 返された結果は、データキャッシュに戻されます。
 
 > [!NOTE]
-> 頻繁に発生するイベントの文字列の選択を表示する場合、キャッシュされたデータで作業を ObjectDataSource が予想される場合もありますメモリ制約によって。 十分な空きメモリがない場合、ObjectDataSource によってキャッシュに追加されたデータを清掃がある可能性があります。 ObjectDataSource されないデータまたはキャッシュのみにキャッシュが正しく表示されない場合は、データは、断続的空きメモリの一部のアプリケーションを閉じるし、もう一度やり直してください。
+> ObjectDataSource がキャッシュされたデータを使用していると予想される場合でも、[イベントが発生したテキストを頻繁に選択する] が表示される場合は、メモリの制約が原因である可能性があります。 空きメモリが不足している場合は、ObjectDataSource によってキャッシュに追加されたデータが清掃されている可能性があります。 ObjectDataSource が正しくデータをキャッシュしていないように見える場合、またはデータを散発的にキャッシュするだけの場合は、一部のアプリケーションを閉じてメモリを解放し、もう一度やり直してください。
 
-図 12 は、ワークフローをキャッシュする ObjectDataSource s を示しています。 イベントが発生したときに、画面にテキストが表示される、ため、データがキャッシュに存在していなかったし、基になるオブジェクトから取得する必要があります。 このテキストは、不足しているときにただし、その s データがキャッシュから使用可能なためです。 データがキャッシュから返される場合が s の基になるオブジェクトへの呼び出しと、そのため、データベース クエリではなく実行されません。
+図12は、ObjectDataSource s キャッシュワークフローを示しています。 選択したイベントが画面に表示されたときに、データがキャッシュに含まれておらず、基になるオブジェクトから取得する必要があることが原因です。 ただし、このテキストが存在しない場合は、データがキャッシュから利用可能であったことになります。 キャッシュからデータが返されるときに、基になるオブジェクトへの呼び出しはなく、そのため、データベースクエリは実行されません。
 
-![ObjectDataSource ストアとデータ キャッシュからそのデータを取得します](caching-data-with-the-objectdatasource-vb/_static/image30.png)
+![ObjectDataSource は、データキャッシュからデータを格納して取得します。](caching-data-with-the-objectdatasource-vb/_static/image30.png)
 
-**図 12**:ObjectDataSource ストアとデータ キャッシュからそのデータを取得します
+**図 12**: ObjectDataSource によってデータキャッシュからデータが格納および取得される
 
-各 ASP.NET アプリケーションでは、すべてのページと訪問者の間で共有 s インスタンス、独自のデータ キャッシュがあります。 ObjectDataSource でデータ キャッシュに格納されたデータが同様に、ページにアクセスするすべてのユーザーの間で共有されることを意味します。 これを確認するには、開く、`ObjectDataSource.aspx`ブラウザーでページ。 最初のページにアクセスして、(前のテストによって、キャッシュに追加されたデータが、ここまでで、削除された) すると仮定した場合に選択すると発生するイベントのテキストが表示されます。 2 番目のブラウザー インスタンスとコピーを開き、2 番目の最初のブラウザー インスタンスから URL を貼り付けます。 2 番目のブラウザー インスタンスのため、選択すると発生するイベントのテキストは表示されませんを使用して、同じキャッシュ データを 1 つ目として。
+各 ASP.NET アプリケーションには、すべてのページと訪問者で共有される独自のデータキャッシュインスタンスがあります。 つまり、ObjectDataSource によってデータキャッシュに格納されるデータは、そのページにアクセスするすべてのユーザー間でも共有されます。 これを確認するには、ブラウザーで [`ObjectDataSource.aspx`] ページを開きます。 ページに初めてアクセスしたときに、選択したイベントが発生します (以前のテストによってキャッシュに追加されたデータが削除されたことを前提としています)。 2番目のブラウザーインスタンスを開き、最初のブラウザーインスタンスの URL をコピーして、2番目のブラウザーインスタンスに貼り付けます。 2番目のブラウザーインスタンスでは、最初と同じキャッシュデータを使用しているので、選択したイベントが表示されません。
 
-ObjectDataSource がキャッシュのキー値が含まれていますを使用して、取得したデータをキャッシュに挿入するとき:`CacheDuration`と`CacheExpirationPolicy`プロパティの値です指定されていると、ObjectDataSource で使用されている、基になるビジネス オブジェクトの型。使用して、 [ `TypeName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx)(`ProductsBLL`、この例では); の値、`SelectMethod`名前と値のパラメーターのプロパティ、`SelectParameters`コレクションとそのの値`StartRowIndex`と`MaximumRows`を実装するときに使用されるプロパティ、[カスタム ページング](../paging-and-sorting/paging-and-sorting-report-data-vb.md)します。
+取得したデータをキャッシュに挿入すると、ObjectDataSource では、次のようなキャッシュキー値が使用されます。 `CacheDuration` と `CacheExpirationPolicy` のプロパティ値です。ObjectDataSource によって使用されている、基になるビジネスオブジェクトの型。この型は、 [`TypeName` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx)(この例では`ProductsBLL`) を使用して指定されます。`SelectMethod` プロパティの値、および `SelectParameters` コレクション内のパラメーターの名前と値。[カスタムページング](../paging-and-sorting/paging-and-sorting-report-data-vb.md)を実装するときに使用される、`StartRowIndex` プロパティと `MaximumRows` プロパティの値。
 
-これらの値を変更、一意のキャッシュ エントリをにより、これらのプロパティの組み合わせとして、キャッシュ キーの値を作成します。 たとえば、過去のチュートリアルで ve を使用して参照される、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`、指定したカテゴリのすべての製品が返されます。 1 人のユーザーが、ページおよび表示の飲み物を付属可能性がありますが、 `CategoryID` 1。 ObjectDataSource に関わりなく、その結果がキャッシュされている場合、`SelectParameters`値、別のユーザーがこのページにキャッシュ内にあった調味料飲み物の製品の中に表示すると、調味料ではなく、キャッシュされた飲料、d を参照してください。 値を含むがこれらのプロパティによって、キャッシュ キーを変更することで、 `SelectParameters`ObjectDataSource が beverages と調味料の個別のキャッシュ エントリを保持します。
+これらのプロパティの組み合わせとしてキャッシュキー値を構築すると、これらの値が変更されるときに、一意のキャッシュエントリが確保されます。 たとえば、過去のチュートリアルでは、指定されたカテゴリのすべての製品を返す `ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)`の使用について説明しました。 1人のユーザーがページにアクセスして飲料を表示する場合があります。飲み物は `CategoryID` が1です。 `SelectParameters` 値に関係なく、ObjectDataSource によって結果がキャッシュされた場合、飲料製品がキャッシュ内にあるときに condiments を表示するために別のユーザーがページに戻ると、condiments ではなく、キャッシュされた飲料製品が表示されます。 `SelectParameters`の値を含むこれらのプロパティによってキャッシュキーを変更することで、ObjectDataSource は飲み物と condiments 用に個別のキャッシュエントリを保持します。
 
 ## <a name="stale-data-concerns"></a>古いデータの問題
 
-ObjectDataSource がいずれかの場合のキャッシュからその項目を自動的に削除の`Insert`、 `Update`、または`Delete`メソッドが呼び出されます。 これにより、ページで、データが変更されたときに、キャッシュ エントリをクリアする古いデータから保護します。 ただし、キャッシュを使用した古いデータが表示されたまま、ObjectDataSource 可能性は。 最も簡単な場合は、により、データは、データベース内で直接変更できます。 おそらく、データベース管理者は、データベース内のレコードの一部を変更するスクリプトを実行しました。
+`Insert`、`Update`、または `Delete` メソッドのいずれかが呼び出されると、ObjectDataSource はキャッシュから項目を自動的に見つけします。 これにより、ページを介してデータが変更されたときにキャッシュエントリがクリアされるため、古いデータを保護できます。 ただし、キャッシュを使用して古いデータを表示することもできます。 最も単純なケースでは、データがデータベース内で直接変更されていることが原因である可能性があります。 データベース管理者は、データベース内の一部のレコードを変更するスクリプトを実行しただけです。
 
-このシナリオはより複雑な方法で展開も可能性があります。 ObjectDataSource は、そのデータ変更メソッドのいずれかが呼び出されると、キャッシュからその項目を削除、キャッシュされた項目が削除された、プロパティの値の ObjectDataSource s の特定の組み合わせ (`CacheDuration`、 `TypeName`、 `SelectMethod`、同様に続きます)。 使用して、異なる 2 つの ObjectDataSources があれば`SelectMethods`または`SelectParameters`が、まだ更新できます、同じデータを 1 つの ObjectDataSource 可能性があります行を更新し、独自のキャッシュ エントリが、対応する行の 2 つ目の ObjectDataSource が無効になります。提供されますが、キャッシュされたからです。 この機能が発生するページを作成することをお勧めします。 ObjectDataSource のキャッシュを使用し、データを取得するように構成からのデータをプルする編集可能な GridView を表示するページを作成、`ProductsBLL`クラスの`GetProducts()`メソッド。 もう 1 つ追加編集可能な GridView コントロールと ObjectDataSource をこのページ (または、もう 1 つ) がこの 2 つ目の ObjectDataSource を使用して、それがある、`GetProductsByCategoryID(categoryID)`メソッド。 2 つの ObjectDataSources 以降`SelectMethod`プロパティが異なる場合、これら各 ll 独自のキャッシュされた値があります。 次回 (ページング、並べ替え、およびなど) を他のグリッドにデータをバインドする 1 つのグリッド内の製品を編集する場合も、キャッシュされた古いデータが提供され、他のグリッドから加えられた変更は反映されません。
+このシナリオは、より微妙な方法で展開することもできます。 ObjectDataSource は、データ変更メソッドの1つが呼び出されたときにキャッシュからその項目を見つけしますが、削除されるキャッシュ項目は、ObjectDataSource の特定のプロパティ値の組み合わせ (`CacheDuration`、`TypeName`、`SelectMethod`など) を対象としています。 異なる `SelectMethods` または `SelectParameters`を使用する2つの ObjectDataSources ソースがあり、同じデータを更新できる場合は、1つの ObjectDataSource によって行が更新され、それ自体のキャッシュエントリが無効になりますが、2番目の ObjectDataSource の対応する行は、キャッシュされたから引き続き提供されます。 この機能を使用するためのページを作成することをお勧めします。 キャッシュを使用する ObjectDataSource からデータをプルし、`ProductsBLL` クラス s `GetProducts()` メソッドからデータを取得するように構成されている、編集可能な GridView を表示するページを作成します。 別の編集可能な GridView と ObjectDataSource をこのページ (または別のページ) に追加しますが、この2番目の ObjectDataSource では `GetProductsByCategoryID(categoryID)` メソッドを使用します。 2つの ObjectDataSources ソース `SelectMethod` プロパティが異なるため、それぞれに独自のキャッシュ値があります。 1つのグリッドで製品を編集した場合、次に他のグリッドにデータをバインドすると (ページングや並べ替えなどによって)、そのデータはキャッシュされた古いデータに対して機能し、他のグリッドからの変更は反映されません。
 
-つまり場合に、のみ使用切れの時間ベースの古いデータの可能性があるし、データの新しさが重要なシナリオの短い切れを使用してもよい。 古いデータが許容されない場合はキャッシュを断念または SQL キャッシュ依存関係を使用して、いずれか (これはデータベースのデータと仮定すると再キャッシュする)。 今後のチュートリアルでは SQL キャッシュ依存関係について説明します。
+つまり、古いデータの可能性がある場合は時間ベースの expiries のみを使用し、データの鮮度が重要なシナリオでは短い expiries を使用します。 古いデータを使用できない場合は、済ませるをキャッシュするか、SQL キャッシュの依存関係を使用します (キャッシュし直すデータベースデータであることを前提としています)。 SQL キャッシュの依存関係については、今後のチュートリアルで説明します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、ObjectDataSource s 組み込みキャッシュ機能を確認します。 いくつかのプロパティを設定するだけでは、指定された対象から返される結果をキャッシュする ObjectDataSource を指示できます`SelectMethod`ASP.NET のデータ キャッシュにします。 `CacheDuration`と`CacheExpirationPolicy`プロパティは、項目がキャッシュされる期間とは、絶対またはスライディング有効期限を示します。 `CacheKeyDependency`プロパティが既存のキャッシュ依存関係を ObjectDataSource s のキャッシュ エントリのすべてを関連付けます。 時間ベースの有効期限に達するし、SQL キャッシュ依存関係は通常使用する前に、キャッシュから ObjectDataSource s のエントリを削除するために使用できます。
+このチュートリアルでは、ObjectDataSource s の組み込みのキャッシュ機能について説明しました。 いくつかのプロパティを設定するだけで、指定された `SelectMethod` から返された結果を ASP.NET データキャッシュにキャッシュするように ObjectDataSource に指示できます。 `CacheDuration` と `CacheExpirationPolicy` のプロパティは、項目がキャッシュされている期間と、その項目が絶対有効期限またはスライド式有効期限であるかどうかを示します。 `CacheKeyDependency` プロパティは、すべての ObjectDataSource キャッシュエントリと既存のキャッシュ依存関係を関連付けます。 これは、時間ベースの有効期限が切れる前にキャッシュから ObjectDataSource s エントリを削除するために使用でき、通常は SQL キャッシュの依存関係で使用されます。
 
-データ キャッシュには、その値は、単に、ObjectDataSource にキャッシュからプログラムで ObjectDataSource の組み込み機能を複製します。 これは、ObjectDataSource は、既定では、この機能を提供していますが、アーキテクチャの別のレイヤーにキャッシュ機能を実装できるため、プレゼンテーション層でこれには t が合理的です。 これを行うには、ObjectDataSource で使用される同じロジックを繰り返す必要があります。 [次へ]、チュートリアルでは、アーキテクチャ内からのデータ キャッシュをプログラムで操作する方法について説明します。
+ObjectDataSource は単にその値をデータキャッシュにキャッシュするだけであるため、ObjectDataSource の組み込み機能をプログラムによってレプリケートできます。 ObjectDataSource はこの機能をすぐに使用できるようにするため、プレゼンテーション層では意味がありませんが、アーキテクチャの別のレイヤーにキャッシュ機能を実装することができます。 これを行うには、ObjectDataSource で使用されているのと同じロジックを繰り返す必要があります。 この後のチュートリアルでは、アーキテクチャ内からデータキャッシュをプログラムで操作する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ## <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ASP.NET のキャッシュ:技術とベスト プラクティス](https://msdn.microsoft.com/library/aa478965.aspx)
-- [.NET Framework アプリケーション用のキャッシュのアーキテクチャ ガイド](https://msdn.microsoft.com/library/ee817645.aspx)
-- [ASP.NET 2.0 で出力キャッシュ](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
+- [ASP.NET キャッシュ: 手法とベストプラクティス](https://msdn.microsoft.com/library/aa478965.aspx)
+- [.NET Framework アプリケーション用のキャッシュアーキテクチャガイド](https://msdn.microsoft.com/library/ee817645.aspx)
+- [ASP.NET 2.0 での出力キャッシュ](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Teresa Murphy でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Teresa Murphy でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](using-sql-cache-dependencies-cs.md)

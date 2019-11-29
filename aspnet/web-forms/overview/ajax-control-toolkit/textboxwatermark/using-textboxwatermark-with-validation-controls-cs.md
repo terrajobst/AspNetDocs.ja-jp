@@ -1,55 +1,55 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
-title: (C#) の検証コントロールと共に TextBoxWatermark を使用 |Microsoft Docs
+title: 検証コントロールでの TextBoxWatermark のC#使用 () |Microsoft Docs
 author: wenz
-description: AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックしたときに.
+description: AJAX コントロールツールキットの TextBoxWatermark コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: d49940cb-d38c-456a-b800-5f0eb705d09f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6ed3777e72adbb1a648a6f5215820d597a13bc92
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: bc9498b1c5ba2f38b90706c9200ffa813a945fa9
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124502"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74610896"
 ---
 # <a name="using-textboxwatermark-with-validation-controls-c"></a>検証コントロールと共に TextBoxWatermark を使用する (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark2CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark2.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark2CS.pdf)
 
-> AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックするは空になります。 ユーザーがテキストを入力しなくても、ボックスのまま、指定済みのテキストが表示されます。 これは、同じ ページで、ASP.NET 検証コントロールと衝突する可能性がありますが、これらの問題を克服することがあります。
+> AJAX コントロールツールキットの TextBoxWatermark コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、そのボックスは空になります。 ユーザーがテキストを入力せずにボックスを離れると、事前テキストが再び表示されます。 これは、同じページの ASP.NET 検証コントロールと競合する可能性がありますが、これらの問題は解決される可能性があります。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-`TextBoxWatermark`ボックス内でテキストが表示されるように、AJAX Control Toolkit のコントロールがテキスト ボックスを拡張します。 ボックスに、ユーザーがクリックするは空になります。 ユーザーがテキストを入力しなくても、ボックスのまま、指定済みのテキストが表示されます。 これは、同じ ページで、ASP.NET 検証コントロールと衝突する可能性がありますが、これらの問題を克服することがあります。
+AJAX コントロールツールキットの `TextBoxWatermark` コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、そのボックスは空になります。 ユーザーがテキストを入力せずにボックスを離れると、事前テキストが再び表示されます。 これは、同じページの ASP.NET 検証コントロールと競合する可能性がありますが、これらの問題は解決される可能性があります。
 
 ## <a name="steps"></a>手順
 
-サンプルの基本的なセットアップは、次:`TextBox`を使用してコントロールを透かし、`TextBoxWatermarkExtender`コントロール。 ボタンは、ポストバックをトリガーし、後で、ページの検証コントロールのトリガーに使用されます。 また、`ScriptManager`コントロールが ASP.NET AJAX を初期化するために必要です。
+このサンプルの基本的な設定は次のとおりです。 `TextBox` コントロールは、`TextBoxWatermarkExtender` コントロールを使用して目標ます。 ボタンはポストバックをトリガーし、後でページの検証コントロールをトリガーするために使用されます。 また、ASP.NET AJAX を初期化するには、`ScriptManager` コントロールが必要です。
 
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-cs/samples/sample1.aspx)]
 
-ここで追加、`RequiredFieldValidator`かどうかにテキストが、フィールド、フォームが送信されたときにチェックするコントロール。 `InitialValue`検証コントロールのプロパティで使用されているのと同じ値に設定する必要があります、`TextBoxWatermarkExtender`コントロール。フォームが送信されたときに、変更されていないテキスト ボックスの値はその中の基準値に。
+次に、フォームが送信されたときにフィールドにテキストがあるかどうかを確認する `RequiredFieldValidator` コントロールを追加します。 バリデーターの `InitialValue` プロパティは、`TextBoxWatermarkExtender` コントロールで使用されているのと同じ値に設定する必要があります。フォームが送信されると、変更されていないテキストボックスの値は、その中の基準値になります。
 
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-cs/samples/sample2.aspx)]
 
-ただしこのアプローチの 1 つの問題があります。場合は、クライアントは、JavaScript を無効化、テキスト フィールドがないあらかじめ入力されています、透かしテキストをそのため、`RequiredFieldValidator`エラー メッセージは発生しません。 そのため、2 つ目`RequiredFieldValidator`コントロールが必要ですが、空のテキスト ボックスを確認します (省略すると、`InitialValue`属性)。
+ただし、この方法には1つの問題があります。クライアントが JavaScript を無効にした場合は、テキストフィールドがウォーターマークテキストに事前されないため、`RequiredFieldValidator` はエラーメッセージをトリガーしません。 そのため、2番目の `RequiredFieldValidator` コントロールが必要です。このコントロールでは、空のテキストボックスを確認します (`InitialValue` 属性を省略します)。
 
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-cs/samples/sample3.aspx)]
 
-両方の検証コントロールを使用しているため`Display` = `"Dynamic"`、エンドユーザーが発生した、この 2 つの検証コントロールの外観から区別できません。 代わりに、ように見えますが、1 つだけです。
+両方の検証コントロールで `Display`=`"Dynamic"`が使用されるため、エンドユーザーは2つの検証コントロールのどちらを起動したかを視覚的に区別することはできません。そのうちの1つだけがあるようです。
 
-最後に、検証コントロールには、エラー メッセージ発行いない場合、フィールド内のテキストを出力するいくつかのサーバー側コードを追加します。
+最後に、検証コントロールによってエラーメッセージが発行されなかった場合に、フィールドにテキストを出力するサーバー側コードを追加します。
 
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-cs/samples/sample4.aspx)]
 
-[![検証コントロール文句を言う フィールドにテキストがないこと](using-textboxwatermark-with-validation-controls-cs/_static/image2.png)](using-textboxwatermark-with-validation-controls-cs/_static/image1.png)
+[検証コントロールの ![、フィールドにテキストがないことを示しています。](using-textboxwatermark-with-validation-controls-cs/_static/image2.png)](using-textboxwatermark-with-validation-controls-cs/_static/image1.png)
 
-検証コントロール文句を言う フィールドにテキストがないこと ([フルサイズの画像を表示する をクリックします](using-textboxwatermark-with-validation-controls-cs/_static/image3.png))。
+検証コントロールは、フィールドにテキストがないことを示しています ([クリックすると、フルサイズの画像が表示](using-textboxwatermark-with-validation-controls-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](using-textboxwatermark-in-a-formview-cs.md)

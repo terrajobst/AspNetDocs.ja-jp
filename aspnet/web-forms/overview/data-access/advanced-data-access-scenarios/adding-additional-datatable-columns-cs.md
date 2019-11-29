@@ -1,188 +1,188 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
-title: 追加するその他の DataTable の列 (c#) |Microsoft Docs
+title: DataTable 列を追加するC#() |Microsoft Docs
 author: rick-anderson
-description: TableAdapter ウィザードを使用して、型指定されたデータセットを作成する、対応するデータ テーブルには、主なデータベース クエリによって返される列が含まれています。 しかし、.
+description: TableAdapter ウィザードを使用して型指定されたデータセットを作成する場合、対応する DataTable には、メインデータベースクエリによって返される列が含まれます。 しかし、
 ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: 615f3361-f21f-4338-8bc1-fce8ae071de9
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 931a918d51c1accec1757a9370c8e611a9a038ec
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a96f254aa54e7077456ac1a9bd6c5e2a17619d96
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124423"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74610646"
 ---
 # <a name="adding-additional-datatable-columns-c"></a>その他の DataTable 列を追加する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_70_CS.zip)または[PDF のダウンロード](adding-additional-datatable-columns-cs/_static/datatutorial70cs1.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_70_CS.zip)または[PDF のダウンロード](adding-additional-datatable-columns-cs/_static/datatutorial70cs1.pdf)
 
-> TableAdapter ウィザードを使用して、型指定されたデータセットを作成する、対応するデータ テーブルには、主なデータベース クエリによって返される列が含まれています。 機会、DataTable の追加列を含める必要がある場合があります。 このチュートリアルではは、追加の DataTable 列必要なときにストアド プロシージャが推奨される理由について説明します。
+> TableAdapter ウィザードを使用して型指定されたデータセットを作成する場合、対応する DataTable には、メインデータベースクエリによって返される列が含まれます。 ただし、DataTable に追加の列を含める必要がある場合もあります。 このチュートリアルでは、追加の DataTable 列が必要な場合に、ストアドプロシージャを推奨する理由について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-型指定されたデータセットに TableAdapter を追加するときに、対応するデータ テーブルのスキーマは、TableAdapter のメイン クエリによって決まります。 たとえば、メインのクエリは、データ フィールドを返します*A*、 *B*、および*C*、DataTable がという名前の 3 つの対応する列が*A*、*B*、および*C*します。TableAdapter は、メインのクエリだけでなく、おそらく、いくつかのパラメーターに基づくデータのサブセットを返す追加のクエリを含めることができます。 加え、たとえば、 `ProductsTableAdapter` s メイン クエリのすべての製品に関する情報を返すメソッドも格納など`GetProductsByCategoryID(categoryID)`と`GetProductByProductID(productID)`、指定されたパラメーターに基づく特定の製品情報を返すをします。
+型指定されたデータセットに TableAdapter を追加する場合、対応する DataTable s スキーマは TableAdapter のメインクエリによって決定されます。 たとえば、メインクエリからデータフィールド*a*、 *b*、および*c*が返される場合、DataTable には、a、 *b*、および*c*という3つ*の*対応する列があります。TableAdapter には、メインのクエリに加えて、いくつかのパラメーターに基づいてデータのサブセットを返す追加のクエリを含めることができます。 たとえば、すべての製品に関する情報を返す `ProductsTableAdapter` s メインクエリに加えて、指定されたパラメーターに基づいて特定の製品情報を返す `GetProductsByCategoryID(categoryID)` や `GetProductByProductID(productID)`などのメソッドも含まれています。
 
-DataTable のスキーマを TableAdapter のメイン クエリを反映することのモデルは、同じか、またはメイン クエリで指定されているよりも少ないデータ フィールドを返す TableAdapter のメソッドのすべての場合も動作します。 TableAdapter メソッドは、追加のデータ フィールドを返す必要がある場合、する必要がありますスキーマを拡張 DataTable s それに応じて。 [マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)チュートリアルへのメソッドを追加しました、`CategoriesTableAdapter`返される、 `CategoryID`、`CategoryName`と`Description`で定義されているデータ フィールドプラスのメイン クエリ`NumberOfProducts`、各カテゴリに関連付けられている製品の数を報告する追加のデータ フィールド。 新しい列を手動で追加しました、`CategoriesDataTable`をキャプチャするために、`NumberOfProducts`データ フィールドの値この新しいメソッドから。
+DataTable s スキーマが TableAdapter s メインクエリを反映するモデルは、すべての TableAdapter のメソッドが、メインクエリで指定されたデータフィールドと同じかそれよりも少数のデータフィールドを返す場合に適しています。 TableAdapter メソッドが追加のデータフィールドを返す必要がある場合は、それに応じて DataTable s スキーマを展開する必要があります。 [「詳細を含むマスターレコードの箇条書きリストを使用したマスター/詳細](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)」では、メイン `NumberOfProducts`クエリに定義されている `CategoryID`、`CategoryName`、および `Description` のデータフィールドを返す `CategoriesTableAdapter` にメソッドを追加し、各カテゴリに関連付けられている製品の数を報告する追加のデータフィールドを追加しました。 この新しいメソッドから `NumberOfProducts` データフィールドの値を取得するために、`CategoriesDataTable` に新しい列を手動で追加しました。
 
-説明したように、[のファイルのアップロード](../working-with-binary-files/uploading-files-cs.md)ケアのチュートリアルはすばらしいことですが、アドホック SQL ステートメントを使用し、データ フィールドは、メイン クエリを正確に一致しないメソッドを持つ Tableadapter を使用して実行する必要があります。 データ フィールドの一覧がメインのクエリと一致するようにすべての TableAdapter のメソッド、TableAdapter 構成ウィザードを再実行とサーバー オブジェクトが更新されます。 そのため、カスタマイズされた列のリストを持つすべてのメソッドは、メイン クエリの列リストに戻すし、予想されるデータは返されません。 ストアド プロシージャを使用する場合、この問題は発生しません。
+[ファイルのアップロード](../working-with-binary-files/uploading-files-cs.md)に関するチュートリアルで説明したように、アドホック SQL ステートメントを使用し、データフィールドがメインクエリと正確に一致しないメソッドがある tableadapter を使用して、細心の注意を払う必要があります。 TableAdapter 構成ウィザードを再実行すると、すべての TableAdapter のメソッドが更新され、データフィールドの一覧がメインクエリと一致するようになります。 その結果、列リストがカスタマイズされたすべてのメソッドは、メインクエリの列リストに戻り、予想されるデータを返しません。 この問題は、ストアドプロシージャを使用する場合には発生しません。
 
-このチュートリアルでは、追加の列を含める DataTable のスキーマを拡張する方法に注目します。 このチュートリアルでは、アドホック SQL ステートメントを使用する場合、TableAdapter の脆弱性、によりストアド プロシージャを使用します。 参照してください、[型指定されたデータセット s Tableadapter の新しいのストアド プロシージャの作成](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)と[型指定されたデータセット s Tableadapter の既存のストアド プロシージャの使用](https://data-access/tutorials/using-existing-stored-procedures-for-the-typed-dataset-amp-rsquo-s-tableadapters-cs)の詳細についてはチュートリアルストアド プロシージャを使用して TableAdapter を構成します。
+このチュートリアルでは、DataTable s スキーマを拡張して列を追加する方法について説明します。 このチュートリアルでは、アドホック SQL ステートメントを使用するときの TableAdapter の高まるにより、ストアドプロシージャを使用します。 ストアドプロシージャを使用するように TableAdapter を構成する方法の詳細については、「型指定された[データセットの tableadapter 用に新しいストアドプロシージャを作成](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)する」および[「型指定](https://data-access/tutorials/using-existing-stored-procedures-for-the-typed-dataset-amp-rsquo-s-tableadapters-cs)されたデータセットの tableadapter のチュートリアル」を参照してください。
 
-## <a name="step-1-adding-apricequartilecolumn-to-theproductsdatatable"></a>手順 1: 追加、`PriceQuartile`列を`ProductsDataTable`
+## <a name="step-1-adding-apricequartilecolumn-to-theproductsdatatable"></a>手順 1:`ProductsDataTable` に`PriceQuartile`列を追加する
 
-*型指定されたデータセット s Tableadapter の新しいのストアド プロシージャの作成*という名前の型指定されたデータセットを作成したチュートリアル`NorthwindWithSprocs`します。 このデータセットには現在 2 つの Datatable が含まれています:`ProductsDataTable`と`EmployeesDataTable`します。 `ProductsTableAdapter`次の 3 つの方法があります。
+「*型指定されたデータセットの tableadapter 用の新しいストアドプロシージャの作成*」チュートリアルでは、`NorthwindWithSprocs`という名前の型指定されたデータセットを作成しました。 現在、このデータセットには、`ProductsDataTable` と `EmployeesDataTable`の2つの Datatable が含まれています。 `ProductsTableAdapter` には、次の3つの方法があります。
 
-- `GetProducts` -メインのクエリは、すべてのレコードを返します、`Products`テーブル
-- `GetProductsByCategoryID(categoryID)` -指定したすべての製品を返します*categoryID*します。
-- `GetProductByProductID(productID)` -指定した特定の製品を返します*productID*します。
+- `GetProducts`-`Products` テーブルからすべてのレコードを返すメインクエリ
+- `GetProductsByCategoryID(categoryID)`-指定された*categoryID*を持つすべての製品を返します。
+- `GetProductByProductID(productID)`-指定された*productID*を持つ特定の製品を返します。
 
-メインのクエリと、2 つの追加のメソッドは、つまりすべての列のデータ フィールドの同じセットを返す、`Products`テーブル。 相関サブクエリがないまたは`JOIN`関連データを抽出して、`Categories`または`Suppliers`テーブル。 そのため、`ProductsDataTable`内の各フィールドの対応する列を持つ、`Products`テーブル。
+メインクエリと2つの追加のメソッドはすべて、同じデータフィールドのセットを返します。つまり、`Products` テーブルのすべての列が返されます。 相関サブクエリが存在しないか、`Categories` または `Suppliers` テーブルから関連データをプルして `JOIN`。 したがって、`ProductsDataTable` には、`Products` テーブル内の各フィールドに対応する列があります。
 
-このチュートリアルでは、let s を追加するメソッドを`ProductsTableAdapter`という`GetProductsWithPriceQuartile`すべての製品を返します。 標準の製品のデータ フィールドに加え`GetProductsWithPriceQuartile`も含まれる、`PriceQuartile`どの四分位数で製品の価格があることを示します。 データ フィールド。 たとえば、価格が最も高コストの 25% ではこれらの製品が必要があります、`PriceQuartile`値 1、4 の値がありますが、下部の 25% で価格が含まれています。 この情報を返すストアド プロシージャの作成について気にし、前に、まず必要がありますを更新する、`ProductsDataTable`を保持する列を含めるように、`PriceQuartile`結果と、`GetProductsWithPriceQuartile`メソッドを使用します。
+このチュートリアルでは、を使用して、すべての製品を返す `GetProductsWithPriceQuartile` という名前の `ProductsTableAdapter` にメソッドを追加します。 標準の製品データフィールドに加えて、`GetProductsWithPriceQuartile` には、製品の価格がどの四分の値に分類されるかを示す `PriceQuartile` データフィールドも含まれます。 たとえば、価格が最も高価な25% の製品には `PriceQuartile` の値1が割り当てられ、下位25% に価格が設定されている製品の値は4になります。 ただし、この情報を返すストアドプロシージャを作成することを心配する前に、まず、`ProductsDataTable` を更新して、`GetProductsWithPriceQuartile` メソッドが使用されたときに `PriceQuartile` の結果を保持する列を含める必要があります。
 
-開く、`NorthwindWithSprocs`データセットを右クリックし、`ProductsDataTable`します。 コンテキスト メニューから追加を選択し、列を選択してください。
+`NorthwindWithSprocs` データセットを開き、`ProductsDataTable`を右クリックします。 コンテキストメニューの [追加] をクリックし、[列] を選択します。
 
-[![ProductsDataTable に新しい列を追加します。](adding-additional-datatable-columns-cs/_static/image2.png)](adding-additional-datatable-columns-cs/_static/image1.png)
+[製品の Datatable に新しい列を追加 ![には](adding-additional-datatable-columns-cs/_static/image2.png)](adding-additional-datatable-columns-cs/_static/image1.png)
 
-**図 1**:新しい列を追加、 `ProductsDataTable` ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image3.png))。
+**図 1**: `ProductsDataTable` に新しい列を追加する ([クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image3.png)されます)
 
-これは、新しい列がという名前の型の列 1 の DataTable に追加されます`System.String`します。 この列の名前に更新 PriceQuartile とその型にする必要があります`System.Int32`される 1 ~ 4 の数値を保持するために使用します。 新しく追加された列の選択、`ProductsDataTable`し、[プロパティ] ウィンドウから次のように設定します。、 `Name` PriceQuartile にプロパティと`DataType`プロパティを`System.Int32`します。
+これにより、`System.String`型の Column1 という名前の DataTable に新しい列が追加されます。 この列の名前を PriceQuartile に、その型を `System.Int32` に更新する必要があります。これは、1 ~ 4 の数値を保持するために使用されるためです。 `ProductsDataTable` で新しく追加された列を選択し、プロパティウィンドウの [`Name`] プロパティを [PriceQuartile] に設定し、[`DataType`] プロパティを [`System.Int32`] に設定します。
 
-[![新しい列の名前とデータ型のプロパティを設定します。](adding-additional-datatable-columns-cs/_static/image5.png)](adding-additional-datatable-columns-cs/_static/image4.png)
+[新しい列の Name プロパティと DataType プロパティを設定 ![には](adding-additional-datatable-columns-cs/_static/image5.png)](adding-additional-datatable-columns-cs/_static/image4.png)
 
-**図 2**:設定の新しい列 s`Name`と`DataType`プロパティ ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image6.png))。
+**図 2**: 新しい列の `Name` と `DataType` プロパティの設定 ([クリックしてフルサイズの画像を表示](adding-additional-datatable-columns-cs/_static/image6.png))
 
-図 2 は、列の値を列が自動インクリメント列の場合は一意である必要があるかどうかなど、設定できる追加のプロパティは、データベースのかどうか`NULL`値を許可、および具合です。 これらの値が既定値に設定のままにします。
+図2に示すように、設定できる追加のプロパティがあります。たとえば、列の値が一意である必要があるかどうか、列が自動インクリメント列であるかどうか、データベース `NULL` 値が許可されているかどうかなどです。 これらの値は既定値のままにしておきます。
 
-## <a name="step-2-creating-thegetproductswithpricequartilemethod"></a>手順 2: 作成、`GetProductsWithPriceQuartile`メソッド
+## <a name="step-2-creating-thegetproductswithpricequartilemethod"></a>手順 2:`GetProductsWithPriceQuartile`メソッドの作成
 
-これで、`ProductsDataTable`を含めるが更新されました、`PriceQuartile`を作成する準備ができました 列、`GetProductsWithPriceQuartile`メソッド。 TableAdapter を右クリックし、コンテキスト メニューから追加のクエリを選択して開始します。 まず、アドホック SQL ステートメントまたは新規または既存のストアド プロシージャを使用するかどうかについて私たちを求められます TableAdapter クエリ構成ウィザードが表示されます。 後で私たちはないまだ価格の四分位数のデータを返すストアド プロシージャがある、s をこのストアド プロシージャを作成する TableAdapter を許可することができます。 新しいストアド プロシージャの作成 オプションを選択し、次へ をクリックします。
+`PriceQuartile` 列を含むように `ProductsDataTable` が更新されたので、`GetProductsWithPriceQuartile` メソッドを作成する準備が整いました。 まず、TableAdapter を右クリックし、コンテキストメニューから [クエリの追加] を選択します。 これにより、TableAdapter クエリの構成ウィザードが起動します。このウィザードでは、アドホック SQL ステートメントと新規または既存のストアドプロシージャのどちらを使用するかを確認するメッセージが最初に表示されます。 価格の四分位データを返すストアドプロシージャはまだありません。そのため、では、TableAdapter によってこのストアドプロシージャを作成することが許可されています。 [新しいストアドプロシージャの作成] オプションを選択し、[次へ] をクリックします。
 
-[![私たちにとって、ストアド プロシージャを作成する TableAdapter ウィザードの指示します。](adding-additional-datatable-columns-cs/_static/image8.png)](adding-additional-datatable-columns-cs/_static/image7.png)
+[![、TableAdapter ウィザードでストアドプロシージャを作成するように指示します。](adding-additional-datatable-columns-cs/_static/image8.png)](adding-additional-datatable-columns-cs/_static/image7.png)
 
-**図 3**:TableAdapter ウィザードで、ストアド プロシージャの私たちを作成するように指示 ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image9.png))。
+**図 3**: TableAdapter ウィザードを使用して、ストアドプロシージャを作成するように指示する ([クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image9.png)されます)
 
-図 4 に示すように、後続の画面で、ウィザード求められたときを追加するクエリの種類。 以降、`GetProductsWithPriceQuartile`メソッドは、すべての列とレコードを返します、`Products`テーブル、行のオプションと [次へ] を選択します。
+図4に示されている後続の画面では、ウィザードによって、追加するクエリの種類が表示されます。 `GetProductsWithPriceQuartile` メソッドは `Products` テーブルからすべての列とレコードを返すため、[行を返す] オプションを選択し、[次へ] をクリックします。
 
-[![クエリが SELECT ステートメントを返します。 その複数行になります](adding-additional-datatable-columns-cs/_static/image11.png)](adding-additional-datatable-columns-cs/_static/image10.png)
+[クエリが複数行を返す SELECT ステートメントになる ![](adding-additional-datatable-columns-cs/_static/image11.png)](adding-additional-datatable-columns-cs/_static/image10.png)
 
-**図 4**:このクエリが行われる、`SELECT`ステートメントを複数行を返します ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image12.png))。
+**図 4**: クエリは複数の行を返す `SELECT` ステートメントです ([クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image12.png)されます)
 
-次のよう求められます、`SELECT`クエリ。 ウィザードには、次のクエリを入力します。
+次に、`SELECT` クエリを入力するように求められます。 ウィザードに次のクエリを入力します。
 
 [!code-sql[Main](adding-additional-datatable-columns-cs/samples/sample1.sql)]
 
-上記のクエリを新しい SQL Server 2005 s 使用[`NTILE`関数](https://msdn.microsoft.com/library/ms175126.aspx)によって、グループを決定する、4 つのグループに、結果を分割する、`UnitPrice`値の降順に並べ替えられます。
+上記のクエリでは、SQL Server 2005 s new [`NTILE` 関数](https://msdn.microsoft.com/library/ms175126.aspx)を使用して、結果を4つのグループに分割しています。このグループは、`UnitPrice` 値によって降順に並べ替えられています。
 
-残念ながら、クエリ ビルダーに解析する方法を把握されません、`OVER`キーワードと、上記のクエリの解析中にエラーが表示されます。 そのため、クエリ ビルダーを使用せず、ウィザードで、テキスト ボックス内で直接、上記のクエリを入力します。
-
-> [!NOTE]
-> NTILE と SQL Server 2005 に関する詳細については、他の順位付け関数を参照してください[Microsoft SQL Server 2005 でランク付けされた結果を返す](http://www.4guysfromrolla.com/webtech/010406-1.shtml)と[順位付け関数セクション](https://msdn.microsoft.com/library/ms189798.aspx)から、 [SQLServer 2005 Books Online](https://msdn.microsoft.com/library/ms189798.aspx)します。
-
-入力した後、`SELECT`クエリ、[次へ] をクリックして、ウィザード求められたときに、作成、ストアド プロシージャの名前を指定します。 新しいストアド プロシージャの名前を付けます`Products_SelectWithPriceQuartile`[次へ] をクリックします。
-
-[![ストアド プロシージャ Products_SelectWithPriceQuartile 名](adding-additional-datatable-columns-cs/_static/image14.png)](adding-additional-datatable-columns-cs/_static/image13.png)
-
-**図 5**:ストアド プロシージャの名前を付けます`Products_SelectWithPriceQuartile`([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image15.png))。
-
-最後に、TableAdapter のメソッドの名前を付けるように求められます。 両方の塗りつぶしの DataTable のままにし、DataTable のチェック ボックスがオンと名、メソッドが返されます`FillWithPriceQuartile`と`GetProductsWithPriceQuartile`します。
-
-[![名前、tableadapter のメソッドとクリック完了します。](adding-additional-datatable-columns-cs/_static/image17.png)](adding-additional-datatable-columns-cs/_static/image16.png)
-
-**図 6**:TableAdapter のメソッドとは [完了] の名前 ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image18.png))。
-
-`SELECT`クエリを指定し、ストアド プロシージャとという名前の TableAdapter メソッドは、ウィザードを完了するには、[完了] をクリックします。 この時点で警告または 2 つのことを示すウィザードから取得可能性があります、 `OVER` SQL コンストラクトまたはステートメントはサポートされていません。 これらの警告を無視できます。
-
-ウィザードを完了すると、TableAdapter を含める必要があります、`FillWithPriceQuartile`と`GetProductsWithPriceQuartile`メソッドと、データベースは、という名前のストアド プロシージャを含める必要があります`Products_SelectWithPriceQuartile`します。 TableAdapter がこの新しいメソッドを含む実際とストアド プロシージャがデータベースに正しく追加されたことを確認する時間がかかります。 ときに、ストアド プロシージャ フォルダーを右クリックしてお試しくださいをストアド プロシージャと更新 を選択が表示されない場合は、データベースを確認しています。
-
-![新しいメソッドが TableAdapter に追加されたことを確認します。](adding-additional-datatable-columns-cs/_static/image19.png)
-
-**図 7**:新しいメソッドが TableAdapter に追加されたことを確認します。
-
-[![データベースには、Products_SelectWithPriceQuartile ストアド プロシージャ](adding-additional-datatable-columns-cs/_static/image21.png)](adding-additional-datatable-columns-cs/_static/image20.png)
-
-**図 8**:データベースの含まれていることを確認、`Products_SelectWithPriceQuartile`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image22.png))。
+残念ながら、クエリビルダーでは、`OVER` キーワードを解析する方法がわからず、上記のクエリの解析時にエラーが表示されます。 そのため、クエリビルダーを使用せずに、ウィザードのテキストボックスに上記のクエリを直接入力します。
 
 > [!NOTE]
-> アドホック SQL ステートメントの代わりにストアド プロシージャを使用する利点の 1 つは、TableAdapter 構成ウィザードを再実行が変更しないこと、ストアド プロシージャの列リストです。 TableAdapter を右クリックして、ウィザードを開始するコンテキスト メニューから構成オプションを選択および完了するには、[完了] をクリックし、これを確認します。 次に、データベースとビューに移動、`Products_SelectWithPriceQuartile`ストアド プロシージャ。 その列リストが変更されていないことに注意してください。 ここで使用されていた、アドホック SQL ステートメント、TableAdapter 構成ウィザードを再実行が元に戻す NTILE ステートメントで使用されるクエリから削除、メイン クエリ列リストに一致するようにこのクエリの列のリスト、`GetProductsWithPriceQuartile`メソッド。
+> NTILE および SQL Server 2005 s その他の順位付け関数の詳細については、 [SQL Server 2005 オンラインブック](https://msdn.microsoft.com/library/ms189798.aspx)の「 [Microsoft SQL Server 2005 を使用](http://www.4guysfromrolla.com/webtech/010406-1.shtml)して順位付けされた結果を返す」および「[順位付け関数」](https://msdn.microsoft.com/library/ms189798.aspx)を参照してください。
 
-ときにデータ アクセス層 s`GetProductsWithPriceQuartile`メソッドが呼び出される、TableAdapter の実行、`Products_SelectWithPriceQuartile`ストアド プロシージャとに行を追加、`ProductsDataTable`返されたレコードの。 ストアド プロシージャによって返されるデータ フィールドのマップ、`ProductsDataTable`の列。 あるため、 `PriceQuartile` 、ストアド プロシージャから返されるデータ フィールドの値に割り当てられている、 `ProductsDataTable` s`PriceQuartile`列。
+`SELECT` クエリを入力して [次へ] をクリックすると、ウィザードによって作成されるストアドプロシージャの名前を入力するように求められます。 新しいストアドプロシージャに `Products_SelectWithPriceQuartile` という名前を指定し、[次へ] をクリックします。
 
-クエリでそのを返さない TableAdapter メソッド、`PriceQuartile`データ フィールドに、 `PriceQuartile` s の列の値によって指定された値は、その`DefaultValue`プロパティ。 この値に設定して、図 2 に示す`DBNull`、既定値。 別の既定値は場合は、設定、`DefaultValue`プロパティに応じて。 大丈夫、`DefaultValue`値が有効な列 %s を指定して`DataType`(つまり、`System.Int32`の`PriceQuartile`列)。
+[ストアドプロシージャの名前を ![Products_SelectWithPriceQuartile](adding-additional-datatable-columns-cs/_static/image14.png)](adding-additional-datatable-columns-cs/_static/image13.png)
 
-この時点での列を DataTable に追加のために必要な手順を実行しました。 この列の追加が正常に動作することを確認するには、s の各製品の名前、価格、および価格の四分位数を表示する ASP.NET ページを作成することができます。 その前に、まず必要がありますをに、DAL s が呼び出すメソッドを含めるビジネス ロジック層を更新する`GetProductsWithPriceQuartile`メソッド。 手順 3 で BLL を次に、更新、手順 4. で、ASP.NET ページを作成おされます。
+**図 5**: ストアドプロシージャの名前を `Products_SelectWithPriceQuartile`[にする (クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image15.png)されます)
 
-## <a name="step-3-augmenting-the-business-logic-layer"></a>手順 3: ビジネス ロジック層の拡張
+最後に、TableAdapter メソッドに名前を指定するように求められます。 [DataTable にデータを格納し、DataTable を返す] チェックボックスをオンのままにして、メソッドの名前を `FillWithPriceQuartile` と `GetProductsWithPriceQuartile`にします。
 
-新しい使用前に`GetProductsWithPriceQuartile`メソッド、プレゼンテーション層から必要がありますまず対応するメソッドに追加、BLL します。 開く、`ProductsBLLWithSprocs`クラス ファイルと、次のコードを追加します。
+[TableAdapter のメソッドに名前を ![、[完了] をクリックします。](adding-additional-datatable-columns-cs/_static/image17.png)](adding-additional-datatable-columns-cs/_static/image16.png)
+
+**図 6**: TableAdapter のメソッドに名前を指定し、[完了][をクリックする (クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image18.png)されます)
+
+`SELECT` のクエリを指定し、ストアドプロシージャと TableAdapter メソッドをと共に使用して、[完了] をクリックしてウィザードを完了します。 この時点で、`OVER` SQL コンストラクトまたはステートメントがサポートされていないことを示す警告がウィザードから表示されることがあります。 これらの警告は無視してかまいません。
+
+ウィザードが完了したら、TableAdapter に `FillWithPriceQuartile` メソッドと `GetProductsWithPriceQuartile` メソッドを含め、データベースに `Products_SelectWithPriceQuartile`という名前のストアドプロシージャを含める必要があります。 この新しいメソッドが TableAdapter に実際に含まれていること、およびストアドプロシージャがデータベースに正しく追加されていることを確認します。 データベースをチェックするときに、ストアドプロシージャが表示されない場合は、[ストアドプロシージャ] フォルダーを右クリックして [最新の状態に更新] をクリックします。
+
+![新しいメソッドが TableAdapter に追加されたことを確認する](adding-additional-datatable-columns-cs/_static/image19.png)
+
+**図 7**: 新しいメソッドが TableAdapter に追加されたことを確認する
+
+[![データベースに Products_SelectWithPriceQuartile ストアドプロシージャが含まれていることを確認する](adding-additional-datatable-columns-cs/_static/image21.png)](adding-additional-datatable-columns-cs/_static/image20.png)
+
+**図 8**: データベースに `Products_SelectWithPriceQuartile` ストアドプロシージャが含まれていることを確認[する (クリックしてフルサイズの画像を表示する](adding-additional-datatable-columns-cs/_static/image22.png))
+
+> [!NOTE]
+> アドホック SQL ステートメントの代わりにストアドプロシージャを使用する利点の1つは、TableAdapter 構成ウィザードを再実行しても、[ストアドプロシージャ] 列の一覧が変更されないことです。 これを確認するには、TableAdapter を右クリックし、コンテキストメニューから [構成] オプションを選択してウィザードを起動し、[完了] をクリックして完了します。 次に、データベースにアクセスし、`Products_SelectWithPriceQuartile` ストアドプロシージャを表示します。 列リストが変更されていないことに注意してください。 アドホック SQL ステートメントを使用していたので、TableAdapter 構成ウィザードを再実行すると、メインクエリ列リストに一致するようにこのクエリの列リストが元に戻され、`GetProductsWithPriceQuartile` メソッドによって使用されるクエリから NTILE ステートメントが削除されます。
+
+データアクセス層 s `GetProductsWithPriceQuartile` メソッドが呼び出されると、TableAdapter は `Products_SelectWithPriceQuartile` ストアドプロシージャを実行し、返された各レコードの `ProductsDataTable` に行を追加します。 ストアドプロシージャによって返されるデータフィールドは、`ProductsDataTable` s 列にマップされます。 ストアドプロシージャから返される `PriceQuartile` データフィールドがあるため、その値は `ProductsDataTable` s `PriceQuartile` 列に割り当てられます。
+
+クエリによって `PriceQuartile` データフィールドが返されない TableAdapter メソッドの場合、`PriceQuartile` 列の値はその `DefaultValue` プロパティによって指定された値になります。 図2に示すように、この値は `DBNull`(既定) に設定されています。 別の既定値を使用する場合は、`DefaultValue` プロパティを適宜設定します。 列 `DataType` (つまり、`PriceQuartile` 列の `System.Int32`) によって `DefaultValue` 値が有効であることを確認してください。
+
+この時点で、DataTable に列を追加するために必要な手順を実行しました。 この追加列が想定どおりに動作することを確認するには、ASP.NET ページを作成して、各製品の名前、価格、および価格の四分の1を表示します。 ただし、その前に、最初にビジネスロジックレイヤーを更新して、DAL の `GetProductsWithPriceQuartile` メソッドを呼び出すメソッドを含める必要があります。 次に、手順 3. で [BLL] を更新してから、手順4で ASP.NET ページを作成します。
+
+## <a name="step-3-augmenting-the-business-logic-layer"></a>手順 3: ビジネスロジック層を補強する
+
+プレゼンテーション層から新しい `GetProductsWithPriceQuartile` メソッドを使用する前に、まず、対応するメソッドを BLL に追加する必要があります。 `ProductsBLLWithSprocs` クラスファイルを開き、次のコードを追加します。
 
 [!code-csharp[Main](adding-additional-datatable-columns-cs/samples/sample2.cs)]
 
-その他のデータ取得メソッドと同様`ProductsBLLWithSprocs`、`GetProductsWithPriceQuartile`メソッドは、DAL を呼び出すだけです s が対応する`GetProductsWithPriceQuartile`メソッドの結果を返します。
+`ProductsBLLWithSprocs`の他のデータ取得メソッドと同様に、`GetProductsWithPriceQuartile` メソッドは単に、対応する `GetProductsWithPriceQuartile` メソッドを呼び出し、その結果を返します。
 
-## <a name="step-4-displaying-the-price-quartile-information-in-an-aspnet-web-page"></a>手順 4: ASP.NET Web ページで価格の四分位数情報を表示します。
+## <a name="step-4-displaying-the-price-quartile-information-in-an-aspnet-web-page"></a>手順 4: ASP.NET Web ページで価格の四分の情報を表示する
 
-BLL の追加には、各製品の価格の四分位数を示す ASP.NET ページを作成する準備ができたらを完了します。 開く、`AddingColumns.aspx`ページで、`AdvancedDAL`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ、GridView、`ID`プロパティを`Products`します。 GridView のスマート タグからという名前の新しい ObjectDataSource にバインド`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLLWithSprocs`クラスの`GetProductsWithPriceQuartile`メソッド。 これは読み取り専用グリッドになる、ため、UPDATE、INSERT でドロップダウン リストを設定し、(None) にタブを削除します。
+BLL の追加が完了したら、各製品の価格の ASP.NET を示すページを作成します。 `AdvancedDAL` フォルダーの [`AddingColumns.aspx`] ページを開き、[ツールボックス] から GridView をデザイナーにドラッグし、`ID` プロパティを [`Products`] に設定します。 GridView s スマートタグから、`ProductsDataSource`という名前の新しい ObjectDataSource にバインドします。 `ProductsBLLWithSprocs` クラス s `GetProductsWithPriceQuartile` メソッドを使用するように ObjectDataSource を構成します。 これは読み取り専用であるため、[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定します。
 
-[![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](adding-additional-datatable-columns-cs/_static/image24.png)](adding-additional-datatable-columns-cs/_static/image23.png)
+[製品 Bllwithsproc クラスを使用するように ObjectDataSource を構成 ![には](adding-additional-datatable-columns-cs/_static/image24.png)](adding-additional-datatable-columns-cs/_static/image23.png)
 
-**図 9**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image25.png))。
+**図 9**: `ProductsBLLWithSprocs` クラスを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](adding-additional-datatable-columns-cs/_static/image25.png))
 
-[![GetProductsWithPriceQuartile メソッドから製品情報を取得します。](adding-additional-datatable-columns-cs/_static/image27.png)](adding-additional-datatable-columns-cs/_static/image26.png)
+[GetProductsWithPriceQuartile メソッドから製品情報を取得 ![には](adding-additional-datatable-columns-cs/_static/image27.png)](adding-additional-datatable-columns-cs/_static/image26.png)
 
-**図 10**:製品情報を取得、`GetProductsWithPriceQuartile`メソッド ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image28.png))。
+**図 10**: `GetProductsWithPriceQuartile` メソッドから製品情報[を取得する (クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image28.png)されます)
 
-データ ソース構成ウィザードを完了すると、Visual Studio が自動的に追加 BoundField または CheckBoxField GridView の各メソッドによって返されるデータ フィールドの。 これらのデータ フィールドの 1 つは`PriceQuartile`、これは、列を追加しました、`ProductsDataTable`手順 1. でします。
+データソースの構成ウィザードを完了すると、Visual Studio によって、メソッドによって返される各データフィールドの GridView に BoundField または CheckBoxField が自動的に追加されます。 これらのデータフィールドの1つは `PriceQuartile`です。これは、手順 1. で `ProductsDataTable` に追加した列です。
 
-GridView のフィールドを削除する編集はすべて、 `ProductName`、`UnitPrice`と`PriceQuartile`BoundFields します。 構成、`UnitPrice`その値を通貨として書式設定し、BoundField、`UnitPrice`と`PriceQuartile`BoundFields 右揃え、中央揃え、それぞれします。 最後に、残りの BoundFields を更新`HeaderText`プロパティ製品、価格、および価格の四分位数をそれぞれします。 また、GridView s のスマート タグから並べ替えを有効にするチェック ボックスを確認します。
+GridView のフィールドを編集し、`ProductName`、`UnitPrice`、および `PriceQuartile` BoundFields 以外はすべて削除します。 `UnitPrice` BoundField を構成して、その値を通貨として書式設定し、`UnitPrice` と `PriceQuartile` BoundFields をそれぞれ右および中央揃えに設定します。 最後に、残りの BoundFields `HeaderText` プロパティを、それぞれ製品、価格、価格の4分の4に更新します。 また、GridView s スマートタグの [並べ替えを有効にする] チェックボックスをオンにします。
 
-これらの変更後に GridView コントロールと ObjectDataSource s 宣言型マークアップは、次のようになります。
+これらの変更を加えた後、GridView および ObjectDataSource s 宣言マークアップは次のようになります。
 
 [!code-aspx[Main](adding-additional-datatable-columns-cs/samples/sample3.aspx)]
 
-図 11 では、ブラウザーからアクセスしたときに、このページを示します。 最初に、製品順に適切な割り当てられている各製品での降順での価格に注意してください。`PriceQuartile`値。 まだ価格に関して、製品の順位付けを反映した価格の四分位数の列値が他の条件でコースのこのデータの並べ替えは (図 12 を参照してください)。
+図11は、ブラウザーを使用してアクセスしたときのこのページを示しています。 初期状態では、各製品に適切な `PriceQuartile` 値が割り当てられ、製品の価格が降順で並べ替えられていることに注意してください。 もちろん、このデータは他の条件で並べ替えることができます。価格の四分の列の値は、価格に関して製品のランク付けを反映しています (図12を参照)。
 
-[![製品は、価格順に並べ替えられます。](adding-additional-datatable-columns-cs/_static/image30.png)](adding-additional-datatable-columns-cs/_static/image29.png)
+[製品が価格順に並べられている ![](adding-additional-datatable-columns-cs/_static/image30.png)](adding-additional-datatable-columns-cs/_static/image29.png)
 
-**図 11**:製品は、価格で並べ替えられます ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image31.png))。
+**図 11**: 製品が価格順に並べられている ([クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image31.png)されます)
 
-[![製品は、名前順に並べ替えられます。](adding-additional-datatable-columns-cs/_static/image33.png)](adding-additional-datatable-columns-cs/_static/image32.png)
+[製品が名前順に並んでいる ![](adding-additional-datatable-columns-cs/_static/image33.png)](adding-additional-datatable-columns-cs/_static/image32.png)
 
-**図 12**:製品は、名前で並べ替えられます ([フルサイズの画像を表示する をクリックします](adding-additional-datatable-columns-cs/_static/image34.png))。
+**図 12**: 製品は名前順に並んでいます ([クリックすると、フルサイズの画像が表示](adding-additional-datatable-columns-cs/_static/image34.png)されます)
 
 > [!NOTE]
-> 数行のコードはでしたの強化点、GridView に基づく製品の行を表示できるように、`PriceQuartile`値。 最初の四分位数の 2 番目の四分位数淡い黄色の場合は、明るい緑には、これらの製品を色し、など可能性があります。 この機能を追加する少しことをお勧めします。 GridView の書式設定の更新機能が必要な場合を参照してください、[カスタム書式設定時にデータ](../custom-formatting/custom-formatting-based-upon-data-cs.md)チュートリアル。
+> 数行のコードを使用して、`PriceQuartile` 値に基づいて製品の行を色分けするように GridView を拡張することができます。 これらの製品については、最初の4分の1番目の四分位に色を設定します。 この機能を追加することをお勧めします。 GridView の書式設定に関するリフレッシャーが必要な場合は、「[データに基づくカスタム書式](../custom-formatting/custom-formatting-based-upon-data-cs.md)設定」チュートリアルを参照してください。
 
-## <a name="an-alternative-approach---creating-another-tableadapter"></a>別のアプローチのもう 1 つの TableAdapter を作成します。
+## <a name="an-alternative-approach---creating-another-tableadapter"></a>別の方法-別の TableAdapter の作成
 
-このチュートリアルで説明したメインのクエリを簡潔にメソッド以外のデータ フィールドを返す TableAdapter を追加するときに、ように対応する列を DataTable に追加できます。 このアプローチ、ただし、少数のさまざまなデータ フィールドを返すことは TableAdapter のメソッドがある場合にのみ、およびこれらの代替データ フィールドは、メイン クエリからあまり変化しない場合に効果的に機能します。
+このチュートリアルで説明したように、メインクエリでスペルが指定されていないデータフィールドを返す TableAdapter にメソッドを追加する場合、対応する列を DataTable に追加できます。 ただし、このような方法は、異なるデータフィールドを返す TableAdapter 内のメソッドの数が少ない場合や、それらの代替データフィールドがメインクエリによって大きく変化しない場合にのみ適しています。
 
-列を DataTable に追加するのではなくをさまざまなデータ フィールドを返す最初の TableAdapter のメソッドを含むデータセットをもう 1 つの TableAdapter を代わりに追加できます。 このチュートリアルでは、追加ではなく、`PriceQuartile`列を`ProductsDataTable`(によって使用されてのみ、`GetProductsWithPriceQuartile`メソッド)、という名前のデータセットに追加の TableAdapter を追加しましたでした`ProductsWithPriceQuartileTableAdapter`使用、`Products_SelectWithPriceQuartile`格納されています。そのメイン クエリとしてプロシージャです。 価格の四分位数で製品情報を取得するために必要な ASP.NET ページを使用、`ProductsWithPriceQuartileTableAdapter`を引き続き使用するものではありませんでしたが、`ProductsTableAdapter`します。
+列を DataTable に追加するのではなく、別のデータフィールドを返す最初の TableAdapter のメソッドを含むデータセットに別の TableAdapter を追加することができます。 このチュートリアルでは、`ProductsDataTable` (`GetProductsWithPriceQuartile` メソッドによってのみ使用されます) に `PriceQuartile` 列を追加するのではなく、`Products_SelectWithPriceQuartile` ストアドプロシージャをメインクエリとして使用した `ProductsWithPriceQuartileTableAdapter` という名前のデータセットに、追加の TableAdapter を追加することができます。 価格の ASP.NET に製品情報を取得するために必要なページには、`ProductsWithPriceQuartileTableAdapter`が使用されていますが、`ProductsTableAdapter`の使用を継続できませんでした。
 
-新しい TableAdapter を追加すると、データ テーブルのまま untarnished とその列は、TableAdapter のメソッドによって返されるデータ フィールドを正確にミラー化します。 ただし、追加の Tableadapter には、反復的なタスクと機能を導入できます。 例では、その場合の ASP.NET ページを表示、`PriceQuartile`列もために必要なため、挿入、更新、および削除のサポート、`ProductsWithPriceQuartileTableAdapter`必要とするその`InsertCommand`、`UpdateCommand`と`DeleteCommand`プロパティ適切構成されています。 これらのプロパティが反映中に、`ProductsTableAdapter`秒で、この構成は、追加の手順を紹介します。 さらが 2 つの方法で更新、削除、または経由のデータベースに製品を追加、`ProductsTableAdapter`と`ProductsWithPriceQuartileTableAdapter`クラス。
+新しい TableAdapter を追加することにより、Datatable は untarnished を維持し、その列には TableAdapter のメソッドによって返されるデータフィールドが正確に反映されます。 ただし、追加の Tableadapter によって、反復的なタスクと機能が導入される場合があります。 たとえば、`PriceQuartile` 列を表示するこれらの ASP.NET ページにも、挿入、更新、および削除のサポートが必要な場合、`ProductsWithPriceQuartileTableAdapter` には、`InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティが正しく構成されている必要があります。 これらのプロパティは `ProductsTableAdapter` をミラー化しますが、この構成では追加の手順が導入されます。 さらに、データベースに対して製品を更新、削除、または追加するには、`ProductsTableAdapter` と `ProductsWithPriceQuartileTableAdapter` のクラスを使用する2つの方法があります。
 
-このチュートリアルでは、ダウンロードが含まれています、`ProductsWithPriceQuartileTableAdapter`クラス、`NorthwindWithSprocs`データセットこの代替アプローチを示します。
+このチュートリアルのダウンロードには、この代替アプローチを示す `ProductsWithPriceQuartileTableAdapter` クラスが `NorthwindWithSprocs` データセットに含まれています。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-ほとんどのシナリオでデータ フィールドの同じセットを返すすべての TableAdapter で方法がありますが、特定のメソッドまたは 2 つの追加のフィールドを返す必要があります。 など、[マスター/詳細と詳細 DataList マスター レコードの箇条書きリストを使用して](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)チュートリアルへのメソッドを追加しました、`CategoriesTableAdapter`だけでなく、返されるメイン クエリのデータ フィールドを`NumberOfProducts`フィールド各カテゴリに関連付けられている製品の数を報告します。 このチュートリアルでは、内のメソッドを追加するところ、`ProductsTableAdapter`返される、`PriceQuartile`フィールドだけでなく、メイン クエリのデータ フィールド。 追加のデータをキャプチャするには、は、フィールドは DataTable に対応する列を追加する必要があります TableAdapter のメソッドによって返されます。
+ほとんどのシナリオでは、TableAdapter 内のすべてのメソッドは同じデータフィールドのセットを返しますが、特定のメソッドまたは2が追加のフィールドを返す必要がある場合もあります。 たとえば、マスター[レコードの箇条書きリストを使用した、詳細データを含むマスターレコードの一覧を使用したマスター/詳細](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)のチュートリアルでは、`CategoriesTableAdapter` にメソッドを追加しました。このメソッドは、メインクエリ s のデータフィールドに加えて、各カテゴリに関連付けられている製品の数を報告する `NumberOfProducts` フィールドを返しました。 このチュートリアルでは、メインのクエリ s データフィールドに加えて、`PriceQuartile` フィールドを返す `ProductsTableAdapter` にメソッドを追加する方法を説明しました。 TableAdapter のメソッドによって返された追加のデータフィールドを取得するには、対応する列を DataTable に追加する必要があります。
 
-データ テーブルに列を手動で追加する場合は、TableAdapter がストアド プロシージャを使用することをお勧めします。 TableAdapter は、アドホック SQL ステートメントを使用する場合、いつ、TableAdapter 構成ウィザードを実行のすべてのデータ フィールドの一覧がメインのクエリによって返されるデータ フィールドに元に戻すメソッド。 この問題には拡張されませんストアド プロシージャは、推奨される、このチュートリアルで使用されていたためにです。
+DataTable に列を手動で追加する予定の場合は、TableAdapter でストアドプロシージャを使用することをお勧めします。 TableAdapter がアドホック SQL ステートメントを使用する場合、TableAdapter 構成ウィザードを実行するたびに、すべてのメソッドのデータフィールドリストがメインクエリによって返されるデータフィールドに戻されます。 この問題は、ストアドプロシージャには適用されません。そのため、このチュートリアルでは、この問題を使用することをお勧めします。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者はされた Randy Schmidt、Jacky Goor、「社長補佐 Leigh、および Hilton Giesenow です。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Randy/Jacky Goor、Bernadette Leigh、Hilton Giesenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](updating-the-tableadapter-to-use-joins-cs.md)

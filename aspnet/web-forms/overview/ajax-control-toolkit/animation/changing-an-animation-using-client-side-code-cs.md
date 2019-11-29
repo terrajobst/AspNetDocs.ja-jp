@@ -1,43 +1,43 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
-title: クライアント側コード (c#) を使用してアニメーションを変更する |Microsoft Docs
+title: クライアント側コードを使用してアニメーションをC#変更する () |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 アニメーションこともできます.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションは、
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 2bfbc5cc-f942-44b7-a62d-a29520f1da9a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ec519c8920e66e8b9081d53b4247ab517d819f5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 84fc2d6646b89cfabb2193cdfca59462d6d7ef16
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132236"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606982"
 ---
 # <a name="changing-an-animation-using-client-side-code-c"></a>クライアント側コードを使用してアニメーションを変更する (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation11.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation11CS.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 カスタムのクライアント側の JavaScript コードを使用してアニメーションを変更することもできます。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションは、カスタムクライアント側の JavaScript コードを使用して変更することもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 カスタムのクライアント側の JavaScript コードを使用してアニメーションを変更することもできます。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションは、カスタムクライアント側の JavaScript コードを使用して変更することもできます。
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
+まず、ページに `ScriptManager` を含めます。次に、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようになります。
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample1.aspx)]
 
-次のようなテキストのパネルに、アニメーションが適用されます。
+アニメーションは、次のようなテキストパネルに適用されます。
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
+パネルに関連付けられている CSS クラスで、優れた背景色を定義し、パネルに固定幅を設定します。
 
 [!code-css[Main](changing-an-animation-using-client-side-code-cs/samples/sample3.css)]
 
@@ -45,13 +45,13 @@ ms.locfileid: "65132236"
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample4.aspx)]
 
-次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`:
+次に、`ID`、`TargetControlID` 属性、および加える `runat="server"`を指定して、ページに `AnimationExtender` を追加します。
 
 [!code-aspx[Main](changing-an-animation-using-client-side-code-cs/samples/sample5.aspx)]
 
-あることに注意してくださいありません`<Animations>`内のノード、`AnimationExtender`コントロール。 カスタム JavaScript コードは、コントロールで使用するアニメーションの提供に使用されます。
+`AnimationExtender` コントロール内に `<Animations>` ノードがないことに注意してください。 カスタム JavaScript コードを使用して、コントロールで使用されるアニメーションを提供します。
 
-サーバー API と同様`AnimationExtender`アニメーションをエクステンダーにまだ割り当てする簡単な方法はありません。 さまざまなイベントに登録されているエクステンダーはアニメーションを読み書きするいくつかのメソッドを公開するただし (`OnClick`、`OnLoad`など)。 次にいくつかの例を示します。
+`AnimationExtender`のサーバー API と同様に、まだ extender にアニメーションを割り当てる簡単な方法はありません。 ただし、extender では、さまざまなイベント (`OnClick`、`OnLoad`など) に登録されたアニメーションの読み取りおよび書き込みを行うためのメソッドがいくつか公開されています。 次にいくつかの例を示します。
 
 - `get_OnClick()`
 - `set_OnClick()`
@@ -59,19 +59,19 @@ ms.locfileid: "65132236"
 - `set_OnLoad()`
 - `...`
 
-戻り値の形式、`get_*()`関数と引数の形式、`set_*()`関数は、JSON 文字列は、XML マークアップのオブジェクト表現を提供します。 現時点で、オブジェクトを渡す方法はありませんが、特定のアニメーションからオブジェクトを読み取ることが (`get_OnXXXBehavior()`メソッド)。
+`get_*()` 関数の戻り値の形式と、`set_*()` 関数の引数の形式は JSON 文字列であり、XML マークアップの内容を表すオブジェクトを提供します。 現在、でオブジェクトを渡す方法はありませんが、指定されたアニメーション (`get_OnXXXBehavior()` メソッド) からオブジェクトを読み取ることはできます。
 
-JSON 文字列を次に示します (引用符を区切り記号と適切に書式設定)、ボタンによってトリガーされるアニメーションを表すが、パネルのサイズを変更して同時にフェードアウトしてアニメーション化します。
+次に示すのは、ボタンによってトリガーされるアニメーションを表す JSON 文字列 (区切り引用符が不要で、適切に書式設定されたもの) ですが、パネルをアニメーション化し、同時にフェードアウトします。
 
 [!code-json[Main](changing-an-animation-using-client-side-code-cs/samples/sample6.json)]
 
-次の JavaScript コードでは、この JSON descripting に割り当てられます、`OnClick`現在エクステンダーのアニメーションが実行されるとします。
+次の JavaScript コードは、この JSON descripting を現在の extender の `OnClick` アニメーションに割り当てて実行します。
 
 [!code-html[Main](changing-an-animation-using-client-side-code-cs/samples/sample7.html)]
 
-[![アニメーションのマウス クリックせず (およびほとんどのマークアップ)、すぐに実行します。](changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)
+[マウスをクリックしないで (そして、マークアップをほとんど行わずに) アニメーションをすぐに実行 ![](changing-an-animation-using-client-side-code-cs/_static/image2.png)](changing-an-animation-using-client-side-code-cs/_static/image1.png)
 
-アニメーションのマウス クリックしてせず (およびほとんどのマークアップ)、すぐに実行 ([フルサイズの画像を表示する をクリックします](changing-an-animation-using-client-side-code-cs/_static/image3.png))。
+アニメーションは、マウスをクリックすることなく (そして、マークアップが非常に少ない)、すぐに実行されます ([クリックすると、フルサイズの画像が表示](changing-an-animation-using-client-side-code-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](executing-animations-using-client-side-code-cs.md)

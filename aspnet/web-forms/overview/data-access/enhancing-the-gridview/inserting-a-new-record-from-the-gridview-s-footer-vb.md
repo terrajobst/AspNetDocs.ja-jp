@@ -1,232 +1,232 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
-title: GridView のフッター (VB) から新しいレコードの挿入 |Microsoft Docs
+title: GridView のフッターから新しいレコードを挿入する (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルが含める GridView を拡張する方法では、GridView コントロールには、データの新しいレコードを挿入するための組み込みのサポートされていません、中に、.
+description: GridView コントロールには、新しいデータレコードを挿入するための組み込みのサポートが用意されていませんが、このチュートリアルでは、GridView を拡張して...
 ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 962d1ff53b87577dd8f232f1bcb8fd01198a5a6d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 67ef370a90bc843f5c2da80bb43c8ef8de216b51
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108630"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74631782"
 ---
 # <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView のフッターから新しいレコードを挿入する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_53_VB.exe)または[PDF のダウンロード](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/datatutorial53vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_53_VB.exe)または[PDF のダウンロード](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/datatutorial53vb1.pdf)
 
-> GridView コントロールには、データの新しいレコードを挿入するための組み込みのサポートされていません、このチュートリアルでは、挿入のインターフェイスを含める GridView を拡張する方法が表示されます。
+> GridView コントロールは、新しいデータレコードを挿入するための組み込みサポートを提供していませんが、このチュートリアルでは、挿入インターフェイスを含めるように GridView を拡張する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-説明したように、[挿入の概要、更新、およびデータの削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)チュートリアルでは、GridView、DetailsView、FormView Web の各のコントロールには、組み込みのデータ変更機能が含まれます。 宣言型のデータ ソース コントロールを併用すると、これら 3 つの Web コントロールできます迅速かつ簡単にするように構成データの変更とでは 1 行のコードを記述する必要はありません。 残念ながら、のみ、DetailsView コントロールと FormView コントロールは、組み込みの挿入、編集、および削除機能を提供します。 GridView には、編集および削除のサポートのみ提供しています。 ただし、少しの屈曲グリースはことができますの強化点、GridView を挿入するインターフェイスを含めます。
+[「データの挿入、更新、および削除の概要](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)」のチュートリアルで説明したように、GridView、DetailsView、および FormView Web コントロールには、組み込みのデータ変更機能が含まれています。 宣言型のデータソースコントロールで使用する場合、これら3つの Web コントロールをすばやく簡単に構成して、データを変更したり、コードを1行も記述しなくてもかまいません。 残念ながら、DetailsView コントロールと FormView コントロールのみが、組み込みの挿入、編集、および削除機能を提供しています。 GridView は、編集および削除のサポートのみを提供します。 ただし、1つのカギ線のグリースでは、挿入インターフェイスを含めるように GridView を拡張できます。
 
-挿入機能を GridView に追加するで新しいレコードが追加されますを決定する、挿入のインターフェイスを作成して、新しいレコードを挿入するコードを記述を担当います。 挿入のインターフェイスを GridView のフッターに追加することに注目するはこのチュートリアルでは行が (図 1 参照)。 各列のフッター セルには、適切なデータ コレクションのユーザー インターフェイス要素 (s の製品名 ボックスと供給業者、DropDownList) が含まれています。 列も必要があります、追加のボタンで、クリックされたときのポストバックを発生させるしに新しいレコードを挿入、`Products`テーブル フッター行に指定された値を使用します。
+GridView に挿入機能を追加する際には、新しいレコードを追加する方法を決定し、挿入インターフェイスを作成し、新しいレコードを挿入するコードを記述する必要があります。 このチュートリアルでは、GridView のフッター行に挿入インターフェイスを追加する方法について説明します (図1を参照)。 各列のフッターセルには、適切なデータコレクションユーザーインターフェイス要素 (製品名のテキストボックス、業者の DropDownList など) が含まれます。 また、[追加] ボタンの列も必要です。クリックすると、フッター行に指定された値を使用して、ポストバックが発生し、`Products` テーブルに新しいレコードが挿入されます。
 
-[![フッター行が新しい製品を追加するためのインターフェイスを提供します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
+[フッター行に ![新しい製品を追加するためのインターフェイスが用意されています。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
 
-**図 1**:フッター行は、新製品の追加のインターフェイスを提供します ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.png))。
+**図 1**: フッター行は、新しい製品を追加するためのインターフェイスを提供します ([クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.png)されます)
 
-## <a name="step-1-displaying-product-information-in-a-gridview"></a>手順 1: GridView で製品情報を表示します。
+## <a name="step-1-displaying-product-information-in-a-gridview"></a>手順 1: GridView で製品情報を表示する
 
-GridView のフッターに挿入するインターフェイスを作成すると自分たちに関係、前に、データベースでは、製品を一覧表示されたページに GridView を追加する最初のフォーカスを s を使用できます。 開いて開始、`InsertThroughFooter.aspx`ページで、`EnhancedGridView`フォルダーと、デザイナーの GridView s を設定するのには、ツールボックスからドラッグ GridView`ID`プロパティを`Products`します。 次に、GridView s のスマート タグをという名前の新しい ObjectDataSource にバインドを使用して`ProductsDataSource`します。
+GridView s フッターでの挿入インターフェイスの作成については、まず、データベース内の製品を一覧表示するページへの GridView の追加について説明します。 まず、`EnhancedGridView` フォルダーの [`InsertThroughFooter.aspx`] ページを開き、GridView をツールボックスからデザイナーにドラッグします。 GridView の `ID` プロパティを `Products`に設定します。 次に、GridView s スマートタグを使用して、`ProductsDataSource`という名前の新しい ObjectDataSource にバインドします。
 
-[![ProductsDataSource という名前の新しい ObjectDataSource を作成します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.png)
+[![新しい ObjectDataSource Datasource を作成する](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.png)
 
-**図 2**:名前付き新しい ObjectDataSource 作成`ProductsDataSource`([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.png))。
+**図 2**: `ProductsDataSource` という名前の新しい ObjectDataSource を作成[する (クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.png)される)
 
-構成を使用する ObjectDataSource、`ProductsBLL`クラスの`GetProducts()`製品情報を取得します。 このチュートリアルでは、挿入機能を追加するのには厳密に注目できるようにし、編集および削除について心配ありません。 そのため、[挿入] タブで、ドロップダウン リストに設定されていることを確認`AddProduct()`UPDATE および DELETE の各タブで、ドロップダウン リストが (なし) に設定されているとします。
+`ProductsBLL` クラス s `GetProducts()` メソッドを使用して製品情報を取得するように ObjectDataSource を構成します。 このチュートリアルでは、を使用して挿入機能を追加するだけで、編集や削除について心配することはありません。 そのため、[挿入] タブのドロップダウンリストが `AddProduct()` に設定されていること、および [更新] タブと [削除] タブのドロップダウンリストが [(なし)] に設定されていることを確認してください。
 
-[![マップ ObjectDataSource s insert() AddProduct メソッド](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
+[AddProduct メソッドを ObjectDataSource s Insert () メソッドにマップ ![には](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
 
-**図 3**:マップ、 `AddProduct` ObjectDataSource s メソッド`Insert()`メソッド ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.png))。
+**図 3**: `AddProduct` メソッドを ObjectDataSource s `Insert()` メソッドにマップする ([クリックしてフルサイズのイメージを表示する](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.png))
 
-[![(なし) を更新および削除のタブのドロップダウン リストを設定します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
+[[更新] タブと [タブの削除] ドロップダウンリストを [(なし)] に設定 ![](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
 
-**図 4**:更新プログラムやタブ ドロップダウン リストの削除 (なし) に設定 ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.png))。
+**図 4**: [更新] タブと [タブの削除] ドロップダウンリストを [(なし)] に設定する ([クリックしてフルサイズのイメージを表示する](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.png))
 
-ObjectDataSource s のデータ ソース構成ウィザードを完了するは、対応するデータ フィールドの各 GridView にフィールドを Visual Studio が自動的に追加されます。 ここでは、すべての Visual Studio によって追加されたフィールドのままにします。 戻ってが削除され、このチュートリアルの後半では、新しいレコードを追加するときに指定するいくつかのフィールドの値がない必要があります。
+ObjectDataSource s のデータソース構成ウィザードを完了すると、対応する各データフィールドの GridView にフィールドが自動的に追加されます。 ここでは、Visual Studio によって追加されたすべてのフィールドをそのまま使用します。 このチュートリアルの後の方で、新しいレコードを追加するときに値を指定する必要のないフィールドをいくつか削除します。
 
-データベースに 80 の製品の近くにある、ので、ユーザーが新しいレコードを追加するには、web ページの下部までスクロールする必要があります。 そのため、%s より見やすくて、アクセス可能な挿入インターフェイスにページングを有効にすることができます。 ページングを有効にするには、GridView s のスマート タグからページングを有効にするチェック ボックスをオンだけです。
+データベースには80製品が含まれているため、ユーザーは新しいレコードを追加するために、web ページの一番下までスクロールする必要があります。 そのため、を使用すると、挿入インターフェイスをより見やすく、アクセスしやすくすることができます。 ページングを有効にするには、GridView のスマートタグから [ページングを有効にする] チェックボックスをオンにします。
 
-この時点では、GridView コントロールと ObjectDataSource s の宣言型マークアップは、次のようになります。
+この時点で、GridView および ObjectDataSource s 宣言マークアップは次のようになります。
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample1.aspx)]
 
-[![製品のすべてのデータ フィールドはページングされた GridView に表示されます。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
+[すべての製品データフィールドがページングされた GridView に表示される ![](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
 
-**図 5**:ページングされた GridView で製品のすべてのデータ フィールドが表示されます ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))。
+**図 5**: すべての製品データフィールドがページングされた GridView に表示される ([クリックしてフルサイズの画像を表示する](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))
 
-## <a name="step-2-adding-a-footer-row"></a>手順 2: フッター行を追加します。
+## <a name="step-2-adding-a-footer-row"></a>手順 2: フッター行の追加
 
-およびそのヘッダーとデータ行は、GridView には、フッター行が含まれています。 GridView の秒の値に応じて、ヘッダーとフッター行の表示[ `ShowHeader` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showheader.aspx)と[ `ShowFooter` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showfooter.aspx)プロパティ。 フッター行を表示する設定、`ShowFooter`プロパティを`True`します。 図 6 に示すように、設定、`ShowFooter`プロパティを`True`フッター行をグリッドに追加します。
+GridView には、ヘッダー行とデータ行と共に、フッター行が含まれています。 ヘッダーとフッターの行は、GridView の[`ShowHeader`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.showheader.aspx)と[`ShowFooter`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.showfooter.aspx)プロパティの値に応じて表示されます。 フッター行を表示するには、単に `ShowFooter` プロパティを `True`に設定します。 図6に示すように、`ShowFooter` プロパティを `True` に設定すると、グリッドにフッター行が追加されます。
 
-[![フッター行を表示するには、True に ShowFooter を設定します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
+[フッター行を表示 ![には、ShowFooter を True に設定します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
 
-**図 6**:フッター行を表示するには、次のように設定します`ShowFooter`に`True`([フルサイズの画像を表示する をクリックします。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png))。
+**図 6**: フッター行を表示するには `ShowFooter` を `True` に設定します ([クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png)されます)
 
-フッター行が濃い赤の背景色を持つことに注意してください。 これは DataWebControls テーマを作成し、すべてのページに適用されるために戻り、 [、ObjectDataSource でデータを表示する](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md)チュートリアル。 具体的には、`GridView.skin`ファイルの構成、`FooterStyle`プロパティなどが使用されて、 `FooterStyle` CSS クラス。 `FooterStyle`でクラスが定義されている`Styles.css`次のようにします。
+フッター行の背景色が濃い赤になっていることに注意してください。 これは、DataWebControls テーマが作成され、 [ObjectDataSource チュートリアルでデータを表示するとき](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md)にすべてのページに適用されるためです。 具体的には、`GridView.skin` ファイルによって、`FooterStyle` CSS クラスを使用するように `FooterStyle` プロパティが構成されます。 `FooterStyle` クラスは、`Styles.css` で次のように定義されています。
 
 [!code-css[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample2.css)]
 
 > [!NOTE]
-> 私たち GridView のフッター行を使用して、前のチュートリアルで説明します。 必要な場合に戻って、 [GridView のフッターに概要情報を表示する](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md)リフレッシャーのチュートリアル。
+> 前のチュートリアルでは、GridView のフッター行を使用しました。 必要に応じて、「 [GridView のフッターチュートリアル」の概要情報を表示](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md)して、リフレッシャーを参照してください。
 
-設定した後、`ShowFooter`プロパティを`True`、時間、ブラウザーで、出力を表示するのにはかかりません。 現在、フッター行は t には、任意のテキストまたは Web コントロールが含まれます。 手順 3. では、GridView の各フィールドのフッターを変更して、適切な挿入インターフェイスが含まれるようにします。
+`ShowFooter` プロパティを `True`に設定した後、出力をブラウザーに表示します。 現在、フッター行にはテキストまたは Web コントロールは含まれていません。 手順3では、適切な挿入インターフェイスが含まれるように、各 GridView フィールドのフッターを変更します。
 
-[![空のフッター行は表示上、ページング インターフェイス コントロールです。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
+[![、空のフッター行がページングインターフェイスコントロールの上に表示されます。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
 
-**図 7**:空のフッター行は表示上、ページング インターフェイス コントロール ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image14.png))。
+**図 7**: ページングインターフェイスコントロールの上に空のフッター行が表示される ([クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image14.png)されます)
 
-## <a name="step-3-customizing-the-footer-row"></a>手順 3: フッター行をカスタマイズします。
+## <a name="step-3-customizing-the-footer-row"></a>手順 3: フッター行のカスタマイズ
 
-戻り、 [GridView コントロールで TemplateFields を使用して](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md)チュートリアル BoundFields または CheckBoxFields) はなく TemplateFields を使用する特定の GridView 列の表示を大幅にカスタマイズする方法を説明しましたで[。データ変更インターフェイスをカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)GridView で編集インターフェイスをカスタマイズ TemplateFields を使用しました。 TemplateField、マークアップ、Web コントロール、およびデータ バインディング構文の組み合わせを定義するテンプレートの数で構成が再現率は、特定の行の種類に使用します。 `ItemTemplate`、たとえば、読み取り専用の行で使用するテンプレートを指定します中に、`EditItemTemplate`テンプレート編集可能な行を定義します。
+[Gridview コントロールチュートリアルの「Using TemplateFields」 (templatefields](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md)または CheckBoxFields ではなく) templatefields を使用して特定の GridView 列の表示を大幅にカスタマイズする方法について説明しました。[データ変更インターフェイスのカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)については、「templatefields を使用して GridView の編集インターフェイスをカスタマイズする」を参照してください。 TemplateField は、特定の種類の行に使用されるマークアップ、Web コントロール、およびデータバインディング構文の組み合わせを定義する多数のテンプレートで構成されていることを思い出してください。 たとえば、`ItemTemplate`では、読み取り専用の行に使用するテンプレートを指定し、`EditItemTemplate` は編集可能な行のテンプレートを定義します。
 
-と共に、`ItemTemplate`と`EditItemTemplate`、TemplateField にも含まれています、`FooterTemplate`フッター行のコンテンツを指定します。 そのためにインターフェイスを挿入する各フィールドのために必要な Web コントロールを付け加えて、`FooterTemplate`します。 開始するには、TemplateFields を GridView のフィールドのすべてを変換します。 これ行う GridView s スマート タグに、左下隅で各フィールドを選択し、このフィールドに変換を TemplateField リンクをクリックすると、列の編集リンクをクリックします。
+TemplateField には、`ItemTemplate` と `EditItemTemplate`と共に、フッター行の内容を指定する `FooterTemplate` も含まれています。 そのため、各フィールドに必要な Web コントロールを `FooterTemplate`に追加できます。 開始するには、GridView のすべてのフィールドを TemplateFields に変換します。 これを行うには、GridView のスマートタグの [列の編集] リンクをクリックし、左下隅にある各フィールドを選択して、[このフィールドを TemplateField に変換する] リンクをクリックします。
 
 ![各フィールドを TemplateField に変換します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.gif)
 
-**図 8**:各フィールドを TemplateField に変換します。
+**図 8**: 各フィールドを TemplateField に変換する
 
-このフィールドを TemplateField に変換をクリックすると、同等の TemplateField に現在のフィールドの種類がオンにします。 TemplateField に各 BoundField は置き換えなど、`ItemTemplate`対応するデータ フィールドを表示するラベルを格納していると、 `EditItemTemplate`  ボックスに、データ フィールドを表示します。 `ProductName` BoundField が次の TemplateField マークアップに変換されています。
+[このフィールドを TemplateField に変換] をクリックすると、現在のフィールドの種類が同等の TemplateField に変わります。 たとえば、各 BoundField は、対応するデータフィールドを表示するラベルを含む `ItemTemplate` の TemplateField と、データフィールドをテキストボックスに表示する `EditItemTemplate` に置き換えられます。 `ProductName` BoundField は、次の TemplateField マークアップに変換されました。
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample3.aspx)]
 
-同様に、 `Discontinued` CheckBoxField に変換された TemplateField 持つ`ItemTemplate`と`EditItemTemplate`CheckBox Web コントロールを含む (で、 `ItemTemplate` s 無効になっているチェック ボックスをオン)。 読み取り専用`ProductID`BoundField が両方のラベル コントロールを TemplateField に変換された、`ItemTemplate`と`EditItemTemplate`します。 フィールドを TemplateField は、既存のフィールドの機能を失うことがなくカスタマイズをより TemplateField に切り替えるに迅速かつ簡単な方法を簡単に言えばは既存の GridView に変換します。
+同様に、`Discontinued` CheckBoxField は、`ItemTemplate` と `EditItemTemplate` に CheckBox Web コントロールが含まれている TemplateField に変換されています (`ItemTemplate` のチェックボックスが無効になっています)。 読み取り専用 `ProductID` BoundField は、`ItemTemplate` と `EditItemTemplate`の両方でラベルコントロールを持つ TemplateField に変換されました。 つまり、既存の GridView フィールドを TemplateField に変換することは、既存のフィールドの機能を失うことなく、よりカスタマイズ可能な TemplateField に簡単に切り替えることができます。
 
-以降、GridView 操作は t サポート編集して自由に削除、`EditItemTemplate`だけ残して、各 TemplateField から、`ItemTemplate`します。 これを行う、次のように GridView s の宣言型マークアップになります。
+この GridView では編集がサポートされていないため、各 TemplateField から `EditItemTemplate` を削除して、`ItemTemplate`だけを残しておきます。 この操作を行った後、GridView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample4.aspx)]
 
-GridView の各フィールドを TemplateField に変換すると、これで、適切な挿入インターフェイスには、各フィールドの入力できます`FooterTemplate`します。 一部のフィールドは挿入のインターフェイスを持ちません (`ProductID`、たとえば)。 他のユーザーは新しい製品の情報を収集するために使用する Web コントロールで異なります。
+各 GridView フィールドが TemplateField に変換されたので、各 `FooterTemplate`フィールドに適切な挿入インターフェイスを入力できます。 一部のフィールドには、挿入インターフェイス (`ProductID`など) がありません。他のユーザーは、新しい製品の情報を収集するために使用される Web コントロールによって異なります。
 
-編集インターフェイスを作成するには、GridView s のスマート タグからテンプレートの編集リンクを選択します。 次に、ドロップダウン リストから適切なフィールドの s を選択`FooterTemplate`し、適切なコントロールをツールボックスからデザイナーにドラッグします。
+編集インターフェイスを作成するには、GridView のスマートタグから [テンプレートの編集] リンクを選択します。 次に、ドロップダウンリストから適切なフィールド s `FooterTemplate` を選択し、ツールボックスから適切なコントロールをデザイナーにドラッグします。
 
-[![各フィールドの後に、適切な挿入のインターフェイスを追加します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
+[各フィールドのフッターテンプレートに適切な挿入インターフェイスを追加 ![](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
 
-**図 9**:各フィールドに適切な挿入のインターフェイスを追加`FooterTemplate`([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image16.png))。
+**図 9**: 各フィールド `FooterTemplate` に適切な挿入インターフェイスを追加する ([クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image16.png)されます)
 
-次の箇条書きリストは、追加する挿入のインターフェイスを指定する、GridView フィールドを列挙します。
+次の箇条書きリストは、追加する挿入インターフェイスを指定して、GridView フィールドを列挙しています。
 
-- `ProductID` None です。
-- `ProductName` テキスト ボックスを追加し、設定、`ID`に`NewProductName`します。 RequiredFieldValidator コントロールを追加すると、ユーザーが新しい製品の名前の値を入力することを確認します。
-- `SupplierID` None です。
-- `CategoryID` None です。
-- `QuantityPerUnit` 設定、テキスト ボックスを追加、`ID`に`NewQuantityPerUnit`します。
-- `UnitPrice` という名前のテキスト ボックスを追加`NewUnitPrice`入力された値に確実に CompareValidator は通貨の値より大きいまたは 0 に等しいとします。
-- `UnitsInStock` テキスト ボックスを使用している`ID`に設定されている`NewUnitsInStock`します。 入力された値が 0 以上の整数値であることを確認する CompareValidator が含まれます。
-- `UnitsOnOrder` テキスト ボックスを使用している`ID`に設定されている`NewUnitsOnOrder`します。 入力された値が 0 以上の整数値であることを確認する CompareValidator が含まれます。
-- `ReorderLevel` テキスト ボックスを使用している`ID`に設定されている`NewReorderLevel`します。 入力された値が 0 以上の整数値であることを確認する CompareValidator が含まれます。
-- `Discontinued` 設定のチェック ボックスを追加、`ID`に`NewDiscontinued`します。
-- `CategoryName` DropDownList を追加し、設定、`ID`に`NewCategoryID`します。 という名前の新しい ObjectDataSource にバインド`CategoriesDataSource`を使用するように構成し、`CategoriesBLL`クラスの`GetCategories()`メソッド。 DropDownList s がある`ListItem`s の表示、`CategoryName`データ フィールドを使用して、`CategoryID`データ フィールドの値として。
-- `SupplierName` DropDownList を追加し、設定、`ID`に`NewSupplierID`します。 という名前の新しい ObjectDataSource にバインド`SuppliersDataSource`を使用するように構成し、`SuppliersBLL`クラスの`GetSuppliers()`メソッド。 DropDownList s がある`ListItem`s の表示、`CompanyName`データ フィールドを使用して、`SupplierID`データ フィールドの値として。
+- `ProductID` なし。
+- テキストボックスを追加 `ProductName`、その `ID` を `NewProductName`に設定します。 RequiredFieldValidator コントロールも追加して、ユーザーが新しい製品名の値を入力するようにします。
+- `SupplierID` なし。
+- `CategoryID` なし。
+- テキストボックスを追加 `QuantityPerUnit`、その `ID` を `NewQuantityPerUnit`に設定します。
+- `UnitPrice` `NewUnitPrice` という名前のテキストボックスと、入力した値が0以上の通貨値であることを確認する CompareValidator を追加します。
+- `ID` が `NewUnitsInStock`に設定されているテキストボックスを使用 `UnitsInStock` ます。 入力した値が0以上の整数値であることを保証する CompareValidator を含めます。
+- `ID` が `NewUnitsOnOrder`に設定されているテキストボックスを使用 `UnitsOnOrder` ます。 入力した値が0以上の整数値であることを保証する CompareValidator を含めます。
+- `ID` が `NewReorderLevel`に設定されているテキストボックスを使用 `ReorderLevel` ます。 入力した値が0以上の整数値であることを保証する CompareValidator を含めます。
+- チェックボックスを追加 `Discontinued`、その `ID` を `NewDiscontinued`に設定します。
+- DropDownList を追加 `CategoryName`、その `ID` を `NewCategoryID`に設定します。 これを `CategoriesDataSource` という名前の新しい ObjectDataSource にバインドし、`CategoriesBLL` クラス s `GetCategories()` メソッドを使用するように構成します。 `CategoryID` データフィールドを値として使用して、DropDownList `ListItem` s に `CategoryName` データフィールドが表示されるようにします。
+- DropDownList を追加 `SupplierName`、その `ID` を `NewSupplierID`に設定します。 これを `SuppliersDataSource` という名前の新しい ObjectDataSource にバインドし、`SuppliersBLL` クラス s `GetSuppliers()` メソッドを使用するように構成します。 `SupplierID` データフィールドを値として使用して、DropDownList `ListItem` s に `CompanyName` データフィールドが表示されるようにします。
 
-検証コントロールごとに、クリア、`ForeColor`プロパティように、 `FooterStyle` CSS クラス s 白い前景色の色を赤の既定の代わりに使用されます。 使用しても、`ErrorMessage`の詳細については、プロパティが設定が、`Text`をアスタリスクのプロパティ。 検証コントロールのテキストが原因で、挿入インターフェイスに 2 つの行に折り返すことを防ぐためには、設定、 `FooterStyle` s`Wrap`プロパティを false ごとに、`FooterTemplate`検証コントロールを使用します。 最後に、GridView とセットの下にある ValidationSummary コントロールを追加、`ShowMessageBox`プロパティを`True`とその`ShowSummary`プロパティを`False`します。
+各検証コントロールについて、`ForeColor` プロパティをオフにして、既定の赤の代わりに `FooterStyle` CSS クラス s の前景色が使用されるようにします。 また、`ErrorMessage` プロパティを使用して詳細な説明を行いますが、`Text` プロパティにはアスタリスクを設定します。 検証コントロールのテキストによって挿入インターフェイスが2行に折り返されないようにするには、検証コントロールを使用する各 `FooterTemplate` のに対して、`FooterStyle` s `Wrap` プロパティを false に設定します。 最後に、GridView の下に ValidationSummary コントロールを追加し、その `ShowMessageBox` プロパティを `True` に設定し、その `ShowSummary` プロパティを `False`に設定します。
 
-新しい製品を追加するときに提供する必要があります、`CategoryID`と`SupplierID`します。 フッターのセルの Dropdownlist でこの情報がキャプチャされた、`CategoryName`と`SupplierName`フィールド。 使用して、これらのフィールドではなく、`CategoryID`と`SupplierID`TemplateFields のためグリッドのデータ行も、ユーザーが可能性がありますより興味の ID 値ではなく、category と supplier の名前を表示します。 `CategoryID`と`SupplierID`値でキャプチャされるようになりましたが、`CategoryName`と`SupplierName`フィールド s の挿入のインターフェイスを削除できる、`CategoryID`と`SupplierID`TemplateFields GridView から。
+新しい製品を追加する場合は、`CategoryID` と `SupplierID`を提供する必要があります。 この情報は、[`CategoryName`] フィールドと [`SupplierName`] フィールドのフッターセルにある [DropDownLists] によってキャプチャされます。 ここでは、これらのフィールドを `CategoryID` および `SupplierID` TemplateFields ではなく使用することを選択しました。これは、grid のデータ行では、ユーザーが ID 値ではなく、カテゴリ名と仕入先名を表示することに興味を持つ可能性が高いためです。 `CategoryID` と `SupplierID` の値は現在、`CategoryName` と `SupplierName` field の挿入インターフェイスでキャプチャされているため、GridView から `CategoryID` および `SupplierID` TemplateFields を削除できます。
 
-同様に、`ProductID`新製品を追加するときに使用されませんので、 `ProductID` TemplateField をも削除することができます。 ただし、秒のままにできるように、`ProductID`グリッドでフィールド。 テキスト ボックス、Dropdownlist、チェック ボックス、および挿入インターフェイスを構成する検証コントロール、に加えても必要があります、追加ボタンをクリックすると、データベースに新しい製品を追加するロジックを実行します。 手順 4. で挿入インターフェイスで、[追加] ボタンを含めます、 `ProductID` TemplateField の`FooterTemplate`します。
+同様に、`ProductID` は新しい製品を追加するときには使用されないため、`ProductID` TemplateField も削除できます。 ただし、では、グリッド内の `ProductID` フィールドをそのままにしておきます。 挿入インターフェイスを構成するテキストボックス、DropDownLists、Checkbox、および validation コントロールに加えて、[追加] ボタンも必要になります。このボタンは、クリックすると、新しい製品をデータベースに追加するロジックを実行します。 手順 4. で、`ProductID` TemplateField s `FooterTemplate`の [挿入] インターフェイスに [追加] ボタンを含めます。
 
-GridView のさまざまなフィールドの外観を向上させるためにもかまいません。 書式を設定するなど、`UnitPrice`値を通貨、右揃え、 `UnitsInStock`、 `UnitsOnOrder`、および`ReorderLevel`フィールド、および更新プログラム、 `HeaderText` TemplateFields の値。
+さまざまな GridView フィールドの外観を向上させることができます。 たとえば、`UnitPrice` 値を通貨として書式設定し、`UnitsInStock`、`UnitsOnOrder`、および `ReorderLevel` の各フィールドを右揃えにして、TemplateFields の `HeaderText` 値を更新することができます。
 
-挿入でインターフェイスの高速移動機能を作成した後、 `FooterTemplate` s、削除、`SupplierID`と`CategoryID`TemplateFields、して書式設定と TemplateFields、GridView s 宣言型のアラインメントをグリッドの外観を向上させるマークアップは、次のようになります。
+`FooterTemplate` s にインターフェイスを挿入し、`SupplierID`、および `CategoryID` TemplateFields を削除した後、TemplateFields を書式設定して配置することでグリッドの外観を改善した後、GridView の宣言型のマークアップは次のようになります。
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample5.aspx)]
 
-ブラウザーで表示、ときに GridView のフッター行が含まれています、完成したインターフェイスの挿入 (図 10 参照)。 この時点では、挿入のインターフェイスは t には、ユーザーが彼女 s 新しい製品のデータを入力し、データベースに新しいレコードを挿入する必要があるを指定するための手段が含まれます。 ここではまた、フッターに入力されたデータで新しいレコードに変換する方法に対処するには、まだ ve、`Products`データベース。 挿入インターフェイスに、[追加] ボタンを追加する方法とでコードを実行する方法について説明します、手順 4. でポストバックの場合、s をクリックします。 手順 5 では、フッターからデータを使用して新しいレコードを挿入する方法を示します。
+ブラウザーで表示すると、GridView のフッター行に、完成した挿入インターフェイスが含まれるようになりました (図10を参照)。 この時点で、挿入インターフェイスには、ユーザーが新しい製品のデータを入力し、データベースに新しいレコードを挿入することを示す手段が含まれていません。 また、フッターに入力したデータが `Products` データベースの新しいレコードに変換される方法についても説明します。 手順4では、[追加] ボタンを挿入インターフェイスに含める方法と、ポストバック時にコードをクリックしたときにコードを実行する方法について説明します。 手順5は、フッターのデータを使用して新しいレコードを挿入する方法を示しています。
 
-[![GridView のフッターは、新しいレコードを追加するインターフェイスを提供します](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
+[GridView フッターに ![新しいレコードを追加するためのインターフェイスが用意されています。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
 
-**図 10**:GridView のフッターは、新しいレコードを追加するインターフェイスを提供します ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image18.png))。
+**図 10**: GridView フッターは、新しいレコードを追加するためのインターフェイスを提供します ([クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image18.png)されます)
 
-## <a name="step-4-including-an-add-button-in-the-inserting-interface"></a>手順 4: 挿入のインターフェイスで、[追加] ボタンを含む
+## <a name="step-4-including-an-add-button-in-the-inserting-interface"></a>手順 4: 挿入インターフェイスに [追加] ボタンを含める
 
-インターフェイスの挿入を現在フッター行のユーザーが新しい製品の情報の入力を終了したことを指定するための手段がないため挿入インターフェイスにどこか、[追加] ボタンを含める必要があります。 これは、既存のいずれかに入れられます。 `FooterTemplate` 、または列を追加新しいグリッドにこの目的のためです。 このチュートリアルでは、let s 配置に追加 ボタン、 `ProductID` TemplateField の`FooterTemplate`します。
+挿入インターフェイスのどこかに [追加] ボタンを含める必要があります。これは、フッター行の挿入インターフェイスには、現在、ユーザーが新しい製品情報の入力を完了したことを示す手段がないためです。 これは既存の `FooterTemplate` のいずれかに配置できます。または、この目的のために新しい列をグリッドに追加することもできます。 このチュートリアルでは、`ProductID` TemplateField s `FooterTemplate`に [追加] ボタンを配置します。
 
-デザイナーでは、GridView s のスマート タグにテンプレートの編集リンクをクリックし、、`ProductID`フィールドの`FooterTemplate`ドロップダウン リストから。 テンプレートにその ID に設定 ボタンの Web コントロール (または LinkButton または ImageButton、使用する場合) を追加`AddProduct`その`CommandName`挿入 をその`Text`図 11 に示すように追加するプロパティ。
+デザイナーで、GridView s スマートタグの [テンプレートの編集] リンクをクリックし、ドロップダウンリストから `ProductID` フィールド s `FooterTemplate` を選択します。 図11に示すように、テンプレートにボタン Web コントロール (または LinkButton または ImageButton) を追加し、その ID を `AddProduct`、挿入する `CommandName`、`Text` プロパティを追加します。
 
-[![ProductID TemplateField s の後に追加 ボタンを配置します。](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
+[ProductID TemplateField s フッターテンプレートに [追加] ボタンを配置 ![には](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
 
-**図 11**:[追加] ボタンを配置、 `ProductID` TemplateField s `FooterTemplate` ([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image20.png))。
+**図 11**: `ProductID` TemplateField s `FooterTemplate` に [追加] ボタンを配置[する (クリックしてフルサイズの画像を表示する](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image20.png))
 
-Ve するには、[追加] ボタンが含まれているとは、ブラウザーでページをテストします。 無効なデータを挿入するインターフェイスの追加 ボタンをクリックすると、ポストバックは短いサーキットをメモし、ValidationSummary コントロール (図 12 を参照してください)、無効なデータを示します。 適切なデータ入力を追加 ボタンをクリックするとポストバックが発生します。 レコードがないデータベースに追加、ただし。 実際に挿入を実行するコードを少し記述する必要があります。
+[追加] ボタンをクリックした後、ブラウザーでページをテストします。 挿入インターフェイスに無効なデータが含まれている [追加] ボタンをクリックすると、ポストバックは短いサーキットになり、ValidationSummary コントロールは無効なデータを示します (図12を参照)。 適切なデータを入力したら、[追加] ボタンをクリックするとポストバックが発生します。 ただし、レコードはデータベースに追加されません。 実際に挿入を実行するには、少しコードを記述する必要があります。
 
-[![ボタンの追加 s ポストバックは短いサーキット挿入インターフェイスに無効なデータがある場合](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
+[挿入インターフェイスに無効なデータが含まれている場合は、[Add] ボタン s ポストバック ![Short サーキット](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
 
-**図 12**:ボタンの追加 s ポストバック サーキットの短い挿入インターフェイスに無効なデータがある場合は、([フルサイズの画像を表示する をクリックします](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image22.png))。
+**図 12**: 挿入インターフェイスに無効なデータが含まれている場合は、[Add] ボタン s ポストバックが短いサーキット ([クリックすると、フルサイズの画像が表示](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image22.png)されます)
 
 > [!NOTE]
-> 挿入インターフェイスに検証コントロールが、検証グループに割り当てられていません。 挿入のインターフェイスが、ページの検証コントロールの唯一のセットが正しく動作します。 挿入検証コントロールがインターフェイスし、s のボタンを追加する場合、ただし、(グリッドの編集インターフェイスに検証コントロール) など、ページ上の他の検証コントロールがある、`ValidationGroup`プロパティに同じ値を割り当てる必要がありますを soこれらのコントロールを特定の検証グループに関連付けます。 参照してください[詳細に分析する ASP.NET 2.0 の検証コントロール](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)検証グループへの検証コントロールとボタンを 1 ページのパーティション分割の詳細についてはします。
+> 挿入インターフェイスの検証コントロールが検証グループに割り当てられませんでした。 これは、挿入インターフェイスがページ上の検証コントロールの唯一のセットである限り、問題なく動作します。 ただし、ページに他の検証コントロール (grid s 編集インターフェイスの検証コントロールなど) がある場合、[挿入インターフェイス] プロパティと [ボタンの追加] `ValidationGroup` プロパティの検証コントロールには、これらのコントロールを特定の検証グループに関連付けるために同じ値を割り当てる必要があります。 ページ上の検証コントロールとボタンを検証グループにパーティション分割する方法の詳細については[、「解説 The Validation controls in ASP.NET 2.0」](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)を参照してください。
 
-## <a name="step-5-inserting-a-new-record-into-theproductstable"></a>手順 5: 新しいレコードを挿入する、`Products`テーブル
+## <a name="step-5-inserting-a-new-record-into-theproductstable"></a>手順 5:`Products`テーブルに新しいレコードを挿入する
 
-GridView の組み込みの編集機能を利用する場合、GridView に自動的に更新プログラムを実行するために必要な作業のすべてを処理します。 具体的には、[更新] ボタンがクリックされたときにコピー編集インターフェイスから ObjectDataSource のパラメーターに入力された値`UpdateParameters`コレクションとが開始され、ObjectDataSource s を呼び出すことによって更新をオフ`Update()`メソッド。 ObjectDataSource s を呼び出すコードを実装する必要があります、GridView が挿入するためのような組み込み機能を提供していないため`Insert()`メソッドと ObjectDataSource s インターフェイスの挿入、値コピー`InsertParameters`コレクション.
+GridView の組み込み編集機能を使用すると、更新プログラムの実行に必要なすべての作業が GridView によって自動的に処理されます。 特に、[更新] ボタンをクリックすると、編集インターフェイスから入力した値が ObjectDataSource s `UpdateParameters` コレクションのパラメーターにコピーされ、ObjectDataSource s `Update()` メソッドを呼び出すことで更新が開始されます。 GridView は挿入用のこのような組み込み機能を提供しないため、ObjectDataSource s `Insert()` メソッドを呼び出し、挿入インターフェイスから ObjectDataSource s `InsertParameters` コレクションに値をコピーするコードを実装する必要があります。
 
-[追加] ボタンがクリックしてされた後、この挿入のロジックを実行する必要があります。 説明したように、[を追加して GridView にボタンに応答する](../custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb.md)チュートリアルでは、ボタン、LinkButton、または、GridView で ImageButton がクリックされた GridView s ときにいつでも`RowCommand`ポストバック イベントが発生します。 このイベントが発生するかどうかボタンや LinkButton、ImageButton が明示的に追加など、フッター行の追加 ボタンまたは GridView で自動的に追加されたかどうか (並べ替えを有効にする機能が選択されている場合は、各列の上部にあるなど、またはLinkbutton でページングを有効にするを選択すると、ページング インターフェイス)。
+この挿入ロジックは、[追加] ボタンをクリックした後に実行する必要があります。 Gridview でのボタンの[追加と応答](../custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb.md)に関するチュートリアルで説明したように、Gridview のボタン、LinkButton、または ImageButton がクリックされると、gridview s `RowCommand` イベントがポストバック時に発生します。 このイベントは、ボタン、LinkButton、または ImageButton が、フッター行の [追加] ボタンなどの明示的に追加されたか、GridView によって自動的に追加されたか ([並べ替えを有効にする] が選択されている場合は、各列の上部にあるリンクボタンなど) を示します。[ページングを有効にする] が選択されているときのページングインターフェイスのリンクボタン。
 
-そのためを追加 ボタンをクリックすると、ユーザーに応答する必要があります、GridView のイベント ハンドラーを作成する`RowCommand`イベント。 ときにこのイベントが起動するため*任意*ボタンや LinkButton、ImageButton、GridView では、クリックすると、その s ことだけに進むロジックを挿入する場合に重要な`CommandName`プロパティが、にイベントハンドラーのマップに渡されます`CommandName`追加ボタン (Insert) の値。 さらに、必要がありますものみ進みます検証コントロールが有効なデータを報告する場合。 これに合わせて、イベント ハンドラーを作成、`RowCommand`次のコードでイベント。
+したがって、[追加] ボタンをクリックしたユーザーに応答するには、GridView s `RowCommand` イベントのイベントハンドラーを作成する必要があります。 このイベントは、GridView*の Button、* LinkButton、または ImageButton がクリックされるたびに発生するため、イベントハンドラーに渡された `CommandName` プロパティが [追加] ボタン (Insert) の `CommandName` 値にマップされている場合にのみ、挿入ロジックを続行することが重要です。 さらに、検証コントロールが有効なデータを報告している場合にのみ処理を続行する必要もあります。 これに対応するには、次のコードを使用して、`RowCommand` イベントのイベントハンドラーを作成します。
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample6.vb)]
 
 > [!NOTE]
-> でしょうか、イベント ハンドラーのチェックが許容できない理由、`Page.IsValid`プロパティ。 結局のところ、しません、ポストバック抑制挿入インターフェイスに無効なデータが指定されている場合ですか。 そうでは、ユーザーは、JavaScript が無効またはクライアント側検証ロジックを回避する手段である限り正しい。 つまり、1 つ必要がありますに依存しないように厳密にクライアント側の検証サーバー側の有効性チェックは、データを操作する前に常に実行する必要があります。
+> イベントハンドラーによって `Page.IsValid` プロパティがチェックされるのはなぜですか。 結局のところ、挿入インターフェイスに無効なデータが指定されている場合、ポストバックは抑制されますか。 この想定は、ユーザーが JavaScript を無効にしていない場合、またはクライアント側の検証ロジックを回避する手順を実行している場合に適しています。 つまり、クライアント側の検証に厳密に依存しないようにする必要があります。データを操作する前に、サーバー側の有効性チェックを常に実行する必要があります。
 
-手順 1. で作成した、 `ProductsDataSource` ObjectDataSource ようにその`Insert()`をメソッドにマップされて、`ProductsBLL`クラスの`AddProduct`メソッド。 新しいレコードを挿入するのには、`Products`テーブル、ObjectDataSource s を単に呼び出すことができます`Insert()`メソッド。
+手順 1. では、`Insert()` メソッドが `ProductsBLL` クラス s `AddProduct` メソッドにマップされるように `ProductsDataSource` ObjectDataSource を作成しました。 新しいレコードを `Products` テーブルに挿入するには、単に ObjectDataSource s `Insert()` メソッドを呼び出します。
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample7.vb)]
 
-これで、`Insert()`メソッドが呼び出されてに渡されたままの挿入のインターフェイスからパラメーターに値をコピーするは、`ProductsBLL`クラスの`AddProduct`メソッド。 説明したように、 [、イベントに関連付けられている挿入、更新、および削除の確認](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)チュートリアルでは、これは、ObjectDataSource s を通じて実現できます`Inserting`イベント。 `Inserting`イベントからコントロールをプログラムで参照する必要があります、 `Products` GridView のフッター行し、それらの値を割り当てる、`e.InputParameters`コレクション。 ユーザーは、終了などの値を指定しない場合、`ReorderLevel`テキスト ボックスに空のデータベースに挿入された値があることを指定する必要があります`NULL`します。 以降、`AddProducts`メソッドは null 許容のデータベース フィールドに null 許容型を受け取ります null 許容型を使用して、単にその値に設定`Nothing`の場合はユーザー入力を省略するとします。
+`Insert()` メソッドが呼び出されたので、次は、挿入インターフェイスから `ProductsBLL` クラス s `AddProduct` メソッドに渡されるパラメーターに値をコピーします。 [挿入、更新、および削除のチュートリアルに関連するイベントの](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)確認については、ObjectDataSource s `Inserting` イベントを使用して行うことができます。 `Inserting` イベントでは、`Products` GridView s フッター行からコントロールをプログラムによって参照し、その値を `e.InputParameters` コレクションに割り当てる必要があります。 ユーザーが `ReorderLevel` テキストボックスを空白のままにするなどの値を省略した場合は、データベースに挿入される値を `NULL`するように指定する必要があります。 `AddProducts` メソッドは null 許容型データベースフィールドの null 許容型を受け入れるため、ユーザー入力が省略されている場合は、null 許容型を使用し、その値を `Nothing` に設定するだけです。
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample8.vb)]
 
-`Inserting`イベント ハンドラーが完了した、新しいレコードに追加することができます、 `Products` GridView のフッター行を使用してデータベース テーブル。 さあ、いくつかの新しい製品を追加してみてください。
+`Inserting` イベントハンドラーが完了したので、GridView s フッター行を使用して `Products` データベーステーブルに新しいレコードを追加できます。 新しい製品をいくつか追加してみましょう。
 
-## <a name="enhancing-and-customizing-the-add-operation"></a>拡張およびカスタマイズするには、操作の追加
+## <a name="enhancing-and-customizing-the-add-operation"></a>追加操作の拡張とカスタマイズ
 
-現時点では、[追加] ボタンをクリックすると、データベース テーブルに新しいレコードを追加は提供されませんあらゆる種類の視覚的なフィードバック、レコードが正常に追加されたこと。 理想的には、Label Web コントロールやクライアント側の警告ボックスは、正常に完了しましたが、挿入をユーザーに通知します。 ままを演習として、リーダーの。
+現時点では、[追加] ボタンをクリックすると、データベーステーブルに新しいレコードが追加されますが、レコードが正常に追加されたことを示す視覚的なフィードバックは提供されません。 理想的には、ラベル Web コントロールまたはクライアント側の警告ボックスは、挿入が正常に完了したことをユーザーに通知します。 この作業をリーダーの演習として残しておきます。
 
-このチュートリアルで使用される GridView では、以下の製品には、任意の並べ替え順序は当てはまりませんもデータを並べ替えるには、エンドユーザーは許可します。 その結果、レコードは、主キー フィールドでは、データベースのように並べ替えられます。 新しい各レコードがあるため、`ProductID`最後の 1 つのグリッドの最後に数行の新しい製品が追加されるたびにより大きい値です。 そのため、新しいレコードを追加した後、GridView の最後のページにユーザーを自動的に送信したい場合があります。 これは、呼び出しの後に次のコード行を追加することで実現できます`ProductsDataSource.Insert()`で、`RowCommand`をユーザーが最後のページ内にデータを GridView にバインドした後は送信する必要があることを示すためにイベント ハンドラー。
+このチュートリアルで使用する GridView では、表示されている製品に並べ替え順序は適用されません。また、エンドユーザーはデータを並べ替えることもできません。 その結果、レコードは、データベース内の主キーフィールドによって並べ替えられます。 新しいレコードには、最後のレコードよりも大きい `ProductID` 値があるため、新しい製品が追加されるたびに、グリッドの最後に追加されます。 そのため、新しいレコードを追加した後に、GridView の最後のページにユーザーを自動的に送信することができます。 これを行うには、データを GridView にバインドした後、最後のページにユーザーを送信する必要があることを示すために、`RowCommand` イベントハンドラーで `ProductsDataSource.Insert()` の呼び出しの後に次のコード行を追加します。
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample9.vb)]
 
-`SendUserToLastPage` 値が割り当てられますが最初にページ レベルのブール値変数`False`します。 GridView s`DataBound`イベント ハンドラーを場合`SendUserToLastPage`が false の場合、`PageIndex`最後のページをユーザーに送信するプロパティを更新します。
+`SendUserToLastPage` は、最初は `False`の値が割り当てられるページレベルのブール型変数です。 GridView s `DataBound` イベントハンドラーで `SendUserToLastPage` が false の場合、`PageIndex` プロパティが更新され、最後のページにユーザーが送信されます。
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample10.vb)]
 
-理由、`PageIndex`プロパティで設定されて、`DataBound`イベント ハンドラー (ではなく、`RowCommand`イベント ハンドラー) がときに、`RowCommand`イベント ハンドラーを起動新しいレコードを追加するには、まだ ve、`Products`データベース テーブル。 そのため、`RowCommand`イベント ハンドラーの最後のページ インデックス (`PageCount - 1`) 最後のページ インデックスを表す*する前に*新製品が追加されました。 追加されている製品のほとんどは、最後のページ インデックスは、同じを新しい製品を追加した後です。 正しくない更新と、新しい最後のページ インデックスに追加された製品が発生する場合は、`PageIndex`で、`RowCommand`そのイベント ハンドラーは新しい最後のページの i ではなくの 2 番目の最後のページ (新しい製品を追加する前に最後のページ インデックス) に移動しますあります。 以降、`DataBound`イベント ハンドラーが、新しい成果物が追加され、データが設定して、グリッドに再バインド後に起動、`PageIndex`プロパティがありますがわかっています re 正しいの最後のページ インデックスを取得します。
+`DataBound` イベントハンドラーで `PageIndex` プロパティが設定されている理由は (`RowCommand` イベントハンドラーではありません)、`RowCommand` イベントハンドラーが起動すると、新しいレコードが `Products` データベーステーブルに追加されていないためです。 したがって、`RowCommand` イベントハンドラーでは、最後のページインデックス (`PageCount - 1`) は、新しい製品が追加さ*れる前*の最後のページインデックスを表します。 追加される製品の大部分については、新しい製品を追加した後の最後のページインデックスは同じです。 ただし、追加された製品によって新しいページインデックスが作成された場合、`RowCommand` イベントハンドラーの `PageIndex` を誤って更新すると、新しい最後のページインデックスではなく、最後のページ (新しい製品を追加する前の最後のページインデックス) に移動します。 新しい製品が追加され、データがグリッドに再バインドされた後に `DataBound` イベントハンドラーが呼び出されるため、`PageIndex` プロパティを設定することによって、正しい最後のページインデックスを取得することがわかっています。
 
-最後に、このチュートリアルで使用される GridView が新しい製品を追加するために収集する必要がありますフィールドの数が非常にさまざまです。 この幅のため DetailsView s の縦方向のレイアウトが優先される可能性があります。 GridView の秒数の入力を収集することによって削減できた全体の幅。 おそらくことを収集する必要はありません、 `UnitsOnOrder`、 `UnitsInStock`、および`ReorderLevel`フィールドの新しい製品を追加するときに GridView から場合これらのフィールドを削除できます。
+最後に、このチュートリアルで使用する GridView は、新しい製品を追加するために収集する必要があるフィールドの数が多いため、非常に広範囲にわたります。 この幅により、DetailsView s の垂直レイアウトが優先される場合があります。 少なくとも入力を収集することで、GridView の全体の幅を減らすことができます。 新しい製品を追加するときに、`UnitsOnOrder`、`UnitsInStock`、および `ReorderLevel` フィールドを収集する必要はないかもしれません。この場合、これらのフィールドは GridView から削除される可能性があります。
 
-収集されたデータを調整するには、2 つの方法のいずれかを使用できます。
+収集されるデータを調整するには、次の2つの方法のいずれかを使用します。
 
-- 引き続き使用する、`AddProduct`の値を必要とするメソッド、 `UnitsOnOrder`、 `UnitsInStock`、および`ReorderLevel`フィールド。 `Inserting`イベント ハンドラーでは、ハード コーディングされた提供、既定の挿入のインターフェイスから削除されたこれらの入力に使用する値。
-- 新しいオーバー ロードを作成、`AddProduct`メソッドで、`ProductsBLL`の入力を受け付けないクラス、 `UnitsOnOrder`、 `UnitsInStock`、および`ReorderLevel`フィールド。 次に、ASP.NET ページでは、この新しいオーバー ロードを使用する ObjectDataSource を構成します。
+- `UnitsOnOrder`、`UnitsInStock`、および `ReorderLevel` の各フィールドの値を必要とする `AddProduct` メソッドを引き続き使用します。 `Inserting` イベントハンドラーで、挿入インターフェイスから削除されたこれらの入力に使用する、ハードコーディングされた既定値を指定します。
+- `UnitsOnOrder`、`UnitsInStock`、および `ReorderLevel` の各フィールドの入力を受け付けない、`ProductsBLL` クラスの `AddProduct` メソッドの新しいオーバーロードを作成します。 次に、[ASP.NET] ページで、この新しいオーバーロードを使用するように ObjectDataSource を構成します。
 
-いずれかのオプションはも同様に動作します。 過去のチュートリアルを使用して、後者のオプションの複数のオーバー ロードを作成、`ProductsBLL`クラスの`UpdateProduct`メソッド。
+どちらのオプションも同様に機能します。 これまでのチュートリアルでは、後者のオプションを使用して、`ProductsBLL` クラス s `UpdateProduct` メソッドに対して複数のオーバーロードを作成しました。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-GridView、DetailsView や FormView、組み込みの挿入機能が不足していますが、少しの努力でフッター行に挿入のインターフェイスを追加できます。 単に GridView のフッター行を表示する次のように設定します。 その`ShowFooter`プロパティを`True`します。 フィールドを TemplateField に変換すると、各フィールドのフッター行の内容をカスタマイズでき、挿入を追加するためのインターフェイス、`FooterTemplate`します。 このチュートリアルで説明したように、`FooterTemplate`ボタン、テキスト ボックス、Dropdownlist、チェック ボックス、Dropdownlist) などのデータ ドリブンの Web コントロールを設定するためのデータ ソース コントロール、および検証コントロールを含めることができます。 ユーザーの入力を収集するためのコントロール、と共に、ボタンの追加、LinkButton や ImageButton が必要です。
+GridView には、DetailsView と FormView に含まれる組み込みの挿入機能がありませんが、挿入インターフェイスをフッター行に追加することができます。 GridView にフッター行を表示するには、単に `ShowFooter` プロパティを `True`に設定します。 フィールドを TemplateField に変換し、挿入インターフェイスを `FooterTemplate`に追加することで、フィールドごとにフッター行の内容をカスタマイズできます。 このチュートリアルで説明したように、`FooterTemplate` には、ボタン、テキストボックス、DropDownLists、チェックボックス、データドリブン Web コントロール (DropDownLists など) を設定するためのデータソースコントロール、および検証コントロールを含めることができます。 ユーザー入力を収集するためのコントロールと共に、Add Button、LinkButton、または ImageButton が必要です。
 
-[追加] ボタンがクリックされたとき、ObjectDataSource の`Insert()`挿入のワークフローを開始するメソッドが呼び出されます。 ObjectDataSource は、構成されている insert メソッドを呼び出して (、`ProductsBLL`クラスの`AddProduct`メソッドは、このチュートリアルでは)。 ObjectDataSource にインターフェイスを挿入する GridView s から値をコピーする必要があります`InsertParameters`insert メソッドが呼び出される前に収集します。 これは、ObjectDataSource s で挿入インターフェイス Web コントロールをプログラムで参照することで実現できます`Inserting`イベント ハンドラー。
+[追加] ボタンがクリックされると、ObjectDataSource s `Insert()` メソッドが呼び出され、挿入ワークフローが開始されます。 次に、ObjectDataSource は、構成された挿入メソッド (このチュートリアルでは `ProductsBLL` クラス s `AddProduct` メソッド) を呼び出します。 挿入メソッドを呼び出す前に、GridView の `InsertParameters` コレクションに対して、GridView s インターフェイスから値をコピーする必要があります。 これは、ObjectDataSource s `Inserting` イベントハンドラーの挿入インターフェイス Web コントロールをプログラムで参照することによって実現できます。
 
-このチュートリアルでは、GridView の外観を強化するための手法で、外観を完了します。 次の一連のチュートリアルは、画像、Pdf、Word 文書などのバイナリ データを操作する方法とデータ Web コントロールを調べます。
+このチュートリアルでは、GridView の外観を拡張する方法について説明します。 次の一連のチュートリアルでは、画像、Pdf、Word 文書などのバイナリデータを操作する方法と、データ Web コントロールについて説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、「社長補佐 Leigh でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Bernadette Leigh でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-gridview-column-of-checkboxes-vb.md)

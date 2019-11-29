@@ -8,12 +8,12 @@ ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: c45003325832258466a787bc589bf40e844248a2
-ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
+ms.openlocfilehash: 738318cce442fdc5d58dd1e4c992d4941be2487e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985853"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74591251"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用した ASP.NET Web 配置: テストへの配置
 
@@ -23,7 +23,7 @@ ms.locfileid: "70985853"
 
 現在のバージョンの Azure へのデプロイについては、「 [azure で ASP.NET Core web アプリを作成](/azure/app-service/app-service-web-get-started-dotnet)する」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
 このチュートリアルでは、ローカルコンピューター上のインターネットインフォメーションサーバー (IIS) に ASP.NET web アプリケーションを展開します。
 
@@ -49,7 +49,7 @@ Visual Studio で web サーバーを使用する方法の詳細については�
 
 Contoso 大学の Visual Studio starter ソリューションとプロジェクトをダウンロードしてインストールします。 このソリューションには、完成したチュートリアルが含まれています。 
 
-[スタートプロジェクトのダウンロード](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[スタートプロジェクトのダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 ## <a name="install-iis"></a>IIS のインストール
 
@@ -380,7 +380,7 @@ Visual Studio によって Entity Framework `DbContext` クラスが検出され
 
 これにより、展開プロセスによって、アプリケーションのコンテンツが適切な場所にコピーされたことが確認されます (展開する必要のないファイルは除外されます)。また、展開時に IIS が正しく構成されていることを Web 配置ます。 次のチュートリアルでは、まだ完了していない配置タスクを検索するテストをもう1つ実行します。この場合、 *Elm ah*フォルダーのフォルダーアクセス許可を設定します。
 
-## <a name="more-information"></a>詳細情報
+## <a name="more-information"></a>説明
 
 Visual Studio で IIS または IIS Express を実行する方法の詳細については、次のリソースを参照してください。
 

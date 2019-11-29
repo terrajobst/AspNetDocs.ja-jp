@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-cs
-title: スライダー コントロールを使用すると自動ポストバック (c#) |Microsoft Docs
+title: スライダーコントロールと自動ポストバックを使用するC#() |Microsoft Docs
 author: wenz
-description: スライダー コントロール、AJAX Control Toolkit では、マウスを使用して制御できるグラフィカルなスライダーを提供します。 スライダー自動転記を作成することはしています.
+description: AJAX コントロールツールキットのスライダーコントロールには、マウスを使用して制御できるグラフィカルスライダーが用意されています。 スライダーを自動投稿することができます...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 4d85e9fb-91e6-41f2-9c13-754549b19c27
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2b1e7c2e62438876343987917ffc8f792c755186
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 785d62108667fddac42994344cde265e82aca8f4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124631"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598384"
 ---
-# <a name="using-the-slider-control-with-auto-postback-c"></a>自動ポストバック (c#) でスライダー コントロールの使用
+# <a name="using-the-slider-control-with-auto-postback-c"></a>スライダーコントロールを自動ポストバックと共にC#使用する ()
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/Slider1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/slider1CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/Slider1.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/slider1CS.pdf)
 
-> スライダー コントロール、AJAX Control Toolkit では、マウスを使用して制御できるグラフィカルなスライダーを提供します。 ようにスライダー autopostback 1 回、値が変化することになります。
+> AJAX コントロールツールキットのスライダーコントロールには、マウスを使用して制御できるグラフィカルスライダーが用意されています。 スライダーの値が変更されたときに、そのスライダーを autopostback にすることができます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-スライダー コントロール、AJAX Control Toolkit では、マウスを使用して制御できるグラフィカルなスライダーを提供します。 ようにスライダー autopostback 1 回、値が変化することになります。
+AJAX コントロールツールキットのスライダーコントロールには、マウスを使用して制御できるグラフィカルスライダーが用意されています。 スライダーの値が変更されたときに、そのスライダーを autopostback にすることができます。
 
 ## <a name="steps"></a>手順
 
-両方のテキスト ボックス、スライダーを変更すると自動的にポストバックするには、するには、属性が必要な`AutoPostBack="true"`:テキスト ボックス自体には、スライダーになると、テキスト ボックス、スライダーの位置を保持します。 そのための必要なマークアップを次に示します。
+スライダーが変化したときに自動的にポストバックされるようにするには、両方のテキストボックスに属性 `AutoPostBack="true"`が必要です。これは、スライダー自体になるテキストボックスと、スライダーの位置を保持するテキストボックスです。 そのために必要なマークアップは次のとおりです。
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-cs/samples/sample1.aspx)]
 
-`SliderExtender` ASP.NET AJAX Control toolkit コントロールが 2 つのテキスト ボックスに、スライダーの機能を割り当てます。
+ASP.NET AJAX Control Toolkit の `SliderExtender` コントロールでは、次の2つのテキストボックスにスライダーの機能が割り当てられます。
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-cs/samples/sample2.aspx)]
 
-追加のラベル要素が、ポストバックのユーザーに通知するために後で使用されます。
+後で追加の label 要素を使用して、ユーザーにポストバックを通知します。
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-cs/samples/sample3.aspx)]
 
-最後に、 `ScriptManager` ASP.NET AJAX のコントロールが動作する Control Toolkit の必要な JavaScript を読み込みます。
+最後に、ASP.NET AJAX の `ScriptManager` 制御によって、コントロールツールキットが動作するために必要な JavaScript が読み込まれます。
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-cs/samples/sample4.aspx)]
 
-これで、スライダーがポスト バック;サーバー側で、このイベントをキャッチして処理して可能性があります。
+これで、スライダーがポストバックされます。サーバー側では、このイベントがキャッチされ、次のように処理されることがあります。
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-cs/samples/sample5.aspx)]
 
-[![ポストバックをトリガーするスライダーの移動](using-the-slider-control-with-auto-postback-cs/_static/image2.png)](using-the-slider-control-with-auto-postback-cs/_static/image1.png)
+[スライダーを移動 ![とポストバックがトリガーされる](using-the-slider-control-with-auto-postback-cs/_static/image2.png)](using-the-slider-control-with-auto-postback-cs/_static/image1.png)
 
-ポストバックをトリガーするスライダーの移動 ([フルサイズの画像を表示する をクリックします](using-the-slider-control-with-auto-postback-cs/_static/image3.png))。
+スライダーを移動するとポストバックがトリガーされます ([クリックすると、フルサイズのイメージが表示](using-the-slider-control-with-auto-postback-cs/_static/image3.png)されます)
 
-[![その後、この変更の日付は、ラベルに書き込まれます](using-the-slider-control-with-auto-postback-cs/_static/image5.png)](using-the-slider-control-with-auto-postback-cs/_static/image4.png)
+[![後、この変更の日付はラベルに書き込まれます。](using-the-slider-control-with-auto-postback-cs/_static/image5.png)](using-the-slider-control-with-auto-postback-cs/_static/image4.png)
 
-その後、この変更の日付は、ラベルに書き込まれます ([フルサイズの画像を表示する をクリックします](using-the-slider-control-with-auto-postback-cs/_static/image6.png))。
+その後、この変更の日付がラベルに書き込まれます ([クリックすると、フルサイズの画像が表示](using-the-slider-control-with-auto-postback-cs/_static/image6.png)されます)
 
 > [!div class="step-by-step"]
 > [次へ](databinding-the-slider-control-cs.md)

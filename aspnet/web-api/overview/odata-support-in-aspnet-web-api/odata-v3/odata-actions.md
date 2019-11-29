@@ -1,166 +1,166 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
-title: ASP.NET web API 2 OData アクションをサポートしている |Microsoft Docs
+title: ASP.NET Web API 2 | での OData アクションのサポートMicrosoft Docs
 author: MikeWasson
-description: Odata では、アクションは、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 アクションの使用は次のとおりです。実装しています.
+description: OData では、アクションは、エンティティに対する CRUD 操作として簡単に定義できないサーバー側の動作を追加するための手段です。 アクションの用途には、次のようなものがあります。
 ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 2d7b3aa2-aa47-4e6e-b0ce-3d65a1c6fe02
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 msc.type: authoredcontent
-ms.openlocfilehash: 523225d86b06914349ebd689c4042b0b20393b9b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ae8b23f0868f992cb2bbbf14ee3f7ac848501515
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112314"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600347"
 ---
-# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>ASP.NET web API 2 OData アクションをサポートしています。
+# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での OData アクションのサポート
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> Odata では、*アクション*エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 アクションの使用は次のとおりです。
+> OData では、*アクション*は、エンティティに対する CRUD 操作として簡単に定義できないサーバー側の動作を追加するための手段です。 アクションの用途には、次のようなものがあります。
 > 
-> - 複雑なトランザクションを実装します。
+> - 複雑なトランザクションの実装。
 > - 一度に複数のエンティティを操作します。
-> - エンティティの特定のプロパティにのみ更新できるようにします。
-> - エンティティで定義されていないサーバーに情報を送信します。
+> - エンティティの特定のプロパティに対してのみ更新を許可します。
+> - エンティティで定義されていないサーバーに情報を送信しています。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
 > - Web API 2
-> - OData バージョン 3
+> - OData バージョン3
 > - Entity Framework 6
 
-## <a name="example-rating-a-product"></a>例:製品の評価
+## <a name="example-rating-a-product"></a>例: 製品の評価
 
-この例ではユーザーが、製品を評価し、各製品の平均評価を公開できるようにします。 データベースでは、評価、製品にキーの一覧を格納します。
+この例では、ユーザーが製品を評価し、各製品の平均評価を公開できるようにします。 データベースには、製品にキーを付けた評価の一覧が保存されます。
 
-表す、Entity Framework での評価を使用するモデルを次に示します。
+Entity Framework で評価を表すために使用できるモデルを次に示します。
 
 [!code-csharp[Main](odata-actions/samples/sample1.cs)]
 
-投稿へのクライアントのたくはありませんが、 `ProductRating` 「評価」コレクションにオブジェクト。 直感的な評価は、製品のコレクションに関連付けと、クライアントは、だけ評価値を投稿する必要があります。
+しかし、クライアントが "評価" コレクションに `ProductRating` オブジェクトを投稿することは望ましくありません。 直観的に、評価は Products コレクションに関連付けられており、クライアントは評価値を投稿するだけでよいはずです。
 
-そのため、通常の CRUD 操作を使用する代わりに、製品のクライアントが呼び出すことができるアクションを定義します。 OData 用語では、アクションは*バインド*Product エンティティにします。
+そのため、通常の CRUD 操作を使用する代わりに、クライアントが製品で呼び出すことができるアクションを定義します。 OData 用語では、アクションは製品エンティティに*バインド*されます。
 
->アクションでは、サーバー上に副作用があります。 このため、HTTP POST 要求を使用してに呼び出されます。 アクションは、パラメーターと戻り値の型がサービス メタデータで説明されていることができます。 クライアントが要求本文でパラメーターを送信し、サーバーが応答本文で、戻り値を送信します。 「製品の単価」アクションを呼び出すには、クライアントで、次のような URI に POST を送信します。
+>アクションにはサーバーへの副作用があります。 このため、HTTP POST 要求を使用して呼び出されます。 アクションには、サービスメタデータで記述されているパラメーターと戻り値の型を含めることができます。 クライアントは要求本文にパラメーターを送信し、サーバーは応答本文で戻り値を送信します。 "製品の評価" アクションを呼び出すために、クライアントは次のような URI に投稿を送信します。
 
 [!code-console[Main](odata-actions/samples/sample2.cmd)]
 
-POST 要求内のデータは、製品の評価だけです。
+POST 要求のデータは、単純に製品の評価です。
 
 [!code-console[Main](odata-actions/samples/sample3.cmd)]
 
-## <a name="declare-the-action-in-the-entity-data-model"></a>エンティティ データ モデルのアクションを宣言します。
+## <a name="declare-the-action-in-the-entity-data-model"></a>Entity Data Model でアクションを宣言します。
 
-Web API 構成には、entity data model (EDM) にアクションを追加します。
+Web API 構成で、アクションを entity data model (EDM) に追加します。
 
 [!code-csharp[Main](odata-actions/samples/sample4.cs)]
 
-このコードは、製品のエンティティで実行できるアクションとして"RateProduct"を定義します。 アクションが受け取ることも宣言、 **int**パラメーター「評価」という名前を返します、 **int**値。
+このコードでは、Product エンティティに対して実行できるアクションとして "RateProduct" が定義されています。 また、アクションが "評価" という名前の**int**パラメーターを受け取り、 **int**値を返すことも宣言します。
 
-## <a name="add-the-action-to-the-controller"></a>コント ローラーに、アクションを追加します。
+## <a name="add-the-action-to-the-controller"></a>コントローラーにアクションを追加する
 
-"RateProduct"アクションは、Product エンティティにバインドされます。 アクションを実装するには、という名前のメソッドを追加`RateProduct`Products コント ローラーにします。
+"RateProduct" アクションは、製品エンティティにバインドされています。 アクションを実装するには、`RateProduct` という名前のメソッドを Products コントローラーに追加します。
 
 [!code-csharp[Main](odata-actions/samples/sample5.cs)]
 
-メソッド名が、EDM 内のアクションの名前と一致することに注意してください。 メソッドでは、2 つのパラメーターがあります。
+メソッド名が EDM のアクションの名前と一致することに注意してください。 メソッドには、次の2つのパラメーターがあります。
 
-- *キー*:レートに製品のキー。
-- *パラメーター*:アクション パラメーターの値のディクショナリ。
+- *キー*: 評価する製品のキー。
+- *parameters*: アクションパラメーター値のディクショナリ。
 
-既定のルーティング規約を使用している場合、キー パラメーターを「キー」名前する必要があります。 必ず、 **[FromOdataUri]** 属性が示すようにします。 この属性では、Web API 要求 URI からキーを解析するときに、OData 構文の規則を使用するように指示します。
+既定のルーティング規約を使用している場合、キーパラメーターの名前は "key" にする必要があります。 次に示すように、 **[Fromodatauri]** 属性を含めることも重要です。 この属性は、要求 URI からキーを解析するときに、OData 構文規則を使用するように Web API に指示します。
 
-使用して、*パラメーター*アクション パラメーターを取得するためのディクショナリ。
+*パラメーター*ディクショナリを使用して、アクションパラメーターを取得します。
 
 [!code-csharp[Main](odata-actions/samples/sample6.cs)]
 
-クライアントが適切で、アクション パラメーターを送信する場合の値の書式**ModelState.IsValid**は true。 その場合は、使用することができます、 **ODataActionParameters**パラメーターの値を取得するためのディクショナリ。 この例で、`RateProduct`アクションは、「評価」という名前の 1 つのパラメーターを受け取る。
+クライアントがアクションパラメーターを正しい形式で送信する場合、 **Modelstate. IsValid**の値は true になります。 その場合は、パラメーターの値を取得するために、指定され**たパラメーターを**使用できます。 この例では、`RateProduct` アクションは "評価" という名前の1つのパラメーターを受け取ります。
 
-## <a name="action-metadata"></a>アクションのメタデータ
+## <a name="action-metadata"></a>アクションメタデータ
 
-サービス メタデータを表示するには、/odata/$ メタデータに、GET 要求を送信します。 宣言するメタデータの一部を次に示します、`RateProduct`アクション。
+サービスメタデータを表示するには、GET 要求を/odata/$metadata に送信します。 `RateProduct` アクションを宣言するメタデータの部分を次に示します。
 
 [!code-xml[Main](odata-actions/samples/sample7.xml)]
 
-**FunctionImport**要素は、アクションを宣言します。 ほとんどのフィールドは、一目瞭然ですが、注目すべき 2 つの。
+**FunctionImport**要素はアクションを宣言します。 ほとんどのフィールドはわかりやすくなっていますが、2つの注意点があります。
 
-- **IsBindable**意味、アクションを少なくとも、ターゲット エンティティに呼び出すことが、時間の一部です。
-- **IsAlwaysBindable**ターゲット エンティティに常に、操作を呼び出せることを意味します。
+- **Isbindable**可能は、少なくとも一部の時点で、ターゲットエンティティに対してアクションを呼び出すことができることを意味します。
+- **Isalways バインド**可能とは、アクションをターゲットエンティティで常に呼び出すことができることを意味します。
 
-違いは、いくつかの操作は、クライアントで使用可能では常が、その他のアクションがエンティティの状態によって異なります。 たとえば、[購入] アクションを定義するとします。 在庫にあるアイテムのみ購入できます。 項目が在庫切れになった場合、クライアントはそのアクションを呼び出すことはできません。
+違いは、一部のアクションはクライアントで常に使用できるということですが、他のアクションはエンティティの状態によって異なる場合があります。 たとえば、"Purchase" アクションを定義するとします。 購入できるのは在庫内の商品だけです。 項目が在庫切れの場合、クライアントはそのアクションを呼び出すことができません。
 
-EDM を定義するときに、**アクション**メソッドは、常にバインド可能なアクションを作成します。
+EDM を定義すると、**アクション**メソッドによって、常にバインド可能なアクションが作成されます。
 
 [!code-csharp[Main](odata-actions/samples/sample8.cs?highlight=1)]
 
-Not を常に、バインド可能なアクションについて説明します (とも呼ばれる*一時的な*アクション) このトピックで後述します。
+ここでは、このトピックで後述する、非 always バインド操作 (*一時*アクションとも呼ばれます) について説明します。
 
-## <a name="invoking-the-action"></a>アクションを呼び出す
+## <a name="invoking-the-action"></a>アクションの呼び出し
 
-これで、クライアントはこの操作を呼び出す方法を見てみましょう。 ID の製品への 2 の評価を付与する必要があると 4 を = です。 要求本文の JSON 形式を使用して、例要求メッセージを次に示します。
+ここで、クライアントがこのアクションを呼び出す方法を見てみましょう。 たとえば、ID が4の製品に対して2という評価を行うとします。 要求本文の JSON 形式を使用した要求メッセージの例を次に示します。
 
 [!code-console[Main](odata-actions/samples/sample9.cmd)]
 
-応答メッセージを次に示します。
+応答メッセージは次のとおりです。
 
 [!code-console[Main](odata-actions/samples/sample10.cmd)]
 
-## <a name="binding-an-action-to-an-entity-set"></a>エンティティ セットへのアクションのバインド
+## <a name="binding-an-action-to-an-entity-set"></a>エンティティセットへのアクションのバインド
 
-前の例では、アクションは、1 つのエンティティにバインドされています。クライアントは、1 つの製品を評価します。 アクションは、エンティティのコレクションにバインドすることもできます。 次の変更を加えるだけです。
+前の例では、アクションは単一のエンティティにバインドされています。クライアントは1つの製品を評価します。 また、アクションをエンティティのコレクションにバインドすることもできます。 次の変更を行うだけです。
 
-EDM では、アクションを追加するエンティティの**コレクション**プロパティ。
+EDM で、アクションをエンティティの**コレクション**プロパティに追加します。
 
 [!code-csharp[Main](odata-actions/samples/sample11.cs?highlight=1)]
 
-コント ローラー メソッドで省略、*キー*パラメーター。
+コントローラーメソッドで、*キー*パラメーターを省略します。
 
 [!code-csharp[Main](odata-actions/samples/sample12.cs)]
 
-クライアントが、製品のエンティティ セットに対して操作を呼び出すようになりました。
+これで、クライアントは Products エンティティセットに対してアクションを呼び出します。
 
 [!code-console[Main](odata-actions/samples/sample13.cmd)]
 
-## <a name="actions-with-collection-parameters"></a>コレクションのパラメーターを使って操作
+## <a name="actions-with-collection-parameters"></a>コレクションパラメーターを使用したアクション
 
-アクションには、パラメーター値のコレクションを取得することができます。 EDM では、次のように使用します。 **CollectionParameter&lt;T&gt;** パラメーターを宣言します。
+アクションは、値のコレクションを受け取るパラメーターを持つことができます。 EDM では、 **collectionparameter&lt;t&gt;** を使用してパラメーターを宣言します。
 
 [!code-csharp[Main](odata-actions/samples/sample14.cs)]
 
-これは、コレクションを受け取り「評価」という名前のパラメーターを宣言します。 **int**値。 パラメーター値の取得も、コント ローラー メソッドで、 **ODataActionParameters**オブジェクトが、値のようになりましたが、 **ICollection&lt;int&gt;** 値。
+これは、 **int**値のコレクションを受け取る "評価" という名前のパラメーターを宣言します。 コントローラーメソッドでは、現在では、パラメーターの値は、次のようにします。**このオブジェクトは、パラメーター**の値を指定します。値は**ICollection&lt;int&gt;** 値です。
 
 [!code-csharp[Main](odata-actions/samples/sample15.cs)]
 
 ## <a name="transient-actions"></a>一時的なアクション
 
-"RateProduct"例では、アクションが常に使用できるように、製品の場所をユーザーが評価常にできます。 いくつかの操作は、エンティティの状態によって異なります。 たとえば、ビデオ レンタル サービスで「チェック アウト」アクションは常に使用できません。 (依存するビデオのコピーが使用できるかどうか。)この種類のアクションが呼び出されます、*一時的な*アクション。
+"RateProduct" の例では、ユーザーは常に製品を評価できるため、アクションは常に使用できます。 ただし、一部のアクションはエンティティの状態に依存します。 たとえば、ビデオレンタルサービスでは、"チェックアウト" アクションは常に使用できるとは限りません。 (そのビデオのコピーが利用可能かどうかによって異なります)。この種類のアクションは、*一時的*なアクションと呼ばれます。
 
-一時的なアクションには、サービス メタデータで**IsAlwaysBindable**を false に等しい。 メタデータのようになりますので、実際には、既定値です。
+サービスメタデータでは、一時的なアクションの値は**常**に false になります。 これは実際には既定値であるため、メタデータは次のようになります。
 
 [!code-xml[Main](odata-actions/samples/sample16.xml)]
 
-ここでこれが重要な理由。アクションが一時的な場合は、サーバーは、アクションが使用可能な場合、クライアントに指示する必要があります。 この機能を使用するには、エンティティのアクションへのリンクを含みます。 ムービーのエンティティの例を次に示します。
+これが重要な理由は次のとおりです。アクションが一時的なものである場合、サーバーは、アクションが使用可能であることをクライアントに通知する必要があります。 これを行うには、エンティティ内のアクションへのリンクを含めます。 次に、ムービーエンティティの例を示します。
 
 [!code-console[Main](odata-actions/samples/sample17.cmd)]
 
-"#CheckOut"プロパティには、チェック アウトの操作へのリンクが含まれています。 アクションが使用できない場合、サーバーは、リンクを省略します。
+"#CheckOut" プロパティには、チェックアウトアクションへのリンクが含まれています。 アクションが使用できない場合、サーバーはリンクを省略します。
 
-EDM では一時的なアクションを宣言するには、呼び出し、 **TransientAction**メソッド。
+EDM で一時的なアクションを宣言するには、次のように、**遷移**メソッドを呼び出します。
 
 [!code-csharp[Main](odata-actions/samples/sample18.cs)]
 
-またを特定のエンティティのアクション リンクを返す関数を用意する必要があります。 この関数を呼び出すことによって設定**HasActionLink**します。 ラムダ式として関数を記述できます。
+また、特定のエンティティのアクションリンクを返す関数を指定する必要があります。 この関数は、 **HasActionLink**を呼び出して設定します。 関数をラムダ式として記述できます。
 
 [!code-csharp[Main](odata-actions/samples/sample19.cs)]
 
-アクションを使用できる場合、ラムダ式は、アクションにリンクを返します。 OData シリアライザーには、エンティティをシリアル化時に、このリンクが含まれます。 アクションが利用できない場合、関数を返します`null`します。
+アクションが使用可能な場合、ラムダ式はアクションへのリンクを返します。 OData シリアライザーは、エンティティをシリアル化するときにこのリンクを含みます。 アクションが使用できない場合、関数は `null`を返します。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の資料
 
 [OData アクションのサンプル](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v3/ODataActionsSample/)

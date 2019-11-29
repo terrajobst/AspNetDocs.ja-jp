@@ -1,258 +1,258 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
-title: マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList (c#) |Microsoft Docs
+title: 'マスター/詳細: 詳細 DataList (C#) を使用して、マスターレコードの箇条書きリストを使用します。Microsoft Docs'
 author: rick-anderson
-description: このチュートリアルでを前のチュートリアルの 2 ページのマスター/詳細レポートを 1 つのページに圧縮 t のカテゴリ名の箇条書きリストを表示.
+description: このチュートリアルでは、前のチュートリアルの2ページのマスター/詳細レポートを1つのページに圧縮します。これにより、名前の付いたカテゴリ名の一覧が t... で表示されます。
 ms.author: riande
 ms.date: 10/17/2006
 ms.assetid: c727bb73-7b59-41a1-8dc3-623c6d69e7c2
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ca9d0075c8185b6c8a532502c45359179acee8a5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4549ab8e64599b09c300c158bedfd5d85efafc4d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130427"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74591870"
 ---
 # <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_CS.exe)または[PDF のダウンロード](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/datatutorial35cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_CS.exe)または[PDF のダウンロード](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/datatutorial35cs1.pdf)
 
-> このチュートリアルではを圧縮します前のチュートリアルの 2 ページのマスター/詳細レポートを単一のページ、画面の右側で選択したカテゴリの製品、画面の左側にあるカテゴリ名の箇条書きリストを表示します。
+> このチュートリアルでは、前のチュートリアルの2ページのマスター/詳細レポートを1つのページに圧縮して、画面の左側にカテゴリ名の箇条書きリストを表示し、画面の右側に選択したカテゴリの製品を表示します。
 
 ## <a name="introduction"></a>はじめに
 
-[前のチュートリアル](master-detail-filtering-acess-two-pages-datalist-cs.md)2 つのページ間でマスター/詳細レポートを分離する方法を説明しました。 マスター ページでは、カテゴリの箇条書きリストを表示するために、Repeater コントロールを使用しました。 各カテゴリ名が、ハイパーリンク、クリックするが実行の詳細ページで、2 つの列 DataList がこれらの製品を表示するユーザーに属している、選択したカテゴリ。
+前の[チュートリアル](master-detail-filtering-acess-two-pages-datalist-cs.md)では、マスター/詳細レポートを2ページに分割する方法を見てきました。 マスターページでは、Repeater コントロールを使用して、カテゴリの箇条書きリストを表示していました。 各カテゴリ名はハイパーリンクでした。クリックすると、ユーザーは [詳細] ページに移動します。このページには、選択したカテゴリに属する製品が表示されます。
 
-このチュートリアルでを 2 ページのチュートリアルを 1 つのページに圧縮 LinkButton としてレンダリングの各カテゴリ名と、画面の左側にあるカテゴリ名の箇条書きリストを表示します。 カテゴリ名は、Linkbutton をクリックすると、ポストバックを誘発しますし、選択したカテゴリ、製品を画面の右側に 2 つの列 DataList にバインドします。 に加えて、各カテゴリの名前を表示するには、左側の Repeater を示していますが合計製品の数が特定のカテゴリが (図 1 参照)。
+このチュートリアルでは、2ページのチュートリアルを1つのページに圧縮し、各カテゴリ名を LinkButton として表示し、画面の左側にカテゴリ名の箇条書きリストを表示します。 Category name LinkButtons のいずれかをクリックすると、ポストバックが誘発され、選択したカテゴリの製品が画面右側の2列の DataList にバインドされます。 各カテゴリの名前を表示するだけでなく、左側のリピータは特定のカテゴリの製品の合計数を示しています (図1を参照)。
 
-[![左側のカテゴリ名と製品の合計数が表示されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image1.png)
+[カテゴリの名前と製品の合計数が左側に表示され ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image1.png)
 
-**図 1**:左側のカテゴリ名と製品の合計数が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image3.png))。
+**図 1**: カテゴリの名前と製品の合計数が左側に表示される ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image3.png)されます)
 
-## <a name="step-1-displaying-a-repeater-in-the-left-portion-of-the-screen"></a>手順 1: 画面の左側の部分に、Repeater を表示します。
+## <a name="step-1-displaying-a-repeater-in-the-left-portion-of-the-screen"></a>手順 1: 画面の左側の部分にリピータを表示する
 
-このチュートリアルでは、選択したカテゴリ、製品の左側に表示されるカテゴリの箇条書きリストを用意する必要があります。 標準 HTML 要素段落タグ、改行なしスペースを使用して web ページ内のコンテンツを配置できる`<table>`と s、またはカスケード スタイル シート (CSS) の手法を使用します。 CSS の手法を配置の使用チュートリアルのすべてがきませんでした。 マスター ページで、ナビゲーション ユーザー インターフェイスを構築しました、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルを使用して*絶対配置*ナビゲーションの正確なピクセルのオフセットを示す一覧と、メイン コンテンツ。 CSS を使用して、右または左から別の 1 つの要素を配置する代わりに、*浮動*します。 カテゴリの箇条書きリスト、Repeater、DataList の左側の浮動小数点では、選択したカテゴリの製品の左側に表示があっても
+このチュートリアルでは、選択したカテゴリの製品の左側に、カテゴリの箇条書きの一覧が表示されている必要があります。 Web ページ内のコンテンツを配置するには、標準の HTML 要素の段落タグ、改行しないスペース、`<table>` s などを使用するか、カスケードスタイルシート (CSS) 手法を使用します。 これまでのすべてのチュートリアルでは、配置に CSS 手法が使用されていました。 [マスターページとサイトナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)のチュートリアルで、マスターページにナビゲーションユーザーインターフェイスを構築したときに、ナビゲーションリストとメインコンテンツの正確なピクセルオフセットを示す*絶対配置*を使用していました。 または、CSS を使用して、1つの要素を別の要素の右側または左側に*フローティング*で配置することもできます。 DataList を使用して、選択したカテゴリの製品の左側に、DataList の左側にあるリストを表示できます。
 
-開く、`CategoriesAndProducts.aspx`ページから、`DataListRepeaterFiltering`フォルダー Repeater および DataList は、ページに追加します。 Repeater s 設定`ID`に`Categories`およびに DataList の`CategoryProducts`。 ソース ビューに移動し、独自の Repeater および DataList コントロールを配置`<div>`要素。 内で Repeater を囲む、`<div>`要素最初および独自の DataList し`<div>`Repeater の直後後の要素。 マークアップにこの時点でようになります次。
+`DataListRepeaterFiltering` フォルダーから `CategoriesAndProducts.aspx` ページを開き、Repeater と DataList というページに追加します。 Repeater の `ID` を `Categories` に設定し、DataList を `CategoryProducts`に設定します。 ソースビューに移動し、Repeater コントロールと DataList コントロールを独自の `<div>` 要素内に配置します。 つまり、まず `<div>` 要素内で Repeater を囲み、次に、独自の `<div>` 要素内の DataList をリピータの直後に記述します。 この時点で、マークアップは次のようになります。
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample1.aspx)]
 
-DataList の左側に Repeater を float を使用して必要があります、 `float` CSS スタイル属性では、次のように。
+Repeater を DataList の左側にフローティングさせるには、次のように `float` CSS スタイル属性を使用する必要があります。
 
 [!code-html[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample2.html)]
 
-`float: left;`最初をフローティング`<div>`要素、2 つ目の左にします。 `width`と`padding-right`設定は、1 つ目を示すもの`<div>`s`width`間に余白を追加し、 `<div>` s の要素のコンテンツおよびその右余白。 CSS で要素をフロートの詳細については、チェック アウト、 [Floatutorial](http://css.maxdesign.com.au/floatutorial/)します。
+`float: left;` は、最初の `<div>` 要素を2番目の要素の左側にフローティングします。 `width` と `padding-right` の設定は、最初の `<div>` s `width`、および `<div>` 要素のコンテンツとその右余白の間に追加される余白を示します。 CSS の浮動要素の詳細については、 [Floatutorial](http://css.maxdesign.com.au/floatutorial/)を参照してください。
 
-最初から直接スタイル設定を指定するのではなく`<p>`要素 s`style`属性、s の代わりに新しい CSS クラスを作成できるように`Styles.css`という`FloatLeft`:
+最初の `<p>` element s `style` 属性を使用してスタイル設定を直接指定するのではなく、`FloatLeft`という名前の `Styles.css` に新しい CSS クラスを作成します。
 
 [!code-css[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample3.css)]
 
-置き換えることができ、`<div>`で`<div class="FloatLeft">`します。
+その後、`<div>` を `<div class="FloatLeft">`に置き換えることができます。
 
-CSS クラスを追加して、マークアップでを構成したら、 `CategoriesAndProducts.aspx`  ページで、デザイナーに移動します。 (ただし、右両方だけに表示されます灰色のボックスからそのデータ ソースまたはテンプレートを構成するには、まだ ve) は、DataList の左側に浮動 Repeater が表示されます。
+CSS クラスを追加し、[`CategoriesAndProducts.aspx`] ページでマークアップを構成した後、デザイナーにアクセスします。 データソースまたはテンプレートをまだ構成していないので、このダイアログボックスの左側には [Repeater] が表示されます (ただし、現在は灰色のボックスとして表示されています)。
 
-[![DataList の左にフロート リピータ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image4.png)
+[![、Repeater が DataList の左側にフローティングされます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image4.png)
 
-**図 2**:リピータが DataList の左にフロートされ ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image6.png))。
+**図 2**: Repeater が DataList の左側にフロートする ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image6.png)されます)
 
-## <a name="step-2-determining-the-number-of-products-for-each-category"></a>手順 2: 各カテゴリの製品の数を決定します。
+## <a name="step-2-determining-the-number-of-products-for-each-category"></a>手順 2: 各カテゴリの製品数を確認する
 
-完全なマークアップを囲む Repeater および DataList 秒、Repeater にカテゴリ データをバインドする準備ができたら制御します。 ただし、図 1 内のカテゴリの箇条書きリストに示す各カテゴリの名前だけでなく必要もありますカテゴリに関連付けられている製品の数を表示します。 この情報にアクセスできますか。
+リピータと DataList を囲むマークアップが完了したら、カテゴリデータを Repeater コントロールにバインドする準備ができました。 ただし、図1のカテゴリの箇条書きリストが示されているように、各カテゴリの名前に加えて、カテゴリに関連付けられている製品の数も表示する必要があります。 この情報にアクセスするには、次のいずれかの方法があります。
 
-- **ASP.NET ページの分離コード クラスからこの情報を決定します。** 特定の指定された *`categoryID`* 呼び出すことによって関連付けられている製品の数を決定しました、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`* します。 作成できる、 `ItemDataBound` 、Repeater にバインドされている各カテゴリの呼び出しを Repeater のイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力にその数が含まれています。
-- **更新プログラム、`CategoriesDataTable`に型指定されたデータセットで、`NumberOfProducts`列。** 今後更新できるし、`GetCategories()`メソッドで、`CategoriesDataTable`にこの情報が含まれますか、または、`GetCategories()`として-を新規作成は、`CategoriesDataTable`というメソッド`GetCategoriesAndNumberOfProducts()`。
+- **この情報は、ASP.NET ページの分離コードクラスから確認してください。** 特定の *`categoryID`* を指定すると、`ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドを呼び出すことによって、関連付けられている製品の数を特定できます。 このメソッドは `ProductsDataTable` オブジェクトを返します。この `Count` オブジェクトは、指定された *`categoryID`* の製品数である `ProductsRow` s の数を示します。 リピータにバインドされている各カテゴリについて、`ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドを呼び出し、そのカウントを出力に含める、リピータの `ItemDataBound` イベントハンドラーを作成できます。
+- **`NumberOfProducts` 列を含めるように、型指定されたデータセットの `CategoriesDataTable` を更新します。** 次に、`CategoriesDataTable` の `GetCategories()` メソッドを更新してこの情報を含めるか、または `GetCategories()` をそのままにして、`GetCategoriesAndNumberOfProducts()`という新しい `CategoriesDataTable` メソッドを作成できます。
 
-これらの手法の両方のシナリオについて s を使用できます。 最初の方法は、データ アクセス レイヤーを更新する必要があるので、実装する方が簡単ただし、データベースと複数の通信が必要です。 呼び出し、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッドで、`ItemDataBound`イベント ハンドラーは、Repeater に表示されるカテゴリごとに、余分なデータベース呼び出しを追加します。 この手法では、 *N* +、1 つのデータベース呼び出し、 *N* Repeater に表示されるカテゴリの数です。 各カテゴリに関する情報を 2 つ目のアプローチでは、製品の数が返される、`CategoriesBLL`クラス s `GetCategories()` (または`GetCategoriesAndNumberOfProducts()`) メソッドを 1 つだけのトリップでデータベースになります。
+では、これらの両方の手法について説明します。 データアクセス層を更新する必要がないため、最初の方法は簡単に実装できます。ただし、データベースとの通信を増やす必要があります。 `ItemDataBound` イベントハンドラーの `ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドを呼び出すと、リピータに表示される各カテゴリに対して、追加のデータベース呼び出しが追加されます。 この手法では、 *n* + 1 データベースが呼び出されます。ここで、 *n*はリピータに表示されるカテゴリの数です。 2番目の方法では、`CategoriesBLL` クラス s `GetCategories()` (または `GetCategoriesAndNumberOfProducts()`) メソッドから、各カテゴリに関する情報と共に製品数が返されます。これにより、データベースへのトリップが1回だけになります。
 
-## <a name="determining-the-number-of-products-in-the-itemdatabound-event-handler"></a>ItemDataBound イベント ハンドラー内の製品の数を決定します。
+## <a name="determining-the-number-of-products-in-the-itemdatabound-event-handler"></a>ItemDataBound バインドイベントハンドラー内の製品の数を確認する
 
-Repeater s の各カテゴリの製品の数を決定する`ItemDataBound`イベント ハンドラーでは、既存のデータ アクセス層への変更は必要ありません。 内で直接すべての変更ができるように、`CategoriesAndProducts.aspx`ページ。 という名前の新しい ObjectDataSource に追加して開始`CategoriesDataSource`Repeater s のスマート タグを使用しています。 次に、構成、 `CategoriesDataSource` ObjectDataSource ことから、そのデータを取得するため、`CategoriesBLL`クラスの`GetCategories()`メソッド。
+リピータ s `ItemDataBound` イベントハンドラーの各カテゴリの製品数を特定しても、既存のデータアクセス層を変更する必要はありません。 すべての変更は、[`CategoriesAndProducts.aspx`] ページ内で直接行うことができます。 まず、Repeater s スマートタグを介して `CategoriesDataSource` という名前の新しい ObjectDataSource を追加します。 次に、`CategoriesBLL` クラス s `GetCategories()` メソッドからデータを取得するように `CategoriesDataSource` ObjectDataSource を構成します。
 
-[![CategoriesBLL クラス GetCategories() メソッドを使用する ObjectDataSource を構成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image7.png)
+[GetCategories () メソッドを使用するように ObjectDataSource を構成 ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image7.png)
 
-**図 3**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス s`GetCategories()`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image9.png))。
+**図 3**: `CategoriesBLL` クラス s `GetCategories()` メソッドを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image9.png))
 
-内の各項目、 `Categories` Repeater はクリック可能にして、クリックされたときに発生する必要があります、 `CategoryProducts` DataList、選択したカテゴリの製品を表示します。 これは、ハイパーリンクは、この同じページに戻るリンクの各カテゴリを作成して実行できます (`CategoriesAndProducts.aspx`) を渡して、`CategoryID`前のチュートリアルで使用したのと同様に、クエリ文字列をします。 このアプローチの利点は、特定のカテゴリの製品を表示するページのブックマークを追加し、検索エンジンによってインデックス付けされたことです。
+`Categories` リピータの各項目をクリック可能にする必要があります。クリックすると、`CategoryProducts` DataList によって選択したカテゴリの製品が表示されます。 これを行うには、前のチュートリアルで説明したように、各カテゴリにハイパーリンクを設定し、同じページ (`CategoriesAndProducts.aspx`) にリンクしてから、クエリ文字列を使用して `CategoryID` を渡します。 この方法の利点は、特定のカテゴリの製品を表示するページにブックマークを付けて、検索エンジンでインデックスを作成できることです。
 
-またはを実行できます各カテゴリ LinkButton、これは、アプローチのこのチュートリアルを使用します。 LinkButton はハイパーリンクとして、ユーザーのブラウザーに表示されますが、クリックすると、ポストバックを誘発します。、ポストバックの DataList の ObjectDataSource する必要がある、選択したカテゴリに属しているこれらの製品を表示するように更新します。 このチュートリアルでは、ハイパーリンクを使用する方が合理的; LinkButton を使用するよりもただしより便利ですが、LinkButton を使用して他のシナリオがあります。 ハイパーリンクのアプローチがこの例では最適である場合は、s の代わりに LinkButton を試すことができます。 おわかりのとおり、LinkButton を使用してはいないそれ以外の場合に発生する、ハイパーリンクにいくつかの課題について説明します。 そのため、このチュートリアルでは、LinkButton を使用してこれらの課題を強調表示をハイパーリンクではなく LinkButton を使用することがあります、これらのシナリオのソリューションを提供します。
+または、各カテゴリを LinkButton にすることもできます。これは、このチュートリアルで使用するアプローチです。 LinkButton は、ユーザーのブラウザーでハイパーリンクとしてレンダリングされますが、クリックするとポストバックが誘発されます。ポストバック時に、DataList s ObjectDataSource を更新して、選択したカテゴリに属する製品を表示する必要があります。 このチュートリアルでは、ハイパーリンクを使用する方が、LinkButton を使用するよりもわかりやすくなります。ただし、LinkButton を使用する方が有利な場合もあります。 この例ではハイパーリンクのアプローチが理想的ですが、では、LinkButton の使用方法についても説明します。 ここで説明するように、LinkButton を使用すると、ハイパーリンクでは発生しないいくつかの課題が発生します。 このため、このチュートリアルで LinkButton を使用すると、これらの課題が強調表示されるため、ハイパーリンクの代わりに LinkButton を使用する必要があるシナリオに対するソリューションを提供できます。
 
 > [!NOTE]
-> ハイパーリンク コントロールを使用して、このチュートリアルを繰り返すことが推奨されますまたは`<a>`代わりに LinkButton 要素。
+> このチュートリアルは、LinkButton の代わりに HyperLink コントロールまたは `<a>` 要素を使用して繰り返すことをお勧めします。
 
-次のマークアップでは、Repeater、ObjectDataSource の宣言の構文を示しています。 Repeater s のテンプレートが LinkButton として各項目に箇条書きリストをレンダリングすることに注意してください。
+次のマークアップは、Repeater および ObjectDataSource の宣言型の構文を示しています。 Repeater テンプレートは、各項目を LinkButton として使用して箇条書きを表示することに注意してください。
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample4.aspx)]
 
 > [!NOTE]
-> このチュートリアルでは、Repeater のビュー ステートを有効になっている必要があります (の省略の指定に注意してください、 `EnableViewState="False"` Repeater s の宣言構文から)。 手順 3. で作成しますイベント ハンドラー Repeater s の`ItemCommand`が更新されます DataList の ObjectDataSource のイベント`SelectParameters`コレクション。 Repeater の`ItemCommand`、ビュー ステートが無効になっている場合に、ただし、起動されません。 参照してください[、ASP.NET の質問の A Stumper](http://scottonwriting.net/sowblog/posts/1263.aspx)と[そのソリューション](http://scottonwriting.net/sowBlog/posts/1268.aspx)理由の詳細についてはビュー ステートを Repeater s を有効する必要があります`ItemCommand`イベントが発生します。
+> このチュートリアルでは、リピータのビューステートが有効になっている必要があります (リピータの宣言構文からの `EnableViewState="False"` が省略されていることに注意してください)。 手順3では、`ItemCommand` イベントのイベントハンドラーを作成します。ここでは、DataList s ObjectDataSource s `SelectParameters` コレクションを更新します。 ただし、Repeater の `ItemCommand`は、ビューステートが無効になっている場合には起動しません。 Repeater s `ItemCommand` イベントの発生時にビューステートを有効にする必要がある理由の詳細については、 [ASP.NET の質問](http://scottonwriting.net/sowblog/posts/1263.aspx)と[その解決策](http://scottonwriting.net/sowBlog/posts/1268.aspx)に関する Stumper を参照してください。
 
-LinkButton を`ID`プロパティ値の`ViewCategory`がその`Text`プロパティ セット。 カテゴリ名を表示するたいだけですが場合、私たちがプロパティを設定、テキスト宣言によって、データ バインドの構文で次のようにします。
+`ViewCategory` の `ID` プロパティ値を持つ LinkButton の `Text` プロパティが設定されていません。 カテゴリ名を表示するだけの場合は、次のように、データバインディング構文を使用して、Text プロパティを宣言的に設定します。
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample5.aspx)]
 
-ただし、カテゴリの名前を表示する*と*そのカテゴリに属する製品の数。 Repeater s からこの情報を取得することができます`ItemDataBound`イベント ハンドラーを呼び出すことによって、`ProductBLL`クラス s`GetCategoriesByProductID(categoryID)`メソッドと、その結果で返されるレコードの数を決定する`ProductsDataTable`、次のコードとして示しています。
+ただし、カテゴリの名前*と*そのカテゴリに属する製品の数の両方を表示する必要があります。 この情報は、次のコードに示すように、`ProductBLL` クラス s `GetCategoriesByProductID(categoryID)` メソッドを呼び出し、結果の `ProductsDataTable`で返されるレコードの数を決定することによって、Repeater s `ItemDataBound` イベントハンドラーから取得できます。
 
 [!code-csharp[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample6.cs)]
 
-されるため、まずデータ項目で作業しています (1 つ持つ`ItemType`は`Item`または`AlternatingItem`) し、参照、`CategoriesRow`だけ現在のバインドされたインスタンス`RepeaterItem`。 次のインスタンスを作成してこのカテゴリの製品の数を決定しました、`ProductsBLL`クラスを呼び出してその`GetCategoriesByProductID(categoryID)`メソッドをおよびを使用して返されるレコードの数を決定する、`Count`プロパティ。 最後に、 `ViewCategory` itemtemplate LinkButton が参照し、その`Text`プロパティに設定されて*CategoryName* (*NumberOfProductsInCategory*) ここで、 *NumberOfProductsInCategory*は 10 進数の桁数が 0 の数として書式設定します。
+まず、データ項目 (`ItemType` が `Item` または `AlternatingItem`) を操作し、現在の `RepeaterItem`にバインドされたばかりの `CategoriesRow` インスタンスを参照していることを確認します。 次に、`ProductsBLL` クラスのインスタンスを作成し、その `GetCategoriesByProductID(categoryID)` メソッドを呼び出し、`Count` プロパティを使用して返されるレコードの数を決定することによって、このカテゴリの製品の数を決定します。 最後に、ItemTemplate の `ViewCategory` LinkButton は references で、その `Text` プロパティは [*区分*値] (*numberofproductsincategory*) に設定されます。ここで、 *numberofproductsincategory*は小数点以下をゼロにした数値として書式設定されます。
 
 > [!NOTE]
-> 代わりに、追加されましたが、*関数の書式設定*カテゴリ s を受け入れる ASP.NET ページの分離コード クラスに`CategoryName`と`CategoryID`値を返します、`CategoryName`の数と連結カテゴリの製品 (呼び出すことによって決定される、`GetCategoriesByProductID(categoryID)`メソッド)。 このような書式設定関数の結果を LinkButton s の必要性を置き換えるテキスト プロパティを宣言して割り当てることができます、`ItemDataBound`イベント ハンドラー。 参照してください、 [GridView コントロールで TemplateFields を使用して](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md)または[DataList と Repeater のデータと書式設定](../displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs.md)書式設定関数の使用の詳細についてはチュートリアル。
+> 別の方法として、ASP.NET ページの分離コードクラスに*書式関数*を追加して、カテゴリの `CategoryName` と `CategoryID` 値を受け取り、カテゴリの製品数と連結した `CategoryName` を返すこともできます (`GetCategoriesByProductID(categoryID)` メソッドを呼び出すことによって決定)。 このような書式設定関数の結果は、`ItemDataBound` イベントハンドラーの必要性を置き換えるために、LinkButton の Text プロパティに宣言によって割り当てられる可能性があります。 書式設定関数の使用方法の詳細については、 [GridView コントロールの Using TemplateFields](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md)を参照するか、データのチュートリアルに[基づいて DataList と Repeater を書式設定](../displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs.md)してください。
 
-このイベント ハンドラーを追加した後、ブラウザーでページをテストするのには少しを実行します。 各カテゴリがカテゴリの名前とカテゴリに関連付けられている製品の数を表示する、箇条書きリストに表示されている方法に注意してください (図 4 参照)。
+このイベントハンドラーを追加した後、ブラウザーを使用してページをテストします。 各カテゴリが箇条書きで一覧表示され、カテゴリの名前とカテゴリに関連付けられている製品の数が表示されます (図4を参照)。
 
-[![各カテゴリ名と製品の数が表示されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image10.png)
+[各カテゴリの名前と製品数が ![表示されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image10.png)
 
-**図 4**:各カテゴリ名と製品の数が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image12.png))。
+**図 4**: 各カテゴリの名前と製品の数が表示されます ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image12.png)されます)
 
-## <a name="updating-thecategoriesdatatableandcategoriestableadapterto-include-the-number-of-products-for-each-category"></a>更新、`CategoriesDataTable`と`CategoriesTableAdapter`に各カテゴリの製品の数を含める
+## <a name="updating-thecategoriesdatatableandcategoriestableadapterto-include-the-number-of-products-for-each-category"></a>各カテゴリの製品数を含むように`CategoriesDataTable`と`CategoriesTableAdapter`を更新する
 
-として、各カテゴリの製品の数を決定するのではなく、s が、Repeater にバインドを調整してこのプロセスを合理化します、`CategoriesDataTable`と`CategoriesTableAdapter`データ アクセス層をネイティブでこの情報を含めます。 これを実現する新しい列を追加する必要があります`CategoriesDataTable`関連付けられている製品の数を保持するためにします。 新しい列を DataTable に追加するに型指定されたデータセットを開きます (`App_Code\DAL\Northwind.xsd`) を変更するデータ テーブルを右クリックし、追加の選択、/列。 新しい列を追加、 `CategoriesDataTable` (図 5 を参照してください)。
+各カテゴリの製品数をリピータにバインドするのではなく、データアクセス層の `CategoriesDataTable` と `CategoriesTableAdapter` を調整してこの情報をネイティブに含めることで、このプロセスを効率化できます。 これを実現するには、`CategoriesDataTable` に新しい列を追加して、関連付けられている製品の数を保持する必要があります。 DataTable に新しい列を追加するには、型指定されたデータセット (`App_Code\DAL\Northwind.xsd`) を開き、変更する DataTable を右クリックして、[追加/列] を選択します。 `CategoriesDataTable` に新しい列を追加します (図5を参照)。
 
-[![CategoriesDataSource に新しい列を追加します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image13.png)
+[新しい列をカテゴリデータソースに追加 ![には](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image13.png)
 
-**図 5**:新しい列を追加、 `CategoriesDataSource` ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image15.png))。
+**図 5**: `CategoriesDataSource` に新しい列を追加する ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image15.png)されます)
 
-これはという名前の新しい列を追加`Column1`、これは、別の名前を入力するだけで変更できます。 この新しい列の名前を変更`NumberOfProducts`します。 次に、この列のプロパティを構成する必要があります。 新しい列をクリックし、[プロパティ] ウィンドウに移動します。 S 列を変更する`DataType`プロパティから`System.String`に`System.Int32`設定と、`ReadOnly`プロパティを`True`図 6 に示すように、します。
+これにより、`Column1`という名前の新しい列が追加されます。これは、別の名前を入力するだけで変更できます。 この新しい列の名前を `NumberOfProducts`に変更します。 次に、この列のプロパティを構成する必要があります。 新しい列をクリックし、プロパティウィンドウにアクセスします。 図6に示すように、列の `DataType` プロパティを `System.String` から `System.Int32` に変更し、`ReadOnly` プロパティを `True`に設定します。
 
-![データ型と新しい列の読み取り専用プロパティを設定します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image16.png)
+![新しい列の DataType プロパティと ReadOnly プロパティを設定します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image16.png)
 
-**図 6**:設定、`DataType`と`ReadOnly`新しい列のプロパティ
+**図 6**: 新しい列の `DataType` と `ReadOnly` のプロパティを設定する
 
-中に、`CategoriesDataTable`ようになりましたが、`NumberOfProducts`列で、対応する TableAdapter クエリのいずれかでその値は設定されません。 今後更新できる、`GetCategories()`カテゴリ情報を取得するたびに、このような情報が必要である場合は、この情報を返すメソッドが返されます。 かどうか、ただし、のみ (このチュートリアルのためにだけなど)、まれに、カテゴリに関連付けられている製品の数を取得する必要がありますしそのままにできます`GetCategories()`としてでは、この情報を返す新しいメソッドを作成します。 という名前の新しいメソッドを作成するこの後者のアプローチを使用して、let s`GetCategoriesAndNumberOfProducts()`します。
+`CategoriesDataTable` には `NumberOfProducts` の列がありますが、その値は、対応する TableAdapter のクエリによって設定されていません。 カテゴリ情報を取得するたびにこのような情報が返されるようにする場合は、`GetCategories()` メソッドを更新してこの情報を返すことができます。 ただし、少数のインスタンス (このチュートリアルの場合のみ) で、カテゴリに関連付けられている製品の数を取得する必要があるだけの場合は、`GetCategories()` をそのままにして、この情報を返す新しいメソッドを作成することができます。 この後者の方法を使用して、`GetCategoriesAndNumberOfProducts()`という名前の新しいメソッドを作成してみましょう。
 
-これを新しい追加`GetCategoriesAndNumberOfProducts()`メソッドを右クリックし、`CategoriesTableAdapter`し、新しいクエリ を選択します。 TableAdapter クエリ構成ウィザードで、私たち何回も前のチュートリアルで使用するアップが表示されます。 このメソッドには、クエリが行を返す、アドホック SQL ステートメントを使用することを示すことにより、ウィザードを起動します。
+この新しい `GetCategoriesAndNumberOfProducts()` メソッドを追加するには、`CategoriesTableAdapter` を右クリックし、[新しいクエリ] をクリックします。 これにより、前のチュートリアルで何度も使用されていた TableAdapter クエリ構成ウィザードが起動します。 この方法では、クエリで行を返すアドホック SQL ステートメントが使用されていることを示すことによって、ウィザードを開始します。
 
-[![アドホック SQL ステートメントを使用して、メソッドを作成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image17.png)
+[アドホック SQL ステートメントを使用してメソッドを作成 ![には](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image17.png)
 
-**図 7**:アドホック SQL ステートメントを使用してメソッドを作成 ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image19.png))。
+**図 7**: アドホック SQL ステートメントを使用してメソッドを作成[する (クリックすると、フルサイズのイメージが表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image19.png)されます)
 
-[![SQL ステートメントには、行が返されます。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image20.png)
+[SQL ステートメントが行を返す ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image20.png)
 
-**図 8**:SQL ステートメントの行を返します ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image22.png))。
+**図 8**: SQL ステートメントによって行が返される ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image22.png)されます)
 
-次のウィザード画面では、使用するクエリの場合、us ように求められます。 各カテゴリの s を返す`CategoryID`、 `CategoryName`、および`Description`と共に、カテゴリに関連付けられている製品の数のフィールドは、次を使用して`SELECT`ステートメント。
+次のウィザード画面で、使用するクエリを入力するように求められます。 カテゴリに関連付けられている製品の数と共に、カテゴリ s `CategoryID`、`CategoryName`、および `Description` フィールドを返すには、次の `SELECT` ステートメントを使用します。
 
 [!code-sql[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample7.sql)]
 
-[![使用するクエリを指定します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image23.png)
+[使用するクエリを指定 ![には](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image23.png)
 
-**図 9**:使用するクエリを指定 ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image25.png))。
+**図 9**: 使用するクエリを指定する ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image25.png)されます)
 
-カテゴリに関連付けられている製品の数を計算するサブクエリは、別名として`NumberOfProducts`します。 この名前付けの一致が関連付けられるには、このサブクエリによって返される値をにより、 `CategoriesDataTable` s`NumberOfProducts`列。
+カテゴリに関連付けられている製品の数を計算するサブクエリには、`NumberOfProducts`という別名が付いていることに注意してください。 この名前付けの一致により、このサブクエリによって返される値が `CategoriesDataTable` s `NumberOfProducts` 列に関連付けられます。
 
-このクエリを入力した後は、最後の手順は、新しいメソッドの名前を選択します。 使用`FillWithNumberOfProducts`と`GetCategoriesAndNumberOfProducts`塗りつぶし DataTable 戻って DataTable パターン、それぞれします。
+このクエリを入力したら、最後の手順として、新しいメソッドの名前を選択します。 `FillWithNumberOfProducts` と `GetCategoriesAndNumberOfProducts` を使用して DataTable にデータを格納し、それぞれ DataTable パターンを返します。
 
-[![名前の新しい TableAdapter のメソッド FillWithNumberOfProducts と GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image26.png)
+[新しい TableAdapter のメソッド FillWithNumberOfProducts と Getカテゴリおよび Getproducts の ![名前](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image26.png)
 
-**図 10**:新しい tableadapter のメソッドの名前を付けます`FillWithNumberOfProducts`と`GetCategoriesAndNumberOfProducts`([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image28.png))。
+**図 10**: 新しい TableAdapter のメソッド `FillWithNumberOfProducts` と `GetCategoriesAndNumberOfProducts` の名前を指定[する (クリックすると、フルサイズのイメージが表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image28.png)されます)
 
-この時点で、データ アクセス層がカテゴリごとに製品の番号を含める拡張されました。 対応するを追加する必要がありますので、すべてのプレゼンテーション層が別のビジネス ロジック層から DAL に対するすべての呼び出しをルーティング`GetCategoriesAndNumberOfProducts`メソッドを`CategoriesBLL`クラス。
+この時点で、データアクセス層は、カテゴリごとの製品数を含むように拡張されています。 すべてのプレゼンテーション層は、別のビジネスロジックレイヤーを通じて DAL へのすべての呼び出しをルーティングするため、対応する `GetCategoriesAndNumberOfProducts` メソッドを `CategoriesBLL` クラスに追加する必要があります。
 
 [!code-csharp[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample8.cs)]
 
-このデータにバインドする準備 re DAL BLL 完了と、`Categories`で Repeater `CategoriesAndProducts.aspx`! Ve を決めるから Repeater を既に作成して、ObjectDataSource 場合の製品の数、`ItemDataBound`イベント ハンドラー セクションでは、この ObjectDataSource および s Repeater を削除`DataSourceID`プロパティ unwire; の設定も、Repeater s`ItemDataBound`イベント、イベント ハンドラーを削除してから、 `Handles Categories.OnItemDataBound` ASP.NET 分離コード クラスの構文。
+DAL と BLL が完成したので、このデータを `CategoriesAndProducts.aspx`の `Categories` リピータにバインドする準備ができました。 [`ItemDataBound` イベントハンドラーで製品の数を決定する] セクションからリピータの ObjectDataSource を既に作成している場合は、この ObjectDataSource を削除し、Repeater s `DataSourceID` プロパティの設定を削除します。また、ASP.NET 分離コードクラスの `Handles Categories.OnItemDataBound` 構文を削除することによって、イベントハンドラーからリピータ s `ItemDataBound` イベントの送信を解除します。
 
-元の状態に戻す Repeater、という名前の新しい ObjectDataSource を追加`CategoriesDataSource`Repeater s のスマート タグを使用しています。 構成を使用する ObjectDataSource、`CategoriesBLL`クラスが使用することではなく、`GetCategories()`メソッドが使用する必要が`GetCategoriesAndNumberOfProducts()`代わりに (図 11 を参照してください)。
+リピータが元の状態に戻ったら、Repeater s スマートタグを介して `CategoriesDataSource` という名前の新しい ObjectDataSource を追加します。 `CategoriesBLL` クラスを使用するように ObjectDataSource を構成しますが、`GetCategories()` メソッドを使用するのではなく、代わりに `GetCategoriesAndNumberOfProducts()` を使用します (図11を参照)。
 
-[![ObjectDataSource GetCategoriesAndNumberOfProducts メソッドを使用して構成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image29.png)
+[Get分類 Andnumberofproducts メソッドを使用するように ObjectDataSource を構成 ![には](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image29.png)
 
-**図 11**:構成に使用する ObjectDataSource、`GetCategoriesAndNumberOfProducts`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image31.png))。
+**図 11**: `GetCategoriesAndNumberOfProducts` メソッドを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image31.png))
 
-次に、更新、`ItemTemplate`ように LinkButton s`Text`プロパティがデータ バインディング構文を使用して宣言によって割り当てられ、両方が含まれる、`CategoryName`と`NumberOfProducts`データ フィールド。 リピータの完全な宣言型マークアップと`CategoriesDataSource`ObjectDataSource に従ってください。
+次に、`ItemTemplate` を更新して、LinkButton `Text` プロパティが databinding 構文を使用して宣言に割り当てられ、`CategoryName` と `NumberOfProducts` の両方のデータフィールドが含まれるようにします。 リピータと `CategoriesDataSource` ObjectDataSource の完全な宣言マークアップは次のようになります。
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample9.aspx)]
 
-含める DAL を更新することによってレンダリングされる出力を`NumberOfProducts`列は使用する場合と同じ、`ItemDataBound`イベント ハンドラーのアプローチ (参照画面を表示する図 4 カテゴリ名と製品の数を示す Repeater のスクリーン ショット)。
+`NumberOfProducts` 列を含むように DAL を更新することによって表示される出力は、`ItemDataBound` イベントハンドラーアプローチを使用する場合と同じです (図4を参照して、名前と製品の数を示すリピータのスクリーンショットを参照してください)。
 
-## <a name="step-3-displaying-the-selected-category-s-products"></a>手順 3: 選択したカテゴリ、製品を表示します。
+## <a name="step-3-displaying-the-selected-category-s-products"></a>手順 3: 選択したカテゴリの製品を表示する
 
-この時点である、 `Categories` Repeater の各カテゴリと製品の数のカテゴリの一覧を表示します。 リピータ LinkButton を使用して、クリックすると、位置、ポストバックの問題が発生ポイント各カテゴリで選択したカテゴリには、その製品を表示する必要があります、 `CategoryProducts` DataList します。
+この時点で、`Categories` リピータは、カテゴリの一覧と各カテゴリの製品数を表示しています。 リピータは、各カテゴリに対して LinkButton を使用します。この場合、クリックするとポストバックが発生します。その時点で、選択したカテゴリの製品を `CategoryProducts` DataList に表示する必要があります。
 
-私たちが直面している課題の 1 つは、DataList、選択したカテゴリの製品だけを表示する方法です。 [マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)GridView の行を構築する方法を説明しましたチュートリアルを選択できませんでした、選択した行の詳細、DetailsView、同じページ上に表示されています。 GridView の ObjectDataSource が返される情報を使用してすべての製品について、 `ProductsBLL` s`GetProducts()`メソッド DetailsView の ObjectDataSource を使用して、選択した製品に関する情報は取得、`GetProductsByProductID(productID)`メソッド。 *`productID`* GridView s の値に関連付けることによってパラメーター値を宣言によって指定された`SelectedValue`プロパティ。 残念ながら、Repeater はありません、`SelectedValue`プロパティおよびパラメーターのソースとして使用できません。
+私たちが直面する課題の1つは、DataList に、選択したカテゴリの製品のみが表示されるようにする方法です。 詳細な[detailsview チュートリアルで選択可能なマスター GridView を使用したマスター/詳細](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)では、選択した行の詳細が同じページの DetailsView に表示されている行を含む gridview を作成する方法を説明しました。 GridView は、`ProductsBLL` s `GetProducts()` メソッドを使用してすべての製品に関する情報を返しましたが、DetailsView は `GetProductsByProductID(productID)` メソッドを使用して選択された製品に関する情報を取得しました。 *`productID`* パラメーター値は、GridView の `SelectedValue` プロパティの値に関連付けて宣言によって指定されました。 残念ながら、リピータには `SelectedValue` プロパティがないため、パラメーターソースとして使用することはできません。
 
 > [!NOTE]
-> これは、Repeater で LinkButton を使用するときに表示されるこれらの課題の 1 つです。 渡すためのハイパーリンクを使いましたが、`CategoryID`クエリ文字列を代わりにクエリ文字列フィールド ソースとして使用、パラメーターの値。
+> これは、リピータで LinkButton を使用するときに表示される問題の1つです。 代わりに、ハイパーリンクを使用してクエリ文字列を使用して `CategoryID` を渡すと、そのクエリ文字列フィールドをパラメーター s 値のソースとして使用できるようになりました。
 
-ないかと心配する前に、 `SelectedValue` 、Repeater のプロパティは、最初、ObjectDataSource、DataList にバインドし、指定の秒をできるようにその`ItemTemplate`します。
+ただし、リピータの `SelectedValue` プロパティがないことについて心配する前に、まず DataList を ObjectDataSource にバインドし、その `ItemTemplate`を指定してみましょう。
 
-という名前の新しい ObjectDataSource を追加することを選択、DataList s のスマート タグから`CategoryProductsDataSource`を使用するように構成し、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 このチュートリアルでは、DataList では、読み取り専用のインターフェイスを提供するので自由 INSERT、UPDATE でドロップダウン リストを設定し、(なし) タブを削除します。
+DataList s スマートタグから、`CategoryProductsDataSource` という名前の新しい ObjectDataSource を追加し、`ProductsBLL` class s `GetProductsByCategoryID(categoryID)` メソッドを使用するように構成します。 このチュートリアルの DataList には読み取り専用のインターフェイスが用意されているので、[挿入]、[更新]、および [削除] の各タブのドロップダウンリストを (なし) に自由に設定できます。
 
-[![ObjectDataSource ProductsBLL クラスの GetProductsByCategoryID(categoryID) メソッドを使用して構成します。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image32.png)
+[製品の Bll クラス s Get$ Bycategoryid (categoryID) メソッドを使用するように ObjectDataSource を構成 ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image32.png)
 
-**図 12**:構成に使用する ObjectDataSource`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image34.png))。
+**図 12**: `ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image34.png))
 
-以降、`GetProductsByCategoryID(categoryID)`メソッドに入力パラメーターが必要ですが ( *`categoryID`* )、データ ソース構成ウィザードでは、パラメーター %s のソースを指定できます。 コントロールを処理するパラメーターのソースのドロップダウン リストを設定カテゴリは、GridView、DataList に指定されていた、私たちの d、`ID`データ Web コントロールの。 ただし、Repeater の欠如以降、`SelectedValue`プロパティ パラメーターのソースとして使用できません。 チェックすると、見つかります ControlID のドロップダウン リストが 1 つのコントロールにはのみ含まれている`ID``CategoryProducts`、 `ID` DataList の。
+`GetProductsByCategoryID(categoryID)` メソッドは入力パラメーター ( *`categoryID`* ) を必要とするため、データソースの構成ウィザードを使用して、パラメーター s Source を指定できます。 GridView または DataList にカテゴリが一覧表示されているので、[パラメーターのソース] ドロップダウンリストを [制御] に設定し、ControlID をデータ Web コントロールの `ID` に設定します。 ただし、リピータには `SelectedValue` プロパティがないため、パラメーターソースとして使用することはできません。 このチェックボックスをオンにすると、[ControlID] ドロップダウンリストには、DataList の `ID` であるコントロール `ID``CategoryProducts`が1つだけ含まれていることがわかります。
 
-ここでは、パラメーター ソースのドロップダウン リストを None に設定します。 カテゴリ、Repeater の LinkButton がクリックされたときにこのパラメーターの値をプログラムによって割り当てられるためです。
+ここでは、[パラメーターソース] ドロップダウンリストを [なし] に設定します。 ここでは、Repeater でカテゴリ LinkButton がクリックされたときに、プログラムによってこのパラメーター値を割り当てます。
 
-[![CategoryID パラメーターのパラメーターのソースは指定されていません](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image35.png)
+[categoryID パラメーターのパラメーターソースを指定し ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image35.png)
 
-**図 13**:パラメーター ソースを指定しないをしないで、 *`categoryID`* パラメーター ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))。
+**図 13**: *`categoryID`* パラメーターのパラメーターソースを指定しない ([クリックしてフルサイズのイメージを表示する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))
 
-データ ソース構成ウィザードを完了すると、Visual Studio 自動生成 DataList の`ItemTemplate`します。 この既定値を置き換える`ItemTemplate`テンプレートを使用しての 前のチュートリアルで使用されている; も、DataList s を設定しました`RepeatColumns`プロパティを 2。 これらの変更を行った後、DataList コントロールとその関連付けられている ObjectDataSource の宣言型マークアップは次のようになります。
+データソースの構成ウィザードを完了すると、Visual Studio によって DataList s `ItemTemplate`が自動生成されます。 この既定の `ItemTemplate` を、前のチュートリアルで使用したテンプレートに置き換えます。また、[DataList s `RepeatColumns`] プロパティを [2] に設定します。 これらの変更を行った後、DataList の宣言型マークアップとそれに関連付けられている ObjectDataSource は次のようになります。
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample10.aspx)]
 
-現時点では、 `CategoryProductsDataSource` ObjectDataSource s *`categoryID`* パラメーターは設定されません、ページを表示するときに製品が表示されないようにします。 このパラメーターの値に基づいて設定が行う必要があります、 `CategoryID` Repeater でクリックされたカテゴリの。 2 つのチャレンジが導入されます: 最初に、私たち特定方法と Repeater s で LinkButton`ItemTemplate`クリック;、第 2 にされていますがどのように確認する、`CategoryID`の LinkButton がクリックしてされた対応するカテゴリのでしょうか。
+現時点では、`CategoryProductsDataSource` ObjectDataSource s *`categoryID`* パラメーターは設定されていないため、ページを表示するときに製品は表示されません。 このパラメーター値は、リピータでクリックしたカテゴリの `CategoryID` に基づいて設定する必要があります。 これには2つの課題があります。まず、リピータの `ItemTemplate` がクリックされたタイミングを判断する方法について説明します。次に、LinkButton がクリックされた対応するカテゴリの `CategoryID` を特定するにはどうすればよいでしょうか。
 
-ボタンと ImageButton コントロールと同様に、LinkButton が、`Click`イベントと[`Command`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx)します。 `Click`イベントの目的は単に、LinkButton がクリックしてされたことに注意してください。 ただし、だけでなく、LinkButton がクリックしてされたことに注意してください。 必要もありますイベント ハンドラーに追加情報を渡す。 場合、LinkButton s [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx)と[ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx)プロパティがこの追加情報を割り当てられることができます。 次に、LinkButton がクリックされたときにその`Command`イベントが発生します (の代わりにその`Click`イベント) の値をイベント ハンドラーに渡されます、`CommandName`と`CommandArgument`プロパティ。
+ボタンおよび ImageButton コントロールのような LinkButton には、`Click` イベントと[`Command` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx)があります。 `Click` イベントは、LinkButton がクリックされたことを確認するために設計されています。 ただし、LinkButton がクリックされたことを示すだけでなく、イベントハンドラーに追加情報を渡す必要もあります。 この場合、LinkButton [`CommandName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx)と[`CommandArgument`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx)のプロパティにこの追加情報を割り当てることができます。 次に、LinkButton がクリックされると、その `Command` イベント (`Click` イベントではなく) が発生し、イベントハンドラーに `CommandName` および `CommandArgument` プロパティの値が渡されます。
 
-ときに、 `Command` Repeater、Repeater s でテンプレート内からイベントが発生[`ItemCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx)が起動し、渡される、`CommandName`と`CommandArgument`クリック LinkButton の値 (またはボタンまたはImageButton)。 そのため、カテゴリ、Repeater で LinkButton がクリックしてされたときを特定するには、次の必要があります。
+リピータ内のテンプレート内から `Command` イベントが発生すると、Repeater s [`ItemCommand` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx)が発生し、クリックされた LinkButton (またはボタンまたは ImageButton) の `CommandName` と `CommandArgument` の値が渡されます。 そのため、リピータのカテゴリ LinkButton がクリックされたことを確認するには、次の手順を実行する必要があります。
 
-1. 設定、 `CommandName` Repeater s で LinkButton のプロパティ`ItemTemplate`になんらかの値 (は ListProducts も使用しました)。 これを設定して`CommandName`値、LinkButton の`Command`イベント、LinkButton がクリックされたときに発生します。
-2. LinkButton s 設定`CommandArgument`プロパティの現在の項目の値を`CategoryID`します。
-3. Repeater s のイベント ハンドラーを作成`ItemCommand`イベント。 イベント ハンドラーの設定、 `CategoryProductsDataSource` ObjectDataSource s`CategoryID`パラメーターを渡された内の値`CommandArgument`します。
+1. Repeater の `ItemTemplate` にある LinkButton の `CommandName` プロパティを、何らかの値に設定します (ListProducts を使用しました)。 この `CommandName` 値を設定すると、linkbutton がクリックされたときに LinkButton `Command` イベントが発生します。
+2. LinkButton s `CommandArgument` プロパティを、現在の項目の `CategoryID`の値に設定します。
+3. Repeater s `ItemCommand` イベントのイベントハンドラーを作成します。 イベントハンドラーで、`CategoryProductsDataSource` ObjectDataSource s `CategoryID` パラメーターを、渡された `CommandArgument`の値に設定します。
 
-次`ItemTemplate`カテゴリ Repeater のマークアップは、手順 1. および 2. を実装します。 注方法、`CommandArgument`値には、データ項目の s が割り当てられる`CategoryID`データ バインディング構文を使用して。
+次の `ItemTemplate` のカテゴリリピータのマークアップは、手順 1. と 2. を実装しています。 Databinding 構文を使用して、データ項目 `CategoryID` に `CommandArgument` 値が割り当てられていることに注意してください。
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample11.aspx)]
 
-作成されるたびに、`ItemCommand`イベント ハンドラーが常に、まず受信を確認することをお勧め`CommandName`ため、その値*任意*`Command`によってイベントが発生した*任意*ボタン、LinkButton、またはRepeater 内 ImageButton が発生、`ItemCommand`イベントが発生します。 現在のみがこのような 1 つの LinkButton これで、今後します (または、チームの他の開発者) 可能性があります ボタンが追加 Web コントロールを追加、Repeater をクリックすると、同じを発生させます。`ItemCommand`イベント ハンドラー。 そのため、常に確認することを確認するのベスト、`CommandName`プロパティと値を指定して、と一致する場合のみ、プログラム ロジックに進みます。
+`ItemCommand` イベントハンドラーを作成する場合は常に、必ず最初に受信 `CommandName` 値を確認することをお勧めします *。これは、Repeater*内の Button、LinkButton、または ImageButton によって発生した `Command`*イベントによっ*て `ItemCommand` イベントが発生するためです。 現在、このような LinkButton は1つしかありませんが、将来 (またはチームの他の開発者) は、Repeater にボタン Web コントロールを追加することがあります。これは、クリックすると同じ `ItemCommand` イベントハンドラーを生成します。 したがって、常に `CommandName` プロパティをチェックし、予想される値に一致する場合にのみプログラムロジックを続行することをお勧めします。
 
-渡されたにすることを確認したら`CommandName`ListProducts と等しい値をイベント ハンドラーを割り当てます、 `CategoryProductsDataSource` ObjectDataSource s`CategoryID`パラメーターを渡された内の値`CommandArgument`します。 この変更を ObjectDataSource に`SelectParameters`自体を新しく選択したカテゴリの製品が表示されたデータ ソースに再バインドする DataList を自動的に発生します。
+渡された `CommandName` 値が ListProducts と等しいことを確認した後、イベントハンドラーは、渡された `CommandArgument`の値に `CategoryProductsDataSource` ObjectDataSource s `CategoryID` パラメーターを割り当てます。 ObjectDataSource s `SelectParameters` に対するこの変更により、自動的に DataList が自動的にデータソースに再バインドされ、新しく選択したカテゴリの製品が表示されます。
 
 [!code-csharp[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample12.cs)]
 
-これらの項目を追加します。 このチュートリアルが完了しました。 ブラウザーでテストを実行する時間がかかります。 図 14 では、最初のページにアクセスしたときに、画面が表示されます。 選択するカテゴリがまだのための製品は表示されません。 2 つの列のビューで、製品カテゴリでこれらの製品が表示されます、生成などのカテゴリをクリックすると (図 15 を参照してください)。
+これらの追加により、チュートリアルは完了です。 ブラウザーでテストしてみましょう。 図14に、最初にページにアクセスしたときの画面を示します。 カテゴリはまだ選択されていないため、製品は表示されません。 [生成] などのカテゴリをクリックすると、それらの製品が2列ビューで製品カテゴリに表示されます (図15を参照)。
 
-[![表示されるときに最初にアクセスしてページを要求している製品はありません。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image38.png)
+[ページに最初にアクセスしたときに製品が表示されない ![](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image38.png)
 
-**図 14**:表示されるときに最初にアクセスしてページを要求している製品はありません ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image40.png))。
+**図 14**: 最初にページにアクセスしたときに製品が表示されない ([クリックしてフルサイズの画像を表示する](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image40.png))
 
-[![生成カテゴリの一覧の右側に一致する製品のクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image41.png)
+[[生成] カテゴリをクリック ![と、一致する製品が右側に表示されます](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image41.png)
 
-**図 15**:右側に一致する製品を一覧表示生成カテゴリ をクリックして ([フルサイズの画像を表示する をクリックします](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image43.png))。
+**図 15**: [生成] カテゴリをクリックすると、一致する製品が右側に表示されます ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image43.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルを上記で説明したように、マスター/詳細レポートは 2 つのページに分散させることができます。 または 1 つに統合します。 マスター/詳細レポートを表示する、1 つのページで、ただし、紹介方法のいくつかの課題最適なレイアウト、マスターと詳細レコード ページをします。 *マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明*マスター レコードの上に表示する詳細レコードがありましたこのチュートリアルでのマスター レコード float に CSS 手法を使用して、チュートリアル、。詳細の左端位置。
+このチュートリアルと前に説明したように、マスター/詳細レポートは、2つのページ間で分散することも、1つに統合することもできます。 ただし、マスター/詳細レポートを1ページに表示する場合は、ページ上のマスターレコードと詳細レコードのレイアウトを最適化するためのいくつかの課題が生じます。 詳細な DetailsView チュートリアルがある*選択可能なマスター GridView を使用したマスター/詳細*では、マスターレコードの上に詳細レコードが表示されていました。このチュートリアルでは、CSS の手法を使用して、マスターレコードを詳細の左側にフローティングしました。
 
-マスター/詳細レポートを表示するには、と共にもありました内からクリック LinkButton (またはボタンまたは ImageButton) ときに、サーバー側ロジックを実行する方法にも、各カテゴリに関連付けられた製品の数を取得する方法を調査する機会をRepeater します。
+マスター/詳細レポートの表示と共に、各カテゴリに関連付けられている製品の数を取得する方法に加えて、LinkButton (またはボタンまたは ImageButton) がリピータ内からクリックされたときにサーバー側のロジックを実行する方法についても説明しました。
 
-このチュートリアルでは、DataList と Repeater によるマスター/詳細レポート、調査を完了します。 次の一連のチュートリアルでは、編集と削除、DataList コントロールに機能を追加する方法について説明します。
+このチュートリアルでは、DataList と Repeater を使用したマスター/詳細レポートの検査を完了します。 次の一連のチュートリアルでは、DataList コントロールに編集機能と削除機能を追加する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ## <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [Floatutorial](http://css.maxdesign.com.au/floatutorial/) CSS で CSS 要素をフロートに関するチュートリアル
-- [CSS の配置](http://www.brainjar.com/css/positioning/)CSS を使用して要素の配置の詳細について
-- [Html には、「コンテンツをレイアウトする](http://www.w3schools.com/html/html_layout.asp)を使用して`<table>`s と他の HTML 要素を配置する
+- CSS を使用したフローティング CSS 要素に関するチュートリアルの[Floatutorial](http://css.maxdesign.com.au/floatutorial/)
+- [Css で](http://www.brainjar.com/css/positioning/)の要素の配置の詳細については、「css」を参照してください。
+- `<table>` s とその他の HTML 要素を使用して配置するための[html を使用したコンテンツのレイアウト](http://www.w3schools.com/html/html_layout.asp)
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Zack Jones でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは Zack Jones でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](master-detail-filtering-acess-two-pages-datalist-cs.md)

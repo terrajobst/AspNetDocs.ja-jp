@@ -1,372 +1,372 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
-title: オプティミスティック同時実行制御 (VB) を実装する |Microsoft Docs
+title: オプティミスティック同時実行制御の実装 (VB) |Microsoft Docs
 author: rick-anderson
-description: データを編集する複数のユーザーを許可する web アプリケーションの場合、2 人のユーザーは編集、同じデータと同時にリスクがあります。 この tutori にしています.
+description: 複数のユーザーがデータを編集できるようにする web アプリケーションの場合、2人のユーザーが同時に同じデータを編集するというリスクがあります。 この tutori では、
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 130e1cb7034d57e5d85729497072808c711a08f9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 28c39fe2a290cc3a5b093fdd09de341630606137
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134503"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74628763"
 ---
 # <a name="implementing-optimistic-concurrency-vb"></a>オプティミスティック同時実行制御を実装する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_21_VB.exe)または[PDF のダウンロード](implementing-optimistic-concurrency-vb/_static/datatutorial21vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_21_VB.exe)または[PDF のダウンロード](implementing-optimistic-concurrency-vb/_static/datatutorial21vb1.pdf)
 
-> データを編集する複数のユーザーを許可する web アプリケーションの場合、2 人のユーザーは編集、同じデータと同時にリスクがあります。 このチュートリアルでは、このリスクを処理するために、オプティミスティック同時実行制御を実装します。
+> 複数のユーザーがデータを編集できるようにする web アプリケーションの場合、2人のユーザーが同時に同じデータを編集するというリスクがあります。 このチュートリアルでは、オプティミスティック同時実行制御を実装して、このリスクを処理します。
 
 ## <a name="introduction"></a>はじめに
 
-データを表示するユーザーのみを許可する web アプリケーション、またはデータを変更できるユーザー 1 人のユーザーのみが含まれているは、いずれかに別の変更を誤って上書きする 2 つの同時実行ユーザーの脅威はありません。 複数のユーザー データを更新または削除を許可する web アプリケーション、ただし、可能性があるもう 1 つの同時ユーザーと競合する 1 つのユーザーの変更。 せず、同時実行ポリシーを配置するには、2 人のユーザーが同時に 1 つのレコードを編集時にその変更をコミットしたユーザー最後が上書きされます最初によって行われた変更。
+データの表示のみを許可する web アプリケーションの場合、またはデータを変更できる1人のユーザーのみを含む web アプリケーションの場合、2人のユーザーが別の変更を誤って上書きしても、脅威は発生しません。 複数のユーザーがデータを更新または削除できるようにする web アプリケーションの場合、1人のユーザーが別の同時実行ユーザーと競合する可能性があります。 同時実行ポリシーが設定されていない場合、2人のユーザーが同時に1つのレコードを編集すると、その変更をコミットしたユーザーは、最初に行った変更を上書きします。
 
-たとえば、こと Jisun と Sam、2 人のユーザーが両方ページにアクセスして、アプリケーションで更新および削除の GridView コントロールを使用して、製品への訪問者を許可されているとします。 両方は、ほぼ同時に、gridview 編集ボタンをクリックします。 Jisun では、製品名を「Chai 紅茶」に変更し、[更新] ボタンをクリックします。 最終的には、`UPDATE`を設定すると、データベースに送信されるステートメント*すべて*の製品の更新可能なフィールド (Jisun では、1 つのフィールドのみ更新される場合でも`ProductName`)。 この時点では、データベースは、「Chai 紅茶」、飲み物、供給業者の風変わりな液体は、この特定の製品のカテゴリの値がします。 ただし、Sam の画面に GridView として表示されます、製品名の編集可能な GridView 行"Chai"。 Jisun の変更がコミットされた後、数秒 Sam は調味料にカテゴリを更新し、更新プログラムをクリックします。 これは、結果、 `UPDATE` "Chai"に、製品名を設定しているデータベースに送信されたステートメント、`CategoryID`対応する飲み物のカテゴリの ID、および具合にします。 Jisun の製品名の変更が上書きされました。 図 1 は、この一連のイベントをグラフィカルに示しています。
+たとえば、Jisun と Sam という2人のユーザーがアプリケーションのページにアクセスし、その後、ユーザーが GridView コントロールを使用して製品を更新および削除できるとします。 両方とも、GridView の [編集] ボタンをクリックします。 Jisun は製品名を "Chai 紅茶" に変更し、[更新] ボタンをクリックします。 結果として、データベースに送信される `UPDATE` ステートメントがあります。これにより、*すべて*の製品の更新可能フィールドが設定されます (Jisun によって1つのフィールドが更新された場合でも、`ProductName`)。 この時点で、この特定の製品について、データベースの値は "Chai 紅茶"、カテゴリ飲み物、業者の特別な液体などです。 ただし、Sam の画面の GridView でも、編集可能な GridView 行の製品名は "Chai" として表示されます。 Jisun の変更がコミットされてから数秒後に、Sam はカテゴリを Condiments に更新し、[更新] をクリックします。 これにより、製品名を "Chai" に設定する `UPDATE` ステートメントがデータベースに送信され、対応する飲料カテゴリ ID に `CategoryID` ます。 製品名に対する jisun の変更が上書きされました。 図1に、この一連のイベントをグラフィカルに示します。
 
-[![2 人のユーザーが同時に 1 つのユーザーの変更を上書きするその他のレコードが存在 s が発生する可能性を更新すると](implementing-optimistic-concurrency-vb/_static/image2.png)](implementing-optimistic-concurrency-vb/_static/image1.png)
+[2人のユーザーが同時にレコードを更新したときに、1人のユーザーの変更によって他のユーザーが上書きされる可能性がある ![](implementing-optimistic-concurrency-vb/_static/image2.png)](implementing-optimistic-concurrency-vb/_static/image1.png)
 
-**図 1**:ときに 2 人のユーザーを同時に更新レコードが s 潜在的な 1 つのユーザーが他の上書きに対する変更 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image3.png))。
+**図 1**: 2 人のユーザーが同時にレコードを更新する場合、1人のユーザーの変更によって他のが上書きされる可能性があります ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image3.png)されます)。
 
-同様に、2 人のユーザーは、ページにアクセスして、1 人のユーザーはレコードを更新する別のユーザーによって削除されるときに処理する可能性があります。 または、ユーザーがページを読み込むときと削除 ボタンをクリックするの別のユーザーが変更そのレコードの内容。
+同様に、2人のユーザーが1ページにアクセスしたときに、あるユーザーが別のユーザーによって削除されたレコードを更新しようとしている場合があります。 または、ユーザーがページを読み込んだときに、[削除] ボタンをクリックしたときに、別のユーザーがそのレコードの内容を変更した可能性があります。
 
-3 つ[同時実行制御](http://en.wikipedia.org/wiki/Concurrency_control)戦略を使用できます。
+次の3つの[同時実行制御](http://en.wikipedia.org/wiki/Concurrency_control)戦略を使用できます。
 
-- **何もしない**-同時実行ユーザーは、同じレコードを変更するは、(既定の動作) を獲得する最後のコミットをお知らせ
-- [**オプティミスティック同時実行制御**](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) -同時実行は、このような競合が発生しません時間の大半で競合し、ある可能性がありますそのため、場合は、競合が発生した場合、単に通知するユーザーを想定していますが、変更。別のユーザーには、同じデータが変更されたために、保存できません。
-- **ペシミスティック同時実行制御**-同時実行の競合は一般的であり別のユーザーの同時実行のアクティビティのための変更が保存されなかったとユーザーがいるを許容しないことを前提としていますそのため、1 つのユーザーは、レコードの更新を起動するときにロック。、他のユーザーを編集したり、ユーザーがその変更をコミットするまでそのレコードの削除を防ぐ
+- **何もしない**-同時実行ユーザーが同じレコードを変更している場合は、最後のコミットを優先します (既定の動作)。
+- [**オプティミスティック同時実行制御**](http://en.wikipedia.org/wiki/Optimistic_concurrency_control)-現時点で同時実行の競合が発生する可能性はありますが、そのような競合が発生することはほとんどありません。そのため、競合が発生した場合は、別のユーザーが同じデータを変更したため、変更を保存できないことをユーザーに通知するだけです。
+- **ペシミスティック同時実行制御**-同時実行の競合が一般的であり、ユーザーが別のユーザーの同時アクティビティによって変更が保存されていないということを許容できないことを想定しています。そのため、1人のユーザーがレコードの更新を開始したときに、そのレコードをロックして、ユーザーが変更をコミットするまで他のユーザーがそのレコードを編集または削除できないようにします。
 
-勝利の最後の書き込みを具体的には、お知らせした、すべて、チュートリアルのこれまでとして既定の同時実行の解決方法を使用が。 このチュートリアルではオプティミスティック同時実行制御を実装する方法を説明します。
+これまでに説明したすべてのチュートリアルでは、既定の同時実行の解決方法を使用していました。つまり、最後の書き込みを勝ちにします。 このチュートリアルでは、オプティミスティック同時実行制御を実装する方法について説明します。
 
 > [!NOTE]
-> このチュートリアル シリーズでのペシミスティック同時実行制御の例に注目しません。 ペシミスティック同時実行制御はなどのロックのため、ほとんど使用されていなければ正しく開放、他のユーザーがデータを更新するを防ぐことができます。 たとえば、ユーザーを編集するためのレコードをロックし、そのロックを解除する前に、その日のまま場合は、その他のユーザーはありません、元のユーザーが指定値を返しの更新が完了するまで、そのレコードを更新できません。 したがって、ペシミスティック同時実行制御が使用されている場合は通常、タイムアウトに達すると、ロックをキャンセルします。 チケット販売 web サイト、短い期間の特定の席の場所をロックする、ユーザーが注文処理を完了するまで、ペシミスティック同時実行制御の例に示します。
+> このチュートリアルシリーズでは、ペシミスティック同時実行の例については説明しません。 ペシミスティック同時実行制御はほとんど使用されません。このようなロックが適切に放棄されていないと、他のユーザーがデータを更新できなくなる可能性があるためです。 たとえば、ユーザーが編集のためにレコードをロックしてから、ロックを解除する前にその日のままにした場合、元のユーザーが戻って更新を完了するまで、他のユーザーはそのレコードを更新できません。 したがって、ペシミスティック同時実行制御が使用されている場合は、通常、タイムアウトが発生すると、ロックがキャンセルされます。 チケット販売 web サイトでは、ユーザーが注文プロセスを完了している間に特定の座席をロックします。これは、ペシミスティック同時実行制御の一例です。
 
-## <a name="step-1-looking-at-how-optimistic-concurrency-is-implemented"></a>手順 1: 実装は、オプティミスティック同時実行制御方法を見る
+## <a name="step-1-looking-at-how-optimistic-concurrency-is-implemented"></a>手順 1: オプティミスティック同時実行制御の実装方法を確認する
 
-オプティミスティック同時実行制御は、更新または削除プロセスを開始するときと同様、更新または削除されるレコードが同じ値があることを確認することによって機能します。 たとえば、編集可能な GridView で [編集] ボタンをクリックすると、レコードの値はデータベースから読み取るありテキスト ボックスや他の Web コントロールに表示されます。 これらの元の値は、GridView で保存されます。 後で、ユーザーは、自分の変更を行います、[更新] ボタンをクリックして、後に元の値と新しい値を送受信するビジネス ロジック層、し、データ アクセス層まで。 データ アクセス層は、ユーザーが編集を開始した元の値は、データベースに引き続き値と同じ場合のみ、レコードを更新する SQL ステートメントを実行する必要があります。 図 2 は、このイベントのシーケンスを示しています。
+オプティミスティック同時実行制御は、更新または削除するレコードの値が、更新または削除処理の開始時と同じ値であることを保証することによって機能します。 たとえば、編集可能な GridView で [編集] ボタンをクリックすると、レコードの値がデータベースから読み取られ、テキストボックスやその他の Web コントロールに表示されます。 これらの元の値は、GridView によって保存されます。 その後、ユーザーが変更を行って [更新] ボタンをクリックすると、元の値と新しい値がビジネスロジック層に送信され、その後、データアクセス層に移動します。 データアクセス層は、ユーザーが編集を開始した元の値がデータベース内の値と同じである場合にのみレコードを更新する SQL ステートメントを発行する必要があります。 図2は、この一連のイベントを示しています。
 
-[![正常に更新または削除、元の値は現在のデータベースの値と等しくする必要があります。](implementing-optimistic-concurrency-vb/_static/image5.png)](implementing-optimistic-concurrency-vb/_static/image4.png)
+[更新または削除を成功させるには、元の値が現在のデータベースの値と同じである必要があり ![](implementing-optimistic-concurrency-vb/_static/image5.png)](implementing-optimistic-concurrency-vb/_static/image4.png)
 
-**図 2**:更新プログラムまたは成功を元の値必要がありますと等しいデータベースの現在の値を Delete ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image6.png))。
+**図 2**: 更新または削除を成功させるには、元の値が現在のデータベースの値と同じである必要があります ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image6.png)されます)。
 
-オプティミスティック同時実行制御を実装するためのさまざまな方法はあります (を参照してください[Peter A. 作成](http://peterbromberg.net/)の[オプティミスティック同時実行更新ロジック](http://www.eggheadcafe.com/articles/20050719.asp)のさまざまなオプションについて簡単に説明)。 ADO.NET 型指定されたデータセットは、チェック ボックスのチェック マークだけで構成できる 1 つの実装を提供します。 型指定されたデータセット内に TableAdapter は、TableAdapter のオプティミスティック同時実行制御を有効にする`UPDATE`と`DELETE`のすべての元の値の比較を含めるようにステートメントを`WHERE`句。 次`UPDATE`ステートメントでは、たとえば、更新プログラム名と製品の価格データベースの現在の値が、GridView でレコードを更新するときに取得された元の値に等しい場合のみです。 `@ProductName`と`@UnitPrice`パラメーターには、ユーザーが入力した新しい値が含まれて`@original_ProductName`と`@original_UnitPrice`編集ボタンがクリックされたときに、GridView に読み込まれた最初の値が含まれます。
+オプティミスティック同時実行制御の実装にはさまざまな方法があります (いくつかのオプションについては、「 [Bromberg](http://peterbromberg.net/)の[オプティミスティック同時実行制御のロジック](http://www.eggheadcafe.com/articles/20050719.asp)」を参照してください)。 ADO.NET 型指定されたデータセットは、チェックボックスの目盛りだけを使用して構成できる1つの実装を提供します。 型指定されたデータセット内の TableAdapter に対してオプティミスティック同時実行制御を有効にすると、TableAdapter の `UPDATE` と `DELETE` ステートメントが強化され、`WHERE` 句の元の値のすべての比較が含まれます。 次の `UPDATE` ステートメントでは、現在のデータベース値が GridView のレコードを更新するときに最初に取得された値と等しい場合にのみ、製品の名前と価格を更新します。 `@ProductName` パラメーターと `@UnitPrice` パラメーターには、ユーザーが入力した新しい値が含まれます。一方、`@original_ProductName` と `@original_UnitPrice` には、[編集] ボタンをクリックしたときに GridView に最初に読み込まれた値が含まれます。
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample1.sql)]
 
 > [!NOTE]
-> これは、`UPDATE`読みやすくするため、ステートメントを簡素化されています。 実際には、`UnitPrice`チェックイン、`WHERE`句は、以降は複雑になります`UnitPrice`含めることができます`NULL`s と確認しているとき`NULL = NULL`常に False を返します (代わりに使用する必要があります`IS NULL`)。
+> この `UPDATE` ステートメントは、読みやすくするために簡略化されています。 実際には、`UnitPrice` に `NULL` を含めることができ、`NULL = NULL` が常に False を返すかどうかを確認するために、`WHERE` 句の `UnitPrice` チェックインがさらに複雑になります (代わりに `IS NULL`を使用する必要があります)。
 
-さまざまな基になるだけでなく`UPDATE`ダイレクト メソッドのステートメントでは、オプティミスティック同時実行もその DB のシグネチャを変更して、TableAdapter を構成します。 最初のチュートリアルでは、メッセージの取り消し[*データ アクセス層を作成する*](../introduction/creating-a-data-access-layer-cs.md)、値の入力パラメーターとしての DB のダイレクト メソッドに、スカラーの一覧を受け取るものがあったこと (厳密に型指定された DataRow ではなくまたはDataTable インスタンスの場合)。 オプティミスティック同時実行制御、直接の DB を使用する場合`Update()`と`Delete()`メソッドにも、元の値の入力パラメーターが含まれます。 さらに、BLL バッチを使用するためのコードの更新パターン (、`Update()`をスカラー値ではなく、Datarow とデータ テーブルを受け取るメソッド オーバー ロード) も変更する必要があります。
+別の基になる `UPDATE` ステートメントを使用するだけでなく、オプティミスティック同時実行制御を使用するように TableAdapter を構成すると、その DB ダイレクトメソッドの署名も変更されます。 最初のチュートリアル「[*データアクセス層の作成*](../introduction/creating-a-data-access-layer-cs.md)」では、DB ダイレクトメソッドは、厳密に型指定された DataRow または DataTable インスタンスではなく、入力パラメーターとしてスカラー値のリストを受け取るものでした。 オプティミスティック同時実行制御を使用する場合、DB direct `Update()` および `Delete()` メソッドには、元の値の入力パラメーターも含まれます。 さらに、バッチ更新パターンを使用するための BLL 内のコード (スカラー値ではなく Datarow と Datatable を受け入れる `Update()` メソッドオーバーロード) も変更する必要があります。
 
-はなく、既存の拡張よりも DAL の Tableadapter みましょう (これに対応する BLL の変更が必要となる) オプティミスティック同時実行を使用する代わりに新しいデータセットを作成型指定された名前付き`NorthwindOptimisticConcurrency`に追加する`Products`TableAdapter をオプティミスティック同時実行制御を使用します。 次に、作成します、 `ProductsOptimisticConcurrencyBLL` DAL、オプティミスティック同時実行制御をサポートするために適切な変更が含まれているビジネス ロジック層のクラス。 用意した土台を構築すると ASP.NET ページを作成する準備になります。
+既存の DAL の Tableadapter を拡張してオプティミスティック同時実行制御を使用するのではなく (このためには、BLL の変更が必要になります)、代わりに `NorthwindOptimisticConcurrency`という名前の新しい型のデータセットを作成します。ここで、オプティミスティック同時実行制御を使用する `Products` TableAdapter を追加します。 その後、オプティミスティック同時実行制御 DAL をサポートするための適切な変更を含む `ProductsOptimisticConcurrencyBLL` ビジネスロジック層クラスを作成します。 この基礎を説明すると、ASP.NET ページを作成する準備が整います。
 
-## <a name="step-2-creating-a-data-access-layer-that-supports-optimistic-concurrency"></a>手順 2: オプティミスティック同時実行制御をサポートするデータ アクセス層を作成します。
+## <a name="step-2-creating-a-data-access-layer-that-supports-optimistic-concurrency"></a>手順 2: オプティミスティック同時実行制御をサポートするデータアクセス層の作成
 
-新しい型指定されたデータセットを作成するを右クリックし、`DAL`内のフォルダー、`App_Code`フォルダーという名前の新しいデータセットを追加および`NorthwindOptimisticConcurrency`します。 最初のチュートリアルで説明したように行うのために追加されます新しい TableAdapter を TableAdapter 構成ウィザードを自動的に起動する、型指定されたデータセット。 データベースへの接続 - を使用して Northwind データベースの同じ接続を指定するよう指示最初の画面で、`NORTHWNDConnectionString`設定から`Web.config`します。
+新しい型指定されたデータセットを作成するには、`App_Code` フォルダー内の `DAL` フォルダーを右クリックし、`NorthwindOptimisticConcurrency`という名前の新しいデータセットを追加します。 最初のチュートリアルで説明したように、これを行うと、新しい TableAdapter が型指定されたデータセットに追加され、TableAdapter 構成ウィザードが自動的に起動します。 最初の画面では、`Web.config`の `NORTHWNDConnectionString` 設定を使用して、同じ Northwind データベースに接続するためのデータベースを指定するように求められます。
 
-[![同じ Northwind データベースへの接続します。](implementing-optimistic-concurrency-vb/_static/image8.png)](implementing-optimistic-concurrency-vb/_static/image7.png)
+[同じ Northwind データベースに接続 ![には](implementing-optimistic-concurrency-vb/_static/image8.png)](implementing-optimistic-concurrency-vb/_static/image7.png)
 
-**図 3**:同じ Northwind データベースへの接続 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image9.png))。
+**図 3**: 同じ Northwind データベースに接続する ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image9.png)されます)
 
-次に、データを照会する方法についてよう求められます。 アドホック SQL ステートメントでは、新しいストアド プロシージャ、または既存のストアド プロシージャ。 元の DAL でアドホック SQL クエリを使用するとため、このオプションを使用ここでも。
+次に、アドホック SQL ステートメント、新しいストアドプロシージャ、または既存のストアドプロシージャを使用して、データのクエリを実行する方法を確認するメッセージが表示されます。 元の DAL でアドホック SQL クエリを使用したため、ここでもこのオプションを使用します。
 
-[![アドホック SQL ステートメントを使用して取得するデータを指定します。](implementing-optimistic-concurrency-vb/_static/image11.png)](implementing-optimistic-concurrency-vb/_static/image10.png)
+[アドホック SQL ステートメントを使用して取得するデータを指定 ![には](implementing-optimistic-concurrency-vb/_static/image11.png)](implementing-optimistic-concurrency-vb/_static/image10.png)
 
-**図 4**:アドホック SQL ステートメントを使用して取得するデータを指定 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image12.png))。
+**図 4**: アドホック SQL ステートメントを使用して取得するデータを指定する ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image12.png)されます)
 
-次の画面で、製品情報の取得に使用する SQL クエリを入力します。 使用する正確な同じ SQL クエリを使用しましょう、`Products`で TableAdapter を返しますのすべて、元の DAL、`Product`名、製品のサプライヤーとカテゴリ名と列。
+次の画面で、製品情報を取得するために使用する SQL クエリを入力します。 元の DAL の `Products` TableAdapter に使用したものとまったく同じ SQL クエリを使用します。これにより、製品の供給元とカテゴリ名と共にすべての `Product` 列が返されます。
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample2.sql)]
 
-[![元の DAL で製品 TableAdapter から同じ SQL クエリを使用します。](implementing-optimistic-concurrency-vb/_static/image14.png)](implementing-optimistic-concurrency-vb/_static/image13.png)
+[元の DAL の Products TableAdapter と同じ SQL クエリを使用 ![](implementing-optimistic-concurrency-vb/_static/image14.png)](implementing-optimistic-concurrency-vb/_static/image13.png)
 
-**図 5**:同じ SQL クエリを使用して、`Products`元の DAL の TableAdapter ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image15.png))。
+**図 5**: 元の DAL の `Products` TableAdapter で同じ SQL クエリを使用する ([クリックしてフルサイズのイメージを表示する](implementing-optimistic-concurrency-vb/_static/image15.png))
 
-次の画面上に移動すると、前に、詳細オプション ボタンをクリックします。 この TableAdapter 採用のオプティミスティック同時実行制御には、「オプティミスティック同時実行制御を使用して、」チェック ボックスにチェックします。
+次の画面に進む前に、[詳細オプション] ボタンをクリックします。 この TableAdapter でオプティミスティック同時実行制御を使用するには、[オプティミスティック同時実行制御を使用する] チェックボックスをオンにします。
 
-[![当座預金でオプティミスティック同時実行制御を有効にする、&quot;オプティミスティック同時実行制御を使用して、&quot;チェック ボックス](implementing-optimistic-concurrency-vb/_static/image17.png)](implementing-optimistic-concurrency-vb/_static/image16.png)
+[オプティミスティック同時実行制御を有効にするには &quot;[オプティミスティック同時実行制御を使用する]&quot; チェックボックスをオンに ![](implementing-optimistic-concurrency-vb/_static/image17.png)](implementing-optimistic-concurrency-vb/_static/image16.png)
 
-**図 6**:[オプティミスティック同時実行制御を使用する] チェック ボックスをオンにオプティミスティック同時実行制御を有効にする ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image18.png))。
+**図 6**: [オプティミスティック同時実行制御を使用する] チェックボックスをオンにしてオプティミスティック同時実行制御を有効にする ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image18.png)されます)
 
-最後に、TableAdapter に datatable し、; DataTable を返すデータ アクセス パターンを使用することを示しますDB のダイレクト メソッドを作成することも示します。 GetProducts に GetData の戻り値は、メソッド名 DataTable パターンを変更、名前付け規則をミラーリングするように、元の DAL で使用しています。
+最後に、TableAdapter が DataTable にデータを格納し、DataTable を返すデータアクセスパターンを使用する必要があることを示します。また、DB ダイレクトメソッドを作成する必要があることを示します。 元の DAL で使用した名前付け規則を反映するように、GetData から GetProducts に DataTable パターンを返すのメソッド名を変更します。
 
-[![すべてのデータ アクセス パターンを利用する TableAdapter があります。](implementing-optimistic-concurrency-vb/_static/image20.png)](implementing-optimistic-concurrency-vb/_static/image19.png)
+[TableAdapter がすべてのデータアクセスパターンを利用 ![](implementing-optimistic-concurrency-vb/_static/image20.png)](implementing-optimistic-concurrency-vb/_static/image19.png)
 
-**図 7**:TableAdapter 利用すべてのデータ アクセス パターンがある ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image21.png))。
+**図 7**: TableAdapter ですべてのデータアクセスパターンを使用[する (クリックしてフルサイズのイメージを表示する](implementing-optimistic-concurrency-vb/_static/image21.png))
 
-データセット デザイナー ウィザードを完了すると、厳密に型が含まれます`Products`DataTable および TableAdapter。 DataTable の名前を変更する少し`Products`に`ProductsOptimisticConcurrency`DataTable のタイトル バーを右クリックして、コンテキスト メニューから名前の変更を選択して行うことができます。
+ウィザードを完了すると、データセットデザイナーには、厳密に型指定された `Products` DataTable と TableAdapter が含まれます。 DataTable の名前を `Products` から `ProductsOptimisticConcurrency`に変更します。これを行うには、DataTable のタイトルバーを右クリックし、コンテキストメニューから [名前の変更] を選択します。
 
-[![型指定された DataSet に DataTable と TableAdapter が追加されました。](implementing-optimistic-concurrency-vb/_static/image23.png)](implementing-optimistic-concurrency-vb/_static/image22.png)
+[DataTable と TableAdapter が型指定されたデータセットに追加された ![](implementing-optimistic-concurrency-vb/_static/image23.png)](implementing-optimistic-concurrency-vb/_static/image22.png)
 
-**図 8**:DataTable と型指定されたデータセットに追加された TableAdapter ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image24.png))。
+**図 8**: DataTable と TableAdapter が型指定されたデータセットに追加された ([クリックすると、フルサイズのイメージが表示](implementing-optimistic-concurrency-vb/_static/image24.png)されます)
 
-間の相違点を確認する、`UPDATE`と`DELETE`間でクエリを実行、 `ProductsOptimisticConcurrency` TableAdapter (オプティミスティック同時実行制御を使用) して (これは) 製品の TableAdapter に TableAdapter をクリックし、[プロパティ] ウィンドウに移動します。 `DeleteCommand`と`UpdateCommand`プロパティの`CommandText`サブプロパティ DAL の更新または削除に関連するメソッドが呼び出されたときに、データベースに送信される実際の SQL 構文を確認します。 `ProductsOptimisticConcurrency` TableAdapter、`DELETE`ステートメントを使用します。
+(オプティミスティック同時実行制御を使用する) `ProductsOptimisticConcurrency` TableAdapter と Products TableAdapter () の間の `UPDATE` と `DELETE` クエリの相違点を確認するには、TableAdapter をクリックし、プロパティウィンドウにアクセスします。 `DeleteCommand` プロパティと `UpdateCommand` プロパティの `CommandText` サブプロパティで、DAL の更新または削除に関連するメソッドが呼び出されたときにデータベースに送信される実際の SQL 構文を確認できます。 `ProductsOptimisticConcurrency` TableAdapter の場合、使用される `DELETE` ステートメントは次のとおりです。
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample3.sql)]
 
-一方、`DELETE`元の DAL の製品 TableAdapter のステートメントは、はるかに簡単です。
+しかし、元の DAL の製品 TableAdapter の `DELETE` ステートメントははるかに簡単です。
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample4.sql)]
 
-ご覧のとおり、`WHERE`句、`DELETE`オプティミスティック同時実行制御を使用する TableAdapter のステートメントには間の比較が含まれています、`Product`テーブルの既存の列の値と元の値に、GridView や DetailsView (FormView) 最後に作成されました。 以外のすべてのフィールドから`ProductID`、`ProductName`と`Discontinued`が`NULL`値やその他のパラメーター チェックが正しく比較に含まれる`NULL`値、`WHERE`句。
+ご覧のように、オプティミスティック同時実行制御を使用する TableAdapter の `DELETE` ステートメントの `WHERE` 句には、`Product` テーブルの既存の列値と、GridView (または DetailsView または FormView) が最後に設定された時点での元の値との比較が含まれます。 `ProductID`、`ProductName`、および `Discontinued` 以外のすべてのフィールドは `NULL` 値を持つことができるため、`NULL` 句の `WHERE` 値を正しく比較するために、追加のパラメーターとチェックが含まれています。
 
-いますしませんが、追加のデータ テーブル オプティミスティック同時実行制御が有効なデータセットにこのチュートリアルでは、として追加、ASP.NET ページは、更新および製品情報の削除のみ提供します。 ただし、私たちを追加する必要は引き続き、`GetProductByProductID(productID)`メソッドを`ProductsOptimisticConcurrency`TableAdapter。
+このチュートリアルでは、オプティミスティック同時実行制御が有効なデータセットに Datatable を追加することはありません。 ASP.NET ページでは、製品情報の更新と削除のみが提供されるためです。 ただし、`ProductsOptimisticConcurrency` TableAdapter に `GetProductByProductID(productID)` メソッドを追加する必要もあります。
 
-これを行うには、TableAdapter のタイトル バーを右クリックし (領域権利、`Fill`と`GetProducts`メソッド名)、コンテキスト メニューから追加のクエリを選択します。 これにより、TableAdapter クエリの構成ウィザードが起動します。 TableAdapter の初期構成では、作成することと、`GetProductByProductID(productID)`アドホック SQL ステートメントを使用するメソッド (図 4 参照)。 以降、`GetProductByProductID(productID)`メソッドは、特定の製品に関する情報を返します、このクエリがあることを示す、`SELECT`行を返す型のクエリを実行します。
+これを行うには、TableAdapter のタイトルバー (`Fill` と `GetProducts` メソッド名の上の領域) を右クリックし、コンテキストメニューから [クエリの追加] を選択します。 これにより、TableAdapter クエリの構成ウィザードが起動します。 TableAdapter の初期構成と同様に、アドホック SQL ステートメントを使用して `GetProductByProductID(productID)` メソッドを作成することを選択します (図4を参照)。 `GetProductByProductID(productID)` メソッドは特定の製品に関する情報を返すため、このクエリは、行を返す `SELECT` のクエリ型であることを示します。
 
-[![クエリの型としてマークする&quot;を行を返す SELECT&quot;](implementing-optimistic-concurrency-vb/_static/image26.png)](implementing-optimistic-concurrency-vb/_static/image25.png)
+[![クエリの種類を &quot;としてマークすると、行が返され&quot;](implementing-optimistic-concurrency-vb/_static/image26.png)](implementing-optimistic-concurrency-vb/_static/image25.png)
 
-**図 9**:クエリの型としてマークする"`SELECT`行を返す"([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image27.png))。
+**図 9**: クエリの種類を "行を返す`SELECT`" としてマーク[する (クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image27.png)されます)
 
-次の画面を事前に読み込まれた、TableAdapter の既定のクエリで、使用する SQL クエリ求められたら。 句に含める既存のクエリを補強`WHERE ProductID = @ProductID`図 10 に示すようにします。
+次の画面で、TableAdapter の既定のクエリが事前に読み込まれている、使用する SQL クエリを入力するように求められます。 図10に示すように、`WHERE ProductID = @ProductID`句を含めるように既存のクエリを拡張します。
 
-[![追加、WHERE 句を事前に読み込まれたクエリが特定の製品レコードを返す](implementing-optimistic-concurrency-vb/_static/image29.png)](implementing-optimistic-concurrency-vb/_static/image28.png)
+[特定の製品レコードを返すために、事前に読み込まれたクエリに WHERE 句を追加 ![](implementing-optimistic-concurrency-vb/_static/image29.png)](implementing-optimistic-concurrency-vb/_static/image28.png)
 
-**図 10**:追加、`WHERE`句を Pre-Loaded クエリが特定の製品レコードを返す ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image30.png))。
+**図 10**: 事前に読み込まれたクエリに `WHERE` 句を追加して特定の製品レコードを返す ([クリックしてフルサイズの画像を表示する](implementing-optimistic-concurrency-vb/_static/image30.png))
 
-最後に、生成されたメソッド名を変更`FillByProductID`と`GetProductByProductID`します。
+最後に、生成されたメソッド名を `FillByProductID` に変更し、`GetProductByProductID`します。
 
-[![FillByProductID を GetProductByProductID メソッドの名前を変更します。](implementing-optimistic-concurrency-vb/_static/image32.png)](implementing-optimistic-concurrency-vb/_static/image31.png)
+[メソッドの名前を FillByProductID および GetProductByProductID に変更 ![には](implementing-optimistic-concurrency-vb/_static/image32.png)](implementing-optimistic-concurrency-vb/_static/image31.png)
 
-**図 11**:メソッドの名前を変更`FillByProductID`と`GetProductByProductID`([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image33.png))。
+**図 11**: `FillByProductID` と `GetProductByProductID` にメソッドの名前を変更する ([クリックしてフルサイズのイメージを表示する](implementing-optimistic-concurrency-vb/_static/image33.png))
 
-このウィザードは完了で TableAdapter にデータを取得するための 2 つのメソッド: `GetProducts()`、返された*すべて*製品; と`GetProductByProductID(productID)`、指定された製品が返されます。
+このウィザードが完了すると、TableAdapter には、データを取得するための2つのメソッドが含まれるようになりました。 `GetProducts()`では、*すべて*の製品が返されます。および `GetProductByProductID(productID)`。指定した製品が返されます。
 
-## <a name="step-3-creating-a-business-logic-layer-for-the-optimistic-concurrency-enabled-dal"></a>手順 3: オプティミスティック同時実行制御が有効な DAL のビジネス ロジック層を作成します。
+## <a name="step-3-creating-a-business-logic-layer-for-the-optimistic-concurrency-enabled-dal"></a>手順 3: オプティミスティック同時実行対応 DAL のビジネスロジック層の作成
 
-既存`ProductsBLL`クラスには、バッチ更新とダイレクト パターンの DB を使用しての例を示します。 `AddProduct`メソッドと`UpdateProduct`両方オーバー ロードを渡して、バッチ更新パターンを使用して、 `ProductRow` TableAdapter の Update メソッドのインスタンス。 `DeleteProduct`メソッドで呼び出す TableAdapter の DB 直接パターンが使用一方、`Delete(productID)`メソッド。
+既存の `ProductsBLL` クラスには、batch update と DB direct の両方のパターンを使用する例が含まれています。 `AddProduct` メソッドと `UpdateProduct` のオーバーロードでは、どちらもバッチ更新パターンを使用し、`ProductRow` インスタンスを TableAdapter の Update メソッドに渡します。 一方、`DeleteProduct` メソッドでは、TableAdapter の `Delete(productID)` メソッドを呼び出すことによって、DB direct パターンが使用されます。
 
-新しい`ProductsOptimisticConcurrency`TableAdapter、DB のダイレクト メソッドで元の値が渡すもする必要があるようになりました。 たとえば、`Delete`メソッドが 10 個の入力パラメーターが受け取るようになりました元`ProductID`、 `ProductName`、 `SupplierID`、 `CategoryID`、 `QuantityPerUnit`、 `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、 `ReorderLevel`、。`Discontinued`します。 これら追加入力パラメーターの値を使用して`WHERE`の句、`DELETE`ステートメントだけで指定されたレコードを削除するまで、元のデータベースの現在の値がマップに、データベースに送信します。
+新しい `ProductsOptimisticConcurrency` TableAdapter では、DB ダイレクトメソッドで、元の値も渡す必要があります。 たとえば、`Delete` メソッドでは、10個の入力パラメーター (元の `ProductID`、`ProductName`、`SupplierID`、`CategoryID`、`QuantityPerUnit`、`UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、`ReorderLevel`、`Discontinued`) が必要になります。 これらの追加の入力パラメーターの値は、データベースに送信される `DELETE` ステートメントの `WHERE` 句で使用されます。データベースの現在の値が元の値に対応している場合にのみ、指定したレコードが削除されます。
 
-Tableadapter のメソッド シグネチャを while`Update`バッチ更新パターンで使用される方法が変更されていない、オリジナルと新しい値を記録するために必要なコードにします。 そのため、当社の既存のオプティミスティック同時実行制御が有効な DAL を使用しようとするのではなく`ProductsBLL`クラスで、新しい DAL を操作するための新しいビジネス ロジック層クラスを作成しましょう。
+バッチ更新パターンで使用される TableAdapter の `Update` メソッドのメソッドシグネチャは変更されていませんが、元の値と新しい値を記録するために必要なコードにはがあります。 そのため、オプティミスティック同時実行対応の DAL を既存の `ProductsBLL` クラスと共に使用するのではなく、新しい DAL を操作するための新しいビジネスロジックレイヤークラスを作成してみましょう。
 
-という名前のクラスを追加`ProductsOptimisticConcurrencyBLL`を`BLL`内のフォルダー、`App_Code`フォルダー。
+`ProductsOptimisticConcurrencyBLL` という名前のクラスを `App_Code` フォルダー内の `BLL` フォルダーに追加します。
 
-![ProductsOptimisticConcurrencyBLL クラス BLL フォルダーを追加します。](implementing-optimistic-concurrency-vb/_static/image34.png)
+![ProductsOptimisticConcurrencyBLL クラスを [BLL] フォルダーに追加します。](implementing-optimistic-concurrency-vb/_static/image34.png)
 
-**図 12**:追加、 `ProductsOptimisticConcurrencyBLL` BLL フォルダーにクラス
+**図 12**: [BLL] フォルダーに `ProductsOptimisticConcurrencyBLL` クラスを追加する
 
-次に、次のコードを追加、`ProductsOptimisticConcurrencyBLL`クラス。
+次に、`ProductsOptimisticConcurrencyBLL` クラスに次のコードを追加します。
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample5.vb)]
 
-使用して、注意してください。`NorthwindOptimisticConcurrencyTableAdapters`クラス宣言の先頭上記のステートメント。 `NorthwindOptimisticConcurrencyTableAdapters`名前空間が含まれています、`ProductsOptimisticConcurrencyTableAdapter`クラスで、DAL のメソッドを提供します。 また、クラス宣言の前に見つかります、`System.ComponentModel.DataObject`属性には、Visual Studio、ObjectDataSource ウィザードのドロップダウン リストにこのクラスを含めるように指示します。
+Using `NorthwindOptimisticConcurrencyTableAdapters` ステートメントは、クラス宣言の先頭より上にあることに注意してください。 `NorthwindOptimisticConcurrencyTableAdapters` 名前空間には、DAL のメソッドを提供する `ProductsOptimisticConcurrencyTableAdapter` クラスが含まれています。 また、クラス宣言の前に、`System.ComponentModel.DataObject` 属性があります。これにより、Visual Studio は、ObjectDataSource ウィザードのドロップダウンリストにこのクラスを含めるように指示します。
 
-`ProductsOptimisticConcurrencyBLL`の`Adapter`プロパティのインスタンスにクイック アクセスを提供、`ProductsOptimisticConcurrencyTableAdapter`クラスし、元の BLL クラスで使用されるパターンに従います (`ProductsBLL`、`CategoriesBLL`など)。 最後に、`GetProducts()`メソッドを呼び出すだけです DAL の`GetProducts()`メソッドを返します、`ProductsOptimisticConcurrencyDataTable`オブジェクトを含む、`ProductsOptimisticConcurrencyRow`データベース内の各製品レコードのインスタンス。
+`ProductsOptimisticConcurrencyBLL`の `Adapter` プロパティを使用すると、`ProductsOptimisticConcurrencyTableAdapter` クラスのインスタンスにすばやくアクセスでき、元の BLL クラス (`ProductsBLL`、`CategoriesBLL`など) で使用されるパターンに従います。 最後に、`GetProducts()` メソッドは、DAL の `GetProducts()` メソッドに単にを呼び出し、データベース内の各製品レコードの `ProductsOptimisticConcurrencyRow` インスタンスが設定された `ProductsOptimisticConcurrencyDataTable` オブジェクトを返します。
 
-## <a name="deleting-a-product-using-the-db-direct-pattern-with-optimistic-concurrency"></a>オプティミスティック同時実行制御で直接パターンの DB を使用して商品を削除します。
+## <a name="deleting-a-product-using-the-db-direct-pattern-with-optimistic-concurrency"></a>オプティミスティック同時実行制御による DB Direct パターンを使用した製品の削除
 
-オプティミスティック同時実行制御を使用する DAL に対して DB 直接パターンを使用する場合、メソッドが新しいと、元の値を渡される必要があります。 削除するには、値がない新しい、ために元の値のみを渡す必要があります。 当社の BLL にし、する必要がありますは受け付けてすべて元のパラメーターの入力パラメーターとして。 みましょうが、`DeleteProduct`メソッドで、`ProductsOptimisticConcurrencyBLL`クラスは、DB のダイレクト メソッドを使用します。 これは、このメソッドは、すべての 10 個の製品データ フィールドの入力パラメーターとしてでは、次のコードに示すように、DAL に渡す必要があることを意味します。
+オプティミスティック同時実行制御を使用する DAL に対して DB direct パターンを使用する場合は、メソッドに新しい値と元の値を渡す必要があります。 削除の場合、新しい値は存在しないため、元の値のみを渡す必要があります。 BLL では、元のすべてのパラメーターを入力パラメーターとして受け入れる必要があります。 `ProductsOptimisticConcurrencyBLL` クラスの `DeleteProduct` メソッドで、DB ダイレクトメソッドを使用してみましょう。 つまり、次のコードに示すように、このメソッドは10個の製品データフィールドをすべて入力パラメーターとして取得し、それらを DAL に渡す必要があります。
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample6.vb)]
 
-削除ボタンをクリックしたときに、データベース内の値からの GridView、DetailsView、またはフォーム ビュー) に最後に読み込まれたこれらの値の元の値が異なる場合、`WHERE`句は、任意のデータベース レコードとレコード一致しません影響があります。 そのため、TableAdapter の`Delete`メソッドが返す`0`と BLL の`DeleteProduct`メソッドが返す`false`します。
+元の値-GridView (または DetailsView または FormView) に最後に読み込まれた値と、ユーザーが [削除] ボタンをクリックしたときにデータベースの値が異なる場合、`WHERE` 句はデータベースレコードと一致せず、影響を受けるレコードはありません。 したがって、TableAdapter の `Delete` メソッドは `0` を返し、BLL の `DeleteProduct` メソッドは `false`を返します。
 
-## <a name="updating-a-product-using-the-batch-update-pattern-with-optimistic-concurrency"></a>オプティミスティック同時実行制御でバッチ更新パターンを使用して製品の更新
+## <a name="updating-a-product-using-the-batch-update-pattern-with-optimistic-concurrency"></a>オプティミスティック同時実行制御によるバッチ更新パターンを使用した製品の更新
 
-前に述べた、TableAdapter の`Update`バッチ更新パターンのメソッドがオプティミスティック同時実行制御が使用されているかどうかに関係なく同じメソッド シグネチャ。 つまり、`Update`メソッドは、配列 Datarow、DataTable、または型指定されたデータセットの DataRow を想定します。 元の値を指定するための追加の入力パラメーターはありません。 DataTable の追跡元と変更された値をその DataRow(s) のため可能です。 DAL を発行したとき、`UPDATE`ステートメント、`@original_ColumnName`一方、DataRow の元の値を持つパラメーターが設定されます、`@ColumnName`パラメーターには、DataRow の変更後の値が設定されます。
+前述のように、TableAdapter のバッチ更新パターンの `Update` メソッドは、オプティミスティック同時実行制御が使用されているかどうかに関係なく、同じメソッドシグネチャを持ちます。 つまり、`Update` メソッドには、DataRow、Datarow の配列、DataTable、または型指定されたデータセットが必要です。 元の値を指定するための追加の入力パラメーターはありません。 これが可能なのは、DataTable が DataRow の元の値および変更された値を追跡しているためです。 DAL によって `UPDATE` ステートメントが発行されると、`@original_ColumnName` パラメーターに DataRow の元の値が設定されます。一方、`@ColumnName` のパラメーターには、DataRow の変更後の値が設定されます。
 
-`ProductsBLL`クラス (、元の非オプティミスティック同時実行 DAL を使用) する場合は、バッチ更新パターンを使用して、コードでは、次の一連のイベントを実行します。 製品情報を更新する場合。
+(元の非オプティミスティック同時実行制御 DAL を使用する) `ProductsBLL` クラスでは、バッチ更新パターンを使用して製品情報を更新すると、コードで次の一連のイベントが実行されます。
 
-1. 現在のデータベース製品情報を読み取り、 `ProductRow` TableAdapter を使用してインスタンス`GetProductByProductID(productID)`メソッド
-2. 新しい値を割り当てる、`ProductRow`手順 1. のインスタンス
-3. 呼び出す TableAdapter の`Update`に渡して、メソッド、`ProductRow`インスタンス
+1. TableAdapter の `GetProductByProductID(productID)` 方法を使用して、現在のデータベースの製品情報を `ProductRow` インスタンスに読み取ります。
+2. 手順 1. の `ProductRow` インスタンスに新しい値を割り当てます。
+3. TableAdapter の `Update` メソッドを呼び出し、`ProductRow` インスタンスを渡します。
 
-この一連の手順、ただしはオプティミスティック同時実行制御をサポート正しくされなくなります、`ProductRow`で設定されますつまり、DataRow で使用される元の値に現在存在するものは、データベースから直接ステップ 1 が設定されます、。データベース、および編集のプロセスの開始時の GridView にバインドされていたものされません。 代わりに、使用、オプティミスティック同時実行が有効な DAL、必要がありますを変更する、`UpdateProduct`次の手順を使用するメソッドのオーバー ロードします。
+ただし、この一連の手順ではオプティミスティック同時実行制御が正しくサポートされません。これは、手順 1. で設定された `ProductRow` がデータベースから直接設定されることを意味します。つまり、DataRow によって使用される元の値は、データベースに現在存在する値であり、編集プロセスの開始時に GridView にバインドされた 代わりに、オプティミスティック同時実行制御を有効にした DAL を使用する場合は、次の手順を使用するように `UpdateProduct` メソッドのオーバーロードを変更する必要があります。
 
-1. 現在のデータベース製品情報を読み取り、 `ProductsOptimisticConcurrencyRow` TableAdapter を使用してインスタンス`GetProductByProductID(productID)`メソッド
-2. 割り当てる、*元*値を`ProductsOptimisticConcurrencyRow`手順 1. のインスタンス
-3. 呼び出す、`ProductsOptimisticConcurrencyRow`インスタンスの`AcceptChanges()`メソッドは、現在の値が「元」の DataRow を指示します
-4. 割り当てる、*新しい*値を`ProductsOptimisticConcurrencyRow`インスタンス
-5. 呼び出す TableAdapter の`Update`に渡して、メソッド、`ProductsOptimisticConcurrencyRow`インスタンス
+1. TableAdapter の `GetProductByProductID(productID)` 方法を使用して、現在のデータベースの製品情報を `ProductsOptimisticConcurrencyRow` インスタンスに読み取ります。
+2. 手順 1. の `ProductsOptimisticConcurrencyRow` インスタンスに*元*の値を割り当てます。
+3. `ProductsOptimisticConcurrencyRow` インスタンスの `AcceptChanges()` メソッドを呼び出します。これにより、現在の値が "original" であることが DataRow に指示されます。
+4. *新しい*値を `ProductsOptimisticConcurrencyRow` インスタンスに割り当てます。
+5. TableAdapter の `Update` メソッドを呼び出し、`ProductsOptimisticConcurrencyRow` インスタンスを渡します。
 
-すべてのデータベースの現在の値で指定された製品レコードの読み取りを手順 1。 この手順は不要、`UpdateProduct`を更新するオーバー ロード*すべて*製品列の (これらの値として、上書き手順 2. で)、列の値のサブセットのみとしてに渡される、これらのオーバー ロードに不可欠ですが、入力パラメーターです。 元の値が割り当てられていると、`ProductsOptimisticConcurrencyRow`インスタンス、`AcceptChanges()`メソッドが呼び出された、DataRow の現在の値で使用される元の値としてマークする、`@original_ColumnName`内のパラメーター、`UPDATE`ステートメント。 新しいパラメーターの値が次に、割り当てられている、 `ProductsOptimisticConcurrencyRow` 、最後に、 `Update` DataRow を渡して、メソッドが呼び出されます。
+手順1では、指定された製品レコードの現在のすべてのデータベース値を読み取ります。 この手順は、*すべて*の product 列を更新する `UpdateProduct` のオーバーロードには不要です (これらの値は手順2で上書きされます) が、列の値のサブセットのみが入力パラメーターとして渡されるオーバーロードには不可欠です。 元の値が `ProductsOptimisticConcurrencyRow` インスタンスに割り当てられると、`AcceptChanges()` メソッドが呼び出されます。これにより、現在の DataRow 値が `UPDATE` ステートメントの `@original_ColumnName` パラメーターで使用される元の値としてマークされます。 次に、新しいパラメーター値が `ProductsOptimisticConcurrencyRow` に割り当てられ、最後に `Update` メソッドが呼び出され、DataRow に渡されます。
 
-次のコードは、`UpdateProduct`を製品のすべてのデータを受け入れるオーバー ロードの入力パラメーターとしてのフィールドします。 ここでは、表示しない、`ProductsOptimisticConcurrencyBLL`クラスにこのチュートリアルにも含まれています、ダウンロードに含まれる、`UpdateProduct`だけ、製品の名前と価格を入力パラメーターとして受け取るオーバー ロードします。
+次のコードは、すべての製品データフィールドを入力パラメーターとして受け入れる `UpdateProduct` オーバーロードを示しています。 ここには記載されていませんが、このチュートリアルのダウンロードに含まれている `ProductsOptimisticConcurrencyBLL` クラスには、入力パラメーターとして製品名と価格だけを受け入れる `UpdateProduct` のオーバーロードも含まれています。
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample7.vb)]
 
-## <a name="step-4-passing-the-original-and-new-values-from-the-aspnet-page-to-the-bll-methods"></a>手順 4: ASP.NET ページから BLL メソッドに、元と新しい値を渡す
+## <a name="step-4-passing-the-original-and-new-values-from-the-aspnet-page-to-the-bll-methods"></a>手順 4: 元の値と新しい値を ASP.NET ページから BLL メソッドに渡す
 
-DAL BLL 完了とは、システムに組み込まれているオプティミスティック同時実行制御ロジックを使用することができる ASP.NET ページを作成します。 具体的には、データ Web コントロール (GridView、DetailsView、またはフォーム ビュー) では、元の値と ObjectDataSource にビジネス ロジック層の両方の値のセットを渡す必要がありますを忘れないでください。 さらに、同時実行制御違反を適切に処理する ASP.NET ページを構成する必要があります。
+DAL と BLL が完成したら、システムに組み込まれたオプティミスティック同時実行制御ロジックを利用できる ASP.NET ページを作成します。 具体的には、データ Web コントロール (GridView、DetailsView、または FormView) は元の値を記憶する必要があり、ObjectDataSource は両方の値のセットをビジネスロジック層に渡す必要があります。 さらに、同時実行違反を適切に処理するように、ASP.NET ページを構成する必要があります。
 
-開いて開始、`OptimisticConcurrency.aspx`ページで、`EditInsertDelete`フォルダーと、デザイナーの設定への GridView の追加、`ID`プロパティを`ProductsGrid`します。 という名前の新しい ObjectDataSource を作成することを選択、GridView のスマート タグから`ProductsOptimisticConcurrencyDataSource`します。 この ObjectDataSource オプティミスティック同時実行制御をサポートする DAL を使用するので、構成を使用するよう、`ProductsOptimisticConcurrencyBLL`オブジェクト。
+まず、`EditInsertDelete` フォルダーの [`OptimisticConcurrency.aspx`] ページを開き、GridView をデザイナーに追加します。その `ID` プロパティを `ProductsGrid`に設定します。 GridView のスマートタグから、`ProductsOptimisticConcurrencyDataSource`という名前の新しい ObjectDataSource を作成することを選択します。 この ObjectDataSource はオプティミスティック同時実行制御をサポートする DAL を使用するようにするため、`ProductsOptimisticConcurrencyBLL` オブジェクトを使用するように構成します。
 
-[![ObjectDataSource 使用 ProductsOptimisticConcurrencyBLL オブジェクトがあります。](implementing-optimistic-concurrency-vb/_static/image36.png)](implementing-optimistic-concurrency-vb/_static/image35.png)
+[ObjectDataSource が ProductsOptimisticConcurrencyBLL オブジェクトを使用している ![](implementing-optimistic-concurrency-vb/_static/image36.png)](implementing-optimistic-concurrency-vb/_static/image35.png)
 
-**図 13**:ObjectDataSource の使用、`ProductsOptimisticConcurrencyBLL`オブジェクト ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image37.png))。
+**図 13**: ObjectDataSource で `ProductsOptimisticConcurrencyBLL` オブジェクトを使用する ([クリックしてフルサイズの画像を表示する](implementing-optimistic-concurrency-vb/_static/image37.png))
 
-選択、 `GetProducts`、 `UpdateProduct`、および`DeleteProduct`ウィザードで、ドロップダウン リストからメソッド。 UpdateProduct メソッドでは、すべての製品のデータ フィールドを受け入れるオーバー ロードを使用します。
+ウィザードのドロップダウンリストから `GetProducts`、`UpdateProduct`、および `DeleteProduct` メソッドを選択します。 UpdateProduct メソッドの場合は、すべての製品のデータフィールドを受け入れるオーバーロードを使用します。
 
-## <a name="configuring-the-objectdatasource-controls-properties"></a>ObjectDataSource コントロールのプロパティを構成します。
+## <a name="configuring-the-objectdatasource-controls-properties"></a>ObjectDataSource コントロールのプロパティの構成
 
-ウィザードの完了後に、次のよう ObjectDataSource の宣言型マークアップになります。
+ウィザードを完了すると、ObjectDataSource の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample8.aspx)]
 
-ご覧のとおり、`DeleteParameters`コレクションに含まれる、`Parameter`で 10 個の入力パラメーターの各インスタンス、`ProductsOptimisticConcurrencyBLL`クラスの`DeleteProduct`メソッド。 同様に、`UpdateParameters`コレクションに含まれる、`Parameter`で入力パラメーターの各インスタンス`UpdateProduct`します。
+ご覧のように、`DeleteParameters` コレクションには、`ProductsOptimisticConcurrencyBLL` クラスの `DeleteProduct` メソッドに含まれる10個の入力パラメーターそれぞれの `Parameter` インスタンスが含まれています。 同様に、`UpdateParameters` コレクションには `UpdateProduct`内の各入力パラメーターの `Parameter` インスタンスが含まれています。
 
-ObjectDataSource を削除するところのデータの変更を関連するこれらの以前チュートリアル`OldValuesParameterFormatString`プロパティをこの時点であるため、このプロパティは、BLL メソッドが、古い (あるいは元) の値で渡されると、新しい値を期待していることを示します。 さらに、このプロパティの値では、元の値の入力パラメーターの名前を示します。 BLL に元の値で渡される、ため*いない*このプロパティを削除します。
+データ変更を伴う前のチュートリアルでは、この時点で ObjectDataSource の `OldValuesParameterFormatString` プロパティを削除しました。このプロパティは、BLL メソッドが、新しい値と共に古い (または元の) 値を渡すことを想定していることを示すためです。 さらに、このプロパティ値は、元の値の入力パラメーター名を示します。 元の値を BLL に渡すため、このプロパティ*は削除しないでください。*
 
 > [!NOTE]
-> 値、`OldValuesParameterFormatString`プロパティは、元の値を期待する BLL 内の入力パラメーター名にマップする必要があります。 これらのパラメーターという名前であるため`original_productName`、`original_supplierID`で、おくことができます、`OldValuesParameterFormatString`プロパティの値として`original_{0}`。 かどうか、ただし、BLL メソッドの入力パラメーターがのような名前`old_productName`、`old_supplierID`で、更新する必要があります、`OldValuesParameterFormatString`プロパティを`old_{0}`します。
+> `OldValuesParameterFormatString` プロパティの値は、元の値を期待する BLL 内の入力パラメーター名にマップされる必要があります。 これらのパラメーターには `original_productName`、`original_supplierID`などの名前を付けたので、`OldValuesParameterFormatString` プロパティの値を `original_{0}`として残しておくことができます。 ただし、BLL メソッドの入力パラメーターに `old_productName`、`old_supplierID`などの名前が付いている場合は、`OldValuesParameterFormatString` プロパティを `old_{0}`に更新する必要があります。
 
-BLL メソッドに元の値を正しく渡す ObjectDataSource の順序で実行する必要がある最後のプロパティ設定を 1 つがあります。 ObjectDataSource は、 [ConflictDetection プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx)に割り当てること[2 つの値のいずれかの](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
+ObjectDataSource が元の値を BLL メソッドに正しく渡すために必要な最後のプロパティ設定が1つあります。 ObjectDataSource には、次[の2つの値のいずれか](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx)に割り当てることができる[ConflictDetection プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx)があります。
 
-- `OverwriteChanges` -既定値です。BLL メソッドの元の入力パラメーターには、元の値を送信しません
-- `CompareAllValues` は、BLL 方法; 元の値を送信オプティミスティック同時実行制御を使用する場合は、このオプションを選択します。
+- `OverwriteChanges`-既定値。は、元の値を BLL メソッドの元の入力パラメーターに送信しません。
+- `CompareAllValues`-元の値を BLL メソッドに送信します。オプティミスティック同時実行制御を使用する場合にこのオプションを選択します
 
-設定する少し、`ConflictDetection`プロパティを`CompareAllValues`します。
+`ConflictDetection` プロパティを `CompareAllValues`に設定します。
 
-## <a name="configuring-the-gridviews-properties-and-fields"></a>GridView のプロパティとパブリック フィールドを構成します。
+## <a name="configuring-the-gridviews-properties-and-fields"></a>GridView のプロパティとフィールドの構成
 
-ObjectDataSource のプロパティが正しく構成されている、GridView の設定に注目してみましょう。 最初に、編集および削除をサポートするために、GridView、たいので、GridView のスマート タグから、編集の有効化および削除を有効にするチェック ボックスをクリックします。 これを [commandfield] が追加されますが`ShowEditButton`と`ShowDeleteButton`に設定されて`true`します。
+ObjectDataSource のプロパティが適切に構成されているので、GridView の設定に注目してみましょう。 まず、GridView で編集と削除がサポートされるようにするため、[編集を有効にする] チェックボックスをオンにして、GridView のスマートタグから [削除] チェックボックスをオンにします。 これにより、`ShowEditButton` と `ShowDeleteButton` の両方が `true`に設定されている CommandField が追加されます。
 
-バインドするとき、 `ProductsOptimisticConcurrencyDataSource` ObjectDataSource、GridView に各製品のデータ フィールドのフィールドが含まれています。 このような GridView を編集できますが、ユーザー エクスペリエンスが許容されるは。 `CategoryID`と`SupplierID`BoundFields がテキスト ボックスとしてレンダリングされます ID 番号として、適切なカテゴリと仕入先を入力する必要はありません。 ありません、数値フィールドおよび製品の名前が指定されているし unit price、在庫数、順序、および並べ替えレベルの値の単位は両方の適切な数値とよりも大きいか等しいことを確認するには、いない検証コントロールの書式設定0 を返します。
+`ProductsOptimisticConcurrencyDataSource` ObjectDataSource にバインドされている場合、GridView には、各製品のデータフィールドのフィールドが含まれます。 このような GridView は編集できますが、ユーザーエクスペリエンスは任意ですが、許容されます。 `CategoryID` および `SupplierID` BoundFields がテキストボックスとして表示され、ユーザーは適切なカテゴリとサプライヤーを ID 番号として入力する必要があります。 数値フィールドの書式が設定されていないため、製品名が指定されていること、および単価、在庫数、在庫数、および並べ替えレベルの値が適切な数値であることを確認するための検証コントロールはありません。0にします。
 
-説明したように、*編集および挿入インターフェイスに検証コントロールを追加*と*データ変更インターフェイスをカスタマイズ*チュートリアルでは、ユーザー インターフェイスでカスタマイズできますTemplateFields、BoundFields で置き換えます。 この GridView とその編集インターフェイスは次の方法で変更しました。
+「*編集および挿入インターフェイスへの検証コントロールの追加*」と「*データ変更インターフェイスのカスタマイズ*」で説明したように、ユーザーインターフェイスは、Boundfields を templatefields に置き換えることによってカスタマイズできます。 この GridView と編集インターフェイスは、次の方法で変更しました。
 
-- 削除、 `ProductID`、 `SupplierName`、および`CategoryName`BoundFields
-- 変換、 `ProductName` TemplateField に BoundField RequiredFieldValidation コントロールを追加します。
-- 変換、`CategoryID`と`SupplierID`BoundFields TemplateFields に、テキスト ボックスではなく、Dropdownlist を使用して編集インターフェイスを調整します。 これらの TemplateFields' で`ItemTemplates`、`CategoryName`と`SupplierName`データ フィールドが表示されます。
-- 変換、 `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、および`ReorderLevel`BoundFields TemplateFields を CompareValidator コントロールを追加します。
+- `ProductID`、`SupplierName`、および `CategoryName` BoundFields が削除されました。
+- `ProductName` BoundField を TemplateField に変換し、RequiredFieldValidation コントロールを追加しました。
+- `CategoryID` および `SupplierID` BoundFields を TemplateFields に変換し、テキストボックスではなく DropDownLists を使用するように編集インターフェイスを調整しました。 これらの TemplateFields ' `ItemTemplates`には、`CategoryName` と `SupplierName` のデータフィールドが表示されます。
+- `UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、および `ReorderLevel` BoundFields を TemplateFields に変換し、CompareValidator コントロールを追加しました。
 
-前のチュートリアルでこれらのタスクを実行する方法をについて説明しました既に、ため最終的な宣言型構文を一覧表示し、プラクティスとして、実装のままにだけ行います。
+前のチュートリアルでこれらのタスクを実行する方法については既に説明したので、ここでは最後の宣言型の構文を一覧表示し、実装を実際のままにします。
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample9.aspx)]
 
-私たちは非常にも完全に実際の例の近くにします。 ただし、いくつかの微妙な襲ってくると、問題が発生があります。 さらに、いくつかのインターフェイスを同時実行制御違反が発生したときに、ユーザーに警告する必要があります。
+ここでは、完全に動作する例を示しています。 ただし、いくつかの微妙な問題が発生します。 また、同時実行違反が発生した場合にユーザーに警告するインターフェイスも必要です。
 
 > [!NOTE]
-> データ Web コントロールで (これは、BLL に渡されますが)、ObjectDataSource に元の値を正しく渡すには、ことが重要ですが、GridView の`EnableViewState`プロパティに設定されて`true`(既定値)。 ビュー ステートを無効にした場合は、ポストバック時に元の値は失われます。
+> データ Web コントロールが元の値を ObjectDataSource に正しく渡す (その後、BLL に渡される) ためには、GridView の `EnableViewState` プロパティが `true` (既定値) に設定されていることが重要です。 ビューステートを無効にすると、元の値がポストバック時に失われます。
 
-## <a name="passing-the-correct-original-values-to-the-objectdatasource"></a>ObjectDataSource に適切な元の値を渡す
+## <a name="passing-the-correct-original-values-to-the-objectdatasource"></a>正しい元の値を ObjectDataSource に渡す
 
-いくつかの GridView が構成されている方法で問題があります。 場合 ObjectDataSource の`ConflictDetection`プロパティに設定されて`CompareAllValues`(としては渡しませんよ)、ObjectDataSource の`Update()`または`Delete()`メソッドは、GridView、DetailsView、または FormView) によって呼び出される、ObjectDataSource がコピーしようとした場合、GridView の元の値に適切な`Parameter`インスタンス。 このプロセスのグラフィカル表現を図 2 を戻す参照します。
+GridView の構成方法にはいくつかの問題があります。 Objectdatasource の `ConflictDetection` プロパティが `CompareAllValues` (そのまま) に設定されている場合、objectdatasource の `Update()` または `Delete()` メソッドが GridView (または DetailsView または FormView) によって呼び出されると、ObjectDataSource は GridView の元の値を適切な `Parameter` インスタンスにコピーしようとします。 このプロセスをグラフィカルに表示するには、図2を参照してください。
 
-具体的には、GridView の元の値には、毎回、データが GridView にバインドが双方向データ バインド ステートメント内の値が割り当てられます。 そのため、双方向データ バインドを使用してすべての必要な元の値がキャプチャされる変換できる形式で提供されることを不可欠です。
+具体的には、gridview の元の値には、データが GridView にバインドされるたびに、双方向のデータバインドステートメントの値が割り当てられます。 したがって、必要な元の値はすべて双方向のデータバインディングを使用してキャプチャされ、変換可能な形式で提供されることが不可欠です。
 
-これが重要な理由を表示するには、ブラウザーでページを参照するのにはしばらくかかります。 予想どおり、GridView には、左端の列で、編集、削除ボタンでは、各製品が一覧表示します。
+これが重要な理由を確認するには、ブラウザーでページにアクセスしてください。 必要に応じて、GridView は、左端の列の [編集] ボタンと [削除] ボタンを使用して各製品を一覧表示します。
 
-[![製品を GridView に表示されます。](implementing-optimistic-concurrency-vb/_static/image39.png)](implementing-optimistic-concurrency-vb/_static/image38.png)
+[GridView に製品が一覧表示さ ![](implementing-optimistic-concurrency-vb/_static/image39.png)](implementing-optimistic-concurrency-vb/_static/image38.png)
 
-**図 14**:製品を GridView に表示される ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image40.png))。
+**図 14**: GridView に製品が表示されている ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image40.png)されます)
 
-任意の製品の削除 ボタンをクリックした場合、`FormatException`がスローされます。
+任意の製品の [削除] ボタンをクリックすると、`FormatException` がスローされます。
 
-[![FormatException で、製品の結果を削除しようとしています。](implementing-optimistic-concurrency-vb/_static/image42.png)](implementing-optimistic-concurrency-vb/_static/image41.png)
+[FormatException で製品の結果を削除しようとして ![](implementing-optimistic-concurrency-vb/_static/image42.png)](implementing-optimistic-concurrency-vb/_static/image41.png)
 
-**図 15**:製品の結果を削除しようとして、 `FormatException` ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image43.png))。
+**図 15**: `FormatException` で製品の結果を削除しようとしています ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image43.png)されます)
 
-`FormatException` ObjectDataSource が元の読み取りしようとしたときに発生`UnitPrice`値。 以降、`ItemTemplate`が、`UnitPrice`を通貨として書式設定 (`<%# Bind("UnitPrice", "{0:C}") %>`) のような 19.95 ドルの通貨記号が含まれています。 `FormatException` ObjectDataSource が、この文字列に変換しようとしています。 ときに発生する`decimal`します。 この問題を回避するためには、さまざまなオプションがあります。
+`FormatException` は、ObjectDataSource が元の `UnitPrice` 値を読み取ろうとしたときに発生します。 `ItemTemplate` の `UnitPrice` は通貨 (`<%# Bind("UnitPrice", "{0:C}") %>`) として書式設定されているため、$19.95 のような通貨記号が含まれています。 `FormatException` は、ObjectDataSource がこの文字列を `decimal`に変換しようとしたときに発生します。 この問題を回避するために、いくつかのオプションがあります。
 
-- 通貨の書式設定の削除、`ItemTemplate`します。 つまり、使用する代わりに`<%# Bind("UnitPrice", "{0:C}") %>`、使用するだけで`<%# Bind("UnitPrice") %>`。 これの欠点は、価格の形式が不要になったことです。
-- 表示、`UnitPrice`の通貨として書式設定、`ItemTemplate`が使用して、`Eval`これを実現するキーワード。 いることを思い出してください`Eval`一方向のデータ バインドを実行します。 提供する必要があります、`UnitPrice`で双方向データ バインド ステートメントが必要も、元の値の値、 `ItemTemplate`、これに配置できるラベル Web コントロールを持つが、`Visible`プロパティに設定されて`false`します。 次のマークアップを ItemTemplate に使用できます。
+- `ItemTemplate`から通貨の書式を削除します。 つまり、`<%# Bind("UnitPrice", "{0:C}") %>`を使用するのではなく、単に `<%# Bind("UnitPrice") %>`を使用します。 この欠点は、価格がフォーマットされていないことです。
+- `ItemTemplate`で通貨として書式設定された `UnitPrice` を表示しますが、`Eval` キーワードを使用してこれを行います。 `Eval` は一方向のデータバインディングを実行することを思い出してください。 その場合でも、元の値に `UnitPrice` 値を指定する必要があるため、`ItemTemplate`では双方向の databinding ステートメントが必要になりますが、`Visible` プロパティが `false`に設定されている Label Web コントロールに配置できます。 ItemTemplate では、次のマークアップを使用できます。
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample10.aspx)]
 
-- 通貨の書式設定の削除、`ItemTemplate`を使用して、`<%# Bind("UnitPrice") %>`します。 Gridview の`RowDataBound`ラベル Web コントロールを内のイベント ハンドラー、プログラムでアクセス、`UnitPrice`値が表示され、設定、`Text`プロパティを書式設定されたバージョン。
-- ままに、`UnitPrice`を通貨として書式設定します。 Gridview の`RowDeleting`イベント ハンドラーでは、元の既存の置換`UnitPrice`値 (19.95 ドル) を使用して、実際の 10 進値で`Decimal.Parse`します。 ようなものを実現する方法を説明しました、`RowUpdating`内のイベント ハンドラー、 [*処理 BLL - と DAL レベルの例外で、ASP.NET ページ*](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)チュートリアル。
+- `<%# Bind("UnitPrice") %>`を使用して、`ItemTemplate`から通貨の書式を削除します。 GridView の `RowDataBound` イベントハンドラーで、`UnitPrice` 値が表示されている Label Web コントロールにプログラムによってアクセスし、その `Text` プロパティを書式設定されたバージョンに設定します。
+- `UnitPrice` は通貨形式のままにします。 GridView の `RowDeleting` イベントハンドラーで、`Decimal.Parse`を使用して、既存の元の `UnitPrice` の値 ($19.95) を実際の10進値に置き換えます。 ASP.NET ページのチュートリアルでは、 [*BLL と DAL レベルの例外の処理*](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)に関する `RowUpdating` のイベントハンドラーに似たものを実現する方法を説明しました。
 
-2 番目のアプローチを使用した例いるラベル Web を非表示を追加するコントロール`Text`プロパティは、書式設定されていないにバインドされた双方向データ`UnitPrice`値。
+この例では、2番目の方法を使用して、`Text` プロパティが、書式設定されていない `UnitPrice` 値にバインドされた双方向データである非表示のラベル Web コントロールを追加します。
 
-この問題を解決するには、製品の削除 ボタンをもう一度クリックしてください。 この時間が表示されます、 `InvalidOperationException` ObjectDataSource が BLL の呼び出しを試行するときに`UpdateProduct`メソッド。
+この問題を解決したら、任意の製品の [削除] ボタンをもう一度クリックします。 今回は、ObjectDataSource が BLL の `UpdateProduct` メソッドを呼び出そうとしたときに、`InvalidOperationException` を取得します。
 
-[![ObjectDataSource は、送信する入力パラメーターを持つメソッドを見つけることができません。](implementing-optimistic-concurrency-vb/_static/image45.png)](implementing-optimistic-concurrency-vb/_static/image44.png)
+[![ObjectDataSource は、送信しようとしている入力パラメーターを持つメソッドを見つけることができません](implementing-optimistic-concurrency-vb/_static/image45.png)](implementing-optimistic-concurrency-vb/_static/image44.png)
 
-**図 16**:ObjectDataSource は、送信する入力パラメーターを持つメソッドを見つけることができません ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image46.png))。
+**図 16**: ObjectDataSource は、送信する入力パラメーターを持つメソッドを見つけることができません ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image46.png)されます)
 
-例外のメッセージを見ると、明確では、ObjectDataSource、BLL を起動する必要のある`DeleteProduct`メソッドが含まれる`original_CategoryName`と`original_SupplierName`パラメーターを入力します。 これは、ため、`ItemTemplate`の`CategoryID`と`SupplierID`TemplateFields が現在の双方向のバインド ステートメントを含めることが、`CategoryName`と`SupplierName`データ フィールド。 代わりに、含める必要があります`Bind`ステートメントと、`CategoryID`と`SupplierID`データ フィールド。 これを実現するには、既存のバインド ステートメントを置き換えます`Eval`ステートメントを追加し、非表示のラベル コントロールが`Text`プロパティにバインドされます、`CategoryID`と`SupplierID`に示すように、双方向データ バインドを使用してデータ フィールド以下に：
+例外のメッセージを見ると、ObjectDataSource では、`original_CategoryName` と `original_SupplierName` 入力パラメーターを含む BLL `DeleteProduct` メソッドを呼び出す必要があることがわかります。 これは、`CategoryID` と `SupplierID` TemplateFields の `ItemTemplate` には、現在、`CategoryName` および `SupplierName` データフィールドを持つ双方向のバインドステートメントが含まれているためです。 代わりに、`CategoryID` と `SupplierID` のデータフィールドを含む `Bind` ステートメントを含める必要があります。 これを行うには、既存の Bind ステートメントを `Eval` のステートメントに置き換え、次に示すように、双方向のデータバインディングを使用して、`Text` プロパティが `CategoryID` と `SupplierID` のデータフィールドにバインドされている非表示のラベルコントロールを追加します。
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample11.aspx)]
 
-これらの変更が正常に削除し、製品情報を編集することがようになりました。 手順 5 では、同時実行制御違反が検出されていることを確認する方法を紹介します。 ここでは、数分を更新してみてくださいいて、期待どおりに動作を更新して、1 人のユーザーを削除することを確認するいくつかのレコードを削除しています。
+これらの変更により、製品情報を正常に削除および編集できるようになりました。 手順 5. では、同時実行違反が検出されていることを確認する方法について説明します。 ここでは、いくつかのレコードを更新して削除し、1人のユーザーの更新と削除が想定どおりに動作することを確認するために数分かかります。
 
-## <a name="step-5-testing-the-optimistic-concurrency-support"></a>手順 5: テストのオプティミスティック同時実行制御のサポート
+## <a name="step-5-testing-the-optimistic-concurrency-support"></a>手順 5: オプティミスティック同時実行制御のテスト
 
-同時実行制御違反が検出された (なく無条件に上書きされないデータの結果として得られる) されていることを確認するためには、このページに 2 つのブラウザー ウィンドウを開く必要があります。 両方のブラウザー インスタンス Chai の編集 ボタンをクリックします。 だけのいずれかで、ブラウザー、「Chai 紅茶」に名前を変更し、[更新] をクリックします。 更新プログラムが成功し、GridView を新しい製品名として「Chai 紅茶」で、編集済み状態に戻す必要があります。
+(データが無条件に上書きされるのではなく) 同時実行違反が検出されていることを確認するには、このページで2つのブラウザーウィンドウを開く必要があります。 両方のブラウザーインスタンスで、[Chai] の [編集] ボタンをクリックします。 次に、いずれかのブラウザーで、名前を "Chai 紅茶" に変更し、[更新] をクリックします。 更新は正常に完了し、GridView が新しい製品名として "Chai 紅茶" を使用して、編集前の状態に戻ります。
 
-その他のブラウザー ウィンドウ インスタンスでただし、製品名 TextBox であっても、"Chai"。 この 2 番目のブラウザー ウィンドウでは、更新、`UnitPrice`に`25.00`します。 オプティミスティック同時実行制御のサポートがない場合、2 番目のブラウザー インスタンスでの更新 をクリックしては、製品名を変更"Chai"、最初のブラウザー インスタンスによって行われた変更が上書きされます。 採用されているオプティミスティック同時実行制御、ただし、2 番目のブラウザー インスタンスでの更新ボタンをクリックすると結果を[DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx)します。
+ただし、他のブラウザーウィンドウインスタンスでは、[製品名] テキストボックスには引き続き "Chai" と表示されます。 この2番目のブラウザーウィンドウで、`UnitPrice` を `25.00`に更新します。 オプティミスティック同時実行制御がサポートされていない場合、2番目のブラウザーインスタンスで [更新] をクリックすると、製品名が "Chai" に変更され、最初のブラウザーインスタンスによって行われた変更が上書きされます。 ただし、オプティミスティック同時実行制御を使用した場合、2番目のブラウザーインスタンスの [更新] ボタンをクリックすると、 [system.data.dbconcurrencyexception](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx)が発生します。
 
-[![同時実行制御違反が検出されると、DBConcurrencyException がスローされます。](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)
+[![同時実行違反が検出されると、System.data.dbconcurrencyexception がスローされます。](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)
 
-**図 17**:同時実行制御違反が検出されたときに、`DBConcurrencyException`がスローされます ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image49.png))。
+**図 17**: 同時実行違反が検出されると `DBConcurrencyException` がスローされます ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image49.png)されます)
 
-`DBConcurrencyException` DAL のバッチ更新パターンを利用する際にのみスローされます。 DB 直接パターンが例外を発生させない、影響を受けた行がないことだけを示します。 これを示すためには、編集済みの状態に両方のブラウザー インスタンスの GridView を返します。 次に、最初のブラウザー インスタンスで編集ボタンをクリックし、"Chai"には、「Chai 紅茶」から製品名を変更する更新をクリックします。 2 番目のブラウザー ウィンドウでは、Chai の削除 ボタンをクリックします。
+`DBConcurrencyException` は、DAL のバッチ更新パターンが使用されている場合にのみスローされます。 DB direct パターンでは、例外は発生しません。これは、影響を受けた行がないことを示しているだけです。 これを説明するために、両方のブラウザーインスタンスの GridView を編集前の状態に戻します。 次に、最初のブラウザーインスタンスで、[編集] ボタンをクリックし、製品名を "Chai 紅茶" から "Chai" に変更し、[更新] をクリックします。 2番目のブラウザーウィンドウで、[Chai] の [削除] ボタンをクリックします。
 
-削除をクリックすると、ページがポストバック、GridView 呼び出す ObjectDataSource の`Delete()`メソッド、および、ObjectDataSource 呼び出して、`ProductsOptimisticConcurrencyBLL`クラスの`DeleteProduct`メソッド、元の値を渡します。 元の`ProductName`「Chai 紅茶」現在と一致しません。 これは、2 番目のブラウザー インスタンスを値`ProductName`データベース内の値。 そのため、`DELETE`データベースにレコードがないため、データベースへの発行ステートメントが 0 の行に影響する、`WHERE`句を満たします。 `DeleteProduct`メソッドを返します。 `false` ObjectDataSource のデータが GridView にバインドするとします。
+[削除] をクリックすると、ページがポストバックされ、GridView が ObjectDataSource の `Delete()` メソッドを呼び出し、ObjectDataSource が `ProductsOptimisticConcurrencyBLL` クラスの `DeleteProduct` メソッドに戻り、元の値が渡されます。 2番目のブラウザーインスタンスの元の `ProductName` 値は "Chai 紅茶" で、データベース内の現在の `ProductName` 値と一致しません。 したがって、データベースに対して発行された `DELETE` ステートメントは、`WHERE` 句が満たすレコードがないため、0行に影響します。 `DeleteProduct` メソッドは `false` を返し、ObjectDataSource のデータは GridView に再バインドされます。
 
-エンドユーザーの観点からフラッシュをスクリーンの原因と 2 番目のブラウザー ウィンドウで Chai 紅茶の削除 ボタンをクリックするとに戻るには、製品は問題がないが、"Chai"(製品名行われた変更が最初のブラウザーでとして記載されているようになりましたインスタンスの場合)。 ユーザーでは、もう一度削除 ボタンがクリックした場合、削除は成功、GridView の元として`ProductName`値 ("Chai") ようになりましたが一致する、データベース内の値。
+エンドユーザーの観点からは、2番目のブラウザーウィンドウで [Chai 茶] の [削除] ボタンをクリックすると、画面が点滅します。その後、製品はまだ存在しますが、"Chai" (最初のブラウザーによって行われた製品名の変更) として表示されます。インスタンス)。 ユーザーが [削除] ボタンをもう一度クリックした場合、GridView の元の `ProductName` 値 ("Chai") がデータベースの値と一致するため、削除は成功します。
 
-どちらのこのような場合、ユーザー操作は理想から遠く離れたです。 ユーザーの具体的な説明を表示する明らかにしたくない、`DBConcurrencyException`バッチ更新パターンを使用する場合は例外です。 ユーザー コマンドが失敗しましたが、正確な理由を示す値がありませんでした。 は、DB 直接パターンを使用するときの動作は少し紛らわしいです。
+どちらの場合も、ユーザーエクスペリエンスは理想的なものになります。 バッチ更新パターンを使用する場合、`DBConcurrencyException` 例外の詳細をユーザーに表示しないことは明らかです。 また、DB direct パターンを使用する場合の動作は、ユーザーコマンドが失敗したときに多少わかりにくいことがありますが、その理由について正確に示す情報はありませんでした。
 
-これら 2 つの問題を解決するには、更新または削除の失敗理由を説明するページ ラベル Web コントロールを作成できます。 バッチ更新パターンを確認できるかどうかを`DBConcurrencyException`必要に応じて、警告のラベルを表示する GridView の後のレベルのイベント ハンドラーで例外が発生しました。 DB のダイレクト メソッドは、BLL メソッドの戻り値を確認できます (これは`true`1 つの行が影響を受ける場合`false`それ以外の場合) し、必要に応じて情報メッセージを表示します。
+この2つの問題を解決するには、ページにラベル Web コントロールを作成し、更新または削除が失敗した理由を説明します。 バッチ更新パターンでは、GridView のポストレベルイベントハンドラーで `DBConcurrencyException` 例外が発生したかどうかを判断し、必要に応じて警告ラベルを表示できます。 DB ダイレクトメソッドでは、BLL メソッドの戻り値 (1 つの行が影響を受けた場合は `true`、それ以外の場合は `false`) を確認し、必要に応じて情報メッセージを表示できます。
 
-## <a name="step-6-adding-informational-messages-and-displaying-them-in-the-face-of-a-concurrency-violation"></a>手順 6: 情報メッセージを追加して、同時実行制御違反が発生した場合に表示する方法
+## <a name="step-6-adding-informational-messages-and-displaying-them-in-the-face-of-a-concurrency-violation"></a>手順 6: 情報メッセージを追加し、同時実行違反の発生時に表示する
 
-同時実行制御違反が発生したときに発生した現象は、DAL のバッチ更新または DB 直接パターンが使用されるかどうかに依存します。 このチュートリアルでは、更新および削除するために使用される DB 直接パターンで使用されているバッチ更新パターンでは、両方のパターンを使用します。 開始するには、削除、またはデータを更新しようとしてください。 同時実行制御違反が発生したことを説明するページに 2 つのラベルの Web コントロールを追加してみましょう。 ラベル コントロールの設定`Visible`と`EnableViewState`プロパティ`false`; これにより、それらの特定のページにアクセス where 点を除いて、各ページのアクセス時に非表示にする、`Visible`プロパティ プログラムで`true`します。
+同時実行違反が発生した場合の動作は、DAL のバッチ更新または DB ダイレクトパターンが使用されたかどうかによって異なります。 このチュートリアルでは、両方のパターンを使用します。更新に使用するバッチ更新パターンと、削除に使用する DB direct パターンを使用します。 まず、データを削除または更新しようとしたときに同時実行違反が発生したことを説明する2つのラベル Web コントロールをページに追加してみましょう。 ラベルコントロールの `Visible` と `EnableViewState` プロパティを `false`に設定します。これにより、各ページにアクセスしたときに、その `Visible` プロパティがプログラムによって `true`に設定されている場合を除いて、各ページのアクセスで非表示になります。
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample12.aspx)]
 
-設定だけでなく、 `Visible`、`EnabledViewState`と`Text`プロパティも設定した、`CssClass`プロパティを`Warning`、大規模な赤、斜体、太字のフォントで表示されるのラベルを停止します。 この CSS`Warning`クラスが定義され、Styles.css に追加されたに戻り、 *、イベントに関連付けられている挿入、更新、および削除の確認*チュートリアル。
+`Visible`、`EnabledViewState`、および `Text` プロパティの設定に加えて、`CssClass` プロパティも `Warning`に設定しました。これにより、ラベルが大きい、赤、斜体、太字のフォントで表示されます。 この CSS `Warning` クラスは、*挿入、更新、および削除*の各チュートリアルに関連付けられているイベントを調べることで、定義され、スタイルに追加されました。
 
-これらのラベルを追加すると、Visual Studio のデザイナーがこのよう図 18 になります。
+これらのラベルを追加すると、Visual Studio のデザイナーは図18のようになります。
 
-[![2 つのラベル コントロールがページに追加されました](implementing-optimistic-concurrency-vb/_static/image51.png)](implementing-optimistic-concurrency-vb/_static/image50.png)
+[2つのラベルコントロールがページに追加され ![](implementing-optimistic-concurrency-vb/_static/image51.png)](implementing-optimistic-concurrency-vb/_static/image50.png)
 
-**図 18**:2 つのラベル コントロールに追加されたページ ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image52.png))。
+**図 18**: ページに2つのラベルコントロールが追加されました ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-vb/_static/image52.png)されます)
 
-場所でこれらのラベルの Web コントロール、私たちは同時実行制御違反が発生した場合、ポイントの適切なラベルの位置を決定する方法を詳しく調べる準備が`Visible`にプロパティを設定することができます`true`、情報メッセージを表示します。
+これらのラベルの Web コントロールを使用して、同時実行違反が発生したことを判断する方法を調べる準備ができました。その時点で、適切なラベルの `Visible` プロパティを `true`に設定して、情報メッセージを表示することができます。
 
-## <a name="handling-concurrency-violations-when-updating"></a>更新するときに、同時実行制御違反を処理
+## <a name="handling-concurrency-violations-when-updating"></a>更新時の同時実行違反の処理
 
-まず、バッチ更新パターンを使用する場合は、同時実行制御違反を処理する方法を見てみましょう。 バッチには、このような違反のパターンの原因を更新するため、`DBConcurrencyException`例外がスローされる、ASP.NET ページを決定するコードを追加する必要があるかどうかを`DBConcurrencyException`更新プロセス中に例外が発生しました。 そのため、レコードの編集を開始するときに、別のユーザーの間で同じデータが変更するため、その変更は保存されませんでしたが説明するユーザーにメッセージを表示する必要があり、それらの更新ボタンがクリックされたときにします。
+まず、バッチ更新パターンを使用するときに、同時実行違反を処理する方法を見てみましょう。 バッチ更新パターンによるこのような違反によって `DBConcurrencyException` 例外がスローされるため、更新プロセス中に `DBConcurrencyException` 例外が発生したかどうかを確認するコードを ASP.NET ページに追加する必要があります。 その場合は、ユーザーがレコードの編集を開始してから [更新] ボタンをクリックしたときとの間で、他のユーザーが同じデータを変更したため、変更が保存されていないことを示すメッセージがユーザーに表示されます。
 
-説明したように、*処理 BLL - と DAL レベルの例外で、ASP.NET ページ*チュートリアルで、このような例外を検出およびデータ Web コントロールの後のレベルのイベント ハンドラーで抑制できます。 そのため、GridView のイベント ハンドラーを作成する必要があります`RowUpdated`場合にチェックするイベントを`DBConcurrencyException`例外がスローされました。 このイベント ハンドラーには、イベント ハンドラーは、以下のコードに示すように更新の処理中に発生したすべての例外への参照が渡されます。
+ASP.NET ページのチュートリアルでは、 *BLL と DAL レベルの例外の処理*について説明しましたが、このような例外は、データ Web コントロールの post レベルのイベントハンドラーで検出および抑制することができます。 そのため、`DBConcurrencyException` 例外がスローされたかどうかを確認する GridView の `RowUpdated` イベントのイベントハンドラーを作成する必要があります。 このイベントハンドラーには、次のイベントハンドラーコードに示すように、更新プロセス中に発生した例外への参照が渡されます。
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample13.vb)]
 
-`DBConcurrencyException`例外では、このイベント ハンドラーの表示、`UpdateConflictMessage`コントロールのラベルし、例外が処理されたことを示します。 場所でこのコードでは、レコードを更新するときに、同時実行制御違反が発生した場合、ユーザーの変更は失われます、ため、同時に別のユーザーの変更が上書きされるとします。 具体的には、GridView が編集済みの状態に返され、現在のデータベースのデータにバインドします。 これにより、他のユーザーの変更により、以前は表示されませんでした、GridView の行が更新されます。 さらに、`UpdateConflictMessage`ラベル コントロールをユーザーに説明が発生します。 このイベントのシーケンス図 19 の詳細を示します。
+`DBConcurrencyException` 例外が発生すると、このイベントハンドラーによって `UpdateConflictMessage` Label コントロールが表示され、例外が処理されたことが示されます。 このコードを配置すると、レコードの更新時に同時実行違反が発生した場合、ユーザーの変更は失われます。これは、ユーザーが同時に別のユーザーの変更を上書きしたためです。 特に、GridView は編集前の状態に戻り、現在のデータベースデータにバインドされます。 これにより、以前は表示されていなかった他のユーザーの変更で GridView 行が更新されます。 さらに、`UpdateConflictMessage` ラベルコントロールは、発生したことをユーザーに説明します。 この一連のイベントについては、図19で詳しく説明します。
 
-[![ユーザーの更新プログラムは、同時実行制御違反の表面に失われます](implementing-optimistic-concurrency-vb/_static/image54.png)](implementing-optimistic-concurrency-vb/_static/image53.png)
+[同時実行違反の発生時にユーザーの更新が失われる ![](implementing-optimistic-concurrency-vb/_static/image54.png)](implementing-optimistic-concurrency-vb/_static/image53.png)
 
-**図 19**:ユーザーの更新プログラムは、同時実行制御違反の表面に失われます ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image55.png))。
+**図 19**: 同時実行違反が発生したときにユーザーの更新が失われる ([クリックしてフルサイズの画像を表示する](implementing-optimistic-concurrency-vb/_static/image55.png))
 
 > [!NOTE]
-> または、GridView 編集済みの状態に返すときではなく残る可能性があります、GridView の編集状態で設定して、`KeepInEditMode`プロパティの渡されたで`GridViewUpdatedEventArgs`オブジェクトを true にします。 この方法で実行する場合、必ず GridView にデータを再バインドする (呼び出すことによってその`DataBind()`メソッド)、その他のユーザーの値が編集インターフェイスに読み込まれるようにします。 このチュートリアルでダウンロード可能なコードが次の 2 行のコードの`RowUpdated`イベント ハンドラーがコメント アウトされています。 同時実行制御違反の後に、次の行のコードに、GridView が編集モードのままのコメントを解除だけです。
+> または、GridView を編集前の状態に戻すのではなく、渡された `GridViewUpdatedEventArgs` オブジェクトの `KeepInEditMode` プロパティを true に設定して、GridView を編集中の状態にしておくこともできます。 ただし、この方法を使用する場合は、(`DataBind()` メソッドを呼び出して) GridView にデータを再バインドし、他のユーザーの値が編集インターフェイスに読み込まれるようにする必要があります。 このチュートリアルでダウンロードできるコードは、コメントアウトされた `RowUpdated` のイベントハンドラーに、次の2行のコードが含まれています。これらのコード行をコメント解除するだけで、同時実行違反の後に GridView を編集モードのままにすることができます。
 
-## <a name="responding-to-concurrency-violations-when-deleting"></a>削除するときに、同時実行制御違反への応答
+## <a name="responding-to-concurrency-violations-when-deleting"></a>同時実行違反への応答 (削除時)
 
-DB の直接パターンでは、同時実行制御違反が発生した場合に発生する例外はありません。 代わりに、データベース ステートメントだけが影響を受けないレコードを WHERE 句は、任意のレコードと一致しません。 BLL で作成したデータ変更メソッドのすべては、正確に 1 つのレコードが影響を受けるかどうかを示すブール値を返すように設計されています。 そのため、レコードを削除するときに、同時実行制御違反が発生したかどうかを判断することができますを考察 BLL の戻り値`DeleteProduct`メソッド。
+DB direct パターンでは、同時実行違反の発生時に例外は発生しません。 代わりに、WHERE 句がどのレコードとも一致しないため、データベースステートメントは単にレコードに影響しません。 BLL で作成されたすべてのデータ変更メソッドは、正確に1つのレコードに影響を与えたかどうかを示すブール値を返すように設計されています。 そのため、レコードの削除時に同時実行違反が発生したかどうかを判断するには、BLL の `DeleteProduct` メソッドの戻り値を確認します。
 
-BLL メソッドの戻り値を通じて ObjectDataSource の後のレベルのイベント ハンドラーで調べることができます、`ReturnValue`のプロパティ、`ObjectDataSourceStatusEventArgs`イベント ハンドラーに渡されるオブジェクト。 戻り値を決定する必要があるので、`DeleteProduct`メソッド、ObjectDataSource のイベント ハンドラーを作成する必要があります`Deleted`イベント。 `ReturnValue`プロパティの型は`object`でき、`null`例外が発生したかどうかと、値を返す前に、メソッドは中断されました。 そのため、私たちが最初いることを確認、`ReturnValue`プロパティは`null`ブール値です。 このチェックに合格紹介と仮定すると、`DeleteConflictMessage`ラベル コントロールの場合、`ReturnValue`は`false`します。 これは、次のコードを使用して実行できます。
+BLL メソッドの戻り値は、ObjectDataSource のポストレベルのイベントハンドラーで、イベントハンドラーに渡された `ObjectDataSourceStatusEventArgs` オブジェクトの `ReturnValue` プロパティを使用して調べることができます。 `DeleteProduct` メソッドから戻り値を決定することに関心があるため、ObjectDataSource の `Deleted` イベント用のイベントハンドラーを作成する必要があります。 `ReturnValue` プロパティは `object` 型であり、例外が発生した場合に `null` できます。また、メソッドは、値を返す前に中断されています。 したがって、最初に `ReturnValue` プロパティが `null` ではなく、ブール値であることを確認する必要があります。 このチェックに合格すると、`ReturnValue` が `false`場合は、`DeleteConflictMessage` Label コントロールが表示されます。 これは、次のコードを使用して実現できます。
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample14.vb)]
 
-同時実行違反が発生した場合、ユーザーの削除要求が取り消されました。 ページと Delete ボタンをクリックしたときに彼に読み込まれるまでの間には、そのレコードのユーザーに発生した変更を示す GridView が更新されます。 このような違反には、ときに、`DeleteConflictMessage`ラベルが表示されるだけです (図 20 を参照してください) の変更点について説明します。
+同時実行違反が発生した場合、ユーザーの削除要求は取り消されます。 GridView が更新され、ユーザーがページを読み込んだときと [削除] ボタンをクリックしたときの間で、そのレコードに対して発生した変更が表示されます。 このような違反が発生した場合は、`DeleteConflictMessage` ラベルが表示され、何が起こったかがわかります (図20を参照)。
 
-[![同時実行制御違反が発生した場合、ユーザーの削除が取り消されました](implementing-optimistic-concurrency-vb/_static/image57.png)](implementing-optimistic-concurrency-vb/_static/image56.png)
+[同時実行違反の発生時にユーザーの削除が取り消さ ![](implementing-optimistic-concurrency-vb/_static/image57.png)](implementing-optimistic-concurrency-vb/_static/image56.png)
 
-**図 20**:同時実行制御違反が発生した場合、ユーザーの削除が取り消されました ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-vb/_static/image58.png))。
+**図 20**: 同時実行違反が発生したときにユーザーの削除が取り消される ([クリックしてフルサイズのイメージを表示する](implementing-optimistic-concurrency-vb/_static/image58.png))
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-同時実行制御違反の営業案件の存在により、複数の場合、すべてのアプリケーションで同時実行ユーザー データを更新または削除します。 場合の 2 人のユーザーは、最終書き込み"wins"で取得したユーザーと同じデータを同時に更新、ときに、変更内容を変更、他のユーザーの上書き、このような違反は考慮されません。 また、開発者は、オプティミスティックおよびペシミスティック同時実行制御を実装できます。 オプティミスティック同時実行制御は、こと同時実行制御違反が低くてもと単に更新プログラムを禁止または削除コマンドは、同時実行制御違反を構成すると仮定します。 ペシミスティック同時実行制御では、違反は多くの場合、更新または削除コマンドの 1 つのユーザーの拒否するには、同時実行が許容されないと仮定します。 ペシミスティック同時実行制御でレコードを更新するはその他のユーザーを変更またはロックされているレコードの削除を防ぐ、ロックがあります。
+同時実行ユーザーが複数のデータを更新または削除できるようにするすべてのアプリケーションには、同時実行違反の可能性があります。 このような違反が考慮されていない場合、2人のユーザーが前回の書き込みで取得した同じデータを同時に更新すると、他のユーザーの変更が上書きされます。 また、開発者はオプティミスティックまたはペシミスティック同時実行制御を実装できます。 オプティミスティック同時実行制御では、同時実行違反が頻繁に発生しないことを前提としています。また、単に、同時実行違反を構成する update または delete コマンドを禁止します ペシミスティック同時実行制御は、同時実行違反が頻繁に発生することを前提としており、1人のユーザーの update コマンドまたは delete コマンドを拒否するだけでは許容できません。 ペシミスティック同時実行制御では、レコードを更新することによって、ロックされている間に他のユーザーがレコードを変更または削除できないようにします。
 
-.NET で型指定されたデータセットは、オプティミスティック同時実行制御をサポートするための機能を提供します。 具体的には、`UPDATE`と`DELETE`データベースへの発行ステートメントは、すべてのテーブルの列を含む、ときに、update または delete がのみ発生する場合は、ユーザーの元のデータと一致するレコードの現在のデータを積み重ねない必要があります。update または delete を実行します。 オプティミスティック同時実行制御をサポートするために DAL を構成すると、BLL メソッドを更新する必要があります。 さらに、ObjectDataSource データ Web コントロールから元の値を取得して BLL に渡しますように BLL 呼び出す ASP.NET ページを構成する必要があります。
+.NET の型指定されたデータセットは、オプティミスティック同時実行制御をサポートするための機能を提供します。 特に、データベースに対して発行された `UPDATE` および `DELETE` ステートメントには、テーブルのすべての列が含まれているので、レコードの現在のデータが、更新または削除の実行時にユーザーが持っていた元のデータと一致する場合にのみ、更新または削除が行われます。 DAL がオプティミスティック同時実行制御をサポートするように構成されたら、BLL メソッドを更新する必要があります。 また、BLL にコールダウンする ASP.NET ページを構成して、ObjectDataSource がデータ Web コントロールから元の値を取得し、BLL に渡すようにする必要があります。
 
-このチュートリアルで説明したようには ASP.NET web アプリケーションでオプティミスティック同時実行制御を実装する DAL と BLL を更新して、ASP.NET ページのサポートを追加することがあります。 この追加作業が、時間と労力を賢明に投資収益率がかどうかは、アプリケーションによって異なります。 同時実行ユーザーが、データの更新がある頻度の低い、または更新して、データが異なることから、その同時実行制御はできません、重要な問題。 あれば、ただし、日常的に複数のユーザーのサイトの動作と同じデータで、同時実行制御は無意識の上書きから 1 つのユーザーの更新や削除を防ぐのに役立ちます。
+このチュートリアルで説明したように、ASP.NET web アプリケーションにオプティミスティック同時実行制御を実装するには、DAL を更新して、ASP.NET ページにサポートを追加する必要があります。 この追加の作業が時間と労力を費やすかどうかは、アプリケーションによって異なります。 同時実行ユーザーがデータを更新していない場合、または更新しようとしているデータが相互に異なる場合は、同時実行制御が重要な問題にはなりません。 ただし、サイトの複数のユーザーが同じデータを使用している場合、同時実行制御を使用すると、1人のユーザーの更新や削除によって他のが誤って上書きされるのを防ぐことができます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [前へ](customizing-the-data-modification-interface-vb.md)

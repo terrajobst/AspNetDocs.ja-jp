@@ -1,37 +1,37 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
-title: マスター/詳細の DropDownList (c#) でフィルター処理 |Microsoft Docs
+title: DropDownList (C#) を使用したマスター/詳細のフィルター処理Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、Dropdownlist を使用して 'master' のレコードと、DataList displ に表示する 1 つの web ページでマスター/詳細レポートを表示する方法を見る.
+description: このチュートリアルでは、DropDownLists を使用して ' master ' レコードを表示する1つの web ページでマスター/詳細レポートを表示する方法について説明します。
 ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: 07fa47ae-e491-4a2f-b265-d342b9ddef46
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bfd6f02fe30f4fe5d82d6f72eba6935e1a776c99
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8289f46fd6d0143802269d5c6196a4c40db9378c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134491"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74631062"
 ---
 # <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>DropDownList でマスター/詳細をフィルター処理する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_33_CS.exe)または[PDF のダウンロード](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/datatutorial33cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_33_CS.exe)または[PDF のダウンロード](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/datatutorial33cs1.pdf)
 
-> このチュートリアルでは「マスター」のレコードと「詳細」を表示する DataList 表示 Dropdownlist を使用して単一の web ページでマスター/詳細レポートを表示する方法がわかります。
+> このチュートリアルでは、DropDownLists を使用して "マスター" レコードを表示する1つの web ページでマスター/詳細レポートを表示する方法と、"詳細" を表示するための DataList を説明します。
 
 ## <a name="introduction"></a>はじめに
 
-GridView を使用する前に示したを最初に作成したマスター/詳細レポート[マスター/詳細のフィルター処理で、DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) 「マスター」のレコードのいくつかのセットを表示することによってチュートリアルを開始します。 ユーザーしにドリルダウンできますいずれかのマスター レコード、それによってそのマスター レコードの"の詳細を表示します" マスター/詳細レポートは、一対多の関係を視覚化するため、特に「ワイド」のテーブル (多数の列があるもの) からの詳細情報を表示するための最適な選択肢です。 前のチュートリアルで GridView および DetailsView コントロールを使用してマスター/詳細レポートを実装する方法について紹介しました。 このチュートリアルと次の 2 つの場合では、DataList を使用してフォーカスですが、これらの概念を再確認しますし、Repeater を代わりに制御します。
+最初に DropDownList チュートリアルを使用して以前の[マスター/詳細フィルター](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md)の GridView を使用して作成したマスター/詳細レポートは、"マスター" レコードのセットを表示することから始まります。 その後、ユーザーはマスターレコードのいずれかにドリルダウンして、マスターレコードの "詳細" を表示できます。 マスター/詳細レポートは、一対多のリレーションシップを視覚化するための最適な選択肢であり、特に多数の列を含むテーブルから詳細情報を表示するために適しています。 前のチュートリアルでは、GridView および DetailsView コントロールを使用してマスター/詳細レポートを実装する方法を説明しました。 このチュートリアルと次の2つのチュートリアルでは、これらの概念を再検討しますが、代わりに DataList コントロールと Repeater コントロールの使用に焦点を当てます。
 
-このチュートリアルでは、DataList で表示される"details"レコードで、「マスター」のレコードを格納して DropDownList を使用して紹介します。
+このチュートリアルでは、DropDownList を使用して "マスター" レコードを格納し、DataList に "details" レコードを表示する方法について説明します。
 
 ## <a name="step-1-adding-the-masterdetail-tutorial-web-pages"></a>手順 1: マスター/詳細チュートリアル Web ページの追加
 
-このチュートリアルを始める前にまず少し探ってみましょうフォルダーとこのチュートリアルの次の 2 つ DataList と Repeater コントロールを使用してマスター/詳細レポートを処理する必要があります、ASP.NET ページに追加します。 という名前のプロジェクトで新しいフォルダーを作成して開始`DataListRepeaterFiltering`します。 次に、次の 5 つの ASP.NET ページをこのフォルダーは、すべてのマスター ページを使用するように構成する追加`Site.master`:
+このチュートリアルを開始する前に、まず、このチュートリアルに必要なフォルダーと ASP.NET のページを追加し、次の2つのページで、DataList および Repeater コントロールを使用してマスター/詳細レポートを処理してみましょう。 まず、`DataListRepeaterFiltering`という名前のプロジェクトに新しいフォルダーを作成します。 次に、次の5つの ASP.NET ページをこのフォルダーに追加します。マスターページ `Site.master`を使用するようにすべてのページを構成します。
 
 - `Default.aspx`
 - `FilterByDropDownList.aspx`
@@ -39,119 +39,119 @@ GridView を使用する前に示したを最初に作成したマスター/詳�
 - `ProductsForCategoryDetails.aspx`
 - `CategoriesAndProducts.aspx`
 
-![DataListRepeaterFiltering フォルダーを作成し、チュートリアルの ASP.NET ページを追加します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image1.png)
+![DatASP.NET Strepeaterfiltering フォルダーを作成し、チュートリアルのページを追加します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image1.png)
 
-**図 1**:作成、`DataListRepeaterFiltering`フォルダー チュートリアル ASP.NET ページを追加
+**図 1**: `DataListRepeaterFiltering` フォルダーを作成し、チュートリアル ASP.NET ページを追加する
 
-次に、開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン サーフェイスにフォルダー。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、サイト マップの列挙し、箇条書きリストに現在のセクションから、チュートリアルを表示します。
+次に、[`Default.aspx`] ページを開き、`SectionLevelTutorialListing.ascx` ユーザーコントロールを `UserControls` フォルダーからデザイン画面にドラッグします。 このユーザーコントロールは、[マスターページとサイトナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルで作成したもので、サイトマップを列挙し、現在のセクションのチュートリアルを箇条書きの一覧に表示します。
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image3.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image2.png)
+[SectionLevelTutorialListing ユーザーコントロールを default.aspx に追加 ![には](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image3.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image2.png)
 
-**図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image4.png))。
+**図 2**: `Default.aspx` に `SectionLevelTutorialListing.ascx` ユーザーコントロールを追加する ([クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image4.png)されます)
 
-箇条書きリストに表示するために作成します、マスター/詳細チュートリアルでは、必要がありますサイト マップに追加します。 開く、`Web.sitemap`ファイルを開き、"を表示するデータを DataList と Repeater"サイト マップ ノードのマークアップの後に次のマークアップを追加します。
+作成するマスター/詳細のチュートリアルを箇条書きに表示するには、サイトマップに追加する必要があります。 `Web.sitemap` ファイルを開き、「DataList と Repeater を使用したデータの表示」の後に、次のマークアップを追加します。
 
 [!code-xml[Main](master-detail-filtering-with-a-dropdownlist-datalist-cs/samples/sample1.xml)]
 
-![新しい ASP.NET ページは、サイト マップを更新します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image5.png)
+![新しい ASP.NET ページを含めるようにサイトマップを更新する](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image5.png)
 
-**図 3**:新しい ASP.NET ページは、サイト マップを更新します。
+**図 3**: 新しい ASP.NET ページを含めるようにサイトマップを更新する
 
-## <a name="step-2-displaying-the-categories-in-a-dropdownlist"></a>手順 2: DropDownList でカテゴリを表示します。
+## <a name="step-2-displaying-the-categories-in-a-dropdownlist"></a>手順 2: DropDownList でカテゴリを表示する
 
-マスター/詳細レポートは、DropDownList、内のカテゴリを一覧表示、選択されたリスト項目の製品が表示されますが、DataList でページ上にします。 前に、最初のタスクは、DropDownList に表示されるカテゴリにし、です。 開いて開始、`FilterByDropDownList.aspx`ページで、`DataListRepeaterFiltering`フォルダーと、ページのデザイナーには、ツールボックスから、DropDownList をドラッグします。 DropDownList を次に、設定`ID`プロパティを`Categories`します。 DropDownList のスマート タグから データ ソースのリンクをクリックし、作成という名前の新しい ObjectDataSource`CategoriesDataSource`します。
+マスター/詳細レポートには、選択したリストアイテムの製品が DataList のページに表示されるように、DropDownList にカテゴリが一覧表示されます。 最初のタスクであるのは、カテゴリを DropDownList に表示することです。 まず、`DataListRepeaterFiltering` フォルダーの [`FilterByDropDownList.aspx`] ページを開いて、[ツールボックス] から [DropDownList] をページデザイナーにドラッグします。 次に、DropDownList の `ID` プロパティを `Categories`に設定します。 DropDownList のスマートタグから [データソースの選択] リンクをクリックし、`CategoriesDataSource`という名前の新しい ObjectDataSource を作成します。
 
-[![CategoriesDataSource という名前の新しい ObjectDataSource を追加します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image7.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image6.png)
+[新しい ObjectDataSource という名前の新しい名前のデータソースを追加 ![には](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image7.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image6.png)
 
-**図 4**:新しい ObjectDataSource という追加`CategoriesDataSource`([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image8.png))。
+**図 4**: `CategoriesDataSource` という名前の新しい ObjectDataSource を追加[する (クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image8.png)される)
 
-新しい ObjectDataSource を呼び出すように構成、`CategoriesBLL`クラスの`GetCategories()`メソッド。 DropDownList にどのようなデータ ソースのフィールドを表示するかを指定する必要があります ObjectDataSource を構成した後は、各リスト項目の値として関連付けられている 1 つ必要があります。 `CategoryName`フィールドとして表示し、`CategoryID`各リスト項目の値として。
+`CategoriesBLL` クラスの `GetCategories()` メソッドを呼び出すように、新しい ObjectDataSource を構成します。 ObjectDataSource を構成した後も、DropDownList に表示するデータソースフィールドを指定し、各リスト項目の値として関連付ける必要があるデータソースフィールドを指定する必要があります。 `CategoryName` フィールドを表示として使用し、各リスト項目の値として `CategoryID` します。
 
-[![値として使用 CategoryID と CategoryName フィールド DropDownList 表示があります。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image10.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image9.png)
+[DropDownList で [区分項目] フィールドを表示し、値として CategoryID を使用する ![ます。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image10.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image9.png)
 
-**図 5**:DropDownList の表示、`CategoryName`フィールド`CategoryID`値として ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image11.png))。
+**図 5**: DropDownList に `CategoryName` フィールドが表示され、`CategoryID` を値として使用する ([クリックしてフルサイズの画像を表示する](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image11.png))
 
-この時点でのレコードが設定された DropDownList コントロールがある、`Categories`テーブル (すべて約 6 秒間で行われます)。 図 6 は、ブラウザーで表示したときにこれまで、進行状況を示します。
+この時点で、`Categories` テーブルのレコードが設定された DropDownList コントロールがあります (すべての操作は約6秒で完了しました)。 図6は、ブラウザーを通じて表示されたときの進行状況を示しています。
 
-[![ドロップダウンには、現在のカテゴリが表示されます。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image13.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image12.png)
+[ドロップダウンリスト ![現在のカテゴリを一覧表示します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image13.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image12.png)
 
-**図 6**:ドロップダウン リスト、現在のカテゴリ ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image14.png))。
+**図 6**: ドロップダウンリストに現在のカテゴリが表示される ([クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image14.png)されます)
 
-## <a name="step-2-adding-the-products-datalist"></a>手順 2: 製品 DataList を追加します。
+## <a name="step-2-adding-the-products-datalist"></a>手順 2: 製品の DataList を追加する
 
-マスター/詳細レポートの最後の手順では、選択したカテゴリに関連付けられている製品を一覧表示します。 これを実現するには、ページに、DataList を追加という名前の新しい ObjectDataSource を作成して`ProductsByCategoryDataSource`します。 `ProductsByCategoryDataSource`コントロールからそのデータの取得、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 このマスター/詳細レポートが読み取り専用であるために、INSERT、UPDATE、および DELETE の各タブのオプション (なし) を選択します。
+マスター/詳細レポートの最後の手順は、選択したカテゴリに関連付けられている製品を一覧表示することです。 これを実現するには、DataList をページに追加し、`ProductsByCategoryDataSource`という名前の新しい ObjectDataSource を作成します。 `ProductsByCategoryDataSource` コントロールが、`ProductsBLL` クラスの `GetProductsByCategoryID(categoryID)` メソッドからデータを取得するようにします。 このマスター/詳細レポートは読み取り専用であるため、[挿入]、[更新]、および [削除] の各タブで [(なし)] オプションを選択します。
 
-[![GetProductsByCategoryID(categoryID) メソッドを選択します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image16.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image15.png)
+[Get製品 Bycategoryid (categoryID) メソッドを選択 ![には](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image16.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image15.png)
 
-**図 7**:選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image17.png))。
+**図 7**: `GetProductsByCategoryID(categoryID)` メソッドを選択[する (クリックしてフルサイズのイメージを表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image17.png))
 
-値のソースの私たち ObjectDataSource ウィザードで [次へ] をクリックすると、入力、`GetProductsByCategoryID(categoryID)`メソッドの *`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`します。
+[次へ] をクリックすると、ObjectDataSource ウィザードによって、`GetProductsByCategoryID(categoryID)` メソッドの *`categoryID`* パラメーターの値のソースが要求されます。 選択した `categories` DropDownList 項目の値を使用するには、パラメーターソースを制御するように設定し、ControlID を `Categories`に設定します。
 
-[![CategoryID パラメーター カテゴリの DropDownList の値に設定されます。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image18.png)
+[categoryID パラメーターをカテゴリの DropDownList の値に設定 ![](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image18.png)
 
-**図 8**:設定、 *`categoryID`* パラメーターの値を`Categories`DropDownList ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image20.png))。
+**図 8**: *`categoryID`* パラメーターを `Categories` DropDownList の値に設定する ([クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image20.png)されます)
 
-データ ソース構成ウィザードを完了すると、Visual Studio が自動的に生成、 `ItemTemplate` DataList 名前と各データ フィールドの値を表示するのです。 代わりに使用する DataList を強化しましょう、`ItemTemplate`製品の名前、カテゴリ、供給業者、単位、およびと共に価格ごとの数だけを表示する、`SeparatorTemplate`挿入される、`<hr>`各項目の間の要素。 使用して、`ItemTemplate`で例から、 [DataList と Repeater コントロールでデータを表示する](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md)チュートリアルが自由にどのようなテンプレート マークアップ最も視覚に訴える検索を使用します。
+データソースの構成ウィザードを完了すると、Visual Studio によって、各データフィールドの名前と値を表示する DataList の `ItemTemplate` が自動的に生成されます。 ここでは、DataList を拡張して、製品の名前、カテゴリ、仕入先、数量/単位、価格だけでなく、各項目の間に `<hr>` 要素を挿入する `SeparatorTemplate` を表示する `ItemTemplate` を使用するようにします。 ここでは、「 [DataList コントロールと Repeater コントロールでデータを表示](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md)する」チュートリアルの例の `ItemTemplate` を使用しますが、視覚的に魅力のあるテンプレートマークアップを自由に使用できます。
 
-これらの変更を行った後、DataList、およびその ObjectDataSource のマークアップに次のようななる必要があります。
+これらの変更を行った後、DataList とその ObjectDataSource のマークアップは次のようになります。
 
 [!code-aspx[Main](master-detail-filtering-with-a-dropdownlist-datalist-cs/samples/sample2.aspx)]
 
-ブラウザーで進行状況を確認する時間がかかります。 最初のページにアクセスして、ときに (飲み物) 選択したカテゴリに属しているこれらの製品が表示されます (図 9) が、DropDownList を変更するデータは更新されません。 これは、ため、更新する DataList ポストバックが発生したときです。 DropDownList を設定できるか、これを実現する`AutoPostBack`プロパティを`true`またはボタンの Web コントロールをページに追加します。 このチュートリアルでは、DropDownList の設定を選択した`AutoPostBack`プロパティを`true`します。
+ブラウザーで進行状況を確認してみてください。 最初にページにアクセスすると、選択したカテゴリ (飲料) に属するこれらの製品が表示されます (図9を参照)。 DropDownList を変更してもデータは更新されません。 これは、DataList を更新するためにポストバックが発生する必要があるためです。 これを実現するには、DropDownList の `AutoPostBack` プロパティを `true` に設定するか、ボタン Web コントロールをページに追加します。 このチュートリアルでは、DropDownList の `AutoPostBack` プロパティを `true`に設定することを選択しました。
 
-図 9 と 10 は、マスター/詳細レポートの動作を示しています。
+図9と10は、マスター/詳細レポートの動作を示しています。
 
-[![まず、ページにアクセスして、飲み物の製品が表示されます。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image22.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image21.png)
+[ページに初めてアクセスしたときに、飲料製品が表示される ![](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image22.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image21.png)
 
-**図 9**:まず、ページにアクセスして、飲み物の製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image23.png))。
+**図 9**: 最初にページにアクセスしたときに、飲み物の製品が表示される ([クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image23.png)されます)
 
-[![DataList の更新、ポストバックを発生させる新しい製品 (生成) を自動的に選択します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image25.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image24.png)
+[新しい製品 ([生成]) を選択する ![自動的にポストバックが発生し、DataList が更新されます。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image25.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image24.png)
 
-**図 10**:DataList の更新、ポストバックを発生させる (生成) の新しい製品を選択すると、自動的に ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image26.png))。
+**図 10**: 新しい製品 ([生成]) を選択すると自動的にポストバックが発生し、DataList が更新されます ([クリックすると、フルサイズのイメージが表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image26.png)されます)
 
-## <a name="adding-a----choose-a-category----list-item"></a>「- カテゴリを選択--」リスト アイテムを追加します。
+## <a name="adding-a----choose-a-category----list-item"></a>"--カテゴリの選択--" リスト項目を追加する
 
-最初にアクセスすると、 `FilterByDropDownList.aspx` DropDownList の最初のリスト項目 (飲み物) が既定では、DataList で飲み物の製品を表示して選択したカテゴリのページします。 *マスター/詳細のフィルター処理で、DropDownList*チュートリアルが既定で選択されていると、選択すると表示し、DropDownList に「- カテゴリを選択--」オプションを追加しました*すべて*のデータベース内の製品です。 このアプローチ管理しやすいときに、GridView では、製品の一覧を表示するように各製品の行に少量の実際の画面。 DataList、ただし、各製品の情報を使用、画面のはるかに大きいチャンクします。 まだみましょう「--カテゴリを選択--」オプションを追加して、既定で選択されていることがあるがすべての製品を表示することではなく選択すると、みましょう構成製品が表示されないように。
+最初に [`FilterByDropDownList.aspx`] ページにアクセスしたときに、[カテゴリ] の [DropDownList] の最初のリスト項目 (飲料) が既定で選択され、[DataList] の飲料製品が表示されます。 DropDownList チュートリアルを使用した*マスター/詳細フィルター処理*で、既定で選択された dropdownlist に "--Category--" オプションを追加しました。選択すると、データベース内の*すべて*の製品が表示されます。 このようなアプローチは、GridView で製品を一覧表示するときに管理しやすくなりました。これは、各製品の行が画面の実際のサイズを小さくするためです。 ただし、DataList では、各製品の情報が画面のチャンクを大幅に消費します。 引き続き "--Category を選択する--" オプションを追加して、既定で選択します。ただし、選択したすべての製品を表示するのではなく、製品が表示されないように構成します。
 
-DropDownList に新しいリスト アイテムを追加する [プロパティ] ウィンドウに移動し、省略記号をクリックして、`Items`プロパティ。 新しいリスト アイテムを追加、 `Text` 「--カテゴリを選択--」および`Value``0`します。
+新しいリストアイテムを DropDownList に追加するには、プロパティウィンドウにアクセスし、`Items` プロパティの省略記号をクリックします。 `Text` "--Category--" と `Value` `0`を持つ新しいリスト項目を追加します。
 
-![追加します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image27.png)
+![を追加する](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image27.png)
 
-**図 11**:「- カテゴリを選択--」リスト アイテムを追加します。
+**図 11**: "--カテゴリを選択する--" リスト項目を追加する
 
-または、DropDownList に次のマークアップを追加して、リスト項目を追加できます。
+または、次のマークアップを DropDownList に追加して、リスト項目を追加することもできます。
 
 [!code-aspx[Main](master-detail-filtering-with-a-dropdownlist-datalist-cs/samples/sample3.aspx)]
 
-さらに、DropDownList コントロールを設定する必要があります`AppendDataBoundItems`に`true`ために設定されている場合`false`(既定)、ObjectDataSource からカテゴリが、DropDownList にバインドされている場合、手動で追加したリストが上書きされます項目。
+さらに、DropDownList コントロールの `AppendDataBoundItems` を `true` に設定する必要があります。これは `false` (既定) に設定されている場合、カテゴリが ObjectDataSource から DropDownList にバインドされると、手動で追加したリスト項目が上書きされるためです。
 
 ![AppendDataBoundItems プロパティを True に設定します。](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image28.png)
 
-**図 12**:設定、`AppendDataBoundItems`プロパティを True に
+**図 12**: `AppendDataBoundItems` プロパティを True に設定する
 
-値を選択した理由`0`「--カテゴリを選択--」リストの項目は、値は、システム内のカテゴリが存在しないため`0`、したがって製品レコードは返されません「--カテゴリを選択--」リスト アイテムを選択します。 これを確認する少しブラウザーを使用してページを参照してください。 図 13 に示す最初に「- カテゴリを選択--」リスト アイテムが選択されているページを表示して、製品は表示されません。
+"--カテゴリの選択--" リスト項目の値 `0` を選択した理由は、システムには値が `0`であるカテゴリが存在しないため、"--カテゴリの選択--" リスト項目が選択されたときに製品レコードが返されないためです。 これを確認するには、ブラウザーを使用してページにアクセスします。 図13に示されているように、最初にページを表示すると、"--カテゴリを選択--" リスト項目が選択され、製品が表示されません。
 
-[![ときに、](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image30.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image29.png)
+[![](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image30.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image29.png)
 
-**図 13**:「- カテゴリを選択--」リスト アイテムを選択すると、いいえ製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image31.png))。
+**図 13**: "--カテゴリの選択--" リスト項目が選択されている場合、製品は表示されません ([クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image31.png)されます)
 
-表示ではなく場合*すべて*製品「- カテゴリを選択--」オプションを選択するでの値が使用`-1`代わりにします。 鋭い読者ならがそのチェックインを思い出してください、*マスター/詳細のフィルター処理で、DropDownList*更新されたチュートリアル、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドように場合、 *`categoryID`* 値`-1`レコードが返されたすべての製品に渡されました。
+[--カテゴリの選択--] オプションを選択したときに*すべて*の製品を表示する場合は、代わりに値 `-1` を使用します。 ずる賢い reader は、DropDownList チュートリアルを使用し*てマスター/詳細フィルター処理*を行ったことを思い出して、`-1` の *`categoryID`* 値が渡された場合に、すべての製品レコードが返されるように `ProductsBLL` クラスの `GetProductsByCategoryID(categoryID)` メソッドを更新しました。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-階層的に関連するデータを表示するには、マスター/詳細レポートから、ユーザーは、階層の最上位からデータを参照するために開始し、詳細にドリル ダウンを使用してデータを表示する多くの場合、役立ちます。 このチュートリアルでは、選択したカテゴリの製品を示す単純なマスター/詳細レポートの作成について確認しました。 これは、カテゴリと、DataList、選択したカテゴリに属する製品の一覧については、DropDownList を使用して行われました。
+階層的に関連するデータを表示する場合は、多くの場合、マスター/詳細レポートを使用してデータを表示することができます。この場合、ユーザーは階層の最上位からデータのつい man を開始し、詳細にドリルダウンできます。 このチュートリアルでは、選択したカテゴリの製品を示す単純なマスター/詳細レポートを作成する方法を説明しました。 これを実現するには、選択したカテゴリに属する製品のカテゴリの一覧に DropDownList を使用します。
 
-次のチュートリアルでは、2 つのページ間でマスターと詳細レコードを分離することで紹介します。 最初のページでは、「マスター」のレコードの一覧が表示されます、詳細を表示するリンクを含む。 リンクをクリックすると、ユーザーに 2 番目のページでは、選択したマスター レコードの詳細が表示されますが whisk は。
+次のチュートリアルでは、2ページでマスターレコードと詳細レコードを分離する方法について説明します。 最初のページには、"マスター" レコードの一覧と、詳細を表示するためのリンクが表示されます。 リンクをクリックすると、ユーザーが2番目のページに whisk、選択したマスターレコードの詳細が表示されます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別に感謝しています.
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Randy Schmidt でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Randy になりました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [次へ](master-detail-filtering-acess-two-pages-datalist-cs.md)

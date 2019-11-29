@@ -1,45 +1,45 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
-title: 挿入、更新、およびデータ (c#) の削除の概要 |Microsoft Docs
+title: データの挿入、更新、および削除の概要 (C#) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、ObjectDataSource の Insert()、Update() にマップする方法を見ていきます、構成する方法についても、BLL のメソッドに Delete() メソッドがクラスとしています.
+description: このチュートリアルでは、ObjectDataSource の Insert ()、Update ()、Delete () の各メソッドを BLL クラスのメソッドにマップする方法と、その方法について説明します。
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1329868766f0304d0f852b2e592eca1e21ef4d4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e26b8e841f86272a158b0c09b62ab2790d01d191
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134330"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74571431"
 ---
-# <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>挿入、更新、およびデータ (c#) の削除の概要
+# <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>データの挿入、更新、および削除の概要 (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_16_CS.exe)または[PDF のダウンロード](an-overview-of-inserting-updating-and-deleting-data-cs/_static/datatutorial16cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_16_CS.exe)または[PDF のダウンロード](an-overview-of-inserting-updating-and-deleting-data-cs/_static/datatutorial16cs1.pdf)
 
-> このチュートリアルでは、ObjectDataSource の Insert()、Update() にマップする方法を見ていき、データ変更の機能を提供する GridView、DetailsView と FormView コントロールを構成する方法についても、BLL のメソッドに Delete() メソッドのクラスします。
+> このチュートリアルでは、ObjectDataSource の Insert ()、Update ()、Delete () の各メソッドを、BLL クラスのメソッドにマップする方法と、GridView、DetailsView、および FormView コントロールを構成してデータ変更機能を提供する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-過去のいくつかのチュートリアルでは、GridView、DetailsView、FormView コントロールを使用して、ASP.NET ページにデータを表示する方法について説明しました。 これらのコントロールは、単に指定されたデータで動作します。 一般的には、これらのコントロール、ObjectDataSource などのデータ ソース コントロールを使用してデータにアクセスします。 ObjectDataSource は ASP.NET ページと基になるデータの間のプロキシとして機能する方法を説明しました。 GridView では、データを表示する必要があります、その ObjectDataSource が呼び出されます`Select()`メソッドから、ビジネス ロジック層 (BLL)、適切なデータ アクセス層の (DAL) のメソッドを呼び出したメソッドが呼び出されます、TableAdapter が送信されますが、`SELECT` Northwind データベースにクエリします。
+これまでのいくつかのチュートリアルでは、GridView、DetailsView、FormView コントロールを使用して ASP.NET ページにデータを表示する方法を説明しました。 これらのコントロールは、指定されたデータを操作するだけです。 一般的に、これらのコントロールは、ObjectDataSource などのデータソースコントロールを使用してデータにアクセスします。 ObjectDataSource が、ASP.NET ページと基になるデータの間のプロキシとしてどのように機能するかを見てきました。 GridView でデータを表示する必要がある場合は、ObjectDataSource の `Select()` メソッドを呼び出します。このメソッドは、適切なデータアクセス層 (DAL) TableAdapter のメソッドを呼び出し、さらに Northwind データベースに `SELECT` クエリを送信する、ビジネスロジック層 (BLL) からメソッドを呼び出します。
 
-DAL で Tableadapter を作成したときにいずれ[、最初のチュートリアル](../introduction/creating-a-data-access-layer-cs.md)、Visual Studio が自動的に追加メソッドの挿入、更新、およびデータベース テーブルを基になるからデータを削除しています。 さらに、[ビジネス ロジック層を作成する](../introduction/creating-a-business-logic-layer-cs.md)これらのデータ変更 DAL メソッドにと呼ばれる BLL のメソッドを設計しました。
+[最初のチュートリアル](../introduction/creating-a-data-access-layer-cs.md)では、DAL で tableadapter を作成したときに、基になるデータベーステーブルのデータの挿入、更新、および削除を行うためのメソッドが Visual Studio によって自動的に追加されたことを思い出してください。 さらに、[ビジネスロジック層を作成する際](../introduction/creating-a-business-logic-layer-cs.md)に、これらのデータ変更 DAL メソッドに呼び出される BLL のメソッドを設計しました。
 
-加え、`Select()`メソッド、ObjectDataSource も`Insert()`、 `Update()`、および`Delete()`メソッド。 ように、`Select()`メソッドでは、これら 3 つのメソッドは、基になるオブジェクトでメソッドにマップすることができます。 挿入、更新、またはデータを削除するように構成、GridView、DetailsView、FormView コントロールは、基になるデータを変更するためユーザー インターフェイスを提供します。 このユーザー インターフェイスを呼び出す、 `Insert()`、 `Update()`、および`Delete()`基になるオブジェクトを呼び出して、ObjectDataSource のメソッドに関連付けられているメソッド (図 1 参照)。
+`Select()` メソッドに加えて、ObjectDataSource には、`Insert()`、`Update()`、および `Delete()` メソッドもあります。 `Select()` メソッドと同様に、これら3つのメソッドは、基になるオブジェクトのメソッドにマップできます。 データの挿入、更新、または削除を行うように構成した場合、GridView、DetailsView、および FormView コントロールには、基になるデータを変更するためのユーザーインターフェイスが用意されています。 このユーザーインターフェイスは、ObjectDataSource の `Insert()`、`Update()`、および `Delete()` メソッドを呼び出します。このメソッドは、基になるオブジェクトの関連付けられたメソッドを呼び出します (図1を参照)。
 
-[![ObjectDataSource の Insert()、Update()、および Delete() メソッド、BLL にプロキシとして機能します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image1.png)
+[ObjectDataSource の Insert ()、Update ()、Delete () の各メソッドが、BLL にプロキシとして機能する ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image1.png)
 
-**図 1**:ObjectDataSource の`Insert()`、 `Update()`、および`Delete()`メソッドは、BLL にプロキシとして機能 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image3.png))。
+**図 1**: ObjectDataSource の `Insert()`、`Update()`、および `Delete()` メソッドは、BLL にプロキシとして機能します ([クリックすると、フルサイズのイメージが表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image3.png)されます)。
 
-このチュートリアルでは ObjectDataSource をマップする方法を見ていきます`Insert()`、 `Update()`、および`Delete()`BLL とデータの変更を提供する GridView、DetailsView と FormView コントロールを構成する方法でクラスのメソッドをメソッド機能。
+このチュートリアルでは、ObjectDataSource の `Insert()`、`Update()`、および `Delete()` メソッドを BLL のクラスのメソッドにマップする方法と、GridView、DetailsView、および FormView コントロールを構成してデータ変更機能を提供する方法について説明します。
 
-## <a name="step-1-creating-the-insert-update-and-delete-tutorials-web-pages"></a>手順 1: Insert、Update、および Delete のチュートリアルの Web ページを作成します。
+## <a name="step-1-creating-the-insert-update-and-delete-tutorials-web-pages"></a>手順 1: 挿入、更新、および削除のチュートリアル Web ページの作成
 
-挿入、更新、およびデータを削除する方法の調査を始める前にまずみましょう。 このチュートリアルの次のいくつかの必要がありますが、web サイト プロジェクトで、ASP.NET ページを作成します。 という名前の新しいフォルダーを追加することで開始`EditInsertDelete`します。 次に、次の ASP.NET ページを使用する各ページに関連付けることを確認、そのフォルダーに追加、`Site.master`マスター ページ。
+データの挿入、更新、削除の方法を確認する前に、まず、このチュートリアルに必要な ASP.NET ページを web サイトプロジェクトに作成し、次のいくつかの作業を行います。 まず、`EditInsertDelete`という名前の新しいフォルダーを追加します。 次に、次の ASP.NET ページをそのフォルダーに追加します。各ページは `Site.master` マスターページに関連付けられていることを確認してください。
 
 - `Default.aspx`
 - `Basics.aspx`
@@ -51,329 +51,329 @@ DAL で Tableadapter を作成したときにいずれ[、最初のチュート�
 - `ConfirmationOnDelete.aspx`
 - `UserLevelAccess.aspx`
 
-![データの変更に関連するチュートリアルについては、ASP.NET ページを追加します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image4.png)
+![データ変更関連のチュートリアルの ASP.NET ページを追加する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image4.png)
 
-**図 2**:データの変更に関連するチュートリアルについては、ASP.NET ページを追加します。
+**図 2**: データ変更に関連するチュートリアルの ASP.NET ページを追加する
 
-などの他のフォルダーで`Default.aspx`で、`EditInsertDelete`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`ページの デザイン ビューの ソリューション エクスプ ローラーからドラッグしています。
+他のフォルダーと同様に、`EditInsertDelete` フォルダー内の `Default.aspx` には、そのセクションのチュートリアルが一覧表示されます。 `SectionLevelTutorialListing.ascx` ユーザーコントロールがこの機能を提供していることを思い出してください。 そのため、ソリューションエクスプローラーからページのデザインビューにドラッグして、このユーザーコントロールを `Default.aspx` に追加します。
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
+[SectionLevelTutorialListing ユーザーコントロールを default.aspx に追加 ![には](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
 
-**図 3**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png))。
+**図 3**: `Default.aspx` に `SectionLevelTutorialListing.ascx` ユーザーコントロールを追加する ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png)されます)
 
-最後に、ページに追加するエントリとして、`Web.sitemap`ファイル。 具体的には、カスタマイズされた書式設定後、次のマークアップを追加`<siteMapNode>`:
+最後に、`Web.sitemap` ファイルにエントリとしてページを追加します。 具体的には、カスタマイズされた書式設定 `<siteMapNode>`後に、次のマークアップを追加します。
 
 [!code-xml[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample1.xml)]
 
-更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューには、編集、挿入、および削除のチュートリアルの項目が含まれています。
+`Web.sitemap`を更新した後、ブラウザーを使用してチュートリアル web サイトを表示します。 左側のメニューには、チュートリアルの編集、挿入、および削除を行うための項目が含まれています。
 
-![サイト マップには、編集、挿入、および削除のチュートリアルのエントリが含まれますようになりました](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image8.png)
+![サイトマップに、チュートリアルの編集、挿入、および削除のエントリが含まれるようになりました。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image8.png)
 
-**図 4**:サイト マップには、編集、挿入、および削除のチュートリアルのエントリが含まれますようになりました
+**図 4**: サイトマップに、チュートリアルの編集、挿入、および削除のエントリが含まれるようになりました。
 
-## <a name="step-2-adding-and-configuring-the-objectdatasource-control"></a>手順 2: 追加と ObjectDataSource コントロールの構成
+## <a name="step-2-adding-and-configuring-the-objectdatasource-control"></a>手順 2: ObjectDataSource コントロールの追加と構成
 
-以降、GridView、DetailsView、およびフォーム ビューのデータ変更の機能とレイアウトにそれぞれが異なる、それぞれを個別に調べてみましょう。 独自の ObjectDataSource を使用して各コントロールがあるのではなく、作成しましょう 3 つのコントロールのすべての例を共有できる単一の ObjectDataSource。
+GridView、DetailsView、および FormView はそれぞれデータ変更機能とレイアウトが異なるため、それぞれを個別に調べてみましょう。 ただし、各コントロールで独自の ObjectDataSource を使用するのではなく、3つのコントロールの例すべてで共有できる単一の ObjectDataSource を作成しましょう。
 
-開く、 `Basics.aspx`  ページで、ObjectDataSource をツールボックスからデザイナーにドラッグして、スマート タグからのデータ ソースの構成のリンクをクリックします。 以降、`ProductsBLL`は編集、挿入、および削除メソッドでは、このクラスを使用する ObjectDataSource を構成するだけの BLL クラスです。
+`Basics.aspx` ページを開き、ObjectDataSource をツールボックスからデザイナーにドラッグし、そのスマートタグから [データソースの構成] リンクをクリックします。 `ProductsBLL` は、編集、挿入、および削除メソッドを提供する唯一の BLL クラスであるため、このクラスを使用するように ObjectDataSource を構成します。
 
-[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
+[製品の Bll クラスを使用するように ObjectDataSource を構成 ![には](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
 
-**図 5**:構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))。
+**図 5**: `ProductsBLL` クラスを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))
 
-次の画面のどのような方法を指定できます、`ProductsBLL`クラスは、ObjectDataSource にマップされます`Select()`、 `Insert()`、`Update()`と`Delete()`適切なタブを選択し、ドロップダウン リストからメソッドを選択します。 図 6 は、ここまでで見慣れた、ObjectDataSource のマップ`Select()`メソッドを`ProductsBLL`クラスの`GetProducts()`メソッド。 `Insert()`、 `Update()`、および`Delete()`メソッドは、上部にある一覧から適切なタブを選択して構成できます。
+次の画面では、適切なタブを選択し、ドロップダウンリストからメソッドを選択することにより、`ProductsBLL` クラスのメソッドを ObjectDataSource の `Select()`、`Insert()`、`Update()`、および `Delete()` にどのようにマップするかを指定できます。 図6は今ではよく見られるはずですが、ObjectDataSource の `Select()` メソッドを `ProductsBLL` クラスの `GetProducts()` メソッドにマップします。 `Insert()`、`Update()`、および `Delete()` の各メソッドを構成するには、上部にある一覧から適切なタブを選択します。
 
-[![ObjectDataSource 返すすべての製品](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image12.png)
+[ObjectDataSource がすべての製品を返す ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image12.png)
 
-**図 6**:ObjectDataSource を返すすべての製品がある ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image14.png))。
+**図 6**: ObjectDataSource によってすべての製品が返されるよう[にする (クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image14.png)されます)
 
-図 7、8、および 9 ObjectDataSource の更新、挿入、および削除を表示するタブで行います。 これらのタブを構成できるように、 `Insert()`、`Update()`と`Delete()`メソッドを呼び出す、`ProductsBLL`クラスの`UpdateProduct`、`AddProduct`と`DeleteProduct`メソッド、それぞれします。
+図7、8、および9は、ObjectDataSource の [更新] タブ、[挿入] タブ、および [削除] タブを示しています。 これらのタブを構成して、`Insert()`、`Update()`、および `Delete()` メソッドが、それぞれ `ProductsBLL` クラスの `UpdateProduct`、`AddProduct`、および `DeleteProduct` メソッドを呼び出すようにします。
 
-[![ObjectDataSource の Update() メソッドを ProductBLL クラスの UpdateProduct メソッドにマップします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
+[ObjectDataSource の Update () メソッドを ProductBLL クラスの UpdateProduct メソッドにマップ ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
 
-**図 7**:ObjectDataSource のマップ`Update()`メソッドを`ProductBLL`クラスの`UpdateProduct`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))。
+**図 7**: ObjectDataSource の `Update()` メソッドを `ProductBLL` クラスの `UpdateProduct` メソッドにマップする ([クリックしてフルサイズのイメージを表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))
 
-[![ObjectDataSource の Insert() メソッドを ProductBLL クラスの AddProduct メソッドにマップします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
+[ObjectDataSource の Insert () メソッドを ProductBLL クラスの AddProduct メソッドにマップ ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
 
-**図 8**:ObjectDataSource のマップ`Insert()`メソッドを`ProductBLL`クラスの追加`Product`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))。
+**図 8**: ObjectDataSource の `Insert()` メソッドを `ProductBLL` クラスの Add `Product` メソッドにマップする ([クリックしてフルサイズのイメージを表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))
 
-[![ObjectDataSource の Delete() メソッドを ProductBLL クラスの DeleteProduct メソッドにマップします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
+[ObjectDataSource の Delete () メソッドを ProductBLL クラスの DeleteProduct メソッドにマップ ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
 
-**図 9**:ObjectDataSource のマップ`Delete()`メソッドを`ProductBLL`クラスの`DeleteProduct`メソッド ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))。
+**図 9**: ObjectDataSource の `Delete()` メソッドを `ProductBLL` クラスの `DeleteProduct` メソッドにマップする ([クリックしてフルサイズのイメージを表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))
 
-お気付き UPDATE、INSERT、および DELETE の各タブで、ドロップダウン リストが既に選択されているこれらのメソッドを持っています。 これを使用するのに協力してくれた、`DataObjectMethodAttribute`のメソッドを装飾する`ProductsBLL`します。 たとえば、DeleteProduct メソッドは、次のシグネチャを持ちます。
+[更新]、[挿入]、[削除] の各タブのドロップダウンリストには、これらのメソッドが既に選択されています。 これは、`ProductsBLL`のメソッドを装飾する `DataObjectMethodAttribute` を使用したことによるものです。 たとえば、DeleteProduct メソッドには次のシグネチャがあります。
 
 [!code-csharp[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample2.cs)]
 
-`DataObjectMethodAttribute`属性を選択、挿入、更新、または削除およびかどうか、既定値は、各メソッドの目的を示します。 これらの属性を省略すると、BLL クラスを作成するときに、必要があります、更新プログラムからメソッドを手動で選択を挿入するしタブを削除します。
+`DataObjectMethodAttribute` 属性は、選択、挿入、更新、または削除の各メソッドの目的を示し、既定値であるかどうかを示します。 BLL クラスの作成時にこれらの属性を省略した場合は、[更新]、[挿入]、[削除] の各タブからメソッドを手動で選択する必要があります。
 
-適切なことを確認した後は`ProductsBLL`メソッドは、ObjectDataSource にマップされます`Insert()`、`Update()`と`Delete()`メソッドは、ウィザードを完了するには、[完了] をクリックします。
+適切な `ProductsBLL` メソッドが ObjectDataSource の `Insert()`、`Update()`、および `Delete()` の各メソッドにマップされていることを確認したら、[完了] をクリックしてウィザードを完了します。
 
 ## <a name="examining-the-objectdatasources-markup"></a>ObjectDataSource のマークアップを調べる
 
-ObjectDataSource ウィザードを構成した後は、生成された宣言型マークアップを確認する、ソース ビューに移動します。 `<asp:ObjectDataSource>`タグは、基になるオブジェクトとメソッドを呼び出すを指定します。 さらに、ある`DeleteParameters`、 `UpdateParameters`、および`InsertParameters`の入力パラメーターにマップされる、`ProductsBLL`クラスの`AddProduct`、 `UpdateProduct`、および`DeleteProduct`メソッド。
+ウィザードを使用して ObjectDataSource を構成した後、ソースビューにアクセスして、生成された宣言マークアップを確認します。 `<asp:ObjectDataSource>` タグは、基になるオブジェクトと呼び出すメソッドを指定します。 さらに、`ProductsBLL` クラスの `AddProduct`、`UpdateProduct`、および `DeleteProduct` メソッドの入力パラメーターにマップされる `DeleteParameters`、`UpdateParameters`、および `InsertParameters` があります。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample3.aspx)]
 
-ObjectDataSource の一覧と同様に、その関連付けられているメソッドの入力パラメーターの各パラメーターが含まれる`SelectParameter`s が存在する入力パラメーターが必要とする選択メソッドを呼び出して、ObjectDataSource が構成されている場合 (など`GetProductsByCategoryID(categoryID)`). ご覧のとおり、これらの値`DeleteParameters`、 `UpdateParameters`、および`InsertParameters`GridView、DetailsView、FormView して ObjectDataSource を呼び出す前に自動的に設定されます`Insert()`、 `Update()`、または`Delete()`メソッド。 これらの値も設定できます必要に応じて、プログラムによって、今後のチュートリアルで後ほど説明します。
+ObjectDataSource には、関連付けられているメソッドの各入力パラメーターのパラメーターが含まれています。これは、ObjectDataSource が、入力パラメーター (`GetProductsByCategoryID(categoryID)`など) を必要とする select メソッドを呼び出すように構成されている場合に、`SelectParameter` のリストと同様に存在します。 後で説明するように、これらの `DeleteParameters`、`UpdateParameters`、および `InsertParameters` の値は、ObjectDataSource の `Insert()`、`Update()`、または `Delete()` メソッドを呼び出す前に、GridView、DetailsView、および FormView によって自動的に設定されます。 これらの値は、後のチュートリアルで説明するように、必要に応じてプログラムで設定することもできます。
 
-ObjectDataSource するように構成ウィザードを使用する 1 つの副作用は、Visual Studio が設定される、 [OldValuesParameterFormatString プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx)に`original_{0}`します。 このプロパティの値は編集対象のデータの元の値を含めるために使用し、は 2 つのシナリオで役立ちます。
+ウィザードを使用して ObjectDataSource に構成する副作用の1つは、Visual Studio が[Oldvaluesparameterformatstring プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx)を `original_{0}`に設定することです。 このプロパティ値は、編集中のデータの元の値を含めるために使用され、次の2つのシナリオで役立ちます。
 
-- レコードを編集するには、ユーザーは主キーの値を変更できます。 場合、 この場合、新しい主キーの値と元のプライマリ キー値の両方必要があります指定する元のプライマリ キー値を持つレコードが見つかりませんを適宜更新されるよう、その値を持つようにします。
-- ときに、オプティミスティック同時実行制御を使用します。 オプティミスティック同時実行することを確認する 2 つの手法は、同時ユーザーは、1 つに相互の変更を上書きしないでくださいし、今後のチュートリアルのトピックでは、します。
+- レコードを編集するときに、ユーザーは主キーの値を変更できます。 この場合、元の主キー値を持つレコードが見つかり、それに応じて値が更新されるように、新しい主キー値と元の主キー値の両方を指定する必要があります。
+- オプティミスティック同時実行制御を使用する場合。 オプティミスティック同時実行制御は、2人のユーザーが互いの変更を上書きしないようにするための手法であり、今後のチュートリアルのトピックです。
 
-`OldValuesParameterFormatString`プロパティは、基になるオブジェクトの更新プログラムと元の値を delete メソッドで、入力パラメーターの名前を示します。 オプティミスティック同時実行制御について説明している場合は、このプロパティは、さらに詳しくは、その目的について説明します。 起動します。 ここで、ただし、BLL のメソッドでは、元の値が予期しないであるため、このプロパティを削除重要なためです。 終了、`OldValuesParameterFormatString`プロパティの既定値以外に設定 (`{0}`) データ Web コントロールが呼び出す ObjectDataSource のしようとしたときにエラーが発生`Update()`または`Delete()`メソッド、ObjectDataSource があるため両方に渡して、`UpdateParameters`または`DeleteParameters`元の値のパラメーターと共に指定されています。
+`OldValuesParameterFormatString` プロパティは、元の値の基になるオブジェクトの update メソッドと delete メソッドの入力パラメーターの名前を示します。 オプティミスティック同時実行制御の詳細については、このプロパティとその目的について詳しく説明します。 ただし、BLL のメソッドは元の値を予期していないため、このプロパティを削除することが重要です。 `OldValuesParameterFormatString` プロパティを既定値 (`{0}`) 以外に設定したままにすると、ObjectDataSource は、指定された `UpdateParameters` または `DeleteParameters` と元の値のパラメーターの両方を渡そうとするため、ObjectDataSource の `Update()` または `Delete()` メソッドを呼び出そうとするとエラーが発生します。
 
-そうではそれほど明確この時点で、ご心配なく、今後のチュートリアルでこのプロパティは、そのユーティリティについて見ていきましょう。 ここでは、だけにする宣言構文から完全にこのプロパティの宣言を削除するか、既定値に値を設定する ({0})。
+この時点ではそれほど明確でない場合は、今後のチュートリアルでこのプロパティとユーティリティを確認します。 ここでは、このプロパティの宣言を宣言構文から完全に削除するか、値を既定値 ({0}) に設定するだけであることを確認してください。
 
 > [!NOTE]
-> だけオフにした場合、`OldValuesParameterFormatString`プロパティ [デザイン] ビューで [プロパティ] ウィンドウからプロパティ値が宣言の構文ではそのままが空の文字列に設定します。 これには、残念ながら、引き続き、前に説明した同じ問題が発生されます。 そのため、削除するか完全宣言の構文から、または、[プロパティ] ウィンドウからプロパティ値を既定の`{0}`します。
+> デザインビューのプロパティウィンドウから `OldValuesParameterFormatString` プロパティ値をクリアするだけの場合、プロパティは宣言構文に存在しますが、空の文字列に設定されます。 残念ながら、これまでに説明したのと同じ問題が発生します。 したがって、宣言構文からプロパティを完全に削除するか、プロパティウィンドウから、値を既定の `{0}`に設定します。
 
-## <a name="step-3-adding-a-data-web-control-and-configuring-it-for-data-modification"></a>手順 3: データ Web コントロールを追加して、データ変更のための構成
+## <a name="step-3-adding-a-data-web-control-and-configuring-it-for-data-modification"></a>手順 3: データ Web コントロールを追加し、データ変更用に構成する
 
-ObjectDataSource は、ページに追加され、構成されているとは、両方は、データを表示し、エンドユーザーを修正するための手段を提供するページにデータ Web コントロールを追加する準備ができました。 見て GridView、DetailsView、およびフォーム ビューとは別に、これらのデータ Web コントロールのデータ変更の機能と構成が異なるとします。
+ObjectDataSource がページに追加され、構成されたら、データを表示するためのページにデータ Web コントロールを追加し、エンドユーザーがデータを変更するための手段を提供できるようになります。 これらのデータ Web コントロールはデータ変更機能と構成が異なるため、GridView、DetailsView、FormView を個別に見ていきます。
 
-見て、この記事の残りの部分で非常に基本的な編集、挿入、および GridView、DetailsView、を通じてサポートを削除するを追加すると、コントロールと FormView コントロールは、実際に、いくつかのチェック ボックスをチェックだけです。 多くの細部とのみポイント アンド クリックしてより複雑なこのような機能を提供することで現実世界のエッジ ケースがあります。 このチュートリアルは、単純なデータ変更の機能を証明するのみに焦点を当てています。 今後のチュートリアルでは、必ず実際の設定で発生する問題を確認します。
+この記事の残りの部分で説明するように、GridView、DetailsView、および FormView コントロールを使用した基本的な編集、挿入、および削除のサポートの追加は、いくつかのチェックボックスをオンにするだけで簡単に行うことができます。 実際の世界には、ポイントアンドクリックだけでなく、このような機能を提供するという、多くの微妙な要素とエッジケースがあります。 ただし、このチュートリアルでは、単純データ変更機能の提供にのみ焦点を当てています。 今後のチュートリアルでは、現実世界の設定で発生する可能性がある問題を調査します。
 
-## <a name="deleting-data-from-the-gridview"></a>GridView からデータを削除します。
+## <a name="deleting-data-from-the-gridview"></a>GridView からのデータの削除
 
-GridView をツールボックスからデザイナーにドラッグして開始します。 次に、GridView のスマート タグでドロップダウン リストから選択して、GridView を ObjectDataSource をバインドします。 この時点で、GridView の宣言型マークアップになります。
+まず、GridView をツールボックスからデザイナーにドラッグします。 次に、gridview のスマートタグのドロップダウンリストから ObjectDataSource を選択して、その ObjectDataSource を GridView にバインドします。 この時点で、GridView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample4.aspx)]
 
-ObjectDataSource のスマート タグを GridView にバインドすると、2 つの利点があります。
+そのスマートタグを通じて、GridView を ObjectDataSource にバインドすると、次の2つの利点があります。
 
-- BoundFields と CheckBoxFields は ObjectDataSource によって返されるフィールドの各自動的に作成されます。 さらに、BoundField および CheckBoxField のプロパティは、基になるフィールドのメタデータに基づいて設定されます。 たとえば、 `ProductID`、`CategoryName`と`SupplierName`フィールドは読み取り専用とでマークされて、`ProductsDataTable`したがってすべき更新可能なを編集するときとします。 この、これらの BoundFields を対応するために[読み取り専用プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx)に設定されている`true`します。
-- [DataKeyNames プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx)は基になるオブジェクトの主キー フィールドに割り当てられます。 これは、プロセスの編集または削除、データのフィールド (または一連のフィールド) に、このプロパティが示すとおり、GridView を使用している一意な各レコードを識別します。 詳細については、`DataKeyNames`プロパティに戻って、[マスター/詳細 DetailView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)チュートリアル。
+- BoundFields と CheckBoxFields は、ObjectDataSource によって返される各フィールドに対して自動的に作成されます。 さらに、BoundField プロパティと CheckBoxField プロパティは、基になるフィールドのメタデータに基づいて設定されます。 たとえば、`ProductID`、`CategoryName`、および `SupplierName` フィールドは `ProductsDataTable` で読み取り専用としてマークされているので、編集時に更新できないようにします。 これに対応するために、これらの BoundFields の[ReadOnly プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx)は `true`に設定されます。
+- [いる datakeynames プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx)は、基になるオブジェクトの主キーフィールドに割り当てられます。 これは、データを編集または削除するために GridView を使用する場合に不可欠です。このプロパティは、一意に各レコードを識別するフィールド (またはフィールドのセット) を示します。 `DataKeyNames` プロパティの詳細については、「詳細情報ビューを使用し[た選択可能なマスター GridView を使用したマスター/詳細](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)」を参照してください。
 
-GridView は、[プロパティ] ウィンドウまたは宣言の構文を ObjectDataSource にバインドできます、そう必要があります手動で追加する適切な BoundField と`DataKeyNames`マークアップ。
+GridView はプロパティウィンドウまたは宣言型の構文を通じて ObjectDataSource にバインドできますが、そのためには、適切な BoundField および `DataKeyNames` マークアップを手動で追加する必要があります。
 
-GridView コントロールは、行レベルの編集および削除するための組み込みサポートを提供します。 構成の削除をサポートするために GridView 列の削除ボタンを追加します。 エンドユーザーは、特定の行の削除ボタンをクリックすると、ポストバックに陥ります、GridView は、次の手順を実行します。
+GridView コントロールには、行レベルの編集と削除のサポートが組み込まれています。 削除をサポートするように GridView を構成すると、削除ボタンの列が追加されます。 エンドユーザーが特定の行の [削除] ボタンをクリックすると、ポストバック ensues と GridView によって次の手順が実行されます。
 
-1. ObjectDataSource の`DeleteParameters`値が割り当てられています。
-2. ObjectDataSource の`Delete()`メソッドが呼び出される、指定されたレコードを削除します。
-3. GridView を再バインド自体、ObjectDataSource を呼び出すことによってその`Select()`メソッド
+1. ObjectDataSource の `DeleteParameters` 値が割り当てられています
+2. ObjectDataSource の `Delete()` メソッドが呼び出され、指定されたレコードが削除されます。
+3. GridView は、`Select()` メソッドを呼び出すことによって、それ自体を ObjectDataSource に再バインドします。
 
-割り当てられた値、`DeleteParameters`の値は、`DataKeyNames`の Delete ボタンがクリックされた行のフィールド。 したがってことが重要する GridView の`DataKeyNames`プロパティが正しく設定します。 存在しない場合、`DeleteParameters`が割り当てられる、`null`さらに、いずれかでは発生しませんが、手順 1. の値は、手順 2. でレコードを削除します。
+`DeleteParameters` に割り当てられた値は、[削除] ボタンがクリックされた行の `DataKeyNames` フィールドの値です。 そのため、GridView の `DataKeyNames` プロパティを正しく設定することが重要です。 存在しない場合は、手順 1. で `DeleteParameters` に `null` 値が割り当てられます。これにより、手順2で削除されたレコードが生成されることはありません。
 
 > [!NOTE]
-> `DataKeys`つまり GridView のコントロールの状態でコレクションが格納された、`DataKeys`値は、GridView のビュー ステートが無効になっている場合でもポストバック間で記憶されます。 ただし、編集または削除 (既定の動作) をサポートする Gridview のビュー ステートを有効のままことが非常に重要です。 GridView 秒に設定した場合`EnableViewState`プロパティを`false`、編集と削除の動作は、1 人のユーザーを問題なく動作が、同時実行ユーザーがデータを削除する場合は、これらの同時実行ユーザーが誤ってが発生する可能性が存在するがあります削除またはつもりがなかったレコードを編集します。 私のブログ記事を参照してください。[警告。同時実行を発行するサポートの編集を ASP.NET 2.0 Gridview と DetailsView/FormViews や削除、およびをビュー ステートが無効になっている](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx)、詳細についてはします。
+> `DataKeys` コレクションは GridView s コントロール状態に格納されます。つまり、GridView のビューステートが無効になっている場合でも、ポストバック全体で `DataKeys` 値が記憶されます。 ただし、編集または削除 (既定の動作) をサポートする GridViews では、ビューステートが有効なままであることが非常に重要です。 GridView の `EnableViewState` プロパティを `false`に設定した場合、編集と削除の動作は1人のユーザーに対して正常に機能しますが、同時実行ユーザーがデータを削除している場合は、これらの同時実行ユーザーが意図していないレコードを誤って削除または編集する可能性があります。 詳細については、「マイブログの記事、[警告: 編集や削除をサポートし、ビューステートが無効になっている ASP.NET 2.0 GridViews/DetailsView/formviews での同時実行の問題](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx)」を参照してください。
 
-この同じ警告は、DetailsViews FormViews にも適用されます。
+この警告は、[表示] ビューおよび [フォーム] ビューにも当てはまります。
 
-に GridView を削除する機能を追加するには、そのスマート タグに移動し、削除を有効にするチェック ボックスをオンします。
+GridView に削除機能を追加するには、単にそのスマートタグにアクセスし、[削除を有効にする] チェックボックスをオンにします。
 
-![有効にするチェック ボックスを削除するを確認してください。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
+![[削除を有効にする] チェックボックスをオンにします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
 
-**図 10**:有効にするチェック ボックスを削除するを確認してください。
+**図 10**: [削除を有効にする] チェックボックスをオンにする
 
-GridView に、[commandfield] を追加するスマート タグから削除を有効にするチェック ボックスをオンします。 [Commandfield] で、次のタスクの 1 つ以上を実行するためのボタンの GridView 列を表示します。 レコードの編集、レコードを削除するレコードを選択します。 以前の動作を内のレコードを選択すると [commandfield] を説明しました、[マスター/詳細の選択可能なマスター GridView を使用すると詳細 DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)チュートリアル。
+スマートタグから [削除を有効にする] チェックボックスをオンにすると、GridView に CommandField が追加されます。 CommandField は、GridView の列に、レコードの選択、レコードの編集、レコードの削除という1つ以上のタスクを実行するためのボタンを表示します。 前に、[詳細詳細ビューのチュートリアルで選択可能なマスター GridView を使用して、マスター/詳細](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)でレコードを選択する操作の commandfield を確認しました。
 
-[Commandfield] には数が含まれています`ShowXButton`プロパティを示す、[commandfield] でどのような一連のボタンが表示されます。 削除を有効にする、[commandfield] チェック ボックスをオンの`ShowDeleteButton`プロパティは`true`が GridView の列のコレクションに追加されました。
+CommandField には、CommandField に表示される一連のボタンを示す `ShowXButton` のプロパティが多数含まれています。 [削除を有効にする] チェックボックスをオンにすると、`ShowDeleteButton` プロパティが `true` である CommandField が GridView の Columns コレクションに追加されます。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample5.aspx)]
 
-この時点では、信じられないかもしれませんが、終わって GridView に削除のサポートを追加してください。 図 11 に示すようとブラウザーの削除ボタンの列からこのページにアクセスが存在します。
+信じられないかもしれませんが、GridView に削除サポートを追加しています。 図11に示すように、ブラウザーを使用してこのページにアクセスすると、[削除] ボタンの列が表示されます。
 
-[![[Commandfield] 列の削除ボタンを追加します](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
+[CommandField ![Delete ボタンの列が追加されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
 
-**図 11**:[Commandfield] ボタンを追加、列の削除 ([フルサイズの画像を表示するをクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image27.png))。
+**図 11**: Commandfield に Delete ボタンの列が追加される ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image27.png)されます)
 
-構築してきたこのチュートリアルを最初から自分でクリックすると、このページをテストするときに Delete ボタンに例外が発生します。 あとは、これらの例外が発生した理由とその解決方法について説明します。
-
-> [!NOTE]
-> このチュートリアルに付属するダウンロードを使用してに沿ってフォローしている場合は、これらの問題が既にされて反映されます。 ただし、発生する可能性のある問題と適切な回避策を特定するのには以下の詳細を読み取ることはお勧めします。
-
-メッセージがような例外が発生した商品を削除しようとすると場合は、"*ObjectDataSource 'ObjectDataSource1' 非ジェネリック メソッドのパラメーターを持つ ' DeleteProduct' が見つかりませんでした: productID、元\_ProductID*、"を削除し忘れた可能性があります、 `OldValuesParameterFormatString` ObjectDataSource からのプロパティ。 `OldValuesParameterFormatString`プロパティが指定されて、ObjectDataSource が両方に渡そう`productID`と`original_ProductID`に対する入力パラメーターは、`DeleteProduct`メソッド。 `DeleteProduct`、ただし、のみ 1 つ入力パラメーターを受け取り、そのため、例外。 削除、`OldValuesParameterFormatString`プロパティ (またはに設定すると`{0}`)、ObjectDataSource を元の入力パラメーターを渡すよう指示します。
-
-[![OldValuesParameterFormatString プロパティがクリアされたことを確認します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
-
-**図 12**:いることを確認、`OldValuesParameterFormatString`プロパティがされたクリア Out ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png))。
-
-削除した場合でも、`OldValuesParameterFormatString`プロパティはそれでも例外メッセージで商品を削除しようとするとき。"*、DELETE ステートメントと競合して参照制約 ' FK\_順序\_詳細\_製品の*"。Northwind データベースには間の外部キー制約が含まれています、`Order Details`と`Products`で 1 つまたは複数のレコードがある場合、製品をシステムから削除できないことを意味しているテーブル、`Order Details`テーブル。 Northwind データベースのすべての製品少なくとも 1 つのレコードを持つため`Order Details`製品、製品の関連付けられている注文の詳細レコードを削除する最初まで削除できません。
-
-[![外部キー制約には、製品の削除が禁止されています](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
-
-**図 13**:外部キー制約には、製品の削除が禁止されています ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png))。
-
-このチュートリアルでは、削除のすべてのレコードから、`Order Details`テーブル。 実際のアプリケーションでは、いずれかに必要があります。
-
-- 別の画面が注文の詳細情報を管理するには
-- 拡張、`DeleteProduct`メソッドを指定された製品の注文の詳細を削除するロジックを含める
-- TableAdapter を指定された製品の注文の詳細の削除を含めるために使用する SQL クエリを変更します。
-
-削除のすべてのレコードから、`Order Details`テーブルの外部キー制約を回避するためにします。 Visual Studio でサーバー エクスプ ローラーに移動しを右クリックし、`NORTHWND.MDF`ノード、新しいクエリを選択します。 次に、クエリ ウィンドウでは、次の SQL ステートメントを実行します。 `DELETE FROM [Order Details]`
-
-[![受注明細テーブルからすべてのレコードを削除します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
-
-**図 14**:すべてのレコードを削除、`Order Details`テーブル ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png))。
-
-消去した後に、`Order Details`テーブルの削除 ボタンをクリックするとエラーが発生せず、製品が削除されます。 GridView のことを確認する場合は、[削除] ボタンをクリックすると、製品が削除されることはできませんが確認`DataKeyNames`プロパティが主キー フィールドに設定 (`ProductID`)。
+このチュートリアルを独自に作成したことがある場合は、このページをテストするときに、[削除] ボタンをクリックすると例外が発生します。 これらの例外が発生した理由とその修正方法については、「」を参照してください。
 
 > [!NOTE]
-> [Delete] ボタンをクリックすると、ポストバックに陥りますされ、レコードが削除されます。 これは、誤って間違った行の削除 ボタンをクリックする簡単であるため危険であります。 今後のチュートリアルでは、レコードを削除するときに、クライアント側の確認を追加する方法を表示されます。
+> このチュートリアルに付属しているダウンロードを使用している場合は、これらの問題は既に記載されています。 ただし、以下に示す詳細を読んで、発生する可能性のある問題と適切な回避策を特定することをお勧めします。
 
-## <a name="editing-data-with-the-gridview"></a>GridView を使用してデータを編集
+製品を削除しようとしたときに、メッセージが "Objectdatasource ' ObjectDataSource1 ' に類似しているという例外が発生した場合は、*パラメーター: productid、original\_productid*、" objectdatasource から `OldValuesParameterFormatString` プロパティを削除し忘れた可能性があります。 `OldValuesParameterFormatString` プロパティが指定されている場合、ObjectDataSource は、`productID` と `original_ProductID` 入力パラメーターの両方を `DeleteProduct` メソッドに渡すことを試みます。 ただし `DeleteProduct`では、1つの入力パラメーターのみを受け入れるため、例外が発生します。 `OldValuesParameterFormatString` プロパティを削除する (またはそれを `{0}`に設定する) 場合、ObjectDataSource は元の入力パラメーターを渡さないように指示します。
 
-GridView コントロールには、削除、と共に組み込みの行レベルの編集機能も提供します。 構成の編集をサポートする GridView 編集ボタンの列を追加します。 行の編集 ボタンの原因に編集可能になる行をクリックすると、エンドユーザーの観点からは、既存の値を格納していると、更新プログラムの編集 ボタンと キャンセル ボタンを置換するテキスト ボックスに、セルにすること。 必要な変更を行った後、エンドユーザーは、変更をコミットする更新プログラムのボタンまたは [キャンセル] ボタンをクリックして破棄するクリックできます。 Update または [キャンセル] をクリックした後をどちらの場合、GridView は、編集済みの状態に戻ります。
+[OldValuesParameterFormatString プロパティがクリアされていることを ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
 
-ページの開発者としてマイクロソフトの展望からは、ポストバックに陥ります、エンドユーザーは、特定の行の編集 ボタンをクリックすると、し、GridView は、次の手順を実行します。
+**図 12**: `OldValuesParameterFormatString` プロパティがクリアされていることを確認[する (クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png)されます)
 
-1. GridView の`EditItemIndex`プロパティがある編集ボタンがクリックされた行のインデックスに割り当てられています。
-2. GridView を再バインド自体、ObjectDataSource を呼び出すことによってその`Select()`メソッド
-3. 一致する行インデックス、 `EditItemIndex` 「編集モード」で表示される。 このモードで編集 ボタンは、更新のキャンセル ボタンと BoundFields に置換されますが`ReadOnly`プロパティが False (既定値) テキスト ボックスに Web コントロールとしてレンダリングされます`Text`プロパティは、データ フィールドの値に割り当てられています。
+`OldValuesParameterFormatString` プロパティを削除した場合でも、次のようなメッセージで製品を削除しようとすると例外が発生します。 "*delete ステートメントは、参照制約 ' FK\_Order\_Details\_Products ' と競合*しています。Northwind データベースには、`Order Details` と `Products` テーブル間の外部キー制約が含まれています。つまり、`Order Details` テーブルに1つ以上のレコードがある場合、製品をシステムから削除することはできません。 Northwind データベースのすべての製品には `Order Details`に少なくとも1つのレコードがあるため、製品に関連付けられている注文明細レコードを最初に削除するまで、製品を削除することはできません。
 
-この時点で、マークアップは、エンドユーザーに行のデータを変更する、ブラウザーに返されます。 ユーザーは、[更新] ボタンをクリックすると、ポストバックが発生し、GridView は、次の手順を実行します。
+[外部キー制約を ![と、製品の削除が禁止されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
 
-1. ObjectDataSource の`UpdateParameters`値には、エンドユーザーが GridView の編集インターフェイスに入力した値が割り当てられます
-2. ObjectDataSource の`Update()`メソッドが呼び出される、指定されたレコードを更新しています
-3. GridView を再バインド自体、ObjectDataSource を呼び出すことによってその`Select()`メソッド
+**図 13**: 外部キー制約によって製品の削除が禁止される ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png)されます)
 
-割り当てられている主キーの値、`UpdateParameters`手順 1. で指定された値から取得、`DataKeyNames`プロパティが編集された行の TextBox Web コントロールのテキストを取得する非プライマリ キー値。 削除するには、必須を GridView の`DataKeyNames`プロパティが正しく設定します。 存在しない場合、`UpdateParameters`主キーの値が割り当てられる、`null`さらに、いずれかでは発生しませんが、手順 1. の値は、手順 2. でレコードを更新します。
+このチュートリアルでは、`Order Details` テーブルからすべてのレコードを削除してみましょう。 実際のアプリケーションでは、次のいずれかを行う必要があります。
 
-GridView のスマート タグの編集を有効にするチェック ボックスをチェックするだけでは、編集機能をアクティブ化することができます。
+- 注文の詳細情報を管理する別の画面を用意する
+- 指定された製品の注文の詳細を削除するロジックを含めるように `DeleteProduct` メソッドを強化します。
+- 指定された製品の注文の詳細の削除を含むように、TableAdapter によって使用される SQL クエリを変更します。
 
-![確認のチェック ボックスの編集を有効にします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image37.png)
+`Order Details` テーブルからすべてのレコードを削除して、foreign key 制約を回避してみましょう。 Visual Studio のサーバーエクスプローラーにアクセスし、[`NORTHWND.MDF`] ノードを右クリックして、[新しいクエリ] を選択します。 次に、クエリウィンドウで、次の SQL ステートメントを実行します。 `DELETE FROM [Order Details]`
 
-**図 15**:確認のチェック ボックスの編集を有効にします。
+[Order Details テーブルからすべてのレコードを削除 ![には](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
 
-編集を有効にする チェック ボックスは、(必要な) 場合、commandfield に追加されますをチェックし、セット、`ShowEditButton`プロパティを`true`します。 [Commandfield] には数が含まれています前述のように、`ShowXButton`プロパティを示す、[commandfield] でどのような一連のボタンが表示されます。 追加の編集を有効にするチェック ボックスをオン、`ShowEditButton`プロパティを既存の [commandfield]。
+**図 14**: `Order Details` テーブルからすべてのレコードを削除[する (クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png)されます)
+
+`Order Details` テーブルをクリアした後、[削除] ボタンをクリックすると、エラーが発生することなく製品が削除されます。 [削除] ボタンをクリックしても製品が削除されない場合は、GridView の `DataKeyNames` プロパティが主キーフィールド (`ProductID`) に設定されていることを確認します。
+
+> [!NOTE]
+> [削除] ボタンをクリックすると、ポストバック ensues とレコードが削除されます。 間違った行の [削除] ボタンを誤ってクリックすることは簡単であるため、これは危険になる可能性があります。 今後のチュートリアルでは、レコードの削除時にクライアント側の確認を追加する方法について説明します。
+
+## <a name="editing-data-with-the-gridview"></a>GridView を使用したデータの編集
+
+GridView コントロールでは、削除と共に、組み込みの行レベルの編集もサポートされています。 編集をサポートするように GridView を構成すると、編集ボタンの列が追加されます。 エンドユーザーの観点からは、行の [編集] ボタンをクリックすると、その行が編集可能になり、既存の値を含むテキストボックスにセルを変換し、[編集] ボタンを [更新] ボタンと [キャンセル] ボタンに置き換えます。 必要な変更を行った後、エンドユーザーは [更新] ボタンをクリックして変更をコミットするか、[キャンセル] ボタンをクリックして変更を破棄することができます。 どちらの場合も、[更新] または [キャンセル] をクリックすると、GridView は編集前の状態に戻ります。
+
+ページ開発者としての観点から、エンドユーザーが特定の行の [編集] ボタンをクリックすると、ポストバック ensues と GridView によって次の手順が実行されます。
+
+1. GridView の `EditItemIndex` プロパティは、編集ボタンがクリックされた行のインデックスに割り当てられます。
+2. GridView は、`Select()` メソッドを呼び出すことによって、それ自体を ObjectDataSource に再バインドします。
+3. `EditItemIndex` に一致する行インデックスは、"編集モード" で表示されます。 このモードでは、[編集] ボタンは、[更新] ボタンと [キャンセル] ボタン、および `ReadOnly` プロパティが False (既定値) になっている連結フィールドに置き換えられ、`Text` のプロパティがデータフィールドの値に割り当てられます。
+
+この時点で、マークアップがブラウザーに返され、エンドユーザーは行のデータに変更を加えることができます。 ユーザーが [更新] ボタンをクリックすると、ポストバックが発生し、GridView は次の手順を実行します。
+
+1. ObjectDataSource の `UpdateParameters` 値には、エンドユーザーが GridView の編集インターフェイスに入力した値が割り当てられます。
+2. ObjectDataSource の `Update()` メソッドが呼び出され、指定されたレコードを更新しています
+3. GridView は、`Select()` メソッドを呼び出すことによって、それ自体を ObjectDataSource に再バインドします。
+
+手順 1. で `UpdateParameters` に割り当てられた主キー値は、`DataKeyNames` プロパティで指定された値から取得されますが、非主キー値は、編集された行のテキストボックス Web コントロールのテキストから取得されます。 削除と同様に、GridView の `DataKeyNames` プロパティを正しく設定することが重要です。 存在しない場合は、手順 1. で `UpdateParameters` 主キーの値に `null` 値が割り当てられます。これにより、手順 2. で更新されたレコードは生成されません。
+
+編集機能は、GridView のスマートタグの [編集を有効にする] チェックボックスをオンにするだけでアクティブにすることができます。
+
+![[編集を有効にする] チェックボックスをオンにします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image37.png)
+
+**図 15**: [編集を有効にする] チェックボックスをオンにする
+
+[編集を有効にする] チェックボックスをオンにすると、必要に応じて CommandField が追加され、その `ShowEditButton` プロパティが `true`に設定されます。 前に説明したように、commandfield には、CommandField に表示される一連のボタンを示す `ShowXButton` のプロパティが多数含まれています。 [編集を有効にする] チェックボックスをオンにすると、既存の CommandField に `ShowEditButton` プロパティが追加されます。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample6.aspx)]
 
-ですが基本的な編集のサポートを追加します。 編集インターフェイスはかなりおおざっぱ Figure16 に示す各 BoundField が`ReadOnly`プロパティに設定されて`false`(既定値) は、テキスト ボックスとしてレンダリングされます。 などのフィールドが含まれます`CategoryID`と`SupplierID`、他のテーブルにキーであります。
+基本的な編集サポートを追加するだけです。 Figure16 が示すように、編集インターフェイスは、`ReadOnly` プロパティが `false` (既定) に設定されている各 BoundField をテキストボックスとしてレンダリングします。 これには、他のテーブルに対するキーである `CategoryID` や `SupplierID`などのフィールドが含まれます。
 
-[![Chai の編集ボタンをクリックして編集モードで、行を表示します](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
+[[Chai s Edit] ボタンをクリック ![と、その行が編集モードで表示されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
 
-**図 16**:編集モードで、行を表示します Chai s [編集] ボタンをクリックすると ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png))。
+**図 16**: [Chai s] 編集ボタンをクリックすると、編集モードで行が表示されます ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png)されます)
 
-外部キーの値を直接編集するユーザーを確認するだけでなく、編集インターフェイスのインターフェイスは、次の方法で不足しています。
+外部キーの値を直接編集するようにユーザーに依頼するだけでなく、編集インターフェイスのインターフェイスには次のような意味がありません。
 
-- ユーザーが入力した場合、`CategoryID`または`SupplierID`、データベースに存在しない、`UPDATE`例外が発生する外部キー制約に違反します。
-- 編集インターフェイスには、いずれかの検証が含まれていません。 必要な値を指定しない場合 (など`ProductName`)、または文字列値を入力します (「あまり!」を入力するなど、数値が必要な場合 `UnitPrice` textbox)、例外がスローされます。 今後のチュートリアルでは、編集のユーザー インターフェイスに検証コントロールを追加する方法を説明します。
-- 現時点では、*すべて*GridView で読み取り専用ではない製品フィールドを含める必要があります。 GridView からフィールドを削除する場合、たとえば`UnitPrice`GridView データの更新が設定されていない場合、 `UnitPrice` `UpdateParameters`値で、変更、データベース レコードの`UnitPrice`を`NULL`値。 同様に必須のフィールドの場合など`ProductName`、削除は、GridView から更新プログラムは同じで失敗"*列 'ProductName' が null を許容しない*"上記で説明した例外。
-- 編集のインターフェイスの書式設定が望ましい場合に多くのままです。 `UnitPrice`付き 10 進数の 4 つの点で示されます。 理想的には、`CategoryID`と`SupplierID`値には、カテゴリと仕入先をシステムで一覧した Dropdownlist にが含まれます。
+- データベースに存在しない `CategoryID` または `SupplierID` をユーザーが入力すると、`UPDATE` は foreign key 制約に違反し、例外が発生します。
+- 編集インターフェイスには検証が含まれていません。 必要な値 (`ProductName`など) が指定されていない場合、または数値が求められる文字列値を入力する場合 ("多すぎる場合" など)。 [`UnitPrice`] ボックスに、例外がスローされます。 今後のチュートリアルでは、編集中のユーザーインターフェイスに検証コントロールを追加する方法を確認します。
+- 現時点では、読み取り専用ではない*すべて*の製品フィールドを GridView に含める必要があります。 GridView からフィールドを削除すると `UnitPrice`、データを更新するときに、GridView によって `UnitPrice` `UpdateParameters` 値が設定されません。これにより、データベースレコードの `UnitPrice` が `NULL` 値に変更されます。 同様に、`ProductName`などの必須フィールドが GridView から削除された場合、更新は失敗し、前述の "*Column ' ProductName ' では null が許可されません*" という例外が表示されます。
+- 編集インターフェイスの書式設定は、必要に応じて大きくなります。 `UnitPrice` は、4つの小数点を使用して表示されます。 `CategoryID` と `SupplierID` の値には、システム内のカテゴリとサプライヤーを一覧表示する DropDownLists があることが理想的です。
 
-これらの現在のところですが我慢する必要がありますすべての欠点は、今後のチュートリアルで対処される予定です。
+ここでは、このような欠点がありますが、今後のチュートリアルで対処する予定です。
 
-## <a name="inserting-editing-and-deleting-data-with-the-detailsview"></a>挿入、編集、および DetailsView を使用してデータを削除します。
+## <a name="inserting-editing-and-deleting-data-with-the-detailsview"></a>DetailsView を使用したデータの挿入、編集、および削除
 
-前述したように、前のチュートリアルでは、DetailsView コントロールは一度に 1 つのレコードを表示でき、GridView のように編集および現在表示されているレコードの削除します。 両方のエンド ユーザー エクスペリエンスを編集してから、DetailsView と ASP.NET の側からのワークフロー項目の削除は、GridView のと同じです。 GridView、DetailsView とは異なるが、挿入の組み込みのサポートも提供します。
+前のチュートリアルで見たように、DetailsView コントロールでは一度に1つのレコードが表示され、GridView と同様に、現在表示されているレコードを編集および削除できます。 DetailsView の項目の編集と削除に関するエンドユーザーの経験と、ASP.NET 側からのワークフローの両方が、GridView の項目と同じです。 DetailsView と GridView の違いは、組み込みの挿入サポートも用意されていることです。
 
-GridView のデータ変更機能を示すためを開始する、DetailsView を追加することで、`Basics.aspx`ページ上の既存の GridView および DetailsView のスマート タグを既存の ObjectDataSource にバインドします。 次に、DetailsView をクリアします`Height`と`Width`プロパティ、およびスマート タグからページングを有効にするオプションのチェック ボックス。 編集を有効にするには、挿入、および削除のサポート、単純にチェック ボックスを編集の有効化、挿入を有効にするには、および削除を有効にするスマート タグの。
+GridView のデータ変更機能をデモンストレーションするには、まず、既存の GridView の上にある `Basics.aspx` ページに DetailsView を追加し、DetailsView のスマートタグを使用して既存の ObjectDataSource にバインドします。 次に、DetailsView の `Height` と `Width` プロパティを消去し、スマートタグの [ページングを有効にする] オプションをオンにします。 編集、挿入、および削除のサポートを有効にするには、[編集を有効にする]、[挿入を有効にする]、および [スマートタグの削除] チェックボックスをオンにするだけです。
 
-![編集、挿入、および削除をサポートする DetailsView を構成します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image41.png)
+![編集、挿入、および削除をサポートするように DetailsView を構成する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image41.png)
 
-**図 17**:編集、挿入、および削除をサポートする DetailsView を構成します。
+**図 17**: 編集、挿入、および削除をサポートするように DetailsView を構成する
 
-として、GridView、編集、追加で挿入、または削除のサポートとして追加します、CommandField、DetailsView を宣言型構文を次に示します。
+GridView と同様に、編集、挿入、または削除のサポートを追加すると、次の宣言構文に示すように CommandField が DetailsView に追加されます。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample7.aspx)]
 
-DetailsView、[commandfield] の既定の列コレクションの末尾に表示されるに注意してください。 DetailsView のフィールドとしてレンダリングされるので、行が編集、および DetailsView の下部にあるボタンを削除、[commandfield] は、挿入、行として表示されます。
+DetailsView の場合は、既定で Columns コレクションの最後に CommandField が表示されることに注意してください。 DetailsView のフィールドは行として表示されるため、CommandField は、DetailsView の下部にある [挿入]、[編集]、および [削除] の各ボタンがある行として表示されます。
 
-[![編集、挿入、および削除をサポートする DetailsView を構成します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image42.png)
+[編集、挿入、および削除をサポートするように DetailsView を構成 ![には](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image42.png)
 
-**図 18**:サポートの編集、挿入、および削除に DetailsView を構成する ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image44.png))。
+**図 18**: DetailsView を構成して編集、挿入、および削除をサポートする ([クリックしてフルサイズのイメージを表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image44.png))
 
-GridView と同様、同じイベントのシーケンスを開始する [Delete] ボタンをクリックします。 をポストバックします。設定の ObjectDataSource の DetailsView 続けて`DeleteParameters`に基づいて、 `DataKeyNames` ; の値し、その ObjectDataSource の呼び出しで完了`Delete()`メソッドで、実際には、データベースから製品を削除します。 GridView の場合と同じ方法で動作も、DetailsView で編集します。
+[削除] ボタンをクリックすると、GridView: ポストバックと同じイベントのシーケンスが開始されます。その後に、`DataKeyNames` 値に基づいて ObjectDataSource の `DeleteParameters` を設定する DetailsView が続きます。とは、ObjectDataSource の `Delete()` メソッドを呼び出すことによって完了します。これにより、実際には、データベースから製品が削除されます。 DetailsView での編集は、GridView の場合と同じ方法でも機能します。
 
-挿入すると、エンドユーザーが表示されます、新規のボタンをクリックすると、「挿入モード。」DetailsView を表示します。 挿入し、[キャンセル] ボタンとそれらの BoundFields のみを置き換えては「挿入モード」の新しいボタンが`InsertVisible`プロパティに設定されて`true`(既定値) が表示されます。 など、自動インクリメント フィールドとして識別されるデータ フィールド`ProductID`がその[InsertVisible プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx)に設定`false`DetailsView をスマート タグによってデータ ソースにバインドする場合。
+挿入の場合、エンドユーザーには新しいボタンが表示され、クリックすると、"挿入モード" で DetailsView がレンダリングされます。 "挿入モード" では、新しいボタンは [挿入] ボタンと [キャンセル] ボタンに置き換えられ、`InsertVisible` プロパティが `true` (既定) に設定されている連結フィールドのみが表示されます。 `ProductID`などの自動インクリメントフィールドとして識別されたこれらのデータフィールドの[Insertvisible プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx)は、スマートタグを介してデータソースに DetailsView をバインドするときに `false` に設定されます。
 
-Visual Studio の設定でスマート タグの DetailsView をデータ ソースをバインドするときに、`InsertVisible`プロパティを`false`自動インクリメント フィールドに対してのみです。 読み取り専用のフィールドのような`CategoryName`と`SupplierName`、しない限り、「insert モード」のユーザー インターフェイスに表示されます、`InsertVisible`プロパティ明示的に`false`します。 これら 2 つのフィールドを設定する少し`InsertVisible`プロパティ`false`、スマート タグのリンクを DetailsView の宣言構文またはフィールドを編集します。 図 19 の設定の表示、`InsertVisible`プロパティを`false`編集フィールドをクリックしてリンクします。
+スマートタグを使用してデータソースを DetailsView にバインドすると、Visual Studio は、自動インクリメントフィールドに対してのみ、`InsertVisible` プロパティを `false` に設定します。 `CategoryName` や `SupplierName`などの読み取り専用フィールドは、`InsertVisible` プロパティが明示的に `false`に設定されていない限り、"挿入モード" ユーザーインターフェイスに表示されます。 この2つのフィールドの `InsertVisible` プロパティを `false`に設定します。そのためには、DetailsView の宣言構文を使用するか、スマートタグ内の [フィールドの編集] リンクを使用します。 図19は、[フィールドの編集] リンクをクリックして `false` する `InsertVisible` のプロパティを設定する方法を示しています。
 
-[![Northwind Traders Acme 紅茶を提供します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image45.png)
+[Northwind Traders ![では、Acme 紅茶を提供](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image45.png)
 
-**図 19**:Northwind Traders ここでは、Acme 紅茶 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image47.png))。
+**図 19**: Northwind Traders が Acme 茶を提供するようになりました ([クリックしてフルサイズの画像を表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image47.png))
 
-設定した後、`InsertVisible`プロパティ、ビュー、`Basics.aspx`ブラウザーでページし、新しいボタンをクリックします。 新しい飲み物の場合は、追加するときに、図 20 は、DetailsView を示しています、製品ラインの Acme 紅茶します。
+`InsertVisible` のプロパティを設定した後、ブラウザーで `Basics.aspx` ページを表示し、[新規] ボタンをクリックします。 図20に、新しい飲み物 (Acme 茶) を製品ラインに追加する場合の DetailsView を示します。
 
-[![Northwind Traders Acme 紅茶を提供します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image48.png)
+[Northwind Traders ![では、Acme 紅茶を提供](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image48.png)
 
-**図 20**:Northwind Traders ここでは、Acme 紅茶 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image50.png))。
+**図 20**: Northwind Traders が Acme 茶を提供するようになりました ([クリックしてフルサイズの画像を表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image50.png))
 
-ポストバックに陥ります Acme 紅茶の詳細を入力し、[挿入] ボタンをクリックするとに新しいレコードを追加、`Products`データベース テーブル。 この DetailsView では、データベース テーブルに存在する順序で製品が一覧表示、ために必要がありますページ最後の製品、新製品を表示するには。
+Acme 紅茶の詳細を入力し、[挿入] ボタンをクリックすると、ポストバック ensues と新しいレコードが `Products` データベーステーブルに追加されます。 この DetailsView はデータベーステーブル内に存在する順に製品を一覧表示しているため、新しい製品を表示するには、最後の製品にページを表示する必要があります。
 
-[![Acme 紅茶の詳細](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image51.png)
+[Acme 茶の ![の詳細](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image51.png)
 
-**図 21**:Acme 紅茶の詳細 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image53.png))。
+**図 21**: Acme 紅茶の詳細 ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image53.png)される)
 
 > [!NOTE]
-> DetailsView の[CurrentMode プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx)表示されているインターフェイスを示し、値は次のいずれかを指定できます: `Edit`、 `Insert`、または`ReadOnly`します。 [DefaultMode プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx)を示し、DetailsView、編集後に戻るか、または挿入モードが完了したは、DetailsView は完全に編集または挿入モードを表示するために便利です。
+> DetailsView の[Currentmode プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx)は、表示されているインターフェイスを示します。 `Edit`、`Insert`、`ReadOnly`のいずれかの値を指定できます。 [Defaultmode プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx)は、編集または挿入が完了した後に detailsview が返すモードを示します。これは、編集モードまたは挿入モードで永続的に使用される detailsview を表示する場合に便利です。
 
-ポイント アンド クリックを挿入して、編集、DetailsView の機能は、GridView と同じ制限に悩まさ: 既存のユーザーが入力する必要があります`CategoryID`と`SupplierID`値がテキスト ボックスではインターフェイスに検証ロジックはすべて製品のフィールドを許可しない`NULL`値または既定値がありません。 挿入のインターフェイスを示すでは、データベース レベルで指定された値を含める必要があります。
+ポイントとクリックによる DetailsView の挿入および編集機能は、GridView と同じ制限を受けません。ユーザーは、テキストボックスを使用して、既存の `CategoryID` と `SupplierID` 値を入力する必要があります。インターフェイスに検証ロジックがありません。`NULL` 値が許可されていないか、データベースレベルで既定値が指定されていないすべての product フィールドは、挿入インターフェイスに含める必要があります。
 
-手法を拡張および強化、GridView の編集インターフェイス今後の記事は、DetailsView コントロールの編集および挿入インターフェイスにもに適用できるため、考察します。
+今後の記事で GridView の編集インターフェイスを拡張および強化するために検討する手法は、DetailsView コントロールの編集および挿入インターフェイスにも適用できます。
 
-## <a name="using-the-formview-for-a-more-flexible-data-modification-user-interface"></a>FormView を使用してより柔軟なデータ変更のユーザー インターフェイス
+## <a name="using-the-formview-for-a-more-flexible-data-modification-user-interface"></a>より柔軟なデータ変更ユーザーインターフェイスに FormView を使用する
 
-FormView のデータの削除、挿入、編集、および組み込みのサポートを提供していますが、フィールドではなくテンプレートを使用しているため、BoundFields または GridView および DetailsView コントロールでデータを提供するために使用する [commandfield] を追加する場所はありません。変更のインターフェイス。 代わりに、ユーザーを収集するための Web コントロール、新しい項目を追加するときに入力または編集、削除、挿入、更新、およびキャンセル ボタン、新規と既存のリソースの編集は、このインターフェイスは、適切なテンプレートを手動で追加する必要があります。 幸いにも、Visual Studio が自動的に作成、必要なインターフェイスのスマート タグで、ドロップダウン リストをデータ ソースに、フォーム ビューをバインドする場合。
+FormView には、データの挿入、編集、および削除のための組み込みサポートが用意されていますが、フィールドではなくテンプレートが使用されているので、データを提供するために GridView および DetailsView コントロールによって使用される BoundFields や CommandField を追加する場所はありません。変更インターフェイス。 代わりに、このインターフェイスでは、新しい項目を追加するとき、または既存の項目を編集するときにユーザー入力を収集するための Web コントロールを、適切なテンプレートに手動で追加する必要があります。 幸い、Visual Studio では、スマートタグのドロップダウンリストを使用してデータソースに FormView をバインドするときに、必要なインターフェイスが自動的に作成されます。
 
-これらの手法を示すためを起動するフォーム ビューを追加することで、`Basics.aspx`ページし、FormView のスマート タグから既に作成されて ObjectDataSource にバインドします。 これが生成されます、 `EditItemTemplate`、 `InsertItemTemplate`、および`ItemTemplate`新規ユーザーの入力と Web のボタン コントロールを収集するためのテキスト ボックスに Web コントロールと FormView、編集、削除、挿入、更新、およびキャンセル ボタン。 さらに、FormView の`DataKeyNames`プロパティが主キー フィールドに設定 (`ProductID`) の ObjectDataSource によって返されるオブジェクト。 最後に、フォーム ビューのスマート タグでページングを有効にするオプションを確認します。
+これらの手法を説明するために、まず、FormView を `Basics.aspx` ページに追加し、FormView のスマートタグから、既に作成されている ObjectDataSource にバインドします。 これにより、[新規]、[編集]、[削除]、[挿入]、[更新]、および [キャンセル] の各ボタンのユーザーの入力およびボタン Web コントロールを収集するための、TextBox Web コントロールを含む FormView の `EditItemTemplate`、`InsertItemTemplate`、および `ItemTemplate` が生成されます。 さらに、FormView の `DataKeyNames` プロパティは、ObjectDataSource によって返されるオブジェクトの主キーフィールド (`ProductID`) に設定されます。 最後に、FormView のスマートタグの [ページングを有効にする] オプションをオンにします。
 
-FormView の宣言型マークアップを次に示します`ItemTemplate`FormView、ObjectDataSource にバインドした後。 既定では各非ブール値の product フィールドにバインドされて、`Text`ブール値の各フィールドの中に、ラベルの Web コントロールのプロパティ (`Discontinued`) にバインドされて、`Checked`無効になっているチェック ボックスを Web コントロールのプロパティ。 新規、編集、および Delete ボタンがクリックされたときに特定のフォーム ビューの動作をトリガーするためは命令型を`CommandName`設定値は`New`、`Edit`と`Delete`、それぞれします。
+FormView が ObjectDataSource にバインドされた後の FormView の `ItemTemplate` の宣言型マークアップを次に示します。 既定では、各ブール値の product フィールドは、ラベル Web コントロールの `Text` プロパティにバインドされていますが、各ブール値フィールド (`Discontinued`) は、無効になっている CheckBox Web コントロールの `Checked` プロパティにバインドされています。 [新規]、[編集]、および [削除] の各ボタンをクリックしたときに特定の FormView 動作をトリガーするには、`CommandName` 値をそれぞれ `New`、`Edit`、および `Delete`に設定する必要があります。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample8.aspx)]
 
-図 22 示します FormView の`ItemTemplate`とき、ブラウザーで表示します。 下部にある、新規、編集、および Delete ボタンを持つ製品の各フィールドが表示されます。
+図22は、ブラウザーで表示したときに FormView の `ItemTemplate` を示しています。 各製品フィールドは、下部にある [新規]、[編集]、および [削除] の各ボタンと共に表示されます。
 
-[![照合 FormView ItemTemplate と共に新しい各 Product フィールドを一覧表示、編集、およびボタンの削除](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
+[既定 FormView ItemTemplate の ![[新規]、[編集]、および [削除] の各ボタンと共に各製品フィールドを一覧表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
 
-**図 22**:照合 FormView`ItemTemplate`一覧各製品フィールドに沿った新規、編集、削除ボタンと ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png))。
+**図 22**: 既定 FormView `ItemTemplate` では、各 Product フィールドと、New、Edit、および Delete の各ボタンが一覧表示されます ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png)されます)
 
-GridView と DetailsView を削除 ボタン、LinkButton や ImageButton をクリックすると使用するようなある`CommandName`プロパティは、削除の原因にポストバックを設定、ObjectDataSource を設定します`DeleteParameters`FormView のに基づいて`DataKeyNames`。値、および呼び出す ObjectDataSource の`Delete()`メソッド。
+GridView および DetailsView と同様に、[削除] ボタンをクリックするか、`CommandName` プロパティが [削除] に設定されているボタン、LinkButton、または ImageButton をクリックすると、ポストバックが発生し、FormView の `DataKeyNames` 値に基づいて ObjectDataSource の `DeleteParameters` が設定され、ObjectDataSource の `Delete()` メソッドが呼び出されます。
 
-ポストバック後し、にデータが再バインドの編集 ボタンがクリックされたときに、 `EditItemTemplate`、これはデータの編集インターフェイスをレンダリングします。 このインターフェイスには、更新、およびキャンセル ボタンと共にデータを編集するための Web コントロールが含まれています。 既定の`EditItemTemplate`によって生成された Visual Studio には、自動インクリメント フィールドのラベルが含まれています (`ProductID`)、各非ブール値フィールドのテキスト ボックスおよびブール値の各フィールドのチェック ボックスをオンします。 この動作は、GridView および DetailsView コントロールで自動生成された BoundFields に非常に似ています。
+[編集] ボタンをクリックすると、ポストバック ensues が表示され、データが `EditItemTemplate`に再バインドされます。これは編集インターフェイスを表示する役割を担います。 このインターフェイスには、[更新] ボタンと [キャンセル] ボタンと共に、データを編集するための Web コントロールが含まれています。 Visual Studio によって生成される既定の `EditItemTemplate` には、自動インクリメントフィールド (`ProductID`) のラベル、非ブール値フィールドごとのテキストボックス、および各ブール値フィールドのチェックボックスが含まれています。 この動作は、GridView および DetailsView コントロールで自動生成された BoundFields によく似ています。
 
 > [!NOTE]
-> 1 つのフォーム ビューの自動生成に関する問題、`EditItemTemplate`がレンダリングされるテキスト ボックスに Web コントロールは読み取り専用、ようにこれらのフィールドを`CategoryName`と`SupplierName`します。 これを考慮する方法を見てすぐします。
+> FormView の `EditItemTemplate` の自動生成に関する小さな問題の1つは、`CategoryName` や `SupplierName`など、読み取り専用のフィールドに対してテキストボックス Web コントロールをレンダリングすることです。 これについては、後で説明します。
 
-コントロールをテキスト ボックス、`EditItemTemplate`がその`Text`プロパティの対応するフィールドを使用してデータの値にバインドされて*双方向データ バインド*します。 表される、双方向データ バインド`<%# Bind("dataField") %>`テンプレートにデータをバインドする際、および挿入またはレコードの編集の ObjectDataSource のパラメーターを設定するときに、両方のデータをバインドを実行します。 つまり、ユーザーがから [編集] ボタンをクリックすると、 `ItemTemplate`、`Bind()`メソッドは、指定したデータ フィールドの値を返します。 ユーザーは、変更を行い、更新プログラムをクリックして後の値がポスト バックされた対応するデータ フィールドを使用して指定する`Bind()`ObjectDataSource に適用される`UpdateParameters`します。 代わりに、一方向のデータ バインドで示されています。 `<%# Eval("dataField") %>`、のみ、テンプレートにデータをバインドするときに、データ フィールドの値を取得およびは*いない*ポストバック時に、データ ソースのパラメーターにユーザーが入力した値を返します。
+`EditItemTemplate` のテキストボックスコントロールには、*双方向*のデータバインディングを使用して、対応するデータフィールドの値にバインドされた `Text` プロパティがあります。 `<%# Bind("dataField") %>`によって示される双方向のデータバインディングでは、データをテンプレートにバインドするときと、レコードを挿入または編集するために ObjectDataSource のパラメーターを設定するときの両方で、データバインドが実行されます。 つまり、ユーザーが `ItemTemplate`の [編集] ボタンをクリックすると、`Bind()` メソッドは、指定されたデータフィールドの値を返します。 ユーザーが変更を行って [更新] をクリックすると、`Bind()` を使用して指定されたデータフィールドに対応するポストバックされた値が ObjectDataSource の `UpdateParameters`に適用されます。 または、`<%# Eval("dataField") %>`で示される一方向のデータバインディングでは、データをテンプレートにバインドするときにデータフィールドの値のみを取得し、ポストバック時にデータソースのパラメーターにユーザーが入力した値を返し*ません*。
 
-次の宣言型マークアップ示します FormView の`EditItemTemplate`します。 なお、`Bind()`メソッドは、データ バインドの構文で使用し、更新プログラムおよびキャンセル ボタンの Web コントロールがその`CommandName`プロパティを適宜設定します。
+次の宣言型マークアップは、FormView の `EditItemTemplate`を示しています。 ここでは、`Bind()` メソッドが databinding 構文で使用されています。また、[更新] ボタンと [キャンセル] ボタンの Web コントロールの `CommandName` プロパティは、それに応じて設定されています。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample9.aspx)]
 
-この`EditItemTemplate`、これを使用する場合にスローされる例外が発生、ポイントします。 問題なは、`CategoryName`と`SupplierName`内のテキスト ボックスに Web コントロールとして、フィールドが表示される、`EditItemTemplate`します。 か、これらのテキスト ボックスをラベルに変更するか、それらを完全に削除する必要があります。 単に削除から完全に、`EditItemTemplate`します。
+この時点で、`EditItemTemplate`を使用しようとすると、例外がスローされます。 問題は、`CategoryName` フィールドと `SupplierName` フィールドが、`EditItemTemplate`で TextBox Web コントロールとしてレンダリングされることです。 これらのテキストボックスをラベルに変更するか、完全に削除する必要があります。 単純に単に `EditItemTemplate`から削除してみましょう。
 
-図 23 Chai の編集 ボタンがクリックしてされた後に、ブラウザーで、フォーム ビューを示しています。 なお、`SupplierName`と`CategoryName`で表示されるフィールド、`ItemTemplate`だけから削除しましたが存在する場合は、不要になった、`EditItemTemplate`します。 [更新] ボタンがクリックされたときに、FormView GridView および DetailsView コントロールとして同じ一連の手順を進めします。
+図23では、[編集] ボタンをクリックすると、ブラウザーに FormView が表示されます。 `ItemTemplate` に表示されている `SupplierName` フィールドと `CategoryName` フィールドは、`EditItemTemplate`から削除したばかりのものではなくなっています。 [更新] ボタンがクリックされると、FormView は GridView および DetailsView コントロールと同じ一連の手順を実行します。
 
-[![既定で、後に各編集可能な製品フィールドをテキスト ボックスまたはチェック ボックスが表示されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
+[![既定では、EditItemTemplate は、各編集可能な Product フィールドをテキストボックスまたはチェックボックスとして表示します。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
 
-**図 23**:既定では、`EditItemTemplate`示します各編集可能な製品フィールドとしてテキスト ボックスまたはチェック ボックスをオン ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png))。
+**図 23**: 既定では、`EditItemTemplate` は、編集可能な各製品フィールドをテキストボックスまたはチェックボックスとして表示します ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png)されます)
 
-[挿入] ボタンに FormView がクリックされたとき`ItemTemplate`ポストバックに陥ります。 ただし、データがバインドされていない、FormView に新しいレコードが追加されるためです。 `InsertItemTemplate`インターフェイスに挿入し、[キャンセル] ボタンと新しいレコードを追加するための Web コントロールが含まれています。 既定の`InsertItemTemplate`によって生成された Visual Studio には、各非ブール値フィールド、テキスト ボックスと自動生成されるように各ブール値フィールドのチェック ボックスが含まれています。`EditItemTemplate`のインターフェイス。 テキスト ボックス コントロールがその`Text`双方向データ バインドを使用して、対応するデータ フィールドの値にバインドされているプロパティ。
+[挿入] ボタンをクリックすると、FormView の `ItemTemplate` ポストバック ensues になります。 ただし、新しいレコードが追加されているため、FormView にデータがバインドされていません。 `InsertItemTemplate` インターフェイスには、[挿入] ボタンと [キャンセル] ボタンと共に新しいレコードを追加するための Web コントロールが含まれています。 Visual Studio によって生成される既定の `InsertItemTemplate` には、ブール値以外の各フィールドのテキストボックスと、自動生成された `EditItemTemplate`のインターフェイスと同様に、各ブール値フィールドのチェックボックスが含まれています。 TextBox コントロールの `Text` プロパティは、双方向のデータバインディングを使用して、対応するデータフィールドの値にバインドされます。
 
-次の宣言型マークアップ示します FormView の`InsertItemTemplate`します。 なお、`Bind()`メソッドは、データ バインドの構文で使用し、Insert およびキャンセル ボタンの Web コントロールがその`CommandName`プロパティを適宜設定します。
+次の宣言型マークアップは、FormView の `InsertItemTemplate`を示しています。 ここでは、`Bind()` メソッドが databinding 構文で使用されています。また、[挿入] ボタンと [キャンセル] ボタンの Web コントロールには、それに応じて `CommandName` プロパティが設定されています。
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample10.aspx)]
 
-FormView の自動世代の注意が必要です、`InsertItemTemplate`します。 読み取り専用、ようにこれらのフィールドの場合でも、テキスト ボックスに Web コントロールを作成する具体的には、`CategoryName`と`SupplierName`します。 使用するような`EditItemTemplate`、これらのテキスト ボックスから削除する必要があります、`InsertItemTemplate`します。
+`InsertItemTemplate`の FormView の自動生成にははらみがあります。 具体的には、テキストボックス Web コントロールは、`CategoryName` や `SupplierName`など、読み取り専用のフィールドに対しても作成されます。 `EditItemTemplate`と同様に、これらのテキストボックスを `InsertItemTemplate`から削除する必要があります。
 
-図 24 は、新しい製品を Acme コーヒーを追加するときにブラウザーで、フォーム ビューを示します。 なお、`SupplierName`と`CategoryName`で表示されるフィールド、`ItemTemplate`だけ削除しましたが存在する場合は、不要になった。 [挿入] ボタンで、同じ一連の手順として、DetailsView コントロールをフォーム ビュー処理の進行状況がクリックされたときに新しいレコードを追加、`Products`テーブル。 図 25 では、挿入された後、FormView で Acme コーヒー製品の詳細が示されます。
+図24は、新しい製品である Acme コーヒーを追加するときの、ブラウザーの FormView を示しています。 `ItemTemplate` に表示されている `SupplierName` フィールドと `CategoryName` フィールドは、削除したばかりで存在しないことに注意してください。 [挿入] ボタンがクリックされると、FormView は、DetailsView コントロールと同じ一連の手順を実行し、`Products` テーブルに新しいレコードを追加します。 図25は、挿入された後の FormView での Acme コーヒー製品の詳細を示しています。
 
-[![FormView の挿入のインターフェイスを決定後、](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image60.png)
+[Insertitemposition が FormView の挿入インターフェイスを決定する ![](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image60.png)
 
-**図 24**:`InsertItemTemplate` FormView の挿入インターフェイスによって決まります ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image62.png))。
+**図 24**: `InsertItemTemplate` は、FormView の挿入インターフェイスを決定します ([クリックすると、フルサイズの画像が表示](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image62.png)されます)
 
-[![FormView で Acme コーヒーの新しい製品の詳細が表示されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image63.png)
+[新しい製品の詳細 ![Acme コーヒーが FormView に表示されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image63.png)
 
-**図 25**:FormView で Acme コーヒーの新しい製品の詳細が表示されます ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image65.png))。
+**図 25**: 新しい製品である Acme コーヒーの詳細が FormView に表示される ([クリックしてフルサイズの画像を表示する](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image65.png))
 
-によって、読み取り専用の分離、編集、およびインターフェイスを次の 3 つの個別のテンプレートに挿入する、FormView が GridView と DetailsView よりも細かくのこれらのインターフェイスを制御できます。
+この FormView では、読み取り専用、編集、および挿入の各インターフェイスを3つの個別のテンプレートに分割することで、これらのインターフェイスを DetailsView および GridView より細かく制御できます。
 
 > [!NOTE]
-> などの DetailsView、FormView の`CurrentMode`プロパティが表示されているインターフェイスを示します、`DefaultMode`プロパティは、編集後、モードを FormView 返しますを示しますまたは挿入が完了します。
+> DetailsView と同様に、FormView の `CurrentMode` プロパティは、表示されているインターフェイスを示し、その `DefaultMode` プロパティは、編集または挿入の完了後に FormView が返すモードを示します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、挿入、編集、および GridView、DetailsView、FormView を使用してデータの削除の基本について確認しました。 これらのコントロールの 3 つのすべてでは、いくつかデータ Web コントロールと ObjectDataSource に協力してくれたの ASP.NET ページで 1 行のコードを記述することがなく利用できる組み込みのデータ変更の機能レベルを提供します。 ただし、単純なは、ポイントして、かなり壊れ手法レンダリングと単純なデータ変更のユーザー インターフェイス をクリックします。 検証を提供するには、プログラムの値を挿入、例外を適切に処理、ユーザー インターフェイスをカスタマイズし、必要になります次のいくつかのチュートリアルで説明する手法の多くに依存します。
+このチュートリアルでは、GridView、DetailsView、および FormView を使用したデータの挿入、編集、および削除の基本について説明します。 これら3つのコントロールは、データ Web コントロールと ObjectDataSource によって ASP.NET ページに1行のコードを記述しなくても使用できる、いくつかの組み込みデータ変更機能を提供します。 ただし、単純なポイントとクリックの手法では、非常に低速で単純なデータ変更のユーザーインターフェイスが表示されます。 検証を提供したり、プログラムの値を挿入したり、例外を適切に処理したり、ユーザーインターフェイスをカスタマイズしたりするには、次のいくつかのチュートリアルで説明する手法を活用する必要があります。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [次へ](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

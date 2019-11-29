@@ -1,69 +1,69 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
-title: クライアント側コード (VB) を使用してアニメーションを実行する |Microsoft Docs
+title: クライアント側コードを使用してアニメーションを実行する (VB) |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 アニメーションの実行.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションの実行...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: f7073f50-d765-456d-9957-926ce60f35f6
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 123ce48a203a69b9a2d50b8bb09c290a84afdac7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7ef36900d20d8d07c3c6f3b63ce96568a377a0ed
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127507"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74575475"
 ---
 # <a name="executing-animations-using-client-side-code-vb"></a>クライアント側コードを使用してアニメーションを実行する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation10.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation10VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation10.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation10VB.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 カスタムのクライアント側の JavaScript コードを使用して、アニメーションの実行をトリガーも可能性があります。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションの実行は、カスタムクライアント側の JavaScript コードを使用してトリガーすることもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 カスタムのクライアント側の JavaScript コードを使用して、アニメーションの実行をトリガーも可能性があります。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションの実行は、カスタムクライアント側の JavaScript コードを使用してトリガーすることもできます。
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
+まず、ページに `ScriptManager` を含めます。次に、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようになります。
 
 [!code-aspx[Main](executing-animations-using-client-side-code-vb/samples/sample1.aspx)]
 
-次のようなテキストのパネルに、アニメーションが適用されます。
+アニメーションは、次のようなテキストパネルに適用されます。
 
 [!code-aspx[Main](executing-animations-using-client-side-code-vb/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
+パネルに関連付けられている CSS クラスで、優れた背景色を定義し、パネルに固定幅を設定します。
 
 [!code-css[Main](executing-animations-using-client-side-code-vb/samples/sample3.css)]
 
-次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`:
+次に、`ID`、`TargetControlID` 属性、および加える `runat="server"`を指定して、ページに `AnimationExtender` を追加します。
 
 [!code-aspx[Main](executing-animations-using-client-side-code-vb/samples/sample4.aspx)]
 
-内で、`<Animations>`ノードを使用して`<OnClick>`パネルがクリック 1 回、ユーザーのアニメーションを実行します。 並列で実行される 2 つのアニメーションを追加します。
+`<Animations>` ノード内で `<OnClick>` を使用して、ユーザーがパネルをクリックした後にアニメーションを実行します。 並列で実行される2つのアニメーションを追加します。
 
 [!code-xml[Main](executing-animations-using-client-side-code-vb/samples/sample5.xml)]
 
-このアニメーション (およびその他のすべてのアニメーション Control Toolkit を使用して作成) には、デモンストレーションのために、ページの実行後に、JavaScript コードを使用して実行されます。 最初にすべてのアクセスする必要があります、`AnimationExtender`コントロール。 ASP.NET AJAX ライブラリには、`$find()`このタスクの関数。
+このデモでは、ページが実行されると、JavaScript コードを使用して、このアニメーション (およびコントロールツールキットを使用して作成されたその他のアニメーション) を実行します。 まず、`AnimationExtender` コントロールにアクセスする必要があります。 ASP.NET AJAX ライブラリには、このタスクの `$find()` 関数が用意されています。
 
 [!code-csharp[Main](executing-animations-using-client-side-code-vb/samples/sample6.cs)]
 
-`AnimationExtender`コントロールは、XML マークアップで使用されるイベント ハンドラーと同じ名前のメソッドを含む豊富な API を公開します: `OnClick()`、`OnLoad()`など。 呼び出しなど、`OnClick()`メソッド内でアニメーションの実行、`<OnClick>`の要素、`AnimationExtender`コントロール。
+`AnimationExtender` コントロールは、XML マークアップで使用されるイベントハンドラーと同じ名前のメソッド (`OnClick()`、`OnLoad()`など) を含む豊富な API を公開します。 たとえば、`OnClick()` メソッドを呼び出すと、`AnimationExtender` コントロールの `<OnClick>` 要素内でアニメーションが実行されます。
 
 [!code-javascript[Main](executing-animations-using-client-side-code-vb/samples/sample7.js)]
 
-ここでは、ページが完全に読み込まれた後に [パネル] をクリックをエミュレートする完全なクライアント側の JavaScript コードは、注意、 `pageLoad()` 1 回、ページの ASP.NET AJAX によって呼び出される関数の名前が使用され、JavaScript ライブラリであったすべて含まれます読み込まれます。
+ページが完全に読み込まれた後にパネルをエミュレートする完全なクライアント側 JavaScript コードを次に示します。 `pageLoad()` 関数名が使用されていることに注意してください。これは、ページと含まれているすべての JavaScript ライブラリが読み込まれた後に ASP.NET AJAX によって呼び出されます。
 
 [!code-html[Main](executing-animations-using-client-side-code-vb/samples/sample8.html)]
 
-[![アニメーションのマウス クリックせず、すぐに実行します。](executing-animations-using-client-side-code-vb/_static/image2.png)](executing-animations-using-client-side-code-vb/_static/image1.png)
+[マウスをクリックせずに、アニメーションをすぐに実行 ![](executing-animations-using-client-side-code-vb/_static/image2.png)](executing-animations-using-client-side-code-vb/_static/image1.png)
 
-アニメーションのマウス クリックしてせず、すぐに実行 ([フルサイズの画像を表示する をクリックします](executing-animations-using-client-side-code-vb/_static/image3.png))。
+アニメーションは、マウスクリックなしですぐに実行されます ([クリックすると、フルサイズの画像が表示](executing-animations-using-client-side-code-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](modifying-animations-from-the-server-side-vb.md)

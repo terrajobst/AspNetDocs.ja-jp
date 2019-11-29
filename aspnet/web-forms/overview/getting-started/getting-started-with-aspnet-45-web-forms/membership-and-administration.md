@@ -2,277 +2,277 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 title: メンバーシップと管理 |Microsoft Docs
 author: Erikre
-description: このチュートリアル シリーズでは、私たちの ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルシリーズでは、ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォームアプリケーションを構築するための基本について説明します。
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: 59f859ea30572fbe66184f29555ac2c5c2f22f82
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ab00bc90bfc767d06e747be6dfb973245b5aae88
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132149"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615470"
 ---
 # <a name="membership-and-administration"></a>メンバーシップと管理
 
-によって[Erik Reitan](https://github.com/Erikre)
+[Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys サンプルプロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)するか[、電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)します。
 
-> このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
+> このチュートリアルシリーズでは、ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎と、Web 用の Microsoft Visual Studio Express 2013 について説明します。 このチュートリアルシリーズ[でC#は、ソースコードが含ま](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)れる Visual Studio 2013 プロジェクトを利用できます。
 
-このチュートリアルでは、カスタム ロールを追加し、ASP.NET Identity を使用する Wingtip Toys のサンプル アプリケーションを更新する方法を示します。 カスタム ロールを持つユーザーを追加し、web サイトから製品を削除する元の管理ページを実装する方法も示します。
+このチュートリアルでは、Wingtip Toys サンプルアプリケーションを更新してカスタムロールを追加し、ASP.NET Identity を使用する方法について説明します。 また、カスタムロールを持つユーザーが web サイトから製品を追加および削除できる管理ページを実装する方法についても説明します。
 
-[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) ASP.NET web アプリケーションをビルドするために使用するメンバーシップ システムは、ASP.NET 4.5 で使用します。 ASP.NET Identity が用のテンプレートと同様に、Visual Studio 2013 Web フォーム プロジェクト テンプレートで使用される[ASP.NET MVC](../../../../mvc/index.md)、 [ASP.NET Web API](../../../../web-api/index.md)、および[ASP.NET Single Page Application](../../../../single-page-application/index.md). 空の Web アプリケーションで開始すると、NuGet を使用して、ASP.NET Identity システムも具体的にはインストールできます。 ただし、このチュートリアル シリーズで使用する、 **Web フォーム**projecttemplate で、ASP.NET の Id システムが含まれています。 ASP.NET Identity を簡単にアプリケーション データとユーザー固有のプロファイル データを統合します。 また、ASP.NET Identity を使用すると、アプリケーションでユーザー プロファイルの永続化モデルを選択できます。 データを保存するには、SQL Server データベースまたは別のデータ ストアに含む*NoSQL* Windows Azure ストレージ テーブルなどのデータが格納されます。
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)は、ASP.NET web アプリケーションのビルドに使用されるメンバーシップシステムであり、ASP.NET 4.5 で使用できます。 ASP.NET Identity は、Visual Studio 2013 Web フォームプロジェクトテンプレートと、 [ASP.NET MVC](../../../../mvc/index.md)、 [ASP.NET Web API](../../../../web-api/index.md)、および[ASP.NET のシングルページアプリケーション](../../../../single-page-application/index.md)のテンプレートで使用されます。 空の Web アプリケーションから開始する場合は、NuGet を使用して ASP.NET Identity システムを明示的にインストールすることもできます。 ただし、このチュートリアルシリーズでは、ASP.NET Identity システムを含む**Web フォーム**projecttemplate を使用します。 ASP.NET Identity を使用すると、ユーザー固有のプロファイルデータをアプリケーションデータに簡単に統合できます。 また、ASP.NET Identity を使用すると、アプリケーションのユーザープロファイルの永続性モデルを選択できます。 データは、SQL Server データベースまたは別のデータストア (Windows Azure Storage テーブルなどの*NoSQL*データストア) に格納できます。
 
-このチュートリアルでは、"チェック アウトと支払いの PayPal"を「Wingtip Toys のチュートリアル シリーズで前のチュートリアルに基づいています。
+このチュートリアルでは、Wingtip Toys チュートリアルシリーズで、前述の「PayPal を使用した精算と支払い」というタイトルのチュートリアルを基にしています。
 
-## <a name="what-youll-learn"></a>学習内容。
+## <a name="what-youll-learn"></a>学習内容:
 
-- コードを使用して、アプリケーションにカスタム ロールとユーザーを追加する方法。
-- 管理者用フォルダーおよびページへのアクセスを制限する方法。
-- カスタム ロールに属しているユーザーのナビゲーションを提供する方法。
-- モデル バインドを使用して設定する方法、 [DropDownList](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist(v=vs.110).aspx)製品カテゴリを持つコントロール。
-- 使用して web アプリケーションにファイルをアップロードする方法、 [FileUpload](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload(v=vs.110).aspx)コントロール。
-- 検証コントロールを使用して、入力の検証を実装する方法。
-- 追加し、アプリケーションから製品を削除する方法。
+- コードを使用して、カスタムロールとユーザーをアプリケーションに追加する方法。
+- 管理フォルダーとページへのアクセスを制限する方法。
+- カスタムロールに属しているユーザーのナビゲーションを提供する方法。
+- モデルバインドを使用して、 [DropDownList](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist(v=vs.110).aspx)コントロールに製品カテゴリを設定する方法について説明します。
+- [FileUpload](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload(v=vs.110).aspx)コントロールを使用して web アプリケーションにファイルをアップロードする方法。
+- 検証コントロールを使用して入力検証を実装する方法。
+- アプリケーションの製品を追加および削除する方法。
 
-## <a name="these-features-are-included-in-the-tutorial"></a>このチュートリアルでは、これらの機能が含まれています。
+## <a name="these-features-are-included-in-the-tutorial"></a>このチュートリアルでは、次の機能について説明します。
 
 - ASP.NET Identity
 - 構成と承認
 - モデル バインド
-- 控え目な検証
+- 控えめに検証
 
-ASP.NET Web フォームでは、メンバーシップ機能を提供します。 既定のテンプレートを使用するには、アプリケーションの実行時にすぐに使用できる組み込みのメンバーシップ機能があります。 このチュートリアルでは、ASP.NET Identity を使用してカスタム ロールを追加し、そのロールにユーザーを割り当てる方法を示します。 管理フォルダーへのアクセスを制限する方法を学習します。 カスタム ロールを持つユーザーを追加した後に製品をプレビューして、追加したり、製品を削除する管理フォルダーには、ページを追加します。
+ASP.NET Web フォームは、メンバーシップ機能を提供します。 既定のテンプレートを使用すると、アプリケーションの実行時にすぐに使用できる組み込みのメンバーシップ機能を使用できます。 このチュートリアルでは、ASP.NET Identity を使用してカスタムロールを追加し、そのロールにユーザーを割り当てる方法について説明します。 管理フォルダーへのアクセスを制限する方法についても説明します。 管理フォルダーにページを追加して、カスタムロールを持つユーザーが製品を追加および削除したり、追加後に製品をプレビューしたりできるようにします。
 
-## <a name="adding-a-custom-role"></a>カスタム ロールを追加します。
+## <a name="adding-a-custom-role"></a>カスタムロールの追加
 
-ASP.NET Identity を使用して、カスタム ロールの追加し、コードを使用してそのロールにユーザーを割り当てます。
+ASP.NET Identity を使用すると、カスタムロールを追加し、コードを使用してそのロールにユーザーを割り当てることができます。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、*ロジック*フォルダーと新しいクラスを作成します。
-2. 新しいクラスの名前*RoleActions.cs*します。
-3. 次のように表示されるように、コードを変更します。  
+1. **ソリューションエクスプローラー**で、 *Logic*フォルダーを右クリックし、新しいクラスを作成します。
+2. 新しいクラスに*RoleActions.cs*という名前を指定します。
+3. 次のようにコードを変更します。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample1.cs?highlight=8)]
-4. **ソリューション エクスプ ローラー**、オープン、 *Global.asax.cs*ファイル。
-5. 変更、 *Global.asax.cs*黄色で強調表示されているように表示されるようにコードを追加してファイル。  
+4. **ソリューションエクスプローラー**で、 *Global.asax.cs*ファイルを開きます。
+5. 次のように、黄色で強調表示されているコードを追加して、 *Global.asax.cs*ファイルを変更します。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
-6. 注意`AddUserAndRole`赤い下線が引かれます。 AddUserAndRole コードをダブルクリックします。  
-   強調表示されているメソッドの先頭に文字"A"は下線が表示されます。
-7. 文字"A"をポイントし、クリックして UI のメソッド スタブを生成することができる`AddUserAndRole`メソッド。 
+6. `AddUserAndRole` が赤で下線が引かれていることに注意してください。 AddUserAndRole コードをダブルクリックします。  
+   強調表示されたメソッドの先頭にある文字 "A" に下線が引かれます。
+7. 文字 "A" をポイントし、`AddUserAndRole` メソッドのメソッドスタブを生成するための UI をクリックします。 
 
-    ![メンバーシップと管理 - メソッド スタブを生成します。](membership-and-administration/_static/image1.png)
-8. オプションをクリックします。  
+    ![メンバーシップと管理-メソッドスタブの生成](membership-and-administration/_static/image1.png)
+8. 次のタイトルのオプションをクリックします。  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
-9. 開く、 *RoleActions.cs*ファイルから、*ロジック*フォルダー。  
-   `AddUserAndRole`メソッドがクラス ファイルに追加されました。
-10. 変更、 *RoleActions.cs*ファイルを削除して、`NotImplementedException`し、次のように表示されるように黄色で強調表示されているコードを追加します。  
+9. *Logic*フォルダーから*RoleActions.cs*ファイルを開きます。  
+   `AddUserAndRole` メソッドがクラスファイルに追加されました。
+10. `NotImplementedException` を削除し、次のように黄色で強調表示されているコードを追加して、 *RoleActions.cs*ファイルを変更します。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
 
-上記のコードは、まず、メンバーシップ データベースのデータベース コンテキストを確立します。 メンバーシップ データベースとしても格納されている、 *.mdf*ファイル、*アプリ\_データ*フォルダー。 最初のユーザーがこの web アプリケーションにサインインすると、このデータベースを表示することができます。 
+上記のコードでは、最初にメンバーシップデータベースのデータベースコンテキストを確立します。 メンバーシップデータベースは、 *App\_Data*フォルダーに *.mdf*ファイルとしても格納されます。 最初のユーザーがこの web アプリケーションにサインインすると、このデータベースを表示できるようになります。 
 
 > [!NOTE] 
 > 
-> 製品データと共にメンバーシップ データを格納する場合は、同じ使用を検討することができます**DbContext**上記のコードでは製品データを格納するために使用することです。
+> メンバーシップデータと製品データを格納する場合は、上記のコードに製品データを格納するために使用したものと同じ**Dbcontext**を使用することを検討してください。
 
- *内部*キーワードは、アクセス修飾子 (クラス) などの型と型のメンバー (メソッド、プロパティなど)。 内部型またはメンバーは、同じアセンブリに含まれるファイル内でのみアクセス可能な *(.dll*ファイル)。 アセンブリ ファイル、アプリケーションをビルドするときに *(.dll*) が作成されるアプリケーションを実行するときに実行されるコードを格納しています。 
+ *Internal*キーワードは、型 (クラスなど) および型のメンバー (メソッドやプロパティなど) のアクセス修飾子です。 内部の型またはメンバーは、同じアセンブリ *(.dll*ファイル) に含まれるファイル内でのみアクセスできます。 アプリケーションをビルドすると、アプリケーションの実行時に実行されるコードを含むアセンブリファイル *(.dll*) が作成されます。 
 
-A`RoleStore`ロール管理を提供するオブジェクトがデータベース コンテキストに基づいて作成されます。
-
-> [!NOTE] 
-> 
-> された場合、`RoleStore`オブジェクトが作成される、ジェネリックを使用して`IdentityRole`型。 つまり、`RoleStore`を格納することができる`IdentityRole`オブジェクト。 ジェネリックを使用すると、メモリ内のリソースの処理が向上します。
-
-次に、`RoleManager`オブジェクト、に基づいて作成されますが、`RoleStore`作成したオブジェクト。 `RoleManager`オブジェクトの公開ロール関連 API を自動的に変更を保存するために使用できる、`RoleStore`します。 `RoleManager`を格納することができる`IdentityRole`オブジェクト コードを使用するため、`<IdentityRole>`ジェネリック型。
-
-呼び出す、 `RoleExists` "canEdit"ロールが、メンバーシップ データベースに存在するかどうかを判断するメソッド。 そうでない場合は、ロールを作成します。
-
-作成、`UserManager`よりも複雑にするオブジェクトが表示されます、`RoleManager`制御、ただしほぼ同じです。 いくつかではなく 1 つの行に記述されてだけです。 ここでは、渡されるパラメーターは、かっこ内に含まれる新しいオブジェクトとしてインスタンス化します。
-
-次に新しい"canEditUser"ユーザーを作成する`ApplicationUser`オブジェクト。 次に、ユーザーを正常に作成する場合は、新しいロールにユーザーを追加します。
+ロール管理を提供する `RoleStore` オブジェクトは、データベースコンテキストに基づいて作成されます。
 
 > [!NOTE] 
 > 
-> エラー処理は、このチュートリアル シリーズの後半の「ASP.NET エラーの処理"チュートリアル中に更新されます。
+> `RoleStore` オブジェクトが作成されると、ジェネリック `IdentityRole` 型が使用されることに注意してください。 これは、`RoleStore` に `IdentityRole` オブジェクトのみを含めることができることを意味します。 また、ジェネリックを使用することにより、メモリ内のリソースの処理が向上します。
 
-次回、アプリケーションの起動時"canEditUser"という名前のユーザーは、という名前のアプリケーションの"canEdit"ロールとして追加されます。 このチュートリアルの後半では、このチュートリアルの中に追加するその他の機能を表示する"canEditUser"ユーザーとしてログインします。 ASP.NET Identity の API については、次を参照してください。、 [Microsoft.AspNet.Identity Namespace](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx)します。 ASP.NET の Id システムを初期化する方法について詳細を参照してください、 [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs)します。
+次に、`RoleManager` オブジェクトが、先ほど作成した `RoleStore` オブジェクトに基づいて作成されます。 `RoleManager` オブジェクトは、`RoleStore`への変更を自動的に保存するために使用できるロール関連の API を公開します。 このコードでは `<IdentityRole>` ジェネリック型が使用されているため、`RoleManager` には `IdentityRole` オブジェクトのみを含めることができます。
 
-### <a name="restricting-access-to-the-administration-page"></a>管理ページにアクセスを制限します。
+"CanEdit" ロールがメンバーシップデータベースに存在するかどうかを判断するには、`RoleExists` メソッドを呼び出します。 そうでない場合は、ロールを作成します。
 
-Wingtip Toys のサンプル アプリケーションは、匿名ユーザーとユーザーのログインの両方を表示および製品を購入できます。 ただし、カスタムの"canEdit"ロールを持つログインしているユーザーは追加して、製品を削除するには制限されているページにアクセスできます。
+`UserManager` オブジェクトの作成は、`RoleManager` コントロールよりも複雑に見えますが、ほぼ同じです。 このコードは、いくつかではなく1行に記述されているだけです。 ここでは、渡されるパラメーターは、かっこ内に含まれる新しいオブジェクトとしてインスタンス化されます。
 
-#### <a name="add-an-administration-folder-and-page"></a>管理者用フォルダーとページを追加します。
+次に、新しい `ApplicationUser` オブジェクトを作成して "canEditUser" ユーザーを作成します。 その後、ユーザーが正常に作成されたら、そのユーザーを新しいロールに追加します。
 
-次に、という名前のフォルダーを作成、*管理者*Wingtip Toys のカスタム ロールに属している"canEditUser"ユーザーのサンプル アプリケーション。
+> [!NOTE] 
+> 
+> エラー処理は、このチュートリアルシリーズの後半の「ASP.NET Error 処理」チュートリアルで更新されます。
 
-1. プロジェクト名を右クリックして (**Wingtip Toys**) で**ソリューション エクスプ ローラー**選択**追加** - &gt; **の新しいフォルダー**.
-2. 新しいフォルダーの名前*管理者*します。
-3. 右クリックし、*管理者*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
+アプリケーションの次回の起動時に、"canEditUser" という名前のユーザーが、アプリケーションの "canEdit" という名前のロールとして追加されます。 このチュートリアルの後の方で、このチュートリアルで追加する機能を表示するには、"canEditUser" ユーザーとしてログインします。 ASP.NET Identity に関する API の詳細につい[ては、](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx)「」を参照してください。 ASP.NET Identity システムの初期化の詳細については、 [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs)を参照してください。
+
+### <a name="restricting-access-to-the-administration-page"></a>管理ページへのアクセスの制限
+
+Wingtip Toys サンプルアプリケーションでは、匿名ユーザーとログインユーザーの両方が製品を表示および購入できます。 ただし、カスタムの "canEdit" ロールを持つログインユーザーは、製品を追加および削除するために制限されたページにアクセスできます。
+
+#### <a name="add-an-administration-folder-and-page"></a>管理フォルダーとページの追加
+
+次に、Wingtip Toys サンプルアプリケーションのカスタムロールに属している "canEditUser" ユーザーの " *Admin* " という名前のフォルダーを作成します。
+
+1. **ソリューションエクスプローラー**でプロジェクト名 (**Wingtip Toys**) を右クリックし、[ -&gt;**新しいフォルダー**の**追加**] を選択します。
+2. 新しいフォルダーに「 *Admin*」という名前を指定します。
+3. [ *Admin* ] フォルダーを右クリックし、[ -の**追加**] &gt; **[新しい項目]** の順に選択します。   
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-4. 選択、 <strong>Visual C#</strong> - &gt; <strong>Web</strong>左側のテンプレート グループ。 真ん中の一覧から選択<strong>マスター ページを使用した Web フォーム</strong>、という名前を付けます<em>AdminPage.aspx</em><strong>、</strong>し、<strong>追加</strong>します。
-5. 選択、 *Site.Master*ファイルをマスター ページとして選び、 **OK**。
+4. 左側の<strong>[ C# Visual</strong>-&gt; <strong>Web</strong>テンプレート] グループを選択します。 中央の一覧で、[<strong>マスターページを含む Web フォーム</strong>] を選択し、「 <em>adminpage .aspx</em><strong>」</strong>という名前を付けて、[<strong>追加</strong>] を選択します。
+5. マスターページとして [] を選択し、[ **OK]** を選択し*ます。*
 
-#### <a name="add-a-webconfig-file"></a>Web.config ファイルを追加します。
+#### <a name="add-a-webconfig-file"></a>Web.config ファイルを追加する
 
-追加することで、 *Web.config*ファイルを*管理者*フォルダー、フォルダー内に含まれているページにアクセスを制限することができます。
+*管理*フォルダーに*web.config*ファイルを追加することで、フォルダーに含まれているページへのアクセスを制限できます。
 
-1. 右クリックし、*管理者*フォルダーと選択**追加** - &gt; **新しい項目の**します。  
+1. [ *Admin* ] フォルダーを右クリックし、 **[追加]** [ -&gt;**新しい項目**] の順に選択します。  
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. Visual c# web テンプレートのリストから選択<strong>Web 構成ファイル</strong>、真ん中の一覧から既定の名前をそのまま使用<em>Web.config</em><strong>、</strong>し、 <strong>追加</strong>します。
-3. 既存の XML コンテンツを置き換える、 *Web.config*を次のファイル。  
+2. C# Visual web テンプレートの一覧から、中央の一覧から [ <strong>web 構成ファイル</strong>] を選択し、web.config の既定の名前をそのまま<strong>使用し</strong><em>て、[</em><strong>追加</strong>] を選択します。
+3. *Web.config ファイル内*の既存の XML コンテンツを次の内容に置き換えます。  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
 
-保存、 *Web.config*ファイル。 *Web.config*ファイルは、その唯一のユーザーがアプリケーションの"canEdit"ロールに属していることができますに含まれているページへのアクセスを指定します、*管理者*フォルダー。
+*Web.config ファイルを*保存します。 Web.config*ファイルは*、アプリケーションの "canedit" ロールに属しているユーザーのみが、*管理*フォルダーに含まれるページにアクセスできることを指定します。
 
-### <a name="including-custom-role-navigation"></a>カスタム ロールのナビゲーションを含む
+### <a name="including-custom-role-navigation"></a>カスタムロールナビゲーションを含む
 
-アプリケーションの管理 セクションに移動する、カスタムの"canEdit"ロールのユーザーを有効にするへのリンクを追加する必要があります、 *Site.Master*ページ。 "CanEdit"ロールに属しているユーザーが参照できるのみ、**管理者**リンクし、[管理] セクションにアクセスします。
+カスタムの "canEdit" ロールのユーザーがアプリケーションの [管理] セクションに移動できるようにするには、サイトの [*マスター* ] ページへのリンクを追加する必要があります。 "CanEdit" ロールに属しているユーザーのみが、管理**者**リンクを表示し、[管理] セクションにアクセスできます。
 
-1. ソリューション エクスプ ローラーで検索して開く、 *Site.Master*ページ。
-2. "CanEdit"ロールのユーザーへのリンクを作成するには、次の順序なしリストを黄色で強調表示のマークアップを追加`<ul>`要素として一覧が表示されるように従います。  
+1. ソリューションエクスプローラーで、[ *] ページを*見つけて開きます。
+2. "CanEdit" ロールのユーザーのリンクを作成するには、次のようにリストが表示されるように、黄色で強調表示されているマークアップを次の順序付けされていないリスト `<ul>` 要素に追加します。  
 
     [!code-html[Main](membership-and-administration/samples/sample5.html?highlight=2-3)]
-3. 開く、 *Site.Master.cs*ファイル。 ように、**管理者**に黄色で強調表示されているコードを追加することで"canEditUser"ユーザーにのみ表示されるリンク、`Page_Load`ハンドラー。 `Page_Load`ハンドラーは次のように表示されます。   
+3. *Site.Master.cs*ファイルを開きます。 黄色で強調表示されているコードを `Page_Load` ハンドラーに追加することで、"canEditUser" ユーザーにのみ**Admin**リンクを表示します。 `Page_Load` ハンドラーは次のように表示されます。   
 
     [!code-csharp[Main](membership-and-administration/samples/sample6.cs?highlight=3-6)]
 
-ページが読み込まれると、コードがログインしたユーザーが"canEdit"の役割を持つかどうかを確認します。 "CanEdit"ロールへのリンクを含む span 要素に、ユーザーが属している場合、 *AdminPage.aspx*ページ (およびその結果、範囲内のリンク) が表示されます。
+ページが読み込まれると、コードは、ログインしているユーザーのロールが "canEdit" であるかどうかを確認します。 ユーザーが "canEdit" ロールに属している場合、 *adminpage .aspx*ページへのリンクを含む span 要素 (およびスパン内のリンク) が表示されます。
 
-### <a name="enabling-product-administration"></a>製品の管理を有効にします。
+### <a name="enabling-product-administration"></a>製品管理の有効化
 
-ここまでは、"canEdit"ロールを作成して、"canEditUser"ユーザーが、[管理] フォルダーと管理ページを追加します。 ページで、その管理フォルダーのアクセス権を設定し、アプリケーションを"canEdit"ロールのユーザーのナビゲーション リンクを追加します。 マークアップを次に、追加は、 *AdminPage.aspx*ページし、コードを*AdminPage.aspx.cs*分離コード ファイルを追加および削除の製品を"canEdit"ロールを持つユーザーを有効になります。
+ここまでで、"canEdit" ロールを作成し、"canEditUser" ユーザー、管理フォルダー、および管理ページを追加しました。 管理フォルダーとページのアクセス権を設定し、アプリケーションに "canEdit" ロールのユーザーのナビゲーションリンクを追加しました。 次に、 *adminpage .aspx*ページにマークアップを追加し、 *AdminPage.aspx.cs*分離コードファイルにコードを追加します。これにより、"canedit" ロールのユーザーが製品を追加したり削除したりできるようになります。
 
-1. **ソリューション エクスプ ローラー**、オープン、 *AdminPage.aspx*ファイルから、*管理者*フォルダー。
-2. 次のように既存のマークアップに置き換えます。  
+1. **ソリューションエクスプローラー**で、 *Admin*フォルダーから*adminpage*ファイルを開きます。
+2. 既存のマークアップを次のように置き換えます。  
 
     [!code-aspx[Main](membership-and-administration/samples/sample7.aspx)]
-3. 次に、開く、 *AdminPage.aspx.cs*分離コード ファイルを右クリックし、 *AdminPage.aspx*  をクリック**コードの表示**します。
-4. 既存のコードを置き換える、 *AdminPage.aspx.cs*を次のコードの分離コード ファイル。  
+3. 次に、 *adminpage*を右クリックして **[コードの表示]** をクリックし、 *AdminPage.aspx.cs*分離コードファイルを開きます。
+4. *AdminPage.aspx.cs*分離コードファイルの既存のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample8.cs)]
 
-入力したコードで、 *AdminPage.aspx.cs* 、分離コード ファイルと呼ばれるクラス`AddProducts`データベースに製品を追加する実際の作業です。 このクラスは、今すぐ作成がまだ存在しません。
+*AdminPage.aspx.cs*分離コードファイルに入力したコードでは、`AddProducts` というクラスを使用して、実際に製品をデータベースに追加する作業が行われます。 このクラスはまだ存在しないため、ここで作成します。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、*ロジック*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
+1. **ソリューションエクスプローラー**で、 *Logic*フォルダーを右クリックし、 **[追加]** [ -&gt;**新しい項目**] の順に選択します。   
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. 選択、 **Visual c#**  - &gt; **コード**左側のテンプレート グループ。 次に、選択**クラス**中央から一覧表示し、名前を*AddProducts.cs*します。   
-   新しいクラス ファイルが表示されます。
+2. 左側の **[ C# Visual** -&gt;**コード**テンプレート] グループを選択します。 次に、中央の一覧から **[クラス]** を選択し、「 *AddProducts.cs*」という名前を指定します。   
+   新しいクラスファイルが表示されます。
 3. 既存のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
 
-*AdminPage.aspx*ページでは、"canEdit"ロールに属しているユーザーを追加して製品を削除します。 新製品が追加されたときに、製品に関する詳細な情報が検証され、データベースに入力し。 新しい製品では、web アプリケーションのすべてのユーザーにすぐに利用できます。
+*Adminpage .aspx*ページでは、"canedit" ロールに属しているユーザーが製品を追加および削除できます。 新しい製品が追加されると、製品の詳細が検証され、データベースに入力されます。 新しい製品は、web アプリケーションのすべてのユーザーがすぐに使用できるようになります。
 
-#### <a name="unobtrusive-validation"></a>控え目な検証
+#### <a name="unobtrusive-validation"></a>控えめに検証
 
-ユーザーが提供する製品の詳細、 *AdminPage.aspx*ページは、検証コントロールを使用して検証される (`RequiredFieldValidator`と`RegularExpressionValidator`)。 これらのコントロールは、控え目な検証を自動的に使用します。 控え目な検証では、ページに検証するサーバーへのトリップが必要ありませんが、クライアント側検証ロジックを JavaScript を使用する検証コントロールを使用します。 既定では、控え目な検証が含まれている、 *Web.config*次の構成設定に基づいて、ファイル。
+ユーザーが*adminpage .aspx*ページで提供する製品の詳細は、検証コントロール (`RequiredFieldValidator` および `RegularExpressionValidator`) を使用して検証されます。 これらのコントロールは、控えめな検証を自動的に使用します。 控えめな検証では、検証コントロールがクライアント側の検証ロジックに JavaScript を使用できるようになります。これは、ページが検証のためにサーバーへのトリップを必要としないことを意味します。 既定では、次の構成設定に基づいて、控えめな検証が*web.config ファイルに*含まれています。
 
 [!code-xml[Main](membership-and-administration/samples/sample10.xml)]
 
 #### <a name="regular-expressions"></a>正規表現
 
-製品価格、 *AdminPage.aspx*を使用してページを検証、 **RegularExpressionValidator**コントロール。 このコントロールは、関連付けられている入力コントロール ("AddProductPrice"のテキスト ボックス) の値が正規表現で指定されたパターンと一致するかどうかを検証します。 正規表現はパターン マッチングの表記法ですばやく検索して、特定の文字パターンと一致することができます。 **RegularExpressionValidator**コントロールにはという名前のプロパティが含まれています`ValidationExpression`次に示すように、価格の入力の検証に使用される正規表現を格納しています。
+*Adminpage .aspx*ページの製品価格は、 **RegularExpressionValidator**コントロールを使用して検証されます。 このコントロールは、関連付けられている入力コントロール ("AddProductPrice" テキストボックス) の値が正規表現で指定されたパターンと一致するかどうかを検証します。 正規表現は、パターンマッチングの表記で、特定の文字パターンをすばやく検索して一致させることができます。 **RegularExpressionValidator**コントロールには、次に示すように、価格入力の検証に使用される正規表現を含む `ValidationExpression` という名前のプロパティが含まれています。
 
 [!code-aspx[Main](membership-and-administration/samples/sample11.aspx)]
 
 #### <a name="fileupload-control"></a>FileUpload コントロール
 
-追加した入力と検証コントロールのほか、 **FileUpload**への制御、 *AdminPage.aspx*ページ。 このコントロールは、ファイルをアップロードする機能を提供します。 この場合、アップロードするイメージ ファイルのみが許可されます。 分離コード ファイル内 (*AdminPage.aspx.cs*)、ときに、`AddProductButton`がクリックされた、コードのチェック、`HasFile`のプロパティ、 **FileUpload**コントロール。 コントロールにファイルがある場合、イメージの保存 (ファイル拡張子に基づいた) ファイルの種類が許可されている場合、*イメージ*フォルダーと*イメージ/Thumbs*アプリケーションのフォルダー。
+入力コントロールと検証コントロールに加えて、 **FileUpload**コントロールを*adminpage .aspx*ページに追加しました。 このコントロールには、ファイルをアップロードする機能が用意されています。 この場合、イメージファイルのアップロードのみを許可します。 分離コードファイル (*AdminPage.aspx.cs*) で、`AddProductButton` をクリックすると、コードは**FileUpload**コントロールの `HasFile` プロパティをチェックします。 コントロールにファイルがあり、ファイルの種類 (ファイル拡張子に基づく) が許可されている場合、イメージは*images*フォルダーと、アプリケーションの*images/親指*フォルダーに保存されます。
 
 #### <a name="model-binding"></a>モデル バインド
 
-このチュートリアル シリーズで前を設定するモデル バインドを使用して、 **ListView**コントロール、 **FormsView**コントロール、 **GridView**コントロール、および**DetailView**コントロール。 このチュートリアルで設定をモデル バインドを使用して、 **DropDownList**製品カテゴリの一覧を持つコントロール。
+このチュートリアルシリーズの前半では、モデルバインドを使用して**ListView**コントロール、**フォームビュー**コントロール、 **GridView**コントロール、および**ビュー**コントロールを設定していました。 このチュートリアルでは、モデルバインドを使用して、 **DropDownList**コントロールに製品カテゴリの一覧を設定します。
 
-マークアップに追加した、 *AdminPage.aspx*ファイルが含まれています、 **DropDownList**というコントロール`DropDownAddCategory`:
+*Adminpage*ファイルに追加したマークアップには、`DropDownAddCategory`という**DropDownList**コントロールが含まれています。
 
 [!code-aspx[Main](membership-and-administration/samples/sample12.aspx)]
 
-モデル バインドを使用してこれを設定する**DropDownList**を設定して、`ItemType`属性と`SelectMethod`属性。 `ItemType`属性を使用することを指定します、`WingtipToys.Models.Category`コントロールを設定するときに入力します。 このチュートリアル シリーズの先頭には、この種類の作成によって定義された、`Category`クラス (下記参照)。 `Category`クラスは、*モデル*内のフォルダー、 *Category.cs*ファイル。
+モデルバインドを使用して、`ItemType` 属性と `SelectMethod` 属性を設定して、この**DropDownList**を設定します。 `ItemType` 属性は、コントロールを設定するときに `WingtipToys.Models.Category` 型を使用することを指定します。 この型は、このチュートリアルシリーズの冒頭で、`Category` クラスを作成して定義しています (以下の図を参照)。 `Category` クラスは、 *Category.cs*ファイル内の [*モデル*] フォルダーにあります。
 
 [!code-csharp[Main](membership-and-administration/samples/sample13.cs)]
 
-`SelectMethod`の属性、 **DropDownList**コントロールを使用することを指定します、`GetCategories`メソッド (下図) は、分離コード ファイルに含まれる (*AdminPage.aspx.cs*)。
+**DropDownList**コントロールの `SelectMethod` 属性は、分離コードファイル (*AdminPage.aspx.cs*) に含まれる `GetCategories` メソッド (下記参照) を使用することを指定します。
 
 [!code-csharp[Main](membership-and-administration/samples/sample14.cs)]
 
-このメソッドでは、ことを指定します、`IQueryable`に対してクエリを評価するインターフェイスを使用する`Category`型。 返される値は設定に使用、 **DropDownList**ページのマークアップで (*AdminPage.aspx*)。
+このメソッドは、`Category` 型に対してクエリを評価するために `IQueryable` インターフェイスを使用することを指定します。 返された値は、ページのマークアップ (*adminpage*) で**DropDownList**を設定するために使用されます。
 
-設定して、リストの各項目が指定された表示されるテキスト、`DataTextField`属性。 `DataTextField`属性の使用、`CategoryName`の`Category`クラス内の各カテゴリを表示する (上記)、 **DropDownList**コントロール。 項目が選択されたときに渡される実際の値、 **DropDownList**コントロールがに基づいて、`DataValueField`属性。 `DataValueField`属性に設定されて、`CategoryID`の定義と、`Category`クラス (上記参照)。
+リスト内の各項目に対して表示されるテキストは、`DataTextField` 属性を設定することによって指定されます。 `DataTextField` 属性は、上に示した `Category` クラスの `CategoryName` を使用して、 **DropDownList**コントロールに各カテゴリを表示します。 **DropDownList**コントロールで項目が選択されたときに渡される実際の値は、`DataValueField` 属性に基づきます。 `DataValueField` 属性は、上に示した `Category` クラスの定義に従って `CategoryID` に設定されます。
 
-### <a name="how-the-application-will-work"></a>アプリケーションのしくみ
+### <a name="how-the-application-will-work"></a>アプリケーションの動作
 
-"CanEdit"ロールに属しているユーザーが最初のページに移動したとき、 `DropDownAddCategory` **DropDownList**コントロールは、前述のように設定します。 `DropDownRemoveProduct` **DropDownList**コントロールが同じアプローチを使用して製品も設定されます。 "CanEdit"ロールに属しているユーザーがカテゴリの種類を選択し、製品の詳細を追加します (**名前**、**説明**、**価格**、および**のイメージファイル**). "CanEdit"ロールに属しているユーザーがクリックすると、**追加製品** ボタン、`AddProductButton_Click`イベント ハンドラーがトリガーされます。 `AddProductButton_Click`イベント ハンドラーが分離コード ファイル内にある (*AdminPage.aspx.cs*) 許可されているファイルの種類と一致するかどうかを確認するイメージ ファイルをチェック *(.gif*、 *.png*、 *.jpeg*、または *.jpg*)。 次に、イメージ ファイルは、Wingtip Toys のサンプル アプリケーションのフォルダーに保存されます。 次に、新製品は、データベースに追加されます。 新製品の新しいインスタンスを追加する、`AddProducts`クラスを作成し、製品の名前します。 `AddProducts`クラスという名前のメソッドには`AddProduct`、および製品オブジェクトは、データベースに製品を追加するには、このメソッドを呼び出します。
+"CanEdit" ロールに属しているユーザーが最初にページに移動すると、前述のように `DropDownAddCategory`**DropDownList**コントロールが設定されます。 `DropDownRemoveProduct`**DropDownList**コントロールにも、同じ方法で製品が設定されます。 "CanEdit" ロールに属しているユーザーは、カテゴリの種類を選択し、製品の詳細 (**名前**、**説明**、**価格**、および**画像ファイル**) を追加します。 "CanEdit" ロールに属しているユーザーが **[製品の追加]** ボタンをクリックすると、`AddProductButton_Click` イベントハンドラーがトリガーされます。 分離コードファイル (*AdminPage.aspx.cs*) にある `AddProductButton_Click` イベントハンドラーは、イメージファイルが、許可されているファイルの種類 *(.gif*、 *.png*、 *.jpeg*、または *.jpg*) と一致しているかどうかを確認します。 次に、イメージファイルは Wingtip Toys サンプルアプリケーションのフォルダーに保存されます。 次に、新しい製品がデータベースに追加されます。 新しい製品の追加を完了するために、`AddProducts` クラスの新しいインスタンスが作成され、製品という名前が付けられます。 `AddProducts` クラスには `AddProduct`という名前のメソッドがあり、products オブジェクトはこのメソッドを呼び出して、製品をデータベースに追加します。
 
 [!code-csharp[Main](membership-and-administration/samples/sample15.cs)]
 
-ページのクエリ文字列の値を再読み込みがコードでは、データベースに新しい製品が正常に追加する場合`ProductAction=add`します。
+コードによって新しい製品がデータベースに正常に追加されると、`ProductAction=add`クエリ文字列値を使用してページが再読み込みされます。
 
 [!code-csharp[Main](membership-and-administration/samples/sample16.cs)]
 
-ページが再読み込み、クエリ文字列が URL に含まれます。 ページを再読み込みして"canEdit"ロールに属しているユーザーはすぐに内の更新プログラムを確認、 **DropDownList**のコントロールに対して、 *AdminPage.aspx*ページ。 また、url クエリ文字列を含めることによって、ページを表示できます、成功メッセージ"canEdit"ロールに属しているユーザー。
+ページが再読み込みされると、クエリ文字列が URL に含まれます。 ページを再読み込みすると、"canEdit" ロールに属しているユーザーは、 *adminpage .aspx*ページの**DropDownList**コントロールで更新をすぐに確認できます。 また、URL と共にクエリ文字列を含めることで、"canEdit" ロールに属しているユーザーに成功メッセージを表示できます。
 
-ときに、 *AdminPage.aspx*再読み込み、ページ、`Page_Load`イベントが呼び出されます。
+*Adminpage .aspx*ページを再読み込みすると、`Page_Load` イベントが呼び出されます。
 
 [!code-csharp[Main](membership-and-administration/samples/sample17.cs)]
 
-`Page_Load`イベント ハンドラーは、クエリ文字列の値をチェックし、成功メッセージを表示するかどうかを決定します。
+`Page_Load` イベントハンドラーは、クエリ文字列の値を確認し、成功メッセージを表示するかどうかを決定します。
 
 ## <a name="running-the-application"></a>アプリケーションの実行
 
-ショッピング カートでは、アプリケーションを追加する方法を確認するようになりました、delete、および更新プログラムを実行できます。 ショッピング カート合計は、ショッピング カート内のすべての項目の合計コストに反映されます。
+ここでアプリケーションを実行して、ショッピングカートのアイテムを追加、削除、および更新する方法を確認できます。 ショッピングカートの合計には、ショッピングカート内のすべての品目の合計コストが反映されます。
 
-1. ソリューション エクスプ ローラーでキーを押して**F5** Wingtip Toys のサンプル アプリケーションを実行します。  
-   ブラウザーが開きを示しています、 *Default.aspx*ページ。
-2. をクリックして、**ログイン**ページの上部にあるリンクです。 
+1. ソリューションエクスプローラーで、 **F5**キーを押して Wingtip Toys サンプルアプリケーションを実行します。  
+   ブラウザーが開き、 *default.aspx*ページが表示されます。
+2. ページの上部にある **[ログイン]** リンクをクリックします。 
 
-    ![メンバーシップと管理 - ログイン リンク](membership-and-administration/_static/image2.png)
+    ![メンバーシップと管理-[ログイン] リンク](membership-and-administration/_static/image2.png)
 
    *Login.aspx*ページが表示されます。
 3. 次のユーザー名とパスワードを使用します。  
    ユーザー名: canEditUser@wingtiptoys.com  
-   パスワード:Pa$$word1 
+   パスワード: Pa $ $word 1 
 
-    ![メンバーシップと管理 - ログイン ページ](membership-and-administration/_static/image3.png)
-4. をクリックして、**ログイン**ページの下部にあるボタンをクリックします。
-5. 次のページの上部にある選択、**管理者**に移動するリンク、 *AdminPage.aspx*ページ。 
+    ![メンバーシップと管理-[ログイン] ページ](membership-and-administration/_static/image3.png)
+4. ページの下部にある **[ログイン]** ボタンをクリックします。
+5. 次のページの上部にある **[管理者]** リンクを選択して、 *adminpage .aspx*ページに移動します。 
 
-    ![メンバーシップと管理の管理者リンク](membership-and-administration/_static/image4.png)
-6. 入力の検証をテストするには、クリックして、**成果物の追加**せず、製品の詳細を追加するボタンをクリックします。 
+    ![メンバーシップと管理-管理者リンク](membership-and-administration/_static/image4.png)
+6. 入力の検証をテストするには、製品の詳細を追加せずに **[製品の追加]** ボタンをクリックします。 
 
-    ![メンバーシップと管理の管理者 ページ](membership-and-administration/_static/image5.png)
+    ![メンバーシップと管理-[管理者] ページ](membership-and-administration/_static/image5.png)
 
-   必須フィールドのメッセージが表示されることに注意してください。
-7. 新製品の詳細を追加し、クリックして、**追加製品**ボタンをクリックします。 
+   必須フィールドメッセージが表示されていることに注意してください。
+7. 新しい製品の詳細を追加し、 **[製品の追加]** ボタンをクリックします。 
 
-    ![メンバーシップと管理 - 製品を追加します。](membership-and-administration/_static/image6.png)
-8. 選択**製品**追加した新しい製品を表示する、上部のナビゲーション メニューから。 
+    ![メンバーシップと管理-製品の追加](membership-and-administration/_static/image6.png)
+8. 上部のナビゲーションメニューから **[製品]** を選択すると、追加した新しい製品が表示されます。 
 
-    ![メンバーシップと管理 - 新しい製品を表示します。](membership-and-administration/_static/image7.png)
-9. をクリックして、**管理者**リンクの管理 ページに戻ります。
-10. **削除製品**セクションで追加した新しい製品を選択、ページの**DropDownListBox**します。
-11. をクリックして、**製品の削除**アプリケーションから、新しい成果物を削除するボタンをクリックします。 
+    ![メンバーシップと管理-新しい製品の表示](membership-and-administration/_static/image7.png)
+9. [管理**者**] リンクをクリックして、[管理] ページに戻ります。
+10. ページの **[製品の削除]** セクションで、ドロップダウン**リスト**に追加した新しい製品を選択します。
+11. **[製品の削除]** ボタンをクリックして、新しい製品をアプリケーションから削除します。 
 
-    ![メンバーシップと管理 - 製品の削除](membership-and-administration/_static/image8.png)
-12. 選択**製品**から上部のナビゲーション メニューの製品が削除されていることを確認します。
-13. クリックして**ログオフ**管理モードが存在します。   
-    上部のナビゲーション ウィンドウが表示されなくなりますが、**管理者**メニュー項目。
+    ![メンバーシップと管理-製品の削除](membership-and-administration/_static/image8.png)
+12. 上部のナビゲーションメニューから **[製品]** を選択して、製品が削除されたことを確認します。
+13. [ログオフ] を**クリックして**、存在する管理モードにします。   
+    上部のナビゲーションウィンドウに **[管理]** メニュー項目が表示されなくなっていることに注意してください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、カスタム ロールとカスタムのロール ページで、その管理フォルダーへのアクセス制限に属しているユーザーを追加し、カスタム ロールに属しているユーザーのナビゲーションを提供します。 モデル バインドの設定に使用する、 **DropDownList**コントロールにデータ。 実装する、 **FileUpload**コントロールと検証コントロール。 また、追加し、データベースから製品を削除する方法を学習しました。 次のチュートリアルでは、ASP.NET ルーティングを実装する方法を学習します。
+このチュートリアルでは、カスタムロールとカスタムロールに属しているユーザー、管理フォルダーとページへの制限付きアクセス、およびカスタムロールに属しているユーザーのナビゲーションを追加しました。 モデルバインドを使用して、 **DropDownList**コントロールにデータを設定しています。 **FileUpload**コントロールと検証コントロールを実装しています。 また、データベースの製品を追加および削除する方法についても説明しました。 次のチュートリアルでは、ASP.NET ルーティングを実装する方法について説明します。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の資料
 
-[Web.config の authorization 要素](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
+[Web.config-authorization 要素](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
 [ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
-[Azure の Web サイトにメンバーシップ、OAuth、SQL Database を使用したセキュリティで保護された ASP.NET Web フォーム アプリをデプロイします。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
-[Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/)
+[メンバーシップ、OAuth、SQL Database を持つ Secure ASP.NET Web フォームアプリを Azure の Web サイトにデプロイする](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
+[Microsoft Azure-無料試用版](https://azure.microsoft.com/pricing/free-trial/)
 
 > [!div class="step-by-step"]
 > [前へ](checkout-and-payment-with-paypal.md)

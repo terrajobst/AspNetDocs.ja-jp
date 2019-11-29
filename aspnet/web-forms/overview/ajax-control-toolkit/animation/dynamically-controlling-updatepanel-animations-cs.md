@@ -1,39 +1,39 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
-title: UpdatePanel アニメーション (c#) を動的に制御する |Microsoft Docs
+title: UpdatePanel アニメーションを動的にC#制御する () |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 内容として、.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 ... の内容
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 5138b8fe-98ff-4e73-a00b-e263fc3ff11d
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 29c2673aa7b018cbe8c66eb72c256b69a2193a47
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 183974564764aab9c0d8a4e577995f3c444bf2d3
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134051"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606793"
 ---
 # <a name="dynamically-controlling-updatepanel-animations-c"></a>UpdatePanel アニメーションを動的に制御する (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2CS.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 UpdatePanel の内容は、の特別なエクステンダーには、アニメーション フレームワークに大きく依存しているが存在します。UpdatePanelAnimation します。 これは UpdatePanel トリガーと共にも使用できます。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 UpdatePanel の内容については、animation framework: Updateパネルアニメーションに大きく依存する特別な extender が存在します。 また、UpdatePanel トリガーと共に使用することもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 内容として、 `UpdatePanel`、アニメーション フレームワークに大きく依存している特別なエクステンダーが存在します:`UpdatePanelAnimation`します。 でも機能と共に`UpdatePanel`トリガーします。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 `UpdatePanel`の内容については、`UpdatePanelAnimation`のアニメーションフレームワークに大きく依存する特別な extender が存在します。 また、`UpdatePanel` トリガーと共に使用することもできます。
 
 ## <a name="steps"></a>手順
 
-最初の手順は、通常どおりに含める、 `ScriptManager`  ページで、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようにします。
+最初の手順は通常どおり、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるように、ページに `ScriptManager` を含めることです。
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample1.aspx)]
 
-このシナリオでは、アニメーションは、現在の時刻の表示に適用されます。 この情報を使用して、ラベルに書き込まれることができます、`Page_Load()`メソッド、または次のインライン コードの使用 (わかりやすくする)。
+このシナリオのアニメーションは、現在の時刻の表示に適用されます。 この情報は、`Page_Load()` メソッドを使用してラベルに書き込むことができます (わかりやすくするために、次のインラインコードが使用されます)。
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample2.aspx)]
 
@@ -41,19 +41,19 @@ ms.locfileid: "65134051"
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample3.aspx)]
 
-このコードに配置し、`<ContentTemplate>`のセクション、`UpdatePanel`要素。 パネルの`UpdateMode`に属性を設定する必要があります`"Conditional"`、トリガーのみがパネルの内容を更新します。 `<Triggers>`のセクション、 `UpdatePanel`、非同期ポストバックのトリガーが作成されに関連付けられている、`Click`ボタンのイベント。 したがって、ユーザーが、ボタンをクリックした場合、`UpdatePanel`が更新されます。 次のマークアップに示します、`UpdatePanel`コントロール。
+このコードは、`UpdatePanel` 要素の `<ContentTemplate>` セクションに配置されます。 パネルの `UpdateMode` 属性は、トリガーのみがパネルの内容を更新する可能性があるため、`"Conditional"`に設定する必要があります。 `UpdatePanel`の `<Triggers>` セクションでは、非同期ポストバックトリガーが作成され、ボタンの `Click` イベントに関連付けられます。 このため、ユーザーがボタンをクリックすると、`UpdatePanel` が更新されます。 `UpdatePanel` コントロールのマークアップを次に示します。
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample4.aspx)]
 
-最後に、`UpdatePanelAnimationExtender`構成する必要があります。設定、`TargetControlID`パネルの id 属性し、エクステンダー内でアニメーションを定義します。 フェードはある意味、更新された時間に優れた visual 重点を置いたを作成します。 エクステンダーのマークアップには可能性がありますし、このようになります。
+最後に、`UpdatePanelAnimationExtender` を構成する必要があります。 `TargetControlID` 属性をパネルの ID に設定し、extender 内でアニメーションを定義します。 でのフェードは意味があり、更新された時間を視覚的に強調表示します。 Extender マークアップは次のようになります。
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample5.aspx)]
 
-ブラウザーでファイルを実行します。 ボタンをクリックしたときに、常に 1 秒の間フェードのパネルで、現在の時刻が表示されます。
+ブラウザーでファイルを実行します。 ボタンをクリックするたびに、現在の時刻がパネルに表示されます。1秒間は常にフェードします。
 
-[![現在の時刻がフェードインします。](dynamically-controlling-updatepanel-animations-cs/_static/image2.png)](dynamically-controlling-updatepanel-animations-cs/_static/image1.png)
+[現在の時刻がフェードイン ![](dynamically-controlling-updatepanel-animations-cs/_static/image2.png)](dynamically-controlling-updatepanel-animations-cs/_static/image1.png)
 
-現在の時刻がフェードイン ([フルサイズの画像を表示する をクリックします](dynamically-controlling-updatepanel-animations-cs/_static/image3.png))。
+現在の時刻はフェードインします ([クリックすると、フルサイズの画像が表示](dynamically-controlling-updatepanel-animations-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](animating-an-updatepanel-control-cs.md)

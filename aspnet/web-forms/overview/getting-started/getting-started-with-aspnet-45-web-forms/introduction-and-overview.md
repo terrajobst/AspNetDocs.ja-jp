@@ -1,194 +1,194 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-title: ASP.NET 4.7 Web フォームと Visual Studio 2017 の概要 |Microsoft Docs
+title: ASP.NET 4.7 Web フォームと Visual Studio 2017 でのはじめにMicrosoft Docs
 author: Erikre
-description: このステップ バイ ステップ チュートリアル シリーズが ASP.NET 4.7 および Microsoft Visual Studio を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を講義します。
+description: このステップバイステップチュートリアルシリーズでは、ASP.NET 4.7 Microsoft Visual Studio とを使用して ASP.NET Web フォームアプリケーションを構築するための基本について説明します。
 ms.author: riande
 ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ad491193c0d669464721d82f86a78b79f45b93aa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 52d5eb7abe4520ebdf6667d299d055fc7619a635
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131377"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615451"
 ---
-# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 の概要
+# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 でのはじめに
 
-[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys サンプルプロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)するか[、電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)します。
 
-このチュートリアル シリーズでは、ASP.NET 4.5 と Microsoft Visual Studio 2017 で ASP.NET Web フォーム アプリケーションを構築する方法を示します。 
+このチュートリアルシリーズでは、ASP.NET 4.5 と Microsoft Visual Studio 2017 を使用して ASP.NET Web フォームアプリケーションを構築する方法について説明します。 
 
 ## <a name="introduction"></a>はじめに
 
-このチュートリアル シリーズでは、Visual Studio 2017 と ASP.NET 4.5 を使用して ASP.NET Web フォーム アプリケーションを作成する手順に従ってできます。 という名前のアプリケーションを作成します**Wingtip Toys** - 販売品目をオンラインの簡略化された店舗の web サイト。 このシリーズでは、中には、ASP.NET 4.5 の新機能が強調表示されます。
+このチュートリアルシリーズでは、Visual Studio 2017 と ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを作成する手順について説明します。 **Wingtip Toys**という名前のアプリケーションを作成します。これは、簡素化されたストア web サイトで、オンラインでアイテムを販売します。 シリーズの中で、新しい ASP.NET 4.5 の機能が強調表示されています。
 
 ### <a name="target-audience"></a>対象ユーザー
 
-ASP.NET Web フォームに慣れていない開発者は、このチュートリアル シリーズの対象者です。
+ASP.NET Web フォームを初めて使用する開発者は、このチュートリアルシリーズの対象ユーザーです。
 
-ある程度の知識は、次の領域が必要です。
+次の領域には、いくつかの知識が必要です。
 
-- オブジェクト指向プログラミング (OOP) および言語
+- オブジェクト指向プログラミング (OOP) と言語
 - Web 開発 (HTML、CSS、JavaScript)
-- リレーショナル データベース
-- N 層アーキテクチャ
+- リレーショナルデータベース
+- n 層アーキテクチャ
 
-これらの領域を確認するには、次の内容を調査を検討してください。
+これらの領域を確認するには、次の内容を確認することを検討してください。
 
-- [Visual C# の概要](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Visual C# 入門](https://msdn.microsoft.com/library/a72418yk.aspx)
 - [Web 開発](https://msdn.microsoft.com/beginner/bb308760.aspx)、 [HTML、CSS、JavaScript、SQL、PHP、JQuery](http://w3schools.com/)
-- [リレーショナル データベース](http://en.wikipedia.org/wiki/Relational_database)
-- [複数層アーキテクチャ](http://en.wikipedia.org/wiki/Multitier_architecture)
+- [リレーショナルデータベース](http://en.wikipedia.org/wiki/Relational_database)
+- [多層アーキテクチャ](http://en.wikipedia.org/wiki/Multitier_architecture)
 
 ### <a name="application-features"></a>アプリケーションの機能
 
-このシリーズに表示される ASP.NET Web フォームの機能は次のとおりです。
+このシリーズでは、次のような ASP.NET Web フォーム機能を紹介します。
 
-- Web アプリケーション プロジェクト (Web サイト プロジェクトではない)
+- Web アプリケーションプロジェクト (Web サイトプロジェクトではない)
 - Web フォーム
-- マスター ページの構成
-- ブートス トラップ
-- Entity Framework コードの最初に、LocalDB
+- マスターページ、構成
+- ブートストラップ
+- Entity Framework Code First、LocalDB
 - 要求の検証
-- 厳密に型指定されたデータ コントロール
+- 厳密に型指定されたデータコントロール
 - モデル バインド
 - データの注釈
 - 値プロバイダー
 - SSL と OAuth
 - ASP.NET Identity、構成、および承認
-- 控え目な検証
+- 控えめに検証
 - ルーティング
 - ASP.NET エラー処理
 
 ### <a name="application-scenarios-and-tasks"></a>アプリケーションのシナリオとタスク
 
-チュートリアル シリーズのタスクは次のとおりです。
+チュートリアルシリーズのタスクは次のとおりです。
 
-- 新しいプロジェクトの作成、レビュー、および
-- データベース構造を作成します。
-- 初期化とデータベースをシード処理
-- スタイル、グラフィック、およびマスター ページの UI のカスタマイズ
+- 新しいプロジェクトの作成、確認、および実行
+- データベース構造の作成
+- データベースの初期化とシード処理
+- スタイル、グラフィックス、およびマスターページを使用した UI のカスタマイズ
 - ページおよびナビゲーションの追加
-- メニューの詳細と製品データを表示します。
-- ショッピング カートの作成
-- 追加の SSL と OAuth サポート
-- 支払い方法を追加します。
-- 管理者のロールとアプリケーションのユーザーを含む
-- 特定のページとフォルダーへのアクセスを制限します。
-- Web アプリケーションにファイルをアップロードします。
-- 入力の検証を実装します。
-- Web アプリケーションのルートを登録します。
-- エラー処理とエラーのログ記録を実装します。
+- メニューの詳細と製品データを表示する
+- ショッピングカートの作成
+- SSL および OAuth サポートの追加
+- 支払い方法の追加
+- 管理者ロールとユーザーをアプリケーションに含める
+- 特定のページおよびフォルダーへのアクセスを制限する
+- Web アプリケーションへのファイルのアップロード
+- 入力検証の実装
+- Web アプリケーションのルートを登録しています
+- エラー処理とエラーログの実装
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアル シリーズは、プログラミングの概念を理解して他のユーザーは新しい ASP.NET Web フォームには。 ASP.NET Web フォームを使い慣れている場合は、このシリーズまだできます ASP.NET 4.5 の新機能について説明します。 プログラミングの概念と、ASP.NET Web フォームに不慣れで提供される追加の Web フォームのチュートリアルを参照してください、 [Getting Started](../../../index.md) ASP.NET Web サイトに関するセクション。
+このチュートリアルシリーズは、プログラミングの概念に習熟している方を対象としていますが、ASP.NET Web フォームが新しく追加されました。 ASP.NET の Web フォームを既に使い慣れている場合でも、このシリーズでは、ASP.NET 4.5 の新機能について学習できます。 プログラミングの概念と ASP.NET の Web フォームに慣れていない読者には、ASP.NET Web サイトの[はじめに](../../../index.md)セクションに記載されている追加の web フォームチュートリアルを参照してください。
 
-このチュートリアル シリーズで提供される ASP.NET 4.5 には、次の機能が含まれています。
+このチュートリアルシリーズで提供されている ASP.NET 4.5 には、次の機能が含まれています。
 
-- 提供するプロジェクトを作成するための単純な UI[多くの ASP.NET フレームワークのサポート](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#add)(Web フォーム、MVC、および Web API)。
-- [ブートス トラップ](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap)レイアウト、テーマ、および応答性の高い設計のフレームワークです。
-- [ASP.NET Identity](../../../../identity/index.md)、IIS 以外のソフトウェアをホストしている web を使用したすべての ASP.NET フレームワークと動作で同様に動作する新しい ASP.NET メンバーシップ システムです。
+- [多くの ASP.NET フレームワーク](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#add)(web フォーム、MVC、web API) をサポートするプロジェクトを作成するための簡単な UI です。
+- [ブートストラップ](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap)、レイアウト、テーマ、および応答性のデザインフレームワーク。
+- [ASP.NET Identity](../../../../identity/index.md)、すべての ASP.NET フレームワークで同じように動作し、IIS 以外の web ホスティングソフトウェアで動作する新しい ASP.NET メンバーシップシステムです。
 - [Entity Framework 6](https://msdn.microsoft.com/data/ef.aspx)
 
-  有効にすると、Entity Framework に更新します。
-  - 取得し、厳密に型指定されたオブジェクトとしてデータを操作します。
-  - データを非同期的にアクセスします。
-  - 一時的な接続エラーを処理します。
-  - SQL ステートメントのログ
+  Entity Framework の更新により、次のことが可能になります。
+  - 厳密に型指定されたオブジェクトとしてデータを取得および操作する
+  - データへの非同期アクセス
+  - 一時的な接続エラーの処理
+  - ログ SQL ステートメント
 
-完全な ASP.NET 4.5 機能の一覧を参照してください。 [ASP.NET および Web Tools for Visual Studio 2013 リリース ノート](../../../../visual-studio/overview/2013/release-notes.md)します。
+ASP.NET 4.5 の完全な機能一覧については、 [Visual Studio 2013 リリースノートの ASP.NET and Web Tools](../../../../visual-studio/overview/2013/release-notes.md)を参照してください。
 
-### <a name="the-wingtip-toys-sample-application"></a>Wingtip Toys のサンプル アプリケーション
+### <a name="the-wingtip-toys-sample-application"></a>Wingtip Toys サンプルアプリケーション
 
-次のスクリーン ショットは、このチュートリアル シリーズで作成した ASP.NET Web フォーム アプリケーションです。 Visual Studio でアプリケーションを実行すると、次の web のホーム ページが表示されます。
+次のスクリーンショットは、このチュートリアルシリーズで作成する ASP.NET Web フォームアプリケーションのものです。 Visual Studio でアプリケーションを実行すると、次の web ホームページが表示されます。
 
-![Wingtip Toys の既定のページ](introduction-and-overview/_static/image1.png)
+![Wingtip Toys-既定のページ](introduction-and-overview/_static/image1.png)
 
-新しいユーザーとして登録したり、既存のユーザーとしてサインインできます。 上部のナビゲーションには、データベースから製品カテゴリとその製品へのリンクがあります。
+新しいユーザーとして登録することも、既存のユーザーとしてサインインすることもできます。 上部のナビゲーションには、データベースから製品カテゴリと製品へのリンクがあります。
 
-選択した場合**製品**、利用可能なすべての製品が表示されます。 
+**[製品]** を選択すると、利用可能なすべての製品が表示されます。 
 
-![Wingtip Toys の製品](introduction-and-overview/_static/image2.png)
+![Wingtip Toys-製品](introduction-and-overview/_static/image2.png)
 
-特定の製品を選択した場合は、製品の詳細が表示されます。
+特定の製品を選択すると、製品の詳細が表示されます。
 
-![Wingtip Toys の製品の詳細](introduction-and-overview/_static/image3.png)
+![Wingtip Toys-製品の詳細](introduction-and-overview/_static/image3.png)
 
-ユーザーは、登録し、Web フォーム テンプレートの既定の機能を使用してサインインできます。 このチュートリアルでは、既存の Gmail アカウントを使用してサインインする方法も説明します。 さらに、追加し、データベースから製品を削除するには、管理者としてサインインすることができます。
+ユーザーは、Web フォームテンプレートの既定の機能を使用して、登録とサインインを行うことができます。 このチュートリアルでは、既存の Gmail アカウントを使用してサインインする方法についても説明します。 また、管理者としてサインインして、データベースの製品を追加および削除することもできます。
 
-![Wingtip Toys のサインイン](introduction-and-overview/_static/image4.png)
+![Wingtip Toys-サインイン](introduction-and-overview/_static/image4.png)
 
-ユーザーとしてサインインした後は、ショッピング カートと精算と PayPal に製品を追加できます。 サンプル アプリケーションは、PayPal の開発者のサンド ボックスで作業する設計されています。 実際の金額のトランザクションは実行されません。
+ユーザーとしてサインインすると、ショッピングカートに製品を追加して、PayPal でチェックアウトできます。 このサンプルアプリケーションは、PayPal の開発者サンドボックスで動作するように設計されています。 実際の金額トランザクションは発生しません。
 
-![Wingtip Toys のショッピング カート](introduction-and-overview/_static/image5.png)
+![Wingtip Toys-ショッピングカート](introduction-and-overview/_static/image5.png)
 
-PayPal は、アカウント、注文、支払情報を確認します。
+PayPal は、お客様のアカウント、注文、支払い情報を確認します。
 
-![Wingtip Toys の PayPal](introduction-and-overview/_static/image6.png)
+![Wingtip Toys-PayPal](introduction-and-overview/_static/image6.png)
 
-PayPal から返された後、は、確認し、注文を完了できます。
+PayPal から戻った後、注文を確認して完了することができます。
 
-![Wingtip Toys の注文の確認](introduction-and-overview/_static/image7.png)
+![Wingtip Toys-注文レビュー](introduction-and-overview/_static/image7.png)
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>必要条件
 
-開始する前に、次のソフトウェアがコンピューターにインストールされていることを確認します。
+開始する前に、次のソフトウェアがコンピューターにインストールされていることを確認してください。
 
-- [Microsoft Visual Studio 2017 または Microsoft Visual Studio Community 2017](https://visualstudio.microsoft.com/downloads/)します。
+- [Microsoft Visual Studio 2017 または Microsoft Visual Studio Community 2017](https://visualstudio.microsoft.com/downloads/)。
 
-.NET Framework は、自動的にインストールされます。
+.NET Framework は自動的にインストールされます。
 
-このチュートリアル シリーズでは、Microsoft Visual Studio Community 2017 を使用します。 ボリュームを使用しているか、またはこのチュートリアル シリーズを完了する、Microsoft Visual Studio 2017。
+このチュートリアルシリーズでは、Microsoft Visual Studio Community 2017 を使用します。 このチュートリアルシリーズを完了するには、または Microsoft Visual Studio 2017 を使用できます。
 
-Visual Studio については、次に注意してください。
+Visual Studio については、次の点に注意してください。
 
-* Microsoft Visual Studio 2017 および Microsoft Visual Studio Community 2017 と呼びます*Visual Studio*このチュートリアル シリーズ全体でします。
+* このチュートリアルシリーズでは、Microsoft Visual Studio 2017 と Microsoft Visual Studio Community 2017 を*Visual Studio*と呼びます。
 
-* Visual Studio 2017 が既にインストールされている古いバージョンの横にあるインストールされます。 以前のバージョンで作成されたサイトでは、Visual Studio 2017 で開くことができ、以前のバージョンを開くに進みます。
+* Visual Studio 2017 は、既にインストールされている古いバージョンの横にインストールされます。 以前のバージョンで作成されたサイトは Visual Studio 2017 で開くことができ、以前のバージョンでは引き続き開くことができます。
 
-* 初めて Visual Studio を開始した、選択したと見なされます、 *Web 開発*設定します。 詳細については、「[方法 :Web 開発環境の設定を選択して](https://msdn.microsoft.com/library/ff521558.aspx)します。
+* Visual Studio を初めて起動したときは、 *Web 開発*設定を選択したと見なされます。 詳細については、「[方法: Web 開発環境の設定を選択する](https://msdn.microsoft.com/library/ff521558.aspx)」を参照してください。
 
-前提条件をインストールすると、このチュートリアル シリーズで表示される Web プロジェクトの作成を開始する準備ができました。
+前提条件をインストールしたら、このチュートリアルシリーズで紹介する Web プロジェクトの作成を開始できます。
 
-## <a name="download-the-sample-application"></a>サンプル アプリケーションをダウンロードします。
+## <a name="download-the-sample-application"></a>サンプルアプリケーションをダウンロードする
 
- MSDN のサンプル サイトから、完全なサンプル アプリケーションをいつでもダウンロードできます。
+ 完成したサンプルアプリケーションは、MSDN サンプルサイトからいつでもダウンロードできます。
 
-[ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#) 
+C# [ASP.NET 4.5 Web フォームと Visual Studio 2013-Wingtip Toys () を使用したはじめに](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) 
 
- このダウンロードには、次のものがあります。
+ このダウンロードには次の項目があります。
 
-- サンプル アプリケーションは、 *WingtipToys*フォルダー。
-- サンプル アプリケーションの作成に使用されるリソース、 *WingtipToys 資産*フォルダーで、 *WingtipToys*フォルダー。
+- *ウィングヒント toys*フォルダー内のサンプルアプリケーション。
+- このサンプルアプリケーションを作成するために使用されるリソースは、*ウィング? toys*フォルダー内の*ウィングヒントの toys-Assets*フォルダーにあります。
 
-ダウンロードが、 *.zip*ファイル。 このチュートリアル シリーズを作成する完成したプロジェクト、検索と選択して、 *C#* .zip ファイル内のフォルダー。 保存、C#を使用する Visual Studio プロジェクトと作業フォルダーのフォルダー。 既定では、Visual Studio 2017 のプロジェクト フォルダーは次のとおりです。
+ダウンロードは *.zip*ファイルです。 このチュートリアルシリーズで作成した完成したプロジェクトを表示するに*C#* は、.zip ファイル内のフォルダーを見つけて選択します。 Visual Studio C#プロジェクトを操作するために使用するフォルダーにフォルダーを保存します。 既定では、Visual Studio 2017 projects フォルダーは次のとおりです。
 
-<strong>C:\Users&#92;</strong><strong><em>&lt;username&gt;</em></strong><strong>\source\repos</strong>
+<strong>C:\Users&#92;</strong>  <strong><em>&lt;ユーザー名&gt;</em></strong>
 
-名前を変更、 ***C#*** フォルダー ***WingtipToys***です。
+フォルダーの***C#*** 名前を「***ウィング? toys***」に変更します。
 
 > [!NOTE]
-> という名前のフォルダーが既にある場合*WingtipToys* Projects フォルダーに名前を一時的にその既存のフォルダーの名前変更する前に、 *C#* フォルダー *WingtipToys*です。
+> 既にプロジェクトフォルダーにウィング? *toys*という名前のフォルダーがある場合は、フォルダーの*C#* 名前を「ウィング? *toys*」に変更する前に、既存のフォルダーの名前を一時的に変更します。
 
-完成したプロジェクトを実行するには、開く、 *WingtipToys*フォルダーをダブルクリックします、 *WingtipToys.sln*ファイル。 Visual Studio 2017 では、プロジェクトを開きます。 次に、右クリックし、 *Default.aspx*ファイル**ソリューション エクスプ ローラー**選択**ブラウザーで表示**します。
+完成したプロジェクトを実行するには、*ウィングヒントの toys*フォルダーを開き、*ウィングヒントの toys. .sln*ファイルをダブルクリックします。 Visual Studio 2017 によってプロジェクトが開きます。 次に、**ソリューションエクスプローラー**で*default.aspx*ファイルを右クリックし、 **[ブラウザーで表示]** を選択します。
 
-## <a name="take-a-aspnet-web-forms-quiz-to-review-content"></a>ASP.NET Web フォーム クイズにコンテンツを確認するには
+## <a name="take-a-aspnet-web-forms-quiz-to-review-content"></a>ASP.NET の Web フォームクイズでコンテンツを確認する
 
-チュートリアルのシリーズを完了すると、知識をテストし、主要な概念を強調するクイズに挑戦します。 各質問は、説明とその他のガイダンスへのリンクを提供します。
+チュートリアルシリーズを完了したら、クイズを使用して知識をテストし、主要な概念を補強します。 各質問には、説明と追加のガイダンスへのリンクが記載されています。
 
 * [ASP.NET Web フォームのクイズ](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
 
 ## <a name="tutorial-support-and-comments"></a>チュートリアルのサポートとコメント
 
-質問やコメントは、使用、Q & A のセクションに含まれています、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#) サンプル ページ。
+質問やコメントについては、 [ASP.NET 4.5 Web フォームおよび Visual Studio 2013-Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) サンプルページのはじめにに記載されている Q とセクションを使用します。
 
-このチュートリアル シリーズのコメントは、ようこそ。 このチュートリアル シリーズを更新すると、機能強化に関する修正または提案を検討する努力が行われます。
+このチュートリアルシリーズのコメントは歓迎されます。 このチュートリアルシリーズを更新すると、修正や改善の提案についてすべての取り組みが行われます。
 
-かどうか、エラーが発生した、対応するエラー メッセージが、混乱を招く可能性がありますでないその修正方法を説明します。 ヘルプについては、確認することができます、 [ASP.NET フォーラム](https://forums.asp.net/)します。 別の適切なソースは、Q & A のセクションで、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#) サンプル ページ。 
+エラーが発生した場合は、対応するエラーメッセージが混乱する可能性があり、修正方法についての適切な説明はありません。 ヘルプを表示するには、 [ASP.NET フォーラム](https://forums.asp.net/)を確認してください。 もう1つの優れたソースは、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) サンプルページのはじめにの Q と A セクションです。 
 
 > [!div class="step-by-step"]
 > [次へ](create-the-project.md)

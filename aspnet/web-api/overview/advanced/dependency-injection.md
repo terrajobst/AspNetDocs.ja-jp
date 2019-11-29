@@ -1,121 +1,121 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: 依存関係の挿入で ASP.NET Web API 2 - ASP.NET 4.x
+title: ASP.NET Web API 2 での依存関係の注入-ASP.NET 4.x
 author: MikeWasson
-description: このチュートリアルは、asp.net、ASP.NET Web API コント ローラーに依存関係を挿入する方法を示しています。 4.x です。
+description: このチュートリアルでは、ASP.NET 4.x の ASP.NET Web API controller に依存関係を挿入する方法について説明します。
 ms.author: riande
 ms.date: 01/20/2014
 ms.custom: seoapril2019
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 138ccb5800e801d382c11e3989ec3e3c074a79fe
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f9c212af92168ac02644625b9aa8ec1bef329cab
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115704"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600421"
 ---
-# <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の依存関係の挿入
+# <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での依存関係の挿入
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
 
-> このチュートリアルでは、ASP.NET Web API コント ローラーに依存関係を挿入する方法を示します。
+> このチュートリアルでは、ASP.NET Web API コントローラーに依存関係を挿入する方法について説明します。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
 > - Web API 2
-> - [Unity Application Block](https://www.nuget.org/packages/Unity/)
-> - Entity Framework 6 の (バージョン 5 の機能も)
+> - [Unity アプリケーションブロック](https://www.nuget.org/packages/Unity/)
+> - Entity Framework 6 (バージョン5も動作)
 
-## <a name="what-is-dependency-injection"></a>依存関係の挿入とは何ですか。
+## <a name="what-is-dependency-injection"></a>依存関係の挿入とは
 
-"*依存関係*" とは、他のオブジェクトが必要とする任意のオブジェクトのことです。 たとえば、定義する一般的なは、[リポジトリ](http://martinfowler.com/eaaCatalog/repository.html)データ アクセスを処理します。 例を使って説明しましょう。 最初に、ドメイン モデルを定義します。
+"*依存関係*" とは、他のオブジェクトが必要とする任意のオブジェクトのことです。 たとえば、データアクセスを処理する[リポジトリ](http://martinfowler.com/eaaCatalog/repository.html)を定義するのは一般的です。 例を使って説明します。 まず、ドメインモデルを定義します。
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 
-Entity Framework を使用して、データベース内の項目を格納する単純なリポジトリ クラスを次に示します。
+Entity Framework を使用してデータベースに項目を格納する単純なリポジトリクラスを次に示します。
 
 [!code-csharp[Main](dependency-injection/samples/sample2.cs)]
 
-ここでの GET 要求をサポートする Web API コント ローラーを定義してみましょう`Product`エンティティ。 (ままにしてあります POST とわかりやすくするためには、その他の方法です。)最初の試行を次に示します。
+次に、`Product` エンティティの GET 要求をサポートする Web API コントローラーを定義します。 (簡潔にするために POST やその他の方法を抜けています)。最初の試行は次のとおりです。
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-コント ローラー クラスが依存している通知`ProductRepository`を知らせ、コント ローラーを作成し、`ProductRepository`インスタンス。 ただし、いくつかの理由にハード コードの依存関係で、この方法をお勧めできませんを勧めします。
+コントローラークラスが `ProductRepository`に依存しており、コントローラーが `ProductRepository` インスタンスを作成することに注意してください。 ただし、いくつかの理由から、この方法で依存関係をハードコーディングすることは不適切です。
 
-- 置換する場合`ProductRepository`別の実装にもする必要があるコント ローラー クラスを変更します。
-- 場合、`ProductRepository`依存関係は、コント ローラー内でこれらを構成する必要があります。 複数のコント ローラーで、大規模なプロジェクトの構成コードがプロジェクトに分散します。
-- コント ローラーが、データベースのクエリにハード コードされたため、単体テストには困難です。 単体テストでは、現在の設計では実行できません、モックまたはスタブのリポジトリを使用してください。
+- `ProductRepository` を別の実装に置き換える場合は、コントローラークラスも変更する必要があります。
+- `ProductRepository` に依存関係がある場合は、コントローラー内でこれらを構成する必要があります。 複数のコントローラーを持つ大規模なプロジェクトの場合、構成コードはプロジェクト全体にわたって分散されます。
+- コントローラーはデータベースに対してクエリを実行するようにハードコーディングされているため、単体テストは困難です。 単体テストでは、モックまたはスタブリポジトリを使用する必要があります。これは、現在の設計ではできません。
 
-これらの問題を取り上げます*挿入*コント ローラーにリポジトリ。 最初に、リファクタリング、`ProductRepository`クラス、インターフェイスに。
+これらの問題に対処するには、コントローラーにリポジトリを*挿入*します。 まず、`ProductRepository` クラスをインターフェイスにリファクタリングします。
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
-すると、`IProductRepository`コンス トラクター パラメーターとして。
+次に、`IProductRepository` をコンストラクターパラメーターとして指定します。
 
 [!code-csharp[Main](dependency-injection/samples/sample5.cs)]
 
-この例では[コンス トラクターの挿入](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection)します。 使用することも*セッターの挿入*setter メソッドまたはプロパティから依存関係を設定します。
+この例では、[コンストラクターの挿入](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection)を使用します。 Setter*インジェクション*を使用することもできます。 setter メソッドまたはプロパティを使用して依存関係を設定します。
 
-ただし、アプリケーションは、コント ローラーを直接作成しないため、問題があるようになりました。 Web API の要求をルーティングし、は認識しない Web API コント ローラーを作成します`IProductRepository`します。 これでの Web API の依存関係競合回避モジュールの出番です。
+しかし、アプリケーションではコントローラーが直接作成されないため、問題が発生しました。 Web API は要求をルーティングするときにコントローラーを作成し、Web API は `IProductRepository`について何も知らない。 ここで、Web API 依存関係競合回避モジュールが登場します。
 
-## <a name="the-web-api-dependency-resolver"></a>Web API の依存関係競合回避モジュール
+## <a name="the-web-api-dependency-resolver"></a>Web API 依存関係競合回避モジュール
 
-Web API の定義、 **IDependencyResolver**依存関係を解決するためのインターフェイス。 インターフェイスの定義を次に示します。
+Web API は、依存関係を解決するための**Idependencyresolver**インターフェイスを定義します。 インターフェイスの定義を次に示します。
 
 [!code-csharp[Main](dependency-injection/samples/sample6.cs)]
 
-**IDependencyScope**インターフェイスが 2 つのメソッドには。
+**IDependencyScope**インターフェイスには、次の2つのメソッドがあります。
 
-- **GetService**型の 1 つのインスタンスを作成します。
-- **GetServices**指定した型のオブジェクトのコレクションを作成します。
+- **GetService**は、型のインスタンスを1つ作成します。
+- **Getservices**は、指定された型のオブジェクトのコレクションを作成します。
 
-**IDependencyResolver**メソッド継承**IDependencyScope**を追加し、 **BeginScope**メソッド。 このチュートリアルの後半でスコープについて説明します。
+**Idependencyresolver**メソッドは**IDependencyScope**を継承し、 **beginscope**メソッドを追加します。 スコープについては、このチュートリアルで後ほど説明します。
 
-最初に呼び出す Web API コント ローラー インスタンスを作成するとき**IDependencyResolver.GetService**、コント ローラーの種類に渡します。 コント ローラーを作成するには、すべての依存関係を解決するのには、この拡張性フックを使用できます。 場合**GetService** null を返します、Web API コント ローラー クラスをパラメーターなしのコンス トラクターを検索します。
+Web API はコントローラーインスタンスを作成するときに、まず**Idependencyresolver. GetService**を呼び出し、コントローラーの種類を渡します。 この機能拡張フックを使用してコントローラーを作成し、依存関係を解決することができます。 **GetService**が null を返す場合、Web API はコントローラークラスでパラメーターなしのコンストラクターを検索します。
 
-## <a name="dependency-resolution-with-the-unity-container"></a>Unity コンテナーと依存関係の解決
+## <a name="dependency-resolution-with-the-unity-container"></a>Unity コンテナーを使用した依存関係の解決
 
-完全な記述できますが**IDependencyResolver** Web API と既存の IoC コンテナー間のブリッジとして機能する目的は、最初のインターフェイスから実装します。
+完全な**Idependencyresolver**実装をゼロから作成することもできますが、インターフェイスは Web API と既存の IoC コンテナーの間のブリッジとして機能するように設計されています。
 
-IoC コンテナーは、依存関係の管理を担当するソフトウェア コンポーネントです。 型、コンテナーを登録し、コンテナーを使用して、オブジェクトを作成します。 コンテナーは、依存関係を自動的に検出します。 多くの IoC コンテナーでは、オブジェクトの有効期間とスコープなどを制御することもできます。
+IoC コンテナーは、依存関係の管理を担当するソフトウェアコンポーネントです。 型をコンテナーに登録した後、コンテナーを使用してオブジェクトを作成します。 コンテナーは、依存関係の関係を自動的に判別します。 多くの IoC コンテナーでは、オブジェクトの有効期間やスコープなどを制御することもできます。
 
 > [!NOTE]
-> "IoC"「の制御の反転」の略フレームワークからアプリケーション コードを呼び出す、一般的なパターンは。 IoC コンテナーを構築、オブジェクト、コントロールの通常のフローの「反転」をします。
+> "IoC" は、フレームワークがアプリケーションコードを呼び出す一般的なパターンである "コントロールの反転" を表します。 IoC コンテナーによってオブジェクトが構築され、通常の制御フローが "反転" されます。
 
-このチュートリアルで使用して[Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns から&amp;プラクティス。 (その他の一般的なライブラリを含める[Castle Windsor](http://www.castleproject.org/)、 [Spring.Net](http://www.springframework.net/)、 [Autofac](https://code.google.com/p/autofac/)、 [Ninject](http://www.ninject.org/)、および[StructureMap](http://structuremap.github.io/documentation/).)NuGet パッケージ マネージャーを使用して、Unity をインストールすることができます。 **ツール** メニューの選択 Visual Studio で**NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+このチュートリアルでは、Microsoft のパターン &amp; プラクティスから[Unity](https://msdn.microsoft.com/library/ff647202.aspx)を使用します。 (他の一般的なライブラリには、[城主の Windsor](http://www.castleproject.org/)、 [Spring.Net](http://www.springframework.net/)、 [Autofac](https://code.google.com/p/autofac/)、 [Ninject](http://www.ninject.org/)、および構造体の[マップ](http://structuremap.github.io/documentation/)が含まれています)。NuGet パッケージマネージャーを使用して Unity をインストールできます。 Visual Studio の **[ツール]** メニューで、 **[NuGet パッケージマネージャー]** 、 **[パッケージマネージャーコンソール]** の順に選択します。 [パッケージマネージャーコンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
 
-実装を次に示します**IDependencyResolver** Unity コンテナーをラップします。
+Unity コンテナーをラップする**Idependencyresolver**の実装を次に示します。
 
 [!code-csharp[Main](dependency-injection/samples/sample8.cs)]
 
 > [!NOTE]
-> 場合、 **GetService**返すかメソッドは、型を解決することはできません、 **null**します。 場合、 **GetServices**メソッドは、型を解決することはできません、空のコレクション オブジェクトを返す必要があります。 不明な型の例外をスローしません。
+> **GetService**メソッドが型を解決できない場合は、 **null**を返す必要があります。 **Getservices**メソッドが型を解決できない場合は、空のコレクションオブジェクトが返されます。 不明な型に対しては例外をスローしません。
 
-## <a name="configuring-the-dependency-resolver"></a>依存関係競合回避モジュールを構成します。
+## <a name="configuring-the-dependency-resolver"></a>依存関係競合回避モジュールの構成
 
-依存関係競合回避モジュールを設定、 **DependencyResolver**のグローバル プロパティ**HttpConfiguration**オブジェクト。
+グローバル**Httpconfiguration**オブジェクトの**dependencyresolver**プロパティに依存関係競合回避モジュールを設定します。
 
-次のコードのレジスタ、 `IProductRepository` Unity を使用したインターフェイスを作成し、`UnityResolver`します。
+次のコードでは、`IProductRepository` インターフェイスを Unity に登録し、`UnityResolver`を作成します。
 
 [!code-csharp[Main](dependency-injection/samples/sample9.cs)]
 
-## <a name="dependency-scope-and-controller-lifetime"></a>依存関係のスコープとコント ローラーの有効期間
+## <a name="dependency-scope-and-controller-lifetime"></a>依存関係のスコープとコントローラーの有効期間
 
-コント ローラーは、要求ごとに作成されます。 オブジェクトの有効期間を管理する**IDependencyResolver**の概念を使用して、*スコープ*します。
+コントローラーは要求ごとに作成されます。 オブジェクトの有効期間を管理するために、 **Idependencyresolver**は*スコープ*の概念を使用します。
 
-アタッチされている依存関係競合回避モジュール、 **HttpConfiguration**オブジェクトはグローバル スコープを持ちます。 Web API コント ローラーを作成するときに呼び出す**BeginScope**します。 このメソッドが戻る、 **IDependencyScope**子スコープを表します。
+**Httpconfiguration**オブジェクトにアタッチされている依存関係競合回避モジュールには、グローバルスコープがあります。 Web API がコントローラーを作成すると、 **Beginscope**が呼び出されます。 このメソッドは、子スコープを表す**IDependencyScope**を返します。
 
-Web API を呼び出して**GetService**コント ローラーを作成する子スコープにします。 Web API を呼び出す要求が完了したら、 **Dispose**子スコープにします。 使用して、 **Dispose**メソッドをコント ローラーの依存関係を破棄します。
+Web API は、子スコープで**GetService**を呼び出してコントローラーを作成します。 要求が完了すると、Web API は子スコープで**Dispose**を呼び出します。 **Dispose**メソッドを使用して、コントローラーの依存関係を破棄します。
 
-どのように実装する**BeginScope** IoC コンテナーに依存します。 Unity のスコープは、子コンテナーに対応します。
+**Beginscope**の実装方法は、IoC コンテナーによって異なります。 Unity の場合、スコープは子コンテナーに対応します。
 
 [!code-csharp[Main](dependency-injection/samples/sample10.cs)]
 
-ほとんどの IoC コンテナーのような対応があります。
+ほとんどの IoC コンテナーには同様の同等のものがあります。

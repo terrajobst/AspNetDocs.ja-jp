@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
-title: 第 1 部:概要と、プロジェクトの作成 |Microsoft Docs
+title: 'パート 1: 概要とプロジェクトの作成 |Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,86 +8,86 @@ ms.date: 07/03/2012
 ms.assetid: 94421d86-68c4-4471-bf5f-82d654a17252
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: d5a72dbfe1530e457ec16df5c7d50b03b5f63502
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a76a18f2bd95969358452085ef342fdca8a386e2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384215"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600322"
 ---
-# <a name="part-1-overview-and-creating-the-project"></a>第 1 部:概要とプロジェクトの作成
+# <a name="part-1-overview-and-creating-the-project"></a>パート 1: 概要とプロジェクトの作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-Entity Framework は、オブジェクト/リレーショナル マッピング フレームワークです。 ドメイン オブジェクトをコードでは、リレーショナル データベース内のエンティティにマップされます。 ほとんどの場合がありません、データベース層について心配する Entity Framework が自動的に処理ができます。 コードは、オブジェクトを操作して、変更がデータベースに保存されます。
+Entity Framework は、オブジェクト/リレーショナルマッピングフレームワークです。 コード内のドメインオブジェクトをリレーショナルデータベースのエンティティにマップします。 ほとんどの場合、データベース層について心配する必要はありません。これは、Entity Framework によって処理されるためです。 コードはオブジェクトを操作し、変更はデータベースに保存されます。
 
-## <a name="about-the-tutorial"></a>チュートリアルの概要
+## <a name="about-the-tutorial"></a>チュートリアルについて
 
-このチュートリアルでは、単純なストア アプリケーションを作成します。 アプリケーションに 2 つの主要な部分があります。 通常のユーザーは、製品を表示し、注文を作成します。
+このチュートリアルでは、単純なストアアプリケーションを作成します。 アプリケーションには主に2つの部分があります。 通常のユーザーは、製品を表示して注文を作成できます。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image1.png)
 
-管理者は、作成、削除、または製品を編集することができます。
+管理者は、製品の作成、削除、または編集を行うことができます。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>学習内容
+## <a name="skills-youll-learn"></a>学習するスキル
 
-学習内容を次に示します。
+学習する内容は次のとおりです。
 
-- ASP.NET Web API を使用した Entity Framework を使用する方法。
-- Knockout.js を使用して、動的なクライアント UI を作成する方法。
-- Web API を使用したフォーム認証を使用してユーザーを認証する方法。
+- ASP.NET Web API で Entity Framework を使用する方法について説明します。
+- ノックアウトを使用して動的クライアント UI を作成する方法。
+- Web API でフォーム認証を使用してユーザーを認証する方法。
 
-このチュートリアルでは、自己完結型で、最初に、次のチュートリアルをお読みする可能性があります。
+このチュートリアルは自己完結していますが、まず次のチュートリアルを読むことをお勧めします。
 
-- [ASP.NET Web API の入門](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
-- [CRUD 操作をサポートする Web API を作成します。](../creating-a-web-api-that-supports-crud-operations.md)
+- [最初の ASP.NET Web API](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
+- [CRUD 操作をサポートする Web API の作成](../creating-a-web-api-that-supports-crud-operations.md)
 
-知識が[ASP.NET MVC](../../../../mvc/index.md)も便利です。
+[ASP.NET MVC](../../../../mvc/index.md)に関する知識も役に立ちます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-大まかに言えば、アプリケーションのアーキテクチャを示します。
+大まかに言えば、アプリケーションのアーキテクチャは次のようになります。
 
-- ASP.NET MVC では、クライアントの HTML ページを生成します。
-- ASP.NET Web API は、データ (製品と注文) に対する CRUD 操作を公開します。
-- Entity Framework では、データベースのエンティティに Web API で使用される c# モデルを変換します。
+- ASP.NET MVC では、クライアントの HTML ページが生成されます。
+- ASP.NET Web API は、データ (製品と注文) に対して CRUD 操作を公開します。
+- Entity Framework は、 C# Web API によって使用されるモデルをデータベースエンティティに変換します。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image3.png)
 
-次の図は、アプリケーションのさまざまなレイヤーでのドメイン オブジェクトの表現方法を示しています。データベース層、オブジェクト モデル、および最後に、ワイヤ形式は、HTTP 経由でクライアントにデータを送信するために使用します。
+次の図は、アプリケーションのさまざまな層でドメインオブジェクトがどのように表されるかを示しています。データベース層、オブジェクトモデル、最後にワイヤ形式を使用します。これは、HTTP 経由でクライアントにデータを送信するために使用されます。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image4.png)
 
-## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
+## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成する
 
-Visual Web Developer Express または完全なバージョンの Visual Studio のいずれかを使用して、チュートリアルのプロジェクトを作成することができます。
+チュートリアルプロジェクトは、Visual Web Developer Express または Visual Studio の完全バージョンのいずれかを使用して作成できます。
 
-**開始**] ページで [**新しいプロジェクト**します。
+**スタート**ページで、 **[新しいプロジェクト]** をクリックします。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに"ProductStore"という名前にして**OK**します。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクトに "ProductStore" という名前を指定し、[ **OK]** をクリックします。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 
-**新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスで、**インターネット アプリケーション** をクリック**OK**します。
+**[New ASP.NET MVC 4 プロジェクト]** ダイアログボックスで、 **[インターネットアプリケーション]** を選択し、 **[OK]** をクリックします。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image6.png)
 
-「インターネット アプリケーション」テンプレートは、フォーム認証をサポートする ASP.NET MVC アプリケーションを作成します。 これでアプリケーションを実行する場合は、既にいくつか機能があります。
+"インターネットアプリケーション" テンプレートは、フォーム認証をサポートする ASP.NET MVC アプリケーションを作成します。 ここでアプリケーションを実行すると、既にいくつかの機能があります。
 
-- 右上隅に「登録」リンクをクリックして新しいユーザーを登録できます。
-- 登録済みユーザーは、「ログイン」リンクをクリックしてログインできます。
+- 新しいユーザーは、右上隅にある [登録] リンクをクリックすることで登録できます。
+- 登録されたユーザーは、[ログイン] リンクをクリックしてログインできます。
 
-メンバーシップ情報は、自動的に作成されるデータベースに保存されます。 ASP.NET MVC でのフォーム認証の詳細については、次を参照してください。[チュートリアル。ASP.NET MVC でフォーム認証を使用して](https://msdn.microsoft.com/library/ff398049(VS.98).aspx)します。
+メンバーシップ情報は、自動的に作成されるデータベースに保持されます。 ASP.NET MVC でのフォーム認証の詳細については、「[チュートリアル: ASP.NET mvc でのフォーム認証の使用](https://msdn.microsoft.com/library/ff398049(VS.98).aspx)」を参照してください。
 
-## <a name="update-the-css-file"></a>CSS ファイルを更新します。
+## <a name="update-the-css-file"></a>CSS ファイルを更新する
 
-この手順は、表面的なが、以前のスクリーン ショットのようなレンダリング ページが行われます。
+この手順は表面的なものですが、前のスクリーンショットのようにページがレンダリングされるようになります。
 
-ソリューション エクスプ ローラーでは、コンテンツのフォルダーを展開し、Site.css という名前のファイルを開きます。 次の CSS スタイルを追加します。
+ソリューションエクスプローラーで、[コンテンツ] フォルダーを展開し、[サイト .css] という名前のファイルを開きます。 次の CSS スタイルを追加します。
 
 [!code-css[Main](using-web-api-with-entity-framework-part-1/samples/sample1.css)]
 

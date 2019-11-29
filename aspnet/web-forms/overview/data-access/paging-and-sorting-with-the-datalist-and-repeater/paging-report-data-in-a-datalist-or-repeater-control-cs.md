@@ -1,40 +1,40 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
-title: DataList または Repeater コントロール (c#) でのレポート データをページング |Microsoft Docs
+title: DataList または Repeater コントロールのレポートデータのページングC#() |Microsoft Docs
 author: rick-anderson
-description: DataList と Repeater のどちらもプランの自動ページングや並べ替えのサポートでは、中には、このチュートリアルは、DataList または Repeater、ページングのサポートを追加する方法を示します.
+description: このチュートリアルでは、自動ページングまたは並べ替えをサポートしているのではなく、DataList または Repeater にページングサポートを追加する方法についても説明してい,...
 ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: e8e0809b-25c4-4c3b-8d12-9a17048148ae
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7ec86332d7c9157e06042abbe17a6a810d827504
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 16686c7e41926698c0da9c60d3cf26e858f5daca
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108477"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74617756"
 ---
 # <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>DataList または Repeater コントロールのレポート データをページングする (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_44_CS.exe)または[PDF のダウンロード](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/datatutorial44cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_44_CS.exe)または[PDF のダウンロード](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/datatutorial44cs1.pdf)
 
-> DataList と Repeater のどちらもプラン ページングまたは並べ替えをサポート、このチュートリアルは、自動は、DataList または Repeater で、非常に柔軟性のページングとデータにより、表示のインターフェイスにページング サポートを追加する方法を示しています。
+> このチュートリアルでは、自動ページングまたは並べ替えをサポートしているのではなく、DataList または Repeater にページングサポートを追加する方法についても説明します。
 
 ## <a name="introduction"></a>はじめに
 
-ページングと並べ替えは、2 つの非常に一般的な機能は、オンライン アプリケーションでデータを表示する場合です。 たとえば、何百ものこのようなブックがある可能性があります、オンライン書店で ASP.NET に関する書籍を検索するときが検索結果の一覧を表示するレポートには、1 ページあたり 10 個の一致項目が一覧表示されます。 さらに、タイトル、価格、ページ数、作成者名、して結果を並べ替えることができます。 説明したように、[レポート データの並べ替えとページング](../paging-and-sorting/paging-and-sorting-report-data-cs.md)チュートリアル、有効にできるチェック ボックスの目盛りに組み込みのページング サポートを提供すべて GridView、DetailsView と FormView コントロール。 GridView には、並べ替えをサポートも含まれています。
+ページングと並べ替えは、オンラインアプリケーションにデータを表示するときの2つの非常に一般的な機能です。 たとえば、オンライン書店で ASP.NET books を検索する場合、このような書籍は多数存在する可能性がありますが、検索結果を一覧表示するレポートでは、1ページあたり10件の一致のみが一覧表示されます。 さらに、結果はタイトル、価格、ページ数、作成者名などで並べ替えることができます。 「[レポートデータのページングと並べ替え](../paging-and-sorting/paging-and-sorting-report-data-cs.md)」のチュートリアルで説明したように、GridView、DetailsView、および FormView コントロールには、チェックボックスの目盛りで有効にできる組み込みのページングサポートが用意されています。 GridView には、並べ替えのサポートも含まれています。
 
-残念ながら、DataList でも、Repeater は自動ページングや並べ替えをサポートを提供します。 このチュートリアルでは DataList または Repeater にページング サポートを追加する方法を説明します。 必要があります手動でページング インターフェイスを作成、レコードの適切なページを表示おポストバック間でアクセスされているページに注意してください。 多くの時間と GridView、DetailsView、またはフォーム ビューでのコードよりもそのためには、中に、非常に柔軟性のページングとデータの DataList と Repeater を許可すると表示のインターフェイス。
+残念ながら、自動ページングや並べ替えはサポートされていません。 このチュートリアルでは、DataList または Repeater にページングサポートを追加する方法について説明します。 ページングインターフェイスを手動で作成し、適切なレコードページを表示し、ポストバック間でアクセスされているページを記憶しておく必要があります。 この処理には GridView、DetailsView、または FormView よりも時間とコードが必要ですが、DataList と Repeater では、より柔軟なページングとデータ表示インターフェイスを使用できます。
 
 > [!NOTE]
-> このチュートリアルでは、ページングにのみ焦点を当てています。 次のチュートリアルでの並べ替え機能を追加することに注目有効にします。
+> このチュートリアルでは、ページングのみを中心に説明します。 次のチュートリアルでは、並べ替え機能の追加に注目します。
 
-## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>手順 1: ページングを追加して、チュートリアルの Web ページの並べ替え
+## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>手順 1: ページングと並べ替えのチュートリアル Web ページの追加
 
-このチュートリアルを始める前に、このチュートリアルと、次にある必要があります、ASP.NET ページを追加する最初に少し s を使用できます。 という名前のプロジェクトで新しいフォルダーを作成して開始`PagingSortingDataListRepeater`します。 次に、次の 5 つの ASP.NET ページをこのフォルダーは、すべてのマスター ページを使用するように構成する追加`Site.master`:
+このチュートリアルを開始する前に、まず、このチュートリアルに必要な ASP.NET ページと次のページを追加してみましょう。 まず、`PagingSortingDataListRepeater`という名前のプロジェクトに新しいフォルダーを作成します。 次に、次の5つの ASP.NET ページをこのフォルダーに追加します。マスターページ `Site.master`を使用するようにすべてのページを構成します。
 
 - `Default.aspx`
 - `Paging.aspx`
@@ -42,206 +42,206 @@ ms.locfileid: "65108477"
 - `SortingWithDefaultPaging.aspx`
 - `SortingWithCustomPaging.aspx`
 
-![PagingSortingDataListRepeater フォルダーを作成し、チュートリアルの ASP.NET ページを追加します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image1.png)
+![PagingSortingDataListRepeater フォルダーを作成し、チュートリアル ASP.NET ページを追加します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image1.png)
 
-**図 1**:作成、`PagingSortingDataListRepeater`フォルダー チュートリアル ASP.NET ページを追加
+**図 1**: `PagingSortingDataListRepeater` フォルダーを作成し、チュートリアル ASP.NET ページを追加する
 
-次に、開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン サーフェイスにフォルダー。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、サイト マップの列挙し、箇条書きリストに現在のセクションでこれらのチュートリアルを表示します。
+次に、[`Default.aspx`] ページを開き、`SectionLevelTutorialListing.ascx` ユーザーコントロールを `UserControls` フォルダーからデザイン画面にドラッグします。 このユーザーコントロールは、[マスターページとサイトナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルで作成したもので、サイトマップを列挙し、現在のセクションに記載されているチュートリアルを箇条書きの一覧に表示します。
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)
+[SectionLevelTutorialListing ユーザーコントロールを default.aspx に追加 ![には](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)
 
-**図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image4.png))。
+**図 2**: `Default.aspx` に `SectionLevelTutorialListing.ascx` ユーザーコントロールを追加する ([クリックすると、フルサイズの画像が表示](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image4.png)されます)
 
-箇条書きのページングと並べ替えのチュートリアルを作成しますを表示するのには、サイト マップに追加する必要があります。 開く、`Web.sitemap`ファイルを開き DataList サイト マップ ノードのマークアップを編集および削除した後、次のマークアップを追加します。
+箇条書きの一覧に、作成するページングと並べ替えのチュートリアルが表示されるようにするには、サイトマップに追加する必要があります。 `Web.sitemap` ファイルを開き、DataList サイトマップノードマークアップを使用して編集および削除の後に、次のマークアップを追加します。
 
 [!code-xml[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample1.xml)]
 
-![新しい ASP.NET ページは、サイト マップを更新します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image5.png)
+![新しい ASP.NET ページを含めるようにサイトマップを更新する](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image5.png)
 
-**図 3**:新しい ASP.NET ページは、サイト マップを更新します。
+**図 3**: 新しい ASP.NET ページを含めるようにサイトマップを更新する
 
 ## <a name="a-review-of-paging"></a>ページングのレビュー
 
-前のチュートリアルでは、GridView、DetailsView、FormView コントロール内のデータをページングする方法を説明しました。 これら 3 つのコントロールのページングと呼ばれる単純なフォームを提供する*既定のページング*をコントロールのスマート タグでページングを有効にするオプションをチェックするだけで実装できます。 既定のページングを使用したデータのページが要求されるたびに最初のページのいずれかを参照してください、ユーザーがデータ GridView、DetailsView の別のページに移動またはと FormView コントロールを再要求*すべて*からのデータのObjectDataSource します。 切り取り領域を表示するレコードの特定のセットを要求されたページ インデックスと 1 ページに表示するレコードの数を指定します。 既定のページングで詳しく説明した、[レポート データの並べ替えとページング](../paging-and-sorting/paging-and-sorting-report-data-cs.md)チュートリアル。
+前のチュートリアルでは、GridView、DetailsView、および FormView コントロールのデータをページ表示する方法を説明しました。 これら3つのコントロールは、*既定のページング*と呼ばれる単純な形式のページングを提供します。これは、control s スマートタグの [ページングを有効にする] オプションをオンにするだけで実装できます。 既定のページングでは、最初のページにアクセスしたときにデータのページが要求されるたびに、またはユーザーが別のデータページに移動したときに、GridView、DetailsView、または FormView コントロールが ObjectDataSource からの*すべて*のデータを再要求します。 次に、要求されたページインデックスとページごとに表示するレコードの数を指定して、表示する特定のレコードのセットを切り取ります。 既定のページングについては、「[レポートデータのページングと並べ替え](../paging-and-sorting/paging-and-sorting-report-data-cs.md)」のチュートリアルで説明しました。
 
-既定のページングが各ページのすべてのレコードを再要求するため実用的ではない十分に大量のデータをページングするときです。 たとえば、ページ サイズが 10 の 50,000 個のレコードを使用するページングがあるとします。 たびに、ユーザーが新しいページに移動 10 それらのみが表示される場合でも、50,000 個のレコードをすべては、データベースから取得する必要があります。
+既定のページングでは各ページのすべてのレコードが再要求されるため、十分に大量のデータをページングする場合は実用的ではありません。 たとえば、ページサイズが10の5万レコードのページングを考えてみます。 ユーザーが新しいページに移動するたびに、10個のレコードが1つしか表示されない場合でも、すべての5万レコードをデータベースから取得する必要があります。
 
-*カスタム ページング*要求されたページに表示するレコードの正確なサブセットのみを取得しておき、既定のページングのパフォーマンスの問題を解決します。 カスタム ページングを実装する場合を効率的に正しいレコードのセットだけを返す SQL クエリを記述する必要があります。 新しい SQL Server 2005 の s を使用してクエリを作成する方法を説明しました[`ROW_NUMBER()`キーワード](http://www.4guysfromrolla.com/webtech/010406-1.shtml)に戻り、[効率的にページングを大規模な量のデータ](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md)チュートリアル。
+*カスタムページング*は、要求されたページに表示するレコードの正確なサブセットのみを取得することで、既定のページングのパフォーマンスの問題を解決します。 カスタムページングを実装する場合は、正しいレコードセットだけを効率的に返す SQL クエリを記述する必要があります。 このようなクエリを作成する方法については、「[大量のデータを使用](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md)した効率的なページング」チュートリアルで SQL Server 2005 s new [`ROW_NUMBER()` キーワード](http://www.4guysfromrolla.com/webtech/010406-1.shtml)を使用して作成する方法について説明しました。
 
-DataList または Repeater コントロールで既定のページングを実装するために使用できる、 [ `PagedDataSource`クラス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx)のラッパーとして、`ProductsDataTable`内容がページングされています。 `PagedDataSource`クラスには、`DataSource`列挙可能なオブジェクトに割り当てることができるプロパティと[ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx)と[ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx)レコードの数を示すプロパティ1 つのページ、現在のページ インデックスを表示します。 これらのプロパティを設定すると、`PagedDataSource`データ Web コントロールのデータ ソースとして使用できます。 `PagedDataSource`列挙されると、その内部のレコードの適切なサブセットのみを返すは`DataSource`に基づいて、`PageSize`と`CurrentPageIndex`プロパティ。 図 4 の機能を示しています、`PagedDataSource`クラス。
+DataList または Repeater コントロールに既定のページングを実装するには、 [`PagedDataSource` クラス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx)を、内容がページングされている `ProductsDataTable` のラッパーとして使用できます。 `PagedDataSource` クラスには、任意の列挙可能なオブジェクトに割り当てることができる `DataSource` プロパティと、1ページあたりのレコード数と現在のページインデックスを示す[`PageSize`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx)および[`CurrentPageIndex`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx)プロパティがあります。 これらのプロパティを設定した後は、任意のデータ Web コントロールのデータソースとして `PagedDataSource` を使用できます。 列挙された `PagedDataSource`は、`PageSize` および `CurrentPageIndex` プロパティに基づいて、内部 `DataSource` のレコードの適切なサブセットのみを返します。 図4は、`PagedDataSource` クラスの機能を示しています。
 
-![PagedDataSource ページング可能なインターフェイスを持つ列挙可能なオブジェクトをラップします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image6.png)
+![PagedDataSource は、ページング可能なインターフェイスを使用して列挙可能なオブジェクトをラップします。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image6.png)
 
-**図 4**:`PagedDataSource`ページング可能なインターフェイスを持つ列挙可能なオブジェクトをラップします。
+**図 4**: `PagedDataSource` は、ページング可能なインターフェイスを使用して列挙可能なオブジェクトをラップする
 
-`PagedDataSource`オブジェクトは作成し、ビジネス ロジック層から直接構成し DataList または Repeater、ObjectDataSource を通じてにバインドされているまたは作成および構成できる ASP.NET ページの分離コード クラスに直接します。 後者のアプローチを使用する場合は、ObjectDataSource を使用せず必要があり、DataList または Repeater に、ページングされたデータをプログラムで代わりにバインドします。
+`PagedDataSource` オブジェクトは、ビジネスロジック層から直接作成して構成し、ObjectDataSource を介して DataList または Repeater にバインドするか、ASP.NET ページの分離コードクラスで直接作成して構成することができます。 後者の方法を使用する場合は、ObjectDataSource を使用して済ませるする必要があります。代わりに、ページングされたデータを DataList または Repeater にプログラムでバインドします。
 
-`PagedDataSource`オブジェクトにカスタム ページングをサポートするプロパティもあります。 使用してをバイパスしましたただし、`PagedDataSource`に BLL メソッドが既にあるため、カスタム ページング、`ProductsBLL`クラスを表示する正確なレコードを返すカスタム ページング用に設計されています。
+`PagedDataSource` オブジェクトには、カスタムページングをサポートするプロパティもあります。 ただし、カスタムページングには `PagedDataSource` を使用しないようにすることができます。これは、表示する正確なレコードを返すカスタムページング用にデザインされた `ProductsBLL` クラスに既に BLL メソッドがあるためです。
 
-このチュートリアルで紹介する新しいメソッドを追加することで、DataList で既定のページングを実装する、`ProductsBLL`クラスを返す適切に構成された`PagedDataSource`オブジェクト。 次のチュートリアルでは、カスタム ページングを使用する方法がわかります。
+このチュートリアルでは、適切に構成された `PagedDataSource` オブジェクトを返す `ProductsBLL` クラスに新しいメソッドを追加することによって、DataList に既定のページングを実装する方法について説明します。 次のチュートリアルでは、カスタムページングの使用方法について説明します。
 
-## <a name="step-2-adding-a-default-paging-method-in-the-business-logic-layer"></a>手順 2: ビジネス ロジック層で既定のページング メソッドを追加します。
+## <a name="step-2-adding-a-default-paging-method-in-the-business-logic-layer"></a>手順 2: ビジネスロジック層に既定のページングメソッドを追加する
 
-`ProductsBLL`クラスが現在のすべての製品情報を返すメソッドを持つ`GetProducts()`と開始インデックス位置にある製品の特定のサブセットを返す 1 つずつ`GetProductsPaged(startRowIndex, maximumRows)`します。 既定のページングを使用した GridView、DetailsView と FormView コントロールすべての使用、`GetProducts()`メソッドを使用して、すべての製品を取得、`PagedDataSource`レコードの適切なサブセットのみを表示するには、内部的にします。 DataList と Repeater コントロールでのこの機能をレプリケートするには、この動作を模倣した BLL で新しいメソッドを作成できます。
+現在、`ProductsBLL` クラスには、すべての製品情報 `GetProducts()` を返すメソッドと、開始インデックス `GetProductsPaged(startRowIndex, maximumRows)`で製品の特定のサブセットを返すためのメソッドがあります。 既定のページングでは、GridView、DetailsView、FormView コントロールはすべて、`GetProducts()` メソッドを使用してすべての製品を取得しますが、内部的に `PagedDataSource` を使用して、レコードの正しいサブセットのみを表示します。 DataList コントロールと Repeater コントロールを使用してこの機能をレプリケートするには、この動作を模倣する新しいメソッドを BLL に作成します。
 
-メソッドを追加、`ProductsBLL`という名前のクラス`GetProductsAsPagedDataSource`内の整数の 2 つの入力パラメーターを取得します。
+2つの整数入力パラメーターを受け取る `GetProductsAsPagedDataSource` という名前の `ProductsBLL` クラスにメソッドを追加します。
 
-- `pageIndex` 表示するには、ページのインデックス 0 からインデックスを作成し、
-- `pageSize` 1 ページに表示するレコードの数。
+- 表示するページのインデックスを `pageIndex` し、0でインデックスを作成します。
+- ページごとに表示するレコードの数 `pageSize` ます。
 
-`GetProductsAsPagedDataSource` 取得することによって開始*すべて*からのレコードの`GetProducts()`します。 これは、後、作成、`PagedDataSource`オブジェクト、設定、`CurrentPageIndex`と`PageSize`プロパティを渡された内の値に`pageIndex`と`pageSize`パラメーター。 メソッドは最後に構成することを返すことによって`PagedDataSource`:
+`GetProductsAsPagedDataSource` は、`GetProducts()`から*すべて*のレコードを取得することによって開始されます。 次に、`PagedDataSource` オブジェクトを作成し、その `CurrentPageIndex` と `PageSize` プロパティを、渡された `pageIndex` と `pageSize` パラメーターの値に設定します。 メソッドは、この構成された `PagedDataSource`を返すことによって終了します。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample2.cs)]
 
-## <a name="step-3-displaying-product-information-in-a-datalist-using-default-paging"></a>手順 3: 既定のページングを使用して、DataList で製品情報を表示します。
+## <a name="step-3-displaying-product-information-in-a-datalist-using-default-paging"></a>手順 3: 既定のページングを使用して DataList に製品情報を表示する
 
-`GetProductsAsPagedDataSource`メソッドに追加、`ProductsBLL`クラスを作成できます DataList または Repeater を既定のページングを提供します。 開いて開始、`Paging.aspx`ページで、`PagingSortingDataListRepeater`フォルダーと、デザイナーは、DataList s を設定するのには、ツールボックスからドラッグ DataList`ID`プロパティを`ProductsDefaultPaging`します。 DataList s のスマート タグからの作成という名前の新しい ObjectDataSource`ProductsDefaultPagingDataSource`を使用してデータを取得するように構成し、`GetProductsAsPagedDataSource`メソッド。
+`ProductsBLL` クラスに `GetProductsAsPagedDataSource` メソッドを追加して、既定のページングを提供する DataList または Repeater を作成できるようになりました。 まず、`PagingSortingDataListRepeater` フォルダーの [`Paging.aspx`] ページを開き、DataList をツールボックスからデザイナーにドラッグして、DataList s `ID` プロパティを `ProductsDefaultPaging`に設定します。 DataList s スマートタグから `ProductsDefaultPagingDataSource` という名前の新しい ObjectDataSource を作成し、`GetProductsAsPagedDataSource` メソッドを使用してデータを取得するように構成します。
 
-[![ObjectDataSource を作成し、GetProductsAsPagedDataSource () メソッドを使用するように構成](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
+[ObjectDataSource を作成 ![、GetProductsAsPagedDataSource () メソッドを使用するように構成します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
 
-**図 5**:ObjectDataSource を作成し、使用するように構成、 `GetProductsAsPagedDataSource` `()`メソッド ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image9.png))。
+**図 5**: ObjectDataSource を作成し、`GetProductsAsPagedDataSource` `()` メソッドを使用するように構成する ([クリックしてフルサイズのイメージを表示](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image9.png)する)
 
-UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。
+[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定します。
 
-[![UPDATE、INSERT で、ドロップダウン リストを設定し、(なし) タブを削除します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
+[[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定 ![ます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
 
-**図 6**:UPDATE、INSERT で、ドロップダウン リストを設定し、[(なし) タブを削除する ([フルサイズの画像を表示する] をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))。
+**図 6**: [更新]、[挿入]、[削除] の各タブのドロップダウンリストを (なし) に設定する ([クリックしてフルサイズの画像を表示する](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))
 
-以降、`GetProductsAsPagedDataSource`メソッドに 2 つの入力パラメーターが必要ですが、これらのパラメーター値のソースの私たち、ウィザードで入力します。
+`GetProductsAsPagedDataSource` メソッドでは2つの入力パラメーターが必要であるため、これらのパラメーター値のソースを要求するプロンプトが表示されます。
 
-ページのインデックスとページ サイズの値は、ポストバック間で記憶する必要があります。 ビュー ステートに格納できる、クエリ文字列に永続化、セッション変数に格納されているまたはその他のいくつかの手法を使用して記憶します。 このチュートリアルでは、ブックマークを設定するデータの特定のページを許可という利点がありますが、クエリ文字列を使用します。
+ページインデックスとページサイズの値は、ポストバック間で記録する必要があります。 ビューステートに格納したり、クエリ文字列に永続化したり、セッション変数に格納したり、他の方法を使用して記憶したりすることができます。 このチュートリアルでは、querystring を使用します。これには、データの特定のページにブックマークを設定することができるという利点があります。
 
-具体的には、クエリ文字列フィールド pageIndex との pageSize を使用して、`pageIndex`と`pageSize`パラメーターをそれぞれ (図 7 を参照してください)。 少し、これらのパラメーターの既定値を設定するようにクエリ文字列値は、ユーザーが最初にこのページにアクセスする場合に存在できません。 `pageIndex`、既定値を 0 (これは、データの最初のページが表示されます) に設定し、`pageSize`を 4 秒の既定値。
+特に、`pageIndex` パラメーターと `pageSize` パラメーターには、クエリ文字列フィールドの pageIndex と pageSize をそれぞれ使用します (図7を参照)。 ユーザーが最初にこのページにアクセスしたときに querystring 値が表示されないため、これらのパラメーターの既定値を設定してください。 `pageIndex`には、既定値を 0 (データの最初のページが表示されます) に設定し、`pageSize` s の既定値を4に設定します。
 
-[![PageIndex および pageSize パラメーターのソースとして、クエリ文字列を使用します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
+[![、pageIndex および pageSize パラメーターのソースとしてクエリ文字列を使用します。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
 
-**図 7**:ソースとして、クエリ文字列を使用して、`pageIndex`と`pageSize`パラメーター ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image15.png))。
+**図 7**: `pageIndex` および `pageSize` パラメーターのソースとしてクエリ文字列を使用する ([クリックしてフルサイズのイメージを表示する](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image15.png))
 
-ObjectDataSource を構成すると、Visual Studio が自動的に作成されます、 `ItemTemplate` DataList にします。 カスタマイズ、 `ItemTemplate` s の製品名、カテゴリ、および仕入先のみが表示されるようにします。 DataList s の設定も`RepeatColumns`プロパティを 2、その`Width`100% に、およびその`ItemStyle`s`Width`を 50% にします。 これらの幅の設定では、2 つの列に等しい間隔を提供します。
+ObjectDataSource を構成すると、Visual Studio によって DataList の `ItemTemplate` が自動的に作成されます。 製品の名前、カテゴリ、および業者のみが表示されるように `ItemTemplate` をカスタマイズします。 また、DataList s `RepeatColumns` プロパティを2に、`Width` を100% に設定し、`ItemStyle` s `Width` を50% に設定します。 これらの幅の設定では、2つの列に対して同じ間隔が使用されます。
 
-これらの変更を加えたら、DataList コントロールと ObjectDataSource のマークアップを次のようになります。
+これらの変更を行った後、DataList および ObjectDataSource s マークアップは次のようになります。
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample3.aspx)]
 
 > [!NOTE]
-> 更新プログラムを実行していないか、またはこのチュートリアルでは機能を削除しましたから、レンダリングされたページ サイズを小さくには、DataList のビュー状態を無効にすることがあります。
+> このチュートリアルでは、更新または削除の機能を実行していないので、表示されるページサイズを減らすために、DataList s ビューステートを無効にすることができます。
 
-最初に、ブラウザーからこのページにもアクセスしたとき、`pageIndex`も`pageSize`クエリ文字列パラメーターを指定します。 そのため、0 から 4 の既定値が使用されます。 図 8 に示す最初の 4 つの製品が表示される DataList でこの結果します。
+ブラウザーを使用して最初にこのページにアクセスしたときに、`pageIndex` も `pageSize` のクエリ文字列パラメーターも指定されていません。 そのため、既定値の0と4が使用されます。 図8に示すように、これにより、最初の4つの製品を表示する DataList が生成されます。
 
-[![最初の 4 つの製品の一覧が表示されます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image16.png)
+[最初の4つの製品が一覧表示され ![](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image16.png)
 
-**図 8**:最初の 4 つの製品の一覧が表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image18.png))。
+**図 8**: 最初の4つの製品が一覧表示されます ([クリックすると、フルサイズの画像が表示](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image18.png)されます)
 
-なし、ページングのインターフェイスが現在なく簡単には、データの 2 番目のページに移動するユーザーを意味します。 手順 4. でページング インターフェイスを作成します。 ここでは、ただし、ページングのみ実現できますで直接ページング条件を指定する、クエリ文字列。 たとえば、2 番目のページを表示するからブラウザーのアドレス バーに URL を変更`Paging.aspx`に`Paging.aspx?pageIndex=2`し、Enter キーを押します。 これが原因で表示されるデータの 2 番目のページ (図 9 参照)。
+ページングインターフェイスを使用しない場合、ユーザーがデータの2ページ目に移動するための簡単な方法はありません。 ここでは、手順 4. でページングインターフェイスを作成します。 現時点では、ページングは、クエリ文字列のページング条件を直接指定することによってのみ実現できます。 たとえば、2番目のページを表示するには、ブラウザーのアドレスバーの URL を `Paging.aspx` から `Paging.aspx?pageIndex=2` に変更し、Enter キーを押します。 これにより、データの2ページ目が表示されます (図9を参照)。
 
-[![2 番目のページ データが表示されます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image19.png)
+[![データの2ページ目が表示されます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image19.png)
 
-**図 9**:2 番目のページ データが表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image21.png))。
+**図 9**: データの2番目のページが表示される ([クリックすると、フルサイズの画像が表示](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image21.png)されます)
 
-## <a name="step-4-creating-the-paging-interface"></a>手順 4: ページング インターフェイスを作成します。
+## <a name="step-4-creating-the-paging-interface"></a>手順 4: ページングインターフェイスを作成する
 
-これは、さまざまな実装できるさまざまなページング インターフェイスです。 GridView、DetailsView、FormView コントロールを選択する 4 つの異なるインターフェイスを提供します。
+実装できるさまざまなページングインターフェイスがあります。 GridView、DetailsView、および FormView コントロールは、次の4つの異なるインターフェイスを使用して選択できます。
 
-- **次に、以前**ユーザーは、次または前のいずれかのものを一度に 1 つのページを移動できます。
-- **次に、Previous、First、Last**このインターフェイスにはに加えて、前のボタンには、最初または最後のページに移動するための最初と最後のボタンが含まれています。
-- **数値**ページング インターフェイスで、ユーザーに特定のページにすばやく移動できるようにするページ番号を一覧表示します。
-- **数値、最初に、最終**数値によるページの数値だけでなく最初または最後のページに移動するためのボタンが含まれています。
+- **次に、前**のユーザーは、一度に1ページずつ移動できます。
+- 次**に**、[次へ] ボタンと [戻る] ボタンに加えて、このインターフェイスには、最初または最後のページに移動するための最初と最後のボタンが含まれています。
+- **[数値]** ページングインターフェイス内のページ番号を一覧表示し、ユーザーが特定のページにすばやく移動できるようにします。
+- 数値のページ番号に加えて、**最初**または最後のページに移動するためのボタンが含まれています。
 
-DataList と Repeater では、私たちは、決定ページング インターフェイスを実装する責任を負います。 これは、ページで、必要な Web コントロールを作成し、特定のページング インターフェイス ボタンがクリックされたときに、要求されたページを表示する必要があります。 さらに、特定のページング インターフェイス コントロールは、無効にする必要があります。 たとえば、次を使用してデータの最初のページを表示すると、Previous、最初に、最後インターフェイスを最初と前の両方のボタンが無効になります。
+DataList と Repeater では、ページングインターフェイスを決定し、実装する責任があります。 これには、ページで必要な Web コントロールを作成し、特定のページングインターフェイスボタンがクリックされたときに要求されたページを表示する作業が含まれます。 また、特定のページングインターフェイスコントロールを無効にする必要がある場合もあります。 たとえば、Next、Previous、First、Last の各インターフェイスを使用してデータの最初のページを表示すると、最初のボタンと前のボタンの両方が無効になります。
 
-このチュートリアルでは、let s 使用して、[次へ]、Previous、最初に、最後のインターフェイスです。 4 つのボタンの Web コントロールをページに追加し、設定、 `ID` s `FirstPage`、 `PrevPage`、 `NextPage`、および`LastPage`します。 設定、`Text`プロパティを&lt;&lt;最初、 &lt; [前へ]、[次へ] &gt;、姓と&gt;&gt;します。
+このチュートリアルでは、を使用して、Next、Previous、First、Last の各インターフェイスを使用します。 4つのボタン Web コントロールをページに追加し、その `ID` を `FirstPage`、`PrevPage`、`NextPage`、`LastPage`に設定します。 `Text` のプロパティを &lt;&lt; First、&lt; Prev、Next &gt;、および Last &gt;&gt; に設定します。
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample4.aspx)]
 
-次に、作成、`Click`これらのボタンのイベント ハンドラー。 すぐには、要求されたページを表示するために必要なコードを追加します。
+次に、これらの各ボタンの `Click` イベントハンドラーを作成します。 この時点で、要求されたページを表示するために必要なコードを追加します。
 
-## <a name="remembering-the-total-number-of-records-being-paged-through"></a>記憶がページングされるレコードの合計数
+## <a name="remembering-the-total-number-of-records-being-paged-through"></a>ページングされているレコードの合計数を記憶する
 
-選択されているページング インターフェイスに関係なくは、ポケットベル通知でレコードの合計数に注意してくださいを計算する必要があります。 データの合計数のページはページされて、どのようなページング インターフェイス コントロールの追加、または有効になってを決定する (ページ サイズと組み合わせて) 行の合計数を決定します。 次へ、前、最初、最後のインターフェイスは、作成するページ数は、2 つの方法で使用されます。
+選択したページングインターフェイスに関係なく、ページングされているレコードの合計数を計算して記憶する必要があります。 合計行数 (ページサイズと共に) によって、ページングされるデータの合計ページ数が決まります。これにより、どのページングインターフェイスコントロールが追加または有効になるかが決まります。 次に作成する、最初の、最後のインターフェイスでは、ページ数は2つの方法で使用されます。
 
-- 最後のページを場合に表示するかどうかを判断するには、次へと最終ボタンは無効です。
-- 最後 whisk にする必要があります。 最後のボタンをクリックした場合、ページより小さい ページで、インデックスが 1 つをカウントします。
+- 最後のページを表示しているかどうかを判断するために、[次へ] と [最後] のボタンは無効になっています。
+- ユーザーが最後のボタンをクリックした場合、最後のページに whisk する必要があります。インデックスはページカウントよりも1小さい値です。
 
-行の合計数の上限は、ページ サイズで割った値には、ページ数が計算されます。 たとえば、79 レコードと 1 ページあたりの 4 つのレコードをページングしますし、ページ数は 20 (79 の ceiling/4)。 この情報私たちの通知を表示する数値によるページ ボタンの数に関する場合は、数値のページング インターフェイスを使用していることページング インターフェイスには、[次へ] または最後のボタンが含まれている場合、ページ数は、[次へ]、または最後にボタンを無効にする場合の判別に使用されます。
+ページ数は、合計行数がページサイズで割った値として計算されます。 たとえば、ページごとに4つのレコードを含む79レコードをページングする場合、ページ数は 20 (79/4 の切り上げ) になります。 数値ページングインターフェイスを使用している場合、この情報によって、表示する数値ページボタンの数が通知されます。ページングインターフェイスに次のボタンまたは最後のボタンが含まれている場合は、ページ数を使用して、次のボタンまたは最後のボタンをいつ無効にするかを決定します。
 
-ページング インターフェイスには、最後のボタンが含まれている場合は、ポケットベル通知でレコードの合計数は、最後のボタンがクリックされたときに、最後のページ インデックスを確認しましたできるようにポストバック間で記憶されます必要があります。 そのため、作成、`TotalRowCount`状態を表示するには、その値を保持する ASP.NET ページの分離コード クラスのプロパティ。
+ページングインターフェイスに最後のボタンが含まれている場合は、最後のボタンをクリックしたときに最後のページインデックスを決定できるように、ポストバック間でページングされるレコードの合計数を記憶する必要があります。 これを容易にするには、ASP.NET ページの分離コードクラスで `TotalRowCount` プロパティを作成し、その値をビューステートに永続化します。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample5.cs)]
 
-加え`TotalRowCount`、ページ インデックス、ページのサイズを簡単にアクセスするための読み取り専用ページ レベルのプロパティを作成する時間がかかるし、ページ数。
+`TotalRowCount`に加えて、ページインデックス、ページサイズ、およびページ数に簡単にアクセスできるように、読み取り専用のページレベルのプロパティを作成するのに1分かかります。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample6.cs)]
 
-## <a name="determining-the-total-number-of-records-being-paged-through"></a>ポケットベル通知でレコードの合計数を決定します。
+## <a name="determining-the-total-number-of-records-being-paged-through"></a>ページングされているレコードの合計数を確認する
 
-`PagedDataSource` ObjectDataSource s から返されたオブジェクト`Select()`メソッドは、その中に*すべて*、製品レコードの場合でも、それらのサブセットのみが表示されます、DataList でします。 `PagedDataSource` S [ `Count`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx); DataList で表示される項目の数のみを返します、 [ `DataSourceCount`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx)内の項目の合計数を返します、`PagedDataSource`. そのため、ASP.NET ページを割り当てる必要があります`TotalRowCount`プロパティ値の`PagedDataSource`s`DataSourceCount`プロパティ。
+ObjectDataSource s `Select()` メソッドから返された `PagedDataSource` オブジェクトは、それらのサブセットだけが DataList に表示される場合でも、*すべて*の製品レコードに含まれます。 `PagedDataSource` s [`Count` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx)は、DataList に表示される項目の数のみを返します。[`DataSourceCount` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx)は、`PagedDataSource`内の項目の合計数を返します。 したがって、ASP.NET page s `TotalRowCount` プロパティ `PagedDataSource` s `DataSourceCount` プロパティの値を割り当てる必要があります。
 
-これを実現するには、ObjectDataSource s のイベント ハンドラーを作成`Selected`イベント。 `Selected` ObjectDataSource s の戻り値へのアクセスがあるイベント ハンドラー`Select()`この場合、メソッド、`PagedDataSource`します。
+これを実現するには、ObjectDataSource s `Selected` イベントのイベントハンドラーを作成します。 `Selected` イベントハンドラーでは、ObjectDataSource s `Select()` メソッドの戻り値 (この場合は `PagedDataSource`) にアクセスできます。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample7.cs)]
 
-## <a name="displaying-the-requested-page-of-data"></a>データの要求されたページを表示します。
+## <a name="displaying-the-requested-page-of-data"></a>要求されたデータページの表示
 
-ユーザーには、いずれかのページング インターフェイスでボタンがクリックすると、データの要求されたページを表示する必要があります。 ページングのパラメーターが要求されたデータの使用のページを表示する、クエリ文字列を使用して指定されているため`Response.Redirect(url)`、ユーザーのブラウザー再要求して、`Paging.aspx`ページングの適切なパラメーターを含むページ。 たとえば、データの 2 番目のページを表示するは、ユーザーをリダイレクト`Paging.aspx?pageIndex=1`します。
+ユーザーがページングインターフェイスのボタンのいずれかをクリックすると、要求されたデータページを表示する必要があります。 ページングパラメーターはクエリ文字列を介して指定されるため、要求されたデータページを表示するには `Response.Redirect(url)` 使用して、ユーザーのブラウザーが `Paging.aspx` ページに適切なページングパラメーターを再要求します。 たとえば、データの2ページ目を表示するには、ユーザーを `Paging.aspx?pageIndex=1`にリダイレクトします。
 
-そのため、作成、`RedirectUser(sendUserToPageIndex)`メソッドにユーザーをリダイレクトする`Paging.aspx?pageIndex=sendUserToPageIndex`します。 このメソッドは、次の 4 つのボタンをクリックし、`Click`イベント ハンドラー。 `FirstPage` `Click`イベント ハンドラーを呼び出します`RedirectUser(0)`、最初のページに送信する、 `PrevPage` `Click`イベント ハンドラーを使用して`PageIndex - 1`ページ インデックスとこれにします。
+これを容易にするには、ユーザーを `Paging.aspx?pageIndex=sendUserToPageIndex`にリダイレクトする `RedirectUser(sendUserToPageIndex)` メソッドを作成します。 次に、4つのボタン `Click` イベントハンドラーからこのメソッドを呼び出します。 `FirstPage` `Click` イベントハンドラーで `RedirectUser(0)`を呼び出して、最初のページに送信します。`PrevPage` `Click` イベントハンドラーで、ページインデックスとして `PageIndex - 1` を使用します。などなど。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample8.cs)]
 
-`Click`イベント ハンドラーが完了すると、ボタンをクリックして DataList のレコードがページングされることができます。 すぐお試しください!
+`Click` イベントハンドラーが完了したら、ボタンをクリックすることで、DataList s レコードをページングできます。 試してみてください。
 
-## <a name="disabling-paging-interface-controls"></a>インターフェイスのコントロールのページングを無効にします。
+## <a name="disabling-paging-interface-controls"></a>無効化 (ページングインターフェイスコントロールを)
 
-現時点では、すべての 4 つのボタンが表示されているページに関係なく有効です。 ただし、最後のページを表示するときに、データ、および 次へ と 最後のボタンの最初のページを表示するときに、最初および戻るボタンを無効にします。 `PagedDataSource` ObjectDataSource s によって返されるオブジェクト`Select()`メソッドがプロパティ[ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx)と[ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx)表示しているかどうかを判断することを検証できます。データの最初と最後のページ。
+現在、4つのボタンはすべて、表示されているページに関係なく有効になっています。 ただし、データの最初のページを表示するときに、最初のボタンと前のボタンを無効にし、最後のページを表示するときに [次へ] と [最後] のボタンを無効にする必要があります。 ObjectDataSource s `Select()` メソッドによって返される `PagedDataSource` オブジェクトには、データの最初または最後のページを表示しているかどうかを確認するために確認できるプロパティ[`IsFirstPage`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx)および[`IsLastPage`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx)があります。
 
-ObjectDataSource s に、次の追加`Selected`イベント ハンドラー。
+ObjectDataSource s `Selected` イベントハンドラーに次のを追加します。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample9.cs)]
 
-これにより、最後のページを表示するときに、次へと最終ボタンは無効にするときに、最初のページを表示するときに、最初および戻るボタンを無効化されます。
+この追加により、最初のページを表示しているときに、最初のボタンと前のボタンが無効になります。最後のページを表示すると、[次へ] ボタンと [最後のボタン] は無効になります。
 
-Let s ページング インターフェイスの完了をユーザーに通知してどのようなページが現在表示するいると、合計ページ数が存在します。 ラベルの Web コントロールをページに追加し、設定、`ID`プロパティを`CurrentPageNumber`します。 設定の`Text`ObjectDataSource s 選択されたイベント ハンドラーでこのようなプロパティが表示されている現在のページが含まれている (`PageIndex + 1`) と合計ページ数 (`PageCount`)。
+現在表示しているページと合計ページ数をユーザーに通知して、ページングインターフェイスを完成させます。 ページにラベル Web コントロールを追加し、その `ID` プロパティを `CurrentPageNumber`に設定します。 ObjectDataSource s 選択イベントハンドラーで `Text` プロパティを設定します。これにより、現在表示されているページ (`PageIndex + 1`) と総ページ数 (`PageCount`) が含まれるようになります。
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample10.cs)]
 
-図 10 に示します`Paging.aspx`初めてアクセスしたときにします。 DataList の; 最初の 4 つの製品が表示された既定値は、クエリ文字列は空であるため1 つ目と前のボタンが無効です。 [次へ] をクリックすると次の 4 つレコードを表示します (図 11 を参照してください)。1 つ目と前のボタンが有効になりました。
+図10に、最初にアクセスしたときの `Paging.aspx` を示します。 Querystring は空であるため、DataList は既定で最初の4つの製品を表示します。最初のボタンと前のボタンは無効になっています。 [次へ] をクリックすると、次の4つのレコードが表示されます (図11を参照)。1つ目と前のボタンが有効になります。
 
-[![最初のページ データが表示されます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image22.png)
+[データの最初のページが表示される ![](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image22.png)
 
-**図 10**:最初のページ データが表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image24.png))。
+**図 10**: データの最初のページが表示される ([クリックすると、フルサイズの画像が表示](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image24.png)されます)
 
-[![2 番目のページ データが表示されます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image25.png)
+[![データの2ページ目が表示されます。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image25.png)
 
-**図 11**:2 番目のページ データが表示されます ([フルサイズの画像を表示する をクリックします](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image27.png))。
+**図 11**: データの2番目のページが表示される ([クリックすると、フルサイズの画像が表示](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image27.png)されます)
 
 > [!NOTE]
-> ページング インターフェイスは、1 ページを表示するページ数を指定するユーザーを許可することで、さらに拡張できます。 たとえば、DropDownList には、5、10、25、50、およびすべてのようなリスト ページ サイズのオプションを追加でした。 ページ サイズを選択すると、ユーザーが にリダイレクトする必要があります`Paging.aspx?pageIndex=0&pageSize=selectedPageSize`します。 練習としてこの拡張機能を実装するリーダーのままにします。
+> ページングインターフェイスをさらに拡張するには、ユーザーがページごとに表示するページ数を指定できるようにします。 たとえば、"5"、"10"、"25"、"50"、"すべて" のようなページサイズオプションを追加できます。 ページサイズを選択するときは、ユーザーを `Paging.aspx?pageIndex=0&pageSize=selectedPageSize`にリダイレクトする必要があります。 この拡張機能の実装は、リーダーの演習として行っています。
 
-## <a name="using-custom-paging"></a>カスタム ページングを使用します。
+## <a name="using-custom-paging"></a>カスタムページングの使用
 
-既定の非効率的なページングの手法を使用してそのデータを DataList ページ。 十分に大量のデータのページング、ときに、カスタム ページングを使用することが重要です。 実装の詳細が若干異なりますが、DataList でカスタム ページングを実装する概念は既定のページングと同じになります。 カスタム ページングを使用して、`ProductBLL`クラス s`GetProductsPaged`メソッド (の代わりに`GetProductsAsPagedDataSource`)。 説明したように、[効率的にページングを大規模な量のデータ](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md)チュートリアルでは、`GetProductsPaged`返す行の開始行インデックスと最大数を渡す必要があります。 これらのパラメーターは、クエリ文字列と同様で維持できる、`pageIndex`と`pageSize`既定のページングに使用されるパラメーター。
+DataList ページは、非効率的な既定のページング手法を使用してデータを処理します。 大量のデータをページングする場合は、カスタムページングを使用する必要があります。 実装の詳細は若干異なりますが、DataList でのカスタムページングの実装の背後にある概念は、既定のページングの場合と同じです。 カスタムページングを使用する場合は、`ProductBLL` クラス s `GetProductsPaged` メソッド (`GetProductsAsPagedDataSource`ではなく) を使用します。 「[大量のデータを使用](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md)した効率的なページング」で説明されているように、`GetProductsPaged` には、開始行インデックスと返される最大行数を渡す必要があります。 これらのパラメーターは、既定のページングで使用される `pageIndex` や `pageSize` パラメーターと同様に、querystring を使用して管理できます。
 
-S 以降ありません`PagedDataSource`かどうかによって、およびページングされるレコードの合計数を決定するカスタムのページングを使用した手法を使用する必要があります re データの最初と最後のページを表示します。 `TotalNumberOfProducts()`メソッドで、`ProductsBLL`クラスを介してページングされる製品の合計数を返します。 特定するデータの最初のページが表示されているかどうか、調査開始行インデックス、0 の場合は、最初のページが表示されています。 最後のページが、開始行インデックスの合計を返す最大行数がを介してページングされるレコードの総数以上場合に表示されています。
+カスタムページングを使用した `PagedDataSource` はないため、ページングされるレコードの合計数と、データの最初または最後のページを表示するかどうかを決定するために、代替手法を使用する必要があります。 `ProductsBLL` クラスの `TotalNumberOfProducts()` メソッドは、ページングされている製品の合計数を返します。 データの最初のページが表示されているかどうかを調べるには、開始行のインデックスが0の場合は、最初のページが表示されていることを確認します。 先頭行のインデックスと返される最大行数が、ページングされているレコードの合計数以上の場合、最後のページが表示されます。
 
-次のチュートリアルでさらに詳しくカスタム ページングを実装するについて説明します。
+カスタムページングの実装については、次のチュートリアルでさらに詳しく説明します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-DataList と Repeater のどちらも帯を提供しています。 GridView、DetailsView にあるボックス、ページングをサポートし、コントロールと FormView コントロール、最小限の労力でこのような機能を追加することができます。 既定のページングを実装する最も簡単な方法に含まれる製品のセット全体をラップする、`PagedDataSource`し、バインド、 `PagedDataSource` DataList または Repeater をします。 このチュートリアルでは追加されました、`GetProductsAsPagedDataSource`メソッドを`ProductsBLL`を返すために、`PagedDataSource`します。 `ProductsBLL`クラスが既にカスタム ページングのために必要なメソッドを含む`GetProductsPaged`と`TotalNumberOfProducts`します。
+DataList も Repeater も、GridView、DetailsView、FormView コントロールで検出されたインボックスページングサポートを提供しませんが、このような機能は最小限の労力で追加できます。 既定のページングを実装する最も簡単な方法は、`PagedDataSource` 内で製品セット全体をラップし、その `PagedDataSource` を DataList または Repeater にバインドすることです。 このチュートリアルでは、`PagedDataSource`を返すために、`ProductsBLL` クラスに `GetProductsAsPagedDataSource` メソッドを追加しました。 `ProductsBLL` クラスには、カスタムページング `GetProductsPaged` と `TotalNumberOfProducts`に必要なメソッドが既に含まれています。
 
-カスタム ページングを表示するレコードの正確なセット、またはすべてのレコードのいずれかを取得すると共に、`PagedDataSource`既定のページングも必要があります、ページング インターフェイスを手動で追加します。 このチュートリアルで作成した、次に、Previous、First、最終インターフェイスを 4 つのボタンの Web コントロール。 また、現在のページ番号とページの合計数を表示するラベル コントロールが追加されました。
+既定のページングのために、カスタムページングまたは `PagedDataSource` 内のすべてのレコードについて表示する正確なレコードセットを取得すると共に、ページングインターフェイスを手動で追加する必要もあります。 このチュートリアルでは、4つのボタン Web コントロールを使用して、Next、Previous、First、Last の各インターフェイスを作成しました。 また、現在のページ番号と合計ページ数を表示するラベルコントロールも追加されました。
 
-次のチュートリアルでは、DataList と Repeater を並べ替えのサポートを追加する方法がわかります。 ページおよびできる (既定およびカスタム ページングを使用して例) で並べ替えを DataList を作成する方法についても説明します。
+次のチュートリアルでは、DataList と Repeater に並べ替えサポートを追加する方法について説明します。 また、ページングと並べ替えの両方が可能な DataList を作成する方法についても説明します (既定のページングとカスタムページングを使用した例を参照)。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Liz Shulok、Ken Pespisa、および「社長補佐 Leigh でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Liz Shulok、Ken p Isa、および Bernadette Leigh でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [次へ](sorting-data-in-a-datalist-or-repeater-control-cs.md)

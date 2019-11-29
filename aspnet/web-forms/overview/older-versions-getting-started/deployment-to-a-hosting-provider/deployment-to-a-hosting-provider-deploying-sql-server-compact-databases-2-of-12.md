@@ -1,242 +1,242 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server Compact データベースに 12 の第 2 の展開 |Microsoft Docs
+title: 'Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server Compact データベースの配置-2/12 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: この一連のチュートリアルでは、Visual Stu... を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b265d210ff3b1eeb8697a973cc245f6c97b3eb07
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 56ceabc79947967846d342354fd033510be5f05a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134174"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74625530"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server Compact データベースに 12 の 2 を展開します。
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server Compact データベースの配置-2/12
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[スタートプロジェクトのダウンロード](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルでは、Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。 Web 発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、2 つの SQL Server Compact データベースとデータベース エンジンの展開を設定する方法を示します。
+このチュートリアルでは、配置用に2つの SQL Server Compact データベースとデータベースエンジンを設定する方法について説明します。
 
-データベースへのアクセス、Contoso University アプリケーションは、.NET Framework で指定していないために、アプリケーションと共に配置する必要があります、次のソフトウェアが必要です。
+データベースアクセスの場合、Contoso 大学アプリケーションは、.NET Framework に含まれていないため、アプリケーションと共に展開する必要がある次のソフトウェアを必要とします。
 
-- [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (データベース エンジン)。
-- [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (これを有効にすると、SQL Server Compact を使用して、ASP.NET メンバーシップ システム)
-- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(移行の最初のコード)。
+- [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (データベースエンジン)。
+- [ASP.NET ユニバーサルプロバイダー](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (ASP.NET メンバーシップシステムで SQL Server Compact を使用できるようにする)
+- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(移行を伴う Code First)。
 
-データベースの構造と一部 (すべて)、アプリケーションの 2 つのデータのデータベースをデプロイすることも必要があります。 通常、アプリケーションを開発するときは、ライブ サイトに配置するデータベースにテスト データを入力します。 ただし、デプロイするいくつかの運用データを入力することも可能性があります。 このチュートリアルでは、必要なソフトウェアと正しいデータが含まように展開するときに、Contoso University のプロジェクトを構成します。
+データベース構造と、アプリケーションの2つのデータベース内のデータの一部 (すべてではない) も配置する必要があります。 通常は、アプリケーションを開発するときに、ライブサイトに配置しないデータベースにテストデータを入力します。 ただし、デプロイするいくつかの実稼働データを入力する場合もあります。 このチュートリアルでは、を展開するときに、必要なソフトウェアと正しいデータが含まれるように Contoso 大学プロジェクトを構成します。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)を確認してください。
 
-## <a name="sql-server-compact-versus-sql-server-express"></a>SQL Server Express と SQL Server Compact
+## <a name="sql-server-compact-versus-sql-server-express"></a>SQL Server Compact と SQL Server Express
 
-サンプル アプリケーションでは、SQL Server Compact 4.0 を使用します。 このデータベース エンジンは、web サイトの比較的新しいオプションです。以前のバージョンの SQL Server Compact は、web ホスティング環境では機能しません。 SQL Server Compact は、SQL Server Express を使用した開発と完全な SQL Server への展開の一般的なシナリオと比較して、いくつかの利点を提供しています。 選択したホスティング プロバイダーによって SQL Server Compact 可能性がありますより低いコストで展開するには、一部のプロバイダーには、完全な SQL Server データベースをサポートするために余分なが課金されます。 データベース エンジン自体は、web アプリケーションの一部として展開できるため、SQL Server Compact の追加料金はありません。
+このサンプルアプリケーションでは、SQL Server Compact 4.0 を使用します。 このデータベースエンジンは、web サイトの比較的新しいオプションです。以前のバージョンの SQL Server Compact は、web ホスティング環境では機能しません。 SQL Server Compact には、SQL Server Express を使用した開発と完全 SQL Server への展開の一般的なシナリオと比較して、いくつかの利点があります。 選択したホスティングプロバイダーによっては、SQL Server Compact をデプロイする方がコストがかかることがあります。これは、一部のプロバイダーが完全 SQL Server データベースをサポートするために追加料金を支払うためです。 SQL Server Compact に対して追加料金は発生しません。これは、web アプリケーションの一部としてデータベースエンジン自体をデプロイできるためです。
 
-ただし、その制限事項に注意してくださかった。 必要があります。 SQL Server Compact はサポートしていませんストアド プロシージャ、トリガー、ビュー、またはレプリケーション。 (SQL Server Compact でサポートされていない SQL Server 機能の完全な一覧を参照してください[の相違点の間で SQL Server Compact および SQL Server](https://msdn.microsoft.com/library/bb896140.aspx)。)。また、SQL Server compact における SQL Server Express と SQL Server データベース スキーマとデータを操作に使用できるツールの一部機能できません。 たとえば、SQL Server Compact データベースに Visual Studio で SQL Server Management Studio または SQL Server Data Tools を使用できません。 SQL Server Compact データベースを操作するためには、その他のオプションには。
+ただし、制限も考慮する必要があります。 SQL Server Compact では、ストアドプロシージャ、トリガー、ビュー、またはレプリケーションはサポートされていません。 (SQL Server Compact でサポートされていない SQL Server の機能の完全な一覧については、「 [SQL Server Compact と SQL Server の違い](https://msdn.microsoft.com/library/bb896140.aspx)」を参照してください)。また、SQL Server Express および SQL Server データベースのスキーマやデータを操作するために使用できるツールの中には、SQL Server Compact では機能しないものもあります。 たとえば、Visual Studio で SQL Server Compact データベースを使用して SQL Server Management Studio または SQL Server Data Tools を使用することはできません。 SQL Server Compact データベースを操作するための他のオプションがあります。
 
-- SQL Server Compact の限られたデータベース操作の機能を提供する Visual Studio でサーバー エクスプ ローラーを使用することができます。
-- データベース操作の機能を使用する[WebMatrix](https://www.microsoft.com/web/webmatrix/)、サーバー エクスプ ローラーより多くの機能を持ちます。
-- 比較的フル装備のサード パーティ製を使用したりなどのオープン ソース ツールでは、 [SQL Server Compact Toolbox](https://github.com/ErikEJ/SqlCeToolbox)と[SQL Compact データとスキーマ スクリプト ユーティリティ](https://github.com/ErikEJ/SqlCeToolbox)します。
-- 作成して、データベース スキーマを操作する独自の DDL (データ定義言語) スクリプトを実行できます。
+- Visual Studio でサーバーエクスプローラーを使用すると、SQL Server Compact に対して制限されたデータベース操作機能を提供できます。
+- [WebMatrix](https://www.microsoft.com/web/webmatrix/)のデータベース操作機能を使用できます。これにはサーバーエクスプローラーよりも多くの機能があります。
+- [SQL Server Compact ツールボックス](https://github.com/ErikEJ/SqlCeToolbox)や[SQL Compact データやスキーマスクリプトユーティリティ](https://github.com/ErikEJ/SqlCeToolbox)など、比較的多機能なサードパーティまたはオープンソースのツールを使用できます。
+- 独自の DDL (データ定義言語) スクリプトを記述して実行し、データベーススキーマを操作できます。
 
-SQL Server Compact で開始し、ニーズに応じて後でアップグレードできます。 このシリーズの以降のチュートリアルでは、SQL Server Compact から SQL Server express と SQL Server を移行する方法を説明します。 ただし、新しいアプリケーションを作成して、近い将来に SQL Server を必要だと思わ、SQL Server または SQL Server Express を起動することをおです。
+SQL Server Compact から開始し、必要に応じて後でアップグレードすることができます。 このシリーズの後のチュートリアルでは、SQL Server Compact から SQL Server Express および SQL Server に移行する方法について説明します。 ただし、新しいアプリケーションを作成していて、近い将来に SQL Server が必要になることが予想される場合は、SQL Server または SQL Server Express から始めることをお勧めします。
 
-## <a name="configuring-the-sql-server-compact-database-engine-for-deployment"></a>展開用の SQL Server Compact データベース エンジンの構成
+## <a name="configuring-the-sql-server-compact-database-engine-for-deployment"></a>展開のための SQL Server Compact データベースエンジンの構成
 
-Contoso University アプリケーションでデータ アクセスに必要なソフトウェアは、次の NuGet パッケージをインストールすることによって追加されました。
+Contoso 大学アプリケーションでのデータアクセスに必要なソフトウェアは、次の NuGet パッケージをインストールすることによって追加されました。
 
 - [SqlServerCompact](http://nuget.org/List/Packages/SqlServerCompact)
-- [System.Web.Providers](http://nuget.org/List/Packages/System.Web.Providers) (ASP.NET ユニバーサル プロバイダー)
+- [System.web. providers](http://nuget.org/List/Packages/System.Web.Providers) (ASP.NET ユニバーサルプロバイダー)
 - [EntityFramework](http://nuget.org/List/Packages/EntityFramework)
-- [EntityFramework.SqlServerCompact](http://nuget.org/List/Packages/EntityFramework.sqlservercompact)
+- [EntityFramework](http://nuget.org/List/Packages/EntityFramework.sqlservercompact)
 
-リンクは、このチュートリアルでダウンロードしたスタート プロジェクトにインストールされている内容よりも新しい可能性のあるこれらのパッケージの現在のバージョンをポイントします。 ホスティング プロバイダーにデプロイする場合に、Entity Framework 5.0 以降を使用することを確認します。 Code First Migrations の以前のバージョンが、完全な信頼を必要とし、多くのホスティング プロバイダーに、アプリケーションが中程度の信頼で実行されます。 中程度の信頼の詳細については、次を参照してください。、[テスト環境として IIS への配置](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)チュートリアル。
+リンクは、これらのパッケージの現在のバージョンを指しています。これらのパッケージは、このチュートリアルでダウンロードしたスタートプロジェクトにインストールされているものよりも新しい可能性があります。 ホスティングプロバイダーへの配置については、Entity Framework 5.0 以降を使用していることを確認してください。 以前のバージョンの Code First Migrations には完全な信頼が必要であり、多くのホスティングプロバイダーでは、アプリケーションは中程度の信頼で実行されます。 中程度の信頼の詳細については、「[テスト環境として IIS に配置する](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)」チュートリアルを参照してください。
 
-一般に、NuGet パッケージのインストールは、アプリケーションにこのソフトウェアを展開するために必要なすべての処理されます。 場合によっては、これには、Web.config ファイルを変更して、ソリューションをビルドするたびに実行する PowerShell スクリプトを追加するなどのタスクが含まれます。 **NuGet を使用せずにこれらの機能 (SQL Server Compact や Entity Framework) のいずれかのサポートを追加する場合は、NuGet パッケージのインストールが、同じ作業を手動で実行できるようににがわかっていることを確認します。**
+NuGet パッケージのインストールは、通常、このソフトウェアをアプリケーションと共に展開するために必要なすべての処理を行います。 場合によっては、web.config ファイルの変更や、ソリューションをビルドするたびに実行される PowerShell スクリプトの追加などのタスクが必要になります。 **NuGet を使用せずにこれらの機能 (SQL Server Compact や Entity Framework など) のサポートを追加する場合は、NuGet パッケージのインストールによって、同じ作業を手動で行うことができることを確認してください。**
 
-NuGet が処理するには、展開の成功を保証するために行う必要があるすべてのものを実行しない 1 つの例外があります。 SqlServerCompact NuGet パッケージをプロジェクトにネイティブ アセンブリをコピーするビルド後のスクリプトを追加します*x86*と*amd64*プロジェクトの下のサブフォルダー *bin*フォルダーでは、スクリプトは、プロジェクトでそれらのフォルダーを含みません。 その結果、Web Deploy はコピーしませんそれらのターゲットの web サイト プロジェクトに手動で含める場合を除き。 (この動作は、既定の配置構成の結果は、これらのチュートリアルでは使用しません、別のオプションは、この動作を制御する設定を変更します。 変更できる設定は**アプリケーションの実行に必要なファイルのみ** **配置する項目**で、**パッケージ/web の発行**のタブ、**プロジェクトプロパティ**ウィンドウ。 この設定を変更するは一般的に使用しないで運用環境が必要以上に多くの詳細ファイルの展開でしまうためです。 その他の方法の詳細については、次を参照してください、[プロジェクト プロパティを設定する](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)チュートリアルです。)。
+正常に展開できるようにするために必要なすべての処理が NuGet によって処理されない例外が1つあります。 SqlServerCompact NuGet パッケージは、プロジェクトにビルド後のスクリプトを追加します。このスクリプトは、ネイティブアセンブリをプロジェクトの*bin*フォルダーの下にある*x86*および*amd64*サブフォルダーにコピーしますが、スクリプトにはプロジェクト内のこれらのフォルダーは含まれません。 結果として、プロジェクトに手動で含める場合を除き、Web 配置によってコピー先の Web サイトにコピーされません。 (この動作は、既定の配置構成によって発生します。このチュートリアルでは使用しないもう1つのオプションは、この動作を制御する設定を変更することです。 変更できる設定は、 **[プロジェクトのプロパティ]** ウィンドウの **[パッケージ/発行 Web]** タブで、 **[配置する項目]** で**アプリケーションを実行するために必要なファイルのみ**です。 通常、この設定を変更することは、必要以上に多くのファイルが運用環境に展開される可能性があるため、通常は推奨されません。 代替方法の詳細については、「[プロジェクトプロパティの構成](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)」チュートリアルを参照してください。)
 
-プロジェクトをビルドし、**ソリューション エクスプ ローラー**クリックして**ファイルをすべて表示**まだ行っていない場合。 をクリックする必要がありますも**更新**します。
+プロジェクトをビルドし、**ソリューションエクスプローラー** [すべての**ファイルを表示**] をクリックします (まだ作成していない場合)。 また、 **[更新]** をクリックする必要がある場合もあります。
 
 ![Solution_Explorer_Show_All_Files](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image1.png)
 
-展開、 **bin**フォルダーを参照してください、 **amd64**と**x86**フォルダー、それらのフォルダーを右クリックしと選択をクリックして**をプロジェクトに含める**.
+**[Bin]** フォルダーを展開して**amd64**および**x86**フォルダーを表示し、それらのフォルダーを選択して右クリックし、 **[プロジェクトに含める]** を選択します。
 
-![amd64_and_x86_in_Solution_Explorer.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer .png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
-フォルダーのアイコンに変更、フォルダーをプロジェクトに含まれていることを表示します。
+フォルダーアイコンが変更され、そのフォルダーがプロジェクトに含まれていることが示されます。
 
-![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included .png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
-## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>アプリケーション データベースの配置の Code First Migrations を構成します。
+## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>アプリケーションデータベースの展開のための Code First Migrations の構成
 
-アプリケーション データベースを展開するときに通常しないデプロイするだけですべてのデータのデータベースを開発、運用環境にテスト目的でのみ内のデータの多くはおそらくありますので。 たとえば、テスト データベース内の学生の名前は、架空です。 その一方で、多くの場合、配置できませんデータことのないデータベース構造だけですべての。 テスト データベースでデータの一部は、実際のデータがあり、ユーザーがアプリケーションの使用を開始する場合がある必要があります。 たとえば、データベースには、グレードが有効な値または実際の部署名を含むテーブルがあります。
+アプリケーションデータベースを配置する場合、通常は、単に開発データベースを運用環境に配置するだけではありません。これは、ほとんどのデータがテスト目的でのみ使用されるためです。 たとえば、テストデータベースの学生名は架空の名前です。 一方、データがまったく存在しないデータベース構造だけを配置することはほとんどありません。 テストデータベースの一部のデータは実際のデータであり、ユーザーがアプリケーションの使用を開始するときに必要になる場合があります。 たとえば、有効なグレード値または実際の部署名を含むテーブルがデータベースに存在する場合があります。
 
-この一般的なシナリオをシミュレートするには、実稼働環境であるデータのみをデータベースに挿入するコードの最初の移行の Seed メソッドを構成します。 このシード メソッドは、Code First に実稼働環境でデータベースを作成した後、運用環境で実行されますので、テスト データを挿入しません。
+この一般的なシナリオをシミュレートするには、実稼働環境に配置するデータのみをデータベースに挿入する Code First Migrations Seed メソッドを構成します。 このシードメソッドは、実稼働環境でデータベースを作成 Code First た後に運用環境で実行されるため、テストデータを挿入しません。
 
-以前のバージョンの Code First Migrations がリリースされる前に、が一般的でした Seed メソッドも、テスト データを挿入する開発中にモデル変更のたびに、データベースは完全に削除され、最初から再作成する必要があるためです。 Code First Migrations で Seed メソッドのテスト データを含む必要はありませんので、データベースの変更後にテスト データが保持されます。 ダウンロードしたプロジェクトでは、初期化子クラスの Seed メソッドのすべてのデータを含む前の移行メソッドを使用します。 このチュートリアルでは、初期化子クラスを無効にし、移行を有効にします。 運用環境で挿入するデータのみを挿入するための移行の構成クラスの Seed メソッドを更新します。
+以前のバージョンの Code First では、移行がリリースされる前に、シードメソッドによってテストデータを挿入することが一般的でした。これは、開発時にすべてのモデルが変更されたため、データベースを完全に削除してから再作成する必要があるためです。 Code First Migrations では、データベースの変更後にテストデータが保持されるため、Seed メソッドにテストデータを含める必要はありません。 ダウンロードしたプロジェクトは、初期化子クラスのシードメソッドにすべてのデータを含めるための移行前の方法を使用します。 このチュートリアルでは、初期化子クラスを無効にして、移行を有効にします。 次に、移行構成クラスの Seed メソッドを更新して、運用環境に挿入するデータのみを挿入するようにします。
 
-次の図は、アプリケーション データベースのスキーマを示しています。
+次の図は、アプリケーションデータベースのスキーマを示しています。
 
 [![School_database_diagram](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image5.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image4.png)
 
-これらのチュートリアルについてを想定します、`Student`と`Enrollment`サイトが最初に展開された場合に、テーブルが空にする必要があります。 その他のテーブルには、アプリケーションの運用時にプリロードする必要があるデータが含まれます。
+これらのチュートリアルでは、サイトを最初に展開するときに、`Student` テーブルと `Enrollment` テーブルが空であると想定します。 他のテーブルには、アプリケーションが稼働しているときに事前に読み込む必要があるデータが含まれています。
 
-不要になったを使用する必要がある Code First Migrations を使用するため、 **DropCreateDatabaseIfModelChanges** Code First 初期化子。 この初期化子のコードは SchoolInitializer.cs ファイル ContosoUniversity.DAL プロジェクト内です。 設定、 **appSettings** Web.config ファイルの要素により、アプリケーションを初めてデータベースにアクセスしようとするたびに実行するこの初期化子。
+Code First Migrations を使用するため、 **Dropcreatedatabaseifmodelchanges** Code First 初期化子を使用する必要がなくなりました。 この初期化子のコードは、ContosoUniversity プロジェクトの SchoolInitializer.cs ファイルにあります。 Web.config ファイルの**appSettings**要素の設定により、アプリケーションが初めてデータベースにアクセスしようとしたときに、この初期化子が実行されます。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample1.xml?highlight=3)]
 
-アプリケーションの Web.config ファイルを開き、appSettings 要素から Code First 初期化子クラスを指定する要素を削除します。 AppSettings 要素は、次のようになります。
+アプリケーションの Web.config ファイルを開き、appSettings 要素から Code First 初期化子クラスを指定する要素を削除します。 AppSettings 要素は次のようになります。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample2.xml)]
 
 > [!NOTE]
-> 初期化子クラスを指定することもできますが、それを呼び出すことによって行います`Database.SetInitializer`で、`Application_Start`メソッドで、 *Global.asax*ファイル。 そのメソッドを使用して、初期化子を指定するプロジェクトでの移行を有効にする場合は、そのコード行を削除します。
+> 初期化子クラスを指定するもう1つの方法は、 *global.asax*ファイルの `Application_Start` メソッドで `Database.SetInitializer` を呼び出すことによって行います。 そのメソッドを使用して初期化子を指定するプロジェクトで移行を有効にする場合は、そのコード行を削除します。
 
 次に、Code First Migrations を有効にします。
 
-最初の手順では、ContosoUniversity プロジェクトがスタートアップ プロジェクトとして設定されていることを確認します。 **ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを右クリックし、選択、**スタートアップ プロジェクトとして設定**します。 Code First Migrations は、データベース接続文字列を検索するスタートアップ プロジェクトになります。
+最初の手順として、ContosoUniversity プロジェクトがスタートアッププロジェクトとして設定されていることを確認します。 **ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[スタートアッププロジェクトに設定]** を選択します。 Code First Migrations によってスタートアッププロジェクトが検索され、データベース接続文字列が検索されます。
 
-**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
+**[ツール]** メニューの **[NuGet パッケージマネージャー]** をクリックし、 **[パッケージマネージャーコンソール]** をクリックします。
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 
-上部にある、**パッケージ マネージャー コンソール**ウィンドウとして、既定のプロジェクトとし、at ContosoUniversity.DAL を選択して、`PM>`プロンプトは「有効な移行」を入力します。
+**パッケージマネージャーコンソール**ウィンドウの上部で、既定のプロジェクトとして [ContosoUniversity] を選択し、`PM>` プロンプトで「enable-移行」と入力します。
 
 ![enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
 
-このコマンドは、作成、 *Configuration.cs*で新しいファイル*移行*ContosoUniversity.DAL プロジェクトのフォルダー。
+このコマンドを実行すると、ContosoUniversity プロジェクトの新しい [*移行*] フォルダーに*Configuration.cs*ファイルが作成されます。
 
 ![Migrations_folder_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image8.png)
 
-Code First のコンテキスト クラスを含むプロジェクトで"enable-migrations"コマンドを実行する必要があるために、DAL プロジェクトを選択します。 そのクラスは、クラス ライブラリ プロジェクトでは、Code First Migrations は、ソリューションのスタートアップ プロジェクト内のデータベース接続文字列が検索されます。 ContosoUniversity ソリューションで web プロジェクトがスタートアップ プロジェクトとして設定されています。 (Visual Studio のスタートアップ プロジェクトとして、接続文字列を含むプロジェクトを指定しなかった場合は、指定できますスタートアップ プロジェクトでの PowerShell コマンド。 Enable-migrations コマンドのコマンド構文を表示するには、ことができますを入力する、コマンド「get-help 有効にする-移行」です。)
+DAL プロジェクトを選択しました。これは、Code First コンテキストクラスを含むプロジェクトで [移行を有効にする] コマンドを実行する必要があるためです。 このクラスがクラスライブラリプロジェクト内にある場合、Code First Migrations は、ソリューションのスタートアッププロジェクトでデータベース接続文字列を検索します。 ContosoUniversity ソリューションでは、web プロジェクトはスタートアッププロジェクトとして設定されています。 (Visual Studio でスタートアッププロジェクトとして接続文字列を含むプロジェクトを指定しない場合は、PowerShell コマンドでスタートアッププロジェクトを指定できます。 [移行を有効にする] コマンドのコマンド構文を確認するには、「get-help enable-移行」というコマンドを入力します)。
 
-Configuration.cs ファイルを開き、内のコメントを置き換える、`Seed`メソッドを次のコード。
+Configuration.cs ファイルを開き、`Seed` メソッドのコメントを次のコードに置き換えます。
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample3.cs)]
 
-参照`List`必要ないため、その下に赤い波線がある、`using`まだその名前空間のステートメント。 インスタンスの 1 つを右クリックして`List` をクリック**解決**、順にクリックします**System.Collections.Generic を使用して**します。
+名前空間の `using` ステートメントをまだ持っていないため、`List` への参照の下に赤い波線が表示されます。 `List` のインスタンスの1つを右クリックし、 **[解決]** をクリックして、 **[using]** をクリックします。
 
-![ステートメントを使用すると解決します。](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image9.png)
+![Using ステートメントを使用して解決する](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image9.png)
 
-このメニュー項目が次のコードを追加します、`using`ファイルの上部にステートメント。
+このメニューを選択すると、ファイルの先頭付近にある `using` のステートメントに次のコードが追加されます。
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample4.cs)]
 
 > [!NOTE]
-> コードを追加、`Seed`メソッドは、固定データがデータベースに挿入できるさまざまな方法の 1 つです。 代わりに、コードを追加し、`Up`と`Down`各移行クラスのメソッド。 `Up`と`Down`メソッドには、データベースの変更を実装するコードが含まれています。 これらの例が表示されます、[データベース更新の展開](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)チュートリアル。
+> `Seed` メソッドにコードを追加することは、データベースに固定データを挿入する多くの方法の1つです。 別の方法として、各移行クラスの `Up` および `Down` メソッドにコードを追加する方法があります。 `Up` および `Down` メソッドには、データベースの変更を実装するコードが含まれています。 これらの例については、「[データベースの更新のデプロイ](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)」チュートリアルを参照してください。
 > 
-> 使用して SQL ステートメントを実行するコードを記述することも、`Sql`メソッド。 たとえば、Department テーブルを予算の列を追加し、移行の一環として、すべての部門予算を $1,000.00 を初期化するために必要な場合は、次のコードの行を追加でした、`Up`その移行のためのメソッド。
+> `Sql` メソッドを使用して SQL ステートメントを実行するコードを記述することもできます。 たとえば、Department テーブルに予算列を追加し、移行の一部としてすべての部門の予算を $1000.00 に初期化する必要がある場合は、その移行の `Up` メソッドに次のコード行を追加します。
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 > 
-> この例を示すに対する、このチュートリアルでは、`AddOrUpdate`メソッドで、 `Seed` Code First Migrations のメソッド`Configuration`クラス。 Code First Migrations を呼び出し、`Seed`メソッドすべての移行後に、このメソッドは、既に挿入されている、またはまだ存在していない場合は、それらを挿入する行を更新します。 `AddOrUpdate`メソッドには、シナリオに最適な選択肢をできない可能性があります。 詳細については、次を参照してください。 [EF 4.3 AddOrUpdate メソッドを使用して対処](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)Julie Lerman のブログ。
+> このチュートリアルで示されているこの例では、Code First Migrations `Configuration` クラスの `Seed` メソッドの `AddOrUpdate` メソッドを使用します。 Code First Migrations は、移行のたびに `Seed` メソッドを呼び出します。このメソッドは、既に挿入されている行を更新するか、まだ存在しない場合は挿入します。 `AddOrUpdate` メソッドは、お客様のシナリオに最適な選択肢ではない可能性があります。 詳細については、「ジュリー Lerman のブログの[EF 4.3 AddOrUpdate メソッドに](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)対処する」を参照してください。
 
-CTRL + SHIFT+B プロジェクトをビルドするキーを押します。
+CTRL + SHIFT + B キーを押して、プロジェクトをビルドします。
 
-次の手順が作成するには、`DbMigration`初回移行のためのクラス。 既に存在するデータベースを削除する必要があるため、新しいデータベースを作成するには、この移行します。 SQL Server Compact データベースに含まれる *.sdf*内のファイル、*アプリ\_データ*フォルダー。 **ソリューション エクスプ ローラー**、展開*アプリ\_データ*2 つの SQL Server Compact データベースを表示する ContosoUniversity プロジェクトでこれがによって表されます *.sdf*。ファイル。
+次の手順では、初期移行のために `DbMigration` クラスを作成します。 この移行を使用して新しいデータベースを作成する場合は、既に存在するデータベースを削除する必要があります。 SQL Server Compact データベースは、 *App\_Data*フォルダー内の *.sdf*ファイルに含まれています。 **ソリューションエクスプローラー**で、ContosoUniversity プロジェクトの [*アプリ\_データ*] を展開して、 *.sdf*ファイルで表される2つの SQL Server Compact データベースを表示します。
 
-右クリックし、 *School.sdf*ファイルし、クリックして**削除**します。
+*School*ファイルを右クリックし、 **[削除]** をクリックします。
 
 ![sdf_files_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image10.png)
 
-**パッケージ マネージャー コンソール**ウィンドウで、"add-migration Initial"コマンドを入力して、初期移行を作成し、「初期」という名前を付けます。
+**[パッケージマネージャーコンソール]** ウィンドウで、「最初の移行を作成するには」というコマンドを入力し、"initial" という名前を指定します。
 
-![add-migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![migration_command の追加](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
-Code First Migrations は、別のクラス ファイルを作成、*移行*フォルダー、およびこのクラスは、データベース スキーマを作成するコードが含まれています。
+Code First Migrations は、*移行*フォルダーに別のクラスファイルを作成します。このクラスには、データベーススキーマを作成するコードが含まれています。
 
-**パッケージ マネージャー コンソール**、コマンド「更新プログラム-データベース」、データベースを作成し、実行の入力、**シード**メソッド。
+**パッケージマネージャーコンソール**で、"データベースの更新" コマンドを入力してデータベースを作成し、 **Seed**メソッドを実行します。
 
-![update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![更新プログラム-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
-(テーブルが既に存在し、作成することはできませんを示すエラーが発生する場合は可能性があります、データベースを削除した後、および実行する前にアプリケーションを実行するため、`update-database`します。 見つからず、削除、 *School.sdf*ファイルをもう一度やり直して、`update-database`コマンド)。
+(テーブルが既に存在していて作成できないことを示すエラーが表示される場合は、データベースを削除した後、`update-database`を実行する前にアプリケーションを実行したことが原因である可能性があります。 その場合は、 *School .sdf*ファイルをもう一度削除し、`update-database` コマンドを再試行してください)。
 
-アプリケーションを実行します。 今すぐ Students のページは空ですが、Instructors ページには、インストラクターが含まれています。 これは、利用できるもの実稼働環境でアプリケーションを展開した後です。
+アプリケーションを実行します。 これで、Students ページは空になりますが、インストラクターのページにはインストラクターが含まれています。 これは、アプリケーションをデプロイした後、運用環境で使用できるようにするためのものです。
 
 ![Empty_Students_page](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image13.png)
 
 ![Instructors_page_after_initial_migration](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image14.png)
 
-プロジェクトは、デプロイする準備ができました、*学校*データベース。
+これで、プロジェクトは*School*データベースをデプロイする準備ができました。
 
-## <a name="creating-a-membership-database-for-deployment"></a>展開のメンバーシップ データベースを作成します。
+## <a name="creating-a-membership-database-for-deployment"></a>配置のためのメンバーシップデータベースの作成
 
-Contoso University アプリケーションでは、ASP.NET メンバーシップ システムとフォーム認証を使用して、ユーザー認証および承認します。 そのページの 1 つは管理者のみがアクセスできます。 このページを表示するアプリケーションを実行し、選択**更新クレジット**フライアウト メニューから**コース**します。 アプリケーションが表示されます、**ログで**ページで、管理者のみが使用する権限があるため、**更新クレジット**ページ。
+Contoso 大学アプリケーションは、ASP.NET メンバーシップシステムとフォーム認証を使用してユーザーを認証および承認します。 ページの1つは、管理者のみがアクセスできます。 このページを表示するには、アプリケーションを実行し、 **[コース]** の下にあるポップアップメニューから **[更新プログラムのクレジット]** を選択します。 アプリケーションでは、管理者のみが **[クレジットの更新]** ページを使用することが許可されているので、 **[ログイン]** ページが表示されます。
 
 [![Log_in_page](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image16.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image15.png)
 
-「管理者」は"Pa$ $w0rd"パスワードを使用してログイン ("$w0rd"で文字"o"の代わりに、数値の 0 に注意してください)。 では、ログインした後、**更新クレジット**ページが表示されます。
+パスワード "Pas $ w0rd" を使用して "admin" としてログインします ("w0rd" の文字 "o" の代わりに数字0が表示されます)。 ログインすると、 **[更新プログラムのクレジット]** ページが表示されます。
 
 [![Update_Credits_page](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image17.png)
 
-最初に、サイトを展開するときに、ほとんどまたはすべてのテストを作成するユーザー アカウントを除外する一般的なは。 この場合、管理者アカウントとユーザー アカウントをデプロイします。 テスト アカウントを手動で削除するではなく、運用環境で必要のある 1 人の管理者ユーザー アカウントのみを含む新しいメンバーシップ データベースを作成します。
+サイトを初めて展開する場合は、テスト用に作成したユーザーアカウントのほとんどまたはすべてを除外するのが一般的です。 この場合は、管理者アカウントを展開し、ユーザーアカウントを使用しません。 テストアカウントを手動で削除するのではなく、運用環境で必要な管理者ユーザーアカウントを1つだけ持つ新しいメンバーシップデータベースを作成します。
 
 > [!NOTE]
-> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするには、ハッシュのルーチンも、これは、移行元コンピューターには、移行先サーバーで異なるハッシュを生成しないことを確認してください。 既定のアルゴリズムを変更しない限り、ASP.NET ユニバーサル プロバイダーを使用する場合に、同じハッシュを生成、されます。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、 **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** Web.config ファイル内の要素。
+> メンバーシップデータベースには、アカウントパスワードのハッシュが格納されます。 あるコンピューターから別のコンピューターにアカウントを展開するには、ハッシュルーチンが、移行元コンピューターとは異なるハッシュを移行先サーバー上で生成しないようにする必要があります。 既定のアルゴリズムを変更しない限り、ASP.NET ユニバーサルプロバイダーを使用すると、同じハッシュが生成されます。 既定のアルゴリズムは HMACSHA256 で、web.config ファイルの **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** 要素の**validation**属性で指定されています。
 
-Code First Migrations では、メンバーシップ データベースが管理されませんし、ようになります (School データベースの) テスト アカウントを使用してデータベースをシードする自動初期化子はありません。 そのため、使用可能なテスト データを保持する、新しいものを作成する前に、テスト データベースのコピーを作成します。
+メンバーシップデータベースは Code First Migrations によって保持されません。また、データベースにテストアカウントをシードする自動初期化子はありません (School データベースの場合と同様)。 そのため、テストデータを使用可能な状態に保つには、新しいテストデータベースを作成する前に、そのコピーを作成します。
 
-**ソリューション エクスプ ローラー**、名前を変更、 *aspnet.sdf*ファイル、*アプリ\_データ*フォルダー *aspnet Dev.sdf*します。 (コピーを作成するはその名前を変更しません-すぐに新しいデータベースを作成します。)。
+**ソリューションエクスプローラー**で、 *App\_Data*フォルダー内の*aspnet*ファイルの名前を*aspnet-Dev*に変更します。 (コピーを作成しないでください。名前を変更するだけで、新しいデータベースが作成されます)。
 
-**ソリューション エクスプ ローラー**、web プロジェクト (ContosoUniversity、ContosoUniversity.DAL されません) が選択されていることを確認します。 次に、**プロジェクト**メニューの  **ASP.NET 構成**を実行する、 **Web サイト管理ツール**(WAT)。
+**ソリューションエクスプローラー**で、web プロジェクト (ContosoUniversity ではなく ContosoUniversity) が選択されていることを確認します。 次に、 **[プロジェクト]** メニューの **[ASP.NET Configuration]** を選択して、 **Web サイト管理ツール**(WAT) を実行します。
 
-**[セキュリティ]** タブをクリックします。
+**[セキュリティ]** タブを選択します
 
 [![WAT_Security_tab](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image19.png)
 
-をクリックして**管理ロールの作成または**を追加し、**管理者**ロール。
+**[ロールの作成または管理]** をクリックし、**管理者**ロールを追加します。
 
 [![WAT_Create_New_Role](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image22.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image21.png)
 
-戻り、**セキュリティ**] タブで [**ユーザーの作成**、"admin"ユーザーを管理者として追加するとします。 クリックする前に、 **Create User**ボタンを**Create User**  ページを選択するかどうかを確認、**管理者**チェック ボックスをオンします。 このチュートリアルで使用されるパスワードは"Pa$ $w0rd"と、任意の電子メール アドレスを入力することができます。
+**[セキュリティ]** タブに戻り、 **[ユーザーの作成]** をクリックして、管理者としてユーザー "admin" を追加します。 **[ユーザーの作成]** ページの **[ユーザーの作成]** ボタンをクリックする前に、 **[管理者]** チェックボックスがオンになっていることを確認します。 このチュートリアルで使用するパスワードは "Pas $ w0rd" で、任意の電子メールアドレスを入力できます。
 
 [![WAT_Create_User](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image24.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image23.png)
 
-ブラウザーを閉じます。 **ソリューション エクスプ ローラー**、新しいに更新 ボタンをクリックします。 *aspnet.sdf*ファイル。
+ブラウザーを閉じます。 **ソリューションエクスプローラー**で、[更新] ボタンをクリックして新しい*aspnet. .sdf*ファイルを表示します。
 
-![New_aspnet.sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
+![New_aspnet。 sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
 
-右クリックして**aspnet.sdf**選択**プロジェクトに含める**します。
+**[Aspnet. .sdf]** を右クリックし、 **[プロジェクトに含める]** を選択します。
 
-## <a name="distinguishing-development-from-production-databases"></a>実稼働データベースからの特徴的な開発
+## <a name="distinguishing-development-from-production-databases"></a>運用データベースからの開発を区別する
 
-このセクションで開発バージョンは、学校 Dev.sdf と aspnet Dev.sdf と実稼働バージョンは学校 Prod.sdf と aspnet Prod.sdf ようにデータベースを変更します。 これは、必要に応じてが行うのために役立つ混乱テストと運用環境のデータベースのバージョンを取得することを防止します。
+このセクションでは、データベースの名前を変更して、開発バージョンが School-Dev、aspnet-Dev、および production バージョンが School-Prod と aspnet-Prod になるようにします。 これは必須ではありませんが、これを行うと、データベースのテストバージョンと実稼働バージョンが混同されるのを防ぐことができます。
 
-**ソリューション エクスプ ローラー**、 をクリックして**更新**アプリを展開および\_先ほど作成した School データベースを参照してください右クリックし、選択するデータ フォルダー**プロジェクトに含める。**.
+**ソリューションエクスプローラー**で、 **[最新]** の情報に更新 をクリックし、App\_Data フォルダーを展開して、先ほど作成した School データベースを表示します。それを右クリックし、 **[プロジェクトに含める]** を選択します。
 
-![Including_School.sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
+![Including_School。 sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
 
-名前を変更*aspnet.sdf*に*aspnet Prod.sdf*します。
+*Aspnet. .sdf*を*aspnet-Prod*に変更します。
 
-名前を変更*School.sdf*に*の学校 Dev.sdf*します。
+*School .sdf*の名前を*School-Dev*に変更します。
 
-使用する Visual Studio でアプリケーションを実行すると、 *-Prod*を使用するデータベース ファイルのバージョン、 *Dev*バージョン。 ポイントするように、Web.config ファイル内の接続文字列を変更する必要があるため、 *Dev*データベースのバージョン。 (学校 Prod.sdf ファイルを作成していないが Code First はデータベースを作成するがアプリを実行する最初の実稼働環境のために [ok] です)。
+Visual Studio でアプリケーションを実行するときに、- *Dev*バージョンを使用する必要がある *-* 製品版のデータベースファイルを使用しない場合。 そのため、データベースの *-Dev*バージョンを参照するように、web.config ファイル内の接続文字列を変更する必要があります。 (School-Prod ファイルは作成されていませんが、アプリケーションを初めて実行するときに、Code First によってそのデータベースが運用環境に作成されるため、問題はありません)。
 
-アプリケーションの Web.config ファイルを開き、接続文字列を検索します。
+アプリケーションの Web.config ファイルを開き、接続文字列を見つけます。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample5.xml)]
 
-"Aspnet Dev.sdf"、"aspnet.sdf"に変更し、"学校 Dev.sdf"を"School.sdf"を変更します。
+"Aspnet. .sdf" を "aspnet-Dev" に変更し、"School" を "School-Dev" に変更します。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/samples/sample6.xml?highlight=4-5)]
 
-SQL Server Compact のデータベース エンジンと両方のデータベースには、展開する準備ができました。 自動を設定する次のチュートリアルでは*Web.config*開発、テスト、および実稼働環境で別にする必要がある設定のファイルの変換。 (接続文字列には、設定を変更する必要がありますが、発行プロファイルを作成するときに後でこれらの変更を設定します)。
+これで、SQL Server Compact データベースエンジンと両方のデータベースを配置する準備ができました。 次のチュートリアルでは、開発環境、テスト環境、および運用環境で異なる必要がある設定に対して、web.config ファイルの自動変換を設定*します。* (変更が必要な設定の中には接続文字列がありますが、後で発行プロファイルを作成するときにこれらの変更を設定します)。
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>その他の情報
 
-NuGet の詳細については、次を参照してください。 [nuget プロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)します。 NuGet を使用しない場合がインストールされているときの動作を決定する NuGet パッケージを分析する方法を説明する必要があります。 (たとえば、構成が*Web.config*変換、ビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法について詳しくは、特にを参照してください[を作成して、パッケージを公開する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)します。
+NuGet の詳細については、「NuGet と Nuget の[ドキュメント](http://docs.nuget.org/docs/start-here/overview)[を使用したプロジェクトライブラリの管理](https://msdn.microsoft.com/magazine/hh547106.aspx)」を参照してください。 NuGet を使用しない場合は、NuGet パッケージを分析してインストールしたときの動作を確認する方法について学習する必要があります。 (たとえば、web.config 変換を構成したり、PowerShell スクリプトをビルド時に実行するように構成し*たりすること*があります)。NuGet のしくみの詳細については、「パッケージと構成ファイル[の作成と発行](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)」[および「ソースコード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-introduction-1-of-12.md)

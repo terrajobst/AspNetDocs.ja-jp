@@ -1,263 +1,263 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
-title: 追加して、(VB) GridView にボタンに応答する |Microsoft Docs
+title: GridView へのボタンの追加と応答 (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、テンプレートと GridView、DetailsView コントロールのフィールドの両方にカスタム ボタンを追加する方法を紹介します。 具体的には、ビルド番号があるとしています.
+description: このチュートリアルでは、テンプレートと GridView コントロールまたは DetailsView コントロールのフィールドの両方にカスタムボタンを追加する方法について説明します。 特に、...
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1fc042fb72e0bf995759f3a83a44bf8d7773479d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8727d8faead02340d223c75845bf29f63d1a0834
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109608"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600915"
 ---
 # <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>GridView にボタンを追加し、応答する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_28_VB.exe)または[PDF のダウンロード](adding-and-responding-to-buttons-to-a-gridview-vb/_static/datatutorial28vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_28_VB.exe)または[PDF のダウンロード](adding-and-responding-to-buttons-to-a-gridview-vb/_static/datatutorial28vb1.pdf)
 
-> このチュートリアルでは、テンプレートと GridView、DetailsView コントロールのフィールドの両方にカスタム ボタンを追加する方法を紹介します。 具体的には、仕入先のページをユーザーに許可するフォーム ビューのあるインターフェイスをビルドします。
+> このチュートリアルでは、テンプレートと GridView コントロールまたは DetailsView コントロールのフィールドの両方にカスタムボタンを追加する方法について説明します。 特に、ユーザーがサプライヤーを通じてページを作成できるようにする FormView を持つインターフェイスを構築します。
 
 ## <a name="introduction"></a>はじめに
 
-レポートの多くのシナリオは、レポート データへの読み取り専用アクセスを伴うときに、表示されるデータに基づいてレポート アクションを実行することも少なくします。 レポートに表示される各レコードで、ボタン、LinkButton、ImageButton Web コントロールを追加する通常この関連するをクリックすると、ポストバックが発生して、いくつかのサーバー側コードを呼び出します。 レコード単位に基づいてデータ編集と削除は、最も一般的な例です。 実際には、以降で説明したように、[概要の挿入、更新、およびデータの削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)チュートリアルでは、編集および削除は GridView、DetailsView、FormView コントロールがなく、このような機能をサポートできる一般的なので、1 行のコードを記述するため必要があります。
+レポートデータへの読み取り専用アクセスは多くのレポートシナリオに含まれますが、レポートには、表示されるデータに基づいてアクションを実行する機能が含まれていることは珍しくありません。 通常、この操作を行うには、レポートに表示される各レコードと共に Button、LinkButton、または ImageButton Web コントロールを追加する必要があります。これは、クリックすると、ポストバックが発生し、いくつかのサーバー側コードが呼び出されます。 レコードごとにデータを編集および削除することが、最も一般的な例です。 実際、[データの挿入、更新、削除の概要](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)について説明したように、編集と削除は、GridView、DetailsView、および FormView コントロールが、1行のコードを記述しなくても、このような機能をサポートできるという点でよく見られます。
 
-さらに編集およびボタン、GridView、DetailsView、およびフォーム ビューを削除するコントロールも、ボタン、Linkbutton、または ImageButtons をクリックすると、いくつかのカスタム サーバー側ロジックを実行します。 このチュートリアルでは、テンプレートと GridView、DetailsView コントロールのフィールドの両方にカスタム ボタンを追加する方法を紹介します。 具体的には、仕入先のページをユーザーに許可するフォーム ビューのあるインターフェイスをビルドします。 、特定のサプライヤー FormView に Button Web コントロールをクリックすると、はマーク設定すべてが関連付けられている製品の提供が中止されたと仕入先に関する情報が表示されます。 さらに、GridView は増加の価格と割引価格ボタン クリックすると、発生または製品 s を軽減するを含む行ごとに、選択したサプライヤーによって提供されるこれらの製品を一覧表示されます`UnitPrice`を 10% が (図 1 参照)。
+[編集] ボタンと [削除] ボタンに加えて、GridView、DetailsView、および FormView コントロールには、ボタン、リンクボタン、または ImageButtons を含めることができます。このボタンは、クリックすると、カスタムのサーバー側ロジックを実行します。 このチュートリアルでは、テンプレートと GridView コントロールまたは DetailsView コントロールのフィールドの両方にカスタムボタンを追加する方法について説明します。 特に、ユーザーがサプライヤーを通じてページを作成できるようにする FormView を持つインターフェイスを構築します。 特定の仕入先について、FormView には、サプライヤーに関する情報とボタン Web コントロールが表示されます。このボタンをクリックすると、関連付けられているすべての製品が廃止済みとしてマークされます。 また、GridView は、選択された業者によって提供される製品を一覧表示します。各行には、[価格] ボタンと [割引価格] ボタンが表示されます。このボタンをクリックすると、製品の `UnitPrice` が10% 上がります (図1を参照)。
 
-[![FormView や GridView の両方がカスタム アクションを実行するボタンを含む](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image2.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image1.png)
+[FormView と GridView の両方にカスタムアクションを実行するボタンが含まれている ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image2.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image1.png)
 
-**図 1**:FormView や GridView を含むボタンをカスタムの操作の実行の両方 ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image3.png))。
+**図 1**: FormView と GridView の両方にカスタムアクションを実行するボタンが含まれている ([クリックしてフルサイズのイメージを表示する](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image3.png))
 
-## <a name="step-1-adding-the-button-tutorial-web-pages"></a>手順 1: ボタンのチュートリアルの Web ページの追加
+## <a name="step-1-adding-the-button-tutorial-web-pages"></a>手順 1: Button チュートリアル Web ページの追加
 
-カスタム ボタンを追加する方法を説明する前に、このチュートリアルの必要がありますが、web サイト プロジェクトで ASP.NET ページを作成する最初に少し s を使用できます。 という名前の新しいフォルダーを追加することで開始`CustomButtons`します。 次に、次の 2 つの ASP.NET ページを使用する各ページに関連付けるように、そのフォルダーに追加、`Site.master`マスター ページ。
+カスタムボタンを追加する方法を確認する前に、まず、このチュートリアルで必要となる web サイトプロジェクトの ASP.NET ページを作成します。 まず、`CustomButtons`という名前の新しいフォルダーを追加します。 次に、次の2つの ASP.NET ページをそのフォルダーに追加します。各ページは `Site.master` マスターページに関連付けられていることを確認してください。
 
 - `Default.aspx`
 - `CustomButtons.aspx`
 
-![カスタム ボタンに関連するチュートリアルについては、ASP.NET ページを追加します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image4.png)
+![カスタムボタンに関連するチュートリアルの ASP.NET ページを追加する](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image4.png)
 
-**図 2**:カスタム ボタンに関連するチュートリアルについては、ASP.NET ページを追加します。
+**図 2**: カスタムボタンに関連するチュートリアルの ASP.NET ページを追加する
 
-などの他のフォルダーで`Default.aspx`で、`CustomButtons`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
+他のフォルダーと同様に、`CustomButtons` フォルダー内の `Default.aspx` には、そのセクションのチュートリアルが一覧表示されます。 `SectionLevelTutorialListing.ascx` ユーザーコントロールがこの機能を提供していることを思い出してください。 したがって、ソリューションエクスプローラーからページデザインビューにドラッグして、このユーザーコントロールを `Default.aspx` に追加します。
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image6.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image5.png)
+[SectionLevelTutorialListing ユーザーコントロールを default.aspx に追加 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image6.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image5.png)
 
-**図 3**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image7.png))。
+**図 3**: `Default.aspx` に `SectionLevelTutorialListing.ascx` ユーザーコントロールを追加する ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image7.png)されます)
 
-最後に、ページに追加するエントリとして、`Web.sitemap`ファイル。 具体的には、ページングと並べ替えの後に、次のマークアップを追加`<siteMapNode>`:
+最後に、`Web.sitemap` ファイルにエントリとしてページを追加します。 具体的には、ページングと並べ替え `<siteMapNode>`の後に、次のマークアップを追加します。
 
 [!code-xml[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample1.xml)]
 
-更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューには、編集、挿入、および削除のチュートリアルの項目が含まれています。
+`Web.sitemap`を更新した後、ブラウザーを使用してチュートリアル web サイトを表示します。 左側のメニューには、チュートリアルの編集、挿入、および削除を行うための項目が含まれています。
 
-![サイト マップが含まれています、エントリにはカスタム ボタンのチュートリアル](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image8.png)
+![サイトマップにカスタムボタンチュートリアルのエントリが含まれるようになりました。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image8.png)
 
-**図 4**:サイト マップが含まれています、エントリにはカスタム ボタンのチュートリアル
+**図 4**: サイトマップにカスタムボタンチュートリアルのエントリが含まれるようになりました。
 
-## <a name="step-2-adding-a-formview-that-lists-the-suppliers"></a>手順 2: 仕入先の一覧を表示するフォーム ビューの追加
+## <a name="step-2-adding-a-formview-that-lists-the-suppliers"></a>手順 2: 仕入先を一覧表示する FormView を追加する
 
-S 仕入先の一覧を表示するフォーム ビューを追加することで、このチュートリアルを開始することができます。 概要で既に説明した、この FormView は GridView では業者によって提供される製品を示す、仕入先を使用してページにユーザーを許可します。 さらに、この FormView がボタンを含めてをクリックするはすべての業者の製品としてマーク廃止されました。 自分たちに関係します、FormView にカスタム ボタンを追加して、前にまず仕入先の情報を表示するように、FormView をだけ作成 s を使用できます。
+ここでは、サプライヤーを一覧表示する FormView を追加して、このチュートリアルを開始してみましょう。 概要で説明したように、この FormView を使用すると、サプライヤーによって提供される製品を GridView で表示することができます。 また、この FormView にはボタンが含まれており、クリックすると、すべての仕入先製品が廃止済みとしてマークされます。 FormView にカスタムボタンを追加することに関心がある前に、まず FormView を作成して、仕入先の情報が表示されるようにしましょう。
 
-開いて開始、`CustomButtons.aspx`ページで、`CustomButtons`フォルダー。 FormView をページに、デザイナーとセットには、ツールボックスからドラッグして追加の`ID`プロパティを`Suppliers`します。 という名前の新しい ObjectDataSource を作成することを選択 FormView s のスマート タグから`SuppliersDataSource`します。
+まず、`CustomButtons` フォルダーの [`CustomButtons.aspx`] ページを開きます。 FormView を [ツールボックス] からデザイナーにドラッグし、[`ID`] プロパティを [`Suppliers`] に設定して、FormView をページに追加します。 FormView s スマートタグから、`SuppliersDataSource`という名前の新しい ObjectDataSource を作成することを選択します。
 
-[![SuppliersDataSource という名前の新しい ObjectDataSource を作成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image9.png)
+[SuppliersDataSource という名前の新しい ObjectDataSource を作成 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image9.png)
 
-**図 5**:名前付き新しい ObjectDataSource 作成`SuppliersDataSource`([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image11.png))。
+**図 5**: `SuppliersDataSource` という名前の新しい ObjectDataSource を作成[する (クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image11.png)される)
 
-クエリを実行するように、この新しい ObjectDataSource を構成、`SuppliersBLL`クラスの`GetSuppliers()`メソッド (図 6 参照)。 以降、このフォーム ビューでは、供給業者は、選択、更新プログラム タブで、ドロップダウン リストからオプション (なし) を更新するためのインターフェイスは提供されません。
+`SuppliersBLL` クラス s `GetSuppliers()` メソッドからクエリを行うように、この新しい ObjectDataSource を構成します (図6を参照)。 この FormView では supplier 情報を更新するためのインターフェイスが提供されないため、[更新] タブのドロップダウンリストから [(なし)] オプションを選択します。
 
-[![SuppliersBLL クラス GetSuppliers() メソッドを使用するデータ ソースの構成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image13.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image12.png)
+[SuppliersBLL Class s GetSuppliers () メソッドを使用するようにデータソースを構成 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image13.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image12.png)
 
-**図 6**:使用するデータ ソースの構成、`SuppliersBLL`クラス s`GetSuppliers()`メソッド ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image14.png))。
+**図 6**: `SuppliersBLL` クラス s `GetSuppliers()` メソッドを使用するようにデータソースを構成する ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image14.png)されます)
 
-ObjectDataSource を構成した後、Visual Studio が生成されます、 `InsertItemTemplate`、 `EditItemTemplate`、および`ItemTemplate`FormView の。 削除、`InsertItemTemplate`と`EditItemTemplate`および変更、`ItemTemplate`だけ、仕入先の会社名と電話番号が表示されるようにします。 最後に、そのスマート タグからのページングを有効にするチェック ボックスをオン、FormView のページング サポートを有効にする (または、設定してその`AllowPaging`プロパティを`True`)。 これらの変更後、ページの宣言型マークアップを次のようになります。
+ObjectDataSource を構成すると、Visual Studio によって、FormView の `InsertItemTemplate`、`EditItemTemplate`、および `ItemTemplate` が生成されます。 `InsertItemTemplate` と `EditItemTemplate` を削除し、仕入先の会社名と電話番号だけを表示するように `ItemTemplate` を変更します。 最後に、[ページングを有効にする] チェックボックスをオンにして、FormView のページングサポートをオンにします (または、その `AllowPaging` プロパティを `True`に設定します)。 これらの変更が完了すると、ページの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample2.aspx)]
 
-図 7 では、ブラウザーで表示する際、CustomButtons.aspx ページを示します。
+図7は、ブラウザーを使用して表示するときの CustomButtons .aspx ページを示しています。
 
-[![FormView、CompanyName と、現在選択されている業者からの電話のフィールドを一覧表示します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image16.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image15.png)
+[FormView に ![現在選択されている業者からの CompanyName フィールドと Phone フィールドが一覧表示されます](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image16.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image15.png)
 
-**図 7**:フォーム ビューの一覧表示、`CompanyName`と`Phone`、現在選択されている業者からのフィールド ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image17.png))。
+**図 7**: FormView には、現在選択されている業者の `CompanyName` および `Phone` のフィールドが一覧表示されます ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image17.png)されます)
 
-## <a name="step-3-adding-a-gridview-that-lists-the-selected-supplier-s-products"></a>手順 3: 選択した仕入先、製品の一覧を表示する GridView を追加します。
+## <a name="step-3-adding-a-gridview-that-lists-the-selected-supplier-s-products"></a>手順 3: 選択した仕入先の製品を一覧表示する GridView の追加
 
-FormView のテンプレートをすべての製品の中止 ボタンを追加できるようにする前に s はまず、選択した業者によって提供される製品を一覧表示するフォーム ビューの下に、GridView を追加します。 ページに GridView を追加するこれを実現するに次のように設定します。 その`ID`プロパティを`SuppliersProducts`、という名前の新しい ObjectDataSource を追加および`SuppliersProductsDataSource`します。
+FormView s テンプレートに [すべての製品の中止] ボタンを追加する前に、まず、選択した業者によって提供される製品を一覧表示する FormView の下に GridView を追加します。 これを行うには、GridView をページに追加し、その `ID` プロパティを `SuppliersProducts`に設定して、`SuppliersProductsDataSource`という名前の新しい ObjectDataSource を追加します。
 
-[![SuppliersProductsDataSource という名前の新しい ObjectDataSource を作成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image19.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image18.png)
+[SuppliersProductsDataSource という名前の新しい ObjectDataSource を作成 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image19.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image18.png)
 
-**図 8**:名前付き新しい ObjectDataSource 作成`SuppliersProductsDataSource`([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image20.png))。
+**図 8**: `SuppliersProductsDataSource` という名前の新しい ObjectDataSource を作成[する (クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image20.png)される)
 
-構成 s ProductsBLL クラスを使用するには、この ObjectDataSource`GetProductsBySupplierID(supplierID)`メソッド (図 9 参照)。 この GridView が調整される製品の価格の許可が、編集または GridView から機能を削除する、組み込みが使用ことはありません。 そのため、設定できます (なし)、ドロップ ダウン リスト ObjectDataSource s の UPDATE、INSERT、および DELETE のタブ。
+この ObjectDataSource を構成して、製品の Bll クラス s `GetProductsBySupplierID(supplierID)` メソッドを使用します (図9を参照)。 この GridView では、製品の価格を調整できますが、GridView の組み込みの編集機能または削除機能は使用されません。 そのため、ObjectDataSource s UPDATE、INSERT、DELETE の各タブでは、ドロップダウンリストを [(なし)] に設定できます。
 
-[![ProductsBLL クラス GetProductsBySupplierID(supplierID) メソッドを使用するデータ ソースの構成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image21.png)
+[製品の Bll クラス s Get$ By仕入先 (仕入先) メソッドを使用するようにデータソースを構成 ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image21.png)
 
-**図 9**:使用するデータ ソースの構成、`ProductsBLL`クラス s`GetProductsBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image23.png))。
+**図 9**: `ProductsBLL` クラス s `GetProductsBySupplierID(supplierID)` メソッドを使用するようにデータソースを構成する ([クリックしてフルサイズのイメージを表示する](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image23.png))
 
-以降、`GetProductsBySupplierID(supplierID)`メソッドは入力パラメーターを受け取ります、ObjectDataSource ウィザードでこのパラメーターの値のソースが米国。 渡す、 `SupplierID` 、FormView からの値は、パラメーターのソースのドロップダウン リストをコントロールと ControlID のドロップダウン リストに設定`Suppliers`(手順 2. で作成された、フォーム ビューの ID)。
+`GetProductsBySupplierID(supplierID)` メソッドは入力パラメーターを受け取るため、ObjectDataSource ウィザードでは、このパラメーター値のソースを要求するメッセージが表示されます。 FormView から `SupplierID` 値を渡すには、[パラメーターソース] ドロップダウンリストを [制御] に設定し、[ControlID] ドロップダウンリストを `Suppliers` (手順2で作成した FormView の ID) に設定します。
 
-[![示すこと、supplierID パラメーターから取得するようにサプライヤー FormView コントロール](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image24.png)
+[![は、仕入先の FormView コントロールから、仕入先のパラメーターを取得する必要があることを示します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image24.png)
 
-**図 10**:いることを示す、 *`supplierID`* からパラメーターを取得するように、 `Suppliers` FormView コントロール ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image26.png))。
+**図 10**: *`supplierID`* パラメーターが `Suppliers` FormView コントロールから取得される必要があることを示します ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image26.png)されます)
 
-ObjectDataSource ウィザードの完了後は、GridView は各製品の s データ フィールドのも、BoundField または CheckBoxField に含まれます。 Let s スリムこれを表示するだけで`ProductName`と`UnitPrice`と共に BoundFields、 `Discontinued` CheckBoxField; さらに、秒の形式を使用、 `UnitPrice` BoundField、テキストが通貨として書式設定されるようします。 GridView と`SuppliersProductsDataSource`ObjectDataSource s の宣言型マークアップよう、次のマークアップになります。
+ObjectDataSource ウィザードを完了すると、GridView には、各 product s データフィールドの BoundField または CheckBoxField が含まれます。 ここでは、`ProductName` と `UnitPrice` BoundFields を `Discontinued` CheckBoxField と共に表示するように、をトリミングしてみましょう。さらに、テキストが通貨として書式設定されるように、`UnitPrice` BoundField の書式を設定してみましょう。 GridView と `SuppliersProductsDataSource` ObjectDataSource s 宣言マークアップは、次のマークアップのようになります。
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample3.aspx)]
 
-この時点でこのチュートリアルでは、上部にある FormView から仕入先を選択し、下部にある GridView を通じてその業者によって提供される製品を表示するユーザーを許可する、マスター/詳細レポートが表示されます。 図 11 は、FormView から東京 Traders 仕入先を選択するときに、このページのスクリーン ショットを示します。
+この時点で、このチュートリアルではマスター/詳細レポートを表示します。ユーザーは、上部にある FormView からサプライヤーを選択し、下部にある GridView を通じて、その供給業者によって提供される製品を表示できます。 図11は、FormView から東京 Traders 社のサプライヤーを選択するときのこのページのスクリーンショットを示しています。
 
-[![製品、仕入先の選択は GridView に表示されます。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image28.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image27.png)
+[選択した仕入先の製品が GridView に表示さ ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image28.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image27.png)
 
-**図 11**:Gridview、仕入先の選択した製品が表示されます ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image29.png))。
+**図 11**: 選択した仕入先の製品が GridView に表示される ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image29.png)されます)
 
-## <a name="step-4-creating-dal-and-bll-methods-to-discontinue-all-products-for-a-supplier"></a>手順 4: 仕入先のすべての製品を中止するには、DAL と BLL メソッドの作成
+## <a name="step-4-creating-dal-and-bll-methods-to-discontinue-all-products-for-a-supplier"></a>手順 4: Supplier および BLL メソッドを作成して業者のすべての製品を中止する
 
-FormView にボタンを追加するためをクリックすると、すべて中断の業者の製品では、まず必要があります、DAL とこのアクションを実行する BLL の両方にメソッドを追加します。 具体的には、このメソッドの名前は`DiscontinueAllProductsForSupplier(supplierID)`します。 FormView のボタンがクリックされたときを呼び出して、ビジネス ロジック層では、このメソッド渡す仕入先の選択した s で`SupplierID`; BLL をは、発行の対応するデータ アクセス層メソッドを呼び出し、`UPDATE`ステートメント指定された業者の製品を中断するデータベース。
+クリックすると、すべての仕入先製品が停止されるように、FormView にボタンを追加する前に、まず、このアクションを実行する DAL と BLL の両方にメソッドを追加する必要があります。 特に、このメソッドには `DiscontinueAllProductsForSupplier(supplierID)`という名前が付けられます。 FormView s ボタンをクリックすると、ビジネスロジック層でこのメソッドが呼び出され、選択した業者の `SupplierID`が渡されます。次に、BLL は、対応するデータアクセス層メソッドにコールダウンします。これにより、指定された仕入先製品を中断するデータベースに `UPDATE` ステートメントが発行されます。
 
-前のチュートリアルで行ったように使用しますボトムアップ方式では、以降では、DAL メソッド、then、BLL メソッドを作成し、最後に、ASP.NET ページで、機能を実装します。 開く、`Northwind.xsd`で型指定されたデータセット、`App_Code/DAL`フォルダーに新しいメソッドを追加、 `ProductsTableAdapter` (を右クリックし、`ProductsTableAdapter`とクエリの追加 を選択)。 これは、私たちの新しいメソッドを追加するプロセスについて説明すると、TableAdapter クエリ構成ウィザードが表示されます。 DAL メソッドが、アドホック SQL ステートメントを使用することを示す開始します。
+前のチュートリアルで行ったように、まず、DAL メソッドを作成し、次に BLL メソッドを作成し、最後に ASP.NET ページに機能を実装します。 `App_Code/DAL` フォルダーの `Northwind.xsd` 型指定されたデータセットを開き、`ProductsTableAdapter` に新しいメソッドを追加します (`ProductsTableAdapter` を右クリックし、[クエリの追加] を選択します)。 これにより、TableAdapter クエリの構成ウィザードが表示されます。このウィザードでは、新しいメソッドを追加するプロセスについて説明します。 まず、DAL メソッドがアドホック SQL ステートメントを使用することを示します。
 
-[![アドホック SQL ステートメントを使用して、DAL メソッドの作成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image31.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image30.png)
+[アドホック SQL ステートメントを使用して DAL メソッドを作成 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image31.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image30.png)
 
-**図 12**:アドホック SQL ステートメントを使用して、DAL メソッドを作成 ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image32.png))。
+**図 12**: アドホック SQL ステートメントを使用して DAL メソッドを作成[する (クリックすると、フルサイズのイメージが表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image32.png)されます)
 
-次に、私たちを作成するクエリの種類か求められます。 以降、`DiscontinueAllProductsForSupplier(supplierID)`メソッドは更新する必要があります、`Products`設定、データベース テーブル、 `Discontinued`  フィールドを指定したによって提供されるすべての製品の 1  *`supplierID`* データを更新するクエリを作成する必要があります。
+次に、ウィザードによって、作成するクエリの種類を入力するように求められます。 `DiscontinueAllProductsForSupplier(supplierID)` メソッドでは `Products` データベーステーブルを更新する必要があるため、`Discontinued` フィールドを1に設定し、指定した *`supplierID`* によって提供されるすべての製品について、データを更新するクエリを作成する必要があります。
 
-[![更新クエリの種類を選択します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image33.png)
+[更新クエリの種類を選択 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image33.png)
 
-**図 13**:更新クエリの種類を選択 ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image35.png))。
+**図 13**: 更新クエリの種類を選択[する (クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image35.png)されます)
 
-次のウィザード画面は、既存の TableAdapter s`UPDATE`ステートメントでは、各で定義されているフィールドを更新する、 `Products` DataTable です。 このクエリのテキストを次のステートメントに置き換えます。
+次のウィザード画面には、TableAdapter の既存の `UPDATE` ステートメントが用意されており、`Products` DataTable に定義されている各フィールドを更新します。 このクエリテキストを次のステートメントに置き換えます。
 
 [!code-sql[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample4.sql)]
 
-このクエリを入力し、最後のウィザード画面が新しいメソッドの名前を求める次へ をクリックすると、使用して`DiscontinueAllProductsForSupplier`します。 [完了] ボタンをクリックしてウィザードを完了します。 データセット デザイナーに戻るで新しいメソッドを参照する必要があります、`ProductsTableAdapter`という`DiscontinueAllProductsForSupplier(@SupplierID)`します。
+このクエリを入力して [次へ] をクリックすると、最後のウィザード画面が表示され、新しいメソッド名の使用 `DiscontinueAllProductsForSupplier`が求められます。 [完了] ボタンをクリックしてウィザードを完了します。 データセットデザイナーに戻ると、`DiscontinueAllProductsForSupplier(@SupplierID)`という名前の `ProductsTableAdapter` に新しいメソッドが表示されます。
 
-[![名前の新しい DAL メソッド DiscontinueAllProductsForSupplier](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image37.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image36.png)
+[新しい DAL メソッド DiscontinueAllProductsForSupplier に名前を ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image37.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image36.png)
 
-**図 14**:新しい DAL メソッド名前`DiscontinueAllProductsForSupplier`([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image38.png))。
+**図 14**: 新しい DAL メソッドに名前を指定[する `DiscontinueAllProductsForSupplier` (クリックしてフルサイズのイメージを表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image38.png))
 
-`DiscontinueAllProductsForSupplier(supplierID)`データ アクセス層で作成したメソッドを作成する、次のタスクでは、`DiscontinueAllProductsForSupplier(supplierID)`ビジネス ロジック層のメソッド。 これを行うには、開く、`ProductsBLL`クラス ファイルと、次を追加します。
+データアクセス層で `DiscontinueAllProductsForSupplier(supplierID)` メソッドを作成した後、次のタスクでは、ビジネスロジック層で `DiscontinueAllProductsForSupplier(supplierID)` メソッドを作成します。 これを行うには、`ProductsBLL` クラスファイルを開き、次のように追加します。
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample5.vb)]
 
-下にこのメソッドを呼び出すだけです、`DiscontinueAllProductsForSupplier(supplierID)`メソッドに渡して、指定された、DAL *`supplierID`* パラメーターの値。 サプライヤーに特定の状況で中止された製品のみを許可するビジネス ルールがある場合はそれらのルールが BLL にここでは、実装する必要があります。
+このメソッドは、指定された *`supplierID`* パラメーター値を渡して、DAL 内の `DiscontinueAllProductsForSupplier(supplierID)` メソッドを単に呼び出します。 特定の状況でのみ仕入先の製品を廃止することを許可したビジネスルールがある場合は、そのルールを BLL に実装する必要があります。
 
 > [!NOTE]
-> 異なり、`UpdateProduct`でオーバー ロード、`ProductsBLL`クラス、`DiscontinueAllProductsForSupplier(supplierID)`メソッドのシグネチャは含まれません、`DataObjectMethodAttribute`属性 (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`)。 そのため、`DiscontinueAllProductsForSupplier(supplierID)`更新プログラム タブでは、ObjectDataSource のデータ ソースの構成ウィザードのドロップダウン一覧からのメソッド。Ve は、私たちを呼び出すために、この属性を省略すると、 `DiscontinueAllProductsForSupplier(supplierID)` ASP.NET ページで、イベント ハンドラーから直接メソッド。
+> `ProductsBLL` クラスの `UpdateProduct` のオーバーロードとは異なり、`DiscontinueAllProductsForSupplier(supplierID)` メソッドシグネチャには `DataObjectMethodAttribute` 属性 (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`) は含まれません。 これにより、[更新] タブの [ObjectDataSource s データソースの構成ウィザード] ドロップダウンリストの `DiscontinueAllProductsForSupplier(supplierID)` 方法ができません。ASP.NET のページでイベントハンドラーから `DiscontinueAllProductsForSupplier(supplierID)` メソッドを直接呼び出すため、この属性は省略しました。
 
-## <a name="step-5-adding-a-discontinue-all-products-button-to-the-formview"></a>手順 5: 追加することをフォーム ビューにすべての製品 ボタンを中止します。
+## <a name="step-5-adding-a-discontinue-all-products-button-to-the-formview"></a>手順 5: FormView に [すべての製品を中止] ボタンを追加する
 
-`DiscontinueAllProductsForSupplier(supplierID)` BLL と DAL でメソッドが完了、仕入先を選択したが FormView s に、ボタンの Web コントロールを追加するには、すべての製品を中止する機能を追加する最後の手順`ItemTemplate`します。 Let s ボタン テキストをすべての製品の中止 s 仕入先の電話番号の下にこのようなボタンを追加して、`ID`プロパティ値の`DiscontinueAllProductsForSupplier`します。 FormView s のスマート タグのテンプレートの編集リンクをクリックしてデザイナーには、このボタンの Web コントロールを追加することができます (図 15 を参照)、または宣言の構文を直接使用します。
+BLL と DAL の `DiscontinueAllProductsForSupplier(supplierID)` メソッドを完了すると、選択した業者のすべての製品を中止する機能を追加する最後の手順として、FormView s `ItemTemplate`にボタン Web コントロールを追加します。 仕入先の電話番号の下にボタンテキストを追加して、すべての製品と `DiscontinueAllProductsForSupplier`の `ID` プロパティ値を中止してみましょう。 このボタン Web コントロールをデザイナーから追加するには、FormView s スマートタグの [テンプレートの編集] リンクをクリックするか (図15を参照)、または宣言型の構文を直接使用します。
 
-[![追加、すべての製品ボタン Web コントロールを FormView の ItemTemplate を中止します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image40.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image39.png)
+[[すべての製品を中止] ボタン Web コントロールを FormView s ItemTemplate に追加 ![には](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image40.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image39.png)
 
-**図 15**:中止するすべての製品ボタン コントロールを追加 Web FormView s `ItemTemplate` ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image41.png))。
+**図 15**: [すべての製品を中止] ボタン Web コントロールを FormView s `ItemTemplate` に追加する ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image41.png)されます)
 
-ユーザーにアクセスし、ページのポストバックに陥ります、FormView 秒で、ボタンがクリックされたとき[`ItemCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx)が起動します。 カスタム コードを実行するには、このボタンがクリックされるへの応答には、このイベントのイベント ハンドラーを作成できます。 理解、ただし、`ItemCommand`イベントが発生したときに*任意*ボタン、LinkButton、ImageButton Web コントロールが、フォーム ビュー内でクリックします。 つまり、フォーム ビュー内の別、ユーザーが 1 つのページから移動したときに、`ItemCommand`イベントが発生します。 [新規]、[編集] をクリックするか、挿入、更新、または削除をサポートしているフォーム ビューの削除時に同じことです。
+ページにアクセスしているユーザーがボタンをクリックすると、ポストバック ensues と FormView s [`ItemCommand` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx)が発生します。 このボタンがクリックされたときの応答でカスタムコードを実行するには、このイベントのイベントハンドラーを作成します。 ただし、FormView 内*でボタン、* LinkButton、または ImageButton Web コントロールがクリックされるたびに、`ItemCommand` イベントが発生することを理解してください。 つまり、ユーザーが FormView 内のあるページから別のページに移動すると、`ItemCommand` イベントが発生します。挿入、更新、または削除をサポートする FormView で、ユーザーが [新規]、[編集]、または [削除] をクリックしたときにも同じことが言えます。
 
-以降、`ItemCommand`イベント ハンドラー [すべての製品の中止] ボタンがクリックしてされたかどうかを判断する方法が必要、またはその他のいくつかのボタンがあった場合、どのようなボタンがクリックされたに関係なく発生します。 これを行うには、ボタンの Web コントロール s を設定できます`CommandName`プロパティをいくつかの識別値。 ボタンがクリックされたとき、この`CommandName`に値が渡される、`ItemCommand`イベント ハンドラーをすべての製品の中止 ボタンがクリックされたボタンをしたかどうかを判断できるようになりました。 設定はすべての製品ボタンの中止 s `CommandName` DiscontinueProducts するプロパティ。
+`ItemCommand` はどのボタンがクリックされたかに関係なく起動されるため、イベントハンドラーでは、[すべての製品を中止] ボタンがクリックされたかどうか、または他のボタンであるかどうかを確認する方法が必要になります。 これを実現するには、ボタン Web コントロール s `CommandName` プロパティを特定の値に設定します。 このボタンをクリックすると、この `CommandName` 値が `ItemCommand` イベントハンドラーに渡され、[すべての製品を中止] ボタンがクリックされたかどうかを確認できるようになります。 [すべての製品を中止] ボタンの [`CommandName`] プロパティを DiscontinueProducts に設定します。
 
-最後に、s がクライアント側の確認 ダイアログ ボックスを使用して、ユーザーが、選択した供給業者の製品を中止するが本当のことを確認することができます。 説明したように、[削除時にクライアント側の確認を追加する](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md)チュートリアルでは、これは javascript で実現できます。 具体的には、ボタンの Web コントロールの s OnClientClick プロパティに設定します。 `return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');`
+最後に、クライアント側の [確認] ダイアログボックスを使用して、ユーザーが選択した業者の製品を本当に停止したいと考えています。 チュートリアル「[削除時のクライアント側の確認を追加する](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md)」で説明したように、これは少しの JavaScript で実現できます。 特に、ボタン Web コントロール s OnClientClick プロパティを `return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');` に設定します。
 
-これらの変更を行った後、次のよう FormView s の宣言型構文になります。
+これらの変更を行った後、FormView の宣言構文は次のようになります。
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample6.aspx)]
 
-FormView s のイベント ハンドラーを次に、作成`ItemCommand`イベント。 このイベント ハンドラーでは、まずすべての製品の中止 ボタンがクリックしてされたかどうかを判断する必要があります。 インスタンスを作成するため場合、`ProductsBLL`クラスを呼び出すその`DiscontinueAllProductsForSupplier(supplierID)`に渡して、メソッド、`SupplierID`選択 FormView の。
+次に、FormView s `ItemCommand` イベントのイベントハンドラーを作成します。 このイベントハンドラーでは、最初に [すべての製品を中止] ボタンがクリックされたかどうかを確認する必要があります。 そのような場合は、`ProductsBLL` クラスのインスタンスを作成し、その `DiscontinueAllProductsForSupplier(supplierID)` メソッドを呼び出して、選択した FormView の `SupplierID` を渡します。
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample7.vb)]
 
-なお、 `SupplierID` 、フォーム ビューで現在選択されている業者の使ってアクセスできる FormView s [ `SelectedValue`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx)します。 `SelectedValue`プロパティは、最初のデータ キー、フォーム ビューに表示されているレコードの値を返します。 FormView s [ `DataKeyNames`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx)に自動的に設定されたフィールドの元のデータ キー値から取得したデータを示す`SupplierID`FormView 背面へ移動、ObjectDataSource をバインドするときに、Visual Studio によって手順 2。
+FormView で現在選択されている業者の `SupplierID` には、FormView s [`SelectedValue` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx)を使用してアクセスできることに注意してください。 `SelectedValue` プロパティは、FormView に表示されるレコードの最初のデータキー値を返します。 FormView s [`DataKeyNames` プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx)は、データキー値の取得元のデータフィールドを示します。これは、手順 2. で ObjectDataSource を FormView にバインドするときに、Visual Studio によって自動的に `SupplierID` するように設定されています。
 
-`ItemCommand`イベント ハンドラーを作成するには、時間がかかるページをテストします。 Cooperativa の de Quesos を参照 ' Las Cabras' 業者 (、私にとって FormView で業者に 5 番目の s)。 この業者は、2 つの製品、Queso Cabrales と Queso Manchego La Pastora、どちらも*いない*廃止されました。
+`ItemCommand` イベントハンドラーが作成されたら、しばらく時間を取ってページをテストします。 Cooperativa de Quesos ' ラスベガスの "供給業者 (FormView の5番目のサプライヤー) に移動します。 このサプライヤーは、Queso Cabrales と Queso Manの両方の製品を提供しています。どちらも廃止され*ていません*。
 
-Cooperativa de Quesos ' Las Cabras' が倒産しているため、製品が中止されたはことを想像してください。 をクリックして、[すべての製品] ボタンを中止します。 クライアント側の確認ダイアログが表示されます (図 16 を参照してください)。
+Cooperativa de Quesos ' ラスベガスがビジネスを終了し、その製品を廃止することを想像してください。 [すべての製品を中止] ボタンをクリックします。 これにより、[クライアント側の確認] ダイアログボックスが表示されます (図16を参照)。
 
-[![Cooperativa de Quesos Las Cabras 装置 2 つのアクティブな製品](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image43.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image42.png)
+[![Cooperativa de Quesos のラスベガスが2つのアクティブな製品を提供する](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image43.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image42.png)
 
-**図 16**:Cooperativa de Quesos Las Cabras 装置 2 つのアクティブな製品 ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image44.png))。
+**図 16**: Cooperativa De Quesos のラスベガスで2つのアクティブな製品が提供される ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image44.png)される)
 
-クライアント側の確認 ダイアログ ボックスで ok をクリックすると、フォームの送信は続行でポストバックを発生させる FormView の`ItemCommand`イベントが発生します。 作成したイベント ハンドラーは実行を呼び出し、`DiscontinueAllProductsForSupplier(supplierID)`メソッドと Queso Cabrales と Queso Manchego La Pastora の両方の製品を廃止します。
+[クライアント側の確認] ダイアログボックスで [OK] をクリックすると、フォームの送信が続行され、FormView s `ItemCommand` イベントが発生するポストバックが発生します。 次に、作成したイベントハンドラーが実行され、`DiscontinueAllProductsForSupplier(supplierID)` メソッドが呼び出され、Queso Cabrales と Queso Manの両方の製品が中止されます。
 
-GridView のビュー ステートを無効にした場合、GridView がポストバックのたびに、基になるデータ ストアにバインドされていると、そのため、これら 2 つの製品は、廃止されました (図 17 を参照してください) を反映するようにすぐに更新されます。 ただし、GridView での表示状態を無効するが場合は、この変更を行った後、GridView にデータを手動で再バインドする必要があります。 これを実現することを GridView s への呼び出しだけ`DataBind()`メソッドを呼び出した直後に、`DiscontinueAllProductsForSupplier(supplierID)`メソッド。
+GridView のビューステートを無効にした場合、GridView はすべてのポストバックの基になるデータストアに再バインドされるため、この2つの製品が廃止されたことを反映してすぐに更新されます (図17を参照)。 ただし、GridView でビューステートが無効になっていない場合は、この変更を行った後、データを GridView に手動で再バインドする必要があります。 これを実現するには、`DiscontinueAllProductsForSupplier(supplierID)` メソッドを呼び出した直後に GridView s `DataBind()` メソッドを呼び出す必要があります。
 
-[![供給業者の製品がそれに応じて更新にはすべての製品の中止 ボタンをクリックした後](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image46.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image45.png)
+[[すべての製品を中止] ボタンをクリックした後 ![、仕入先の製品がそれに応じて更新されます。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image46.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image45.png)
 
-**図 17**:供給業者の製品がそれに応じて更新にはすべての製品の中止 ボタンをクリックした後 ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image47.png))。
+**図 17**: [すべての製品を中止] ボタンをクリックすると、仕入先の製品がそれに応じて更新されます ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image47.png)されます)
 
-## <a name="step-6-creating-an-updateproduct-overload-in-the-business-logic-layer-for-adjusting-a-product-s-price"></a>手順 6: 製品の価格を調整するためのビジネス ロジック層で UpdateProduct オーバー ロードを作成します。
+## <a name="step-6-creating-an-updateproduct-overload-in-the-business-logic-layer-for-adjusting-a-product-s-price"></a>手順 6: 製品の価格を調整するためのビジネスロジック層での UpdateProduct オーバーロードの作成
 
-ように、FormView で中止のすべての製品ボタンでの拡大と縮小、GridView で製品の価格のボタンを追加するには必要があります最初に適切なデータ アクセス層とビジネス ロジック層のメソッドを追加します。 新しいオーバー ロードを作成してこのような機能を提供しましたには、DAL で 1 つの製品の行を更新するメソッドが既にある、ため、 `UpdateProduct` BLL のメソッド。
+FormView の [すべての製品を中止] ボタンと同様に、GridView で製品の価格を増減するボタンを追加するには、最初に適切なデータアクセス層とビジネスロジック層のメソッドを追加する必要があります。 DAL の1つの製品行を更新するメソッドが既にあるため、BLL の `UpdateProduct` メソッドに新しいオーバーロードを作成することによって、そのような機能を提供できます。
 
-当社の過去`UpdateProduct`スカラー入力値として製品のフィールドの組み合わせで取ったし、が、指定された製品のフィールドだけを更新し、オーバー ロードします。 このオーバー ロードをこの標準とは若干異なり、製品 s で渡す代わりに`ProductID`と調整に使用する割合、 `UnitPrice` (新しいを渡すことではなく調整`UnitPrice`自体)。 このアプローチには、ASP.NET ページの分離コード クラスで記述する必要のあるコードが簡略化、t が s の現在の製品を決定するで頭を悩ませることはありませんので`UnitPrice`します。
+過去の `UpdateProduct` のオーバーロードは、一部の製品フィールドをスカラー入力値として取得し、指定された製品のフィールドだけを更新しました。 このオーバーロードでは、この標準とは若干異なるため、製品の `ProductID` と、`UnitPrice` の調整に使用する割合 (新しい、調整された `UnitPrice` 自体に渡すのではなく) を渡します。 この方法では、現在の製品 `UnitPrice`を決定する必要がないため、ASP.NET page 分離コードクラスで記述する必要があるコードが簡略化されます。
 
-`UpdateProduct`オーバー ロードするため、このチュートリアルを次に示します。
+このチュートリアルの `UpdateProduct` のオーバーロードを次に示します。
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample8.vb)]
 
-このオーバー ロードは、DAL s を指定された製品に関する情報を取得`GetProductByProductID(productID)`メソッド。 これは、後で参照するためのチェックするかどうか製品 s`UnitPrice`データベースが割り当てられている`NULL`値。 価格のままの場合は、変更されていません。 ただし、ある以外の場合は、`NULL` `UnitPrice`値、メソッドの更新プログラムの製品 s`UnitPrice`指定 % (`unitPriceAdjustmentPercent`)。
+このオーバーロードは、DAL の `GetProductByProductID(productID)` メソッドを使用して、指定された製品に関する情報を取得します。 次に、製品の `UnitPrice` にデータベース `NULL` 値が割り当てられているかどうかを確認します。 その場合、価格は変更されません。 ただし、`NULL` 以外の `UnitPrice` 値がある場合、メソッドは、指定されたパーセント (`unitPriceAdjustmentPercent`) で `UnitPrice` 製品を更新します。
 
-## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>手順 7: GridView への増加、減少ボタンの追加
+## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>手順 7: GridView に [拡大] ボタンと [縮小] ボタンを追加する
 
-GridView (および DetailsView) はどちらも構成されますのフィールドのコレクション。 BoundFields、CheckBoxFields、および TemplateFields、に加えては、ASP.NET には、その名前が示すようが行ごとには、ボタン、LinkButton、ImageButton に列として表示すると、ButtonField が含まれています。 クリックすると、フォーム ビューのような*任意*、GridView ページング ボタン、編集または削除ボタン、並べ替えボタン、および、内のボタンがポストバックを発生させ、GridView s [ `RowCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx)します。
+GridView (および DetailsView) は、両方ともフィールドのコレクションで構成されています。 BoundFields、CheckBoxFields、および TemplateFields に加えて、ASP.NET には ButtonField が含まれています。これは、その名前が示すとおり、各行のボタン、LinkButton、または ImageButton を持つ列として表示されます。 FormView と同様に、GridView ページングボタン内の*いずれか*のボタンをクリックする、ボタンの編集または削除、並べ替えボタンなどを行うと、ポストバックが発生し、gridview s [`RowCommand` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx)が発生します。
 
-ButtonField が、`CommandName`指定した値を割り当て、ボタンの各プロパティ`CommandName`プロパティ。 FormView を使用するような`CommandName`によって値が使用される、`RowCommand`どのボタンがクリックされたかを判断するイベント ハンドラー。
+ButtonField には、`CommandName` プロパティの各ボタンに指定された値を割り当てる `CommandName` プロパティがあります。 FormView と同様に、`CommandName` 値は、クリックされたボタンを判断するために `RowCommand` イベントハンドラーによって使用されます。
 
-Let s 価格 +10 のボタンのテキストを 1 つ、GridView に 2 つの新しい ButtonFields を追加する % および価格-10 テキストと、その他の % です。 追加するこれら ButtonFields GridView s のスマート タグからの列の編集リンクをクリックして、左上の一覧から ButtonField フィールドの種類を選択を追加 ボタンをクリックします。
+2つの新しい ButtonFields を GridView に追加します。1つはボタンテキスト価格 + 10%、もう1つはテキスト価格で10% です。 これらの ButtonFields を追加するには、GridView s スマートタグから [列の編集] リンクをクリックし、左上の一覧から Buttonfields フィールドの種類を選択して、[追加] ボタンをクリックします。
 
-![GridView に 2 つの ButtonFields を追加します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image48.png)
+![GridView に2つの ButtonFields を追加する](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image48.png)
 
-**図 18**:GridView に 2 つの ButtonFields を追加します。
+**図 18**: GridView に2つの buttonfields を追加する
 
-GridView の最初の 2 つのフィールドとして表示されるように、2 つの ButtonFields を移動します。 次に、設定、`Text`プロパティ + 10% の料金計算にこれら 2 つの ButtonFields および価格-10%、 `CommandName` IncreasePrice および DecreasePrice、プロパティをそれぞれします。 既定を ButtonField は、Linkbutton としてその列のボタンをレンダリングします。 これは、ただし、ButtonField s [ `ButtonType`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx)します。 S 標準プッシュ ボタンとして表示されるこれらの 2 つ ButtonFields があることそのため、設定、`ButtonType`プロパティを`Button`します。 図 19 フィールドが表示されます ダイアログ ボックス後、これらの変更が加えられました。その後は、GridView s の宣言型マークアップです。
+2つの ButtonFields を移動して、最初の2つの GridView フィールドとして表示されるようにします。 次に、これら2つの ButtonFields の `Text` プロパティを Price + 10% および Price-10% に設定し、`CommandName` プロパティを IncreasePrice と DecreasePrice にそれぞれ設定します。 既定では、ButtonField はボタンの列をリンクボタンとしてレンダリングします。 ただし、これは、ButtonField s [`ButtonType` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx)を使用して変更できます。 これらの2つの ButtonFields を通常のプッシュボタンとしてレンダリングしてみましょう。したがって、`ButtonType` プロパティを `Button`に設定します。 図19は、これらの変更が加えられた後の [フィールド] ダイアログボックスを示しています。次に、GridView の宣言型マークアップを示します。
 
-![ButtonFields テキスト、CommandName、ButtonType プロパティを構成します。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image49.png)
+![ButtonFields Text、CommandName、およびです (buttontype の各プロパティの構成](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image49.png)
 
-**図 19**:構成、ButtonFields `Text`、 `CommandName`、および`ButtonType`プロパティ
+**図 19**: buttonfields `Text`、`CommandName`、および `ButtonType` の各プロパティを構成する
 
 [!code-aspx[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample9.aspx)]
 
-これら ButtonFields を作成すると、最後の手順は、GridView のイベント ハンドラーを作成する`RowCommand`イベント。 発生した場合、このイベント ハンドラー、価格は、+10% または価格-10% ボタンがクリックすると、確認する必要があります、`ProductID`のボタンがクリックしてされたを呼び出す行の`ProductsBLL`クラスの`UpdateProduct`を渡して、適切なメソッド`UnitPrice`と共に割合の調整、`ProductID`します。 次のコードでは、これらのタスクを実行します。
+これらの ButtonFields を作成したら、最後の手順として、GridView s `RowCommand` イベントのイベントハンドラーを作成します。 このイベントハンドラーは、Price + 10% または Price-10% のボタンがクリックされたことが原因で発生した場合、によって、ボタンがクリックされた行の `ProductID` を判断し、`ProductsBLL` クラス s `UpdateProduct` メソッドを呼び出して、`ProductID`と共に適切な `UnitPrice` 率調整を渡します。 次のコードでは、これらのタスクを実行します。
 
 [!code-vb[Main](adding-and-responding-to-buttons-to-a-gridview-vb/samples/sample10.vb)]
 
-決定するために、`ProductID`行の価格が +10% または価格-10% ボタンがクリックされると、GridView s を参照する必要があります`DataKeys`コレクション。 このコレクションで指定されたフィールドの値を保持する、 `DataKeyNames` GridView 行ごとのプロパティ。 GridView s 以降`DataKeyNames`プロパティは、Visual Studio で ObjectDataSource を GridView にバインドする場合で、ProductID に設定された`DataKeys(rowIndex).Value`提供、 `ProductID` 、指定された*rowIndex*します。
+Price + 10% または Price-10% のボタンがクリックされた行の `ProductID` を確認するには、GridView の `DataKeys` コレクションを参照する必要があります。 このコレクションは、各 GridView 行の `DataKeyNames` プロパティに指定されているフィールドの値を保持します。 ObjectDataSource を GridView にバインドするときに、GridView s `DataKeyNames` プロパティが Visual Studio によって ProductID に設定されているため、`DataKeys(rowIndex).Value` 指定された*rowIndex*の `ProductID` が提供されます。
 
-ButtonField が自動的に渡す、 *rowIndex*を持つボタンがクリックしてされた行の`e.CommandArgument`パラメーター。 そのため、判断する、`ProductID`行の価格が +10% または価格-10% ボタンがクリックされると、使用して:`Convert.ToInt32(SuppliersProducts.DataKeys(Convert.ToInt32(e.CommandArgument)).Value)`します。
+ButtonField は、`e.CommandArgument` パラメーターを通じてボタンがクリックされた行の*rowIndex*を自動的に渡します。 そのため、Price + 10% または Price-10% のボタンをクリックした行の `ProductID` を確認するには、次のように使用します: `Convert.ToInt32(SuppliersProducts.DataKeys(Convert.ToInt32(e.CommandArgument)).Value)`。
 
-すべての製品を中止 ボタンを GridView s のビューステートを無効にした場合、GridView がポストバックのたびに、基になるデータ ストアにバインドされているとそのため、クリックしてから発生する価格変更を反映するようにすぐに更新されます。ボタンのいずれか。 ただし、GridView での表示状態を無効するが場合は、この変更を行った後、GridView にデータを手動で再バインドする必要があります。 これを実現することを GridView s への呼び出しだけ`DataBind()`メソッドを呼び出した直後に、`UpdateProduct`メソッド。
+[すべての製品を中止] ボタンと同様に、GridView のビューステートを無効にした場合、GridView はすべてのポストバックの基になるデータストアに再バインドされます。そのため、クリックしたときに発生した価格の変化を反映するように、直ちに更新が行われます。いずれかのボタン。 ただし、GridView でビューステートが無効になっていない場合は、この変更を行った後、データを GridView に手動で再バインドする必要があります。 これを実現するには、`UpdateProduct` メソッドを呼び出した直後に GridView s `DataBind()` メソッドを呼び出す必要があります。
 
-図 20 は、おばあちゃん Kelly の Homestead によって提供される製品を表示するときに、ページを示します。 図 21 は、% ボタンがクリックされた祖母の果汁 100% に分散し、価格 -10% ボタンを 2 回クリック 1 回のピリピリ価格 +10 後に結果を示します。
+図20は、おばあちゃん友野 's Homestead によって提供される製品を表示するときのページを示しています。 図21は、おばあちゃんの Boysenberry 拡散に対して Price + 10% ボタンを2回クリックした後の結果を示しています。 Northwoods Cranberry ソースの場合は、1回の価格-10% ボタンをクリックします。
 
-[![GridView には、価格 +10 が含まれています % と価格-10% ボタン。](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image51.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image50.png)
+[GridView に Price + 10% と Price-10% のボタンが含まれている ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image51.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image50.png)
 
-**図 20**:GridView Includes 価格 + 10% と価格-10% ボタン ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image52.png))。
+**図 20**: GridView には、price + 10% および price-10% のボタンが含まれています ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image52.png)されます)
 
-[![価格 +10 によって更新される最初と 3 番目の製品の価格と価格-10% ボタン](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image54.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image53.png)
+[1番目と3番目の製品の価格は、[価格 + 10%] ボタンと [Price-10%] ボタンによって更新されてい ![](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image54.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image53.png)
 
-**図 21**:1 つ目と 3 番目製品が更新された価格 +10 経由で料金は、% と価格-10% ボタン ([フルサイズの画像を表示する をクリックします](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image55.png))。
+**図 21**: 1 番目と3番目の製品の価格が価格 + 10% と料金10% のボタンで更新されました ([クリックすると、フルサイズの画像が表示](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image55.png)されます)
 
 > [!NOTE]
-> ボタン、Linkbutton、または ImageButtons、TemplateFields に追加の GridView や DetailsView) こともできます。 BoundField をクリックすると、これらのボタンは、ポストバックを誘発、としては、GridView s を発生させる`RowCommand`イベント。 ときに追加のボタンをクリックして TemplateField、ただし、ボタンの`CommandArgument`が自動的に設定されていない行のインデックスを ButtonFields を使用する場合は。 内でクリックしてされたボタンの行インデックスを確認する必要がある場合、`RowCommand`イベント ハンドラーで、[s] ボタンを手動で設定する必要があります`CommandArgument`のようなコードを使用して、TemplateField 内でその宣言構文内のプロパティ。  
-> `<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`。
+> GridView (および DetailsView) には、TemplateFields にボタン、リンクボタン、または ImageButtons を追加することもできます。 BoundField の場合と同様に、これらのボタンをクリックするとポストバックが実行され、GridView の `RowCommand` イベントが発生します。 ただし、TemplateField にボタンを追加する場合、ボタンの `CommandArgument` は、ButtonFields を使用する場合と同様に、行のインデックスに自動的に設定されるわけではありません。 `RowCommand` イベントハンドラー内でクリックされたボタンの行インデックスを確認する必要がある場合は、次のようなコードを使用して、TemplateField 内の宣言構文でボタン s `CommandArgument` プロパティを手動で設定する必要があります。  
+> `<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`.
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-すべての GridView、DetailsView と FormView コントロールには、ボタン、Linkbutton、または ImageButtons を含めることができます。 このようなボタンをクリックすると、ポストバックを発生させて、 `ItemCommand` FormView および DetailsView コントロールでのイベントと`RowCommand`gridview イベント。 これらのデータ Web コントロールには、削除、またはレコードの編集など、一般的なコマンド関連の操作を処理する組み込みの機能があります。 ただし、私たちはも使用してボタンをクリックされたときに、独自のカスタム コードを実行することで応答します。
+GridView、DetailsView、および FormView コントロールには、ボタン、リンクボタン、または ImageButtons を含めることができます。 このようなボタンをクリックすると、ポストバックが発生し、FormView および DetailsView コントロールと GridView の `RowCommand` イベントで `ItemCommand` イベントが発生します。 これらのデータ Web コントロールには、レコードの削除や編集など、コマンドに関連する一般的な操作を処理するための機能が組み込まれています。 ただし、ボタンをクリックすると、独自のカスタムコードを実行して応答することもできます。
 
-イベント ハンドラーを作成するためには、`ItemCommand`または`RowCommand`イベント。 このイベント ハンドラーで最初に確認受信`CommandName`値をどのボタンがクリックされたかを判断し、適切なカスタム アクションを実行します。 このチュートリアルでは、指定された業者のすべての製品を中止するまたは、10% で、特定の製品の価格を増減するボタンと ButtonFields を使用する方法を説明しました。
+これを実現するには、`ItemCommand` イベントまたは `RowCommand` イベントのイベントハンドラーを作成する必要があります。 このイベントハンドラーでは、最初に受信 `CommandName` 値を確認して、クリックされたボタンを特定し、適切なカスタムアクションを実行します。 このチュートリアルでは、ボタンと ButtonFields を使用して、指定された業者のすべての製品を中止する方法、または特定の製品の価格を10% 増減する方法について説明しました。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [前へ](adding-and-responding-to-buttons-to-a-gridview-cs.md)

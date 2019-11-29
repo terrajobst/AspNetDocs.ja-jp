@@ -1,230 +1,230 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
-title: マスター ページ (c#) からコンテンツ ページと対話する |Microsoft Docs
+title: マスターページからコンテンツページと対話する (C#) |Microsoft Docs
 author: rick-anderson
-description: メソッドを呼び出す、マスター ページのコードから、[コンテンツ] ページのプロパティなどを設定する方法について説明します。
+description: マスターページのコードから、コンテンツページのメソッドの呼び出し、プロパティの設定などを行う方法について説明します。
 ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 3282df5e-516c-4972-8666-313828b90fb5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 341724253e9149724ff988232b0e312897756f58
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2cf57665aa584285351d874267949d61db69c7fc
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134373"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74635674"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-c"></a>マスター ページからコンテンツ ページと対話する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_CS.zip)または[PDF のダウンロード](https://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_CS.pdf)
 
-> メソッドを呼び出す、マスター ページのコードから、[コンテンツ] ページのプロパティなどを設定する方法について説明します。
+> マスターページのコードから、コンテンツページのメソッドの呼び出し、プロパティの設定などを行う方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-上記のチュートリアルでは、コンテンツ ページがそのマスター ページとプログラムでやり取りする方法を調査します。 再現率が最も最近、5 つを表示する GridView コントロールに含めるマスター ページを更新しましたでは、製品を追加します。 [コンテンツ] ページのユーザーが新しい製品を追加でしたを作成しました。 新しい製品を追加すると、マスター ページだけで追加された製品にが含ま ために、GridView を更新するように指示するコンテンツ ページが必要です。 この機能は、更新されたデータにバインドされている、GridView では、マスター ページをパブリック メソッドを追加し、[コンテンツ] ページからそのメソッドを呼び出すいました。
+前のチュートリアルでは、コンテンツページをプログラムでマスターページと対話させる方法を説明しました。 マスターページが更新され、最後に追加された5つの製品が一覧表示された GridView コントロールが追加されたことを思い出してください。 次に、ユーザーが新しい製品を追加できるコンテンツページを作成しました。 新しい製品を追加すると、追加した製品が含まれるように、マスターページに GridView を更新するように指示するために必要なコンテンツページが表示されます。 この機能を実現するには、GridView にバインドされたデータを更新するマスターページにパブリックメソッドを追加し、コンテンツページからそのメソッドを呼び出します。
 
-コンテンツとマスター ページの相互作用の最も一般的な形式は、[コンテンツ] ページから発生します。 ただしの操作に現在のコンテンツ ページを rouse にマスター ページの可能性があり、マスター ページには、ユーザーが [コンテンツ] ページにも表示されているデータを変更できるユーザー インターフェイス要素が含まれている場合、このような機能が必要な場合があります。 コンテンツ ページがクリックされたときに、ボタンを含むマスター ページ コントロールを GridView の製品情報は、制御が表示されます、すべての製品の価格を倍にします。 前のチュートリアルで例と同様、GridView が二重の価格、新しい価格を表示するようにボタンがクリックされた後に更新する必要がありますが、このシナリオでは、[コンテンツ] ページを rouse がアクションにする必要があるマスター ページ。
+コンテンツページとマスターページの操作の最も一般的な形式は、コンテンツページからです。 ただし、マスターページで現在のコンテンツページを動作させることができます。また、マスターページにユーザーインターフェイス要素が含まれていて、ユーザーがコンテンツページにも表示されるデータを変更できるようにすることもできます。 GridView コントロールに製品情報を表示するコンテンツページと、クリックしたときにすべての製品の価格を倍にしたボタンコントロールを含むマスターページを考えてみましょう。 前のチュートリアルの例と同様に、GridView は新しい価格を表示するために、[二重価格] ボタンをクリックした後に更新する必要がありますが、このシナリオでは、コンテンツページのアクションを作成する必要があるマスターページです。
 
-このチュートリアルでは、マスター ページ、[コンテンツ] ページで定義されている機能を起動する方法について説明します。
+このチュートリアルでは、コンテンツページで定義されているマスターページの機能を実行する方法について説明します。
 
-### <a name="instigating-programmatic-interaction-via-an-event-and-event-handlers"></a>イベントとイベント ハンドラーを使用してプログラムの対話を仕掛ける
+### <a name="instigating-programmatic-interaction-via-an-event-and-event-handlers"></a>Instigating イベントハンドラーとイベントハンドラーを使用したプログラムによる対話
 
-マスター ページからコンテンツ ページの機能を呼び出すことは、別の方法よりもより困難になります。 コンテンツ ページからプログラムの対話を仕掛けるときに、コンテンツ ページが単一のマスター ページは、どのようなパブリック メソッドとプロパティは、自由に、わかっています。 マスター ページ、ただし、多くの異なるコンテンツ ページ、それぞれに独自のプロパティとメソッドのセットもかまいません。 方法については、次に、記述すればコード実行時までにどのようなコンテンツ ページが呼び出されますがわからないときに、そのコンテンツのページで何らかのアクションを実行するマスター ページのでしょうか。
+マスターページからコンテンツページ機能を呼び出すことは、他の方法よりも難しくなります。 コンテンツページには1つのマスターページがあるため、コンテンツページからプログラムによる操作を instigating するときには、どのようなパブリックメソッドとプロパティが破棄されているかがわかります。 ただし、マスターページにはさまざまなコンテンツページがあり、それぞれに独自のプロパティとメソッドのセットがあります。 その後、ランタイムまでどのコンテンツページが呼び出されるかわからない場合に、マスターページにコードを記述して、コンテンツページで何らかのアクションを実行できます。
 
-ボタン コントロールなどの ASP.NET Web コントロールを検討してください。 ボタン コントロールは、任意の数の ASP.NET ページに表示できるし、メカニズムを知らせることができます、ページがクリックしてされたことが必要です。 これは*イベント*します。 具体的には、ボタン コントロールを発生させますその`Click`イベント ボタンを含む ASP.NET ページが経由でその通知に応答できるオプションをクリックすると、*イベント ハンドラー*します。
+Button コントロールなどの ASP.NET Web コントロールについて考えてみましょう。 ボタンコントロールは、任意の数の ASP.NET ページに表示でき、クリックされたことをページに通知するためのメカニズムを必要とします。 これは、*イベント*を使用して行います。 特に、ボタンコントロールがクリックされると、その `Click` イベントが発生します。ボタンを含む ASP.NET ページは、必要に応じて、*イベントハンドラー*を介してその通知に応答できます。
 
-これと同じパターンは、そのコンテンツのページで、マスター ページのトリガー機能させるために使用できます。
+この同じパターンを使用して、マスターページのコンテンツページで機能をトリガーすることができます。
 
-1. イベントは、マスター ページを追加します。
-2. マスター ページは、そのコンテンツ ページと通信する必要があるときにイベントが発生します。 たとえば、マスター ページは、ユーザーには、価格が倍増したの [コンテンツ] ページにアラートを生成する必要があります、そのイベントは発生します価格が 2 倍にした直後に。
-3. いくつかの操作を行う必要のあるコンテンツ ページで、イベント ハンドラーを作成します。
+1. マスターページにイベントを追加します。
+2. マスターページがそのコンテンツページと通信する必要がある場合は常に、イベントを発生させます。 たとえば、マスターページで、ユーザーが価格を2倍にしたことをコンテンツページに通知する必要がある場合、価格が2倍になった直後にそのイベントが発生します。
+3. アクションを実行する必要があるコンテンツページにイベントハンドラーを作成します。
 
-このチュートリアルの残りの部分実装; 概要で説明した例具体的には、データベース内の製品を一覧表示されたコンテンツ ページとボタンを含むマスター ページは、価格の 2 倍に制御します。
+このチュートリアルの残りの部分では、概要で説明されている例を実装します。つまり、データベース内の製品と、価格を倍にするボタンコントロールが含まれているマスターページを一覧表示するコンテンツページです。
 
-## <a name="step-1-displaying-products-in-a-content-page"></a>手順 1: コンテンツ ページで製品を表示します。
+## <a name="step-1-displaying-products-in-a-content-page"></a>手順 1: コンテンツページで製品を表示する
 
-最初の注文のビジネスでは、Northwind データベースから製品を一覧表示されたコンテンツ ページを作成します。 (前のチュートリアルでは、プロジェクトに Northwind データベースを追加しました[*コンテンツ ページからマスター ページと対話する*](interacting-with-the-master-page-from-the-content-page-cs.md))。新しい ASP.NET ページを追加して、開始、`~/Admin`という名前のフォルダー`Products.aspx`を確実にそれをバインドに、`Site.master`マスター ページ。 図 1 は、このページは、web サイトに追加した後、ソリューション エクスプ ローラーを示します。
+最初のビジネスの順序は、Northwind データベースから製品を一覧表示するコンテンツページを作成することです。 (前のチュートリアルでは、[[*コンテンツ] ページからマスターページと対話*](interacting-with-the-master-page-from-the-content-page-cs.md)するために Northwind データベースをプロジェクトに追加しました)。まず、`Products.aspx`という名前の `~/Admin` フォルダーに新しい ASP.NET ページを追加し、`Site.master` マスターページにバインドします。 図1は、このページが web サイトに追加された後のソリューションエクスプローラーを示しています。
 
-[![Admin フォルダーに新しい ASP.NET ページを追加します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
+[新しい ASP.NET ページを管理フォルダーに追加 ![には](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
 
-**図 01**:新しい ASP.NET ページの追加、`Admin`フォルダー ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))。
+**図 01**: `Admin` フォルダーに新しい ASP.NET ページを追加する ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png)されます)
 
-そのことを思い出してください、 [*マスター ページのタイトル、メタ タグ、およびその他の HTML ヘッダーを指定する*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)という名前のカスタム ベース ページ クラスを作成したチュートリアル`BasePage`でない場合は、ページのタイトルを生成します。明示的に設定します。 移動して、`Products.aspx`ページの分離コード クラスし、派生させる`BasePage`(の代わりにから`System.Web.UI.Page`)。
+[ *「マスターページでタイトル、メタタグ、およびその他の HTML ヘッダーを指定*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)する」チュートリアルでは、明示的に設定されていない場合にページのタイトルを生成する `BasePage` という名前のカスタム基本ページクラスを作成しました。 `Products.aspx` ページの分離コードクラスにアクセスし、`System.Web.UI.Page`からではなく `BasePage` から派生させます。
 
-最後に、更新、`Web.sitemap`このレッスンのエントリを追加するファイル。 下に次のマークアップを追加、`<siteMapNode>`コンテンツをマスター ページの相互作用のレッスン。
+最後に、このレッスンのエントリを含めるように `Web.sitemap` ファイルを更新します。 次のマークアップを `<siteMapNode>` の下に追加して、マスターページへのコンテンツの相互作用に関するレッスンを行います。
 
 [!code-xml[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample1.xml)]
 
-この追加`<siteMapNode>`要素は、レッスンに反映されます (図 5 参照) を一覧表示します。
+この `<siteMapNode>` 要素の追加は、レッスンの一覧に反映されます (図5を参照)。
 
-戻り`Products.aspx`します。 コンテンツ コントロールで`MainContent`GridView コントロールを追加し、名前、`ProductsGrid`します。 GridView をという名前の新しい SqlDataSource コントロールにバインド`ProductsDataSource`します。
+`Products.aspx`に戻ります。 `MainContent`のコンテンツコントロールで、GridView コントロールを追加し、`ProductsGrid`という名前を指定します。 GridView を `ProductsDataSource`という名前の新しい SqlDataSource コントロールにバインドします。
 
-[![GridView を新しい SqlDataSource コントロールにバインドします。](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
+[GridView を新しい SqlDataSource コントロールにバインド ![には](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
 
-**図 02**:SqlDataSource コントロールを新しい GridView にバインド ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))。
+**図 02**: GridView を新しい SqlDataSource コントロールにバインドする ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png)されます)
 
-ウィザードは、Northwind データベースを使用するように構成します。 かどうかは、前のチュートリアルを実行して、名前付き接続文字列が必要`NorthwindConnectionString`で`Web.config`します。 図 3 に示すように、この接続文字列をドロップダウン リストから選択します。
+Northwind データベースを使用するようにウィザードを構成します。 前のチュートリアルを実行していた場合は、`Web.config`に `NorthwindConnectionString` という名前の接続文字列が既に存在している必要があります。 図3に示すように、ドロップダウンリストからこの接続文字列を選択します。
 
-[![Northwind データベースを使用する SqlDataSource を構成します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
+[Northwind データベースを使用するように SqlDataSource を構成 ![には](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
 
-**図 03**:Northwind データベースを使用する SqlDataSource の構成 ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))。
+**図 03**: Northwind データベースを使用するように SqlDataSource を構成する ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png)されます)
 
-データ ソース コントロールを次に、指定`SELECT`ステートメント、Products テーブルのドロップダウン リストから選択し、返すことによって、`ProductName`と`UnitPrice`列 (図 4 参照)。 [次へ] をクリックし、データ ソースの構成ウィザードを完了し、[完了] します。
+次に、ドロップダウンリストから Products テーブルを選択し、`ProductName` 列と `UnitPrice` 列を返すことによって、データソースコントロールの `SELECT` ステートメントを指定します (図4を参照)。 [次へ] をクリックし、[完了] をクリックして、データソースの構成ウィザードを完了します。
 
-[![Products テーブルから、ProductName と UnitPrice フィールドを返す](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
+[Products テーブルから ProductName フィールドと UnitPrice フィールドを返す ![](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
 
-**図 04**:返す、`ProductName`と`UnitPrice`フィールドから、`Products`テーブル ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))。
+**図 04**: `Products` テーブルから `ProductName` フィールドと `UnitPrice` フィールドを返す ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png)されます)
 
-必要な作業は以上です。 ウィザードの完了後は、Visual Studio は、GridView が SqlDataSource コントロールによって返される 2 つのフィールドをミラー化するに 2 つの BoundFields を追加します。 GridView と SqlDataSource コントロールのマークアップに従います。 図 5 は、ブラウザーで表示した場合の結果を示します。
+必要な作業は以上です。 ウィザードを完了すると、Visual Studio によって2つの BoundFields が GridView に追加され、SqlDataSource コントロールによって返される2つのフィールドがミラー化されます。 GridView および SqlDataSource コントロールのマークアップは次のようになります。 図5は、ブラウザーを使用して表示した場合の結果を示しています。
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample2.aspx)]
 
-[![各製品とその価格は、GridView で表示されます。](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
+[各製品とその価格が GridView に表示される ![](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
 
-**図 05**:各製品とその価格は、GridView で表示されます ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))。
+**図 05**: 各製品とその価格が GridView に表示される ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png)されます)
 
 > [!NOTE]
-> 自由に、GridView の外観をクリーンアップできます。 通貨として表示される UnitPrice の値を書式設定して、背景色とフォントを使用して、グリッドの外観を改善するいくつかの候補が含まれます。 表示して、ASP.NET でのデータの書式設定の詳細についてを参照してください、[チュートリアル シリーズのデータの操作](../../data-access/index.md)します。
+> GridView の外観を自由にクリーンアップしてください。 いくつかの提案には、表示される UnitPrice 値を通貨として書式設定し、背景色とフォントを使用してグリッドの外観を向上させることがあります。 ASP.NET でのデータの表示と書式設定の詳細については、「[データチュートリアルシリーズの使用](../../data-access/index.md)」を参照してください。
 
-## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>手順 2: マスター ページに二重価格ボタンの追加
+## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>手順 2: マスターページに2つの価格ボタンを追加する
 
-次のタスクでは、マスターに Button Web コントロールでは追加するページで、クリックすると、倍精度浮動小数点、データベース内のすべての製品の価格です。 開く、`Site.master`マスター ページと、デザイナーの下に配置するのには、ツールボックスからボタンをドラッグ、 `RecentProductsDataSource` SqlDataSource コントロールの前のチュートリアルで追加しました。 ボタンの設定`ID`プロパティを`DoublePrice`とその`Text`「二重製品価格」プロパティです。
+次のタスクでは、マスターページにボタン Web コントロールを追加します。クリックすると、データベース内のすべての製品の価格が2倍になります。 `Site.master` マスターページを開き、[ツールボックス] からボタンをデザイナーにドラッグして、前のチュートリアルで追加した `RecentProductsDataSource` SqlDataSource コントロールの下に配置します。 ボタンの `ID` プロパティを `DoublePrice` に設定し、その `Text` プロパティを "Double Product プライス" に設定します。
 
-次に、その名前を付け、マスター ページに、SqlDataSource コントロールを追加`DoublePricesDataSource`します。 実行に使用されるこの SqlDataSource、`UPDATE`ステートメントのすべての価格の 2 倍にします。 具体的には、設定する必要があります、`ConnectionString`と`UpdateCommand`を適切な接続文字列プロパティと`UPDATE`ステートメント。 この SqlDataSource コントロールを呼び出す必要がありますし、`Update`メソッドと、`DoublePrice`ボタンをクリックします。 設定する、`ConnectionString`と`UpdateCommand`プロパティ、SqlDataSource コントロールを選択し、[プロパティ] ウィンドウに移動します。 `ConnectionString`プロパティ リストに既に格納されているこれらの接続文字列`Web.config`をドロップダウン リストで選択、`NorthwindConnectionString`図 6 に示すようにオプションします。
+次に、`DoublePricesDataSource`に名前を付けて、SqlDataSource コントロールをマスターページに追加します。 この SqlDataSource は、`UPDATE` ステートメントを実行してすべての価格を2倍にするために使用されます。 具体的には、`ConnectionString` と `UpdateCommand` プロパティを適切な接続文字列と `UPDATE` ステートメントに設定する必要があります。 次に、[`DoublePrice`] ボタンをクリックしたときに、この SqlDataSource コントロールの `Update` メソッドを呼び出す必要があります。 `ConnectionString` と `UpdateCommand` のプロパティを設定するには、SqlDataSource コントロールを選択し、プロパティウィンドウにアクセスします。 `ConnectionString` プロパティには、`Web.config` に既に格納されている接続文字列がドロップダウンリストに表示されます。図6に示すように、`NorthwindConnectionString` オプションを選択します。
 
-[![SqlDataSource、NorthwindConnectionString を使用する構成します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
+[NorthwindConnectionString を使用するように SqlDataSource を構成 ![には](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
 
-**図 06**:構成に使用する SqlDataSource、 `NorthwindConnectionString` ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))。
+**図 06**: `NorthwindConnectionString` を使用するように SqlDataSource を構成する ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png)されます)
 
-設定する、`UpdateCommand`プロパティ、プロパティ ウィンドウで、UpdateQuery オプションを検索します。 選択した場合、このプロパティで省略記号 [;] ボタンを表示します。図 7 に示すようにコマンドおよびパラメーターのエディター ダイアログ ボックスを表示するには、このボタンをクリックします。 次に入力して`UPDATE`ステートメント ダイアログ ボックスのテキスト ボックスに。
+`UpdateCommand` プロパティを設定するには、プロパティウィンドウで UpdateQuery オプションを見つけます。 このプロパティを選択すると、ボタンが省略記号付きで表示されます。このボタンをクリックすると、図7に示す [コマンドおよびパラメーターエディター] ダイアログボックスが表示されます。 ダイアログボックスのテキストボックスに、次の `UPDATE` ステートメントを入力します。
 
 [!code-sql[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample3.sql)]
 
-実行すると、このステートメントが 2 倍、`UnitPrice`内の各レコードの値、`Products`テーブル。
+このステートメントを実行すると、`Products` テーブル内の各レコードの `UnitPrice` 値が2倍になります。
 
-[![SqlDataSource の UpdateCommand プロパティを設定します。](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
+[SqlDataSource の UpdateCommand プロパティを設定 ![](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
 
-**図 07**:SqlDataSource の設定`UpdateCommand`プロパティ ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))。
+**図 07**: SqlDataSource の `UpdateCommand` プロパティを設定[する (クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png)される)
 
-これらのプロパティを設定した後に、ボタンをクリックし、SqlDataSource コントロールの宣言型マークアップは、次のようなになります。
+これらのプロパティを設定した後、ボタンおよび SqlDataSource コントロールの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample4.aspx)]
 
-残っているを呼び出すその`Update`メソッドと、`DoublePrice`ボタンをクリックします。 作成、`Click`のイベント ハンドラー、`DoublePrice`ボタンをクリックし、次のコードを追加します。
+残っているのは、`DoublePrice` ボタンをクリックしたときに `Update` メソッドを呼び出すことだけです。 `DoublePrice` ボタンの `Click` イベントハンドラーを作成し、次のコードを追加します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample5.cs)]
 
-この機能をテストするを参照してください。、`~/Admin/Products.aspx`ページの手順 1. で作成し、"Double 製品価格"ボタンをクリックします。 ポストバックが発生するボタンをクリックし、実行、`DoublePrice`ボタンの`Click`イベント ハンドラー、すべての製品の価格を倍増します。 ページが再表示し、マークアップが返され、ブラウザーに再表示されます。 ただし、コンテンツ ページで、GridView は、ボタンがクリックされた「二重製品価格」の前に、同じ価格が一覧表示します。 これは、GridView に最初に読み込まれたデータがあるその状態をビューステートに格納されるため、それ以外の場合に指示がない限り、ポストバックでは読み込まれませんので。 別のページにアクセスし、後に戻るかどうか、`~/Admin/Products.aspx`ページが更新された価格が表示されます。
+この機能をテストするには、手順1で作成した `~/Admin/Products.aspx` のページにアクセスし、[Double Product プライス] \ (二重製品価格 \) ボタンをクリックします。 このボタンをクリックすると、ポストバックが発生し、`DoublePrice` ボタンの `Click` イベントハンドラーが実行され、すべての製品の価格が2倍になります。 ページが再レンダリングされ、マークアップが返されて、ブラウザーに再表示されます。 ただし、[コンテンツ] ページの GridView には、[二重の製品価格] ボタンがクリックされたときと同じ価格が表示されます。 これは、GridView に最初に読み込まれたデータの状態がビューステートに格納されているため、特に指示がない限りポストバックに再読み込みされないためです。 別のページにアクセスし、[`~/Admin/Products.aspx`] ページに戻ると、更新された価格が表示されます。
 
-## <a name="step-3-raising-an-event-when-the-prices-are-doubled"></a>手順 3: 二重に発生し、イベント時の価格
+## <a name="step-3-raising-an-event-when-the-prices-are-doubled"></a>手順 3: 価格が2倍になったときにイベントを発生させる
 
-に GridView、`~/Admin/Products.aspx`ページはすぐに反映されませんが価格の 2 倍、ユーザー数は当然と考えが、「Double 製品価格」ボタンをクリックしなかったことや、実行できませんでした。 しようとするかもしれません、ボタンをクリックすると時間、繰り返し価格を倍増さらにいくつか。 コンテンツで、グリッドする必要がありますこれを解決するには、ページは、これらは 2 倍にした直後に新しい料金を表示します。
+`~/Admin/Products.aspx` ページの GridView には、価格の2倍がすぐに反映されていないので、ユーザーは [当然の製品価格] ボタンをクリックしなかったか、または機能していないと思われるかもしれません。 このボタンを数回クリックすると、もう一度もう一度料金が倍増します。 この問題を解決するには、コンテンツページのグリッドに、2倍になった後すぐに新しい価格が表示されるようにする必要があります。
 
-このチュートリアルで前述したよう、ユーザーがクリックされるたびに、マスター ページでイベントを発生させる必要があります、`DoublePrice`ボタンをクリックします。 イベントは、別に一連の興味深いが発生したその他のクラス (イベント サブスクライバー) を通知するには、1 つのクラス (イベント パブリッシャー) の方法です。 この例でマスター ページは、イベント パブリッシャーです。これらのコンテンツの場合を考慮するページ、`DoublePrice`ボタンがクリックされた、サブスクライブしています。
+このチュートリアルで既に説明したように、ユーザーが [`DoublePrice`] ボタンをクリックするたびに、マスターページでイベントを発生させる必要があります。 イベントは、1つのクラス (イベントパブリッシャー) が、興味深い問題が発生した他のクラス (イベントサブスクライバー) のセットを別のクラスに通知する方法です。 この例では、マスターページはイベントパブリッシャーです。`DoublePrice` ボタンをクリックしたときに注意するコンテンツページはサブスクライバーです。
 
-クラスが作成してイベントにサブスクライブ、*イベント ハンドラー*、発生するイベントへの応答で実行されるメソッドであります。 パブリッシャーは、自分で定義することで発生させるイベントを定義、*イベント デリゲート*します。 イベントのデリゲートには、どのような入力パラメーターが、イベント ハンドラーに同意する必要がありますを指定します。 .NET Framework で、イベント デリゲートがない任意の値を返すし、2 つの入力パラメーターをそのまま使用しないでください。
+クラスは、発生するイベントに応答して実行されるメソッドである*イベントハンドラー*を作成することによって、イベントをサブスクライブします。 発行元は、*イベントデリゲート*を定義することによって発生するイベントを定義します。 イベントデリゲートは、イベントハンドラーが受け入れる必要のある入力パラメーターを指定します。 .NET Framework では、イベントデリゲートは値を返さず、次の2つの入力パラメーターを受け取ります。
 
-- `Object`、イベント ソースを識別します、
-- 派生したクラス `System.EventArgs`
+- イベントソースを識別する `Object`
+- `System.EventArgs` から派生したクラス
 
-イベント ハンドラーに渡される 2 番目のパラメーターは、イベントに関する追加情報を含めることができます。 基本の中に`EventArgs`クラスはない情報を渡す、.NET Framework には、多数拡張クラスにはが含まれています。 `EventArgs` encompass の追加のプロパティとします。 たとえば、`CommandEventArgs`インスタンスに応答するイベント ハンドラーに渡されます、`Command`イベント、2 つの情報プロパティが含まれています:`CommandArgument`と`CommandName`します。
+イベントハンドラーに渡される2番目のパラメーターには、イベントに関する追加情報を含めることができます。 基本 `EventArgs` クラスは情報に沿って渡されませんが、.NET Framework には `EventArgs` を拡張し、追加のプロパティを含む多数のクラスが含まれています。 たとえば、`CommandEventArgs` インスタンスは、`Command` イベントに応答するイベントハンドラーに渡され、`CommandArgument` と `CommandName`の2つの情報プロパティが含まれます。
 
 > [!NOTE]
-> 発生させる、およびイベントを処理の作成の詳細については、の参照[イベントとデリゲート](https://msdn.microsoft.com/library/17sde2xt.aspx)と[イベント デリゲートで単純な英語](http://www.codeproject.com/KB/cs/eventdelegates.aspx)します。
+> イベントの作成、発生、および処理の詳細については、「[単純な英語の](http://www.codeproject.com/KB/cs/eventdelegates.aspx)[イベントとデリゲート](https://msdn.microsoft.com/library/17sde2xt.aspx)およびイベントデリゲート」を参照してください。
 
-定義には、イベントは、次の構文を使用します。
+イベントを定義するには、次の構文を使用します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample6.cs)]
 
-のみ、[コンテンツ] ページをユーザーがクリックされたときにアラートを生成する必要がありますので、`DoublePrice`ボタンしその他の追加情報を渡す必要はありません、イベント デリゲートを使用できます`EventHandler`、として 2 番目のオペランドを受け取るイベント ハンドラーを定義します。パラメーターの型のオブジェクト`System.EventArgs`します。 マスター ページで、イベントを作成するには、マスター ページの分離コード クラスに次のコード行を追加します。
+ユーザーが [`DoublePrice`] ボタンをクリックし、他の追加情報を渡す必要がない場合にのみ、コンテンツページにアラートを通知する必要があるため、イベントデリゲート `EventHandler`を使用できます。これにより、`System.EventArgs`型のオブジェクトを2番目のパラメーターとして受け取るイベントハンドラーが定義されます。 マスターページでイベントを作成するには、マスターページの分離コードクラスに次のコード行を追加します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample7.cs)]
 
-上記のコードは、という名前のマスター ページにパブリック イベントを追加します`PricesDoubled`します。 これで、価格が 2 倍にした後は、このイベントを発生させる必要があります。 イベントを発生させるには、次の構文を使用します。
+上記のコードでは、`PricesDoubled`という名前のマスターページにパブリックイベントを追加します。 価格が2倍になった後に、このイベントを発生させる必要があります。 イベントを発生させるには、次の構文を使用します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample8.cs)]
 
-場所*送信者*と*eventArgs*は、サブスクライバーのイベント ハンドラーに渡す値になります。
+ここで、 *sender*と*eventArgs*は、サブスクライバーのイベントハンドラーに渡す値です。
 
-更新プログラム、 `DoublePrice` `Click`イベント ハンドラーを次のコード。
+次のコードを使用して、`DoublePrice` `Click` イベントハンドラーを更新します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample9.cs)]
 
-同様に、`Click`イベント ハンドラーを呼び出すことで起動、 `DoublePricesDataSource` SqlDataSource コントロールの`Update`メソッドすべての製品の価格の 2 倍にします。 次のイベント ハンドラーに 2 つの追加機能があること。 まず、 `RecentProducts` GridView のデータを更新します。 この GridView では、前のチュートリアルでは、マスター ページに追加されたし、最近追加した 5 つの製品を表示します。 これら 5 つの製品だけ 2 倍に価格が表示されるように、このグリッドを更新する必要があります。 次に、`PricesDoubled`イベントが発生します。 マスター ページ自体への参照 (`this`) は、イベント ソースと、空としてイベント ハンドラーに送信`EventArgs`オブジェクトは、イベントの引数として送信します。
+前と同様に、`Click` イベントハンドラーは、`DoublePricesDataSource` SqlDataSource コントロールの `Update` メソッドを呼び出して、すべての製品の価格を2倍にしてから開始します。 次に、イベントハンドラーへの追加が2つあります。 まず、`RecentProducts` GridView のデータが更新されます。 この GridView は、前のチュートリアルのマスターページに追加されており、最近追加された5つの製品が表示されています。 このグリッドを更新して、これら5つの製品の2倍の価格が表示されるようにする必要があります。 その後、`PricesDoubled` イベントが発生します。 マスターページ自体 (`this`) への参照がイベントソースとしてイベントハンドラーに送信され、空の `EventArgs` オブジェクトがイベント引数として送信されます。
 
-## <a name="step-4-handling-the-event-in-the-content-page"></a>手順 4: [コンテンツ] ページでイベントを処理
+## <a name="step-4-handling-the-event-in-the-content-page"></a>手順 4: コンテンツページでイベントを処理する
 
-この時点で、マスター ページを発生させますその`PricesDoubled`イベントたびに、`DoublePrice`ボタン コントロールがクリックされました。 ただし、これは半ばで-サブスクライバーにイベントを処理する必要があります。 これは、2 つの手順: イベント ハンドラーを作成し、イベントが発生したときにイベント ハンドラーが実行されるようにイベント配線のコードを追加します。
+この時点で、`DoublePrice` ボタンコントロールがクリックされるたびに、マスターページの `PricesDoubled` イベントが発生します。 ただし、これは戦いの半分に過ぎません。サブスクライバーでイベントを処理する必要があります。 これには、イベントハンドラーを作成し、イベントを発生させてイベントハンドラーが実行されるようにイベントの配線コードを追加するという2つのステップが含まれます。
 
-名前付きイベント ハンドラーを作成して開始`Master_PricesDoubled`します。 定義したため、`PricesDoubled`マスター ページ内のイベントの種類のイベント ハンドラーの 2 つの入力パラメーターがある必要があります`Object`と`EventArgs`、それぞれします。 イベント ハンドラーの呼び出しで、 `ProductsGrid` GridView の`DataBind`グリッドにデータを再バインドするメソッド。
+まず、`Master_PricesDoubled`という名前のイベントハンドラーを作成します。 マスターページで `PricesDoubled` イベントを定義する方法により、イベントハンドラーの2つの入力パラメーターはそれぞれ `Object` と `EventArgs`の型である必要があります。 イベントハンドラーで `ProductsGrid` GridView の `DataBind` メソッドを呼び出して、データをグリッドに再バインドします。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample10.cs)]
 
-イベント ハンドラーのコードが完了しましたが、まだ、マスター ページのワイヤ`PricesDoubled`イベントをこのイベント ハンドラー。 サブスクライバーでは、次の構文を使用してイベント ハンドラーにイベントがその接続します。
+イベントハンドラーのコードは完成しましたが、マスターページの `PricesDoubled` イベントをこのイベントハンドラーに送信していません。 サブスクライバーは、次の構文を使用してイベントハンドラーにイベントをワイヤで配線します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample11.cs)]
 
-*パブリッシャー*イベントを提供するオブジェクトへの参照は、 *eventName*、および*methodName*に対応するシグネチャを持つサブスクライバーで定義されているイベント ハンドラーの名前を指定します*eventDelegate*します。 つまり、イベントのデリゲートの場合は`EventHandler`、し*methodName*値を返さず、2 つの入力の型のパラメーターを受け取るサブスクライバーでのメソッドの名前を指定する必要があります`Object`と`EventArgs`、それぞれします。
+*発行元*は、イベント*eventName*を提供するオブジェクトへの参照です。 *methodName*は、 *eventdelegate*に対応する署名を持つサブスクライバーで定義されているイベントハンドラーの名前です。 つまり、イベントデリゲートが `EventHandler`場合、 *methodName*は、値を返さないサブスクライバー内のメソッドの名前であり、それぞれ `Object` と `EventArgs`の2つの入力パラメーターを受け取る必要があります。
 
-このイベントの配線コードでは、以降のポストバックでは、最初のページ アクセスで実行する必要があり、イベントが発生する可能性がありますの前のページのライフ サイクルの時点で発生する必要があります。 イベント接続コードを追加すると良いでは、PreInit ステージでは、ページのライフ サイクルの初期段階で発生します。
+このイベント配線コードは、最初のページへのアクセスと後続のポストバックで実行する必要があり、イベントが発生する前のページのライフサイクルのポイントで発生する必要があります。 イベントの配線コードを追加するには、ページのライフサイクルの初期段階で PreInit 段階にあることをお勧めします。
 
-開いている`~/Admin/Products.aspx`を作成し、`Page_PreInit`イベント ハンドラー。
+`~/Admin/Products.aspx` を開き、`Page_PreInit` イベントハンドラーを作成します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample12.cs)]
 
-この配線コードを完了するには、[コンテンツ] ページからマスター ページへのプログラムによる参照が必要です。 前述の前のチュートリアルでは、これを行う 2 つの方法があります。
+この配線コードを完了するには、コンテンツページからマスターページへのプログラムによる参照が必要です。 前のチュートリアルで説明したように、これを行うには次の2つの方法があります。
 
-- 厳密に型をキャストすることによって`Page.Master`プロパティを適切なマスター ページの種類、または
-- 追加することで、`@MasterType`ディレクティブで、`.aspx`ページと厳密に型指定を使用して`Master`プロパティ。
+- 緩く型指定された `Page.Master` プロパティを適切なマスターページ型にキャストする。
+- `.aspx` ページで `@MasterType` ディレクティブを追加し、厳密に型指定された `Master` プロパティを使用します。
 
-後者のアプローチを使用してみましょう。 次の追加`@MasterType`ディレクティブを宣言型マークアップをページの上部に。
+後者の方法を使用してみましょう。 ページの宣言型マークアップの先頭に、次の `@MasterType` ディレクティブを追加します。
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample13.aspx)]
 
-次のイベントの配線コードを追加し、`Page_PreInit`イベント ハンドラー。
+次に、`Page_PreInit` イベントハンドラーに次のイベント配線コードを追加します。
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample14.cs)]
 
-配置でこのコードでは、[コンテンツ] ページに GridView が更新されるたびに、`DoublePrice`ボタンをクリックします。
+このコードを配置すると、[`DoublePrice`] ボタンがクリックされるたびにコンテンツページの GridView が更新されます。
 
-図 8 と 9 は、この動作を示しています。 図 8 は、最初にアクセスする際、ページを示します。 両方の値を価格に注意してください、 `RecentProducts` (マスター ページの左側の列) で GridView と`ProductsGrid`GridView (で、[コンテンツ] ページ)。 図 9 番組の直後に画面と同じ、`DoublePrice`ボタンがクリックしてされました。 ご覧のように、新しい料金が両方の Gridview で瞬時に反映されます。
+図8と9はこの動作を示しています。 図8に、最初にアクセスしたときのページを示します。 `RecentProducts` GridView (マスターページの左側の列) と `ProductsGrid` GridView ([コンテンツ] ページ) の両方で価格値が指定されていることに注意してください。 図9は、[`DoublePrice`] ボタンがクリックされた直後の同じ画面を示しています。 ご覧のとおり、新しい価格は両方の GridViews に瞬時に反映されています。
 
-[![価格の初期値](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
+[初期価格の値を ![する](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
 
-**図 08**:価格の初期値 ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))。
+**図 08**: 初期価格値 ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png)されます)
 
-[![Just-Doubled 価格は、Gridview に表示されます。](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
+[2倍の価格がグリッドビューに表示される ![](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
 
-**図 09**:Just-Doubled 価格は、Gridview に表示されます ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))。
+**図 09**: 単純な価格がグリッドビューに表示される ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-理想的には、マスター ページとそのコンテンツ ページは互いから完全に分離し、操作のレベルは必要ありません。 ただし、マスター ページまたはマスター ページまたは [コンテンツ] ページから変更可能なデータを表示するコンテンツのページがある場合する必要がありますアラートの [コンテンツ] ページ (または、逆に) マスター ページが存在する、表示を更新できるようにデータが変更されたとき。 前のチュートリアルではコンテンツ ページがそのマスター ページとプログラムでやり取りする方法を説明しましたこのチュートリアルでは、マスター ページの開始、相互作用する方法を説明しました。
+マスターページとそのコンテンツページが相互に完全に分離されていることが理想的であり、操作のレベルは必要ありません。 ただし、マスターページまたはコンテンツページから変更できるデータを表示するマスターページまたはコンテンツページがある場合は、表示を更新できるようにデータが変更されたときに、マスターページに対してコンテンツページの警告 (またはその逆) の通知が必要になることがあります。 前のチュートリアルでは、プログラムによってマスターページと対話するコンテンツページを作成する方法を説明しました。このチュートリアルでは、マスターページで相互作用を開始する方法を見てきました。
 
-コンテンツとマスター ページの間のプログラムによる操作は、コンテンツまたはマスター ページから取得できます、発信元の依存対話パターンを使用します。 違いは、原因という事実にコンテンツ ページが単一のマスター ページですが多くのさまざまなコンテンツ ページにマスター ページを使用できます。 マスター ページのコンテンツ ページと直接対話するのではなくより優れたアプローチはいくつかの動作が発生したことを通知するイベントを発生させるマスター ページが存在するがします。 アクションを考慮するそれらのコンテンツ ページには、イベント ハンドラーを作成できます。
+コンテンツとマスターページ間のプログラムによる対話は、コンテンツまたはマスターページのどちらからでも行うことができますが、使用される相互作用パターンは、発信元によって異なります。 違いは、コンテンツページには1つのマスターページがありますが、マスターページにはさまざまなコンテンツページがあることがあるためです。 マスターページでコンテンツページを直接操作するのではなく、何らかのアクションが実行されたことを通知するイベントをマスターページで生成する方法をお勧めします。 アクションを考慮するコンテンツページでは、イベントハンドラーを作成できます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [アクセスして、ASP.NET のデータの更新](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
+- [ASP.NET でのデータへのアクセスと更新](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
 - [イベントとデリゲート](https://msdn.microsoft.com/library/17sde2xt.aspx)
-- [コンテンツとマスター ページの情報を渡す](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
-- [ASP.NET のチュートリアルでのデータの使用](../../data-access/index.md)
+- [コンテンツとマスターページの間で情報を渡す](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
+- [ASP.NET チュートリアルでのデータの操作](../../data-access/index.md)
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)作成者の複数受け取りますブックと 4GuysFromRolla.com の創設者で、携わって Microsoft Web テクノロジ 1998 年からです。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 3.5 in 24 時間*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)します。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別なに感謝します。
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者が、Suchi 著。 今後、MSDN の記事を確認したいですか。 場合は、筆者に [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは、Suchi になりました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](interacting-with-the-master-page-from-the-content-page-cs.md)

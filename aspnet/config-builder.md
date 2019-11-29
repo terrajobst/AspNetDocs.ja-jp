@@ -2,161 +2,161 @@
 uid: config-builder
 title: ASP.NET の構成ビルダー
 author: rick-anderson
-description: 外部ソースから値を web.config 以外のソースから構成データを取得する方法について説明します。
+description: 外部ソースからの web.config 値以外のソースから構成データを取得する方法について説明します。
 ms.author: riande
 ms.date: 10/29/2018
 msc.type: content
-ms.openlocfilehash: 2bec828aa01d2c17f5374c3b1804b7444ec03dda
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: 5299d9ab057c3096773955a7461e77a80673ebfe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905697"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74586761"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET の構成ビルダー
 
-によって[Stephen Molloy](https://github.com/StephenMolloy)と[Rick Anderson](https://twitter.com/RickAndMSFT)
+[Stephen Molloy](https://github.com/StephenMolloy)と[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-構成ビルダーは、外部ソースから構成値を取得する ASP.NET アプリに対して最新でアジャイルなメカニズムを提供します。
+構成ビルダーは、ASP.NET アプリが外部ソースから構成値を取得するための最新のアジャイルメカニズムを備えています。
 
 構成ビルダー:
 
-* .NET Framework 4.7.1 で使用可能な以降。
+* は .NET Framework 4.7.1 以降で使用できます。
 * 構成値を読み取るための柔軟なメカニズムを提供します。
-* コンテナーに移動し、フォーカスがある環境をクラウド アプリの基本的な要件の一部に対処します。
-* これまで使用できなかったソースから描画することで構成データ (たとえば、Azure Key Vault と環境変数) の保護を向上させるために、.NET 構成システムで使用できます。
+* アプリがコンテナーおよびクラウドに重点を置いた環境に移行する際の基本的なニーズに対処します。
+* を使用すると、.NET 構成システムで以前に使用できないソース (Azure Key Vault や環境変数など) から描画することによって、構成データの保護を向上させることができます。
 
-## <a name="keyvalue-configuration-builders"></a>キー/値の構成ビルダー
+## <a name="keyvalue-configuration-builders"></a>キー/値構成ビルダー
 
-構成ビルダーによって処理できる一般的なシナリオは、キー/値のパターンに準拠する構成セクションのキー/値の基本的な交換メカニズムを提供します。 ConfigurationBuilders の .NET Framework の概念は、特定の構成のセクションでは、またはパターンに制限はありません。 ただし、多くの構成ビルダーの`Microsoft.Configuration.ConfigurationBuilders`([github](https://github.com/aspnet/MicrosoftConfigurationBuilders)、 [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) キー/値のパターン内で機能します。
+構成ビルダーで処理できる一般的なシナリオは、キー/値パターンに従う構成セクションの基本的なキー/値置換機構を提供することです。 ConfigurationBuilders の .NET Framework 概念は、特定の構成セクションまたはパターンに限定されません。 ただし、`Microsoft.Configuration.ConfigurationBuilders` ([github](https://github.com/aspnet/MicrosoftConfigurationBuilders)、 [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) の構成ビルダーの多くは、キー/値パターン内で動作します。
 
-## <a name="keyvalue-configuration-builders-settings"></a>キー/値の構成ビルダーの設定
+## <a name="keyvalue-configuration-builders-settings"></a>キー/値構成ビルダーの設定
 
-次の設定ですべてのキー/値構成ビルダーを適用する`Microsoft.Configuration.ConfigurationBuilders`します。
+次の設定は、`Microsoft.Configuration.ConfigurationBuilders`のすべてのキー/値構成ビルダーに適用されます。
 
 ### <a name="mode"></a>モード
 
-構成ビルダーでは、外部ソースのキー/値の情報を使用して、構成システムの要素を選択したキー/値の設定。 具体的には、`<appSettings/>`と`<connectionStrings/>`のセクションでは、構成ビルダーから特別な処理を受信します。 作成者は、3 つのモードで動作します。
+構成ビルダーは、キー/値情報の外部ソースを使用して、構成システムの選択したキー/値要素を設定します。 具体的には、`<appSettings/>` セクションと `<connectionStrings/>` セクションは、構成ビルダーから特別な処理を受けます。 ビルダーは、次の3つのモードで動作します。
 
-* `Strict` 既定モードです。 このモードで構成ビルダーはよく知られているキー/値を中心とした構成セクションに対してのみ動作します。 `Strict` モードでは、セクションの各キーを列挙します。 一致する場合、外部ソース キーはあります。
+* `Strict`-既定のモード。 このモードでは、構成ビルダーは既知のキー/値中心の構成セクションでのみ動作します。 `Strict` モードでは、セクション内の各キーが列挙されます。 一致するキーが外部ソースで見つかった場合は、次のようになります。
 
-   * 構成ビルダーは、外部ソースからの値で結果として得られる構成セクションの値を置き換えます。
-* `Greedy` -このモードは密接に関連する`Strict`モード。 既にキーにとらわれることがなく、元の構成が存在します。
+   * 構成ビルダーは、結果として得られる構成セクションの値を外部ソースの値に置き換えます。
+* `Greedy`-このモードは `Strict` モードと密接に関係しています。 元の構成に既に存在するキーに限定されるわけではありません。
 
-  * 構成ビルダーは、結果として得られる構成セクションに、外部ソースからのすべてのキー/値ペアを追加します。
+  * 構成ビルダーは、外部ソースからのすべてのキーと値のペアを、結果の構成セクションに追加します。
 
-* `Expand` -構成セクション オブジェクトに解析前に、生の XML では動作します。 文字列内のトークンの拡張と考えることができます。 パターンに一致する生の XML 文字列の一部`${token}`はトークンの拡張の候補です。 外部ソースに対応する値が見つからない場合、トークンは変更されません。 このモードでのビルダーがこれらに限定されません、`<appSettings/>`と`<connectionStrings/>`セクション。
+* `Expand`-構成セクションオブジェクトに解析される前に、未加工の XML に対して動作します。 文字列内のトークンの拡張と考えることができます。 `${token}` パターンに一致する未加工の XML 文字列の一部は、トークンの展開の候補です。 対応する値が外部ソースに見つからない場合、トークンは変更されません。 このモードのビルダーは、`<appSettings/>` および `<connectionStrings/>` のセクションに限定されていません。
 
-次のマークアップから*web.config*により、 [EnvironmentConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/)で`Strict`モード。
+Web.config の次のマークアップ*により、* `Strict` モードでの環境[configbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/)が有効になります。
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebDefault.config?name=snippet)]
 
-次のコードの読み取り、`<appSettings/>`と`<connectionStrings/>`前述*web.config*ファイル。
+次のコードは、前の*web.config*ファイルに示されている `<appSettings/>` と `<connectionStrings/>` を読み取ります。
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/About.aspx.cs)]
 
-上記のコードでは、プロパティ値に設定します。
+上記のコードでは、プロパティ値を次のように設定します。
 
-* 内の値、 *web.config*ファイル環境変数では、キーが設定されていない場合。
-* 環境の値、変数の場合に設定します。
+* キーが環境変数に設定されていない場合*は、web.config ファイル内*の値。
+* 環境変数の値 (設定されている場合)。
 
-たとえば、`ServiceID`が含まれます。
+たとえば、`ServiceID` には次のものが含まれます。
 
-* 「Web.config ファイルからの ServiceID 値」場合は、環境変数`ServiceID`が設定されていません。
-* 値、`ServiceID`環境変数の場合に設定します。
+* 環境変数 `ServiceID` が設定されていない場合は、"ServiceID の値を web.config" で指定します。
+* `ServiceID` 環境変数の値 (設定されている場合)。
 
-次の図は、 `<appSettings/>` 、前のキー/値の*web.config*環境エディターでのファイル セット。
+次の図は、環境エディターで設定された上記の web.config ファイルの `<appSettings/>` キー/値を示して*い*ます。
 
-![環境のエディター](config-builder/static/env.png)
+![環境エディター](config-builder/static/env.png)
 
-メモ:終了し、環境変数に変更を表示する Visual Studio を再起動する必要があります。
+メモ: 環境変数の変更を確認するには、Visual Studio を終了して再起動することが必要になる場合があります。
 
 ### <a name="prefix-handling"></a>プレフィックスの処理
 
-キーのプレフィックスは、ために、設定キーを簡略化できます。
+キープレフィックスを使用すると、次の理由でキーの設定を簡略化できます。
 
-* .NET Framework 構成は、複雑で入れ子になったです。
-* 外部キー/値のソースは、基本的なと本質的にフラットでは一般的です。 たとえば、環境変数は入れ子にできません。
+* .NET Framework 構成は複雑で、入れ子になっています。
+* 外部キー/値ソースは、一般に基本的なものであり、本質的にフラットです。 たとえば、環境変数は入れ子になっていません。
 
-次の方法のいずれかを使用して、両方を挿入する`<appSettings/>`と`<connectionStrings/>`環境変数を使用して、構成に。
+次のいずれかの方法を使用して、`<appSettings/>` と `<connectionStrings/>` を環境変数を介して構成に挿入します。
 
-* `EnvironmentConfigBuilder`既定`Strict`モードと、構成ファイル内の適切なキー名。 上記のコードとマークアップは、このアプローチを採用します。 できます、このアプローチを使用して**いない**両方のキーが同じ名前の付いた`<appSettings/>`と`<connectionStrings/>`します。
-* 2 つを使用して、`EnvironmentConfigBuilder`内`Greedy`異なるプレフィックスを持つモードと`stripPrefix`します。 この方法で、アプリが読み取ることができます`<appSettings/>`と`<connectionStrings/>`構成ファイルを更新する必要はありません。 次のセクションでは、 [stripPrefix](#stripprefix)、これを行う方法を示しています。
-* 2 つを使用して、`EnvironmentConfigBuilder`内`Greedy`異なるプレフィックスを持つモード。 この方法でキー名を変更する必要がありますプレフィックスとキー名が重複することはできません。  例:
+* 既定の `Strict` モードの `EnvironmentConfigBuilder`、および構成ファイル内の適切なキー名。 上記のコードとマークアップは、この方法を採用しています。 この方法を使用すると、`<appSettings/>` と `<connectionStrings/>`の両方で同じ名前のキーを持つことはでき**ません**。
+* 異なるプレフィックスと `stripPrefix`を使用して、`Greedy` モードで2つの `EnvironmentConfigBuilder`s を使用します。 この方法では、構成ファイルを更新しなくても、アプリは `<appSettings/>` と `<connectionStrings/>` を読み取ることができます。 次の[セクションでは、この](#stripprefix)方法について説明します。
+* 異なるプレフィックスを使用して、`Greedy` モードで2つの `EnvironmentConfigBuilder`s を使用します。 この方法では、キー名がプレフィックスによって異なる必要があるため、キー名を重複させることはできません。  例:
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebPrefix.config?name=snippet&highlight=11-99)]
 
-上記のマークアップでは、2 つの異なるセクションの構成を設定する同じフラットなキー/値のソースを使用できます。
+上記のマークアップでは、同じフラットキー/値ソースを使用して、2つの異なるセクションの構成を設定できます。
 
-次の図は、`<appSettings/>`と`<connectionStrings/>`、前のキー/値の*web.config*環境エディターでのファイル セット。
+次の図は、環境エディターで設定された上記の web.config ファイルの `<appSettings/>` と `<connectionStrings/>` のキーと値を示して*い*ます。
 
-![環境のエディター](config-builder/static/prefix.png)
+![環境エディター](config-builder/static/prefix.png)
 
-次のコードの読み取り、`<appSettings/>`と`<connectionStrings/>`キー/値の前に含まれている*web.config*ファイル。
+次のコードは、前の*web.config*ファイルに格納されている `<appSettings/>` と `<connectionStrings/>` のキーと値を読み取ります。
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/Contact.aspx.cs?name=snippet)]
 
-上記のコードでは、プロパティ値に設定します。
+上記のコードでは、プロパティ値を次のように設定します。
 
-* 内の値、 *web.config*ファイル環境変数では、キーが設定されていない場合。
-* 環境の値、変数の場合に設定します。
+* キーが環境変数に設定されていない場合*は、web.config ファイル内*の値。
+* 環境変数の値 (設定されている場合)。
 
-たとえば、前を使用して*web.config*ファイル、前の環境のエディターの画像および前のコードは、次の値のキー/値が設定されます。
+たとえば、前の*web.config*ファイル、前の環境エディターイメージのキー/値、前のコードを使用すると、次の値が設定されます。
 
-|  キー              | [値] |
+|  [キー]              | Value |
 | ----------------- | ------------ |
-|     AppSetting_ServiceID           | 環境変数から AppSetting_ServiceID|
-|    AppSetting_default            | Env から AppSetting_default 値 |
-|       ConnStr_default         | Env から ConnStr_default val|
+|     AppSetting_ServiceID           | Env 変数からの AppSetting_ServiceID|
+|    AppSetting_default            | Env からの値の AppSetting_default |
+|       ConnStr_default         | Env からの ConnStr_default val|
 
-### <a name="stripprefix"></a>stripPrefix
+### <a name="stripprefix"></a>ストライプの Pprefix
 
-`stripPrefix`: ブール値、の既定値は`false`します。 
+`stripPrefix`: boolean、既定値は `false`です。 
 
-上記の XML マークアップは、アプリ設定接続文字列からを区切る、内のすべてのキーが必要です、 *web.config*指定したプレフィックスを使用するファイル。 たとえば、プレフィックス`AppSetting`に追加する必要があります、`ServiceID`キー ("AppSetting_ServiceID")。 `stripPrefix`で、プレフィックスが使用されていない、 *web.config*ファイル。 (たとえば、環境です。) で構成ビルダーのソースでプレフィックスが必要です。ほとんどの開発者が使用予定`stripPrefix`します。
+上記の XML マークアップは、アプリケーション設定を接続文字列から分離しますが、指定されたプレフィックスを使用する*には、web.config ファイル内*のすべてのキーが必要です。 たとえば、プレフィックス `AppSetting` を `ServiceID` キー ("AppSetting_ServiceID") に追加する必要があります。 `stripPrefix`では、プレフィックスは*web.config ファイルで*は使用されません。 プレフィックスは、構成ビルダーのソース (環境など) で必要です。ほとんどの開発者は `stripPrefix`を使用することを想定しています。
 
-アプリケーションは、通常、プレフィックスを削除します。 次*web.config*プレフィックスを削除します。
+アプリケーションは通常、プレフィックスを削除します。 *次の web.config は*プレフィックスを取り除きます。
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebPrefixStrip.config?name=snippet&highlight=14,19)]
 
-上記の「 *web.config*ファイル、`default`キー両方では、`<appSettings/>`と`<connectionStrings/>`。
+上記の*web.config*ファイルでは、`default` キーは `<appSettings/>` と `<connectionStrings/>`の両方にあります。
 
-次の図は、`<appSettings/>`と`<connectionStrings/>`、前のキー/値の*web.config*環境エディターでのファイル セット。
+次の図は、環境エディターで設定された上記の web.config ファイルの `<appSettings/>` と `<connectionStrings/>` のキーと値を示して*い*ます。
 
-![環境のエディター](config-builder/static/prefix.png)
+![環境エディター](config-builder/static/prefix.png)
 
-次のコードの読み取り、`<appSettings/>`と`<connectionStrings/>`キー/値の前に含まれている*web.config*ファイル。
+次のコードは、前の*web.config*ファイルに格納されている `<appSettings/>` と `<connectionStrings/>` のキーと値を読み取ります。
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/About2.aspx.cs?name=snippet)]
 
-上記のコードでは、プロパティ値に設定します。
+上記のコードでは、プロパティ値を次のように設定します。
 
-* 内の値、 *web.config*ファイル環境変数では、キーが設定されていない場合。
-* 環境の値、変数の場合に設定します。
+* キーが環境変数に設定されていない場合*は、web.config ファイル内*の値。
+* 環境変数の値 (設定されている場合)。
 
-たとえば、前を使用して*web.config*ファイル、前の環境のエディターの画像および前のコードは、次の値のキー/値が設定されます。
+たとえば、前の*web.config*ファイル、前の環境エディターイメージのキー/値、前のコードを使用すると、次の値が設定されます。
 
-|  キー              | [値] |
+|  [キー]              | Value |
 | ----------------- | ------------ |
-|     ServiceID           | 環境変数から AppSetting_ServiceID|
-|    default            | Env から AppSetting_default 値 |
-|    default         | Env から ConnStr_default val|
+|     ServiceID           | Env 変数からの AppSetting_ServiceID|
+|    default            | Env からの値の AppSetting_default |
+|    default         | Env からの ConnStr_default val|
 
 ### <a name="tokenpattern"></a>tokenPattern
 
-`tokenPattern`:既定値は、文字列 `@"\$\{(\w+)\}"`
+`tokenPattern`: String、既定値は `@"\$\{(\w+)\}"`
 
-`Expand` 、ビルダーの動作は、生の XML のようなトークンを検索`${token}`します。 既定の正規表現では検索`@"\$\{(\w+)\}"`します。 一致する文字セット`\w`が XML と多くの構成ソースを使用するよりも厳格です。 使用`tokenPattern`よりも文字以上と`@"\$\{(\w+)\}"`トークン名が必要です。
+ビルダーの `Expand` 動作は、未加工の XML で `${token}`のようなトークンを検索します。 検索は、既定の正規表現 `@"\$\{(\w+)\}"`を使用して行われます。 `\w` に一致する文字のセットは、XML よりも厳密であり、多くの構成ソースで許可されます。 トークン名に `@"\$\{(\w+)\}"` よりも多くの文字が必要な場合は、`tokenPattern` を使用します。
 
-`tokenPattern`:文字列: 
+`tokenPattern`: 文字列:
 
-* 開発者は、トークンの照合に使用される正規表現を変更できます。
-* 適切な形式で、危険で非正規表現がかどうかを確認する検証は行われません。
-* キャプチャ グループを含める必要があります。 全体の正規表現は、全体のトークンと一致する必要があります。 最初のキャプチャは、構成ソースを検索するため、トークンの名前である必要があります。
+* 開発者がトークン照合に使用される regex を変更できるようにします。
+* 適切な形式の非危険な regex であることを確認するための検証は行われません。
+* キャプチャグループが含まれている必要があります。 Regex 全体がトークン全体と一致している必要があります。 最初のキャプチャは、構成ソース内で検索するトークン名にする必要があります。
 
-## <a name="configuration-builders-in-microsoftconfigurationconfigurationbuilders"></a>構成ビルダー Microsoft.Configuration.ConfigurationBuilders で
+## <a name="configuration-builders-in-microsoftconfigurationconfigurationbuilders"></a>Microsoft. Configuration. ConfigurationBuilders の構成ビルダー
 
-### <a name="environmentconfigbuilder"></a>EnvironmentConfigBuilder
+### <a name="environmentconfigbuilder"></a>環境 Configbuilder
 
 ```xml
 <add name="Environment"
@@ -165,19 +165,19 @@ ms.locfileid: "59905697"
     Microsoft.Configuration.ConfigurationBuilders.Environment" />
 ```
 
-[EnvironmentConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/):
+環境[Configbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Environment/):
 
-* 構成ビルダーの最も簡単です。
+* は、最も単純な構成ビルダーです。
 * 環境から値を読み取ります。
-* 追加の構成オプションはありません。
-* `name`属性の値は任意です。
+* には、追加の構成オプションはありません。
+* `name` 属性値は任意です。
 
-**注:** Windows コンテナー環境で実行時に設定された変数のみ、エントリ ポイント プロセスの環境に挿入されます。 サービスとして実行するアプリまたは非エントリ ポイント プロセスでは、それ以外の場合、コンテナー内のメカニズムを通じてを注入がない限り、これらの変数を選択しないでください。 [IIS](https://github.com/Microsoft/iis-docker/pull/41)/[ASP.NET](https://github.com/Microsoft/aspnet-docker)-コンテナーの現在のバージョンに基づく[ServiceMonitor.exe](https://github.com/Microsoft/iis-docker/pull/41)でこれを処理、 *DefaultAppPool*のみです。 その他の Windows ベースのコンテナーのバリアントは、EntryPoint 以外のプロセスの独自性の注入メカニズムを開発する必要があります。
+**注:** Windows コンテナー環境では、実行時に設定される変数は EntryPoint プロセス環境にのみ挿入されます。 サービスとして実行されるアプリまたはエントリポイント以外のプロセスは、コンテナー内のメカニズムによって挿入されない限り、これらの変数を取得しません。 [IIS](https://github.com/Microsoft/iis-docker/pull/41)/[ASP.NET](https://github.com/Microsoft/aspnet-docker)ベースのコンテナーの場合、 [ServiceMonitor](https://github.com/Microsoft/iis-docker/pull/41)の現在のバージョンは、この処理を*DefaultAppPool*でのみ処理します。 その他の Windows ベースのコンテナーバリアントでは、エントリポイント以外のプロセス用に独自の挿入機構を開発することが必要になる場合があります。
 
 ### <a name="usersecretsconfigbuilder"></a>UserSecretsConfigBuilder
 
 > [!WARNING]
-> 決してのパスワードを保存、機密性の高い接続文字列、またはソース コード内の他の機密データにします。 運用シークレットを使用する必要があります、開発やテストします。
+> パスワード、機密性の高い接続文字列、またはその他の機密データをソースコードに格納しないでください。 運用シークレットは、開発またはテストには使用しないでください。
 
 ```xml
 <add name="UserSecrets"
@@ -188,18 +188,18 @@ ms.locfileid: "59905697"
     Microsoft.Configuration.ConfigurationBuilders.UserSecrets" />
 ```
 
-この構成ビルダーのような機能を提供する[ASP.NET Core Secret Manager](/aspnet/core/security/app-secrets)します。
+この構成ビルダーには、 [ASP.NET Core Secret Manager](/aspnet/core/security/app-secrets)と同様の機能が用意されています。
 
-[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) .NET Framework プロジェクトで使用できますが、シークレット ファイルを指定する必要があります。 代わりに、定義、`UserSecretsId`プロジェクト内のプロパティ ファイルを開き、正しい位置を読み取り用に、生のシークレット ファイルを作成します。 プロジェクトから外部の依存関係を保持するには、シークレットのファイルは XML 形式です。 実装の詳細は、XML の書式設定して、形式に依存する必要があります。 共有する必要がある場合、 *secrets.json* .NET Core プロジェクトでファイルを使用を検討して、 [SimpleJsonConfigBuilder](#simplejsonconfigbuilder)します。 `SimpleJsonConfigBuilder` .NET Core 見なす必要がありますも変更される可能性の実装の詳細の書式を設定します。
+[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/)は .NET Framework プロジェクトで使用できますが、シークレットファイルを指定する必要があります。 または、プロジェクトファイルの `UserSecretsId` プロパティを定義し、読み取り用の正しい場所に生のシークレットファイルを作成することもできます。 外部の依存関係をプロジェクトから除外するために、シークレットファイルは XML 形式になっています。 XML の書式設定は実装の詳細であり、形式に依存することはできません。 .NET Core プロジェクトでシークレットの*json*ファイルを共有する必要がある場合は、 [Simplejsonconfigbuilder](#simplejsonconfigbuilder)の使用を検討してください。 .NET Core の `SimpleJsonConfigBuilder` 形式は、変更される可能性のある実装の詳細についても考慮する必要があります。
 
-構成属性を`UserSecretsConfigBuilder`:
+`UserSecretsConfigBuilder`の構成属性:
 
-* `userSecretsId` -これは、XML のシークレット ファイルを識別するための推奨される方法です。 使用して .NET Core のような動作、`UserSecretsId`プロジェクトのプロパティをこの識別子を格納します。 文字列は一意である必要があります、GUID を指定する必要はありません。 この属性で、`UserSecretsConfigBuilder`によく知られているローカルの場所を検索 (`%APPDATA%\Microsoft\UserSecrets\<UserSecrets Id>\secrets.xml`) にこの識別子に属しているシークレット ファイル。
-* `userSecretsFile` -省略可能な属性は、シークレットを格納するファイルを指定します。 `~`アプリケーション ルートへの参照を先頭に文字を使用できます。 このいずれかの属性または`userSecretsId`属性が必要です。 両方が指定されて場合`userSecretsFile`が優先されます。
-* `optional`: ブール値、既定値`true`-シークレット ファイルが見つからない場合は、例外を防止します。 
-* `name`属性の値は任意です。
+* `userSecretsId`-これは、XML シークレットファイルを識別するために推奨される方法です。 これは、`UserSecretsId` プロジェクトプロパティを使用してこの識別子を格納する .NET Core に似ています。 文字列は一意である必要があります。 GUID である必要はありません。 この属性を使用すると、`UserSecretsConfigBuilder` は、この識別子に属するシークレットファイルの既知のローカルの場所 (`%APPDATA%\Microsoft\UserSecrets\<UserSecrets Id>\secrets.xml`) を検索します。
+* `userSecretsFile`-シークレットを含むファイルを指定する省略可能な属性です。 `~` 文字は、アプリケーションルートを参照するために開始時に使用できます。 この属性または `userSecretsId` 属性のいずれかが必要です。 両方を指定した場合、`userSecretsFile` が優先されます。
+* `optional`: ブール値、既定値 `true`-シークレットファイルが見つからない場合、例外が発生しないようにします。 
+* `name` 属性値は任意です。
 
-シークレット ファイルには、次の形式があります。
+シークレットファイルの形式は次のとおりです。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -224,15 +224,15 @@ ms.locfileid: "59905697"
     Microsoft.Configuration.ConfigurationBuilders.Azure" />
 ```
 
-[AzureKeyVaultConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Azure/)に格納されている値を読み取り、 [Azure Key Vault](/azure/key-vault/key-vault-whatis)します。
+[AzureKeyVaultConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Azure/)は、 [Azure Key Vault](/azure/key-vault/key-vault-whatis)に格納されている値を読み取ります。
 
-`vaultName` (資格情報コンテナーの名前)、または資格情報コンテナーへの URI のいずれかが必要です。 その他の属性に接続するには、どのコンテナーに関する制御を許可するで動作する環境でアプリケーションが実行されていない場合のみ必要なの`Microsoft.Azure.Services.AppAuthentication`します。 Azure サービスの認証ライブラリは、自動的に可能であれば、実行環境からの接続情報を選択に使用されます。 自動的にオーバーライドする接続文字列を提供することで接続情報を取得します。
+`vaultName` が必要です (資格情報コンテナーの名前または資格情報コンテナーへの URI)。 他の属性では、接続先のコンテナーを制御できますが、`Microsoft.Azure.Services.AppAuthentication`で動作する環境でアプリケーションが実行されていない場合にのみ必要です。 Azure サービス認証ライブラリは、可能であれば、実行環境から接続情報を自動的に取得するために使用されます。 接続文字列を指定することで、接続情報を自動的に取得することができます。
 
-* `vaultName` -必要な場合`uri`で指定されていません。 キー/値ペアの読み取り元となる Azure サブスクリプションでは、コンテナーの名前を指定します。
-* `connectionString` 使用可能な接続文字列は- [AzureServiceTokenProvider](https://docs.microsoft.com/en-us/azure/key-vault/service-to-service-authentication#connection-string-support)
-* `uri` -指定した場合は、その他の Key Vault プロバイダーに接続する`uri`値。 Azure を指定しない場合 (`vaultName`) は、資格情報コンテナーのプロバイダーです。
-* `version` -Azure Key Vault はシークレットのバージョン管理機能を提供します。 場合`version`を指定すると、ビルダーでは、このバージョンに一致するシークレットのみを取得します。
-* `preloadSecretNames` -既定では、このビルダー クエリ**すべて**が初期化されるときに、key vault 名をキーします。 すべてのキー値の読み取りを防ぐためには、この属性を設定`false`します。 これを設定`false`一度に 1 つのシークレットを読み取ります。 シークレットの便利な場合は、コンテナーは、"Get"アクセスが、"List"にアクセスを一度に 1 つできますを読み取っています。 **注:** 使用する場合`Greedy`モード、`preloadSecretNames`あります`true`(既定値です)。
+* `vaultName`-`uri` が指定されていない場合に必要です。 キーと値のペアの読み取りに使用する Azure サブスクリプション内のコンテナーの名前を指定します。
+* `connectionString`- [AzureServiceTokenProvider](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication#connection-string-support)によって使用可能な接続文字列
+* `uri`-指定した `uri` 値を使用して他の Key Vault プロバイダーに接続します。 指定しない場合、Azure (`vaultName`) はコンテナープロバイダーになります。
+* `version` Azure Key Vault には、シークレットのバージョン管理機能が用意されています。 `version` が指定されている場合、ビルダーはこのバージョンと一致するシークレットのみを取得します。
+* `preloadSecretNames`-既定では、このビルダーは初期化時に key vault 内の**すべて**のキー名を querys ます。 すべてのキー値が読み取られないようにするには、この属性を `false`に設定します。 これを `false` に設定すると、一度に1つのシークレットが読み取られます。 資格情報コンテナーが "Get" アクセスを許可し、"リスト" アクセスを許可しない場合は、一度に1つのシークレットを読み取ると便利です。 **注:** `Greedy` モードを使用する場合は、`preloadSecretNames` を `true` (既定値) にする必要があります。
 
 ### <a name="keyperfileconfigbuilder"></a>KeyPerFileConfigBuilder
 
@@ -247,19 +247,19 @@ ms.locfileid: "59905697"
     Microsoft.Configuration.ConfigurationBuilders.KeyPerFile" />
 ```
 
-[KeyPerFileConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.KeyPerFile/)はディレクトリのファイルの値のソースとして使用する基本的な構成ビルダー。 ファイルの名前は、キーと、コンテンツが値。 この構成ビルダーは、調整されたコンテナー環境で実行するときに役立ちます。 Docker Swarm と Kubernetes を提供するようにシステム`secrets`キー ファイルごとにこの方法では、その調整された windows コンテナーにします。
+[Keyperfileconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.KeyPerFile/)は、ディレクトリのファイルを値のソースとして使用する基本的な構成ビルダーです。 ファイル名はキーで、内容はの値です。 この構成ビルダーは、調整されたコンテナー環境で実行する場合に役立ちます。 Docker の群れや Kubernetes などのシステムでは、ファイルごとにこのキーを使用して、調整された windows コンテナーに `secrets` を提供します。
 
 属性の詳細:
 
-* `directoryPath` - 必須。 値を検索するパスを指定します。 機密情報が格納されている Windows の docker、 *C:\ProgramData\Docker\secrets*既定ディレクトリ。
-* `ignorePrefix` -このプレフィックスで始まるファイルが除外されます。 既定値"ignore"です。
-* `keyDelimiter` 既定値は`null`します。 場合は、指定された構成ビルダーは、この区切り記号でキー名を構築、ディレクトリの複数のレベルを走査します。 この値が場合`null`ディレクトリの最上位レベルだけ構成ビルダーを検索します。
-* `optional` 既定値は`false`します。 ソース ディレクトリが存在しない場合に、構成ビルダーがエラーを発生するかどうかを指定します。
+* `directoryPath` - 必須。 値を検索するパスを指定します。 Docker for Windows シークレットは、既定では*C:\ProgramData\Docker\secrets*ディレクトリに格納されます。
+* `ignorePrefix`-このプレフィックスで始まるファイルは除外されます。 既定値は "ignore" です。
+* `keyDelimiter`-既定値は `null`です。 指定した場合、構成ビルダーはディレクトリの複数のレベルを走査し、この区切り記号を使用してキー名を構築します。 この値が `null`場合、構成ビルダーはディレクトリの最上位レベルのみを参照します。
+* `optional`-既定値は `false`です。 ソースディレクトリが存在しない場合に、構成ビルダーでエラーを発生させるかどうかを指定します。
 
 ### <a name="simplejsonconfigbuilder"></a>SimpleJsonConfigBuilder
 
 > [!WARNING]
-> 決してのパスワードを保存、機密性の高い接続文字列、またはソース コード内の他の機密データにします。 運用シークレットを使用する必要があります、開発やテストします。
+> パスワード、機密性の高い接続文字列、またはその他の機密データをソースコードに格納しないでください。 運用シークレットは、開発またはテストには使用しないでください。
 
 ```xml
 <add name="SimpleJson"
@@ -271,16 +271,16 @@ ms.locfileid: "59905697"
     Microsoft.Configuration.ConfigurationBuilders.Json" />
 ```
 
-.NET core プロジェクトは、構成の JSON ファイルを頻繁に使用します。 [SimpleJsonConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Json/)ビルダーは、.NET Framework で使用する .NET Core の JSON ファイルを使用します。 この構成ビルダーは、.NET Framework の構成の特定のキー/値の領域にフラットなキー/値のソースからの基本的なマッピングを提供します。 この構成ビルダーが**いない**の階層の構成を提供します。 JSON ファイルは、複雑な階層オブジェクトではなく、ディクショナリに似ています。 複数レベルの階層的なファイルを使用できます。 このプロバイダー `flatten`s の各レベルを使用してプロパティ名を追加して深さ`:`区切り文字として。
+.NET Core プロジェクトでは、構成に JSON ファイルを頻繁に使用します。 [Simplejsonconfigbuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Json/)ビルダーでは、.NET Core JSON ファイルを .NET Framework で使用できます。 この構成ビルダーは、フラットキー/値ソースから .NET Framework 構成の特定のキー/値領域への基本的なマッピングを提供します。 この構成ビルダーでは、階層構造の構成は提供**されません**。 JSON バッキングファイルは、複雑な階層オブジェクトではなく、辞書に似ています。 複数レベルの階層ファイルを使用できます。 このプロバイダーは、`:` を区切り記号として使用して、各レベルにプロパティ名を追加することで、深さを `flatten`します。
 
 属性の詳細:
 
-* `jsonFile` - 必須。 読み取りに JSON ファイルを指定します。 `~`アプリのルートを参照する先頭の文字を使用できます。
-* `optional` -ブール値、既定値は`true`します。 により、JSON ファイルが見つからない場合は、例外をスローします。
-* `jsonMode` - `[Flat|Sectional]`. `Flat` が既定値です。 ときに`jsonMode`は`Flat`、JSON ファイルが 1 つのフラットなキー/値のソース。 `EnvironmentConfigBuilder`と`AzureKeyVaultConfigBuilder`も、1 つのフラットなキー/値のソース。 ときに、`SimpleJsonConfigBuilder`で構成されて`Sectional`モード。
+* `jsonFile` - 必須。 読み取る JSON ファイルを指定します。 `~` 文字は、アプリのルートを参照するために開始時に使用できます。
+* `optional`-ブール値。既定値は `true`です。 JSON ファイルが見つからない場合に例外をスローしないようにします。
+* `jsonMode` - `[Flat|Sectional]`. `Flat` が既定値です。 `jsonMode` が `Flat`場合、JSON ファイルは1つのフラットキー/値ソースです。 `EnvironmentConfigBuilder` と `AzureKeyVaultConfigBuilder` は、単一のフラットキー/値ソースでもあります。 `SimpleJsonConfigBuilder` が `Sectional` モードで構成されている場合:
 
-  * JSON ファイルは概念的には、最上位レベルだけで複数のディクショナリに分かれています。
-  * 各ディクショナリは、割り当てられている最上位のプロパティ名と一致する構成セクションにのみ適用します。 例:
+  * JSON ファイルは、概念的に最上位から複数の辞書に分割されています。
+  * 各ディクショナリは、接続されている最上位レベルのプロパティ名と一致する構成セクションにのみ適用されます。 例:
 
 ```json
     {
@@ -295,18 +295,18 @@ ms.locfileid: "59905697"
     }
 ```
 
-## <a name="implementing-a-custom-keyvalue-configuration-builder"></a>キー/値のカスタム構成ビルダーを実装します。
+## <a name="implementing-a-custom-keyvalue-configuration-builder"></a>カスタムキー/値構成ビルダーの実装
 
-構成ビルダーが目的に合わない場合は、カスタムの 1 つを記述できます。 `KeyValueConfigBuilder`基底クラスが置換モードとプレフィックスのほとんどの問題を処理します。 実装するプロジェクトのみが必要です。
+構成ビルダーがニーズを満たしていない場合は、カスタムのものを作成できます。 `KeyValueConfigBuilder` 基底クラスは、置換モードとほとんどのプレフィックスの問題を処理します。 実装するプロジェクトに必要なものは次のとおりです。
 
-* 基本クラスから継承し、実装をキー/値ペアの基本的なソース、`GetValue`と`GetAllValues`:
-* 追加、 [Microsoft.Configuration.ConfigurationBuilders.Base](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Base/)をプロジェクトにします。
+* 基本クラスから継承し、`GetValue` と `GetAllValues`を使用してキーと値のペアの基本的なソースを実装します。
+* プロジェクトに、 [Microsoft. Configuration. configurationbuilders](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Base/)追加します。
 
 [!code-csharp[Main](config-builder/MyConfigBuilders/MyCustomConfigBuilder.cs)]
 
-`KeyValueConfigBuilder`基本クラスには、職場で一貫性のある動作の多くキー/値の間で構成ビルダー。
+`KeyValueConfigBuilder` の基本クラスを使用すると、キー/値構成ビルダー間での作業と一貫性のある動作が多くなります。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [構成ビルダーの GitHub リポジトリ](https://github.com/aspnet/MicrosoftConfigurationBuilders)
-* [.NET を使用して Azure Key Vault へのサービス間認証](/azure/key-vault/service-to-service-authentication#connection-string-support)
+* [構成ビルダー GitHub リポジトリ](https://github.com/aspnet/MicrosoftConfigurationBuilders)
+* [.NET を使用して Azure Key Vault するためのサービス間認証](/azure/key-vault/service-to-service-authentication#connection-string-support)

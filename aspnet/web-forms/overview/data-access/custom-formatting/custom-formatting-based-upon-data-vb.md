@@ -1,288 +1,288 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
-title: データ (VB) に基づくカスタム書式設定 |Microsoft Docs
+title: データに基づくカスタム書式設定 (VB) |Microsoft Docs
 author: rick-anderson
-description: GridView、DetailsView、またはにバインドされたデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルでは、l をしましょう.
+description: GridView、DetailsView、または FormView の形式を、バインドされたデータに基づいて調整するには、複数の方法があります。 このチュートリアルでは、...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 064bbc94b466ecb43bd0f7985433a0acb986d757
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 268dc763ef6954903f721a3015daaf10bf9bccb1
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108897"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74613047"
 ---
 # <a name="custom-formatting-based-upon-data-vb"></a>データに基づくカスタム書式設定 (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_11_VB.exe)または[PDF のダウンロード](custom-formatting-based-upon-data-vb/_static/datatutorial11vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_11_VB.exe)または[PDF のダウンロード](custom-formatting-based-upon-data-vb/_static/datatutorial11vb1.pdf)
 
-> GridView、DetailsView、またはにバインドされたデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルでは、データ バインドのデータ バインドと RowDataBound イベント ハンドラーを使用して書式設定を実現する方法を紹介します。
+> GridView、DetailsView、または FormView の形式を、バインドされたデータに基づいて調整するには、複数の方法があります。 このチュートリアルでは、データバインディングと行のデータバインドのイベントハンドラーを使用して、データバインド形式を実現する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-無数のスタイル関連プロパティの使用は、GridView、DetailsView、FormView コントロールの外観をカスタマイズできます。 などのプロパティ`CssClass`、 `Font`、 `BorderWidth`、 `BorderStyle`、 `BorderColor`、 `Width`、および`Height`、他のユーザーの間でレンダリングされたコントロールの外観を決定します。 プロパティを含む`HeaderStyle`、 `RowStyle`、 `AlternatingRowStyle`、特定のセクションに適用されるこれらの同じスタイル設定を許可する他のユーザーとします。 同様に、これらのスタイル設定は、フィールド レベルで適用できます。
+GridView、DetailsView、FormView コントロールの外観は、スタイルに関連する無数のプロパティを使用してカスタマイズできます。 `CssClass`、`Font`、`BorderWidth`、`BorderStyle`、`BorderColor`、`Width`、`Height`などのプロパティは、表示されるコントロールの全般的な外観を決定します。 `HeaderStyle`、`RowStyle`、`AlternatingRowStyle`などのプロパティを使用すると、これらの同じスタイル設定を特定のセクションに適用できます。 同様に、これらのスタイル設定はフィールドレベルで適用できます。
 
-多くのシナリオで、書式設定の要件によって異なります、表示されるデータの値。 などを描画する注意の商品を在庫として保管する製品情報を一覧表示するレポート可能性があります設定を持つこれらの製品の黄色の背景色`UnitsInStock`と`UnitsOnOrder`フィールドは、どちらも 0 に等しい。 高価な製品を強調表示するには、太字のフォントで複数の 75.00 ドルのコストをこれらの製品の価格を表示することもします。
+ただし、多くのシナリオでは、書式設定の要件は、表示されるデータの値によって異なります。 たとえば、在庫切れ製品に注目するために、製品情報を一覧表示するレポートでは、`UnitsInStock` フィールドと `UnitsOnOrder` フィールドの両方が0である製品の背景色が黄色に設定されている場合があります。 コストの高い製品を強調表示するには、$75.00 を超える価格を太字のフォントで表示することをお勧めします。
 
-GridView、DetailsView、またはにバインドされたデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルではデータ バインドを使用すると書式設定を実行する方法に注目します、`DataBound`と`RowDataBound`イベント ハンドラー。 次のチュートリアルではその他の方法について説明します。
+GridView、DetailsView、または FormView の形式を、バインドされたデータに基づいて調整するには、複数の方法があります。 このチュートリアルでは、`DataBound` および `RowDataBound` のイベントハンドラーを使用して、データバインド形式を実現する方法について説明します。 次のチュートリアルでは、別の方法について説明します。
 
-## <a name="using-the-detailsview-controlsdataboundevent-handler"></a>DetailsView コントロールの`DataBound`イベント ハンドラー
+## <a name="using-the-detailsview-controlsdataboundevent-handler"></a>DetailsView コントロールの`DataBound`イベントハンドラーの使用
 
-データは、DetailsView にバインドされるデータ ソース コントロールまたはコントロールのデータをプログラムで割り当てることでいつ`DataSource`プロパティと呼び出し元の`DataBind()`メソッドでは、次の一連の手順が発生します。
+データソースコントロールから、またはプログラムによってコントロールの `DataSource` プロパティにデータを割り当て、その `DataBind()` メソッドを呼び出すことにより、データが DetailsView にバインドされると、次の一連の手順が実行されます。
 
-1. データ Web コントロールの`DataBinding`イベントが発生します。
-2. データ Web コントロールにバインドされます。
-3. データ Web コントロールの`DataBound`イベントが発生します。
+1. データ Web コントロールの `DataBinding` イベントが発生します。
+2. データは、データ Web コントロールにバインドされます。
+3. データ Web コントロールの `DataBound` イベントが発生します。
 
-カスタム ロジックは、イベント ハンドラーによって、手順 1 および 3 の直後に挿入できます。 イベント ハンドラーを作成して、`DataBound`イベントされたデータがデータ Web コントロールにバインドされ、必要に応じて、書式設定を調整プログラムで判断できます。 それではこれを説明するために、製品に関する一般的な情報が一覧表示が表示されます DetailsView を作成、`UnitPrice`値、***太字、斜体フォント***75.00 ドルを超える場合。
+カスタムロジックは、手順 1. と 3. の直後にイベントハンドラーを使用して挿入できます。 `DataBound` イベントのイベントハンドラーを作成することによって、データ Web コントロールにバインドされているデータをプログラムによって判断し、必要に応じて書式設定を調整することができます。 これを説明するために、製品に関する全般的な情報を一覧表示する DetailsView を作成しますが、$75.00 を超えた場合は、`UnitPrice` 値を***太字の斜体フォント***で表示します。
 
-## <a name="step-1-displaying-the-product-information-in-a-detailsview"></a>手順 1: DetailsView で製品情報を表示します。
+## <a name="step-1-displaying-the-product-information-in-a-detailsview"></a>手順 1: DetailsView で製品情報を表示する
 
-開く、`CustomColors.aspx`ページで、`CustomFormatting`フォルダー、DetailsView コントロールをツールボックスからデザイナーにドラッグして、設定、`ID`プロパティの値を`ExpensiveProductsPriceInBoldItalic`を呼び出す新しい ObjectDataSource コントロールにバインドし、 `ProductsBLL`クラスの`GetProducts()`メソッド。 ここに詳細に調査前のチュートリアルであるためここでこれを実現する詳細な手順を省略し、簡潔にするためのされます。
+`CustomFormatting` フォルダーの [`CustomColors.aspx`] ページを開き、[ツールボックス] から [DetailsView] コントロールをデザイナーにドラッグし、`ID` プロパティの値を [`ExpensiveProductsPriceInBoldItalic`] に設定して、`ProductsBLL` クラスの `GetProducts()` メソッドを呼び出す新しい ObjectDataSource コントロールにバインドします。 これを実現するための詳細な手順については、前のチュートリアルで詳しく説明したので、ここでは簡潔にするために省略してあります。
 
-ObjectDataSource は、DetailsView にバインドしたら後、は、フィールド リストを変更するには、少しを実行します。 削除することを選択する、 `ProductID`、 `SupplierID`、 `CategoryID`、 `UnitsInStock`、 `UnitsOnOrder`、 `ReorderLevel`、および`Discontinued`BoundFields の名前を変更して、残りの BoundFields を再フォーマットします。 私も取り除か、`Width`と`Height`設定します。 DetailsView では、1 つのレコードのみが表示されたら、以降のすべての製品を表示するエンドユーザーに許可するには、ページングを有効にする必要があります。 そのため、DetailsView のスマート タグでページングを有効にするチェック ボックスをオンします。
+ObjectDataSource を DetailsView にバインドしたら、すぐにフィールドリストを変更します。 `ProductID`、`SupplierID`、`CategoryID`、`UnitsInStock`、`UnitsOnOrder`、`ReorderLevel`、および `Discontinued` BoundFields を削除し、残りの BoundFields の名前を変更して再フォーマットすることを選択しました。 また、`Width` と `Height` の設定をクリアしました。 DetailsView には1つのレコードのみが表示されるため、エンドユーザーがすべての製品を表示できるようにするには、ページングを有効にする必要があります。 これを行うには、DetailsView のスマートタグの [ページングを有効にする] チェックボックスをオンにします。
 
-[![図 1:DetailsView のスマート タグで有効にするページングのチェック ボックスをオンします。](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
+[![図 1: DetailsView のスマートタグの [ページングを有効にする] チェックボックスをオンにする](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
 
-**図 1**:図 1: チェック ボックスを有効にするページング DetailsView のスマート タグ ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image3.png))。
+**図 1**: 図 1: DetailsView のスマートタグの [ページングを有効にする] チェックボックス[をオンにする (クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image3.png)されます)
 
-これらの変更後、DetailsView マークアップが表示されます。
+これらの変更が完了すると、DetailsView マークアップは次のようになります。
 
 [!code-aspx[Main](custom-formatting-based-upon-data-vb/samples/sample1.aspx)]
 
-このページをブラウザーでテストする時間がかかります。
+ブラウザーでこのページをテストしてみましょう。
 
-[![DetailsView コントロールは、一度に 1 つの製品を表示します](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
+[DetailsView コントロールに一度に1つの製品が表示される ![](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
 
-**図 2**:DetailsView コントロールが表示されます製品の 1 つずつ ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image6.png))。
+**図 2**: DetailsView コントロールは一度に1つの製品を表示します ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image6.png)されます)
 
-## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>手順 2: データ バインド イベント ハンドラー内のデータの値をプログラムで判断します。
+## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>手順 2: プログラムによってデータバインドイベントハンドラーのデータ値を判断する
 
-これらの製品の太字、斜体のフォントの価格を表示するために持つ`UnitPrice`値 75.00 ドルを超えていること、最初にプログラムで判断できる必要があります、`UnitPrice`値。 これは、DetailsView をで実行できます、`DataBound`イベント ハンドラー。 イベントを作成するには、は、ハンドラーは、DetailsView、デザイナーでクリックし、[プロパティ] ウィンドウに移動します。 表示、または [表示] メニューに移動ではない場合は、起動、f4 キーを押して、[プロパティ] ウィンドウのメニュー オプションを選択します。 [プロパティ] ウィンドウからは、DetailsView のイベントを一覧表示する稲妻のアイコンをクリックします。 次に、ダブルクリックするか、`DataBound`イベントまたはイベント ハンドラーを作成する名前を入力します。
+`UnitPrice` 値が $75.00 を超える製品の太字で斜体のフォントで価格を表示するには、まず、`UnitPrice` の値をプログラムによって判断できるようにする必要があります。 DetailsView の場合、これは `DataBound` イベントハンドラーで実現できます。 イベントハンドラーを作成するには、デザイナーで [DetailsView] をクリックし、プロパティウィンドウに移動します。 F4 キーを押して表示しない場合は、F4 キーを押すか、[表示] メニューに移動して [プロパティウィンドウ] メニューオプションを選択します。 プロパティウィンドウから、稲妻のアイコンをクリックして、DetailsView のイベントの一覧を表示します。 次に、`DataBound` イベントをダブルクリックするか、作成するイベントハンドラーの名前を入力します。
 
-![データ バインド イベントのイベント ハンドラーを作成します。](custom-formatting-based-upon-data-vb/_static/image7.png)
+![データバインドイベントのイベントハンドラーを作成する](custom-formatting-based-upon-data-vb/_static/image7.png)
 
-**図 3**:イベント ハンドラーを作成、`DataBound`イベント
+**図 3**: `DataBound` イベントのイベントハンドラーを作成する
 
 > [!NOTE]
-> ASP.NET ページのコードの部分からイベント ハンドラーを作成することもできます。 あるページの上部にある 2 つのドロップダウン リストがあります。 左側のドロップダウン リストからオブジェクトを選択し、右のドロップダウン リストと Visual Studio からのハンドラーを作成するイベントが自動的に適切なイベント ハンドラーを作成します。
+> また、ASP.NET ページのコード部分からイベントハンドラーを作成することもできます。 ここには、ページの上部に2つのドロップダウンリストがあります。 左のドロップダウンリストからオブジェクトを選択すると、ハンドラーを作成するイベントが右のドロップダウンリストから選択され、Visual Studio によって適切なイベントハンドラーが自動的に作成されます。
 
-これは自動的にイベント ハンドラーを作成に移動コード部分が追加されました。 この時点で表示されます。
+これにより、イベントハンドラーが自動的に作成され、追加されたコード部分に移動します。 この時点で、次のように表示されます。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample2.vb)]
 
-DetailsView にバインドされたデータを使用してアクセスできる、`DataItem`プロパティ。 コントロールに厳密に型指定された DataRow インスタンスのコレクションから構成される厳密に型指定された DataTable をバインドしていることを思い出してください。 DetailsView に、DataTable 内の最初の DataRow が割り当てられている、DetailsView に DataTable をバインドするとと、`DataItem`プロパティ。 具体的には、`DataItem`プロパティが割り当てられている、`DataRowView`オブジェクト。 使用して、`DataRowView`の`Row`が基になる DataRow オブジェクトへのアクセスを取得するプロパティが、実際に`ProductsRow`インスタンス。 これを行って`ProductsRow`インスタンス オブジェクトのプロパティの値を検査するだけで、意思決定を行んだことができます。
+DetailsView にバインドされたデータには、`DataItem` プロパティを使用してアクセスできます。 コントロールを厳密に型指定された DataTable にバインドすることを思い出してください。これは、厳密に型指定された DataRow インスタンスのコレクションで構成されています。 DataTable が DetailsView にバインドされると、DataTable の最初の DataRow が DetailsView の `DataItem` プロパティに割り当てられます。 具体的には、`DataItem` プロパティに `DataRowView` オブジェクトが割り当てられます。 `DataRowView`の `Row` プロパティを使用して、基になる DataRow オブジェクト (実際には `ProductsRow` インスタンス) にアクセスできます。 この `ProductsRow` インスタンスを作成した後は、オブジェクトのプロパティ値を調べるだけで、決定を行うことができます。
 
-次のコード例を確認するかどうか、 `UnitPrice` DetailsView コントロールにバインドされている値 75.00 ドルを超えています。
+次のコードは、DetailsView コントロールにバインドされている `UnitPrice` 値が $75.00 より大きいかどうかを確認する方法を示しています。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample3.vb)]
 
 > [!NOTE]
-> `UnitPrice`できますが、`NULL`データベース内の値は、最初に確認で扱っていないかどうかを確認する、`NULL`値にアクセスする前に、`ProductsRow`の`UnitPrice`プロパティ。 このチェックは重要ですのでにアクセスする場合、`UnitPrice`プロパティが、`NULL`値、`ProductsRow`オブジェクトがスローされます、 [StrongTypingException 例外](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx)。
+> `UnitPrice` はデータベースに `NULL` 値を持つことができるため、まず、`ProductsRow`の `UnitPrice` プロパティにアクセスする前に `NULL` 値を処理していないことを確認します。 `NULL` 値がある場合に `UnitPrice` プロパティにアクセスしようとすると、`ProductsRow` オブジェクトが[StrongTypingException 例外](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx)をスローするため、このチェックは重要です。
 
-## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>手順 3: DetailsView で UnitPrice の値の書式設定
+## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>手順 3: DetailsView の UnitPrice 値の書式設定
 
-この時点で判断できるかどうか、 `UnitPrice` DetailsView にバインドされている値を超える $75.00、値を持つが、DetailsView をプログラムで調整する方法については適切に書式のまだ用意しています。 DetailsView で行全体の書式設定を変更するプログラムでアクセスを使用して行`DetailsViewID.Rows(index)`; を変更する特定のセルを使用するアクセス`DetailsViewID.Rows(index).Cells(index)`します。 行またはセルの外観のスタイル関連プロパティを設定し、調整できるへの参照を取得したら。
+この時点で、DetailsView にバインドされている `UnitPrice` 値の値が $75.00 を超えているかどうかを確認できますが、それに応じて DetailsView の書式をプログラムで調整する方法については、まだ説明していません。 DetailsView 内の行全体の書式を変更するには、プログラムで `DetailsViewID.Rows(index)`を使用して行にアクセスします。特定のセルを変更するには、`DetailsViewID.Rows(index).Cells(index)`を使用します。 行またはセルへの参照を取得したら、そのスタイルに関連するプロパティを設定することによって外観を調整できます。
 
-行をプログラムでアクセスするには、0 から始まる行のインデックスがわかっている必要があります。 `UnitPrice`行が 4 のインデックスを付けることと、プログラムでアクセスできるように、DetailsView の 5 番目の行を使用して`ExpensiveProductsPriceInBoldItalic.Rows(4)`します。 この時点で、次のコードを使用して、太字、斜体のフォントで表示される行全体のコンテンツがある可能性があります。
+プログラムによって行にアクセスするには、0から始まる行のインデックスが必要です。 `UnitPrice` 行は、DetailsView の5番目の行になります。これにより、4のインデックスが作成され、`ExpensiveProductsPriceInBoldItalic.Rows(4)`を使用してプログラムからアクセスできるようになります。 この時点で、次のコードを使用して、行のコンテンツ全体を太字で斜体のフォントで表示できます。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample4.vb)]
 
-ただし、これにより、*両方*ラベル (価格) と太字と斜体の値。 値を作成した太字と斜体書式設定を 2 番目のセル、行は、次を使用して実現可能でこれを適用する場合。
+ただし、これにより、ラベル (Price) と値が太字と斜体の*両方*が作成されます。 太字と斜体の値のみを使用する場合は、この書式設定を行の2番目のセルに適用する必要があります。これは、次のようにして実現できます。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample5.vb)]
 
-ここまでチュートリアルは、レンダリングされたマークアップとスタイル関連の情報が明確に分離を維持するためにスタイル シートを使用して後、は、上記みましょう代わりに、特定のスタイル プロパティを設定するのではなく CSS クラスを使用します。 開く、`Styles.css`スタイル シートという名前の新しい CSS クラスを追加および`ExpensivePriceEmphasis`を次の定義。
+これまでのチュートリアルでは、スタイルシートを使用して、レンダリングされたマークアップとスタイル関連の情報を明確に分離しているため、上記のように特定のスタイルプロパティを設定するのではなく、CSS クラスを使用します。 `Styles.css` スタイルシートを開き、次の定義を使用して `ExpensivePriceEmphasis` という名前の新しい CSS クラスを追加します。
 
 [!code-css[Main](custom-formatting-based-upon-data-vb/samples/sample6.css)]
 
-次に、`DataBound`イベント ハンドラーでは、設定、セルの`CssClass`プロパティを`ExpensivePriceEmphasis`します。 次のコードは、`DataBound`全体のイベント ハンドラー。
+次に、`DataBound` イベントハンドラーで、セルの `CssClass` プロパティを `ExpensivePriceEmphasis`に設定します。 次のコードは、`DataBound` イベントハンドラー全体を示しています。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample7.vb)]
 
-通常フォントで価格が表示されます、Chai 75.00 ドル未満のコスト、これを表示するときに (図 4 参照)。 ただし、97.00 ドルの価格を持つ、Mishi 日本の神戸 Niku を表示すると、価格が太字、斜体のフォントに表示されます (図 5 を参照してください)。
+Chai を表示するときに、$75.00 未満の料金が表示される場合は、通常のフォントで表示されます (図4を参照)。 ただし、価格が $97.00 の Mishi の Niku を表示する場合、価格は太字で斜体のフォントで表示されます (図5を参照)。
 
-[![通常フォントで $75.00 より低い価格が表示されます。](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
+[$75.00 未満の ![価格は通常のフォントで表示されます](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
 
-**図 4**:通常フォントで $75.00 より低い価格が表示されます ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image10.png))。
+**図 4**: $75.00 未満の価格は通常のフォントで表示されます ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image10.png)されます)
 
-[![高価な製品の価格は太字、斜体フォントで表示されます。](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
+[![高価な製品の価格が太字で斜体のフォントで表示される](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
 
-**図 5**:太字、斜体フォントで高価な製品の価格が表示されます ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image13.png))。
+**図 5**: 高価な製品の価格は、太字で斜体のフォントで表示されます ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image13.png)されます)
 
-## <a name="using-the-formview-controlsdataboundevent-handler"></a>FormView コントロールの`DataBound`イベント ハンドラー
+## <a name="using-the-formview-controlsdataboundevent-handler"></a>FormView コントロールの`DataBound`イベントハンドラーの使用
 
-FormView にバインドされている基になるデータを決定するための手順はものと同じですが、DetailsView を作成、`DataBound`イベント ハンドラーでは、キャスト、`DataItem`プロパティを適切なオブジェクトの種類が、コントロールにバインドされ、続行する方法を決定します。 FormView と DetailsView が異なる場合、ただしでのユーザー インターフェイスの外観を更新する方法。
+FormView にバインドされている基になるデータを決定する手順は、DetailsView の場合と同じです。 `DataBound` イベントハンドラーを作成し、`DataItem` プロパティをコントロールにバインドされている適切なオブジェクト型にキャストし、続行する方法を決定します。 ただし、FormView と DetailsView は、ユーザーインターフェイスの外観がどのように更新されるかによって異なります。
 
-FormView 任意 BoundFields が含まれていないとがないため、`Rows`コレクション。 テンプレートは、静的な HTML の組み合わせを含めることができます、FormView を構成する代わりに、Web コントロール、およびデータ バインド構文。 通常、フォーム ビューのスタイルを調整するには、FormView のテンプレート内の Web コントロールの 1 つ以上のスタイルを調整する必要があります。
+FormView に BoundFields が含まれていないため、`Rows` コレクションがありません。 代わりに、FormView はテンプレートで構成されています。これには、静的な HTML、Web コントロール、およびデータバインディングの構文の組み合わせを含めることができます。 FormView のスタイルを調整するには、通常、FormView のテンプレート内の1つ以上の Web コントロールのスタイルを調整する必要があります。
 
-これを示すためには、みましょうみましょうなどが、前の例で、この時点で製品の一覧をフォーム ビューを表示、製品名と単位だけ在庫は 10 以下の場合は、赤いフォントで表示単位と在庫です。
+これを説明するために、FormView を使用して前の例のように製品を一覧表示しますが、ここでは、在庫の単位が10以下の場合に、株価の単位を赤のフォントで表示します。
 
-## <a name="step-4-displaying-the-product-information-in-a-formview"></a>手順 4: FormView で製品情報を表示します。
+## <a name="step-4-displaying-the-product-information-in-a-formview"></a>手順 4: FormView で製品情報を表示する
 
-フォーム ビューの追加、 `CustomColors.aspx` DetailsView やセットの下のページ、`ID`プロパティを`LowStockedProductsInRed`します。 FormView を前の手順で作成された ObjectDataSource コントロールにバインドします。 これが作成されます、 `ItemTemplate`、 `EditItemTemplate`、および`InsertItemTemplate`FormView の。 削除、`EditItemTemplate`と`InsertItemTemplate`および簡略化、`ItemTemplate`を含めるだけ`ProductName`と`UnitsInStock`値、それぞれを適切に名前付きの独自のラベル コントロールにします。 ある DetailsView、前述の例でも FormView のスマート タグでページングを有効にするチェック ボックスをチェックします。
+FormView の下にある `CustomColors.aspx` ページに FormView を追加し、その `ID` プロパティを `LowStockedProductsInRed`に設定します。 前の手順で作成した ObjectDataSource コントロールに FormView をバインドします。 これにより、FormView の `ItemTemplate`、`EditItemTemplate`、および `InsertItemTemplate` が作成されます。 `EditItemTemplate` と `InsertItemTemplate` を削除し、`ProductName` および `UnitsInStock` の値だけを含めるように `ItemTemplate` を簡略化します。各値は、適切な名前を付けたラベルコントロールに含まれます。 前の例の DetailsView と同様に、FormView のスマートタグの [ページングを有効にする] チェックボックスもオンにします。
 
-これらの編集後に、フォーム ビューのマークアップは、次のようなになります。
+これらの編集が完了すると、FormView のマークアップは次のようになります。
 
 [!code-aspx[Main](custom-formatting-based-upon-data-vb/samples/sample8.aspx)]
 
-なお、`ItemTemplate`が含まれています。
+`ItemTemplate` には次のものが含まれることに注意してください。
 
-- **静的な HTML**テキスト"Product:"と"在庫数:"と共に、`<br />`と`<b>`要素。
-- **Web コントロール**2 つのラベル コントロール`ProductNameLabel`と`UnitsInStockLabel`します。
-- **データ バインディング構文**、`<%# Bind("ProductName") %>`と`<%# Bind("UnitsInStock") %>`構文は、これらのフィールドから値をラベル コントロールに割り当てます`Text`プロパティ。
+- **静的 HTML**テキスト "Product:" および "Unit In Stock:" と共に、`<br />` 要素と `<b>` 要素が含まれます。
+- **Web**では、`ProductNameLabel` と `UnitsInStockLabel`の2つのラベルコントロールを制御します。
+- **Databinding 構文**`<%# Bind("ProductName") %>` と `<%# Bind("UnitsInStock") %>` の構文。これらのフィールドの値をラベルコントロールの `Text` プロパティに割り当てます。
 
-## <a name="step-5-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>手順 5: データ バインド イベント ハンドラー内のデータの値をプログラムで判断します。
+## <a name="step-5-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>手順 5: プログラムによってデータバインドイベントハンドラーのデータ値を判断する
 
-次の手順はフォーム ビューのマークアップを完全なプログラムによる場合を決定する、`UnitsInStock`値が 10 未満。 これには、DetailsView であったため、フォーム ビューとまったく同じ方法で実現されます。 FormView のため、イベント ハンドラーを作成して開始`DataBound`イベント。
+FormView のマークアップが完了したら、次の手順では、`UnitsInStock` 値が10以下であるかどうかをプログラムによって判断します。 これは、DetailsView と同じように FormView とまったく同じ方法で実行されます。 まず、FormView の `DataBound` イベントのイベントハンドラーを作成します。
 
-![データ バインド イベント ハンドラーを作成します。](custom-formatting-based-upon-data-vb/_static/image14.png)
+![データバインドイベントハンドラーを作成する](custom-formatting-based-upon-data-vb/_static/image14.png)
 
-**図 6**:作成、`DataBound`イベント ハンドラー
+**図 6**: `DataBound` イベントハンドラーを作成する
 
-イベント ハンドラーにキャスト FormView の`DataItem`プロパティを`ProductsRow`インスタンス化し、決定かどうか、`UnitsInPrice`値が赤いフォントで表示する必要がありますようにします。
+イベントハンドラーで、FormView の `DataItem` プロパティを `ProductsRow` インスタンスにキャストし、`UnitsInPrice` 値が赤いフォントで表示する必要があるかどうかを判断します。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample9.vb)]
 
-## <a name="step-6-formatting-the-unitsinstocklabel-label-control-in-the-formviews-itemtemplate"></a>手順 6: FormView の ItemTemplate の UnitsInStockLabel ラベル コントロールの書式設定
+## <a name="step-6-formatting-the-unitsinstocklabel-label-control-in-the-formviews-itemtemplate"></a>手順 6: FormView の ItemTemplate で、ユニットの Instocklabel ラベルコントロールの書式を設定する
 
-最後の手順では、表示されている書式設定を`UnitsInStock`赤いフォントで値の場合は、値が 10 個以下。 プログラムでアクセスする必要があります。 これを実現する、`UnitsInStockLabel`を制御、`ItemTemplate`し、そのテキストが赤で表示されるように、そのスタイル プロパティを設定します。 テンプレートでの Web コントロールにアクセスするには、使用、`FindControl("controlID")`このようなメソッド。
+最後の手順では、表示されている `UnitsInStock` 値を、値が10以下の場合に赤いフォントで書式設定します。 これを実現するには、プログラムを使用して `ItemTemplate` の `UnitsInStockLabel` コントロールにアクセスし、そのテキストが赤で表示されるようにスタイルプロパティを設定する必要があります。 テンプレート内の Web コントロールにアクセスするには、次のように `FindControl("controlID")` メソッドを使用します。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample10.vb)]
 
-この例では、ラベルにアクセスする必要のあるを制御`ID`値は`UnitsInStockLabel`を使用しますので。
+この例では、`ID` 値が `UnitsInStockLabel`であるラベルコントロールにアクセスするため、次のように使用します。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample11.vb)]
 
-Web コントロールへの参照をプログラムによって取得したら、必要に応じて、そのスタイルに関連するプロパティ変更できます。 前の例では、CSS クラスを設けて、`Styles.css`という`LowUnitsInStockEmphasis`します。 ラベルの Web コントロールには、このスタイルを適用するに次のように設定します。 その`CssClass`プロパティに応じて。
+プログラムによる Web コントロールへの参照を取得したら、必要に応じてスタイル関連のプロパティを変更できます。 前の例と同様に、`Styles.css` `LowUnitsInStockEmphasis`という名前の CSS クラスを作成しました。 このスタイルをラベル Web コントロールに適用するには、その `CssClass` プロパティを適宜設定します。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample12.vb)]
 
 > [!NOTE]
-> プログラムにアクセスする Web コントロール テンプレートの書式を設定するための構文`FindControl("controlID")`を使用する場合、そのスタイル関連プロパティを設定しを使用こともできます[TemplateFields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) GridView、DetailsView でコントロール。 TemplateFields で、次のチュートリアルについて説明します。
+> `FindControl("controlID")` を使用して Web コントロールにプログラムでアクセスし、そのスタイルに関連するプロパティを設定するための構文は、DetailsView コントロールまたは GridView コントロールで[Templatefields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx)を使用する場合にも使用できます。 TemplateFields については、次のチュートリアルで確認します。
 
-図 7 製品を表示するときに、フォーム ビューを示していますが`UnitsInStock`図 8 の製品があるその値が 10 未満の値が 10 より大きい。
+図7は、`UnitsInStock` 値が10より大きい製品を表示する場合の FormView を示しています。一方、図8の製品の値は10未満です。
 
-[![カスタム書式の適用の製品で、十分に大きい Units In Stock、](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
+[在庫に十分な単位がある製品の ![、カスタム書式設定は適用されません。](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
 
-**図 7**:カスタム書式の適用の製品で、十分に大きい Units In Stock、([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image17.png))。
+**図 7**: 在庫数が十分に大きい製品の場合、カスタム書式設定は適用されません ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image17.png)されます)
 
-[![在庫数の単位は、製品の値を 10 以下の赤で表示します。](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
+[![値が10以下の製品については、在庫番号の単位が赤で示されます。](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
 
-**図 8**:在庫数の単位は、製品の値を 10 以下の赤で表示 ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image20.png))。
+**図 8**: 値が10以下の製品については、在庫番号の単位が赤で示されます ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image20.png)されます)
 
-## <a name="formatting-with-the-gridviewsrowdataboundevent"></a>GridView の書式が設定`RowDataBound`イベント
+## <a name="formatting-with-the-gridviewsrowdataboundevent"></a>GridView の`RowDataBound`イベントを使用した書式設定
 
-それ以前一連の手順、DetailsView を調べるし、FormView がデータ バインド時の進行状況を制御します。 見て次の手順をもう一度リフレッシャーとして。
+前の手順では、データバインド中に DetailsView と FormView によって進行を制御する一連の手順を確認しています。 これらの手順をもう一度確認してみましょう。
 
-1. データ Web コントロールの`DataBinding`イベントが発生します。
-2. データ Web コントロールにバインドされます。
-3. データ Web コントロールの`DataBound`イベントが発生します。
+1. データ Web コントロールの `DataBinding` イベントが発生します。
+2. データは、データ Web コントロールにバインドされます。
+3. データ Web コントロールの `DataBound` イベントが発生します。
 
-1 つのレコードのみを表示するので、これら 3 つの簡単な手順は、DetailsView と FormView 十分です。 表示されます、GridView の*すべて*レコードにバインドされている手順 2 に (最初) だけでなく、少し複雑です。
+この3つの簡単な手順では、1つのレコードのみが表示されるので、DetailsView と FormView で十分です。 GridView の場合は、それにバインドされている*すべて*のレコードが表示されます (1 つ目のレコードではありません)。手順2はもう少し複雑です。
 
-GridView は、データ ソースを列挙し、各レコードでは、次のように作成します。 2 の手順で、`GridViewRow`インスタンスと、現在のレコードをバインドします。 各`GridViewRow`GridView に追加すると、2 つのイベントが発生します。
+手順 2. では、GridView がデータソースを列挙し、各レコードについて `GridViewRow` インスタンスを作成し、現在のレコードをバインドします。 GridView に追加される `GridViewRow` ごとに、次の2つのイベントが発生します。
 
-- **`RowCreated`** 後に起動、`GridViewRow`が作成されました
-- **`RowDataBound`** 現在のレコードにバインドされた後に発生、`GridViewRow`します。
+- `GridViewRow` が作成された後に起動 **`RowCreated`**
+- **`RowDataBound`** は、現在のレコードが `GridViewRow`にバインドされた後に発生します。
 
-GridView、データ バインディングより正確に記載されている、次の一連の手順で。
+GridView の場合、データバインディングは次の一連の手順でより正確に記述されます。
 
-1. GridView の`DataBinding`イベントが発生します。
-2. データは、GridView にバインドされます。   
+1. GridView の `DataBinding` イベントが発生します。
+2. データは GridView にバインドされます。   
   
-   データ ソース内の各レコード 
+   データソース内の各レコードについて 
 
-    1. 作成、`GridViewRow`オブジェクト
-    2. 火災、`RowCreated`イベント
-    3. レコードにバインドします `GridViewRow`
-    4. 火災、`RowDataBound`イベント
-    5. 追加、`GridViewRow`を`Rows`コレクション
-3. GridView の`DataBound`イベントが発生します。
+    1. `GridViewRow` オブジェクトを作成する
+    2. `RowCreated` イベントを起動します
+    3. レコードを `GridViewRow` にバインドする
+    4. `RowDataBound` イベントを起動します
+    5. `Rows` コレクションに `GridViewRow` を追加します。
+3. GridView の `DataBound` イベントが発生します。
 
-GridView の個々 のレコードの形式をカスタマイズするには、次に、必要がありますのイベント ハンドラーを作成する、`RowDataBound`イベント。 これを示すためには、追加を GridView、`CustomColors.aspx`名前、カテゴリ、およびこれらの製品価格がより小さい $10.00 黄色の背景色で強調表示し、製品ごとの価格を一覧表示されたページ。
+GridView の個々のレコードの形式をカスタマイズするには、`RowDataBound` イベントのイベントハンドラーを作成する必要があります。 これを説明するために、`CustomColors.aspx` ページに GridView を追加して、各製品の名前、カテゴリ、価格を一覧表示します。これにより、価格が $10.00 未満の製品が黄色の背景色で強調表示されます。
 
-## <a name="step-7-displaying-product-information-in-a-gridview"></a>手順 7: GridView で製品情報を表示します。
+## <a name="step-7-displaying-product-information-in-a-gridview"></a>手順 7: GridView で製品情報を表示する
 
-前の例から、GridView、FormView 下を追加し、設定、`ID`プロパティを`HighlightCheapProducts`します。 ページ上のすべての製品を返す、ObjectDataSource が既にある、ために、GridView をバインドします。 最後に、製品の名前、カテゴリ、および価格だけを含める GridView の BoundFields を編集します。 これらの編集後よう GridView のマークアップになります。
+前の例の FormView の下に GridView を追加し、その `ID` プロパティを `HighlightCheapProducts`に設定します。 ページ上のすべての製品を返す ObjectDataSource が既にあるため、GridView をそれにバインドします。 最後に、GridView の BoundFields を編集して、製品の名前、カテゴリ、価格だけを含めます。 これらの編集の後、GridView のマークアップは次のようになります。
 
 [!code-aspx[Main](custom-formatting-based-upon-data-vb/samples/sample13.aspx)]
 
-図 9 は、ブラウザーで表示した場合は、このポイントに進行状況を示します。
+図9に、ブラウザーで表示したときのこのポイントの進行状況を示します。
 
-[![GridView は、名前、カテゴリ、および各製品の価格を一覧表示されます。](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
+[GridView に ![、各製品の名前、カテゴリ、価格が表示されます。](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
 
-**図 9**:GridView には、名前、カテゴリ、および各製品の価格が一覧表示されます ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image23.png))。
+**図 9**: GridView には、各製品の名前、カテゴリ、価格が表示されます ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image23.png)されます)
 
-## <a name="step-8-programmatically-determining-the-value-of-the-data-in-the-rowdatabound-event-handler"></a>手順 8: RowDataBound イベント ハンドラー内のデータの値をプログラムで判断します。
+## <a name="step-8-programmatically-determining-the-value-of-the-data-in-the-rowdatabound-event-handler"></a>手順 8: RowDataBound バインドイベントハンドラーのデータの値をプログラムで判断する
 
-ときに、 `ProductsDataTable` GridView にバインドされてその`ProductsRow`インスタンスが列挙され、各`ProductsRow`、`GridViewRow`が作成されます。 `GridViewRow`の`DataItem`特定にプロパティが割り当てられている`ProductRow`、その後、GridView の`RowDataBound`イベント ハンドラーが発生します。 決定する、`UnitPrice`製品ごとの値は、GridView にバインドし、GridView のイベント ハンドラーを作成する必要があります`RowDataBound`イベント。 このイベント ハンドラーを検査できる、 `UnitPrice` 、現在の値`GridViewRow`し、その行の書式設定を決定します。
+`ProductsDataTable` が GridView にバインドされると、その `ProductsRow` インスタンスが列挙され、`ProductsRow` ごとに `GridViewRow` が作成されます。 `GridViewRow`の `DataItem` プロパティは、特定の `ProductRow`に割り当てられます。その後、GridView の `RowDataBound` イベントハンドラーが発生します。 GridView にバインドされている各製品の `UnitPrice` 値を特定するには、GridView の `RowDataBound` イベント用のイベントハンドラーを作成する必要があります。 このイベントハンドラーでは、現在の `GridViewRow` の `UnitPrice` 値を調べて、その行に対して書式設定の決定を行うことができます。
 
-このイベント ハンドラーは、同じ一連の手順としてをフォーム ビューと DetailsView を使用して作成できます。
+このイベントハンドラーは、FormView および DetailsView と同じ一連の手順を使用して作成できます。
 
-![GridView の RowDataBound イベントのイベント ハンドラーを作成します。](custom-formatting-based-upon-data-vb/_static/image24.png)
+![GridView の RowDataBound バインドイベントのイベントハンドラーを作成します。](custom-formatting-based-upon-data-vb/_static/image24.png)
 
-**図 10**:GridView のイベント ハンドラーを作成`RowDataBound`イベント
+**図 10**: GridView の `RowDataBound` イベントのイベントハンドラーを作成する
 
-この方法でイベント ハンドラーを作成すると、ASP.NET ページのコード部分に自動的に追加するのには、次のコードが発生します。
+この方法でイベントハンドラーを作成すると、ASP.NET ページのコード部分に次のコードが自動的に追加されます。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample14.vb)]
 
-ときに、`RowDataBound`イベントが起動され、イベント ハンドラーとして渡される 2 番目のパラメーター型のオブジェクト`GridViewRowEventArgs`、という名前のプロパティを持つ`Row`します。 このプロパティへの参照を返します、`GridViewRow`単データ バインドでした。 アクセスする、`ProductsRow`インスタンスにバインドされる、`GridViewRow`使用して、`DataItem`プロパティようになります。
+`RowDataBound` イベントが発生すると、イベントハンドラーは、`GridViewRowEventArgs`型のオブジェクトである2番目のパラメーターとして渡されます。このオブジェクトには、`Row`という名前のプロパティがあります。 このプロパティは、データバインドされただけの `GridViewRow` への参照を返します。 `GridViewRow` にバインドされている `ProductsRow` インスタンスにアクセスするには、次のように `DataItem` プロパティを使用します。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample15.vb)]
 
-使用する場合、`RowDataBound`イベント ハンドラーの注意のこのイベントが発生して GridView がさまざまな種類の行で構成することが重要*すべて*行型。 A`GridViewRow`の型によって決定できるその`RowType`プロパティ、使用可能な値のいずれかを指定できます。
+`RowDataBound` イベントハンドラーを使用する場合は、GridView がさまざまな種類の行で構成され、このイベントが*すべて*の行の種類に対して発生することに注意することが重要です。 `GridViewRow`の型は、`RowType` プロパティによって決定できます。また、次のいずれかの値を使用できます。
 
-- `DataRow` GridView からのレコードにバインドされている行 `DataSource`
-- `EmptyDataRow` 行の場合に表示されます、GridView の`DataSource`が空です
-- `Footer` フッター行。表示されている場合、GridView の`ShowFooter`プロパティに設定 `True`
-- `Header` ヘッダー行です。GridView の ShowHeader のプロパティに設定されているかどうかを示す`True`(既定値)
-- `Pager` ページング、ページング インターフェイスを表示する行を実装するは、GridView
-- `Separator` GridView では使用されませんで使用される、 `RowType` DataList と Repeater のプロパティを制御する 2 つのデータ Web コントロールを紹介する今後のチュートリアル
+- GridView の `DataSource` からレコードにバインドされている行を `DataRow` します。
+- GridView の `DataSource` が空の場合に表示される行を `EmptyDataRow` します
+- フッター行を `Footer` します。GridView の `ShowFooter` プロパティがに設定されている場合に表示され `True`
+- ヘッダー行を `Header` します。GridView の ShowHeader プロパティが `True` (既定値) に設定されている場合に表示されます。
+- ページングを実装する GridView の `Pager`、ページングインターフェイスを表示する行
+- `Separator` GridView には使用されませんが、DataList コントロールと Repeater コントロールの `RowType` プロパティで使用されます。今後のチュートリアルでは、2つのデータ Web コントロールについて説明します。
 
-以降、 `EmptyDataRow`、 `Header`、`Footer`と`Pager`行に関連付けられている、`DataSource`レコードは常に値があるの`Nothing`の`DataItem`プロパティ。 このため、現在の作業を試みる前に`GridViewRow`の`DataItem`プロパティでは、最初にする必要があることを確認してを扱っていること、`DataRow`します。 これをチェックして実現できます、`GridViewRow`の`RowType`プロパティようになります。
+`EmptyDataRow`、`Header`、`Footer`、および `Pager` の行は `DataSource` レコードと関連付けられていないため、`Nothing` のプロパティの値は常に `DataItem` になります。 このため、現在の `GridViewRow`の `DataItem` プロパティを操作する前に、まず `DataRow`を処理するようにしてください。 これを行うには、次のように `GridViewRow`の `RowType` プロパティをチェックします。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample16.vb)]
 
-## <a name="step-9-highlighting-the-row-yellow-when-the-unitprice-value-is-less-than-1000"></a>手順 9: $10.00 未満には、行黄色と、UnitPrice の値を強調表示
+## <a name="step-9-highlighting-the-row-yellow-when-the-unitprice-value-is-less-than-1000"></a>手順 9: UnitPrice 値が $10.00 未満の場合に行を黄色で強調表示する
 
-最後の手順ではプログラム全体を強調表示を`GridViewRow`場合、`UnitPrice`行が $10.00 未満の値します。 GridView の行またはセルにアクセスするための構文は、DetailsView と同じ`GridViewID.Rows(index)`、行全体にアクセスする`GridViewID.Rows(index).Cells(index)`特定のセルにアクセスします。 ただし、ときに、`RowDataBound`イベント ハンドラーは、データ バインドを発生させる`GridViewRow`GridView に追加するのにはまだ`Rows`コレクション。 そのため、現在にアクセスできない`GridViewRow`インスタンスから、`RowDataBound`行のコレクションを使用してイベント ハンドラー。
+最後の手順では、その行の `UnitPrice` 値が $10.00 未満の場合、プログラムによって `GridViewRow` 全体を強調表示します。 GridView の行またはセルにアクセスするための構文は、特定のセルにアクセスするために `GridViewID.Rows(index).Cells(index)` 行全体にアクセスするための DetailsView `GridViewID.Rows(index)` と同じです。 ただし、`RowDataBound` イベントハンドラーが起動するときに、`GridViewRow` データバインドされたデータは、GridView の `Rows` コレクションにまだ追加されていません。 そのため、Rows コレクションを使用して、`RowDataBound` イベントハンドラーから現在の `GridViewRow` インスタンスにアクセスすることはできません。
 
-代わりに`GridViewID.Rows(index)`、現在から参照できます`GridViewRow`インスタンス、`RowDataBound`イベント ハンドラーを使用して`e.Row`します。 現在強調表示の順序は、`GridViewRow`インスタンスから、`RowDataBound`イベント ハンドラーを使用します。
+`GridViewID.Rows(index)`ではなく、`e.Row`を使用して `RowDataBound` イベントハンドラーで現在の `GridViewRow` インスタンスを参照することができます。 つまり、`RowDataBound` イベントハンドラーから現在の `GridViewRow` インスタンスを強調表示するには、次のように使用します。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample17.vb)]
 
-設定ではなく、`GridViewRow`の`BackColor`プロパティを直接ものだけ作業 CSS クラスを使用するとします。 という名前の CSS クラスを作成しました`AffordablePriceEmphasis`背景色を黄色に設定します。 完成した`RowDataBound`イベント ハンドラーに従います。
+`GridViewRow`の `BackColor` プロパティを直接設定するのではなく、CSS クラスの使用について説明します。 ここでは、背景色を黄色に設定する `AffordablePriceEmphasis` という名前の CSS クラスを作成しました。 完成した `RowDataBound` イベントハンドラーは次のようになります。
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample18.vb)]
 
-[![最も低コスト製品は黄色の強調表示されています。](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
+[最も手頃な価格の製品を黄色で強調表示 ![](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
 
-**図 11**:最も低コスト製品は黄色の強調表示されている ([フルサイズの画像を表示する をクリックします](custom-formatting-based-upon-data-vb/_static/image27.png))。
+**図 11**: 最も低価格の製品が黄色で強調表示されている ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image27.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、GridView、DetailsView と FormView コントロールにバインドされたデータに基づいて書式設定する方法を説明しました。 イベント ハンドラーを作成してこれを実現する、`DataBound`または`RowDataBound`イベント、必要な場合、書式設定の変更と共にに調査が基になるデータの場所。 使用して、DetailsView またはフォーム ビューにバインドされたデータにアクセスする、`DataItem`プロパティ、`DataBound`イベント ハンドラーは gridview が開きます各`GridViewRow`インスタンスの`DataItem`プロパティには、で使用可能な、その行にバインドされたデータが含まれています。`RowDataBound`イベント ハンドラー。
+このチュートリアルでは、コントロールにバインドされたデータに基づいて GridView、DetailsView、および FormView の書式を設定する方法を説明しました。 これを実現するために、必要に応じて、基になるデータを書式設定の変更と共に調べた `DataBound` イベントまたは `RowDataBound` イベントのイベントハンドラーを作成しました。 DetailsView または FormView にバインドされたデータにアクセスするには、`DataBound` イベントハンドラーの `DataItem` プロパティを使用します。GridView の場合、各 `GridViewRow` インスタンスの `DataItem` プロパティには、その行にバインドされたデータが含まれます。これは、`RowDataBound` イベントハンドラーで使用できます。
 
-データ Web コントロールの書式設定をプログラムで調整するための構文は、Web コントロールと書式設定するデータの表示方法によって異なります。 DetailsView を GridView コントロールでは、行およびセルを序数インデックスによってアクセスすることができます。 テンプレートを使用して、フォーム ビューの`FindControl("controlID")`メソッドは、通常、テンプレート内から Web コントロールの検索に使用します。
+プログラムによってデータ Web コントロールの書式設定を調整するための構文は、Web コントロールと書式設定されるデータの表示方法によって異なります。 DetailsView コントロールと GridView コントロールでは、序数インデックスを使用して行とセルにアクセスできます。 テンプレートを使用する FormView では、通常、`FindControl("controlID")` メソッドを使用して、テンプレート内から Web コントロールを検索します。
 
-次のチュートリアルでは、GridView と DetailsView をテンプレートを使用する方法を紹介します。 さらに、基になるデータに基づく書式をカスタマイズするための別の手法を見ていきます。
+次のチュートリアルでは、GridView と DetailsView でテンプレートを使用する方法について説明します。 さらに、基になるデータに基づいて書式設定をカスタマイズするための別の方法も紹介します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者が E.R. Gilmore、Dennis Patterson、および Dan Jagers します。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は E.R. でした Gilmore、Patterson が、Dan Jagers。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](displaying-summary-information-in-the-gridview-s-footer-cs.md)

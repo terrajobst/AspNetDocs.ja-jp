@@ -8,12 +8,12 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 6fcfcda5b95e5844f7d357ac0cbb6d1fd2e215ac
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.openlocfilehash: fb7e76101cbe6a874ddf5b3429ca2dc6d474334b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445778"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595759"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC と Web ページの XSRF/CSRF 防止
 
@@ -128,7 +128,7 @@ XSRF システムには、匿名ユーザーの特別なサポートが含まれ
 
 信頼性情報ベースの認証を使用する多くのデプロイでは、特に[Azure Access Control Service](https://msdn.microsoft.com/library/windowsazure/gg429786.aspx) (ACS) を使用します。 ACS を使用すると、開発者は個々の*id プロバイダー* (ADFS、Microsoft アカウントプロバイダー、yahoo! などの OpenID プロバイダーなど) を構成し、id プロバイダーは*名前識別子*を返すことができます。 これらの名前識別子には、電子メールアドレスのような個人を特定できる情報 (PII) を含めることができます。また、個人の個人識別子 (PPID) のように匿名化することもできます。 タプル (id プロバイダー、名前識別子) は、サイトを参照している間、特定のユーザーに適切な追跡トークンとして十分に機能します。そのため、ASP.NET Web Stack ランタイムは、を生成するときに、ユーザー名の代わりにタプルを使用できます。XSRF のフィールドトークンを検証しています。 Id プロバイダーと名前識別子の特定の Uri は次のとおりです。
 
-- `http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`
+- `https://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
 
 (詳細については、この[ACS ドキュメントページ](https://msdn.microsoft.com/library/windowsazure/gg185971.aspx)を参照してください。)

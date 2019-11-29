@@ -1,131 +1,131 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
-title: 複数のパターンとガイダンス (Azure で現実世界のクラウド アプリの構築) |Microsoft Docs
+title: その他のパターンとガイダンス (Azure を使用した実際のクラウドアプリの構築) |Microsoft Docs
 author: MikeWasson
-description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
+description: Azure 電子ブックを使用した実際のクラウドアプリの構築は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 13のパターンとベストプラクティスについて説明します。
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 42066d4154758fce7ebd1529edf41ba49df07d93
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: afade34477d1136883e7543d09e73dfbe435690e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118707"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585362"
 ---
-# <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>複数のパターンとガイダンス (Azure で現実世界のクラウド アプリの構築)
+# <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>その他のパターンとガイダンス (Azure を使用した実際のクラウドアプリの構築)
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
-[ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> Azure 電子ブック**を使用した実際のクラウドアプリの構築**は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 ここでは、クラウド用の web アプリの開発を成功させるのに役立つ13のパターンとプラクティスについて説明します。 電子書籍の詳細については、[最初の章](introduction.md)を参照してください。
 
-これまでの 13 パターンで成功する方法のガイダンスを提供するクラウド コンピューティングはこれでしました。 これらは、クラウド アプリに適用されるパターンのほんの一部です。 さらにいくつかのクラウド コンピューティング トピック、およびそれらに役立つリソースを次に示します。
+ここでは、クラウドコンピューティングを成功させる方法についてのガイダンスを提供する13のパターンを見てきました。 これらは、クラウドアプリに適用されるパターンのほんの一部です。 ここでは、クラウドコンピューティングに関するいくつかのトピックと、それらに役立つリソースを紹介します。
 
-- 既存のオンプレミス アプリケーションをクラウドに移行します。 
+- 既存のオンプレミスアプリケーションをクラウドに移行しています。 
 
-    - [アプリケーションをクラウドに移行](https://msdn.microsoft.com/library/ff728592.aspx)します。 Microsoft Patterns and Practices によっては、電子書籍。 としても使用可能な[ハード コピー ペーパー バック](https://www.amazon.com/dp/1621140202)します。
-    - [移行の Microsoft ASP.NET および IIS.NET](https://go.microsoft.com/fwlink/?LinkId=400656)します。 Robert mcmurray のケース スタディ。
-    - [4 番目の移動&amp;Azure Web サイトに村長](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/)します。 ブログ投稿 Jeff Wilcox によって chronicling の経験を Amazon Web Services から web アプリを Azure App Service で Web アプリに移動します。
-    - [アプリを Azure に移動します。変更は何ですか。](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) 短いビデオを Stefan Schackow、Azure App service Web Apps でのファイル システム アクセスについて説明します。
-    - [Azure のハイブリッド クラウド](https://www.amazon.com/dp/B00EOP4UQW)します。 ハードコピー帳または Danny Garber、Jamal 共著、Adam Fazio、電子書籍。
-- クラウド アプリケーションに固有のセキュリティ、認証、および承認の問題
+    - [アプリケーションをクラウドに移行して](https://msdn.microsoft.com/library/ff728592.aspx)います。 Microsoft のパターンとプラクティスによる電子書籍。 [ハードコピーペーパーバック](https://www.amazon.com/dp/1621140202)としても使用できます。
+    - [Microsoft の ASP.NET と IIS.NET を移行して](https://go.microsoft.com/fwlink/?LinkId=400656)います。 Robert McMurray によるケーススタディ。
+    - [4 番目の &amp; Mayor を Azure websites に移行](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/)しています。 Jeff Wilcox chronicling のブログ投稿では、Azure App Service で web アプリをアマゾンウェブサービスから Web Apps に移行しています。
+    - [Azure へのアプリの移動: どのような変更がありますか?](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) Stefan の短いビデオ、Azure App Service の Web Apps でのファイルシステムアクセスについて説明します。
+    - [Azure ハイブリッドクラウド](https://www.amazon.com/dp/B00EOP4UQW)。 Danny Garber、Jamal M氏 k、および Adam Fazio によるコピー物または電子書籍。
+- クラウドアプリケーションに固有のセキュリティ、認証、および承認の問題
 
-    - [Azure のセキュリティ ガイダンス](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
-    - [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)します。 参照してください Gatekeeper パターン、フェデレーション Id パターン。
-    - [Azure のネットワーク セキュリティ](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx)します。 Ashin Palekar ホワイト ペーパー。
+    - [Azure のセキュリティガイダンス](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
+    - [Microsoft のパターンとプラクティス-Azure のガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)。 「ゲートキーパーパターン」、「フェデレーション Id パターン」を参照してください。
+    - [Azure のネットワークセキュリティ](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx)。 内容 ashwin の Ashin よるホワイトペーパー。
 
-追加のクラウド コンピューティングのパターンとガイダンスも参照してください[Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)します。
+「 [Microsoft のパターンとプラクティス-Azure のガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)」で、追加のクラウドコンピューティングパターンとガイダンスも参照してください。
 
 <a id="resources"></a>
 ## <a name="resources"></a>リソース
 
-この電子書籍の章のそれぞれは、その特定のトピックの詳細についてのリソースへのリンクを提供します。 Azure で成功するクラウド開発のためのベスト プラクティスと推奨されるパターンの概要へのリンクを次に示します。
+この電子ブックの各章には、その特定のトピックの詳細についてのリソースへのリンクが記載されています。 次の一覧は、Azure でのクラウド開発を成功させるためのベストプラクティスと推奨されるパターンの概要へのリンクを示しています。
 
-ドキュメント
+Documentation
 
-- [Azure Cloud Services で大規模なサービスを設計するためのベスト プラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)します。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
-- [フェール セーフ:回復力のあるクラウド アーキテクチャに関するガイダンス](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)します。 Marc Mercuri、Ulrich Homann、Andrew Townhill してホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
-- [Azure ガイダンス](https://azure.microsoft.com/develop/net/guidance/)公式ドキュメント ポータル ページに関連する Azure のアプリケーションを開発します。
+- [Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 マーク Simm と Michael Thomassy によるホワイトペーパー。
+- [フェイルセーフ: 回復力のあるクラウドアーキテクチャに関するガイダンス](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)。 ホワイトペーパー (Marc Mercuri、Ulrich Homann、Andrew Townhill)。 フェールセーフビデオシリーズの Web ページバージョン。
+- [Azure のガイダンス](https://azure.microsoft.com/develop/net/guidance/)Azure 用アプリケーションの開発に関連する公式ドキュメントのポータルページです。
 
-ビデオ
+Videos
 
-- [Azure - 第 1 部で現実世界のクラウド アプリをビルド](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)と[パート 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)します。 この電子書籍をに基づいて Scott Guthrie によるプレゼンテーションのビデオ。 2013 年 9 月で Tech Ed オーストラリアで表示されます。 同じプレゼンテーションの以前のバージョンは、2013 年 6 月、ノルウェー語開発者 Conference (NDC) でに配信されました。[NDC パート 1](http://vimeo.com/68215538)、 [NDC パート 2](http://vimeo.com/68215602)します。
-- [フェール セーフ:スケーラブルで回復力のあるクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simms、ビデオ シリーズを 9 の部分で構成します。 クラウド アプリを設計する方法を 400 番台のビューを表示します。 このシリーズの理論と推奨されるパターンの理由で重点を置いています操作方法に関する詳細については、Mark Simms によって構築ビッグ シリーズを参照してください。
-- [大規模なビルド。Azure のお客様-第 1 部から学んだ教訓](https://channel9.msdn.com/Events/Build/2012/3-029)と[第 2 部](https://channel9.msdn.com/Events/Build/2012/3-030)します。 Simon Davies、Mark Simms、フェール セーフ シリーズが指向のより実用的な導入に向けてのようなビデオ シリーズを 2 つの部分。
+- [Azure を使用した実際のクラウドアプリの構築-パート 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)と[パート 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325) この電子書籍の基になっている Scott Guthrie によるプレゼンテーションのビデオ。 2013年9月のオーストラリアに発表されています。 同じプレゼンテーションの以前のバージョンは、2013年6月: [NDC part 1](http://vimeo.com/68215538), [NDC part 2](http://vimeo.com/68215602)で、ノルウェーの開発者のカンファレンス (NDC) で提供されています。
+- [フェイルセーフ: スケーラブルで回復力のある Cloud Services を構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simm による9部構成のビデオシリーズ。 クラウドアプリを設計する方法の400レベルのビューについて説明します。 このシリーズでは、理論上、推奨されるパターンの背後にある理由を中心に説明します。詳細については、「Simm」を参照してください。
+- [大規模なビルド: Azure のお客様から学んだ教訓-パート 1](https://channel9.msdn.com/Events/Build/2012/3-029)と[パート 2](https://channel9.msdn.com/Events/Build/2012/3-030)。 Simon Davies と Mark Simm による2部構成のビデオシリーズ。フェイルセーフシリーズに似ていますが、実際の実装についてはこちらを参照してください。
 
 コード サンプル
 
-- [Fix It アプリケーションこの電子書籍に付属している](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002)します。
-- [クラウド サービス Visual Studio 2012 用の c# での Azure の基礎](https://aka.ms/csf)します。 Microsoft コード ギャラリー サイトでダウンロード可能なプロジェクトには、コードと Microsoft Customer Advisory Team (CAT) によって開発されたドキュメントの両方が含まれています。 フェール セーフとビルドの大きなビデオ シリーズで、フェール セーフ ホワイト ペーパーを提唱ベスト プラクティスの多くについて説明します。 プロジェクトの作成者の広範なドキュメントへのリンクもコード ギャラリー ページ--を参照してください、特に[クラウド サービスの基礎の wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)プロジェクトの説明の先頭付近にある青いボックス内のリンク。 このプロジェクトとそのドキュメントはまだアクティブに開発されている、ホワイト ペーパーが似ていますが、以前よりも多くのトピックについてより優れた選択肢です。
+- [この電子書籍に付随する修正プログラムを適用し](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002)ます。
+- [Visual Studio 2012 C#向けの Azure におけるクラウドサービスの基礎](https://aka.ms/csf)。 Microsoft Code Gallery サイトのダウンロード可能なプロジェクトには、Microsoft カスタマーアドバイザリチーム (CAT) によって開発されたコードとドキュメントの両方が含まれています。 フェイルセーフで擁護、ビッグビデオシリーズおよびフェイルセーフホワイトペーパーを構築するためのベストプラクティスの多くを紹介します。 コードギャラリーのページでは、プロジェクトの作成者による広範なドキュメントへのリンクもあります。特に、プロジェクトの説明の先頭付近にある青いボックスの「[クラウドサービスの基礎 wiki コレクション](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)」リンクを参照してください。 このプロジェクトとドキュメントは積極的に開発中であり、類似しているが古いホワイトペーパーよりも多くのトピックに関する情報をお勧めします。
 
-ハード コピー ブック
+ハードコピーブック
 
-- [クラウド コンピューティングのバイブル](https://www.amazon.com/dp/0470903562)します。 バリー Sosinsky によってします。
-- [それを解放します。実稼働可能なソフトウェアの展開の設計と](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213)します。 Michael T. Nygard。、
-- [クラウド アーキテクチャのパターン:Microsoft Azure を使用して](http://shop.oreilly.com/product/0636920023777.do)します。 によって、Bill Wilder します。
-- [Windows Azure Platform](https://www.amazon.com/dp/1430235632)します。 Tejaswi Redkar。、
-- [Windows Azure の新興のパターンをプログラミング](https://www.amazon.com/dp/1849685606)します。 によって Riccardo Becker します。
-- [Microsoft Windows Azure 開発 Cookbook](https://www.amazon.com/dp/1849682224)します。 Neil Mackenzie。、
+- [クラウドコンピューティング Bible](https://www.amazon.com/dp/0470903562)。 Barrie Sosinsky。
+- [リリース: 運用環境に対応したソフトウェアを設計して展開し](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213)ます。 Nygard。
+- [クラウドアーキテクチャパターン: Microsoft Azure の使用](http://shop.oreilly.com/product/0636920023777.do)。 請求書別。
+- [Windows Azure プラットフォーム](https://www.amazon.com/dp/1430235632)。 Tejaswi よる Redkar。
+- [スタートアップのための Windows Azure プログラミングパターン](https://www.amazon.com/dp/1849685606)。 Riccardo muti します。
+- [Microsoft Windows Azure 開発クックブック](https://www.amazon.com/dp/1849682224)。 Neil Mackenzie。
 
-最後に、実際のアプリの構築を開始して、Azure で実行するには、遅かれ早かれ大抵の場合は、専門家から支援を必要があります。 などのコミュニティ サイトで質問を入力することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)、または直接 Azure のサポートを Microsoft に連絡することができます。 マイクロソフトは、Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、次を参照してください。 [Azure のサポート](https://azure.microsoft.com/support/plans/)します。
+最後に、実際のアプリの構築を開始して Azure で実行すると、おそらく専門家のサポートが必要になります。 [Azure フォーラムや StackOverflow](https://azure.microsoft.com/support/forums/)などのコミュニティサイトで質問することができます。また、azure サポートについては、Microsoft に直接問い合わせることもできます。 Microsoft では、いくつかのレベルのテクニカルサポートを提供しています。オプションの概要と比較については、「 [azure のサポート](https://azure.microsoft.com/support/plans/)」を参照してください。
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>謝辞
 
-このコンテンツは、Tom Dykstra、Rick Anderson、および Mike Wasson によって作成されました。 ほとんどの元のコンテンツの取得元[Scott Guthrie](https://weblogs.asp.net/scottgu/)、および Mark Simms、Microsoft Customer Advisory Team (CAT) から、さらに資料に描画しています。
+このコンテンツは、Tom Dykstra、Rick Anderson、Mike Wasson によって作成されました。 元のコンテンツの大部分は[Scott Guthrie](https://weblogs.asp.net/scottgu/)からのものであり、Mark Simm と Microsoft カスタマーアドバイザリチーム (CAT) から資料を描きました。
 
-マイクロソフトの他の多くの仕事仲間は、確認し、下書きとコードについてコメントしました。
+Microsoft の他の多くの同僚が、下書きやコードについて確認し、コメントをしています。
 
-- Tim Ammann - は、automation 章を確認します。
-- Christopher Bennage - 確認し、修正、コードをテストします。
-- Ryan Berry、CD/CI 章を確認します。
-- Vittorio Bertocci - SSO 章を確認します。
-- Chris Clayton - PowerShell スクリプトの中で技術的な問題を解決します。
-- Conor Cunningham - は、データ ストレージ オプション」の章を確認します。
-- Carlos Farre - 確認され、セキュリティの問題の修正、コードをテストします。
-- Larry Franks - は、テレメトリと監視の章を確認します。
-- Jonathan Gao - 確認の Hadoop と MapReduce のセクションでは、データ ストレージ オプション」の章の。
-- Sidney Higa - は、すべての章を確認します。
-- Gordon Hogenson - ソース コントロールの章を確認します。
-- Tamra Myers - 確認済みのデータ ストレージ オプション、blob、およびキューの章。
-- Pranav Rastogi には、SSO 章を確認します。
-- June Blender Rogers - 追加のエラー処理と PowerShell の自動化スクリプトをヘルプ。
-- Mani Subramanian - は、すべての章を確認し、led が、コード レビューとコード修正のテストのプロセス。
-- Shaun Tinline-jones - は、データの章をパーティション分割を確認します。
-- Selcin Tukarslan - SQL Database と SQL Server に対応する章をレビューします。
-- Edward Wu - SSO 章のサンプル コードを提供します。
-- Guang Yang - は、PowerShell の自動化スクリプトを作成しました。
+- Tim Ammann-automation の章を確認します。
+- Christopher Bennage-修正プログラムのコードを確認し、テストします。
+- ライアン Berry-CD/CI の章を確認します。
+- Vittorio を参照してください。 SSO の章を確認します。
+- Chris Clayton-PowerShell スクリプトの技術的な問題を解決するのに役立ちます。
+- Conor Cunningham-データストレージオプションの章を確認します。
+- Carlos Farre-セキュリティの問題の修正 It コードを確認し、テストします。
+- Larry Franks-テレメトリと監視に関する章を確認します。
+- Jonathan を参照してください。データストレージオプションの章の Hadoop と MapReduce のセクションを確認します。
+- Sidney Higa-すべての章を確認します。
+- Gordon Hogenson-ソース管理の章を確認します。
+- Tamra は、データストレージのオプション、blob、およびキューに関する章を確認します。
+- Pranav Rastogi-SSO の章を確認します。
+- June Blender Rogers-PowerShell オートメーションスクリプトへのエラー処理とヘルプを追加しました。
+- Mani Subramanian-すべての章を確認し、コードレビューとテストプロセスを実行して、It コードを修正しました。
+- Shaun Tinline-Jones-データのパーティション分割の章を確認します。
+- Selcin Tukarslan-SQL Database と SQL Server について説明している章をレビューします。
+- SSO 章用の Edward Wu によって提供されるサンプルコードです。
+- Guang Yang-PowerShell オートメーションスクリプトを記述しました。
 
-メンバー、 [Microsoft 開発者向けガイダンス Advisory Council](https://aka.ms/DGAC)も確認し、下書きについてコメントしました (DGAC)。
+[Microsoft Developer ガイダンスアドバイザリ・協議会](https://aka.ms/DGAC)(dgac) のメンバーも、次のように下書きをレビューし、コメントにしています。
 
 - Jean-Luc Boucho
 - Catalin Gheorghiu
 - Wouter de Kort
 - Carlos dos Santos
-- Neil mackenzie 氏
-- Dennis について語ります
+- Neil Mackenzie
+- デ nis の息子 son
 - Sunil Sabat
 - [Aleksey Sinyagin](http://www.linkedin.com/in/sinyagin)
-- Bill Wagner
-- Michael 木
+- 請求 Wagner
+- Michael ウッド
 
-DGAC の他のメンバーでは、確認し、予備のアウトラインについてコメントしました。
+DGAC の他のメンバーについては、事前の概要について確認し、コメントをします。
 
 - Damir Arh
 - Edward Bakker
-- Srdjan Bozovic
-- Ming Man Chan
+- Srdjan Bozの会社
+- マニュアルのチャン・チャンネル
 - Gianni Rosa Gallina
-- Paulo Morgado
+- パウロ Morgado
 - Jason Oliveira
 - Alberto Poblacion
-- Ryan Riley
+- ライアン Riley
 - Perez Jones Tsisah
-- Roger Whitehead
+- Roger ホワイトヘッド
 - Pawel Wilkosz
 
 > [!div class="step-by-step"]

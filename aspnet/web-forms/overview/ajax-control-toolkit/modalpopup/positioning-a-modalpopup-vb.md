@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
-title: ModalPopup の位置 (VB) |Microsoft Docs
+title: ModalPopup の配置 (VB) |Microsoft Docs
 author: wenz
-description: AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし、制御は提供されませんをしています.
+description: AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、コントロールは...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 8a07210c-eb0e-485e-9ee8-82a101520e65
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d5cfcd2ff8956b54f241ee7002aa00a0bd47469e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fb79a08a339588ed8adc4b4236911819ea9286b4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132651"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598962"
 ---
 # <a name="positioning-a-modalpopup-vb"></a>ModalPopup の位置を決める (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup4.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup4VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup4.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup4VB.pdf)
 
-> AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし、コントロールは、ポップアップを配置する組み込みの機能を提供していません。
+> AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、このコントロールにはポップアップを配置するための組み込みの機能は用意されていません。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし、コントロールは、ポップアップを配置する組み込みの機能を提供していません。
+AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、このコントロールにはポップアップを配置するための組み込みの機能は用意されていません。
 
 ## <a name="steps"></a>手順
 
-ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`ScriptManager`します。 コントロールは、ページのどこでも配置する必要があります (ただし内、`<form>`要素)。
+ASP.NET AJAX と Control Toolkit の機能をアクティブ化するために、`ScriptManager`ます。 コントロールは、ページの任意の場所に配置する必要があります (`<form>` 要素内)。
 
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample1.aspx)]
 
-次に、モーダル ポップアップとして機能するパネルを追加します。 ボタンを使用して、ポップアップを閉じます。
+次に、モーダルポップアップとして機能するパネルを追加します。 ポップアップを閉じるには、ボタンを使用します。
 
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample2.aspx)]
 
-ポップアップが表示されるたびには、特定の場所 ページでに配置する必要があります。 このタスクでは、クライアント側の JavaScript 関数が作成されます。 まず、パネルにアクセスしようとします。 成功すると、パネルの位置が CSS および JavaScript (でポップアップの位置は変更) を使用して設定されます。 ただし、`ModalPopupExtender`コントロールもポップアップの配置を試みます。 そのため、JavaScript コードは、繰り返しの秒部分の 10 分ごと、ポップアップを配置します。
+ポップアップが表示されるたびに、ページ内の特定の場所に配置されます。 このタスクでは、クライアント側の JavaScript 関数が作成されます。 まず、パネルにアクセスしようとします。 成功した場合、パネルの位置は CSS と JavaScript を使用して設定されます (ポップアップの位置を変更します)。 ただし、`ModalPopupExtender` コントロールでもポップアップの配置が試行されます。 したがって、JavaScript コードでは、ポップアップが1秒ごとに繰り返し配置されます。
 
 [!code-html[Main](positioning-a-modalpopup-vb/samples/sample3.html)]
 
-ご覧のとおりの戻り値、 `setTimeout()` JavaScript メソッドは、グローバル変数に保存されます。 これにより、停止、オンデマンドでポップアップの繰り返しの配置を使用して、`clearTimeout()`メソッド。
+ご覧のように、`setTimeout()` JavaScript メソッドの戻り値はグローバル変数に保存されます。 これにより、`clearTimeout()` メソッドを使用して、オンデマンドでポップアップの繰り返し位置を停止できます。
 
 [!code-javascript[Main](positioning-a-modalpopup-vb/samples/sample4.js)]
 
-残りの作業は適切であれば、これらの関数を呼び出し、ブラウザーにします。 `movePanel()`パネルをトリガーするボタンがクリックされたときに、JavaScript 関数を呼び出す必要があります。
+ここでは、必要に応じて、ブラウザーがこれらの関数を呼び出すようにします。 パネルをトリガーするボタンをクリックしたときに `movePanel()` JavaScript 関数を呼び出す必要があります。
 
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample5.aspx)]
 
-および`stopMoving()`関数には、ポップアップには、このことができますが閉じられたときにトリガー、`ModalPopupExtender`コントロール。
+また、`stopMoving()` 関数は、ポップアップが閉じられたときに再生されます。これは、`ModalPopupExtender` コントロールでトリガーできます。
 
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample6.aspx)]
 
-[![指定した位置にモーダル ポップアップが表示されます。](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
+[指定した位置にモーダルポップアップが表示さ ![](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
 
-指定した位置にモーダル ポップアップが表示されます ([フルサイズの画像を表示する をクリックします](positioning-a-modalpopup-vb/_static/image3.png))。
+モーダルポップアップが指定した位置に表示されます ([クリックすると、フルサイズの画像が表示](positioning-a-modalpopup-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](handling-postbacks-from-a-modalpopup-vb.md)

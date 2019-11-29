@@ -1,36 +1,36 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
-title: .NET クライアント (c#) から OData サービスを呼び出す |Microsoft Docs
+title: .NET クライアントからの OData サービスの呼び出し (C#) |Microsoft Docs
 author: MikeWasson
-description: このチュートリアルでは、c# クライアント アプリケーションから OData サービスを呼び出す方法を示します。 チュートリアルの Visual Studio 2013 (Visual S. 連動.. で使用されているソフトウェア バージョン
+description: このチュートリアルでは、 C#クライアントアプリケーションから OData サービスを呼び出す方法について説明します。 チュートリアルで使用されているソフトウェアのバージョン Visual Studio 2013 (Visual S で動作します...
 ms.author: riande
 ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 6b5ab979518615356baaeeb824e0a621eb59a38f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6a289fcb843634eeeefef1e0767e04e0be8b6973
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130784"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600382"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアントから OData サービスを呼び出す (C#)
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> このチュートリアルでは、c# クライアント アプリケーションから OData サービスを呼び出す方法を示します。
+> このチュートリアルでは、 C#クライアントアプリケーションから OData サービスを呼び出す方法について説明します。
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (Visual Studio 2012 で動作)
 > - [WCF Data Services クライアント ライブラリ](https://msdn.microsoft.com/library/cc668772.aspx)
-> - Web API 2. (この OData サービスの例は Web API 2 を使用して構築していますが、クライアント アプリケーションは Web API に依存しません)。
+> - Web API 2。 (例の OData サービスは Web API 2 を使用して構築されていますが、クライアントアプリケーションは Web API に依存していません)。
 
-このチュートリアルで説明します、OData サービスを呼び出すクライアント アプリケーションを作成します。 OData サービスでは、次のエンティティを公開します。
+このチュートリアルでは、OData サービスを呼び出すクライアントアプリケーションを作成する手順について説明します。 OData サービスは、次のエンティティを公開します。
 
 - `Product`
 - `Supplier`
@@ -38,98 +38,98 @@ ms.locfileid: "65130784"
 
 ![](calling-an-odata-service-from-a-net-client/_static/image1.png)
 
-次の記事では、Web api OData サービスを実装する方法について説明します。 (ただし、このチュートリアルを理解しておくことを読み取るする必要はありません)。
+次の記事では、Web API で OData サービスを実装する方法について説明します。 (ただし、このチュートリアルを理解するために読む必要はありません)。
 
-- [Web API 2 OData エンドポイントの作成](creating-an-odata-endpoint.md)
-- [Web API 2 OData エンティティ関係](working-with-entity-relations.md)
+- [Web API 2 で OData エンドポイントを作成する](creating-an-odata-endpoint.md)
+- [Web API 2 での OData エンティティの関係](working-with-entity-relations.md)
 - [Web API 2 の OData アクション](odata-actions.md)
 
-## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
+## <a name="generate-the-service-proxy"></a>サービスプロキシの生成
 
-最初の手順では、サービス プロキシを生成します。 サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシでは、メソッド呼び出しの HTTP 要求に変換します。
+最初の手順では、サービスプロキシを生成します。 サービスプロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、メソッドの呼び出しを HTTP 要求に変換します。
 
 ![](calling-an-odata-service-from-a-net-client/_static/image2.png)
 
-Visual Studio での OData サービスのプロジェクトを開くことで開始します。 IIS Express でローカルでサービスを実行するには、CTRL + F5 キーを押します。 Visual Studio による割り当てポート番号を含む、ローカル アドレスに注意してください。 このアドレスは、プロキシを作成するときにする必要があります。
+まず、Visual Studio で OData サービスプロジェクトを開きます。 CTRL キーを押しながら F5 キーを押して IIS Express でサービスをローカルに実行します。 Visual Studio によって割り当てられるポート番号など、ローカルアドレスをメモしておきます。 プロキシを作成するときに、このアドレスが必要になります。
 
-次に、Visual Studio の別のインスタンスを開き、コンソール アプリケーション プロジェクトを作成します。 コンソール アプリケーションは、OData クライアント アプリケーションになります。 (追加することできますも、プロジェクト、サービスと同じソリューションにします。)
+次に、Visual Studio の別のインスタンスを開き、コンソールアプリケーションプロジェクトを作成します。 コンソールアプリケーションが OData クライアントアプリケーションになります。 (プロジェクトをサービスと同じソリューションに追加することもできます)。
 
 > [!NOTE]
-> 残りの手順は、コンソール プロジェクトを参照してください。
+> 残りの手順では、コンソールプロジェクトを参照します。
 
-ソリューション エクスプ ローラーで右クリックして**参照**選択**サービス参照の追加**します。
+ソリューションエクスプローラーで、 **[参照]** を右クリックし、 **[サービス参照の追加]** を選択します。
 
 ![](calling-an-odata-service-from-a-net-client/_static/image3.png)
 
-**サービス参照の追加**ダイアログ ボックスで、OData サービスのアドレスを入力します。
+**[サービス参照の追加]** ダイアログボックスで、OData サービスのアドレスを入力します。
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample1.cmd)]
 
-場所*ポート*のポート番号です。
+ここで、 *port*はポート番号です。
 
 [![](calling-an-odata-service-from-a-net-client/_static/image5.png)](calling-an-odata-service-from-a-net-client/_static/image4.png)
 
-**Namespace**、"ProductService"を入力します。 このオプションは、プロキシ クラスの名前空間を定義します。
+**[名前空間]** に「productservice」と入力します。 このオプションでは、プロキシクラスの名前空間を定義します。
 
-**[検索]** をクリックします。 Visual Studio では、サービス内のエンティティを検出する OData メタデータ ドキュメントを読み取ります。
+**[検索]** をクリックします。 Visual Studio は、サービス内のエンティティを検出するために OData メタデータドキュメントを読み取ります。
 
 [![](calling-an-odata-service-from-a-net-client/_static/image7.png)](calling-an-odata-service-from-a-net-client/_static/image6.png)
 
-クリックして**OK**をプロジェクトにプロキシ クラスを追加します。
+[ **OK]** をクリックして、プロキシクラスをプロジェクトに追加します。
 
 ![](calling-an-odata-service-from-a-net-client/_static/image8.png)
 
-## <a name="create-an-instance-of-the-service-proxy-class"></a>サービスのプロキシ クラスのインスタンスを作成します。
+## <a name="create-an-instance-of-the-service-proxy-class"></a>サービスプロキシクラスのインスタンスを作成する
 
-内で、`Main`メソッドでは、次のように、プロキシ クラスの新しいインスタンスを作成します。
+`Main` メソッド内で、次のようにプロキシクラスの新しいインスタンスを作成します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample2.cs)]
 
-ここでも、サービスが実行されているを実際のポート番号に使用します。 サービスをデプロイするときに、ライブ サービスの URI を使用します。 プロキシを更新する必要はありません。
+ここでも、サービスが実行されている実際のポート番号を使用します。 サービスをデプロイするときには、ライブサービスの URI を使用します。 プロキシを更新する必要はありません。
 
-次のコードは、コンソール ウィンドウへの要求 Uri を出力するイベント ハンドラーを追加します。 この手順は必須では、興味深いことに、各クエリの Uri。
+次のコードは、要求 Uri をコンソールウィンドウに出力するイベントハンドラーを追加します。 この手順は必須ではありませんが、各クエリの Uri を確認することが重要です。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample3.cs)]
 
-## <a name="query-the-service"></a>サービスをクエリします。
+## <a name="query-the-service"></a>サービスのクエリを実行する
 
-次のコードでは、OData サービスから製品の一覧を取得します。
+次のコードは、OData サービスから製品の一覧を取得します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample4.cs)]
 
-HTTP 要求を送信または応答を解析するコードを記述する必要があることに注意してください。 プロキシ クラスが列挙するときは自動的にこの、`Container.Products`内のコレクション、 **foreach**ループします。
+HTTP 要求を送信したり、応答を解析したりするコードを記述する必要はありません。 このプロキシクラスは、 **foreach**ループ内の `Container.Products` コレクションを列挙すると、この処理を自動的に行います。
 
 アプリケーションを実行すると、出力は次のようになります。
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample5.cmd)]
 
-ID でエンティティを取得する、`where`句。
+ID でエンティティを取得するには、`where` 句を使用します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample6.cs)]
 
-このトピックの残りの部分全体を見せしません`Main`関数は、サービスの呼び出しに必要なコードだけです。
+このトピックの残りの部分では、サービスの呼び出しに必要なコードだけで `Main` 関数全体を表示しません。
 
-## <a name="apply-query-options"></a>クエリ オプションを適用します。
+## <a name="apply-query-options"></a>クエリオプションの適用
 
-OData 定義[クエリ オプション](../supporting-odata-query-options.md)フィルター、並べ替え、ページのデータなどに使用できます。 サービス プロキシには、さまざまな LINQ 式を使用してこれらのオプションを適用できます。
+OData は、フィルター処理、並べ替え、データのページなどに使用できる[クエリオプション](../supporting-odata-query-options.md)を定義します。 サービスプロキシでは、さまざまな LINQ 式を使用してこれらのオプションを適用できます。
 
-このセクションでは、簡単な例を紹介します。 詳細については、トピックを参照してください。 [LINQ に関する留意点 (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx) msdn です。
+このセクションでは、簡単な例を紹介します。 詳細については、MSDN の「 [LINQ に関する考慮事項」 (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx)を参照してください。
 
 ### <a name="filtering-filter"></a>フィルター処理 ($filter)
 
-フィルターを使用して、`where`句。 製品カテゴリで次の例のフィルター。
+フィルター処理するには、`where` 句を使用します。 次の例では、製品カテゴリを使用してフィルター処理を行います。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample7.cs)]
 
-このコードは、次の OData クエリに対応します。
+このコードは、次の OData クエリに対応しています。
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample8.cmd)]
 
-プロキシに変換しますが、 `where` OData 句`$filter`式。
+プロキシが `where` 句を OData `$filter` 式に変換することに注意してください。
 
 ### <a name="sorting-orderby"></a>並べ替え ($orderby)
 
-並べ替えるには、使用、`orderby`句。 次の例は、高いものからの価格で並べ替えます。
+並べ替えるには、`orderby` 句を使用します。 次の例では、価格を優先順位の高いものから順に並べ替えています。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample9.cs)]
 
@@ -137,9 +137,9 @@ OData 定義[クエリ オプション](../supporting-odata-query-options.md)フ
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample10.cmd)]
 
-### <a name="client-side-paging-skip-and-top"></a>クライアント側のページング ($skip および $top)
+### <a name="client-side-paging-skip-and-top"></a>クライアント側のページング ($skip と $top)
 
-大きなエンティティ セットの場合は、クライアントは、結果の数を制限する可能性があります。 たとえば、クライアントは、一度に 10 個のエントリを表示する場合があります。 これは呼び出されます*クライアント側のページング*します。 (も[サーバー側ページング](../supporting-odata-query-options.md#server-paging)サーバーが結果の数を制限します)。クライアント側のページングを実行するには、LINQ を使用して**スキップ**と**かかる**メソッド。 次の例では、40 の結果をスキップし、[次へ] の 10 を受け取る。
+大きなエンティティセットの場合、クライアントは結果の数を制限することがあります。 たとえば、クライアントが一度に10個のエントリを表示する場合があります。 これは *、クライアント側のページング*と呼ばれます。 (サーバー側の[ページング](../supporting-odata-query-options.md#server-paging)もあります。この場合、サーバーでは結果の数が制限されます)。クライアント側のページングを実行するには、LINQ の**Skip**メソッドと**Take**メソッドを使用します。 次の例では、最初の40件の結果をスキップし、次の10を取得します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample11.cs)]
 
@@ -147,9 +147,9 @@ OData 定義[クエリ オプション](../supporting-odata-query-options.md)フ
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample12.cmd)]
 
-### <a name="select-select-and-expand-expand"></a>($Select) を選択し、[展開] (展開 $)
+### <a name="select-select-and-expand-expand"></a>($Select) を選択し、($expand) を展開します。
 
-関連エンティティを含めるには使用、`DataServiceQuery<t>.Expand`メソッド。 などの`Supplier`各`Product`:
+関連エンティティを含めるには、`DataServiceQuery<t>.Expand` メソッドを使用します。 たとえば、各 `Product`の `Supplier` を含めるには、次のようにします。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample13.cs)]
 
@@ -157,7 +157,7 @@ OData 定義[クエリ オプション](../supporting-odata-query-options.md)フ
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample14.cmd)]
 
-応答の形状を変更するには、LINQ を使用して、**選択**句。 次の例では、その他のプロパティを持たない、各製品の名前だけを取得します。
+応答の形状を変更するには、LINQ **select**句を使用します。 次の例では、各製品の名前だけを取得し、その他のプロパティは取得しません。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample15.cs)]
 
@@ -165,63 +165,63 @@ OData 定義[クエリ オプション](../supporting-odata-query-options.md)フ
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample16.cmd)]
 
-Select 句では、関連エンティティを含めることができます。 その場合、呼び出さない**展開**; プロキシで拡張をここでは、自動的にします。 次の例では、各製品の提供元と名前を取得します。
+Select 句には、関連エンティティを含めることができます。 その場合は、 **Expand**; を呼び出さないでください。この場合、プロキシには自動的に拡張が含まれます。 次の例では、各製品の名前と仕入先を取得します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample17.cs)]
 
-対応する OData 要求を次に示します。 それに含まれる通知、 **$展開**オプション。
+対応する OData 要求を次に示します。 **$Expand**オプションが含まれていることに注意してください。
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample18.cmd)]
 
-$Select および $expand の詳細については、展開しを参照してください[$select を使用して、$ の展開、および Web API 2 で $value](../using-select-expand-and-value.md)します。
+$Select と $expand の詳細については、「 [WEB API 2 での $select、$expand、および $value の使用](../using-select-expand-and-value.md)」を参照してください。
 
-## <a name="add-a-new-entity"></a>新しいエンティティを追加します。
+## <a name="add-a-new-entity"></a>新しいエンティティを追加する
 
-エンティティ セットには、新しいエンティティを追加するには、呼び出す`AddToEntitySet`ここで、 *EntitySet*エンティティ セットの名前を指定します。 たとえば、`AddToProducts`新しい`Product`を`Products`エンティティ セット。 プロキシを生成するときに WCF Data Services が自動的に作成これら厳密に型指定された**AddTo**メソッド。
+エンティティセットに新しいエンティティを追加するには、`AddToEntitySet`を呼び出します。ここで、 *EntitySet*はエンティティセットの名前です。 たとえば、`AddToProducts` は `Products` エンティティセットに新しい `Product` を追加します。 プロキシを生成すると、WCF Data Services によって、これらの厳密に型指定された**Addto**メソッドが自動的に作成されます。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample19.cs)]
 
-2 つのエンティティ間のリンクを追加するには、使用、 **AddLink**と**SetLink**メソッド。 次のコードでは、新しい仕入先と新しい製品を追加し、し、それらの間のリンクを作成します。
+2つのエンティティ間にリンクを追加するには、 **addlink**メソッドと**setlink**メソッドを使用します。 次のコードでは、新しい業者と新しい製品を追加し、それらの間にリンクを作成します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample20.cs)]
 
-使用**AddLink**ナビゲーション プロパティは、コレクションです。 この例で追加する製品、`Products`サプライヤーのコレクション。
+ナビゲーションプロパティがコレクションの場合は、 **Addlink**を使用します。 この例では、仕入先の `Products` コレクションに製品を追加します。
 
-使用**SetLink**ナビゲーション プロパティが 1 つのエンティティ。 この例では設定、`Supplier`製品のプロパティ。
+ナビゲーションプロパティが単一のエンティティの場合は、 **Setlink**を使用します。 この例では、製品の `Supplier` プロパティを設定しています。
 
 ## <a name="update--patch"></a>更新/パッチ
 
-エンティティを更新するには、呼び出し、 **UpdateObject**メソッド。
+エンティティを更新するには、 **Updateobject**メソッドを呼び出します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample21.cs)]
 
-呼び出すときに、更新プログラムが実行される**SaveChanges**します。 既定では、WCF は、HTTP MERGE 要求を送信します。 **PatchOnUpdate**オプションを代わりに、HTTP PATCH を送信する WCF に指示します。
+この更新は、 **SaveChanges**を呼び出すと実行されます。 既定では、WCF は HTTP MERGE 要求を送信します。 PATCH **onupdate**オプションは、代わりに HTTP パッチを送信するよう WCF に指示します。
 
 > [!NOTE]
-> マージと PATCH なぜでしょうか。 元の HTTP 1.1 の仕様 ([RCF 2616](http://tools.ietf.org/html/rfc2616))「部分更新」のセマンティクスを持つ任意の HTTP メソッドを定義しませんでした。 部分的な更新をサポートするためには、OData 仕様には、MERGE メソッドが定義されています。 2010 では、 [RFC 5789](http://tools.ietf.org/html/rfc5789)部分的な更新プログラムの PATCH メソッドを定義します。 この履歴の一部を読み取ることができます[ブログの投稿](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx)WCF Data Services のブログにします。 今日では、修正プログラムがマージに適しています。 Web API のスキャフォールディングによって作成された OData コント ローラーには、両方の方法がサポートしています。
+> 修正プログラムとマージの理由 元の HTTP 1.1 仕様 ([Rcf 2616](http://tools.ietf.org/html/rfc2616)) では、"部分的な更新" セマンティクスの http メソッドが定義されていませんでした。 部分更新をサポートするには、OData 仕様で MERGE メソッドが定義されています。 2010では、 [RFC 5789](http://tools.ietf.org/html/rfc5789)は部分更新の PATCH メソッドを定義していました。 この[ブログの投稿](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx)では、WCF Data Services のブログで履歴の一部を読むことができます。 現在、MERGE よりもパッチが推奨されています。 Web API スキャフォールディングによって作成された OData コントローラーは、両方のメソッドをサポートします。
 
-エンティティ (PUT セマンティクス) 全体を置換する場合は、指定、 **ReplaceOnUpdate**オプション。 これにより、HTTP PUT 要求を送信する WCF です。
+エンティティ全体 (PUT セマンティクス) を置換する場合は、 **Replaceonupdate**オプションを指定します。 これにより、WCF は HTTP PUT 要求を送信します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample22.cs)]
 
-## <a name="delete-an-entity"></a>エンティティを削除します。
+## <a name="delete-an-entity"></a>エンティティの削除
 
-エンティティを削除する**DeleteObject**します。
+エンティティを削除するには、 **DeleteObject**を呼び出します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample23.cs)]
 
-## <a name="invoke-an-odata-action"></a>OData アクションを呼び出す
+## <a name="invoke-an-odata-action"></a>OData アクションの呼び出し
 
-Odata では、[アクション](odata-actions.md)エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。
+OData では、[アクション](odata-actions.md)は、エンティティに対する CRUD 操作として簡単に定義できないサーバー側の動作を追加するための手段です。
 
-アクションの説明が、OData メタデータ ドキュメントをそれらのプロキシ クラス上で、厳密に型指定されたメソッドは作成されません。 ジェネリックを使用して OData アクションを呼び出すことができますも**Execute**メソッド。 ただし、パラメーターと戻り値のデータ型を把握する必要があります。
+OData メタデータドキュメントではアクションについて説明していますが、プロキシクラスは、厳密に型指定されたメソッドを作成しません。 その場合でも、汎用**Execute**メソッドを使用して OData アクションを呼び出すことができます。 ただし、パラメーターのデータ型と戻り値を把握しておく必要があります。
 
-たとえば、`RateProduct`アクションは、型の「評価」という名前のパラメーターを受け取る`Int32`を返します、`double`します。 次のコードでは、この操作を呼び出す方法を示します。
+たとえば、`RateProduct` アクションは、型 `Int32` の "評価" という名前のパラメーターを受け取り、`double`を返します。 次のコードは、このアクションを呼び出す方法を示しています。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-詳細については、次を参照してください。[呼び出すサービス操作とアクション](https://msdn.microsoft.com/library/hh230677.aspx)します。
+詳細については、「[サービス操作とアクションの呼び出し](https://msdn.microsoft.com/library/hh230677.aspx)」を参照してください。
 
-1 つのオプションは、拡張する、**コンテナー**処理を実行する厳密に型指定されたメソッドを提供するクラス。
+1つの方法として、**コンテナー**クラスを拡張して、アクションを呼び出す厳密に型指定されたメソッドを提供します。
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample25.cs)]

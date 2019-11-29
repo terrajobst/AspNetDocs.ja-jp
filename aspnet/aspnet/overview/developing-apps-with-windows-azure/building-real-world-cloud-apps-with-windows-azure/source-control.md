@@ -1,214 +1,214 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: ソース管理 (Azure で現実世界のクラウド アプリの構築) |Microsoft Docs
+title: ソース管理 (Azure を使用した実際のクラウドアプリの構築) |Microsoft Docs
 author: MikeWasson
-description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
+description: Azure 電子ブックを使用した実際のクラウドアプリの構築は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 13のパターンとベストプラクティスについて説明します。
 ms.author: riande
 ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 7effc0194541afe766a6202f527d36d96f3007f2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a6f445e46d41b646cf6c25af2e65bc73e831d5ed
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381368"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583711"
 ---
-# <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure で現実世界のクラウド アプリの構築)
+# <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure を使用した実際のクラウドアプリの構築)
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
-[ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> Azure 電子ブック**を使用した実際のクラウドアプリの構築**は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 ここでは、クラウド用の web アプリの開発を成功させるのに役立つ13のパターンとプラクティスについて説明します。 電子書籍の詳細については、[最初の章](introduction.md)を参照してください。
 
-ソース管理は、すべてのクラウド開発プロジェクト、チーム環境だけでなくに不可欠です。 ソース コードの編集を検討するでしょうかも、Word ドキュメントを元に戻す関数と自動バックアップ、およびソース管理なしでは、問題が発生したときにさらに多くの時間を乗り越えるのにプロジェクト レベルでこれらの関数。 クラウド ソースの管理サービスでされなく複雑のセットアップについて心配する必要があるし、最大 5 ユーザーまで無料の Azure リポジトリ ソース管理を使用することができます。
+ソース管理は、チーム環境だけでなく、すべてのクラウド開発プロジェクトに不可欠です。 ソースコードを編集したり、元に戻す機能や自動バックアップを使用せずに Word 文書を編集したりすることはできません。また、ソース管理を使用すると、これらの機能をプロジェクトレベルで実行できるので、問題が発生した場合により多くの時間を節約できます。 クラウドソース管理サービスを使用すると、複雑なセットアップについて心配する必要がなくなります。また、最大5人のユーザーに対して Azure Repos ソース管理を無料でご利用いただけます。
 
-この章の最初の部分では、留意する 3 つのキーのベスト プラクティスについて説明します。
+この章の最初の部分では、次の3つの重要なベストプラクティスについて説明します。
 
-- [自動化スクリプトをソース コードとして扱う](#scripts)とバージョン、アプリケーション コードと共ににします。
-- [機密情報を確認しない](#secrets)(資格情報などの機密データ) のソース コード リポジトリに格納します。
-- [ソース ブランチを設定](#devops)DevOps ワークフローを有効にします。
+- [オートメーションスクリプトをソースコードとして扱い](#scripts)、アプリケーションコードと共にバージョンを作成します。
+- シークレット (資格情報などの機密データ) をソースコードリポジトリに[チェックインしないで](#secrets)ください。
+- [ソースブランチを設定](#devops)して、DevOps ワークフローを有効にします。
 
-」の章の残りの部分では、Visual Studio、Azure、および Azure リポジトリでこれらのパターンの一部のサンプル実装を示します。
+この章の残りの部分では、Visual Studio、Azure、および Azure Repos でこれらのパターンを実装する例をいくつか示します。
 
-- [スクリプトを Visual Studio でソース管理に追加します。](#vsscripts)
-- [Azure での機密データを格納します。](#appsettings)
-- [Visual Studio と Azure リポジトリに Git を使用して、](#gittfs)
+- [Visual Studio でソース管理にスクリプトを追加する](#vsscripts)
+- [Azure に機密データを格納する](#appsettings)
+- [Visual Studio で Git を使用して Azure Repos](#gittfs)
 
 <a id="scripts"></a>
-## <a name="treat-automation-scripts-as-source-code"></a>自動化スクリプトをソース コードとして扱う
+## <a name="treat-automation-scripts-as-source-code"></a>オートメーションスクリプトをソースコードとして扱う
 
-クラウド プロジェクトでの作業と処理を頻繁に変更しているお客様によって報告された問題に迅速に対応できるようにします。 説明したように、自動化スクリプトを使用してでは迅速な対応、[自動化すべて](automate-everything.md)」の章。 すべてのスクリプトを使用して、環境を作成するはなど、アプリケーションのソース コードと同期する必要があります。 スケールをデプロイします。
+クラウドプロジェクトで作業している場合は、頻繁に変更を行い、顧客から報告された問題に迅速に対応できるようにしたいと考えています。 迅速に対応するには、「[すべてを自動化](automate-everything.md)する」の章で説明されているように、自動化スクリプトを使用します。 環境の作成、デプロイ、スケーリングなどに使用するすべてのスクリプトは、アプリケーションのソースコードと同期している必要があります。
 
-スクリプトのコードでの同期を保つには、ソース管理システムに保存します。 後に変更をロールバックまたは実稼働コードのコード開発とは別にクイック修正を加える必要が生じた場合は、追跡設定が変更されたか、どのチーム メンバーが必要なバージョンのコピーを保持している時間を浪費する必要はありません。 必要なスクリプトは、必要なすべてのチーム メンバーを同じスクリプトを操作することを保証しているコード ベースとの同期を保証しています。 テストおよび運用環境または新しい機能の開発に修正プログラムのデプロイを自動化する必要があるかどうか、更新する必要があるコードの適切なスクリプトがあります。
+スクリプトをコードと同期させておくには、ソース管理システムにスクリプトを保存します。 その後、変更をロールバックするか、開発コードとは異なる実稼働コードをすばやく修正する必要がある場合は、どの設定が変更されたか、またはどのチームメンバーが必要なバージョンのコピーを保持しているかを追跡する時間を無駄にする必要がありません。 必要なスクリプトは、必要なコードベースと同期され、すべてのチームメンバーが同じスクリプトを使用することが確実になります。 次に、運用環境または新機能の開発に対する修正プログラムのテストと展開を自動化する必要があるかどうかにかかわらず、更新する必要があるコードに適したスクリプトが用意されています。
 
 <a id="secrets"></a>
-## <a name="dont-check-in-secrets"></a>シークレットをチェックインしません。
+## <a name="dont-check-in-secrets"></a>シークレットをチェックインしない
 
-ソース コードのリポジトリが通常パスワードなどの機密データのための場所が適切にセキュリティで保護するには人が多すぎますアクセスできます。 スクリプトは、パスワードなどの機密情報に依存する場合は、これらの設定、ソース コードでは保存されません、および他の場所、シークレットを格納するためパラメーター化します。
+通常、ソースコードリポジトリは、パスワードなどの機密データを適切にセキュリティで保護された場所に配置するために、多くのユーザーにアクセスできます。 スクリプトがパスワードなどのシークレットに依存している場合は、これらの設定をパラメーター化してソースコードに保存しないようにし、他の場所にシークレットを格納します。
 
-などが含まれているファイルをダウンロードする Azure では、発行プロファイルの作成を自動化するために設定を発行します。 これらのファイルは、ユーザー名とパスワードを Azure サービスを管理する権限が含まれます。 これを使用する場合を作成する方法と、発行プロファイル、およびをソース管理にこれらのファイルをチェックインする場合は、それらのユーザー名とパスワードを表示をリポジトリにアクセスできる人物によることができます。 暗号化されているので、発行プロファイル自体で、パスワードに格納することに安全にことができます、 *. >.pubxml.user*ファイルを既定では、ソース管理には含まれていません。
+たとえば、Azure では、発行プロファイルの作成を自動化するために、発行設定を含むファイルをダウンロードできます。 これらのファイルには、Azure サービスの管理を許可されているユーザー名とパスワードが含まれます。 この方法を使用して発行プロファイルを作成した場合、これらのファイルをソース管理にチェックインすると、リポジトリへのアクセス権を持つユーザーは、それらのユーザー名とパスワードを参照できます。 パスワードは暗号化されていて、既定ではソース管理に含まれていない*pubxml ユーザー*ファイルに格納されているため、発行プロファイル自体に安全に保存できます。
 
 <a id="devops"></a>
-## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>構造のソース ブランチを DevOps ワークフローを容易にする
+## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>DevOps ワークフローを容易にする構造ソースブランチ
 
-リポジトリで分岐を実装する方法、新機能の開発し、運用環境での問題を修正する能力に影響します。 大量のメディア サイズのチームの使用を調整するパターンを次に示します。
+リポジトリにブランチを実装する方法によって、新しい機能を開発し、運用環境で問題を修正する機能が変わります。 中規模のチームが使用しているパターンを次に示します。
 
-![ソース ブランチ構造](source-control/_static/image1.png)
+![ソースブランチ構造](source-control/_static/image1.png)
 
-マスター ブランチには、実稼働環境では、コードが常と一致します。 マスターの下にある分岐は、開発ライフ サイクルのさまざまな段階に対応します。 Development 分岐には新機能を実装します。 小規模なチームの可能性がありますだけマスターと開発が多くの場合、ユーザーが開発とマスター間でのステージング環境の分岐があることをお勧めします。 ステージングを使用して、最終的な統合が更新プログラムが運用環境に移動する前にテストすることができます。
+Master 分岐は、常に運用環境にあるコードと一致します。 マスターの下にある分岐は、開発ライフサイクルのさまざまな段階に対応します。 開発分岐では、新機能を実装します。 小規模なチームでは、マスターと開発のみが必要ですが、多くの場合、開発とマスターの間にステージングブランチを作成することをお勧めします。 更新を運用環境に移行する前に、ステージングを使用して最終的な統合テストを行うことができます。
 
-大きなチームのある可能性があります。 新しい機能ごとに別のブランチ小規模なチーム everyone development 分岐にチェックインするがあります。
+大規模なチームでは、新しい機能ごとに個別の分岐が存在する可能性があります。小規模なチームの場合、開発ブランチにチェックインする人がいます。
 
-機能 A が準備完了のするマージ時に、各機能の分岐がある場合、ソース コードの変更を開発に分岐および他の機能の分岐にします。 このソース コードのマージ プロセスは時間がかかり、できるし、個別機能しながら、その作業を避けるためには、一部のチームと呼ばれる別の方法を実装*[フィーチャー トグル](http://en.wikipedia.org/wiki/Feature_toggle)* (ともいう*機能フラグ*)。 つまり、同じツリーには、すべての機能のすべてのコードが有効にするか、コードでスイッチを使用して各機能を無効にします。 たとえば、機能 A は Fix It アプリ タスクの新しいフィールドで、機能 B は、キャッシュ機能を追加します。 両方の機能のコードは、development 分岐であることができますが、アプリが表示、新しいフィールドの変数が true に設定されている場合のみキャッシュを使用する、別の変数が設定されている場合は true にします。 機能 A に昇格する準備ができていない場合、機能 B の準備がすべての機能 A スイッチを使用して実稼働環境にコードを昇格することができ、機能 B をオンにします。 機能 A を終了し、昇格して後で、すべてでないソース コードをマージします。
+各機能の分岐がある場合、機能 A の準備が整ったら、ソースコードの変更を開発ブランチにマージし、その他の機能分岐にマージします。 このソースコードのマージ処理には時間がかかることがあります。また、機能を個別に維持したまま作業を回避するために、一部のチームは機能の *[切り替え](http://en.wikipedia.org/wiki/Feature_toggle)* (*機能フラグ*とも呼ばれます) と呼ばれる代替手段を実装しています。 これは、すべての機能のすべてのコードが同じ分岐にあることを意味しますが、コードのスイッチを使用して各機能を有効または無効にします。 たとえば、機能 A が It アプリのタスクを修正するための新しいフィールドであるとします。機能 B はキャッシュ機能を追加します。 両方の機能のコードは development 分岐に配置できますが、アプリは変数が true に設定されている場合にのみ新しいフィールドを表示し、異なる変数が true に設定されている場合にのみキャッシュを使用します。 機能 A を昇格する準備ができていないにもかかわらず、機能 B の準備ができている場合は、スイッチをオフにして機能 B をオンにして、すべてのコードを運用環境に昇格させることができます。 これにより、機能 A を完了し、後でソースコードをマージせずに昇格させることができます。
 
-機能の分岐または切り替えを使用するかどうかこのような分岐構造では、アジャイルかつ反復的な方法で開発運用環境にコードをフローすることができます。
+機能の分岐または切り替えを使用するかどうかにかかわらず、このような分岐構造では、開発からコードをアジャイルで反復的な方法で運用環境にフローさせることができます。
 
-この構造体では、お客様のフィードバックに迅速に対応することもできます。 運用環境にクイック修正を加える必要がある場合も行えますを効率的にアジャイルな手法で。 Master またはステージング環境から分岐を作成して、マスターにマージする準備ができ次第印および下矢開発と機能の分岐にします。
+この構造により、お客様のフィードバックに迅速に対応することもできます。 実稼働環境にすばやく修正を加える必要がある場合は、それをアジャイルな方法で効率的に実行することもできます。 マスターまたはステージングから分岐を作成できます。また、マスターと機能の分岐にマージする準備ができたら、ブランチを作成できます。
 
-![修正プログラムの分岐](source-control/_static/image2.png)
+![修正プログラムブランチ](source-control/_static/image2.png)
 
-なしの運用と開発分岐には、その分離を使用したこのような分岐構造、運用環境の問題に配置する、運用環境の修正と共に新しい機能のコードを昇格することの位置にします。 新しい機能のコードを徹底的にテストと準備の運用できない可能性があり、多くの準備ができていない変更をバックアップする作業を実行する必要があります。 または、変更をテストし、それらをデプロイする準備が取得するには、修正プログラムを遅延する必要があります。
+このような分岐構造を使用して運用と開発の分岐が分離されていない場合、運用上の問題によって、新しい機能コードを運用環境の修正プログラムと共に昇格させる必要があります。 新しい機能コードは完全にテストされていない場合があり、運用環境での準備が整っていない可能性があり、準備ができていない変更をバックアップするために大量の作業が必要になる場合があります。 または、変更をテストしてデプロイの準備を整えるために、修正を遅らせることが必要になる場合があります。
 
-次に、Visual Studio、Azure、および Azure リポジトリにこれら 3 つのパターンを実装する方法の例を確認します。 これらは、詳細な手順の方法を操作を行います it について; ではなく、例すべての必要なコンテキストを提供の詳細については、次を参照してください。、[リソース](#resources)章の最後のセクション。
+次に、Visual Studio、Azure、および Azure Repos でこれら3つのパターンを実装する方法の例を紹介します。 これらの例は、詳細なステップバイステップの手順ではありません。必要なすべてのコンテキストを提供する詳細な手順については、章の最後にある「 [resources](#resources) 」セクションを参照してください。
 
 <a id="vsscripts"></a>
-## <a name="add-scripts-to-source-control-in-visual-studio"></a>スクリプトを Visual Studio でソース管理に追加します。
+## <a name="add-scripts-to-source-control-in-visual-studio"></a>Visual Studio でソース管理にスクリプトを追加する
 
-(プロジェクトがソース管理にある場合)、Visual Studio ソリューション フォルダーに含めることで、Visual Studio でソース管理にスクリプトを追加できます。 これを行う 1 つの方法を次に示します。
+Visual studio でソース管理にスクリプトを追加するには、visual studio のソリューションフォルダーにスクリプトを追加します (プロジェクトがソース管理内にあることを前提としています)。 これを行う1つの方法を次に示します。
 
-ソリューション フォルダー内のスクリプトのフォルダーを作成 (がある同じフォルダー、 *.sln*ファイル)。
+ソリューションフォルダー ( *.sln*ファイルと同じフォルダー) にスクリプト用のフォルダーを作成します。
 
 ![Automation フォルダー](source-control/_static/image3.png)
 
-スクリプト ファイルをフォルダーにコピーします。
+スクリプトファイルをフォルダーにコピーします。
 
-![フォルダーの内容の自動化](source-control/_static/image4.png)
+![Automation フォルダーの内容](source-control/_static/image4.png)
 
-Visual Studio でプロジェクトをソリューション フォルダーを追加します。
+Visual Studio で、ソリューションフォルダーをプロジェクトに追加します。
 
-![新しいソリューション フォルダーのメニューの選択](source-control/_static/image5.png)
+![新しいソリューションフォルダーメニューの選択](source-control/_static/image5.png)
 
-スクリプト ファイルをソリューション フォルダーに追加します。
+スクリプトファイルをソリューションフォルダーに追加します。
 
-![既存の項目 メニューの選択を追加します。](source-control/_static/image6.png)
+![[既存項目の追加] メニューの選択](source-control/_static/image6.png)
 
 ![[既存項目の追加] ダイアログ ボックス](source-control/_static/image7.png)
 
-スクリプト ファイルがプロジェクトに含まれるようになりましたし、ソース管理に対応するソース コードの変更とそのバージョンの変更が追跡します。
+これで、スクリプトファイルがプロジェクトに含まれるようになりました。ソース管理は、対応するソースコードの変更と共にバージョンの変更を追跡しています。
 
 <a id="appsettings"></a>
-## <a name="store-sensitive-data-in-azure"></a>Azure での機密データを格納します。
+## <a name="store-sensitive-data-in-azure"></a>Azure に機密データを格納する
 
-Azure Web サイトでアプリケーションを実行する場合でソース管理の資格情報を格納しないようにする方法の 1 つが、代わりに Azure に格納します。
+Azure の Web サイトでアプリケーションを実行する場合、資格情報をソース管理に保存しないようにする方法の1つとして、資格情報を Azure に保存する方法があります。
 
-たとえば、Fix It アプリケーションは、Web.config ファイル 2 つの接続文字列を運用環境と Azure ストレージ アカウントにアクセスできるように、キーのパスワードを持つに格納します。
+たとえば、It アプリケーションの修正プログラムでは、運用環境のパスワードを持つ2つの接続文字列と、Azure ストレージアカウントへのアクセスを提供するキーが web.config ファイルに格納されます。
 
 [!code-xml[Main](source-control/samples/sample1.xml?highlight=2-3,11)]
 
-これらの設定の実際の運用時の値を配置するかどうか、 *Web.config*ファイルに配置する場合や、 *Web.Release.config*デプロイ時に、それらを挿入する Web.config の変換を構成するファイルこれらは、ソース リポジトリに格納します。 発行プロファイルを運用環境にデータベースの接続文字列を入力する場合で、パスワードになります、 *.pubxml*ファイル。 (除外する可能性があります、 *.pubxml* 、ソース管理からファイルが、他のすべての展開設定を共有する利点が失われます)。
+これらの設定の実際の実稼働値を web.config*ファイルに*配置する場合、または配置時に挿入するように*web.config の変換*を構成するために web.config ファイルに配置する場合は、ソースリポジトリに格納されます。 実稼働発行プロファイルにデータベース接続文字列を入力すると、そのパスワードが*pubxml*ファイルに挿入されます。 ( *Pubxml*ファイルをソース管理から除外することもできますが、その他のすべての展開設定を共有する利点は失われます)。
 
-ための代替を提供、 **appSettings**および接続文字列のセクションでは、 *Web.config*ファイル。 関連部分を次に示します、**構成**Azure 管理ポータルでの web サイト タブ。
+Azure に*は、web.config ファイル*の**appSettings**と接続文字列のセクションの代替手段が用意されています。 Azure 管理ポータルでの web サイトの **[構成]** タブの関連部分を次に示します。
 
-![appSettings、connectionStrings ポータル](source-control/_static/image8.png)
+![ポータルでの appSettings と connectionStrings](source-control/_static/image8.png)
 
-この web サイトとアプリケーションの実行時にプロジェクトを配置するときに Azure に保管されている任意の値は、Web.config ファイルには、どのような値をオーバーライドします。
+この web サイトにプロジェクトを配置し、アプリケーションを実行すると、Azure に格納した値によって、web.config ファイル内の値が上書きされます。
 
-管理ポータルまたはスクリプトを使用して、Azure でこれらの値を設定できます。 環境の作成の自動化スクリプトで見た、[自動化すべて](automate-everything.md)章、Azure SQL Database を作成、ストレージと SQL データベースの接続文字列を取得および web サイトの設定にこれらのシークレットを格納します。
+これらの値は、管理ポータルまたはスクリプトを使用して Azure で設定できます。 「[すべて自動化](automate-everything.md)」の章で説明した環境作成の自動化スクリプトは、Azure SQL Database を作成し、ストレージと SQL Database 接続文字列を取得して、これらのシークレットを web サイトの設定に保存します。
 
 [!code-powershell[Main](source-control/samples/sample2.ps1)]
 
 [!code-powershell[Main](source-control/samples/sample3.ps1)]
 
-実際の値をソース リポジトリに永続化されないように、スクリプトがパラメーター化されることを確認します。
+実際の値がソースリポジトリに保存されないように、スクリプトがパラメーター化されていることに注意してください。
 
-開発環境でローカルに実行すると、アプリを読み取り、ローカルの Web.config ファイルとの接続文字列で SQL Server の LocalDB データベースを指して、*アプリ\_データ*web プロジェクトのフォルダー。 Azure でアプリを実行すると、アプリが Web.config ファイルからこれらの値を読み取ろうと、失意こと確認し、使用は、格納されているとは限りません実際に Web.config ファイルで、Web サイトの値です。
+開発環境でローカルに実行すると、アプリはローカルの web.config ファイルを読み取り、接続文字列は、web プロジェクトの*app\_Data*フォルダー内の LocalDB SQL Server データベースを参照します。 アプリを Azure で実行し、アプリが web.config ファイルからこれらの値を読み取ろうとすると、実際には、web.config ファイルの内容ではなく、web サイトに格納されている値が返されます。
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-azure-devops"></a>Visual Studio および Azure DevOps で Git を使用して、
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Visual Studio と Azure DevOps で Git を使用する
 
-前に示した DevOps 分岐構造を実装するのに任意のソース管理の環境を使用できます。 分散チームの[分散バージョン コントロール システム](http://en.wikipedia.org/wiki/Distributed_revision_control)(DVCS) が最も適切に機能があります。 他のチームの、[システムを集中管理](http://en.wikipedia.org/wiki/Revision_control)より適切に動作可能性があります。
+任意のソース管理環境を使用して、前に示した DevOps 分岐構造体を実装できます。 分散型チームの場合、[分散型バージョン管理システム](http://en.wikipedia.org/wiki/Distributed_revision_control)(dvcs) が最適な場合があります。他のチームにとっては、一元化された[システム](http://en.wikipedia.org/wiki/Revision_control)の機能が向上する可能性があります。
 
-[Git](http://git-scm.com/)人気のある分散型バージョン コントロール システムです。 ソース管理に Git を使用するときに、ローカル コンピューターに、そのすべての履歴を含むリポジトリの完全なコピーを用意します。 多くの人は、こと簡単だから、ネットワークに接続していない--を続行できるときの作業を続行するには、コミット、ロールバック、作成し、分岐を切り替えるしなどを使用します。 ネットワークに接続している場合でもブランチを作成し、すべてのものがローカル分岐を切り替えた方が手軽な容易になります。 他の開発者に影響を与えず、ローカル コミットとロールバックを実行することもできます。 サーバーに送信する前にコミットをバッチ処理できます。
+[Git](http://git-scm.com/)は、広く普及している分散型バージョン管理システムです。 ソース管理に Git を使用すると、ローカルコンピューター上のすべての履歴と共にリポジトリの完全なコピーが作成されます。 ネットワークに接続していない場合でも作業を続行できるので、多くのユーザーは、引き続きコミットとロールバックを実行したり、分岐を作成して切り替えることができます。 ネットワークに接続している場合でも、ブランチを作成したり、すべてがローカルの場合に分岐を切り替えたりする方が簡単で高速です。 また、他の開発者に影響を与えることなく、ローカルのコミットとロールバックを行うこともできます。 また、コミットをバッチ処理してからサーバーに送信することもできます。
 
-[Azure リポジトリ](/azure/devops/repos/index?view=vsts)両方を提供[Git](/azure/devops/repos/git/?view=vsts)と[Team Foundation バージョン管理](/azure/devops/repos/tfvc/index?view=vsts)(TFVC; ソース管理を一元化する)。 Azure DevOps の概要[ここ](https://app.vsaex.visualstudio.com/signup)します。
+[Azure Repos](/azure/devops/repos/index?view=vsts)には、 [Git](/azure/devops/repos/git/?view=vsts)と[Team Foundation バージョン管理](/azure/devops/repos/tfvc/index?view=vsts)(TFVC、一元化されたソース管理) の両方が用意されています。 Azure DevOps の使用を開始する[」を参照](https://app.vsaex.visualstudio.com/signup)してください。
 
-Visual Studio 2017 には、組み込みファースト クラスにはが含まれています。 [Git サポート](https://msdn.microsoft.com/library/hh850437.aspx)します。 ここでは、簡単に、その動作のデモです。
+Visual Studio 2017 には、組み込みのファーストクラスの[Git サポート](https://msdn.microsoft.com/library/hh850437.aspx)が含まれています。 そのしくみを簡単に説明します。
 
-プロジェクトを Visual Studio で開き、ソリューションを右クリックして**ソリューション エクスプ ローラー**を選び、**ソリューションをソース管理に追加**します。
+Visual Studio でプロジェクトを開き、**ソリューションエクスプローラー**でソリューションを右クリックし、 **[ソリューションをソース管理に追加]** を選択します。
 
-![ソリューションをソース管理に追加します。](source-control/_static/image9.png)
+![ソース管理へのソリューションの追加](source-control/_static/image9.png)
 
-Visual Studio では、TFVC (集中型バージョン コントロール) または Git を使用するかどうかを要求します。
+Visual Studio は、TFVC (一元化されたバージョン管理) と Git のどちらを使用するかをたずねます。
 
-![ソース管理を選択します。](source-control/_static/image10.png)
+![ソース管理の選択](source-control/_static/image10.png)
 
-Git を選択し、をクリックして**OK**、Visual Studio は、ソリューション フォルダーに新しいローカル Git リポジトリを作成します。 新しいリポジトリにはファイルがありません。 まだGit コミットの手順を実行して、リポジトリに追加することがあります。 ソリューションを右クリックして**ソリューション エクスプ ローラー**、 をクリックし、**コミット**します。
+Git を選択し、 **OK** をクリックすると、Visual Studio によってソリューションフォルダーに新しいローカル Git リポジトリが作成されます。 新しいリポジトリにはまだファイルがありません。Git コミットを実行してリポジトリに追加する必要があります。 **ソリューションエクスプローラー**でソリューションを右クリックし、 **[コミット]** をクリックします。
 
 ![確定](source-control/_static/image11.png)
 
-Visual Studio が自動的にすべてのコミットのプロジェクト ファイルのステージングし、でそれらが一覧表示**チーム エクスプ ローラー**で、**含まれる変更**ウィンドウ。 (いくつかのコミットに含める必要がなかったなら、それを選択できますし、右クリックおよびクリック**除外**)。
+Visual Studio では、コミットのすべてのプロジェクトファイルが自動的にステージングされ、 **[含まれる変更]** ウィンドウの**チームエクスプローラー**に一覧表示されます。 (コミットに追加したくないものがある場合は、それを選択して右クリックし、 **[除外]** をクリックします)。
 
 ![チーム エクスプローラー](source-control/_static/image12.png)
 
-コミットのコメントを入力し、クリックして**コミット**、および Visual Studio は、コミットを実行し、コミット ID を表示します
+コミットコメントを入力し、 **[コミット]** をクリックすると、Visual Studio によってコミットが実行され、コミット ID が表示されます。
 
-![チーム エクスプ ローラーの変更](source-control/_static/image13.png)
+![チームエクスプローラーの変更](source-control/_static/image13.png)
 
-今すぐ内容と異なるリポジトリにあるように、いくつかのコードを変更する場合は、相違点を簡単に確認できます。 右クリックして、変更したファイルを選択します**Unmodified と比較**、コミットされていない変更内容を比較表示を取得します。
+ここで、リポジトリの内容とは異なるコードを変更すると、その違いを簡単に確認できます。 変更したファイルを右クリックし、 **[未変更の比較]** を選択すると、コミットされていない変更を示す比較表示が表示されます。
 
-![未変更のものと比較します。](source-control/_static/image14.png)
+![未変更の状態で比較](source-control/_static/image14.png)
 
-![差分の表示の変更](source-control/_static/image15.png)
+![変更を示す Diff](source-control/_static/image15.png)
 
-どのような変更を行っているし、チェックインを簡単に確認できます。
+どのような変更が加えられているかを簡単に確認できます。
 
-分岐を作成する必要があります – Visual Studio ですぎるを実行できるとします。 **チーム エクスプ ローラー**、 をクリックして**新しいブランチ**します。
+たとえば、分岐を作成する必要があるとします。これは、Visual Studio でも行うことができます。 **チームエクスプローラー**で、 **[新しいブランチ]** をクリックします。
 
-![チーム エクスプ ローラーの新しいブランチ](source-control/_static/image16.png)
+![新しいブランチのチームエクスプローラー](source-control/_static/image16.png)
 
-ブランチ名を入力し、をクリックして**分岐の作成**、選択した場合と**ブランチのチェック アウト**、Visual Studio が自動的に新しいブランチを確認します。
+分岐名を入力し、 **[分岐の作成]** をクリックすると、分岐を **[チェックアウト]** を選択した場合、新しい分岐が自動的にチェックアウトされます。
 
-![チーム エクスプ ローラーの新しいブランチ](source-control/_static/image17.png)
+![新しいブランチのチームエクスプローラー](source-control/_static/image17.png)
 
-ファイルに変更を加えるし、この分岐にチェックインできるようになりました。 切り替えることができます簡単に分岐と Visual Studio に自動的に同期したブランチにファイルがチェック アウトします。この例では、web ページのタイトルで *\_Layout.cshtml*が"1"に修正 HotFix1 ブランチに変更されました。
+これで、ファイルを変更して、このブランチにチェックインできるようになりました。 また、分岐を簡単に切り替えることができます。 Visual Studio は、チェックアウトした分岐にファイルを自動的に同期します。この例では、 *\_Layout*の web ページタイトルは、HotFix1 分岐の "ホットフィックス 1" に変更されています。
 
 ![Hotfix1 ブランチ](source-control/_static/image18.png)
 
-マスターに戻る場合は、分岐の内容、  *\_Layout.cshtml*を master ブランチでは何か、ファイルが自動的に元に戻します。
+Master ブランチに戻ると、 *\_Layout*ファイルの内容が、master ブランチ内の内容に自動的に戻ります。
 
-![マスター ブランチ](source-control/_static/image19.png)
+![マスターブランチ](source-control/_static/image19.png)
 
-このことができますすばやくの作成方法、ブランチとブランチ間を行き来反転の簡単な例です。 この機能により、分岐構造を使用して、高度なアジャイル ワークフローと自動化スクリプトを示した、[自動化すべて](automate-everything.md)」の章。 たとえばに Development 分岐で作業しているマスターから修正プログラムの分岐を作成、新しいブランチを切り替える、そこに変更を行うと、それらをコミットし Development 分岐に戻りますおよび元の作業を続行します。
+この例では、分岐をすばやく作成し、分岐間を逆方向に反転する方法を簡単に説明します。 この機能により、[[すべて自動化](automate-everything.md)] の章に示されている分岐構造と自動化スクリプトを使用して、高度にアジャイルなワークフローを実現できます。 たとえば、Development 分岐で作業したり、master からホットフィックス分岐を作成したり、新しい分岐に切り替えたり、変更を加えてコミットしたりできます。その後、開発ブランチに戻り、実行した操作を続行します。
 
-Visual Studio でローカル Git リポジトリを使用する方法は、ここで説明しました。 チーム環境で通常も変更をプッシュする共通のリポジトリ。 Visual Studio tools では、リモート Git リポジトリを指すこともできます。 GitHub.com を使用するにはそのため、または使用することができます[Git と Azure リポジトリ](/azure/devops/repos/git/overview?view=vsts)作業項目とバグの追跡など他のすべての Azure DevOps 機能と統合します。
+ここでは、Visual Studio でローカル Git リポジトリを使用する方法について説明しました。 チーム環境では、通常、変更を共通リポジトリにプッシュすることもできます。 また、Visual Studio tools を使用すると、リモート Git リポジトリをポイントすることもできます。 その目的に GitHub.com を使用することも、 [Git と Azure Repos](/azure/devops/repos/git/overview?view=vsts)作業項目やバグの追跡などの他のすべての Azure DevOps 機能と統合することもできます。
 
-そうでは、唯一の方法はもちろん、アジャイルな分岐戦略を実装することができます。 一元的なソース管理リポジトリを使用して、同じアジャイル ワークフローを有効にすることができます。
+もちろん、これはアジャイル分岐戦略を実装する唯一の方法ではありません。 一元化されたソース管理リポジトリを使用して、同じアジャイルワークフローを有効にすることができます。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-変更を加えるし、安全性と予測可能な方法でライブを取得速度に基づいて、ソース管理システムの成功を測定します。 場合は自分で両方を変更するには、1 日または 2 つの手動テストを行う必要があるため、多少、疑問に思うかもしれません何を行う必要がある process-wise または test-wise を分単位または 1 時間よりも不要になった最悪では、その変更を行うことができます。 これを行う方法の 1 つは、継続的インテグレーションと継続的デリバリーは、ここを実装する、 [[次へ] の章](continuous-integration-and-continuous-delivery.md)します。
+変更を加えて、安全で予測可能な方法で利用できるようになるまでの時間に基づいて、ソース管理システムの成功を測定します。 1日または2回の手動テストを行う必要があるために変更を行う必要がある場合は、その変更を分単位または最低でも1時間以内に行う必要があるかどうかを自分で確認してください。 そのための1つの方法は、継続的インテグレーションと継続的デリバリーを実装することです。これについては、[次の章](continuous-integration-and-continuous-delivery.md)で説明します。
 
 <a id="resources"></a>
 ## <a name="resources"></a>リソース
 
 分岐戦略の詳細については、次のリソースを参照してください。
 
-- [Team Foundation Server 2012 によるリリース パイプラインを構築](https://msdn.microsoft.com/library/dn449957.aspx)します。 Microsoft Patterns and Practices ドキュメントです。 分岐戦略の詳細については第 6 章を参照してください。 擁護者機能は、機能の分岐を切り替えるし、機能の分岐を使用している場合に短時間 (時間または日、最大) を維持することを主張します。
-- [バージョン管理ガイド](https://aka.ms/vsarsolutions)します。 ALM Rangers によって分岐戦略を説明します。 [ダウンロード] タブでは、分岐 Strategies.pdf を参照してください。
-- [機能の切り替えを使ったソフトウェア開発](https://msdn.microsoft.com/magazine/dn683796.aspx)します。 MSDN Magazine の記事。
-- [機能の切り替え](http://martinfowler.com/bliki/FeatureToggle.html)します。 機能の概要を切り替えます/Martin Fowler のブログで機能フラグを設定します。
-- [機能の切り替えと機能の分岐](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx)します。 Dylan smith の機能の切り替えに関するブログ記事をもう 1 つ。
+- [Team Foundation Server 2012 でリリースパイプラインをビルド](https://msdn.microsoft.com/library/dn449957.aspx)します。 Microsoft のパターンとプラクティスに関するドキュメント。 分岐戦略の詳細については、第6章を参照してください。 機能を使用して機能分岐を切り替えます。機能の分岐が使用されている場合は、有効期間を短くします (時間または日単位)。
+- [バージョン管理ガイド](https://aka.ms/vsarsolutions)。 ALM Rangers による分岐戦略のガイド。 [ダウンロード] タブの [分岐方法] を参照してください。
+- [機能の切り替えによるソフトウェア開発](https://msdn.microsoft.com/magazine/dn683796.aspx)。 MSDN マガジンの記事です。
+- [機能の切り替え](http://martinfowler.com/bliki/FeatureToggle.html)。 Martin Fowler のブログの機能の切り替え/機能フラグの概要を説明します。
+- 機能によって[vs の機能分岐が切り替わり](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx)ます。 機能の切り替えに関するもう1つのブログ投稿 (Dylan Smith)
 
-ソース管理リポジトリに保持する必要があります機密情報を処理する方法の詳細については、次のリソースを参照してください。
+ソース管理リポジトリに保持しない機密情報を処理する方法の詳細については、次のリソースを参照してください。
 
-- [ASP.NET と Azure App Service にパスワードやその他の機密データを展開するためのベスト プラクティス](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)します。
-- [Azure の Web サイト:How Application Strings and Connection Strings Work (アプリケーション文字列と接続文字列の動作)](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)」をご覧ください。 オーバーライドする Azure の機能について説明します`appSettings`と`connectionStrings`内のデータ、 *Web.config*ファイル。
-- [カスタム構成とアプリケーションの設定の Azure Web サイトを使用して-Stefan schackow 共演](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/)します。
+- [ASP.NET と Azure App Service にパスワードやその他の機密データを展開するためのベストプラクティス](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)。
+- [Azure websites: アプリケーション文字列と接続文字列の動作について説明](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)します。 *Web.config ファイルで*`appSettings` とデータの `connectionStrings` をオーバーライドする Azure 機能について説明します。
+- [Azure websites のカスタム構成とアプリケーション設定-Stefan を使用する場合](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/)
 
-ソース管理から機密情報を管理することは、その他の方法については、次を参照してください[ASP.NET MVC:。ソース管理のプライベート設定の出力を保持](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx)します。
+ソース管理から機密情報を保持するその他の方法については、「 [ASP.NET MVC: ソース管理からプライベート設定を保持](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx)する」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](automate-everything.md)

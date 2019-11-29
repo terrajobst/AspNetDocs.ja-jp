@@ -1,179 +1,179 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-title: (Azure での実際のクラウド アプリの構築) すべてを自動化 |Microsoft Docs
+title: すべてを自動化 (Azure を使用した実際のクラウドアプリの構築) |Microsoft Docs
 author: MikeWasson
-description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
+description: Azure 電子ブックを使用した実際のクラウドアプリの構築は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 13のパターンとベストプラクティスについて説明します。
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: fd78385e563b7204b29beb4180b7bc932266bdec
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d5c8190d0b0c91bf9e42f6ef03adc5b07a65359a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119015"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582883"
 ---
-# <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure での実際のクラウド アプリの構築) すべてを自動化します。
+# <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>すべてを自動化 (Azure を使用した実際のクラウドアプリの構築)
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
-[ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の概要については、次を参照してください。[第 1 章](introduction.md)します。
+> Azure 電子ブック**を使用した実際のクラウドアプリの構築**は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 ここでは、クラウド用の web アプリの開発を成功させるのに役立つ13のパターンとプラクティスについて説明します。 電子書籍の概要については、[最初の章](introduction.md)を参照してください。
 
-実際には、見て最初の 3 つのパターンには、あらゆるソフトウェア開発プロジェクト、特にクラウド プロジェクトが適用されます。 このパターンは、開発タスクの自動化についてです。 手動プロセスは低速でエラーが発生しやすい; は、重要なトピック高速かつ信頼性が高く、アジャイルのワークフローを設定することの支援としてそれらの多くを自動化します。 困難または不可能なオンプレミス環境を自動化するには多くのタスクを簡単に自動化できるため、クラウド開発を一意に重要です。 たとえば、テスト全体を設定することが新しい web サーバーとバックエンド Vm を含む環境では、データベース、blob storage (ファイル ストレージ)、キューなど。
+最初の3つのパターンは、特にクラウドプロジェクトに対して、実際にはどのようなソフトウェア開発プロジェクトにも適用されます。 このパターンは、開発タスクの自動化に関するものです。 手動プロセスは低速でエラーが発生しやすいため、これは重要なトピックです。可能な限り多くの機能を自動化することで、高速で信頼性の高い、アジャイルなワークフローを設定できます。 これは、オンプレミスの環境で自動化することが困難または不可能な多くのタスクを簡単に自動化できるため、クラウド開発にとっては一意です。 たとえば、新しい web サーバーとバックエンド Vm、データベース、blob ストレージ (ファイルストレージ)、キューなどを含むテスト環境全体を設定できます。
 
 ## <a name="devops-workflow"></a>DevOps ワークフロー
 
-"DevOps"という用語が聞こえるますます ソフトウェアを効率的に開発するために開発と運用タスクを統合することがある認識外という用語を開発しました。 有効にワークフローの種類をすることができますアプリを開発、デプロイ運用環境の演算子の使用からについて説明します、学習した内容への応答で変更、迅速かつ確実に、サイクルを繰り返します。
+"DevOps" という言葉が増えています。 ソフトウェアを効率的に開発するために、開発と運用のタスクを統合する必要があるという認識から除外された用語。 有効にするワークフローの種類は、アプリを開発し、デプロイし、運用環境で使用して学習し、学習した内容に応じてそれを変更し、そのサイクルを迅速かつ確実に繰り返すことができます。
 
-一部成功するクラウドの開発チームは、実際の環境に 1 日複数回をデプロイします。 Azure チーム、大規模な展開に使用更新でも管理はすべて 2 ~ 3 か月ごとの 2 ~ 3 日間とメジャー リリース 2 ~ 3 週間ごとのリリースのマイナー アップデートします。 そのリズムにではお客様のフィードバックに素早く対応する実際に役立ちます。
+成功したクラウド開発チームの中には、1日に何度もライブ環境にデプロイされているものがあります。 Azure チームは、2-3 か月ごとにメジャー更新プログラムをデプロイするために使用しましたが、現時点では、2-3 日ごとにマイナー更新プログラムをリリースし、2-3 週ごとにメジャーリリースをリリースしました。 このリズムを利用することで、お客様からのフィードバックに迅速に対応することができます。
 
-このためには、開発とデプロイ サイクルが反復可能な信頼性の高い、予測可能なおよび低サイクル時間を有効にする必要があります。
+そのためには、反復可能で信頼性が高く予測可能で、サイクル時間が短くなる開発および展開のサイクルを有効にする必要があります。
 
 ![DevOps ワークフロー](automate-everything/_static/image1.png)
 
-つまり、機能のアイデアがある場合と、顧客の使用しフィードバックを提供するとの間の期間はできるだけ短くする必要があります。 最初の 3 つのパターン: は、すべてのソースの管理を自動化し、継続的インテグレーションと配信の本質はそのようなプロセスを有効にするために推奨されるベスト プラクティス。
+つまり、機能についてのアイデアがあり、顧客がそれを使用してフィードバックを提供するまでの期間は、できるだけ短くする必要があります。 最初の3つのパターン (すべてを自動化、ソース管理、継続的な統合と配信) は、そのようなプロセスを可能にするために推奨されるベストプラクティスに関するものです。
 
 ## <a name="azure-management-scripts"></a>Azure の管理スクリプト
 
-[この電子書籍の紹介](introduction.md)、web ベース コンソールで、Azure 管理ポータルを説明しました。 管理ポータルを使用すると、監視およびすべての Azure にデプロイしたリソースを管理できます。 作成、web アプリと仮想マシンなどのサービスを削除し、それらのサービスを構成、サービスの操作を監視およびなどを簡単になります。 すばらしいツールですが、これを使用して手動プロセスであります。 場合は、あらゆるサイズの実稼働アプリケーションを開発しようとしているし、チーム環境で特にお勧め、ポータルについて説明し、Azure を調査するために UI を使用し、繰り返し行うプロセスを自動化します。
+[この電子ブックの概要](introduction.md)では、web ベースのコンソールである Azure 管理ポータルについて説明しました。 管理ポータルでは、Azure にデプロイしたすべてのリソースを監視および管理できます。 Web アプリや Vm などのサービスを作成および削除したり、サービスを構成したり、サービス操作を監視したりするための簡単な方法です。 これは優れたツールですが、これを使用するのは手動のプロセスです。 任意のサイズの実稼働アプリケーションを開発する場合、特にチーム環境では、Azure を学習して調査し、繰り返し実行するプロセスを自動化するために、ポータル UI を使用することをお勧めします。
 
-管理ポータルで、または Visual Studio から手動で行うことができますほぼすべてのものは、REST 管理 API を呼び出すことによっても実行できます。 使用してスクリプトを記述する[Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx)などのオープン ソース フレームワークを使用できますか[Chef](http://www.opscode.com/chef/)または[Puppet](http://puppetlabs.com/puppet/what-is-puppet)します。 Mac または Linux の環境での Bash コマンド ライン ツールを使用することもできます。 Azure では、これらすべての異なる環境でのスクリプト Api とは、 [.NET 管理 API](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)スクリプトではなくコードを記述する場合。
+管理ポータルまたは Visual Studio で手動で実行できるほぼすべてのものは、REST 管理 API を呼び出すことによっても実行できます。 [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx)を使用してスクリプトを作成することも、 [Chef](http://www.opscode.com/chef/)や[パペット](http://puppetlabs.com/puppet/what-is-puppet)などのオープンソースフレームワークを使用することもできます。 また、Mac または Linux 環境で Bash コマンドラインツールを使用することもできます。 Azure では、これらのさまざまな環境に対して Api をスクリプト化しています。また、スクリプトではなくコードを記述する場合は、 [.net MANAGEMENT API](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)を用意しています。
 
-Fix It アプリのテスト環境を作成し、その環境にプロジェクトをデプロイのプロセスを自動化するいくつかの Windows PowerShell スクリプトを作成しましたし、これらのスクリプトの内容の一部を確認します。
+この問題を修正するために、テスト環境を作成し、その環境にプロジェクトを配置するプロセスを自動化する Windows PowerShell スクリプトをいくつか作成しました。これらのスクリプトの内容をいくつか確認します。
 
-## <a name="environment-creation-script"></a>環境の作成スクリプト
+## <a name="environment-creation-script"></a>環境作成スクリプト
 
-最初のスクリプトを見ていきますが名前付き*新規 AzureWebsiteEnv.ps1*します。 修正をテスト用のアプリを導入することが Azure 環境を作成します。 このスクリプトを実行する主なタスクは次のとおりです。
+まず、 *New-AzureWebsiteEnv*という名前を付けます。 テスト用に修正プログラムをデプロイできる Azure 環境が作成されます。 このスクリプトが実行する主なタスクは次のとおりです。
 
 - Web アプリを作成する。
-- ストレージ アカウントを作成します。 (必要な blob やキューの後半の章でわかります。)
-- SQL Database サーバーと 2 つのデータベースの作成: アプリケーション データベース、およびメンバーシップ データベース。
-- アプリは、ストレージ アカウントとデータベースへのアクセスに使用する azure の設定を格納します。
-- 展開を自動化するために使用する設定ファイルを作成します。
+- ストレージアカウントを作成します。 (後の章で説明するように、blob およびキューに対して必要です)。
+- SQL Database サーバーと2つのデータベース (アプリケーションデータベースとメンバーシップデータベース) を作成します。
+- ストレージアカウントとデータベースへのアクセスにアプリが使用する設定を Azure に格納します。
+- デプロイを自動化するために使用される設定ファイルを作成します。
 
 ### <a name="run-the-script"></a>スクリプトを実行する
 
 > [!NOTE]
-> この章のこの部分は、それらを実行するために入力したコマンドおよびスクリプトの例を示します。 このデモ スクリプトを実行するために知っておくべきすべてのものが提供されません。 方法を操作を行います it 手順については、次を参照してください。[付録。修正プログラム、サンプル アプリケーション](the-fix-it-sample-application.md#deploybase)します。
+> この章では、スクリプトと、それらを実行するために入力するコマンドの例を示します。 このデモでは、スクリプトを実行するために必要な知識をすべて提供するわけではありません。 詳しい手順については、「[付録: Fix It サンプルアプリケーション](the-fix-it-sample-application.md#deploybase)」を参照してください。
 
-Azure サービスを管理する PowerShell スクリプトを実行するには、Azure PowerShell コンソールをインストールし、Azure サブスクリプションで動作するように構成する必要があります。 設定しているとは、次のようなコマンドを使用して、Fix It 環境の作成スクリプトを実行できます。
+Azure サービスを管理する PowerShell スクリプトを実行するには、Azure PowerShell コンソールをインストールし、Azure サブスクリプションで動作するように構成する必要があります。 セットアップが完了したら、次のようなコマンドを使用して、Fix It environment 作成スクリプトを実行できます。
 
 `.\New-AzureWebsiteEnv.ps1 -Name <websitename> -SqlDatabasePassword <password>`
 
-`Name`パラメーターは、データベースとストレージ アカウントを作成するときに使用される名前を指定し、`SqlDatabasePassword`パラメーターは、SQL Database 用に作成される管理者アカウントのパスワードを指定します。 見て後で使用できるその他のパラメーターがあります。
+`Name` パラメーターは、データベースとストレージアカウントを作成するときに使用する名前を指定し、`SqlDatabasePassword` パラメーターは SQL Database 用に作成される管理者アカウントのパスワードを指定します。 他にも使用できるパラメーターがあります。これについては後で説明します。
 
 ![PowerShell ウィンドウ](automate-everything/_static/image2.png)
 
-スクリプトが完了後することができますを参照してください、管理ポータルで作成したもの。 2 つのデータベースにあります。
+スクリプトが終了すると、管理ポータルで作成された内容を確認できます。 2つのデータベースがあります。
 
 ![データベース](automate-everything/_static/image3.png)
 
-ストレージ アカウント:
+ストレージアカウント:
 
-![ストレージ アカウント](automate-everything/_static/image4.png)
+![ストレージアカウント](automate-everything/_static/image4.png)
 
-Web アプリ:
+と web アプリは次のようになります。
 
-![Web サイト](automate-everything/_static/image5.png)
+![[Web サイト]](automate-everything/_static/image5.png)
 
-**構成**タブ web アプリがストレージ アカウントの設定および SQL データベース接続文字列設定されている修正プログラムをアプリを表示できます。
+Web アプリの **[構成]** タブで、修正プログラムのアプリ用にストレージアカウントの設定と SQL database 接続文字列が設定されていることを確認できます。
 
-![appSettings、connectionStrings](automate-everything/_static/image6.png)
+![appSettings と connectionStrings](automate-everything/_static/image6.png)
 
-*Automation*フォルダーもに、  *&lt;websitename&gt;.pubxml*ファイル。 このファイルには、MSBuild がアプリケーションを作成した Azure 環境のデプロイに使用する設定が格納されます。 例:
+*Automation*フォルダーには、 *&lt;websitename&gt;pubxml*ファイルも含まれるようになりました。 このファイルには、先ほど作成した Azure 環境にアプリケーションをデプロイするために MSBuild が使用する設定が格納されます。 例:
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
-ご覧のように、スクリプトが、完全なテスト環境を作成し、プロセス全体は約 90 秒間で行われます。
+ご覧のとおり、スクリプトは完全なテスト環境を作成し、プロセス全体は約90秒で完了しています。
 
-テスト環境を作成する場合、チームの他のユーザーが、スクリプトを実行することができます。 だけでなく、高速ですが、できると確信を使用するものと同じ環境を使用していることもできます。 さほど設定する場合は、すべてのユーザーがモ ノ手動で管理ポータル UI を使用しているは確信はできませんでした。
+チーム内の他のユーザーがテスト環境を作成しようとしている場合は、スクリプトを実行するだけで済みます。 高速であるだけでなく、使用している環境と同一の環境を使用していることも確信できます。 すべてのユーザーが管理ポータル UI を使用して手動で設定した場合は、自信を持っていなくても問題ありません。
 
-### <a name="a-look-at-the-scripts"></a>スクリプトを参照してください。
+### <a name="a-look-at-the-scripts"></a>スクリプトの概要
 
-実際には 3 つのスクリプトをこの作業を行うにがあります。 コマンドラインから 1 つを呼び出すし、一部のタスクの実行を自動的に他の 2 つを使用します。
+実際には、この作業を実行する3つのスクリプトがあります。 コマンドラインからを呼び出すと、他の2つのタスクが自動的に使用されます。
 
-- *新しい AzureWebSiteEnv.ps1*メイン スクリプトに示します。
+- *New-AzureWebSiteEnv*はメインスクリプトです。
 
-    - *新しい AzureStorage.ps1*ストレージ アカウントを作成します。
-    - *新しい AzureSql.ps1*データベースが作成されます。
+    - *New-AzureStorage*によってストレージアカウントが作成されます。
+    - *New-AzureSql*によってデータベースが作成されます。
 
-### <a name="parameters-in-the-main-script"></a>メインのスクリプトのパラメーター
+### <a name="parameters-in-the-main-script"></a>メインスクリプトのパラメーター
 
-メインのスクリプトでは、*新規 AzureWebSiteEnv.ps1*、いくつかのパラメーターを定義します。
+メインスクリプト New-AzureWebSiteEnv では、次のいくつかのパラメーターが定義されて*い*ます。
 
 [!code-powershell[Main](automate-everything/samples/sample2.ps1)]
 
-2 つのパラメーターが必要です。
+2つのパラメーターが必要です。
 
-- このスクリプトを作成する web アプリの名前。 (これにも、URL の使用: `<name>.azurewebsites.net`)。
-- このスクリプトを作成するデータベース サーバーの場合は、新しい管理ユーザーのパスワード。
+- スクリプトによって作成される web アプリの名前。 (これは、URL: `<name>.azurewebsites.net`にも使用されます)。
+- スクリプトによって作成されるデータベースサーバーの新しい管理ユーザーのパスワード。
 
-省略可能なパラメーターを使用すると、データ センターの場所 (既定値は「米国西部」)、データベース サーバー管理者名 ("dbuser"既定値)、およびデータベース サーバーのファイアウォール規則を指定できます。
+省略可能なパラメーターを使用すると、データセンターの場所 (既定では "米国西部")、データベースサーバー管理者名 (既定では "dbuser")、およびデータベースサーバーのファイアウォール規則を指定できます。
 
-### <a name="create-the-web-app"></a>Web アプリを作成します。
+### <a name="create-the-web-app"></a>Web アプリを作成する
 
-まず、スクリプトでは呼び出すことによって、web アプリを作成、`New-AzureWebsite`内に web アプリの名前と場所パラメーター値を渡すコマンドレット。
+最初のスクリプトでは、`New-AzureWebsite` コマンドレットを呼び出して web アプリを作成し、web アプリ名と場所のパラメーター値を渡します。
 
 [!code-powershell[Main](automate-everything/samples/sample3.ps1?highlight=2)]
 
-### <a name="create-the-storage-account"></a>ストレージ アカウントを作成します。
+### <a name="create-the-storage-account"></a>ストレージアカウントを作成する
 
-メイン スクリプトを実行し、*新規 AzureStorage.ps1*スクリプトを指定する"*&lt;websitename&gt;* ストレージ"、ストレージ アカウント名の同じデータ センターの場所として、web アプリです。
+次に、メインスクリプトは、ストレージアカウント名に " *&lt;websitename&gt;* storage" を指定し、web アプリと同じデータセンターの場所を指定して、 *New-AzureStorage*スクリプトを実行します。
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
-*新しい AzureStorage.ps1*呼び出し、`New-AzureStorageAccount`ストレージ アカウントを作成するコマンドレットは、アカウント名とアクセス キーの値を返します。 アプリケーションでは、blob とストレージ アカウント内のキューにアクセスするために、これらの値を必要があります。
+*New-AzureStorage*は、`New-AzureStorageAccount` コマンドレットを呼び出してストレージアカウントを作成し、アカウント名とアクセスキーの値を返します。 ストレージアカウント内の blob とキューにアクセスするには、アプリケーションにこれらの値が必要になります。
 
 [!code-powershell[Main](automate-everything/samples/sample5.ps1?highlight=2)]
 
-常にたくない、新しいストレージ アカウントを作成するには必要に応じて既存のストレージ アカウントを使用するよう指示するパラメーターを追加することにより、スクリプトを強化する可能性があります。
+常に新しいストレージアカウントを作成することはできません。必要に応じて既存のストレージアカウントを使用するように指示するパラメーターを追加することで、スクリプトを拡張できます。
 
-### <a name="create-the-databases"></a>データベースを作成します。
+### <a name="create-the-databases"></a>データベースを作成する
 
-メイン スクリプトが、データベース作成スクリプトを実行し、*新規 AzureSql.ps1*、後に既定のデータベースの設定およびファイアウォールのルール名。
+次に、既定のデータベースとファイアウォール規則の名前を設定した後、メインスクリプトによってデータベース作成スクリプト*New-AzureSql*が実行されます。
 
 [!code-powershell[Main](automate-everything/samples/sample6.ps1)]
 
 [!code-powershell[Main](automate-everything/samples/sample7.ps1?highlight=2)]
 
-データベースの作成スクリプトでは、開発用コンピューターの IP アドレスを取得し、開発用コンピューターに接続して、サーバーを管理するためのファイアウォール規則を設定します。 データベース作成スクリプトのデータベースを設定するいくつかの手順に進みます。
+データベース作成スクリプトでは、開発用コンピューターの IP アドレスを取得し、ファイアウォール規則を設定して、開発用コンピューターがサーバーに接続して管理できるようにします。 次に、データベースの作成スクリプトでは、データベースを設定するためのいくつかの手順を実行します。
 
-- 使用して、サーバーを作成、`New-AzureSqlDatabaseServer`コマンドレット。
+- `New-AzureSqlDatabaseServer` コマンドレットを使用してサーバーを作成します。
 
     [!code-powershell[Main](automate-everything/samples/sample8.ps1?highlight=1)]
-- 開発用コンピューターに接続する web アプリを有効にして、サーバーを管理するを有効にするファイアウォール規則を作成します。 
+- 開発用コンピューターがサーバーを管理し、web アプリがそれに接続できるようにするためのファイアウォール規則を作成します。 
 
     [!code-powershell[Main](automate-everything/samples/sample9.ps1?highlight=3,5)]
-- 使用して、サーバー名と資格情報を含むデータベース コンテキストを作成、`New-AzureSqlDatabaseServerContext`コマンドレット。
+- `New-AzureSqlDatabaseServerContext` コマンドレットを使用して、サーバー名と資格情報を含むデータベースコンテキストを作成します。
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText` 関数を呼び出すスクリプトでは、`ConvertTo-SecureString`返し、パスワードを暗号化するコマンドレット、`PSCredential`オブジェクト、同じ型の型を`Get-Credential`コマンドレットを返します。
-- 使用して、アプリケーション データベースと、メンバーシップ データベースを作成、`New-AzureSqlDatabase`コマンドレット。
+    `New-PSCredentialFromPlainText` は、`ConvertTo-SecureString` コマンドレットを呼び出してパスワードを暗号化し、`Get-Credential` コマンドレットが返すのと同じ型である `PSCredential` オブジェクトを返す、スクリプト内の関数です。
+- `New-AzureSqlDatabase` コマンドレットを使用して、アプリケーションデータベースとメンバーシップデータベースを作成します。
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
-- 各データベースの接続文字列を作成するローカルに定義された関数を呼び出します。 アプリケーションは、データベースにアクセスするのにこれらの接続文字列を使用します。 
+- ローカルに定義された関数を呼び出して、各データベースの接続文字列を作成します。 アプリケーションは、これらの接続文字列を使用してデータベースにアクセスします。 
 
     [!code-powershell[Main](automate-everything/samples/sample12.ps1?highlight=1-2)]
 
-    Get SQLAzureDatabaseConnectionString は、渡されたパラメーター値から接続文字列を作成するスクリプトで定義されている関数です。
+    SQLAzureDatabaseConnectionString は、指定されたパラメーター値から接続文字列を作成するスクリプトで定義された関数です。
 
     [!code-powershell[Main](automate-everything/samples/sample13.ps1?highlight=1)]
-- データベース サーバー名と接続文字列のハッシュ テーブルを返します。
+- データベースサーバー名と接続文字列を含むハッシュテーブルを返します。
 
     [!code-powershell[Main](automate-everything/samples/sample14.ps1)]
 
-Fix It アプリは、個別にメンバーシップとアプリケーション データベースを使用します。 単一のデータベース内のメンバーシップとアプリケーションの両方のデータを格納することもできます。
+Fix It アプリでは、個別のメンバーシップとアプリケーションデータベースを使用します。 メンバーシップとアプリケーションの両方のデータを1つのデータベースに格納することもできます。
 
-### <a name="store-app-settings-and-connection-strings"></a>ストア アプリの設定と接続文字列
+### <a name="store-app-settings-and-connection-strings"></a>アプリの設定と接続文字列を保存する
 
-Azure では、機能の設定と接続文字列を読み取ろうとしたときに、アプリケーションに返されるものを自動的に上書きを保存することができます、`appSettings`または`connectionStrings`Web.config ファイル内のコレクション。 これは、適用する代替[Web.config 変換](../../../../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md)を展開する場合。 詳細については、次を参照してください。[機密データを Azure に保存](source-control.md#appsettings)この電子書籍の後半。
+Azure には、設定と接続文字列を格納する機能があります。この機能を使用すると、Web.config ファイルで `appSettings` または `connectionStrings` コレクションを読み取ろうとしたときに、アプリケーションに返される内容を自動的に上書きすることができます。 これは、の配置時に web.config[変換](../../../../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md)を適用する代わりに使用します。 詳細については、この電子ブックの「[機微なデータを Azure に保存](source-control.md#appsettings)する」を参照してください。
 
-Azure のすべての環境の作成スクリプトを格納、`appSettings`と`connectionStrings`アプリケーションが Azure での実行時、ストレージ アカウントとデータベースにアクセスする必要がある値。
+環境作成スクリプトは、azure で実行するときに、アプリケーションがストレージアカウントとデータベースにアクセスするために必要なすべての `appSettings` と `connectionStrings` の値を Azure に格納します。
 
 [!code-powershell[Main](automate-everything/samples/sample15.ps1)]
 
@@ -181,82 +181,82 @@ Azure のすべての環境の作成スクリプトを格納、`appSettings`と`
 
 [!code-powershell[Main](automate-everything/samples/sample17.ps1?highlight=2)]
 
-[New Relic](http://newrelic.com/)テレメトリ フレームワークで示したです、[監視とテレメトリ](monitoring-and-telemetry.md)」の章。 環境の作成スクリプトでは、New Relic の設定を選択するかどうかを確認する web アプリも再起動します。
+[新しい聖箱](http://newrelic.com/)は、[監視とテレメトリ](monitoring-and-telemetry.md)の章で説明しているテレメトリフレームワークです。 また、環境作成スクリプトによって web アプリが再起動され、新しい聖なる値が確実に取得されるようになります。
 
 [!code-powershell[Main](automate-everything/samples/sample18.ps1?highlight=2)]
 
 ### <a name="preparing-for-deployment"></a>展開の準備
 
-プロセスの最後に、環境の作成スクリプトは、配置スクリプトで使用されるファイルを作成する 2 つの関数を呼び出します。
+プロセスの最後に、環境作成スクリプトは2つの関数を呼び出して、配置スクリプトで使用されるファイルを作成します。
 
-これらの関数のいずれかの発行プロファイルを作成します *(&lt;websitename&gt;.pubxml*ファイル)。 コードは、発行設定を取得する Azure REST API を呼び出すし、内の情報を保存、 *.publishsettings*ファイル。 テンプレート ファイルとそのファイルから情報を使用して (*pubxml.template*) を作成する、 *.pubxml*発行プロファイルを含むファイル。 この 2 段階のプロセスは、Visual Studio で何をシミュレート: ダウンロード、 *.publishsettings*ファイルし、発行プロファイルを作成するためにインポートします。
+これらの関数のいずれかによって、発行プロファイル *(&lt;websitename&gt;pubxml*ファイル) が作成されます。 このコードは、Azure REST API を呼び出して発行設定を取得し、情報を *.publishsettings*ファイルに保存します。 次に、そのファイルの情報をテンプレートファイル (*pubxml. template*) と共に使用して、発行プロファイルを含む*pubxml*ファイルを作成します。 この2段階のプロセスでは、Visual Studio での作業をシミュレートします。 *.publishsettings*ファイルをダウンロードし、それをインポートして発行プロファイルを作成します。
 
-その他の関数では、別のテンプレート ファイル (web サイト environment.template) を使用して、作成、 *web サイト environment.xml*と共に配置スクリプトで使用する設定を含むファイル、 *.pubxml*ファイル。
+もう1つの関数は、別のテンプレートファイル (website-environment) を使用して、配置スクリプトが*pubxml*ファイルと共に使用する設定を含むファイルを作成します。
 
 ### <a name="troubleshooting-and-error-handling"></a>トラブルシューティングとエラー処理
 
-スクリプトは、プログラムと同様に、: 失敗したと、エラーとその原因に関する情報を確認するようにします。 このため、環境の作成スクリプトがの値を変更、`VerbosePreference`変数から`SilentlyContinue`に`Continue`すべて詳細メッセージが表示されるようします。 値も変更、`ErrorActionPreference`変数から`Continue`に`Stop`でも未終了エラーを検出、スクリプトを停止しますように。
+スクリプトはプログラムに似ています。エラーが発生する可能性があり、エラーの原因と原因を把握したい場合があります。 このため、環境作成スクリプトは、すべての詳細メッセージが表示されるように、`VerbosePreference` 変数の値を `SilentlyContinue` から `Continue` に変更します。 また、`ErrorActionPreference` 変数の値を `Continue` から `Stop`に変更し、終了しないエラーが発生した場合でもスクリプトが停止するようにします。
 
 [!code-powershell[Main](automate-everything/samples/sample19.ps1)]
 
-すべての作業は、前に、スクリプトは、処理が完了したら、経過時間を求めるために、開始時刻を格納します。
+作業を行う前に、スクリプトは開始時刻を格納して、完了した経過時間を計算できるようにします。
 
 [!code-powershell[Main](automate-everything/samples/sample20.ps1)]
 
-その作業を完了した後、スクリプトの経過時間が表示されます。
+処理が完了すると、スクリプトによって経過時間が表示されます。
 
 [!code-powershell[Main](automate-everything/samples/sample21.ps1)]
 
-すべてのキー操作のスクリプトを書き込みます詳細メッセージは、たとえば。
+また、すべてのキー操作について、スクリプトは詳細なメッセージを書き込みます。次に例を示します。
 
 [!code-powershell[Main](automate-everything/samples/sample22.ps1)]
 
 ## <a name="deployment-script"></a>配置スクリプト
 
-どのような*新規 AzureWebsiteEnv.ps1*環境の作成のスクリプトでは、*発行 AzureWebsite.ps1*スクリプトでは、アプリケーションを展開します。
+*New-AzureWebsiteEnv*スクリプトは、環境の作成に使用されます。 *Publish-AzureWebsite*スクリプトは、アプリケーションの展開に使用します。
 
-配置スクリプトから web アプリの名前を取得する、 *web サイト environment.xml*環境の作成スクリプトによって作成されたファイル。
+デプロイスクリプトは、環境作成スクリプトによって作成された*website-environment*ファイルから web アプリの名前を取得します。
 
 [!code-powershell[Main](automate-everything/samples/sample23.ps1)]
 
-デプロイ ユーザー パスワードを取得、 *.publishsettings*ファイル。
+次のように、 *.publishsettings*ファイルからデプロイユーザーのパスワードを取得します。
 
 [!code-powershell[Main](automate-everything/samples/sample24.ps1)]
 
-実行、 [MSBuild](http://msbuildbook.com/)構築し、プロジェクトを展開するコマンド。
+プロジェクトをビルドして配置する[MSBuild](http://msbuildbook.com/)コマンドを実行します。
 
 [!code-powershell[Main](automate-everything/samples/sample25.ps1)]
 
-指定した場合と、`Launch`呼び出し、コマンドラインでパラメーター、`Show-AzureWebsite`コマンドレットを web サイトの URL を既定のブラウザーを開きます。
+また、コマンドラインで `Launch` パラメーターを指定した場合は、`Show-AzureWebsite` コマンドレットを呼び出して、web サイトの URL に既定のブラウザーを開きます。
 
 [!code-powershell[Main](automate-everything/samples/sample26.ps1?highlight=3)]
 
-次のようなコマンドを使用して、配置スクリプトを実行できます。
+デプロイスクリプトは、次のようなコマンドを使用して実行できます。
 
 `.\Publish-AzureWebsite.ps1 ..\MyFixIt\MyFixIt.csproj -Launch`
 
-ブラウザーが開き、サイトでは、クラウドで実行されているが完了したら、 `<websitename>.azurewebsites.net` URL。
+この処理が完了すると、クラウドで実行されているサイトと共に、`<websitename>.azurewebsites.net` の URL でブラウザーが開きます。
 
-![Windows Azure にデプロイされたアプリを修正します。](automate-everything/_static/image7.png)
+![Windows Azure に展開された It アプリの修正](automate-everything/_static/image7.png)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-これらのスクリプトを同じ手順が常に同じオプションを使用して、同じ順序で実行することを確信できます。 こうことを確認、チームの各開発者がどうしても見落としまたはめちゃくちゃに何か別のチーム メンバーの環境または運用環境で同様に機能しません実際に自分のマシンで独自のものをデプロイします。
+これらのスクリプトを使用すると、同じ手順が常に同じ順序で同じオプションを使用して実行されることを保証できます。 これにより、チームの各開発者は、他のチームメンバーの環境や運用環境では実際には同じように動作しない、自分のコンピューターに独自の作業をしたり、何かを行ったりしないようにすることができます。
 
-同様の方法では、REST API、Windows PowerShell スクリプト、.NET 言語 API、または Linux またはファルダで実行できる Bash ユーティリティを使用して、管理ポータルで実行できるほとんどの Azure の管理機能を自動化できます。
+同様の方法で、管理ポータルで実行できるほとんどの Azure 管理機能を自動化できます。そのためには、REST API、Windows PowerShell スクリプト、.NET 言語 API、または Linux または Mac で実行できる Bash ユーティリティを使用します。
 
-[[次へ] の章](source-control.md)をソース コードを確認し、ソース コード リポジトリで、スクリプトを含める重要な理由について説明します。
+次の[章](source-control.md)では、ソースコードを見て、ソースコードリポジトリにスクリプトを含めることが重要な理由を説明します。
 
 ## <a name="resources"></a>リソース
 
-- [インストールし、Azure の Windows PowerShell を構成](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)します。 Azure PowerShell コマンドレットをインストールする方法も考慮に入れて必要がある、Azure を管理するためにコンピューターに証明書をインストールする方法について説明します。 これは、PowerShell 自体を学習するためのリソースへのリンクもあるために開始する最適な場所です。
-- [Azure スクリプト センター](https://docs.microsoft.com/azure/automation/automation-runbook-gallery)します。 チュートリアル、コマンドレットのリファレンス ドキュメントとソース コード、およびサンプル スクリプトへのリンクでの Azure サービスを管理するスクリプトを開発するためのリソースへの WindowsAzure.com ポータル
-- [週末のスクリプト作成者:Azure と PowerShell の概要](http://blogs.technet.com/b/heyscriptingguy/archive/2013/06/22/weekend-scripter-getting-started-with-windows-azure-and-powershell.aspx)します。 Windows PowerShell に専用のブログでは、この投稿は、PowerShell を使用して、Azure の管理機能の導入として優れていますを提供します。
-- [インストールし、構成、Azure クロス プラットフォーム コマンド ライン インターフェイス](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)します。 システムを Windows だけでなく、Mac および Linux とで動作する Azure のスクリプティング フレームワークの入門チュートリアルです。
-- [Azure Sdk のダウンロードとツール」のコマンド ライン ツールの「](https://azure.microsoft.com/downloads/)します。 ドキュメントと azure コマンド ライン ツールに関連するダウンロード ポータル ページです。
-- [すべてを Azure 管理ライブラリと .NET を使用した自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)します。 Scott Hanselman は、Azure 用の .NET 管理 API が導入されています。
-- [Windows PowerShell スクリプトを使用して、開発環境およびテスト環境に発行する](https://msdn.microsoft.com/library/azure/dn642480.aspx)します。 使用する方法を説明する MSDN ドキュメントでは、web プロジェクトの Visual Studio が自動的に生成するスクリプトを発行します。
-- [PowerShell Tools for Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597)します。 Visual Studio 拡張機能を Visual Studio での Windows PowerShell 言語サポートを追加します。
+- [Windows PowerShell For Azure をインストールして構成](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)します。 Azure PowerShell コマンドレットをインストールする方法と、Azure アカウントを管理するために必要な証明書をコンピューターにインストールする方法について説明します。 これは、PowerShell 自体を学習するためのリソースへのリンクも用意されているため、開始するのに最適な場所です。
+- [Azure スクリプトセンター](https://docs.microsoft.com/azure/automation/automation-runbook-gallery)。 Azure サービスを管理するスクリプトを開発するためのリソースへの WindowsAzure.com ポータル、入門チュートリアルへのリンク、コマンドレットリファレンスドキュメントとソースコード、およびサンプルスクリプト
+- [週末 Scripter: はじめに Azure と PowerShell を使用](https://blogs.technet.com/b/heyscriptingguy/archive/2013/06/22/weekend-scripter-getting-started-with-windows-azure-and-powershell.aspx)します。 この記事では、Windows PowerShell 専用のブログで、Azure の管理機能に PowerShell を使用する方法について詳しく説明します。
+- [Azure クロスプラットフォームコマンドラインインターフェイスをインストールして構成](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)します。 Mac、Linux、および Windows システムで動作する Azure scripting framework の入門チュートリアルです。
+- 「 [Azure sdk とツールのダウンロード」の「コマンドラインツール」セクション](https://azure.microsoft.com/downloads/)。 Azure のコマンドラインツールに関連するドキュメントおよびダウンロードのポータルページです。
+- [Azure 管理ライブラリと .net を使用してすべてを自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)します。 Scott マン Selman は、Azure 用の .NET management API を紹介しています。
+- [Windows PowerShell スクリプトを使用して、開発環境とテスト環境に発行](https://msdn.microsoft.com/library/azure/dn642480.aspx)します。 Visual Studio によって web プロジェクトに自動的に生成される発行スクリプトの使用方法について説明する MSDN ドキュメントです。
+- [PowerShell Tools for Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597)。 Visual studio で Windows PowerShell の言語サポートを追加する visual Studio 拡張機能。
 
 > [!div class="step-by-step"]
 > [前へ](introduction.md)

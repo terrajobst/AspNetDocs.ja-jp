@@ -1,282 +1,282 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
-title: 回復およびパスワード (VB) の変更 |Microsoft Docs
+title: パスワードの回復と変更 (VB) |Microsoft Docs
 author: rick-anderson
-description: ASP.NET には、回復、およびパスワードの変更を支援するための 2 つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、彼の失われた pa を回復するビジターをしています.
+description: ASP.NET には、パスワードの回復と変更を支援する2つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、ビジターが紛失した pa を回復できます...
 ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: f9adcb5d-6d70-4885-a3bf-ed95efb4da1a
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 180d2d7a7544b976f923bf8a4055281e36a3e526
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0ed1df9455af94a86ce59ecc06c55846a4880596
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130896"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618763"
 ---
 # <a name="recovering-and-changing-passwords-vb"></a>パスワードを復元し、変更する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.13.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_vb.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.13.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_vb.pdf)
 
-> ASP.NET には、回復、およびパスワードの変更を支援するための 2 つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、彼が紛失したパスワードを回復する訪問者。 ChangePassword コントロールは、自分のパスワードを更新するユーザーを使用できます。 このチュートリアル シリーズで、PasswordRecovery 全体でその他のログインに関連する Web コントロールと同様に説明しましたし、ChangePassword がバック グラウンドでユーザーのパスワードをリセットまたは変更メンバーシップ フレームワークで作業を制御します。
+> ASP.NET には、パスワードの回復と変更を支援する2つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、ビジターが紛失したパスワードを回復することができます。 ChangePassword コントロールを使用すると、ユーザーは自分のパスワードを更新できます。 このチュートリアルシリーズ全体で見てきた他のログイン関連 Web コントロールと同様に、PasswordRecovery と ChangePassword コントロールは、ユーザーのパスワードをリセットまたは変更するための背後でメンバーシップフレームワークと連携します。
 
 ## <a name="introduction"></a>はじめに
 
-マイ銀行、公益事業会社、電話会社、電子メール アカウント、およびパーソナライズされた web ポータルの web サイトの間で、ほとんどの人がある多数の異なるパスワードを覚えておきます。 最近を記憶する非常に多くの資格情報で、パスワードを忘れることは珍しいはありません。 このアカウントには、ユーザー アカウントを提供している web サイトをユーザーが自分のパスワードを回復する方法を含める必要があります。 通常、このプロセスには、新しいランダム パスワードを生成して、ファイル上のユーザーの電子メール アドレスに電子メールで送信が含まれます。 新しいパスワードを受信した後は、ほとんどのユーザーは、サイトに戻り、覚えやすい 1 つをランダムに生成された 1 つから自分のパスワードを変更します。
+銀行、公益事業、電話会社、電子メールアカウント、およびパーソナライズされた web ポータルの web サイトでは、ほとんどのユーザーと同じように、多数のパスワードを覚えておく必要があります。 多くの資格情報を使用すると、ユーザーがパスワードを忘れてしまうことは珍しくありません。 このことを考慮するために、ユーザーアカウントを提供する web サイトには、ユーザーがパスワードを回復する方法を含める必要があります。 通常、このプロセスでは、新しいランダムなパスワードを生成し、ファイルのユーザーの電子メールアドレスに電子メールで送信します。 新しいパスワードを受け取った場合、ほとんどのユーザーはサイトに戻り、ランダムに生成されたパスワードを、より覚えやすいものに変更します。
 
-ASP.NET には、回復、およびパスワードの変更を支援するための 2 つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、彼が紛失したパスワードを回復する訪問者。 ChangePassword コントロールは、自分のパスワードを更新するユーザーを使用できます。 このチュートリアル シリーズで、PasswordRecovery 全体でその他のログインに関連する Web コントロールと同様に説明しましたし、ChangePassword がバック グラウンドでユーザーのパスワードをリセットまたは変更メンバーシップ フレームワークで作業を制御します。
+ASP.NET には、パスワードの回復と変更を支援する2つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、ビジターが紛失したパスワードを回復することができます。 ChangePassword コントロールを使用すると、ユーザーは自分のパスワードを更新できます。 このチュートリアルシリーズ全体で見てきた他のログイン関連 Web コントロールと同様に、PasswordRecovery と ChangePassword コントロールは、ユーザーのパスワードをリセットまたは変更するための背後でメンバーシップフレームワークと連携します。
 
-このチュートリアルでは、これら 2 つのコントロールを見ていきます。 プログラムで変更し、使用して、ユーザーのパスワードをリセットする方法もわかる、`MembershipUser`クラスの`ChangePassword`と`ResetPassword`メソッド。
+このチュートリアルでは、これら2つのコントロールを使用する方法について説明します。 また、`MembershipUser` クラスの `ChangePassword` メソッドと `ResetPassword` メソッドを使用して、ユーザーのパスワードをプログラムで変更およびリセットする方法についても説明します。
 
-## <a name="step-1-helping-users-recover-lost-passwords"></a>手順 1: パスワードを紛失支援ユーザー回復
+## <a name="step-1-helping-users-recover-lost-passwords"></a>手順 1: ユーザーが紛失したパスワードを回復できるようにする
 
-ユーザー アカウントをサポートするすべての web サイトは、ユーザー パスワードを忘れた場合に復旧するためのいくつかのメカニズムを提供する必要があります。 良い知らせでは、ASP.NET でこのような機能の実装は PasswordRecovery Web コントロールに協力してくれた簡単であることです。 PasswordRecovery コントロール、ユーザー名のユーザーに求めるインターフェイスをレンダリングして、必要に応じて、そのセキュリティの質問に対する回答。 これは、メールで送信するユーザーのパスワード。
+ユーザーアカウントをサポートするすべての web サイトは、忘れたパスワードを回復するためのメカニズムをユーザーに提供する必要があります。 ASP.NET にこのような機能を実装することは、PasswordRecovery Web コントロールに感謝します。 PasswordRecovery コントロールは、ユーザーにユーザー名の入力を求めるインターフェイスをレンダリングし、必要に応じて、セキュリティの質問に対する回答を表示します。 その後、ユーザーにパスワードを電子メールで入力します。
 
 > [!NOTE]
-> 電子メール メッセージにプレーン テキストでネットワーク経由で送信されるのではセキュリティ上のリスクを電子メールでユーザーのパスワードを送信します。
+> 電子メールメッセージは、プレーンテキストでネットワーク経由で送信されるため、電子メールでユーザーのパスワードを送信することにはセキュリティ上のリスクが伴います。
 
-PasswordRecovery コントロールは、3 つのビューで構成されます。
+PasswordRecovery コントロールは、次の3つのビューで構成されます。
 
-- **ユーザー名**-ユーザー名の訪問者を求められます。 これは、最初のビューです。
-- **質問**-と共に、ユーザーのセキュリティの質問に対する回答を入力するテキスト ボックスのテキストとしてユーザーのユーザー名とセキュリティの質問を表示します。
-- **成功**-自分のパスワードが電子メールで送信されたユーザーに知らせるメッセージが表示されます。
+- **Username** -ビジターにユーザー名の入力を求めます。 これは最初のビューです。
+- **質問**-ユーザーのユーザー名とセキュリティの質問をテキストとして表示し、ユーザーがセキュリティの質問に答えを入力するためのテキストボックスを表示します。
+- **成功**-パスワードが電子メールで送信されたことをユーザーに通知するメッセージを表示します。
 
-ビューが表示され、PasswordRecovery コントロールによって実行されたアクションは、次のメンバーシップの構成設定によって異なります。
+PasswordRecovery コントロールによって実行されるビューとアクションは、次のメンバーシップ構成設定によって異なります。
 
 - `RequiresQuestionAndAnswer`
 - `EnablePasswordRetrieval`
 - `EnablePasswordReset`
 
-メンバーシップ フレームワークの`RequiresQuestionAndAnswer`設定では、アカウントの登録時に、セキュリティの質問と回答を指定する必要があるかどうかを示します。 説明したように、 <a id="_msoanchor_1"> </a> [*ユーザー アカウントを作成する*](../membership/creating-user-accounts-vb.md)チュートリアル, if`RequiresQuestionAndAnswer`が True (既定)、CreateUserWizard のインターフェイスには、テキスト ボックスが含まれています。コントロールの新しいユーザーのセキュリティの質問と回答です。場合`RequiresQuestionAndAnswer`false で、このような情報は収集されません。 同様に場合、`RequiresQuestionAndAnswer`が true の場合、ユーザーが、ユーザー名を入力した後に、質問が表示 PasswordRecovery コントロールの表示は、ユーザーが適切なセキュリティの回答を入力した場合にのみ、パスワードを復旧します。 場合`RequiresQuestionAndAnswer`が False で、ただし、ユーザー名ビューから直接、PasswordRecovery コントロールが正常に完了ビューに移動します。
+メンバーシップフレームワークの `RequiresQuestionAndAnswer` 設定は、ユーザーがアカウントの登録時にセキュリティの質問と回答を指定する必要があるかどうかを示します。 「 <a id="_msoanchor_1"> </a>[*ユーザーアカウントの作成*](../membership/creating-user-accounts-vb.md)」チュートリアルで説明したように、`RequiresQuestionAndAnswer` が True (既定値) の場合、CreateUserWizard のインターフェイスには、新しいユーザーのセキュリティの質問と回答のテキストボックスコントロールが含まれています。`RequiresQuestionAndAnswer` が False の場合、そのような情報は収集されません。 同様に `RequiresQuestionAndAnswer` が True の場合、ユーザーがユーザー名を入力した後に、PasswordRecovery コントロールによって質問ビューが表示されます。パスワードは、ユーザーが正しいセキュリティの回答を入力した場合にのみ回復されます。 ただし `RequiresQuestionAndAnswer` が False の場合、PasswordRecovery コントロールはユーザー名ビューから [成功] ビューに直接移動します。
 
-場合に、ユーザーが自分のユーザー名、または自分のユーザー名とセキュリティの回答を提供が後`RequiresQuestionAndAnswer`PasswordRecovery True - は、自分のパスワードをユーザーにメール送信します。 場合、`EnablePasswordRetrieval`オプションが True に設定し、ユーザーは、現在のパスワードを電子メールで送信されます。 False に設定されている場合と`EnablePasswordReset`PasswordRecovery コントロールが、ユーザーの新しいランダム パスワードを生成し、この新しいパスワードを電子メールで送信し、True に設定されます。 両方`EnablePasswordRetrieval`と`EnablePasswordReset`False、PasswordRecovery コントロールは、例外をスローします。
-
-> [!NOTE]
-> いることを思い出してください、 `SqlMembershipProvider` 3 つの形式のいずれかのユーザーのパスワードを格納します。Clear、Hashed (既定)、または暗号化します。 使用ストレージ メカニズムは、メンバーシップの構成設定によって異なります。デモ アプリケーションでは、Hashed パスワードの形式を使用します。 ハッシュされたパスワードの形式を使用する場合、`EnablePasswordRetrieval`オプションは、システムは、データベースに格納されているハッシュされたバージョンからのユーザーの実際のパスワードを決定できないために、False に設定する必要があります。
-
-図 1 は、メンバーシップの構成によって PasswordRecovery のインターフェイスと動作を反映する方法を示します。
-
-[![RequiresQuestionAndAnswer、EnablePasswordRetrieval、および EnablePasswordReset PasswordRecovery コントロールの外観と動作に影響を与える](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
-
-**図 1**:`RequiresQuestionAndAnswer`、 `EnablePasswordRetrieval`、および`EnablePasswordReset`PasswordRecovery コントロールの外観と動作に影響を与える ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image3.png))。
+ユーザーが自分のユーザー名、または自分のユーザー名とセキュリティの回答を入力した後、`RequiresQuestionAndAnswer` が True の場合は、PasswordRecovery によってユーザーのパスワードが電子メールで送られます。 `EnablePasswordRetrieval` オプションが True に設定されている場合、ユーザーは現在のパスワードを電子メールで送信します。 False に設定されていて `EnablePasswordReset` が True に設定されている場合は、PasswordRecovery コントロールによってユーザーに対して新しいランダムなパスワードが生成され、このパスワードに新しいパスワードが電子メールで送られます。 `EnablePasswordRetrieval` と `EnablePasswordReset` の両方が False の場合、PasswordRecovery コントロールは例外をスローします。
 
 > [!NOTE]
-> <a id="_msoanchor_2"> </a> [ *SQL Server でメンバーシップ スキーマを作成する*](../membership/creating-the-membership-schema-in-sql-server-vb.md)メンバーシップ プロバイダーを設定して構成したチュートリアル`RequiresQuestionAndAnswer`を True に`EnablePasswordRetrieval`にFalse の場合、および`EnablePasswordReset`を True にします。
+> `SqlMembershipProvider` は、クリア、ハッシュ (既定)、または暗号化された3つの形式のいずれかでユーザーのパスワードを格納していることを思い出してください。 使用されるストレージメカニズムは、メンバーシップの構成設定によって異なります。デモアプリケーションでは、ハッシュされたパスワード形式を使用します。 ハッシュされたパスワード形式を使用する場合は、`EnablePasswordRetrieval` オプションを False に設定する必要があります。これは、システムが、データベースに格納されているハッシュされたバージョンからユーザーの実際のパスワードを特定できないためです。
 
-### <a name="using-the-passwordrecovery-control"></a>PasswordRecovery コントロールを使用します。
+図1は、PasswordRecovery のインターフェイスと動作がメンバーシップの構成によってどのように影響を受けるかを示しています。
 
-ASP.NET ページで、PasswordRecovery コントロールの使用を見てみましょう。 開いている`RecoverPassword.aspx`とドラッグ; PasswordRecovery コントロールをツールボックスからデザイナーにドロップし、設定、`ID`に`RecoverPwd`します。 ログインおよび CreateUserWizard Web コントロールと同様には、PasswordRecovery コントロールのビューは、ラベル、テキスト ボックス、ボタン、および検証コントロールを含む豊富な複合インターフェイスをレンダリングします。 コントロールのスタイル プロパティまたはビューをテンプレートに変換することによって、ビューの外観をカスタマイズすることができます。 ままを演習として興味を持った読者にします。
+[RequiresQuestionAndAnswer、Enablepasswordretrieval、Enablepasswordretrieval が PasswordRecovery コントロールの外観と動作に影響を与える ![](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
 
-ユーザーがこのページにアクセスしたときは、自分のユーザー名を入力し、[送信] ボタンをクリックします。 彼女はします。 設定があるため、`RequiresQuestionAndAnswer`プロパティをメンバーシップの構成設定、PasswordRecovery で True には、制御がし、質問ビューを表示します。 ユーザーが、適切なセキュリティの回答を入力して、送信 をクリックした後、PasswordRecovery コントロールにランダムに生成されたものでは、ユーザーのパスワードを更新し、ファイル上の電子メール アドレスには、このパスワードを電子メールで送信します。 1 行のコードを記述することがなく可能なすべてのでした。
-
-このページをテストする前にしようとする構成の最後の 1 つの部分がある: メール配信の設定を指定する必要があります`Web.config`します。 PasswordRecovery コントロールは、電子メールを送信するため、これらの設定に依存します。
-
-使用してメール配信の構成を指定、 [ `<system.net>`要素](https://msdn.microsoft.com/library/6484zdc1.aspx)の[`<mailSettings>`要素](https://msdn.microsoft.com/library/w355a94k.aspx)します。 使用して、 [ `<smtp>`要素](https://msdn.microsoft.com/library/ms164240.aspx)を配信方法とそのアドレスから既定値を示します。 次のマークアップは、という名前のネットワークの SMTP サーバーを使用するメールの設定を構成します。`smtp.example.com`ポート 25 でユーザー名とパスワードのユーザー名/パスワードの資格情報を使用しています。
+**図 1**: `RequiresQuestionAndAnswer`、`EnablePasswordRetrieval`、および `EnablePasswordReset` は、passwordrecovery コントロールの外観と動作に影響を及ぼします ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image3.png)されます)。
 
 > [!NOTE]
-> `<system.net>` ルートの子要素は、`<configuration>`要素との兄弟`<system.web>`します。 そのため、配置しないでください、`<system.net>`内の要素、`<system.web>`要素です。 代わりに、同じレベルに配置します。
+> SQL Server チュートリアル<a id="_msoanchor_2"> </a>[*でメンバーシップスキーマを作成*](../membership/creating-the-membership-schema-in-sql-server-vb.md)するには、`RequiresQuestionAndAnswer` を true に設定してメンバーシッププロバイダーを構成し、False に `EnablePasswordRetrieval` し、を true に `EnablePasswordReset` します。
+
+### <a name="using-the-passwordrecovery-control"></a>PasswordRecovery コントロールの使用
+
+ASP.NET ページで PasswordRecovery コントロールを使用する方法を見てみましょう。 `RecoverPassword.aspx` を開き、[ツールボックス] から PasswordRecovery コントロールをデザイナーにドラッグアンドドロップします。`ID` を `RecoverPwd`に設定します。 Login および CreateUserWizard Web コントロールと同様に、PasswordRecovery コントロールのビューには、ラベル、テキストボックス、ボタン、および検証コントロールを含む、豊富な複合インターフェイスが表示されます。 ビューの外観をカスタマイズするには、コントロールのスタイルプロパティを使用するか、ビューをテンプレートに変換します。 これは関心のある読者のための演習として残されています。
+
+ユーザーがこのページにアクセスすると、自分のユーザー名を入力し、[送信] ボタンをクリックします。 メンバーシップの構成設定で [`RequiresQuestionAndAnswer`] プロパティを True に設定しているので、PasswordRecovery コントロールでは質問ビューが表示されます。 ユーザーが適切なセキュリティの回答を入力して [送信] をクリックすると、PasswordRecovery コントロールはユーザーのパスワードをランダムに生成されたパスワードに更新し、このパスワードをファイルの電子メールアドレスに電子メールで送信します。 1行のコードを記述しなくても、すべてのことが可能でした。
+
+このページをテストする前に、構成の最終的な構成要素が1つあります。 `Web.config`でメール配信の設定を指定する必要があります。 PasswordRecovery コントロールは、これらの設定に基づいて電子メールを送信します。
+
+メール配信の構成は、 [`<system.net>` 要素](https://msdn.microsoft.com/library/6484zdc1.aspx)の[`<mailSettings>` 要素](https://msdn.microsoft.com/library/w355a94k.aspx)によって指定されます。 [`<smtp>` 要素](https://msdn.microsoft.com/library/ms164240.aspx)を使用して、配信方法と既定の差出人アドレスを指定します。 次のマークアップは、ポート25で `smtp.example.com` という名前のネットワーク SMTP サーバーと、ユーザー名とパスワードのユーザー名/パスワードの資格情報を使用するように、メールの設定を構成します。
+
+> [!NOTE]
+> `<system.net>` は、ルート `<configuration>` 要素の子要素であり、`<system.web>`の兄弟です。 したがって、`<system.web>` 要素内に `<system.net>` 要素を配置しないでください。代わりに、同じレベルに配置します。
 
 [!code-xml[Main](recovering-and-changing-passwords-vb/samples/sample1.xml)]
 
-に加えて、SMTP サーバーを使用して、ネットワーク上、または送信される電子メール メッセージの格納場所のピックアップ ディレクトリを指定できます。
+ネットワーク上の SMTP サーバーを使用するだけでなく、送信する電子メールメッセージが格納されるピックアップディレクトリを指定することもできます。
 
-SMTP 設定を構成した後は、次を参照してください。、`RecoverPassword.aspx`ページがブラウザーを使用します。 まず、ユーザー ストアに存在しないユーザー名を入力してください。 図 2 に示すよう、PasswordRecovery コントロールには、ユーザー情報がアクセスしないことを示すメッセージが表示されます。 コントロールのメッセージのテキストをカスタマイズできる[`UserNameFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)します。
+SMTP 設定を構成したら、ブラウザーを使用して `RecoverPassword.aspx` のページにアクセスします。 まず、ユーザーストアに存在しないユーザー名を入力してください。 図2に示すように、PasswordRecovery コントロールには、ユーザー情報にアクセスできなかったことを示すメッセージが表示されます。 メッセージのテキストは、コントロールの[`UserNameFailureText` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx)を使用してカスタマイズできます。
 
-[![無効なユーザー名を入力した場合、エラー メッセージが表示されます。](recovering-and-changing-passwords-vb/_static/image5.png)](recovering-and-changing-passwords-vb/_static/image4.png)
+[無効なユーザー名が入力された場合にエラーメッセージが表示される ![](recovering-and-changing-passwords-vb/_static/image5.png)](recovering-and-changing-passwords-vb/_static/image4.png)
 
-**図 2**:無効なユーザー名を入力した場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image6.png))。
+**図 2**: 無効なユーザー名が入力された場合にエラーメッセージが表示される ([クリックしてフルサイズの画像を表示](recovering-and-changing-passwords-vb/_static/image6.png))
 
-これで、ユーザー名を入力します。 アクセスできる、セキュリティの回答を電子メール アドレスを持つシステム内のアカウントのユーザー名の確認に使用します。 ユーザー名を入力し、送信をクリックすると、PasswordRecovery コントロールには、その質問ビューが表示されます。 としてユーザー名ビューを入力した場合が不適切な回答、PasswordRecovery コントロールが表示されます (図 3 参照) を示すエラー メッセージします。 使用して、 [ `QuestionFailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx)このエラー メッセージをカスタマイズします。
+ここで、ユーザー名を入力します。 システム内のアカウントのユーザー名を使用して、アクセスできる電子メールアドレスと、そのセキュリティの回答を確認します。 ユーザー名を入力して [送信] をクリックすると、PasswordRecovery コントロールにその質問ビューが表示されます。 ユーザー名ビューの場合と同様に、間違った回答を入力すると、PasswordRecovery コントロールでエラーメッセージが表示されます (図3を参照)。 このエラーメッセージをカスタマイズするには、 [`QuestionFailureText` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx)を使用します。
 
-[![ユーザーが、無効な秘密の答えを入力した場合、エラー メッセージが表示されます。](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
+[ユーザーが無効なセキュリティの回答を入力すると、エラーメッセージが表示される ![](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
 
-**図 3**:ユーザーが、無効な秘密の答えを入力した場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image9.png))。
+**図 3**: ユーザーが無効なセキュリティの回答を入力した場合にエラーメッセージが表示される ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image9.png)されます)
 
-最後に、適切なセキュリティの回答を入力し、[送信] をクリックします。 背後では、PasswordRecovery コントロール ランダム パスワードを生成、ユーザー アカウントに割り当てられますの新しいパスワードをユーザーに通知電子メールを送信します (図 4 参照)、し、正常に完了ビューを表示します。
+最後に、正しいセキュリティの回答を入力し、[送信] をクリックします。 バックグラウンドでは、PasswordRecovery コントロールによってランダムなパスワードが生成され、ユーザーアカウントに割り当てられ、新しいパスワードをユーザーに通知する電子メールが送信されます (図4を参照)。その後、[成功] ビューが表示されます。
 
-[![His の新しいパスワードを使用してメールをユーザーが送信されます。](recovering-and-changing-passwords-vb/_static/image11.png)](recovering-and-changing-passwords-vb/_static/image10.png)
+[ユーザーに新しいパスワードを使用して電子メールを送信 ![](recovering-and-changing-passwords-vb/_static/image11.png)](recovering-and-changing-passwords-vb/_static/image10.png)
 
-**図 4**:His の新しいパスワードを使用してメールをユーザーが送信されます ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image12.png))。
+**図 4**: ユーザーに新しいパスワードを使用して電子メールが送信される ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image12.png)されます)
 
-### <a name="customizing-the-email"></a>電子メールをカスタマイズします。
+### <a name="customizing-the-email"></a>電子メールのカスタマイズ
 
-PasswordRecovery コントロールから送信された既定の電子メールは、退屈ではなく (図 4 参照) です。 指定されたアカウントから、メッセージが送信された、`<smtp>`要素の`from`サブジェクトのパスワードを持つ属性とプレーン テキストの本文。
+PasswordRecovery コントロールによって送信された既定の電子メールは、代わりに退屈です (図4を参照)。 メッセージは、`<smtp>` 要素の `from` 属性で指定されたアカウントから、サブジェクトパスワードとプレーンテキストの本文で送信されます。
 
 サイトに戻り、次の情報を使用してログインしてください。
 
-ユーザー名:*ユーザー名*
+ユーザー*名: ユーザー名*
 
 パスワード:*パスワード*
 
-このメッセージは PasswordRecovery コントロールのイベント ハンドラーを通じてプログラムでカスタマイズできる[`SendingMail`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx)、を通じて宣言的または、 [ `MailDefinition`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx)します。 これらのオプションの両方を見てみましょう。
+このメッセージは、PasswordRecovery コントロールの[`SendingMail` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx)のイベントハンドラーを通じて、または[`MailDefinition` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx)を使用して宣言によってカスタマイズできます。 これら両方のオプションを見てみましょう。
 
-`SendingMail`電子メール メッセージが送信され、最後のチャンスをプログラムで電子メール メッセージを調整する直前にイベントが発生します。 このイベントが発生したときに、イベント ハンドラーが渡される型のオブジェクト[ `MailMessageEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.mailmessageeventargs.aspx)が`Message`プロパティに送信する電子メールへの参照が含まれています。
+`SendingMail` イベントは、電子メールメッセージが送信される直前に発生し、電子メールメッセージをプログラムによって調整する最後の機会になります。 このイベントが発生すると、イベントハンドラーには[`MailMessageEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.mailmessageeventargs.aspx)型のオブジェクトが渡され、`Message` プロパティには、送信される電子メールへの参照が含まれます。
 
-イベント ハンドラーを作成、`SendingMail`イベント プログラムに追加する次のコードを追加および`webmaster@example.com`[cc] 一覧にします。
+`SendingMail` イベントのイベントハンドラーを作成し、次のコードを追加します。このコードは、プログラムを使用して `webmaster@example.com` を CC リストに追加します。
 
 [!code-vb[Main](recovering-and-changing-passwords-vb/samples/sample2.vb)]
 
-電子メール メッセージは、宣言型の手段でも構成できます。 PasswordRecovery の`MailDefinition`プロパティ型のオブジェクトは、 [ `MailDefinition`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.aspx)します。 `MailDefinition`クラスを含む電子メール関連のプロパティのホストは提供`From`、 `CC`、 `Priority`、 `Subject`、 `IsBodyHtml`、 `BodyFileName`、およびその他。 まず、設定、 [ `Subject`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.subject.aspx)パスワードがリセットされた場合などに、既定値 (パスワード) によって使用されるものよりもわかりやすいものにしています.
+また、宣言的な方法で電子メールメッセージを構成することもできます。 PasswordRecovery の `MailDefinition` プロパティは、 [`MailDefinition`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.aspx)型のオブジェクトです。 `MailDefinition` クラスは、`From`、`CC`、`Priority`、`Subject`、`IsBodyHtml`、`BodyFileName`など、電子メール関連のプロパティのホストを提供します。 まず、[`Subject`][プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.subject.aspx)に、パスワードがリセットされたなど、既定 (パスワード) で使用されているものよりもわかりやすい値を設定します。
 
-別のメール テンプレート ファイルを作成する必要があります、電子メール メッセージの本文をカスタマイズするには、本文の内容が含まれています。 という名前の web サイトで新しいフォルダーを作成して開始`EmailTemplates`します。 次に、このという名前のフォルダーに新しいテキスト ファイルを追加`PasswordRecovery.txt`し、次の内容を追加します。
+電子メールメッセージの本文をカスタマイズするには、本文の内容を含む別の電子メールテンプレートファイルを作成する必要があります。 まず、`EmailTemplates`という名前の web サイトに新しいフォルダーを作成します。 次に、`PasswordRecovery.txt` という名前のこのフォルダーに新しいテキストファイルを追加し、次の内容を追加します。
 
 [!code-aspx[Main](recovering-and-changing-passwords-vb/samples/sample3.aspx)]
 
-プレース ホルダーの使用に注意してください`<%UserName%>`と`<%Password%>`します。 PasswordRecovery コントロールは、ユーザーのユーザー名と電子メールを送信する前に回復パスワードを自動的にこれら 2 つのプレース ホルダーを置き換えます。
+プレースホルダー `<%UserName%>` と `<%Password%>`を使用することに注意してください。 PasswordRecovery コントロールは、電子メールを送信する前に、これら2つのプレースホルダーをユーザーのユーザー名と回復したパスワードに自動的に置き換えます。
 
-最後に、ポイント、`MailDefinition`の[`BodyFileName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx)を先ほど作成した電子メールのテンプレート (`~/EmailTemplates/PasswordRecovery.txt`)。
+最後に、`MailDefinition`の[`BodyFileName` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx)を、先ほど作成した電子メールテンプレート (`~/EmailTemplates/PasswordRecovery.txt`) にポイントします。
 
-これらの変更内容起きた後、`RecoverPassword.aspx`ページし、ユーザー名とセキュリティの質問を入力します。 受信した次の図 5 のような電子メールをする必要があります。 なお`webmaster@example.com`CC、および件名と本文が更新されていることにしました。
+これらの変更を行った後、[`RecoverPassword.aspx`] ページに戻って、ユーザー名とセキュリティの回答を入力します。 図5に示すような電子メールが届きます。 `webmaster@example.com` が CC に設定されており、件名と本文が更新されていることに注意してください。
 
-[![件名、本文、および [cc] ボックスの一覧が更新されました](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
+[件名、本文、および CC の一覧が更新された ![](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
 
-**図 5**:件名、本文、および [cc] 一覧は更新されている ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image15.png))。
+**図 5**: 件名、本文、および CC の一覧が更新されました ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image15.png)されます)
 
-HTML 形式の電子メールを送信する次のように設定します。 [ `IsBodyHtml` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx)に HTML を含めるには、True (既定値は False) と電子メール テンプレートを更新します。
+HTML 形式の電子メールセットを[`IsBodyHtml`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) True に送信するには (既定値は False)、電子メールテンプレートを更新して html を含めます。
 
-`MailDefinition`プロパティは、PasswordRecovery クラスには一意ではありません。 手順 2. でよう、ChangePassword コントロールも用意されています、`MailDefinition`プロパティ。 CreateUserWizard コントロールがこのようなプロパティを含むさらに、自動的に新しいユーザーにウェルカム メール メッセージを送信するように構成できます。
-
-> [!NOTE]
-> 現在リンクが存在しないに到達するための左側のナビゲーションで、`RecoverPassword.aspx`ページ。 ユーザーはだけ彼女が正常にサイトにログオンするできなかった場合は、このページを訪問します。 このため、更新、`Login.aspx`をへのリンクを含めるようにページ、`RecoverPassword.aspx`ページ。
-
-### <a name="programmatically-resetting-a-users-password"></a>プログラムによってユーザーのパスワードのリセット
-
-通話を制御、PasswordRecovery のユーザーのパスワードをリセットするときに、`MembershipUser`オブジェクトの[`ResetPassword`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx)します。 このメソッドでは、2 つのオーバー ロードがあります。
-
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -ユーザーのパスワードをリセットします。 場合、このオーバー ロードを使用して`RequiresQuestionAndAnswer`は False です。
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -指定されたユーザーの場合にパスワードのみをリセット*securityAnswer*が正しい。 場合、このオーバー ロードを使用して`RequiresQuestionAndAnswer`は True です。
-
-両方のオーバー ロードでは、ランダムに生成された新しいパスワードが返されます。
-
-メンバーシップ フレームワークの他のメソッドを使用するような`ResetPassword`構成済みのプロバイダーにメソッドのデリゲート。 `SqlMembershipProvider`呼び出す、`aspnet_Membership_ResetPassword`ストアド プロシージャを渡すことで、ユーザーのユーザー名、新しいパスワード、およびその他のフィールドの間で、指定されたパスワードの回答。 ストアド プロシージャにより、パスワードの回答が一致して、ユーザーのパスワードを更新します。
-
-低レベルの実装に関する注意事項のいくつかあります。
-
-- ロックされたユーザーは自分のパスワードをリセットできません。 ただし、ユーザーが承認されていない可能性があります。 ロックされている説明し、承認の状態について詳しく、 <a id="_msoanchor_3"> </a> [ *Unlocking とユーザーの承認*](unlocking-and-approving-user-accounts-vb.md)アカウント チュートリアル。
-- パスワードの回答が正しくない場合は、ユーザーの失敗したパスワード回答試行回数が増加します。 無効なセキュリティの解答の指定した数が、指定された時間内で発生した場合、ユーザーはロックアウトされます。
-
-### <a name="a-word-on-how-the-random-passwords-are-generated"></a>生成される、ランダムなパスワード方法で単語
-
-図 4 および 5 の電子メール メッセージに示すように、ランダムに生成されたパスワードがメンバーシップ クラスのによって作成された[`GeneratePassword`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.generatepassword.aspx)します。 このメソッドは 2 つの整数の入力パラメーターの*長さ*と*numberOfNonAlphanumericCharacters* -少なくとも文字列を返します*長さ*で文字の長さ少なくとも*numberOfNonAlphanumericCharacters*英数字以外の文字の数。 これら 2 つのパラメーターの値はメンバーシップの構成によって決まりますメンバーシップ クラスまたはログインに関連する Web コントロール内では、このメソッドからが呼び出されると、`MinRequiredPasswordLength`と`MinRequiredNonalphanumericCharacters`プロパティで、それぞれ 7 と 1 に設定します。
-
-`GeneratePassword`メソッドでは、暗号強度が高い乱数ジェネレーターを使用して、どのようなランダムな文字が選択されているのバイアスがないことを確認します。 さらに、`GeneratePassword`は`Public`、使用することは、ASP.NET アプリケーションから直接ランダムな文字列やパスワードを生成する必要がある場合を意味します。
+`MailDefinition` プロパティは、PasswordRecovery クラスに固有のものではありません。 手順 2. で説明したように、ChangePassword コントロールには `MailDefinition` プロパティも用意されています。 さらに、CreateUserWizard コントロールには、新しいユーザーに自動的にようこそ電子メールメッセージを送信するように構成できるプロパティが含まれています。
 
 > [!NOTE]
-> `SqlMembershipProvider`クラスは、常にランダムなパスワードを生成ため場合、少なくとも 14 文字`MinRequiredPasswordLength`14 より小さい場合、その値は無視されます。
+> 現在、`RecoverPassword.aspx` ページに到達するための左側のナビゲーションにリンクはありません。 ユーザーは、サイトに正常にログオンできなかった場合にのみ、このページにアクセスすることを目的としています。 そのため、[`Login.aspx`] ページを更新して、[`RecoverPassword.aspx`] ページへのリンクを追加します。
+
+### <a name="programmatically-resetting-a-users-password"></a>プログラムによるユーザーのパスワードのリセット
+
+ユーザーのパスワードをリセットすると、PasswordRecovery コントロールは `MembershipUser` オブジェクトの[`ResetPassword` メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx)を呼び出します。 このメソッドには、次の2つのオーバーロードがあります。
+
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -ユーザーのパスワードをリセットします。 `RequiresQuestionAndAnswer` が False の場合は、このオーバーロードを使用します。
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -指定した*securityanswer*が正しい場合にのみ、ユーザーのパスワードをリセットします。 `RequiresQuestionAndAnswer` が True の場合は、このオーバーロードを使用します。
+
+どちらのオーバーロードも、ランダムに生成された新しいパスワードを返します。
+
+メンバーシップフレームワークの他のメソッドと同様に、`ResetPassword` メソッドは構成されたプロバイダーにデリゲートします。 `SqlMembershipProvider` は、ユーザーのユーザー名、新しいパスワード、および指定されたパスワードの解答を他のフィールドに渡して、`aspnet_Membership_ResetPassword` ストアドプロシージャを呼び出します。 このストアドプロシージャにより、パスワードの解答が確実に一致し、ユーザーのパスワードが更新されます。
+
+低レベルの実装に関する注意事項をいくつか次に示します。
+
+- ロックアウトされたユーザーは、自分のパスワードをリセットできません。 ただし、未承認のユーザーがいる可能性があります。 ロックアウトと承認された状態については、「 <a id="_msoanchor_3"> </a>[*ユーザーアカウントのロック解除と承認*](unlocking-and-approving-user-accounts-vb.md)」チュートリアルで詳細に説明します。
+- パスワードの解答が正しくない場合、ユーザーのパスワードの解答試行回数が増加します。 指定された期間内に指定された無効なセキュリティ回答の試行回数が発生した場合、ユーザーはロックアウトされます。
+
+### <a name="a-word-on-how-the-random-passwords-are-generated"></a>ランダムなパスワードが生成される方法に関する単語
+
+図4および5の電子メールメッセージに表示されるランダムに生成されたパスワードは、メンバーシップクラスの[`GeneratePassword` メソッド](https://msdn.microsoft.com/library/system.web.security.membership.generatepassword.aspx)によって作成されます。 このメソッドは、2つの整数入力のパラメーター*長*と*numberOfNonAlphanumericCharacters*を受け取り、少なくとも*numberOfNonAlphanumericCharacters*の数字以外の文字を含む*長さ*が長い文字列を返します。 このメソッドがメンバーシップクラスまたはログイン関連の Web コントロール内から呼び出された場合、これら2つのパラメーターの値は、メンバーシップ構成の `MinRequiredPasswordLength` と `MinRequiredNonalphanumericCharacters` プロパティによって決定されます。これらの値はそれぞれ7と1に設定されます。
+
+`GeneratePassword` メソッドは、暗号強度の高い乱数ジェネレーターを使用して、選択されているランダム文字にバイアスがないことを確認します。 さらに、ランダムな文字列またはパスワードを生成する必要がある場合は、`GeneratePassword` が `Public`ます。つまり、ASP.NET アプリケーションから直接使用できます。
+
+> [!NOTE]
+> `SqlMembershipProvider` クラスでは、常に14文字以上のランダムなパスワードが生成されます。そのため、`MinRequiredPasswordLength` が14文字未満の場合、その値は無視されます。
 
 ## <a name="step-2-changing-passwords"></a>手順 2: パスワードの変更
 
-ランダムに生成されたパスワードは覚えにくいです。 図 4 に示すようにパスワードを検討してください:`WWGUZv(f2yM:Bd`します。 メモリをコミットすることをお試しください。 もちろん、ユーザーには、この種のランダムに生成されたパスワードが送信された後、覚えやすいパスワードを変更彼女はします。
+ランダムに生成されたパスワードは覚えにくいものです。 図4に示すパスワードを考えてみます。 `WWGUZv(f2yM:Bd`を参照してください。 メモリへのコミットを試行してください。 言うまでもありませんが、この種のランダムに生成されたパスワードをユーザーに送信した後は、より覚えやすいパスワードに変更する必要があります。
 
-ChangePassword コントロールを使用すると、自分のパスワードを変更するためのインターフェイスを作成できます。 はるか PasswordRecovery コントロールと同様に、ChangePassword コントロールが 2 つのビューで構成されます。パスワードと成功状態を変更します。 パスワードの変更ビューには、古いマスター_キーと新しいパスワードのユーザー メッセージが表示されます。 古いパスワードと最小の長さと文字の英数字以外の要件を満たす新しいパスワードを指定し、時に、ChangePassword コントロールは、ユーザーのパスワードを更新し、正常に完了ビューを表示します。
-
-> [!NOTE]
-> ChangePassword コントロールを呼び出すことによって、ユーザーのパスワードを変更する、`MembershipUser`オブジェクトの[`ChangePassword`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.changepassword.aspx)します。 ChangePassword メソッドが受け取る 2 つ`String`入力パラメーターの*oldPassword*と*newPassword*-で、ユーザーのアカウントを更新し、 *newPassword*、指定されたと仮定すると*oldPassword*が正しい。
-
-開く、`ChangePassword.aspx`ページし、その名前を付け、ページに ChangePassword コントロールを追加`ChangePwd`します。 この時点で、デザイン ビューがパスワードの変更を表示する必要があります (図 6 参照) を表示します。 ような PasswordRecovery コントロールが、切り替えることができます、コントロールのスマート タグを使用してビュー。 さらに、これらのビューの外観は、そのようなさまざまなスタイルのプロパティまたはテンプレートに変換してカスタマイズできます。
-
-[![ChangePassword コントロールをページに追加します。](recovering-and-changing-passwords-vb/_static/image17.png)](recovering-and-changing-passwords-vb/_static/image16.png)
-
-**図 6**:ChangePassword コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image18.png))。
-
-ChangePassword コントロールは、現在ログインしているユーザーのパスワードを更新できます*または*、指定した別のユーザーのパスワード。 既定のパスワードの変更ビューが 3 つのテキスト ボックス コントロールをレンダリング図 6 に示すよう。 古いパスワードと新しいパスワードの 2 つのいずれか。 この既定のインターフェイスは、現在ログオンしているユーザーのパスワードの更新に使用されます。
-
-ChangePassword コントロールを使用すると、別のユーザーのパスワードを更新して、設定、コントロールの[`DisplayUserName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.changepassword.displayusername.aspx)を True にします。 これにより、ページで、パスワードを変更するユーザーのユーザー名の入力を求めるに 4 つ目のテキスト ボックスを追加します。
-
-設定`DisplayUserName`を True をログに記録されたユーザーにログインしなくても、自分のパスワードを変更できるようにする場合に便利です。 個人的には、自分のパスワードを変更することを許可する前にユーザーのログインを必要とする問題には何もないと思います。 そのためのままに`DisplayUserName`False (既定値) に設定します。 この決定を行うにただし基本的にはにおいて匿名ユーザーからこのページに到達します。 匿名ユーザーにアクセスを拒否するために、サイトの URL 承認規則を更新`ChangePassword.aspx`します。 URL 承認規則の構文上のメモリを更新する必要がある場合に戻って、 <a id="_msoanchor_4"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアル。
+パスワードを変更するためのインターフェイスをユーザーに対して作成するには、ChangePassword コントロールを使用します。 PasswordRecovery コントロールと同様に、ChangePassword コントロールは、パスワードの変更と成功の2つのビューで構成されます。 パスワードの変更ビューでは、ユーザーは古いパスワードと新しいパスワードを入力するように求められます。 正しい古いパスワードと、最小文字数と英数字以外の文字の要件を満たす新しいパスワードを指定すると、ChangePassword コントロールによってユーザーのパスワードが更新され、[成功] ビューが表示されます。
 
 > [!NOTE]
-> 思えるかもしれませんが、`DisplayUserName`プロパティは、管理者は他のユーザーのパスワードを変更することに役立ちます。 ただし、場合でも`DisplayUserName`が古いパスワードを正常し、入力する必要がありますを True に設定します。 手順 3 でユーザーのパスワードを変更する管理者を許可する手法について説明します。
+> ChangePassword コントロールは、`MembershipUser` オブジェクトの[`ChangePassword` メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.changepassword.aspx)を呼び出すことによって、ユーザーのパスワードを変更します。 ChangePassword メソッドは、 *oldpassword*と*newPassword*という2つの `String` 入力パラメーターを受け取り、指定された*oldpassword*が正しいことを前提として、ユーザーのアカウントを*newPassword*で更新します。
 
-参照してください、`ChangePassword.aspx`ブラウザーでページし、パスワードを変更します。 パスワードの長さとメンバーシップの構成で指定された文字の英数字以外の要件を満たすために失敗した新しいパスワードを入力すると、エラー メッセージが表示されることに注意してください (図 7 を参照してください)。
+[`ChangePassword.aspx`] ページを開き、[ChangePassword] コントロールをページに追加して `ChangePwd`名前を付けます。 この時点で、デザインビューにパスワードの変更ビューが表示されます (図6を参照)。 PasswordRecovery コントロールと同様に、コントロールのスマートタグを使用してビューを切り替えることができます。 さらに、これらのビューの外観は、さまざまなスタイルプロパティまたはテンプレートに変換することによってカスタマイズできます。
 
-[![ChangePassword コントロールをページに追加します。](recovering-and-changing-passwords-vb/_static/image20.png)](recovering-and-changing-passwords-vb/_static/image19.png)
+[![ChangePassword コントロールをページに追加するには](recovering-and-changing-passwords-vb/_static/image17.png)](recovering-and-changing-passwords-vb/_static/image16.png)
 
-**図 7**:ChangePassword コントロールをページに追加 ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image21.png))。
+**図 6**: ChangePassword コントロールをページに追加する ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image18.png)されます)
 
-ユーザーの古いパスワードと、ログに記録された有効な新しいパスワードを入力するパスワードが変更され、正常に完了ビューが表示されます。
+ChangePassword コントロールでは、現在ログインしているユーザーのパスワード、*または*別の指定されたユーザーのパスワードを更新できます。 図6に示すように、既定のパスワードの変更ビューでは、3つのテキストボックスコントロールが表示されます。1つは古いパスワード用で、もう1つは新しいパスワード用です。 この既定のインターフェイスは、現在ログオンしているユーザーのパスワードを更新するために使用されます。
 
-### <a name="sending-a-confirmation-email"></a>確認の電子メールを送信します。
+ChangePassword コントロールを使用して別のユーザーのパスワードを更新するには、コントロールの[`DisplayUserName` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.changepassword.displayusername.aspx)を True に設定します。 このようにすると、ページに4番目のテキストボックスが追加され、パスワードを変更するユーザーのユーザー名の入力を求められます。
 
-既定では、ChangePassword コントロールは、パスワードが更新されました、ユーザーに電子メール メッセージを送信しません。 電子メールを送信する場合は、単に構成するコントロールの`MailDefinition`プロパティ。 ユーザーには、新しいパスワードを含む HTML 形式の電子メールが送信されるように、ChangePassword コントロールを構成しましょう。
+`DisplayUserName` を True に設定すると、ログアウトしたユーザーがログインしなくてもパスワードを変更できるようにする場合に便利です。 個人的には、パスワードの変更を許可する前に、ユーザーにログインを要求しても問題はありません。 そのため、`DisplayUserName` は False (既定値) のままにしておきます。 ただし、この決定を行う際、基本的に、匿名ユーザーがこのページにアクセスできないようにしています。 匿名ユーザーが `ChangePassword.aspx`にアクセスするのを拒否するように、サイトの URL 承認規則を更新します。 URL 承認規則の構文でメモリを更新する必要がある場合は、 <a id="_msoanchor_4"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)に関するチュートリアルを参照してください。
 
-新しいファイルを作成して開始、`EmailTemplates`という名前のフォルダー`ChangePassword.htm`します。 次のマークアップを追加します。
+> [!NOTE]
+> `DisplayUserName` プロパティは、管理者が他のユーザーのパスワードを変更できるようにするのに便利な場合があります。 ただし、`DisplayUserName` が True に設定されている場合でも、正しい古いパスワードを認識して入力する必要があります。 手順3で管理者がユーザーのパスワードを変更できるようにするための手法について説明します。
+
+ブラウザーを使用して `ChangePassword.aspx` のページにアクセスし、パスワードを変更します。 メンバーシップの構成で指定されているパスワードの長さと英数字以外の文字の要件を満たしていない新しいパスワードを入力すると、エラーメッセージが表示されることに注意してください (図7を参照)。
+
+[![ChangePassword コントロールをページに追加するには](recovering-and-changing-passwords-vb/_static/image20.png)](recovering-and-changing-passwords-vb/_static/image19.png)
+
+**図 7**: ChangePassword コントロールをページに追加する ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image21.png)されます)
+
+正しい古いパスワードと有効な新しいパスワードを入力すると、ログオンしたユーザーのパスワードが変更され、[成功] ビューが表示されます。
+
+### <a name="sending-a-confirmation-email"></a>確認メールの送信
+
+既定では、ChangePassword コントロールは、パスワードが更新されたばかりのユーザーに電子メールメッセージを送信しません。 電子メールを送信する場合は、コントロールの `MailDefinition` プロパティを構成するだけです。 新しいパスワードを含む HTML 形式の電子メールがユーザーに送信されるように、ChangePassword コントロールを構成してみましょう。
+
+まず、`ChangePassword.htm`という名前の `EmailTemplates` フォルダーに新しいファイルを作成します。 次のマークアップを追加します。
 
 [!code-html[Main](recovering-and-changing-passwords-vb/samples/sample4.html)]
 
-ChangePassword コントロールを次に、設定`MailDefinition`プロパティの`BodyFileName`、 `IsBodyHtml`、および`Subject`プロパティを ~ EmailTemplates/ChangePassword.htm、true の場合、およびパスワードが変更された/!、それぞれします。
+次に、ChangePassword コントロールの `MailDefinition` プロパティの `BodyFileName`、`IsBodyHtml`、および `Subject` プロパティを ~/EmailTemplates/ChangePassword.htm、True に設定します。パスワードはそれぞれ変更されています。
 
-これらの変更を加えたら、ページを再確認し、もう一度パスワードを変更します。 今回は、ChangePassword コントロールで、ファイルで、ユーザーの電子メール アドレスに、HTML 形式のカスタマイズされたメールが送信します (図 8 参照)。
+これらの変更を行った後、ページを再入力して、もう一度パスワードを変更します。 このとき、ChangePassword コントロールは、カスタマイズされた HTML 形式の電子メールをファイルのユーザーの電子メールアドレスに送信します (図8を参照)。
 
-[![ユーザー、そのパスワードが変更通知の電子メール メッセージ](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
+[パスワードが変更されたことをユーザーに通知する電子メールメッセージを ![する](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
 
-**図 8**:ユーザー、そのパスワードが変更通知の電子メール メッセージ ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image24.png))。
+**図 8**: 電子メールメッセージによって、パスワードが変更されたことがユーザーに通知される ([クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image24.png)されます)
 
-## <a name="step-3-allowing-administrators-to-change-users-passwords"></a>手順 3: 管理者はユーザーのパスワードを変更すること
+## <a name="step-3-allowing-administrators-to-change-users-passwords"></a>手順 3: 管理者がユーザーのパスワードを変更できるようにする
 
-ユーザー アカウントをサポートするアプリケーションで一般的な機能は、他のユーザーのパスワードを変更する管理ユーザーの機能です。 場合によってシステムには、ユーザーが自分のパスワードを変更する機能が不足しているためには、この機能が必要です。 このような場合は、ユーザーが忘れたパスワードを回復する唯一の方法は、管理者は新しいパスワードを割り当ててになります。 PasswordRecovery、ChangePassword コントロールとただし、管理ユーザー必要がありますビジーになっていない自体、ユーザーのパスワードを変更するとユーザーはこれを自身の処理を実行できるようします。
+ユーザーアカウントをサポートするアプリケーションの一般的な機能は、管理ユーザーが他のユーザーのパスワードを変更できるようにする機能です。 場合によっては、ユーザーが自分のパスワードを変更する機能がないため、この機能が必要になることがあります。 このような場合、ユーザーが忘れたパスワードを回復する唯一の方法は、管理者が新しいパスワードを割り当てることです。 ただし、PasswordRecovery と ChangePassword コントロールでは、管理ユーザーがユーザーのパスワードを変更する必要があります。ユーザーはこの操作を行うことができるためです。
 
-しかし、クライアントが管理ユーザーが他のユーザーのパスワードを変更できることを追い求める場合でしょうか。 残念ながら、この機能の追加の作業を指定できます。 ユーザーのパスワードを変更するに新旧両方のパスワードを指定する必要があります、`MembershipUser`オブジェクトの`ChangePassword`メソッドが、管理者は、それを変更するには、ユーザーのパスワードを知っている必要はありません。
+しかし、クライアントが他のユーザーのパスワードを変更できるようにする必要がある場合はどうでしょうか。 残念ながら、この機能の追加には少しの作業が必要になる場合があります。 ユーザーのパスワードを変更するには、古いパスワードと新しいパスワードの両方を `MembershipUser` オブジェクトの `ChangePassword` 方法に指定する必要がありますが、管理者は変更するためにユーザーのパスワードを知らなければなりません。
 
-1 つの回避策は、まずユーザーのパスワードをリセットし、次のようなコードを使用して、新しいパスワードに変更するは。
+回避策の1つとして、まずユーザーのパスワードをリセットし、次のようなコードを使用して新しいパスワードに変更します。
 
 [!code-vb[Main](recovering-and-changing-passwords-vb/samples/sample5.vb)]
 
-このコードの開始に関する情報を取得することによって*ユーザー名*、パスワード管理者が変更する必要があるユーザーであります。 次に、`ResetPassword`メソッドが呼び出されると、どの割り当てとユーザーの新しいランダム パスワード。 このランダムに生成されたパスワードが、メソッドによって返され、変数に格納されている`resetPwd`します。 ユーザーのパスワードがわかっているので、呼び出しに変更できます`ChangePassword`します。
+このコードでは、まず*ユーザー名*に関する情報を取得します。これは、管理者が変更するパスワードを持つユーザーです。 次に、`ResetPassword` メソッドが呼び出されます。これにより、とユーザーに新しいランダムなパスワードが割り当てられます。 このランダムに生成されたパスワードは、メソッドによって返され、`resetPwd`変数に格納されます。 これで、ユーザーのパスワードがわかったので、`ChangePassword`を呼び出すことで変更できます。
 
-問題は、メンバーシップ システムの構成が設定されている場合に、このコードをのみ機能するように`RequiresQuestionAndAnswer`は False です。 場合`RequiresQuestionAndAnswer`true の場合、アプリケーションについては、`ResetPassword`メソッドは、秘密の答えを渡される必要があります、それ以外の場合、例外がスローされます。
+問題は、`RequiresQuestionAndAnswer` が False になるようにメンバーシップシステムの構成が設定されている場合にのみ、このコードが機能することです。 `RequiresQuestionAndAnswer` が True の場合、アプリケーションの場合と同じように、`ResetPassword` メソッドにセキュリティの解答を渡す必要があります。そうしないと、例外がスローされます。
 
-メンバーシップ フレームワークがセキュリティの質問と解答を要求するように構成されているし、まだ、クライアントでは管理者ユーザーのパスワードを変更することであると主張して、次の 3 つのオプションがあります。
+メンバーシップフレームワークがセキュリティの質問と回答を要求するように構成されているにもかかわらず、管理者がユーザーのパスワードを変更できることをクライアントが主張する場合は、次の3つの方法があります。
 
-- 無線で手をスローし、実行できないことの 1 つだけであることをクライアントに指示します。
-- 設定`RequiresQuestionAndAnswer`を False にします。 これにより、安全性の低いアプリケーション。 不正なユーザーが別のユーザーの電子メールの受信トレイへのアクセスを得られることを想像してください。 おそらく、侵害されたユーザーに各自のデスクを辞めたり、ワークステーションをロックしませんでしたやパブリック ターミナルから自分の電子メールにアクセスし、サインアウトしていない、かもしれません。どちらの場合、不正なユーザーがアクセスできる、`RecoverPassword.aspx`ページし、ユーザーのユーザー名を入力します。 システムは、セキュリティの回答を求めることがなく回復パスワードが電子メールされます。
-- メンバーシップ フレームワークと、SQL Server データベースと直接作業によって作成された抽象化レイヤーをバイパスします。 メンバーシップ スキーマには、という名前のストアド プロシージャが含まれています。`aspnet_Membership_SetPassword`をユーザーのパスワードを設定し、そのタスクを実行するには秘密の答えや古いパスワードは必要ありません。
+- 空中を捨てて、このことを行うことができないことをクライアントに通知します。
+- `RequiresQuestionAndAnswer` を False に設定します。 これにより、安全性の低いアプリケーションが生成されます。 不正ユーザーが別のユーザーの電子メールの受信トレイにアクセスしたとします。 侵害されたユーザーが、昼食にアクセスしたり、ワークステーションをロックしたりしなかったか、公共のターミナルからメールにアクセスした可能性があり、サインアウトしていない可能性があります。どちらの場合も、不正ユーザーは `RecoverPassword.aspx` のページにアクセスして、ユーザーのユーザー名を入力できます。 その後、システムは、回復されたパスワードを、セキュリティの回答を求めるメッセージを表示せずに電子メールで送信します。
+- メンバーシップフレームワークによって作成された抽象化レイヤーをバイパスし、SQL Server データベースを直接操作します。 メンバーシップスキーマには、ユーザーのパスワードを設定する `aspnet_Membership_SetPassword` という名前のストアドプロシージャが含まれており、そのタスクを実行するためにセキュリティの答えや古いパスワードは必要ありません。
 
-これらのオプションのいずれも特に魅力的なが開発者の有効期間が場合がありますが方法です。
+これらのオプションはどれも特に魅力的なものではありませんが、開発者の生活がどのように行われるかということがあります。
 
-先へ進み、バイパス コードの記述 3 番目のアプローチを実装し、`Membership`と`MembershipUser`クラスを直接操作し、`SecurityTutorials`データベース。
-
-> [!NOTE]
-> データベースを直接操作、メンバーシップ フレームワークによって提供されるカプセル化が割れています。 この決定を結び付けるを`SqlMembershipProvider`、移植可能な以下のコードを作成します。 さらに、このコードが期待どおりに将来のバージョンの ASP.NET メンバーシップ スキーマが変更された場合は機能しません。 この方法は、問題を回避して、ほとんどの回避策などを利用するベスト プラクティスの例はありません。
-
-コードは、いくつかの魅力的ではありませんビットを備えは非常に長い。 そのため、その詳細を調べる場合で、このチュートリアルを乱雑にしません。 詳細に関心がある場合は、このチュートリアルとアクセス コードをダウンロード、`~/Administration/ManageUsers.aspx`ページ。 このページで作成した、 <a id="_msoanchor_5"> </a>[前のチュートリアル](building-an-interface-to-select-one-user-account-from-many-vb.md)、各ユーザーを一覧表示されます。 リンクを含める GridView が更新されました、 `UserInformation.aspx`  ページで、クエリ文字列を選択したユーザーのユーザー名を渡します。 `UserInformation.aspx`ページは、自分のパスワードを変更するため、選択したユーザーとテキスト ボックスに関する情報を表示します (図 9 参照)。
-
-新しいパスワードを入力する、2 つ目のテキスト ボックスの確認、ユーザーの更新ボタンをクリックして後のポストバックに陥りますと`aspnet_Membership_SetPassword`ストアド プロシージャが呼び出される、ユーザーのパスワードを更新します。 コードについての理解を含めるパスワードを変更したユーザーに電子メールを送信するための機能を拡張してこの機能の対象読者ことをお勧めします。
-
-[![管理者がユーザーのパスワードを変更します。](recovering-and-changing-passwords-vb/_static/image26.png)](recovering-and-changing-passwords-vb/_static/image25.png)
-
-**図 9**:管理者ユーザーのパスワードを変更することがあります ([フルサイズの画像を表示する をクリックします](recovering-and-changing-passwords-vb/_static/image27.png))。
+3番目のアプローチを実装し、`Membership` と `MembershipUser` クラスをバイパスし、`SecurityTutorials` データベースに対して直接操作するコードを記述しました。
 
 > [!NOTE]
-> `UserInformation.aspx`クリアまたは Hashed 形式でパスワードを格納するメンバーシップ フレームワークが構成されている場合でのみ動作ページ現在します。 この機能を追加する招待されていますが、新しいパスワードを暗号化するためのコードが不足しています。 必要なコードを追加することをお勧めします。 方法はなどのデコンパイラを使用する[Reflector](http://www.aisto.com/roeder/dotnet/) 、.NET Framework のメソッドのソース コードを調べることを調べることで開始、`SqlMembershipProvider`クラスの`ChangePassword`メソッド。 これは、パスワードのハッシュを作成するためのコードを記述するために使用する手法です。
+> データベースを直接操作することにより、メンバーシップフレームワークによって提供されるカプセル化が砕かれます。 この決定により、`SqlMembershipProvider`に結び付け、コードの移植性が低下します。 さらに、メンバーシップスキーマが変更された場合、ASP.NET の将来のバージョンでは、このコードが期待どおりに動作しないことがあります。 この方法は回避策であり、ほとんどの回避策と同様に、ベストプラクティスの例ではありません。
 
-## <a name="summary"></a>まとめ
+コードにはいくつかの魅力的ビットがあり、非常に時間がかかります。 このため、このチュートリアルを詳しく見ていくことは避けたいと思います。 詳細については、このチュートリアルのコードをダウンロードし、`~/Administration/ManageUsers.aspx` のページを参照してください。 <a id="_msoanchor_5"> </a>[前のチュートリアル](building-an-interface-to-select-one-user-account-from-many-vb.md)で作成したこのページには、各ユーザーの一覧が表示されています。 GridView を更新して、`UserInformation.aspx` ページへのリンクを含め、選択したユーザーのユーザー名を querystring で渡しました。 [`UserInformation.aspx`] ページには、選択したユーザーとパスワードを変更するためのテキストボックスに関する情報が表示されます (図9を参照)。
 
-ASP.NET には、自分のパスワードを管理するために 2 つのコントロールが用意されています。 PasswordRecovery コントロールは、自分のパスワードを忘れてしまった方のために便利です。 メンバーシップ フレームワークの構成によって、ユーザーは、既存のパスワードまたはランダムに生成された、新しいパスワードか電子メールで送信します。 ChangePassword コントロールでは、自分のパスワードを更新するユーザーを使用します。
+新しいパスワードを入力し、2番目のテキストボックスで確認し、[ユーザーの更新] ボタンをクリックすると、ポストバック ensues と `aspnet_Membership_SetPassword` ストアドプロシージャが呼び出され、ユーザーのパスワードが更新されます。 この機能に関心を持っている読者は、コードについて理解を深め、パスワードが変更されたユーザーに電子メールを送信するように機能を拡張することをお勧めします。
 
-ログインと CreateUserWizard コントロールと同様には、PasswordRecovery、ChangePassword コントロールは、宣言型マークアップがまったくまたは行のコードを記述することがなく豊富なユーザー インターフェイスをレンダリングします。 既定のユーザー インターフェイスでは、お客様のニーズを満たしていない場合は、さまざまなスタイルのプロパティをカスタマイズできます。 または、コントロールのインターフェイスは、コントロールのさらに細分化の次数のテンプレートに変換することがあります。 これらのコントロールが、メンバーシップ API を使用して、バック グラウンドでの呼び出し、`MembershipUser`オブジェクトの`ResetPassword`と`ChangePassword`メソッド。
+[管理者がユーザーのパスワードを変更する ![](recovering-and-changing-passwords-vb/_static/image26.png)](recovering-and-changing-passwords-vb/_static/image25.png)
 
-満足のプログラミングです。
+**図 9**: 管理者がユーザーのパスワードを変更[する (クリックすると、フルサイズの画像が表示](recovering-and-changing-passwords-vb/_static/image27.png)されます)
+
+> [!NOTE]
+> 現在、`UserInformation.aspx` ページは、パスワードをクリアまたはハッシュ形式で格納するようにメンバーシップフレームワークが構成されている場合にのみ機能します。 新しいパスワードを暗号化するためのコードは不足していますが、この機能を追加するように招待されています。 必要なコードを追加する方法は、デコンパイラのようなを使用して、.NET Framework 内のメソッドのソース[コードを調べる](http://www.aisto.com/roeder/dotnet/)ことです。まず、`SqlMembershipProvider` クラスの `ChangePassword` メソッドを調べます。 これは、パスワードのハッシュを作成するためのコードを記述するために使用した手法です。
+
+## <a name="summary"></a>要約
+
+ASP.NET には、ユーザーがパスワードを管理するのに役立つ2つのコントロールが用意されています。 PasswordRecovery コントロールは、パスワードを忘れたユーザーに役立ちます。 メンバーシップフレームワークの構成によっては、ユーザーは既存のパスワードまたはランダムに生成された新しいパスワードを電子メールで送信することになります。 ChangePassword コントロールを使用すると、ユーザーは自分のパスワードを更新できます。
+
+Login および CreateUserWizard コントロールと同様に、PasswordRecovery と ChangePassword コントロールは、宣言型マークアップやコード行を記述しなくても、豊富なユーザーインターフェイスを表示します。 既定のユーザーインターフェイスがニーズを満たさない場合は、さまざまなスタイルのプロパティを使用してカスタマイズできます。 もう1つの方法として、コントロールのインターフェイスをテンプレートに変換して、さらに細かく制御することもできます。 バックグラウンドでは、これらのコントロールは Membership API を使用して、`MembershipUser` オブジェクトの `ResetPassword` と `ChangePassword` メソッドを呼び出します。
+
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ChangePassword コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
-- [PasswordRecovery コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
-- [ASP.NET で電子メールを送信します。](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail` よく寄せられる質問](http://www.systemnetmail.com/)
+- [ChangePassword コントロールのクイックスタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
+- [PasswordRecovery コントロールのクイックスタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
+- [ASP.NET で電子メールを送信しています](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
+- [`System.Net.Mail` Faq](http://www.systemnetmail.com/)
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取ります書籍の著者と、4GuysFromRolla.com の創設者では、1998 年から、Microsoft Web テクノロジに取り組んできました。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は *[Sams 教える自分で ASP.NET 2.0 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* します。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別なに感謝します。
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者には、Michael Emmings Suchi 著がなどがあります。 今後、MSDN の記事を確認したいですか。 場合は、筆者に [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者には、Michael Emmings と Suchi Erjee が含まれています。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](building-an-interface-to-select-one-user-account-from-many-vb.md)

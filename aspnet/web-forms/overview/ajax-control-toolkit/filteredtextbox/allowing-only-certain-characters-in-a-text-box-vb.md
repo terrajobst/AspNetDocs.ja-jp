@@ -1,62 +1,62 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-vb
-title: テキスト ボックス (VB) で特定の文字のみを許可する |Microsoft Docs
+title: テキストボックス内の特定の文字のみを許可する (VB) |Microsoft Docs
 author: wenz
-description: ASP.NET 検証コントロールは、ユーザー入力で特定の文字だけが許可されることを保証できます。 ただしこれができない無効な入力からユーザー.
+description: ASP.NET 検証コントロールを使用すると、ユーザー入力で特定の文字のみが許可されるようにすることができます。 ただし、これによって、ユーザーが無効な型を入力するのを防ぐことはできません...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 33af23f1-4016-4740-8fb2-37d1773452cd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6e0f13140fcafd666a89c27acb829e4e762eff29
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 895708ebecc30c5f35e6ecd0349604bb777cbd93
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127457"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74573935"
 ---
 # <a name="allowing-only-certain-characters-in-a-text-box-vb"></a>テキスト ボックスで特定の文字だけを許可する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/4/c/2/4c2def7a-0d23-4055-91f9-1f18504167d7/FilteredTextBox0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/filteredtextbox0VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/4/c/2/4c2def7a-0d23-4055-91f9-1f18504167d7/FilteredTextBox0.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/filteredtextbox0VB.pdf)
 
-> ASP.NET 検証コントロールは、ユーザー入力で特定の文字だけが許可されることを保証できます。 ただしこのままでも、ユーザーから無効な文字を入力し、フォームを送信しようとしています。
+> ASP.NET 検証コントロールを使用すると、ユーザー入力で特定の文字のみが許可されるようにすることができます。 ただし、これによって、ユーザーが無効な文字を入力したり、フォームを送信したりするのを防ぐことはできません。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-ASP.NET 検証コントロールは、ユーザー入力で特定の文字だけが許可されることを保証できます。 ただしこのままでも、ユーザーから無効な文字を入力し、フォームを送信しようとしています。
+ASP.NET 検証コントロールを使用すると、ユーザー入力で特定の文字のみが許可されるようにすることができます。 ただし、これによって、ユーザーが無効な文字を入力したり、フォームを送信したりするのを防ぐことはできません。
 
 ## <a name="steps"></a>手順
 
-ASP.NET AJAX Control Toolkit に含まれています、`FilteredTextBox`をテキスト ボックスを拡張するコントロール。 アクティブ化される、文字の特定のセットのみがフィールドに入力可能性があります。
+ASP.NET AJAX Control Toolkit には、テキストボックスを拡張する `FilteredTextBox` コントロールが含まれています。 アクティブ化されると、特定の文字セットのみがフィールドに入力される可能性があります。
 
-これを機能させるには、まず必要があります通常どおり、ASP.NET AJAX `ScriptManager` ASP.NET AJAX Control Toolkit で使用されるも JavaScript ライブラリが読み込まれます。
+これを機能させるには、まず、ASP.NET AJAX Control Toolkit でも使用されている JavaScript ライブラリを読み込む ASP.NET AJAX `ScriptManager` が必要です。
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-vb/samples/sample1.aspx)]
 
-次に、テキスト ボックス必要があります。
+次に、テキストボックスが必要です。
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-vb/samples/sample2.aspx)]
 
-最後に、`FilteredTextBoxExtender`ユーザーが入力できる文字の制限の制御を行います。 最初に、設定、`TargetControlID`属性を`ID`の`TextBox`コントロール。 使用可能ないずれかを選択し、`FilterType`値。
+最後に、`FilteredTextBoxExtender` コントロールは、ユーザーが入力できる文字を制限します。 最初に、`TargetControlID` 属性を `TextBox` コントロールの `ID` に設定します。 次に、使用可能な `FilterType` の値のいずれかを選択します。
 
-- `Custom` 既定値です。有効な文字の一覧を提供する必要があります。
-- `LowercaseLetters` 小文字のみを使用
+- `Custom` 既定値です。有効な文字の一覧を指定する必要があります
+- 小文字のみを `LowercaseLetters`
 - `Numbers` 数字のみ
 - `UppercaseLetters` 大文字のみ
 
-場合、`Custom FilterType`を使用する、`ValidChars`プロパティが設定されていないと、入力可能性がありますの文字の一覧を提供する必要があります。 方法: テキスト ボックスにテキストを貼り付けるしようとすると、すべての無効な文字が削除されます。
+`Custom FilterType` を使用する場合は、`ValidChars` プロパティを設定し、入力可能な文字の一覧を指定する必要があります。 方法: テキストボックスにテキストを貼り付けようとすると、無効な文字がすべて削除されます。
 
-マークアップを次に示します、`FilteredTextBoxExtender`桁のみを実行できるコントロール (何も必要であったと考えられる`FilterType="Numbers"`)。
+数字のみを許可する `FilteredTextBoxExtender` コントロールのマークアップを次に示します (`FilterType="Numbers"`でも可能なもの)。
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-vb/samples/sample3.aspx)]
 
-JavaScript が有効になっている場合は、文字を入力しようと複数のページを実行するには、アプリケーションは動作しません。ただし、桁の数字は、ページに表示されます。 しかし注意保護`FilteredTextBox`提供強固ではありません。JavaScript が有効になっている場合は、ASP などの追加の検証方法を使用する必要があるために、テキスト ボックスで、すべてのデータを入力する可能性があります。NET の検証コントロール。
+ページを実行し、JavaScript が有効になっている場合は文字を入力しようとすると機能しません。ただし、このページには数字が表示されます。 ただし、で提供される保護 `FilteredTextBox` では、"箇条書き" ではないことに注意してください。 JavaScript が有効になっている場合、テキストボックスにデータが入力される可能性があるため、追加の検証方法 (つまり、ASP) を使用する必要があります。NET の検証コントロール。
 
-[![数字のみを入力することがあります。](allowing-only-certain-characters-in-a-text-box-vb/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-vb/_static/image1.png)
+[![数字のみを入力できます](allowing-only-certain-characters-in-a-text-box-vb/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-vb/_static/image1.png)
 
-数字のみを入力することがあります ([フルサイズの画像を表示する をクリックします](allowing-only-certain-characters-in-a-text-box-vb/_static/image3.png))。
+数字のみを入力できます ([クリックすると、フルサイズの画像が表示](allowing-only-certain-characters-in-a-text-box-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](allowing-only-certain-characters-in-a-text-box-cs.md)

@@ -1,201 +1,201 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/introduction
-title: Visual Studio を使用して ASP.NET Web の展開:概要 |Microsoft Docs
+title: 'Visual Studio を使用した ASP.NET Web デプロイ: 概要 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーをによって V を使用しています.
+description: このチュートリアルシリーズでは、ASP.NET web アプリケーションをデプロイ (発行) して、Web Apps またはサードパーティのホスティングプロバイダーを Azure App Service する方法について説明します。その方法については、「V...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 24ad086d-865e-433c-9ac9-05f1a553da16
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 8ed7414c0b27fc41360e259bfb0a4c82e88a4e15
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 96dd31d949633e001fc595621bedbf74e98000fc
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128674"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74640236"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用して ASP.NET Web の展開:はじめに
+# <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用した ASP.NET Web デプロイ: 概要
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[スタートプロジェクトのダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーをで Azure sdk for .NET Visual Studio 2012 を使用します。 ほとんどの手順は、Visual Studio 2013 用に似ています。
+> このチュートリアルシリーズでは、Visual Studio 2012 と Azure SDK for .NET を使用して、ASP.NET web アプリケーションを Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにデプロイ (発行) する方法について説明します。 ほとんどの手順は Visual Studio 2013 に似ています。
 > 
-> インターネット経由で人に使用できるようにするために web アプリケーションを開発します。 Web プログラミングのチュートリアルは、通常、開発用コンピューターで動作するものを取得する方法を紹介しましたが直後後に停止します。 この一連のチュートリアルでは、省略、他のユーザーが開始されます。 web アプリをビルド、テストする準備が整ったら。 次の内容 これらのチュートリアルでは、最初にテストするには、ローカル開発用コンピューターに IIS してから、Azure やホスティング プロバイダーにサード パーティ製のステージングと運用環境に展開する方法を示します。 デプロイするサンプル アプリケーションは、Entity Framework、SQL Server、および ASP.NET メンバーシップ システムを使用する web アプリケーション プロジェクトです。 サンプル アプリケーションが ASP.NET Web フォームを使用しますに示す手順は、ASP.NET MVC と Web API にも適用されます。
+> Web アプリケーションは、インターネットを介してユーザーが使用できるようにするために開発します。 ただし、web プログラミングのチュートリアルは通常、開発用コンピューターで動作する方法を説明した直後に停止します。 この一連のチュートリアルでは、web アプリを構築してテストし、準備ができていることを確認します。 次の内容 これらのチュートリアルでは、まず、テスト用にローカル開発用コンピューターの IIS にデプロイした後、ステージングと運用のために Azure またはサードパーティのホスティングプロバイダーにデプロイする方法を説明します。 デプロイするサンプルアプリケーションは、Entity Framework、SQL Server、および ASP.NET メンバーシップシステムを使用する web アプリケーションプロジェクトです。 サンプルアプリケーションでは ASP.NET Web フォームを使用しますが、表示される手順は ASP.NET MVC と Web API にも適用されます。
 > 
-> これらのチュートリアルでは、Visual Studio で ASP.NET を使用する方法を理解すると仮定します。 ない場合は、開始点としてを[基本的な ASP.NET Web フォームのチュートリアル](../../older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)または[基本的な ASP.NET MVC チュートリアル](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)します。
+> これらのチュートリアルでは、Visual Studio で ASP.NET を使用する方法を理解していることを前提としています。 そうでない場合は、[基本的な ASP.NET Web フォームチュートリアル](../../older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)または[基本的な ASP.NET MVC チュートリアル](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)を開始することをお勧めします。
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET 展開に関するフォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)または[StackOverflow](http://stackoverflow.com)します。
+> チュートリアルに直接関係のない質問がある場合は、 [ASP.NET Deployment フォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)または[stackoverflow](http://stackoverflow.com)に投稿できます。
 > 
-> このコンテンツはの無料電子書籍としても[TechNet の電子書籍ギャラリー](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio)します。
+> このコンテンツは、 [TechNet の電子書籍ギャラリー](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio)から無料の電子書籍として入手することもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-これらのチュートリアルでは、SQL Server データベースを含む ASP.NET web アプリケーションを配置する方法を説明します。 テストは、ローカル開発用コンピューター上の iis Web アプリを Azure App Service とステージング環境と運用のための Azure SQL Database にし、最初にデプロイします。 ワンクリック発行、Visual Studio を使用してデプロイする方法について説明し、コマンドラインを使用してデプロイする方法について説明します。
+これらのチュートリアルでは、SQL Server データベースを含む ASP.NET web アプリケーションをデプロイする手順について説明します。 まず、ローカルの開発用コンピューターの IIS に配置してテストを行い、次に Azure App Service で Web Apps し、ステージングと運用の Azure SQL Database します。 Visual Studio のワンクリック発行を使用してデプロイする方法を確認できます。コマンドラインを使用してをデプロイする方法を確認できます。
 
-チュートリアルの数は、一見大変な展開プロセスを行う可能性があります。 実際には、基本的な手順は簡単です。 ただし、実際の状況では、多くの場合、行う必要がある特別な展開タスク-たとえば、対象サーバーでフォルダーのアクセス許可を設定します。 チュートリアルは、実際のアプリケーションを正常に展開を妨げる可能性のある情報を忘れないでくださいことを期待して、これらの追加タスクのいくつか説明しました。
+チュートリアルの数によっては、展開プロセスが困難に思えるかもしれません。 実際、基本的な手順は単純です。 ただし、実際の状況では、多くの場合、追加の配置タスクを実行する必要があります。たとえば、対象サーバーでフォルダーのアクセス許可を設定します。 これらの追加のタスクのいくつかを説明しましたが、実際のアプリケーションを正常に展開できなくなる可能性がある情報がチュートリアルに記載されていないことを願っています。
 
-チュートリアルは順番に実行するように設計し、前のパートに各部分をビルドします。 自分の状況に関連性のない部分をスキップすることができますが、後のチュートリアルで手順を調整する必要があります。
+チュートリアルは順番に実行するように設計されており、各部分は前の部分に基づいています。 状況に関係のない部分はスキップできますが、その後のチュートリアルでは、手順の調整が必要になる場合があります。
 
 ## <a name="intended-audience"></a>対象読者
 
-環境で作業する ASP.NET 開発者が目的としたチュートリアルでは、場所。
+このチュートリアルは、次の環境で作業する ASP.NET 開発者を対象としています。
 
-- 運用環境は、Azure App Service Web Apps またはサード パーティのホスティング プロバイダーです。
-- 展開では、継続的インテグレーション プロセスに制限はありませんが、Visual Studio から直接行うことができます。
+- 運用環境は、Web Apps またはサードパーティのホスティングプロバイダー Azure App Service ます。
+- 配置は継続的な統合プロセスに限定されませんが、Visual Studio から直接実行できます。
 
-デプロイ[ソース管理](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)を使用して、[継続的デリバリー](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)プロセスは、コマンドラインからデプロイする方法を示す 1 つのチュートリアルを除くこれらのチュートリアルでは説明しません。 継続的デリバリーについては、次のリソースを参照してください。
+[継続的デリバリー](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)プロセスを使用した[ソース管理](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)からのデプロイについては、コマンドラインからの展開方法を示す1つのチュートリアルを除き、これらのチュートリアルでは説明されていません。 継続的デリバリーの詳細については、次のリソースを参照してください。
 
-- [継続的インテグレーションと継続的デリバリー (Windows Azure で現実世界のクラウド アプリの構築)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Azure App Service で web アプリをデプロイします。](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
-- [エンタープライズのシナリオで Web アプリケーションを展開する](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)(古いセットの Visual Studio 2010 では、エンタープライズ環境の有用な情報がまだ用に作成されたチュートリアルです)。
+- [継続的インテグレーションと継続的デリバリー (Windows Azure を使用した実際のクラウドアプリの構築)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
+- [Azure App Service で web アプリをデプロイする](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
+- [エンタープライズシナリオでの Web アプリケーションの配置](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)(Visual Studio 2010 向けに記述された古いチュートリアルのセットであり、エンタープライズ環境に関する有益な情報が含まれています)。
 
-## <a name="using-a-third-party-hosting-provider"></a>サード パーティのホスティング プロバイダーを使用します。
+## <a name="using-a-third-party-hosting-provider"></a>サードパーティのホスティングプロバイダーの使用
 
-チュートリアルでは、Azure のアカウントを設定して、ステージングと運用のための Azure App Service で Web アプリにアプリケーションを配置するプロセスを実行します。 ただし、任意のサード パーティのホスティング プロバイダーに展開するため、同じ基本的な手順を使用することができます。 チュートリアルでは、Azure にプロセスを一意に移動、場所、ことを説明し、どのような違いがサード パーティのホスティング プロバイダーに期待できることをお勧めします。
+このチュートリアルでは、Azure アカウントを設定し、ステージングと運用のために Azure App Service で Web Apps するアプリケーションをデプロイするプロセスについて紹介します。 ただし、任意のサードパーティ製ホスティングプロバイダーにデプロイする場合と同じ基本的な手順を使用できます。 このチュートリアルでは、Azure 固有のプロセスについて説明します。また、サードパーティのホスティングプロバイダーで予想される違いについても説明します。
 
-## <a name="deploying-web-app-projects"></a>Web アプリ プロジェクトの配置
+## <a name="deploying-web-app-projects"></a>Web アプリプロジェクトの配置
 
-サンプル アプリケーションをダウンロードしてこれらのチュートリアルのデプロイとは、Visual Studio web アプリケーション プロジェクトです。 ただし、最新版をインストールする場合[for Visual Studio Web 発行の更新](https://msdn.microsoft.com/tr-tr/library/jj161045.aspx)、web アプリ プロジェクトを同じ展開方法とツールを使用することができます。
+これらのチュートリアル用にダウンロードしてデプロイするサンプルアプリケーションは、Visual Studio web アプリケーションプロジェクトです。 ただし、Visual Studio の最新の Web 発行更新プログラムをインストールする場合は、web アプリプロジェクトに対して同じデプロイ方法とツールを使用できます。
 
 ## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC プロジェクトの配置
 
-サンプル アプリケーションは、ASP.NET Web フォーム プロジェクトがもは ASP.NET MVC に適用可能なすべてを行う方法について説明します。 Visual Studio MVC プロジェクトでは、web アプリケーション プロジェクトのもう 1 つの形式です。 唯一の違いは、ASP.NET MVC またはこれのターゲット バージョンをサポートしていないホスティング プロバイダーにデプロイする場合おく必要があります、適切なインストールしておきます ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0)、 [MVC 4](http://www.nuget.org/packages/Microsoft.AspNet.Mvc/4.0.30506.0)、または[MVC 5](http://www.nuget.org/packages/Microsoft.AspNet.Mvc)) プロジェクトに NuGet パッケージ。
+サンプルアプリケーションは ASP.NET の Web フォームプロジェクトですが、実行する方法について学習したものは、ASP.NET MVC にも適用できます。 Visual Studio MVC プロジェクトは、別の形式の web アプリケーションプロジェクトです。 唯一の違いは、ASP.NET MVC またはターゲットバージョンをサポートしていないホスティングプロバイダーにデプロイする場合は、適切な ([mvc 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0)、 [mvc 4](http://www.nuget.org/packages/Microsoft.AspNet.Mvc/4.0.30506.0)、または[mvc 5](http://www.nuget.org/packages/Microsoft.AspNet.Mvc)) NuGet パッケージがプロジェクトにインストールされていることを確認する必要があることです。
 
 ## <a name="programming-language"></a>プログラミング言語
 
-C# サンプル アプリケーションを使用が、チュートリアルには、C# の知識が必要としないと、チュートリアルで示すように、展開方法は、言語固有ではないです。
+サンプルアプリケーションはをC#使用しますが、チュートリアルではC#の知識は必要ありません。また、チュートリアルで示されている配置手法は言語固有ではありません。
 
-## <a name="database-deployment-methods"></a>データベースの展開方法
+## <a name="database-deployment-methods"></a>データベースの配置方法
 
-3 つの方法を Visual Studio で web デプロイと共に SQL Server データベースを展開することができます。
+Visual Studio で SQL Server データベースを web 配置と共に配置するには、次の3つの方法があります。
 
 - Entity Framework Code First Migrations
 - DbDacFx Web 配置プロバイダー
 - DbFullSql Web 配置プロバイダー
 
-このチュートリアルでは、これらのメソッドの最初の 2 つを使用します。 DbFullSql Web Deploy プロバイダーは、SQL Server Compact から SQL Server への移行など特定のシナリオ以外は推奨されなくをレガシ メソッドです。
+このチュートリアルでは、これらのメソッドの最初の2つを使用します。 DbFullSql Web 配置プロバイダーは、SQL Server Compact から SQL Server への移行など、一部の特定のシナリオ以外では推奨されない従来の方法です。
 
-このチュートリアルで示されているメソッドはない SQL Server Compact、SQL Server データベースです。 SQL Server Compact データベースをデプロイする方法については、次を参照してください。 [Visual Studio Web 配置で SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+このチュートリアルで示す方法は、SQL Server Compact ではなく SQL Server データベースを対象としています。 SQL Server Compact データベースをデプロイする方法の詳細については、「 [SQL Server Compact を使用した Visual Studio の Web 配置](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md)」を参照してください。
 
-このチュートリアルで示されているメソッドの Web Deploy を使用することが必要なメソッドを公開します。 FTP、ファイル システム、または FPSE などのメソッドを別に発行する場合は、次を参照してください。 [web アプリケーションのデプロイから個別にデータベースを展開する](https://go.microsoft.com/fwlink/p/?LinkId=282413#databaseseparate)for Visual Studio および ASP.NET Web 配置コンテンツ マップでします。
+このチュートリアルで示すメソッドを使用するには、Web 配置 publish メソッドを使用する必要があります。 FTP、ファイルシステム、または FPSE などの別の発行方法を使用する場合は、「web アプリケーションの配置とは別に[データベースを](https://go.microsoft.com/fwlink/p/?LinkId=282413#databaseseparate)配置する」を参照してください。これは、Visual Studio と ASP.NET の Web 配置コンテンツマップにあります。
 
 ### <a name="entity-framework-code-first-migrations"></a>Entity Framework Code First Migrations
 
-Entity Framework バージョン 4.3 では、Microsoft は、Code First Migrations を紹介します。 Code First Migrations は、データ モデルに増分の変更を加えると、データベースにこれらの変更を反映するプロセスを自動化します。 Code First の以前のバージョンでは、通常は削除して再作成、データベースをデータ モデルを変更するたびに、Entity Framework を使用できます。 これが問題を開発テスト データが簡単に再作成されたが、実稼働環境では、通常するデータベースを削除せずに、データベース スキーマを更新します。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 Code First の必要なスキーマ変更を行う方法を自動的に決定させることができますか、変更内容をカスタマイズするコードを記述することができます。 Code First Migrations の概要については、次を参照してください。 [Code First Migrations](https://msdn.microsoft.com/library/hh770484.aspx)します。
+Entity Framework バージョン4.3 では、Microsoft によって Code First Migrations が導入されました。 Code First Migrations では、データモデルに対する増分変更を行い、それらの変更をデータベースに反映するプロセスを自動化します。 以前のバージョンの Code First では、通常、データモデルを変更するたびにデータベースを削除して再作成することを Entity Framework します。 テストデータは簡単に作成できますが、実稼働環境では、データベースを削除せずにデータベーススキーマを更新することをお勧めします。 移行機能を使用すると、Code First によってデータベースを削除および再作成せずに更新できます。 必要なスキーマ変更を行う方法を Code First が自動的に決定するようにすることも、変更をカスタマイズするコードを記述することもできます。 Code First Migrations の概要については、「 [Code First Migrations](https://msdn.microsoft.com/library/hh770484.aspx)」を参照してください。
 
-Web プロジェクトを展開する場合に、Visual Studio は、Code First Migrations で管理されているデータベースの配置のプロセスを自動化できます。 発行プロファイルを作成するときに、実行 Code First Migrations (アプリケーションの起動時に実行されます) というラベルの付いたチェック ボックスを選択します。 この設定により、Code First が使用されるように、移行先サーバーでアプリケーションの Web.config ファイルを自動的に構成する展開プロセス、`MigrateDatabaseToLatestVersion`初期化子クラス。
+Web プロジェクトを配置するときに、Visual Studio では、Code First Migrations によって管理されるデータベースの配置プロセスを自動化できます。 発行プロファイルを作成するときに、[Execute Code First Migrations (アプリケーションの起動時に実行)] というラベルのチェックボックスをオンにします。 この設定により、配置プロセスでは、Code First が `MigrateDatabaseToLatestVersion` 初期化子クラスを使用するように、移行先サーバー上のアプリケーションの Web.config ファイルが自動的に構成されます。
 
-Visual Studio は行いませんデータベースで何か、展開プロセス中にします。 デプロイされたアプリケーションでは、デプロイ後に最初に、データベースにアクセス、Code First 自動的にデータベースを作成またはデータベース スキーマを最新バージョンに更新します。 アプリケーションでは、移行の Seed メソッドを実装する場合、データベースが作成されたか、スキーマが更新され、メソッドが実行されます。
+Visual Studio は、配置プロセス中にデータベースに対して何も実行しません。 配置後に配置されたアプリケーションがデータベースに初めてアクセスすると、Code First によってデータベースが自動的に作成されるか、データベーススキーマが最新バージョンに更新されます。 アプリケーションが移行シードメソッドを実装する場合、メソッドは、データベースが作成されるか、スキーマが更新された後に実行されます。
 
-このチュートリアルでは、アプリケーション データベースを展開するのに Code First Migrations を使用します。
+このチュートリアルでは、Code First Migrations を使用してアプリケーションデータベースをデプロイします。
 
 ### <a name="the-dbdacfx-web-deploy-provider"></a>DbDacFx Web 配置プロバイダー
 
-Entity Framework Code First によって管理されていない SQL Server データベースの発行プロファイルを構成するときに、データベースの更新をラベル付けは、チェック ボックスを選択できます。 初期のデプロイ時に、dbDacFx プロバイダーは、ソース データベースに一致する転送先データベースにテーブルと他のデータベース オブジェクトを作成します。 以降のデプロイで、プロバイダーが元とコピー先のデータベース間で相違点を確認し、ソース データベースに一致する先のデータベースのスキーマを更新します。 既定では、プロバイダーは、テーブルまたは列が削除されるときなど、データ損失につながるな変更を加えてはありません。
+Entity Framework Code First で管理されていない SQL Server データベースの場合、発行プロファイルを構成するときに [データベースの更新] というラベルのチェックボックスをオンにすることができます。 最初の配置では、ソースデータベースと一致するように、dbDacFx プロバイダーによってコピー先データベースにテーブルおよびその他のデータベースオブジェクトが作成されます。 後続の配置では、ソースデータベースと転送先データベースの間で何が異なるかがプロバイダーによって決定され、転送先データベースのスキーマがソースデータベースに合わせて更新されます。 既定では、テーブルや列が削除されたときなど、プロバイダーはデータ損失の原因となる変更を行いません。
 
-このメソッドはデータベース テーブル内のデータの展開を自動化していませんが、そのデプロイ時にそれらを実行する Visual Studio を構成するスクリプトを作成できます。 デプロイ中にスクリプトを実行する別の理由は、データの損失になるために自動的に行うことができないスキーマ変更を行うです。
+この方法では、データベーステーブルのデータの配置は自動化されませんが、スクリプトを作成して、配置時に実行するように Visual Studio を構成することができます。 配置時にスクリプトを実行するもう1つの理由は、データの損失を引き起こす可能性があるため、自動的には実行できないスキーマ変更を行うことです。
 
-このチュートリアルでは、ASP.NET メンバーシップ データベースを展開するのに dbDacFx プロバイダーを使用します。
+このチュートリアルでは、dbDacFx プロバイダーを使用して、ASP.NET メンバーシップデータベースをデプロイします。
 
-## <a name="troubleshooting-during-this-tutorial"></a>このチュートリアルの中のトラブルシューティング
+## <a name="troubleshooting-during-this-tutorial"></a>このチュートリアル中のトラブルシューティング
 
-展開中にエラーが発生したとき、またはデプロイされたサイトが正しく実行されない場合は、エラー メッセージは、明確な解決策を常に用意されていません。 問題の一般的なシナリオで役立つ、[トラブルシューティングのリファレンス ページ](troubleshooting.md)は使用できます。 エラー メッセージを取得する、または、チュートリアルを進めるときに機能しない、必ず、トラブルシューティングのページを確認してください。
+展開中にエラーが発生した場合、または展開されたサイトが正常に動作しない場合、エラーメッセージは常に明確な解決策を提供するわけではありません。 一般的な問題のシナリオを解決するために、[トラブルシューティングのリファレンスページ](troubleshooting.md)を利用できます。 チュートリアルを実行しているときにエラーメッセージが表示されたり動作しなかったりする場合は、必ずトラブルシューティングのページを確認してください。
 
 ## <a name="comments-welcome"></a>コメントの開始
 
-チュートリアルでは、コメントは、[ようこそ]、およびあらゆる努力をアカウントの修正または提案のコメントのチュートリアルに用意されている改善点を考慮できるように、チュートリアルが更新されたときにします。
+チュートリアルのコメントは歓迎されます。チュートリアルが更新されると、チュートリアルのコメントに記載されている修正や改善の提案が行われます。
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>必要条件
 
-このチュートリアルは、次の製品として記述されました。
+このチュートリアルは、次の製品向けに作成されました。
 
 - Windows 8 または Windows 7。
-- Visual Studio 2012 または Visual Studio 2012 の Express for Web と[最新の更新プログラム](https://go.microsoft.com/fwlink/?LinkId=272486)します。
+- [最新の更新プログラム](https://go.microsoft.com/fwlink/?LinkId=272486)を使用した visual studio 2012 または visual Studio 2012 Express for Web。
 - [Azure SDK for Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkId=254364)
 
-Visual Studio 2010 SP1 または Visual Studio 2013 を使用して、チュートリアルに従うことができますが、やスクリーン ショットは、一部の機能が異なるものになります。
+このチュートリアルは、Visual Studio 2010 SP1 または Visual Studio 2013 を使用して実行できますが、一部のスクリーンショットは異なるため、一部の機能は異なる場合があります。
 
-Visual Studio 2013 を使用している場合は、インストール[Azure SDK for Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkID=324322)します。
+Visual Studio 2013 を使用している場合は、 [AZURE SDK for Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkID=324322)をインストールします。
 
 Visual Studio 2010 SP1 を使用している場合は、次のソフトウェアをインストールします。
 
 - [Azure SDK for Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
-- [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx)します。
+- [LocalDB の SQL Server Express](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
+- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx)。
 
-SDK の依存関係の数がコンピューターに既にある、によっては、Azure SDK のインストールに 30 分以上には数分からの時間がかかる可能性があります。 場合でも、Azure への代わりにサード パーティ製ホスティング プロバイダーにパブリッシュするには、SDK には、Visual Studio web に最新の更新プログラムが含まれているために発行機能は、Azure SDK を作成する必要があります。
+コンピューターに既にある SDK の依存関係の数によっては、Azure SDK のインストールに時間がかかる場合があります (数分から30分以上)。 SDK には Visual Studio web 発行機能の最新の更新プログラムが含まれているため、azure ではなくサードパーティのホスティングプロバイダーに発行する予定の場合でも、Azure SDK が必要です。
 
 > [!NOTE]
-> このチュートリアルは、Azure SDK のバージョン 1.8.1 で記述されています。 その後、追加機能を持つ新しいバージョンがリリースされました。 チュートリアルでは、これらの機能とその詳細情報が存在するリソースへのリンクは言うまでも更新されました。
+> このチュートリアルは、Azure SDK のバージョン1.8.1 で記述されています。 その後、追加機能を持つ新しいバージョンがリリースされました。 これらの機能について説明し、詳細情報が記載されているリソースへのリンクを紹介するチュートリアルが更新されました。
 
-手順とスクリーン ショットは、Windows 8 に基づきますが、チュートリアルでは、Windows 7 の相違点を説明します。
+指示とスクリーンショットは Windows 8 に基づいていますが、チュートリアルでは Windows 7 の違いについて説明します。
 
-その他のソフトウェアが、チュートリアルを完了するために必要ですが、まだがインストールされている必要はありません。 このチュートリアルでは必要なときにインストールするための手順説明をします。
+このチュートリアルを完了するには、他にもいくつかのソフトウェアが必要ですが、まだインストールしておく必要はありません。 このチュートリアルでは、必要なときにインストールする手順について説明します。
 
-## <a name="download-the-sample-application"></a>サンプル アプリケーションをダウンロードします。
+## <a name="download-the-sample-application"></a>サンプルアプリケーションをダウンロードする
 
-デプロイするアプリケーションでは、Contoso University の名前しが既に作成済み。 これは疎で説明されている Contoso University アプリケーションに基づいて、大学の web サイトの簡略化されたバージョン、 [ASP.NET サイト上の Entity Framework チュートリアル](https://asp.net/entity-framework/tutorials)。
+デプロイするアプリケーションは Contoso 大学という名前で、既に作成されています。 これは、 [ASP.NET サイトの Entity Framework チュートリアル](https://asp.net/entity-framework/tutorials)で説明されている Contoso 大学のアプリケーションに弱い、大学の web サイトの簡略化されたバージョンです。
 
-前提条件のインストールがある場合は、ダウンロード、 [Contoso University web アプリケーション](https://go.microsoft.com/fwlink/p/?LinkId=282627)します。 *.Zip*ファイルには、プロジェクトの複数のバージョンが含まれています。 チュートリアルの手順を実行すると、するには、c# フォルダーにあるプロジェクトを起動します。 チュートリアルの最後に、プロジェクトがどのように表示、ContosoUniversity エンド フォルダーにプロジェクトを開きます。
+前提条件がインストールされている場合は、 [Contoso 大学 web アプリケーション](https://go.microsoft.com/fwlink/p/?LinkId=282627)をダウンロードします。 *.Zip*ファイルには、プロジェクトの複数のバージョンが含まれています。 このチュートリアルの手順を実行するには、 C#フォルダーにあるプロジェクトから開始します。 チュートリアルの最後でプロジェクトがどのように表示されるかを確認するには、ContosoUniversity フォルダーでプロジェクトを開きます。
 
-チュートリアルのステップを使用するため、プロジェクトを準備するには、次の手順を実行します。
+チュートリアルの手順に従ってプロジェクトを準備するには、次の手順を実行します。
 
-1. Visual Studio プロジェクトを操作するために使用する任意のフォルダーで ContosoUniversity という名前のフォルダー内の c# フォルダーから ContosoUniversity ソリューション ファイルを保存します。
+1. ContosoUniversity ソリューションファイルC#を ContosoUniversity という名前のフォルダーのフォルダーに保存します。このフォルダーは、Visual Studio プロジェクトを操作するために使用する任意のフォルダーに保存します。
 
-    既定の設定では、Visual Studio 2012 用の次のフォルダーです。
+    既定では、Visual Studio 2012 の次のフォルダーになります。
 
     `C:\Users\<username>\Documents\Visual Studio 2012\Projects`
 
-    (このチュートリアルのスクリーン ショットでは、プロジェクト フォルダーに配置された、ルート ディレクトリで、 `C`: ドライブ)。
+    (このチュートリアルのスクリーンショットでは、プロジェクトフォルダーは `C`: ドライブのルートディレクトリにあります)。
 2. Visual Studio を起動し、プロジェクトを開きます。
-3. **ソリューション エクスプ ローラー**ソリューションを右クリックし、クリックして**EnableNuGet パッケージの復元**します。
+3. **ソリューションエクスプローラー**で、ソリューションを右クリックし、 **[Enablenuget パッケージの復元]** をクリックします。
 4. ソリューションをビルドします。
-5. コンパイル エラーが発生した場合は、NuGet パッケージを手動で復元します。
+5. コンパイルエラーが発生した場合は、NuGet パッケージを手動で復元します。
 
-    1. **ソリューション エクスプ ローラー**、ソリューションを右クリックし、クリックして**ソリューションの NuGet パッケージの管理**します。
-    2. 上部にある、 **NuGet パッケージの管理** ダイアログ ボックスが表示されます**一部の NuGet パッケージはこのソリューションにありません。復元する をクリックします。** をクリックして、**復元**ボタンをクリックします。
+    1. **ソリューションエクスプローラー**で、ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
+    2. **[Nuget パッケージの管理]** ダイアログボックスの上部に、**このソリューションにいくつかの NuGet パッケージが不足していることが表示されます。クリックして復元します。** **[復元]** ボタンをクリックします。
     3. ソリューションをリビルドします。
-6. Ctrl キーを押し、f5 キーを押してアプリケーションを実行します。
+6. Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。
 
-    アプリケーションは、Contoso University のホーム ページを開きます。
+    アプリケーションが Contoso 大学のホームページに表示されます。
 
-    ![ホーム ページの開発](introduction/_static/image1.png)
+    ![ホームページの開発](introduction/_static/image1.png)
 
-    (Visual Studio、SQL Server Express LocalDB インスタンスの起動中に、待機時間にすることがありますとしてがタイムアウト エラーが時間がかかるプロセスです。 そのケースだけでプロジェクトを開始、もう一度。)
+    (SQL Server Express LocalDB インスタンスが Visual Studio によって起動されるまでの間、待機時間が発生する場合があります。この処理に時間がかかりすぎると、タイムアウトエラーが発生する可能性があります。 その場合は、もう一度プロジェクトを開始します)。
 
-Web サイトのページでは、メニュー バーからアクセスできるし、次の機能を実行することができます。
+Web サイトのページには、メニューバーからアクセスでき、次の機能を実行できます。
 
-- 学生の統計情報 (バージョン情報 ページ) を表示します。
-- 表示、編集、削除、および学生を追加します。
-- 表示し、コースを編集します。
-- 表示し、インストラクターを編集します。
-- 表示および部門を編集します。
+- 学生の統計情報を表示します ([バージョン情報] ページ)。
+- 学生を表示、編集、削除、追加します。
+- コースを表示および編集します。
+- インストラクターを表示および編集します。
+- 部門を表示および編集します。
 
-いくつかの代表的なページのスクリーン ショットを次に示します。
+次に、いくつかの代表的なページのスクリーンショットを示します。
 
-![学生のページの開発](introduction/_static/image2.png)
+![学生ページの開発](introduction/_static/image2.png)
 
-![学生のページの開発を追加します。](introduction/_static/image3.png)
+![学生の追加ページ Dev](introduction/_static/image3.png)
 
-## <a name="review-application-features-that-affect-deployment"></a>展開に影響するアプリケーションの機能を確認してください。
+## <a name="review-application-features-that-affect-deployment"></a>展開に影響するアプリケーションの機能を確認する
 
-アプリケーションの次の機能は、展開する方法や、それをデプロイするのでは行う必要があるに影響します。 これらの各操作は、以下のチュートリアル シリーズでさらに詳しく説明します。
+アプリケーションの次の機能は、アプリケーションの展開方法または展開方法に影響します。 これらについては、シリーズの次のチュートリアルで詳細に説明されています。
 
-- Contoso University では、SQL Server データベースを使用して、student および instructor 名などのアプリケーション データを格納します。 さまざまなテスト データ、および運用環境のデータを格納しているし、実稼働環境に展開するときにテスト データを除外する必要があります。
-- アプリケーションでは、SQL Server データベースのユーザー アカウント情報を格納する、ASP.NET メンバーシップ システムを使用します。 アプリケーションでは、制限された情報へのアクセスを持つ管理者ユーザーを定義します。 テスト アカウントを持たないが、管理者アカウントのメンバーシップ データベースをデプロイする必要があります。
-- アプリケーションでは、サード パーティ製のエラー ログとレポート ユーティリティを使用します。 このユーティリティは、アプリケーションと共に配置する必要がありますアセンブリで提供されます。
-- エラーのログ記録ユーティリティでは、ファイル フォルダーに XML ファイルにエラー情報を書き込みます。 ある、配置サイトで ASP.NET を実行するアカウントは、このフォルダーに書き込みアクセス許可を持つこと、およびデプロイからこのフォルダーを除外する必要があることを確認します。 (それ以外の場合、テスト環境からのエラー ログのデータを運用環境にデプロイする場合がありますや、運用環境のエラー ログ ファイルを削除する可能性があります)。
-- アプリケーションには、いくつかの設定の変更が必要で、デプロイされている*Web.config*先の環境 (テスト、ステージング、または本番) とその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
-- Visual Studio ソリューションには、クラス ライブラリ プロジェクトが含まれています。 このプロジェクトで生成されるアセンブリのみを配置する必要があります、プロジェクト自体ではありません。
+- Contoso 大学は、SQL Server データベースを使用して、学生や教師の名前などのアプリケーションデータを格納します。 このデータベースには、テストデータと実稼働データが混在しています。また、運用環境に配置するときは、テストデータを除外する必要があります。
+- アプリケーションでは、ユーザーアカウント情報を SQL Server データベースに格納する ASP.NET メンバーシップシステムが使用されます。 アプリケーションでは、一部の制限された情報にアクセスできる管理者ユーザーを定義します。 テストアカウントを使用せずに、管理者アカウントを使用してメンバーシップデータベースをデプロイする必要があります。
+- アプリケーションでは、サードパーティのエラーログとレポートユーティリティを使用します。 このユーティリティは、アプリケーションと共に配置する必要があるアセンブリで提供されます。
+- エラーログユーティリティは、エラー情報を XML ファイル内のファイルフォルダーに書き込みます。 ASP.NET が展開されたサイトの下で実行されるアカウントにこのフォルダーへの書き込みアクセス許可があることを確認する必要があります。また、このフォルダーを展開から除外する必要があります。 (そうでない場合は、テスト環境からのエラーログデータが運用環境に配置されたり、運用エラーログファイルが削除されたりする可能性があります)。
+- アプリケーションには、配置先の環境 (テスト、ステージング、または運用) に応じて、配置された*web.config*ファイルで変更する必要があるいくつかの設定と、ビルド構成 (デバッグまたはリリース) に応じて変更する必要があるその他の設定が含まれます。
+- Visual Studio ソリューションには、クラスライブラリプロジェクトが含まれています。 プロジェクト自体ではなく、このプロジェクトが生成するアセンブリだけを配置する必要があります。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-シリーズの最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションをデプロイする方法に影響するサイトの機能を確認しました。 以下のチュートリアルでの展開を準備を自動的に処理するような設定です。 その他の手動で注意します。
+このシリーズの最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションのデプロイ方法に影響を与えるサイトの機能を確認しました。 次のチュートリアルでは、これらのいくつかを自動的に処理するように設定することによって、デプロイを準備します。 他のユーザーは手動で行うことができます。
 
 > [!div class="step-by-step"]
 > [次へ](preparing-databases.md)

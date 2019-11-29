@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb
-title: ドラッグ アンド ドロップ ReorderList (VB) を使用して |Microsoft Docs
+title: ReorderList を使用してドラッグアンドドロップ (VB) |Microsoft Docs
 author: wenz
 description: /data-access/tutorials/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 ms.author: riande
@@ -8,78 +8,78 @@ ms.date: 06/02/2008
 ms.assetid: 848e6bcf-4c3f-4d14-974d-e45b9444ab79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 72c697bc2a2005d3ff116cf2f73d80e23bb526dd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3f7c5749053d8bf587467fb1939fca05ce2872a4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124921"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598620"
 ---
 # <a name="drag-and-drop-via-reorderlist-vb"></a>ReorderList 経由でドラッグ アンド ドロップする (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList5.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist5VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList5.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist5VB.pdf)
 
-> ReorderList コントロール、AJAX Control Toolkit では、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧を提供します。 リストの現在の順序は、サーバーに保存されます。
+> AJAX コントロールツールキットの ReorderList コントロールは、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストを提供します。 リストの現在の順序は、サーバーで保持されている必要があります。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-`ReorderList` AJAX Control Toolkit でコントロールには、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧が用意されています。 リストの現在の順序は、サーバーに保存されます。
+AJAX コントロールツールキットの `ReorderList` コントロールには、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストが用意されています。 リストの現在の順序は、サーバーで保持されている必要があります。
 
 ## <a name="steps"></a>手順
 
-`ReorderList`コントロールが一覧に、データベースからデータをバインディングをサポートします。 何よりすばらしいは、データ ストアにリストの要素の順序の変更の書き込みもサポートしています。
+`ReorderList` コントロールでは、データベースからリストへのデータのバインドがサポートされています。 また、リスト要素の順序に対する変更をデータストアに書き戻すこともできます。
 
-このサンプルでは、データ ストアとして Microsoft SQL Server 2005 Express Edition を使用します。 データベースは、express edition を含め、Visual Studio のインストールのオプション (および無料) 部分です。 個別のダウンロードとして入手[ https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064)します。 このサンプルでは、SQL Server 2005 Express Edition のインスタンスが呼び出されること前提としています`SQLEXPRESS`は web サーバーと同じコンピューター上に存在して、既定の設定にもなります。 場合は、セットアップが異なる場合は、データベースの接続情報を調整する必要があります。
+このサンプルでは、データストアとして Microsoft SQL Server 2005 Express Edition を使用します。 データベースは、Visual Studio のインストールにおいて、express edition を含む省略可能な (無料の) 部分です。 また、 [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064)で個別にダウンロードすることもできます。 このサンプルでは、SQL Server 2005 Express Edition のインスタンスが `SQLEXPRESS` 呼び出され、web サーバーと同じコンピューター上に存在することを前提としています。これは、既定のセットアップでもあります。 セットアップが異なる場合は、データベースの接続情報を調整する必要があります。
 
-データベースを設定する最も簡単な方法は、Microsoft SQL Server Management Studio Express を使用する、([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp; DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) )。 サーバーへの接続をダブルクリックして`Databases`新しいデータベースを作成し、(右クリックし、 `New Database`) と呼ばれる`Tutorials`します。
+データベースをセットアップする最も簡単な方法は、Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;D isplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) ) を使用することです。 サーバーに接続し、`Databases` をダブルクリックして、新しいデータベースを作成します (右クリックして [`New Database`] を選択し `Tutorials`)。
 
-という新しいテーブルを作成すると、このデータベースに`AJAX`次の 4 つの列を含む。
+このデータベースで、次の4つの列を含む `AJAX` という名前の新しいテーブルを作成します。
 
-- `id` (プライマリ キー、整数、identity、いない NULL)
+- `id` (主キー、整数、id、NULL 以外)
 - `char` (char (1)、NULL)
 - `description` (varchar (50)、NULL)
 - `position` (int, NULL)
 
-[![AJAX のテーブルのレイアウト](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
+[AJAX テーブルのレイアウトの ![](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
 
-AJAX のテーブルのレイアウト ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-vb/_static/image3.png))。
+AJAX テーブルのレイアウト ([クリックすると、フルサイズの画像が表示](drag-and-drop-via-reorderlist-vb/_static/image3.png)されます)
 
-次に、表に、いくつかの値を設定します。 なお、`position`列は、要素の並べ替え順序を保持します。
+次に、テーブルにいくつかの値を入力します。 `position` 列には、要素の並べ替え順序が保持されていることに注意してください。
 
-[![AJAX の表に、初期データ](drag-and-drop-via-reorderlist-vb/_static/image5.png)](drag-and-drop-via-reorderlist-vb/_static/image4.png)
+[AJAX テーブルの初期データの ![](drag-and-drop-via-reorderlist-vb/_static/image5.png)](drag-and-drop-via-reorderlist-vb/_static/image4.png)
 
-AJAX の表に、初期データ ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-vb/_static/image6.png))。
+AJAX テーブルの初期データ ([クリックすると、フルサイズの画像が表示](drag-and-drop-via-reorderlist-vb/_static/image6.png)されます)
 
-次の手順を生成する必要があります、`SqlDataSource`新しいデータベースとそのテーブルでの通信を制御します。 データ ソースをサポートする必要があります、`SELECT`と`UPDATE`SQL コマンド。 リストの要素の順序が変更された後で、ときに、`ReorderList`コントロールは、データ ソースの 2 つの値を自動的に送信する`Update`コマンド: 新しい位置と、要素の ID。 そのため、データ ソースのニーズ、`<UpdateParameters>`これら 2 つの値のセクション。
+次の手順では、新しいデータベースとそのテーブルと通信するために `SqlDataSource` コントロールを生成する必要があります。 データソースでは、`SELECT` および `UPDATE` SQL コマンドがサポートされている必要があります。 リスト要素の順序が変更されると、`ReorderList` コントロールは、新しい位置と要素の ID の2つの値を、データソースの `Update` コマンドに自動的に送信します。 そのため、データソースには、次の2つの値の `<UpdateParameters>` セクションが必要です。
 
 [!code-aspx[Main](drag-and-drop-via-reorderlist-vb/samples/sample1.aspx)]
 
-`ReorderList`コントロールは、次の属性を設定する必要があります。
+`ReorderList` コントロールでは、次の属性を設定する必要があります。
 
-- `AllowReorder`:かどうか、リスト項目を並べ替えることができます。
-- `DataSourceID`:データ ソースの ID
-- `DataKeyField`:データ ソースに主キー列の名前
-- `SortOrderField`:リスト項目の並べ替え順序を提供するデータ ソース列
+- `AllowReorder`: リスト項目を並べ替えることができるかどうか
+- `DataSourceID`: データソースの ID
+- `DataKeyField`: データソースの主キー列の名前
+- `SortOrderField`: リスト項目の並べ替え順序を提供するデータソース列
 
-`<DragHandleTemplate>`と`<ItemTemplate>`セクションでは、リストのレイアウトを微調整することができます。 また、データ バインドが可能なを使用して、`Eval()`メソッド、ご覧のとおり。
+`<DragHandleTemplate>` セクションと `<ItemTemplate>` セクションでは、一覧のレイアウトを微調整できます。 また、次に示すように、`Eval()` メソッドを使用してデータバインディングを行うこともできます。
 
 [!code-aspx[Main](drag-and-drop-via-reorderlist-vb/samples/sample2.aspx)]
 
-次の CSS スタイル情報 (で参照されている、`<DragHandleTemplate>`のセクション、`ReorderList`コントロール) により、マウス ポインターをドラッグ ハンドルに置いたときに適切に変更します。
+次の CSS スタイル情報 (`ReorderList` コントロールの `<DragHandleTemplate>` セクションで参照) を使用すると、ドラッグハンドルの上にマウスポインターを置いたときに、マウスポインターが適切に変化します。
 
 [!code-css[Main](drag-and-drop-via-reorderlist-vb/samples/sample3.css)]
 
-最後に、`ScriptManager`コントロールがページの ASP.NET AJAX を初期化します。
+最後に、`ScriptManager` コントロールによって、ページの ASP.NET AJAX が初期化されます。
 
 [!code-aspx[Main](drag-and-drop-via-reorderlist-vb/samples/sample4.aspx)]
 
-ブラウザーでこの例を実行し、リスト項目を少し変更します。 次に、ページを再度読み込んでか、データベースを見てください。 変更後の位置が保持されているし、は、値でも反映されます、`position`データベース内の列のマークアップを使用して、任意のコードは一切だけです。
+ブラウザーでこの例を実行し、リスト項目を1つのビットに再配置します。 次に、ページを再読み込みするか、データベースを確認します。 変更された位置が保持され、データベースの [`position`] 列の値と、マークアップを使用するだけで、すべてのコードが含まれていなくても反映されます。
 
-[![新しい一覧項目の順序に従って、データベースで変更データ](drag-and-drop-via-reorderlist-vb/_static/image8.png)](drag-and-drop-via-reorderlist-vb/_static/image7.png)
+[データベース内のデータが新しいリストアイテムの順序に従って変更 ![](drag-and-drop-via-reorderlist-vb/_static/image8.png)](drag-and-drop-via-reorderlist-vb/_static/image7.png)
 
-新しい一覧に従って、データベースで変更データ項目の順序 ([フルサイズの画像を表示する をクリックします](drag-and-drop-via-reorderlist-vb/_static/image9.png))。
+データベース内のデータは、新しいリスト項目の順序に従って変更されます ([クリックすると、フルサイズの画像が表示](drag-and-drop-via-reorderlist-vb/_static/image9.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](using-postbacks-with-reorderlist-vb.md)

@@ -1,83 +1,83 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。12 の 6 - フォルダーのアクセス許可の設定 |Microsoft Docs
+title: 'Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: フォルダーのアクセス許可の設定-6/12 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: この一連のチュートリアルでは、Visual Stu... を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: cd03a188-e947-4f55-9bda-b8bce201d8c6
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8e389877401ff96fcbbc7b1b1293d1a6a44668d2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 85a77a196cf3458bbb2e6308838a846936cd070b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133268"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74633511"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。フォルダー権限の設定 - 12 の 6
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: フォルダーのアクセス許可の設定-6/12
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[スタートプロジェクトのダウンロード](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルでは、Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。 Web 発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、フォルダーのアクセス許可の設定、 *Elmah*フォルダーにデプロイされた web サイト、アプリケーションは、そのフォルダー内のログ ファイルを作成できるようにします。
+このチュートリアルでは、配置された web サイトの*Elmah*フォルダーに対してフォルダーのアクセス許可を設定して、アプリケーションがそのフォルダーにログファイルを作成できるようにします。
 
-Visual Studio 開発サーバー (Cassini) を使用して Visual Studio の web アプリケーションをテストする場合は、自分のユーザー名、アプリケーションが実行されます。 開発用コンピューターの管理者であるほとんどの場合と、任意のフォルダー内の任意のファイルに何もする完全な権限を持ちます。 アプリケーション プールに割り当てられているサイトに対して定義されている id の下で実行されます IIS 下でアプリケーションを実行します。 これは、通常、アクセス許可が制限されているシステム定義のアカウントです。 既定でに読み取りし、web アプリケーションのファイルおよびフォルダーに対する execute 権限が、書き込みアクセス権がありません。
+Visual Studio 開発サーバー (Cassini) を使用して Visual Studio で web アプリケーションをテストすると、アプリケーションは自分の id で実行されます。 多くの場合、開発用コンピューターの管理者であり、任意のフォルダー内の任意のファイルに対してすべての操作を実行するための完全な権限を持っています。 ただし、アプリケーションが IIS で実行される場合、アプリケーションは、サイトが割り当てられているアプリケーションプールに対して定義されている id で実行されます。 これは通常、アクセス許可が制限されているシステム定義のアカウントです。 既定では、web アプリケーションのファイルとフォルダーに対する読み取りと実行のアクセス許可がありますが、書き込みアクセス権はありません。
 
-これは、場合は、アプリケーションを作成するか、web アプリケーションで必要な更新プログラムのファイルは、共通が問題になります。 Elmah で XML ファイルの作成、Contoso University アプリケーションで、 *Elmah*エラーの詳細を保存するにはフォルダー。 Elmah のようなものを使用しない場合でも、サイトは、ユーザーがファイルをアップロードまたはサイトのフォルダーにデータを書き込むことが他のタスクを実行できるように可能性があります。
+これは、アプリケーションがファイルを作成または更新する場合に問題になります。これは、web アプリケーションで一般的に必要となります。 Contoso 大学アプリケーションでは、Elmah は、エラーの詳細を保存するために、 *elmah*フォルダーに XML ファイルを作成します。 Elmah のようなものを使用しない場合でも、サイトでは、ユーザーがファイルをアップロードしたり、サイト内のフォルダーにデータを書き込むその他のタスクを実行したりすることができます。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)を確認してください。
 
-## <a name="testing-error-logging-and-reporting"></a>エラー ログとレポートのテスト
+## <a name="testing-error-logging-and-reporting"></a>エラーのログ記録とレポートのテスト
 
-どのアプリケーションが動作しない正しく IIS で (ただし、Visual Studio でテストされたときに行った) を表示する、Elmah は、によってログが記録される通常を開き、Elmah のエラー ログの詳細を表示するエラーが発生することができます。 Elmah が XML ファイルを作成し、エラーの詳細を格納することでない場合は、空のエラー レポートを参照してください。
+IIS でアプリケーションが正しく動作していないことを確認するには (Visual Studio でテストした場合でも)、Elmah によって通常ログに記録されるエラーが発生した後、Elmah エラーログを開いて詳細を確認することができます。 Elmah が XML ファイルを作成できず、エラーの詳細を保存できなかった場合は、空のエラーレポートが表示されます。
 
-ブラウザーを開きに移動`http://localhost/ContosoUniversity`のように、無効な URL を要求し、 *Studentsxxx.aspx*します。 代わりにシステムが生成したエラー ページを参照してください、 *GenericErrorPage.aspx*ため、ページ、 `customErrors` Web.config ファイルの設定は"RemoteOnly"と、ローカル IIS を実行しています。
+ブラウザーを開き、`http://localhost/ContosoUniversity`にアクセスして、 *Studentsxxx*のような無効な URL を要求します。 Web.config ファイルの `customErrors` 設定が "RemoteOnly" で、IIS をローカルで実行しているため、 *Genericerrorpage .aspx*ページではなく、システムによって生成されたエラーページが表示されます。
 
 [![Error_page_Test](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image2.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image1.png)
 
-今すぐ実行*Elmah.axd*エラー レポートを表示します。 Elmah での XML ファイルを作成できなかったために、空のエラー ログのページを参照してください、 *Elmah*フォルダー。
+次に、 *Elmah*を実行してエラーレポートを表示します。 Elmah が*elmah*フォルダーに XML ファイルを作成できなかったため、空のエラーログページが表示されます。
 
 [![Error_log_page_empty](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image4.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image3.png)
 
-## <a name="setting-write-permission-on-the-elmah-folder"></a>Elmah フォルダーに対する書き込み権限の設定
+## <a name="setting-write-permission-on-the-elmah-folder"></a>Elmah フォルダーに対する書き込み権限を設定しています
 
-フォルダーのアクセス許可を手動で設定することができますか、自動展開プロセスの部分を行うことができます。 複雑な MSBuild コードでは、自動を行う必要があり、のみ最初の時間に行う必要があるため、展開する、このチュートリアルでは、手動で実行する方法だけでは。 (展開プロセスのこの部分を作成する方法については、次を参照してください[で Web の発行フォルダーのアクセス許可の設定](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx)Sayed Hashimi's ブログ。)。
+フォルダーのアクセス許可を手動で設定することも、展開プロセスの一部として自動化することもできます。 自動作成を行うには、複雑な MSBuild コードが必要になります。これは、初めてデプロイするときにのみ行う必要があるため、このチュートリアルでは手動で行う方法についてのみ説明します。 (デプロイプロセスのこの部分を作成する方法の詳細については、「作成者 Hashimi のブログでの[Web 発行に対するフォルダーのアクセス許可の設定](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx)」を参照してください)。
 
-**Windows エクスプ ローラー**に移動します*C:\inetpub\wwwroot\ContosoUniversity*します。 右クリックし、 *Elmah*フォルダーで、**プロパティ**を選び、**セキュリティ**タブ。
+**Windows エクスプローラー**で、 *C:\inetpub\wwwroot\ContosoUniversity*に移動します。 [ *Elmah* ] フォルダーを右クリックし、 **[プロパティ]** をクリックして、 **[セキュリティ]** タブを選択します。
 
 [![Elmah_folder_Properties_Security_tab](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image6.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image5.png)
 
-(表示されない場合**DefaultAppPool**で、**グループまたはユーザー名**一覧で、おそらくメソッドを使用していくつかその他のこのチュートリアルでは指定されているコンピューターに IIS および ASP.NET 4 を設定します。 その場合は、どのような id は、Contoso University アプリケーションに割り当てられているアプリケーション プールに使用されます。 確認し、その id に書き込みアクセス権を付与します。 このチュートリアルの最後にアプリケーション プールの id に関するリンクを表示します。)
+( **[グループ名またはユーザー名]** の一覧に**DefaultAppPool**が表示されない場合は、このチュートリアルで指定したものとは別の方法を使用して、コンピューターに IIS と ASP.NET 4 を設定したことが考えます。 その場合は、Contoso 大学アプリケーションに割り当てられているアプリケーションプールによって使用されている id を確認し、その id に書き込みアクセス許可を付与します。 このチュートリアルの最後にあるアプリケーションプール id に関するリンクを参照してください。)
 
-**[編集]** をクリックします。 **Elmah のアクセス許可**ダイアログ ボックスで、 **DefaultAppPool**を選び、**書き込み** チェック ボックス、**許可**列。
+**[編集]** をクリックします。 **[Elmah の権限]** ダイアログボックスで、 **[DefaultAppPool**] を選択し、 **[許可]** 列の **[書き込み]** チェックボックスをオンにします。
 
 [![Permissions_for_Elmah_dialog_box](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image8.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image7.png)
 
-クリックして**OK**両方のダイアログ ボックス。
+両方のダイアログボックスで **[OK]** をクリックします。
 
-## <a name="retesting-error-logging-and-reporting"></a>エラー ログとレポートを再テスト
+## <a name="retesting-error-logging-and-reporting"></a>エラーのログ記録とレポートを再作成する
 
-もう一度 (無効な URL を要求する) と同様に、エラーを発生させることによってテストし、実行、**エラー ログ**ページ。 この時間、ページで、エラーが表示されます。
+同じ方法でもう一度エラーを発生させてテストし (無効な URL を要求)、**エラーログ**ページを実行します。 今回は、ページにエラーが表示されます。
 
 [![Elmah_Error_Log_page_Test](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image10.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image9.png)
 
-記述することも必要なアクセス許可で、*アプリ\_データ*フォルダー、そのフォルダーに SQL Server Compact データベース ファイルがあるこれらのデータベースのデータを更新できるようにするためです。 その場合は、ただし、お持ちで、展開プロセスが自動的に書き込みアクセス許可を設定するために特別なことを行うには*アプリ\_データ*フォルダー。
+また、そのフォルダーにデータベースファイル SQL Server Compact があり、それらのデータベースのデータを更新できるようにするため、 *App\_Data*フォルダーに対する書き込みアクセス許可も必要です。 ただし、デプロイプロセスによって*アプリ\_データ*フォルダーに対する書き込みアクセス許可が自動的に設定されるため、追加の操作は必要ありません。
 
-完了しましたの Contoso University のために必要なタスクをすべてローカル コンピューターに IIS で正常に動作します。 次のチュートリアルでは、サイト パブリックに利用できるようにするホスティング プロバイダーへのデプロイします。
+これで、ローカルコンピューターの IIS で Contoso 大学を正常に動作させるために必要なすべてのタスクが完了しました。 次のチュートリアルでは、ホスティングプロバイダーにデプロイすることによって、サイトをパブリックに利用できるようにします。
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>その他の情報
 
-この例では、Elmah されたログ ファイルを保存できない理由は明らかでした。 問題の原因が; ほど明白ではない場合に IIS のトレースを使用することができます。参照してください[トラブルシューティング失敗した要求を使用してトレース IIS 7 で](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)IIS.net サイト。
+この例では、Elmah がログファイルを保存できなかった理由が非常に明白でした。 問題の原因が明らかでない場合は、IIS トレースを使用できます。IIS.net サイトの「 [IIS 7 でトレースを使用した失敗した要求のトラブルシューティング」を](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)参照してください。
 
-アプリケーション プール id へのアクセス許可を付与する方法についての詳細については、次を参照してください。[アプリケーション プール Id](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)と[ファイル システム Acl を IIS 内のコンテンツをセキュリティで保護](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls)IIS.net サイト。
+アプリケーションプール id にアクセス許可を付与する方法の詳細については、IIS.net サイトの「ファイルシステム Acl を使用した IIS の[アプリケーションプール id](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)と[セキュリティ保護されたコンテンツ](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)

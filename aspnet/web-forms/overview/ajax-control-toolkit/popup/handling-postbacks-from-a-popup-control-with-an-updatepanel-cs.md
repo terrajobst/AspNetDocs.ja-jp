@@ -1,59 +1,59 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
-title: (C#)、UpdatePanel のポップアップ コントロールからポストバックを処理する |Microsoft Docs
+title: ポップアップコントロールからのポストバックを UpdatePanel (C#) で処理するMicrosoft Docs
 author: wenz
-description: AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、する必要があります.
+description: AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 特別な注意が必要です...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 1f68f59d-9c1e-4cf3-b304-c13ae6b7203e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6b43822825de37903d6a15c3000ed896faae4d64
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8b9e58d68b3d6c5d01ceaba6c01653e9574b541b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132504"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606317"
 ---
 # <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>ポップアップ コントロールからポストバックを処理する (UpdatePanel あり) (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2CS.pdf)
 
-> AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップ内ポストバックが発生した場合に実行する必要があります。
+> AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 このようなポップアップ内でポストバックが発生した場合は、特別な注意が必要です。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップ内ポストバックが発生した場合に実行する必要があります。
+AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 このようなポップアップ内でポストバックが発生した場合は、特別な注意が必要です。
 
 ## <a name="steps"></a>手順
 
-使用する場合、 `PopupControl` 、ポストバックに、`UpdatePanel`ポストバックの原因となったページの更新を防ぐことができます。 次のマークアップでは、いくつかの重要な要素を定義します。
+ポストバックで `PopupControl` を使用すると、ポストバックによるページの更新が `UpdatePanel` によって妨げられる可能性があります。 次のマークアップは、いくつかの重要な要素を定義します。
 
-- A `ScriptManager` ASP.NET AJAX Control Toolkit が動作するように制御
-- 2 つ`TextBox`ポップアップをトリガーする両方のコントロール
-- A`Panel`ポップアップとして機能するコントロール
-- パネル内で、`Calendar`内でコントロールが埋め込まれている、`UpdatePanel`コントロール
-- 2 つ`PopupControlExtender`コントロール、テキスト ボックスに、パネルを割り当てる
+- ASP.NET AJAX Control Toolkit が動作するように `ScriptManager` コントロール
+- ポップアップをトリガーする2つの `TextBox` コントロール
+- ポップアップとして機能する `Panel` コントロール
+- パネル内では、`Calendar` コントロールが `UpdatePanel` コントロール内に埋め込まれます。
+- パネルをテキストボックスに割り当てる2つの `PopupControlExtender` コントロール
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/samples/sample1.aspx)]
 
-なお、`OnSelectionChanged`の属性、`Calendar`コントロールを設定します。 ポストバックが発生したときに、ユーザーは、カレンダーで日付を選択するようにし、サーバー側メソッド`c1_SelectionChanged()`を実行します。 メソッド内には、現在の日付を取得し、テキスト ボックスに書き戻されるしてする必要があります。
+`Calendar` コントロールの `OnSelectionChanged` 属性が設定されていることに注意してください。 そのため、ユーザーがカレンダー内の日付を選択すると、ポストバックが発生し、サーバー側のメソッド `c1_SelectionChanged()` が実行されます。 そのメソッド内で、現在の日付を取得し、テキストボックスに書き戻す必要があります。
 
-そのための構文は次のとおりです。すべてのプロキシの最初のオブジェクト、 `PopupControlExtender`  ページを生成する必要があります。 ASP.NET AJAX Control Toolkit の提供、`GetProxyForCurrentPopup()`メソッド。 このメソッドが返すオブジェクトのサポート、`Commit()`メソッド (コントロールではなく、メソッドの呼び出しをトリガーした!) ポップアップをトリガーしたコントロールに値を送信します。 次のコードは、選択した日付を引数として、`Commit()`いるため、テキスト ボックスに、選択した日付を書き戻すコード メソッド。
+の構文は次のとおりです。最初に、ページの `PopupControlExtender` のプロキシオブジェクトを生成する必要があります。 ASP.NET AJAX Control Toolkit には、`GetProxyForCurrentPopup()` メソッドが用意されています。 このメソッドが返すオブジェクトは、`Commit()` メソッドをサポートしています。このメソッドは、ポップアップをトリガーしたコントロール (メソッド呼び出しをトリガーしたコントロールではない) に値を返します。 次のコードでは、`Commit()` メソッドの引数として選択された日付を提供しています。これにより、コードは、選択した日付をテキストボックスに書き戻します。
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/samples/sample2.aspx)]
 
-カレンダーの日付では、関連付けられているテキスト ボックスで、選択した日付が表示されます をクリックするたびに日付の選択コントロールを作成することができます現在入手多くの web サイト。
+これで、カレンダーの日付をクリックするたびに、選択した日付が関連するテキストボックスに表示され、多くの web サイトで現在検出できる日付の選択コントロールが作成されます。
 
-[![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image1.png)
+[ユーザーがテキストボックスをクリックしたときにカレンダーが表示される ![](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image1.png)
 
-テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image3.png))。
+ユーザーがテキストボックスをクリックするとカレンダーが表示されます ([クリックすると、フルサイズの画像が表示](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image3.png)されます)
 
-[![テキスト ボックス内に配置する日付をクリックすると](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image4.png)
+[日付をクリック ![と、テキストボックスに挿入されます。](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image4.png)
 
-テキスト ボックス内に配置する日付をクリックすると ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image6.png))。
+日付をクリックするとテキストボックスに挿入されます ([クリックすると、フルサイズの画像が表示](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image6.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](using-multiple-popup-controls-cs.md)

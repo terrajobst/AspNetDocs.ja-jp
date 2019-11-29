@@ -1,164 +1,164 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
-title: ページングされたデータ (c#) をカスタムの並べ替え |Microsoft Docs
+title: カスタムページングデータの並べ替えC#() |Microsoft Docs
 author: rick-anderson
-description: 前のチュートリアルでは、web ページ上のデータを表示する場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルでは、前に、拡張する方法を見る.
+description: 前のチュートリアルでは、web ページにデータを表示するときにカスタムページングを実装する方法について学習しました。 このチュートリアルでは、前の手順を拡張する方法について説明します。
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eaf11e48238353d098a1df8bbd13f71b5778ffb5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e55ed9b92814753e95bdfdf26c2f051df6f2630d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128094"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74642383"
 ---
 # <a name="sorting-custom-paged-data-c"></a>カスタム ページングを適用したデータを並べ替える (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe)または[PDF のダウンロード](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe)または[PDF のダウンロード](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
 
-> 前のチュートリアルでは、web ページ上のデータを表示する場合に、カスタム ページングを実装する方法について説明しました。 このチュートリアルではカスタム ページングを並べ替えをサポートするように前の例を拡張する方法を参照してください。
+> 前のチュートリアルでは、web ページにデータを表示するときにカスタムページングを実装する方法について学習しました。 このチュートリアルでは、前の例を拡張してカスタムページングの並べ替えをサポートする方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-既定のページングと比較してカスタム ページングは、カスタムの大量のデータをページングするときに、業界標準のページングの実装の選択をページングを行ういくつかの注文の大きさによってデータのページングのパフォーマンスを向上させることができます。 カスタム ページングを実装すると、既定のページング、ただし、並べ替えをミックスに追加するときに特にを実装するよりも複雑です。 並べ替えをサポートするように前の例では、このチュートリアルでは拡張*と*カスタム ページングします。
+既定のページングと比較すると、カスタムページングを使用すると、データによるページングのパフォーマンスをいくつかの程度向上させることができます。これにより、大量のデータをページングするときに、事実上ページングの実装をカスタマイズできます。 ただし、カスタムページングの実装は、特に並べ替えをミックスに追加する場合に、既定のページングを実装するよりも複雑です。 このチュートリアルでは、前の例の例を拡張して、並べ替え*と*カスタムページングのサポートを追加します。
 
 > [!NOTE]
-> このチュートリアルは、先頭は、内で宣言型構文をコピーする少し前に、上記の 1 つに基づいているため、`<asp:Content>`前のチュートリアルの web ページから要素 (`EfficientPaging.aspx`) の間で貼り付けます、 `<asp:Content>` 内の要素`SortParameter.aspx`ページ。 手順 1. に戻って、[編集および挿入インターフェイスに検証コントロールを追加](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)別に 1 つの ASP.NET ページの機能をレプリケートする方法については詳細なチュートリアルです。
+> このチュートリアルは前のチュートリアルに基づいているため、先に進む前に、前のチュートリアルの web ページ (`EfficientPaging.aspx`) の `<asp:Content>` 要素内の宣言構文をコピーし、`SortParameter.aspx` ページの `<asp:Content>` 要素の間に貼り付けます。 ASP.NET ページの機能を別のページにレプリケートする方法の詳細については、「[編集および挿入インターフェイスに検証コントロールを追加する](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)」の手順1を参照してください。
 
-## <a name="step-1-reexamining-the-custom-paging-technique"></a>手順 1: カスタム ページング手法を再調査します。
+## <a name="step-1-reexamining-the-custom-paging-technique"></a>手順 1: カスタムページング手法を再検査する
 
-適切に機能するカスタム ページング、開始行インデックスと行の最大数のパラメーターを指定されたレコードの特定のサブセットを取得できる効率的にいくつかの手法を実装します必要があります。 この目標を達成するために使用できる手法のいくつかあります。 これを実現しました前のチュートリアルで使用して Microsoft SQL Server 2005 の新しい`ROW_NUMBER()`順位付け関数。 つまり、`ROW_NUMBER()`によって指定された並べ替え順序が付けられます。 順位クエリによって返される行ごとに行番号を割り当てます順位付け関数。 レコードの適切なサブセットは、番号付きの結果の特定のセクションを返すことによって取得されます。 次のクエリは、これらの製品でアルファベット順で結果を順位付けと 11 ~ 20 の番号を返すこの手法を使用する方法を示しています、 `ProductName`:
+カスタムページングを正常に動作させるには、開始行インデックスおよび最大行数パラメーターを指定して、特定のレコードのサブセットを効率的に取得できるいくつかの手法を実装する必要があります。 この目標を達成するために使用できる手法がいくつかあります。 前のチュートリアルでは、Microsoft SQL Server 2005 s new `ROW_NUMBER()` 順位付け関数を使用してこれを実現しました。 つまり、`ROW_NUMBER()` 順位付け関数は、指定された並べ替え順序によって順位付けされたクエリによって返される各行に行番号を割り当てます。 レコードの適切なサブセットを取得するには、番号付きの結果の特定のセクションを返します。 次のクエリは、この手法を使用して、結果をアルファベット順に順位付けするときに、`ProductName`によって数値が 11 ~ 20 の製品を返す方法を示しています。
 
 [!code-sql[Main](sorting-custom-paged-data-cs/samples/sample1.sql)]
 
-この手法は、特定の並べ替え順序を使用してページングのも (`ProductName`ここでは、アルファベット順に並べ替えられます)、クエリを別の並べ替え式で並べ替えられた結果を表示するように変更する必要があります。 理想的でのパラメーターを使用して、上記のクエリを書き換えることができます、`OVER`句では、次のようにします。
+この手法は、特定の並べ替え順序 (この場合はアルファベット順に並べ替え`ProductName`) を使用したページングに適していますが、別の並べ替え式で並べ替えられた結果を表示するようにクエリを変更する必要があります。 このクエリは、次のように `OVER` 句のパラメーターを使用するように書き換えることが理想的です。
 
 [!code-sql[Main](sorting-custom-paged-data-cs/samples/sample2.sql)]
 
-残念ながら、パラメーター化された`ORDER BY`句は許可されていません。 代わりを受け取るストアド プロシージャを作成する必要があります、`@sortExpression`の入力パラメーターですが次の回避策の 1 つを使用します。
+残念ながら、パラメーター化された `ORDER BY` 句は使用できません。 代わりに、`@sortExpression` 入力パラメーターを受け取るストアドプロシージャを作成する必要がありますが、次のいずれかの回避策を使用します。
 
-- 各使用可能性があります。 並べ替え式をクエリのハード コーディングされた記述します。使用して、 `IF/ELSE` T-SQL ステートメントを実行するクエリを確認します。
-- 使用して、`CASE`動的を提供するステートメント`ORDER BY`式に基づいて、 `@sortExpressio` n の入力パラメーターは、動的にクエリ結果の並べ替え セクションに使用されているを参照してください[SQL の電源`CASE`ステートメント](http://www.4guysfromrolla.com/webtech/102704-1.shtml)詳細についてはします。
-- ストアド プロシージャ内の文字列として、適切なクエリを作成し、使用して[、`sp_executesql`システム ストアド プロシージャ](https://msdn.microsoft.com/library/ms188001.aspx)動的クエリを実行します。
+- 使用される可能性のある並べ替え式ごとに、ハードコーディングされたクエリを記述します。次に、`IF/ELSE` T-sql ステートメントを使用して、実行するクエリを決定します。
+- `@sortExpressio` n 入力パラメーターに基づいて動的な `ORDER BY` 式を指定するには、`CASE` ステートメントを使用します。詳細については、「 [SQL `CASE` ステートメントの機能](http://www.4guysfromrolla.com/webtech/102704-1.shtml)」の「クエリ結果を動的に並べ替えるために使用する」を参照してください。
+- ストアドプロシージャ内の文字列として適切なクエリを構築し、 [`sp_executesql` システムストアドプロシージャ](https://msdn.microsoft.com/library/ms188001.aspx)を使用して動的クエリを実行します。
 
-これらの回避策のそれぞれは、いくつかの欠点があります。 最初のオプションは、管理が容易で他の 2 つとして考えられる並べ替え式ごとにクエリを作成する必要があるではありません。 そのため、後で、GridView に、並べ替え可能な新しいフィールドを追加する場合はも必要に戻るし、ストアド プロシージャを更新します。 2 番目の方法では、文字列以外のデータベース列で並べ替える場合は、パフォーマンスの問題を紹介し、1 番目と同じの保守に関する問題に苦しんでも項目がいくつかがあります。 攻撃者が、任意の入力パラメーターの値を渡してストアド プロシージャを実行できる場合、動的 SQL を使用して、3 番目の選択肢が、SQL インジェクション攻撃のリスクを紹介します。
+これらの回避策にはいくつかの欠点があります。 1つ目のオプションは、考えられる各並べ替え式に対してクエリを作成する必要があるため、他の2つの方法ほど保守が容易ではありません。 したがって、後で並べ替え可能な新しいフィールドを GridView に追加する場合は、戻ってストアドプロシージャを更新する必要もあります。 2番目の方法には、文字列以外のデータベース列によって並べ替えを行うときにパフォーマンスに関する問題が発生し、1番目の方法と同じ保守容易性の問題が発生するという微妙な点があります。 また、動的 SQL を使用する3つ目の選択肢では、攻撃者が、選択した入力パラメーター値を渡してストアドプロシージャを実行できる場合、SQL インジェクション攻撃のリスクが生じます。
 
-どの方法が最適な 3 番目のオプションは、3 つの最適なと思います。 動的 SQL を使用するとその他の 2 つがしない柔軟性のレベルを提供します。 さらに、SQL インジェクション攻撃は、攻撃者は、任意の入力パラメーターを渡してストアド プロシージャを実行することが場合にのみ利用可能です。 DAL では、パラメーター化クエリを使用するため、ADO.NET は SQL インジェクション攻撃の脆弱性は、攻撃者が、ストアド プロシージャを直接実行する場合のみが存在するので、アーキテクチャを使用して、データベースに送信されるこれらのパラメーターで保護されます。
+これらの方法は完全ではありませんが、3番目の方法が最も優れていると考えられます。 動的 SQL を使用することで、他の2つのレベルを柔軟に提供できます。 さらに、SQL インジェクション攻撃は、攻撃者が任意の入力パラメーターを渡してストアドプロシージャを実行できる場合にのみ、悪用される可能性があります。 DAL はパラメーター化クエリを使用するため、ADO.NET は、アーキテクチャを通じてデータベースに送信されるパラメーターを保護します。つまり、攻撃者がストアドプロシージャを直接実行できる場合にのみ、SQL インジェクション攻撃の脆弱性が存在します。
 
-この機能を実装するには、Northwind データベースの名前付きで新しいストアド プロシージャを作成`GetProductsPagedAndSorted`です。 このストアド プロシージャは 3 つの入力パラメーターを受け入れる必要があります: `@sortExpression`、型の入力パラメーター `nvarchar(100`)、結果の並べ替えするかし、直後に挿入されますを指定する、`ORDER BY`内のテキスト、`OVER`句; と`@startRowIndex`と`@maximumRows`から、同じ 2 つの整数入力パラメーター、`GetProductsPaged`ストアド プロシージャの前のチュートリアルで調査します。 作成、`GetProductsPagedAndSorted`ストアド プロシージャの次のスクリプトを使用します。
+この機能を実装するには、`GetProductsPagedAndSorted`という名前の Northwind データベースに新しいストアドプロシージャを作成します。 このストアドプロシージャは、結果の並べ替え方法を指定する3つの入力パラメーター (`nvarchar(100`型の入力パラメーター) を受け取る必要があり `@sortExpression`ます。これは `OVER` 句の `ORDER BY` テキストの直後に挿入されます。および `@startRowIndex` と `@maximumRows`には、前のチュートリアルで検証した `GetProductsPaged` ストアドプロシージャと同じ2つの整数入力パラメーターがあります。 次のスクリプトを使用して、`GetProductsPagedAndSorted` ストアドプロシージャを作成します。
 
 [!code-sql[Main](sorting-custom-paged-data-cs/samples/sample3.sql)]
 
-値のことを確認することによって、ストアド プロシージャを開始、`@sortExpression`パラメーターが指定されています。 不足している場合は、結果が順`ProductID`します。 次に、動的な SQL クエリが構築されます。 動的な SQL クエリをここでわずかに異なる Products テーブルからすべての行を取得するため、前のクエリに注意してください。 前の例については、サブクエリを使用して業者の s 名を各製品の関連付けられているカテゴリに取得します。 この決定が行われた、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルが代わりに使用して行われたと`JOIN`s、TableAdapter は、関連付けられている insert、自動的に作成できませんので、更新、および削除などのメソッドクエリ。 `GetProductsPagedAndSorted`ただし、ストアド プロシージャを使用する必要があります`JOIN`の結果をカテゴリまたは仕入先名順に並べ替えられます。
+ストアドプロシージャは、最初に `@sortExpression` パラメーターの値が指定されていることを確認します。 指定されていない場合、結果は `ProductID`順に順位付けされます。 次に、動的 SQL クエリが作成されます。 ここでの動的 SQL クエリは、Products テーブルからすべての行を取得するために使用される前のクエリとは若干異なります。 前の例では、サブクエリを使用して、各製品に関連付けられているカテゴリと仕入先の名前を取得しました。 この決定は、[データアクセス層の作成](../introduction/creating-a-data-access-layer-cs.md)に関するチュートリアルで行ったもので、`JOIN` を使用する代わりに実行しました。このようなクエリに関連する insert、update、および delete メソッドを TableAdapter で自動的に作成することはできません。 ただし、`GetProductsPagedAndSorted` ストアドプロシージャでは、結果がカテゴリ名または仕入先名によって並べ替えられるために `JOIN` を使用する必要があります。
 
-静的クエリ部分を連結することによってこの動的なクエリが作成され、 `@sortExpression`、 `@startRowIndex`、および`@maximumRows`パラメーター。 `@startRowIndex`と`@maximumRows`整数パラメーターが正しく連結するには nvarchars に変換する必要があります。 この動的な SQL クエリが構築されると、使用して実行されるが`sp_executesql`します。
+この動的クエリは、静的なクエリ部分と `@sortExpression`、`@startRowIndex`、および `@maximumRows` パラメーターを連結することによって構築されます。 `@startRowIndex` と `@maximumRows` は整数のパラメーターであるため、正しく連結されるためには、これらのパラメーターを nvarchars に変換する必要があります。 この動的 SQL クエリが構築されると、`sp_executesql`経由で実行されます。
 
-このストアド プロシージャに異なる値をテストする少し、 `@sortExpression`、 `@startRowIndex`、および`@maximumRows`パラメーター。 サーバー エクスプ ローラーで、ストアド プロシージャ名を右クリックし、実行を選択します。 (図 1 参照)、入力パラメーターを入力する先のストアド プロシージャの実行 ダイアログ ボックスが表示されます。 カテゴリ名で結果を並べ替えるの区分を使用して、 `@sortExpression` s 仕入先の会社名での並べ替え、CompanyName を使用するパラメーター値。 パラメーターの値を指定したら、[ok] をクリックします。 結果は、出力ウィンドウに表示されます。 図 2 で順序付けするときに、11 ~ 20 をランク付けされた製品を返すときに結果を示しています、`UnitPrice`降順にします。
+`@sortExpression`、`@startRowIndex`、および `@maximumRows` パラメーターに対して異なる値を使用して、このストアドプロシージャをテストします。 サーバーエクスプローラーで、ストアドプロシージャ名を右クリックし、[実行] を選択します。 これにより、[ストアドプロシージャの実行] ダイアログボックスが表示されます。このダイアログボックスで、入力パラメーターを入力できます (図1を参照)。 カテゴリ名で結果を並べ替えるには、`@sortExpression` パラメーター値として [区分名] を使用します。仕入先の会社名で並べ替えるには、CompanyName を使用します。 パラメーターの値を指定したら、[OK] をクリックします。 結果が [出力] ウィンドウに表示されます。 図2は、`UnitPrice` によって降順に並べ替えられる場合に、11 ~ 20 の製品を返すと結果を示しています。
 
-![ストアド プロシージャの 3 つ入力パラメーターを異なる値をお試しください。](sorting-custom-paged-data-cs/_static/image1.png)
+![ストアドプロシージャ s に異なる値を指定してください。3つの入力パラメーター](sorting-custom-paged-data-cs/_static/image1.png)
 
-**図 1**:ストアド プロシージャの 3 つ入力パラメーターを異なる値をお試しください。
+**図 1**: ストアドプロシージャ s の異なる値を使用する3つの入力パラメーター
 
-[![ストアド プロシージャの結果は、出力ウィンドウに表示されます。](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
+[ストアドプロシージャの結果が ![出力ウィンドウに表示されます。](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
 
-**図 2**:ストアド プロシージャの結果は、出力ウィンドウに表示されます ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-cs/_static/image4.png))。
+**図 2**: ストアドプロシージャの結果が出力ウィンドウに表示される ([クリックすると、フルサイズの画像が表示](sorting-custom-paged-data-cs/_static/image4.png)されます)
 
 > [!NOTE]
-> 指定した結果を順位付けと`ORDER BY`内の列、`OVER`句では、SQL Server は、結果を並べ替える必要があります。 これは、結果は並べ替え対象の列にクラスター化インデックスがある場合は、クイック操作またはカバリングがあるかどうか、インデックスしますが、それ以外の場合コストが高くすることができます。 十分な大きさのクエリのパフォーマンスを向上させるのには、によって使用される結果が順序付けられた列の非クラスター化インデックスを追加を検討してください。 参照してください[順位付け関数と SQL Server 2005 のパフォーマンス](http://www.sql-server-performance.com/ak_ranking_functions.asp)の詳細。
+> `OVER` 句の指定した `ORDER BY` 列によって結果を順位付けする場合、SQL Server は結果を並べ替える必要があります。 これは、結果が並べ替えられている列にクラスター化インデックスが存在する場合、またはカバリングインデックスがある場合はクイック操作ですが、それ以外の場合はコストが高くなります。 十分に大きなクエリのパフォーマンスを向上させるには、結果の並べ替えに使用する列に非クラスター化インデックスを追加することを検討してください。 詳細については[、SQL Server 2005 の順位付け関数とパフォーマンス](http://www.sql-server-performance.com/ak_ranking_functions.asp)に関する説明を参照してください。
 
-## <a name="step-2-augmenting-the-data-access-and-business-logic-layers"></a>手順 2: データ アクセスとビジネス ロジック層の拡張
+## <a name="step-2-augmenting-the-data-access-and-business-logic-layers"></a>手順 2: データアクセスとビジネスロジック層を補強する
 
-`GetProductsPagedAndSorted`ストアド プロシージャを作成、次の手順は、そのストアド プロシージャは、アプリケーションのアーキテクチャを実行するための手段を提供します。 これは、DAL と BLL の両方に、適切なメソッドを追加する必要があります。 S DAL に対するメソッドを追加することで開始できるようにします。 開く、`Northwind.xsd`型指定されたデータセットを右クリックし、 `ProductsTableAdapter`、コンテキスト メニューから、クエリの追加オプションを選択します。 -既存のストアド プロシージャを使用するこの新しい DAL 方法を構成する前のチュートリアルで行ったよう`GetProductsPagedAndSorted`、ここでします。 既存のストアド プロシージャを使用する新しい TableAdapter メソッドにすることを指定して起動します。
+`GetProductsPagedAndSorted` ストアドプロシージャを作成したので、次の手順では、アプリケーションアーキテクチャを使用してストアドプロシージャを実行する手段を提供します。 これには、DAL と BLL の両方に適切なメソッドを追加する必要があります。 まず、DAL にメソッドを追加します。 `Northwind.xsd` 型指定されたデータセットを開き、`ProductsTableAdapter`を右クリックして、コンテキストメニューから [クエリの追加] オプションを選択します。 前のチュートリアルで行ったように、この新しい DAL メソッドを構成して既存のストアドプロシージャ (この場合は `GetProductsPagedAndSorted`) を使用する必要があります。 まず、新しい TableAdapter メソッドで既存のストアドプロシージャを使用することを指定します。
 
-![既存のストアド プロシージャを使用します。](sorting-custom-paged-data-cs/_static/image5.png)
+![既存のストアドプロシージャの使用を選択する](sorting-custom-paged-data-cs/_static/image5.png)
 
-**図 3**:既存のストアド プロシージャを使用します。
+**図 3**: 既存のストアドプロシージャの使用を選択する
 
-使用するストアド プロシージャを指定するには、選択、`GetProductsPagedAndSorted`ドロップダウン リストから手順を次の画面に格納されています。
+使用するストアドプロシージャを指定するには、次の画面のドロップダウンリストから `GetProductsPagedAndSorted` ストアドプロシージャを選択します。
 
-![GetProductsPagedAndSorted を使用してストアド プロシージャ](sorting-custom-paged-data-cs/_static/image6.png)
+![GetProductsPagedAndSorted ストアドプロシージャを使用する](sorting-custom-paged-data-cs/_static/image6.png)
 
-**図 4**:GetProductsPagedAndSorted を使用してストアド プロシージャ
+**図 4**: GetProductsPagedAndSorted ストアドプロシージャを使用する
 
-このストアド プロシージャは、その結果、次の画面で示す表形式のデータが返されるレコードのセットを返します。
+このストアドプロシージャは、一連のレコードを結果として返します。そのため、次の画面では、表形式のデータが返されることを示しています。
 
-![ストアド プロシージャが表形式のデータを返すことを示します](sorting-custom-paged-data-cs/_static/image7.png)
+![ストアドプロシージャが表形式データを返すことを示します。](sorting-custom-paged-data-cs/_static/image7.png)
 
-**図 5**:ストアド プロシージャが表形式のデータを返すことを示します
+**図 5**: ストアドプロシージャが表形式データを返すことを示す
 
-最後に、DataTable の塗りつぶしの両方を使用する DAL メソッドを作成し、メソッドの名前を付け、DataTable のパターンを返す`FillPagedAndSorted`と`GetProductsPagedAndSorted`、それぞれします。
+最後に、DataTable に Fill を使用し、DataTable パターンを返す DAL メソッドを作成します。これらのメソッドは、それぞれ `FillPagedAndSorted` と `GetProductsPagedAndSorted`に名前を付けます。
 
-![メソッド名を選択します。](sorting-custom-paged-data-cs/_static/image8.png)
+![メソッド名の選択](sorting-custom-paged-data-cs/_static/image8.png)
 
-**図 6**:メソッド名を選択します。
+**図 6**: メソッド名を選択する
 
-これまで ve 拡張、DAL BLL に有効にする準備が整いました。 開く、`ProductsBLL`クラス ファイルと、新しいメソッドを追加`GetProductsPagedAndSorted`します。 このメソッドは、3 つの入力パラメーターを受け入れる必要がある`sortExpression`、 `startRowIndex`、および`maximumRows`DAL s にだけ呼び出す必要がありますと`GetProductsPagedAndSorted`メソッドでは、次のように。
+DAL を拡張したので、BLL に切り替える準備ができました。 `ProductsBLL` クラスファイルを開き、新しいメソッド `GetProductsPagedAndSorted`を追加します。 このメソッドでは、3つの入力パラメーター `sortExpression`、`startRowIndex`、および `maximumRows` を受け取る必要があります。また、次のように、単に DAL s `GetProductsPagedAndSorted` メソッドを呼び出す必要があります。
 
 [!code-csharp[Main](sorting-custom-paged-data-cs/samples/sample4.cs)]
 
-## <a name="step-3-configuring-the-objectdatasource-to-pass-in-the-sortexpression-parameter"></a>手順 3: SortExpression パラメーターで渡す ObjectDataSource を構成します。
+## <a name="step-3-configuring-the-objectdatasource-to-pass-in-the-sortexpression-parameter"></a>手順 3: SortExpression パラメーターに渡す ObjectDataSource の構成
 
-使用するメソッドを含めるには、DAL と BLL を拡張すること、 `GetProductsPagedAndSorted` 、残っているストアド プロシージャがで ObjectDataSource を構成するのには、`SortParameter.aspx`ページに渡すと新しい BLL メソッドを使用して、`SortExpression`パラメーターがに基づいて、ユーザーが要求して、結果を並べ替える列。
+`GetProductsPagedAndSorted` ストアドプロシージャを利用するメソッドを含むように DAL と BLL を強化した後は、`SortParameter.aspx` ページで ObjectDataSource を構成して新しい BLL メソッドを使用し、ユーザーが結果を並べ替えるために要求した列に基づいて `SortExpression` パラメーターを渡す必要があります。
 
-ObjectDataSource s を変更することで開始`SelectMethod`から`GetProductsPaged`に`GetProductsPagedAndSorted`します。 これは、データ ソースの構成ウィザードの [プロパティ] ウィンドウから、または宣言の構文を直接実行できます。 次に、ObjectDataSource 秒の値を指定する必要があります[`SortParameterName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx)します。 ObjectDataSource が GridView s に渡すしようとした場合、このプロパティを設定すると、`SortExpression`プロパティを`SelectMethod`します。 具体的には、ObjectDataSource は、入力パラメーターの名前を持つがの値と等しい、`SortParameterName`プロパティ。 BLL s 以降`GetProductsPagedAndSorted`メソッドという並べ替え式の入力パラメーターには`sortExpression`、ObjectDataSource s 設定`SortExpression`プロパティ sortExpression をします。
+最初に、ObjectDataSource s `SelectMethod` を `GetProductsPaged` から `GetProductsPagedAndSorted`に変更します。 これは、データソースの構成ウィザード、プロパティウィンドウから、または宣言型の構文を使用して直接行うことができます。 次に、ObjectDataSource s [`SortParameterName` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx)の値を指定する必要があります。 このプロパティが設定されている場合、ObjectDataSource は GridView s `SortExpression` プロパティを `SelectMethod`に渡そうとします。 特に、ObjectDataSource は、`SortParameterName` プロパティの値と同じ名前を持つ入力パラメーターを検索します。 BLL s `GetProductsPagedAndSorted` メソッドには `sortExpression`という名前の並べ替え式の入力パラメーターがあるため、ObjectDataSource s `SortExpression` プロパティを sortExpression に設定します。
 
-これら 2 つの変更を行った後 ObjectDataSource s の宣言型構文に、次のようになります。
+これらの2つの変更を行った後、ObjectDataSource s 宣言構文は次のようになります。
 
 [!code-aspx[Main](sorting-custom-paged-data-cs/samples/sample5.aspx)]
 
 > [!NOTE]
-> 前のチュートリアルでは、使用すると、確実、ObjectDataSource では、*いない*SelectParameters コレクション sortExpression、既定値、または maximumRows の入力パラメーターが含まれます。
+> 前のチュートリアルと同様に、ObjectDataSource には SelectParameters コレクションに sortExpression、startRowIndex、または maximumRows の入力パラメーターが含ま*れていない*ことを確認してください。
 
-GridView の並べ替え機能を有効にするチェック ボックスを並べ替えを有効にする GridView の s スマート タグには、GridView s の設定で`AllowSorting`プロパティを`true`linkbutton コントロールとして表示するには、各列のヘッダー テキストの原因とします。 エンドユーザーは、Linkbutton ヘッダーのいずれかをクリックすると、ポストバック後し、次の手順が発生します。
+GridView で並べ替えを有効にするには、gridview s スマートタグの [並べ替えを有効にする] チェックボックスをオンにします。これにより、GridView s `AllowSorting` プロパティが `true` に設定され、各列のヘッダーテキストが LinkButton としてレンダリングされます。 エンドユーザーがヘッダーリンクボタンのいずれかをクリックすると、ポストバック ensues と次の手順が終了します。
 
-1. GridView の更新プログラムの[`SortExpression`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)の値に、`SortExpression`のリンクを持つヘッダーがクリックしてされたフィールド
-2. ObjectDataSource 呼び出す BLL s `GetProductsPagedAndSorted` GridView s に渡して、メソッド`SortExpression`s メソッドの値としてプロパティ`sortExpression`入力パラメーター (と共に、適切な`startRowIndex`と`maximumRows`入力パラメーターの値)
-3. BLL は DAL s を呼び出す`GetProductsPagedAndSorted`メソッド
-4. DAL の実行、`GetProductsPagedAndSorted`ストアド プロシージャを渡すことで、`@sortExpression`パラメーター (と共に、`@startRowIndex`と`@maximumRows`入力パラメーターの値)
-5. ストアド プロシージャが、BLL は、ObjectDataSource; に返しますに適切なデータのサブセットを返しますこのデータが GridView にバインドされている、HTML にレンダリングし、エンドユーザーに送信
+1. GridView は、その[`SortExpression` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)を、ヘッダーリンクがクリックされたフィールドの `SortExpression` の値に更新します。
+2. ObjectDataSource は、BLL s `GetProductsPagedAndSorted` メソッドを呼び出します。これには、GridView s `SortExpression` プロパティを、メソッド s `sortExpression` の入力パラメーターの値として渡します (適切な `startRowIndex` および `maximumRows` 入力パラメーター値と共に)。
+3. BLL は、DAL の `GetProductsPagedAndSorted` メソッドを呼び出します。
+4. DAL は `GetProductsPagedAndSorted` ストアドプロシージャを実行し、`@sortExpression` パラメーター (`@startRowIndex` および `@maximumRows` 入力パラメーター値と共に渡します。
+5. このストアドプロシージャは、データの適切なサブセットを BLL に返します。これにより、データが ObjectDataSource に返されます。このデータは、GridView にバインドされ、HTML に表示され、エンドユーザーに送信されます。
 
-図 7 で並べ替えたときの結果の最初のページを示しています、`UnitPrice`で昇順に並べ替えます。
+図7に、`UnitPrice` によって昇順に並べ替えられた場合の結果の最初のページを示します。
 
-[![結果は、UnitPrice 順に並べ替えられます。](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
+[結果が UnitPrice によって並べ替えら ![](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
 
-**図 7**:結果は、UnitPrice で並べ替えられます ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-cs/_static/image11.png))。
+**図 7**: 結果が UnitPrice によって並べ替えられる ([クリックすると、フルサイズの画像が表示](sorting-custom-paged-data-cs/_static/image11.png)されます)
 
-現在の実装では、製品名、カテゴリ名、単位、および単価ごとの数の結果を並べ替えることができます正しく、中に、ランタイム例外は業者によって結果名結果の順序をしようとしています (図 8 参照)。
+現在の実装では、製品名、カテゴリ名、数量/単位、および単価によって結果を正しく並べ替えることができますが、仕入先名によって結果を注文しようとすると、ランタイム例外が発生します (図8を参照)。
 
-![次のランタイム例外で供給業者の結果で結果を並べ替えるしようとしています。](sorting-custom-paged-data-cs/_static/image12.png)
+![仕入先によって結果を並べ替えようとすると、次のランタイム例外が発生します。](sorting-custom-paged-data-cs/_static/image12.png)
 
-**図 8**:次のランタイム例外で供給業者の結果で結果を並べ替えるしようとしています。
+**図 8**: 仕入先によって結果を並べ替えようとすると、次のランタイム例外が発生する
 
-この例外が発生、 `SortExpression` GridView s の`SupplierName`に設定されている BoundField`SupplierName`します。 ただし、s 供給業者の名前、`Suppliers`テーブルが実際に呼び出される`CompanyName`としては、この列名を別名にされている`SupplierName`。 ただし、`OVER`句で使用される、`ROW_NUMBER()`関数、エイリアスを使用することはできませんし、実際の列名を使用する必要があります。 そのため、変更、 `SupplierName` BoundField の`SortExpression`CompanyName を仕入から (図 9 参照)。 業者によって結果を並べ替えることができます、この変更後の図 10 に示す。
+この例外は、GridView `SupplierName` BoundField の `SortExpression` が `SupplierName`に設定されていることが原因で発生します。 ただし、`Suppliers` テーブルの仕入先の名前は、実際には `SupplierName`としてこの列名のエイリアスが `CompanyName` と呼ばれます。 ただし、`ROW_NUMBER()` 関数で使用される `OVER` 句は別名を使用できず、実際の列名を使用する必要があります。 したがって、`SupplierName` BoundField s `SortExpression` を SupplierName から CompanyName に変更します (図9を参照)。 図10に示すように、この変更を行うと、仕入先によって結果を並べ替えることができます。
 
-![変更 CompanyName を仕入 BoundField の SortExpression](sorting-custom-paged-data-cs/_static/image13.png)
+![SupplierName BoundField s SortExpression を CompanyName に変更します。](sorting-custom-paged-data-cs/_static/image13.png)
 
-**図 9**:変更 CompanyName を仕入 BoundField の SortExpression
+**図 9**: SupplierName BoundField s SortExpression を CompanyName に変更する
 
-[![業者によって、結果を並べ替えるようになりました](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
+[![結果を Supplier で並べ替えることができるようになりました](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
 
-**図 10**:結果は今すぐで並べ替えられます Supplier ([フルサイズの画像を表示する をクリックします](sorting-custom-paged-data-cs/_static/image16.png))。
+**図 10**: Supplier で結果を並べ替えることができる ([クリックすると、フルサイズの画像が表示](sorting-custom-paged-data-cs/_static/image16.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-前のチュートリアルで調べるカスタム ページングの実装によって、デザイン時に使用されるが、結果を並べ替える順序を指定することが必要です。 つまり、カスタム ページングの実装を実装しました提供できなかったこと、同時に、並べ替え機能これを意味します。 このチュートリアルでに含める最初からストアド プロシージャを拡張することによってこの制限を克服しました、`@sortExpression`入力パラメーターの結果を並べ替える可能性があります。
+前のチュートリアルで検証したカスタムページング実装では、デザイン時に結果の並べ替え順序を指定する必要がありました。 つまり、実装したカスタムページング実装は、並べ替え機能を提供することができなかったことを意味します。 このチュートリアルでは、最初からストアドプロシージャを拡張し、結果を並べ替えるための `@sortExpression` 入力パラメーターを含めることによって、この制限を克服しました。
 
-両方の並べ替えを提供する GridView を実装することとページングを渡す GridView s 現在 ObjectDataSource を構成することによってカスタムでしたこれを作成するにはストアド プロシージャと、DAL と BLL で新しいメソッドを作成するが、後`SortExpression`BLL プロパティ`SelectMethod`。
+このストアドプロシージャを作成し、DAL および BLL で新しいメソッドを作成した後、GridView を構成して、並べ替えとカスタムページングの両方を提供する GridView を実装できるようになりました。これにより、GridView の current `SortExpression` プロパティを BLL `SelectMethod`に渡すことができます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Carlos Santos でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Carlos Santos でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](efficiently-paging-through-large-amounts-of-data-cs.md)

@@ -1,148 +1,148 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
-title: 非構造化 Blob Storage (Azure で現実世界のクラウド アプリの構築) |Microsoft Docs
+title: 非構造化 Blob Storage (Azure を使用した実際のクラウドアプリの構築) |Microsoft Docs
 author: MikeWasson
-description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
+description: Azure 電子ブックを使用した実際のクラウドアプリの構築は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 13のパターンとベストプラクティスについて説明します。
 ms.author: riande
 ms.date: 03/30/2015
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 8148891f68ac8417400859540516e44be007dab7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2afd4b5cf640eb97080de7e5280409f5e5347731
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118309"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583632"
 ---
-# <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>非構造化 Blob Storage (Azure で現実世界のクラウド アプリの構築)
+# <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>非構造化 Blob Storage (Azure を使用した実際のクラウドアプリの構築)
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
-[ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> Azure 電子ブック**を使用した実際のクラウドアプリの構築**は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 ここでは、クラウド用の web アプリの開発を成功させるのに役立つ13のパターンとプラクティスについて説明します。 電子書籍の詳細については、[最初の章](introduction.md)を参照してください。
 
-前の章でパーティション構成を調べるし、Fix It アプリが Azure Storage Blob サービス、およびその他のタスクのデータを Azure SQL Database でのイメージを格納する方法について説明します。 この章では Blob service に進むし、Fix It プロジェクトのコードでの実装方法を説明します。
+前の章では、パーティション構成について説明し、It アプリの修正によって Azure Storage Blob サービスに画像が格納される方法、および Azure SQL Database のその他のタスクデータについて説明しました。 この章では、Blob service について詳しく説明し、修正した It プロジェクトコードでの実装方法を示します。
 
-## <a name="what-is-blob-storage"></a>Blob storage とは何ですか。
+## <a name="what-is-blob-storage"></a>Blob storage とは
 
-Azure Storage Blob service は、クラウドにファイルを格納する方法を提供します。 Blob service では、いくつかのファイルを格納するローカル ネットワーク ファイル システム上の利点があります。
+Azure Storage Blob サービスは、クラウドにファイルを格納する方法を提供します。 Blob service には、ローカルネットワークファイルシステムにファイルを保存するよりも多くの利点があります。
 
-- このコマンドは、高いスケーラビリティです。 1 つのストレージ アカウントに格納できる[数百のテラバイト](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx)、複数のストレージ アカウントを持つことができます。 最大の Azure 顧客の一部は、数百ペタバイト規模を格納します。 Microsoft SkyDrive では、blob ストレージを使用します。
-- 持続性になります。 Blob service に格納するすべてのファイルは自動的にバックアップします。
-- 高可用性を提供します。 [SLA for Storage](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) promise 99.9% 以上または 99.99% の稼働時間、geo 冗長オプションに応じて選択します。
-- つまりだけ格納し、を使用して、ストレージの実際の量に対してのみ料金を支払うファイルを取得するには、Azure のサービスとしてのプラットフォーム (PaaS) 機能は、Azure が自動的に処理を設定して、すべての Vm とディスクのドライブに必要な管理、サービス。
-- REST API を使用して、または API のプログラミング言語を使用して Blob サービスにアクセスすることができます。 Sdk は、.NET、Java、Ruby、およびその他のユーザーに使用できます。
-- Blob service 内にファイルを保存するときに行うことができます簡単に、公開されている、インターネット経由でします。
-- 承認済みのユーザーのみができるように、これらのサービスがアクセスされる Blob 内のファイルをセキュリティで保護することができますか、利用できるようにユーザーに一定の時間に対してのみ一時的なアクセス トークンを行うことができます。
+- 拡張性に優れています。 1つのストレージアカウントは、[数百テラバイトの](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx)データを格納でき、複数のストレージアカウントを持つことができます。 最大の Azure のお客様は、数百のペタバイトを格納しています。 Microsoft SkyDrive は、blob ストレージを使用します。
+- 持続性があります。 Blob service に格納するすべてのファイルが自動的にバックアップされます。
+- 高可用性が提供されます。 [ストレージの SLA](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409)は、選択した geo 冗長オプションに応じて、99.9% または99.99% の稼働時間を保証します。
+- Azure のサービスとしてのプラットフォーム (PaaS) 機能です。これにより、ファイルを格納して取得するだけで、実際に使用したストレージの量に対してのみ料金が発生します。また、Azure では、処理.
+- Blob service には、REST API を使用するか、プログラミング言語 API を使用してアクセスできます。 Sdk は、.NET、Java、Ruby などで使用できます。
+- Blob service にファイルを保存すると、インターネット経由で簡単に公開できるようになります。
+- Blob service のファイルは、承認されたユーザーのみがアクセスできるようにセキュリティで保護することができます。また、限られた期間だけユーザーが使用できるようにする一時的なアクセストークンを提供することもできます。
 
-Azure のアプリを開発して、大量のオンプレミス環境でビデオ、イメージなどのファイル - で行われるデータを格納するときにいつでも Pdf、スプレッドシートなど、Blob service を検討します。
+Azure 向けアプリを構築しているときに、オンプレミスの環境にある大量のデータを保存する場合は、画像、ビデオ、Pdf、スプレッドシートなどのファイルを使用することをお勧めします。 Blob service を検討してください。
 
-## <a name="creating-a-storage-account"></a>ストレージ アカウントの作成
+## <a name="creating-a-storage-account"></a>ストレージアカウントの作成
 
-Blob service を開始するには、Azure でストレージ アカウントを作成します。 ポータルで、次のようにクリックします**新規** -- **Data Services** -- **ストレージ** -- **簡易作成**、。URL とデータ センターの場所を入力します。 データ センターの場所は、web アプリと同じになります。
+Blob service の使用を開始するには、Azure でストレージアカウントを作成します。 ポータルで、[**新規** -- ] をクリックして、[**ストレージ** -- **簡易作成**] -- **Data Services** 、URL とデータセンターの場所を入力します。 データセンターの場所は、web アプリと同じである必要があります。
 
-![ストレージ アカウントを作成します。](unstructured-blob-storage/_static/image1.png)
+![ストレージアカウントの作成](unstructured-blob-storage/_static/image1.png)
 
-プライマリ リージョンを選択すると、コンテンツを保存して、選択したかどうか、 [geo レプリケーション](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx#_Geo_Redundant_Storage)オプション、Azure で、国の別のリージョン内の別のデータ センターのすべてのデータのレプリカが作成されます。 たとえばを選択した場合になった Azure バック グラウンドでが、米国西部データ センターにもファイルを保存するときに、米国西部データ センターにコピー他米国のデータ センターのいずれか。 国の 1 つのリージョンで障害が発生した場合、データは安全なです。
+コンテンツを格納するプライマリリージョンを選択します。 [geo レプリケーション](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx#_Geo_Redundant_Storage)オプションを選択した場合、Azure は、国の別のリージョンの別のデータセンターにすべてのデータのレプリカを作成します。 たとえば、米国西部のデータセンターを選択した場合、ファイルを保存すると、米国西部のデータセンターに移動しますが、バックグラウンドでは、他の米国のデータセンターのいずれかにもコピーされます。 ある国の1つのリージョンで障害が発生した場合でも、データは安全です。
 
-Azure は、地政学的境界を越えてデータをレプリケートしませんファイルが別のリージョンは米国内にのみレプリケートされる、プライマリの場所が米国内にある場合は、。プライマリ ロケーションがオーストラリアである場合はのファイルがオーストラリアで別のデータ センターにレプリケートされます。
+Azure は地理的な境界を越えてデータをレプリケートしません。プライマリロケーションが米国内にある場合、ファイルは米国内の別のリージョンにのみレプリケートされます。プライマリの場所がオーストラリアの場合、ファイルはオーストラリアの別のデータセンターにのみレプリケートされます。
 
-もちろん、先ほど説明したようには、スクリプトからコマンドを実行して、ストレージ アカウントを作成することができますも。 ストレージ アカウントを作成する Windows PowerShell コマンドを次に示します。
+もちろん、先ほど見たように、スクリプトからコマンドを実行してストレージアカウントを作成することもできます。 ストレージアカウントを作成するための Windows PowerShell コマンドを次に示します。
 
 [!code-powershell[Main](unstructured-blob-storage/samples/sample1.ps1)]
 
-ストレージ アカウントを作成したら、ファイルを格納する Blob service ですぐに開始できます。
+ストレージアカウントを作成したら、すぐに Blob service にファイルの格納を開始できます。
 
-## <a name="using-blob-storage-in-the-fix-it-app"></a>Fix It アプリでの Blob storage の使用
+## <a name="using-blob-storage-in-the-fix-it-app"></a>It アプリを修正するための Blob storage の使用
 
-Fix It アプリでは、写真をアップロードすることができます。
+Fix It アプリでは、写真をアップロードできます。
 
-![Fix It タスクを作成します。](unstructured-blob-storage/_static/image2.png)
+![修正するタスクを作成する](unstructured-blob-storage/_static/image2.png)
 
-クリックすると**作成、FixIt**アプリケーションは指定したイメージ ファイルをアップロードし、Blob service に格納します。
+**[FixIt の作成]** をクリックすると、アプリケーションは指定されたイメージファイルをアップロードし、Blob service に保存します。
 
-### <a name="set-up-the-blob-container"></a>Blob コンテナーを設定します。
+### <a name="set-up-the-blob-container"></a>Blob コンテナーを設定する
 
-必要な Blob サービスでファイルを格納するために、*コンテナー*保存します。 Blob service のコンテナーは、ファイル システムのフォルダーに対応します。 環境の作成スクリプトで確認しましたが、[すべて自動化章](automate-everything.md)ストレージ アカウントの作成が、コンテナーが作成されません。 これの目的、`CreateAndConfigure`のメソッド、`PhotoService`クラスは、存在しない場合は、コンテナーを作成します。 このメソッドの呼び出し元、`Application_Start`メソッド*Global.asax*します。
+Blob service にファイルを格納するには、そのファイルを格納する*コンテナー*が必要です。 Blob service コンテナーは、ファイルシステムフォルダーに対応します。 「[すべて自動化](automate-everything.md)」の章で確認した環境作成スクリプトでは、ストレージアカウントが作成されますが、コンテナーは作成されません。 したがって、`PhotoService` クラスの `CreateAndConfigure` メソッドの目的は、コンテナーがまだ存在しない場合に作成することです。 このメソッドは、 *global.asax*の `Application_Start` メソッドから呼び出されます。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample2.cs)]
 
-ストレージ アカウント名とアクセス キーが格納されている、`appSettings`のコレクション、 *Web.config*ファイルを開き、コードで、`StorageUtils.StorageAccount`メソッドでは、これらの値を使用して接続文字列を作成し、接続を確立します。
+ストレージアカウント名とアクセスキー*は、web.config ファイルの*`appSettings` コレクションに格納され、`StorageUtils.StorageAccount` メソッド内のコードはこれらの値を使用して接続文字列を作成し、接続を確立します。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample3.cs)]
 
-`CreateAndConfigureAsync`メソッドには、Blob service を表すオブジェクトを作成し、という名前"の images"の Blob service でコンテナー (フォルダー) を表すオブジェクト。
+次に、`CreateAndConfigureAsync` メソッドは、Blob service を表すオブジェクトと、Blob service 内の "images" という名前のコンテナー (フォルダー) を表すオブジェクトを作成します。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample4.cs)]
 
-場合は、コンテナーの名前"の images"まだ存在しません - 初めて--新しいストレージ アカウントに対して、アプリを実行するコードはコンテナーを作成し、公開するアクセス許可を設定する場合は true になります。 (既定では、新しい blob コンテナーはプライベートであり、ストレージ アカウントにアクセスするアクセス許可を持つユーザーのみにアクセスします。)
+"Images" という名前のコンテナーがまだ存在しない場合は、新しいストレージアカウントに対して初めてアプリを実行したときに true になります。このコードでは、コンテナーを作成し、アクセス許可を設定してパブリックにすることができます。 (既定では、新しい blob コンテナーはプライベートであり、ストレージアカウントへのアクセス許可を持つユーザーのみがアクセスできます)。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample5.cs)]
 
-### <a name="store-the-uploaded-photo-in-blob-storage"></a>Blob storage にアップロードした写真を格納します。
+### <a name="store-the-uploaded-photo-in-blob-storage"></a>アップロードした写真を Blob storage に保存する
 
-アップロードし、アプリでは、イメージ ファイルの保存、`IPhotoService`インターフェイスとのインターフェイスの実装、`PhotoService`クラス。 *PhotoService.cs*ファイルには、すべての修正、アプリで Blob サービスと通信するコードが含まれています。
+イメージファイルをアップロードして保存するために、アプリは、`IPhotoService` インターフェイスと、`PhotoService` クラスのインターフェイスの実装を使用します。 *PhotoService.cs*ファイルには、Blob service と通信する Fix It アプリのすべてのコードが含まれています。
 
-ユーザーがクリックしたときに、次の MVC コント ローラー メソッドが呼び出されます**作成、FixIt**します。 このコードで`photoService`のインスタンスを参照する、`PhotoService`クラス、および`fixittask`のインスタンスを指す、`FixItTask`エンティティ クラスの新しいタスクのデータを格納します。
+次の MVC コントローラーメソッドは、ユーザーが  **FixIt の作成**をクリックしたときに呼び出されます。 このコードでは、`photoService` は `PhotoService` クラスのインスタンスを参照し、`fixittask` は新しいタスクのデータを格納する `FixItTask` エンティティクラスのインスタンスを参照します。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample6.cs?highlight=8)]
 
-`UploadPhotoAsync`メソッドで、`PhotoService`クラス、Blob service にアップロードされたファイルを格納して、新しい blob を指す URL を返します。
+`PhotoService` クラスの `UploadPhotoAsync` メソッドは、アップロードされたファイルを Blob service に格納し、新しい Blob を指す URL を返します。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample7.cs)]
 
-`CreateAndConfigure`メソッド、コードは、ストレージ アカウントに接続し、点を除いて、コンテナーが既に存在するものは、ここに「イメージ」の blob コンテナーを表すオブジェクトを作成します。
+`CreateAndConfigure` メソッドと同様に、コードはストレージアカウントに接続し、"images" blob コンテナーを表すオブジェクトを作成します。ただし、コンテナーが既に存在していることを前提としています。
 
-ファイル拡張子を持つ新しい GUID 値を連結して、アップロードするイメージの一意の識別子が作成されます。
+次に、新しい GUID 値をファイル拡張子と連結して、アップロードするイメージの一意の識別子を作成します。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample8.cs)]
 
-コードでは、blob オブジェクトを作成する blob のコンテナー オブジェクトと、新しい一意識別子を使用して、ファイルの種類が、しを使用して、blob オブジェクト ファイルを blob ストレージに格納することを示すオブジェクトの属性を設定します。
+次に、blob コンテナーオブジェクトと新しい一意識別子を使用して blob オブジェクトを作成し、ファイルの種類を示す属性をそのオブジェクトに設定して、blob オブジェクトを使用して blob ストレージにファイルを格納します。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample9.cs)]
 
-最後に、blob を参照する URL を取得します。 この URL は、データベースに格納され、Fix It の web ページで、アップロードされたイメージを表示するのに使用できます。
+最後に、blob を参照する URL を取得します。 この URL はデータベースに格納され、アップロードされたイメージを表示するために、It web ページの修正に使用できます。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample10.cs)]
 
-この URL は、FixItTask テーブルの列の 1 つとして、データベースに格納されます。
+この URL は、FixItTask テーブルの列の1つとしてデータベースに格納されます。
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample11.cs?highlight=10)]
 
-データベース内の URL のみと Blob storage 内のイメージでは、Fix It アプリは、データベース維持小規模でスケーラブル、かつ低コストでストレージは安価なとテラバイトやペタバイトを処理できる、イメージが格納されます。 数百テラバイトの修正、写真を格納できる 1 つのストレージ アカウントを使用したのみ支払います。 このため、最初のギガバイトの有料 9 セントを小規模から開始し、追加のギガバイトあたり少額の他のイメージを追加できます。
+データベース内の URL と Blob storage のイメージのみを使用すると、It アプリケーションの修正によってデータベースのサイズが小さくなり、スケーラブルで、低コストになります。一方、ストレージは安価で、テラバイトまたはペタバイト単位で処理することができます。 1つのストレージアカウントは、数百テラバイトの写真を修正でき、使用した分だけ支払います。 最初のギガバイトに対しては9セントの低料金で開始でき、さらにギガバイトごとに少額のイメージを追加することもできます。
 
-### <a name="display-the-uploaded-file"></a>アップロードされたファイルを表示します。
+### <a name="display-the-uploaded-file"></a>アップロードされたファイルを表示する
 
-Fix It アプリケーションは、タスクの詳細を表示するときに、アップロードされたイメージ ファイルを表示します。
+It アプリケーションを修正すると、タスクの詳細が表示されるときに、アップロードされたイメージファイルが表示されます。
 
-![写真とタスクの詳細を修正します。](unstructured-blob-storage/_static/image3.png)
+![写真を使用して It タスクの詳細を修正する](unstructured-blob-storage/_static/image3.png)
 
-イメージを表示するにが含まれて、MVC ビューを実行する必要がありますすべて、`PhotoUrl`ブラウザーに送信される HTML 内の値。 Web サーバーとデータベースは、使用していないサイクル イメージを表示するイメージの URL に数バイトの提供のみ。 次の Razor コードで`Model`のインスタンスを指す、`FixItTask`エンティティ クラスです。
+画像を表示するには、すべての MVC ビューで、ブラウザーに送信される HTML に `PhotoUrl` 値が含まれている必要があります。 Web サーバーとデータベースでは、イメージを表示するためにサイクルが使用されていません。イメージの URL に対して数バイトしか処理されません。 次の Razor コードでは、`Model` は `FixItTask` エンティティクラスのインスタンスを参照します。
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample12.cshtml?highlight=11)]
 
-表示するページの HTML を見ると、次のように、blob ストレージにイメージを直接指し示す URL が表示されます。
+表示されるページの HTML を見ると、次のような blob ストレージ内のイメージを直接指す URL が表示されます。
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample13.cshtml?highlight=11)]
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-Fix It アプリが、Blob service と SQL database での画像 Url のみでイメージを格納する方法を説明しました。 それ以外の場合は、ほぼ無制限の数のタスクの最大スケールが可能になり、多くのコードを記述することがなく実行できますよりもはるかに小さい SQL database を保持、Blob サービスを使用します。
+修正プログラムによる It アプリの Blob service でのイメージの保存方法と、SQL データベースのイメージ Url の使用方法について説明しました。 Blob service を使用すると、SQL データベースは、それ以外の場合と比べて大幅に小さくなります。これにより、ほぼ無制限の数のタスクをスケールアップすることができ、多くのコードを記述することなく実行できます。
 
-ストレージ アカウントには数百のテラバイトとストレージ コストは、開始月 + 小さいトランザクション料金あたりギガバイトあたり約 3 セント位置として、SQL Database ストレージよりも安価です。 最大容量ですが実際に格納する、アプリがスケーリングできる状態にすべてに余分な容量を払っているしないため、時間に対してのみを払っているできませんに注意してください。
+ストレージアカウントには数百テラバイトを含めることができますが、ストレージコストは SQL Database ストレージよりもはるかにコストがかかります。これは、1 gb あたり約3セントで、トランザクション料金は小さいものです。 また、最大容量に対しては料金がかかりませんが、実際に格納されている量に対してのみ料金がかかります。そのため、アプリは拡張することができますが、その他の容量については一切料金がかかりません。
 
-[[次へ] の章](design-to-survive-failures.md)クラウド アプリの障害を適切に処理できることの重要性について説明します。
+次の[章](design-to-survive-failures.md)では、クラウドアプリがエラーを適切に処理できるようにすることの重要性について説明します。
 
 ## <a name="resources"></a>リソース
 
 詳細については、次のリソースを参照してください。
 
-- [Azure BLOB Storage の概要、](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/)します。 Mike Wood によるブログ。
-- [.NET で Azure Blob ストレージ サービスを使用する方法](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)します。 MicrosoftAzure.com サイトの公式ドキュメント。 Blob を blob storage に接続する方法を紹介するコード例の後にストレージを簡単に紹介のコンテナーを作成するには、アップロードおよびダウンロード blob など。
-- [フェール セーフ:スケーラブルで回復力のあるクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simms、ビデオ シリーズを 9 の部分で構成します。 Microsoft Customer ・ Advisory Team (CAT) の実際の顧客使用経験描画ストーリーと非常にアクセス可能な興味深い方法で高度な概念とアーキテクチャの原則を説明します。 Azure Storage サービスと blob の詳細については、35:13 始まるエピソード 5 を参照してください。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)します。 バレット キー パターンを参照してください。
+- [AZURE BLOB Storage の概要](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/)。 ブログ (Mike 木材)
+- [.Net で Azure Blob Storage サービスを使用する方法](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)。 MicrosoftAzure.com サイトの公式ドキュメント。 Blob storage の概要と、blob storage への接続、コンテナーの作成、blob のアップロードとダウンロードなどを示すコード例を紹介します。
+- [フェイルセーフ: スケーラブルで回復力のある Cloud Services を構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simm による9部構成のビデオシリーズ。 高度な概念とアーキテクチャの原則を、非常にアクセスしやすく興味深い方法で紹介します。実際の顧客との Microsoft カスタマーアドバイザリチーム (CAT) エクスペリエンスによってストーリーが描画されます。 Azure Storage サービスと blob の詳細については、35:13 以降のエピソード5を参照してください。
+- [Microsoft のパターンとプラクティス-Azure のガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)。 「Valet キーパターン」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](data-partitioning-strategies.md)

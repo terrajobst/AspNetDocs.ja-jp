@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-vb
-title: 同時に (VB) の複数のアニメーションの実行 |Microsoft Docs
+title: 複数のアニメーションを同時に実行する (VB) |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 これにより、落としたを実行する.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 これにより、を実行できます...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 2469f7ea-1489-42fb-a8e1-414c90141ce9
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 02eb078a4fb8fddbbac18e4631214f354388cc2f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fc11debd06c897c29db56d42167d483f5608cdf8
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133410"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74575305"
 ---
-# <a name="executing-several-animations-at-the-same-time-vb"></a>(VB) と同時に複数のアニメーションを実行
+# <a name="executing-several-animations-at-the-same-time-vb"></a>複数のアニメーションを同時に実行する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation2VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation2.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation2VB.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 を使用すると、複数のアニメーションを並行して実行できます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 を使用すると、複数のアニメーションを並行して実行できます。
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
+まず、ページに `ScriptManager` を含めます。次に、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようになります。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-vb/samples/sample1.aspx)]
 
-次のようなテキストのパネルに、アニメーションが適用されます。
+アニメーションは、次のようなテキストパネルに適用されます。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-vb/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
+パネルに関連付けられている CSS クラスで、優れた背景色を定義し、パネルに固定幅を設定します。
 
 [!code-css[Main](executing-several-animations-at-the-same-time-vb/samples/sample3.css)]
 
-次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`:
+次に、`ID`、`TargetControlID` 属性、および加える `runat="server"`を指定して、ページに `AnimationExtender` を追加します。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-vb/samples/sample4.aspx)]
 
-内で、`<Animations>`ノードを使用して`<OnLoad>`ページが完全に読み込まれた後に、アニメーションを実行します。 一般に、`<OnLoad>`アニメーションを 1 つのみを受け入れます。 アニメーション フレームワークを使用すると、複数のアニメーションを使用して 1 つに参加させる、`<Parallel>`要素。 内のすべてのアニメーション`<Parallel>`と同時に実行されます。
+ページが完全に読み込まれたら、[`<Animations>`] ノードで `<OnLoad>` を使用してアニメーションを実行します。 通常、`<OnLoad>` は1つのアニメーションのみを受け入れます。 Animation framework では、`<Parallel>` 要素を使用して複数のアニメーションを1つに結合できます。 `<Parallel>` 内のすべてのアニメーションが同時に実行されます。
 
-ここでは、可能なマークアップを`AnimationExtender`フェードアウトし、同時に、パネルのサイズを変更するときに、コントロール。
+`AnimationExtender` コントロールのマークアップを次に示します。同時にパネルをフェードアウトし、サイズを変更します。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-vb/samples/sample5.aspx)]
 
-実際: このスクリプトを実行すると、パネルが表示し (いったように複数の幅と高さの半分) のサイズを変更されと同時にフェードアウトします。
+実際には、このスクリプトを実行すると、パネルが表示され、サイズが変更され (幅が tripling、高さが半分に)、同時にフェードアウトします。
 
-[![パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更](executing-several-animations-at-the-same-time-vb/_static/image2.png)](executing-several-animations-at-the-same-time-vb/_static/image1.png)
+[ブラウザーのレンダリングエンジンにより、パネルのフェードアウトとサイズ変更 (コンテンツを含む) ![](executing-several-animations-at-the-same-time-vb/_static/image2.png)](executing-several-animations-at-the-same-time-vb/_static/image1.png)
 
-パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更 ([フルサイズの画像を表示する をクリックします](executing-several-animations-at-the-same-time-vb/_static/image3.png))。
+パネルのフェードアウトとサイズ変更 (ブラウザーのレンダリングエンジンにより、コンテンツを含む) が表示されます ([クリックすると、フルサイズの画像が表示](executing-several-animations-at-the-same-time-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](adding-animation-to-a-control-vb.md)

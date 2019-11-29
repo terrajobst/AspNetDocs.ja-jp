@@ -1,254 +1,254 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
-title: プログラムでマスター ページを指定する (VB) |Microsoft Docs
+title: プログラムによるマスターページの指定 (VB) |Microsoft Docs
 author: rick-anderson
-description: PreInit イベント ハンドラーを使用してプログラムでマスター ページのコンテンツ ページの設定を見ます。
+description: PreInit イベントハンドラーを使用して、プログラムによってコンテンツページのマスターページを設定する方法について見ていきます。
 ms.author: riande
 ms.date: 07/28/2008
 ms.assetid: 0edcd653-f24a-41aa-aef4-75f868fe5ac2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d075d0b66da8a0f4e2f0155c08b09a02a4ca71fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3b039b22bef38ae6ebf80be070820dc1638f87f4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106938"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618670"
 ---
 # <a name="specifying-the-master-page-programmatically-vb"></a>プログラムでマスター ページを指定する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.zip)または[PDF のダウンロード](https://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_VB.pdf)
 
-> PreInit イベント ハンドラーを使用してプログラムでマスター ページのコンテンツ ページの設定を見ます。
+> PreInit イベントハンドラーを使用して、プログラムによってコンテンツページのマスターページを設定する方法について見ていきます。
 
 ## <a name="introduction"></a>はじめに
 
-以降の例では「 [ *、サイト全体レイアウトを使用してマスター ページを作成する*](creating-a-site-wide-layout-using-master-pages-vb.md)すべてのコンテンツ ページ宣言で使用して、マスター ページを参照している`MasterPageFile`属性`@Page`ディレクティブ。 たとえば、次`@Page`ディレクティブは、マスター ページに [コンテンツ] ページをリンク`Site.master`:
+初めの例では、[*マスターページを使用してサイト全体のレイアウトを作成*](creating-a-site-wide-layout-using-master-pages-vb.md)しているため、すべてのコンテンツページは、`@Page` ディレクティブの `MasterPageFile` 属性を使用して、そのマスターページを宣言によって参照しています。 たとえば、次の `@Page` ディレクティブは、コンテンツページをマスターページ `Site.master`にリンクします。
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample1.aspx)]
 
-[ `Page`クラス](https://msdn.microsoft.com/library/system.web.ui.page.aspx)で、`System.Web.UI`名前空間が含まれています、 [ `MasterPageFile`プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx)コンテンツ ページのマスター ページに、パスを返すは、この、によって設定されるプロパティです`@Page`ディレクティブ。 このプロパティは、プログラムによってコンテンツ ページのマスター ページを指定することも使用できます。 この方法は、ページにアクセスするユーザーなどの外部要因に基づくマスター ページを動的に割り当てる場合に便利です。
+`System.Web.UI` 名前空間の[`Page` クラス](https://msdn.microsoft.com/library/system.web.ui.page.aspx)には、コンテンツページのマスターページへのパスを返す[`MasterPageFile` プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx)が含まれています。このプロパティは、`@Page` ディレクティブによって設定されます。 このプロパティを使用して、プログラムでコンテンツページのマスターページを指定することもできます。 この方法は、ページにアクセスするユーザーなど、外部の要因に基づいてマスターページを動的に割り当てる場合に便利です。
 
-このチュートリアルでは、web サイトに 2 つ目のマスター ページの追加を実行時に使用するマスター ページを動的に決定します。
+このチュートリアルでは、web サイトに2番目のマスターページを追加し、実行時に使用するマスターページを動的に決定します。
 
-## <a name="step-1-a-look-at-the-page-lifecycle"></a>手順 1: ページのライフ サイクルを参照してください。
+## <a name="step-1-a-look-at-the-page-lifecycle"></a>手順 1: ページのライフサイクルを確認する
 
-ページのコンテンツ ページの ASP.NET ページ用の web サーバーに要求が到着すると、ときに、ASP.NET エンジンする必要があります fuse のマスター ページにコントロールのプレース ホルダー コントロールに対応するコンテンツ。 この fusion は、一般的なページ ライフ サイクルの手順を実行できる 1 つのコントロール階層を作成します。
+コンテンツページである ASP.NET ページに対して web サーバーに要求が到着するたびに、ASP.NET エンジンはページのコンテンツコントロールを、マスターページに対応する ContentPlaceHolder コントロールにヒューズする必要があります。 この fusion は、通常のページのライフサイクルを進めることができる1つのコントロール階層を作成します。
 
-図 1 は、この fusion を示しています。 図 1 の手順 1 では、初期コンテンツとマスター ページのコントロール階層を示します。 PreInit ステージのコンテンツの末尾には、ページ内のコントロールは、マスター ページ (ステップ 2) に対応する ContentPlaceHolders に追加されます。 この fusion の場合後、は、マスター ページが融合型のコントロール階層のルートとして機能します。 コントロール組み合わされ、この階層は、完成したコントロールの階層 (手順 3) を生成するために、ページに追加されます。 最終的な結果は、ページのコントロール階層に融合型のコントロール階層が含まれています。
+図1は、この fusion を示しています。 図1の手順1は、初期コンテンツとマスターページコントロールの階層を示しています。 PreInit 段階の末尾には、ページ内のコンテンツコントロールがマスターページ内の対応する ContentPlaceHolders (手順 2) に追加されます。 この fusion の後、マスターページは、ヒューズ制御階層のルートとして機能します。 次に、このような、このようにすることができないコントロールの階層をページに追加して、完了したコントロールの階層を生成します (手順 3)。 最終的な結果として、ページのコントロール階層には、ヒューズ制御階層が含まれます。
 
-[![PreInit ステージ中にマスター ページとコンテンツ ページのコントロール階層が一緒に組み合わされ、](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
+[PreInit ステージ中にマスターページとコンテンツページのコントロール階層が結合さ ![](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
 
-**図 01**:PreInit ステージ中にマスター ページとコンテンツ ページのコントロール階層が組み合わされ、まとめて ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image3.png))。
+**図 01**: マスターページとコンテンツページのコントロール階層は、PreInit ステージ中にまとめられています ([クリックすると、フルサイズの画像が表示](specifying-the-master-page-programmatically-vb/_static/image3.png)されます)
 
-## <a name="step-2-setting-themasterpagefileproperty-from-code"></a>手順 2: 設定、`MasterPageFile`コードからプロパティ
+## <a name="step-2-setting-themasterpagefileproperty-from-code"></a>手順 2: コードからの`MasterPageFile`プロパティの設定
 
-値に依存マスター ページは、この fusion で partakes、`Page`オブジェクトの`MasterPageFile`プロパティ。 設定、`MasterPageFile`属性、`@Page`ディレクティブが割り当てることの実質的な効果、`Page`の`MasterPageFile`プロパティ ページのライフ サイクルの最初の段階である初期化ステージ時にします。 またはこのプロパティをプログラムで設定できます。 ただし、図 1 に fusion が発生する前にこのプロパティを設定することが不可欠です。
+この fusion に含まれるマスターページの内容は、`Page` オブジェクトの `MasterPageFile` プロパティの値によって異なります。 `@Page` ディレクティブで `MasterPageFile` 属性を設定すると、初期化段階で `Page`の `MasterPageFile` プロパティを割り当てることによる実質的な効果が得られます。これは、ページのライフサイクルの最初の段階です。 また、このプロパティをプログラムで設定することもできます。 ただし、このプロパティは、図1の fusion が実行される前に設定する必要があります。
 
-PreInit ステージの開始時、`Page`オブジェクトその[`PreInit`イベント](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx)呼び出しとその[`OnPreInit`メソッド](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx)します。 マスター ページをプログラムで設定するし作成するかのイベント ハンドラー、`PreInit`イベントまたはオーバーライド、`OnPreInit`メソッド。 どちらの方法を見てみましょう。
+PreInit 段階の開始時に、`Page` オブジェクトは[`PreInit` イベント](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx)を発生させ、その[`OnPreInit` メソッド](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx)を呼び出します。 マスターページをプログラムによって設定するには、`PreInit` イベントのイベントハンドラーを作成するか、`OnPreInit` メソッドをオーバーライドします。 両方の方法を見てみましょう。
 
-開いて開始`Default.aspx.vb`、私たちのサイトのホーム ページの分離コード クラス ファイル。 ページのイベント ハンドラーを追加`PreInit`次のコードを入力してイベント。
+まず、サイトのホームページの分離コードクラスファイル `Default.aspx.vb`を開きます。 次のコードを入力して、ページの `PreInit` イベントのイベントハンドラーを追加します。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample2.vb)]
 
-ここで設定できる、`MasterPageFile`プロパティ。 値を代入するために、コードを更新"~/Site.master"に、`MasterPageFile`プロパティ。
+ここでは、`MasterPageFile` プロパティを設定できます。 値 "~/Site. master" が `MasterPageFile` プロパティに割り当てられるように、コードを更新します。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample3.vb)]
 
-場合、ブレークポイントを設定して、デバッグの開始が表示されますたびに、`Default.aspx`ページにアクセスまたはこのページへのポストバックが存在する場合は、`Page_PreInit`イベント ハンドラーが実行されると、`MasterPageFile`にプロパティが割り当てられている"~/Site.master"。
+ブレークポイントを設定し、デバッグを開始すると、`Default.aspx` ページがアクセスされるたびに、またはこのページへのポストバックが発生するたびに、`Page_PreInit` イベントハンドラーが実行され、`MasterPageFile` プロパティが "~/Site. マスター" に割り当てられます。
 
-また、オーバーライド、`Page`クラスの`OnPreInit`メソッドとセット、`MasterPageFile`プロパティがあります。 この例では、みましょう設定されていない、特定のページでマスター ページからのものではなく`BasePage`します。 ベース ページのカスタム クラスが作成されたことを思い出してください (`BasePage`) に戻り、 [*マスター ページのタイトル、メタ タグ、およびその他の HTML ヘッダーを指定する*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)チュートリアル。 現在`BasePage`オーバーライド、`Page`クラスの`OnLoadComplete`メソッド、ページの設定`Title`プロパティは、サイト マップ データに基づきます。 更新`BasePage`もオーバーライドする、`OnPreInit`メソッドをプログラムでマスター ページを指定します。
+または、`Page` クラスの `OnPreInit` メソッドをオーバーライドし、そこに `MasterPageFile` プロパティを設定することもできます。 この例では、`BasePage`ではなく、特定のページにマスターページを設定しないようにします。 [*マスターページのチュートリアルで、タイトル、メタタグ、およびその他の HTML ヘッダーを指定*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)して、カスタムベースページクラス (`BasePage`) を作成したことを思い出してください。 現在 `BasePage` は、`Page` クラスの `OnLoadComplete` メソッドをオーバーライドします。ここでは、サイトマップデータに基づいてページの `Title` プロパティを設定します。 `BasePage` を更新して、`OnPreInit` メソッドをオーバーライドして、プログラムを使用してマスターページを指定するようにします。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample4.vb)]
 
-すべてのコンテンツ ページが派生するため`BasePage`、それらのすべてのようになりましたがあるプログラムによって割り当てられている、マスター ページ。 この時点で、`PreInit`内のイベント ハンドラー`Default.aspx.vb`余分なは、自由に削除します。
+すべてのコンテンツページは `BasePage`から派生するので、すべてのページにプログラムで割り当てられたマスターページがあります。 この時点で、`Default.aspx.vb` の `PreInit` イベントハンドラーは不要です。削除してもかまいません。
 
-### <a name="what-about-thepagedirective"></a>では、`@Page`ディレクティブでしょうか。
+### <a name="what-about-thepagedirective"></a>`@Page`ディレクティブについて
 
-どのような少し混乱を招く可能性がありますはコンテンツ ページの`MasterPageFile`プロパティが 2 つの場所で指定されているようになりました: でプログラムによって、`BasePage`クラスの`OnPreInit`メソッドによっても、`MasterPageFile`各コンテンツ ページ内の属性`@Page`ディレクティブ。
+少し紛らわしいかもしれませんが、コンテンツページの `MasterPageFile` のプロパティは、`BasePage` クラスの `OnPreInit` メソッドでプログラムによって、また各コンテンツページの `@Page` ディレクティブの `MasterPageFile` 属性を使用して、2か所で指定されるようになりました。
 
-ページのライフ サイクルの最初のステージは、初期化段階です。 このステージでは、`Page`オブジェクトの`MasterPageFile`プロパティには、値が割り当てられている、`MasterPageFile`属性、`@Page`ディレクティブ (提供されている) 場合。 初期化ステージでの次の PreInit 段階とはプログラムで設定をここで、`Page`オブジェクトの`MasterPageFile`から割り当てられた値を上書きして、プロパティ、`@Page`ディレクティブ。 設定するため、`Page`オブジェクトの`MasterPageFile`プロパティをプログラムで削除することでした、`MasterPageFile`属性を`@Page`エンドユーザーのエクスペリエンスに影響を与えずにディレクティブ。 自分でこのことをさあ、削除、`MasterPageFile`属性を`@Page`ディレクティブで`Default.aspx`し、ブラウザーを使用してページにアクセスします。 次のものを予想どおり、出力は、同じ属性が削除される前に。
+ページライフサイクルの最初の段階は初期化段階です。 この段階では、`Page` オブジェクトの `MasterPageFile` プロパティに `@Page` ディレクティブの `MasterPageFile` 属性の値が割り当てられます (指定されている場合)。 PreInit 段階は初期化段階に従います。ここでは、プログラムによって `Page` オブジェクトの `MasterPageFile` プロパティを設定し、`@Page` ディレクティブから割り当てられた値を上書きします。 `Page` オブジェクトの `MasterPageFile` プロパティはプログラムによって設定されるため、エンドユーザーのエクスペリエンスに影響を与えずに、`@Page` ディレクティブから `MasterPageFile` 属性を削除することができます。 このことを納得するために、`Default.aspx` の `@Page` ディレクティブから `MasterPageFile` 属性を削除し、ブラウザーを使用してページにアクセスします。 予想されるように、出力は属性が削除される前と同じです。
 
-かどうか、`MasterPageFile`プロパティを使用して、`@Page`ディレクティブ プログラムでは、エンドユーザーのエクスペリエンスに派生的損害またはします。 ただし、`MasterPageFile`属性、 `@Page` WYSIWYG を生成するためにデザイン時に、ディレクティブが Visual Studio によって使用される、デザイナーで表示します。 戻る場合`Default.aspx`Visual Studio で、移動、デザイナーには、メッセージが表示されます"マスター ページのエラー。ページがマスター ページの参照を必要とするコントロールが指定されていない"(図 2 参照)。
+`MasterPageFile` プロパティが `@Page` ディレクティブを使用して設定されるか、またはプログラムによってエンドユーザーのエクスペリエンスに重要ではないか。 ただし、`@Page` ディレクティブの `MasterPageFile` 属性は、デザイナーで WYSIWYG ビューを生成するために、デザイン時に Visual Studio によって使用されます。 Visual Studio で `Default.aspx` に戻り、デザイナーに移動すると、"マスターページエラー: マスターページ参照を必要とするコントロールはありますが、指定されていません" というメッセージが表示されます (図2を参照)。
 
-つまりのままにする必要があります、`MasterPageFile`属性、 `@Page` Visual Studio でデザイン時の豊富なエクスペリエンスをご利用いただくにディレクティブ。
+つまり、Visual Studio の豊富なデザイン時エクスペリエンスを利用するには、`@Page` ディレクティブに `MasterPageFile` 属性を残しておく必要があります。
 
-[![Visual Studio の使用、@Pageデザイン ビューをレンダリングするディレクティブの MasterPageFile 属性](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
+[![Visual Studio では、@Page ディレクティブの MasterPageFile 属性を使用してデザインビューを表示します。](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
 
-**図 02**:Visual Studio を使用して、`@Page`ディレクティブの`MasterPageFile`デザイン ビューを表示する属性 ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image6.png))。
+**図 02**: Visual Studio では、`@Page` ディレクティブの `MasterPageFile` 属性を使用してデザインビューを表示します ([クリックすると、フルサイズの画像が表示](specifying-the-master-page-programmatically-vb/_static/image6.png)されます)
 
-## <a name="step-3-creating-an-alternative-master-page"></a>手順 3: 代わりにマスター ページの作成
+## <a name="step-3-creating-an-alternative-master-page"></a>手順 3: 代替マスターページの作成
 
-マスター ページのコンテンツ ページの実行時にプログラムで設定するためには、外部条件に基づいて、特定のマスター ページを動的に読み込むこともできますが。 この機能は、場所、サイトのレイアウトに基づいて必要がありますを変更するため、ユーザーの状況で役立ちます。 たとえば、ブログ エンジンの web アプリケーションのユーザーに許可できます、ブログのレイアウトを選択各レイアウトが別のマスター ページに関連付けられています。 、実行時に、訪問者が、ユーザーのブログを表示するときに、web アプリケーションはブログのレイアウトを決定をコンテンツ ページと対応するマスター ページを動的に関連付ける必要。
+コンテンツページのマスターページは実行時にプログラムによって設定できるため、一部の外部条件に基づいて特定のマスターページを動的に読み込むことができます。 この機能は、ユーザーに応じてサイトのレイアウトを変更する必要がある場合に役立ちます。 たとえば、ブログエンジン web アプリケーションでは、ユーザーが自分のブログのレイアウトを選択できるようにすることができます。この場合、各レイアウトは異なるマスターページに関連付けられています。 実行時には、ビジターがユーザーのブログを閲覧するときに、web アプリケーションがブログのレイアウトを決定し、対応するマスターページをコンテンツページに動的に関連付ける必要があります。
 
-外部の条件に基づいて実行時にマスター ページを動的に読み込む方法を見てみましょう。 Web サイトには現在 1 つのマスター ページが含まれています (`Site.master`)。 別のマスター ページを示す実行時にマスター ページを選択する必要があります。 この手順は、作成して、新しいマスター ページの構成について説明します。 手順 4 では、実行時に使用するマスター ページを判断するために検索します。
+いくつかの外部条件に基づいて実行時にマスターページを動的に読み込む方法を説明します。 Web サイトには現在1つのマスターページ (`Site.master`) しか含まれていません。 実行時にマスターページを選択するには、別のマスターページが必要です。 この手順では、新しいマスターページの作成と構成に焦点を当てます。 手順4では、実行時に使用するマスターページの決定について説明します。
 
-という名前のルート フォルダーに新しいマスター ページを作成`Alternate.master`です。 新しいスタイル シートをという名前の web サイトに追加することも`AlternateStyles.css`します。
+`Alternate.master`という名前のルートフォルダーに新しいマスターページを作成します。 また、`AlternateStyles.css`という名前の web サイトに新しいスタイルシートを追加します。
 
-[![もう 1 つ追加マスター ページおよび CSS ファイル、web サイトを](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
+[別のマスターページと CSS ファイルを Web サイトに追加 ![には](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
 
-**図 03**:Web サイトにもう 1 つのマスター ページおよび CSS ファイルを追加 ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image9.png))。
+**図 03**: 別のマスターページと CSS ファイルを web サイトに追加[する (クリックすると、フルサイズの画像が表示](specifying-the-master-page-programmatically-vb/_static/image9.png)されます)
 
-設計した、`Alternate.master`マスター ページとネイビー カラーの背景に中央揃え、ページの上部に表示されるタイトルにします。 左の列の管理されているして下にあるそのコンテンツを移動、`MainContent`プレース ホルダー コントロールは、ページの幅全体にまたがるようになりました。 さらに、順序なしのレッスンのリストを nixed し、上記の水平方向のリストに置き換え`MainContent`します。 フォントおよびマスター ページで、拡張機能、そのコンテンツのページで) を使用する色も更新しました。 図 4 は`Default.aspx`を使用する場合、`Alternate.master`マスター ページ。
+ここでは、ページの上部にタイトルが表示されるように `Alternate.master` マスターページをデザインしました。これは、中央と海軍の背景にあります。 左側の列をディスペンサーし、その内容を `MainContent` ContentPlaceHolder コントロールの下に移動しました。これにより、ページ全体の幅が広がります。 さらに、順序付けられていないレッスンリストを nixed し、`MainContent`上の水平方向のリストに置き換えました。 また、マスターページで使用されるフォントや色 (拡張機能では、コンテンツページ) も更新しました。 図4は、`Alternate.master` マスターページを使用する場合の `Default.aspx` を示しています。
 
 > [!NOTE]
-> ASP.NET には、定義する機能が含まれています。*テーマ*します。 テーマは、一連のイメージ、CSS ファイル、およびスタイルに関連する Web コントロール プロパティの設定時にページに適用できます。 テーマは、サイトのレイアウトには、表示される画像でのみ、し、CSS 規則が異なる場合に移動する方法です。 など、別の Web コントロールを使用したり、根本的に異なるレイアウトを大幅により、レイアウトが異なる場合は、別のマスター ページを使用する必要があります。 テーマの詳細については、このチュートリアルの最後に、関連項目」セクションを参照してください。
+> ASP.NET には、*テーマ*を定義する機能が含まれています。 テーマとは、実行時にページに適用できる画像、CSS ファイル、スタイル関連の Web コントロールプロパティ設定のコレクションです。 テーマは、サイトのレイアウトが、表示されるイメージとその CSS ルールでのみ異なる場合に使用できます。 さまざまな Web コントロールを使用する場合や、大幅に異なるレイアウトを使用する場合など、レイアウトが大きく異なる場合は、別のマスターページを使用する必要があります。 テーマの詳細については、このチュートリアルの最後にある「参考資料」セクションを参照してください。
 
-[![このコンテンツ ページは新しいルック アンド フィールを使えるようになりました](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
+[コンテンツページで新しいルックアンドフィールを使用できるようになり ![](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
 
-**図 04**:このコンテンツ ページは新しいルック アンド フィールを使えるようになりました ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image12.png))。
+**図 04**: コンテンツページで新しいルックアンドフィールを使用できるようになりました ([クリックすると、フルサイズの画像が表示](specifying-the-master-page-programmatically-vb/_static/image12.png)されます)
 
-マスターおよびコンテンツのページのマークアップは組み合わされ、ときに、`MasterPage`クラスのすべてのコンテンツをことを確認するコンテンツ ページのコントロールは、マスター ページで ContentPlaceHolder を参照します。 存在しない ContentPlaceHolder を参照するコンテンツ コントロールが見つかった場合は、例外がスローされます。 つまり、命令型のコンテンツ ページに割り当てられているマスター ページにあるごとに、プレース ホルダーは、コンテンツ ページでコントロールのコンテンツします。
+マスターページとコンテンツページのマークアップがヒューズになっている場合、`MasterPage` クラスは、コンテンツページ内のすべてのコンテンツコントロールがマスターページ内の ContentPlaceHolder を参照していることを確認します。 存在しない ContentPlaceHolder を参照するコンテンツコントロールが見つかった場合は、例外がスローされます。 つまり、コンテンツページに割り当てられているマスターページには、コンテンツページのコンテンツコントロールごとに ContentPlaceHolder があることが必要です。
 
-`Site.master`マスター ページには、次の 4 つのプレース ホルダー コントロールが含まれています。
+`Site.master` マスターページには、4つの ContentPlaceHolder コントロールがあります。
 
 - `head`
 - `MainContent`
 - `QuickLoginUI`
 - `LeftColumnContent`
 
-1 つか 2 つのコンテンツ コントロールを含めるいくつかの web サイトのコンテンツ ページ他のユーザーには、使用可能な ContentPlaceHolders の各コンテンツ コントロールが含まれます。 場合、新しいマスター ページ (`Alternate.master`) これまでの ContentPlaceHolders のすべてのコンテンツ コントロールを与えているコンテンツ ページを割り当てることができます`Site.master`ことが重要ですしを`Alternate.master`として同じレイアウトを得ることがあります`Site.master`.
+Web サイトのコンテンツページには、1つまたは2つのコンテンツコントロールのみが含まれています。他のユーザーには、利用可能な ContentPlaceHolders ごとにコンテンツコントロールが含まれています。 新しいマスターページ (`Alternate.master`) が、`Site.master` 内のすべての ContentPlaceHolders のコンテンツコントロールを持つコンテンツページに割り当てられている可能性がある場合、`Alternate.master` も `Site.master`と同じ ContentPlaceHolder コントロールを含める必要があります。
 
-取得する、`Alternate.master`マスター ページ (図 4 参照) をマイニングは、マスター ページのスタイルを定義することによって開始のように、`AlternateStyles.css`スタイル シート。 次の規則を追加`AlternateStyles.css`:
+`Alternate.master` マスターページを手に見えるようにするには (図4を参照)、まず、`AlternateStyles.css` スタイルシートでマスターページのスタイルを定義します。 `AlternateStyles.css`に次の規則を追加します。
 
 [!code-css[Main](specifying-the-master-page-programmatically-vb/samples/sample5.css)]
 
-次に示す宣言型マークアップを次に、追加`Alternate.master`します。 ご覧のとおり、`Alternate.master`と同じ 4 つのプレース ホルダー コントロールが含まれています`ID`値内のプレース ホルダー コントロールとして`Site.master`します。 さらに、これらのページ、web サイトで ASP.NET AJAX フレームワークを使用するために必要なである ScriptManager コントロールが含まれています。
+次に、次の宣言型マークアップを `Alternate.master`に追加します。 ご覧のように、`Alternate.master` には、`Site.master`の ContentPlaceHolder コントロールと同じ `ID` 値を持つ4つの ContentPlaceHolder コントロールが含まれています。 さらに、ASP.NET AJAX フレームワークを使用する web サイトのページに必要な ScriptManager コントロールも含まれています。
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample6.aspx)]
 
-### <a name="testing-the-new-master-page"></a>新しいマスター ページのテスト
+### <a name="testing-the-new-master-page"></a>新しいマスターページのテスト
 
-この新しいマスター ページの更新プログラムをテストする、`BasePage`クラスの`OnPreInit`メソッドように、`MasterPageFile`プロパティの値が割り当てられている`"~/Alternate.maser"`し、web サイトにアクセスします。 すべてのページが 2 つを除くエラーなし機能する必要があります:`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`します。 DetailsView に製品を追加する`~/Admin/AddProduct.aspx`で結果を`NullReferenceException`、マスター ページを設定しようとするコード行から`GridMessageText`プロパティ。 アクセスすると`~/Admin/Products.aspx`、`InvalidCastException`メッセージ ページの読み込み時にスローされます。"型のオブジェクトをキャストできません 'ASP.alternate\_マスター' 型に ' ASP.site\_マスター '。"。
+この新しいマスターページをテストするには、`BasePage` クラスの `OnPreInit` メソッドを更新して、`MasterPageFile` プロパティに `"~/Alternate.maser"` 値が割り当てられるようにしてから、web サイトにアクセスします。 すべてのページはエラーなしで機能します。ただし、`~/Admin/AddProduct.aspx` と `~/Admin/Products.aspx`は除きます。 `~/Admin/AddProduct.aspx` の DetailsView に製品を追加すると、マスターページの `GridMessageText` プロパティを設定しようとするコード行から `NullReferenceException` が生成されます。 `~/Admin/Products.aspx` にアクセスすると、ページの読み込み時に `InvalidCastException` がスローされます。 "型 ' ASP のオブジェクトをキャストできません。別の\_マスター ' を型 ' ASP. サイト\_マスター ' にキャストしてください。
 
-これらのエラーが発生する、`Site.master`分離コード クラスには、パブリック イベント、プロパティ、およびで定義されていないメソッドが含まれています。`Alternate.master`します。 これら 2 つのページのマークアップの部分である、`@MasterType`を参照するディレクティブ、`Site.master`マスター ページ。
+これらのエラーは、`Site.master` 分離コードクラスに、`Alternate.master`で定義されていないパブリックイベント、プロパティ、およびメソッドが含まれているために発生します。 これら2つのページのマークアップ部分には、`Site.master` マスターページを参照する `@MasterType` ディレクティブがあります。
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample7.aspx)]
 
-また、DetailsView の`ItemInserted`内のイベント ハンドラー `~/Admin/AddProduct.aspx` 、厳密に型をキャストするコードが含まれる`Page.Master`プロパティ型のオブジェクトを`Site`します。 `@MasterType`ディレクティブ (この方法を使用) と、キャスト、`ItemInserted`イベント ハンドラーを密に結合、`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`ページを`Site.master`マスター ページ。
+また、`~/Admin/AddProduct.aspx` の DetailsView の `ItemInserted` イベントハンドラーには、弱い型指定の `Page.Master` プロパティを `Site`型のオブジェクトにキャストするコードが含まれています。 `@MasterType` ディレクティブ (この方法で使用) と `ItemInserted` イベントハンドラーのキャストによって、`~/Admin/AddProduct.aspx` と `~/Admin/Products.aspx` のページが `Site.master` マスターページに密に結合されます。
 
-あってもこの密結合を中断する`Site.master`と`Alternate.master`パブリック メンバーの定義を含む共通の基本クラスから派生します。 次に、今後更新できる、`@MasterType`この共通の基本型を参照するディレクティブ。
+この密結合を解除するには、`Site.master` `Alternate.master` して、パブリックメンバーの定義を含む共通の基本クラスから派生させることができます。 その後、この共通の基本型を参照するように `@MasterType` ディレクティブを更新できます。
 
-### <a name="creating-a-custom-base-master-page-class"></a>カスタム ベースのマスター ページ クラスを作成します。
+### <a name="creating-a-custom-base-master-page-class"></a>カスタム基本マスターページクラスの作成
 
-新しいクラス ファイルを追加、`App_Code`という名前のフォルダー`BaseMasterPage.vb`から派生すること`System.Web.UI.MasterPage`します。 定義する必要があります、`RefreshRecentProductsGrid`メソッドと`GridMessageText`プロパティ`BaseMasterPage`からそこに移動できませんだけですが、`Site.master`これらのメンバーに固有の Web コントロールを操作するため、`Site.master`マスター ページ (、 `RecentProducts`GridView と`GridMessage`ラベル)。
+`BaseMasterPage.vb` という名前の `App_Code` フォルダーに新しいクラスファイルを追加し、`System.Web.UI.MasterPage`から派生させます。 `BaseMasterPage`で `RefreshRecentProductsGrid` メソッドと `GridMessageText` プロパティを定義する必要がありますが、これらのメンバーは `Site.master` マスターページ (`RecentProducts` GridView と `GridMessage` Label) に固有の Web コントロールで動作するため、単に `Site.master` から移動することはできません。
 
-構成を行う必要がありますが`BaseMasterPage`これらのメンバーは、定義されているが、によって実際に実装される方法で`BaseMasterPage`クラスの派生 (`Site.master`と`Alternate.master`)。 この種類の継承は、クラスとしてマークすることで可能な`MustInherit`とそのメンバーとして`MustOverride`します。 つまり、クラスとその 2 つのメンバーにこれらのキーワードを追加することを発表する`BaseMasterPage`実装いない`RefreshRecentProductsGrid`と`GridMessageText`いるものの、その派生クラスは、します。
+これらのメンバーが定義されているような方法で `BaseMasterPage` を構成する必要がありますが、実際には `BaseMasterPage`の派生クラス (`Site.master` および `Alternate.master`) によって実装されます。 この種の継承は、クラスを `MustInherit` とそのメンバーを `MustOverride`としてマークすることによって可能です。 つまり、これらのキーワードをクラスとその2つのメンバーに追加する `GridMessageText`と、`BaseMasterPage` が実装されておらず、その派生クラスであることが `RefreshRecentProductsGrid` になります。
 
-定義する必要があります、`PricesDoubled`でイベント`BaseMasterPage`イベントを発生させる、派生クラスによって手段を提供します。 この動作を容易にするために、.NET Framework で使用されるパターンは、基本クラスのパブリック イベントを作成し、という名前の保護された、オーバーライド可能なメソッドを追加する`OnEventName`します。 派生クラスでは、イベントを発生させるには、このメソッドを呼び出すことができますし、またはイベントが発生した後、または直前にコードを実行するようにオーバーライドできます。
+また、`BaseMasterPage` で `PricesDoubled` イベントを定義し、派生クラスによってイベントを発生させる手段を提供する必要もあります。 この動作を容易にするために .NET Framework で使用されているパターンは、基本クラスでパブリックイベントを作成し、`OnEventName`という名前の保護されたオーバーライド可能なメソッドを追加することです。 派生クラスはこのメソッドを呼び出してイベントを発生させるか、またはイベントが発生する直前または直後にコードを実行するようにオーバーライドできます。
 
-更新プログラム、`BaseMasterPage`クラスに次のコードが含まれています。
+次のコードが含まれるように `BaseMasterPage` クラスを更新します。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample8.vb)]
 
-次に移動、`Site.master`コード分離し、クラスから派生`BaseMasterPage`します。 `BaseMasterPage`マークされたメンバーを含む`MustOverride`内で次のメンバーをオーバーライドする必要があります`Site.master`します。 追加、`Overrides`メソッドおよびプロパティ定義のキーワード。 発生させるコードを更新しても、`PricesDoubled`内のイベント、`DoublePrice`ボタンの`Click`イベント ハンドラーを基本クラスの呼び出しで`OnPricesDoubled`メソッド。
+次に、`Site.master` 分離コードクラスにアクセスし、`BaseMasterPage`から派生させます。 `BaseMasterPage` `MustOverride` マークされたメンバーが含まれているため、`Site.master`でこれらのメンバーをオーバーライドする必要があります。 メソッドとプロパティの定義に `Overrides` キーワードを追加します。 また、`DoublePrice` ボタンの `Click` イベントハンドラーの `PricesDoubled` イベントを発生させるコードを、基本クラスの `OnPricesDoubled` メソッドの呼び出しで更新します。
 
-これらの変更後、`Site.master`分離コード クラスは、次のコードを含める必要があります。
+これらの変更を行った後、`Site.master` 分離コードクラスに次のコードが含まれている必要があります。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample9.vb)]
 
-更新する必要もあります`Alternate.master`の分離コード クラスから派生する`BaseMasterPage`、2 つのオーバーライドと`MustOverride`メンバー。 しかし`Alternate.master`リストが最新の製品や新製品の後にメッセージを表示するラベルは、データベースに追加されて、これらのメソッドは必要がないこと何もする GridView が含まれていません。
+また、`BaseMasterPage` から派生し、2つの `MustOverride` メンバーをオーバーライドするように `Alternate.master`の分離コードクラスを更新する必要もあります。 ただし `Alternate.master` には、最新の製品を一覧表示する GridView や、新しい製品をデータベースに追加した後にメッセージを表示するラベルが含まれていないため、これらのメソッドは何もする必要はありません。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample10.vb)]
 
-### <a name="referencing-the-base-master-page-class"></a>ベースのマスター ページのクラスを参照します。
+### <a name="referencing-the-base-master-page-class"></a>基本マスターページクラスの参照
 
-これで完了しました、`BaseMasterPage`クラスおよび拡張すること、2 つのマスター ページ、最後の手順が更新するには、`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`この一般的な型を参照するページ。 変更することで開始、`@MasterType`から両方のページ ディレクティブ。
+これで `BaseMasterPage` クラスが完成し、2つのマスターページが拡張されました。最後に、この共通の型を参照するように `~/Admin/AddProduct.aspx` と `~/Admin/Products.aspx` のページを更新します。 まず、次のいずれかのページで `@MasterType` ディレクティブを変更します。
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample11.aspx)]
 
-移動先:
+宛先:
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample12.aspx)]
 
-ファイルのパスを参照するのではなく、`@MasterType`プロパティでは、基本データ型を参照 (`BaseMasterPage`)。 その結果、厳密に型指定された`Master`両方のページの分離コード クラスで使用されるプロパティは、現在の型の`BaseMasterPage`(型ではなく`Site`)。 この場所の変更を再検討`~/Admin/Products.aspx`します。 以前は、このエラーが発生した、キャスト、ページを使用して構成されているため、`Alternate.master`マスター ページですが、`@MasterType`参照ディレクティブ、`Site.master`ファイル。 エラーが発生せず、ページをレンダリングするようになりました。 これは、ため、`Alternate.master`マスター ページは、型のオブジェクトにキャストできます`BaseMasterPage`(からの拡張と)。
+`@MasterType` プロパティは、ファイルパスを参照するのではなく、基本データ型 (`BaseMasterPage`) を参照するようになりました。 このため、両方のページの分離コードクラスで使用される厳密に型指定された `Master` プロパティは、型 `Site`ではなく `BaseMasterPage` 型になりました。 この変更を行った後、`~/Admin/Products.aspx`を再実行します。 以前は、ページは `Alternate.master` マスターページを使用するように構成されていますが、`@MasterType` ディレクティブは `Site.master` ファイルを参照しているため、キャストエラーが発生しました。 しかし、ページはエラーなしでレンダリングされるようになりました。 これは、`Alternate.master` マスターページが `BaseMasterPage` 型のオブジェクト (拡張されているため) にキャストできるためです。
 
-作成する必要がある 1 つの小さな変更がある`~/Admin/AddProduct.aspx`します。 DetailsView コントロールの`ItemInserted`両方、厳密に型指定されたイベント ハンドラーを使用して`Master`プロパティと、厳密に型`Page.Master`プロパティ。 更新されたときに、厳密に型指定された参照を修正しました、`@MasterType`ディレクティブが疎に型指定された参照を更新する必要がまだします。 次のコード行に置き換えます。
+`~/Admin/AddProduct.aspx`で行う必要がある小さな変更が1つあります。 DetailsView コントロールの `ItemInserted` イベントハンドラーは、厳密に型指定された `Master` プロパティと、緩やかに型指定された `Page.Master` プロパティの両方を使用します。 `@MasterType` ディレクティブを更新したときに、厳密に型指定された参照を修正しましたが、それでも緩やかに型指定された参照を更新する必要があります。 次のコード行を置き換えます。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample13.vb)]
 
-キャストが、次のよう`Page.Master`基本型にします。
+次のを使用すると、`Page.Master` が基本型にキャストされます。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample14.vb)]
 
-## <a name="step-4-determining-what-master-page-to-bind-to-the-content-pages"></a>手順 4: コンテンツのページにバインドするには、どのようなマスター ページを決定します。
+## <a name="step-4-determining-what-master-page-to-bind-to-the-content-pages"></a>手順 4: コンテンツページにバインドするマスターページを決定する
 
-この`BasePage`クラスは、すべてのコンテンツ ページを現在設定`MasterPageFile`プロパティ ページのライフ サイクルの PreInit ステージでハード コーディングされた値にします。 私たちは、外部要因でマスター ページを基に、このコードを更新できます。 おそらくマスター ページを読み込むには、現在ログオンしているユーザーの基本設定に依存します。 その場合は、コードを記述する必要は、`OnPreInit`メソッド`BasePage`現在アクセスしたユーザーのマスター ページの基本設定を検索します。
+`BasePage` クラスでは、現在、ページライフサイクルの PreInit ステージで、すべてのコンテンツページの `MasterPageFile` プロパティがハードコーディングされた値に設定されています。 このコードを更新して、マスターページの基礎を外部要因にすることができます。 場合によっては、マスターページは、現在ログオンしているユーザーの設定によって異なります。 その場合は、現在アクセスしているユーザーのマスターページの設定を検索する `BasePage` の `OnPreInit` メソッドにコードを記述する必要があります。
 
-ユーザーが使用するマスター ページを選択できる web ページを作成しましょう`Site.master`または`Alternate.master`-セッション変数にこの選択を保存します。 という名前のルート ディレクトリで新しい web ページを作成して開始`ChooseMasterPage.aspx`します。 このページ (またはその他のコンテンツ ページ以下) を作成するときに、マスター ページは、プログラムで設定されているため、マスター ページにバインドする必要はありません`BasePage`します。 ただし、マスター ページに新しいページをバインドしない場合、新しいページの既定の宣言型マークアップが含まれています、Web フォームとマスター ページで指定されたその他のコンテンツ。 手動でこのマークアップを適切なコンテンツ コントロールに置き換える必要があります。 そのため、方が簡単に新しい ASP.NET ページをマスター ページにバインドします。
+`Site.master` または `Alternate.master` を使用するマスターページをユーザーが選択し、この選択をセッション変数に保存できる web ページを作成してみましょう。 まず、`ChooseMasterPage.aspx`という名前のルートディレクトリに新しい web ページを作成します。 このページ (またはその他のコンテンツページその後) を作成する場合は、マスターページが `BasePage`でプログラムによって設定されるので、マスターページにバインドする必要はありません。 ただし、新しいページをマスターページにバインドしない場合、新しいページの既定の宣言マークアップには、マスターページによって提供される Web フォームとその他のコンテンツが含まれます。 このマークアップは、適切なコンテンツコントロールに手動で置き換える必要があります。 そのため、新しい ASP.NET ページをマスターページに簡単にバインドできます。
 
 > [!NOTE]
-> `Site.master`と`Alternate.master`が同じ設定のプレース ホルダー コントロールのどのようなマスター ページを新しいコンテンツ ページを作成するときに選択するかは関係ありません。 一貫性を保つのためにそちらを使用して`Site.master`します。
+> `Site.master` と `Alternate.master` は同じ ContentPlaceHolder コントロールのセットを持つため、新しいコンテンツページを作成するときにどのマスターページを選択するかは関係ありません。 一貫性を確保するために、`Site.master`を使用することをお勧めします。
 
-[![新しいコンテンツ ページ、web サイトを追加します。](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
+[新しいコンテンツページを Web サイトに追加 ![には](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
 
-**図 05**:新しいコンテンツ ページ、web サイトを追加 ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image15.png))。
+**図 05**: web サイトに新しいコンテンツページを追加する ([クリックすると、フルサイズの画像が表示](specifying-the-master-page-programmatically-vb/_static/image15.png)されます)
 
-更新プログラム、`Web.sitemap`このレッスンのエントリを追加するファイル。 下に次のマークアップを追加、`<siteMapNode>`マスター ページと ASP.NET AJAX のレッスン。
+このレッスンのエントリを含めるように `Web.sitemap` ファイルを更新します。 マスターページと ASP.NET AJAX レッスンの `<siteMapNode>` の下に次のマークアップを追加します。
 
 [!code-xml[Main](specifying-the-master-page-programmatically-vb/samples/sample15.xml)]
 
-任意のコンテンツを追加する前に、`ChooseMasterPage.aspx`ページから派生するように、ページの分離コード クラスを更新する少し`BasePage`(なく`System.Web.UI.Page`)。 DropDownList コントロールをページに追加、設定を次に、その`ID`プロパティを`MasterPageChoice`で 2 つのリスト項目を追加し、`Text`の値"~/Site.master"と"~/Alternate.master"。
+コンテンツを `ChooseMasterPage.aspx` ページに追加する前に、ページの分離コードクラスを更新して、`BasePage` (`System.Web.UI.Page`ではなく) から派生するようにします。 次に、DropDownList コントロールをページに追加し、その `ID` プロパティを `MasterPageChoice`に設定します。さらに、"~/ListItems" の `Text` 値を持つ2つのを追加します。
 
-ボタンの Web コントロールをページに追加し、設定、`ID`と`Text`プロパティを`SaveLayout`"保存レイアウト Choice"、およびそれぞれします。 この時点で、ページの宣言型マークアップは、次のようになります。
+ボタン Web コントロールをページに追加し、その `ID` と `Text` プロパティをそれぞれ `SaveLayout` および "レイアウト選択の保存" をそれぞれ設定します。 この時点で、ページの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample16.aspx)]
 
-ページが初めてアクセスしたときに、ユーザーの現在選択されているマスター ページの選択を表示する必要があります。 作成、`Page_Load`イベント ハンドラーを次のコードを追加。
+ページに最初にアクセスしたときに、ユーザーが現在選択しているマスターページを表示する必要があります。 `Page_Load` イベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample17.vb)]
 
-上記のコードでは、最初のページ アクセスでのみ (および以降のポストバックではなく) を実行します。 かどうかをまずセッション変数`MyMasterPage`存在します。 場合に一致する ListItem を探そうと、 `MasterPageChoice` DropDownList します。 一致する ListItem が見つかった場合、`Selected`プロパティに設定されて`True`します。
+上記のコードは、最初のページにアクセスしたときにのみ実行されます (以降のポストバックでは実行されません)。 まず、セッション変数 `MyMasterPage` 存在するかどうかを確認します。 含まれている場合は、一致する ListItem を `MasterPageChoice` DropDownList で見つけようと試みます。 一致する ListItem が見つかった場合、その `Selected` プロパティは `True`に設定されます。
 
-ユーザーの選択を保存するコードも必要があります、`MyMasterPage`セッション変数。 イベント ハンドラーを作成、`SaveLayout`ボタンの`Click`イベントと、次のコードを追加します。
+また、ユーザーの選択を `MyMasterPage` セッション変数に保存するコードも必要です。 `SaveLayout` ボタンの `Click` イベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample18.vb)]
 
 > [!NOTE]
-> 時間によって、`Click`ポストバック時にイベント ハンドラーが実行される、マスター ページは既に選択されています。 そのため、ユーザーの一覧から選択有効になりませんまで、次のページを参照してください。 `Response.Redirect`強制的に再要求するブラウザー`ChooseMasterPage.aspx`します。
+> ポストバック時に `Click` イベントハンドラーが実行されるまでに、マスターページは既に選択されています。 そのため、ユーザーのドロップダウンリストの選択は、次のページにアクセスするまで有効になりません。 `Response.Redirect` は、ブラウザーが `ChooseMasterPage.aspx`を再要求します。
 
-`ChooseMasterPage.aspx`が完全なページで、最後のタスクは`BasePage`割り当てる、`MasterPageFile`プロパティの値に基づいて、`MyMasterPage`セッション変数。 セッション変数が設定されていない場合がある`BasePage`既定`Site.master`します。
+`ChooseMasterPage.aspx` のページが完成したら、最後のタスクとして、`MyMasterPage` Session 変数の値に基づいて `MasterPageFile` プロパティ `BasePage` 割り当てる必要があります。 セッション変数が設定されていない場合は `BasePage` 既定で `Site.master`になります。
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample19.vb)]
 
 > [!NOTE]
-> 代入するコードを移動、`Page`オブジェクトの`MasterPageFile`プロパティのうち、`OnPreInit`イベント ハンドラーと 2 つの異なるメソッドにします。 この最初のメソッドで`SetMasterPageFile`、代入、`MasterPageFile`プロパティを 2 番目のメソッドによって返される値に`GetMasterPageFileFromSession`します。 マークは、`SetMasterPageFile`メソッド`Overridable`今後のクラスを拡張するように`BasePage`必要に応じて、カスタム ロジックを実装するために、必要に応じてオーバーライドできます。 オーバーライドする例を見て`BasePage`の`SetMasterPageFile`プロパティで、次のチュートリアル。
+> ここでは、`Page` オブジェクトの `MasterPageFile` プロパティを `OnPreInit` イベントハンドラーから、2つの別々のメソッドに割り当てるコードを移動しました。 この最初のメソッド `SetMasterPageFile`は、`MasterPageFile` プロパティを、`GetMasterPageFileFromSession`2 番目のメソッドによって返される値に割り当てます。 `BasePage` を拡張する今後のクラスが必要に応じて、必要に応じてカスタムロジックを実装できるように、`SetMasterPageFile` メソッドを `Overridable` マークしました。 `BasePage`の `SetMasterPageFile` プロパティをオーバーライドする例については、次のチュートリアルで説明します。
 
-このコードを参照してください。、`ChooseMasterPage.aspx`ページ。 最初に、`Site.master`マスター ページが選択されていると (を図 6 参照) が、ユーザーがドロップダウン リストから別のマスター ページを選択できます。
+このコードを配置したら、`ChooseMasterPage.aspx` のページにアクセスします。 最初に、`Site.master` マスターページが選択されています (図6を参照)。ただし、ユーザーはドロップダウンリストから別のマスターページを選択できます。
 
-[![Site.master マスター ページを使用してコンテンツ ページが表示されます。](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
+[![コンテンツページは、サイトのマスターマスターページを使用して表示されます。](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
 
-**図 06**:使用して表示されるページは、コンテンツ、`Site.master`マスター ページ ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image18.png))。
+**図 06**: `Site.master` マスターページを使用してコンテンツページを表示[する (クリックすると、フルサイズの画像が表示](specifying-the-master-page-programmatically-vb/_static/image18.png)されます)
 
-[![コンテンツ ページが Alternate.master マスター ページを使用して表示されます。](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
+[代替のマスターページを使用して ![コンテンツページが表示されるようになりました。](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
 
-**図 07**:コンテンツ ページは、今すぐ表示を使用して、`Alternate.master`マスター ページ ([フルサイズの画像を表示する をクリックします](specifying-the-master-page-programmatically-vb/_static/image21.png))。
+**図 07**: `Alternate.master` マスターページを使用してコンテンツページが表示されるようになりました ([クリックしてフルサイズのイメージを表示](specifying-the-master-page-programmatically-vb/_static/image21.png))
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-コンテンツ ページがアクセスしたときに、コンテンツ コントロールはそのマスター ページの ContentPlaceHolder コントロールと組み合わされします。 コンテンツ ページのマスター ページがで示される、`Page`クラスの`MasterPageFile`プロパティに割り当てられる、`@Page`ディレクティブの`MasterPageFile`初期化段階での属性。 このチュートリアルでは示しました、値を割り当てることができますと、 `MasterPageFile` PreInit ステージの終了前に、これを行っている限りプロパティ。 プログラムでマスター ページを指定することには、外部要因に基づく、マスター ページにコンテンツ ページを動的にバインドするなどの高度なシナリオのドアが表示されます。
+コンテンツページにアクセスすると、そのコンテンツコントロールは、そのマスターページの ContentPlaceHolder コントロールと共に使用されます。 コンテンツページのマスターページは `Page` クラスの `MasterPageFile` プロパティによって示されます。このプロパティは、初期化段階で `@Page` ディレクティブの `MasterPageFile` 属性に割り当てられます。 このチュートリアルで説明したように、PreInit 段階の終了前に `MasterPageFile` 値を割り当てることができます。 プログラムを使用してマスターページを指定することで、外部要因に基づいてコンテンツページをマスターページに動的にバインドするなど、より高度なシナリオのためにドアを開くことができます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ASP.NET ページ ライフ サイクルの図](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [ASP.NET ページ ライフ サイクルの概要](https://msdn.microsoft.com/library/ms178472.aspx)
-- [ASP.NET のテーマおよびスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)
-- [マスター ページ:ヒント、テクニック、およびトラップ](http://www.odetocode.com/articles/450.aspx)
-- [ASP.NET におけるテーマ](http://www.odetocode.com/articles/423.aspx)
+- [ASP.NET Page ライフサイクル図](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
+- [ASP.NET ページライフサイクルの概要](https://msdn.microsoft.com/library/ms178472.aspx)
+- [ASP.NET テーマとスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)
+- [マスターページ: ヒント、テクニック、およびトラップ](http://www.odetocode.com/articles/450.aspx)
+- [ASP.NET のテーマ](http://www.odetocode.com/articles/423.aspx)
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)作成者の複数受け取りますブックと 4GuysFromRolla.com の創設者で、携わって Microsoft Web テクノロジ 1998 年からです。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 3.5 in 24 時間*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)します。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別なに感謝します。
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者が、Suchi 著。 今後、MSDN の記事を確認したいですか。 場合は、筆者に [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは、Suchi になりました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](master-pages-and-asp-net-ajax-vb.md)

@@ -1,115 +1,115 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
-title: ASP.NET MVC アプリケーション (VB) の単体テストの作成 |Microsoft Docs
+title: ASP.NET MVC アプリケーション用の単体テストの作成 (VB) |Microsoft Docs
 author: StephenWalther
-description: コント ローラー アクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther はコント ローラーのアクションは、parti を返すかどうかをテストする方法を示します.
+description: コントローラーアクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther はコントローラーアクションが parti を返すかどうかをテストする方法を示しています。
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: eb35710d-1d99-44ac-b61f-e50af8cb328a
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c97d202c702253f2ff79a70c1d6e43b11999ea14
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 643faddaf6f9cd075131e8e5a9cccb303e355ceb
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117261"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594688"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>ASP.NET MVC アプリケーションの単体テストを作成する (VB)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-[PDF のダウンロード](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_VB.pdf)
+[PDF のダウンロード](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_VB.pdf)
 
-> コント ローラー アクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther はコント ローラー アクションの特定のビューを返します、特定のデータのセットを返しますまたは別の種類のアクションの結果を返すかどうかをテストする方法を示します。
+> コントローラーアクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther は、コントローラーアクションが特定のビューを返すか、特定のデータセットを返すか、または別の種類のアクション結果を返すかをテストする方法を示しています。
 
-このチュートリアルの目的を作成する方法、コント ローラーの単体テスト、ASP.NET MVC でアプリケーションを示すことです。 次の 3 つの異なる種類の単体テストを作成する方法について説明します。 コント ローラーのアクションによって返されるデータの表示をテストする方法、および 1 つのコント ローラー アクションが 2 番目のコント ローラー アクションにリダイレクトするかどうかをテスト コント ローラーのアクションによって返されるビューをテストする方法について説明します。
+このチュートリアルの目的は、ASP.NET MVC アプリケーションでコントローラーの単体テストを作成する方法を説明することです。 ここでは、3種類の単体テストを作成する方法について説明します。 コントローラーアクションによって返されるビューをテストする方法、コントローラーアクションによって返されるビューデータをテストする方法、1つのコントローラーアクションが2番目のコントローラーアクションにリダイレクトするかどうかをテストする方法について説明します。
 
-## <a name="creating-the-controller-under-test"></a>テスト コント ローラーの作成
+## <a name="creating-the-controller-under-test"></a>テスト対象のコントローラーを作成しています
 
-テストしようとするコント ローラーを作成してみましょう。 という名前のコント ローラー、 `ProductController`、リスト 1 に含まれています。
+まず、テストするコントローラーを作成してみましょう。 `ProductController`という名前のコントローラーは、リスト1に含まれています。
 
-**1 – を一覧表示します。 `ProductController.vb`**
+**リスト1– `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample1.vb)]
 
-`ProductController`という 2 つのアクション メソッドが含まれています`Index()`と`Details()`します。 両方のアクション メソッドでは、ビューを返します。 なお、`Details()`アクション id という名前のパラメーターを受け取る。
+`ProductController` には、`Index()` と `Details()`という2つのアクションメソッドが含まれています。 どちらのアクションメソッドもビューを返します。 `Details()` アクションでは、Id という名前のパラメーターを受け取ることに注意してください。
 
-## <a name="testing-the-view-returned-by-a-controller"></a>ビューをテスト コント ローラーによって返される
+## <a name="testing-the-view-returned-by-a-controller"></a>コントローラーによって返されるビューをテストする
 
-テストすることを想像してくださいかどうか、`ProductController`右側のビューを返します。 確認するときに、`ProductController.Details()`アクションが呼び出されると、詳細ビューが返されます。 リスト 2 でのテスト クラスには、テストによって返されるビュー用の単体テストが含まれています、`ProductController.Details()`アクション。
+`ProductController` が正しいビューを返すかどうかをテストするとします。 `ProductController.Details()` アクションが呼び出されたときに、詳細ビューが返されるようにします。 リスト2のテストクラスには、`ProductController.Details()` アクションによって返されたビューをテストするための単体テストが含まれています。
 
-**2 – を一覧表示します。 `ProductControllerTest.vb`**
+**リスト2– `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample2.vb)]
 
-リスト 2 でクラスには、という名前のテスト メソッドが含まれています。`TestDetailsView()`します。 このメソッドには、次の 3 つの行コードにはが含まれています。 コードの最初の行の新しいインスタンスを作成し、`ProductController`クラス。 コードの 2 行目がコント ローラーを呼び出す`Details()`アクション メソッド。 ビューがによって返されるかどうか、コードのチェックの最後の行、最後に、`Details()`操作は、詳細ビュー。
+リスト2のクラスには、`TestDetailsView()`という名前のテストメソッドが含まれています。 このメソッドには3行のコードが含まれています。 コードの1行目では、`ProductController` クラスの新しいインスタンスを作成します。 コードの2行目では、コントローラーの `Details()` アクションメソッドを呼び出します。 最後に、コードの最後の行で、`Details()` アクションによって返されるビューが詳細ビューであるかどうかをチェックします。
 
-`ViewResult.ViewName`プロパティは、コント ローラーによって返されるビューの名前を表します。 このプロパティのテストに関するビッグ警告を 1 つ。 これには、コント ローラーがビューを返すことができます 2 つの方法があります。 コント ローラーには、このようなビューを明示的に返されます。
+`ViewResult.ViewName` プロパティは、コントローラーによって返されるビューの名前を表します。 このプロパティのテストに関する大きな警告が1つあります。 コントローラーがビューを返すには、2つの方法があります。 コントローラーは、次のようなビューを明示的に返すことができます。
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample3.vb)]
 
-また、ビューの名前は、このようなコント ローラー アクションの名前から推論できます。
+また、ビューの名前は、次のようにコントローラーアクションの名前から推論することもできます。
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample4.vb)]
 
-という名前のビューを返すコント ローラー アクション`Details`します。 ただし、ビューの名前は、アクション名から推測されます。 ビュー名をテストする場合は、コント ローラー アクションからビュー名に明示的に返す必要があります。
+このコントローラーアクションは、`Details`という名前のビューも返します。 ただし、ビューの名前はアクション名から推測されます。 ビュー名をテストする場合は、コントローラーアクションからビュー名を明示的に返す必要があります。
 
-リスト 2 で単体テストを実行するには、キーボードの組み合わせを入力するか、 **CTRL + R、A**かをクリックして、**ソリューション内のすべてのテストを実行**(図 1 参照) ボタンをクリックします。 テストが成功した場合は、図 2 でテスト結果 ウィンドウを確認します。
+リスト2で単体テストを実行するには、 **Ctrl + R キー**の組み合わせを入力するか、 **[ソリューション内のすべてのテストを実行]** ボタン (図1を参照) をクリックします。 テストに合格すると、図2の [テスト結果] ウィンドウが表示されます。
 
-[![ソリューション内のすべてのテストを実行します。](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
+[ソリューション内のすべてのテストを実行 ![](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
 
-**図 01**:ソリューション内のすべてのテストの実行 ([フルサイズの画像を表示する をクリックします](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png))。
+**図 01**: ソリューション内のすべてのテストを実行[する (クリックすると、フルサイズのイメージが表示](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png)される)
 
-[![Success!](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
+[![成功しました。](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
 
-**図 02**:正常に完了 ([フルサイズの画像を表示する をクリックします](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image6.png))。
+**図 02**: 成功! ([クリックすると、フルサイズの画像が表示](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image6.png)される)
 
-## <a name="testing-the-view-data-returned-by-a-controller"></a>コント ローラーによって返されるデータの表示のテスト
+## <a name="testing-the-view-data-returned-by-a-controller"></a>コントローラーによって返されるビューデータのテスト
 
-MVC コント ローラーがビューと呼ばれるものを使用してデータを渡します *`View Data`* します。 たとえばを呼び出すときに、特定の製品の詳細を表示する、`ProductController Details()`アクション。 インスタンスを作成する場合、 `Product` (モデルで定義された) クラスにインスタンスを渡すと、`Details`活用してビュー`View Data`します。
+MVC コントローラーは、 *`View Data`* と呼ばれるものを使用してビューにデータを渡します。 たとえば、`ProductController Details()` アクションを呼び出すときに、特定の製品の詳細を表示したいとします。 その場合は、モデルで定義されている `Product` クラスのインスタンスを作成し、`View Data`を利用して、そのインスタンスを `Details` ビューに渡すことができます。
 
-変更された`ProductController`リスト 3 で更新が含まれています`Details()`積を返すアクション。
+一覧3の変更された `ProductController` には、製品を返す更新された `Details()` アクションが含まれています。
 
-**3 – を一覧表示します。 `ProductController.vb`**
+**リスト3– `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample5.vb)]
 
-まず、`Details()`アクションの新しいインスタンスを作成する、`Product`ラップトップ コンピューターを表すクラスです。 次のインスタンス、`Product`クラスは、2 番目のパラメーターとして渡される、`View()`メソッド。
+まず、`Details()` アクションは、ラップトップコンピューターを表す `Product` クラスの新しいインスタンスを作成します。 次に、`Product` クラスのインスタンスが、2番目のパラメーターとして `View()` メソッドに渡されます。
 
-単体テストを記述するビューにデータで含まれている必要なデータがあるかどうかをテストします。 呼び出すとき、ラップトップ コンピューターを表す製品が返されるかどうかに、リスト 4 のテストでは、単体テスト、`ProductController Details()`アクション メソッド。
+単体テストを記述して、予想されるデータがビューデータに含まれているかどうかをテストできます。 リスト4の単体テストでは、`ProductController Details()` アクションメソッドを呼び出すと、ラップトップコンピューターを表す製品が返されるかどうかをテストします。
 
-**4 – を一覧表示します。 `ProductControllerTest.vb`**
+**リスト4– `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample6.vb)]
 
-リストの 4、`TestDetailsView()`メソッド呼び出しによって返されるデータの表示のテスト、`Details()`メソッド。 `ViewData`にプロパティとして公開、`ViewResult`呼び出しによって返される、`Details()`メソッド。 `ViewData.Model`プロパティには、ビューに渡される、製品が含まれています。 テストでは、単に名ラップトップをビューのデータに含まれる製品であることを確認します。
+リスト4では、`TestDetailsView()` メソッドは、`Details()` メソッドを呼び出すことによって返されたビューデータをテストします。 `ViewData` は、`Details()` メソッドを呼び出すことによって返される `ViewResult` のプロパティとして公開されます。 `ViewData.Model` プロパティには、ビューに渡される製品が含まれています。 このテストでは、単に、ビューデータに含まれている製品に "ラップトップ" という名前が付いていることを確認します。
 
-## <a name="testing-the-action-result-returned-by-a-controller"></a>コント ローラーによって返されるアクションの結果をテストします。
+## <a name="testing-the-action-result-returned-by-a-controller"></a>コントローラーによって返されるアクションの結果のテスト
 
-複雑なコント ローラー アクションには、さまざまな種類のコント ローラー アクションに渡されるパラメーターの値に応じてアクションの結果を返す可能性があります。 コント ローラーのアクションは、さまざまな種類のアクションの結果などを返すことができます、 `ViewResult`、 `RedirectToRouteResult`、または`JsonResult`します。
+より複雑なコントローラーアクションは、コントローラーアクションに渡されるパラメーターの値に応じて、さまざまな種類のアクション結果を返す可能性があります。 コントローラーアクションは、`ViewResult`、`RedirectToRouteResult`、`JsonResult`など、さまざまな種類のアクション結果を返すことができます。
 
-たとえば、変更された`Details()`リスト 5 でアクションを返します、`Details`アクションに有効なプロダクト Id を渡すときに表示します。 リダイレクトして 1--よりも小さい無効な製品 Id - Id 値を渡す場合、`Index()`アクション。
+たとえば、リスト5の変更された `Details()` アクションでは、有効な製品 Id をアクションに渡すと、`Details` ビューが返されます。 無効な製品 Id (値が1未満の Id) を渡した場合、`Index()` アクションにリダイレクトされます。
 
-**5 – を一覧表示します。 `ProductController.vb`**
+**リスト5– `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample7.vb)]
 
-動作をテストすることができます、`Details()`リスト 6 で単体テストを操作します。 6 の一覧で、単体テストにリダイレクトされることを確認します、`Index`に値が-1 の Id が渡されるときの表示、`Details()`メソッド。
+リスト6の単体テストを使用して、`Details()` アクションの動作をテストできます。 リスト6の単体テストでは、値-1 の Id が `Details()` メソッドに渡されたときに `Index` ビューにリダイレクトされることを確認します。
 
-**6 – を一覧表示します。 `ProductControllerTest.vb`**
+**リスト6– `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample8.vb)]
 
-呼び出すと、`RedirectToAction()`メソッドでコント ローラー アクション、コント ローラー アクションを返します、`RedirectToRouteResult`します。 テスト チェックするかどうか、`RedirectToRouteResult`という名前のコント ローラー アクションにユーザーをリダイレクト`Index`します。
+コントローラーアクションで `RedirectToAction()` メソッドを呼び出すと、コントローラーアクションは `RedirectToRouteResult`を返します。 テストでは、`RedirectToRouteResult` が `Index`という名前のコントローラーアクションにユーザーをリダイレクトするかどうかを確認します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、MVC コント ローラー アクションの単体テストを作成する方法について説明しました。 最初に、右側のビューがコント ローラーのアクションによって返されるかどうかを確認する方法を学習しました。 使用する方法を学習しました、`ViewResult.ViewName`プロパティをビューの名前を確認します。
+このチュートリアルでは、MVC コントローラーアクションの単体テストを作成する方法について学習しました。 まず、コントローラーアクションによって、右側のビューが返されるかどうかを確認する方法を学習しました。 `ViewResult.ViewName` プロパティを使用して、ビューの名前を確認する方法について学習しました。
 
-内容をテストする方法を調べて次に、`View Data`します。 適切な製品が返されたかどうかを確認する方法を学習しました`View Data`コント ローラーのアクションを呼び出した後。
+次に、`View Data`の内容をテストする方法について説明します。 コントローラーアクションを呼び出した後に `View Data` で正しい製品が返されたかどうかを確認する方法について学習しました。
 
-最後に、さまざまな種類のアクションの結果は、コント ローラー アクションから返されるかどうかをテストする方法について説明します。 コント ローラーを返すかどうかをテストする方法を学習しました、`ViewResult`または`RedirectToRouteResult`します。
+最後に、さまざまな種類のアクションの結果がコントローラーアクションから返されたかどうかをテストする方法について説明しました。 コントローラーが `ViewResult` と `RedirectToRouteResult`のどちらを返すかをテストする方法について学習しました。
 
 > [!div class="step-by-step"]
 > [前へ](creating-unit-tests-for-asp-net-mvc-applications-cs.md)

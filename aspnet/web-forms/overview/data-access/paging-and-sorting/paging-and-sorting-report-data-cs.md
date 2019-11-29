@@ -1,37 +1,37 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
-title: レポート データ (c#) のページングと並べ替え |Microsoft Docs
+title: レポートデータのページングと並べ替えC#() |Microsoft Docs
 author: rick-anderson
-description: ページングと並べ替えは、2 つの非常に一般的な機能は、オンライン アプリケーションでデータを表示する場合です。 このチュートリアルで見ていきますを最初に、並べ替えの追加としています.
+description: ページングと並べ替えは、オンラインアプリケーションにデータを表示するときの2つの非常に一般的な機能です。 このチュートリアルでは、並べ替えの追加と...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 811a6ef2-ec66-4c8e-a089-6f795056e288
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6828c5c6724c84d84fc3fefa53a1b13da1b3a16f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2f77040316dadc218b8183e52628dc0cfe3b35a1
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131588"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74587007"
 ---
 # <a name="paging-and-sorting-report-data-c"></a>レポート データのページングと並べ替え (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_24_CS.exe)または[PDF のダウンロード](paging-and-sorting-report-data-cs/_static/datatutorial24cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_24_CS.exe)または[PDF のダウンロード](paging-and-sorting-report-data-cs/_static/datatutorial24cs1.pdf)
 
-> ページングと並べ替えは、2 つの非常に一般的な機能は、オンライン アプリケーションでデータを表示する場合です。 このチュートリアルでは、並べ替えと、レポートでは、今後のチュートリアルの上に構築しページングの追加の紹介をみましょう。
+> ページングと並べ替えは、オンラインアプリケーションにデータを表示するときの2つの非常に一般的な機能です。 このチュートリアルでは、レポートに並べ替えとページングを追加する方法について最初に説明します。これは今後のチュートリアルで作成します。
 
 ## <a name="introduction"></a>はじめに
 
-ページングと並べ替えは、2 つの非常に一般的な機能は、オンライン アプリケーションでデータを表示する場合です。 たとえば、何百ものこのようなブックがある可能性があります、オンライン書店で ASP.NET に関する書籍を検索するときが検索結果の一覧を表示するレポートには、1 ページあたり 10 個の一致項目が一覧表示されます。 さらに、タイトル、価格、ページ数、作成者名、して結果を並べ替えることができます。 23 のチュートリアルは、さまざまなデータの削除、追加、編集、およびインターフェイスを含め、レポートを構築する方法を確認した過去の中にいないデータとのみを並べ替える方法について見てきました例のページング文言は、DetailsView と FormView を使用されています。コントロール。
+ページングと並べ替えは、オンラインアプリケーションにデータを表示するときの2つの非常に一般的な機能です。 たとえば、オンライン書店で ASP.NET books を検索する場合、このような書籍は多数存在する可能性がありますが、検索結果を一覧表示するレポートでは、1ページあたり10件の一致のみが一覧表示されます。 さらに、結果はタイトル、価格、ページ数、作成者名などで並べ替えることができます。 過去23のチュートリアルでは、データの追加、編集、削除を行うことができるインターフェイスを含むさまざまなレポートを作成する方法を確認しましたが、データの並べ替え方法については説明しませんでした。また、DetailsView と FormView を使用したページングの例のみを説明しました。制限.
 
-このチュートリアルでは、並べ替えとページング、レポートには、いくつかのチェック ボックスをチェックするだけで実現可能を追加する方法がわかります。 残念ながら、この簡単な実装が、並べ替えのインターフェイスが望ましい場合に少し短所の影響と、大きな結果セットを効率的にページング用ページング ルーチンではありません。 今後のチュートリアルは、-、-インボックス ページングと並べ替えのソリューションの制限を克服する方法を学びます。
+このチュートリアルでは、レポートに並べ替えとページングを追加する方法について説明します。これは、いくつかのチェックボックスをオンにするだけで実現できます。 残念ながら、この単純な実装には欠点があるため、並べ替えインターフェイスは必要になることがあり、ページングルーチンは大きな結果セットを効率的にページングするようには設計されていません。 今後のチュートリアルでは、すぐに使えるページングと並べ替えソリューションの制限を克服する方法について説明します。
 
-## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>手順 1: ページングを追加して、チュートリアルの Web ページの並べ替え
+## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>手順 1: ページングと並べ替えのチュートリアル Web ページの追加
 
-このチュートリアルを始める前に、最初に実行しなければならないし、このチュートリアルの 3 つの ASP.NET ページを追加するのには少し s を使用できます。 という名前のプロジェクトで新しいフォルダーを作成して開始`PagingAndSorting`します。 次に、次の 5 つの ASP.NET ページをこのフォルダーは、すべてのマスター ページを使用するように構成する追加`Site.master`:
+このチュートリアルを開始する前に、このチュートリアルに必要な ASP.NET ページを追加し、次の3つについて説明します。 まず、`PagingAndSorting`という名前のプロジェクトに新しいフォルダーを作成します。 次に、次の5つの ASP.NET ページをこのフォルダーに追加します。マスターページ `Site.master`を使用するようにすべてのページを構成します。
 
 - `Default.aspx`
 - `SimplePagingSorting.aspx`
@@ -39,228 +39,228 @@ ms.locfileid: "65131588"
 - `SortParameter.aspx`
 - `CustomSortingUI.aspx`
 
-![PagingAndSorting フォルダーを作成し、チュートリアルの ASP.NET ページを追加します。](paging-and-sorting-report-data-cs/_static/image1.png)
+![PagingAndSorting フォルダーを作成し、チュートリアル ASP.NET ページを追加します。](paging-and-sorting-report-data-cs/_static/image1.png)
 
-**図 1**:PagingAndSorting フォルダーを作成し、チュートリアルの ASP.NET ページを追加します。
+**図 1**: PagingAndSorting フォルダーを作成し、チュートリアル ASP.NET ページを追加する
 
-次に、開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン サーフェイスにフォルダー。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、サイト マップの列挙し、箇条書きリストに現在のセクションでこれらのチュートリアルを表示します。
+次に、[`Default.aspx`] ページを開き、`SectionLevelTutorialListing.ascx` ユーザーコントロールを `UserControls` フォルダーからデザイン画面にドラッグします。 このユーザーコントロールは、[マスターページとサイトナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルで作成したもので、サイトマップを列挙し、現在のセクションに記載されているチュートリアルを箇条書きの一覧に表示します。
 
-![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](paging-and-sorting-report-data-cs/_static/image2.png)
+![Default.aspx に SectionLevelTutorialListing ユーザーコントロールを追加します。](paging-and-sorting-report-data-cs/_static/image2.png)
 
-**図 2**:Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。
+**図 2**: Default.aspx に SectionLevelTutorialListing ユーザーコントロールを追加する
 
-箇条書きのページングと並べ替えのチュートリアルを作成しますを表示するのには、サイト マップに追加する必要があります。 開く、`Web.sitemap`ファイルを開き、編集、挿入、および削除すると、サイト マップ ノード マークアップの後、次のマークアップを追加します。
+箇条書きの一覧に、作成するページングと並べ替えのチュートリアルが表示されるようにするには、サイトマップに追加する必要があります。 `Web.sitemap` ファイルを開き、サイトマップノードマークアップの編集、挿入、および削除の後に、次のマークアップを追加します。
 
 [!code-xml[Main](paging-and-sorting-report-data-cs/samples/sample1.xml)]
 
-![新しい ASP.NET ページは、サイト マップを更新します。](paging-and-sorting-report-data-cs/_static/image3.png)
+![新しい ASP.NET ページを含めるようにサイトマップを更新する](paging-and-sorting-report-data-cs/_static/image3.png)
 
-**図 3**:新しい ASP.NET ページは、サイト マップを更新します。
+**図 3**: 新しい ASP.NET ページを含めるようにサイトマップを更新する
 
-## <a name="step-2-displaying-product-information-in-a-gridview"></a>手順 2: GridView で製品情報を表示します。
+## <a name="step-2-displaying-product-information-in-a-gridview"></a>手順 2: GridView で製品情報を表示する
 
-実際には、ページングと並べ替え機能を実装します、前に製品情報を一覧表示する標準以外の並べ替え可能な非ページング GridView をまず作成 s を使用できます。 これは、タスクは作業が完了したら前に何度もこのチュートリアル シリーズ全体で、これらの手順を理解する必要があります。 開いて開始、`SimplePagingSorting.aspx`ページし、GridView コントロールをドラッグして、デザイナーの設定には、ツールボックスからその`ID`プロパティを`Products`します。 S ProductsBLL クラスを使用する新しい ObjectDataSource を次に、作成`GetProducts()`をすべての製品情報を返すメソッド。
+ページングと並べ替えの機能を実際に実装する前に、まずは、製品情報を一覧表示する、並べ替え不可能な標準の非ページ GridView を作成してみましょう。 このチュートリアルシリーズの前に何度も実行していたので、これらの手順は理解しておく必要があります。 まず、[`SimplePagingSorting.aspx`] ページを開き、[ツールボックス] から GridView コントロールをデザイナーにドラッグして、`ID` プロパティを `Products`に設定します。 次に、製品の `GetProducts()` メソッドを使用してすべての製品情報を返す新しい ObjectDataSource を作成します。
 
-![すべての GetProducts() メソッドを使用して製品に関する情報を取得します。](paging-and-sorting-report-data-cs/_static/image4.png)
+![GetProducts () メソッドを使用して、すべての製品に関する情報を取得します。](paging-and-sorting-report-data-cs/_static/image4.png)
 
-**図 4**:すべての GetProducts() メソッドを使用して製品に関する情報を取得します。
+**図 4**: getproducts () メソッドを使用してすべての製品に関する情報を取得する
 
-このレポートは読み取り専用のレポート、s が不要であるため、ObjectDataSource s をマップする必要があります`Insert()`、 `Update()`、または`Delete()`メソッドに対応する`ProductsBLL`メソッドです。 そのため、(なし) ドロップダウン リストから、更新、挿入、。タブを削除します。
+このレポートは読み取り専用のレポートであるため、ObjectDataSource s `Insert()`、`Update()`、または `Delete()` メソッドを対応する `ProductsBLL` メソッドにマップする必要はありません。そのため、[更新]、[挿入]、[削除] の各タブのドロップダウンリストから [(なし)] を選択します。
 
-![選択、挿入、更新プログラムの一覧でオプションを選択し、タブを削除する (なし)](paging-and-sorting-report-data-cs/_static/image5.png)
+![[更新]、[挿入]、[削除] の各タブのドロップダウンリストで [(なし)] オプションを選択します。](paging-and-sorting-report-data-cs/_static/image5.png)
 
-**図 5**:選択、挿入、更新プログラムの一覧でオプションを選択し、タブを削除する (なし)
+**図 5**: [更新]、[挿入]、[削除] の各タブのドロップダウンリストで [(なし)] オプションを選択する
 
-次に、s のみ、製品名、仕入先、カテゴリ、価格、および提供が中止された状態が表示されるように、GridView のフィールドをカスタマイズすることができます。 さらに、自由に、フィールド レベルの書式設定を行うなどの変更を調整する、`HeaderText`プロパティまたは価格の通貨として書式設定します。 これらの変更後、GridView s の宣言型マークアップは次のようになります。
+次に、を使用して、製品名、仕入先、カテゴリ、価格、および廃止された状態のみが表示されるように、GridView のフィールドをカスタマイズします。 さらに、`HeaderText` のプロパティを調整したり、価格を通貨として書式設定するなど、フィールドレベルの書式設定を自由に変更することもできます。 これらの変更が完了すると、GridView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample2.aspx)]
 
-図 6 は、ブラウザーで表示したときにこれまで、進行状況を示します。 ページが各製品の名前、カテゴリ、供給業者、価格を示す 1 つの画面では、製品のすべてを一覧表示、ステータスの提供が中止されたことに注意してください。
+図6は、ブラウザーを通じて表示されたときの進行状況を示しています。 このページには、すべての製品が1つの画面に表示され、各製品の名前、カテゴリ、仕入先、価格、および廃止された状態が表示されていることに注意してください。
 
-[![各製品の一覧表示されます。](paging-and-sorting-report-data-cs/_static/image7.png)](paging-and-sorting-report-data-cs/_static/image6.png)
+[各製品 ![一覧表示されます。](paging-and-sorting-report-data-cs/_static/image7.png)](paging-and-sorting-report-data-cs/_static/image6.png)
 
-**図 6**:各製品の一覧表示されます ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image8.png))。
+**図 6**: 各製品が一覧表示されます ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image8.png)されます)
 
-## <a name="step-3-adding-paging-support"></a>手順 3: ページング サポートを追加します。
+## <a name="step-3-adding-paging-support"></a>手順 3: ページングサポートを追加する
 
-一覧表示する*すべて*の製品の 1 つの画面のデータを参照するためのユーザーの情報のオーバー ロードにつながることができます。 結果をより管理しやすくするためには、データのサイズの小さいページへのデータの分割を一度にデータの 1 つのページをステップにユーザーを許可できます。 実行するこのチェック ボックスをページングを有効にする GridView s のスマート タグから (GridView s 設定[`AllowPaging`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx)に`true`)。
+*すべて*の製品を1つの画面に一覧表示すると、ユーザーがデータをつい man するための情報が過負荷になる可能性があります。 結果をさらに管理しやすくするために、データを小さなページに分割し、ユーザーが一度に1ページずつデータをステップ実行できるようにします。 これを行うには、GridView s スマートタグから [ページングを有効にする] チェックボックスをオンにします (これにより、GridView s [`AllowPaging` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx)が `true`に設定されます)。
 
-[![チェック ボックスを有効にするページング ページング サポートを追加するには](paging-and-sorting-report-data-cs/_static/image10.png)](paging-and-sorting-report-data-cs/_static/image9.png)
+[[ページングを有効にする] チェックボックスをオンにして、ページングサポートを追加 ![](paging-and-sorting-report-data-cs/_static/image10.png)](paging-and-sorting-report-data-cs/_static/image9.png)
 
-**図 7**:チェック ボックスを有効にするページング ページング サポートを追加する ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image11.png))。
+**図 7**: [ページングを有効にする] チェックボックスをオンにしてページングサポートを追加する ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image11.png)されます)
 
-ページごとに表示されるレコードの数を制限し、追加ページングを有効にすると、*ページング インターフェイス*GridView にします。 図 7 に示すように、既定のページング インターフェイスは、一連のページ番号、ユーザーが別に 1 つのページのデータからすばやく移動できるようにします。 このページング見慣れたインターフェイス、私たちとして ve 過去のチュートリアルで、DetailsView コントロールと FormView コントロールにページング サポートを追加するときに見たこと。
+ページングを有効にすると、ページごとに表示されるレコードの数が制限され、*ページングインターフェイス*が GridView に追加されます。 図7に示す既定のページングインターフェイスは一連のページ番号であり、ユーザーはデータの1ページから別のページにすばやく移動できます。 このページングインターフェイスは、前のチュートリアルでは、DetailsView コントロールと FormView コントロールにページングサポートを追加するときに見たように、見慣れているはずです。
 
-FormView と DetailsView コントロールでは、1 ページあたり 1 つのレコードのみ表示されます。 ただし、GridView を参照してその[`PageSize`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx)1 ページに表示するレコードの数を決定する (このプロパティの値を 10 に既定値)。
+DetailsView コントロールと FormView コントロールは、どちらもページごとに1つのレコードのみを表示します。 ただし、GridView は、 [`PageSize` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx)を調べて、1ページあたりに表示するレコード数を決定します (このプロパティの既定値は 10)。
 
-この GridView、DetailsView、FormView のページング インターフェイスをカスタマイズするには、次のプロパティを使用します。
+この GridView、DetailsView、FormView s ページングインターフェイスは、次のプロパティを使用してカスタマイズできます。
 
-- `PagerStyle` ページング インターフェイスのスタイル情報を示しますなどの設定を指定できます`BackColor`、 `ForeColor`、 `CssClass`、`HorizontalAlign`など。
-- `PagerSettings` ページング インターフェイスの機能をカスタマイズできるプロパティの多くが含まれています`PageButtonCount` (既定値は 10) ページング インターフェイスに表示される数値によるページ番号の最大数を示す、 [ `Mode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx)ページング インターフェイスの動作し、に設定することを示します。 
+- `PagerStyle` ページングインターフェイスのスタイル情報を示します。`BackColor`、`ForeColor`、`CssClass`、`HorizontalAlign`などの設定を指定できます。
+- `PagerSettings` には、ページングインターフェイスの機能をカスタマイズできる傾斜 y プロパティが含まれています。ページングインターフェイスに表示される数値ページ番号の最大数 (既定値は 10) を `PageButtonCount` します。[`Mode` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx)は、ページングインターフェイスの動作を指定し、次のように設定できます。 
 
-    - `NextPrevious` ユーザーが前後 1 つのページを一度にステップできるように、次へ および 前ボタンを示しています
-    - `NextPreviousFirstLast` 次へ および 前のボタンだけでなく最初と最後のボタンが含まれています、ユーザーがデータの最初と最後のページにすばやく移動できるようにも
-    - `Numeric` 一連のユーザーがすぐに任意のページに移動できるように、ページ番号を示しています。
-    - `NumericFirstLast` ページ番号だけでなくユーザーがデータの最初と最後のページにすばやく移動できるように、最初と最後のボタンが含まれています。最初/最後のボタンは、すべての数値によるページ番号に格納できないかどうかのみ表示します。
+    - `NextPrevious` [次へ] ボタンと [前へ] ボタンが表示され、ユーザーは一度に1ページずつ移動または移動できます。
+    - `NextPreviousFirstLast` [次へ] ボタンと [戻る] ボタンに加えて、最初と最後のボタンも含まれています。これにより、ユーザーはデータの最初または最後のページにすばやく移動できます。
+    - `Numeric` には一連のページ番号が表示され、ユーザーはすぐに任意のページに移動できます。
+    - ページ番号に加えて `NumericFirstLast` には、最初と最後のボタンが含まれており、ユーザーはすぐにデータの最初または最後のページに移動できます。最初/最後のボタンは、すべての数値のページ番号が一致しない場合にのみ表示されます。
 
-さらに、GridView、DetailsView、および、すべてのプラン FormView、`PageIndex`と`PageCount`プロパティは、現在のページが表示されていると、データのページの合計数をそれぞれ示します。 `PageIndex`プロパティは、データの最初のページを表示するときに、つまり、0 から始まるインデックスが`PageIndex`0 になります。 `PageCount`、その一方で、開始の 1 からカウント、つまり`PageIndex`は 0 までの値に制限されます、 `PageCount - 1`。
+さらに、GridView、DetailsView、および FormView には、`PageIndex` プロパティと `PageCount` プロパティが用意されています。これらのプロパティは、表示されている現在のページと、データページの合計数を示します。 `PageIndex` プロパティのインデックスは0から始まります。これは、データの最初のページを表示するときに `PageIndex` が0になることを意味します。 一方、`PageCount`は1からカウントを開始します。つまり、`PageIndex` は0から `PageCount - 1`までの値に制限されます。
 
-S GridView のページング インターフェイスの既定の外観を向上させるために少しのことができます。 具体的には、s の明るい灰色の背景の右側に整列ページング インターフェイスを持っていることができます。 GridView s から直接これらのプロパティ設定ではなく`PagerStyle`プロパティ内の CSS クラスを作成する let s`Styles.css`という名前の`PagerRowStyle`し割り当てます、 `PagerStyle` s`CssClass`テーマを使用してプロパティ。 開いて開始`Styles.css`クラス定義を次の CSS を追加するとします。
+GridView のページングインターフェイスの既定の外観を改善するために、しばらく時間がかかります。 具体的には、のページングインターフェイスを明るい灰色の背景で右に並べます。 GridView の `PagerStyle` プロパティを使用してこれらのプロパティを直接設定するのではなく、`PagerRowStyle` という名前の `Styles.css` に CSS クラスを作成し、このテーマを使用して `PagerStyle` s `CssClass` プロパティを割り当てます。 まず `Styles.css` を開き、次の CSS クラス定義を追加します。
 
 [!code-css[Main](paging-and-sorting-report-data-cs/samples/sample3.css)]
 
-次に、開く、`GridView.skin`ファイル、`DataWebControls`内のフォルダー、`App_Themes`フォルダー。 説明したように、*マスター ページとサイト ナビゲーション*チュートリアル、スキン ファイルは、Web コントロールの既定のプロパティ値を指定するために使用できます。 そのため、設定に含める既存の設定を拡張、 `PagerStyle` s`CssClass`プロパティを`PagerRowStyle`します。 Let s が多くてを使用して 5 つの数値のページ ボタンを表示するページング インターフェイスを構成することも、`NumericFirstLast`ページング インターフェイス。
+次に、`App_Themes` フォルダー内の `DataWebControls` フォルダーにある `GridView.skin` ファイルを開きます。 *マスターページとサイトナビゲーション*のチュートリアルで説明したように、スキンファイルを使用して、Web コントロールの既定のプロパティ値を指定できます。 したがって、では、既存の設定が拡張され、`PagerStyle` s `CssClass` プロパティの設定が `PagerRowStyle`に追加されます。 また、ページングインターフェイスを構成して、`NumericFirstLast` ページングインターフェイスを使用して最大5つの数値ページボタンを表示するようにします。
 
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample4.aspx)]
 
-## <a name="the-paging-user-experience"></a>ページングのユーザー エクスペリエンス
+## <a name="the-paging-user-experience"></a>ユーザーエクスペリエンスのページング
 
-図 8 は GridView s のページングを有効にするチェック ボックスがチェックされた後、ブラウザーからアクセスしたときに、web ページと`PagerStyle`と`PagerSettings`を通じて構成を行って、`GridView.skin`ファイル。 注のみを表示する 10 個のレコードが表示され、ページング インターフェイスは、データの最初のページを表示することを示します。
+図8は、GridView の [ページングを有効にする] チェックボックスがオンになった後にブラウザーでアクセスしたときの web ページを示しています。また、`PagerStyle` と `PagerSettings` の構成が `GridView.skin` ファイルによって行われています。 表示されるのは10個のレコードのみであり、ページングインターフェイスは、データの最初のページを表示していることを示します。
 
-[![ページングが有効なレコードのサブセットのみが、一度に表示されます。](paging-and-sorting-report-data-cs/_static/image13.png)](paging-and-sorting-report-data-cs/_static/image12.png)
+[ページングが有効になっている ![は、レコードのサブセットのみが一度に表示されます。](paging-and-sorting-report-data-cs/_static/image13.png)](paging-and-sorting-report-data-cs/_static/image12.png)
 
-**図 8**:ページングが有効なレコードのサブセットのみが、時に表示されます ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image14.png))。
+**図 8**: ページングが有効になっている場合は、レコードのサブセットのみが一度に表示されます ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image14.png)されます)
 
-ユーザーは、ページング インターフェイスのページ番号のいずれかをクリックすると、ポストバックに陥ります、ページが表示されたページのレコードを要求を再読み込みします。 図 9 では、データの最後のページを表示するオプトインの後、結果を示しています。 最後のページがのみ 1 つのレコードを持つことに注意してください。8 ページ分の唯一のレコードを含むページと 1 ページあたり 10 個のレコードの合計で 81 レコードがあるためにです。
+ページングインターフェイス内のいずれかのページ番号をクリックすると、ポストバック ensues とページが再読み込みされ、要求されたページ s レコードが表示されます。 図9は、データの最終ページを表示した後の結果を示しています。 最後のページには1つのレコードしかないことに注意してください。これは、合計で81のレコードが存在するためです。その結果、ページごとに10個のレコードが含まれ、1つのページには単一行のレコードが含まれます。
 
-[![ポストバックが発生するページ番号をクリックし、レコードの適切なサブセットを示しています](paging-and-sorting-report-data-cs/_static/image16.png)](paging-and-sorting-report-data-cs/_static/image15.png)
+[ページ番号をクリック ![と、ポストバックが発生し、レコードの適切なサブセットが表示されます。](paging-and-sorting-report-data-cs/_static/image16.png)](paging-and-sorting-report-data-cs/_static/image15.png)
 
-**図 9**:ポストバックが発生するページ番号をクリックし、適切なレコードのサブセットを示しています ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image17.png))。
+**図 9**: ページ番号をクリックするとポストバックが発生し、レコードの適切なサブセットが表示されます ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image17.png)されます)
 
-## <a name="paging-s-server-side-workflow"></a>ページングのサーバー側ワークフロー
+## <a name="paging-s-server-side-workflow"></a>サーバー側のワークフローのページング
 
-ページング インターフェイスのボタンをクリックすると、エンドユーザー、ポストバック後し、次のサーバー側のワークフローが開始。
+エンドユーザーがページングインターフェイスのボタンをクリックすると、ポストバック ensues と次のサーバー側ワークフローが開始されます。
 
-1. GridView s (または DetailsView または FormView)`PageIndexChanging`イベントが発生します
-2. ObjectDataSource を再要求*すべて*BLL; からのデータの GridView s`PageIndex`と`PageSize`プロパティの値を使用して GridView に表示される必要があります、BLL から返されるレコードの決定
-3. GridView の`PageIndexChanged`イベントが発生します
+1. GridView s (または DetailsView または FormView) `PageIndexChanging` イベントが発生します
+2. ObjectDataSource は、BLL からの*すべて*のデータを再要求します。gridview の `PageIndex` と `PageSize` プロパティ値を使用して、GridView に表示する必要のある BLL から返されるレコードを決定します。
+3. GridView s `PageIndexChanged` イベントが発生します
 
-手順 2 で ObjectDataSource を再要求のすべてのデータ ソースからのデータ。 このスタイルのページングと呼ば*既定のページング*、s ページング動作使用される既定の設定時にほど、`AllowPaging`プロパティを`true`します。 レコードのサブセットのみ実際にレンダリングされる HTML に s、ブラウザーに送信された場合でも、既定値は、データの各ページのすべてのレコードを取得単純 Web コントロールのデータのページングします。 BLL または ObjectDataSource によって、データベースのデータがキャッシュされると、しない限り、既定のページングは十分に大きな結果セットまたは多数の同時ユーザーによる web アプリケーションの機能ではありません。
+手順 2. で、ObjectDataSource はデータソースからのすべてのデータを再要求します。 この形式のページングは、一般に*既定のページング*と呼ばれます。これは、`AllowPaging` プロパティを `true`に設定するときに既定で使用されるページング動作です。 既定のページングを使用すると、データ Web コントロールネイティブは、データの各ページのすべてのレコードを取得します。ただし、実際には、ブラウザーに送信された HTML にレコードのサブセットのみがレンダリングされます。 データベースデータが BLL または ObjectDataSource によってキャッシュされていない限り、既定のページングは、十分に大きな結果セットまたは多数の同時実行ユーザーを持つ web アプリケーションに対して動作不能ます。
 
-次のチュートリアルで実装する方法を説明します*カスタム ページング*します。 カスタム ページングを使用したのみ正確なデータの要求されたページに必要なレコード セットを取得する ObjectDataSource を具体的に指示できます。 ご想像のとおり、カスタム ページングが大きな結果セットのページングの効率が大幅に向上します。
+次のチュートリアルでは、*カスタムページング*を実装する方法について説明します。 カスタムページングを使用すると、要求されたデータページに必要なレコードの正確なセットだけを取得するように ObjectDataSource に指示できます。 ご想像のとおり、カスタムページングを使用すると、大きな結果セットを使用したページングの効率が大幅に向上します。
 
 > [!NOTE]
-> 既定のページングを適切なは、多数の同時ユーザーを十分に大きな結果セット、またはサイトをページングするときありません。 が、実現カスタム ページングの詳細の変更とを実装するための労力が必要ですし、(既定値は、チェック ボックスをチェックするだけではありません。ページング)。 したがって、既定のページングは、低トラフィックの小規模の web サイトまたはので、比較的小規模の結果のページングが設定した場合の理想的な選択肢可能性があります s 簡単かつ迅速に実装します。
+> 既定のページングは、大量の結果セットをページングする場合や、多数の同時ユーザーがいるサイトの場合には適していませんが、カスタムページングではより多くの変更と実装が必要であり、チェックボックスをチェックするだけではありません (既定では)。ページング)。 そのため、小規模、低トラフィックの web サイト、または比較的小さな結果セットをページングする場合に、既定のページングが最適な選択肢となる可能性があります。これは、より簡単かつ迅速に実装できるためです。
 
-などの場合は、データベースに 100 を超える製品があるをしないことがわかっていますカスタム ページングを最小限のパフォーマンスの向上はそれを実装するための労力でオフセット可能性があります。 、ただし、が 1 日がある場合数十万または数万の製品、*いない*、アプリケーションのスケーラビリティを大幅に接続的はカスタム ページングを実装します。
+たとえば、データベースで100を超える製品を使用しないことがわかっている場合は、カスタムページングによって利用できるパフォーマンスの低下は、実装に必要な労力によって相殺される可能性があります。 しかし、1日に数千から数十の製品がある場合、カスタムページングを実装しても、アプリケーションのスケーラビリティが大幅に阻害*され*ます。
 
-## <a name="step-4-customizing-the-paging-experience"></a>手順 4: ページングのエクスペリエンスのカスタマイズ
+## <a name="step-4-customizing-the-paging-experience"></a>手順 4: ページングエクスペリエンスのカスタマイズ
 
-データ Web コントロールでは、さまざまなページングのユーザーのエクスペリエンスを強化するために使用できるプロパティを提供します。 `PageCount`プロパティなどを示す数の合計ページがありますが中、`PageIndex`プロパティがアクセスされている現在のページを示すし、特定のページにユーザーをすばやく移動に設定することができます。 これらのプロパティを使用して、ユーザーのページングのエクスペリエンスの改良、s のラベルを追加する方法を説明するために Web コントロールをページのページをユーザーに通知する、現在にアクセスして、すぐに、特定のページにジャンプすることを許可する DropDownList コントロールと共に再.
+データ Web コントロールには、ユーザーのページングエクスペリエンスを向上させるために使用できる多数のプロパティが用意されています。 たとえば、`PageCount` プロパティは、表示されているページの合計数を示します。一方、`PageIndex` プロパティは、現在アクセスしているページを示します。また、ユーザーを特定のページにすばやく移動するように設定できます。 これらのプロパティを使用してユーザーのページングエクスペリエンスを向上させる方法を説明するために、では、現在アクセスしているページをユーザーに通知するラベル Web コントロールをページに追加します。また、DropDownList コントロールを使用して、特定のページにすばやく移動できるようにします.
 
-最初に、ページに、ラベルの Web コントロールを追加、設定、`ID`プロパティを`PagingInformation`、クリアとその`Text`プロパティ。 次に、GridView s のイベント ハンドラーを作成`DataBound`イベントし、次のコードを追加します。
+まず、ラベル Web コントロールをページに追加し、その `ID` プロパティを `PagingInformation`に設定して、その `Text` プロパティをクリアします。 次に、GridView s `DataBound` イベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample5.cs)]
 
-このイベント ハンドラーを割り当てます、`PagingInformation`ラベル s`Text`プロパティが現在アクセスして、ページをユーザーに通知メッセージに`Products.PageIndex + 1`合計ページ数から`Products.PageCount`(に 1 を追加、`Products.PageIndex`プロパティのため`PageIndex` 0 から始まるインデックスが作成されます)。 このラベルの割り当て を選択した`Text`プロパティ、`DataBound`イベント ハンドラーではなく、`PageIndexChanged`イベント ハンドラーのため、`DataBound`イベントが発生する一方、データが GridView にバインドされるたびに、`PageIndexChanged`のみのイベント ハンドラーページ インデックスが変更されたときに発生します。 ときに GridView が最初に最初のページにバインドされたデータを参照してください、`PageIndexChanging`イベントが t fire (一方、`DataBound`イベント)。
+このイベントハンドラーは、`PagingInformation` Label s `Text` プロパティを、現在 `Products.PageIndex + 1` アクセスしているページをユーザーに通知するメッセージに割り当てます。これにより、`Products.PageIndex` は0からインデックスが作成される `Products.PageCount` ので、`PageIndex` プロパティに1が追加されます。 `PageIndexChanged` イベントハンドラーではなく、`DataBound` イベントハンドラーで [この `Text` ラベルを割り当てる] プロパティを選択しました。これは、データが GridView にバインドされるたびに `DataBound` イベントが発生するのに対して、`PageIndexChanged` イベントハンドラーはページインデックスが変更された場合にのみ発生するためです。 最初のページに移動したときに GridView が最初のページでデータバインドされた場合、`PageIndexChanging` イベントは発生しません (`DataBound` イベントによって発生します)。
 
-これにより、ユーザーは、アクセスしているどのようなページとデータの合計数のページは、ことを示すメッセージを表示されています。
+この追加により、ユーザーがアクセスしているページと、そのデータの合計ページ数を示すメッセージが表示されるようになりました。
 
-[![現在のページ番号と合計ページ数が表示されます。](paging-and-sorting-report-data-cs/_static/image19.png)](paging-and-sorting-report-data-cs/_static/image18.png)
+[現在のページ番号と合計ページ数を ![](paging-and-sorting-report-data-cs/_static/image19.png)](paging-and-sorting-report-data-cs/_static/image18.png)
 
-**図 10**:現在のページ番号と合計ページ数が表示されます ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image20.png))。
+**図 10**: 現在のページ数とページ数の合計が表示される ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image20.png)されます)
 
-に加えて、ラベル コントロールも選択されている、現在表示されているページで、GridView でページ番号のリストの DropDownList コントロールを追加して使用できます。 ユーザーにすばやくジャンプできます現在のページから別、DropDownList から新しいページのインデックスを選択するだけでという考え方です。 DropDownList をデザイナーの設定に追加して、開始、`ID`プロパティを`PageList`のスマート タグから AutoPostBack を有効にするオプションをオンにするとします。
+ラベルコントロールに加えて、現在表示されているページを使用して GridView 内のページ番号を一覧表示する DropDownList コントロールも追加します。 ここでの考え方は、ユーザーが DropDownList から新しいページインデックスを選択するだけで、現在のページから別のページにすばやく移動できることです。 まず、DropDownList をデザイナーに追加し、その `ID` プロパティを `PageList` に設定して、そのスマートタグから [AutoPostBack を有効にする] オプションをオンにします。
 
-戻り、`DataBound`イベント ハンドラーを次のコードを追加します。
+次に、`DataBound` イベントハンドラーに戻り、次のコードを追加します。
 
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample6.cs)]
 
-内の項目を消去するでこのコードは、まず、 `PageList` DropDownList します。 1 つを変更するページの数を想定しませんが、他のユーザーのシステムを同時に使用して、追加またはからレコードを削除する場合があるため、余分なこの見えます、`Products`テーブル。 このような挿入または削除は、データのページ数を変更可能性があります。
+このコードでは、まず `PageList` DropDownList の項目をクリアします。 このような場合、ページ数が変更されることはありませんが、他のユーザーが同時にシステムを使用して、`Products` テーブルのレコードを追加または削除する可能性があります。 このような挿入や削除によって、データのページ数が変更される可能性があります。
 
-次に、ページ番号をもう一度作成して、現在 GridView にマップする必要があります`PageIndex`既定で選択します。 0 ~ ループが発生するために`PageCount - 1`、新しい追加`ListItem`各イテレーションの設定でその`Selected`プロパティを現在の反復インデックス GridView 秒に等しい場合に true に`PageIndex`プロパティ。
+次に、ページ番号を再度作成し、現在の GridView にマップされているものを既定で選択 `PageIndex` する必要があります。 これを行うには、0から `PageCount - 1`へのループを行い、各反復に新しい `ListItem` を追加し、現在の反復インデックスが GridView s `PageIndex` プロパティに等しい場合はその `Selected` プロパティを true に設定します。
 
-最後に、DropDownList s のイベント ハンドラーを作成する必要があります`SelectedIndexChanged`イベントで、ユーザーの一覧から別の項目を選択するたびに発生します。 このイベント ハンドラーを作成するには、デザイナーで DropDownList をダブルクリックし、次のコードを追加します。
+最後に、DropDownList `SelectedIndexChanged` イベントのイベントハンドラーを作成する必要があります。これは、ユーザーが一覧から別の項目を選択するたびに起動されます。 このイベントハンドラーを作成するには、デザイナーで DropDownList をダブルクリックし、次のコードを追加します。
 
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample7.cs)]
 
-図 11 に示す GridView s を変更するだけで`PageIndex`プロパティにより、データを GridView に再バインドできます。 GridView s`DataBound`イベント ハンドラーでは、適切な DropDownList`ListItem`が選択されています。
+図11に示すように、GridView の `PageIndex` プロパティを変更するだけで、データが GridView に再バインドされます。 GridView s `DataBound` イベントハンドラーで、適切な DropDownList `ListItem` が選択されています。
 
-[![ユーザーは、6 番目のページと、選択ページ 6 のドロップダウン リストの項目を自動的に実行](paging-and-sorting-report-data-cs/_static/image22.png)](paging-and-sorting-report-data-cs/_static/image21.png)
+[[ページ 6] ドロップダウンリスト項目を選択すると、ユーザーは6ページ目に自動的に移動 ![](paging-and-sorting-report-data-cs/_static/image22.png)](paging-and-sorting-report-data-cs/_static/image21.png)
 
-**図 11**:ユーザーは、6 番目のページと、選択ページ 6 のドロップダウン リストの項目を自動的に実行 ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image23.png))。
+**図 11**: ページ6のドロップダウンリスト項目を選択したときに、ユーザーが6番目のページに自動的に移動する ([クリックしてフルサイズの画像を表示する](paging-and-sorting-report-data-cs/_static/image23.png))
 
-## <a name="step-5-adding-bi-directional-sorting-support"></a>手順 5: 双方向の並べ替えのサポートを追加します。
+## <a name="step-5-adding-bi-directional-sorting-support"></a>手順 5: 双方向の並べ替えサポートを追加する
 
-GridView のスマート タグから並べ替えを有効にするオプションをオンに双方向の並べ替えのサポートがページング サポートを追加するだけを追加するだけです (GridView s 設定[`AllowSorting`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx)に`true`)。 これは、各 GridView のフィールドのヘッダーとしてレンダリング Linkbutton、クリックされたときに、ポストバックを発生させるおよびによってクリックされた列を昇順で並べ替えられたデータを返します。 降順でデータを並べ替えます再もう一度同じヘッダー LinkButton をクリックします。
+双方向の並べ替えサポートの追加は、ページングサポートを追加するだけで簡単に行うことができます。 GridView s スマートタグ (GridView s [`AllowSorting` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx)を `true`に設定する) の [並べ替えを有効にする] オプションをオンにします。 これにより、GridView のフィールドの各ヘッダーがリンクボタンとして表示され、クリックするとポストバックが発生し、クリックされた列によって並べ替えられたデータが昇順で返されます。 同じヘッダー LinkButton をクリックすると、データが降順に並べ替えられます。
 
 > [!NOTE]
-> 型指定されたデータセットではなく、カスタム データ アクセス層を使用している場合は、GridView s のスマート タグの並べ替えを有効にするオプションをしないがあります。 Gridview の並べ替えをネイティブでサポートするデータ ソースにバインドされているだけでは、このチェック ボックスを使用可能ながあります。 ADO.NET DataTable が用意されているので、型指定されたデータセットがボックスの並べ替えのサポートを提供します、`Sort`メソッドを呼び出されると、DataTable の Datarow を指定した条件を使用してを並べ替えます。
+> 型指定されたデータセットではなくカスタムデータアクセス層を使用している場合は、GridView s スマートタグに [並べ替えを有効にする] オプションがない可能性があります。 並べ替えをネイティブにサポートするデータソースにバインドされている GridViews でのみ、このチェックボックスを使用できます。 ADO.NET DataTable には、指定された条件を使用して DataTable s Datarow を並べ替える `Sort` メソッドが用意されているため、型指定されたデータセットは、すぐに使用できる並べ替えをサポートします。
 
-場合は、DAL では、DAL によってネイティブにサポートの並べ替えには、データを並べ替えるか、またはデータがビジネス ロジック層、並べ替えの情報を渡す ObjectDataSource を構成する必要が並べ替えられているオブジェクトは返されません。 今後のチュートリアルでは、ビジネス ロジックでデータおよびデータ アクセス層を並べ替える方法について説明します。
+DAL が並べ替えをネイティブにサポートするオブジェクトを返さない場合は、ObjectDataSource を構成して、並べ替え情報をビジネスロジックレイヤーに渡す必要があります。これにより、データを並べ替えるか、DAL によってデータを並べ替えることができます。 今後のチュートリアルでは、ビジネスロジックとデータアクセス層でデータを並べ替える方法について説明します。
 
-並べ替えの Linkbutton は、ヘッダー行の背景色と衝突している現在の色 (青、未表示リンクにアクセスしたリンクの濃い赤)、HTML ハイパーリンクとしてレンダリングされます。 代わりに、白、かどうかに関係なくすべてのヘッダー行のリンクのある let s、ve されているかどうかを表示しました。 これには、次を追加することで実現できます、`Styles.css`クラス。
+[LinkButtons 並べ替え] ボタンは HTML ハイパーリンクとして表示されます。現在の色 (未処理リンクの場合は青、アクセスしたリンクの場合はダーク赤色) が、ヘッダー行の背景色と競合します。 代わりに、アクセスされたかどうかに関係なく、すべてのヘッダー行のリンクが白で表示されます。 これを行うには、次のを `Styles.css` クラスに追加します。
 
 [!code-css[Main](paging-and-sorting-report-data-cs/samples/sample8.css)]
 
-この構文は、後のクラスを使用する要素内でハイパーリンクを表示するときに、白いテキストを使用することを示します。
+この構文は、HeaderStyle クラスを使用する要素内にこれらのハイパーリンクを表示するときに、ホワイトテキストを使用することを示します。
 
-この CSS 追加した後、ブラウザーでページにアクセスして、画面よう図 12 になる必要があります。 具体的には、図 12 は、価格フィールドのヘッダーのリンクがクリックしてされた後、結果を示します。
+この CSS を追加した後、ブラウザーを使用してページにアクセスすると、画面は図12のようになります。 特に、図12は、Price field s ヘッダーリンクがクリックされた後の結果を示しています。
 
-[![結果を昇順で UnitPrice によって並べ替えられています。](paging-and-sorting-report-data-cs/_static/image25.png)](paging-and-sorting-report-data-cs/_static/image24.png)
+[結果が UnitPrice で昇順に並べ替えられた ![](paging-and-sorting-report-data-cs/_static/image25.png)](paging-and-sorting-report-data-cs/_static/image24.png)
 
-**図 12**:結果があるによって並べ替え順序の昇順で UnitPrice ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image26.png))。
+**図 12**: 結果が UnitPrice の昇順で並べ替えられている ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image26.png)されます)
 
-## <a name="examining-the-sorting-workflow"></a>並べ替えのワークフローを調べる
+## <a name="examining-the-sorting-workflow"></a>並べ替えワークフローを調べています
 
-GridView のすべてのフィールド、BoundField、CheckBoxField、TemplateField などが、`SortExpression`フィールド s 並べ替えのヘッダーのリンクがクリックされたときに、データの並べ替えに使用する式を示すプロパティです。 GridView があります、`SortExpression`プロパティ。 LinkButton がクリックされたヘッダーと並べ替え、GridView ではそのフィールドの s が割り当てられます`SortExpression`値をその`SortExpression`プロパティ。 データが次に、ObjectDataSource から再取得し、GridView s に従って並び替え`SortExpression`プロパティ。 エンドユーザーを GridView にデータの並べ替え時に、一連の手順の詳細を次に示します。
+すべての GridView フィールド BoundField、CheckBoxField、TemplateField などには、そのフィールドの [並べ替えヘッダー] リンクがクリックされたときにデータを並べ替えるために使用する式を示す `SortExpression` のプロパティがあります。 GridView には、`SortExpression` プロパティもあります。 並べ替えヘッダー LinkButton がクリックされると、GridView によってそのフィールドの `SortExpression` 値が `SortExpression` プロパティに割り当てられます。 次に、データは ObjectDataSource から再取得され、GridView s `SortExpression` プロパティに従って並べ替えられます。 次の一覧では、エンドユーザーが GridView でデータを並べ替えるときに発生する一連の手順について詳しく説明します。
 
-1. GridView s [Sorting イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx)起動
-2. GridView s [ `SortExpression`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)に設定されている、`SortExpression`フィールドの並べ替え LinkButton がクリックしてされたヘッダー
-3. ObjectDataSource は再 BLL からデータをすべてを取得し、GridView s を使用してデータを並べ替える `SortExpression`
-4. GridView の`PageIndex`(ページングのサポートが実装されていると仮定) のデータの最初のページに返されるプロパティが 0 にリセット、ユーザーを並べ替えるときに、つまり
-5. GridView s [ `Sorted`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx)起動
+1. GridView の[並べ替えイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx)が発生しました
+2. GridView s [`SortExpression` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)は、並べ替えヘッダー LinkButton がクリックされたフィールドの `SortExpression` に設定されます。
+3. ObjectDataSource は、BLL からすべてのデータを再取得した後、GridView s を使用してデータを並べ替え `SortExpression`
+4. GridView s `PageIndex` プロパティは0にリセットされます。つまり、ユーザーがデータの最初のページに戻るとき (ページングのサポートが実装されていることを前提としています)、
+5. GridView s [`Sorted` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx)が発生します
 
-既定のページングを使用した既定の並べ替えオプションが再度を取得するよう*すべて*BLL からのレコードの。 ページングなしの並べ替えを使用する場合、または並べ替えを使用する場合は、このパフォーマンスに (場合を除き、データベースのデータをキャッシュする) 影響を回避する方法はありませんが s、ページングを既定します。 ただし、今後のチュートリアルに表示されるようにカスタム ページングを使用する場合に効率的にデータを並べ替えることができます。
+既定のページングの場合と同様に、既定の並べ替えオプションでは、BLL から*すべて*のレコードが再取得されます。 ページングを行わずに並べ替えを使用する場合、または既定のページングでの並べ替えを使用する場合、このパフォーマンスの低下を回避する方法はありません (データベースデータをキャッシュすることもありません)。 ただし、今後のチュートリアルで説明しているように、カスタムページングを使用するときにデータを効率的に並べ替えることができます。
 
-GridView の各フィールドが自動的には、ObjectDataSource を GridView s のスマート タグで、ドロップダウン リストを GridView にバインドするとき、`SortExpression`内のデータ フィールドの名前に割り当てられているプロパティ、`ProductsRow`クラス。 たとえば、 `ProductName` BoundField s`SortExpression`に設定されている`ProductName`の次の宣言型マークアップに示しますように。
+GridView のスマートタグのドロップダウンリストを使用して ObjectDataSource を GridView にバインドすると、各 GridView フィールドには、`ProductsRow` クラスのデータフィールドの名前に割り当てられた `SortExpression` プロパティが自動的に設定されます。 たとえば、次の宣言型マークアップに示すように、`ProductName` BoundField s `SortExpression` は `ProductName`に設定されます。
 
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample9.aspx)]
 
-フィールドを構成するように、s の並べ替えをクリアするその`SortExpression`プロパティ (空の文字列に割り当てる)。 これを示すためには、価格をマイクロソフトの製品を並べ替え、顧客に知らせることたくことを想像してください。 `UnitPrice` BoundField の`SortExpression`宣言型マークアップまたは (つまりアクセス GridView s のスマート タグで列の編集リンクをクリックして) フィールド ダイアログ ボックスで、プロパティを削除できます。
+フィールドを構成して、その `SortExpression` プロパティをクリアする (空の文字列に割り当てる) ことによって、並べ替えられないようにすることができます。 これを説明するために、お客様が製品を価格で並べ替えないようにしたいと考えています。 `UnitPrice` BoundField s `SortExpression` プロパティは、宣言型マークアップから、または [フィールド] ダイアログボックス (GridView s スマートタグの [列の編集] リンクをクリックするとアクセスできます) から削除できます。
 
-![結果を昇順で UnitPrice によって並べ替えられています。](paging-and-sorting-report-data-cs/_static/image27.png)
+![結果は、UnitPrice の昇順で並べ替えられています。](paging-and-sorting-report-data-cs/_static/image27.png)
 
-**図 13**:結果を昇順で UnitPrice によって並べ替えられています。
+**図 13**: 結果が UnitPrice の昇順で並べ替えられている
 
-1 回、`SortExpression`のプロパティが削除された、 `UnitPrice` BoundField、それによってユーザーの価格で、データの並べ替え妨げをリンクとしてではなくテキストとして、ヘッダーが表示されます。
+`SortExpression` プロパティが `UnitPrice` BoundField に対して削除されると、ヘッダーはリンクとしてではなくテキストとして表示されるため、ユーザーはデータを価格で並べ替えることができません。
 
-[![SortExpression プロパティを削除すると、ユーザーは不要になった価格で製品を並べ替える](paging-and-sorting-report-data-cs/_static/image29.png)](paging-and-sorting-report-data-cs/_static/image28.png)
+[SortExpression プロパティを削除することにより、ユーザーは商品を価格で並べ替えることができなくなります。 ![](paging-and-sorting-report-data-cs/_static/image29.png)](paging-and-sorting-report-data-cs/_static/image28.png)
 
-**図 14**:SortExpression プロパティを削除すると、ユーザーは不要になった製品で価格を並べ替える ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image30.png))。
+**図 14**: SortExpression プロパティを削除すると、ユーザーは製品を価格で並べ替えることができなくなります ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image30.png)されます)
 
-## <a name="programmatically-sorting-the-gridview"></a>GridView をプログラムで並べ替え
+## <a name="programmatically-sorting-the-gridview"></a>プログラムによる GridView の並べ替え
 
-並べ替えることも、GridView の内容プログラムで GridView s を使用して[`Sort`メソッド](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx)します。 渡すだけです、`SortExpression`と共に並べ替える値、 [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending`または`Descending`)、GridView のデータが再度並べ替えたされます。
+Gridview s [`Sort` メソッド](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx)を使用して、gridview の内容をプログラムによって並べ替えることもできます。 `SortExpression` 値を渡すだけで、 [`SortDirection`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` または `Descending`) と共に並べ替えられ、GridView のデータが再並べ替えされます。
 
-並べ替えを無効にしました、理由、imagine、`UnitPrice`のため、お客様が最も低価格の製品のみを単純に購入がないかと心配でしたが。 ただし、d ように並べ替えるには、製品、価格が最も高い価格からのみが最も低いことができるように、最も負荷の高い製品を購入することをお勧めします。
+`UnitPrice` による並べ替えを無効にした理由は、お客様が最低価格の製品のみを購入するという懸念があることを想像してください。 しかし、コストの高い製品を購入できるようにすることをお勧めします。そのため、製品を価格で並べ替えることができますが、最もコストの高い価格のみを使用できます。
 
-ページにボタンの Web コントロールを追加これを実現する設定、`ID`プロパティを`SortPriceDescending`とその`Text`価格による並べ替えのプロパティ。 S ボタンのイベント ハンドラーを次に、作成`Click`イベントで、デザイナーでボタン コントロールをダブルクリックします。 このイベント ハンドラーに次のコードを追加します。
+これを実現するには、ボタン Web コントロールをページに追加し、その `ID` プロパティを `SortPriceDescending`に設定し、その `Text` プロパティを Price で並べ替えます。 次に、デザイナーのボタンコントロールをダブルクリックして、ボタン s `Click` イベントのイベントハンドラーを作成します。 このイベントハンドラーに次のコードを追加します。
 
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample10.cs)]
 
-このボタンをクリックすると、製品の価格は、最もコストのかからない (図 15 参照) に最も負荷の高いものから順に並べ替えて最初のページにユーザーを返します。
+このボタンをクリックすると、製品が価格で並べ替えられた最初のページにユーザーが返されます。料金は最も高く、コストが最も低くなります (図15を参照)。
 
-[![最も負荷の高い製品の注文 ボタンをクリックすると、最小](paging-and-sorting-report-data-cs/_static/image32.png)](paging-and-sorting-report-data-cs/_static/image31.png)
+[このボタンをクリック ![と、最もコストの高い製品から順に製品が順序付けされます。](paging-and-sorting-report-data-cs/_static/image32.png)](paging-and-sorting-report-data-cs/_static/image31.png)
 
-**図 15**:製品から、最も負荷の高い、最小の注文 ボタンをクリックして ([フルサイズの画像を表示する をクリックします](paging-and-sorting-report-data-cs/_static/image33.png))。
+**図 15**: ボタンをクリックすると、最もコストの高い製品から最もコストが高くなります ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-cs/_static/image33.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、既定のページングと並べ替え機能を実装する方法を説明しましたでどちらもが簡単にチェック ボックスをチェックできます! ユーザーは、並べ替え、データをページまたは、ときに、色付けされていく様子のようなワークフロー。
+このチュートリアルでは、既定のページングと並べ替えの機能を実装する方法について説明しました。どちらもチェックボックスをオンにするのと同じくらい簡単でした。 ユーザーがデータを並べ替えたり、ページを上したりすると、同様のワークフローは次のようになります。
 
-1. ポストバック後します。
-2. データ Web コントロール s 事前レベルのイベントが発生します (`PageIndexChanging`または`Sorting`)
-3. ObjectDataSource してすべてのデータを再取得します。
-4. データ Web コントロール s 後レベルのイベントが発生します (`PageIndexChanged`または`Sorted`)
+1. ポストバック ensues
+2. データ Web コントロール s レベルのイベントが発生します (`PageIndexChanging` または `Sorting`)
+3. すべてのデータが ObjectDataSource によって再取得されます。
+4. データ Web コントロール s レベルのイベントが発生しました (`PageIndexChanged` または `Sorted`)
 
-基本的なページングと並べ替えの実装は簡単ですが、多くの労力はより効率的なカスタム ページングを使用する、またはさらに、ページングまたは並べ替えのインターフェイスを強化するために用いる必要があります。 今後のチュートリアルでは、これらのトピックを紹介します。
+基本的なページングと並べ替えを実装するのは簡単ですが、より効率的なカスタムページングを利用したり、ページングまたは並べ替えインターフェイスをさらに強化したりするには、より多くの労力を用いる必要があります。 今後のチュートリアルでは、これらのトピックについて説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [次へ](efficiently-paging-through-large-amounts-of-data-cs.md)

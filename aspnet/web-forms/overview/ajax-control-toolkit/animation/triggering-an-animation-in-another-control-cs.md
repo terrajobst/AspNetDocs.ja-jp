@@ -1,63 +1,63 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
-title: アニメーションをトリガーする、別のコントロール (c#) |Microsoft Docs
+title: 別のコントロールでアニメーションをトリガーC#する () |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 一般に、起動する.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 一般に、...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e5d99c2b-d8ee-413c-80d5-c120cffb0a4c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1db5468d3c1d35b25aea0d5ff331a742ce421191
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e0a1f8986047da04db6fde8e54b6fd0ac6ee2603
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132913"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599634"
 ---
 # <a name="triggering-an-animation-in-another-control-c"></a>別のコントロールでアニメーションをトリガーする (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8CS.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 一般に、アニメーションの起動は、同じコントロールでのユーザー操作によってトリガーされます。 ただしも別のコントロールを 1 つのコントロールと、アニメーションと対話することです。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 通常、アニメーションの起動は、同じコントロールでのユーザー操作によってトリガーされます。 ただし、1つのコントロールと対話し、別のコントロールをアニメーションすることもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 一般に、アニメーションの起動は、同じコントロールでのユーザー操作によってトリガーされます。 ただしも別のコントロールを 1 つのコントロールと、アニメーションと対話することです。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 通常、アニメーションの起動は、同じコントロールでのユーザー操作によってトリガーされます。 ただし、1つのコントロールと対話し、別のコントロールをアニメーションすることもできます。
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
+まず、ページに `ScriptManager` を含めます。次に、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようになります。
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-cs/samples/sample1.aspx)]
 
-次のようなテキストのパネルに、アニメーションが適用されます。
+アニメーションは、次のようなテキストパネルに適用されます。
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-cs/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
+パネルに関連付けられている CSS クラスで、優れた背景色を定義し、パネルに固定幅を設定します。
 
 [!code-css[Main](triggering-an-animation-in-another-control-cs/samples/sample3.css)]
 
-パネルをアニメーション化を開始するには、HTML ボタンが使用されます。 なお`<input type="button" />`をお勧め`<asp:Button />`ためたくないポストバック、ユーザーがそのボタンをクリックするとにします。
+パネルのアニメーション化を開始するために、HTML ボタンが使用されます。 `<input type="button" />` は、ユーザーがボタンをクリックしたときにポストバックが不要になるため、`<asp:Button />` で favoured されることに注意してください。
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-cs/samples/sample4.aspx)]
 
-次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`。 設定することが重要`TargetControlID`ボタン (アニメーションをトリガーする要素) の ID に、パネル (アニメーション化されている要素) の ID にありません
+次に、`ID`、`TargetControlID` 属性、および加える `runat="server"`を指定して、ページに `AnimationExtender` を追加します。 `TargetControlID` を、パネルの ID (アニメーション化する要素) ではなく、ボタンの ID (アニメーションをトリガーする要素) に設定することが重要です。
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-cs/samples/sample5.aspx)]
 
-内で、`<Animations>`ノードで、通常どおりの場所のアニメーション。 パネルを変更するには、するには、ボタンの設定、`AnimationTarget`内のすべてのアニメーション要素の属性`AnimationExtender`します。 値は、`AnimationTarget`パネルの ID をもちろんです。 そうすること、アニメーションにトリガーを起動するボタンではなく、パネルで発生します。 ここでは、`AnimationExtender`このシナリオのマークアップ。
+[`<Animations>`] ノード内で、アニメーションを通常どおりに配置します。 ボタンではなくパネルを変更するには、`AnimationExtender`内のすべてのアニメーション要素の `AnimationTarget` 属性を設定します。 `AnimationTarget` の値は、もちろん、パネルの ID です。 これにより、アニメーションは、[トリガー] ボタンではなく、パネルで行われます。 このシナリオの `AnimationExtender` マークアップは次のとおりです。
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-cs/samples/sample6.aspx)]
 
-個々 のアニメーションを表示する特別な順序に注意してください。 まず、アニメーションの実行後に、ボタンが非アクティブ化を取得します。 あるためありません`AnimationTarget`属性、`<EnableAction>`要素をこのアニメーションは、元のコントロールに適用される: ボタンをクリックします。 次の 2 つのアニメーションのステップを並列で実行されます (`<Parallel>`要素)。 両方が、`AnimationTarget`属性に設定`"Panel1"`、そのため、パネル、[not] ボタンをアニメーション化します。
+個々のアニメーションが表示される特別な順序に注意してください。 まず、アニメーションを実行すると、ボタンが非アクティブになります。 `<EnableAction>` 要素には `AnimationTarget` 属性がないため、このアニメーションは元のコントロール (ボタン) に適用されます。 次の2つのアニメーションの手順は、並列 (`<Parallel>` 要素) で実行する必要があります。 どちらの `AnimationTarget` 属性も `"Panel1"`に設定されているので、ボタンではなくパネルをアニメーション化します。
 
-[![パネル アニメーションを開始するボタンにマウスのクリック](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)
+[ボタンをクリックする ![、パネルアニメーションが開始されます。](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)
 
-ボタンをマウスのクリックは、パネルのアニメーションを開始 ([フルサイズの画像を表示する をクリックします](triggering-an-animation-in-another-control-cs/_static/image3.png))。
+ボタンをクリックするとパネルアニメーションが開始されます ([クリックすると、フルサイズの画像が表示](triggering-an-animation-in-another-control-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](disabling-actions-during-animation-cs.md)

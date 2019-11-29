@@ -1,225 +1,225 @@
 ---
 uid: web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
-title: マスター ページとサイト ナビゲーション (c#) |Microsoft Docs
+title: マスターページとサイトナビゲーション (C#) |Microsoft Docs
 author: rick-anderson
-description: ユーザー フレンドリな web サイトの一般的な特性の 1 つは、一貫性があり、サイト全体のページ レイアウトとナビゲーション スキームを備えることです。 このチュートリアルの検索方法を y.
+description: ユーザーフレンドリな web サイトの一般的な特性の1つは、一貫性のあるサイト全体のページレイアウトとナビゲーションスキームを持つことです。 このチュートリアルでは、
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13bf64919e8068f44b20120400f62eecbd3cace9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e1ddd43524a61ff2e012171eba1a8dc8efbf8f1d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134676"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74587516"
 ---
 # <a name="master-pages-and-site-navigation-c"></a>マスター ページとサイト ナビゲーション (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_3_CS.exe)または[PDF のダウンロード](master-pages-and-site-navigation-cs/_static/datatutorial03cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_3_CS.exe)または[PDF のダウンロード](master-pages-and-site-navigation-cs/_static/datatutorial03cs1.pdf)
 
-> ユーザー フレンドリな web サイトの一般的な特性の 1 つは、一貫性があり、サイト全体のページ レイアウトとナビゲーション スキームを備えることです。 このチュートリアルでは、簡単に更新可能なすべてのページにわたって一貫したルック アンド フィールを作成する方法で検索します。
+> ユーザーフレンドリな web サイトの一般的な特性の1つは、一貫性のあるサイト全体のページレイアウトとナビゲーションスキームを持つことです。 このチュートリアルでは、簡単に更新できるすべてのページで一貫したルックアンドフィールを作成する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-ユーザー フレンドリな web サイトの一般的な特性の 1 つは、一貫性があり、サイト全体のページ レイアウトとナビゲーション スキームを備えることです。 ASP.NET 2.0 を両方サイト全体のページ レイアウトとナビゲーション スキームの実装を大幅に簡略化する 2 つの新しい機能が導入されています。 マスター ページとサイト ナビゲーション。 指定された編集可能な領域を持つサイト全体のテンプレートを作成する開発者のマスター ページを使用します。 このテンプレートは、サイト内の ASP.NET ページに適用できます。 マスター ページの編集可能な領域を指定したため、このような ASP.NET ページはコンテンツを提供のみ必要がありますが、マスター ページの他のすべてのマークアップをマスター ページを使用するすべての ASP.NET ページの全体で同一です。 このモデルを定義し、サイト全体のページ レイアウトを簡単に更新可能なすべてのページにわたって一貫したルック アンド フィールを作成するを簡単に一元管理できます。
+ユーザーフレンドリな web サイトの一般的な特性の1つは、一貫性のあるサイト全体のページレイアウトとナビゲーションスキームを持つことです。 ASP.NET 2.0 には、サイト全体のページレイアウトとナビゲーションスキームの実装を大幅に簡略化する2つの新機能が導入されています。マスターページとサイトナビゲーションです。 マスターページを使用すると、開発者は、指定された編集可能な領域を使用してサイト全体のテンプレートを作成できます。 このテンプレートは、サイト内の ASP.NET ページに適用できます。 このような ASP.NET ページは、マスターページの指定された編集可能な領域に対してのみコンテンツを提供する必要がありますマスターページ内の他のすべてのマークアップは、マスターページを使用するすべての ASP.NET ページで同一です。 このモデルを使用すると、開発者はサイト全体のページレイアウトを定義して一元管理できます。これにより、簡単に更新できるすべてのページに一貫したルックアンドフィールを作成することができます。
 
-[サイト ナビゲーション システム](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)機構を開発者に、サイト マップを定義するページとプログラムでクエリを実行するには、そのサイト マップの API の両方を提供します。 新しいナビゲーション Web コントロールが Menu、TreeView、および SiteMapPath 簡単にでは、一般的なナビゲーション ユーザー インターフェイス要素に、サイト マップのすべてまたは一部をレンダリングします。 つまり、XML フォーマット ファイルで、サイト マップを定義するように、既定のサイト ナビゲーション プロバイダー使用します。
+[サイトナビゲーションシステム](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)には、ページ開発者がサイトマップを定義するためのメカニズムと、そのサイトマップ用の API をプログラムで照会するためのメカニズムが用意されています。 新しいナビゲーション Web では、メニュー、TreeView、および SiteMapPath を制御して、サイトマップの全体または一部を共通のナビゲーションユーザーインターフェイス要素に簡単にレンダリングできるようにします。 既定のサイトナビゲーションプロバイダーを使用します。つまり、サイトマップは XML 形式のファイルで定義されます。
 
-これらの概念を説明し、チュートリアル web サイトをより使いやすく、サイト全体のページ レイアウトを定義する、サイト マップの実装、およびナビゲーション UI を追加するこのレッスンをについて説明します。 このチュートリアルの最後で、チュートリアルの web ページを構築するための光沢のある web サイトのデザインがあります。
+これらの概念を説明し、チュートリアルの web サイトをより使いやすくするために、このレッスンでは、サイト全体のページレイアウトの定義、サイトマップの実装、およびナビゲーション UI の追加について説明します。 このチュートリアルを終了すると、チュートリアル web ページを構築するための洗練された web サイトの設計が完成します。
 
-[![このチュートリアルの最終結果](master-pages-and-site-navigation-cs/_static/image2.png)](master-pages-and-site-navigation-cs/_static/image1.png)
+[このチュートリアルの最終結果を ![する](master-pages-and-site-navigation-cs/_static/image2.png)](master-pages-and-site-navigation-cs/_static/image1.png)
 
-**図 1**:最後の結果のチュートリアル ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image3.png))。
+**図 1**: このチュートリアルの最終結果 ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image3.png)されます)
 
-## <a name="step-1-creating-the-master-page"></a>手順 1: マスター ページを作成する
+## <a name="step-1-creating-the-master-page"></a>手順 1: マスターページの作成
 
-最初の手順では、サイトのマスター ページを作成します。 ここでは、web サイトは、型指定されたデータセットのみで構成されています (`Northwind.xsd`で、`App_Code`フォルダー)、BLL クラス (`ProductsBLL.cs`、`CategoriesBLL.cs`で、すべてで、`App_Code`フォルダー)、データベース (`NORTHWND.MDF`の`App_Data`フォルダー)、構成ファイル (`Web.config`)、および CSS スタイル シート ファイル (`Styles.css`)。 これらのページと私たちがするを再調査するこれらの例で詳しく今後のチュートリアルであるために、最初の 2 つのチュートリアルから DAL と BLL を使用するかを示すファイルはクリーンアップします。
+最初の手順では、サイトのマスターページを作成します。 現在、web サイトは、型指定されたデータセット (`Northwind.xsd`、`App_Code` フォルダー内)、BLL クラス (`ProductsBLL.cs`、`CategoriesBLL.cs`など)、すべて `App_Code` フォルダー内のデータベース、データベース (`NORTHWND.MDF`フォルダー内)、構成ファイル (`App_Data`)、および CSS スタイルシートファイル (`Web.config`) で構成されています。 これらのページとファイルは、最初の2つのチュートリアルの DAL と BLL の使用をデモンストレーションしています。これらの例については、今後のチュートリアルでさらに詳しく説明します。
 
-![このプロジェクト内のファイル](master-pages-and-site-navigation-cs/_static/image4.png)
+![プロジェクト内のファイル](master-pages-and-site-navigation-cs/_static/image4.png)
 
-**図 2**:このプロジェクト内のファイル
+**図 2**: プロジェクト内のファイル
 
-マスター ページを作成するには、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 テンプレートの一覧からマスター ページの種類を選択し、という名前を付けます`Site.master`します。
+マスターページを作成するには、ソリューションエクスプローラーでプロジェクト名を右クリックし、[新しい項目の追加] を選択します。 次に、テンプレートの一覧からマスターページの種類を選択し、`Site.master`という名前を入力します。
 
-[![新しいマスター ページ、web サイトを追加します。](master-pages-and-site-navigation-cs/_static/image6.png)](master-pages-and-site-navigation-cs/_static/image5.png)
+[新しいマスターページを Web サイトに追加 ![には](master-pages-and-site-navigation-cs/_static/image6.png)](master-pages-and-site-navigation-cs/_static/image5.png)
 
-**図 3**:新しいマスター ページ、web サイトを追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image7.png))。
+**図 3**: web サイトに新しいマスターページを追加する ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image7.png)されます)
 
-マスター ページで、ここで、サイト全体のページ レイアウトを定義します。 デザイン ビューを使用して、必要なレイアウトまたは Web コントロールを追加またはソース ビューで手動でマークアップを手動で追加することができます。 マスター ページを使用して[カスケード スタイル シート](http://www.w3schools.com/css/default.asp)配置と外部のファイルで定義された CSS 設定でスタイル`Style.css`します。 CSS 規則が定義されているときに、次に示すマークアップからわかることはできません、ようにナビゲーション`<div>`のようにし、左側に表示が固定幅 200 ピクセルに絶対にコンテンツが配置されています。
+ここでは、マスターページでサイト全体のページレイアウトを定義します。 デザインビューを使用して、必要なレイアウトや Web コントロールを追加したり、手動でソースビューにマークアップを手動で追加したりすることができます。 マスターページでは、外部ファイル `Style.css`で定義されている CSS 設定を使用して、配置とスタイルに[カスケードスタイルシート](http://www.w3schools.com/css/default.asp)を使用します。 次に示すマークアップからはわかりませんが、CSS 規則は、ナビゲーション `<div>`の内容が、左側に表示されるように絶対配置され、200ピクセルの固定幅であるように定義されています。
 
-Site.master
+サイト. master
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample1.aspx)]
 
-マスター ページは、静的なページ レイアウトやマスター ページを使用する ASP.NET ページが編集可能なリージョンの両方を定義します。 これらのコンテンツの編集可能なリージョンは、コンテンツ内で示しているようにプレース ホルダー コントロールで示されます`<div>`します。 このマスター ページが 1 つのプレース ホルダー (`MainContent`) をマスター ページの複数の ContentPlaceHolders があります。
+マスターページでは、静的ページレイアウトと、マスターページを使用する ASP.NET ページで編集できる領域の両方が定義されています。 これらのコンテンツ編集可能な領域は、ContentPlaceHolder コントロールによって示されます。これは、コンテンツ `<div>`内で確認できます。 マスターページには1つの ContentPlaceHolder (`MainContent`) がありますが、マスターページには複数の ContentPlaceHolders がある場合があります。
 
-上記で入力したマークアップをデザイン ビューに切り替えると、マスター ページのレイアウトを示します。 このマスター ページを使用する任意の ASP.NET ページのマークアップを指定する機能によりこの均一なレイアウトになります、`MainContent`リージョン。
+上で入力したマークアップで、デザインビューに切り替えると、マスターページのレイアウトが表示されます。 このマスターページを使用するすべての ASP.NET ページでは、この uniform layout が使用され、`MainContent` 領域のマークアップを指定することができます。
 
-[![デザイン ビューで表示した場合、マスター ページ](master-pages-and-site-navigation-cs/_static/image9.png)](master-pages-and-site-navigation-cs/_static/image8.png)
+[デザインビューで表示したときにマスターページを ![する](master-pages-and-site-navigation-cs/_static/image9.png)](master-pages-and-site-navigation-cs/_static/image8.png)
 
-**図 4**:マスター ページで、ときに表示をデザイン ビュー ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image10.png))。
+**図 4**: デザインビューで表示したときのマスターページ ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image10.png)されます)
 
-## <a name="step-2-adding-a-homepage-to-the-website"></a>手順 2: Web サイトへのホーム ページの追加
+## <a name="step-2-adding-a-homepage-to-the-website"></a>手順 2: Web サイトへのホームページの追加
 
-定義されているマスター ページ、web サイトの ASP.NET ページを追加する準備ができました。 追加してみましょう`Default.aspx`、当社の web サイトのホーム ページ。 ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 ファイルの名前とテンプレートの一覧から Web フォームのオプションを選択`Default.aspx`します。 また、「マスター ページの選択」チェック ボックスをオンします。
+マスターページが定義されているので、web サイトの ASP.NET ページを追加する準備ができました。 まず、web サイトのホームページ `Default.aspx`を追加しましょう。 ソリューションエクスプローラーでプロジェクト名を右クリックし、[新しい項目の追加] を選択します。 [テンプレート] ボックスの一覧から [Web フォーム] オプションを選択し、ファイルに `Default.aspx`という名前を指定します。 また、[マスターページの選択] チェックボックスをオンにします。
 
-[![マスター ページのチェック ボックスをチェックする、新しい Web フォームの追加します。](master-pages-and-site-navigation-cs/_static/image12.png)](master-pages-and-site-navigation-cs/_static/image11.png)
+[新しい Web フォームを追加 ![には、[マスターページの選択] チェックボックスをオンにします。](master-pages-and-site-navigation-cs/_static/image12.png)](master-pages-and-site-navigation-cs/_static/image11.png)
 
-**図 5**:マスター ページのチェック ボックスをチェックする、新しい Web フォームの追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image13.png))。
+**図 5**: [マスターページの選択] チェックボックスをオンにして新しい Web フォームを追加[する (クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image13.png)されます)
 
-[Ok] ボタンをクリックすると、この新しい ASP.NET ページを使用する必要がありますマスター ページの選択を求めます。 プロジェクトで複数のマスター ページを保持できますが、1 つだけあります。
+[OK] ボタンをクリックすると、この新しい ASP.NET ページで使用するマスターページを選択するように求められます。 プロジェクトには複数のマスターページを含めることができますが、1つしかありません。
 
-[![この ASP.NET ページを使用する必要があります、マスター ページの選択します。](master-pages-and-site-navigation-cs/_static/image15.png)](master-pages-and-site-navigation-cs/_static/image14.png)
+[この ASP.NET ページで使用するマスターページを選択 ![](master-pages-and-site-navigation-cs/_static/image15.png)](master-pages-and-site-navigation-cs/_static/image14.png)
 
-**図 6**:マスター ページにこの ASP.NET ページは使用を選択 ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image16.png))。
+**図 6**: この ASP.NET ページで使用するマスターページを選択します ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image16.png)されます)
 
-新しい ASP.NET ページでは、マスター ページを選択した後、次のマークアップが含まれます。
+マスターページを選択すると、新しい ASP.NET ページには次のマークアップが含まれます。
 
 Default.aspx
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample2.aspx)]
 
-`@Page`ディレクティブがありますが使用されるマスター ページ ファイルへの参照 (`MasterPageFile="~/Site.master"`)、ASP.NET ページのマークアップには、コンテンツ コントロールの各コントロールの使用のマスター ページで定義されているプレース ホルダー コントロールが含まれている`ContentPlaceHolderID`特定のプレース ホルダーへのコンテンツのマッピングを制御します。 コンテンツ コントロールには、マークアップの配置に対応するプレース ホルダーで表示します。 設定、`@Page`ディレクティブの`Title`ホームに属性し、コンテンツ コントロールに歓迎内容を追加します。
+`@Page` ディレクティブには、使用されるマスターページファイルへの参照 (`MasterPageFile="~/Site.master"`) があります。また、ASP.NET ページのマークアップには、マスターページで定義されている各 ContentPlaceHolder コントロールのコンテンツコントロールが含まれています。また、コントロールの `ContentPlaceHolderID` によって、コンテンツコントロールが特定の ContentPlaceHolder にマッピングされます。 コンテンツコントロールは、対応する ContentPlaceHolder に表示するマークアップを配置する場所です。 `@Page` ディレクティブの `Title` 属性を Home に設定し、いくつかのウェルカムコンテンツをコンテンツコントロールに追加します。
 
 Default.aspx
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample3.aspx)]
 
-`Title`属性、`@Page`ディレクティブにより場合でも、ASP.NET ページからページのタイトルを設定する、`<title>`マスター ページの要素が定義されています。 設定できますタイトル プログラムを使用して`Page.Title`します。 またを注意スタイル シートへのマスター ページの参照 (など`Style.css`) は、ASP.NET ページがマスター ページから相対的ではどのようなディレクトリに関係なく、任意の ASP.NET ページで機能するように自動的に更新します。
+`@Page` ディレクティブの `Title` 属性を使用すると、マスターページで `<title>` 要素が定義されている場合でも、ASP.NET ページからページのタイトルを設定できます。 `Page.Title`を使用して、プログラムでタイトルを設定することもできます。 また、マスターページのスタイルシート (`Style.css`など) への参照が自動的に更新され、ASP.NET ページがマスターページを基準とするディレクトリに関係なく、ASP.NET ページで動作するようになっていることに注意してください。
 
-ブラウザーで、ページがどのように表示されるかがわかりますデザイン ビューに切り替えます。 設計のコンテンツの編集可能なリージョンのみが編集可能な ASP.NET ページ用マスター ページで定義されている非プレース ホルダーのマークアップを表示するメモが淡色表示されます。
+デザインビューに切り替えると、ブラウザーでページがどのように表示されるかを確認できます。 ASP.NET ページのデザインビューでは、編集可能なコンテンツのみが編集可能な領域であることに注意してください。マスターページで定義されている非 ContentPlaceHolder マークアップはグレーで表示されます。
 
-[![ASP.NET ページのデザイン ビューは、編集可能なが編集可能なリージョンの両方を示しています。](master-pages-and-site-navigation-cs/_static/image18.png)](master-pages-and-site-navigation-cs/_static/image17.png)
+[ASP.NET ページのデザインビューには、編集可能な領域と編集不可能な領域の両方が表示され ![](master-pages-and-site-navigation-cs/_static/image18.png)](master-pages-and-site-navigation-cs/_static/image17.png)
 
-**図 7**:非編集可能領域と、ASP.NET ページを示しています両方、編集可能なデザイン ビュー ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image19.png))。
+**図 7**: [ASP.NET] ページのデザインビューには、編集可能な領域と編集できない領域の両方が表示されます ([クリックすると、フルサイズのイメージが表示](master-pages-and-site-navigation-cs/_static/image19.png)されます)
 
-ときに、`Default.aspx`ページがブラウザーでアクセスした、ページのマスター ページのコンテンツと、ASP、ASP.NET エンジンを自動的にマージします。NET はのコンテンツ、および要求側のブラウザーに送信される最終的な HTML に結合されたコンテンツを表示します。 マスター ページのコンテンツが更新されたときに、このマスター ページを使用するすべての ASP.NET ページは、次回ユーザーが要求したコンテンツに新しいマスター ページ remerged、コンテンツがあります。 マスター ページ モデルで 1 つのページは、簡単に言えば、レイアウト テンプレートには、(マスター ページ) が定義されている変更はすぐにサイト全体に反映されます。
+ブラウザーが `Default.aspx` ページにアクセスすると、ASP.NET エンジンはページのマスターページの内容と ASP を自動的にマージします。ネットワークのコンテンツ。マージされたコンテンツを、要求側のブラウザーに送信される最終的な HTML にレンダリングします。 マスターページのコンテンツが更新されると、このマスターページを使用するすべての ASP.NET ページのコンテンツは、次回要求されたときに新しいマスターページコンテンツに再マージされます。 つまり、マスターページモデルでは、1つのページレイアウトテンプレート (マスターページ) を定義し、その変更内容をサイト全体に直ちに反映させることができます。
 
-## <a name="adding-additional-aspnet-pages-to-the-website"></a>その他の ASP.NET ページ、web サイトへの追加
+## <a name="adding-additional-aspnet-pages-to-the-website"></a>Web サイトへの ASP.NET ページの追加
 
-最終的にさまざまなレポート作成のデモを保持するサイトに追加の ASP.NET ページのスタブを追加するには、少し見てみましょう。 複数存在するがみましょうのスタブのページを作成するのではなくという時そのため、合計で 35 のデモは、最初のいくつかを作成します。 デモの多くのカテゴリもある、ために管理を支援するデモ フォルダーを追加のカテゴリ。 ここでは、次の 3 つのフォルダーを追加します。
+ここでは、さまざまなレポートのデモを最終的に保持する ASP.NET page スタブをサイトに追加します。 合計で35のデモが行われるため、すべてのスタブページを作成するのではなく、最初の数を作成するだけです。 デモには多くのカテゴリがあるため、デモをより適切に管理するには、カテゴリのフォルダーを追加します。 ここでは、次の3つのフォルダーを追加します。
 
 - `BasicReporting`
 - `Filtering`
 - `CustomFormatting`
 
-図 8 ソリューション エクスプ ローラーで示すように最後に、新しいファイルを追加します。 各ファイルを追加する場合は、「マスター ページの選択」チェック ボックスをオンにしてください。
+最後に、図8のソリューションエクスプローラーに示すように、新しいファイルを追加します。 各ファイルを追加するときは、必ず [マスターページの選択] チェックボックスをオンにしてください。
 
 ![次のファイルを追加します。](master-pages-and-site-navigation-cs/_static/image20.png)
 
-**図 8**:次のファイルを追加します。
+**図 8**: 次のファイルを追加する
 
-## <a name="step-2-creating-a-site-map"></a>手順 2: サイト マップを作成します。
+## <a name="step-2-creating-a-site-map"></a>手順 2: サイトマップの作成
 
-少数のページから成る web サイトの管理の課題の 1 つは、サイトをナビゲートする訪問者の簡単な方法を提供しています。 まず始めに、サイトのナビゲーション構造を定義する必要があります。 次に、この構造体は、階層リンク メニューなどのナビゲート可能なユーザー インターフェイス要素に変換する必要があります。 最後に、このプロセス全体は、メンテナンスおよび更新と削除、既存のサイトに新しいページを追加する必要があります。 ASP.NET 2.0 では、前に開発者はそれを維持し、ナビゲート可能なユーザー インターフェイス要素に変換に独自のサイトのナビゲーション構造を作成する方法でした。 ASP.NET 2.0 でただし、開発者を利用できます非常に柔軟なサイト ナビゲーション システムに組み込まれています。
+いくつかのページで構成される web サイトを管理する際の課題の1つは、サイト間を移動するための簡単な方法を提供することです。 まず、サイトのナビゲーション構造を定義する必要があります。 次に、この構造体を、メニューや階層リンクなどのナビゲート可能なユーザーインターフェイス要素に変換する必要があります。 最後に、新しいページがサイトに追加され、既存のページが削除されたときに、このプロセス全体を維持し、更新する必要があります。 ASP.NET 2.0 より前の開発者は、サイトのナビゲーション構造を作成し、それを維持し、移動可能なユーザーインターフェイス要素に変換するための独自の作業を行っていました。 ただし、ASP.NET 2.0 では、開発者は非常に柔軟な組み込みサイトナビゲーションシステムを利用できます。
 
-ASP.NET 2.0 のサイト ナビゲーション システムは、サイト マップを定義して、プログラムによる API を使用してこの情報にアクセスし、開発者のための手段を提供します。 ASP.NET は、特定の方法で書式設定された XML ファイルに格納されるサイト マップ データが必要とするサイト マップ プロバイダーに同梱されています。 サイト ナビゲーション システムがに構築されているため、[プロバイダー モデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)サイト マップ情報をシリアル化するための別の方法をサポートするように拡張できます。 Jeff Prosise の記事では、 [SQL サイト マップ プロバイダーをしたされて待機 For](https://msdn.microsoft.com/msdnmag/issues/06/02/WickedCode/default.aspx)どのサイト マップ プロバイダーを作成する SQL Server データベースにサイト マップを格納する; を作成することも示しています[サイト マップ プロバイダーに基づいてファイル システム構造](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)します。
+ASP.NET 2.0 サイトナビゲーションシステムは、開発者がサイトマップを定義し、プログラムによる API を使用してこの情報にアクセスするための手段を提供します。 ASP.NET には、サイトマップデータが特定の方法でフォーマットされた XML ファイルに格納されることを想定したサイトマッププロバイダーが付属しています。 ただし、サイトナビゲーションシステムは[プロバイダーモデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)に基づいて構築されているため、サイトマップ情報をシリアル化する別の方法をサポートするように拡張することができます。 Jeff Prosise の記事では、サイトマップを SQL Server データベースに格納するサイトマッププロバイダーを作成する方法に[ついて説明してい](https://msdn.microsoft.com/msdnmag/issues/06/02/WickedCode/default.aspx)ます。別の方法として[、ファイルシステムの構造に基づいてサイトマッププロバイダーを](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)作成することもできます。
 
-このチュートリアルでは、ただし、みましょうを使用して、付属する既定のサイト マップ プロバイダー ASP.NET 2.0 を使用します。 サイト マップを作成するに単にソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加 を選択およびサイト マップのオプションを選択します。 として名前をそのまま`Web.sitemap`追加 ボタンをクリックします。
+ただし、このチュートリアルでは、ASP.NET 2.0 に付属している既定のサイトマッププロバイダーを使用します。 サイトマップを作成するには、ソリューションエクスプローラーでプロジェクト名を右クリックし、[新しい項目の追加] をクリックして、[サイトマップ] オプションを選択します。 名前を `Web.sitemap` のままにして、[追加] ボタンをクリックします。
 
-[![サイト マップをプロジェクトに追加します。](master-pages-and-site-navigation-cs/_static/image22.png)](master-pages-and-site-navigation-cs/_static/image21.png)
+[プロジェクトにサイトマップを追加 ![には](master-pages-and-site-navigation-cs/_static/image22.png)](master-pages-and-site-navigation-cs/_static/image21.png)
 
-**図 9**:プロジェクトへのサイト マップの追加 ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image23.png))。
+**図 9**: サイトマップをプロジェクトに追加する ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image23.png)される)
 
-サイト マップ ファイルは、XML ファイルです。 Visual Studio が、サイト マップ構造体の IntelliSense を提供することに注意してください。 サイト マップ ファイルが必要、`<siteMap>`正確に 1 つ含める必要がありますルート ノードとしてノード`<siteMapNode>`子要素。 まず`<siteMapNode>`要素は、任意の数の子孫を含めることができますし、`<siteMapNode>`要素。
+サイトマップファイルは XML ファイルです。 Visual Studio では、サイトマップ構造に IntelliSense が用意されていることに注意してください。 サイトマップファイルには、`<siteMap>` ノードがルートノードとして含まれている必要があります。このノードには、正確に1つの `<siteMapNode>` 子要素を含める必要があります。 最初の `<siteMapNode>` 要素には、任意の数の子孫 `<siteMapNode>` 要素を含めることができます。
 
-ファイル システムの構造を模倣するために、サイト マップを定義します。 つまり、追加、`<siteMapNode>`の 3 つのフォルダーと子の各要素`<siteMapNode>`などのため、これらのフォルダー内の ASP.NET ページの各要素。
+ファイルシステムの構造を模倣するようにサイトマップを定義します。 つまり、次のように、3つの各フォルダーの `<siteMapNode>` 要素と、それらのフォルダー内の各 ASP.NET ページの子 `<siteMapNode>` 要素を追加します。
 
-Web.sitemap
+Web サイトマップ
 
 [!code-xml[Main](master-pages-and-site-navigation-cs/samples/sample4.xml)]
 
-サイト マップは、サイトのさまざまなセクションについて説明している階層、web サイトのナビゲーション構造を定義します。 各`<siteMapNode>`要素`Web.sitemap`サイトのナビゲーション構造でのセクションを表します。
+サイトマップでは、web サイトのナビゲーション構造を定義します。これは、サイトのさまざまなセクションを説明する階層です。 `Web.sitemap` 内の各 `<siteMapNode>` 要素は、サイトのナビゲーション構造のセクションを表します。
 
-[![階層ナビゲーション構造を表すサイト マップ](master-pages-and-site-navigation-cs/_static/image25.png)](master-pages-and-site-navigation-cs/_static/image24.png)
+[サイトマップが階層ナビゲーション構造を表す ![](master-pages-and-site-navigation-cs/_static/image25.png)](master-pages-and-site-navigation-cs/_static/image24.png)
 
-**図 10**:サイト マップが階層ナビゲーション構造を表します ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image26.png))。
+**図 10**: サイトマップが階層ナビゲーション構造を表す ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image26.png)されます)
 
-ASP.NET、.NET Framework のサイト マップの構造を公開する[サイトマップ クラス](https://msdn.microsoft.com/library/system.web.sitemap.aspx)します。 このクラスには、`CurrentNode`プロパティで、ユーザーが現在アクセスは、セクションに関する情報を返します、`RootNode`プロパティは、サイト マップのルートを返します (ホームで、サイト マップ) します。 両方、`CurrentNode`と`RootNode`プロパティの戻り値[SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx)プロパティのインスタンスのような`ParentNode`、 `ChildNodes`、 `NextSibling`、`PreviousSibling`でのサイト マップを使用できます。処理する階層。
+ASP.NET は、.NET Framework の[SiteMap クラス](https://msdn.microsoft.com/library/system.web.sitemap.aspx)を介して、サイトマップの構造を公開します。 このクラスには、ユーザーが現在アクセスしているセクションに関する情報を返す `CurrentNode` プロパティがあります。`RootNode` プロパティは、サイトマップのルート (microsoft のサイトマップ内) を返します。 `CurrentNode` と `RootNode` の両方のプロパティは、サイトマップ階層をウォークできるようにする、`ParentNode`、`ChildNodes`、`NextSibling`、`PreviousSibling`などのプロパティを持つ[SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx)インスタンスを返します。
 
-## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>手順 3: サイト マップに基づくメニューを表示します。
+## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>手順 3: サイトマップに基づいてメニューを表示する
 
-ASP.NET 2.0 でのデータへのアクセスは、asp.net などのプログラムによって行われますが、1.x では、宣言は、新しいまたは[データ ソース コントロール](https://msdn.microsoft.com/library/ms227679.aspx)します。 ObjectDataSource コントロール、クラス、およびその他のユーザーからのデータにアクセスするため、リレーショナル データベースのデータにアクセスするため、SqlDataSource コントロールなどのいくつかの組み込みのデータ ソース コントロールがあります。 独自に作成することも[カスタム データ ソース コントロール](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp)します。
+ASP.NET 2.0 のデータへのアクセスは、ASP.NET 1.x などのプログラムによって、または新しい[データソースコントロール](https://msdn.microsoft.com/library/ms227679.aspx)を介して宣言によって行うことができます。 データソースコントロールには、リレーショナルデータベースデータへのアクセス、ObjectDataSource コントロール、クラスからのデータアクセス用など、いくつかの組み込みデータソースコントロールがあります。 独自の[カスタムデータソースコントロール](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp)を作成することもできます。
 
-データ ソース コントロールは、ASP.NET ページと基になるデータ間のプロキシとして機能します。 データ ソース コントロールの取得したデータを表示するために通常のページに別の Web コントロールを追加し、データ ソース コントロールにバインドします。 Web コントロールをデータ ソース コントロールをバインドする Web コントロールの設定`DataSourceID`プロパティのデータ ソース コントロールの値を`ID`プロパティ。
+データソースコントロールは、ASP.NET ページと基になるデータの間のプロキシとして機能します。 データソースコントロールが取得したデータを表示するには、通常、別の Web コントロールをページに追加し、それをデータソースコントロールにバインドします。 Web コントロールをデータソースコントロールにバインドするには、単に Web コントロールの `DataSourceID` プロパティをデータソースコントロールの `ID` プロパティの値に設定します。
 
-サイト マップのデータを操作するために役立てるため、ASP.NET には、SiteMapDataSource コントロールには、web サイトのサイト マップに対して Web コントロールをバインドすることが含まれています。 2 つの Web コントロール、ツリー ビューとメニューは、ナビゲーション ユーザー インターフェイスを提供するよく使用されます。 これら 2 つのコントロールのいずれかにサイト マップ データをバインドする、SiteMapDataSource TreeView と共にページに追加またはいるメニュー コントロール`DataSourceID`プロパティが適宜設定されます。 たとえば、次のマークアップを使用して、マスター ページに、メニュー コントロールを追加しますでした。
+サイトマップのデータの操作を支援するために、ASP.NET には SiteMapDataSource コントロールが含まれています。これにより、Web コントロールを Web サイトのサイトマップにバインドすることができます。 2つの Web コントロール TreeView と Menu は、一般的にナビゲーションユーザーインターフェイスを提供するために使用されます。 この2つのコントロールのいずれかにサイトマップデータをバインドするには、SiteMapDataSource プロパティがそれに応じて設定されている TreeView または Menu `DataSourceID` コントロールと共にをページに追加するだけです。 たとえば、次のマークアップを使用して、マスターページにメニューコントロールを追加できます。
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample5.aspx)]
 
-Repeater コントロール、SiteMapDataSource コントロールをバインドします細かく、生成される HTML の制御では、次のようにします。
+出力される HTML をより細かく制御するには、次のように、SiteMapDataSource コントロールを Repeater コントロールにバインドします。
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample6.aspx)]
 
-SiteMapDataSource コントロールはルート サイト マップ ノード以降の時に、サイト マップの 1 つの階層レベルを返します (ホーム、弊社サイト マップ内)、[次へ] レベル (基本レポート、レポートのフィルター処理と書式設定をカスタマイズ)、という具合です。 SiteMapDataSource を Repeater にバインドするとき、最初のレベルを列挙します。 返されると、インスタンス化、`ItemTemplate`各`SiteMapNode`最初のレベルのインスタンス。 特定のプロパティにアクセスする、`SiteMapNode`を使用して`Eval(propertyName)`をそれぞれ取得する方法は`SiteMapNode`の`Url`と`Title`ハイパーリンク コントロールのプロパティ。
+SiteMapDataSource コントロールは、一度に1レベルずつサイトマップ階層を返します。これは、ルートサイトマップノード (サイトマップのホーム)、次のレベル (基本的なレポート、フィルター処理、カスタマイズされた書式設定など) から始まります。 SiteMapDataSource をリピータにバインドする場合は、返された最初のレベルを列挙し、その1番目のレベルの各 `SiteMapNode` インスタンスの `ItemTemplate` をインスタンス化します。 `SiteMapNode`の特定のプロパティにアクセスするには、`Eval(propertyName)`を使用できます。これは、各 `SiteMapNode`の `Url` とハイパーリンクコントロールの `Title` プロパティを取得する方法です。
 
-上記の例で Repeater は、次のマークアップでレンダリングされます。
+上記のリピータの例では、次のマークアップが表示されます。
 
 [!code-html[Main](master-pages-and-site-navigation-cs/samples/sample7.html)]
 
-(基本的なレポート、レポートのフィルター処理、および書式設定のカスタマイズ) これらのサイト マップ ノードの構成、 *2 番目*最初、表示されるサイト マップのレベル。 これは、SiteMapDataSource の`ShowStartingNode`プロパティが False に設定が原因で、SiteMapDataSource をルートのサイト マップ ノードをバイパスし、代わりに、サイト マップの階層内の 2 番目のレベルを返すことから始めます。
+これらのサイトマップノード (基本的なレポート、フィルター処理、およびカスタマイズされた書式設定) は、最初のレベルではなく、表示されるサイトマップの*2 番目*のレベルを構成します。 これは、SiteMapDataSource の `ShowStartingNode` プロパティが False に設定され、SiteMapDataSource がルートサイトマップノードをバイパスし、代わりに、サイトマップ階層の2番目のレベルを返すことによって開始されるためです。
 
-基本レポート、レポートのフィルター処理、および書式設定のカスタマイズされた子を表示する`SiteMapNode`s に初期 Repeater の別の Repeater を追加できます`ItemTemplate`します。 この 2 つ目の Repeater にバインドされます、`SiteMapNode`インスタンスの`ChildNodes`プロパティでは、次のようにします。
+基本的なレポート作成、レポートのフィルター処理、カスタマイズされた書式設定 `SiteMapNode` の子を表示するには、最初のリピータの `ItemTemplate`に別のリピータを追加します。 この2番目のリピータは、次のように `SiteMapNode` インスタンスの `ChildNodes` プロパティにバインドされます。
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample8.aspx)]
 
-これら 2 つのリピータは結果 (いくつかのマークアップが簡潔にするために削除された) 次のマークアップになります。
+これらの2つのリピータは、次のマークアップを生成します (簡略化のため、一部のマークアップは削除されています)。
 
 [!code-html[Main](master-pages-and-site-navigation-cs/samples/sample9.html)]
 
-選択した CSS を使用してスタイル設定から[Rachel Andrew](http://www.rachelandrew.co.uk/)予約 's [CSS 禅僧。101 の重要なヒント、テクニック、&amp;ハック](https://www.amazon.com/gp/product/0957921888/qid=1137565739/sr=8-1/ref=pd_bbs_1/103-0562306-3386214?n=507846&amp;s=books&amp;v=glance)、`<ul>`と`<li>`要素は、マークアップは次のビジュアルの出力を生成するようにスタイル指定します。
+[Rachel Andrew](http://www.rachelandrew.co.uk/)の書籍から選択された css スタイルを使用して[、css anthology 書籍: 101 重要なヒント、秘訣、&amp; ハッキング](https://www.amazon.com/gp/product/0957921888/qid=1137565739/sr=8-1/ref=pd_bbs_1/103-0562306-3386214?n=507846&amp;s=books&amp;v=glance)、`<ul>` 要素と `<li>` 要素には、マークアップによって次のビジュアル出力が生成されるようにスタイルが指定されています。
 
-![2 つのリピータと CSS から構成メニュー](master-pages-and-site-navigation-cs/_static/image27.png)
+![2つのリピータといくつかの CSS から構成されるメニュー](master-pages-and-site-navigation-cs/_static/image27.png)
 
-**図 11**:2 つのリピータと CSS から構成メニュー
+**図 11**: 2 つのリピータといくつかの CSS から構成されるメニュー
 
-このメニューは、マスター ページとで定義されているサイト マップにバインドされている`Web.sitemap`つまりページを使用するすべてのサイト マップの変更がすぐに反映されますを`Site.master`マスター ページ。
+このメニューは、マスターページにあり、`Web.sitemap`で定義されているサイトマップにバインドされています。つまり、サイトマップに対する変更は、`Site.master` マスターページを使用するすべてのページに直ちに反映されます。
 
-## <a name="disabling-viewstate"></a>ViewState を無効にします。
+## <a name="disabling-viewstate"></a>ViewState の無効化
 
-すべての ASP.NET コントロールの状態を永続化できる必要に応じて、[ビューステート](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/)がレンダリングされた html フォームの非表示フィールドとしてシリアル化先。 ビュー ステートは、データ Web コントロールにバインドされているデータなど、ポストバック間で、プログラムで変更の状態を記憶するコントロールによって使用されます。 ビュー ステートは、ポストバック間で記憶しておくに情報を許可するときに、クライアントに送信する必要があり、重大なページが肥大化する可能性がない場合厳重に監視するためのマークアップのサイズが増加します。 データ Web コントロール、GridView では特には特に何十もの追加のキロバイトのマークアップをページに追加することで有名です。 このような増加は、ブロード バンドまたはイントラネットのユーザーのごくわずかであり、ビュー ステートはダイヤルアップ ユーザーのラウンド トリップを数秒を追加できます。
+すべての ASP.NET コントロールは、必要に応じて状態を[ビューステート](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/)に永続化することができます。これは、レンダリングされた HTML の非表示フォームフィールドとしてシリアル化されます。 ビューステートは、データ Web コントロールにバインドされたデータなど、ポストバック間でプログラムによって変更された状態を記憶するために、コントロールによって使用されます。 ビューステートでは、ポストバック間で情報を記憶することが許可されますが、クライアントに送信する必要があるマークアップのサイズが増加し、厳密に監視されていない場合は、ページのサイズが極端に大きくなる可能性があります。 データ Web コントロール (特に、GridView) は、ページに多数の追加のマークアップを追加する場合に特によく知られています。 このような増加は、ブロードバンドまたはイントラネットのユーザーにとってはごくわずかである場合がありますが、ダイヤルアップユーザーのためにラウンドトリップに数秒を追加することができます。
 
-状態を表示、ブラウザーでページを参照してください、および web ページによって送信されたソースを表示し、影響を確認する (Internet Explorer で、[表示] メニューに移動し、ソース オプションを選択)。 にすることもできます。[ページ トレース](https://msdn.microsoft.com/library/sfbfw58f.aspx)を各ページ上のコントロールで使用される割り当ての表示状態を確認します。 という名前の隠しフォーム フィールドで、ビュー状態情報がシリアル化`__VIEWSTATE`にある、`<div>`要素の開始後すぐに`<form>`タグ。 ビュー ステートは、使用されている Web フォームがある場合にのみ保存します。ASP.NET ページが含まれていない場合、`<form runat="server">`がその宣言構文内で、`__VIEWSTATE`隠しフォーム フィールドで、表示されるマークアップ。
+ビューステートの影響を確認するには、ブラウザーのページにアクセスし、web ページによって送信されたソースを表示します (Internet Explorer で、[表示] メニューに移動し、[ソース] オプションを選択します)。 ページ[トレース](https://msdn.microsoft.com/library/sfbfw58f.aspx)をオンにして、ページ上の各コントロールによって使用されるビューステートの割り当てを確認することもできます。 ビューステート情報は `__VIEWSTATE`という名前の非表示フィールドにシリアル化されます。このフィールドは、開始 `<form>` タグの直後にある `<div>` 要素にあります。 ビューステートは、使用されている Web フォームがある場合にのみ保存されます。ASP.NET ページの宣言構文に `<form runat="server">` が含まれていない場合は、表示されているマークアップに `__VIEWSTATE` の非表示フォームフィールドはありません。
 
-`__VIEWSTATE`マスター ページによって生成されたフォーム フィールドは、ページの生成されたマークアップを約 1,800 バイトを追加します。 この余分な肥大化は主に、Repeater コントロール、SiteMapDataSource コントロールの内容が状態を表示する永続化します。 余分な 1,800 バイト数が多くのフィールドとレコードを GridView を使用する場合、ワクワクさせる多くのように見えない可能性があります、中にビュー ステートが 10 個以上の倍数で swell 簡単にできます。
+マスターページによって生成される `__VIEWSTATE` フォームフィールドは、ページの生成されたマークアップに約1800バイトを追加します。 SiteMapDataSource コントロールの内容がビューステートに保持されるため、この余分な膨張は、主に Repeater コントロールによって発生します。 余分な1800バイトは、多くのフィールドとレコードを含む GridView を使用する場合に、多くのフィールドとレコードを含む GridView を使用すると、swell が10以上の割合で簡単に表示されない可能性があります。
 
-ビュー ステートはページまたはコントロールのレベルで設定して無効にすることができます、`EnableViewState`プロパティを`false`のため、出力されるマークアップのサイズを小さきます。 データ Web コントロールがポストバック間でデータ Web コントロールにバインドされたデータを永続化のビュー ステートから Web コントロールのデータのビュー ステートを無効にするときにデータは、それぞれのポストバック時にバインドする必要があります。 ASP.NET のバージョンでこの役割は、ページの開発者の肩にかかってリンゴ 1.xASP.NET 2.0 でただし、Web コントロールのデータが再バインド ポストバックごとに、データ ソースの管理に必要な場合。
+`EnableViewState` プロパティを `false`に設定すると、ビューステートをページレベルまたはコントロールレベルで無効にして、表示されるマークアップのサイズを小さくすることができます。 データ web コントロールのビューステートは、ポストバック間でデータ Web コントロールにバインドされたデータを保持するため、データ Web コントロールのビューステートを無効にするときは、データを各ポストバックごとにバインドする必要があります。 ASP.NET バージョン1.x では、この責任はページ開発者のショルダーにあります。ただし、ASP.NET 2.0 では、必要に応じて、データ Web コントロールが各ポストバックのデータソースコントロールに再バインドされます。
 
-Repeater コントロールの設定ページのビューステートを削減しましょう`EnableViewState`プロパティを`false`します。 これは、デザイナーまたは宣言によって、ソース ビューでは、[プロパティ] ウィンドウから実行できます。 この変更を行った後よう Repeater の宣言型マークアップになります。
+ページのビューステートを小さくするには、Repeater コントロールの `EnableViewState` プロパティを `false`に設定します。 これは、デザイナーのプロパティウィンドウを使用するか、ソースビューで宣言によって行うことができます。 この変更を行った後、リピータの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample10.aspx)]
 
-この変更は、ページのビュー ステートのサイズが自動的に圧縮をたったのレンダリング後にビューに状態 97% の節約、52 バイトのサイズ。 チュートリアルではこのシリーズ全体でを無効にしますデータ Web コントロールのビューステート既定では、表示されるマークアップのサイズを小さくためにします。 ほとんどの例では、`EnableViewState`プロパティに設定する`false`言及せず行ってとします。 その期待される機能を提供する Web を制御するだけの時間の状態については、説明の表示はシナリオのデータの順序で有効する必要があります。
+この変更が完了すると、ページのレンダリングされたビューステートのサイズが52バイトに縮小し、ビューステートサイズが97% 節約されます。 このシリーズのチュートリアルでは、表示されるマークアップのサイズを小さくするために、既定でデータ Web コントロールのビューステートを無効にします。 例の大部分では、`EnableViewState` プロパティは `false` に設定され、言及せずに完了します。 データ Web コントロールが期待される機能を提供するために、ビューステートが有効になっている必要があるシナリオでは、表示状態のみを説明します。
 
-## <a name="step-4-adding-breadcrumb-navigation"></a>手順 4: 階層リンク ナビゲーションを追加します。
+## <a name="step-4-adding-breadcrumb-navigation"></a>手順 4: 階層リンクナビゲーションを追加する
 
-マスター ページを完了するには、各ページに、階層リンク ナビゲーション UI 要素を追加してみましょう。 階層リンクでは、サイト階層内の現在位置をユーザーがすぐにわかります。 ページに SiteMapPath コントロールを追加する ASP.NET 2.0 での階層リンクは簡単に追加します。コードは必要ありません。
+マスターページを完成させるには、各ページに階層リンクナビゲーション UI 要素を追加してみましょう。 階層リンクは、サイト階層内の現在の位置をユーザーにすばやく表示します。 ASP.NET 2.0 で階層リンクを追加するのは、ページに SiteMapPath コントロールを追加するだけです。コードは必要ありません。
 
-私たちのサイトのヘッダーにこのコントロールを追加`<div>`:
+サイトでは、次のコントロールをヘッダー `<div>`に追加します。
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample11.aspx)]
 
-階層リンクは、ユーザーは、ルートまでサイト マップの階層とそのサイト マップ ノードの「先祖、」にアクセスして、現在のページを示します (ホームで、サイト マップ) します。
+階層リンクには、ユーザーがサイトマップ階層内でアクセスしている現在のページと、そのサイトマップノードの "先祖" が表示されます。これは、ルート (サイトマップ内のホーム) までです。
 
-![階層リンクには、現在のページが表示されます。 とその親サイトの階層をマッピングします。](master-pages-and-site-navigation-cs/_static/image28.png)
+![階層リンクには、現在のページとその先祖がサイトマップ階層に表示されます。](master-pages-and-site-navigation-cs/_static/image28.png)
 
-**図 12**:階層リンクには、現在のページが表示されます。 とその親サイトの階層をマッピングします。
+**図 12**: 階層リンクに、現在のページとその先祖がサイトマップ階層に表示される
 
-## <a name="step-5-adding-the-default-page-for-each-section"></a>手順 5: 各セクションの既定のページを追加します。
+## <a name="step-5-adding-the-default-page-for-each-section"></a>手順 5: 各セクションの既定のページを追加する
 
-チュートリアルでは、サイトでは、さまざまなカテゴリに基本的なレポートでは、フィルター処理、カスタムの書式設定、各カテゴリとそのフォルダー内の ASP.NET ページと対応するチュートリアル用のフォルダーとこれに分類されます。 さらに、各フォルダーが含まれています、`Default.aspx`ページ。 この既定のページの現在のセクションのチュートリアルのすべてのことを表示してみましょう。 つまりの`Default.aspx`で、`BasicReporting`フォルダーへのリンクになります`SimpleDisplay.aspx`、 `DeclarativeParams.aspx`、および`ProgrammaticParams.aspx`します。 ここでは、もう一度使える、`SiteMap`クラスとデータ サイト マップに基づいてこの情報を表示する Web コントロールで定義されている`Web.sitemap`します。
+このサイトのチュートリアルは、各カテゴリのフォルダーと、そのフォルダー内の ASP.NET ページとしての対応するチュートリアルによって、さまざまなカテゴリに分類されています。 また、各フォルダーには `Default.aspx` ページが含まれています。 この既定のページでは、現在のセクションのすべてのチュートリアルを表示してみましょう。 つまり、`BasicReporting` フォルダーの `Default.aspx` には、`SimpleDisplay.aspx`、`DeclarativeParams.aspx`、`ProgrammaticParams.aspx`へのリンクがあります。 ここでも、`SiteMap` クラスとデータ Web コントロールを使用して、`Web.sitemap`で定義されているサイトマップに基づいてこの情報を表示できます。
 
-今回のチュートリアルでは、説明、タイトルを表示しますが、もう一度、Repeater を使用して、順序なしリストを表示してみましょう。 これを実行するコードとマークアップがごとに繰り返される必要があるため`Default.aspx` ページで、この UI ロジックをカプセル化ことができます、[ユーザー コントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)します。 呼ばれる web サイトにフォルダーを作成`UserControls`という名前の Web ユーザー コントロールの種類の新しい項目を追加および`SectionLevelTutorialListing.ascx`、し、次のマークアップを追加します。
+リピータを使用して順序なしのリストをもう一度表示してみましょう。今度は、チュートリアルのタイトルと説明を表示します。 これを実現するためのマークアップとコードは `Default.aspx` ページごとに繰り返す必要があるため、[ユーザーコントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)にこの UI ロジックをカプセル化することができます。 Web サイトに `UserControls` という名前のフォルダーを作成し、`SectionLevelTutorialListing.ascx`という種類の Web ユーザーコントロールの新しい項目を追加して、次のマークアップを追加します。
 
-[![UserControls フォルダーに新しい Web ユーザー コントロールを追加します。](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
+[UserControls フォルダーに新しい Web ユーザーコントロールを追加 ![には](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
 
-**図 13**:新しい Web ユーザー コントロールを追加、`UserControls`フォルダー ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image31.png))。
+**図 13**: `UserControls` フォルダーに新しい Web ユーザーコントロールを追加する ([クリックしてフルサイズのイメージを表示する](master-pages-and-site-navigation-cs/_static/image31.png))
 
-SectionLevelTutorialListing.ascx
+SectionLevelTutorialListing
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample12.aspx)]
 
@@ -227,47 +227,47 @@ SectionLevelTutorialListing.ascx.cs
 
 [!code-csharp[Main](master-pages-and-site-navigation-cs/samples/sample13.cs)]
 
-Repeater の前の例ではバインドされている、`SiteMap`データ、Repeater を宣言によって、`SectionLevelTutorialListing`ユーザー コントロール、ただしはプログラムでします。 `Page_Load`イベント ハンドラーで、チェックを行うこのページの URL は、サイト マップ内のノードにマップすることを確認します。 ない、対応するページでこのユーザー コントロールを使用する場合`<siteMapNode>`エントリ、`SiteMap.CurrentNode`戻ります`null`データは、Repeater にバインドしないとします。 ある場合、 `CurrentNode`、バインド、`ChildNodes`リピータするコレクション。 サイト マップが設定されているためように、 `Default.aspx`  ページの各セクションは、チュートリアルでは、そのセクション内のすべての親ノードには、以下のスクリーン ショットに示すように、このコードをへのリンクと、セクションのチュートリアルでは、すべての説明が表示されます。
+前のリピータの例では、`SiteMap` データを、宣言によってリピータにバインドしました。ただし、`SectionLevelTutorialListing` ユーザーコントロールはプログラムによって行われます。 `Page_Load` イベントハンドラーでは、このページの URL がサイトマップ内のノードにマップされていることを確認するためのチェックが行われます。 このユーザーコントロールが、対応する `<siteMapNode>` エントリのないページで使用されている場合、`SiteMap.CurrentNode` は `null` を返し、データはリピータにバインドされません。 `CurrentNode`があると仮定した場合、その `ChildNodes` コレクションをリピータにバインドします。 各セクションの [`Default.aspx`] ページがそのセクション内のすべてのチュートリアルの親ノードになるようにサイトマップが設定されているため、次のスクリーンショットに示すように、このコードには、すべてのセクションのチュートリアルのリンクと説明が表示されます。
 
-この Repeater を作成すると、開く、`Default.aspx`の各、フォルダー内のページが、デザイン ビューに移動し、ドラッグ ユーザー コントロールをデザイン画面に ソリューション エクスプ ローラーからチュートリアルの一覧を表示します。
+このリピータが作成されたら、各フォルダーの `Default.aspx` ページを開き、デザインビューに移動します。次に、ソリューションエクスプローラーから、チュートリアルリストを表示するデザイン画面にユーザーコントロールをドラッグします。
 
-[![ユーザー コントロールが Default.aspx に追加されています](master-pages-and-site-navigation-cs/_static/image33.png)](master-pages-and-site-navigation-cs/_static/image32.png)
+[ユーザーコントロールが default.aspx に追加され ![](master-pages-and-site-navigation-cs/_static/image33.png)](master-pages-and-site-navigation-cs/_static/image32.png)
 
-**図 14**:ユーザー コントロールに追加された`Default.aspx`([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image34.png))。
+**図 14**: ユーザーコントロールが `Default.aspx` に追加されました ([クリックしてフルサイズの画像を表示](master-pages-and-site-navigation-cs/_static/image34.png))
 
-[![基本的なレポート作成のチュートリアルの一覧が表示されます。](master-pages-and-site-navigation-cs/_static/image36.png)](master-pages-and-site-navigation-cs/_static/image35.png)
+[基本的なレポートのチュートリアルが記載されて ![](master-pages-and-site-navigation-cs/_static/image36.png)](master-pages-and-site-navigation-cs/_static/image35.png)
 
-**図 15**:基本的なレポート作成のチュートリアルの一覧が表示されます ([フルサイズの画像を表示する をクリックします](master-pages-and-site-navigation-cs/_static/image37.png))。
+**図 15**: 基本的なレポートのチュートリアルが一覧表示されます ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image37.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-サイト マップの定義と完全なマスター ページ、ある一貫したページ レイアウトとナビゲーション スキームのデータに関連するチュートリアル。 私たちのサイトに追加のページ数に関係なくこの情報を集中管理されているために、迅速かつ簡単なプロセスは、サイト全体のページ レイアウトまたはサイトのナビゲーション情報を更新します。 マスター ページでページのレイアウト情報が定義されている具体的には、`Site.master`とのマップにサイト`Web.sitemap`します。 記述する必要はなく*任意*このサイト全体のページ レイアウトとナビゲーション メカニズムを実現するためにコードし、Visual Studio での完全な WYSIWYG デザイナー サポートを保持します。
+サイトマップが定義され、マスターページが完成したので、データ関連のチュートリアルのページレイアウトとナビゲーションスキームが一貫しています。 サイトに追加するページの数に関係なく、サイト全体のページレイアウトまたはサイトナビゲーション情報の更新は、この情報が集中管理されているため、短時間で簡単なプロセスです。 具体的には、ページレイアウト情報は `Site.master` マスターページと `Web.sitemap`のサイトマップで定義されています。 このサイト全体のページレイアウトとナビゲーション機構を実現するため*にコードを*記述する必要はありませんでした。 Visual Studio では完全な WYSIWYG デザイナーサポートを維持しています。
 
-データ アクセス層とビジネス ロジック層を実施することで定義されている一貫したページ レイアウトとサイト ナビゲーションが発生しました準備ができているレポートの一般的なパターンの調査を開始するとします。 [次](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)3 つのチュートリアルについて説明します、gridview、DetailsView、BLL から取得されたデータを表示するレポートの基本的なタスクと、コントロールと FormView コントロールします。
+データアクセス層とビジネスロジック層を完成させ、一貫性のあるページレイアウトとサイトナビゲーションを定義したら、一般的なレポートパターンの調査を開始できます。 [次](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)の3つのチュートリアルでは、GridView、DetailsView、および FormView コントロールの BLL から取得したデータを表示する基本的なレポートタスクについて説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ## <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ASP.NET マスター ページの概要](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
-- [ASP.NET 2.0 のマスター ページ](http://odetocode.com/Articles/419.aspx)
-- [ASP.NET 2.0 のデザイン テンプレート](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
-- [ASP.NET サイト ナビゲーションの概要](https://msdn.microsoft.com/library/e468hxky.aspx)
-- [サイトのナビゲーションでの ASP.NET 2.0 の確認](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [ASP.NET 2.0 のサイト ナビゲーション機能](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
-- [ASP.NET ビュー ステートの理解](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
-- [方法: ASP.NET ページのトレースを有効にします。](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
-- [ASP.NET ユーザー コントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
+- [ASP.NET マスターページの概要](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
+- [ASP.NET 2.0 のマスターページ](http://odetocode.com/Articles/419.aspx)
+- [ASP.NET 2.0 のデザインテンプレート](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
+- [ASP.NET サイトナビゲーションの概要](https://msdn.microsoft.com/library/e468hxky.aspx)
+- [ASP.NET 2.0 のサイトナビゲーションを調べる](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [ASP.NET 2.0 サイトナビゲーション機能](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
+- [ASP.NET ビューステートについて](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
+- [方法: ASP.NET ページのトレースを有効にする](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
+- [ASP.NET ユーザーコントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Liz Shulok、Dennis Patterson、および Hilton Giesenow でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Liz Shulok、Patterson が、Hilton Giesenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-business-logic-layer-cs.md)

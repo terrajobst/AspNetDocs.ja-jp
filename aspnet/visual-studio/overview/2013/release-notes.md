@@ -1,41 +1,41 @@
 ---
 uid: visual-studio/overview/2013/release-notes
-title: ASP.NET および Web Tools for Visual Studio 2013 リリース ノート |Microsoft Docs
+title: Visual Studio 2013 リリースノートの ASP.NET and Web Tools |Microsoft Docs
 author: microsoft
-description: このドキュメントでは、ASP.NET および Web Tools for Visual Studio 2013 のリリースについて説明します。
+description: このドキュメントでは、Visual Studio 2013 の ASP.NET and Web Tools のリリースについて説明します。
 ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 4346303967a2446be92910355597feb19c47f338
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d8af9c8e7ee1316a5eac90c5959d07c628154e09
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113024"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600438"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Visual Studio 2013 の ASP.NET と Web ツールのリリース ノート
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> このドキュメントでは、ASP.NET および Web Tools for Visual Studio 2013 のリリースについて説明します。
+> このドキュメントでは、Visual Studio 2013 の ASP.NET and Web Tools のリリースについて説明します。
 
 ## <a name="contents"></a>目次
 
-- [インストールに関する注記](#TOC1)
+- [インストールに関する注意事項](#TOC1)
 - [ドキュメント](#TOC2)
-- [ソフトウェアの要件](#TOC4)
+- [ソフトウェア要件](#TOC4)
 
-### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET および Web Tools for Visual Studio 2013 の新機能
+### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>Visual Studio 2013 の ASP.NET and Web Tools の新機能
 
-- [One ASP.NET](#TOC6)
-- [新しい Web プロジェクト エクスペリエンス](#newproj)
-- [ASP.NET のスキャフォールディング](#scaffold)
+- [1つの ASP.NET](#TOC6)
+- [新しい Web プロジェクトのエクスペリエンス](#newproj)
+- [ASP.NET スキャフォールディング](#scaffold)
 - [ブラウザー リンク](#browser-link)
 - [Visual Studio Web エディターの機能強化](#web-editor)
-- [Visual Studio での azure App Service Web アプリのサポート](#waws)
-- [Web の発行の機能強化](#publish)
+- [Visual Studio での Azure App Service Web Apps のサポート](#waws)
+- [Web 発行の機能強化](#publish)
 - [NuGet 2.7](#nuget)
 - [ASP.NET Web フォーム](#TOC9)
 - [ASP.NET MVC 5](#TOC10)
@@ -45,439 +45,439 @@ ms.locfileid: "65113024"
 - [Microsoft OWIN コンポーネント](#TOC7)
 - [Entity Framework 6](#ef6)
 - [ASP.NET Razor 3](#TOC14)
-- [ASP.NET アプリを中断します。](#TOC15)
+- [ASP.NET アプリの中断](#TOC15)
 - [既知の問題と重大な変更](#knownissues)
 
 <a id="TOC1"></a>
-## <a name="installation-notes"></a>インストールに関する注記
+## <a name="installation-notes"></a>インストールに関する注意事項
 
-ASP.NET および Web Tools for Visual Studio 2013 でメインのインストーラーにバンドルされて、ダウンロードできます[ここ](https://www.asp.net/downloads)します。
+Visual Studio 2013 の ASP.NET and Web Tools はメインインストーラーにバンドルされており、[ここで](https://www.asp.net/downloads)ダウンロードできます。
 
 <a id="TOC2"></a>
-## <a name="documentation"></a>ドキュメント
+## <a name="documentation"></a>Documentation
 
-チュートリアルおよび Visual Studio 2013 の ASP.NET と Web ツールの詳細については、その他の情報は、 [ASP.NET web サイト](https://www.asp.net/)します。
+[ASP.NET の Web サイト](https://www.asp.net/)から、Visual Studio 2013 の ASP.NET and Web Tools に関するチュートリアルやその他の情報を入手できます。
 
 <a id="TOC4"></a>
 ## <a name="software-requirements"></a>ソフトウェア要件
 
-ASP.NET と Web ツール Visual Studio 2013 が必要です。
+ASP.NET and Web Tools には Visual Studio 2013 が必要です。
 
 <a id="TOC5"></a>
-## <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET および Web Tools for Visual Studio 2013 の新機能
+## <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>Visual Studio 2013 の ASP.NET and Web Tools の新機能
 
-次のセクションでは、リリースで導入された機能について説明します。
+以下のセクションでは、リリースで導入された機能について説明します。
 
 <a id="TOC6"></a>
-## <a name="one-aspnet"></a>One ASP.NET
+## <a name="one-aspnet"></a>1つの ASP.NET
 
-Visual Studio 2013 のリリースでは、ASP.NET のテクノロジを使用することができますを混在させるし、必要なものと同じに簡単に使用できるエクスペリエンスを統合するための手段を思い出させています。 たとえば、MVC を使用してプロジェクトを開始し簡単に後で、プロジェクトに Web フォーム ページを追加したり、Web フォーム プロジェクトで Web Api をスキャフォールディングできます。 1 つの ASP.NET はしやすく開発者は ASP.NET で使い慣れた、ことを行います。 どのようなテクノロジを選択に関係なく 1 つの ASP.NET の信頼された、基になる framework でビルドする信頼ことができます。
+Visual Studio 2013 のリリースでは、ASP.NET テクノロジの使用経験を統合するための手順を実行しました。これによって、必要なものを簡単に組み合わせることができます。 たとえば、MVC を使用してプロジェクトを開始し、後で web フォームページをプロジェクトに簡単に追加したり、web フォームプロジェクトのスキャフォールディング Web Api を追加したりすることができます。 ASP.NET の1つは、ASP.NET で気に入っていることを開発者が簡単に実行できるようにすることです。 どのテクノロジを選択した場合でも、1つの ASP.NET の信頼された基盤となるフレームワークを使用して、自信を持って構築できます。
 
 <a id="newproj"></a>
-## <a name="new-web-project-experience"></a>新しい Web プロジェクト エクスペリエンス
+## <a name="new-web-project-experience"></a>新しい Web プロジェクトのエクスペリエンス
 
-Visual Studio 2013 で新しい web プロジェクトの作成の強化されています。 **新しい ASP.NET Web プロジェクト**ダイアログし、テクノロジ (Web フォーム、MVC、Web API) の任意の組み合わせを構成、認証のオプションを構成して、単体テスト プロジェクトを追加、プロジェクトの種類を選択することができます。
+Visual Studio 2013 で新しい web プロジェクトを作成するためのエクスペリエンスが向上しました。 **[New ASP.NET Web プロジェクト]** ダイアログでは、必要なプロジェクトの種類を選択したり、テクノロジ (web フォーム、MVC、web API) の任意の組み合わせを構成したり、認証オプションを構成したり、単体テストプロジェクトを追加したりすることができます。
 
 ![新しい ASP.NET プロジェクト](release-notes/_static/image1.png)
 
-新しいダイアログでは、テンプレートの多くの既定の認証オプションを変更することができます。 たとえば、ASP.NET Web フォーム プロジェクトを作成するときに、次のオプションのいずれかを選択できます。
+新しいダイアログボックスでは、多くのテンプレートの既定の認証オプションを変更できます。 たとえば、ASP.NET Web フォームプロジェクトを作成するときに、次のいずれかのオプションを選択できます。
 
 - 認証なし
-- 個々 のユーザー アカウント (ASP.NET メンバーシップまたはソーシャル プロバイダー ログ)
-- 組織アカウント (インターネット アプリケーションでは Active Directory)
-- Windows 認証 (イントラネット アプリケーションで Active Directory)
+- 個々のユーザーアカウント (ASP.NET メンバーシップまたはソーシャルプロバイダーのログイン)
+- 組織アカウント (インターネットアプリケーションの Active Directory)
+- Windows 認証 (イントラネットアプリケーションでの Active Directory)
 
 ![認証オプション](release-notes/_static/image2.png)
 
-Web プロジェクトを作成するための新しいプロセスの詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)です。 新しい認証オプションの詳細については、次を参照してください。 [ASP.NET Identity](#TOC8)このドキュメントで後述します。
+Web プロジェクトを作成するための新しいプロセスの詳細については、「 [Visual Studio 2013 での ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)」を参照してください。 新しい認証オプションの詳細については、このドキュメントの後半の「 [ASP.NET Identity](#TOC8) 」を参照してください。
 
 <a id="scaffold"></a>
-## <a name="aspnet-scaffolding"></a>ASP.NET のスキャフォールディング
+## <a name="aspnet-scaffolding"></a>ASP.NET スキャフォールディング
 
-ASP.NET のスキャフォールディングは、ASP.NET Web アプリケーションのコード生成フレームワークです。 これにより、簡単にデータ モデルを操作するプロジェクトに定型コードを追加できます。
+ASP.NET スキャフォールディングは、ASP.NET Web アプリケーションのコード生成フレームワークです。 これにより、データモデルと対話する定型コードをプロジェクトに簡単に追加できるようになります。
 
-Visual Studio の以前のバージョンでは、スキャフォールディングは、ASP.NET MVC プロジェクトに制限されていました。 Visual Studio 2013 では、Web フォームを含む、任意の ASP.NET プロジェクトのスキャフォールディングを使用できます。 Visual Studio 2013 はサポートされていないページを生成する Web フォーム プロジェクトの場合は、MVC 依存関係をプロジェクトに追加することで、Web フォームでスキャフォールディングを使用することもできます。 Web フォームのページを生成するためのサポートは今後の更新で追加されます。
+以前のバージョンの Visual Studio では、スキャフォールディングは ASP.NET MVC プロジェクトに限定されていました。 Visual Studio 2013 では、Web フォームを含む任意の ASP.NET プロジェクトにスキャフォールディングを使用できるようになりました。 Visual Studio 2013 は、現在、Web フォームプロジェクトのページの生成をサポートしていませんが、MVC の依存関係をプロジェクトに追加することで、Web フォームでスキャフォールディングを使用できます。 Web フォームのページ生成のサポートは、今後の更新プログラムで追加される予定です。
 
-スキャフォールディングを使用して、必要なすべての依存関係がプロジェクトにインストールされていることができます。 たとえば、ASP.NET Web フォーム プロジェクトを開始し、スキャフォールディングを使用して Web API コント ローラーを追加すると場合、必要な NuGet パッケージと参照をプロジェクトに自動的に追加されます。
+スキャフォールディングを使用する場合は、必要なすべての依存関係がプロジェクトにインストールされていることを確認します。 たとえば、ASP.NET の Web フォームプロジェクトから開始し、スキャフォールディングを使用して Web API コントローラーを追加すると、必要な NuGet パッケージと参照がプロジェクトに自動的に追加されます。
 
-Web フォーム プロジェクトには、MVC のスキャフォールディングを追加するには、追加、**スキャフォールディングされた新しい項目**選択**MVC 5 依存関係**ダイアログ ウィンドウでします。 MVC; をスキャフォールディングするための 2 つのオプションがあります。最小限かつ完全です。 最低限を選択した場合は、NuGet パッケージと ASP.NET MVC の参照のみがプロジェクトに追加されます。 すべてのオプションを選択した場合、MVC プロジェクトに必要なコンテンツ ファイルと、最小の依存関係が追加されます。
+MVC スキャフォールディングを Web フォームプロジェクトに追加するには、**新しいスキャフォールディング項目**を追加し、ダイアログウィンドウで **[Mvc 5 の依存関係]** を選択します。 MVC のスキャフォールディングには、2つのオプションがあります。最小と完全。 [最小] を選択すると、ASP.NET MVC の NuGet パッケージと参照のみがプロジェクトに追加されます。 [完全] オプションを選択した場合は、最小の依存関係だけでなく、MVC プロジェクトに必要なコンテンツファイルが追加されます。
 
-非同期コント ローラーをスキャフォールディングするためのサポートは、Entity Framework 6 からの新しい非同期機能を使用します。
+非同期コントローラーのスキャフォールディングのサポートには、Entity Framework 6 の新しい非同期機能が使用されます。
 
-詳細とチュートリアルについては、次を参照してください。 [ASP.NET スキャフォールディング概要](aspnet-scaffolding-overview.md)します。
+詳細とチュートリアルについては、「 [ASP.NET スキャフォールディングの概要](aspnet-scaffolding-overview.md)」を参照してください。
 
 <a id="browser-link"></a>
-## <a name="browser-link--signalr-channel-between-browser-and-visual-studio"></a>ブラウザー リンク – ブラウザーと Visual Studio の間の SignalR チャネル
+## <a name="browser-link--signalr-channel-between-browser-and-visual-studio"></a>Browser Link – browser と Visual Studio の間の SignalR チャネル
 
-新しい[Browser Link](using-browser-link.md)機能では、Visual Studio に複数のブラウザーを接続し、ツールバーのボタンをクリックしてすべての更新することができます。 モバイル エミュレーターの場合を含め、開発サイトに複数のブラウザーを接続でき、同時にすべての更新、更新をすべてのブラウザーをクリックします。 ブラウザー リンクには、ブラウザー リンク拡張機能を記述する開発者を有効にするための API も公開します。
+新しい[ブラウザーリンク](using-browser-link.md)機能を使用すると、複数のブラウザーを Visual Studio に接続し、ツールバーのボタンをクリックしてすべてを更新できます。 モバイルエミュレーターを含む複数のブラウザーを開発サイトに接続し、[更新] をクリックすると、すべてのブラウザーを同時に更新できます。 ブラウザーリンクでは、開発者がブラウザーリンク拡張機能を作成できるようにする API も公開されています。
 
 ![](release-notes/_static/image3.png)
 
-ブラウザー リンク API を活用するために開発者を有効にするには、Visual Studio と接続されている任意のブラウザー間の境界を越える非常に高度なシナリオを作成することなります。 Web Essentials では、Visual Studio とブラウザーの開発者ツール、リモート モバイル エミュレーターと、はるかに多くの制御の統合されたエクスペリエンスを作成する API を利用します。
+開発者が Browser Link API を利用できるようにすることで、Visual Studio と接続されている任意のブラウザーの間の境界を越える非常に高度なシナリオを作成できるようになります。 Web Essentials は API を利用して、Visual Studio とブラウザーの開発者ツールの間に統合されたエクスペリエンスを作成し、モバイルエミュレーターをリモートで制御します。
 
 <a id="web-editor"></a>
 ## <a name="visual-studio-web-editor-enhancements"></a>Visual Studio Web エディターの機能強化
 
-Visual Studio 2013 には、web アプリケーションでの Razor ファイルや HTML ファイルに新しい HTML エディターが含まれています。 新しい HTML エディターは、HTML5 に基づいて 1 つの統一されたスキーマを提供します。 自動かっこ挿入、jQuery UI および IntelliSense の属性、属性 IntelliSense のグループ化、ID とクラス名、Intellisense、書式設定のパフォーマンスを高めるための他の強化、AngularJS とスマート タグ。
+Visual Studio 2013 には、Razor ファイル用の新しい HTML エディターと、web アプリケーションの HTML ファイルが含まれています。 新しい HTML エディターには、HTML5 に基づく単一の統合スキーマが用意されています。 これには、かっこの自動補完、jQuery UI と AngularJS 属性の IntelliSense、属性の IntelliSense のグループ化、ID とクラス名の Intellisense、およびパフォーマンスの向上、書式設定、およびスマートタグの追加などの機能強化が含まれています。
 
-次のスクリーン ショットでは、HTML エディターでのブートス トラップ属性 IntelliSense の使用方法を示します。
+次のスクリーンショットは、HTML エディターでブートストラップ属性の IntelliSense を使用する方法を示しています。
 
-![HTML エディターの Intellisense](release-notes/_static/image4.png)
+![HTML エディターでの Intellisense](release-notes/_static/image4.png)
 
-Visual Studio 2013 には、両方 CoffeeScript エディターが組み込まれているとも付属しています。 LESS エディター、CSS エディターからすべての優れた機能が付属し、変数、mixin の特定の Intellisense を少ないすべてのドキュメントでは、@importチェーン。
+また Visual Studio 2013 には、CoffeeScript と LESS エディターの両方が組み込まれています。 LESS エディターには、CSS エディターのすべての優れた機能が用意されており、@import チェーン内のすべてのドキュメントにわたって、変数と mixin のための特定の Intellisense が用意されています。
 
 <a id="waws"></a>
-## <a name="azure-app-service-web-apps-support-in-visual-studio"></a>Visual Studio での azure App Service Web アプリのサポート
+## <a name="azure-app-service-web-apps-support-in-visual-studio"></a>Visual Studio での Azure App Service Web Apps のサポート
 
-Azure SDK for .NET 2.2 で Visual Studio 2013 で使用できます**サーバー エクスプ ローラー**リモートの web アプリと直接対話します。 Azure アカウントにサインインして新しい web アプリを作成、アプリを構成するか、リアルタイムのログと詳細を表示できます。 SDK 2.2 後すぐに予定されているがリリースされたら、Azure でリモートでデバッグ モードで実行することができます。 Azure App Service Web Apps の新しい機能のほとんどは、現在のリリースの Azure SDK for .NET をインストールすると、Visual Studio 2012 で動作も。
+Azure SDK for .NET 2.2 の Visual Studio 2013 では、**サーバーエクスプローラー**を使用してリモート web アプリと直接やり取りできます。 Azure アカウントにサインインしたり、新しい web アプリを作成したり、アプリを構成したり、リアルタイムログを表示したりできます。 SDK 2.2 がリリースされるとすぐに、Azure でリモートでデバッグモードで実行できるようになります。 Azure App Service Web Apps の新機能のほとんどは、Azure SDK for .NET の現在のリリースをインストールするときに Visual Studio 2012 でも動作します。
 
 詳細については、次のリソースを参照してください。
 
-- [Azure App Service で ASP.NET web アプリを作成します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Azure App Service で ASP.NET web アプリを作成する](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
 - [Visual Studio を使用した Azure App Service での Web アプリのトラブルシューティング](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
-## <a name="web-publish-enhancements"></a>Web の発行の機能強化
+## <a name="web-publish-enhancements"></a>Web 発行の機能強化
 
-Visual Studio 2013 には、新規および強化された Web の発行の機能が含まれています。 その一部を次に示します。
+Visual Studio 2013 には、Web 公開の新機能と強化された機能が含まれています。 その一部を次に示します。
 
-- 簡単に[Web.config ファイルの暗号化を自動化](https://go.microsoft.com/fwlink/?LinkId=325529)します。 (このリンクし、次の 2 つ) をポイント 10/17 日の終わりまで使用できない可能性がある MSDN のドキュメント。
-- 簡単に[デプロイ中にオフライン アプリケーションの自動化](https://go.microsoft.com/fwlink/?LinkId=325530)します。
-- Web デプロイを構成する[ファイルのチェックサムを使用して、最終変更日ではなく](https://go.microsoft.com/fwlink/?LinkId=325531)ファイルは、サーバーにコピーするかを決定するため。
-- すばやく、FTP を使用しているか、ファイル システム メソッドを公開するときにだけでなく Web 配置には、個々 の選択したファイル (Web.config を含む) を発行します。
+- Web.config[ファイルの暗号化](https://go.microsoft.com/fwlink/?LinkId=325529)を簡単に自動化できます。 (このリンクと、次の2つのポイントは、10/17 の当日に予定されていない可能性がある MSDN のドキュメントを示しています)。
+- [デプロイ中にアプリケーションをオフラインにする操作を](https://go.microsoft.com/fwlink/?LinkId=325530)簡単に自動化できます。
+- サーバーにコピーするファイルを決定するために、[最終更新日ではなくファイルチェックサムを使用](https://go.microsoft.com/fwlink/?LinkId=325531)するように Web 配置を構成します。
+- FTP またはファイルシステムの発行方法を使用している場合は、(Web.config を含む) 個々の選択したファイルをすばやく発行します。また、Web 配置を使用することもできます。
 
-ASP.NET web 配置の詳細については、次を参照してください。 [ASP.NET サイト](https://go.microsoft.com/fwlink/?LinkId=322027)します。
+ASP.NET web デプロイの詳細については、 [ASP.NET サイト](https://go.microsoft.com/fwlink/?LinkId=322027)を参照してください。
 
 <a id="nuget"></a>
 ## <a name="nuget-27"></a>NuGet 2.7
 
-NuGet 2.7 にはで詳細に説明されている新機能の豊富なセットが含まれます[NuGet 2.7 リリース ノート](http://docs.nuget.org/docs/release-notes/nuget-2.7)します。
+NuGet 2.7 には新機能の豊富なセットが含まれています。詳細については、「 [nuget 2.7 のリリースノート](http://docs.nuget.org/docs/release-notes/nuget-2.7)」を参照してください。
 
-このバージョンの NuGet では、NuGet のパッケージ復元機能パッケージをダウンロードするための明示的な同意を提供する必要性も削除されます。 NuGet をインストールすることで同意 (と NuGet の設定のダイアログ ボックスで、対応するチェック ボックス) が付与されました。 今すぐパッケージの復元は、既定では単に動作します。
+このバージョンの NuGet では、パッケージをダウンロードするために NuGet のパッケージ復元機能に明示的に同意する必要もなくなります。 NuGet をインストールすることにより、同意 (および NuGet の [基本設定] ダイアログの関連するチェックボックス) が許可されるようになりました。 既定では、パッケージの復元が正常に機能するようになりました。
 
 <a id="TOC9"></a>
 ## <a name="aspnet-web-forms"></a>ASP.NET Web フォーム
 
-### <a name="one-aspnet"></a>One ASP.NET
+### <a name="one-aspnet"></a>1つの ASP.NET
 
-Web フォーム プロジェクト テンプレートは、1 つの ASP.NET の新しいエクスペリエンスとシームレスに統合します。 MVC と Web API のサポート、Web フォーム プロジェクトを 1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成することができますを追加することができます。 詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)です。
+Web フォームプロジェクトテンプレートは、新しい1つの ASP.NET エクスペリエンスとシームレスに統合されます。 Web フォームプロジェクトに MVC と Web API のサポートを追加できます。また、ASP.NET プロジェクト作成ウィザードを使用して認証を構成することもできます。 詳細については、「 [Visual Studio 2013 での ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)」を参照してください。
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
-Web フォーム プロジェクト テンプレートでは、新しい ASP.NET Identity フレームワークをサポートします。 さらに、テンプレートは、イントラネットの Web フォーム プロジェクトの作成をサポートするようになりました。 詳細については、次を参照してください。[認証方法](creating-web-projects-in-visual-studio.md#auth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**です。
+Web フォームプロジェクトテンプレートでは、新しい ASP.NET Identity framework がサポートされています。 さらに、テンプレートでは、Web フォームイントラネットプロジェクトの作成がサポートされるようになりました。 詳細については、「 **Visual Studio 2013 での ASP.NET Web プロジェクトの作成**」の[認証方法](creating-web-projects-in-visual-studio.md#auth)に関する説明を参照してください。
 
-### <a name="bootstrap"></a>ブートス トラップ
+### <a name="bootstrap"></a>ブートストラップ
 
-Web フォーム テンプレートを使用して、[ブートス トラップ](http://twitter.github.io/bootstrap/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、次を参照してください。 [Visual Studio 2013 web プロジェクト テンプレートを使用すると、ブートス トラップ](creating-web-projects-in-visual-studio.md#bootstrap)します。
+Web フォームテンプレートでは、[ブートストラップ](http://twitter.github.io/bootstrap/)を使用して、外観と応答性が向上し、簡単にカスタマイズできます。 詳細については、 [Visual Studio 2013 web プロジェクトテンプレート](creating-web-projects-in-visual-studio.md#bootstrap)の「ブートストラップ」を参照してください。
 
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>One ASP.NET
+### <a name="one-aspnet"></a>1つの ASP.NET
 
-Web MVC プロジェクト テンプレートは、1 つの ASP.NET の新しいエクスペリエンスとシームレスに統合します。 MVC プロジェクトをカスタマイズし、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成します。 ASP.NET MVC 5 の入門のチュートリアルをご覧[ASP.NET MVC 5 の概要](../../../mvc/overview/getting-started/introduction/getting-started.md)します。
+Web MVC プロジェクトテンプレートは、新しい1つの ASP.NET エクスペリエンスとシームレスに統合されます。 1つの ASP.NET プロジェクト作成ウィザードを使用して、MVC プロジェクトをカスタマイズし、認証を構成することができます。 MVC 5 を ASP.NET する入門用のチュートリアルについては、「 [ASP.NET mvc 5 を使用](../../../mvc/overview/getting-started/introduction/getting-started.md)したはじめに」を参照してください。
 
-MVC 5、MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)します。
+Mvc 4 プロジェクトを MVC 5 にアップグレードする方法については、「 [ASP.NET mvc 4 と WEB Api プロジェクトを ASP.NET mvc 5 および WEB api 2 にアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)」を参照してください。
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
-ASP.NET Identity を使用して認証と id 管理には、MVC プロジェクト テンプレートが更新されました。 Facebook や Google の認証と新しいメンバーシップ API を備えたチュートリアルをご覧[Facebook と Google の OAuth2 や OpenID サインオンでの ASP.NET MVC 5 アプリケーションの作成](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)と[認証を使用した ASP.NET MVC アプリを作成し、SQL DB と Azure App Service へのデプロイ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)します。
+MVC プロジェクトテンプレートは、認証と id 管理に ASP.NET Identity を使用するように更新されました。 Facebook と Google の認証および新しいメンバーシップ API を使用するチュートリアルについては、「 [facebook と Google OAuth2 を使用した ASP.NET mvc 5 アプリの作成](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)」と「[認証と SQL DB を使用した ASP.NET mvc アプリ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)の作成」と「Azure App Service へのデプロイ」を参照してください。
 
-### <a name="bootstrap"></a>ブートス トラップ
+### <a name="bootstrap"></a>ブートストラップ
 
-使用する MVC プロジェクト テンプレートが更新されました[ブートス トラップ](http://getbootstrap.com/)や応答性のスマートなルック アンド フィールを簡単にカスタマイズできるを提供します。 詳細については、次を参照してください。 [Visual Studio 2013 web プロジェクト テンプレートを使用すると、ブートス トラップ](creating-web-projects-in-visual-studio.md#bootstrap)します。
+MVC プロジェクトテンプレートは、[ブートストラップ](http://getbootstrap.com/)を使用するように更新され、簡単にカスタマイズできる外観と応答性を備えています。 詳細については、 [Visual Studio 2013 web プロジェクトテンプレート](creating-web-projects-in-visual-studio.md#bootstrap)の「ブートストラップ」を参照してください。
 
 ### <a name="authentication-filters"></a>認証フィルター
 
-認証フィルターは、新しい種類のフィルターを ASP.NET MVC パイプライン内の承認フィルターの前に実行し、認証ロジックごとのアクションを指定することは ASP.NET MVC でコント ローラーごとまたはすべてのコント ローラーに対してグローバルにします。 認証フィルターは、要求に資格情報を処理し、対応するプリンシパルを指定します。 認証フィルターは、未承認の要求に応答認証チャレンジを追加することもできます。
+認証フィルターは、ASP.NET MVC の新しい種類のフィルターで、ASP.NET MVC パイプラインの承認フィルターの前に実行されます。また、アクションごと、コントローラー単位、またはすべてのコントローラーに対してグローバルに認証ロジックを指定できます。 認証フィルターは、要求内の資格情報を処理し、対応するプリンシパルを指定します。 認証フィルターでは、承認されていない要求に応答して認証チャレンジを追加することもできます。
 
 ### <a name="filter-overrides"></a>フィルターのオーバーライド
 
-オーバーライド フィルターを指定することによって、特定のアクション メソッドまたはコント ローラーに適用するフィルターをオーバーライドすることができますようになりました。 オーバーライド フィルターは、特定のスコープ (アクションまたはコント ローラー) で実行するかのフィルターの種類のセットを指定します。 これにより、グローバルに適用されますが、特定のアクションまたはコント ローラーに適用することから特定のグローバル フィルターを除外するフィルターを構成することができます。
+オーバーライドフィルターを指定することにより、特定のアクションメソッドまたはコントローラーに適用するフィルターを上書きできるようになりました。 上書きフィルターでは、特定のスコープ (action または controller) に対して実行しないフィルターの種類のセットを指定します。 これにより、グローバルに適用されるフィルターを構成してから、特定のグローバルフィルターを特定のアクションまたはコントローラーに適用しないようにすることができます。
 
 ### <a name="attribute-routing"></a>属性ルーティング
 
-ASP.NET MVC が Tim McCall の作成者によって投稿物に協力してくれた、属性のルーティングをサポートして今すぐ[ http://attributerouting.net](http://attributerouting.net)します。 属性ルーティングでは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
+ASP.NET MVC は、 [http://attributerouting.net](http://attributerouting.net)の作成者である Tim mccall による貢献のおかげで、属性ルーティングをサポートするようになりました。 属性ルーティングを使用すると、アクションとコントローラーに注釈を付けることによって、ルートを指定できます。
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
 ### <a name="attribute-routing"></a>属性ルーティング
 
-ASP.NET Web API が Tim McCall の作成者によって投稿物に協力してくれた、属性のルーティングをサポートして今すぐ[ http://attributerouting.net](http://attributerouting.net)します。 属性ルーティングでこのようなコント ローラー、アクションに注釈を付けることによって、Web API ルートを指定できます。
+ASP.NET Web API は、 [http://attributerouting.net](http://attributerouting.net)の作成者である Tim mccall による貢献のおかげで、属性ルーティングをサポートするようになりました。 属性ルーティングでは、次のようにアクションとコントローラーに注釈を付けることで、Web API のルートを指定できます。
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
-属性ルーティングでは、Uri の制御、web API でします。 たとえば、リソース階層が単一の API コント ローラーを使用して簡単に定義できます。
+属性ルーティングを使用すると、web API の Uri をより詳細に制御できます。 たとえば、1つの API コントローラーを使用してリソース階層を簡単に定義できます。
 
 [!code-csharp[Main](release-notes/samples/sample2.cs)]
 
-属性ルーティングも省略可能なパラメーター、既定値、およびルート制約を指定する便利な構文を提供します。
+属性ルーティングでは、省略可能なパラメーター、既定値、およびルート制約を指定するための便利な構文も提供されます。
 
 [!code-csharp[Main](release-notes/samples/sample3.cs)]
 
-属性ルーティングの詳細については、次を参照してください。[属性は、Web API 2 でルーティング](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md)します。
+属性ルーティングの詳細については、「 [WEB API 2 での属性ルーティング](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md)」を参照してください。
 
 ### <a name="oauth-20"></a>OAuth 2.0
 
-Web API と Single Page Application プロジェクト テンプレートでは、OAuth 2.0 を使用して認証できるようになりました。 OAuth 2.0 は、保護されたリソースへのクライアント アクセスを承認するためのフレームワークです。 クライアントのブラウザーやモバイル デバイスなどのさまざまな動作します。
+Web API とシングルページアプリケーションプロジェクトテンプレートで、OAuth 2.0 を使用した承認がサポートされるようになりました。 OAuth 2.0 は、保護されたリソースへのクライアントアクセスを承認するためのフレームワークです。 これは、ブラウザーやモバイルデバイスなど、さまざまなクライアントで機能します。
 
-OAuth 2.0 のサポートは、新しいセキュリティ ミドルウェア ベアラー認証のため、Microsoft OWIN コンポーネントによって提供され、承認サーバーの役割の実装に基づいています。 また、クライアントは、Azure Active Directory または Windows Server 2012 R2 で ADFS などの組織の承認サーバーを使用して承認できます。
+OAuth 2.0 のサポートは、ベアラー認証用の Microsoft OWIN コンポーネントによって提供される新しいセキュリティミドルウェアと、承認サーバーロールの実装に基づいています。 または、Windows Server 2012 R2 の Azure Active Directory や ADFS など、組織の承認サーバーを使用してクライアントを承認することもできます。
 
 ### <a name="odata-improvements"></a>OData の機能強化
 
-**$Batch と $value、$select、$ のサポートを展開します。**
+**$Select、$expand、$batch、および $value のサポート**
 
-ASP.NET Web API OData の $select を完全にサポートになりました、$ の展開、$value します。 バッチ処理と変更セットの処理要求の $batch を使用することもできます。
+ASP.NET Web API OData で $select、$expand、および $value が完全にサポートされるようになりました。 また、要求のバッチ処理と変更セットの処理に $batch を使用することもできます。
 
-$Select および $expand オプションを展開し、OData エンドポイントから返されるデータの形状を変更するようにします。 詳細については、次を参照してください。 [Introducing $select および $expand は、Web API odata のサポートを拡張](../../../web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value.md)します。
+$Select オプションと $expand オプションを使用すると、OData エンドポイントから返されるデータの構造を変更できます。 詳細については、「 [WEB API OData での $select と $expand サポートの概要](../../../web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value.md)」を参照してください。
 
-**強化された機能拡張**
+**拡張機能の向上**
 
-OData フォーマッタは、拡張可能なようになりました。 Atom エントリのメタデータを追加して名前付きストリームとメディア リンク エントリをサポートして、インスタンス注釈を追加するか、およびリンクの生成方法をカスタマイズできます。
+OData フォーマッタを拡張できるようになりました。 Atom エントリメタデータを追加したり、名前付きストリームとメディアリンクエントリをサポートしたり、インスタンス注釈を追加したり、リンクの生成方法をカスタマイズしたりすることができます。
 
-**型のないサポート**
+**種類-less サポート**
 
-エンティティ型の CLR 型を定義することがなく OData サービスを構築できます。 代わりに、OData コント ローラーがかかることができますかのインスタンスを返す**IEdmObject**、どの OData フォーマッタは、シリアル化/逆シリアル化します。
+エンティティ型に CLR 型を定義しなくても、OData サービスを構築できるようになりました。 代わりに、odata コントローラーは、OData フォーマッタのシリアル化/逆シリアル化である**Iedmobject**インスタンスを取得または返すことができます。
 
-**既存のモデルを再利用します。**
+**既存のモデルを再利用する**
 
-既存 entity data model (EDM) を既にある場合するようになりました再利用できる、直接新しいゲートウェイを作成する代わりにします。 たとえば、Entity Framework を使用している場合は、EF によって構築する EDM を使用できます。
+既に既存の entity data model (EDM) を使用している場合は、新しい entity data model を作成するのではなく、直接再利用できるようになりました。 たとえば、Entity Framework を使用している場合、EF がビルドする EDM を使用できます。
 
-### <a name="request-batching"></a>バッチ処理を要求します。
+### <a name="request-batching"></a>バッチ処理の要求
 
-要求がバッチ処理を少ない頻度の高いユーザー インターフェイスを滑らかにネットワーク トラフィックを削減し、1 つの HTTP POST 要求に複数の操作を結合します。 ASP.NET Web API では、要求がバッチ処理のいくつかの方法をサポートしているようになりました。
+要求のバッチ処理では、複数の操作を1つの HTTP POST 要求に結合して、ネットワークトラフィックを減らし、よりスムーズで高いなユーザーインターフェイスを提供します。 ASP.NET Web API は、要求バッチ処理のためのいくつかの方法をサポートするようになりました。
 
 - OData サービスの $batch エンドポイントを使用します。
-- 1 つの MIME マルチパート要求に複数の要求をパッケージ化します。
-- バッチ処理のカスタム書式指定を使用します。
+- 複数の要求を1つの MIME マルチパート要求にパッケージ化します。
+- カスタムバッチ形式を使用します。
 
-要求のバッチ処理を有効にするには、だけの Web API 構成にバッチ処理のハンドラーを持つルートを追加します。
+要求のバッチ処理を有効にするには、バッチハンドラーを含むルートを Web API 構成に追加するだけです。
 
 [!code-csharp[Main](release-notes/samples/sample4.cs)]
 
-制御することもできるかどうかを要求または順番に、または任意の順序で実行します。
+また、要求または順番に実行するかどうかを制御することもできます。
 
-### <a name="portable-aspnet-web-api-client"></a>移植可能な ASP.NET Web API クライアント
+### <a name="portable-aspnet-web-api-client"></a>ポータブル ASP.NET Web API クライアント
 
-ASP.NET Web API のクライアントを使用して、Windows ストアおよび Windows Phone 8 アプリケーション間で動作するポータブル クラス ライブラリを作成することができますようになりました。 クライアントとサーバー間で共有できる移植可能なフォーマッタを作成することもできます。
+ASP.NET Web API クライアントを使用して、Windows ストアで動作するポータブルクラスライブラリを作成し、8つのアプリケーションを Windows Phone できるようになりました。 また、クライアントとサーバー間で共有できるポータブルフォーマッタを作成することもできます。
 
-### <a name="improved-testability"></a>強化されたテストの容易性
+### <a name="improved-testability"></a>テストの容易性の向上
 
-Web API 2 で、API コント ローラーをテスト ユニットに簡単になります。 だけで、要求メッセージと構成では、API コント ローラーをインスタンス化してテストするアクション メソッドを呼び出します。 簡単にたとえるなら、 **UrlHelper**のリンクの生成を実行するアクション メソッドのクラス。
+Web API 2 を使用すると、API コントローラーの単体テストがはるかに簡単になります。 要求メッセージと構成を使用して API コントローラーをインスタンス化し、テストするアクションメソッドを呼び出すだけです。 また、リンク生成を実行するアクションメソッドの**Urlhelper**クラスを簡単にモックできます。
 
 ### <a name="ihttpactionresult"></a>IHttpActionResult
 
-今すぐ、Web API アクション メソッドの結果をカプセル化する IHttpActionResult を実装できます。 Web API アクション メソッドから返される、IHttpActionResult は、結果の応答メッセージを生成するために、ASP.NET Web API ランタイムによって実行されます。 単位を簡略化する Web API アクションから返される、IHttpActionResult、Web API の実装をテストします。 参考までに特定のステータス コードを返すため結果を含むさまざまな IHttpActionResult 実装が提供されている、コンテンツまたはコンテンツ ネゴシエーションの応答を書式設定します。
+IHttpActionResult を実装して、Web API アクションメソッドの結果をカプセル化できるようになりました。 Web API アクションメソッドから返された IHttpActionResult は、結果の応答メッセージを生成するために ASP.NET Web API ランタイムによって実行されます。 Web api の実装の単体テストを簡単にするために、任意の Web API アクションから IHttpActionResult を返すことができます。 便宜上、特定のステータスコード、書式設定されたコンテンツ、またはコンテンツをネゴシエートした応答を返す結果を含む、いくつかの IHttpActionResult 実装がすぐに用意されています。
 
 ### <a name="httprequestcontext"></a>HttpRequestContext
 
-新しい**HttpRequestContext**は要求に関連付けられていますが、要求からすぐにご利用いただけません状態を追跡します。 たとえば、使用することができます、 **HttpRequestContext**ルート データ要求、クライアント証明書に関連付けられたプリンシパルを取得する、 **UrlHelper**と仮想パスのルート。 簡単に作成することができます、 **HttpRequestContext**単体テストのためです。
+新しい**Httprequestcontext**は、要求に関連付けられているが、要求からすぐには利用できない状態を追跡します。 たとえば、 **Httprequestcontext**を使用して、ルートデータ、要求に関連付けられているプリンシパル、クライアント証明書、 **urlhelper** 、および仮想パスのルートを取得できます。 単体テストのために、 **Httprequestcontext**を簡単に作成できます。
 
-要求のプリンシパルが使用する代わりに、要求と共に送られるため、 **Thread.CurrentPrincipal**、Web API パイプラインでは、プリンシパルに、要求の有効期間全体で使用できるがようになりました。
+要求のプリンシパルは、 **thread.currentprincipal**に依存するのではなく、要求でフローされるので、Web API パイプライン内にある間、要求の有効期間中にプリンシパルを使用できるようになりました。
 
 ### <a name="cors"></a>CORS
 
-Brock Allen から別の優れた投稿に協力してくれた ASP.NET 完全サポート クロス オリジン要求の共有 (CORS) します。
+Brock Allen によるもう1つの優れた投稿により、ASP.NET はクロスオリジン要求共有 (CORS) を完全にサポートするようになりました。
 
-ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 [CORS](http://www.w3.org/TR/cors/) W3C 標準で、サーバーによる同一オリジン ポリシーの緩和にできるです。 CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。
+ブラウザーのセキュリティでは、web ページが別のドメインに対して AJAX 要求を行うことを防止します。 [CORS](http://www.w3.org/TR/cors/)は、サーバーが同じオリジンポリシーを緩めることを可能にする W3C 標準です。 CORS を使用すると、サーバーは、他のユーザーを拒否しながら、一部のクロスオリジン要求を明示的に許可できます。
 
-プレフライト要求の自動処理を含む CORS web API 2 をサポートします。 詳細については、次を参照してください。 [ASP.NET Web API でのクロス オリジン要求を有効にする](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)します。
+Web API 2 では、プレフライト要求の自動処理を含む CORS がサポートされるようになりました。 詳細については、「 [ASP.NET Web API でのクロスオリジン要求の有効化](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)」を参照してください。
 
 ### <a name="authentication-filters"></a>認証フィルター
 
-認証フィルターは、新しい ASP.NET Web API を ASP.NET Web API パイプラインで承認フィルターの前に実行し、認証ロジックごとのアクションを指定することでフィルターの種類をコント ローラーごとまたはすべてのコント ローラーに対してグローバルにします。 認証フィルターは、要求に資格情報を処理し、対応するプリンシパルを指定します。 認証フィルターは、未承認の要求に応答認証チャレンジを追加することもできます。
+認証フィルターは、ASP.NET Web API パイプラインの承認フィルターの前に実行される ASP.NET Web API の新しい種類のフィルターであり、アクションごと、コントローラー単位、またはすべてのコントローラーに対してグローバルに認証ロジックを指定できます。 認証フィルターは、要求内の資格情報を処理し、対応するプリンシパルを指定します。 認証フィルターでは、承認されていない要求に応答して認証チャレンジを追加することもできます。
 
 ### <a name="filter-overrides"></a>フィルターのオーバーライド
 
-オーバーライド フィルターを指定することによって、特定のアクション メソッドまたはコント ローラーに適用するフィルターをオーバーライドすることができますようになりました。 オーバーライド フィルターは、特定のスコープ (アクションまたはコント ローラー) で実行しないでくださいフィルターの種類のセットを指定します。 これにより、グローバル フィルターを追加し、特定のアクションまたはコント ローラーから一部を除外することができます。
+オーバーライドフィルターを指定することにより、特定のアクションメソッドまたはコントローラーに適用するフィルターを上書きできるようになりました。 オーバーライドフィルターは、特定のスコープ (アクションまたはコントローラー) に対して実行してはならないフィルターの種類のセットを指定します。 これにより、グローバルフィルターを追加できますが、特定のアクションまたはコントローラーから除外することができます。
 
 ### <a name="owin-integration"></a>OWIN の統合
 
-ASP.NET Web API 今すぐ完全 OWIN をサポートの OWIN 対応のホストで実行することができます。 含まれていますが、 **HostAuthenticationFilter** OWIN 認証システムとの統合を提供します。
+ASP.NET Web API は OWIN を完全にサポートするようになり、任意の OWIN 対応ホストで実行できるようになりました。 また、OWIN 認証システムとの統合を提供する**Hostauthenticationfilter**も含まれています。
 
-OWIN の統合、SignalR など、他の OWIN ミドルウェアと共に独自のプロセスで Web API を自己ホストできます。 詳細については、次を参照してください。 [Self-Host ASP.NET Web API を使用して OWIN](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)します。
+OWIN 統合では、SignalR などの他の OWIN ミドルウェアと共に、独自のプロセスで Web API を自己ホストできます。 詳細については、「 [USE OWIN To Self Host ASP.NET Web API](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)」を参照してください。
 
 <a id="TOC13"></a>
 ## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
 
-次のセクションでは、SignalR 2.0 の機能について説明します。
+以下のセクションでは、SignalR 2.0 の機能について説明します。
 
-- [OWIN 上に構築されました。](#builtonowin)
-- [MapHubs および MapConnection が MapSignalR](#MapSignalR)
-- [クロス ドメインのサポート](#crossdomain)
-- [MonoTouch と MonoDroid による iOS および Android をサポートします。](#mobile)
+- [OWIN 上に構築](#builtonowin)
+- [MapHubs と Maphubs が MapSignalR になりました](#MapSignalR)
+- [ドメイン間サポート](#crossdomain)
+- [Monotouch.dialog とモノ Id を使用した iOS および Android のサポート](#mobile)
 - [ポータブル .NET クライアント](#portable)
-- [新しいパッケージを自己ホスト](#selfhost)
-- [旧バージョンと互換性のあるサーバーのサポート](#backwardcompat)
-- [.NET 4.0 用のサーバーのサポートが削除されました](#remove40)
-- [クライアントとグループの一覧にメッセージを送信します。](#messagelist)
-- [特定のユーザーにメッセージを送信します。](#sendtouser)
-- [優れたエラー処理のサポート](#errorhandling)
-- [簡単に単体テストのハブ](#unittesting)
+- [新しい自己ホストパッケージ](#selfhost)
+- [下位互換性のあるサーバーのサポート](#backwardcompat)
+- [.NET 4.0 のサーバーサポートを削除しました](#remove40)
+- [クライアントとグループの一覧へのメッセージの送信](#messagelist)
+- [特定のユーザーへのメッセージの送信](#sendtouser)
+- [より優れたエラー処理のサポート](#errorhandling)
+- [ハブの単体テストの簡素化](#unittesting)
 - [JavaScript のエラー処理](#javascripterror)
 
-SignalR 2.0 に既存の 1.x プロジェクトをアップグレードする方法の例は、次を参照してください。[アップグレード、SignalR 1.x プロジェクト](../../../signalr/overview/releases/upgrading-signalr-1x-projects-to-20.md)します。
+既存の1.x プロジェクトを SignalR 2.0 にアップグレードする方法の例については、「 [SignalR 1.X プロジェクトをアップグレード](../../../signalr/overview/releases/upgrading-signalr-1x-projects-to-20.md)する」を参照してください。
 
 <a id="builtonowin"></a>
-### <a name="built-on-owin"></a>OWIN 上に構築されました。
+### <a name="built-on-owin"></a>OWIN 上に構築
 
-SignalR 2.0 に完全に構築された[OWIN (.NET の Open Web Interface)](http://owin.org/)します。 この変更は、SignalR のセットアップ プロセスは、web ホストおよび自己ホスト型の SignalR アプリケーション間でより一貫性がさまざまな API の変更点にも必要です。
+SignalR 2.0 は[、OWIN (Open Web Interface for .net)](http://owin.org/)で完全に構築されています。 この変更により、web ホストアプリケーションと自己ホスト型 SignalR アプリケーションの間で SignalR のセットアッププロセスの一貫性が大幅に向上しますが、多くの API 変更も必要でした。
 
 <a id="MapSignalR"></a>
 
-### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs および MapConnection が MapSignalR
+### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs と Maphubs が MapSignalR になりました
 
-OWIN 規格と互換性のため、これらのメソッドが変更されています`MapSignalR`します。 `MapSignalR` パラメーターはすべてのハブをマップせずに呼び出されます (として`MapHubs`はバージョン 1.x) は個別にマップする**PersistentConnection**オブジェクト、型のパラメーターとして、接続 URL の拡張機能として、接続の種類を指定する、最初の引数。
+OWIN 標準との互換性のために、これらのメソッドの名前が `MapSignalR`に変更されました。 パラメーターを指定せずに `MapSignalR` 呼び出されると、すべてのハブがマップされます (バージョン1.x の `MapHubs` と同様)。個々の**PersistentConnection**オブジェクトをマップするには、型パラメーターとして接続の種類を指定し、最初の引数として接続の URL 拡張子を指定します。
 
-`MapSignalR` Owin startup クラスでメソッドが呼び出されます。 Visual Studio 2013 には、Owin スタートアップ クラスの新しいテンプレートが含まれていますこのテンプレートを使用するには、次の操作を行います。
+`MapSignalR` メソッドは、Owin startup クラスで呼び出されます。 Visual Studio 2013 には、Owin startup クラス用の新しいテンプレートが含まれています。このテンプレートを使用するには、次の手順を実行します。
 
 1. プロジェクトを右クリックします。
-2. 選択**追加**、**新しい項目.**
-3. 選択**Owin Startup クラス**します。 新しいクラスの名前**Startup.cs**します。
+2. **[追加]** 、 **[新しい項目]** の選択...
+3. **[Owin Startup クラス]** を選択します。 新しいクラスに**Startup.cs**という名前を指定します。
 
-**Web アプリケーション、** Owin スタートアップ クラスを含む、`MapSignalR`次に示すメソッドは、Web.Config ファイルのアプリケーション設定 ノード内のエントリを使用して、Owin のスタートアップ プロセスに追加されます。
+**Web アプリケーション**では、次に示すように、web.config ファイルの [アプリケーションの設定] ノードのエントリを使用して、`MapSignalR` メソッドを含む Owin startup クラスが Owin のスタートアッププロセスに追加されます。
 
-**アプリケーションを自己ホスト型**、Startup クラスがの型パラメーターとして渡される、`WebApp.Start`メソッド。
+**自己ホスト型アプリケーション**では、Startup クラスは `WebApp.Start` メソッドの型パラメーターとして渡されます。
 
-**ハブと SignalR の接続のマッピング (web アプリケーションのグローバルなアプリケーション ファイル) から 1.x:** 
+**SignalR 1.x でのハブと接続のマッピング (web アプリケーションのグローバルアプリケーションファイルから):** 
 
 [!code-csharp[Main](release-notes/samples/sample5.cs)]
 
-**ハブと SignalR 2.0 (Owin Startup クラス ファイルの場合) からの接続をマッピングします。** 
+**SignalR 2.0 でのハブと接続のマッピング (Owin スタートアップクラスファイルから):** 
 
 [!code-csharp[Main](release-notes/samples/sample6.cs)]
 
-**アプリケーションを自己ホスト型**、Startup クラスがの型パラメーターとして渡される、`WebApp.Start`メソッドは、次のようです。
+**自己ホスト型アプリケーション**では、次に示すように、Startup クラスが `WebApp.Start` メソッドの型パラメーターとして渡されます。
 
 [!code-csharp[Main](release-notes/samples/sample7.cs)]
 
 <a id="crossdomain"></a>
 
-### <a name="cross-domain-support"></a>クロス ドメインのサポート
+### <a name="cross-domain-support"></a>ドメイン間サポート
 
-SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCrossDomain フラグによって制御されます。 このフラグ JSONP と CORS の両方の要求を制御します。 すべての CORS をサポートする柔軟性を高め、SignalR のサーバー コンポーネントから削除されました (JavaScript クライアントも CORS 通常、ブラウザーがサポートすることが検出された場合) を使用し、新しい OWIN ミドルウェアをこれらのシナリオをサポートするために使用しました。
+SignalR 1.x では、クロスドメイン要求は単一の EnableCrossDomain フラグによって制御されていました。 このフラグは、JSONP 要求と CORS 要求の両方を制御します。 柔軟性を高めるため、すべての CORS サポートは SignalR のサーバーコンポーネントから削除されています (ブラウザーがサポートしていることが検出された場合、JavaScript クライアントは引き続き CORS を使用します)。また、これらのシナリオをサポートするために新しい OWIN ミドルウェアを利用できるようになりました。
 
-SignalR 2.0 では、クライアントの場合の JSONP を必須 (古いブラウザーでは、クロス ドメイン要求をサポート) を設定を明示的に有効にする必要があります`EnableJSONP`上、`HubConfiguration`オブジェクトを`true`以下に示すようにします。 CORS より安全であるために、既定では、JSONP が無効です。
+SignalR 2.0 では、クライアントで JSONP が必要な場合 (古いブラウザーでクロスドメイン要求をサポートするため)、次に示すように、`HubConfiguration` オブジェクトの `EnableJSONP` を `true`に設定することによって、明示的に有効にする必要があります。 JSONP は、CORS よりも安全性が低いため、既定では無効になっています。
 
-SignalR 2.0 では、新しい CORS ミドルウェアを追加するには、追加、`Microsoft.Owin.Cors`呼び出しをプロジェクトにライブラリ`UseCors`SignalR ミドルウェアは、以下のセクションで示すようにする前にします。
+新しい CORS ミドルウェアを SignalR 2.0 に追加するには、次のセクションに示すように、`Microsoft.Owin.Cors` ライブラリをプロジェクトに追加し、SignalR ミドルウェアの前に `UseCors` を呼び出します。
 
-**Microsoft.Owin.Cors をプロジェクトに追加する**:このライブラリをインストールするには、パッケージ マネージャー コンソールで、次のコマンドを実行します。
+**プロジェクトへの Owin の追加**: このライブラリをインストールするには、パッケージマネージャーコンソールで次のコマンドを実行します。
 
 [!code-powershell[Main](release-notes/samples/sample8.ps1)]
 
-このコマンドは、2.0.0 を追加、プロジェクトにパッケージのバージョン。
+このコマンドにより、2.0.0 バージョンのパッケージがプロジェクトに追加されます。
 
-**UseCors を呼び出す**
+**UseCors の呼び出し**
 
-次のコード スニペットは、SignalR のドメイン間の接続を実装する方法を示します 1.x と 2.0。
+次のコードスニペットは、SignalR 1.x と2.0 でドメイン間接続を実装する方法を示しています。
 
-**SignalR でクロス ドメイン要求を実装する (グローバル アプリケーション ファイル) から 1.x**
+**SignalR 1.x でのクロスドメイン要求の実装 (グローバルアプリケーションファイルから)**
 
 [!code-csharp[Main](release-notes/samples/sample9.cs)]
 
-**SignalR 2.0 (c# コード ファイル) からのクロス ドメイン要求を実装します。**
+**SignalR 2.0 でのクロスドメイン要求の実装 ( C#コードファイルから)**
 
-次のコードでは、SignalR 2.0 プロジェクトで CORS または JSONP を有効にする方法を示します。 このコード サンプルを使用して`Map`と`RunSignalR`の代わりに`MapSignalR`、CORS ミドルウェアは、CORS のサポートを必要とする SignalR 要求に対してのみが実行されるように、(で指定されたパスにすべてのトラフィックではなく`MapSignalR`)。`Map`アプリケーション全体に対してではなく、特定の URL プレフィックスでは、実行する必要があるその他のミドルウェアにも使用できます。
+次のコードは、SignalR 2.0 プロジェクトで CORS または JSONP を有効にする方法を示しています。 このコードサンプルでは、`MapSignalR`ではなく `Map` と `RunSignalR` を使用して、CORS ミドルウェアが、アプリケーション全体ではなく、特定の URL プレフィックスに対して実行する必要のある SignalR 要求に対してのみ実行されるようにします (`MapSignalR`で指定されたパスのすべてのトラフィックではありません `Map`)。
 
 [!code-csharp[Main](release-notes/samples/sample10.cs)]
 
 <a id="mobile"></a>
 
-### <a name="ios-and-android-support-via-monotouch-and-monodroid"></a>MonoTouch と MonoDroid による iOS および Android をサポートします。
+### <a name="ios-and-android-support-via-monotouch-and-monodroid"></a>Monotouch.dialog とモノ Id を使用した iOS および Android のサポート
 
-IOS と Android のクライアントから MonoTouch と MonoDroid コンポーネントを使用してサポートが追加されました、 [Xamarin ライブラリ](https://xamarin.com/)します。 それらを使用する方法の詳細については、次を参照してください。 [Xamarin コンポーネントを使用して](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln)します。 これらのコンポーネントがで提供されます、 [Xamarin Store](https://store.xamarin.com/) SignalR RTW リリースが使用可能な場合。
+[Xamarin ライブラリ](https://xamarin.com/)の monotouch.dialog コンポーネントとモノ id コンポーネントを使用する IOS および Android クライアントのサポートが追加されました。 使用方法の詳細については、「 [Xamarin コンポーネントの使用](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln)」を参照してください。 これらのコンポーネントは、SignalR RTW リリースが利用可能になったときに、 [Xamarin ストア](https://store.xamarin.com/)で使用できるようになります。
 
-<a id="portable"></a> ### ポータブル .NET クライアント
+<a id="portable"></a># # # ポータブル .NET クライアント
 
-Silverlight を WinRT のクロス プラットフォーム開発を容易にし、Windows Phone クライアント、次のプラットフォームをサポートする 1 つのポータブル .NET クライアントに置き換えられました。
+クロスプラットフォームの開発を容易にするために、Silverlight、WinRT、および Windows Phone クライアントは、次のプラットフォームをサポートする1つのポータブル .NET クライアントに置き換えられています。
 
 - NET 4.5
 - Silverlight 5
-- WinRT (Windows ストア アプリ用 .NET)
+- WinRT (Windows ストアアプリ用 .NET)
 - Windows Phone 8
 
 <a id="selfhost"></a>
 
-### <a name="new-self-host-package"></a>新しいパッケージを自己ホスト
+### <a name="new-self-host-package"></a>新しい自己ホストパッケージ
 
-SignalR セルフホスト (プロセスでホストされている SignalR アプリケーションまたは他のアプリケーションではなく、web サーバーでホストされている) を使用しやすく NuGet パッケージはようになりました。 SignalR を使ってビルドされた自己ホスト プロジェクトをアップグレードする 1.x では、Microsoft.AspNet.SignalR.Owin のパッケージを削除し、Microsoft.AspNet.SignalR.SelfHost パッケージを追加します。 自己ホスト パッケージの概要については、次を参照してください。[チュートリアル。SignalR セルフホスト](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)します。
+SignalR 自己ホスト (web サーバーでホストされるのではなく、プロセスまたは他のアプリケーションでホストされている SignalR アプリケーション) の使用を簡単に始めることができる NuGet パッケージが用意されています。 SignalR 1.x でビルドされた自己ホストプロジェクトをアップグレードするには、SignalR パッケージを削除してから、SignalR パッケージを追加した後に追加します。 自己ホストパッケージの概要については、「[チュートリアル: SignalR 自己ホスト](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)」を参照してください。
 
 <a id="backwardcompat"></a>
 
-### <a name="backward-compatible-server-support"></a>旧バージョンと互換性のあるサーバーのサポート
+### <a name="backward-compatible-server-support"></a>下位互換性のあるサーバーのサポート
 
-以前のバージョンの SignalR、SignalR パッケージがクライアントで使用されると同一であるために必要なサーバーのバージョン。 シック クライアント アプリケーションを更新することは困難をサポートするために SignalR 2.0 サポート古いクライアントで新しいサーバー バージョンを使用します。 **注:SignalR 2.0 は、新しいクライアントと以前のバージョンで構築されたサーバーをサポートしていません。**
+以前のバージョンの SignalR では、クライアントとサーバーで使用されている SignalR パッケージのバージョンが同一である必要があります。 更新が困難なシッククライアントアプリケーションをサポートするために、SignalR 2.0 では、古いクライアントでの新しいサーバーバージョンの使用がサポートされるようになりました。 **注: SignalR 2.0 では、以前のバージョンでビルドされたサーバーを新しいクライアントでサポートしていません。**
 
 <a id="remove40"></a>
 
-### <a name="removed-server-support-for-net-40"></a>.NET 4.0 用のサーバーのサポートが削除されました
+### <a name="removed-server-support-for-net-40"></a>.NET 4.0 のサーバーサポートを削除しました
 
-SignalR 2.0 では、.NET 4.0 でのサーバーの相互運用性のサポートを削除します。 SignalR 2.0 サーバーでは、.NET 4.5 を使用する必要があります。 SignalR 2.0 for .NET 4.0 クライアントは引き続きします。
+SignalR 2.0 では、.NET 4.0 とのサーバー相互運用性のサポートが削除されました。 .NET 4.5 は、SignalR 2.0 サーバーで使用する必要があります。 引き続き、SignalR 2.0 用の .NET 4.0 クライアントがあります。
 
 <a id="messagelist"></a>
 
-### <a name="sending-a-message-to-a-list-of-clients-and-groups"></a>クライアントとグループの一覧にメッセージを送信します。
+### <a name="sending-a-message-to-a-list-of-clients-and-groups"></a>クライアントとグループの一覧へのメッセージの送信
 
-SignalR 2.0 では、クライアントとグループ Id の一覧を使用してメッセージを送信することはできます。 次のコード スニペットでは、これを行う方法を示します。
+SignalR 2.0 では、クライアント Id とグループ Id の一覧を使用してメッセージを送信することができます。 次のコードスニペットは、この方法を示しています。
 
-**クライアントと PersistentConnection を使用してグループの一覧にメッセージを送信します。**
+**PersistentConnection を使用して、クライアントとグループの一覧にメッセージを送信する**
 
 [!code-csharp[Main](release-notes/samples/sample11.cs)]
 
-**クライアントとハブを使用してグループの一覧にメッセージを送信します。**
+**ハブを使用して、クライアントとグループの一覧にメッセージを送信する**
 
 [!code-csharp[Main](release-notes/samples/sample12.cs)]
 
 <a id="sendtouser"></a>
 
-### <a name="sending-a-message-to-a-specific-user"></a>特定のユーザーにメッセージを送信します。
+### <a name="sending-a-message-to-a-specific-user"></a>特定のユーザーへのメッセージの送信
 
-この機能により、ユーザー Id を指定するユーザー IUserIdProvider 新しいインターフェイスを使用して、IRequest に基づいて。
+この機能を使用すると、ユーザーは新しいインターフェイス IUserIdProvider を使用して、IRequest に基づいてユーザー Id を指定できます。
 
 **IUserIdProvider インターフェイス**
 
 [!code-csharp[Main](release-notes/samples/sample13.cs)]
 
-既定では、ユーザー名とユーザーの IPrincipal.Identity.Name を使用する実装があります。
+既定では、ユーザーの IPrincipal.Identity.Name をユーザー名として使用する実装が存在します。
 
-ハブで、新しい API を使用してこれらのユーザーにメッセージを送信するようになります。
+ハブでは、新しい API を使用して、これらのユーザーにメッセージを送信できます。
 
-**Clients.User API を使用します。**
+**クライアント. User API の使用**
 
 [!code-csharp[Main](release-notes/samples/sample14.cs)]
 
 <a id="errorhandling"></a>
 
-### <a name="better-error-handling-support"></a>優れたエラー処理のサポート
+### <a name="better-error-handling-support"></a>より優れたエラー処理のサポート
 
-ユーザーがスローできるようになりました**HubException**任意のハブ呼び出しから。 コンス トラクター、 **HubException**文字列メッセージとオブジェクトにかかる追加のエラー データ。 SignalR は、例外を自動シリアル化し、拒否/失敗のハブ メソッドの呼び出しに使用されますをクライアントに送信します。
+ユーザーは、任意のハブ呼び出しから**HubException**をスローできるようになりました。 **HubException**のコンストラクターは、文字列メッセージとオブジェクトの追加のエラーデータを受け取ることができます。 SignalR は、例外を自動的にシリアル化し、それをクライアントに送信します。これは、ハブメソッドの呼び出しを拒否/失敗するために使用されます。
 
-**ハブの詳細な例外表示**設定に影響していない**HubException**ことはありません。 または、クライアントに送信されることは常に送信します。
+[**詳細なハブ例外を表示する]** 設定は、クライアントに送信される**HubException**には影響しません。常に送信されます。
 
-**サーバー側コードのデモを HubException をクライアントに送信します。**
+**HubException をクライアントに送信する方法を示すサーバー側コード**
 
 [!code-csharp[Main](release-notes/samples/sample15.cs)]
 
-**JavaScript クライアント コードが、サーバーから送信された HubException への応答のデモ**
+**サーバーから送信された HubException への応答を示す JavaScript クライアントコード**
 
 [!code-html[Main](release-notes/samples/sample16.html)]
 
-**.NET クライアントをサーバーから送信された HubException への応答を示すコード**
+**サーバーから送信された HubException への応答を示す .NET クライアントコード**
 
 [!code-csharp[Main](release-notes/samples/sample17.cs)]
 
 <a id="unittesting"></a>
 
-### <a name="easier-unit-testing-of-hubs"></a>簡単に単体テストのハブ
+### <a name="easier-unit-testing-of-hubs"></a>ハブの単体テストの簡素化
 
-SignalR 2.0 にはというインターフェイスが含まれています`IHubCallerConnectionContext`hubs モックのクライアント側の呼び出しの作成が簡単です。 人気のあるテスト ハーネスでのこのインターフェイスの使用方法を示す次のコード スニペット[xUnit.net](https://github.com/xunit/xunit)と[moq](https://code.google.com/p/moq/)します。
+SignalR 2.0 には、モッククライアント側の呼び出しの作成を容易にするハブで `IHubCallerConnectionContext` というインターフェイスが含まれています。 次のコードスニペットは、一般的なテストハーネス[xUnit.net](https://github.com/xunit/xunit)と[moq](https://code.google.com/p/moq/)でこのインターフェイスを使用する方法を示しています。
 
-**単体テストの xUnit.net で SignalR**
+**XUnit.net を使用した SignalR の単体テスト**
 
 [!code-csharp[Main](release-notes/samples/sample18.cs)]
 
-**単体テストの moq と SignalR**
+**Moq を使用した SignalR の単体テスト**
 
 [!code-csharp[Main](release-notes/samples/sample19.cs)]
 
@@ -485,220 +485,220 @@ SignalR 2.0 にはというインターフェイスが含まれています`IHub
 
 ### <a name="javascript-error-handling"></a>JavaScript のエラー処理
 
-SignalR 2.0 では、JavaScript エラー処理のすべてのコールバックは、未加工の文字列ではなく JavaScript エラー オブジェクトを返します。 これによりより豊富な情報、エラー ハンドラーにフローする SignalR ができます。 内部例外を取得することができます、`source`エラーのプロパティ。
+SignalR 2.0 では、すべての JavaScript エラー処理コールバックで、生の文字列ではなく JavaScript エラーオブジェクトが返されます。 これにより、SignalR は、より豊富な情報をエラーハンドラーに渡すことができます。 内部例外は、エラーの `source` プロパティから取得できます。
 
-**Start.Fail 例外を処理する JavaScript クライアント コード**
+**Start. Fail 例外を処理する JavaScript クライアントコード**
 
 [!code-javascript[Main](release-notes/samples/sample20.js)]
 
 <a id="TOC8"></a>
 ## <a name="aspnet-identity"></a>ASP.NET Identity
 
-### <a name="new-aspnet-membership-system"></a>新しい ASP.NET メンバーシップ システム
+### <a name="new-aspnet-membership-system"></a>新しい ASP.NET メンバーシップシステム
 
-ASP.NET Identity は、ASP.NET アプリケーションの新しいメンバーシップ システムです。 ASP.NET Identity を簡単にアプリケーション データとユーザー固有のプロファイル データを統合します。 ASP.NET Identity では、アプリケーションでユーザー プロファイルの永続化モデルを選択することもできます。 SQL Server データベースまたは Azure Storage のテーブルなどの NoSQL データ ストアなど、別のデータ ストアにデータを保存することができます。 詳細については、次を参照してください。[個々 のユーザー アカウント](creating-web-projects-in-visual-studio.md#indauth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**です。
+ASP.NET Identity は、ASP.NET アプリケーションの新しいメンバーシップシステムです。 ASP.NET Identity を使用すると、ユーザー固有のプロファイルデータをアプリケーションデータに簡単に統合できます。 ASP.NET Identity では、アプリケーションでユーザープロファイルの永続性モデルを選択することもできます。 データは SQL Server データベースまたは別のデータストア (Azure Storage テーブルなどの NoSQL データストア) に格納できます。 詳細については、「 **Visual Studio 2013 での ASP.NET Web プロジェクトの作成**における[個々のユーザーアカウント](creating-web-projects-in-visual-studio.md#indauth)」を参照してください。
 
 ### <a name="claims-based-authentication"></a>クレーム ベースの認証
 
-ASP.NET では、ユーザーの id が信頼された発行者からのクレームのセットとして表されるクレーム ベース認証できるようになりました。 ユーザーは認証されたユーザー名と、アプリケーション データベースに保存されるパスワードを使用してまたはソーシャル id プロバイダーを使用できます (例。Microsoft アカウント、Facebook、Google、Twitter)、または Azure Active Directory または Active Directory フェデレーション サービス (ADFS) を組織のアカウントを使用します。
+ASP.NET は、信頼性情報ベースの認証をサポートするようになりました。この認証では、ユーザーの id は信頼された発行者からのクレームのセットとして表されます。 ユーザーは、アプリケーションデータベースで保持されているユーザー名とパスワードを使用して、またはソーシャル id プロバイダー (Microsoft アカウント、Facebook、Google、Twitter など) を使用するか、または Azure Active Directory を使用して組織アカウントを使用して認証できます。Active Directory フェデレーションサービス (AD FS) (ADFS)。
 
-### <a name="integration-with-azure-active-directory-and-windows-server-active-directory"></a>Azure Active Directory および Windows Server Active Directory との統合
+### <a name="integration-with-azure-active-directory-and-windows-server-active-directory"></a>Azure Active Directory と Windows Server Active Directory との統合
 
-Azure Active Directory または Windows Server ・ Active Directory (AD) 認証を使用する ASP.NET プロジェクトを作成できます。 詳細については、次を参照してください。[組織アカウント](creating-web-projects-in-visual-studio.md#orgauth)で**Visual Studio 2013 で ASP.NET Web プロジェクトの作成**です。
+認証に Azure Active Directory または Windows Server Active Directory (AD) を使用する ASP.NET プロジェクトを作成できるようになりました。 詳細については、「 **Visual Studio 2013 での ASP.NET Web プロジェクトの作成**」の「[組織アカウント](creating-web-projects-in-visual-studio.md#orgauth)」を参照してください。
 
 ### <a name="owin-integration"></a>OWIN の統合
 
-ASP.NET 認証は、任意の OWIN ベースのホストで使用できる、OWIN ミドルウェアに基づいています。 OWIN の詳細については、次を参照してください。 [Microsoft OWIN コンポーネント](#TOC7)セクション。
+ASP.NET 認証は、任意の OWIN ベースのホストで使用できる OWIN ミドルウェアに基づいています。 OWIN の詳細については、次の[MICROSOFT OWIN Components](#TOC7)のセクションを参照してください。
 
 <a id="TOC7"></a>
 ## <a name="microsoft-owin-components"></a>Microsoft OWIN コンポーネント
 
-[.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN は、web アプリケーション ホストに依存しないのため、サーバーから web アプリケーションを分離します。 たとえば、IIS の OWIN ベースの web アプリケーションをホストしたり、カスタム プロセスでセルフホストできます。
+[Open Web Interface for .net](http://owin.org/) (OWIN) は、.net web サーバーと web アプリケーションの間の抽象化を定義します。 OWIN は、web アプリケーションをサーバーから分離することで、web アプリケーションをホストに依存しないようにします。 たとえば、IIS で OWIN ベースの web アプリケーションをホストしたり、カスタムプロセスで自己ホストしたりすることができます。
 
-Microsoft OWIN コンポーネント (Katana プロジェクトとも呼ばれます) で導入された変更には、新しいサーバーとホストのコンポーネント、新しいヘルパー ライブラリとミドルウェア、および新しい認証ミドルウェアが含まれます。
+Microsoft OWIN コンポーネント (Katana プロジェクトとも呼ばれます) で導入された変更には、新しいサーバーおよびホストコンポーネント、新しいヘルパーライブラリとミドルウェア、新しい認証ミドルウェアが含まれます。
 
-OWIN と Katana の詳細については、次を参照してください。 [OWIN と Katana の新](../../../aspnet/overview/owin-and-katana/index.md)します。
+OWIN と Katana の詳細については、「 [OWIN および Katana の新機能](../../../aspnet/overview/owin-and-katana/index.md)」を参照してください。
 
-**注:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) IIS クラシック モードでアプリケーションを実行できません。 これらは、統合モードで実行する必要があります。**
+**注: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)アプリケーションを IIS クラシックモードで実行することはできません。統合モードで実行する必要があります。**
 
-**注:[OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)完全信頼でアプリケーションを実行する必要があります。**
+**注: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)アプリケーションは完全信頼で実行する必要があります。**
 
 ### <a name="new-servers-and-hosts"></a>新しいサーバーとホスト
 
-このリリースでは、新しいコンポーネントは、自己ホスト シナリオを有効に追加されました。 これらのコンポーネントには、次の NuGet パッケージが含まれます。
+このリリースでは、自己ホストのシナリオを可能にするために新しいコンポーネントが追加されました。 これらのコンポーネントには、次の NuGet パッケージが含まれます。
 
-- **Microsoft.Owin.Host.HttpListener**します。 使用する OWIN サーバーは、 **HttpListener**を HTTP 要求をリッスンし、OWIN パイプラインに指示します。
-- **Microsoft.Owin.Hosting**にコンソール アプリケーションまたは Windows サービスなどのカスタムのプロセスで OWIN パイプラインをセルフホストする開発者のライブラリを提供します。
-- **OwinHost**します。 ラップするスタンドアロン実行可能ファイルを提供します。`Microsoft.Owin.Hosting`し、カスタム ホスト アプリケーションを記述することなく、OWIN パイプラインをセルフホストすることができます。
+- **Owin. HttpListener**. **HttpListener**を使用して HTTP 要求をリッスンし、それらを OWIN パイプラインに送信する OWIN サーバーを提供します。
+- **Owin**には、コンソールアプリケーションや Windows サービスなどのカスタムプロセスで Owin パイプラインを自己ホストする開発者向けのライブラリが用意されています。
+- **Owinhost**。 には `Microsoft.Owin.Hosting` をラップするスタンドアロンの実行可能ファイルが用意されています。これにより、カスタムホストアプリケーションを作成しなくても、OWIN パイプラインを自己ホストできます。
 
-さらに、`Microsoft.Owin.Host.SystemWeb`パッケージには、ミドルウェアにヒントを提供するようになりましたができるように、 **SystemWeb**サーバー、特定の ASP.NET パイプライン ステージの間に、ミドルウェアを呼び出す必要があることを示します。 この機能は、認証ミドルウェアは、ASP.NET パイプラインの早い段階で実行する必要がありますに特に便利です。
+さらに、`Microsoft.Owin.Host.SystemWeb` パッケージでは、ミドルウェアが**Systemweb**サーバーにヒントを提供できるようになりました。これは、特定の ASP.NET パイプラインステージの間にミドルウェアを呼び出す必要があることを示しています。 この機能は、ASP.NET パイプラインの早い段階で実行される認証ミドルウェアに特に役立ちます。
 
-### <a name="helper-libraries-and-middleware"></a>ヘルパー ライブラリとミドルウェア
+### <a name="helper-libraries-and-middleware"></a>ヘルパーライブラリとミドルウェア
 
-OWIN 仕様から関数と型の定義のみを使用して、OWIN コンポーネントを記述できますが、新しい`Microsoft.Owin`パッケージはユーザーにわかりやすい一連の抽象化を提供します。 このパッケージは、いくつかの以前のパッケージを結合 (例: `Owin.Extensions`、 `Owin.Types`) し、簡単に使用できるその他の OWIN コンポーネントで適切に構成された 1 つのオブジェクト モデルにします。 実際には、Microsoft OWIN コンポーネントの大半は、このパッケージを使用するようになりました。
-
-> [!NOTE]
-> [OWIN](http://www.owin.org) IIS クラシック モードでアプリケーションを実行できません。 これらは、統合モードで実行する必要があります。
+OWIN 仕様の関数と型の定義のみを使用して OWIN コンポーネントを記述することもできますが、新しい `Microsoft.Owin` パッケージでは、よりわかりやすい抽象化のセットが提供されます。 このパッケージは、以前のいくつかのパッケージ (`Owin.Extensions`、`Owin.Types`など) を単一の適切に構造化されたオブジェクトモデルに結合して、他の OWIN コンポーネントで簡単に使用できるようにします。 実際、Microsoft OWIN コンポーネントの大部分は、このパッケージを使用するようになりました。
 
 > [!NOTE]
-> [OWIN](http://www.owin.org)完全信頼でアプリケーションを実行する必要があります。
+> [OWIN](http://www.owin.org)アプリケーションを IIS クラシックモードで実行することはできません。統合モードで実行する必要があります。
 
-このリリースには、ミドルウェアを実行中の OWIN アプリケーションを検証するとエラーの調査に役立つエラー ページ ミドルウェアを含む Microsoft.Owin.Diagnostics パッケージも含まれています。
+> [!NOTE]
+> [OWIN](http://www.owin.org)アプリケーションは完全信頼で実行する必要があります。
+
+このリリースには、Owin パッケージも含まれています。これには、実行中の OWIN アプリケーションを検証するミドルウェア、およびエラーを調査するためのエラーページミドルウェアが含まれています。
 
 ### <a name="authentication-components"></a>認証コンポーネント
 
-次の認証コンポーネントは使用できます。
+次の認証コンポーネントを使用できます。
 
-- **Microsoft.Owin.Security.ActiveDirectory**します。 オンプレミスまたはクラウド ベースのディレクトリ サービスを使用して認証を有効にします。
-- **Microsoft.Owin.Security.Cookies** cookie を使用して認証を有効にします。 このパッケージが以前という名前だった`Microsoft.Owin.Security.Forms`します。
-- **Microsoft.Owin.Security.Facebook** Facebook の OAuth ベースのサービスを使用して認証を有効にします。
-- **Microsoft.Owin.Security.Google** Google の OpenID ベースのサービスを使用して認証を有効にします。
-- **Microsoft.Owin.Security.Jwt** JWT トークンを使用して認証を有効にします。
-- **Microsoft.Owin.Security.MicrosoftAccount** Microsoft アカウントを使用して認証を有効にします。
-- **Microsoft.Owin.Security.OAuth**します。 ベアラー トークンを認証するためには、OAuth 承認サーバーだけでなく、ミドルウェアを提供します。
-- **Microsoft.Owin.Security.Twitter** Twitter の OAuth ベースのサービスを使用して認証を有効にします。
+- **Owin**します。 オンプレミスまたはクラウドベースのディレクトリサービスを使用した認証を有効にします。
+- **Owin** cookie を使用した認証を有効にします。 このパッケージは、以前は `Microsoft.Owin.Security.Forms`という名前でした。
+- **Owin**は、Facebook の OAuth ベースのサービスを使用した認証を可能にします。
+- **Owin** Google の OpenID ベースのサービスを使用して認証を有効にします。
+- **Owin**は jwt トークンを使用した認証を有効にします。
+- **Owin** microsoft アカウントを使用して認証を有効にします。
+- **Owin**します。 には、ベアラートークンを認証するための、OAuth 承認サーバーとミドルウェアが用意されています。
+- **Owin**は、Twitter の OAuth ベースのサービスを使用した認証を可能にします。
 
-このリリースでは、`Microsoft.Owin.Cors`パッケージで、クロスオリジン HTTP 要求を処理するためのミドルウェアが含まれています。
+このリリースには、クロスオリジン HTTP 要求を処理するためのミドルウェアを含む `Microsoft.Owin.Cors` パッケージも含まれています。
 
 > [!NOTE]
-> JWT に署名するためのサポートは Visual Studio 2013 の最終バージョンで削除されました。
+> JWT 署名のサポートは、Visual Studio 2013 の最終バージョンでは削除されています。
 
 <a id="ef6"></a>
 ## <a name="entity-framework-6"></a>Entity Framework 6
 
-新機能および Entity Framework 6 の他の変更の一覧は、次を参照してください。 [Entity Framework のバージョン履歴](https://msdn.com/data/jj574253)します。
+Entity Framework 6 の新機能とその他の変更点の一覧については、「 [Entity Framework バージョンの履歴](https://msdn.com/data/jj574253)」を参照してください。
 
 <a id="TOC14"></a>
 ## <a name="aspnet-razor-3"></a>ASP.NET Razor 3
 
 ASP.NET Razor 3 には、次の新機能が含まれています。
 
-- タブの編集をサポートします。 以前は、**ドキュメントのフォーマット**コマンド、自動インデント、および自動 Visual Studio で書式設定が正しく動作しなかったを使用する場合、**タブの保持**オプション。 この変更は、Visual Studio の書式設定 タブの Razor コードの書式設定を修正します。
-- リンクを生成するときに URL 書き換えルールをサポートします。
-- セキュリティ透過的な属性の削除。
+- タブ編集のサポート。 以前は、**タブを保持**する オプションを使用すると、Visual Studio の **ドキュメントのフォーマット** コマンド、自動インデント、および 自動書式設定 は正常に動作しませんでした。 この変更により、タブ書式設定用の Razor コードの Visual Studio の書式設定が修正します。
+- リンクを生成するときの URL 書き換え規則のサポート。
+- 透過的セキュリティ属性の削除。
   > [!NOTE]
-  > これは重大な変更し、Razor 3 互換性のない MVC4、以前のバージョンと Razor 2 は MVC5 または MVC5 に対してコンパイルされたアセンブリとの互換性はありません。
+  > これは互換性に影響する変更であり、Razor 3 は MVC4 以前と互換性がありませんが、Razor 2 は MVC5 または MVC5 に対してコンパイルされたアセンブリと互換性がありません。
 
-プレリリース版から Visual Studio 2013 で修正された razor 3 問題はあります[ここ](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0)します。
+プレリリース版からの Visual Studio 2013 で修正された Razor 3 の問題については、[こちら](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0)を参照してください。
 
 <a id="TOC15"></a>
-## <a name="aspnet-app-suspend"></a>ASP.NET アプリを中断します。
+## <a name="aspnet-app-suspend"></a>ASP.NET アプリの中断
 
-ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数の 1 台のコンピューター上の ASP.NET のサイトをホストするための経済的なモデルを大幅に変更する .NET Framework 4.5.1 における革新的機能です。 詳細については、次を参照してください。 [ASP.NET App Suspend – 応答性の高い共有 .NET web ホスティング](https://blogs.msdn.com/b/dotnet/archive/2013/10/09/asp-net-app-suspend-responsive-shared-net-web-hosting.aspx)します。
+ASP.NET App Suspend は、1台のコンピューターで多数の ASP.NET サイトをホストするためのユーザーエクスペリエンスと経済モデルを根本的に変更する、.NET Framework 4.5.1 のゲーム変更機能です。 詳細については、「 [ASP.NET App Suspend –応答性の高い共有 .net web ホスティング](https://blogs.msdn.com/b/dotnet/archive/2013/10/09/asp-net-app-suspend-responsive-shared-net-web-hosting.aspx)」を参照してください。
 
 <a id="knownissues"></a>
 ## <a name="known-issues-and-breaking-changes"></a>既知の問題と重大な変更
 
-このセクションでは、Visual Studio 2013 の既知の問題と、ASP.NET と Web ツールにおける重大な変更について説明します。
+このセクションでは、Visual Studio 2013 の ASP.NET and Web Tools における既知の問題と重大な変更について説明します。
 
 ### <a name="nuget"></a>NuGet
 
-- [SLN ファイルを使用する場合、Mono で新しいパッケージの復元が機能しません](https://nuget.codeplex.com/workitem/3596)– 今後 nuget.exe をダウンロードで修正される予定と[NuGet.CommandLine パッケージ](http://www.nuget.org/packages/NuGet.CommandLine/)を更新します。
-- [Wix プロジェクトで新しいパッケージの復元は機能しません](https://nuget.codeplex.com/workitem/3598)– 今後 nuget.exe をダウンロードで修正される予定と[NuGet.CommandLine パッケージ](http://www.nuget.org/packages/NuGet.CommandLine/)を更新します。
-- [自動パッケージの復元では、ソリューション フォルダーの下のプロジェクトが機能しません](https://nuget.codeplex.com/workitem/3625)– NuGet 2.8 で修正される予定です。
+- [新しいパッケージの復元は、SLN ファイルを使用すると Mono で機能しません](https://nuget.codeplex.com/workitem/3596)。今後の nuget のダウンロードと[nuget.exe パッケージ](http://www.nuget.org/packages/NuGet.CommandLine/)の更新プログラムで修正されます。
+- [新しいパッケージの復元は、Wix プロジェクトでは機能しません](https://nuget.codeplex.com/workitem/3598)。今後の nuget のダウンロードと[nuget.exe パッケージ](http://www.nuget.org/packages/NuGet.CommandLine/)の更新プログラムで修正されます。
+- [自動パッケージ復元は、ソリューションフォルダーの下にあるプロジェクトに対しては機能しません](https://nuget.codeplex.com/workitem/3625)。 NuGet 2.8 で修正されます。
 
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` 返さない`IQueryable<T>`常に、サポートが追加されました`$select`と`$expand`します。
+1. `$select` と `$expand`のサポートが追加されたため、`ODataQueryOptions<T>.ApplyTo(IQueryable)` `IQueryable<T>` は常に返されません。
 
-    以前のサンプル`ODataQueryOptions<T>`から戻り値を常にキャストされた`ApplyTo`に`IQueryable<T>`します。 以前このため、クエリ オプションを以前方法でサポート (`$filter`、 `$orderby`、 `$skip`、 `$top`)、クエリの形状を変更しないでください。 これでサポートされています`$select`と`$expand`からの戻り値`ApplyTo`されません`IQueryable<T>`常にします。
+    `ODataQueryOptions<T>` の前のサンプルでは、`ApplyTo` から `IQueryable<T>`に戻り値が常にキャストされています。 これは、以前にサポートしていたクエリオプション (`$filter`、`$orderby`、`$skip`、`$top`) によってクエリの構造が変更されないため、これまでに動作しました。 これで `$expand` `$select` がサポートされるようになり、`ApplyTo` からの戻り値が常に `IQueryable<T>` されることはなくなりました。
 
     [!code-csharp[Main](release-notes/samples/sample21.cs)]
 
-    前のサンプル コードを使用している場合、引き続き動作、クライアントが送信されなかった場合`$select`と`$expand`します。 ただし、サポートする場合`$select`と`$expand`にそのコードを変更する必要があります。
+    前に示したサンプルコードを使用している場合は、クライアントが `$select` と `$expand`を送信しない場合は動作を続行します。 ただし、`$select` と `$expand` をサポートする場合は、そのコードをこのコードに変更する必要があります。
 
     [!code-csharp[Main](release-notes/samples/sample22.cs)]
-2. **Request.Url または RequestContext.Url が null のバッチ要求中に**
+2. **要求の Url または RequestContext。 Url は、バッチ要求の実行中に null になります。**
 
-    バッチ処理のシナリオで**UrlHelper**がからアクセスする場合は null **Request.Url**または**RequestContext.Url**します。
+    バッチ処理のシナリオでは、 **Urlhelper**は、**要求の Url**または**RequestContext**からアクセスした場合に null になります。
 
-    この問題は現在は、ここに追跡します。[BatchRequestContext.Url が要求をバッチ処理の null](http://aspnetwebstack.codeplex.com/workitem/1301)します。
+    現在、この問題はここで追跡されています: [Batchrequestcontext。バッチ処理要求の Url が null](http://aspnetwebstack.codeplex.com/workitem/1301)です。
 
-    この問題の回避の新しいインスタンスを作成するには**UrlHelper**、次の例。
+    この問題を回避するには、次の例のように**Urlhelper**の新しいインスタンスを作成します。
 
-    **UrlHelper の新しいインスタンスを作成します。**
+    **UrlHelper の新しいインスタンスを作成しています**
 
     [!code-csharp[Main](release-notes/samples/sample23.cs)]
 
 ### <a name="aspnet-mvc"></a>ASP.NET MVC
 
-1. MVC5 と OrgAuth を使用しているビュー AntiForgerToken 検証を行うことがある場合は、使用している場合、ビューにデータを投稿すると、次のエラーを遭遇する可能性があります。
+1. MVC5 と OrgAuth を使用しているときに、検証を行うビューがある場合、データをビューにポストすると、次のエラーが表示されることがあります。
 
-    **Error**: 
+    **エラー**:
 
-    *'/' アプリケーションでは、サーバー エラーです。*
+    *'/' アプリケーションでサーバーエラーが発生しています。*
 
-    <em>種類の要求 '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'または'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' が指定した ClaimsIdentity に存在しませんでした。クレーム ベース認証を使用した偽造防止トークンのサポートを有効にするには、構成されている要求プロバイダーが提供している生成 ClaimsIdentity インスタンスでこれらの要求の両方をくださいを確認します。代わりに、構成されている要求プロバイダーは、一意の識別子としてさまざまなクレームの種類を使用する場合は、AntiForgeryConfig.UniqueClaimTypeIdentifier 静的プロパティを設定して構成できます。</em>
+    <em>型 '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>' または '<https://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' のクレームが、指定された ClaimsIdentity に存在しませんでした。要求ベースの認証による偽造防止トークンのサポートを有効にするには、構成された要求プロバイダーが、生成した ClaimsIdentity インスタンスに対して両方の要求を提供していることを確認してください。構成された要求プロバイダーが、一意の識別子として別の要求の種類を使用する場合は、静的なプロパティの UniqueClaimTypeIdentifier を設定することによって構成できます。</em>
 
-    **対応策**: 
+    **対応策**:
 
-    その修正 Global.asax で、次の行を追加します。
+    Global.asax に次の行を追加して修正します。
 
     `AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;`
 
-    これについては、次のリリースを修正します。
-2. MVC5 に MVC4 アプリケーションをアップグレードした後は、ソリューションをビルドし、これを起動します。 次のエラーが表示されます。
+    これは、次のリリースで修正されます。
+2. MVC4 アプリを MVC5 にアップグレードしたら、ソリューションをビルドして起動します。 次のエラーが表示されます。
 
-    [A][B]System.Web.WebPages.Razor.Configuration.HostSection に System.Web.WebPages.Razor.Configuration.HostSection をキャストすることはできません。 タイプ A 'System.Web.WebPages.Razor、バージョン 2.0.0.0、カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' 場所' Default' のコンテキストで ' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll'。 タイプ b 'System.Web.WebPages.Razor、バージョン 3.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 を =' 場所' Default' のコンテキストで ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll'。
+    あるこのセクションは、[B] System.web. Web.config...................................... は、場所 ' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\v4.0\_2.0.0.0\_\_31bf3856ad364e35 \ ' のコンテキスト ' Default ' にある ' System.web. Web. Razor, Version = 2.0.0.0, Culture = ニュートラル, PublicKeyToken = 31bf3856ad364e35 ' から生成されます。 型 B の生成元は、' 3.0.0.0, Version =, Culture = ニュートラル, PublicKeyToken = 31bf3856ad364e35 ' というコンテキストで、場所 ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\e8b5908e\assembly\dl3\c9cbca63\f8910382\_62の既定値 ' になります. ' を指定します。
 
-    上記のエラーを修正するには、開きます*すべて*プロジェクトとは、次の Web.config ファイル (Views フォルダーにあるものを含む)。
+    上記のエラーを修正するには、プロジェクトの*すべて*の web.config ファイル (Views フォルダー内のファイルを含む) を開き、次の手順を実行します。
 
-   1. 「5.0.0.0」の"System.Web.Mvc"のバージョン「4.0.0.0」のすべての出現箇所を更新します。
-   2. バージョン「2.0.0.0」を"System.Web.Helpers"の出現をすべて更新&quot;System.Web.WebPages&quot;と&quot;System.Web.WebPages.Razor&quot; 「3.0.0.0」を
+   1. "4.0.0.0" のバージョン "" のすべての出現箇所を "5.0.0.0" に更新します。
+   2. "3.0.0.0" のバージョン "2.0.0.0" のすべての出現箇所を更新し、&quot; を&quot; &quot;して &quot;、"" に変更します。また、
 
-      たとえば、上記の変更を行った後にこのようアセンブリ バインドになります。
+      たとえば、上記の変更を行った後、アセンブリのバインドは次のようになります。
 
       [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-      MVC 5、MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)します。
-3. Jquery Unobtrusive Validation をクライアント側の検証を使用する場合、検証メッセージが正しくない場合があります型の HTML input 要素を = 'number' です。 検証エラーが必須の値 (「[Age] フィールドが必要です」) が表示されます、正しいメッセージの有効な数値が必要であるのではなく無効な数値を入力する場合。
+      Mvc 4 プロジェクトを MVC 5 にアップグレードする方法については、「 [ASP.NET mvc 4 と WEB Api プロジェクトを ASP.NET mvc 5 および WEB api 2 にアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)」を参照してください。
+3. JQuery の控えめな検証でクライアント側の検証を使用する場合、型 = ' number ' の HTML 入力要素の検証メッセージが正しくないことがあります。 正しいメッセージではなく有効な数値が入力されている場合は、必要な値 ("Age フィールドが必要") の検証エラーが表示されます。
 
-    Create と Edit ビューで整数のプロパティを持つモデルのこの問題が検出スキャフォールディングされたコードで一般的です。
+    この問題は、Create ビューと Edit ビューで整数プロパティを持つモデルのスキャフォールディングコードでよく見られます。
 
-    この問題を回避するからエディター ヘルパーを変更します。
+    この問題を回避するには、エディターヘルパーを次のように変更します。
 
     `@Html.EditorFor(person => person.Age)`
 
-    移動先:
+    宛先:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 には、部分信頼がサポートされていません。 MVC または web Api のバイナリにリンクするプロジェクトを削除する必要があります、 [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx)属性と[AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx)属性。 これらの属性を削除するには、次のようにコンパイラ エラーがなくなります。
+4. ASP.NET MVC 5 では、部分信頼はサポートされなくなりました。 MVC または WebAPI バイナリにリンクするプロジェクトでは、 [Securitytransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx)属性と[AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx)属性を削除する必要があります。 これらの属性を削除すると、次のようなコンパイラエラーが発生しなくなります。
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 
-    > ただし、このことの副作用は、同じアプリケーションで 4.0、5.0 のアセンブリを使用することはできません。 5.0 にそれらのすべてを更新する必要があります。
+    > この結果、同じアプリケーションで4.0 および5.0 アセンブリを使用することはできません。 すべてを5.0 に更新する必要があります。
 
-### <a name="spa-template-with-facebook-authorization-may-cause-instability-in-ie-while-the-web-site-is-hosted-in-intranet-zone"></a>Facebook の承認を持つ SPA テンプレート、web サイトがイントラネット ゾーンでホストされている IE で不安定になる可能性があります。
+### <a name="spa-template-with-facebook-authorization-may-cause-instability-in-ie-while-the-web-site-is-hosted-in-intranet-zone"></a>Web サイトがイントラネットゾーンでホストされている場合、Facebook の承認を持つ SPA テンプレートで IE が不安定になることがある
 
-SPA テンプレートは、外部で Facebook ログインを提供します。 テンプレートで作成されたプロジェクトはローカルで実行してサインイン発生に IE がクラッシュします。
+SPA テンプレートは、Facebook との外部ログインを提供します。 テンプレートを使用して作成したプロジェクトがローカルで実行されている場合、サインインすると、IE がクラッシュする可能性があります。
 
-解決方法 : 
+解決方法:
 
-1. インターネット ゾーンでの web サイトのホストまたは
+1. Web サイトをインターネットゾーンでホストします。もしくは
 
-2. IE 以外のブラウザーでは、シナリオをテストします。
+2. IE 以外のブラウザーでシナリオをテストします。
 
 ### <a name="web-forms-scaffolding"></a>Web フォームのスキャフォールディング
 
-Web フォームのスキャフォールディングでは、VS2013 からが削除され、Visual Studio に対する今後の更新で提供されます。 ただし、MVC 依存関係を追加して、MVC のスキャフォールディングを生成する、Web フォーム プロジェクト内でスキャフォールディングを引き続き使用することができます。 プロジェクトは、Web フォームと MVC の組み合わせが格納されます。
+Web フォームのスキャフォールディングは VS2013 から削除され、Visual Studio の今後の更新プログラムで使用できるようになります。 ただし、MVC の依存関係を追加し、MVC のスキャフォールディングを生成することで、Web フォームプロジェクト内でスキャフォールディングを使用することができます。 プロジェクトには、Web フォームと MVC の組み合わせが含まれます。
 
-MVC は、Web フォーム プロジェクトに追加するに新しくスキャフォールディングした項目を追加および選択**MVC 5 依存関係**します。 最小またはスクリプトなどのコンテンツ ファイルのすべてを必要とするかどうかに応じて完全のいずれかを選択します。 次に、プロジェクト内のビューとコント ローラーを作成する MVC のスキャフォールディングされた項目を追加します。
+MVC を Web フォームプロジェクトに追加するには、新しいスキャフォールディングアイテムを追加し、 **[mvc 5 の依存関係]** を選択します。 すべてのコンテンツファイル (スクリプトなど) が必要かどうかに応じて、[最小] または [完全] を選択します。 次に、MVC のスキャフォールディング item を追加します。これにより、プロジェクトにビューとコントローラーが作成されます。
 
-### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC と Web API スキャフォールティング - HTTP 404 Not Found エラー
+### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC および Web API のスキャフォールディング-HTTP 404、見つからないエラー
 
-スキャフォールディングされた項目をプロジェクトに追加するときにエラーが発生した場合は、プロジェクトは、不整合な状態になることが勧めします。 一部のスキャフォールディングが行われた変更はロールバックされますが、インストール済みの NuGet パッケージなどの他の変更はロールバックされません。 ルーティング構成の変更がロールバックされた場合、ユーザーはスキャフォールディングされた項目に移動するときに、HTTP 404 エラーを受信します。
+スキャフォールディング項目をプロジェクトに追加したときにエラーが発生した場合は、プロジェクトが不整合な状態のままになる可能性があります。 スキャフォールディングに加えられた変更の一部はロールバックされますが、インストールされている NuGet パッケージなどのその他の変更はロールバックされません。 ルーティング構成の変更がロールバックされた場合、スキャフォールディング items に移動すると、ユーザーには HTTP 404 エラーが表示されます。
 
-回避策:
+対応策 :
 
-- MVC のこのエラーを修正する新しくスキャフォールディングした項目を追加し、MVC 5 依存関係を選択します (最小または完全のいずれか)。 このプロセスでは、プロジェクトに追加のすべての必要な変更します。
-- Web api には、このエラーを解決します。
+- MVC のこのエラーを修正するには、新しいスキャフォールディング項目を追加し、[MVC 5 の依存関係] ([最小] または [完全]) を選択します。 このプロセスによって、必要なすべての変更がプロジェクトに追加されます。
+- このエラーを解決するには、次のように Web API を使用します。
 
-  1. プロジェクトには、WebApiConfig クラスを追加します。
+  1. Webapiconfig.cs クラスをプロジェクトに追加します。
 
       [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
       [!code-vb[Main](release-notes/samples/sample26.vb)]
-  2. WebApiConfig.Register をアプリケーションで構成\_Global.asax でメソッドを次のように開始します。
+  2. 次に示すように、global.asax で Webapiconfig.cs をアプリケーション\_に構成します。
 
       [!code-csharp[Main](release-notes/samples/sample27.cs)]
 

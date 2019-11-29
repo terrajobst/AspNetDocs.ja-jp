@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: 第 7 部:メインの作成 ページ |Microsoft Docs
+title: 'パート 7: メインページを作成する |Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,112 +8,112 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: aaffcecccd138d30355ac0e7ce6c86a67246cc08
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fe4074c701159a137be3644d65ca844f160c2399
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108935"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599987"
 ---
-# <a name="part-7-creating-the-main-page"></a>第 7 部:メイン ページの作成
+# <a name="part-7-creating-the-main-page"></a>パート 7: メインページの作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-the-main-page"></a>メイン ページの作成
 
-このセクションでは、アプリケーションのメイン ページを作成します。 このページは、いくつかの手順にアプローチしましょうように管理者 ページより複雑になります。 その過程では、高度な Knockout.js テクニックを確認します。 ページの基本的なレイアウトを次に示します。
+このセクションでは、メインアプリケーションページを作成します。 このページは管理者ページより複雑になるため、いくつかの手順でアプローチします。 その過程で、いくつかの高度なノックアウト手法について説明します。 次に、ページの基本的なレイアウトを示します。
 
 ![](using-web-api-with-entity-framework-part-7/_static/image1.png)
 
-- 「製品」は、製品の配列を保持します。
-- 「カート」は、製品と数量の配列を保持します。 カートの内容を更新"Add to Cart"をクリックします。
-- "Orders"は、注文 Id の配列を保持します。
-- 「詳細」(数量と製品) の項目の配列は、注文の詳細を保持します。
+- "Products" は、製品の配列を保持します。
+- "カート" は、数量を持つ製品の配列を保持します。 [カートに追加] をクリックすると、カートが更新されます。
+- "Orders" は、注文 Id の配列を保持します。
+- "詳細" は、商品の配列である注文明細 (数量を含む製品) を保持します。
 
-HTML では、データ バインディングやスクリプトではないいくつかの基本的なレイアウトを定義することで始めます。 Views/Home/Index.cshtml ファイルを開き、次のようにすべての内容を置き換えます。
+まず、データバインドまたはスクリプトを使用せずに、HTML でいくつかの基本的なレイアウトを定義します。 Views/Home/Index を開き、すべての内容を次の内容に置き換えます。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample1.html)]
 
-次に、スクリプトのセクションを追加し、空のビュー モデルを作成します。
+次に、Scripts セクションを追加し、空のビューモデルを作成します。
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-7/samples/sample2.cshtml)]
 
-先ほどスケッチ設計に基づき、このビュー モデルが必要オブザーバブル製品、カート、注文、および詳細です。 次の変数を追加して、`AppViewModel`オブジェクト。
+前の設計に基づいて、ビューモデルでは、製品、カート、注文、および詳細の observable が必要です。 `AppViewModel` オブジェクトに次の変数を追加します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample3.js)]
 
-ユーザーでは、製品のリストから、カートにアイテムを追加でき、カートから項目を削除することができます。 これらの関数をカプセル化するには、成果物を表す別のビュー モデル クラスを作成します。 `AppViewModel` に次のコードを追加します。
+ユーザーは、製品リストからカートに商品を追加したり、カートから品目を削除したりできます。 これらの関数をカプセル化するには、製品を表すビューモデルクラスをもう1つ作成します。 `AppViewModel` に次のコードを追加します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample4.js?highlight=4)]
 
-`ProductViewModel`クラスにはと、カートから製品の移動に使用される 2 つの関数が含まれています: `addItemToCart` 、カートに製品の 1 つのユニットを追加し、`removeAllFromCart`製品のすべての数量を削除します。
+`ProductViewModel` クラスには、カートに製品を移動するために使用する2つの関数が含まれています。 `addItemToCart` 製品の1つの単位をカートに追加し、`removeAllFromCart` 製品のすべての数量を削除します。
 
-ユーザーは、既存の注文を選択し、注文の詳細を取得します。 この機能を別のビュー モデルにカプセル化します。
+ユーザーは、既存の注文を選択して注文の詳細を取得できます。 この機能を別のビューモデルにカプセル化します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample5.js?highlight=4)]
 
-`OrderDetailsViewModel`注文を使用して初期化をサーバーに、AJAX 要求を送信することによって、注文の詳細をフェッチします。
+`OrderDetailsViewModel` は順序を使用して初期化され、サーバーに AJAX 要求を送信して注文の詳細をフェッチします。
 
-また、`total`プロパティを`OrderDetailsViewModel`します。 このプロパティは、オブザーバブルと呼ばれる特殊な[観測可能なオブジェクトの計算](http://knockoutjs.com/documentation/computedObservables.html)します。 名前が示すように、計算された観測可能なオブジェクトを使用する計算値にデータをバインド&#8212;ここでは、注文のコストの合計。
+また、`OrderDetailsViewModel`の `total` プロパティにも注目してください。 このプロパティは、計算された[観測](http://knockoutjs.com/documentation/computedObservables.html)可能なと呼ばれる特別な種類の観測可能なオブジェクトです。 この名前が示すように、計算された観測可能なデータを&#8212;使用して、この場合は、注文の合計コストを計算値にバインドします。
 
-これらの関数を次に、追加`AppViewModel`:
+次に、次の関数を `AppViewModel`に追加します。
 
-- `resetCart` カートの内容からすべての項目を削除します。
-- `getDetails` 注文の詳細を取得します (新しいプッシュして`OrderDetailsViewModel`上に、`details`リスト)。
-- `createOrder` 新しい注文を作成し、カートの内容を空にします。
+- `resetCart` カートからすべての項目を削除します。
+- `getDetails` は、新しい `OrderDetailsViewModel` を `details` の一覧にプッシュすることによって、注文の詳細を取得します。
+- `createOrder` によって新しい注文が作成され、カートが空になります。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample6.js?highlight=4)]
 
-最後に、製品と注文の AJAX 要求を行って、ビュー モデルを初期化します。
+最後に、製品および注文に対して AJAX 要求を行うことで、ビューモデルを初期化します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample7.js)]
 
-そうは多くのコードが構築しましたを順を追って、ことを願っています設計はクリアされます。 HTML に一部の Knockout.js バインドを追加できます。
+そうですね。コードは非常に簡単ですが、ステップバイステップで構築しましたので、設計は明確であることをお勧めします。 これで、いくつかのノックアウトバインドを HTML に追加できるようになりました。
 
-**製品**
+**Products**
 
-製品の一覧については、バインドを次に示します。
+製品リストのバインドは次のとおりです。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample8.html)]
 
-これにより、製品の配列を反復処理し、名前と価格を表示します。 ユーザーがログインされる場合にのみ、"Order に追加"ボタンが表示されます。
+Products 配列に対して反復処理を行い、名前と価格を表示します。 [順序の追加] ボタンは、ユーザーがログインしている場合にのみ表示されます。
 
-"Order に追加"ボタン呼び出し`addItemToCart`上、`ProductViewModel`製品のインスタンス。 これには、Knockout.js の優れた機能を示しています。ビュー モデルにその他のビュー モデルが含まれている場合は、内部のモデルにバインドを適用できます。 この例では、内のバインディングでは、`foreach`のそれぞれに適用される、`ProductViewModel`インスタンス。 この方法は、1 つのビュー モデルを配置することで、すべての機能よりもはるかに簡潔です。
+[順序の追加] ボタンをクリックすると、製品の `ProductViewModel` インスタンスで `addItemToCart` が呼び出されます。 これは、ノックアウトの便利な機能を示しています。ビューモデルに他のビューモデルが含まれている場合は、そのバインドを内部モデルに適用できます。 この例では、`foreach` 内のバインドが `ProductViewModel` の各インスタンスに適用されます。 この方法は、すべての機能を1つのビューモデルに配置するよりも、はるかにすっきりしています。
 
 **カート**
 
-カートのバインドを次に示します。
+カートのバインドは次のとおりです。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample9.html)]
 
-これにより、カートの配列を反復処理し、名前、価格、および数量を表示します。 ビュー モデルの関数にリンクの「削除」と"Order の作成"ボタンがバインドされていることに注意してください。
+これにより、カート配列を反復処理し、名前、価格、および数量を表示します。 [削除] リンクと [注文の作成] ボタンがビューモデル関数にバインドされていることに注意してください。
 
 **注文**
 
-注文の一覧については、バインドを次に示します。
+Orders リストのバインドを次に示します。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample10.html)]
 
-これは、注文を反復処理し、注文 ID を示しています。 リンクをクリック イベントのバインド先、`getDetails`関数。
+注文を反復処理し、注文 ID を表示します。 リンク上の click イベントは、`getDetails` 関数にバインドされています。
 
 **注文の詳細**
 
-注文の詳細のバインディングを次に示します。
+次に、注文の詳細のバインドを示します。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample11.html)]
 
-これは、順序内の項目を反復処理し、製品、価格、数量が表示されます。 周囲の div は、詳細の配列には、1 つまたは複数の項目が含まれている場合にのみ表示されます。
+これにより、注文の項目を反復処理し、製品、価格、および数量を表示します。 周囲の div は、details 配列に1つ以上の項目が含まれている場合にのみ表示されます。
 
-## <a name="conclusion"></a>まとめ
+## <a name="conclusion"></a>結論
 
-このチュートリアルでは、データベース、およびデータ層の上にパブリックに公開されたインターフェイスを提供する ASP.NET Web API と通信するために Entity Framework を使用するアプリケーションを作成します。 ASP.NET MVC 4 ページの再読み込みなしの動的な対話を提供するのに HTML ページ、および Knockout.js と jQuery を表示するために使用します。
+このチュートリアルでは、Entity Framework を使用してデータベースと通信するアプリケーションを作成し、データ層の上に公開インターフェイスを提供するように ASP.NET Web API しました。 ASP.NET MVC 4 を使用して HTML ページをレンダリングします。また、ページを再読み込みせずに動的な対話を行うために、ノックアウトと jQuery を組み合わせて使用します。
 
-その他のリソース:
+その他の技術情報:
 
-- [ASP.NET データ アクセス コンテンツ マップ](https://msdn.microsoft.com/library/6759sth4.aspx)
-- [Entity Framework デベロッパー センター](https://msdn.microsoft.com/data/ef)
+- [ASP.NET データアクセスコンテンツマップ](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [Entity Framework デベロッパーセンター](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
 > [前へ](using-web-api-with-entity-framework-part-6.md)

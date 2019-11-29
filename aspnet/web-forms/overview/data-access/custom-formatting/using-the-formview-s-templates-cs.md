@@ -1,108 +1,108 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
-title: FormView のテンプレート (c#) を使用して |Microsoft Docs
+title: FormView のテンプレート (C#) を使用するMicrosoft Docs
 author: rick-anderson
-description: DetailsView とは異なり、FormView いないフィールドで構成されます。 代わりに、テンプレートを使用して、フォーム ビューがレンダリングされます。 このチュートリアルでは、F. の使用について説明します.
+description: DetailsView とは異なり、FormView はフィールドで構成されていません。 代わりに、FormView がテンプレートを使用して表示されます。 このチュートリアルでは、「F...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: d3f062af-88cf-426d-af44-e41f32c41672
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 59687ffb4d3319b55cc980b72af1084ca0288793
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 013c6878aad1a2277b0a334c096ff16ed84a95f1
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133915"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74625669"
 ---
-# <a name="using-the-formviews-templates-c"></a>FormView のテンプレート (c#) を使用します。
+# <a name="using-the-formviews-templates-c"></a>FormView のテンプレート (C#) の使用
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_14_CS.exe)または[PDF のダウンロード](using-the-formview-s-templates-cs/_static/datatutorial14cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_14_CS.exe)または[PDF のダウンロード](using-the-formview-s-templates-cs/_static/datatutorial14cs1.pdf)
 
-> DetailsView とは異なり、FormView いないフィールドで構成されます。 代わりに、テンプレートを使用して、フォーム ビューがレンダリングされます。 取り上げるこのチュートリアルでは、FormView コントロールを使用して、データの小さい固定表示を表示します。
+> DetailsView とは異なり、FormView はフィールドで構成されていません。 代わりに、FormView がテンプレートを使用して表示されます。 このチュートリアルでは、FormView コントロールを使用してデータをより厳密に表示する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-最後の 2 つのチュートリアルでは、カスタマイズ TemplateFields を使用する GridView および DetailsView コントロールの出力方法を説明しました。 TemplateFields を高度にカスタマイズするには、特定のフィールドの内容を許可するが、最終的に、GridView と DetailsView が角張ったではなく、グリッドのような外観。 多くのシナリオは、このようなグリッドのようなレイアウトに最適ですより滑らかな、小さい剛体の表示が必要な時です。 1 つのレコードを表示するときに、このような滑らかなレイアウトは、FormView コントロールを使用する可能性があります。
+最後の2つのチュートリアルでは、TemplateFields を使用して GridView および DetailsView コントロールの出力をカスタマイズする方法を説明しました。 TemplateFields を使用すると、特定のフィールドの内容を高度にカスタマイズすることができますが、最終的には、GridView と DetailsView の両方にグリッド形式の外観が設定されます。 多くのシナリオでは、グリッドに似たレイアウトが理想的ですが、より滑らかで低い表示が必要になる場合もあります。 1つのレコードを表示する場合は、FormView コントロールを使用して、このような流体レイアウトを行うことができます。
 
-DetailsView とは異なり、FormView いないフィールドで構成されます。 FormView に BoundField または TemplateField を追加することはできません。 代わりに、テンプレートを使用して、フォーム ビューがレンダリングされます。 含む 1 つ TemplateField DetailsView コントロールと FormView を考えます。 FormView では、次のテンプレートがサポートされています。
+DetailsView とは異なり、FormView はフィールドで構成されていません。 FormView に BoundField または TemplateField を追加することはできません。 代わりに、FormView がテンプレートを使用して表示されます。 FormView は、1つの TemplateField を含む DetailsView コントロールと考えることができます。 FormView は、次のテンプレートをサポートしています。
 
-- `ItemTemplate` FormView で表示される特定のレコードを表示するために使用
-- `HeaderTemplate` 省略可能なヘッダー行を指定するために使用
-- `FooterTemplate` 省略可能なフッター行を指定するために使用
-- `EmptyDataTemplate` FormView の`DataSource`任意のレコードがない、`EmptyDataTemplate`の代わりに使用されて、`ItemTemplate`コントロールのマークアップをレンダリングするため
-- `PagerTemplate` ページングが有効になっている FormViews のページング インターフェイスをカスタマイズするために使用できます。
-- `EditItemTemplate` / `InsertItemTemplate` このような機能をサポートする FormViews の編集インターフェイスまたは挿入のインターフェイスをカスタマイズするために使用
+- FormView に表示される特定のレコードを表示するために使用 `ItemTemplate`
+- 省略可能なヘッダー行を指定するために使用 `HeaderTemplate`
+- オプションのフッター行を指定するために使用 `FooterTemplate`
+- `EmptyDataTemplate` FormView の `DataSource` にレコードがない場合は、コントロールのマークアップを表示するために、`ItemTemplate` の代わりに `EmptyDataTemplate` が使用されます。
+- ページングが有効になっている FormViews のページングインターフェイスをカスタマイズするために `PagerTemplate` を使用できます。
+- `EditItemTemplate` / `InsertItemTemplate`、そのような機能をサポートする FormViews の編集インターフェイスをカスタマイズしたり、インターフェイスを挿入したりするために使用されます。
 
-取り上げるこのチュートリアルでは、FormView コントロールを使用して、製品の小さい固定表示を表示します。 名前、カテゴリ、供給業者とに、フォーム ビューのフィールドではなく`ItemTemplate`ヘッダー要素の組み合わせを使用してこれらの値が表示されます、 `<table>` (図 1 参照)。
+このチュートリアルでは、FormView コントロールを使用して、より厳密でない製品の表示を表示します。 FormView の `ItemTemplate` では、name、category、supplier などのフィールドを持つのではなく、ヘッダー要素と `<table>` の組み合わせを使用してこれらの値が表示されます (図1を参照)。
 
-[![FormView は、DetailsView でグリッドのようなレイアウトのブレーク アウト](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
+[DetailsView に表示されるグリッドに似たレイアウトから FormView が分割さ ![](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
 
-**図 1**:FormView が Grid-Like レイアウト表示から、DetailsView で中断されます ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image3.png))。
+**図 1**: FormView は、DetailsView に表示されるグリッドに似たレイアウトから分割します ([クリックすると、フルサイズの画像が表示](using-the-formview-s-templates-cs/_static/image3.png)されます)。
 
-## <a name="step-1-binding-the-data-to-the-formview"></a>手順 1: FormView にデータをバインド
+## <a name="step-1-binding-the-data-to-the-formview"></a>手順 1: データを FormView にバインドする
 
-開く、`FormView.aspx`ページし、FormView をツールボックスからデザイナーにドラッグします。 まず、フォーム ビューを追加するときに私たちに指示する灰色のボックスとして表示される`ItemTemplate`が必要です。
+[`FormView.aspx`] ページを開き、[ツールボックス] から FormView をデザイナーにドラッグします。 最初に FormView を追加すると、`ItemTemplate` が必要であることを示す灰色のボックスが表示されます。
 
-[![ItemTemplate が提供されるまで、デザイナーで、フォーム ビューをレンダリングできません。](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
+[![ItemTemplate が指定されるまで、FormView をデザイナーでレンダリングできません。](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
 
-**図 2**:デザイナーまででレンダリング、FormView できません、`ItemTemplate`提供されます ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image6.png))。
+**図 2**: `ItemTemplate` が指定されるまで、FormView をデザイナーでレンダリングできない ([クリックしてフルサイズのイメージを表示](using-the-formview-s-templates-cs/_static/image6.png))
 
-`ItemTemplate` (宣言構文) を手動で作成することができますか、フォーム ビューをデザイナーによってデータ ソース コントロールにバインドすることによって自動作成をすることができます。 この自動作成`ItemTemplate`HTML、リストの各フィールドとラベルの名前を制御が含まれている`Text`プロパティ フィールドの値にバインドします。 このアプローチも自動で作成、`InsertItemTemplate`と`EditItemTemplate`、どちらもはの各データ ソース コントロールによって返されるデータ フィールドの入力コントロールに設定されます。
+`ItemTemplate` は、(宣言構文を使用して) 手動で作成することも、デザイナーを使用してデータソースコントロールに FormView をバインドすることによって自動作成することもできます。 この自動作成 `ItemTemplate` には、各フィールドの名前と、`Text` プロパティがフィールドの値にバインドされているラベルコントロールを一覧表示する HTML が含まれています。 この方法では、データソースコントロールによって返される各データフィールドの入力コントロールが入力された `InsertItemTemplate` と `EditItemTemplate`も自動作成されます。
 
-追加を呼び出す新しい ObjectDataSource コントロールをフォーム ビューのスマート タグからのテンプレートを自動作成する場合、`ProductsBLL`クラスの`GetProducts()`メソッド。 これをフォーム ビューが作成されます、 `ItemTemplate`、 `InsertItemTemplate`、および`EditItemTemplate`します。 ソース ビューから削除、`InsertItemTemplate`と`EditItemTemplate`に興味がないためには、編集、またはまだ挿入をサポートする、FormView を作成します。 次に、内のマークアップをクリアします、`ItemTemplate`から作業をクリーンな状態があるようにします。
+テンプレートを自動作成する場合は、FormView のスマートタグから、`ProductsBLL` クラスの `GetProducts()` メソッドを呼び出す新しい ObjectDataSource コントロールを追加します。 これにより、`ItemTemplate`、`InsertItemTemplate`、および `EditItemTemplate`を含む FormView が作成されます。 編集または挿入をサポートする FormView を作成する必要がないため、ソースビューから `InsertItemTemplate` と `EditItemTemplate` を削除します。 次に、`ItemTemplate` 内のマークアップをオフにして、正常に動作するようにクリーンなスレートを作成します。
 
-はなく構築する場合、 `ItemTemplate` 、手動で追加し、ツールボックスからデザイナーにドラッグすることによって、ObjectDataSource を構成します。 ただし、しないと、デザイナーから、フォーム ビューのデータ ソースを設定します。 代わりに、ソース ビューに移動し、手動で設定する FormView の`DataSourceID`プロパティを`ID`ObjectDataSource の値。 次に、手動で追加、`ItemTemplate`します。
+`ItemTemplate` を手動で作成する場合は、ObjectDataSource をツールボックスからデザイナーにドラッグして、ObjectDataSource を追加して構成できます。 ただし、FormView のデータソースをデザイナーから設定しないでください。 代わりに、ソースビューにアクセスし、FormView の `DataSourceID` プロパティを ObjectDataSource の `ID` 値に手動で設定します。 次に、`ItemTemplate`を手動で追加します。
 
-どのようなアプローチに関係なくは、するために、この時点で、フォーム ビューの宣言型マークアップを決定しました。
+どの方法を採用するかにかかわらず、この時点で、FormView の宣言型のマークアップは次のようになります。
 
 [!code-aspx[Main](using-the-formview-s-templates-cs/samples/sample1.aspx)]
 
-FormView のスマート タグでページングを有効にするチェック ボックスをオンする少しこれは追加、 `AllowPaging="True"` FormView の宣言型構文に属性します。 また、設定、`EnableViewState`プロパティを False にします。
+FormView のスマートタグの [ページングを有効にする] チェックボックスをオンにします。これにより、`AllowPaging="True"` の属性が FormView の宣言構文に追加されます。 また、`EnableViewState` プロパティを False に設定します。
 
-## <a name="step-2-defining-theitemtemplates-markup"></a>手順 2: 定義する、`ItemTemplate`のマークアップ
+## <a name="step-2-defining-theitemtemplates-markup"></a>手順 2:`ItemTemplate`のマークアップの定義
 
-ページングをサポートする FormView ObjectDataSource コントロールにバインドされ、構成されていると私たちのコンテンツを指定する準備ができている、`ItemTemplate`します。 このチュートリアルに表示される製品の名前を持つみましょう、`<h3>`見出し。 次に、HTML を使用してみましょう`<table>`最初と 3 番目の列には、プロパティ名が一覧表示され、2 番目と 4 番目の値の一覧の 4 つの列テーブルに製品の残りのプロパティを表示します。
+FormView が ObjectDataSource コントロールにバインドされ、ページングをサポートするように構成されている状態で、`ItemTemplate`のコンテンツを指定する準備ができました。 このチュートリアルでは、製品名を `<h3>` 見出しに表示してみましょう。 その後、HTML `<table>` を使用して、4列のテーブルに残りの製品プロパティを表示します。ここでは、1番目と3番目の列にプロパティ名が一覧表示され、2番目と4番目の列の値が一覧表示されます。
 
-このマークアップは、デザイナーで FormView のテンプレートの編集インターフェイス経由で入力または宣言の構文を手動で入力できます。 テンプレートを使用する場合は通常方が宣言の構文を直接操作しますが、自由に最も使い慣れている手法を使用する方が手軽です。
+このマークアップは、デザイナーの FormView のテンプレート編集インターフェイスを通じて入力するか、宣言構文を使用して手動で入力できます。 テンプレートを使用する場合は、通常、宣言型の構文を直接操作する方が簡単ですが、最も使い慣れた手法を自由に使用できます。
 
-次のマークアップの後のフォーム ビューの宣言型マークアップを示しています、`ItemTemplate`の構造が完了します。
+次のマークアップは、`ItemTemplate`の構造が完了した後の FormView 宣言マークアップを示しています。
 
 [!code-aspx[Main](using-the-formview-s-templates-cs/samples/sample2.aspx)]
 
-注意してデータ バインディング構文 -`<%# Eval("ProductName") %>`例は、テンプレートの出力に直接挿入することができます。 つまり、その必要がありますに割り当てられませんラベル コントロールの`Text`プロパティ。 たとえば、ある、`ProductName`に表示される値、`<h3>`要素を使用して`<h3><%# Eval("ProductName") %></h3>`、製品の Chai としてレンダーする`<h3>Chai</h3>`します。
+たとえば、データバインド構文 `<%# Eval("ProductName") %>`が、テンプレートの出力に直接挿入されることがわかります。 つまり、ラベルコントロールの `Text` プロパティに割り当てる必要はありません。 たとえば、`<h3><%# Eval("ProductName") %></h3>`を使用して `<h3>` 要素に `ProductName` 値が表示されているとします。この場合、製品の Chai は `<h3>Chai</h3>`として表示されます。
 
-`ProductPropertyLabel`と`ProductPropertyValue`製品プロパティの名前と値のスタイルを指定するための CSS クラス、`<table>`します。 これらの CSS クラスが定義されている`Styles.css`太字と右揃えであり、右のプロパティの値に余白を追加するプロパティの名前が発生するとします。
+`ProductPropertyLabel` および `ProductPropertyValue` の CSS クラスは、`<table>`内の製品プロパティの名前と値のスタイルを指定するために使用されます。 これらの CSS クラスは `Styles.css` で定義されており、プロパティ名が太字で右に配置され、プロパティ値に右余白が追加されます。
 
-表示するには、フォーム ビューで使用可能な CheckBoxFields がないので、`Discontinued`値チェック ボックスとしては、独自のチェック ボックス コントロールを追加する必要があります。 `Enabled`プロパティが False で、読み取り専用になりますし、チェック ボックスの`Checked`プロパティの値にバインドする、`Discontinued`データ フィールド。
+FormView で使用できる CheckBoxFields がないため、`Discontinued` 値をチェックボックスとして表示するには、独自の CheckBox コントロールを追加する必要があります。 `Enabled` プロパティが False に設定されており、読み取り専用になっています。チェックボックスの `Checked` プロパティは `Discontinued` データフィールドの値にバインドされています。
 
-`ItemTemplate`製品情報がより滑らかな方法で表示されます、完了します。 (図 4) このチュートリアルでは、FormView によって生成される出力の最後のチュートリアル (図 3) からの出力を DetailsView を比較します。
+`ItemTemplate` 完了すると、製品情報がより滑らかな方法で表示されます。 最後のチュートリアルの DetailsView 出力 (図 3) と、このチュートリアルの FormView によって生成される出力を比較します (図 4)。
 
-[![剛体 DetailsView 出力](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
+[固定の DetailsView 出力を ![する](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
 
-**図 3**:剛体 DetailsView 出力 ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image9.png))。
+**図 3**: 固定の DetailsView 出力 ([クリックすると、フルサイズの画像が表示](using-the-formview-s-templates-cs/_static/image9.png)されます)
 
-[![滑らかな FormView 出力](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
+[流体 FormView 出力の ![](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
 
-**図 4**:流体 FormView 出力 ([フルサイズの画像を表示する をクリックします](using-the-formview-s-templates-cs/_static/image12.png))。
+**図 4**: 流体の FormView 出力 ([クリックすると、フルサイズの画像が表示](using-the-formview-s-templates-cs/_static/image12.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-GridView および DetailsView コントロールでは、カスタマイズ TemplateFields を使用して、出力を持つことができます、両方が、データ形式で表示する、グリッドのような角張ったします。 1 つのレコードを表示する必要がある場合も低い剛体のレイアウトを使用して、FormView が最適な選択肢です。 FormView、DetailsView などから 1 つのレコードを表示しますその`DataSource`DetailsView とは異なりが、テンプレートだけで構成されるありフィールドをサポートしていません。
+GridView コントロールと DetailsView コントロールの出力は TemplateFields を使用してカスタマイズできますが、どちらもデータをグリッドのような boxy 形式で表示します。 1つのレコードをより固定されていないレイアウトで表示する必要がある場合は、FormView が最適な選択肢です。 DetailsView と同様に、FormView は `DataSource`から1つのレコードを表示しますが、DetailsView とは異なり、テンプレートだけで構成されており、フィールドはサポートされていません。
 
-このチュートリアルで説明したように、1 つのレコードを表示するときに、FormView はより柔軟なレイアウトにできます。 将来的に同じレベルとして、FormsView 柔軟性の提供しますが、(GridView) などの複数のレコードを表示することがその DataList と Repeater コントロールについて説明しますなるチュートリアルです。
+このチュートリアルで説明したように、FormView では、1つのレコードを表示するときに、より柔軟なレイアウトを使用できます。 今後のチュートリアルでは、DataList コントロールと Repeater コントロールについて説明します。このコントロールは、フォームビューと同じレベルの柔軟性を提供しますが、複数のレコード (GridView など) を表示できます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルのレビュー担当者の潜在顧客が E.R. Gilmore します。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は E.R. でした Gilmore. 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](using-templatefields-in-the-detailsview-control-cs.md)

@@ -1,353 +1,353 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/role-based-authorization-vb
-title: ロール ベースの承認 (VB) |Microsoft Docs
+title: ロールベースの承認 (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、ロールのフレームワークがユーザーのセキュリティ コンテキストでユーザーのロールを関連付ける方法を参照してください。 次に、ロール ベースの URL を適用する方法を確認しています.
+description: このチュートリアルでは、まず、ロールフレームワークによってユーザーのロールとセキュリティコンテキストがどのように関連付けられるかについて説明します。 次に、ロールベースの URL を適用する方法を調べます...
 ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: 83b4f5a4-4f5a-4380-ba33-f0b5c5ac6a75
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2cccb05d3bd18562ccc03ce0047ccea9b514abc7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: feb3e5eb992284033853e67bfab3872243cefe39
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134624"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74570558"
 ---
 # <a name="role-based-authorization-vb"></a>ロールベースの承認 (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.11.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial11_RoleAuth_vb.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.11.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial11_RoleAuth_vb.pdf)
 
-> このチュートリアルでは、ロールのフレームワークがユーザーのセキュリティ コンテキストでユーザーのロールを関連付ける方法を参照してください。 ロール ベースの URL 承認規則を適用する方法を調べます。 次の宣言とプログラムの手段を使用して、表示されるデータと、ASP.NET ページによって提供される機能を変更するために注目するは、します。
+> このチュートリアルでは、まず、ロールフレームワークによってユーザーのロールとセキュリティコンテキストがどのように関連付けられるかについて説明します。 次に、ロールベースの URL 承認規則を適用する方法を調べます。 ここでは、表示されるデータと、ASP.NET ページによって提供される機能を変更するための、宣言型の方法とプログラムによる方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-<a id="_msoanchor_1"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアル URL 承認を使用して、どのようなユーザーを参照してください、特定のページのセットを指定する方法を説明しました。 内のマークアップのほんの少しだけ`Web.config`、ASP.NET ページにアクセスする認証済みユーザーのみを許可するよう指示しますでした。 または、Tito と Bob のユーザーのみが許可されたことをディクテーションまたは、Sam を除くすべての認証済みユーザーが許可されたことを示すことできます。
+<a id="_msoanchor_1"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)のチュートリアルでは、URL 承認を使用して、ユーザーが特定のページセットにアクセスできる内容を指定する方法を説明しました。 `Web.config`ではほんの少しのマークアップを使用して、認証されたユーザーのみがページにアクセスできるように ASP.NET に指示することができます。 または、ユーザーの Tito および Bob のみが許可されたこと、または、Sam 以外のすべての認証済みユーザーが許可されたことを示すこともできます。
 
-URL の承認だけでなくも見てきました表示されるデータにアクセスしたユーザーに基づくページによって提供される機能を制御するための宣言とプログラムの手法です。 具体的には、現在のディレクトリの内容を一覧表示するページを作成します。 すべてのユーザーがこのページを参照してくださいし、認証されたユーザーのみがファイルの内容を表示できますが、Tito のみがファイルを削除できます。
+URL 承認に加えて、表示されるデータを制御するための宣言型の手法とプログラムによる手法についても説明しました。 特に、現在のディレクトリの内容を一覧表示するページを作成しました。 だれでもこのページにアクセスできますが、ファイルの内容を表示できるのは認証されたユーザーのみで、ファイルを削除できるのは Tito だけでした。
 
-ユーザー単位のユーザーごとに承認規則を適用することは、ブックキーピングの悪夢に拡張できます。 保守しやすくなりますアプローチでは、ロール ベースの承認を使用します。 良い知らせは、承認規則を適用することのできるツールが同様に機能しているユーザー アカウントの場合と、ロールにもします。 URL 承認規則は、ユーザーの代わりにロールを指定できます。 認証および匿名ユーザーの別の出力をレンダリングするには、LoginView コントロールでは、ログイン ユーザーのロールに基づいて異なるコンテンツを表示を構成できます。 ロール API には、ログインしているユーザーのロールを決定するためのメソッドが含まれています。
+ユーザーごとに承認規則を適用すると、簿記の悪夢になる可能性があります。 より保守しやすい方法は、ロールベースの承認を使用することです。 ユーザーアカウントの場合と同様に、承認規則を適用するためのツールはロールと同様に機能します。 URL 承認規則では、ユーザーの代わりにロールを指定できます。 認証されたユーザーと匿名ユーザーに対して異なる出力を表示する LoginView コントロールは、ログインしているユーザーのロールに基づいてさまざまなコンテンツを表示するように構成できます。 および Roles API には、ログインしているユーザーのロールを決定するためのメソッドが含まれています。
 
-このチュートリアルでは、ロールのフレームワークがユーザーのセキュリティ コンテキストでユーザーのロールを関連付ける方法を参照してください。 ロール ベースの URL 承認規則を適用する方法を調べます。 次の宣言とプログラムの手段を使用して、表示されるデータと、ASP.NET ページによって提供される機能を変更するために注目するは、します。 それでは、始めましょう!
+このチュートリアルでは、まず、ロールフレームワークによってユーザーのロールとセキュリティコンテキストがどのように関連付けられるかについて説明します。 次に、ロールベースの URL 承認規則を適用する方法を調べます。 ここでは、表示されるデータと、ASP.NET ページによって提供される機能を変更するための、宣言型の方法とプログラムによる方法について説明します。 では、始めましょう。
 
-## <a name="understanding-how-roles-are-associated-with-a-users-security-context"></a>役割の理解する方法が関連付けられているユーザーのセキュリティ コンテキスト
+## <a name="understanding-how-roles-are-associated-with-a-users-security-context"></a>ロールがユーザーのセキュリティコンテキストにどのように関連付けられているかを理解する
 
-ASP.NET パイプラインに要求が入るたびに、要求元を識別する情報を含む、セキュリティ コンテキストに関連付けられます。 フォーム認証を使用する場合は、認証チケットが id トークンとして使用されます。 説明したように、 <a id="_msoanchor_2"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-vb.md)と<a id="_msoanchor_3"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)チュートリアルでは、`FormsAuthenticationModule`中には、要求元の身元を確認する責任を負いますが、 [ `AuthenticateRequest` イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx).
+要求が ASP.NET パイプラインに入るたびに、要求がセキュリティコンテキストに関連付けられます。これには、要求元を識別する情報が含まれます。 フォーム認証を使用する場合は、認証チケットが id トークンとして使用されます。 <a id="_msoanchor_2"> </a> [ *「フォーム認証*](../introduction/an-overview-of-forms-authentication-vb.md)と<a id="_msoanchor_3"> </a>[*フォーム認証構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)の概要」のチュートリアルで説明したように、`FormsAuthenticationModule` は、 [`AuthenticateRequest` イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)中に実行される要求元の id を決定します。
 
-有効な有効期限のない認証チケットが見つかった場合、`FormsAuthenticationModule`要求元の id を確認するためにデコードします。 新たに作成、`GenericPrincipal`オブジェクトし、これを割り当てます、`HttpContext.User`オブジェクト。 などのプリンシパルの目的は、 `GenericPrincipal`、認証されたユーザーの名前と内容を識別するためには、ロールに属しているユーザー。 この目的は明らかにすべてのプリンシパル オブジェクトがあるという事実によって、`Identity`プロパティおよび`IsInRole(roleName)`メソッド。 `FormsAuthenticationModule`、ただしの役割の情報を記録に興味がないと、`GenericPrincipal`オブジェクトが作成されますが、ロールを指定しません。
+有効期限が切れていない認証チケットが見つかった場合、`FormsAuthenticationModule` はそれをデコードして、要求元の id を確認します。 このメソッドは、新しい `GenericPrincipal` オブジェクトを作成し、これを `HttpContext.User` オブジェクトに割り当てます。 `GenericPrincipal`などのプリンシパルの目的は、認証されたユーザーの名前と自分が属しているロールを識別することです。 この目的は、すべてのプリンシパルオブジェクトに `Identity` プロパティと `IsInRole(roleName)` メソッドがあるという事実によって明らかになります。 ただし、`FormsAuthenticationModule`はロール情報の記録には関心がなく、作成した `GenericPrincipal` オブジェクトはロールを指定しません。
 
-ロールのフレームワークが有効になっている場合、 [ `RoleManagerModule` ](https://msdn.microsoft.com/library/system.web.security.rolemanagermodule.aspx) HTTP モジュールの後の手順を`FormsAuthenticationModule`中に認証されたユーザーのロールを識別し、 [ `PostAuthenticateRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx)を後に起動、`AuthenticateRequest`イベント。 要求が認証されたユーザーの場合、`RoleManagerModule`上書き、`GenericPrincipal`によって作成されたオブジェクト、`FormsAuthenticationModule`と置き換えられます、 [ `RolePrincipal`オブジェクト](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx)します。 `RolePrincipal`クラスでは、ロール API を使用して、ユーザーが所属するどのような役割を決定します。
+ロールフレームワークが有効になっている場合、`FormsAuthenticationModule` の後にの HTTP モジュールの手順が[`RoleManagerModule`](https://msdn.microsoft.com/library/system.web.security.rolemanagermodule.aspx)され、`AuthenticateRequest` イベントの後に発生する、 [`PostAuthenticateRequest` イベント](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx)中に認証されたユーザーのロールが識別されます。 要求が認証されたユーザーからのものである場合、`RoleManagerModule` は `FormsAuthenticationModule` によって作成された `GenericPrincipal` オブジェクトを上書きし、 [`RolePrincipal` オブジェクト](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx)に置き換えます。 `RolePrincipal` クラスは、Roles API を使用して、ユーザーが属するロールを決定します。
 
-図 1 は、フォーム認証、ロールのフレームワークを使用する場合の ASP.NET パイプライン ワークフローを示しています。 `FormsAuthenticationModule`が最初に実行、自分の認証チケットを使用してユーザーを識別し、新たに作成します`GenericPrincipal`オブジェクト。 次に、`RoleManagerModule`担当し、上書き、`GenericPrincipal`オブジェクトを`RolePrincipal`オブジェクト。
+図1は、フォーム認証とロールフレームワークを使用する場合の ASP.NET パイプラインワークフローを示しています。 最初に `FormsAuthenticationModule` が実行され、認証チケットを介してユーザーが識別され、新しい `GenericPrincipal` オブジェクトが作成されます。 次に、の `RoleManagerModule` の手順を実行して、`GenericPrincipal` オブジェクトを `RolePrincipal` オブジェクトで上書きします。
 
-匿名ユーザーがどちらもサイトを訪問している場合、`FormsAuthenticationModule`も`RoleManagerModule`プリンシパル オブジェクトを作成します。
+匿名ユーザーがサイトにアクセスした場合、`FormsAuthenticationModule` も `RoleManagerModule` もプリンシパルオブジェクトを作成しません。
 
-[![フォーム認証、ロールのフレームワークを使用する場合は、認証されたユーザーの ASP.NET パイプライン イベント](role-based-authorization-vb/_static/image2.png)](role-based-authorization-vb/_static/image1.png)
+[フォーム認証とロールフレームワークを使用するときに認証されたユーザーの ASP.NET パイプラインイベントを ![する](role-based-authorization-vb/_static/image2.png)](role-based-authorization-vb/_static/image1.png)
 
-**図 1**:認証されたユーザーとフォーム認証の使用とロール Framework の ASP.NET パイプライン イベント ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image3.png))。
+**図 1**: フォーム認証とロールフレームワークを使用する場合の認証されたユーザーの ASP.NET パイプラインイベント ([クリックしてフルサイズのイメージを表示する](role-based-authorization-vb/_static/image3.png))
 
-### <a name="caching-role-information-in-a-cookie"></a>クッキーにキャッシュのロール情報
+### <a name="caching-role-information-in-a-cookie"></a>Cookie のロール情報のキャッシュ
 
-`RolePrincipal`オブジェクトの`IsInRole(roleName)`メソッド呼び出し`Roles`します。`GetRolesForUser` ユーザーがのメンバーであるかどうかを判断するために、ユーザーのロールを取得する*roleName*します。 使用する場合、 `SqlRoleProvider`、ロール ストア データベースにクエリをこの結果します。 ロール ベースの URL 承認規則を使用する場合、`RolePrincipal`の`IsInRole`ロール ベースの URL 承認規則によって保護されているページに対するすべての要求でメソッドが呼び出されます。 要求ごとに、データベース内のロール情報を参照する必要があるのではなく、`Roles`フレームワークには、cookie にユーザーのロールをキャッシュするためのオプションが含まれています。
+`RolePrincipal` オブジェクトの `IsInRole(roleName)` メソッドは `Roles`を呼び出します。`GetRolesForUser` ユーザーが*roleName*のメンバーであるかどうかを判断するために、ユーザーのロールを取得します。 この `SqlRoleProvider`を使用すると、ロールストアデータベースに対するクエリが実行されます。 ロールベースの URL 承認規則を使用する場合、ロールベースの URL 承認規則によって保護されているページへのすべての要求に対して、`RolePrincipal`の `IsInRole` メソッドが呼び出されます。 `Roles` framework には、すべての要求についてデータベース内のロール情報を参照する必要はなく、ユーザーのロールを cookie にキャッシュするオプションが用意されています。
 
-Cookie にユーザーのロールをキャッシュするロール framework が構成されている場合、 `RoleManagerModule` ASP.NET パイプラインの中に、cookie を作成します[`EndRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx)します。 この cookie は後続の要求で使用、 `PostAuthenticateRequest`、ときに、`RolePrincipal`オブジェクトが作成されます。 Cookie のデータが解析され、節約、ユーザーのロールの作成に使用される cookie が有効で切れていない場合、`RolePrincipal`への呼び出しを行うことから、`Roles`クラスは、ユーザーのロールを決定します。 図 2 は、このワークフローを示しています。
+ロールフレームワークが、ユーザーのロールを cookie にキャッシュするように構成されている場合、`RoleManagerModule` は、ASP.NET パイプラインの[`EndRequest` イベント](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx)中に cookie を作成します。 この cookie は、`PostAuthenticateRequest`内の後続の要求で使用されます。これは、`RolePrincipal` オブジェクトが作成されるときです。 Cookie が有効で有効期限が切れていない場合は、cookie 内のデータが解析され、ユーザーのロールを設定するために使用されます。これにより `RolePrincipal`、ユーザーのロールを決定するために `Roles` クラスを呼び出す必要がなくなります。 図2は、このワークフローを示しています。
 
-[![パフォーマンスを向上させるために、Cookie にユーザーのロール情報を格納できます。](role-based-authorization-vb/_static/image5.png)](role-based-authorization-vb/_static/image4.png)
+[パフォーマンスを向上させるために、ユーザーのロール情報をクッキーに格納できる ![](role-based-authorization-vb/_static/image5.png)](role-based-authorization-vb/_static/image4.png)
 
-**図 2**:ユーザーのロール情報に格納できるパフォーマンスを向上させる Cookie ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image6.png))。
+**図 2**: ユーザーのロール情報は、パフォーマンスを向上させるためにクッキーに格納できます ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image6.png)されます)
 
-既定では、ロールのキャッシュ cookie メカニズムは無効になります。 有効にすることができます、 `<roleManager>`; 内の構成マークアップ`Web.config`します。 使用して説明した、 [ `<roleManager>`要素](https://msdn.microsoft.com/library/ms164660.aspx)でロール プロバイダーを指定する、 <a id="_msoanchor_4"> </a> [*ロールの管理の作成と*](creating-and-managing-roles-vb.md)チュートリアルでは、アプリケーションのこの要素が必要であるため`Web.config`ファイル。 属性としてロール キャッシュ cookie の設定が指定されて、 `<roleManager>`。 表 1 にまとめられている要素とは。
+既定では、ロールキャッシュクッキー機構は無効になっています。 これは、`<roleManager>`を通じて有効にすることができます。`Web.config`の構成マークアップ。 ここでは、 <a id="_msoanchor_4"> </a>[*ロールの作成と管理*](creating-and-managing-roles-vb.md)に関するチュートリアルで[`<roleManager>` 要素](https://msdn.microsoft.com/library/ms164660.aspx)を使用してロールプロバイダーを指定する方法について説明しました。したがって、この要素はアプリケーションの `Web.config` ファイル内に既に存在している必要があります。 ロールキャッシュ cookie の設定は、`<roleManager>`の属性として指定されます。要素、およびは表1にまとめられています。
 
 > [!NOTE]
-> 表 1 に示す構成設定は、結果として得られるロール キャッシュのクッキーのプロパティを指定します。 Cookie、そのしくみ、およびそのさまざまなプロパティの詳細については、読み取る[この Cookie チュートリアル](http://www.quirksmode.org/js/cookies.html)します。
+> 表1に示す構成設定では、結果として得られるロールキャッシュクッキーのプロパティを指定します。 Cookie、そのしくみ、およびさまざまなプロパティの詳細については、[この cookie](http://www.quirksmode.org/js/cookies.html)に関するチュートリアルを参照してください。
 
 | <strong>Property</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>説明</strong>                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   `cacheRolesInCookie`    |                                                                                                                                                                                                                                                                                                                              クッキーのキャッシュを使用するかどうかを示すブール値。 既定値は `false` です。                                                                                                                                                                                                                                                                                                                              |
-|       `cookieName`        |                                                                                                                                                                                                                                                                                                                                     ロールのキャッシュのクッキーの名前。 既定値は"。ASPXROLES"です。                                                                                                                                                                                                                                                                                                                                     |
-|       `cookiePath`        |                                                                                                                                                                                                                                ロール名のクッキーのパス。 Path 属性は、開発者は特定のディレクトリ階層のクッキーのスコープを制限できます。 既定値は「/」、ドメインへの要求に認証チケットのクッキーを送信するブラウザーに通知します。                                                                                                                                                                                                                                 |
-|    `cookieProtection`     |                                                                                                                                                               ロールのキャッシュのクッキーを保護するどの手法を使用することを示します。 使用可能な値: `All` (既定)。`Encryption`;`None`; と`Validation`します。 手順 3. に戻って、 <a id="_anchor_5"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)これらの保護レベルの詳細についてはチュートリアル。                                                                                                                                                                |
-|    `cookieRequireSSL`     |                                                                                                                                                                                                                                                                                                   認証クッキーを送信する SSL 接続が必要かどうかを示すブール値。 既定値は `false` です。                                                                                                                                                                                                                                                                                                   |
-| `cookieSlidingExpiration` |                                                                                                                                                                                                                                                  ユーザーが 1 つのセッション中にサイトを訪問する cookie のタイムアウトが毎回をリセットするかどうかを示すブール値。 既定値は `false` です。 ときにこの値は関連のみ`createPersistentCookie`に設定されている`true`します。                                                                                                                                                                                                                                                  |
-|      `cookieTimeout`      |                                                                                                                                                                                                                                                                         認証チケットのクッキーの有効期限が切れるまでの分、時間を指定します。 既定値は `30` です。 ときにこの値は関連のみ`createPersistentCookie`に設定されている`true`します。                                                                                                                                                                                                                                                                         |
-| `createPersistentCookie`  |                                                                                                                                                                   ロールのキャッシュのクッキーがセッション cookie または永続的なクッキーがかどうかを指定するブール値。 場合`false`(既定)、セッション クッキーを使用すると、ブラウザーが閉じられたときに、削除します。 場合`true`、永続的なクッキーが使用されます。 有効期限が切れる`cookieTimeout`分が作成された後の、または後の値に応じて、前の訪問数`cookieSlidingExpiration`します。                                                                                                                                                                    |
-|         `domain`          |                                                                                                                                                 Cookie のドメインの値を指定します。 既定値は、発行 (www.yourdomain.com) などがドメインを使用するブラウザーにより空の文字列。 クッキーが、この場合、<strong>いない</strong>admin.yourdomain.com などのサブドメインに要求を行う場合に送信されます。 すべてのサブドメインに渡される cookie が必要な場合は、カスタマイズする必要があります。、 `domain` "yourdomain.com"に設定する属性。                                                                                                                                                 |
-|    `maxCachedResults`     | クッキーにキャッシュされるロール名の最大数を指定します。 既定値は 25 です。 `RoleManagerModule`に属しているユーザーの cookie を作成しない複数の`maxCachedResults`ロール。 その結果、`RolePrincipal`オブジェクトの`IsInRole`メソッドを使用して、`Roles`クラスは、ユーザーのロールを決定します。 理由`maxCachedResults`存在は多くのユーザー エージェントは 4,096 バイトを超える cookie を許可されていないためです。 したがってこの上限は、このサイズ制限を超えるの可能性を低減するものでは。 非常に長いロール名がある場合より小さいを指定するたい`maxCachedResults`値; contrariwise、非常に短いロール名があれば、することがおそらくこの値を大ききます。 |
+|   `cacheRolesInCookie`    |                                                                                                                                                                                                                                                                                                                              クッキーのキャッシュを使用するかどうかを示すブール値です。 既定値は `false` です。                                                                                                                                                                                                                                                                                                                              |
+|       `cookieName`        |                                                                                                                                                                                                                                                                                                                                     ロールキャッシュクッキーの名前。 既定値は "です。ASPXROLES "。                                                                                                                                                                                                                                                                                                                                     |
+|       `cookiePath`        |                                                                                                                                                                                                                                ロール名のクッキーのパス。 パス属性を使用すると、開発者は cookie のスコープを特定のディレクトリ階層に限定できます。 既定値は "/" です。これは、ドメインに対して行われたすべての要求に認証チケットクッキーを送信するようブラウザーに通知します。                                                                                                                                                                                                                                 |
+|    `cookieProtection`     |                                                                                                                                                               ロールキャッシュクッキーを保護するために使用される手法を示します。 使用できる値は、`All` (既定値) です。`Encryption`;`None`;および `Validation`ます。 これらの保護レベルの詳細に<a id="_anchor_5"></a>ついては、 [ *「フォーム認証の構成」および「高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)」の手順3を参照してください。                                                                                                                                                                |
+|    `cookieRequireSSL`     |                                                                                                                                                                                                                                                                                                   認証 cookie の送信に SSL 接続が必要かどうかを示すブール値。 既定値は `false`です。                                                                                                                                                                                                                                                                                                   |
+| `cookieSlidingExpiration` |                                                                                                                                                                                                                                                  シングルセッション中にユーザーがサイトにアクセスするたびに cookie のタイムアウトをリセットするかどうかを示すブール値です。 既定値は `false`です。 この値は、`createPersistentCookie` が `true`に設定されている場合にのみ関連します。                                                                                                                                                                                                                                                  |
+|      `cookieTimeout`      |                                                                                                                                                                                                                                                                         認証チケットのクッキーの有効期限が切れるまでの時間を分単位で指定します。 既定値は `30`です。 この値は、`createPersistentCookie` が `true`に設定されている場合にのみ関連します。                                                                                                                                                                                                                                                                         |
+| `createPersistentCookie`  |                                                                                                                                                                   ロールキャッシュクッキーがセッション cookie であるか、永続的なクッキーであるかを指定するブール値です。 `false` (既定値) の場合、セッション cookie が使用されます。これは、ブラウザーを閉じたときに削除されます。 `true`場合は、永続的な cookie が使用されます。`cookieSlidingExpiration`の値によっては、作成後または前の訪問後に、`cookieTimeout` 期限切れになります。                                                                                                                                                                    |
+|         `domain`          |                                                                                                                                                 Cookie のドメイン値を指定します。 既定値は空の文字列です。これにより、ブラウザーは発行元のドメイン (www.yourdomain.com など) を使用します。 この場合、admin.yourdomain.com などのサブドメインに要求を行うときに cookie は送信され<strong>ません</strong>。 Cookie をすべてのサブドメインに渡す必要がある場合は、`domain` 属性を "yourdomain.com" に設定してカスタマイズする必要があります。                                                                                                                                                 |
+|    `maxCachedResults`     | クッキーにキャッシュされるロール名の最大数を指定します。 既定値は 25 です。 `RoleManagerModule` は、`maxCachedResults` のロールを超えるユーザーの cookie を作成しません。 その結果、`RolePrincipal` オブジェクトの `IsInRole` メソッドは、`Roles` クラスを使用してユーザーのロールを決定します。 `maxCachedResults` 存在する理由は、多くのユーザーエージェントが4096バイトを超える cookie を許可しないためです。 この上限は、このサイズ制限を超える可能性を低減することを目的としています。 ロール名が非常に長い場合は、より小さな `maxCachedResults` 値を指定することを検討してください。contrariwise、非常に短いロール名を使用している場合は、この値を増やすことができます。 |
 
-**表 1.**:ロール キャッシュのクッキーの構成オプション
+**表 1**: ロールキャッシュクッキーの構成オプション
 
-非永続的なロールのキャッシュのクッキーを使用するようにアプリケーションを構成しましょう。 これを行うには、更新、`<roleManager>`要素`Web.config`を cookie に関連する次の属性を含めます。
+持続性のないロールキャッシュクッキーを使用するようにアプリケーションを構成してみましょう。 これを行うには、`Web.config` の `<roleManager>` 要素を更新して、次の cookie に関連する属性を追加します。
 
 [!code-xml[Main](role-based-authorization-vb/samples/sample1.xml)]
 
-更新して、 `<roleManager>`; 3 つの属性を追加することで要素: `cacheRolesInCookie`、 `createPersistentCookie`、および`cookieProtection`します。 設定して`cacheRolesInCookie`に`true`、`RoleManagerModule`要求ごとに、ユーザーのロール情報を参照する必要がなく、cookie にユーザーのロールが自動的にキャッシュようになりました。 明示的に設定されている、`createPersistentCookie`と`cookieProtection`属性を`false`と`All`、それぞれします。 技術的には、永続的な cookie を使用していないことと cookie は、どちらも暗号化され、検証をオフに、既定値にだけに割り当てましたが、私に保存することを明示的にあるため、これらの属性の値を指定する必要はありませんでした。
+`<roleManager>`を更新しました。要素には、`cacheRolesInCookie`、`createPersistentCookie`、および `cookieProtection`の3つの属性を追加します。 `cacheRolesInCookie` を `true`に設定することにより、`RoleManagerModule` は、各要求のユーザーのロール情報を参照するのではなく、ユーザーのロールを cookie に自動的にキャッシュするようになります。 `createPersistentCookie` と `cookieProtection` 属性をそれぞれ `false` および `All`に明示的に設定します。 技術的には、これらの属性を既定値に割り当てただけなので、これらの属性の値を指定する必要はありませんでしたが、永続的な cookie を使用していないこと、および cookie が暗号化および検証されていることを明示的に明確にするために、ここに配置しました。
 
-必要な作業は以上です。 今後は、ロールのフレームワークでは、cookie にユーザーのロールがキャッシュされます。 ユーザーのブラウザーが cookie をサポートしていないか、cookie が削除されたか、紛失、何らかの形ではありません – たいした、`RolePrincipal`オブジェクトは単を使用して、`Roles`ない cookie (または、無効または期限切れの 1 つ) は、使用可能な場合のクラス。
+必要な作業は以上です。 その後、ロールフレームワークはユーザーのロールを cookie にキャッシュします。 ユーザーのブラウザーで cookie がサポートされていない場合、または cookie が削除されたり失われたりした場合は、大きな問題はありません。 `RolePrincipal` オブジェクトは、cookie (または無効または有効期限が切れたもの) が使用できない場合にのみ、`Roles` クラスを使用します。
 
 > [!NOTE]
-> Microsoft の Patterns &amp; Practices グループは、永続的なロールのキャッシュの cookie を使用してを抑制します。 ハッカーが有効なユーザーの cookie へのアクセスを何らかの形でできる場合は、ロールのキャッシュのクッキーを所有しているはロールのメンバーシップを証明するための十分なであるため、ユーザー権限を借用できます。 ユーザーのブラウザーで cookie が永続化される場合、この問題が発生する可能性が増加します。 このセキュリティの推奨事項とその他のセキュリティに関する注意事項の詳細についてを参照してください、 [ASP.NET 2.0 のセキュリティの質問リスト](https://msdn.microsoft.com/library/ms998375.aspx)します。
+> Microsoft のパターン &amp; プラクティスグループは、永続的なロールキャッシュクッキーの使用を推奨していません。 ロールキャッシュクッキーを所有しているため、ロールのメンバーシップを証明するには十分です。ハッカーが何らかの方法で有効なユーザーの cookie にアクセスできる場合は、そのユーザーを偽装できます。 Cookie がユーザーのブラウザーで永続化されている場合、このような事態が発生する可能性は高くなります。 このセキュリティの推奨事項とその他のセキュリティの問題の詳細については、 [ASP.NET 2.0 のセキュリティの質問リスト](https://msdn.microsoft.com/library/ms998375.aspx)を参照してください。
 
-## <a name="step-1-defining-role-based-url-authorization-rules"></a>手順 1: ロール ベースの URL 承認規則を定義します。
+## <a name="step-1-defining-role-based-url-authorization-rules"></a>手順 1: ロールベースの URL 承認規則を定義する
 
-説明したように、 <a id="_msoanchor_6"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアルでは、一連のユーザーでのユーザーまたはロール-ロール別のページへのアクセスを制限するための手段を提供する URL 承認基準です。 URL 承認規則が記述された`Web.config`を使用して、 [ `<authorization>`要素](https://msdn.microsoft.com/library/8d82143t.aspx)で`<allow>`と`<deny>`子要素。 前のチュートリアルで説明されているユーザーに関連する承認規則だけでなく各`<allow>`と`<deny>`子要素を含めることもできます。
+<a id="_msoanchor_6"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)のチュートリアルで説明したように、URL 承認では、ユーザーごとまたはロールごとにページのセットへのアクセスを制限する手段が提供されます。 URL 承認規則は、`<allow>` と `<deny>` の子要素を持つ[`<authorization>` 要素](https://msdn.microsoft.com/library/8d82143t.aspx)を使用して、`Web.config` に記載されています。 前のチュートリアルで説明したユーザー関連の承認規則に加えて、各 `<allow>` および `<deny>` 子要素には次のものも含まれます。
 
 - 特定のロール
 - ロールのコンマ区切りの一覧
 
-たとえば、URL の承認規則は、管理者と管理者の役割のユーザーへのアクセス許可しますが、他のすべてのユーザーへのアクセスを拒否します。
+たとえば、URL 承認規則によって、管理者ロールとスーパーバイザーロールのユーザーにアクセス権が付与されますが、他のユーザーへのアクセスは拒否されます。
 
 [!code-xml[Main](role-based-authorization-vb/samples/sample2.xml)]
 
-`<allow>`上記のマークアップ内の要素は、管理者と管理者のロールが許可されることを示す、 `<deny>`; 要素に指示する*すべて*ユーザーが拒否されます。
+上のマークアップの `<allow>` 要素は、管理者ロールとスーパーバイザーロールが許可されていることを示します。`<deny>`;要素は、*すべて*のユーザーが拒否されることを示します。
 
-アプリケーションを構成しましょうように、 `ManageRoles.aspx`、 `UsersAndRoles.aspx`、および`CreateUserWizardWithRoles.aspx`ページは、管理者ロールのユーザーにアクセスできる、だけ中に、`RoleBasedAuthorization.aspx`ページがすべての訪問者にアクセスできる状態します。
+アプリケーションを構成して、`ManageRoles.aspx`、`UsersAndRoles.aspx`、および `CreateUserWizardWithRoles.aspx` の各ページが管理者ロールのユーザーのみにアクセスできるようにし、`RoleBasedAuthorization.aspx` のページにはすべての訪問者がアクセスできるようにします。
 
-これを行うには、追加することで開始、`Web.config`ファイルを`Roles`フォルダー。
+これを行うには、まず、`Roles` フォルダーに `Web.config` ファイルを追加します。
 
-[![ロールのディレクトリに Web.config ファイルを追加します。](role-based-authorization-vb/_static/image8.png)](role-based-authorization-vb/_static/image7.png)
+[Roles ディレクトリに web.config ファイルを追加 ![には](role-based-authorization-vb/_static/image8.png)](role-based-authorization-vb/_static/image7.png)
 
-**図 3**:追加、`Web.config`ファイルを`Roles`ディレクトリ ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image9.png))。
+**図 3**: `Roles` ディレクトリに `Web.config` ファイルを追加する ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image9.png)されます)
 
-次の構成マークアップを次に、追加`Web.config`:
+次に、次の構成マークアップを `Web.config`に追加します。
 
 [!code-xml[Main](role-based-authorization-vb/samples/sample3.xml)]
 
-`<authorization>`内の要素、`<system.web>`セクションでは、管理者ロールのユーザーのみが ASP.NET のリソースを入手できますを示します、`Roles`ディレクトリ。 `<location>`要素は、別の URL 承認規則のセットを定義、 `RoleBasedAuthorization.aspx`  ページで、すべてのユーザー、ページにアクセスできるようにします。
+`<system.web>` セクションの `<authorization>` 要素は、管理者ロールのユーザーのみが `Roles` ディレクトリ内の ASP.NET リソースにアクセスできることを示します。 `<location>` 要素は、`RoleBasedAuthorization.aspx` ページの代替 URL 承認規則のセットを定義し、すべてのユーザーがそのページにアクセスできるようにします。
 
-変更を保存した後に`Web.config`管理者ロールではないユーザーとしてログインして、保護されたページのいずれかにアクセスするとします。 `UrlAuthorizationModule` ; 要求されたリソースにアクセスするためのアクセス許可がないことを検出、その結果、`FormsAuthenticationModule`ログイン ページにリダイレクトされます。 ログイン ページで、リダイレクトすることは、`UnauthorizedAccess.aspx`ページ (図 4 参照)。 この最終的にリダイレクトするログイン ページから`UnauthorizedAccess.aspx`コードのステップ 2 でのログイン ページに追加しましたが発生する、 <a id="_msoanchor_7"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアル。 具体的には、ログイン ページは、認証されたユーザーに自動的をリダイレクト`UnauthorizedAccess.aspx`、クエリ文字列が含まれている場合、`ReturnUrl`パラメーターがこのパラメーターとして、ユーザーはページを表示しようとした後、ログイン ページに到着したことを示します表示する権限。
+`Web.config`への変更を保存したら、管理者ロールに含まれていないユーザーとしてログインし、保護されたページのいずれかにアクセスします。 `UrlAuthorizationModule` は、要求されたリソースにアクセスするためのアクセス許可がないことを検出します。その結果、`FormsAuthenticationModule` によって、ログインページにリダイレクトされます。 ログインページが `UnauthorizedAccess.aspx` ページにリダイレクトされます (図4を参照)。 ログインページから `UnauthorizedAccess.aspx` へのこの最後のリダイレクトは、 <a id="_msoanchor_7"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)チュートリアルの手順 2. でログインページに追加したコードによって発生します。 特に、クエリ文字列に `ReturnUrl` パラメーターが含まれている場合、ログインページは、認証されたユーザーを `UnauthorizedAccess.aspx` に自動的にリダイレクトします。このパラメーターは、ユーザーが表示を許可されていないページを表示しようとした後に、ユーザーがログインページに到着したことを示します。
 
-[![管理者ロールのユーザーのみが保護されたページを表示できます。](role-based-authorization-vb/_static/image11.png)](role-based-authorization-vb/_static/image10.png)
+[管理者ロールのユーザーのみが保護されたページを表示できる ![](role-based-authorization-vb/_static/image11.png)](role-based-authorization-vb/_static/image10.png)
 
-**図 4**:のみの管理者ロールのユーザーが保護されているページを表示できます ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image12.png))。
+**図 4**: 管理者ロールのユーザーのみが保護されたページを表示できる ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image12.png)されます)
 
-ログオフし、管理者ロール内にあるユーザーとしてログインします。 これで 3 つの保護されたページを表示するはずです。
+ログオフし、管理者ロールのユーザーとしてログインします。 これで、3つの保護されたページを表示できるようになります。
 
-[![Tito はことができます、UsersAndRoles.aspx ページのため、彼は、管理者ロールを参照してください。](role-based-authorization-vb/_static/image14.png)](role-based-authorization-vb/_static/image13.png)
+[UsersAndRoles ページにアクセスできるのは管理者ロールであるためです。 ![](role-based-authorization-vb/_static/image14.png)](role-based-authorization-vb/_static/image13.png)
 
-**図 5**:Tito がアクセスできる、`UsersAndRoles.aspx`ページのため、彼は、管理者ロール ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image15.png))。
-
-> [!NOTE]
-> 役割またはユーザー – – URL 承認規則を指定するときにすることが重要に規則を最上部から、同時に分析された 1 つは、注意してください。 場合によっては、一致が見つかったで、一致が見つかるとすぐに、ユーザーがアクセス許可または拒否する`<allow>`または`<deny>`要素。 **一致が検出されない場合、ユーザーがアクセスを許可します。** その結果、1 つまたは複数のユーザー アカウントへのアクセスを制限する場合を使用することが不可欠な`<deny>`URL 承認の構成の最後の要素としての要素。 **URL 承認規則が含まれない場合、**`<deny>`**要素では、すべてのユーザー アクセスが許可されます。** URL の承認規則を分析する方法の詳細についてを参照、"方法を見て、`UrlAuthorizationModule`承認規則を使用してアクセス許可または拒否"のセクション、 <a id="_msoanchor_8"> </a> [ *ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアル。
-
-## <a name="step-2-limiting-functionality-based-on-the-currently-logged-in-users-roles"></a>手順 2: 現在ログインしているユーザーのロールに基づく機能を制限します。
-
-URL の承認はその状態をどの id ルール粗い承認を指定することが容易は許可されており、特定のページ (またはフォルダーとそのサブフォルダー内のすべてのページ) を表示できないものは拒否されます。 ただし、場合によっては、ページを参照してください、ページの機能がアクセスしたユーザーの役割に基づいたを制限するすべてのユーザーを許可することがあります。 これにより、ユーザーの役割に基づいたまたは特定のロールに属しているユーザーに追加の機能を提供するデータを表示または非表示が伴う場合があります。
-
-宣言的またはプログラム (または、2 つの組み合わせを通じて)、このような細かい粒度のロールベースの承認規則を実装できます。 次のセクションは、LoginView コントロールを使用して宣言型細かく承認を実装する方法が表示されます。 次は、プログラムによる手法について説明します。 細かく承認規則を適用することについて考えることができます、前に、まず必要があります機能を持つは、それにアクセスしたユーザーの役割によって異なります。 ページを作成します。
-
-GridView でシステム内のすべてのユーザー アカウントを一覧表示するページを作成しましょう。 GridView には、各ユーザーのユーザー名、電子メール アドレス、最後のログイン日時、およびユーザーについてのコメントが含まれます。 に加えて、各ユーザーの情報を表示するには、GridView は編集を含めるし、機能を削除します。 このページを作成、編集と最初にされすべてのユーザーに使用できる機能の削除します。 「The LoginView コントロールを使用して」と「プログラムで制限する機能」のセクションでは、有効またはアクセスしたユーザー ロールに基づくこれらの機能を無効にする方法が表示されます。
+**図 5**: `UsersAndRoles.aspx` ページにアクセスできるのは管理者ロールであるためです ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image15.png)されます)。
 
 > [!NOTE]
-> 構築するためには ASP.NET ページでは、ユーザー アカウントを表示するのに GridView コントロールを使用します。 このチュートリアル シリーズは、フォーム認証、承認、ユーザー アカウント、およびロールに重点を置いています、以降しない GridView コントロールの内部動作を説明する時間をかけるにします。 このチュートリアルでは、このページをセットアップするための手順では、中の特定の選択を行った理由または影響の特定のプロパティが表示される出力が詳細には掘り下げてされません。 GridView コントロールの詳しく調べる場合は、チェック アウト、  *[ASP.NET 2.0 でデータを扱う](../../data-access/index.md)* チュートリアル シリーズです。
+> URL 承認規則を指定する場合–ロールまたはユーザーにとって、ルールは、上から順番に1つずつ分析されることに注意することが重要です。 一致が見つかるとすぐに、`<allow>` または `<deny>` 要素で一致が見つかったかどうかによって、ユーザーはアクセスを許可または拒否されます。 **一致するものが見つからない場合は、ユーザーにアクセス権が付与されます。** そのため、1つ以上のユーザーアカウントへのアクセスを制限する場合は、URL 承認構成の最後の要素として `<deny>` 要素を使用する必要があります。 **URL 承認規則に`<deny>`要素が含まれていない場合** **、すべてのユーザーにアクセス権が付与されます。** URL 承認規則の分析方法の詳細については、「 <a id="_msoanchor_8"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)のチュートリアル」の「`UrlAuthorizationModule` がアクセスを許可または拒否するための承認規則を使用する方法について」を参照してください。
 
-開いて開始、`RoleBasedAuthorization.aspx`ページで、`Roles`フォルダー。 GridView をドラッグしてページから、デザイナーとセットにその`ID`に`UserGrid`します。 すぐに呼び出すコードを記述しましたが、`Membership`します。`GetAllUsers` メソッドと、その結果をバインド`MembershipUserCollection`GridView にオブジェクト。 `MembershipUserCollection`が含まれています、`MembershipUser`システム内の各ユーザー アカウントのオブジェクト`MembershipUser`オブジェクトのようなプロパティがある`UserName`、`Email`、`LastLoginDate`など。
+## <a name="step-2-limiting-functionality-based-on-the-currently-logged-in-users-roles"></a>手順 2: 現在ログインしているユーザーのロールに基づいて機能を制限する
 
-私たちは、ユーザー アカウントをグリッドにバインドするコードを記述する前に、GridView のフィールドを定義してみましょう最初。 GridView のスマート タグからのフィールド ダイアログを起動する「列の編集」リンクをクリックします。 ボックス (図 6 参照)。 ここでは、左下隅に「自動生成フィールド」チェック ボックスをオフにします。 編集および削除の機能が含まれて、CommandField を追加し、設定には、この GridView たいので、`ShowEditButton`と`ShowDeleteButton`プロパティを True にします。 次に、表示するための 4 つのフィールドを追加、 `UserName`、 `Email`、 `LastLoginDate`、および`Comment`プロパティ。 2 つの読み取り専用プロパティを BoundField を使用して (`UserName`と`LastLoginDate`) と 2 つの編集可能なフィールドの TemplateFields (`Email`と`Comment`)。
+URL 承認を使用すると、許可されている id と、特定のページ (またはフォルダーとそのサブフォルダー内のすべてのページ) の表示が拒否されている id を示す粒度の粗い承認規則を簡単に指定できます。 ただし、場合によっては、すべてのユーザーがページにアクセスできるようにする必要がありますが、訪問しているユーザーのロールに基づいてページの機能を制限したい場合があります。 この場合、ユーザーのロールに基づいてデータを表示または非表示にしたり、特定のロールに属しているユーザーに追加の機能を提供したりすることがあります。
 
-最初の BoundField 表示、`UserName`プロパティです。 セット、`HeaderText`と`DataField`プロパティが"UserName"にします。 このフィールドは編集できません、ため、設定、`ReadOnly`プロパティを True にします。 構成、 `LastLoginDate` BoundField を設定してその`HeaderText`「前回のログイン」にし、その`DataField`"LastLoginDate"にします。 みましょうこの BoundField の出力の書式設定 (日付と時刻) 代わりに日付のみが表示されます。 これを実現する設定のこの BoundField の`HtmlEncode`プロパティを False に、その`DataFormatString`プロパティを"{0:d}"。 設定しても、`ReadOnly`プロパティを True にします。
+このような細かい粒度のロールベースの承認規則は、宣言によって、またはプログラムによって (または2つの組み合わせを使用して) 実装できます。 次のセクションでは、LoginView コントロールを使用して宣言的に細かい粒度の承認を実装する方法について説明します。 次に、プログラムによる手法について説明します。 ただし、細かい粒度の承認規則の適用については、まず、アクセスするユーザーの役割によって機能が異なるページを作成する必要があります。
 
-設定、 `HeaderText` "Email"と「コメント」を 2 つの TemplateFields のプロパティ。
+GridView で、システム内のすべてのユーザーアカウントを一覧表示するページを作成してみましょう。 GridView には、ユーザーのユーザー名、電子メールアドレス、最後のログイン日、およびユーザーに関するコメントが含まれます。 GridView には、ユーザーの情報を表示するだけでなく、編集および削除機能も含まれています。 最初に、すべてのユーザーが編集および削除機能を使用できるように、このページを作成します。 「LoginView コントロールの使用」と「プログラムによる機能制限」のセクションでは、訪問しているユーザーのロールに基づいてこれらの機能を有効または無効にする方法について説明します。
 
-[![GridView のフィールドは、[フィールド] ダイアログ ボックスで構成できます。](role-based-authorization-vb/_static/image17.png)](role-based-authorization-vb/_static/image16.png)
+> [!NOTE]
+> ビルドしようとしている ASP.NET ページでは、GridView コントロールを使用してユーザーアカウントを表示します。 このチュートリアルシリーズでは、フォーム認証、承認、ユーザーアカウント、およびロールに焦点を当てているため、GridView コントロールの内部動作についてはあまり時間をかけたくありません。 このチュートリアルでは、このページを設定するための具体的な手順について説明しますが、特定の選択が行われた理由や、レンダリングされた出力に対する特定のプロパティの影響については詳しく説明しません。 GridView コントロールの詳細な調査については、「 *[ASP.NET 2.0 チュートリアルシリーズのデータを操作する」](../../data-access/index.md)* をご覧ください。
 
-**図 6**:GridView のフィールドでくように構成からのフィールド ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image18.png))。
+まず、`Roles` フォルダーの [`RoleBasedAuthorization.aspx`] ページを開きます。 GridView をページからデザイナーにドラッグし、その `ID` を `UserGrid`に設定します。 現時点では、`Membership`を呼び出すコードを記述します。`GetAllUsers` メソッドを作成し、生成された `MembershipUserCollection` オブジェクトを GridView にバインドします。 `MembershipUserCollection` には、システム内の各ユーザーアカウントの `MembershipUser` オブジェクトが含まれています。`MembershipUser` オブジェクトには、`UserName`、`Email`、`LastLoginDate` などのプロパティがあります。
 
-ここで定義する必要があります、`ItemTemplate`と`EditItemTemplate`"Email"と「コメント」TemplateFields します。 各ラベルの Web コントロールを追加、`ItemTemplates`バインドと、`Text`プロパティを`Email`と`Comment`プロパティでは、それぞれします。
+ユーザーアカウントをグリッドにバインドするコードを記述する前に、まず GridView のフィールドを定義してみましょう。 GridView のスマートタグから、[列の編集] リンクをクリックして [フィールド] ダイアログボックスを起動します (図6を参照)。 ここで、左下隅にある [フィールドの自動生成] チェックボックスをオフにします。 この GridView に編集および削除機能を含めるためには、CommandField を追加し、その `ShowEditButton` と `ShowDeleteButton` プロパティを True に設定します。 次に、`UserName`、`Email`、`LastLoginDate`、および `Comment` の各プロパティを表示する4つのフィールドを追加します。 2つの編集可能なフィールド (`Email` と `Comment`) の2つの読み取り専用プロパティ (`UserName` と `LastLoginDate`) および TemplateFields には、BoundField を使用します。
 
-"Email"TemplateField、という名前のテキスト ボックスを追加`Email`にその`EditItemTemplate`バインドとその`Text`プロパティを`Email`双方向データ バインドを使用するプロパティ。 RequiredFieldValidator と RegularExpressionValidator を追加、`EditItemTemplate`訪問者が電子メールのプロパティの編集が有効な電子メール アドレスを入力したことを確認します。 「コメント」TemplateField、という名前の複数行テキスト ボックスを追加`Comment`にその`EditItemTemplate`します。 設定、テキスト ボックスの`Columns`と`Rows`プロパティを 40 と 4 は、それぞれ、し、バインド、`Text`プロパティを`Comment`双方向データ バインドを使用するプロパティ。
+最初の BoundField で `UserName` プロパティを表示します。`HeaderText` と `DataField` のプロパティを "UserName" に設定します。 このフィールドは編集できないので、[`ReadOnly`] プロパティを [True] に設定します。 `HeaderText` を "Last Login" に設定し、その `DataField` を "LastLoginDate" に設定して、`LastLoginDate` BoundField を構成します。 日付と時刻ではなく、日付のみが表示されるように、この BoundField の出力を書式設定してみましょう。 これを実現するには、この BoundField の `HtmlEncode` プロパティを False に設定し、その `DataFormatString` プロパティを "{0:d}" に設定します。 また、`ReadOnly` プロパティを True に設定します。
 
-これら TemplateFields を構成した後、宣言型マークアップは次のようになります。
+2つの TemplateFields の `HeaderText` プロパティを "Email" と "Comment" に設定します。
+
+[![GridView のフィールドは、[フィールド] ダイアログボックスを使用して構成できます。](role-based-authorization-vb/_static/image17.png)](role-based-authorization-vb/_static/image16.png)
+
+**図 6**: GridView のフィールドは、[フィールド] ダイアログボックスを使用して構成できます ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image18.png)されます)。
+
+次に、"Email" および "Comment" TemplateFields の `ItemTemplate` と `EditItemTemplate` を定義する必要があります。 各 `ItemTemplates` にラベル Web コントロールを追加し、それぞれの `Text` プロパティを `Email` および `Comment` プロパティにそれぞれバインドします。
+
+"Email" TemplateField の場合、`EditItemTemplate` に `Email` という名前のテキストボックスを追加し、双方向のデータバインディングを使用してその `Text` プロパティを `Email` プロパティにバインドします。 `EditItemTemplate` に RequiredFieldValidator と RegularExpressionValidator を追加して、Email プロパティを編集しているビジターが有効な電子メールアドレスを入力したことを確認します。 "Comment" TemplateField の場合は、`Comment` という名前の複数行のテキストボックスを `EditItemTemplate`に追加します。 TextBox の `Columns` と `Rows` の各プロパティをそれぞれ40と4に設定し、双方向のデータバインディングを使用して、その `Text` プロパティを `Comment` プロパティにバインドします。
+
+これらの TemplateFields を構成した後、宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](role-based-authorization-vb/samples/sample4.aspx)]
 
-編集またはそのユーザーを把握する必要があります。 ユーザー アカウントを削除するときに`UserName`プロパティの値。 GridView の設定`DataKeyNames`プロパティが"UserName"にこの情報を GridView のを通じて利用できるように`DataKeys`コレクション。
+ユーザーアカウントを編集または削除するときは、そのユーザーの `UserName` プロパティ値を把握しておく必要があります。 Gridview の `DataKeyNames` プロパティを "UserName" に設定して、GridView の `DataKeys` コレクションでこの情報を使用できるようにします。
 
-最後に、ページに ValidationSummary コントロールを追加し、設定、`ShowMessageBox`プロパティを True に、その`ShowSummary`プロパティを False にします。 これらの設定で、ValidationSummary は、ユーザーが見つからないか無効な電子メール アドレスを持つユーザー アカウントの編集を試みる場合にクライアント側の警告を表示します。
+最後に、ValidationSummary コントロールをページに追加し、その `ShowMessageBox` プロパティを True に設定し、その `ShowSummary` プロパティを False に設定します。 これらの設定を使用すると、ユーザーが不明または無効な電子メールアドレスを使用してユーザーアカウントを編集しようとした場合に、ValidationSummary にクライアント側のアラートが表示されます。
 
 [!code-aspx[Main](role-based-authorization-vb/samples/sample5.aspx)]
 
-このページの宣言型マークアップが完了しましたようになりました。 次のタスクでは、ユーザー アカウントのセットを GridView にバインドします。 という名前のメソッドを追加`BindUserGrid`を`RoleBasedAuthorization.aspx`ページの分離コード クラスをバインドする、`MembershipUserCollection`によって返される`Membership.GetAllUsers`を`UserGrid`GridView。 このメソッドを呼び出し、`Page_Load`最初のページ アクセス時にイベント ハンドラー。
+これで、このページの宣言型マークアップが完了しました。 次のタスクでは、一連のユーザーアカウントを GridView にバインドします。 `Membership.GetAllUsers` によって返された `MembershipUserCollection` を `UserGrid` GridView にバインドする、`RoleBasedAuthorization.aspx` ページの分離コードクラスに `BindUserGrid` という名前のメソッドを追加します。 最初のページにアクセスしたときに、`Page_Load` イベントハンドラーからこのメソッドを呼び出します。
 
 [!code-vb[Main](role-based-authorization-vb/samples/sample6.vb)]
 
-このコードでは、ブラウザーを使用してページを参照してください。 図 7 に示す、システムの各ユーザー アカウントに関する情報を一覧表示する GridView が表示されます。
+このコードを配置したら、ブラウザーを使用してページにアクセスします。 図7に示すように、システム内の各ユーザーアカウントについて、GridView の一覧が表示されます。
 
-[![UserGrid GridView、システムで各ユーザーについての情報を一覧表示します。](role-based-authorization-vb/_static/image20.png)](role-based-authorization-vb/_static/image19.png)
+[UserGrid GridView ![システム内の各ユーザーに関する情報を一覧表示する](role-based-authorization-vb/_static/image20.png)](role-based-authorization-vb/_static/image19.png)
 
-**図 7**:`UserGrid` GridView の一覧情報の各システム内のユーザー ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image21.png))。
+**図 7**: `UserGrid` GridView は、システム内の各ユーザーに関する情報を一覧表示します ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image21.png)されます)。
 
 > [!NOTE]
-> `UserGrid` GridView には、すべての非ページ インターフェイスでユーザーが一覧表示されます。 この単純なグリッド インターフェイスは、シナリオに最適な数十個または複数のユーザーがいくつか。 1 つのオプションでは、ページングを有効にする GridView を構成します。 `Membership.GetAllUsers`メソッドに 2 つのオーバー ロードがあります。 入力パラメーターを受け取らず、すべてのユーザーとを受け取って、ページのインデックスと、ページ サイズの整数値で指定されたユーザーのサブセットのみを返す 1 つを返します。 ユーザー アカウントの正確なサブセットだけを返すのでより効率的にページング、ユーザーに 2 番目のオーバー ロードを使用できるのではなく*すべて*にします。 何千ものユーザー アカウントがあれば、フィルターに基づくインターフェイスをそれらのユーザー インスタンスのユーザー名を持つが、選択した文字で始まるだけを表示するいずれかを検討する可能性があります。 [ `Membership.FindUsersByName`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.findusersbyname.aspx)はフィルターに基づくユーザー インターフェイスを構築するために最適です。 今後のチュートリアルでこのようなインターフェイスの構築を紹介します。
+> `UserGrid` GridView では、非ページインターフェイス内のすべてのユーザーが一覧表示されます。 このシンプルなグリッドインターフェイスは、数十以上のユーザーが存在するシナリオには適していません。 1つの方法は、ページングを有効にするように GridView を構成することです。 `Membership.GetAllUsers` メソッドには、2つのオーバーロードがあります。1つは入力パラメーターを受け入れず、すべてのユーザーと、ページインデックスとページサイズに対して整数値を受け取るすべてのユーザーと、指定されたユーザーのサブセットのみを返します。 2番目のオーバーロードを使用すると、*すべて*のユーザーアカウントではなくユーザーアカウントの正確なサブセットだけが返されるため、ユーザーをより効率的にページ化できます。 何千ものユーザーアカウントがある場合は、フィルターベースのインターフェイスを検討してください。たとえば、ユーザー名が選択した文字で始まるユーザーのみを表示します。 [`Membership.FindUsersByName` 方法](https://msdn.microsoft.com/library/system.web.security.membership.findusersbyname.aspx)は、フィルターベースのユーザーインターフェイスを構築する場合に最適です。 このようなインターフェイスの構築については、今後のチュートリアルで説明します。
 
-GridView コントロールでは、組み込みの編集と SqlDataSource や ObjectDataSource など、適切に構成されたデータ ソース コントロールにバインドするコントロールとサポートの削除を提供します。 `UserGrid` GridView、ただし、そのデータをプログラムでバインドにはそのため、これら 2 つのタスクを実行するコードを作成する必要があります。 具体的には、GridView のイベント ハンドラーを作成する必要が`RowEditing`、 `RowCancelingEdit`、 `RowUpdating`、および`RowDeleting`ビジターを GridView をクリックしたときに発生するイベントは、編集、Cancel、Update、またはボタンを削除します。
+GridView コントロールでは、SqlDataSource や ObjectDataSource など、適切に構成されたデータソースコントロールにコントロールがバインドされている場合に、組み込みの編集と削除のサポートが提供されます。 ただし、GridView の `UserGrid` には、プログラムによってデータがバインドされます。そのため、これら2つのタスクを実行するコードを記述する必要があります。 具体的には、gridview の `RowEditing`、`RowCancelingEdit`、`RowUpdating`、および `RowDeleting` イベントのイベントハンドラーを作成する必要があります。これは、ユーザーが GridView の [編集]、[キャンセル]、[更新]、または [削除] ボタンをクリックしたときに発生します。
 
-GridView のためのイベント ハンドラーを作成して開始`RowEditing`、 `RowCancelingEdit`、および`RowUpdating`イベントし、次のコードを追加します。
+まず、GridView の `RowEditing`、`RowCancelingEdit`、および `RowUpdating` イベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](role-based-authorization-vb/samples/sample7.vb)]
 
-`RowEditing`と`RowCancelingEdit`イベント ハンドラーは、GridView を設定するだけです`EditIndex`プロパティと、グリッドへのアカウントのユーザーの一覧からの再バインドします。 興味深い処理が行われる、`RowUpdating`イベント ハンドラー。 このイベント ハンドラーがようにすることによって、データが有効では、取得が開始、`UserName`から編集済みのユーザー アカウントの値、`DataKeys`コレクション。 `Email`と`Comment`で 2 つの TemplateFields のテキスト ボックス`EditItemTemplate`s がプログラムで参照されます。 その`Text`プロパティには、編集済みの電子メール アドレスとコメントが含まれます。
+`RowEditing` イベントハンドラーと `RowCancelingEdit` イベントハンドラーは、GridView の `EditIndex` プロパティを設定し、ユーザーアカウントの一覧をグリッドに再バインドします。 注目すべきことは、`RowUpdating` イベントハンドラーです。 このイベントハンドラーは、データが有効であることを確認し、`DataKeys` コレクションから編集されたユーザーアカウントの `UserName` 値を取得することによって開始します。 2つの TemplateFields ' `EditItemTemplate` s 内の `Email` と `Comment` のテキストボックスが、プログラムによって参照されます。 `Text` のプロパティには、編集した電子メールアドレスとコメントが含まれています。
 
-まず呼び出しにはユーザーの情報を取得する必要があります、メンバーシップ API を介してユーザー アカウントを更新するには`Membership.GetUser(userName)`します。 返された`MembershipUser`オブジェクトの`Email`と`Comment`プロパティは、その編集インターフェイスから 2 つのテキスト ボックスに入力された値で更新します。 その変更を保存してへの呼び出しで最後に、 [ `Membership.UpdateUser`](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)します。 `RowUpdating`事前編集インターフェイスに GridView を元に戻すイベント ハンドラーを完了します。
+メンバーシップ API を使用してユーザーアカウントを更新するには、最初にユーザーの情報を取得する必要があります。そのためには、`Membership.GetUser(userName)`の呼び出しを使用します。 返された `MembershipUser` オブジェクトの `Email` と `Comment` プロパティは、編集インターフェイスから2つのテキストボックスに入力された値で更新されます。 最後に、これらの変更は[`Membership.UpdateUser`](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)を呼び出すことによって保存されます。 `RowUpdating` イベントハンドラーは、GridView を編集前のインターフェイスに戻すことによって完了します。
 
-次に、作成、 `RowDeleting` RowDeleting イベント ハンドラーと、次のコードを追加します。
+次に、`RowDeleting` RowDeleting イベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](role-based-authorization-vb/samples/sample8.vb)]
 
-上記のイベント ハンドラーを取得することで開始、 `UserName` GridView から値`DataKeys`コレクション、この`UserName`のメンバーシップ クラスに値が渡される、 [ `DeleteUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.deleteuser.aspx)します。 `DeleteUser`メソッドは、(ロールなどこのユーザーが属する) 関連のメンバーシップ データを含む、システムからユーザー アカウントを削除します。 ユーザーの削除、グリッドの後に`EditIndex`(この場合、ユーザーでは、別の行が編集モードのときに、削除がクリックされた) が、-1 に設定し、`BindUserGrid`メソッドが呼び出されます。
+上記のイベントハンドラーは、GridView の `DataKeys` コレクションから `UserName` 値を取得することによって開始されます。この `UserName` 値は、メンバーシップクラスの[`DeleteUser` メソッド](https://msdn.microsoft.com/library/system.web.security.membership.deleteuser.aspx)に渡されます。 `DeleteUser` メソッドは、関連するメンバーシップデータ (このユーザーが属するロールなど) を含む、システムからユーザーアカウントを削除します。 ユーザーを削除すると、グリッドの `EditIndex` が-1 に設定されます (ユーザーが [削除] をクリックしたときに、別の行が編集モードになっている場合)。 `BindUserGrid` メソッドが呼び出されます。
 
 > [!NOTE]
-> Delete ボタンでは、あらゆる種類のユーザー アカウントを削除する前に、ユーザーから送信される確認は必要ありません。 誤って削除されているアカウントの可能性を軽減するためにユーザーの確認のいくつかの形式を追加することをお勧めします。 アクションを確認する最も簡単な方法の 1 つは、クライアント側の確認 ダイアログ ボックスからです。 この手法の詳細については、次を参照してください。[削除時にクライアント側の確認を追加する](https://asp.net/learn/data-access/tutorial-42-vb.aspx)します。
+> ユーザーアカウントを削除する前に、[削除] ボタンをクリックしても、ユーザーからの確認は必要ありません。 アカウントが誤って削除される可能性を減らすために、何らかの形式のユーザー確認を追加することをお勧めします。 アクションを確認する最も簡単な方法の1つは、クライアント側の [確認] ダイアログボックスを使用することです。 この手法の詳細については、「[削除時にクライアント側の確認を追加](https://asp.net/learn/data-access/tutorial-42-vb.aspx)する」を参照してください。
 
-このページに期待どおりに機能することを確認します。 任意のユーザー アカウントを削除するだけでなく、すべてのユーザーの電子メール アドレスと、コメントを編集することができます。 以降、`RoleBasedAuthorization.aspx`ページにすべてのユーザーにアクセスできる、– も匿名の訪問者: すべてのユーザーは、このページを参照してください、編集、およびユーザー アカウントを削除します。 監督者および管理者のロール内のユーザーのみがユーザーの電子メール アドレスと、コメントを編集でき、管理者のみがユーザー アカウントを削除できるように、このページを更新してみましょう。
+このページが想定どおりに機能することを確認します。 任意のユーザーの電子メールアドレスとコメントを編集できるだけでなく、すべてのユーザーアカウントを削除することもできます。 [`RoleBasedAuthorization.aspx`] ページはすべてのユーザーがアクセスできるので、匿名訪問者でも、このページにアクセスしてユーザーアカウントを編集および削除できます。 このページを更新して、スーパーバイザーロールと管理者ロールのユーザーのみがユーザーの電子メールアドレスとコメントを編集できるようにします。管理者のみがユーザーアカウントを削除できます。
 
-「、LoginView コントロールを使用して」セクションを見ます LoginView コントロールを使用するユーザーのロールに固有の説明を表示します。 このページにアクセスし、管理者ロール内のユーザー場合は、手順で編集し、ユーザーを削除する方法を示します。 管理者ロールのユーザーには、このページに達するは手順のユーザーを編集する方法を示します。 編集またはユーザー アカウント情報を削除することはできませんするを説明するメッセージを表示しますが、訪問者が匿名または監督者または管理者ロールでは場合、。 「プログラムで制限する機能」セクションではプログラムで表示またはユーザーのロールに基づいて、編集、削除ボタンを非表示にするコードを記述します。
+「LoginView コントロールの使用」セクションでは、LoginView コントロールを使用して、ユーザーのロールに固有の命令を表示する方法について説明します。 管理者ロールのユーザーがこのページにアクセスする場合は、ユーザーを編集および削除する方法についての説明が表示されます。 スーパーバイザーロールのユーザーがこのページに到達した場合は、ユーザーを編集するための手順が表示されます。 また、ビジターが匿名であるか、スーパーバイザーまたは管理者ロールに含まれていない場合は、ユーザーアカウント情報を編集または削除できないことを説明するメッセージが表示されます。 「プログラムによって機能を制限する」セクションでは、ユーザーのロールに基づいて、[編集] ボタンと [削除] ボタンをプログラムで表示または非表示にするコードを記述します。
 
-### <a name="using-the-loginview-control"></a>LoginView コントロールを使用します。
+### <a name="using-the-loginview-control"></a>LoginView コントロールの使用
 
-過去のチュートリアルできたよう、LoginView コントロールは、認証と匿名ユーザーの異なるインターフェイスを表示するために便利ですが、LoginView コントロールがユーザーのロールに基づいて異なるマークアップを表示することもできます。 LoginView コントロールを使用して、アクセスしたユーザーのロールに基づいて異なる命令を表示しましょう。
+前のチュートリアルで説明したように、LoginView コントロールは、認証されたユーザーと匿名ユーザー用にさまざまなインターフェイスを表示する場合に便利ですが、LoginView コントロールを使用して、ユーザーのロールに基づいてさまざまなマークアップを表示することもできます。 LoginView コントロールを使用して、訪問しているユーザーのロールに基づいてさまざまな命令を表示してみましょう。
 
-上記の LoginView を追加することで開始、 `UserGrid` GridView。 先ほど説明した、LoginView コントロールでは 2 つの組み込みテンプレート:`AnonymousTemplate`と`LoggedInTemplate`します。 編集または任意のユーザー情報を削除することはできませんするユーザーに通知するこれらのテンプレートの両方で、簡単なメッセージを入力します。
+まず、`UserGrid` GridView の上に LoginView を追加します。 前に説明したように、LoginView コントロールには、`AnonymousTemplate` と `LoggedInTemplate`の2つの組み込みテンプレートがあります。 これらの両方のテンプレートに簡単なメッセージを入力して、ユーザー情報を編集または削除できないことをユーザーに通知します。
 
 [!code-aspx[Main](role-based-authorization-vb/samples/sample9.aspx)]
 
-加え、`AnonymousTemplate`と`LoggedInTemplate`、LoginView コントロールを含めることができます*Rolegroup*、ロール固有のテンプレートであります。 各 RoleGroup には、1 つのプロパティが含まれています。 `Roles`、に適用されます、RoleGroup ロールを指定します。 `Roles` (「管理者」) のような 1 つのロールまたはロール (「管理者、スーパーバイザー」) などのコンマ区切りのリストにプロパティを設定できます。
+LoginView コントロールには、`AnonymousTemplate` と `LoggedInTemplate`に加えて、ロール固有のテンプレートである*Rolegroups*を含めることができます。 各 RoleGroup には、`Roles`という1つのプロパティが含まれています。このプロパティは、RoleGroup が適用されるロールを指定します。 `Roles` プロパティは、1つのロール ("Administrators" など) に設定することも、ロールのコンマ区切りの一覧 ("管理者"、"スーパーバイザー" など) に設定することもできます。
 
-Rolegroup を管理するには、RoleGroup コレクション エディターを表示するコントロールのスマート タグから"Rolegroup 編集"リンクをクリックします。 2 つの新しい Rolegroup を追加します。 設定の最初の RoleGroup の`Roles`プロパティを"Administrators"、第 2 の「管理者」にします。
+RoleGroups を管理するには、コントロールのスマートタグから [RoleGroups の編集] リンクをクリックして、Rolegroups コレクションエディターを表示します。 2つの新しい RoleGroups を追加します。 最初の RoleGroup の `Roles` プロパティを "Administrators" に、2番目のを "スーパーバイザー" に設定します。
 
-[![LoginView の役割に固有のテンプレート RoleGroup コレクション エディターを使用を管理します。](role-based-authorization-vb/_static/image23.png)](role-based-authorization-vb/_static/image22.png)
+[RoleGroup コレクションエディターを使用して LoginView のロール固有テンプレートを管理 ![には](role-based-authorization-vb/_static/image23.png)](role-based-authorization-vb/_static/image22.png)
 
-**図 8**:LoginView の役割に固有のテンプレートを通じて、RoleGroup コレクション エディターを管理 ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image24.png))。
+**図 8**: Rolegroup コレクションエディターを使用して LoginView のロール固有のテンプレートを管理[する (クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image24.png)されます)
 
-RoleGroup コレクション エディターを閉じるには、[ok] をクリックします。これにより、更新に含める LoginView の宣言型マークアップを`<RoleGroups>`セクションで、 `<asp:RoleGroup>` RoleGroup コレクション エディターが各 RoleGroup の子要素に定義されています。 さらに、「ビュー」のドロップダウン リスト LoginView のスマート タグ - 最初に記載されている、`AnonymousTemplate`と`LoggedInTemplate`– が追加された Rolegroup も含まれています。
+[OK] をクリックして、RoleGroup コレクションエディターを閉じます。これにより、LoginView の宣言型マークアップが更新され、RoleGroup コレクションエディターで定義されている各 RoleGroup の `<asp:RoleGroup>` 子要素を含む `<RoleGroups>` セクションが追加されます。 さらに、LoginView のスマートタグの [Views] \ (ビュー \) ドロップダウンリストには、最初に `AnonymousTemplate` と `LoggedInTemplate` のみが表示され、追加された RoleGroups も含まれています。
 
-管理者ロールのユーザーが管理者ロールのユーザーが編集および削除するための手順を示すように、ユーザー アカウントを編集する方法については表示されているように、Rolegroup を編集します。 これらの変更を行った後 LoginView の宣言型マークアップは、次のようになります。
+RoleGroups を編集して、ユーザーアカウントの編集方法に関する指示がスーパーバイザーロールのユーザーに表示されるようにします。管理者ロールのユーザーには、編集および削除の手順が表示されます。 これらの変更を行った後、LoginView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](role-based-authorization-vb/samples/sample10.aspx)]
 
-これらの変更を行った後は、ページを保存し、ブラウザーを使用しを参照してください。 まず、匿名ユーザーとして、ページを参照してください。 メッセージを表示するか、"しないにログインしているシステム。 そのためことはできません編集または削除するユーザー情報。" 認証されたユーザーが管理者と管理者ロールのどちらである 1 つとしてログインします。 この時点"の監督者または管理者ロールのメンバーではないメッセージを表示する必要があります。 そのためことはできません編集または削除するユーザー情報。"
+これらの変更を行った後、ページを保存し、ブラウザーを使用してアクセスします。 まず、匿名ユーザーとしてページにアクセスします。 "システムにログインしていません" というメッセージが表示されます。 そのため、ユーザー情報を編集または削除することはできません。 " 次に、認証されたユーザーとしてログインしますが、スーパーバイザーと管理者の両方のロールにはログインしません。 今度は、"スーパーバイザーまたは管理者ロールのメンバーではありません" というメッセージが表示されます。 そのため、ユーザー情報を編集または削除することはできません。 "
 
-次に、管理者ロールのメンバーであるユーザーとしてログインします。 今度はスーパーバイザー ロール固有はずのメッセージ (図 9 参照)。 (図 10 参照) メッセージのことがわかります管理者役割に固有のロールの管理者のユーザーとしてログインする場合。
+次に、スーパーバイザーロールのメンバーであるユーザーとしてログインします。 この時点で、スーパーバイザーのロール固有のメッセージが表示されます (図9を参照)。 また、管理者ロールのユーザーとしてログインすると、管理者ロール固有のメッセージが表示されます (図10を参照)。
 
-[![Bruce は、スーパーバイザー ロール固有のメッセージが表示されます。](role-based-authorization-vb/_static/image26.png)](role-based-authorization-vb/_static/image25.png)
+[![は、スーパーバイザーロール固有のメッセージが表示されます。](role-based-authorization-vb/_static/image26.png)](role-based-authorization-vb/_static/image25.png)
 
-**図 9**:Bruce スーパーバイザー ロール固有のメッセージが表示されます ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image27.png))。
+**図 9**: スーパーバイザーのロール固有のメッセージが表示される ([クリックしてフルサイズの画像を表示する](role-based-authorization-vb/_static/image27.png))
 
-[![Tito は、管理者役割に固有のメッセージが表示されます。](role-based-authorization-vb/_static/image29.png)](role-based-authorization-vb/_static/image28.png)
+[![Tito には、管理者の役割固有のメッセージが表示されます。](role-based-authorization-vb/_static/image29.png)](role-based-authorization-vb/_static/image28.png)
 
-**図 10**:Tito 管理者役割に固有のメッセージが表示されます ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image30.png))。
+**図 10**: 管理者ロール固有のメッセージが表示されます ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image30.png)されます)
 
-図 9 のスクリーン ショットは、10 個表示として、LoginView では、複数のテンプレートが適用される場合でも、1 つのテンプレートがのみレンダリングします。 ユーザーは Bruce と Tito 両方記録はまだ、LoginView が一致する RoleGroup のみを表示および not、`LoggedInTemplate`します。 さらに、管理者と管理者の両方のロールに属している Tito まだ LoginView コントロール レンダリング スーパーバイザーではなく管理者役割に固有のテンプレート 1 つ。
+図9と10のスクリーンショットでは、複数のテンプレートが適用されている場合でも、LoginView は1つのテンプレートのみをレンダリングします。 LoginView は両方ともユーザーにログインしていますが、では `LoggedInTemplate`なく、一致する RoleGroup のみがレンダリングされます。 さらに、Tito は Administrators ロールと監修者ロールの両方に属していますが、LoginView コントロールは、スーパーバイザーではなく、管理者ロール固有のテンプレートを表示します。
 
-図 11 は、LoginView コントロールをレンダリングするには、どのようなテンプレートを決定するために使用するワークフローを示しています。 1 つ以上の RoleGroup が指定された場合に、LoginView テンプレートがレンダリングことに注意してください、*最初*RoleGroup と一致します。 つまり、最初の RoleGroup としてスーパーバイザー RoleGroup と 2 つ目として管理者を配置しましたが場合、Tito このページを表示するときに彼はメッセージが表示されます、監督者。
+図11は、レンダリングするテンプレートを決定するために LoginView コントロールによって使用されるワークフローを示しています。 複数の RoleGroup が指定されている場合、LoginView テンプレートは、に一致する*最初*の rolegroup をレンダリングします。 つまり、スーパーバイザー RoleGroup を最初の RoleGroup として、管理者を2番目のロールグループとして配置した場合、このページにアクセスすると、スーパーバイザーメッセージが表示されます。
 
-[![表示するには、どのようなテンプレートを決定するため、LoginView コントロールのワークフロー](role-based-authorization-vb/_static/image32.png)](role-based-authorization-vb/_static/image31.png)
+[表示するテンプレートを決定するための LoginView コントロールのワークフローの ![](role-based-authorization-vb/_static/image32.png)](role-based-authorization-vb/_static/image31.png)
 
-**図 11**:LoginView コントロールのワークフローを決定するものにするテンプレートのレンダリング ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image33.png))。
+**図 11**: レンダリングするテンプレートを決定するための LoginView コントロールのワークフロー ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image33.png)されます)
 
-### <a name="programmatically-limiting-functionality"></a>プログラムで機能を制限します。
+### <a name="programmatically-limiting-functionality"></a>プログラムによる機能制限
 
-LoginView コントロールでは、ページにアクセスするユーザーの役割に基づくさまざまな手順が表示されます、編集のキャンセル ボタンはすべてに表示されたままです。 プログラムで匿名の訪問者の監督者でも、管理者ロールのユーザーに、編集、削除ボタンを非表示にする必要があります。 すべての管理者ではないユーザーの削除 ボタンを非表示にする必要があります。 これを実現するために少し [commandfield] の編集と削除の Linkbutton とセットをプログラムで参照するコードの記述は、`Visible`プロパティ`False`のために必要な場合は、します。
+LoginView コントロールでは、ページにアクセスしているユーザーのロールに基づいてさまざまな命令が表示されますが、[編集] ボタンと [キャンセル] ボタンはすべて表示されます。 管理者ロールと管理者ロールのいずれにも属していない匿名の訪問者とユーザーの編集ボタンと削除ボタンは、プログラムによって非表示にする必要があります。 管理者ではないすべてのユーザーに対して、[削除] ボタンを非表示にする必要があります。 これを実現するために、コードを記述して、CommandField の [編集] および [削除] リンクボタンをプログラムで参照し、必要に応じて `Visible` プロパティを `False`に設定します。
 
-[Commandfield] コントロールをプログラムで参照する最も簡単な方法では、まず、テンプレートに変換します。 これを行うには、GridView のスマート タグから「列の編集」リンクをクリックして、「このフィールドを TemplateField に変換」リンクをクリックして、現在のフィールドの一覧から、[commandfield] を選択します。 TemplateField に、[commandfield] になります、`ItemTemplate`と`EditItemTemplate`します。 `ItemTemplate`編集と削除の Linkbutton 中に含まれています、 `EditItemTemplate` Linkbutton のキャンセルと更新プログラムを格納します。
+CommandField 内のコントロールをプログラムで参照する最も簡単な方法は、最初に、テンプレートをテンプレートに変換することです。 これを実現するには、GridView のスマートタグから [列の編集] リンクをクリックし、現在のフィールドの一覧から CommandField を選択して、[このフィールドを TemplateField に変換する] リンクをクリックします。 これにより、`ItemTemplate` と `EditItemTemplate`を持つ TemplateField に CommandField が変換されます。 `ItemTemplate` には、[更新] ボタンと [キャンセル] ボタンが格納されて `EditItemTemplate` いるときに、[編集] および [削除] リンクボタンが含まれています。
 
-[![[Commandfield] を TemplateField に変換します。](role-based-authorization-vb/_static/image35.png)](role-based-authorization-vb/_static/image34.png)
+[CommandField を TemplateField に変換 ![には](role-based-authorization-vb/_static/image35.png)](role-based-authorization-vb/_static/image34.png)
 
-**図 12**:変換を TemplateField に [commandfield] ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image36.png))。
+**図 12**: Commandfield を TemplateField に変換する ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image36.png)されます)
 
-編集および削除の Linkbutton で更新、`ItemTemplate`で、設定、`ID`プロパティの値を`EditButton`と`DeleteButton`、それぞれします。
+`ItemTemplate`の [編集] および [削除] リンクボタンを更新し、それぞれの `ID` プロパティを `EditButton` と `DeleteButton`の値にそれぞれ設定します。
 
 [!code-aspx[Main](role-based-authorization-vb/samples/sample11.aspx)]
 
-GridView 列挙内のレコードでデータが GridView にバインドされるたびにその`DataSource`プロパティし、対応する生成`GridViewRow`オブジェクト。 各`GridViewRow`オブジェクトが作成される、`RowCreated`イベントが発生します。 承認されていないユーザーの編集、削除ボタンを非表示にするためにこのイベントのイベント ハンドラーを作成し、編集と削除のある、設定をプログラムで参照する必要があります。 その`Visible`プロパティに応じて。
+GridView にデータがバインドされるたびに、GridView は `DataSource` プロパティ内のレコードを列挙し、対応する `GridViewRow` オブジェクトを生成します。 `GridViewRow` オブジェクトが作成されるたびに、`RowCreated` イベントが発生します。 承認されていないユーザーの [編集] ボタンと [削除] ボタンを非表示にするには、このイベントのイベントハンドラーを作成し、プログラムを使用して [リンクの編集と削除] ボタンを参照し、`Visible` プロパティを適宜設定する必要があります。
 
-イベント ハンドラーを作成、`RowCreated`イベントと、次のコードを追加します。
+`RowCreated` イベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](role-based-authorization-vb/samples/sample12.vb)]
 
-注意、`RowCreated`イベントの発生*すべて*ヘッダー、フッター、ページのインターフェイスおよびなどを含め、GridView の行のできます。 のみを扱っている編集モードではなくデータ行 (編集モードでの行に編集および削除の代わりに更新し、[キャンセル] ボタンがあるため) 場合に、編集および削除の Linkbutton をプログラムで参照します。 このチェックはによって処理される、`If`ステートメント。
+`RowCreated` イベントは、ヘッダー、フッター、ページャーインターフェイスなど、*すべて*の GridView 行に対して発生することに注意してください。 編集モードではないデータ行を処理している場合は、編集および削除のリンクボタンをプログラムで参照するだけです (編集モードの行には、編集と削除の代わりに [更新] ボタンと [キャンセル] ボタンがあるため)。 このチェックは、`If` ステートメントによって処理されます。
 
-編集および削除の Linkbutton が参照されている場合は編集モードではないデータ行を扱っているとその`Visible`によって返されるブール値に基づいてプロパティが設定、`User`オブジェクトの`IsInRole(roleName)`メソッド。 `User`オブジェクトが参照によって作成されたプリンシパル、 `RoleManagerModule`。 結局のところ、、`IsInRole(roleName)`メソッドに、現在のユーザーが属しているかどうかを決定するロール API を使用して*roleName*します。
-
-> [!NOTE]
-> 使用ロール クラスを直接呼び出しを置き換える`User.IsInRole(roleName)`を呼び出して、 [ `Roles.IsUserInRole(roleName)`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx)します。 プリンシパルのオブジェクトを使用することにしました`IsInRole(roleName)`メソッドをこの例ではロール API を直接使用するよりも効率的であります。 このチュートリアルの前半では、cookie にユーザーのロールをキャッシュするロール マネージャーを構成します。 これは、cookie のデータがキャッシュされたときにのみ使用されますが、プリンシパルの`IsInRole(roleName)`メソッドが呼び出されます。 ロール API への直接呼び出しは、ロール ストアへのトリップを常に関連します。 ロールがクッキーにキャッシュがいない場合でも、プリンシパル オブジェクトを呼び出す`IsInRole(roleName)`メソッドは、結果をキャッシュして要求時に初めてのときに呼び出されるため方が効率的です。 その一方で、ロール API は、任意のキャッシュとは行いません。 `RowCreated`イベントは、GridView では、すべての行に対して 1 回発生を使用して`User.IsInRole(roleName)`一方では、ロール ストアへの 1 つだけの乗車`Roles.IsUserInRole(roleName)`が必要です*N*の乗車場所*N*はグリッドに表示されるユーザー アカウントの数。
-
-[編集] ボタンの`Visible`プロパティに設定されて`True`場合は、管理者または管理者ロールにこのページにアクセスするユーザーがそれ以外の場合に設定されて`False`します。 削除ボタンの`Visible`プロパティに設定されて`True`ユーザーが管理者ロールの場合のみです。
-
-ブラウザーからこのページをテストします。 匿名の訪問者、または、監督者でも、管理者であるユーザーとして、ページにアクセスする場合、[commandfield] は空です。まだが存在するが、編集、または削除することがなくシン シルバーとしてボタンします。
+編集モードになっていないデータ行を処理している場合は、[編集] および [削除] LinkButtons が参照され、`User` オブジェクトの `IsInRole(roleName)` メソッドによって返されるブール値に基づいて `Visible` プロパティが設定されます。 `User` オブジェクトは、`RoleManagerModule`によって作成されたプリンシパルを参照します。その結果、`IsInRole(roleName)` メソッドは Roles API を使用して、現在のビジターが*roleName*に属しているかどうかを判断します。
 
 > [!NOTE]
-> [Commandfield] を非表示にすることはまったくと非監督者と管理者以外がページにアクセスします。 ままを演習として、リーダーの。
+> Roles クラスを直接使用して、`User.IsInRole(roleName)` への呼び出しを[`Roles.IsUserInRole(roleName)` メソッド](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx)の呼び出しに置き換えることもできました。 ここでは、Roles API を直接使用するよりも効率的であるため、この例では principal オブジェクトの `IsInRole(roleName)` メソッドを使用することにしました。 このチュートリアルの前半では、ユーザーのロールを cookie にキャッシュするようにロールマネージャーを構成しました。 このキャッシュされた cookie データは、プリンシパルの `IsInRole(roleName)` メソッドが呼び出された場合にのみ使用されます。Roles API を直接呼び出すには、常にロールストアへのトリップが伴います。 ロールが cookie にキャッシュされていない場合でも、通常、プリンシパルオブジェクトの `IsInRole(roleName)` メソッドを呼び出すと、要求中に最初に呼び出されたときに結果がキャッシュされるため、通常より効率的になります。 一方、ロール API はキャッシュを実行しません。 `RowCreated` イベントは GridView 内のすべての行に対して1回発生するため、`User.IsInRole(roleName)` を使用すると、ロールストアへのトリップが1回だけ行われます。一方、`Roles.IsUserInRole(roleName)` には*n*回のトリップが必要です。ここで、 *n*はグリッドに表示されるユーザーアカウントの数です。
 
-[![非管理者と管理者以外のユーザーの編集と削除ボタンを非表示します。](role-based-authorization-vb/_static/image38.png)](role-based-authorization-vb/_static/image37.png)
+[編集] ボタンの `Visible` プロパティは、このページにアクセスするユーザーが管理者またはスーパーバイザーロールにある場合は `True` に設定されます。それ以外の場合は、`False`に設定されます。 [削除] ボタンの `Visible` プロパティは、ユーザーが管理者ロールにある場合にのみ `True` に設定されます。
 
-**図 13**:非管理者と管理者以外のユーザーの編集と削除ボタンを非表示 ([フルサイズの画像を表示するをクリックします](role-based-authorization-vb/_static/image39.png))。
+ブラウザーを使用してこのページをテストします。 匿名ビジターまたはスーパーバイザーでも管理者でもないユーザーとしてページを閲覧すると、CommandField は空になります。これはまだ存在していますが、[編集] または [削除] ボタンのない細いスリーバーです。
 
-管理者ロールに (ただし、管理者ロールにありません) に属しているユーザーはアクセスすると、彼と編集 ボタンが表示されます。
+> [!NOTE]
+> 監修者以外の管理者がページにアクセスしているときに、CommandField を完全に非表示にすることができます。 この作業をリーダーの演習として残しておきます。
 
-[![[削除] ボタンが非表示の編集ボタンはスーパーバイザーに使用可能が、](role-based-authorization-vb/_static/image41.png)](role-based-authorization-vb/_static/image40.png)
+[[編集] ボタンと [削除] ボタンが非スーパーバイザーと非管理者に対して非表示に ![](role-based-authorization-vb/_static/image38.png)](role-based-authorization-vb/_static/image37.png)
 
-**図 14**:[削除] ボタンが非表示の編集ボタンは、スーパーバイザーに使用可能、([フルサイズの画像を表示するをクリックします](role-based-authorization-vb/_static/image42.png))。
+**図 13**: [編集] ボタンと [削除] ボタンが非スーパーバイザーと非管理者に対して非表示になる ([クリックしてフルサイズの画像を表示する](role-based-authorization-vb/_static/image39.png))
 
-管理者アクセスすると、編集、削除の各ボタンにアクセスしています。
+スーパーバイザーロールに属していても管理者ロールに属していないユーザーがアクセスした場合、[編集] ボタンのみが表示されます。
 
-[![編集および削除ボタンは使用可能な管理者向け](role-based-authorization-vb/_static/image44.png)](role-based-authorization-vb/_static/image43.png)
+[![スーパーバイザーで [編集] ボタンが使用可能な場合、[削除] ボタンは非表示になります。](role-based-authorization-vb/_static/image41.png)](role-based-authorization-vb/_static/image40.png)
 
-**図 15**:編集および削除ボタンは使用可能な管理者 ([フルサイズの画像を表示するをクリックします](role-based-authorization-vb/_static/image45.png))。
+**図 14**: スーパーバイザーで [編集] ボタンを使用できても、[削除] ボタンは非表示になります ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image42.png)されます)
 
-## <a name="step-3-applying-role-based-authorization-rules-to-classes-and-methods"></a>手順 3: ロール ベースの承認規則クラスとメソッドを適用します。
+また、管理者がアクセスした場合は、[編集] ボタンと [削除] ボタンの両方にアクセスできます。
 
-限定して手順 2. で監督者および管理者の役割のユーザーに機能を編集し、削除の管理者にのみ機能します。 これは、プログラムによる方法で承認されていないユーザーに関連付けられているユーザー インターフェイス要素を非表示にしていました。 このようなメジャーでは、未認証のユーザーが特権操作を実行することはするが保証されません。 後で追加されるユーザー インターフェイス要素または承認されていないユーザーの非表示に忘れての可能性があります。 または、ハッカーが他の必要なメソッドを実行する ASP.NET ページを取得する方法を検出可能性があります。
+[[編集] ボタンと [削除] ボタンは、管理者に対してのみ使用でき ![](role-based-authorization-vb/_static/image44.png)](role-based-authorization-vb/_static/image43.png)
 
-機能の特定の部分を未認証のユーザーがアクセスできないことを確認する簡単な方法は、そのクラスまたはメソッドを修飾するため、 [ `PrincipalPermission`属性](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx)します。 .NET ランタイム クラスを使用してまたはそのメソッドの 1 つ実行と、現在のセキュリティ コンテキストが権限を持っていることを確認するを確認します。 `PrincipalPermission`属性は、これらの規則を定義できますメカニズムを提供します。
+**図 15**: [編集] ボタンと [削除] ボタンは、管理者に対してのみ使用できます ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image45.png)されます)
 
-使用したところ、`PrincipalPermission`属性に戻り、 <a id="_msoanchor_9"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアル。 具体的には、GridView のための方法を説明しました`SelectedIndexChanged`と`RowDeleting`イベント ハンドラーがでしたのみ実行できるようにして認証されたユーザーと Tito、それぞれします。 `PrincipalPermission`の役割を持つ属性がうまく機能します。
+## <a name="step-3-applying-role-based-authorization-rules-to-classes-and-methods"></a>手順 3: クラスおよびメソッドへのロールベースの承認規則の適用
 
-使用する例を見てみましょう、 `PrincipalPermission` GridView の属性`RowUpdating`と`RowDeleting`承認されていないユーザーの実行を禁止するためのイベント ハンドラー。 実行する必要がありますすべては、各関数の定義上、適切な属性を追加します。
+手順 2. では、スーパーバイザーおよび管理者ロールのユーザーに編集機能を制限し、管理者のみに機能を削除します。 これは、承認されていないユーザーに関連付けられたユーザーインターフェイス要素をプログラムによって隠すことで実現されました。 このようなメジャーは、許可されていないユーザーが特権アクションを実行できないことを保証しません。 後で追加されたユーザーインターフェイス要素や、承認されていないユーザーに対して非表示にし忘れたユーザーインターフェイス要素がある可能性があります。 または、ASP.NET ページを取得して目的のメソッドを実行する他の方法をハッカーが発見することがあります。
+
+権限のないユーザーが特定の機能にアクセスできないようにする簡単な方法は、そのクラスまたはメソッドを[`PrincipalPermission` 属性](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx)で修飾することです。 .NET ランタイムでクラスを使用するか、またはメソッドのいずれかを実行すると、現在のセキュリティコンテキストにアクセス許可があるかどうかがチェックされます。 `PrincipalPermission` 属性は、これらの規則を定義できるメカニズムを提供します。
+
+ここでは、 <a id="_msoanchor_9"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)チュートリアルで `PrincipalPermission` 属性を使用する方法について説明しました。 具体的には、GridView の `SelectedIndexChanged` と `RowDeleting` イベントハンドラーを、それぞれ authenticated users および Tito によってのみ実行できるように装飾する方法を説明しました。 `PrincipalPermission` 属性は、ロールと同様に機能します。
+
+GridView の `RowUpdating` および `RowDeleting` イベントハンドラーの `PrincipalPermission` 属性を使用して、承認されていないユーザーの実行を禁止する方法を説明します。 それぞれの関数定義の上に適切な属性を追加するだけで十分です。
 
 [!code-vb[Main](role-based-authorization-vb/samples/sample13.vb)]
 
-属性、`RowUpdating`イベント ハンドラーを指定、管理者または管理者ロールのユーザーのみがで属性の場所として、イベント ハンドラーを実行できる、`RowDeleting`イベント ハンドラーは、管理者のユーザーに実行を制限ロールです。
+`RowUpdating` イベントハンドラーの属性は、管理者ロールまたはスーパーバイザーロールのユーザーのみがイベントハンドラーを実行できることを指定します。この場合、`RowDeleting` イベントハンドラーの属性は、管理者ロールのユーザーに対して実行を制限します。
 
 > [!NOTE]
-> `PrincipalPermission`内のクラスとして表される属性、`System.Security.Permissions`名前空間。 追加してください、`Imports System.Security.Permissions`ステートメントをこの名前空間をインポートする、分離コード クラス ファイルの先頭にします。
+> `PrincipalPermission` 属性は、`System.Security.Permissions` 名前空間のクラスとして表されます。 この名前空間をインポートするには、分離コードクラスファイルの先頭に `Imports System.Security.Permissions` ステートメントを追加してください。
 
-かどうか、何らかの方法で、管理者以外を実行しようと、`RowDeleting`イベント ハンドラーを実行する試行を非監督者または管理者以外の場合、または、 `RowUpdating` .NET ランタイムで発生するイベント ハンドラー、`SecurityException`します。
+管理者以外の担当者が `RowDeleting` イベントハンドラーを実行しようとした場合、または管理者以外の管理者が `RowUpdating` イベントハンドラーを実行しようとした場合、.NET ランタイムは `SecurityException`を発生させます。
 
-[![セキュリティ コンテキストがメソッドを実行する権限がない場合、SecurityException がスローされます。](role-based-authorization-vb/_static/image47.png)](role-based-authorization-vb/_static/image46.png)
+[![、セキュリティコンテキストにメソッドの実行が許可されていない場合は、SecurityException がスローされます。](role-based-authorization-vb/_static/image47.png)](role-based-authorization-vb/_static/image46.png)
 
-**図 16**:セキュリティ コンテキストが、メソッドを実行する権限がない場合、`SecurityException`がスローされます ([フルサイズの画像を表示するをクリックします](role-based-authorization-vb/_static/image48.png))。
+**図 16**: セキュリティコンテキストにメソッドの実行が許可されていない場合は、`SecurityException` がスローされます ([クリックすると、フルサイズの画像が表示](role-based-authorization-vb/_static/image48.png)されます)
 
-多くのアプリケーションは、ASP.NET ページだけでなく、ビジネス ロジックとデータ アクセス レイヤーなど、さまざまな層を含むアーキテクチャもあります。 これらの層は、クラス ライブラリとして実装され、クラスとビジネス ロジックとデータに関連する機能を実行するためのメソッドを提供します。 `PrincipalPermission`属性はこれらの層もに承認規則を適用するために便利です。
+ASP.NET ページに加えて、多くのアプリケーションには、ビジネスロジックやデータアクセス層などのさまざまなレイヤーを含むアーキテクチャもあります。 これらのレイヤーは、通常、クラスライブラリとして実装され、ビジネスロジックおよびデータに関連する機能を実行するためのクラスとメソッドを提供します。 `PrincipalPermission` 属性は、これらのレイヤーに承認規則を適用する場合にも役立ちます。
 
-使用する方法について、`PrincipalPermission`属性をクラスやメソッドで承認規則を定義しを参照してください[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ[ビジネス レイヤーを使用してデータして承認規則を追加します`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)。
+`PrincipalPermission` 属性を使用してクラスとメソッドの承認規則を定義する方法の詳細については、 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ記事「 [`PrincipalPermissionAttributes`を使用したビジネス層およびデータ層への承認規則の追加](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)」を参照してください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、粗いを指定する方法を説明しましたし、ユーザーのロールに基づいて細かく承認規則。 ASP します。NET の URL 承認の機能は、どの id を許可または拒否できるページへのアクセスを指定するページの開発者を使用できます。 説明したように、 <a id="_msoanchor_10"> </a> [*ユーザー ベースの承認*](../membership/user-based-authorization-vb.md)チュートリアル, の URL 承認規則は、ユーザーによってごとに適用できます。 これらも適用できますロール-ロール別に、このチュートリアルの手順 1. で説明したようにします。
+このチュートリアルでは、ユーザーのロールに基づいて粒度の粗い粒度の承認規則を指定する方法について説明しました。 ASP.NET の URL 承認機能を使用すると、ページの開発者は、ページへのアクセスを許可または拒否する id を指定できます。 <a id="_msoanchor_10"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)のチュートリアルで説明したように、URL 承認規則はユーザーごとに適用できます。 また、このチュートリアルの手順1で見たように、ロールごとにロールを適用することもできます。
 
-宣言またはプログラムによって、細かく承認規則を適用できます。 手順 2 でアクセスしたユーザーの役割に基づく別の出力を表示するために、LoginView コントロールの Rolegroup 機能を使用しました。 プログラムによって、ユーザーがページの機能を適宜調整する方法と、特定のロールに属しているかを判断する方法についても説明しました。
+粒度の細かい承認規則は、宣言によって、またはプログラムによって適用できます。 手順 2. では、LoginView コントロールの RoleGroups 機能を使用して、訪問しているユーザーのロールに基づいて異なる出力を表示する方法を見てきました。 また、ユーザーが特定のロールに属しているかどうかをプログラムで判断する方法と、それに応じてページの機能を調整する方法についても説明しました。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ビジネス層とを使用してデータ層への承認規則の追加 `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
-- [ASP.NET 2.0 の検査のメンバーシップ、ロール、およびプロファイル。ロールの操作](http://aspnet.4guysfromrolla.com/articles/121405-1.aspx)
-- [ASP.NET 2.0 のセキュリティの質問の一覧](https://msdn.microsoft.com/library/ms998375.aspx)
-- [技術ドキュメント、`<roleManager>`要素](https://msdn.microsoft.com/library/ms164660.aspx)
+- [`PrincipalPermissionAttributes` を使用したビジネス層およびデータ層への承認規則の追加](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [ASP.NET 2.0 のメンバーシップ、ロール、およびプロファイルの検証: ロールの操作](http://aspnet.4guysfromrolla.com/articles/121405-1.aspx)
+- [ASP.NET 2.0 のセキュリティの質問リスト](https://msdn.microsoft.com/library/ms998375.aspx)
+- [`<roleManager>` 要素の技術ドキュメント](https://msdn.microsoft.com/library/ms164660.aspx)
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取ります書籍の著者と、4GuysFromRolla.com の創設者では、1998 年から、Microsoft Web テクノロジに取り組んできました。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は *[Sams 教える自分で ASP.NET 2.0 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* します。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別に感謝しています.
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者には、Suchi 著 Teresa Murphy がなどがあります。 今後、MSDN の記事を確認したいですか。 場合は、筆者に [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者には、Suchi Teresa Erjee と Murphy が含まれています。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](assigning-roles-to-users-vb.md)

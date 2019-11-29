@@ -1,448 +1,448 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server - 10/12 への移行 |Microsoft Docs
+title: 'Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server 12 | への移行Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: この一連のチュートリアルでは、Visual Stu... を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: cc4db5b1fcedca675a18f1b78e28f65e51b6cf09
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c5281a42596d95e725b32e652c75785abe0fd64e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132752"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74640563"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。SQL Server - 10/12 への移行
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server 12 の10への移行
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[スタートプロジェクトのダウンロード](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルでは、Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。 Web 発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、SQL Server Compact から SQL Server に移行する方法を示します。 そう理由の 1 つは、SQL Server Compact をサポートしていないストアド プロシージャ、トリガー、ビュー、またはレプリケーションなどの SQL Server 機能の活用することです。 SQL Server Compact および SQL Server 間の違いの詳細については、次を参照してください。、[を展開する SQL Server Compact](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)チュートリアル。
+このチュートリアルでは、SQL Server Compact から SQL Server に移行する方法について説明します。 そのためには、ストアドプロシージャ、トリガー、ビュー、レプリケーションなど、SQL Server Compact でサポートされていない SQL Server 機能を利用することが必要になることがあります。 SQL Server Compact と SQL Server の違いの詳細については、 [SQL Server Compact のデプロイ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)に関するチュートリアルを参照してください。
 
-### <a name="sql-server-express-versus-full-sql-server-for-development"></a>開発用の完全な SQL Server と SQL Server Express
+### <a name="sql-server-express-versus-full-sql-server-for-development"></a>SQL Server Express と完全な SQL Server 開発
 
-SQL Server にアップグレードする決めたら、開発およびテスト環境内で SQL Server または SQL Server Express を使用する可能性があります。 データベース エンジンの機能とツールのサポートでの違い、SQL Server Compact とその他のバージョンの SQL Server プロバイダーの実装で違いがあります。 これらの違いには、同じコードを異なる結果を生成する可能性があります。 そのため、SQL Server Compact、開発用データベースとして保持する場合は、必ず十分なテストは、サイトで SQL Server または SQL Server Express を運用環境には、各デプロイの前に、テスト環境でします。
+SQL Server にアップグレードする場合は、開発環境とテスト環境で SQL Server または SQL Server Express を使用することをお勧めします。 ツールのサポートとデータベースエンジンの機能の違いに加えて、SQL Server Compact とその他のバージョンの SQL Server 間のプロバイダー実装には違いがあります。 これらの違いにより、同じコードによって異なる結果が生成される可能性があります。 そのため、SQL Server Compact を開発データベースとして保持する場合は、運用環境に配置する前に、SQL Server また SQL Server Express はテスト環境でサイトを十分にテストする必要があります。
 
-異なり、SQL Server Compact は SQL Server Express を同じデータベース エンジンでは基本的には、および完全な SQL Server と同じ .NET プロバイダーを使用します。 SQL Server Express を使ってテストするときに、SQL Server では、同じ結果を取得することを確信できます。 SQL Server express と SQL Server に使用できるほとんどのデータベースと同じツールを使用することができます (注目すべき例外される[SQL Server Profiler](https://msdn.microsoft.com/library/ms181091.aspx))、SQL Server のストアド プロシージャ、ビュー、トリガーなどの他の機能をサポートしていますおよびレプリケーション。 (通常、ただし、運用環境の web サイトで完全な SQL Server を使用する必要があります。 SQL Server Express は、共有ホスティング環境で実行できますが、向けに設計されていないと多くのホスティング プロバイダーはサポートされません。)
+SQL Server Compact とは異なり、SQL Server Express は基本的には同じデータベースエンジンであり、完全 SQL Server と同じ .NET プロバイダーを使用します。 SQL Server Express でテストする場合は、SQL Server と同じ結果を得ることができます。 SQL Server で使用できるのと同じデータベースツールの大部分 ( [SQL Server プロファイラー](https://msdn.microsoft.com/library/ms181091.aspx)されている重要な例外) を使用して、ストアドプロシージャ、ビュー、トリガー、レプリケーションなどの SQL Server の他の機能をサポート SQL Server Express ことができます。 (通常は、運用 web サイトで完全 SQL Server を使用する必要があります。 SQL Server Express は共有ホスティング環境で実行できますが、そのように設計されていないため、多くのホスティングプロバイダーではサポートされていません)。
 
-Visual Studio 2012 を使用している場合は、通常、開発環境の SQL Server Express LocalDB を選択する Visual Studio では既定でインストールされている内容であるためです。 ただし、LocalDB では機能しません、IIS、テスト環境は、SQL Server または SQL Server Express のいずれかを使用する必要があるためです。
+Visual Studio 2012 を使用している場合、通常は Visual Studio と共にインストールされるため、開発環境には SQL Server Express LocalDB を選択します。 ただし、LocalDB は IIS では機能しないため、テスト環境では SQL Server または SQL Server Express のいずれかを使用する必要があります。
 
-### <a name="combining-databases-versus-keeping-them-separate"></a>データベースを個別に維持すると結合
+### <a name="combining-databases-versus-keeping-them-separate"></a>データベースの結合と分離
 
-Contoso University アプリケーションが 2 つの SQL Server Compact データベース: メンバーシップ データベース (*aspnet.sdf*) とアプリケーション データベース (*School.sdf*)。 移行する場合、2 つの異なるデータベースまたは単一のデータベースにこれらのデータベースを移行できます。 アプリケーションのデータベースと、メンバーシップ データベース間のデータベースの結合を容易にするため、それらを結合する可能性があります。 ホスティング プランには、それらを結合するための提供も可能性があります。 など、ホスティング プロバイダーは、複数のデータベースの詳細は課金可能性があります。 または 1 つ以上のデータベースをも許可しない場合があります。 Cytanium Lite でこのチュートリアルでは、により、SQL Server データベースの 1 つでのみ使用されるアカウントをホストしている場合です。
+Contoso 大学アプリケーションには、メンバーシップデータベース (*aspnet*) とアプリケーションデータベース (*School*) という2つの SQL Server Compact データベースがあります。 移行時に、これらのデータベースを2つの異なるデータベースまたは1つのデータベースに移行できます。 アプリケーションデータベースとメンバーシップデータベースの間のデータベースの結合を容易にするために、これらを組み合わせて使用することもできます。 ホスティングプランでは、それらを組み合わせる理由が提供される場合もあります。 たとえば、ホスティングプロバイダーは複数のデータベースに対してより多くの料金を請求する場合や、複数のデータベースを許可しない場合があります。 このチュートリアルで使用されている Cytanium Lite ホスティングアカウントの場合は、1つの SQL Server データベースのみが許可されます。
 
-このチュートリアルでこのように、2 つのデータベースを移行します。
+このチュートリアルでは、次のように2つのデータベースを移行します。
 
-- 開発環境で 2 つの LocalDB データベースに移行します。
-- テスト環境で 2 つの SQL Server Express データベースに移行します。
-- 1 つ結合された完全な SQL Server データベースの運用環境に移行します。
+- 開発環境で2つの LocalDB データベースに移行します。
+- テスト環境で2つの SQL Server Express データベースに移行します。
+- 運用環境で完全に結合された1つの SQL Server データベースに移行します。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)を確認してください。
 
-## <a name="installing-sql-server-express"></a>SQL Server Express をインストールします。
+## <a name="installing-sql-server-express"></a>SQL Server Express のインストール
 
-既定では、Visual Studio 2010 が自動的にインストールされている SQL Server Express しますが、既定でインストールされていない Visual Studio 2012 を使用します。 SQL Server 2012 Express をインストールするには、次のリンクをクリックします。
+既定では、Visual Studio 2010 には SQL Server Express が自動的にインストールされますが、既定では Visual Studio 2012 と共にインストールされません。 SQL Server 2012 Express をインストールするには、次のリンクをクリックしてください。
 
 - [SQL Server Express 2012](https://www.microsoft.com/download/details.aspx?id=29062)
 
-選択*日本語/x64/SQLEXPR\_x64\_ENU.exe*または*日本語/x86/SQLEXPR\_x86\_ENU.exe*、し、インストール ウィザードで、既定を受け入れます設定。 インストール オプションの詳細については、次を参照してください。[インストール ウィザード (セットアップ) から SQL Server 2012 のインストール](https://msdn.microsoft.com/library/ms143219.aspx)します。
+*Enu/x64/sqlexpr\_x64\_enu*または*enu/X86/sqlexpr\_x86\_enu*を選択し、インストールウィザードで既定の設定をそのまま使用します。 インストールオプションの詳細については、「インストール[ウィザードから SQL Server 2012 をインストールする (セットアップ)](https://msdn.microsoft.com/library/ms143219.aspx)」を参照してください。
 
-## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>テスト環境用の SQL Server Express データベースを作成します。
+## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>テスト環境用の SQL Server Express データベースの作成
 
-次の手順では、ASP.NET メンバーシップと School データベースを作成します。
+次の手順では、ASP.NET membership データベースと School データベースを作成します。
 
-**ビュー**メニューの **サーバー エクスプ ローラー** (**データベース エクスプ ローラー** Visual Web Developer で)、右クリックし、**データ接続**選択**新しい SQL Server データベースの作成**です。
+**表示** メニューの **サーバーエクスプローラー** (Visual Web Developer では**データベースエクスプローラー** ) を選択し、**データ接続** を右クリックして、**新しい SQL Server データベースの作成** を選択します。
 
 ![Selecting_Create_New_SQL_Server_Database](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image1.png)
 
-**新しい SQL Server データベースの作成** ダイアログ ボックスに、入力". \SQLExpress"で、**サーバー名**ボックスと"aspnet Test"で、**新しいデータベース名** をクリックし、**OK**します。
+**[新しい SQL Server データベースの作成]** ダイアログボックスの **[サーバー名]** ボックスに「.\SQLExpress」と入力し、 **[新しいデータベース名]** ボックスに「aspnet-Test」と入力して、[ **OK]** をクリックします。
 
 ![Create_New_SQL_Server_Database_aspnet](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image2.png)
 
-"学校 Test"という名前の新しい SQL Server Express の School データベースを作成する同じ手順に従います。
+同じ手順に従って、"School-Test" という名前の新しい SQL Server Express School データベースを作成します。
 
-(追加する"Test"これらのデータベース名を後で開発環境では、各データベースの追加のインスタンスを作成し、データベースの 2 つのセットを区別するためにできるようにする必要があるためです。)
+(後で開発環境用に各データベースの追加インスタンスを作成し、2つのデータベースセットを区別できるようにする必要があるため、これらのデータベース名に "Test" を追加しています)。
 
-**サーバー エクスプ ローラー** 2 つの新しいデータベースが表示されます。
+**サーバーエクスプローラー**に、2つの新しいデータベースが表示されるようになりました。
 
 ![New_databases_in_Server_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image3.png)
 
-## <a name="creating-a-grant-script-for-the-new-databases"></a>新しいデータベースの許可スクリプトを作成します。
+## <a name="creating-a-grant-script-for-the-new-databases"></a>新しいデータベースに対して Grant スクリプトを作成する
 
-アプリケーションを開発用コンピューターに IIS で実行すると、アプリケーションは既定のアプリケーション プールの資格情報を使用して、データベースにアクセスします。 ただし、既定では、アプリケーション プール id は、データベースを開くアクセス許可がありません。 アクセス許可を付与するスクリプトを実行する必要がようにします。 このセクションでは、IIS での実行時に、アプリケーションが、データベースを開くことができるかどうかを確認する後で実行しますスクリプトを作成します。
+開発用コンピューターの IIS でアプリケーションを実行すると、アプリケーションは既定のアプリケーションプールの資格情報を使用してデータベースにアクセスします。 ただし、既定では、アプリケーションプール id には、データベースを開くためのアクセス許可がありません。 そのため、そのアクセス許可を付与するスクリプトを実行する必要があります。 このセクションでは、後で実行するスクリプトを作成して、アプリケーションが IIS で実行されたときにデータベースを開けるようにします。
 
-ソリューションの*SolutionFiles*で作成したフォルダー、[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアルでは、という名前の新しい SQL ファイルを作成する*Grant.sql*します。 ファイルに次の SQL コマンドをコピーおよび保存して、ファイルを閉じる。
+「[運用環境へのデプロイ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)」チュートリアルで作成したソリューションの*solutionfiles*フォルダーで、 *Grant .sql*という名前の新しい SQL ファイルを作成します。 次の SQL コマンドをファイルにコピーし、ファイルを保存して閉じます。
 
 [!code-sql[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample1.sql)]
 
 > [!NOTE]
-> このスクリプトは、このチュートリアルで指定されている SQL Server 2008 と Windows 7 で IIS 設定の動作設計されています。 または、Windows の SQL Server の別のバージョンを使用している場合、または IIS を設定するコンピューターに異なる場合は、このスクリプトへの変更が必要な場合があります。 SQL Server スクリプトの詳細については、次を参照してください。 [SQL Server オンライン ブックの「](https://go.microsoft.com/fwlink/?LinkId=132511)します。
+> このスクリプトは、このチュートリアルで指定されているように、SQL Server 2008 と Windows 7 の IIS 設定で動作するように設計されています。 異なるバージョンの SQL Server または Windows を使用している場合、またはコンピューターに IIS を別の方法でセットアップする場合は、このスクリプトへの変更が必要になることがあります。 SQL Server スクリプトの詳細については、「 [SQL Server オンラインブック](https://go.microsoft.com/fwlink/?LinkId=132511)」を参照してください。
 
 > [!NOTE] 
 > 
-> **セキュリティに関する注意**このスクリプトは、db\_、運用環境でがありますが、実行時にデータベースにアクセスするユーザーに対する所有者アクセス許可。 一部のシナリオで、展開にのみアクセス許可を更新し、実行時のデータを読み書きするのみのアクセス許可を持つ別のユーザーを指定します。 データベースの完全スキーマを持つユーザーを指定する場合があります。 詳細については、次を参照してください。 **Code First Migrations に対する自動の Web.config の変更をレビュー**で[テスト環境として IIS への配置](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)します。
+> **セキュリティ**に関する注意このスクリプトは、実行時にデータベースにアクセスするユーザーに対して、db\_所有者のアクセス許可を付与します。これは、運用環境で使用するものです。 場合によっては、完全なデータベーススキーマ更新権限を持つユーザーを配置に対してのみ指定し、実行時にデータの読み取りと書き込みのみの権限を持つユーザーを指定することが必要になる場合があります。 詳細については、「[テスト環境としての IIS への配置](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)」の「 **Code First Migrations の Web.config の自動変更を確認**する」を参照してください。
 
-## <a name="configuring-database-deployment-for-the-test-environment"></a>テスト環境用データベース デプロイの構成
+## <a name="configuring-database-deployment-for-the-test-environment"></a>テスト環境のデータベース配置の構成
 
-次に、データベースごとに、次のタスクを行うことができるように、Visual Studio を構成します。
+次に、各データベースに対して次のタスクが実行されるように Visual Studio を構成します。
 
-- 転送先データベースで、ソース データベースの構造 (テーブル、列、制約など) を作成する SQL スクリプトを生成します。
-- 転送先データベース内のテーブルにソース データベースのデータを挿入する SQL スクリプトを生成します。
-- 生成されたスクリプト、および転送先データベースで、作成した許可スクリプトを実行します。
+- コピー先データベースにソースデータベースの構造 (テーブル、列、制約など) を作成する SQL スクリプトを生成します。
+- 転送元データベースのデータをコピー先のデータベースのテーブルに挿入する SQL スクリプトを生成します。
+- 生成されたスクリプトと、作成した Grant スクリプトを対象のデータベースに実行します。
 
-開く、**プロジェクト プロパティ**ウィンドウと選択、**パッケージ化/発行 SQL**タブ。
+プロジェクトの**プロパティ**ウィンドウを開き、 **[SQL のパッケージ化/発行]** タブを選択します。
 
-確認します**アクティブ (リリース)** または**リリース**でが選択されている、**構成**ドロップダウン リスト。
+**[構成]** ドロップダウンリストで **[アクティブ (リリース)]** または **[リリース]** が選択されていることを確認します。
 
-クリックして**このページを有効にする**します。
+[**このページを有効にする] を**クリックします。
 
 ![Package_Publish_SQL_tab_Enable_This_page](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image4.png)
 
-**パッケージ化/発行 SQL**  タブが従来のデプロイ方法を指定するために通常無効になります。 ほとんどのシナリオでデータベースの配置を構成する必要があります、 **Web の発行**ウィザード。 SQL Server Compact から SQL Server または SQL Server Express への移行は、このメソッドは、適切な選択特殊なケースです。
+**[SQL のパッケージ化/発行]** タブは、従来の配置方法を指定するため、通常は無効になっています。 ほとんどのシナリオでは、 **Web の発行**ウィザードでデータベースの配置を構成する必要があります。 SQL Server Compact から SQL Server または SQL Server Express への移行は、この方法が適切な選択である特殊なケースです。
 
-クリックして**web.config ファイルからインポート**します。
+[Web.config**からのインポート] を**クリックします。
 
-![Selecting_Import_from_Web.config](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image5.png)
+![Selecting_Import_from_Web .config](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image5.png)
 
-Visual Studio での接続文字列では、 *Web.config*ファイル、メンバーシップ データベースに 1 つと、School データベースに 1 つを検索および内の各接続文字列に対応する行を追加します、**データベース エントリ**テーブル。 既存の SQL Server Compact データベースの接続文字列が見つかったがあり、次の手順は、方法と場所を構成するこれらのデータベースを展開します。
+Visual *Studio は、web.config ファイルで*接続文字列を検索し、メンバーシップデータベース用と School データベース用の接続文字列を検索し、**データベースエントリ**テーブル内の各接続文字列に対応する行を追加します。 検出された接続文字列は既存の SQL Server Compact データベース用です。次の手順では、これらのデータベースを配置する方法と場所を構成します。
 
-データベースの配置設定を入力する、**データベース エントリの詳細**以下のセクション、**データベース エントリ**テーブル。 表示される設定、**データベース エントリの詳細**セクションに関連する行の方、**データベース エントリ**テーブルが選択されている、次の図に示すようにします。
+データベースの配置設定は、データベース**エントリ**のテーブルの下にある **[データベースエントリの詳細]** セクションに入力します。 次の図に示すように、データベースエントリの **[詳細]** セクションに表示される設定は、 **[データベースエントリ]** テーブルのいずれかの行に関連します。
 
 ![Database_Entry_Details_section_of_Package_Publish_SQL_tab](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image6.png)
 
-### <a name="configuring-deployment-settings-for-the-membership-database"></a>メンバーシップ データベースの展開設定を構成します。
+### <a name="configuring-deployment-settings-for-the-membership-database"></a>メンバーシップデータベースの配置設定の構成
 
-選択、 **DefaultConnection 展開**行、**データベース エントリ**メンバーシップ データベースに適用される設定を構成するにはテーブルです。
+メンバーシップデータベースに適用される設定を構成するには、 **[データベースエントリ]** テーブルで**Defaultconnection-Deployment**行を選択します。
 
-**転送先データベースへの接続文字列**、新しい SQL Server Express のメンバーシップ データベースを指す接続文字列を入力します。 必要な接続文字列を取得できます**サーバー エクスプ ローラー**します。 **サーバー エクスプ ローラー**、展開**データ接続**を選択し、 **aspnetTest**データベースから、**プロパティ**ウィンドウのコピー、**接続文字列**値。
+**[転送先データベースの接続文字列]** に、新しい SQL Server Express メンバーシップデータベースを指す接続文字列を入力します。 **サーバーエクスプローラー**から必要な接続文字列を取得できます。 **サーバーエクスプローラー**で、 **[データ接続]** を展開し、 **aspnetTest**データベースを選択します。次に、 **[プロパティ]** ウィンドウで、**接続文字列**の値をコピーします。
 
 ![aspnet_connection_string_in_Server_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image7.png)
 
-同じ接続文字列はここに再掲します。
+ここでは、同じ接続文字列が再現されます。
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample2.cmd)]
 
-コピーして貼り付けるには、この接続文字列**転送先データベースへの接続文字列**で、**パッケージ化/発行 SQL**タブ。
+この接続文字列をコピーし、 **[SQL のパッケージ化/発行]** タブの **[転送先データベースの接続文字列]** に貼り付けます。
 
-確認します**データや既存のデータベースからスキーマをプル**が選択されています。 これは、自動的に生成され、転送先データベースで実行する SQL スクリプトの原因は何です。
+**[既存のデータベースからデータまたはスキーマをプル**する] が選択されていることを確認します。 これにより、SQL スクリプトが自動的に生成され、転送先データベースで実行されます。
 
-**ソース データベースの接続文字列**から値を抽出、 *Web.config*ファイルと開発用の SQL Server Compact データベースへのポインター。 これは、転送先データベースで後で実行されるスクリプトを生成するために使用するソース データベースです。 データベースの運用バージョンをデプロイするため、"aspnet Dev.sdf"を"aspnet Prod.sdf"に変更します。
+**ソースデータベースの値の接続文字列***は、web.config ファイルから*抽出され、開発 SQL Server Compact データベースを指します。 これは、変換先データベースで後で実行されるスクリプトを生成するために使用されるソースデータベースです。 データベースの実稼働バージョンを配置するため、"aspnet-Dev" を "aspnet-Prod" に変更します。
 
-変更**データベース スクリプト オプション**から**スキーマのみ**に**スキーマとデータ**データベース構造と (ユーザー アカウントとロール)、データをコピーするため、します。
+データ (ユーザーアカウントとロール) とデータベース構造をコピーする必要があるので、**データベーススクリプト作成オプション**をスキーマから**スキーマおよびデータ**に**のみ**変更します。
 
-先ほど作成した許可スクリプトを実行する展開を構成するに追加する必要が、**データベース スクリプト**セクション。 をクリックして**スクリプトの追加**、し、 **SQL スクリプトの追加** ダイアログ ボックスで、許可スクリプトを保存したフォルダーに移動します (これは、ソリューション ファイルを含むフォルダーです)。 という名前のファイルを選択します。 *Grant.sql*、 をクリック**オープン**します。
+以前に作成した許可スクリプトを実行するように配置を構成するには、 **[データベーススクリプト]** セクションに追加する必要があります。 **[スクリプトの追加]** をクリックし、 **[SQL スクリプトの追加]** ダイアログボックスで、grant スクリプトを保存したフォルダーに移動します (これは、ソリューションファイルが格納されているフォルダーです)。 *Grant .sql*という名前のファイルを選択し、 **[開く]** をクリックします。
 
 [![Select_File_dialog_box_grant_script](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image9.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image8.png)
 
-設定、 **DefaultConnection 展開**行**データベース エントリ**次の図のようになります。
+**データベースエントリ**の**Defaultconnection-デプロイ**行の設定は、次の図のようになります。
 
 ![Database_Entry_Details_for_DefaultConnection_Test](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image10.png)
 
-### <a name="configuring-deployment-settings-for-the-school-database"></a>School データベースの展開設定を構成します。
+### <a name="configuring-deployment-settings-for-the-school-database"></a>School データベースの展開設定を構成する
 
-次に、選択、 **SchoolContext 展開**行、**データベース エントリ**School データベースの展開設定を構成するためにテーブルです。
+次に、 **[データベースエントリ]** テーブルの**schoolcontext.cs**行を選択して、School データベースの配置設定を構成します。
 
-新しい SQL Server Express データベースの接続文字列を取得する前に使用した同じメソッドを使用することができます。 この接続文字列をコピー**転送先データベースへの接続文字列**で、**パッケージ化/発行 SQL**タブ。
+前に使用したのと同じ方法を使用して、新しい SQL Server Express データベースの接続文字列を取得できます。 **[SQL のパッケージ化/発行]** タブで、この接続文字列を**転送先データベースの接続文字列**にコピーします。
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample3.cmd)]
 
-確認します**データや既存のデータベースからスキーマをプル**が選択されています。
+**[既存のデータベースからデータまたはスキーマをプル**する] が選択されていることを確認します。
 
-**ソース データベースの接続文字列**から値を抽出、 *Web.config*ファイルと開発用の SQL Server Compact データベースへのポインター。 "学校 Prod.sdf"実稼働バージョンのデータベースを展開するには、"学校 Dev.sdf"を変更します。 (アプリに学校 Prod.sdf ファイルを作成することはありません\_データ フォルダー、アプリに、テスト環境からそのファイルをコピーします\_ContosoUniversity プロジェクト フォルダーを後で、データ フォルダーです)。
+**ソースデータベースの値の接続文字列***は、web.config ファイルから*抽出され、開発 SQL Server Compact データベースを指します。 "School-Dev" を "School-Prod" に変更して、データベースの実稼働バージョンを展開します。 (App\_Data フォルダーに School-Prod ファイルを作成したことはありません。そのため、後で ContosoUniversity プロジェクトフォルダー内の App\_Data フォルダーにそのファイルをテスト環境からコピーします)。
 
-変更**データベース スクリプト オプション**に**スキーマとデータ**します。
+**データベーススクリプト作成オプション**を**スキーマおよびデータ**に変更します。
 
-読み取りを許可し、アプリケーション プール id にこのデータベースに対する権限を書き込む追加して、スクリプトを実行する、 *Grant.sql*メンバーシップ データベースの場合と同様のスクリプト ファイル。
+また、スクリプトを実行して、このデータベースに対する読み取りと書き込みのアクセス許可をアプリケーションプール id に付与する必要があります。そのため、メンバーシップデータベースの場合と同様に、 *grant .sql*スクリプトファイルを追加します。
 
-完了したら、設定**SchoolContext 展開**行**データベース エントリ**次の図のようになります。
+完了すると、**データベースエントリ**の**schoolcontext.cs**行の設定は次の図のようになります。
 
 ![Database_Entry_Details_for_SchoolContext_Test](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image11.png)
 
-変更を保存、**パッケージ化/発行 SQL**タブ。
+**[SQL のパッケージ化/発行]** タブへの変更を保存します。
 
-コピー、*の学校 Prod.sdf*ファイルから、 *c:\inetpub\wwwroot\ContosoUniversity\App\_データ*フォルダーを*アプリ\_データ*フォルダーContosoUniversity プロジェクトです。
+*C:\inetpub\wwwroot\ContosoUniversity\App\_data*フォルダーの*School-Prod*ファイルを、ContosoUniversity プロジェクトの*App\_data*フォルダーにコピーします。
 
-### <a name="specifying-transacted-mode-for-the-grant-script"></a>許可スクリプトのトランザクション モードを指定します。
+### <a name="specifying-transacted-mode-for-the-grant-script"></a>Grant スクリプトのトランザクションモードの指定
 
-展開プロセスでは、データベース スキーマとデータ デプロイ スクリプトを生成します。 既定では、これらのスクリプトは、トランザクションで実行します。 ただし、既定で (grant スクリプト) のようなカスタム スクリプトは、トランザクションでは実行されません。 展開プロセスでは、トランザクション モードを混在、デプロイ時に、スクリプトが実行される場合にタイムアウト エラーが発生する可能性があります。 このセクションでは、トランザクションで実行するカスタム スクリプトを構成するには、プロジェクト ファイルを編集します。
+配置プロセスでは、データベーススキーマとデータを配置するスクリプトが生成されます。 既定では、これらのスクリプトはトランザクション内で実行されます。 ただし、既定では、カスタムスクリプト (grant スクリプトなど) はトランザクションでは実行されません。 配置プロセスでトランザクションモードが混在している場合、配置中にスクリプトを実行すると、タイムアウトエラーが発生することがあります。 このセクションでは、トランザクションで実行するカスタムスクリプトを構成するために、プロジェクトファイルを編集します。
 
-**ソリューション エクスプ ローラー**を右クリックし、 **ContosoUniversity**順に選択して**プロジェクトのアンロード**します。
+**ソリューションエクスプローラー**で、 **ContosoUniversity**プロジェクトを右クリックし、 **[プロジェクトのアンロード]** を選択します。
 
 ![Unload_Project_in_Solution_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image12.png)
 
-プロジェクトをもう一度右クリックし、選択**contosouniversity.csproj の編集**します。
+次に、プロジェクトを再び右クリックし、 **[Edit ContosoUniversity]** を選択します。
 
 ![Edit_Project_in_Solution_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image13.png)
 
-Visual Studio エディターでは、プロジェクト ファイルの XML コンテンツを示します。 いくつに注意してください。`PropertyGroup`要素。 (図の内容で、`PropertyGroup`要素が省略されています)。
+Visual Studio エディターには、プロジェクトファイルの XML コンテンツが表示されます。 `PropertyGroup` 要素がいくつかあることに注意してください。 (イメージでは、`PropertyGroup` 要素の内容は省略されています)。
 
-![プロジェクト ファイルのエディター ウィンドウ](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image15.png)
+![プロジェクトファイルエディターウィンドウ](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image15.png)
 
-ない最初の 1 つは、`Condition`属性、構成のビルドに関係なく適用される設定。 1 つ`PropertyGroup`要素が、デバッグ ビルド構成にのみ適用されます (注、`Condition`属性)、リリース ビルド構成の場合にのみ適用し、テストのビルド構成にのみ適用されます。 内で、`PropertyGroup`リリース ビルド構成の要素が表示されます、`PublishDatabaseSettings`で入力した設定を含む要素、**パッケージ化/発行 SQL**タブ。`Object` Grant スクリプトのそれぞれに対応する要素 ("Grant.sql"のインスタンスを 2 つに注目してください) を指定します。 既定で、`Transacted`の属性、 `Source` grant スクリプトごとに要素が`False`します。
+最初の1つは、`Condition` 属性を持たないもので、ビルド構成に関係なく適用される設定です。 1つの `PropertyGroup` 要素は、デバッグビルド構成にのみ適用されます (`Condition` 属性に注意してください)。1つはリリースビルド構成にのみ適用され、もう1つはテストビルド構成にのみ適用されます。 リリースビルド構成の `PropertyGroup` 要素内に、 **[SQL のパッケージ化/発行]** タブで入力した設定を含む `PublishDatabaseSettings` 要素が表示されます。指定した各 grant スクリプトに対応する `Object` 要素があります ("Grant .sql" の2つのインスタンスに注意してください)。 既定では、各 grant スクリプトの `Source` 要素の `Transacted` 属性は `False`です。
 
 ![Transacted_false](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image16.png)
 
-値を変更、`Transacted`の属性、`Source`要素`True`します。
+`Source` 要素の `Transacted` 属性の値を `True`に変更します。
 
 ![Transacted_true](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image17.png)
 
-保存して、プロジェクト ファイルを閉じてでプロジェクトを右クリックし、**ソリューション エクスプ ローラー**選択**プロジェクトの再読み込み**します。
+プロジェクトファイルを保存して閉じ、**ソリューションエクスプローラー**でプロジェクトを右クリックして、 **[プロジェクトの再読み込み]** を選択します。
 
 ![Reload_project](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image18.png)
 
-## <a name="setting-up-webconfig-transformations-for-the-connection-strings"></a>接続文字列の Web.Config 変換の設定
+## <a name="setting-up-webconfig-transformations-for-the-connection-strings"></a>接続文字列の web.config 変換の設定
 
-接続文字列入力した新しい SQL Express データベースの**パッケージ化/発行 SQL**  タブは、デプロイ中に転送先データベースを更新するためだけ Web Deploy によって使用されます。 設定する必要がある*Web.config*変換、接続文字列ので、デプロイされているように*Web.config*ファイルの新しい SQL Server Express データベースをポイントします。 (使用すると、**パッケージ化/発行 SQL**  タブで、発行プロファイルの接続文字列を構成することはできません)。
+**[Sql のパッケージ化/発行]** タブで入力した新しい sql Express データベースの接続文字列は、配置時に移行先データベースを更新する場合にのみ Web 配置によって使用されます。 *配置された web.config ファイル*内の接続文字列が新しい SQL Server Express データベースを指すように *、web.config の変換を*設定する必要があります。 ( **[SQL のパッケージ化/発行]** タブを使用する場合、発行プロファイルで接続文字列を構成することはできません)。
 
-開いている*Web.Test.config*と置換、`connectionStrings`を持つ要素、`connectionStrings`次の例では、内の要素。 (コンテキストを提供するは、ここに表示される周囲のコードされません、connectionStrings 要素のみをコピーすることを確認してください。)
+Web.config*を開き、* `connectionStrings` 要素を次の例の `connectionStrings` 要素に置き換えます。 (コンテキストを提供するためにここに示されている周囲のコードではなく、connectionStrings 要素のみをコピーするようにしてください)。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample4.xml?highlight=2-11)]
 
-このコードにより、`connectionString`と`providerName`の各属性`add`置き換えられる要素で、デプロイされている*Web.config*ファイル。 これらの接続文字列で入力したものとは異なるが、**パッケージ化/発行 SQL**タブ。設定"MultipleActiveResultSets = True"の Entity Framework およびユニバーサル プロバイダーことが必要なため、それらに追加されました。
+このコードにより、配置された*web.config*ファイルで、各 `add` 要素の `connectionString` と `providerName` 属性が置き換えられます。 これらの接続文字列は、 **[SQL のパッケージ化/発行]** タブで入力したものと同じではありません。Entity Framework とユニバーサルプロバイダーに必要なため、設定 "MultipleActiveResultSets = True" が追加されました。
 
 ## <a name="installing-sql-server-compact"></a>SQL Server Compact のインストール
 
-SqlServerCompact NuGet パッケージは、Contoso University アプリケーションのアセンブリをエンジン、SQL Server Compact データベースを提供します。 ここではありませんが、アプリケーション、Web Deploy、SQL Server データベースで実行するスクリプトを作成するには、SQL Server Compact のデータベースを読めるようにする必要があります。 SQL Server Compact データベースを読み取り、開発用コンピューターで、次のリンクを使用して、SQL Server Compact でインストールへの Web 配置を有効にします。[Microsoft SQL Server Compact 4.0](https://www.microsoft.com/downloads/details.aspx?FamilyID=15F7C9B3-A150-4AD2-823E-E4E0DCF85DF6)します。
+SqlServerCompact NuGet パッケージには、Contoso 大学アプリケーション用の SQL Server Compact データベースエンジンアセンブリが用意されています。 ただし現在は、SQL Server データベースで実行するスクリプトを作成するために、SQL Server Compact データベースを読み取ることができる Web 配置アプリケーションではありません。 Web 配置が SQL Server Compact データベースを読み取ることができるようにするには、 [Microsoft SQL Server Compact 4.0](https://www.microsoft.com/downloads/details.aspx?FamilyID=15F7C9B3-A150-4AD2-823E-E4E0DCF85DF6)のリンクを使用して開発用コンピューターに SQL Server Compact をインストールします。
 
-## <a name="deploying-to-the-test-environment"></a>テスト環境に展開します。
+## <a name="deploying-to-the-test-environment"></a>テスト環境への配置
 
-テスト環境に発行するためには、発行プロファイルを使用するように構成を作成する必要が、**パッケージ化/発行 SQL**データベース発行プロファイルのデータベース設定ではなく公開のタブ。
+テスト環境に発行するには、発行プロファイルデータベースの設定ではなく、データベースの発行の **[SQL のパッケージ化/発行]** タブを使用するように構成された発行プロファイルを作成する必要があります。
 
-最初に、既存のテストのプロファイルを削除します。
+まず、既存のテストプロファイルを削除します。
 
-**ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを右クリックし、クリックして、**発行**します。
+**ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[発行]** をクリックします。
 
-選択、**プロファイル**タブ。
+**[プロファイル]** タブを選択します。
 
-クリックして**プロファイルを管理する**します。
+**[プロファイルの管理]** をクリックします。
 
-選択**テスト**、 をクリックして**削除**、 をクリックし、**閉じる**します。
+**[テスト]** を選択し、 **[削除]** をクリックして、 **[閉じる]** をクリックします。
 
-閉じる、 **Web の発行**ウィザードでこの変更を保存します。
+この変更を保存するには、 **Web の発行**ウィザードを閉じます。
 
-次に、新しいテスト プロファイルを作成し、それを使用してプロジェクトを発行します。
+次に、新しいテストプロファイルを作成し、それを使用してプロジェクトを発行します。
 
-**ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを右クリックし、クリックして、**発行**します。
+**ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[発行]** をクリックします。
 
-選択、**プロファイル**タブ。
+**[プロファイル]** タブを選択します。
 
-選択 **&lt;新しい.&gt;** ドロップダウン リストから、プロファイル名として"Test"を入力します。
+ドロップダウンリストから  **&lt;新規作成...&gt;** を選択し、プロファイル名として「Test」と入力します。
 
-**サービス URL**ボックスに、入力*localhost*します。
+**[サービス URL]** ボックスに、「 *localhost*」と入力します。
 
-**サイト/アプリケーション**ボックスに、入力*既定の Web サイト/ContosoUniversity*します。
+**[サイト/アプリケーション]** ボックスに、「 *Default Web Site/ContosoUniversity」と*入力します。
 
-**送信先 URL**ボックスに、入力`http://localhost/ContosoUniversity/`します。
+**[宛先 URL]** ボックスに、「`http://localhost/ContosoUniversity/`」と入力します。
 
-**[次へ]** をクリックします。
+[次へ] をクリックします。
 
-**設定**警告を表示するタブを**パッケージ化/発行 SQL**タブが構成されている、および有効にする をクリックして新しいデータベース発行の機能強化をオーバーライドする機会を提供します。 この展開をオーバーライドする必要はありません、**パッケージ化/発行 SQL**設定 タブをクリックしますので、**次**します。
+**設定** タブには、**SQL のパッケージ化/発行** タブが構成されていることが警告され、新しいデータベースの公開の強化を有効にする をクリックして上書きすることができます。 このデプロイでは、 **[SQL のパッケージ化/発行]** タブの設定を上書きしないため、 **[次へ]** をクリックします。
 
 ![Publish_Web_wizard_Settings_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image19.png)
 
-メッセージを**プレビュー**  タブには、ことを示します**パブリッシュするデータベースが選択されていない**が単データベースの発行が、発行プロファイルで構成されていないことを意味します。
+**[プレビュー]** タブには、**パブリッシュするデータベースが選択**されていないことを示すメッセージが表示されますが、これは、データベースの発行が発行プロファイルで構成されていないことを意味します。
 
 **[発行]** をクリックします。
 
 ![Publish_Web_wizard_Preview_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image20.png)
 
-Visual Studio では、アプリケーションを展開し、テスト環境で、サイトのホーム ページをブラウザーが開きます。 先ほど見たを同じデータを表示するかを確認する、Instructors ページを実行します。 実行、**受講者の追加** ページで、新しい生徒を追加して、新しい学生を表示し、**学生**ページ。 これは、データベースを更新することができますを確認します。 選択、**更新クレジット**ページ (にログインする必要があります) をメンバーシップ データベースが配置され、アクセス権があることを確認します。
+Visual Studio によってアプリケーションが配置され、テスト環境のサイトのホームページにブラウザーが開かれます。 インストラクターページを実行して、前に見たものと同じデータが表示されていることを確認します。 **[学生の追加]** ページを実行し、新しい学生を追加して、 **[students]** ページで新しい学生を表示します。 これにより、データベースを更新できるかどうかが確認されます。 **[更新プログラムのクレジット]** ページ (ログインする必要があります) を選択して、メンバーシップデータベースが展開されていて、それにアクセスできることを確認します。
 
-## <a name="creating-a-sql-server-database-for-the-production-environment"></a>運用環境の SQL Server データベースを作成します。
+## <a name="creating-a-sql-server-database-for-the-production-environment"></a>運用環境用の SQL Server データベースの作成
 
-テスト環境にデプロイしたは、これでは、運用環境にデプロイをセットアップする準備ができました。 場合と同様、テスト環境にデプロイするデータベースを作成して開始します。 概要から学習したように、Cytanium Lite のホスティング プランはない 2 つの 1 つだけデータベースをセットアップするため、単一の SQL Server データベースを許可するだけです。 すべてのテーブルとメンバーシップおよび学校 SQL Server Compact のデータベースからのデータは、実稼働環境で 1 つの SQL Server データベースにデプロイされます。
+テスト環境にデプロイしたので、運用環境へのデプロイをセットアップする準備ができました。 テスト環境の場合は、配置先のデータベースを作成することによって開始します。 概要を思い出してください。 Cytanium Lite ホスティングプランでは、単一の SQL Server データベースのみが許可されているため、2つではなく、データベースを1つだけ設定します。 メンバーシップと学校 SQL Server Compact データベースのすべてのテーブルとデータは、運用環境の1つの SQL Server データベースにデプロイされます。
 
-Cytanium コントロール パネルに移動して[ http://panel.cytanium.com](http://panel.cytanium.com)します。 マウスで**データベース** をクリックし、 **SQL Server 2008**です。
+[http://panel.cytanium.com](http://panel.cytanium.com)の Cytanium コントロールパネルにアクセスします。 **データベース**上にマウスポインターを置き、 **[SQL Server 2008]** をクリックします。
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
-**SQL Server 2008** ] ページで [ **Create Database**します。
+**[SQL Server 2008]** ページで、 **[データベースの作成]** をクリックします。
 
 [![Selecting_Create_Database](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image24.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image23.png)
 
-データベースの名前を「学校」にして**保存**します。 (ページに自動的にプレフィックスを追加"contosou"ため、有効な名前が"contosouSchool"になります。)
+データベースに "School" という名前を付け、 **[保存]** をクリックします。 (このページではプレフィックス "contosouSchool" が自動的に追加されるため、有効な名前は "" になります)。
 
 [![Naming_the_database](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image26.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image25.png)
 
-同じ ページで、 **Create User**します。 Cytanium のサーバーではなく、統合された Windows セキュリティを使用して、およびアプリケーション プール id が、データベースを開くことができますを開き、データベースに権限を持つユーザーを作成します。 運用環境に追加する接続文字列をユーザーの資格情報を追加します*Web.config*ファイル。 この手順では、これらの資格情報を作成します。
+同じページで、 **[ユーザーの作成]** をクリックします。 Cytanium のサーバーでは、統合 Windows セキュリティを使用するのではなく、アプリケーションプールの id でデータベースを開いて、データベースを開く権限を持つユーザーを作成します。 ユーザーの資格情報を、実稼働の*web.config*ファイルにある接続文字列に追加します。 この手順では、これらの資格情報を作成します。
 
 [![Creating_a_database_user](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image28.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image27.png)
 
-必要なフィールドに入力、 **SQL ユーザー プロパティ**ページ。
+**[SQL ユーザーのプロパティ]** ページで、必要なフィールドを入力します。
 
-- 名前として"ContosoUniversityUser"を入力します。
-- パスワードを入力します。
-- 選択**contosouSchool**既定のデータベースとして。
-- 選択、 **contosouSchool**チェック ボックスをオンします。
+- 名前として「ユーザー」と入力します。
+- パスワードを入力してください。
+- 既定のデータベースとして **[contosouSchool]** を選択します。
+- **[ContosouSchool]** チェックボックスをオンにします。
 
 [![SQL_User_Properties_page](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image30.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image29.png)
 
-## <a name="configuring-database-deployment-for-the-production-environment"></a>運用環境用データベース デプロイの構成
+## <a name="configuring-database-deployment-for-the-production-environment"></a>運用環境のデータベース配置の構成
 
-データベースの配置設定を設定する準備ができたので、**パッケージ化/発行 SQL**タブの前、テスト環境用と同じです。
+これで、前にテスト環境で行ったように、 **[SQL のパッケージ化/発行]** タブでデータベース配置設定を設定できるようになりました。
 
-開く、**プロジェクト プロパティ**ウィンドウで、**パッケージ化/発行 SQL**  タブを確認して**アクティブ (リリース)** または**リリース**は選択された状態で、**構成**ドロップダウン リスト。
+プロジェクトの**プロパティ**ウィンドウを開き、 **[SQL のパッケージ化/発行]** タブを選択し、 **[構成]** ドロップダウンリストで **[アクティブ (リリース)]** または **[リリース]** が選択されていることを確認します。
 
-各データベースの展開設定を構成するときに何が運用環境とテスト環境用の主な違いが、接続文字列を構成する方法。 テスト環境の別の変換先データベースの接続文字列を入力したが、運用環境のターゲットの接続文字列は同じになります、両方のデータベース。 両方のデータベースを運用環境で 1 つのデータベースにデプロイするためです。
+各データベースの配置設定を構成する場合、運用環境とテスト環境の間の主な違いは、接続文字列の構成方法です。 テスト環境では、複数の変換先データベースの接続文字列を入力しましたが、運用環境では、両方のデータベースで同期先接続文字列が同じになります。 これは、両方のデータベースを運用環境の1つのデータベースに配置するためです。
 
-### <a name="configuring-deployment-settings-for-the-membership-database"></a>メンバーシップ データベースの展開設定を構成します。
+### <a name="configuring-deployment-settings-for-the-membership-database"></a>メンバーシップデータベースの配置設定の構成
 
-メンバーシップ データベースに適用される設定を構成するには、選択、 **DefaultConnection 展開**行、**データベース エントリ**テーブル。
+メンバーシップデータベースに適用される設定を構成するには、**データベースエントリ**テーブルで**Defaultconnection-Deployment**行を選択します。
 
-**転送先データベースへの接続文字列**、先ほど作成した新しい実稼働 SQL Server データベースを指す接続文字列を入力します。 接続文字列は、ウェルカム メールから取得できます。 電子メールの関連部分には、次のサンプルの接続文字列が含まれています。
+**[転送先データベースの接続文字列]** に、先ほど作成した新しい実稼働 SQL Server データベースを指す接続文字列を入力します。 ウェルカムメールから接続文字列を取得できます。 電子メールの関連部分には、次のサンプルの接続文字列が含まれています。
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample5.cmd)]
 
-3 つの変数を置換した後、必要な接続文字列は、この例のようになります。
+3つの変数を置き換えた後、必要な接続文字列は次の例のようになります。
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample6.cmd)]
 
-コピーして貼り付けるには、この接続文字列**転送先データベースへの接続文字列**で、**パッケージ化/発行 SQL**タブ。
+この接続文字列をコピーし、 **[SQL のパッケージ化/発行]** タブの **[転送先データベースの接続文字列]** に貼り付けます。
 
-確認します**データや既存のデータベースからスキーマをプル**がオンのままとする**データベース スクリプト オプション**が**スキーマとデータ**します。
+**既存のデータベースからのデータまたはスキーマのプル**がまだ選択されていること、および**データベーススクリプト作成オプション**がまだ**スキーマとデータ**であることを確認します。
 
-**データベース スクリプト**ボックスに、Grant.sql スクリプトの横にあるチェック ボックスをオフにします。
+**[データベーススクリプト]** ボックスで、Grant .sql スクリプトの横にあるチェックボックスをオフにします。
 
 ![Disable_Grant_script](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image31.png)
 
-### <a name="configuring-deployment-settings-for-the-school-database"></a>School データベースの展開設定を構成します。
+### <a name="configuring-deployment-settings-for-the-school-database"></a>School データベースの展開設定を構成する
 
-次に、選択、 **SchoolContext 展開**行、**データベース エントリ**School データベースの設定を構成するためにテーブルです。
+次に、School データベースの設定を構成するために、 **[データベースエントリ]** テーブルの**schoolcontext.cs**行を選択します。
 
-同じ接続文字列をコピー**転送先データベースへの接続文字列**メンバーシップ データベースには、そのフィールドにコピーします。
+メンバーシップデータベースのフィールドにコピーしたコピー**先データベースの接続文字列**に、同じ接続文字列をコピーします。
 
-確認します**データや既存のデータベースからスキーマをプル**がオンのままとする**データベース スクリプト オプション**が**スキーマとデータ**します。
+**既存のデータベースからのデータまたはスキーマのプル**がまだ選択されていること、および**データベーススクリプト作成オプション**がまだ**スキーマとデータ**であることを確認します。
 
-**データベース スクリプト**ボックスに、Grant.sql スクリプトの横にあるチェック ボックスをオフにします。
+**[データベーススクリプト]** ボックスで、Grant .sql スクリプトの横にあるチェックボックスをオフにします。
 
-変更を保存、**パッケージ化/発行 SQL**タブ。
+**[SQL のパッケージ化/発行]** タブへの変更を保存します。
 
-## <a name="setting-up-webconfig-transforms-for-the-connection-strings-to-production-databases"></a>Web.Config の設定は、実稼働データベースへの接続文字列の変換します。
+## <a name="setting-up-webconfig-transforms-for-the-connection-strings-to-production-databases"></a>運用データベースへの接続文字列の Web.config 変換の設定
 
-次を設定します*Web.config*変換、接続文字列ので、デプロイされているように*Web.config*新しい実稼働データベースを指すファイル。 接続文字列に入力した、**パッケージ化/発行 SQL** Web 配置で使用してのタブは、同じの追加を除き、使用するアプリケーションに必要な 1 つとして、`MultipleResultSets`オプション。
+次に *、配置された web.config ファイル*内の接続文字列が新しい実稼働データベースを指すように*web.config 変換を設定します。* 使用する Web 配置の **[SQL のパッケージ化/発行]** タブで入力した接続文字列は、`MultipleResultSets` オプションを追加する場合を除いて、アプリケーションで使用する必要がある接続文字列と同じです。
 
-開いている*Web.Production.config*と置換、`connectionStrings`を持つ要素を`connectionStrings`次の例のような要素です。 (コピーのみの`connectionStrings`要素では、周囲タグをコンテキストを示すために用意されていません)。
+Web.config*を開き、* `connectionStrings` 要素を次の例のような `connectionStrings` 要素に置き換えます。 (コンテキストを表示するために提供されているタグではなく、`connectionStrings` の要素のみをコピーします)。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample7.xml?highlight=2-11)]
 
-場合があります内の接続文字列は常に暗号化することを促すアドバイスを参照してください、 *Web.config*ファイル。 適切なは、会社のネットワーク上のサーバーにデプロイする場合があります。 共有ホスティング環境に展開する場合に、ホスティング プロバイダーのセキュリティ プラクティスを信頼しているし、必要なまたは接続文字列を暗号化するは実用的ではありません。
+*Web.config ファイルで*接続文字列を常に暗号化するように指示するアドバイスが表示されることがあります。 これは、自社のネットワーク上のサーバーにを展開する場合に適しています。 ただし、共有ホスティング環境に配置する場合は、ホスティングプロバイダーのセキュリティプラクティスを信頼しているため、接続文字列を暗号化する必要はありません。
 
-## <a name="deploying-to-the-production-environment"></a>実稼働環境に展開します。
+## <a name="deploying-to-the-production-environment"></a>運用環境への配置
 
-これで、運用環境にデプロイする準備ができました。 Web Deploy は、プロジェクトの SQL Server Compact データベースを読み取り*アプリ\_データ*フォルダーとすべてのテーブルと実稼働 SQL Server データベース内のデータを再作成します。 使用して発行するために、**パッケージ化/発行 Web**  タブの設定、運用環境の新しい発行プロファイルを作成する必要があります。
+これで、運用環境にデプロイする準備ができました。 Web 配置は、プロジェクトの*アプリ\_data*フォルダー内の SQL Server Compact データベースを読み取り、すべてのテーブルとデータを運用環境の SQL Server データベースに再作成します。 **[Web のパッケージ化/発行]** タブ設定を使用して発行するには、運用環境用の新しい発行プロファイルを作成する必要があります。
 
-最初に、前と同じテスト プロファイルは、既存の実稼働プロファイルを削除します。
+最初に、以前のテストプロファイルと同じように、既存の運用プロファイルを削除します。
 
-**ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを右クリックし、クリックして、**発行**します。
+**ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[発行]** をクリックします。
 
-選択、**プロファイル**タブ。
+**[プロファイル]** タブを選択します。
 
-クリックして**プロファイルを管理する**します。
+**[プロファイルの管理]** をクリックします。
 
-選択**運用**、 をクリックして**削除**、順にクリックします**閉じる**します。
+**[運用]** を選択し、 **[削除]** をクリックして、 **[閉じる]** をクリックします。
 
-閉じる、 **Web の発行**ウィザードでこの変更を保存します。
+この変更を保存するには、 **Web の発行**ウィザードを閉じます。
 
 次に、新しい実稼働プロファイルを作成し、それを使用してプロジェクトを発行します。
 
-**ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを右クリックし、クリックして、**発行**します。
+**ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[発行]** をクリックします。
 
-選択、**プロファイル**タブ。
+**[プロファイル]** タブを選択します。
 
-クリックして**インポート**、先ほどダウンロードした .publishsettings ファイルを選択します。
+**[インポート]** をクリックし、前の手順でダウンロードした .publishsettings ファイルを選択します。
 
-**接続** タブで、変更、**送信先 URL**この例では、一時的な URL が正しいに http://contosouniversity.com.vserver01.cytanium.com します。
+**[接続]** タブで、**宛先 URL**を正しい一時 URL (この例では http://contosouniversity.com.vserver01.cytanium.com ) に変更します。
 
-運用環境に、プロファイルの名前を変更します。 (選択、**プロファイル** タブでをクリックし、**プロファイルの管理**そのために)。
+プロファイルの名前を運用環境に変更します。 ( **[プロファイル]** タブを選択し、 **[プロファイルの管理]** をクリックして実行します)。
 
-閉じる、 **Web の発行**ウィザード、変更を保存します。
+Web の**発行**ウィザードを閉じて、変更を保存します。
 
-実際のアプリケーションを実稼働環境で、データベースの更新中に行う 2 つの追加手順今すぐ発行する前に。
+実稼働環境でデータベースが更新されている実際のアプリケーションでは、発行する前に、次の2つの手順を実行します。
 
-1. アップロード*アプリ\_offline.htm*ように、[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアル。
-2. 使用して、**ファイル マネージャー**をコピーする Cytanium コントロール パネルの機能、 *aspnet Prod.sdf*と*の学校 Prod.sdf* に運用サイトからファイル*アプリ\_データ*ContosoUniversity プロジェクトのフォルダー。 これにより、新しい SQL Server データベースにデプロイするデータには、実稼働 web サイトによって行われた最新の更新プログラムが含まれます。
+1. 「[運用環境へのデプロイ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)」チュートリアルに示されているように、*アプリ\_offline .htm*をアップロードします。
+2. Cytanium コントロールパネルの**ファイルマネージャー**機能を使用して、 *Aspnet-Prod*ファイルと*School-Prod*ファイルを運用サイトから ContosoUniversity プロジェクトの*App\_Data*フォルダーにコピーします。 これにより、新しい SQL Server データベースに配置しているデータに、運用 web サイトによって行われた最新の更新が確実に含まれるようになります。
 
-**Web の 1 クリックして発行**ツールバーで、ことを確認します、**運用**プロファイルが選択されているし をクリックし、**発行**します。
+Web 上の **[発行**] ツールバーで、**運用**プロファイルが選択されていることを確認し、 **[発行]** をクリックします。
 
-アップロードした場合<em>アプリ\_offline.htm</em>使用しなければ、パブリッシュする前に、<strong>ファイル マネージャー</strong> Cytanium のコントロール パネルを削除するユーティリティ<em>アプリ\_オフライン</em>。htm テストする前にします。 削除することも同時に、 <em>.sdf</em>ファイルから、<em>アプリ\_データ</em>フォルダー。
+発行する前に<em>\_offline .htm</em>をアップロードした場合は、Cytanium コントロールパネルの [<strong>ファイルマネージャー</strong> ] ユーティリティを使用して、<em>アプリ\_をオフライン</em>で削除する必要があります。をテストする前に、.htm を使用します。 また、<em>アプリ\_データ</em>フォルダーから<em>.sdf</em>ファイルを削除することもできます。
 
-ブラウザーを開き、アプリケーションをテストするには、テスト環境に配置した後と同様に、公開サイトの URL に移動できますようになりました。
+これで、ブラウザーを開き、パブリックサイトの URL にアクセスして、テスト環境に配置した後と同じようにアプリケーションをテストできるようになりました。
 
-## <a name="switching-to-sql-server-express-localdb-in-development"></a>開発での SQL Server Express LocalDB への切り替え
+## <a name="switching-to-sql-server-express-localdb-in-development"></a>開発中の SQL Server Express LocalDB への切り替え
 
-この概要で説明した、ようには、テストと運用環境で使用する開発で同じデータベース エンジンを使用する通常お勧めします。 (開発で SQL Server Express を使用する利点は、データベースは、開発、テスト、および実稼働環境で同じに機能に注意してください)。このセクションでは、Visual Studio からアプリケーションを実行するときに、SQL Server Express LocalDB を使用する ContosoUniversity プロジェクトを設定します。
+概要で説明したように、通常は、テストおよび運用環境で使用する開発で同じデータベースエンジンを使用することをお勧めします。 (開発環境で SQL Server Express を使用する利点は、開発環境、テスト環境、および運用環境でデータベースが同じように機能することです)。このセクションでは、Visual Studio からアプリケーションを実行するときに、LocalDB SQL Server Express を使用するように ContosoUniversity プロジェクトを設定します。
 
-この移行を実行する最も簡単な方法は、Code First を使用して、メンバーシップ システムでは、両方の新しい開発データベースを作成できます。 このメソッドを使用して移行するには、3 つの手順が必要です。
+この移行を実行する最も簡単な方法は、Code First して、メンバーシップシステムによって新しい開発データベースの両方を作成できるようにすることです。 この方法を移行に使用するには、次の3つの手順が必要です。
 
-1. 新しい SQL Express LocalDB データベースを指定する接続文字列を変更します。
-2. 管理者ユーザーを作成する Web サイト管理ツールを実行します。 これは、メンバーシップ データベースを作成します。
-3. 作成し、アプリケーション データベースのシードには、Code First Migrations の update-database コマンドを使用します。
+1. 新しい SQL Express LocalDB データベースを指定するように接続文字列を変更します。
+2. Web サイト管理ツールを実行して、管理者ユーザーを作成します。 これにより、メンバーシップデータベースが作成されます。
+3. アプリケーションデータベースの作成とシードを行うには、Code First Migrations を使用します。
 
-### <a name="updating-connection-strings-in-the-webconfig-file"></a>Web.config ファイル内の接続文字列を更新しています
+### <a name="updating-connection-strings-in-the-webconfig-file"></a>Web.config ファイル内の接続文字列の更新
 
-開く、 *Web.config*ファイルを開き、`connectionStrings`要素を次のコード。
+*Web.config ファイルを*開き、`connectionStrings` 要素を次のコードに置き換えます。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample8.xml)]
 
-### <a name="creating-the-membership-database"></a>メンバーシップ データベースを作成します。
+### <a name="creating-the-membership-database"></a>メンバーシップデータベースの作成
 
-**ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを選択し、クリックして**ASP.NET 構成**で、**プロジェクト**メニュー。
+**ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを選択し、 **[プロジェクト]** メニューの **[ASP.NET の構成]** をクリックします。
 
 [セキュリティ] タブを選択します。
 
-クリックして**管理ロールの作成または**、し、作成、**管理者**ロール。
+**[ロールの作成または管理]** をクリックし、**管理者**ロールを作成します。
 
 [セキュリティ] タブに戻ります。
 
-をクリックして**ユーザーの作成**を選び、**管理者**チェック ボックスをオンし、管理者をという名前のユーザーを作成
+**[ユーザーの作成]** をクリックし、 **[管理者]** チェックボックスをオンにして、admin という名前のユーザーを作成します。
 
-閉じる、 **Web サイト管理ツール**します。
+**Web サイト管理ツール**を閉じます。
 
-### <a name="creating-the-school-database"></a>School データベースの作成
+### <a name="creating-the-school-database"></a>School データベースを作成する
 
-パッケージ マネージャー コンソール ウィンドウを開きます。
+パッケージマネージャーコンソールウィンドウを開きます。
 
-**既定のプロジェクト**ドロップダウン リストで、ContosoUniversity.DAL プロジェクトを選択します。
+**[既定のプロジェクト]** ドロップダウンリストで、ContosoUniversity プロジェクトを選択します。
 
 次のコマンドを入力します。
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample9.ps1)]
 
-Code First Migrations は、データベースを作成し、AddBirthDate の移行を適用する初期移行を適用し、Seed メソッドを実行します。
+Code First Migrations は、データベースを作成する最初の移行を適用してから、AddBirthDate 移行を適用してから、Seed メソッドを実行します。
 
-コントロール f5 キーを押してサイトを実行します。 テストおよび運用環境の場合と、実行、**受講者の追加** ページで、新しい生徒を追加して、新しい学生を表示し、**学生**ページ。 これは、School データベースが作成され初期化された、およびその読み取りが書き込みアクセス権を確認します。
+Ctrl キーを押しながら F5 キーを押して、サイトを実行します。 テスト環境と運用環境で行ったように、 **[学生の追加]** ページを実行し、新しい学生を追加して、 **[students]** ページで新しい学生を表示します。 これにより、School データベースが作成および初期化されたこと、およびそのデータベースへの読み取りと書き込みのアクセス権があることが確認されます。
 
-選択、**更新クレジット**ページし、メンバーシップ データベースがデプロイされたことと、アクセス権があることを確認するにログインします。 管理者アカウントを作成し、ユーザー アカウントを移行しなかった場合、**更新クレジット**ページの動作を確認します。
+**[更新プログラムのクレジット]** ページを選択してログインし、メンバーシップデータベースが展開されていることと、それにアクセスできることを確認します。 ユーザーアカウントを移行していない場合は、管理者アカウントを作成し、 **[更新プログラムのクレジット]** ページを選択して、有効であることを確認します。
 
 ## <a name="cleaning-up-sql-server-compact-files"></a>SQL Server Compact ファイルのクリーンアップ
 
-ファイルと SQL Server Compact をサポートするために含まれていた NuGet パッケージが不要になった。 場合 (この手順が必要ない) 不要なファイルと参照をクリーンアップすることができます。
+SQL Server Compact をサポートするために含まれていたファイルと NuGet パッケージは不要になりました。 必要に応じて (この手順は必要ありません)、不要なファイルと参照をクリーンアップできます。
 
-**ソリューション エクスプ ローラー**、削除、 *.sdf*ファイルから、*アプリ\_データ*フォルダーと*amd64*と*x86*フォルダーから、 *bin*フォルダー。
+**ソリューションエクスプローラー**で、 *App\_Data*フォルダーから *.sdf*ファイルを削除し、 *bin*フォルダーから*amd64*および*x86*フォルダーを削除します。
 
-**ソリューション エクスプ ローラー**(いないプロジェクトの 1 つ、)、ソリューションを右クリックし、クリックして**ソリューションの NuGet パッケージの管理**します。
+**ソリューションエクスプローラー**で、(プロジェクトの1つではなく) ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
 
-左側のウィンドウで、 **NuGet パッケージの管理**ダイアログ ボックスで、**パッケージがインストールされている**します。
+**[NuGet パッケージの管理]** ダイアログボックスの左ペインで、 **[インストールされたパッケージ]** を選択します。
 
-選択、 **EntityFramework.SqlServerCompact**パッケージ化し、をクリックして**管理**します。
+**SqlServerCompact**パッケージを選択し、 **[管理]** をクリックします。
 
-**プロジェクトの選択**ダイアログ ボックスで、両方のプロジェクトを選択します。 両方のプロジェクトでパッケージをアンインストールするには、両方のチェック ボックスをオフにし、クリックして**OK**します。
+**[プロジェクトの選択**] ダイアログボックスで、両方のプロジェクトが選択されます。 両方のプロジェクトでパッケージをアンインストールするには、両方のチェックボックスをオフにし、[ **OK]** をクリックします。
 
-場合も、依存パッケージをアンインストールするかを確認するダイアログ ボックスで、次のようにクリックします。 いいえ。 1 つは、Entity Framework パッケージを保持する必要があります。
+依存パッケージもアンインストールするかどうかを確認するダイアログボックスが表示されたら、[いいえ] をクリックします。 これらのうちの1つは、保持する必要がある Entity Framework パッケージです。
 
-アンインストールする同じ手順に従って、 **SqlServerCompact**パッケージ。 (この順序で、パッケージをアンインストールする必要があります、 **EntityFramework.SqlServerCompact**パッケージによって異なります、 **SqlServerCompact**パッケージです)。
+同じ手順に従って、 **SqlServerCompact**パッケージをアンインストールします。 (パッケージは、 **SqlServerCompact**パッケージが**SqlServerCompact**パッケージに依存しているため、この順序でアンインストールする必要があります)。
 
-SQL Server Express と完全な SQL Server に正常に移行したようになりました。 次のチュートリアルが別のデータベースの変更とすることになりますが、テストおよび運用データベースを SQL Server Express と完全な SQL Server を使用する場合は、データベースの変更をデプロイする方法表示されます。
+これで、SQL Server Express と完全 SQL Server に正常に移行できました。 次のチュートリアルでは、別のデータベースを変更します。テストデータベースと実稼働データベースで SQL Server Express と完全 SQL Server が使用されている場合は、データベースの変更を配置する方法を確認します。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)

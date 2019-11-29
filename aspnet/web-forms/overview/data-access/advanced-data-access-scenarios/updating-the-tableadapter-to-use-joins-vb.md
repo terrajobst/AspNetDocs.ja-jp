@@ -1,229 +1,229 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
-title: 使用して TableAdapter を更新する (VB) を結合 |Microsoft Docs
+title: 結合を使用するように TableAdapter を更新する (VB) |Microsoft Docs
 author: rick-anderson
-description: データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するには、いずれかを使用しましたできます.
+description: データベースを使用する場合は、複数のテーブルに分散されているデータを要求するのが一般的です。 2つの異なるテーブルからデータを取得するには、次のいずれかの方法を使用します。
 ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b50b2ea8ca64fc47808752aec9d0a4ecab6fbdc5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5c94baa99b126cdd24d69afc3d02bfe8b069419b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108192"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74604223"
 ---
 # <a name="updating-the-tableadapter-to-use-joins-vb"></a>JOIN を使用するように TableAdapter を更新する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_69_VB.zip)または[PDF のダウンロード](updating-the-tableadapter-to-use-joins-vb/_static/datatutorial69vb1.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_69_VB.zip)または[PDF のダウンロード](updating-the-tableadapter-to-use-joins-vb/_static/datatutorial69vb1.pdf)
 
-> データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するには、相関サブクエリや結合操作のいずれかを使用しましたできます。 このチュートリアルでは相関サブクエリと比較結合構文をメイン クエリで結合を含む TableAdapter を作成する方法を見る前にします。
+> データベースを使用する場合は、複数のテーブルに分散されているデータを要求するのが一般的です。 2つの異なるテーブルからデータを取得するには、相関サブクエリまたは結合操作のいずれかを使用できます。 このチュートリアルでは、メインクエリに結合を含む TableAdapter を作成する方法を確認する前に、相関サブクエリと結合構文を比較します。
 
 ## <a name="introduction"></a>はじめに
 
-リレーショナル データベースで、多くの場合、複数のテーブルにデータを操作するために注目していますが展開されます。 たとえば、製品情報を表示するときに可能性がありますする各製品の対応するカテゴリと仕入先の名を一覧表示します。 `Products`テーブルに`CategoryID`と`SupplierID`値が実際の category と supplier の名前は、`Categories`と`Suppliers`テーブルに、それぞれします。
+リレーショナルデータベースでは、多くの場合、使用するデータは複数のテーブルに分散されます。 たとえば、製品情報を表示する場合、各製品に対応するカテゴリと仕入先の名前を一覧表示することが考えられます。 `Products` テーブルには値 `CategoryID` と `SupplierID` がありますが、実際のカテゴリと仕入先の名前はそれぞれ `Categories` テーブルと `Suppliers` テーブルにあります。
 
-使用するか、別の関連テーブルから情報を取得すること*相関サブクエリ*または`JOIN` *s*します。 相関サブクエリは、入れ子になった`SELECT`外側のクエリで列を参照するクエリ。 など、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-vb.md)チュートリアルの 2 つの相関サブクエリを使用して、 `ProductsTableAdapter` s のメイン クエリに各製品カテゴリと仕入先名が返されます。 A`JOIN`は 2 つの異なるテーブルから関連する行をマージする SQL コンストラクトです。 使用して、`JOIN`で、 [SqlDataSource コントロールでデータのクエリ](../accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)と共に各製品カテゴリの情報を表示するチュートリアル。
+関連する別のテーブルから情報を取得するには、*相関サブクエリ*また*は `JOIN`を*使用できます。 相関サブクエリは、入れ子になった `SELECT` クエリで、外側のクエリの列を参照します。 たとえば、[データアクセス層の作成](../introduction/creating-a-data-access-layer-vb.md)に関するチュートリアルでは、`ProductsTableAdapter` s メインクエリで2つの相関サブクエリを使用して、各製品のカテゴリ名と仕入先名を返しました。 `JOIN` は、2つの異なるテーブルの関連する行をマージする SQL コンストラクトです。 ここでは、 [SqlDataSource コントロール](../accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)チュートリアルを使用してデータにクエリを実行し、各製品と共にカテゴリ情報を表示する方法について `JOIN` 説明します。
 
-使用してから abstained が理由`JOIN`を自動生成の対応する TableAdapter のウィザードでの制限により、Tableadapter とは、 `INSERT`、 `UPDATE`、および`DELETE`ステートメント。 具体的には、TableAdapter のメイン クエリでは、いずれかが含まれる場合`JOIN`s、TableAdapter できません自動作成、アドホック SQL ステートメントまたはストアド プロシージャをその`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ。
+Tableadapter で `JOIN` s を使用しない理由は、TableAdapter s ウィザードの制限により、対応する `INSERT`、`UPDATE`、および `DELETE` ステートメントが自動生成されるためです。 具体的には、TableAdapter のメインクエリに `JOIN` が含まれている場合、TableAdapter では、`InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティに対してアドホック SQL ステートメントまたはストアドプロシージャを自動作成することはできません。
 
-このチュートリアルを簡単に比較とコントラストの相関サブクエリと`JOIN`s を含む TableAdapter を作成する方法を調べる前に`JOIN`メイン クエリで s。
+このチュートリアルでは、メインクエリに `JOIN` を含む TableAdapter を作成する方法を確認する前に、相関サブクエリと `JOIN` s を簡単に比較対照します。
 
-## <a name="comparing-and-contrasting-correlated-subqueries-andjoin-s"></a>比較および対照相関サブクエリと`JOIN`s
+## <a name="comparing-and-contrasting-correlated-subqueries-andjoin-s"></a>相関サブクエリと`JOIN` の比較と比較
 
-いることを思い出してください、`ProductsTableAdapter`最初のチュートリアルで作成した、`Northwind`データセットでは、相関サブクエリを使用して、各製品の対応するカテゴリと仕入先名を元に戻します。 `ProductsTableAdapter` S メイン クエリを次に示します。
+`Northwind` データセットの最初のチュートリアルで作成した `ProductsTableAdapter` は、相関サブクエリを使用して、各製品に対応するカテゴリおよび仕入先名を返します。 `ProductsTableAdapter` s メインクエリを以下に示します。
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample1.sql)]
 
-2 つの相関サブクエリ -`(SELECT CategoryName FROM Categories WHERE Categories.CategoryID = Products.CategoryID)`と`(SELECT CompanyName FROM Suppliers WHERE Suppliers.SupplierID = Products.SupplierID)`-は`SELECT`を外部列を追加すると製品ごとに 1 つの値を返すクエリ`SELECT`ステートメントの列のリスト。
+2つの相関サブクエリ (`(SELECT CategoryName FROM Categories WHERE Categories.CategoryID = Products.CategoryID)` と `(SELECT CompanyName FROM Suppliers WHERE Suppliers.SupplierID = Products.SupplierID)`) は、製品ごとに1つの値を外部 `SELECT` ステートメントの列リストに追加の列として返す `SELECT` クエリです。
 
-または、`JOIN`各製品の仕入先とカテゴリ名を取得するために使用できます。 次のクエリは、上記と同じ出力を返しますが、使用`JOIN`サブクエリの代わりに s:
+または、`JOIN` を使用して、各製品の仕入先とカテゴリ名を返すこともできます。 次のクエリでは、上の例と同じ出力が返されますが、サブクエリの代わりに `JOIN` s が使用されます。
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample2.sql)]
 
-A`JOIN`いくつかの条件に基づいて別のテーブルからレコードを 1 つのテーブルからレコードをマージします。 たとえば、上記のクエリで、 `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` SQL サーバーごとにマージするように指示、カテゴリの製品レコードをレコードを`CategoryID`値に一致する製品の`CategoryID`値。 マージされた結果では、製品ごとに対応するカテゴリ フィールドを操作できます (など`CategoryName`)。
+`JOIN` は、特定の条件に基づいて、あるテーブルのレコードを別のテーブルのレコードとマージします。 上記のクエリでは、たとえば、`LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` は、各製品レコードを、`CategoryID` 値が製品 s `CategoryID` 値と一致するカテゴリレコードとマージするように SQL Server に指示します。 マージされた結果を使用すると、各製品の対応するカテゴリフィールド (`CategoryName`など) を操作できます。
 
 > [!NOTE]
-> `JOIN` リレーショナル データベースからデータを照会するときに s がよく使用されます。 初めて使用する場合、`JOIN`構文または使用法に関するを少し復習する必要がある、d をお勧めします、 [SQL Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)します。 またに読む価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)のセクションでは、[オンライン ブックの「](https://msdn.microsoft.com/library/ms130214.aspx)。
+> `JOIN` は、リレーショナルデータベースからデータを照会するときによく使用されます。 `JOIN` 構文を初めて使用する場合、または使用方法について少しの話をする必要がある場合は、「 [W3](http://www.w3schools.com/)」で[SQL Join のチュートリアル](http://www.w3schools.com/sql/sql_join.asp)をお勧めします。 また、 [SQL オンラインブック](https://msdn.microsoft.com/library/ms130214.aspx)の「 [`JOIN` の基礎](https://msdn.microsoft.com/library/ms191517.aspx)」および「[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)」を参照してください。
 
-`JOIN` S と相関サブクエリ両方を使用できるその他のテーブルから関連データを取得する、多くの開発者の頭をかきむしりおよび使用する方法をご参考までにままになります。 すべて、SQL の第一人者であるはほぼ同じことを言ったに ve その it されない問題では効果は絶大ように SQL Server のほぼ同一の実行プランが生成されます。 そのアドバイスは、次は自分とチームが最も慣れている手法を使用します。 これを効率的にこと後、このアドバイスを作られています。 これらのエキスパートすぐに express の基本設定を注意してください`JOIN`相関サブクエリ経由で s。
+`JOIN` s と相関サブクエリは両方とも、他のテーブルから関連データを取得するために使用できます。そのため、多くの開発者は、頭の初歩を残し、使用する方法を知ります。 これまでに説明したすべての SQL 中心は、ほぼ同じようにパフォーマンスを向上させることができます。これは、ほぼ同一の実行プランを生成 SQL Server という点ではありません。 そのようなアドバイスは、お客様とチームが最も使いやすい手法を使用することです。 この助言を分離した後、これらの専門家は、相関サブクエリで `JOIN` s の設定をすぐに表していることに注意してください。
 
-型指定されたデータセットを使用して、データ アクセス層を構築するときに、ツールにも適してサブクエリを使用する場合。 具体的には、TableAdapter の s ウィザードがない自動生成対応`INSERT`、 `UPDATE`、および`DELETE`メイン クエリでは、いずれかが含まれる場合、ステートメント`JOIN`s が自動生成相関している場合、これらのステートメントが、サブクエリ使用されます。
+型指定されたデータセットを使用してデータアクセス層を構築する場合、サブクエリを使用すると、ツールの動作が向上します。 特に、TableAdapter s ウィザードでは、メインクエリに `JOIN` が含まれている場合に、対応する `INSERT`、`UPDATE`、および `DELETE` ステートメントが自動生成されませんが、相関サブクエリを使用すると、これらのステートメントが自動生成されます。
 
-この欠点を参照するで一時的な型指定されたデータセットを作成、`~/App_Code/DAL`フォルダー。 TableAdapter 構成ウィザードで、アドホック SQL ステートメントを使用して、次を入力します。 選択`SELECT`クエリ (図 1 参照)。
+この欠点を調べるには、`~/App_Code/DAL` フォルダーに一時的に型指定されたデータセットを作成します。 TableAdapter 構成ウィザードで、アドホック SQL ステートメントを使用することを選択し、次の `SELECT` クエリを入力します (図1を参照)。
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample3.sql)]
 
-[![結合を含むメイン クエリを入力します。](updating-the-tableadapter-to-use-joins-vb/_static/image2.png)](updating-the-tableadapter-to-use-joins-vb/_static/image1.png)
+[結合を含むメインクエリを入力 ![には](updating-the-tableadapter-to-use-joins-vb/_static/image2.png)](updating-the-tableadapter-to-use-joins-vb/_static/image1.png)
 
-**図 1**:その値を含むメイン クエリを入力して`JOIN`s ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image3.png))。
+**図 1**: `JOIN` s を含むメインクエリを入力[する (クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image3.png)されます)
 
-既定では、TableAdapter の作成は自動的に`INSERT`、 `UPDATE`、および`DELETE`ステートメントは、メインのクエリに基づいています。 [詳細設定] をクリックした場合、この機能が有効になっていることが確認できます。 この設定に関係なく、TableAdapter はできませんを作成する、 `INSERT`、 `UPDATE`、および`DELETE`ステートメント、メイン クエリに含まれているため、`JOIN`します。
+既定では、TableAdapter は、メインクエリに基づいて、`INSERT`、`UPDATE`、および `DELETE` ステートメントを自動的に作成します。 [詳細設定] ボタンをクリックすると、この機能が有効になっていることがわかります。 この設定にかかわらず、`INSERT`、`UPDATE`、および `DELETE` の各ステートメントは、メインクエリに `JOIN`が含まれているため、TableAdapter で作成することはできません。
 
-![結合を含むメイン クエリを入力します。](updating-the-tableadapter-to-use-joins-vb/_static/image4.png)
+![結合を含むメインクエリを入力します](updating-the-tableadapter-to-use-joins-vb/_static/image4.png)
 
-**図 2**:含むメイン クエリを入力して`JOIN`s
+**図 2**: `JOIN` s を含むメインクエリを入力する
 
-ウィザードを完了するには、[完了] をクリックします。 この時点で、データセットにはデザイナーにが含まれます列を含む DataTable を 1 つの TableAdapter にはで返されるフィールドの各、`SELECT`クエリの列のリスト。 これが含まれています、`CategoryName`と`SupplierName`図 3 に示すように、します。
+[完了] をクリックしてウィザードを終了します。 この時点で、データセットのデザイナーには、`SELECT` クエリ s 列リストに返される各フィールドの列を含む DataTable を含む単一の TableAdapter が含まれます。 これには、図3に示すように、`CategoryName` と `SupplierName`が含まれます。
 
-![DataTable には列の一覧で返される各フィールドの列が含まれています](updating-the-tableadapter-to-use-joins-vb/_static/image5.png)
+![DataTable には、列リストで返される各フィールドの列が含まれます。](updating-the-tableadapter-to-use-joins-vb/_static/image5.png)
 
-**図 3**:DataTable には列の一覧で返される各フィールドの列が含まれています
+**図 3**: DataTable には、列リストで返された各フィールドの列が含まれている
 
-TableAdapter の値が不足しています、DataTable には、適切な列が、その`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ。 これには、デザイナーで TableAdapter クリックし、[プロパティ] ウィンドウに移動します。 表示されますが、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ (なし) に設定されます。
+DataTable には適切な列が含まれていますが、TableAdapter には `InsertCommand`、`UpdateCommand`、および `DeleteCommand` プロパティの値がありません。 これを確認するには、デザイナーで TableAdapter をクリックし、プロパティウィンドウにアクセスします。 `InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティが [(なし)] に設定されていることがわかります。
 
-[![InsertCommand、UpdateCommand、および DeleteCommand プロパティは、(なし) に設定されます。](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
+[InsertCommand、UpdateCommand、および DeleteCommand プロパティが (None) に設定されて ![](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
 
-**図 4**:`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ (なし) に設定されます ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image8.png))。
+**図 4**: `InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティが (なし) に設定されている ([クリックしてフルサイズの画像を表示する](updating-the-tableadapter-to-use-joins-vb/_static/image8.png))
 
-この欠点を回避することが手動で、SQL ステートメントと提供のパラメーター、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ ウィンドウを使用してプロパティ。 または、する TableAdapter のメイン クエリを構成することによって開始でした*いない*を含める`JOIN`s。 これにより、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントを私たちの自動生成されます。 ウィザードを完了すると、私たちでしたを手動で更新、tableadapter`SelectCommand`プロパティ ウィンドウでその it が含まれていますので、`JOIN`構文。
+この欠点を回避するには、プロパティウィンドウを使用して、`InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティの SQL ステートメントとパラメーターを手動で指定します。 または、`JOIN` s を含ま*ない*ように TableAdapter のメインクエリを構成して開始することもできます。 これにより、`INSERT`、`UPDATE`、および `DELETE` ステートメントが自動的に生成されるようになります。 ウィザードが完了したら、プロパティウィンドウから TableAdapter の `SelectCommand` を手動で更新して、`JOIN` 構文を含めることができます。
 
-このアプローチは、中には非常に不安定がの場合、TableAdapter のメイン クエリにいつであるため、アドホック SQL クエリを使用して、ウィザードは、自動生成された構成し直す`INSERT`、 `UPDATE`、および`DELETE`ステートメントが再作成します。 つまり、すべてのカスタマイズを行った後で失われる TableAdapter を右クリックして、コンテキスト メニューから構成を選択するともう一度ウィザードを完了します。
+この方法は機能しますが、アドホック SQL クエリを使用する場合は非常に脆弱です。これは、ウィザードを使用して TableAdapter のメインクエリを再構成するたびに、自動生成された `INSERT`、`UPDATE`、および `DELETE` ステートメントが再作成されるためです。 これは、TableAdapter を右クリックし、コンテキストメニューから [構成] を選択して、ウィザードを再度完了すると、後で行ったすべてのカスタマイズが失われることを意味します。
 
-自動生成された tableadapter の脆弱性`INSERT`、 `UPDATE`、および`DELETE`ステートメントは幸運にも、アドホック SQL ステートメントに制限されます。 カスタマイズすることができます、TableAdapter は、ストアド プロシージャを使用している場合、 `SelectCommand`、 `InsertCommand`、 `UpdateCommand`、または`DeleteCommand`ストアド プロシージャおよびストアド プロシージャになることを心配しなくても、TableAdapter 構成ウィザードを再実行変更します。
+TableAdapter の自動生成された `INSERT`、`UPDATE`、および `DELETE` ステートメントの高まるは、さいわい、アドホック SQL ステートメントに限定されています。 TableAdapter でストアドプロシージャが使用されている場合は、ストアドプロシージャが変更される心配をせずに、`SelectCommand`、`InsertCommand`、`UpdateCommand`、または `DeleteCommand` ストアドプロシージャをカスタマイズし、TableAdapter 構成ウィザードを再実行することができます。
 
-作成、TableAdapter を最初に、いくつかの手順を今後には、いずれかの指定を省略するメインのクエリを使用して`JOIN`s を対応する挿入、更新、および削除のストアド プロシージャは、自動生成されます。 マイクロソフトは、更新、`SelectCommand`使用するため、`JOIN`関連テーブルから追加の列を返します。 最後に、対応するビジネス ロジック層のクラスを作成し、ASP.NET web ページで、TableAdapter を使用する方法を示します。
+次のいくつかの手順では、最初に、対応する挿入、更新、および削除の各ストアドプロシージャが自動生成されるように `JOIN` を省略するメインクエリを使用する TableAdapter を作成します。 次に、関連テーブルから追加の列を返す `JOIN` が使用されるように、`SelectCommand` を更新します。 最後に、対応するビジネスロジックレイヤークラスを作成し、ASP.NET web ページで TableAdapter を使用する方法を示します。
 
-## <a name="step-1-creating-the-tableadapter-using-a-simplified-main-query"></a>手順 1: 簡略化されたメイン クエリを使用して、TableAdapter を作成します。
+## <a name="step-1-creating-the-tableadapter-using-a-simplified-main-query"></a>手順 1: 簡略化されたメインクエリを使用して TableAdapter を作成する
 
-このチュートリアルでは TableAdapter と厳密に型指定された DataTable を追加しましたが、`Employees`テーブルに、`NorthwindWithSprocs`データセット。 `Employees`テーブルが含まれています、`ReportsTo`指定されているフィールド、`EmployeeID`の従業員のマネージャー。 Anne 複数のグラフ エリアが従業員など、 `ReportTo` 5 の値、 `EmployeeID` Steven Buchanan の。 その結果、Anne を Steven、上司に報告します。 各従業員の s をレポートと共に`ReportsTo`値、する可能性がもそれぞれのマネージャーの名前を取得します。 これを使用して、`JOIN`します。 使用していますが、`JOIN`ときに、ウィザードを自動的に対応する挿入が生成されないため最初に TableAdapter を作成、更新、および機能を削除します。 そのため、メインのクエリは、TableAdapter の作成から始めます`JOIN`秒。 次で手順 2 では更新を使用してマネージャーの名前を取得するメインのクエリがストアド プロシージャ、`JOIN`します。
+このチュートリアルでは、`NorthwindWithSprocs` データセットの `Employees` テーブルに TableAdapter と厳密に型指定された DataTable を追加します。 `Employees` テーブルには、従業員のマネージャーの `EmployeeID` を指定した `ReportsTo` フィールドが含まれています。 たとえば、employee Anne 川本の `ReportTo` 値は5です。これは、秋山加藤の `EmployeeID` です。 その結果、Anne は秋山さん、上司に報告します。 各従業員の `ReportsTo` 値を報告することに加えて、上司の名前を取得することもできます。 これは、`JOIN`を使用して実現できます。 ただし、最初に TableAdapter を作成するときに `JOIN` を使用すると、ウィザードによって、対応する挿入、更新、および削除の各機能が自動的に生成されなくなります。 そのため、最初に、メインクエリに `JOIN` が含まれていない TableAdapter を作成します。 次に、手順2で、`JOIN`を使用してマネージャーの名前を取得するようにメインクエリのストアドプロシージャを更新します。
 
-開いて開始、`NorthwindWithSprocs`データセットで、`~/App_Code/DAL`フォルダー。 デザイナーを右クリックし、コンテキスト メニューから追加のオプションを選択および TableAdapter のメニュー項目を選択します。 これにより、TableAdapter 構成ウィザードが起動します。 図 5 を示していますとしてのウィザードで新しいストアド プロシージャを作成し、[次へ] をクリックします。 新規作成は、ストアド プロシージャを TableAdapter の s ウィザードからを参照してください、[型指定されたデータセット s Tableadapter の新しいのストアド プロシージャの作成](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)チュートリアル。
+まず、`~/App_Code/DAL` フォルダー内の `NorthwindWithSprocs` データセットを開きます。 デザイナーを右クリックし、コンテキストメニューの [追加] オプションを選択して、[TableAdapter] メニュー項目を選択します。 これにより、TableAdapter 構成ウィザードが起動します。 図5に示すように、ウィザードで新しいストアドプロシージャを作成し、[次へ] をクリックします。 TableAdapter ウィザードでの新しいストアドプロシージャの作成の詳細については、「[型指定されたデータセットの tableadapter の新しいストアドプロシージャの作成](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)」チュートリアルを参照してください。
 
-[![作成する新しいストアド プロシージャ オプションを選択します。](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
+[![[新しいストアドプロシージャの作成] オプションを選択します。](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
 
-**図 5**:新しいストアド プロシージャ オプションの選択の作成 ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image11.png))。
+**図 5**: [新しいストアドプロシージャを作成する] オプションを選択[する (クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image11.png)されます)
 
-次を使用して、 `SELECT` TableAdapter のメイン クエリのステートメント。
+TableAdapter のメインクエリには、次の `SELECT` ステートメントを使用します。
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample4.sql)]
 
-このクエリは含まれませんので`JOIN`s、TableAdapter ウィザードは自動的にストアド プロシージャの作成と、対応する`INSERT`、 `UPDATE`、および`DELETE`メインの実行にストアド プロシージャと同様に、ステートメントクエリ。
+このクエリには `JOIN` が含まれていないため、TableAdapter ウィザードでは、対応する `INSERT`、`UPDATE`、および `DELETE` ステートメントを含むストアドプロシージャと、メインクエリを実行するためのストアドプロシージャが自動的に作成されます。
 
-次の手順により、TableAdapter の格納されているプロシージャの名前を付けます。 名を使用して`Employees_Select`、 `Employees_Insert`、 `Employees_Update`、および`Employees_Delete`図 6 に示すようにします。
+次の手順では、TableAdapter のストアドプロシージャに名前を指定できます。 図6に示すように、`Employees_Select`、`Employees_Insert`、`Employees_Update`、および `Employees_Delete`の名前を使用します。
 
-[![TableAdapter の格納されているプロシージャの名前](updating-the-tableadapter-to-use-joins-vb/_static/image13.png)](updating-the-tableadapter-to-use-joins-vb/_static/image12.png)
+[TableAdapter s ストアドプロシージャの名前を ![](updating-the-tableadapter-to-use-joins-vb/_static/image13.png)](updating-the-tableadapter-to-use-joins-vb/_static/image12.png)
 
-**図 6**:TableAdapter のストアド プロシージャの名前 ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image14.png))。
+**図 6**: TableAdapter のストアドプロシージャに名前[を指定する (クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image14.png)されます)
 
-最後の手順では、メソッド、TableAdapter の名前を求められます。 使用`Fill`と`GetEmployees`メソッド名として。 必ず、データベース (GenerateDBDirectMethods) チェック ボックスはオンに直接更新を送信するためのメソッドを作成するのままにしてください。
+最後の手順では、TableAdapter のメソッドに名前を指定するように求められます。 `Fill` を使用し、メソッド名として `GetEmployees` します。 また、[更新を直接データベースに送信するためのメソッドを作成する (GenerateDBDirectMethods)] チェックボックスはオンのままにしてください。
 
-[![TableAdapter のメソッドの塗りつぶしの名前と GetEmployees](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
+[TableAdapter のメソッドに ![名前を入力し、GetEmployees します。](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
 
-**図 7**:Tableadapter のメソッドの名前を付けます`Fill`と`GetEmployees`([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image17.png))。
+**図 7**: TableAdapter のメソッド `Fill` と `GetEmployees` の名前を指定[する (クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image17.png)されます)
 
-ウィザードを完了すると、データベース内のストアド プロシージャを調べるには少しを実行します。 次の 4 つの新しい値が表示されます: `Employees_Select`、 `Employees_Insert`、 `Employees_Update`、および`Employees_Delete`します。 次に、検査、`EmployeesDataTable`と`EmployeesTableAdapter`だけを作成します。 DataTable には、メインのクエリによって返される各フィールドの列が含まれています。 TableAdapter でクリックし、[プロパティ] ウィンドウに移動します。 表示されますが、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティが対応するストアド プロシージャの呼び出しを正しく構成されています。
+ウィザードが完了したら、しばらく時間を取って、データベース内のストアドプロシージャを確認してください。 `Employees_Select`、`Employees_Insert`、`Employees_Update`、および `Employees_Delete`の4つの新しいものが表示されます。 次に、`EmployeesDataTable` を調べて、先ほど作成した `EmployeesTableAdapter` ます。 DataTable には、メインクエリによって返される各フィールドの列が含まれています。 TableAdapter をクリックし、プロパティウィンドウにアクセスします。 ここでは、`InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティが、対応するストアドプロシージャを呼び出すように正しく構成されていることがわかります。
 
-[![TableAdapter の Insert、Update が含まれています、機能の削除](updating-the-tableadapter-to-use-joins-vb/_static/image19.png)](updating-the-tableadapter-to-use-joins-vb/_static/image18.png)
+[TableAdapter には、挿入、更新、削除の各機能が含まれて ![](updating-the-tableadapter-to-use-joins-vb/_static/image19.png)](updating-the-tableadapter-to-use-joins-vb/_static/image18.png)
 
-**図 8**:TableAdapter を含む挿入、更新、および機能の削除 ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image20.png))。
+**図 8**: TableAdapter には挿入、更新、および削除の機能が含まれています ([クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image20.png)されます)
 
-挿入、更新、および delete ストアド プロシージャが自動的に作成し、 `InsertCommand`、`UpdateCommand`と`DeleteCommand`をカスタマイズする準備が整いましたプロパティが正しく構成されている、 `SelectCommand` s は、プロシージャを返す追加各従業員のマネージャーについて説明します。 具体的には、更新する必要があります、`Employees_Select`ストアド プロシージャを使用して、 `JOIN` manager s を返すと`FirstName`と`LastName`値。 ストアド プロシージャが更新された後はこれらの列を含むように、DataTable を更新する必要があります。 これら 2 つのタスクの手順 2 および 3 に取り組むします。
+挿入、更新、および削除の各ストアドプロシージャが自動的に作成され、`InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティが正しく構成されているので、`SelectCommand` s ストアドプロシージャをカスタマイズして各従業員のマネージャーに関する追加情報を返すことができます。 具体的には、`JOIN` を使用し、マネージャーの `FirstName` と `LastName` の値を返すように `Employees_Select` ストアドプロシージャを更新する必要があります。 ストアドプロシージャを更新した後は、これらの追加列が含まれるように DataTable を更新する必要があります。 これらの2つのタスクについては、手順 2. と 3. で説明します。
 
-## <a name="step-2-customizing-the-stored-procedure-to-include-ajoin"></a>手順 2: 含めるストアド プロシージャをカスタマイズします。`JOIN`
+## <a name="step-2-customizing-the-stored-procedure-to-include-ajoin"></a>手順 2:`JOIN` を含むようにストアドプロシージャをカスタマイズする
 
-サーバー エクスプ ローラーに、Northwind データベースのストアド プロシージャのフォルダーにドリル ダウンして開くことにより、`Employees_Select`ストアド プロシージャ。 このストアド プロシージャが表示されない場合は、ストアド プロシージャのフォルダーを右クリックし、更新を選択します。 使用するように、ストアド プロシージャを更新、 `LEFT JOIN` manager s を最初に返されますし、姓、名します。
+まず、サーバーエクスプローラーに移動し、Northwind データベースの [ストアドプロシージャ] フォルダーにドリルダウンして、`Employees_Select` ストアドプロシージャを開きます。 このストアドプロシージャが表示されない場合は、[ストアドプロシージャ] フォルダーを右クリックし、[最新の状態に更新] をクリックします。 `LEFT JOIN` を使用して manager の姓と名を返すようにストアドプロシージャを更新します。
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample5.sql)]
 
-更新した後、`SELECT`ステートメントでは、[ファイル] メニューに移動し、保存を選択して変更を保存、`Employees_Select`します。 または、ツールバーの [保存] アイコンをクリックします。 または Ctrl + S をヒットできます。 右クリックし、変更を保存した後、`Employees_Select`サーバー エクスプ ローラーでのストアド プロシージャを実行 を選択します。 これは、ストアド プロシージャを実行され、出力ウィンドウにその結果を表示する (図 9 参照)。
+`SELECT` ステートメントを更新した後、[ファイル] メニューの [`Employees_Select`の保存] をクリックして変更を保存します。 または、ツールバーの [保存] アイコンをクリックするか、Ctrl + S キーを押します。 変更を保存した後、サーバーエクスプローラーで `Employees_Select` ストアドプロシージャを右クリックし、[実行] を選択します。 これにより、ストアドプロシージャが実行され、結果が出力ウィンドウに表示されます (図9を参照)。
 
-[![ストアド プロシージャの結果が出力ウィンドウに表示されます。](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
+[ストアドプロシージャの結果が ![出力ウィンドウに表示されます。](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
 
-**図 9**:ストアド プロシージャの結果が出力ウィンドウに表示されます ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image23.png))。
+**図 9**: ストアドプロシージャの結果が出力ウィンドウに表示される ([クリックしてフルサイズの画像を表示する](updating-the-tableadapter-to-use-joins-vb/_static/image23.png))
 
-## <a name="step-3-updating-the-datatable-s-columns"></a>手順 3: DataTable の列の更新
+## <a name="step-3-updating-the-datatable-s-columns"></a>手順 3: DataTable s 列を更新する
 
-この時点で、 `Employees_Select` 、ストアド プロシージャ`ManagerFirstName`と`ManagerLastName`、値が、`EmployeesDataTable`これらの列がありません。 これらの不足している列は、2 つの方法で DataTable に追加できます。
+この時点で、`Employees_Select` ストアドプロシージャは `ManagerFirstName` と `ManagerLastName` の値を返しますが、`EmployeesDataTable` にはこれらの列がありません。 これらの欠損列は、次の2つの方法のいずれかで DataTable に追加できます。
 
-- **手動で**データセット デザイナーでデータ テーブルを右クリックし、[追加] メニューから列を選択して - です。 列の名前を付け、それに応じてそのプロパティを設定します。
-- **自動的に**-TableAdapter 構成ウィザードがによって返されるフィールドを反映するために DataTable の列を更新、`SelectCommand`ストアド プロシージャ。 ウィザードは削除も、アドホック SQL ステートメントを使用する場合、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ、`SelectCommand`が含まれています、`JOIN`します。 ただし、ストアド プロシージャを使用して、これらのコマンド プロパティがそのまま残ります。
+- データセットデザイナーで DataTable**を右クリック**し、[追加] メニューの [列] をクリックします。 その後、列に名前を指定し、それに応じてプロパティを設定できます。
+- **自動**-TableAdapter 構成ウィザードは、`SelectCommand` ストアドプロシージャによって返されるフィールドを反映するように、DataTable の列を更新します。 アドホック SQL ステートメントを使用すると、`SelectCommand` に `JOIN`が含まれるようになったため、`InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティも削除されます。 ただし、ストアドプロシージャを使用する場合、これらのコマンドプロパティはそのまま残ります。
 
-DataTable 列を手動で追加するなど、前のチュートリアルについて解説しました[マスター/マスター レコードの箇条書きリストを使用すると詳細 DataList について詳しく説明](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)と[のファイルのアップロード](../working-with-binary-files/uploading-files-vb.md)、ここで、このプロセスの詳細をもう一度、次のチュートリアルで確認します。 このチュートリアルでは、TableAdapter 構成ウィザードを使用して、自動のアプローチを使用して、使用できます。
+前のチュートリアルでは、前のチュートリアルで DataTable 列を手動で追加する方法について説明しました。[詳細については、マスターレコードの箇条書きリスト](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)と[ファイルのアップロード](../working-with-binary-files/uploading-files-vb.md)に関する記事をご覧ください。このプロセスについては、次のチュートリアルでさらに詳しく説明します。 ただし、このチュートリアルでは、が TableAdapter 構成ウィザードを使用して自動アプローチを使用します。
 
-右クリックして開始、`EmployeesTableAdapter`し、コンテキスト メニューから構成を選択します。 選択、挿入、更新、および削除、その戻り値とパラメーター (ある場合) と共に使用するストアド プロシージャを一覧表示すると、TableAdapter 構成ウィザードが表示されます。 図 10 では、このウィザードを示します。 ここで確認できます、`Employees_Select`ストアド プロシージャ、`ManagerFirstName`と`ManagerLastName`フィールド。
+まず、`EmployeesTableAdapter` を右クリックし、コンテキストメニューから [構成] を選択します。 これにより、TableAdapter 構成ウィザードが表示されます。これには、選択、挿入、更新、および削除に使用するストアドプロシージャが、戻り値とパラメーター (存在する場合) と共に一覧表示されます。 図10に、このウィザードを示します。 ここで、`Employees_Select` ストアドプロシージャが `ManagerFirstName` と `ManagerLastName` フィールドを返すようになったことがわかります。
 
-[![ウィザード、Employees_Select の更新された列の一覧に示すストアド プロシージャ](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
+[![、Employees_Select ストアドプロシージャの更新された列の一覧が表示されます。](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
 
-**図 10**:更新の列の一覧が表示されます、`Employees_Select`ストアド プロシージャ ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image26.png))。
+**図 10**: ウィザードに `Employees_Select` ストアドプロシージャの更新された列の一覧が表示される ([クリックしてフルサイズの画像を表示する](updating-the-tableadapter-to-use-joins-vb/_static/image26.png))
 
-[完了] をクリックしてウィザードを完了します。 データセット デザイナーに戻ると、 `EmployeesDataTable` 2 つの列が含まれています:`ManagerFirstName`と`ManagerLastName`します。
+[完了] をクリックしてウィザードを完了します。 データセットデザイナーに戻ると、`EmployeesDataTable` に `ManagerFirstName` と `ManagerLastName`の2つの列が追加されます。
 
-[![EmployeesDataTable には、2 つの新しい列が含まれています。](updating-the-tableadapter-to-use-joins-vb/_static/image28.png)](updating-the-tableadapter-to-use-joins-vb/_static/image27.png)
+[EmployeesDataTable に2つの新しい列が含まれている ![](updating-the-tableadapter-to-use-joins-vb/_static/image28.png)](updating-the-tableadapter-to-use-joins-vb/_static/image27.png)
 
-**図 11**:`EmployeesDataTable` 2 つの新しい列が含まれています ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image29.png))。
+**図 11**: `EmployeesDataTable` に2つの新しい列が含まれている ([クリックしてフルサイズの画像を表示する](updating-the-tableadapter-to-use-joins-vb/_static/image29.png))
 
-説明するため、更新された`Employees_Select`ユーザーを表示し、従業員を削除できる web ページを作成して、ストアド プロシージャが有効では、挿入、更新、および、TableAdapter の機能を削除することは引き続き機能します。 このようなページを作成する前に、必要があります最初から従業員を操作するためのビジネス ロジック層で新しいクラスを作成する、`NorthwindWithSprocs`データセット。 手順 4 で作成しますが、`EmployeesBLLWithSprocs`クラス。 手順 5 では、ASP.NET ページからこのクラスを使用します。
+更新された `Employees_Select` ストアドプロシージャが有効であり、TableAdapter の挿入、更新、および削除の機能がまだ機能していることを示すために、ユーザーが従業員を表示および削除できるようにする web ページを作成してみましょう。 ただし、このようなページを作成する前に、最初にビジネスロジック層に新しいクラスを作成して、`NorthwindWithSprocs` データセットから従業員を操作できるようにする必要があります。 手順4では、`EmployeesBLLWithSprocs` クラスを作成します。 手順5では、ASP.NET ページからこのクラスを使用します。
 
-## <a name="step-4-implementing-the-business-logic-layer"></a>手順 4: ビジネス ロジック層を実装します。
+## <a name="step-4-implementing-the-business-logic-layer"></a>手順 4: ビジネスロジック層を実装する
 
-新しいクラス ファイルを作成、`~/App_Code/BLL`という名前のフォルダー`EmployeesBLLWithSprocs.vb`します。 このクラスは、既存のセマンティクスを模倣`EmployeesBLL`クラス、のみ、この新しい少ないメソッドを提供しを使用して 1 つ、`NorthwindWithSprocs`データセット (の代わりに、`Northwind`データセット)。 `EmployeesBLLWithSprocs` クラスに次のコードを追加します。
+`EmployeesBLLWithSprocs.vb`という名前の `~/App_Code/BLL` フォルダーに新しいクラスファイルを作成します。 このクラスは、既存の `EmployeesBLL` クラスのセマンティクスを模倣しています。この新しいクラスでは、より少数のメソッドを提供し、`Northwind` データセットではなく `NorthwindWithSprocs` データセットを使用します。 `EmployeesBLLWithSprocs` クラスに次のコードを追加します。
 
 [!code-vb[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample6.vb)]
 
-`EmployeesBLLWithSprocs`クラス s`Adapter`プロパティのインスタンスを返します、`NorthwindWithSprocs`データセットの`EmployeesTableAdapter`します。 これは、クラス s によって使用`GetEmployees`と`DeleteEmployee`メソッド。 `GetEmployees`メソッドの呼び出し、`EmployeesTableAdapter`対応する s`GetEmployees`によって実行されるメソッド、`Employees_Select`ストアド プロシージャとでは、その結果を設定します、`EmployeeDataTable`します。 `DeleteEmployee`メソッドを呼び出す同様に、 `EmployeesTableAdapter` s`Delete`によって実行されるメソッド、`Employees_Delete`ストアド プロシージャ。
+`EmployeesBLLWithSprocs` class s `Adapter` プロパティは、`NorthwindWithSprocs` データセットの `EmployeesTableAdapter`のインスタンスを返します。 これは、クラス `GetEmployees` および `DeleteEmployee` メソッドによって使用されます。 `GetEmployees` メソッドは、対応する `GetEmployees` メソッドを `EmployeesTableAdapter` 呼び出します。このメソッドは、`Employees_Select` ストアドプロシージャを呼び出し、結果を `EmployeeDataTable`に設定します。 `DeleteEmployee` メソッドは同様に、`EmployeesTableAdapter` s `Delete` メソッドを呼び出します。これにより、`Employees_Delete` ストアドプロシージャが呼び出されます。
 
-## <a name="step-5-working-with-the-data-in-the-presentation-layer"></a>手順 5: プレゼンテーション層でデータを扱う
+## <a name="step-5-working-with-the-data-in-the-presentation-layer"></a>手順 5: プレゼンテーション層のデータを操作する
 
-`EmployeesBLLWithSprocs`クラス完了すると、私たちは ASP.NET ページ経由の従業員データを処理する準備が整いました。 開く、`JOINs.aspx`ページで、`AdvancedDAL`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ、GridView、`ID`プロパティを`Employees`します。 次に、GridView s のスマート タグからという名前の新しい ObjectDataSource コントロールをグリッドにバインド`EmployeesDataSource`します。
+`EmployeesBLLWithSprocs` クラスが完成したら、ASP.NET ページを使用して従業員データを操作する準備ができました。 `AdvancedDAL` フォルダーの [`JOINs.aspx`] ページを開き、[ツールボックス] から GridView をデザイナーにドラッグし、`ID` プロパティを [`Employees`] に設定します。 次に、GridView s スマートタグから、グリッドを `EmployeesDataSource`という名前の新しい ObjectDataSource コントロールにバインドします。
 
-構成を使用する ObjectDataSource、`EmployeesBLLWithSprocs`クラスし、SELECT および DELETE のタブからいることを確認、`GetEmployees`と`DeleteEmployee`メソッドは、ドロップダウン リストから選択します。 ObjectDataSource の構成を完了するには、[完了] をクリックします。
+`EmployeesBLLWithSprocs` クラスを使用するように ObjectDataSource を構成します。 [選択] タブと [削除] タブで、ドロップダウンリストから [`GetEmployees`] および [`DeleteEmployee`] メソッドが選択されていることを確認します。 [完了] をクリックして、ObjectDataSource の構成を完了します。
 
-[![EmployeesBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](updating-the-tableadapter-to-use-joins-vb/_static/image31.png)](updating-the-tableadapter-to-use-joins-vb/_static/image30.png)
+[EmployeesBLLWithSprocs クラスを使用するように ObjectDataSource を構成 ![には](updating-the-tableadapter-to-use-joins-vb/_static/image31.png)](updating-the-tableadapter-to-use-joins-vb/_static/image30.png)
 
-**図 12**:構成に使用する ObjectDataSource、`EmployeesBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image32.png))。
+**図 12**: `EmployeesBLLWithSprocs` クラスを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](updating-the-tableadapter-to-use-joins-vb/_static/image32.png))
 
-[![ObjectDataSource 使用 GetEmployees とするメソッドがあります。](updating-the-tableadapter-to-use-joins-vb/_static/image34.png)](updating-the-tableadapter-to-use-joins-vb/_static/image33.png)
+[GetEmployees メソッドと DeleteEmployee メソッドが ObjectDataSource で使用さ ![](updating-the-tableadapter-to-use-joins-vb/_static/image34.png)](updating-the-tableadapter-to-use-joins-vb/_static/image33.png)
 
-**図 13**:ObjectDataSource の使用、`GetEmployees`と`DeleteEmployee`メソッド ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image35.png))。
+**図 13**: ObjectDataSource で `GetEmployees` および `DeleteEmployee` メソッドを使用する ([クリックしてフルサイズのイメージを表示する](updating-the-tableadapter-to-use-joins-vb/_static/image35.png))
 
-Visual Studio は各の GridView に、BoundField を追加するが、`EmployeesDataTable`の列。 これらの BoundFields 以外をすべて削除`Title`、 `LastName`、 `FirstName`、`ManagerFirstName`と`ManagerLastName`の名前を変更し、`HeaderText`姓、名、マネージャーの名、最後の 4 つ BoundFields のプロパティとマネージャーの姓、名、それぞれします。
+Visual Studio によって、`EmployeesDataTable` s 列ごとに BoundField が GridView に追加されます。 `Title`、`LastName`、`FirstName`、`ManagerFirstName`、および `ManagerLastName` を除くこれらの連結フィールドをすべて削除し、最後の4つの BoundFields の `HeaderText` プロパティを姓、名、マネージャー名、およびマネージャーの姓にそれぞれ変更します。
 
-このページから従業員を削除するユーザーを許可するのには、2 つの作業を行う必要があります。 最初に、スマート タグの削除を有効にするオプションをオンにして削除機能を提供する GridView に指示します。 ObjectDataSource s を次に、変更`OldValuesParameterFormatString`値からのプロパティは、ObjectDataSource ウィザードによって設定 (`original_{0}`) をその既定値 (`{0}`)。 これらの変更を加えたら、GridView コントロールと ObjectDataSource s 宣言型マークアップを次のようになります。
+ユーザーがこのページから従業員を削除できるようにするには、次の2つの作業を行う必要があります。 まず、削除機能を提供するように GridView に指示します。そのためには、スマートタグから [削除を有効にする] オプションをオンにします。 次に、objectdatasource の `OldValuesParameterFormatString` プロパティを、ObjectDataSource ウィザードで設定された値 (`original_{0}`) から既定値 (`{0}`) に変更します。 これらの変更を行った後、GridView および ObjectDataSource の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample7.aspx)]
 
-ブラウザーを使用して、ページをテストします。 図 14 に示すよう、各従業員と (あると仮定)、ユーザーのマネージャーの名前に、ページが表示されます。
+ブラウザーでページにアクセスして、ページをテストします。 図14に示すように、ページには、各従業員と上司の名前が表示されます (所有している場合)。
 
-[![Employees_Select 内の結合、ストアド プロシージャ、マネージャー名](updating-the-tableadapter-to-use-joins-vb/_static/image37.png)](updating-the-tableadapter-to-use-joins-vb/_static/image36.png)
+[Employees_Select ストアドプロシージャ内の結合によってマネージャー名が返される ![](updating-the-tableadapter-to-use-joins-vb/_static/image37.png)](updating-the-tableadapter-to-use-joins-vb/_static/image36.png)
 
-**図 14**:`JOIN`で、`Employees_Select`ストアド プロシージャは、マネージャー名を返します ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image38.png))。
+**図 14**: `Employees_Select` ストアドプロシージャの `JOIN` がマネージャーの名前を返す ([クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image38.png)されます)
 
-実行が完了する、削除ワークフローの開始、削除ボタンをクリックすると、`Employees_Delete`ストアド プロシージャ。 ただし、試行`DELETE`外部キー制約違反のため、ストアド プロシージャ内のステートメントは失敗し (図 15 を参照してください)。 具体的には、各従業員が、1 つまたは複数のレコード、`Orders`テーブル、削除が失敗します。
+[削除] ボタンをクリックすると、削除中のワークフローが開始されます。このワークフローは `Employees_Delete` ストアドプロシージャの実行に culminates ます。 ただし、ストアドプロシージャで試行された `DELETE` ステートメントは、外部キー制約違反によって失敗します (図15を参照)。 具体的には、各従業員は `Orders` テーブルに1つ以上のレコードを持っているため、削除は失敗します。
 
-[![外部キー制約の違反に対応する注文の結果を持つ従業員を削除します。](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
+[対応する注文がある従業員を削除すると、外部キー制約違反が発生する ![](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
 
-**図 15**:外部キー制約の違反に対応する注文の結果を持つ従業員を削除しています ([フルサイズの画像を表示する をクリックします](updating-the-tableadapter-to-use-joins-vb/_static/image41.png))。
+**図 15**: 対応する注文がある従業員を削除すると、外部キー制約違反が発生する ([クリックすると、フルサイズの画像が表示](updating-the-tableadapter-to-use-joins-vb/_static/image41.png)されます)
 
-削除する従業員を許可する可能性があります。
+従業員を削除できるようにするには、次の方法があります。
 
-- 更新プログラムを削除、カスケード外部キー制約
-- レコードを手動で削除、`Orders`を削除するには、名のテーブルまたは
-- 更新プログラム、`Employees_Delete`最初から、関連するレコードを削除するのには、プロシージャ、`Orders`テーブルを削除する前に、`Employees`レコード。 この手法で説明した、[型指定されたデータセット s Tableadapter の既存のストアド プロシージャの使用](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)チュートリアル。
+- Foreign key 制約を連鎖削除に更新します。
+- 削除する従業員の `Orders` テーブルからレコードを手動で削除します。または、
+- `Employees` レコードを削除する前に、最初に `Orders` テーブルから関連レコードを削除するように `Employees_Delete` ストアドプロシージャを更新します。 この手法については、 [「型指定されたデータセットの tableadapter の既存のストアドプロシージャの使用](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)」のチュートリアルで説明しました。
 
-ままを演習として、リーダーの。
+この作業をリーダーの演習として残しておきます。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-リレーショナル データベースを使用する場合は、関連テーブルにクエリ複数からのデータをプルするが一般的です。 相関サブクエリと`JOIN`s は、クエリ内の関連テーブルからデータにアクセスするため 2 つの異なる手法を提供します。 TableAdapter は自動生成のために、前のチュートリアルで最もよく行いましたが相関サブクエリの使用`INSERT`、 `UPDATE`、および`DELETE`ステートメントが含まれたクエリの`JOIN`秒。 アドホック SQL ステートメントを使用する場合に、これらの値を手動で指定することができます、TableAdapter 構成ウィザードが完了したときに、カスタマイズが上書きされます。
+リレーショナルデータベースを使用する場合、クエリでは、複数の関連テーブルからデータを取得するのが一般的です。 相関サブクエリと `JOIN` には、クエリ内の関連テーブルからデータにアクセスするための2つの異なる手法が用意されています。 前のチュートリアルでは、通常、相関サブクエリを使用しました。これは、TableAdapter が `JOIN` に関連するクエリの `INSERT`、`UPDATE`、および `DELETE` ステートメントを自動生成できないためです。 これらの値は手動で指定できますが、アドホック SQL ステートメントを使用する場合は、TableAdapter 構成ウィザードの完了時にすべてのカスタマイズが上書きされます。
 
-さいわい、ストアド プロシージャを使用して作成された Tableadapter では、アドホック SQL ステートメントを使用して作成されたものと同じの脆弱性からことはありません。 そのため、メインのクエリを使用して TableAdapter を作成することは、`JOIN`ストアド プロシージャを使用する場合。 このチュートリアルでは、このような TableAdapter を作成する方法を説明しました。 使用して開始した、 `JOIN`-小さい`SELECT`TableAdapter のメイン クエリのクエリを実行できるように、対応する insert、update、および削除のストアド プロシージャは自動的に作成します。 TableAdapter s 初期構成の完了を補強、`SelectCommand`ストアド プロシージャを使用して、`JOIN`を更新する TableAdapter 構成ウィザードを再実行し、`EmployeesDataTable`の列。
+さいわい、ストアドプロシージャを使用して作成された Tableadapter は、アドホック SQL ステートメントを使用して作成されたものと同じ高まるを持つことはできません。 そのため、ストアドプロシージャを使用する場合は、メインクエリで `JOIN` を使用する TableAdapter を作成することができます。 このチュートリアルでは、このような TableAdapter を作成する方法を説明しました。 ここでは、対応する insert、update、および delete の各ストアドプロシージャが自動作成されるように、TableAdapter のメインクエリに対して `JOIN`のない `SELECT` クエリを使用して開始しました。 TableAdapter の初期構成が完了したので、`SelectCommand` ストアドプロシージャを拡張して、`JOIN` を使用し、TableAdapter 構成ウィザードを再実行して `EmployeesDataTable` s 列を更新しました。
 
-TableAdapter 構成ウィザードが自動的に更新を再実行、`EmployeesDataTable`列によって返されるデータ フィールドを反映するように、`Employees_Select`ストアド プロシージャ。 代わりに、私たちでしたがこれらの列に手動で追加、DataTable。 列を手動で追加する、DataTable に、次のチュートリアルで説明されます。
+TableAdapter 構成ウィザードを再実行すると、`Employees_Select` ストアドプロシージャによって返されたデータフィールドを反映するように、`EmployeesDataTable` の列が自動的に更新されます。 または、これらの列を DataTable に手動で追加することもできます。 次のチュートリアルでは、DataTable に列を手動で追加する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Hilton Geisenow、David Suru、および Teresa Murphy でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Geisenow、David u、および Teresa Murphy でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)

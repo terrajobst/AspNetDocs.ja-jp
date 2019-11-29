@@ -1,137 +1,137 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
-title: Visual Studio (VB) を使用して、サイトの展開 |Microsoft Docs
+title: Visual Studio を使用したサイトのデプロイ (VB) |Microsoft Docs
 author: rick-anderson
-description: Visual Studio には、web サイトを展開するためのツールが含まれています。 このチュートリアルではこれらのツールの詳細について説明します。
+description: Visual Studio には、web サイトを配置するためのツールが含まれています。 これらのツールの詳細については、このチュートリアルを参照してください。
 ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 977105f3-7987-4e50-8be7-afb53b4ca28a
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a1dcb9ebd658ebd0d60bf422b4bd6aa20f53c59
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6c71e36a8a434947882cc767cd2f903ff6e8d422
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116686"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582499"
 ---
 # <a name="deploying-your-site-using-visual-studio-vb"></a>Visual Studio を使用してサイトを配置する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_vb.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_VB.zip)または[PDF のダウンロード](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_vb.pdf)
 
-> Visual Studio には、web サイトを展開するためのツールが含まれています。 このチュートリアルではこれらのツールの詳細について説明します。
+> Visual Studio には、web サイトを配置するためのツールが含まれています。 これらのツールの詳細については、このチュートリアルを参照してください。
 
 ## <a name="introduction"></a>はじめに
 
-上記のチュートリアルは、web ホスト プロバイダーに単純な ASP.NET web アプリケーションをデプロイする方法を説明しました。 具体的には、FileZilla のような FTP クライアントを使用して、開発環境から運用環境に必要なファイルを転送する方法を示したチュートリアルです。 Visual Studio では、web ホスト プロバイダーへのデプロイを容易に組み込みのツールも提供します。 このチュートリアルでは、これらのツールの 2 つはについて: Web サイトのコピー ツールは、FTP または FrontPage Server Extensions; を使用してリモートの web サーバーとの間にファイルを移動できます発行ツールを web サイト全体を指定した場所にコピーします。
+前のチュートリアルでは、単純な ASP.NET web アプリケーションを web ホストプロバイダーに展開する方法について説明しました。 具体的には、FileZilla のような FTP クライアントを使用して、開発環境から運用環境に必要なファイルを転送する方法を説明しました。 また、Visual Studio には、web ホストプロバイダーへの配置を容易にする組み込みのツールも用意されています。 このチュートリアルでは、Web サイトのコピーツールの2つについて検討します。このツールでは、FTP または FrontPage Server Extensions を使用してリモート web サーバーとの間でファイルを移動できます。発行ツール。 web サイト全体を指定した場所にコピーします。
 
 > [!NOTE]
-> Visual Studio によって提供されるその他の展開に関連するツールが含まれます[Web セットアップ プロジェクト](https://msdn.microsoft.com/library/wx3b589t.aspx)と[Web Deployment Projects](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en)アドイン。 Web セットアップ プロジェクトは、web サイトのコンテンツと構成については、1 つの MSI ファイルにパッケージ化します。 このオプションは、または顧客がそれぞれ独自の web サーバーにインストールされる事前にパッケージされた web アプリケーションを販売している会社の web サイトをイントラネット内にデプロイされる場合に便利です。 Web 展開プロジェクト アドインは、開発環境と運用環境のビルドを Visual Studio アドインを指定する構成の違いを容易にします。 Web セットアップ プロジェクトは、このチュートリアル シリーズでは; では説明しませんWeb Deployment Projects をまとめたもの、 [*一般的な構成の相違点の間で開発および運用*](common-configuration-differences-between-development-and-production-vb.md)チュートリアル。
+> Visual Studio で提供されるその他の配置関連ツールには、 [Web セットアッププロジェクト](https://msdn.microsoft.com/library/wx3b589t.aspx)および[web 配置プロジェクト](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en)アドインが含まれます。 Web セットアッププロジェクトでは、web サイトのコンテンツと構成情報を1つの MSI ファイルにパッケージ化します。 このオプションは、イントラネット内に展開されている web サイトや、お客様が独自の web サーバーにインストールした事前パッケージ web アプリケーションを販売する企業にとって最も役立ちます。 Web 配置プロジェクトアドインは、開発環境と運用環境のビルド間の構成の違いを簡単に指定できる Visual Studio アドインです。 このチュートリアルシリーズでは、Web セットアッププロジェクトについては説明しません。Web 配置プロジェクトの概要については、「[*開発と運用のチュートリアルの間の一般的な構成の違い*](common-configuration-differences-between-development-and-production-vb.md)」をお寄せください。
 
-## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Web サイトのコピー ツールを使用してサイトを展開します。
+## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Web サイトのコピーツールを使用したサイトのデプロイ
 
-Visual Studio の Web サイトのコピー ツールは、スタンドアロン FTP クライアント機能に似ています。 簡単に言うと、Web サイトのコピー ツールを使用すると、FTP または FrontPage Server Extensions 経由のリモート web サイトに接続できます。 2 つのペインの FileZilla のユーザー インターフェイスと同様に、Web サイトのコピーのユーザー インターフェイスを構成します。 左側のウィンドウが右側のウィンドウは、移行先サーバーでファイルを表示中に、ローカル ファイルを示します。
+Visual Studio の Web サイトのコピーツールは、スタンドアロン FTP クライアントの機能に似ています。 簡単に言うと、Web サイトのコピーツールを使用すると、FTP または FrontPage Server Extensions 経由でリモート web サイトに接続できます。 FileZilla のユーザーインターフェイスと同様に、Web サイトのコピーのユーザーインターフェイスは2つのペインで構成されます。左側のウィンドウにはローカルファイルが一覧表示され、右側のペインには移行先サーバー上のファイルが一覧表示されます。
 
 > [!NOTE]
-> Web サイトのコピー ツールは、Web サイト プロジェクトのできるだけです。 Web アプリケーション プロジェクトを使用しているときに、visual Studio はこのツールを提供します。
+> Web サイトのコピーツールは、Web サイトプロジェクトでのみ使用できます。 Web アプリケーションプロジェクトを使用する場合、Visual Studio はこのツールを提供します。
 
-Web サイトのコピー ツールを使用して、運用環境に書籍レビューのアプリケーションを発行するの見てをみましょう。 Web サイトのコピー ツールは、Web サイト プロジェクト モデルを使用するプロジェクトでのみ動作するため、BookReviewsWSP プロジェクトでこのツールを使用してのみ確認できます。 そのプロジェクトを開きます。
+Web サイトのコピーツールを使用して、本レビューアプリケーションを運用環境に発行する方法を見てみましょう。 Web サイトのコピーツールは、Web サイトプロジェクトモデルを使用するプロジェクトでのみ機能するので、BookReviewsWSP プロジェクトでこのツールを使用してのみ調べることができます。 そのプロジェクトを開きます。
 
-ソリューション エクスプ ローラー (このアイコンは図 1 丸); Web サイトのコピー アイコンをクリックして、Web サイトのコピー ツールのプロジェクトを起動します。また、web サイト メニューから Web サイトのコピー オプションを選択できます。 どちらの方法は、図 1 に示すように Web サイトのコピーのユーザー インターフェイスを起動します。まだリモート サーバーに接続があるので、図 1 の左側のウィンドウのみが設定されます。
+ソリューションエクスプローラーの [Web サイトのコピー] アイコンをクリックして、Web サイトのコピーツールプロジェクトを起動します (このアイコンは図1で丸で囲まれています)。または、[Web サイト] メニューの [Web サイトのコピー] オプションを選択することもできます。 どちらの方法でも、図1に示す Web サイトのコピーのユーザーインターフェイスが起動されます。リモートサーバーにまだ接続していないため、図1の左側のウィンドウだけが設定されます。
 
-[![コピーの Web サイト ツールのユーザー インターフェイスが 2 つのペインに分割されます。](deploying-your-site-using-visual-studio-vb/_static/image2.png)](deploying-your-site-using-visual-studio-vb/_static/image1.png)
+[Web サイトのコピーツールのユーザーインターフェイスの ![は、2つのペインに分割されています。](deploying-your-site-using-visual-studio-vb/_static/image2.png)](deploying-your-site-using-visual-studio-vb/_static/image1.png)
 
-**図 1**:コピーの Web サイト ツールのユーザー インターフェイスが 2 つのペインに分割されます ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image3.png))。
+**図 1**: Web サイトのコピーツールのユーザーインターフェイスが2つのペインに分割されている ([クリックしてフルサイズのイメージを表示する](deploying-your-site-using-visual-studio-vb/_static/image3.png))
 
-私たちのサイトを展開するためには、まず、web ホスト プロバイダーに接続する必要があります。 Web サイトのコピーのユーザー インターフェイスの上部にある [接続] ボタンをクリックします。 図 2 に示すように Web サイトを開く ダイアログ ボックスが表示されます。
+サイトをデプロイするには、最初に web ホストプロバイダーに接続する必要があります。 Web サイトのコピーのユーザーインターフェイスの上部にある [接続] ボタンをクリックします。 これにより、図2に示す [Web サイトを開く] ダイアログボックスが表示されます。
 
-左から 4 つのオプションのいずれかを選択して、変換先の web サイトに接続できます。
+左の4つのオプションのいずれかを選択して、目的の web サイトに接続できます。
 
-- **ファイル システム**-お使いのコンピューターからアクセスできるフォルダーまたはネットワーク共有にサイトを展開する場合に選択します。
-- **ローカル IIS** -このオプションを使用して、コンピューターにインストールされている IIS web サーバーにサイトをデプロイします。
-- **FTP サイト**-FTP を使用してリモートの web サイトに接続します。
-- **リモート サイト**の FrontPage Server Extensions を使用してリモートの web サイトに接続します。
+- **[ファイルシステム]** -コンピューターからアクセスできるフォルダーまたはネットワーク共有にサイトを展開するには、このチェックボックスをオンにします。
+- **[ローカル iis]** : コンピューターにインストールされている IIS web サーバーにサイトを展開する場合に、このオプションを使用します。
+- **Ftp サイト**-ftp を使用してリモート web サイトに接続します。
+- **リモートサイト**-FrontPage Server Extensions を使用してリモート web サイトに接続します。
 
-ほとんどの web ホスト プロバイダーは、FTP をサポートしますが、FrontPage サーバー拡張機能のサポートを提供は少なくなります。 そのため、FTP サイト オプションを選択して図 2 に示すように、接続情報を入力します。
+ほとんどの web ホストプロバイダーは FTP をサポートしますが、FrontPage Server 拡張機能のサポートはあまりありません。 そのため、[FTP サイト] オプションを選択し、図2に示すように接続情報を入力しました。
 
-[![変換先の web サイトを指定します。](deploying-your-site-using-visual-studio-vb/_static/image5.png)](deploying-your-site-using-visual-studio-vb/_static/image4.png)
+[送信先 Web サイトを指定 ![には](deploying-your-site-using-visual-studio-vb/_static/image5.png)](deploying-your-site-using-visual-studio-vb/_static/image4.png)
 
-**図 2**:変換先の web サイトを指定 ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image6.png))。
+**図 2**: 接続先の web サイトを指定[する (クリックすると、フルサイズの画像が表示](deploying-your-site-using-visual-studio-vb/_static/image6.png)されます)
 
-接続した後、Web サイトのコピー ツールは右側のウィンドウで、リモート サイト ファイルを読み込みを各ファイルの状態を示します。新しい、削除、変更、または変更されません。 逆に、リモートのサイトに、ローカル サイトからファイルをコピーすることができます。
+接続後、Web サイトのコピーツールでは、リモートサイトのファイルが右ペインに読み込まれ、各ファイルの状態 (新規、削除済み、変更済み、または変更されていない) が示されます。 ローカルサイトからリモートサイトにファイルをコピーしたり、その逆をコピーしたりできます。
 
-新しい追加 BookReviewsWSP プロジェクトへのページングし、Web サイトのコピー ツールの動作を確認できるように、デプロイします。 という名前のルート ディレクトリで、Visual Studio で新しい ASP.NET ページを作成`Privacy.aspx`です。 マスター ページを使用して、ページがある`Site.master`とこのページに、サイトのプライバシー ポリシーを追加します。 図 3 は、このページを作成した後、Visual Studio を示します。
+BookReviewsWSP プロジェクトに新しいページを追加し、それをデプロイして、Web サイトのコピーツールが動作することを確認しましょう。 `Privacy.aspx`という名前のルートディレクトリで、Visual Studio で新しい ASP.NET ページを作成します。 ページで `Site.master` マスターページを使用し、サイトのプライバシーポリシーをこのページに追加します。 図3は、このページが作成された後の Visual Studio を示しています。
 
-[![という新しいページを追加&lt;コード&gt;Privacy.aspx&lt;/code&gt;を web サイトのルート フォルダー](deploying-your-site-using-visual-studio-vb/_static/image8.png)](deploying-your-site-using-visual-studio-vb/_static/image7.png)
+[&gt;&lt;コードという名前の新しいページを Web サイトのルートフォルダーに追加 ![ます&gt;&lt;。](deploying-your-site-using-visual-studio-vb/_static/image8.png)](deploying-your-site-using-visual-studio-vb/_static/image7.png)
 
-**図 3**:という新しいページを追加`Privacy.aspx`web サイトのルート フォルダーに ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image9.png))。
+**図 3**: `Privacy.aspx` という名前の新しいページを web サイトのルートフォルダーに追加する ([クリックすると、フルサイズの画像が表示](deploying-your-site-using-visual-studio-vb/_static/image9.png)されます)
 
-次に、Web サイトのコピーのユーザー インターフェイスを返します。 左側のウィンドウは、新しいファイルを含む、図 4 に示すよう`Policy.aspx`と`Policy.aspx.vb`します。 さらに、これらのファイルは、矢印のアイコンと状態の新しいリモート サイトではなく、ローカル サイトが存在することを示すでマークされます。
+次に、[Web サイトのコピー] ユーザーインターフェイスに戻ります。 図4に示すように、左側のウィンドウに新しいファイル `Policy.aspx` と `Policy.aspx.vb`が含まれるようになりました。 さらに、これらのファイルは矢印アイコンでマークされ、[新規] の状態になっています。これは、これらがローカルサイトに存在するがリモートサイトには存在しないことを示しています。
 
-[![Web サイトのコピー ツールは、新規を含む&lt;コード&gt;Privacy.aspx&lt;/code&gt;ページの左ペインで](deploying-your-site-using-visual-studio-vb/_static/image11.png)](deploying-your-site-using-visual-studio-vb/_static/image10.png)
+[![Web サイトのコピーツールには、新しい &lt;コード&gt;のプライバシーに関する情報が含まれています。このページの左側のウィンドウには、コードが含まれて&gt;&lt;います。](deploying-your-site-using-visual-studio-vb/_static/image11.png)](deploying-your-site-using-visual-studio-vb/_static/image10.png)
 
-**図 4**:Web サイトのコピー ツールは、新規を含む`Privacy.aspx`ページの左ペインで ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image12.png))。
+**図 4**: Web サイトのコピーツールでは、新しい `Privacy.aspx` ページが左側のウィンドウに表示されます ([クリックすると、フルサイズの画像が表示](deploying-your-site-using-visual-studio-vb/_static/image12.png)されます)
 
-新しい展開するファイルの選択し、リモート サイトに転送する矢印アイコンをクリックします。 転送が完了したら、`Policy.aspx`と`Policy.aspx.vb`Unchanged 状態で、ローカルおよびリモート サイトの両方にファイルが存在します。
+新しいファイルを展開するには、それらを選択し、矢印アイコンをクリックしてリモートサイトに転送します。 転送が完了すると `Policy.aspx` と、状態が変更されていないローカルとリモートの両方のサイトに `Policy.aspx.vb` ファイルが存在します。
 
-一覧を表示するには、新しいファイルとは、Web サイトのコピー ツールには、ローカルおよびリモートのサイト間で差異がある任意のファイルが強調表示されます。 アクションの表示に戻り、`Privacy.aspx`ページおよびプライバシー ポリシーをいくつかの複数の単語を追加します。 ページを保存してから、Web サイトのコピー ツールに戻ります。 図 5 に示すよう、`Privacy.aspx`ページの左側のペインで、変更は、リモート サイトとの同期であることを示す状態。
+Web サイトのコピーツールでは、新しいファイルの一覧表示と共に、ローカルサイトとリモートサイトで異なるファイルが強調表示されます。 実際の動作を確認するには、[`Privacy.aspx`] ページに戻り、プライバシーポリシーにいくつかの単語を追加します。 ページを保存し、Web サイトのコピーツールに戻ります。 図5に示すように、左側のウィンドウの [`Privacy.aspx`] ページには、リモートサイトと同期していないことを示す [変更] という状態があります。
 
-[![Web サイトのコピー ツールでは、ことを示します、&lt;コード&gt;Privacy.aspx&lt;/code&gt;ページが変更されました](deploying-your-site-using-visual-studio-vb/_static/image14.png)](deploying-your-site-using-visual-studio-vb/_static/image13.png)
+[Web サイトのコピーツールを ![と、&lt;コード&gt;のコード&gt; ページが変更されたことを示し&lt;ます。](deploying-your-site-using-visual-studio-vb/_static/image14.png)](deploying-your-site-using-visual-studio-vb/_static/image13.png)
 
-**図 5**:Web サイトのコピー ツールでは、ことを示します、`Privacy.aspx`ページが変更されました ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image15.png))。
+**図 5**: Web サイトのコピーツールは、`Privacy.aspx` ページが変更されたことを示します ([クリックすると、フルサイズの画像が表示](deploying-your-site-using-visual-studio-vb/_static/image15.png)されます)
 
-Web サイトのコピー ツールでは、最後のコピー操作、ファイルが削除されたかについても示します。 削除、`Privacy.aspx`からローカルのプロジェクトと Web サイトのコピー ツールを更新します。 `Privacy.aspx`と`Privacy.aspx.vb`ファイルは、左側のウィンドウに残りますが、最後のコピー操作が削除されたことを示す削除済み状態。
+Web サイトのコピーツールは、最後のコピー操作以降にファイルが削除されたかどうかも示します。 ローカルプロジェクトから `Privacy.aspx` を削除し、Web サイトのコピーツールを更新します。 `Privacy.aspx` および `Privacy.aspx.vb` ファイルは左側のウィンドウに表示されたままですが、最後のコピー操作以降に削除されたことを示す状態が削除されています。
 
 ## <a name="publishing-a-web-application"></a>Web アプリケーションの発行
 
-Visual Studio 内から web アプリケーションをデプロイする別の方法では、ビルド メニューからアクセス可能である 発行 オプションを使用します。 発行 オプションは、明示的にアプリケーションをコンパイルし、すべての指定したリモート サイトに必要なファイルをコピーします。 間もなく表示されるよう、発行 オプションは、Web サイトのコピー ツールよりもより直接的にします。 Web サイトのコピー ツールでは、ローカルおよびリモートのサイト上のファイルを調べることができ、アップロードまたは必要に応じて、個々 のファイルをダウンロードすること、一方、[発行] オプションは、web アプリケーション全体を配置します。
+Visual Studio 内から web アプリケーションを配置するもう1つの方法は、[ビルド] メニューからアクセスできる [発行] オプションを使用することです。 Publish オプションは、アプリケーションを明示的にコンパイルし、必要なすべてのファイルを指定されたリモートサイトにコピーします。 後で説明するように、Publish オプションは Web サイトのコピーツールよりも無愛想です。 Web サイトのコピーツールを使用すると、ローカルサイトおよびリモートサイト上のファイルを確認し、必要に応じて個々のファイルをアップロードまたはダウンロードできるようになります。また、[発行] オプションを使用すると、web アプリケーション全体がデプロイされます。
 
-すべての必要なファイルを指定されたリモート サイトにコピーするだけでなく、[発行] オプションは明示的にアプリケーションをコンパイルします。 信じないの発行 オプションは Web アプリケーション プロジェクトで使用できることには、Web アプリケーション プロジェクトをする必要があることのことを取得するように明示的にコンパイルします。 少し意外などのような場合がありますが、発行オプションは、Web サイト プロジェクトの使用もします。 説明したとおり、 [*を決定する必要のあるファイルを展開する*](determining-what-files-need-to-be-deployed-vb.md)と呼ばれるプロセスを介して、チュートリアルでは、Web サイト プロジェクトを明示的にコンパイルできます*プリコンパイル*します。 このチュートリアルは、Web アプリケーション プロジェクトを発行 オプションを使用する方法では説明します。今後のチュートリアルでは、この時点で戻って Web Site プロジェクトで、発行 オプションを使用して見てプリコンパイルを紹介します。
+必要なすべてのファイルを指定されたリモートサイトにコピーするだけでなく、[発行] オプションを選択すると、アプリケーションも明示的にコンパイルされます。 Web アプリケーションプロジェクトを明示的にコンパイルする必要がある場合は、Web アプリケーションプロジェクトで [発行] オプションが使用可能であることを意外に考える必要があります。 少し驚くかもしれませんが、Web サイトプロジェクトで [発行] オプションを使用することもできます。 「[*配置する必要があるファイルの決定*](determining-what-files-need-to-be-deployed-vb.md)」チュートリアルで説明したように、Web サイトプロジェクトは、*事前コンパイル*と呼ばれるプロセスを使用して明示的にコンパイルできます。 このチュートリアルでは、Web アプリケーションプロジェクトで発行オプションを使用する方法について説明します。今後のチュートリアルでは、事前コンパイルについて説明します。この時点で、Web サイトプロジェクトで発行オプションを使用する方法を確認します。
 
 > [!NOTE]
-> 発行 オプションは Visual Studio for Web サイト プロジェクトと Web Application Projects の両方で使用できますが、Visual Web Developer は Web アプリケーション プロジェクトの発行 オプションのみを提供します。
+> [発行] オプションは、Web サイトプロジェクトと Web アプリケーションプロジェクトの両方で Visual Studio で使用できますが、Visual Web Developer では、Web アプリケーションプロジェクトの [発行] オプションのみが提供されます。
 
-発行オプションを使用して書籍レビューのアプリケーションの配置を見てみましょう。 Visual Studio で BookReviewsWAP (Web アプリケーション プロジェクト) を開いてを開始します。 [発行] メニューからビルド BookReviewsWAP プロジェクトを選択します。 (図 6 参照)、他の構成オプションの間で、ターゲットの場所の入力を求めるダイアログ ボックスが表示されます。 かなりのように Web サイトのコピー ツールを使用して入力できますの場所をローカル フォルダー、ローカルの IIS で web サイト、FrontPage Server Extensions、または FTP サーバーのアドレスをサポートするリモートの web サイトを。 リモート web サーバー上のファイルに配置されたファイルを置き換える、またはパブリッシュする前に、リモート サイトにコンテンツをすべて削除するかどうかを選択できます。 コピーするかどうかを指定することもできます。
+Publish オプションを使用して、書籍レビューアプリケーションをデプロイする方法を見てみましょう。 まず、Visual Studio で BookReviewsWAP (Web アプリケーションプロジェクト) を開きます。 [発行] メニューで、[Build BookReviewsWAP] プロジェクトを選択します。 これにより、他の構成オプションのように、ターゲットの場所を入力するよう求めるダイアログボックスが表示されます (図6を参照)。 Web サイトのコピーツールと同様に、ローカルフォルダー、IIS 上のローカル web サイト、FrontPage Server Extensions をサポートするリモート web サイト、または FTP サーバーのアドレスを指す場所を入力できます。 リモート web サーバー上のファイルを、展開されたファイルに置き換えるか、または発行前にリモートサイト上のすべてのコンテンツを削除するかを選択できます。 また、次の項目をコピーするかどうかを指定することもできます。
 
-- 不要なソース コードとプロジェクトに関連するファイルを削除し、アプリケーションの実行に必要なプロジェクト ファイルのみです。
-- すべてのソース コード ファイルを含むプロジェクト ファイル、および Visual Studio プロジェクト ファイルなどのソリューション ファイルを実行します。
-- プロジェクトに含めるしているかどうかに関係なくソース プロジェクト フォルダー内のすべてのファイルをコピーするソース プロジェクト フォルダー内のすべてのファイル。
+- プロジェクト内のファイルだけがアプリケーションを実行する必要があります。これにより、不要なソースコードおよびプロジェクト関連ファイルが除外されます。
+- すべてのプロジェクトファイル。ソースコードファイルと、ソリューションファイルのような Visual Studio プロジェクトファイルが含まれます。
+- ソースプロジェクトフォルダー内のすべてのファイル。ソースプロジェクトフォルダー内のすべてのファイルが、プロジェクトに含まれているかどうかに関係なくコピーされます。
 
-内容をアップロードするオプションがありますも、`App_Data`フォルダー。
+`App_Data` フォルダーの内容をアップロードするオプションもあります。
 
-[![変換先の web サイトを指定します。](deploying-your-site-using-visual-studio-vb/_static/image17.png)](deploying-your-site-using-visual-studio-vb/_static/image16.png)
+[送信先 Web サイトを指定 ![には](deploying-your-site-using-visual-studio-vb/_static/image17.png)](deploying-your-site-using-visual-studio-vb/_static/image16.png)
 
-**図 6**:変換先の web サイトを指定 ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image18.png))。
+**図 6**: 接続先の web サイトを指定[する (クリックすると、フルサイズの画像が表示](deploying-your-site-using-visual-studio-vb/_static/image18.png)されます)
 
-ブック_レビュー アプリケーションのリモート サイトには、Web サイトのコピー ツールを使用して BookReviewsWSP プロジェクトをコピーするときに展開されているファイルが含まれています。 そのため、すべての既存のコンテンツを削除することによって開始発行オプションがありますしてみましょう。 また、だけをコピー不要なソース コードとプロジェクト ファイルで、運用環境と雑然とさせるのではなく、必要なファイル。 指定した後は、これらのオプションは、[発行] ボタンをクリックします。 次の数秒間経由で Visual Studio は、必要なファイルを展開先のサイト、出力ウィンドウにその進行状況を表示します。
+Book Review アプリケーションの場合、リモートサイトには、Web サイトのコピーツールを使用して BookReviewsWSP プロジェクトをコピーするときに配置されたファイルが含まれています。 そのため、既存のコンテンツをすべて削除して、Publish オプションを開始してみましょう。 また、不要なソースコードやプロジェクトファイルを使用して運用環境を乱雑にするのではなく、必要なファイルをコピーするだけです。 これらのオプションを指定したら、[発行] ボタンをクリックします。 次の数秒で、Visual Studio は必要なファイルを変換先サイトに配置し、進行状況を出力ウィンドウに表示します。
 
-図 7 は、発行操作が完了した後、FTP サイト上のファイルを示します。 マークアップのページのみと必要なサーバー側とクライアント側のサポート ファイルがアップロードされたことに注意してください。
+図7に、発行操作が完了した後の FTP サイト上のファイルを示します。 マークアップページと、必要なサーバー側およびクライアント側のサポートファイルのみがアップロードされていることに注意してください。
 
-[![運用環境に必要なファイルのみが公開されました。](deploying-your-site-using-visual-studio-vb/_static/image20.png)](deploying-your-site-using-visual-studio-vb/_static/image19.png)
+[必要なファイルのみが運用環境に発行された ![](deploying-your-site-using-visual-studio-vb/_static/image20.png)](deploying-your-site-using-visual-studio-vb/_static/image19.png)
 
-**図 7**:のみのために必要なファイルに公開された運用環境 ([フルサイズの画像を表示する をクリックします](deploying-your-site-using-visual-studio-vb/_static/image21.png))。
+**図 7**: 必要なファイルのみが運用環境に発行された ([クリックしてフルサイズのイメージを表示する](deploying-your-site-using-visual-studio-vb/_static/image21.png))
 
-発行 オプションは、Web サイトのコピー ツールよりも小さい微妙ツールです。 Web サイトのコピー ツールを使用すると、ローカルおよびリモートのサイト上のファイルを検査し、どのように異なるかを参照してください、一方、[発行] オプションにはこのようなインターフェイスはありません。 さらに、Web サイトのコピー ツールには、1 回限りの変更、アップロードまたは個々 のファイルを削除することができます。 発行オプションがこのような細かいコントロールを許可しません。代わりに、その発行、*全体*アプリケーション。 この動作は、その長所と短所が。 プラスの面では、するは、重要なファイルをアップロードする忘れたりしません発行オプションを使用するタイミングがわかります。 何が起きる - 非常に大規模な web サイトに小さな変更を加えた場合発行オプションを使用してそのページまたは変更された 2 つを更新することはできませんが、代わりに、Visual Studio は、サイト全体を展開して、待機する必要があります。
+Publish オプションは、Web サイトのコピーツールよりも微妙なツールです。 Web サイトのコピーツールを使用すると、ローカルサイトおよびリモートサイト上のファイルを検査し、それらがどのように異なるかを確認することができます。発行オプションでは、そのようなインターフェイスは提供されません。 さらに、Web サイトのコピーツールを使用すると、個々のファイルをアップロードまたは削除することができます。 Publish オプションでは、このような細かい制御が許可されていません。代わりに、アプリケーション*全体*が発行されます。 この動作には長所と短所があります。 プラス側では、発行オプションを使用するときに、重要なファイルのアップロードを忘れることはありません。 ただし、非常に大規模な web サイトに小さな変更を加えた場合、発行オプションを使用すると、変更されたページを更新することはできず、Visual Studio によってサイト全体が展開されるまで待機する必要があります。
 
-運用環境と開発環境の間でコンテンツを持つとは異なる特定のファイルにすることは珍しくないです。 キーの例は、アプリケーションの構成ファイル、`Web.config`します。 発行オプションが無条件に web アプリケーションのファイルをコピーするため、開発環境でのバージョンで、運用環境のカスタマイズされた構成ファイルを上書きします。 後続のチュートリアルでは、さらに、このトピックについて説明し、このような違いが存在する場合は、web アプリケーションをデプロイするためのヒントが提供されます。
+運用環境と開発環境でコンテンツが異なる特定のファイルが存在することは珍しくありません。 キーの例としては、アプリケーションの構成ファイル `Web.config`があります。 発行オプションによって web アプリケーションファイルが無条件にコピーされるため、運用環境のカスタマイズされた構成ファイルは開発環境のバージョンで上書きされます。 以降のチュートリアルでは、このトピックについて詳しく説明し、このような違いが存在する場合に web アプリケーションをデプロイするためのヒントを提供します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-Web サイトを展開するには、開発環境から運用環境に必要なファイルをコピーする必要があります。 前のチュートリアルでは、FileZilla のような FTP クライアントを使用してファイルを転送する方法を示しました。 このチュートリアルは、Visual Studio での 2 つの展開ツールを調べる: Web サイトのコピー ツールと、[発行] オプション。 ローカル コンピューターと簡単にアップロードまたは 2 台のコンピューター間でファイルをダウンロードすることを指定したリモート コンピューター上のファイルを一覧表示する 2 つのウィンドウで構成されるインターフェイスでは、Web サイトのコピー ツールを FTP クライアントに似ています。 発行 オプションは、明示的にプロジェクトをコンパイルし、指定したコピー先に全体のアプリケーションをデプロイする直接的なツールです。
+Web サイトを配置するには、必要なファイルを開発環境から運用環境にコピーする必要があります。 前のチュートリアルでは、FileZilla のような FTP クライアントを使用してファイルを転送する方法を説明しました。 このチュートリアルでは、Visual Studio の2つの配置ツール (Web サイトのコピーツールと [発行] オプション) を確認しています。 Web サイトのコピーツールは、FTP クライアントに似ています。これは、ローカルコンピューター上のファイルと、2つのコンピューター間でファイルを簡単にアップロードまたはダウンロードできるように指定されたリモートコンピューターの2つのペインからなるインターフェイスがあることです。 Publish オプションは、プロジェクトを明示的にコンパイルし、指定された変換先にアプリケーション全体を配置する、より無愛想ツールです。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [Web サイトのコピー ツールを使用した Web サイトのコピー](https://msdn.microsoft.com/library/1cc82atw.aspx)
-- [How Do i:Web サイトのコピー ツールを使用して Web サイトのデプロイ](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md)(ビデオ)
-- [方法: Web アプリケーション プロジェクトを発行します。](https://msdn.microsoft.com/library/aa983453.aspx)
-- [方法: Web サイトを発行します。](https://msdn.microsoft.com/library/20yh9f1b.aspx)
-- [セットアップ/配置プロジェクトで Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
+- [Web サイトのコピーツールを使用した Web サイトのコピー](https://msdn.microsoft.com/library/1cc82atw.aspx)
+- [操作方法: Web サイトのコピーツールを使用して Web サイトをデプロイ](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md)する (ビデオ)
+- [方法: Web アプリケーションプロジェクトを発行する](https://msdn.microsoft.com/library/aa983453.aspx)
+- [方法: Web サイトを発行する](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [Visual Studio でのセットアッププロジェクトと配置プロジェクト](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 > [!div class="step-by-step"]
 > [前へ](deploying-your-site-using-an-ftp-client-vb.md)

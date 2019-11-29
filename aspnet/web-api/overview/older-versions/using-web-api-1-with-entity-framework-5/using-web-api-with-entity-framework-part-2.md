@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
-title: '第 2 部: ドメイン モデルの作成 |Microsoft Docs'
+title: 'パート 2: ドメインモデルの作成 |Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,78 +8,78 @@ ms.date: 07/03/2012
 ms.assetid: fe3ef85f-bdc6-4e10-9768-25aa565c01d0
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: e4c0f3fe596471921c174762c83d1f013b42fb3e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7c5ed1bdb4b390c94907b14e208231f16ad42d96
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415012"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600366"
 ---
-# <a name="part-2-creating-the-domain-models"></a>第 2 部: ドメイン モデルの作成
+# <a name="part-2-creating-the-domain-models"></a>パート 2: ドメインモデルの作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-## <a name="add-models"></a>モデルを追加します。
+## <a name="add-models"></a>モデルの追加
 
-Entity Framework のアプローチに 3 つの方法はあります。
+Entity Framework アプローチには、次の3つの方法があります。
 
-- データベース優先。データベースで開始して、Entity Framework には、コードが生成されます。
-- モデル優先。ビジュアルのモデルから開始して、Entity Framework には、データベースとコードの両方が生成されます。
-- Code first:コードで開始して、Entity Framework には、データベースが生成されます。
+- データベース優先: データベースから開始し、Entity Framework によってコードが生成されます。
+- モデル優先: ビジュアルモデルから開始すると、Entity Framework によってデータベースとコードの両方が生成されます。
+- Code first: code から開始し、Entity Framework によってデータベースが生成されます。
 
-Poco (plain-old CLR object) としてのドメイン オブジェクトを定義することで開始 code first アプローチを使用しています。 Code first アプローチでは、ドメイン オブジェクトは、トランザクションや永続化など、データベース層をサポートするために余分なコードを必要はありません。 (具体的には、それらから継承する必要はありません、 [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx)クラスです)。Entity Framework がデータベース スキーマを作成する方法を制御するのに、データ注釈を引き続き使用できます。
+コード優先の方法を使用しているので、まず、ドメインオブジェクトを POCOs (plain old CLR object) として定義します。 コード優先のアプローチでは、データベースレイヤーをサポートするために、ドメインオブジェクトにはトランザクションや永続化などの追加のコードは必要ありません。 (具体的には、 [Entityobject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx)クラスから継承する必要はありません)。データ注釈を使用して、Entity Framework がデータベーススキーマを作成する方法を制御することもできます。
 
-Poco を記述する追加のプロパティを搬送しないため、[データベース状態](https://msdn.microsoft.com/library/system.data.entitystate.aspx)、JSON または XML にシリアルできます化簡単にします。 ただし、わけには、クライアントでは、直接、Entity Framework モデルを常に公開する必要があります、チュートリアルの後半で表示されるようにします。
+POCOs には[データベースの状態](https://msdn.microsoft.com/library/system.data.entitystate.aspx)を説明する追加のプロパティがないため、JSON または XML に簡単にシリアル化できます。 ただし、このチュートリアルで後ほど説明するように、これは常に Entity Framework モデルをクライアントに直接公開する必要があるという意味ではありません。
 
-次の Poco を作成します。
+次の POCOs が作成されます。
 
 - 製品
-- 注文
+- Order
 - OrderDetail
 
-各クラスを作成するには、ソリューション エクスプ ローラーで Models フォルダーを右クリックします。 コンテキスト メニューでは、次のように選択します。**追加**選び**クラス。**
+各クラスを作成するには、ソリューションエクスプローラーで [モデル] フォルダーを右クリックします。 コンテキストメニューから **追加** を選択し、クラス を選択し**ます。**
 
 ![](using-web-api-with-entity-framework-part-2/_static/image1.png)
 
-追加、`Product`次の実装クラス。
+次の実装を使用して `Product` クラスを追加します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-2/samples/sample1.cs)]
 
-慣例により、Entity Framework を使用して、`Id`プロパティを主キーとして、データベース テーブルに id 列にマップします。 新規に作成するときに`Product`インスタンスの値を設定しません`Id`データベースの値を生成するためです。
+慣例により、Entity Framework は `Id` プロパティを主キーとして使用し、データベーステーブル内の id 列にマップします。 新しい `Product` インスタンスを作成した場合、データベースで値が生成されるため、`Id`の値は設定されません。
 
-**ScaffoldColumn**属性に指示をスキップする ASP.NET MVC、`Id`プロパティ エディターのフォームを生成するときにします。 **必要**属性は、モデルの検証に使用します。 指定します、`Name`プロパティは空でない文字列である必要があります。
+**ScaffoldColumn**属性は、エディターフォームを生成するときに、`Id` プロパティをスキップするように ASP.NET MVC に指示します。 **必須**の属性は、モデルの検証に使用されます。 `Name` プロパティは、空でない文字列である必要があることを指定します。
 
-追加、`Order`クラス。
+`Order` クラスを追加します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-2/samples/sample2.cs)]
 
-追加、`OrderDetail`クラス。
+`OrderDetail` クラスを追加します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-2/samples/sample3.cs)]
 
 ## <a name="foreign-key-relations"></a>外部キーの関係
 
-注文は多くの注文の詳細を含み、各注文の詳細は、1 つの製品を参照します。 これらのリレーションを表す、`OrderDetail`クラスという名前のプロパティを定義する`OrderId`と`ProductId`します。 これらのプロパティが外部キーを表すし、データベースに foreign key 制約を追加、entity Framework は推論します。
+注文には多くの注文の詳細が含まれ、各注文の詳細は1つの製品を表します。 これらの関係を表すために、`OrderDetail` クラスは `OrderId` と `ProductId`という名前のプロパティを定義します。 Entity Framework は、これらのプロパティが外部キーを表していることを推定し、データベースに外部キー制約を追加します。
 
 ![](using-web-api-with-entity-framework-part-2/_static/image2.png)
 
-`Order`と`OrderDetail`クラスでは、関連オブジェクトへの参照を含む「ナビゲーション」プロパティも含まれます。 順序を指定すると、ナビゲーション プロパティを次の順序で製品に移動できます。
+`Order` クラスと `OrderDetail` クラスには、関連オブジェクトへの参照を含む "ナビゲーション" プロパティも含まれています。 順序を指定すると、ナビゲーションプロパティに従って、注文内の製品に移動できます。
 
-これで、プロジェクトをコンパイルします。 Entity Framework では、リフレクションを使用して、コンパイル済みのアセンブリ、データベース スキーマを作成する必要がありますので、モデルのプロパティを検出します。
+ここでプロジェクトをコンパイルします。 Entity Framework は、リフレクションを使用してモデルのプロパティを検出します。そのため、データベーススキーマを作成するには、コンパイル済みのアセンブリが必要です。
 
-## <a name="configure-the-media-type-formatters"></a>メディア タイプ フォーマッタを構成します。
+## <a name="configure-the-media-type-formatters"></a>メディアの種類のフォーマッタを構成する
 
-A[メディア タイプ フォーマッタ](../../formats-and-model-binding/media-formatters.md)は Web API は HTTP 応答の本文を書き込むときに、データをシリアル化するオブジェクトです。 組み込みのフォーマッタは、JSON および XML の出力をサポートします。 既定で、すべてのオブジェクトを値別これらフォーマッタのどちらもシリアル化します。
+[メディアの種類のフォーマッタ](../../formats-and-model-binding/media-formatters.md)は、Web API が HTTP 応答の本文を書き込むときにデータをシリアル化するオブジェクトです。 組み込みのフォーマッタは、JSON と XML の出力をサポートしています。 既定では、これらのフォーマッタはいずれも、値によってすべてのオブジェクトをシリアル化します。
 
-値によるシリアル化は、オブジェクト グラフに循環参照が含まれている場合、問題を作成します。 これは、場合で正確には、`Order`と`OrderDetail`クラスをそれぞれに、もう一方への参照が格納されているためです。 フォーマッタは以下の参照、値によって各オブジェクトを記述し、円で移動します。 そのため、既定の動作を変更する必要があります。
+値によるシリアル化では、オブジェクトグラフに循環参照が含まれている場合に問題が発生します。 これは、それぞれが別の参照を保持しているため、`Order` クラスと `OrderDetail` クラスの場合とまったく同じです。 フォーマッタは参照に従い、各オブジェクトを値で書き込んで、円で囲みます。 そのため、既定の動作を変更する必要があります。
 
-ソリューション エクスプ ローラーでアプリケーションを拡張して\_フォルダーを起動し、WebApiConfig.cs という名前のファイルを開きます。 `WebApiConfig` クラスに次のコードを追加します。
+ソリューションエクスプローラーで、アプリ\_スタートフォルダーを展開し、WebApiConfig.cs という名前のファイルを開きます。 `WebApiConfig` クラスに次のコードを追加します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-2/samples/sample4.cs?highlight=11)]
 
-このコードでは、オブジェクトの参照を保持するために、JSON フォーマッタを設定し、パイプラインから完全 XML フォーマッタを削除します。 (オブジェクトの参照を保持するために、XML フォーマッタを構成することができますが、もう少しの作業が、このアプリケーションの JSON のみ必要があります。 詳細については、次を参照してください[循環オブジェクト参照の処理](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)。)。
+このコードは、オブジェクト参照を保持するように JSON フォーマッタを設定し、パイプラインから XML フォーマッタを完全に削除します。 (XML フォーマッタは、オブジェクト参照を保持するように構成できますが、作業は少しだけで、このアプリケーションには JSON のみが必要です。 詳細については、「[循環オブジェクト参照の処理](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](using-web-api-with-entity-framework-part-1.md)

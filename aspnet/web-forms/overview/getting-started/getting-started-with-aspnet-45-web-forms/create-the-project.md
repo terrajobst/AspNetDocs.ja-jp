@@ -1,196 +1,196 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
-title: プロジェクトの作成 |Microsoft Docs
+title: プロジェクトを作成する |Microsoft Docs
 author: Erikre
-description: このチュートリアル シリーズでは、私たちの ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルシリーズでは、ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォームアプリケーションを構築するための基本について説明します。
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 1819704a4cfd3e6b82de1d8db916e729459d244f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 62918b17f42e54dfe4e45a08927b1039dcbb7012
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130911"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74576068"
 ---
 # <a name="create-the-project"></a>プロジェクトの作成
 
-によって[Erik Reitan](https://github.com/Erikre)
+[Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys サンプルプロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)するか[、電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)します。
 
-> このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
+> このチュートリアルシリーズでは、ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎と、Web 用の Microsoft Visual Studio Express 2013 について説明します。 このチュートリアルシリーズ[でC#は、ソースコードが含ま](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)れる Visual Studio 2013 プロジェクトを利用できます。
 
-このチュートリアルでが作成、および確認するには、ASP.NET の機能に精通することができる、Visual Studio で、既定のプロジェクトを実行します。 また、Visual Studio 環境を確認します。
+このチュートリアルでは、Visual Studio で既定のプロジェクトを作成、確認、実行します。これにより、ASP.NET の機能を理解することができます。 また、Visual Studio 環境を確認します。
 
-## <a name="what-youll-learn"></a>学習内容。
+## <a name="what-youll-learn"></a>学習内容:
 
-- 新しい Web フォーム プロジェクトを作成する方法。
-- Web フォーム プロジェクトのファイルの構造体。
+- 新しい Web フォームプロジェクトを作成する方法。
+- Web フォームプロジェクトのファイル構造。
 - Visual Studio でプロジェクトを実行する方法。
-- 既定の Web フォーム アプリケーションのさまざまな機能です。
-- Visual Studio 環境を使用する方法についての基本です。
+- 既定の Web フォームアプリケーションのさまざまな機能。
+- Visual Studio 環境を使用する方法の基本について説明します。
 
 ## <a name="creating-the-project"></a>プロジェクトの作成
 
 1. Visual Studio を開きます。
-2. 選択**新しいプロジェクト**から、**ファイル**Visual Studio のメニュー。 
+2. Visual Studio の **[ファイル]** メニューから **[新しいプロジェクト]** を選択します。 
 
-    ![プロジェクトの新しいプロジェクト メニュー項目を作成します。](create-the-project/_static/image1.png)
-3. 選択、**テンプレート** - &gt; **Visual C#**  - &gt; **Web**左側のテンプレート グループ。
-4. 選択、 **ASP.NET Web アプリケーション**中央の列のテンプレート。  
- このチュートリアル シリーズでは、.NET Framework 4.5.2 を使用しています。
-5. プロジェクトに名前を*WingtipToys*選択、 **OK**ボタンをクリックします。 
+    ![[プロジェクトの作成]-[新しいプロジェクト] メニュー項目](create-the-project/_static/image1.png)
+3. 左側にある [**テンプレート** -&gt; **Visual C#**  -&gt; **Web**テンプレート] グループを選択します。
+4. 中央の列で**ASP.NET Web アプリケーション**テンプレートを選択します。  
+ このチュートリアルシリーズでは .NET Framework 4.5.2 を使用しています。
+5. プロジェクトに*ウィングヒント*の名前を指定し、 **[OK** ] をクリックします。 
 
-    ![-プロジェクトを作成するには、新しいプロジェクト ダイアログ ボックス](create-the-project/_static/image2.png)
+    ![[プロジェクトの作成]-[新しいプロジェクト] ダイアログ](create-the-project/_static/image2.png)
 
     > [!NOTE]
-    > このチュートリアル シリーズで、プロジェクトの名前は**WingtipToys**します。 これを使用することをお勧め*正確な*プロジェクト名をされるので、コードがチュートリアルのシリーズ全体で予想通りに機能を提供します。
+    > このチュートリアルシリーズでは、プロジェクトの名前が**ウィングヒント toys**です。 チュートリアルシリーズ全体で提供されるコードが想定どおりに機能するように、この*正確*なプロジェクト名を使用することをお勧めします。
 
-6. をクリックして、**認証の変更**ボタンをクリックします。 選択**個々 のユーザー アカウント** をクリックし、 **OK**ボタン。
+6. **[認証の変更]** ボタンをクリックします。 **個々のユーザーアカウント**を選択し、 **[OK]** ボタンをクリックします。
 
-7. 選択、 **Web フォーム**テンプレートをクリックして、 **OK**ボタンをクリックします。
+7. **[Web フォーム]** テンプレートを選択し、 **[OK]** をクリックします。
 
-    ![プロジェクトの新しいプロジェクト テンプレートを作成します。](create-the-project/_static/image3.png)
+    ![プロジェクトの作成-新しいプロジェクトテンプレート](create-the-project/_static/image3.png)
 
-プロジェクトには、作成するを少し時間がかかります。 準備ができたら、開く、 **Default.aspx**ページ。
+プロジェクトの作成には少し時間がかかります。 準備ができたら、 **default.aspx**ページを開きます。
 
-![プロジェクトの新しいプロジェクト テンプレートを作成します。](create-the-project/_static/image4.png)
+![プロジェクトの作成-新しいプロジェクトテンプレート](create-the-project/_static/image4.png)
 
-切り替えることができます**デザイン**ビューと**ソース**センター ウィンドウの下部にあるオプションを選択して表示します。 **デザイン**ビューは、ASP.NET Web ページ、マスター ページ、コンテンツ ページ、HTML ページが表示されます。 および、WYSIWYG に近いビューを使用してユーザーを制御します。 **ソース**ビューを編集できる Web ページの HTML マークアップが表示されます。
+中央のウィンドウの下部にあるオプションを選択すると、**デザイン**ビューと**ソース**ビューを切り替えることができます。 **デザイン**ビューでは、ASP.NET の Web ページ、マスターページ、コンテンツページ、HTML ページ、およびユーザーコントロールが WYSIWYG ビューで表示されます。 **ソース**ビュー Web ページの HTML マークアップを表示します。このマークアップは編集できます。
 
 > [!TIP] 
 > 
-> **ASP.NET フレームワークを理解します。**
+> **ASP.NET フレームワークについて**
 > 
-> ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトをビルドできます。 デザイン サーフェスや数百のコントロールとコンポーネントを洗練された強力な UI 駆動型サイトとデータ アクセスを迅速に構築できます。 Wingtip の玩具店は、ASP.NET Web フォームに基づきますが、このチュートリアル シリーズで学習する概念の多くは ASP.NET のすべてに適用可能。
+> ASP.NET Web フォームを利用すれば、馴染みのあるドラッグアンドドロップ式のイベント駆動型モデルを利用して動的な Web サイトを構築できます。 デザイン サーフェスや数百あるコントロールとコンポーネントを利用し、洗練された強力な UI 駆動型サイトとデータ アクセスを短時間で構築できます。 Wingtip 玩具ストアは ASP.NET の Web フォームに基づいていますが、このチュートリアルシリーズで学習する概念の多くは、ASP.NET すべてに適用されます。
 > 
-> ASP.NET には、次の 4 つの主要な開発フレームワークが用意されています。
+> ASP.NET は、次の4つの主要な開発フレームワークを提供します。
 > 
 > - [ASP.NET Web フォーム](../../../index.md)  
->  Web フォーム フレームワークは、Microsoft Windows フォーム (WinForms)、WPF、XAML、/Silverlight などの宣言型とコントロール ベースのプログラミングを使用する開発者を対象とします。 Web 開発の迅速なアプリケーション開発 (RAD) 環境を探している開発者によく使用されますので、WYSIWYG デザイナー駆動型開発モデルを提供します。 Web プログラミングの経験は (たとえば、Visual Basic および Visual c#)、従来の Microsoft の RAD クライアント開発ツールに精通していて、HTML および JavaScript でのエクスペリエンスをしなくても web アプリケーションをすばやく作成できます。
+>  Web フォームフレームワークは、Microsoft Windows フォーム (WinForms) や WPF/XAML/Silverlight などの宣言型プログラミングおよびコントロールベースのプログラミングを好む開発者を対象としています。 WYSIWYG デザイナーによる開発モデルが用意されているため、web 開発用の迅速なアプリケーション開発 (RAD) 環境を探している開発者にも人気があります。 Web プログラミングに慣れておらず、従来の Microsoft RAD クライアント開発ツール (たとえば、Visual Basic やビジュアルC#) に精通している場合は、HTML および JavaScript を使用しなくても web アプリケーションをすばやく作成できます。
 > - [ASP.NET MVC](../../../../mvc/index.md)  
->  ASP.NET MVC は、パターンとテスト駆動開発、懸念事項の分離、制御の反転 (IoC) や依存関係の注入 (DI) 原則に関心がある開発者を対象とします。 このフレームワークは、そのプレゼンテーション層から web アプリケーションのビジネス ロジック層を分離することをお勧めします。
+>  ASP.NET MVC は、テスト駆動型開発、懸念事項の分離、制御の反転 (IoC)、依存関係の注入 (DI) などのパターンと原則に関心がある開発者を対象としています。 このフレームワークは、web アプリケーションのビジネスロジック層とプレゼンテーション層を分離することをお勧めします。
 > - [ASP.NET Web ページ](../../../../web-pages/index.md)  
->  ASP.NET Web ページは、PHP の線に沿って、単純な web 開発のストーリーを望む開発者を対象とします。 Web ページのモデルでは、HTML ページを作成し、ページに動的にそのマークアップをレンダリングする方法を制御するためにサーバー ベースのコードを追加します。 Web ページは軽量なフレームワークでは、目的に設計され、HTML を理解、広範なプログラミング エクスペリエンスをたとえばいない可能性がありますが、人、受講者または趣味の ASP.NET に最も簡単なエントリ ポイントです。 ASP.NET の使用を開始するには、PHP または類似のフレームワークを理解している web 開発者にとって良いです。
-> - [ASP.NET Single Page Application](../../../../single-page-application/index.md)  
->  ASP.NET Single Page Application (SPA) を使用して、HTML 5、CSS 3、JavaScript を使用して重要なクライアント側の対話を含むアプリケーションを構築できます。 ASP.NET および Web Tools 2012.2 Update には、knockout.js と ASP.NET Web API を使用してシングル ページ アプリケーションを構築するための新しいテンプレートが付属しています。 だけでなく、新しい SPA テンプレート新しい SPA テンプレートのコミュニティが作成したもダウンロードできます。
+>  ASP.NET Web ページは、PHP の行に沿って単純な Web 開発ストーリーを必要とする開発者を対象としています。 Web ページモデルでは、HTML ページを作成し、そのページにサーバーベースのコードを追加して、マークアップの表示方法を動的に制御します。 Web ページは、特に軽量のフレームワークとして設計されており、HTML を知っていても、生徒や趣味などの幅広いプログラミングエクスペリエンスを備えていない人にとって、ASP.NET の最も簡単なエントリポイントです。 また、ASP.NET の使用を開始するために PHP または同様のフレームワークを知っている web 開発者にとっても良い方法です。
+> - [ASP.NET シングルページアプリケーション](../../../../single-page-application/index.md)  
+>  ASP.NET Single Page Application (SPA) を使用すると、HTML 5、CSS 3、および JavaScript を使用したクライアント側の重要な相互作用を含むアプリケーションを構築できます。 ASP.NET and Web Tools 2012.2 更新プログラムは、ノックアウトと ASP.NET Web API を使用してシングルページアプリケーションを構築するための新しいテンプレートを提供します。 新しい SPA テンプレートに加えて、コミュニティによって作成された新しい SPA テンプレートをダウンロードすることもできます。
 > 
-> 次の 4 つの主要な開発フレームワークだけでなく、ASP.NET は、認識し、使用すると、使い慣れたにとって重要なこのチュートリアル シリーズでは説明しませんが、その他のテクノロジを提供します。
+> 4つの主要な開発フレームワークに加えて、ASP.NET には、について理解しておくことが重要な追加のテクノロジも用意されていますが、このチュートリアルシリーズでは説明しません。
 > 
-> - [ASP.NET Web API](../../../../web-api/index.md) -さまざまなブラウザーやモバイル デバイスなどのクライアントに提供される HTTP サービスを構築するためのフレームワークです。
-> - [ASP.NET SignalR](../../../../signalr/index.md) -をリアルタイム web 機能の開発を容易にするライブラリ。
+> - [ASP.NET Web API](../../../../web-api/index.md) -ブラウザーやモバイルデバイスを含む広範なクライアントに接続する HTTP サービスを構築するためのフレームワークです。
+> - [ASP.NET SignalR](../../../../signalr/index.md) -リアルタイム web 機能を簡単に開発するためのライブラリです。
 
 ### <a name="reviewing-the-project"></a>プロジェクトのレビュー
 
-Visual Studio で、**ソリューション エクスプ ローラー**ウィンドウを使用して、プロジェクトのファイルを管理できます。 アプリケーションに追加されたフォルダーを見ていきましょう**ソリューション エクスプ ローラー**します。 Web アプリケーション テンプレートは、基本的なフォルダー構造を追加します。
+Visual Studio では、 **[ソリューションエクスプローラー]** ウィンドウで、プロジェクトのファイルを管理できます。 **ソリューションエクスプローラー**でアプリケーションに追加されたフォルダーを見てみましょう。 Web アプリケーションテンプレートでは、基本的なフォルダー構造が追加されます。
 
-![プロジェクトのソリューション エクスプ ローラーを作成します。](create-the-project/_static/image5.png)
+![プロジェクトを作成する-ソリューションエクスプローラー](create-the-project/_static/image5.png)
 
-Visual Studio では、いくつかの初期のフォルダーと、プロジェクトのファイルを作成します。 このチュートリアルの後半で使用して、最初のファイルは次のとおりです。
+Visual Studio では、プロジェクトの初期フォルダーとファイルがいくつか作成されます。 このチュートリアルの後半で使用する最初のファイルは、次のとおりです。
 
 | **ファイル** | **目的** |
 | --- | --- |
-| *Default.aspx* | 通常、最初のページをブラウザーで、アプリケーションの実行時に表示されます。 |
-| *Site.Master* | このページは、アプリケーションのページの一貫したレイアウトと使用標準動作を作成することができますです。 |
-| *Global.asax* | ASP.NET または HTTP モジュールによって発生したアプリケーション レベルおよびセッション レベルのイベントに応答するコードを含む省略可能なファイル。 |
+| *Default.aspx* | 通常、アプリケーションをブラウザーで実行したときに最初に表示されるページです。 |
+| *サイト. Master* | 一貫性のあるレイアウトを作成し、アプリケーションのページに対して標準動作を使用できるページ。 |
+| *Global.asax* | ASP.NET または HTTP モジュールによって発生するアプリケーションレベルおよびセッションレベルのイベントに応答するためのコードを含む省略可能なファイルです。 |
 | *Web.config* | アプリケーションの構成データ。 |
 
-### <a name="running-the-default-web-application"></a>既定の Web アプリケーションを実行しています。
+### <a name="running-the-default-web-application"></a>既定の Web アプリケーションを実行しています
 
-既定の Web アプリケーションでは、組み込みの機能とサポートに基づく豊富なエクスペリエンスを提供します。 既定の Web フォーム プロジェクトに変更を加えず、アプリケーションがローカルの Web ブラウザーで実行する準備ができてです。
+既定の Web アプリケーションは、組み込みの機能とサポートに基づく豊富なエクスペリエンスを提供します。 既定の Web フォームプロジェクトを変更しないと、ローカルの Web ブラウザーでアプリケーションを実行する準備ができています。
 
-1. キーを押して、 ***F5*** Visual Studio の中にキー。   
- アプリケーションがビルドされ、Web ブラウザーで表示します。  
+1. Visual Studio で***F5***キーを押します。   
+ アプリケーションが Web ブラウザーでビルドされ、表示されます。  
 
-    ![プロジェクトの作成 - 既定のページ](create-the-project/_static/image6.png)
-2. 実行中のアプリケーションでは、完了したレビューをした後は、ブラウザー ウィンドウを閉じます。
+    ![プロジェクトの作成-既定のページ](create-the-project/_static/image6.png)
+2. 実行中のアプリケーションの確認が完了したら、ブラウザーウィンドウを閉じます。
 
-この既定の Web アプリケーションには、3 つのメイン ページがあります。*Default.aspx* (ホーム)、 *About.aspx*、および*Contact.aspx*します。 これらの各ページは、上部のナビゲーション バーからアクセスできます。 アカウントのフォルダーに格納された、2 つのページ、Register.aspx ページおよびの Login.aspx ページもあります。 これら 2 つのページを使用すると、作成、保存、およびユーザーの資格情報の検証に ASP.NET のメンバーシップ機能を使用できます。
+この既定の Web アプリケーションには、 *default.aspx (ホーム*)、 *.Aspx*、および*Contact*という3つのメインページがあります。 これらの各ページには、上部のナビゲーションバーからアクセスできます。 アカウントフォルダーには、.aspx ページと login.aspx ページという2つの追加ページもあります。 これら2つのページでは、ASP.NET のメンバーシップ機能を使用して、ユーザーの資格情報を作成、格納、および検証できます。
 
 ## <a name="aspnet-web-forms-background"></a>ASP.NET Web フォームの背景
 
-ASP.NET Web フォームでは、ページは、サーバーで動的に実行されるコードに、ブラウザーまたはクライアント デバイスに Web ページの出力が生成されます、Microsoft ASP.NET のテクノロジに基づいてです。 ASP.NET Web フォーム ページには、適切なブラウザー準拠 HTML スタイルやレイアウトなどの機能を自動的に表示します。 Web フォームは、.NET 共通言語ランタイム、Microsoft Visual Basic や Microsoft Visual c# などでサポートされている任意の言語との互換性。 また、Web フォームは上に構築された、 [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123)、管理された環境、タイプ セーフ、および継承などの利点を提供します。
+ASP.NET Web フォームは Microsoft ASP.NET テクノロジに基づくページであり、サーバー上で実行されるコードがブラウザーまたはクライアントデバイスに Web ページの出力を動的に生成します。 ASP.NET Web フォームページでは、スタイルやレイアウトなどの機能に適したブラウザーに準拠した HTML が自動的にレンダリングされます。 Web フォームは、Microsoft Visual Basic や Microsoft Visual C#など、.net 共通言語ランタイムでサポートされている任意の言語と互換性があります。 また、Web フォームは[Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123)上に構築されています。これにより、管理された環境、タイプセーフ、継承などの利点が得られます。
 
-ASP.NET Web フォーム ページを実行すると、ページは、一連の処理手順が実行するライフ サイクルについて説明します。 次の手順には、初期化、コントロールをインスタンス化、復元、および状態を維持するには、イベント ハンドラーのコードを実行中かつレンダリングが含まれます。 ASP.NET Web フォームの強力な機能についての理解になると、理解するための重要なは、 [ASP.NET ページのライフ サイクル](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx)する効果の適切なライフ サイクルの段階でコードを記述するようにします。
+ASP.NET Web フォームページが実行されると、ページは一連の処理手順を実行するライフサイクルを経ます。 これらの手順には、初期化、コントロールのインスタンス化、状態の復元と維持、イベントハンドラーコードの実行、およびレンダリングが含まれます。 ASP.NET Web フォームの機能について理解を深めたら、適切なライフサイクルステージでコードを記述できるように、 [ASP.NET ページのライフサイクル](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx)を理解することが重要です。
 
-ページに対する要求を受信すると、Web サーバーとのページを検索処理、ブラウザーに送信しますし、すべてのページの情報を破棄します。 ユーザーは、同じページをもう一度要求している場合、サーバーには、最初からページを再処理シーケンス全体が繰り返されます。 別の言い方を行うには、サーバーを持たない処理ページを使用しているページのメモリはステートレスです。 ASP.NET ページ フレームワークは、ページとそのコントロールの状態を維持するためのタスクを自動的に処理し、アプリケーション固有の情報の状態を維持するために明示的な方法が提供します。
+Web サーバーは、ページの要求を受信すると、ページを検索して処理し、ブラウザーに送信した後、すべてのページ情報を破棄します。 ユーザーが同じページを再度要求した場合、サーバーはシーケンス全体を繰り返し、ページをゼロから再処理します。 別の方法として、サーバーが処理したページのメモリが不足しています。ページはステートレスです。 ASP.NET page framework は、ページとそのコントロールの状態を維持するタスクを自動的に処理し、アプリケーション固有の情報の状態を維持するための明示的な方法を提供します。
 
 > [!TIP] 
 > 
-> **Web フォーム アプリケーション テンプレートでの web アプリケーションの機能**
+> **Web フォームアプリケーションテンプレートの web アプリケーション機能**
 > 
-> ASP.NET Web フォーム アプリケーション テンプレートは、組み込みの機能の豊富なセットを提供します。 提供するだけでなく、 *Home.aspx*  ページで、 *About.aspx*  ページで、 *Contact.aspx* 、ページしますが、ユーザーを登録し、保存するメンバーシップ機能も含まれています自分の資格情報、web サイトにログインできるようにします。 ここでは、ASP.NET Web フォーム アプリケーション テンプレートと、Wingtip Toys アプリケーションでの使い方に含まれている機能の一部の詳細について説明します。
+> ASP.NET Web フォームアプリケーションテンプレートには、豊富な組み込み機能のセットが用意されています。 これは *、default.aspx ページ*、 *About .aspx*ページ、および*Contact .aspx*ページを提供するだけでなく、ユーザーが web サイトにログインできるように、ユーザーを登録して資格情報を保存するメンバーシップ機能も備えています。 この概要では、ASP.NET Web フォームアプリケーションテンプレートに含まれるいくつかの機能について詳しく説明し、Wingtip Toys アプリケーションでそれらを使用する方法について説明します。
 > 
 > **メンバーシップ**
 > 
-> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) Identity は、アプリケーションによって作成されたデータベースでユーザーの資格情報を格納します。 ユーザーがログイン時に、アプリケーションは、データベースの読み取りで自分の資格情報を検証します。 プロジェクトの*アカウント*フォルダーにはメンバーシップのさまざまな部分を実装するファイルが含まれています。 登録、ログイン、パスワードの変更、およびアクセスの承認。 さらに、ASP.NET Web フォームは、OAuth と OpenID をサポートします。 これらの認証拡張機能として、Facebook、Twitter、Windows Live、Google およびそのようなアカウントから、既存の資格情報を使用して、サイトにログインできるようにします。
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx)Id は、アプリケーションによって作成されたデータベースにユーザーの資格情報を格納します。 ユーザーがログインすると、アプリケーションはデータベースを読み取って資格情報を検証します。 プロジェクトの*アカウント*フォルダーには、メンバーシップのさまざまな部分を実装するファイルが含まれています。これには、登録、ログイン、パスワードの変更、およびアクセスの承認が含まれます。 また、ASP.NET Web フォームは OAuth および OpenID もサポートしています。 これらの認証拡張機能により、ユーザーは、Facebook、Twitter、Windows Live、Google などのアカウントから既存の資格情報を使用してサイトにログインできるようになります。
 > 
-> ![プロジェクトのソリューション エクスプ ローラー (ASP.NET Identity) の作成します。](create-the-project/_static/image7.png)
+> ![プロジェクトソリューションエクスプローラーを作成する (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
-> 既定では、SQL Server Express LocalDB は、Visual Studio Express 2013 for Web に付属している開発データベース サーバーのインスタンスの既定のデータベース名を使用してメンバーシップ データベースを作成します。
+> 既定では、このテンプレートは SQL Server Express LocalDB のインスタンスの既定のデータベース名を使用してメンバーシップデータベースを作成します。これは、Web 用の Visual Studio Express 2013 に付属する開発データベースサーバーです。
 > 
-> **SQL Server Express LocalDB**
+> **LocalDB の SQL Server Express**
 > 
-> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx)は SQL Server データベースの多くのプログラミング機能を持つ SQL Server の軽量バージョンです。 SQL Server Express LocalDB は、ユーザー モードで実行され、インストールの前提条件の一覧が短い、高速の構成のインストールが。 Microsoft SQL Server、任意のデータベースまたは TRANSACT-SQL コード内に移動できます SQL Server Express LocalDB から SQL Server と SQL Azure のアップグレード手順なし。 そのため、SQL Server Express LocalDB は SQL Server のすべてのエディションを対象とするアプリケーションの開発環境として使用できます。 SQL Server Express LocalDB は、SQL Server Compact では使用できませんするストアド プロシージャ、ユーザー定義関数と集計、.NET Framework の統合、空間型および他のユーザーなどの機能を有効します。
+> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx)は、SQL Server データベースの多くのプログラミング機能を備えた軽量バージョンの SQL Server です。 SQL Server Express LocalDB はユーザーモードで実行され、インストールの前提条件の短い一覧を含む、高速でゼロ構成のインストールがあります。 Microsoft SQL Server では、すべてのデータベースまたは Transact-sql コードを SQL Server Express LocalDB から SQL Server に移動し、アップグレード手順を使用せずに SQL Azure できます。 そのため、SQL Server Express LocalDB は、SQL Server のすべてのエディションを対象とするアプリケーションの開発環境として使用できます。 SQL Server Express LocalDB を使用すると、ストアドプロシージャ、ユーザー定義関数と集計、.NET Framework 統合、空間型など、SQL Server Compact では使用できない他の機能を使用できます。
 > 
 > **マスター ページ**
 > 
-> [ASP.NET マスター ページ](https://msdn.microsoft.com/library/wtxbf3hh.aspx)アプリケーションで一貫した外観およびすべてのページの動作を定義します。 マスター ページのレイアウトは、ユーザーに表示される最後のページを生成するために個々 のコンテンツ ページのコンテンツをマージします。 Wingtip Toys アプリケーションで変更して、 *Site.master* Wingtip Toys の web サイトのすべてのページは、同じ特徴的なロゴとナビゲーション バーを共有できるように、マスター ページ。
+> [ASP.NET マスターページ](https://msdn.microsoft.com/library/wtxbf3hh.aspx)は、アプリケーション内のすべてのページについて、一貫した外観と動作を定義します。 マスターページのレイアウトは、個々のコンテンツページのコンテンツとマージされ、ユーザーに表示される最終ページが生成されます。 Wingtip Toys アプリケーションでは、*サイト*のマスターページを変更して、wingtip toys web サイトのすべてのページが同じ特徴的なロゴとナビゲーションバーを共有するようにします。
 > 
 > **HTML5**
 > 
-> ASP.NET Web フォーム アプリケーション テンプレートは、サポート[HTML5](http://www.w3schools.com/html/html5_intro.asp)、これは、HTML マークアップ言語の最新バージョンです。 HTML5 では、新しい要素と Web サイトを作成するが簡単にする機能をサポートします。
+> ASP.NET Web フォームアプリケーションテンプレートでは、最新バージョンの HTML マークアップ言語である[HTML5](http://www.w3schools.com/html/html5_intro.asp)がサポートされています。 HTML5 は、Web サイトを簡単に作成できるようにする新しい要素と機能をサポートしています。
 > 
 > **Modernizr**
 > 
-> HTML5 をサポートしていないブラウザーでは、使用することができます[Modernizr](http://www.modernizr.com/)します。 Modernizr は、ブラウザーが HTML5 機能をサポートし、そうでない場合に有効にするかどうかを検出できるオープン ソース JavaScript ライブラリです。 ASP.NET Web フォーム アプリケーション テンプレートでは、Modernizr は NuGet パッケージとしてインストールされます。
+> HTML5 をサポートしていないブラウザーでは、 [Modernizr](http://www.modernizr.com/)を使用できます。 Modernizr は、ブラウザーが HTML5 機能をサポートしているかどうかを検出できるオープンソースの JavaScript ライブラリであり、そうでない場合は有効にすることができます。 ASP.NET Web フォームアプリケーションテンプレートでは、Modernizr は NuGet パッケージとしてインストールされます。
 > 
 > **Bootstrap**
 > 
-> Visual Studio 2013 のプロジェクト テンプレートを使用して、[ブートス トラップ](http://getbootstrap.com/)、Twitter によって作成されたレイアウトとテーマのフレームワークです。 ブートス トラップでは、CSS3 を使用して、レイアウトは、別のブラウザー ウィンドウのサイズに動的に対応できることを意味するレスポンシブ デザインを提供します。 アプリケーションの外観の変更を簡単に影響するのにブートス トラップのテーマ機能を使用することもできます。 既定では、Visual Studio 2013 で ASP.NET Web アプリケーション テンプレートには、NuGet パッケージとしてのブートス トラップが含まれています。
+> Visual Studio 2013 プロジェクトテンプレートでは[、Twitter](http://getbootstrap.com/)によって作成されたレイアウトとテーマフレームワークを使用します。 ブートストラップは CSS3 を使用して応答性の高いデザインを提供します。つまり、レイアウトはさまざまなブラウザーウィンドウサイズに動的に適応できます。 ブートストラップのテーマ機能を使用して、アプリケーションのルックアンドフィールの変化に簡単に影響を与えることもできます。 既定では Visual Studio 2013 の ASP.NET Web アプリケーションテンプレートには、NuGet パッケージとしてブートストラップが含まれています。
 > 
 > **NuGet パッケージ**
 > 
-> ASP.NET Web フォーム アプリケーション テンプレートにはセットが含まれています[NuGet](http://www.nuget.org/)パッケージ。 これらのパッケージは、オープン ソース ライブラリとツールのフォームでのコンポーネント化された機能を提供します。 さまざまなパッケージを作成およびアプリケーションをテストすることがあります。 Visual Studio では、簡単に追加、削除、および NuGet パッケージを更新できます。 開発者は、作成し、パッケージを NuGet にも追加できます。
+> ASP.NET Web フォームアプリケーションテンプレートには、一連の[NuGet](http://www.nuget.org/)パッケージが含まれています。 これらのパッケージは、オープンソースライブラリおよびツールの形式で、コンポーネント化された機能を提供します。 アプリケーションの作成とテストに役立つさまざまなパッケージが用意されています。 Visual Studio を使用すると、NuGet パッケージの追加、削除、および更新を簡単に行うことができます。 開発者は、NuGet にパッケージを作成して追加することもできます。
 > 
-> ![プロジェクトの NuGet ダイアログ ボックスを作成します。](create-the-project/_static/image8.png)
+> ![[プロジェクトの作成-NuGet] ダイアログボックス](create-the-project/_static/image8.png)
 > 
-> パッケージをインストールするときに、NuGet は、ソリューションにファイルがコピーされ、自動的に参照を追加して、Web アプリケーションに関連付けられている構成を変更するなど、どのような変更が必要になります。 ライブラリを削除する場合は、NuGet はファイルを削除し、煩雑さが残っていないようにに、プロジェクトでこれが行われた変更を反転させます。 NuGet は、**ツール**Visual Studio のメニュー。
+> パッケージをインストールすると、NuGet によってファイルがソリューションにコピーされ、参照の追加や Web アプリケーションに関連付けられている構成の変更など、必要な変更が自動的に行われます。 ライブラリを削除する場合は、NuGet によってファイルが削除され、プロジェクトに加えられた変更がすべて元に戻されるため、乱雑な状態になることはありません。 NuGet は、Visual Studio の **[ツール]** メニューから使用できます。
 > 
 > **jQuery**
 > 
-> [jQuery](http://jquery.com/)は HTML ドキュメントの走査、イベント処理、アニメーション化、および迅速な web 開発用の Ajax の相互作用を簡略化、高速かつ簡潔な JavaScript ライブラリです。 JQuery JavaScript ライブラリは、NuGet パッケージとして ASP.NET Web フォーム アプリケーション テンプレートに追加されます。
+> [jQuery](http://jquery.com/)は、高速で簡潔な JavaScript ライブラリで、HTML ドキュメントの走査、イベント処理、アニメーション化、および迅速な web 開発のための Ajax 相互作用を簡略化します。 JQuery JavaScript ライブラリは、NuGet パッケージとして ASP.NET Web フォームアプリケーションテンプレートに含まれています。
 > 
-> **控え目な検証**
+> **控えめに検証**
 > 
-> クライアント側検証ロジックに控え目な JavaScript を使用する組み込みの検証コントロールが構成されています。 これが大幅にインラインで、ページのマークアップでレンダリングを JavaScript の量が減少し、全体的なページ サイズを縮小します。 設定に基づいて、ASP.NET Web フォーム アプリケーション テンプレートにグローバルに控え目な検証を追加、 &lt;appSettings&gt;の要素、 *Web.config*アプリケーションのルートにあるファイル。
+> 組み込みの検証コントロールは、クライアント側の検証ロジックに控えめな JavaScript を使用するように構成されています。 これにより、ページマークアップでインラインでレンダリングされる JavaScript の量が大幅に減少し、ページ全体のサイズが縮小されます。 控えめな検証は、アプリケーションのルートにある web.config ファイルの &lt;appSettings&gt; 要素の設定に基づいて、グローバルに ASP.NET Web フォームアプリケーションテンプレートに追加さ*れます。*
 > 
-> **エンティティ フレームワーク コード ファースト**
+> **Entity Framework Code First**
 > 
-> Wingtip Toys アプリケーションを使用して、ASP.NET Web フォーム アプリケーション テンプレートの機能だけでなく[Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx)、ライブラリは NuGet ライブラリ データを操作する場合は、コードを中心とした開発を可能です。 簡単に言うと、記述するコードに基づき、アプリケーションのデータベースの部分を作成します。 Entity Framework を使用して取得し、厳密に型指定されたオブジェクトとしてデータを操作します。 これによりデータへのアクセス方法の詳細ではなく、アプリケーションでビジネス ロジックに集中できます。
+> Wingtip Toys アプリケーションでは、ASP.NET Web フォームアプリケーションテンプレートの機能に加えて、データを操作するときにコード中心の開発を可能にする NuGet ライブラリである[Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx)を使用します。 作成したコードに基づいて、アプリケーションのデータベース部分を作成するだけで済みます。 Entity Framework を使用すると、厳密に型指定されたオブジェクトとしてデータを取得および操作できます。 これにより、データへのアクセス方法の詳細ではなく、アプリケーションのビジネスロジックに集中できます。
 > 
-> インストール済みのライブラリおよび ASP.NET Web フォーム テンプレートに含まれているパッケージの詳細については、インストールされている NuGet パッケージの一覧を参照してください。 Visual Studio が新しい Web フォーム プロジェクトを作成するのには、**ツール** > **NuGet パッケージ マネージャー** > **ソリューションのNuGetパッケージの管理**、選び**パッケージがインストールされている**で、 **NuGet パッケージの管理** ダイアログ ボックス。
+> ASP.NET Web Forms テンプレートに含まれているインストール済みライブラリおよびパッケージの詳細については、インストールされている NuGet パッケージの一覧を参照してください。 これを行うには、Visual Studio で新しい Web フォームプロジェクトを作成し、[**ツール** > **nuget パッケージマネージャー** ] を選択して **[ソリューションの nuget パッケージの管理]** を > 、 **[nuget パッケージの管理]** ダイアログボックスで **[インストール済みのパッケージ]** を選択します。
 
-### <a name="touring-visual-studio"></a>Visual Studio を touring
+### <a name="touring-visual-studio"></a>ツーリング Visual Studio
 
-Visual Studio の主なウィンドウが含まれて、**ソリューション エクスプ ローラー**、**サーバー エクスプ ローラー** (**データベース エクスプ ローラー** Express で)、**プロパティウィンドウ**、**ツールボックス**、**ツールバー**、および**ドキュメント ウィンドウ**します。
+Visual Studio のプライマリウィンドウには、**ソリューションエクスプローラー**、**サーバーエクスプローラー** (Express では**データベースエクスプローラー** )、[**プロパティ] ウィンドウ**、**ツールボックス**、**ツールバー**、および**ドキュメントウィンドウ**があります。
 
-![プロジェクトの NuGet ダイアログ ボックスを作成します。](create-the-project/_static/image9.png)
+![[プロジェクトの作成-NuGet] ダイアログボックス](create-the-project/_static/image9.png)
 
-Visual Studio の詳細については、次を参照してください。 [Visual Web Developer を視覚的なガイド](https://msdn.microsoft.com/library/ee410104.aspx)します。
+Visual Studio の詳細については、「visual [Web Developer のビジュアルガイド](https://msdn.microsoft.com/library/ee410104.aspx)」を参照してください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルで作成、確認して、既定の Web フォーム アプリケーションを実行します。 既定の Web フォーム アプリケーションのさまざまな機能を確認し、Visual Studio 環境を使用する方法についての基本を学習します。 以下のチュートリアルでは、データ アクセス層を作成します。
+このチュートリアルでは、既定の Web フォームアプリケーションを作成し、確認して、実行しました。 既定の Web フォームアプリケーションのさまざまな機能を確認し、Visual Studio 環境の使用方法についていくつかの基本事項を学習しました。 次のチュートリアルでは、データアクセス層を作成します。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の資料
 
-[正しいプログラミング モデルを選択します。](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Web アプリケーション プロジェクトと Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)   
-[ASP.NET Web フォーム ページの概要](https://msdn.microsoft.com/library/428509ah.aspx)
+[適切にプログラミングモデルを選択する](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
+Web[アプリケーションプロジェクトと Web サイトプロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)   
+[ASP.NET Web フォームページの概要](https://msdn.microsoft.com/library/428509ah.aspx)
 
 > [!div class="step-by-step"]
 > [前へ](introduction-and-overview.md)

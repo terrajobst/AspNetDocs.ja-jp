@@ -1,98 +1,98 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。12 の 9 - データベース更新の展開 |Microsoft Docs
+title: 'Visual Studio または Visual Web Developer を使用して SQL Server Compact で ASP.NET Web アプリケーションをデプロイする: データベースの更新をデプロイする-9/12 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: この一連のチュートリアルでは、Visual Stu... を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: a8d776af-4735-4612-87f6-9f326587f2d3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 3a5600aff3ba63cb7046e42d0bfd587c4181d99e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3385e1019d9e7a9263fd9513c39b25eb85febbb5
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130271"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582012"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。12 の 9 - データベース更新の展開
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: データベース更新プログラムのデプロイ-9/12
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[スタートプロジェクトのダウンロード](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルでは、Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。 Web 発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルで行ったデータベースの変更と関連するコードの変更、Visual Studio での変更をテストし、テストと運用環境の両方の環境に更新を展開します。
+このチュートリアルでは、データベースの変更と関連するコードの変更を行い、Visual Studio で変更をテストして、テスト環境と運用環境の両方に更新プログラムを配置します。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)を確認してください。
 
-## <a name="adding-a-new-column-to-a-table"></a>テーブルに新しい列の追加
+## <a name="adding-a-new-column-to-a-table"></a>テーブルへの新しい列の追加
 
-このセクションに生年月日の列を追加、`Person`の基本クラス、`Student`と`Instructor`エンティティ。 新しい列を表示するように、インストラクター データを表示するページを更新します。
+このセクションでは、`Student` エンティティと `Instructor` エンティティの `Person` 基本クラスに生年月日列を追加します。 次に、インストラクターのデータを表示するページを更新して、新しい列が表示されるようにします。
 
-*ContosoUniversity.DAL*プロジェクトを開き、 *Person.cs*の末尾に次のプロパティを追加し、`Person`クラス (あります終わり波かっこの後に 2 つ)。
+*ContosoUniversity*プロジェクトで、 *Person.cs*を開き、次のプロパティを `Person` クラスの末尾に追加します (この後に2つの右中かっこが必要です)。
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample1.cs)]
 
-次に、新しい列の値を提供するように、Seed メソッドを更新します。 開いている*migrations \configuration.cs*と置換を開始するコード ブロック`var instructors = new List<Instructor>`誕生日に関する情報を含む次のコード ブロックで。
+次に、新しい列の値を提供するように、Seed メソッドを更新します。 *Migrations\ configuration.cs*を開き、`var instructors = new List<Instructor>` 開始するコードブロックを、生年月日の情報を含む次のコードブロックに置き換えます。
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample2.cs)]
 
-ContosoUniversity プロジェクトで開きます*Instructors.aspx*し、誕生日を表示する新しいテンプレート フィールドを追加します。 雇用日とオフィスの割り当てのためのものの間に追加します。
+ContosoUniversity プロジェクトで、*講師*を開き、生年月日を表示する新しいテンプレートフィールドを追加します。 入社年月日と office assignment の間に追加します。
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample3.aspx)]
 
-(コードのインデントとれていない場合は、することができますキーを押して CTRL + K し CTRL-D ファイルを自動的に再フォーマットします。)
+(コードのインデントが同期されない場合は、CTRL + K キーを押してから CTRL + D キーを押してファイルを自動的に再フォーマットできます)。
 
-ソリューションをビルドしを開き、**パッケージ マネージャー コンソール**ウィンドウ。 として ContosoUniversity.DAL がまだ選択されていることを確認、**既定のプロジェクト**します。
+ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウを開きます。 ContosoUniversity が**既定のプロジェクト**として選択されていることを確認します。
 
-**パッケージ マネージャー コンソール**ウィンドウで、 **ContosoUniversity.DAL**として、**既定のプロジェクト**、次のコマンドを入力します。
+**パッケージマネージャーコンソール**ウィンドウで、**既定のプロジェクト**として **[ContosoUniversity]** を選択し、次のコマンドを入力します。
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample4.ps1)]
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`クラス、および、`Up`メソッド、新しい列を作成するコードを表示できます。
+このコマンドが終了すると、Visual Studio によって新しい `DbMigration` クラスを定義するクラスファイルが開き、`Up` メソッドに新しい列を作成するコードが表示されます。
 
 ![AddBirthDate_migration_code](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image1.png)
 
-ソリューションをビルドおよびでは、次のコマンドを入力し、**パッケージ マネージャー コンソール**ウィンドウ (ContosoUniversity.DAL プロジェクトが選択されていることを確認してください)。
+ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウで次のコマンドを入力します (ContosoUniversity プロジェクトが選択されていることを確認します)。
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/samples/sample5.ps1)]
 
-コマンドが完了したら、アプリケーションを実行し、Instructors ページを選択します。 ページが読み込まれると、新しいがあるを参照してください。 生年月日フィールド。
+コマンドが完了したら、アプリケーションを実行し、[インストラクター] ページを選択します。 ページが読み込まれると、[新しい生年月日] フィールドが表示されます。
 
 [![Instructors_page_with_birth_date](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image3.png)](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image2.png)
 
-## <a name="deploying-the-database-update-to-the-test-environment"></a>データベースの更新をテスト環境に展開します。
+## <a name="deploying-the-database-update-to-the-test-environment"></a>テスト環境へのデータベースの更新の配置
 
-**ソリューション エクスプ ローラー** ContosoUniversity プロジェクトを選択します。
+**ソリューションエクスプローラー** ContosoUniversity プロジェクトを選択します。
 
-**Web の 1 クリックして発行**ツールバーで、**テスト**発行プロファイルをクリックして**Web の発行**します。 (ツールバーが無効になっている場合で ContosoUniversity プロジェクトを選択します**ソリューション エクスプ ローラー**。)。
+Web 上の **[発行**] ツールバーで、**テスト**発行プロファイルを選択し、 **[web の発行]** をクリックします。 (ツールバーが無効になっている場合は**ソリューションエクスプローラー**で ContosoUniversity プロジェクトを選択します)。
 
-Visual Studio が更新されたアプリケーションを配置し、ホーム ページにブラウザーを開きます。 更新プログラムが正常にデプロイされたことを確認するには、Instructors ページを実行します。 Code First アプリケーションは、このページのデータベースにアクセスする際に、データベース スキーマを更新して実行、`Seed`メソッド。 予期される確認ページが表示されたら、**生年月日**で日付を含む列。
+更新されたアプリケーションが Visual Studio によってデプロイされ、ブラウザーがホームページに表示されます。 インストラクターページを実行して、更新プログラムが正常に展開されたことを確認します。 アプリケーションがこのページのデータベースにアクセスしようとすると、Code First データベーススキーマが更新され、`Seed` メソッドが実行されます。 ページが表示されると、[予想される**誕生日**] 列に日付が含まれていることがわかります。
 
 [![Instructors_page_with_birth_date_Test](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image5.png)](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image4.png)
 
-## <a name="deploying-the-database-update-to-the-production-environment"></a>運用環境にデータベースの更新を展開します。
+## <a name="deploying-the-database-update-to-the-production-environment"></a>運用環境へのデータベースの更新の配置
 
-運用環境に展開できます。 唯一の違いは、使用する*アプリ\_offline.htm*ユーザー サイトへのアクセスと変更をデプロイするときに、データベースが更新できないようにします。 運用環境のデプロイでは、次の手順を実行します。
+これで、運用環境にデプロイできるようになりました。 唯一の違いは、 *app\_offline .htm*を使用して、ユーザーがサイトにアクセスできないようにし、変更を展開するときにデータベースを更新することです。 運用環境のデプロイでは、次の手順を実行します。
 
-- アップロード、*アプリ\_offline.htm*ファイルを実稼働サイト。
-- Visual Studio での実稼働プロファイルを選択、 **Web の 1 クリックして発行**ツールバーとクリック**Web の発行**します。
-- 削除、*アプリ\_offline.htm*運用サイトからのファイル。
+- *アプリ\_オフライン .htm*ファイルを実稼働サイトにアップロードします。
+- Visual Studio で、 **Web サイトの 発行** ツールバーの 発行 をクリックし、 **web の発行** をクリックします。
+- 運用サイトから、*アプリ\_のオフライン .htm*ファイルを削除します。
 
 > [!NOTE]
-> アプリケーションを運用環境で使用中には、バックアップ計画を実装する必要があります。 つまり、する必要がありますが定期的にコピーして、*の学校 Prod.sdf*と*aspnet Prod.sdf*運用環境からファイルをセキュリティで保護された記憶域の場所、サイトし、このようないくつかの世代を保存する必要がありますバックアップします。 データベースを更新するときに、変更の直前のバックアップ コピーをする必要があります。 次に、設定を間違えたして運用環境に配置した後に検出されるまでそのしない場合が破損する前に、の状態にデータベースを復旧できます。
+> アプリケーションが運用環境で使用されている間は、バックアップ計画を実装する必要があります。 つまり、 *School-Prod*ファイルと*aspnet-Prod*ファイルを運用サイトから安全なストレージの場所に定期的にコピーする必要があり、そのようなバックアップをいくつか作成しておく必要があります。 データベースを更新するときは、変更の直前にからバックアップコピーを作成する必要があります。 これにより、間違いを犯しても、運用環境にデプロイするまで検出されない場合でも、データベースを破損する前の状態に復旧できます。
 
-Visual Studio がブラウザーで開いたら、ホーム ページの URL、*アプリ\_offline.htm*ページが表示されます。 削除した後、*アプリ\_offline.htm*ファイル、更新プログラムが正常にデプロイされたことを確認するには、もう一度、ホーム ページを参照することができます。
+ブラウザーでホームページの URL を開くと、*アプリ\_offline*ページが表示されます。 *アプリ\_のオフライン .htm*ファイルを削除した後、もう一度ホームページを参照して、更新が正常に展開されたことを確認できます。
 
 [![Instructors_page_with_birth_date_Prod](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image7.png)](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12/_static/image6.png)
 
-これで、テストと運用環境の両方にデータベースの変更を含むアプリケーションの更新プログラムをデプロイしました。 次のチュートリアルでは、SQL Server Compact から SQL Server Express と SQL Server にデータベースを移行する方法を示します。
+これで、テストと運用の両方にデータベースの変更を含むアプリケーションの更新が展開されました。 次のチュートリアルでは、SQL Server Compact から SQL Server Express と SQL Server にデータベースを移行する方法について説明します。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

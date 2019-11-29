@@ -1,138 +1,138 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
-title: (VB) のチェック ボックスの GridView 列を追加する |Microsoft Docs
+title: チェックボックスの GridView 列を追加する (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルを調べ、G. の複数の行を選択した場合の直感的な方法をユーザーに提供する GridView コントロールにチェック ボックスの列を追加する方法.
+description: このチュートリアルでは、GridView コントロールにチェックボックスの列を追加して、ユーザーに対して、複数の行を選択してわかりやすく表示する方法について説明します。
 ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 39253d05-75c0-41c7-b9d4-a6c58ecf69ce
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc16464ab02b9ea5ef329c58bdf51c26d8d1eec9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c620b2eac5844d4030c1309b45e7d6a72d1f386a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108201"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592427"
 ---
 # <a name="adding-a-gridview-column-of-checkboxes-vb"></a>チェックボックスの GridView 列を追加する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_52_VB.exe)または[PDF のダウンロード](adding-a-gridview-column-of-checkboxes-vb/_static/datatutorial52vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_52_VB.exe)または[PDF のダウンロード](adding-a-gridview-column-of-checkboxes-vb/_static/datatutorial52vb1.pdf)
 
-> このチュートリアルは、GridView コントロールを GridView の複数の行を選択した場合の直感的な方法をユーザーに提供するチェック ボックスの列を追加する方法を検索します。
+> このチュートリアルでは、gridview コントロールにチェックボックスの列を追加して、ユーザーが GridView の複数の行を直感的に選択できるようにする方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-前のチュートリアルでは、特定のレコードを選択するために GridView にラジオ ボタンの列を追加する方法について確認しました。 ラジオ ボタンの列は、グリッドから最大で 1 つの項目を選択することに、ユーザーが限られた場合、適切なユーザー インターフェイスです。 ただし、することもユーザーが任意の数の項目をグリッドから選択できるようにします。 Web ベースの電子メール クライアントでは、たとえば、通常表示チェック ボックスの列を含むメッセージの一覧します。 ユーザーは、メッセージの任意の数を選択し、電子メールを別のフォルダーに移動または削除するなど、いくつかの操作を実行します。
+前のチュートリアルでは、特定のレコードを選択する目的で、オプションボタンの列を GridView に追加する方法を説明します。 オプションボタンの列は、ユーザーがグリッドから最大で1つの項目を選択することに制限されている場合に適したユーザーインターフェイスです。 ただし、ユーザーがグリッドから任意の数の項目を選択できるようにすることが必要になる場合があります。 たとえば、Web ベースの電子メールクライアントでは、通常、メッセージの一覧とチェックボックスの列が表示されます。 ユーザーは任意の数のメッセージを選択して、他のフォルダーへのメールの移動や削除など、何らかの操作を実行できます。
 
-このチュートリアルではチェック ボックスの列を追加する方法およびどのようなチェック ボックスがポストバック時にチェックを確認する方法が表示されます。 具体的には、web ベースの電子メール クライアントのユーザー インターフェイスを正確に模倣する例をビルドします。 この例では、製品の一覧を表示するページの GridView が含まれます、`Products`各チェック ボックスにデータベース テーブルの行 (図 1 参照)。 選択した製品の削除ボタンをクリックすると、選択したこれらの製品が削除されます。
+このチュートリアルでは、チェックボックスの列を追加する方法と、ポストバック時にチェックされたチェックボックスを確認する方法について説明します。 特に、web ベースの電子メールクライアントのユーザーインターフェイスを模倣した例を作成します。 この例では、`Products` データベーステーブルに製品を一覧表示するページングされた GridView と、各行にチェックボックスがあります (図1を参照)。 [選択した製品の削除] ボタンをクリックすると、選択した製品が削除されます。
 
-[![各製品の行には、チェック ボックスが含まれています。](adding-a-gridview-column-of-checkboxes-vb/_static/image1.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image1.png)
+[各製品行にチェックボックスが含まれて ![](adding-a-gridview-column-of-checkboxes-vb/_static/image1.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image1.png)
 
-**図 1**:製品の行ごとにチェック ボックスが含まれています ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image2.png))。
+**図 1**: 各製品行にチェックボックスが含まれている ([クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-checkboxes-vb/_static/image2.png)されます)
 
-## <a name="step-1-adding-a-paged-gridview-that-lists-product-information"></a>手順 1: 製品情報を一覧表示するページの GridView を追加します。
+## <a name="step-1-adding-a-paged-gridview-that-lists-product-information"></a>手順 1: 製品情報を一覧表示するページングされた GridView の追加
 
-チェック ボックスの列を追加する方法について気にし、前に初めてことに専念ページングをサポートする GridView では、製品の一覧を表示することができます。 開いて開始、`CheckBoxField.aspx`ページで、`EnhancedGridView`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ、GridView、`ID`に`Products`します。 次に、という名前の新しい ObjectDataSource GridView にバインドする選択`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラスを呼び出し、`GetProducts()`データを返すメソッド。 この GridView は読み取り専用になる、ため、UPDATE、INSERT でドロップダウン リストを設定し、(None) にタブを削除します。
+チェックボックスの列を追加することを心配する前に、まず、ページングをサポートする GridView で製品を一覧表示する方法を説明します。 まず、`EnhancedGridView` フォルダーの [`CheckBoxField.aspx`] ページを開き、GridView をツールボックスからデザイナーにドラッグし、`ID` を [`Products`] に設定します。 次に、GridView を `ProductsDataSource`という名前の新しい ObjectDataSource にバインドします。 `ProductsBLL` クラスを使用し、`GetProducts()` メソッドを呼び出してデータを返すように ObjectDataSource を構成します。 この GridView は読み取り専用であるため、[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定します。
 
-[![ProductsDataSource という名前の新しい ObjectDataSource を作成します。](adding-a-gridview-column-of-checkboxes-vb/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image3.png)
+[![新しい ObjectDataSource Datasource を作成する](adding-a-gridview-column-of-checkboxes-vb/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image3.png)
 
-**図 2**:名前付き新しい ObjectDataSource 作成`ProductsDataSource`([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image4.png))。
+**図 2**: `ProductsDataSource` という名前の新しい ObjectDataSource を作成[する (クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-checkboxes-vb/_static/image4.png)される)
 
-[![GetProducts() メソッドを使用してデータを取得する ObjectDataSource を構成します。](adding-a-gridview-column-of-checkboxes-vb/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image5.png)
+[GetProducts () メソッドを使用してデータを取得するように ObjectDataSource を構成 ![には](adding-a-gridview-column-of-checkboxes-vb/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image5.png)
 
-**図 3**:使用してデータを取得する ObjectDataSource を構成、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image6.png))。
+**図 3**: `GetProducts()` メソッドを使用してデータを取得するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示](adding-a-gridview-column-of-checkboxes-vb/_static/image6.png))
 
-[![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](adding-a-gridview-column-of-checkboxes-vb/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image7.png)
+[[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定 ![ます。](adding-a-gridview-column-of-checkboxes-vb/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image7.png)
 
-**図 4**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image8.png))。
+**図 4**: [更新]、[挿入]、[削除] の各タブのドロップダウンリストを (なし) に設定する ([クリックしてフルサイズのイメージを表示する](adding-a-gridview-column-of-checkboxes-vb/_static/image8.png))
 
-データ ソース構成ウィザードを完了すると、Visual Studio は BoundColumns と製品に関連するデータ フィールドの CheckBoxColumn 自動的に作成されます。 前のチュートリアルで行ったような削除以外のすべての`ProductName`、 `CategoryName`、および`UnitPrice`BoundFields、し、変更、`HeaderText`製品カテゴリ、および価格プロパティ。 構成、 `UnitPrice` BoundField、値が通貨として書式設定されるようにします。 また、スマート タグからのページングを有効にするチェック ボックスをオンにページングをサポートするために、GridView を構成します。
+データソースの構成ウィザードを完了すると、Visual Studio によって、BoundColumns と、製品関連のデータフィールドの CheckBoxColumn が自動的に作成されます。 前のチュートリアルで行ったように、`ProductName`、`CategoryName`、および `UnitPrice` BoundFields 以外のすべてを削除し、`HeaderText` のプロパティを製品、カテゴリ、および価格に変更します。 値が通貨として書式設定されるように、`UnitPrice` BoundField を構成します。 また、スマートタグの [ページングを有効にする] チェックボックスをオンにして、ページングをサポートするように GridView を構成します。
 
-秒も選択されている製品を削除するためのユーザー インターフェイスを追加できるようにします。 設定、GridView の下にあるボタンの Web コントロールを追加、`ID`に`DeleteSelectedProducts`とその`Text`プロパティを選択した製品を削除します。 データベースから製品を実際に削除するではなくこの例ではだけを表示、削除された製品を示すメッセージが。 これに合わせて、ボタンの下にラベル Web コントロールを追加します。 ID を設定`DeleteResults`チェック ボックスをオフにその`Text`プロパティ、およびセットの`Visible`と`EnableViewState`プロパティ`False`。
+選択した製品を削除するためのユーザーインターフェイスも追加します。 GridView の下に Button Web コントロールを追加し、その `ID` を `DeleteSelectedProducts` に設定し、その `Text` プロパティを選択した製品を削除します。 この例では、実際にデータベースから製品を削除するのではなく、削除された製品を示すメッセージを表示するだけです。 これに対応するには、ボタンの下にラベル Web コントロールを追加します。 ID を `DeleteResults`に設定し、`Text` プロパティをオフにして、その `Visible` および `EnableViewState` プロパティを `False`に設定します。
 
-これらの変更を加えたら、GridView、ObjectDataSource、ボタン、およびラベルの宣言型マークアップは、次のようなが必要です。
+これらの変更を行った後、GridView、ObjectDataSource、Button、および Label s の宣言マークアップは、次のようになります。
 
 [!code-aspx[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample1.aspx)]
 
-ブラウザーでページを表示する少し (図 5 を参照してください)。 この時点で、名前、カテゴリ、および最初の 10 個の商品の価格があることがわかります。
+ブラウザーでページを表示します (図5を参照)。 この時点で、最初の10個の製品の名前、カテゴリ、価格が表示されます。
 
-[![名前、カテゴリ、および最初の 10 個の商品の価格の一覧が表示されます。](adding-a-gridview-column-of-checkboxes-vb/_static/image5.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image9.png)
+[最初の10個の製品の名前、カテゴリ、価格が表示され ![](adding-a-gridview-column-of-checkboxes-vb/_static/image5.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image9.png)
 
-**図 5**:名前、カテゴリ、および最初の 10 個の商品の価格の一覧が表示されます ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image10.png))。
+**図 5**: 最初の10個の製品の名前、カテゴリ、価格が表示されます ([クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-checkboxes-vb/_static/image10.png)されます)
 
-## <a name="step-2-adding-a-column-of-checkboxes"></a>手順 2: チェック ボックスの列を追加します。
+## <a name="step-2-adding-a-column-of-checkboxes"></a>手順 2: チェックボックスの列の追加
 
-ASP.NET 2.0 には、CheckBoxField が含まれているために、使用、GridView にチェック ボックスの列を追加することがいずれかと思うかもしれません。 残念ながらでない場合は、ように、CheckBoxField がブール型のデータ フィールドを使用するように設計します。 つまり、CheckBoxField を使用するには、表示のチェック ボックスをオンになっているかどうかを判断する値が参照される、基になるデータ フィールドを指定します必要があります。 CheckBoxField のチェック ボックスをオフの列を含めるだけに使用できません。
+ASP.NET 2.0 には CheckBoxField が含まれているため、GridView にチェックボックスの列を追加するために使用できると考えられるかもしれません。 残念ながら、CheckBoxField はブール型のデータフィールドを使用するように設計されているため、そうではありません。 つまり、CheckBoxField を使用するには、表示されているチェックボックスがオンになっているかどうかを判断する値を持つ基になるデータフィールドを指定する必要があります。 CheckBoxField を使用して、チェックボックスがオフの列だけを含めることはできません。
 
-代わりに、TemplateField を追加し、するチェック ボックスを Web コントロールを追加する必要があります、`ItemTemplate`します。 TemplateField を追加してください、 `Products` GridView と、最初の (左端) フィールドになります。 GridView s のスマート タグからのテンプレートの編集リンクをクリックし、ツールボックスから、チェック ボックスを Web コントロールをドラッグ、`ItemTemplate`します。 このチェック ボックス s 設定`ID`プロパティを`ProductSelector`します。
+代わりに、TemplateField を追加し、チェックボックス Web コントロールを `ItemTemplate`に追加する必要があります。 `Products` GridView に TemplateField を追加し、最初 (左端) のフィールドに設定します。 GridView s スマートタグから、[テンプレートの編集] リンクをクリックし、[ツールボックス] から [CheckBox] Web コントロールを `ItemTemplate`にドラッグします。 この CheckBox s `ID` プロパティを `ProductSelector`に設定します。
 
-[![TemplateField の ItemTemplate ProductSelector をという名前のチェック ボックスを Web コントロールを追加します。](adding-a-gridview-column-of-checkboxes-vb/_static/image6.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image11.png)
+[TemplateField s ItemTemplate に ProductSelector という名前の CheckBox Web コントロールを追加 ![には](adding-a-gridview-column-of-checkboxes-vb/_static/image6.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image11.png)
 
-**図 6**:追加のチェック ボックスを Web コントロールという`ProductSelector`TemplateField s `ItemTemplate` ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image12.png))
+**図 6**: `ProductSelector` という名前の CheckBox Web コントロールを TemplateField s `ItemTemplate` に追加する ([クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-checkboxes-vb/_static/image12.png)されます)
 
-各行には TemplateField とチェック ボックスを Web コントロールを追加、チェック ボックスが含まれています。 図 7 は、TemplateField とチェック ボックスを追加した後、ブラウザーで表示したときに、このページを示します。
+TemplateField および CheckBox Web コントロールが追加され、各行にチェックボックスが追加されました。 図7に、TemplateField および CheckBox を追加した後にブラウザーで表示すると、このページが表示されます。
 
-[![各製品の行が、チェック ボックスが含まれています](adding-a-gridview-column-of-checkboxes-vb/_static/image7.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image13.png)
+[各製品行にチェックボックスが含まれるようになりました ![](adding-a-gridview-column-of-checkboxes-vb/_static/image7.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image13.png)
 
-**図 7**:各製品の行が、チェック ボックスが含まれています ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image14.png))。
+**図 7**: 各製品行にチェックボックスが含まれるようになりました ([クリックしてフルサイズの画像を表示](adding-a-gridview-column-of-checkboxes-vb/_static/image14.png))
 
-## <a name="step-3-determining-what-checkboxes-were-checked-on-postback"></a>手順 3: ポストバック時にチェックインされたどのようなチェック ボックスを決定します。
+## <a name="step-3-determining-what-checkboxes-were-checked-on-postback"></a>手順 3: ポストバック時にチェックされたチェックボックスの確認
 
-この時点でのチェック ボックスがポストバック時にどのようなチェック ボックスをオンにチェックインされたかを判断する方法がない列があります。 ただし、選択した製品の削除 ボタンがクリックされたときに、これらの製品を削除するにはどのようなチェック ボックスをオンにチェックインされたかを把握する必要があります。
+この時点では、チェックボックスの列がありますが、ポストバック時にチェックされたチェックボックスを確認する方法はありません。 ただし、[選択した製品の削除] ボタンをクリックしたときに、その製品を削除するためにチェックされたチェックボックスを確認する必要があります。
 
-GridView s [ `Rows`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx)GridView にデータ行へのアクセスを提供します。 これらの行を反復処理できること、チェック ボックス コントロールをプログラムでアクセスし、しを参照してください、`Checked`チェック ボックスが選択されているかどうかを決定するプロパティ。
+GridView s [`Rows` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx)は、gridview のデータ行へのアクセスを提供します。 これらの行を反復処理し、CheckBox コントロールにプログラムでアクセスして、その `Checked` プロパティを参照して、チェックボックスがオンになっているかどうかを判断します。
 
-イベント ハンドラーを作成、`DeleteSelectedProducts`ボタン Web コントロールの`Click`イベントし、次のコードを追加します。
+`DeleteSelectedProducts` ボタン Web コントロール s `Click` イベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample2.vb)]
 
-`Rows`プロパティのコレクションを返します`GridViewRow`GridView のデータの行をインスタンス化します。 `For Each`ループをここでは、このコレクションを列挙します。 各`GridViewRow`オブジェクト、行のチェック ボックスを使用してプログラムでアクセス`row.FindControl("controlID")`します。 チェック ボックスをオンにした場合、s 行の対応する`ProductID`から値を取得、`DataKeys`コレクション。 この演習で単に情報メッセージを表示で、`DeleteResults`する実用的なアプリケーションで d 代わりに行ったへの呼び出しが、ラベル、`ProductsBLL`クラスの`DeleteProduct(productID)`メソッド。
+`Rows` プロパティは、GridView のデータ行を指定する `GridViewRow` インスタンスのコレクションを返します。 ここで `For Each` ループは、このコレクションを列挙します。 `GridViewRow` の各オブジェクトについて、行のチェックボックスは、`row.FindControl("controlID")`を使用してプログラムによってアクセスされます。 チェックボックスをオンにすると、`ProductID` 値に対応する行が `DataKeys` コレクションから取得されます。 この演習では、`DeleteResults` ラベルにわかりやすいメッセージを表示します。ただし、動作しているアプリケーションでは、代わりに `ProductsBLL` クラス s `DeleteProduct(productID)` メソッドを呼び出します。
 
-このイベント ハンドラーの追加により、今すぐ選択した製品の削除 ボタンをクリックすると表示されます、`ProductID`選択した製品の秒。
+このイベントハンドラーを追加すると、[選択した製品の削除] ボタンをクリックすると、選択した製品の `ProductID` が表示されるようになります。
 
-[![選択されている製品の削除ボタンがクリックされた場合、選択した製品 Productid が一覧表示されます。](adding-a-gridview-column-of-checkboxes-vb/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image15.png)
+[![[選択した製品の削除] ボタンをクリックすると、選択した Products Productids) が表示されます](adding-a-gridview-column-of-checkboxes-vb/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image15.png)
 
-**図 8**:選択した製品の削除ボタンが選択されている製品をクリックされたとき`ProductID`s が一覧表示されます ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image16.png))。
+**図 8**: [選択した製品の削除] ボタンをクリックすると、選択した製品 `ProductID` が一覧表示されます ([クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-checkboxes-vb/_static/image16.png)されます)
 
-## <a name="step-4-adding-check-all-and-uncheck-all-buttons"></a>手順 4: すべての追加とすべてのボタンをオフにします。
+## <a name="step-4-adding-check-all-and-uncheck-all-buttons"></a>手順 4: すべてのボタンを確認し、すべてのボタンをオフにする
 
-場合は、ユーザーが現在のページ上のすべての製品を削除しようとすると、10 個のチェック ボックスの各チェックする必要があります。 このプロセスをすべてチェックを追加することで高速化を支援ボタンをクリックすると、グリッド内のすべてのチェック ボックスの選択。 オフにしてすべてのボタンは均等に便利になります。
+現在のページのすべての製品を削除する場合は、10の各チェックボックスをオンにする必要があります。 [すべて確認] ボタンを追加することにより、このプロセスを迅速に実行できます。このボタンをクリックすると、グリッド内のすべてのチェックボックスがオンになります。 [すべてクリア] ボタンも同様に役立ちます。
 
-GridView の上に配置すること、ページには、2 つのボタンの Web コントロールを追加します。 まず 1 つの s を設定`ID`に`CheckAll`とその`Text`すべてをチェックするプロパティです。 セットは 2 つ目の 1 つの s`ID`に`UncheckAll`とその`Text`プロパティをすべてオフにします。
+2つのボタン Web コントロールをページに追加し、GridView の上に配置します。 最初の1つの `ID` を `CheckAll` に設定し、その `Text` プロパティを [すべてを確認] に設定します。2つ目の `ID` を `UncheckAll` に設定し、その `Text` プロパティを [すべてオフ] に設定します。
 
 [!code-aspx[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample3.aspx)]
 
-という名前の分離コード クラスにメソッドを次に、作成`ToggleCheckState(checkState)`、呼び出されると、列挙、 `Products` GridView s`Rows`コレクション設定の各チェック ボックス s と`Checked`プロパティを渡されたの値で*checkState*パラメーター。
+次に、`ToggleCheckState(checkState)` という名前の分離コードクラスにメソッドを作成します。このメソッドを呼び出すと、`Products` GridView s `Rows` collection が列挙され、各 CheckBox s `Checked` プロパティが渡された*Checkstate*パラメーターの値に設定されます。
 
 [!code-vb[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample4.vb)]
 
-次に、作成`Click`のイベント ハンドラー、`CheckAll`と`UncheckAll`ボタン。 `CheckAll` S イベント ハンドラー、単に呼び出し`ToggleCheckState(True)`、 `UncheckAll`、呼び出す`ToggleCheckState(False)`します。
+次に、[`CheckAll`] および [`UncheckAll`] ボタンの `Click` イベントハンドラーを作成します。 `CheckAll` s イベントハンドラーでは、単に `ToggleCheckState(True)`を呼び出します。`UncheckAll`で `ToggleCheckState(False)`を呼び出します。
 
 [!code-vb[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample5.vb)]
 
-このコードでは、すべてのボタンをクリックしてはポストバックが発生して、GridView のチェック ボックスを確認します。 同様に、すべてをオフにします をクリックしては、すべてのチェック ボックスを選択解除します。 図 9 では、すべてのボタンがチェックされた後に、画面が表示されます。
+このコードでは、[すべてを確認] ボタンをクリックするとポストバックが発生し、GridView のすべてのチェックボックスがオンになります。 同様に、[すべてのチェックボックスをオフにする] チェックボックスをオンにします。 図9に、[すべて確認] ボタンがオンになった後の画面を示します。
 
-[![チェックのすべてのボタンをクリックすると、すべてのチェック ボックスを選択します。](adding-a-gridview-column-of-checkboxes-vb/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image17.png)
+[[すべてを確認] ボタンをクリックしてすべてのチェックボックスを選択 ![](adding-a-gridview-column-of-checkboxes-vb/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image17.png)
 
-**図 9**:チェックすべてボタンを選択しますすべてのチェック ボックスをクリックすると ([フルサイズの画像を表示する をクリックします](adding-a-gridview-column-of-checkboxes-vb/_static/image18.png))。
+**図 9**: [すべてを確認] ボタンをクリックすると、すべてのチェックボックスがオンになります ([クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-checkboxes-vb/_static/image18.png)されます)
 
 > [!NOTE]
-> ときに、チェック ボックスをオンまたはオフのチェック ボックスのすべてのアプローチの 1 つの列を表示するには、ヘッダー行のチェック ボックスです。 さらに、すべて現在のチェック/ポストバックをすべてオフに実装が必要です。 チェック ボックスできます checked または unchecked、ただし、完全を使用する込むユーザー エクスペリエンスを提供するためのクライアント側スクリプト。 チェック アウトの詳細については、クライアント側の手法を使用してと共にすべてチェックをすべてオフにヘッダー行のチェック ボックスを使用して探索する[GridView を使用してクライアント側スクリプトとチェックすべてチェック ボックスのチェックすべてチェック ボックス](http://aspnet.4guysfromrolla.com/articles/053106-1.aspx)します。
+> チェックボックスの列を表示する場合、すべてのチェックボックスをオンまたはオフにするには、ヘッダー行のチェックボックスを使用します。 また、すべての実装を確認し、すべての実装をオフにするには、ポストバックが必要です。 ただし、チェックボックスをオンまたはオフにすることはできますが、クライアント側のスクリプトでは、snappier のユーザーエクスペリエンスを提供します。 [すべてをチェック] の [ヘッダー行] チェックボックスを使用して詳細を確認するには、クライアント側の手法を使用する方法については、「クライアント側の[スクリプトを使用して GridView ですべて](http://aspnet.4guysfromrolla.com/articles/053106-1.aspx)のチェックボックスをチェックする」および「すべてを確認する」チェックボックスをオンにしてください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-続行する前に、GridView から任意の数の行を選択できるようにする必要がある場合、チェック ボックスの列を追加することは 1 つです。 このチュートリアルで説明したように、GridView のチェック ボックスの列を含む、TemplateField と Web のチェック ボックス コントロールを追加します。 (前のチュートリアルで行ったようには、マークアップ、テンプレートに直接挿入する) と Web コントロールを使用して、チェック ボックスでされたを通知し、ポストバック間ではチェックされませんが、ASP.NET が自動的には記憶します。 特定のチェック ボックスをオンになっているかどうかを判断する、またはチェックされた状態を変更するコードのチェックもプログラムでアクセスできます。
+続行する前にユーザーが GridView から任意の数の行を選択できるようにする必要がある場合は、チェックボックスの列を追加する方法が1つあります。 このチュートリアルで説明したように、GridView にチェックボックスの列を含めると、CheckBox Web コントロールで TemplateField を追加することができます。 (前のチュートリアルで行ったように) Web コントロールを使用して、ASP.NET が、ポストバック間でチェックされなかったチェックボックスを自動的に記憶します。 また、コード内のチェックボックスにプログラムでアクセスして、特定のチェックボックスがオンになっているかどうかを判断したり、チェックされた状態を変更したりすることもできます。
 
-このチュートリアルを最後の 1 つ、GridView への行セレクター列の追加について説明しました。 [次へ]、チュートリアルでは、少しの作業を追加する方法の挿入機能 GridView にについて説明します。
+このチュートリアルと最後のチュートリアルでは、行セレクター列を GridView に追加しました。 次のチュートリアルでは、いくつかの作業を行い、GridView に挿入機能を追加できる方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-gridview-column-of-radio-buttons-vb.md)

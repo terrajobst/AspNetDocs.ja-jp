@@ -1,249 +1,249 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
-title: ELMAH (VB) によるエラーの詳細をログ記録 |Microsoft Docs
+title: ELMAH でエラーの詳細をログに記録する (VB) |Microsoft Docs
 author: rick-anderson
-description: エラー ログのモジュールとハンドラー (ELMAH) には、実稼働環境で実行時エラーのログを別のアプローチが用意されています。 ELMAH には、無料のオープン ソースのエラーが、.
+description: エラーログモジュールとハンドラー (ELMAH) は、運用環境で実行時エラーをログに記録するための別の方法を提供します。 ELMAH は無料のオープンソースエラーです...
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: a5f0439f-18b2-4c89-96ab-75b02c616f46
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b3b96232f46e7f9e7cbd47b109bf4b7056ed34a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 46b7fc22807c8cb9f47ff035639815d7b6104735
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132352"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74622269"
 ---
 # <a name="logging-error-details-with-elmah-vb"></a>ELMAH でエラーの詳細をログに記録する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_vb.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_VB.zip)または[PDF のダウンロード](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_vb.pdf)
 
-> エラー ログのモジュールとハンドラー (ELMAH) には、実稼働環境で実行時エラーのログを別のアプローチが用意されています。 ELMAH は、エラーをフィルター処理、RSS フィードとして、web ページからのエラー ログを表示するか、コンマ区切りファイルとしてダウンロードする機能などの機能が含まれる無料のオープン ソース エラー ログ記録ライブラリです。 このチュートリアルでは、ダウンロードして ELMAH を構成します。
+> エラーログモジュールとハンドラー (ELMAH) は、運用環境で実行時エラーをログに記録するための別の方法を提供します。 ELMAH は、オープンソースのエラーログライブラリです。このライブラリには、エラーのフィルター処理や、web ページからのエラーログの表示、RSS フィードの表示、コンマ区切りファイルとしてのダウンロードなどの機能が含まれています。 このチュートリアルでは、ELMAH のダウンロードと構成について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-[前のチュートリアル](logging-error-details-with-asp-net-health-monitoring-vb.md)ASP を検査します。NET のヘルスを監視システムで、さまざまな Web イベントを記録するためのボックス ライブラリの不足を提供します。 多くの開発者は、正常性をログに記録して、未処理の例外の詳細を電子メールで監視を使用します。 ただし、このシステムでいくつかの問題点があります。 何よりもまずがないことをログに記録されたイベントについての情報を表示するためのユーザー インターフェイスの任意の並べ替えです。 10 の最後のエラーの概要を参照してください。 または、過去 1 週間に発生したエラーの詳細を表示するには、すると、データベースのいずれか開ける必要があります、スキャン、電子メールの受信トレイ、またはビルドからの情報を表示する web ページ、`aspnet_WebEvent_Events`テーブル。
+[前のチュートリアル](logging-error-details-with-asp-net-health-monitoring-vb.md)では、ASP を検証しています。ネットワークの正常性監視システム。広範な Web イベントを記録するための、すぐに使用できるライブラリが用意されています。 多くの開発者は、正常性監視を使用して、未処理の例外の詳細をログに記録し、電子メールで送信します。 ただし、このシステムにはいくつかの問題点があります。 1つ目は、ログに記録されたイベントに関する情報を表示するためのユーザーインターフェイスがないことです。 過去10回のエラーの概要を表示する場合、または先週発生したエラーの詳細を表示する場合は、データベースをからかうするか、電子メールの受信トレイをスキャンするか、または `aspnet_WebEvent_Events` テーブルからの情報を表示する web ページを作成する必要があります。
 
-別の問題点は、正常性監視の複雑さを中心として展開します。 正常性の監視は、多くの異なるイベントの記録に使用できる、さまざまなイベントがログに記録する方法とタイミングに指示するためのオプションがあるため、状態監視システムを正しく構成するは、面倒の作業です。 最後に、互換性の問題があります。 正常性の監視は、バージョン 2.0 では、.NET Framework には追加された最初、ために、ASP.NET のバージョンを使用して構築された以前の web アプリケーションの使用はできません 1.x します。 さらに、`SqlWebEventProvider`データベースにエラーの詳細をログには、前のチュートリアルで使用したクラスは、Microsoft SQL Server データベースでのみ動作します。 エラーを XML ファイルまたは Oracle データベースなど、代替データ ストアにログインする必要があるカスタム ログ プロバイダー クラスを作成する必要があります。
+もう1つの問題点は、稼動状況の監視の複雑さを中心にしています。 正常性の監視を使用して大量のイベントを記録することができます。また、イベントをログに記録する方法とタイミングを指定するさまざまなオプションがあるため、正常性監視システムを正しく構成することは煩雑タスクになる可能性があります。 最後に、互換性の問題があります。 正常性の監視は、バージョン2.0 の .NET Framework に最初に追加されたため、ASP.NET バージョン1.x を使用して作成された古い web アプリケーションでは使用できません。 さらに、前のチュートリアルで使用した `SqlWebEventProvider` クラスは、エラーの詳細をデータベースに記録するために、Microsoft SQL Server データベースでのみ機能します。 XML ファイルや Oracle データベースなどの代替データストアにエラーを記録する必要がある場合は、カスタムログプロバイダークラスを作成する必要があります。
 
-正常性システムを監視する代わりに、エラー ログのモジュールとハンドラー (ELMAH)、によって作成された無料のオープン ソースのエラーのログ記録システム[Atif Aziz](http://www.raboof.com/)します。 2 つのシステム間で最も顕著な違いは、RSS フィードとしてのエラーと、web ページと、特定のエラーの詳細の一覧を表示する ELAMH の機能です。 ELMAH は、正常性監視のため、エラーのみがログよりも構成するのには簡単です。 さらに、ELMAH には、ASP.NET 1.x、ASP.NET 2.0、および ASP.NET 3.5 のアプリケーションおよび付属のさまざまなログ ソース プロバイダーのサポートが含まれています。
+正常性監視システムの代替手段は、 [Atif た](http://www.raboof.com/)によって作成された無料のオープンソースのエラーログシステムである、エラーログモジュールとハンドラー (ELMAH) です。 2つのシステムの最も顕著な違いは、エラーの一覧と、web ページおよび RSS フィードからの特定のエラーの詳細を表示する ELAMH の機能です。 ELMAH は、エラーをログに記録するだけなので、正常性の監視よりも簡単に構成できます。 さらに、ELMAH には、ASP.NET 1.x、ASP.NET 2.0、および ASP.NET 3.5 アプリケーションのサポートが含まれており、さまざまなログソースプロバイダーが付属しています。
 
-このチュートリアルでは、ELMAH を ASP.NET アプリケーションに追加するのに関連する手順について説明します。 それでは、始めましょう!
-
-> [!NOTE]
-> 状態監視システムと ELMAH 両方長所と短所の独自セットがあります。 お客様のニーズ両方のシステムをどのような 1 つに合ったを決定することです。
-
-## <a name="adding-elmah-to-an-aspnet-web-application"></a>ELMAH を ASP.NET Web アプリケーションに追加します。
-
-ELMAH を新規または既存の ASP.NET アプリケーションに統合することは、5 分以内に受け取る簡単プロセスです。 簡単に言うと、次の 4 つの簡単な手順が含まれます。
-
-1. ELMAH をダウンロードし、追加、 `Elmah.dll` web アプリケーションのアセンブリ
-2. ELMAH の HTTP モジュールとハンドラーを登録`Web.config`、
-3. ELMAH の構成のオプションを指定し、
-4. 必要な場合は、エラー ログのソース インフラストラクチャを作成します。
-
-これら 4 つの手順を 1 つずつの各を見てみましょう。
-
-### <a name="step-1-downloading-the-elmah-project-files-and-addingelmahdllto-your-web-application"></a>手順 1: ELMAH プロジェクト ファイルをダウンロードし、追加`Elmah.dll`Web アプリケーション
-
-ELMAH 1.0 BETA 3 (10617 ビルド)、記事の執筆時点で最新バージョンは、このチュートリアルで使用可能なダウンロードに含まれます。 または、参照してください、 [ELMAH web サイト](https://code.google.com/p/elmah/)最新バージョンを取得するか、ソース コードをダウンロードします。 デスクトップ上のフォルダーに ELMAH ダウンロードを抽出し、ELMAH のアセンブリ ファイルが見つかりません (`Elmah.dll`)。
+このチュートリアルでは、ASP.NET アプリケーションに ELMAH を追加するために必要な手順について説明します。 では、始めましょう。
 
 > [!NOTE]
-> `Elmah.dll`ダウンロードの保存されている`Bin`フォルダーで、異なる .NET Framework バージョンとリリース ビルドかデバッグ ビルドのサブフォルダーがあります。 適切なフレームワークのバージョンには、リリース ビルドを使用します。 たとえば、ASP.NET 3.5 の web アプリケーションを作成する場合は、コピー、`Elmah.dll`ファイルから、`Bin\net-3.5\Release`フォルダー。
+> 正常性監視システムと ELMAH の両方に、独自の長所と短所があります。 両方のシステムを試して、ニーズに最も適したものを決定することをお勧めします。
 
-次に、Visual Studio を開き、ソリューション エクスプ ローラーと選択、コンテキスト メニューから 参照の追加の web サイトの名前を右クリックして、アセンブリをプロジェクトに追加します。 参照の追加 ダイアログ ボックスが表示されます。 [参照] タブに移動し、選択、`Elmah.dll`ファイル。 このアクションを追加、`Elmah.dll`ファイルを web アプリケーションの`Bin`フォルダー。
+## <a name="adding-elmah-to-an-aspnet-web-application"></a>ASP.NET Web アプリケーションに ELMAH を追加する
+
+ELMAH を新規または既存の ASP.NET アプリケーションに統合することは、5分未満で簡単で簡単なプロセスです。 簡単に言うと、次の4つの簡単な手順を行います。
+
+1. ELMAH をダウンロードし、web アプリケーションに `Elmah.dll` アセンブリを追加します。
+2. `Web.config`に ELMAH の HTTP モジュールとハンドラーを登録します。
+3. ELMAH の構成オプションを指定します。
+4. 必要に応じて、エラーログのソースインフラストラクチャを作成します。
+
+ここでは、これら4つの手順を1つずつ順番に説明します。
+
+### <a name="step-1-downloading-the-elmah-project-files-and-addingelmahdllto-your-web-application"></a>手順 1: ELMAH プロジェクトファイルのダウンロードと Web アプリケーションへの`Elmah.dll`の追加
+
+ELMAH 1.0 BETA 3 (ビルド 10617)、書き込み時の最新バージョンは、このチュートリアルで利用できるダウンロードに含まれています。 または、 [ELMAH web サイト](https://code.google.com/p/elmah/)にアクセスして最新バージョンを取得したり、ソースコードをダウンロードしたりすることもできます。 ELMAH ダウンロードをデスクトップ上のフォルダーに抽出し、ELMAH アセンブリファイル (`Elmah.dll`) を探します。
 
 > [!NOTE]
-> Web アプリケーション プロジェクト (WAP) の種類が表示されない、`Bin`ソリューション エクスプ ローラーでフォルダー。 代わりに、[参照] フォルダーの下でこれらの項目が一覧表示します。
+> `Elmah.dll` ファイルは、ダウンロードの `Bin` フォルダーにあります。このフォルダーには、異なる .NET Framework バージョンのサブフォルダーと、リリースビルドとデバッグビルドのサブフォルダーがあります。 適切なフレームワークのバージョンについては、リリースビルドを使用してください。 たとえば、ASP.NET 3.5 web アプリケーションをビルドする場合は、`Bin\net-3.5\Release` フォルダーから `Elmah.dll` ファイルをコピーします。
 
-`Elmah.dll` ELMAH システムで使用されるクラスがアセンブリに含まれています。 これらのクラスは、3 つのカテゴリに分類されます。
+次に、Visual Studio を開き、ソリューションエクスプローラーで web サイト名を右クリックし、コンテキストメニューから [参照の追加] を選択して、アセンブリをプロジェクトに追加します。 [参照の追加] ダイアログボックスが表示されます。 [参照] タブに移動し、`Elmah.dll` ファイルを選択します。 この操作により、`Elmah.dll` ファイルが web アプリケーションの `Bin` フォルダーに追加されます。
 
-- **HTTP モジュール**-HTTP モジュールのイベント ハンドラーを定義するクラスは、`HttpApplication`イベントなど、`Error`イベント。 ELMAH には、複数の HTTP モジュールでは、3 つの最も関係のものが含まれています。 中。 
+> [!NOTE]
+> Web アプリケーションプロジェクト (WAP) の種類では、ソリューションエクスプローラーに `Bin` フォルダーは表示されません。 代わりに、[参照] フォルダーの下にこれらの項目が表示されます。
 
-    - `ErrorLogModule` -未処理の例外ログ ソースをログに記録します。
-    - `ErrorMailModule` -電子メール メッセージでハンドルされない例外の詳細を送信します。
-    - `ErrorFilterModule` - とどのような例外がログに記録されますを決定する開発者が指定したフィルターを適用するものは無視されます。
-- **HTTP ハンドラー** -HTTP ハンドラは要求の特定の型のマークアップの生成を担当するクラス。 ELMAH には、web ページ、RSS フィード、またはコンマ区切りファイル (CSV) は、エラーの詳細を表示する HTTP ハンドラーが含まれています。
-- **エラー ログ ソース**- すぐに Microsoft SQL Server データベース、Oracle データベースへの Microsoft Access データベースに、メモリにエラーを記録できます ELMAH SQLite データベースに指定するか、または Vista DB データベース、XML ファイル。 システムの監視、正常性のように ELMAH のアーキテクチャは、つまりを作成して必要な場合に、独自のカスタム ログ ソース プロバイダーをシームレスに統合できますプロバイダー モデルを使用して構築されました。
+`Elmah.dll` アセンブリには、ELMAH システムによって使用されるクラスが含まれています。 これらのクラスは、次の3つのカテゴリのいずれかに分類されます。
+
+- **Http モジュール**-http モジュールは、`Error` イベントなどの `HttpApplication` イベントのイベントハンドラーを定義するクラスです。 ELMAH には複数の HTTP モジュールが含まれており、最も連動なものは次の3つです。 
+
+    - `ErrorLogModule`-未処理の例外をログソースに記録します。
+    - `ErrorMailModule`-未処理の例外の詳細を電子メールメッセージで送信します。
+    - `ErrorFilterModule`-開発者が指定したフィルターを適用して、ログに記録される例外と無視される例外を決定します。
+- **Http ハンドラー** -http ハンドラーは、特定の種類の要求のマークアップを生成するクラスです。 ELMAH には、エラーの詳細を web ページとして、RSS フィードとして、またはコンマ区切りファイル (CSV) として表示する HTTP ハンドラーが含まれています。
+- **エラーログのソース**-ELMAH では、メモリ、Microsoft SQL Server データベース、Microsoft access データベース、Oracle データベース、XML ファイル、SQLite データベース、または Vista DB データベースに対して、エラーを記録することができます。 正常性監視システムと同様に、ELMAH のアーキテクチャはプロバイダーモデルを使用して構築されています。つまり、必要に応じて、独自のカスタムログソースプロバイダーを作成し、シームレスに統合することができます。
 
 ### <a name="step-2-registering-elmahs-http-module-and-handler"></a>手順 2: ELMAH の HTTP モジュールとハンドラーの登録
 
-中に、`Elmah.dll`ファイルには、HTTP モジュールが含まれていて、未処理の例外を自動的にログインして、web ページからのエラーの詳細を表示するハンドラーが必要なこれらの web アプリケーションの構成で明示的に登録する必要があります。 `ErrorLogModule`登録後、HTTP モジュールをサブスクライブする、`HttpApplication`の`Error`イベント。 このイベントが発生するたびに、`ErrorLogModule`指定されたログ ソースに、例外の詳細を記録します。 次のセクションで、ログ ソース プロバイダーを定義する方法を見ていきます"Configuring ELMAH"。 `ErrorLogPageFactory` HTTP ハンドラー ファクトリは web ページから、エラー ログを表示するときに、マークアップを生成します。
+`Elmah.dll` ファイルには、未処理の例外を自動的にログに記録したり、web ページからエラーの詳細を表示したりするために必要な HTTP モジュールとハンドラーが含まれていますが、web アプリケーションの構成に明示的に登録する必要があります。 `ErrorLogModule` HTTP モジュールは、登録されると、`HttpApplication`の `Error` イベントをサブスクライブします。 このイベントが発生するたびに、`ErrorLogModule` によって、指定したログソースに例外の詳細が記録されます。 ログソースプロバイダーの定義方法については、次のセクション「ELMAH の構成」を参照してください。 `ErrorLogPageFactory` HTTP ハンドラーファクトリは、web ページからエラーログを表示するときにマークアップを生成します。
 
-HTTP モジュールとハンドラーを登録するための特定の構文は、サイトの電源が web サーバーによって異なります。 ASP.NET 開発サーバーと Microsoft の iis 6.0 とそれ以前のバージョンで HTTP モジュールとハンドラーを登録します。、`<httpModules>`と`<httpHandlers>`セクションでは、内に表示されます、`<system.web>`要素。 IIS 7.0 を使用しているかどうかに登録する必要がありますが、`<system.webServer>`要素の`<modules>`と`<handlers>`セクション。 さいわい、HTTP モジュールとハンドラーを定義できます*両方*使用されている web サーバーに関係なく配置されます。 このオプションは、使用されている web サーバーに関係なく、開発および運用環境で使用される同じ構成が許可されている最もポータブルな 1 つ。
+HTTP モジュールとハンドラーを登録するための具体的な構文は、サイトの電源を入れている web サーバーによって異なります。 ASP.NET 開発サーバーおよび Microsoft の IIS バージョン6.0 以前では、HTTP モジュールとハンドラーは、`<system.web>` 要素内に表示される `<httpModules>` および `<httpHandlers>` セクションに登録されています。 IIS 7.0 を使用している場合は、`<system.webServer>` 要素の `<modules>` と `<handlers>` のセクションに登録する必要があります。 さいわい、使用する web サーバーに関係なく、*両方*の場所で HTTP モジュールとハンドラーを定義できます。 このオプションは、使用されている web サーバーに関係なく、開発環境と運用環境で同じ構成を使用できるようにするため、最もポータブルなオプションです。
 
-登録することで開始、 `ErrorLogModule` HTTP モジュールと`ErrorLogPageFactory`で HTTP ハンドラー、`<httpModules>`と`<httpHandlers>`セクション`<system.web>`します。 定義している場合、構成は既にこれら 2 つの要素、単に含める、 `<add>` ELMAH の HTTP モジュールとハンドラー要素。
+まず、`ErrorLogModule` HTTP モジュールと `ErrorLogPageFactory` HTTP ハンドラーを `<system.web>`の `<httpModules>` および `<httpHandlers>` セクションに登録します。 構成でこれらの2つの要素が既に定義されている場合は、ELMAH の HTTP モジュールおよびハンドラーの `<add>` 要素を含めるだけです。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample1.xml)]
 
-次に、ELMAH の HTTP モジュールとハンドラーを登録、`<system.webServer>`要素。 同様に、この要素が、構成内に存在しない場合、追加します。
+次に、`<system.webServer>` 要素に ELMAH の HTTP モジュールとハンドラーを登録します。 以前と同様に、この要素が構成にまだ存在していない場合は、それを追加します。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample2.xml)]
 
-既定では、IIS 7 文句を言うで HTTP モジュールとハンドラーが登録されているかどうか、`<system.web>`セクション。 `validateIntegratedModeConfiguration`属性、`<validation>`要素には、このようなエラー メッセージを抑制する IIS 7 がように指示します。
+既定では、HTTP モジュールとハンドラーが `<system.web>` セクションに登録されている場合、IIS 7 はを示します。 `<validation>` 要素の `validateIntegratedModeConfiguration` 属性は、このようなエラーメッセージを非表示にするように IIS 7 に指示します。
 
-注意を登録するための構文、 `ErrorLogPageFactory` HTTP ハンドラーが含まれています、`path`属性に設定されている`elmah.axd`します。 この属性は web アプリケーションを場合に通知という名前のページ要求を受信した`elmah.axd`で要求を処理する必要があります、 `ErrorLogPageFactory` HTTP ハンドラー。 見て、 `ErrorLogPageFactory` HTTP ハンドラーのこのチュートリアルの後半で動作します。
+`ErrorLogPageFactory` HTTP ハンドラーを登録するための構文には、`elmah.axd`に設定されている `path` 属性が含まれていることに注意してください。 この属性は、`elmah.axd` という名前のページに対して要求が到着した場合に、`ErrorLogPageFactory` HTTP ハンドラーによって要求が処理されることを web アプリケーションに通知します。 このチュートリアルの後半では、`ErrorLogPageFactory` HTTP ハンドラーの動作について説明します。
 
-### <a name="step-3-configuring-elmah"></a>手順 3: ELMAH を構成します。
+### <a name="step-3-configuring-elmah"></a>手順 3: ELMAH の構成
 
-ELMAH で web サイトの構成オプションを探します`Web.config`という名前のカスタム構成セクション内のファイル`<elmah>`します。 カスタムのセクションを使用するには`Web.config`最初で定義する必要がありますが、`<configSections>`要素。 開く、`Web.config`ファイルを開き、次のマークアップを追加、 `<configSections>`:
+ELMAH は、`<elmah>`という名前のカスタム構成セクションで、web サイトの `Web.config` ファイルでその構成オプションを検索します。 `Web.config` でカスタムセクションを使用するには、まず `<configSections>` 要素で定義する必要があります。 `Web.config` ファイルを開き、次のマークアップを `<configSections>`に追加します。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample3.xml)]
 
 > [!NOTE]
-> ELMAH ASP.NET 1.x アプリケーションを構成する場合は、削除、`requirePermission="false"`属性を`<section>`上記の要素。
+> ASP.NET 1.x アプリケーションの ELMAH を構成する場合は、上の `<section>` の要素から `requirePermission="false"` 属性を削除します。
 
-上記の構文の登録、カスタム`<elmah>`セクションと、サブセクション: `<security>`、 `<errorLog>`、 `<errorMail>`、および`<errorFilter>`します。
+上記の構文では、カスタム `<elmah>` セクションとそのサブセクション (`<security>`、`<errorLog>`、`<errorMail>`、および `<errorFilter>`) が登録されます。
 
-次に、追加、`<elmah>`セクション`Web.config`します。 このセクションと同じレベルで表示する必要があります、`<system.web>`要素。 内で、`<elmah>`セクションを追加、`<security>`と`<errorLog>`のセクションでは次のように。
+次に、`Web.config`に `<elmah>` セクションを追加します。 このセクションは、`<system.web>` 要素と同じレベルに表示されます。 `<elmah>` セクション内で、`<security>` と `<errorLog>` のセクションを次のように追加します。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample4.xml)]
 
-`<security>`セクションの`allowRemoteAccess`属性は、リモート アクセスが許可されているかどうかを示します。 この値が 0 に設定されている場合、エラー ログの web ページのみ表示できますローカル。 この属性が 1 に設定されている場合は、ローカルとリモートの両方の訪問者のエラー ログの web ページが有効にします。 ここでは、リモートの訪問者のエラー ログの web ページを無効にしてみましょう。 これによりセキュリティ上の問題について説明する機会を取得したら後でリモート アクセスを許可します。
+`<security>` セクションの `allowRemoteAccess` 属性は、リモートアクセスが許可されているかどうかを示します。 この値が0に設定されている場合、エラーログ web ページはローカルにのみ表示されます。 この属性が1に設定されている場合、リモートとローカルの両方のユーザーについて、エラーログ web ページが有効になります。 ここでは、リモート訪問者のエラーログ web ページを無効にしてみましょう。 セキュリティに関する考慮事項について説明した後、後でリモートアクセスを許可します。
 
-`<errorLog>`セクションでは、エラーの詳細が記録されている以外に似ていますが決定するエラー ログのソースを定義します。、`<providers>`監視システム正常性」セクション。 上記の構文を指定します、`SqlErrorLog`クラスで指定された Microsoft SQL Server データベースに、エラー ログに記録されるエラー ログのソースとして、`connectionStringName`属性の値。
+`<errorLog>` セクションでは、エラーの詳細が記録される場所を指定するエラーログのソースを定義します。これは、正常性監視システムの `<providers>` セクションに似ています。 上記の構文では、エラーログソースとして `SqlErrorLog` クラスを指定しています。これにより、`connectionStringName` 属性値によって指定された Microsoft SQL Server データベースにエラーが記録されます。
 
 > [!NOTE]
-> ELMAH は、エラーをログに、XML ファイル、Microsoft Access データベース、Oracle データベース、および他のデータ ストアを使用できる追加のエラー ログ プロバイダーに同梱されています。 このサンプルを参照してください`Web.config`これら代替エラーのログ プロバイダーを使用する方法については、ELMAH のダウンロードに含まれているファイル。
+> ELMAH には、XML ファイル、Microsoft Access データベース、Oracle データベース、およびその他のデータストアにエラーを記録するために使用できる追加のエラーログプロバイダーが付属しています。 これらの代替エラーログプロバイダーの使用方法については、ELMAH ダウンロードに含まれているサンプル `Web.config` ファイルを参照してください。
 
-### <a name="step-4-creating-the-error-log-source-infrastructure"></a>手順 4: エラー ログのソースのインフラストラクチャを作成します。
+### <a name="step-4-creating-the-error-log-source-infrastructure"></a>手順 4: エラーログのソースインフラストラクチャの作成
 
-ELMAH の`SqlErrorLog`プロバイダーが指定された Microsoft SQL Server データベースにエラーの詳細を記録します。 `SqlErrorLog`プロバイダーは、このデータベースのという名前のテーブル`ELMAH_Error`と 3 つのストアド プロシージャ: `ELMAH_GetErrorsXml`、 `ELMAH_GetErrorXml`、および`ELMAH_LogError`します。 ELMAH ダウンロードには、という名前のファイルが含まれている`SQLServer.sql`で、`db`ストアド プロシージャを次の表とこれらを作成するための T-SQL が含まれているフォルダー。 これらのステートメントを使用するデータベースで実行する必要があります、`SqlErrorLog`プロバイダー。
+ELMAH の `SqlErrorLog` プロバイダーは、指定された Microsoft SQL Server データベースにエラーの詳細を記録します。 `SqlErrorLog` プロバイダーは、このデータベースに `ELMAH_Error` という名前のテーブルと、`ELMAH_GetErrorsXml`、`ELMAH_GetErrorXml`、および `ELMAH_LogError`の3つのストアドプロシージャがあることを想定しています。 ELMAH ダウンロードには、このテーブルとこれらのストアドプロシージャを作成するための T-sql を含む `db` フォルダーに `SQLServer.sql` という名前のファイルが含まれています。 `SqlErrorLog` プロバイダーを使用するには、データベースで次のステートメントを実行する必要があります。
 
-**図 1**と**2**で必要なデータベース オブジェクトの後に、Visual Studio でデータベース エクスプ ローラーを表示、`SqlErrorLog`プロバイダーが追加されています。
+**図 1**と**2**は、`SqlErrorLog` プロバイダーが必要とするデータベースオブジェクトが追加された後の Visual Studio のデータベースエクスプローラーを示しています。
 
 [![](logging-error-details-with-elmah-vb/_static/image2.png)](logging-error-details-with-elmah-vb/_static/image1.png)
 
-**図 1**:`SqlErrorLog`プロバイダー エラーをログに記録、`ELMAH_Error`テーブル
+**図 1**: `SqlErrorLog` プロバイダーが `ELMAH_Error` テーブルにエラーを記録する
 
 [![](logging-error-details-with-elmah-vb/_static/image4.png)](logging-error-details-with-elmah-vb/_static/image3.png)
 
-**図 2**:`SqlErrorLog`プロバイダーは次の 3 つのストアド プロシージャを使用
+**図 2**: `SqlErrorLog` プロバイダーが3つのストアドプロシージャを使用する
 
-## <a name="elmah-in-action"></a>アクションで ELMAH
+## <a name="elmah-in-action"></a>ELMAH のアクション
 
-この時点で ELMAH を登録、web アプリケーションに追加しましたが、 `ErrorLogModule` HTTP モジュールと`ErrorLogPageFactory`HTTP ハンドラー、ELMAH の構成オプションを指定した`Web.config`の必要なデータベース オブジェクトを追加し、 `SqlErrorLog`エラーのログ プロバイダーです。 アクションで ELMAH を表示する準備ができました! 書籍レビューの web サイトにアクセスし、ページなど、実行時エラーを生成する`Genre.aspx?ID=foo`、または存在しないページなど`NoSuchPage.aspx`します。 これらのページにアクセスしたときに参照によって異なります、`<customErrors>`構成し、ローカルまたはリモートのどちらをアクセスしているかどうか。 (を参照、 [*カスタム エラー ページを表示する*チュートリアル](displaying-a-custom-error-page-vb.md)のこのトピックでは、します)。
+この時点で、web アプリケーションに ELMAH を追加し、`ErrorLogModule` HTTP モジュールと `ErrorLogPageFactory` HTTP ハンドラーを登録し、`Web.config`で ELMAH の構成オプションを指定し、`SqlErrorLog` エラーログプロバイダーに必要なデータベースオブジェクトを追加しました。 これで、ELMAH の動作を確認する準備ができました。 書籍のレビューの web サイトにアクセスし、`Genre.aspx?ID=foo`などの実行時エラーを生成するページや、`NoSuchPage.aspx`などの存在しないページにアクセスします。 これらのページにアクセスしたときに表示される内容は、`<customErrors>` の構成と、ローカルまたはリモートのどちらにアクセスしているかによって異なります。 (このトピックについては、「 [*カスタムエラーページの表示*」チュートリアル](displaying-a-custom-error-page-vb.md)を参照してください)。
 
-ハンドルされない例外が発生したときに、ユーザーにどのような内容が表示に ELMAH は影響しませんだけ、その詳細を記録します。 このエラーのログは、web ページからアクセスできる`elmah.axd`、web サイトのルートからなど`http://localhost/BookReviews/elmah.axd`します。 (プロジェクトでは、要求を受け取ったときにこのファイルが物理的に存在しない`elmah.axd`ランタイムにディスパッチされます、 `ErrorLogPageFactory` HTTP ハンドラーは、ブラウザーに送信されるマークアップが生成されます)。
+ELMAH は、未処理の例外が発生したときにユーザーに表示される内容に影響しません。詳細をログに記録するだけです。 このエラーログには、web サイトのルート (`http://localhost/BookReviews/elmah.axd`など) から `elmah.axd` web ページからアクセスできます。 (このファイルはプロジェクトに物理的に存在しませんが、要求がに対して提供されると、ランタイムは、ブラウザーに返されたマークアップを生成する `ErrorLogPageFactory` HTTP ハンドラーに要求をディスパッチ `elmah.axd` ます)。
 
 > [!NOTE]
-> 使用することも、 `elmah.axd` ELMAH テスト エラーを生成するように指示するページ。 アクセスして`elmah.axd/test`(、 `http://localhost/BookReviews/elmah.axd/test`) ELMAH 型の例外をスローすると、`Elmah.TestException`は、エラー メッセージ。"これは、テスト例外を無視してかまいません。"
+> また、[`elmah.axd`] ページを使用して、ELMAH にテストエラーを生成するように指示することもできます。 `elmah.axd/test` (のよう `http://localhost/BookReviews/elmah.axd/test`に) にアクセスすると、ELMAH は `Elmah.TestException`型の例外をスローします。これには、"これはテスト例外であり、無視しても安全です。" というエラーメッセージが表示されます。
 
-**図 3**にアクセスすると、エラー ログを表示`elmah.axd`開発環境から。
+**図 3**は、開発環境から `elmah.axd` にアクセスするときのエラーログを示しています。
 
 [![](logging-error-details-with-elmah-vb/_static/image6.png)](logging-error-details-with-elmah-vb/_static/image5.png)
 
-**図 3**:`Elmah.axd` Web ページから、エラー ログを表示します。  
-([フルサイズの画像を表示する をクリックします](logging-error-details-with-elmah-vb/_static/image7.png))。
+**図 3**: `Elmah.axd` Web ページのエラーログを表示する  
+([クリックすると、フルサイズの画像が表示](logging-error-details-with-elmah-vb/_static/image7.png)される)
 
-ログイン エラー**図 3** 6 つのエラー エントリが含まれています。 各エントリには、HTTP 状態コード (404 またはこれらのエラーでは、500)、種類、説明、エラーが発生したときに、ログオン ユーザーの名前と日付と時刻が含まれています。 エラー詳細黄色い画面の終焉で示すように、同じエラー メッセージを含むページが表示の詳細 リンクをクリックすると (を参照してください**図 4**) と共に、エラー時にサーバー変数の値 (を参照してください**図 5**)。 エラーの詳細が保存されている HTTP POST ヘッダーの値などの追加情報を含んだ生の XML を表示することもできます。
+**図 3**のエラーログには6つのエラーエントリが含まれています。 各エントリには、HTTP 状態コード (これらのエラーの場合は404または 500)、種類、説明、エラーが発生したときにログオンしたユーザーの名前、および日付と時刻が含まれます。 [詳細] リンクをクリックすると、エラーの詳細 (**図 4**を参照) に示されているのと同じエラーメッセージを含むページが、エラー発生時のサーバー変数の値と共に表示されます (**図 5**を参照)。 また、エラーの詳細が保存されている未加工の XML を表示することもできます。これには、HTTP POST ヘッダーの値などの追加情報が含まれます。
 
 [![](logging-error-details-with-elmah-vb/_static/image9.png)](logging-error-details-with-elmah-vb/_static/image8.png)
 
-**図 4**:YSOD エラーの詳細を表示します。  
-([フルサイズの画像を表示する をクリックします](logging-error-details-with-elmah-vb/_static/image10.png))。
+**図 4**: エラーの詳細を表示する YSOD  
+([クリックすると、フルサイズの画像が表示](logging-error-details-with-elmah-vb/_static/image10.png)される)
 
 [![](logging-error-details-with-elmah-vb/_static/image12.png)](logging-error-details-with-elmah-vb/_static/image11.png)
 
-**図 5**:エラー時にサーバー変数のコレクションの値を調べる  
-([フルサイズの画像を表示する をクリックします](logging-error-details-with-elmah-vb/_static/image13.png))。
+**図 5**: エラー発生時のサーバー変数コレクションの値を調べる  
+([クリックすると、フルサイズの画像が表示](logging-error-details-with-elmah-vb/_static/image13.png)される)
 
-ELMAH を実稼働 web サイトにデプロイする必要があります。
+運用 web サイトに ELMAH をデプロイするには、次のことが伴います。
 
-- コピー、`Elmah.dll`ファイルを`Bin`運用上のフォルダー
-- ELMAH に固有の構成設定をコピー、 `Web.config` 、運用環境で使用されるファイルと
-- 実稼働データベースには、エラー ログのソースのインフラストラクチャを追加します。
+- 運用環境の `Bin` フォルダーに `Elmah.dll` ファイルをコピーする
+- 運用環境で使用される `Web.config` ファイルに ELMAH 固有の構成設定をコピーする
+- 運用データベースにエラーログソースインフラストラクチャを追加します。
 
-開発から実稼働前のチュートリアルにファイルをコピーするための技術紹介しました。 SQL Server Management Studio を使用して、実稼働データベースに接続し、実行する、実稼働データベースでエラー ログのソースのインフラストラクチャを取得する最も簡単な方法は、おそらく、`SqlServer.sql`必要なテーブルが作成され、格納されているスクリプト ファイル手順です。
+前のチュートリアルでは、開発から運用にファイルをコピーするための手法について説明しました。 実稼働データベースでエラーログソースインフラストラクチャを取得する最も簡単な方法は、SQL Server Management Studio を使用して運用データベースに接続し、`SqlServer.sql` スクリプトファイルを実行して、必要なテーブルとストアドプロシージャを作成することです。
 
-### <a name="viewing-the-error-details-page-on-production"></a>運用環境でエラーの詳細ページを表示します。
+### <a name="viewing-the-error-details-page-on-production"></a>運用環境のエラーの詳細ページを表示する
 
-サイトを運用環境をデプロイした後実稼働 web サイトにアクセスし、未処理の例外を生成します。 開発環境のように ELMAH に影響しませんが、未処理の例外が発生したときに表示されるエラー ページ代わりに、単なるエラーが記録されます。 エラー ログのページにアクセスしようとした場合 (`elmah.axd`)、運用環境から出てきますに示すように許可されていません ページで**図 6**します。
+サイトを運用環境にデプロイしたら、運用 web サイトにアクセスして、未処理の例外を生成します。 開発環境と同様に、ELMAH は、未処理の例外が発生したときに表示されるエラーページには影響しません。代わりに、エラーをログに記録するだけです。 運用環境からエラーログページ (`elmah.axd`) にアクセスしようとすると、**図 6**に示されている禁止ページが表示されます。
 
 [![](logging-error-details-with-elmah-vb/_static/image15.png)](logging-error-details-with-elmah-vb/_static/image14.png)
 
-**図 6**:既定では、リモートの訪問者が、エラー ログの Web ページを表示できません。  
-([フルサイズの画像を表示する をクリックします](logging-error-details-with-elmah-vb/_static/image16.png))。
+**図 6**: 既定では、リモート訪問者がエラーログ Web ページを表示できない  
+([クリックすると、フルサイズの画像が表示](logging-error-details-with-elmah-vb/_static/image16.png)される)
 
-ELMAH 構成の取り消しを`<security>`設定セクション、`allowRemoteAccess`属性を 0 で、リモート ユーザーがエラー ログを表示することを禁止します。 匿名の訪問者から、エラー ログの表示を禁止するように、エラーの詳細は、セキュリティの脆弱性やその他の機密情報を表示可能性がありますに重要です。 この属性を 1 に設定し、エラー ログへのリモート アクセスを有効にするかどうかは、ロック ダウンすることが重要、`elmah.axd`パスため、承認されたユーザーのみのがアクセスできます。 追加することでこれを実現する、`<location>`要素を`Web.config`ファイル。
+ELMAH 構成の `<security>` セクションでは、`allowRemoteAccess` 属性を0に設定しています。これにより、リモートユーザーがエラーログを表示することが禁止されます。 エラーの詳細によってセキュリティの脆弱性やその他の機密情報が明らかになる可能性があるので、匿名の訪問者がエラーログを表示できないようにすることが重要です。 この属性を1に設定して、エラーログへのリモートアクセスを有効にする場合は、承認されたユーザーのみがアクセスできるように `elmah.axd` パスをロックすることが重要です。 これは、`Web.config` ファイルに `<location>` 要素を追加することによって実現できます。
 
-次の構成は、エラー ログの web ページにアクセスする管理者の役割でのユーザーのみを許可します。
+次の構成では、管理者ロールのユーザーのみがエラーログ web ページにアクセスできます。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample5.xml)]
 
 > [!NOTE]
-> 管理者ロールと Scott、Jisun、Alice のシステムでは、3 人のユーザーが追加された、 [*サービスを構成する、web サイトを使用してアプリケーション*チュートリアル](configuring-a-website-that-uses-application-services-vb.md)します。 ユーザー Scott と Jisun 管理者ロールのメンバーであります。 認証と承認の詳細についてを参照してください、 [web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。
+> 管理者ロールとシステムの3人のユーザー (Scott、Jisun、および Alice) は、アプリケーションサービスチュートリアルを使用した[ *web サイトの構成*](configuring-a-website-that-uses-application-services-vb.md)に追加されました。 Scott および Jisun というユーザーは、管理者ロールのメンバーです。 認証と承認の詳細については、 [Web サイトのセキュリティ](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)に関するチュートリアルを参照してください。
 
-リモート ユーザーによって実稼働環境でのエラー ログを表示できます。再び参照**図 3**、 **4**、および**5**のエラー ログの web ページのスクリーン ショット。 ただし、ユーザーが匿名または非管理者が、エラー ログ ページを表示しようとしています。 自動的にリダイレクトされますログイン ページに (`Login.aspx`)、として**図 7**を示しています。
+これで、運用環境のエラーログをリモートユーザーが表示できるようになりました。エラーログ web ページのスクリーンショットについては、**図 3**、 **4**、および**5**を参照してください。 ただし、匿名ユーザーまたは管理者以外のユーザーがエラーログページを表示しようとすると、**図 7**に示すように、ログインページ (`Login.aspx`) に自動的にリダイレクトされます。
 
 [![](logging-error-details-with-elmah-vb/_static/image18.png)](logging-error-details-with-elmah-vb/_static/image17.png)
 
-**図 7**:承認されていないユーザーがログイン ページに自動的にリダイレクトされます。  
-([フルサイズの画像を表示する をクリックします](logging-error-details-with-elmah-vb/_static/image19.png))。
+**図 7**: 承認されていないユーザーがログインページに自動的にリダイレクトされる  
+([クリックすると、フルサイズの画像が表示](logging-error-details-with-elmah-vb/_static/image19.png)される)
 
-### <a name="programmatically-logging-errors"></a>プログラムでエラーのログ記録
+### <a name="programmatically-logging-errors"></a>プログラムによるエラーのログ記録
 
-ELMAH の`ErrorLogModule`HTTP モジュールが、指定されたログ ソースに自動的に未処理の例外を記録します。 また、エラーをログインを使用して、未処理の例外を発生させることがなく、`ErrorSignal`クラスとその`Raise`メソッド。 `Raise`メソッドに渡されますが、`Exception`オブジェクトし、その例外がスローされた、処理されることがなく、ASP.NET ランタイムに達し場合とログに記録します。 要求が通常は、後の実行を続行する、違いは、`Raise`スローされた、ハンドルされない例外、要求の通常の実行を中断し、構成を表示する ASP.NET ランタイムはメソッドが呼び出されましたエラー ページ。
+ELMAH の `ErrorLogModule` HTTP モジュールは、未処理の例外を指定されたログソースに自動的に記録します。 または、`ErrorSignal` クラスとその `Raise` メソッドを使用して、ハンドルされない例外を発生させずにエラーをログに記録することもできます。 `Raise` メソッドには `Exception` オブジェクトが渡され、その例外がスローされ、処理されずに ASP.NET ランタイムに到達したかのようにログに記録されます。 ただし、`Raise` メソッドが呼び出された後も要求は正常に実行されますが、スローされた未処理の例外によって要求の通常の実行が中断され、ASP.NET ランタイムによって構成されたエラーページが表示されます。
 
-`ErrorSignal`クラスは何らかのアクションが失敗する可能性がありますが、エラーは、全体的な操作を実行中に致命的ではない場合に便利です。 たとえば、web サイトがユーザーの入力を受け取り、データベースに格納およびユーザーに知らせる電子メールを送信するフォームを含めることができます、その情報の処理します。 情報が正常のデータベースに保存されますが、電子メール メッセージを送信するときにエラーがある場合の動作ですか。 1 つのオプションは、例外をスローし、エラー ページに、ユーザーに送信することです。 ただし、これに入力した情報は保存されませんでしたユーザーが混乱する可能性があります。 任意の方法でユーザーのエクスペリエンスは変更を電子メールに関連するエラーをログに別の方法があります。 これは、ような場合、`ErrorSignal`クラスは便利です。
+`ErrorSignal` クラスは、何らかのアクションが失敗する可能性がある場合に便利ですが、実行されている操作全体の致命的なエラーではありません。 たとえば、web サイトには、ユーザーの入力を取得してデータベースに格納し、その情報が処理されたことを知らせる電子メールをユーザーに送信するフォームが含まれている場合があります。 情報がデータベースに正常に保存されても、電子メールメッセージの送信時にエラーが発生する場合はどうすればよいですか。 1つの方法として、例外をスローして、そのユーザーをエラーページに送信する方法があります。 ただし、ユーザーが入力した情報が保存されていないと思われることがあります。 別の方法として、電子メール関連のエラーをログに記録する方法もありますが、ユーザーの操作を変更することはできません。 ここでは、`ErrorSignal` クラスが役に立ちます。
 
 [!code-vb[Main](logging-error-details-with-elmah-vb/samples/sample6.vb)]
 
-## <a name="error-notification-via-email"></a>エラーの通知を電子メールで
+## <a name="error-notification-via-email"></a>電子メールによるエラー通知
 
-データベース エラーのログ記録、と共に ELMAH をエラーの詳細を指定した受信者に電子メールを構成こともできます。 この機能によって提供されます、 `ErrorMailModule` HTTP モジュールです。 そのため、この HTTP モジュールを登録する必要があります`Web.config`エラーの詳細を電子メールで送信するためにします。
+エラーの詳細を指定された受信者に電子メールで送信するように、データベースにエラーを記録することもできます。 この機能は `ErrorMailModule` HTTP モジュールによって提供されます。そのため、エラーの詳細を電子メールで送信するには、この HTTP モジュールを `Web.config` に登録する必要があります。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample7.xml)]
 
-次に、エラーの電子メールに関する情報の指定、`<elmah>`要素の`<errorMail>` セクションで、電子メールの送信者と受信者、件名、ことを示す電子メールが非同期的に送信するかどうかと。
+次に、電子メールの送信者と受信者、件名、および電子メールが非同期に送信されるかどうかを示す `<elmah>` 要素の `<errorMail>` セクションに、エラーの電子メールに関する情報を指定します。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample8.xml)]
 
-上記の設定に使用されるたびにランタイム エラーが発生するメールを送信して ELMAHsupport@example.comとエラーの詳細。 ELMAH のエラー電子メールにはエラー メッセージ、スタック トレース、およびサーバー変数 namely のエラー詳細 web ページに表示される同じ情報が含まれています (参照**図 4**と**5**)。 エラーの電子メールに添付ファイルとして例外詳細死亡黄色い画面のコンテンツも含まれています (`YSOD.html`)。
+上記の設定を適用すると、実行時エラーが発生するたびに、エラーの詳細と共に support@example.com に電子メールが送信されます。 ELMAH のエラーメールには、エラーの詳細 web ページ、エラーメッセージ、スタックトレース、およびサーバー変数 (**図 4**および**5**を参照) に表示されているものと同じ情報が含まれています。 エラーメールには、例外の詳細も添付ファイルとしてのデスコンテンツ (`YSOD.html`) が含まれています。
 
-**図 8** ELMAH のエラーの電子メールにアクセスして生成されたを示しています。`Genre.aspx?ID=foo`します。 中に**図 8**サーバー変数が含まれていますさらに下へと電子メールの本文でのみ、エラー メッセージやスタック トレースを示しています。
+**図 8**に、`Genre.aspx?ID=foo`にアクセスして生成された ELMAH のエラーメールを示します。 **図 8**はエラーメッセージとスタックトレースのみを示していますが、サーバー変数は電子メールの本文にさらに下に含まれています。
 
 [![](logging-error-details-with-elmah-vb/_static/image21.png)](logging-error-details-with-elmah-vb/_static/image20.png)
 
-**図 8**:エラーの詳細を電子メールで送信する ELMAH を構成します。  
-([フルサイズの画像を表示する をクリックします](logging-error-details-with-elmah-vb/_static/image22.png))。
+**図 8**: ELMAH でエラーの詳細を電子メールで送信するように構成する  
+([クリックすると、フルサイズの画像が表示](logging-error-details-with-elmah-vb/_static/image22.png)される)
 
-## <a name="only-logging-errors-of-interest"></a>関心のあるエラーをログ記録のみ
+## <a name="only-logging-errors-of-interest"></a>目的のエラーのみをログに記録する
 
-既定では、ELMAH は、404 およびその他の HTTP エラーなど、すべてのハンドルされない例外の詳細を記録します。 ELMAH これらまたは他の種類のエラーをフィルター処理を使用してエラーを無視するように指示できます。 フィルター処理のロジックは、ELMAH のによって実行`ErrorFilterModule`HTTP モジュールに登録する必要があります`Web.config`フィルタ リング ロジックを使用するためにします。 フィルター処理規則がで指定された、`<errorFilter>`セクション。
+既定では、ELMAH は、404などの HTTP エラーを含む、未処理のすべての例外の詳細をログに記録します。 エラーフィルタリングを使用して、これらのエラーやその他の種類のエラーを無視するように ELMAH に指示できます。 フィルター処理ロジックは、ELMAH の `ErrorFilterModule` HTTP モジュールによって実行されます。フィルター処理ロジックを使用するには、`Web.config` に登録する必要があります。 フィルター処理の規則は、[`<errorFilter>`] セクションで指定します。
 
-次のマークアップでは、ELMAH いない 404 エラーを記録するように指示します。
+次のマークアップは、エラー404をログに記録しないように ELMAH に指示します。
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample9.xml)]
 
 > [!NOTE]
-> エラーは、登録する必要がありますをフィルター処理を使用するには、導入、 `ErrorFilterModule` HTTP モジュールです。
+> エラーフィルターを使用するには、`ErrorFilterModule` HTTP モジュールを登録する必要があります。
 
-`<equal>`内の要素、`<test>`セクションはアサーションと呼ばれます。 アサーションが true に評価される場合は、ELMAH のログからエラーがフィルター処理します。 その他のアサーション利用可能: `<greater>`、 `<greater-or-equal>`、 `<not-equal>`、 `<lesser>`、`<lesser-or-equal>`など。 使用してアサーションを組み合わせることも、`<and>`と`<or>`ブール演算子。 さらに、でも、アサーションとして単純な JavaScript 式を含めるしたり、独自のアサーションを c# または Visual Basic で記述できます。
+`<test>` セクション内の `<equal>` 要素は、アサーションと呼ばれます。 アサーションが true と評価された場合、エラーは ELMAH のログからフィルター処理されます。 使用できるアサーションは、`<greater>`、`<greater-or-equal>`、`<not-equal>`、`<lesser>`、`<lesser-or-equal>`などです。 また、`<and>` と `<or>` ブール演算子を使用してアサーションを組み合わせることもできます。 さらに、単純な JavaScript 式をアサーションとして含めることも、独自のアサーションをまたはC# Visual Basic に記述することもできます。
 
-ELMAH のエラーをフィルタ リング機能の詳細についてを参照してください、[セクションのエラーをフィルター処理](https://code.google.com/p/elmah/wiki/ErrorFiltering)で、 [ELMAH wiki](https://code.google.com/p/elmah/w/list)します。
+ELMAH のエラーフィルタリング機能の詳細については、 [elmah wiki](https://code.google.com/p/elmah/w/list)の[「エラーのフィルター処理」セクション](https://code.google.com/p/elmah/wiki/ErrorFiltering)を参照してください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-ELMAH は、ASP.NET web アプリケーションのエラーを記録するためのシンプルでありながら強力なメカニズムを提供します。 同様に Microsoft の正常性の監視システムでは、ELMAH のエラーをログをデータベースに、エラーの詳細を電子メールでの開発者に送信できます。 システムの監視、正常性とは異なり、ELMAH には、広い範囲を含むエラー ログのデータ ストアの既定でサポート外が含まれます。Microsoft SQL Server、Microsoft Access、Oracle、XML ファイル、およびその他のいくつか。 ELMAH でエラー ログと、web ページから特定のエラーの詳細を表示するための組み込みのメカニズムを提供するさらに、`elmah.axd`します。 `elmah.axd`ページは、RSS フィード、または Microsoft Excel を使用して確認できるコンマ区切り値ファイル (CSV) としてのエラー情報を表示できますも。 宣言型またはプログラムによるアサーションを使用して、ログからエラーをフィルタ ELMAH を指示することもできます。 ELMAH は ASP.NET バージョン 1.x アプリケーションで使用できます。
+ELMAH は、ASP.NET web アプリケーションのエラーをログに記録するためのシンプルで、かつ強力なメカニズムを提供します。 Microsoft の正常性監視システムと同様に、ELMAH はデータベースにエラーを記録し、電子メールでエラーの詳細を開発者に送信することができます。 正常性監視システムとは異なり、ELMAH には、Microsoft SQL Server、Microsoft Access、Oracle、XML ファイルなど、さまざまな種類のエラーログデータストアの既定のサポートが含まれています。 また、ELMAH には、エラーログと、web ページからの特定のエラーに関する詳細情報を表示するための組み込みのメカニズムが用意されています (`elmah.axd`)。 また、[`elmah.axd`] ページでは、エラー情報を RSS フィードまたはコンマ区切り値ファイル (CSV) として表示することもできます。このファイルは、Microsoft Excel を使用して読み取ることができます。 また、宣言型またはプログラムによるアサーションを使用して、ログからのエラーをフィルター処理するように ELMAH に指示することもできます。 および ELMAH は、ASP.NET バージョン1.x アプリケーションで使用できます。
 
-すべてのデプロイされたアプリケーションは、未処理の例外を自動的にログ記録と開発チームに通知を送信するメカニズムを備えている必要があります。 かどうかは、これを正常性の監視または ELMAH を使用して、セカンダリ。 つまり、本当に関係ありません正常性の監視と ELMAH; を使用するかはるか両方のシステムを評価し、ニーズに最適な 1 つを選択します。 運用環境で未処理の例外をログにいくつかのメカニズムが配置されるは、根本的に重要です。
+配置されたすべてのアプリケーションには、未処理の例外を自動的にログに記録し、開発チームに通知を送信するためのメカニズムが必要です。 正常性の監視を使用して実行するか、または ELMAH をセカンダリにするかを指定します。 つまり、正常性の監視と ELMAH のどちらを使用するかに関係なく、両方のシステムを評価し、ニーズに最も合ったものを選択します。 根本的に重要なのは、運用環境でハンドルされない例外をログに記録するメカニズムがいくつかあります。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ELMAH でエラー Logging Modules and Handlers](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
-- [ELMAH プロジェクト ページ](https://code.google.com/p/elmah/)(ソース コード、サンプル、wiki)
-- [ELMAH に Web アプリケーションを未処理の例外をキャッチするプラグイン](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx)(ビデオ)
-- [セキュリティ エラーのログのページ](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
-- [HTTP モジュールとハンドラーを使用して、プラグ可能な ASP.NET コンポーネントを作成するには](https://msdn.microsoft.com/library/aa479332.aspx)
-- [Web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
+- [ELMAH-エラーログモジュールとハンドラー](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
+- [ELMAH プロジェクトページ](https://code.google.com/p/elmah/)(ソースコード、サンプル、wiki)
+- [Web アプリケーションに ELMAH をプラグインして未処理の例外をキャッチする](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx)(ビデオ)
+- [セキュリティエラーログページ](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
+- [HTTP モジュールとハンドラーを使用してプラグ可能な ASP.NET コンポーネントを作成する](https://msdn.microsoft.com/library/aa479332.aspx)
+- [Web サイトのセキュリティに関するチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]
 > [前へ](logging-error-details-with-asp-net-health-monitoring-vb.md)

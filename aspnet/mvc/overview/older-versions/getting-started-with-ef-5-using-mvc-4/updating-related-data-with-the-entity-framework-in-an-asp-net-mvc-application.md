@@ -1,33 +1,33 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: ASP.NET MVC アプリケーション (6/10) で Entity Framework で関連データの更新 |Microsoft Docs
+title: ASP.NET MVC アプリケーションでの Entity Framework を使用した関連データの更新 (6/10) |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
+description: Contoso 大学のサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示しています。
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 7871dc05-2750-470f-8b4c-3a52511949bc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 68f8bdeeb85bc66cf790c2005cf0f0ff24b3b653
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d29cb172d642b67947b461d1a7e55d01872bb8c2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129769"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592441"
 ---
-# <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>ASP.NET MVC アプリケーション (6/10) で Entity Framework で関連データの更新
+# <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>ASP.NET MVC アプリケーションでの Entity Framework を使用した関連データの更新 (6/10)
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示しています。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。 チュートリアルシリーズは、最初から開始するか、[この章のスタートプロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)して開始することができます。
 > 
 > > [!NOTE] 
 > > 
-> > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > 解決できない問題が発生した場合は、完成した[章をダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、問題の再現を試みてください。 一般に、コードと完成したコードを比較することで、問題の解決策を見つけることができます。 一般的なエラーとその解決方法については、「[エラーと回避策](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)」を参照してください。
 
-前のチュートリアルには、関連データが表示されます。このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは適切な外部キー フィールドを更新することで行うことができます。 多対多のリレーションシップで Entity Framework は結合テーブルを直接公開、ため、明示的に追加し、該当するナビゲーション プロパティからエンティティを削除する必要があります。
+前のチュートリアルでは、関連データを表示していました。このチュートリアルでは、関連データを更新します。 ほとんどのリレーションシップでは、適切な外部キーフィールドを更新することによってこれを行うことができます。 多対多リレーションシップの場合、Entity Framework は結合テーブルを直接公開しないため、適切なナビゲーションプロパティとの間でエンティティを明示的に追加および削除する必要があります。
 
 以下の図は、使用するページを示しています。
 
@@ -37,120 +37,120 @@ ms.locfileid: "65129769"
 
 ## <a name="customize-the-create-and-edit-pages-for-courses"></a>Courses の Create ページと Edit ページをカスタマイズする
 
-新しいコース エンティティが作成されると、既存の部門とのリレーションシップが必要になります。 これを容易にするため、スキャフォールディング コードには、コントローラーのメソッドと、部門を選択するためのドロップダウン リストを含む Create ビューと Edit ビューが含まれます。 ドロップダウン リストのセット、`Course.DepartmentID`外部キー プロパティは、Entity Framework は、読み込むために必要なすべて、`Department`ナビゲーション プロパティを適切な`Department`エンティティ。 このスキャフォールディング コードを使用しますが、エラー処理を追加し、ドロップダウン リストを並べ替えるために少し変更します。
+新しいコース エンティティが作成されると、既存の部門とのリレーションシップが必要になります。 これを容易にするため、スキャフォールディング コードには、コントローラーのメソッドと、部門を選択するためのドロップダウン リストを含む Create ビューと Edit ビューが含まれます。 ドロップダウンリストでは、`Course.DepartmentID` の外部キープロパティが設定されます。これは、適切な `Department` エンティティを使用して `Department` ナビゲーションプロパティを読み込むために必要な Entity Framework です。 このスキャフォールディング コードを使用しますが、エラー処理を追加し、ドロップダウン リストを並べ替えるために少し変更します。
 
-*CourseController.cs*、4 つの削除`Edit`と`Create`メソッドし、次のコードに置き換えます。
+*CourseController.cs*で、4つの `Edit` と `Create` メソッドを削除し、次のコードに置き換えます。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,10,13-14,21-27,34,41,44-45,52-58,62-68)]
 
-`PopulateDepartmentsDropDownList`メソッドの名前で並べ替えたすべての部門の一覧を取得、作成、`SelectList`のドロップダウン リストでは、コレクション ビューに、コレクションを渡すと、`ViewBag`プロパティ。 このメソッドは、ドロップダウン リストがレンダリングされるときに選択される項目を指定するためのコード呼び出しを許可する、省略可能な `selectedDepartment` パラメーターを受け取ります。 ビューが名前を渡す`DepartmentID`に[、`DropDownList`ヘルパー](../working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)、ヘルパーがファイルの場所を認識し、`ViewBag`オブジェクト、`SelectList`という名前`DepartmentID`。
+`PopulateDepartmentsDropDownList` メソッドは、名前で並べ替えられたすべての部門の一覧を取得し、ドロップダウンリストの `SelectList` コレクションを作成して、`ViewBag` プロパティのビューにコレクションを渡します。 このメソッドは、ドロップダウン リストがレンダリングされるときに選択される項目を指定するためのコード呼び出しを許可する、省略可能な `selectedDepartment` パラメーターを受け取ります。 ビューは `DepartmentID` 名前を[`DropDownList` ヘルパー](../working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)に渡し、ヘルパーは `DepartmentID`という名前の `SelectList` の `ViewBag` オブジェクトを検索することを認識します。
 
-`HttpGet` `Create`メソッドの呼び出し、`PopulateDepartmentsDropDownList`新しいコースの部門が確立されていないため、選択した項目を設定せずメソッド。
+`HttpGet` `Create` メソッドは、選択された項目を設定せずに `PopulateDepartmentsDropDownList` メソッドを呼び出します。これは、新しいコースでは、部門がまだ確立されていないためです。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-`HttpGet` `Edit`メソッドが既に編集中のコースに割り当てられている部門の ID に基づいて、選択した項目を設定します。
+`HttpGet` `Edit` メソッドは、選択した項目を、編集するコースに既に割り当てられている部署の ID に基づいて設定します。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-`HttpPost`両方のメソッド`Create`と`Edit`も、ページを再表示エラーが発生したときに、選択した項目を設定するコードが含まれます。
+`Create` と `Edit` の両方の `HttpPost` メソッドには、エラー発生後にページを再表示するときに選択した項目を設定するコードも含まれています。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-このコードによりエラー メッセージを表示、ページが表示されときに、選択した常時されます部門が選択されているようになります。
+このコードにより、ページを再表示してエラーメッセージが表示されるようになり、選択した部門が選択されたままになります。
 
-*Views\Course\Create.cshtml*、作成する前に、新しいコース番号フィールドを強調表示されたコードを追加、**タイトル**フィールド。 前述の以前のチュートリアルでは、主キー フィールドが既定では、スキャフォールディングされませんが、この主キーは、ユーザーは、キーの値を入力できるようにするために、わかりやすい。
+*Views\Course\Create.cshtml*で、強調表示されたコードを追加して、 **[タイトル]** フィールドの前に新しい "Course number" フィールドを作成します。 前のチュートリアルで説明したように、主キーフィールドは既定ではスキャフォールディングませんが、この主キーは意味があるため、ユーザーがキー値を入力できるようにする必要があります。
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cshtml?highlight=17-23)]
 
-*Views\Course\Edit.cshtml*、 *Views\Course\Delete.cshtml*、および*Views\Course\Details.cshtml*、前にコース番号フィールドを追加、**タイトル**フィールド。 主キーであるためが表示されますが、変更することはできません。
+*Views\Course\Edit.cshtml*、 *Views\Course\Delete.cshtml*、および*Views\Course\Details.cshtml*で、 **Title**フィールドの前に "Course number" フィールドを追加します。 これは主キーであるため、表示されますが、変更することはできません。
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cshtml)]
 
-実行、**作成**ページ (コースのインデックス ページを表示し、をクリックして**新規作成**) 新しいコースのデータを入力します。
+**[作成]** ページを実行し (コースのインデックス ページを表示し、 **[新規作成]** をクリックして)、新しいコースのデータを入力します。
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-**[作成]** をクリックします。 コースの Index ページには、一覧に追加された新しいコースが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
+**[作成]** をクリックします。 新しいコースが一覧に追加された状態で、Course Index ページが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
 
 ![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-実行、**編集**ページ (コースのインデックス ページを表示し、クリックして**編集**コースで)。
+**編集**ページを実行します (コースのインデックスページを表示し、コースで **[編集]** をクリックします)。
 
 ![Course_edit_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
-ページ上のデータを変更し、**[Save]\(保存\)** をクリックします。 コースの Index ページには、更新されたコース データが表示されます。
+ページ上のデータを変更し、 **[Save]\(保存\)** をクリックします。 コースデータが更新された状態で、コースのインデックスページが表示されます。
 
-## <a name="adding-an-edit-page-for-instructors"></a>Instructors の Edit ページを追加します。
+## <a name="adding-an-edit-page-for-instructors"></a>インストラクターの編集ページを追加する
 
-インストラクター レコードを編集するときに、インストラクターのオフィスの割り当ての更新が必要な場合があります。 `Instructor`エンティティと 0 または 1 に 1 つリレーションシップを持つ、`OfficeAssignment`エンティティは、次の状況を処理する必要があります。
+インストラクター レコードを編集するときに、インストラクターのオフィスの割り当ての更新が必要な場合があります。 `Instructor` エンティティには、`OfficeAssignment` エンティティとの一対ゼロまたは一対一のリレーションシップがあります。つまり、次のような状況を処理する必要があります。
 
-- 解除し、削除する場合は、ユーザーがオフィスの割り当てをクリアした値する必要があります、`OfficeAssignment`エンティティ。
-- 新規に作成する必要がある場合は、ユーザーがオフィスの割り当ての値を入力し、空か最初、`OfficeAssignment`エンティティ。
-- ユーザーは、オフィスの割り当ての値を変更する場合は、既存の値を変更する必要があります`OfficeAssignment`エンティティ。
+- ユーザーがオフィスの割り当てをクリアし、最初に値を持っていた場合は、`OfficeAssignment` エンティティを削除して削除する必要があります。
+- ユーザーがオフィスの割り当て値を入力し、最初は空だった場合は、新しい `OfficeAssignment` エンティティを作成する必要があります。
+- ユーザーがオフィスの割り当ての値を変更した場合は、既存の `OfficeAssignment` エンティティの値を変更する必要があります。
 
-開いている*InstructorController.cs*を見て、 `HttpGet` `Edit`メソッド。
+*InstructorController.cs*を開き、`HttpGet` `Edit` 方法を確認します。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-スキャフォールディングされたコードをここでは、対象はありません。 データの設定には、ドロップダウン リストがテキスト ボックスは、必要なものです。 このメソッドを次のコードに置き換えます。
+スキャフォールディングのコードは、必要なものではありません。 ドロップダウンリストのデータは設定されていますが、必要なのはテキストボックスです。 このメソッドを次のコードに置き換えます。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-このコードを削除、`ViewBag`ステートメントと、一括読み込みを関連付けられている追加`OfficeAssignment`エンティティ。 一括読み込みを実行することはできません、`Find`メソッド、そのため、`Where`と`Single`メソッドは、インストラクターを選択する代わりに使用されます。
+このコードは、`ViewBag` ステートメントを削除し、関連付けられた `OfficeAssignment` エンティティの一括読み込みを追加します。 `Find` メソッドを使用して一括読み込みを実行することはできません。そのため、`Where` と `Single` のメソッドを使用してインストラクターを選択します。
 
-置換、 `HttpPost` `Edit`メソッドを次のコード。 これは、オフィスの割り当ての更新を処理します。
+`HttpPost` `Edit` メソッドを次のコードに置き換えます。 office 割り当ての更新を処理します。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
 このコードは次のことを行います。
 
-- `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の `Instructor` エンティティをデータベースから取得します。 これで行ったのと同じ、 `HttpGet` `Edit`メソッド。
-- モデル バインダーからの値を使用して、取得した `Instructor` エンティティを更新します。 [Tryupdatemodel に渡します](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx)使用するオーバー ロードを使用する*ホワイト リスト*プロパティを追加します。 これにより、過剰ポスティングで説明したよう[2 番目のチュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)します。
+- `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の `Instructor` エンティティをデータベースから取得します。 これは、`HttpGet` `Edit` メソッドで行ったものと同じです。
+- モデル バインダーからの値を使用して、取得した `Instructor` エンティティを更新します。 使用する[TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx)オーバーロードを使用すると、含めるプロパティを*ホワイトリスト*に追加できます。 これにより、 [2 番目のチュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)で説明されているように、過剰なポストを防ぐことができます。
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
-- オフィスの場所が空白の場合は、設定、`Instructor.OfficeAssignment`プロパティを null ように、関連する行で、`OfficeAssignment`テーブルは削除されます。
+- オフィスの場所が空白の場合は、`Instructor.OfficeAssignment` プロパティを null に設定して、`OfficeAssignment` テーブル内の関連する行が削除されるようにします。
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 - データベースへの変更を保存します。
 
-*Views\Instructor\Edit.cshtml*後に、`div`の要素、 **Hire Date**フィールドで、オフィスの場所を編集するための新しいフィールドを追加します。
+*Views\Instructor\Edit.cshtml*で、 **[入社日]** フィールドの `div` 要素の後に、オフィスの場所を編集するための新しいフィールドを追加します。
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml)]
 
-ページの実行 (選択、 **Instructors**  タブをクリックして**編集**インストラクターで)。 **[Office Location]\(オフィスの場所\)** を変更し、**[Save]\(保存\)** をクリックします。
+ページを実行します ([インストラクター **] タブを選択し、インストラクター**の **[編集]** をクリックします)。 **[Office Location]\(オフィスの場所\)** を変更し、 **[Save]\(保存\)** をクリックします。
 
 ![Changing_the_office_location](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-## <a name="adding-course-assignments-to-the-instructor-edit-page"></a>[編集] ページの講師にコースの割り当てを追加します。
+## <a name="adding-course-assignments-to-the-instructor-edit-page"></a>インストラクターの編集ページにコースの割り当てを追加する
 
 インストラクターは、任意の数のコースを担当する場合があります。 次のスクリーン ショットに示すように、チェック ボックスのグループを使用して、コースの割り当てを変更する機能を追加して、Instructor/Edit ページを拡張します。
 
 ![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-間のリレーションシップ、`Course`と`Instructor`エンティティは多対多。 つまり、結合テーブルに直接アクセスする必要はありません。 追加する代わりに、およびとの間にエンティティを削除するか、`Instructor.Courses`ナビゲーション プロパティ。
+`Course` エンティティと `Instructor` エンティティ間のリレーションシップは多対多であるため、結合テーブルに直接アクセスすることはできません。 代わりに、`Instructor.Courses` ナビゲーションプロパティからエンティティを追加および削除します。
 
-インストラクターに割り当てられるコースを変更できるようにする UI は、チェック ボックスのグループです。 データベース内のすべてのコースのチェック ボックスが表示され、インストラクターに現在割り当てられているコースが選択されます。 ユーザーは、チェック ボックスをオンまたはオフにしてコースの割り当てを変更できます。 コースの数が非常に多い場合、ビューでのデータの表示のさまざまなメソッドを使用することが考えられますが、作成またはリレーションシップを削除するにはナビゲーション プロパティを操作するのと同じ方法を使用するとします。
+インストラクターに割り当てられるコースを変更できるようにする UI は、チェック ボックスのグループです。 データベース内のすべてのコースのチェック ボックスが表示され、インストラクターに現在割り当てられているコースが選択されます。 ユーザーは、チェック ボックスをオンまたはオフにしてコースの割り当てを変更できます。 コースの数がはるかに多い場合は、ビューにデータを表示する別の方法を使用することをお勧めしますが、リレーションシップを作成または削除するには、ナビゲーションプロパティを操作するのと同じ方法を使用します。
 
-チェック ボックスのリストのためにデータをビューに提供するには、ビュー モデル クラスを使用します。 作成*AssignedCourseData.cs*で、 *ViewModels*フォルダーと、既存のコードを次のコードを置換します。
+チェック ボックスのリストのためにデータをビューに提供するには、ビュー モデル クラスを使用します。 *Viewmodel*フォルダーに*AssignedCourseData.cs*を作成し、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-*InstructorController.cs*、置換、 `HttpGet` `Edit`メソッドを次のコード。 変更が強調表示されます。
+*InstructorController.cs*で、`HttpGet` `Edit` メソッドを次のコードに置き換えます。 変更が強調表示されます。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cs?highlight=5,8,12-27)]
 
 このコードは、`Courses` ナビゲーション プロパティに一括読み込みを追加し、新しい `PopulateAssignedCourseData` メソッドを呼び出して、`AssignedCourseData` ビュー モデル クラスを使用してチェック ボックス配列に情報を提供します。
 
-内のコード、`PopulateAssignedCourseData`メソッドを読み取り、すべて`Course`ビューを使用したコースのリストを読み込むためにエンティティ モデル クラス。 各コースに対し、コードはそのコースがインストラクターの `Courses` ナビゲーション プロパティ内に存在しているかどうかをチェックします。 コースがインストラクターに割り当てられているかどうかをチェックするときに、効率的な参照を作成するには、インストラクターに割り当てられているコースに配置されます、 [HashSet](https://msdn.microsoft.com/library/bb359438.aspx)コレクション。 `Assigned`プロパティに設定されて`true`コースの講師が割り当てられます。 ビューは、このプロパティを使用して、どのチェック ボックスを選択済みとして表示する必要があるかを判断します。 最後に、一覧がビューに渡される、`ViewBag`プロパティ。
+`PopulateAssignedCourseData` メソッドのコードは、ビューモデルクラスを使用してコースのリストを読み込むために、すべての `Course` エンティティを読み取ります。 各コースに対し、コードはそのコースがインストラクターの `Courses` ナビゲーション プロパティ内に存在しているかどうかをチェックします。 コースがインストラクターに割り当てられているかどうかを確認するときに効率的な検索を作成するには、インストラクターに割り当てられたコースを[HashSet](https://msdn.microsoft.com/library/bb359438.aspx)コレクションに含めます。 `Assigned` プロパティは、インストラクターが割り当てられているコースの `true` に設定されます。 ビューは、このプロパティを使用して、どのチェック ボックスを選択済みとして表示する必要があるかを判断します。 最後に、リストは `ViewBag` プロパティのビューに渡されます。
 
-次に、ユーザーが **[Save]\(保存\)** をクリックしたときに実行されるコードを追加します。 置換、 `HttpPost` `Edit`メソッドを次のコードは、更新プログラムの新しいメソッドを呼び出し、`Courses`のナビゲーション プロパティ、`Instructor`エンティティ。 変更が強調表示されます。
+次に、ユーザーが **[Save]\(保存\)** をクリックしたときに実行されるコードを追加します。 `HttpPost` `Edit` メソッドを次のコードに置き換えます。このコードは、`Instructor` エンティティの `Courses` ナビゲーションプロパティを更新する新しいメソッドを呼び出します。 変更が強調表示されます。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs?highlight=3,7,20,33,37-65)]
 
-ビューのコレクションを持たないため`Course`エンティティ、モデル バインダーを更新できません自動的に、`Courses`ナビゲーション プロパティ。 モデル バインダーを使用して、コースのナビゲーション プロパティを更新するではなく行います新しい`UpdateInstructorCourses`メソッド。 そのため、モデル バインドから `Courses` プロパティを除外する必要があります。 これを呼び出すコードの変更が必要としない[tryupdatemodel に渡します](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx)使用しているため、*ホワイト リスト登録*オーバー ロードと`Courses`インクルード一覧に含まれていません。
+ビューには `Course` エンティティのコレクションがないため、モデルバインダーは、`Courses` ナビゲーションプロパティを自動的に更新することはできません。 モデルバインダーを使用して course ナビゲーションプロパティを更新するのではなく、新しい `UpdateInstructorCourses` メソッドで作成します。 そのため、モデル バインドから `Courses` プロパティを除外する必要があります。 [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx)を呼び出すコードを変更する必要はありません。これは、ホワイトリスト*のオーバーロードを*使用していて、`Courses` が含まれていないためです。
 
-場合、ボックスが選択されていないチェック、コードでは、`UpdateInstructorCourses`を初期化します、`Courses`空のコレクションでのナビゲーション プロパティ。
+チェックボックスが選択されていない場合、`UpdateInstructorCourses` のコードは、空のコレクションで `Courses` ナビゲーションプロパティを初期化します。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -164,49 +164,49 @@ ms.locfileid: "65129769"
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-*Views\Instructor\Edit.cshtml*、追加、**コース**フィールドのチェック ボックスを強調表示されている、次を追加することで配列をコードの直後に、`div`の要素、 `OfficeAssignment`フィールド:
+*Views\Instructor\Edit.cshtml*で、次の強調表示されたコードを `OfficeAssignment` フィールドの `div` 要素の直後に追加して、チェックボックスの配列を含む**course フィールドを**追加します。
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml?highlight=51-73)]
 
-このコードは、3 つの列を含む HTML テーブルを作成します。 各列には、チェック ボックスとその後に続くキャプションがあります。キャプションは、コース番号とタイトルから構成されます。 チェック ボックスはすべて、同じ名前 ("selectedCourses") は、グループとして扱う場合にモデル バインダーに通知があります。 `value`各チェック ボックスの属性の値に設定されて`CourseID.`で構成されるコント ローラーにモデル バインダーが配列を渡しますページが投稿されたときに、`CourseID`チェック ボックスが選択されている値。
+このコードは、3 つの列を含む HTML テーブルを作成します。 各列には、チェック ボックスとその後に続くキャプションがあります。キャプションは、コース番号とタイトルから構成されます。 すべてのチェックボックスに同じ名前 ("selectedCourses") があります。これは、グループとして扱われることをモデルバインダーに通知します。 各チェックボックスの `value` 属性は、ページがポストされるときに `CourseID.` の値に設定されます。モデルバインダーは、選択されているチェックボックスのみの `CourseID` 値で構成される配列をコントローラーに渡します。
 
-インストラクターに割り当てられるコースのチェック ボックスが最初に表示されると、`checked`属性は、(オンになった状態を表示します) それらを選択します。
+チェックボックスが最初に表示されたときに、インストラクターに割り当てられているコースの属性には `checked` の属性があります (チェックボックスがオンになっています)。
 
-コースの割り当てを変更した後に、サイトが返されるときに、変更を確認できる必要あります、`Index`ページ。 そのため、そのページ内のテーブルに列を追加する必要があります。 ここで使用する必要はありません、`ViewBag`オブジェクトを表示する情報は既にあるため、`Courses`のナビゲーション プロパティ、`Instructor`モデルとしてページに渡しているエンティティ。
+コースの割り当てを変更した後、サイトが `Index` ページに戻ったときに変更を確認できるようにする必要があります。 そのため、そのページのテーブルに列を追加する必要があります。 この場合、`ViewBag` オブジェクトを使用する必要はありません。表示する情報は、モデルとしてページに渡す `Instructor` エンティティの `Courses` ナビゲーションプロパティに既に存在しているためです。
 
-*Views\Instructor\Index.cshtml*、追加、**コース**直後に、次の見出し、 **Office**見出しで、次の例に示すように。
+*Views\Instructor\Index.cshtml*で、次の例に示すように、 **Office**見出しの直後に**コース**見出しを追加します。
 
 [!code-html[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.html?highlight=7)]
 
-オフィスの場所の詳細セルの直後に続く新しい詳細セルを追加します。
+次に、[office location detail] セルの直後に新しい詳細セルを追加します。
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cshtml?highlight=19,50-57)]
 
-実行、 **Instructor インデックス**ページに各インストラクターに割り当てられているコースをご覧ください。
+インストラクターの**インデックス**ページを実行して、各インストラクターに割り当てられているコースを確認します。
 
 ![Instructor_index_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 
-クリックして**編集**の講師が Edit ページを参照してください。
+インストラクターの **[編集]** をクリックして、編集ページを表示します。
 
 ![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-一部のコース割り当てを変更し、クリックして**保存**します。 行った変更が Index ページに反映されます。
+いくつかのコースの割り当てを変更し、 **[保存]** をクリックします。 行った変更が Index ページに反映されます。
 
- メモ:インストラクター コース データを編集するには、コースの数に制限がある場合にも動作します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。  
+ 注: インストラクターコースデータを編集する方法は、コースの数が限られている場合に適しています。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。  
 
-## <a name="update-the-delete-method"></a>Update、Delete メソッド
+## <a name="update-the-delete-method"></a>Delete メソッドを更新する
 
-インストラクターが削除されたときに (ある場合) は、office の割り当てのレコードが削除されるので、HttpPost Delete メソッドのコードを変更します。
+次のように、HttpPost Delete メソッドのコードを変更して、講師が削除されたときに office 割り当てレコード (存在する場合) が削除されるようにします。
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs?highlight=6,10)]
 
-管理者として、学科に割り当てられている講師を削除しようとすると、参照整合性エラーが表示されます。 参照してください[このチュートリアルの現在のバージョン](../../getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)追加のコードを instructor を管理者として、インストラクターが割り当てられている任意の部門から自動的に削除されます。
+管理者として部門に割り当てられているインストラクターを削除しようとすると、参照整合性エラーが発生します。 インストラクターが管理者として割り当てられている任意の部門からインストラクターを自動的に削除するその他のコードについては[、このチュートリアルの現在のバージョン](../../getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)を参照してください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-この概要に関連するデータの操作が完了しました。 これまでにこれらのチュートリアルでは、完全な範囲の CRUD 操作を実行したが、同時実行の問題に対処していません。 次のチュートリアルは同時実行のトピックを紹介、それを処理するためのオプションについて説明し、同時実行処理を 1 つのエンティティの種類について既に記述した CRUD コードを追加します。
+これで、関連データの操作の概要が完了しました。 ここまでのチュートリアルでは、さまざまな CRUD 操作を行ってきましたが、同時実行の問題については扱いませんでした。 次のチュートリアルでは、同時実行のトピックを紹介し、それを処理するためのオプションについて説明し、1つのエンティティ型に対して既に記述した CRUD コードに同時実行処理を追加します。
 
-最後に、その他の Entity Framework リソースへのリンクが見つかります[このシリーズの最終チュートリアル](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)します。
+その他の Entity Framework リソースへのリンクについては、[このシリーズの最後のチュートリアル](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)の最後に記載されています。
 
 > [!div class="step-by-step"]
 > [前へ](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -1,199 +1,199 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
-title: (C#)、SqlDataSource でオプティミスティック同時実行制御を実装する |Microsoft Docs
+title: SqlDataSource (C#) を使用したオプティミスティック同時実行制御の実装Microsoft Docs
 author: rick-anderson
-description: このチュートリアルではオプティミスティック同時実行制御の基礎を確認し、SqlDataSource コントロールを使用して実装する方法を調べます。
+description: このチュートリアルでは、オプティミスティック同時実行制御の基礎を確認し、SqlDataSource コントロールを使用して実装する方法について説明します。
 ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dd2b44803f00f7e194e2c41f448d579865da58b6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 87fca52e2e8be844411b2fff8382c6002eccbe09
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115114"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598196"
 ---
 # <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource でオプティミスティック同時実行制御を実装する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_CS.exe)または[PDF のダウンロード](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/datatutorial50cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_CS.exe)または[PDF のダウンロード](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/datatutorial50cs1.pdf)
 
-> このチュートリアルではオプティミスティック同時実行制御の基礎を確認し、SqlDataSource コントロールを使用して実装する方法を調べます。
+> このチュートリアルでは、オプティミスティック同時実行制御の基礎を確認し、SqlDataSource コントロールを使用して実装する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-前のチュートリアルでは、挿入、更新、および削除 SqlDataSource コントロールに機能を追加する方法について確認しました。 つまり、対応するを指定するためこれらの機能を提供する`INSERT`、 `UPDATE`、または`DELETE`s コントロールでの SQL ステートメント`InsertCommand`、 `UpdateCommand`、または`DeleteCommand`と共に、適切なプロパティ内のパラメーター、 `InsertParameters`、 `UpdateParameters`、および`DeleteParameters`コレクション。 データ ソースの構成ウィザードの [詳細設定] で、生成を提供中に、これらのプロパティとコレクションを手動で指定することができます、 `INSERT`、 `UPDATE`、および`DELETE`が自動的に作成これらのステートメントのステートメントのチェック ボックスに基づいて、`SELECT`ステートメント。
+前のチュートリアルでは、SqlDataSource コントロールに挿入、更新、削除の各機能を追加する方法を説明しています。 つまり、これらの機能を提供するには、コントロール s `InsertCommand`、`UpdateCommand`、`DeleteCommand` の各プロパティで、対応する `INSERT`、`UPDATE`、または `DELETE` SQL ステートメントを、`InsertParameters`、`UpdateParameters`、および `DeleteParameters` の各コレクションの適切なパラメーターと共に指定する必要がありました。 これらのプロパティとコレクションは手動で指定できますが、[データソースの構成ウィザード] の [詳細設定] ボタンをクリックすると、[`INSERT`、`UPDATE`、および `DELETE` ステートメントの生成] チェックボックスが表示され、これらのステートメントが `SELECT` ステートメントに基づいて自動的に作成されます。
 
-生成と共に`INSERT`、 `UPDATE`、および`DELETE`ステートメントのチェック ボックス、SQL 生成の詳細オプション ダイアログ ボックスにはに、オプション使用してオプティミスティック同時実行制御にはが含まれています (図 1 参照)。 選択した場合、`WHERE`句で、自動生成された`UPDATE`と`DELETE`のみ更新を実行または最終、ユーザーは、グリッドに、データを読み込んだので、基になるデータベースのデータが変更されていない場合は、削除するステートメントが変更されました。
+[`INSERT`の生成]、[`UPDATE`]、および [`DELETE` ステートメント] チェックボックスと共に、[SQL 生成の詳細オプション] ダイアログボックスには、オプティミスティック同時実行オプションがあります (図1を参照)。 オンになっている場合、自動生成された `UPDATE` ステートメントと `DELETE` ステートメントの `WHERE` 句は、ユーザーが最後にデータをグリッドに読み込んだ後に基になるデータベースデータが変更されていない場合にのみ、更新または削除を実行するように変更されます。
 
-![オプティミスティック同時実行制御のサポートを追加するには、高度なから SQL 生成のオプション ダイアログ ボックス](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
+![オプティミスティック同時実行制御のサポートは、[SQL 生成の詳細オプション] ダイアログボックスから追加できます。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
 
-**図 1**:オプティミスティック同時実行制御のサポートを追加するには、高度なから SQL 生成のオプション ダイアログ ボックス
+**図 1**: [SQL 生成の詳細オプション] ダイアログボックスでオプティミスティック同時実行制御のサポートを追加する
 
-戻り、[オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)チュートリアル オプティミスティック同時実行制御と ObjectDataSource に追加する方法の基本について確認しました。 このチュートリアルでは、オプティミスティック同時実行制御の essentials レタッチを SqlDataSource を使用して実装する方法を調べます。
+「[オプティミスティック同時実行](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)制御の実装」チュートリアルに戻り、オプティミスティック同時実行制御の基礎と、それを ObjectDataSource に追加する方法について説明します。 このチュートリアルでは、オプティミスティック同時実行制御の基礎を詳しく説明し、SqlDataSource を使用した実装方法について説明します。
 
-## <a name="a-recap-of-optimistic-concurrency"></a>オプティミスティック同時実行制御のまとめ
+## <a name="a-recap-of-optimistic-concurrency"></a>オプティミスティック同時実行制御の要約
 
-Web アプリケーションを複数の同時ユーザーを編集または削除は、同一データが存在する可能性を 1 人のユーザーが別の変更を誤って上書き可能性があります。 [オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)チュートリアルの次の例を提供しました。
+複数のユーザーが同時に同じデータを編集または削除できるようにする web アプリケーションの場合、1人のユーザーが別の変更を誤って上書きする可能性があります。 [オプティミスティック同時実行制御の実装](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)に関するチュートリアルでは、次の例を示しました。
 
-Jisun と Sam、2 人のユーザーが両方にアクセスして更新および削除の GridView コントロールを使用して製品への訪問者を許可されているアプリケーションでのページを想像してください。 Chai の編集 をクリックして両方、同時期にします。 Jisun は Chai 紅茶に製品名を変更し、[更新] ボタンをクリックします。 最終的には、`UPDATE`を設定すると、データベースに送信されるステートメント*すべて*の製品の更新可能なフィールド (Jisun では、1 つのフィールドのみ更新される場合でも`ProductName`)。 この時点では、データベースでは、Chai 紅茶、飲料カテゴリ サプライヤー風変わり液体のこの特定の製品の値があります。 ただし、Sam の画面に GridView として表示されます、製品名の編集可能な GridView 行 Chai。 Jisun s の変更がコミットされた後、数秒 Sam は調味料にカテゴリを更新し、更新プログラムをクリックします。 これは、結果、 `UPDATE` Chai、製品名に設定するデータベースに送信されたステートメント、`CategoryID`対応する調味料カテゴリ ID、および具合に。 Jisun の製品名の変更が上書きされました。
+Jisun と Sam の2人のユーザーが、アプリケーション内のページにアクセスしていて、ビジターが GridView コントロールを使用して製品を更新および削除できることを想像してください。 両方とも、同じ時刻の Chai の [編集] ボタンをクリックします。 Jisun は製品名を Chai 茶に変更し、[更新] ボタンをクリックします。 結果として、データベースに送信される `UPDATE` ステートメントがあります。これにより、*すべて*の製品の更新可能フィールドが設定されます (Jisun によって1つのフィールドが更新された場合でも、`ProductName`)。 この時点で、データベースには、この特定の製品について、Chai 茶、カテゴリ飲み物、仕入先の特別な液体などが含まれています。 ただし、[Sam s] 画面の GridView でも、編集可能な GridView 行の製品名は Chai として表示されます。 Jisun s の変更がコミットされてから数秒後に、Sam はカテゴリを Condiments に更新し、[更新] をクリックします。 この結果、製品名を Chai に設定する `UPDATE` ステートメントがデータベースに送信され、`CategoryID` が対応する Condiments category ID になります。 製品名に対する jisun の変更が上書きされました。
 
-図 2 は、この相互作用を示しています。
+図2は、この相互作用を示しています。
 
-[![2 人のユーザー レコードを同時に更新するときに、その他の s を上書きするがあります s の潜在的 1 人のユーザーの変更](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
+[2人のユーザーが同時にレコードを更新するときに、1人のユーザーの変更によって他のが上書きされる可能性がある ![](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
 
-**図 2**:ときに 2 人のユーザーを同時に更新レコードが s 可能性の 1 つのユーザーの変更を上書きするため、他の ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))。
+**図 2**: 2 人のユーザーが同時にレコードを更新する場合、1人のユーザーの変更によって他のが上書きされる可能性があります ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png)されます)。
 
-このシナリオがの形式を開くことを防ぐために[同時実行制御](http://en.wikipedia.org/wiki/Concurrency_control)実装する必要があります。 [オプティミスティック同時実行制御](http://en.wikipedia.org/wiki/Optimistic_concurrency_control)このような競合が発生しない時間の大半を想定しているにも可能性がある同時実行の競合し、このチュートリアルの目的は、動作します。 そのため場合は、競合が発生した場合、オプティミスティック同時実行制御単にユーザーに通知、別のユーザーには、同じデータが変更されたために、その変更は t が保存されること。
+このシナリオを確保に防ぐには、[同時実行制御](http://en.wikipedia.org/wiki/Concurrency_control)の形式を実装する必要があります。 [オプティミスティック同時実行制御](http://en.wikipedia.org/wiki/Optimistic_concurrency_control)このチュートリアルでは、同時実行の競合が発生する可能性がありますが、このような競合が発生することはほとんどありません。 そのため、競合が発生した場合、オプティミスティック同時実行制御は、別のユーザーが同じデータを変更したため変更を保存できないことをユーザーに通知するだけです。
 
 > [!NOTE]
-> 多くの同時実行の競合があるか、このような競合が許容されないかどうかの想定をアプリケーションでは、し、ペシミスティック同時実行制御する代わりに使用できます。 参照、[オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)ペシミスティック同時実行制御についてはより詳細なチュートリアルです。
+> 多くの同時実行の競合が発生すると想定されるアプリケーションの場合、またはこのような競合が許容できない場合は、代わりにペシミスティック同時実行制御を使用できます。 ペシミスティック同時実行制御の詳細については、「[オプティミスティック同時実行](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)制御の実装」を参照してください。
 
-オプティミスティック同時実行制御は、更新または削除プロセスを開始するときと同様、更新または削除されるレコードが同じ値があることを確認することによって機能します。 たとえば、編集可能な GridView で [編集] ボタンをクリックすると s のレコードの値はデータベースからの読み取りし、テキスト ボックスや他の Web コントロールに表示されます。 これらの元の値は、GridView で保存されます。 後で、ユーザーが自分の変更を行いますが、更新ボタンをクリックした後、`UPDATE`ステートメントを使用する必要があります、元の値と新しい値を考慮し、元の値は、ユーザーが編集を開始した場合にのみ、基になるデータベース レコードを更新引き続き、データベース内の値と同じです。 図 3 は、このイベントのシーケンスを示しています。
+オプティミスティック同時実行制御は、更新または削除するレコードの値が、更新または削除処理の開始時と同じ値であることを保証することによって機能します。 たとえば、編集可能な GridView で [編集] ボタンをクリックすると、レコードの値がデータベースから読み取られ、テキストボックスやその他の Web コントロールに表示されます。 これらの元の値は、GridView によって保存されます。 その後、ユーザーが変更を行って [更新] ボタンをクリックした後、使用する `UPDATE` ステートメントで元の値と新しい値を考慮する必要があります。また、ユーザーが編集を開始した元の値がデータベース内の値と同じである場合にのみ、基になるデータベースレコードを更新します。 図3は、この一連のイベントを示しています。
 
-[![正常に更新または削除、元の値は現在のデータベースの値と等しくする必要があります。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
+[更新または削除を成功させるには、元の値が現在のデータベースの値と同じである必要があり ![](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
 
-**図 3**:更新プログラムまたは成功を元の値必要がありますと等しいデータベースの現在の値を Delete ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))。
+**図 3**: 更新または削除を成功させるには、元の値が現在のデータベースの値と同じである必要があります ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png)されます)。
 
-オプティミスティック同時実行制御を実装するためのさまざまな方法はあります (を参照してください[Peter A. 作成](http://www.eggheadcafe.com/articles/pbrombergresume.asp)の[オプティミスティック同時実行更新ロジック](http://www.eggheadcafe.com/articles/20050719.asp)のさまざまなオプションについて簡単に説明)。 SqlDataSource (および、データ アクセス層で使用される ADO.NET 型指定されたデータセット) を使用する手法は、`WHERE`に含めるすべての元の値の比較句。 次`UPDATE`ステートメントでは、たとえば、更新プログラム名と製品の価格データベースの現在の値が、GridView でレコードを更新するときに取得された元の値に等しい場合のみです。 `@ProductName`と`@UnitPrice`パラメーターには、ユーザーが入力した新しい値が含まれて`@original_ProductName`と`@original_UnitPrice`編集ボタンがクリックされたときに、GridView に読み込まれた最初の値が含まれます。
+オプティミスティック同時実行制御の実装にはさまざまな方法があります (いくつかのオプションについては、「 [Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp)の[オプティミスティック同時実行制御のロジック](http://www.eggheadcafe.com/articles/20050719.asp)」を参照してください)。 SqlDataSource (およびデータアクセス層で使用される ADO.NET 型指定されたデータセット) によって使用される手法により、`WHERE` 句が、元のすべての値の比較を含むように強化されます。 次の `UPDATE` ステートメントでは、現在のデータベース値が GridView のレコードを更新するときに最初に取得された値と等しい場合にのみ、製品の名前と価格を更新します。 `@ProductName` パラメーターと `@UnitPrice` パラメーターには、ユーザーが入力した新しい値が含まれます。一方、`@original_ProductName` と `@original_UnitPrice` には、[編集] ボタンをクリックしたときに GridView に最初に読み込まれた値が含まれます。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample1.sql)]
 
-このチュートリアルでは表示されるようは、チェック ボックスを同じくらい簡単です、SqlDataSource でオプティミスティック同時実行制御を有効にします。
+このチュートリアルで説明するように、SqlDataSource でオプティミスティック同時実行制御を有効にすることは、チェックボックスをオンにするだけで簡単です。
 
-## <a name="step-1-creating-a-sqldatasource-that-supports-optimistic-concurrency"></a>手順 1: オプティミスティック同時実行制御をサポートする、SqlDataSource を作成します。
+## <a name="step-1-creating-a-sqldatasource-that-supports-optimistic-concurrency"></a>手順 1: オプティミスティック同時実行制御をサポートする SqlDataSource の作成
 
-開いて開始、`OptimisticConcurrency.aspx`ページから、`SqlDataSource`フォルダー。 SqlDataSource コントロールをドラッグして、デザイナーの設定には、ツールボックスからその`ID`プロパティを`ProductsDataSourceWithOptimisticConcurrency`します。 次に、コントロールのスマート タグからのデータ ソースの構成のリンクをクリックします。 ウィザードの最初の画面で選択を使用する、 `NORTHWINDConnectionString` [次へ] をクリックします。
+まず、`SqlDataSource` フォルダーから [`OptimisticConcurrency.aspx`] ページを開きます。 SqlDataSource コントロールをツールボックスからデザイナーにドラッグし、その `ID` プロパティを `ProductsDataSourceWithOptimisticConcurrency`に設定します。 次に、コントロール s スマートタグから [データソースの構成] リンクをクリックします。 ウィザードの最初の画面で、`NORTHWINDConnectionString` を操作することを選択し、[次へ] をクリックします。
 
-[![選択、NORTHWINDConnectionString を操作する](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
+[NORTHWINDConnectionString の操作を選択 ![](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
 
-**図 4**:操作を選択して、 `NORTHWINDConnectionString` ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png))。
+**図 4**: `NORTHWINDConnectionString` の操作を選択する ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png)されます)
 
-この例ではユーザーが編集できるようにする GridView に追加する、`Products`テーブル。 そのため、ステートメントの選択画面の構成 から選択、`Products`ドロップダウン リストからテーブルを選択、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`列、図 5 に示すようにします。
+この例では、ユーザーが `Products` テーブルを編集できるようにする GridView を追加します。 そのため、[Select ステートメントの構成] 画面で、ドロップダウンリストから `Products` テーブルを選択し、図5に示すように、[`ProductID`]、[`ProductName`]、[`UnitPrice`]、[`Discontinued`] の各列を選択します。
 
-[![Products テーブルから ProductID、ProductName、UnitPrice、および提供が中止された列を返す](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
+[Products テーブルから ![、ProductID、ProductName、UnitPrice、および廃止された列を返します。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
 
-**図 5**:`Products`テーブルを返す、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`列 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png))。
+**図 5**: `Products` テーブルから、`ProductID`、`ProductName`、`UnitPrice`、および `Discontinued` の各列を返します ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png)されます)。
 
-列を選択した後は、SQL 生成の詳細オプション ダイアログ ボックスを表示する 詳細設定 をクリックします。 確認の生成`INSERT`、 `UPDATE`、および`DELETE`ステートメントとオプティミスティック同時実行制御チェック ボックスを使用し、[ok] をクリックします (参照図 1 のスクリーン ショット)。 [次へ] をクリックすると、ウィザードを完了し、完了します。
+列を選択したら、[詳細設定] ボタンをクリックして [SQL 生成の詳細オプション] ダイアログボックスを表示します。 `INSERT`、`UPDATE`、および `DELETE` のステートメントを生成し、オプティミスティック同時実行チェックボックスをオンにして、[OK] をクリックします (スクリーンショットについては、図1を参照してください)。 [次へ] をクリックし、[完了] をクリックしてウィザードを完了します。
 
-データ ソース構成ウィザードを完了すると、実行結果を確認するには、少し`DeleteCommand`と`UpdateCommand`プロパティおよび`DeleteParameters`と`UpdateParameters`コレクション。 これを行う最も簡単な方法では、ページの宣言型構文を参照する左下隅の [ソース] タブをクリックします。 サイトでは、`UpdateCommand`の値。
+データソースの構成ウィザードを完了した後、結果の `DeleteCommand` と `UpdateCommand` プロパティ、および `DeleteParameters` および `UpdateParameters` コレクションを確認します。 これを行う最も簡単な方法は、左下隅にある [ソース] タブをクリックして、ページの宣言構文を表示することです。 次のような `UpdateCommand` 値が表示されます。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample2.sql)]
 
-7 つのパラメーターを持つ、`UpdateParameters`コレクション。
+`UpdateParameters` コレクションに7つのパラメーターがある場合:
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample3.aspx)]
 
-同様に、`DeleteCommand`プロパティと`DeleteParameters`コレクションは、次のようになります。
+同様に、`DeleteCommand` のプロパティと `DeleteParameters` コレクションは次のようになります。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample4.sql)]
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample5.aspx)]
 
-追加することだけでなく、`WHERE`句では、`UpdateCommand`と`DeleteCommand`プロパティ (と、それぞれのパラメーター コレクションに追加のパラメーターを追加する)、オプティミスティック同時実行オプションを調整します他の 2 つの使用を選択します。プロパティ:
+[オプティミスティック同時実行制御を使用] オプションを選択すると、`UpdateCommand` プロパティと `DeleteCommand` プロパティの `WHERE` 句を補強するだけでなく、その他のパラメーターを各パラメーターコレクションに追加することもできます。
 
-- 変更、 [ `ConflictDetection`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx)から`OverwriteChanges`(既定値) に `CompareAllValues`
-- 変更、 [ `OldValuesParameterFormatString`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx)から{0}(既定) 元のイメージに\_{0}します。
+- [`ConflictDetection` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx)を `OverwriteChanges` (既定値) からに変更 `CompareAllValues`
+- [`OldValuesParameterFormatString` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx)を {0} (既定値) から元の\_{0} に変更します。
 
-データ Web コントロールが SqlDataSource s を呼び出すときに`Update()`または`Delete()`メソッド、元の値を渡されます。 場合、SqlDataSource s`ConflictDetection`プロパティに設定されて`CompareAllValues`、元の値は、コマンドに追加されます。 `OldValuesParameterFormatString`プロパティはこれらの元の値パラメーターに使用する名前付けパターンを提供します。 データ ソース構成ウィザードを使用して元\_{0}し名前を元の各パラメーターに、`UpdateCommand`と`DeleteCommand`プロパティと`UpdateParameters`と`DeleteParameters`コレクションに応じて。
+データ Web コントロールが SqlDataSource s `Update()` または `Delete()` メソッドを呼び出すと、元の値が渡されます。 SqlDataSource s `ConflictDetection` プロパティが `CompareAllValues`に設定されている場合、これらの元の値はコマンドに追加されます。 `OldValuesParameterFormatString` プロパティは、これらの元の値パラメーターに使用される名前付けパターンを提供します。 データソースの構成ウィザードでは、元の\_{0} を使用して、`UpdateCommand` の元のパラメーターと `DeleteCommand` のプロパティを指定し、それに従って `UpdateParameters` コレクションを `DeleteParameters` します。
 
 > [!NOTE]
-> 削除を自由に再挿入する機能、SqlDataSource コントロール s を使用していないことがあるため、`InsertCommand`プロパティとその`InsertParameters`コレクション。
+> SqlDataSource control s の挿入機能を使用しないので、`InsertCommand` プロパティとその `InsertParameters` コレクションを削除してもかまいません。
 
-## <a name="correctly-handlingnullvalues"></a>適切に処理`NULL`値
+## <a name="correctly-handlingnullvalues"></a>`NULL`値の正しく処理
 
-残念ながら、augmented`UPDATE`と`DELETE`オプティミスティック同時実行制御を使用する場合は、データ ソースの構成ウィザードでのステートメントの自動生成されたは*いない*レコードが含まれていると連携して`NULL`値。 その理由を表示するには、SqlDataSource、s を検討してください`UpdateCommand`:。
+ただし、オプティミスティック同時実行制御を使用しているときに、データソースの構成ウィザードによって自動生成される拡張 `UPDATE` および `DELETE` ステートメントは、`NULL` 値を含むレコードでは機能し*ません*。 その理由を確認するために、次の `UpdateCommand`を考えてみましょう。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample6.sql)]
 
-`UnitPrice`内の列、`Products`テーブル`NULL`値。 特定のレコードがある場合、`NULL`値`UnitPrice`、`WHERE`句部分`[UnitPrice] = @original_UnitPrice`は*常に*False に評価されたため、`NULL = NULL`常に False を返します。 そのため、レコードを含む`NULL`値を編集したり、削除できないとして、`UPDATE`と`DELETE`ステートメント`WHERE`句を更新または削除する対象の行が返されません。
+`Products` テーブルの `UnitPrice` 列には `NULL` 値を指定できます。 特定のレコードに `UnitPrice`の `NULL` 値がある場合、`NULL = NULL` は常に False を返すため、`WHERE` 句の `[UnitPrice] = @original_UnitPrice` は*常*に false と評価されます。 したがって、`NULL` 値を含むレコードを編集または削除することはできません。 `UPDATE` と `DELETE` ステートメント `WHERE` 句は、更新または削除する行を返しません。
 
 > [!NOTE]
-> このバグが最初に 2004 年 6 月に Microsoft に報告[生成の不適切な SQL ステートメントを SqlDataSource](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937)され、次のバージョンの ASP.NET で修正される予定とです。
+> このバグは最初に Microsoft に報告され、SqlDataSource の2004年6月に、[不適切な SQL ステートメントが生成](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937)され、次のバージョンの ASP.NET で修正される予定です。
 
-手動で更新するがこれを解決する、`WHERE`の両方の句、`UpdateCommand`と`DeleteCommand`プロパティを**すべて**ことができる列`NULL`値。 一般に、変更`[ColumnName] = @original_ColumnName`に。
+この問題を解決するには、`NULL` 値を持つことのできる**すべて**の列の `UpdateCommand` プロパティと `DeleteCommand` プロパティの両方で、`WHERE` 句を手動で更新する必要があります。 一般に、`[ColumnName] = @original_ColumnName` をに変更します。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample7.sql)]
 
-この変更のプロパティ ウィンドウから UpdateQuery または DeleteQuery オプションを使用して、宣言型マークアップまたは、UPDATE から直接実行でき、カスタム SQL ステートメントまたはストアド プロシージャのオプション データの構成での指定タブを削除ウィザードのソース。 この変更を再度行う必要があります*すべて*内の列、`UpdateCommand`と`DeleteCommand`s`WHERE`句を含めることができます`NULL`値。
+この変更は、宣言マークアップ、プロパティウィンドウの UpdateQuery または DeleteQuery オプション、またはデータの構成の [カスタム SQL ステートメントまたはストアドプロシージャの指定] オプションの [更新] タブと [削除] タブを使用して直接行うことができます。ソースウィザード。 ここでも、`NULL` 値を含むことができる `UpdateCommand` および `DeleteCommand` s `WHERE` 句の*すべて*の列に対してこの変更を行う必要があります。
 
-結果の例にこれを適用する変更は次`UpdateCommand`と`DeleteCommand`値。
+この例に適用すると、次の変更された `UpdateCommand` と `DeleteCommand` 値が生成されます。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample8.sql)]
 
-## <a name="step-2-adding-a-gridview-with-edit-and-delete-options"></a>手順 2: GridView 編集および削除のオプションを追加します。
+## <a name="step-2-adding-a-gridview-with-edit-and-delete-options"></a>手順 2: 編集および削除オプションを使用した GridView の追加
 
-オプティミスティック同時実行制御をサポートするように構成 SqlDataSource ではこの同時実行制御を使用するページにデータ Web コントロールを追加します。 このチュートリアルでは、s の両方の編集を提供する GridView の追加し、削除機能を使用できます。 これを実現するデザイナーとセットには、ツールボックスから、GridView をドラッグします。 その`ID`に`Products`します。 GridView のスマート タグからバインドを`ProductsDataSourceWithOptimisticConcurrency`SqlDataSource コントロールを手順 1. で追加します。 最後に、スマート タグから編集の有効化および削除を有効にするオプションを確認します。
+オプティミスティック同時実行制御をサポートするように SqlDataSource が構成されていれば、この同時実行制御を使用するページにデータ Web コントロールを追加するだけで済みます。 このチュートリアルでは、編集と削除の両方の機能を提供する GridView を追加してみましょう。 これを行うには、GridView をツールボックスからデザイナーにドラッグし、その `ID` を `Products`に設定します。 GridView s スマートタグから、手順1で追加した `ProductsDataSourceWithOptimisticConcurrency` SqlDataSource コントロールにバインドします。 最後に、[編集を有効にする] チェックボックスをオンにして、スマートタグから削除オプションを有効にします。
 
-[![SqlDataSource GridView にバインドし、編集および削除を有効にします。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
+[GridView を SqlDataSource にバインドし、編集と削除を有効に ![には](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
 
-**図 6**:SqlDataSource と編集の有効化および削除すると、GridView にバインド ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png))。
+**図 6**: GridView を SqlDataSource にバインドし、編集と削除を有効に[する (クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png)されます)
 
-GridView を追加すると、削除することによって、外観を設定、 `ProductID` BoundField、変更、 `ProductName` BoundField s`HeaderText`製品、および更新するプロパティ、 `UnitPrice` BoundField ようにその`HeaderText`プロパティは、単に価格です。 理想的には、d を向上させ、編集インターフェイスを含めるための RequiredFieldValidator、`ProductName`値との CompareValidator、 `UnitPrice` (s 数値の値を正しく書式設定されたように) する値。 参照してください、[データ変更インターフェイスをカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md)」チュートリアルをさらに詳しい編集インターフェイス GridView s をカスタマイズします。
+GridView を追加した後、`ProductID` BoundField を削除し、`ProductName` BoundField s `HeaderText` プロパティを Product に変更し、`UnitPrice` BoundField を更新して、その `HeaderText` プロパティが単なる価格になるように、その外観を構成します。 理想的には、編集インターフェイスを拡張して、`ProductName` 値の RequiredFieldValidator と、`UnitPrice` 値の CompareValidator (適切に書式設定された数値) を含めることができるようにします。 GridView の編集インターフェイスのカスタマイズの詳細については、[データ変更インターフェイスのカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md)に関するチュートリアルを参照してください。
 
 > [!NOTE]
-> ビュー内の状態で、GridView が SqlDataSource を GridView から渡された元の値があるために、ビュー状態を有効にする必要がありますが格納されています。
+> Gridview から SqlDataSource に渡された元の値がビューステートに格納されるため、GridView のビューステートを有効にする必要があります。
 
-GridView に次の変更を加えたら、GridView や SqlDataSource 宣言型マークアップは次のようになります。
+GridView に対してこれらの変更を行った後、GridView および SqlDataSource 宣言マークアップは次のようになります。
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample9.aspx)]
 
-アクションでオプティミスティック同時実行制御を表示する 2 つのブラウザー ウィンドウを開くし、ロード、`OptimisticConcurrency.aspx`両方のページ。 両方のブラウザーで最初の製品の編集ボタンをクリックします。 1 つのブラウザーで、製品名を変更し、[更新] をクリックします。 ブラウザーがポストバックをし、編集したレコードに対して新しい製品の名前が表示、編集済みのモードに戻りますが、GridView。
+オプティミスティック同時実行制御の動作を確認するには、2つのブラウザーウィンドウを開き、両方の `OptimisticConcurrency.aspx` ページを読み込みます。 両方のブラウザーで最初の製品の [編集] ボタンをクリックします。 1つのブラウザーで製品名を変更し、[更新] をクリックします。 ブラウザーがポストバックされ、GridView が編集前のモードに戻り、編集したばかりのレコードの新しい製品名が表示されます。
 
-2 番目のブラウザー ウィンドウで (ただし、元の値として製品の名前のままに) 価格を変更し、[更新] をクリックします。 ポストバックでは、グリッドが、事前の編集モードに戻りますが、価格に変更は記録されません。 2 番目のブラウザーでは、1 つ目と同じ値に古い価格に新しい製品名が表示されます。 2 番目のブラウザー ウィンドウで行った変更が失われました。 さらに、変更が失われましたサイレント モードではなく、例外または同時実行制御違反が発生したことを示すメッセージがないです。
+2番目のブラウザーウィンドウで価格を変更し (ただし、製品名は元の値のままにします)、[更新] をクリックします。 ポストバック時に、グリッドは編集前モードに戻りますが、価格の変更は記録されません。 2番目のブラウザーでは、最初の値と同じ値が、新しい製品名と古い価格で表示されます。 2番目のブラウザーウィンドウで行った変更は失われました。 また、同時実行違反が発生したことを示す例外やメッセージがないため、変更は自動的に失われました。
 
-[![2 番目のブラウザー ウィンドウで変更が自動的に失われました](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
+[2番目のブラウザーウィンドウでの変更がサイレントに失われた ![](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
 
-**図 7**:2 番目のブラウザー ウィンドウがサイレント モードで失われる変更 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png))。
+**図 7**: 2 番目のブラウザーウィンドウでの変更がサイレントに失われました ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png)されます)
 
-なぜ 2 つ目のブラウザーの変更でコミットされていない理由でしたので、`UPDATE`ステートメント`WHERE`句は、すべてのレコードをフィルター処理し、任意の行によって影響されなかったためです。 S を確認できるように、`UPDATE`ステートメントをもう一度。
+2番目のブラウザーの変更がコミットされなかった理由は、`UPDATE` statement s `WHERE` 句によってすべてのレコードが除外されているため、どの行にも影響しないためです。 `UPDATE` ステートメントをもう一度見てみましょう。
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample10.sql)]
 
-元の製品名が指定された 2 番目のブラウザー ウィンドウが、レコードを更新すると、`WHERE`句は t との一致を既存の製品名 (最初のブラウザーでの変更) 以降。 そのため、ステートメント`[ProductName] = @original_ProductName`False を返します、`UPDATE`レコードには影響しません。
+2番目のブラウザーウィンドウでレコードが更新されると、`WHERE` 句で指定された元の製品名は、(最初のブラウザーによって変更されたため) 既存の製品名と一致しません。 したがって、ステートメント `[ProductName] = @original_ProductName` は False を返し、`UPDATE` はどのレコードにも影響しません。
 
 > [!NOTE]
-> 同様に、delete の動作。 2 つのブラウザー ウィンドウが開き、まず、1 つの特定の製品を編集し、その変更を保存します。 1 つのブラウザーで、変更を保存した後、それ以外の同じ製品の削除 ボタンをクリックします。 内元の値は t が同一であるため、`DELETE`ステートメント`WHERE`句では、削除は失敗します。
+> Delete は同じ方法で動作します。 2つのブラウザーウィンドウを開いた状態で、特定の製品を1つずつ編集し、その変更を保存します。 1つのブラウザーで変更を保存した後、もう一方の製品の同じ製品の [削除] ボタンをクリックします。 元の値は `DELETE` statement s `WHERE` 句では一致しないため、削除はサイレントに失敗します。
 
-2 番目のブラウザー ウィンドウでのエンド ユーザー s の観点からの更新ボタンをクリックした後グリッドが編集済みのモードを返しますが、変更が失われました。 ただし、s が、変更していないものだけ作業を視覚的フィードバックがありません。 理想的には、ユーザーの変更が同時実行制御違反が失われた場合は、d に通知し、おそらく、グリッドを編集モードで保持します。 これを実現する方法を見て s を使用できます。
+2番目のブラウザーウィンドウのエンドユーザーの視点から、[更新] ボタンをクリックした後、グリッドは編集前モードに戻りますが、変更は失われていました。 ただし、変更が反映されていないという視覚的なフィードバックはありません。 ユーザーの変更が同時実行違反に失われた場合は、そのことを通知し、おそらくグリッドを編集モードのままにしておきます。 これを実現する方法を見てみましょう。
 
-## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>手順 3: 同時実行制御違反が発生した場合を決定します。
+## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>手順 3: 同時実行違反が発生したことを確認する
 
-同時実行制御違反は、いずれかが行われた変更を拒否するため、同時実行制御違反が発生した場合にアラートをユーザーになります。 Let s がという名前のページの上部にラベル Web コントロールを追加して、警告、`ConcurrencyViolationMessage`が`Text`プロパティには、次のメッセージが表示されます。更新または別のユーザーによって同時に更新されたレコードを削除しようとしました。 その他のユーザーの変更を確認し、更新プログラムを再実行か削除してください。 ラベル コントロールの設定`CssClass`で定義されているプロパティは、CSS クラスの警告を`Styles.css`赤、斜体、太字、および大規模なフォントでテキストを表示します。 最後に、s のラベルを設定`Visible`と`EnableViewState`プロパティ`false`します。 これは明示的に設定します、ポストバックのみを除く、ラベルを非表示にその`Visible`プロパティを`true`します。
+同時実行違反によって行われた変更は拒否されるため、同時実行違反が発生した場合にユーザーに警告することができます。 ユーザーに警告するには、`Text` `ConcurrencyViolationMessage` という名前のページの先頭にラベル Web コントロールを追加します。これにより、別のユーザーによって同時に更新されたレコードを更新または削除しようとしたことを示すメッセージが表示されます。 他のユーザーの変更内容を確認してから、更新または削除をやり直してください。 Label コントロール s `CssClass` プロパティを Warning に設定します。これは、赤、斜体、太字、および大きいフォントでテキストを表示する `Styles.css` で定義された CSS クラスです。 最後に、Label s `Visible` と `EnableViewState` プロパティを `false`に設定します。 これにより、`Visible` プロパティを明示的に `true`に設定したポストバックだけを除き、ラベルは非表示になります。
 
-[![警告を表示するページにラベル コントロールを追加します。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
+[警告を表示するラベルコントロールをページに追加 ![には](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
 
-**図 8**:警告を表示するページにラベル コントロールを追加 ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png))。
+**図 8**: 警告を表示するためのラベルコントロールをページに追加する ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png)されます)
 
-更新または削除、GridView s を実行するときに`RowUpdated`と`RowDeleted`イベント ハンドラーがそのデータ ソース コントロールは、要求された更新または削除が実行後に起動します。 これらのイベント ハンドラーから、操作によって影響を受けた行の数を判断できます。 表示する場合は 0 行が影響を受けた、`ConcurrencyViolationMessage`ラベル。
+Update または delete を実行すると、データソースコントロールが要求された更新または削除を実行した後に、GridView s `RowUpdated` イベントハンドラーと `RowDeleted` イベントハンドラーが起動します。 これらのイベントハンドラーから、操作によって影響を受けた行の数を確認できます。 0行が影響を受けた場合は、`ConcurrencyViolationMessage` ラベルを表示します。
 
-両方のイベント ハンドラーを作成、`RowUpdated`と`RowDeleted`イベントし、次のコードを追加します。
+`RowUpdated` イベントと `RowDeleted` イベントの両方のイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-csharp[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample11.cs)]
 
-確認の両方のイベント ハンドラー、`e.AffectedRows`プロパティと、0 の場合、設定、`ConcurrencyViolationMessage`ラベル s`Visible`プロパティを`true`。 `RowUpdated`イベント ハンドラーもよう指示し編集モードを設定して維持するために、GridView、`KeepInEditMode`プロパティを true にします。 そのため、その他のユーザー データが編集インターフェイスに読み込まれるように、グリッドにデータを再バインドする必要があります。 これは、GridView s を呼び出すことによって実現`DataBind()`メソッド。
+どちらのイベントハンドラーでも、`e.AffectedRows` プロパティを確認し、0に等しい場合は、`ConcurrencyViolationMessage` Label s `Visible` プロパティを `true`に設定します。 `RowUpdated` イベントハンドラーでは、`KeepInEditMode` プロパティを true に設定して、GridView を編集モードのままにするように指示します。 その場合は、データをグリッドに再バインドして、他のユーザーのデータが編集インターフェイスに読み込まれるようにする必要があります。 これは、GridView s `DataBind()` メソッドを呼び出すことによって実現されます。
 
-これら 2 つのイベント ハンドラーを使用して、図 9 に示すように、同時実行制御違反が発生するたびに非常に顕著なメッセージが表示されます。
+図9に示すように、これら2つのイベントハンドラーを使用すると、同時実行違反が発生するたびに非常に顕著なメッセージが表示されます。
 
-[![同時実行制御違反が発生した場合、メッセージが表示されます。](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
+[同時実行違反の発生時にメッセージが表示される ![](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
 
-**図 9**:同時実行制御違反が発生した場合、メッセージが表示されます ([フルサイズの画像を表示する をクリックします](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))。
+**図 9**: 同時実行違反の発生時にメッセージが表示される ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-Web アプリケーションを作成するときに、複数の同時実行ユーザーが、同じデータを編集する同時実行制御オプションを検討することが重要です。 既定では、ASP.NET のデータ Web コントロールとデータ ソース コントロールを使用していない、同時実行制御。 このチュートリアルで説明したように比較的迅速かつ簡単には、SqlDataSource でオプティミスティック同時実行制御を実装します。 SqlDataSource の拡張、追加の処理の大半を`WHERE`句を自動生成された`UPDATE`と`DELETE`ステートメントがありますが、処理のいくつかの微妙な`NULL`で説明したように、列の値、適切に処理`NULL`セクションの値します。
+複数の同時実行ユーザーが同じデータを編集している可能性がある web アプリケーションを作成する場合は、同時実行制御オプションを考慮することが重要です。 既定では、ASP.NET データの Web コントロールとデータソースコントロールは、同時実行制御を使用しません。 このチュートリアルで説明したように、SqlDataSource を使用したオプティミスティック同時実行制御の実装は比較的迅速で簡単です。 SqlDataSource は、拡張された `WHERE` 句を自動生成された `UPDATE` および `DELETE` のステートメントに追加するためのほとんどの業務を処理しますが、`NULL` 値の列の処理にはいくつかの微妙な違いがあります。詳細については、「`NULL` 値を正しく処理する」セクションを参照してください。
 
-このチュートリアルでは、SqlDataSource、調査を終了します。 ObjectDataSource と階層型アーキテクチャを使用してデータを扱うには、残りのチュートリアルを返します。
+このチュートリアルでは、SqlDataSource の調査を終了します。 残りのチュートリアルでは、ObjectDataSource と階層型アーキテクチャを使用したデータの操作に戻ります。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [前へ](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)

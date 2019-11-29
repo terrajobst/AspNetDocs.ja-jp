@@ -1,118 +1,118 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
-title: ユーザーとロール、運用 web サイト (VB) |Microsoft Docs
+title: 運用 Web サイトのユーザーとロール (VB) |Microsoft Docs
 author: rick-anderson
-description: ASP.NET web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成して、作成するために web ベースのユーザー インターフェイスを提供、編集、.
+description: ASP.NET Web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成するための web ベースのユーザーインターフェイスと、作成、編集、...
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df863fc6740847101c9900750a3f257c19ced9fd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d4ce8b278322684be2d44faefd6e69fc524bbe18
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134202"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74617920"
 ---
-# <a name="users-and-roles-on-the-production-website-vb"></a>ユーザーとロール、運用 web サイト (VB)
+# <a name="users-and-roles-on-the-production-website-vb"></a>運用 Web サイトのユーザーとロール (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
+[PDF のダウンロード](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
 
-> ASP.NET web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成して作成、編集、およびユーザーとロールを削除するための web ベースのユーザー インターフェイスを提供します。 残念ながら、WSAT のみ機能、localhost からアクセスすると、ブラウザーから、実稼働 web サイトの管理ツールにアクセスできないことを意味します。 良い知らせは、ユーザーと運用上の役割を管理できるようにするための回避策があることです。 このチュートリアルでは、これらの回避策や他のユーザーで検索します。
+> ASP.NET Web サイト管理ツール (WSAT) には、メンバーシップとロールの設定を構成したり、ユーザーとロールを作成、編集、および削除したりするための web ベースのユーザーインターフェイスが用意されています。 残念ながら、WSAT は localhost からアクセスした場合にのみ機能します。つまり、ブラウザーを使用して運用 web サイトの管理ツールにアクセスすることはできません。 実は、運用環境でユーザーとロールを管理するための回避策があるということです。 このチュートリアルでは、これらの回避策とその他の方法について見ていきます。
 
 ## <a name="introduction"></a>はじめに
 
-ASP.NET 2.0 の多くを導入する*アプリケーション サービス*、これは、一連の構成要素サービス、web アプリケーションに追加することができます。 書籍レビューの web サイトにメンバーシップとロール サービスのバックアップを追加しました、 [*サービスを構成する、web サイトを使用してアプリケーション*チュートリアル](configuring-a-website-that-uses-application-services-vb.md)します。 メンバーシップ サービス作成および管理するユーザー アカウントを使用します。ロール サービスは、ユーザーをグループに分類するための API を提供します。 ブック_レビュー サイトには、3 つのユーザー アカウント、および Scott、Jisun、および Alice - 管理者は、Scott と Jisun 管理者の役割で、1 つの役割があります。
+ASP.NET 2.0 では、いくつかの*アプリケーションサービス*が導入されました。これは、web アプリケーションに追加できるビルディングブロックサービスのスイートです。 [*アプリケーションサービスチュートリアルを使用した web サイトの構成*](configuring-a-website-that-uses-application-services-vb.md)に関するドキュメントの「Book review」 Web サイトに、メンバーシップと役割のサービスを追加しました。 メンバーシップサービスは、ユーザーアカウントの作成と管理を容易にします。Roles サービスは、ユーザーをグループに分類するための API を提供します。 書籍レビューサイトには、Scott、Jisun、および Alice という3つのユーザーアカウントと、管理者ロールに Scott と Jisun を持つ1つのロール Admin があります。
 
-ASP します。NET のアプリケーション サービスは特定の実装に関連付けられていません。 使用して、特定のアプリケーション サービスに指示する代わりに、*プロバイダー*、し、そのプロバイダーが特定のテクノロジを使用してサービスを実装します。 使用する、書籍レビューの web アプリケーションを構成した、`SqlMembershipProvider`と`SqlRoleProvider`メンバーシップとロール サービスのプロバイダー。 これら 2 つのプロバイダーは、SQL Server データベースにユーザー アカウントとロールの情報を格納、web ホスト会社でホストされているインターネット ベースの web アプリケーションの最もよく使用されるプロバイダーです。
+ASP.NET のアプリケーションサービスは、特定の実装に関連付けられていません。 代わりに、特定の*プロバイダー*を使用するようにアプリケーションサービスに指示します。このプロバイダーは、特定のテクノロジを使用してサービスを実装します。 Books review web アプリケーションは、メンバーシップサービスとロールサービスの `SqlMembershipProvider` と `SqlRoleProvider` プロバイダーを使用するように構成されています。 これらの2つのプロバイダーは、ユーザーアカウントとロール情報を SQL Server データベースに格納します。これは、web ホスティング会社でホストされているインターネットベースの web アプリケーションで最もよく使用されるプロバイダーです。
 
-メンバーシップとロール サービスを使用する開発者向けの一般的な課題は、ユーザーおよびロール、運用環境の管理です。 実稼働 web サイトからユーザー アカウントを削除、新しいロールを追加または既存のロールに、既存のユーザーを追加する方法 このチュートリアルでは、ユーザーと実稼働 web サイト ロールを管理するためのさまざまな手法について説明します。
+メンバーシップサービスとロールサービスを使用する開発者にとっての一般的な課題は、運用環境でのユーザーとロールの管理です。 運用 web サイトからユーザーアカウントを削除したり、新しいロールを追加したり、既存のユーザーを既存のロールに追加したりするにはどうすればよいですか。 このチュートリアルでは、運用 web サイトでユーザーとロールを管理するためのさまざまな手法について説明します。
 
-## <a name="using-the-aspnet-web-site-administration-tool"></a>ASP.NET Web サイトの管理ツールを使用します。
+## <a name="using-the-aspnet-web-site-administration-tool"></a>ASP.NET Web サイト管理ツールの使用
 
-ASP.NET には、 [Web サイト管理ツール](https://msdn.microsoft.com/library/yy40ytx0.aspx)(WSAT) を簡単に作成してユーザー アカウントとロールを管理し、ユーザーとロール ベースの承認規則を指定します。 WSAT を使用するには、ソリューション エクスプ ローラーで ASP.NET の構成アイコンをクリックしてまたは web サイトまたはプロジェクト メニューに移動し、ASP.NET 構成オプションを選択します。 どちらの方法では、web ブラウザーを起動し、ようなアドレスで WSAT を指します。 `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET には、ユーザーアカウントとロールの作成と管理、およびユーザーとロールベースの承認規則の指定を簡単に行うことができる[Web サイト管理ツール](https://msdn.microsoft.com/library/yy40ytx0.aspx)(WSAT) が含まれています。 WSAT を使用するには、ソリューションエクスプローラーの [ASP.NET 構成] アイコンをクリックするか、Web サイトまたは [プロジェクト] メニューにアクセスして、ASP.NET 構成オプションを選択します。 どちらの方法でも web ブラウザーが起動され、次のようなアドレスで WSAT が参照されます。 `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
-WSAT は、3 つのセクションに分かれています。
+WSAT は、次の3つのセクションに分かれています。
 
 - **セキュリティ**-ユーザー、ロール、および承認規則を管理します。
-- **「アプリケーション構成」** -管理、 &lt;appSettings&gt;とここでは、SMTP 設定します。 ことができますも、アプリケーションをオフラインにしてデバッグ出力およびトレースここでは、設定の管理だけでなく既定のカスタム エラー ページを指定します。
-- **ProviderConfiguration** -アプリケーションのサービスによって使用されるプロバイダを構成します。
+- **Applicationconfiguration** -ここから &lt;appSettings&gt; と SMTP の設定を管理します。 また、アプリケーションをオフラインにして、ここからデバッグとトレースの設定を管理したり、既定のカスタムエラーページを指定したりすることもできます。
+- **Providerconfiguration** -アプリケーションサービスによって使用されるプロバイダーを構成します。
 
-[セキュリティ] セクション (に示すように**図 1**) へのリンクには新しいユーザーを作成する、ユーザーの管理、作成やの役割の管理し作成と管理のアクセス規則が含まれています。 ここからするシステムに新しいロールを追加、既存のユーザーを削除または追加したり、特定のユーザー アカウントからロールを削除できます。
+セキュリティセクション (**図 1**を参照) には、新しいユーザーの作成、ユーザーの管理、ロールの作成と管理、およびアクセス規則の作成と管理を行うためのリンクが含まれています。 ここから、システムに新しいロールを追加したり、既存のユーザーを削除したり、特定のユーザーアカウントのロールを追加または削除したりできます。
 
 [![](users-and-roles-on-the-production-website-vb/_static/image2.png)](users-and-roles-on-the-production-website-vb/_static/image1.png)
 
-**図 1**:WSAT セキュリティ セクションには、管理ユーザーおよびロールのオプションが含まれています。  
-([フルサイズの画像を表示する をクリックします](users-and-roles-on-the-production-website-vb/_static/image3.png))。
+**図 1**: WSAT セキュリティセクションには、ユーザーと役割を管理するためのオプションが含まれています。  
+([クリックすると、フルサイズの画像が表示](users-and-roles-on-the-production-website-vb/_static/image3.png)される)
 
-残念ながら、WSAT はのみアクセスできるローカルです。 リモート運用 web サイトで、WSAT をアクセスすることはできませんアクセスした場合`www.yoursite.com/asp.netwebadminfiles/default.aspx`404 Not Found 応答を取得します。 WSAT を実行するコードを`Membership`と`Roles`を作成する .NET Framework のクラスは、編集、およびユーザーとロールを削除します。 これらのクラスは、使用するには、どのようなプロバイダーを決定する web アプリケーションの構成情報を参照してください。戻り、 [*サービスを構成する、web サイトを使用してアプリケーション*チュートリアル](configuring-a-website-that-uses-application-services-vb.md)、書籍レビューの web サイトを使用する設定、`SqlMembershipProvider`と`SqlRoleProvider`プロバイダー。 これに含まれる追加`<membership>`と`<roleManager>`にセクション`Web.config`します。
+残念ながら、WSAT にはローカルでしかアクセスできません。 リモート運用 web サイトの WSAT にアクセスすることはできません。`www.yoursite.com/asp.netwebadminfiles/default.aspx` にアクセスすると、"404 が見つかりません" という応答が返されます。 WSAT を強化するコードでは、.NET Framework の `Membership` クラスと `Roles` クラスを使用して、ユーザーとロールの作成、編集、および削除を行います。 これらのクラスは、web アプリケーションの構成情報を参照して、使用するプロバイダーを決定します。「アプリケーションサービスを[*使用した web サイトの構成*」チュートリアル](configuring-a-website-that-uses-application-services-vb.md)に戻り、`SqlMembershipProvider` と `SqlRoleProvider` プロバイダーを使用するように Book review web サイトを設定しました。 これにより、`<membership>` セクションと `<roleManager>` セクションが `Web.config`に追加されます。
 
 [!code-xml[Main](users-and-roles-on-the-production-website-vb/samples/sample1.xml)]
 
-なお、`<membership>`と`<roleManager>`セクションを参照、`SqlMembershipProvider`と`SqlRoleProvider`でプロバイダー、`type`属性は、それぞれします。 これらのプロバイダーは、指定した SQL Server データベースのユーザーとロール情報を格納します。 これらのプロバイダーによって使用されるデータベースがで指定された、`connectionStringName`属性、 `ReviewsConnectionString`、定義されている、`~/ConfigSections/databaseConnectionStrings.config`ファイル。 いることを思い出してください、`databaseConnectionStrings.config`一方、開発環境でのファイルが開発用データベースへの接続文字列を含む、`databaseConnectionStrings.config`運用上のファイルには、実稼働データベースへの接続文字列が含まれています。
+`<membership>` セクションと `<roleManager>` セクションでは、それぞれ `type` 属性の `SqlMembershipProvider` および `SqlRoleProvider` プロバイダーが参照されていることに注意してください。 これらのプロバイダーは、指定された SQL Server データベースにユーザーとロールの情報を格納します。 これらのプロバイダーによって使用されるデータベースは、`~/ConfigSections/databaseConnectionStrings.config` ファイルで定義されている `connectionStringName` 属性 `ReviewsConnectionString`によって指定されます。 開発環境の `databaseConnectionStrings.config` ファイルには開発データベースへの接続文字列が含まれているのに対し、運用環境の `databaseConnectionStrings.config` ファイルには運用データベースへの接続文字列が含まれていることに注意してください。
 
-簡単に言うと、開発環境を介して、WSAT をローカルにアクセスする必要がありで指定されたデータベースでユーザーおよびロールについては、連携、`databaseConnectionStrings.config`ファイル。 その結果、内の接続文字列情報を変更する場合、`databaseConnectionStrings.config`ファイル開発環境で使用できます、WSAT ローカル ユーザーと運用環境でロールを管理します。
+簡単に言うと、WSAT は開発環境を通じてローカルにアクセスする必要があり、これは `databaseConnectionStrings.config` ファイルに指定されているデータベース内のユーザーとロールの情報で機能します。 そのため、開発環境で `databaseConnectionStrings.config` ファイル内の接続文字列情報を変更した場合は、WSAT をローカルで使用して、運用環境のユーザーとロールを管理できます。
 
-この機能を示すためには、開く、`databaseConnectionStrings.config`開発環境で Visual Studio でファイルし、開発データベースの接続文字列を実稼働データベースの接続文字列に置き換えてください。 WSAT を起動し、[セキュリティ] タブを移動し、でパスワードが"password!"Sam をという名前の新しいユーザーを追加 (以下、引用符)。 **図 2**このアカウントを作成するときに、WSAT 画面を示しています。
+この機能を説明するために、開発環境で Visual Studio の `databaseConnectionStrings.config` ファイルを開き、開発データベースの接続文字列を実稼働データベースの接続文字列に置き換えます。 次に、WSAT を起動し、[セキュリティ] タブにアクセスして、"password!" という名前の Sam という名前の新しいユーザーを追加します。 (引用符を除く)。 **図 2**は、このアカウントを作成するときの WSAT 画面を示しています。
 
 [![](users-and-roles-on-the-production-website-vb/_static/image5.png)](users-and-roles-on-the-production-website-vb/_static/image4.png)
 
-**図 2**:運用環境での Sam をという名前の新しいユーザーを作成します。  
-([フルサイズの画像を表示する をクリックします](users-and-roles-on-the-production-website-vb/_static/image6.png))。
+**図 2**: 運用環境で Sam という名前の新しいユーザーを作成する  
+([クリックすると、フルサイズの画像が表示](users-and-roles-on-the-production-website-vb/_static/image6.png)される)
 
-内の接続文字列を変更しましたので`databaseConnectionStrings.config`を実稼働データベース サーバーを指す、Sam が運用環境でのユーザーとして追加されました。 これを確認するには、接続文字列を変更、`databaseConnectionStrings.config`ファイル開発用データベースをバックアップし、アクセス、`Login.aspx`開発環境でのページ。 Sam でサインインしようとしています (を参照してください**図 3**)。
+実稼働データベースサーバーを指すように `databaseConnectionStrings.config` の接続文字列を変更したので、Sam が運用環境のユーザーとして追加されました。 これを確認するには、`databaseConnectionStrings.config` ファイルの接続文字列を開発データベースに戻し、開発環境の [`Login.aspx`] ページに移動します。 Sam としてサインインします (**図 3**を参照)。
 
 [![](users-and-roles-on-the-production-website-vb/_static/image8.png)](users-and-roles-on-the-production-website-vb/_static/image7.png)
 
-**図 3**:開発環境での Sam としてサインインすることはできません。  
-([フルサイズの画像を表示する をクリックします](users-and-roles-on-the-production-website-vb/_static/image9.png))。
+**図 3**: 開発環境で Sam としてサインインできない  
+([クリックすると、フルサイズの画像が表示](users-and-roles-on-the-production-website-vb/_static/image9.png)される)
 
-できませんサインインする Sam として開発環境でのユーザー アカウント情報がローカル データベースに存在しないためです。 代わりは、実稼働データベースに追加されました。 これを確認するには、内容を表示、`aspnet_Users`開発と運用環境の両方のデータベース内のテーブル。 開発環境では、Scott、Jisun、Alice のユーザーのみに 3 つのレコードが必要があります。 ただし、`aspnet_Users`実稼働データベース内のテーブルが 4 つのレコード。Scott、Jisun、Alice、および Sam です。 その結果、Sam は、運用環境で web サイトを経由する、開発環境ではなくにサインインできます。
+開発環境で Sam としてサインインすることはできません。これは、ユーザーアカウント情報がローカルデータベースに存在しないためです。 代わりに、が運用データベースに追加されました。 これを確認するには、開発データベースと運用データベースの両方で `aspnet_Users` テーブルの内容を表示します。 開発環境では、Scott、Jisun、および Alice のユーザーに対して記録されるレコードは3つだけです。 ただし、実稼働データベースの `aspnet_Users` テーブルには、Scott、Jisun、Alice、および Sam という4つのレコードがあります。 その結果、Sam は、開発環境ではなく、運用環境の web サイトからサインインできます。
 
 [![](users-and-roles-on-the-production-website-vb/_static/image11.png)](users-and-roles-on-the-production-website-vb/_static/image10.png)
 
-**図 4**:Sam は、実稼働 web サイトにサインインできます。  
-([フルサイズの画像を表示する をクリックします](users-and-roles-on-the-production-website-vb/_static/image12.png))。
+**図 4**: Sam が運用 Web サイトにサインインできる  
+([クリックすると、フルサイズの画像が表示](users-and-roles-on-the-production-website-vb/_static/image12.png)される)
 
 > [!NOTE]
-> 接続文字列を変更することを忘れないでください、`databaseConnectionStrings.config`完了すると、開発用データベースにファイルから文字列 's 接続、開発を使用してサイトをテストするときに運用データで作業する WSAT それ以外の場合の操作環境。 ここで説明した技法により、WSAT を使用して、リモート ユーザーおよびロールを管理する、中に、その他の WSAT 構成オプション (アクセス規則、SMTP 設定、トレースおよびデバッグ設定、およびなど) のいずれかの変更が、を変更ことに留意してください。`Web.config`ファイル。 その結果、開発環境と運用環境にない設定に加えられた変更が適用されます。
+> WSAT の操作が完了したら、`databaseConnectionStrings.config` ファイル内の接続文字列を開発データベースの接続文字列に戻すことを忘れないでください。それ以外の場合は、開発環境でサイトをテストするときに実稼働データを操作します。 また、ここで説明した手法を使用すると、WSAT を使用してユーザーとロールをリモートで管理できるようになります。他の WSAT 構成オプション (アクセス規則、SMTP 設定、デバッグとトレースの設定など) を変更した場合は、`Web.config` ファイルを変更してください。 そのため、設定に加えられた変更は、運用環境ではなく、開発環境に適用されます。
 
-## <a name="creating-custom-user-and-role-management-web-pages"></a>カスタム ユーザーおよびロール管理 Web ページの作成
+## <a name="creating-custom-user-and-role-management-web-pages"></a>カスタムユーザーおよびロール管理 Web ページの作成
 
-WSAT は、ユーザーとロールを管理するためのボックス システムの不足を提供しますが、ローカルでのみ起動でき、ユーザーと運用環境でロールを管理するために、接続文字列情報に変更を加える必要があります。 ユーザー アカウントをサポートするほとんどの web サイトには、さまざまなユーザーと管理者は、サイト内のページからユーザーとロールの管理を有効にするロールの管理 web ページも含まれます。 このような web ベースの管理ページがそれがより簡単にユーザーとロールの管理し、サイトに不可欠ですが、多くの管理者または管理者へのアクセスや、WSAT を起動する Visual Studio を使用する技術的な背景を持たない可能性があります。
+WSAT は、ユーザーとロールを管理するためのすぐに使用できるシステムを提供しますが、ローカルでのみ起動できます。また、運用環境でユーザーとロールを管理するために、接続文字列情報を変更する必要があります。 ユーザーアカウントをサポートするほとんどの web サイトには、管理者がサイト内のページからユーザーと役割を管理できるようにする、多数のユーザーおよび役割の管理 web ページも含まれています。 このような web ベースの管理ページを使用すると、ユーザーとロールの管理が非常に簡単になります。また、WSAT を起動するために Visual Studio を使用するために、または技術的な背景にアクセスすることのできない管理者や管理者がいるサイトにとっては重要です。
 
-ASP.NET には、組み込みのログインに関連する Web コントロールにドラッグ アンド ドロップするだけこれらの管理 web ページの多くを実装するための数値が含まれています。 たとえば、ページ上に CreateUserWizard コントロールをドラッグし、いくつかのプロパティを設定して新しいユーザー アカウントを作成する管理者用のページを作成できます。 実際、示した WSAT でユーザーを作成するためのページ**図 2**をページに追加できる同じ CreateUserWizard コントロールを使用します。 さらに、メンバーシップとロール サービスの機能を利用プログラムで、`Membership`と`Roles`.NET Framework のクラス。 これらのクラスには、作成、編集、およびユーザーとロールをもユーザーのロールに追加または削除したり、ロールではユーザーを特定し、他のユーザーと役割に関連するタスクを実行するを削除するコードを記述できます。
+ASP.NET には、さまざまなログイン関連の Web コントロールが組み込まれており、これらの web ページの多くはドラッグアンドドロップ操作で簡単に実装できます。 たとえば、管理者用のページを作成して、CreateUserWizard コントロールをページにドラッグし、いくつかのプロパティを設定することによって、新しいユーザーアカウントを作成できます。 実際、**図 2**に示す WSAT でユーザーを作成するためのページには、ページに追加できるのと同じ CreateUserWizard コントロールが使用されています。 さらに、メンバーシップと役割サービスの機能は、.NET Framework の `Membership` クラスと `Roles` クラスを使用してプログラムで利用できます。 これらのクラスを使用すると、ユーザーとロールの作成、編集、削除を行うコードを記述したり、ユーザーをロールに追加または削除したり、ロールのユーザーを特定したり、他のユーザーやロールに関連するタスクを実行したりできます。
 
-[*サービスを構成する、web サイトを使用してアプリケーション*チュートリアル](configuring-a-website-that-uses-application-services-vb.md)ページを追加、`Admin`という名前のフォルダー`CreateAccount.aspx`します。 このページで、サイトに新しいユーザー アカウントを追加して、新しく作成したユーザーが管理者ロールがかどうかを指定する管理者は、(を参照してください**図 5**)。
+「 [*アプリケーションサービスを使用した web サイトの構成*」チュートリアル](configuring-a-website-that-uses-application-services-vb.md)では、`CreateAccount.aspx`という名前の `Admin` フォルダーにページを追加しました。 このページを使用すると、管理者は新しいユーザーアカウントをサイトに追加し、新しく作成されたユーザーが管理者ロールに存在するかどうかを指定できます (**図 5**を参照)。
 
 [![](users-and-roles-on-the-production-website-vb/_static/image14.png)](users-and-roles-on-the-production-website-vb/_static/image13.png)
 
-**図 5**:管理者は、新しいユーザー アカウントを作成できます。  
-([フルサイズの画像を表示する をクリックします](users-and-roles-on-the-production-website-vb/_static/image15.png))。
+**図 5**: 管理者が新しいユーザーアカウントを作成する  
+([クリックすると、フルサイズの画像が表示](users-and-roles-on-the-production-website-vb/_static/image15.png)される)
 
-使用に関する詳細な手順と共に、ユーザーおよびロールの管理ページの構築について詳しく説明、`Membership`と`Roles`クラスと、ログインに関連する ASP.NET Web コントロールを必ずお読み、 [web サイトのセキュリティチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。 ユーザー ロール、およびその他の一般的な管理タスクを割り当てる新しいアカウントを作成し、作成、およびの役割の管理用の web ページを構築する方法のガイダンスを検索します。
+詳細については、「ユーザーと役割の管理」のページを参照してください。 `Membership` および `Roles` クラスとログイン関連の ASP.NET Web コントロールの使用方法に関する詳細な手順については、「 [Web サイトのセキュリティ](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)に関するチュートリアル」を参照してください。 ここでは、新しいアカウントを作成したり、ロールを作成および管理したり、ユーザーをロールに割り当てたり、その他の一般的な管理タスクを行うための web ページを構築する方法についても説明します。
 
-運用 web サイトに WSAT のような機能を実装するには、独自の一連の WSAT の機能を実装する web ページをいつでも構築できます。 最初に、フォルダーにある WSAT ソース コードをチェック アウトする`%WINDIR%\Microsoft.NET\Framework\v2.0.50727\ASP.NETWebAdminFiles`します。 別のオプションは、彼は、彼の記事で共有、Dan Clem の WSAT 代替手段を使用する[ローリング、独自の Web サイト管理ツール](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)します。 Dan はまで、カスタム WSAT のようなツールを構築するプロセスについて説明します (c# で)、ダウンロード、アプリケーションのソース コードが含まれています、およびホストされる web サイトを自分のカスタム WSAT を追加するための手順について説明します。
+運用 web サイトに WSAT のような機能を実装するには、WSAT の機能を実装する独自の一連の web ページをいつでも作成できます。 作業を開始するには、`%WINDIR%\Microsoft.NET\Framework\v2.0.50727\ASP.NETWebAdminFiles`のフォルダーにある WSAT ソースコードを確認してください。 別の方法として、Dan Clem の WSAT 代替手段を使用することもできます。この方法では、[独自の Web サイト管理ツールをロール](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)します。 Dan は、WSAT のようなカスタムツールを構築するプロセスを通じて、アプリケーションのダウンロード用ソースコード (でC#は) をインクルードし、ホストされた web サイトにカスタム WSAT を追加するための詳細な手順を示します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-ASP.NET Web サイト管理ツール (WSAT) は、web サイトのユーザーおよびロールの情報を管理するメンバーシップとロールのアプリケーション サービスと連携して使用できます。 残念ながら、WSAT のみがローカルでアクセスできると、実稼働 web サイトからアクセスされることはできません。 ただし、開発の接続文字列を変更することで、実稼働データベースをポイントするための環境を使用できます、WSAT ユーザーと、実稼働 web サイト ロールの管理します。
+ASP.NET Web サイト管理ツール (WSAT) は、メンバーシップとロールアプリケーションサービスと共に使用して、web サイトのユーザーとロールの情報を管理できます。 残念ながら、WSAT はローカルでのみアクセスでき、運用 web サイトからはアクセスできません。 ただし、運用データベースを指すように開発環境の接続文字列を変更することにより、WSAT を使用して運用 web サイトのユーザーとロールを管理できます。
 
-WSAT アプローチは、ユーザーとロールを管理する迅速かつ簡単な方法により、中に、接続文字列情報を一時的な変更と同様に Visual Studio から WSAT を起動する必要があります。 WSAT はユーザーと、運用環境でロールを管理する簡単な方法を提供しています、面倒ですが、複数の管理者または管理者がないか、Visual Studio と、WSAT に慣れていないユーザーともの web サイトは機能しません。 これらの理由から、ユーザー アカウントをサポートするほとんどの web サイトには、管理用の web ページのセットが含まれます。 このような一連の web ページは、WSAT が不要し、任意のコンピューターからのさまざまな管理ユーザーによって使用されます。
+WSAT アプローチでは、ユーザーとロールをすばやく簡単に管理できますが、Visual Studio から WSAT を起動し、接続文字列情報を一時的に変更することが必要になります。 WSAT は、実稼働環境でユーザーとロールを簡単に管理する方法を提供しますが、煩雑で、Visual Studio や WSAT を持っていない、または使い慣れていない、複数の管理者や管理者がいる web サイトでは適切に機能しません。 このような理由から、ユーザーアカウントをサポートするほとんどの web サイトには、一連の管理 web ページが含まれています。 このような一連の web ページにより、WSAT が不要になり、どのコンピューターからでもさまざまな管理ユーザーが使用できるようになります。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
 - [ASP を調べています。NET のメンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [独自の Web サイト管理ツールのローリング](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [独自の Web サイト管理ツールをロールする](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [Web サイト管理ツールの概要](https://msdn.microsoft.com/library/yy40ytx0.aspx)
-- [Web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
+- [Web サイトのセキュリティに関するチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]
 > [前へ](precompiling-your-website-vb.md)

@@ -1,251 +1,251 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。12 の 7 - 運用環境に展開する |Microsoft Docs
+title: 'Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: 運用環境への配置-7/12 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: この一連のチュートリアルでは、Visual Stu... を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: b83ab819-2b05-4776-b7b4-79ef78d457a5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 0b8e894684717e5d628fcc8c75b18d33118b9127
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: db838633accdedd7c0693b126a007e254ca681e4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133330"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74627197"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。12 の 7 - 運用環境に展開します。
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: 運用環境へのデプロイ-12/12
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[スタートプロジェクトのダウンロード](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルでは、Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。 Web 発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、ホスティング プロバイダーを持つアカウントを設定し、ASP.NET のデプロイを Visual Studio の 1 回のクリックを使用して実稼働環境に web アプリケーションが機能を公開します。
+このチュートリアルでは、ホスティングプロバイダーを使用してアカウントを設定し、Visual Studio のワンクリック発行機能を使用して ASP.NET web アプリケーションを運用環境にデプロイします。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)を確認してください。
 
-## <a name="selecting-a-hosting-provider"></a>ホスティング プロバイダーの選択
+## <a name="selecting-a-hosting-provider"></a>ホスティングプロバイダーの選択
 
-Contoso University アプリケーションとこのチュートリアル シリーズでは、ASP.NET 4 と Web 配置をサポートするプロバイダーが必要です。 特定のホスティング企業は、チュートリアルでは、ライブ web サイトへのデプロイの包括的なエクスペリエンスを示す可能性がありますように選択されました。 各ホスティング プロバイダーのさまざまな機能を提供して、サーバーへのデプロイの経験がやや異なります。 ただし、このチュートリアルで説明されているプロセスは、全体的なプロセスの一般的なものです。 このチュートリアルでは、Cytanium.com で使用するホスティング プロバイダーは、使用可能な次のいずれかとを承認または推奨、このチュートリアルでは、その使用は構成されません。
+Contoso 大学アプリケーションとこのチュートリアルシリーズでは、ASP.NET 4 と Web 配置をサポートするプロバイダーが必要です。 このチュートリアルでは、ライブ web サイトへのデプロイの完全なエクスペリエンスを示すために、特定のホスティング会社を選択しました。 各ホスティング会社はさまざまな機能を提供しており、サーバーへの展開の経験は多少異なります。 ただし、このチュートリアルで説明するプロセスは、全体的なプロセスにおいて一般的です。 このチュートリアルで使用されているホスティングプロバイダー (Cytanium.com) は、使用可能な多くのうちの1つであり、このチュートリアルでの使用は、保証や推奨事項を構成するものではありません。
 
-ホスティング プロバイダーを選択する準備ができたら、機能と価格を比較できます、[プロバイダーのギャラリー](https://www.microsoft.com/web/hosting) Microsoft.com/web サイト上です。
+独自のホスティングプロバイダーを選択する準備ができたら、Microsoft.com/web サイトの[プロバイダーのギャラリー](https://www.microsoft.com/web/hosting)にある機能と価格を比較できます。
 
-## <a name="creating-an-account"></a>アカウントを作成します。
+## <a name="creating-an-account"></a>アカウントの作成
 
-選択したプロバイダーのアカウントを作成します。 場合のサポート、完全な SQL Server データベースは、追加された余分なこのチュートリアルでは、用に選択する必要はありませんの必要になる、 [SQL Server への移行](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)このシリーズの後半のチュートリアル。
+選択したプロバイダーでアカウントを作成します。 完全な SQL Server データベースのサポートが追加されている場合は、このチュートリアル用に選択する必要はありませんが、このシリーズの後の[SQL Server チュートリアルに移行](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)するために必要になります。
 
-これらのチュートリアルについては、新しいドメイン名を登録する必要はありません。 プロバイダーによって、サイトに割り当てられている一時的な URL を使用して展開の成功を確認するテストすることができます。
+これらのチュートリアルでは、新しいドメイン名を登録する必要はありません。 プロバイダーによってサイトに割り当てられた一時的な URL を使用して、正常に配置されたことを確認できます。
 
-アカウントが作成された後に通常を展開し、サイトを管理するために必要なすべての情報を含むウェルカム メールが表示されます。 ホスティング プロバイダーに送信する情報はここに表示される内容のようになります。 新しいアカウント所有者に送信される Cytanium ウェルカム メールには、次の情報が含まれています。
+アカウントが作成されると、通常は、サイトを展開して管理するために必要なすべての情報が記載されたウェルカムメールが届きます。 ホスティングプロバイダーから送信された情報は、ここに表示されているものと似ています。 新しいアカウント所有者に送信される Cytanium ウェルカムメールには、次の情報が含まれています。
 
-- サイトの設定を管理することができます、プロバイダーのコントロール パネル サイトの URL。 ウェルカム メールを簡単に参照のこの部分では、ID と指定したパスワードが含まれます。 (両方が変更されて次の図のデモの値。)
+- プロバイダーのコントロールパネルサイトの URL。サイトの設定を管理できます。 指定した ID とパスワードは、簡単に参照できるように、ウェルカムメールのこの部分に含まれています。 (両方ともこの図のデモ値に変更されています)。
 
     [![Welcome_Email_Control_Panel_URL](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image1.png)
-- 既定の .NET Framework のバージョンとそれを変更する方法についての情報。 多くホスティング サイト既定 2.0 では、2.0、3.0、または 3.5 を .NET Framework を対象とする ASP.NET アプリケーションで動作します。 Contoso University が、.NET Framework 4 アプリケーションがあるこの設定を変更するためです。 (ASP.NET 4.5 のアプリケーションの .NET 4.0 の設定を使用します)。
+- 既定の .NET Framework バージョンとその変更方法に関する情報です。 多くのホストサイトは、既定で2.0 に設定されています。これは、.NET Framework 2.0、3.0、または3.5 を対象とする ASP.NET アプリケーションで動作します。 ただし、Contoso 大学は .NET Framework 4 アプリケーションであるため、この設定を変更する必要があります。 (ASP.NET 4.5 アプリケーションの場合は、.NET 4.0 設定を使用します)。
 
     [![Welcome_Email_Framework_Version](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image3.png)
-- Web サイトへのアクセスに使用できる一時的な URL です。 このアカウントが作成されたときに、"contosouniversity.com"は、既存のドメイン名として入力されました。 そのため、一時的な URL は`http://contosouniversity.com.vserver01.cytanium.com`します。
+- Web サイトへのアクセスに使用できる一時的な URL。 このアカウントが作成されたときに、既存のドメイン名として "contosouniversity.com" が入力されました。 そのため、一時 URL は `http://contosouniversity.com.vserver01.cytanium.com`ます。
 
     [![Welcome_Email_Temporary_URL](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image6.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image5.png)
-- データベース、およびそれらにアクセスするために必要な接続文字列を設定する方法の詳細情報:
+- データベースを設定する方法と、それらにアクセスするために必要な接続文字列について説明します。
 
     [![Welcome_Email_Database_Info](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image7.png)
-- ツールと、サイトの展開の設定について説明します。 (Cytanium から受信した電子メールについても触れます WebMatrix で、ここでは省略されます。)
+- サイトを展開するためのツールと設定について説明します。 (Cytanium からの電子メールには WebMatrix も記載されていますが、ここでは省略しています)。
 
     [![Welcome_Email_Deploy_info](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image10.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image9.png)
 
 ## <a name="setting-the-net-framework-version"></a>.NET Framework のバージョンの設定
 
-Cytanium ウェルカム メールには、.NET Framework のバージョンを変更する方法の手順へのリンクが含まれています。 これらの手順では、Cytanium コントロール パネルから実行するこれについて説明します。 他のプロバイダーに異なって表示される、コントロール パネルのサイトがあるかを別の方法でこれを行うことを指示する場合があります。
+Cytanium のウェルカムメールには、.NET Framework のバージョンを変更する手順へのリンクが記載されています。 この手順では、Cytanium コントロールパネルを使用してこれを行うことができます。 他のプロバイダーには、外観が異なるコントロールパネルサイトがあります。また、別の方法でこれを行うように指示することもできます。
 
-コントロール パネルの URL に移動します。 ユーザー名とパスワードを使用してログインした、コントロール パネルが表示されます。
+コントロールパネルの URL にアクセスします。 ユーザー名とパスワードを使用してログインすると、コントロールパネルが表示されます。
 
 [![Cytanium_Control_Panel](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image12.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image11.png)
 
-**をホストしているスペース**ボックス Web アイコンの上にポインターを保持し、 **Web サイト** メニューから。
+**[ホストスペース]** ボックスで、web アイコンの上にポインターを置き、メニューから **[web サイト]** を選択します。
 
 [![Cytanium_Control_Panel_selecting_Web_Sites](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image14.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image13.png)
 
-**Websites**ボックスで、 **contosouniversity.com** (アカウントを作成したときに使用したサイトの名前)。
+**[Web サイト]** ボックスで、 **[contosouniversity.com]** (アカウントの作成時に使用したサイトの名前) をクリックします。
 
 [![Cytanium_Control_Panel_selecting_contosouniversity](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image16.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image15.png)
 
-**Web サイトのプロパティ**ボックスで、選択、**拡張**タブ。
+**[Web サイトのプロパティ]** ボックスで、 **[拡張機能]** タブを選択します。
 
 [![Cytanium_Control_Panel_Extensions_tab](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image17.png)
 
-ASP.NET からの変更**2.0 の統合パイプライン**に**4.0 (統合されたパイプライン)**、 をクリックし、**更新**。
+ASP.NET を**2.0 統合パイプライン**から**4.0 (統合パイプライン)** に変更し、 **[更新]** をクリックします。
 
-## <a name="publishing-to-the-hosting-provider"></a>ホスティング プロバイダーへの発行
+## <a name="publishing-to-the-hosting-provider"></a>ホスティングプロバイダーへの発行
 
-ホスティング プロバイダーからウェルカム メールには、すべてのプロジェクトを発行するために必要な設定が含まれていて、発行プロファイルにその情報を手動で入力することができます。 プロバイダーへのデプロイを構成するのには、簡単かつ少ないエラーが発生しやすいメソッドを使用しますが、: ダウンロードします、 *.publishsettings*ファイルし、発行プロファイルにインポートします。
+ホスティングプロバイダーからのウェルカムメールには、プロジェクトを発行するために必要なすべての設定が含まれており、その情報を発行プロファイルに手動で入力できます。 しかし、より簡単でエラーが発生しやすい方法を使用して、プロバイダーへのデプロイを構成します。 *.publishsettings*ファイルをダウンロードし、発行プロファイルにインポートします。
 
-ブラウザーで Cytanium のコントロール パネルに移動し、選択**Web**選び**Web サイト。**
+ブラウザーで、Cytanium コントロールパネルにアクセスし、 **[web]** を選択して、[web サイト] を選択し**ます。**
 
-![コントロール パネルの Web サイトを選択します。](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image19.png)
+![コントロールパネルの Web サイトの選択](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image19.png)
 
-選択、 **contosouniversity.com** web サイト。
+**Contosouniversity.com** web サイトを選択します。
 
-![Contosouniversity.com を選択すると、コントロール パネル](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image20.png)
+![コントロールパネルの contosouniversity.com の選択](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image20.png)
 
-選択、 **Web 公開**タブ。
+**[Web 発行]** タブを選択します。
 
-![コントロール パネル Web の発行 タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image21.png)
+![コントロールパネルの [Web 発行] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image21.png)
 
-Web の発行ユーザー名とパスワードを入力して使用する資格情報を作成します。 コントロール パネルへのログオンに使用すると同じ資格情報を入力することができます。 クリックして**を有効にする**します。
+ユーザー名とパスワードを入力して、web 発行に使用する資格情報を作成します。 コントロールパネルへのログオンに使用するのと同じ資格情報を入力できます。 **[有効]** をクリックします。
 
-![コントロール パネルの 発行の資格情報を作成します。](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image22.png)
+![コントロールパネルの発行資格情報の作成](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image22.png)
 
-クリックして**この web サイトの発行プロファイルのダウンロード**します。
+[**この web サイトの発行プロファイルのダウンロード] を**クリックします。
 
-![発行プロファイルのコントロール パネルのダウンロード](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image23.png)
+![コントロールパネルの発行プロファイルのダウンロード](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image23.png)
 
-開くか、ファイルを保存するメッセージが表示されたら、それを保存します。
+ファイルを開くか保存するかを確認するメッセージが表示されたら、保存します。
 
-![発行プロファイル ファイルを保存します。](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image24.png)
+![発行プロファイルファイルの保存](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image24.png)
 
-**ソリューション エクスプ ローラー** Visual Studio では、ContosoUniversity プロジェクトを右クリックして**発行**します。 **Web の発行**のダイアログ ボックスが表示されます、**プレビュー**タブで、**テスト**プロファイルを選択するために使用する最後のプロファイルであるためです。
+Visual Studio の**ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[発行]** を選択します。 **[Web の発行]** ダイアログボックスは、 **[プレビュー]** タブに表示されます。これは、使用した最後のプロファイルであるため、**テスト**プロファイルが選択されています。
 
-選択、**プロファイル** タブをクリックして**インポート**します。
+**[プロファイル]** タブを選択し、 **[インポート]** をクリックします。
 
-![公開 Web ウィザードのインポート ボタン](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image25.png)
+![Web の発行ウィザードの [インポート] ボタン](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image25.png)
 
-**発行設定のインポート**ダイアログ ボックスで、 *.publishsettings*ファイルをダウンロードして、クリックして**オープン**します。 ウィザードでは、すべての入力フィールドに接続 タブに進みます。
+**[発行設定のインポート]** ダイアログボックスで、ダウンロードした *.publishsettings*ファイルを選択し、 **[開く]** をクリックします。 ウィザードは、すべてのフィールドが入力された [接続] タブに進みます。
 
-![公開 Web ウィザードの [接続] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
+![Web の発行ウィザードの [接続] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-.Publishsettings ファイルが宛先 URL ボックスにサイトの計画的な永続的な URL を配置するが、そのドメインをまだ購入していない場合は場合に、一時的な URL で値を置き換えます。 この例では、URL は *[ http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com)します。* このボックスの唯一の目的では、ブラウザーに自動的に開きます後に正常にデプロイ後にどのような URL を指定します。 場合は、空白のみの結果は、ブラウザーは、デプロイ後に自動的に開始されませんが。
+.Publishsettings ファイルは、サイトの計画された永続的な URL を [宛先 URL] ボックスに配置しますが、そのドメインをまだ購入していない場合は、値を一時的な URL に置き換えます。 この例では、URL は *[http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com)です。* このボックスの唯一の目的は、配置後にブラウザーが自動的に開く URL を指定することです。 空白のままにしておくと、配置後にブラウザーが自動的に起動しないことが唯一の結果となります。
 
-クリックして**接続の検証**設定が正しいことと、サーバーに接続できることを確認します。 前述のよう、緑色のチェック マークは、接続が成功したことを確認します。
+**[接続の検証]** をクリックして設定が正しいことを確認し、サーバーに接続できることを確認します。 前に見たように、緑色のチェックマークは接続が成功したことを確認します。
 
-接続の検証をクリックすると、**証明書エラー**  ダイアログ ボックス。 を行った場合は、サーバー名が期待どおりであることを確認します。 場合は、選択**Visual Studio の今後のセッションにこの証明書を保存**クリック**Accept**します。 (このエラーは、ホスティング プロバイダーをデプロイしている URL の SSL 証明書を購入する必要を回避するために選択したことを意味します。 有効な証明書を使用してセキュリティで保護された接続を確立する場合は、連絡、ホスティング プロバイダー)。
+接続の検証 をクリックすると、**証明書のエラー** ダイアログボックスが表示することがあります。 その場合は、サーバー名が予期したとおりであることを確認します。 表示されている場合は、 **[今後、Visual Studio のセッションにこの証明書を保存する]** を選択し、 **[同意]** する をクリックします。 (このエラーは、デプロイ先の URL に対して SSL 証明書を購入する費用が発生しないように、ホスティングプロバイダーによって選択されたことを意味します。 有効な証明書を使用してセキュリティで保護された接続を確立する場合は、ホスティングプロバイダーに問い合わせてください。)
 
 ![証明書のエラー](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image27.png)
 
-**[次へ]** をクリックします。
+[次へ] をクリックします。
 
-**データベース**のセクション、**設定** タブで、同じ入力発行プロファイルのテスト用に入力した値。 ドロップダウン リストでは、必要な接続文字列があります。
+**[設定]** タブの **[データベース]** セクションで、テスト発行プロファイルに入力したものと同じ値を入力します。 必要な接続文字列がドロップダウンリストに表示されます。
 
-- 接続文字列 ボックスで**SchoolContext、** を選択します `Data Source=|DataDirectory|School-Prod.sdf`
-- **SchoolContext**を選択します**適用の Code First Migrations**します。
-- 接続文字列 ボックスで**DefaultConnection**を選択します `Data Source=|DataDirectory|aspnet-Prod.sdf`
-- **DefaultConnection**のままに**Update database**オフにします。
+- Schoolcontext.cs の [接続文字列] ボックスで **、** [`Data Source=|DataDirectory|School-Prod.sdf`] を選択します。
+- **[Schoolcontext.cs]** で、 **[Code First Migrations の適用]** を選択します。
+- **Defaultconnection**の [接続文字列] ボックスで、[`Data Source=|DataDirectory|aspnet-Prod.sdf`] を選択します。
+- **[Defaultconnection]** で、 **[Update database]** をオフのままにします。
 
-![発行ウィザードの設定 タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
+![Web の発行ウィザードの [設定] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
 
-**[次へ]** をクリックします。
+[次へ] をクリックします。
 
-**プレビュー** ] タブで [**プレビューの開始**にコピーされるファイルの一覧を参照してください。 ローカル コンピューターの IIS にデプロイされたときに説明するものと同じリストを参照してください。
+**[プレビュー]** タブで、 **[プレビューの開始]** をクリックして、コピーされるファイルの一覧を表示します。 ローカルコンピューターの IIS に展開したときと同じ一覧が表示されます。
 
-発行する前に、Web.Production.config 変換ファイルが適用できるようにプロファイルの名前を変更します。 選択、**プロファイル** タブでをクリックし、**プロファイルの管理**します。
+発行する前に、プロファイルの名前を変更して、web.config 変換ファイルが適用されるようにします。 **[プロファイル]** タブを選択し、 **[プロファイルの管理]** をクリックします。
 
-![公開 Web ウィザードの プロファイルの管理](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image29.png)
+![Web の発行ウィザードのプロファイルの管理](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image29.png)
 
-**Web の発行プロファイルの編集** ダイアログ ボックス、実稼働プロファイルを選択し、をクリックして**の名前を変更**、および運用環境にプロファイル名を変更します。 クリックして**閉じる**します。
+**[Web 発行プロファイルの編集]** ダイアログボックスで、実稼働プロファイルを選択し、 **[名前の変更]** をクリックして、プロファイル名を「production」に変更します。 **[閉じる]** をクリックします。
 
-![Web の発行プロファイル ダイアログ ボックスを編集します。](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image30.png)
+![[Web 発行プロファイルの編集] ダイアログボックス](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image30.png)
 
 **[発行]** をクリックします。
 
-アプリケーションは、ホスティング プロバイダーに発行されます。 結果を示しています、**出力**ウィンドウ。
+アプリケーションはホスティングプロバイダーに発行されます。 結果が**出力**ウィンドウに表示されます。
 
-![デプロイ後に出力ウィンドウ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image31.png)
+![配置後の出力ウィンドウ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image31.png)
 
-入力した URL にブラウザーが自動的に開きます**送信先 URL**ボックスに、**接続**のタブ、 **Web の発行**ウィザード。 Visual Studio で、サイトを実行すると、ここではない"(Test)"として同じのホーム ページを参照してくださいまたはタイトル バーに"(Dev)"環境のインジケーター。 これが示す環境インジケーター *Web.config*変換が正常に動作します。
+**Web の発行**ウィザードの **[接続]** タブの **[宛先 url]** ボックスに入力した url がブラウザーによって自動的に開きます。 Visual Studio でサイトを実行したときと同じホームページが表示されます。ただし、タイトルバーに "(テスト)" または "(Dev)" の環境インジケーターはありません。 これは、環境インジケーターの*web.config*変換が正常に動作したことを示します。
 
 > [!NOTE]
-> まだ見出しに"(Test)"を表示、削除、 *obj*フォルダーから ContosoUniversity プロジェクトと再デプロイします。 ソフトウェアのプレリリース バージョンは、以前に適用された変換ファイル (Web.Test.config) 可能性があります適用されるもう一度が、実稼働プロファイルを使用しています。
+> 見出しに "(Test)" と表示されている場合は、ContosoUniversity プロジェクトから*obj*フォルダーを削除して再デプロイします。 プレリリース版のソフトウェアでは、運用プロファイルを使用していても、以前に適用された変換ファイル (web.config) が再度適用される可能性があります。
 
 [![Home_page_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image33.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image32.png)
 
-データベースへのアクセスを原因となるページを実行する前に、Elmah が発生したエラーを記録できることを確認します。
+データベースにアクセスするページを実行する前に、Elmah が発生したすべてのエラーをログに記録できることを確認してください。
 
-## <a name="setting-folder-permissions-for-elmah"></a>Elmah フォルダー アクセス許可の設定
+## <a name="setting-folder-permissions-for-elmah"></a>Elmah のフォルダー権限を設定しています
 
-このシリーズで前のチュートリアルから留意する必要は、アプリケーションが Elmah でエラー ログ ファイルを格納する場所、アプリケーションでのフォルダーに対する書き込みアクセス許可を持つことを確認する必要があります。 デプロイしたときに IIS をローカル コンピューターに、これらのアクセス許可が手動で設定します。 このセクションでは、Cytanium にアクセス許可を設定する方法を確認します。 (一部のホスティング プロバイダーをこれを行う有効にできません。 書き込みのアクセス許可を持つ 1 つまたは複数の事前定義されたフォルダーを提供することがあります。 その場合は必要がありますを指定したフォルダーを使用するアプリケーションを変更する。)
+このシリーズの前のチュートリアルで覚えているように、アプリケーションには、Elmah がエラーログファイルを格納するアプリケーションのフォルダーに対する書き込みアクセス許可があることを確認する必要があります。 コンピューターのローカルに IIS に配置した場合は、これらのアクセス許可を手動で設定します。 このセクションでは、Cytanium でアクセス許可を設定する方法について説明します。 (一部のホスティングプロバイダーでは、この操作を実行できない場合があります。書き込みアクセス許可を持つ1つ以上の定義済みフォルダーが提供される場合があります。 その場合は、指定されたフォルダーを使用するようにアプリケーションを変更する必要があります)。
 
-Cytanium コントロール パネルの フォルダーのアクセス許可を設定できます。 コントロール パネルの URL を選択し**ファイル マネージャー**します。
+フォルダーのアクセス許可は、Cytanium コントロールパネルで設定できます。 コントロールパネルの URL にアクセスし、 **[ファイルマネージャー]** を選択します。
 
 [![Cytanium_Control_Panel_with_File_Manager_selected](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image35.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image34.png)
 
-**ファイル マネージャー**ボックスで、 **contosouniversity.com**し**wwwroot**にアプリケーションのルート フォルダーを参照してください。 横に錠前のアイコンをクリックして**Elmah**します。
+**[ファイルマネージャー]** ボックスで、 **[contosouniversity.com]** 、 **[wwwroot]** の順に選択して、アプリケーションのルートフォルダーを表示します。 **[Elmah]** の横にある南京錠アイコンをクリックします。
 
 [![Cytanium_Control_Panel_File_Manager_at_root_folder](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image37.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image36.png)
 
-**ファイル**/**フォルダーのアクセス許可**ウィンドウで、**読み取り**と**書き込み**のチェック ボックス**contosouniversity.com**クリック**アクセス許可の設定**します。
+[**ファイル**/**フォルダーのアクセス許可**] ウィンドウで、 **contosouniversity.com**の **[読み取り]** および **[書き込み]** チェックボックスをオンにし、 **[アクセス許可の設定]** をクリックします。
 
 [![Cytanium_Control_Panel_File_Folder_Permissions_Elmah](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image39.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image38.png)
 
-Elmah にへの書き込みアクセスがあることを確認、 *Elmah*フォルダーで、エラーの原因と、Elmah のエラー レポートを表示します。 ように、無効な URL を要求*Studentsxxx.aspx*します。 前に、わかり、 *GenericErrorPage.aspx*ページ。 をクリックして、 **Log Out**リンク、および実行し、 *Elmah.axd*します。 取得する、**ログで**ことを検証しますが最初に、ページ、 *Web.config*変換は、Elmah の承認を正常に追加します。 ログインした後だけに発生したエラーを表示するレポートを参照してください。
+エラーを発生させて、Elmah エラーレポートを表示することで、elmah に*elmah*フォルダーへの書き込みアクセス権があることを確認してください。 *Studentsxxx*のような無効な URL を要求します。 以前と同様に、 *Genericerrorpage .aspx*ページが表示されます。 **[ログアウト]** リンクをクリックし、次に*Elmah*を実行します。 最初に **[ログイン]** ページが表示されます。これにより、 *Web.config*変換が Elmah 承認を正常に追加したことが検証されます。 ログインすると、発生したエラーを示すレポートが表示されます。
 
-[![Elmah.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
+[![Elmah. axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
 
-## <a name="testing-in-the-production-environment"></a>実稼働環境でのテスト
+## <a name="testing-in-the-production-environment"></a>運用環境でのテスト
 
-実行、**学生**ページ。 アプリケーションは、最初に、データベースを作成する Code First Migrations をトリガーする School データベースにアクセスしようとします。 少しの遅延の後に、ページが表示されたら、受講者がないことを示します。
+**[Students]** ページを実行します。 アプリケーションは、初めて School データベースにアクセスしようとします。これにより、データベースを作成するために Code First Migrations がトリガーされます。 しばらくしてからページが表示されている場合は、学生がいないことを示しています。
 
 [![Students_page_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image43.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image42.png)
 
-実行、 **Instructors**シード データが、データベースに、インストラクターのデータを正常に挿入することを確認します。
+**インストラクターページを**実行して、シードデータによってインストラクターデータがデータベースに正常に挿入されたことを確認します。
 
 [![Instructors_page_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image45.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image44.png)
 
-データベースの更新が、運用環境で作業しますが、通常たくない、実稼働データベースにテスト データを入力することを確認するテスト環境で実行したようです。 このチュートリアルでは、テストで行った同じメソッドを使用します。 そのデータベースを検証するメソッドを検出する実際のアプリケーションで更新が成功したテスト データを実稼働データベースに導入することがなく。 一部のアプリケーションでは、何か追加し、削除するは実用的場合があります。
+テスト環境で行ったように、運用環境でデータベースの更新が機能していることを確認する必要がありますが、通常はテストデータを運用データベースに入力する必要はありません。 このチュートリアルでは、テストで行ったのと同じ方法を使用します。 実際のアプリケーションでは、実稼働データベースにテストデータを導入しなくても、データベースの更新が成功したことを検証するメソッドを見つけることができます。 アプリケーションによっては、何かを追加してから削除するのが実用的な場合があります。
 
-学生を追加しで入力したデータを表示、**学生**ページをデータベース内のデータを更新することを確認します。
+学生を追加し、 **[Students]** ページで入力したデータを表示して、データベースのデータを更新できることを確認します。
 
 [![Add_Students_page_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image47.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image46.png)
 
 [![Students_page_with_new_student_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image49.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image48.png)
 
-検証を選択して承認規則が正常に動作する**更新クレジット**から、**コース**メニュー。 **ログで**ページが表示されます。 管理者アカウントの資格情報を入力し、をクリックして**ログで**、および**更新クレジット**ページが表示されます。
+**[コース]** メニューの **[クレジットの更新]** を選択して、承認規則が正しく機能していることを確認します。 **[ログイン]** ページが表示されます。 管理者アカウントの資格情報を入力し、 **[ログイン]** をクリックすると、**クレジットの更新**ページが表示されます。
 
 [![Log_In_page_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image51.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image50.png)
 
-ログインが成功した場合、**更新クレジット**ページが表示されます。 これは、(1 人の管理者アカウント) で ASP.NET メンバーシップ データベースが正常にデプロイされたことを示します。
+ログインに成功すると、 **[更新プログラムのクレジット]** ページが表示されます。 これは、(管理者アカウントが1つの) ASP.NET メンバーシップデータベースが正常に展開されたことを示します。
 
 [![Update_Credits_page_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image53.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image52.png)
 
-これで正常にデプロイして、サイトをテストし、入手可能になったパブリック インターネット経由で。
+これで、サイトの展開とテストが正常に完了し、インターネット経由で公開されるようになりました。
 
-## <a name="creating-a-more-reliable-test-environment"></a>信頼性の高いテスト環境を作成します。
+## <a name="creating-a-more-reliable-test-environment"></a>より信頼性の高いテスト環境の作成
 
-説明したように、[テスト環境に展開する](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)チュートリアルでは、最も信頼性の高いテスト環境は運用環境のアカウントと同様にしているホスティング プロバイダーに 2 つ目のアカウントになります。 これは、2 つ目のホスティング アカウントにサインアップする必要がありますので、テスト環境としてローカルの IIS を使用してよりも高価になります。 実稼働サイトのエラーや障害が防止されますが、場合は、コストに値するであります。
+「[テスト環境へのデプロイ](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)」チュートリアルで説明したように、最も信頼性の高いテスト環境は、運用アカウントと同じように、ホスティングプロバイダーの2番目のアカウントになります。 これは、ローカル IIS をテスト環境として使用するよりもコストが高くなります。これは、2番目のホスティングアカウントにサインアップする必要があるためです。 しかし、運用サイトのエラーや障害が発生しないようにする場合は、コストの価値があると判断します。
 
-作成とテスト アカウントにデプロイ プロセスのほとんどは、どのような実行した運用環境に配置と同様です。
+テストアカウントを作成してデプロイするプロセスのほとんどは、実稼働環境にデプロイするために既に行っているものと似ています。
 
-- 作成、 *Web.config*変換ファイル。
-- ホスティング プロバイダーでは、アカウントを作成します。
-- 新しい発行プロファイルを作成し、テスト アカウントにデプロイします。
+- *Web.config 変換ファイル*を作成します。
+- ホスティングプロバイダーでアカウントを作成します。
+- 新しい発行プロファイルを作成し、テストアカウントにデプロイします。
 
-### <a name="preventing-public-access-to-the-test-site"></a>テスト サイトへのパブリック アクセスを防止
+### <a name="preventing-public-access-to-the-test-site"></a>テストサイトへのパブリックアクセスの防止
 
-テスト アカウントの重要な考慮事項は、インターネット上でライブになりますが、それを使用する公開したくないことです。 プライベート サイトを保持するには、次の方法の 1 つ以上を使用できます。
+テストアカウントにとって重要な考慮事項は、インターネット上で公開されることですが、パブリックで使用することは望ましくありません。 サイトをプライベートに保つには、次の方法のうち1つ以上を使用します。
 
-- テストに使用する IP アドレスからのみテスト サイトへのアクセスを許可するファイアウォール規則を設定するホスティング プロバイダーにお問い合わせください。
-- パブリック サイトの URL のようなしないように URL を偽装します。
-- 使用して、 *robots.txt*ファイルを検索エンジンがクロール テスト サイトとレポートのリンクを検索結果で確認します。
+- テスト用に使用している IP アドレスからのみテストサイトへのアクセスを許可するファイアウォール規則を設定するには、ホスティングプロバイダーに問い合わせてください。
+- パブリックサイトの URL と類似していないように URL を偽装します。
+- *Robots.txt*ファイルを使用して、検索エンジンがテストサイトをクロールしないようにし、検索結果でそのサイトへのリンクを報告しないようにします。
 
-これらのメソッドの最初の明らかに、最も安全ですが、するための手順は各ホスティング プロバイダーに固有でありはこのチュートリアルでは説明されません。 テスト アカウントの URL を参照する、IP アドレスのみを許可するホスティング プロバイダーに配置することは場合、理論的にがない検索エンジンをクロールすることを気にします。 その場合でも、展開しますが、 *robots.txt*場合に、そのファイアウォール規則が誤ってオフ、ファイルのバックアップとしてをお勧めします。
+これらの方法の1つは、明らかに最も安全ですが、の手順は、各ホスティングプロバイダーに固有であり、このチュートリアルでは説明しません。 テストアカウントの URL への参照を自分の IP アドレスのみに許可するようにホスティングプロバイダーに設定すると、理論的には検索エンジンのクロールを気にする必要がありません。 ただし、その場合でも、ファイアウォールルールが誤ってオフになった場合のバックアップとして、 *robots.txt*ファイルを展開することをお勧めします。
 
-*Robots.txt*ファイルがプロジェクト フォルダーに移動してことで、次のテキストが必要があります。
+*Robots.txt*ファイルがプロジェクトフォルダーに移動し、次のテキストが含まれている必要があります。
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/samples/sample1.cmd)]
 
-`User-agent`行は、ファイル内のルールがすべて検索エンジン web クローラー (ロボット) に適用される検索エンジンに指示し、`Disallow`行では、サイトのページをクロールないことを指定します。
+`User-agent` 行は、ファイル内のルールがすべての検索エンジン web クローラー (ロボット) に適用されることを検索エンジンに通知します。また、`Disallow` 行は、サイトのページをクロールする必要がないことを指定します。
 
-検索エンジンを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する可能性がありますようにします。 そのためには、次を参照してください。**できますしないようにする特定のファイルまたはフォルダーの展開からでしょうか。** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)します。 運用環境の発行プロファイルに対してのみ、除外を指定することを確認します。
+場合によっては、検索エンジンで運用サイトのカタログを作成する必要があるため、このファイルを運用環境のデプロイから除外する必要があります。 これを行うには、「 [ASP.NET Web アプリケーションプロジェクトの配置](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)に関する FAQ」の「**特定のファイルまたはフォルダーをデプロイから除外することはできますか**」を参照してください。 必ず、実稼働発行プロファイルにのみ除外を指定してください。
 
-2 つ目のホスト アカウントの作成は、テスト環境は必要ありませんが、追加費用価値がありますを使用するアプローチです。 以下のチュートリアルでは、テスト環境として IIS を使用して引き続きします。
+2番目のホスティングアカウントの作成は、必要のないテスト環境を操作するためのアプローチですが、追加費用がかかる場合があります。 次のチュートリアルでは、引き続き IIS をテスト環境として使用します。
 
-次のチュートリアルでは、アプリケーション コードを更新し、変更をテストおよび運用環境に配置します。
+次のチュートリアルでは、アプリケーションコードを更新し、テスト環境と運用環境に変更を配置します。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)

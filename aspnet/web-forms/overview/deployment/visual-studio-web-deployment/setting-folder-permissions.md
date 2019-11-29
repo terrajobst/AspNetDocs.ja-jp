@@ -1,77 +1,77 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
-title: Visual Studio を使用して ASP.NET Web の展開:フォルダーのアクセス許可の設定 |Microsoft Docs
+title: 'Visual Studio を使用した ASP.NET Web 配置: フォルダーのアクセス許可の設定 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを使用して、.
+description: このチュートリアルシリーズでは、ASP.NET web アプリケーションをデプロイ (発行) して、Web Apps またはサードパーティのホスティングプロバイダーに Azure App Service する方法について説明します。
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: f25182f3f841c963866319dd934c0c28b4eb95b0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 410525bb2e3f6e5a0be6d7d6b33fb3a40509041a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112893"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614935"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio を使用して ASP.NET Web の展開:フォルダーのアクセス許可を設定する
+# <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio を使用した ASP.NET Web 配置: フォルダーのアクセス許可の設定
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[スタートプロジェクトのダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
+> このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、フォルダーのアクセス許可の設定、 *Elmah*フォルダーにデプロイされた web サイト、アプリケーションは、そのフォルダー内のログ ファイルを作成できるようにします。
+このチュートリアルでは、配置された web サイトの*Elmah*フォルダーに対してフォルダーのアクセス許可を設定して、アプリケーションがそのフォルダーにログファイルを作成できるようにします。
 
-Visual Studio 開発サーバー (Cassini) または IIS Express を使用して Visual Studio の web アプリケーションをテストする場合は、自分のユーザー名、アプリケーションが実行されます。 開発用コンピューターの管理者であるほとんどの場合と、任意のフォルダー内の任意のファイルに何もする完全な権限を持ちます。 アプリケーション プールに割り当てられているサイトに対して定義されている id の下で実行されます IIS 下でアプリケーションを実行します。 これは、通常、アクセス許可が制限されているシステム定義のアカウントです。 既定でに読み取りし、web アプリケーションのファイルおよびフォルダーに対する execute 権限が、書き込みアクセス権がありません。
+Visual Studio 開発サーバー (Cassini) または IIS Express を使用して Visual Studio で web アプリケーションをテストする場合、アプリケーションは id で実行されます。 多くの場合、開発用コンピューターの管理者であり、任意のフォルダー内の任意のファイルに対してすべての操作を実行するための完全な権限を持っています。 ただし、アプリケーションが IIS で実行される場合、アプリケーションは、サイトが割り当てられているアプリケーションプールに対して定義されている id で実行されます。 これは通常、アクセス許可が制限されているシステム定義のアカウントです。 既定では、web アプリケーションのファイルとフォルダーに対する読み取りと実行のアクセス許可がありますが、書き込みアクセス権はありません。
 
-これは、場合は、アプリケーションを作成するか、web アプリケーションで必要な更新プログラムのファイルは、共通が問題になります。 Elmah で XML ファイルの作成、Contoso University アプリケーションで、 *Elmah*エラーの詳細を保存するにはフォルダー。 Elmah のようなものを使用しない場合でも、サイトは、ユーザーがファイルをアップロードまたはサイトのフォルダーにデータを書き込むことが他のタスクを実行できるように可能性があります。
+これは、アプリケーションがファイルを作成または更新する場合に問題になります。これは、web アプリケーションで一般的に必要となります。 Contoso 大学アプリケーションでは、Elmah は、エラーの詳細を保存するために、 *elmah*フォルダーに XML ファイルを作成します。 Elmah のようなものを使用しない場合でも、サイトでは、ユーザーがファイルをアップロードしたり、サイト内のフォルダーにデータを書き込むその他のタスクを実行したりすることができます。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](troubleshooting.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](troubleshooting.md)を確認してください。
 
-## <a name="test-error-logging-and-reporting"></a>テスト エラーのログ記録とレポート
+## <a name="test-error-logging-and-reporting"></a>テストエラーのログ記録とレポート
 
-どのアプリケーションが動作しない正しく IIS で (ただし、Visual Studio でテストされたときに行った) を表示する、Elmah は、によってログが記録される通常を開き、Elmah のエラー ログの詳細を表示するエラーが発生することができます。 Elmah が XML ファイルを作成し、エラーの詳細を格納することでない場合は、空のエラー レポートを参照してください。
+IIS でアプリケーションが正しく動作していないことを確認するには (Visual Studio でテストした場合でも)、Elmah によって通常ログに記録されるエラーが発生した後、Elmah エラーログを開いて詳細を確認することができます。 Elmah が XML ファイルを作成できず、エラーの詳細を保存できなかった場合は、空のエラーレポートが表示されます。
 
-ブラウザーを開きに移動`http://localhost/ContosoUniversity`のように、無効な URL を要求し、 *Studentsxxx.aspx*します。 代わりにシステムが生成したエラー ページを参照してください、 *GenericErrorPage.aspx*ため、ページ、 `customErrors` Web.config ファイルの設定は"RemoteOnly"と、ローカル IIS を実行しています。
+ブラウザーを開き、`http://localhost/ContosoUniversity`にアクセスして、 *Studentsxxx*のような無効な URL を要求します。 Web.config ファイルの `customErrors` 設定が "RemoteOnly" で、IIS をローカルで実行しているため、 *Genericerrorpage .aspx*ページではなく、システムによって生成されたエラーページが表示されます。
 
-![HTTP 404 エラー ページ](setting-folder-permissions/_static/image1.png)
+![HTTP 404 エラーページ](setting-folder-permissions/_static/image1.png)
 
-今すぐ実行*Elmah.axd*エラー レポートを表示します。 管理者アカウントの資格情報でログインした後 (&quot;管理者&quot;と&quot;devpwd&quot;)、Elmah での XML ファイルを作成できなかったために、空のエラー ログのページを参照してください、 *Elmah*フォルダー。
+次に、 *Elmah*を実行してエラーレポートを表示します。 管理者アカウントの資格情報 (&quot;admin&quot; と &quot;devpwd&quot;) を使用してログインすると、elmah が*elmah*フォルダーに XML ファイルを作成できなかったため、空のエラーログページが表示されます。
 
-![エラー ログ空](setting-folder-permissions/_static/image2.png)
+![エラーログが空です](setting-folder-permissions/_static/image2.png)
 
 ## <a name="set-write-permission-on-the-elmah-folder"></a>Elmah フォルダーに対する書き込みアクセス許可の設定
 
-フォルダーのアクセス許可を手動で設定することができますか、自動展開プロセスの部分を行うことができます。 複雑な MSBuild コードでは、自動を行う必要があり、次の手順を手動で行う方法、最初にデプロイするときに行うだけであるためです。 (展開プロセスのこの部分を作成する方法については、次を参照してください[で Web の発行フォルダーのアクセス許可の設定](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx)Sayed Hashimi's ブログ。)。
+フォルダーのアクセス許可を手動で設定することも、展開プロセスの一部として自動化することもできます。 自動作成を行うには、複雑な MSBuild コードが必要になります。これは、初めて配置するときにのみ実行する必要があるため、次の手順で手動で行うことができます。 (デプロイプロセスのこの部分を作成する方法の詳細については、「作成者 Hashimi のブログでの[Web 発行に対するフォルダーのアクセス許可の設定](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx)」を参照してください)。
 
-1. **ファイル エクスプ ローラー**に移動します*C:\inetpub\wwwroot\ContosoUniversity*します。 右クリックし、 *Elmah*フォルダーで、**プロパティ**を選び、**セキュリティ**タブ。
+1. **ファイルエクスプローラー**で、 *C:\inetpub\wwwroot\ContosoUniversity*に移動します。 [ *Elmah* ] フォルダーを右クリックし、 **[プロパティ]** をクリックして、 **[セキュリティ]** タブを選択します。
 2. **[編集]** をクリックします。
-3. **Elmah のアクセス許可**ダイアログ ボックスで、 **DefaultAppPool**を選び、**書き込み** チェック ボックス、**許可**列。
+3. **[Elmah の権限]** ダイアログボックスで、 **[DefaultAppPool**] を選択し、 **[許可]** 列の **[書き込み]** チェックボックスをオンにします。
 
     ![ELMAH フォルダーのアクセス許可](setting-folder-permissions/_static/image3.png)
 
-    (表示されない場合**DefaultAppPool**で、**グループまたはユーザー名**一覧で、おそらくメソッドを使用していくつかその他のこのチュートリアルでは指定されているコンピューターに IIS および ASP.NET 4 を設定します。 その場合は、どのような id は、Contoso University アプリケーションに割り当てられているアプリケーション プールに使用されます。 確認し、その id に書き込みアクセス権を付与します。 このチュートリアルの最後にアプリケーション プールの id に関するリンクを表示します。)クリックして**OK**両方のダイアログ ボックス。
+    ( **[グループ名またはユーザー名]** の一覧に**DefaultAppPool**が表示されない場合は、このチュートリアルで指定したものとは別の方法を使用して、コンピューターに IIS と ASP.NET 4 を設定したことが考えます。 その場合は、Contoso 大学アプリケーションに割り当てられているアプリケーションプールによって使用されている id を確認し、その id に書き込みアクセス許可を付与します。 このチュートリアルの最後にあるアプリケーションプール id に関するリンクを参照してください。)両方のダイアログボックスで **[OK]** をクリックします。
 
-## <a name="retest-error-logging-and-reporting"></a>エラーのログ記録とレポートを再テストします。
+## <a name="retest-error-logging-and-reporting"></a>エラーのログ記録とレポートを再テストする
 
-もう一度 (無効な URL を要求する) と同様に、エラーを発生させることによってテストし、実行、**エラー ログ**ページ。 この時間、ページで、エラーが表示されます。
+同じ方法でもう一度エラーを発生させてテストし (無効な URL を要求)、**エラーログ**ページを実行します。 今回は、ページにエラーが表示されます。
 
-![ELMAH エラー ログ ページ](setting-folder-permissions/_static/image4.png)
+![[ELMAH エラーログ] ページ](setting-folder-permissions/_static/image4.png)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-完了しましたの Contoso University のために必要なタスクをすべてローカル コンピューターに IIS で正常に動作します。 次のチュートリアルでは、サイト パブリックに利用できるようにする Azure にデプロイします。
+これで、ローカルコンピューターの IIS で Contoso 大学を正常に動作させるために必要なすべてのタスクが完了しました。 次のチュートリアルでは、Azure にデプロイすることによって、サイトをパブリックに利用できるようにします。
 
-## <a name="more-information"></a>詳細情報
+## <a name="more-information"></a>説明
 
-この例では、Elmah されたログ ファイルを保存できない理由は明らかでした。 問題の原因が; ほど明白ではない場合に IIS のトレースを使用することができます。参照してください[トラブルシューティング失敗した要求を使用してトレース IIS 7 で](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)IIS.net サイト。
+この例では、Elmah がログファイルを保存できなかった理由が非常に明白でした。 問題の原因が明らかでない場合は、IIS トレースを使用できます。IIS.net サイトの「 [IIS 7 でトレースを使用した失敗した要求のトラブルシューティング」を](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)参照してください。
 
-アプリケーション プール id へのアクセス許可を付与する方法についての詳細については、次を参照してください。[アプリケーション プール Id](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)と[ファイル システム Acl を IIS 内のコンテンツをセキュリティで保護](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls)IIS.net サイト。
+アプリケーションプール id にアクセス許可を付与する方法の詳細については、IIS.net サイトの「ファイルシステム Acl を使用した IIS の[アプリケーションプール id](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)と[セキュリティ保護されたコンテンツ](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](deploying-to-iis.md)

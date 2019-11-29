@@ -1,178 +1,178 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
-title: DataList に検証コントロールを追加の編集インターフェイス (VB) |Microsoft Docs
+title: DataList の編集インターフェイスに検証コントロールを追加する (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、DataList の後に編集 int です。 ユーザー間違えにくいを提供するために検証コントロールを追加するがいかに簡単か見て.
+description: このチュートリアルでは、ユーザーがより安全に編集できるように、DataList の EditItemTemplate に検証コントロールを追加することがいかに簡単かを説明します。
 ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cbf0c5f15399e49673f7c77006211ccff953346d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f952a7bb95e956a2ad935f8bdef5c3efa7437ecb
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108787"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621962"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>DataList の編集インターフェイスに検証コントロールを追加する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe)または[PDF のダウンロード](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe)または[PDF のダウンロード](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
 
-> このチュートリアルではより安全な方法での編集ユーザー インターフェイスを提供するために、DataList の後に検証コントロールを追加するがいかに簡単か見ていきます。
+> このチュートリアルでは、簡単に編集できるユーザーインターフェイスを提供するために、DataList の EditItemTemplate に検証コントロールを追加することがいかに簡単かを説明します。
 
 ## <a name="introduction"></a>はじめに
 
-チュートリアルのこれまで編集 DataList、不足している製品名や、例外が負の価格の結果などの無効なユーザー入力も事前にユーザー入力の検証の場所を編集インターフェイス データリストが含まれませんが。 [前のチュートリアル](handling-bll-and-dal-level-exceptions-vb.md)例外処理 DataList s にコードを追加する方法について確認しました`UpdateCommand`をキャッチして適切に発生した例外に関する情報を表示するには、イベント ハンドラー。 理想的には、ただし、編集インターフェイスが含まれますをユーザーが最初にこのような無効なデータを入力するを防ぐために検証コントロール。
+これまでの DataList 編集チュートリアルでは、製品名や負の価格などの無効なユーザー入力によって例外が発生した場合でも、DataLists 編集インターフェイスにプロアクティブなユーザー入力の検証が含まれていません。 前の[チュートリアル](handling-bll-and-dal-level-exceptions-vb.md)では、発生した例外に関する情報をキャッチして適切に表示するために、DataList s `UpdateCommand` イベントハンドラーに例外処理コードを追加する方法を説明しました。 ただし、編集インターフェイスには、ユーザーがこのような無効なデータを最初に入力できないようにするための検証コントロールが含まれていることが理想的です。
 
-このチュートリアルでは見て DataList s に検証コントロールを追加するがいかに簡単か`EditItemTemplate`間違えにくい編集ユーザー インターフェイスを提供するためにします。 具体的には、このチュートリアルでは、前のチュートリアルで作成した例は、し、適切な検証をインクルードする編集インターフェイスを拡張します。
+このチュートリアルでは、簡単に編集できるユーザーインターフェイスを提供するために、DataList s `EditItemTemplate` に検証コントロールを追加することがいかに簡単かを説明します。 具体的には、このチュートリアルでは、前のチュートリアルで作成した例を使用して、適切な検証を含むように編集インターフェイスを強化します。
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>手順 1: 例をレプリケートする[BLL レベルと DAL レベルの例外の処理](handling-bll-and-dal-level-exceptions-vb.md)
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>手順 1:[BLL および DAL レベルの例外の処理](handling-bll-and-dal-level-exceptions-vb.md)から例をレプリケートする
 
-[処理 BLL - と DAL レベルの例外](handling-bll-and-dal-level-exceptions-vb.md)チュートリアルの名前と 2 列の編集可能な DataList では、製品の価格を一覧表示するページを作成しました。 このチュートリアルの目標は、検証コントロールを追加するには、DataList s 編集インターフェイスの拡張です。 具体的には、この検証ロジックを行います。
+「 [BLL および DAL レベルの例外の処理](handling-bll-and-dal-level-exceptions-vb.md)」チュートリアルでは、2列の編集可能な DataList で製品の名前と価格を記載したページを作成しました。 このチュートリアルの目的は、DataList s 編集インターフェイスを拡張して検証コントロールを含めることです。 特に、検証ロジックは次のようになります。
 
-- 製品の名前を指定する必要があります。
-- 価格に入力された値が有効な通貨の形式であることを確認します。
-- 価格は、負の値以降、0 以上を入力した値を必ず`UnitPrice`値は無効です
+- 製品名を指定する必要があります
+- 価格に入力した値が有効な通貨書式であることを確認します。
+- 負の `UnitPrice` 値が無効であるため、価格に入力した値が0以上であることを確認します。
 
-最初の例をレプリケートする必要がありますに検証を含める前の例の拡張について考えることができます、前に、`ErrorHandling.aspx`ページで、`EditDeleteDataList`フォルダーのこのチュートリアルでは、ページに`UIValidation.aspx`します。 両方の経由でコピーする必要があります。 これを実現するために、 `ErrorHandling.aspx` s 宣言型マークアップとそのソース コードをページ。 まず、次の手順を実行することによって宣言型マークアップにコピーします。
+前の例を補強して検証を含める方法を確認する前に、まず、`EditDeleteDataList` フォルダーの [`ErrorHandling.aspx`] ページから、このチュートリアルの `UIValidation.aspx`のページに例をレプリケートする必要があります。 これを実現するには、`ErrorHandling.aspx` ページの宣言型マークアップとソースコードの両方をコピーする必要があります。 次の手順を実行して、最初に宣言マークアップをコピーします。
 
-1. 開く、 `ErrorHandling.aspx` Visual Studio でのページ
-2. ページの宣言型マークアップ (ページの下部にある [ソース] ボタンをクリックします) に移動します。
-3. 内のテキストをコピー、`<asp:Content>`と`</asp:Content>`図 1 としてタグ (行 3 ~ 32)。
+1. Visual Studio で [`ErrorHandling.aspx`] ページを開く
+2. ページの宣言マークアップにアクセスします (ページの下部にある [ソース] ボタンをクリックします)。
+3. 図1に示すように、`<asp:Content>` タグと `</asp:Content>` タグ (行 3 ~ 32) 内のテキストをコピーします。
 
-[![内のテキストのコピー、 &lt;Asp:content&gt;コントロール](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
+[&lt;asp: Content&gt; コントロール内のテキストをコピー ![には](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
 
-**図 2**:内のテキストのコピー、`<asp:Content>`コントロール ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png))。
+**図 2**: `<asp:Content>` コントロール内のテキストをコピー[する (クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png)されます)
 
-1. 開く、`UIValidation.aspx`ページ
-2. ページの宣言型マークアップに移動します。
-3. 内のテキストを貼り付け、`<asp:Content>`コントロール。
+1. [`UIValidation.aspx`] ページを開く
+2. ページの宣言型マークアップにアクセスする
+3. `<asp:Content>` コントロール内にテキストを貼り付けます。
 
-ソース コードをコピーするには、開く、`ErrorHandling.aspx.vb`ページし、同様のテキストをコピー*内*、`EditDeleteDataList_ErrorHandling`クラス。 3 つのイベント ハンドラーをコピー (`Products_EditCommand`、 `Products_CancelCommand`、および`Products_UpdateCommand`) と共に、`DisplayExceptionDetails`メソッドだ**いない**クラス宣言をコピーまたは`using`ステートメント。 コピーしたテキストを貼り付ける*内*、`EditDeleteDataList_UIValidation`クラス`UIValidation.aspx.vb`します。
+ソースコードをコピーするには、[`ErrorHandling.aspx.vb`] ページを開き、`EditDeleteDataList_ErrorHandling` クラス*内*のテキストだけをコピーします。 3つのイベントハンドラー (`Products_EditCommand`、`Products_CancelCommand`、`Products_UpdateCommand`) を `DisplayExceptionDetails` メソッドと共にコピーします。ただし、クラス宣言または `using` ステートメント**はコピーしないでください。** コピーしたテキストを `UIValidation.aspx.vb`の `EditDeleteDataList_UIValidation` クラス*内*に貼り付けます。
 
-コンテンツとコードからの上に移動した後は`ErrorHandling.aspx`に`UIValidation.aspx`ブラウザーでページをテストする少し。 同じ出力を参照してください。 これら 2 つのページ (図 2 参照) のそれぞれで同じ機能を体験してください。
+コンテンツとコードを `ErrorHandling.aspx` から `UIValidation.aspx`に移動したら、ブラウザーでページをテストしてみましょう。 同じ出力が表示され、これらの2つのページで同じ機能が使用されます (図2を参照)。
 
-[![UIValidation.aspx ページは ErrorHandling.aspx の機能を模倣しています](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
+[UIValidation .aspx ページを ![と、ErrorHandling の機能が模倣されます。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
 
-**図 2**:`UIValidation.aspx`ページ内の機能を模倣する`ErrorHandling.aspx`([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png))。
+**図 2**: [`UIValidation.aspx`] ページでは `ErrorHandling.aspx` の機能を模倣しています ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png)されます)。
 
-## <a name="step-2-adding-the-validation-controls-to-the-datalist-s-edititemtemplate"></a>手順 2: DataList の秒後に、検証コントロールを追加します。
+## <a name="step-2-adding-the-validation-controls-to-the-datalist-s-edititemtemplate"></a>手順 2: DataList s EditItemTemplate に検証コントロールを追加する
 
-データ入力フォームを構築するときに、必須の各フィールドに入力し、指定されたすべての入力は有効で正しい形式の値であることは重要です。 ユーザーの入力値が有効であることを確認するには、ASP.NET では、1 つの入力 Web コントロールの値を検証するように設計された 5 つの組み込みの検証コントロールが用意されています。
+データ入力フォームを構築するときは、ユーザーが必要なフィールドを入力し、指定されたすべての入力が有効で適切に書式設定された値であることが重要です。 ユーザーの入力が有効であることを確認するために、ASP.NET には、単一の入力 Web コントロールの値を検証するように設計された5つの組み込みの検証コントロールが用意されています。
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx)により値が指定されているようになります
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx)値を別の Web コントロールの値または定数の値を検証しますまたは、秒の値の形式が指定されたデータ型に対して有効であることを確認。
-- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx)値が値の範囲内であることを確認
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx)に対して値を検証、[正規表現](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx)に対して、ユーザー定義のカスタム メソッドの値を検証します。
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx)は、値が指定されていることを確認します。
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx)は、別の Web コントロール値または定数値に対して値を検証したり、指定されたデータ型に対して値の形式が有効であることを確認したりします。
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx)値が値の範囲内にあることを確認します。
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) [正規表現](http://en.wikipedia.org/wiki/Regular_expression)に対して値を検証します。
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx)カスタムのユーザー定義メソッドに対して値を検証します。
 
-これら 5 つのコントロールの詳細については参照、[編集および挿入インターフェイスに検証コントロールを追加](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)チュートリアルまたはチェック アウト、[検証コントロール セクション](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx)の[ASP.NET クイック スタート チュートリアル](https://quickstarts.asp.net)します。
+これらの5つのコントロールの詳細については、「[インターフェイスの編集と挿入](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)」チュートリアルの「検証コントロールの追加」を参照してください。または、 [ASP.NET のクイックスタートチュートリアル](https://quickstarts.asp.net)の[「検証コントロール」セクション](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx)をご覧ください。
 
-このチュートリアルを RequiredFieldValidator、製品名の値が指定されていることを確認して、CompareValidator を十分に価格を入力が 0 以上の値を持つし、有効な通貨の形式で表示を使用する必要があります。
+このチュートリアルでは、RequiredFieldValidator を使用して製品名の値が指定されていることを確認し、入力した価格の値が0以上で、有効な通貨の形式で表示されるように CompareValidator を使用する必要があります。
 
 > [!NOTE]
-> While ASP.NET 1.x がこれらの同じ 5 つの検証コントロール、ASP.NET 2.0 にはさまざまな機能強化が追加、ブラウザー Internet Explorer だけでなく、パーティションの検証コントロールをページにする機能がサポートされるクライアント側スクリプト 2 メイン検証グループ。 2.0 の検証コントロールの新機能に関する詳細についてを参照してください[詳細に分析する ASP.NET 2.0 の検証コントロール](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)します。
+> ASP.NET 1.x には、これらと同じ5つの検証コントロールがありましたが、ASP.NET 2.0 にはいくつかの改善点が追加されており、Internet Explorer だけでなく、ページ上の検証コントロールをパーティション分割する機能も用意されています。検証グループ。 2\.0 の新しい検証コントロール機能の詳細については、「 [ASP.NET 2.0 の検証コントロールの解説」](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)を参照してください。
 
-S DataList s に、必要な検証コントロールを追加することで開始できるように`EditItemTemplate`します。 DataList s のスマート タグからのテンプレートの編集リンクをクリックして、デザイナー、または宣言型構文を通じて、このタスクを実行できます。 デザイン ビューからのテンプレートの編集オプションを使用して、プロセスを s ステップを使用できます。 DataList の編集を選択した後`EditItemTemplate`、テンプレートの編集インターフェイスに、ツールボックスからドラッグして、RequiredFieldValidator を追加後に配置、`ProductName`テキスト ボックス。
+まず、必要な検証コントロールを DataList s `EditItemTemplate`に追加します。 このタスクを実行するには、デザイナーを使用して、DataList s スマートタグの [テンプレートの編集] リンクをクリックするか、宣言型の構文を使用します。 ここでは、デザインビューの [テンプレートの編集] オプションを使用してプロセスをステップ実行します。 DataList s `EditItemTemplate`の編集を選択したら、[ツールボックス] から [RequiredFieldValidator] を追加し、[`ProductName`] ボックスの後に配置します。
 
-[![ProductName テキスト ボックスの後に、後に、RequiredFieldValidator を追加します。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
+[RequiredFieldValidator を ProductName テキストボックスの後の EditItemTemplate に追加 ![には](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
 
-**図 3**:RequiredFieldValidator を追加、 `EditItemTemplate After` 、 `ProductName` TextBox ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png))。
+**図 3**: `ProductName` テキストボックス `EditItemTemplate After` に RequiredFieldValidator を追加する ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png)されます)
 
-すべての検証コントロールは、1 つの ASP.NET Web コントロールの入力を検証することで動作します。 そのため、追加した RequiredFieldValidator が検証を示す必要があります、`ProductName`テキスト ボックスですこれは、検証コントロールの設定で[`ControlToValidate`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)を、`ID`の。適切な Web コントロール (`ProductName`、このインスタンスで)。 次に、設定、 [ `ErrorMessage`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)するには、製品の名前を指定する必要があります、 [ `Text`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)に\*します。 `Text`プロパティの値を指定されている場合は、検証が失敗した場合、検証コントロールによって表示されるテキスト。 `ErrorMessage`場合を必要なプロパティ値が ValidationSummary コントロールによって使用される、`Text`プロパティの値を省略すると、`ErrorMessage`プロパティの値が無効な入力の検証コントロールによって表示されます。
+すべての検証コントロールは、単一の ASP.NET Web コントロールの入力を検証することによって機能します。 そのため、追加した RequiredFieldValidator が `ProductName` TextBox に対して検証する必要があることを示す必要があります。これを行うには、[検証コントロール s [`ControlToValidate`] プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)を適切な Web コントロール (このインスタンスでは`ProductName`) の `ID` に設定します。 次に、 [`ErrorMessage` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)をに設定して、製品名と[`Text` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)を \*に指定する必要があります。 `Text` プロパティ値 (指定されている場合) は、検証が失敗した場合に検証コントロールによって表示されるテキストです。 必須である `ErrorMessage` プロパティ値は、ValidationSummary コントロールによって使用されます。`Text` プロパティ値を省略した場合、無効な入力に対して検証コントロールによって `ErrorMessage` プロパティ値が表示されます。
 
-これら 3 つ、RequiredFieldValidator のプロパティを設定した後、画面を図 4 のようなはずです。
+RequiredFieldValidator の3つのプロパティを設定した後、画面は図4のようになります。
 
-[![RequiredFieldValidator の ControlToValidate、エラー メッセージ、およびテキストのプロパティを設定します。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
+[RequiredFieldValidator s ControlToValidate、ErrorMessage、および Text プロパティを設定 ![には](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
 
-**図 4**:RequiredFieldValidator s 設定`ControlToValidate`、 `ErrorMessage`、および`Text`プロパティ ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))。
+**図 4**: RequiredFieldValidator s `ControlToValidate`、`ErrorMessage`、および `Text` の各プロパティを設定[する (クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png)されます)
 
-RequiredFieldValidator を追加すると、`EditItemTemplate`すべて残ってはボックス製品の価格のために必要な検証を追加することです。 以降、`UnitPrice`は省略可能なレコードを編集するには、こと、RequiredFieldValidator に追加する必要はありません。 ただし、いることを確認する CompareValidator を追加する必要があります、 `UnitPrice`、指定した場合は、0 以上でありが正しく、通貨として書式設定します。
+`EditItemTemplate`に追加された RequiredFieldValidator を使用して、製品の [価格] ボックスに必要な検証を追加します。 `UnitPrice` はレコードを編集するときには省略可能であるため、RequiredFieldValidator を追加する必要はありません。 ただし、CompareValidator を追加して、指定されている場合は、`UnitPrice`が通貨として正しく書式設定され、0以上であることを確認する必要があります。
 
-CompareValidator の追加、`EditItemTemplate`設定とその`ControlToValidate`プロパティを`UnitPrice`その`ErrorMessage`価格にプロパティが 0 以上にする必要があり、通貨記号を含めることはできませんし、その`Text`プロパティ\*. いることを示す、`UnitPrice`値が 0 以上、CompareValidator s を設定する必要があります[`Operator`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx)に`GreaterThanEqual`その[`ValueToCompare`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx)を 0 にし、その[`Type`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx)に`Currency`します。
+`EditItemTemplate` に CompareValidator を追加し、その `ControlToValidate` プロパティを `UnitPrice`に設定します。その `ErrorMessage` プロパティには、0以上の値を指定する必要があります。また、通貨記号を含めることはできず、`Text` にはその \*プロパティを指定する必要があります。 `UnitPrice` 値が0以上である必要があることを示すには、CompareValidator s [`Operator` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx)を `GreaterThanEqual`に、その[`ValueToCompare` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx)を0に設定し、その[`Type` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx)を `Currency`に設定します。
 
-DataList s、これらの 2 つの検証コントロールを追加した後`EditItemTemplate`s 宣言の構文に、次のようになります。
+これら2つの検証コントロールを追加した後、DataList s `EditItemTemplate` s 宣言構文は次のようになります。
 
 [!code-aspx[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample1.aspx)]
 
-これらの変更を行った後は、ブラウザーでページを開きます。 名前を省略するか、製品を編集するときに、無効な価格の値を入力しようとすると、テキスト ボックスの横にある場合は、アスタリスクが表示されます。 図 5 に示すよう 19.95 ドルなどの通貨記号を含む価格の値は無効と見なされます。 CompareValidator s `Currency` `Type` (コンマ、ピリオド、カルチャ設定によってなど) の桁区切り記号と先頭プラスまたはマイナス記号、できますが、*いない*通貨記号を許可します。 この動作は、編集インターフェイスをレンダリング現在ユーザーに perplex 可能性があります、`UnitPrice`通貨形式を使用します。
+これらの変更を行った後、ブラウザーでページを開きます。 製品を編集するときに名前を省略したり、無効な価格値を入力しようとしたりすると、テキストボックスの横にアスタリスクが表示されます。 図5に示すように、$19.95 などの通貨記号を含む価格値は無効と見なされます。 CompareValidator s `Currency` `Type` では、桁区切り記号 (カルチャの設定によってはコンマやピリオドなど) と先頭の正符号または負符号を使用できますが、通貨記号は許可*されません*。 この動作は、現在、編集インターフェイスが通貨書式を使用して `UnitPrice` を表示するときに、ユーザーによって変更される可能性があります。
 
-[![無効な入力をテキスト ボックスの横にアスタリスクが表示されます。](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
+[無効な入力のテキストボックスの横にアスタリスクが表示され ![](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
 
-**図 5**:アスタリスクが表示されますへの無効な入力をテキスト ボックス ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))。
+**図 5**: 無効な入力のテキストボックスの横にアスタリスクが表示される ([クリックすると、フルサイズの画像が表示](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png)されます)
 
-として検証機能の中では、ユーザーが許容されないレコードを編集するときに、通貨記号を手動で削除する必要があります。 さらに、存在が有効な場合、編集の入力のどちらも、更新プログラムもキャンセル ボタンのクリックされると、ポストバックを呼び出すときにインターフェイスです。 理想的には、[キャンセル] ボタンは、ユーザーの入力の妥当性に関係なく、編集済みの状態を DataList を返します。 また、DataList s で製品情報を更新する前に、ページ データが有効であることを確認する必要があります`UpdateCommand`としてユーザーのブラウザーは JavaScript サポートがないかがクライアント側ロジックをバイパスすることができます、検証コントロールのイベント ハンドラーサポートを無効になっています。
+検証はそのままの状態で機能しますが、ユーザーはレコードを編集するときに通貨記号を手動で削除する必要があります。これは許容できません。 さらに、編集インターフェイスに無効な入力がある場合、[Update] ボタンと [Cancel] ボタンをクリックしても、ポストバックが呼び出されます。 [キャンセル] ボタンは、ユーザーの入力が有効であるかどうかに関係なく、DataList を編集前の状態に戻すのが理想的です。 また、DataList s `UpdateCommand` イベントハンドラーで製品情報を更新する前に、ページのデータが有効であることを確認する必要があります。これは、ブラウザーが JavaScript をサポートしていないか、サポートが無効になっているユーザーが、検証コントロールのクライアント側ロジックをバイパスできるためです。
 
-## <a name="removing-the-currency-symbol-from-the-edititemtemplate-s-unitprice-textbox"></a>後の s UnitPrice TextBox から通貨記号を削除します。
+## <a name="removing-the-currency-symbol-from-the-edititemtemplate-s-unitprice-textbox"></a>EditItemTemplate s UnitPrice テキストボックスから通貨記号を削除する
 
-CompareValidator s を使用する場合`Currency``Type`、検証対象の入力は、通貨記号を含めることはできません。 このようなシンボルの存在ととして無効な入力をマークする CompareValidator です。 通貨記号が現在の編集インターフェイスに含まれています、ただし、 `UnitPrice`  ボックスに、つまり、ユーザーがその変更を保存する前に通貨記号を明示的に削除する必要があります。 これを解決するには、3 つのオプションがあります。
+CompareValidator s `Currency``Type`を使用する場合、検証対象の入力に通貨記号を含めることはできません。 このようなシンボルが存在する場合、CompareValidator は入力を無効としてマークします。 ただし、現在の編集インターフェイスには、`UnitPrice` テキストボックスに通貨記号が含まれています。つまり、ユーザーは、変更を保存する前に通貨記号を明示的に削除する必要があります。 これを解決するには、次の3つのオプションがあります。
 
-1. 構成、`EditItemTemplate`ように、`UnitPrice`テキスト ボックスの値が通貨として書式設定されません。
-2. CompareValidator の削除と適切に書式設定された通貨値をチェックする RegularExpressionValidator に置き換えることによって、通貨記号を入力するユーザーを許可します。 ここでチャレンジでは、通貨値を検証する正規表現は、CompareValidator として簡単ではなく、およびカルチャ設定を反映する場合は、コードの記述を必要とは。
-3. 検証コントロールを完全に削除し、GridView s でカスタム サーバー側の検証ロジックに依存`RowUpdating`イベント ハンドラー。
+1. `UnitPrice` テキストボックスの値が通貨として書式設定されないように `EditItemTemplate` を構成します。
+2. ユーザーが通貨記号を入力できるようにするには、CompareValidator を削除し、適切に書式設定された通貨値を確認する RegularExpressionValidator に置き換えます。 ここでの課題は、通貨の値を検証する正規表現が CompareValidator ほど単純ではなく、カルチャの設定を組み込む必要がある場合にコードを記述する必要があることです。
+3. 検証コントロールを完全に削除し、GridView s `RowUpdating` イベントハンドラーでカスタムのサーバー側検証ロジックに依存します。
 
-このチュートリアルではオプション 1 を使用してのことができます。 現在、`UnitPrice`は、テキスト ボックス内のデータ バインディング式のための通貨値として書式設定、 `EditItemTemplate`:`<%# Eval("UnitPrice", "{0:c}") %>`します。 変更、`Eval`ステートメント`Eval("UnitPrice", "{0:n2}")`、有効桁数 2 桁の番号として、結果の書式を設定します。 これ行う宣言型構文またはから DataBindings の編集リンクをクリックして直接、 `UnitPrice` DataList のボックス`EditItemTemplate`します。
+このチュートリアルでは、オプション1を使ってみましょう。 現在、`UnitPrice` は、`EditItemTemplate`: `<%# Eval("UnitPrice", "{0:c}") %>`のテキストボックスのデータバインド式により、通貨値として書式設定されます。 `Eval` ステートメントを `Eval("UnitPrice", "{0:n2}")`に変更します。これにより、結果が2桁の精度で数値として書式設定されます。 これを行うには、宣言型の構文を使用するか、DataList s `EditItemTemplate`の [`UnitPrice`] ボックスの [連結の編集] リンクをクリックします。
 
-この変更によりは、編集インターフェイスで書式設定された料金は、グループ区切り記号としてコンマと、小数点区切り文字としてピリオドが含まれていますが、通貨記号をオフのままです。
+この変更により、編集インターフェイスの書式設定された価格には、桁区切り記号としてコンマが、小数点区切り文字としてピリオドが付きますが、通貨記号はオフのままになります。
 
 > [!NOTE]
-> 編集可能なインターフェイスから通貨書式を削除するときに便利です、テキスト ボックスの外側のテキストとして通貨記号を配置します。 これは、通貨記号を提供する必要のないユーザーにヒントとして機能します。
+> 編集可能なインターフェイスから通貨書式を削除する場合は、テキストボックスの外側に通貨記号をテキストとして配置すると便利です。 これは、ユーザーが通貨記号を指定する必要がないことを示すヒントとして機能します。
 
-## <a name="fixing-the-cancel-button"></a>[キャンセル] ボタンを修正
+## <a name="fixing-the-cancel-button"></a>[キャンセル] ボタンの修正
 
-既定では、Web の検証コントロールは、クライアント側で検証を実行する JavaScript を生成します。 ボタン、LinkButton や ImageButton がクリックされたとき、ポストバックが発生する前にクライアント側でページの検証コントロールがチェックされます。 無効なデータがある場合、ポストバックが取り消されました。 特定のボタンをデータの妥当性できない可能性があります素材です。このような場合は、無効なデータのため取り消されましたポストバックを発生は厄介です。
+既定では、検証 Web コントロールは、クライアント側で検証を実行する JavaScript を生成します。 ボタン、LinkButton、または ImageButton がクリックされると、ポストバックが発生する前に、ページの検証コントロールがクライアント側でチェックされます。 無効なデータがある場合、ポストバックはキャンセルされます。 ただし、特定のボタンについては、データの有効性が問題でになることがあります。このような場合、データが無効であるためにポストバックがキャンセルされることは厄介です。
 
-[キャンセル] ボタンは、このような例を示します。 ユーザーなど、s の製品名を省略すると、無効なデータを入力した製品をすべて保存する彼女はたくを決定および [キャンセル] ボタンをヒットを想像してください。 現時点では、キャンセル ボタンは、製品名が不足しているが、ポストバックを防ぐためであることを報告する ページで、検証コントロールをトリガーします。 ユーザーがテキストを入力する必要があります、`ProductName`テキスト ボックスに編集のプロセスをキャンセルするだけです。
+このような場合は、[キャンセル] ボタンが使用されます。 たとえば、製品名を省略した場合など、ユーザーが無効なデータを入力した後、製品を保存しないことを決定し、[キャンセル] ボタンをクリックしたとします。 現在、[キャンセル] ボタンをクリックすると、ページの検証コントロールがトリガーされ、製品名がないことを報告し、ポストバックを防止できます。 編集プロセスをキャンセルするには、ユーザーが `ProductName` テキストボックスにテキストを入力する必要があります。
 
-さいわい、ボタン、LinkButton、および ImageButton が、 [ `CausesValidation`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx)ことを示すをクリックするかどうか、ボタンは、検証ロジックを開始する必要があります (既定値は`True`)。 設定は [キャンセル] ボタンの s`CausesValidation`プロパティを`False`します。
+幸いにも、ボタン、LinkButton、および ImageButton には、ボタンをクリックして検証ロジックを開始するかどうかを示す[`CausesValidation` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx)があります (既定では `True`)。 Cancel ボタン s `CausesValidation` プロパティを `False`に設定します。
 
-## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>UpdateCommand イベント ハンドラーで有効では、入力のことを確認します。
+## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>UpdateCommand イベントハンドラーで入力が有効であることを確認する
 
-検証コントロールによって出力されるクライアント側スクリプトにより、ユーザーが入力すると無効な入力検証コントロールのキャンセル ボタン、linkbutton コントロールで開始されたすべてのポストバック ImageButton コントロールまたは持つ`CausesValidation`プロパティは、 `True` (、既定値)。 ただし、ユーザーは旧式のブラウザーまたは JavaScript のサポートが無効になっている 1 つにアクセスして、クライアント側検証チェックは実行されません。
+検証コントロールによって出力されるクライアント側スクリプトにより、ユーザーが無効な入力を入力した場合、検証コントロールは、`CausesValidation` プロパティが `True` (既定値) になっているボタン、LinkButton、または ImageButton コントロールによって開始されたポストバックをキャンセルします。 ただし、ユーザーが時代遅れブラウザーを使用してアクセスしている場合、または JavaScript のサポートが無効になっている場合は、クライアント側の検証チェックは実行されません。
 
-ASP.NET 検証コントロールのすべてのポストバック時にすぐに、検証ロジックを繰り返すし、を使用して、ページ入力の全体的な有効性を報告、 [ `Page.IsValid`プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx)します。 ただし、ページ フローが中断されるかいずれかの値に基づく方法で停止`Page.IsValid`します。 開発者として、いることを確認する必要がありますが、`Page.IsValid`プロパティの値を持つ`True`入力データの有効なが想定するコードに進む前にします。
+すべての ASP.NET 検証コントロールは、ポストバックの直後に検証ロジックを繰り返し、 [`Page.IsValid` プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx)を使用してページの入力の全体的な有効性を報告します。 ただし、`Page.IsValid`の値に基づいて、ページフローが中断または停止されることはありません。 開発者は、有効な入力データを想定したコードに進む前に、`Page.IsValid` プロパティの値が `True` であることを確認する必要があります。
 
-ページにアクセスし、製品を編集、すぎますの価格の値を入力をユーザーに JavaScript を無効になっている場合は、高価で、[更新] ボタンをクリックしては、クライアント側の検証をバイパスし、ポストバックにつながります。 、ASP.NET ページのポストバックの`UpdateCommand`イベント ハンドラーを実行し、すぎるの解析中に例外が発生する負荷の高い、 `Decimal`。 例外処理がある、このような例外は正常に処理されますが、私たちを進めるだけで、最初にを通じて遅れてから無効なデータを妨げる可能性があるため、`UpdateCommand`イベント ハンドラー場合`Page.IsValid`の値を持つ`True`します。
+ユーザーが JavaScript を無効にしている場合は、ページにアクセスして、製品を編集し、価格の値を大きくしてから、[更新] ボタンをクリックすると、クライアント側の検証がバイパスされ、ポストバックが議論されます。 ポストバック時に、ASP.NET ページ s `UpdateCommand` イベントハンドラーが実行され、`Decimal`に対して負荷が高すぎると、例外が発生します。 例外処理があるため、このような例外は適切に処理されますが、最初の場所で無効なデータが処理されるのを防ぐことができるのは、`Page.IsValid` の値が `True`の場合に `UpdateCommand` イベントハンドラーを続行することだけです。
 
-先頭に次のコードを追加、`UpdateCommand`イベント ハンドラーの直前に、`Try`ブロック。
+`UpdateCommand` イベントハンドラーの先頭に、`Try` ブロックの直前に次のコードを追加します。
 
 [!code-vb[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample2.vb)]
 
-これにより、送信されたデータが有効な場合にのみ更新する製品を試みます。 ほとんどのユーザーは、検証コントロールのクライアント側スクリプトにより、無効なデータをポストバックすることはできませんが、JavaScript をサポートするブラウザーのないユーザー、またはを JavaScript のサポートを無効になっていることができます、クライアント側のチェックをバイパスし、無効なデータを送信します。
+この追加により、送信されたデータが有効である場合にのみ、製品が更新されるようになります。 ほとんどのユーザーは、検証コントロールのクライアント側スクリプトによって無効なデータをポストバックすることはできませんが、ブラウザーが JavaScript をサポートしていないユーザーまたは JavaScript のサポートが無効になっているユーザーは、クライアント側のチェックをバイパスして、無効なデータを送信できます。
 
 > [!NOTE]
-> を GridView にデータを更新する場合でも、明示的にチェックする必要ありませんでしたが、鋭い読者なら、を呼び出し、`Page.IsValid`ページ分離コード クラスのプロパティ。 これは、GridView を参照しているため、`Page.IsValid`プロパティの値を返す場合にのみ更新プログラムを続行のみと`True`します。
+> ずる賢い reader は、GridView を使用してデータを更新するときに、ページの分離コードクラスの `Page.IsValid` プロパティを明示的に確認する必要がないことを思い出しています。 これは、GridView が `Page.IsValid` プロパティを調べ、`True`の値を返す場合にのみ更新のみを処理するためです。
 
-## <a name="step-3-summarizing-data-entry-problems"></a>手順 3: データ エントリの問題の要約
+## <a name="step-3-summarizing-data-entry-problems"></a>手順 3: データ入力の問題の概要
 
-ASP.NET には、5 つの検証コントロールのほか、 [ValidationSummary コントロール](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)が表示される、`ErrorMessage`の無効なデータが検出された検証コントロール。 この概要データは、モーダル、クライアント側のメッセージ ボックスから web ページ上のテキストとして表示できます。 S をクライアント側のメッセージ ボックス検証問題の集計を含めるには、このチュートリアルを拡張することができます。
+5つの検証コントロールに加えて、ASP.NET には[Validationsummary コントロール](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)が含まれています。このコントロールには、無効なデータを検出した検証コントロールの `ErrorMessage` が表示されます。 この概要データは、web ページ上のテキストとして、またはモーダルのクライアント側のメッセージボックスを使用して表示できます。 このチュートリアルを強化し、検証の問題を要約したクライアント側のメッセージボックスを含めるようにしてみましょう。
 
-これを実現するには、ツールボックスからデザイナーに ValidationSummary コントロールをドラッグします。 ValidationSummary コントロールは t の場所は問題で、以降にのみ、メッセージ ボックスとしての概要を表示するように構成します。 コントロールを追加すると、次のように設定します。 その[`ShowSummary`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)に`False`とその[`ShowMessageBox`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)に`True`します。 これにより、検証エラーがクライアント側のメッセージ ボックス データベースで集計されます (図 6 参照)。
+これを実現するには、[ツールボックス] から [ValidationSummary] コントロールをデザイナーにドラッグします。 ValidationSummary コントロールの場所は、メッセージボックスとして概要のみを表示するように構成するため、実際には問題になりません。 コントロールを追加した後、その[`ShowSummary` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)を `False` に設定し、その[`ShowMessageBox` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)を `True`に設定します。 この追加により、クライアント側のメッセージボックスに検証エラーが集約されます (図6を参照)。
 
-[![検証エラーがクライアント側のメッセージ ボックスにまとめます](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
+[検証エラーがクライアント側のメッセージボックスにまとめられている ![](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
 
-**図 6**:クライアント側のメッセージ ボックスで検証エラーをまとめます ([フルサイズの画像を表示する をクリックします](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))。
+**図 6**: 検証エラーがクライアント側のメッセージボックスにまとめられている ([クリックしてフルサイズのイメージを表示する](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、事前に、ユーザー入力が更新のワークフローで使用する前に有効であることを確認する検証コントロールを使用して、例外の可能性を低減する方法を説明しました。 ASP.NET では、特定の Web を検査するように設計された 5 つの検証 Web コントロールが入力を制御し、入力の有効性を報告を提供します。 このチュートリアルで使用してこれら 5 つのコントロールの 2 つ、RequiredFieldValidator およびに CompareValidator s の製品名を指定して、価格がより大きいまたは 0 以下の値を持つ通貨書式を持っていることを確認しました。
+このチュートリアルでは、検証コントロールを使用して、ユーザーの入力が有効であることを事前に確認してから、更新ワークフローでの使用を試行する方法について説明しました。 ASP.NET には、特定の Web コントロールの入力を検査し、入力の有効性を報告するように設計された5つの検証 Web コントロールが用意されています。 このチュートリアルでは、RequiredFieldValidator と CompareValidator の2つのコントロールを使用して、製品名が指定されていること、および価格の値が0以上の通貨形式であることを確認しました。
 
-上にドラッグするだけではインターフェイスの編集、DataList に検証コントロールを追加、`EditItemTemplate`からツールボックスといくつかのプロパティを設定します。 既定では、検証コントロールに自動的に生成クライアント側の検証スクリプトサーバー側の検証で累積的な結果を格納する、ポストバックの提供、`Page.IsValid`プロパティ。 ボタン、LinkButton や ImageButton がクリックされたときに、クライアント側の検証をバイパスする設定ボタン s`CausesValidation`プロパティを`False`します。 また、ポストバック時に送信されたデータのすべてのタスクを実行する前にすることを確認、`Page.IsValid`プロパティが返す`True`します。
+DataList の編集インターフェイスに検証コントロールを追加するのは、ツールボックスから `EditItemTemplate` にドラッグし、いくつかのプロパティを設定するだけです。 既定では、検証コントロールはクライアント側の検証スクリプトを自動的に生成します。また、ポストバック時にサーバー側の検証も行い、累積結果を `Page.IsValid` プロパティに格納します。 ボタン、LinkButton、または ImageButton がクリックされたときにクライアント側の検証をバイパスするには、[`CausesValidation`] プロパティを `False`に設定します。 また、ポストバック時に送信されたデータを使用してタスクを実行する前に、`Page.IsValid` プロパティが `True`を返していることを確認してください。
 
-DataList の編集のチュートリアルのすべて ve これまでに調べる必要がありました編集インターフェイスを非常に単純なテキスト ボックス、s の製品名と価格の。 ただし、編集のインターフェイスは、Dropdownlist、カレンダー、ボタン、チェック ボックスなどの別の Web コントロールの組み合わせを含めることができます。 次のチュートリアルでは、さまざまな Web コントロールを使用するインターフェイスの構築に紹介します。
+これまでに説明したすべての DataList 編集チュートリアルでは、製品名のテキストボックスと価格について、非常に単純な編集インターフェイスが用意されています。 ただし、編集インターフェイスには、DropDownLists、カレンダー、Radiobutton、Checkbox など、さまざまな Web コントロールを混在させることができます。 次のチュートリアルでは、さまざまな Web コントロールを使用するインターフェイスの構築について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Dennis Patterson、Ken Pespisa、Liz Shulok でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Patterson が、Ken PLiz Isa、および Shulok でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](handling-bll-and-dal-level-exceptions-vb.md)

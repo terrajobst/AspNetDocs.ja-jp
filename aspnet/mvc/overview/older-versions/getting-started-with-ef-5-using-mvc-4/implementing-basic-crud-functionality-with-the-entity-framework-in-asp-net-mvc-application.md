@@ -1,36 +1,36 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: ASP.NET MVC アプリケーション (2/10) で Entity Framework での基本的な CRUD 機能を実装する |Microsoft Docs
+title: ASP.NET MVC アプリケーションでの Entity Framework を使用した基本的な CRUD 機能の実装 (2/10) |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
+description: Contoso 大学のサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示しています。
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: f7bace3f-b85a-47ff-b5fe-49e81441cdf9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d42c13b01d798b6c35327826812e853d327eeae9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: eba146d2975e0dcf243facf7c205c4acfe40b6f6
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112489"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595331"
 ---
-# <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>ASP.NET MVC アプリケーション (2/10) で Entity Framework での基本的な CRUD 機能を実装します。
+# <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>ASP.NET MVC アプリケーションでの Entity Framework を使用した基本的な CRUD 機能の実装 (2/10)
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 チュートリアルのシリーズを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから始めてください。
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示しています。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。 チュートリアルシリーズは、最初から開始するか、[この章のスタートプロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)して開始することができます。
 > 
 > > [!NOTE] 
 > > 
-> > を解決できない問題が生じた場合[章では、完了したダウンロード](building-the-ef5-mvc4-chapter-downloads.md)の問題を再現しようとします。 問題の解決策は、完成したコードにコードを比較することによって一般的に見つかります。 一般的なエラーとその解決方法は、次を参照してください。[エラーと回避策。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > 解決できない問題が発生した場合は、完成した[章をダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、問題の再現を試みてください。 一般に、コードと完成したコードを比較することで、問題の解決策を見つけることができます。 一般的なエラーとその解決方法については、「[エラーと回避策](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)」を参照してください。
 
-前のチュートリアルでは、保存し、Entity Framework と SQL Server LocalDB を使用してデータを表示する MVC アプリケーションを作成しました。 このチュートリアルで確認およびカスタマイズ、CRUD (作成、読み取り、更新、削除)、MVC スキャフォールディングが自動的にコント ローラーとビューを作成するコードです。
+前のチュートリアルでは、Entity Framework と SQL Server LocalDB を使用してデータを格納および表示する MVC アプリケーションを作成しました。 このチュートリアルでは、MVC スキャフォールディングによってコントローラーとビューに自動的に作成される CRUD (作成、読み取り、更新、削除) コードを確認し、カスタマイズします。
 
 > [!NOTE]
-> コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 これらのチュートリアルを簡潔にするには、このシリーズの後のチュートリアルまでリポジトリを実装するされません。
+> コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 これらのチュートリアルを簡単にするために、このシリーズの後のチュートリアルまではリポジトリを実装しません。
 
 このチュートリアルでは、次の web ページを作成します。
 
@@ -42,37 +42,37 @@ ms.locfileid: "65112489"
 
 ![Student_delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image4.png)
 
-## <a name="creating-a-details-page"></a>詳細ページを作成します。
+## <a name="creating-a-details-page"></a>詳細ページの作成
 
-受講者のスキャフォールディング コードに`Index`ページを含めなかった、`Enrollments`プロパティ、そのプロパティには、コレクションが格納されているためです。 `Details`ページの HTML テーブルのコレクションの内容を表示します。
+このプロパティにはコレクションが保持されているため、[Students `Index`] ページのスキャフォールディングコードは `Enrollments` プロパティの左側にあります。 [`Details`] ページには、コレクションの内容が HTML テーブルとして表示されます。
 
- *Controllers\StudentController.cs*、アクション メソッド、`Details`表示は、 `Find` 、1 つを取得するメソッドを`Student`エンティティ。 
+ *Controllers\StudentController.cs*では、`Details` ビューのアクションメソッドは、`Find` メソッドを使用して1つの `Student` エンティティを取得します。 
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample1.cs)]
 
- キーの値としてメソッドに渡されます、`id`パラメーター内のルート データから取得し、**詳細**Index ページにハイパーリンク。 
+ キー値は `id` パラメーターとしてメソッドに渡され、インデックスページの**詳細**ハイパーリンクのルートデータから取得されます。 
 
-1. 開いている*Views\Student\Details.cshtml*します。 使用して各フィールドを表示、`DisplayFor`ヘルパーは、次の例に示すようにします。 
+1. *Views\Student\Details.cshtml*を開きます。 各フィールドは、次の例に示すように、`DisplayFor` ヘルパーを使用して表示されます。 
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample2.cshtml)]
-2. 後に、`EnrollmentDate`フィールドと、終了する直前に`fieldset`タグは、次の例に示すように、登録の一覧を表示するコードを追加します。
+2. `EnrollmentDate` フィールドの後、終了 `fieldset` タグの直前に、次の例に示すように、登録の一覧を表示するコードを追加します。
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample3.cshtml?highlight=4-22)]
 
-    このコードは、`Enrollments` ナビゲーション プロパティ内のエンティティをループ処理します。 各`Enrollment`エンティティ、プロパティでは、コースのタイトルとグレードが表示されます。 コース タイトルがから取得した、`Course`エンティティに格納されている、`Course`のナビゲーション プロパティ、`Enrollments`エンティティ。 すべてのデータをデータベースから自動的に取得されます必要がある場合。 (つまり、使用する遅延読み込みは、ここです。 指定しなかった*一括読み込み*の`Courses`ナビゲーション プロパティ、そのプロパティにアクセスしよう初めてのため、クエリがデータベースに送信、データを取得します。 詳細については、遅延読み込みと一括読み込みで、[関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズの後半のチュートリアルです)。
-3. 選択して、ページの実行、**学生**タブとクリックすると、**詳細**Alexander Carson のリンク。 選んだ受講者のコースとグレードの一覧が表示されます。
+    このコードは、`Enrollments` ナビゲーション プロパティ内のエンティティをループ処理します。 プロパティ内の `Enrollment` エンティティごとに、コースタイトルとグレードが表示されます。 コースタイトルは、`Enrollments` エンティティの `Course` ナビゲーションプロパティに格納されている `Course` エンティティから取得されます。 必要に応じて、すべてのデータがデータベースから自動的に取得されます。 (つまり、ここで遅延読み込みを使用しているとします。 `Courses` ナビゲーションプロパティに*一括読み込み*を指定しなかったため、そのプロパティに初めてアクセスしようとすると、データを取得するためのクエリがデータベースに送信されます。 遅延読み込みと一括読み込みの詳細については、このシリーズの後の「[関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)」チュートリアルを参照してください)。
+3. **Students** タブを選択し、アレクサンドロス Carson の  **Details** リンクをクリックして、ページを実行します。 選んだ受講者のコースとグレードの一覧が表示されます。
 
     ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)
 
-## <a name="updating-the-create-page"></a>[作成] ページを更新しています
+## <a name="updating-the-create-page"></a>Create ページを更新しています
 
-1. *Controllers\StudentController.cs*、置換、`HttpPost``Create`アクション メソッドを次のコードを追加する、`try-catch`ブロックと[Bind 属性](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)スキャフォールディング メソッド。 
+1. *Controllers\StudentController.cs*で、`HttpPost``Create` アクションメソッドを次のコードに置き換えて、`try-catch` ブロックと[バインド属性](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)をスキャフォールディングメソッドに追加します。 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample4.cs?highlight=4,7-8,14-20)]
 
-    このコードを追加、`Student`に ASP.NET MVC モデル バインダーによって作成されたエンティティ、`Students`エンティティが設定され、データベースに変更を保存します。 (*モデル バインダー*モデル バインダーに変換が投稿されたフォーム値の CLR 型とパラメーター内のアクション メソッドに渡します。 フォームによって送信されたデータを操作するために簡単には、ASP.NET MVC の機能を参照します。 この、モデル バインダーをインスタンス化、`Student`からプロパティを使用してエンティティの値、`Form`コレクションです)。
+    このコードは、ASP.NET MVC モデルバインダーによって作成された `Student` エンティティを `Students` エンティティセットに追加し、変更をデータベースに保存します。 (*モデルバインダー*とは、フォームによって送信されたデータを簡単に操作できるようにする ASP.NET MVC 機能のことです。モデルバインダーは、ポストされたフォーム値を CLR 型に変換し、パラメーターのアクションメソッドに渡します。 この場合、モデルバインダーは、`Form` コレクションのプロパティ値を使用して `Student` エンティティをインスタンス化します)。
 
-    `ValidateAntiForgeryToken`属性を防ぎ[クロスサイト リクエスト フォージェリ](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)攻撃です。
+    `ValidateAntiForgeryToken` 属性は、[クロスサイト要求偽造](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)攻撃を防ぐのに役立ちます。
 
 <a id="overpost"></a>
 
@@ -100,110 +100,110 @@ ms.locfileid: "65112489"
     *Create.cshtml* also includes `@Html.AntiForgeryToken()`, which works with the `ValidateAntiForgeryToken` attribute in the controller to help prevent [cross-site request forgery](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) attacks.
 
     No changes are required in *Create.cshtml*.
-2. 選択して、ページの実行、**学生**タブとクリックして**新規作成**です。
+2. **[Students]** タブを選択し、 **[新規作成]** をクリックして、ページを実行します。
 
     ![Student_Create_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image7.png)
 
-    いくつかのデータ検証は、既定では動作します。 名前と、無効な日付を入力し、クリックして**作成**エラー メッセージを確認します。
+    一部のデータの検証は、既定で動作します。 名前と無効な日付を入力し、 **[作成]** をクリックしてエラーメッセージを表示します。
 
     ![Students_Create_page_error_message](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image8.png)
 
-    次の強調表示されたコードでは、モデルの検証チェックを示します。
+    次の強調表示されたコードは、モデルの検証チェックを示しています。
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample7.cs?highlight=5)]
 
-    9/1/2005 などの有効な値に日付を変更し、をクリックして**作成**で表示される新しい学生を表示する、**インデックス**ページ。
+    日付を9/1/2005 などの有効な値に変更し、 **[作成]** をクリックして、新しい学生が**インデックス**ページに表示されることを確認します。
 
     ![Students_Index_page_with_new_student](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image9.png)
 
-## <a name="updating-the-edit-post-page"></a>投稿の編集 ページを更新しています
+## <a name="updating-the-edit-post-page"></a>[投稿の編集] ページの更新
 
-*Controllers\StudentController.cs*、 `HttpGet` `Edit`メソッド (せず 1 つ、`HttpPost`属性) を使用して、`Find`メソッドを選択した取得`Student`見たこととして、エンティティ`Details`メソッド。 このメソッドを変更する必要はありません。
+*Controllers\StudentController.cs*では、`HttpGet` `Edit` メソッド (`HttpPost` 属性を持たないメソッド) は、`Find` メソッドを使用して、`Student` メソッドで見たように、選択した `Details` エンティティを取得します。 このメソッドを変更する必要はありません。
 
-ただし、置換、 `HttpPost` `Edit`アクション メソッドを次のコードを追加する、`try-catch`ブロックと[Bind 属性](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx):
+ただし、`HttpPost` `Edit` アクションメソッドを次のコードに置き換えて、`try-catch` ブロックと[バインド属性](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)を追加します。
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs)]
 
-このコードはで確認したものと似ています、 `HttpPost` `Create`メソッド。 ただし、エンティティ セットにモデル バインダーによって作成されたエンティティを追加する代わりにこのコードにフラグを設定が変更されたことを示すエンティティです。 ときに、 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドを呼び出すと、 [Modified](https://msdn.microsoft.com/library/system.data.entitystate.aspx)フラグによって、データベースの行を更新する SQL ステートメントを作成する Entity Framework。 ユーザーを変更していないものも含め、データベースの行のすべての列を更新は、同時実行の競合が無視されます。 (このシリーズの以降のチュートリアルでは、同時実行を処理する方法を説明します) します。
+このコードは、`HttpPost` `Create` メソッドで見たものと似ています。 ただし、モデルバインダーによって作成されたエンティティをエンティティセットに追加するのではなく、このコードによってエンティティにフラグが設定され、変更されたことが示されます。 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドが呼び出されると、[変更](https://msdn.microsoft.com/library/system.data.entitystate.aspx)されたフラグによって ENTITY FRAMEWORK によって SQL ステートメントが作成され、データベース行が更新されます。 データベースの行のすべての列が更新されます。これには、ユーザーが変更していない列や同時実行の競合は無視されます。 (このシリーズの後のチュートリアルで、同時実行を処理する方法について説明します)。
 
-### <a name="entity-states-and-the-attach-and-savechanges-methods"></a>エンティティの状態と、アタッチと SaveChanges メソッド
+### <a name="entity-states-and-the-attach-and-savechanges-methods"></a>エンティティの状態と Attach メソッドと SaveChanges メソッド
 
-データベース コンテキストは、メモリ内のエンティティがデータベースの対応する行と同期しているかどうかを追跡しており、この情報により、`SaveChanges` メソッドを呼び出したときの処理が決まります。 新しいエンティティを渡す場合など、[追加](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx)メソッドは、エンティティの状態に設定されている`Added`します。 その後呼び出す、 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドでは、データベース コンテキストの問題、SQL`INSERT`コマンド。
+データベース コンテキストは、メモリ内のエンティティがデータベースの対応する行と同期しているかどうかを追跡しており、この情報により、`SaveChanges` メソッドを呼び出したときの処理が決まります。 たとえば、 [Add](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx)メソッドに新しいエンティティを渡すと、そのエンティティの状態が `Added`に設定されます。 次に、 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドを呼び出すと、データベースコンテキストによって SQL `INSERT` コマンドが発行されます。
 
-エンティティは、のいずれかである可能性があります、[状態に従って](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
+エンティティは、次のいずれかの[状態](https://msdn.microsoft.com/library/system.data.entitystate.aspx)になることがあります。
 
-- `Added`。 エンティティは、データベースにまだ存在しません。 `SaveChanges`メソッドを発行する必要があります、`INSERT`ステートメント。
-- `Unchanged`。 `SaveChanges` メソッドはこのエンティティに対し何も行う必要はありません。 データベースからエンティティを読み取ると、エンティティはこの状態で開始します。
-- `Modified`。 エンティティのプロパティ値の一部またはすべてが変更されています。 `SaveChanges`メソッドを発行する必要があります、`UPDATE`ステートメント。
-- `Deleted`。 エンティティには削除のマークが付けられています。 `SaveChanges`メソッドを発行する必要があります、`DELETE`ステートメント。
-- `Detached`。 エンティティはデータベース コンテキストによって追跡されていません。
+- `Added`. エンティティがデータベースにまだ存在しません。 `SaveChanges` メソッドは、`INSERT` ステートメントを発行する必要があります。
+- `Unchanged`. `SaveChanges` メソッドはこのエンティティに対し何も行う必要はありません。 データベースからエンティティを読み取ると、エンティティはこの状態で開始します。
+- `Modified`. エンティティのプロパティ値の一部またはすべてが変更されています。 `SaveChanges` メソッドは、`UPDATE` ステートメントを発行する必要があります。
+- `Deleted`. エンティティには削除のマークが付けられています。 `SaveChanges` メソッドは、`DELETE` ステートメントを発行する必要があります。
+- `Detached`. エンティティはデータベース コンテキストによって追跡されていません。
 
-デスクトップ アプリケーションにおいて、通常、状態の変更は自動的に設定されます。 デスクトップのタイプのアプリケーションでは、エンティティを読み取るし、そのプロパティ値の一部を変更します。 そのエンティティの状態は自動的に `Modified` に変更されます。 その後呼び出す`SaveChanges`、Entity Framework には、SQL が生成されます`UPDATE`実際に変更したプロパティのみを更新するステートメント。
+デスクトップ アプリケーションにおいて、通常、状態の変更は自動的に設定されます。 デスクトップの種類のアプリケーションでは、エンティティを読み取り、そのプロパティ値の一部を変更します。 そのエンティティの状態は自動的に `Modified` に変更されます。 次に、`SaveChanges`を呼び出すと、変更した実際のプロパティのみを更新する SQL `UPDATE` ステートメントが Entity Framework によって生成されます。
 
-この継続的なシーケンスでは、web アプリ、接続が確立は許可されていません。 [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)を読み取るエンティティは、ページが表示された後で破棄されます。 ときに、 `HttpPost` `Edit`アクション メソッドが呼び出され、新しい要求が行われるの新しいインスタンスがある、 [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)、エンティティの状態を手動で設定する必要があるため、`Modified.`を呼び出すと、 `SaveChanges`、Entity Framework は、コンテキストには、変更したプロパティを特定する方法があるないので、データベースの行のすべての列を更新します。
+Web apps の接続が切断されても、この連続シーケンスは許可されません。 エンティティを読み取る[Dbcontext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)は、ページが表示された後に破棄されます。 `HttpPost` `Edit` アクションメソッドが呼び出されると、新しい要求が行われ、 [Dbcontext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)の新しいインスタンスが作成されます。そのため、エンティティの状態を手動で `Modified.` に設定する必要があります。これにより、`SaveChanges`を呼び出すと、変更したプロパティを確認する方法がないため、Entity Framework はデータベース行のすべての列を更新します。
 
-場合は、SQL`Update`ステートメントは、ユーザーが実際に変更されたフィールドのみを更新するため、使用できるようにする場合に、(非表示フィールド) などのいくつかの方法で元の値を保存することができます、 `HttpPost` `Edit`メソッドが呼び出されます。 作成し、 `Student` 、呼び出し元の値を使用して、エンティティ、`Attach`メソッドは、エンティティの元のバージョンでは、エンティティの値を新しい値に更新を呼び出して`SaveChanges.`詳細については、次を参照してください[。エンティティの状態および SaveChanges](https://msdn.microsoft.com/data/jj592676)と[ローカル データ](https://msdn.microsoft.com/data/jj592872)MSDN データ デベロッパー センターでします。
+SQL `Update` ステートメントで、ユーザーが実際に変更したフィールドのみを更新する場合は、元の値を何らかの方法 (非表示フィールドなど) に保存して、`HttpPost` `Edit` メソッドが呼び出されたときに使用できるようにすることができます。 次に、元の値を使用して `Student` エンティティを作成し、その元のバージョンのエンティティで `Attach` メソッドを呼び出して、エンティティの値を新しい値に更新してから、`SaveChanges.` を呼び出します。詳細については、MSDN データデベロッパーセンターの「[エンティティの状態と SaveChanges](https://msdn.microsoft.com/data/jj592676)および[ローカルデータ](https://msdn.microsoft.com/data/jj592872)」を参照してください。
 
-コードでは、 *Views\Student\Edit.cshtml*で見たような*Create.cshtml*、し、変更は必要ありません。
+*Views\Student\Edit.cshtml*のコードは、例に似ています*が、変更*は必要ありません。
 
-選択して、ページの実行、**学生** タブをクリックして、**編集**ハイパーリンク。
+**[Students]** タブを選択し、 **[Edit]** ハイパーリンクをクリックして、ページを実行します。
 
 ![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
 
-データをいくつか変更し、**[Save]** をクリックします。 Index ページで、変更されたデータを表示します。
+データをいくつか変更し、 **[Save]** をクリックします。 変更したデータが [インデックス] ページに表示されます。
 
 ![Students_Index_page_after_edit](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image11.png)
 
-## <a name="updating-the-delete-page"></a>Delete ページの更新
+## <a name="updating-the-delete-page"></a>削除ページを更新しています
 
-*Controllers\StudentController.cs*、テンプレート コードを`HttpGet``Delete`メソッドは、`Find`メソッドを取得、選択した`Student`でエンティティを見た、`Details`と`Edit`メソッド。 ただし、`SaveChanges` の呼び出しが失敗したときのカスタム エラー メッセージを実装するには、何らかの機能とその対応するビューをこのメソッドに追加します。
+*Controllers\StudentController.cs*では、`HttpGet` `Delete` メソッドのテンプレートコードは `Find` メソッドを使用して、選択した `Student` エンティティを取得します。これは、`Details` メソッドと `Edit` メソッドで見たとおりです。 ただし、`SaveChanges` の呼び出しが失敗したときのカスタム エラー メッセージを実装するには、何らかの機能とその対応するビューをこのメソッドに追加します。
 
-更新および作成操作で見たように、削除操作にも 2 つのアクション メソッドが必要です。 GET 要求に応答して呼び出されるメソッドには、ユーザーを承認または削除操作をキャンセルする機会を提供するビューが表示されます。 ユーザーが操作を承認すると、POST 要求が作成されます。 その場合、 `HttpPost` `Delete`メソッドが呼び出され、そのメソッドが実際には、削除操作を実行します。
+更新および作成操作で見たように、削除操作にも 2 つのアクション メソッドが必要です。 GET 要求への応答として呼び出されるメソッドは、ユーザーが削除操作を承認またはキャンセルする機会を提供するビューを表示します。 ユーザーが操作を承認すると、POST 要求が作成されます。 この場合、`HttpPost` `Delete` メソッドが呼び出され、そのメソッドが実際に削除操作を実行します。
 
-追加、`try-catch`へのブロック、 `HttpPost` `Delete`データベースが更新されたときに発生するエラーを処理するメソッド。 エラーが発生する場合、 `HttpPost` `Delete`メソッドの呼び出し、 `HttpGet` `Delete`メソッドは、エラーが発生したことを示すパラメーターを渡します。 `HttpGet Delete`メソッドが再び表示し、確認ページと、エラー メッセージを取り消すか、もう一度お試しする機会をユーザーに提供します。
+`HttpPost` `Delete` メソッドに `try-catch` ブロックを追加して、データベースの更新時に発生する可能性のあるエラーを処理します。 エラーが発生した場合、`HttpPost` `Delete` メソッドは `HttpGet` `Delete` メソッドを呼び出し、エラーが発生したことを示すパラメーターを渡します。 次に、`HttpGet Delete` メソッドによって、確認ページがエラーメッセージと共に再表示され、ユーザーはキャンセルまたは再試行を行うことができます。
 
-1. 置換、 `HttpGet` `Delete`アクション メソッドを次のコードは、エラー報告を管理します。 
+1. `HttpGet` `Delete` アクションメソッドを、エラー報告を管理する次のコードに置き換えます。 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample9.cs)]
 
-    このコードは受け取ります、[省略可能な](https://msdn.microsoft.com/library/dd264739.aspx)変更の保存に失敗した後に呼び出されたかどうかを示すブール型パラメーター。 このパラメーターは`false`ときに、 `HttpGet` `Delete`以前失敗せずにメソッドが呼び出されます。 呼び出されたとき、 `HttpPost` `Delete`メソッド データベース更新エラーへの応答で、パラメーターが`true`エラー メッセージは、ビューに渡されます。
-2. 置換、 `HttpPost` `Delete`アクション メソッド (名前付き`DeleteConfirmed`) を次のコードでは、実際の削除操作を実行して、データベース更新エラーをキャッチします。
+    このコードは、変更の保存に失敗した後に呼び出されたかどうかを示す、[省略可能](https://msdn.microsoft.com/library/dd264739.aspx)なブール型パラメーターを受け取ります。 このパラメーターは、前のエラーを発生させずに `HttpGet` `Delete` メソッドが呼び出されたときに `false` ます。 データベース更新エラーに応答して `HttpPost` `Delete` メソッドによって呼び出された場合、パラメーターは `true` され、エラーメッセージがビューに渡されます。
+2. `HttpPost` `Delete` アクションメソッド (名前付き `DeleteConfirmed`) を次のコードに置き換えます。このコードは、実際の削除操作を実行し、データベースの更新エラーをキャッチします。
 
      [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs)]
 
-     このコードでは、選択したエンティティを取得します。 を呼び出して、[削除](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx)エンティティの状態を設定するメソッドを`Deleted`します。 ときに`SaveChanges`を呼び出すと、SQL`DELETE`コマンドが生成されます。 また、アクション メソッドの名前を `DeleteConfirmed` から `Delete` に変更しています。 という名前のスキャフォールディングされたコード、 `HttpPost` `Delete`メソッド`DeleteConfirmed`提供する、`HttpPost`メソッドに一意のシグネチャ。 (CLR にオーバー ロードされたメソッドが、さまざまなメソッド パラメーターが必要です)。シグネチャが一意ではこれでは、MVC 規則に従うし、に同じ名前を使用、`HttpPost`と`HttpGet`メソッドを削除します。
+     このコードは、選択したエンティティを取得し、 [Remove](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx)メソッドを呼び出して、エンティティの状態を `Deleted`に設定します。 `SaveChanges` が呼び出されると、SQL `DELETE` コマンドが生成されます。 また、アクション メソッドの名前を `DeleteConfirmed` から `Delete` に変更しています。 `HttpPost` `Delete` メソッドという名前のスキャフォールディングコードは、`HttpPost` メソッドに一意の署名を与える `DeleteConfirmed` ます。 (CLR では、オーバーロードされたメソッドで異なるメソッドパラメーターを持つ必要があります)。署名が一意であるため、MVC 規則を使用して、`HttpPost` と `HttpGet` delete メソッドに同じ名前を使用することができます。
 
-     呼び出すコードの行を置き換えることで、行を取得する不必要な SQL クエリの問題を回避できれば量の多いアプリケーションでパフォーマンスの向上が優先度の場合、`Find`と`Remove`黄色で示すように、次のコードでメソッド強調表示します。
+     大規模なアプリケーションのパフォーマンスを向上させることが優先される場合は、`Find` および `Remove` メソッドを呼び出すコード行を、黄色の強調表示に示すように、次のコードに置き換えることにより、不要な SQL クエリを使用して行を取得することを回避できます。
 
      [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample11.cs)]
 
-     このコードをインスタンス化、`Student`主キーの値のみを使用してエンティティ、エンティティの状態を設定および`Deleted`。 エンティティを削除するために Entity Framework に必要なものは主キーの値だけです 
+     このコードは、主キーの値のみを使用して `Student` エンティティをインスタンス化し、エンティティの状態を `Deleted`に設定します。 エンティティを削除するために Entity Framework に必要なものは主キーの値だけです
 
-     前述のように、 `HttpGet` `Delete`メソッド データは削除されません。 要求 (またはそのさらに言えば、任意の編集操作を実行する操作、または他のデータを変更する操作を作成)、GET に対する応答で削除操作を実行するセキュリティ上のリスクを作成します。 詳細については、次を参照してください。 [ASP.NET MVC ヒントと 46: セキュリティ ホールを作成するため、削除のリンクを使用しない](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)Stephen Walther のブログ。
-3. *Views\Student\Delete.cshtml*、間にエラー メッセージを追加、`h2`見出しと`h3`見出しで、次の例に示すようにします。
+     前述のように、`HttpGet` `Delete` メソッドはデータを削除しません。 GET 要求に応答して削除操作を実行する (または、任意の編集操作、作成操作、またはデータを変更するその他の操作を実行する) と、セキュリティ上のリスクが生じます。 詳細については、「ASP.NET MVC Tip #46」を参照してください。 Stephen Walther のブログに[セキュリティホールが作成されるため、削除リンクは使用しない](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)でください。
+3. *Views\Student\Delete.cshtml*で、次の例に示すように、`h2` 見出しと `h3` 見出しの間にエラーメッセージを追加します。
 
      [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cshtml?highlight=2)]
 
-     選択して、ページの実行、**学生**タブとクリックすると、**削除**ハイパーリンク。
+     **[Students]** タブを選択し、 **[Delete]** hyperlink をクリックして、ページを実行します。
 
      ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image12.png)
-4. **[Delete]** をクリックします。 削除された学生を含まない [Index] ページが表示されます  (エラー処理のアクションにコードの例が表示されます、[同時実行の処理](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズの後半のチュートリアルです)。
+4. **[Delete]** をクリックします。 削除された学生を含まない [Index] ページが表示されます (このシリーズの後の「[同時実行の処理](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)」チュートリアルでは、エラー処理コードの例を示しています)。
 
-## <a name="ensuring-that-database-connections-are-not-left-open"></a>データベース接続が開いたままいないにことを確認
+## <a name="ensuring-that-database-connections-are-not-left-open"></a>データベース接続が開いたままになっていないことを確認する
 
-適切なデータベース接続を閉じ、リソースを解放された保持することを確認する必要がありますを参照してくださいにコンテキストのインスタンスが破棄されたことです。 スキャフォールディングされたコードは、理由は、 [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx)メソッドの末尾に、`StudentController`クラス*StudentController.cs*次の例のように。
+データベース接続が適切に閉じられていることと、それらのリソースが解放されたことを確認するには、コンテキストインスタンスが破棄されていることがわかります。 このため、スキャフォールディングコードでは、次の例に示すように、 *StudentController.cs*の `StudentController` クラスの末尾に[Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx)メソッドが用意されています。
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-基本`Controller`クラスが既に実装、`IDisposable`インターフェイスのため、このコードでは、上書きを単に追加します、`Dispose(bool)`コンテキスト インスタンスを明示的に破棄するメソッド。
+基本 `Controller` クラスは、既に `IDisposable` インターフェイスを実装しているため、このコードは単にオーバーライドを `Dispose(bool)` メソッドに追加して、コンテキストインスタンスを明示的に破棄します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-単純な CRUD 操作を実行するページの完全なセットがあるようになりました`Student`エンティティ。 MVC ヘルパーを使用すると、データ フィールドの UI 要素を生成します。 MVC ヘルパーの詳細については、次を参照してください。 [HTML ヘルパーを使用してフォームをレンダリング](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx)(ページは MVC 3 は、MVC 4 にも引き続き該当です)。
+これで、`Student` エンティティに対して単純な CRUD 操作を実行する一連のページが完成しました。 MVC ヘルパーを使用して、データフィールドの UI 要素を生成した。 MVC ヘルパーの詳細については、「 [HTML ヘルパーを使用したフォームのレンダリング](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx)」を参照してください (このページは mvc 3 用ですが、mvc 4 にも関連しています)。
 
-次のチュートリアルでは、並べ替えとページングを追加することで、インデックス ページの機能を拡張します。
+次のチュートリアルでは、並べ替えとページングを追加して、インデックスページの機能を拡張します。
 
-その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+その他の Entity Framework リソースへのリンクについては、「 [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)

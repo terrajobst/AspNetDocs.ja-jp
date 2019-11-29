@@ -2,164 +2,164 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 title: 入れ子になったデータ Web コントロール (VB) |Microsoft Docs
 author: rick-anderson
-description: について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 例では、両方 d 内部 Repeater を設定する方法について説明しています.
+description: このチュートリアルでは、別のリピータ内に入れ子になっているリピータを使用する方法について説明します。 例では、内部リピータを設定する方法について説明します。
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b4eb90aec60767e80e90f4cb315440da27e208db
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c3c62ce4293498d3b325031ac9817f8935b183b2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108312"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74629590"
 ---
 # <a name="nested-data-web-controls-vb"></a>入れ子になったデータ Web コントロール (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_32_VB.exe)または[PDF のダウンロード](nested-data-web-controls-vb/_static/datatutorial32vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_32_VB.exe)または[PDF のダウンロード](nested-data-web-controls-vb/_static/datatutorial32vb1.pdf)
 
-> について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 例では、宣言とプログラミングは、内部の Repeater を設定する方法について説明します。
+> このチュートリアルでは、別のリピータ内に入れ子になっているリピータを使用する方法について説明します。 これらの例では、内部リピータを宣言的およびプログラムによって設定する方法を示します。
 
 ## <a name="introduction"></a>はじめに
 
-だけでなく静的な HTML およびデータ バインドの構文では、テンプレートは Web コントロールおよびユーザー コントロールも含めることができます。 これらの Web コントロールがそのプロパティを持つことができます、宣言型のデータ バインディング構文を使用して割り当てられているか、適切なサーバー側のイベント ハンドラーでプログラムからアクセスできます。
+HTML およびデータバインドの静的な構文に加えて、テンプレートには Web コントロールやユーザーコントロールを含めることもできます。 これらの Web コントロールは、宣言型、データバインド構文、または適切なサーバー側イベントハンドラーでプログラムによってアクセスできるプロパティを持つことができます。
 
-テンプレート内のコントロールを埋め込んでには、外観とユーザー エクスペリエンスをカスタマイズおよび改良してできます。 たとえば、 [GridView コントロールで TemplateFields を使用して](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md)チュートリアル, TemplateField 従業員の雇用された日付を表示するには、カレンダー コントロールを追加することによって GridView の表示をカスタマイズする方法を説明しました、[追加編集および挿入インターフェイスに検証コントロール](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)と[データ変更インターフェイスをカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)チュートリアルでは、見た編集をカスタマイズする方法および挿入インターフェイスの検証を追加することでコントロール、テキスト ボックス、Dropdownlist、およびその他の Web コントロール。
+テンプレート内にコントロールを埋め込むことで、の外観とユーザーエクスペリエンスをカスタマイズおよび改善できます。 たとえば、 [Gridview コントロールのチュートリアルで使用している TemplateFields](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md)のチュートリアルでは、TemplateField に Calendar コントロールを追加して、従業員の雇用日を示すように gridview の表示をカスタマイズする方法を説明しました。「[編集および挿入インターフェイスに検証コントロールを追加する](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)」および「[データ変更インターフェイスのカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)」チュートリアルでは、検証コントロール、テキストボックス、dropdownlists、およびその他の Web コントロールを追加して、編集および挿入インターフェイスをカスタマイズする方法を説明しました。
 
-テンプレートは、その他のデータ Web コントロールを含めることもできます。 つまり、DataList、テンプレート内で別 DataList (または Repeater または GridView や DetailsView など) を含むことができます。 このようなインターフェイスを使用してチャレンジが内部データ Web コントロールに適切なデータをバインドします。 使用可能なプログラムの ObjectDataSource を使用して宣言型のオプションの範囲はさまざまな方法をいくつか。
+テンプレートには、他のデータ Web コントロールを含めることもできます。 つまり、テンプレート内に別の DataList (または Repeater、GridView または DetailsView など) を含む DataList を設定できます。 このようなインターフェイスの課題は、内部データ Web コントロールに適切なデータをバインドすることです。 ObjectDataSource を使用する宣言型オプションからプログラム別の方法まで、いくつかの異なる方法を使用できます。
 
-について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 外部 Repeater、カテゴリの名前と説明を表示する、データベース内の各カテゴリの項目が含まれます。 各カテゴリ項目 s 内部 Repeater には、そのカテゴリに属する各製品の情報が表示されます (図 1 参照) 箇条書きリストにします。 これの例では、宣言とプログラミングは、内部の Repeater を設定する方法について説明します。
+このチュートリアルでは、別のリピータ内に入れ子になっているリピータを使用する方法について説明します。 外部リピータには、データベース内のカテゴリごとに1つの項目が含まれ、カテゴリの名前と説明が表示されます。 各カテゴリ項目の内部リピータには、そのカテゴリに属する各製品の情報 (図1を参照) が箇条書きで表示されます。 この例では、内部リピータを宣言的およびプログラムによって設定する方法について説明します。
 
-[![マイクロソフトの製品、と共に、各カテゴリの一覧が表示されます。](nested-data-web-controls-vb/_static/image2.png)](nested-data-web-controls-vb/_static/image1.png)
+[各カテゴリとその製品が ![一覧表示されます。](nested-data-web-controls-vb/_static/image2.png)](nested-data-web-controls-vb/_static/image1.png)
 
-**図 1**:マイクロソフトの製品、と共に、各カテゴリの一覧が表示されます ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-vb/_static/image3.png))。
+**図 1**: 各カテゴリとその製品が一覧表示されます ([クリックすると、フルサイズの画像が表示](nested-data-web-controls-vb/_static/image3.png)されます)
 
-## <a name="step-1-creating-the-category-listing"></a>手順 1: 項目のリストを作成します。
+## <a name="step-1-creating-the-category-listing"></a>手順 1: カテゴリの一覧を作成する
 
-データ Web コントロールをネストを使用するページを構築する場合は、作成、および内部の入れ子になったコントロールの概要も心配することがなく、最も外側にあるデータ Web コントロールを最初に、テストはデザインすると便利です。 そのため、名前と各カテゴリの説明を一覧表示されたページに、Repeater を追加するための手順をウォークすることによって開始 s ことができます。
+入れ子になったデータ Web コントロールを使用するページを構築する場合、入れ子になった内側のコントロールを気にすることなく、最も外側のデータ Web コントロールを設計、作成、およびテストすると便利です。 そのため、まず、各カテゴリの名前と説明を一覧表示する Repeater をページに追加するために必要な手順について説明します。
 
-開いて開始、`NestedControls.aspx`ページで、`DataListRepeaterBasics`フォルダー設定 ページに、Repeater コントロールを追加し、その`ID`プロパティを`CategoryList`します。 という名前の新しい ObjectDataSource を作成することも、Repeater のスマート タグから`CategoriesDataSource`します。
+まず、`DataListRepeaterBasics` フォルダーの `NestedControls.aspx` ページを開き、Repeater コントロールをページに追加します。その `ID` プロパティを `CategoryList`に設定します。 Repeater s スマートタグから、`CategoriesDataSource`という名前の新しい ObjectDataSource を作成することを選択します。
 
-[![名前の新しい ObjectDataSource CategoriesDataSource](nested-data-web-controls-vb/_static/image5.png)](nested-data-web-controls-vb/_static/image4.png)
+[新しい ObjectDataSource カテゴリデータソースに名前を ![](nested-data-web-controls-vb/_static/image5.png)](nested-data-web-controls-vb/_static/image4.png)
 
-**図 2**:名前を新しい ObjectDataSource `CategoriesDataSource` ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-vb/_static/image6.png))。
+**図 2**: 新しい ObjectDataSource `CategoriesDataSource` に名前[を指定する (クリックすると、フルサイズの画像が表示](nested-data-web-controls-vb/_static/image6.png)されます)
 
-そのデータを取得するために、ObjectDataSource を構成、`CategoriesBLL`クラスの`GetCategories`メソッド。
+`CategoriesBLL` クラス s `GetCategories` メソッドからデータをプルするように ObjectDataSource を構成します。
 
-[![CategoriesBLL クラスのメソッドを使用する ObjectDataSource を構成します。](nested-data-web-controls-vb/_static/image8.png)](nested-data-web-controls-vb/_static/image7.png)
+[GetCategories メソッドを使用するように ObjectDataSource を構成 ![](nested-data-web-controls-vb/_static/image8.png)](nested-data-web-controls-vb/_static/image7.png)
 
-**図 3**:構成に使用する ObjectDataSource、`CategoriesBLL`クラス s`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-vb/_static/image9.png))。
+**図 3**: `CategoriesBLL` クラス s `GetCategories` メソッドを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](nested-data-web-controls-vb/_static/image9.png))
 
-リピータ s のテンプレートを指定するには、コンテンツする必要があります、ソース ビューに移動し、宣言型構文を手動で入力します。 追加、`ItemTemplate`内のカテゴリの名前を表示する、`<h4>`要素と段落要素のカテゴリの説明 (`<p>`)。 さらに、let s が水平方向の規則に各カテゴリを区切ります (`<hr>`)。 これらの変更を行った後、ページは、Repeater を ObjectDataSource には、次のような宣言型構文を含める必要があります。
+Repeater テンプレートの内容を指定するには、ソースビューにアクセスし、宣言型の構文を手動で入力する必要があります。 `<h4>` 要素にカテゴリ名を表示する `ItemTemplate` と、段落要素 (`<p>`) のカテゴリの説明を追加します。 さらに、各カテゴリを水平方向のルール (`<hr>`) で区切ることができます。 これらの変更を行った後、ページには、次のようなリピータおよび ObjectDataSource の宣言構文が含まれている必要があります。
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample1.aspx)]
 
-図 4 は、ブラウザーで表示したときに進行状況を示します。
+図4は、ブラウザーを使用して表示したときの進行状況を示しています。
 
-[![各カテゴリ名と説明が表示されて、水平方向の規則で区切られました。](nested-data-web-controls-vb/_static/image11.png)](nested-data-web-controls-vb/_static/image10.png)
+[各カテゴリの名前と説明が、水平方向のルールで区切られた ![ます。](nested-data-web-controls-vb/_static/image11.png)](nested-data-web-controls-vb/_static/image10.png)
 
-**図 4**:各カテゴリ名と説明が表示されて、水平方向の規則で区切られた ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-vb/_static/image12.png))。
+**図 4**: 各カテゴリの名前と説明は、水平方向のルールで区切られて表示されます ([クリックすると、フルサイズの画像が表示](nested-data-web-controls-vb/_static/image12.png)されます)
 
-## <a name="step-2-adding-the-nested-product-repeater"></a>手順 2: 入れ子になった製品 Repeater を追加します。
+## <a name="step-2-adding-the-nested-product-repeater"></a>手順 2: 入れ子になった製品リピータを追加する
 
-完全な一覧を表示するカテゴリで、次のタスクはする中継ぎ局を追加する、 `CategoryList` s`ItemTemplate`適切なカテゴリに属しているこれらの製品についての情報が表示されます。 これは、さまざまな方法はこの内部 Repeater、後取り上げる 2 つのデータを取得できます。 ここでは、let s だけ製品を作成、Repeater 内で、 `CategoryList` Repeater の`ItemTemplate`します。 具体的には、s 製品 Repeater の表示価格と製品の名前を含む各に箇条書きリストには、各製品一覧の項目があることができます。
+カテゴリの一覧が完成したら、次に、適切なカテゴリに属する製品に関する情報を表示するリピータを `CategoryList` s `ItemTemplate` に追加します。 この内部リピータのデータを取得するには、次の2つの方法があります。 ここでは、`CategoryList` リピータ s `ItemTemplate`内に製品のリピータを作成するだけです。 具体的には、製品リピータに各製品の名前と価格を含む箇条書きのリストを表示します。
 
-内部 Repeater s 宣言の構文とにテンプレートを手動で入力する必要があります。 この Repeater を作成する、 `CategoryList` s`ItemTemplate`します。 内で次のマークアップを追加、 `CategoryList` Repeater の`ItemTemplate`:
+このリピータを作成するには、内部リピータの宣言構文とテンプレートを `CategoryList` s `ItemTemplate`に手動で入力する必要があります。 `CategoryList` リピータ s `ItemTemplate`内に次のマークアップを追加します。
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample2.aspx)]
 
-## <a name="step-3-binding-the-category-specific-products-to-the-productsbycategorylist-repeater"></a>手順 3: カテゴリ別の製品を ProductsByCategoryList Repeater にバインドします。
+## <a name="step-3-binding-the-category-specific-products-to-the-productsbycategorylist-repeater"></a>手順 3: カテゴリ固有の製品を製品 Bycategory リストリピータにバインドする
 
-この時点で、ブラウザーを使用してページにアクセスする場合は、画面が表示されます図 4 と同じため任意のデータを Repeater にバインドするには、まだ ve。 適切な製品レコードを取得し、それらを他よりも効率的な Repeater にバインドできることに、いくつかの方法はあります。 主な課題をここでは、指定したカテゴリの適切な製品戻る取得です。
+この時点でブラウザーを使用してページにアクセスすると、図4のような画面が表示されます。これは、データをリピータにバインドする処理がまだ完了していないためです。 適切な製品レコードを取得してリピータにバインドするには、いくつかの方法がありますが、他の方法よりも効率的です。 ここでの主な課題は、指定されたカテゴリの適切な製品を取得することです。
 
-内部 Repeater コントロールにバインドするデータか、アクセスできる宣言によってで ObjectDataSource を`CategoryList`Repeater の`ItemTemplate`、または ASP.NET ページの分離コード ページから、プログラムを使用します。 同様に、このデータにバインドできる内部 Repeater か、宣言によって、内部 Repeater s を通じて`DataSourceID`プロパティまたは宣言型データ バインディング構文またはプログラムによってで内部 Repeater を参照することによって、 `CategoryList` Repeater s`ItemDataBound`イベント ハンドラーをプログラムによって設定その`DataSource`プロパティ、および通話の`DataBind()`メソッド。 これらの各方法の詳細のことができます。
+内部リピータコントロールにバインドするデータは、ASP.NET ページの分離コードページから、`CategoryList` リピータ s `ItemTemplate`の ObjectDataSource、またはプログラムによって、宣言によってアクセスできます。 同様に、このデータは内部リピータの `DataSourceID` プロパティを介して宣言によって、または宣言型のデータバインディング構文を介して内部リピータにバインドすることもできます。また、`CategoryList` リピータ s `ItemDataBound` イベントハンドラーの内部リピータを参照し、プログラムによって `DataSource` プロパティを設定し、その `DataBind()` メソッドを呼び出すことによって、プログラムでバインドする では、これらの各アプローチについて説明します。
 
-## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>ObjectDataSource コントロールを宣言的データにアクセスして、`ItemDataBound`イベント ハンドラー
+## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>ObjectDataSource コントロールと`ItemDataBound`イベントハンドラーを使用したデータへの宣言によるアクセス
 
-以降このチュートリアル シリーズでは、この例を ObjectDataSource を変えずに、データにアクセスする最も自然な選択全体で幅広く ObjectDataSource も使用しました。 `ProductsBLL`クラスには、`GetProductsByCategoryID(categoryID)`メソッドを指定した属しているこれらの製品に関する情報を返す *`categoryID`* します。 そのため、ObjectDataSource に追加できる、 `CategoryList` Repeater の`ItemTemplate`し、このクラスのメソッドからそのデータにアクセスするように構成します。
+このチュートリアルシリーズでは ObjectDataSource を多用しているため、この例のデータにアクセスする最も自然な選択肢は、ObjectDataSource を使用することです。 `ProductsBLL` クラスには、指定された *`categoryID`* に属する製品に関する情報を返す `GetProductsByCategoryID(categoryID)` メソッドがあります。 したがって、ObjectDataSource を `CategoryList` リピータ s `ItemTemplate` に追加し、このクラスのメソッドからそのデータにアクセスするように構成することができます。
 
-残念ながら、Repeater されないには、そのテンプレートは、この ObjectDataSource コントロールの宣言の構文を手動で追加する必要がありますので、デザイン ビューから編集することができるようにします。 次の構文に示す、 `CategoryList` Repeater s`ItemTemplate`この新しい ObjectDataSource を追加した後 (`ProductsByCategoryDataSource`)。
+残念ながら、リピータはデザインビューによるテンプレートの編集を許可しないため、この ObjectDataSource コントロールの宣言構文を手動で追加する必要があります。 次の構文は、この新しい ObjectDataSource (`ProductsByCategoryDataSource`) を追加した後の `CategoryList` リピータ `ItemTemplate` を示しています。
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample3.aspx)]
 
-ObjectDataSource のアプローチを使用するときに設定する必要があります、 `ProductsByCategoryList` Repeater s`DataSourceID`プロパティを`ID`ObjectDataSource の (`ProductsByCategoryDataSource`)。 ObjectDataSource が通知も、`<asp:Parameter>`要素を指定する、 *`categoryID`* に渡される値、`GetProductsByCategoryID(categoryID)`メソッド。 ただし、この値を指定しますか。 理想的には、d をできるよう設定するだけで、`DefaultValue`のプロパティ、`<asp:Parameter>`要素のデータ バインドの構文を使用して次のように。
+ObjectDataSource アプローチを使用する場合は、`ProductsByCategoryList` リピータ s `DataSourceID` プロパティを ObjectDataSource (`ProductsByCategoryDataSource`) の `ID` に設定する必要があります。 また、ObjectDataSource には、`GetProductsByCategoryID(categoryID)` メソッドに渡される *`categoryID`* 値を指定する `<asp:Parameter>` 要素が含まれていることに注意してください。 しかし、どのようにしてこの値を指定するのでしょうか。 次のように、データバインディング構文を使用して、`<asp:Parameter>` 要素の `DefaultValue` プロパティを設定するのが理想的です。
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample4.aspx)]
 
-残念ながら、データ バインディング構文を持つコントロールに有効なのみが、`DataBinding`イベント。 `Parameter`クラスがこのようなイベントがないと、したがって上記の構文は無効であり、ランタイム エラーが発生します。
+残念ながら、databinding 構文は、`DataBinding` イベントを持つコントロールでのみ有効です。 `Parameter` クラスにはこのようなイベントがないため、上記の構文は無効であり、実行時エラーが発生します。
 
-この値を設定する必要がありますのイベント ハンドラーを作成する、 `CategoryList` Repeater の`ItemDataBound`イベント。 いることを思い出してください、`ItemDataBound`イベントは、Repeater にバインドされている項目ごとに 1 回発生します。 そのため、このイベントは、外部のたびに割り当てることができます、現在`CategoryID`値を`ProductsByCategoryDataSource`ObjectDataSource の`CategoryID`パラメーター。
+この値を設定するには、`CategoryList` リピータ s `ItemDataBound` イベントのイベントハンドラーを作成する必要があります。 `ItemDataBound` イベントは、リピータにバインドされている項目ごとに1回発生することを思い出してください。 このため、外部リピータに対してこのイベントが発生するたびに、現在の `CategoryID` 値を `ProductsByCategoryDataSource` ObjectDataSource s `CategoryID` パラメーターに割り当てることができます。
 
-イベント ハンドラーを作成、 `CategoryList` Repeater の`ItemDataBound`次のコードでイベント。
+次のコードを使用して、`CategoryList` Repeater s `ItemDataBound` イベントのイベントハンドラーを作成します。
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample5.vb)]
 
-このイベント ハンドラーは、ヘッダー、フッター、または区切り記号アイテムではなく項目 re、データを処理することができるようにして開始します。 次に、参照、実際`CategoriesRow`だけ現在のバインドされたインスタンス`RepeaterItem`します。 ObjectDataSource で最後に、参照、`ItemTemplate`を割り当てると、`CategoryID`パラメーター値を`CategoryID`、現在の`RepeaterItem`します。
+このイベントハンドラーは、ヘッダー、フッター、または区切り記号の項目ではなく、データ項目を処理していることを確認してから開始します。 次に、現在の `RepeaterItem`にバインドされたばかりの実際の `CategoriesRow` インスタンスを参照します。 最後に、`ItemTemplate` の ObjectDataSource を参照し、その `CategoryID` パラメーター値を現在の `RepeaterItem`の `CategoryID` に割り当てます。
 
-このイベント ハンドラーと、`ProductsByCategoryList`各 Repeater`RepeaterItem`でこれらの製品にバインドされて、`RepeaterItem`のカテゴリ。 図 5 は、結果の出力のスクリーン ショットを示します。
+このイベントハンドラーを使用すると、各 `RepeaterItem` の `ProductsByCategoryList` リピータは `RepeaterItem` s カテゴリの製品にバインドされます。 図5に、結果の出力のスクリーンショットを示します。
 
-[![外部 Repeater は、各カテゴリを一覧表示されます。内部の 1 つは、そのカテゴリの製品を一覧表示します。](nested-data-web-controls-vb/_static/image14.png)](nested-data-web-controls-vb/_static/image13.png)
+[外部リピータを ![すると、各カテゴリが一覧表示されます。内部1つには、そのカテゴリの製品が一覧表示されます。](nested-data-web-controls-vb/_static/image14.png)](nested-data-web-controls-vb/_static/image13.png)
 
-**図 5**:外部 Repeater は、各カテゴリを一覧表示されます。内部の 1 つのリスト カテゴリの製品 ([フルサイズの画像を表示する をクリックします](nested-data-web-controls-vb/_static/image15.png))。
+**図 5**: 外部リピータが各カテゴリを一覧表示する内側の1つは、そのカテゴリの製品を一覧表示します ([クリックすると、フルサイズの画像が表示](nested-data-web-controls-vb/_static/image15.png)されます)
 
-## <a name="accessing-the-products-by-category-data-programmatically"></a>プログラムでデータをカテゴリ別の製品へのアクセス
+## <a name="accessing-the-products-by-category-data-programmatically"></a>プログラムによるカテゴリデータによる製品へのアクセス
 
-現在のカテゴリの製品を取得する、ObjectDataSource を使用する代わりに、ASP.NET ページの分離コード クラスでメソッドを作成でした (または、`App_Code`フォルダーまたは別のクラス ライブラリ プロジェクト) の適切なセットを返す製品に渡されるとき、`CategoryID`します。 ASP.NET ページ分離コード クラスのようなメソッドがあるというがという名前であることを考えてください`GetProductsInCategory(categoryID)`します。 この方法で現在のカテゴリの製品を次の宣言型構文を使用して内部 Repeater にバインドしますでした。
+ObjectDataSource を使用して現在のカテゴリの製品を取得する代わりに、ASP.NET ページの分離コードクラス (または `App_Code` フォルダーまたは別のクラスライブラリプロジェクト) にメソッドを作成して、`CategoryID`に渡されたときに適切な製品セットを返すことができます。 たとえば、ASP.NET ページの分離コードクラスにこのようなメソッドがあり、`GetProductsInCategory(categoryID)`という名前が付けられているとします。 このメソッドを使用すると、次の宣言型構文を使用して、現在のカテゴリの製品を内部リピータにバインドできます。
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample6.aspx)]
 
-Repeater s`DataSource`プロパティでは、データ バインディング構文を使用して、データの取得元を示す、`GetProductsInCategory(categoryID)`メソッド。 `Eval("CategoryID")`型の値を返します`Object`、オブジェクトをキャスト、`Integer`に渡す前に、`GetProductsInCategory(categoryID)`メソッド。 なお、`CategoryID`ここで、データ バインドを介して構文がアクセスされる、`CategoryID`で、*外部*Repeater (`CategoryList`)、1 つのレコードに s がバインドされている、`Categories`テーブル。 そのため、当社は知って`CategoryID`データベースにすることはできません`NULL`盲目的にキャストできるため、値、`Eval`メソッドがあることを確認せず再処理する、 `DBNull`。
+Repeater s `DataSource` プロパティは、データが `GetProductsInCategory(categoryID)` メソッドから取得されることを示すために、databinding 構文を使用します。 `Eval("CategoryID")` は `Object`型の値を返すため、オブジェクトを `GetProductsInCategory(categoryID)` メソッドに渡す前に `Integer` にキャストします。 ここでは、データバインド構文を使用してアクセス `CategoryID` は、*外部*リピータ (`CategoryList`) の `CategoryID` であり、`Categories` テーブル内のレコードにバインドされていることに注意してください。 このため、`CategoryID` をデータベースの `NULL` 値にすることはできません。そのため、`DBNull`を処理するかどうかを確認せずに `Eval` メソッドを無条件にキャストできます。
 
-作成に必要なこの方法で、`GetProductsInCategory(categoryID)`メソッドの指定、指定された製品の適切なセットを取得することと *`categoryID`* します。 返すだけでそのため、`ProductsDataTable`によって返される、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッド。 %S を作成できるように、`GetProductsInCategory(categoryID)`の分離コード クラスのメソッド、`NestedControls.aspx`ページ。 次のコードを使用して操作を行います。
+この方法では、`GetProductsInCategory(categoryID)` メソッドを作成し、指定された *`categoryID`* に応じて適切な製品セットを取得する必要があります。 これを行うには、`ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドによって返された `ProductsDataTable` を返すだけです。 `NestedControls.aspx` ページの分離コードクラスに `GetProductsInCategory(categoryID)` メソッドを作成してみましょう。 これを行うには、次のコードを使用します。
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample7.vb)]
 
-このメソッドのインスタンスを作成、`ProductsBLL`メソッドの結果を返すと、`GetProductsByCategoryID(categoryID)`メソッド。 メソッドをマークする必要がありますに注意してください。`Public`または`Protected`メソッドがマークされている場合は`Private`、ASP.NET ページの宣言型マークアップからアクセスできることはできません。
+このメソッドは、単に `ProductsBLL` メソッドのインスタンスを作成し、`GetProductsByCategoryID(categoryID)` メソッドの結果を返します。 メソッドは `Public` または `Protected`としてマークされている必要があることに注意してください。メソッドが `Private`としてマークされている場合、ASP.NET ページ s の宣言マークアップからアクセスすることはできません。
 
-この新しい手法を使用するこれらの変更を行った後、ブラウザーを使用してページを表示するのには少しがかかります。 ObjectDataSource を使用する場合は、出力を出力と一致させるようにと`ItemDataBound`イベント ハンドラーのアプローチ (戻るは図 5 のスクリーン ショットを参照してください)。
+この新しい手法を使用するようにこれらの変更を行った後は、ブラウザーでページを表示してみてください。 ObjectDataSource および `ItemDataBound` イベントハンドラーアプローチを使用する場合、出力は出力と同じである必要があります (図5を参照して、スクリーンショットを参照してください)。
 
 > [!NOTE]
-> 作成するには、ユーザーに代わって業務に思えるかもしれませんが、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド。 結局のところ、このメソッドは、のインスタンスだけを作成、`ProductsBLL`クラスし、結果が返されますその`GetProductsByCategoryID(categoryID)`メソッド。 なぜだけこのメソッドから直接呼び出す内部の Repeater でデータ バインディング構文のような:`DataSource='<%# ProductsBLL.GetProductsByCategoryID(CType(Eval("CategoryID"), Integer)) %>'`でしょうか。 現在の実装でこの構文は使用できませんが、`ProductsBLL`クラス (ため、`GetProductsByCategoryID(categoryID)`メソッドがインスタンス メソッド)、変更できます`ProductsBLL`に静的なを含める`GetProductsByCategoryID(categoryID)`メソッドまたは静止クラスがあります`Instance()`の新しいインスタンスを返すメソッドを`ProductsBLL`クラス。
+> Busywork のように、ASP.NET ページの分離コードクラスに `GetProductsInCategory(categoryID)` メソッドを作成するように思われるかもしれません。 結局のところ、このメソッドは単に `ProductsBLL` クラスのインスタンスを作成し、その `GetProductsByCategoryID(categoryID)` メソッドの結果を返します。 次のように、内部リピータの databinding 構文からこのメソッドを直接呼び出すのではないのでしょうか。たとえば、`DataSource='<%# ProductsBLL.GetProductsByCategoryID(CType(Eval("CategoryID"), Integer)) %>'`? この構文は `ProductsBLL` クラスの現在の実装では機能しませんが (`GetProductsByCategoryID(categoryID)` メソッドはインスタンスメソッドであるため)、静的 `GetProductsByCategoryID(categoryID)` メソッドを含めるように `ProductsBLL` を変更するか、`Instance()` クラスの新しいインスタンスを返す静的 `ProductsBLL` メソッドをクラスに含めることができます。
 
-必要性がなくなりますが、このような変更、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド、分離コード クラスのメソッドによりより柔軟に間もなく表示されるように、取得したデータを使用します。
+このような変更によって、ASP.NET ページの分離コードクラスの `GetProductsInCategory(categoryID)` メソッドが不要になりますが、コードビハインドクラスのメソッドを使用すると、すぐにわかるように、取得したデータをより柔軟に操作できます。
 
-## <a name="retrieving-all-of-the-product-information-at-once"></a>すべての製品情報を一度に取得します。
+## <a name="retrieving-all-of-the-product-information-at-once"></a>すべての製品情報を一度に取得する
 
-2 つの手法検査 ve を呼び出すことによって現在のカテゴリの製品を取得する、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド (first アプローチ行った、ObjectDataSource を 2 番目から、`GetProductsInCategory(categoryID)`メソッドで、分離コード クラスの場合)。 このメソッドが呼び出されるたびに、データ アクセス層にビジネス ロジック層の呼び出しから行を返す SQL ステートメントを使用してデータベース クエリ、`Products`テーブルです`CategoryID`フィールドが指定された入力パラメーターと一致します。
+以前の2つの手法では、`ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドを呼び出すことによって、現在のカテゴリのこれらの製品を取得します (最初の方法では、ObjectDataSource を通じて、2番目にコードビハインドクラスの `GetProductsInCategory(categoryID)` メソッドを使用します)。 このメソッドが呼び出されるたびに、ビジネスロジック層はデータアクセス層を呼び出します。この層は、指定された入力パラメーターと一致する `CategoryID` フィールドを持つ `Products` テーブルから行を返す SQL ステートメントを使用してデータベースにクエリを実行します。
 
-指定された*N*システム カテゴリは、このアプローチのネット*N* + データベースの 1 つのデータベース クエリを 1 の呼び出しは、すべてのカテゴリを取得し、 *N*製品への呼び出し各カテゴリに特定します。 ただし、カテゴリ、およびすべての製品を取得する他のすべてを取得する 2 つのデータベース呼び出し 1 回の呼び出しで必要なすべてのデータを取得したことができます。 これらの製品のためフィルター処理のすべての製品を取得したら、現在の一致する製品だけである`CategoryID`s そのカテゴリにバインドされて内部 Repeater します。
+システムで*n 個*のカテゴリが指定されている場合、この方法では、データベースの1つのクエリを呼び出してすべてのカテゴリを取得し、 *N*を呼び出して各カテゴリに固有の製品を取得します。 ただし、2つのデータベースのすべての必要なデータを取得して、すべてのカテゴリを取得するために1回の呼び出しを呼び出し、他のすべての製品を取得することができます。 すべての製品を用意したら、現在の `CategoryID` に一致する製品のみがそのカテゴリの内部リピータにバインドされるように、これらの製品をフィルター処理できます。
 
-この機能を提供することには、のみにわずかな変更を加える必要が、 `GetProductsInCategory(categoryID)` ASP.NET ページの分離コード クラスのメソッド。 無条件の結果を返すのではなく、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッド、なるべく代わりに初めてアクセス*すべて*(これらは既にアクセスされていない) 場合、製品のしのフィルター処理されたビューだけを返すと、製品が渡されるに基づく`CategoryID`します。
+この機能を提供するには、ASP.NET ページの分離コードクラスの `GetProductsInCategory(categoryID)` メソッドにわずかな変更を加えるだけで済みます。 `ProductsBLL` クラス s `GetProductsByCategoryID(categoryID)` メソッドの結果を無条件に返すのではなく、最初に*すべて*の製品 (まだアクセスされていない場合) にアクセスし、渡された `CategoryID`に基づいて、製品のフィルターされたビューだけを返すことができます。
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample8.vb)]
 
-ページ レベルの変数の追加に注意してください`allProducts`します。 これは、すべての製品に関する情報を保持し、最初の時刻が設定されて、`GetProductsInCategory(categoryID)`メソッドが呼び出されます。 いることを確認したら、`allProducts`行だけを持つように、メソッドが DataTable の結果をフィルター処理、オブジェクトを作成および設定`CategoryID`、指定された一致`CategoryID`はアクセスできます。 この方法は、データベースからへのアクセス回数の合計を軽減*N* + 1 が 2 つまでです。
+ページレベル変数 `allProducts`の追加に注意してください。 これは、すべての製品に関する情報を保持し、`GetProductsInCategory(categoryID)` メソッドが初めて呼び出されたときに設定されます。 `allProducts` オブジェクトが作成および設定されたことを確認した後、メソッドは DataTable の結果をフィルター処理して、指定した `CategoryID` に一致する `CategoryID` を持つ行だけがアクセス可能になるようにします。 この方法により、データベースへのアクセス回数が*N* + 1 から2に減ります。
 
-この機能強化は、ページのレンダリングされたマークアップへの変更を導入していません。 また、他のアプローチよりもが少なくなるレコードが提供。 データベースへの呼び出しの数を減らすだけです。
+この拡張機能では、ページの表示されるマークアップに変更が加えられることはなく、他の方法よりも少数のレコードが返されることもありません。 単にデータベースへの呼び出しの回数を減らします。
 
 > [!NOTE]
-> 直感的理由の 1 ついるデータベースへのアクセスの数を減らす確実パフォーマンスが向上します。 ただし、大文字と小文字をできないこれがあります。 多数の製品がある場合が`CategoryID`は`NULL`、例では、その呼び出しを`GetProducts`メソッドが表示されないの製品の数を返します。 すべての製品を返すことができますがさらに、無駄である場合は再のみがある場合、ページングを実装している場合のカテゴリのサブセットを表示します。
+> 直感的な理由の1つは、データベースアクセスの数を減らすことで、パフォーマンスが確実に向上することです。 ただし、そうでない場合もあります。 たとえば、`CategoryID` が `NULL`されている多数の製品がある場合、`GetProducts` メソッドを呼び出すと、表示されない複数の製品が返されます。 さらに、カテゴリのサブセットのみを表示する場合は、すべての製品を返すことが無駄になる可能性があります。これは、ページングを実装している場合に当てはまります。
 
-常に、ときに渡される 2 つの手法のパフォーマンスの分析、のみ surefire メジャーでは、アプリケーションの一般的なケース シナリオに合わせた制御されたテストを実行します。
+常に、2つの手法のパフォーマンスを分析する場合、唯一の surefire メジャーは、アプリケーションの一般的なケースシナリオに合わせて調整された制御されたテストを実行することです。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは方法を説明しました、別の Web コントロールの 1 つのデータを入れ子にする方法が箇条書きリストには、各カテゴリの製品を一覧表示する内部の Repeater を各カテゴリの項目を表示する外部の Repeater を具体的には確認します。 入れ子になったユーザー インターフェイスの構築の主な課題にアクセスして、内部データ Web コントロールに適切なデータのバインドによってもたらされます。 さまざまな手法が使用できますが、このチュートリアルで調べる 2 つがあります。 調査の最初のアプローチが外部データ Web コントロール s で ObjectDataSource を使用`ItemTemplate`を使用して内部データ Web コントロールにバインドされましたが、`DataSourceID`プロパティ。 2 番目の手法は、ASP.NET ページの分離コード クラスのメソッドを使用してデータにアクセスします。 このメソッドは、内部データ Web コントロール s にし、バインドできる`DataSource`データ バインディング構文を使用してプロパティ。
+このチュートリアルでは、1つのデータ Web コントロールを別のデータ Web コントロールに入れ子にする方法を説明しました。具体的には、外部リピータが各カテゴリの項目を表示する方法について説明します。具体的には、各カテゴリの製品を箇条書きリストに一覧表示します。 入れ子になったユーザーインターフェイスを構築する際の主な課題は、にアクセスして、正しいデータを内部データ Web コントロールにバインドすることです。 このチュートリアルでは、次の2つの方法を使用できます。 最初の方法では、`DataSourceID` プロパティを使用して内部データ Web コントロールにバインドされた `ItemTemplate` 外側のデータ Web コントロールに ObjectDataSource を使用しました。 2番目の手法では、ASP.NET ページの分離コードクラスのメソッドを使用してデータにアクセスします。 このメソッドは、databinding 構文を通じて内部データ Web コントロール s `DataSource` プロパティにバインドできます。
 
-このチュートリアルで調査、入れ子になったユーザー インターフェイスを使用、Repeater 内で入れ子になった Repeater、他のデータ Web コントロールにこれらの手法を拡張できます。 Repeater 内 gridview が開きます。 または、GridView、DataList 内で入れ子にできなど。
+このチュートリアルで検証した入れ子になったユーザーインターフェイスでは、リピータ内に入れ子になったリピータが使用されていますが、これらの手法は他のデータ Web コントロールに拡張できます。 Repeater は、GridView 内、または DataList 内の GridView の入れ子にすることができます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Zack Jones、Liz Shulok でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Zack Jones と Liz Shulok でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

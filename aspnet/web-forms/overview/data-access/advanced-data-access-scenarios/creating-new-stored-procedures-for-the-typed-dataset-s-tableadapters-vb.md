@@ -1,66 +1,66 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
-title: ストアド プロシージャ、型指定されたデータセットの Tableadapter (VB) を新規作成 |Microsoft Docs
+title: 型指定されたデータセットの Tableadapter の新しいストアドプロシージャの作成 (VB) |Microsoft Docs
 author: rick-anderson
-description: 前のチュートリアル、コードで SQL ステートメントを作成し、ステートメントを実行するデータベースに渡されるしました。 その他の方法では、秒を使用する.
+description: 前のチュートリアルでは、コードに SQL ステートメントを作成し、実行するデータベースにステートメントを渡しました。 もう1つの方法として、...
 ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: a5a4a9ba-d18d-489a-a6b0-a3c26d6b0274
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 19e9800eb3862ad1f78a6cd2616b28deee997876
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a7cc890038e5bb4eb61c7c3b808154c196ab2423
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132419"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74605646"
 ---
 # <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>型指定された DataSet の TableAdapters に新しいストアド プロシージャを作成する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_67_VB.zip)または[PDF のダウンロード](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/datatutorial67vb1.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_67_VB.zip)または[PDF のダウンロード](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/datatutorial67vb1.pdf)
 
-> 前のチュートリアル、コードで SQL ステートメントを作成し、ステートメントを実行するデータベースに渡されるしました。 その他の方法では、SQL ステートメントがデータベースで定義済みストアド プロシージャを使用します。 このチュートリアルでは、TableAdapter ウィザードでの新しいストアド プロシージャを生成する方法について説明します。
+> 前のチュートリアルでは、コードに SQL ステートメントを作成し、実行するデータベースにステートメントを渡しました。 別の方法としては、ストアドプロシージャを使用する方法があります。ここでは、SQL ステートメントがデータベースで事前に定義されています。 このチュートリアルでは、TableAdapter ウィザードで新しいストアドプロシージャを生成する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-これらのチュートリアルのデータ アクセス層 (DAL) は、型指定されたデータセットを使用します。 説明したように、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-vb.md)チュートリアルでは、厳密に型指定された Datatable および Tableadapter の型指定されたデータセットで構成されます。 データ テーブルは、基になるデータベース、データにアクセスする作業を実行すると、Tableadapter インターフェイスの中に、システム内の論理エンティティを表します。 これには、データと Datatable の作成、スカラーのデータを返すクエリを実行し、挿入、更新、およびデータベースからレコードを削除するが含まれます。
+これらのチュートリアルのデータアクセス層 (DAL) では、型指定されたデータセットを使用します。 「[データアクセス層の作成](../introduction/creating-a-data-access-layer-vb.md)」チュートリアルで説明したように、型指定されたデータセットは、厳密に型指定された Datatable と tableadapter で構成されます。 Datatable は、システム内の論理エンティティを表し、データアクセスを実行する基になるデータベースとの Tableadapter インターフェイスを使用します。 これには、データを使用した Datatable の読み込み、スカラーデータを返すクエリの実行、およびデータベースからのレコードの挿入、更新、および削除が含まれます。
 
-Tableadapter によって実行される SQL コマンドでは、アドホック SQL ステートメントのいずれかをなどある`SELECT columnList FROM TableName`、またはストアド プロシージャ。 アーキテクチャで Tableadapter では、アドホック SQL ステートメントを使用します。 多くの開発者やデータベース管理者、ただし、セキュリティ、保守容易性、および更新機能上の理由から、アドホック SQL ステートメントをストアド プロシージャを使用します。 Ardently の柔軟性を高めるため、アドホック SQL ステートメントを好む開発者もいます。 自分の作業では、ストアド プロシージャの優先順位、アドホック SQL ステートメントが、アドホック SQL ステートメントを使用して、前のチュートリアルを簡略化することを選択します。
+Tableadapter によって実行される SQL コマンドは、`SELECT columnList FROM TableName`やストアドプロシージャなどのアドホック SQL ステートメントのいずれかになります。 アーキテクチャの Tableadapter では、アドホック SQL ステートメントを使用します。 ただし、多くの開発者やデータベース管理者は、セキュリティ、保守容易性、および更新可能性の理由により、アドホック SQL ステートメントでストアドプロシージャを優先します。 他のユーザーは、柔軟性を高めるためにアドホック SQL ステートメントを優先的に使用します。 独自の作業では、アドホック SQL ステートメントを使用してストアドプロシージャを優先しますが、以前のチュートリアルを簡略化するためにアドホック SQL ステートメントを使用することを選択しました。
 
-ときに TableAdapter を定義するか、新しいメソッドを追加、TableAdapter のウィザードでは、簡単に新しいストアド プロシージャを作成したり、アドホック SQL ステートメントを使用すると、既存のストアド プロシージャを使用すると同様です。 このチュートリアルでは TableAdapter s ウィザードでストアド プロシージャの自動生成する方法を説明します。 次のチュートリアルでは、既存または手動で作成されたストアド プロシージャを使用して、TableAdapter メソッドを構成する方法になります。
+Tableadapter を定義するとき、または新しいメソッドを追加する場合、TableAdapter ウィザードを使用すると、アドホック SQL ステートメントを使用するのと同じように、新しいストアドプロシージャを作成したり、既存のストアドプロシージャを使用したりするのが簡単になります。 このチュートリアルでは、TableAdapter ウィザードでストアドプロシージャを自動生成する方法について説明します。 次のチュートリアルでは、既存または手動で作成したストアドプロシージャを使用するように TableAdapter のメソッドを構成する方法について説明します。
 
 > [!NOTE]
-> Rob Howard のブログ記事を参照してください[Don t を格納するプロシージャまだ使用しますか?](http://grokable.com/2003/11/dont-use-stored-procedures-yet-must-be-suffering-from-nihs-not-invented-here-syndrome/)と[Frans Bouma](https://weblogs.asp.net/fbouma/) s ブログ エントリ[ストアド プロシージャは残念ですが、M Kay?](https://weblogs.asp.net/fbouma/archive/2003/11/18/38178.aspx)長所と短所の活発な議論のストアド プロシージャおよびアドホック SQL です。
+> 詳細については、「渡 Howard のブログ記事「[ストアドプロシージャを使用しない](http://grokable.com/2003/11/dont-use-stored-procedures-yet-must-be-suffering-from-nihs-not-invented-here-syndrome/)」を参照してください。また、 [frans](https://weblogs.asp.net/fbouma/) s のブログ記事では、ストアドプロシージャと、ストアドプロシージャとアドホック SQL の長所と短所について、非常に[良く議論さ](https://weblogs.asp.net/fbouma/archive/2003/11/18/38178.aspx)れています。
 
 ## <a name="stored-procedure-basics"></a>ストアド プロシージャの基本
 
-関数は、コンス トラクターをすべてのプログラミング言語に共通です。 関数は、関数が呼び出されたときに実行されるステートメントのコレクションです。 関数は、入力パラメーターを受け入れることができ、値を返してもかまいません。 *[ストアド プロシージャ](http://en.wikipedia.org/wiki/Stored_procedure)* はプログラミング言語の関数と多くの類似点を共有するデータベースの構成要素。 ストアド プロシージャは、ストアド プロシージャが呼び出されたときに実行される T-SQL ステートメントのセットで構成されます。 結果を設定するほとんどの場合、多くの入力パラメーターに 0 を受け入れることがあり、出力パラメーター、スカラー値を返すことができます、ストアド プロシージャまたは`SELECT`クエリ。
+関数は、すべてのプログラミング言語に共通の構造体です。 関数は、関数が呼び出されたときに実行されるステートメントのコレクションです。 関数は入力パラメーターを受け取り、必要に応じて値を返すことができます。 *[ストアドプロシージャ](http://en.wikipedia.org/wiki/Stored_procedure)* は、プログラミング言語の関数と多くの類似点を共有するデータベース構造です。 ストアドプロシージャは、ストアドプロシージャが呼び出されたときに実行される一連の T-sql ステートメントで構成されます。 ストアドプロシージャは、0個以上の入力パラメーターを受け取ることができ、スカラー値、出力パラメーター、または `SELECT` クエリからの結果セットを返すことができます。
 
 > [!NOTE]
-> 多くの場合にストアド プロシージャをストアド プロシージャまたは Sp と呼びます。
+> ストアドプロシージャは、多くの場合、sprocs または Sp と呼ばれます。
 
-使用してストアド プロシージャが作成された、 [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) T-SQL ステートメント。 たとえば、次の T-SQL スクリプトはという名前のストアド プロシージャを作成します`GetProductsByCategoryID`という名前の単一パラメーターを受け取る`@CategoryID`を返します、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`のこれらの列のフィールド、。`Products`に対応するがテーブル`CategoryID`値。
+ストアドプロシージャは、 [`CREATE PROCEDURE`](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) t-sql ステートメントを使用して作成されます。 たとえば、次の T-sql スクリプトは、`@CategoryID` という名前の1つのパラメーターを受け取る `GetProductsByCategoryID` という名前のストアドプロシージャを作成し、`UnitPrice`テーブル内で、一致する `Discontinued` 値を持つ列の `ProductID`、`ProductName`、`Products`、および `CategoryID` の各フィールドを返します。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample1.sql)]
 
-このストアド プロシージャが作成されたら、呼び出すことができる次の構文を使用します。
+このストアドプロシージャを作成した後は、次の構文を使用して呼び出すことができます。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample2.sql)]
 
 > [!NOTE]
-> 次のチュートリアルでは、Visual Studio IDE でのストアド プロシージャの作成を見ていきます。 このチュートリアルでは、ただし、ここのストアド プロシージャを自動的に生成する TableAdapter ウィザードを使用します。
+> 次のチュートリアルでは、Visual Studio IDE を使用してストアドプロシージャを作成する方法について説明します。 ただし、このチュートリアルでは、TableAdapter ウィザードによってストアドプロシージャが自動的に生成されるようにします。
 
-単に、データを返すだけでなく、多くの場合、1 つのトランザクションのスコープ内の複数のデータベース コマンドを実行するにストアド プロシージャが使用されます。 という名前のストアド プロシージャ`DeleteCategory`などかかる場合があります、`@CategoryID`パラメーター 2 つの実行と`DELETE`ステートメント: 関連する製品と指定したカテゴリを削除するもう 1 つを削除する最初に、1 つ。 ストアド プロシージャ内で複数のステートメントが*いない*トランザクション内で自動的にラップします。 その他の T-SQL コマンドでは、ストアド プロシージャの複数のコマンドはアトミック操作として扱われます s を確実に発行される必要があります。 後続のチュートリアルでは、トランザクションのスコープ内でストアド プロシージャの s コマンドをラップする方法を見ていきます。
+ストアドプロシージャは、単にデータを返すだけでなく、1つのトランザクションのスコープ内で複数のデータベースコマンドを実行するためによく使用されます。 たとえば、`DeleteCategory`という名前のストアドプロシージャは、`@CategoryID` パラメーターを使用して、2つの `DELETE` ステートメントを実行します。1つは、関連する製品を削除するステートメント、もう1つは指定したカテゴリを削除するものです。 ストアドプロシージャ内の複数のステートメントは、トランザクション内で自動的にラップされ*ません*。 ストアドプロシージャの複数のコマンドがアトミック操作として扱われるようにするには、追加の T-sql コマンドを発行する必要があります。 以降のチュートリアルでは、ストアドプロシージャのコマンドをトランザクションのスコープ内にラップする方法について説明します。
 
-を、アーキテクチャ内でストアド プロシージャを使用する場合、データ アクセス層の s メソッドは、アドホック SQL ステートメントを発行するのではなく、特定のストアド プロシージャを呼び出します。 これは、アプリケーション、アーキテクチャ内で定義することではなく (データベース) で実行される SQL ステートメントの場所を一元化します。 この集中管理はほぼ間違いなく簡単に検索、分析、および、クエリをチューニングし、データベースが使用されている場所と方法についてわかりやすく程度画像を提供します。
+アーキテクチャ内でストアドプロシージャを使用する場合、データアクセス層のメソッドは、アドホック SQL ステートメントを発行するのではなく、特定のストアドプロシージャを呼び出します。 これにより、(データベース上で) 実行される SQL ステートメントの場所を、アプリケーションのアーキテクチャ内で定義するのではなく、一元化できます。 このような集中化により、クエリの検索、分析、およびチューニングが容易になり、データベースの使用場所や方法によりわかりやすい画像が得られます。
 
-ストアド プロシージャの基礎に関する詳細については、このチュートリアルの最後に、関連項目」セクション内のリソースを参照してください。
+ストアドプロシージャの基礎の詳細については、このチュートリアルの最後にある「詳細情報」セクションのリソースを参照してください。
 
-## <a name="step-1-creating-the-advanced-data-access-layer-scenarios-web-pages"></a>手順 1: 高度なデータ アクセス層のシナリオの Web ページの作成
+## <a name="step-1-creating-the-advanced-data-access-layer-scenarios-web-pages"></a>手順 1: 高度なデータアクセス層シナリオの Web ページを作成する
 
-ストアド プロシージャを使用して DAL を作成する方法について説明を始める前に、これを次のいくつかのチュートリアルに必要な web サイト プロジェクトで ASP.NET ページを作成する最初に少し s を使用できます。 という名前の新しいフォルダーを追加することで開始`AdvancedDAL`します。 次に、次の ASP.NET ページを使用する各ページに関連付けることを確認、そのフォルダーに追加、`Site.master`マスター ページ。
+ストアドプロシージャを使用した DAL の作成に関する説明を開始する前に、まず、web サイトプロジェクトの ASP.NET ページを作成してみましょう。このページでは、次のいくつかのチュートリアルに必要となります。 まず、`AdvancedDAL`という名前の新しいフォルダーを追加します。 次に、次の ASP.NET ページをそのフォルダーに追加します。各ページは `Site.master` マスターページに関連付けられていることを確認してください。
 
 - `Default.aspx`
 - `NewSprocs.aspx`
@@ -71,262 +71,262 @@ Tableadapter によって実行される SQL コマンドでは、アドホッ�
 - `EncryptingConfigSections.aspx`
 - `ManagedFunctionsAndSprocs.aspx`
 
-![高度なデータ アクセス層のシナリオのチュートリアルについては、ASP.NET ページを追加します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image1.png)
+![高度なデータアクセス層シナリオのチュートリアルの ASP.NET ページを追加する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image1.png)
 
-**図 1**:高度なデータ アクセス層のシナリオのチュートリアルについては、ASP.NET ページを追加します。
+**図 1**: 高度なデータアクセス層シナリオのチュートリアルの ASP.NET ページを追加する
 
-などの他のフォルダーで`Default.aspx`で、`AdvancedDAL`フォルダーは、チュートリアルのセクションで一覧表示します。 いることを思い出してください、`SectionLevelTutorialListing.ascx`ユーザー コントロールは、この機能を提供します。 そのため、このユーザー コントロールを追加`Default.aspx`をページのデザイン ビューに ソリューション エクスプ ローラーからドラッグしています。
+他のフォルダーと同様に、`AdvancedDAL` フォルダー内の `Default.aspx` には、そのセクションのチュートリアルが一覧表示されます。 `SectionLevelTutorialListing.ascx` ユーザーコントロールがこの機能を提供していることを思い出してください。 したがって、ソリューションエクスプローラーからページデザインビューにドラッグして、このユーザーコントロールを `Default.aspx` に追加します。
 
-[![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)
+[SectionLevelTutorialListing ユーザーコントロールを default.aspx に追加 ![には](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)
 
-**図 2**:追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image4.png))。
+**図 2**: `Default.aspx` に `SectionLevelTutorialListing.ascx` ユーザーコントロールを追加する ([クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image4.png)されます)
 
-最後に、これらのページを追加するエントリとして、`Web.sitemap`ファイル。 具体的には、データのバッチ処理を使用した作業の後に、次のマークアップを追加`<siteMapNode>`:
+最後に、これらのページをエントリとして `Web.sitemap` ファイルに追加します。 具体的には、バッチ処理されたデータ `<siteMapNode>`を操作した後に、次のマークアップを追加します。
 
 [!code-xml[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample3.xml)]
 
-更新した後`Web.sitemap`、時間、ブラウザーを使ってチュートリアル web サイトを表示するのにはかかりません。 左側のメニューで、高度な DAL シナリオのチュートリアルの項目できるようになりました。
+`Web.sitemap`を更新した後、ブラウザーを使用してチュートリアル web サイトを表示します。 左側のメニューには、高度な DAL シナリオのチュートリアルの項目が含まれるようになりました。
 
-![サイト マップの DAL の高度なシナリオのチュートリアルのエントリになりました](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image5.png)
+![サイトマップに、高度な DAL シナリオチュートリアルのエントリが含まれるようになりました。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image5.png)
 
-**図 3**:サイト マップの DAL の高度なシナリオのチュートリアルのエントリになりました
+**図 3**: サイトマップに、高度な DAL シナリオチュートリアルのエントリが含まれるようになりました。
 
-## <a name="step-2-configuring-a-tableadapter-to-create-new-stored-procedures"></a>手順 2: ストアド プロシージャを新規作成に TableAdapter を構成します。
+## <a name="step-2-configuring-a-tableadapter-to-create-new-stored-procedures"></a>手順 2: 新しいストアドプロシージャを作成するための TableAdapter の構成
 
-Let s は、アドホック SQL ステートメントの代わりにストアド プロシージャを使用してデータ アクセス層の作成を示すためで新しい型指定されたデータセットを作成、`~/App_Code/DAL`という名前のフォルダー`NorthwindWithSprocs.xsd`します。 このプロセスの詳細は、前のチュートリアルでスルーいますがため、すぐにこちらの手順を続行します。 停止するか、またはさらに手順を作成すると、型指定されたデータセットを構成する必要がある場合に戻って、[データ アクセス層を作成する](../introduction/creating-a-data-access-layer-vb.md)チュートリアル。
+アドホック SQL ステートメントの代わりにストアドプロシージャを使用するデータアクセス層を作成する方法については、「`NorthwindWithSprocs.xsd`」という名前の `~/App_Code/DAL` フォルダーに新しい型指定されたデータセットを作成します。 このプロセスの詳細については、前のチュートリアルで説明したので、次の手順に進みます。 型指定されたデータセットの作成と構成の詳細な手順については、「[データアクセス層の作成](../introduction/creating-a-data-access-layer-vb.md)」チュートリアルを参照してください。
 
-右クリックし、プロジェクトに新しいデータセットを追加、`DAL`フォルダー、新しい項目の追加 を選択して、図 4 に示すように、データセットのテンプレートを選択します。
+新しいデータセットをプロジェクトに追加するには、[`DAL`] フォルダーを右クリックし、[新しい項目の追加] を選択して、図4に示すようにデータセットテンプレートを選択します。
 
-[![新しい型指定されたデータセットを NorthwindWithSprocs.xsd という名前のプロジェクトに追加します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png)
+[新しい型指定されたデータセットを NorthwindWithSprocs という名前のプロジェクトに追加 ![ます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png)
 
-**図 4**:プロジェクトの名前に新しい型指定されたデータセットを追加`NorthwindWithSprocs.xsd`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image8.png))。
+**図 4**: `NorthwindWithSprocs.xsd` という名前のプロジェクトに新しい型指定されたデータセットを追加する ([クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image8.png)されます)
 
-これは新しい型指定されたデータセットを作成、そのデザイナーを開き、新しい TableAdapter を作成および、TableAdapter 構成ウィザードを起動します。 TableAdapter 構成ウィザードの最初の手順では、使用するデータベースを選択するよう求められます。 Northwind データベースへの接続文字列は、ドロップダウン リストに表示する必要があります。 これを選択し、[次へ] をクリックします。
+これにより、新しい型指定されたデータセットが作成され、デザイナーが開き、新しい TableAdapter が作成され、TableAdapter 構成ウィザードが起動します。 TableAdapter 構成ウィザードの最初のステップでは、使用するデータベースを選択するように求められます。 Northwind データベースへの接続文字列がドロップダウンリストに表示されます。 これを選択し、[次へ] をクリックします。
 
-この次の画面から TableAdapter がデータベースにアクセスする方法を選択できます。 前のチュートリアルでは、最初のオプションを使用して SQL ステートメントを選択します。 このチュートリアルでは、2 つ目のオプションを選択、新しいストアド プロシージャを作成および [次へ] をクリックします。
+次の画面では、TableAdapter がデータベースにアクセスする方法を選択できます。 前のチュートリアルでは、最初のオプションである [SQL ステートメントを使用] を選択しました。 このチュートリアルでは、2番目のオプション [新しいストアドプロシージャの作成] を選択し、[次へ] をクリックします。
 
-[![新しいストアド プロシージャを作成する TableAdapter を指示します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png)
+[新しいストアドプロシージャを作成するように TableAdapter に指示 ![](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png)
 
-**図 5**:新しいストアド プロシージャを作成する TableAdapter の指示 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png))。
+**図 5**: TableAdapter に新しいストアドプロシージャを作成するように指示する ([クリックしてフルサイズのイメージを表示する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png))
 
-したとおり、アドホック SQL ステートメントを使用すると、次の手順では提供する、 `SELECT` TableAdapter のメイン クエリのステートメント。 使用する代わりに、`SELECT`ここに入力したアドホック クエリを直接実行するステートメントでは、TableAdapter の s ウィザードには、これを含むストアド プロシージャが作成されます`SELECT`クエリ。
+アドホック SQL ステートメントを使用する場合と同様に、次の手順では、TableAdapter のメインクエリに `SELECT` ステートメントを指定するように求められます。 ただし、ここで入力した `SELECT` ステートメントを使用してアドホッククエリを直接実行する代わりに、TableAdapter s ウィザードによって、この `SELECT` クエリを含むストアドプロシージャが作成されます。
 
-次を使用して、`SELECT`この TableAdapter のクエリ。
+この TableAdapter には、次の `SELECT` クエリを使用します。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample4.sql)]
 
-[![SELECT クエリを入力します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png)
+[SELECT クエリを入力 ![には](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png)
 
-**図 6**:入力、`SELECT`クエリ ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image14.png))。
-
-> [!NOTE]
-> 上記のクエリは、のメインのクエリとは若干異なって、`ProductsTableAdapter`で、`Northwind`型指定されたデータセット。 いることを思い出してください、`ProductsTableAdapter`で、`Northwind`型指定されたデータセットには、各製品のカテゴリと仕入先の会社名とカテゴリの名前を元に戻しますに 2 つの相関サブクエリが含まれています。 近日出版予定の[結合の使用に TableAdapter を更新する](updating-the-tableadapter-to-use-joins-vb.md)この TableAdapter に関連するデータのチュートリアルはこれを追加することを紹介します。
-
-少し高度なオプション ボタンをクリックするには ここからかどうか、ウィザードする必要がありますも insert、update、および delete ステートメントを生成、TableAdapter、オプティミスティック同時実行制御を使用するかどうか、挿入と更新後、データ テーブルを更新するかどうかを指定できます。 生成 Insert、Update および Delete ステートメントのオプションは既定でオンにします。 オンのままにします。 このチュートリアルでは、オプティミスティック同時実行制御オプションを使用してをオフのままにします。
-
-TableAdapter ウィザードによって自動的に作成するストアド プロシージャがある場合、更新、データ テーブル オプションは無視されることが表示されます。 このチェック ボックスがオンかどうか、結果の挿入と更新に関係なくストアド プロシージャは、手順 3. でわかるとおり、単に挿入されたまたは単に更新されるレコードを取得します。
-
-![生成 Insert、Update および Delete のステートメントのオプションをオンにままにします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image15.png)
-
-**図 7**:生成 Insert、Update および Delete のステートメントのオプションをオンにままにします
+**図 6**: `SELECT` クエリを入力[する (クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image14.png)されます)
 
 > [!NOTE]
-> 追加の条件を追加、オプションを使用してオプティミスティック同時実行制御をオンにした場合、`WHERE`データが他のフィールドに変更があった場合に更新されないようにする句。 参照、[オプティミスティック同時実行を実装する](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)の詳細については、TableAdapter の組み込みのオプティミスティック同時実行制御機能の使用に関するチュートリアル。
+> 上記のクエリは、`Northwind` 型指定されたデータセットの `ProductsTableAdapter` のメインクエリと若干異なります。 `Northwind` 型指定されたデータセットの `ProductsTableAdapter` には、各製品カテゴリおよび仕入先のカテゴリ名と会社名を返すための2つの相関サブクエリが含まれていることを思い出してください。 後の「 [join を使用するように TableAdapter を更新する](updating-the-tableadapter-to-use-joins-vb.md)」チュートリアルでは、この関連データをこの tableadapter に追加する方法について説明します。
 
-入力した後、`SELECT`クエリを実行し、生成 Insert、Update および Delete のステートメントのオプションをオンになっていることを確認するには、[次へ] をクリックします。 図 8 では、この次の画面では、作成するストアド プロシージャの名前を選択、挿入、更新、およびデータの削除のメッセージが表示されます。 これらのストアド プロシージャ名を変更`Products_Select`、 `Products_Insert`、 `Products_Update`、および`Products_Delete`します。
+[詳細オプション] ボタンをクリックします。 ここから、ウィザードで TableAdapter の insert、update、および delete の各ステートメントを生成するかどうか、オプティミスティック同時実行制御を使用するかどうか、および挿入と更新後にデータテーブルを更新するかどうかを指定できます。 既定では、[Insert、Update、および Delete ステートメントを生成する] オプションがオンになっています。 このチェックボックスはオンのままにします。 このチュートリアルでは、[オプティミスティック同時実行制御を使用する] オプションをオフのままにします。
 
-[![ストアド プロシージャの名前を変更します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
+TableAdapter ウィザードによってストアドプロシージャが自動的に作成された場合、[データテーブルの更新] オプションは無視されます。 このチェックボックスがオンになっているかどうかにかかわらず、結果の insert および update ストアドプロシージャは、挿入または更新されたレコードだけを取得します。手順 3. で説明します。
 
-**図 8**:ストアド プロシージャの名前を変更 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image18.png))。
+![[Insert、Update、および Delete ステートメントの生成] オプションをオンのままにします。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image15.png)
 
-TableAdapter ウィザードが次の 4 つのストアド プロシージャの作成に使用する T-SQL を表示するには、SQL スクリプトのプレビュー ボタンをクリックします。 SQL スクリプトのプレビュー ダイアログ ボックスからスクリプトをファイルに保存します。 または、クリップボードにコピーできます。
-
-![ストアド プロシージャの生成に使用する SQL スクリプトをプレビューします。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image19.png)
-
-**図 9**:ストアド プロシージャの生成に使用する SQL スクリプトをプレビューします。
-
-ストアド プロシージャの名前を付け、対応するメソッドの名前、tableadapter の横にあるをクリックします。 ときに、アドホック SQL ステートメントを使用すると同じようにすると、既存のデータ テーブルを埋めるか、新しいものを返すメソッドを作成できます。 TableAdapter が挿入、更新、およびレコードの削除の DB ダイレクト パターンを含めるかどうかも指定できます。 すべての 3 つチェック ボックスをオンにしたままにしますが、戻り値に DataTable メソッドの名前を変更`GetProducts`で示した図 10)。
-
-[![メソッドの名前を付けます塗りつぶしと GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)
-
-**図 10**:メソッドの名前を付けます`Fill`と`GetProducts`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image22.png))。
-
-ウィザードの手順の概要を表示するには、次へ をクリックします。 [完了] ボタンをクリックしてウィザードを完了します。 データセットのデザイナーで、今すぐに含める必要がありますに返されるウィザードの完了後、`ProductsDataTable`します。
-
-[![DataSet の s デザイナーには、新しく追加された ProductsDataTable が表示されます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)
-
-**図 11**:新しく追加したデータセットのデザイナーを示しています`ProductsDataTable`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image25.png))。
-
-## <a name="step-3-examining-the-newly-created-stored-procedures"></a>手順 3: 新しく作成されたストアド プロシージャを調べる
-
-手順 2 で自動的に使用される、TableAdapter ウィザードには、選択、挿入、更新、およびデータを削除するためのストアド プロシージャが作成されます。 これらのストアド プロシージャは、表示したり、サーバー エクスプ ローラーに移動し、データベースのストアド プロシージャ フォルダーにドリルダウンして、Visual Studio で変更することです。 Northwind データベースには、図 12 に示す 4 つの新しいストアド プロシージャが含まれています: `Products_Delete`、 `Products_Insert`、 `Products_Select`、および`Products_Update`します。
-
-![手順 2 で作成した 4 つのストアド プロシージャはデータベースのストアド プロシージャのフォルダーにあります。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image26.png)
-
-**図 12**:手順 2 で作成した 4 つのストアド プロシージャはデータベースのストアド プロシージャのフォルダーにあります。
+**図 7**: [Insert、Update、および Delete ステートメントの生成] オプションをオンにしたままにする
 
 > [!NOTE]
-> サーバー エクスプ ローラーが表示されない場合は、表示 メニューに移動し、サーバー エクスプ ローラーのオプションを選択します。 手順 2 から追加された製品に関連するストアド プロシージャが表示されない場合は、Stored Procedures フォルダーを右クリックしてから、選択を更新します。
+> [オプティミスティック同時実行制御を使用する] チェックボックスをオンにすると、他のフィールドに変更があった場合にデータが更新されないようにするための条件が `WHERE` 句に追加されます。 TableAdapter の組み込みのオプティミスティック同時実行制御機能の使用方法の詳細については、「[オプティミスティック同時実行](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)制御の実装」を参照してください。
 
-ストアド プロシージャの変更を表示またはサーバー エクスプ ローラーでその名前をダブルクリックしますまたは、代わりに、ストアド プロシージャを右クリックしして、開く を選択します。 図 13 では、`Products_Delete`開かれたときに、ストアド プロシージャをします。
+`SELECT` クエリを入力し、[Insert、Update、および Delete ステートメントの生成] オプションがオンになっていることを確認したら、[次へ] をクリックします。 図8に示す次の画面では、データの選択、挿入、更新、および削除のためにウィザードで作成されるストアドプロシージャの名前を入力するように求められます。 これらのストアドプロシージャ名を `Products_Select`、`Products_Insert`、`Products_Update`、および `Products_Delete`に変更します。
 
-[![ストアド プロシージャを開くし、Visual Studio 内からに変更されました](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png)
+[ストアドプロシージャの名前を変更 ![には](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
 
-**図 13**:ストアド プロシージャを開くことができると変更から内で Visual Studio ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image29.png))。
+**図 8**: ストアドプロシージャの名前[を変更する (クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image18.png)されます)
 
-両方の内容、`Products_Delete`と`Products_Select`ストアド プロシージャは、とても簡単です。 `Products_Insert`と`Products_Update`ストアド プロシージャ、その一方で、近くの検査、両方の実行を保証する`SELECT`後のステートメント、`INSERT`と`UPDATE`ステートメント。 たとえば、次の SQL は、構成、`Products_Insert`ストアド プロシージャ。
+TableAdapter ウィザードで4つのストアドプロシージャを作成するために使用する T-sql を確認するには、[SQL スクリプトのプレビュー] ボタンをクリックします。 [SQL スクリプトのプレビュー] ダイアログボックスから、スクリプトをファイルに保存したり、クリップボードにコピーしたりすることができます。
+
+![ストアドプロシージャの生成に使用する SQL スクリプトのプレビュー](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image19.png)
+
+**図 9**: ストアドプロシージャの生成に使用する SQL スクリプトをプレビューする
+
+ストアドプロシージャに名前を付けた後、[次へ] をクリックして、対応するメソッドに名前を付けます。 アドホック SQL ステートメントを使用する場合と同様に、既存の DataTable にデータを格納したり、新しい DataTable を返したりするメソッドを作成できます。 また、TableAdapter にレコードの挿入、更新、および削除のための DB ダイレクトパターンを含めるかどうかも指定できます。 この3つのチェックボックスはすべてオンのままにしますが、DataTable メソッドの戻り値を `GetProducts` に変更します (図10を参照)。
+
+[メソッドの ![名前と GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)
+
+**図 10**: メソッドに `Fill` と `GetProducts` の名前を指定[する (クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image22.png)されます)
+
+[次へ] をクリックして、ウィザードが実行する手順の概要を表示します。 [完了] ボタンをクリックしてウィザードを完了します。 ウィザードが完了すると、データセットデザイナーに戻ります。これには、`ProductsDataTable`が含まれています。
+
+[データセットデザイナーに新しく追加された製品 Datatable が表示される ![](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)
+
+**図 11**: データセットデザイナーに新しく追加された `ProductsDataTable` が表示される ([クリックしてフルサイズのイメージを表示する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image25.png))
+
+## <a name="step-3-examining-the-newly-created-stored-procedures"></a>手順 3: 新しく作成したストアドプロシージャを調べる
+
+手順 2. で使用した TableAdapter ウィザードでは、データの選択、挿入、更新、および削除のためのストアドプロシージャが自動的に作成されました。 これらのストアドプロシージャは、Visual Studio を使用して表示または変更できます。そのためには、サーバーエクスプローラーに移動し、database s ストアドプロシージャフォルダーにドリルダウンします。 図12に示すように、Northwind データベースには、`Products_Delete`、`Products_Insert`、`Products_Select`、および `Products_Update`の4つの新しいストアドプロシージャが含まれています。
+
+![手順 2. で作成した4つのストアドプロシージャは、データベースの [ストアドプロシージャ] フォルダーにあります。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image26.png)
+
+**図 12**: 手順 2. で作成した4つのストアドプロシージャは、データベースの [ストアドプロシージャ] フォルダーにあります。
+
+> [!NOTE]
+> サーバーエクスプローラーが表示されない場合は、[表示] メニューの [サーバーエクスプローラー] オプションを選択します。 手順 2. で追加した製品関連のストアドプロシージャが表示されない場合は、[ストアドプロシージャ] フォルダーを右クリックし、[最新の状態に更新] をクリックします。
+
+ストアドプロシージャを表示または変更するには、サーバーエクスプローラーで名前をダブルクリックするか、またはストアドプロシージャを右クリックして [開く] を選択します。 図13は、`Products_Delete` ストアドプロシージャを開いた場合を示しています。
+
+[![ストアドプロシージャは、Visual Studio 内から開いたり変更したりできます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png)
+
+**図 13**: Visual Studio 内からストアドプロシージャを開いたり変更したりする ([クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image29.png)されます)
+
+`Products_Delete` ストアドプロシージャと `Products_Select` ストアドプロシージャの内容は、非常に簡単です。 一方、`Products_Insert` および `Products_Update` のストアドプロシージャは、`INSERT` および `UPDATE` ステートメントの後に `SELECT` ステートメントを実行するため、より詳しく調査することを保証します。 たとえば、次の SQL は `Products_Insert` ストアドプロシージャを構成します。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample5.sql)]
 
-入力パラメーターとしてストアド プロシージャでは、`Products`列によって返された、 `SELECT` TableAdapter の作成ウィザードおよびこれらの値で指定されたクエリで使用、`INSERT`ステートメント。 次の`INSERT`ステートメント、`SELECT`を返すクエリを使用して、`Products`列の値 (など、 `ProductID`)、新しく追加されたレコードの。 新しく追加された更新ほどバッチ更新パターンを使用すると、自動的に新しいレコードを追加するときに、この更新機能は便利な`ProductRow`インスタンス`ProductID`データベースによって割り当てられた自動インクリメント値を持つプロパティです。
+このストアドプロシージャは、TableAdapter s ウィザードで指定された `SELECT` クエリによって返された列 `Products` を入力パラメーターとして受け取り、これらの値を `INSERT` ステートメントで使用します。 `INSERT` ステートメントの後に、`SELECT` クエリを使用して、新しく追加されたレコードの `Products` 列の値 (`ProductID`を含む) が返されます。 この更新機能は、バッチ更新パターンを使用して新しいレコードを追加するときに役立ちます。新しく追加された `ProductRow` インスタンス `ProductID` プロパティには、データベースによって割り当てられた自動インクリメント値が自動的に更新されるためです。
 
-次のコードでは、この機能を説明します。 含まれている、`ProductsTableAdapter`と`ProductsDataTable`用に作成された、`NorthwindWithSprocs`型指定されたデータセット。 新製品は、作成して、データベースに追加されます、`ProductsRow`インスタンス、その値を指定して、tableadapter を呼び出す`Update`に渡して、メソッド、`ProductsDataTable`します。 Tableadapter では内部的には、`Update`メソッドは、列挙、`ProductsRow`渡されたデータ テーブル内のインスタンス (この例では 1 つしかない - 追加したばかりのいずれか) を実行し、適切な挿入、更新、または delete コマンド。 ここで、`Products_Insert`ストアド プロシージャを実行すると、新しいレコードを追加、`Products`テーブルが表示され、新しく追加されたレコードの詳細を返します。 `ProductsRow`インスタンス`ProductID`値が更新されます。 後に、`Update`メソッドが完了したら、新しく追加されたレコード %s にアクセスできます`ProductID`値を通じて、 `ProductsRow` s`ProductID`プロパティ。
+次のコードは、この機能を示しています。 これには、`NorthwindWithSprocs` 型指定されたデータセット用に作成された `ProductsTableAdapter` と `ProductsDataTable` が含まれています。 新しい製品をデータベースに追加するには、`ProductsRow` インスタンスを作成し、その値を指定し、TableAdapter s `Update` メソッドを呼び出して `ProductsDataTable`を渡します。 内部的には、TableAdapter s `Update` メソッドは、渡された DataTable の `ProductsRow` インスタンスを列挙し (この例では、追加したもののみが存在します)、適切な insert、update、または delete コマンドを実行します。 この場合、`Products_Insert` ストアドプロシージャが実行され、`Products` テーブルに新しいレコードが追加され、新しく追加されたレコードの詳細が返されます。 その後、`ProductsRow` instance s `ProductID` の値が更新されます。 `Update` メソッドが完了したら、`ProductsRow` s `ProductID` プロパティを使用して、新しく追加したレコード s `ProductID` 値にアクセスできます。
 
 [!code-vb[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample6.vb)]
 
-`Products_Update`ストアド プロシージャが同様に含まれています、`SELECT`後のステートメントの`UPDATE`ステートメント。
+同様に `Products_Update` ストアドプロシージャには、その `UPDATE` ステートメントの後に `SELECT` ステートメントが含まれます。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample7.sql)]
 
-このストアド プロシージャであることの 2 つの入力パラメーターが含まれています`ProductID`:`@Original_ProductID`と`@ProductID`します。 この機能により、シナリオの主キーを変更する可能性があります。 など、従業員データベースに各従業員レコード可能性がありますを使用して、従業員の社会保障番号の主キーとして。 既存の従業員の社会保障番号を変更するには、新しい社会保障番号と元の両方を指定する必要があります。 `Products`ため、テーブル、そのような機能が必要ありません、`ProductID`列は、`IDENTITY`列変更する必要がないとします。 実際には、`UPDATE`内のステートメント、`Products_Update`ストアド プロシージャは t が含まれて、`ProductID`列リスト内の列。 そのため、while`@Original_ProductID`で使用されて、`UPDATE`ステートメント`WHERE`の過剰な句では、`Products`テーブルし、置き換えられる可能性があります、`@ProductID`パラメーター。 ストアド プロシージャの s パラメーターを変更する場合は、そのストアド プロシージャを使用する TableAdapter のメソッドも更新されますが重要です。
+このストアドプロシージャには `ProductID`の2つの入力パラメーターが含まれていることに注意してください: `@Original_ProductID` と `@ProductID`。 この機能により、主キーが変更される可能性があるシナリオが可能になります。 たとえば、employee データベースでは、各従業員レコードで、従業員の社会保障番号が主キーとして使用される場合があります。 既存の従業員の社会保障番号を変更するには、新しい社会保障番号と元の社会保障番号の両方を指定する必要があります。 `Products` テーブルの場合、`ProductID` 列は `IDENTITY` 列であり、変更することはできないため、このような機能は必要ありません。 実際、`Products_Update` ストアドプロシージャの `UPDATE` ステートメントには、列リストに `ProductID` 列が含まれていません。 したがって、`UPDATE` statement s `WHERE` 句で `@Original_ProductID` が使用されている間は、`Products` テーブルでは不要であり、`@ProductID` パラメーターで置き換えることができます。 ストアドプロシージャのパラメーターを変更する場合は、そのストアドプロシージャを使用する TableAdapter メソッドも更新することが重要です。
 
-## <a name="step-4-modifying-a-stored-procedure-s-parameters-and-updating-the-tableadapter"></a>手順 4: ストアド プロシージャのパラメーターを変更して、TableAdapter を更新します。
+## <a name="step-4-modifying-a-stored-procedure-s-parameters-and-updating-the-tableadapter"></a>手順 4: ストアドプロシージャのパラメーターを変更し、TableAdapter を更新する
 
-以降、`@Original_ProductID`パラメーターは不要、let s を削除してから、`Products_Update`ストアド プロシージャを完全です。 開く、`Products_Update`ストアド プロシージャを削除、`@Original_ProductID`パラメーター、し、`WHERE`の句、`UPDATE`ステートメントから使用されるパラメーターの名前を変更`@Original_ProductID`に`@ProductID`します。 これらの変更を行った後、次のよう T-SQL ストアド プロシージャ内になります。
+`@Original_ProductID` パラメーターは余分なので、s を使用して `Products_Update` ストアドプロシージャから完全に削除します。 `Products_Update` ストアドプロシージャを開き、`@Original_ProductID` パラメーターを削除します。 `UPDATE` ステートメントの `WHERE` 句で、`@Original_ProductID` から使用されているパラメーター名を `@ProductID`に変更します。 これらの変更を行った後、ストアドプロシージャ内の T-sql は次のようになります。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample8.sql)]
 
-これらの変更をデータベースに保存、ツールバーの [保存] アイコンをクリックします。 または Ctrl + S をヒットします。 この時点で、`Products_Update`ストアド プロシージャは想定していない、`@Original_ProductID`の入力パラメーターですが、TableAdapter はこのようなパラメーターを渡すように構成します。 TableAdapter に送信パラメーターを確認できます、`Products_Update`ストアド プロシージャをデータセット デザイナーで TableAdapter を選択し、[プロパティ] ウィンドウと内の省略記号をクリックすると、 `UpdateCommand` s`Parameters`コレクション。 図 14 に示すようにパラメーター コレクション エディター ダイアログ ボックスが表示されます。
+これらの変更をデータベースに保存するには、ツールバーの [保存] アイコンをクリックするか、Ctrl + S キーを押します。 この時点で、`Products_Update` ストアドプロシージャでは `@Original_ProductID` 入力パラメーターは想定されていませんが、TableAdapter はこのようなパラメーターを渡すように構成されています。 データセットデザイナーで TableAdapter を選択し、プロパティウィンドウに移動し、`UpdateCommand` s `Parameters` コレクション内の省略記号をクリックすることで、TableAdapter が `Products_Update` ストアドプロシージャに送信するパラメーターを確認できます。 これにより、図14に示す [パラメーターコレクションエディター] ダイアログボックスが表示されます。
 
-![パラメーター コレクション エディターのリストに使用するパラメーターが、Products_Update に渡されるストアド プロシージャ](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image30.png)
+![Parameters コレクションエディターには、Products_Update ストアドプロシージャに渡されたパラメーターが一覧表示されます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image30.png)
 
-**図 14**:渡されるパラメーター コレクション エディターのリストに使用するパラメーター、`Products_Update`ストアド プロシージャ
+**図 14**: Parameters コレクションエディターには、`Products_Update` ストアドプロシージャに渡されたパラメーターの一覧が表示されます。
 
-ここから選択するだけで、このパラメーターを削除することができます、 `@Original_ProductID` [削除] ボタンをクリックしてメンバーの一覧からパラメーター。
+このパラメーターは、メンバーの一覧から `@Original_ProductID` パラメーターを選択し、[削除] ボタンをクリックするだけで削除できます。
 
-または、デザイナーで TableAdapter を右クリックして、構成を選択してすべてのメソッドで使用されるパラメーターを更新することができます。 選択、挿入、更新、使用するストアド プロシージャを一覧表示、TableAdapter 構成ウィザードが表示され、パラメーターと共に、削除するストアド プロシージャが表示されます。 更新プログラムのドロップダウン リストをクリックする場合は、表示、`Products_Update`ストアド プロシージャは、ここで廃止されていますが、入力パラメーターが必要です`@Original_ProductID`(図 15 を参照してください)。 TableAdapter で使用されるパラメーターのコレクションを自動的に更新するには、[完了] をクリックします。
+または、デザイナーで TableAdapter を右クリックし、[構成] を選択して、すべてのメソッドで使用されるパラメーターを更新することもできます。 これにより、TableAdapter 構成ウィザードが表示され、ストアドプロシージャが受け取る必要があるパラメーターと共に、選択、挿入、更新、および削除に使用されるストアドプロシージャが一覧表示されます。 [更新] ドロップダウンリストをクリックすると、`Products_Update` ストアドプロシージャに必要な入力パラメーターが表示されます。このパラメーターには、`@Original_ProductID` が含まれなくなりました (図15を参照)。 [完了] をクリックするだけで、TableAdapter によって使用されるパラメーターコレクションが自動的に更新されます。
 
-[![TableAdapter の構成ウィザードを使用してそのメソッドのパラメーターのコレクションを更新することもできます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
+[![、または TableAdapter の構成ウィザードを使用して、そのメソッドのパラメーターコレクションを更新することもできます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
 
-**図 15**:また、tableadapter のメソッドのパラメーター コレクションの更新の構成ウィザードを使用することができます ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image33.png))。
+**図 15**: または、TableAdapter の構成ウィザードを使用してメソッドのパラメーターコレクションを更新することもできます ([クリックすると、フルサイズのイメージが表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image33.png)されます)。
 
-## <a name="step-5-adding-additional-tableadapter-methods"></a>手順 5: 追加の TableAdapter のメソッドを追加します。
+## <a name="step-5-adding-additional-tableadapter-methods"></a>手順 5: TableAdapter メソッドの追加
 
-手順 2 が示すよう、として新しい TableAdapter を作成するときに自動的に生成された対応するストアド プロシージャを簡単にします。 TableAdapter に追加のメソッドを追加するときにも同様です。 これを示すためには、s を追加できるように、`GetProductByProductID(productID)`メソッドを`ProductsTableAdapter`手順 2. で作成します。 このメソッドは実行の入力として、`ProductID`値し、指定された製品に関する詳細を確認します。
+手順2で説明したように、新しい TableAdapter を作成する場合は、対応するストアドプロシージャを自動的に生成するのが簡単です。 TableAdapter にメソッドを追加する場合も同様です。 これを説明するために、「」では、手順 2. で作成した `ProductsTableAdapter` に `GetProductByProductID(productID)` メソッドを追加します。 このメソッドは、`ProductID` 値を入力として受け取り、指定された製品の詳細を返します。
 
-TableAdapter を右クリックし、コンテキスト メニューから追加のクエリを選択して開始します。
+まず、TableAdapter を右クリックし、コンテキストメニューの [クエリの追加] を選択します。
 
-![TableAdapter に新しいクエリを追加します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image34.png)
+![新しいクエリを TableAdapter に追加する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image34.png)
 
-**図 16**:TableAdapter に新しいクエリを追加します。
+**図 16**: TableAdapter に新しいクエリを追加する
 
-これにより、最初に TableAdapter がデータベースにアクセスする方法を要求すると、TableAdapter クエリ構成ウィザードが開始されます。 作成された新しいストアド プロシージャは、作成ストアド プロシージャの新しいオプションを選択し、[次へ] をクリックします。
+これにより、tableadapter クエリの構成ウィザードが開始されます。このウィザードでは、まず TableAdapter がデータベースにアクセスする方法を確認するプロンプトが表示されます。 新しいストアドプロシージャを作成するには、[新しいストアドプロシージャを作成する] オプションを選択し、[次へ] をクリックします。
 
-[![作成、新しいストアド プロシージャ オプションの選択します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)
+[![[新しいストアドプロシージャを作成する] オプションを選択する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)
 
-**図 17**:作成、新しいストアド プロシージャ オプションの選択 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image37.png))。
+**図 17**: [新しいストアドプロシージャを作成する] オプションを選択[する (クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image37.png)されます)
 
-次の画面には、行または単一のスカラー値のセットを返す、またはを実行するかどうかを実行するクエリの種類を識別するよう求められます、 `UPDATE`、 `INSERT`、または`DELETE`ステートメント。 以降、`GetProductByProductID(productID)`メソッドは行を返す、返す行のオプションが選択されており、[次へ] の選択のままにします。
+次の画面では、実行するクエリの種類、一連の行または単一のスカラー値を返すかどうか、`UPDATE`、`INSERT`、または `DELETE` ステートメントを実行するかどうかを確認するプロンプトが表示されます。 `GetProductByProductID(productID)` メソッドでは行が返されるため、[行を返す] オプションを選択したままにして [次へ] をクリックします。
 
-[![選択 オプションの行を返す](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)
+[![[行を返す] オプションを選択します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)
 
-**図 18**:[選択] オプションの行を返す ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image40.png))。
+**図 18**: [行を返す] オプションを選択[する (クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image40.png)されます)
 
-[次へ] の画面には、TableAdapter の s メイン クエリには、ストアド プロシージャの名前を一覧表示のみが表示されます (`dbo.Products_Select`)。 次のストアド プロシージャの名前に置き換えます`SELECT`ステートメントで、すべての指定製品の製品のフィールドを返します。
+次の画面には、TableAdapter のメインクエリが表示されます。このクエリには、ストアドプロシージャの名前 (`dbo.Products_Select`) だけが表示されます。 ストアドプロシージャ名を次の `SELECT` ステートメントに置き換えます。これにより、指定した製品のすべての product フィールドが返されます。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample9.sql)]
 
-[![SELECT クエリでストアド プロシージャ名を置き換えます](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)
+[ストアドプロシージャ名を SELECT クエリに置き換える ![](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)
 
-**図 19**:ストアド プロシージャの名前を`SELECT`クエリ ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image43.png))。
+**図 19**: ストアドプロシージャ名を `SELECT` クエリに置き換える ([クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image43.png)されます)
 
-後続の画面では、作成されるストアド プロシージャの名前を付けます。 名前を入力します`Products_SelectByProductID`[次へ] をクリックします。
+次の画面では、作成されるストアドプロシージャに名前を指定するように求められます。 `Products_SelectByProductID` 名を入力し、[次へ] をクリックします。
 
-[![新しいストアド プロシージャ Products_SelectByProductID 名](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
+[新しいストアドプロシージャの名前を ![Products_SelectByProductID](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
 
-**図 20**:新しいストアド プロシージャの名前を付けます`Products_SelectByProductID`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image46.png))。
+**図 20**: 新しいストアドプロシージャの名前を `Products_SelectByProductID`[にする (クリックしてフルサイズの画像を表示する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image46.png))
 
-ウィザードの最後の手順では、メソッド名が生成だけでなく、塗りつぶしを使用するかどうかを示す、DataTable のパターンを変更するには、DataTable パターンでは、またはその両方を返すことができます。 このメソッドは、両方のオプションがオンのままには、メソッドの名前を変更`FillByProductID`と`GetProductByProductID`します。 実行し、ウィザードを完了するには、[完了] をクリックし、ウィザードの手順の概要を表示するには、[次へ] をクリックします。
+ウィザードの最後の手順では、生成されたメソッド名を変更すると共に、DataTable パターンを使用するか、DataTable パターンを返すか、またはその両方を使用するかを示すことができます。 このメソッドでは、両方のオプションをオンのままにして、メソッドの名前を `FillByProductID` に変更し、`GetProductByProductID`します。 [次へ] をクリックして、ウィザードが実行する手順の概要を表示し、[完了] をクリックしてウィザードを完了します。
 
-[![FillByProductID を GetProductByProductID メソッド、TableAdapter の名前を変更します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image47.png)
+[TableAdapter のメソッドの名前を FillByProductID および GetProductByProductID に変更 ![には](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image47.png)
 
-**図 21**:TableAdapter のメソッドの名前を変更`FillByProductID`と`GetProductByProductID`([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image49.png))。
+**図 21**: TableAdapter のメソッドの名前を `FillByProductID` と `GetProductByProductID` に変更する ([クリックしてフルサイズのイメージを表示する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image49.png))
 
-TableAdapter が使用できる、新しいメソッドをウィザードを完了すると、 `GetProductByProductID(productID)` 、呼び出されるときに実行されます、`Products_SelectByProductID`ストアド プロシージャが作成されたばかりです。 サーバー エクスプ ローラーからこの新しいストアド プロシージャを表示するには、ストアド プロシージャ フォルダーへのドリル ダウンし、開く少し`Products_SelectByProductID`(しない場合、ストアド プロシージャのフォルダーを右クリックしておよび更新 を選択)。
+ウィザードを完了すると、新しいメソッドが使用できる `GetProductByProductID(productID)` ようになります。このメソッドを呼び出すと、先ほど作成した `Products_SelectByProductID` ストアドプロシージャが実行されます。 この新しいストアドプロシージャをサーバーエクスプローラーから表示するには、[ストアドプロシージャ] フォルダーにドリルダウンして `Products_SelectByProductID` を開いてください (表示されない場合は、[ストアドプロシージャ] フォルダーを右クリックして [最新の状態に更新] をクリックします)。
 
-なお、`SelectByProductID`プロシージャが格納されている`@ProductID`入力パラメーターとしてし、実行、`SELECT`ウィザードで入力ステートメント。
+`SelectByProductID` ストアドプロシージャは入力パラメーターとして `@ProductID` を受け取り、ウィザードで入力した `SELECT` ステートメントを実行します。
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample10.sql)]
 
-## <a name="step-6-creating-a-business-logic-layer-class"></a>手順 6: ビジネス ロジック層のクラスを作成します。
+## <a name="step-6-creating-a-business-logic-layer-class"></a>手順 6: ビジネスロジック層クラスの作成
 
-チュートリアル シリーズでは、プレゼンテーション層がビジネス ロジック層 (BLL) への呼び出しのすべてに加え、階層型アーキテクチャを維持するために strived いますが。 この設計の決定に従うするにはまず製品データ、プレゼンテーション層からアクセスできる前に、新しい型指定されたデータセットの BLL クラスを作成する必要があります。
+チュートリアルシリーズ全体を通じて、プレゼンテーション層がビジネスロジック層 (BLL) へのすべての呼び出しを行ったレイヤーアーキテクチャを維持することを strived ました。 この設計上の決定に従うためには、まず、新しい型指定されたデータセットの BLL クラスを作成してから、プレゼンテーション層から製品データにアクセスできるようにする必要があります。
 
-という名前の新しいクラス ファイルを作成`ProductsBLLWithSprocs.vb`で、`~/App_Code/BLL`フォルダーし、次のコードを追加します。
+`~/App_Code/BLL` フォルダーに `ProductsBLLWithSprocs.vb` という名前の新しいクラスファイルを作成し、次のコードを追加します。
 
 [!code-vb[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample11.vb)]
 
-このクラスを模倣、`ProductsBLL`セマンティクスを使用して、前のチュートリアルからのクラス、`ProductsTableAdapter`と`ProductsDataTable`オブジェクトから、`NorthwindWithSprocs`データセット。 必要はなくなど、`Imports NorthwindTableAdapters`としてクラス ファイルの先頭にステートメント`ProductsBLL`、`ProductsBLLWithSprocs`クラスで使用`Imports NorthwindWithSprocsTableAdapters`。 同様に、`ProductsDataTable`と`ProductsRow`このクラスで使用されるオブジェクトが付いて、`NorthwindWithSprocs`名前空間。 `ProductsBLLWithSprocs`クラスは、2 つのデータ アクセス方法、`GetProducts`と`GetProductByProductID`メソッドを追加するには、更新、および 1 つの製品のインスタンスを削除するとします。
+このクラスは、前のチュートリアルで `ProductsBLL` クラスセマンティクスを模倣していますが、`NorthwindWithSprocs` データセットの `ProductsTableAdapter` と `ProductsDataTable` オブジェクトを使用しています。 たとえば、`ProductsBLL` のようにクラスファイルの先頭に `Imports NorthwindTableAdapters` ステートメントを記述するのではなく、`ProductsBLLWithSprocs` クラスは `Imports NorthwindWithSprocsTableAdapters`を使用します。 同様に、このクラスで使用される `ProductsDataTable` および `ProductsRow` のオブジェクトには、`NorthwindWithSprocs` 名前空間がプレフィックスとして付けられます。 `ProductsBLLWithSprocs` クラスには、`GetProducts` と `GetProductByProductID`の2つのデータアクセスメソッドと、1つの製品インスタンスを追加、更新、および削除するためのメソッドが用意されています。
 
-## <a name="step-7-working-with-thenorthwindwithsprocsdataset-from-the-presentation-layer"></a>手順 7: 操作、`NorthwindWithSprocs`プレゼンテーション層からの DataSet
+## <a name="step-7-working-with-thenorthwindwithsprocsdataset-from-the-presentation-layer"></a>手順 7: プレゼンテーション層からの`NorthwindWithSprocs`データセットの操作
 
-この時点で、ストアド プロシージャを使用してアクセスして、基になるデータベースのデータを変更する DAL を作成しました。 すべての製品またはメソッドの追加、更新、と共に特定の製品および削除の製品を取得する方法と基本的な BLL を構築しましたがも。 Let s BLL s を使用する ASP.NET ページの作成にこのチュートリアルを丸み`ProductsBLLWithSprocs`表示、更新、およびレコードを削除するためのクラス。
+この時点で、ストアドプロシージャを使用して基になるデータベースデータにアクセスし、変更する DAL が作成されました。 また、製品を追加、更新、削除するためのメソッドと共に、すべての製品または特定の製品を取得するメソッドを含む基本的な BLL も作成しました。 このチュートリアルを終了するには、`ProductsBLLWithSprocs` クラスを使用してレコードの表示、更新、および削除を行う ASP.NET ページを作成します。
 
-開く、`NewSprocs.aspx`ページで、`AdvancedDAL`フォルダーとその名前を付け、デザイナーには、ツールボックスからドラッグ GridView`Products`します。 GridView から s のスマート タグの選択という名前の新しい ObjectDataSource にバインドする`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス、図 22 に示すようにします。
+`AdvancedDAL` フォルダーの [`NewSprocs.aspx`] ページを開き、[ツールボックス] から GridView をデザイナーにドラッグして、`Products`という名前を付けます。 GridView s スマートタグから、`ProductsDataSource`という名前の新しい ObjectDataSource にバインドすることを選択します。 図22に示すように、`ProductsBLLWithSprocs` クラスを使用するように ObjectDataSource を構成します。
 
-[![ProductsBLLWithSprocs クラスを使用する ObjectDataSource を構成します。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image50.png)
+[製品 Bllwithsproc クラスを使用するように ObjectDataSource を構成 ![には](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image50.png)
 
-**図 22**:構成に使用する ObjectDataSource、`ProductsBLLWithSprocs`クラス ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image52.png))。
+**図 22**: `ProductsBLLWithSprocs` クラスを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image52.png))
 
-タブで、ドロップダウン リストが 2 つのオプション、`GetProducts`と`GetProductByProductID`します。 GridView のすべての製品を表示するため、選択、`GetProducts`メソッド。 UPDATE、INSERT、および DELETE の各のタブで、ドロップダウン リストでは、1 つのメソッドがあるだけです。 選択した適切なメソッドは、これらの各ドロップダウン リストにことを確認し、[完了] をクリックします。
+[選択] タブのドロップダウンリストには、`GetProducts` と `GetProductByProductID`の2つのオプションがあります。 GridView 内のすべての製品を表示するため、`GetProducts` 方法を選択します。 [更新]、[挿入]、[削除] の各タブのドロップダウンリストには、それぞれ1つのメソッドがあります。 これらの各ドロップダウンリストに適切なメソッドが選択されていることを確認し、[完了] をクリックします。
 
-ObjectDataSource ウィザードが完了すると、Visual Studio は製品データ フィールドで、GridView に BoundFields と、CheckBoxField を追加します。 編集の有効化と削除を有効にするオプションをスマート タグの存在をチェックして、GridView s の組み込みの編集と削除機能に有効にします。
+ObjectDataSource ウィザードが完了すると、Visual Studio によって、BoundFields と CheckBoxField が製品データフィールドの GridView に追加されます。 [編集を有効にする] チェックボックスをオンにして、組み込みの編集および削除機能をオンにします。
 
-[![ページには編集および削除のサポートが有効で、GridView が含まれています](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image53.png)
+[編集と削除のサポートが有効になっている GridView がページに含まれて ![](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image53.png)
 
-**図 23**:ページに含まれる GridView 編集と削除のサポートを有効に ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image55.png))。
+**図 23**: 編集および削除のサポートが有効になっている GridView がページに含まれている ([クリックしてフルサイズのイメージを表示する](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image55.png))
 
-私たちとして説明した、ObjectDataSource のウィザードの完了時に、前のチュートリアルで Visual Studio の設定、`OldValuesParameterFormatString`プロパティを元に\_{0}します。 既定値に元に戻す必要があります{0}データ変更機能が正しく動作するために、BLL のメソッドで必要となるパラメーターを指定します。 そのため、必ず設定、`OldValuesParameterFormatString`プロパティを{0}または宣言型構文からプロパティを完全に削除します。
+前のチュートリアルで説明したように、ObjectDataSource ウィザードの完了時に、Visual Studio は `OldValuesParameterFormatString` プロパティを元の\_{0}に設定します。 この値は、BLL のメソッドで想定されるパラメーターによってデータ変更機能が適切に機能するために、{0} の既定値に戻す必要があります。 したがって、`OldValuesParameterFormatString` プロパティを {0} に設定するか、宣言構文からプロパティを完全に削除するようにしてください。
 
-編集して、GridView でのサポートを削除し、ObjectDataSource s を返すことの有効化、データ ソースの構成ウィザードの完了後`OldValuesParameterFormatString`プロパティを既定値は、ページ、宣言型マークアップは、次のようになります。
+データソースの構成ウィザードを完了し、GridView でサポートを編集および削除し、ObjectDataSource s `OldValuesParameterFormatString` プロパティを既定値に戻すと、ページ s の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample12.aspx)]
 
-この時点では、編集、検証をインクルードするインターフェイスをカスタマイズすることで、GridView を整理でしたが、`CategoryID`と`SupplierID`列 Dropdownlist、として表示したりします。 クライアント側の確認 [削除] にも追加できるし、すると、これらの拡張機能を実装するために時間がかかることをお勧めします。 これらのトピックは、前のチュートリアルで説明していますため、ただし、いないにもう一度ここで説明します。
+この時点で、編集インターフェイスをカスタマイズして検証を含め、`CategoryID` と `SupplierID` 列を DropDownLists として表示することで、GridView を整理できます。 また、[削除] ボタンにクライアント側の確認を追加することもできます。このような拡張機能を実装することをお勧めします。 これらのトピックについては前のチュートリアルで説明したため、ここでは説明しません。
 
-かどうかどうかは、GridView を拡張に関係なく、ブラウザーでページのコア機能をテストします。 図 24 に示すように 1 行当たりの編集と削除機能を提供する GridView では、製品がページに一覧表示します。
+GridView を拡張するかどうかに関係なく、ページ s のコア機能をブラウザーでテストします。 図24に示すように、行ごとの編集と削除の機能を提供する GridView の製品がページに一覧表示されます。
 
-[![製品を表示、編集、および GridView から削除できます。](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image56.png)
+[GridView から製品を表示、編集、および削除できる ![](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image56.png)
 
-**図 24**:製品を表示、編集、および GridView から削除 ([フルサイズの画像を表示する をクリックします](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image58.png))。
+**図 24**: GridView で製品を表示、編集、および削除できる ([クリックすると、フルサイズの画像が表示](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image58.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-型指定されたデータセットに Tableadapter やストアド プロシージャ、アドホック SQL ステートメントを使用して、データベースからデータにアクセスできます。 ストアド プロシージャに基づくのストアド プロシージャの使用、いずれかの既存のストアド プロシージャが使用できますまたは TableAdapter ウィザードは、新しいを作成するように指示することと、`SELECT`クエリ。 このチュートリアルでは、ストアド プロシージャを自動的に作成する方法について説明します。
+型指定されたデータセット内の Tableadapter は、アドホック SQL ステートメントまたはストアドプロシージャを使用して、データベースのデータにアクセスできます。 ストアドプロシージャを使用する場合は、既存のストアドプロシージャを使用するか、または `SELECT` クエリに基づいて新しいストアドプロシージャを作成するように TableAdapter ウィザードを指定することができます。 このチュートリアルでは、ストアドプロシージャを自動的に作成する方法について説明しました。
 
-ストアド プロシージャによりの自動生成された時間を節約することができますが、場合によっては、ウィザードは t によって作成されたストアド プロシージャが、独自の私たちの作成と連携があります。 1 つの例は、`Products_Update`ストアド プロシージャで、両方が必要です`@Original_ProductID`と`@ProductID`入力パラメーターの場合でも、`@Original_ProductID`パラメーターが不要。
+ストアドプロシージャが自動生成されると時間が節約されますが、ウィザードによって作成されたストアドプロシージャは、独自に作成したものとは一致しない場合があります。 1つの例として、`Products_Update` ストアドプロシージャがあります。これは、`@Original_ProductID` パラメーターが不要な場合でも、`@Original_ProductID` と `@ProductID` 入力パラメーターの両方を必要とします。
 
-多くのシナリオでストアド プロシージャが作成されている、またはストアド プロシージャのコマンドは、制御をより細かくがあるため、手動でそれらをビルドしたい場合があります。 どちらの場合、TableAdapter のメソッドに既存のストアド プロシージャを使用するよう指示することがあります。 次のチュートリアルでこれを実現する方法表示されます。
+多くのシナリオでは、ストアドプロシージャが既に作成されている場合や、ストアドプロシージャのコマンドをより細かく制御できるように手動でビルドする場合があります。 どちらの場合も、メソッドに既存のストアドプロシージャを使用するように TableAdapter に指示します。 次のチュートリアルで、これを実現する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ## <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ストアド プロシージャの作成と保守](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
-- [ストアド プロシージャからのスカラー データの取得](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
-- [SQL Server ストアド プロシージャの基本](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
-- [ストアド プロシージャ。概要](http://www.sqlteam.com/item.asp?ItemID=563)
-- [ストアド プロシージャの作成](http://www.4guysfromrolla.com/webtech/111499-1.shtml)
+- [ストアドプロシージャの作成と保守](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
+- [ストアドプロシージャからスカラーデータを取得する](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
+- [ストアドプロシージャの基本 SQL Server](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
+- [ストアドプロシージャ: 概要](http://www.sqlteam.com/item.asp?ItemID=563)
+- [ストアドプロシージャの作成](http://www.4guysfromrolla.com/webtech/111499-1.shtml)
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Hilton Geisenow でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Geisenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)

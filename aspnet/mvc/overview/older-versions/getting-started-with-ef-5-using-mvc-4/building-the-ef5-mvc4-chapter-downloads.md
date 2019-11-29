@@ -1,55 +1,55 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
-title: EF 5 mvc 4 のチュートリアル」の章を構築ダウンロード |Microsoft Docs
+title: EF 5 MVC 4 チュートリアルのダウンロード章をビルドするMicrosoft Docs
 author: Rick-Anderson
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
+description: Contoso 大学のサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示しています。
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: d0a89089-eed8-4f61-a478-c5ffa30186f5
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: 1138f1512690e01a09c73623c0d8db4a31eb921b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0e720b3e4c5d3b8f779afe3a6e2b47baa86eec4c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129841"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592708"
 ---
-# <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>EF 5 mvc 4 のチュートリアル」の章を構築ダウンロードします。
+# <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>EF 5 MVC 4 チュートリアルのダウンロード章をビルドする
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示しています。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。
 
 ## <a name="building-the-chapter-downloads"></a>章ダウンロードの構築
 
-1. ダウンロードしてプロジェクト サンプルの zip ファイルを解凍します。 解凍したダウンロード パッケージに追加の zip ファイル、各章の完了のいずれかが表示されます。
-2. 目的の zip ファイルを右クリック**プロパティ**、 をクリックし、**ブロックの解除**ボタンをクリックします。  
+1. プロジェクトサンプル zip ファイルをダウンロードして解凍します。 解凍されたダウンロードパッケージには、各章の完了のための追加の zip ファイルがあります。
+2. 目的の zip ファイルを右クリックし、 **[プロパティ]** をクリックして、 **[ブロック解除]** ボタンをクリックします。  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image1.png)
 3. ファイルを解凍します。
-4. ダブルクリックして、 *CUx.sln*ファイルを Visual Studio を起動します。
-5. **ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、し**パッケージ マネージャー コンソール**します。  
+4. *Cux .sln*ファイルをダブルクリックして、Visual Studio を起動します。
+5. **[ツール]** メニューの **[NuGet パッケージマネージャー]** 、 **[パッケージマネージャーコンソール]** の順にクリックします。  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image2.png)
-6. パッケージ マネージャー コンソール (PMC) をクリックして**復元**します。  
+6. パッケージマネージャーコンソール (PMC) で、 **[復元]** をクリックします。  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image3.png)
 7. Visual Studio を終了します。
-8. 上記の手順で終了するソリューション ファイルを開き、Visual Studio を再起動します。
-9. パッケージ マネージャー コンソール (PMC) を入力、`Update-Database`コマンド。  
+8. Visual Studio を再起動し、前の手順で閉じたソリューションファイルを開きます。
+9. パッケージマネージャーコンソール (PMC) で、`Update-Database` コマンドを入力します。  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image4.png)  
 
     > [!NOTE]
-    > : 次のエラーが発生した場合  
+    > 次のエラーが表示された場合:  
     >   
-    >  *'データベースの更新' という用語はコマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。名前のスペルを確認するか、パスが正しいことを確認し、もう一度お試しパスが含まれている場合。*  
-    > 終了し、Visual Studio を再起動します。
+    >  *"データベースの更新" という用語は、コマンドレット、関数、スクリプトファイル、または操作可能なプログラムの名前として認識されません。名前の綴りを確認するか、パスが含まれている場合は、パスが正しいことを確認してから、もう一度やり直してください。*  
+    > Visual Studio を終了し、再起動します。
 
-    各移行を実行し、seed メソッドが実行されます。 アプリを実行できます。
+    各移行が実行された後、seed メソッドが実行されます。 これで、アプリを実行できるようになりました。
 
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image5.png)
 

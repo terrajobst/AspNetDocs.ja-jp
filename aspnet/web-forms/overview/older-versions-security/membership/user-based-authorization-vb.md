@@ -1,382 +1,382 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/user-based-authorization-vb
-title: ユーザー ベースの承認 (VB) |Microsoft Docs
+title: ユーザーベースの承認 (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、ページへのアクセスを制限して、さまざまな手法によってページ レベルの機能を制限することに注目します。
+description: このチュートリアルでは、ページへのアクセスを制限し、さまざまな手法によってページレベルの機能を制限する方法について説明します。
 ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: bc937e9d-5c14-4fc4-aec7-440da924dd18
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 965e1ff59866ce2946f6965cb31a751f20c1bcfc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: dfac0c6fa955e59c6ea996533f2447e89ec8d468
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114636"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74587903"
 ---
 # <a name="user-based-authorization-vb"></a>ユーザー ベースの承認 (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_07_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial07_UserAuth_vb.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_07_VB.zip)または[PDF のダウンロード](https://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial07_UserAuth_vb.pdf)
 
-> このチュートリアルでは、ページへのアクセスを制限して、さまざまな手法によってページ レベルの機能を制限することに注目します。
+> このチュートリアルでは、ページへのアクセスを制限し、さまざまな手法によってページレベルの機能を制限する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-ユーザー アカウントを提供するほとんどの web アプリケーションでこの特定の訪問者から、サイト内の特定のページへのアクセスを制限するようにします。 たとえば、大半のオンライン messageboard サイト、- 匿名、認証済みのすべてのユーザーは、messageboard の投稿を表示することが認証されたユーザーだけが新しい投稿を作成する web ページを参照してください。 特定のユーザー (または特定のユーザーのセット) にアクセスできる管理ページがある可能性があります。 さらに、ページ レベルの機能は、ユーザー単位のユーザーごとに異なることができます。 投稿のリストを表示するときに認証されたユーザーはこのインターフェイスは匿名の訪問者を利用できませんが、その個々 の投稿を評価するためのインターフェイスに表示されます。
+ユーザーアカウントを提供するほとんどの web アプリケーションでは、特定の訪問者がサイト内の特定のページにアクセスできないように制限します。 ほとんどのオンラインの messageboard サイトでは、たとえば、すべてのユーザー (匿名および認証済み) は messageboard の投稿を表示できますが、web ページにアクセスして新しい投稿を作成できるのは、認証されたユーザーのみです。 また、特定のユーザー (または特定のユーザーのセット) だけがアクセスできる管理ページがある場合もあります。 さらに、ページレベルの機能はユーザーごとに異なる場合があります。 投稿の一覧を表示すると、認証されたユーザーには各投稿を評価するためのインターフェイスが表示されますが、このインターフェイスは匿名訪問者には使用できません。
 
-ASP.NET では、簡単にユーザー ベースの承認規則を定義できます。 内のマークアップのわずか`Web.config`、指定したユーザーのサブセットにアクセスできるだけように、特定の web ページまたはディレクトリ全体をダウン ロックできなかったことができます。 ページ レベルの機能にできますオンまたはオフ プログラムおよび宣言型の方法で、現在ログインしているユーザーに基づいて。
+ASP.NET を使用すると、ユーザーベースの承認規則を簡単に定義できます。 `Web.config`の単なるマークアップでは、特定の web ページまたはディレクトリ全体をロックダウンして、指定したユーザーのサブセットだけにアクセスできるようにすることができます。 ページレベルの機能は、現在ログインしているユーザーに基づいて、プログラムおよび宣言的な方法で有効または無効にすることができます。
 
-このチュートリアルでは、ページへのアクセスを制限して、さまざまな手法によってページ レベルの機能を制限することに注目します。 それでは、始めましょう!
+このチュートリアルでは、ページへのアクセスを制限し、さまざまな手法によってページレベルの機能を制限する方法について説明します。 では、始めましょう。
 
-## <a name="a-look-at-the-url-authorization-workflow"></a>URL の承認ワークフローを参照してください。
+## <a name="a-look-at-the-url-authorization-workflow"></a>URL 承認ワークフローの概要
 
-説明したように、 [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-vb.md)チュートリアルでは、ASP.NET リソース要求ライフ サイクル中に多数のイベントを発生させますの ASP.NET ランタイムが要求を処理するときにします。 *HTTP モジュール*マネージ クラスの要求のライフ サイクルの特定のイベントに応答であるコードが実行されます。 ASP.NET では、バック グラウンドで重要なタスクを実行する HTTP モジュールの数が付属しています。
+[ *「フォーム認証の概要*](../introduction/an-overview-of-forms-authentication-vb.md)」のチュートリアルで説明したように、ASP.NET ランタイムが ASP.NET リソースの要求を処理すると、その要求によって、そのライフサイクル中に多数のイベントが発生します。 *HTTP モジュール*は、要求ライフサイクル内の特定のイベントに応答して実行されるコードを持つマネージクラスです。 ASP.NET には、バックグラウンドで重要なタスクを実行する多数の HTTP モジュールが付属しています。
 
-このような 1 つの HTTP モジュールが[ `FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)します。 主な機能の前のチュートリアルで説明したように、`FormsAuthenticationModule`は現在の要求の id を確認します。 これは、フォーム認証チケットがクッキーにまたは、URL 内に埋め込まれているを調べることによって実現されます。 この id は、実行中、 [ `AuthenticateRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)します。
+このような HTTP モジュールの1つは[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)です。 前のチュートリアルで説明したように、`FormsAuthenticationModule` の主な機能は、現在の要求の id を特定することです。 これは、cookie に配置されているか、URL 内に埋め込まれているフォーム認証チケットを検査することで実現されます。 この id は[`AuthenticateRequest` イベントの発生](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)時に行われます。
 
-もう 1 つの重要な HTTP モジュールは、 [ `UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)への応答で発生する、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)(後の動作を`AuthenticateRequest`イベント)。 `UrlAuthorizationModule`内の構成マークアップを調べて`Web.config`を現在の id が指定ページにアクセスする権限を持つかどうかを判断します。 このプロセスと呼ばれます*URL 承認*します。
+もう1つの重要な HTTP モジュールは、 [`AuthorizeRequest` イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)(`AuthenticateRequest` イベントの後に発生する) に応答して発生する[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)です。 `UrlAuthorizationModule` は `Web.config` の構成マークアップを調べて、現在の id に指定されたページにアクセスする権限があるかどうかを判断します。 このプロセスは、 *URL 承認*と呼ばれます。
 
-について説明します、手順 1. で URL 承認規則の構文がまずみましょう見てどのような`UrlAuthorizationModule`は、要求が承認されているかどうかどうかによって異なります。 場合、`UrlAuthorizationModule`こと要求が承認されるは、何もとライフ サイクル全体は引き続き、要求を決定します。 ただし、要求の場合*いない*、承認、`UrlAuthorizationModule`ライフ サイクルを中止し、指示、`Response`オブジェクトを返す、 [HTTP 401](http://www.checkupdown.com/status/E401.html)状態。 この HTTP 401 ステータスは、クライアントに返されませんフォーム認証を使用するときに場合、`FormsAuthenticationModule`状態は、HTTP 401 に変更を検出、 [HTTP 302 リダイレクト](http://www.checkupdown.com/status/E302.html)ログイン ページにします。
+ここでは、手順 1. の URL 承認規則の構文について説明しますが、まず、要求が承認されているかどうかに応じて、`UrlAuthorizationModule` の動作を見てみましょう。 要求が承認されていることが `UrlAuthorizationModule` によって判断された場合は、何も実行されず、要求はそのライフサイクルを通じて続行されます。 ただし、要求が承認されて*いない*場合、`UrlAuthorizationModule` は、ライフサイクルを中止し、`Response` オブジェクトに対して[HTTP 401 の未承認](http://www.checkupdown.com/status/E401.html)ステータスを返すように指示します。 フォーム認証を使用する場合、この HTTP 401 ステータスはクライアントに返されません。これは、`FormsAuthenticationModule` が HTTP 401 の状態を検出した場合、はログインページに[リダイレクト 302](http://www.checkupdown.com/status/E302.html)されるためです。
 
-図 1 は、ASP.NET パイプラインのワークフローを示しています、 `FormsAuthenticationModule`、および`UrlAuthorizationModule`未承認の要求が到着したとき。 具体的には、図 1 はの匿名の訪問者によって要求を示しています。 `ProtectedPage.aspx`、匿名ユーザーにアクセスを拒否する ページであります。 訪問者は、匿名であるため、`UrlAuthorizationModule`要求を中止し、HTTP 401 Unauthorized ステータスを返します。 `FormsAuthenticationModule`ログイン ページへの 302 リダイレクトに 401 ステータスを変換します。 [ログイン] ページで、ユーザーが認証された後、彼にリダイレクトされます。`ProtectedPage.aspx`します。 この時間、`FormsAuthenticationModule`彼認証チケットに基づくユーザーを識別します。 ゲスト ユーザーが認証されると、これで、`UrlAuthorizationModule`ページへのアクセスを許可します。
+図1は、承認されていない要求が到着したときの、ASP.NET パイプライン、`FormsAuthenticationModule`、`UrlAuthorizationModule` のワークフローを示しています。 特に、図1は `ProtectedPage.aspx`の匿名ビジターによる要求を示しています。これは、匿名ユーザーへのアクセスを拒否するページです。 ビジターが匿名であるため、`UrlAuthorizationModule` によって要求が中止され、HTTP 401 の未承認ステータスが返されます。 `FormsAuthenticationModule` は、401の状態を302リダイレクトにログインページに変換します。 ログインページを使用して認証されたユーザーは、`ProtectedPage.aspx`にリダイレクトされます。 今回は、`FormsAuthenticationModule` は自分の認証チケットに基づいてユーザーを識別します。 ビジターが認証されたので、`UrlAuthorizationModule` はページへのアクセスを許可します。
 
-[![フォーム認証と承認ワークフローの URL](user-based-authorization-vb/_static/image2.png)](user-based-authorization-vb/_static/image1.png)
+[フォーム認証と URL 承認ワークフローの ![](user-based-authorization-vb/_static/image2.png)](user-based-authorization-vb/_static/image1.png)
 
-**図 1**:フォーム認証と承認ワークフローの URL ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image3.png))。
+**図 1**: フォーム認証と URL 承認のワークフロー ([クリックすると、フルサイズのイメージが表示](user-based-authorization-vb/_static/image3.png)されます)
 
-図 1 は、匿名の訪問者がいない匿名ユーザーに提供されるリソースにアクセスしようとしたときに発生する相互作用を示しています。 このような場合は、匿名の訪問者は、クエリ文字列で指定されているアクセスしようと彼女のページで、ログイン ページにリダイレクトされます。 ログオンすると、ユーザーが正常に彼女は自動的にリダイレクトされます彼女が最初に表示する試行しているリソースに戻ります。
+図1は、匿名ユーザーが匿名ユーザーには使用できないリソースにアクセスしようとしたときに発生する相互作用を示しています。 このような場合、匿名ビジターは、クエリ文字列で指定されたアクセスを試みたページでログインページにリダイレクトされます。 ユーザーが正常にログオンすると、最初に表示しようとしていたリソースに自動的にリダイレクトされます。
 
-このワークフローが単純で、訪問者が変更点を理解するが簡単に匿名ユーザーによって承認されていない要求が行われる理由です。 注意で維持しながら、`FormsAuthenticationModule`はリダイレクト*任意*要求が認証されたユーザーによって行われた場合でも、ログイン ページにユーザー権限がありません。 これは、結果、機関を彼女がないページにアクセスしようとすると、認証されたユーザーに混乱を招くユーザー エクスペリエンス。
+匿名ユーザーによって承認されていない要求が行われた場合、このワークフローは簡単であり、ユーザーが何が起こったかとその理由を簡単に把握できます。 ただし、認証されたユーザーによって要求が行われた場合でも、`FormsAuthenticationModule` によって、承認されていないユーザーがログインページ*にリダイレクトさ*れることに注意してください。 認証されたユーザーが権限を持っていないページにアクセスしようとすると、ユーザーエクスペリエンスが混乱する可能性があります。
 
-Imagine の web サイトが構成された、URL 承認規則を持っているように、ASP.NET ページ`OnlyTito.aspx`Tito にのみアクセスできます。 が。 ここで、Sam にサイトを訪問し、ログオンして、アクセスしようとし、ことを想像`OnlyTito.aspx`します。 `UrlAuthorizationModule`は、要求のライフ サイクルを停止し、HTTP 401 Unauthorized ステータスを返します`FormsAuthenticationModule`を検出し、Sam をログイン ページにリダイレクトします。 Sam がまだログインしているため、彼女疑問に思う理由彼女が送信されたログイン ページに戻ります。 彼女は、自分のログイン資格情報が何らかの形で失われたか、無効な資格情報を入力したことを理由可能性があります。 Sam は、ログイン ページから自分の資格情報を再入力する場合は (再度) ログオンされにリダイレクト`OnlyTito.aspx`します。 `UrlAuthorizationModule` Sam がこのページにアクセスできないし、彼女がログイン ページに返されますことを検出します。
+Web サイトの URL 承認規則が構成されているとします。これにより、ASP.NET ページ `OnlyTito.aspx` が accessibly ではないようになりました。 ここで、Sam がサイトにアクセスし、ログオンして、`OnlyTito.aspx`にアクセスしようとするとします。 `UrlAuthorizationModule` は、要求のライフサイクルを停止し、HTTP 401 の許可されていない状態を返します。この状態は、`FormsAuthenticationModule` が検出し、ログインページに Sam をリダイレクトします。 Sam は既にログインしているため、ログインページに返送された理由を不思議に思うかもしれません。 ログイン資格情報がなんらかの理由で失われたか、または無効な資格情報を入力したことが考えられます。 Sam がログインページから資格情報を入力すると、その資格情報が再度ログオンし、`OnlyTito.aspx`にリダイレクトされます。 `UrlAuthorizationModule` は、Sam がこのページにアクセスできないことを検出し、ログインページに戻ります。
 
-図 2 は、この混乱を招くのワークフローを示しています。
+図2は、この混乱を招くワークフローを示しています。
 
-[![既定のワークフローは混乱を招くサイクルにつながる](user-based-authorization-vb/_static/image5.png)](user-based-authorization-vb/_static/image4.png)
+[既定のワークフローを ![と、混乱を招く可能性があります。](user-based-authorization-vb/_static/image5.png)](user-based-authorization-vb/_static/image4.png)
 
-**図 2**:既定のワークフローにつながる混乱を招くサイクル ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image6.png))。
+**図 2**: 既定のワークフローが混乱を招く可能性があります ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image6.png)されます)
 
-図 2 に示すワークフローは、でも、ほとんどのコンピューター経験豊富な訪問者をすばやく befuddle ことができます。 手順 2. でサイクルが混乱これを回避する方法を紹介します。
-
-> [!NOTE]
-> ASP.NET では、現在のユーザーが特定の web ページにアクセスできるかどうかを判断するのに 2 つのメカニズムを使用します。URL 認証機能とファイルの承認。 ファイルの承認はによって実装されて、 [ `FileAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx)機関が要求されたファイルの Acl を参照して決定します。 ファイルの承認は、Acl が Windows アカウントに適用されるアクセス許可のために最もよく Windows 認証で使用されます。 フォーム認証を使用する場合は、すべてのオペレーティング システムとファイル システム レベルの要求がサイトにアクセスするユーザーに関係なく、同じ Windows アカウントによって実行されます。 このチュートリアル シリーズでは、フォーム認証に重点を置いていますため、私たちはについては説明しませんファイル承認します。
-
-### <a name="the-scope-of-url-authorization"></a>URL 承認の範囲
-
-`UrlAuthorizationModule`はマネージ コードは、ASP.NET ランタイムの一部であります。 前のバージョン 7 のマイクロソフトの[インターネット インフォメーション サービス (IIS)](https://www.iis.net/) web サーバー、IIS の HTTP パイプラインと、ASP.NET ランタイムのパイプラインの個別障害が発生しました。 簡単に言えば、IIS 6 以降では、ASP します。NET の`UrlAuthorizationModule`ASP.NET ランタイムに要求が IIS から委任されるときにのみ実行されます。 既定では、IIS などの静的コンテンツ自体の HTML ページと CSS、JavaScript、およびイメージ ファイルの処理し、ASP.NET ランタイムの拡張子を持つページへの要求のみを渡します`.aspx`、 `.asmx`、または`.ashx`を要求します。
-
-IIS 7 では、ただしでは、統合された IIS と ASP.NET パイプライン。 呼び出す、IIS 7 を設定するいくつかの構成設定で、`UrlAuthorizationModule`の*すべて*要求、任意の種類のファイルの URL 承認規則を定義できることを意味します。 さらに、IIS 7 には、独自の URL 承認エンジンが含まれています。 ASP.NET の統合と IIS 7 のネイティブ URL 承認の機能の詳細については、次を参照してください。[理解 IIS7 URL 承認](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)します。 ASP.NET と IIS 7 の統合の詳細については、集荷 Shahram Khosravi のマニュアルのコピーを*Professional IIS 7 と ASP.NET の統合プログラミング*(ISBN:978-0470152539).
-
-簡単に言うと、IIS 7 よりも前のバージョンでは、URL 承認規則のみに適用されます、ASP.NET ランタイムによって処理されるリソース。 IIS 7 と IIS のネイティブ URL 認証機能を使用する、または ASP を統合することはできます。NET の`UrlAuthorizationModule`IIS の HTTP パイプラインにすべての要求には、この機能の拡張によって実現します。
+図2に示されているワークフローを使用すると、コンピューターの知識の高い訪問者でもすぐに befuddle ことができます。 ここでは、手順 2. で混乱を防ぐ方法について説明します。
 
 > [!NOTE]
-> 方法のいくつかの微妙ながらも重要な違いがある ASP します。NET の`UrlAuthorizationModule`と IIS 7 の URL 承認の機能が、承認規則を処理します。 このチュートリアルでは、IIS 7 の URL 承認の機能またはと比較すると、承認規則を解析する方法の違いはチェックしません、`UrlAuthorizationModule`します。 これらのトピックの詳細については、IIS 7 のマニュアルまたは msdn を参照してください[www.iis.net](https://www.iis.net/)します。
+> ASP.NET は、URL 承認とファイル承認という2つのメカニズムを使用して、現在のユーザーが特定の web ページにアクセスできるかどうかを判断します。 ファイルの承認は[`FileAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx)によって実装され、要求されたファイルの acl をコンサルティングすることによって権限を決定します。 Acl は Windows アカウントに適用されるアクセス許可であるため、ファイル承認は Windows 認証で最も一般的に使用されます。 フォーム認証を使用する場合、すべてのオペレーティングシステムとファイルシステムレベルの要求は、サイトにアクセスしているユーザーに関係なく、同じ Windows アカウントによって実行されます。 このチュートリアルシリーズではフォーム認証に焦点を当てているため、ファイル承認については説明しません。
 
-## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>手順 1: URL 承認規則を定義します。`Web.config`
+### <a name="the-scope-of-url-authorization"></a>URL 承認のスコープ
 
-`UrlAuthorizationModule`アプリケーションの構成で定義されている URL 承認規則に基づいて特定の id の要求のリソースへのアクセス許可または拒否するかどうかを決定します。 承認規則が記述された、 [ `<authorization>`要素](https://msdn.microsoft.com/library/8d82143t.aspx)の形式で`<allow>`と`<deny>`子要素。 各`<allow>`と`<deny>`子要素を指定できます。
+`UrlAuthorizationModule` は、ASP.NET ランタイムの一部であるマネージコードです。 Microsoft の[インターネットインフォメーションサービス (iis)](https://www.iis.net/) web サーバーのバージョン7より前では、IIS の HTTP パイプラインと ASP.NET ランタイムのパイプラインの間には個別のバリアがありました。 つまり、IIS 6 以前の ASP では、NET の `UrlAuthorizationModule` は、要求が IIS から ASP.NET ランタイムに委任された場合にのみ実行されます。 既定では、IIS は静的なコンテンツ自体 (HTML ページ、CSS、JavaScript、イメージファイルなど) を処理し、`.aspx`、`.asmx`、または `.ashx` の拡張機能を持つページが要求された場合にのみ、ASP.NET ランタイムに要求を渡します。
+
+ただし、IIS 7 では、IIS と ASP.NET の統合パイプラインを使用できます。 いくつかの構成設定を使用して、IIS 7 をセットアップして*すべて*の要求の `UrlAuthorizationModule` を呼び出すことができます。つまり、URL 承認規則を任意の種類のファイルに対して定義できます。 さらに、IIS 7 には、独自の URL 承認エンジンも含まれています。 ASP.NET 統合と IIS 7 のネイティブ URL 承認機能の詳細については、「 [IIS7 Url 承認につい](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)て」を参照してください。 ASP.NET と IIS 7 の統合の詳細については、Shahram Khosravi の書籍、 *PROFESSIONAL IIS 7、ASP.NET Integrated プログラミング*(ISBN: 978-0470152539) のコピーを参照してください。
+
+簡単に言うと、IIS 7 より前のバージョンでは、URL 承認規則は ASP.NET ランタイムによって処理されるリソースにのみ適用されます。 ただし、IIS 7 では、IIS のネイティブ URL 承認機能を使用することも、ASP を統合することもできます。NET は IIS の HTTP パイプラインに `UrlAuthorizationModule` し、この機能をすべての要求に拡張します。
+
+> [!NOTE]
+> ASP の方法には、いくつかの重要な相違点があります。NET の `UrlAuthorizationModule` および IIS 7 の URL 承認機能によって、承認規則が処理されます。 このチュートリアルでは、IIS 7 の URL 承認機能や、`UrlAuthorizationModule`と比較して承認規則を解析する方法の違いについては説明しません。 これらのトピックの詳細については、MSDN または[www.iis.net](https://www.iis.net/)の IIS 7 のドキュメントを参照してください。
+
+## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>手順 1:`Web.config` で URL 承認規則を定義する
+
+`UrlAuthorizationModule` は、アプリケーションの構成で定義されている URL 承認規則に基づいて、特定の id に対して要求されたリソースへのアクセスを許可するか拒否するかを決定します。 承認規則は、`<allow>` と `<deny>` の子要素の形式で[`<authorization>` 要素](https://msdn.microsoft.com/library/8d82143t.aspx)に記載されています。 各 `<allow>` および `<deny>` 子要素は、次の項目を指定できます。
 
 - 特定のユーザー
-- ユーザーのコンマ区切りの一覧
-- 疑問符 (?) で表される、すべての匿名ユーザー
-- アスタリスクで示される、すべてのユーザー (\*)
+- コンマで区切られたユーザーの一覧
+- すべての匿名ユーザー (疑問符 (?) で示される)
+- アスタリスク (\*) で示されるすべてのユーザー
 
-次のマークアップは、URL の承認規則を使用してユーザー Tito と Scott に許可して、他のすべてを拒否する方法を示しています。
+次のマークアップは、URL 承認規則を使用して、ユーザーに Tito と Scott を許可し、他のすべての操作を拒否できるようにする方法を示しています。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample1.xml)]
 
-`<allow>` - Tito と Scott - どのようなユーザーが許可されている要素を定義中に、`<deny>`要素に指示する*すべて*ユーザーが拒否されます。
+`<allow>` 要素は、ユーザーが許可されているユーザー (Tito と Scott-) を定義します。一方、`<deny>` 要素は、*すべて*のユーザーを拒否するように指示します。
 
 > [!NOTE]
-> `<allow>`と`<deny>`要素は、ロールの承認規則も指定できます。 今後のチュートリアルでのロールベースの承認を見ていきます。
+> `<allow>` 要素と `<deny>` 要素では、ロールの承認規則を指定することもできます。 ロールベースの承認については、今後のチュートリアルで確認します。
 
-次の設定は、Sam (匿名の訪問者を含む) 以外のユーザーにアクセスを許可します。
+次の設定は、Sam 以外のユーザー (匿名訪問者を含む) へのアクセスを許可します。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample2.xml)]
 
-認証されたユーザーのみを許可するのには、すべての匿名ユーザーにアクセスを拒否します。 次の構成を使用します。
+認証されたユーザーのみを許可するには、次の構成を使用します。これにより、すべての匿名ユーザーへのアクセスが拒否されます。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample3.xml)]
 
-内で承認規則が定義されている、`<system.web>`要素`Web.config`し、すべての web アプリケーションで ASP.NET のリソースに適用します。 多くの場合、アプリケーションでは、さまざまなセクションのさまざまな承認規則があります。 たとえば、e コマース サイトでは、すべての訪問者可能性があります製品をご参照、製品のレビューを表示、カタログを検索および具合します。 ただし、認証されたユーザーのみは、チェック アウト、または 1 つの配布の履歴を管理するページにアクセスできます。 さらに、サイト管理者など、ユーザーの選択 でアクセスできるサイトの部分があります。
+承認規則は `Web.config` の `<system.web>` 要素内で定義され、web アプリケーション内のすべての ASP.NET リソースに適用されます。 多くの場合、アプリケーションには異なるセクションに対して異なる承認規則があります。 たとえば、e コマースサイトでは、すべての訪問者が製品を調べたり、製品レビューを参照したり、カタログを検索したりすることができます。 ただし、認証されたユーザーのみがチェックアウトに到着したり、1つの出荷履歴を管理するためのページが表示されたりする可能性があります。 また、サイトの一部が、サイト管理者などの選択したユーザーのみがアクセスできるようになる場合もあります。
 
-ASP.NET では、簡単に、サイト内の別のファイルとフォルダーのさまざまな承認規則を定義できます。 ルート フォルダーの指定された承認規則`Web.config`ファイルは、サイト内のすべての ASP.NET リソースに適用されます。 ただし、これらの既定の承認設定の上書きできます特定のフォルダーを追加して、`Web.config`で、`<authorization>`セクション。
+ASP.NET を使用すると、サイト内のさまざまなファイルやフォルダーに対して異なる承認規則を簡単に定義できます。 ルートフォルダーの `Web.config` ファイルに指定されている承認規則は、サイト内のすべての ASP.NET リソースに適用されます。 ただし、これらの既定の承認設定は、`<authorization>` セクションを持つ `Web.config` を追加することで、特定のフォルダーに対してオーバーライドできます。
 
-認証されたユーザーのみが内の ASP.NET ページにアクセスできるように、当社の web サイトを更新しましょう、`Membership`フォルダー。 追加する必要があります。 これを実現する、`Web.config`ファイルを、`Membership`フォルダーを匿名ユーザーを拒否するには、その承認設定を設定します。 右クリックし、`Membership`ソリューション エクスプ ローラーでフォルダーが、コンテキスト メニューから、[新しい項目の追加] メニューを選択し、という名前の新しい Web 構成ファイルを追加`Web.config`します。
+認証されたユーザーのみが `Membership` フォルダー内の ASP.NET ページにアクセスできるように web サイトを更新してみましょう。 これを行うには、`Membership` フォルダーに `Web.config` ファイルを追加し、その承認設定を匿名ユーザーを拒否するように設定する必要があります。 ソリューションエクスプローラーで `Membership` フォルダーを右クリックし、コンテキストメニューの [新しい項目の追加] メニューをクリックして、`Web.config`という名前の新しい Web 構成ファイルを追加します。
 
-[![メンバーシップのフォルダーに Web.config ファイルを追加します。](user-based-authorization-vb/_static/image8.png)](user-based-authorization-vb/_static/image7.png)
+[メンバーシップフォルダーに web.config ファイルを追加 ![には](user-based-authorization-vb/_static/image8.png)](user-based-authorization-vb/_static/image7.png)
 
-**図 3**:追加、`Web.config`ファイルを`Membership`フォルダー ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image9.png))。
+**図 3**: `Membership` フォルダーに `Web.config` ファイルを追加する ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image9.png)されます)
 
-この時点で、プロジェクトを含む必要があります 2`Web.config`ファイル: 1 つで 1 つのルート ディレクトリで、`Membership`フォルダー。
+この時点で、プロジェクトには2つの `Web.config` ファイルが含まれている必要があります。1つはルートディレクトリに、もう1つは `Membership` フォルダーにあります。
 
-[![アプリケーションは、2 つの Web.config ファイルを含める必要がありますようになりました](user-based-authorization-vb/_static/image11.png)](user-based-authorization-vb/_static/image10.png)
+[アプリケーションに2つの web.config ファイルが含まれるようになった ![](user-based-authorization-vb/_static/image11.png)](user-based-authorization-vb/_static/image10.png)
 
-**図 4**:アプリケーションが含まれてという 2 つ`Web.config`ファイル ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image12.png))。
+**図 4**: アプリケーションに2つの `Web.config` ファイルが含まれるようにする ([クリックしてフルサイズのイメージを表示する](user-based-authorization-vb/_static/image12.png))
 
-構成ファイルを更新、`Membership`フォルダーを匿名ユーザーへのアクセスを禁止するようにします。
+`Membership` フォルダー内の構成ファイルを更新して、匿名ユーザーへのアクセスを禁止します。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample4.xml)]
 
 必要な作業は以上です。
 
-この変更をテストするにブラウザーでホーム ページを参照してください。 し、ログアウトするかどうかを確認します。ASP.NET アプリケーションの既定の動作は、すべての訪問者を許可するため、承認を変更したり、ルート ディレクトリの作成しなかったため`Web.config`ファイル、匿名の訪問者としてのルート ディレクトリ内のファイルにアクセスすることができます。
+この変更をテストするには、ブラウザーでホームページにアクセスし、ログアウトしていることを確認してください。ASP.NET アプリケーションの既定の動作ではすべての訪問者が許可されるため、ルートディレクトリの `Web.config` ファイルに対して承認を変更しなかったため、ルートディレクトリ内のファイルに匿名ビジターとしてアクセスできるようになります。
 
-左側の列にあるユーザー アカウントを作成するリンクをクリックします。 これは、移動、`~/Membership/CreatingUserAccounts.aspx`します。 以降、`Web.config`ファイル、`Membership`フォルダーへの匿名アクセスを禁止するための承認規則を定義する、`UrlAuthorizationModule`要求を中止し、HTTP 401 Unauthorized ステータスを返します。 `FormsAuthenticationModule`ログイン ページへの送信、302 リダイレクト ステータスにこれを変更します。 ページ試行していたへのアクセスに注意してください (`CreatingUserAccounts.aspx`) 経由でログイン ページに渡される、`ReturnUrl`クエリ文字列パラメーター。
+左側の列にある [ユーザーアカウントの作成] リンクをクリックします。 これにより、`~/Membership/CreatingUserAccounts.aspx`に移動します。 `Membership` フォルダー内の `Web.config` ファイルでは、匿名アクセスを禁止する承認規則が定義されているため、`UrlAuthorizationModule` は要求を中止し、HTTP 401 の未承認ステータスを返します。 `FormsAuthenticationModule` はこれを302リダイレクトステータスに変更し、ログインページに送信します。 アクセスしようとしていたページ (`CreatingUserAccounts.aspx`) は、`ReturnUrl` querystring パラメーターを使用してログインページに渡されることに注意してください。
 
-[![以降、URL 承認規則匿名アクセスを禁止する、私たちがログイン ページにリダイレクトされます。](user-based-authorization-vb/_static/image14.png)](user-based-authorization-vb/_static/image13.png)
+[![URL 承認規則によって匿名アクセスが禁止されているため、ログインページにリダイレクトされます](user-based-authorization-vb/_static/image14.png)](user-based-authorization-vb/_static/image13.png)
 
-**図 5**:URL 承認規則匿名アクセスを禁止する、以降は、ログイン ページにリダイレクトしていますが ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image15.png))。
+**図 5**: URL 承認規則によって匿名アクセスが禁止されているため、ログインページにリダイレクトされます ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image15.png)されます)
 
-ログインするにリダイレクトしましたが、`CreatingUserAccounts.aspx`ページ。 この時間、`UrlAuthorizationModule`匿名は不要になったために、ページへのアクセスを許可します。
+ログインに成功すると、`CreatingUserAccounts.aspx` ページにリダイレクトされます。 今回は、匿名ではなくなったため、`UrlAuthorizationModule` がページへのアクセスを許可します。
 
-### <a name="applying-url-authorization-rules-to-a-specific-location"></a>特定の場所に URL 承認規則を適用します。
+### <a name="applying-url-authorization-rules-to-a-specific-location"></a>特定の場所への URL 承認規則の適用
 
-承認の設定で定義されている、`<system.web>`の`Web.config`そのディレクトリとそのサブディレクトリの ASP.NET リソースのすべてに適用されます (それ以外の場合別でオーバーライドされるまで`Web.config`ファイル)。 場合によっては、ただし、必要があります、1 つまたは 2 つの特定のページを除く特定の承認設定に指定したディレクトリ内のすべての ASP.NET リソース。 これは、追加することで実現できます、`<location>`要素`Web.config`の承認規則が異なる場合、ファイルを指す、および、その中に、一意の承認規則を定義します。
+`Web.config` の `<system.web>` セクションで定義されている承認設定は、そのディレクトリとそのサブディレクトリ内のすべての ASP.NET リソース (他の `Web.config` ファイルによってオーバーライドされるまで) に適用されます。 ただし、場合によっては、特定のディレクトリ内のすべての ASP.NET リソースに特定の承認構成が必要になることがあります (1 つまたは2つの特定のページを除く)。 これを実現するには、`Web.config`に `<location>` 要素を追加し、承認規則が異なるファイルを参照して、その固有の承認規則を定義します。
 
-使用して説明するために、`<location>`要素を特定のリソースの構成設定を上書き、Tito のみがアクセスできるように承認設定をカスタマイズしましょう`CreatingUserAccounts.aspx`します。 これを行うには、追加、`<location>`要素を`Membership`フォルダーの`Web.config`ファイルを開き、次のように見えるように、そのマークアップを更新します。
+`<location>` 要素を使用して特定のリソースの構成設定を上書きする方法を示すために、承認設定をカスタマイズして、Tito が `CreatingUserAccounts.aspx`にアクセスできるようにします。 これを行うには、`Membership` フォルダーの `Web.config` ファイルに `<location>` 要素を追加し、次のようにマークアップを更新します。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample5.xml)]
 
-`<authorization>`要素`<system.web>`内の ASP.NET リソースの既定の URL 承認規則を定義、`Membership`フォルダーとそのサブフォルダーです。 `<location>`要素では、特定のリソースに対してこれらのルールを上書きできます。 上記のマークアップで、`<location>`要素の参照、`CreatingUserAccounts.aspx`ページし、その承認規則の許可 Tito などを指定します。 拒否がその他のユーザー。
+`<system.web>` の `<authorization>` 要素は、`Membership` フォルダーとそのサブフォルダー内の ASP.NET リソースに対する既定の URL 承認規則を定義します。 `<location>` 要素を使用すると、特定のリソースに対してこれらのルールをオーバーライドできます。 上のマークアップでは、`<location>` 要素は `CreatingUserAccounts.aspx` ページを参照し、などの承認規則を指定して Tito を許可し、他のすべてのユーザーを拒否します。
 
-この承認の変更をテストするには、匿名ユーザーとして web サイトにアクセスして開始します。 任意のページにアクセスしようとすると、`Membership`フォルダーなど`UserBasedAuthorization.aspx`、`UrlAuthorizationModule`要求は拒否し、ログイン ページにリダイレクトされます。 答えると、Scott、としてログインした後に任意のページにアクセスできる、`Membership`フォルダー*を除く*の`CreatingUserAccounts.aspx`します。 アクセスしようとしています。`CreatingUserAccounts.aspx`すべてのユーザーとしてログオンが Tito れます、承認されていないアクセス試行を、ログイン ページにリダイレクトします。
+この承認変更をテストするには、まず、匿名ユーザーとして web サイトにアクセスします。 `UserBasedAuthorization.aspx`など、`Membership` フォルダー内のページにアクセスしようとすると、`UrlAuthorizationModule` によって要求が拒否され、ログインページにリダイレクトされます。 Scott などとしてログインした後、`Membership` フォルダー内の任意のページにアクセスできます (`CreatingUserAccounts.aspx`を*除く*)。 `CreatingUserAccounts.aspx` ログオンしようとすると、不正なアクセスが試行され、ログインページにリダイレクトされます。
 
 > [!NOTE]
-> `<location>`要素は、構成の外側に記述する必要があります`<system.web>`要素。 個別を使用する必要がある`<location>`各リソースの承認設定をオーバーライドする要素。
+> `<location>` 要素は、構成の `<system.web>` 要素の外に置く必要があります。 承認設定を上書きするリソースごとに個別の `<location>` 要素を使用する必要があります。
 
-### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>確認する方法、`UrlAuthorizationModule`承認規則を使用してアクセス許可または拒否
+### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>`UrlAuthorizationModule`が承認規則を使用してアクセスを許可または拒否する方法を確認する
 
-`UrlAuthorizationModule`かどうか、特定の URL の URL 承認を分析することで、特定のユーザーを承認するためにルールを 1 つ目からダウンの方法を操作して、一度に 1 つずつを決定します。 場合によっては、一致が見つかったで、一致が見つかるとすぐに、ユーザーがアクセス許可または拒否する`<allow>`または`<deny>`要素。 <strong>一致が検出されない場合、ユーザーがアクセスを許可します。</strong> その結果、アクセスを制限する場合を使用することが不可欠な`<deny>`URL 承認の構成の最後の要素としての要素。 <strong>省略した場合、</strong><strong>`<deny>`</strong><strong>要素では、すべてのユーザー アクセスが許可されます。</strong>
+`UrlAuthorizationModule` は、1つの URL 承認規則を1つずつ分析して、特定の URL の特定の id を承認するかどうかを決定します。 一致が見つかるとすぐに、`<allow>` または `<deny>` 要素で一致が見つかったかどうかによって、ユーザーはアクセスを許可または拒否されます。 <strong>一致するものが見つからない場合は、ユーザーにアクセス権が付与されます。</strong> そのため、アクセスを制限する場合は、URL 承認構成の最後の要素として `<deny>` 要素を使用する必要があります。 `<deny>`要素を<strong>省略すると</strong> <strong>、すべてのユーザーにアクセス権が付与されます。</strong>
 
-使用されるプロセスを理解する、`UrlAuthorizationModule`機関を確認する例を考えてみます URL 承認規則がこの手順の前半で説明しました。 最初のルールは、 `<allow>` Tito と Scott へのアクセスを許可する要素。 2 番目のルールは、`<deny>`要素をすべてのユーザーがアクセスを拒否します。 匿名ユーザーがアクセスする場合、`UrlAuthorizationModule`か、開始が匿名 Scott または Tito でしょうか。 いいえ、そのため、2 番目のルールに進みますが答え、当然ながら、です。 すべてのユーザーのセットでは匿名ですか。 以降、答えはい、ここでは、`<deny>`ルールが有効な配置し、訪問者は、ログイン ページにリダイレクトされます。 同様に、Jisun を訪問すると場合、 `UrlAuthorizationModule` Jisun が要求することによって開始 Scott または Tito のいずれかでしょうか。 そうでないので、 `UrlAuthorizationModule` Jisun ですべてのユーザーのセットには、2 番目の質問に進みますか? 彼女は、アクセスが拒否されます。 最後に、Tito 場合、最初の質問はによってもたらされる、`UrlAuthorizationModule`肯定の応答は Tito アクセスが許可されます。
+`UrlAuthorizationModule` が使用するプロセスについて理解を深めるには、この手順の前半で説明した URL 承認規則の例を参照してください。 最初の規則は、Tito と Scott へのアクセスを許可する `<allow>` 要素です。 2番目の規則は、すべてのユーザーへのアクセスを拒否する `<deny>` 要素です。 匿名ユーザーがアクセスした場合、`UrlAuthorizationModule` は、Scott または Tito に匿名であるかどうかを確認してから開始しますか? もちろん、答えは「いいえ」であるため、2番目のルールに進みます。 全員が匿名であるか。 ここでの答えは "はい" であるため、`<deny>` の規則は有効になり、ビジターはログインページにリダイレクトされます。 同様に、Jisun がアクセスしている場合は、`UrlAuthorizationModule`、Jisun は Scott または Tito ですか。 私はそうではないので、`UrlAuthorizationModule` は2番目の質問に進みます。 アクセスは拒否されています。 最後に、アクセスする場合は、`UrlAuthorizationModule` によって最初に行われる質問が肯定的な回答であるため、Tito にはアクセス権が付与されます。
 
-以降、`UrlAuthorizationModule`プロセスの承認規則のダウン、停止してから、すべての一致に上からより特定の規則を特定性の低いものより前に設定することが重要です。 つまり、Jisun と、匿名ユーザーが禁止されているが、他のすべての認証されたユーザーを許可する承認規則を定義するにはの先頭に最も固有のルールの 1 つに影響を与える Jisun - してから他のすべての許可 - 特定性の低いルールに進みます認証されたユーザーがすべての匿名ユーザーを拒否します。 次の URL 承認規則は、まず Jisun、拒否して、すべての匿名ユーザーを拒否して、このポリシーを実装します。 Jisun 以外のユーザーは認証済みアクセスが許可されますので、どちらも`<deny>`ステートメントは一致します。
+`UrlAuthorizationModule` は、上から順に承認規則を処理するので、すべての一致を停止します。そのため、より具体的な規則よりも具体的な規則を指定することが重要です。 つまり、Jisun と匿名ユーザーを禁止し、他のすべての認証済みユーザーを許可する承認規則を定義するには、最も限定的な規則から開始します (Jisun に影響を与える規則と、それ以外の規則を許可する規則に従います)。認証されたユーザー。ただし、すべての匿名ユーザーを拒否します。 次の URL 承認規則では、最初に Jisun を拒否し、匿名ユーザーを拒否することによって、このポリシーを実装します。 Jisun 以外の認証されたユーザーには、これらの `<deny>` ステートメントのどちらも一致しないため、アクセスが許可されます。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample6.xml)]
 
-## <a name="step-2-fixing-the-workflow-for-unauthorized-authenticated-users"></a>手順 2: 承認されていない、認証されたユーザーのワークフローを修正
+## <a name="step-2-fixing-the-workflow-for-unauthorized-authenticated-users"></a>手順 2: 承認されていない認証済みユーザーのワークフローを修正する
 
-URL 承認ワークフローのセクションで、検索では、このチュートリアルで先ほど説明したようにいつでも未承認の要求には、`UrlAuthorizationModule`要求を中止し、HTTP 401 Unauthorized ステータスを返します。 によってこの 401 ステータスが変更された、 `FormsAuthenticationModule` 302 にリダイレクトするユーザーをログイン ページに送信する状態。 このワークフローは、ユーザーが認証される場合でも、未承認の要求で発生します。
+このチュートリアルで既に説明したように、「URL Authorization Workflow」セクションでは、承認されていない要求を発生するたびに、要求が中止され、HTTP 401 `UrlAuthorizationModule` の未承認ステータスが返されます。 この401状態は、`FormsAuthenticationModule` によって、ユーザーをログインページに送信する302リダイレクトステータスに変更されます。 このワークフローは、ユーザーが認証されている場合でも、承認されていない要求に対して発生します。
 
-認証されたユーザーをログイン ページに返すことが既にシステムにログインしているために、それらを混同する可能性があります。 少し作業が、認証済み要求するユーザーを承認されていない制限付きのページにアクセスしようとしたことを説明するページにリダイレクトすることによって、このワークフローを向上します。
+認証されたユーザーをログインページに返すことは、システムに既にログインしているため、ユーザーが混乱する可能性があります。 少しの作業で、承認されていない要求を行う認証済みユーザーを、制限されたページにアクセスしようとしたことを示すページにリダイレクトすることで、このワークフローを改善できます。
 
-という名前の web アプリケーションのルート フォルダーで新しい ASP.NET ページを作成して開始`UnauthorizedAccess.aspx`; が、このページを関連付けることを忘れないでください、`Site.master`マスター ページ。 このページを作成した後を参照するコンテンツ コントロールを削除、`LoginContent`プレース ホルダーをマスター ページの既定のコンテンツが表示されます。 つまり、状況を説明するメッセージを次に、追加、ユーザーが保護されたリソースにアクセスしようとしたことです。 このようなメッセージを追加した後、`UnauthorizedAccess.aspx`ページの宣言型マークアップは、次のようになります。
+まず、`UnauthorizedAccess.aspx`という名前の web アプリケーションのルートフォルダーに新しい ASP.NET ページを作成します。このページを `Site.master` マスターページに必ず関連付けるようにしてください。 このページを作成した後、マスターページの既定のコンテンツが表示されるように、`LoginContent` ContentPlaceHolder を参照するコンテンツコントロールを削除します。 次に、状況を説明するメッセージを追加します。つまり、ユーザーが保護されたリソースにアクセスしようとしたことを示します。 このようなメッセージを追加すると、`UnauthorizedAccess.aspx` ページの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample7.aspx)]
 
-これで、認証されたユーザーが未承認の要求を実行する場合に送信されるように、ワークフローを変更する必要があります、`UnauthorizedAccess.aspx`ログイン ページではなくページ。 プライベート メソッド内でログイン ページに承認されていない要求をリダイレクトするロジックが埋め込まれています、`FormsAuthenticationModule`クラスのため、この動作をカスタマイズすることはできません。 ユーザーをリダイレクトするログイン ページに独自のロジックを追加するには何を行える、ただし、`UnauthorizedAccess.aspx`必要な場合、します。
+次に、認証されたユーザーによって承認されていない要求が実行されると、ログインページではなく `UnauthorizedAccess.aspx` ページに送信されるように、ワークフローを変更する必要があります。 ログインページに承認されていない要求をリダイレクトするロジックは、`FormsAuthenticationModule` クラスのプライベートメソッド内に埋もれているので、この動作をカスタマイズすることはできません。 ただし、必要に応じて、ユーザーを `UnauthorizedAccess.aspx`にリダイレクトするログインページに独自のロジックを追加することもできます。
 
-ときに、`FormsAuthenticationModule`未承認のユーザーをリダイレクトするログイン ページに追加、名前を持つクエリ文字列の要求、承認されていない URL `ReturnUrl`。 たとえば、未認証のユーザーにアクセスしようとすると`OnlyTito.aspx`、`FormsAuthenticationModule`がリダイレクトするに`Login.aspx?ReturnUrl=OnlyTito.aspx`します。 そのため、認証されたユーザーを含むクエリ文字列でログイン ページに達した場合、`ReturnUrl`パラメーターを紹介しているだけこの認証されていないユーザーを表示する権限がありません彼女のページにアクセスしようとします。 このような場合は、彼女にリダイレクトする`UnauthorizedAccess.aspx`します。
+`FormsAuthenticationModule` が権限のないユーザーをログインページにリダイレクトすると、要求された承認されていない URL が `ReturnUrl`という名前のクエリ文字列に追加されます。 たとえば、承認されていないユーザーが `OnlyTito.aspx`にアクセスしようとすると、`FormsAuthenticationModule` によって `Login.aspx?ReturnUrl=OnlyTito.aspx`にリダイレクトされます。 したがって、認証されたユーザーが `ReturnUrl` パラメーターを含むクエリ文字列を使用してログインページに到達した場合は、この認証されていないユーザーが閲覧を許可されていないページにアクセスしようとしただけであることがわかります。 このような場合は、`UnauthorizedAccess.aspx`にリダイレクトする必要があります。
 
-これを実現するには、ログイン ページの次のコードを追加`Page_Load`イベント ハンドラー。
+これを実現するには、ログインページの `Page_Load` イベントハンドラーに次のコードを追加します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample8.vb)]
 
-上記のコードに認証、承認されていないユーザーをリダイレクトする、`UnauthorizedAccess.aspx`ページ。 このロジックの動作を表示するには、匿名の訪問者としてサイトにアクセスし、左側にあるユーザー アカウントを作成するリンクをクリックします。 これは、移動、 `~/Membership/CreatingUserAccounts.aspx`  ページで、これだけで構成した手順 1. で Tito へのアクセス許可。 匿名ユーザーは禁止されていますので、`FormsAuthenticationModule`私たちは、ログイン ページにリダイレクトします。
+上記のコードは、認証された承認されていないユーザーを `UnauthorizedAccess.aspx` ページにリダイレクトします。 このロジックが動作していることを確認するには、匿名ビジターとしてサイトにアクセスし、左側の列にある [ユーザーアカウントの作成] リンクをクリックします。 これにより、[`~/Membership/CreatingUserAccounts.aspx`] ページに移動します。手順 1. では、Tito へのアクセスのみを許可するように構成されています。 匿名ユーザーは禁止されているため、`FormsAuthenticationModule` はログインページにリダイレクトします。
 
-この時点では匿名ため、`Request.IsAuthenticated`返します`False`にリダイレクトされないことと`UnauthorizedAccess.aspx`します。 代わりに、ログイン ページが表示されます。 Tito、Bruce など別のユーザーとしてログインします。 ログイン ページに戻りリダイレクトを適切な資格情報を入力すると、`~/Membership/CreatingUserAccounts.aspx`します。 ただし、このページは Tito にアクセスできるだけであるためそれを表示する権限がありませんが、ログイン ページにすぐに返されます。 ただし、この時間`Request.IsAuthenticated`返します`True`(および`ReturnUrl`クエリ文字列パラメーターが存在する) にリダイレクトしましたので、`UnauthorizedAccess.aspx`ページ。
+この時点では匿名であるため、`Request.IsAuthenticated` は `False` を返し、`UnauthorizedAccess.aspx`にはリダイレクトされません。 代わりに、ログインページが表示されます。 たとえば、Tito 以外のユーザーとしてログインします。 適切な資格情報を入力すると、ログインページが `~/Membership/CreatingUserAccounts.aspx`にリダイレクトされます。 ただし、このページにアクセスできるのは Tito だけなので、このページを表示する権限はありませんので、すぐにログインページに戻ります。 ただし、今度は `Request.IsAuthenticated` が返され `True` (と `ReturnUrl` querystring パラメーターが存在する) ため、`UnauthorizedAccess.aspx` ページにリダイレクトされます。
 
-[![認証、承認されていないユーザーは UnauthorizedAccess.aspx にリダイレクトされます。](user-based-authorization-vb/_static/image17.png)](user-based-authorization-vb/_static/image16.png)
+[認証され ![認証されていないユーザーは、UnauthorizedAccess .aspx にリダイレクトされます。](user-based-authorization-vb/_static/image17.png)](user-based-authorization-vb/_static/image16.png)
 
-**図 6**:承認されていないユーザーは、認証にリダイレクトされます`UnauthorizedAccess.aspx`([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image18.png))。
+**図 6**: 認証された承認されていないユーザーが `UnauthorizedAccess.aspx` にリダイレクトされる ([クリックしてフルサイズの画像を表示する](user-based-authorization-vb/_static/image18.png))
 
-このカスタマイズされたワークフローでは、図 2 に示すように、サイクルのショート サーキットより賢明かつ簡単なユーザー エクスペリエンスを表示します。
+このカスタマイズされたワークフローは、図2に示すサイクルを簡単に示すことで、より合理的でわかりやすいユーザーエクスペリエンスを提供します。
 
-## <a name="step-3-limiting-functionality-based-on-the-currently-logged-in-user"></a>手順 3: 現在ログインしているユーザーに基づく機能を制限します。
+## <a name="step-3-limiting-functionality-based-on-the-currently-logged-in-user"></a>手順 3: 現在ログインしているユーザーに基づいて機能を制限する
 
-URL 承認を簡単に粗い承認規則を指定します。 手順 1. で説明したように URL 承認簡潔に記述できましたどの id が許可されており、どれがフォルダー内の特定のページまたはすべてのページの表示が拒否されます。 特定のシナリオでただし、することも、ページを参照してください。、訪問するユーザーを基に、ページの機能を制限するためのすべてのユーザーを許可します。
+URL 承認を使用すると、粒度の粗い承認規則を簡単に指定できます。 手順 1. で説明したように、URL 承認を使用すると、許可される id と、フォルダー内の特定のページまたはすべてのページを表示する際に拒否される id を簡潔に把握できます。 ただし、特定のシナリオでは、すべてのユーザーがページにアクセスできるようにする必要がありますが、ページにアクセスするユーザーに基づいてページの機能を制限することもできます。
 
-自社製品を確認する認証済みの訪問者は、電子商取引 web サイトの場合を考えます。 匿名ユーザーが製品のページを訪問したときは、製品情報だけを参照してレビューを残すことがない付与されます。 ただし、同じページにアクセスして、認証されたユーザーには確認インターフェイス参照してください。 認証されたユーザーは、この製品をまだ確認されませんが場合、インターフェイスが有効にする; レビューを送信するにはそれ以外の場合は表示することに送信したレビュー。 このシナリオの手順を実行するには、さらに、製品ページ可能性があります追加情報を表示し、e コマース企業に最適なそれらのユーザーの拡張機能を提供します。 たとえば、製品ページは、在庫のインベントリを一覧表示し、製品の価格と従業員がアクセスしたときの説明を編集するオプションが含まれます。
+認証された訪問者が製品をレビューできる e コマース web サイトのケースを考えてみましょう。 匿名ユーザーが製品のページにアクセスすると、製品情報だけが表示され、レビューを終了する機会は与えられません。 ただし、認証されたユーザーが同じページにアクセスすると、[確認] インターフェイスが表示されます。 認証されたユーザーがこの製品をまだ確認していない場合、インターフェイスによってレビューを送信できるようになります。それ以外の場合は、以前に送信したレビューが表示されます。 このシナリオをさらに進めるために、製品ページには追加情報が記載されています。また、e コマース会社で利用できるユーザーのための拡張機能を提供しています。 たとえば、製品ページに在庫の一覧が表示され、従業員がアクセスしたときに製品の価格と説明を編集するためのオプションが含まれている場合があります。
 
-宣言的またはプログラム (または、2 つの組み合わせを通じて)、このような細かい粒度の承認規則を実装できます。 次のセクションは、LoginView コントロールを使用して細かく承認を実装する方法が表示されます。 次は、プログラムによる手法について説明します。 細かく承認規則を適用することについて考えることができます、前に、まず必要があります機能を持つは、それにアクセスしたユーザーによって異なります。 ページを作成します。
+このような細かい粒度の承認規則は、宣言によって、またはプログラムによって (または2つの組み合わせを使用して) 実装できます。 次のセクションでは、LoginView コントロールを使用して細かい粒度承認を実装する方法について説明します。 次に、プログラムによる手法について説明します。 ただし、綿密な粒度の承認規則の適用を確認する前に、まず、アクセスするユーザーによって機能が異なるページを作成する必要があります。
 
-GridView を内の特定のディレクトリ内のファイルを一覧表示されたページを作成しましょう。 GridView と共に一覧表示するには、各ファイルの名前、サイズ、およびその他の情報、Linkbutton の 2 つの列が含まれます。 1 つは、ビューと 1 つのタイトルの削除」というタイトル。 ビューの LinkButton をクリックすると、選択したファイルの内容が表示されます。削除 LinkButton をクリックすると、ファイルは削除されます。 そのビューと削除機能がすべてのユーザーが使用できるように、このページを最初に作成してみましょう。 Using LoginView コントロールと機能をプログラムで制限するセクションでは、有効または、ページにアクセスしているユーザーに基づくこれらの機能を無効にする方法を説明します。
+GridView 内の特定のディレクトリ内のファイルを一覧表示するページを作成してみましょう。 GridView には、各ファイルの名前、サイズ、およびその他の情報を一覧表示すると共に、リンクボタンの2つの列が含まれます。1つはタイトル付きビューで、もう1つは Delete というタイトルです。 ビュー LinkButton がクリックされると、選択したファイルの内容が表示されます。Delete LinkButton がクリックされると、ファイルは削除されます。 最初にこのページを作成して、すべてのユーザーがそのビューおよび削除機能を使用できるようにしましょう。 「LoginView コントロールの使用」および「プログラムによる機能の制限」では、ページにアクセスしているユーザーに基づいてこれらの機能を有効または無効にする方法について説明します。
 
 > [!NOTE]
-> 構築するためには ASP.NET ページでは、ファイルの一覧を表示するのに GridView コントロールを使用します。 このチュートリアル シリーズは、フォーム認証、承認、ユーザー アカウント、およびロールに重点を置いています、以降しない GridView コントロールの内部動作を説明する時間をかけるにします。 このチュートリアルでは、このページをセットアップするための手順では、中の特定の選択を行った理由または影響の特定のプロパティが表示される出力が詳細には掘り下げてされません。 GridView コントロールのていねいに解説を参照してください、  *[ASP.NET 2.0 でデータを扱う](../../data-access/index.md)* チュートリアル シリーズです。
+> ビルドしようとしている ASP.NET ページでは、GridView コントロールを使用してファイルの一覧を表示します。 このチュートリアルシリーズでは、フォーム認証、承認、ユーザーアカウント、およびロールに焦点を当てているため、GridView コントロールの内部動作についてはあまり時間をかけたくありません。 このチュートリアルでは、このページを設定するための具体的な手順について説明しますが、特定の選択が行われた理由や、レンダリングされた出力に対する特定のプロパティの影響については詳しく説明しません。 GridView コントロールの詳細な調査については、「 *[ASP.NET 2.0 チュートリアルシリーズのデータの操作」](../../data-access/index.md)* を参照してください。
 
-開いて開始、`UserBasedAuthorization.aspx`ファイル、`Membership`フォルダーとという名前のページに GridView コントロールを追加する`FilesGrid`します。 GridView のスマート タグから、[フィールド] ダイアログ ボックスを起動する列の編集リンクをクリックします。 ここでは、左下隅の 自動生成フィールド チェック ボックスをオフにします。 次に、(Select および Delete ボタン [commandfield] の種類ができます) 左上隅から [選択] ボタン、[削除] ボタン、および 2 つの BoundFields を追加します。 [選択] ボタンを設定`SelectText`プロパティを表示し、最初の BoundField の`HeaderText`と`DataField`プロパティ名にします。 設定の 2 つ目の BoundField の`HeaderText`プロパティ サイズ (バイト単位) をその`DataField`プロパティの長さをその`DataFormatString`プロパティを{0:N0}とその`HtmlEncode`プロパティを False にします。
+まず、`Membership` フォルダー内の `UserBasedAuthorization.aspx` ファイルを開いて、`FilesGrid`という名前のページに GridView コントロールを追加します。 GridView のスマートタグから、[列の編集] リンクをクリックして [フィールド] ダイアログボックスを開きます。 ここで、左下隅にある [フィールドの自動生成] チェックボックスをオフにします。 次に、左上隅にある [選択] ボタン、[削除] ボタン、および2つの連結フィールドを追加します ([選択] ボタンと [削除] ボタンは CommandField 型の下にあります)。 [選択] ボタンの `SelectText` プロパティを [表示] に設定し、最初の BoundField の `HeaderText` と [`DataField` のプロパティ] を [名前] に設定します。 2番目の BoundField の `HeaderText` プロパティをバイト単位のサイズに設定し、その `DataField` プロパティを長さに、その `DataFormatString` プロパティを {0:N0} に設定し、その `HtmlEncode` プロパティを False に設定します。
 
-GridView の列を構成した後、[フィールド] ダイアログ ボックスを閉じるには、[ok] をクリックします。 プロパティ ウィンドウで、設定、GridView の`DataKeyNames`プロパティを`FullName`します。 この時点で、GridView の宣言型マークアップは、次のようになります。
+GridView の列を構成したら、[OK] をクリックして [フィールド] ダイアログボックスを閉じます。 プロパティウィンドウから、GridView の `DataKeyNames` プロパティを `FullName`に設定します。 この時点で、GridView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample9.aspx)]
 
-GridView のマークアップを作成、特定のディレクトリ内のファイルを取得し、それらを GridView にバインドするコードを記述する準備ができました。 ページの次のコードを追加`Page_Load`イベント ハンドラー。
+GridView のマークアップを作成したら、特定のディレクトリにあるファイルを取得して GridView にバインドするコードを記述する準備ができました。 ページの `Page_Load` イベントハンドラーに次のコードを追加します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample10.vb)]
 
-上記のコードを使用して、 [ `DirectoryInfo`クラス](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx)アプリケーションのルート フォルダー内のファイルの一覧を取得します。 [ `GetFiles()`メソッド](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx)のすべてのファイルをディレクトリ内の配列として返します[`FileInfo`オブジェクト](https://msdn.microsoft.com/library/system.io.fileinfo.aspx)、GridView にバインドされます。 `FileInfo`オブジェクトには、プロパティのさまざまななど`Name`、 `Length`、および`IsReadOnly`、他のユーザーの間で。 GridView がだけ表示されます、宣言型マークアップからわかるように、`Name`と`Length`プロパティ。
+上記のコードでは、 [`DirectoryInfo` クラス](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx)を使用して、アプリケーションのルートフォルダー内のファイルの一覧を取得します。 [`GetFiles()` メソッド](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx)は、ディレクトリ内のすべてのファイルを[`FileInfo` オブジェクト](https://msdn.microsoft.com/library/system.io.fileinfo.aspx)の配列として返します。このオブジェクトは、GridView にバインドされます。 `FileInfo` オブジェクトには、`Name`、`Length`、`IsReadOnly`など、さまざまなプロパティがあります。 宣言型マークアップからわかるように、GridView には `Name` と `Length` のプロパティだけが表示されます。
 
 > [!NOTE]
-> `DirectoryInfo`と`FileInfo`クラスは、 [ `System.IO`名前空間](https://msdn.microsoft.com/library/system.io.aspx)します。 そのため、するには、名前空間のクラス ファイルにインポートするこれらのクラス名、名前空間の名前を付ける (を使用して`Imports System.IO`)。
+> `DirectoryInfo` クラスと `FileInfo` クラスは、 [`System.IO` 名前空間](https://msdn.microsoft.com/library/system.io.aspx)にあります。 したがって、これらのクラス名の先頭には名前空間名を付けるか、または名前空間をクラスファイルにインポートする必要があります (`Imports System.IO`)。
 
-ご協力をブラウザーからこのページを参照してください。 アプリケーションのルート ディレクトリに存在するファイルの一覧が表示されます。 表示または削除の Linkbutton をクリックすると、ポストバックを発生させるが、まだため、アクションを実行せず、必要なイベント ハンドラーを作成します。
+ブラウザーを使用してこのページにアクセスしてください。 これにより、アプリケーションのルートディレクトリに存在するファイルの一覧が表示されます。 ビューまたは削除リンクボタンのいずれかをクリックするとポストバックが発生しますが、必要なイベントハンドラーをまだ作成していないため、アクションは発生しません。
 
-[![GridView には、Web アプリケーションのルート ディレクトリ内のファイルが一覧表示されます。](user-based-authorization-vb/_static/image20.png)](user-based-authorization-vb/_static/image19.png)
+[GridView に ![、Web アプリケーションのルートディレクトリにあるファイルが一覧表示されます。](user-based-authorization-vb/_static/image20.png)](user-based-authorization-vb/_static/image19.png)
 
-**図 7**:GridView には、Web アプリケーションのルート ディレクトリ内のファイルが一覧表示されます ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image21.png))。
+**図 7**: GridView によって、Web アプリケーションのルートディレクトリ内のファイルが一覧表示されます ([クリックすると、フルサイズのイメージが表示](user-based-authorization-vb/_static/image21.png)されます)
 
-選択したファイルの内容を表示するための手段が必要です。 Visual Studio に戻り、という名前のテキスト ボックスを追加して`FileContents`GridView 上。 設定の`TextMode`プロパティを`MultiLine`とその`Columns`と`Rows`プロパティを 95% や 10 では、それぞれします。
+選択したファイルの内容を表示するための手段が必要です。 Visual Studio に戻り、GridView の上に `FileContents` という名前のテキストボックスを追加します。 `TextMode` プロパティを `MultiLine` に設定し、`Columns` と `Rows` プロパティをそれぞれ95% と10に設定します。
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample11.aspx)]
 
-GridView のイベント ハンドラーを次に、作成[`SelectedIndexChanged`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx)し、次のコードを追加します。
+次に、GridView の[`SelectedIndexChanged` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx)のイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample12.vb)]
 
-このコードは、GridView の`SelectedValue`プロパティを選択したファイルの完全なファイル名を確認します。 内部的には、`DataKeys`コレクションが取得するために参照されている、 `SelectedValue`GridView のように設定することが重要ですので、`DataKeyNames`プロパティを名前、この手順で前述したようにします。 [ `File`クラス](https://msdn.microsoft.com/library/system.io.file.aspx)に割り当てられるし、文字列に、選択したファイルの内容の読み取りに使用、`FileContents`テキスト ボックスの`Text`プロパティ ページで選択したファイルの内容が表示されます。
+このコードでは、GridView の `SelectedValue` プロパティを使用して、選択したファイルの完全なファイル名を確認します。 内部的には、`SelectedValue`を取得するために `DataKeys` コレクションが参照されているため、この手順の前半で説明したように、GridView の `DataKeyNames` プロパティを Name に設定する必要があります。 [`File` クラス](https://msdn.microsoft.com/library/system.io.file.aspx)は、選択したファイルの内容を文字列に読み取るために使用されます。この文字列は、`FileContents` テキストボックスの `Text` プロパティに割り当てられます。これにより、選択したファイルの内容がページ上に表示されます。
 
-[![選択されているファイルの内容は、テキスト ボックスに表示されます。](user-based-authorization-vb/_static/image23.png)](user-based-authorization-vb/_static/image22.png)
+[選択したファイルの内容をテキストボックスに表示 ![](user-based-authorization-vb/_static/image23.png)](user-based-authorization-vb/_static/image22.png)
 
-**図 8**:テキスト ボックスに、選択したファイルの内容が表示されます ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image24.png))。
+**図 8**: 選択したファイルの内容がテキストボックスに表示される ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image24.png)されます)
 
 > [!NOTE]
-> HTML マークアップを含むファイルの内容を表示し、表示またはファイルを削除しようとしていてが表示されます、`HttpRequestValidationException`エラー。 これは、web サーバーにポストバック時に、テキスト ボックスの内容が送信されるために発生します。 既定では、ASP.NET は、 `HttpRequestValidationException` HTML マークアップなどの危険性のあるポストバック コンテンツが検出されるたびにエラー。 追加することで、ページの要求の検証をオフにするこのエラーの発生を無効にする`ValidateRequest="false"`を`@Page`ディレクティブ。 要求の検証としてどのような予防措置としてもときに実行する必要がありますの利点の詳細について無効にすることをお読みください[要求の検証 - スクリプト攻撃の防止](https://asp.net/learn/whitepapers/request-validation/)します。
+> HTML マークアップが含まれているファイルの内容を表示し、ファイルを表示または削除しようとすると、`HttpRequestValidationException` エラーが表示されます。 これは、ポストバック時に TextBox の内容が web サーバーに送り返されるためです。 既定では、HTML マークアップなどの危険なポストバックコンテンツが検出されると、ASP.NET は `HttpRequestValidationException` エラーを発生させます。 このエラーが発生しないようにするには、`@Page` ディレクティブに `ValidateRequest="false"` を追加して、ページの要求の検証を無効にします。 要求の検証の利点と、それを無効にするときに行う必要がある対策の詳細については、「[要求の検証-スクリプト攻撃の防止](https://asp.net/learn/whitepapers/request-validation/)」を参照してください。
 
-最後に、次のコードでイベント ハンドラーを追加の GridView の[`RowDeleting`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
+最後に、GridView の[`RowDeleting` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx)の次のコードを使用して、イベントハンドラーを追加します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample13.vb)]
 
-コードだけで削除するファイルの完全名を表示、 `FileContents` TextBox*せず*ファイルを実際に削除します。
+このコードは、ファイルを実際に削除する*ことなく*、`FileContents` テキストボックスで削除するファイルの完全な名前を表示するだけです。
 
-[![削除ボタンをクリックしても、そのファイルが実際に削除はされません。](user-based-authorization-vb/_static/image26.png)](user-based-authorization-vb/_static/image25.png)
+[[削除] ボタンをクリックしても、ファイルは実際には削除されません ![](user-based-authorization-vb/_static/image26.png)](user-based-authorization-vb/_static/image25.png)
 
-**図 9**:ファイルをクリックする、削除ボタンも実際には削除されません ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image27.png))。
+**図 9**: [削除] ボタンをクリックしてもファイルが削除されない ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image27.png)されます)
 
-手順 1. で匿名ユーザーが内のページを表示することを禁止する URL 承認規則を構成した、`Membership`フォルダー。 細かく認証が発生する、するには匿名ユーザーのアクセスを許可、 `UserBasedAuthorization.aspx`  ページで、機能が制限されたが、します。 次のコードを追加するすべてのユーザーがアクセスするこのページを開き、`<location>`要素を`Web.config`ファイル、`Membership`フォルダー。
+手順1では、匿名ユーザーが `Membership` フォルダー内のページを表示できないように、URL 承認規則を構成しました。 きめ細かな認証をより適切に行うために、匿名ユーザーが `UserBasedAuthorization.aspx` ページにアクセスできるようにしますが、機能は制限されています。 すべてのユーザーがアクセスできるようにこのページを開くには、次の `<location>` 要素を `Membership` フォルダー内の `Web.config` ファイルに追加します。
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample14.xml)]
 
-これを追加した後`<location>`要素、サイトからログアウトして、新しい URL 承認規則をテストします。 匿名ユーザーとしてアクセスする許可必要があります、`UserBasedAuthorization.aspx`ページ。
+この `<location>` 要素を追加した後、サイトからログアウトして、新しい URL 承認規則をテストします。 匿名ユーザーは、`UserBasedAuthorization.aspx` ページにアクセスすることが許可されている必要があります。
 
-現時点では、任意の認証済みまたは匿名ユーザーがアクセスできる、`UserBasedAuthorization.aspx`ページを表示し、またはファイルを削除します。 しましょう認証されたユーザーのみがファイルの内容を表示して Tito のみがファイルを削除できるようにします。 宣言によって、プログラムから、または両方のメソッドの組み合わせによって、このような細かい粒度の承認規則を適用できます。 ファイルの内容を表示することができますを制限するのに宣言型のアプローチを使用しましょうファイルを削除できるユーザーを制限するプログラムによるアプローチを使用します。
+現在、認証されたユーザーまたは匿名ユーザーは、`UserBasedAuthorization.aspx` ページにアクセスして、ファイルを表示または削除できます。 認証されたユーザーのみがファイルの内容を表示できるようにし、ファイルを削除できるのは Tito です。 このような細かい粒度の承認規則は、プログラムによって、または両方の方法を組み合わせて適用できます。 宣言型の方法を使用して、ファイルの内容を表示できるユーザーを制限してみましょう。プログラムによる方法を使用して、ファイルを削除できるユーザーを制限します。
 
-### <a name="using-the-loginview-control"></a>LoginView コントロールを使用します。
+### <a name="using-the-loginview-control"></a>LoginView コントロールの使用
 
-過去のチュートリアルでご覧いただいたし、LoginView コントロールは、認証と匿名ユーザーの異なるインターフェイスを表示するために便利ですが匿名ユーザーにアクセスできない機能を非表示にする簡単な方法を提供します。 のみを表示する必要があります匿名ユーザーは、表示するか、またはファイルを削除することはできませんから、`FileContents`テキスト ボックスに、ページ、認証されたユーザーがアクセスするとします。 これを実現する、ページを LoginView コントロールを追加、名前を付けます`LoginViewForFileContentsTextBox`に移動し、`FileContents`に LoginView コントロールのテキスト ボックスの宣言型マークアップ`LoggedInTemplate`します。
+これまでのチュートリアルで説明したように、LoginView コントロールは、認証されたユーザーと匿名ユーザー用にさまざまなインターフェイスを表示する場合に便利です。また、匿名ユーザーがアクセスできない機能を簡単に隠すことができます。 匿名ユーザーがファイルを表示または削除することはできないため、認証されたユーザーがページにアクセスしたときにのみ、`FileContents` テキストボックスを表示する必要があります。 これを実現するには、LoginView コントロールをページに追加し `LoginViewForFileContentsTextBox`という名前を指定し、`FileContents` TextBox の宣言型マークアップを LoginView コントロールの `LoggedInTemplate`に移動します。
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample15.aspx)]
 
-LoginView のテンプレートでの Web コントロールは、分離コード クラスから直接アクセスではありません。 たとえば、 `FilesGrid` GridView の`SelectedIndexChanged`と`RowDeleting`イベント ハンドラーを現在参照、`FileContents`などのコードのある TextBox コントロール。
+LoginView のテンプレート内の Web コントロールは、分離コードクラスから直接アクセスできなくなりました。 たとえば、`FilesGrid` GridView の `SelectedIndexChanged` および `RowDeleting` イベントハンドラーは、現在、次のようなコードを使用して `FileContents` TextBox コントロールを参照します。
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample16.aspx)]
 
-ただし、このコードは有効ではなくなりました。 移動することによって、`FileContents`にテキスト ボックス、`LoggedInTemplate`テキスト ボックスに直接アクセスすることはできません。 代わりに、使用する必要があります、`FindControl("controlId")`コントロールをプログラムで参照されるメソッド。 更新プログラム、`FilesGrid`イベント ハンドラー、テキスト ボックスを参照するようになります。
+ただし、このコードは有効ではなくなりました。 `FileContents` TextBox を `LoggedInTemplate` に移動すると、テキストボックスに直接アクセスできなくなります。 代わりに、`FindControl("controlId")` メソッドを使用して、プログラムでコントロールを参照する必要があります。 次のように、テキストボックスを参照するように `FilesGrid` イベントハンドラーを更新します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample17.vb)]
 
-LoginView をテキスト ボックスに移動したら`LoggedInTemplate`参照を使用して、テキスト ボックスに、ページのコードを更新し、`FindControl("controlId")`パターン、匿名ユーザーとしてページを参照してください。 図 10 に示すよう、`FileContents`テキスト ボックスは表示されません。 ただし、ビューの LinkButton が引き続き表示されます。
+TextBox を LoginView の `LoggedInTemplate` に移動し、`FindControl("controlId")` パターンを使用してテキストボックスを参照するようにページのコードを更新した後は、匿名ユーザーとしてページにアクセスします。 図10に示すように、[`FileContents`] ボックスは表示されません。 ただし、ビュー LinkButton は引き続き表示されます。
 
-[![LoginView コントロールでは、FileContents テキスト ボックスに認証されたユーザーに対してのみ表示します](user-based-authorization-vb/_static/image29.png)](user-based-authorization-vb/_static/image28.png)
+[LoginView コントロールでは、認証されたユーザーの FileContents TextBox のみがレンダリングされます。 ![](user-based-authorization-vb/_static/image29.png)](user-based-authorization-vb/_static/image28.png)
 
-**図 10**:LoginView コントロールのみを表示、 `FileContents` Authenticated Users のテキスト ボックス ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image30.png))。
+**図 10**: LoginView コントロールでは、認証されたユーザーの `FileContents` テキストボックスのみがレンダリングされます ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image30.png)されます)
 
-匿名ユーザーの表示 ボタンを非表示にする方法の 1 つでは、GridView フィールドを TemplateField に変換します。 これにより、ビューの LinkButton の宣言型マークアップを格納しているテンプレートが生成されます。 できます、TemplateField に LoginView コントロールを追加し、LoginView の内で LinkButton を配置`LoggedInTemplate`のため、匿名の訪問者からの表示 ボタンを非表示にします。 これを実現するには、フィールド ダイアログ ボックスを起動する GridView のスマート タグからの列の編集リンクをクリックします。 次に、左下隅で、一覧から 選択 ボタンを選択し、このフィールドを TemplateField リンクに変換 をクリックします。 これによりから、フィールドの宣言型マークアップを変更します。
+匿名ユーザーの [表示] ボタンを非表示にする方法の1つとして、GridView フィールドを TemplateField に変換する方法があります。 これにより、ビュー LinkButton の宣言型マークアップを含むテンプレートが生成されます。 次に、LoginView コントロールを TemplateField に追加し、LoginView の `LoggedInTemplate`内に LinkButton を配置します。これにより、匿名訪問者から表示ボタンが非表示になります。 これを行うには、GridView のスマートタグから [列の編集] リンクをクリックして、[フィールド] ダイアログボックスを起動します。 次に、左下隅にある一覧から [選択] ボタンを選択し、[このフィールドを TemplateField に変換する] リンクをクリックします。 これにより、次のようにフィールドの宣言マークアップが変更されます。
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample18.aspx)]
 
- 移動先: 
+ 宛先: 
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample19.aspx)]
 
- この時点で、LoginView、TemplateField に追加できます。 次のマークアップでは、認証されたユーザーに対してのみ表示 LinkButton が表示されます。 
+ この時点で、TemplateField に LoginView を追加できます。 次のマークアップは、認証されたユーザーに対してのみビュー LinkButton を表示します。 
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample20.aspx)]
 
-図 11 に示す最終的な結果がかなりのビューとして列が引き続き表示されること場合でも、列内のビューの Linkbutton が非表示 次のセクションで全体の GridView 列 (およびだけでなく LinkButton) を非表示にする方法に注目するは。
+図11に示すように、最終的な結果は、列内のビューリンクボタンが非表示になっていても、ビュー列が引き続き表示されるという点ではありません。 次のセクションでは、(LinkButton だけでなく) GridView 列全体を非表示にする方法について説明します。
 
-[![LoginView コントロールでは、匿名の訪問者のビューの Linkbutton が非表示に](user-based-authorization-vb/_static/image32.png)](user-based-authorization-vb/_static/image31.png)
+[LoginView コントロールを ![すると、匿名訪問者のビューリンクボタンが非表示になります。](user-based-authorization-vb/_static/image32.png)](user-based-authorization-vb/_static/image31.png)
 
-**図 11**:LoginView コントロールでは、匿名の訪問者のビューの Linkbutton が非表示に ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image33.png))。
+**図 11**: LoginView コントロールは、匿名の訪問者のビューリンクボタンを非表示にします ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image33.png)されます)
 
-### <a name="programmatically-limiting-functionality"></a>プログラムで機能を制限します。
+### <a name="programmatically-limiting-functionality"></a>プログラムによる機能制限
 
-状況によっては、宣言型の手法では、ページに機能を制限する不十分です。 たとえば、特定ページの機能の可用性は、ページにアクセスして、ユーザーが匿名または認証済みかどうか外の条件に依存する可能性があります。 このような場合は、さまざまなユーザー インターフェイス要素表示したり、プログラムによる方法で非表示になります。
+場合によっては、ページに機能を制限するための宣言型手法が不十分です。 たとえば、ページにアクセスするユーザーが匿名または認証されているかどうかに関係なく、特定のページ機能の可用性が条件に依存している場合があります。 このような場合は、プログラムによって、さまざまなユーザーインターフェイス要素を表示または非表示にすることができます。
 
-機能をプログラムで制限するためには、2 つのタスクを実行する必要があります。
+プログラムによって機能を制限するために、次の2つのタスクを実行する必要があります。
 
-1. ページにアクセスするユーザーが、機能にアクセスできるかどうかを判断し、
-2. ユーザーが目的の機能へのアクセスを持っているかどうかに基づいて、ユーザー インターフェイスをプログラムで変更します。
+1. ページにアクセスしているユーザーが機能にアクセスできるかどうかを判断します。
+2. ユーザーが問題の機能にアクセスできるかどうかに基づいて、プログラムによってユーザーインターフェイスを変更します。
 
-これら 2 つのタスクのアプリケーションを示すためには、のみを許可 Tito GridView からファイルを削除します。 最初のタスクは、次に、Tito ページにアクセスがあるかどうかを判断するは。 決定を GridView の列の削除を非表示にする (または表示する) 必要があります。 GridView の列はからアクセスできるその`Columns`プロパティ; 場合にのみ列が表示されるその`Visible`プロパティに設定されて`True`(既定値)。
+これらの2つのタスクの適用を示すために、GridView からのファイルの削除のみを許可してみましょう。 最初のタスクは、ページにアクセスする必要があるかどうかを判断することです。 確認したら、GridView の Delete 列を非表示 (または表示) する必要があります。 GridView の列には、`Columns` プロパティを使用してアクセスできます。列が表示されるのは、その `Visible` プロパティが `True` (既定値) に設定されている場合のみです。
 
-次のコードを追加、 `Page_Load` GridView にデータをバインドする前にイベント ハンドラー。
+データを GridView にバインドする前に、`Page_Load` イベントハンドラーに次のコードを追加します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample21.vb)]
 
-説明したように、 [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-vb.md)チュートリアルでは、 `User.Identity.Name` id の名前を返します。 これは、ログイン コントロールに入力されたユーザー名に対応します。 Tito ページにアクセス、GridView の 2 番目の列のかどうかは`Visible`プロパティに設定されて`True`。 それ以外に設定されている`False`します。 最終的には、Tito 以外にアクセス ページで、別の認証されたユーザーまたは匿名ユーザーのいずれかと、列の削除は表示されません (図 12 を参照)。しかし、Tito、ページにアクセスし、削除列が存在する (図 13 を参照してください)。
+[ *「フォーム認証の概要」* ](../introduction/an-overview-of-forms-authentication-vb.md)チュートリアルで説明したように、`User.Identity.Name` は id の名前を返します。 これは、ログインコントロールに入力されたユーザー名に対応します。 ページにアクセスする必要がある場合、GridView の2番目の列の `Visible` プロパティは `True`に設定されます。それ以外の場合は、`False`に設定されます。 結果として、他のユーザーがページにアクセスしたときに、別の認証済みユーザーまたは匿名ユーザーのいずれかが表示されない場合、削除列はレンダリングされません (図12を参照)。ただし、このページにアクセスするときは、[削除] 列が表示されます (図13を参照)。
 
-[![列の削除はしないレンダリングされるときにアクセスでだれかが以外の Tito (Bruce) など](user-based-authorization-vb/_static/image35.png)](user-based-authorization-vb/_static/image34.png)
+[[削除] 列が Tito 以外のユーザーによって閲覧されたときにはレンダリングされません (例 ![)。](user-based-authorization-vb/_static/image35.png)](user-based-authorization-vb/_static/image34.png)
 
-**図 12**:列の削除はしないレンダリングされるときにアクセスでだれかが以外の Tito (Bruce) など ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image36.png))。
+**図 12**: [削除] 列が Tito 以外のユーザーによって閲覧されたときに表示されない (たとえば、[クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image36.png)されます)
 
-[![列の削除は Tito をレンダリングします。](user-based-authorization-vb/_static/image38.png)](user-based-authorization-vb/_static/image37.png)
+[削除列が Tito に表示さ ![](user-based-authorization-vb/_static/image38.png)](user-based-authorization-vb/_static/image37.png)
 
-**図 13**:列の削除は Tito のレンダリング ([フルサイズの画像を表示する をクリックします](user-based-authorization-vb/_static/image39.png))。
+**図 13**: Delete 列が Tito に表示される ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image39.png)されます)
 
-## <a name="step-4-applying-authorization-rules-to-classes-and-methods"></a>手順 4: クラスとメソッドに承認規則を適用します。
+## <a name="step-4-applying-authorization-rules-to-classes-and-methods"></a>手順 4: クラスとメソッドに承認規則を適用する
 
-手順 3 は、匿名ユーザーによるファイルの内容の表示を禁止し、ファイルを削除してから、すべてのユーザーが Tito を禁止されています。 これは、宣言型とプログラムによる方法で承認されていない訪問者が、関連付けられているユーザー インターフェイス要素を非表示にしていました。 この単純な例では、わかりやすく、については正しくユーザー インターフェイス要素を非表示がもっと複雑なサイトと同じ機能を実行するさまざまな方法があるでしょうか。 未承認のユーザーにその機能を制限するでは、非表示にする、またはすべての該当するユーザー インターフェイス要素を無効にするを忘れる場合どのようなどうなりますか。
+手順3では、匿名ユーザーがファイルの内容を表示できないようにし、すべてのユーザーがファイルを削除することを禁止しています。 これは、認証されていない訪問者に関連付けられたユーザーインターフェイス要素を、宣言型およびプログラムによって非表示にすることによって実現 単純な例では、ユーザーインターフェイス要素を適切に非表示にするのは簡単ですが、同じ機能を実行するためのさまざまな方法がある複雑なサイトについてはどうでしょうか。 この機能を承認されていないユーザーに制限する際、適用可能なすべてのユーザーインターフェイス要素を非表示にしたり、無効にしたりした場合はどうなりますか。
 
-機能の特定の部分を未認証のユーザーがアクセスできないことを確認する簡単な方法は、そのクラスまたはメソッドを修飾するため、 [ `PrincipalPermission`属性](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx)します。 .NET ランタイム クラスを使用してまたはそのメソッドの 1 つ実行と、現在のセキュリティ コンテキストがクラスを使用して、またはメソッドを実行する権限を持っていることを確認するを確認します。 `PrincipalPermission`属性は、これらの規則を定義できますメカニズムを提供します。
+権限のないユーザーが特定の機能にアクセスできないようにする簡単な方法は、そのクラスまたはメソッドを[`PrincipalPermission` 属性](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx)で修飾することです。 .NET ランタイムでクラスを使用する場合、またはメソッドのいずれかを実行する場合は、現在のセキュリティコンテキストにクラスを使用するか、メソッドを実行するアクセス許可があるかどうかがチェックされます。 `PrincipalPermission` 属性は、これらの規則を定義できるメカニズムを提供します。
 
-使用する例を見てみましょう、 `PrincipalPermission` GridView の属性`SelectedIndexChanged`と`RowDeleting`を匿名ユーザーと Tito、以外のユーザーによる実行を禁止するそれぞれのイベント ハンドラー。 実行する必要がありますすべては、各関数の定義上、適切な属性を追加します。
+GridView の `SelectedIndexChanged` および `RowDeleting` イベントハンドラーの `PrincipalPermission` 属性を使用して、Tito 以外の匿名ユーザーとユーザーによる実行を禁止する方法を説明します。 それぞれの関数定義の上に適切な属性を追加するだけで十分です。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample22.vb)]
 
-属性、`SelectedIndexChanged`で属性として、イベントのハンドラーが決定され、認証されたユーザーのみが、イベント ハンドラーを実行できる、`RowDeleting`イベント ハンドラーが Tito に実行を制限します。
+`SelectedIndexChanged` イベントハンドラーの属性は、認証されたユーザーのみがイベントハンドラーを実行できることを指定します。この場合、`RowDeleting` イベントハンドラーの属性によって実行が Tito に制限されます。
 
 > [!NOTE]
-> 属性は、クラス、メソッド、プロパティ、またはイベントに適用できます。 属性を追加する場合は、クラス、メソッド、プロパティ、またはイベント宣言ステートメントの一部にする必要があります。 Visual Basic では、ステートメント区切り文字として改行を使用するため属性は必要がありますか、またはすぐ上に行連結文字 (アンダー スコア) で宣言と同じ行に表示されます。 上記のコード スニペットでは、行連結文字は、1 つの行で、別のメソッドの宣言属性を配置に使用されます。
+> 属性は、クラス、メソッド、プロパティ、またはイベントに適用できます。 属性を追加するときは、クラス、メソッド、プロパティ、またはイベント宣言ステートメントの一部である必要があります。 Visual Basic では、ステートメントの区切り記号として改行を使用するため、属性は宣言と同じ行に記述するか、または行連結文字 (アンダースコア) で直接指定する必要があります。 上記のコードスニペットでは、行連結文字を使用して、属性を1行に、メソッド宣言を別の行に配置しています。
 
-Tito 以外のユーザーが実行しようとした何らかの形で場合、`RowDeleting`イベント ハンドラーまたは認証されていないユーザーを実行しようと、 `SelectedIndexChanged` .NET ランタイムで発生するイベント ハンドラー、 `SecurityException`。
+場合によっては、Tito 以外のユーザーが `RowDeleting` イベントハンドラーを実行しようとするか、認証されていないユーザーが `SelectedIndexChanged` イベントハンドラーを実行しようとすると、.NET ランタイムによって `SecurityException`が発生します。
 
-[![セキュリティ コンテキストがメソッドを実行する権限がない場合、SecurityException がスローされます。](user-based-authorization-vb/_static/image41.png)](user-based-authorization-vb/_static/image40.png)
+[![、セキュリティコンテキストにメソッドの実行が許可されていない場合は、SecurityException がスローされます。](user-based-authorization-vb/_static/image41.png)](user-based-authorization-vb/_static/image40.png)
 
-**図 14**:セキュリティ コンテキストが、メソッドを実行する権限がない場合、`SecurityException`がスローされます ([フルサイズの画像を表示するをクリックします](user-based-authorization-vb/_static/image42.png))。
+**図 14**: セキュリティコンテキストにメソッドの実行が許可されていない場合は、`SecurityException` がスローされます ([クリックすると、フルサイズの画像が表示](user-based-authorization-vb/_static/image42.png)されます)
 
 > [!NOTE]
-> クラスまたはメソッドにアクセスする複数のセキュリティ コンテキストは、クラスまたはメソッドを装飾する`PrincipalPermission`の各セキュリティ コンテキストの属性。 つまり、Tito と Bruce の両方が実行できるようにする、`RowDeleting`イベント ハンドラーを追加*2 つ*`PrincipalPermission`属性。
+> 複数のセキュリティコンテキストでクラスまたはメソッドにアクセスできるようにするには、各セキュリティコンテキストの `PrincipalPermission` 属性を使用して、クラスまたはメソッドを装飾します。 つまり、Tito と `RowDeleting` の両方のイベントハンドラーを実行できるようにするには、次の*2 つ*の `PrincipalPermission` 属性を追加します。
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample23.vb)]
 
-多くのアプリケーションは、ASP.NET ページだけでなく、ビジネス ロジックとデータ アクセス レイヤーなど、さまざまな層を含むアーキテクチャもあります。 これらの層は、クラス ライブラリとして実装され、クラスとビジネス ロジックとデータに関連する機能を実行するためのメソッドを提供します。 `PrincipalPermission`属性はこれらの層に承認規則を適用するために便利です。
+ASP.NET ページに加えて、多くのアプリケーションには、ビジネスロジックやデータアクセス層などのさまざまなレイヤーを含むアーキテクチャもあります。 これらのレイヤーは、通常、クラスライブラリとして実装され、ビジネスロジックおよびデータに関連する機能を実行するためのクラスとメソッドを提供します。 `PrincipalPermission` 属性は、これらのレイヤーに承認規則を適用する場合に便利です。
 
-使用する方法について、`PrincipalPermission`属性をクラスやメソッドで承認規則を定義しを参照してください[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ[ビジネス レイヤーを使用してデータして承認規則を追加します`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)。
+`PrincipalPermission` 属性を使用してクラスとメソッドの承認規則を定義する方法の詳細については、 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ記事「 [`PrincipalPermissionAttributes`を使用したビジネス層およびデータ層への承認規則の追加](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)」を参照してください。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、ユーザー ベースの承認規則を適用する方法を説明しました。 ASP を参照してくださいで開始されています。NET の URL の承認フレームワーク。 要求ごとに、ASP.NET エンジンの`UrlAuthorizationModule`id が要求されたリソースへのアクセスを承認されているかどうか判断する、アプリケーションの構成で定義されている URL 承認規則を検査します。 つまり、URL 承認簡単に特定のディレクトリ内のすべてのページまたは特定のページの承認規則を指定します。
+このチュートリアルでは、ユーザーベースの承認規則を適用する方法を説明しました。 ASP の概要について説明しました。NET の URL 承認フレームワーク。 各要求で、ASP.NET エンジンの `UrlAuthorizationModule` は、アプリケーションの構成で定義されている URL 承認規則を検査して、要求されたリソースへのアクセスが id に許可されているかどうかを判断します。 つまり、URL 承認を使用すると、特定のページまたは特定のディレクトリ内のすべてのページに対して承認規則を簡単に指定できます。
 
-URL の承認フレームワークのでは、ページごとに承認規則が適用されます。 URL 承認の要求元のいずれかの id はか特定のリソースにアクセスする権限します。 ただし、多くのシナリオをさらに細かく承認ルールの呼び出します。 ページへのアクセスが許可されるユーザーを定義するのではなく、everyone のアクセス ページが、別のデータを表示するか、ページにアクセスして、ユーザーによってさまざまな機能を提供することがあります。 ページ レベルの承認には、通常は、承認されていないユーザーが禁止されている機能にアクセスすることを防ぐために特定のユーザー インターフェイス要素を非表示が含まれます。 さらに、クラスと特定のユーザーに対しては、そのメソッドの実行にアクセスを制限する属性を使用することができます。
+URL 承認フレームワークは、ページ単位で承認規則を適用します。 URL 承認では、要求元の id が特定のリソースへのアクセスを承認されているかどうかを示します。 ただし、多くのシナリオでは、より細かい粒度の承認規則が呼び出されます。 ページにアクセスできるユーザーを定義するのではなく、すべてのユーザーにページへのアクセスを許可し、別のデータを表示したり、ページにアクセスするユーザーに応じて異なる機能を提供したりすることが必要になる場合があります。 通常、ページレベルの承認では、許可されていないユーザーが禁止された機能にアクセスするのを防ぐために、特定のユーザーインターフェイス要素を非表示にします。 また、属性を使用して、クラスへのアクセスを制限したり、特定のユーザーに対してメソッドを実行したりすることができます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [ビジネス層とを使用してデータ層への承認規則の追加 `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
-- [ASP.NET の承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)
-- [IIS6 と iis 7 のセキュリティの変更](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [特定のファイルとサブディレクトリを構成します。](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
-- [ユーザーに基づくデータ変更機能を制限します。](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb.md)
-- [LoginView コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
-- [IIS7 URL 承認を理解します。](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
+- [`PrincipalPermissionAttributes` を使用したビジネス層およびデータ層への承認規則の追加](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [ASP.NET 承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)
+- [IIS6 と IIS7 のセキュリティ間の変更](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
+- [特定のファイルとサブディレクトリの構成](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
+- [ユーザーに基づいてデータ変更機能を制限する](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb.md)
+- [LoginView コントロールのクイックスタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
+- [IIS7 URL 承認について](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
 - [`UrlAuthorizationModule` 技術ドキュメント](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
-- [ASP.NET 2.0 のデータの操作](../../data-access/index.md)
+- [ASP.NET 2.0 でのデータの操作](../../data-access/index.md)
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取ります書籍の著者と、4GuysFromRolla.com の創設者では、1998 年から、Microsoft Web テクノロジに取り組んできました。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は *[Sams 教える自分で ASP.NET 2.0 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* します。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別なに感謝します。
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)します。
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](validating-user-credentials-against-the-membership-user-store-vb.md)
