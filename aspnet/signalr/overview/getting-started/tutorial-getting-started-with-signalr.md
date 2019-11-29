@@ -1,90 +1,90 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: 'チュートリアル: SignalR 2 とリアルタイムのチャット |Microsoft Docs'
+title: 'チュートリアル: SignalR 2 を使用したリアルタイムチャットMicrosoft Docs'
 author: bradygaster
-description: このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR は、空の ASP.NET web アプリケーションに追加します。
+description: このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 空の ASP.NET web アプリケーションに SignalR を追加します。
 ms.author: bradyg
 ms.date: 01/22/2019
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: ecc235454d4b95ce660a4373387f44720826b076
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: bc4ef190b6e36812b6fe7ca4e16eb763431e0e82
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905645"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600464"
 ---
-# <a name="tutorial-real-time-chat-with-signalr-2"></a><span data-ttu-id="ae52a-104">チュートリアル: SignalR 2 を使用したリアルタイムのチャット</span><span class="sxs-lookup"><span data-stu-id="ae52a-104">Tutorial: Real-time chat with SignalR 2</span></span>
+# <a name="tutorial-real-time-chat-with-signalr-2"></a><span data-ttu-id="a8e78-104">チュートリアル: SignalR 2 を使用したリアルタイムチャット</span><span class="sxs-lookup"><span data-stu-id="a8e78-104">Tutorial: Real-time chat with SignalR 2</span></span>
 
-<span data-ttu-id="ae52a-105">このチュートリアルでは、SignalR を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-105">This tutorial shows you how to use SignalR to create a real-time chat application.</span></span> <span data-ttu-id="ae52a-106">SignalR を空の ASP.NET web アプリケーションに追加し、送信し、メッセージを表示する HTML ページを作成します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-106">You add SignalR to an empty ASP.NET web application and create an HTML page to send and display messages.</span></span>
+<span data-ttu-id="a8e78-105">このチュートリアルでは、SignalR を使用してリアルタイムチャットアプリケーションを作成する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-105">This tutorial shows you how to use SignalR to create a real-time chat application.</span></span> <span data-ttu-id="a8e78-106">SignalR を空の ASP.NET web アプリケーションに追加し、メッセージを送信して表示する HTML ページを作成します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-106">You add SignalR to an empty ASP.NET web application and create an HTML page to send and display messages.</span></span>
 
-<span data-ttu-id="ae52a-107">このチュートリアルでは、次の作業を行いました。</span><span class="sxs-lookup"><span data-stu-id="ae52a-107">In this tutorial, you:</span></span>
+<span data-ttu-id="a8e78-107">このチュートリアルでは、次の作業を行いました。</span><span class="sxs-lookup"><span data-stu-id="a8e78-107">In this tutorial, you:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="ae52a-108">プロジェクトを設定します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-108">Set up the project</span></span>
-> * <span data-ttu-id="ae52a-109">サンプルを実行します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-109">Run the sample</span></span>
-> * <span data-ttu-id="ae52a-110">コードを確認します</span><span class="sxs-lookup"><span data-stu-id="ae52a-110">Examine the code</span></span>
+> * <span data-ttu-id="a8e78-108">プロジェクトを設定する</span><span class="sxs-lookup"><span data-stu-id="a8e78-108">Set up the project</span></span>
+> * <span data-ttu-id="a8e78-109">サンプルの実行</span><span class="sxs-lookup"><span data-stu-id="a8e78-109">Run the sample</span></span>
+> * <span data-ttu-id="a8e78-110">コードを確認する</span><span class="sxs-lookup"><span data-stu-id="a8e78-110">Examine the code</span></span>
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-## <a name="prerequisites"></a><span data-ttu-id="ae52a-111">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="ae52a-111">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="a8e78-111">必要条件</span><span class="sxs-lookup"><span data-stu-id="a8e78-111">Prerequisites</span></span>
 
-* <span data-ttu-id="ae52a-112">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)で、 **ASP.NET および web 開発**ワークロード。</span><span class="sxs-lookup"><span data-stu-id="ae52a-112">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.</span></span>
+* <span data-ttu-id="a8e78-112">**ASP.NET と web 開発**ワークロードを含む[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 。</span><span class="sxs-lookup"><span data-stu-id="a8e78-112">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.</span></span>
 
-## <a name="set-up-the-project"></a><span data-ttu-id="ae52a-113">プロジェクトを設定します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-113">Set up the Project</span></span>
+## <a name="set-up-the-project"></a><span data-ttu-id="a8e78-113">プロジェクトを設定する</span><span class="sxs-lookup"><span data-stu-id="a8e78-113">Set up the Project</span></span>
 
-<span data-ttu-id="ae52a-114">SignalR を追加するこのセクションでは、Visual Studio 2017 と SignalR 2 を使用して、空の ASP.NET web アプリケーションを作成する方法を示していて、チャット アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-114">This section shows how to use Visual Studio 2017 and SignalR 2 to create an empty ASP.NET web application, add SignalR, and create the chat application.</span></span>
+<span data-ttu-id="a8e78-114">このセクションでは、Visual Studio 2017 と SignalR 2 を使用して空の ASP.NET web アプリケーションを作成し、SignalR を追加して、チャットアプリケーションを作成する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-114">This section shows how to use Visual Studio 2017 and SignalR 2 to create an empty ASP.NET web application, add SignalR, and create the chat application.</span></span>
 
-1. <span data-ttu-id="ae52a-115">Visual Studio で ASP.NET Web アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-115">In Visual Studio, create an ASP.NET Web Application.</span></span>
+1. <span data-ttu-id="a8e78-115">Visual Studio で、ASP.NET Web アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-115">In Visual Studio, create an ASP.NET Web Application.</span></span>
 
-    ![Web を作成します。](tutorial-getting-started-with-signalr/_static/image2.png)
+    ![Web の作成](tutorial-getting-started-with-signalr/_static/image2.png)
 
-1. <span data-ttu-id="ae52a-117">**新しい ASP.NET プロジェクト - SignalRChat**  ウィンドウのままに**空**を選択し、選択**OK**。</span><span class="sxs-lookup"><span data-stu-id="ae52a-117">In the **New ASP.NET Project - SignalRChat** window, leave **Empty** selected and select **OK**.</span></span>
+1. <span data-ttu-id="a8e78-117">**新しい ASP.NET プロジェクト-SignalRChat**ウィンドウで、**空**のままにして [ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-117">In the **New ASP.NET Project - SignalRChat** window, leave **Empty** selected and select **OK**.</span></span>
 
-1. <span data-ttu-id="ae52a-118">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-118">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
+1. <span data-ttu-id="a8e78-118">**ソリューションエクスプローラー**で、プロジェクトを右クリックし、[ > **新しい項目**の**追加**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-118">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
 
-1. <span data-ttu-id="ae52a-119">**新しい項目の追加 - SignalRChat**、**インストール済み** > **Visual C#**   >  **Web**  > **SignalR**選び**SignalR ハブ クラス (v2)** します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-119">In **Add New Item - SignalRChat**, select **Installed** > **Visual C#** > **Web** > **SignalR**  and then select **SignalR Hub Class (v2)**.</span></span>
+1. <span data-ttu-id="a8e78-119">**[新しい項目の追加-signalrchat]** で、[**インストール済み** > **Visual C#**  > **Web** > **SignalR** ] を選択し、 **[SignalR Hub クラス (v2)]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-119">In **Add New Item - SignalRChat**, select **Installed** > **Visual C#** > **Web** > **SignalR**  and then select **SignalR Hub Class (v2)**.</span></span>
 
-1. <span data-ttu-id="ae52a-120">クラスの名前*ChatHub*し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-120">Name the class *ChatHub* and add it to the project.</span></span>
+1. <span data-ttu-id="a8e78-120">クラスに*ChatHub*という名前を指定し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-120">Name the class *ChatHub* and add it to the project.</span></span>
 
-    <span data-ttu-id="ae52a-121">この手順で作成、 *ChatHub.cs*クラス ファイルとスクリプト ファイルとプロジェクトに SignalR をサポートするアセンブリ参照のセットを追加します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-121">This step creates the *ChatHub.cs* class file and adds a set of script files and assembly references that support SignalR to the project.</span></span>
+    <span data-ttu-id="a8e78-121">この手順では、 *ChatHub.cs*クラスファイルを作成し、SignalR をサポートする一連のスクリプトファイルとアセンブリ参照をプロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-121">This step creates the *ChatHub.cs* class file and adds a set of script files and assembly references that support SignalR to the project.</span></span>
 
-1. <span data-ttu-id="ae52a-122">新しいコードを置き換える*ChatHub.cs*次のコードでクラス ファイル。</span><span class="sxs-lookup"><span data-stu-id="ae52a-122">Replace the code in the new *ChatHub.cs* class file with this code:</span></span>
+1. <span data-ttu-id="a8e78-122">新しい*ChatHub.cs*クラスファイルのコードを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-122">Replace the code in the new *ChatHub.cs* class file with this code:</span></span>
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample1.cs)]
 
-1. <span data-ttu-id="ae52a-123">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-123">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
+1. <span data-ttu-id="a8e78-123">**ソリューションエクスプローラー**で、プロジェクトを右クリックし、[ > **新しい項目**の**追加**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-123">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
 
-1. <span data-ttu-id="ae52a-124">**新しい項目の追加 - SignalRChat**選択**インストール済み** > **Visual C#**   >  **Web**し選択**OWIN Startup クラス**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-124">In **Add New Item - SignalRChat** select **Installed** > **Visual C#** > **Web**  and then select **OWIN Startup Class**.</span></span>
+1. <span data-ttu-id="a8e78-124">**[新しい項目の追加-signalrchat]** で、[**インストールされている** > **Visual C#**  > **Web** ] を選択し、 **[OWIN Startup Class]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-124">In **Add New Item - SignalRChat** select **Installed** > **Visual C#** > **Web**  and then select **OWIN Startup Class**.</span></span>
 
-1. <span data-ttu-id="ae52a-125">クラスの名前*スタートアップ*し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-125">Name the class *Startup* and add it to the project.</span></span>
+1. <span data-ttu-id="a8e78-125">クラスに*スタートアップ*の名前を指定し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-125">Name the class *Startup* and add it to the project.</span></span>
 
-1. <span data-ttu-id="ae52a-126">既定のコードで置き換えます*スタートアップ*クラスをこのコードで。</span><span class="sxs-lookup"><span data-stu-id="ae52a-126">Replace the default code in *Startup* class with this code:</span></span>
+1. <span data-ttu-id="a8e78-126">*Startup*クラスの既定のコードを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-126">Replace the default code in *Startup* class with this code:</span></span>
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
 
-1. <span data-ttu-id="ae52a-127">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **HTML ページ**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-127">In **Solution Explorer**, right-click the project and select **Add** > **HTML Page**.</span></span>
+1. <span data-ttu-id="a8e78-127">**ソリューションエクスプローラー**で、プロジェクトを右クリックし、[ > **HTML ページ**の**追加**] を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-127">In **Solution Explorer**, right-click the project and select **Add** > **HTML Page**.</span></span>
 
-1. <span data-ttu-id="ae52a-128">名前を新しいページ*インデックス*を選択し、 **OK**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-128">Name the new page *index* and select **OK**.</span></span>
+1. <span data-ttu-id="a8e78-128">新しいページの*インデックス*に名前を付け、[ **OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-128">Name the new page *index* and select **OK**.</span></span>
 
-1. <span data-ttu-id="ae52a-129">**ソリューション エクスプ ローラー**で作成した HTML ページを右クリックし、選択**スタート ページとして設定**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-129">In **Solution Explorer**, right-click the HTML page you created and select **Set as Start Page**.</span></span>
+1. <span data-ttu-id="a8e78-129">**ソリューションエクスプローラー**で、作成した HTML ページを右クリックし、 **[スタートページとして設定]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-129">In **Solution Explorer**, right-click the HTML page you created and select **Set as Start Page**.</span></span>
 
-1. <span data-ttu-id="ae52a-130">このコードでは、HTML ページの既定のコードを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-130">Replace the default code in the HTML page with this code:</span></span>
+1. <span data-ttu-id="a8e78-130">HTML ページの既定のコードを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-130">Replace the default code in the HTML page with this code:</span></span>
 
     [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample3.html)]
 
-1. <span data-ttu-id="ae52a-131">**ソリューション エクスプ ローラー**、展開**スクリプト**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-131">In **Solution Explorer**, expand **Scripts**.</span></span>
+1. <span data-ttu-id="a8e78-131">**ソリューションエクスプローラー**で、 **[スクリプト]** を展開します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-131">In **Solution Explorer**, expand **Scripts**.</span></span>
 
-    <span data-ttu-id="ae52a-132">JQuery と SignalR 用のスクリプト ライブラリは、プロジェクトに表示されます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-132">Script libraries for jQuery and SignalR are visible in the project.</span></span>
+    <span data-ttu-id="a8e78-132">JQuery と SignalR のスクリプトライブラリは、プロジェクトに表示されます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-132">Script libraries for jQuery and SignalR are visible in the project.</span></span>
 
     > [!IMPORTANT]
-    > <span data-ttu-id="ae52a-133">パッケージ マネージャーは、以降のバージョンの SignalR スクリプトをインストールがある可能性があります。</span><span class="sxs-lookup"><span data-stu-id="ae52a-133">The package manager may have installed a later version of the SignalR scripts.</span></span>
+    > <span data-ttu-id="a8e78-133">パッケージマネージャーで、SignalR スクリプトの新しいバージョンがインストールされている可能性があります。</span><span class="sxs-lookup"><span data-stu-id="a8e78-133">The package manager may have installed a later version of the SignalR scripts.</span></span>
 
-1. <span data-ttu-id="ae52a-134">コード ブロック内のスクリプト参照がプロジェクト内のスクリプト ファイルのバージョンに対応することを確認します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-134">Check that the script references in the code block correspond to the versions of the script files in the project.</span></span>
+1. <span data-ttu-id="a8e78-134">コードブロック内のスクリプト参照が、プロジェクト内のスクリプトファイルのバージョンに対応していることを確認します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-134">Check that the script references in the code block correspond to the versions of the script files in the project.</span></span>
 
-    <span data-ttu-id="ae52a-135">スクリプトの元のコード ブロックからの参照。</span><span class="sxs-lookup"><span data-stu-id="ae52a-135">Script references from the original code block:</span></span>
+    <span data-ttu-id="a8e78-135">元のコードブロックからのスクリプト参照:</span><span class="sxs-lookup"><span data-stu-id="a8e78-135">Script references from the original code block:</span></span>
 
     ```html
     <!--Script references. -->
@@ -94,102 +94,102 @@ ms.locfileid: "59905645"
     <script src="Scripts/jquery.signalR-2.2.1.min.js"></script>
     ```
 
-1. <span data-ttu-id="ae52a-136">一致しない場合は、更新、 *.html*ファイル。</span><span class="sxs-lookup"><span data-stu-id="ae52a-136">If they don't match, update the *.html* file.</span></span>
+1. <span data-ttu-id="a8e78-136">一致しない場合は、 *.html*ファイルを更新します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-136">If they don't match, update the *.html* file.</span></span>
 
-1. <span data-ttu-id="ae52a-137">メニュー バーから選択**ファイル** > **すべて保存**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-137">From the menu bar, select **File** > **Save All**.</span></span>
+1. <span data-ttu-id="a8e78-137">メニューバーで **[ファイル]** 、 **[すべて保存]** の > を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-137">From the menu bar, select **File** > **Save All**.</span></span>
 
-## <a name="run-the-sample"></a><span data-ttu-id="ae52a-138">サンプルを実行します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-138">Run the Sample</span></span>
+## <a name="run-the-sample"></a><span data-ttu-id="a8e78-138">サンプルを実行する</span><span class="sxs-lookup"><span data-stu-id="a8e78-138">Run the Sample</span></span>
 
-1. <span data-ttu-id="ae52a-139">ツールバーで、有効にする**スクリプトのデバッグ**し、サンプルをデバッグ モードで実行する [再生] ボタンを選択します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-139">In the toolbar, turn on **Script Debugging** and then select the play button to run the sample in Debug mode.</span></span>
+1. <span data-ttu-id="a8e78-139">ツールバーの **スクリプトデバッグ** をオンにし、再生 ボタンを選択して、サンプルをデバッグモードで実行します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-139">In the toolbar, turn on **Script Debugging** and then select the play button to run the sample in Debug mode.</span></span>
 
     ![ユーザー名の入力](tutorial-getting-started-with-signalr/_static/image3.png)
 
-1. <span data-ttu-id="ae52a-141">ブラウザーが開いたら、チャット、id の名前を入力します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-141">When the browser opens, enter a name for your chat identity.</span></span>
+1. <span data-ttu-id="a8e78-141">ブラウザーが開いたら、チャット id の名前を入力します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-141">When the browser opens, enter a name for your chat identity.</span></span>
 
-1. <span data-ttu-id="ae52a-142">ブラウザーから URL をコピーし、他の 2 つのブラウザーを開き、アドレス バーに Url を貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-142">Copy the URL from the browser, open two other browsers, and paste the URLs into the address bars.</span></span>
+1. <span data-ttu-id="a8e78-142">ブラウザーから URL をコピーし、他の2つのブラウザーを開いて、アドレスバーに Url を貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-142">Copy the URL from the browser, open two other browsers, and paste the URLs into the address bars.</span></span>
 
-1. <span data-ttu-id="ae52a-143">各ブラウザーでは、一意の名前を入力します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-143">In each browser, enter a unique name.</span></span>
+1. <span data-ttu-id="a8e78-143">各ブラウザーで、一意の名前を入力します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-143">In each browser, enter a unique name.</span></span>
 
-1. <span data-ttu-id="ae52a-144">ここで、追加、コメントを**送信**します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-144">Now, add a comment and select **Send**.</span></span> <span data-ttu-id="ae52a-145">他のブラウザーでは繰り返しません。</span><span class="sxs-lookup"><span data-stu-id="ae52a-145">Repeat that in the other browsers.</span></span> <span data-ttu-id="ae52a-146">コメントは、リアルタイムで表示されます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-146">The comments appear in real-time.</span></span>
+1. <span data-ttu-id="a8e78-144">ここで、コメントを追加し、 **[送信]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-144">Now, add a comment and select **Send**.</span></span> <span data-ttu-id="a8e78-145">他のブラウザーでも同じ手順を繰り返します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-145">Repeat that in the other browsers.</span></span> <span data-ttu-id="a8e78-146">コメントはリアルタイムで表示されます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-146">The comments appear in real-time.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="ae52a-147">この簡単なチャット アプリケーションでは、サーバー上のディスカッション コンテキストは保持されません。</span><span class="sxs-lookup"><span data-stu-id="ae52a-147">This simple chat application does not maintain the discussion context on the server.</span></span> <span data-ttu-id="ae52a-148">ハブは、現在のすべてのユーザーへのコメントをブロードキャストします。</span><span class="sxs-lookup"><span data-stu-id="ae52a-148">The hub broadcasts comments to all current users.</span></span> <span data-ttu-id="ae52a-149">後で、チャットに参加するユーザーは、参加する時点から追加されたメッセージに表示されます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-149">Users who join the chat later will see messages added from the time they join.</span></span>
+    > <span data-ttu-id="a8e78-147">この単純なチャットアプリケーションでは、サーバー上のディスカッションコンテキストは維持されません。</span><span class="sxs-lookup"><span data-stu-id="a8e78-147">This simple chat application does not maintain the discussion context on the server.</span></span> <span data-ttu-id="a8e78-148">ハブは、現在のすべてのユーザーにコメントをブロードキャストします。</span><span class="sxs-lookup"><span data-stu-id="a8e78-148">The hub broadcasts comments to all current users.</span></span> <span data-ttu-id="a8e78-149">後でチャットに参加したユーザーには、参加したときから追加されたメッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-149">Users who join the chat later will see messages added from the time they join.</span></span>
 
-    <span data-ttu-id="ae52a-150">次の 3 つのさまざまなブラウザーでのチャット アプリケーションの実行方法を参照してください。</span><span class="sxs-lookup"><span data-stu-id="ae52a-150">See how the chat application runs in three different browsers.</span></span> <span data-ttu-id="ae52a-151">Tom、Anand、Susan は、メッセージを送信して、すべてのブラウザーはリアルタイムで更新します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-151">When Tom, Anand, and Susan send messages, all browsers update in real time:</span></span>
+    <span data-ttu-id="a8e78-150">チャットアプリケーションを3つの異なるブラウザーで実行する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-150">See how the chat application runs in three different browsers.</span></span> <span data-ttu-id="a8e78-151">Tom、Anand、およびスーザンがメッセージを送信すると、すべてのブラウザーがリアルタイムで更新されます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-151">When Tom, Anand, and Susan send messages, all browsers update in real time:</span></span>
 
-    ![次の 3 つのすべてのブラウザーが同じチャットの履歴を表示します。](tutorial-getting-started-with-signalr/_static/image4.png)
+    ![3つのブラウザーすべてに同じチャット履歴が表示されます](tutorial-getting-started-with-signalr/_static/image4.png)
 
-1. <span data-ttu-id="ae52a-153">**ソリューション エクスプ ローラー**、検査、**スクリプト ドキュメント**実行中のアプリケーションのノード。</span><span class="sxs-lookup"><span data-stu-id="ae52a-153">In **Solution Explorer**, inspect the **Script Documents** node for the running application.</span></span> <span data-ttu-id="ae52a-154">という名前のスクリプト ファイルがある*hubs* SignalR ライブラリは、実行時に生成します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-154">There's a script file named *hubs* that the SignalR library generates at runtime.</span></span> <span data-ttu-id="ae52a-155">このファイルは、jQuery スクリプトとサーバー側コード間の通信を管理します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-155">This file manages the communication between jQuery script and server-side code.</span></span>
+1. <span data-ttu-id="a8e78-153">**ソリューションエクスプローラー**で、実行中のアプリケーションの **[スクリプトドキュメント]** ノードを調べます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-153">In **Solution Explorer**, inspect the **Script Documents** node for the running application.</span></span> <span data-ttu-id="a8e78-154">SignalR ライブラリによって実行時に生成される*ハブ*という名前のスクリプトファイルがあります。</span><span class="sxs-lookup"><span data-stu-id="a8e78-154">There's a script file named *hubs* that the SignalR library generates at runtime.</span></span> <span data-ttu-id="a8e78-155">このファイルは、jQuery スクリプトとサーバー側コード間の通信を管理します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-155">This file manages the communication between jQuery script and server-side code.</span></span>
 
-    ![スクリプト ドキュメント ノード内の自動生成されたハブのスクリプト](tutorial-getting-started-with-signalr/_static/image5.png)
+    ![スクリプトドキュメントノードで自動生成されたハブスクリプト](tutorial-getting-started-with-signalr/_static/image5.png)
 
-## <a name="examine-the-code"></a><span data-ttu-id="ae52a-157">コードを確認します</span><span class="sxs-lookup"><span data-stu-id="ae52a-157">Examine the Code</span></span>
+## <a name="examine-the-code"></a><span data-ttu-id="a8e78-157">コードを確認する</span><span class="sxs-lookup"><span data-stu-id="a8e78-157">Examine the Code</span></span>
 
-<span data-ttu-id="ae52a-158">SignalRChat アプリケーションでは、2 つの基本的な SignalR 開発タスクを示します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-158">The SignalRChat application demonstrates two basic SignalR development tasks.</span></span> <span data-ttu-id="ae52a-159">ハブを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-159">It shows you how to create a hub.</span></span> <span data-ttu-id="ae52a-160">サーバーは、メインの調整オブジェクトとしてそのハブを使用します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-160">The server uses that hub as the main coordination object.</span></span> <span data-ttu-id="ae52a-161">ハブは、メッセージを送受信する SignalR jQuery ライブラリを使用します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-161">The hub uses the SignalR jQuery library to send and receive messages.</span></span>
+<span data-ttu-id="a8e78-158">SignalRChat アプリケーションは、2つの基本的な SignalR 開発タスクを示しています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-158">The SignalRChat application demonstrates two basic SignalR development tasks.</span></span> <span data-ttu-id="a8e78-159">ハブを作成する方法についても説明します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-159">It shows you how to create a hub.</span></span> <span data-ttu-id="a8e78-160">サーバーは、そのハブをメイン調整オブジェクトとして使用します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-160">The server uses that hub as the main coordination object.</span></span> <span data-ttu-id="a8e78-161">ハブは、SignalR jQuery ライブラリを使用してメッセージを送受信します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-161">The hub uses the SignalR jQuery library to send and receive messages.</span></span>
 
-### <a name="signalr-hubs-in-the-chathubcs"></a><span data-ttu-id="ae52a-162">SignalR ハブで、ChatHub.cs</span><span class="sxs-lookup"><span data-stu-id="ae52a-162">SignalR Hubs in the ChatHub.cs</span></span>
+### <a name="signalr-hubs-in-the-chathubcs"></a><span data-ttu-id="a8e78-162">ChatHub.cs の SignalR Hub</span><span class="sxs-lookup"><span data-stu-id="a8e78-162">SignalR Hubs in the ChatHub.cs</span></span>
 
-<span data-ttu-id="ae52a-163">上記のコード サンプルで、`ChatHub`クラスから派生、`Microsoft.AspNet.SignalR.Hub`クラス。</span><span class="sxs-lookup"><span data-stu-id="ae52a-163">In the code sample above, the `ChatHub` class derives from the `Microsoft.AspNet.SignalR.Hub` class.</span></span> <span data-ttu-id="ae52a-164">派生する、`Hub`クラスは、SignalR アプリケーションを構築する便利な方法です。</span><span class="sxs-lookup"><span data-stu-id="ae52a-164">Deriving from the `Hub` class is a useful way to build a SignalR application.</span></span> <span data-ttu-id="ae52a-165">ハブ クラスにパブリック メソッドを作成し、web ページ内のスクリプトから呼び出すことによってこれらのメソッドを使用できます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-165">You can create public methods on your hub class and then use those methods by calling them from scripts in a web page.</span></span>
+<span data-ttu-id="a8e78-163">上記のコードサンプルでは、`ChatHub` クラスは `Microsoft.AspNet.SignalR.Hub` クラスから派生しています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-163">In the code sample above, the `ChatHub` class derives from the `Microsoft.AspNet.SignalR.Hub` class.</span></span> <span data-ttu-id="a8e78-164">`Hub` クラスからの派生は、SignalR アプリケーションを構築するための便利な方法です。</span><span class="sxs-lookup"><span data-stu-id="a8e78-164">Deriving from the `Hub` class is a useful way to build a SignalR application.</span></span> <span data-ttu-id="a8e78-165">ハブクラスにパブリックメソッドを作成し、web ページのスクリプトからそれらのメソッドを呼び出すことによって、これらのメソッドを使用できます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-165">You can create public methods on your hub class and then use those methods by calling them from scripts in a web page.</span></span>
 
-<span data-ttu-id="ae52a-166">クライアントが呼び出すチャットのコードで、`ChatHub.Send`新しいメッセージを送信する方法。</span><span class="sxs-lookup"><span data-stu-id="ae52a-166">In the chat code, clients call the `ChatHub.Send` method to send a new message.</span></span> <span data-ttu-id="ae52a-167">ハブのメッセージを送信しすべてのクライアントを呼び出して`Clients.All.broadcastMessage`します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-167">The hub then sends the message to all clients by calling `Clients.All.broadcastMessage`.</span></span>
+<span data-ttu-id="a8e78-166">チャットコードでは、クライアントは `ChatHub.Send` メソッドを呼び出して、新しいメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-166">In the chat code, clients call the `ChatHub.Send` method to send a new message.</span></span> <span data-ttu-id="a8e78-167">その後、ハブは `Clients.All.broadcastMessage`を呼び出すことによって、すべてのクライアントにメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-167">The hub then sends the message to all clients by calling `Clients.All.broadcastMessage`.</span></span>
 
-<span data-ttu-id="ae52a-168">`Send`メソッドがいくつかのハブの概念を示します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-168">The `Send` method demonstrates several hub concepts:</span></span>
+<span data-ttu-id="a8e78-168">`Send` メソッドは、いくつかのハブの概念を示しています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-168">The `Send` method demonstrates several hub concepts:</span></span>
 
-* <span data-ttu-id="ae52a-169">クライアントが呼び出すことができるように、ハブ上のパブリック メソッドを宣言します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-169">Declare public methods on a hub so that clients can call them.</span></span>
+* <span data-ttu-id="a8e78-169">クライアントがそれらを呼び出すことができるように、ハブでパブリックメソッドを宣言します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-169">Declare public methods on a hub so that clients can call them.</span></span>
 
-* <span data-ttu-id="ae52a-170">使用して、`Microsoft.AspNet.SignalR.Hub.Clients`この hub に接続されているすべてのクライアントと通信する動的プロパティ。</span><span class="sxs-lookup"><span data-stu-id="ae52a-170">Use the `Microsoft.AspNet.SignalR.Hub.Clients` dynamic property to communicate with all clients connected to this hub.</span></span>
+* <span data-ttu-id="a8e78-170">このハブに接続されているすべてのクライアントと通信するには、`Microsoft.AspNet.SignalR.Hub.Clients` 動的プロパティを使用します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-170">Use the `Microsoft.AspNet.SignalR.Hub.Clients` dynamic property to communicate with all clients connected to this hub.</span></span>
 
-* <span data-ttu-id="ae52a-171">クライアントで関数を呼び出す (など、`broadcastMessage`関数) クライアントを更新します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-171">Call a function on the client (like the `broadcastMessage` function) to update clients.</span></span>
+* <span data-ttu-id="a8e78-171">クライアントの関数 (`broadcastMessage` 関数など) を呼び出して、クライアントを更新します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-171">Call a function on the client (like the `broadcastMessage` function) to update clients.</span></span>
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample4.cs)]
 
-### <a name="signalr-and-jquery-in-the-indexhtml"></a><span data-ttu-id="ae52a-172">SignalR と、index.html で jQuery</span><span class="sxs-lookup"><span data-stu-id="ae52a-172">SignalR and jQuery in the index.html</span></span>
+### <a name="signalr-and-jquery-in-the-indexhtml"></a><span data-ttu-id="a8e78-172">SignalR と jQuery の .html</span><span class="sxs-lookup"><span data-stu-id="a8e78-172">SignalR and jQuery in the index.html</span></span>
 
-<span data-ttu-id="ae52a-173">*Index.html*ページ コード サンプルでは、SignalR jQuery ライブラリを使用して、SignalR hub と通信する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="ae52a-173">The *index.html* page in the code sample shows how to use the SignalR jQuery library to communicate with a SignalR hub.</span></span> <span data-ttu-id="ae52a-174">コードは、多くの重要なタスクを実行します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-174">The code carries out many important tasks.</span></span> <span data-ttu-id="ae52a-175">ハブを参照するプロキシの宣言、ことをクライアントにコンテンツをプッシュするサーバーを呼び出すことができ、ハブにメッセージを送信への接続を開始関数を宣言します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-175">It declares a proxy to reference the hub, declares a function that the server can call to push content to clients, and it starts a connection to send messages to the hub.</span></span>
+<span data-ttu-id="a8e78-173">コードサンプルの*SignalR ページは*、SignalR hub と通信するために、jQuery ライブラリを使用する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-173">The *index.html* page in the code sample shows how to use the SignalR jQuery library to communicate with a SignalR hub.</span></span> <span data-ttu-id="a8e78-174">このコードでは、多くの重要なタスクが実行されています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-174">The code carries out many important tasks.</span></span> <span data-ttu-id="a8e78-175">このメソッドは、ハブを参照するプロキシを宣言し、サーバーがクライアントにコンテンツをプッシュするために呼び出すことができる関数を宣言し、接続を開始してハブにメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-175">It declares a proxy to reference the hub, declares a function that the server can call to push content to clients, and it starts a connection to send messages to the hub.</span></span>
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample5.js)]
 
 > [!NOTE]
-> <span data-ttu-id="ae52a-176">JavaScript でサーバー クラスとそのメンバーへの参照は camelCase が。</span><span class="sxs-lookup"><span data-stu-id="ae52a-176">In JavaScript the reference to the server class and its members has to be camelCase.</span></span> <span data-ttu-id="ae52a-177">コード サンプルの参照、 C# *ChatHub*として JavaScript でクラス`chatHub`します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-177">The code sample references the C# *ChatHub* class in JavaScript as `chatHub`.</span></span>
+> <span data-ttu-id="a8e78-176">JavaScript では、サーバークラスとそのメンバーへの参照はキャメルケースである必要があります。</span><span class="sxs-lookup"><span data-stu-id="a8e78-176">In JavaScript the reference to the server class and its members has to be camelCase.</span></span> <span data-ttu-id="a8e78-177">このコードサンプルではC# 、`chatHub`として JavaScript の*ChatHub*クラスを参照しています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-177">The code sample references the C# *ChatHub* class in JavaScript as `chatHub`.</span></span>
 
-<span data-ttu-id="ae52a-178">このコード ブロックでは、スクリプト内のコールバック関数を作成します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-178">In this code block, you create a callback function in the script.</span></span>
+<span data-ttu-id="a8e78-178">このコードブロックでは、スクリプトでコールバック関数を作成します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-178">In this code block, you create a callback function in the script.</span></span>
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample6.html)]
 
-<span data-ttu-id="ae52a-179">サーバー上のハブ クラスは、各クライアントにコンテンツの更新をプッシュするには、この関数を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-179">The hub class on the server calls this function to push content updates to each client.</span></span> <span data-ttu-id="ae52a-180">2 つの行を HTML エンコード、コンテンツを表示する前に省略可能で、スクリプト インジェクションを防止する優れた方法を表示します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-180">The two lines that HTML-encode the content before displaying it are optional and show a good way to prevent script injection.</span></span>
+<span data-ttu-id="a8e78-179">サーバー上のハブクラスは、この関数を呼び出して、コンテンツの更新を各クライアントにプッシュします。</span><span class="sxs-lookup"><span data-stu-id="a8e78-179">The hub class on the server calls this function to push content updates to each client.</span></span> <span data-ttu-id="a8e78-180">コンテンツを表示する前に HTML エンコードする2行は省略可能であり、スクリプトインジェクションを防止するための適切な方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="a8e78-180">The two lines that HTML-encode the content before displaying it are optional and show a good way to prevent script injection.</span></span>
 
-<span data-ttu-id="ae52a-181">このコードは、ハブとの接続を開きます。</span><span class="sxs-lookup"><span data-stu-id="ae52a-181">This code opens a connection with the hub.</span></span>
+<span data-ttu-id="a8e78-181">このコードは、ハブとの接続を開きます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-181">This code opens a connection with the hub.</span></span>
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample7.js)]
 
 > [!NOTE]
-> <span data-ttu-id="ae52a-182">このアプローチにより、イベント ハンドラーが実行される前に、コードでの接続を確立するようになります。</span><span class="sxs-lookup"><span data-stu-id="ae52a-182">This approach ensures that the code establishes a connection before the event handler executes.</span></span>
+> <span data-ttu-id="a8e78-182">この方法では、イベントハンドラーが実行される前に、コードによって接続が確立されます。</span><span class="sxs-lookup"><span data-stu-id="a8e78-182">This approach ensures that the code establishes a connection before the event handler executes.</span></span>
 
-<span data-ttu-id="ae52a-183">コードが接続を開始しのクリック イベントを処理する関数に渡します、**送信**HTML ページにボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="ae52a-183">The code starts the connection and then passes it a function to handle the click event on the **Send** button in the HTML page.</span></span>
+<span data-ttu-id="a8e78-183">このコードは接続を開始し、HTML ページの **[送信]** ボタンでクリックイベントを処理する関数に渡します。</span><span class="sxs-lookup"><span data-stu-id="a8e78-183">The code starts the connection and then passes it a function to handle the click event on the **Send** button in the HTML page.</span></span>
 
-## <a name="get-the-code"></a><span data-ttu-id="ae52a-184">コードを取得する</span><span class="sxs-lookup"><span data-stu-id="ae52a-184">Get the code</span></span>
+## <a name="get-the-code"></a><span data-ttu-id="a8e78-184">コードを取得する</span><span class="sxs-lookup"><span data-stu-id="a8e78-184">Get the code</span></span>
 
-[<span data-ttu-id="ae52a-185">完成したプロジェクトのダウンロード</span><span class="sxs-lookup"><span data-stu-id="ae52a-185">Download Completed Project</span></span>](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+[<span data-ttu-id="a8e78-185">完成したプロジェクトのダウンロード</span><span class="sxs-lookup"><span data-stu-id="a8e78-185">Download Completed Project</span></span>](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
-## <a name="additional-resources"></a><span data-ttu-id="ae52a-186">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="ae52a-186">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="a8e78-186">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="a8e78-186">Additional resources</span></span>
 
-<span data-ttu-id="ae52a-187">詳細については、SignalR は、次のリソースを参照してください。</span><span class="sxs-lookup"><span data-stu-id="ae52a-187">For more about SignalR, see the following resources:</span></span>
+<span data-ttu-id="a8e78-187">SignalR の詳細については、次のリソースを参照してください。</span><span class="sxs-lookup"><span data-stu-id="a8e78-187">For more about SignalR, see the following resources:</span></span>
 
-* [<span data-ttu-id="ae52a-188">SignalR プロジェクト</span><span class="sxs-lookup"><span data-stu-id="ae52a-188">SignalR Project</span></span>](http://signalr.net)
+* [<span data-ttu-id="a8e78-188">SignalR プロジェクト</span><span class="sxs-lookup"><span data-stu-id="a8e78-188">SignalR Project</span></span>](http://signalr.net)
 
-* [<span data-ttu-id="ae52a-189">SignalR Github とサンプル</span><span class="sxs-lookup"><span data-stu-id="ae52a-189">SignalR Github and Samples</span></span>](https://github.com/SignalR/SignalR)
+* [<span data-ttu-id="a8e78-189">SignalR Github とサンプル</span><span class="sxs-lookup"><span data-stu-id="a8e78-189">SignalR Github and Samples</span></span>](https://github.com/SignalR/SignalR)
 
-* [<span data-ttu-id="ae52a-190">SignalR の Wiki</span><span class="sxs-lookup"><span data-stu-id="ae52a-190">SignalR Wiki</span></span>](https://github.com/SignalR/SignalR/wiki)
+* [<span data-ttu-id="a8e78-190">SignalR Wiki</span><span class="sxs-lookup"><span data-stu-id="a8e78-190">SignalR Wiki</span></span>](https://github.com/SignalR/SignalR/wiki)
 
-## <a name="next-steps"></a><span data-ttu-id="ae52a-191">次の手順</span><span class="sxs-lookup"><span data-stu-id="ae52a-191">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="a8e78-191">次のステップ:</span><span class="sxs-lookup"><span data-stu-id="a8e78-191">Next steps</span></span>
 
-<span data-ttu-id="ae52a-192">このチュートリアルではします。</span><span class="sxs-lookup"><span data-stu-id="ae52a-192">In this tutorial you:</span></span>
+<span data-ttu-id="a8e78-192">このチュートリアルでは、次のことを行います。</span><span class="sxs-lookup"><span data-stu-id="a8e78-192">In this tutorial you:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="ae52a-193">プロジェクトを設定します。</span><span class="sxs-lookup"><span data-stu-id="ae52a-193">Set up the project</span></span>
-> * <span data-ttu-id="ae52a-194">サンプルの実行</span><span class="sxs-lookup"><span data-stu-id="ae52a-194">Ran the sample</span></span>
-> * <span data-ttu-id="ae52a-195">コードを調べる</span><span class="sxs-lookup"><span data-stu-id="ae52a-195">Examined the code</span></span>
+> * <span data-ttu-id="a8e78-193">プロジェクトを設定する</span><span class="sxs-lookup"><span data-stu-id="a8e78-193">Set up the project</span></span>
+> * <span data-ttu-id="a8e78-194">サンプルを実行しました</span><span class="sxs-lookup"><span data-stu-id="a8e78-194">Ran the sample</span></span>
+> * <span data-ttu-id="a8e78-195">コードを調べる</span><span class="sxs-lookup"><span data-stu-id="a8e78-195">Examined the code</span></span>
 
-<span data-ttu-id="ae52a-196">SignalR と MVC 5 を使用する方法については、次の記事に進んでください。</span><span class="sxs-lookup"><span data-stu-id="ae52a-196">Advance to the next article to learn how to use SignalR and MVC 5.</span></span>
+<span data-ttu-id="a8e78-196">SignalR と MVC 5 の使用方法については、次の記事に進んでください。</span><span class="sxs-lookup"><span data-stu-id="a8e78-196">Advance to the next article to learn how to use SignalR and MVC 5.</span></span>
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="ae52a-197">SignalR 2 と MVC 5</span><span class="sxs-lookup"><span data-stu-id="ae52a-197">SignalR 2 and MVC 5</span></span>](tutorial-getting-started-with-signalr-and-mvc.md)
+> [<span data-ttu-id="a8e78-197">SignalR 2 と MVC 5</span><span class="sxs-lookup"><span data-stu-id="a8e78-197">SignalR 2 and MVC 5</span></span>](tutorial-getting-started-with-signalr-and-mvc.md)
