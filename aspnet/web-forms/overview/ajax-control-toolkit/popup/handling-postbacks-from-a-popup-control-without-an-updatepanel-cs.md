@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-cs
-title: UpdatePanel (c#) なしのポップアップ コントロールからポストバックを処理する |Microsoft Docs
+title: UpdatePanel を使用せずに Popup コントロールからポストC#バックを処理する () |Microsoft Docs
 author: wenz
-description: AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 Su でポストバックが発生する.
+description: AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 Su でポストバックが発生したとき...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 25444121-5a72-4dac-8e50-ad2b7ac667af
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 05a365e26a1d66c7d4034dbbec2d7f158e0b4164
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9c4c59bb9dbd3e2ba2b3b81ecf76271f21673bce
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132497"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598720"
 ---
-# <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-c"></a><span data-ttu-id="22f52-104">ポップアップ コントロールからポストバックを処理する (UpdatePanel なし) (C#)</span><span class="sxs-lookup"><span data-stu-id="22f52-104">Handling Postbacks from A Popup Control Without an UpdatePanel (C#)</span></span>
+# <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-c"></a><span data-ttu-id="9eb5e-104">ポップアップ コントロールからポストバックを処理する (UpdatePanel なし) (C#)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-104">Handling Postbacks from A Popup Control Without an UpdatePanel (C#)</span></span>
 
-<span data-ttu-id="22f52-105">によって[Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="22f52-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="9eb5e-105">[Christian Wenz](https://github.com/wenz)別</span><span class="sxs-lookup"><span data-stu-id="9eb5e-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="22f52-106">[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl3.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol3CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="22f52-106">[Download Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl3.cs.zip) or [Download PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol3CS.pdf)</span></span>
+<span data-ttu-id="9eb5e-106">[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl3.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol3CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-106">[Download Code](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl3.cs.zip) or [Download PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol3CS.pdf)</span></span>
 
-> <span data-ttu-id="22f52-107">AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。</span><span class="sxs-lookup"><span data-stu-id="22f52-107">The PopupControl extender in the AJAX Control Toolkit offers an easy way to trigger a popup when any other control is activated.</span></span> <span data-ttu-id="22f52-108">このようなパネルで、ポストバックが発生して、ページ上のパネルがある場合は、パネルがクリックしてされたかを判断する困難です。</span><span class="sxs-lookup"><span data-stu-id="22f52-108">When a postback occurs in such a panel and there are several panels on the page it is hard to determine which panel has been clicked.</span></span>
+> <span data-ttu-id="9eb5e-107">AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-107">The PopupControl extender in the AJAX Control Toolkit offers an easy way to trigger a popup when any other control is activated.</span></span> <span data-ttu-id="9eb5e-108">このようなパネルでポストバックが発生し、ページに複数のパネルがある場合は、どのパネルがクリックされたかを判断するのは困難です。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-108">When a postback occurs in such a panel and there are several panels on the page it is hard to determine which panel has been clicked.</span></span>
 
-## <a name="overview"></a><span data-ttu-id="22f52-109">概要</span><span class="sxs-lookup"><span data-stu-id="22f52-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="9eb5e-109">の概要</span><span class="sxs-lookup"><span data-stu-id="9eb5e-109">Overview</span></span>
 
-<span data-ttu-id="22f52-110">AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。</span><span class="sxs-lookup"><span data-stu-id="22f52-110">The PopupControl extender in the AJAX Control Toolkit offers an easy way to trigger a popup when any other control is activated.</span></span> <span data-ttu-id="22f52-111">このようなパネルで、ポストバックが発生して、ページ上のパネルがある場合は、パネルがクリックしてされたかを判断する困難です。</span><span class="sxs-lookup"><span data-stu-id="22f52-111">When a postback occurs in such a panel and there are several panels on the page it is hard to determine which panel has been clicked.</span></span>
+<span data-ttu-id="9eb5e-110">AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-110">The PopupControl extender in the AJAX Control Toolkit offers an easy way to trigger a popup when any other control is activated.</span></span> <span data-ttu-id="9eb5e-111">このようなパネルでポストバックが発生し、ページに複数のパネルがある場合は、どのパネルがクリックされたかを判断するのは困難です。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-111">When a postback occurs in such a panel and there are several panels on the page it is hard to determine which panel has been clicked.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="22f52-112">手順</span><span class="sxs-lookup"><span data-stu-id="22f52-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="9eb5e-112">手順</span><span class="sxs-lookup"><span data-stu-id="9eb5e-112">Steps</span></span>
 
-<span data-ttu-id="22f52-113">使用する場合、 `PopupControl` 、ポストバックがしなくても、 `UpdatePanel`  ページで、Control Toolkit は提供していませんクライアント要素がさらに、ポストバックの原因となったポップアップをトリガーを決定する方法。</span><span class="sxs-lookup"><span data-stu-id="22f52-113">When using a `PopupControl` with a postback, but without having an `UpdatePanel` on the page, the Control Toolkit does not offer a way to determine which client element has triggered the popup which in turn caused the postback.</span></span> <span data-ttu-id="22f52-114">ただし小規模なトリックは、このシナリオの回避策を提供します。</span><span class="sxs-lookup"><span data-stu-id="22f52-114">However a small trick provides a workaround for this scenario.</span></span>
+<span data-ttu-id="9eb5e-113">ポストバックで `PopupControl` を使用するときに、ページに `UpdatePanel` を設定していない場合、コントロールツールキットでは、ポストバックの原因となったポップアップをトリガーしたクライアント要素を特定する方法は提供されません。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-113">When using a `PopupControl` with a postback, but without having an `UpdatePanel` on the page, the Control Toolkit does not offer a way to determine which client element has triggered the popup which in turn caused the postback.</span></span> <span data-ttu-id="9eb5e-114">ただし、このシナリオの回避策としては小さなトリックがあります。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-114">However a small trick provides a workaround for this scenario.</span></span>
 
-<span data-ttu-id="22f52-115">まず、基本的なセットアップを示します。 どちらも、同じポップアップ カレンダーをトリガーする 2 つのテキスト ボックス。</span><span class="sxs-lookup"><span data-stu-id="22f52-115">First of all, here is the basic setup: two text boxes which both trigger the same popup, a calendar.</span></span> <span data-ttu-id="22f52-116">2 つ`PopupControlExtenders`テキスト ボックスとポップアップをまとめて表示します。</span><span class="sxs-lookup"><span data-stu-id="22f52-116">Two `PopupControlExtenders` bring text boxes and popup together.</span></span>
+<span data-ttu-id="9eb5e-115">まず、基本的なセットアップは次のようになります。2つのテキストボックスで同じポップアップ (予定表) がトリガーされます。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-115">First of all, here is the basic setup: two text boxes which both trigger the same popup, a calendar.</span></span> <span data-ttu-id="9eb5e-116">2つの `PopupControlExtenders` テキストボックスとポップアップをまとめて表示します。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-116">Two `PopupControlExtenders` bring text boxes and popup together.</span></span>
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/samples/sample1.aspx)]
 
-<span data-ttu-id="22f52-117">基本的な考え方が隠しフォーム フィールドを追加するには、 &lt; `form` &gt;起動ポップアップ テキスト ボックスを保持する要素。</span><span class="sxs-lookup"><span data-stu-id="22f52-117">The basic idea is to add a hidden form field in the &lt;`form`&gt; element that holds the text box which launched the popup:</span></span>
+<span data-ttu-id="9eb5e-117">基本的な考え方は、ポップアップを起動したテキストボックスを保持する &lt;`form`&gt; 要素に非表示のフォームフィールドを追加することです。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-117">The basic idea is to add a hidden form field in the &lt;`form`&gt; element that holds the text box which launched the popup:</span></span>
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/samples/sample2.aspx)]
 
-<span data-ttu-id="22f52-118">ページが読み込まれるときに JavaScript コードには、両方のテキスト ボックスに、イベント ハンドラーが追加されます。ユーザーがテキスト ボックスをクリックすると、その名前が隠しフォーム フィールドに書き込まれます。</span><span class="sxs-lookup"><span data-stu-id="22f52-118">When the page is loaded, JavaScript code adds an event handler to both text boxes: Whenever the user clicks on a text box, its name is written into the hidden form field:</span></span>
+<span data-ttu-id="9eb5e-118">ページが読み込まれると、JavaScript コードによって、イベントハンドラーが両方のテキストボックスに追加されます。ユーザーがテキストボックスをクリックするたびに、その名前が隠しフォームフィールドに書き込まれます。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-118">When the page is loaded, JavaScript code adds an event handler to both text boxes: Whenever the user clicks on a text box, its name is written into the hidden form field:</span></span>
 
 [!code-html[Main](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/samples/sample3.html)]
 
-<span data-ttu-id="22f52-119">サーバー側のコードでは、非表示フィールドの値を読み取る必要があります。</span><span class="sxs-lookup"><span data-stu-id="22f52-119">In the server-side code, the value of the hidden field must be read.</span></span> <span data-ttu-id="22f52-120">隠しフォーム フィールドは、操作は簡単であるために、非表示の値の検証にホワイト リスト アプローチが必要です。</span><span class="sxs-lookup"><span data-stu-id="22f52-120">Since hidden form fields are trivial to manipulate, a whitelist approach to validate the hidden value is required.</span></span> <span data-ttu-id="22f52-121">適切なテキスト ボックスが識別されると、カレンダーから日付がそこに書き込まれます。</span><span class="sxs-lookup"><span data-stu-id="22f52-121">Once the correct text box has been identified, the date from the calendar is written into it.</span></span>
+<span data-ttu-id="9eb5e-119">サーバー側のコードでは、隠しフィールドの値を読み取る必要があります。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-119">In the server-side code, the value of the hidden field must be read.</span></span> <span data-ttu-id="9eb5e-120">非表示のフォームフィールドは簡単に操作できるため、非表示の値を検証するホワイトリストアプローチが必要です。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-120">Since hidden form fields are trivial to manipulate, a whitelist approach to validate the hidden value is required.</span></span> <span data-ttu-id="9eb5e-121">正しいテキストボックスが識別されると、カレンダーの日付が書き込まれます。</span><span class="sxs-lookup"><span data-stu-id="9eb5e-121">Once the correct text box has been identified, the date from the calendar is written into it.</span></span>
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/samples/sample4.aspx)]
 
-<span data-ttu-id="22f52-122">[![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="22f52-122">[![The Calendar appears when the user clicks into the textbox](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image1.png)</span></span>
+<span data-ttu-id="9eb5e-122">[ユーザーがテキストボックスをクリックしたときにカレンダーが表示される ![](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-122">[![The Calendar appears when the user clicks into the textbox](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image1.png)</span></span>
 
-<span data-ttu-id="22f52-123">テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image3.png))。</span><span class="sxs-lookup"><span data-stu-id="22f52-123">The Calendar appears when the user clicks into the textbox ([Click to view full-size image](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image3.png))</span></span>
+<span data-ttu-id="9eb5e-123">ユーザーがテキストボックスをクリックするとカレンダーが表示されます ([クリックすると、フルサイズの画像が表示](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image3.png)されます)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-123">The Calendar appears when the user clicks into the textbox ([Click to view full-size image](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image3.png))</span></span>
 
-<span data-ttu-id="22f52-124">[![テキスト ボックス内に配置する日付をクリックすると](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image4.png)</span><span class="sxs-lookup"><span data-stu-id="22f52-124">[![Clicking on a date puts it in the textbox](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image4.png)</span></span>
+<span data-ttu-id="9eb5e-124">[日付をクリック ![と、テキストボックスに挿入されます。](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image4.png)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-124">[![Clicking on a date puts it in the textbox](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image4.png)</span></span>
 
-<span data-ttu-id="22f52-125">テキスト ボックス内に配置する日付をクリックすると ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image6.png))。</span><span class="sxs-lookup"><span data-stu-id="22f52-125">Clicking on a date puts it in the textbox ([Click to view full-size image](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image6.png))</span></span>
+<span data-ttu-id="9eb5e-125">日付をクリックするとテキストボックスに挿入されます ([クリックすると、フルサイズの画像が表示](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image6.png)されます)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-125">Clicking on a date puts it in the textbox ([Click to view full-size image](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image6.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="22f52-126">[前へ](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
-> [次へ](using-multiple-popup-controls-vb.md)</span><span class="sxs-lookup"><span data-stu-id="22f52-126">[Previous](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+> <span data-ttu-id="9eb5e-126">[前へ](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+> [次へ](using-multiple-popup-controls-vb.md)</span><span class="sxs-lookup"><span data-stu-id="9eb5e-126">[Previous](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
 [Next](using-multiple-popup-controls-vb.md)</span></span>

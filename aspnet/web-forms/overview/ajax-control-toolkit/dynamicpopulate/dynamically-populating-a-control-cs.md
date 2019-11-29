@@ -1,72 +1,72 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
-title: (C#) コントロールを動的に作成する |Microsoft Docs
+title: コントロールに動的に入力C#する () |Microsoft Docs
 author: wenz
-description: ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、t のターゲット コントロールに、結果の値を入力しています.
+description: ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値を t... のターゲットコントロールに入力します。
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e1fec43e-1daf-49d2-b0c7-7f1b930455cc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1b3e944e45e8d2b746b2e42360693c245d93901f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 24f88e44e0f878127314774d4e8846f80133413e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132858"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599283"
 ---
-# <a name="dynamically-populating-a-control-c"></a><span data-ttu-id="be226-103">コントロールに動的に入力する (C#)</span><span class="sxs-lookup"><span data-stu-id="be226-103">Dynamically Populating a Control (C#)</span></span>
+# <a name="dynamically-populating-a-control-c"></a><span data-ttu-id="0612a-103">コントロールに動的に入力する (C#)</span><span class="sxs-lookup"><span data-stu-id="0612a-103">Dynamically Populating a Control (C#)</span></span>
 
-<span data-ttu-id="be226-104">によって[Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="be226-104">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="0612a-104">[Christian Wenz](https://github.com/wenz)別</span><span class="sxs-lookup"><span data-stu-id="0612a-104">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="be226-105">[コードのダウンロード](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="be226-105">[Download Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip) or [Download PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)</span></span>
+<span data-ttu-id="0612a-105">[コードのダウンロード](https://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="0612a-105">[Download Code](https://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip) or [Download PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)</span></span>
 
-> <span data-ttu-id="be226-106">ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、ページで、ページを更新せず、ターゲット コントロールに、結果の値を設定します。</span><span class="sxs-lookup"><span data-stu-id="be226-106">The DynamicPopulate control in the ASP.NET AJAX Control Toolkit calls a web service (or page method) and fills the resulting value into a target control on the page, without a page refresh.</span></span>
+> <span data-ttu-id="0612a-106">ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。</span><span class="sxs-lookup"><span data-stu-id="0612a-106">The DynamicPopulate control in the ASP.NET AJAX Control Toolkit calls a web service (or page method) and fills the resulting value into a target control on the page, without a page refresh.</span></span>
 
-## <a name="overview"></a><span data-ttu-id="be226-107">概要</span><span class="sxs-lookup"><span data-stu-id="be226-107">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="0612a-107">の概要</span><span class="sxs-lookup"><span data-stu-id="0612a-107">Overview</span></span>
 
-<span data-ttu-id="be226-108">`DynamicPopulate` ASP.NET AJAX Control Toolkit のコントロールが web サービス (またはページ メソッド) を呼び出し、ターゲット コントロール ページで、ページ更新せずに、結果の値を入力します。</span><span class="sxs-lookup"><span data-stu-id="be226-108">The `DynamicPopulate` control in the ASP.NET AJAX Control Toolkit calls a web service (or page method) and fills the resulting value into a target control on the page, without a page refresh.</span></span> <span data-ttu-id="be226-109">このチュートリアルでは、これを設定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="be226-109">This tutorial shows how to set this up.</span></span>
+<span data-ttu-id="0612a-108">ASP.NET AJAX Control Toolkit の `DynamicPopulate` コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。</span><span class="sxs-lookup"><span data-stu-id="0612a-108">The `DynamicPopulate` control in the ASP.NET AJAX Control Toolkit calls a web service (or page method) and fills the resulting value into a target control on the page, without a page refresh.</span></span> <span data-ttu-id="0612a-109">このチュートリアルでは、これを設定する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="0612a-109">This tutorial shows how to set this up.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="be226-110">手順</span><span class="sxs-lookup"><span data-stu-id="be226-110">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="0612a-110">手順</span><span class="sxs-lookup"><span data-stu-id="0612a-110">Steps</span></span>
 
-<span data-ttu-id="be226-111">まず、ASP.NET Web サービスによって呼び出されるメソッドを実装する必要があります`DynamicPopulate`します。</span><span class="sxs-lookup"><span data-stu-id="be226-111">First of all, you need an ASP.NET Web Service which implements the method to be called by `DynamicPopulate`.</span></span> <span data-ttu-id="be226-112">Web サービス クラスに必要な`ScriptService`内で定義されている属性`Microsoft.Web.Script.Services`。 それ以外の場合、ASP.NET AJAX はにさらに必要な web サービスのクライアント側の JavaScript プロキシを作成することはできません`DynamicPopulate`します。</span><span class="sxs-lookup"><span data-stu-id="be226-112">The web service class requires the `ScriptService` attribute which is defined within `Microsoft.Web.Script.Services`; otherwise ASP.NET AJAX cannot create the client-side JavaScript proxy for the web service which in turn is required by `DynamicPopulate`.</span></span>
+<span data-ttu-id="0612a-111">まず、`DynamicPopulate`によって呼び出されるメソッドを実装する ASP.NET Web サービスが必要です。</span><span class="sxs-lookup"><span data-stu-id="0612a-111">First of all, you need an ASP.NET Web Service which implements the method to be called by `DynamicPopulate`.</span></span> <span data-ttu-id="0612a-112">Web サービスクラスには、`Microsoft.Web.Script.Services`内で定義されている `ScriptService` 属性が必要です。それ以外の場合、ASP.NET AJAX では、web サービスのクライアント側の JavaScript プロキシを作成することはできません。これは `DynamicPopulate`によって要求されます。</span><span class="sxs-lookup"><span data-stu-id="0612a-112">The web service class requires the `ScriptService` attribute which is defined within `Microsoft.Web.Script.Services`; otherwise ASP.NET AJAX cannot create the client-side JavaScript proxy for the web service which in turn is required by `DynamicPopulate`.</span></span>
 
-<span data-ttu-id="be226-113">Web メソッドと呼ばれる、文字列型の 1 つの引数を想定する必要があります`contextKey`、ので、`DynamicPopulate`コントロールが web サービスの呼び出しごとに 2 つのコンテキスト情報を送信します。</span><span class="sxs-lookup"><span data-stu-id="be226-113">The web method must expect one argument of type string, called `contextKey`, since the `DynamicPopulate` control sends one piece of context information with each web service call.</span></span> <span data-ttu-id="be226-114">次の web サービスによって表される形式で現在の日付を返します、`contextKey`引数。</span><span class="sxs-lookup"><span data-stu-id="be226-114">The following web service returns the current date in a format represented by the `contextKey` argument:</span></span>
+<span data-ttu-id="0612a-113">Web メソッドは、`contextKey`と呼ばれる文字列型の1つの引数を想定する必要があります。これは、`DynamicPopulate` コントロールが各 web サービス呼び出しに1つのコンテキスト情報を送信するためです。</span><span class="sxs-lookup"><span data-stu-id="0612a-113">The web method must expect one argument of type string, called `contextKey`, since the `DynamicPopulate` control sends one piece of context information with each web service call.</span></span> <span data-ttu-id="0612a-114">次の web サービスは、`contextKey` 引数によって表される形式で現在の日付を返します。</span><span class="sxs-lookup"><span data-stu-id="0612a-114">The following web service returns the current date in a format represented by the `contextKey` argument:</span></span>
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample1.aspx)]
 
-<span data-ttu-id="be226-115">Web サービスとして保存されます`DynamicPopulate.cs.asmx`します。</span><span class="sxs-lookup"><span data-stu-id="be226-115">The web service is then saved as `DynamicPopulate.cs.asmx`.</span></span> <span data-ttu-id="be226-116">また、実装すること、`getDate()`メソッドでは、実際の ASP.NET ページ内でページ メソッドとして、`DynamicPopulate`コントロール。</span><span class="sxs-lookup"><span data-stu-id="be226-116">Alternatively, you could implement the `getDate()` method as a page method within the actual ASP.NET page with the `DynamicPopulate` control.</span></span>
+<span data-ttu-id="0612a-115">その後、web サービスが `DynamicPopulate.cs.asmx`として保存されます。</span><span class="sxs-lookup"><span data-stu-id="0612a-115">The web service is then saved as `DynamicPopulate.cs.asmx`.</span></span> <span data-ttu-id="0612a-116">また、`DynamicPopulate` コントロールを使用して、実際の ASP.NET ページ内のページメソッドとして `getDate()` メソッドを実装することもできます。</span><span class="sxs-lookup"><span data-stu-id="0612a-116">Alternatively, you could implement the `getDate()` method as a page method within the actual ASP.NET page with the `DynamicPopulate` control.</span></span>
 
-<span data-ttu-id="be226-117">次の手順では、新しい ASP.NET ファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="be226-117">In the next step, create a new ASP.NET file.</span></span> <span data-ttu-id="be226-118">最初の手順を含めるには常に、よう、 `ScriptManager` Control Toolkit の作業を行うと ASP.NET AJAX ライブラリを読み込むには、現在のページで。</span><span class="sxs-lookup"><span data-stu-id="be226-118">As always, the first step is to include the `ScriptManager` in the current page to load the ASP.NET AJAX library and to make the Control Toolkit work:</span></span>
+<span data-ttu-id="0612a-117">次の手順で、新しい ASP.NET ファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="0612a-117">In the next step, create a new ASP.NET file.</span></span> <span data-ttu-id="0612a-118">常に、最初の手順として、現在のページに `ScriptManager` を含めて、ASP.NET AJAX ライブラリを読み込み、コントロールツールキットを機能させることができます。</span><span class="sxs-lookup"><span data-stu-id="0612a-118">As always, the first step is to include the `ScriptManager` in the current page to load the ASP.NET AJAX library and to make the Control Toolkit work:</span></span>
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample2.aspx)]
 
-<span data-ttu-id="be226-119">ラベル コントロールを追加し、(たとえば、同じ名前の HTML コントロールを使用して、または&lt; `asp:Label`  / &gt; web コントロール)、web サービス呼び出しの結果は後で説明します。</span><span class="sxs-lookup"><span data-stu-id="be226-119">Then, add a label control (for instance using the HTML control of the same name, or the &lt;`asp:Label` /&gt; web control) which will later show the result of the web service call.</span></span>
+<span data-ttu-id="0612a-119">次に、label コントロール (同じ名前の HTML コントロールを使用する場合は、web サービス呼び出しの結果を後で表示する場合は &lt;`asp:Label` /&gt; web コントロール) を追加します。</span><span class="sxs-lookup"><span data-stu-id="0612a-119">Then, add a label control (for instance using the HTML control of the same name, or the &lt;`asp:Label` /&gt; web control) which will later show the result of the web service call.</span></span>
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample3.aspx)]
 
-<span data-ttu-id="be226-120">(HTML コントロール、サーバーへのポストバックは必要ありませんので) として、HTML ボタンは、動的な作成をトリガーを使用しています。</span><span class="sxs-lookup"><span data-stu-id="be226-120">An HTML button (as an HTML control, since we do not require a postback to the server) will then be used to trigger the dynamic population:</span></span>
+<span data-ttu-id="0612a-120">Html ボタン (サーバーへのポストバックを必要としないため、HTML コントロール) は、動的な作成をトリガーするために使用されます。</span><span class="sxs-lookup"><span data-stu-id="0612a-120">An HTML button (as an HTML control, since we do not require a postback to the server) will then be used to trigger the dynamic population:</span></span>
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample4.aspx)]
 
-<span data-ttu-id="be226-121">最後に、必要があります、`DynamicPopulateExtender`ワイヤ処理を制御します。</span><span class="sxs-lookup"><span data-stu-id="be226-121">Finally, we need the `DynamicPopulateExtender` control to wire things up.</span></span> <span data-ttu-id="be226-122">次の属性が設定されます (、明らかなものとは別に`ID`と`runat` = `"server"`)。</span><span class="sxs-lookup"><span data-stu-id="be226-122">The following attributes will be set (apart from the obvious ones, `ID` and `runat`=`"server"`):</span></span>
+<span data-ttu-id="0612a-121">最後に、`DynamicPopulateExtender` 制御が必要です。</span><span class="sxs-lookup"><span data-stu-id="0612a-121">Finally, we need the `DynamicPopulateExtender` control to wire things up.</span></span> <span data-ttu-id="0612a-122">次の属性が設定されます (明らかな属性とは別に、`ID` と `runat`=`"server"`)。</span><span class="sxs-lookup"><span data-stu-id="0612a-122">The following attributes will be set (apart from the obvious ones, `ID` and `runat`=`"server"`):</span></span>
 
-- <span data-ttu-id="be226-123">`TargetControlID` web サービスの呼び出しから結果を格納する場所</span><span class="sxs-lookup"><span data-stu-id="be226-123">`TargetControlID` where to put the result from the web service call</span></span>
-- <span data-ttu-id="be226-124">`ServicePath` web サービスへのパス (ページ メソッドを使用する場合は省略)</span><span class="sxs-lookup"><span data-stu-id="be226-124">`ServicePath` path to the web service (omit if you want to use a page method)</span></span>
-- <span data-ttu-id="be226-125">`ServiceMethod` web メソッドまたはページ メソッドの名前</span><span class="sxs-lookup"><span data-stu-id="be226-125">`ServiceMethod` name of the web method or page method</span></span>
-- <span data-ttu-id="be226-126">`ContextKey` web サービスに送信されるコンテキスト情報</span><span class="sxs-lookup"><span data-stu-id="be226-126">`ContextKey` context information to be sent to the web service</span></span>
-- <span data-ttu-id="be226-127">`PopulateTriggerControlID` web サービスの呼び出しをトリガーする要素</span><span class="sxs-lookup"><span data-stu-id="be226-127">`PopulateTriggerControlID` element which triggers the web service call</span></span>
-- <span data-ttu-id="be226-128">`ClearContentsDuringUpdate` web サービスの呼び出し中にターゲット要素を空にするかどうか</span><span class="sxs-lookup"><span data-stu-id="be226-128">`ClearContentsDuringUpdate` whether to empty the target element during the web service call</span></span>
+- <span data-ttu-id="0612a-123">web サービス呼び出しの結果を格納する場所を `TargetControlID` します。</span><span class="sxs-lookup"><span data-stu-id="0612a-123">`TargetControlID` where to put the result from the web service call</span></span>
+- <span data-ttu-id="0612a-124">web サービスへの `ServicePath` パス (page メソッドを使用する場合は省略)</span><span class="sxs-lookup"><span data-stu-id="0612a-124">`ServicePath` path to the web service (omit if you want to use a page method)</span></span>
+- <span data-ttu-id="0612a-125">web メソッドまたはページメソッドの `ServiceMethod` 名</span><span class="sxs-lookup"><span data-stu-id="0612a-125">`ServiceMethod` name of the web method or page method</span></span>
+- <span data-ttu-id="0612a-126">web サービスに送信される `ContextKey` コンテキスト情報</span><span class="sxs-lookup"><span data-stu-id="0612a-126">`ContextKey` context information to be sent to the web service</span></span>
+- <span data-ttu-id="0612a-127">web サービス呼び出しをトリガーする `PopulateTriggerControlID` 要素</span><span class="sxs-lookup"><span data-stu-id="0612a-127">`PopulateTriggerControlID` element which triggers the web service call</span></span>
+- <span data-ttu-id="0612a-128">web サービス呼び出し中に対象の要素を空にするかどうかを `ClearContentsDuringUpdate` します。</span><span class="sxs-lookup"><span data-stu-id="0612a-128">`ClearContentsDuringUpdate` whether to empty the target element during the web service call</span></span>
 
-<span data-ttu-id="be226-129">ご覧のように、コントロールには、いくつかの情報が必要なが非常に簡単には所定の位置に配置することで、すべてのもの。</span><span class="sxs-lookup"><span data-stu-id="be226-129">As you can see, the control requires some information but putting everything into place is quite straight-forward.</span></span> <span data-ttu-id="be226-130">マークアップを次に示します、`DynamicPopulateExtender`現在のシナリオでのコントロール。</span><span class="sxs-lookup"><span data-stu-id="be226-130">Here is the markup for the `DynamicPopulateExtender` control in the current scenario:</span></span>
+<span data-ttu-id="0612a-129">ご覧のように、コントロールにはいくつかの情報が必要ですが、すべてを配置するのは非常に簡単です。</span><span class="sxs-lookup"><span data-stu-id="0612a-129">As you can see, the control requires some information but putting everything into place is quite straight-forward.</span></span> <span data-ttu-id="0612a-130">現在のシナリオでの `DynamicPopulateExtender` コントロールのマークアップを次に示します。</span><span class="sxs-lookup"><span data-stu-id="0612a-130">Here is the markup for the `DynamicPopulateExtender` control in the current scenario:</span></span>
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample5.aspx)]
 
-<span data-ttu-id="be226-131">ASP.NET ページをブラウザーで実行して、; ボタンをクリックします現在の日付が月-日-年の形式で表示されます。</span><span class="sxs-lookup"><span data-stu-id="be226-131">Run the ASP.NET page in the browser and click on the button; you will receive the current date in month-day-year format.</span></span>
+<span data-ttu-id="0612a-131">ブラウザーで ASP.NET ページを実行し、ボタンをクリックします。現在の日付が月-日-年形式で表示されます。</span><span class="sxs-lookup"><span data-stu-id="0612a-131">Run the ASP.NET page in the browser and click on the button; you will receive the current date in month-day-year format.</span></span>
 
-<span data-ttu-id="be226-132">[![ボタンをクリックして、サーバーから日付を取得します。](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="be226-132">[![A click on the button retrieves the date from the server](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)</span></span>
+<span data-ttu-id="0612a-132">[![ボタンをクリックすると、サーバーから日付が取得されます。](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="0612a-132">[![A click on the button retrieves the date from the server](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)</span></span>
 
-<span data-ttu-id="be226-133">ボタンをクリックしますが、サーバーから日付を取得します ([フルサイズの画像を表示する をクリックします](dynamically-populating-a-control-cs/_static/image3.png))。</span><span class="sxs-lookup"><span data-stu-id="be226-133">A click on the button retrieves the date from the server ([Click to view full-size image](dynamically-populating-a-control-cs/_static/image3.png))</span></span>
+<span data-ttu-id="0612a-133">このボタンをクリックすると、サーバーから日付が取得されます ([クリックすると、フルサイズの画像が表示](dynamically-populating-a-control-cs/_static/image3.png)されます)</span><span class="sxs-lookup"><span data-stu-id="0612a-133">A click on the button retrieves the date from the server ([Click to view full-size image](dynamically-populating-a-control-cs/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="be226-134">次へ</span><span class="sxs-lookup"><span data-stu-id="be226-134">Next</span></span>](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [<span data-ttu-id="0612a-134">次へ</span><span class="sxs-lookup"><span data-stu-id="0612a-134">Next</span></span>](dynamically-populating-a-control-using-javascript-code-cs.md)

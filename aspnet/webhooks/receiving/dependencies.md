@@ -1,20 +1,20 @@
 ---
 uid: webhooks/receiving/dependencies
-title: ASP.NET Webhook レシーバー依存関係 |Microsoft Docs
+title: ASP.NET Webhook の受信者の依存関係 |Microsoft Docs
 author: rick-anderson
-description: 受信側の依存関係と ASP.NET の Webhook の依存関係挿入します。
+description: ASP.NET Webhook での受信側の依存関係と依存関係の挿入。
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5125e483-c2bb-435b-8cd1-21d3499bfaaf
-ms.openlocfilehash: c44cfe3ed310aa728a989b108c410e8786e4f514
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 477b8828209d0da1d485ef883b0f99b4e1b9b5bf
+ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57048729"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74564872"
 ---
-# <a name="aspnet-webhooks-receiver-dependencies"></a><span data-ttu-id="e2bed-103">ASP.NET Webhook レシーバー依存関係</span><span class="sxs-lookup"><span data-stu-id="e2bed-103">ASP.NET WebHooks receiver dependencies</span></span>
+# <a name="aspnet-webhooks-receiver-dependencies"></a><span data-ttu-id="3e52b-103">ASP.NET Webhook の受信者の依存関係</span><span class="sxs-lookup"><span data-stu-id="3e52b-103">ASP.NET WebHooks receiver dependencies</span></span>
 
-<span data-ttu-id="e2bed-104">Microsoft ASP.NET Webhook は依存関係の挿入を考慮して設計されています。</span><span class="sxs-lookup"><span data-stu-id="e2bed-104">Microsoft ASP.NET WebHooks is designed with dependency injection in mind.</span></span> <span data-ttu-id="e2bed-105">システムのほとんどの依存関係は、依存関係のインジェクション エンジンを使用して別の実装で置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="e2bed-105">Most dependencies in the system can be replaced with alternative implementations using a dependency injection engine.</span></span>
+<span data-ttu-id="3e52b-104">Microsoft ASP.NET Webhook は、依存関係の挿入を念頭に置いて設計されています。</span><span class="sxs-lookup"><span data-stu-id="3e52b-104">Microsoft ASP.NET WebHooks is designed with dependency injection in mind.</span></span> <span data-ttu-id="3e52b-105">システムのほとんどの依存関係は、依存関係挿入エンジンを使用して代替の実装に置き換えることができます。</span><span class="sxs-lookup"><span data-stu-id="3e52b-105">Most dependencies in the system can be replaced with alternative implementations using a dependency injection engine.</span></span>
 
-<span data-ttu-id="e2bed-106">参照してください[DependencyScopeExtensions](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Extensions/DependencyScopeExtensions.cs)レシーバー依存関係の一覧についてはします。</span><span class="sxs-lookup"><span data-stu-id="e2bed-106">Please see [DependencyScopeExtensions](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Extensions/DependencyScopeExtensions.cs) for a list of receiver dependencies.</span></span> <span data-ttu-id="e2bed-107">依存関係が登録されていない場合は、既定の実装が使用されます。</span><span class="sxs-lookup"><span data-stu-id="e2bed-107">If no dependency has been registered, a default implementation is used.</span></span> <span data-ttu-id="e2bed-108">参照してください[ReceiverServices](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Services/ReceiverServices.cs)に対して一連の既定の実装。</span><span class="sxs-lookup"><span data-stu-id="e2bed-108">Please see [ReceiverServices](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Services/ReceiverServices.cs) for a list of default implementations.</span></span>
+<span data-ttu-id="3e52b-106">受信側の依存関係の一覧については、「dependencies [Encyscopeextensions](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Extensions/DependencyScopeExtensions.cs) 」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="3e52b-106">See [DependencyScopeExtensions](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Extensions/DependencyScopeExtensions.cs) for a list of receiver dependencies.</span></span> <span data-ttu-id="3e52b-107">依存関係が登録されていない場合は、既定の実装が使用されます。</span><span class="sxs-lookup"><span data-stu-id="3e52b-107">If no dependency has been registered, a default implementation is used.</span></span> <span data-ttu-id="3e52b-108">既定の実装の一覧については、「 [Receiverservices](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Services/ReceiverServices.cs) 」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="3e52b-108">See [ReceiverServices](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Services/ReceiverServices.cs) for a list of default implementations.</span></span>
