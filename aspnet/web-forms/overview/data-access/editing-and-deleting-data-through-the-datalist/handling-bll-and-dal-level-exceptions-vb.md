@@ -1,137 +1,137 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
-title: BLL レベルと DAL レベルの例外 (VB) の処理 |Microsoft Docs
+title: BLL および DAL レベルの例外の処理 (VB) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、もらえるように編集可能な DataList の更新のワークフロー中に発生した例外を処理する方法がわかります。
+description: このチュートリアルでは、編集可能な DataList の更新ワークフロー中に発生した例外を tactfully に処理する方法について説明します。
 ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5108c1f04d73da4ce236fd0a872e0f64b82cbafa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 319ab44f2e65afc77f6f89ca8aa58c529f40d05c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119580"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74624265"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL レベルと DAL レベルの例外を処理する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_38_VB.exe)または[PDF のダウンロード](handling-bll-and-dal-level-exceptions-vb/_static/datatutorial38vb1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_38_VB.exe)または[PDF のダウンロード](handling-bll-and-dal-level-exceptions-vb/_static/datatutorial38vb1.pdf)
 
-> このチュートリアルでは、もらえるように編集可能な DataList の更新のワークフロー中に発生した例外を処理する方法がわかります。
+> このチュートリアルでは、編集可能な DataList の更新ワークフロー中に発生した例外を tactfully に処理する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-[編集の概要と、DataList でデータを削除する](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)チュートリアルでは、単純な編集と削除機能を提供する DataList を作成しました。 完全に機能しますが、編集中に発生したエラーとして、ほとんどわかりやすいやハンドルされない例外が発生したプロセスを削除しています。 やなどの製品の名前を省略すると、製品を編集するには、非常の価格の値を入力する手頃な価格!、例外をスローします。 コードでは、この例外はキャッチされず後、は、web ページで、例外の詳細を表示する ASP.NET ランタイム バブルアップとします。
+DataList チュートリアル[でのデータの編集と削除の概要](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)では、単純な編集および削除機能を提供する DataList を作成しました。 完全に機能している間は、編集または削除のプロセス中に発生したエラーによってハンドルされない例外が発生したため、ユーザーにとってはわかりませんでした。 たとえば、製品名を省略したり、製品を編集するときに価格を非常に手頃な価格で入力したりすると、例外がスローされます。 この例外はコードでキャッチされないため、ASP.NET ランタイムにバブルし、web ページに例外の詳細が表示されます。
 
-説明したように、[処理 BLL - と DAL レベルの例外で、ASP.NET ページ](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)チュートリアルでは、ビジネス ロジックまたはデータ アクセス レイヤーの深さから例外が発生した場合、例外の詳細が返されます、ObjectDataSource にし、GridView には。 これらの例外を作成して適切に処理する方法を説明しました`Updated`または`RowUpdated`ObjectDataSource や GridView、例外を確認し、例外が処理されたことを示す、イベント ハンドラー。
+「 [ASP.NET ページでの BLL と DAL レベルの例外の処理](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)」チュートリアルで説明したように、ビジネスロジックまたはデータアクセス層の深さから例外が発生すると、例外の詳細が ObjectDataSource に返され、次に GridView に返されます。 これらの例外を適切に処理する方法については、ObjectDataSource または GridView のイベントハンドラーを `Updated` または `RowUpdated` 作成し、例外を確認して、例外が処理されたことを示しています。
 
-ただし、DataList チュートリアルでは、データ更新および削除の ObjectDataSource を使用しません。 代わりに、BLL に対して直接取り組んでいます。 BLL または DAL から送信された例外を検出するためには、例外処理、ASP.NET ページの分離コード内でコードを実装する必要があります。 このチュートリアルよりもらえるように編集可能な DataList 秒のワークフローを更新中に発生した例外を処理する方法がわかります。
+ただし、DataList チュートリアルでは、データの更新と削除に ObjectDataSource は使用しません。 代わりに、BLL に対して直接作業しています。 BLL または DAL から発生した例外を検出するには、ASP.NET ページの分離コード内で例外処理コードを実装する必要があります。 このチュートリアルでは、編集可能な DataList の更新ワークフロー中に発生した例外を tactfully に処理する方法について説明します。
 
 > [!NOTE]
-> *編集の 概要と、DataList でデータを削除する*を更新するため、ObjectDataSource を使用して編集および DataList からデータを削除するためのさまざまな手法を説明したチュートリアルでは、いくつかのテクニックを紹介し、削除しています。 これらの手法を採用する場合は、ObjectDataSource s を通じて BLL または DAL から例外を処理することができます`Updated`または`Deleted`イベント ハンドラー。
+> *「Datalist チュートリアル」の「データの編集と削除の概要*」では、datalist のデータを編集および削除するためのさまざまな手法について説明しました。これは、更新と削除に ObjectDataSource を使用する手法です。 これらの手法を採用している場合は、ObjectDataSource または DAL の例外を ObjectDataSource s `Updated` または `Deleted` のイベントハンドラーを通じて処理できます。
 
-## <a name="step-1-creating-an-editable-datalist"></a>手順 1: 編集可能な DataList を作成します。
+## <a name="step-1-creating-an-editable-datalist"></a>手順 1: 編集可能な DataList の作成
 
-更新のワークフロー中に発生する例外の処理について気にし、前に、最初に作成、編集可能な DataList s を使用できます。 開く、`ErrorHandling.aspx`ページで、`EditDeleteDataList`フォルダー、DataList をデザイナーに追加設定その`ID`プロパティを`Products`、という名前の新しい ObjectDataSource を追加および`ProductsDataSource`します。 構成を使用する ObjectDataSource、`ProductsBLL`クラスの`GetProducts()`を選択するためのメソッドは、記録;、insert、UPDATE、ドロップダウン リストを設定し、(None) にタブを削除します。
+更新ワークフロー中に発生した例外の処理について心配する前に、まず、編集可能な DataList を作成してみましょう。 `EditDeleteDataList` フォルダーの `ErrorHandling.aspx` ページを開き、DataList をデザイナーに追加し、その `ID` プロパティを `Products`に設定して、`ProductsDataSource`という名前の新しい ObjectDataSource を追加します。 `ProductsBLL` クラス s `GetProducts()` メソッドを使用してレコードを選択するように ObjectDataSource を構成します。[挿入]、[更新]、および [削除] の各タブのドロップダウンリストを [(なし)] に設定します。
 
-[![GetProducts() メソッドを使用して、製品情報を返す](handling-bll-and-dal-level-exceptions-vb/_static/image2.png)](handling-bll-and-dal-level-exceptions-vb/_static/image1.png)
+[GetProducts () メソッドを使用して製品情報を返す ![](handling-bll-and-dal-level-exceptions-vb/_static/image2.png)](handling-bll-and-dal-level-exceptions-vb/_static/image1.png)
 
-**図 1**:使用して、製品情報を返す、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-vb/_static/image3.png))。
+**図 1**: `GetProducts()` メソッドを使用して製品情報を返す ([クリックすると、フルサイズの画像が表示](handling-bll-and-dal-level-exceptions-vb/_static/image3.png)されます)
 
-ObjectDataSource ウィザードを完了すると、Visual Studio が自動的に作成、 `ItemTemplate` DataList にします。 これを置き換える、`ItemTemplate`を各製品の名前と価格を表示し、Edit ボタンが含まれています。 次に、作成、`EditItemTemplate`名と価格と更新のキャンセル ボタンのテキスト ボックスに Web コントロールを使用します。 DataList s を最後に、設定`RepeatColumns`プロパティを 2。
+ObjectDataSource ウィザードを完了すると、Visual Studio によって DataList の `ItemTemplate` が自動的に作成されます。 これを、各製品の名前と価格を表示し、[編集] ボタンを含む `ItemTemplate` で置き換えます。 次に、[名前]、[価格]、[更新]、および [キャンセル] ボタンのテキストボックス Web コントロールを含む `EditItemTemplate` を作成します。 最後に、DataList s `RepeatColumns` プロパティを2に設定します。
 
-これらの変更後、ページ s 宣言型マークアップは、次のようになります。 再確認をとることによって、編集、Cancel、および更新 ボタンがその`CommandName`プロパティを編集、キャンセル、および更新、それぞれに設定します。
+これらの変更が完了すると、ページの宣言型マークアップは次のようになります。 [編集]、[キャンセル]、および [更新] の各ボタンの `CommandName` プロパティが、それぞれ [編集]、[キャンセル]、[更新] に設定されていることを確認します。
 
 [!code-aspx[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample1.aspx)]
 
 > [!NOTE]
-> このチュートリアルでは、DataList のビュー ステートを有効にする必要があります。
+> このチュートリアルでは、DataList s ビューステートを有効にする必要があります。
 
-ブラウザーから進行状況を表示する少し (図 2 参照)。
+ブラウザーで進行状況を確認します (図2を参照)。
 
-[![各製品には、[編集] ボタンが含まれています。](handling-bll-and-dal-level-exceptions-vb/_static/image5.png)](handling-bll-and-dal-level-exceptions-vb/_static/image4.png)
+[各製品に [Edit] \ (編集 \) ボタンが含まれて ![](handling-bll-and-dal-level-exceptions-vb/_static/image5.png)](handling-bll-and-dal-level-exceptions-vb/_static/image4.png)
 
-**図 2**:各製品には、[編集] ボタンが含まれています ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-vb/_static/image6.png))。
+**図 2**: 各製品には、[編集] ボタンがあります ([クリックすると、フルサイズの画像が表示](handling-bll-and-dal-level-exceptions-vb/_static/image6.png)されます)
 
-現時点では、[編集] ボタンのみポストバックが発生することは t まだ、製品を編集できるようにします。 DataList s のイベント ハンドラーの作成に必要な編集を有効にする`EditCommand`、 `CancelCommand`、および`UpdateCommand`イベント。 `EditCommand`と`CancelCommand`イベントは、DataList s を簡単に更新`EditItemIndex`プロパティは、DataList にデータを再バインドします。
+現在、[編集] ボタンによってポストバックが発生するのは、まだ製品が編集可能になっていないためです。 編集を有効にするには、DataList s `EditCommand`、`CancelCommand`、および `UpdateCommand` イベントのイベントハンドラーを作成する必要があります。 `EditCommand` イベントと `CancelCommand` イベントは、単に DataList s `EditItemIndex` プロパティを更新し、データを DataList に再バインドします。
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample2.vb)]
 
-`UpdateCommand`イベント ハンドラーは、少し複雑です。 編集した製品 s の読み取りに必要な`ProductID`から、`DataKeys`および s の製品名と価格のテキスト ボックスからコレクション、`EditItemTemplate`を呼び出して、`ProductsBLL`クラスの`UpdateProduct`DataList を返す前にメソッド編集済みの状態。
+`UpdateCommand` イベントハンドラーはもう少し複雑です。 編集した製品の `ProductID` を `DataKeys` コレクションから、`EditItemTemplate`のテキストボックスの製品名と価格と共に読み取る必要があります。その後、DataList を編集前の状態に戻す前に、`ProductsBLL` クラス s `UpdateProduct` メソッドを呼び出します。
 
-ここでは、let s だけを使用して、まったく同じコードから、`UpdateCommand`内のイベント ハンドラー、*編集の概要と、DataList でデータを削除する*チュートリアル。 手順 2 で例外を適切に処理するコードを追加します。
+ここでは、「 *DataList チュートリアル」の「データの編集と削除の概要*」で、`UpdateCommand` イベントハンドラーとまったく同じコードを使用してみましょう。 手順 2. で例外を適切に処理するコードを追加します。
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample3.vb)]
 
-無効な入力が発生した場合の適切な形式で単価、5.00 ドルなどの無効な単位価格の値または例外が発生する製品の名前の省略形でとります。 以降、`UpdateCommand`イベント ハンドラーが例外コードをこの時点で処理を含まない、例外が、ASP.NET の実行時までバブルは、エンドユーザーに表示されます (図 3 を参照してください)。
+形式が無効な入力がある場合は、無効な形式の単価、-$5.00 のような無効な単価値、または製品名の省略によって例外が発生します。 `UpdateCommand` イベントハンドラーには、この時点で例外処理コードが含まれていないため、例外は ASP.NET ランタイムにバブルアップされ、エンドユーザーに表示されます (図3を参照)。
 
-![ハンドルされない例外が発生したときに、エンドユーザーがエラー ページ](handling-bll-and-dal-level-exceptions-vb/_static/image7.png)
+![未処理の例外が発生すると、エンドユーザーにエラーページが表示されます。](handling-bll-and-dal-level-exceptions-vb/_static/image7.png)
 
-**図 3**:ハンドルされない例外が発生したときに、エンドユーザーがエラー ページ
+**図 3**: ハンドルされない例外が発生した場合、エンドユーザーにエラーページが表示される
 
-## <a name="step-2-gracefully-handling-exceptions-in-the-updatecommand-event-handler"></a>手順 2: UpdateCommand イベント ハンドラーで例外を適切に処理
+## <a name="step-2-gracefully-handling-exceptions-in-the-updatecommand-event-handler"></a>手順 2: UpdateCommand イベントハンドラーで例外を適切に処理する
 
-例外が発生することで更新のワークフロー中に、`UpdateCommand`イベント ハンドラー、BLL は、または、DAL します。 たとえば、ユーザーがすぎますの価格を入力、高価な`Decimal.Parse`内のステートメント、`UpdateCommand`イベント ハンドラーがスローされます、`FormatException`例外。 ユーザーは、製品の名前を付ける場合、または、価格が負の値を持つ場合は、DAL で例外が発生します。
+更新中のワークフローでは、`UpdateCommand` イベントハンドラー、BLL、または DAL で例外が発生する可能性があります。 たとえば、ユーザーが高価な価格を入力した場合、`UpdateCommand` イベントハンドラーの `Decimal.Parse` ステートメントは `FormatException` 例外をスローします。 ユーザーが製品名を省略した場合、または価格に負の値が含まれている場合は、DAL によって例外が発生します。
 
-例外が発生したときに、ページ自体内で情報メッセージを表示するいたします。 追加ラベル Web コントロールをページの`ID`に設定されている`ExceptionDetails`します。 ラベルのテキストを割り当てることで太字と斜体のフォントが非常に大規模な赤で表示する構成の`CssClass`プロパティを`Warning`で定義されている CSS クラス、`Styles.css`ファイル。
+例外が発生したときに、ページ内に情報メッセージを表示します。 `ID` が `ExceptionDetails`に設定されているページに、ラベル Web コントロールを追加します。 `Styles.css` ファイルで定義されている `Warning` CSS クラスに `CssClass` プロパティを割り当てることにより、ラベル s テキストを赤、特大、太字、斜体のフォントで表示するように構成します。
 
-エラーが発生したときに、表示されるラベルを 1 回のみします。 以降のポストバックでは、s のラベルの警告メッセージが表示されます。 S のラベルをクリアするかこれを実現できます`Text`プロパティや設定、`Visible`プロパティを`False`で、`Page_Load`イベント ハンドラー (で行ったよう、[処理 BLL - と ASP の DAL レベルの例外.NET ページ](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)チュートリアル) またはラベルの表示状態のサポートを無効にします。 後者のオプションを使用して、s のことができます。
+エラーが発生した場合、ラベルを一度だけ表示する必要があります。 つまり、それ以降のポストバックでは、ラベル s の警告メッセージが表示されなくなります。 これを実現するには、Label s `Text` プロパティをクリアするか `Visible` プロパティを設定して、`Page_Load` イベントハンドラーで `False` に戻します (「 [ASP.NET ページでの BLL および DAL レベルの例外の処理](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)」を参照してください)。または、ラベル s のビューステートのサポートを無効にします。 後者のオプションを使用してみましょう。
 
 [!code-aspx[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample4.aspx)]
 
-例外が発生したときに例外の詳細を割り当てます、`ExceptionDetails`ラベル コントロールの`Text`プロパティ。 以降のポストバックでは、そのビュー ステートが無効になっているため、`Text`プロパティ %s プログラムによる変更が失わ、既定のテキスト (空の文字列)、これにより、警告メッセージを非表示に戻します。
+例外が発生したときに、例外の詳細を `ExceptionDetails` Label コントロール s `Text` プロパティに割り当てます。 ビューステートが無効になっているため、以降のポストバック時に `Text` プロパティのプログラムによる変更が失われ、既定のテキスト (空の文字列) に戻り、警告メッセージが非表示になります。
 
-追加する便利なメッセージがページに表示するには、エラーが発生した場合を判断する、`Try ... Catch`へのブロック、`UpdateCommand`イベント ハンドラー。 `Try`部分には、例外につながる可能性のあるコードが含まれています。 中に、`Catch`ブロックに例外が発生した場合に実行されるコードが含まれています。 チェック アウト、[例外処理の基本事項](https://msdn.microsoft.com/library/2w8f0bss.aspx)詳細については、.NET Framework のドキュメントのセクションで、`Try ... Catch`ブロックします。
+ページに有用なメッセージを表示するためにエラーが発生したタイミングを判断するには、`UpdateCommand` イベントハンドラーに `Try ... Catch` ブロックを追加する必要があります。 `Try` 部分には、例外の原因となる可能性のあるコードが含まれています。一方、`Catch` ブロックには、例外の発生時に実行されるコードが含まれています。 `Try ... Catch` ブロックの詳細については、.NET Framework のドキュメントの[例外処理の基礎](https://msdn.microsoft.com/library/2w8f0bss.aspx)に関するセクションを参照してください。
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample5.vb)]
 
-内のコードで任意の型の例外がスローするときに、`Try`ブロック、`Catch`ブロックのコードの実行が開始します。 スローされる例外の種類`DbException`、 `NoNullAllowedException`、 `ArgumentException`、正確には、何に依存で、最初に、エラーの原因となったとします。 場合、データベース レベルで問題があります、`DbException`がスローされます。 場合の無効な値を入力、 `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、または`ReorderLevel`、フィールド、`ArgumentException`でこれらのフィールド値を検証するコードを追加しましたとしてスローされます、`ProductsDataTable`クラス (を参照してください、 [ビジネス ロジック層を作成する](../introduction/creating-a-business-logic-layer-vb.md)チュートリアル)。
+`Try` ブロック内のコードによって任意の型の例外がスローされると、`Catch` ブロックのコードが実行を開始します。 `DbException`、`NoNullAllowedException`、`ArgumentException`などによってスローされる例外の種類は、最初にエラーをよりしたものによって異なります。 データベースレベルで問題が発生すると、`DbException` がスローされます。 `UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、または `ReorderLevel` フィールドに無効な値が入力された場合、`ArgumentException` クラスでこれらのフィールド値を検証するコードを追加したため、`ProductsDataTable` がスローされます (「[ビジネスロジック層の作成](../introduction/creating-a-business-logic-layer-vb.md)」チュートリアルを参照してください)。
 
-詳細については、キャッチされた例外の種類に基づいて、メッセージ テキストを作成して、エンドユーザーに提供できます。 次のコードとほぼ同じフォームで使用されていたに戻り、[処理 BLL - と DAL レベルの例外で、ASP.NET ページ](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)チュートリアルでは、このレベルの詳細。
+キャッチされた例外の種類に基づいてメッセージテキストを指定することにより、エンドユーザーにより役立つ説明を提供できます。 次のコードは、 [ASP.NET Page チュートリアルでの BLL と DAL レベルの例外の処理](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)について、ほぼ同じ形式で使用されています。
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample6.vb)]
 
-このチュートリアルでは、単に呼び出す、`DisplayExceptionDetails`からメソッド、`Catch`ブロックでキャッチされた渡す`Exception`インスタンス (`ex`)。
+このチュートリアルを完了するには、キャッチされた `Exception` インスタンス (`ex`) を渡して、`Catch` ブロックから `DisplayExceptionDetails` メソッドを呼び出すだけです。
 
-`Try ... Catch`インプレース ブロック、ユーザーがよりわかりやすいエラー メッセージでは、図 4 と 5 つのスライド ショーとして表示されます。 DataList の例外が発生した場合に残っているメモは編集モードです。 制御フローに直ちにリダイレクト例外が発生した場合、ため、これは、`Catch`ブロック、編集済みの状態、DataList を返すコードをバイパスします。
+`Try ... Catch` ブロックが配置されていると、ユーザーには、図4と5に示すように、より詳細なエラーメッセージが表示されます。 例外が発生した場合、DataList は編集モードのままであることに注意してください。 これは、例外が発生すると、コントロールフローが直ちに `Catch` ブロックにリダイレクトされ、DataList を編集前の状態に返すコードがバイパスされるためです。
 
-[![ユーザーが必要なフィールドを付ける場合、エラー メッセージが表示されます。](handling-bll-and-dal-level-exceptions-vb/_static/image9.png)](handling-bll-and-dal-level-exceptions-vb/_static/image8.png)
+[ユーザーが必要なフィールドを省略した場合にエラーメッセージが表示される ![](handling-bll-and-dal-level-exceptions-vb/_static/image9.png)](handling-bll-and-dal-level-exceptions-vb/_static/image8.png)
 
-**図 4**:ユーザーが必要なフィールドを付ける場合、エラー メッセージが表示されます ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-vb/_static/image10.png))。
+**図 4**: ユーザーが必要なフィールドを省略した場合にエラーメッセージが表示される ([クリックすると、フルサイズの画像が表示](handling-bll-and-dal-level-exceptions-vb/_static/image10.png)されます)
 
-[![エラー メッセージが表示されるときに入力を負の価格](handling-bll-and-dal-level-exceptions-vb/_static/image12.png)](handling-bll-and-dal-level-exceptions-vb/_static/image11.png)
+[負の価格を入力したときにエラーメッセージが表示される ![](handling-bll-and-dal-level-exceptions-vb/_static/image12.png)](handling-bll-and-dal-level-exceptions-vb/_static/image11.png)
 
-**図 5**:エラー メッセージが表示されるときに入力を負の価格 ([フルサイズの画像を表示する をクリックします](handling-bll-and-dal-level-exceptions-vb/_static/image13.png))。
+**図 5**: 負の価格を入力したときにエラーメッセージが表示される ([クリックすると、フルサイズの画像が表示](handling-bll-and-dal-level-exceptions-vb/_static/image13.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-GridView と ObjectDataSource を例外がされているかどうかを示すために設定できるプロパティに加えて、更新および削除のワークフロー中に発生した例外に関する情報を含む投稿レベルのイベントのハンドラーを提供します。処理されます。 これらは機能をただし、使用可能なときに、DataList 操作および BLL を直接使用します。 代わりに、例外処理を実装する責任を負いますいます。
+GridView および ObjectDataSource は、ワークフローの更新中や削除中に発生した例外に関する情報を含むポストレベルのイベントハンドラーを提供します。また、例外が発生したかどうかを示すために設定できるプロパティについても説明します。対応. ただし、DataList を使用して BLL を直接使用する場合、これらの機能は使用できません。 代わりに、例外処理を実装する責任があります。
 
-このチュートリアルでは、編集可能な DataList 秒のワークフローを追加することで更新する例外処理を追加する方法を説明しました、`Try ... Catch`へのブロック、`UpdateCommand`イベント ハンドラー。 更新のワークフロー中に例外が発生した場合、`Catch`ブロックのコードの実行に役立つ情報を表示する、`ExceptionDetails`ラベル。
+このチュートリアルでは、`UpdateCommand` イベントハンドラーに `Try ... Catch` ブロックを追加して、編集可能な DataList s 更新ワークフローに例外処理を追加する方法を説明しました。 更新中のワークフロー中に例外が発生した場合、`Catch` ブロックのコードが実行され、`ExceptionDetails` ラベルに有用な情報が表示されます。
 
-この時点では、DataList では、最初の段階で発生してから例外を回避するための努力はしません。 負の価格、例外が発生することがわかっている場合でも事前にこのような無効な入力されないようにする機能まだ追加します。 [次へ]、チュートリアルでは無効なユーザー入力の検証コントロールを追加することでが原因の例外を削減する方法を見ていきます、`EditItemTemplate`します。
+この時点で、DataList では、最初の段階で例外が発生しないようにする作業は行われません。 負の価格によって例外が発生することはわかっていますが、ユーザーがこのような無効な入力を事前に入力できないようにするための機能はまだ追加されていません。 次のチュートリアルでは、`EditItemTemplate`に検証コントロールを追加することによって、無効なユーザー入力によって発生する例外を軽減する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ## <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
 - [例外のデザインのガイドライン](https://msdn.microsoft.com/library/ms298399.aspx)
-- [エラー ログのモジュールとハンドラー (ELMAH)](http://workspaces.gotdotnet.com/elmah) (エラーのログ記録のオープン ソース ライブラリ)
-- [Enterprise Library for .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (Exception Management Application Block を含む)
+- [エラーログモジュールとハンドラー (ELMAH)](http://workspaces.gotdotnet.com/elmah) (エラーをログに記録するためのオープンソースライブラリ)
+- [.NET Framework 2.0 のエンタープライズライブラリ](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en)(例外管理アプリケーションブロックを含む)
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Ken Pespisa でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Ken による Isa です。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](performing-batch-updates-vb.md)

@@ -1,141 +1,141 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
-title: (C#) を削除するときに、クライアント側の確認を追加する |Microsoft Docs
+title: 削除時にクライアント側の確認をC#追加する () |Microsoft Docs
 author: rick-anderson
-description: これまでに作成したインターフェイスで、ユーザーは編集ボタンをクリックするためのものと削除 ボタンをクリックしてデータを誤って削除できます。 この t.
+description: これまでに作成したインターフェイスでは、ユーザーは [編集] ボタンをクリックしたときに [削除] ボタンをクリックしてデータを誤って削除できます。 この t...
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: f6e2a12a-2b5e-48fd-8db3-1e94a500c19a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 31d6cd9ca7181ea9fea2ba3e30ccaafcb4578483
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e7d53bc65fdbbfa9ce9bfa5fbdbfa0dea598eebe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108862"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74623566"
 ---
 # <a name="adding-client-side-confirmation-when-deleting-c"></a>削除時、クライアント側の確認を追加する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_22_CS.exe)または[PDF のダウンロード](adding-client-side-confirmation-when-deleting-cs/_static/datatutorial22cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_22_CS.exe)または[PDF のダウンロード](adding-client-side-confirmation-when-deleting-cs/_static/datatutorial22cs1.pdf)
 
-> これまでに作成したインターフェイスで、ユーザーは編集ボタンをクリックするためのものと削除 ボタンをクリックしてデータを誤って削除できます。 このチュートリアルでは、Delete ボタンがクリックされたときに表示されるクライアント側の確認 ダイアログ ボックスを追加します。
+> これまでに作成したインターフェイスでは、ユーザーは [編集] ボタンをクリックしたときに [削除] ボタンをクリックしてデータを誤って削除できます。 このチュートリアルでは、[削除] ボタンをクリックしたときに表示されるクライアント側の確認ダイアログボックスを追加します。
 
 ## <a name="introduction"></a>はじめに
 
-過去のいくつかのチュートリアルで ve 連携して、挿入、編集、および削除機能を提供する、アプリケーションのアーキテクチャ、ObjectDataSource、およびデータ Web コントロールを使用する方法について説明します。 確認したらインターフェイスを削除するきませんでしたが、削除で構成されたクリックされたときに、ポストバックが発生する ObjectDataSource s を呼び出すボタンであり、`Delete()`メソッド。 `Delete()`メソッドは、実際の発行、データ アクセス層に呼び出しを伝達するビジネス ロジック層から構成されているメソッドを呼び出します`DELETE`ステートメントはデータベースにします。
+これまでのいくつかのチュートリアルでは、アプリケーションアーキテクチャ、ObjectDataSource、およびデータ Web コントロールを連携して使用して、挿入、編集、および削除の機能を提供する方法を説明しました。 これまでに調査した削除インターフェイスは、[削除] ボタンで構成されています。このボタンをクリックすると、ポストバックが発生し、ObjectDataSource s `Delete()` メソッドが呼び出されます。 `Delete()` メソッドは、ビジネスロジック層から構成されたメソッドを呼び出します。これにより、呼び出しがデータアクセス層に反映され、実際の `DELETE` ステートメントがデータベースに発行されます。
 
-このユーザー インターフェイスでは、訪問者を GridView、DetailsView、または FormView コントロールを使用してレコードを削除することが、その削除 ボタンをクリックすると、何らかの確認が不足しています。 ユーザーが誤ってクリックした場合 をクリックするもので、ときに、削除 ボタンの編集、レコードを更新するためのものがインストールされます。 代わりにします。 このチュートリアルでは、これを防ぐため、削除ボタンがクリックされたときに表示されるクライアント側の確認 ダイアログ ボックスを追加します。
+このユーザーインターフェイスを使用すると、ユーザーが GridView、DetailsView、または FormView コントロールを使用してレコードを削除できますが、ユーザーが [削除] ボタンをクリックしても、どのような種類の確認も行われません。 [編集] をクリックしたときにユーザーが誤って [削除] ボタンをクリックした場合、更新する予定のレコードは削除されます。 この問題を回避するために、このチュートリアルでは、[削除] ボタンをクリックしたときに表示されるクライアント側の確認ダイアログボックスを追加します。
 
-JavaScript`confirm(string)`関数は、[ok] の 2 つのボタンに搭載されていて、(図 1 参照) をキャンセルするモーダル ダイアログ ボックス内のテキストとして、文字列入力パラメーターを表示します。 `confirm(string)`関数によってどのようなボタンがクリックされたブール値を返します (`true`、ユーザーが [ok] をクリックすると、および`false`[キャンセル] をクリックした場合)。
+JavaScript `confirm(string)` 関数は、[OK] と [キャンセル] の2つのボタンを備えたモーダルダイアログボックス内のテキストとして、文字列入力パラメーターを表示します (図1を参照)。 `confirm(string)` 関数は、どのボタンがクリックされたかに応じてブール値を返します (ユーザーが [OK] をクリックした場合は`true`、[キャンセル] をクリックした場合は `false` ます)。
 
-![JavaScript confirm(string) メソッドは、モーダルのクライアント側のメッセージ ボックスを表示します](adding-client-side-confirmation-when-deleting-cs/_static/image1.png)
+![JavaScript confirm (string) メソッドによって、モーダルのクライアント側のメッセージボックスが表示されます。](adding-client-side-confirmation-when-deleting-cs/_static/image1.png)
 
-**図 1**:JavaScript`confirm(string)`メソッドは、クライアント側のモーダルのメッセージ ボックスを表示します。
+**図 1**: JavaScript `confirm(string)` メソッドによってモーダルのクライアント側のメッセージボックスが表示される
 
-値の場合、フォームの送信中に`false`が、フォームの送信をキャンセルし、クライアント側のイベント ハンドラーから返されます。 この機能を使用する場合は、この削除ボタン s のクライアント側ができる`onclick`イベント ハンドラーの呼び出しの値を返す`confirm("Are you sure you want to delete this product?")`します。 ユーザーが [キャンセル] をクリックすると`confirm(string)`原因と、フォームの送信をキャンセルするため、false が返されます。 ポストバックでの Delete ボタンがクリックされた製品は削除されません。 ただし、ユーザーは確認のダイアログ ボックスで [ok] をクリックすると場合、は、ポストバックがに伴って続行され、製品が削除されます。 参照してください[を使用して JavaScript s`confirm()`フォームの送信を制御するメソッド](http://www.webreference.com/programming/javascript/confirm/)この手法の詳細についてはします。
+フォームの送信時に、クライアント側のイベントハンドラーから `false` の値が返された場合、フォームの送信は取り消されます。 この機能を使用すると、クライアント側の削除ボタン `onclick` イベントハンドラーが `confirm("Are you sure you want to delete this product?")`の呼び出しの値を返すことができます。 ユーザーが [キャンセル] をクリックすると、`confirm(string)` は false を返し、フォーム送信をキャンセルします。 ポストバックがない場合、[削除] ボタンがクリックされた製品は削除されません。 ただし、ユーザーが確認ダイアログボックスで [OK] をクリックすると、ポストバックは伴っを続行し、製品は削除されます。 この手法の詳細については、 [「JavaScript s `confirm()` メソッドを使用してフォームの送信を制御する](http://www.webreference.com/programming/javascript/confirm/)」を参照してください。
 
-必要なクライアント側スクリプトを追加することが若干を [commandfield] を使用するときのテンプレートを使用する場合。 そのため、このチュートリアルでは、FormView や GridView の両方の例を見ていますが。
+CommandField を使用する場合とは異なり、テンプレートを使用すると、必要なクライアント側スクリプトを追加することが若干異なります。 このチュートリアルでは、FormView と GridView の両方の例を見ていきます。
 
 > [!NOTE]
-> クライアント側の確認方法を使用して、このチュートリアルで説明しているようで、ユーザーが JavaScript をサポートするブラウザーでアクセスしているし、JavaScript が有効であること。 特定のユーザーの場合は true。 これらの前提条件のいずれかの場合は、削除ボタンをクリックするとはすぐがポストバックを (確認メッセージ ボックスが表示されない)。
+> このチュートリアルで説明するように、クライアント側の確認方法を使用すると、ユーザーが JavaScript をサポートするブラウザーを使用してアクセスし、JavaScript が有効になっていることを前提としています。 これらの前提条件のいずれかが特定のユーザーに対して true でない場合、[削除] ボタンをクリックすると直ちにポストバックが発生します (確認メッセージボックスは表示されません)。
 
-## <a name="step-1-creating-a-formview-that-supports-deletion"></a>手順 1: 削除をサポートする、フォーム ビューの作成
+## <a name="step-1-creating-a-formview-that-supports-deletion"></a>手順 1: 削除をサポートする FormView の作成
 
-フォーム ビューを追加して、開始、`ConfirmationOnDelete.aspx`ページで、`EditInsertDelete`フォルダー、バックアップを使用して製品情報をプルする新しい ObjectDataSource にバインドすること、`ProductsBLL`クラスの`GetProducts()`メソッド。 ObjectDataSource をまた構成ように、`ProductsBLL`クラス s `DeleteProduct(productID)` ObjectDataSource s メソッドにマップされて`Delete()`メソッド; INSERT および UPDATE のタブのドロップダウン リストが (None) に設定されていることを確認します。 最後に、FormView s のスマート タグでページングを有効にするチェック ボックスを確認します。
+まず、FormView を `EditInsertDelete` フォルダー内の `ConfirmationOnDelete.aspx` ページに追加し、`ProductsBLL` クラス s `GetProducts()` メソッドを使用して製品情報を取得する新しい ObjectDataSource にバインドします。 また、ObjectDataSource を構成して `ProductsBLL` クラス s `DeleteProduct(productID)` メソッドが ObjectDataSource s `Delete()` メソッドにマップされるようにします。[挿入] タブと [更新] タブのドロップダウンリストが [(なし)] に設定されていることを確認します。 最後に、FormView s スマートタグの [ページングを有効にする] チェックボックスをオンにします。
 
-これらの手順の後は、新しい ObjectDataSource s の宣言型マークアップは、次のようになります。
+これらの手順の後に、新しい ObjectDataSource s 宣言マークアップは次のようになります。
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample1.aspx)]
 
-オプティミスティック同時実行制御を使用していない、過去例のように少し ObjectDataSource s をクリアするため`OldValuesParameterFormatString`プロパティ。
+オプティミスティック同時実行制御を使用しなかった前の例と同様に、ObjectDataSource s `OldValuesParameterFormatString` プロパティを消去してみましょう。
 
-削除、FormView s のみをサポートする ObjectDataSource コントロールにバインドされているため`ItemTemplate`のみの削除 ボタン、新機能と更新プログラムのボタンのないを提供します。 ただし、FormView s の宣言型マークアップが、余分な含まれ`EditItemTemplate`と`InsertItemTemplate`、これを削除することができます。 カスタマイズする少し、`ItemTemplate`ができるので、製品のサブセットのみのデータ フィールドを示しています。 私で製品の名前を表示するように構成 ve、 `<h3>` (削除) と共にその業者とカテゴリ名の上の見出しです。
+削除のみをサポートする ObjectDataSource コントロールにバインドされているため、FormView s `ItemTemplate` は [削除] ボタンのみを提供します。 [新規] ボタンと [更新] ボタンはありません。 ただし、FormView の宣言型マークアップには、不要な `EditItemTemplate` と `InsertItemTemplate`が含まれています。これは削除できます。 製品データフィールドのサブセットのみが表示されるように、`ItemTemplate` をカスタマイズしてみてください。 ここでは、仕入先名とカテゴリ名の上に `<h3>` 見出しの製品名を表示するように構成しました ([削除] ボタンをクリックします)。
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample2.aspx)]
 
-これらの変更は、ユーザーを削除 ボタンをクリックするだけで、製品を削除することができます、一度に 1 つの製品を通じて切り替えるできる web ページを完全に機能があります。 図 2 は、ブラウザーで表示したときにこれまで、進行状況のスクリーン ショットを示します。
+これらの変更により、完全に機能する web ページが用意されています。ユーザーは、[削除] ボタンをクリックするだけで製品を削除することができます。 図2は、ブラウザーを通じて表示されるときの、これまでの進行状況のスクリーンショットを示しています。
 
-[![FormView には、1 つの製品についての情報が表示されます。](adding-client-side-confirmation-when-deleting-cs/_static/image3.png)](adding-client-side-confirmation-when-deleting-cs/_static/image2.png)
+[FormView に1つの製品に関する情報が表示される ![](adding-client-side-confirmation-when-deleting-cs/_static/image3.png)](adding-client-side-confirmation-when-deleting-cs/_static/image2.png)
 
-**図 2**:FormView 表示情報について、1 つの製品 ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-cs/_static/image4.png))。
+**図 2**: FormView に1つの製品に関する情報が表示される ([クリックすると、フルサイズの画像が表示](adding-client-side-confirmation-when-deleting-cs/_static/image4.png)されます)
 
-## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>手順 2: 削除ボタン クライアント側の onclick イベントから confirm(string) 関数を呼び出す
+## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>手順 2: [削除] ボタンのクライアント側の onclick イベントから confirm (string) 関数を呼び出す
 
-最後の手順は、FormView を作成すると、このような削除ボタンを構成するときに、s が、JavaScript、訪問者によってクリックされた`confirm(string)`関数が呼び出されます。 ボタンや LinkButton、ImageButton のクライアント側へのクライアント側スクリプトの追加`onclick`イベントの使用により実現できます、 `OnClientClick property`、これは ASP.NET 2.0 に新しいします。 値が必要なため、`confirm(string)`このプロパティを設定する関数が返されるだけです。 `return confirm('Are you certain that you want to delete this product?');`
+FormView が作成されたら、最後の手順として、ビジターがクリックしたときに JavaScript `confirm(string)` 関数が呼び出されるように [削除] ボタンを構成します。 クライアント側のスクリプトをボタン、LinkButton、または ImageButton s クライアント側の `onclick` イベントに追加するには、ASP.NET 2.0 の新しい `OnClientClick property`を使用します。 返される `confirm(string)` 関数の値を取得する必要があるため、このプロパティを次のように設定します。 `return confirm('Are you certain that you want to delete this product?');`
 
-この変更後に削除 LinkButton s の宣言型構文ようになります。
+この変更後、Delete LinkButton の宣言構文は次のようになります。
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample3.aspx)]
 
-すべてが s で終了です。 図 3 は、アクションでこの確認のスクリーン ショットを示します。 削除ボタンをクリックすると、[確認] ダイアログ ボックスが表示されます。 ユーザーは、[キャンセル] をクリックすると、ポストバックがキャンセルされ、製品は削除されません。 ポストバックの継続のかどうか、ただし、ユーザーは、[ok] をクリックして、および ObjectDataSource の`Delete()`メソッドが呼び出される、データベースのレコードを削除中に使用します。
+これで完了です。 図3に、この確認の動作のスクリーンショットを示します。 [削除] ボタンをクリックすると、[確認] ダイアログボックスが表示されます。 ユーザーが [キャンセル] をクリックすると、ポストバックはキャンセルされ、製品は削除されません。 ただし、ユーザーが [OK] をクリックする `Delete()` と、ポストバックが続行され、するメソッドが呼び出され、削除されているデータベースレコードでます。
 
 > [!NOTE]
-> 渡された文字列、 `confirm(string)` JavaScript 関数は、アポストロフィ (引用符ではなく) で区切られます。 JavaScript ではいずれかの文字を使用して文字列を区切ることができます。 渡された文字列の区切り記号のようにアポストロフィここで使用`confirm(string)`を使用する区切り記号では、あいまいさを持ち込んでいない、`OnClientClick`プロパティの値。
+> `confirm(string)` JavaScript 関数に渡される文字列は、引用符ではなくアポストロフィで区切られます。 JavaScript では、いずれかの文字を使用して文字列を区切ることができます。 ここではアポストロフィを使用して、`confirm(string)` に渡される文字列の区切り記号が、`OnClientClick` プロパティ値に使用される区切り記号とあいまいになることがないようにしています。
 
-[![確認メッセージは、今すぐ表示と削除 ボタンをクリックして](adding-client-side-confirmation-when-deleting-cs/_static/image6.png)](adding-client-side-confirmation-when-deleting-cs/_static/image5.png)
+[![[削除] ボタンをクリックしたときに確認メッセージが表示されるようになりました。](adding-client-side-confirmation-when-deleting-cs/_static/image6.png)](adding-client-side-confirmation-when-deleting-cs/_static/image5.png)
 
-**図 3**:確認メッセージは、今すぐ表示と削除 ボタンをクリックして ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-cs/_static/image7.png))。
+**図 3**: [削除] ボタンをクリックしたときに確認が表示される ([クリックすると、フルサイズの画像が表示](adding-client-side-confirmation-when-deleting-cs/_static/image7.png)されます)
 
-## <a name="step-3-configuring-the-onclientclick-property-for-the-delete-button-in-a-commandfield"></a>手順 3: [Commandfield]、[削除] ボタンの OnClientClick プロパティを構成します。
+## <a name="step-3-configuring-the-onclientclick-property-for-the-delete-button-in-a-commandfield"></a>手順 3: CommandField の Delete ボタンの OnClientClick プロパティを構成する
 
-確認のダイアログ ボックスを構成するだけでそれに関連付けられたすることができます、テンプレートで直接、ボタン、LinkButton、ImageButton に作業するとき、 `OnClientClick` 、JavaScript の結果を返すプロパティ`confirm(string)`関数。 ただし、フィールドの削除 ボタンを追加すると、GridView、DetailsView - が commandfield はありません、`OnClientClick`宣言によって設定できるプロパティです。 代わりに、適切な GridView、DetailsView s に削除 ボタンを参照する必要がありますプログラムで`DataBound`イベント ハンドラー、および設定してその`OnClientClick`プロパティがあります。
+テンプレート内で直接ボタン、LinkButton、または ImageButton を操作する場合、JavaScript `confirm(string)` 関数の結果を返すように `OnClientClick` プロパティを構成するだけで、確認ダイアログボックスを関連付けることができます。 ただし、[削除] ボタンのフィールドを GridView または DetailsView に追加する CommandField には、宣言によって設定できる `OnClientClick` のプロパティがありません。 代わりに、GridView または DetailsView の適切な `DataBound` イベントハンドラーで [削除] ボタンを参照し、その `OnClientClick` プロパティをそこで設定する必要があります。
 
 > [!NOTE]
-> S [削除] ボタンを設定するときに`OnClientClick`プロパティで、適切な`DataBound`へのアクセスがあるイベント ハンドラーでは、データは、現在のレコードにバインドされました。 つまり、「は Chai 製品を削除しますか?」など、特定のレコードの詳細を含めるに確認メッセージを拡張できます。 このようなカスタマイズは、データ バインディング構文を使用してテンプレートのこともできます。
+> 適切な `DataBound` イベントハンドラーで [削除] ボタン s `OnClientClick` プロパティを設定すると、現在のレコードにバインドされているデータにアクセスできるようになります。 つまり、「」のように、特定のレコードに関する詳細情報を含むように、確認メッセージを拡張できます。たとえば、「Chai 製品を削除しますか?」と入力します。 このようなカスタマイズは、データバインディング構文を使用するテンプレートでも可能です。
 
-実際に設定する、 `OnClientClick` CommandField、let s に削除ボタンのプロパティ ページに GridView を追加します。 この GridView、FormView を使用する同じ ObjectDataSource コントロールの使用を構成します。 GridView s のみ製品の名前、カテゴリ、および仕入先が含まれる BoundFields 制限もできます。 最後に、GridView s のスマート タグからの削除を有効にするチェック ボックスを確認します。 GridView s に、[commandfield] を追加します`Columns`コレクションとその`ShowDeleteButton`プロパティに設定`true`します。
+CommandField の [削除] ボタンの `OnClientClick` プロパティを設定する方法については、「」で GridView をページに追加してみましょう。 この GridView が、FormView が使用するのと同じ ObjectDataSource コントロールを使用するように構成します。 また、GridView の BoundFields を、製品名、カテゴリ、および業者のみを含むように制限します。 最後に、GridView s スマートタグから [削除を有効にする] チェックボックスをオンにします。 これにより、`ShowDeleteButton` プロパティが `true`に設定された GridView s `Columns` コレクションに CommandField が追加されます。
 
-これらの変更を行った後、次のように GridView s の宣言型マークアップになります。
+これらの変更を行った後、GridView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample4.aspx)]
 
-[Commandfield] には、GridView s からプログラムでアクセスできる 1 つ削除 LinkButton のインスタンスが含まれています。`RowDataBound`イベント ハンドラー。 設定できる、参照とその`OnClientClick`プロパティに応じて。 イベント ハンドラーを作成、`RowDataBound`を次のコードを使用してイベント。
+CommandField には、GridView s `RowDataBound` イベントハンドラーからプログラムからアクセスできる単一の Delete LinkButton インスタンスが含まれています。 参照された後は、その `OnClientClick` プロパティを適宜設定できます。 次のコードを使用して、`RowDataBound` イベントのイベントハンドラーを作成します。
 
 [!code-csharp[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample5.cs)]
 
-このイベント ハンドラーは、データ行 (削除 ボタンを持つもの) と連携し、プログラムで、削除 ボタンを参照して開始します。 [全般] では、次のパターンを使用します。
+このイベントハンドラーは、データ行 ([削除] ボタンを含む) で動作し、[削除] ボタンをプログラムで参照することによって開始します。 一般に、次のパターンを使用します。
 
 [!code-csharp[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample6.cs)]
 
-*ButtonType* [commandfield] のボタンや LinkButton、ImageButton によって使用されているボタンの種類です。 既定では、[commandfield] は、Linkbutton を使用してが、これは、[commandfield] s からカスタマイズできます`ButtonType property`します。 *CommandFieldIndex* GridView s 内で [commandfield] の序数インデックス`Columns`、コレクションは、 *controlIndex* [commandfield] s 内の Delete ボタンのインデックス`Controls`コレクション。 *ControlIndex*値は、[commandfield] でその他のボタンを基準としたボタン s の位置に依存します。 たとえば、唯一のボタン、[commandfield] に表示されますが、削除ボタンの場合は、インデックスは 0 を使用します。 かどうか、ただしが s 削除 ボタンの前の編集 ボタンを使用して、インデックスの 2。 2 のインデックスを使用する理由は Delete ボタンの前に [commandfield] によって 2 つのコントロールが追加されたためです。 [編集] ボタンと LiteralControl s、編集、削除ボタンの間にスペースを追加するために使用します。
+*です (buttontype*は、Commandfield、LinkButton、または ImageButton によって使用されているボタンの種類です。 既定では、CommandField は LinkButtons を使用しますが、これは CommandField s `ButtonType property`でカスタマイズできます。 *Commandfieldindex*は、GridView s `Columns` collection 内の commandfield の序数インデックスです。一方、制御*Lindex*は、commandfield s `Controls` コレクション内の Delete ボタンのインデックスです。 制御*Lindex*の値は、commandfield 内の他のボタンに対するボタンの位置によって異なります。 たとえば、CommandField に [削除] ボタンが表示されているだけの場合は、インデックス0を使用します。 ただし、[削除] ボタンの前に [編集] ボタンがある場合は、インデックス2を使用します。 インデックス2が使用される理由は、Delete ボタンの前に CommandField によって2つのコントロールが追加されるためです。 edit ボタンと LiteralControl は、エディットボタンと Delete ボタンの間にスペースを追加するために使用されます。
 
-この特定の例で、[commandfield] Linkbutton を使用して、います、左端のフィールドを*commandFieldIndex*は 0。 使用して他のボタンはありませんが、[commandfield] で [削除] ボタンがある、ので、 *controlIndex*は 0。
+この例では、CommandField に LinkButtons が使用されており、左端のフィールドには*Commandfieldindex*が0になっています。 CommandField には他のボタンはありませんが、[削除] ボタンがあるため、0の制御*Lindex*を使用します。
 
-後、[commandfield] で [削除] ボタンを参照するには、次に GridView の現在の行にバインドされている製品についての情報を取得します。 最後に、秒の削除 ボタンを設定します`OnClientClick`プロパティを適切な JavaScript で製品の名前が含まれています。 JavaScript 文字列が渡されるため、`confirm(string)`関数は、アポストロフィ、s の製品名内に表示される任意のアポストロフィはエスケープする必要がありますを使用して区切られます。 S の製品名にアポストロフィをエスケープする具体的には、"`\'`"。
+CommandField の [削除] ボタンを参照した後、現在の GridView 行にバインドされている製品に関する情報を取得します。 最後に、[削除] ボタン s `OnClientClick` プロパティを適切な JavaScript (製品名を含む) に設定します。 `confirm(string)` 関数に渡される JavaScript 文字列はアポストロフィで区切られているため、製品名内に出現するアポストロフィをエスケープする必要があります。 特に、製品名のアポストロフィは、"`\'`" でエスケープされます。
 
-これらの変更は完全な GridView が表示されます (図 4 参照)、カスタマイズされた確認ダイアログ ボックスで [削除] ボタンをクリックします。 として、FormView から確認メッセージ ボックスと、ユーザーが [キャンセル] をクリックした場合、ポストバックが取り消された場合、発生してから、削除できないようにすること。
+これらの変更が完了したら、GridView の [削除] ボタンをクリックすると、カスタマイズされた確認ダイアログボックスが表示されます (図4を参照)。 FormView からの確認メッセージボックスと同様に、ユーザーが [キャンセル] をクリックした場合、ポストバックはキャンセルされるため、削除は行われません。
 
 > [!NOTE]
-> この手法が、DetailsView で [commandfield] で [削除] ボタンをプログラムでアクセスすることもできます。 DetailsView、ただし、d を作成、イベント ハンドラーを`DataBound`DetailsView があるないため、イベント、`RowDataBound`イベント。
+> この手法を使用すると、DetailsView の CommandField の Delete ボタンにプログラムでアクセスすることもできます。 ただし、detailsview には、`RowDataBound` イベントがないため、`DataBound` イベントのイベントハンドラーを作成します。
 
-[![GridView の削除 ボタンをクリックすると、カスタマイズされた確認ダイアログ ボックスが表示されます。](adding-client-side-confirmation-when-deleting-cs/_static/image9.png)](adding-client-side-confirmation-when-deleting-cs/_static/image8.png)
+[[GridView s Delete] ボタンをクリック ![と、カスタマイズされた確認ダイアログボックスが表示されます。](adding-client-side-confirmation-when-deleting-cs/_static/image9.png)](adding-client-side-confirmation-when-deleting-cs/_static/image8.png)
 
-**図 4**:GridView の削除 ボタンをクリックするとカスタマイズの確認 ダイアログ ボックスが表示されます ([フルサイズの画像を表示する をクリックします](adding-client-side-confirmation-when-deleting-cs/_static/image10.png))。
+**図 4**: GridView の [削除] ボタンをクリックすると、カスタマイズされた確認ダイアログボックスが表示されます ([クリックすると、フルサイズの画像が表示](adding-client-side-confirmation-when-deleting-cs/_static/image10.png)されます)
 
-## <a name="using-templatefields"></a>TemplateFields を使用します。
+## <a name="using-templatefields"></a>TemplateFields の使用
 
-[Commandfield] の欠点の 1 つは、そのボタンは、インデックスを通じてアクセスする必要があり、結果のオブジェクトは、適切なボタンの種類 (ボタンや LinkButton、ImageButton) にキャストする必要があります。 実行時まで検出できない問題への招待の「マジック ナンバー」およびハード コーディングされた型を使用します。 たとえば、または別の開発者は、いくつかの時点を将来 (Edit ボタン) などの変更で [commandfield] に新しいボタンを追加する場合、`ButtonType`プロパティ、既存のコードは、エラーを発生させずはコンパイルされますが、例外が発生する可能性があります、ページにアクセスまたは、コードの記述方法と、加えられた変更によって、予期しない動作します。
+CommandField の欠点の1つは、インデックスを使用してそのボタンにアクセスし、結果のオブジェクトを適切なボタンの種類 (Button、LinkButton、または ImageButton) にキャストする必要があることです。 "マジックナンバー" とハードコーディングされた型を使用すると、実行時まで検出できない問題が発生します。 たとえば、ユーザーまたは別の開発者が、将来のある時点で CommandField に新しいボタンを追加したり、`ButtonType` プロパティを変更したりすると、既存のコードはエラーなしでコンパイルされますが、コードの記述方法や変更内容によっては、ページにアクセスすると例外や予期しない動作が発生する可能性があります。
 
-別のアプローチでは、TemplateFields GridView および DetailsView のコマンドに変換します。 これを TemplateField が生成されます、 `ItemTemplate` LinkButton (またはボタンまたは ImageButton) を持つ各ボタン、[commandfield] にします。 これらのボタン`OnClientClick`、フォーム ビューで表示した場合、または適切なプログラムでアクセスできるに、プロパティを宣言によって、割り当てられることができます`DataBound`イベント ハンドラーを次のパターンを使用します。
+別の方法として、GridView および DetailsView s CommandFields を TemplateFields に変換します。 これにより、CommandField の各ボタンに LinkButton (ボタンまたは ImageButton) を持つ `ItemTemplate` の TemplateField が生成されます。 これらのボタン `OnClientClick` プロパティは、FormView で見たように宣言によって割り当てることができます。また、次のパターンを使用して、適切な `DataBound` イベントハンドラーでプログラムからアクセスすることもできます。
 
 [!code-csharp[Main](adding-client-side-confirmation-when-deleting-cs/samples/sample7.cs)]
 
-場所*controlID*ボタン秒の値は、`ID`プロパティ。 このパターンには、キャストのハード コーディングされた型も必要ですが、削除、インデックス作成の必要性ランタイム エラーが発生せずに変更をレイアウトすることができます。
+ここで、 *controlID*はボタン s `ID` プロパティの値です。 このパターンでは、キャストにハードコーディングされた型が必要ですが、インデックスを作成する必要がなくなり、実行時エラーが発生することなくレイアウトを変更できます。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-JavaScript`confirm(string)`関数は、フォームの送信を制御するための一般的に使用される手法です。 実行すると、関数には、2 つのボタン、[ok] と [キャンセル] を含む、クライアント側のモーダル ダイアログ ボックスが表示されます。 ユーザーが [ok] をクリックすると、`confirm(string)`関数が返される`true`; [キャンセル] をクリックすると戻ります`false`します。 この機能は、送信処理中に、イベント ハンドラーによって返された場合は、フォームの送信をキャンセルするブラウザーの動作を組み合わせて`false`レコードを削除するときに、確認メッセージ ボックスを表示するために使用できます。
+JavaScript `confirm(string)` 関数は、フォーム送信ワークフローを制御するためによく使用される手法です。 この関数を実行すると、モーダルのクライアント側ダイアログボックスが表示されます。このダイアログボックスには、[OK] と [キャンセル] の2つのボタンが含まれます。 ユーザーが [OK] をクリックすると、`confirm(string)` 関数は `true`を返します。[キャンセル] をクリックすると `false`が返されます。 この機能は、ブラウザーの動作と組み合わせて、送信プロセス中にイベントハンドラーが `false`を返した場合に、フォームの送信をキャンセルします。これを使用すると、レコードを削除するときに確認メッセージボックスを表示できます。
 
-`confirm(string)`関数は、ボタンの Web コントロール s のクライアント側を関連付けることにより`onclick`s コントロールを使用してイベント ハンドラー`OnClientClick`プロパティ。 テンプレート - または - GridView、DetailsView で TemplateField FormView のテンプレートのいずれかで [削除] ボタンを使用する場合このプロパティ宣言またはプログラムでは、このチュートリアルで説明したようにします。
+`confirm(string)` 関数は、コントロール s `OnClientClick` プロパティを介して、ボタン Web コントロール s クライアント側 `onclick` イベントハンドラーに関連付けることができます。 テンプレートで [削除] ボタンを使用する場合 (FormView のテンプレートのいずれか、または DetailsView または GridView の TemplateField)。このプロパティは、このチュートリアルで説明したように、宣言またはプログラムによって設定できます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
 > [前へ](implementing-optimistic-concurrency-cs.md)

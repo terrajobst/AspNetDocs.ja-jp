@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
-title: 第 3 部:管理者コント ローラーを作成する |Microsoft Docs
+title: 'パート 3: 管理コントローラーの作成 |Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,49 +8,49 @@ ms.date: 07/04/2012
 ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: bb9c234f541308c2165c32de29c97663e4d76f50
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f39be7a84e85db93487d246e9f8cb59c401fe5ce
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134746"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600041"
 ---
-# <a name="part-3-creating-an-admin-controller"></a>第 3 部:管理者コントローラーの作成
+# <a name="part-3-creating-an-admin-controller"></a>パート 3: 管理コントローラーの作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-## <a name="add-an-admin-controller"></a>管理者コント ローラーを追加します。
+## <a name="add-an-admin-controller"></a>管理コントローラーを追加する
 
-このセクションでは、CRUD をサポートする Web API コント ローラーを追加します (作成、読み取り、更新、および削除) の製品に操作します。 コント ローラーでは、データベース層との通信に Entity Framework を使用します。 管理者だけはこのコント ローラーを使用することになります。 顧客は、別のコント ローラーで、製品にアクセスします。
+このセクションでは、CRUD (作成、読み取り、更新、および削除) 操作をサポートする Web API コントローラーを製品に追加します。 コントローラーは Entity Framework を使用してデータベース層と通信します。 このコントローラーを使用できるのは管理者のみです。 お客様は、別のコントローラーを通じて製品にアクセスします。
 
-ソリューション エクスプ ローラーで、Controllers フォルダーを右クリックします。 選択**追加**し**コント ローラー**します。
+ソリューションエクスプローラーで、Controllers フォルダーを右クリックします。 **[追加]** 、 **[コントローラー]** の順に選択します。
 
 ![](using-web-api-with-entity-framework-part-3/_static/image1.png)
 
-**コント ローラーの追加**ダイアログ ボックスで、名前、コント ローラー`AdminController`します。 **テンプレート**、&quot;を Entity Framework を使用して、読み取り/書き込みアクションがある API コント ローラー&quot;します。 **モデル クラス**、"Product (ProductStore.Models)"を選択します。 **データ コンテキスト**を選択します"&lt;新しいデータ コンテキスト&gt;"。
+**[コントローラーの追加]** ダイアログで、コントローラーに `AdminController`という名前を指定します。 **[テンプレート]** で、Entity Framework&quot;を使用して、読み取り/書き込みアクションを含む &quot;API コントローラーを選択します。 **モデルクラス** で、Product (productstore) を選択します。 **[データコンテキスト]** で、[新しいデータコンテキスト&gt;の&lt;] を選択します。
 
 ![](using-web-api-with-entity-framework-part-3/_static/image2.png)
 
 > [!NOTE]
-> 場合、**モデル クラス**ドロップダウンは、モデル クラスを表示しないため、プロジェクトをコンパイルするかどうかを確認します。 Entity Framework は、コンパイルされたアセンブリが必要があるため、リフレクションを使用します。
+> モデル**クラス**のドロップダウンにモデルクラスが表示されない場合は、プロジェクトをコンパイルしたことを確認してください。 Entity Framework はリフレクションを使用するため、コンパイルされたアセンブリが必要です。
 
-選択すると"&lt;新しいデータ コンテキスト&gt;"が開き、**新しいデータ コンテキスト**ダイアログ。 データ コンテキストの名前を付けます`ProductStore.Models.OrdersContext`します。
+[新しいデータコンテキスト&gt;を&lt;] を選択すると、 **[新しいデータコンテキスト]** ダイアログボックスが開きます。 データコンテキストに `ProductStore.Models.OrdersContext`名前を指定します。
 
 ![](using-web-api-with-entity-framework-part-3/_static/image3.png)
 
-をクリックして**OK**を閉じる、**新しいデータ コンテキスト**ダイアログ。 **コント ローラーの追加**ダイアログ ボックスで、をクリックして**追加**します。
+**[OK]** をクリックして、 **[新しいデータコンテキスト]** ダイアログボックスを閉じます。 **[コントローラーの追加]** ダイアログで、 **[追加]** をクリックします。
 
-プロジェクトに追加内容を次に示します。
+プロジェクトに追加された内容は次のとおりです。
 
-- という名前のクラス`OrdersContext`から派生した**DbContext**します。 このクラスは、POCO モデルとデータベース間の結び付きを提供します。
-- という名前の Web API コント ローラー`AdminController`します。 このコント ローラーで CRUD 操作をサポートする`Product`インスタンス。 使用して、 `OrdersContext` Entity Framework と通信するクラス。
-- Web.config ファイルで新しいデータベース接続文字列。
+- **Dbcontext**から派生する `OrdersContext` という名前のクラス。 このクラスは、POCO モデルとデータベース間の接着を提供します。
+- `AdminController`という名前の Web API コントローラー。 このコントローラーは `Product` インスタンスに対する CRUD 操作をサポートします。 `OrdersContext` クラスを使用して Entity Framework と通信します。
+- Web.config ファイル内の新しいデータベース接続文字列。
 
 ![](using-web-api-with-entity-framework-part-3/_static/image4.png)
 
-OrdersContext.cs ファイルを開きます。 コンス トラクターが、データベース接続文字列の名前を指定することに注意してください。 この名前は、Web.config に追加された接続文字列を指します。
+OrdersContext.cs ファイルを開きます。 コンストラクターはデータベース接続文字列の名前を指定することに注意してください。 この名前は、web.config に追加された接続文字列を示します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-3/samples/sample1.cs)]
 
@@ -58,43 +58,43 @@ OrdersContext.cs ファイルを開きます。 コンス トラクターが、�
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-3/samples/sample2.cs)]
 
-A **DbSet**クエリを実行できるエンティティのセットを表します。 完全な一覧を次に示します、`OrdersContext`クラス。
+**Dbset**は、クエリ可能なエンティティのセットを表します。 `OrdersContext` クラスの完全な一覧を次に示します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-3/samples/sample3.cs)]
 
-`AdminController`クラスは、基本的な CRUD 機能を実装する 5 つのメソッドを定義します。 各メソッドは、クライアントが呼び出すことができる URI に対応します。
+`AdminController` クラスは、基本的な CRUD 機能を実装する5つのメソッドを定義します。 各メソッドは、クライアントが呼び出すことができる URI に対応します。
 
-| コント ローラー メソッド | 説明 | URI | HTTP メソッド |
+| コントローラーメソッド | 説明 | URI | HTTP メソッド |
 | --- | --- | --- | --- |
 | GetProducts | すべての製品を取得します。 | api/製品 | GET |
-| GetProduct | ID によって製品を検索します。 | api/products/*id* | GET |
-| PutProduct | 製品を更新します。 | api/products/*id* | PUT |
-| PostProduct | 新しい製品を作成します。 | api/製品 | POST |
-| DeleteProduct | 製品を削除します。 | api/products/*id* | Del |
+| GetProduct | ID で製品を検索します。 | api/製品/*id* | GET |
+| PutProduct | 製品を更新します。 | api/製品/*id* | PUT |
+| PostProduct | 新しい製品を作成します。 | api/製品 | 投稿 |
+| DeleteProduct | 製品を削除します。 | api/製品/*id* | Del |
 
-各メソッドの呼び出しに`OrdersContext`データベース クエリを実行します。 (PUT、POST、および DELETE) のコレクションを変更するメソッドを呼び出す`db.SaveChanges`データベースに変更を確定します。 コント ローラーは HTTP 要求ごとに作成され、メソッドが戻る前に、変更を保持する必要があるため、破棄します。
+各メソッドは、`OrdersContext` を呼び出してデータベースにクエリを実行します。 コレクション (PUT、POST、および DELETE) を変更するメソッドは、データベースへの変更を保持するために `db.SaveChanges` を呼び出します。 コントローラーは HTTP 要求ごとに作成され、破棄されます。そのため、メソッドが返される前に変更を保持する必要があります。
 
-## <a name="add-a-database-initializer"></a>データベースの初期化子を追加します。
+## <a name="add-a-database-initializer"></a>データベース初期化子の追加
 
-Entity Framework では、スタートアップ時に、データベースを設定し、モデルが変更されるたびに自動的にデータベースを再作成できる便利な機能があります。 この機能は、モデルを変更した場合でも、テスト データが常にあるので、開発時に便利です。
+Entity Framework には、起動時にデータベースを設定したり、モデルが変更されるたびに自動的にデータベースを再作成したりできる便利な機能があります。 この機能は、モデルを変更した場合でも、常にテストデータがあるため、開発時に便利です。
 
-ソリューション エクスプ ローラーで Models フォルダーを右クリックし、という名前の新しいクラスを作成する`OrdersContextInitializer`します。 次の実装に貼り付けます。
+ソリューションエクスプローラーで、[モデル] フォルダーを右クリックし、`OrdersContextInitializer`という名前の新しいクラスを作成します。 次の実装を貼り付けます。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-3/samples/sample4.cs)]
 
-継承することによって、 **DropCreateDatabaseIfModelChanges**クラスようモデル クラスが変更されるたびに、データベースを削除する Entity Framework を示しています。 Entity Framework を作成します (または再作成されます)、データベース呼び出し、**シード**テーブルを設定するメソッド。 使用して、**シード**メソッドをいくつかの例の製品と注文の例を追加します。
+**Dropcreatedatabaseifmodelchanges**クラスから継承することにより、モデルクラスを変更するたびにデータベースを削除するように Entity Framework に指示します。 Entity Framework によってデータベースが作成 (または再作成) されるときに、 **Seed**メソッドを呼び出してテーブルを設定します。 **Seed**メソッドを使用して、いくつかのサンプル製品と注文例を追加します。
 
-この機能は、テストに優れていますが、使用しないでください、 **DropCreateDatabaseIfModelChanges**クラス、および運用環境でモデル クラスが変更された場合、データが失われる可能性があります。
+この機能はテストに適していますが、実稼働環境では**Dropcreatedatabaseifmodelchanges**クラスを使用しないでください。これは、他のユーザーがモデルクラスを変更した場合にデータが失われる可能性があるためです。
 
-次に、Global.asax を開くし、次のコードを追加、**アプリケーション\_開始**メソッド。
+次に、global.asax を開き、次のコードを**Application\_Start**メソッドに追加します。
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-3/samples/sample5.cs)]
 
-## <a name="send-a-request-to-the-controller"></a>コント ローラーに要求を送信します。
+## <a name="send-a-request-to-the-controller"></a>コントローラーに要求を送信する
 
-この時点では、任意のクライアント コードでは、まだ作成されていないが、web などのツール、web ブラウザーまたは、HTTP デバッギングを使用して API を呼び出すことができます[Fiddler](http://www.fiddler2.com/fiddler2/)します。 Visual Studio で f5 キーを押してデバッグを開始します。 Web ブラウザーが開いて、`http://localhost:*portnum*/`ここで、*させる*いくつかのポート番号です。
+この時点では、クライアントコードは作成されていませんが、web ブラウザーまたは[Fiddler](http://www.fiddler2.com/fiddler2/)などの HTTP デバッグツールを使用して web API を呼び出すことができます。 Visual Studio で、F5 キーを押してデバッグを開始します。 Web ブラウザーで `http://localhost:*portnum*/`が開きます。ここで、 *portnum*はいくつかのポート番号です。
 
-HTTP 要求を送信"`http://localhost:*portnum*/api/admin`します。 最初の要求は、Entity Framework を作成し、データベースをシードする必要があるため、完了に時間がかかる可能性があります。 応答のように、次のとおりです。
+HTTP 要求を "`http://localhost:*portnum*/api/admin`に送信します。 最初の要求が完了するまでに時間がかかることがあります。これは Entity Framework がデータベースの作成とシードを行う必要があるためです。 応答は次のようになります。
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 

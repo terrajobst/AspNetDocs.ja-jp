@@ -1,59 +1,59 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
-title: (VB) の一覧からアニメーションを 1 つ選択 |Microsoft Docs
+title: リストから1つのアニメーションを選択する (VB) |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 フレームワークも許可する.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 フレームワークも許可する (...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 81ba9116-d485-40c0-8ff6-7e9ae23e0a0c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1df265f8eaaf32d42342d39594dbba940cab0793
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 694416532b558291ff6ab57a442058b53d6167e0
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128133"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606735"
 ---
 # <a name="picking-one-animation-out-of-a-list-vb"></a>一覧からアニメーションを 1 つ選択する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5VB.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 フレームワークでは、いくつかの JavaScript コードの評価によって、アニメーションの一覧からアニメーションを 1 つを選択するプログラマもできます。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、一部の JavaScript コードの評価に応じて、アニメーションの一覧から1つのアニメーションを取得することもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 フレームワークでは、いくつかの JavaScript コードの評価によって、アニメーションの一覧からアニメーションを 1 つを選択するプログラマもできます。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、一部の JavaScript コードの評価に応じて、アニメーションの一覧から1つのアニメーションを取得することもできます。
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
+まず、ページに `ScriptManager` を含めます。次に、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようになります。
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample1.aspx)]
 
-次のようなテキストのパネルに、アニメーションが適用されます。
+アニメーションは、次のようなテキストパネルに適用されます。
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
+パネルに関連付けられている CSS クラスで、優れた背景色を定義し、パネルに固定幅を設定します。
 
 [!code-css[Main](picking-one-animation-out-of-a-list-vb/samples/sample3.css)]
 
-次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える `runat="server":`
+次に、`ID`、`TargetControlID` 属性、および加えるを指定して、ページに `AnimationExtender` を追加し `runat="server":`
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample4.aspx)]
 
-内で、`<Animations>`ノードを使用して`<OnLoad>`ページが完全に読み込まれた後に、アニメーションを実行します。 通常のアニメーションの 1 つではなく、`<Case>`要素が関与します。 その SelectScript 属性の値が評価されます。戻り値は数値である必要があります。 内でサブアニメーションのいずれか、この数によっては&lt;ケース&gt;を実行します。 たとえば、SelectScript は 2 に評価されると、Control Toolkit は 内で 3 番目のアニメーションを実行&lt;ケース&gt;(カウント 0 から始まる)。
+ページが完全に読み込まれたら、[`<Animations>`] ノードで `<OnLoad>` を使用してアニメーションを実行します。 通常のアニメーションのいずれかではなく、`<Case>` 要素が再生されます。 SelectScript 属性の値が評価されます。戻り値は数値である必要があります。 この数値に応じて、&lt;Case&gt; 内のいずれかのサブアニメーションが実行されます。 たとえば、SelectScript が2に評価される場合、Control Toolkit は &lt;ケース&gt; 内で3番目のアニメーションを実行します (カウントは0から始まります)。
 
-次のマークアップでは、次の 3 つのサブアニメーションを定義します。幅、高さのサイズ変更とフェードアウトをサイズ変更します。JavaScript コード (`Math.floor(3 * Math.random())`) 3 つのアニメーションのいずれかが実行されるため、0 ~ 2 の数値を取得します。
+次のマークアップは、3つのサブアニメーションを定義します。幅の変更、高さのサイズ変更、およびフェードアウトです。次に、JavaScript コード (`Math.floor(3 * Math.random())`) が 0 ~ 2 の範囲の数値を選択して、3つのアニメーションのいずれかが実行されるようにします。
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample5.aspx)]
 
-[![考えられる 3 つのアニメーションのいずれか:パネルが広くなります。](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
+[使用可能な3つのアニメーションのいずれかを ![します。パネルの幅が広くなります。](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
 
-考えられる 3 つのアニメーションのいずれか:パネルが広くなる ([フルサイズの画像を表示する をクリックします](picking-one-animation-out-of-a-list-vb/_static/image3.png))。
+使用可能な3つのアニメーションのいずれか: パネルの幅が広くなります ([クリックすると、フルサイズの画像が表示](picking-one-animation-out-of-a-list-vb/_static/image3.png)されます)。
 
 > [!div class="step-by-step"]
 > [前へ](animation-depending-on-a-condition-vb.md)

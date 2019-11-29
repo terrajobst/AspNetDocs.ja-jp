@@ -1,228 +1,228 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: Visual Studio を使用して ASP.NET Web の展開:データベースの配置の準備 |Microsoft Docs
+title: 'Visual Studio を使用した ASP.NET Web 配置: データベース配置の準備 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを使用して、.
+description: このチュートリアルシリーズでは、ASP.NET web アプリケーションをデプロイ (発行) して、Web Apps またはサードパーティのホスティングプロバイダーに Azure App Service する方法について説明します。
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 72d69c0690c52c41f899e6cbe7cc656e537fe112
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: cdcb3578725c41e3c801afd54e6d34455bc4b281
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131101"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74618518"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用して ASP.NET Web の展開:データベース配置の準備
+# <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用した ASP.NET Web 配置: データベース配置の準備
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[スタートプロジェクトのダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
+> このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-このチュートリアルでは、データベースの配置の準備完了、プロジェクトを取得する方法を示します。 データベースの構造と一部 (すべて)、アプリケーションの 2 つのデータのデータベースは、テスト、ステージング、および運用環境に配置する必要があります。
+このチュートリアルでは、データベースの配置の準備ができているプロジェクトを取得する方法について説明します。 アプリケーションの2つのデータベース内のデータのデータベース構造と一部 (すべてではない) は、テスト環境、ステージング環境、および運用環境に配置する必要があります。
 
-通常、アプリケーションを開発するときは、ライブ サイトに配置するデータベースにテスト データを入力します。 ただし、デプロイするいくつかの運用データもがあります。 このチュートリアルでは、Contoso University のプロジェクトを構成し、展開するときに、適切なデータが含まれるように、SQL スクリプトを準備します。
+通常は、アプリケーションを開発するときに、ライブサイトに配置しないデータベースにテストデータを入力します。 ただし、いくつかの実稼働データを配置することもできます。 このチュートリアルでは、Contoso 大学プロジェクトを構成し、を展開するときに正しいデータが含まれるように SQL スクリプトを準備します。
 
-リマインダー:エラー メッセージを表示するか、チュートリアルを読み進めるしたとおりに機能しない場合に、チェックすることを確認して、[トラブルシューティング ページ](troubleshooting.md)します。
+リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](troubleshooting.md)を確認してください。
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-サンプル アプリケーションでは、SQL Server Express LocalDB を使用します。 SQL Server Express は、SQL Server の無償のエディションです。 全バージョンの SQL Server と同じデータベース エンジンに基づいているため開発時によく使用されます。 SQL Server Express を使ってテストでき、SQL Server のエディション間で異なる機能をいくつかの例外で、運用環境で同じアプリケーションで動作するように、確実に実行します。
+このサンプルアプリケーションでは SQL Server Express LocalDB を使用します。 SQL Server Express は SQL Server の無償エディションです。 これは、完全なバージョンの SQL Server と同じデータベースエンジンに基づいているため、開発時によく使用されます。 SQL Server Express でテストし、アプリケーションが実稼働環境でも同じように動作することを保証できます。ただし、SQL Server エディションによって異なる機能については、いくつかの例外があります。
 
-LocalDB は SQL Server Express データベースとして使用することができますの特殊な実行モード *.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダー。 SQL Server express ユーザー インスタンス機能では使用することもできます *.mdf*ユーザー インスタンスの機能は、ファイルが非推奨とされます。 そのため、LocalDB を使用するため推奨 *.mdf*ファイル。
+LocalDB は、 *.mdf*ファイルとしてデータベースを操作できるようにする SQL Server Express の特別な実行モードです。 通常、LocalDB データベースファイルは、web プロジェクトの*App\_Data*フォルダーに保持されます。 SQL Server Express のユーザーインスタンス機能では、.mdf ファイルを使用することもでき*ます*が、ユーザーインスタンス機能は非推奨とされます。そのため、 *.mdf*ファイルを使用する場合は LocalDB をお勧めします。
 
-通常、実稼働 web アプリケーションの SQL Server Express は使用されません。 LocalDB 具体的には使用しないで web アプリケーションを運用環境で使用ため、IIS を使用するものではありません。
+通常 SQL Server Express は、運用 web アプリケーションでは使用されません。 LocalDB は、IIS で動作するように設計されていないため、web アプリケーションでの運用環境での使用は推奨されません。
 
-Visual Studio 2012 では、LocalDB は、Visual Studio では既定でインストールされます。 Visual Studio 2010 および以前のバージョンでは、Visual Studio; に既定で (LocalDB) なしの SQL Server Express はインストールします。つまり理由としてインストールしたことで前提条件のいずれかの[このシリーズの最初のチュートリアル](introduction.md)します。
+Visual Studio 2012 では、LocalDB は既定で Visual Studio と共にインストールされます。 Visual Studio 2010 以前のバージョンでは、SQL Server Express (LocalDB なし) が既定で Visual Studio と共にインストールされています。そのため、[このシリーズの最初のチュートリアル](introduction.md)で前提条件の1つとしてインストールしたのはそのためです。
 
-SQL Server のエディションに関する詳細については、次のリソースを参照、LocalDB を含む[SQL Server データベースでの作業](../../../../whitepapers/aspnet-data-access-content-map.md#sqlserver)します。
+LocalDB を含む SQL Server エディションの詳細については、 [SQL Server データベースで](../../../../whitepapers/aspnet-data-access-content-map.md#sqlserver)使用する次のリソースを参照してください。
 
-## <a name="entity-framework-and-universal-providers"></a>Entity Framework、ユニバーサル プロバイダー
+## <a name="entity-framework-and-universal-providers"></a>Entity Framework とユニバーサルプロバイダー
 
-データベースへのアクセス、Contoso University アプリケーションは、.NET Framework で指定していないために、アプリケーションと共に配置する必要があります、次のソフトウェアが必要です。
+データベースアクセスの場合、Contoso 大学アプリケーションは、.NET Framework に含まれていないため、アプリケーションと共に展開する必要がある次のソフトウェアを必要とします。
 
-- [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (により、ASP.NET メンバーシップ システムは Azure SQL Database を使用する)
+- [ASP.NET ユニバーサルプロバイダー](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (ASP.NET メンバーシップシステムで Azure SQL Database を使用できるようにします)
 - [Entity Framework](https://msdn.microsoft.com/library/gg696172.aspx)
 
-このソフトウェアは、NuGet パッケージに含まれています、ため、プロジェクトが既に設定、必要なアセンブリは、プロジェクトと共に配置されるようにします。 (リンクは、このチュートリアルでダウンロードしたスタート プロジェクトにインストールされている内容よりも新しい可能性のあるこれらのパッケージの現在のバージョン をポイント)。
+このソフトウェアは NuGet パッケージに含まれているため、必要なアセンブリがプロジェクトと共に配置されるように、プロジェクトは既に設定されています。 (このリンクは、これらのパッケージの現在のバージョンを指していますが、このチュートリアルでダウンロードしたスタートプロジェクトにインストールされているものよりも新しい可能性があります)。
 
-Azure ではなく、サード パーティのホスティング プロバイダーに展開する場合は、Entity Framework 5.0 以降を使用することを確認します。 Code First Migrations の以前のバージョンが、完全な信頼を必要とし、ほとんどのホスティング プロバイダーは、中程度の信頼でアプリケーションを実行します。 中程度の信頼の詳細については、次を参照してください。、[テスト環境として IIS に配置する](deploying-to-iis.md)チュートリアル。
+Azure ではなくサードパーティのホスティングプロバイダーにデプロイする場合は、Entity Framework 5.0 以降を使用していることを確認してください。 以前のバージョンの Code First Migrations では完全な信頼が必要であり、ほとんどのホスティングプロバイダーは、中程度の信頼でアプリケーションを実行します。 中程度の信頼の詳細については、「[テスト環境として IIS に配置する](deploying-to-iis.md)」チュートリアルを参照してください。
 
-## <a name="configure-code-first-migrations-for-application-database-deployment"></a>Code First Migrations をアプリケーション データベースの配置を構成します。
+## <a name="configure-code-first-migrations-for-application-database-deployment"></a>アプリケーションデータベースの展開用に Code First Migrations を構成する
 
-Contoso University アプリケーションのデータベースは、Code First によって管理され、Code First Migrations を使用してデプロイします。 Code First Migrations を使用してデータベースの配置の概要については、次を参照してください。[このシリーズの最初のチュートリアル](introduction.md)します。
+Contoso 大学アプリケーションデータベースは Code First によって管理されており、Code First Migrations を使用してデプロイします。 Code First Migrations を使用したデータベース配置の概要については、[このシリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-アプリケーション データベースを展開するときに通常しないデプロイするだけですべてのデータのデータベースを開発、運用環境にテスト目的でのみ内のデータの多くはおそらくありますので。 たとえば、テスト データベース内の学生の名前は、架空です。 その一方で、多くの場合、配置できませんデータことのないデータベース構造だけですべての。 テスト データベースでデータの一部は、実際のデータがあり、ユーザーがアプリケーションの使用を開始する場合がある必要があります。 たとえば、データベースには、グレードが有効な値または実際の部署名を含むテーブルがあります。
+アプリケーションデータベースを配置する場合、通常は、単に開発データベースを運用環境に配置するだけではありません。これは、ほとんどのデータがテスト目的でのみ使用されるためです。 たとえば、テストデータベースの学生名は架空の名前です。 一方、データがまったく存在しないデータベース構造だけを配置することはほとんどありません。 テストデータベースの一部のデータは実際のデータであり、ユーザーがアプリケーションの使用を開始するときに必要になる場合があります。 たとえば、有効なグレード値または実際の部署名を含むテーブルがデータベースに存在する場合があります。
 
-この一般的なシナリオをシミュレートするには、Code First Migrations を構成します`Seed`に実稼働環境であればするデータのみをデータベースに挿入するメソッド。 これは、 `Seed` Code First に実稼働環境でデータベースを作成した後、運用環境で実行されますので、メソッドがテスト データを挿入しないでください。
+この一般的なシナリオをシミュレートするには、運用環境に配置するデータのみをデータベースに挿入する Code First Migrations `Seed` メソッドを構成します。 この `Seed` 方法では、運用環境でデータベースを作成 Code First た後に運用環境で実行されるため、テストデータを挿入することはできません。
 
-以前のバージョンの Code First Migrations がリリースされる前に、が一般的でした`Seed`メソッドを挿入するため、テスト データも、開発中にモデル変更のたびに、データベースは完全に削除され、最初から再作成する必要があります。 テスト データを保持するデータベースの変更後の Code First Migrations でにテスト データを含むため、`Seed`メソッドは必要ありません。 ダウンロードしたプロジェクトのすべてのデータを含むメソッドを使用して、`Seed`初期化子クラスのメソッド。 このチュートリアルでは、その初期化子クラスを無効にし、移行を有効にします。 更新し、`Seed`メソッドの移行の構成でクラスの運用環境に挿入する唯一のデータを挿入できるようにします。
+以前のバージョンの Code First では、移行がリリースされる前に、`Seed` 方法でテストデータを挿入することが一般的でした。これは、開発時にすべてのモデルが変更されたため、データベースを完全に削除してから再作成する必要があるためです。 Code First Migrations では、データベースの変更後にテストデータが保持されるため、`Seed` メソッドにテストデータを含める必要はありません。 ダウンロードしたプロジェクトでは、初期化子クラスの `Seed` メソッドにすべてのデータを含める方法を使用します。 このチュートリアルでは、その初期化子クラスを無効にし、移行を有効にします。 次に、移行構成クラスの `Seed` メソッドを更新して、運用環境に挿入するデータのみを挿入するようにします。
 
-次の図は、アプリケーション データベースのスキーマを示しています。
+次の図は、アプリケーションデータベースのスキーマを示しています。
 
 [![School_database_diagram](preparing-databases/_static/image2.png)](preparing-databases/_static/image1.png)
 
-これらのチュートリアルについてを想定します、`Student`と`Enrollment`サイトが最初に展開された場合に、テーブルが空にする必要があります。 その他のテーブルには、アプリケーションの運用時にプリロードする必要があるデータが含まれます。
+これらのチュートリアルでは、サイトを最初に展開するときに、`Student` テーブルと `Enrollment` テーブルが空であると想定します。 他のテーブルには、アプリケーションが稼働しているときに事前に読み込む必要があるデータが含まれています。
 
-### <a name="disable-the-initializer"></a>初期化子を無効にします。
+### <a name="disable-the-initializer"></a>初期化子を無効にする
 
-Code First Migrations を使用する場合は、以降は使用する必要はありません、 `DropCreateDatabaseIfModelChanges` Code First 初期化子。 この初期化子のコードは、 *SchoolInitializer.cs* ContosoUniversity.DAL プロジェクト内のファイル。 設定、`appSettings`の要素、 *Web.config*ファイルにより、アプリケーションを初めてデータベースにアクセスしようとするたびに実行するこの初期化子。
+Code First Migrations を使用するため、`DropCreateDatabaseIfModelChanges` Code First 初期化子を使用する必要はありません。 この初期化子のコードは、ContosoUniversity プロジェクトの*SchoolInitializer.cs*ファイルにあります。 *Web.config ファイルの*`appSettings` 要素の設定により、アプリケーションが初めてデータベースにアクセスしようとするたびに、この初期化子が実行されます。
 
 [!code-xml[Main](preparing-databases/samples/sample1.xml?highlight=3)]
 
-アプリケーションを開く*Web.config*ファイルし削除、またはコメント アウト、 `add` Code First の初期化子クラスを指定する要素。 `appSettings`要素は次のようになります。
+アプリケーションの*web.config*ファイルを開き、Code First 初期化子クラスを指定する `add` 要素を削除またはコメントアウトします。 `appSettings` 要素は次のようになります。
 
 [!code-xml[Main](preparing-databases/samples/sample2.xml)]
 
 > [!NOTE]
-> 初期化子クラスを指定することもできますが、それを呼び出すことによって行います`Database.SetInitializer`で、`Application_Start`メソッドで、 *Global.asax*ファイル。 そのメソッドを使用して、初期化子を指定するプロジェクトでの移行を有効にする場合は、そのコード行を削除します。
+> 初期化子クラスを指定するもう1つの方法は、 *global.asax*ファイルの `Application_Start` メソッドで `Database.SetInitializer` を呼び出すことによって行います。 そのメソッドを使用して初期化子を指定するプロジェクトで移行を有効にする場合は、そのコード行を削除します。
 
 > [!NOTE]
-> Visual Studio 2013 を使用している場合は、手順 2 および 3 の間で、次の手順を追加: (a) で PMC を入力してください"更新プログラム パッケージ entityframework-バージョン 6.1.1"EF の現在のバージョンを取得します。 (B) ビルド プロジェクトをビルドのエラーの一覧を取得し、修正します。 存在を右クリックしてステートメントを使用して、場所、必要な追加の解決 をクリックを不要になった名前空間の using ステートメントを削除し、System.Data.EntityState の出現箇所を System.Data.Entity.EntityState に変更します。
+> Visual Studio 2013 を使用している場合は、PMC の手順 2. と 3. (a) の間に次の手順を追加して、EF の現在のバージョンを取得します。 (B) プロジェクトをビルドしてビルドエラーの一覧を取得し、修正します。 存在しなくなった名前空間の using ステートメントを削除し、右クリックして [解決] をクリックし、必要なときに使用するステートメントを追加し、EntityState の発生を EntityState に変更します。
 
-### <a name="enable-code-first-migrations"></a>Code First Migrations を有効にします。
+### <a name="enable-code-first-migrations"></a>Code First Migrations を有効にする
 
-1. ContosoUniversity プロジェクト (ContosoUniversity.DAL されません) をスタートアップ プロジェクトとして設定されていることを確認します。 **ソリューション エクスプ ローラー**ContosoUniversity プロジェクトを右クリックし、選択、**スタートアップ プロジェクトとして設定**します。 Code First Migrations は、データベース接続文字列を検索するスタートアップ プロジェクトになります。
-2. **ツール**] メニューの [選択**NuGet パッケージ マネージャー** > **パッケージ マネージャー コンソール**します。
+1. ContosoUniversity プロジェクト (ContosoUniversity ではない) がスタートアッププロジェクトとして設定されていることを確認します。 **ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[スタートアッププロジェクトに設定]** を選択します。 Code First Migrations によってスタートアッププロジェクトが検索され、データベース接続文字列が検索されます。
+2. **[ツール]** メニューの [ **NuGet パッケージマネージャー** > **パッケージマネージャーコンソール**] をクリックします。
 
     ![Selecting_Package_Manager_Console](preparing-databases/_static/image3.png)
-3. 上部にある、**パッケージ マネージャー コンソール**ウィンドウとして、既定のプロジェクトとし、at ContosoUniversity.DAL を選択して、`PM>`プロンプトは「有効な移行」を入力します。
+3. **パッケージマネージャーコンソール**ウィンドウの上部で、既定のプロジェクトとして [ContosoUniversity] を選択し、`PM>` プロンプトで「enable-移行」と入力します。
 
-    ![enable-migrations コマンド](preparing-databases/_static/image4.png)
+    ![-移行コマンドを有効にする](preparing-databases/_static/image4.png)
 
-    (というエラーが発生した場合、*有効にする-移行*コマンドが認識されないコマンドを入力します*EntityFramework の更新プログラム パッケージの再インストール*もう一度やり直してください)。
+    ([*移行を有効に*する] コマンドが認識されないというエラーが表示された場合は、コマンド*更新プログラムパッケージ Entityframework-Reinstall*を入力して、もう一度やり直してください。)
 
-    このコマンドは、作成、*移行*ContosoUniversity.DAL プロジェクト、およびそのフォルダーでは、2 つのファイルをそのフォルダー内に配置: *Configuration.cs*移行、および、構成に使用できるファイル*InitialCreate.cs*データベースを作成する最初の移行用のファイル。
+    このコマンドを実行すると、ContosoUniversity プロジェクトに*migration フォルダーが*作成され、このフォルダーには、移行の構成に使用できる*Configuration.cs*ファイルと、データベースを作成する最初の移行のための*InitialCreate.cs*ファイルの2つのファイルが配置されます。
 
-    ![Migrations フォルダー](preparing-databases/_static/image5.png)
+    ![移行フォルダー](preparing-databases/_static/image5.png)
 
-    DAL のプロジェクトを選択した、**既定のプロジェクト**のドロップダウン リスト、**パッケージ マネージャー コンソール**ため、 `enable-migrations` Code First を含むプロジェクトでコマンドを実行する必要がありますコンテキスト クラスです。 そのクラスは、クラス ライブラリ プロジェクトでは、Code First Migrations は、ソリューションのスタートアップ プロジェクト内のデータベース接続文字列が検索されます。 ContosoUniversity ソリューションで web プロジェクトがスタートアップ プロジェクトとして設定されています。 Visual Studio のスタートアップ プロジェクトとして、接続文字列を含むプロジェクトを指定しない場合は、PowerShell コマンドでスタートアップ プロジェクトを指定できます。 コマンドの構文を表示するには、コマンドを入力`get-help enable-migrations`します。
+    **パッケージマネージャーコンソール**の [既定の**プロジェクト**] ドロップダウンリストで DAL プロジェクトを選択したのは、Code First コンテキストクラスを含むプロジェクトで `enable-migrations` コマンドを実行する必要があるためです。 このクラスがクラスライブラリプロジェクト内にある場合、Code First Migrations は、ソリューションのスタートアッププロジェクトでデータベース接続文字列を検索します。 ContosoUniversity ソリューションでは、web プロジェクトはスタートアッププロジェクトとして設定されています。 Visual Studio でスタートアッププロジェクトとして接続文字列を含むプロジェクトを指定しない場合は、PowerShell コマンドでスタートアッププロジェクトを指定できます。 コマンドの構文を表示するには、`get-help enable-migrations`コマンドを入力します。
 
-    `enable-migrations`コマンドは、最初の移行を自動的に作成、データベースが既に存在します。 別の方法は移行、データベースを作成します。 そのために使用**サーバー エクスプ ローラー**または**SQL Server オブジェクト エクスプ ローラー** Migrations を有効にする前に、ContosoUniversity データベースを削除します。 移行を有効にした後、"追加移行 InitialCreate"コマンドを入力して、最初の移行を手動で作成します。 コマンド「- データベースの更新」を入力して、データベースを作成できます。
+    データベースが既に存在しているため、`enable-migrations` コマンドによって最初の移行が自動的に作成されました。 別の方法として、移行によってデータベースを作成することもできます。 これを行うには、移行を有効にする前に、**サーバーエクスプローラー**または**SQL Server オブジェクトエクスプローラー**を使用して ContosoUniversity データベースを削除します。 移行を有効にした後、"追加-移行 InitialCreate" コマンドを入力して、最初の移行を手動で作成します。 次に、"データベースの更新" コマンドを入力して、データベースを作成できます。
 
-### <a name="set-up-the-seed-method"></a>Seed メソッドを設定します。
+### <a name="set-up-the-seed-method"></a>Seed メソッドを設定する
 
-このチュートリアルでは、コードを追加して固定のデータを追加します、`Seed`の Code First Migrations メソッド`Configuration`クラス。 Code First Migrations を呼び出し、`Seed`すべて移行後のメソッド。
+このチュートリアルでは、Code First Migrations `Configuration` クラスの `Seed` メソッドにコードを追加することによって、固定データを追加します。 Code First Migrations は、移行のたびに `Seed` メソッドを呼び出します。
 
-以降、`Seed`メソッドの実行ごとの移行後に、データが既にテーブルの最初の移行後にします。 使用してこのような状況を処理するために、`AddOrUpdate`既に挿入されている、またはまだ存在していない場合は、それらを挿入する行を更新するメソッド。 `AddOrUpdate`メソッドには、シナリオに最適な選択肢をできない可能性があります。 詳細については、次を参照してください。 [EF 4.3 AddOrUpdate メソッドを使用して対処](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)Julie Lerman のブログ。
+`Seed` メソッドは移行のたびに実行されるため、最初の移行後にテーブルにデータが既に存在しています。 この状況に対処するには、`AddOrUpdate` メソッドを使用して、既に挿入されている行を更新するか、まだ存在しない場合は挿入します。 `AddOrUpdate` メソッドは、お客様のシナリオに最適な選択肢ではない可能性があります。 詳細については、「ジュリー Lerman のブログの[EF 4.3 AddOrUpdate メソッドに](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)対処する」を参照してください。
 
-1. 開く、 *Configuration.cs*ファイルを開き、コメント、`Seed`メソッドを次のコード。
+1. *Configuration.cs*ファイルを開き、`Seed` メソッドのコメントを次のコードに置き換えます。
 
     [!code-csharp[Main](preparing-databases/samples/sample3.cs)]
-2. 参照`List`必要ないため、その下に赤い波線がある、`using`まだその名前空間のステートメント。 インスタンスの 1 つを右クリックして`List` をクリック**解決**、順にクリックします**System.Collections.Generic を使用して**します。
+2. 名前空間の `using` ステートメントをまだ持っていないため、`List` への参照の下に赤い波線が表示されます。 `List` のインスタンスの1つを右クリックし、 **[解決]** をクリックして、 **[using]** をクリックします。
 
-    ![ステートメントを使用すると解決します。](preparing-databases/_static/image6.png)
+    ![Using ステートメントを使用して解決する](preparing-databases/_static/image6.png)
 
-    このメニュー項目が次のコードを追加します、`using`ファイルの上部にステートメント。
+    このメニューを選択すると、ファイルの先頭付近にある `using` のステートメントに次のコードが追加されます。
 
     [!code-csharp[Main](preparing-databases/samples/sample4.cs)]
-3. CTRL + SHIFT+B プロジェクトをビルドするキーを押します。
+3. CTRL + SHIFT + B キーを押して、プロジェクトをビルドします。
 
-プロジェクトは、デプロイする準備ができました、 *ContosoUniversity*データベース。 最初に、データベースにアクセスするページに移動して、実行、アプリケーションの配置後 Code First はデータベースを作成し、実行`Seed`メソッド。
+これで、プロジェクトは*ContosoUniversity*データベースを配置する準備ができました。 アプリケーションを配置した後、アプリケーションを初めて実行し、データベースにアクセスするページに移動すると、Code First によってデータベースが作成され、この `Seed` メソッドが実行されます。
 
 > [!NOTE]
-> コードを追加、`Seed`メソッドは、固定データがデータベースに挿入できるさまざまな方法の 1 つです。 代わりに、コードを追加し、`Up`と`Down`各移行クラスのメソッド。 `Up`と`Down`メソッドには、データベースの変更を実装するコードが含まれています。 これらの例が表示されます、[データベース更新の展開](deploying-a-database-update.md)チュートリアル。
+> `Seed` メソッドにコードを追加することは、データベースに固定データを挿入する多くの方法の1つです。 別の方法として、各移行クラスの `Up` および `Down` メソッドにコードを追加する方法があります。 `Up` および `Down` メソッドには、データベースの変更を実装するコードが含まれています。 これらの例については、「[データベースの更新のデプロイ](deploying-a-database-update.md)」チュートリアルを参照してください。
 > 
-> 使用して SQL ステートメントを実行するコードを記述することも、`Sql`メソッド。 たとえば、Department テーブルを予算の列を追加し、移行の一環として、すべての部門予算を $1,000.00 を初期化するために必要な場合は、次のコードの行を追加でした、`Up`その移行のためのメソッド。
+> `Sql` メソッドを使用して SQL ステートメントを実行するコードを記述することもできます。 たとえば、Department テーブルに予算列を追加し、移行の一部としてすべての部門の予算を $1000.00 に初期化する必要がある場合は、その移行の `Up` メソッドに次のコード行を追加します。
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 
-## <a name="create-scripts-for-membership-database-deployment"></a>メンバーシップ データベースの配置のスクリプトを作成します。
+## <a name="create-scripts-for-membership-database-deployment"></a>メンバーシップデータベースの展開用スクリプトの作成
 
-Contoso University アプリケーションでは、ASP.NET メンバーシップ システムとフォーム認証を使用して、ユーザー認証および承認します。 **更新クレジット**ページには、管理者ロールのユーザーにのみにアクセスします。
+Contoso 大学アプリケーションは、ASP.NET メンバーシップシステムとフォーム認証を使用してユーザーを認証および承認します。 **[更新プログラムのクレジット]** ページには、管理者ロールに属しているユーザーのみがアクセスできます。
 
-アプリケーションを実行し、をクリックして**コース**、 をクリックし、**更新クレジット**します。
+アプリケーションを実行し、 **[コース]** をクリックして、 **[クレジットの更新]** をクリックします。
 
-![更新プログラムのクレジットをクリックします。](preparing-databases/_static/image7.png)
+![クレジットの更新のクリック](preparing-databases/_static/image7.png)
 
-**ログイン**ために、ページが表示されます、**更新クレジット**ページには、管理者特権が必要です。
+**[更新プログラムのクレジット]** ページに管理者特権が必要なため、 **[ログイン]** ページが表示されます。
 
-入力*管理者*としてユーザー名と*devpwd*パスワードをクリックします**ログイン**。
+ユーザー名として「 *admin* 」を、パスワードとして「 *devpwd* 」と入力し、 **[ログイン]** をクリックします。
 
-![ログイン ページ](preparing-databases/_static/image8.png)
+![ログインページ](preparing-databases/_static/image8.png)
 
-**更新クレジット**ページが表示されます。
+**[更新プログラムのクレジット]** ページが表示されます。
 
-![クレジットのページを更新します。](preparing-databases/_static/image9.png)
+![クレジットの更新ページ](preparing-databases/_static/image9.png)
 
-ユーザーおよびロールの情報は、 *aspnet ContosoUniversity*によって指定されているデータベース、 **DefaultConnection**内の接続文字列、 *Web.config*ファイル。
+ユーザーとロールの情報*は、web.config ファイルの* **defaultconnection**接続文字列で指定されている*ContosoUniversity*データベースにあります。
 
-移行を使用して、それをデプロイすることはできませんので、このデータベースは Entity Framework Code First によって、管理されていません。 DbDacFx プロバイダー、データベース スキーマのデプロイに使用して、データベース テーブルに初期データを挿入するスクリプトを実行する発行プロファイルを構成します。
-
-> [!NOTE]
-> (ASP.NET Identity という名前になりました)、新しい ASP.NET メンバーシップ システムは、Visual Studio 2013 で導入されました。 新しいシステムでは、アプリケーションとメンバーシップ テーブルの両方を同じデータベースに保持することができ、両方を展開する Code First Migrations を使用することができます。 サンプル アプリケーションでは、Code First Migrations を使用して展開することはできません前 ASP.NET メンバーシップ システムを使用します。 このメンバーシップ データベースを配置する手順は、Entity Framework Code First によって作成されていない SQL Server データベースを配置する、アプリケーションが必要なその他のシナリオにも適用されます。
-
-ここで、通常は必要ありません開発で必要のある運用環境で同じデータ。 最初に、サイトを展開するときに、ほとんどまたはすべてのテストを作成するユーザー アカウントを除外する一般的なは。 ダウンロードしたプロジェクトの 2 つのメンバーシップ データベースがそのため、: *aspnet ContosoUniversity.mdf*開発ユーザーと*aspnet-ContosoUniversity-Prod.mdf*運用環境のユーザーとします。 このチュートリアルでは、ユーザー名が両方のデータベースで同じ:*管理者*と*nonadmin*します。 両方のユーザー パスワードを使用して*devpwd* 、開発データベースと*prodpwd*実稼働データベースでします。
-
-開発ユーザーは、テスト環境とステージング環境と運用環境を運用環境のユーザーにデプロイします。 そのためにはこのチュートリアルで開発用に 1 つと、運用環境用に 2 つの SQL スクリプトを作成し、以降のチュートリアルでは、それらを実行する、発行プロセスを構成します。
+このデータベースは Entity Framework Code First によって管理されていないため、移行を使用して展開することはできません。 DbDacFx プロバイダーを使用してデータベーススキーマを配置し、データベーステーブルに初期データを挿入するスクリプトを実行するように発行プロファイルを構成します。
 
 > [!NOTE]
-> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするには、ハッシュのルーチンも、これは、移行元コンピューターには、移行先サーバーで異なるハッシュを生成しないことを確認してください。 既定のアルゴリズムを変更しない限り、ASP.NET ユニバーサル プロバイダーを使用する場合に、同じハッシュを生成、されます。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、 **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Web.config ファイル内の要素。
+> 新しい ASP.NET メンバーシップシステム (現在は ASP.NET Identity という名前) が Visual Studio 2013 で導入されました。 新しいシステムでは、アプリケーションテーブルとメンバーシップテーブルの両方を同じデータベースに保持することができます。また、Code First Migrations を使用して両方を展開することができます。 サンプルアプリケーションでは、以前の ASP.NET メンバーシップシステムが使用されています。これは、Code First Migrations を使用して展開することはできません。 このメンバーシップデータベースを配置する手順は、アプリケーションが Entity Framework Code First によって作成されていない SQL Server データベースを配置する必要があるその他のシナリオにも適用されます。
 
-SQL Server Management Studio (SSMS) を使用して、またはサード パーティ製ツールを使用して、データ デプロイ スクリプトを手動で作成することができます。 このチュートリアルの残りの部分が SSMS では、その方法を示しますをインストールして SSMS を使用しない場合は、プロジェクトの完成版からスクリプトを入手して、ソリューション フォルダーに格納する場所のセクションにスキップします。
+ここでも、通常、開発中の運用環境で同じデータを使用する必要はありません。 サイトを初めて展開する場合は、テスト用に作成したユーザーアカウントのほとんどまたはすべてを除外するのが一般的です。 このため、ダウンロードしたプロジェクトには、2つのメンバーシップデータベースがあります。 *aspnet-ContosoUniversity*と development users および*aspnet-ContosoUniversity-Prod*を使用します。 このチュートリアルでは、ユーザー名は*admin*と*nonadmin*の両方のデータベースで同じです。 両方のユーザーには、開発用データベース内の*devpwd*パスワードと、実稼働データベースの*prodpwd*があります。
 
-SSMS をインストールするインストールから[ダウンロード センター。Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062)をクリックして[enu \x64\sqlmanagementstudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)または[enu \x86\sqlmanagementstudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)します。 問題の 1 つを選択した場合、システムのインストールに失敗し、もう 1 つを試みることができます。
+開発ユーザーをテスト環境に配置し、運用ユーザーをステージングおよび運用環境に展開します。 これを行うには、このチュートリアルで、開発用と運用用の2つの SQL スクリプトを作成します。以降のチュートリアルでは、これらのスクリプトを実行するように発行プロセスを構成します。
 
-(600 メガバイトのダウンロードは、このことに注意してください。 長い時間がかかる場合がありますをインストールして、コンピューターの再起動が必要になります)。
+> [!NOTE]
+> メンバーシップデータベースには、アカウントパスワードのハッシュが格納されます。 あるコンピューターから別のコンピューターにアカウントを展開するには、ハッシュルーチンが、移行元コンピューターとは異なるハッシュを移行先サーバー上で生成しないようにする必要があります。 既定のアルゴリズムを変更しない限り、ASP.NET ユニバーサルプロバイダーを使用すると、同じハッシュが生成されます。 既定のアルゴリズムは HMACSHA256 で、web.config ファイルの **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** 要素の**validation**属性で指定されています。
 
-SQL Server インストール センターの最初のページで次のようにクリックします。 **SQL Server の新規スタンドアロン インストールまたは既存のインストールに機能の追加**、既定の選択を受け入れ、指示に従います。
+データ配置スクリプトを手動で作成するには、SQL Server Management Studio (SSMS) を使用するか、サードパーティ製のツールを使用します。 このチュートリアルの残りの部分では、SSMS でその方法を説明しますが、SSMS をインストールして使用しない場合は、プロジェクトの完成版からスクリプトを取得し、ソリューションフォルダーに格納するセクションにスキップできます。
 
-### <a name="create-the-development-database-script"></a>開発データベース スクリプトを作成します。
+SSMS をインストールするには、ダウンロードセンターからインストールします[2012 Microsoft SQL Server。](https://www.microsoft.com/download/details.aspx?id=29062)これには、 [ENU\x64\SQLManagementStudio\_x64\_enu](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)または[ENU\x86\SQLManagementStudio\_x86\_enu](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)をクリックします。 システムに対して間違ったものを選択すると、インストールに失敗し、もう一方を試すことができます。
+
+(これは 600 mb のダウンロードであることに注意してください。 インストールには時間がかかる場合があり、コンピューターの再起動が必要になる場合があります)。
+
+SQL Server インストールセンターの最初のページで、[**新規 SQL Server スタンドアロンインストールを実行するか、既存のインストールに機能を追加**します] をクリックし、指示に従って既定の選択肢を受け入れます。
+
+### <a name="create-the-development-database-script"></a>開発用データベーススクリプトの作成
 
 1. SSMS を実行します。
-2. **サーバーへの接続** ダイアログ ボックスに、入力 *(localdb) \v11.0*として、**サーバー名**、まま**認証**に設定**Windows 認証**、 をクリックし、 **Connect**します。
+2. **[サーバーへの接続]** ダイアログボックスで、**サーバー名**として *「(localdb) \ v11.0* 」と入力し、 **[認証]** を **[Windows 認証]** のままにして、 **[接続]** をクリックします。
 
-    ![SSMS がサーバーに接続します。](preparing-databases/_static/image10.png)
-3. **オブジェクト エクスプ ローラー**ウィンドウで、展開**データベース**、右クリックして**aspnet ContosoUniversity**、 をクリックして**タスク**、順にクリックします**スクリプトを生成する**します。
+    ![SSMS からサーバーへの接続](preparing-databases/_static/image10.png)
+3. **[オブジェクトエクスプローラー]** ウィンドウで、 **[データベース**] を展開し、 **[ContosoUniversity]** を右クリックして、 **[タスク]** をクリックし、 **[スクリプトの生成]** をクリックします。
 
-    ![SSMS は、スクリプトを生成します。](preparing-databases/_static/image11.png)
-4. **発行スクリプトの生成と**ダイアログ ボックスで、をクリックして**スクリプト作成オプションの設定**します。
+    ![SSMS のスクリプト生成](preparing-databases/_static/image11.png)
+4. **[スクリプトの生成とパブリッシュ]** ダイアログボックスで、 **[スクリプト作成オプションの設定]** をクリックします。
 
-    スキップすることができます、**オブジェクトの選択**既定値はステップ**データベース全体とすべてのデータベース オブジェクトをスクリプト**対象です。
+    **[オブジェクトの選択]** ステップはスキップできます。既定では、**データベース全体とすべてのデータベースオブジェクトをスクリプト**化する必要があるためです。
 5. **[詳細設定]** をクリックします。
 
-    ![SSMS のスクリプト作成オプション](preparing-databases/_static/image12.png)
-6. **スクリプト作成オプションの高度な** ダイアログ ボックスで、下にスクロール**スクリプトへのデータ型**、 をクリックし、**データのみ**ドロップダウン リストのオプション。
-7. 変更**スクリプトを使用してデータベース**に**False**します。 ステートメントを使用では、Azure SQL Database の有効なありませんし、テスト環境で SQL Server Express への展開は必要ありません。
+    ![SSMS スクリプト作成オプション](preparing-databases/_static/image12.png)
+6. スクリプト **[作成の詳細オプション]** ダイアログボックスで、 **[スクリプトを作成するデータの種類]** までスクロールし、ドロップダウンリストの **[データのみ]** をクリックします。
+7. **スクリプトを使用**してデータベースを**False**に変更します。 USE ステートメントは Azure SQL Database に対して有効ではなく、テスト環境での SQL Server Express の配置には必要ありません。
 
-    ![SSMS スクリプト データのみ、USE ステートメントはありません。](preparing-databases/_static/image13.png)
+    ![SSMS スクリプトデータのみ、USE ステートメントは使用しない](preparing-databases/_static/image13.png)
 8. **[OK]** をクリックします。
-9. **発行スクリプトの生成と** ダイアログ ボックスで、**ファイル名**ボックスは、スクリプトを作成する場所を指定します。 ソリューション フォルダー (ContosoUniversity.sln ファイルを含むフォルダー) とファイル名をパスに変更*aspnet-データ-dev.sql*します。
-10. をクリックして**次へ**に進むには、**概要** タブをクリックして**次へ**スクリプトを作成するには、もう一度です。
+9. **[スクリプトの生成とパブリッシュ]** ダイアログボックスの **[ファイル名]** ボックスに、スクリプトを作成する場所を指定します。 ソリューションフォルダー (ContosoUniversity ファイルがあるフォルダー) のパスと、ファイル名を*aspnet-data-dev*に変更します。
+10. **[次]** へ をクリックして **[概要]** タブにアクセスし、もう一度 **[次へ]** をクリックしてスクリプトを作成します。
 
     ![SSMS スクリプトの作成](preparing-databases/_static/image14.png)
 11. **[完了]** をクリックします。
 
-### <a name="create-the-production-database-script"></a>実稼働データベースのスクリプトを作成します。
+### <a name="create-the-production-database-script"></a>実稼働データベーススクリプトを作成する
 
-運用データベースでプロジェクトを実行していないため、LocalDB インスタンスにまだその添付されません。 したがって、最初にデータベースをアタッチする必要があります。
+実稼働データベースでプロジェクトを実行していないため、まだ LocalDB インスタンスにアタッチされていません。 そのため、最初にデータベースをアタッチする必要があります。
 
-1. SSMS で**オブジェクト エクスプ ローラー**、右クリック**データベース** をクリック**アタッチ**します。
+1. SSMS**オブジェクトエクスプローラー**で、 **[データベース]** を右クリックし、 **[アタッチ]** をクリックします。
 
-    ![SSMS をアタッチします。](preparing-databases/_static/image15.png)
-2. **データベースのアタッチ**ダイアログ ボックスで、をクリックして**追加**順に移動します、 *aspnet-ContosoUniversity-Prod.mdf*ファイル、*アプリ\_データ*フォルダー。
+    ![SSMS のアタッチ](preparing-databases/_static/image15.png)
+2. **[データベースのアタッチ]** ダイアログボックスで **[追加]** をクリックし、 *App\_Data*フォルダー内の*aspnet-ContosoUniversity-Prod*ファイルに移動します。
 
-     ![.Mdf ファイルをアタッチする SSMS の追加](preparing-databases/_static/image16.png)
+     ![SSMS アタッチする .mdf ファイルを追加する](preparing-databases/_static/image16.png)
 3. **[OK]** をクリックします。
-4. 運用環境のファイルのスクリプトを作成する前に使用した同じ手順に従います。 スクリプト ファイルに名前を*aspnet-データ-prod.sql*します。
+4. 前に使用したのと同じ手順に従って、実稼働ファイル用のスクリプトを作成します。 スクリプトファイルに*aspnet-data-prod*という名前を指定します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-両方のデータベースをデプロイする準備が整いましたし、ソリューション フォルダーに 2 つのデータ配置スクリプトがあります。
+これで、両方のデータベースを配置する準備ができました。ソリューションフォルダーには、2つのデータ配置スクリプトが用意されています。
 
-![データ デプロイ スクリプト](preparing-databases/_static/image17.png)
+![データ配置スクリプト](preparing-databases/_static/image17.png)
 
-次のチュートリアルでは、展開に影響するプロジェクトの設定を構成して、自動に設定する*Web.config*デプロイされたアプリケーションで別にする必要がある設定のファイルの変換。
+次のチュートリアルでは、配置に影響を与えるプロジェクト設定を構成し、配置されたアプリケーションで異なる必要がある設定に対して、自動 web.config ファイル変換を設定*します。*
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>その他の情報
 
-NuGet の詳細については、次を参照してください。 [nuget プロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)します。 NuGet を使用しない場合がインストールされているときの動作を決定する NuGet パッケージを分析する方法を説明する必要があります。 (たとえば、構成が*Web.config*変換、ビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法について詳しくは、次を参照してください。[を作成すると、パッケージを公開する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)します。
+NuGet の詳細については、「NuGet と Nuget の[ドキュメント](http://docs.nuget.org/docs/start-here/overview)[を使用したプロジェクトライブラリの管理](https://msdn.microsoft.com/magazine/hh547106.aspx)」を参照してください。 NuGet を使用しない場合は、NuGet パッケージを分析してインストールしたときの動作を確認する方法について学習する必要があります。 (たとえば、web.config 変換を構成したり、PowerShell スクリプトをビルド時に実行するように構成し*たりすること*があります)。NuGet のしくみの詳細については、「パッケージと構成ファイル[の作成と発行](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)」[および「ソースコード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](introduction.md)

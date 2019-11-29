@@ -1,56 +1,56 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
-title: UpdatePanel コントロールをアニメーション (c#) |Microsoft Docs
+title: UpdatePanel コントロールをアニメーション化C#する () |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 内容として、.
+description: ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 ... の内容
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e57f8c7c-3940-4bc0-9468-3a0ca69158ea
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c403cddd1e3eb5b66f795a2e4032fae63fdb26ca
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8875d750d57c5f4e362bdf461826130a881ab1d4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130746"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599933"
 ---
 # <a name="animating-an-updatepanel-control-c"></a>UpdatePanel コントロールをアニメーションにする (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1CS.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 UpdatePanel の内容は、の特別なエクステンダーには、アニメーション フレームワークに大きく依存しているが存在します。UpdatePanelAnimation します。 このチュートリアルでは、UpdatePanel のようなアニメーションを設定する方法を示します。
+> ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 UpdatePanel の内容については、animation framework: Updateパネルアニメーションに大きく依存する特別な extender が存在します。 このチュートリアルでは、このようなアニメーションを UpdatePanel に設定する方法について説明します。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 内容として、 `UpdatePanel`、アニメーション フレームワークに大きく依存している特別なエクステンダーが存在します:`UpdatePanelAnimation`します。 このチュートリアルのようなアニメーションを設定する方法を示しています、`UpdatePanel`します。
+ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 `UpdatePanel`の内容については、`UpdatePanelAnimation`のアニメーションフレームワークに大きく依存する特別な extender が存在します。 このチュートリアルでは、このようなアニメーションを `UpdatePanel`に設定する方法について説明します。
 
 ## <a name="steps"></a>手順
 
-最初の手順は、通常どおりに含める、 `ScriptManager`  ページで、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようにします。
+最初の手順は通常どおり、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるように、ページに `ScriptManager` を含めることです。
 
 [!code-aspx[Main](animating-an-updatepanel-control-cs/samples/sample1.aspx)]
 
-このシナリオでは、アニメーションは、ASP.NET に適用される`Wizard`内に存在する web コントロール、`UpdatePanel`します。 (任意) の 3 つの手順では、ポストバックをトリガーするための十分なオプションを提供します。
+このシナリオのアニメーションは、`UpdatePanel`に存在する ASP.NET `Wizard` web コントロールに適用されます。 ポストバックをトリガーするためのオプションは、3つ (任意) の手順で指定します。
 
 [!code-aspx[Main](animating-an-updatepanel-control-cs/samples/sample2.aspx)]
 
-マークアップのために必要な`UpdatePanelAnimationExtender`コントロールを使用するマークアップを非常に似ていますが、`AnimationExtender`します。 `TargetControlID`属性を提供しています、`ID`の`UpdatePanel`; をアニメーション化する内で、`UpdatePanelAnimationExtender`コントロール、`<Animations>`要素は、単位の XML マークアップを保持します。 ただし 1 つの違いがあります。イベントとイベント ハンドラーの量が比較する限られた`AnimationExtender`します。 `UpdatePanels`、2 つだけに存在します。
+`UpdatePanelAnimationExtender` コントロールに必要なマークアップは、`AnimationExtender`に使用されるマークアップと非常によく似ています。 `TargetControlID` 属性では、アニメーション化する `UpdatePanel` の `ID` を指定します。`UpdatePanelAnimationExtender` コントロール内では、`<Animations>` 要素は、アニメーションの XML マークアップを保持します。 ただし、1つの違いがあります。 `AnimationExtender`と比較すると、イベントとイベントハンドラーの量が制限されます。 `UpdatePanels`には、次の2つのみが存在します。
 
-- `<OnUpdated>` UpdatePanel が更新されたとき
-- `<OnUpdating>` UpdatePanel が更新を開始する場合
+- UpdatePanel が更新されたときの `<OnUpdated>`
+- UpdatePanel が更新を開始するときに `<OnUpdating>` します。
 
-このシナリオでは、新しいコンテンツでは、 `UpdatePanel` (ポストバック) の後、フェードインものとします。 これは、そのために必要なマークアップです。
+このシナリオでは、(ポストバック後に) `UpdatePanel` の新しい内容がフェードインされます。 これは、そのために必要なマークアップです。
 
 [!code-aspx[Main](animating-an-updatepanel-control-cs/samples/sample3.aspx)]
 
-これで、ポストバック、UpdatePanel 内で発生するたびに、パネルの新しい内容はスムーズ フェードインします。
+これで、UpdatePanel 内でポストバックが発生するたびに、パネルの新しいコンテンツがスムーズにフェードインされます。
 
-[![ウィザードの次の手順がフェードインします。](animating-an-updatepanel-control-cs/_static/image2.png)](animating-an-updatepanel-control-cs/_static/image1.png)
+[次のウィザードのステップがフェードイン ![](animating-an-updatepanel-control-cs/_static/image2.png)](animating-an-updatepanel-control-cs/_static/image1.png)
 
-ウィザードの次の手順がフェードイン ([フルサイズの画像を表示する をクリックします](animating-an-updatepanel-control-cs/_static/image3.png))。
+次のウィザードステップはフェードインします ([クリックすると、フルサイズの画像が表示](animating-an-updatepanel-control-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](changing-an-animation-using-client-side-code-cs.md)

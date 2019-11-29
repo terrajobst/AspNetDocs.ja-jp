@@ -1,120 +1,120 @@
 ---
 uid: aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
-title: カスタム HTML ヘルパー (c#) の作成 |Microsoft Docs
+title: カスタム HTML ヘルパーの作成C#() |Microsoft Docs
 author: microsoft
-description: このチュートリアルの目的を MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを活用しています.
+description: このチュートリアルの目的は、MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用することで...
 ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41306a7f09b830e0ee88135326a48beaadcfb28c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 264ff9850bad397826b45649d52fbfefafc53a01
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126646"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594524"
 ---
 # <a name="creating-custom-html-helpers-c"></a>カスタム HTML ヘルパーの作成 (C#)
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
+[PDF のダウンロード](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
-> このチュートリアルの目的を MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用して HTML タグの標準の HTML ページを作成するために必要ことの面倒な型指定の量を減らすことができます。
+> このチュートリアルの目的は、MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用することで、標準の HTML ページを作成するために実行する必要がある HTML タグの面倒な入力の量を減らすことができます。
 
-このチュートリアルの目的を MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用して HTML タグの標準の HTML ページを作成するために必要ことの面倒な型指定の量を減らすことができます。
+このチュートリアルの目的は、MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用することで、標準の HTML ページを作成するために実行する必要がある HTML タグの面倒な入力の量を減らすことができます。
 
-このチュートリアルの最初の部分では、ASP.NET MVC フレームワークに含まれている既存の HTML ヘルパーの一部を取り上げます。 次に、カスタム HTML ヘルパーの作成の 2 つの方法を説明します。静的メソッドを作成し、拡張メソッドを作成して、カスタム HTML ヘルパーを作成する方法を説明します。
+このチュートリアルの最初の部分では、ASP.NET MVC フレームワークに含まれる既存の HTML ヘルパーのいくつかについて説明します。 次に、カスタム HTML ヘルパーを作成する2つの方法について説明します。ここでは、静的メソッドを作成し、拡張メソッドを作成することによってカスタム HTML ヘルパーを作成する方法について説明します。
 
-## <a name="understanding-html-helpers"></a>HTML ヘルパーを理解します。
+## <a name="understanding-html-helpers"></a>HTML ヘルパーについて
 
-HTML ヘルパーは、文字列を返す方法だけです。 文字列は、コンテンツの任意の型を表すことができます。 たとえば、HTML と同様に、標準の HTML タグをレンダリングする HTML ヘルパーを使用できます`<input>`と`<img>`タグ。 タブ ストリップまたはデータベースのデータの HTML テーブルなどのより複雑なコンテンツをレンダリングするのに HTML ヘルパーを使用することができますも。
+HTML ヘルパーは、文字列を返すメソッドにすぎません。 文字列は、必要な任意の種類のコンテンツを表すことができます。 たとえば、html ヘルパーを使用して、HTML `<input>` や `<img>` タグなどの標準の HTML タグを表示できます。 また、HTML ヘルパーを使用して、タブストリップやデータベースデータの HTML テーブルなど、より複雑なコンテンツを表示することもできます。
 
-ASP.NET MVC フレームワークには、次の一連標準の HTML ヘルパー (これは完全な一覧) にはが含まれています。
+ASP.NET MVC フレームワークには、次の一連の標準 HTML ヘルパーが含まれています (これは完全な一覧ではありません)。
 
-- Html.ActionLink()
-- Html.BeginForm()
-- Html.CheckBox()
-- Html.DropDownList()
-- Html.EndForm()
-- Html.Hidden()
-- Html.ListBox()
-- Html.Password()
-- Html.RadioButton()
-- Html.TextArea()
-- Html.TextBox()
+- Html.actionlink ()
+- Html. BeginForm ()
+- Html. CheckBox ()
+- Html. DropDownList ()
+- Html. EndForm ()
+- Html. Hidden ()
+- Html. ListBox ()
+- Html. Password ()
+- Html. RadioButton ()
+- Html. TextArea ()
+- Html. TextBox ()
 
-たとえば、リスト 1 でフォームを検討してください。 (図 1 参照)、標準の HTML ヘルパーの 2 つのヘルプでは、このフォームが表示されます。 このフォームを使用して、`Html.BeginForm()`と`Html.TextBox()`単純な HTML フォームを表示するためにヘルパー メソッド。
+たとえば、リスト1のフォームについて考えてみます。 このフォームは、標準の HTML ヘルパーの2つのヘルプを使用してレンダリングされます (図1を参照)。 このフォームでは、`Html.BeginForm()` と `Html.TextBox()` のヘルパーメソッドを使用して、単純な HTML フォームをレンダリングします。
 
-[![HTML ヘルパーのページが表示されます。](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
+[HTML ヘルパーで表示される ![ページ](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
-**図 01**:HTML ヘルパーのページが表示される ([フルサイズの画像を表示する をクリックします](creating-custom-html-helpers-cs/_static/image3.png))。
+**図 01**: HTML ヘルパーでレンダリングされるページ ([クリックすると、フルサイズの画像が表示](creating-custom-html-helpers-cs/_static/image3.png)されます)
 
-**1 – を一覧表示します。 `Views\Home\Index.aspx`**
+**リスト1– `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample1.aspx)]
 
-Html.BeginForm() ヘルパー メソッドはかっこと右の HTML を作成するために使用`<form>`タグ。 注意、`Html.BeginForm()`内を使用して、メソッドが呼び出されるステートメントです。 確実にステートメントを使用して、`<form>`を使用して、最後にタグが閉じられるブロックします。
+Html. BeginForm () ヘルパーメソッドは、HTML `<form>` の開始タグと終了タグを作成するために使用されます。 `Html.BeginForm()` メソッドは、using ステートメント内で呼び出されることに注意してください。 Using ステートメントを使用すると、`<form>` タグが using ブロックの末尾で閉じられるようになります。
 
-使用して、作成する代わりに、希望する場合、ブロックを終了する Html.EndForm() ヘルパー メソッドを呼び出すことができます、`<form>`タグ。 作成の開始と終了にどの方法を使用して、`<form>`最も直感的にすると思われるタグ。
+必要に応じて、using ブロックを作成するのではなく、Html の EndForm () ヘルパーメソッドを呼び出して、`<form>` タグを閉じることができます。 どちらの方法を使用しても、直感的にわかりやすい `<form>` タグを作成できます。
 
-`Html.TextBox()`ヘルパー メソッドは、リスト 1 で HTML を表示するために使用される`<input>`タグ。 リスト 2 での HTML ソースを表示し、ブラウザーでソースの表示を選択します。 場合、 標準の HTML タグが含まれていることを確認します。
+リスト1で HTML `<input>` タグを表示するには、`Html.TextBox()` ヘルパーメソッドを使用します。 ブラウザーで [ソースの表示] を選択すると、リスト2に HTML ソースが表示されます。 ソースに標準の HTML タグが含まれていることに注意してください。
 
 > [!IMPORTANT]
-> 注意、 `Html.TextBox()`HTML ヘルパーでレンダリングされて`<%= %>`タグの代わりに`<% %>`タグ。 等号 (=) を含めない場合、ブラウザーに表示 nothing を取得します。
+> `Html.TextBox()`HTML ヘルパーは `<% %>` タグではなく `<%= %>` タグでレンダリングされることに注意してください。 等号を含めない場合は、ブラウザーに何も表示されません。
 
-ASP.NET MVC フレームワークには、ヘルパーの小さなセットが含まれています。 ほとんどの場合、カスタム HTML ヘルパーの MVC フレームワークを拡張する必要があります。 このチュートリアルの残りの部分では、カスタム HTML ヘルパーの作成の 2 つの方法について説明します。
+ASP.NET MVC フレームワークには、少数のヘルパーが含まれています。 多くの場合、カスタム HTML ヘルパーを使用して MVC フレームワークを拡張する必要があります。 このチュートリアルの残りの部分では、カスタム HTML ヘルパーを作成する2つの方法について学習します。
 
-**2 – を一覧表示します。 `Index.aspx Source`**
+**リスト2– `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample2.aspx)]
 
-### <a name="creating-html-helpers-with-static-methods"></a>静的メソッドで HTML ヘルパーの作成
+### <a name="creating-html-helpers-with-static-methods"></a>静的メソッドを使用した HTML ヘルパーの作成
 
-新しい HTML ヘルパーを作成する最も簡単な方法では、文字列を返す静的メソッドを作成します。 HTML をレンダリングする新しい HTML ヘルパーの作成を決定することなど想像`<label>`タグ。 表示するために、リスト 2 でクラスを使用することができます、`<label>`します。
+新しい HTML ヘルパーを作成する最も簡単な方法は、文字列を返す静的メソッドを作成することです。 たとえば、HTML `<label>` タグをレンダリングする新しい HTML ヘルパーを作成する場合を考えてみます。 リスト2のクラスを使用して、`<label>` を表示できます。
 
-**2 – を一覧表示します。 `Helpers\LabelHelper.cs`**
+**リスト2– `Helpers\LabelHelper.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample3.cs)]
 
-リスト 2 でクラスについて特別なものがあります。 `Label()`メソッドは単に文字列を返します。
+リスト2のクラスについては特別なことはありません。 `Label()` メソッドは、単に文字列を返します。
 
-リスト 3 に変更したのインデックス ビューを使用して、 `LabelHelper` HTML をレンダリングする`<label>`タグ。 ビューが含まれていますが、`<%@ imports %>`インポート ディレクティブ、`Application1.Helpers`名前空間。
+リスト3の変更されたインデックスビューでは、`LabelHelper` を使用して HTML `<label>` タグを表示します。 ビューには、`Application1.Helpers` 名前空間をインポートする `<%@ imports %>` ディレクティブが含まれていることに注意してください。
 
-**2 – を一覧表示します。 `Views\Home\Index2.aspx`**
+**リスト2– `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample4.aspx)]
 
-### <a name="creating-html-helpers-with-extension-methods"></a>拡張メソッドで HTML ヘルパーの作成
+### <a name="creating-html-helpers-with-extension-methods"></a>拡張メソッドを使用した HTML ヘルパーの作成
 
-作成する場合のみ動作する HTML ヘルパーなどの拡張メソッドを作成する必要があります、ASP.NET MVC フレームワークに含まれる標準の HTML ヘルパー。 拡張メソッドを使用すると、既存のクラスに新しいメソッドを追加できます。 HTML ヘルパー メソッドを作成するには、新しいメソッドがビューの Html プロパティによって表される HtmlHelper クラスに追加します。
+ASP.NET MVC フレームワークに含まれている標準の HTML ヘルパーと同様に機能する HTML ヘルパーを作成する場合は、拡張メソッドを作成する必要があります。 拡張メソッドを使用すると、既存のクラスに新しいメソッドを追加できます。 HTML ヘルパーメソッドを作成する場合は、ビューの Html プロパティによって表される HtmlHelper クラスに新しいメソッドを追加します。
 
-リスト 3 のクラスにメソッドを拡張機能の追加、`HtmlHelper`という名前のクラス`Label()`します。 このクラスについて注意すべきいくつかがあります。 最初に、クラスが静的クラスであることを確認します。 静的クラスを使用して拡張メソッドを定義する必要があります。
+リスト3のクラスは、`Label()`という名前の `HtmlHelper` クラスに拡張メソッドを追加します。 このクラスについては、いくつかの点に注意する必要があります。 まず、クラスが静的クラスであることに注意してください。 静的クラスを使用して拡張メソッドを定義する必要があります。
 
-次に、注意の最初のパラメーター、`Label()`メソッドには、キーワードが付いて`this`します。 拡張メソッドの最初のパラメーターでは、拡張メソッドを拡張するクラスを示します。
+次に、`Label()` メソッドの最初のパラメーターの前に `this`キーワードが付いていることに注意してください。 拡張メソッドの最初のパラメーターは、拡張メソッドが拡張するクラスを示します。
 
-**3 – を一覧表示します。 `Helpers\LabelExtensions.cs`**
+**リスト3– `Helpers\LabelExtensions.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample5.cs)]
 
-拡張メソッドがすべてのクラスの他のメソッドのように Visual Studio の Intellisense に表示されます、拡張メソッドを作成し、アプリケーションを正常にビルドした後 (図 2 参照)。 唯一の違いは、その拡張機能メソッドがそれら (下向きの矢印のアイコン) の横にある特別なシンボルを表示します。
+拡張メソッドを作成し、アプリケーションを正常にビルドすると、クラスの他のすべてのメソッドと同様に、Visual Studio の Intellisense に拡張メソッドが表示されます (図2を参照)。 唯一の違いは、拡張メソッドには、その横に特殊記号 (下向きの矢印のアイコン) が表示される点です。
 
-[![Html.Label() の拡張メソッドを使用](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
+[Html. Label () 拡張メソッドを使用して ![](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
-**図 02**:Html.Label() の拡張メソッドを使用して ([フルサイズの画像を表示する をクリックします](creating-custom-html-helpers-cs/_static/image6.png))。
+**図 02**: Html. Label () 拡張メソッドの使用 ([クリックしてフルサイズのイメージを表示する](creating-custom-html-helpers-cs/_static/image6.png))
 
-リスト 4 変更後のインデックス ビューのすべてを表示するために、Html.Label() 拡張メソッドを使用してその`<label>`タグ。
+リスト4の変更されたインデックスビューでは、Html. Label () 拡張メソッドを使用して、すべての `<label>` タグをレンダリングします。
 
-**4 – を一覧表示します。 `Views\Home\Index3.aspx`**
+**リスト4– `Views\Home\Index3.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample6.aspx)]
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルでは、カスタム HTML ヘルパーの作成の 2 つの方法について説明しました。 最初に、カスタムを作成する方法を学習しました。`Label()`静的メソッドを作成して HTML ヘルパーは、文字列を返します。 次に、カスタムを作成する方法を学習しました。 `Label()` HTML ヘルパー メソッドで拡張メソッドを作成して、`HtmlHelper`クラス。
+このチュートリアルでは、カスタム HTML ヘルパーを作成する2つの方法を学習しました。 まず、文字列を返す静的メソッドを作成して、カスタム `Label()` HTML ヘルパーを作成する方法について学習しました。 次に、`HtmlHelper` クラスに拡張メソッドを作成して、カスタム `Label()` HTML ヘルパーメソッドを作成する方法について学習しました。
 
-このチュートリアルでは、非常に単純な HTML ヘルパー メソッドの構築に注目しました。 必要な複雑な作業は HTML ヘルパーであることに注意してください。 ツリー ビュー、メニューのまたはデータベースのデータのテーブルなどのリッチ コンテンツをレンダリングする HTML ヘルパーをビルドすることができます。
+このチュートリアルでは、非常に単純な HTML ヘルパーメソッドを構築することに重点を置いています。 HTML ヘルパーは必要に応じて複雑になる可能性があることに注意してください。 ツリービュー、メニュー、データベースデータのテーブルなどのリッチコンテンツを表示する HTML ヘルパーを構築できます。
 
 > [!div class="step-by-step"]
 > [前へ](asp-net-mvc-views-overview-cs.md)

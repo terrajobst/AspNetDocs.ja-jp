@@ -1,140 +1,140 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
-title: 運用データベース (VB) を使用する実稼働 Web アプリケーションの構成 |Microsoft Docs
+title: 実稼働データベースを使用するように運用 Web アプリケーションを構成する (VB) |Microsoft Docs
 author: rick-anderson
-description: 前のチュートリアルで既に説明した、これは開発および運用環境間で異なる構成情報珍しくありません。 これは、es.
+description: 前のチュートリアルで説明したように、開発環境と運用環境で構成情報が異なることは珍しくありません。 これは...
 ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: a64a7aa0-6608-449e-83bf-1ef8cceee504
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 68ce0ab099c30306f5683d8b81a894bf6433ffed
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7fe4f545a76992ad687827af447d9a9e95bea73f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130891"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74633667"
 ---
 # <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>実稼働データベースを使用するように Web アプリケーションを構成する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_vb.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_VB.zip)または[PDF のダウンロード](https://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_vb.pdf)
 
-> 前のチュートリアルで既に説明した、これは開発および運用環境間で異なる構成情報珍しくありません。 これは、データベースの接続文字列は、開発および運用環境の間で異なるとデータ ドリブン web アプリケーション、特に当てはまります。 このチュートリアルより詳細に適切な接続文字列を含める、運用環境を構成する方法について説明します。
+> 前のチュートリアルで説明したように、開発環境と運用環境で構成情報が異なることは珍しくありません。 これは、データドリブン web アプリケーションの場合に特に当てはまります。これは、開発環境と運用環境でデータベース接続文字列が異なるためです。 このチュートリアルでは、適切な接続文字列を追加するように運用環境を構成する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-データ ドリブン web アプリケーションは通常、運用環境で場合より開発で別のデータベースを使用します。 Web ホスト プロバイダーによってホストされ、ローカルで開発をアプリケーションでは、開発用データベース通常存在、開発者のコンピューター上、実稼働データベースが、web ホスティング企業の施設でのデータベース サーバーでホストされているときにします。 データ ドリブン web アプリケーションを展開するには、開発用データベースを実稼働データベース サーバーにコピーする必要があります。 前のチュートリアルでは、この手順を実行する方法について説明しました。
+データドリブンの web アプリケーションは、通常、運用環境の場合よりも、開発時に異なるデータベースを使用します。 Web ホストプロバイダーによってホストされ、ローカルで開発されたアプリケーションの場合、開発データベースは通常、開発者のコンピューターに配置されます。運用データベースは、web ホスティング会社の施設にあるデータベースサーバーでホストされます。 データドリブン web アプリケーションを配置するには、運用データベースサーバーに開発データベースをコピーすることがあります。 前のチュートリアルでは、この手順を実行する方法を見てきました。
 
-Web アプリケーションは、情報を使用して、*接続文字列*データベースとの接続を確立します。 通常格納されている接続文字列`Web.config`、データベース サーバー名、データベース、セキュリティ コンテキスト、およびその他の情報の名前を指定します。 Web アプリケーションによって使用されるデータベースは、開発または実稼働環境で web アプリケーションが実行されているかどうかに依存しているため、接続文字列が 2 つの環境間とは異なる必要があります。
+Web アプリケーションは、*接続文字列*内の情報を使用して、データベースとの接続を確立します。 通常 `Web.config`に格納されている接続文字列は、データベースサーバー名、データベース名、セキュリティコンテキスト、およびその他の情報を指定します。 Web アプリケーションで使用されるデータベースは、web アプリケーションが開発環境と運用環境のどちらで実行されているかによって異なります。そのため、2つの環境で接続文字列が異なる必要があります。
 
-開発および運用環境間で異なる構成については珍しくありません。 *一般的な構成の相違点の間で開発および運用*チュートリアルには、上の簡単な説明だけでなく、これら 2 つの環境間で個別の構成情報を維持するための手法がについて説明しましたデータベース接続文字列。 このチュートリアルより詳細に適切な接続文字列を含める、運用環境を構成する方法について説明します。
+開発環境と運用環境で構成情報が異なることは珍しくありません。 *開発と運用のチュートリアルの一般的な構成の違い*については、これら2つの環境間で個別の構成情報を保持するための手法と、データベース接続文字列についての簡単な説明を説明しました。 このチュートリアルでは、適切な接続文字列を追加するように運用環境を構成する方法について説明します。
 
-## <a name="examining-the-connection-string-information"></a>接続文字列情報を調べる
+## <a name="examining-the-connection-string-information"></a>接続文字列情報を調べています
 
-書籍レビューの web アプリケーションで使用される接続文字列が、アプリケーションの構成ファイルに格納されている`Web.config`します。 `Web.config` といううまい名前の接続文字列を格納するための特別なセクションが含まれる[ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx)します。 `Web.config`ファイルの書籍レビューの web サイトがある 1 つの接続文字列をという名前のこのセクションで定義されている`ReviewsConnectionString`:
+Book review web アプリケーションで使用される接続文字列は、アプリケーションの構成ファイル `Web.config`に格納されます。 `Web.config` には、接続文字列を格納するための特別なセクション[&lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx)という名前のこのが含まれています。 本書レビュー web サイトの `Web.config` ファイルには、このセクションで `ReviewsConnectionString`という1つの接続文字列が定義されています。
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample1.xml)]
 
-接続文字列 – データ ソース = \SQLEXPRESS;。AttachDbFilename = |DataDirectory|\Reviews.mdf;Integrated Security = True;ユーザー インスタンスは True を = - は、セミコロンと各オプションで区切られたオプションと値のペアと等号で区切られた値を持つさまざまなオプションと値で構成されます。 この接続文字列で使用される 4 つのオプションがあります。
+接続文字列-Data Source = .\SQLEXPRESS;AttachDbFilename = |DataDirectory | \Reviews.mdf; Integrated Security = True;User Instance = True-複数のオプションと値で構成されます。オプションと値のペアはセミコロンで区切られ、各オプションと値は等号で区切られます。 この接続文字列で使用される4つのオプションは次のとおりです。
 
-- `Data Source` -(ある場合)、データベース サーバーとデータベース サーバーのインスタンス名の場所を指定します。 値、`.\SQLEXPRESS`例を示しますが、データベース サーバーとインスタンス名。 期間は、データベース サーバーは、アプリケーションと同じコンピューターを指定しますインスタンス名が`SQLEXPRESS`します。
-- `AttachDbFilename` -データベース ファイルの場所を指定します。 値には、プレース ホルダーが含まれています。 `|DataDirectory|`、アプリケーションの秒の完全なパスに解決される`App_Data`実行時にフォルダー。
-- `Integrated Security` -(false)、データベースまたは現在の Windows にアカウントの資格情報 (true) に接続するときに指定されたユーザー名/パスワードを使用するかどうかを示すブール値。
-- `User Instance` -SQL Server Express エディションにローカル コンピューターの管理者以外のユーザー接続し、SQL Server Express Edition のデータベースへの接続を許可するかどうかを示す特定の構成オプション。 参照してください[SQL Server Express ユーザー インスタンス](https://msdn.microsoft.com/library/ms254504.aspx)この設定の詳細についてはします。
+- `Data Source`-データベースサーバーの場所とデータベースサーバーのインスタンス名 (存在する場合) を指定します。 `.\SQLEXPRESS`の値は、データベースサーバーとインスタンス名が存在する例です。 この期間は、データベースサーバーがアプリケーションと同じコンピューター上にあることを指定します。インスタンス名が `SQLEXPRESS`。
+- `AttachDbFilename`-データベースファイルの場所を指定します。 この値には `|DataDirectory|`プレースホルダーが含まれています。これは、実行時にアプリケーションの `App_Data` フォルダーの完全パスに解決されます。
+- `Integrated Security`-データベースへの接続時に指定したユーザー名/パスワードを使用するか (false)、現在の Windows アカウントの資格情報 (true) を使用するかを示すブール値です。
+- `User Instance`-ローカルコンピューターの管理者以外のユーザーが接続して SQL Server Express Edition データベースに接続できるかどうかを示す、SQL Server Express のエディションに固有の構成オプション。 この設定の詳細については、「 [SQL Server Express ユーザーインスタンス](https://msdn.microsoft.com/library/ms254504.aspx)」を参照してください。
 
-使用可能な接続文字列オプションに接続しているデータベースに依存し、 [ADO.NET](http://ADO.NET)データベース プロバイダーが使用されています。 たとえば、データベースとは異なります、Oracle データベースに接続するために使用する Microsoft SQL Server に接続するため接続文字列。 同様に、SqlClient プロバイダーを使用して Microsoft SQL Server データベースに接続するときに、OLE DB プロバイダーを使用するよりも、別の接続文字列を使用します。
+使用できる接続文字列のオプションは、接続先のデータベースと使用されている[ADO.NET](http://ADO.NET)データベースプロバイダーによって異なります。 たとえば、Microsoft SQL Server データベースに接続するための接続文字列は、Oracle データベースへの接続に使用される接続文字列とは異なります。 同様に、SqlClient プロバイダーを使用して Microsoft SQL Server データベースに接続する場合は、OLE DB プロバイダーを使用する場合とは異なる接続文字列が使用されます。
 
-ようにサイトを使用して手動でデータベース接続文字列を構築できます[ConnectionStrings.com](http://www.connectionstrings.com/)としてリソースをどのようなオプションを使用できます。 Visual Studio でサーバー エクスプ ローラーに、データベースを追加するより簡単な方法は、ただし、し、[プロパティ] ウィンドウから接続文字列を取得します。 この後者の手法を使用して、実稼働データベース サーバーへの接続文字列を構築するためのことができます。
+データベース接続文字列は、使用可能なオプションのリソースとして[ConnectionStrings.com](http://www.connectionstrings.com/)のようなサイトを使用して手動で作成できます。 ただし、簡単な方法は、Visual Studio のサーバーエクスプローラーにデータベースを追加し、次にプロパティウィンドウから接続文字列を取得することです。 この後者の手法を使用して、実稼働データベースサーバーへの接続文字列を構築します。
 
-Visual Studio を開き、サーバー エクスプ ローラー ウィンドウに移動します (Visual Web developer では、このウィンドウと呼ばれるデータベース エクスプ ローラー)。 データ接続オプションを右クリックし、コンテキスト メニューから 接続の追加オプションを選択します。 図 1 に示すようにウィザードが表示されます。 適切なデータ ソースを選択し、[続行] をクリックします。
+Visual Studio を開き、[サーバーエクスプローラー] ウィンドウに移動します (Visual Web Developer では、このウィンドウはデータベースエクスプローラーと呼ばれます)。 [データ接続] オプションを右クリックし、コンテキストメニューの [接続の追加] オプションを選択します。 これにより、図1に示すウィザードが表示されます。 適切なデータソースを選択し、[続行] をクリックします。
 
-[![サーバー エクスプ ローラーに新しいデータベースを追加します。](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image1.jpg) 
+[![新しいデータベースをサーバーエクスプローラーに追加することを選択します。](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image1.jpg) 
 
-**図 1**:サーバー エクスプ ローラーに新しいデータベースを追加する ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image3.jpg))。
+**図 1**: サーバーエクスプローラーに新しいデータベースを追加することを選択する ([クリックすると、フルサイズの画像が表示](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image3.jpg)されます)
 
-次に、さまざまなデータベース接続情報を指定 (図 2 参照)。 Web ホスティング会社にサインアップしたときに、データベース サーバー名、データベース名、ユーザー名とパスワードを使用して、データベースに接続して、具合のデータベースに接続する方法の情報を指定した必要があります。 この情報を入力したら、このウィザードを完了して、データベースをサーバー エクスプ ローラーに追加する [ok] をクリックします。
+次に、さまざまなデータベース接続情報を指定します (図2を参照)。 Web ホスティング会社にサインアップした場合は、データベースへの接続方法に関する情報 (データベースサーバー名、データベース名、データベースへの接続に使用するユーザー名とパスワードなど) を提供する必要があります。 この情報を入力したら、[OK] をクリックしてこのウィザードを完了し、データベースをサーバーエクスプローラーに追加します。
 
-[![データベースの接続情報を指定します](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image4.jpg) 
+[データベース接続情報を指定 ![には](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image4.jpg) 
 
-**図 2**:データベースの接続情報を指定します ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image6.jpg))。
+**図 2**: データベース接続情報を指定[する (クリックすると、フルサイズの画像が表示](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image6.jpg)されます)
 
-サーバー エクスプ ローラーで、実稼働環境のデータベースが表示されます。 サーバー エクスプ ローラーからデータベースを選択し、[プロパティ] ウィンドウに移動します。 あるデータベースの接続文字列で接続文字列をという名前のプロパティが表示されます。 運用環境と、SqlClient プロバイダーを Microsoft SQL Server データベースを使用するいると仮定すると、接続文字列は、次のようになります。
+これで、運用環境のデータベースがサーバーエクスプローラーに一覧表示されます。 サーバーエクスプローラーからデータベースを選択し、プロパティウィンドウにアクセスします。 ここには、Connection String という名前のプロパティがあり、データベースの接続文字列が表示されます。 実稼働環境と SqlClient プロバイダーで Microsoft SQL Server データベースを使用していると仮定した場合、接続文字列は次のようになります。
 
-<strong>データ ソース =<em>serverName</em>;Initial Catalog =<em>databaseName</em>;Persist Security Info = True;ユーザー ID =<em>username</em>;パスワード =*パスワード</strong>*
+<strong>データソース =<em>serverName</em>;初期カタログ =<em>databaseName</em>;Persist Security Info = True;ユーザー ID =<em>username</em>;パスワード =*パスワード</strong>*
 
-場所*serverName*、 *databaseName*、*ユーザー名*、および*パスワード*データベース サーバー名、データベースの値には名、およびユーザー名、および web ホスト会社から提供されたパスワード。
+ここで、 *serverName*、 *databaseName*、 *username*、および*password*は、データベースサーバー名、データベース名、web ホスト会社によって指定されたユーザー名とパスワードの値です。
 
-## <a name="deploying-the-book-reviews-web-application"></a>書籍レビューの Web アプリケーションを展開します。
+## <a name="deploying-the-book-reviews-web-application"></a>書籍レビュー Web アプリケーションを展開する
 
-前のチュートリアルでは、開発用データベースを運用環境にコピー スルーしますが、でした、データ駆動型アプリケーションの展開を検討していません。 この時点で、実稼働環境では、データベースが含まれていますが、静的レビューで、書籍レビューのアプリケーションのバージョンを使用しています。 最新の構成情報と、実稼働サーバーに、新しいデータ ドリブン アプリケーションをデプロイする必要があります。
+前のチュートリアルでは、開発データベースを運用環境にコピーする手順について説明しましたが、データドリブンアプリケーションの配置については説明しませんでした。 この時点で、運用環境にはデータベースが含まれていますが、静的なレビューを含む書籍レビューアプリケーションのバージョンが使用されています。 更新された構成情報と共に、新しいデータドリブンアプリケーションを実稼働サーバーに配置する必要があります。
 
-データ ドリブン アプリケーションを開発環境から運用環境に展開する時間がかかります。 このプロセスは、前のチュートリアルの詳細について説明しました。 リフレッシャーが必要な場合を参照してください、 *FTP クライアントを使用して、web サイトを展開する*または*展開 web サイトを使用して Visual Studio*チュートリアル。 実稼働データベースの接続文字列は、1 つの代替。 つまり、運用環境で使用することを確認する必要があります`Web.config`ファイルを配置する必要があります。 具体的には、これは変更`Web.config`ファイルの`<connectionStrings>`要素は、実稼働データベースの接続文字列を含める必要があり、次のようになります。
+開発環境から運用環境にデータドリブンアプリケーションをデプロイします。 このプロセスの詳細については、前のチュートリアルで説明しました。 リフレッシャーが必要な場合は、「 *FTP クライアントを使用した Web サイトのデプロイ*」または「 *Visual Studio を使用した Web サイトのデプロイ*」チュートリアルを参照してください。 運用データベースの接続文字列が運用環境で使用されているものであることを確認する必要があります。つまり、代替の `Web.config` ファイルを配置する必要があります。 具体的には、このように変更された `Web.config` ファイル `<connectionStrings>` 要素には、実稼働データベース接続文字列が含まれている必要があり、次のようになります。
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample2.xml)]
 
-内の接続文字列に注意してください、`<connectionStrings>`要素の名前は同じ (`ReviewsConnectionString`)、開発データベースの接続文字列ではなく、実稼働データベースの接続文字列が含まれていますが、します。
+`<connectionStrings>` 要素の接続文字列の名前は同じであることに注意してください (`ReviewsConnectionString`)。ただし、ここでは、開発データベース接続文字列ではなく、実稼働データベース接続文字列が含まれています。
 
-形式化されたデプロイのワークフローがない限り、手動で変更するか、 `Web.config` (開発データベースの接続文字列を使用してに戻すことを記憶を展開する前に、実稼働データベースの接続文字列を使用するファイルその後)、別の管理または`Web.config`ファイルを実稼働環境の構成情報、実稼働環境に展開プロセスの一部としてアップロードを取得します。
+より形式化された展開ワークフローがない場合は、配置前に実稼働データベース接続文字列を使用するように `Web.config` ファイルを手動で変更します (後で開発データベース接続文字列を使用するようにしてください)。または、デプロイプロセスの一部として運用環境にアップロードされる運用環境の構成情報を使用して別の `Web.config` ファイルを
 
 > [!NOTE]
-> 誤ってデプロイする場合、`Web.config`運用上のアプリケーションがデータベースに接続しようとすると、エラーになりますが、開発データベースの接続文字列を含むファイル。 としてマニフェストにこのエラーを`SqlException`で、サーバーが見つからなかったか、アクセスできなかったことを報告するメッセージ。
+> 開発データベース接続文字列を含む `Web.config` ファイルを誤って配置した場合、運用環境でアプリケーションがデータベースに接続しようとするとエラーが発生します。 このエラーは、サーバーが見つからなかったかアクセスできなかったことを示すメッセージが表示された `SqlException` として報告されます。
 
-サイトを運用環境にデプロイすると、ブラウザーを使用して実稼働サイトを参照してください。 データ ドリブン アプリケーションをローカルに実行する場合と同じユーザー エクスペリエンスをお楽しみくださいし、表示されます。 もちろん実稼働環境で、web サイトにアクセスすると、サイトが搭載されています、実稼働データベース サーバーが、開発、データベースでは、開発環境で web サイトにアクセスします。 図 3 は、*教える自分で ASP.NET 3.5 in 24 時間*(ブラウザーのアドレス バーに URL に注意してください) の実稼働環境で web サイトからのページを確認します。
+サイトが運用環境にデプロイされたら、ブラウザーで運用サイトにアクセスします。 データドリブンアプリケーションをローカルで実行する場合と同じユーザーエクスペリエンスが表示されます。 実稼働環境で web サイトにアクセスした場合、サイトは実稼働データベースサーバーを使用しますが、開発環境の web サイトにアクセスするときは、開発時にデータベースを使用します。 図3に、運用環境の web サイトの「 *ASP.NET 3.5 In the 24 Hours review」 (24 時間のレビューを自分で*確認する) ページを示します (ブラウザーのアドレスバーの URL に注意してください)。
 
-[![データ ドリブン アプリケーションでは、ここで使用可能なに運用環境です。](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image7.jpg) 
+[これで、データドリブンアプリケーションを運用環境で使用できるようになり ![ます。](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image7.jpg) 
 
-**図 3**:データ ドリブン アプリケーションでは、ここで使用可能なに運用環境です。 ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image9.jpg))。
+**図 3**: データドリブンアプリケーションを運用環境で使用できるようになりました。 ([クリックすると、フルサイズの画像が表示](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image9.jpg)される)
 
-### <a name="storing-connection-strings-in-a-separate-configuration-file"></a>別の構成ファイルで接続文字列を保存します。
+### <a name="storing-connection-strings-in-a-separate-configuration-file"></a>接続文字列を別の構成ファイルに格納する
 
-開発および運用環境に個別の構成情報を維持するための一般的な手法は 2 つのバージョンの`Web.config`: 開発環境と運用環境のいずれかのいずれか。 展開に適切な`Web.config`バージョンを実稼働環境にコピーできます。 理想的には、展開ワークフローの一部としてこのプロセスを自動化するとします。
+開発環境と運用環境で個別の構成情報を保持するための一般的な手法として、`Web.config`の2つのバージョンがあります。1つは開発環境用で、もう1つは運用用です。 デプロイ時に、適切な `Web.config` バージョンを運用環境にコピーできます。 このプロセスは、展開ワークフローの一部として自動化されるのが理想的です。
 
-2 つの個別のメンテナンスではなく`Web.config`ファイルは、必要に応じてより詳細な相違点を提供します。 構成する要素、`Web.config`ファイルで参照される、外部構成ファイルで定義できる、`Web.config`ファイル。 いずれかが簡単に言えば`Web.config`ファイルの両方の環境は、接続文字列を含む databaseConnectionStrings.config ファイルを参照するアプリケーションで使用され、環境ごとに一意になります。 個別のファイルに異なる構成情報を分離することを読みやすいように提供する検索し、単純な`Web.config`ファイルと明確にで開発および運用環境の構成の違いについて説明します。
+2つの個別の `Web.config` ファイルを保持するのではなく、必要に応じてより細かい違いを提供できます。 `Web.config` ファイルを構成する要素は、`Web.config` ファイルで参照される外部構成ファイルで定義できます。 簡単に言うと、1つの `Web.config` ファイルを使用できます。このファイルには、アプリケーションで使用される接続文字列が含まれ、各環境で一意である、databaseConnectionStrings .config ファイルを参照します。 さまざまな構成情報を別々のファイルに分割すると、より単純な `Web.config` ファイルが提供され、開発環境と運用環境の構成の違いをより明確に把握できます。
 
-この手法を使用するという名前の web アプリケーションで新しいフォルダーを作成して開始`ConfigSections`します。 次に、databaseConnectionStrings.dev.config databaseConnectionStrings.production.config というこの新しいフォルダーに 2 つのファイルを追加します。次に、コピー、`<connectionStrings>`要素から`Web.config`databaseConnectionStrings.dev.config と databaseConnectionStrings.production.config ファイルにし、内の接続文字列を変更しますdatabaseConnectionStrings.production.config ファイルの実稼働データベースの接続文字列を指定できるようにします。 たとえば、databaseConnectionStrings.dev.config ファイルを含める必要があります、`<connectionStrings>`開発用データベースを参照する接続文字列を持つ要素。
+この手法を使用するには、まず、`ConfigSections`という名前の web アプリケーションに新しいフォルダーを作成します。 次に、databaseConnectionStrings という名前の新しいフォルダーに2つのファイルを追加します。次に、`Web.config` の `<connectionStrings>` 要素を databaseConnectionStrings. dev. .config ファイルにコピーします。次に、実稼働データベース接続文字列を指定するように、databaseConnectionStrings. machine.config ファイル内の接続文字列を変更します。 たとえば、databaseConnectionStrings. dev. .config ファイルには、開発データベースを参照する接続文字列を含む `<connectionStrings>` 要素だけを含める必要があります。
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample3.xml)]
 
-同様に、databaseConnectionStrings.production.config ファイルがだけ指定する必要があります、`<connectionStrings>`要素が、実稼働データベースの接続文字列であります。
+同様に、databaseConnectionStrings. .config ファイルには、`<connectionStrings>` 要素だけを含める必要がありますが、実稼働データベース接続文字列が含まれている必要があります。
 
-DatabaseConnectionStrings.dev.config ファイルのコピーを作成し、databaseConnectionStrings.config という名前を付けます。
+DatabaseConnectionStrings. dev. .config ファイルのコピーを作成し、その名前を「databaseConnectionStrings .config」にします。
 
 > [!NOTE]
-> できるファイルの名前を構成 databaseConnectionStrings.config、以外のものを場合は d など`connectionStrings.config`または`dbInfo.config`します。 ただし、ファイルに名前を必ず、`.config`拡張機能として`.config`ファイルは、既定で処理されない、ASP.NET エンジン。 などの場合、別の名前、ファイル、 `connectionStrings.txt`、ユーザーは、ブラウザーをポイントでした[www.yoursite.com/ConfigSettings/connectionStrings.txt](http://www.yoursite.com/ConfigSettings/connectionStrings.txt)し、ファイルの内容を表示。
+> 構成ファイルには、`connectionStrings.config` や `dbInfo.config`など、必要に応じて、databaseConnectionStrings .config 以外の名前を指定できます。 ただし、既定では ASP.NET エンジンによって処理されない `.config` ファイルを `.config` 拡張子でファイルに名前を付けてください。 `connectionStrings.txt`のように、ファイルに別の名前を指定すると、ユーザーはブラウザーで[www.yoursite.com/ConfigSettings/connectionStrings.txt](http://www.yoursite.com/ConfigSettings/connectionStrings.txt)をポイントし、ファイルの内容を表示することができます。
 
-この時点で、`ConfigSections`フォルダーは、3 つのファイル (図 4 参照) を含める必要があります。 DatabaseConnectionStrings.dev.config と databaseConnectionStrings.production.config ファイルには、開発および運用環境では、接続文字列がそれぞれ含まれます。 DatabaseConnectionStrings.config ファイルには、実行時に web アプリケーションによって使用される接続文字列情報が含まれています。 その結果、databaseConnectionStrings.config ファイルが運用環境で databaseConnectionStrings.config ファイルと同じになりますが、開発環境で databaseConnectionStrings.dev.config ファイルに同じであります。databaseConnectionStrings.production.config します。
+この時点で、`ConfigSections` フォルダーには3つのファイルが含まれている必要があります (図4を参照)。 DatabaseConnectionStrings. dev. .config ファイルと databaseConnectionStrings. app.config ファイルには、それぞれ開発環境と運用環境の接続文字列が含まれています。 DatabaseConnectionStrings .config ファイルには、実行時に web アプリケーションによって使用される接続文字列情報が含まれています。 そのため、databaseConnectionStrings .config ファイルは開発環境の databaseConnectionStrings. dev. .config ファイルと同じである必要がありますが、運用環境では、databaseConnectionStrings .config ファイルはと同じである必要があります。databaseConnectionStrings. machine.config.
 
 [![ConfigSections](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image11.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image10.jpg) 
 
-**図 4**:ConfigSections ([フルサイズの画像を表示する をクリックします](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))。
+**図 4**: configsections ([クリックしてフルサイズのイメージを表示する](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))
 
-今すぐに指示する必要があります`Web.config`databaseConnectionStrings.config ファイルの接続文字列のストアを使用します。 `Web.config`を開いて、既存の `<connectionStrings>` 要素を次の XAML に置き換えます。
+次に、接続文字列ストアに databaseConnectionStrings .config ファイルを使用するように `Web.config` に指示する必要があります。 `Web.config`を開いて、既存の `<connectionStrings>` 要素を次の XAML に置き換えます。
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample4.xml)]
 
-`configSource`属性に関連する物理パスを指定します、`Web.config`ファイル。 場合、外部`.config`と同じディレクトリ内のファイルが`Web.config`のファイル名にこの属性を設定、`.config`ファイル。 場合に、サブディレクトリ内 databaseConnectionStrings.config は、指定を ConfigSections\databaseConnectionStrings.config のように、フォルダーとファイル名を区切るためにバック スラッシュを使用してサブフォルダーです。
+`configSource` 属性は、`Web.config` ファイルを基準とした物理パスを指定します。 外部 `.config` ファイルが `Web.config` と同じディレクトリにある場合は、この属性に `.config` ファイルのファイル名を設定します。 ConfigSections\databaseConnectionStrings.config. の場合と同様に、サブディレクトリ内にある場合は、フォルダー名とファイル名を区切るために円記号を使用してサブフォルダーを指定します。
 
-この変更により、開発および運用環境を含む同じ`Web.config`ファイル。 ここで唯一の違いは、databaseConnectionStrings.config ファイルです。 運用環境に databaseConnectionStrings.production.config ファイルをコピーし、databaseConnectionStrings.config に変更します。今後、実稼働データベースの接続文字列への変更がある場合は、必要があります databaseConnectionStrings.production.config ファイルにすることし、運用環境にそのファイルをアップロードする databaseConnectionStrings.config 名前を変更します。
+この変更により、開発環境と運用環境に同じ `Web.config` ファイルが含まれるようになります。 ここで、唯一の違いは、databaseConnectionStrings .config ファイルです。 DatabaseConnectionStrings. .config ファイルを運用環境にコピーし、その名前を databaseConnectionStrings .config に変更します。将来、実稼働データベース接続文字列に変更が加えられた場合は、それを databaseConnectionStrings. .config ファイルに変更し、そのファイルを運用環境にアップロードして、その名前を databaseConnectionStrings .config に変更する必要があります。
 
 > [!NOTE]
-> いずれかの情報を指定することがあります`Web.config`内の要素別のファイルおよび使用して、`configSource`内からそのファイルを参照する属性`Web.config`します。
+> `Web.config` 要素の情報を別のファイルに指定し、`configSource` 属性を使用して `Web.config`内からそのファイルを参照することができます。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-通常、データ駆動型アプリケーションは、開発および運用環境で異なるデータベースを使用します。 その結果、web アプリケーションの構成に格納されているデータベースの接続文字列は、環境ごとに一意である必要があります。 このチュートリアルでは、実稼働データベースの接続文字列と 2 つの環境での一意の接続文字列情報を管理する方法を決定する方法を説明しました。
+通常、データドリブンアプリケーションでは、開発環境と運用環境で異なるデータベースを使用します。 そのため、web アプリケーションの構成に格納されているデータベース接続文字列は、環境ごとに一意である必要があります。 このチュートリアルでは、運用データベースの接続文字列を決定する方法と、2つの環境で一意の接続文字列情報を維持する方法について説明しました。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
 - [接続文字列と構成ファイル](https://msdn.microsoft.com/library/ms254494.aspx)
-- [データベースの構成文字列は @ ConnectionStrings.com](http://www.connectionstrings.com/)
-- [Web.config ファイルから設定を移動します。](http://www.asp101.com/tips/index.asp?id=154)
-- [技術ドキュメント、 &lt;connectionStrings&gt;要素](https://msdn.microsoft.com/library/bf7sd233.aspx)
+- [データベース構成文字列情報 @ ConnectionStrings.com](http://www.connectionstrings.com/)
+- [設定を Web.config ファイルの外に移動する](http://www.asp101.com/tips/index.asp?id=154)
+- [&lt;connectionStrings&gt; 要素の技術ドキュメント](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
 > [!div class="step-by-step"]
 > [前へ](deploying-a-database-vb.md)

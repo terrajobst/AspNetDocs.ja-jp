@@ -1,71 +1,71 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
-title: サーバー コード (VB) からモーダル ポップアップ ウィンドウの起動 |Microsoft Docs
+title: サーバーコードからモーダルポップアップウィンドウを起動する (VB) |Microsoft Docs
 author: wenz
-description: AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオでは、その t が必要としています.
+description: AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、一部のシナリオでは、
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 36ca81d7-906d-4db2-952b-add18a4ff421
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b98546952174bfcf08736195c87d515eda150319
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 1368a78d35ac6461bbc2e852e468f42eef2c0d2c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132602"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606598"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-vb"></a>サーバー コードからモーダル ポップアップ ウィンドウを起動する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1VB.pdf)
 
-> AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオにモーダル ポップアップを開くが、サーバー側でトリガーされる必要があります。
+> AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、一部のシナリオでは、モーダルポップアップを開くことがサーバー側でトリガーされる必要があります。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオにモーダル ポップアップを開くが、サーバー側でトリガーされる必要があります。
+AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、一部のシナリオでは、モーダルポップアップを開くことがサーバー側でトリガーされる必要があります。
 
 ## <a name="steps"></a>手順
 
-まず、ModalPopup コントロールの動作方法を示すために、ボタンの ASP.NET web コントロールが必要です。 内でこのようなボタンを追加、&lt;フォーム&gt;新しいページの要素。
+まず、ModalPopup コントロールがどのように動作するかを示すために、ASP.NET Button web コントロールが必要です。 新しいページの &lt;フォーム&gt; 要素内にこのようなボタンを追加します。
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample1.aspx)]
 
-次に、ポップアップを作成するマークアップが必要です。 定義として、`<asp:Panel>`を制御し、ボタン コントロールが含まれているかどうかを確認します。 ModalPopup コントロールがこのようなボタン閉じるのポップアップを作成するための機能を提供していますそれ以外の場合、消えるようにする簡単な方法はありません。
+次に、作成するポップアップのマークアップが必要です。 `<asp:Panel>` コントロールとして定義し、ボタンコントロールが含まれていることを確認します。 ModalPopup コントロールは、このようなボタンをポップアップを閉じる機能を提供します。そうしないと、簡単に消えることができません。
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample2.aspx)]
 
-次のページに ASP.NET AJAX Toolkit の ModalPopup コントロールを追加します。 ボタン コントロールに読み込み、非表示になります ボタン、および実際のポップアップの ID のプロパティを設定します。
+次に、ASP.NET AJAX Toolkit から ModalPopup コントロールをページに追加します。 コントロールを読み込むボタンのプロパティ、非表示にするボタン、および実際のポップアップの ID を設定します。
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample3.aspx)]
 
-ASP.NET AJAX; に基づいてすべての web ページと同様別のターゲットのブラウザーのために必要な JavaScript ライブラリを読み込むスクリプト マネージャーが必要です。
+ASP.NET AJAX に基づくすべての web ページと同様です。スクリプトマネージャーでは、さまざまなターゲットブラウザーに必要な JavaScript ライブラリを読み込む必要があります。
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample4.aspx)]
 
-ブラウザーでの例を実行します。 ボタンをクリックすると、モーダル ポップアップが表示されます。 サーバー側コードを使用して同じ効果を実現するために新しいボタンが必要です。
+ブラウザーで例を実行します。 このボタンをクリックすると、モーダルポップアップが表示されます。 サーバー側コードを使用して同じ効果を得るために、新しいボタンが必要です。
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample5.aspx)]
 
-ボタンをクリックしますがポストバックを生成して、実行、ご覧のとおり、`ServerButton_Click()`サーバー上のメソッド。 このメソッドは、JavaScript 関数が呼び出された`launchModal()`実行は正確では、ページが読み込まれると、JavaScript 関数が実行されます。
+ご覧のように、ボタンをクリックするとポストバックが生成され、サーバーで `ServerButton_Click()` メソッドが実行されます。 このメソッドでは、`launchModal()` という名前の JavaScript 関数が完全に実行され、ページが読み込まれると JavaScript 関数が実行されます。
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample6.aspx)]
 
-ジョブの`launchModal()`ModalPopup を表示することです。 `launchModal()`関数が実行されるは、完全な HTML ページが読み込まれるとします。 その瞬間、ただし、ASP.NET AJAX フレームワークが完全にまだ読み込まれていません。 そのため、`launchModal()`関数設定変数を後で、ModalPopup コントロールを表示する必要があります。
+`launchModal()` のジョブは、ModalPopup を表示することです。 `launchModal()` 関数は、HTML ページ全体が読み込まれた後に実行されます。 しかし、現時点では、ASP.NET AJAX フレームワークはまだ完全に読み込まれていません。 したがって、`launchModal()` 関数は、ModalPopup コントロールを後で表示する必要がある変数を設定するだけです。
 
 [!code-html[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample7.html)]
 
-`pageLoad()` JavaScript 関数は、ASP.NET AJAX が完全に読み込まれた後に実行される特殊な関数です。 そのため、ModalPopup コントロールが場合にのみを表示するには、この関数にコードを追加しました`launchModal()`が前に呼び出されました。
+`pageLoad()` JavaScript 関数は、ASP.NET AJAX が完全に読み込まれた後に実行される特別な関数です。 したがって、ModalPopup コントロールを表示するコードをこの関数に追加しますが、の前に `launchModal()` が呼び出されている場合に限ります。
 
 [!code-javascript[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample8.js)]
 
-`$find()`関数はページ上の名前付き要素を探してでサーバー側の ID をパラメーターとして必要があります。 そのため、 `$find("mpe")` ModalPopup コントロールのクライアントの表現を返します。 その`show()`メソッドにより、ポップアップが表示されます。
+`$find()` 関数は、ページ上の名前付き要素を探し、サーバー側 ID をパラメーターとして想定しています。 したがって、`$find("mpe")` は ModalPopup コントロールのクライアント表現を返します。`show()` メソッドを使用すると、ポップアップが表示されます。
 
-[![モーダル ポップアップを表示するときに、ボタンのいずれかがクリックされます。](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
+[いずれかのボタンをクリックしたときにモーダルポップアップが表示さ ![](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
 
-モーダル ポップアップを表示するときに、ボタンのいずれかがクリックされた ([フルサイズの画像を表示する をクリックします](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))。
+いずれかのボタンがクリックされると、モーダルポップアップが表示されます ([クリックすると、フルサイズの画像が表示](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](positioning-a-modalpopup-cs.md)

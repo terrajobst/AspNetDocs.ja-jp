@@ -1,305 +1,305 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
-title: マスター ページ (VB) で、タイトル、メタ タグ、およびその他の HTML ヘッダーを指定する |Microsoft Docs
+title: マスターページでタイトル、メタタグ、およびその他の HTML ヘッダーを指定する (VB) |Microsoft Docs
 author: rick-anderson
-description: さまざまな定義するためのさまざまな手法を見て&lt;ヘッド&gt;コンテンツ ページからマスター ページ内の要素。
+description: コンテンツページからマスターページ内の &lt;head&gt; 要素を定義するためのさまざまな手法について見ていきます。
 ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: ea8196f5-039d-43ec-8447-8997ad4d3900
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fd4e628e15fa95531175c83fdf5853a5d671e705
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 160af664cdf27f9ede1273aaf915da749a39ad48
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116299"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74637705"
 ---
 # <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>マスター ページでタイトル、メタ タグ、その他の HTML ヘッダーを指定する (VB)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_03_VB.zip)または[PDF のダウンロード](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_03_VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_03_VB.zip)または[PDF のダウンロード](https://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_03_VB.pdf)
 
-> さまざまな定義するためのさまざまな手法を見て&lt;ヘッド&gt;コンテンツ ページからマスター ページ内の要素。
+> コンテンツページからマスターページ内の &lt;head&gt; 要素を定義するためのさまざまな手法について見ていきます。
 
 ## <a name="introduction"></a>はじめに
 
-Visual Studio 2008 で作成された新しいのマスター ページがある、既定で 2 つのプレース ホルダー コントロール: という名前の 1 つ`head`に記載されていると、`<head>`要素と名前が指定`ContentPlaceHolder1`、Web フォーム内に配置します。 目的は、 `ContentPlaceHolder1` Web フォーム ページの単位でカスタマイズ可能な領域を定義することです。 `head` ContentPlaceHolder により、カスタム コンテンツを追加するページ、`<head>`セクション。 (もちろん、これら 2 つの ContentPlaceHolders を変更または削除、およびマスター ページに追加のプレース ホルダーを追加する可能性があります。 マスターのページでは、 `Site.master`、現在 4 つのプレース ホルダー コントロールを保持します)。
+Visual Studio 2008 で作成された新しいマスターページには、既定で2つの ContentPlaceHolder コントロールがあります。1つは `head`という名前で、もう1つは `<head>` 要素にあります。また、Web フォーム内に配置された `ContentPlaceHolder1`という名前のものがあります。 `ContentPlaceHolder1` の目的は、ページごとにカスタマイズできる、Web フォームの領域を定義することです。 `head` ContentPlaceHolder を使用すると、ページは `<head>` セクションにカスタムコンテンツを追加できます。 (もちろん、これら2つの ContentPlaceHolders は変更または削除でき、追加の ContentPlaceHolder をマスターページに追加することもできます。 現在のマスターページ `Site.master`には、4つの ContentPlaceHolder コントロールがあります)。
 
-HTML`<head>`要素がドキュメント自体の一部でない web ページの文書に関する情報のリポジトリとして機能します。 Web ページのタイトルなどの情報が、ファイルの検索エンジンまたは内部のクローラーや RSS フィード、JavaScript、CSS などの外部リソースへのリンクで使用されるメタ情報。 この情報の一部は、web サイトのすべてのページに関連する可能性があります。 たとえば、グローバルにすべての ASP.NET ページの JavaScript ファイルと同じの CSS 規則をインポートする可能性があります。 ただしの部分がある、`<head>`ページ固有である要素。 ページ タイトルは、典型的な例です。
+HTML `<head>` 要素は、ドキュメント自体に含まれていない web ページドキュメントに関する情報のリポジトリとして機能します。 これには、web ページのタイトル、検索エンジンまたは内部クローラーで使用されるメタ情報、RSS フィード、JavaScript、CSS ファイルなどの外部リソースへのリンクなどの情報が含まれます。 この情報の一部は、web サイトのすべてのページに関連している場合があります。 たとえば、すべての ASP.NET ページに対して同じ CSS 規則と JavaScript ファイルをグローバルにインポートすることができます。 ただし、`<head>` 要素にはページ固有の部分があります。 ページタイトルは、代表的な例です。
 
-このチュートリアルではグローバルと特定のページを定義する方法を調べる`<head>`とそのコンテンツ ページのマスター ページのセクションのマークアップ。
+このチュートリアルでは、マスターページとそのコンテンツページで、グローバルおよびページ固有の `<head>` セクションマークアップを定義する方法について説明します。
 
-## <a name="examining-the-master-pagesheadsection"></a>マスター ページの検査`<head>`セクション
+## <a name="examining-the-master-pagesheadsection"></a>マスターページの`<head>`セクションを調べる
 
-Visual Studio 2008 によって作成された既定マスター ページ ファイルには、次のマークアップにが含まれています。 その`<head>`セクション。
+Visual Studio 2008 によって作成される既定のマスターページファイルには、`<head>` セクションに次のマークアップが含まれています。
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample1.aspx)]
 
-注意、`<head>`要素が含まれています、`runat="server"`属性には、サーバー コントロール (なく、静的な HTML) であることを示します。 派生してすべての ASP.NET ページ、 [ `Page`クラス](https://msdn.microsoft.com/library/system.web.ui.page.aspx)にある、`System.Web.UI`名前空間。 このクラスが含まれています、 [ `Header`プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.header.aspx)をページのアクセスを提供する`<head>`リージョン。 使用して、`Header`プロパティ ASP.NET ページのタイトルを設定したり、表示する追加のマークアップを追加しました`<head>`セクション。 可能であれば、その後、コンテンツ ページをカスタマイズする`<head>`要素で、ページのコードを記述して`Page_Load`イベント ハンドラー。 手順 1. でページのタイトルをプログラムで設定する方法を説明します。
+`<head>` 要素には `runat="server"` 属性が含まれていることに注意してください。これは、静的 HTML ではなく、サーバーコントロールであることを示します。 すべての ASP.NET ページは、`System.Web.UI` 名前空間にある[`Page` クラス](https://msdn.microsoft.com/library/system.web.ui.page.aspx)から派生します。 このクラスには、ページの `<head>` 領域へのアクセスを提供する[`Header` プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.header.aspx)が含まれています。 `Header` プロパティを使用して、ASP.NET ページのタイトルを設定したり、表示される `<head>` セクションにマークアップを追加したりできます。 次に、ページの `Page_Load` イベントハンドラーに少しコードを記述して、コンテンツページの `<head>` 要素をカスタマイズできます。 手順1でページのタイトルをプログラムによって設定する方法を確認します。
 
-マークアップに示すように、`<head>`上の要素は、という名前のプレース ホルダー コントロールも含まれています。`head`します。 このプレース ホルダー コントロールがコンテンツ ページを追加するカスタム コンテンツと、必要に応じて、`<head>`要素プログラムを使用します。 ただし、コンテンツ ページが static のマークアップを追加する必要がある状況で便利ですが、`<head>`に対応するコンテンツ コントロールではなくプログラムによって、静的マークアップとして要素を宣言によって追加できます。
+上の `<head>` 要素に示されているマークアップには、`head`という名前の ContentPlaceHolder コントロールも含まれています。 コンテンツページでは、`<head>` 要素にプログラムによってカスタムコンテンツを追加できるため、この ContentPlaceHolder コントロールは必要ありません。 ただし、静的なマークアップをプログラムによってではなく、対応するコンテンツコントロールに宣言的に追加できるため、コンテンツページで `<head>` 要素に静的マークアップを追加する必要がある場合に便利です。
 
-加え、`<title>`要素と`head`ContentPlaceHolder、マスター ページの`<head>`要素を含める必要があります`<head>`-すべてのページに共通するレベルのマークアップ。 定義された CSS ルールを使用しているすべてのページ、web サイトで、`Styles.css`ファイル。 その結果、更新、`<head>`内の要素、 [*マスター ページで、サイト全体レイアウトを作成する*](creating-a-site-wide-layout-using-master-pages-vb.md)チュートリアルでは、対応するを含める`<link>`要素。 この`Site.master`マスター ページの現在`<head>`マークアップを次に示します。
+`<title>` 要素と `head` ContentPlaceHolder に加えて、マスターページの `<head>` 要素には、すべてのページに共通のすべての `<head>`レベルのマークアップが含まれている必要があります。 Web サイトでは、すべてのページが `Styles.css` ファイルで定義されている CSS 規則を使用します。 そのため、「[*マスターページを使用したサイト全体のレイアウトの作成*](creating-a-site-wide-layout-using-master-pages-vb.md)」チュートリアルの `<head>` 要素を更新して、対応する `<link>` 要素を含めるようにしました。 `Site.master` マスターページの現在の `<head>` マークアップを次に示します。
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample2.aspx)]
 
-## <a name="step-1-setting-a-content-pages-title"></a>手順 1: コンテンツ ページのタイトルの設定
+## <a name="step-1-setting-a-content-pages-title"></a>手順 1: コンテンツページのタイトルを設定する
 
-使用して web ページのタイトルが指定されて、`<title>`要素。 適切な値の各ページのタイトルを設定するのには重要です。 ページにアクセスして、ブラウザーのタイトル バーにそのタイトルが表示されます。 さらに、ページのブックマークを作成するときに、ブラウザーはページのタイトルをブックマークの推奨される名前として使用します。 また、多くの検索エンジンは、検索結果を表示するときに、ページのタイトルを表示します。
+Web ページのタイトルは、`<title>` 要素によって指定されます。 各ページのタイトルを適切な値に設定することが重要です。 ページにアクセスすると、ブラウザーのタイトルバーにタイトルが表示されます。 さらに、ページをブックマークするときに、ブラウザーはそのページのタイトルをブックマークの推奨される名前として使用します。 また、多くの検索エンジンでは、検索結果を表示するときにページのタイトルが表示されます。
 
 > [!NOTE]
-> 既定では、Visual Studio の設定、 `<title>` 「無題ページ」にマスター ページ内の要素。 同様に、新しい ASP.NET ページがある、`<title>`すぎます「無題ページ」に設定します。 多くのページをページのタイトルに適切な値を設定し忘れることができる、ので「無題ページ」というタイトルのインターネット上があります。 このタイトルの web ページの Google を検索するには、約 2,460,000 結果が返されます。 Microsoft は、「無題ページ」というタイトルの web ページを発行します。 この記事の執筆時に、Google 検索には、Microsoft.com ドメインで 236 このような web ページが報告されました。
+> 既定では、Visual Studio によって、マスターページの `<title>` 要素が "無題のページ" に設定されます。 同様に、新しい ASP.NET ページでも `<title>` が "無題のページ" に設定されています。 ページのタイトルを適切な値に設定するのは簡単ではないため、インターネット上には "無題のページ" というタイトルのページが多数あります。 このタイトルで web ページの Google を検索すると、約246万の結果が返されます。 Microsoft でも、"無題のページ" というタイトルの web ページを公開することはできます。 このドキュメントの執筆時点では、Google search は Microsoft.com ドメイン内のこのような web ページを236報告しました。
 
-ASP.NET ページは、次の方法のいずれかでそのタイトルを指定できます。
+ASP.NET ページでは、次のいずれかの方法でタイトルを指定できます。
 
-- 内で値を直接配置することで、`<title>`要素
-- 使用して、`Title`属性、`<%@ Page %>`ディレクティブ
-- プログラムで設定するページの`Title`のようなコードを使用してプロパティ`Page.Title="title"`または`Page.Header.Title="title"`します。
+- `<title>` 要素内に値を直接配置する
+- `<%@ Page %>` ディレクティブでの `Title` 属性の使用
+- `Page.Title="title"` や `Page.Header.Title="title"`などのコードを使用して、プログラムによってページの `Title` プロパティを設定します。
 
-コンテンツ ページがない、`<title>`ほどの要素がマスター ページで定義されています。 そのため、コンテンツ ページのタイトルの設定を使用するか、`<%@ Page %>`ディレクティブの`Title`属性またはプログラムによって設定します。
+コンテンツページには、マスターページで定義されているように `<title>` 要素はありません。 そのため、コンテンツページのタイトルを設定するには、`<%@ Page %>` ディレクティブの `Title` 属性を使用するか、プログラムによって設定します。
 
-### <a name="setting-the-pages-title-declaratively"></a>宣言によってページのタイトルを設定
+### <a name="setting-the-pages-title-declaratively"></a>ページのタイトルを宣言によって設定する
 
-コンテンツ ページのタイトルはを通じて宣言的設定できる、`Title`の属性、 [ `<%@ Page %>`ディレクティブ](https://msdn.microsoft.com/library/ydy4x04a.aspx)します。 直接変更することでこのプロパティを設定することができます、`<%@ Page %>`ディレクティブまたは、プロパティ ウィンドウを使用します。 どちらの方法を見てみましょう。
+コンテンツページのタイトルは、 [`<%@ Page %>` ディレクティブ](https://msdn.microsoft.com/library/ydy4x04a.aspx)の `Title` 属性を使用して、宣言によって設定できます。 このプロパティを設定するには、`<%@ Page %>` ディレクティブを直接変更するか、プロパティウィンドウを使用します。 両方の方法を見てみましょう。
 
-ソース ビューを見つけ、`<%@ Page %>`ディレクティブは、宣言型マークアップをページの上部にあります。 `<%@ Page %>`ディレクティブを`Default.aspx`に従います。
+ソースビューで、ページの宣言型マークアップの一番上にある `<%@ Page %>` ディレクティブを見つけます。 `Default.aspx` の `<%@ Page %>` ディレクティブは次のとおりです。
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample3.aspx)]
 
-`<%@ Page %>`ディレクティブを解析し、ページをコンパイルするときに、ASP.NET エンジンで使用されるページ固有の属性を指定します。 これには、そのマスター ページ ファイル、そのコード ファイルとそのタイトルは、他の情報の場所が含まれます。
+`<%@ Page %>` ディレクティブは、ページの解析とコンパイル時に ASP.NET エンジンによって使用されるページ固有の属性を指定します。 これには、マスターページファイル、コードファイルの場所、その他の情報などが含まれます。
 
-既定で Visual Studio の設定の新しいコンテンツ ページを作成するときに、`Title`属性を「無題ページ」にします。 変更`Default.aspx`の`Title`「無題ページ」から「マスター ページのチュートリアル」への属性し、、ブラウザーでページを表示します。 図 1 は、新しいページ タイトルを反映するブラウザーのタイトル バーを示します。
+既定では、新しいコンテンツページを作成するときに、Visual Studio によって `Title` 属性が "無題のページ" に設定されます。 `Default.aspx`の `Title` 属性を "無題のページ" から "マスターページチュートリアル" に変更し、ブラウザーを使用してそのページを表示します。 図1は、新しいページタイトルを反映するブラウザーのタイトルバーを示しています。
 
-![ブラウザーのタイトル バーに表示されます&quot;マスター ページのチュートリアル&quot;の代わりに&quot;無題のページ&quot;](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image1.png)
+![ブラウザーのタイトルバーには、&quot;無題のページではなく&quot; &quot;マスターページのチュートリアルが表示されるようになりました&quot;](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image1.png)
 
-**図 01**:ブラウザーのタイトル バーに「無題ページ」ではなく「マスター ページのチュートリアル」が表示されます。
+**図 01**: ブラウザーのタイトルバーに "無題のページ" ではなく "マスターページのチュートリアル" が表示されるようになりました。
 
-ページのタイトルは、[プロパティ] ウィンドウからも設定できます。 [プロパティ] ウィンドウからドキュメントから選択ドロップダウン リストが含まれています、ロード、ページ レベルのプロパティに、`Title`プロパティ。 図 2 は、後の [プロパティ] ウィンドウを示しています。 `Title` "マスター ページのチュートリアル"に設定されています。
+ページのタイトルは、プロパティウィンドウから設定することもできます。 プロパティウィンドウから、ドロップダウンリストから [ドキュメント] を選択して、`Title` プロパティを含むページレベルのプロパティを読み込みます。 図2は、`Title` が "マスターページチュートリアル" に設定された後のプロパティウィンドウを示しています。
 
-![すぎる [プロパティ] ウィンドウからのタイトルを構成することがあります。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image2.png)
+![[プロパティ] ウィンドウからタイトルを構成することもできます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image2.png)
 
-**図 02**:すぎる [プロパティ] ウィンドウからのタイトルを構成することがあります。
+**図 02**: [プロパティ] ウィンドウからタイトルを構成することもできます。
 
 ### <a name="setting-the-pages-title-programmatically"></a>プログラムによるページのタイトルの設定
 
-マスター ページの`<head runat="server">`マークアップに変換される、 [ `HtmlHead`クラス](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.aspx)インスタンスの場合、ページは、ASP.NET エンジンによってレンダリングされます。 `HtmlHead`クラスには、 [ `Title`プロパティ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.title.aspx)値が反映されて、レンダリングされたで`<title>`要素。 このプロパティを使用して、ASP.NET ページの分離コード クラスからアクセスできる`Page.Header.Title`; この同じプロパティを使用してアクセスすることも`Page.Title`します。
+ASP.NET エンジンによってページがレンダリングされるときに、マスターページの `<head runat="server">` マークアップが[`HtmlHead` クラス](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.aspx)のインスタンスに変換されます。 `HtmlHead` クラスには、表示される `<title>` 要素に値が反映される[`Title` プロパティ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.title.aspx)があります。 このプロパティは、`Page.Header.Title`を介して ASP.NET ページの分離コードクラスからアクセスできます。この同じプロパティには、`Page.Title`経由でアクセスすることもできます。
 
-ページのタイトルをプログラムで設定を練習に移動し、`About.aspx`ページの分離コード クラスし、ページのイベント ハンドラーを作成`Load`イベント。 次に、ページのタイトルを設定"マスター ページのチュートリアル。約::*日付*"ここで、*日付*は現在の日付です。 このコードを追加した後、`Page_Load`イベント ハンドラーは、次のようになります。
+プログラムによってページのタイトルを設定する方法については、`About.aspx` ページの分離コードクラスに移動し、ページの `Load` イベントのイベントハンドラーを作成します。 次に、ページのタイトルを "マスターページチュートリアル:: About:: *date*" に設定します。ここで、 *date*は現在の日付です。 このコードを追加すると、`Page_Load` イベントハンドラーは次のようになります。
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample4.vb)]
 
-図 3 にアクセスすると、ブラウザーのタイトル バーを示しています、`About.aspx`ページ。
+図3は、`About.aspx` ページにアクセスするときのブラウザーのタイトルバーを示しています。
 
-![ページのタイトルはプログラムで設定し、現在の日付が含まれています](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image3.png)
+![ページのタイトルはプログラムによって設定され、現在の日付が含まれます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image3.png)
 
-**図 03**:ページのタイトルはプログラムで設定し、現在の日付が含まれています
+**図 03**: ページのタイトルがプログラムによって設定され、現在の日付が含まれる
 
-## <a name="step-2-automatically-assigning-a-page-title"></a>手順 2: ページ タイトルを自動的に割り当てます
+## <a name="step-2-automatically-assigning-a-page-title"></a>手順 2: ページタイトルを自動的に割り当てる
 
-手順 1. で説明したように、ページのタイトルは、宣言またはプログラムによって設定できます。 明示的にわかりやすいタイトルを変更することを忘れてしまった場合ただし、ページが既定のタイトル「無題ページ」。 理想的には、ページのタイトルは設定に自動的に私たちにとってその値を明示的に指定しないこと。 たとえば、実行時に、ページのタイトルは「無題ページ」が場合、する可能性がしたタイトルが ASP.NET ページのファイル名と同じであるに自動的に更新します。 良い知らせは、多少の事前作業が自動的に割り当てられているタイトルが存在することができます。
+手順 1. で見たように、ページのタイトルは宣言またはプログラムによって設定できます。 ただし、タイトルをさらにわかりやすいものに明示的に変更し忘れた場合、ページには既定のタイトル "無題のページ" が表示されます。 理想的には、ページのタイトルは、値を明示的に指定していない場合に自動的に設定されます。 たとえば、実行時にページのタイトルが "無題のページ" である場合、タイトルを自動的に更新して、ASP.NET ページのファイル名と同じにすることができます。 すばらしいのは、少しの初期作業で、タイトルを自動的に割り当てることができるということです。
 
-派生してすべての ASP.NET web ページ、 `Page` System.Web.UI 名前空間のクラス。 `Page`クラスは、ASP.NET ページで必要な最小限の機能を定義しなどの重要なプロパティを公開します`IsPostBack`、 `IsValid`、 `Request`、および`Response`、多数あります。 多くの場合、web アプリケーション内の各ページには、追加の機能または機能が必要です。 これを提供するための一般的な方法では、ベース ページのカスタム クラスを作成します。 ベース ページのカスタム クラスから派生したクラスを作成するは、`Page`クラスし、追加機能が含まれています。 この基本クラスが作成されたら、そこから派生、ASP.NET ページがあることができます (なく`Page`クラス) ため、ASP.NET ページの拡張機能を提供します。
+すべての ASP.NET web ページは、System.web. UI 名前空間の `Page` クラスから派生します。 `Page` クラスは、ASP.NET ページに必要な最小限の機能を定義し、他の多くの `IsPostBack`、`IsValid`、`Request`、`Response`などの重要なプロパティを公開します。 多くの場合、web アプリケーションのすべてのページに追加の機能が必要です。 これを提供する一般的な方法は、カスタムの基本ページクラスを作成することです。 カスタム基本ページクラスは、`Page` クラスから派生し、追加の機能を含む、作成するクラスです。 この基本クラスを作成した後は、ASP.NET ページを (`Page` クラスではなく) 派生させて、ASP.NET ページに拡張機能を提供することができます。
 
-この手順では、タイトル、それ以外の場合に明示的が設定されていない場合、ASP.NET ページのファイル名に、ページのタイトルを自動的に設定される基本ページを作成します。 手順 3 は、サイト マップに基づいてページのタイトルを設定します。
-
-> [!NOTE]
-> 徹底的に検証を作成して、ベース ページのカスタム クラスを使用するのでは、このチュートリアル シリーズの範囲外です。 詳細については、読み取る[Your ASP.NET ページの分離コード クラスのカスタムの基本クラスを使用して](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)します。
-
-### <a name="creating-the-base-page-class"></a>基本ページ クラスを作成します。
-
-まず最初に、拡張するクラスは、ページの基本クラスを作成する、`Page`クラス。 追加することで開始、`App_Code`ソリューション エクスプ ローラーでプロジェクト名を右クリックし、ASP.NET フォルダーの追加 を選択し、順に選択して、プロジェクトにフォルダー`App_Code`します。 次に、右クリックし、`App_Code`フォルダーという新しいクラスを追加および`BasePage.vb`します。 図 4 は、後のソリューション エクスプ ローラー、`App_Code`フォルダーと`BasePage.vb`クラスが追加されました。
-
-![App_Code フォルダーと BasePage という名前のクラスを追加します。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
-
-**図 04**:追加、`App_Code`フォルダーとという名前のクラス `BasePage`
+この手順では、タイトルが明示的に設定されていない場合に、ページのタイトルを ASP.NET ページのファイル名に自動的に設定するベースページを作成します。 手順3は、サイトマップに基づいてページのタイトルを設定する方法を示しています。
 
 > [!NOTE]
-> Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。Web サイト プロジェクトと Web アプリケーション プロジェクト。 `App_Code`フォルダーが Web サイト プロジェクト モデルで使用するように設計します。 Web アプリケーション プロジェクト モデルを使用している場合は、配置、`BasePage.vb`以外の何かという名前のフォルダー内のクラス`App_Code`など`Classes`します。 このトピックの詳細についてを参照してください[Web アプリケーション プロジェクトに Web サイト プロジェクトを移行する](http://webproject.scottgu.com/VisualBasic/Migration2/Migration2.aspx)します。
+> カスタムベースページクラスの作成と使用の詳細については、このチュートリアルシリーズの範囲を超えています。 詳細については、「 [ASP.NET ページの分離コードクラスのカスタム基本クラスの使用」](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)を参照してください。
 
-カスタム ベース ページは ASP.NET ページの分離コード クラスの基本クラスとして機能する、拡張に必要な`Page`クラス。
+### <a name="creating-the-base-page-class"></a>基本ページクラスの作成
+
+最初のタスクは、基本ページクラスを作成することです。これは、`Page` クラスを拡張するクラスです。 まず、ソリューションエクスプローラーでプロジェクト名を右クリックして [ASP.NET フォルダーの追加] を選択し、[`App_Code`] を選択して、プロジェクトに `App_Code` フォルダーを追加します。 次に、`App_Code` フォルダーを右クリックし、`BasePage.vb`という名前の新しいクラスを追加します。 図4は、`App_Code` フォルダーと `BasePage.vb` クラスが追加された後のソリューションエクスプローラーを示しています。
+
+![App_Code フォルダーと、BasePage という名前のクラスを追加します。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
+
+**図 04**: `App_Code` フォルダーと `BasePage` という名前のクラスを追加する
+
+> [!NOTE]
+> Visual Studio では、2つのプロジェクト管理モード (Web サイトプロジェクトと Web アプリケーションプロジェクト) がサポートされています。 `App_Code` フォルダーは、Web サイトプロジェクトモデルと共に使用するように設計されています。 Web アプリケーションプロジェクトモデルを使用している場合は、`Classes`など、`App_Code`以外の名前のフォルダーに `BasePage.vb` クラスを配置します。 このトピックの詳細については、web[サイトプロジェクトの Web アプリケーションプロジェクトへの移行](http://webproject.scottgu.com/VisualBasic/Migration2/Migration2.aspx)に関するページを参照してください。
+
+カスタムベースページは、ASP.NET ページの分離コードクラスの基底クラスとして機能するため、`Page` クラスを拡張する必要があります。
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample5.vb)]
 
-ASP.NET ページが要求されるたびに、一連のステージ、HTML にレンダリングされる、要求されたページで進行します。 ステージをタップしてオーバーライドすることで、`Page`クラスの`OnEvent`メソッド。 ベース ページみましょう自動的にタイトルを設定することが指定されていない場合に明示的にして、`LoadComplete`ステージ (、ご想像のとおりと後に発生、`Load`ステージ)。
+ASP.NET ページが要求されるたびに、HTML にレンダリングされる要求されたページ内のするの一連のステージに進みます。 `Page` クラスの `OnEvent` メソッドをオーバーライドすることによって、1つのステージをタップできます。 ベースページについては、`LoadComplete` ステージによって明示的に指定されていない場合は、自動的にタイトルが設定されます (これは、`Load` 段階の後に発生する可能性があります)。
 
-これを行うには、オーバーライド、`OnLoadComplete`メソッドし、次のコードを入力します。
+これを実現するには、`OnLoadComplete` メソッドをオーバーライドし、次のコードを入力します。
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample6.vb)]
 
-`OnLoadComplete`メソッドはどうかを確認を開始、`Title`プロパティがまだ設定されていない明示的にします。 場合、`Title`プロパティは`Nothing`、空の文字列か、値「無題ページ」が、要求された ASP.NET ページのファイル名に割り当てられます。 -要求された ASP.NET ページへの物理パス`C:\MySites\Tutorial03\Login.aspx`、たとえば、経由でアクセスできますが、`Request.PhysicalPath`プロパティ。 `Path.GetFileNameWithoutExtension`メソッドを使用して、ファイル名の一部だけをプルおよびにこのファイル名が割り当てられているし、`Page.Title`プロパティ。
+`OnLoadComplete` メソッドは、`Title` プロパティが明示的に設定されていないかどうかを判断することから始まります。 `Title` プロパティが `Nothing`、空の文字列、または値が "無題のページ" の場合は、要求された ASP.NET ページのファイル名に割り当てられます。 要求された ASP.NET `C:\MySites\Tutorial03\Login.aspx`ページへの物理パス (たとえば、) は `Request.PhysicalPath` プロパティを使用してアクセスできます。 `Path.GetFileNameWithoutExtension` メソッドを使用して、ファイル名の部分のみを取得し、このファイル名を `Page.Title` プロパティに割り当てます。
 
 > [!NOTE]
-> タイトルの書式を向上させるためには、このロジックを強化することをお勧めします。 たとえば、ページのファイル名は`Company-Products.aspx`、上記のコードは「会社の製品」、タイトルが生成されますが、理想的には、dash「会社製品」のように、スペースで置き換えられます。 また、大文字と小文字の変更があるたびに、スペースを追加することを検討してください。 つまり、ファイル名を変換するコードの追加を検討する`OurBusinessHours.aspx`タイトルの「の営業時間」にします。
+> タイトルの形式を改善するために、このロジックを強化することをお勧めします。 たとえば、ページのファイル名が `Company-Products.aspx`場合、上記のコードでは "Company-Products" というタイトルが生成されますが、"会社の製品" のように、ダッシュはスペースで置き換えられるのが理想的です。 また、大文字小文字の変更がある場合は必ずスペースを追加することを検討してください。 つまり、ファイル名 `OurBusinessHours.aspx` を "当社の勤務時間" のタイトルに変換するコードを追加することを検討してください。
 
-### <a name="having-the-content-pages-inherit-the-base-page-class"></a>コンテンツ ページを基本 Page クラスの継承
+### <a name="having-the-content-pages-inherit-the-base-page-class"></a>コンテンツページが基本ページクラスを継承するようにする
 
-これでカスタム ベース ページから派生する、サイトでの ASP.NET ページを更新する必要があります (`BasePage`) の代わりに、`Page`クラス。 各分離コード クラスには、この移動を実現し、クラス宣言を変更します。
+ここでは、`Page` クラスではなく、カスタムベースページ (`BasePage`) から派生するようにサイトの ASP.NET ページを更新する必要があります。 これを実現するには、各分離コードクラスに移動し、クラス宣言を次のように変更します。
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample7.vb)]
 
-移動先:
+宛先:
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample8.vb)]
 
-その後、ブラウザーを使用してサイトを参照してください。 タイトルなど、明示的に設定 ページにアクセスするかどうかは`Default.aspx`または`About.aspx`、明示的に指定されたタイトルが使用されます。 ただし、タイトルが既定値 (「無題ページ」) から変更されていないページを参照してください場合、ベース ページ クラスは、タイトル ページのファイル名を設定します。
+その後、ブラウザーを使用してサイトにアクセスします。 `Default.aspx` や `About.aspx`など、タイトルが明示的に設定されているページにアクセスすると、明示的に指定されたタイトルが使用されます。 ただし、タイトルが既定値 ("無題のページ") から変更されていないページにアクセスする場合、ベースページクラスはタイトルをページのファイル名に設定します。
 
-図 5 は、`MultipleContentPlaceHolders.aspx`ページをブラウザーで表示する場合。 タイトルは、正確にファイル名 (拡張子)、小さいにページのことに注意してください。"MultipleContentPlaceHolders"。
+図5は、ブラウザーを使用して表示するときの `MultipleContentPlaceHolders.aspx` ページを示しています。 タイトルは、厳密にはページのファイル名 (拡張子が小さい) "MultipleContentPlaceHolders" であることに注意してください。
 
-[![ページのファイル名では、自動的に使用されますが、タイトルが明示的に指定しない場合は、](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image5.png)
+[![タイトルが明示的に指定されていない場合は、ページのファイル名が自動的に使用されます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image5.png)
 
-**図 05**:ページのファイル名では、自動的に使用されますが、タイトルが明示的に指定しない場合は、([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image7.png))。
+**図 05**: タイトルが明示的に指定されていない場合は、ページのファイル名が自動的に使用されます ([クリックすると、フルサイズの画像が表示](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image7.png)されます)
 
-## <a name="step-3-basing-the-page-title-on-the-site-map"></a>手順 3: ページ タイトルをに基づいてサイト マップ
+## <a name="step-3-basing-the-page-title-on-the-site-map"></a>手順 3: サイトマップのページタイトルを基にする
 
-ASP.NET には、ページ開発者と共に、SiteMapPath などのサイト マップに関する情報を表示するための Web コントロール (XML ファイルまたはデータベース テーブル) などの外部リソースで、階層のサイト マップを定義することができる信頼性の高いサイト マップ フレームワークが用意されていますメニューのおよび TreeView コントロール)。
+ASP.NET には、サイトマップに関する情報を表示するための Web コントロールと共に、ページ開発者が外部リソース (XML ファイルやデータベーステーブルなど) で階層サイトマップを定義できるようにする、堅牢なサイトマップフレームワークが用意されています (SiteMapPath など)。メニューと TreeView コントロール)。
 
-サイト マップ構造は、ASP.NET ページの分離コード クラスからプログラムでもアクセスできます。 この方法で、サイト マップにページのタイトル、対応するノードのタイトルを自動的に設定できます。 みましょう強化、`BasePage`クラスのこの機能を提供するために、手順 2. で作成します。 まず、サイトのサイト マップを作成する必要があります。
+サイトマップ構造には、ASP.NET ページの分離コードクラスからプログラムからアクセスすることもできます。 この方法では、サイトマップ内の対応するノードのタイトルにページのタイトルを自動的に設定できます。 手順 2. で作成した `BasePage` クラスを拡張して、この機能を提供できるようにしましょう。 ただし、まず、サイトのサイトマップを作成する必要があります。
 
 > [!NOTE]
-> このチュートリアルでは、リーダーは既に ASP 知識が前提としています。NET のサイト マップ機能です。 サイト マップの使用に関する詳細については、私のシリーズの記事を参照してください。 [ASP を確認します。NET のサイト ナビゲーション](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)します。
+> このチュートリアルでは、読者が既に ASP に精通していることを前提としています。NET のサイトマップ機能。 サイトマップの使用方法の詳細については、「マルチパート」を参照してください[。NET のサイトナビゲーション](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)。
 
-### <a name="creating-the-site-map"></a>サイト マップを作成します。
+### <a name="creating-the-site-map"></a>サイトマップの作成
 
-サイト マップのシステムが上に構築される、[プロバイダー モデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)、サイト マップ API メモリと永続的なストアの間のサイト マップ情報をシリアル化するロジックからを分離します。 .NET Framework が付属、 [ `XmlSiteMapProvider`クラス](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx)、これは、既定のサイト マップ プロバイダー。 名前からわかるように、`XmlSiteMapProvider`サイト マップ ストアとして XML ファイルを使用します。 このプロバイダーを使用して、サイト マップを定義しましょう。
+サイトマップシステムは、[プロバイダーモデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)の上に構築されます。これにより、サイトマップ API は、メモリと永続ストアの間でサイトマップ情報をシリアル化するロジックから切り離されます。 .NET Framework には、既定のサイトマッププロバイダーである[`XmlSiteMapProvider` クラス](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx)が付属しています。 その名前が示すように、`XmlSiteMapProvider` は、サイトマップストアとして XML ファイルを使用します。 このプロバイダーを使用して、サイトマップを定義してみましょう。
 
-という名前の web サイトのルート フォルダーで、サイト マップ ファイルを作成して開始`Web.sitemap`します。 これを実現するには、ソリューション エクスプ ローラーで web サイトの名前を右クリックし、新しい項目の追加 を選択およびサイト マップ テンプレートを選択します。 ファイルの名前はことを確認します。`Web.sitemap`追加 をクリックします。
+まず、`Web.sitemap`という名前の web サイトのルートフォルダーにサイトマップファイルを作成します。 これを行うには、ソリューションエクスプローラーで web サイト名を右クリックし、[新しい項目の追加] を選択して、[サイトマップ] テンプレートを選択します。 ファイルの名前が `Web.sitemap` であることを確認し、[追加] をクリックします。
 
-[![Web サイトのルート フォルダーへの Web.sitemap という名前のファイルを追加します。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image8.png)
+[Web サイトのルートフォルダーに、web.sitemap という名前のファイルを追加 ![ます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image8.png)
 
-**図 06**:ファイルの名前を追加`Web.sitemap`web サイトのルート フォルダーに ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image10.png))。
+**図 06**: `Web.sitemap` という名前のファイルを web サイトのルートフォルダーに追加する ([クリックすると、フルサイズの画像が表示](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image10.png)されます)
 
-次の XML を追加、`Web.sitemap`ファイル。
+`Web.sitemap` ファイルに次の XML を追加します。
 
 [!code-xml[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample9.xml)]
 
-この XML は、図 7 に示すように階層のサイト マップ構造を定義します。
+この XML は、図7に示す階層型サイトマップ構造を定義します。
 
-![サイト マップが現在で構成される 3 のサイト マップ ノードです。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image11.png)
+![サイトマップは、現在、3つのサイトマップノードで構成されています。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image11.png)
 
-**図 07**:サイト マップが現在で構成される 3 のサイト マップ ノードです。
+**図 07**: サイトマップが現在3つのサイトマップノードで構成されている
 
-新しい例を追加、今後のチュートリアル サイト マップ構造が更新されます。
+新しい例を追加すると、今後のチュートリアルでサイトマップ構造が更新されます。
 
-### <a name="updating-the-master-page-to-include-navigation-web-controls"></a>ナビゲーションの Web コントロールを含めるにマスター ページを更新しています
+### <a name="updating-the-master-page-to-include-navigation-web-controls"></a>ナビゲーション Web コントロールを含むようにマスターページを更新する
 
-サイト マップを定義したら、ナビゲーション Web コントロールを含めるにマスター ページを更新しましょう。 具体的には、サイト マップで定義されている各ノードのリスト項目と、順序なしリストを表示する」のレッスンのセクションでは、左側の列にみましょう ListView コントロールを追加します。
+サイトマップが定義されたので、ナビゲーション Web コントロールを含むようにマスターページを更新してみましょう。 具体的には、「レッスン」セクションの左側の列に ListView コントロールを追加して、サイトマップで定義されている各ノードのリスト項目を含む順序指定されていないリストを表示します。
 
 > [!NOTE]
-> ListView コントロールは ASP.NET バージョン 3.5 に追加されました。 ASP.NET の以前のバージョンを使用している場合は、代わりに、Repeater コントロールを使用します。 ListView コントロールの詳細については、次を参照してください。[を使用して ASP.NET 3.5 の ListView と DataPager コントロール](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)します。
+> ListView コントロールは、ASP.NET バージョン3.5 の新しいバージョンです。 以前のバージョンの ASP.NET を使用している場合は、代わりに Repeater コントロールを使用します。 ListView コントロールの詳細については、「 [ASP.NET 3.5 の Listview コントロールと DataPager コントロールの使用](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)」を参照してください。
 
-レッスン セクションから既存のマークアップの順序なしリストを削除することで開始します。 次に、ListView コントロールをツールボックスからドラッグし、レッスンの下にドロップ見出し。 その他のビュー コントロールと共に、ツールボックスの [データ] セクションに、ListView がある: GridView、DetailsView、およびフォーム ビュー。 ListView の設定`ID`プロパティを`LessonsList`します。
+まず、レッスンセクションから、既存の順序付けられていないリストのマークアップを削除します。 次に、ツールボックスから ListView コントロールをドラッグし、レッスンの見出しの下にドロップします。 ListView は、ツールボックスの [データ] セクションにあります。他のビューコントロール (GridView、DetailsView、FormView) と共に表示されます。 ListView の `ID` プロパティを `LessonsList`に設定します。
 
-という名前の新しい SiteMapDataSource コントロールに、ListView をバインドするを選択して、データ ソース構成ウィザードから`LessonsDataSource`します。 SiteMapDataSource コントロールは、サイト マップのシステムからの階層構造を返します。
+データソース構成ウィザードで、`LessonsDataSource`という名前の新しい SiteMapDataSource コントロールに ListView をバインドします。 SiteMapDataSource コントロールは、サイトマップシステムから階層構造を返します。
 
-[![SiteMapDataSource コントロール LessonsList ListView コントロールをバインドします。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image12.png)
+[SiteMapDataSource コントロールをない On ListView コントロールにバインドするには ![](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image12.png)
 
-**図 08**:LessonsList ListView コントロールに SiteMapDataSource コントロールをバインド ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image14.png))。
+**図 08**: SiteMapDataSource コントロールをコントロールに連結する ([クリックしてフルサイズのイメージを表示する](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image14.png))
 
-SiteMapDataSource コントロールを作成した後は、SiteMapDataSource コントロールによって返される各ノードのリスト項目と順不同のリストが表示されるように、ListView のテンプレートを定義する必要があります。 これは、次のテンプレート マークアップを使用して行うことができます。
+SiteMapDataSource コントロールを作成したら、ListView のテンプレートを定義して、SiteMapDataSource コントロールによって返される各ノードのリスト項目を含む順序指定されていないリストをレンダリングする必要があります。 これは、次のテンプレートマークアップを使用して実現できます。
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample10.aspx)]
 
-`LayoutTemplate`マークアップ順不同のリストを生成 (`<ul>...</ul>`) 中に、`ItemTemplate`一覧の項目として、SiteMapDataSource によって返される各項目を表示します (`<li>`) 特定のレッスンへのリンクを格納しています。
+`LayoutTemplate` は、順序付けられていないリスト (`<ul>...</ul>`) のマークアップを生成します。一方、`ItemTemplate` は、特定のレッスンへのリンクを含むリスト項目 (`<li>`) として、SiteMapDataSource によって返される各項目をレンダリングします。
 
-ListView のテンプレートを構成した後、web サイトを参照してください。 図 9 に示すよう、レッスンでは、1 つの箇条書き項目ホームを説明します。 ContentPlaceHolder の複数のコントロールのレッスンを使用して、バージョン情報の検索 SiteMapDataSource が、データの階層的なセットを返すために設計されていますが、ListView コントロールは、階層の 1 つのレベルのみを表示できます。 その結果、SiteMapDataSource によって返されたサイト マップ ノードの最初のレベルのみが表示されます。
+ListView のテンプレートを構成したら、web サイトにアクセスします。 図9に示すように、レッスンのセクションには、1つの箇条書き項目である [ホーム] が含まれています。 ContentPlaceHolder コントロールの概要と使用方法に関するレッスンはどこにありますか。 SiteMapDataSource は、階層構造のデータを返すように設計されていますが、ListView コントロールは階層の1つのレベルのみを表示できます。 その結果、SiteMapDataSource によって返されるサイトマップノードの最初のレベルのみが表示されます。
 
-[![レッスン セクションには、1 つのリスト項目が含まれています。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image15.png)
+[レッスンセクションに1つのリスト項目が含まれて ![](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image15.png)
 
-**図 09**:レッスン セクションには、1 つのリスト項目が含まれています ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image17.png))。
+**図 09**: レッスンセクションに1つのリスト項目が含まれている ([クリックしてフルサイズの画像を表示する](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image17.png))
 
-複数のレベルを表示する内で複数の Listview を入れ子私たちでした、`ItemTemplate`します。 この方法が説明されて、 [*マスター ページとサイト ナビゲーション*チュートリアル](../../data-access/introduction/master-pages-and-site-navigation-vb.md)のマイ[チュートリアル シリーズのデータの操作](../../data-access/index.md)します。 このチュートリアル シリーズのサイト マップは 2 つのレベルだけに含まれます。ホーム (最上位レベル)。各レッスン ホームの子として。 入れ子になった ListView を作成するのではなく代わりにように指示できますを設定して開始ノードが返されない SiteMapDataSource その[`ShowStartingNode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx)に`False`します。 実際の効果は、サイト マップ ノードの 2 番目の層を返すことによって、SiteMapDataSource が起動します。
+複数のレベルを表示するには、`ItemTemplate`内に複数の ListViews を入れ子にすることができます。 この手法は、「[データチュートリアルシリーズの使用](../../data-access/index.md)」の「 [*マスターページとサイトナビゲーション*のチュートリアル](../../data-access/introduction/master-pages-and-site-navigation-vb.md)」で確認しました。 ただし、このチュートリアルシリーズのサイトマップには、ホーム (最上位レベル) の2つのレベルのみが含まれます。そして、各レッスンはホームの子としてのものです。 入れ子になった ListView を構築するのではなく、その[`ShowStartingNode` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx)を `False`に設定して、開始ノードを返さないように SiteMapDataSource に指示することができます。 実質的には、SiteMapDataSource は、サイトマップノードの第2層を返すことによって開始されます。
 
-この変更により、ListView の項目を表示しますバージョン情報のおよび複数のプレース ホルダー コントロールを使用して、レッスンしますが、ホームの箇条書き項目が省略されます。 これを解決する明示的に項目を追加する箇条書き自宅での`LayoutTemplate`:
+この変更により、ListView は、About and Using Multiple ContentPlaceHolder Controls レッスンの箇条書き項目を表示しますが、Home の箇条書き項目を省略します。 これを解決するには、`LayoutTemplate`に Home の箇条書き項目を明示的に追加します。
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample11.aspx)]
 
-開始ノードを省略する場合、SiteMapDataSource を構成し、ホーム箇条書き項目を明示的に追加する、レッスン セクションには、目的の出力ようになりましたが表示されます。
+開始ノードを省略し、Home 箇条書き項目を明示的に追加するように SiteMapDataSource を構成すると、レッスンのセクションには、意図した出力が表示されます。
 
-[![レッスンのセクションには、ホームとそれぞれの子ノードの箇条書き項目が含まれています](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image18.png)
+[レッスンセクションに ![ホームと各子ノードの箇条書き項目が表示されます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image18.png)
 
-**図 10**:レッスンのセクションには、ホームとそれぞれの子ノードの箇条書き項目が含まれています ([フルサイズの画像を表示する をクリックします](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image20.png))。
+**図 10**: レッスンのセクションには、ホームノードと各子ノードの箇条書き項目が含まれています ([クリックすると、フルサイズの画像が表示](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image20.png)されます)
 
-### <a name="setting-the-title-based-on-the-site-map"></a>サイト マップに基づいてタイトルの設定
+### <a name="setting-the-title-based-on-the-site-map"></a>サイトマップに基づいてタイトルを設定する
 
-今後更新できる場所にあるサイト マップで、`BasePage`サイト マップで指定したタイトルを使用するクラス。 手順 2 で行ったようにのみ使用するサイト マップ ノードのタイトル場合は、ページのタイトルがページの開発者によって明示的に設定されていません。 要求されているページを明示的に設定されていない場合は、ページ タイトルと、ここに戻るから (低い拡張子)、要求されたページのファイル名を使用して手順 2 で行ったようし、サイト マップ内で見つかりません。 図 11 は、この意思決定プロセスを示しています。
+サイトマップを使用して、`BasePage` クラスを更新して、サイトマップで指定されたタイトルを使用できるようにします。 手順2で行ったように、ページのタイトルがページの開発者によって明示的に設定されていない場合のみ、サイトマップノードのタイトルを使用します。 要求されているページに明示的に設定されたページタイトルがなく、サイトマップにも見つからない場合は、手順2で行ったように、要求されたページのファイル名 (拡張子の少ない方) を使用するようにフォールバックします。 図11は、この決定プロセスを示しています。
 
-![明示的に設定 ページのタイトルのない場合は、対応するサイト マップ ノードのタイトルが使用されます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image21.png)
+![ページタイトルが明示的に設定されていない場合は、対応するサイトマップノードのタイトルが使用されます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image21.png)
 
-**図 11**:明示的に設定 ページのタイトルのない場合は、対応するサイト マップ ノードのタイトルが使用されます。
+**図 11**: ページタイトルが明示的に設定されていない場合は、対応するサイトマップノードのタイトルが使用されます。
 
-更新プログラム、`BasePage`クラスの`OnLoadComplete`メソッドに次のコードを含めます。
+`BasePage` クラスの `OnLoadComplete` メソッドを更新して、次のコードを追加します。
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample12.vb)]
 
-以前と同様、`OnLoadComplete`メソッドは、ページのタイトルが明示的に設定されているかどうかを決定することで開始します。 場合`Page.Title`は`Nothing`、空の文字列、またはコードでは、値を自動的に割り当てられますし、値「無題ページ」が割り当てられる`Page.Title`します。
+前と同様に、`OnLoadComplete` メソッドは、ページのタイトルが明示的に設定されているかどうかを判断することから始まります。 `Page.Title` が `Nothing`、空の文字列、または値 "無題のページ" が割り当てられている場合、コードは `Page.Title`に自動的に値を割り当てます。
 
-を使用するタイトルを確認する、コードの先頭を参照して、 [ `SiteMap`クラス](https://msdn.microsoft.com/library/system.web.sitemap.aspx)の[`CurrentNode`プロパティ](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx)します。 `CurrentNode` 返します、 [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx)現在要求されているページに対応するサイト マップ内のインスタンス。 サイト マップ内で見つかったが現在要求されているページと仮定すると、`SiteMapNode`の`Title`プロパティは、ページの title に割り当てられます。 現在要求されているページが、サイト マップにない場合`CurrentNode`返します`Nothing`され (ステップ 2 で行われていた) として、タイトルとして、要求されたページのファイル名が使用されます。
+使用するタイトルを決定するために、コードは、 [`SiteMap` クラス](https://msdn.microsoft.com/library/system.web.sitemap.aspx)の[`CurrentNode` プロパティ](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx)を参照することによって開始されます。 `CurrentNode` は、現在要求されているページに対応するサイトマップ内の[`SiteMapNode`](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx)インスタンスを返します。 現在要求されているページがサイトマップ内に見つかった場合、`SiteMapNode`の `Title` プロパティがページのタイトルに割り当てられます。 現在要求されているページがサイトマップに含まれていない場合、`CurrentNode` は `Nothing` を返し、要求されたページのファイル名がタイトルとして使用されます (手順 2. で行ったとおり)。
 
-図 12 は、`MultipleContentPlaceHolders.aspx`ページをブラウザーで表示する場合。 このページのタイトルが明示的に設定されていないため、対応するサイト マップ ノードのタイトルが代わりに使用されます。
+図12は、ブラウザーを使用して表示するときの `MultipleContentPlaceHolders.aspx` ページを示しています。 このページのタイトルは明示的に設定されていないため、代わりに対応するサイトマップノードのタイトルが使用されます。
 
-![MultipleContentPlaceHolders.aspx ページのタイトルが、サイト マップから取得されます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image22.png)
+![MultipleContentPlaceHolders ページのタイトルがサイトマップからプルされます。](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image22.png)
 
-**図 12**:MultipleContentPlaceHolders.aspx ページのタイトルが、サイト マップから取得されます。
+**図 12**: MultipleContentPlaceHolders ページのタイトルがサイトマップからプルされる
 
-## <a name="step-4-adding-other-page-specific-markup-to-theheadsection"></a>手順 4: 他のページ固有のマークアップを追加する、`<head>`セクション
+## <a name="step-4-adding-other-page-specific-markup-to-theheadsection"></a>手順 4:`<head>`セクションにページ固有のその他のマークアップを追加する
 
-手順 1、2、および 3 のカスタマイズについて説明しました、`<title>`ページの単位での要素。 ほかに`<title>`、`<head>`セクションが含まれます`<meta>`要素と`<link>`要素。 このチュートリアルで先ほど説明したように`Site.master`の`<head>`セクションが含まれています、`<link>`要素`Styles.css`します。 ため、この`<link>`要素がマスター ページ内で定義されているに含まれる、`<head>`すべてのコンテンツ ページのセクション。 追加する方法について移動する方法を私たちが`<meta>`と`<link>`ページごとに要素でしょうか。
+手順1、2、および3では、ページごとに `<title>` 要素をカスタマイズする方法を見てきました。 `<title>`に加えて、`<head>` セクションには `<meta>` 要素と `<link>` 要素が含まれる場合があります。 このチュートリアルで既に説明したように、`Site.master`の `<head>` セクションには `Styles.css`する `<link>` 要素が含まれています。 この `<link>` 要素はマスターページ内で定義されているため、すべてのコンテンツページの `<head>` セクションに含まれています。 しかし、`<meta>` と `<link>` の要素をページごとに追加するにはどうすればよいでしょうか。
 
-ページ固有のコンテンツを追加する最も簡単な方法、`<head>`セクションは、マスター ページで ContentPlaceHolder のコントロールを作成することです。 このようなプレース ホルダーが既にある (名前付き`head`)。 そのため、ユーザー設定を追加する`<head>`マークアップ、作成、対応するページのコントロールのコンテンツし、マークアップのある配置。
+`<head>` セクションにページ固有のコンテンツを追加する最も簡単な方法は、マスターページで ContentPlaceHolder コントロールを作成することです。 このような ContentPlaceHolder (名前は `head`) が既にあります。 したがって、カスタム `<head>` マークアップを追加するには、対応するコンテンツコントロールをページに作成し、そこにマークアップを配置します。
 
-追加のカスタムを説明するために`<head>`マークアップをページを含めてみましょう、 `<meta>` description 要素を現在のコンテンツ ページのセット。 `<meta>` Description 要素が web ページに関する簡単な説明を提供します。 検索結果を表示するときに、ほとんどの検索エンジンがなんらかの形では、この情報を組み込みます。
+カスタム `<head>` マークアップをページに追加する方法を示すために、現在のコンテンツページのセットに `<meta>` description 要素を含めてみましょう。 `<meta>` description 要素は、web ページについての簡単な説明を提供します。ほとんどの検索エンジンでは、検索結果を表示するときに、この情報が何らかの形で組み込まれています。
 
-A `<meta>` description 要素が、次の形式。
+`<meta>` description 要素には、次の形式があります。
 
 [!code-html[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample13.html)]
 
-コンテンツ ページには、このマークアップを追加するに上のテキストを追加、マスター ページにマップするコンテンツ コントロールに`head`プレース ホルダーです。 たとえば、定義するため、`<meta>`の description 要素`Default.aspx`、次のマークアップを追加。
+このマークアップをコンテンツページに追加するには、マスターページの `head` ContentPlaceHolder にマップされているコンテンツコントロールに上記のテキストを追加します。 たとえば、`Default.aspx`の `<meta>` description 要素を定義するには、次のマークアップを追加します。
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample14.aspx)]
 
-`head` ContentPlaceHolder が HTML ページの本文内にない場合はコンテンツ コントロールに追加したマークアップはデザイン ビューでは表示されません。 参照してください、`<meta>`説明要素訪問`Default.aspx`ブラウザーを使用します。 ソースを表示し、注意して、ページが読み込まれた後、`<head>`セクションにコンテンツ コントロールで指定されたマークアップが含まれています。
+`head` ContentPlaceHolder は HTML ページの本文に含まれていないため、コンテンツコントロールに追加されたマークアップはデザインビューに表示されません。 `<meta>` description 要素を表示するには、ブラウザーを使用して `Default.aspx` にアクセスします。 ページが読み込まれたら、ソースを表示し、[`<head>`] セクションに、コンテンツコントロールで指定されたマークアップが含まれていることを確認します。
 
-追加する少し`<meta>`に description 要素`About.aspx`、 `MultipleContentPlaceHolders.aspx`、および`Login.aspx`します。
+`About.aspx`、`MultipleContentPlaceHolders.aspx`、および `Login.aspx`に `<meta>` description 要素を追加します。
 
-### <a name="programmatically-adding-markup-to-theheadregion"></a>プログラムを使用するマークアップを追加、`<head>`リージョン
+### <a name="programmatically-adding-markup-to-theheadregion"></a>プログラムによって`<head>`領域にマークアップを追加する
 
-`head`プレース ホルダーでは、宣言によって、マスター ページにカスタムのマークアップを追加できます。`<head>`リージョン。 カスタム マークアップもプログラムで追加される可能性があります。 いることを思い出してください、`Page`クラスの`Header`プロパティが返す、`HtmlHead`マスター ページで定義されているインスタンス (、 `<head runat="server">`)。
+`head` ContentPlaceHolder を使用すると、マスターページの `<head>` 領域にカスタムマークアップを宣言によって追加できます。 カスタムマークアップは、プログラムで追加することもできます。 `Page` クラスの `Header` プロパティによって、マスターページ (`<head runat="server">`) で定義されている `HtmlHead` インスタンスが返されることを思い出してください。
 
-プログラムによってコンテンツを追加すること、`<head>`追加するコンテンツが動的なリージョンが有用です。 ページにアクセスしたユーザーに基づくなどおそらくデータベースから取得されるは。 どのような理由にコンテンツを追加することができます、`HtmlHead`にコントロールを追加してその`Controls`ようコレクション。
+`<head>` 領域にプログラムでコンテンツを追加できることは、追加するコンテンツが動的である場合に便利です。 たとえば、ページにアクセスしているユーザーに基づいています。データベースからプルされている可能性があります。 理由に関係なく、次のようにコントロールを `Controls` コレクションに追加することで、`HtmlHead` にコンテンツを追加できます。
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample15.vb)]
 
-上記のコードを追加、`<meta>`キーワード要素を`<head>`領域で、ページを説明するキーワードのコンマ区切りの一覧を示します。 追加する、`<meta>`タグを作成する、 [ `HtmlMeta` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlmeta.aspx)インスタンスを設定、`Name`と`Content`プロパティに追加、`Header`の`Controls`コレクション。 同様に、プログラムで追加する、`<link>`要素を作成、 [ `HtmlLink` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmllink.aspx)オブジェクト、そのプロパティを設定しを追加、`Header`の`Controls`コレクション。
+上のコードでは、`<head>` 領域に `<meta>` keywords 要素を追加しています。これにより、ページを説明するキーワードのコンマ区切りリストが提供されます。 `<meta>` タグを追加するには、 [`HtmlMeta`](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlmeta.aspx)インスタンスを作成し、その `Name` と `Content` プロパティを設定して、`Header`の `Controls` コレクションに追加することに注意してください。 同様に、プログラムによって `<link>` 要素を追加するには、 [`HtmlLink`](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmllink.aspx)オブジェクトを作成し、そのプロパティを設定して、`Header`の `Controls` コレクションに追加します。
 
 > [!NOTE]
-> 任意のマークアップを追加するには、作成、 [ `LiteralControl` ](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx)インスタンスは、設定、`Text`プロパティに追加、`Header`の`Controls`コレクション。
+> 任意のマークアップを追加するには、 [`LiteralControl`](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx)インスタンスを作成し、その `Text` プロパティを設定して、`Header`の `Controls` コレクションに追加します。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-このチュートリアルではさまざまな方法で追加のしました`<head>`リージョンのマークアップをページごとにします。 マスター ページを含める必要があります、`HtmlHead`インスタンス (`<head runat="server">`) を得ることにします。 `HtmlHead`インスタンスは、コンテンツのページにプログラムでアクセスを許可、`<head>`領域を宣言とプログラミングの設定ページのタイトルは、プレース ホルダー コントロールにより、カスタムのマークアップに追加して、 `<head>`コンテンツ コントロールの宣言によりセクション。
+このチュートリアルでは、`<head>` 領域のマークアップをページ単位で追加するさまざまな方法を見てきました。 マスターページには、ContentPlaceHolder を含む `HtmlHead` インスタンス (`<head runat="server">`) が含まれている必要があります。 `HtmlHead` インスタンスを使用すると、コンテンツページは、プログラムによって `<head>` 領域にアクセスしたり、ページのタイトルを宣言およびプログラムによって設定したりできます。ContentPlaceHolder コントロールを使用すると、カスタムマークアップをコンテンツコントロールを使用して宣言によって `<head>` セクションに追加できます。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
 ### <a name="further-reading"></a>関連項目
 
-このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
+このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
-- [Asp.net ページのタイトルを動的に設定](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
-- [ASP を調べています。NET のサイト ナビゲーション](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [HTML Meta タグを使用するには、方法](http://searchenginewatch.com/showPage.html?page=2167931)
-- [ASP.NET のマスター ページ](http://www.odetocode.com/articles/419.aspx)
-- [ASP.NET 3.5 を使用して ListView と DataPager コントロール](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
-- [ASP.NET ページの分離コード クラスのカスタム基底クラスの使用](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
+- [ASP.NET でページのタイトルを動的に設定する](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
+- [ASP を調べています。NET のサイトナビゲーション](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [HTML メタタグの使用方法](http://searchenginewatch.com/showPage.html?page=2167931)
+- [ASP.NET のマスターページ](http://www.odetocode.com/articles/419.aspx)
+- [ASP.NET 3.5 の ListView コントロールと DataPager コントロールの使用](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
+- [ASP.NET ページの分離コードクラスにカスタム基本クラスを使用する](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)作成者の複数受け取りますブックと 4GuysFromRolla.com の創設者で、携わって Microsoft Web テクノロジ 1998 年からです。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 3.5 in 24 時間*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別なに感謝します。
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Zack Jones と Suchi 著でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)します。
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリーダーレビュー担当者は、Zack Jones と Suchi になりました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](multiple-contentplaceholders-and-default-content-vb.md)

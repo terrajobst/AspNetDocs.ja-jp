@@ -1,55 +1,55 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-vb
-title: 複数のポップアップ コントロール (VB) を使用して |Microsoft Docs
+title: 複数のポップアップコントロールを使用する (VB) |Microsoft Docs
 author: wenz
-description: AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 M を使用することもしています.
+description: AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 また、m...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 4da43d77-f6c4-43a8-9124-f1e8e1c8f0a2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6f8097ed64f81d8ad9de27e19195d9a4572a0ae7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e1f4ff64e9fdf48ea63b75c97acd53a64b5ab5ce
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115090"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74611594"
 ---
 # <a name="using-multiple-popup-controls-vb"></a>複数のポップアップ コントロールを使用する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol1VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl1.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol1VB.pdf)
 
-> AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 1 ページには、複数のポップアップ コントロールを使用することもできます。
+> AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 1つのページで複数のポップアップコントロールを使用することもできます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 1 ページには、複数のポップアップ コントロールを使用することもできます。
+AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 1つのページで複数のポップアップコントロールを使用することもできます。
 
 ## <a name="steps"></a>手順
 
-ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`ScriptManager`コントロールは、ページのどこでも配置する必要があります (ただし内、`<form>`要素)。
+ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、ページの任意の場所に `ScriptManager` コントロールを配置する必要があります (`<form>` 要素内)。
 
 [!code-aspx[Main](using-multiple-popup-controls-vb/samples/sample1.aspx)]
 
-次に、ポップアップとして機能するパネルを追加します。 パネルに含まれる現在のシナリオでは、`Calendar`コントロール。 内のパネルを配置するカレンダーのポストバックの原因となったページ更新を回避するために、`UpdatePanel`コントロール。
+次に、ポップアップとして機能するパネルを追加します。 現在のシナリオでは、パネルには `Calendar` コントロールが含まれています。 カレンダーのポストバックによるページの更新を回避するために、パネルは `UpdatePanel` コントロール内に配置されます。
 
 [!code-aspx[Main](using-multiple-popup-controls-vb/samples/sample2.aspx)]
 
-ページには、2 つのテキスト ボックスも含まれています。 各テキスト ボックスのテキスト ボックスがアクティブ化される、カレンダーのポップアップは表示されます。
+このページには、2つのテキストボックスも含まれています。 各テキストボックスでは、テキストボックスがアクティブになるとカレンダーのポップアップが表示されます。
 
 [!code-aspx[Main](using-multiple-popup-controls-vb/samples/sample3.aspx)]
 
-2 つのテキスト ボックスのそれぞれを拡張するようになりました、`PopupControlExtender`します。 `TargetControlID`属性は、extender に関連付けられているコントロールの ID を提供します。 `PopupControlID`属性には、ポップアップ パネルの ID が含まれています。 この場合は、両方のエクステンダーが同じのパネルを表示するが、さまざまなパネルをも可能であれば、します。
+ここで、2つのテキストボックスをそれぞれ `PopupControlExtender`に拡張します。 `TargetControlID` 属性は、エクステンダーに関連付けられているコントロールの ID を提供します。 `PopupControlID` 属性には、ポップアップパネルの ID が含まれます。 この場合、どちらのエクステンダーも同じパネルを表示しますが、異なるパネルを使用することもできます。
 
 [!code-aspx[Main](using-multiple-popup-controls-vb/samples/sample4.aspx)]
 
-テキスト フィールド内でクリックしたときに、カレンダーが表示されます、フィールドの下の日付を選択することができます。 (テキスト ボックスに、選択した日付は戻ってきてで取り上げる別のチュートリアルです。)
+テキストフィールド内をクリックするたびに、フィールドの下にカレンダーが表示され、日付を選択できるようになります。 (選択した日付をテキストボックスに戻すと、別のチュートリアルで説明されています)。
 
-[![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](using-multiple-popup-controls-vb/_static/image2.png)](using-multiple-popup-controls-vb/_static/image1.png)
+[ユーザーがテキストボックスをクリックしたときにカレンダーが表示される ![](using-multiple-popup-controls-vb/_static/image2.png)](using-multiple-popup-controls-vb/_static/image1.png)
 
-テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](using-multiple-popup-controls-vb/_static/image3.png))。
+ユーザーがテキストボックスをクリックするとカレンダーが表示されます ([クリックすると、フルサイズの画像が表示](using-multiple-popup-controls-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)

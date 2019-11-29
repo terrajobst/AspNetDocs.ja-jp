@@ -1,107 +1,107 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: ASP.NET Web API 1 - ASP.NET での CRUD 操作を有効にする 4.x
+title: ASP.NET Web API 1-ASP.NET 4.x で CRUD 操作を有効にする
 author: MikeWasson
-description: チュートリアルは、ASP.NET Web API を使用して、ASP.NET の HTTP サービスで CRUD 操作をサポートする方法を示しています。 4.x です。
+description: チュートリアルでは、ASP.NET 4.x の ASP.NET Web API を使用して、HTTP サービスで CRUD 操作をサポートする方法を示します。
 ms.author: riande
 ms.date: 01/28/2012
 ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: 3c2a41482b7f9b60a8864b853df23ab5991b6da7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a096fd1c54df33b40115907a5c2517b2e3fec5b8
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108756"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600338"
 ---
-# <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 で CRUD 操作を有効にします。
+# <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 で CRUD 操作を有効にする
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
-> このチュートリアルは、ASP.NET Web API を使用して、ASP.NET の HTTP サービスで CRUD 操作をサポートする方法を示しています。 4.x です。
+> このチュートリアルでは、ASP.NET 4.x の ASP.NET Web API を使用して、HTTP サービスで CRUD 操作をサポートする方法について説明します。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
 > - Visual Studio 2012
-> - Web API 1 (Web API 2 での動作も)
+> - Web API 1 (Web API 2 でも動作)
 
-CRUD の略&quot;作成、読み取り、更新、および削除、&quot; 4 つの基本的なデータベース操作であります。 多くの HTTP サービスでは、REST api または REST のような Api を介して、CRUD 操作もモデルします。
+CRUD は、4つの基本的なデータベース操作である &quot;作成、読み取り、更新、および削除の&quot; を意味します。 多くの HTTP サービスは、REST や REST に似た Api を使用して CRUD 操作もモデル化します。
 
-このチュートリアルでは、非常に単純な web 製品の一覧を管理する API を構築します。 各製品は、名前、価格、およびカテゴリが含まれます (など&quot;toys&quot;または&quot;ハードウェア&quot;)、さらに製品の id。
+このチュートリアルでは、非常に単純な web API を構築して製品の一覧を管理します。 各製品には、名前、価格、カテゴリ (&quot;toys&quot; や &quot;ハードウェア&quot;など)、および製品 ID が含まれます。
 
-製品の API は、次のメソッドに公開します。
+Products API は、次のメソッドを公開します。
 
-| アクション | HTTP メソッド | 相対 URI |
+| 動作 | [HTTP メソッド] | 相対 URI |
 | --- | --- | --- |
-| すべての製品の一覧を取得します。 | GET | /api/products |
-| ID によって製品を取得します。 | GET | /api/products/*id* |
-| カテゴリによって製品を取得します。 | GET | /api/products?category=*category* |
-| 新しい成果物を作成します。 | POST | /api/products |
-| 製品を更新します。 | PUT | /api/products/*id* |
-| 製品を削除します。 | Del | /api/products/*id* |
+| すべての製品の一覧を取得する | GET | /api/製品 |
+| ID で製品を取得する | GET | /api/*id* |
+| カテゴリ別に製品を取得する | GET | /api/products? category =*category* |
+| 新しい製品を作成する | 投稿 | /api/製品 |
+| 製品を更新する | PUT | /api/*id* |
+| 製品を削除する | Del | /api/*id* |
 
-パスに製品 ID を含む Uri の一部に注目してください。 たとえば、製品 ID が 28 を取得するクライアント GET 要求を送信`http://hostname/api/products/28`します。
+Uri の一部には、パスに製品 ID が含まれていることに注意してください。 たとえば、ID が28の製品を取得するために、クライアントは `http://hostname/api/products/28`の GET 要求を送信します。
 
 ### <a name="resources"></a>リソース
 
-製品の API では、2 つのリソースの種類の Uri を定義します。
+Products API は、次の2つのリソースの種類の Uri を定義します。
 
-| リソース | URI |
+| Resource | URI |
 | --- | --- |
-| すべての製品の一覧。 | /api/products |
-| 個別の製品です。 | /api/products/*id* |
+| すべての製品の一覧。 | /api/製品 |
+| 個々の製品。 | /api/*id* |
 
 ### <a name="methods"></a>メソッド
 
-4 つの主な HTTP メソッド (GET、PUT、POST、および DELETE) は、CRUD 操作にマップすることができます。
+次のように、4つの主要な HTTP メソッド (GET、PUT、POST、および DELETE) を CRUD 操作にマップできます。
 
-- 取得した指定した URI のリソースの表現を取得します。 サーバーの副作用が GET 必要なしです。
-- PUT は、指定された URI にリソースを更新します。 PUT こともできます、指定した URI で新しいリソースを作成する場合は、サーバーにより、クライアントが新しい Uri を指定します。 このチュートリアルでは、API では PUT の作成はサポートされません。
-- POST は、新しいリソースを作成します。 サーバーは、新しいオブジェクトの URI を割り当てるし、応答メッセージの一部としてこの URI を返します。
-- 指定された URI にリソースを削除します。
+- GET は、指定された URI にあるリソースの表現を取得します。 GET はサーバーに副作用を与えません。
+- PUT は、指定された URI のリソースを更新します。 サーバーで新しい Uri を指定できるようにする場合は、PUT を使用して、指定した URI で新しいリソースを作成することもできます。 このチュートリアルでは、API は PUT を使用した作成をサポートしていません。
+- POST によって新しいリソースが作成されます。 サーバーは、新しいオブジェクトの URI を割り当て、この URI を応答メッセージの一部として返します。
+- DELETE は、指定された URI にあるリソースを削除します。
 
-メモ:PUT メソッドには、製品全体のエンティティが置き換えられます。 つまり、更新された製品の完全な表現を送信するクライアントが必要です。 部分的な更新をサポートする場合は、PATCH メソッドをお勧めします。 このチュートリアルは、修正プログラムを実装していません。
+注: PUT メソッドは、product エンティティ全体を置き換えます。 つまり、クライアントは、更新された製品の完全な表現を送信することを想定しています。 部分更新をサポートする場合は、PATCH メソッドを使用することをお勧めします。 このチュートリアルは PATCH を実装していません。
 
-## <a name="create-a-new-web-api-project"></a>新しい Web API プロジェクトを作成します。
+## <a name="create-a-new-web-api-project"></a>新しい Web API プロジェクトを作成する
 
-Visual Studio を使用して起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**します。
+まず、Visual Studio を実行し、**スタート**ページで **[新しいプロジェクト]** を選択します。 または、 **[ファイル]** メニューの **[新規作成]** をポイントし、 **[プロジェクト]** をクリックします。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**します。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクトに ProductStore という名前を &quot;&quot; [ **OK]** をクリックします。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
-**新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスで、 **Web API**  をクリック**OK**します。
+**[New ASP.NET MVC 4 プロジェクト]** ダイアログで、 **[Web API]** を選択し、 **[OK]** をクリックします。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image2.png)
 
 ## <a name="adding-a-model"></a>モデルの追加
 
-*モデル*は、アプリケーションのデータを表すオブジェクトです。 ASP.NET Web api では、モデルとして厳密に型指定された CLR オブジェクトを使用して、自動的にシリアル化されます XML または JSON をクライアントの。
+*モデル*は、アプリケーションのデータを表すオブジェクトです。 ASP.NET Web API では、厳密に型指定された CLR オブジェクトをモデルとして使用できます。これらのオブジェクトは、クライアントの XML または JSON に自動的にシリアル化されます。
 
-データで構成の製品のためという名前の新しいクラスを作成します ProductStore api`Product`します。
+ProductStore API では、データは製品で構成されているため、`Product`という名前の新しいクラスを作成します。
 
-ソリューション エクスプ ローラーが表示されない場合は、クリックして、**ビュー**メニュー選択し、**ソリューション エクスプ ローラー**します。 ソリューション エクスプ ローラーで右クリックし、**モデル**フォルダー。 コンテキスト メニューでは、次のように選択します。**追加**を選択し、**クラス**します。 クラスの名前&quot;製品&quot;します。
+ソリューションエクスプローラーがまだ表示されていない場合は、 **[表示]** メニューの **[ソリューションエクスプローラー]** をクリックします。 ソリューションエクスプローラーで、 **[モデル]** フォルダーを右クリックします。 コンテキストメニューから **[追加]** を選択し、 **[クラス]** を選択します。 クラスに Product&quot;&quot;名前を指定します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image3.png)
 
-次のプロパティを追加、`Product`クラス。
+次のプロパティを `Product` クラスに追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample1.cs)]
 
-## <a name="adding-a-repository"></a>リポジトリを追加
+## <a name="adding-a-repository"></a>リポジトリの追加
 
-製品のコレクションを格納する必要があります。 サービス実装からコレクションを分割することをお勧めします。 これにより、サービス クラスを書き直すことがなく、バッキング ストアを変更できます。 この型のデザインが呼び出される、*リポジトリ*パターン。 まず、リポジトリのジェネリック インターフェイスを定義します。
+製品のコレクションを格納する必要があります。 サービス実装からコレクションを分離することをお勧めします。 このようにして、サービスクラスを書き直すことなくバッキングストアを変更できます。 この種類の設計は、*リポジトリ*パターンと呼ばれます。 まず、リポジトリのジェネリックインターフェイスを定義します。
 
-ソリューション エクスプ ローラーで右クリックし、**モデル**フォルダー。 選択**追加**を選択し、**新しい項目の**します。
+ソリューションエクスプローラーで、 **[モデル]** フォルダーを右クリックします。 **[追加]** を選択し、 **[新しい項目]** を選択します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image4.png)
 
-**テンプレート**ペインで、**インストールされたテンプレート**c# ノードを展開します。 C# の場合は、選択**コード**します。 コード テンプレートの一覧で選択**インターフェイス**します。 インターフェイスの名前&quot;IProductRepository&quot;します。
+**[テンプレート]** ウィンドウで、 **[インストールされ]** たC#テンプレート を選択し、ノードを展開します。 でC#、 **[コード]** を選択します。 コードテンプレートの一覧で、 **[インターフェイス]** を選択します。 インターフェイスに IProductRepository&quot;&quot;名前を指定します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image5.png)
 
@@ -109,112 +109,112 @@ Visual Studio を使用して起動し、選択**新しいプロジェクト**�
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample2.cs)]
 
-という名前の Models フォルダーに別のクラスを今すぐ追加&quot;ProductRepository します。&quot;このクラスが `IProductRepository` インターフェイスを実装します。 次の実装を追加します。
+次に、&quot;ProductRepository という名前の別のクラスを [モデル] フォルダーに追加します。&quot; このクラスは、`IProductRepository` インターフェイスを実装します。 次の実装を追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample3.cs)]
 
-リポジトリは、ローカル メモリ内のリストを保持します。 チュートリアルについては、[ok] になりますが、実際のアプリケーションでは、データを外部から、データベースであるかを格納する、またはクラウド ストレージ。 リポジトリ パターンが容易にできるように実装を後で変更します。
+リポジトリでは、リストはローカルメモリ内に保持されます。 これはチュートリアルでは問題ありませんが、実際のアプリケーションでは、データベースまたはクラウドストレージにデータを外部に格納することになります。 リポジトリパターンを使用すると、後で実装を変更しやすくなります。
 
-## <a name="adding-a-web-api-controller"></a>Web API コント ローラーの追加
+## <a name="adding-a-web-api-controller"></a>Web API コントローラーの追加
 
-ASP.NET MVC を使用する場合、し、既に慣れてコント ローラーを使用します。 ASP.NET Web api で、*コント ローラー*は、クライアントから HTTP 要求を処理するクラスです。 プロジェクト作成時に、新しいプロジェクト ウィザードは 2 つのコント ローラーを作成します。 これらを参照するには、ソリューション エクスプ ローラーで Controllers フォルダーを展開します。
+ASP.NET MVC を使用している場合は、既にコントローラーに精通しています。 ASP.NET Web API では、*コントローラー*は、クライアントからの HTTP 要求を処理するクラスです。 新しいプロジェクトウィザードでは、プロジェクトの作成時に2つのコントローラーが作成されました。 これらのファイルを表示するには、ソリューションエクスプローラーで [Controllers] フォルダーを展開します。
 
-- HomeController は、従来の ASP.NET MVC コント ローラーです。 サイトの HTML ページの提供を担当し、web API に直接関連しません。
-- ValuesController では、例の WebAPI コント ローラーです。
+- HomeController は従来の ASP.NET MVC コントローラーです。 これは、サイトの HTML ページを提供する役割を担い、web API に直接関連するものではありません。
+- WebAPI controller の例です。
 
-ソリューション エクスプ ローラーでファイルを右クリックして、ValuesController を削除してください**を削除します。** 今すぐよう、新しいコント ローラーを追加します。
+ソリューションエクスプローラーのファイルを右クリックし、[削除] を選択して、[を削除] をクリックし**ます。** 次のように、新しいコントローラーを追加します。
 
-**ソリューション エクスプ ローラー**、Controllers フォルダーを右クリックします。 選択**追加**選び**コント ローラー**します。
+**ソリューションエクスプローラー**で、Controllers フォルダーを右クリックします。 **[追加]** を選択し、 **[コントローラー]** を選択します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-**コント ローラーの追加**ウィザードで、名前、コント ローラー &quot;ProductsController&quot;します。 **テンプレート**ドロップダウン リストで、**空の API コント ローラー**します。 次に、 **[追加]** をクリックします。
+コントローラーの**追加**ウィザードで、コントローラーに &quot;製品コントローラー&quot;という名前を指定します。 **[テンプレート]** ボックスの一覧で、 **[空の API コントローラー]** を選択します。 次に、 **[追加]** をクリックします。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
-> 場合によっては、コント ローラーをという名前のフォルダーに、コント ローラーを配置する必要はありません。 フォルダー名は重要です。ソース ファイルを整理する便利な方法では単純にすることをお勧めします。
+> コントローラーを Controllers という名前のフォルダーに配置する必要はありません。 フォルダー名は重要ではありません。これは、ソースファイルを整理するための便利な方法にすぎません。
 
-**コント ローラーの追加**ProductsController.cs Controllers フォルダーをという名前のファイルを作成します。 このファイルがまだ開いていない場合、は、開くファイルをダブルクリックします。 次の追加**を使用して**ステートメント。
+**コントローラーの追加**ウィザードでは、ProductsController.cs という名前のファイルが Controllers フォルダーに作成されます。 このファイルがまだ開いていない場合は、ファイルをダブルクリックして開きます。 次の**using ステートメントを追加し**ます。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
 
-保持するフィールドを追加、 **IProductRepository**インスタンス。
+**Iproductrepository**インスタンスを保持するフィールドを追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample5.cs)]
 
 > [!NOTE]
-> 呼び出す`new ProductRepository()`コント ローラーでないにとって最善の設計では、コント ローラーの特定の実装に結び付けるため`IProductRepository`します。 優れたアプローチでは、次を参照してください。 [Web API の依存関係競合回避モジュールを使用して](../advanced/dependency-injection.md)します。
+> コントローラーが `IProductRepository`の特定の実装に結び付けられるため、コントローラーで `new ProductRepository()` を呼び出すことは最適な設計ではありません。 より適切な方法については、「 [WEB API 依存関係競合回避モジュールの使用](../advanced/dependency-injection.md)」を参照してください。
 
-## <a name="getting-a-resource"></a>リソースの取得
+## <a name="getting-a-resource"></a>リソースを取得する
 
-ProductStore API をいくつか公開&quot;読み取り&quot;の HTTP GET メソッドの操作。 各アクションのメソッドに対応させるには、`ProductsController`クラス。
+ProductStore API は、いくつかの &quot;読み取り&quot; アクションを HTTP GET メソッドとして公開します。 各アクションは、`ProductsController` クラスのメソッドに対応します。
 
-| アクション | HTTP メソッド | 相対 URI |
+| 動作 | [HTTP メソッド] | 相対 URI |
 | --- | --- | --- |
-| すべての製品の一覧を取得します。 | GET | /api/products |
-| ID によって製品を取得します。 | GET | /api/products/*id* |
-| カテゴリによって製品を取得します。 | GET | /api/products?category=*category* |
+| すべての製品の一覧を取得する | GET | /api/製品 |
+| ID で製品を取得する | GET | /api/*id* |
+| カテゴリ別に製品を取得する | GET | /api/products? category =*category* |
 
-すべての製品の一覧を取得するには、このメソッドを追加、`ProductsController`クラス。
+すべての製品の一覧を取得するには、次のメソッドを `ProductsController` クラスに追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-メソッドの名前で始まる&quot;取得&quot;慣例 GET 要求にマップされるよう、します。 また、メソッドがパラメーターを持たないため、それを URI にマップが含まれていない、 *&quot;id&quot;* パス セグメント。
+メソッド名は &quot;Get&quot;で始まるため、規約によって GET 要求にマップされます。 また、メソッドにはパラメーターがないため、パスに *&quot;id&quot;* セグメントを含まない URI にマップされます。
 
-ID によって製品を取得するには、このメソッドを追加、`ProductsController`クラス。
+ID で製品を取得するには、次のメソッドを `ProductsController` クラスに追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample7.cs)]
 
-このメソッドの名前からも始まります&quot;取得&quot;、という名前のパラメーターがメソッド*id*します。このパラメーターにマップされます、 &quot;id&quot; URI パスのセグメント。 ASP.NET Web API フレームワークは、ID を適切なデータ型に自動的に変換 (**int**) パラメーター。
+このメソッド名も &quot;Get&quot;で始まりますが、メソッドには*id*という名前のパラメーターがあります。このパラメーターは、URI パスの &quot;id&quot; セグメントにマップされます。 ASP.NET Web API framework では、ID がパラメーターの正しいデータ型 (**int**) に自動的に変換されます。
 
-GetProduct メソッド型の例外をスロー **HttpResponseException**場合*id*が無効です。 この例外は、フレームワークによって 404 (Not Found) エラーに変換されます。
+*Id*が有効でない場合、getproduct メソッドは**HttpResponseException**型の例外をスローします。 この例外は、フレームワークによって 404 (見つかりません) エラーに変換されます。
 
-最後に、カテゴリによって製品を検索するメソッドを追加します。
+最後に、カテゴリ別に製品を検索するメソッドを追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample8.cs)]
 
-要求 URI にクエリ文字列がある場合は、Web API は、コント ローラー メソッドのパラメーターにクエリ パラメーターに一致を試みます。 フォームの URI ではそのため、"api/製品ですか? カテゴリ =*カテゴリ*"このメソッドにマップされます。
+要求 URI にクエリ文字列が含まれている場合、Web API はクエリパラメーターをコントローラーメソッドのパラメーターと照合しようとします。 そのため、"api/products? category =*category*" という形式の URI は、このメソッドにマップされます。
 
-## <a name="creating-a-resource"></a>リソースを作成します。
+## <a name="creating-a-resource"></a>リソースの作成
 
-次に、メソッドを追加します、`ProductsController`新しい製品を作成するクラス。 メソッドの単純な実装を次に示します。
+次に、`ProductsController` クラスにメソッドを追加して、新しい製品を作成します。 メソッドの単純な実装を次に示します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample9.cs)]
 
-この方法に関する 2 つのことに注意してください。
+この方法については、次の2点に注意してください。
 
-- メソッドの名前で始まる&quot;投稿しています.&quot;. 新しい製品を作成するには、クライアントは、HTTP POST 要求を送信します。
-- メソッドは、製品の種類のパラメーターを受け取ります。 Web api では、複合型を持つパラメーターでは、要求本文から逆シリアル化します。 そのため、クライアントが XML または JSON 形式で、product オブジェクトのシリアル化された表現を送信する予定です。
+- メソッド名は &quot;Post...&quot;で始まります。 新しい製品を作成するために、クライアントは HTTP POST 要求を送信します。
+- メソッドは、Product 型のパラメーターを受け取ります。 Web API では、複合型のパラメーターは要求本文から逆シリアル化されます。 したがって、クライアントは、XML 形式または JSON 形式のいずれかで、製品オブジェクトのシリアル化された表現を送信することを想定しています。
 
-この実装は機能しますが、完全なものはありません。 理想的には、次のように HTTP 応答を今回は。
+この実装は機能しますが、まだ完全ではありません。 HTTP 応答には、次のようなものが含まれているのが理想的です。
 
-- **応答コード:** 既定では、Web API フレームワークは、200 (OK) に応答ステータス コードを設定します。 ただし、http/1.1 プロトコルに従って POST 要求の結果、リソースの作成時に、サーバーという応答がステータス 201 (Created)。
-- **場所:** サーバーは、リソースを作成するときは、応答の Location ヘッダーで、新しいリソースの URI を含める必要がありますに。
+- **応答コード:** 既定では、Web API フレームワークは応答状態コードを 200 (OK) に設定します。 ただし、HTTP/1.1 プロトコルによっては、POST 要求によってリソースが作成されるときに、サーバーは状態 201 (Created) を使用して応答する必要があります。
+- **場所:** サーバーは、リソースを作成するときに、応答の Location ヘッダーに新しいリソースの URI を含める必要があります。
 
-ASP.NET Web API を簡単に HTTP 応答メッセージを操作します。 強化された実装を次に示します。
+ASP.NET Web API を使用すると、HTTP 応答メッセージを簡単に操作できます。 次に、強化された実装を示します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample10.cs)]
 
-メソッドの戻り値の型は今すぐ**HttpResponseMessage**します。 返すことによって、 **HttpResponseMessage**製品ではなく、状態コードと Location ヘッダーを含む、HTTP 応答メッセージの詳細を制御することができます。
+メソッドの戻り値の型が**HttpResponseMessage**になっていることに注意してください。 製品の代わりに**HttpResponseMessage**を返すことによって、ステータスコードや場所ヘッダーなどの HTTP 応答メッセージの詳細を制御できます。
 
-**CreateResponse**メソッドを作成、 **HttpResponseMessage**本文に自動的に Product オブジェクトのシリアル化された表現を書き込みます fo 応答メッセージ。
+**CreateResponse**メソッドは、 **HttpResponseMessage**を作成し、シリアル化された製品オブジェクトの表現を応答メッセージの本文に自動的に書き込みます。
 
 > [!NOTE]
-> この例では検証されません、`Product`します。 モデルの検証については、次を参照してください。 [Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)します。
+> この例では、`Product`は検証されません。 モデルの検証の詳細については、「 [ASP.NET Web API でのモデルの検証](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)」を参照してください。
 
 ## <a name="updating-a-resource"></a>リソースの更新
 
-Put の製品を更新することは簡単です。
+PUT を使用して製品を更新するのは簡単です。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample11.cs)]
 
-メソッドの名前で始まる&quot;を配置しています.&quot;ので、Web API の PUT 要求に一致します。 メソッドは、2 つのパラメーター、製品 ID、および製品の更新を受け取ります。 *Id*パラメーターは、URI のパスから取得し、*製品*パラメーターが要求本文から逆シリアル化します。 既定では、ASP.NET Web API フレームワークは、ルートから単純なパラメーターの型と、要求本文から複合型を使用します。
+メソッド名は &quot;Put...&quot;で始まります。これにより、Web API は PUT 要求と照合します。 このメソッドは、製品 ID と更新された製品の2つのパラメーターを受け取ります。 *Id*パラメーターは URI パスから取得され、 *product*パラメーターは要求本文から逆シリアル化されます。 既定では、ASP.NET Web API framework は、要求本文からルートと複合型からの単純なパラメーター型を受け取ります。
 
-## <a name="deleting-a-resource"></a>リソースを削除します。
+## <a name="deleting-a-resource"></a>リソースの削除
 
-リソースを削除するには、「削除...」を定義します。メソッド。
+リソースを削除するには、"削除..." を定義します。b.
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample12.cs)]
 
-ステータスを記述するエンティティ本文を含むステータス 200 (OK) を返すことができます、DELETE 要求が成功すると、ステータス 202 (Accepted) 場合は、削除が保留中です。または 204 (No Content) エンティティ本文なしでのステータス。 ここで、`DeleteProduct`メソッドには、`void`型を返すため、ASP.NET Web API に自動的に変換このステータス コード 204 (No Content)。
+削除要求が成功すると、状態を説明するエンティティ本体を含むステータス 200 (OK) を返すことができます。削除がまだ保留中の場合、状態 202 (受理)または、エンティティ本体のない状態 204 (コンテンツなし)。 この場合、`DeleteProduct` メソッドには `void` 戻り値の型があるため、ASP.NET Web API はこれを自動的に状態コード 204 (コンテンツなし) に変換します。

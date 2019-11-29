@@ -1,131 +1,131 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
-title: ObjectDataSource のパラメーターの値 (c#) をプログラムによって設定 |Microsoft Docs
+title: ObjectDataSource のパラメーター値をプログラムで設定C#する () |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、DAL および BLL を 1 つの入力パラメーターを受け取り、データを返すメソッドを追加で紹介します。 例は、このパラメーターを設定しています.
+description: このチュートリアルでは、単一の入力パラメーターを受け取り、データを返す、DAL と BLL にメソッドを追加する方法について説明します。 この例では、次のパラメーターを設定します...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 1c4588bb-255d-4088-b319-5208da756f4d
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5d9419053b433f501212783d1cd3d9fb4734d63d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8aa57172abcfc779fa74b128ad76d42c41dc5b98
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133123"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74602231"
 ---
 # <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>ObjectDataSource のパラメーター値をプログラムで設定する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_6_CS.exe)または[PDF のダウンロード](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/datatutorial06cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_6_CS.exe)または[PDF のダウンロード](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/datatutorial06cs1.pdf)
 
-> このチュートリアルでは、DAL および BLL を 1 つの入力パラメーターを受け取り、データを返すメソッドを追加で紹介します。 例は、このパラメーターをプログラムによって設定されます。
+> このチュートリアルでは、単一の入力パラメーターを受け取り、データを返す、DAL と BLL にメソッドを追加する方法について説明します。 この例では、このパラメーターをプログラムによって設定します。
 
 ## <a name="introduction"></a>はじめに
 
-説明したように、[前のチュートリアル](declarative-parameters-cs.md)さまざまなオプションは宣言によって ObjectDataSource のメソッドにパラメーター値を渡すために使用できます。 ページで、Web コントロールから取得ハード コーディングされたパラメーター値の場合、またはデータ ソースによって読み取り可能なその他のソースでは、`Parameter`オブジェクトなど、コードを記述しなくても値が入力パラメーターにバインドできます。
+[前のチュートリアル](declarative-parameters-cs.md)で見たように、パラメーター値を ObjectDataSource のメソッドに宣言的に渡すためのオプションがいくつか用意されています。 パラメーター値がハードコーディングされている場合、ページ上の Web コントロールから取得された場合、またはデータソース `Parameter` オブジェクトによって読み取り可能な他の任意のソースにある場合は、コード行を記述せずにその値を入力パラメーターにバインドできます。
 
-ただし、組み込みのデータ ソースのいずれかで考慮されていないソースからパラメーター値を取得する場合がある可能性があります`Parameter`オブジェクト。 私たちのサイトには、ユーザー アカウントがサポートされている場合、現在ログインしている訪問者のユーザー ID に基づくパラメーターを設定する必要があります。 または、に沿って ObjectDataSource の基になるオブジェクトのメソッドに送信する前に、パラメーターの値をカスタマイズする必要があります。
+ただし、組み込みのデータソース `Parameter` オブジェクトのいずれかによってまだ使用されていないソースからパラメーター値が取得される場合もあります。 サイトでユーザーアカウントがサポートされている場合は、現在ログインしているビジターのユーザー ID に基づいてパラメーターを設定することができます。 また、場合によっては、ObjectDataSource の基になるオブジェクトのメソッドに送信する前に、パラメーター値をカスタマイズする必要があります。
 
-たびに ObjectDataSource の`Select`メソッドが呼び出される、ObjectDataSource がその[するイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx)します。 ObjectDataSource の基になるオブジェクトのメソッドが呼び出されます。 ObjectDataSource の完了後[選択したイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx)(図 1 は、このイベントのシーケンスを示しています) が起動します。 ObjectDataSource の基になるオブジェクトのメソッドに渡されたパラメーター値を設定またはのイベント ハンドラーでカスタマイズできる、`Selecting`イベント。
+ObjectDataSource の `Select` メソッドが呼び出されるたびに、ObjectDataSource は最初に選択した[イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx)を発生させます。 次に、ObjectDataSource の基になるオブジェクトのメソッドが呼び出されます。 この処理が完了すると、ObjectDataSource の[選択されたイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx)が発生します (図1はこの一連のイベントを示しています)。 ObjectDataSource の基になるオブジェクトのメソッドに渡されたパラメーター値は、`Selecting` イベントのイベントハンドラーで設定またはカスタマイズできます。
 
-[![ObjectDataSource の選択と選択イベント起動する前に、後の基になるオブジェクトのメソッドが呼び出されます](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
+[ObjectDataSource の選択した ![、基になるオブジェクトのメソッドが呼び出される前と後にイベントを選択します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
 
-**図 1**:ObjectDataSource の`Selected`と`Selecting`イベントの発生前に、と後の基になるオブジェクトのメソッドが呼び出されます ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image3.png))。
+**図 1**: 基になるオブジェクトのメソッドが呼び出される前と後に、ObjectDataSource の `Selected` イベントと `Selecting` イベントが起動される ([クリックすると、フルサイズの画像が表示](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image3.png)されます)
 
-このチュートリアルでは、DAL と 1 つの入力パラメーターを受け取る BLL にメソッドを追加することに注目します`Month`、型の`int`を返します、`EmployeesDataTable`雇用、記念日を指定したがある従業員を使用して作成されたオブジェクト`Month`. この例ではプログラムで「従業員の記念日今月」の一覧を表示、現在の月に基づくこのパラメーターを設定します。
+このチュートリアルでは、`int` 型の1つの入力パラメーター `Month`を受け取り、指定された `Month`で採用記念日がある従業員を含む `EmployeesDataTable` オブジェクトを返す、DAL および BLL にメソッドを追加する方法について説明します。 この例では、現在の月に基づいて、このパラメーターをプログラムによって設定し、「今月の従業員記念日」の一覧を示します。
 
-それでは、始めましょう!
+では、始めましょう。
 
-## <a name="step-1-adding-a-method-toemployeestableadapter"></a>手順 1: メソッドを追加します。`EmployeesTableAdapter`
+## <a name="step-1-adding-a-method-toemployeestableadapter"></a>手順 1:`EmployeesTableAdapter` にメソッドを追加する
 
-これらの従業員を取得するための手段を追加する必要があります最初の例の持つ`HireDate`で指定した月が発生しました。 最初のメソッドを作成する必要があります、アーキテクチャに従ってこの機能を提供する`EmployeesTableAdapter`適切な SQL ステートメントに対応します。 これを実現するには、Northwind の型指定されたデータセットを開くことで開始します。 右クリックし、`EmployeesTableAdapter`ラベルし、クエリの追加 を選択します。
+最初の例では、指定された月に `HireDate` が発生した従業員を取得するための手段を追加する必要があります。 アーキテクチャに従ってこの機能を提供するには、まず、適切な SQL ステートメントに対応する `EmployeesTableAdapter` のメソッドを作成する必要があります。 これを実現するには、まず、Northwind 型のデータセットを開きます。 `EmployeesTableAdapter` ラベルを右クリックし、[クエリの追加] を選択します。
 
-[![新しいクエリ、EmployeesTableAdapter を追加します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image5.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image4.png)
+[EmployeesTableAdapter に新しいクエリを追加 ![には](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image5.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image4.png)
 
-**図 2**:新しいクエリを追加、 `EmployeesTableAdapter` ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png))。
+**図 2**: `EmployeesTableAdapter` に新しいクエリを追加する ([クリックすると、フルサイズの画像が表示](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png)されます)
 
-行を返す SQL ステートメントを追加することもできます。 指定に達すると、`SELECT`ステートメントは、既定値を画面`SELECT`のステートメント、`EmployeesTableAdapter`は既に読み込まれます。 追加するだけです、`WHERE`句:`WHERE DATEPART(m, HireDate) = @Month`します。 [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) T-SQL 関数の特定の日付部分を返しますです、`datetime`型。 この場合、使用している`DATEPART`の月を返す、`HireDate`列。
+行を返す SQL ステートメントを追加することを選択します。 [`SELECT` ステートメントの指定] 画面が表示されたら、`EmployeesTableAdapter` の既定の `SELECT` ステートメントが既に読み込まれています。 単に `WHERE` 句: `WHERE DATEPART(m, HireDate) = @Month`にを追加します。 [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx)は、`datetime` 型の特定の日付部分を返す t-sql 関数です。この例では、`DATEPART` を使用して、`HireDate` 列の月を返しています。
 
-[![戻り値、行が、HireDate 列のみが未満かと等しい、@HiredBeforeDateパラメーター](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)
+[![は、HireDate 列が @HiredBeforeDate パラメーター以下の行のみを返します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)
 
-**図 3**:のみこれらの行を返す、`HireDate`列は、以下に、`@HiredBeforeDate`パラメーター ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image9.png))。
+**図 3**: `HireDate` 列が `@HiredBeforeDate` パラメーター以下の行のみを返す ([クリックすると、フルサイズの画像が表示](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image9.png)されます)
 
-最後に、変更、`FillBy`と`GetDataBy`メソッド名をする`FillByHiredDateMonth`と`GetEmployeesByHiredDateMonth`、それぞれします。
+最後に、`FillBy` および `GetDataBy` メソッド名を `FillByHiredDateMonth` と `GetEmployeesByHiredDateMonth`にそれぞれ変更します。
 
-[![FillBy と GetDataBy よりもより適切なメソッド名を選択します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image10.png)
+[FillBy と Get![y よりも適切なメソッド名を選択します](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image10.png)
 
-**図 4**:適切なメソッド名よりも選択`FillBy`と`GetDataBy`([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image12.png))。
+**図 4**: `FillBy` と `GetDataBy` よりも適切なメソッド名を選択[する (クリックしてフルサイズのイメージを表示する](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image12.png))
 
-ウィザードを完了し、データセットのデザイン画面に戻るには、[完了] をクリックします。 `EmployeesTableAdapter`従業員を雇用すると、指定した 1 か月にアクセスするためのメソッドの新しいセットを含める必要がありますようになりました。
+[完了] をクリックしてウィザードを完了し、データセットのデザイン画面に戻ります。 `EmployeesTableAdapter` には、指定された月に入社した従業員にアクセスするための新しい一連のメソッドが含まれるようになりました。
 
-[![新しいメソッド、データセットのデザイン画面に表示します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image13.png)
+[新しいメソッド ![データセットのデザインサーフェイスに表示されます。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image13.png)
 
-**図 5**:新規のメソッド、データセットのデザイン画面に表示されます ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image15.png))。
+**図 5**: 新しいメソッドがデータセットのデザインサーフェイスに表示される ([クリックしてフルサイズのイメージを表示する](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image15.png))
 
-## <a name="step-2-adding-thegetemployeesbyhireddatemonthmonthmethod-to-the-business-logic-layer"></a>手順 2: 追加、`GetEmployeesByHiredDateMonth(month)`メソッドをビジネス ロジック層
+## <a name="step-2-adding-thegetemployeesbyhireddatemonthmonthmethod-to-the-business-logic-layer"></a>手順 2: ビジネスロジック層への`GetEmployeesByHiredDateMonth(month)`メソッドの追加
 
-ロジックをアプリケーション アーキテクチャは、別のレイヤーのビジネス ロジックとデータにアクセスするために指定した日付より前に採用された従業員を取得するまで、DAL の呼び出しを BLL メソッドを追加する必要があります。 開く、`EmployeesBLL.cs`ファイルを開き、次のメソッドを追加します。
+アプリケーションアーキテクチャでは、ビジネスロジックとデータアクセスロジックに個別のレイヤーを使用しているため、指定された日付より前に入社した従業員を取得するために、DAL を呼び出すメソッドを BLL に追加する必要があります。 `EmployeesBLL.cs` ファイルを開き、次のメソッドを追加します。
 
 [!code-csharp[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample1.cs)]
 
-このクラスで、その他のメソッドと同様`GetEmployeesByHiredDateMonth(month)`DAL 呼び出すだけですし、結果を返します。
+このクラスの他のメソッドと同様に、`GetEmployeesByHiredDateMonth(month)` は単に DAL を呼び出し、結果を返します。
 
-## <a name="step-3-displaying-employees-whose-hiring-anniversary-is-this-month"></a>手順 3: 従業員の雇用の記念日はこの月を表示します。
+## <a name="step-3-displaying-employees-whose-hiring-anniversary-is-this-month"></a>手順 3: 雇用記念日が今月である従業員を表示する
 
-この例の最後の手順では、従業員の雇用の記念日はこの月を表示します。 GridView を追加することで開始、`ProgrammaticParams.aspx`ページで、`BasicReporting`フォルダーとそのデータ ソースとして新しい ObjectDataSource を追加します。 構成を使用する ObjectDataSource、`EmployeesBLL`クラス、`SelectMethod`に設定`GetEmployeesByHiredDateMonth(month)`します。
+この例の最後の手順では、雇用記念日が今月である従業員を表示します。 まず、GridView を `BasicReporting` フォルダーの `ProgrammaticParams.aspx` ページに追加し、新しい ObjectDataSource をそのデータソースとして追加します。 `SelectMethod` が `GetEmployeesByHiredDateMonth(month)`に設定された `EmployeesBLL` クラスを使用するように ObjectDataSource を構成します。
 
-[![EmployeesBLL クラスを使用して、](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image16.png)
+[EmployeesBLL クラスを使用 ![には](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image16.png)
 
-**図 6**:使用して、`EmployeesBLL`クラス ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image18.png))。
+**図 6**: `EmployeesBLL` クラスを使用[する (クリックすると、フルサイズの画像が表示](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image18.png)されます)
 
-[![The GetEmployeesByHiredDateMonth(month) から選択メソッド](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image19.png)
+[GetEmployeesByHiredDateMonth (month) メソッドから Select を ![](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image19.png)
 
-**図 7**:Select From、`GetEmployeesByHiredDateMonth(month)`メソッド ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image21.png))。
+**図 7**: `GetEmployeesByHiredDateMonth(month)` メソッドから選択する ([クリックすると、フルサイズの画像が表示](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image21.png)されます)
 
-最後の画面には、提供するよう求められます、`month`パラメーターの値のソース。 この値をプログラムで設定しますがため、パラメーター ソースが [なし]、既定値に設定したままにはオプションし、[完了] をクリックします。
+最後の画面では、`month` パラメーター値のソースを指定するように求められます。 この値はプログラムによって設定されるため、[パラメーターソース] を既定の [なし] に設定したままにして、[完了] をクリックします。
 
-[![[なし] に、パラメーター ソースの設定をそのまま使用します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image22.png)
+[パラメーターソースを None に設定したままにする ![](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image22.png)
 
-**図 8**:[なし] にパラメーターのソースの設定のままに ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image24.png))。
+**図 8**: パラメーターソースを None に設定したままにする ([クリックすると、フルサイズのイメージが表示](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image24.png)されます)
 
-これが作成されます、`Parameter`オブジェクトで ObjectDataSource の`SelectParameters`値が指定されていないコレクション。
+これにより、値が指定されていない ObjectDataSource の `SelectParameters` コレクションに `Parameter` オブジェクトが作成されます。
 
 [!code-aspx[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample2.aspx)]
 
-この値をプログラムで設定する必要がありますの ObjectDataSource のイベント ハンドラーを作成する`Selecting`イベント。 これを実現するには、デザイン ビューに移動し、ObjectDataSource をダブルクリックします。 または、ObjectDataSource を選択、[プロパティ] ウィンドウに移動し、稲妻のアイコンをクリックします。 次をダブルクリックするか、テキスト ボックスの横に、`Selecting`イベントまたはイベント ハンドラーを使用する名前を入力します。
+この値をプログラムで設定するには、ObjectDataSource の `Selecting` イベントのイベントハンドラーを作成する必要があります。 これを行うには、デザインビューにアクセスし、ObjectDataSource をダブルクリックします。 または、ObjectDataSource を選択し、プロパティウィンドウにアクセスして、[稲妻] アイコンをクリックします。 次に、`Selecting` イベントの横にあるテキストボックスをダブルクリックするか、使用するイベントハンドラーの名前を入力します。
 
-![Web コントロールのイベントを一覧表示する [プロパティ] ウィンドウで稲妻のアイコンをクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image25.png)
+![[プロパティ] ウィンドウの [稲妻] アイコンをクリックして、Web コントロールのイベントの一覧を表示します。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image25.png)
 
-**図 9**:Web コントロールのイベントを一覧表示する [プロパティ] ウィンドウで稲妻のアイコンをクリックします
+**図 9**: [プロパティ] ウィンドウの稲妻アイコンをクリックして、Web コントロールのイベントを一覧表示する
 
-どちらの方法では、新しいイベント ハンドラーを追加の ObjectDataSource の`Selecting`ページの分離コード クラスにイベント。 このイベント ハンドラーには、読み取りし、書き込みを使用してパラメーター値できます`e.InputParameters[parameterName]`ここで、 *`parameterName`* の値である、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションこともできます序数、としてのインデックス付き`e.InputParameters[index]`)。 設定する、`month`パラメーター、現在の月を追加するには、次の`Selecting`イベント ハンドラー。
+どちらの方法でも、ObjectDataSource の `Selecting` イベントの新しいイベントハンドラーがページの分離コードクラスに追加されます。 このイベントハンドラーでは、`e.InputParameters[parameterName]`を使用してパラメーター値の読み取りと書き込みを行うことができます。ここで *`parameterName`* は `<asp:Parameter>` タグの `Name` 属性の値です (`InputParameters` コレクションには、`e.InputParameters[index]`のように、インデックスを作成することもできます)。 `month` パラメーターを現在の月に設定するには、`Selecting` イベントハンドラーに次のを追加します。
 
 [!code-csharp[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample3.cs)]
 
-ブラウザーからこのページにアクセスすると、1 つだけの従業員が採用された今月 (3 月) 確認できます Laura Callahan、1994 年以来勤務しています。
+ブラウザーを使用してこのページにアクセスすると、1人の従業員のみが入社したことがわかります。この月に入社した従業員は、1994年以降、Callahan 年3月になりました。
 
-[![これらの従業員を記念日今月が表示されます。](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image26.png)
+[今月の記念日が表示されている従業員を ![します](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image26.png)
 
-**図 10**:これらの従業員を記念日この 1 か月が表示されます ([フルサイズの画像を表示する をクリックします](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image28.png))。
+**図 10**: 今月の記念日が表示されている従業員 ([フルサイズの画像を表示するにはクリックし](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image28.png)ます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-ObjectDataSource のパラメーターの設定できる値は通常ここでは、行のコードを必要とせずに、パラメーター値をプログラムで設定する簡単です。 ObjectDataSource のイベント ハンドラーを作成を行う必要がありますすべてが`Selecting`、基になるオブジェクトのメソッドが呼び出され、使用して、1 つまたは複数のパラメーターの値を手動で設定する前に発生するイベント、`InputParameters`コレクション。
+ObjectDataSource のパラメーターの値は通常、コード行を必要とせずに宣言して設定できますが、パラメーター値はプログラムで簡単に設定できます。 必要なのは、ObjectDataSource の `Selecting` イベントのイベントハンドラーを作成することだけです。これは、基になるオブジェクトのメソッドが呼び出される前に発生し、`InputParameters` コレクションを介して1つ以上のパラメーターの値を手動で設定します。
 
-このチュートリアルでは、基本レポートのセクションで終了します。 [次のチュートリアル](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md)マスター詳細シナリオのフィルター処理を私たちがデータをフィルター処理の訪問者を許可するための手法を見てとセクション マスター レポートから詳細レポートにドリル ダウンを開始します。
+このチュートリアルでは、基本的なレポートのセクションについて説明します。 [次のチュートリアル](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md)では、「フィルター処理とマスター/詳細シナリオ」セクションを開始します。このセクションでは、ビジターがデータをフィルター処理し、マスターレポートから詳細レポートにドリルダウンできるようにする方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者が、Hilton Giesenow です。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Giesenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](declarative-parameters-cs.md)

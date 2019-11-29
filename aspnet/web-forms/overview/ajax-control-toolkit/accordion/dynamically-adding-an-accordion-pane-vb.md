@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
-title: アコーディオン ウィンドウ (VB) を動的に追加する |Microsoft Docs
+title: アコーディオンウィンドウを動的に追加する (VB) |Microsoft Docs
 author: wenz
-description: AJAX Control Toolkit で、アコーディオン コントロールは、複数のペインを示し、うち 1 つを同時に表示できます。 パネルには、w を宣言は、通常は.
+description: AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルは...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: fae968c9-1902-487d-b053-86a46dd52c3f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e3f99cbe31707f535809da0ad12f67832040b0d2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: be48db5ea3de4af46b0f864cc9e73d2f518294a4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131234"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74607198"
 ---
-# <a name="dynamically-adding-an-accordion-pane-vb"></a>アコーディオン ウィンドウ (VB) を動的に追加します。
+# <a name="dynamically-adding-an-accordion-pane-vb"></a>アコーディオンウィンドウを動的に追加する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2VB.pdf)
 
-> AJAX Control Toolkit で、アコーディオン コントロールは、複数のペインを示し、うち 1 つを同時に表示できます。 パネルがページ自体には、通常は宣言されているが、サーバー側のコードは、同じ結果を実現するために使用できます。
+> AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルはページ内で宣言されますが、サーバー側のコードを使用して同じ結果を得ることができます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-AJAX Control Toolkit で、アコーディオン コントロールは、複数のペインを示し、うち 1 つを同時に表示できます。 パネルがページ自体には、通常は宣言されているが、サーバー側のコードは、同じ結果を実現するために使用できます。
+AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルはページ内で宣言されますが、サーバー側のコードを使用して同じ結果を得ることができます。
 
 ## <a name="steps"></a>手順
 
-アコーディオン コントロールは、サーバー側コードをすべての重要なプロパティを公開します。 その他のもの、`Panes`プロパティは、アコーディオンを構成するペインのコレクションへのアクセスを許可します。 型のあるすべてのウィンドウ`AccordionPane`します。 このようなウィンドウを作成する単純なしたがって。
+アコーディオンコントロールは、すべての重要なプロパティをサーバー側のコードに公開します。 特に、`Panes` プロパティは、アコーディオンを構成するペインのコレクションへのアクセスを許可します。 すべてのウィンドウには `AccordionPane`型があります。 そのため、このようなペインを作成するのは簡単です。
 
 [!code-vb[Main](dynamically-adding-an-accordion-pane-vb/samples/sample1.vb)]
 
-`HeaderContainer`プロパティの`AccordionPane`; ウィンドウのヘッダー セクション内の ASP.NET コントロールへのアクセスを提供します、`ContentContainer`プロパティの`AccordionPane`ウィンドウのコンテンツ セクションに対しても同様です。 これにより、ASP.NET コード ウィンドウにコンテンツを追加します。
+`AccordionPane` の `HeaderContainer` プロパティは、ペインのヘッダーセクション内の ASP.NET コントロールへのアクセスを提供します。`AccordionPane` の `ContentContainer` プロパティは、ペインのコンテンツセクションでも同じです。 これにより、ASP.NET コードで、ウィンドウにコンテンツを追加できます。
 
 [!code-vb[Main](dynamically-adding-an-accordion-pane-vb/samples/sample2.vb)]
 
-最後に、pane(s) に追加する必要があります、`Panes`アコーディオンのコレクション。
+最後に、ウィンドウをアコーディオンの `Panes` コレクションに追加する必要があります。
 
 [!code-vb[Main](dynamically-adding-an-accordion-pane-vb/samples/sample3.vb)]
 
-アコーディオン コントロールに 2 つのペインを追加します。 完全なサーバー側コードを次に示します。
+次に示すのは、アコーディオンコントロールに2つのペインを追加する完全なサーバー側コードです。
 
 [!code-aspx[Main](dynamically-adding-an-accordion-pane-vb/samples/sample4.aspx)]
 
-唯一の要素がありませんが、ASP.NET の存在に依存する自体、アコーディオン`ScriptManager`コントロール。
+見つからない要素は、ASP.NET `ScriptManager` コントロールの存在に応じて、アコーディオン自体だけです。
 
 [!code-aspx[Main](dynamically-adding-an-accordion-pane-vb/samples/sample5.aspx)]
 
-例を完了するには、アコーディオン コントロールで参照されている 2 つの CSS クラスは、ブラウザーのスタイル情報を提供します。
+この例を完了するために、アコーディオンコントロールで参照される2つの CSS クラスでブラウザーのスタイル情報が提供されます。
 
 [!code-css[Main](dynamically-adding-an-accordion-pane-vb/samples/sample6.css)]
 
-[![アコーディオンにデータはサーバー側コードによって動的に追加されました](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
+[サーバー側のコードによって、アコーディオン内のデータが動的に追加された ![](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
 
-アコーディオンにデータはサーバー側コードによって動的に追加されました ([フルサイズの画像を表示する をクリックします](dynamically-adding-an-accordion-pane-vb/_static/image3.png))。
+アコーディオン内のデータはサーバー側のコードによって動的に追加されました ([クリックすると、フルサイズの画像が表示](dynamically-adding-an-accordion-pane-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](databinding-to-an-accordion-vb.md)

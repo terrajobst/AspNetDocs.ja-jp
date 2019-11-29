@@ -1,142 +1,142 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
-title: 宣言パラメーター (c#) |Microsoft Docs
+title: 宣言型パラメーターC#() |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、DetailsView コントロールに表示するデータを選択するハード コーディングされた値に設定するパラメーターを使用する方法について説明します。
+description: このチュートリアルでは、ハードコーディングされた値に設定されたパラメーターを使用して、DetailsView コントロールに表示するデータを選択する方法について説明します。
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 603c9bd3-b895-4ec6-853b-0c81ff36d580
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac97b459536356a0ffa2a35b0c38942318f875f0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 87c8cfe064abc536e6015b0e553618981da9fefe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128082"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74613366"
 ---
 # <a name="declarative-parameters-c"></a>宣言パラメーター (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_5_CS.exe)または[PDF のダウンロード](declarative-parameters-cs/_static/datatutorial05cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_5_CS.exe)または[PDF のダウンロード](declarative-parameters-cs/_static/datatutorial05cs1.pdf)
 
-> このチュートリアルでは、DetailsView コントロールに表示するデータを選択するハード コーディングされた値に設定するパラメーターを使用する方法について説明します。
+> このチュートリアルでは、ハードコーディングされた値に設定されたパラメーターを使用して、DetailsView コントロールに表示するデータを選択する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-[の最終チュートリアル](displaying-data-with-the-objectdatasource-cs.md)データ呼び出さ ObjectDataSource コントロールにバインドされた GridView、DetailsView と FormView コントロールを表示するところ、`GetProducts()`からメソッド、`ProductsBLL`クラス。 `GetProducts()`メソッドはすべての Northwind データベースのレコードを含む厳密に型指定された DataTable を返します`Products`テーブル。 `ProductsBLL`クラスには、その他の商品のだけサブセットを返すメソッドが含まれています`GetProductByProductID(productID)`、 `GetProductsByCategoryID(categoryID)`、および`GetProductsBySupplierID(supplierID)`します。 これら 3 つのメソッドには、返された製品情報をフィルター処理する方法を示す、入力パラメーターが期待しています。
+最後の[チュートリアル](displaying-data-with-the-objectdatasource-cs.md)では、`ProductsBLL` クラスから `GetProducts()` メソッドを呼び出した ObjectDataSource コントロールにバインドされた GridView、DetailsView、FormView コントロールを使用してデータを表示する方法について見てきました。 `GetProducts()` メソッドは、Northwind データベースの `Products` テーブルのすべてのレコードを格納する、厳密に型指定された DataTable を返します。 `ProductsBLL` クラスには、`GetProductByProductID(productID)`、`GetProductsByCategoryID(categoryID)`、および `GetProductsBySupplierID(supplierID)`製品のサブセットのみを返すための追加メソッドが含まれています。 これら3つのメソッドは、返された製品情報をフィルター処理する方法を示す入力パラメーターを想定しています。
 
-入力パラメーターは、予想されるメソッドを呼び出すそのためにはこれらのパラメーター値元の場所を指定します、ObjectDataSource を使用できます。 パラメーターの値にハードコーディングすることができますか、さまざまななどの動的ソースから取得できます。 クエリ文字列値、セッション変数、またはその他のページ上の Web コントロールのプロパティの値。
+ObjectDataSource は、入力パラメーターを必要とするメソッドを呼び出すために使用できますが、そのためには、これらのパラメーターの値の取得元となる場所を指定する必要があります。 パラメーター値は、ハードコーディングすることも、クエリ文字列値、セッション変数、ページ上の Web コントロールのプロパティ値など、さまざまな動的ソースから取得することもできます。
 
-このチュートリアルではまずハード コーディングされた値に設定するパラメーターを使用する方法を説明します。 具体的には、namely Chef Anton の Gumbo するミックスが特定の製品に関する情報を表示するページに、DetailsView を追加することに注目します、`ProductID`は 5 です。 次に、Web コントロールを基にパラメーター値を設定する方法を見ていきます。 具体的には、ユーザーがその後、その国内に存在する仕入先の一覧を表示するのにボタンをクリックしたことができます、国を入力できるテキスト ボックスを使用します。
+このチュートリアルでは、まず、パラメーターをハードコーディングされた値に設定する方法を説明します。 具体的には、特定の製品に関する情報を表示する DetailsView をページに追加する方法について説明します。これには、`ProductID` が5の、Chef Anton の Gumbo Mix が含まれます。 次に、Web コントロールに基づいてパラメーター値を設定する方法について説明します。 具体的には、テキストボックスを使用してユーザーが国に入力できるようにします。その後、ボタンをクリックすると、その国に存在する業者の一覧が表示されます。
 
-## <a name="using-a-hard-coded-parameter-value"></a>ハード コーディングされたパラメーター値を使用します。
+## <a name="using-a-hard-coded-parameter-value"></a>ハードコーディングされたパラメーター値の使用
 
-最初の例では、DetailsView コントロールを追加することによって、起動、`DeclarativeParams.aspx`ページで、`BasicReporting`フォルダー。 DetailsView のスマート タグから次のように選択します。&lt;新しいデータ ソース&gt;ドロップダウン リストから一覧表示し、ObjectDataSource を追加します。
+最初の例では、まず、`BasicReporting` フォルダーの `DeclarativeParams.aspx` ページに DetailsView コントロールを追加します。 DetailsView のスマートタグから、ドロップダウンリストから [新しいデータソースの&gt; を &lt;] を選択し、ObjectDataSource を追加することを選択します。
 
-[![ObjectDataSource をページに追加します。](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
+[![ObjectDataSource をページに追加する](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
 
-**図 1**:ObjectDataSource をページに追加 ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image3.png))。
+**図 1**: ObjectDataSource をページに追加する ([クリックすると、フルサイズの画像が表示](declarative-parameters-cs/_static/image3.png)されます)
 
-ObjectDataSource コントロールのデータ ソースの選択ウィザードが自動的に開始されます。 選択、`ProductsBLL`ウィザードの最初の画面からクラス。
+これにより、ObjectDataSource コントロールの [データソースの選択] ウィザードが自動的に開始されます。 ウィザードの最初の画面で `ProductsBLL` クラスを選択します。
 
-[![ProductsBLL クラスを選択します。](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
+[製品の Bll クラスを選択 ![には](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
 
-**図 2**:選択、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image6.png))。
+**図 2**: `ProductsBLL` クラスを選択[する (クリックすると、フルサイズの画像が表示](declarative-parameters-cs/_static/image6.png)されます)
 
-使用する特定の製品についての情報を表示するため、`GetProductByProductID(productID)`メソッド。
+特定の製品に関する情報を表示する必要があるため、`GetProductByProductID(productID)` メソッドを使用します。
 
-[![GetProductByProductID(productID) 方法を選択します。](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
+[GetProductByProductID (productID) メソッドを選択 ![には](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
 
-**図 3**:選択、`GetProductByProductID(productID)`メソッド ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image9.png))。
+**図 3**: `GetProductByProductID(productID)` メソッドを選択[する (クリックしてフルサイズの画像を表示する](declarative-parameters-cs/_static/image9.png))
 
-選択したメソッドには、パラメーターが含まれているため、パラメーターに使用する値の定義を求める、ウィザードの詳細について 1 つの画面があります。 左側の一覧には、選択したメソッドのパラメーターのすべてが表示されます。 `GetProductByProductID(productID)` 1 つしかない`productID`します。 右側には、選択したパラメーターの値を指定できます。 パラメーターのソースのドロップダウン リストでは、パラメーター値のさまざまな原因を列挙します。 5 用のハード コーディングされた値を指定するので、`productID`パラメーター、None としてパラメーターのソースを残す場合、DefaultValue テキスト ボックスに 5 を入力します。
+選択したメソッドにはパラメーターが含まれているため、ウィザードの画面がもう1つ表示されます。この画面では、パラメーターに使用する値を定義するよう求められています。 左側の一覧には、選択したメソッドのすべてのパラメーターが表示されます。 `GetProductByProductID(productID)` には、`productID`が1つだけあります。 右側で、選択したパラメーターの値を指定できます。 [パラメーターのソース] ボックスの一覧には、パラメーター値に使用できるさまざまなソースが列挙されています。 `productID` パラメーターにはハードコーディングされた値5を指定するので、パラメーター source は None のままにし、DefaultValue テキストボックスに「5」と入力します。
 
-[![Hard-Coded パラメーター値の 5 を使用するパラメーターの productID に対して](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
+[ハードコードされたパラメーター値5が productID パラメーターに使用される ![](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
 
-**図 4**:Hard-Coded パラメーター値の 5 を使用するため、`productID`パラメーター ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image12.png))。
+**図 4**: ハードコーディングされたパラメーター値5が `productID` パラメーターに使用されます ([クリックすると、フルサイズのイメージが表示](declarative-parameters-cs/_static/image12.png)されます)
 
-ObjectDataSource コントロールの宣言型マークアップを含むデータ ソースの構成ウィザードを完了したら、`Parameter`オブジェクト、`SelectParameters`で定義されたメソッドで想定されている入力パラメーターのそれぞれのコレクション、 `SelectMethod`プロパティ。 この例で使用するメソッドがだけを単一の入力パラメーターを受け取るため`parameterID`、ここで 1 つだけのエントリがあります。 `SelectParameters`コレクションから派生する任意のクラスを含めることができます、`Parameter`クラス、`System.Web.UI.WebControls`名前空間。 パラメーターのハードコード値ベースの`Parameter`クラスが使用されますが、他のパラメーターのソース オプション、派生`Parameter`クラスが使用されます。 独自に作成することも[カスタム パラメーターの型](http://www.leftslipper.com/ShowFaq.aspx?FaqId=11)必要な場合、します。
+データソースの構成ウィザードを完了すると、ObjectDataSource コントロールの宣言型マークアップには、`SelectMethod` プロパティで定義されたメソッドに必要な各入力パラメーターの `SelectParameters` コレクション内の `Parameter` オブジェクトが含まれます。 この例で使用しているメソッドでは、1つの入力パラメーターだけが想定されているため、ここにはエントリが1つだけあります。 `parameterID`ます。 `SelectParameters` コレクションには、`System.Web.UI.WebControls` 名前空間の `Parameter` クラスから派生した任意のクラスを含めることができます。 ハードコーディングされたパラメーター値の場合は、基本 `Parameter` クラスが使用されますが、その他のパラメーターソースオプションでは、派生 `Parameter` クラスが使用されます。必要に応じて、独自の[カスタムパラメーター型](http://www.leftslipper.com/ShowFaq.aspx?FaqId=11)を作成することもできます。
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample1.aspx)]
 
 > [!NOTE]
-> 月の値を含める表示この時点でに従ってお使いコンピューターで、宣言型マークアップがある場合、 `InsertMethod`、`UpdateMethod`と`DeleteMethod`プロパティだけでなく`DeleteParameters`。 ObjectDataSource のデータ ソースの選択ウィザードからのメソッドを自動的に指定する、`ProductBLL`に使用する挿入、更新、および削除するには、明示的にオフにしたものをしない限り、上記のマークアップに含めるをできるようにします。
+> 自分のコンピューターに従っている場合、この時点で表示される宣言型マークアップには、`InsertMethod`、`UpdateMethod`、および `DeleteMethod` プロパティの値と `DeleteParameters`が含まれている可能性があります。 ObjectDataSource の [データソースの選択] ウィザードでは、挿入、更新、および削除に使用するメソッドが `ProductBLL` から自動的に指定されます。これらのメソッドを明示的にクリアしない限り、上記のマークアップに含まれます。
 
-データ Web コントロールが ObjectDataSource を呼び出すときに、このページにアクセスして、`Select`メソッドを呼び出すが、`ProductsBLL`クラスの`GetProductByProductID(productID)`5 用のハード コーディングされた値を使用して、メソッド、`productID`入力パラメーター。 メソッドは厳密に型を返す`ProductDataTable`Chef Anton の Gumbo ミックスに関する情報を含む 1 つの行を格納しているオブジェクト (製品の`ProductID`5)。
+このページにアクセスすると、データ Web コントロールは ObjectDataSource の `Select` メソッドを呼び出します。このメソッドは、`productID` 入力パラメーターに対してハードコーディングされた値5を使用して、`ProductsBLL` クラスの `GetProductByProductID(productID)` メソッドを呼び出します。 メソッドは、Chef Anton の Gumbo ミックス (製品の `ProductID` 5) に関する情報を含む単一行を含む、厳密に型指定された `ProductDataTable` オブジェクトを返します。
 
-[![情報に関する Chef Anton の Gumbo ミックスが表示されます。](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
+[Chef Anton の Gumbo ミックスに関する ![情報が表示されます](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
 
-**図 5**:情報に関する Chef Anton の Gumbo ミックスが表示されます ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image15.png))。
+**図 5**: Chef Anton の Gumbo ミックスに関する情報の表示 ([クリックすると、フルサイズの画像が表示](declarative-parameters-cs/_static/image15.png)されます)
 
-## <a name="setting-the-parameter-value-to-the-property-value-of-a-web-control"></a>Web コントロールのプロパティの値にパラメーター値の設定
+## <a name="setting-the-parameter-value-to-the-property-value-of-a-web-control"></a>パラメーター値を Web コントロールのプロパティ値に設定する
 
-ObjectDataSource のパラメーターの値を設定することも、ページ上の Web コントロールの値に基づいています。 これを示すためには、ユーザーが指定した国に所在する仕入先のすべてを一覧表示する GridView があてみましょう。 このスタートを得るためには、ユーザーが国の名前を入力できるページにテキスト ボックスを追加します。 このテキスト ボックス コントロールの設定`ID`プロパティを`CountryName`します。 また、ボタンの Web コントロールを追加します。
+ObjectDataSource のパラメーター値は、ページの Web コントロールの値に基づいて設定することもできます。 これを説明するために、ユーザーによって指定された国に配置されているすべての仕入先を一覧表示する GridView を使用します。 この作業を行うには、ユーザーが国名を入力できるページにテキストボックスを追加します。 このテキストボックスコントロールの `ID` プロパティを `CountryName`に設定します。 また、ボタン Web コントロールも追加します。
 
-[![ID CountryName をページにテキスト ボックスを追加します。](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
+[ID CountryName のページにテキストボックスを追加 ![には](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
 
-**図 6**:テキスト ボックスをページに追加`ID` `CountryName` ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image18.png))。
+**図 6**: `ID` `CountryName` を含むテキストボックスをページに追加する ([クリックすると、フルサイズの画像が表示](declarative-parameters-cs/_static/image18.png)されます)
 
-次に、ページと、スマート タグの間に、GridView を追加では、新しい ObjectDataSource を追加する選択します。 仕入先情報の選択を表示するため、`SuppliersBLL`ウィザードの最初の画面からのクラス。 2 番目の画面から選択、`GetSuppliersByCountry(country)`メソッド。
+次に、GridView をページに追加し、スマートタグから新しい ObjectDataSource を追加することを選択します。 仕入先情報を表示するため、ウィザードの最初の画面から `SuppliersBLL` クラスを選択します。 2番目の画面で、`GetSuppliersByCountry(country)` メソッドを選択します。
 
-[![GetSuppliersByCountry(country) 方法を選択します。](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
+[GetSuppliersByCountry (country) メソッドを選択 ![には](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
 
-**図 7**:選択、`GetSuppliersByCountry(country)`メソッド ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image21.png))。
+**図 7**: `GetSuppliersByCountry(country)` メソッドを選択[する (クリックしてフルサイズのイメージを表示する](declarative-parameters-cs/_static/image21.png))
 
-以降、`GetSuppliersByCountry(country)`メソッドの入力パラメーターには、ウィザードにはもう一度パラメーターの値を選択するための最後の画面が含まれています。 この時点では、パラメーター ソースをコントロールに設定します。 ページ上のコントロールの名前を持つ ControlID ドロップダウン リストが設定されます。選択、`CountryName`一覧からコントロール。 ページが初めてアクセスしたときに、`CountryName`結果が返されないと、何も表示されませんが、テキスト ボックスは空白になります。 既定でいくつかの結果を表示する場合は、DefaultValue textbox を適宜設定します。
+`GetSuppliersByCountry(country)` メソッドに入力パラメーターがあるため、ウィザードには、パラメーター値を選択するための最後の画面がもう一度表示されます。 ここでは、パラメーターソースを [制御] に設定します。 これにより、[ControlID] ドロップダウンリストに、ページ上のコントロールの名前が設定されます。一覧から `CountryName` コントロールを選択します。 ページが最初に表示されたときに `CountryName` テキストボックスは空白になるため、結果は返されず、何も表示されません。 既定でいくつかの結果を表示するには、DefaultValue テキストボックスを適宜設定します。
 
-[![CountryName コントロールの値にパラメーター値を設定します。](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
+[CountryName コントロール値にパラメーター値を設定 ![には](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
 
-**図 8**:パラメーターの値を設定、`CountryName`コントロールの値 ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image24.png))。
+**図 8**: パラメーター値を `CountryName` コントロールの値に設定する ([クリックしてフルサイズのイメージを表示する](declarative-parameters-cs/_static/image24.png))
 
-ObjectDataSource の宣言型マークアップは、最初の例と若干異なってを使用して、 [ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx)標準ではなく`Parameter`オブジェクト。 A`ControlParameter`を指定する追加のプロパティを持つ、 `ID` Web コントロールと、パラメーターを使用するプロパティの値の (`PropertyName`)。 データ ソース構成ウィザードが決めることをテキスト ボックスのなります可能性がありますを使用するほど、`Text`パラメーター値のプロパティ。 ただし、Web コントロールから別のプロパティ値を使用する場合は、変更、`PropertyName`値ここで、またはウィザードの [のプロパティの詳細表示] リンクをクリックします。
+ObjectDataSource の宣言型マークアップは、最初の例とは少し異なり、標準の `Parameter` オブジェクトの代わりに[Controlparameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx)を使用します。 `ControlParameter` には、Web コントロールの `ID` と、パラメーターに使用するプロパティ値 (`PropertyName`) を指定するための追加のプロパティがあります。 データソースの構成ウィザードでは、テキストボックスの場合、パラメーター値に `Text` プロパティを使用することができます。 ただし、Web コントロールから別のプロパティ値を使用する場合は、ここで `PropertyName` 値を変更するか、ウィザードの [詳細プロパティの表示] リンクをクリックします。
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample2.aspx)]
 
-最初に、ページにアクセスしたとき、`CountryName`テキスト ボックスが空です。 ObjectDataSource の`Select`、GridView の値でメソッドが呼び出さ`null`に渡される、`GetSuppliersByCountry(country)`メソッド。 TableAdapter に変換します、`null`をデータベースに`NULL`値 (`DBNull.Value`) が、クエリで使用される、`GetSuppliersByCountry(country)`いずれかが返されないように、メソッドが記述された値、 `NULL` 値が指定されて`@CategoryID`パラメーター。 つまり、サプライヤーは返されません。
+ページに初めてアクセスしたときに、`CountryName` テキストボックスが空になります。 ObjectDataSource の `Select` メソッドは GridView によってまだ呼び出されていますが、`GetSuppliersByCountry(country)` メソッドに `null` の値が渡されます。 TableAdapter は、`null` をデータベース `NULL` 値 (`DBNull.Value`) に変換しますが、`GetSuppliersByCountry(country)` メソッドによって使用されるクエリは、`NULL` パラメーターに `@CategoryID` 値が指定されている場合に値を返さないように記述されています。 つまり、仕入先は返されません。
 
-訪問者の国、ただし、入力し、するポストバックを発生させる、ObjectDataSource のサプライヤーの表示 ボタンをクリックすると`Select`メソッドをクエリすると、TextBox コントロールの渡して`Text`値として、`country`パラメーター。
+ただし、ビジターが1つの国に入力し、[サプライヤーの表示] ボタンをクリックするとポストバックが発生すると、ObjectDataSource の `Select` メソッドが再クエリされ、`country` パラメーターとして TextBox コントロールの `Text` 値が渡されます。
 
-[![カナダから業者が表示されます。](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
+[カナダからの仕入先の ![が表示されます。](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
 
-**図 9**:カナダから業者が表示されます ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image27.png))。
+**図 9**: カナダの仕入先が表示されます ([クリックすると、フルサイズの画像が表示](declarative-parameters-cs/_static/image27.png)されます)
 
-## <a name="showing-all-suppliers-by-default"></a>既定ですべての仕入先の表示
+## <a name="showing-all-suppliers-by-default"></a>既定ですべての仕入先を表示する
 
-はなく最初のページを表示するときに なし の仕入先よりも可能性がありますを表示する*すべて*最初は、サプライヤーに、ユーザー ボックスに、国の名前を入力して、一覧を縮小することができます。 テキスト ボックスが空で、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された、`null`値その *`country`* 入力パラメーター。 これは、 `null` DAL のに値が渡されます`GetSupplierByCountry(country)`メソッドは、データベースに変換されます`NULL`値、`@Country`次のクエリ パラメーター。
+最初にページを表示したときにサプライヤーが表示されないようにするには、最初に*すべて*のサプライヤーを表示し、ユーザーがテキストボックスに国名を入力してリストを省いできるようにします。 テキストボックスが空の場合、`SuppliersBLL` クラスの `GetSuppliersByCountry(country)` メソッドは *`country`* 入力パラメーターの `null` 値で渡されます。 この `null` 値は、次のクエリの `@Country` パラメーターのデータベース `NULL` 値に変換される DAL の `GetSupplierByCountry(country)` メソッドに渡されます。
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 
-式`Country = NULL`常に False を返します、レコードの場合でも持つ`Country`列には、`NULL`値。 そのため、レコードは返されません。
+式 `Country = NULL` は、`Country` 列に `NULL` 値があるレコードに対しても常に False を返します。したがって、レコードは返されません。
 
-返される*すべて*サプライヤー国のテキスト ボックスが空の場合は強化点は、`GetSuppliersByCountry(country)`メソッドを呼び出す BLL、`GetSuppliers()`その国のパラメーターがメソッド`null`と DAL の呼び出しに`GetSuppliersByCountry(country)`メソッドはそれ以外の場合。 国のパラメーターが含まれる場合は、国が指定されていない場合、すべてのサプライヤーと仕入先の適切なサブセットを返すことの効果があります。
+Country テキストボックスが空のときに*すべて*の業者を返すには、BLL の `GetSuppliersByCountry(country)` メソッドを拡張して、country パラメーターが `null` ときに `GetSuppliers()` メソッドを呼び出し、それ以外の場合は DAL の `GetSuppliersByCountry(country)` メソッドを呼び出すことができます。 これにより、国が指定されていない場合はすべての業者が返され、country パラメーターが含まれている場合は、サプライヤーの適切なサブセットが返されます。
 
-変更、`GetSuppliersByCountry(country)`メソッドで、`SuppliersBLL`次のクラス。
+`SuppliersBLL` クラスの `GetSuppliersByCountry(country)` メソッドを次のように変更します。
 
 [!code-csharp[Main](declarative-parameters-cs/samples/sample4.cs)]
 
-この変更により、`DeclarativeParams.aspx`初めてアクセスしたときに、仕入先のすべてのページが表示されます (またはたびに、`CountryName`テキスト ボックスが空です)。
+この変更により、[`DeclarativeParams.aspx`] ページには、最初にアクセスしたとき (または `CountryName` テキストボックスが空のとき) にすべての仕入先が表示されます。
 
-[![All は既定で表示されるようになりました](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
+[すべての仕入先が既定で表示されるようになりました ![](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
 
-**図 10**:All は既定で表示されるようになりました ([フルサイズの画像を表示する をクリックします](declarative-parameters-cs/_static/image30.png))。
+**図 10**: すべての仕入先が既定で表示される ([クリックしてフルサイズの画像を表示する](declarative-parameters-cs/_static/image30.png))
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-ObjectDataSource のパラメーターの値を指定する入力パラメーターを持つメソッドを使用するには`SelectParameters`コレクション。 さまざまな種類のパラメーターのさまざまなソースから取得するパラメーター値を許容します。 既定のパラメーター型が、ハード コーディングされた値を使用しますが、簡単に (およびコードを記述しなくても) と同様、クエリ文字列、セッション変数、cookie、およびページ上の Web コントロールからもユーザーが入力した値からパラメーターの値を取得できます。
+入力パラメーターでメソッドを使用するには、ObjectDataSource の `SelectParameters` コレクションのパラメーターの値を指定する必要があります。 パラメーターの種類によって、さまざまなソースからパラメーター値を取得できます。 既定のパラメーターの型はハードコーディングされた値を使用しますが、単純に (コード行を含めずに) パラメーター値をクエリ文字列、セッション変数、cookie から取得することも、ページ上の Web コントロールからユーザーが入力した値から取得することもできます。
 
-このチュートリアルでは見たので、例では、宣言型のパラメーター値を使用する方法を説明します。 ただし、あります回パラメーターのソースで使用できない場合、現在の日付と時刻などを使用するときに、私たちのサイトは、メンバーシップ、訪問者のユーザー ID を使用していた場合。 このようなシナリオ、ObjectDataSource 前にプログラムでパラメーターの値設定し、その基になるオブジェクトのメソッドを呼び出すことができます。 これを実現する方法を見て、[次のチュートリアル](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)します。
+このチュートリアルで見た例では、宣言型パラメーター値の使用方法を説明しました。 ただし、現在の日付と時刻など、利用できないパラメーターソースを使用する必要がある場合や、サイトでメンバーシップを使用している場合は、ビジターのユーザー ID を使用することがあります。 このようなシナリオでは、ObjectDataSource の前にプログラムによってパラメーター値を設定して、基になるオブジェクトのメソッドを呼び出すことができます。 これを実現する方法については、[次のチュートリアル](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)で説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者が、Hilton Giesenow です。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Giesenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](displaying-data-with-the-objectdatasource-cs.md)

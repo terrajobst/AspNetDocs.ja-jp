@@ -1,239 +1,239 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
-title: バッチを挿入する (c#) |Microsoft Docs
+title: バッチ挿入 (C#) |Microsoft Docs
 author: rick-anderson
-description: 1 回の操作で複数のデータベース レコードを挿入する方法について説明します。 ユーザー インターフェイス レイヤーは、複数の n を入力するユーザーを許可する GridView を拡張しています.
+description: 1回の操作で複数のデータベースレコードを挿入する方法について説明します。 ユーザーインターフェイスレイヤーでは、GridView を拡張して、ユーザーが複数の n...
 ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: cf025e08-48fc-4385-b176-8610aa7b5565
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4588502622a3e48013e3e714e82929294b1833fc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5dc4d0b6ac9bf3aa2baa54fe9f5d4149494e47d2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116912"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74584764"
 ---
 # <a name="batch-inserting-c"></a>一括挿入 (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_CS.zip)または[PDF のダウンロード](batch-inserting-cs/_static/datatutorial66cs1.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_CS.zip)または[PDF のダウンロード](batch-inserting-cs/_static/datatutorial66cs1.pdf)
 
-> 1 回の操作で複数のデータベース レコードを挿入する方法について説明します。 ユーザー インターフェイス レイヤーは、複数の新しいレコードを入力するユーザーを許可する GridView を拡張します。 データ アクセス層は、すべての挿入が成功に、すべての挿入をロールバック、トランザクション内で複数の挿入操作をラップします。
+> 1回の操作で複数のデータベースレコードを挿入する方法について説明します。 ユーザーインターフェイスレイヤーでは、GridView を拡張して、ユーザーが複数の新しいレコードを入力できるようにします。 データアクセス層では、トランザクション内で複数の挿入操作をラップして、すべての挿入が成功するか、すべての挿入がロールバックされるようにします。
 
 ## <a name="introduction"></a>はじめに
 
-[バッチ更新](batch-updating-cs.md)チュートリアルは複数のレコードが編集可能なインターフェイスを表示する GridView コントロールのカスタマイズについて説明しました。 ページにアクセスするユーザーは、一連の変更を行うし、次に、1 つのボタンのクリックでは、バッチ更新を実行可能性があります。 ユーザーが通常 1 つの go の複数のレコードを更新の場合、このようなインターフェイスが数えきれないほどのクリックを保存できます既定値と比較した場合、キーボードのマウスのコンテキストの切り替え行ごとに探索された最初の編集機能、 [、。挿入、更新、および削除するデータの概要](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)チュートリアル。
+[バッチ更新](batch-updating-cs.md)のチュートリアルでは、GridView コントロールをカスタマイズして、複数のレコードが編集可能であるインターフェイスを表示する方法について説明しました。 ページにアクセスするユーザーは一連の変更を行い、ボタンを1回クリックするだけでバッチ更新を実行できます。 ユーザーが一般的に1つの移動で多くのレコードを更新する場合、このようなインターフェイスでは、[データの挿入、更新、および削除の概要](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)について最初に調査した既定の行ごとの編集機能と比較して、多数のクリックとキーボードからマウスのコンテキストスイッチを保存できます。
 
-この概念は、レコードを追加するときにも適用できます。 Imagine をここで Northwind traders よく出荷から受け取る特定のカテゴリの製品が多数存在する仕入先。 たとえば、6 つの異なる見落とさなくなるとコーヒー製品の出荷東京 Traders から受け取る可能性があります。 多くの同じ値を何度も選択する必要がある DetailsView コントロールで一度に 1 つの 6 つの製品を入力すると場合、: 同じカテゴリ (飲み物) を同じ製造元 (東京 Traders) を選択する必要があります、同じ値 (が廃止されましたFalse の場合) と同じ順序の値 (0) の単位。 この反復的なデータのエントリは、のみ、時間がかかるではありませんはエラーを起こしやすくなります。
+この概念は、レコードを追加するときにも適用できます。 ここでは、Northwind Traders で、特定のカテゴリの製品が多数含まれているサプライヤーから出荷を受け取ることが多いとします。 例として、東京 Traders から6つの異なる紅茶とコーヒー製品の出荷を受けているとします。 ユーザーが DetailsView コントロールを使用して6つの製品を一度に1つずつ入力した場合、同じ値の多くを繰り返し選択する必要があります。同じカテゴリ (飲み物)、同じ業者 (東京 Traders)、および同じ廃止された値を選択する必要があります (False)、および注文の値 (0) に同じ単位が指定されています。 この反復的なデータ入力は、時間のかかるだけでなく、エラーが発生しやすくなります。
 
-簡単な作業では、業者とカテゴリ 1 回、一連の製品名および単位の価格を入力し、データベースに新しい製品を追加するためのボタンをクリックして、ユーザーができるようにするインターフェイスの挿入のバッチを作成できます (図 1 参照)。 各製品が追加されるため、その`ProductName`と`UnitPrice`データ フィールドには、テキスト ボックスに入力された値が割り当てられているときにその`CategoryID`と`SupplierID`上位 fo フォームでの Dropdownlist の値に値が割り当てられます。 `Discontinued`と`UnitsOnOrder`値のハードコード値に設定されます`false`と 0 で、それぞれします。
+少し作業をして、ユーザーが仕入先とカテゴリを1回選択し、一連の製品名と単価を入力し、ボタンをクリックして新しい製品をデータベースに追加できるようにする、バッチ挿入インターフェイスを作成できます (図1を参照)。 各製品が追加されると、その `ProductName` および `UnitPrice` のデータフィールドにはテキストボックスに入力された値が割り当てられ、その `CategoryID` 値と `SupplierID` 値にはフォームの上部にある DropDownLists の値が割り当てられます。 `Discontinued` と `UnitsOnOrder` の値は、それぞれ `false` と0のハードコーディングされた値に設定されます。
 
-[![バッチ挿入インターフェイス](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
+[バッチ挿入インターフェイスの ![](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
 
-**図 1**:バッチを挿入するインターフェイス ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image3.png))。
+**図 1**: バッチ挿入インターフェイス ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image3.png)されます)
 
-このチュートリアルでは図 1 に示すインターフェイスを挿入するバッチを実装するページを作成します。 として前の 2 つのチュートリアルでは、私たちがラップして、挿入に原子性が確保のトランザクションのスコープ内でいます。 Let s を始めましょう。
+このチュートリアルでは、図1に示すバッチ挿入インターフェイスを実装するページを作成します。 前の2つのチュートリアルと同様に、アトミック性を確保するために、トランザクションのスコープ内に挿入をラップします。 始めましょう!
 
-## <a name="step-1-creating-the-display-interface"></a>手順 1: 表示のインターフェイスを作成します。
+## <a name="step-1-creating-the-display-interface"></a>手順 1: 表示インターフェイスを作成する
 
-このチュートリアルは、2 つのリージョンに分割された 1 つのページから構成されます。 表示領域と挿入のリージョン。 表示インターフェイスは、この手順で作成する、GridView で、製品が表示され、製品出荷を処理するというタイトルのボタンが含まれています。 このボタンがクリックされたときに表示インターフェイスは、図 1 には、挿入インターフェイスに置き換えられます。 出荷から商品の追加後、表示のインターフェイスを返します。 または、[キャンセル] ボタンがクリックされました。 手順 2. で挿入のインターフェイスを作成します。
+このチュートリアルは、表示領域と挿入領域という2つの領域に分割された1つのページで構成されます。 この手順で作成する display インターフェイスには、GridView の製品が表示され、[Process Product] (製品出荷のプロセス) というボタンが表示されます。 このボタンをクリックすると、図1に示すように、表示インターフェイスが挿入インターフェイスに置き換えられます。 [出荷からの製品の追加] または [キャンセル] ボタンをクリックすると、表示インターフェイスが戻ります。 ここでは、手順 2. で挿入インターフェイスを作成します。
 
-内に一度にうちの 1 つだけが表示されて、2 つのインターフェイスを持つページを作成するときにする各インターフェイスが通常に配置されます、[パネルの Web コントロール](http://www.w3schools.com/aspnet/control_panel.asp)、他のコントロールのコンテナーとして機能します。 したがって、このページでは、インターフェイスごとに 2 つのパネル コントロール 1 つがあります。
+2つのインターフェイスを持つページを作成するときに、そのうちの1つだけが一度に表示される場合、通常、各インターフェイスは、他のコントロールのコンテナーとして機能する[パネル Web コントロール](http://www.w3schools.com/aspnet/control_panel.asp)内に配置されます。 したがって、このページでは、インターフェイスごとに2つのパネルコントロールが表示されます。
 
-開いて開始、`BatchInsert.aspx`ページで、`BatchData`フォルダーと、ツールボックスからデザイナーにドラッグ パネル (図 2 参照)。 設定パネル s`ID`プロパティを`DisplayInterface`します。 パネルをデザイナーに追加するときにその`Height`と`Width`プロパティがそれぞれの「50 px」と 125px、に設定されます。 [プロパティ] ウィンドウからこれらのプロパティ値をクリアします。
+まず、`BatchData` フォルダーの [`BatchInsert.aspx`] ページを開き、パネルをツールボックスからデザイナーにドラッグします (図2を参照)。 [Panel s `ID`] プロパティを `DisplayInterface`に設定します。 パネルをデザイナーに追加すると、`Height` プロパティと `Width` プロパティがそれぞれ50px と125px に設定されます。 これらのプロパティ値をプロパティウィンドウから削除します。
 
-[![ツールボックスからデザイナーにパネルをドラッグします。](batch-inserting-cs/_static/image5.png)](batch-inserting-cs/_static/image4.png)
+[パネルをツールボックスからデザイナーにドラッグ ![](batch-inserting-cs/_static/image5.png)](batch-inserting-cs/_static/image4.png)
 
-**図 2**:ツールボックスからデザイナーにパネルをドラッグします ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image6.png))。
+**図 2**: パネルをツールボックスからデザイナーにドラッグする ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image6.png)されます)
 
-次に、ボタンと GridView コントロールをパネルにドラッグします。 設定ボタン s`ID`プロパティを`ProcessShipment`とその`Text`製品出荷を処理するプロパティ。 GridView s 設定`ID`プロパティを`ProductsGrid`し、スマート タグ、という名前の新しい ObjectDataSource にバインドする`ProductsDataSource`します。 構成からそのデータをプルする ObjectDataSource、`ProductsBLL`クラスの`GetProducts`メソッド。 この GridView を使用して、データを表示してのみ、いるので、UPDATE、INSERT でドロップダウン リストを設定し、(None) にタブを削除します。 データ ソース構成ウィザードを完了するには、[完了] をクリックします。
+次に、ボタンと GridView コントロールをパネルにドラッグします。 ボタン s `ID` プロパティを `ProcessShipment` に設定し、その `Text` プロパティを製品出荷を処理するように設定します。 GridView s `ID` プロパティを `ProductsGrid` に設定し、そのスマートタグから `ProductsDataSource`という名前の新しい ObjectDataSource にバインドします。 `ProductsBLL` クラス s `GetProducts` メソッドからデータをプルするように ObjectDataSource を構成します。 この GridView はデータの表示にのみ使用されるため、[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定します。 [完了] をクリックして、データソースの構成ウィザードを完了します。
 
-[![ProductsBLL クラスの GetProducts メソッドから返されるデータを表示します。](batch-inserting-cs/_static/image8.png)](batch-inserting-cs/_static/image7.png)
+[製品の Bll クラス s GetProducts メソッドから返されたデータを表示 ![](batch-inserting-cs/_static/image8.png)](batch-inserting-cs/_static/image7.png)
 
-**図 3**:返されたデータを表示、`ProductsBLL`クラス s`GetProducts`メソッド ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image9.png))。
+**図 3**: `ProductsBLL` クラス s `GetProducts` メソッドから返されたデータを表示[する (クリックしてフルサイズの画像を表示する](batch-inserting-cs/_static/image9.png))
 
-[![UPDATE、INSERT でドロップダウン リストを設定し、(なし) タブを削除します。](batch-inserting-cs/_static/image11.png)](batch-inserting-cs/_static/image10.png)
+[[更新]、[挿入]、[削除] の各タブのドロップダウンリストを [(なし)] に設定 ![ます。](batch-inserting-cs/_static/image11.png)](batch-inserting-cs/_static/image10.png)
 
-**図 4**:(なし) に、UPDATE、INSERT、および削除のタブで、ドロップダウン リストを設定 ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image12.png))。
+**図 4**: [更新]、[挿入]、[削除] の各タブのドロップダウンリストを (なし) に設定する ([クリックしてフルサイズのイメージを表示する](batch-inserting-cs/_static/image12.png))
 
-ObjectDataSource ウィザードの完了後は、Visual Studio は BoundFields と製品のデータ フィールドの CheckBoxField を追加します。 削除以外のすべて、 `ProductName`、 `CategoryName`、 `SupplierName`、 `UnitPrice`、および`Discontinued`フィールド。 自由に見た目をカスタマイズできます。 書式を設定することにしました、`UnitPrice`を通貨値としてフィールド、フィールドの順序を変更して、フィールドのいくつかの名前を変更`HeaderText`値。 ページングと並べ替えを GridView s のスマート タグのページングを有効にして並べ替えを有効にするチェック ボックスをチェックしてサポートを含める GridView 構成もできます。
+ObjectDataSource ウィザードを完了すると、Visual Studio によって、BoundFields と product データフィールドの CheckBoxField が追加されます。 `ProductName`、`CategoryName`、`SupplierName`、`UnitPrice`、および `Discontinued` のフィールド以外はすべて削除します。 美しいカスタマイズを自由に行うことができます。 ここでは、`UnitPrice` フィールドを通貨値として書式設定し、フィールドを並べ替え、いくつかのフィールドの名前を `HeaderText` 値に変更することにしました。 また、gridview のスマートタグの [ページングを有効にし、並べ替えを有効にする] チェックボックスをオンにして、ページングと並べ替えのサポートを含むように GridView を構成します。
 
-パネル、ボタン、GridView、ObjectDataSource コントロールを追加して、GridView のフィールドをカスタマイズすると、ページ、宣言型マークアップを次のようになります。
+パネル、ボタン、GridView、ObjectDataSource の各コントロールを追加し、GridView のフィールドをカスタマイズすると、ページ s の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](batch-inserting-cs/samples/sample1.aspx)]
 
-開始タグと終了内のボタンや GridView マークアップが表示される`<asp:Panel>`タグ。 これらのコントロール内にあるため、`DisplayInterface`パネルで非表示にできますパネル s を設定するだけで`Visible`プロパティを`false`します。 手順 3 は、s パネルをプログラムで変更`Visible`ボタンへの応答のプロパティは、他の非表示中に 1 つのインターフェイスを表示する をクリックします。
+ボタンと GridView のマークアップは、開始タグと終了タグの `<asp:Panel>` 内に表示されることに注意してください。 これらのコントロールは `DisplayInterface` パネル内にあるため、Panel s `Visible` プロパティを `false`に設定するだけで非表示にすることができます。 手順3では、ボタンクリックに応じてパネルの `Visible` プロパティをプログラムによって変更し、もう一方のインターフェイスを非表示にします。
 
-ブラウザーから進行状況を表示する時間がかかります。 図 5 に示すよう、一度に 10 個の製品を一覧表示する GridView 上に製品の出荷を処理するボタンが表示されます。
+ブラウザーで進行状況を確認してください。 図5に示すように、一度に10製品を一覧表示する GridView の上に、[Process Product 出荷] ボタンが表示されます。
 
-[![GridView、製品と並べ替えとページング機能を提供しています](batch-inserting-cs/_static/image14.png)](batch-inserting-cs/_static/image13.png)
+[GridView によって製品が一覧表示され、並べ替えとページングの機能が提供さ ![](batch-inserting-cs/_static/image14.png)](batch-inserting-cs/_static/image13.png)
 
-**図 5**:GridView には、製品とは、並べ替えとページング機能が一覧表示されます ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image15.png))。
+**図 5**: GridView に製品が一覧表示され、並べ替えとページングの機能が提供される ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image15.png)されます)
 
-## <a name="step-2-creating-the-inserting-interface"></a>手順 2: 挿入のインターフェイスを作成します。
+## <a name="step-2-creating-the-inserting-interface"></a>手順 2: 挿入インターフェイスの作成
 
-完全な表示のインターフェイスで、挿入を作成する準備ができたらインターフェイスです。 このチュートリアルでは、挿入インターフェイスは、1 つの仕入先、カテゴリ値の入力を要求し、最大 5 つの製品名と価格の単位の値を入力するユーザーを作成して使用できます。 このインターフェイスは、ユーザーは 1 ~ 5 の新製品すべてを同じ category と supplier、共有が一意の製品の名前と価格を追加できます。
+Display インターフェイスが完成したら、挿入インターフェイスを作成する準備ができました。 このチュートリアルでは、1つの仕入先とカテゴリの値を要求する挿入インターフェイスを作成し、ユーザーが最大5つの製品名と単価の値を入力できるようにします。 このインターフェイスを使用すると、ユーザーは、同じカテゴリおよび仕入先を共有し、一意の製品名と価格を持つ5つの新しい製品に1つを追加できます。
 
-ツールボックスから、デザイナーの既存の下に配置することにパネルをドラッグして開始`DisplayInterface`パネル。 設定、`ID`このプロパティは、パネルを新しく追加された`InsertingInterface`設定とその`Visible`プロパティを`false`します。 設定するコードを追加します、`InsertingInterface`パネル s`Visible`プロパティを`true`手順 3. でします。 S パネルもクリア`Height`と`Width`プロパティの値。
+まず、パネルをツールボックスからデザイナーにドラッグして、既存の `DisplayInterface` パネルの下に配置します。 新しく追加したこのパネルの [`ID`] プロパティを `InsertingInterface` に設定し、その `Visible` プロパティを [`false`] に設定します。 手順 3. で `true` に `InsertingInterface` Panel s `Visible` プロパティを設定するコードを追加します。 また、パネル s `Height` をオフにし、プロパティ値 `Width` します。
 
-次に、図 1 に示す挿入インターフェイスを作成する必要があります。 このインターフェイスは、さまざまな HTML の手法で作成できますが、非常に簡単です 1 つを使用します。 4 列、7 行のテーブル。
+次に、図1に戻された挿入インターフェイスを作成する必要があります。 このインターフェイスは、さまざまな HTML 手法を使用して作成できますが、非常に簡単な方法として、4列の7行のテーブルを使用します。
 
 > [!NOTE]
-> HTML マークアップを入力するときに`<table>`ソース ビューを使用する場合は、要素。 Visual Studio に追加するためのツールはありますが`<table>`デザイナーを介して要素は、デザイナーがすべてを挿入するもかまわないの聞か`style`をマークアップに設定します。 作成したところ、`<table>`マークアップは、通常はデザイナーに戻り、Web コントロールを追加し、そのプロパティを設定します。 事前に決められた列と行を含むテーブルを作成するときに、静的な HTML を使いたいなく[テーブル Web コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx)テーブル Web コントロール内にある Web コントロールにアクセスできるだけを使用しているため、`FindControl("controlID")`パターン。 テーブル Web コントロールをプログラムで構築するため、テーブル (いくつかのデータベースまたはユーザーが指定した条件に基づく行または列を持つもの) に動的に規模のテーブル Web コントロールを使用するには、ただし。
+> HTML `<table>` 要素のマークアップを入力するときに、ソースビューを使用します。 Visual Studio には `<table>` 要素をデザイナーから追加するためのツールが用意されていますが、デザイナーでは、`style` 設定の unasked をマークアップに挿入する必要がありすぎないように見えます。 `<table>` マークアップを作成したら、通常はデザイナーに戻り、Web コントロールを追加し、そのプロパティを設定します。 事前に定義された列と行を含むテーブルを作成する場合は、[テーブル web コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx)ではなく静的な HTML を使用することをお勧めします。これは、テーブル web コントロール内に配置された web コントロールには `FindControl("controlID")` パターンを使用してのみアクセスできるためです。 ただし、テーブル web コントロールはプログラムによって構築できるため、動的にサイズ変更されたテーブル (行または列がデータベースまたはユーザー指定の条件に基づいているテーブル) にはテーブル Web コントロールを使用します。
 
-内で次のマークアップを入力、`<asp:Panel>`のタグ、`InsertingInterface`パネル。
+`InsertingInterface` パネルの `<asp:Panel>` タグ内に次のマークアップを入力します。
 
 [!code-html[Main](batch-inserting-cs/samples/sample2.html)]
 
-これは、`<table>`マークアップでは、すべての Web コントロールは含まれませんまだ、それらを一時的に追加します。 各に注意してください`<tr>`要素に CSS クラスの特定の設定が含まれています:`BatchInsertHeaderRow`業者とカテゴリ Dropdownlist はどこで; ヘッダー行`BatchInsertFooterRow`出荷およびキャンセル ボタンから追加の製品はどこで; フッター行を交互に`BatchInsertRow`と`BatchInsertAlternatingRow`の TextBox コントロールの価格の製品と単位を含む行の値。 私の対応する CSS クラスを作成したら、 `Styles.css` GridView および DetailsView ような外観の挿入のインターフェイスを提供するファイルがこれらのチュートリアル全体で使用を制御します。 これらの CSS クラスは、以下に示します。
+この `<table>` マークアップには、まだ Web コントロールが含まれていません。これらを一時的に追加します。 各 `<tr>` 要素には、特定の CSS クラス設定が含まれていることに注意してください。これは、supplier リストと category DropDownLists が移動するヘッダー行の `BatchInsertHeaderRow` です。[出荷から製品を追加] および [キャンセル] ボタンが表示されるフッター行の `BatchInsertFooterRow`とは、product および unit price TextBox コントロールを含む行の `BatchInsertRow` と `BatchInsertAlternatingRow` の値を交互に表示します。 このチュートリアルで使用している GridView および DetailsView コントロールと同様の外観を挿入インターフェイスに与えるために、対応する CSS クラスを `Styles.css` ファイルに作成しました。 これらの CSS クラスを次に示します。
 
 [!code-css[Main](batch-inserting-cs/samples/sample3.css)]
 
-このマークアップを入力すると、デザイン ビューに戻ります。 これは、`<table>`図 6 に示すように、デザイナーで、4 つの列と 7 行がテーブルとして表示する必要があります。
+このマークアップを入力したら、デザインビューに戻ります。 図6に示すように、この `<table>` はデザイナーに4列の7行のテーブルとして表示されます。
 
-[![挿入するインターフェイスの構成の 4 つの列、7 行のテーブル](batch-inserting-cs/_static/image17.png)](batch-inserting-cs/_static/image16.png)
+[挿入インターフェイスは、4列の7行のテーブルで構成されて ![ます。](batch-inserting-cs/_static/image17.png)](batch-inserting-cs/_static/image16.png)
 
-**図 6**:挿入するインターフェイスがで構成される 4 つの列、7 行のテーブルの ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image18.png))。
+**図 6**: 挿入インターフェイスは、4列の7行のテーブルで構成されています ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image18.png)されます)
 
-挿入インターフェイスに Web コントロールを追加今すぐ再準備が整いました。 2 つの Dropdownlist をツールボックスから、サプライヤーとカテゴリのいずれかのいずれかのテーブルに適切なセルにドラッグします。
+挿入インターフェイスに Web コントロールを追加する準備ができました。 ツールボックスから2つの DropDownLists をテーブル内の適切なセルにドラッグして、仕入先とカテゴリに1つずつドラッグします。
 
-サプライヤー DropDownList s 設定`ID`プロパティを`Suppliers`という名前の新しい ObjectDataSource にバインド`SuppliersDataSource`します。 構成からそのデータを取得する新しい ObjectDataSource、`SuppliersBLL`クラスの`GetSuppliers`メソッドと、更新プログラムを (なし) s のドロップダウン リストをタブします。 ウィザードを完了するには、[完了] をクリックします。
+Supplier DropDownList `ID` プロパティを `Suppliers` に設定し、`SuppliersDataSource`という名前の新しい ObjectDataSource にバインドします。 新しい ObjectDataSource を `SuppliersBLL` クラス s `GetSuppliers` メソッドからデータを取得するように構成し、[更新] タブのドロップダウンリストを [(なし)] に設定します。 [完了] をクリックしてウィザードを終了します。
 
-[![ObjectDataSource SuppliersBLL クラスの GetSuppliers メソッドを使用して構成します。](batch-inserting-cs/_static/image20.png)](batch-inserting-cs/_static/image19.png)
+[SuppliersBLL Class s GetSuppliers メソッドを使用するように ObjectDataSource を構成 ![には](batch-inserting-cs/_static/image20.png)](batch-inserting-cs/_static/image19.png)
 
-**図 7**:構成に使用する ObjectDataSource、`SuppliersBLL`クラス s`GetSuppliers`メソッド ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image21.png))。
+**図 7**: `SuppliersBLL` クラス s `GetSuppliers` メソッドを使用するように ObjectDataSource を構成する ([クリックしてフルサイズのイメージを表示する](batch-inserting-cs/_static/image21.png))
 
-`Suppliers` DropDownList の表示、`CompanyName`データ フィールドと使用、`SupplierID`のデータがフィールドとしてその`ListItem`の値。
+`Suppliers` DropDownList で `CompanyName` データフィールドを表示し、`SupplierID` データフィールドを `ListItem` s 値として使用します。
 
-[![CompanyName データ フィールドの表示し、SupplierID を値として使用します。](batch-inserting-cs/_static/image23.png)](batch-inserting-cs/_static/image22.png)
+[![CompanyName データフィールドを表示し、値として [仕入先] を使用します。](batch-inserting-cs/_static/image23.png)](batch-inserting-cs/_static/image22.png)
 
-**図 8**:表示、`CompanyName`データ フィールドと使用`SupplierID`値として ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image24.png))。
+**図 8**: `CompanyName` データフィールドを表示し、値として `SupplierID` を使用する ([クリックしてフルサイズの画像を表示する](batch-inserting-cs/_static/image24.png))
 
-名前を 2 つ目の DropDownList`Categories`という名前の新しい ObjectDataSource にバインド`CategoriesDataSource`します。 構成、 `CategoriesDataSource` ObjectDataSource を使用する、`CategoriesBLL`クラスの`GetCategories`ウィザードを完了する 完了 で、メソッド、セットのドロップダウン リストの一覧を (なし) の UPDATE および DELETE のタブをクリックします。 最後に、DropDownList 表示がある、`CategoryName`データ フィールドと使用、`CategoryID`値として。
+2番目の DropDownList `Categories` という名前を付け、`CategoriesDataSource`という名前の新しい ObjectDataSource にバインドします。 `CategoriesBLL` クラス s `GetCategories` メソッドを使用するように `CategoriesDataSource` ObjectDataSource を構成します。[更新] タブと [削除] タブのドロップダウンリストを (なし) に設定し、[完了] をクリックしてウィザードを完了します。 最後に、DropDownList に `CategoryName` データフィールドを表示させると共に、`CategoryID` を値として使用します。
 
-これら 2 つの Dropdownlist を追加し、適切に構成された ObjectDataSources にバインドした後、画面は図 9 のようなります。
+これら2つの DropDownLists を追加し、適切に構成された ObjectDataSources ソースにバインドした後、画面は図9のようになります。
 
-[![ヘッダー行は、サプライヤーとカテゴリの Dropdownlist を含む](batch-inserting-cs/_static/image26.png)](batch-inserting-cs/_static/image25.png)
+[ヘッダー行に [仕入先] と [カテゴリ] の DropDownLists が含まれるように ![](batch-inserting-cs/_static/image26.png)](batch-inserting-cs/_static/image25.png)
 
-**図 9**:ヘッダー行に、`Suppliers`と`Categories`Dropdownlist ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image27.png))。
+**図 9**: ヘッダー行に `Suppliers` と `Categories` の Dropdownlists が含まれるようになりました ([クリックしてフルサイズの画像を表示](batch-inserting-cs/_static/image27.png))
 
-これで、新しい各製品の価格と名前を収集するテキスト ボックスを作成する必要があります。 ツールボックスからデザイナーにそれぞれの 5 つの製品名と価格の行の TextBox コントロールをドラッグします。 設定、`ID`にテキスト ボックスのプロパティ`ProductName1`、 `UnitPrice1`、 `ProductName2`、 `UnitPrice2`、 `ProductName3`、`UnitPrice3`など。
+ここで、新しい製品の名前と価格を収集するためのテキストボックスを作成する必要があります。 5つの製品名と価格行のそれぞれについて、[ツールボックス] から [TextBox] コントロールをデザイナーにドラッグします。 テキストボックスの `ID` プロパティを `ProductName1`、`UnitPrice1`、`ProductName2`、`UnitPrice2`、`ProductName3`、`UnitPrice3`などに設定します。
 
-それぞれの単位価格を設定するテキスト ボックスの後、CompareValidator を追加、`ControlToValidate`プロパティを適切な`ID`します。 設定も、`Operator`プロパティを`GreaterThanEqual`、`ValueToCompare`を 0 にし、`Type`に`Currency`します。 これらの設定に CompareValidator、価格を入力した場合、有効な通貨値である 0 以上であることを確認するように指示します。 設定、`Text`プロパティを\*、および`ErrorMessage`価格より大きいまたは 0 と等しくする必要があります。 また、通貨記号を省略してください。
+各単価テキストボックスの後に CompareValidator を追加し、`ControlToValidate` プロパティを適切な `ID`に設定します。 また、`Operator` プロパティを `GreaterThanEqual`、`ValueToCompare` 0、および `Type` を `Currency`に設定します。 これらの設定は、入力された場合、価格が0以上の有効な通貨値であることを保証するように CompareValidator に指示します。 `Text` プロパティを \*に設定し、`ErrorMessage` には0以上の値を指定する必要があります。 また、通貨記号は省略してください。
 
 > [!NOTE]
-> 挿入インターフェイスには含まれません、RequiredFieldValidator コントロール場合でも、`ProductName`フィールドに、`Products`データベース テーブルが許可しない`NULL`値。 これは、ユーザーが最大 5 つの製品を入力できるたいからです。 たとえば、最初の 3 つの行を製品名および単価を提供する場合、ユーザーは、最後の 2 つの行を空白のまま d だけ追加 3 つの新しい製品システムに。 `ProductName`は必要に応じて、ただし、必要があります。 場合単位価格を確認する入力対応する製品名の値が提供されることをプログラムで確認します。 このチェック手順 4. で取り上げます。
+> `Products` データベーステーブルの `ProductName` フィールドで `NULL` 値が許可されていない場合でも、挿入インターフェイスには RequiredFieldValidator コントロールは含まれません。 これは、ユーザーが最大5つの製品を入力できるようにするためです。 たとえば、ユーザーが最初の3行の製品名と単価を入力し、最後の2行を空白のままにしている場合は、3つの新しい製品をシステムに追加するだけです。 ただし `ProductName` が必要であるため、対応する製品名の値が指定されているかどうかをプログラムによって確認する必要があります。 このチェックについては、手順 4. で説明します。
 
-ユーザーの入力を検証するには、値には、通貨記号が含まれている場合に、CompareValidator が無効なデータを報告します。 各ユニットの価格の価格を入力するときに、通貨記号を省略する場合、ユーザーに指示する視覚的な合図として機能するテキスト ボックスの前に、$ を追加します。
+ユーザーの入力を検証するときに、値に通貨記号が含まれている場合、CompareValidator は無効なデータを報告します。 価格を入力するときに通貨記号を省略するようユーザーに指示する視覚的な合図として使用するために、各単価のテキストボックスの前に $ を追加します。
 
-ValidationSummary コントロール内の最後に、追加、`InsertingInterface`パネルで、設定、`ShowMessageBox`プロパティを`true`とその`ShowSummary`プロパティを`false`します。 これらの設定で無効な単位価格の値を入力すると、問題のある TextBox コントロールの横にアスタリスクが表示し、ValidationSummary 以前指定したエラー メッセージを表示するクライアント側のメッセージ ボックスが表示されます。
+最後に、[`InsertingInterface`] パネルに [ValidationSummary] コントロールを追加し、`ShowMessageBox` プロパティを `true` に設定し、その `ShowSummary` プロパティを `false`に設定します。 これらの設定を使用すると、ユーザーが無効な単価の値を入力すると、問題のあるテキストボックスコントロールの横にアスタリスクが表示され、前に指定したエラーメッセージを表示するクライアント側のメッセージボックスが表示されます。
 
-この時点で、画面は図 10 のようなはずです。
+この時点で、画面は図10のようになります。
 
-[![挿入のインターフェイス、製品のテキスト ボックスは、名前と価格](batch-inserting-cs/_static/image29.png)](batch-inserting-cs/_static/image28.png)
+[挿入インターフェイスに製品名と価格のテキストボックスが含まれるようになった ![](batch-inserting-cs/_static/image29.png)](batch-inserting-cs/_static/image28.png)
 
-**図 10**:挿入インターフェイスようになりましたが含まれていますテキスト ボックス製品の名前と価格の ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image30.png))。
+**図 10**: 挿入インターフェイスに製品名と価格のテキストボックスが含まれるようになりました ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image30.png)されます)
 
-次に、追加製品を出荷し、[キャンセル] ボタンからフッター行に追加する必要があります。 ドラッグ 2 ボタン コントロールをツールボックスから挿入のインターフェイスのフッターに、ボタンの設定`ID`プロパティ`AddProducts`と`CancelButton`と`Text`出荷し、[キャンセル] から製品をそれぞれ追加するプロパティ。 さらに、設定、`CancelButton`コントロール s`CausesValidation`プロパティを`false`します。
+次に、[出荷からの製品の追加] ボタンと [キャンセル] ボタンをフッター行に追加する必要があります。 ツールボックスから2つのボタンコントロールを挿入インターフェイスのフッターにドラッグし、ボタン `ID` プロパティを `CancelButton` `AddProducts` に設定し、プロパティを `Text` して、出荷から製品を追加したり、キャンセルしたりします。 さらに、`CancelButton` コントロール s `CausesValidation` プロパティを `false`に設定します。
 
-最後に、2 つのインターフェイスのステータス メッセージを表示するラベル Web コントロールを追加する必要があります。 たとえば、ユーザーは、新しい製品の出荷を正常に追加、する表示インターフェイスに戻るし、確認メッセージを表示します。 ただし、ユーザーは、新しい製品では、製品名をオフのままの価格を提供する場合は、以降の警告メッセージを表示する必要があります、`ProductName`フィールドは必須です。 このメッセージの両方のインターフェイスを表示する必要があります、ため、パネルの外部でページの上部に配置します。
+最後に、2つのインターフェイスのステータスメッセージを表示する Label Web コントロールを追加する必要があります。 たとえば、ユーザーが製品の新しい出荷物を正常に追加した場合、表示インターフェイスに戻り、確認メッセージを表示します。 ただし、ユーザーが新しい製品の価格を指定し、製品名を残した場合は、`ProductName` フィールドが必須であるため、警告メッセージを表示する必要があります。 このメッセージは、両方のインターフェイスに表示する必要があるため、パネルの外側にあるページの上部に配置します。
 
-Label Web コントロールをツールボックスからデザイナーでページの上部にドラッグします。 設定、`ID`プロパティを`StatusLabel`チェック ボックスをオフに、`Text`プロパティ、およびセット、`Visible`と`EnableViewState`プロパティ`false`します。 前のチュートリアルで述べたように、設定、`EnableViewState`プロパティを`false`により、プログラムでラベルのプロパティの値を変更し、それ以降のポストバック時に既定値に自動的に戻すもらいます。 これには、以降のポストバック時に表示されなくなります。 一部のユーザーの操作への応答で状態メッセージを表示するためのコードが簡略化します。 最後に、設定、`StatusLabel`コントロール s`CssClass`で警告で、CSS クラスの名前を指定するプロパティが定義されている`Styles.css`大きな、斜体、太字、赤いフォントでテキストを表示します。
+[ツールボックス] から、デザイナーのページの上部にラベル Web コントロールをドラッグします。 `ID` プロパティを `StatusLabel`に設定し、`Text` プロパティをオフにして、`Visible` および `EnableViewState` のプロパティを `false`に設定します。 前のチュートリアルで見たように、[`EnableViewState`] プロパティを `false` に設定すると、ラベル s のプロパティ値をプログラムで変更し、後続のポストバック時に自動的に既定値に戻すことができます。 これにより、後続のポストバックで表示されなくなったユーザー操作に応答してステータスメッセージを表示するコードが簡単になります。 最後に、`StatusLabel` コントロール s `CssClass` プロパティを [警告] に設定します。これは、大きい、斜体、太字、赤のフォントでテキストを表示する、`Styles.css` で定義されている CSS クラスの名前です。
 
-図 11 は、ラベルを追加し、構成した後、Visual Studio デザイナーを示します。
+図11は、ラベルが追加および構成された後の Visual Studio デザイナーを示しています。
 
-[![2 つのパネル コントロール上には、ある StatusLabel コントロールの配置します。](batch-inserting-cs/_static/image32.png)](batch-inserting-cs/_static/image31.png)
+[StatusLabel コントロールを2つのパネルコントロールの上に配置 ![には](batch-inserting-cs/_static/image32.png)](batch-inserting-cs/_static/image31.png)
 
-**図 11**:場所、`StatusLabel`コントロール上の 2 つパネル コントロール ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image33.png))。
+**図 11**: `StatusLabel` コントロールを2つのパネルコントロールの上[に配置する (クリックしてフルサイズのイメージを表示する](batch-inserting-cs/_static/image33.png))
 
-## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>手順 3: 表示の切り替えおよび挿入インターフェイス
+## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>手順 3: 表示インターフェイスと挿入インターフェイスの切り替え
 
-この時点で、表示したり、2 つのタスクのままに、インターフェイスが再挿入するため、マークアップを実施してきました。
+この時点で、表示および挿入インターフェイスのマークアップが完了しましたが、次の2つのタスクが残っています。
 
-- 表示の切り替えおよび挿入インターフェイス
-- データベースに発送、製品の追加
+- 表示インターフェイスと挿入インターフェイスの切り替え
+- 出荷時の製品をデータベースに追加する
 
-現時点では、表示インターフェイスが表示されるが、挿入のインターフェイスは表示されません。 これは、ため、`DisplayInterface`パネル s`Visible`プロパティに設定されて`true`(既定値) の場合は、中に、`InsertingInterface`パネル s`Visible`プロパティに設定されて`false`。 単に s の各コントロールに切り替える必要があります、2 つのインターフェイス間で切り替え`Visible`プロパティの値。
+現在、表示インターフェイスは表示されていますが、挿入インターフェイスが非表示になっています。 これは、`DisplayInterface` Panel s `Visible` プロパティが `true` (既定値) に設定され、`InsertingInterface` Panel s `Visible` プロパティが `false`に設定されているためです。 2つのインターフェイスを切り替えるには、各コントロールの `Visible` プロパティ値を切り替えるだけです。
 
-製品出荷を処理するボタンがクリックされたときに、表示インターフェイスから挿入インターフェイスに移動します。 そのため、このボタンのイベント ハンドラーを作成`Click`イベントを次のコードが含まれています。
+[Product 出荷の処理] ボタンがクリックされたときに、表示インターフェイスから挿入インターフェイスに移動します。 したがって、次のコードを含むこのボタン `Click` イベントのイベントハンドラーを作成します。
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample4.cs)]
 
-このコードは単に非表示に、`DisplayInterface`パネルと示しています、`InsertingInterface`パネル。
+このコードは、`DisplayInterface` パネルを非表示にして、`InsertingInterface` パネルを表示するだけです。
 
-次に、製品出荷し、[キャンセル] ボタンの挿入のインターフェイス コントロールからの追加のイベント ハンドラーを作成します。 いずれかのボタンをクリックすると表示のインターフェイスに戻す必要があります。 作成`Click`両方のイベント ハンドラー ボタン コントロールを呼び出すことができるように`ReturnToDisplayInterface`メソッドを一時的に追加します。 非表示に加え、`InsertingInterface`パネルと表示されている、`DisplayInterface`パネル、`ReturnToDisplayInterface`メソッドは、編集済みの状態に Web コントロールを返す必要があります。 これには、Dropdownlist の設定が含まれます`SelectedIndex`0 およびを消去するプロパティを`Text`の TextBox コントロールのプロパティ。
+次に、挿入インターフェイスの [出荷からの製品の追加] および [キャンセル] ボタンコントロールのイベントハンドラーを作成します。 これらのボタンのいずれかをクリックすると、表示インターフェイスに戻す必要があります。 `ReturnToDisplayInterface`を呼び出すために、すぐに追加するメソッドである `Click` イベントハンドラーを作成します。 `ReturnToDisplayInterface` メソッドでは、[`InsertingInterface`] パネルを非表示にして `DisplayInterface` パネルを表示するだけでなく、Web コントロールを編集前の状態に戻す必要があります。 これには、DropDownLists `SelectedIndex` プロパティを0に設定し、TextBox コントロールの `Text` プロパティをクリアする作業が含まれます。
 
 > [!NOTE]
-> 何が起こりうるを検討してください。 コントロール表示インターフェイスに戻る前に、編集済みの状態に戻りますしていない場合。 ユーザーは、製品出荷を処理する ボタンをクリックして、出荷から製品を入力および製品出荷の追加 をクリックし、可能性があります。 製品を追加して、ユーザー表示インターフェイスを返すこのは。 この時点で、ユーザーは別の出荷を追加する場合があります。 挿入のインターフェイスが、DropDownList に戻ると、製品出荷を処理するボタンをクリックすると選択、およびテキスト ボックスの値が引き続き反映されます。 して以前の値。
+> 表示インターフェイスに戻る前に、コントロールを編集前の状態に戻していない場合はどうなるかを検討してください。 ユーザーは、[製品出荷プロセス] ボタンをクリックし、出荷の製品を入力して、[出荷時の製品の追加] をクリックすることがあります。 これにより、製品が追加され、ユーザーが表示インターフェイスに返されます。 この時点で、ユーザーは別の出荷を追加することが必要になる場合があります。 [製品出荷の処理] ボタンをクリックすると、挿入インターフェイスに戻りますが、DropDownList の選択とテキストボックスの値には、前の値が設定されたままになります。
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample5.cs)]
 
-両方`Click`イベント ハンドラーを呼び出すだけ、`ReturnToDisplayInterface`メソッド、出荷の追加の製品に戻ってが`Click`内のイベント ハンドラーは、手順 4 と製品を保存するコードを追加します。 `ReturnToDisplayInterface` 返すことによって開始、`Suppliers`と`Categories`Dropdownlist の最初のオプションにします。 2 つの定数`firstControlID`と`lastControlID`マーク開始と終了 挿入するテキスト ボックスのインターフェイスし、の境界で使用される製品名および単価を名前付けで使用されるコントロールのインデックス値、`for`設定、ループ`Text`の TextBox コントロールのプロパティが空の文字列にバックアップします。 最後に、パネル`Visible`挿入のインターフェイスは非表示にするためと示されている表示インターフェイスのプロパティをリセットします。
+どちらの `Click` イベントハンドラーも `ReturnToDisplayInterface` メソッドを呼び出しますが、手順 4. で [出荷から製品を追加] `Click` イベントハンドラーに戻り、製品を保存するコードを追加します。 `ReturnToDisplayInterface` は、`Suppliers` と `Categories` の DropDownLists を最初のオプションに返すことから始まります。 2つの定数 `firstControlID` および `lastControlID`、挿入インターフェイスの製品名と単価のテキストボックスに名前を付けるために使用される開始および終了の制御インデックス値をマークし、テキストボックスコントロールの `Text` プロパティを空の文字列に設定する `for` ループの境界内で使用されます。 最後に、挿入インターフェイスが非表示になり、表示インターフェイスが表示されるように、パネル `Visible` のプロパティがリセットされます。
 
-このページで、ブラウザーでテストする時間がかかります。 最初のページにアクセスすると、図 5 のように、表示インターフェイスが表示されます。 製品出荷を処理するボタンをクリックします。 ページがポストバックし、図 12 に示すようにインターフェイスを挿入することがわかります。 いずれかの追加からの製品出荷または [キャンセル] ボタンをクリックすると、表示のインターフェイスを返します。
+ブラウザーでこのページをテストしてみましょう。 最初にページにアクセスしたときに、図5に示すように表示インターフェイスが表示されます。 [プロセスの製品出荷] ボタンをクリックします。 ページがポストバックされ、図12に示すように挿入インターフェイスが表示されるようになります。 [出荷からの製品の追加] または [キャンセル] ボタンのいずれかをクリックすると、表示インターフェイスに戻ります。
 
 > [!NOTE]
-> 挿入のインターフェイスを表示するには、中に少しテキスト ボックスの単価で CompareValidators してテストします。 クライアント側のメッセージ ボックスから無効な通貨の値を持つ Shipment ボタンまたは 0 より小さい値での価格の製品の追加 をクリックすると警告が表示されます。
+> 挿入インターフェイスを表示しているときに、[単価] テキストボックスで CompareValidators をテストしてみましょう。 [出荷から商品を追加] ボタンをクリックすると、無効な通貨値または価格が0未満の値を持つクライアント側のメッセージボックス警告が表示されます。
 
-[![製品出荷のプロセス ボタンをクリックした後、挿入するインターフェイスが表示されます。](batch-inserting-cs/_static/image35.png)](batch-inserting-cs/_static/image34.png)
+[[プロセスの製品出荷] ボタンをクリックした後に挿入インターフェイスが表示される ![](batch-inserting-cs/_static/image35.png)](batch-inserting-cs/_static/image34.png)
 
-**図 12**:製品出荷のプロセス ボタンをクリックした後、挿入するインターフェイスが表示されます ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image36.png))。
+**図 12**: [製品出荷プロセス] ボタンをクリックすると、[挿入] インターフェイスが表示されます ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image36.png)されます)
 
-## <a name="step-4-adding-the-products"></a>手順 4: 製品の追加
+## <a name="step-4-adding-the-products"></a>手順 4: 製品を追加する
 
-このチュートリアルは、出荷ボタン s から、追加の製品内のデータベースに製品を保存するのに残っているすべて`Click`イベント ハンドラー。 これは、作成して実行できます、`ProductsDataTable`を追加して、`ProductsRow`指定された製品名の各インスタンス。 これらは 1 回`ProductsRow`への呼び出しを行います s が追加されています、`ProductsBLL`クラス s`UpdateWithTransaction`メソッドに渡して、 `ProductsDataTable`。 いることを思い出してください、`UpdateWithTransaction`メソッドで、バックアップで作成された、[トランザクション内のデータベース変更のラッピング](wrapping-database-modifications-within-a-transaction-cs.md)チュートリアル、パス、`ProductsDataTable`を`ProductsTableAdapter`s`UpdateWithTransaction`メソッド。 ADO.NET トランザクションの開始と TableAdapter の問題、`INSERT`ステートメントに追加された各データベースに`ProductsRow`datatable です。 すべての製品がエラーを発生させず追加は、トランザクションがコミットされたと仮定すると、それ以外の場合はロールバックされます。
+このチュートリアルでは、[出荷から製品を追加] ボタン `Click` イベントハンドラーで製品をデータベースに保存するだけです。 これを行うには、`ProductsDataTable` を作成し、提供された各製品名に対して `ProductsRow` インスタンスを追加します。 これらの `ProductsRow` が追加されたら、`ProductsDataTable`で渡される `ProductsBLL` クラス s `UpdateWithTransaction` メソッドを呼び出します。 「[トランザクション内のデータベースの変更のラップ](wrapping-database-modifications-within-a-transaction-cs.md)」チュートリアルで作成した `UpdateWithTransaction` メソッドが、`ProductsDataTable` を `ProductsTableAdapter` s `UpdateWithTransaction` メソッドに渡すことを思い出してください。 そこから、ADO.NET トランザクションが開始され、データテーブルに追加された各 `ProductsRow` について、TableAdapter が `INSERT` ステートメントをデータベースに発行します。 すべての製品がエラーなしで追加されると、トランザクションはコミットされ、それ以外の場合はロールバックされます。
 
-製品出荷ボタン %s からの追加のコード`Click`イベント ハンドラーも少しエラー チェックを実行する必要があります。 挿入のインターフェイスで使用される RequiredFieldValidators がないので、ユーザーでした価格を入力の製品の中に、その名前を省略するとします。 S を製品名は必須であるため、ユーザーにアラートを生成し、挿入を続行する場合は、このような条件で色付けされていく様子する必要があります。 完全な`Click`イベント ハンドラーのコードに従います。
+また、[出荷時の製品の追加] ボタン `Click` イベントハンドラーのコードでは、いくつかのエラーチェックも実行する必要があります。 挿入インターフェイスで使用されている RequiredFieldValidators がないため、ユーザーは製品の価格を入力しても名前を省略できます。 製品名は必須であるため、このような条件が上ば、ユーザーに警告し、挿入を続行する必要がありません。 `Click` イベントハンドラーの完全なコードは次のとおりです。
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample6.cs)]
 
-イベント ハンドラーを開始することを確認して、`Page.IsValid`プロパティの値を返します`true`します。 返された場合`false`、つまり、1 つまたは無効なデータを報告、CompareValidators の; ようたくない、入力した製品を挿入しようとするまたはため例外と、ユーザーが入力した単価を割り当てようとしました値を`ProductsRow`s`UnitPrice`プロパティ。
+イベントハンドラーは、`Page.IsValid` プロパティが `true`の値を返すことを保証することによって開始されます。 `false`が返された場合、1つ以上の CompareValidators が無効なデータを報告していることを意味します。このような場合は、入力した製品を挿入しようとしないか、または、ユーザーが入力した単価の値を `ProductsRow` s `UnitPrice` プロパティに割り当てようとしたときに例外が発生します。
 
-次に、新しい`ProductsDataTable`インスタンスが作成されます (`products`)。 A`for`製品名および単価テキスト ボックスを反復処理するループを使用し、`Text`プロパティは、ローカル変数に読み取られる`productName`と`unitPrice`します。 単価の対応する、製品名ではなく、ユーザーの値が入力する場合、`StatusLabel`単位の価格を提供する場合は、メッセージにもする必要がありますが表示されますが、製品の名前を含めるし、イベント ハンドラーが終了しました。
+次に、新しい `ProductsDataTable` インスタンスを作成します (`products`)。 `for` ループは、製品名と単価のテキストボックスを反復処理するために使用され、`Text` のプロパティは `productName` と `unitPrice`のローカル変数に読み込まれます。 ユーザーが、対応する製品名ではなく単価の値を入力した場合、単価を指定すると、`StatusLabel` にメッセージが表示されます。製品の名前も含めて、イベントハンドラーを終了する必要があります。
 
-製品名が提供されている場合、新しい`ProductsRow`を使用してインスタンスを作成、 `ProductsDataTable` s`NewProductsRow`メソッド。 この新しい`ProductsRow`インスタンス`ProductName`プロパティが、現在の製品に設定中にテキスト ボックスの名前、`SupplierID`と`CategoryID`に割り当てられているプロパティ、`SelectedValue`挿入インターフェイスのヘッダーで Dropdownlist のプロパティ。 割り当てられている場合は、ユーザーが製品の価格の値を入力、`ProductsRow`インスタンス`UnitPrice`プロパティ、プロパティは、それ以外の場合になりますが、割り当てられていない左、`NULL`値`UnitPrice`データベース内。 最後に、`Discontinued`と`UnitsOnOrder`プロパティは、ハード コーディングされた値に割り当てられている`false`と 0 で、それぞれします。
+製品名が指定されている場合は、`ProductsDataTable` s `NewProductsRow` メソッドを使用して新しい `ProductsRow` インスタンスが作成されます。 この新しい `ProductsRow` instance s `ProductName` プロパティは、[現在の製品名] テキストボックスに設定されますが、`SupplierID` プロパティと `CategoryID` プロパティは、[挿入] interface s ヘッダーの DropDownLists の `SelectedValue` プロパティに割り当てられます。 ユーザーが製品の価格の値を入力した場合は、`ProductsRow` instance s `UnitPrice` プロパティに割り当てられます。それ以外の場合、プロパティは未割り当てのままになり、データベース内の `UnitPrice` の `NULL` 値になります。 最後に、`Discontinued` と `UnitsOnOrder` の各プロパティは、ハードコーディングされた値 `false` と0にそれぞれ割り当てられます。
 
-プロパティに割り当てられた後、`ProductsRow`インスタンスに追加されて、`ProductsDataTable`します。
+`ProductsRow` インスタンスにプロパティが割り当てられると、`ProductsDataTable`に追加されます。
 
-完了時に、`for`製品が追加されているかどうかを確認しましたループします。 ユーザーは、結局のところ、製品任意の製品名または価格を入力する前に、出荷からの追加をクリックしている可能性があります。 少なくとも 1 つの製品がある場合、 `ProductsDataTable`、`ProductsBLL`クラスの`UpdateWithTransaction`メソッドが呼び出されます。 データが次に、再バインド、 `ProductsGrid` GridView 表示インターフェイスで新しく追加された製品が表示されるようにします。 `StatusLabel`が更新され、確認メッセージを表示し、`ReturnToDisplayInterface`呼び出されると、インターフェイスを挿入して表示のインターフェイスを表示の非表示します。
+`for` ループが完了したら、製品が追加されているかどうかを確認します。 すべてのユーザーが製品名または価格を入力する前に、[出荷から製品を追加] をクリックしている可能性があります。 `ProductsDataTable`に少なくとも1つの製品がある場合は、`ProductsBLL` クラス s `UpdateWithTransaction` メソッドが呼び出されます。 次に、新しく追加した製品が表示インターフェイスに表示されるように、データが `ProductsGrid` GridView に再バインドされます。 `StatusLabel` が更新され、確認メッセージが表示され、`ReturnToDisplayInterface` が呼び出され、挿入インターフェイスが非表示になり、表示インターフェイスが表示されます。
 
-製品が入力されていない場合、挿入のインターフェイスは製品が追加されていないメッセージが表示されているままです。 製品名を入力してください、テキスト ボックスにユニットの料金が表示されます。
+商品が入力されていない場合、挿入インターフェイスは表示されたままですが、"製品が追加されていません。 テキストボックスに製品名と単価を入力してください。
 
-図の 13、14、および 15 では、表示、挿入し、アクションにインターフェイスを表示します。 図 13 に、ユーザーが対応する製品名のない単位価格の値を入力します。 図 14 インターフェイスを示します、表示後に 3 つの新しい図 15 が表示されますが、新しく追加された製品の 2 つ (3 つ目は、前のページでは)、gridview に製品を正常に追加されています。
+図 s 13、14、および15は、挿入と表示のインターフェイスが動作していることを示しています。 図13では、ユーザーは、対応する製品名を指定せずに単価の値を入力しました。 図14は、3つの新しい製品が正常に追加された後の表示インターフェイスを示しています。図15は、新しく追加された2つの製品を GridView に示しています (3 番目の製品は前のページにあります)。
 
-[![製品名が必要なときに入力 Unit Price です。](batch-inserting-cs/_static/image38.png)](batch-inserting-cs/_static/image37.png)
+[単価を入力するときに製品名が必要 ![](batch-inserting-cs/_static/image38.png)](batch-inserting-cs/_static/image37.png)
 
-**図 13**:製品名が必要なときに入力 Unit Price ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image39.png))。
+**図 13**: 単価を入力するときに製品名が必要である ([クリックしてフルサイズの画像を表示する](batch-inserting-cs/_static/image39.png))
 
-[![供給業者に追加された 3 つの新しい Veggies Mayumi s](batch-inserting-cs/_static/image41.png)](batch-inserting-cs/_static/image40.png)
+[![業者に対して3つの新しい Veggies が追加されました。](batch-inserting-cs/_static/image41.png)](batch-inserting-cs/_static/image40.png)
 
-**図 14**:次の 3 つ新しい Veggies に追加された業者 Mayumi s ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image42.png))。
+**図 14**: Supplier i s の新しい Veggies が3つ追加されました ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image42.png)されます)
 
-[![GridView の最後のページで、新しい製品が見つかりません](batch-inserting-cs/_static/image44.png)](batch-inserting-cs/_static/image43.png)
+[新しい製品が GridView の最後のページにある ![](batch-inserting-cs/_static/image44.png)](batch-inserting-cs/_static/image43.png)
 
-**図 15**:新しい製品で見つかる GridView の最後のページ ([フルサイズの画像を表示する をクリックします](batch-inserting-cs/_static/image45.png))。
+**図 15**: GridView の最後のページに新しい製品があります ([クリックすると、フルサイズの画像が表示](batch-inserting-cs/_static/image45.png)されます)。
 
 > [!NOTE]
-> このチュートリアルで使用されるロジックを挿入バッチでは、トランザクションのスコープ内で、挿入をラップします。 これを確認するには、データベース レベルのエラーを意図的紹介します。 新しい割り当てではなく、たとえば、`ProductsRow`インスタンス`CategoryID`プロパティで選択した値を`Categories`DropDownList などの値を割り当てる`i * 5`します。 ここで`i`ループ インデクサーは、1 から 5 までの値があります。 そのため、ときに最初の製品を挿入するバッチ内の 2 つ以上の製品を追加する必要があります、有効な`CategoryID`値 (5) が、それ以降の製品が`CategoryID`最大と一致しない値`CategoryID`値、`Categories`テーブル。 実際の効果は、最初の中に`INSERT`は成功しますが、以降は外部キー制約違反で失敗します。 一括挿入はアトミックであるため、最初`INSERT`はロールバックされますを返すバッチ挿入処理前に、の状態にデータベースを開始します。
+> このチュートリアルで使用するバッチ挿入ロジックでは、トランザクションのスコープ内で挿入をラップします。 これを確認するには、データベースレベルのエラーを意図的に導入します。 たとえば、新しい `ProductsRow` インスタンスの `CategoryID` プロパティを `Categories` DropDownList で選択されている値に割り当てるのではなく、`i * 5`などの値に割り当てます。 ここで `i` はループインデクサーで、1 ~ 5 の範囲の値を持ちます。 したがって、バッチ挿入に2つ以上の製品を追加する場合、最初の製品には有効な `CategoryID` 値 (5) が設定されますが、それ以降の製品では、`Categories` テーブルの値 `CategoryID` に一致しない値が `CategoryID` されます。 実質的には、最初の `INSERT` は成功しますが、それ以降は外部キー制約違反で失敗します。 バッチ挿入はアトミックであるため、最初の `INSERT` がロールバックされ、バッチ挿入プロセスが開始される前にデータベースがその状態に戻ります。
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-これと前の 2 つのチュートリアルは、削除、更新、実現するインターフェイスを作成したし、のデータ アクセス層に追加されたトランザクション サポートを使用データのバッチを挿入するには、これらはすべて、[ラッピング データベースの変更トランザクション内で](wrapping-database-modifications-within-a-transaction-cs.md)チュートリアル。 特定のシナリオでは、このようなバッチ処理のユーザー インターフェイスを大幅に改善エンドユーザーの効率性を削減して数回のクリックの数、ポストバック、キーボードのマウスのコンテキスト スイッチの場合は、基になるデータの整合性を維持しながらします。
+このチュートリアルと前の2つのチュートリアルでは、データのバッチの更新、削除、および挿入を可能にするインターフェイスを作成しました。トランザクションを使用する場合は、[トランザクション内でデータベースをラップ](wrapping-database-modifications-within-a-transaction-cs.md)することで、データアクセス層に追加しました。 特定のシナリオでは、このようなバッチ処理のユーザーインターフェイスを使用すると、基になるデータの整合性を維持しながら、クリック、ポストバック、キーボードからマウスへのコンテキストスイッチの数を減らすことで、エンドユーザーの効率を大幅に向上させることができます。
 
-このチュートリアルでは、バッチ化されたデータの使用方法、外観を完了します。 次の一連のチュートリアルでは、DAL、暗号化の接続文字列などの接続とコマンド レベルの設定の構成、TableAdapter のメソッドでストアド プロシージャの使用など、データ アクセス層の高度なシナリオのさまざまなについて説明します。
+このチュートリアルでは、バッチ処理されたデータの使用方法について説明します。 次の一連のチュートリアルでは、TableAdapter のメソッドでのストアドプロシージャの使用、DAL での接続とコマンドレベルの設定の構成、接続文字列の暗号化など、高度なデータアクセス層のさまざまなシナリオについて説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 レビュー担当者を潜在顧客、Hilton Giesenow と S ren Jacob Lauritsen がこのチュートリアルでは。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Giesenow と S ren Jacob Lauritsen でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](batch-deleting-cs.md)

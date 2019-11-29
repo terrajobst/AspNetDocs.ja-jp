@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
-title: 第 5 部:Knockout.js で動的 UI の作成 |Microsoft Docs
+title: 'パート 5: ノックアウトを使用した動的 UI の作成 |Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,90 +8,90 @@ ms.date: 07/04/2012
 ms.assetid: 9d9cb3b0-f4a7-434e-a508-9fc0ad0eb813
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: b06f738d821d78f74069c3bf0f6c0880796195d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bbdeba756de7986cfeb92aa10a57f4f101382f99
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393289"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599996"
 ---
-# <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>第 5 部:Knockout.js で動的 UI を作成する
+# <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>パート 5: ノックアウトを使用した動的 UI の作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-a-dynamic-ui-with-knockoutjs"></a>Knockout.js で動的 UI を作成する
 
-このセクションで、管理ビューの機能を追加するのに Knockout.js 使用します。
+このセクションでは、ノックアウトを使用して管理ビューに機能を追加します。
 
-[Knockout.js](http://knockoutjs.com/)をデータに HTML コントロールをバインドするが容易にする Javascript ライブラリです。 Knockout.js では、モデル-ビュー-ビューモデル (MVVM) パターンを使用します。
+[ノックアウト](http://knockoutjs.com/)は、HTML コントロールを簡単にデータにバインドできる Javascript ライブラリです。 ノックアウトは、モデルビュービューモデル (MVVM) パターンを使用します。
 
-- *モデル*(の場合、製品および orders) で、ビジネス ドメイン内のデータのサーバー側の表現です。
+- この*モデル*は、ビジネスドメイン内のデータ (ここでは、製品と注文) のサーバー側表現です。
 - *ビュー*はプレゼンテーション層 (HTML) です。
-- *ビュー モデル*はモデル データを保持する Javascript オブジェクトです。 ビュー モデルは、UI のコードの抽象化です。 HTML 形式の知識がありません。 代わりに、「アイテムの一覧」など、ビューの抽象の機能を表します。
+- *ビューモデル*は、モデルデータを保持する Javascript オブジェクトです。 ビューモデルは、UI のコード抽象化です。 HTML 表現に関する情報はありません。 代わりに、"項目のリスト" など、ビューの抽象的な機能を表します。
 
-ビューはデータ バインド ビュー モデルにします。 ビュー モデルに更新プログラムは、ビューで自動的に反映されます。 ビュー モデルは、ボタンのクリックなど、ビューからイベントを取得し、注文を作成するなど、モデルの操作を実行します。
+ビューは、ビューモデルにデータバインドされています。 ビューモデルに対する更新は、自動的にビューに反映されます。 ビューモデルでは、ボタンのクリックなど、ビューからイベントを取得したり、注文の作成など、モデルに対する操作を実行したりすることもできます。
 
 ![](using-web-api-with-entity-framework-part-5/_static/image1.png)
 
-最初に、ビュー モデルを定義します。 その後は、ビュー モデルに、HTML マークアップをバインドします。
+まず、ビューモデルを定義します。 その後、HTML マークアップをビューモデルにバインドします。
 
-Admin.cshtml には、次の Razor セクションを追加します。
+次の Razor セクションを Admin. cshtml に追加します。
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample1.cshtml)]
 
-任意の場所、ファイルのこのセクションを追加できます。 ときに、ビューが表示される、HTML ページの下部のセクションが表示されますが、終了する前に右&lt;/body&gt;タグ。
+このセクションは、ファイルの任意の場所に追加できます。 ビューが表示されると、HTML ページの下部に、終了 &lt;/本文&gt; タグの直前に、セクションが表示されます。
 
-このページのスクリプトのすべてが、コメントで示されたスクリプト タグ内で参照してください。
+このページのすべてのスクリプトは、コメントで示されているスクリプトタグ内に表示されます。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample2.html)]
 
-最初に、ビュー モデル クラスを定義します。
+まず、ビューモデルクラスを定義します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample3.js)]
 
-**ko.observableArray**オブジェクトと呼ばれる、Knockout での特殊なは、*オブザーバブル*します。 [Knockout.js ドキュメント](http://knockoutjs.com/documentation/observables.html):可能なオブジェクトは「を JavaScript オブジェクトの変更についてサブスクライバーに通知できます」 可能なオブジェクトの内容を変更するときに、ビューが一致するように自動的に更新します。
+**ko**は、"*観測*可能" と呼ばれる、ノックアウトの特殊なオブジェクトです。 [ノックアウトドキュメント](http://knockoutjs.com/documentation/observables.html)から: 観測可能なは、変更についてサブスクライバーに通知できる "JavaScript オブジェクト" です。 監視可能な変更の内容が一致するように、ビューが自動的に更新されます。
 
-設定する、`products`配列、web API への AJAX 要求を作成します。 ビュー バッグで API のベース URI を格納することを思い出してください (を参照してください[パート 4](using-web-api-with-entity-framework-part-4.md)チュートリアルの)。
+`products` 配列にデータを設定するには、web API に対して AJAX 要求を行います。 API のベース URI がビューバッグに格納されていることを思い出してください (チュートリアルの[パート 4](using-web-api-with-entity-framework-part-4.md)を参照してください)。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample4.js?highlight=5)]
 
-次に、作成、更新、および製品を削除するビュー モデルに関数を追加します。 これらの関数は、web API への AJAX 呼び出しを送信し、結果を使用して、ビュー モデルを更新します。
+次に、ビューモデルに関数を追加して、製品を作成、更新、および削除します。 これらの関数は、AJAX 呼び出しを web API に送信し、結果を使用してビューモデルを更新します。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample5.js?highlight=7)]
 
-最も重要な部分のようになりました。DOM が fulled、読み込まれた呼び出しの場合、 **ko.applyBindings**関数し、の新しいインスタンスを渡す、 `ProductsViewModel`:
+ここで最も重要なのは、DOM が非常に読み込まれるときに、 **ko**関数を呼び出し、`ProductsViewModel`の新しいインスタンスを渡すことです。
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample6.js)]
 
-**Ko.applyBindings**メソッドは、Knockout をアクティブにし、ビューをビュー モデルを作成します。
+**Ko**メソッドは、ノックアウトをアクティブにし、ビューモデルをビューに配線します。
 
-ビュー モデルをしたら、バインドを作成できます。 、Knockout.js でこれを行う追加して`data-bind`HTML 要素に属性します。 たとえば、HTML の一覧を配列にバインドするに使用して、`foreach`バインド。
+ビューモデルが用意できたので、次にバインドを作成します。 これを行うには、`data-bind` 属性を HTML 要素に追加します。 たとえば、HTML リストを配列にバインドするには、`foreach` バインドを使用します。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample7.html?highlight=1)]
 
-`foreach`バインディングは、配列を反復処理し、子が配列内の各オブジェクトの要素を作成します。 子要素のバインディングは、配列のオブジェクトのプロパティを参照できます。
+`foreach` バインディングは配列を反復処理し、配列内の各オブジェクトに対して子要素を作成します。 子要素のバインドは、配列オブジェクトのプロパティを参照できます。
 
-「製品更新プログラム」一覧には、次のバインドを追加します。
+次のバインドを "更新-製品" リストに追加します。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample8.html)]
 
-`<li>`のスコープ内の要素が、 **foreach**バインドします。 Knockout は意味がの製品ごとに 1 回要素を描画すること、`products`配列。 すべてのバインド内で、`<li>`要素は、その製品のインスタンスを参照してください。 たとえば、`$data.Name`を指す、`Name`製品のプロパティ。
+`<li>` 要素は、 **foreach**バインドのスコープ内で発生します。 つまり、抜き合わせは、`products` 配列内の製品ごとに1回要素をレンダリングします。 `<li>` 要素内のすべてのバインドは、その製品インスタンスを参照します。 たとえば、`$data.Name` は、製品の `Name` プロパティを参照します。
 
-テキスト入力値を設定するには、使用、`value`バインドします。 モデル-ビュー関数にバインドは、ボタンを使用して、`click`バインディング。 製品のインスタンスは、各関数にパラメーターとして渡されます。 詳細については、 [Knockout.js ドキュメント](http://knockoutjs.com/documentation/observables.html)がさまざまなバインドの適切な説明。
+テキスト入力の値を設定するには、`value` バインドを使用します。 これらのボタンは、`click` バインディングを使用して、モデルビューの関数にバインドされます。 製品インスタンスは、各関数にパラメーターとして渡されます。 詳細については、さまざまなバインドについての適切な説明を[ノックアウトドキュメント](http://knockoutjs.com/documentation/observables.html)に記載しています。
 
-バインドを次に、追加、**送信**イベントは成果物の追加フォーム。
+次に、[製品の追加] フォームで**submit**イベントのバインドを追加します。
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample9.html)]
 
-このバインディングの呼び出し、`create`新しい製品を作成するビュー モデルの関数。
+このバインディングは、ビューモデルの `create` 関数を呼び出して、新しい製品を作成します。
 
 管理ビューの完全なコードを次に示します。
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample10.cshtml)]
 
-アプリケーションを実行し、管理者アカウントでログイン"Admin"リンクをクリックします。 製品の一覧を参照してくださいし、作成、更新、または製品を削除することができる必要があります。
+アプリケーションを実行し、管理者アカウントでログインして、[Admin] \ (管理者 \) リンクをクリックします。 製品の一覧が表示され、製品を作成、更新、または削除できるようになります。
 
 > [!div class="step-by-step"]
 > [前へ](using-web-api-with-entity-framework-part-4.md)

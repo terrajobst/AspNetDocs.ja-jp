@@ -8,12 +8,12 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 46d051a5eba6501cf36910b7674ce6400597de8a
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.openlocfilehash: 504202068f5db4f8614bba02e8066ffecfd15b48
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057016"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74619240"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -91,7 +91,7 @@ ms.locfileid: "74057016"
 - [免責事項](#0.1__Toc274034231)
 
 <a id="overview"></a>
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
 このドキュメントでは、Visual Studio 2010 用 ASP.NET MVC 3 RTM のリリースについて説明します。 ASP.NET MVC は、モデルビューコントローラー (MVC) パターンを使用する Web アプリケーションを開発するためのフレームワークです。 ASP.NET MVC 3 インストーラーには、次のコンポーネントが含まれています。
 
@@ -102,7 +102,7 @@ ms.locfileid: "74057016"
 - .NET 用 Microsoft パッケージマネージャー (NuGet)
 - Razor 構文のサポートを有効にする Visual Studio 2010 の更新プログラム。 (詳細については、サポート技術情報の記事2483190を参照してください。)
 
-各プレリリース版の ASP.NET MVC 3 のリリースノートは、ASP.NET の web サイトの次の URL に記載されています。
+ASP.NET MVC 3 のプレリリース版のすべてのリリース ノートは、次の URL の ASP.NET Web サイトで公開されています。
 
 https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
@@ -130,7 +130,7 @@ ASP.NET MVC 3 ランタイムコンポーネントには、次のソフトウェ
 - Visual Studio 2010 または Visual Web Developer 2010 Express。
 
 <a id="documentation"></a>
-## <a name="documentation"></a>ドキュメント
+## <a name="documentation"></a>Documentation
 
 ASP.NET MVC のドキュメントは、MSDN Web サイトの次の URL から入手できます。
 
@@ -141,11 +141,11 @@ ASP.NET MVC に関するチュートリアルやその他の情報について�
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>Support
+## <a name="support"></a>でのサポート
 
-これは完全にサポートされているリリースです。 テクニカルサポートを受ける方法については、 [Microsoft サポート web サイト](https://support.microsoft.com/)を参照してください。
+このリリースは完全にサポートされています。 テクニカルサポートを受ける方法については、 [Microsoft サポート web サイト](https://support.microsoft.com/)を参照してください。
 
-また、このリリースに関する質問を ASP.NET MVC フォーラムに投稿してください。 ASP.NET コミュニティのメンバーは、多くの場合、非公式なサポートを提供できます。
+また、このリリースについての質問はお気軽に ASP.NET MVC フォーラムにお寄せください。このフォーラムでは、ASP.NET コミュニティのメンバーによる非公式のサポートを受けられる場合が多くあります。
 
 [https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
@@ -157,29 +157,29 @@ ASP.NET MVC 3 は、ASP.NET MVC 2 とサイドバイサイドで同じコンピ�
 既存の ASP.NET MVC 2 アプリケーションをバージョン3に手動でアップグレードするには、次の手順を実行します。
 
 1. コンピューターに新しい空の ASP.NET MVC 3 プロジェクトを作成します。 このプロジェクトには、アップグレードに必要ないくつかのファイルが含まれています。
-2. ASP.NET MVC 3 プロジェクトの次のファイルを、ASP.NET MVC 2 プロジェクトの対応する場所にコピーします。 新しいファイル名 (jQuery-1.5.1) を考慮して、jQuery ライブラリへの参照を更新する必要があります。 
+2. ASP.NET MVC 3 プロジェクトから次のファイルを ASP.NET MVC 2 プロジェクトの対応する場所にコピーします。 jQuery ライブラリへの参照を更新して、新しいファイル名を参照する必要があります (jQuery-1.5.1.js)。 
 
-    - /方法/構成
-    - /パッケージ
+    - /Views/Web.config
+    - /packages.config
     - /スクリプト/\*.js
     - /\*します。\*
 3. 空の ASP.NET MVC 3 プロジェクトソリューションのルートにある*packages*フォルダーをソリューションのルートにコピーします。このフォルダーは、ソリューションの .sln ファイルが配置されているディレクトリにあります。
 4. ASP.NET MVC 2 プロジェクトに領域が含まれている場合は、/ビューファイルを各領域の*Views*フォルダーにコピーします。
-5. ASP.NET MVC 2 プロジェクトの Web.config ファイルの両方で、ASP.NET MVC バージョンをグローバルに検索して置き換えます。 次のものを探します。 
+5. ASP.NET MVC 2 プロジェクトの Web.config ファイルの両方で、ASP.NET MVC バージョンをグローバルに検索して置き換えます。 次の文字列を検索します。 
 
     [!code-console[Main](mvc3-release-notes/samples/sample1.cmd)]
 
-    次のように置き換えます。
+    上記を次の文字列に置き換えます。
 
     [!code-console[Main](mvc3-release-notes/samples/sample2.cmd)]
 6. ソリューションエクスプローラーで、(バージョン2の DLL を指す) system.web *. mvc*への参照を削除し、3.0.0.0 への*参照 (v) を追加*します。
-7. System.web. web ページ .dll と system.servicemodel への参照を追加します。 これらのアセンブリは、次のフォルダーにあります。 
+7. System.web. web ページ .dll と system.servicemodel への参照を追加します。 これらのアセンブリは、次のフォルダーに保存されています。 
 
-    - % ProgramFiles% \Microsoft NET\ASP.NET MVC 3 \ アセンブリ
-    - % ProgramFiles% \Microsoft NET\ASP.NET Web Pages\v1.0\Assemblies
-8. ソリューションエクスプローラーで、プロジェクト名を右クリックし、[プロジェクトのアンロード] を選択します。 次に、プロジェクト名をもう一度右クリックし、[ *ProjectName*. .Csproj の編集] を選択します。
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
+8. ソリューション エクスプローラーで、プロジェクト名を右クリックし、[プロジェクトのアンロード] を選択します。 次に、プロジェクト名をもう一度右クリックし、[ *ProjectName*. .Csproj の編集] を選択します。
 9. *Projecttypeguids*要素を見つけ、{F85E285D-A4E0-4152-9332-AB1D724D3325} を {E53F8FEA-EAE0-44A6-8774-FFD645390401} に置き換えます。
-10. 変更を保存し、プロジェクトを右クリックして、[プロジェクトの再読み込み] を選択します。
+10. 変更を保存してプロジェクトを右クリックし、[プロジェクトの再読み込み] をクリックします。
 11. アプリケーションのルートの Web.config ファイルで、次の設定を*assemblies*セクションに追加します。 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample3.xml)]
@@ -193,68 +193,68 @@ ASP.NET MVC 3 は、ASP.NET MVC 2 とサイドバイサイドで同じコンピ�
 このセクションでは、ASP.NET MVC 3 RTM リリース以降、ASP.NET MVC 3 Tools Update リリースで加えられた変更について説明します。
 
 <a id="tu-AddControllerDialog"></a>
-### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>[コントローラーの追加] ダイアログボックスで、コントローラーをビューおよびデータアクセスコードにスキャフォールディングできるようになりました
+### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>[コントローラーの追加] ダイアログ ボックスで、ビューとデータ アクセス コードを使用したコントローラーのスキャフォールディングが可能に
 
-スキャフォールディングは、アプリケーションのコントローラーとビューを迅速に生成する方法です。 生成されたコードは、プロジェクトの要件に合わせて編集できます。
+スキャフォールディングを使用すると、アプリケーションのコントローラーとビューをすばやく生成できます。 生成されたコードは、プロジェクトの要件に合わせて編集できます。
 
-ASP.NET MVC 3 の [*コントローラーの追加*] ダイアログボックスを起動するには、*ソリューションエクスプローラー*で [*コントローラー* ] フォルダーを右クリックし、[*追加*] をクリックして、[*コントローラー*] をクリックします。 このダイアログボックスは、追加のスキャフォールディングオプションを提供するように強化されています。
+ASP.NET MVC 3 の [*コントローラーの追加*] ダイアログボックスを起動するには、*ソリューションエクスプローラー*で [*コントローラー* ] フォルダーを右クリックし、[*追加*] をクリックして、[*コントローラー*] をクリックします。 このダイアログ ボックスには、新たにスキャフォールディング オプションが追加されています。
 
 ![](mvc3-release-notes/_static/image1.png)
 
-既定では、3つのスキャフォールディングテンプレートを使用できます。
+既定では、3 種類のスキャフォールディング テンプレートが表示されます。
 
 #### <a name="empty-controller"></a>空のコントローラー
 
-このテンプレートでは、空のコントローラーファイルが生成されます。 このテンプレートは、以前のバージョンの ASP.NET MVC の*作成、編集、詳細、削除の各シナリオに対して [アクションの追加*] チェックボックスをオンにすることと同じです。 このオプションを選択した場合、それ以上のオプションは使用できません。
+このテンプレートは、空のコントローラー ファイルを生成します。 このテンプレートは、以前のバージョンの ASP.NET MVC の*作成、編集、詳細、削除の各シナリオに対して [アクションの追加*] チェックボックスをオンにすることと同じです。 このテンプレートを選択した場合、その他のオプションは利用できません。
 
-#### <a name="controller-with-empty-readwrite-actions"></a>空の読み取り/書き込みアクションがあるコントローラー
+#### <a name="controller-with-empty-readwrite-actions"></a>空の読み取り/書き込み操作のあるコントローラー
 
-このテンプレートは、必要なアクションメソッドがすべて含まれているが、メソッドに実装コードがないコントローラーファイルを生成します。 このテンプレートは、以前のバージョンの ASP.NET MVC の*作成、編集、詳細、削除の各シナリオに対する追加アクション*を確認することと同じです。 このオプションを選択した場合、それ以上のオプションは使用できません。
+このテンプレートは、実装コードが設定されていませんが、必要なアクション メソッドがすべてあるコントローラー ファイルを生成します。 このテンプレートは、以前のバージョンの ASP.NET MVC の*作成、編集、詳細、削除の各シナリオに対する追加アクション*を確認することと同じです。 このテンプレートを選択した場合、その他のオプションは利用できません。
 
-#### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>Entity Framework を使用した、読み取り/書き込みアクションとビューを備えたコントローラー
+#### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>Entity Framework を使用した、読み取り/書き込み操作とビューのあるコントローラー
 
-このテンプレートを使用すると、作業中のデータ入力ユーザーインターフェイスをすばやく作成できます。 次のような一般的な要件とシナリオを処理するコードが生成されます。
+このテンプレートでは、運用可能なデータ入力ユーザー インターフェイスをすばやく作成できます。 次のような、さまざまな一般的な要件やシナリオに対応するコードが生成されます。
 
-- *データアクセス*。 生成されたコードは、データベース内のエンティティの読み取りと書き込みを行います。 既存のデータコンテキストクラスを選択した場合、またはテンプレートに新しい*Dbcontext*クラスを生成させる場合は、Entity Framework Code First の方法で動作します。 また、既存の*ObjectContext*クラスを選択した場合は、Entity Framework Database First または Model First アプローチでも機能します。
-- *検証*。 生成されたコードは、モデルクラスで宣言された規則に従ってフォーム送信が検証されるように、ASP.NET MVC モデルバインディングとメタデータ機能を使用します。 これには、*必須*の属性や*stringlength*属性などの組み込みの検証規則や、カスタム検証規則が含まれます。
-- *一対多のリレーションシップ*。 モデルクラス間に一対多の外部キーリレーションシップを定義すると、生成されたコードによって、関連エンティティを選択するためのドロップダウンリストが生成されます。 たとえば、次のモデルクラスを Entity Framework Code First 規則に従って定義できます。 
+- *データアクセス*。 生成されたコードは、データベースのエンティティの読み取りおよび書き込みを行います。 既存のデータコンテキストクラスを選択した場合、またはテンプレートに新しい*Dbcontext*クラスを生成させる場合は、Entity Framework Code First の方法で動作します。 また、既存の*ObjectContext*クラスを選択した場合は、Entity Framework Database First または Model First アプローチでも機能します。
+- *検証*。 生成されたコードは、ASP.NET MVC モデル バインディング機能とメタデータ機能を使用して、モデル クラスで宣言している規則に従ってフォーム送信が検証されるようにします。 これには、*必須*の属性や*stringlength*属性などの組み込みの検証規則や、カスタム検証規則が含まれます。
+- *一対多のリレーションシップ*。 モデル クラス間に一対多外部キーリレーションシップを定義する場合、生成されたコードは関連エンティティを選択するためのドロップダウン リストを生成します。 たとえば、Entity Framework Code First 規約に従って、次のモデル クラスを定義するとします。 
 
     [!code-csharp[Main](mvc3-release-notes/samples/sample5.cs)]
 
     その後、 *product*クラスのコントローラーをスキャフォールディングすると、そのビューでは、ユーザーが各*製品*インスタンスの*カテゴリ*オブジェクトを選択できるようになります。
 
     このテンプレートは、[コントローラーの*追加*] ダイアログボックスで追加のオプションを有効にします。 [*モデルクラス*] では、ソリューション内の任意のモデルクラスを選択できます。これにより、ユーザーが作成または編集できるデータの種類が決まります。
-- Entity Framework Code First を使用する場合は、任意のモデルクラスを選択できます。
-- Entity Framework Database First または Entity Framework Model First を使用している場合は、概念モデルで定義されているエンティティクラスを選択してください。
+- Entity Framework Code First を使用する場合は、どのモデル クラスを選択してもかまいません。
+- Entity Framework Database First または Entity Framework Model First を使用する場合は、必ず、概念モデルに定義されているエンティティ クラスを選択してください。
 
 *データコンテキストクラス*では、次の選択を行うことができます。
 
-- Code First を使用し、既存のデータコンテキストクラスがない場合は、* * [新しいデータコンテキスト] * * を選択します。 その後、データコンテキストクラスが生成されます。
-- Code First を使用し、既存のデータコンテキストクラスを使用する場合は、ここで選択します。 これは、選択したモデルクラスを保持するように更新されます。
-- Database First または Model First を使用している場合は、ここでオブジェクトコンテキストクラスを選択します。
+- Code First を使用し、既存のデータコンテキストクラスがない場合は、* * [新しいデータコンテキスト] * * を選択します。 これにより、データ コンテキスト クラスが自動的に生成されます。
+- Code First を使用する場合に既存のデータ コンテキストがある場合は、そのコンテキストを選択します。 選択したモデル クラスを保持するように、コンテキストが更新されます。
+- Database First または Model First を使用する場合は、オブジェクト コンテキスト クラスを選択します。
 
-ビューの場合は、使用するビューエンジンを選択するか、ビューをスキャフォールディングしない場合は [なし] を選択します。
+[ビュー] では、使用するビュー エンジンを選択するか、ビューのスキャフォールディングを行わない場合は [なし] を選択します。
 
-[詳細設定] を選択すると、生成されるビューのオプションをさらに指定できます。 たとえば、使用するレイアウトまたはマスターページを選択できます。
+[詳細設定] を選択すると、生成されるビューのオプションをさらに指定できます。 たとえば、使用するレイアウトやマスター ページを選択できます。
 
 <a id="tu-ImprovementsNewDialogBox"></a>
-### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>[ASP.NET MVC 3 New Project (新しいプロジェクトの追加)] ダイアログボックスの機能強化
+### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>[新しい ASP.NET MVC 3 プロジェクト] ダイアログ ボックスの機能強化
 
 新しい ASP.NET MVC 3 プロジェクトの作成に使用するダイアログボックスには、次に示すように、複数の機能強化が含まれています。
 
 ![](mvc3-release-notes/_static/image2.png)
 
-#### <a name="new-intranet-project-template"></a>新しい "イントラネットプロジェクト" テンプレート
+#### <a name="new-intranet-project-template"></a>"イントラネット プロジェクト" テンプレートの導入
 
-プロジェクトテンプレートの一覧には、新しいイントラネットアプリケーションテンプレートが含まれています。 このテンプレートには、フォーム認証ではなく Windows 認証を使用して web アプリケーションを構築するための設定が含まれています。 イントラネットアプリケーションでは、プロジェクトテンプレートにカプセル化できないいくつかの IIS 設定が必要であるため、テンプレートには、プロジェクトテンプレートを IIS で動作させるための手順を示す readme ファイルが含まれています。 新しいイントラネットアプリケーションテンプレートのドキュメントについては、MSDN web サイトの次の URL を参照してください。
+[プロジェクト テンプレート] の一覧に、"イントラネット アプリケーション" テンプレートが加わりました。 このテンプレートには、フォーム認証ではなく Windows 認証を使用する Web アプリケーションを作成するための設定が含まれています。 イントラネットアプリケーションでは、プロジェクトテンプレートにカプセル化できないいくつかの IIS 設定が必要であるため、テンプレートには、プロジェクトテンプレートを IIS で動作させるための手順を示す readme ファイルが含まれています。 新しいイントラネットアプリケーションテンプレートのドキュメントについては、MSDN web サイトの次の URL を参照してください。
 
 [https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
-#### <a name="project-templates-are-now-html5-enabled"></a>プロジェクトテンプレートが HTML5 で有効になりました
+#### <a name="project-templates-are-now-html5-enabled"></a>プロジェクト テンプレートが HTML5 に対応
 
-[新しいプロジェクト] ダイアログボックスに、HTML5 固有の機能をプロジェクトテンプレートに追加するオプションが表示されるようになりました。 このオプションを選択すると、新しい HTML5 `<header>`、`<footer>`、および `<navigation>` 要素を含むビューが生成されます。
+プロジェクトの新規作成ダイアログ ボックスに、HTML5 固有の機能をプロジェクト テンプレートに追加するオプションが追加されました。 このオプションを選択すると、新しい HTML5 `<header>`、`<footer>`、および `<navigation>` 要素を含むビューが生成されます。
 
-以前のバージョンのブラウザーでは、HTML5 固有のタグがサポートされていないことに注意してください。 この制限に対処するために、HTML5 プロジェクトテンプレートには、Modernizr ライブラリへの参照が含まれています。 (次のセクションを参照してください)。
+ただし、古いバージョンのブラウザーでは、HTML5 固有のタグがサポートされていないことに注意してください。 この制限に対応するため、HTML5 プロジェクト テンプレートには、Modernizr ライブラリへの参照が含まれています (次のセクションを参照してください)。
 
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>プロジェクトテンプレートに Modernizr 1.7 が含まれるようになりました
@@ -262,44 +262,44 @@ ASP.NET MVC 3 の [*コントローラーの追加*] ダイアログボックス
 Modernizr は、これらの機能をまだサポートしていないブラウザーで CSS 3 と HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクトのテンプレートに、事前にインストールされた NuGet パッケージとして含まれています。 Modernizr の詳細については、「 [http://www.modernizr.com/](http://www.modernizr.com/)」を参照してください。
 
 <a id="tu-UpdatedJQuery"></a>
-### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクトテンプレートには、jQuery、jQuery UI、および jQuery Validation の更新バージョンが含まれています
+### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクト テンプレートの jQuery、jQuery UI、および jQuery Validation のバージョンが新しく
 
-プロジェクトテンプレートには、次のバージョンの jQuery スクリプトが含まれるようになりました。
+プロジェクト テンプレートの jQuery スクリプトが次のバージョンになりました。
 
 - jQuery 1.5.1
-- jQuery 検証1.8
+- jQuery Validation 1.8
 - jQuery UI 1.8.11
 
-これらのライブラリは、事前にインストールされた NuGet パッケージとして含まれています。
+これらのライブラリは、NuGet プレインストール パッケージとして含まれています。
 
 <a id="tu-EF"></a>
 ### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>プロジェクトテンプレートに、事前にインストールされた NuGet パッケージとして ADO.NET Entity Framework 4.1 が含まれるようになりました
 
-ADO.NET Entity Framework 4.1 には、Code First 機能が含まれています。 Code First は、既存の Database First および Model First パターンの代わりに使用できる、ADO.NET Entity Framework の新しい開発パターンです。
+ADO.NET Entity Framework 4.1 には、Code First 機能が含まれています。 Code First は既存の Database First パターンや Model First パターンに代えて使用できる ADO.NET Entity Framework の新しい開発パターンです。
 
-Code First は、Visual Basic またはC#で記述された POCO クラス ("PLAIN old CLR objects") を使用してモデルを定義することに重点を置いています。 これらのクラスは、既存のデータベースにマップすることも、データベーススキーマを生成するために使用することもできます。 *Dataannotations*属性を使用するか、fluent api を使用して、追加の構成を指定できます。
+Code First は、Visual Basic または C# で記述された POCO クラス ("plain old CLR object") を使用するモデルを定義するための機能です。 これらのクラスは、既存のデータベースにマップするか、データベース スキーマの生成に使用できます。 *Dataannotations*属性を使用するか、fluent api を使用して、追加の構成を指定できます。
 
 Code Firstwith ASP.NET MVC の使用に関するドキュメントは、ASP.NET の web サイトの次の Url にあります。
 
 [https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
-### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>プロジェクトテンプレートには、プレインストールされた NuGet パッケージとしての JavaScript ライブラリが含まれています
+### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>プロジェクト テンプレートに、NuGet プレインストール パッケージとして JavaScript ライブラリが追加
 
-新しい ASP.NET MVC 3 プロジェクトを作成する場合、プロジェクトには、プロジェクトテンプレートの Scripts フォルダーにスクリプトを直接追加するのではなく、NuGet を使用してインストールした JavaScript ファイル (Modernizr ライブラリなど) が含まれます。内容. これにより、新しいバージョンのスクリプトがリリースされたときに、NuGet を使用してスクリプトを最新バージョンに更新できます。
+新しい ASP.NET MVC 3 プロジェクトを作成する場合、プロジェクトには、プロジェクトテンプレートの Scripts フォルダーにスクリプトを直接追加するのではなく、NuGet を使用してインストールした JavaScript ファイル (Modernizr ライブラリなど) が含まれます。内容. これにより、スクリプトの新しいバージョンがリリースされたときに、NuGet を使用してスクリプトを最新バージョンに更新できます。
 
-たとえば、新しい jQuery リリースの頻度により、プロジェクトテンプレートに含まれている jQuery のバージョンは、ある時点で最新の状態になります。 ただし、jQuery はインストール済みの NuGet パッケージとして含まれているため、新しいバージョンの jQuery が使用可能な場合は、[NuGet] ダイアログボックスに通知されます。
+たとえば、jQuery の新しいリリースが提供される頻度を考えると、プロジェクトに含まれる jQuery のバージョンは、ある時点で古くなります。 しかし、jQuery はインストール済みの NuGet パッケージとして含まれているため、jQuery の新しいバージョンが公開されると NuGet のダイアログ ボックスによって通知されます。
 
-JQuery にはファイル名にバージョン番号が含まれているので、jQuery を最新バージョンに更新するには、jQuery ファイルを参照する `<script>` タグを更新して、新しいファイル名を使用する必要もあります。 その他のスクリプトライブラリには、スクリプト名にバージョン番号が含まれていないため、より簡単に最新バージョンに更新できます。
+JQuery にはファイル名にバージョン番号が含まれているので、jQuery を最新バージョンに更新するには、jQuery ファイルを参照する `<script>` タグを更新して、新しいファイル名を使用する必要もあります。 プロジェクトに含まれるその他のスクリプト ライブラリでは、スクリプト名にバージョン番号は含まれていないため、より簡単に最新バージョンに更新できます。
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>既知の問題
 
 - 場合によっては、インストールが失敗し、"インストールに失敗しました。エラーコード (0x80070643)" というエラーメッセージが表示されることがあります。 この問題を回避する方法については、サポート技術情報の[記事 2531566](https://support.microsoft.com/kb/2531566)を参照してください。
-- コントローラーを追加するためのスキャフォールディングでは、Entity Framework 内でのエンティティの継承サポートを利用するエンティティはスキャフォールディングません。 たとえば、 *student*クラスによって継承される基本*Person*クラスを指定した場合、*学生*クラスをスキャフォールディングすると、コンパイルされないコードが生成されます。
+- コントローラーを追加するためのスキャフォールディングでは、Entity Framework 内のエンティティ継承サポートを利用するエンティティはスキャフォールディングされません。 たとえば、 *student*クラスによって継承される基本*Person*クラスを指定した場合、*学生*クラスをスキャフォールディングすると、コンパイルされないコードが生成されます。
 - ソリューションフォルダー内に新しい ASP.NET MVC 3 プロジェクトを作成すると、 *NullReferenceException*エラーが発生します。 この問題を回避するには、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューションフォルダーに移動します。
-- Razor 構文の IntelliSense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法について説明しています。
-- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- Razor 構文の IntelliSense は、ReSharper がインストールされていると機能しません。 再インストールが完了していて、ASP.NET MVC 3 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法について説明しています。
+- インストール中にライセンス条項への同意を確認するためのダイアログ ボックスで、意図したよりも小さいウィンドウにライセンス条項が表示されます。
 - Razor ビュー (cshtml またはを編集する場合。*vbhtml*ファイル)、ビュー。 ASP.NET MVC 3 には Razor ビューのスニペットは含まれていません。「」を参照してください。ASP.NET MVC のコードスニペットを選択すると、のスニペットが表示されます。
 - Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
 
@@ -347,10 +347,10 @@ ASP.NET MVC 3 のプレリリース版では、Razor ファイルに空白を含
 - ASP.NET MVC 3 インストーラーでは、NuGet パッケージマネージャーの初期バージョンのみをインストールできます。 初期バージョンをインストールした後、Visual Studio 拡張機能マネージャーを使用して NuGet をインストールし、更新することができます。 NuGet が既にインストールされている場合は、Visual Studio 拡張機能ギャラリーにアクセスして、最新バージョンの NuGet に更新してください。
 - ソリューションフォルダー内に新しい ASP.NET MVC 3 プロジェクトを作成すると、 *NullReferenceException*エラーが発生します。 この問題を回避するには、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューションフォルダーに移動します。
 - インストーラーを完了するには、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。 これは、Visual Studio 2010 のコンポーネントを更新するためです。
-- Razor 構文の IntelliSense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法について説明しています。
+- Razor 構文の IntelliSense は、ReSharper がインストールされていると機能しません。 再インストールが完了していて、ASP.NET MVC 3 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法について説明しています。
 - ASP.NET MVC 3 のベータ版で作成された CCSHTML および VBHTML ビューには、ビルドアクションが正しく設定されていません。その結果、プロジェクトの発行時にこれらのビューの種類が省略されます。 これらのファイルのビルドアクション値は、"Content" に設定する必要があります。 ASP.NET MVC 3 RTM では、新しいファイルのこの問題を修正しますが、プレリリースバージョンで作成されたプロジェクトの既存のファイルの設定は修正されません。
 - ![](mvc3-release-notes/_static/image3.png)
-- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- インストール中にライセンス条項への同意を確認するためのダイアログ ボックスで、意図したよりも小さいウィンドウにライセンス条項が表示されます。
 - Razor ビュー (cshtml ファイル) を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
 - Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
 
@@ -470,9 +470,9 @@ Html の*validationmessage*メソッドは、検証メッセージを表示す�
 - ASP.NET MVC 3 インストーラーでは、NuGet パッケージマネージャーの初期バージョンのみをインストールできます。 初期バージョンをインストールした後、Visual Studio 拡張機能マネージャーを使用して NuGet をインストールし、更新することができます。 NuGet が既にインストールされている場合は、Visual Studio 拡張機能ギャラリーにアクセスして、最新バージョンの NuGet に更新してください。
 - ソリューションフォルダー内に新しい ASP.NET MVC 3 プロジェクトを作成すると、 *NullReferenceException*エラーが発生します。 この問題を回避するには、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューションフォルダーに移動します。
 - インストーラーを完了するには、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。 これは、Visual Studio 2010 のコンポーネントを更新するためです。
-- Razor 構文の IntelliSense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 RC2 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法に関する記事をご覧ください。
+- Razor 構文の IntelliSense は、ReSharper がインストールされていると機能しません。 再インストールが完了していて、ASP.NET MVC 3 RC2 で Razor IntelliSense のサポートを利用する場合は、「 [Razor intellisense](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)の使用」と「Hadi Hariri のブログ」を参照してください。これについては、現在の方法に関する記事をご覧ください。
 - ASP.NET MVC 3 のベータ版で作成された CSHTML および VBHTML ビューには、ビルドアクションが正しく設定されていません。その結果、プロジェクトの発行時にこれらのビューの種類が省略されます。 これらのファイルの*ビルドアクション*値は、[コンテンツ] に設定する必要があります。 ASP.NET MVC 3 RC2 は、新しいファイルに対してこの問題を修正しますが、ベータバージョンで作成されたプロジェクトの既存のファイルの設定は修正しません。![](mvc3-release-notes/_static/image4.png)
-- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- インストール中にライセンス条項への同意を確認するためのダイアログ ボックスで、意図したよりも小さいウィンドウにライセンス条項が表示されます。
 - Razor ビュー (cshtml ファイル) を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
 - Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
 - ASP.NET MVC 3 RC 2 をインストールすると、NuGet は更新されません (既にインストールされている場合)。 NuGet をアップグレードするには、Visual Studio 拡張機能マネージャーにアクセスして、使用可能な更新プログラムとして表示する必要があります。 NuGet は、そこから最新リリースにアップグレードできます。
@@ -507,7 +507,7 @@ NuGet の詳細については、 [nuget のドキュメント](https://docs.mic
 
 既定のテンプレートは次のとおりです。
 
-[空]。 ASP.NET MVC プロジェクトの最小限のファイルセットを格納します。これには、ASP.NET MVC プロジェクトの既定のディレクトリ構造、既定の ASP.NET MVC スタイルを含むサイト .css ファイル、および既定の JavaScript ファイルを含む Scripts ディレクトリが含まれます。
+空。 ASP.NET MVC プロジェクトの最小限のファイルセットを格納します。これには、ASP.NET MVC プロジェクトの既定のディレクトリ構造、既定の ASP.NET MVC スタイルを含むサイト .css ファイル、および既定の JavaScript ファイルを含む Scripts ディレクトリが含まれます。
 
 インターネットアプリケーション。 ASP.NET MVC でメンバーシッププロバイダーを使用する方法を示すサンプル機能が含まれています。
 
@@ -578,7 +578,7 @@ ClassName (名前空間)
 
 以前のリリースでは、これは次のように表示されていました。
 
-Namespace. ClassName
+Namespace.ClassName
 
 <a id="_Toc276711793"></a>
 ### <a name="granular-request-validation"></a>詳細な要求の検証
@@ -613,11 +613,11 @@ Namespace. ClassName
 - インストーラーは、Visual Studio 2010 のコンポーネントを更新するため、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。
 - Astrongly に型指定されたビューを選択するときの Add View スキャフォールディングは、書き込み専用のプロパティをスキャフォールディングします。 これらは、スキャフォールディングによって常に無視されます。 [ビューの追加] ダイアログボックスでは、[編集] ビューまたは [作成] ビューを生成するときに、読み取り専用プロパティもスキャフォールディングされます。 読み取り専用プロパティは、表示ビューとリストビューに対してのみスキャフォールディングにする必要があります。
 - 非同期 CTP と共に ASP.NET MVC 3 がインストールされている場合、デバッグは機能しません。 ASP.NET MVC 3 は、非同期 CTP とサイドバイサイドでインストールすることはできません。 デバッグを修復するには、非同期 CTP をアンインストールしてください。 詳細については、ASP.NET MVC 3 RC のすべての部分のアンインストールに関する[ブログ投稿](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html)を参照してください。
-- Razor Intellisense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 RC で Razor intellisense サポートを利用する場合は、JetBrains からの[このブログ](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)記事をお読みください。これを使用する方法については、こちらを参照してください。
+- Razor Intellisense は、再シャープ化がインストールされている場合は機能しません。 再インストールが完了していて、ASP.NET MVC 3 RC で Razor intellisense サポートを利用する場合は、JetBrains からの[このブログ](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/)記事をお読みください。これを使用する方法については、こちらを参照してください。
 - ASP.NET MVC 3 のベータ版で作成された CSHTML ビューおよび VBHTML ビューには、発行から除外されるビルドアクションが正しくありません。 これらのファイルの*ビルドアクション*は、"Content" に設定する必要があります。 ASP.NET MVC 3 RC では、新しいファイルに対してこの問題を修正しますが、Beta で作成されたプロジェクトの既存のファイルの設定は修正されません。
 - インストーラーは、Visual Studio 2010 のコンポーネントを更新するため、以前のバージョンの ASP.NET MVC よりもはるかに長い時間がかかることがあります。
 - "Edit" 厳密に型指定されたビューを選択すると、ビューの追加スキャフォールディングは読み取り専用のプロパティをスキャフォールディングします。 同様に、書き込み専用プロパティは、"Display" ビューではスキャフォールディングです。
-- インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+- インストール中にライセンス条項への同意を確認するためのダイアログ ボックスで、意図したよりも小さいウィンドウにライセンス条項が表示されます。
 - Visual Studio Async CTP をインストールすると、ASP.NET MVC 3 ツールのインストールの一部として含まれている Razor リリースとの競合が発生します。 Visual Studio Async CTP と Razor リリースの両方を同じコンピューターにインストールしないようにしてください。
 - Razor ビュー (cshtml ファイル) を編集しているときに、Visual Studio の [コントローラーへのジャンプ] メニュー項目は使用できず、コードスニペットもありません。
 
@@ -648,7 +648,7 @@ NuGet の詳細については、 [nuget のドキュメント](https://docs.mic
 
 既定のテンプレートは次のとおりです。
 
-[空]。 ASP.NET MVC プロジェクトの最小限のファイルセットを格納します。これには、ASP.NET MVC プロジェクトの既定のディレクトリ構造、既定の ASP.NET MVC スタイルを含む小さなサイト .css ファイル、および既定の JavaScript ファイルを含む Scripts ディレクトリが含まれます。
+空。 ASP.NET MVC プロジェクトの最小限のファイルセットを格納します。これには、ASP.NET MVC プロジェクトの既定のディレクトリ構造、既定の ASP.NET MVC スタイルを含む小さなサイト .css ファイル、および既定の JavaScript ファイルを含む Scripts ディレクトリが含まれます。
 
 インターネットアプリケーション。 ASP.NET MVC 内でメンバーシッププロバイダーを使用する方法を示すサンプル機能が含まれています。
 
@@ -841,7 +841,7 @@ JsonValueProviderFactory が既定で登録されるようになりました。
 
 ## <a id="0.1__Toc274034230"></a>既知の問題
 
-インストール中に、[使用許諾契約書の同意] ダイアログボックスに、想定よりも小さいウィンドウのライセンス条項が表示されます。
+インストール中にライセンス条項への同意を確認するためのダイアログ ボックスで、意図したよりも小さいウィンドウにライセンス条項が表示されます。
 
 Razor ビューには、IntelliSense のサポートや構文の強調表示がありません。 Visual Studio での Razor 構文のサポートは、今後のリリースの一部として含まれることが予想されます。
 
@@ -861,6 +861,6 @@ ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 にアップグレードする
 
 ## <a id="0.1__Toc274034231"></a>免責事項
 
-© 2011 Microsoft Corporation. All rights reserved. このドキュメントは "その他" として提供されます。 このドキュメントに記載されている情報や見解は、URL やその他のインターネット Web サイトの参照を含め、予告なしに変更される可能性があります。 お客様は、その使用に関するリスクを負うものとします。
+© 2011 Microsoft Corporation. All rights reserved. このドキュメントは何等保障もない現状有姿のままで提供されるものです。 このドキュメントに記載されている情報と表示 (URL および他のインターネット Web サイトの参照を含む) は、将来予告なく変更されることがあります。 お客様ご自身の責任において使用してください。
 
 このドキュメントは、Microsoft 製品の知的財産権に関する法的な権利をお客様に許諾するものではありません。 内部的な参照目的に限り、このドキュメントを複製して使用することができます。

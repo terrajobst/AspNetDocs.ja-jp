@@ -1,179 +1,179 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
-title: (C#) DetailsView コントロールで TemplateFields を使用する |Microsoft Docs
+title: DetailsView コントロールで TemplateFields を使用するC#() |Microsoft Docs
 author: rick-anderson
-description: GridView で利用できる同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品が表示されたら送りしています.
+description: GridView で使用できるのと同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルでは、1つの製品を表示します...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 83efb21f-b231-446e-9356-f4c6cbcc6713
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7db524b12fca5fab996d80f20faa43a6ac098ab6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 55c667800a9fb19d200bcf4b68e2c59ca4ef5d0e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128523"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74622234"
 ---
 # <a name="using-templatefields-in-the-detailsview-control-c"></a>DetailsView コントロールで TemplateFields を使用する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[サンプル アプリをダウンロード](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_13_CS.exe)または[PDF のダウンロード](using-templatefields-in-the-detailsview-control-cs/_static/datatutorial13cs1.pdf)
+[サンプルアプリのダウンロード](https://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_13_CS.exe)または[PDF のダウンロード](using-templatefields-in-the-detailsview-control-cs/_static/datatutorial13cs1.pdf)
 
-> GridView で利用できる同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルで TemplateFields を含む DetailsView を使用して一度に 1 つの製品を表示しますします。
+> GridView で使用できるのと同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルでは、TemplateFields を含む DetailsView を使用して、一度に1つの製品を表示します。
 
 ## <a name="introduction"></a>はじめに
 
-TemplateField、BoundField、CheckBoxField、内、およびその他のデータ フィールドのコントロールよりも高いレベルのレンダリング データの柔軟性を提供します。 [前のチュートリアル](using-templatefields-in-the-gridview-control-cs.md)TemplateField に GridView を使用しました。
+TemplateField は、BoundField、CheckBoxField、ハイパーリンクフィールド、およびその他のデータフィールドコントロールよりも高い柔軟性を備えています。 前の[チュートリアル](using-templatefields-in-the-gridview-control-cs.md)では、GridView で TemplateField を使用して次のことを確認しました。
 
-- 1 つの列では、複数のデータ フィールドの値を表示します。 具体的には、どちらも、`FirstName`と`LastName`フィールドは、GridView 列を 1 つに統合されました。
-- データ フィールドの値を表現するのにには、別の Web コントロールを使用します。 表示する方法を説明しました、`HiredDate`カレンダー コントロールを使用する値します。
-- 基になるデータに基づき、状態情報を表示します。 中に、`Employees`テーブルには、従業員が、そのジョブのした日数が返す列が含まれていない場合、TemplateField と書式設定メソッドを使用して前のチュートリアルでは GridView の例ではこのような情報を表示することができました。
+- 複数のデータフィールド値を1つの列に表示します。 具体的には、`FirstName` と `LastName` の両方のフィールドが1つの GridView 列に結合されていました。
+- 代替 Web コントロールを使用して、データフィールド値を表します。 カレンダーコントロールを使用して `HiredDate` の値を表示する方法について説明しました。
+- 基になるデータに基づいてステータス情報を表示します。 `Employees` テーブルには、従業員がジョブに対して行った日数を返す列が含まれていませんが、TemplateField と書式指定メソッドを使用して、前のチュートリアルの GridView の例にそのような情報を表示できました。
 
-GridView で利用できる同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品を含む 2 つの TemplateFields DetailsView を使用して一度に表示します。 最初の TemplateField を組み合わせて、 `UnitPrice`、`UnitsInStock`と`UnitsOnOrder`DetailsView は 1 行にデータ フィールド。 2 番目の TemplateField の値が表示されます、`Discontinued`フィールドが、書式設定メソッドを使用して、"YES"を表示する場合は`Discontinued`は`true`、"NO"を返します。
+GridView で使用できるのと同じ TemplateFields 機能も、DetailsView コントロールで使用できます。 このチュートリアルでは、2つの TemplateFields を含む DetailsView を使用して、一度に1つの製品を表示します。 最初の TemplateField は、`UnitPrice`、`UnitsInStock`、および `UnitsOnOrder` データフィールドを1つの DetailsView 行に結合します。 2番目の TemplateField には `Discontinued` フィールドの値が表示されますが、`Discontinued` が `true`の場合は "YES"、それ以外の場合は "NO" が表示されます。
 
-[![2 つの TemplateFields を使用して、表示をカスタマイズするには](using-templatefields-in-the-detailsview-control-cs/_static/image2.png)](using-templatefields-in-the-detailsview-control-cs/_static/image1.png)
+[![2 つの TemplateFields を使用して、表示をカスタマイズします。](using-templatefields-in-the-detailsview-control-cs/_static/image2.png)](using-templatefields-in-the-detailsview-control-cs/_static/image1.png)
 
-**図 1**:2 つの TemplateFields を使用して、表示をカスタマイズする ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image3.png))。
+**図 1**: 2 つの Templatefields を使用してディスプレイをカスタマイズする ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image3.png)されます)
 
-それでは、始めましょう!
+では、始めましょう。
 
-## <a name="step-1-binding-the-data-to-the-detailsview"></a>手順 1: DetailsView をデータのバインド
+## <a name="step-1-binding-the-data-to-the-detailsview"></a>手順 1: データを DetailsView にバインドする
 
-BoundFields だけを格納している DetailsView コントロールを作成して開始し、および新しい TemplateFields を追加またはとして TemplateFields 既存 BoundFields に変換する最も簡単なことがよくあります TemplateFields を使用する場合に、前のチュートリアルで説明したように必要な. そのため、このチュートリアルを開始、デザイナーを使用してページを DetailsView を追加し、製品のリストを返す、ObjectDataSource にバインドします。 各製品の非ブール値フィールドと 1 つのブール値フィールド (Discontinued) 用の CheckBoxField BoundFields で、次の手順は、DetailsView を作成します。
+前のチュートリアルで説明したように、TemplateFields を使用する場合は、通常、連結されたフィールドのみを含む DetailsView コントロールを作成し、次に新しい TemplateFields を追加するか、必要に応じて既存の BoundFields を TemplateFields に変換することから始めるのが最も簡単です. そのため、このチュートリアルを開始するには、デザイナーでページに DetailsView を追加し、製品の一覧を返す ObjectDataSource にバインドします。 これらの手順では、各製品の非ブール値フィールドに対して BoundFields を使用して DetailsView を作成し、1つのブール値フィールドに対して CheckBoxField を作成します (廃止されました)。
 
-開く、`DetailsViewTemplateField.aspx`ページし、DetailsView をツールボックスからデザイナーにドラッグします。 呼び出す新しい ObjectDataSource コントロールを追加することも、DetailsView のスマート タグから、`ProductsBLL`クラスの`GetProducts()`メソッド。
+[`DetailsViewTemplateField.aspx`] ページを開き、[ツールボックス] から [DetailsView] をデザイナーにドラッグします。 DetailsView のスマートタグから、`ProductsBLL` クラスの `GetProducts()` メソッドを呼び出す新しい ObjectDataSource コントロールを追加することを選択します。
 
-[![GetProducts() メソッドを呼び出す新しい ObjectDataSource コントロールを追加します。](using-templatefields-in-the-detailsview-control-cs/_static/image5.png)](using-templatefields-in-the-detailsview-control-cs/_static/image4.png)
+[GetProducts () メソッドを呼び出す新しい ObjectDataSource コントロールを追加 ![には](using-templatefields-in-the-detailsview-control-cs/_static/image5.png)](using-templatefields-in-the-detailsview-control-cs/_static/image4.png)
 
-**図 2**:新しい ObjectDataSource コントロールを追加するには、その呼び出します、`GetProducts()`メソッド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image6.png))。
+**図 2**: `GetProducts()` メソッドを呼び出す新しい ObjectDataSource コントロールを追加する ([クリックしてフルサイズのイメージを表示する](using-templatefields-in-the-detailsview-control-cs/_static/image6.png))
 
-このレポートの削除、 `ProductID`、 `SupplierID`、 `CategoryID`、および`ReorderLevel`BoundFields します。 BoundFields の次に、順序を変更できるように、`CategoryName`と`SupplierName`直後後 BoundFields に表示されます、 `ProductName` BoundField します。 自由に調整、`HeaderText`プロパティとするとして BoundFields の書式設定プロパティに合わせて参照してください。 など、GridView で、[フィールド] ダイアログ ボックス (DetailsView のスマート タグのフィールドの編集リンクをクリックしてアクセスできます)、または宣言の構文を通じて、これら BoundField レベルの編集を実行できます。 最後に、DetailsView のクリア`Height`と`Width`DetailsView を許可するにはプロパティの値が表示されるデータに基づいた展開への制御し、スマート タグのページングを有効にするチェック ボックスをオンします。
+このレポートでは、`ProductID`、`SupplierID`、`CategoryID`、および `ReorderLevel` BoundFields を削除します。 次に、BoundFields の順序を変更して、`ProductName` BoundField の直後に `CategoryName` および `SupplierName` BoundFields が表示されるようにします。 必要に応じて、連結フィールドの `HeaderText` プロパティと書式設定プロパティを自由に調整してください。 GridView の場合と同様に、これらの BoundField レベルの編集は、[フィールド] ダイアログボックス (DetailsView のスマートタグの [フィールドの編集] リンクをクリックすることによって、または宣言型の構文を使用して実行できます) で実行できます。 最後に、DetailsView の `Height` をオフにし、表示されるデータに基づいて DetailsView コントロールを拡張できるようにプロパティ値を `Width` して、スマートタグの [ページングを有効にする] チェックボックスをオンにします。
 
-これらの変更を行った後、DetailsView コントロールの宣言型マークアップを次のようになります。
+これらの変更を行った後、DetailsView コントロールの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample1.aspx)]
 
-ブラウザーでページを表示する時間がかかります。 この時点で製品の名前、カテゴリ、供給業者、価格、在庫数、ユニットの順序、およびその提供が中止された状態を示す行で表示されている 1 つの製品 (Chai) を表示する必要があります。
+ブラウザーでページを表示してみましょう。 この時点で、製品の名前、カテゴリ、仕入先、価格、在庫のユニット、注文の単位、および廃止された状態を示す行を含む単一の製品 (Chai) が表示されます。
 
-[![製品の詳細については、一連の BoundFields を使用して表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image8.png)](using-templatefields-in-the-detailsview-control-cs/_static/image7.png)
+[製品の詳細 ![、一連の連結フィールドを使用して表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image8.png)](using-templatefields-in-the-detailsview-control-cs/_static/image7.png)
 
-**図 3**:製品の詳細については、一連の BoundFields を使用して表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image9.png))。
+**図 3**: 製品の詳細は、一連の Boundfields を使用して表示されます ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image9.png)されます)
 
-## <a name="step-2-combining-the-price-units-in-stock-and-units-on-order-into-one-row"></a>手順 2: 価格、在庫、および注文のユニットを 1 つの行に結合
+## <a name="step-2-combining-the-price-units-in-stock-and-units-on-order-into-one-row"></a>手順 2: 価格、在庫数、および単位数を1行に結合する
 
-DetailsView は 1 行のデータ、 `UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`フィールド。 結合できますこれらのデータ フィールドを 1 つの行を TemplateField に新しい TemplateField を追加するか、既存のいずれかを変換することで`UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`BoundFields TemplateField にします。 既存 BoundFields の変換は個人的には必要に応じて、中には、新しい TemplateField を追加することで練習しましょう。
+DetailsView には、`UnitPrice`、`UnitsInStock`、および `UnitsOnOrder` フィールドの行があります。 新しい TemplateField を追加するか、既存の `UnitPrice`、`UnitsInStock`、および `UnitsOnOrder` BoundFields の1つを TemplateField に変換することによって、これらのデータフィールドを1つの行に結合できます。 既存の連結フィールドを変換することをお勧めしますが、新しい TemplateField を追加してみましょう。
 
-フィールドのダイアログ ボックスを表示する DetailsView のスマート タグのフィールドの編集リンクをクリックして開始します。 次に、新しい TemplateField を追加し、設定、`HeaderText`プロパティを「価格およびインベントリ」に移動その it は、上に配置されますので、新しい TemplateField、 `UnitPrice` BoundField します。
+まず、DetailsView のスマートタグの [フィールドの編集] リンクをクリックして、[フィールド] ダイアログボックスを表示します。 次に、新しい TemplateField を追加し、その `HeaderText` プロパティを "Price and Inventory" に設定し、`UnitPrice` BoundField の上に配置されるように新しい TemplateField を移動します。
 
-[![DetailsView コントロールに新しい TemplateField を追加します。](using-templatefields-in-the-detailsview-control-cs/_static/image11.png)](using-templatefields-in-the-detailsview-control-cs/_static/image10.png)
+[DetailsView コントロールに新しい TemplateField を追加 ![には](using-templatefields-in-the-detailsview-control-cs/_static/image11.png)](using-templatefields-in-the-detailsview-control-cs/_static/image10.png)
 
-**図 4**:DetailsView コントロールに新しい TemplateField を追加 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image12.png))。
+**図 4**: DetailsView コントロールに新しい TemplateField を追加する ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image12.png)されます)
 
-この新しい TemplateField で現在表示されている値が含まれているので、 `UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`BoundFields、今回は削除します。
+この新しい TemplateField には、`UnitPrice`、`UnitsInStock`、および `UnitsOnOrder` BoundFields に現在表示されている値が含まれているため、それらを削除してみましょう。
 
-この手順の最後のタスクが定義には、`ItemTemplate`価格およびできるインベントリ TemplateField マークアップがコントロールの宣言構文からインターフェイス デザイナー、または手動での編集、DetailsView のテンプレートを使用するかを実行します。 同様に、GridView、DetailsView のテンプレートの編集インターフェイスをスマート タグのテンプレートの編集リンクをクリックしてアクセスできます。 ここからは、ドロップダウン リストから編集し、ツールボックスのすべての Web コントロールを追加するテンプレートを選択できます。
+この手順の最後の作業は、Price および Inventory TemplateField のマークアップを `ItemTemplate` 定義することです。これは、デザイナーの DetailsView のテンプレート編集インターフェイスを使用するか、コントロールの宣言構文を使用して手動で行うことができます。 GridView の場合と同様に、DetailsView のテンプレート編集インターフェイスにアクセスするには、スマートタグの [テンプレートの編集] リンクをクリックします。 ここでは、ドロップダウンリストから編集するテンプレートを選択し、ツールボックスから任意の Web コントロールを追加できます。
 
-このチュートリアルでは、価格と在庫 TemplateField のラベル コントロールを追加することで開始`ItemTemplate`します。 次に、ラベルの Web コントロールのスマート タグから DataBindings の編集リンクをクリックし、バインド、`Text`プロパティを`UnitPrice`フィールド。
+このチュートリアルでは、まず Price および Inventory TemplateField の `ItemTemplate`にラベルコントロールを追加します。 次に、[ラベル] Web コントロールのスマートタグから [連結の編集] リンクをクリックし、[`Text`] プロパティを [`UnitPrice`] フィールドにバインドします。
 
-[![UnitPrice データ フィールドにラベルのテキストのプロパティをバインドします。](using-templatefields-in-the-detailsview-control-cs/_static/image14.png)](using-templatefields-in-the-detailsview-control-cs/_static/image13.png)
+[ラベルの Text プロパティを UnitPrice データフィールドにバインド ![には](using-templatefields-in-the-detailsview-control-cs/_static/image14.png)](using-templatefields-in-the-detailsview-control-cs/_static/image13.png)
 
-**図 5**:ラベルのバインド`Text`プロパティを`UnitPrice`データ フィールド ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image15.png))。
+**図 5**: ラベルの `Text` プロパティを `UnitPrice` データフィールドにバインドする ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image15.png)されます)
 
-## <a name="formatting-the-price-as-a-currency"></a>価格の通貨として書式設定
+## <a name="formatting-the-price-as-a-currency"></a>価格を通貨として書式設定する
 
-これにより、Label Web コントロールの価格と在庫 TemplateField 表示されます、選択した製品の料金だけです。 図 6 は、ブラウザーで表示したときにこれまで、進行状況のスクリーン ショットを示します。
+この追加により、[Web コントロール価格] と [在庫 TemplateField] というラベルに、選択した製品の価格のみが表示されるようになります。 図6は、ブラウザーを通じて表示されるときの、これまでの進行状況を示すスクリーンショットを示しています。
 
-[![価格と在庫 TemplateField には、価格が表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image17.png)](using-templatefields-in-the-detailsview-control-cs/_static/image16.png)
+[価格と在庫 TemplateField の ![価格が表示されます](using-templatefields-in-the-detailsview-control-cs/_static/image17.png)](using-templatefields-in-the-detailsview-control-cs/_static/image16.png)
 
-**図 6**:価格と在庫 TemplateField には、価格が表示されます ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image18.png))。
+**図 6**: Price And Inventory TemplateField に価格が表示される ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image18.png)されます)
 
-製品の価格が、通貨として書式設定しないことに注意してください。 BoundField、書式設定は設定して、`HtmlEncode`プロパティを`false`と`DataFormatString`プロパティを`{0:formatSpecifier}`します。 TemplateField、ただし、書式設定の手順については、する必要がありますまたはで指定データ バインディング構文 (ASP.NET ページの分離コード クラスなど)、アプリケーションのコード内のどこかに定義されている書式指定メソッドを使用しています。
+製品の価格が通貨として書式設定されていないことに注意してください。 BoundField を使用すると、`HtmlEncode` プロパティを `false` に設定し、`DataFormatString` プロパティを `{0:formatSpecifier}`に設定することにより、書式設定を行うことができます。 ただし、TemplateField の場合は、データバインド構文で書式設定命令を指定するか、アプリケーションのコード内で定義されている書式指定メソッド (ASP.NET ページの分離コードクラスなど) を使用する必要があります。
 
-Label Web コントロールで使用されるデータ バインディング構文の書式設定を指定するには、ラベルのスマート タグから DataBindings の編集リンクをクリックして、DataBindings ダイアログ ボックスに戻ります。 形式のドロップダウン リストで直接書式設定命令を入力したり、定義済み書式指定文字列のいずれかを選択できます。 BoundField のような`DataFormatString`プロパティを使用して指定の書式設定が`{0:formatSpecifier}`します。
+ラベル Web コントロールで使用されるデータバインド構文の書式を指定するには、ラベルのスマートタグから [データバインディングの編集] リンクをクリックして、[データ連結] ダイアログボックスに戻ります。 書式設定の手順は、[形式] ボックスの一覧に直接入力するか、定義されている書式指定文字列の1つを選択します。 BoundField の `DataFormatString` プロパティと同様に、書式設定は `{0:formatSpecifier}`を使用して指定します。
 
-`UnitPrice` 、適切なドロップダウン リストの値を選択するかを入力して指定された通貨の書式設定を使用してフィールド`{0:C}`を手動でします。
+[`UnitPrice`] フィールドでは、適切なドロップダウンリストの値を選択するか、`{0:C}` 入力して、指定された通貨の書式を使用します。
 
-[![価格を通貨として書式設定します。](using-templatefields-in-the-detailsview-control-cs/_static/image20.png)](using-templatefields-in-the-detailsview-control-cs/_static/image19.png)
+[価格を通貨として書式設定 ![](using-templatefields-in-the-detailsview-control-cs/_static/image20.png)](using-templatefields-in-the-detailsview-control-cs/_static/image19.png)
 
-**図 7**:価格の通貨として書式設定 ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image21.png))。
+**図 7**: 価格を通貨として書式設定[する (クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image21.png)されます)
 
-2 番目のパラメーターとして書式設定の仕様が示されます、宣言によって、`Bind`または`Eval`メソッド。 宣言型マークアップでは、次のデータ バインド式でデザイナーの結果から作成したばかりの設定:
+宣言的には、書式設定の指定は、`Bind` または `Eval` メソッドに2番目のパラメーターとして示されます。 デザイナーを使用して行った設定は、宣言型マークアップ内の次のデータバインド式になります。
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample2.aspx)]
 
-## <a name="adding-the-remaining-data-fields-to-the-templatefield"></a>残りのデータ フィールドを TemplateField に追加します。
+## <a name="adding-the-remaining-data-fields-to-the-templatefield"></a>残りのデータフィールドを TemplateField に追加する
 
-この時点で表示し、書式設定しました、`UnitPrice`データは、価格と在庫 TemplateField、フィールドしますが、表示する必要があります、`UnitsInStock`と`UnitsOnOrder`フィールド。 以下の価格と、かっこ内の行にこれらのファイルを表示してみましょう。 デザイナーのテンプレート編集インターフェイスから、テンプレート内でカーソルを配置および表示するテキストを入力するだけでこのようなマークアップを追加できます。 また、このマークアップは、宣言構文内で直接入力できます。
+この時点で、Price and Inventory TemplateField に `UnitPrice` データフィールドが表示され、書式設定されましたが、`UnitsInStock` と `UnitsOnOrder` のフィールドを表示する必要があります。 価格とかっこ内の行にこれらを表示してみましょう。 デザイナーのテンプレート編集インターフェイスから、このようなマークアップを追加するには、テンプレート内にカーソルを置き、表示されるテキストを入力するだけです。 または、このマークアップを宣言構文に直接入力することもできます。
 
-価格と在庫 TemplateField、価格と在庫情報が表示されるように static のマークアップ、ラベルの Web コントロール、およびデータ バインディング構文を追加するようになります。
+次のような価格と在庫の TemplateField が表示されるように、静的マークアップ、ラベル Web コントロール、およびデータバインド構文を追加します。
 
 *UnitPrice*  
-( **在庫/注文。** *UnitsInStock*  /  *UnitsOnOrder*)
+(**在庫/発注日:** *在庫 / * *UnitsOnOrder*)
 
-このタスクを実行した後、DetailsView の宣言型マークアップは、次のような検索する必要があります。
+このタスクを実行すると、DetailsView の宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample3.aspx)]
 
-これらの変更を単一 DetailsView 行に、価格とインベントリ情報を統合しました。
+これらの変更により、価格および在庫情報が1つの DetailsView 行に統合されました。
 
-[![価格とインベントリ情報は、1 つの行に表示されます。](using-templatefields-in-the-detailsview-control-cs/_static/image23.png)](using-templatefields-in-the-detailsview-control-cs/_static/image22.png)
+[価格および在庫情報が1行に表示される ![](using-templatefields-in-the-detailsview-control-cs/_static/image23.png)](using-templatefields-in-the-detailsview-control-cs/_static/image22.png)
 
-**図 8**:価格とインベントリ情報は、1 つの行に表示される ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image24.png))。
+**図 8**: 価格および在庫情報が1行に表示される ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image24.png)されます)
 
-## <a name="step-3-customizing-the-discontinued-field-information"></a>手順 3: 提供が中止されたフィールドの情報をカスタマイズします。
+## <a name="step-3-customizing-the-discontinued-field-information"></a>手順 3: 廃止されたフィールド情報のカスタマイズ
 
-`Products`テーブルの`Discontinued`列は、製品は廃止されているかどうかを示すビット値。 ブール値のフィールドなどのデータ ソース コントロールにバインドは、DetailsView (または GridView) を使用すると、`Discontinued`などの非ブール値のフィールドは CheckBoxFields として実装されます`ProductID`、`ProductName`でとして実装されますBoundFields します。 データ フィールドの値は True と unchecked をそれ以外の場合がある場合にチェックされているチェック ボックスがオフ、CheckBoxField を表示します。
+`Products` テーブルの `Discontinued` 列は、製品が廃止されたかどうかを示すビット値です。 DetailsView (または GridView) をデータソースコントロールにバインドする場合、`Discontinued`のようなブール値フィールドは CheckBoxFields として実装され、`ProductID`、`ProductName`などの非ブール値フィールドは BoundFields として実装されます。 CheckBoxField は無効なチェックボックスとして表示され、データフィールドの値が True であるかどうかがチェックされます。それ以外の場合はオフになります。
 
-CheckBoxField を表示するのではなく、代わりに表示するテキストを示す、製品が提供が中止されたかどうかたい場合があります。 これを実現するには、DetailsView から、CheckBoxField を削除して追加、BoundField でしたが`DataField`プロパティに設定されました`Discontinued`します。 これを行う時間がかかります。 この変更後、DetailsView テキストが表示されます、"True"生産中止の製品と"False"の製品がアクティブなままにします。
+CheckBoxField を表示するのではなく、製品が廃止されたかどうかを示すテキストを表示することが必要になる場合があります。 これを実現するには、DetailsView から CheckBoxField を削除し、`DataField` プロパティが `Discontinued`に設定されている BoundField を追加します。 少し時間を取ってください。 この変更を行った後、DetailsView は、廃止された製品の場合は "True"、まだアクティブな製品の場合は "False" と表示されます。
 
-[![文字列は True と false の場合、提供が中止された状態を表示する使用は](using-templatefields-in-the-detailsview-control-cs/_static/image26.png)](using-templatefields-in-the-detailsview-control-cs/_static/image25.png)
+["True" と "False" の文字列を ![して、廃止された状態を表示します。](using-templatefields-in-the-detailsview-control-cs/_static/image26.png)](using-templatefields-in-the-detailsview-control-cs/_static/image25.png)
 
-**図 9**:文字列 True および False は使用中止の状態を表示する ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image27.png))。
+**図 9**: "True" と "False" という文字列を使用して、廃止された状態を表示する ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image27.png)されます)
 
-、"YES"と"NO"が、代わりに使用するために、文字列"True"または"False"することを想像してください。 このようなカスタマイズを TemplateField と書式設定メソッドを使用して実行できます。 書式指定メソッドは、入力パラメーターの任意の数を取得できますが、テンプレートに挿入する (文字列) として、HTML を返す必要があります。
+文字列 "True" または "False" を使用する必要がないとします。ただし、代わりに "YES" と "NO" を使用します。 このようなカスタマイズは、TemplateField と書式設定の方法を使用して実行できます。 書式指定メソッドは、任意の数の入力パラメーターを受け取ることができますが、テンプレートに挿入する HTML を (文字列として) 返す必要があります。
 
-書式設定メソッドを追加、`DetailsViewTemplateField.aspx`という名前のページの分離コード クラス`DisplayDiscontinuedAsYESorNO`入力パラメーターとしてブール値を受け取ってを文字列を返します。 前のチュートリアルでは、このメソッドで説明したように*する必要があります*としてマークする`protected`または`public`テンプレートからアクセスできるようにするためにします。
+入力パラメーターとしてブール値を受け取り、文字列を返す `DisplayDiscontinuedAsYESorNO` という名前の `DetailsViewTemplateField.aspx` ページの分離コードクラスに書式指定メソッドを追加します。 前のチュートリアルで説明したように、テンプレートからアクセスできるようにするには、このメソッドを `protected` または `public` としてマークする*必要があり*ます。
 
 [!code-csharp[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample4.cs)]
 
-このメソッドは、入力パラメーターをチェックします (`discontinued`) である場合は、"YES"を返します`true`、"NO"を返します。
+このメソッドは、入力パラメーター (`discontinued`) を確認し、`true`の場合は "YES" を返します。それ以外の場合は "NO" を返します。
 
 > [!NOTE]
-> 書式設定メソッドが含まれるデータ フィールドを渡していた以前のチュートリアル再呼び出しに検査で`NULL`s 場合を確認するために必要、従業員の`HiredDate`プロパティの値は、データベースを持っていた`NULL`変更前に、の値アクセス、`EmployeesRow`の`HiredDate`プロパティ。 以降、このようなチェックはここで必要ありません、`Discontinued`列にデータベースを使用することはありません`NULL`割り当てられた値。 さらに、このため、メソッドがブール値を受け入れることのではなく、パラメーターの入力を受け入れる、`ProductsRow`インスタンスまたは型のパラメーター`object`します。
+> 前のチュートリアルで検証した書式設定メソッドでは、`NULL` s を含む可能性のあるデータフィールドを渡していたため、`EmployeesRow`の `HiredDate` プロパティにアクセスする前に、従業員の `HiredDate` プロパティ値にデータベース `NULL` 値があるかどうかを確認する必要がありました。 ここでは、このようなチェックは必要ありません。 `Discontinued` 列にはデータベース `NULL` 値が割り当てられないためです。 さらに、このメソッドは、`ProductsRow` のインスタンスまたは `object`型のパラメーターを受け入れるのではなく、ブール型の入力パラメーターを受け取ることができます。
 
-完全な書式指定メソッドがこのに残っているの TemplateField から呼び出すこと`ItemTemplate`します。 削除するか、TemplateField を作成する、 `Discontinued` BoundField 新しい TemplateField を追加すると、変換、 `Discontinued` BoundField TemplateField にします。 次に、宣言型マークアップ ビューで、編集、TemplateField だけを呼び出す ItemTemplate が含まれているように、`DisplayDiscontinuedAsYESorNO`メソッド、現在の値を渡して`ProductRow`インスタンスの`Discontinued`プロパティ。 これを使用してアクセスできる、`Eval`メソッド。 具体的には、マークアップを TemplateField のようになります。
+この書式指定メソッドが完了すると、TemplateField の `ItemTemplate`から呼び出すだけです。 TemplateField を作成するには、`Discontinued` BoundField を削除し、新しい TemplateField を追加するか、または `Discontinued` BoundField を TemplateField に変換します。 次に、宣言型マークアップビューで、TemplateField を編集して、`DisplayDiscontinuedAsYESorNO` メソッドを呼び出し、現在の `ProductRow` インスタンスの `Discontinued` プロパティの値を渡して、ItemTemplate だけが含まれるようにします。 これには、`Eval` メソッドを使用してアクセスできます。 具体的には、TemplateField のマークアップは次のようになります。
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample5.aspx)]
 
-これにより、 `DisplayDiscontinuedAsYESorNO` 、DetailsView を表示するときに呼び出されるメソッドに渡して、`ProductRow`インスタンスの`Discontinued`値。 以降、`Eval`メソッド型の値を返します`object`が、`DisplayDiscontinuedAsYESorNO`メソッド型の入力パラメーターが必要ですが`bool`、キャスト、`Eval`メソッドに値を返す`bool`します。 `DisplayDiscontinuedAsYESorNO`メソッドは"YES"を返します、または"NO"の値に応じて受信します。 返される値は、この DetailsView に表示されている行 (図 10 参照)。
+これにより、DetailsView をレンダリングするときに `DisplayDiscontinuedAsYESorNO` メソッドが呼び出され、`ProductRow` インスタンスの `Discontinued` 値が渡されます。 `Eval` メソッドは型 `object`の値を返しますが、`DisplayDiscontinuedAsYESorNO` メソッドは `bool`型の入力パラメーターを必要とするため、`Eval` メソッドの戻り値を `bool`にキャストします。 `DisplayDiscontinuedAsYESorNO` メソッドは、受け取った値に応じて "YES" または "NO" を返します。 返される値は、この DetailsView 行に表示される値です (図10を参照)。
 
-[![はいまたは NO の値は、生産中止の行に示すようになりました](using-templatefields-in-the-detailsview-control-cs/_static/image29.png)](using-templatefields-in-the-detailsview-control-cs/_static/image28.png)
+[![YES または NO の値が廃止された行に表示されるようになりました](using-templatefields-in-the-detailsview-control-cs/_static/image29.png)](using-templatefields-in-the-detailsview-control-cs/_static/image28.png)
 
-**図 10**:はいまたは NO の値は、生産中止の行に示すようになりました ([フルサイズの画像を表示する をクリックします](using-templatefields-in-the-detailsview-control-cs/_static/image30.png))。
+**図 10**: [はい] または [廃止された行に値が表示されない] ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-cs/_static/image30.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-DetailsView コントロールで TemplateField で高度な柔軟性は状況に最適ですが他のフィールドのコントロールで使用可能なよりもデータを表示するのには、場所。
+DetailsView コントロールの TemplateField を使用すると、他のフィールドコントロールで使用できるデータよりも高い柔軟性が得られ、次のような状況に適しています。
 
-- 複数のデータ フィールドを 1 つの GridView 列に表示される必要があります。
-- データがプレーン テキストではなく、Web コントロールを使用して最適な表現します。
-- 出力は、メタデータを表示するなど、データを再フォーマットでは、基になるデータによって異なります。
+- 複数のデータフィールドを1つの GridView 列に表示する必要がある
+- データは、プレーンテキストではなく Web コントロールを使用して表現することをお勧めします。
+- 出力は、メタデータの表示やデータの再フォーマットなど、基になるデータによって異なります。
 
-いるに対し TemplateFields DetailsView の基になるデータのレンダリングで柔軟性の高い、DetailsView 出力も感じて少し角張った HTML 内の行として各フィールドが表示された`<table>`します。
+TemplateFields では、DetailsView の基になるデータをレンダリングする際の柔軟性が高くなりますが、各フィールドが HTML `<table>`の行としてレンダリングされるため、DetailsView の出力では引き続きビットの boxy が使用されます。
 
-FormView コントロールに表示される出力の構成で柔軟性の高いが用意されています。 フィールドが、一連のテンプレートだけで済みますが、フォーム ビューに含まれていない (`ItemTemplate`、 `EditItemTemplate`、`HeaderTemplate`など)。 次のチュートリアルに表示されるレイアウトのよりきめ細かい制御を実現するために、FormView を使用する方法を見ていきます。
+FormView コントロールを利用すると、表示される出力をより柔軟に構成できます。 FormView にはフィールドは含まれていませんが、一連のテンプレート (`ItemTemplate`、`EditItemTemplate`、`HeaderTemplate`など) だけではありません。 次のチュートリアルでは、FormView を使用して、レンダリングされたレイアウトをさらに細かく制御する方法について説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>執筆者紹介
+## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
+1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
-## <a name="special-thanks-to"></a>特別なに感謝します。
+## <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Dan Jagers でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は Dan Jagers でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](using-templatefields-in-the-gridview-control-cs.md)

@@ -1,70 +1,70 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。プロジェクトのプロパティ - 12 の 4 の構成 |Microsoft Docs
+title: 'Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: プロジェクトプロパティの構成-4/12 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: この一連のチュートリアルでは、Visual Stu... を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: 8b013630-842c-4d44-a6fc-c6be43e7210f
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: c08e52d3c4d9668ceadfd45e470ae3b549ba02be
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6e63e75dca3d776fb9a1bd7e420ef48891daac69
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134691"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74569805"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの展開。構成のプロジェクトのプロパティ - 4/12
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションの配置: プロジェクトプロパティの構成-4/12
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-[スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[スタートプロジェクトのダウンロード](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
+> この一連のチュートリアルでは、Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースを含む ASP.NET web アプリケーションプロジェクトをデプロイ (発行) する方法について説明します。 Web 発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)を参照してください。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-一部の展開オプションは、プロジェクト ファイルに格納されているプロジェクトのプロパティで構成されます (、 *.csproj*または *.vbproj*ファイル)。 ほとんどの場合、これらの設定の既定値は目的の動作が使用することができます、**プロジェクト プロパティ**UI は、それらを変更する必要がある場合、これらの設定を使用する Visual Studio に組み込まれています。 このチュートリアルでの展開設定を確認する**プロジェクト プロパティ**します。 配置する空のフォルダーを原因となるプレース ホルダー ファイルを作成します。
+一部の配置オプションは、プロジェクトファイル ( *.csproj*または *.vbproj*ファイル) に格納されているプロジェクトプロパティで構成されます。 ほとんどの場合、これらの設定の既定値は必要ですが、Visual Studio に組み込まれている**プロジェクトプロパティ**の UI を使用すると、これらの設定を変更する必要がある場合に、これらの設定を操作できます。 このチュートリアルでは、 **[プロジェクトのプロパティ]** で配置設定を確認します。 また、空のフォルダーを配置するプレースホルダーファイルも作成します。
 
-## <a name="configuring-deployment-settings-in-the-project-properties-window"></a>プロジェクトのプロパティ ウィンドウで、展開設定を構成します。
+## <a name="configuring-deployment-settings-in-the-project-properties-window"></a>プロジェクトの [プロパティ] ウィンドウでの配置設定の構成
 
-以下のチュートリアルでわかる、発行プロファイルの展開時の処理に影響する設定ほとんどにはが含まれます。 意識する必要があるいくつかの設定にある、**パッケージ化/発行**のタブ、**プロジェクト プロパティ**ウィンドウ。 これらの設定は各ビルド構成に対して指定 — 数よりも、デバッグ ビルドにリリース ビルドごとに異なる設定があることができます、します。
+次のチュートリアルで説明するように、デプロイ時の動作に影響するほとんどの設定が発行プロファイルに含まれています。 注意すべきいくつかの設定は、プロジェクトの **[プロパティ]** ウィンドウの [**パッケージ]/[発行**] タブにあります。 これらの設定は、各ビルド構成に対して指定されます。つまり、デバッグビルドの場合とは異なる設定をリリースビルドに対して使用できます。
 
-**ソリューション エクスプ ローラー**を右クリックし、 **ContosoUniversity**プロジェクトで、**プロパティ**、クリックして、**パッケージ化/発行 Web**タブ。
+**ソリューションエクスプローラー**で、 **ContosoUniversity**プロジェクトを右クリックし、 **[プロパティ]** をクリックして、 **[Web のパッケージ化/発行]** タブを選択します。
 
 ![Package_Publish_Web_tab](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image1.png)
 
-ウィンドウが表示されたら、どのビルド構成が現在アクティブなソリューションの設定を示す既定になります。 場合、**構成**ボックスは示しません**アクティブ (リリース)** を選択します**リリース**リリース ビルド構成の設定を表示するためにします。 リリース ビルドをテストおよび運用の両方の環境にデプロイします。
+ウィンドウが表示されると、既定では、ソリューションで現在アクティブになっているビルド構成の設定が表示されます。 **構成**ボックスが**アクティブ (リリース)** を示していない場合は、リリースビルド構成の設定を表示するために **[リリース]** を選択します。 テスト環境と運用環境の両方にリリースビルドを配置します。
 
 ![Package_Publish_Web_tab_selecting_Release](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image2.png)
 
-**アクティブ (リリース)** または**リリース**リリースのビルド構成を使用して展開するときに有効な値を表示、選択しました。
+**[アクティブ (リリース)]** または **[リリース]** を選択すると、リリースビルド構成を使用して配置するときに有効な値が表示されます。
 
-- **配置する項目**ボックスで、**アプリケーションの実行に必要なファイルのみ**が選択されています。 その他のオプションは**このプロジェクト内のすべてのファイル**または**このプロジェクト フォルダー内のすべてのファイル**します。 既定の選択をそのままにすることではたとえば、ソース コード ファイルを展開しないでください。 この設定は、SQL Server Compact のバイナリ ファイルを含むフォルダーがプロジェクトに含まれるがなぜ理由です。 この設定の詳細については、次を参照してください。**理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx)します。
-- **デバッグ シンボルの生成を除外する**が選択されています。 このビルド構成を使用する場合にデバッグはありません。
-- **アプリからファイルを除外する\_データ フォルダー**が選択されていません。 メンバーシップ データベースの SQL Server Compact、ファイルはそのフォルダーであり、それをデプロイする必要があります。 データベースの変更が含まれていない更新プログラムを展開するときに、このチェック ボックスを選択します。
-- **パブリッシュする前にこのアプリケーションをプリコンパイル**が選択されていません。 ほとんどのシナリオでは、web アプリケーション プロジェクトをプリコンパイルする必要はありません。 このオプションの詳細については、次を参照してください。[パッケージ化/発行 Web] タブの [プロジェクトのプロパティ](https://msdn.microsoft.com/library/dd410108(v=vs.110).aspx)と[プリコンパイルの設定 ダイアログの高度な](https://msdn.microsoft.com/library/hh475319(v=vs.110).aspx)します。
-- **SQL のパッケージ化/発行 タブで構成されているすべてのデータベースを含める**が選択されている場合、このオプションも何も起こりません今すぐ構成していないためですが、**パッケージ化/発行 SQL**  タブ。そのタブは、SQL Server データベースを展開するための唯一のオプションを使用する従来のデータベース配置方法によってです。 使用して、**パッケージ化/発行 SQL**  タブで、 [SQL Server への移行](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)チュートリアル。
-- **Web 展開パッケージの設定**セクションは 1 回のクリックを使用しているためには適用されませんこれらのチュートリアルで発行します。
+- **[展開する項目]** ボックスで、**アプリケーションの実行に必要なファイルのみ**が選択されます。 その他のオプションとして、**このプロジェクトのすべてのファイル**または**このプロジェクトフォルダー内のすべてのファイル**があります。 既定の選択をそのままにしておくことで、ソースコードファイルを配置しないようにします (など)。 この設定は、SQL Server Compact バイナリファイルを含むフォルダーをプロジェクトに含める必要がある理由です。 この設定の詳細については、「 [ASP.NET Web アプリケーションプロジェクトの配置](https://msdn.microsoft.com/library/ee942158.aspx)に関する FAQ」の「**プロジェクトフォルダー内のすべてのファイルが配置されない理由**」を参照してください。
+- 生成された**デバッグシンボルを除外**します。 このビルド構成を使用すると、デバッグは行われません。
+- **[アプリ\_データフォルダーからファイルを除外する**] が選択されていません。 メンバーシップデータベースの SQL Server Compact ファイルはそのフォルダーにあり、配置する必要があります。 データベースの変更を含まない更新プログラムを展開する場合は、このチェックボックスをオンにします。
+- **発行前にこのアプリケーションをプリコンパイル**します。 ほとんどのシナリオでは、web アプリケーションプロジェクトをプリコンパイルする必要はありません。 このオプションの詳細については、「[ [Web のパッケージ化/発行] タブ」、「プロジェクトのプロパティ」、](https://msdn.microsoft.com/library/dd410108(v=vs.110).aspx)および「[プリコンパイルの詳細設定」](https://msdn.microsoft.com/library/hh475319(v=vs.110).aspx)を参照してください。
+- [ **Sql のパッケージ化/発行] タブで構成されているすべてのデータベースを含める**ことはできますが、このオプションは、[Sql の**パッケージ化/発行**] タブを構成していないため、無効になります。このタブは、SQL Server データベースを配置するための唯一のオプションとして使用されていた従来のデータベース配置方法を対象としています。 「 [SQL Server への移行](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)」チュートリアルの「 **SQL のパッケージ化/発行**」タブを使用します。
+- これらのチュートリアルでワンクリック発行を使用しているため、 **[Web デプロイパッケージの設定]** セクションは適用されません。
 
-変更、**構成** ボックスの一覧をデバッグすると、デバッグ ビルドの場合は、既定の設定を参照してください。 値が以外は同じですが、**生成されたデバッグ シンボルを除外する**がオフになって、デバッグ ビルドをデプロイするときにデバッグできるようにします。
+**構成** ドロップダウンボックスを デバッグ に変更して、デバッグビルドの既定の設定を確認します。 値は同じです。ただし、[**生成されたデバッグシンボルを除外**する] をオフにすると、デバッグビルドを配置するときにデバッグできるようになります。
 
-## <a name="making-sure-that-the-elmah-folder-gets-deployed"></a>Elmah フォルダーがデプロイされることを確認をします。
+## <a name="making-sure-that-the-elmah-folder-gets-deployed"></a>Elmah フォルダーが展開されていることを確認する
 
-前のチュートリアルで学習したように、 [Elmah NuGet パッケージ](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)エラー ログとレポート機能を提供します。 Contoso University アプリケーション エラーの詳細をという名前のフォルダーに格納する Elmah が構成されています*Elmah*:
+前のチュートリアルで見たように、 [Elmah NuGet パッケージ](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)は、エラーのログ記録とレポートの機能を提供します。 Contoso 大学アプリケーションの Elmah は *、elmah という名前*のフォルダーにエラーの詳細を格納するように構成されています。
 
 ![Elmah フォルダー](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image3.png)
 
-共通の要件は、展開から特定のファイルやフォルダーの除外別の例には、ユーザーがファイルをアップロードしたフォルダーがあります。 ログ ファイルをしたくないか、実稼働環境に展開する、開発環境で作成されたファイルをアップロードします。 運用環境に存在するファイルを削除する展開プロセスをしたくない運用環境に更新プログラムを展開する場合。 (設定に応じて、配置オプションを展開するときに、転送先サイトがソース サイトではなく、ファイルが存在する場合、Web 配置から削除しますが、変換先。)
+特定のファイルやフォルダーを展開から除外することは、一般的な要件です。別の例として、ユーザーがファイルをアップロードできるフォルダーがあります。 開発環境で作成されたログファイルやアップロードされたファイルを運用環境に配置する必要はありません。 また、運用環境に更新プログラムを展開する場合は、運用環境に存在するファイルを展開プロセスで削除する必要がありません。 (展開オプションの設定方法によっては、展開時に移行先サイトにファイルが存在し、ソースサイトには存在しない場合、Web 配置によって移行先から削除されます)。
 
-このチュートリアルでは、前述のように、**配置する項目**オプション、**パッケージ化/発行 Web**に設定されているタブ**ファイルにのみこのアプリケーションを実行する必要**します。 その結果、開発で Elmah によって作成されるログ ファイルは配置されません、これは、発生します。 (プロジェクトに含まれる展開する必要がされ、その**ビルド アクション**プロパティに設定する必要があります**コンテンツ**します。 詳細については、次を参照してください。**理由はありませんすべてのプロジェクト フォルダーにファイルをデプロイしますか?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx))。 ただし、Web Deploy いないフォルダーが作成されます、移行先サイトにある少なくとも 1 つのファイルをコピーする場合を除き、します。 このために追加、 *.txt*ファイルをフォルダーがコピーされるように、プレース ホルダーとして機能するフォルダー。
+このチュートリアルで既に説明したように、 **[パッケージ化/発行]** タブの **[配置する項目]** オプションは、**このアプリケーションを実行するために必要なファイルのみ**に設定されています。 その結果、Elmah によって開発されたログファイルは配置されません。これは、このような状況で発生します。 (配置するには、プロジェクトに含める必要があります。また、**ビルドアクション**プロパティを **[コンテンツ]** に設定する必要があります。 詳細については、「 [ASP.NET Web アプリケーションプロジェクトの配置](https://msdn.microsoft.com/library/ee942158.aspx)に関する FAQ」の「**プロジェクトフォルダー内のすべてのファイルが配置されない理由**」を参照してください。 ただし、コピーするファイルが少なくとも1つある場合を除き、Web 配置では、移行先サイトにフォルダーは作成されません。 そのため、フォルダーに *.txt*ファイルを追加して、フォルダーをコピーするようにプレースホルダーとして機能させることができます。
 
-**ソリューション エクスプ ローラー**を右クリックし、 *Elmah*フォルダーで、**新しい項目の追加**、という名前のファイルを作成および*Placeholder.txt*します。 これで、次のテキストを配置します。「フォルダーがデプロイされることを確認するのプレース ホルダー ファイルです。」 ファイルを保存してください。 すべてを行うために、Visual Studio でこのファイルとフォルダーを展開するかどうかを確認するためには、**ビルド アクション**プロパティの *.txt*に設定されているファイル**コンテンツ**既定。
+**ソリューションエクスプローラー**で、[ *Elmah* ] フォルダーを右クリックし、 **[新しい項目の追加]** を選択して、" *file.txt*" という名前のファイルを作成します。 "これはプレースホルダーファイルで、フォルダーが展開されることを確認します。" というテキストを入力します。 ファイルを保存します。 これで、Visual Studio でこのファイルとフォルダーが配置されていることを確認する必要があります。これは、 *.txt*ファイルの "**ビルドアクション**" プロパティが既定で **[コンテンツ]** に設定されているためです。
 
-これですべての展開のセットアップ タスクを完了しました。 次のチュートリアルでは、Contoso University サイトをテスト環境にデプロイし、し、そこでテストします。
+これで、すべてのデプロイのセットアップタスクが完了しました。 次のチュートリアルでは、Contoso 大学サイトをテスト環境にデプロイしてテストします。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)

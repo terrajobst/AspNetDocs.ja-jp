@@ -1,168 +1,168 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
-title: 複数の ContentPlaceHolders と既定のコンテンツ (c#) |Microsoft Docs
+title: 複数の ContentPlaceHolders と既定のC#コンテンツ () |Microsoft Docs
 author: rick-anderson
-description: マスター ページに複数のコンテンツのプレース ホルダーを追加する方法とコンテンツのプレース ホルダーに既定のコンテンツを指定する方法について説明します。
+description: 複数のコンテンツプレースホルダーをマスターページに追加する方法と、コンテンツプレースホルダーで既定のコンテンツを指定する方法について説明します。
 ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: b9b9798b-027d-46cc-9636-473378e437ac
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2196446bf870a3b7ceba01656d0415deac0c7124
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e902bcae05c0e7976a20293f2b01e5f2e2bee13a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106874"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74639447"
 ---
 # <a name="multiple-contentplaceholders-and-default-content-c"></a>複数の ContentPlaceHolders と既定のコンテンツ (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip)または[PDF のダウンロード](https://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
 
-> マスター ページに複数のコンテンツのプレース ホルダーを追加する方法とコンテンツのプレース ホルダーに既定のコンテンツを指定する方法について説明します。
+> 複数のコンテンツプレースホルダーをマスターページに追加する方法と、コンテンツプレースホルダーで既定のコンテンツを指定する方法について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-マスター ページの有効化調査を前のチュートリアルでは ASP.NET 開発者は一貫性のあるサイト全体レイアウトを作成します。 マスター ページは、すべてのコンテンツ ページに共通するマークアップとページの単位でカスタマイズ可能なリージョンの両方を定義します。 前のチュートリアルで単純なマスター ページを作成しました (`Site.master`) と 2 つのコンテンツ ページ (`Default.aspx`と`About.aspx`)。 マスター ページという名前の 2 つの ContentPlaceHolders を行いました`head`と`MainContent`、内に配置されていますが、`<head>`要素と Web フォームでは、それぞれします。 対応する 1 つのマークアップだけを指定したコンテンツ ページでは、2 つのコンテンツ コントロールでしたが、`MainContent`します。
+前のチュートリアルでは、ASP.NET の開発者がマスターページを使用して、一貫性のあるサイト全体のレイアウトを作成する方法について説明します。 マスターページは、ページごとにカスタマイズ可能なすべてのコンテンツページと領域に共通するマークアップの両方を定義します。 前のチュートリアルでは、単純なマスターページ (`Site.master`) と2つのコンテンツページ (`Default.aspx` と `About.aspx`) を作成しました。 マスターページでは、`head` と `MainContent`という名前の2つの ContentPlaceHolders が構成されており、それぞれ `<head>` 要素と Web フォームに配置されていました。 コンテンツページにはそれぞれ2つのコンテンツコントロールがありますが、`MainContent`に対応するマークアップのみが指定されています。
 
-これで 2 つのプレース ホルダー コントロールによって`Site.master`、マスター ページは、複数の ContentPlaceHolders を含めることができます。 さらに、マスター ページは、プレース ホルダー コントロールの既定のマークアップを指定することができます。 コンテンツ ページでは、必要に応じて、独自のマークアップを指定したり、既定のマークアップを使用できます。 このチュートリアルでは、マスター ページで複数のコンテンツ コントロールの使い方を見てをプレース ホルダー コントロールで既定のマークアップを定義する方法を参照してください。
+`Site.master`の2つの ContentPlaceHolder コントロールによって判明したように、マスターページには複数の ContentPlaceHolders を含めることができます。 さらに、マスターページで、ContentPlaceHolder コントロールの既定のマークアップを指定することもできます。 コンテンツページでは、必要に応じて独自のマークアップを指定したり、既定のマークアップを使用したりすることができます。 このチュートリアルでは、マスターページでの複数のコンテンツコントロールの使用について説明し、ContentPlaceHolder コントロールで既定のマークアップを定義する方法を説明します。
 
-## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>手順 1: マスター ページにコントロールを追加する ContentPlaceHolder の追加
+## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>手順 1: マスターページへの ContentPlaceHolder コントロールの追加
 
-多くの web サイトのデザインには、ページごとにカスタマイズされた画面上の複数の領域が含まれます。 `Site.master`、前のチュートリアルで作成したマスター ページには、という名前の Web フォーム内で 1 つのプレース ホルダーが含まれています。`MainContent`します。 具体的には、このプレース ホルダーが内にある、 `mainContent` `<div>`要素。
+多くの web サイトデザインには、ページごとにカスタマイズされた複数の領域が画面上に表示されます。 `Site.master`、前のチュートリアルで作成したマスターページには、`MainContent`という名前の Web フォーム内に1つの ContentPlaceHolder が含まれています。 具体的には、この ContentPlaceHolder は `mainContent` `<div>` 要素内にあります。
 
-図 1 は`Default.aspx`とき、ブラウザーで表示します。 赤い丸で地域に対応するページ固有のマークアップは、`MainContent`します。
+図1は、ブラウザーを使用して表示する場合の `Default.aspx` を示しています。 赤で囲まれた領域は、`MainContent`に対応するページ固有のマークアップです。
 
-[![領域を囲んだ領域を示しています、現在カスタマイズ可能なページの単位で](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
+[丸で囲まれた領域は ![ページごとにカスタマイズ可能な領域を示しています。](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
 
-**図 01**:ページの単位、領域現在カスタマイズ可能な丸領域で表示 ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image3.png))。
+**図 01**: 丸で囲まれた領域は、現在ページごとにカスタマイズ可能な領域を示します ([クリックすると、フルサイズの画像が表示](multiple-contentplaceholders-and-default-content-cs/_static/image3.png)されます)。
 
-図 1 に示すように、リージョンだけでなくも必要がある」のレッスンとニュースの下にある左の列にページ固有の項目を追加するセクション。 これを行うには、マスター ページに ContentPlaceHolder の別のコントロールを追加します。 作業を進めるには、開く、 `Site.master` Visual Web Developer でページをマスターし、"ニュース"セクションの後に、ツールボックスからデザイナーにプレース ホルダー コントロールをドラッグします。 ContentPlaceHolder の設定`ID`に`LeftColumnContent`します。
+図1に示されている領域に加えて、レッスンおよびニュースセクションの下にある左側の列にページ固有の項目を追加する必要があると仮定します。 これを実現するには、マスターページに別の ContentPlaceHolder コントロールを追加します。 先に進むには、Visual Web Developer の `Site.master` マスターページを開き、ContentPlaceHolder コントロールをツールボックスから、ニュースセクションの後のデザイナーにドラッグします。 ContentPlaceHolder の `ID` を `LeftColumnContent`に設定します。
 
-[![ContentPlaceHolder コントロール、マスター ページの左側の列を追加します。](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
+[マスターページの左側の列に ContentPlaceHolder コントロールを追加 ![には](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
 
-**図 02**:[ContentPlaceHolder コントロール、マスター ページの左の列を追加する ([フルサイズの画像を表示する] をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image6.png))。
+**図 02**: マスターページの左の列に ContentPlaceHolder コントロールを追加する ([クリックすると、フルサイズの画像が表示](multiple-contentplaceholders-and-default-content-cs/_static/image6.png)されます)
 
-追加され、`LeftColumnContent`マスター ページにプレース ホルダーを定義できますこの領域の内容をページごとに、コンテンツを含めることによっているページにコントロール`ContentPlaceHolderID`に設定されている`LeftColumnContent`します。 手順 2 では、このプロセスを説明します。
+マスターページへの `LeftColumnContent` ContentPlaceHolder の追加により、`ContentPlaceHolderID` が `LeftColumnContent`に設定されたコンテンツコントロールをページ単位で追加することにより、この領域のコンテンツをページ単位で定義できます。 このプロセスは、手順 2. で確認します。
 
-## <a name="step-2-defining-content-for-the-new-contentplaceholder-in-the-content-pages"></a>手順 2: コンテンツ ページで、新しい ContentPlaceHolder のコンテンツを定義します。
+## <a name="step-2-defining-content-for-the-new-contentplaceholder-in-the-content-pages"></a>手順 2: コンテンツページで新しい ContentPlaceHolder のコンテンツを定義する
 
-Visual Web Developer で、コンテンツが自動的に作成、web サイトを新しいコンテンツ ページを追加するときに、選択したマスター ページの各プレース ホルダーのページにコントロール。 追加した後は、`LeftColumnContent`マスター ページで、手順 1. 新しい ASP.NET ページを今すぐに得ることがある 3 つのコンテンツ コントロール。
+Web サイトに新しいコンテンツページを追加すると、選択したマスターページの各 ContentPlaceHolder のコンテンツコントロールが、Visual Web Developer によってページに自動的に作成されます。 手順 1. でマスターページに `LeftColumnContent` ContentPlaceHolder を追加すると、新しい ASP.NET ページに3つのコンテンツコントロールが追加されます。
 
-これを示すためには、新しいコンテンツ ページをという名前のルート ディレクトリに追加`MultipleContentPlaceHolders.aspx`にバインドされている、`Site.master`マスター ページ。 Visual Web Developer では、次の宣言型マークアップでこのページを作成します。
+これを説明するために、`Site.master` マスターページにバインドされている `MultipleContentPlaceHolders.aspx` という名前のルートディレクトリに新しいコンテンツページを追加します。 Visual Web Developer は、次の宣言型マークアップを使用してこのページを作成します。
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample1.aspx)]
 
-コンテンツ コントロールを参照することに、一部のコンテンツを入力、 `MainContent` ContentPlaceHolders (`Content2`)。 次に示すマークアップを次に、追加、`Content3`コンテンツ コントロール (参照、 `LeftColumnContent` ContentPlaceHolder)。
+コンテンツコントロールに、`MainContent` ContentPlaceHolders (`Content2`) を参照するコンテンツを入力します。 次に、次のマークアップを `Content3` コンテンツコントロール (`LeftColumnContent` ContentPlaceHolder を参照) に追加します。
 
 [!code-html[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample2.html)]
 
-このマークアップを追加した後、ブラウザーを使用してページを参照してください。 図 3 に示すように、マークアップ配置、 `Content3` (赤の丸囲み)"ニュース"セクションの下にある左の列のコンテンツ コントロールが表示されます。 マークアップに配置`Content2`(青色の円で囲まれた) ページの右側の部分に表示されます。
+このマークアップを追加した後、ブラウザーを使用してページにアクセスします。 図3に示すように、`Content3` コンテンツコントロールに配置されているマークアップは、[ニュース] セクション (赤で囲まれています) の下の左の列に表示されます。 `Content2` に配置されたマークアップは、ページの右側の部分に表示されます (青色で囲まれています)。
 
-[![左側の列が"ニュース"セクションの下にあるページに固有な内容が含まれています](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
+[左の列 ![、ニュースセクションの下にページ固有のコンテンツが含まれるようになりました。](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
 
-**図 03**:左列ようになりましたが含まれていますページ固有のコンテンツの下に、"ニュース"セクション ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))。
+**図 03**: 左の列に、News セクションの下にページ固有のコンテンツが含まれるようになりました ([クリックしてフルサイズの画像を表示する](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))
 
-### <a name="defining-content-in-existing-content-pages"></a>既存のコンテンツ ページのコンテンツを定義します。
+### <a name="defining-content-in-existing-content-pages"></a>定義 (既存のコンテンツページのコンテンツを)
 
-新しいコンテンツ ページを自動的に作成するには、手順 1. で追加されたプレース ホルダー コントロールが組み込まれています。 2 つ既存コンテンツ ページ -`About.aspx`と`Default.aspx`-のコンテンツ コントロールがない、`LeftColumnContent`プレース ホルダーです。 これら 2 つの既存のページで、このプレース ホルダーのコンテンツを指定するには、自分たちのコンテンツ コントロールを追加する必要があります。
+新しいコンテンツページを作成すると、手順 1. で追加した ContentPlaceHolder コントロールが自動的に組み込まれます。 しかし、`About.aspx` と `Default.aspx` の2つの既存のコンテンツページは、`LeftColumnContent` ContentPlaceHolder のコンテンツコントロールを持っていません。 この2つの既存のページでこの ContentPlaceHolder の内容を指定するには、自分でコンテンツコントロールを追加する必要があります。
 
-ほとんどの ASP.NET Web コントロールとは異なり、Visual Web Developer ツールボックスにコンテンツ コントロールの項目は含まれません。 手動で、ソース ビューにコンテンツ コントロールの宣言型マークアップで入力できますが、簡単かつ迅速なアプローチは、デザイン ビューを使用します。 開く、`About.aspx`ページし、デザイン ビューに切り替えます。 図 4 に示すように、`LeftColumnContent`デザイン ビューにプレース ホルダーが表示されます。 上にマウスを置いた場合に表示されるタイトルを読み取ります。"LeftColumnContent (マスター)" タイトルに"Master"を含めることは、このプレース ホルダーのページで定義されているコンテンツ コントロールがないことを示します。 場合と同様、ContentPlaceHolder のコンテンツ コントロールが存在する場合`MainContent`タイトルが読み取られます。"*ContentPlaceHolderID* (カスタム)."
+ほとんどの ASP.NET Web コントロールとは異なり、Visual Web Developer ツールボックスにはコンテンツコントロール項目は含まれません。 コンテンツコントロールの宣言型マークアップをソースビューに手動で入力できますが、デザインビューを使用する方が簡単で迅速です。 [`About.aspx`] ページを開き、デザインビューに切り替えます。 図4に示すように、`LeftColumnContent` ContentPlaceHolder がデザインビューに表示されます。マウスをポイントすると、"左 Columncontent (マスター)" というタイトルが表示されます。 タイトルに "Master" が含まれている場合は、この ContentPlaceHolder のページにコンテンツコントロールが定義されていないことを示します。 `MainContent`の場合のように、ContentPlaceHolder のコンテンツコントロールが存在する場合、タイトルは "*ContentPlaceHolderID* (Custom)" と表示されます。
 
-コンテンツ コントロールを追加、`LeftColumnContent`に ContentPlaceHolder`About.aspx`し、[ContentPlaceHolder のスマート タグを展開し、カスタム コンテンツの作成] リンクをクリックします。
+`LeftColumnContent` ContentPlaceHolder のコンテンツコントロールを `About.aspx`に追加するには、ContentPlaceHolder のスマートタグを展開し、[カスタムコンテンツの作成] リンクをクリックします。
 
-[![About.aspx のデザイン ビューは、LeftColumnContent プレース ホルダーを示しています。](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
+[![についてのデザインビューでは、左の Columncontent ContentPlaceHolder が表示されます。](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
 
-**図 04**:デザイン ビュー`About.aspx`を示しています、 `LeftColumnContent` ContentPlaceHolder ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image12.png))。
+**図 04**: `About.aspx` のデザインビューで `LeftColumnContent` ContentPlaceHolder が表示される ([クリックすると、フルサイズの画像が表示](multiple-contentplaceholders-and-default-content-cs/_static/image12.png)されます)
 
-カスタム コンテンツの作成] リンクをクリックすると、必要なが生成されますコンテンツ コントロールをページにその`ContentPlaceHolderID`プロパティを [ContentPlaceHolder の`ID`します。 たとえば、カスタムのコンテンツの作成リンクをクリックして`LeftColumnContent`でリージョン`About.aspx`ページに次の宣言型マークアップを追加します。
+[カスタムコンテンツの作成] リンクをクリックすると、ページに必要なコンテンツコントロールが生成され、その `ContentPlaceHolderID` プロパティが ContentPlaceHolder の `ID`に設定されます。 たとえば、`About.aspx` の `LeftColumnContent` 領域の [カスタムコンテンツの作成] リンクをクリックすると、次の宣言型のマークアップがページに追加されます。
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample3.aspx)]
 
-### <a name="omitting-content-controls"></a>コンテンツ コントロールを省略します。
+### <a name="omitting-content-controls"></a>コンテンツコントロールの省略
 
-ASP.NET では、すべてのコンテンツ ページがマスター ページで定義されている各 ContentPlaceHolder のコンテンツ コントロールを含めることは必要ありません。 コンテンツ コントロールを省略した場合、ASP.NET エンジンは、マスター ページで ContentPlaceHolder 内で定義されたマークアップを使用します。 このマークアップは、ContentPlaceHolder のと呼ばれます*既定のコンテンツ*コンテンツいくつかのリージョンは、ページの大半の間で共通がする必要があるページの数が少ないのカスタマイズのシナリオで便利です。 手順 3 では、マスター ページで指定する既定のコンテンツについて説明します。
+ASP.NET では、マスターページで定義されているすべての ContentPlaceHolder のコンテンツコントロールがすべてのコンテンツページに含まれている必要はありません。 コンテンツコントロールを省略した場合、ASP.NET エンジンは、マスターページの ContentPlaceHolder 内で定義されているマークアップを使用します。 このマークアップは、ContentPlaceHolder の既定の*コンテンツ*と呼ばれており、一部の領域のコンテンツがほとんどのページで共通であるが、少数のページに対してカスタマイズする必要がある場合に便利です。 手順3では、マスターページでの既定のコンテンツの指定について説明します。
 
-現時点では、`Default.aspx`の 2 つのコンテンツ コントロールが含まれています、`head`と`MainContent`ContentPlaceHolders; のコンテンツ コントロールがない`LeftColumnContent`します。 その結果、`Default.aspx`が表示される、 `LeftColumnContent` ContentPlaceHolder の既定のコンテンツを使用します。 まだこのプレース ホルダーを既定のコンテンツを定義するがある、あるので、実際の効果はこのリージョンのマークアップは出力されませんするには。 この動作を確認するを参照してください。`Default.aspx`ブラウザーを使用します。 図 5 に示す、"ニュース"セクションの下にある左の列にマークアップは出力されません。
+現在、`Default.aspx` には、`head` と `MainContent` ContentPlaceHolders の2つのコンテンツコントロールが含まれています。`LeftColumnContent`のコンテンツコントロールはありません。 その結果、`Default.aspx` がレンダリングされると、`LeftColumnContent` ContentPlaceHolder の既定のコンテンツが使用されます。 この ContentPlaceHolder の既定のコンテンツはまだ定義していないので、実質的な効果は、この領域にマークアップが生成されないことです。 この動作を確認するには、ブラウザーを使用して `Default.aspx` にアクセスします。 図5に示すように、[ニュース] セクションの左側の列にマークアップは出力されません。
 
-[![LeftColumnContent ContentPlaceHolder のコンテンツは表示されません。](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
+[左の Columncontent ContentPlaceHolder に対してコンテンツがレンダリングされない ![](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
 
-**図 05**:コンテンツがレンダリングされません、 `LeftColumnContent` ContentPlaceHolder ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))。
+**図 05**: `LeftColumnContent` ContentPlaceHolder に対してコンテンツがレンダリングされない ([クリックしてフルサイズの画像を表示する](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))
 
-## <a name="step-3-specifying-default-content-in-the-master-page"></a>手順 3: マスター ページで既定のコンテンツを指定します。
+## <a name="step-3-specifying-default-content-in-the-master-page"></a>手順 3: マスターページで既定のコンテンツを指定する
 
-一部の web サイトのデザインには、コンテンツがインストールされている 1 つまたは 2 つの例外を除くサイト内のすべてのページのリージョンが含まれます。 ユーザー アカウントをサポートする web サイトを検討してください。 このようなサイトでは、ログイン ページがサイトに、訪問者が署名資格情報を入力する場所が必要です。 サインイン プロセスを迅速に web サイト デザイナーは、ユーザーがログイン ページを明示的にアクセスすることがなくサインインできるようにするには、各ページの左上隅でユーザー名とパスワードのテキスト ボックスをなどがあります。 これらのユーザー名とパスワード テキスト ボックスは、ほとんどのページで便利ですが、ログイン ページで、テキスト ボックスに、ユーザーの資格情報が格納されている冗長です。
+一部の web サイトのデザインには、1つまたは2つの例外を除き、サイト内のすべてのページで同じコンテンツを持つリージョンが含まれています。 ユーザーアカウントをサポートする web サイトを考えてみましょう。 このようなサイトには、ビジターがサイトにサインインするための資格情報を入力できるログインページが必要です。 サインインプロセスを迅速化するために、web サイトのデザイナーでは、ユーザーがログインページに明示的にアクセスしなくてもサインインできるように、各ページの左上隅にユーザー名とパスワードのテキストボックスを含めることができます。 これらのユーザー名とパスワードのテキストボックスはほとんどのページで役に立ちますが、ログインページには冗長であり、ユーザーの資格情報のテキストボックスが既に含まれています。
 
-この設計を実装するには、マスター ページの左上隅でプレース ホルダー コントロールを作成できます。 各ページの左上隅で、ユーザー名とパスワードのテキスト ボックスを表示するために必要は、このプレース ホルダーのコンテンツ コントロールを作成し、必要なインターフェイスを追加します。 その一方で、ログイン ページがこの ContentPlaceHolder のコンテンツ コントロールを追加するか、省略または、コンテンツの作成は定義されていないマークアップを持つコントロール。 このアプローチの欠点は、すべてのページ (ログイン ページ) を除くサイトに追加するユーザー名とパスワードのテキスト ボックスを追加するのにあります。 これは、問題を求めています。 ページまたは 2 つに、これらのテキスト ボックスを追加することを忘れおそれがあります、またはさらに悪いことで可能性がありますインターフェイスが実装されて正しく (2 つではなくテキスト ボックスに 1 つだけを追加するなど)。
+この設計を実装するには、マスターページの左上隅に ContentPlaceHolder コントロールを作成します。 左上隅にユーザー名とパスワードのテキストボックスを表示するために必要な各ページでは、この ContentPlaceHolder のコンテンツコントロールを作成し、必要なインターフェイスを追加します。 一方、ログインページでは、この ContentPlaceHolder のコンテンツコントロールの追加を省略したり、マークアップが定義されていないコンテンツコントロールを作成したりすることができます。 この方法の欠点は、サイトに追加するすべてのページにユーザー名とパスワードのテキストボックスを追加することです (ログインページは除きます)。 これにより、問題が発生します。 これらのテキストボックスをページまたは2つに追加することは忘れられる可能性があります。最悪の場合、インターフェイスが正しく実装されていない可能性があります (2 ではなく1つのテキストボックスのみを追加するなど)。
 
-ContentPlaceHolder の既定のコンテンツとして、ユーザー名とパスワードのテキスト ボックスを定義することをお勧めします。 これにより、のみ必要があります、いくつかのページのユーザー名とパスワードのテキスト ボックスを表示しないこの既定のコンテンツを上書きする (ログイン ページのインスタンス)。 プレース ホルダー コントロールの既定のコンテンツを指定することを示すためで説明したシナリオを実装してみましょう。
+より適切な解決策として、ユーザー名とパスワードのテキストボックスを ContentPlaceHolder の既定のコンテンツとして定義します。 そのため、ユーザー名とパスワードのテキストボックス (ログインページなど) を表示しない少数のページで、この既定のコンテンツを上書きする必要があります。 ContentPlaceHolder コントロールの既定のコンテンツを指定する方法を示すために、ここで説明したシナリオを実装します。
 
 > [!NOTE]
-> このチュートリアルの残りの部分では、すべてのページが、ログイン ページの左の列にログイン インターフェイスを含める web サイトを更新します。 ただし、このチュートリアルでは、ユーザー アカウントをサポートするために、web サイトを構成する方法を検査しません。 このトピックの詳細についてを参照してください、[フォーム認証、承認、ユーザー アカウントとロール](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)チュートリアル。
+> このチュートリアルの残りの部分では、ログインページではなく、すべてのページの左側の列にログインインターフェイスを含めるように web サイトを更新します。 ただし、このチュートリアルでは、ユーザーアカウントをサポートするように web サイトを構成する方法については説明しません。 このトピックの詳細については、「[フォーム認証、承認、ユーザーアカウント、およびロール](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)のチュートリアル」を参照してください。
 
-### <a name="adding-a-contentplaceholder-and-specifying-its-default-content"></a>プレース ホルダーを追加して、その既定のコンテンツを指定します。
+### <a name="adding-a-contentplaceholder-and-specifying-its-default-content"></a>ContentPlaceHolder を追加し、その既定のコンテンツを指定する
 
-開く、`Site.master`マスター ページとの間で、左側の列に、次のマークアップを追加、`DateDisplay`ラベルとレッスン セクション。
+`Site.master` マスターページを開き、`DateDisplay` のラベルとレッスンのセクションの左側の列に次のマークアップを追加します。
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample4.aspx)]
 
-このマークアップを追加した後、マスター ページの [デザイン] ビューは図 6 のようになります。
+このマークアップを追加すると、マスターページのデザインビューは図6のようになります。
 
-[![マスター ページには、Login コントロールが含まれます。](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
+[マスターページにログインコントロールが含まれて ![](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
 
-**図 06**:マスター ページには、Login コントロールが含まれています ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))。
+**図 06**: マスターページにログインコントロールが含まれている ([クリックしてフルサイズの画像を表示する](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))
 
-このプレース ホルダー、 `QuickLoginUI`、その既定のコンテンツとしてログイン Web コントロールがあります。 Login コントロールは、ユーザー名とパスワードと共に Log In ボタンをユーザーに求めるユーザー インターフェイスを表示します。 Log In ボタンをクリックすると、Login コントロールは内部的にメンバーシップ API に対するユーザーの資格情報を検証します。 次に、実際にはこのログイン コントロールを使用するには、メンバーシップを使用するサイトを構成する必要があります。 このトピックは、このチュートリアルの対象外参照してください、[フォーム認証、承認、ユーザー アカウントとロール](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)ユーザー アカウントをサポートする web アプリケーションの構築の詳細についてはチュートリアル。
+この ContentPlaceHolder の `QuickLoginUI`には、既定のコンテンツとしてログイン Web コントロールがあります。 ログインコントロールには、ユーザーにユーザー名とパスワードの入力を求めるユーザーインターフェイスと、[ログイン] ボタンが表示されます。 ログインコントロールは、[ログイン] ボタンをクリックすると、メンバーシップ API に対してユーザーの資格情報を内部で検証します。 このログイン制御を実際に使用するには、メンバーシップを使用するようにサイトを構成する必要があります。 このトピックは、このチュートリアルの範囲を超えています。ユーザーアカウントをサポートする web アプリケーションの構築の詳細については[、「フォーム認証、承認、ユーザーアカウント、およびロール](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)のチュートリアル」を参照してください。
 
-自由にログイン コントロールの動作や外観をカスタマイズします。 2 つのプロパティを設定しました:`TitleText`と`FailureAction`します。 `TitleText`コントロールのユーザー インターフェイスの上部にある既定値は"Log In"に、プロパティの値が表示されます。 「サインイン」テキストとして表示するよう、このプロパティを設定しましたが、`<h3>`要素。 `FailureAction`プロパティには、ユーザーの資格情報が有効でない場合の対処方法を示します。 値を既定で`Refresh`、同じページにそのユーザーとログイン コントロール内のエラー メッセージが表示されます。 これを変更した`RedirectToLoginPage`、無効な資格情報が発生した場合、ログイン ページにユーザーを送信します。 しようとした場合、ユーザーから他のページが失敗し、ログイン、ログイン ページは、追加の手順と、左側の列に簡単にも適合しないオプションに含めることができますので、ユーザーをログイン ページに送信するしたいと考えています。 たとえば、ログイン ページには、忘れたパスワードを取得するか新しいアカウントを作成するオプションがあります。
+ログインコントロールの動作や外観は自由にカスタマイズできます。 `TitleText` と `FailureAction`の2つのプロパティを設定しました。 `TitleText` プロパティ値 (既定では "Log In") は、コントロールのユーザーインターフェイスの上部に表示されます。 このプロパティを設定して、"Sign In" というテキストが `<h3>` 要素として表示されるようにしました。 `FailureAction` プロパティは、ユーザーの資格情報が無効な場合の対処方法を示します。 既定では `Refresh`の値に設定されています。これにより、ユーザーが同じページに移動し、Login コントロール内にエラーメッセージが表示されます。 これを `RedirectToLoginPage`に変更しました。これにより、無効な資格情報が発生した場合にユーザーがログインページに送信されます。 ユーザーが他のページからログインしようとしたときに、ログインページにユーザーを送信することを希望しています。ただし、ログインページには、左の列には簡単に収めることができない追加の指示とオプションを含めることができるからです。 たとえば、[ログイン] ページには、忘れたパスワードを取得したり、新しいアカウントを作成したりするためのオプションが含まれている場合があります。
 
-### <a name="creating-the-login-page-and-overriding-the-default-content"></a>ログイン ページを作成して、既定のコンテンツのオーバーライド
+### <a name="creating-the-login-page-and-overriding-the-default-content"></a>ログインページを作成し、既定のコンテンツを上書きする
 
-完全なマスター ページには、次の手順は、ログイン ページを作成します。 ASP.NET ページをという名前のサイトのルート ディレクトリに追加`Login.aspx`、バインドすることを`Site.master`マスター ページ。 4 つのコンテンツ コントロールを含むページが作成されそうで定義されている、ContentPlaceHolders ごとに 1 つ`Site.master`します。
+マスターページが完成したら、次の手順としてログインページを作成します。 `Login.aspx`という名前のサイトのルートディレクトリに ASP.NET ページを追加し、`Site.master` マスターページにバインドします。 これにより、`Site.master`で定義されている ContentPlaceHolders ごとに1つずつ、4つのコンテンツコントロールを含むページが作成されます。
 
-ログイン コントロールを追加、`MainContent`コンテンツ コントロール。 同様に、お気軽に任意のコンテンツを追加、`LeftColumnContent`リージョン。 ただし、コンテンツ コントロールでのままにしてください、 `QuickLoginUI` ContentPlaceHolder 空です。 これにより、ログイン コントロールは、ログイン ページの左の列に表示されません。
+`MainContent` コンテンツコントロールにログインコントロールを追加します。 同様に、任意のコンテンツを `LeftColumnContent` 領域に追加してもかまいません。 ただし、`QuickLoginUI` ContentPlaceHolder のコンテンツコントロールは空のままにしておく必要があります。 これにより、ログインコントロールがログインページの左側の列に表示されないようになります。
 
-コンテンツを定義した後、`MainContent`と`LeftColumnContent`リージョン、ログイン ページの宣言型マークアップは、次のようになります。
+`MainContent` と `LeftColumnContent` 領域のコンテンツを定義すると、ログインページの宣言型マークアップは次のようになります。
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample5.aspx)]
 
-図 7 では、ブラウザーで表示した場合は、このページを示します。 このページのコンテンツ コントロールを指定するため、 `QuickLoginUI` ContentPlaceHolder、マスター ページで指定された既定のコンテンツを上書きします。 実質的な効果は、このページでビューがないレンダリングされます (図 6 参照) は、マスター ページのデザインで、Login コントロールが表示されることです。
+図7は、ブラウザーを使用して表示するときにこのページを示しています。 このページでは `QuickLoginUI` ContentPlaceHolder のコンテンツコントロールを指定しているので、マスターページに指定されている既定のコンテンツはオーバーライドされます。 実質的な効果として、マスターページのデザインビューに表示されるログイン制御 (図6を参照) は、このページではレンダリングされません。
 
-[![ログイン ページ Represses QuickLoginUI ContentPlaceHolder の既定のコンテンツ](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
+[Represses QuickLoginUI ContentPlaceHolder の既定のコンテンツに対するログインページの ![](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
 
-**図 07**:ログイン ページ Represses、 `QuickLoginUI` ContentPlaceHolder の既定のコンテンツ ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))。
+**図 07**: ログインページで `QuickLoginUI` ContentPlaceHolder の既定のコンテンツを Represses[する (クリックしてフルサイズの画像を表示する](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))
 
-### <a name="using-the-default-content-in-new-pages"></a>新しいページで、既定のコンテンツの使用
+### <a name="using-the-default-content-in-new-pages"></a>新しいページでの既定のコンテンツの使用
 
-ログイン ページを除くすべてのページの左の列にログイン コントロールを表示します。 これを実現する、ログイン ページを除くすべてのコンテンツ ページがのコンテンツ コントロールを省略する必要があります、`QuickLoginUI`プレース ホルダーです。 コンテンツ コントロールを省略すると、ContentPlaceHolder の既定のコンテンツを代わりに使用されます。
+ログインページを除くすべてのページの左側の列に Login コントロールを表示します。 これを実現するには、ログインページを除くすべてのコンテンツページで、`QuickLoginUI` ContentPlaceHolder のコンテンツコントロールを省略する必要があります。 コンテンツコントロールを省略すると、ContentPlaceHolder の既定のコンテンツが代わりに使用されます。
 
-既存のコンテンツ ページ - `Default.aspx`、`About.aspx`と`MultipleContentPlaceHolders.aspx`-のコンテンツ コントロールが含まれていません`QuickLoginUI`プレース ホルダーを制御するマスター ページに追加する前に作成されたためです。 そのため、これらの既存のページを更新する必要はありません。 ただし、コンテンツ コントロールでは、web サイトに追加された新しいページ、`QuickLoginUI`既定では、プレース ホルダーです。 これらを削除することがあるため、コンテンツ コントロール (ContentPlaceHolder の既定のコンテンツを無効にすることには、「ログイン ページの場合と同様) を除き、新しいコンテンツ ページに追加するたびにします。
+既存のコンテンツページ (`Default.aspx`、`About.aspx`、および `MultipleContentPlaceHolders.aspx`) には、ContentPlaceHolder コントロールをマスターページに追加する前に作成されたため、`QuickLoginUI` のコンテンツコントロールは含まれていません。 そのため、これらの既存のページを更新する必要はありません。 ただし、web サイトに追加された新しいページには、既定で `QuickLoginUI` ContentPlaceHolder のコンテンツコントロールが含まれています。 そのため、新しいコンテンツページを追加するたびに、これらのコンテンツコントロールを削除しておく必要があります (ログインページの場合のように、ContentPlaceHolder の既定のコンテンツをオーバーライドする場合を除きます)。
 
-コンテンツ コントロールを削除するには、手動でソース ビューからその宣言型マークアップを削除するか、デザイン ビューで、マスターのコンテンツへのリンクを既定の選択のスマート タグから。 どちらの方法は、コンテンツ コントロールを削除します。 影響を net 同じページから生成します。
+コンテンツコントロールを削除するには、ソースビューから手動で宣言マークアップを削除するか、デザインビューから、スマートタグからマスターコンテンツの既定のリンクを選択します。 どちらの方法でも、コンテンツコントロールはページから削除され、実質的には同じ効果が得られます。
 
-図 8 は`Default.aspx`とき、ブラウザーで表示します。 いることを思い出してください`Default.aspx`しか宣言型マークアップ - のいずれかで指定された 2 つのコンテンツ コントロール`head`とに 1 つずつ`MainContent`します。 その結果、既定のコンテンツ、`LeftColumnContent`と`QuickLoginUI`ContentPlaceHolders が表示されます。
+図8は、ブラウザーを使用して表示する場合の `Default.aspx` を示しています。 `Default.aspx`、宣言型マークアップで指定されているコンテンツコントロールが2つだけであることを思い出してください。1つは `head` 用、もう1つは `MainContent`用です。 その結果、`LeftColumnContent` と `QuickLoginUI` ContentPlaceHolders の既定の内容が表示されます。
 
-[![LeftColumnContent と QuickLoginUI ContentPlaceHolders の既定のコンテンツが表示されます。](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
+[左の Columncontent の既定のコンテンツと QuickLoginUI ContentPlaceHolders を ![](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
 
-**図 08**:既定のコンテンツ、`LeftColumnContent`と`QuickLoginUI`ContentPlaceHolders が表示されます ([フルサイズの画像を表示する をクリックします](multiple-contentplaceholders-and-default-content-cs/_static/image24.png))。
+**図 08**: `LeftColumnContent` および `QuickLoginUI` Contentplaceholders の既定の内容が表示される ([クリックすると、フルサイズの画像が表示](multiple-contentplaceholders-and-default-content-cs/_static/image24.png)されます)
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
-ASP.NET マスター ページのモデルでは、ContentPlaceHolders のマスター ページ内の任意の数。 詳細については、ContentPlaceHolders 含める既定のコンテンツがない対応する場合は、出力はコンテンツ ページのコントロールのコンテンツします。 このチュートリアルでは、マスター ページに追加のプレース ホルダー コントロールを含める方法およびこれらの新しい ContentPlaceHolders 新規および既存の ASP.NET ページ内のコンテンツ コントロールを定義する方法を説明しました。 見てきました既定値を指定することで、プレース ホルダーは、コンテンツは少数のページをそれをカスタマイズする必要がありますが、特定の地域内のコンテンツを標準のシナリオで役立ちます。
+ASP.NET マスターページモデルでは、マスターページで任意の数の ContentPlaceHolders を使用できます。 さらに、ContentPlaceHolders には既定のコンテンツが含まれています。これは、コンテンツページに対応するコンテンツコントロールがない場合に出力されます。 このチュートリアルでは、マスターページに追加の ContentPlaceHolder コントロールを追加する方法と、新しい ASP.NET ページと既存のページの両方でこれらの新しい ContentPlaceHolders のコンテンツコントロールを定義する方法を説明しました。 また、ContentPlaceHolder での既定のコンテンツの指定についても説明しました。これは、少数のページだけが特定の地域内のその他の標準化されたコンテンツをカスタマイズする必要があるシナリオで役に立ちます。
 
-次のチュートリアルについて説明します、`head`宣言とプログラミングでページごとに、タイトル、メタ タグ、およびその他の HTML ヘッダーを定義する方法が表示される ContentPlaceHolder の詳細については、します。
+次のチュートリアルでは、`head` ContentPlaceHolder について詳しく説明し、ページごとにタイトル、メタタグ、およびその他の HTML ヘッダーを宣言およびプログラムによって定義する方法を説明します。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)作成者の複数受け取りますブックと 4GuysFromRolla.com の創設者で、携わって Microsoft Web テクノロジ 1998 年からです。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 3.5 in 24 時間*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別なに感謝します。
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者が、Suchi 著。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)します。
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは、Suchi になりました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-site-wide-layout-using-master-pages-cs.md)

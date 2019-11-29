@@ -1,35 +1,35 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb
-title: 入力する (VB) を使用してリスト |Microsoft Docs
+title: CascadingDropDown を使用してリストに入力する (VB) |Microsoft Docs
 author: wenz
-description: CascadingDropDown コントロール、AJAX Control Toolkit では、anoth 内の値が 1 つの DropDownList の読み込みの変更に関連付けられているように DropDownList コントロールを拡張しています.
+description: AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって anoth に関連付けられた値が読み込まれるようにします。
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 5236695e-5c70-4887-baee-0bfb0afb3448
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4cf5637eed1ecf8a09e8a98fa0193b6d162fd92b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8dd9ef8a4bdf705ba4451b7fd240e4de8618221c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130487"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599579"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-vb"></a>CascadingDropDown を使用して一覧に入力する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0VB.pdf)
 
-> CascadingDropDown コントロール、AJAX Control Toolkit では、もう 1 つの DropDownList の値が 1 つの DropDownList の読み込みの変更に関連付けられているように、DropDownList コントロールを拡張します。 (たとえば、1 つのリストは、私たちの状態の一覧を提供します。 し、[次へ] の一覧は、その状態の主な都市で埋められます)。解決するために最初のチャレンジでは、実際にこのコントロールを使用して、ドロップダウン リストを入力します。
+> AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。最初の問題は、このコントロールを使用して、ドロップダウンリストに実際に入力することです。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-CascadingDropDown コントロール、AJAX Control Toolkit では、もう 1 つの DropDownList の値が 1 つの DropDownList の読み込みの変更に関連付けられているように、DropDownList コントロールを拡張します。 (たとえば、1 つのリストは、私たちの状態の一覧を提供します。 し、[次へ] の一覧は、その状態の主な都市で埋められます)。解決するために最初のチャレンジでは、実際にこのコントロールを使用して、ドロップダウン リストを入力します。
+AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。最初の問題は、このコントロールを使用して、ドロップダウンリストに実際に入力することです。
 
 ## <a name="steps"></a>手順
 
-ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`ScriptManager`コントロールは、ページのどこでも配置する必要があります (ただし内、`<form>`要素)。
+ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、ページの任意の場所に `ScriptManager` コントロールを配置する必要があります (`<form>` 要素内)。
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-vb/samples/sample1.aspx)]
 
@@ -37,31 +37,31 @@ ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`Sc
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-vb/samples/sample2.aspx)]
 
-このリストの CascadingDropDown エクステンダーが追加されます。 これは、一覧に表示されるエントリの一覧が返されますし、web サービスに非同期要求を送信します。 これを機能させるには、CascadingDropDown の次の属性を設定する必要があります。
+この一覧では、CascadingDropDown extender が追加されます。 非同期要求が web サービスに送信され、リストに表示されるエントリの一覧が返されます。 これを機能させるには、次の CascadingDropDown 属性を設定する必要があります。
 
-- `ServicePath`:一覧のエントリを提供する web サービスの URL
-- `ServiceMethod`:一覧のエントリを提供する web メソッド
-- `TargetControlID`:ドロップダウン リストの ID
-- `Category`:Web メソッドが呼び出されたときに送信されるカテゴリ情報
-- `PromptText`:サーバーからリスト データを非同期的に読み込むときに表示されるテキスト
+- `ServicePath`: リストエントリを提供する web サービスの URL
+- `ServiceMethod`: リストエントリを配信する Web メソッド
+- `TargetControlID`: ドロップダウンリストの ID
+- `Category`: 呼び出されたときに web メソッドに送信されるカテゴリ情報
+- `PromptText`: サーバーからリストデータを非同期的に読み込むときに表示されるテキスト
 
-次のマークアップに示します、`CascadingDropDown`要素。 C# および VB の唯一の違いは、関連付けられている web サービスの名前を示します。
+`CascadingDropDown` 要素のマークアップを次に示します。 C#と VB の唯一の違いは、関連付けられた web サービスの名前です。
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-vb/samples/sample3.aspx)]
 
-JavaScript コード、`CascadingDropDown`エクステンダーは、次のシグネチャを持つ web サービス メソッドを呼び出します。
+`CascadingDropDown` エクステンダーからの JavaScript コードは、次のシグネチャを持つ web サービスメソッドを呼び出します。
 
 [!code-vb[Main](filling-a-list-using-cascadingdropdown-vb/samples/sample4.vb)]
 
-重要な側面は、メソッドが型の配列を取得する必要がある`CascadingDropDownNameValue`(ASP.NET AJAX Control Toolkit によって定義される)。 `CascadingDropDownNameValue`リスト エントリのテキストとし、その値を指定する必要があります、最初のコンス トラクターと同様`<option value="VALUE">NAME</option>`HTML で行います。 サンプル データの一部を次に示します。
+重要な点は、メソッドが `CascadingDropDownNameValue` 型の配列を返す必要があることです (ASP.NET AJAX Control Toolkit によって定義されています)。 `CascadingDropDownNameValue` コンストラクターでは、最初にリストエントリのテキストを入力し、次に HTML の場合 `<option value="VALUE">NAME</option>` と同様に値を指定する必要があります。 いくつかのサンプルデータを次に示します。
 
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-vb/samples/sample5.aspx)]
 
-ブラウザーでページの読み込みと、次の 3 つの仕入先を格納するリストがトリガーされます。
+ブラウザーにページを読み込むと、3つの仕入先がリストに入力されます。
 
-[![リストが自動的に入力します。](filling-a-list-using-cascadingdropdown-vb/_static/image2.png)](filling-a-list-using-cascadingdropdown-vb/_static/image1.png)
+[リストが自動的に入力される ![](filling-a-list-using-cascadingdropdown-vb/_static/image2.png)](filling-a-list-using-cascadingdropdown-vb/_static/image1.png)
 
-リストが自動的に入力されます ([フルサイズの画像を表示する をクリックします](filling-a-list-using-cascadingdropdown-vb/_static/image3.png))。
+リストが自動的に入力されます ([クリックすると、フルサイズの画像が表示](filling-a-list-using-cascadingdropdown-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](using-auto-postback-with-cascadingdropdown-cs.md)

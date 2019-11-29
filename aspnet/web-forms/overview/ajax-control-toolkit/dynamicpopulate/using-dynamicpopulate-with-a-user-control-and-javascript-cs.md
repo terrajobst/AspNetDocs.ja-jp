@@ -1,73 +1,73 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
-title: DynamicPopulate を使用するユーザー コントロールと JavaScript (c#) |Microsoft Docs
+title: DynamicPopulate ユーザーコントロールと JavaScript (C#) を設定するMicrosoft Docs
 author: wenz
-description: ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、t のターゲット コントロールに、結果の値を入力しています.
+description: ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値を t... のターゲットコントロールに入力します。
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 38ac8250-8854-444c-b9ab-8998faa41c5a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 387cad748428249273cf9708b794dd8864cf982f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a0e6d04a5f62ab558aceb8302d94d3bf2dc8a39f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125051"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599152"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>ユーザー コントロールと JavaScript で DynamicPopulate を使用する (C#)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
 
-> ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、ページで、ページを更新せず、ターゲット コントロールに、結果の値を設定します。 カスタムのクライアント側の JavaScript コードを使用して、カタログの作成をトリガーすることもできます。 ただし、エクステンダーは、ユーザー コントロールが存在するときに実行される特別な注意があります。
+> ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 また、カスタムクライアント側の JavaScript コードを使用して、作成をトリガーすることもできます。 ただし、extender がユーザーコントロールに存在する場合は、特別な注意が必要です。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-`DynamicPopulate` ASP.NET AJAX Control Toolkit のコントロールが web サービス (またはページ メソッド) を呼び出し、ターゲット コントロール ページで、ページ更新せずに、結果の値を入力します。 カスタムのクライアント側の JavaScript コードを使用して、カタログの作成をトリガーすることもできます。 ただし、エクステンダーは、ユーザー コントロールが存在するときに実行される特別な注意があります。
+ASP.NET AJAX Control Toolkit の `DynamicPopulate` コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 また、カスタムクライアント側の JavaScript コードを使用して、作成をトリガーすることもできます。 ただし、extender がユーザーコントロールに存在する場合は、特別な注意が必要です。
 
 ## <a name="steps"></a>手順
 
-まず、ASP.NET Web サービスによって呼び出されるメソッドを実装する必要があります、`DynamicPopulateExtender`コントロール。 Web サービス メソッドを実装する`getDate()`と呼ばれる、文字列型の 1 つの引数が予想される`contextKey`、ので、`DynamicPopulate`コントロールが web サービスの呼び出しごとに 2 つのコンテキスト情報を送信します。 コードを次に示します (ファイル`DynamicPopulate.cs.asmx`) 3 つの形式のいずれかで現在の日付を取得します。
+まず、`DynamicPopulateExtender` コントロールによって呼び出されるメソッドを実装する ASP.NET Web サービスが必要です。 この web サービスは、`contextKey`と呼ばれる文字列型の引数を1つ必要とするメソッド `getDate()` を実装しています。これは、`DynamicPopulate` コントロールが各 web サービス呼び出しに1つのコンテキスト情報を送信するためです。 次に示すコード (ファイル `DynamicPopulate.cs.asmx`) は、次の3つの形式のいずれかで現在の日付を取得します。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample1.aspx)]
 
-次の手順で新しいユーザー コントロールを作成します (`.ascx`ファイル)、その 1 行目で次の宣言を表します。
+次の手順では、新しいユーザーコントロール (`.ascx` ファイル) を作成します。最初の行には次の宣言が示されています。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample2.aspx)]
 
-A &lt; `label` &gt;要素を使用して、サーバーから取得したデータを表示します。
+&lt;`label`&gt; 要素を使用して、サーバーからのデータが表示されます。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample3.aspx)]
 
-また、ユーザー コントロール ファイル内を使用します次の 3 つのラジオ ボタン、それぞれが表す web サービスでサポートされる 3 つの可能な日付形式のいずれか。 ユーザーは、ラジオ ボタンのいずれかをクリックすると、ブラウザーは次のような JavaScript コードを実行します。
+また、ユーザーコントロールファイルでは、3つのラジオボタンを使用します。各ボタンは、web サービスでサポートされる3つの日付形式のいずれかを表します。 ユーザーがいずれかのオプションボタンをクリックすると、ブラウザーは次のような JavaScript コードを実行します。
 
 [!code-powershell[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample4.ps1)]
 
-このコードにアクセスする、 `DynamicPopulateExtender` (奇妙な ID を心配しないでまだ、これについては、後で)、データの動的作成をトリガーします。 現在のラジオ ボタンのコンテキストで`this.value`はその値を指す`format1`、`format2`または`format3`正確にどのような web メソッドが必要です。
+このコードは、`DynamicPopulateExtender` にアクセスします (奇妙な ID について心配する必要はありません。これについては後で説明します)。動的な作成をデータでトリガーします。 現在のオプションボタンのコンテキストでは、`this.value` は `format1`、`format2` また `format3` は web メソッドが期待する内容を示します。
 
-まだユーザー コントロールで不足しているですだけが、`DynamicPopulateExtender`オプション ボタン web サービスからへのリンク コントロール。
+ユーザーコントロールにまだ存在しないのは、オプションボタンを web サービスにリンクする `DynamicPopulateExtender` コントロールです。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample5.aspx)]
 
-奇妙に、コントロールで使用される ID を再度確認可能性があります:`mcd1$myDate`の代わりに`myDate`します。 以前は、使用される JavaScript コード`mcd1_dpe1`にアクセスする、`DynamicPopulateExtender`の代わりに`dpe1`します。この名前付け方法を使用する場合に特別な要件を`DynamicPopulateExtender`ユーザー コントロール内で。 さらに、正常に動作させる特定の方法でユーザー コントロールを埋め込むことがあります。 新しい ASP.NET ページを作成し、実装したユーザー コントロールのタグ プレフィックスを登録します。
+ここでも、コントロールで使用されている奇妙な ID (`myDate`ではなく `mcd1$myDate`) に注意することができます。 以前は、JavaScript コードは `dpe1`ではなく `DynamicPopulateExtender` にアクセスするために `mcd1_dpe1` 使用されていました。この名前付け方法は、ユーザーコントロール内で `DynamicPopulateExtender` を使用する場合に特別な要件となります。 さらに、すべての機能を使用するには、ユーザーコントロールを特定の方法で埋め込む必要があります。 新しい ASP.NET ページを作成し、先ほど実装したユーザーコントロールのタグプレフィックスを登録します。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample6.aspx)]
 
-次に、ASP.NET AJAX を含めます`ScriptManager`新しいページ上のコントロール。
+次に、ASP.NET AJAX `ScriptManager` コントロールを新しいページに追加します。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample7.aspx)]
 
-最後に、ユーザー コントロールをページに追加します。 のみを設定する必要があるその`ID`属性 (と`runat="server"`、もちろん)、特定の名前に設定する必要も:`mcd1`ので、これは、JavaScript を使用してアクセスするユーザー コントロール内で使用されるプレフィックス。
+最後に、ユーザーコントロールをページに追加します。 `ID` 属性を設定する必要があるだけです (もちろん `runat="server"`ます) が、これは JavaScript を使用してアクセスするためにユーザーコントロール内で使用されるプレフィックスであるため、`mcd1` を特定の名前に設定する必要があります。
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
-以上です。 ページに期待どおりに動作します。ユーザーがラジオ ボタンの 1 つクリックする、Toolkit でコントロールが web サービスを呼び出すし、目的の形式で、現在の日付を表示します。
+以上です。 ページは想定どおりに動作します。ユーザーがいずれかのオプションボタンをクリックすると、ツールキットのコントロールが web サービスを呼び出し、現在の日付を目的の形式で表示します。
 
-[![ラジオ ボタンがユーザー コントロール内に存在します。](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
+[オプションボタンがユーザーコントロールに存在する ![](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 
-ユーザー コントロールでオプション ボタンが存在する ([フルサイズの画像を表示する をクリックします](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))。
+オプションボタンはユーザーコントロールに存在します ([クリックすると、フルサイズの画像が表示](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](dynamically-populating-a-control-using-javascript-code-cs.md)
