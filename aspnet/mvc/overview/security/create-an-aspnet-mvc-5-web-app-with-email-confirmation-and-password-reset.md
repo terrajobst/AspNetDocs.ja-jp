@@ -1,195 +1,195 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: 確認とパスワードのリセット (c#) を電子メールでは、ログをセキュリティで保護された ASP.NET MVC 5 web アプリを作成 |Microsoft Docs
+title: ログイン、電子メール確認、パスワードリセット (C#) を使用して、SECURE ASP.NET MVC 5 web アプリを作成します。Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、確認の電子メールと、ASP.NET Identity メンバーシップ システムを使用してパスワード リセットによる ASP.NET MVC 5 web アプリをビルドする方法を示します。 . Ca
+description: このチュートリアルでは、ASP.NET Identity メンバーシップシステムを使用して、電子メールの確認とパスワードのリセットを使用して ASP.NET MVC 5 web アプリを構築する方法について説明します。 ...
 ms.author: riande
 ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ebdae3f4d1261407feecd50ec81b3f329b2a3c0c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 07f5b290b73f75000e6f29fe09e4dc25e144452f
+ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117125"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899695"
 ---
 # <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>ログイン、電子メール確認、パスワード リセットを使用して安全な ASP.NET MVC 5 Web アプリを作成する (C#)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> このチュートリアルでは、確認の電子メールと、ASP.NET Identity メンバーシップ システムを使用してパスワード リセットによる ASP.NET MVC 5 web アプリをビルドする方法を示します。 完成したアプリケーションをダウンロードする[ここ](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)します。 ダウンロードには、確認の電子メールと SMS を電子メールまたは SMS プロバイダーをセットアップすることがなくテストできるデバッグ ヘルパーが含まれています。
-> 
-> このチュートリアルの執筆者[Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) )。
+このチュートリアルでは、ASP.NET Identity メンバーシップシステムを使用して、電子メールの確認とパスワードのリセットを使用して ASP.NET MVC 5 web アプリを構築する方法について説明します。
+
+.NET Core を使用するこのチュートリアルの更新バージョンについては、[ASP.NET Core でのアカウントの確認とパスワードの回復] [/aspnet/core/security/authentication/accconfirm] を参照してください。
 
 <a id="createMvc"></a>
-## <a name="create-an-aspnet-mvc-app"></a>ASP.NET MVC アプリを作成します。
+## <a name="create-an-aspnet-mvc-app"></a>ASP.NET MVC アプリを作成する
 
-インストールと実行によって開始[Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058)または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)します。 インストール[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)またはそれ以降。
+まず、Web または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)[用の Visual Studio Express 2013 を](https://go.microsoft.com/fwlink/?LinkId=299058)インストールして実行します。 [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降をインストールします。
 
 > [!NOTE]
-> 警告 :インストールする必要があります[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降に、このチュートリアルを完了します。
+> 警告: このチュートリアルを完了するには、 [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降をインストールする必要があります。
 
-1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームには ASP.NET Identity もサポートしていますので、web フォーム アプリで同じ手順を実行できます。  
+1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームでも ASP.NET Identity がサポートされているため、web フォームアプリで同様の手順に従うことができます。  
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image1.png)
-2. 既定の認証としてのままに**個々 のユーザー アカウント**します。 Azure でアプリをホストする場合は、チェック ボックスをオンのままにします。 チュートリアルの後半では、Azure を展開します。 できます[無料 Azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)します。
-3. 設定、 [SSL を使用するプロジェクト](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)します。
-4. アプリを実行し、をクリックして、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
-5. サーバー エクスプ ローラーに移動します。**データ Connections\DefaultConnection\Tables\AspNetUsers**を右クリックし、選択**テーブル定義を開く**します。
+2. 既定の認証は、**個々のユーザーアカウント**として残しておきます。 Azure でアプリをホストする場合は、チェックボックスをオンのままにします。 このチュートリアルの後半では、Azure にデプロイします。 [Azure アカウントは無料で開く](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)ことができます。
+3. [SSL を使用するようにプロジェクトを](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)設定します。
+4. アプリを実行し、 **[登録]** リンクをクリックして、ユーザーを登録します。 この時点で、電子メールの検証は、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性でのみ行うことができます。
+5. サーバーエクスプローラーで、 **[Data Connections\DefaultConnection\Tables\AspNetUsers]** に移動して右クリックし、 **[テーブル定義を開く]** を選択します。
 
-    次の図は、`AspNetUsers`スキーマ。
+    次の図は、`AspNetUsers` スキーマを示しています。
 
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image2.png)
-6. 右クリックして、 **AspNetUsers**テーブルを選択**テーブル データの表示**します。  
+6. **AspNetUsers**テーブルを右クリックし、 **[テーブルデータの表示]** を選択します。  
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image3.png)  
- この時点で、電子メールが確認されていません。
-7. 行をクリックし、[削除] を選択します。 次の手順でこの電子メールをもう一度追加し、確認の電子メールを送信します。
+ この時点で、電子メールは確認されていません。
+7. 行をクリックし、[削除] を選択します。 次の手順でもう一度このメールを追加し、確認の電子メールを送信します。
 
-## <a name="email-confirmation"></a>確認の電子メール
+## <a name="email-confirmation"></a>電子メールの確認
 
-他のユーザーを偽装していないことを確認する新規ユーザー登録の電子メール アドレスを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@example.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 Bob が誤ってとして登録されていると仮定`"bib@example.com"`気付いていなかったとパスワードの回復を使用して、アプリは、正しいメール アドレスがある見つからないため、彼はできません。 確認の電子メールがボットから制限の保護のみを提供し、決定スパムから保護を提供しません、登録に使用できる多くの作業用電子メールの別名が。
+新しいユーザー登録の電子メールを確認して、他のユーザーが偽装していないこと (つまり、他のユーザーの電子メールに登録されていないこと) を確認することをお勧めします。 ディスカッションフォーラムがあるとしたら、`"bob@example.com"` が `"joe@contoso.com"`として登録されないようにしたいと考えています。 電子メールを確認しないと、`"joe@contoso.com"` アプリから不要な電子メールを受け取る可能性があります。 Bob が誤って `"bib@example.com"` として登録されていて気付かないとしても、アプリには正しい電子メールがないため、パスワードの回復を使用することはできません。 電子メールの確認では、bot から制限された保護のみを提供し、特定のスパム送信者からの保護を提供しません。登録に使用できる多くの勤務先の電子メールエイリアスがあります。
 
-新しいユーザーが電子メール、SMS テキスト メッセージまたは別のメカニズムによって確認されて前に、web サイトにデータを投稿するを防ぐために一般的にします。 <a id="build"></a>以下のセクションでは確認の電子メールを有効にし、新しく登録されたユーザーがログインするまで、自分の電子メールが確認されていることを防ぐためにコードを変更します。、
+通常は、電子メール、SMS テキストメッセージ、または別のメカニズムによって確認される前に、新しいユーザーが web サイトにデータを投稿できないようにします。 <a id="build"></a>以下のセクションでは、電子メールの確認を有効にし、コードを変更して、新しく登録されたユーザーが電子メールを確認するまでログインできないようにします。
 
 <a id="SG"></a>
-## <a name="hook-up-sendgrid"></a>SendGrid をフックします。
+## <a name="hook-up-sendgrid"></a>SendGrid をフックする
 
-このセクションの手順には現在ありません。 参照してください[構成の SendGrid 電子メール プロバイダー](/aspnet/core/security/authentication/accconfirm#configure-email-provider)の指示を更新します。
+このセクションの手順は最新ではありません。 詳細な手順については、「 [SendGrid 電子メールプロバイダーの構成](/aspnet/core/security/authentication/accconfirm#configure-email-provider)」を参照してください。
 
-このチュートリアルを使用して電子メール通知を追加する方法だけでは[SendGrid](http://sendgrid.com/)、SMTP とその他のメカニズムを使用して電子メールを送信することができます (を参照してください[その他のリソース](#addRes))。
+このチュートリアルでは、 [Sendgrid](http://sendgrid.com/)を使用して電子メール通知を追加する方法のみを説明していますが、SMTP などのメカニズムを使用[して電子](#addRes)メールを送信することもできます。
 
 1. パッケージ マネージャー コンソールで、次のコマンドを入力します。 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
-2. 移動して、 [Azure SendGrid へのサインアップ ページ](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409)し、無料の SendGrid アカウントに登録します。 SendGrid を構成するのには、次のようなコードを追加することで*App_Start/IdentityConfig.cs*:
+2. [Azure SendGrid のサインアップページ](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409)にアクセスし、無料の sendgrid アカウントを登録します。 *App_Start/identityconfig.cs*で次のようなコードを追加して、sendgrid を構成します。
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample2.cs?highlight=3,5)]
 
-以下を追加する必要があります。
+次のインクルードを追加する必要があります。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample3.cs)]
 
-アプリの設定を格納すると、このサンプルをシンプルにするには、 *web.config*ファイル。
+このサンプルを簡単に保つために、アプリケーションの設定を web.config*ファイルに保存します*。
 
 [!code-xml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample4.xml)]
 
 > [!WARNING]
-> セキュリティ - ソース コード内の機密データは store ことはありません。 アカウントと資格情報は、appSetting で格納されます。 Azure では安全に保管するこれらの値で、 **[構成](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portal でのタブ。 参照してください[ASP.NET と Azure へパスワードやその他の機密データを展開するためのベスト プラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)します。
+> セキュリティ-機密データをソースコードに格納しません。 アカウントと資格情報は appSetting に格納されます。 Azure では、これらの値を Azure portal の [ **[構成](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ] タブに安全に格納できます。 [ASP.NET と Azure にパスワードやその他の機密データをデプロイするためのベストプラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)をご覧ください。
 
-### <a name="enable-email-confirmation-in-the-account-controller"></a>アカウント コント ローラーで確認の電子メールを有効にします。
+### <a name="enable-email-confirmation-in-the-account-controller"></a>アカウントコントローラーで電子メールの確認を有効にする
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample5.cs?highlight=16-21)]
 
-確認、 *Views\Account\ConfirmEmail.cshtml*ファイルが適切な razor 構文。 (、@ 文字が最初の行が見つからないことができます。 )
+*Views\Account\ConfirmEmail.cshtml*ファイルに正しい razor 構文があることを確認します。 (最初の行の @ 文字が欠落している可能性があります。 )
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample6.cshtml?highlight=1)]
 
-アプリを実行し、登録リンクをクリックします。 登録フォームを送信するに記録されます。
+アプリを実行し、[登録] リンクをクリックします。 登録フォームを送信すると、ログインしたことになります。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image4.png)
 
-電子メール アカウントを確認し、電子メールを確認するには、リンクをクリックします。
+電子メールアカウントを確認し、リンクをクリックして電子メールを確認します。
 
 <a id="require"></a>
-## <a name="require-email-confirmation-before-log-in"></a>ログインする前に確認の電子メールが必要です。
+## <a name="require-email-confirmation-before-log-in"></a>ログインする前に電子メールの確認を要求する
 
-現在、ユーザーには、登録フォームが完了すると後ログに記録されます。 ログを記録する前に自分の電子メールを確認する一般にできます。 以下のセクションには、ログインには、確認された電子メール (認証された) 新しいユーザーを要求するコードを変更します。 更新プログラム、`HttpPost Register`メソッドを次の強調表示された変更。
+現在、ユーザーが登録フォームを完了すると、ログインします。 通常は、ログを記録する前に電子メールを確認します。 以下のセクションでは、新しいユーザーがログイン (認証) される前に確認済みの電子メールを要求するようにコードを変更します。 次の強調表示された変更を使用して、`HttpPost Register` メソッドを更新します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample7.cs?highlight=14-15,23-30)]
 
-コメント アウトすることによって、`SignInAsync`メソッド、ユーザーは署名されません登録をします。 `TempData["ViewBagLink"] = callbackUrl;`行に使用できる[、アプリのデバッグ](#dbg)し、電子メールを送信することがなく登録をテストします。 `ViewBag.Message` 確認手順の表示に使用します。 [サンプルをダウンロード](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)メールをセットアップすることがなく確認の電子メールをテストするコードが含まれ、アプリケーションのデバッグにも使用できます。
+`SignInAsync` メソッドをコメントアウトすることで、ユーザーは登録によってサインインされません。 `TempData["ViewBagLink"] = callbackUrl;` 行を使用して、電子メールを送信することなく、[アプリをデバッグ](#dbg)し、登録をテストできます。 `ViewBag.Message` は、確認の指示を表示するために使用されます。 [ダウンロードサンプル](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)には、電子メールを設定せずに電子メールの確認をテストするコードが含まれており、アプリケーションのデバッグにも使用できます。
 
-作成、`Views\Shared\Info.cshtml`ファイルを開き、次の razor マークアップを追加します。
+`Views\Shared\Info.cshtml` ファイルを作成し、次の razor マークアップを追加します。
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-追加、 [Authorize 属性](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx)を`Contact`Home コント ローラーのアクション メソッド。 クリックして、**連絡先**匿名ユーザーにアクセスできないし、認証されたユーザーがアクセスを確認するリンク。
+[承認属性](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx)を Home コントローラーの `Contact` アクションメソッドに追加します。 **[Contact]** リンクをクリックすると、匿名ユーザーがアクセス権を持っていないこと、および認証されたユーザーがアクセス権を持っていないことを確認できます。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
-更新することも必要があります、`HttpPost Login`アクション メソッド。
+また、`HttpPost Login` アクションメソッドも更新する必要があります。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample10.cs?highlight=13-22)]
 
-更新プログラム、 *Views\Shared\Error.cshtml*エラー メッセージを表示します。
+*Views\Shared\Error.cshtml*ビューを更新して、エラーメッセージを表示します。
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample11.cshtml?highlight=8-17)]
 
-内の任意のアカウントを削除、 **AspNetUsers**を使用してテストする電子メールのエイリアスが含まれているテーブル。 アプリを実行し、電子メール アドレスを確認するまでにログインできないことを確認します。 電子メール アドレスのことを確認したら、クリックして、**連絡先**リンク。
+テストする電子メールエイリアスが含まれている**AspNetUsers**テーブル内のすべてのアカウントを削除します。 アプリを実行し、電子メールアドレスが確認されるまでログインできないことを確認します。 電子メールアドレスを確認したら、 **[Contact]** リンクをクリックします。
 
 <a id="reset"></a>
-## <a name="password-recoveryreset"></a>パスワード回復/リセット
+## <a name="password-recoveryreset"></a>パスワードの回復/リセット
 
-コメント文字を削除、`HttpPost ForgotPassword`アクション メソッド、account コント ローラー。
+アカウントコントローラーの `HttpPost ForgotPassword` アクションメソッドからコメント文字を削除します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample12.cs?highlight=17-20)]
 
-コメント文字を削除、 `ForgotPassword` [ActionLink](https://msdn.microsoft.com/library/system.web.mvc.html.linkextensions.actionlink(v=vs.118).aspx)で、 *Views\Account\Login.cshtml* razor ビュー ファイル。
+*Views\Account\Login.cshtml* razor ビューファイルの `ForgotPassword` [html.actionlink](https://msdn.microsoft.com/library/system.web.mvc.html.linkextensions.actionlink(v=vs.118).aspx)からコメント文字を削除します。
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample13.cshtml?highlight=47-50)]
 
-ログイン ページでは、パスワードのリセットへのリンクが表示されます。
+ログインページに、パスワードをリセットするためのリンクが表示されるようになります。
 
 <a id="rsend"></a>
-## <a name="resend-email-confirmation-link"></a>電子メールの確認リンクを再送信します。
+## <a name="resend-email-confirmation-link"></a>電子メールの再送信の確認リンク
 
-ユーザーは、新しいローカル アカウントを作成した後は、確認リンクがログオンする前に、使用する必要が、メールで送信されます。 確認の電子メールをユーザーが誤って削除または電子メールが到着することはありません、確認リンクをもう一度送信される必要があります。 次のコード変更では、これを有効にする方法を示します。
+ユーザーは、新しいローカルアカウントを作成すると、ログオンする前に使用する必要がある確認のリンクを電子メールで送信します。 ユーザーが誤って確認メールを削除した場合、または電子メールが届いていない場合は、確認リンクを再度送信する必要があります。 次のコード変更は、これを有効にする方法を示しています。
 
-下に次のヘルパー メソッドを追加、 *controllers \accountcontroller.cs*ファイル。
+次のヘルパーメソッドを、*コントローラー*ファイルの一番下に追加します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample14.cs)]
 
-新しいヘルパーを使用して Register メソッドを更新します。
+新しいヘルパーを使用するように Register メソッドを更新します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample15.cs?highlight=17)]
 
-ユーザー アカウントが確認されていない場合は、パスワードを再送信する、Login メソッドを更新します。
+ユーザーアカウントが確認されていない場合は、ログイン方法を更新してパスワードを再送信します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample16.cs?highlight=20)]
 
 <a id="combine"></a>
-## <a name="combine-social-and-local-login-accounts"></a>ソーシャル、ローカルのログイン アカウントを組み合わせる
+## <a name="combine-social-and-local-login-accounts"></a>ソーシャルおよびローカルログインアカウントの結合
 
-電子メールのリンクをクリックして、ローカルおよびソーシャル アカウントを組み合わせることができます。 次の順序で**RickAndMSFT@gmail.com**が最初に、ローカル ログインとして作成は、まずソーシャル ログとしてアカウントを作成し、ローカル ログインを追加することができます。
+電子メールリンクをクリックして、ローカルアカウントとソーシャルアカウントを組み合わせることができます。 次のシーケンスでは、最初にローカルログインとして **RickAndMSFT@gmail.com** が作成されますが、最初にアカウントをソーシャルログとして作成してから、ローカルログインを追加することができます。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image5.png)
 
-をクリックして、**管理**リンク。 注、**外部ログイン。0**このアカウントに関連付けられています。
+**[管理]** リンクをクリックします。 このアカウントに関連付けられている**外部ログイン: 0**に注意してください。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image6.png)
 
-サービス内の別のログへのリンクをクリックし、アプリの要求をそのまま使用します。 2 つのアカウントが結合されている、いずれかのアカウントでログオンすることができます。 ユーザー、ソーシャル ログイン認証サービスがダウンしているか、自分のソーシャル アカウントにアクセスを紛失した可能性が高い場合は、ローカル アカウントを追加することができます。
+別のログインサービスへのリンクをクリックし、アプリの要求を受け入れます。 2つのアカウントが結合されているので、いずれかのアカウントでログオンすることができます。 認証サービスのソーシャルログがダウンした場合、またはソーシャルアカウントへのアクセスが失われる可能性がある場合に備えて、ユーザーにローカルアカウントを追加することをお勧めします。
 
-次の図では、Tom は、ソーシャル ログイン (から確認できる**外部ログイン。1**ページに表示)。
+次の図では、Tom はソーシャルログ (ページに表示されている**外部ログイン: 1**から参照できます) です。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image7.png)
 
-クリックすると**パスワードの入力**同じアカウントに関連付けられたでローカルのログを追加することができます。
+**[パスワードの選択]** をクリックすると、同じアカウントに関連付けられているローカルログオンを追加できます。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image8.png)
 
-## <a name="email-confirmation-in-more-depth"></a>より詳細に確認の電子メール
+## <a name="email-confirmation-in-more-depth"></a>より詳細な電子メールの確認
 
-拙著のチュートリアル[アカウントの確認と ASP.NET Identity によるパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)の詳細については、このトピックに移動します。
+このトピックでは[、ASP.NET Identity を使用したチュートリアルアカウントの確認とパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)について詳しく説明します。
 
 <a id="dbg"></a>
 ## <a name="debugging-the-app"></a>アプリのデバッグ
 
-リンクを含むメールが届かない: 場合
+リンクを含む電子メールが表示されない場合は、次のようになります。
 
-- 迷惑メールまたはスパム メール フォルダーを確認します。
-- SendGrid アカウントにログインし、をクリックして、[電子メール アクティビティ リンク](https://sendgrid.com/logs/index)します。
+- 迷惑メールまたは迷惑メールフォルダーを確認します。
+- SendGrid アカウントにログインし、[ [Email Activity] リンク](https://sendgrid.com/logs/index)をクリックします。
 
-電子メールなしの確認リンクをテストするには、ダウンロード、[完全なサンプル](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)します。 ページ確認のリンクと確認コードが表示されます。
+電子メールを使用せずに検証リンクをテストするには、[完成したサンプル](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)をダウンロードします。 ページに確認のリンクと確認コードが表示されます。
 
 <a id="addRes"></a>
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の資料
 
-- [リンクを ASP.NET Identity 推奨リソース](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
-- [アカウントの確認と ASP.NET Identity によるパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)の詳細については、回復、アカウントのパスワードの確認にします。
-- [Facebook、Twitter、LinkedIn、Google の OAuth2 サインオンした MVC 5 アプリケーション](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)このチュートリアルでは、Facebook や Google の OAuth 2 承認を持つ ASP.NET MVC 5 アプリを記述する方法。 Id のデータベースにデータを追加する方法も示します。
-- [メンバーシップ、OAuth、SQL Database を使用した安全な ASP.NET MVC アプリを Azure にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)します。 このチュートリアルでは、Azure のデプロイを追加します。 ロールを使用してアプリをセキュリティで保護する方法、メンバーシップ API を使用して、ユーザーとロール、および追加のセキュリティ機能を追加する方法。
-- [OAuth 2 用の Google アプリを作成して、アプリ プロジェクトを接続します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#goog)
-- [Facebook でアプリを作成し、アプリ プロジェクトを接続します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)
-- [プロジェクトの SSL の設定](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#ssl)
+- [推奨されるリソースへのリンク ASP.NET Identity](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
+- [ASP.NET Identity を使用したアカウントの確認とパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)パスワードの回復とアカウントの確認についてさらに詳しく説明します。
+- [Facebook、Twitter、LinkedIn、Google OAuth2 サインオンを使用した MVC 5 アプリ](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)このチュートリアルでは、Facebook と Google OAuth 2 認証を使用して ASP.NET MVC 5 アプリを作成する方法について説明します。 また、Id データベースにデータを追加する方法についても説明します。
+- [メンバーシップ、OAuth、SQL Database を持つ Secure ASP.NET MVC アプリを Azure にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)します。 このチュートリアルでは、Azure のデプロイ、ロールを使用してアプリをセキュリティで保護する方法、メンバーシップ API を使用してユーザーとロールを追加する方法、および追加のセキュリティ機能を追加します。
+- [OAuth 2 用の Google アプリを作成し、そのアプリをプロジェクトに接続する](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#goog)
+- [Facebook でアプリを作成し、アプリをプロジェクトに接続する](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)
+- [プロジェクトでの SSL の設定](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#ssl)
