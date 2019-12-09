@@ -1,66 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
-title: (VB) DropShadow の Z インデックスを調整 |Microsoft Docs
+title: DropShadow の Z インデックスの調整 (VB) |Microsoft Docs
 author: wenz
-description: DropShadow コントロール、AJAX Control Toolkit では、影付きのパネルを拡張します。 ただし場合がありますこのシャドウがインストールの他のコントロールと競合しています.
+description: AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、他のコントロールと競合することがあります。
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f56087b1e94653d2a6a06f915191db6ec5e358a2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 10495a9590ce1f25e9e3fa218ac5144268f50711
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116959"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74574177"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>DropShadow の Z インデックスを調整する (VB)
 
-によって[Christian Wenz](https://github.com/wenz)
+[Christian Wenz](https://github.com/wenz)別
 
-[コードのダウンロード](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)
 
-> DropShadow コントロール、AJAX Control Toolkit では、影付きのパネルを拡張します。 ただしこのシャドウは、他のコントロールでは、ASP.NET の Menu コントロールのインスタンスとも競合しています。 ときにメニュー エントリが表示されます、ドロップ シャドウの背後に表示されます。
+> AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、ASP.NET Menu コントロールなど、他のコントロールと競合することがあります。 メニューエントリがポップアップ表示されると、ドロップシャドウの背後に表示されます。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-DropShadow コントロール、AJAX Control Toolkit では、影付きのパネルを拡張します。 ただしこのシャドウは、他のコントロールでは、ASP.NET の Menu コントロールのインスタンスとも競合しています。 ときにメニュー エントリが表示されます、ドロップ シャドウの背後に表示されます。
+AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、ASP.NET Menu コントロールなど、他のコントロールと競合することがあります。 メニューエントリがポップアップ表示されると、ドロップシャドウの背後に表示されます。
 
 ## <a name="steps"></a>手順
 
-コードは、パネルが表示される効果のための十分なテキストが含まれるように、十分なテキストを含む、パネル自体には、開始します。
+コードはパネル自体で開始されます。これにより、パネルには、効果を表示するのに十分なテキストが含まれるようになります。
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample1.aspx)]
 
-別のパネルが直前に配置されて、`panelShadow`パネル。 上メニュー エントリが表示されるように水平方向のメニューが含まれている (または: )、`dropShadow`パネル)。
+`panelShadow` パネルの直前に別のパネルが配置されます。 メニュー項目が [`dropShadow`] パネルの上 (または下) に表示されるように、横方向のメニューが含まれています。
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample2.aspx)]
 
-次に、`DropShadowExtender`拡張に追加されます、`panelShadow`ドロップ シャドウ効果を使用したパネル。
+次に、`DropShadowExtender` を追加して、ドロップシャドウ効果を持つ `panelShadow` パネルを拡張します。
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample3.aspx)]
 
-ASP.NET AJAX では最後に、`ScriptManager`コントロールが動作する Control Toolkit を使用します。
+最後に、ASP.NET AJAX `ScriptManager` コントロールを使用して、コントロールツールキットを機能させることができます。
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample4.aspx)]
 
-このスクリプトを実行すると、パネルの下にあるメニュー エントリが表示されます。 ただし、メニューが CSS クラスを使用して`panel`だけがある他のパネルの前に表示される要素を次の 2 つを定義します。
+このスクリプトを実行すると、メニューエントリがパネルの下に表示されます。 ただし、メニューでは CSS クラス `panel` を使用します。ここでは、要素を他のパネルの前面に表示するために、次の2つの項目を定義する必要があります。
 
 - 相対配置
 - 正の z インデックス
 
 [!code-css[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample5.css)]
 
-次に、 `DropShadowExtender` Menu コントロールとコントロールが不要に競合しません。
+その後、`DropShadowExtender` コントロールがメニューコントロールと競合しないようになります。
 
-[![以前は：メニュー エントリが表示されていません。](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)
+[![の前: メニューエントリは表示されません](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)
 
-前:メニュー エントリは表示されません ([フルサイズの画像を表示する をクリックします](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))。
+[前]: メニューエントリは表示されません ([クリックすると、フルサイズの画像が表示](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png)されます)
 
-[![設定後。メニュー エントリが表示されます。](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)
+[![後: メニュー項目が表示されます。](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)
 
-後:メニュー エントリが表示されます ([フルサイズの画像を表示する をクリックします](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))。
+[完了]: メニューエントリが表示されます ([クリックすると、フルサイズの画像が表示](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png)されます)
 
 > [!div class="step-by-step"]
 > [前へ](manipulating-dropshadow-properties-from-client-code-cs.md)

@@ -1,398 +1,398 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
-title: 付録:修正プログラムがのサンプル アプリケーション (Azure での実際のクラウド アプリの構築) |Microsoft Docs
+title: '付録: Fix It サンプルアプリケーション (Azure を使用した実際のクラウドアプリの構築) |Microsoft Docs'
 author: MikeWasson
-description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
+description: Azure 電子ブックを使用した実際のクラウドアプリの構築は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 13のパターンとベストプラクティスについて説明します。
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: d3a965ccf7ca001d3178819f88836b59f2893bb0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e6fda47babd3c2505315f42667c45f09482218c2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406419"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583745"
 ---
-# <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録:修正プログラムがのサンプル アプリケーション (Azure での実際のクラウド アプリの構築)
+# <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: Fix It サンプルアプリケーション (Azure を使用した実際のクラウドアプリの構築)
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
-[プロジェクトに修正プログラムをダウンロードします。](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
+[修正プログラムのプロジェクトをダウンロードする](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
-> **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
+> Azure 電子ブック**を使用した実際のクラウドアプリの構築**は、Scott Guthrie によって開発されたプレゼンテーションに基づいています。 ここでは、クラウド用の web アプリの開発を成功させるのに役立つ13のパターンとプラクティスについて説明します。 電子書籍の詳細については、[最初の章](introduction.md)を参照してください。
 
-Azure 電子書籍で構築実世界クラウド アプリには、この付録には、Fix It サンプル アプリケーションをダウンロードすることに関する追加情報を提供する次のセクションが含まれています。
+この付録では、Azure 電子ブックを使用した実際のクラウドアプリの構築について説明します。次のセクションでは、ダウンロード可能な修正プログラムサンプルアプリケーションに関する追加情報を提供しています。
 
 - [既知の問題](#knownissues)
 - [ベスト プラクティス](#bestpractices)
-- [ローカル コンピューターに Visual Studio からアプリを実行する方法](#run-in-vs)
-- [Windows PowerShell スクリプトを使用して基本アプリを Azure App Service Web Apps にデプロイする方法](#deploybase)
+- [ローカルコンピューター上の Visual Studio からアプリを実行する方法](#run-in-vs)
+- [Windows PowerShell スクリプトを使用して Azure App Service Web Apps に基本アプリを展開する方法](#deploybase)
 - [Windows PowerShell スクリプトのトラブルシューティング](#troubleshooting)
-- [Azure App Service Web Apps と Azure クラウド サービスを処理キューに、アプリをデプロイする方法](#deployqueues)
+- [キュー処理を使用してアプリを Azure App Service Web Apps と Azure クラウドサービスにデプロイする方法](#deployqueues)
 
 <a id="knownissues"></a>
 ## <a name="known-issues"></a>既知の問題
 
-Fix It アプリは、もともと限りシンプルにこの電子書籍を示したパターンの一部を説明するために開発されました。 ただし、電子書籍では、実際のアプリの構築方法であるため対象となる Fix It コード レビューとテスト プロセスにリリースされたソフトウェアの作業と似ています。 数多くの問題が見つかったと、実際のアプリケーションと同様にその一部を修正しましたされ、今後のリリースにそれらのいくつかの遅延。
+この電子書籍に記載されているパターンのいくつかをできるだけ簡単に説明するために、It アプリを修正しました。 ただし、電子書籍は実際のアプリの作成に関するものであるため、リリースされたソフトウェアの場合と同様に、レビューおよびテストのプロセスに対してコードの修正を実施しました。 いくつかの問題が見つかりました。実際のアプリケーションと同様に、いくつかの問題が修正され、その一部は今後のリリースに延期されました。
 
-次の一覧には、実稼働アプリケーションではアドレス Fix It サンプル アプリケーションの初期リリースでないことにしました別の理由の 1 つの問題に対処する必要がありますが含まれています。
+次の一覧には、実稼働アプリケーションで対処する必要がある問題が含まれていますが、1つの理由として、Fix It サンプルアプリケーションの最初のリリースでは対応していないと判断しました。
 
 ### <a name="security"></a>セキュリティ
 
-- 存在しない所有者にタスクを割り当てることはできませんを確認します。
-- しかことを確認します。 表示および作成するか、自分に割り当てられたタスクを変更します。
-- サインイン ページと認証 cookie を HTTPS を使用します。
-- 認証クッキーの期限を指定します。
+- 存在しない所有者にタスクを割り当てることができないようにしてください。
+- 作成したタスク、または自分に割り当てられたタスクだけを表示および変更できることを確認します。
+- サインインページと認証 cookie には HTTPS を使用します。
+- 認証 cookie の制限時間を指定します。
 
 ### <a name="input-validation"></a>入力の検証
 
-一般に、運用環境のアプリが行う Fix It アプリよりも多くの入力の検証。 たとえば、イメージのサイズ]、[画像のアップロードを制限するか許可されているファイルのサイズ。
+一般に、運用アプリでは、It アプリの修正よりも多くの入力検証が行われます。 たとえば、アップロードに許可されているイメージサイズ/イメージファイルのサイズは制限する必要があります。
 
 ### <a name="administrator-functionality"></a>管理者の機能
 
-管理者は、既存のタスクでの所有権を変更できる必要があります。 たとえば、タスクの作成者は、機関の管理アクセスが有効にしない限り、タスクを維持するために、だれを終了、会社を退職可能性があります。
+管理者は、既存のタスクの所有権を変更できなければなりません。 たとえば、タスクの作成者が会社を退職した場合、管理アクセスが有効になっていない限り、タスクを維持する権限はありません。
 
-### <a name="queue-message-processing"></a>キュー メッセージの処理
+### <a name="queue-message-processing"></a>キューメッセージの処理
 
-Fix It アプリで処理するキュー メッセージは、最小限のコードでキューを中心とした作業パターンを説明するために簡単に設計されています。 この単純なコードは、実際の運用アプリケーションのための適切なできません。
+Fix It アプリでのキューメッセージ処理は、最小限のコードでキュー中心の作業パターンを示すために単純なものとして設計されました。 この単純なコードは、実際の運用アプリケーションには適していません。
 
-- コードでは、各キュー メッセージが最大で 1 回処理されることは保証されません。 キューからメッセージを取得するときに、メッセージが他のキュー リスナーに表示されていない、タイムアウト期間があります。 もう一度メッセージが削除される前にタイムアウトになるには、メッセージが表示されます。 そのため、ワーカー ロール インスタンスは、メッセージの処理時間を費やして、ある理論的に、同じメッセージを 2 回、処理可能、データベース内の重複するタスクの結果します。 この問題の詳細については、次を参照してください。[を使用して Azure Storage キュー](https://msdn.microsoft.com/library/ff803365.aspx#sec7)します。
-- キューのポーリングのロジックは、メッセージの取得をバッチ処理によってよりコスト効果の高い可能性があります。 呼び出すたびに[CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx)トランザクションのコストがあります。 代わりに、呼び出すことができます[CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (、複数形に注意してください ')、単一のトランザクションで複数のメッセージを取得します。 Azure Storage キューのトランザクション コストは、ため、ほとんどのシナリオで大幅なコストへの影響は非常に低いです。
-- キュー メッセージの処理コードの緊密なループにより、CPU アフィニティは、複数のコアの Vm を効率的に使用されません。 優れた設計は、いくつかの非同期タスクの並列実行するのにタスクの並列化を使用します。
-- キューのメッセージ処理では、のみ初歩的な例外処理があります。 たとえば、コードを処理しない[有害メッセージ](https://msdn.microsoft.com/library/ms789028.aspx)します。 (メッセージの処理には、例外が発生、エラーを記録し、メッセージを削除する必要があるまたはワーカー ロールは、もう一度処理しようし、ループが無期限に続行されます。)
+- このコードでは、各キューメッセージが1回だけ処理されることは保証されません。 キューからメッセージを取得すると、タイムアウト期間が発生します。その間、メッセージは他のキューリスナーに対して非表示になります。 メッセージが削除される前にタイムアウトが経過すると、メッセージが再び表示されるようになります。 このため、worker ロールインスタンスがメッセージの処理に長い時間がかかる場合は、同じメッセージが2回処理される可能性があり、その結果、データベースに重複するタスクが発生します。 この問題の詳細については、「 [Azure Storage キューの使用](https://msdn.microsoft.com/library/ff803365.aspx#sec7)」を参照してください。
+- キューのポーリングロジックは、メッセージの取得をバッチ処理することにより、コスト効率に優れています。 [GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx)を呼び出すたびに、トランザクションコストが発生します。 代わりに、 [Cloudqueue. Getmessages async](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (複数形の ') を呼び出すことができます。この場合、1つのトランザクションで複数のメッセージが取得されます。 Azure Storage キューのトランザクションコストが非常に低いため、ほとんどのシナリオではコストへの影響は大きくありません。
+- キューメッセージ処理コードの短いループにより、CPU アフィニティが発生します。この場合、マルチコア Vm は効率的に使用されません。 より優れた設計では、タスクの並列化を使用して複数の非同期タスクを並列に実行します。
+- キューメッセージの処理には、基本的な例外処理しかありません。 たとえば、コードは[有害なメッセージ](https://msdn.microsoft.com/library/ms789028.aspx)を処理しません。 (メッセージ処理によって例外が発生した場合は、エラーを記録してメッセージを削除する必要があります。そうしないと、ワーカーロールはその処理を再試行し、ループは無期限に続行されます)。
 
-### <a name="sql-queries-are-unbounded"></a>SQL クエリの制限がないです。
+### <a name="sql-queries-are-unbounded"></a>SQL クエリはバインドされていません
 
-現在の修正、コードは、インデックス ページのクエリが返す可能性があります行の数に制限を配置しません。 膨大な量のタスクがデータベースに入力された場合、受信した結果のリストのサイズにはパフォーマンスの問題可能性があります。 ソリューションでは、ページングを実装します。 例については、次を参照してください。[並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でページング](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)します。
+現在の修正このコードでは、インデックスページのクエリが返す行の数に制限はありません。 大量のタスクがデータベースに入力されると、受信したリストのサイズによってパフォーマンスの問題が発生する可能性があります。 この解決策は、ページングを実装することです。 例については、「 [ASP.NET MVC アプリケーションでの Entity Framework の並べ替え、フィルター処理、およびページング](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)」を参照してください。
 
-### <a name="view-models-recommended"></a>推奨モデルの表示
+### <a name="view-models-recommended"></a>推奨されるモデルの表示
 
-Fix It アプリでは、FixItTask エンティティ クラスを使用して、コント ローラーとビューの間で情報を渡します。 ビュー モデルを使用することをお勧めします。 ドメイン モデル (FixItTask エンティティ クラスなど) は、データの表示、ビュー モデルをデザインするときにデータ永続化のために必要なものに基づいて設計されています。 詳細については、次を参照してください。 [12 の ASP.NET MVC のベスト プラクティス](http://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx)します。
+Fix It アプリは、FixItTask エンティティクラスを使用して、コントローラーとビューの間で情報を渡します。 ビューモデルを使用することをお勧めします。 ドメインモデル (FixItTask エンティティクラスなど) は、データの永続化に必要なものを中心に設計されていますが、ビューモデルはデータ表示用に設計できます。 詳細については、「 [12 ASP.NET MVC のベストプラクティス](https://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx)」を参照してください。
 
-### <a name="secure-image-blob-recommended"></a>セキュリティで保護されたイメージの blob がお勧めします
+### <a name="secure-image-blob-recommended"></a>保護されたイメージ blob を推奨
 
-つまりイメージの URL を見つけた他のユーザー アクセスできる、パブリックとしてイメージを Fix It アプリ ストアにアップロードされます。 パブリックではなく、イメージを保護する可能性があります。
+Fix It アプリは、アップロードされたイメージをパブリックとして保存します。つまり、URL を見つけたすべてのユーザーがイメージにアクセスできます。 イメージは、パブリックではなく、セキュリティで保護されている可能性があります。
 
-### <a name="no-powershell-automation-scripts-for-queues"></a>キューの PowerShell オートメーション スクリプトはありません。
+### <a name="no-powershell-automation-scripts-for-queues"></a>キュー用の PowerShell オートメーションスクリプトがありません
 
-オートメーションのサンプル PowerShell スクリプトは、のみの修正が完全に Azure App Service Web Apps で実行される基本バージョン用に作成されました。 設定して、web アプリとキューの処理に必要なクラウド サービス環境に展開するためスクリプトを指定していません。
+サンプル PowerShell の自動化スクリプトは、Azure App Service Web Apps で完全に実行される、修正プログラムの基本バージョンに対してのみ作成されました。 キューの処理に必要な web アプリとクラウドサービス環境を設定してデプロイするためのスクリプトは提供されていません。
 
-### <a name="special-handling-for-html-codes-in-user-input"></a>ユーザー入力に HTML コードの特別な処理
+### <a name="special-handling-for-html-codes-in-user-input"></a>ユーザー入力における HTML コードの特別な処理
 
-ASP.NET には、さまざまな方法が悪意のあるユーザーがユーザー入力テキスト ボックスにスクリプトを入力してクロス サイト スクリプティング攻撃を試みることもありますが自動的にできないようにします。 MVC`DisplayFor`タスクを表示するために使用するヘルパーがタイトルし、自動的にブラウザーに送信される HTML エンコードの値をメモします。 ただし、運用アプリでその他の対策をする可能性があります。 詳細については、次を参照してください。 [asp.net 要求の検証](https://msdn.microsoft.com/library/hh882339.aspx)です。
+ASP.NET を使用すると、ユーザー入力テキストボックスにスクリプトを入力することで、悪意のあるユーザーがクロスサイトスクリプト攻撃を試みる可能性が自動的に回避されます。 また、タスクタイトルとメモを表示するために使用される MVC `DisplayFor` ヘルパーは、ブラウザーに送信する値を自動的に HTML エンコードします。 しかし、運用アプリでは、追加の手段を取る必要がある場合があります。 詳細については、「 [ASP.NET での要求の検証](https://msdn.microsoft.com/library/hh882339.aspx)」を参照してください。
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>ベスト プラクティス
 
-コード レビューで発見し、修正、アプリの元のバージョンのテストの後に修正されているいくつかの問題を次に示します。 いない認識すること、特定のベスト プラクティスのいくつか単純に元のプログラマによっていくつか発生したため、コードが簡単に作成されており、リリースされたソフトウェアの意図しません。 このレビューから学んだものを使用する必要がある場合、ここでの問題を一覧表示しているし、他の web アプリの開発も、ユーザーに役立つテストにあります。
+次に示すのは、修正後の It アプリの元のバージョンのコードレビューとテストで解決された問題です。 元のプログラマが特定のベストプラクティスを認識していないことが原因として考えられるのは、コードが迅速に記述され、リリースされたソフトウェアを意図していなかったためです。 ここでは、web アプリを開発している他のユーザーにとって役に立つ可能性がある、このレビューとテストから学んだことがある問題について説明しています。
 
-### <a name="dispose-the-database-repository"></a>データベースのリポジトリを破棄します。
+### <a name="dispose-the-database-repository"></a>データベースリポジトリを破棄します。
 
-`FixItTaskRepository`クラスは、Entity Framework を破棄する必要があります`DbContext`インスタンス。 実装することで、これを行った`IDisposable`で、`FixItTaskRepository`クラス。
+`FixItTaskRepository` クラスは、Entity Framework `DbContext` インスタンスを破棄する必要があります。 これを行うには、`FixItTaskRepository` クラスに `IDisposable` を実装します。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample1.cs)]
 
-AutoFac を自動的に破棄するメモ、`FixItTaskRepository`のインスタンスのため、明示的に破棄する必要はありません。
+AutoFac によって `FixItTaskRepository` インスタンスが自動的に破棄されるので、明示的に破棄する必要がないことに注意してください。
 
-削除することも、`DbContext`からメンバー変数`FixItTaskRepository`、代わりにローカルに作成および`DbContext`各リポジトリ メソッド内で変数内で、`using`ステートメント。 例えば:
+もう1つのオプションは、`FixItTaskRepository`から `DbContext` メンバー変数を削除し、`using` ステートメント内で各リポジトリメソッド内にローカル `DbContext` 変数を作成することです。 例:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample2.cs)]
 
-### <a name="register-singletons-as-such-with-di"></a>シングルトンに DI よう登録します。
+### <a name="register-singletons-as-such-with-di"></a>DI を使用してシングルトンを登録する
 
-以降のインスタンスを 1 つだけ、`PhotoService`クラスと`Logger`クラスが必要なこれらのクラスを指定する必要があります[依存関係の挿入の 1 つのインスタンスとして登録されている](https://code.google.com/p/autofac/wiki/InstanceScope)で*DependenciesConfig.cs*:
+`PhotoService` クラスと `Logger` クラスのインスタンスは1つだけ必要であるため、これらのクラスは*DependenciesConfig.cs*での[依存関係の挿入のために1つのインスタンスとして登録](https://code.google.com/p/autofac/wiki/InstanceScope)する必要があります。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample3.cs?highlight=1,3)]
 
-### <a name="security-dont-show-error-details-to-users"></a>セキュリティ:ユーザーにエラーの詳細を表示しません。
+### <a name="security-dont-show-error-details-to-users"></a>セキュリティ: エラーの詳細をユーザーに表示しない
 
-アプリ Fix It 元は、一般的なエラー ページがあるし、データベース接続エラーなどのいくつかの例外は、ブラウザーに表示されている完全なスタック トレースになる可能性がありますので、UI までのすべての例外バブルに任せてしませんでした。 エラーの詳細については、悪意のあるユーザーからの攻撃を促進できる場合があります。 ソリューションでは、例外の詳細を記録し、エラーの詳細が含まれていないユーザーにエラー ページを表示します。 Fix It アプリが既にログ記録、およびエラー ページを表示するために追加しました`<customErrors mode=On>`Web.config ファイルにします。
+元の Fix It アプリには一般的なエラーページがありません。すべての例外が UI にバブルアップされるだけなので、データベース接続エラーなどの例外によっては、完全なスタックトレースがブラウザーに表示される可能性があります。 エラーの詳細情報は、悪意のあるユーザーによる攻撃を促進することがあります。 この問題を解決するには、例外の詳細をログに記録し、エラーの詳細が含まれていないエラーページをユーザーに表示します。 Fix It アプリは既にログ記録されており、エラーページを表示するために、web.config ファイルに `<customErrors mode=On>` を追加しました。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample4.xml?highlight=2)]
 
-これにより、既定で*Views\Shared\Error.cshtml*エラーを表示します。 カスタマイズできる*Error.cshtml*または独自のエラー ページのビューを作成し、追加、`defaultRedirect`属性。 特定のエラーの別のエラー ページを指定することもできます。
+既定では、これにより、エラーの*Views\Shared\Error.cshtml*が表示されます。 *エラー*をカスタマイズすることも、独自のエラーページビューを作成して、`defaultRedirect` 属性を追加することもできます。 また、特定のエラーに対して別のエラーページを指定することもできます。
 
-### <a name="security-only-allow-a-task-to-be-edited-by-its-creator"></a>セキュリティ: は、作成者によって編集タスクのみを許可します。
+### <a name="security-only-allow-a-task-to-be-edited-by-its-creator"></a>セキュリティ: タスクの作成者だけが編集できるようにする
 
-ダッシュ ボードのインデックス ページは、ログオンしているユーザーによって作成されたタスクだけを表示しますが、悪意のあるユーザーは別のユーザーのタスクに ID を持つ URL を作成する可能性があります。 内のコードを追加しました*DashboardController.cs*をその場合は、404 を返します。
+ダッシュボードのインデックスページには、ログオンしているユーザーによって作成されたタスクのみが表示されますが、悪意のあるユーザーが、別のユーザーのタスクに ID を持つ URL を作成する可能性があります。 この場合、404を返すコードを*DashboardController.cs*に追加しました。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample5.cs?highlight=9-14,24-29)]
 
-### <a name="dont-swallow-exceptions"></a>例外を飲み込むはありません。
+### <a name="dont-swallow-exceptions"></a>例外を飲み込むしない
 
-アプリ Fix It 元だけが null を返しましたログインすると、SQL クエリの結果として生じた例外。
+元の Fix It アプリでは、SQL クエリの結果として発生した例外をログに記録した後、次のように null が返されました。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample6.cs?highlight=4)]
 
-クエリが成功しましたが、同じ行が返されませんでしたかのように、ユーザーに外観になります。 ソリューションのキャッチとログ記録の後に例外を再スローすることです。
+これにより、クエリが成功したとしても、行が返されなかったかのようにユーザーに表示されるようになります。 解決策は、キャッチしてログを記録した後に例外を再スローすることです。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample7.cs)]
 
-### <a name="catch-all-exceptions-in-worker-roles"></a>ワーカー ロールのすべての例外をキャッチします。
+### <a name="catch-all-exceptions-in-worker-roles"></a>Worker ロールのすべての例外をキャッチする
 
-VM を再利用すると、ワーカー ロールでハンドルされない例外、try-catch ブロックで実行し、すべての例外を処理するすべてをラップするためです。
+ワーカーロールでハンドルされない例外が発生すると、VM がリサイクルされます。そのため、try-catch ブロックで実行するすべての処理をラップし、すべての例外を処理する必要があります。
 
-### <a name="specify-length-for-string-properties-in-entity-classes"></a>エンティティ クラスのプロパティの文字列長を指定します。
+### <a name="specify-length-for-string-properties-in-entity-classes"></a>エンティティクラスの文字列プロパティの長さを指定する
 
-Fix It アプリの元のバージョンの単純なコードを表示するために、FixItTask エンティティのフィールドの長さを指定していないし、その結果、データベースでは、varchar (max) として定義されました。 その結果、UI がほぼすべての量の入力、受け入れていました。 Web ページと、データベース内の列のサイズで両方のユーザーに適用される指定の長さセット制限を入力します。
+単純なコードを表示するために、Fix It アプリの元のバージョンは、FixItTask エンティティのフィールドの長さを指定していませんでした。その結果、データベースで varchar (max) として定義されました。 その結果、UI はほぼすべての入力を受け入れます。 長さを指定すると、web ページのユーザー入力とデータベースの列サイズの両方に適用される制限が設定されます。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample8.cs?highlight=4,7,10,12,14)]
 
-### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>変更することが予期されないときに、プライベート メンバーを readonly としてマークします。
+### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>プライベートメンバーが変更されることが予想されない場合は、プライベートメンバーを読み取り専用としてマークする
 
-たとえば、`DashboardController`クラスのインスタンス`FixItTaskRepository`が作成され、変更するには想定されていませんとして定義したので[readonly](https://msdn.microsoft.com/library/acdd6hb7.aspx)します。
+たとえば、`DashboardController` クラスでは `FixItTaskRepository` のインスタンスが作成され、変更されることは想定されていないため、 [readonly](https://msdn.microsoft.com/library/acdd6hb7.aspx)として定義しました。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
-### <a name="use-listany-instead-of-listcount-gt-0"></a>Use list.Any() instead of list.Count() &gt; 0
+### <a name="use-listany-instead-of-listcount-gt-0"></a>リストを使用します。List ではなく任意の ()。Count () &gt; 0
 
-リスト内の 1 つまたは複数の項目が指定した条件に一致するかどうかが重要する場合を使用して、[任意](https://msdn.microsoft.com/library/bb534972.aspx)メソッドを返すため、条件に適合する項目が見つかるとすぐに対し、`Count`メソッドは常に反復処理するにはすべてのアイテム。 ダッシュ ボード*Index.cshtml*ファイルは、このコードを最初から。
+リスト内の1つ以上の項目が指定した条件に適合するかどうかを確認するだけの場合は、[[任意](https://msdn.microsoft.com/library/bb534972.aspx)のメソッド] を使用します。これは、条件を満たす項目が見つかった場合はすぐに制御が戻るのに対し、`Count` メソッドは常にすべての項目を反復処理する必要があるためです。 ダッシュボードの*インデックスの cshtml*ファイルには、最初に次のコードが含まれていました。
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
-これを変更しました。
+次のように変更しました。
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample11.cshtml?highlight=1)]
 
-### <a name="generate-urls-in-mvc-views-using-mvc-helpers"></a>MVC ヘルパーを使用して MVC ビューで Url を生成します。
+### <a name="generate-urls-in-mvc-views-using-mvc-helpers"></a>Mvc ヘルパーを使用した MVC ビューでの Url の生成
 
-**作成修正**Fix It アプリ ハード ホーム ページで、ボタンは、アンカー要素をコード化されました。
+ホームページの [Fix It] \ (**修正プログラムの作成**\) ボタンをクリックすると、it アプリの修正によってアンカー要素がハードコーディングされます。
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-このようなビュー/アクション リンクは、使用する方がよい、 [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx)例については、HTML ヘルパー。
+このようなビュー/アクションリンクについては、次の例のように、 [Url. action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) HTML helper を使用することをお勧めします。
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
-### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Thread.Sleep ではなく Task.Delay を使用して、ワーカー ロール
+### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>ワーカーロールでは、Thread ではなく Delay を使用します
 
-新しいプロジェクト テンプレートは、`Thread.Sleep`サンプルで worker ロールでは、スレッドをスリープ状態の原因はコード不要な追加のスレッドを生成するスレッド プールが発生することができます。 使用して回避することができます[Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx)代わりにします。
+新しいプロジェクトのテンプレートでは、ワーカーロールのサンプルコードに `Thread.Sleep` が配置されますが、スレッドがスリープ状態になると、スレッドプールによって余分な不要なスレッドが生成される可能性があります。 これを回避するには、代わりに[Delay](https://msdn.microsoft.com/library/hh139096.aspx)を使用します。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
-### <a name="avoid-async-void"></a>Async void を避ける
+### <a name="avoid-async-void"></a>非同期 void を回避する
 
-非同期メソッドが値を返す必要がある場合を返す、`Task`型なく`void`します。
+非同期メソッドが値を返す必要がない場合は、`void`ではなく `Task` の型を返します。
 
-この例は、`FixItQueueManager`クラス。
+この例は、`FixItQueueManager` クラスからのものです。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-使用する必要があります`async void`最上位レベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元ができない**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、次を参照してください。[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)します。
+`async void` は、最上位レベルのイベントハンドラーに対してのみ使用してください。 メソッドを `async void`として定義した場合、呼び出し元はメソッドを**待機**したり、メソッドがスローする例外をキャッチしたりすることはできません。 詳細については、「[非同期プログラミングのベストプラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)」を参照してください。
 
-### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>キャンセル トークンを使用して、ワーカー ロールのループを中断するには
+### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>キャンセルトークンを使用してワーカーロールループを中断する
 
-通常、**実行**をワーカー ロールでのメソッドには、無限ループが含まれています。 Worker ロールが停止しているときに、 [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx)メソッドが呼び出されます。 このメソッドは、内部で行われている処理の取り消しを使用する必要があります、**実行**メソッドと終了適切にします。 それ以外の場合、操作の途中でプロセスを終了する可能性があります。
+通常、ワーカーロールの**Run**メソッドには、無限ループが含まれています。 ワーカーロールが停止している場合は、 [Roleentrypoint. OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx)メソッドが呼び出されます。 このメソッドを使用して、Run メソッド内で**実行**されている作業を取り消し、正常に終了する必要があります。 それ以外の場合、プロセスは操作の途中で終了します。
 
-### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>自動 MIME スニッフィングのプロシージャをオプトアウトします。
+### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>自動 MIME スニッフィング手順のオプトアウト
 
-場合によっては、Internet Explorer は web サーバーで指定された型よりもさまざまな MIME の種類を報告します。 たとえば、HTTP 応答ヘッダーのコンテンツ タイプで提供されるファイルで Internet Explorer がコンテンツにある HTML を見つけた場合: テキスト/プレーン コンテンツを HTML として表示すること、Internet Explorer が決定します。 残念ながら、この「MIME スニッフィング」可能性も信頼されていないコンテンツをホストするサーバーのセキュリティの問題にします。 Internet Explorer 8 に、この問題を解決するには、MIME の種類の決定コードへの変更の数が確立およびにより、アプリケーション開発者[MIME スニッフィングのオプトアウト](https://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)します。 次のコードに追加された、 *Web.config*ファイル。
+場合によっては、Internet Explorer によって、web サーバーで指定された種類とは異なる MIME の種類が報告されることがあります。 たとえば、Internet Explorer が HTTP 応答ヘッダーの Content-type: text/plain と共に配信されたファイル内の HTML コンテンツを検索した場合、Internet Explorer はコンテンツを HTML としてレンダリングする必要があると判断します。 残念ながら、この "MIME スニッフィング" は、信頼されていないコンテンツをホストしているサーバーのセキュリティの問題につながる可能性もあります。 この問題に対処するために、Internet Explorer 8 は、MIME の種類の決定コードに多くの変更を加え、アプリケーション開発者が[mime スニッフィングをオプトアウト](https://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)することを許可しています。 次*のコードが web.config ファイルに*追加されました。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample16.xml?highlight=2-7)]
 
-### <a name="enable-bundling-and-minification"></a>バンドルと縮小が有効にします。
+### <a name="enable-bundling-and-minification"></a>バンドルと縮小を有効にする
 
-Visual Studio では、新しい web プロジェクトを作成するときの JavaScript ファイルのバンドルと縮小は既定で有効ありません。 BundleConfig.cs でのコード行を追加しました。
+Visual Studio で新しい web プロジェクトを作成する場合、JavaScript ファイルのバンドルと縮小は既定では有効になっていません。 BundleConfig.cs にコード行を追加しました。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample17.cs?highlight=9)]
 
-### <a name="set-an-expiration-time-out-for-authentication-cookies"></a>認証クッキーの有効期限のタイムアウトを設定します。
+### <a name="set-an-expiration-time-out-for-authentication-cookies"></a>認証 cookie の有効期限のタイムアウトを設定する
 
-既定では、認証 cookie は、2 週間以内に期限切れ。 短い時間の方が安全です。 この設定を変更する*StartupAuth.cs*:
+既定では、認証 cookie は2週間後に期限切れになります。 より短い時間でより安全です。 *StartupAuth.cs*でこの設定を変更できます。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample18.cs?highlight=4-5)]
 
 <a id="run-in-vs"></a>
-## <a name="how-to-run-the-app-from-visual-studio-on-your-local-computer"></a>ローカル コンピューターに Visual Studio からアプリを実行する方法
+## <a name="how-to-run-the-app-from-visual-studio-on-your-local-computer"></a>ローカルコンピューター上の Visual Studio からアプリを実行する方法
 
-Fix It アプリを実行する 2 つの方法はあります。
+Fix It アプリを実行するには、次の2つの方法があります。
 
-- 新しいタスクを SQL database に直接書き込むベースのアプリケーションを実行します。
-- キューに加えて、バックエンド サービスを使用してタスクを作成するアプリケーションを実行します。 キュー パターンが、」の章で説明されている[キューを中心とした作業パターン](queue-centric-work-pattern.md)します。
+- 新しいタスクを SQL データベースに直接書き込む基本アプリケーションを実行します。
+- キューとバックエンドサービスを使用してアプリケーションを実行し、タスクを作成します。 キューパターンについては、[キュー中心の作業パターン](queue-centric-work-pattern.md)の章を参照してください。
 
 <a id="runbase"></a>
-### <a name="run-the-base-application"></a>ベースのアプリケーションを実行します。
+### <a name="run-the-base-application"></a>基本アプリケーションを実行する
 
-1. インストール[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)します。
-2. インストール、 [Azure SDK for .NET for Visual Studio](https://azure.microsoft.com/downloads/)します。
-3. .Zip ファイルをダウンロード、 [MSDN コード ギャラリー](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)します。
-4. ファイル エクスプ ローラーで .zip ファイルを右クリックして、プロパティ をクリックし、プロパティ ウィンドウで ブロック解除 をクリックします。
+1. [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)をインストールします。
+2. [AZURE SDK for .net For Visual Studio](https://azure.microsoft.com/downloads/)をインストールします。
+3. [MSDN コードギャラリー](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)から .zip ファイルをダウンロードします。
+4. ファイルエクスプローラーで、.zip ファイルを右クリックし、[プロパティ] をクリックして、プロパティウィンドウ [ブロック解除] をクリックします。
 5. ファイルを解凍します。
-6. Visual Studio を起動する .sln ファイルをダブルクリックします。
-7. **ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、し**パッケージ マネージャー コンソール**します。
-8. パッケージ マネージャー コンソール (PMC) では、復元をクリックします。
+6. .Sln ファイルをダブルクリックして、Visual Studio を起動します。
+7. **[ツール]** メニューの **[NuGet パッケージマネージャー]** 、 **[パッケージマネージャーコンソール]** の順にクリックします。
+8. パッケージマネージャーコンソール (PMC) で、[復元] をクリックします。
 9. Visual Studio を終了します。
-10. 開始、 [Azure ストレージ エミュレーター](/azure/storage/common/storage-use-emulator)します。
-11. 前の手順で終了するソリューション ファイルを開き、Visual Studio を再起動します。
-12. FixIt プロジェクトがスタートアップ プロジェクトとして設定されていることを確認し、プロジェクトを実行するには、CTRL + F5 キーを押します。
+10. [Azure ストレージエミュレーター](/azure/storage/common/storage-use-emulator)を起動します。
+11. Visual Studio を再起動し、前の手順で閉じたソリューションファイルを開きます。
+12. FixIt プロジェクトがスタートアッププロジェクトとして設定されていることを確認してから、CTRL キーを押しながら F5 キーを押してプロジェクトを実行します。
 
 <a id="queueslocal"></a>
-### <a name="run-the-application-with-queue-processing"></a>キューの処理でアプリケーションを実行します。
+### <a name="run-the-application-with-queue-processing"></a>キュー処理でアプリケーションを実行する
 
-1. 指示に従い[ベースのアプリケーションを実行](#runbase)ブラウザーを終了して、Visual Studio を閉じます。
-2. 管理者特権で Visual Studio を起動します。 (Azure コンピューティング エミュレーターを使用して管理者特権が必要です)。
-3. アプリケーションで*Web.config*ファイル、 *MyFixIt* (web プロジェクト) をプロジェクトでの値を変更、 `appSettings/UseQueues` "true"に。
+1. 指示に従って[基本アプリケーションを実行](#runbase)し、ブラウザーを閉じて Visual Studio を閉じます。
+2. 管理者特権で Visual Studio を起動します。 (Azure コンピューティングエミュレーターを使用し、管理者特権が必要です)。
+3. *Myfixit*プロジェクト (web プロジェクト) のアプリケーションの*web.config*ファイルで、`appSettings/UseQueues` の値を "true" に変更します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. 場合、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx)がまだ実行中、もう一度開始します。
+4. [Azure ストレージエミュレーター](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx)がまだ実行されていない場合は、もう一度開始します。
 5. FixIt web プロジェクトと MyFixItCloudService プロジェクトを同時に実行します。
 
-    Visual Studio を使用します。
+    Visual Studio の使用:
 
-   1. キーを押して**F5** FixIt プロジェクトを実行します。
-   2. **ソリューション エクスプ ローラー**MyFixItCloudService プロジェクトを右クリックし、クリックして**デバッグ** > **新しいインスタンスを開始**します。
+   1. **F5**キーを押して、FixIt プロジェクトを実行します。
+   2. **ソリューションエクスプローラー**で、MyFixItCloudService プロジェクトを右クリックし、 **[デバッグ]**  >  **[新しいインスタンスを開始]** の順にクリックします。
 
-    Visual Studio 2013 Express for Web の使用。
+    Visual Studio 2013 Express for Web の使用:
 
-   3. ソリューション エクスプ ローラーでは、FixIt ソリューションを右クリックして**プロパティ**します。
-   4. 選択**マルチ スタートアップ プロジェクト**します。
-   5. **アクション**MyFixIt と MyFixItCloudService、下のドロップダウン リストで選択**開始**します。
+   3. ソリューションエクスプローラーで、FixIt ソリューションを右クリックし、**プロパティ** を選択します。
+   4. **[マルチスタートアッププロジェクト]** を選択します。
+   5. MyFixIt と MyFixItCloudService の下の **アクション** ドロップダウンリストで、**開始** を選択します。
    6. **[OK]** をクリックします。
-   7. キーを押して**F5**両方のプロジェクトを実行します。
+   7. **F5**キーを押して両方のプロジェクトを実行します。
 
-      MyFixItCloudService プロジェクトを実行すると、Visual Studio は、Azure コンピューティング エミュレーターを起動します。 ファイアウォールの構成によっては、ファイアウォール経由のエミュレーターを許可する必要があります。
+      MyFixItCloudService プロジェクトを実行すると、Visual Studio によって Azure コンピューティングエミュレーターが起動されます。 ファイアウォールの構成によっては、エミュレーターをファイアウォールで許可することが必要になる場合があります。
 
 <a id="deploybase"></a>
-## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Windows PowerShell スクリプトを使用して基本アプリを Azure App Service Web Apps にデプロイする方法
+## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Windows PowerShell スクリプトを使用して Azure App Service Web Apps に基本アプリを展開する方法
 
-説明するために、[自動化すべて](automate-everything.md)パターンでは、修正、アプリの Azure 環境を設定し、プロジェクトを新しい環境にデプロイするスクリプトが付属します。 次の手順では、スクリプトを使用する方法について説明します。
+[すべてを自動化](automate-everything.md)するためのパターンを説明するために、Azure で環境を設定し、新しい環境にプロジェクトを配置するスクリプトを使用して、It アプリの修正を提供しています。 次の手順では、スクリプトの使用方法について説明します。
 
-キューを使用せずに Azure で実行するローカル キューで実行する変更を加えた場合は、次の手順に進む前に false に UseQueues appSetting 値を設定することを確認します。
+キューを使用せずに Azure で実行し、変更をキューでローカルに実行する場合は、次の手順に進む前に、UseQueues appSetting 値を false に戻すように設定してください。
 
-これらの手順は、既にダウンロードしてあると Fix It ソリューションをローカルで実行し、Azure があるかアカウントまたは Azure サブスクリプションがある想定しています。 管理が承認されています。
+この手順では、修正プログラムをダウンロードしてローカルで実行していること、および Azure アカウントを持っていること、または管理を許可されている Azure サブスクリプションを持っていることを前提としています。
 
-1. インストール、 **Azure PowerShell**コンソール。 手順については、次を参照してください。[をインストールして、Azure PowerShell を構成する方法](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)します。
+1. **Azure PowerShell**コンソールをインストールします。 手順については、「 [Azure PowerShell のインストールおよび構成方法](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)」を参照してください。
 
-    このカスタマイズされたコンソールを構成するには、Azure サブスクリプションを使用します。 Azure モジュールがインストールされている、 *Program Files*ディレクトリ、Azure PowerShell コンソールを使用するたびに自動的にインポートされます。
+    このカスタマイズされたコンソールは、Azure サブスクリプションと連携するように構成されています。 Azure モジュールは*Program Files*ディレクトリにインストールされ、Azure PowerShell コンソールを使用するたびに自動的にインポートされます。
 
-    Windows PowerShell ISE などの別のホスト プログラムで作業する場合に使用することを確認して、 [Import-module](https://go.microsoft.com/fwlink/?LinkID=141553)コマンドレットを Azure モジュールをインポートまたはモジュールの自動インポートをトリガーする、Azure モジュールのコマンドを使用します。
-2. Azure PowerShell を起動、**管理者として実行**オプション。
-3. 実行、 [Set-executionpolicy](https://go.microsoft.com/fwlink/p/?linkid=293941)コマンドレットに、Azure PowerShell 実行ポリシーを設定する`RemoteSigned`します。 入力**Y** (Yes) のポリシーの変更を完了します。
+    Windows PowerShell ISE など別のホストプログラムで作業する場合は、モジュールの[インポート](https://go.microsoft.com/fwlink/?LinkID=141553)コマンドレットを使用して azure モジュールをインポートするか、azure モジュールのコマンドを使用してモジュールの自動インポートをトリガーするようにしてください。
+2. **[管理者として実行]** オプションを使用して Azure PowerShell を開始します。
+3. [Set-executionpolicy](https://go.microsoft.com/fwlink/p/?linkid=293941)コマンドレットを実行して、Azure PowerShell 実行ポリシーを `RemoteSigned`に設定します。 ポリシーの変更を完了するには、「 **Y** 」 (はいの場合) を入力します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample20.cmd)]
 
-    この設定では、デジタル署名されていないローカル スクリプトを実行することができます。 (実行ポリシーを設定することもできます`Unrestricted`後で、ブロックを解除する手順の必要はありませんが、これは、セキュリティ上の理由から推奨されません。)。
-4. 実行、`Add-AzureAccount`コマンドレット、アカウントの資格情報を PowerShell を使用します。
+    この設定を使用すると、デジタル署名されていないローカルスクリプトを実行できます。 (実行ポリシーを `Unrestricted`に設定することもできます。これにより、後でブロック解除の手順が不要になりますが、セキュリティ上の理由から推奨されません。)
+4. `Add-AzureAccount` コマンドレットを実行して、アカウントの資格情報を使用して PowerShell を設定します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample21.cmd)]
 
-    これらの資格情報は、一定期間後に有効期限が切れるし、再実行する必要が、`Add-AzureAccount`コマンドレット。 この電子書籍が書き込まれると資格情報の有効期限が切れる前に制限時間は 12 時間です。
-5. 複数のサブスクリプションがある場合は、テスト環境を作成するサブスクリプションを指定する Select-azuresubscription コマンドレットを使用します。
-6. 使用して、同じ Azure サブスクリプションの管理証明書をインポート、`Get-AzurePublishSettingsFile`と`Import-AzurePublishSettingsFile`コマンドレット。 これらのコマンドレットの最初の証明書ファイルをダウンロードして、2 つ目でインポートするためにそのファイルの場所を指定します。 > [!IMPORTANT]
-   > 安全な場所にダウンロードしたファイルを保持または削除したら、Azure サービスの管理に使用できる証明書が含まれています。
+    これらの資格情報は、一定の期間が経過すると期限切れになり、`Add-AzureAccount` コマンドレットを再実行する必要があります。 この電子ブックが記述されているため、資格情報の有効期限が切れるまでの制限時間は12時間です。
+5. 複数のサブスクリプションがある場合は、AzureSubscription コマンドレットを使用して、テスト環境を作成するサブスクリプションを指定します。
+6. `Get-AzurePublishSettingsFile` と `Import-AzurePublishSettingsFile` のコマンドレットを使用して、同じ Azure サブスクリプションの管理証明書をインポートします。 最初のコマンドレットでは、証明書ファイルをダウンロードし、2つ目のコマンドレットで、インポートするファイルの場所を指定します。 > [!IMPORTANT]
+   > ダウンロードしたファイルは、Azure サービスの管理に使用できる証明書が含まれているため、安全な場所に保管するか、または作業を終えたときに削除してください。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
-    証明書が使用される SQL Database サーバー上のファイアウォール規則を設定するには、開発用コンピューターの IP アドレスを検出する REST API 呼び出し。
-7. 実行、 [Set-location](https://go.microsoft.com/fwlink/p/?linkid=293912)コマンドレット (エイリアスは`cd`、 `chdir`、および`sl`) スクリプトを含むディレクトリに移動します。 (ファイルに配置している、 *Automation* Fix It ソリューション フォルダー内のフォルダーです)。ディレクトリ名にスペースが含まれている場合は、引用符で囲まれたパスを配置します。 たとえばに移動するため、`c:\Sample Apps\FixIt\Automation`ディレクトリは、次のコマンドを入力する可能性があります。
+    この証明書は、SQL Database サーバーでファイアウォール規則を設定するために、開発用コンピューターの IP アドレスを検出する REST API 呼び出しに使用されます。
+7. [Set Location](https://go.microsoft.com/fwlink/p/?linkid=293912)コマンドレット (エイリアスは `cd`、`chdir`、および `sl`) を実行して、スクリプトが格納されているディレクトリに移動します。 (これらのファイルは、[Fix It solution] フォルダーの [ *Automation* ] フォルダーにあります)。ディレクトリ名にスペースが含まれている場合は、パスを引用符で囲みます。 たとえば、`c:\Sample Apps\FixIt\Automation` ディレクトリに移動するには、次のコマンドを入力します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample23.cmd)]
-8. これらのスクリプトを実行する Windows PowerShell を許可するのには、使用、 [Unblock-file](https://go.microsoft.com/fwlink/p/?linkid=294021)コマンドレット。 (スクリプトは、インターネットからダウンロードされているためにがブロックされます)
+8. Windows PowerShell でこれらのスクリプトを実行できるようにするには、[ファイルのブロック解除](https://go.microsoft.com/fwlink/p/?linkid=294021)コマンドレットを使用します。 (スクリプトはインターネットからダウンロードされたためブロックされます)。
 
     > [!WARNING]
-    > セキュリティ - 実行する前に`Unblock-File`スクリプトまたは実行可能ファイルで、メモ帳で開きのコマンドを確認および悪意のあるコードが含まれていないことを確認します。
+    > セキュリティ-任意のスクリプトまたは実行可能ファイルに対して `Unblock-File` を実行する前に、メモ帳でファイルを開き、コマンドを調べて、悪意のあるコードが含まれていないことを確認します。
 
-    たとえば、次のコマンドを実行、`Unblock-File`コマンドレットは、現在のディレクトリ内のすべてのスクリプトにします。
+    たとえば、次のコマンドは、現在のディレクトリ内のすべてのスクリプトに対して `Unblock-File` コマンドレットを実行します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample24.cmd)]
-9. (キューの処理) ベースの web アプリを作成するには、そのアプリを修正、環境の作成スクリプトを実行します。
+9. ベース (キューを処理しない) の web アプリを作成し、It アプリを修正するには、環境作成スクリプトを実行します。
 
-    必要な`Name`パラメーターは、データベースの名前を指定し、スクリプトを作成するストレージ アカウントにも使用します。 名前は azurewebsites.net ドメイン内でグローバルに一意である必要があります。 Fixit やテストなど (または fixitdemo、例のようにも)、重複する名前を指定する場合、`New-AzureWebsite`コマンドレットは、競合を報告する内部エラーで失敗します。 スクリプトは、web アプリ、ストレージ アカウント、およびデータベースの名前の要件に準拠するすべて小文字に名前を変換します。
+    必須の `Name` パラメーターはデータベースの名前を指定し、スクリプトが作成するストレージアカウントにも使用されます。 名前は、azurewebsites.net ドメイン内でグローバルに一意である必要があります。 Fixit やテストなどの一意でない名前を指定した場合 (または、fixitdemo の例でも同様)、`New-AzureWebsite` コマンドレットは、競合を報告する内部エラーで失敗します。 このスクリプトは、web アプリ、ストレージアカウント、およびデータベースの名前の要件に準拠するために、名前をすべて小文字に変換します。
 
-    必要な`SqlDatabasePassword`パラメーターは、SQL Database 用に作成される管理者アカウントのパスワードを指定します。 パスワードに特殊な XML 文字を含めないでください (&amp; &lt; &gt; ;)。 これは、スクリプトに書かれて、Azure の制限ではない方法の制限です。
+    必須の `SqlDatabasePassword` パラメーターは、SQL Database 用に作成される管理者アカウントのパスワードを指定します。 パスワード (&amp; &lt; &gt;;) には特殊な XML 文字を含めないでください。 これは、Azure の制限ではなく、スクリプトの記述方法に関する制限事項です。
 
-    たとえば、"fixitdemo"という名前の web アプリを作成して SQL Server の管理者パスワード"Passw0rd1"を使用する場合は、次のコマンドを入力します。
+    たとえば、"fixitdemo" という名前の web アプリを作成し、"Passw0rd1" という SQL Server 管理者パスワードを使用する場合は、次のコマンドを入力します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample25.cmd)]
 
-    名前は azurewebsites.net ドメインで一意である必要があり、パスワードがパスワードの複雑さの SQL データベースの要件を満たす必要があります。 (例 Passw0rd1 が要件を満たしています。)
+    名前は azurewebsites.net ドメイン内で一意である必要があり、パスワードは、パスワードの複雑さの SQL Database 要件を満たしている必要があります。 (例 Passw0rd1 は要件を満たしています)。
 
-    コマンドの最初に注意してくださいです".\"。 Windows PowerShell では、悪意のあるスクリプトの実行を防ぐため、スクリプトを実行するときに、スクリプト ファイルへの完全修飾パスを提供することが必要です。 現在のディレクトリを示すために、ドットを使用することができます (".\")または、完全修飾パスを指定します。
+    コマンドの先頭が "であることに注意してください。\"。 スクリプトの悪意のある実行を防ぐために、Windows PowerShell では、スクリプトの実行時にスクリプトファイルへの完全修飾パスを指定する必要があります。 ドットを使用して、現在のディレクトリ (") を示すことができます。\") または完全修飾パスを指定します。次に例を示します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample26.cmd)]
 
-    スクリプトの詳細については、使用、`Get-Help`コマンドレット。
+    スクリプトの詳細については、`Get-Help` コマンドレットを使用してください。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample27.cmd)]
 
-    使用することができます、 `Detailed`、 `Full`、 `Parameters`、および`Examples`返されるヘルプをフィルター処理、Get-help コマンドレットのパラメーター。
+    Get-help コマンドレットの `Detailed`、`Full`、`Parameters`、および `Examples` パラメーターを使用して、返されるヘルプをフィルター処理できます。
 
-    スクリプトが故障したかなど、エラーが生成されます"New-azurewebsite:最初に、Set-azuresubscription と Select-azuresubscription を呼び出す"する可能性がありますが完了していない Azure PowerShell の構成。
+    スクリプトが失敗した場合、またはエラーが発生した場合 ("New-AzureWebsite: Call Set-Azurewebsite and Select-Azurewebsite first" など)、Azure PowerShell の構成が完了していない可能性があります。
 
-    ように作成されたリソースを表示する、Azure 管理ポータルを使用するには、スクリプトの完了後、[自動化すべて](automate-everything.md)」の章。
-10. FixIt プロジェクトを新しい Azure 環境に展開するには、使用、 *AzureWebsite.ps1*スクリプト。 例えば:
+    スクリプトが完了したら、[[すべて自動化](automate-everything.md)] の章に示されているように、Azure 管理ポータルを使用して、作成されたリソースを確認できます。
+10. 新しい Azure 環境に FixIt プロジェクトをデプロイするには、 *Azurewebsite. ps1*スクリプトを使用します。 例:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample28.cmd)]
 
-    デプロイが完了したら、修正、Azure で実行されているとブラウザーが開きます。
+    デプロイが完了すると、Azure で実行されている修正プログラムを使用してブラウザーが開きます。
 
 <a id="troubleshooting"></a>
 ## <a name="troubleshooting-the-windows-powershell-scripts"></a>Windows PowerShell スクリプトのトラブルシューティング
 
-これらのスクリプトを実行しているときに発生する最も一般的なエラーに関連するアクセス許可。 確認します`Add-AzureAccount`と`Import-AzurePublishSettingsFile`が正常に実行し、同じ Azure サブスクリプションのためにします。 場合でも`Add-AzureAccount`が成功したが、もう一度実行する場合があります。 によって追加されたアクセス許可`Add-AzureAccount`12 時間以内に期限切れにします。
+これらのスクリプトを実行するときに発生する最も一般的なエラーは、権限に関連しています。 `Add-AzureAccount` と `Import-AzurePublishSettingsFile` が正常に完了し、同じ Azure サブスクリプションで使用されていることを確認します。 `Add-AzureAccount` が成功した場合でも、再実行する必要がある場合があります。 `Add-AzureAccount` によって追加されたアクセス許可は、12時間後に有効期限が切れます。
 
 ### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>オブジェクト参照がオブジェクト インスタンスに設定されていません。
 
-「オブジェクト参照、オブジェクトのインスタンスに設定されていない」は、Windows PowerShell がプロセス (これは、null 参照の例外です) にオブジェクトを見つけることはできませんが実行されるなど、スクリプトは、エラーを返した場合、`Add-AzureAccount`コマンドレットとスクリプトをもう一度やり直してください。
+スクリプトから "オブジェクト参照がオブジェクトのインスタンスに設定されていません" などのエラーが返された場合は、Windows PowerShell が処理するオブジェクトを見つけられない (これは null 参照例外である) ため、`Add-AzureAccount` コマンドレットを実行して、スクリプトをもう一度実行します。
 
 [!code-console[Main](the-fix-it-sample-application/samples/sample29.cmd)]
 
-### <a name="internalerror-the-server-encountered-an-internal-error"></a>InternalError:サーバーには、内部エラーが発生しました。
+### <a name="internalerror-the-server-encountered-an-internal-error"></a>InternalError: サーバーで内部エラーが発生しました。
 
-`New-AzureWebsite`コマンドレットでは、azurewebsites.net ドメインで名前が一意でないときに内部エラーが返されます。 エラーを解決するには、Name パラメーターには、名前の別の値を使用して、*新規 AzureWebsiteEnv.ps1*します。
+`New-AzureWebsite` コマンドレットは、名前が azurewebsites.net ドメイン内で一意でない場合に内部エラーを返します。 このエラーを解決するには、名前に別の値を使用します。これは、 *New-AzureWebsiteEnv*の name パラメーターに含まれています。
 
 [!code-console[Main](the-fix-it-sample-application/samples/sample30.cmd)]
 
-### <a name="restarting-the-script"></a>スクリプトを再起動します。
+### <a name="restarting-the-script"></a>スクリプトを再起動しています
 
-再起動する必要がある場合、*新規 AzureWebsiteEnv.ps1*スクリプト「スクリプトが完了しました」のメッセージを印刷する前に、しなかったために、前に作成したスクリプトが停止しているリソースを削除する可能性があります。 たとえば、スクリプトを既に作成して ContosoFixItDemo web アプリと同じ名前のスクリプトをもう一度実行する場合、名前が使用されているためにのスクリプトでは失敗します。
+"スクリプトが完了しました" というメッセージが出力される前に失敗したために*New-AzureWebsiteEnv*スクリプトを再起動する必要がある場合は、スクリプトが停止する前に作成したリソースを削除することをお勧めします。 たとえば、スクリプトによって ContosoFixItDemo web アプリが既に作成されていて、同じ名前でスクリプトを再度実行した場合、その名前は使用中であるため、スクリプトは失敗します。
 
-停止するまでに作成したスクリプトを対象のリソースを確認するには、次のコマンドレットを使用します。
+スクリプトが作成されたリソースを停止する前に確認するには、次のコマンドレットを使用します。
 
 - `Get-AzureWebsite`
 - `Get-AzureSqlDatabaseServer`
-- `Get-AzureSqlDatabase`:このコマンドレットを実行するには、データベース サーバーの名前をパイプ処理`Get-AzureSqlDatabase`:   `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
+- `Get-AzureSqlDatabase`: このコマンドレットを実行するには、データベースサーバー名をパイプで `Get-AzureSqlDatabase`: `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
 
-これらのリソースを削除するには、次のコマンドを使用します。 場合は、データベース サーバーを削除すると、自動的にデータベースを削除するサーバーに関連付けられているに注意してください。
+これらのリソースを削除するには、次のコマンドを使用します。 データベースサーバーを削除すると、サーバーに関連付けられているデータベースが自動的に削除されることに注意してください。
 
 - `Get-AzureWebsite -Name <WebsiteName> | Remove-AzureWebsite`
 - `Get-AzureSqlDatabase -Name <DatabaseName> -ServerName <DatabaseServerName> | Remove-SqlAzureDatabase`
 - `Get-AzureSqlDatabaseServer | Remove-AzureSqlDatabaseServer`
 
 <a id="deployqueues"></a>
-## <a name="how-to-deploy-the-app-with-queue-processing-to-azure-app-service-web-apps-and-an-azure-cloud-service"></a>Azure App Service Web Apps と Azure クラウド サービスを処理キューに、アプリをデプロイする方法
+## <a name="how-to-deploy-the-app-with-queue-processing-to-azure-app-service-web-apps-and-an-azure-cloud-service"></a>キュー処理を使用してアプリを Azure App Service Web Apps と Azure クラウドサービスにデプロイする方法
 
-キューを有効にするには、MyFixIt\Web.config ファイルで、次の変更を行います。 `appSettings`の値を変更`UseQueues`"true"にします。
+キューを有効にするには、myfixitconfiguration ファイルで次の変更を行います。 `appSettings`で、`UseQueues` の値を "true" に変更します。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample31.xml)]
 
-説明に従って、Azure App Service で web アプリに、MVC アプリケーションを展開し、[以前](#deploybase)します。
+次に、[前述](#deploybase)のように AZURE APP SERVICE で MVC アプリケーションを web アプリにデプロイします。
 
-次に、新しい Azure クラウド サービスを作成します。 Fix It アプリに含まれているスクリプトを作成またはしないでこの Azure portal を使用する必要がありますので、クラウド サービスをデプロイします。 ポータルで、次のようにクリックします。**新規** -- **コンピューティング**–**クラウド サービス** -- **簡易作成**、し、URL を入力します。データ センターの場所。 Web アプリを配置した同じデータ センターを使用します。
+次に、新しい Azure クラウドサービスを作成します。 Fix It アプリに含まれているスクリプトは、クラウドサービスを作成またはデプロイしません。そのため、このために Azure portal を使用する必要があります。 ポータルで、 **[新規]**  -- [ **Compute** – **Cloud Service** -- **簡易作成**] の順にクリックし、URL とデータセンターの場所を入力します。 Web アプリをデプロイしたのと同じデータセンターを使用します。
 
 ![](the-fix-it-sample-application/_static/image1.png)
 
-クラウド サービスを展開する前に、構成ファイルの一部を更新する必要があります。
+クラウドサービスをデプロイする前に、構成ファイルの一部を更新する必要があります。
 
-MyFixIt.WorkerRole\app.config で `connectionStrings`の値を置き換える、 `appdb` SQL データベースの実際の接続文字列で接続文字列。 接続文字列は、ポータルから取得できます。 ポータルで、次のようにクリックします。 **SQL データベース** - **appdb** - **ADO .Net、ODBC、PHP、および JDBC の接続文字列を SQL データベースの表示**します。 ADO.NET 接続文字列をコピーして、app.config ファイルに値を貼り付けます。 置換"{、\_パスワード\_ここ}"をデータベースのパスワード。 (内のデータベース パスワードを指定した MVC アプリをデプロイするスクリプトを使用すると仮定すると、`SqlDatabasePassword`パラメーターのスクリプトを作成します)。
+MyFixIt の `connectionStrings`の下で、`appdb` 接続文字列の値を、SQL Database の実際の接続文字列に変更します。 ポータルから接続文字列を取得できます。 ポータルで、 **[SQL データベース]** をクリックして - **APPDB** - **ADO .net、ODBC、PHP、JDBC の接続文字列を表示 SQL Database**ます。 ADO.NET 接続文字列をコピーし、app.config ファイルに値を貼り付けます。 "{Your\_password\_here}" をデータベースのパスワードに置き換えます。 (MVC アプリのデプロイにスクリプトを使用したと仮定した場合は、`SqlDatabasePassword` スクリプトパラメーターにデータベースパスワードを指定しています)。
 
-結果は、次のようになります。
+結果は次のようになります。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample32.xml)]
 
-同じ MyFixIt.WorkerRole\app.config ファイルで  `appSettings`、Azure ストレージ アカウントの 2 つのプレース ホルダーの値を置き換えます。
+同じ MyFixIt ファイルで、[`appSettings`] の下にある Azure ストレージアカウントの2つのプレースホルダーの値を置き換えます。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample33.xml?highlight=2-3)]
 
-アクセス キーは、ポータルから取得できます。 参照してください[ストレージ アカウントを管理する方法](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)します。
+ポータルからアクセスキーを取得できます。 「[ストレージアカウントの管理方法」を](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)参照してください。
 
-MyFixItCloudService\ServiceConfiguration.Cloud.cscfg、Azure ストレージ アカウントの同じ 2 つのプレース ホルダー値に置き換えてください。
+MyFixItCloudService\ServiceConfiguration.Cloud.cscfg で、Azure ストレージアカウントの2つのプレースホルダーの値を置き換えます。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-クラウド サービスをデプロイする準備が整いました。 ソリューション エクスプ ローラーでは、MyFixItCloudService プロジェクトを右クリックして**発行**します。 詳細については、次を参照してください。"[アプリケーションを Azure にデプロイ](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)"、第 2 部である[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)します。
+これで、クラウドサービスをデプロイする準備が整いました。 ソリューションエクスプローラーで、MyFixItCloudService プロジェクトを右クリックし、 **[発行]** を選択します。 詳細については、[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)のパート2の「[Azure へのアプリケーションのデプロイ](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](more-patterns-and-guidance.md)
