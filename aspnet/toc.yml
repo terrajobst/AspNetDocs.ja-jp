@@ -679,7 +679,7 @@
                   href: web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb.md
                 - name: ReorderList 経由でドラッグ アンド ドロップする (VB)
                   href: web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb.md
-            - name: スライダー
+            - name: Slider
               href: web-forms/overview/ajax-control-toolkit/slider/index.md
               items:
                 - name: 'スライダー コントロール (自動ポストバックあり) (C#)'
@@ -3768,6 +3768,8 @@
   items:
     - name: ホワイト ペーパー
       href: whitepapers/overview.md
+    - name: ASP.NET での SameSite
+      href: SameSite/system-web-samesite.md
     - name: ASP.NET 4 と Visual Studio 2010 Web 開発の概要
       href: whitepapers/aspnet4/index.md
       items:
