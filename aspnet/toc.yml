@@ -3753,6 +3753,8 @@
       href: aspnet/overview/owin-and-katana/an-overview-of-project-katana.md
     - name: OWIN と Katana の概要
       href: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana.md
+    - name: OWIN での SameSite
+      uid: owin-samesite
     - name: Katana サンプル
       href: aspnet/overview/owin-and-katana/katana-samples.md
     - name: OWIN スタートアップ クラス検出
