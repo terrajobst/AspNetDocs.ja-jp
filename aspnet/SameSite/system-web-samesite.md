@@ -5,12 +5,12 @@ description: を使用して ASP.NET でクッキーを SameSite する方法に
 ms.author: riande
 ms.date: 12/03/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: 40e5c13b6834912c13b41cbfad7da8cd84ca6c8b
-ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
+ms.openlocfilehash: 47a3d7576edb0e818c39b32fbbcb98475248e18e
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74902010"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993071"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET で SameSite cookie を使用する
 
@@ -35,10 +35,7 @@ Cookie を生成する各 ASP.NET Core コンポーネントは、SameSite が�
 
 SameSite のサポートは、 [2016 ドラフト標準](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1)を使用して最初に .net 4.7.2 に実装されました。
 
-Windows の2019年11月19日の更新プログラムで、.NET 4.7.2 + が2016標準から2019標準に更新されました。 その他のバージョンの Windows では、追加の更新が予定されています。 詳細については、次の KB を参照してください。
-
-* [サポート技術情報の記事4531182](https://support.microsoft.com/help/4531182/kb4531182)
-* [サポート技術情報の記事4524421](https://support.microsoft.com/help/4524421/kb4524421)
+Windows の2019年11月19日の更新プログラムで、.NET 4.7.2 + が2016標準から2019標準に更新されました。 その他のバージョンの Windows では、追加の更新が予定されています。 詳細については、「<xref:samesite/kbs-samesite>」を参照してください。
 
  SameSite 仕様の2019ドラフト:
 
@@ -85,7 +82,7 @@ Google では、以前のバージョンの chrome は使用できません。 �
 
 ### <a name="test-with-safari"></a>Safari を使用したテスト
 
-Safari 12 では以前のドラフトが厳密に実装されており、新しい `None` 値が cookie に含まれていると失敗します。 このドキュメントでは、[古いブラウザーをサポート](#sob)するブラウザーの検出コードを使用して `None` を回避します。 MSAL、ADAL、使用している任意のライブラリを使用して、Safari 12、Safari 13、WebKit ベースの OS スタイルのログインをテストします。 この問題は、基になる OS バージョンによって異なります。 OSX Mojave (10.14) と iOS 12 には、新しい SameSite の動作に互換性の問題があることがわかっています。 OS を OSX Catalina.properties (10.15) または iOS 13 にアップグレードすると、問題が解決されます。 Safari には、現在、新しい仕様動作をテストするオプトインフラグがありません。
+Safari 12 では以前のドラフトが厳密に実装されており、新しい `None` 値が cookie に含まれていると失敗します。 このドキュメントでは、[古いブラウザーをサポート](#sob)するブラウザーの検出コードを使用して `None` を回避します。 MSAL、ADAL、使用している任意のライブラリを使用して、Safari 12、Safari 13、WebKit ベースの OS スタイルのログインをテストします。 この問題は、基盤の OS バージョンによって変わります。 OSX Mojave (10.14) と iOS 12 には、新しい SameSite の動作に互換性の問題があることがわかっています。 OS を OSX Catalina.properties (10.15) または iOS 13 にアップグレードすると、問題が解決されます。 Safari には、現在、新しい仕様動作をテストするオプトインフラグがありません。
 
 ### <a name="test-with-firefox"></a>Firefox でのテスト
 
@@ -101,7 +98,7 @@ SameSite フラグは `edge://flags/#same-site-by-default-cookies` ページで�
 
 ### <a name="test-with-electron"></a>電子を使用したテスト
 
-電子バージョンには、古いバージョンの Chromium が含まれています。 たとえば、チームによって使用されている電子 66 Chromium のバージョンは、以前の動作を示しています。 製品で使用されている電子版を使用して、独自の互換性テストを実行する必要があります。 次のセクションの「[古いブラウザーのサポート](#sob)」を参照してください。
+Electron の複数のバージョンには、Chromium の古いバージョンが含まれています。 たとえば、チームによって使用されている電子 66 Chromium のバージョンは、以前の動作を示しています。 製品で使用されている電子版を使用して、独自の互換性テストを実行する必要があります。 次のセクションの「[古いブラウザーのサポート](#sob)」を参照してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

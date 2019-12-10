@@ -5,12 +5,12 @@ description: SameSite cookie と Open Web Interface for .NET (OWIN) を使用す
 ms.author: riande
 ms.date: 12/6/2019
 uid: owin-samesite
-ms.openlocfilehash: fc64315e8c3614e460c9a8d551bcb0848b3fe8f9
-ms.sourcegitcommit: 516a168548252ff0eaae2c02ec4bd9ffcfa8375e
+ms.openlocfilehash: ac5ae24eeb9e8e1cc6296667a4bebef72c3eb62c
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951882"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993077"
 ---
 # <a name="samesite-cookies-and-the-open-web-interface-for-net-owin"></a>SameSite cookie と Open Web Interface for .NET (OWIN)
 
@@ -39,7 +39,7 @@ Cookie を生成する各 OWIN コンポーネントは、`SameSite` が適切�
 
 `SystemWebCookieManager` は、`SameSite` サポートを有効にするための .NET 4.7.2 `System.Web` Api と、動作を変更するための修正プログラムに依存しています。
 
-`SystemWebCookieManager` を使用する理由については、 [「OWIN And system.web response cookie の統合に関する問題](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues)」を説明しています。 `System.Web`で実行する場合は `SystemWebCookieManager` をお勧めします。 
+`SystemWebCookieManager` を使用する理由については、 [「OWIN And system.web response cookie の統合に関する問題](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues)」を説明しています。 `System.Web`で実行する場合は `SystemWebCookieManager` をお勧めします。
 
 次のコードでは、`SameSite` を `Lax`に設定しています。
 
@@ -74,9 +74,7 @@ owinContext.Response.Cookies.Append("My Key", "My Value", new CookieOptions()
 * Cookie を既定で `SameSite=Lax` として扱うことを指定します。
 * クロスサイト配信を有効にするために `SameSite=None` を明示的にアサートする cookie を `Secure`としてマークする必要があることを指定します。 `None` は、オプトアウトする新しいエントリです。
 * [2 月 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)日に既定で[Chrome](https://chromestatus.com/feature/5088147346030592)によって有効になるようにスケジュールされています。 ブラウザーは2019でこの標準への移行を開始しました。
-* は、次の KB で説明するように発行された修正プログラムでサポートされています。
-  * [サポート技術情報の記事4531182](https://support.microsoft.com/help/4531182/kb4531182)
-  * [サポート技術情報の記事4524421](https://support.microsoft.com/help/4524421/kb4524421)
+* は、サポート技術情報の記事の説明に従って発行された修正プログラムによってサポートされます 詳細については、「<xref:samesite/kbs-samesite>」を参照してください。
 
 <a name="sob"></a>
 
