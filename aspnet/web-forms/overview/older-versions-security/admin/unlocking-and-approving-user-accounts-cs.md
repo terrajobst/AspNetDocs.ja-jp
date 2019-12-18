@@ -1,196 +1,196 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
-title: ロックを解除して、ユーザー アカウント (c#) を承認する |Microsoft Docs
+title: ユーザーアカウントのロック解除とC#承認 () |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルは、管理者が管理する web ページを構築する方法を示しています。 ユーザーのロックアウトと状態を承認します。 新しいユーザーの o を承認する方法も表示されます.
+description: このチュートリアルでは、管理者がユーザーのロックアウトと承認済みの状態を管理するための web ページを構築する方法について説明します。 また、新しいユーザーを承認する方法についても説明します。
 ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: 5346aab1-9974-489f-a065-ae3883b8a350
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b27be9dff132989a37eca7d5ef3af7b0e1aaeb74
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c19f7dfac0ddd12c2b4f3388a71a8ca0f71cbb18
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131302"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74580136"
 ---
 # <a name="unlocking-and-approving-user-accounts-c"></a>ユーザー アカウントをロック解除し、承認する (C#)
 
-によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
+[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードのダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.14.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_cs.pdf)
+[コードのダウンロード](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.14.zip)または[PDF のダウンロード](https://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_cs.pdf)
 
-> このチュートリアルは、管理者が管理する web ページを構築する方法を示しています。 ユーザーのロックアウトと状態を承認します。 また、電子メール アドレスを確認、後にのみ、新しいユーザーを承認する方法もわかります。
+> このチュートリアルでは、管理者がユーザーのロックアウトと承認済みの状態を管理するための web ページを構築する方法について説明します。 また、電子メールアドレスを確認した後にのみ、新しいユーザーを承認する方法についても説明します。
 
 ## <a name="introduction"></a>はじめに
 
-各ユーザー アカウントが、ユーザーがサイトにログインできるかどうかを指定する 2 つの状態フィールドを持つユーザー名、パスワード、および電子メールと共に: ロックされており、承認します。 自動的に、分 (既定の設定は、10 分以内に無効なログイン試行が 5 の後にユーザーをロック) の指定した数値の中で指定された回数無効な資格情報を提供する場合に、ユーザーのロックアウトが作成します。 承認済みの状態は、新しいユーザーが、サイトにログオンする前に何らかのアクションが発生する必要があります、シナリオに役立ちます。 たとえば、ユーザーは、まず、電子メール アドレスを確認します。 または、ログインする前に、管理者が承認する必要があります。
+ユーザー名、パスワード、および電子メールと共に、各ユーザーアカウントには、ユーザーがサイトにログインできるかどうかを指定する2つの状態フィールドがあります。ロックアウトされ、承認されています。 指定した分数内に無効な資格情報が指定した回数だけ提供された場合、ユーザーは自動的にロックアウトされます (既定の設定では、10分以内にログイン試行が5回失敗した後にユーザーがロックを解除します)。 承認済みの状態は、新しいユーザーがサイトにログオンする前に何らかのアクションを実行する必要がある場合に役立ちます。 たとえば、ユーザーは、最初に電子メールアドレスを確認するか、ログインする前に管理者によって承認される必要があります。
 
-ロックされた out または承認されていないユーザーがログインすることはできません、唯一の自然にこれらの状態をリセットする方法でしょうか。 ユーザーを管理するための Web コントロールがロックされており、これらの決定は、サイトごとに処理する必要があるために、一部の状態を承認または ASP.NET での組み込み機能が含まれません。 一部のサイトでは、すべての新しいユーザー アカウント (既定の動作) を自動的に承認があります。 管理者がある他のユーザーのサインアップ時に提供された電子メール アドレスに送信リンクにアクセスするまでユーザーを承認するか、新しいアカウントを承認します。 同様に、管理者がその状態をリセットするまで、一部のサイトがユーザーをロックアウト可能性があります、そのアカウントのロック解除にアクセスできる他のサイトでは、URL を使用して、ロックアウトされたユーザーに電子メールを送信中にします。
+ロックアウトされたユーザーまたは未承認のユーザーがログインできないため、これらの状態をリセットする方法は自然なものになります。 ASP.NET には、ユーザーのロックアウトおよび承認済みの状態を管理するための組み込み機能や Web コントロールは含まれていません。これらの決定はサイトごとに処理する必要があるためです。 サイトによっては、すべての新しいユーザーアカウントが自動的に承認される場合があります (既定の動作)。 管理者が新しいアカウントを承認したり、サインアップ時に指定された電子メールアドレスに送信されたリンクにアクセスするまでユーザーを承認したりすることはできません。 同様に、一部のサイトでは、管理者が状態をリセットするまでユーザーがロックアウトされる場合がありますが、他のサイトでは、アカウントのロックを解除するためにアクセスできる URL を使用して、ロックアウトされたユーザーに電子メールが送信されます。
 
-このチュートリアルは、管理者が管理する web ページを構築する方法を示しています。 ユーザーのロックアウトと状態を承認します。 また、電子メール アドレスを確認、後にのみ、新しいユーザーを承認する方法もわかります。
+このチュートリアルでは、管理者がユーザーのロックアウトと承認済みの状態を管理するための web ページを構築する方法について説明します。 また、電子メールアドレスを確認した後にのみ、新しいユーザーを承認する方法についても説明します。
 
-## <a name="step-1-managing-users-locked-out-and-approved-statuses"></a>手順 1: 管理ユーザーのロックアウトし、承認の状態
+## <a name="step-1-managing-users-locked-out-and-approved-statuses"></a>手順 1:ユーザーのロックアウト状態と承認済み状態の管理
 
-<a id="Tutorial12"> </a> [*インターフェイスを構築する 1 つのユーザー アカウントの選択に多くの*](building-an-interface-to-select-one-user-account-from-many-cs.md)チュートリアルは、ページの場合は、各ユーザー アカウントを一覧表示するページを構築 GridView をフィルター処理します。 グリッドには、各ユーザーの名前と電子メール、その承認済みおよびロックされた状態、現在オンラインいるかどうかおよびユーザーに関するコメントが一覧表示します。 管理ユーザーの承認し、状態をロックアウトすることもできますこのグリッド編集可能です。 ユーザーの承認済みの状態を変更するには、管理者は最初ユーザー アカウントを見つけてチェックまたは承認済みのチェック ボックスをオフにする、対応する GridView の行を編集します。 または、個別の ASP.NET ページから承認済みおよびロックされた状態を管理します。
+<a id="Tutorial12"> </a> [ *「多くのチュートリアルから1つのユーザーアカウントを選択するインターフェイスを構築する*](building-an-interface-to-select-one-user-account-from-many-cs.md)」では、ページ分割された GridView で各ユーザーアカウントを一覧表示するページを作成しています。 グリッドには、各ユーザーの名前と電子メール、承認およびロックアウトされた状態、現在オンラインになっているかどうか、およびユーザーに関するコメントが表示されます。 ユーザーの承認済みとロックアウト状態を管理するために、このグリッドを編集可能にすることができます。 ユーザーの承認済みの状態を変更するには、まず、管理者がユーザーアカウントを検索し、対応する GridView 行を編集して、[承認済み] チェックボックスをオンまたはオフにします。 または、別の ASP.NET ページを使用して、承認された状態とロックアウトされた状態を管理することもできます。
 
-このチュートリアルでは 2 つの ASP.NET ページを使用してみましょう。`ManageUsers.aspx`と`UserInformation.aspx`します。 この考え方は`ManageUsers.aspx`システムでは、ユーザー アカウントを一覧表示中に`UserInformation.aspx`により、管理者は、特定のユーザーの承認済みおよびロックされた状態を管理します。 最初の注文のビジネスで GridView を拡張する`ManageUsers.aspx`に含める、内では、リンクの列として表示されます。 各リンク先にする`UserInformation.aspx?user=UserName`ここで、 *UserName*を編集するユーザーの名前を指定します。
+このチュートリアルでは、`ManageUsers.aspx` と `UserInformation.aspx`の2つの ASP.NET ページを使用します。 ここでの考え方は、`ManageUsers.aspx` はシステム内のユーザーアカウントを一覧表示しているのに対し、`UserInformation.aspx` では、管理者は特定のユーザーの承認済みおよびロックアウト状態を管理できます。 最初のビジネスの順序は、`ManageUsers.aspx` の GridView を拡張して、リンクの列として表示されるハイパーリンクフィールドを含めることです。 各リンクは `UserInformation.aspx?user=UserName`を指すようにします。 *UserName*は編集するユーザーの名前です。
 
 > [!NOTE]
-> コードをダウンロードしている場合、 <a id="Tutorial13"> </a> [ *Recovering とパスワードを変更する*](recovering-and-changing-passwords-cs.md)チュートリアルはお気付きかもしれませんが、`ManageUsers.aspx`ページは、一連の既に含まれています"。"リンクを管理し、`UserInformation.aspx`ページ選択したユーザーのパスワードを変更するためのインターフェイスを提供します。 メンバーシップ API を回避することと、ユーザーのパスワードを変更する SQL Server データベースを直接操作して、動作したので、このチュートリアルに関連付けられているコードでは、その機能をレプリケートしないようにしました。 このチュートリアルを使用して最初から開始、`UserInformation.aspx`ページ。
+> 「 <a id="Tutorial13"> </a>[*パスワードの回復と変更*](recovering-and-changing-passwords-cs.md)」チュートリアルのコードをダウンロードした場合は、[`ManageUsers.aspx`] ページに "管理" リンクのセットが既に含まれており、[`UserInformation.aspx`] ページに、選択したユーザーのパスワードを変更するためのインターフェイスが用意されていることがわかります。 このチュートリアルに関連付けられているコードでは、この機能をレプリケートしないことにしました。これは、メンバーシップ API を回避し、SQL Server データベースを直接操作してユーザーのパスワードを変更することによって動作したためです。 このチュートリアルは、最初から `UserInformation.aspx` ページから開始します。
 
-### <a name="adding-manage-links-to-theuseraccountsgridview"></a>追加「管理」へのリンク、`UserAccounts`GridView
+### <a name="adding-manage-links-to-theuseraccountsgridview"></a>`UserAccounts`GridView に "管理" リンクを追加する
 
-開く、`ManageUsers.aspx`ページおよびを内の追加、 `UserAccounts` GridView。 セット内の`Text`"manage"プロパティとその`DataNavigateUrlFields`と`DataNavigateUrlFormatString`プロパティを`UserName`と"UserInformation.aspx?user={0}"、それぞれします。 これらの設定は、テキスト"Manage"のハイパーリンクのすべての表示が各リンクは、適切なで合格するように、内を構成*UserName*に、クエリ文字列値。
+[`ManageUsers.aspx`] ページを開き、[ハイパーリンク] フィールドを `UserAccounts` GridView に追加します。 [ハイパーリンク] フィールドの [`Text`] プロパティを "Manage" に設定し、その `DataNavigateUrlFields` と `DataNavigateUrlFormatString` のプロパティを `UserName` および "UserInformation .aspx? user ={0}" にそれぞれ設定します。 これらの設定は、すべてのハイパーリンクに "Manage" というテキストが表示されるように hyperlink フィールドを構成しますが、各リンクは、適切な*ユーザー名*の値を querystring に渡します。
 
-GridView に追加すると、内、時間を表示するがかかる、`ManageUsers.aspx`ブラウザーを使用してページ。 図 1 に示す GridView 各行にはようになりました「管理」リンクが含まれます。 Bruce の [管理] リンクを指す`UserInformation.aspx?user=Bruce`、Dave の [管理] リンクを指す`UserInformation.aspx?user=Dave`します。
+[ハイパーリンク] フィールドを GridView に追加した後、ブラウザーを使用して `ManageUsers.aspx` ページを表示します。 図1に示すように、各 GridView 行には "Manage" リンクが含まれるようになりました。 の [管理] リンクは `UserInformation.aspx?user=Bruce`をポイントしますが、Dave の [管理] リンクを `UserInformation.aspx?user=Dave`します。
 
-[![内に追加します。](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
+[ハイパーリンクフィールドに ![を追加すると、](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
 
-**図 1**:内の各ユーザー アカウントの [管理] リンクを追加します ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image3.png))。
+**図 1**:[ハイパーリンク] フィールドには、ユーザーアカウントごとに "管理" リンクが追加されます ([クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image3.png)されます)。
 
-ユーザー インターフェイスを作成しコードは、`UserInformation.aspx`みましょうトークで、時点が最初のページについて、ユーザーをプログラムで変更する方法のロックアウトし、承認の状態。 [ `MembershipUser`クラス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)が[ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx)と[`IsApproved`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx)します。 `IsLockedOut` プロパティは読み取り専用です。 プログラムでユーザーをロックアウトするメカニズムはありません。ユーザーのロックを解除するには、使用、`MembershipUser`クラスの[`UnlockUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)します。 `IsApproved`プロパティは読み取りも書き込み可能です。 このプロパティに変更を保存する必要がありますを呼び出す、`Membership`クラスの[`UpdateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)、変更を渡して、`MembershipUser`オブジェクト。
+ここでは、`UserInformation.aspx` ページのユーザーインターフェイスとコードを作成しますが、まず、ユーザーのロックアウト状態と承認済みの状態をプログラムで変更する方法について説明します。 [`MembershipUser` クラス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)には、[`IsLockedOut`](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) プロパティと[`IsApproved` プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx)があります。 `IsLockedOut` プロパティは読み取り専用です。 プログラムによってユーザーをロックアウトするメカニズムはありません。ユーザーのロックを解除するには、`MembershipUser` クラスの[`UnlockUser` メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)を使用します。 `IsApproved` プロパティは読み取りと書き込みが可能です。 このプロパティに対する変更を保存するには、`Membership` クラスの[`UpdateUser` メソッド](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)を呼び出して、変更された `MembershipUser` オブジェクトを渡します。
 
-`IsApproved`プロパティは読み取りも書き込み可能な CheckBox コントロールは、このプロパティを構成するための最適なユーザー インターフェイス要素では可能性があります。 ただし、チェック ボックスに対しては機能しません、`IsLockedOut`プロパティをユーザーのロック解除のみ可能性があります彼女管理者は、ユーザーをロックアウトことはできません、ためです。 ための適切なユーザー インターフェイス、`IsLockedOut`プロパティは、ボタンをクリックすると、ユーザー アカウントのロックを解除します。 このボタンは、ユーザーがロックアウトされた場合にのみ有効です。
+`IsApproved` プロパティは読み取りと書き込みが可能であるため、CheckBox コントロールは、このプロパティを構成するための最適なユーザーインターフェイス要素として使用されることがあります。 ただし、管理者がユーザーをロックアウトすることはできず、ユーザーのロックを解除することはできないので、`IsLockedOut` プロパティではチェックボックスは機能しません。 `IsLockedOut` プロパティの適切なユーザーインターフェイスはボタンです。クリックすると、ユーザーアカウントのロックが解除されます。 このボタンは、ユーザーがロックアウトされている場合にのみ有効にする必要があります。
 
-### <a name="creating-theuserinformationaspxpage"></a>作成、`UserInformation.aspx`ページ
+### <a name="creating-theuserinformationaspxpage"></a>`UserInformation.aspx`ページの作成
 
-ユーザー インターフェイスを実装する準備ができました`UserInformation.aspx`します。 このページを開き、次の Web コントロールを追加します。
+これで、`UserInformation.aspx`にユーザーインターフェイスを実装する準備が整いました。 このページを開き、次の Web コントロールを追加します。
 
-- クリックすると、ハイパーリンク コントロールによって、管理者を返します、`ManageUsers.aspx`ページ。
-- 選択したユーザーの名前を表示するためのラベルの Web コントロール。 このラベルの設定`ID`に`UserNameLabel`クリアとその`Text`プロパティ。
-- という名前のチェック ボックス コントロール`IsApproved`します。 設定の`AutoPostBack`プロパティを`true`します。
-- ユーザーを表示するためのラベル コントロールでは日付最後のロックアウトします。 このラベルの名前を付けます`LastLockedOutDateLabel`クリアとその`Text`プロパティ。
-- ユーザーのロックを解除するためのボタン。 このボタンを名前`UnlockUserButton`設定とその`Text`プロパティを「ユーザーのロックを解除」します。
-- 「ユーザーの承認済みの状態が更新されました」など、ステータス メッセージを表示するためのラベル コントロール このコントロールの名前を付けます`StatusMessage`チェック ボックスをオフにその`Text`プロパティ、およびセットの`CssClass`プロパティを`Important`します。 (、`Important`で CSS クラスが定義されている、`Styles.css`スタイル シート ファイルは、大規模な赤いフォントで、対応するテキストが表示されます)。
+- ハイパーリンクコントロール。クリックすると、管理者が [`ManageUsers.aspx`] ページに戻ります。
+- 選択したユーザーの名前を表示するためのラベル Web コントロール。 このラベルの `ID` を `UserNameLabel` に設定し、`Text` プロパティをオフにします。
+- `IsApproved`という名前の CheckBox コントロール。 `AutoPostBack` プロパティを `true`に設定します。
+- ユーザーの最後のロックアウト日を表示するためのラベルコントロール。 このラベルに `LastLockedOutDateLabel` という名前を付け、その `Text` プロパティをオフにします。
+- ユーザーのロックを解除するためのボタン。 このボタン `UnlockUserButton` という名前を指定し、その `Text` プロパティを "Unlock User" に設定します。
+- "ユーザーの承認された状態は更新されました。" などのステータスメッセージを表示するためのラベルコントロール。 このコントロールに `StatusMessage`という名前を設定し、その `Text` プロパティをオフにして、その `CssClass` プロパティを `Important`に設定します。 (`Important` CSS クラスは、`Styles.css` スタイルシートファイルで定義されています。これにより、対応するテキストが大きな赤いフォントで表示されます)。
 
-これらのコントロールを追加すると、Visual Studio でデザイン ビューは図 2 でスクリーン ショットのようになります。
+これらのコントロールを追加した後、Visual Studio のデザインビューは、図2のスクリーンショットのようになります。
 
-[![UserInformation.aspx のユーザー インターフェイスを作成します。](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
+[UserInformation .aspx 用のユーザーインターフェイスを作成 ![には](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
 
-**図 2**:ユーザー インターフェイスを作成`UserInformation.aspx`([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image6.png))。
+**図 2**:`UserInformation.aspx` 用のユーザーインターフェイスを作成[します (クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image6.png)されます)
 
-完全なユーザー インターフェイスでは、次のタスクを設定する、`IsApproved`チェック ボックスとその他のコントロールが選択したユーザーの情報に基づいています。 ページのイベント ハンドラーを作成`Load`イベントし、次のコードを追加します。
+ユーザーインターフェイスが完成したら、次に、選択したユーザーの情報に基づいて `IsApproved` チェックボックスとその他のコントロールを設定します。 ページの `Load` イベントのイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample1.cs)]
 
-上記のコードは、ページおよび以降のポストバックではないに初めてアクセスであることを確認して開始します。 これは、後、を通じて渡されるユーザー名を読み取ります、`user`クエリ文字列フィールドを使用して、そのユーザー アカウントに関する情報を取得し、`Membership.GetUser(username)`メソッド。 クエリ文字列を通じてユーザー名が指定されていないか、管理者に送信される場合は、指定されたユーザーが見つかりませんでした、`ManageUsers.aspx`ページ。
+上記のコードは、最初にページにアクセスし、次のポストバックではないことを確認することから始まります。 次に、`user` querystring フィールドを通じて渡されたユーザー名を読み取り、`Membership.GetUser(username)` メソッドを使用してそのユーザーアカウントに関する情報を取得します。 Querystring でユーザー名が指定されなかった場合、または指定されたユーザーが見つからなかった場合は、管理者が `ManageUsers.aspx` ページに戻されます。
 
-`MembershipUser`オブジェクトの`UserName`に表示される値、`UserNameLabel`と`IsApproved`チェック ボックスをオンに基づき、`IsApproved`プロパティの値。
+`MembershipUser` オブジェクトの `UserName` 値が `UserNameLabel` に表示され、`IsApproved` プロパティ値に基づいて `IsApproved` チェックボックスがオンになります。
 
-`MembershipUser`オブジェクトの[`LastLockoutDate`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx)を返します、`DateTime`ロックされている場合、ユーザーが最後を示す値。ユーザーがロックアウトされていることはない場合、返される値は、メンバーシップ プロバイダーによって異なります。 新しいアカウントが作成されたときに、`SqlMembershipProvider`設定、`aspnet_Membership`テーブルの`LastLockoutDate`フィールドを`1754-01-01 12:00:00 AM`します。 上記のコードで空の文字列が表示されます、`LastLockoutDateLabel`場合、`LastLockoutDate`プロパティが 1 年前に発生 2000。 それ以外の日付部分、`LastLockoutDate`ラベルのプロパティが表示されます。 `UnlockUserButton'` S`Enabled`ロックの状態、つまり、ユーザーがロックアウトされた場合は、このボタンを有効のみがユーザーのプロパティが設定されます。
+`MembershipUser` オブジェクトの[`LastLockoutDate` プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx)は、ユーザーが最後にロックアウトされた日時を示す `DateTime` 値を返します。ユーザーがロックアウトされていない場合、返される値はメンバーシッププロバイダーによって異なります。 新しいアカウントを作成すると、`SqlMembershipProvider` によって `aspnet_Membership` テーブルの `LastLockoutDate` フィールドが `1754-01-01 12:00:00 AM`に設定されます。 上のコードでは、`LastLockoutDate` プロパティが2000年の前に発生した場合、`LastLockoutDateLabel` に空の文字列が表示されます。それ以外の場合は、`LastLockoutDate` プロパティの日付部分がラベルに表示されます。 `UnlockUserButton'` s `Enabled` プロパティは、ユーザーのロックアウト状態に設定されます。つまり、このボタンは、ユーザーがロックアウトされている場合にのみ有効になります。
 
-テストする少し、`UserInformation.aspx`ページがブラウザーを使用します。 もちろんで開始する必要がありますが、`ManageUsers.aspx`を管理するユーザー アカウントを選択します。 到着時に`UserInformation.aspx`、なお、`IsApproved`ユーザーが承認された場合、チェック ボックスをオンのみです。 ユーザーがロックアウトされていることを最後の日付がロックアウトが表示されます。 ユーザーが現在ロックアウトされる場合にのみ、ユーザーのロックを解除 ボタンが有効にします。オンまたはオフ、`IsApproved`チェック ボックスをオンまたはユーザーのロックを解除 ボタンをクリックしてが、ポストバックの原因が、変更がまったく加え、ユーザー アカウントにまだため、これらのイベントのイベント ハンドラーを作成します。
+ブラウザーを使用して `UserInformation.aspx` のページをテストしてみましょう。 もちろん、`ManageUsers.aspx` で開始し、管理するユーザーアカウントを選択する必要があります。 `UserInformation.aspx`に到着すると、[`IsApproved`] チェックボックスは、ユーザーが承認されている場合にのみチェックされることに注意してください。 ユーザーがロックアウトされている場合は、最後のロックアウト日が表示されます。 [ユーザーのロック解除] ボタンは、ユーザーが現在ロックアウトされている場合にのみ有効になります。`IsApproved` チェックボックスをオンまたはオフにして [ユーザーのロック解除] ボタンをクリックすると、ポストバックが発生しますが、これらのイベントのイベントハンドラーをまだ作成していないため、ユーザーアカウントに変更は加えられません。
 
-Visual Studio に戻り、イベント ハンドラーを作成、`IsApproved`チェック ボックスの`CheckedChanged`イベントと`UnlockUser`ボタンの`Click`イベント。 `CheckedChanged`イベント ハンドラーでは、設定、ユーザーの`IsApproved`プロパティを`Checked`プロパティのチェック ボックスをオンにしてから、呼び出しに変更を保存`Membership.UpdateUser`します。 `Click`イベント ハンドラーでは、単に呼び出し、`MembershipUser`オブジェクトの`UnlockUser`メソッド。 両方のイベント ハンドラー内で適切なメッセージを表示、`StatusMessage`ラベル。
+Visual Studio に戻り、`IsApproved` CheckBox の `CheckedChanged` イベントと、`UnlockUser` ボタンの `Click` イベントのイベントハンドラーを作成します。 `CheckedChanged` イベントハンドラーで、ユーザーの `IsApproved` プロパティをチェックボックスの `Checked` プロパティに設定し、`Membership.UpdateUser`の呼び出しを使用して変更を保存します。 `Click` イベントハンドラーでは、`MembershipUser` オブジェクトの `UnlockUser` メソッドを呼び出すだけです。 両方のイベントハンドラーで、`StatusMessage` ラベルに適切なメッセージを表示します。
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample2.cs)]
 
-### <a name="testing-theuserinformationaspxpage"></a>テスト、`UserInformation.aspx`ページ
+### <a name="testing-theuserinformationaspxpage"></a>`UserInformation.aspx`ページのテスト
 
-これらのイベント ハンドラーで、ページに再アクセスおよび未承認ユーザー。 図 3 に示すようメッセージのことを示すページで、ユーザーの概要が表示されます`IsApproved`プロパティが正常に変更します。
+これらのイベントハンドラーを使用して、ページを再実行し、ユーザーを未承認にします。 図3に示すように、ページには、ユーザーの `IsApproved` プロパティが正常に変更されたことを示す簡単なメッセージが表示されます。
 
-[![Chris は未承認されました](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
+[Chris が承認されていない ![](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
 
-**図 3**:Chris は未承認されました ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image9.png))。
+**図 3**:Chris が未承認になりました ([クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image9.png)されます)
 
-次に、ログアウトし、アカウントを持つユーザーとしてログインしてください許可されませんでしただけです。 ユーザーが承認されていないため、ログインできません。 既定では、Login コントロールでは、理由に関係なく、ユーザーがログインできない場合に、同じメッセージが表示されます。 しかし、 <a id="Tutorial6"> </a> [*を検証するユーザーの資格情報に対して、メンバーシップ ユーザー ストア*](../membership/validating-user-credentials-against-the-membership-user-store-cs.md)チュートリアルがより適切なメッセージを表示するログインの制御を強化しました。 図 4 に示す、Chris が自分のアカウントがまだ承認されていないため、彼ログインできないことを説明するメッセージが表示されます。
+次に、ログアウトして、アカウントが承認されていないユーザーとしてログインします。 ユーザーは承認されていないため、ログインできません。 既定では、ログイン制御は、理由に関係なく、ユーザーがログインできない場合、同じメッセージを表示します。 ただし、 <a id="Tutorial6"> </a>[*メンバーシップユーザーストアに対するユーザー資格情報の検証*](../membership/validating-user-credentials-against-the-membership-user-store-cs.md)に関するチュートリアルでは、より適切なメッセージを表示するように、ログインコントロールを拡張する方法を検討しました。 図4に示すように、Chris には、アカウントがまだ承認されていないためにログインできないことを示すメッセージが表示されています。
 
-[![Chris できないログインのため His アカウントが未承認](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
+[アカウントが承認されていないため、Chris がログインできない ![](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
 
-**図 4**:Chris できないログインのため His アカウントが未承認 ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image12.png))。
+**図 4**:アカウントが承認されていないため、Chris はログインできません ([クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image12.png)されます)
 
-ロックアウトの機能をテストするには、承認済みのユーザーとしてログインしますが、正しくないパスワードを使用を試みます。 このプロセスに必要なユーザーのアカウントがロックアウトされてまでの時間数を繰り返します。Login コントロールは、カスタムの表示も更新されたメッセージの場合は、ロックアウトされたアカウントからログインしようとしています。 ログイン ページで、次のメッセージの表示を開始すると、アカウントがロックアウトされていることを理解しておく。"自分のアカウントがロックアウトされて無効なログインの回数が多すぎるためです。 管理者に問い合わせてください、アカウントのロックを解除します。"
+ロックアウトされた機能をテストするには、承認されたユーザーとしてログインを試みますが、正しくないパスワードを使用します。 ユーザーのアカウントがロックアウトされるまで、必要な回数だけこのプロセスを繰り返します。ロックアウトされたアカウントからログインしようとすると、カスタムメッセージを表示するように Login コントロールも更新されました。 ログインページで次のメッセージが表示されると、アカウントがロックアウトされていることがわかります。"無効なログイン試行回数が多すぎるため、アカウントがロックアウトされました。 アカウントのロックを解除するには、管理者にお問い合わせください。 "
 
-戻り、`ManageUsers.aspx`ページし、ロックアウトされたユーザーの管理 リンクをクリックします。 図 5 に示すように値が表示する必要があります、`LastLockedOutDateLabel`ユーザーのロックを解除 ボタンを有効にする必要があります。 ユーザー アカウントのロックを解除するユーザーのロックを解除 ボタンをクリックします。 ユーザーのロックを解除すると、再度ログインできるされます。
+`ManageUsers.aspx` ページに戻り、ロックアウトされたユーザーの [管理] リンクをクリックします。 図5に示すように、[ユーザーのロック解除] ボタンが有効になっている `LastLockedOutDateLabel` に値が表示されます。 ユーザーアカウントのロックを解除するには、[ユーザーのロック解除] ボタンをクリックします。 ユーザーのロックを解除すると、再度ログインできるようになります。
 
-[![Dave は、システムからロックアウトされている](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
+[![Dave がシステムからロックアウトされました](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
 
-**図 5**:Dave がされているロックのうちシステム ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image15.png))。
+**図 5**:Dave がシステムからロックアウトされました ([クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image15.png)されます)
 
-## <a name="step-2-specifying-new-users-approved-status"></a>手順 2: 承認状態の新しいユーザーを指定します。
+## <a name="step-2-specifying-new-users-approved-status"></a>手順 2:新しいユーザーの承認済み状態の指定
 
-承認済みの状態は、何らかのアクションを新しいユーザーがログインして、サイトのユーザーに固有の機能にアクセスできるようにする前に実行するシナリオで役立ちます。 たとえば、ログインとサインアップのページを除く、すべてのページが認証されたユーザーのみがアクセスできるプライベート web サイト実行される可能性があります。 ただし、知らない人が、web サイトに達した場合、サインアップ ページを検索し、アカウントを作成しますか。 これを防ぐへのサインアップ ページを移動する可能性があります、`Administration`フォルダー、および管理者が各アカウントを手動で作成する必要があります。 または、だれもが、サインアップを許可することが管理者ユーザー アカウントを承認するまで、サイトへのアクセスを禁止できます。
+承認済みの状態は、新しいユーザーがサイトのユーザー固有の機能にログインしてアクセスできるようにするために、何らかのアクションを実行する必要がある場合に便利です。 たとえば、プライベート web サイトを実行していて、ログインページとサインアップページを除くすべてのページが、認証されたユーザーのみがアクセスできるようにすることができます。 しかし、ユーザーが web サイトに到達し、サインアップページを検索して、アカウントを作成した場合はどうなるでしょうか。 この問題を回避するには、サインアップページを `Administration` フォルダーに移動し、管理者が各アカウントを手動で作成する必要があります。 または、すべてのユーザーにサインアップを許可し、管理者がユーザーアカウントを承認するまでサイトアクセスを禁止することもできます。
 
-既定では、CreateUserWizard コントロールは、新しいアカウントを承認します。 コントロールを使用してこの動作を構成する[`DisableCreatedUser`プロパティ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx)します。 このプロパティを設定`true`新しいユーザー アカウントを承認しません。
-
-> [!NOTE]
-> 既定で CreateUserWizard コントロールは、新しいユーザー アカウントで自動的に記録します。 この動作は、コントロールの規定[`LoginCreatedUser`プロパティ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx)します。 未承認ユーザーが、サイトにログインできないため、ときに`DisableCreatedUser`は`true`新しいユーザー アカウントがの値に関係なく、サイトにログインしていない、`LoginCreatedUser`プロパティ。
-
-プログラムで使用して、新しいユーザー アカウントを作成している場合、`Membership.CreateUser`メソッドは、未承認のユーザー アカウントを作成するを使用して、新しいユーザーの同意をオーバー ロードの 1 つ`IsApproved`入力パラメーターとしてプロパティ値。
-
-## <a name="step-3-approving-users-by-verifying-their-email-address"></a>手順 3: 電子メール アドレスを確認することでユーザーを承認します。
-
-登録するときに、指定した電子メール アドレスを確認するまで、ユーザー アカウントをサポートする多くの web サイトは新しいユーザーを承認されません。 この検証プロセスは、通常、検証済みの一意の電子メール アドレスが必要ですし、サインアップ プロセスで、追加の手順を追加します。 ボット、スパム、およびその他の役立たずを阻止するために使用されます。 このモデルでは、新しいユーザーはサインアップ時に送信されます検証ページへのリンクを含む電子メール メッセージ。 リンクにアクセスして、ユーザーは、電子メールを受信して、有効なそのためが電子メール アドレスを指定することを実証されました。 確認 ページは、ユーザーの承認を担当します。 これが発生する、自動的にこのページに到達できるすべてのユーザーを承認するため、ユーザーがなどいくつか追加の情報を提供した後にのみ、または、 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha)します。
-
-このワークフローを対応するためには、まず、アカウント作成ページを更新すると、新しいユーザーが承認されていない必要があります。 開く、`EnhancedCreateUserWizard.aspx`ページで、`Membership`フォルダーおよび CreateUserWizard コントロールをセット`DisableCreatedUser`プロパティを`true`します。
-
-次に、自分のアカウントを確認する方法の手順で新しいユーザーに電子メールを送信する CreateUserWizard コントロールを構成する必要があります。 電子メールに記載のリンクを含める具体的には、`Verification.aspx`ページ (まだこれを作成)、新しいユーザーに渡して、`UserId`を通じて、クエリ文字列。 `Verification.aspx`ページは、指定されたユーザーを検索し、承認、としてマークします。
-
-### <a name="sending-a-verification-email-to-new-users"></a>新しいユーザーに確認メールを送信します。
-
-CreateUserWizard コントロールから、電子メールを送信する次のように構成します。 その`MailDefinition`プロパティ適切にします。 説明したように、 <a id="Tutorial13"> </a>[前のチュートリアル](recovering-and-changing-passwords-cs.md)、ChangePassword と PasswordRecovery コントロールを[`MailDefinition`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx)と同様に動作します。CreateUserWizard コントロールの。
+既定では、CreateUserWizard コントロールは新しいアカウントを承認します。 この動作は、コントロールの[`DisableCreatedUser` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx)を使用して構成できます。 新しいユーザーアカウントを承認しないようにするには、このプロパティを `true` に設定します。
 
 > [!NOTE]
-> 使用する、`MailDefinition`メールの配信を指定する必要があるプロパティ オプション`Web.config`します。 詳細についてを参照してください[ASP.NET で電子メールを送信する](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)します。
+> 既定では、CreateUserWizard コントロールは新しいユーザーアカウントに自動的にログオンします。 この動作は、コントロールの[`LoginCreatedUser` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx)によって決まります。 未承認のユーザーがサイトにログインできないため、`DisableCreatedUser` が `true` 場合、`LoginCreatedUser` プロパティの値に関係なく、新しいユーザーアカウントはサイトにログインしません。
 
-という名前の新しい電子メール テンプレートを作成して開始`CreateUserWizard.txt`で、`EmailTemplates`フォルダー。 テンプレートについては、次のテキストを使用します。
+`Membership.CreateUser` メソッドを使用してプログラムによって新しいユーザーアカウントを作成する場合、未承認のユーザーアカウントを作成するには、新しいユーザーの `IsApproved` プロパティ値を入力パラメーターとして受け取るオーバーロードのいずれかを使用します。
+
+## <a name="step-3-approving-users-by-verifying-their-email-address"></a>手順 3:電子メールアドレスを確認してユーザーを承認する
+
+ユーザーアカウントをサポートする多くの web サイトは、登録時に指定した電子メールアドレスを確認するまで、新しいユーザーを承認しません。 この検証プロセスは、ボット、スパム送信者、およびその他の neer を阻止するためによく使用されます。これは、一意で検証された電子メールアドレスが必要であり、サインアッププロセスに追加の手順が追加されるためです。 このモデルでは、新しいユーザーがサインアップすると、確認ページへのリンクを含む電子メールメッセージが送信されます。 このリンクにアクセスすることで、ユーザーは電子メールを受信したことがわかっているので、指定された電子メールアドレスが有効であることが証明されます。 検証ページは、ユーザーを承認する役割を担います。 これは自動的に発生し、このページに到達したユーザーを承認するか、ユーザーが[CAPTCHA](http://en.wikipedia.org/wiki/Captcha)などの追加情報を提供した後にのみ承認されます。
+
+このワークフローに対応するには、最初にアカウント作成ページを更新して、新しいユーザーが承認されないようにする必要があります。 `Membership` フォルダーの [`EnhancedCreateUserWizard.aspx`] ページを開き、CreateUserWizard コントロールの `DisableCreatedUser` プロパティを [`true`] に設定します。
+
+次に、新しいユーザーに電子メールを送信するように CreateUserWizard コントロールを構成し、アカウントを確認する方法を説明します。 特に、`Verification.aspx` ページ (まだ作成していません) へのリンクを電子メールに含め、新しいユーザーの `UserId` を querystring で渡します。 `Verification.aspx` ページでは、指定されたユーザーを検索し、承認済みとしてマークします。
+
+### <a name="sending-a-verification-email-to-new-users"></a>新しいユーザーに確認メールを送信する
+
+CreateUserWizard コントロールから電子メールを送信するには、その `MailDefinition` プロパティを適切に構成します。 <a id="Tutorial13"> </a>[前のチュートリアル](recovering-and-changing-passwords-cs.md)で説明したように、ChangePassword および passwordrecovery コントロールには、CreateUserWizard コントロールのと同じ方法で動作する[`MailDefinition` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx)が含まれています。
+
+> [!NOTE]
+> `MailDefinition` プロパティを使用するには、`Web.config`でメール配信オプションを指定する必要があります。 詳細については、「 [ASP.NET での電子メールの送信」](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)を参照してください。
+
+まず、`EmailTemplates` フォルダーに `CreateUserWizard.txt` という名前の新しい電子メールテンプレートを作成します。 テンプレートには、次のテキストを使用します。
 
 [!code-aspx[Main](unlocking-and-approving-user-accounts-cs/samples/sample3.aspx)]
 
-設定、 `MailDefinition'` s`BodyFileName`プロパティを"~/EmailTemplates/CreateUserWizard.txt"とその`Subject`プロパティを"自分の web サイトへようこそ! アクティブ化してください、アカウントです。"
+`MailDefinition'` s `BodyFileName` プロパティを "~/EmailTemplates/CreateUserWizard.txt" に設定し、その `Subject` プロパティを [My Web サイトへようこそ] に設定します。 アカウントをアクティブ化してください。 "
 
-なお、`CreateUserWizard.txt`電子メール テンプレートが含まれています、`<%VerificationUrl%>`プレース ホルダーです。 これは、ような場合の URL、`Verification.aspx`ページに配置されます。 CreateUserWizard が自動的に置き換えられます、`<%UserName%>`と`<%Password%>`プレース ホルダーを新しいアカウントのユーザー名とパスワード、組み込みはありませんが、`<%VerificationUrl%>`プレース ホルダーです。 適切な検証 URL を使用して手動で置き換える必要があります。
+`CreateUserWizard.txt` 電子メールテンプレートには、`<%VerificationUrl%>` プレースホルダーが含まれていることに注意してください。 ここで、`Verification.aspx` ページの URL が配置されます。 CreateUserWizard は、`<%UserName%>` と `<%Password%>` のプレースホルダーを新しいアカウントのユーザー名とパスワードに自動的に置き換えますが、組み込みの `<%VerificationUrl%>` プレースホルダーはありません。 適切な検証 URL に手動で置き換える必要があります。
 
-これを実現するには、CreateUserWizard のイベント ハンドラーを作成[`SendingMail`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx)し、次のコードを追加します。
+これを実現するには、CreateUserWizard の[`SendingMail` イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx)のイベントハンドラーを作成し、次のコードを追加します。
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample4.cs)]
 
-`SendingMail`イベントが発生した後、`CreatedUser`イベント、上記のイベント ハンドラーは、新しいユーザーを実行するとき、アカウントが既に作成されたことを意味します。 新しいユーザーのアクセス`UserId`呼び出すことによって値、`Membership.GetUser`に渡して、メソッド、 `UserName` CreateUserWizard コントロールに入力します。 次に、検証 URL が形成されます。 ステートメント`Request.Url.GetLeftPart(UriPartial.Authority)`を返します、 `http://yourserver.com` ; URL の部分`Request.ApplicationPath`を返します。 パスが、アプリケーションのルートが指定されています。 URL として定義し、検証`Verification.aspx?ID=userId`です。 これら 2 つの文字列は、完全な URL をフォームに連結されます。 最後に、電子メール メッセージの本文 (`e.Message.Body`) が出現するすべての`<%VerificationUrl%>`の完全な URL に置き換えられます。
+`SendingMail` イベントは、`CreatedUser` イベントの後に発生します。つまり、上記のイベントハンドラーが実行されたときに、新しいユーザーアカウントが既に作成されていることを意味します。 新しいユーザーの `UserId` 値にアクセスするには、`Membership.GetUser` メソッドを呼び出し、CreateUserWizard コントロールに入力した `UserName` を渡します。 次に、検証 URL が形成されます。 ステートメント `Request.Url.GetLeftPart(UriPartial.Authority)` は、URL の `http://yourserver.com` の部分を返します。`Request.ApplicationPath` は、アプリケーションがルートとするパスを返します。 検証 URL が `Verification.aspx?ID=userId`として定義されます。 この2つの文字列は、完全な URL を形成するために連結されます。 最後に、電子メールメッセージの本文 (`e.Message.Body`) には、すべての `<%VerificationUrl%>` が完全な URL で置き換えられます。
 
-実質的な効果は、ある新しいユーザー承認されていない、つまりことは、サイトにログインすることはできません。 さらに、自動的に送信される電子メールのリンクを検証 URL (図 6 参照)。
+実質的な効果は、新しいユーザーが未承認であることです。つまり、サイトにログインすることはできません。 さらに、確認 URL へのリンクを含む電子メールが自動的に送信されます (図6を参照)。
 
-[![新しいユーザー検証 URL へのリンクを電子メールを受信します。](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
+[新しいユーザーが、確認 URL へのリンクを含む電子メールを受信 ![](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
 
-**図 6**:新しいユーザー検証 URL へのリンクを電子メールの受信 ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image18.png))。
+**図 6**:新しいユーザーは、確認 URL へのリンクを含む電子メールを受信します ([クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image18.png)されます)
 
 > [!NOTE]
-> CreateUserWizard コントロールの既定の CreateUserWizard の手順では、自分のアカウントが作成され、[続行] ボタンを表示、ユーザーに通知するメッセージが表示されます。 これをクリックすると、ユーザーをコントロールの指定された URL が`ContinueDestinationPageUrl`プロパティ。 CreateUserWizard`EnhancedCreateUserWizard.aspx`新しいユーザーに送信するように構成、`~/Membership/AdditionalUserInfo.aspx`出身、ホームページの URL、および署名のユーザーが求められます。 この情報できますのみ追加するためログオン ユーザー、理にかなってサイトのホーム ページにユーザーを送信するには、このプロパティを更新 (`~/Default.aspx`)。 さらに、`EnhancedCreateUserWizard.aspx`検証電子メールが送信された、まで、このメールの指示に従いますが、自分のアカウントをアクティブ化されませんユーザーに通知するページまたは CreateUserWizard の手順を拡張する必要があります。 リーダーの練習としてこのような変更のままは。
+> CreateUserWizard コントロールの既定の CreateUserWizard ステップでは、ユーザーにアカウントが作成されたことを知らせるメッセージが表示され、[続行] ボタンが表示されます。 このボタンをクリックすると、ユーザーはコントロールの `ContinueDestinationPageUrl` プロパティによって指定された URL に移動します。 `EnhancedCreateUserWizard.aspx` の CreateUserWizard は、新しいユーザーを `~/Membership/AdditionalUserInfo.aspx`に送信するように構成されています。これにより、ユーザーは自分の故郷、ホームページの URL、署名を求められます。 この情報は、ログオンしているユーザーのみが追加できるため、このプロパティを更新して、ユーザーをサイトのホームページ (`~/Default.aspx`) に戻すことができます。 さらに、[`EnhancedCreateUserWizard.aspx`] ページまたは CreateUserWizard 手順は、確認メールが送信されたことをユーザーに通知するように拡張する必要があります。また、そのアカウントは、この電子メールの指示に従うまでライセンス認証されません。 これらの変更は、読者のための演習として残しておきます。
 
-### <a name="creating-the-verification-page"></a>確認ページを作成します。
+### <a name="creating-the-verification-page"></a>検証ページの作成
 
-最後のタスクが作成するには、`Verification.aspx`ページ。 このページを関連付けることで、ルート フォルダーに追加、`Site.master`マスター ページ。 ほとんどのサイトに追加する前のコンテンツ ページを参照するコンテンツ コントロールを削除、 `LoginContent` ContentPlaceHolder コンテンツ ページで、マスター ページを使用するよう既定のコンテンツ。
+最後に、`Verification.aspx` ページを作成します。 このページをルートフォルダーに追加し、`Site.master` マスターページに関連付けます。 前に説明したコンテンツページのほとんどがサイトに追加されたので、コンテンツページがマスターページの既定のコンテンツを使用するように、`LoginContent` ContentPlaceHolder を参照するコンテンツコントロールを削除します。
 
-ラベル Web コントロールを追加、`Verification.aspx`設定ページで、その`ID`に`StatusMessage`しその text プロパティをオフにします。 次に、作成、`Page_Load`イベント ハンドラーを次のコードを追加します。
+[`Verification.aspx`] ページに [ラベル] Web コントロールを追加し、その `ID` を `StatusMessage` に設定して、[text] プロパティをオフにします。 次に、`Page_Load` イベントハンドラーを作成し、次のコードを追加します。
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample5.cs)]
 
-上記のコードの大部分を検証する、 `UserId` 、クエリ文字列が存在する、有効であることを指定した`Guid`値、および既存のユーザー アカウントを参照していること。 ユーザー アカウントが承認されたすべてのこれらのチェックを渡す場合それ以外の場合、適切な状態メッセージが表示されます。
+上記のコードの大部分では、querystring を通じて提供された `UserId` が存在すること、有効な `Guid` 値であること、および既存のユーザーアカウントを参照していることを確認します。 これらすべてのチェックに合格すると、ユーザーアカウントは承認されます。それ以外の場合は、適切なステータスメッセージが表示されます。
 
-図 7 に示します、`Verification.aspx`ページをブラウザーからアクセスする場合。
+図7は、ブラウザーを使用してアクセスしたときの `Verification.aspx` ページを示しています。
 
-[![新しいユーザーのアカウントが承認されるようになりました](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
+[新しいユーザーのアカウントが承認された ![](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
 
-**図 7**:新しいユーザーのアカウントが承認されるようになりました ([フルサイズの画像を表示する をクリックします](unlocking-and-approving-user-accounts-cs/_static/image21.png))。
+**図 7**:新しいユーザーのアカウントが承認されました ([クリックすると、フルサイズの画像が表示](unlocking-and-approving-user-accounts-cs/_static/image21.png)されます)
 
 ## <a name="summary"></a>まとめ
 
-すべてのメンバーシップ ユーザーのアカウントがあるユーザーがサイトにログインできるかどうかを決定する 2 つの状態:`IsLockedOut`と`IsApproved`します。 これらのプロパティの両方があります`true`ユーザーがログインするためです。
+すべてのメンバーシップユーザーアカウントには、ユーザーがサイトにログインできるかどうかを決定する2つの状態があります。 `IsLockedOut` と `IsApproved`です。 ユーザーがログインするには、これらのプロパティの両方を `true` する必要があります。
 
-ユーザーのロックアウト状態は、ブルート フォース攻撃の方法でサイトに重大なハッカーの可能性を低く、セキュリティ対策として使用されます。 具体的には、ユーザーがロックアウト時間帯内で無効なログイン試行数がある場合。 これらの境界は、メンバーシップ プロバイダーの設定で使用して構成できます`Web.config`します。
+ユーザーのロックアウト状態はセキュリティ対策として使用されます。これは、ブルートフォース方式によって、ハッカーがサイトに侵入する可能性を低減するためです。 具体的には、一定の時間内に無効なログイン試行回数があると、ユーザーはロックアウトされます。 これらの境界は、`Web.config`のメンバーシッププロバイダー設定を使用して構成できます。
 
-承認済みの状態は、新しいユーザーが何らかのアクションが指定されるまでログ記録することを禁止するための手段として通常使用されます。 おそらく、サイトでは最初に新しいアカウントを管理者が承認することが必要ですか、電子メール アドレスを確認し、手順 3. で説明したようにします。
+承認済みの状態は、一部のアクションが発生するまで、新しいユーザーがログインできないようにする手段としてよく使用されます。 サイトでは、最初に管理者が新しいアカウントを承認する必要があります。または、手順3で見たように、電子メールアドレスを確認してください。
 
-満足のプログラミングです。
+プログラミングを楽しんでください。
 
-### <a name="about-the-author"></a>執筆者紹介
+### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取ります書籍の著者と、4GuysFromRolla.com の創設者では、1998 年から、Microsoft Web テクノロジに取り組んできました。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は *[Sams 教える自分で ASP.NET 2.0 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* します。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログ[ http://ScottOnWriting.NET](http://scottonwriting.net/)します。
+1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
-### <a name="special-thanks-to"></a>特別に感謝しています.
+### <a name="special-thanks-to"></a>ありがとうございました。
 
-このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 今後、MSDN の記事を確認したいですか。 場合は、筆者に [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
 > [前へ](recovering-and-changing-passwords-cs.md)

@@ -1,217 +1,217 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
-title: 取得と表示を使用してデータ モデルのバインディングと web フォーム |Microsoft Docs
+title: モデルバインドと web フォームを使用したデータの取得と表示 |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
+description: このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データの相互作用がより簡単になり-...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: 08cb65f9ef8f5c36070454e011f41554d81f333f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 81cca22cb4752d071d2a68986ae9ac2bed737594
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131538"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74633170"
 ---
-# <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>取得して、モデル バインディングと web フォームでデータの表示
+# <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>モデルバインドと web フォームを使用したデータの取得と表示
 
-> このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。
+> このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データソースオブジェクト (ObjectDataSource や SqlDataSource など) を処理するよりも、データ操作がより簡単になります。 このシリーズでは、入門資料から開始し、以降のチュートリアルでより高度な概念に移ります。
 > 
-> モデル バインドのパターンは、任意のデータ アクセス テクノロジと連携します。 このチュートリアルでは、Entity Framework を使用するが、最も使い慣れたデータ アクセス テクノロジを使用できます。 GridView、ListView、DetailsView、または FormView コントロールなどのデータ バインド サーバー コントロールから選択すると、更新、削除、およびデータの作成に使用するメソッドの名前を指定します。 このチュートリアルでは、SelectMethod の値を指定します。 
+> モデルバインドパターンは、任意のデータアクセステクノロジと連携します。 このチュートリアルでは Entity Framework を使用しますが、最も使い慣れたデータアクセステクノロジを使用することもできます。 GridView、ListView、DetailsView、FormView コントロールなどのデータバインドサーバーコントロールから、データの選択、更新、削除、および作成に使用するメソッドの名前を指定します。 このチュートリアルでは、SelectMethod の値を指定します。 
 > 
-> そのメソッド内では、データを取得するロジックを提供します。 次のチュートリアルでは、UpdateMethod、InsertMethod、DeleteMethod の値を設定します。
+> そのメソッド内で、データを取得するためのロジックを提供します。 次のチュートリアルでは、UpdateMethod、DeleteMethod、および InsertMethod の値を設定します。
 >
-> できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)で完全なプロジェクトC#または Visual Basic です。 ダウンロード可能なコードは、Visual Studio 2012 以降のバージョンとは動作します。 これは、このチュートリアルで示すように、Visual Studio 2017 のテンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
+> 完全なプロジェクトは、またはC# Visual Basic で[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)できます。 ダウンロード可能なコードは、Visual Studio 2012 以降で動作します。 Visual Studio 2012 テンプレートが使用されています。このテンプレートは、このチュートリアルで示した Visual Studio 2017 テンプレートとは少し異なります。
 > 
-> チュートリアルでは、Visual Studio でアプリケーションを実行します。 ホスティング プロバイダーにアプリケーションを展開し、インターネット経由で使用できるようにもできます。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、  
-> [無料 Azure 試用版アカウント](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Azure App Service Web Apps にデプロイする方法については、次を参照してください。、 [Visual Studio を使用して ASP.NET Web 配置](../../deployment/visual-studio-web-deployment/introduction.md)シリーズ。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Azure SQL Database に SQL Server データベースをデプロイする方法も示します。
+> このチュートリアルでは、Visual Studio でアプリケーションを実行します。 また、アプリケーションをホスティングプロバイダーに展開し、インターネット経由で使用できるようにすることもできます。 Microsoft では、最大10個の web サイトの web ホスティングを無料で提供しています。  
+> [無料の Azure 試用版アカウント](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)。 Visual Studio web プロジェクトを Azure App Service Web Apps にデプロイする方法の詳細については、「 [Visual studio シリーズを使用した ASP.NET Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)」を参照してください。 このチュートリアルでは、Entity Framework Code First Migrations を使用して、SQL Server データベースを Azure SQL Database にデプロイする方法についても説明します。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > - Microsoft Visual Studio 2017 または Microsoft Visual Studio Community 2017
 >   
-> このチュートリアルは Visual Studio 2012 と Visual Studio 2013 も機能しますはユーザー インターフェイスとプロジェクト テンプレートでは、いくつか違いがあります。
+> このチュートリアルは、Visual Studio 2012 および Visual Studio 2013 でも動作しますが、ユーザーインターフェイスとプロジェクトテンプレートにはいくつかの違いがあります。
 
-## <a name="what-youll-build"></a>構築します
+## <a name="what-youll-build"></a>ビルドする内容
 
-このチュートリアルではあります。
+このチュートリアルでは、次のことについて説明します。
 
-* 受講者コースに登録されていると、大学を反映するデータ オブジェクトを構築します。
-* データベース テーブル オブジェクトを構築します。
-* テスト データでデータベースを設定します。
-* Web フォームでデータを表示
+* 学生がコースに登録されている大学を反映するデータオブジェクトを構築する
+* オブジェクトからデータベーステーブルを作成する
+* データベースにテストデータを設定する
+* Web フォームにデータを表示する
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
-1. Visual Studio 2017 では、作成、 **ASP.NET Web アプリケーション (.NET Framework)** という名前のプロジェクト**ContosoUniversityModelBinding**します。
+1. Visual Studio 2017 で、 **ASP.NET Web アプリケーション (.NET Framework)** プロジェクトを作成します。このプロジェクトには、"_ **Osouniversitymodelbinding**" という名前を付いています。
 
-   ![プロジェクトを作成します。](retrieving-data/_static/image19.png)
+   ![プロジェクトの作成](retrieving-data/_static/image19.png)
 
-2. **[OK]** を選択します。 テンプレートを選択するダイアログ ボックスが表示されます。
+2. **[OK]** を選択します。 テンプレートを選択するためのダイアログボックスが表示されます。
 
-   ![web フォームを選択します。](retrieving-data/_static/image3.png)
+   ![web フォームの選択](retrieving-data/_static/image3.png)
 
-3. 選択、 **Web フォーム**テンプレート。 
+3. **[Web フォーム]** テンプレートを選択します。 
 
-4. 必要に応じて、変更への認証**個々 のユーザー アカウント**します。 
+4. 必要に応じて、認証を**個々のユーザーアカウント**に変更します。 
 
 5. **[OK]** をクリックして、プロジェクトを作成します。
 
-## <a name="modify-site-appearance"></a>サイトの外観を変更します。
+## <a name="modify-site-appearance"></a>サイトの外観を変更する
 
-   サイトの外観をカスタマイズするいくつかの変更を加えます。 
+   サイトの外観をカスタマイズするには、いくつかの変更を行います。 
    
-   1. Site.Master ファイルを開きます。
+   1. サイトのマスターファイルを開きます。
    
-   2. 表示するタイトルを変更する**Contoso University**なく**My ASP.NET Application**します。
+   2. **ASP.NET アプリケーション**ではなく、 **Contoso 大学**を表示するようにタイトルを変更します。
 
       [!code-aspx-csharp[Main](retrieving-data/samples/sample1.aspx?highlight=1)]
 
-   3. ヘッダー テキストを変更する**アプリケーション名**に**Contoso University**します。
+   3. ヘッダーテキストを**アプリケーション名**から**Contoso 大学**に変更します。
 
       [!code-aspx-csharp[Main](retrieving-data/samples/sample2.aspx?highlight=7)]
 
-   4. 適切なサイトへのナビゲーション ヘッダーのリンクを変更します。 
+   4. ナビゲーションヘッダーリンクをサイト適切なサイトに変更します。 
    
-      リンクを削除**について**と**連絡先**し、代わりに、リンク、**学生**ページで、作成されます。
+      **About**と**Contact**のリンクを削除し、代わりに **[学生]** ページにリンクします。このページでは、作成します。
 
       [!code-aspx-csharp[Main](retrieving-data/samples/sample3.aspx)]
 
-   5. Site.Master を保存します。
+   5. Site. Master を保存します。
 
-## <a name="add-a-web-form-to-display-student-data"></a>受講者データを表示する web フォームを追加します。
+## <a name="add-a-web-form-to-display-student-data"></a>学生データを表示するための web フォームを追加する
 
-   1. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加**し**新しい項目の**します。 
+   1. **ソリューションエクスプローラー**で、プロジェクトを右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択します。 
    
-   2. **新しい項目の追加**ダイアログ ボックスで、**マスター ページを使用した Web フォーム**テンプレートと名前を付けます**Students.aspx**します。
+   2. **[新しい項目の追加]** ダイアログボックスで、**マスターページ**テンプレートを使用して Web フォームを選択し、「 **student .aspx**」という名前を付けます。
 
-      ![ページを作成します。](retrieving-data/_static/image5.png)
+      ![ページの作成](retrieving-data/_static/image5.png)
 
    3. **[追加]** を選びます。
    
-   4. Web フォームのマスター ページで、選択**Site.Master**します。
+   4. Web フォームのマスターページの場合は、 **[.master]** を選択します。
    
    5. **[OK]** を選択します。
 
 ## <a name="add-the-data-model"></a>データ モデルを追加する
 
-**モデル**フォルダー、という名前のクラスを追加**UniversityModels.cs**します。
+**[モデル]** フォルダーで、 **UniversityModels.cs**という名前のクラスを追加します。
 
-   1. 右クリックして**モデル**を選択します**追加**、し**新しい項目の**します。 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   1. **[モデル]** を右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 
-   2. 左側のナビゲーション メニューから選択**コード**、し**クラス**します。
+   2. 左側のナビゲーションメニューから、 **[Code]** 、 **[Class]** の順に選択します。
 
-      ![モデル クラスを作成します。](retrieving-data/_static/image20.png)
+      ![モデルクラスの作成](retrieving-data/_static/image20.png)
 
-   3. クラスの名前**UniversityModels.cs**選択**追加**します。
+   3. クラスに**UniversityModels.cs**という名前を指定し、 **[追加]** を選択します。
 
-      このファイルで定義、 `SchoolContext`、 `Student`、`Enrollment`と`Course`クラスの次のようにします。
+      このファイルで、`SchoolContext`、`Student`、`Enrollment`、および `Course` クラスを次のように定義します。
 
       [!code-csharp[Main](retrieving-data/samples/sample4.cs)]
 
-      `SchoolContext`クラスから派生`DbContext`、データベース接続の管理し、データに変更します。
+      `SchoolContext` クラスは、データベース接続とデータの変更を管理する `DbContext`から派生します。
 
-      `Student`クラス、適用される属性に注意してください、 `FirstName`、 `LastName`、および`Year`プロパティ。 このチュートリアルは、データ検証用のこれらの属性を使用します。 コードを簡略化するのには、これらのプロパティのみがデータ検証属性でマークされます。 実際のプロジェクトでは、検証を必要とするすべてのプロパティに検証属性が適用されます。
+      `Student` クラスで、`FirstName`、`LastName`、および `Year` の各プロパティに適用されている属性を確認します。 このチュートリアルでは、これらの属性を使用してデータを検証します。 コードを簡略化するために、これらのプロパティのみがデータ検証属性でマークされます。 実際のプロジェクトでは、検証が必要なすべてのプロパティに検証属性を適用します。
 
    4. UniversityModels.cs を保存します。
 
-## <a name="set-up-the-database-based-on-classes"></a>クラスに基づくデータベースを設定します。
+## <a name="set-up-the-database-based-on-classes"></a>クラスに基づいてデータベースを設定する
 
-このチュートリアルでは[Code First Migrations](https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/)オブジェクトを作成し、データベース テーブル。 これらのテーブルでは、受講者とそのコースに関する情報を格納します。
+このチュートリアルでは、 [Code First Migrations](https://docs.microsoft.com/ef/ef6/modeling/code-first/migrations/)を使用してオブジェクトとデータベーステーブルを作成します。 これらのテーブルには、学生とそのコースに関する情報が格納されます。
 
-   1. 選択**ツール** > **NuGet パッケージ マネージャー** > **パッケージ マネージャー コンソール**します。
+   1. [**ツール** > **NuGet パッケージマネージャー** > **パッケージマネージャーコンソール**] を選択します。
 
-   2. **パッケージ マネージャー コンソール**、このコマンドを実行します。  
+   2. **パッケージマネージャーコンソール**で、次のコマンドを実行します。  
       `enable-migrations -ContextTypeName ContosoUniversityModelBinding.Models.SchoolContext`
 
-      コマンドが正常に完了すると、移行を有効になっていることを示すメッセージが表示されます。
+      コマンドが正常に完了した場合は、移行が有効になっているというメッセージが表示されます。
 
-      ![移行を有効にします。](retrieving-data/_static/image8.png)
+      ![移行を有効にする](retrieving-data/_static/image8.png)
 
-      という名前のファイルに注意してください*Configuration.cs*が作成されました。 `Configuration`クラスには、`Seed`メソッドは、事前にテスト データ、データベース テーブルに設定できます。
+      *Configuration.cs*という名前のファイルが作成されていることに注意してください。 `Configuration` クラスには、データベーステーブルにテストデータを事前に設定できる `Seed` メソッドがあります。
 
-## <a name="pre-populate-the-database"></a>データベースを事前設定します。
+## <a name="pre-populate-the-database"></a>データベースを事前設定する
 
    1. Configuration.cs を開きます。
    
-   2. `Seed` メソッドに次のコードを追加します。 また、追加、`using`のステートメント、`ContosoUniversityModelBinding. Models`名前空間。
+   2. `Seed` メソッドに次のコードを追加します。 また、`ContosoUniversityModelBinding. Models` 名前空間の `using` ステートメントも追加します。
 
       [!code-csharp[Main](retrieving-data/samples/sample5.cs)]
 
    3. Configuration.cs を保存します。
 
-   4. パッケージ マネージャー コンソールで、コマンドを実行**追加移行の初期**します。
+   4. パッケージマネージャーコンソールで、 **[追加-移行の初期]** コマンドを実行します。
 
-   5. コマンドを実行**更新データベース**します。
+   5. コマンド**update-database**を実行します。
 
-      このコマンドを実行するときに例外が発生した場合、`StudentID`と`CourseID`値が異なる可能性があります、`Seed`メソッドの値。 これらのデータベース テーブルを開きの既存の値を検索`StudentID`と`CourseID`します。 これらの値をシード処理のコードを追加、`Enrollments`テーブル。
+      このコマンドの実行時に例外が発生した場合は、`StudentID` と `CourseID` の値が `Seed` メソッドの値と異なる可能性があります。 これらのデータベーステーブルを開き、`StudentID` と `CourseID`の既存の値を検索します。 これらの値をコードに追加して、`Enrollments` テーブルをシード処理します。
 
-## <a name="add-a-gridview-control"></a>GridView コントロールを追加します。
+## <a name="add-a-gridview-control"></a>GridView コントロールの追加
 
-設定されているデータベースのデータで、そのデータを取得し表示する準備ができましたがようになりました。 
+データベースデータが入力されたので、そのデータを取得して表示する準備ができました。 
 
-1. Students.aspx を開きます。
+1. Student を開きます。
 
-2. 検索、`MainContent`プレース ホルダーです。 プレース ホルダーを追加、 **GridView**コントロールをこのコードが含まれています。
+2. `MainContent` プレースホルダーを見つけます。 このプレースホルダー内に、このコードを含む**GridView**コントロールを追加します。
 
    [!code-aspx-csharp[Main](retrieving-data/samples/sample6.aspx)]
 
-   点に注意してください。
-   * 設定値は、通知、 `SelectMethod` GridView 要素プロパティ。 この値は、次の手順で作成するは、GridView データの取得に使用する方法を指定します。 
+   注意点:
+   * GridView 要素の `SelectMethod` プロパティに設定されている値に注目してください。 この値は、次の手順で作成する GridView データを取得するために使用するメソッドを指定します。 
    
-   * `ItemType`プロパティに設定されて、`Student`クラスの前に作成します。 この設定では、マークアップでクラスのプロパティを参照できます。 たとえば、`Student`クラスという名前のコレクションには`Enrollments`します。 使用することができます`Item.Enrollments`そのコレクションを取得し、使用する[LINQ 構文](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq)各受講者を取得するクレジットの合計を登録します。
+   * `ItemType` プロパティは、前に作成した `Student` クラスに設定されます。 この設定により、マークアップでクラスのプロパティを参照できます。 たとえば、`Student` クラスには、`Enrollments`という名前のコレクションがあります。 `Item.Enrollments` を使用してそのコレクションを取得し、 [LINQ 構文](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq)を使用して各学生の登録済みクレジットの合計を取得することができます。
    
-3. Students.aspx を保存します。
+3. Student を保存します。
 
-## <a name="add-code-to-retrieve-data"></a>データを取得するコードを追加します。
+## <a name="add-code-to-retrieve-data"></a>データを取得するコードを追加する
 
-   Students.aspx 分離コード ファイルで指定されたメソッドを追加、`SelectMethod`値。 
+   Student 分離コードファイルで、`SelectMethod` 値に指定されたメソッドを追加します。 
    
    1. Students.aspx.cs を開きます。
    
-   2. 追加`using`のステートメント、`ContosoUniversityModelBinding. Models`と`System.Data.Entity`名前空間。
+   2. `ContosoUniversityModelBinding. Models` と `System.Data.Entity` 名前空間に `using` ステートメントを追加します。
 
       [!code-csharp[Main](retrieving-data/samples/sample7.cs)]
 
-   3. 指定したメソッドを追加`SelectMethod`:
+   3. `SelectMethod`に指定したメソッドを追加します。
 
       [!code-csharp[Main](retrieving-data/samples/sample8.cs)]
 
-      `Include`句は、クエリのパフォーマンスを向上しますは必要ありません。 なし、`Include`を使用して句では、データを取得[*遅延読み込み*](https://en.wikipedia.org/wiki/Lazy_loading)データの取得に関連するたびにデータベースに個別のクエリを送信する処理も行われます。 `Include`を使用して句では、データを取得*一括読み込み*、つまり、1 つのデータベース クエリには、すべての関連データを取得します。 関連するデータが使用されていない場合より多くのデータが取得されるため、一括読み込みは効率が低下します。 ただし、この場合、一括読み込みでは、最高のパフォーマンス レコードごとに、関連するデータが表示されるためです。
+      `Include` 句を指定すると、クエリのパフォーマンスが向上しますが、必須ではありません。 `Include` 句を指定しない場合は、[*遅延読み込み*](https://en.wikipedia.org/wiki/Lazy_loading)を使用してデータが取得されます。これには、関連するデータが取得されるたびに、データベースに個別のクエリを送信する必要があります。 `Include` 句を使用すると、*一括読み込み*を使用してデータが取得されます。これは、1つのデータベースクエリですべての関連データを取得することを意味します。 関連するデータが使用されていない場合は、より多くのデータが取得されるため、一括読み込みの方が効率が悪くなります。 ただし、この場合、一括読み込みでは、各レコードの関連データが表示されるため、最適なパフォーマンスが得られます。
 
-      データ関連の読み込み時にパフォーマンスに関する考慮事項の詳細についてを参照してください、**非同期 (lazy)、Eager、および明示的な読み込みの関連データ**セクション、 [Entity Framework では、ASP.NET で関連データの読み取りMVC アプリケーション](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)記事。
+      関連データを読み込むときのパフォーマンスに関する考慮事項の詳細については、「 [ASP.NET MVC アプリケーションでの Entity Framework を使用した関連データの読み取り](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)」の記事の「関連データ**の遅延、一括読み込み、明示的な読み込み**」セクションを参照してください。
 
-      既定では、データは、キーとしてマークされているプロパティの値で並べ替えられます。 追加することができます、`OrderBy`句を異なる並べ替え値を指定します。 この例では、既定では`StudentID`プロパティの並べ替えに使用します。 [並べ替え、ページング、およびデータのフィルター処理](sorting-paging-and-filtering-data.md)記事では、ユーザーを有効にすると、並べ替えの列を選択します。
+      既定では、データは、キーとしてマークされているプロパティの値によって並べ替えられます。 `OrderBy` 句を追加して、別の並べ替え値を指定できます。 この例では、並べ替えに既定の `StudentID` プロパティが使用されています。 データの[並べ替え、ページング、およびフィルター処理](sorting-paging-and-filtering-data.md)の記事では、ユーザーは並べ替えの対象となる列を選択できます。
  
    4. Students.aspx.cs を保存します。
 
-## <a name="run-your-application"></a>アプリケーションを実行します。 
+## <a name="run-your-application"></a>アプリケーションを実行する 
 
-Web アプリケーションを実行 (**F5**) に移動し、**学生**ページで、次の表示。
+Web アプリケーション (**F5**) を実行し、 **[Students]** ページに移動します。次の内容が表示されます。
 
-   ![データを表示します。](retrieving-data/_static/image16.png)
+   ![データの表示](retrieving-data/_static/image16.png)
 
-## <a name="automatic-generation-of-model-binding-methods"></a>モデル バインド メソッドの自動生成
+## <a name="automatic-generation-of-model-binding-methods"></a>モデルバインドメソッドの自動生成
 
-このチュートリアル シリーズを通して、チュートリアルからプロジェクトに、コードを単にコピーできます。 ただし、このアプローチの欠点の 1 つは、モデル バインド メソッドのコードを自動的に生成する Visual Studio によって提供される機能の対応はならないことにします。 独自のプロジェクトで作業して、ときに自動コード生成は時間とヘルプができるように操作を実装する方法を把握するを節約できます。 このセクションでは、自動コード生成の機能について説明します。 ここでは情報提供のみし、プロジェクトに実装する必要があるコードが含まれていません。 
+このチュートリアルシリーズを通じて作業する場合は、チュートリアルのコードをプロジェクトにコピーするだけで済みます。 ただし、この方法の欠点の1つは、モデルバインドメソッドのコードを自動的に生成するために Visual Studio によって提供される機能を認識できないことです。 独自のプロジェクトで作業する場合、自動コード生成によって時間を節約し、操作を実装する方法を理解するのに役立ちます。 このセクションでは、自動コード生成機能について説明します。 このセクションは情報提供のみを目的としており、プロジェクトに実装する必要があるコードは含まれていません。 
 
-値を設定するときに、 `SelectMethod`、 `UpdateMethod`、 `InsertMethod`、または`DeleteMethod`マークアップ コード内のプロパティ を選択できます、**新しいメソッドの作成**オプション。
+マークアップコードで `SelectMethod`、`UpdateMethod`、`InsertMethod`、または `DeleteMethod` プロパティの値を設定する場合は、[**新しいメソッドを作成**する] オプションを選択できます。
 
-![メソッドを作成します。](retrieving-data/_static/image18.png)
+![メソッドを作成する](retrieving-data/_static/image18.png)
 
-Visual Studio では、適切なシグネチャを持つ、分離コードでメソッドを作成するだけでなく、操作を実行する実装コードも生成されます。 最初に設定した場合、`ItemType`自動コード生成を使用する前にプロパティの機能、生成されたコードを使用して入力の操作。 たとえば、設定するときに、`UpdateMethod`プロパティでは、次のコードが自動的に生成されます。
+Visual Studio では、適切なシグネチャを持つ分離コードでメソッドが作成されるだけでなく、操作を実行する実装コードも生成されます。 自動コード生成機能を使用する前に最初に `ItemType` プロパティを設定した場合、生成されたコードはその型を操作に使用します。 たとえば、`UpdateMethod` プロパティを設定すると、次のコードが自動的に生成されます。
 
 [!code-csharp[Main](retrieving-data/samples/sample9.cs)]
 
-ここでも、このコードをプロジェクトに追加する必要はありません。 次のチュートリアルでは、更新、削除、および新しいデータを追加するためのメソッドを実装します。
+ここでも、このコードをプロジェクトに追加する必要はありません。 次のチュートリアルでは、新しいデータを更新、削除、および追加するためのメソッドを実装します。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルでは、データ モデル クラスを作成し、それらのクラスからデータベースを生成します。 テスト データには、データベース テーブルを入力します。 モデル バインド、データベースからデータを取得するために使用して GridView にデータが表示されます。
+このチュートリアルでは、データモデルクラスを作成し、それらのクラスからデータベースを生成しました。 データベーステーブルにテストデータが格納されています。 モデルバインドを使用してデータベースからデータを取得し、GridView でデータを表示しています。
 
-次の[チュートリアル](updating-deleting-and-creating-data.md)でこのシリーズでは、更新、削除、およびデータの作成を有効にします。
+このシリーズの次の[チュートリアル](updating-deleting-and-creating-data.md)では、データの更新、削除、および作成を有効にします。
 
 > [!div class="step-by-step"]
-> [次へ](updating-deleting-and-creating-data.md)
+> [Next](updating-deleting-and-creating-data.md)
