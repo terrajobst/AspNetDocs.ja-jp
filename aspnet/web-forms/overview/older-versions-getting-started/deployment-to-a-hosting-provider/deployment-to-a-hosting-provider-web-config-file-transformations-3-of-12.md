@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: 2b0df3d9-450b-4ea6-b315-4c9650722cad
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: fe71e6cfb0f4c5f1d99b326e9d90edb6c8c5feee
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9e7902bcf8a16c154aee1a982824bfaedeea7d9d
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600522"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309237"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: web.config ファイルの変換-3/12
 
@@ -131,11 +131,11 @@ Web.config*を開き、* 前の手順で追加した `location` 要素の開始�
 
 ## <a name="setting-connection-strings"></a>接続文字列の設定
 
-ほとんどの場合、接続文字列の変換を設定する必要はありません。これは、発行プロファイルで接続文字列を指定できるためです。 ただし、SQL Server Compact データベースを配置するときに、Entity Framework Code First Migrations を使用して移行先サーバー上のデータベースを更新すると、例外が発生します。 このシナリオでは、データベーススキーマを更新するためにサーバーで使用される追加の接続文字列を指定する必要があります。 この変換を設定するには、 *web.config と web.config の両方の変換*ファイルで、 **&lt;構成**の開始&gt;タグの直後に **&lt;connectionStrings&gt;** 要素を追加します。
+ほとんどの場合、接続文字列の変換を設定する必要はありません。これは、発行プロファイルで接続文字列を指定できるためです。 ただし、SQL Server Compact データベースを配置するときに、Entity Framework Code First Migrations を使用して移行先サーバー上のデータベースを更新すると、例外が発生します。 このシナリオでは、データベーススキーマを更新するためにサーバーで使用される追加の接続文字列を指定する必要があります。 この変換を設定するには、追加、 **&lt;connectionStrings&gt;** 要素の開始後すぐに **&lt;構成&gt;** 両方のタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
-`Transform` 属性は、配置された*web.config*ファイルの*connectionStrings*要素にこの接続文字列を追加することを指定します。 (発行プロセスでは、この追加の接続文字列が存在しない場合は自動的に作成されますが、既定では、 **providerName**属性は `System.Data.SqlClient`に設定されます。これは、SQL Server Compact に対しては機能しません。 接続文字列を手動で追加することによって、不適切なプロバイダー名を持つ接続文字列要素を作成しないようにすることができます。
+`Transform` 属性は、配置された*web.config*ファイルの*connectionStrings*要素にこの接続文字列を追加することを指定します。 (発行プロセスでは、この追加の接続文字列が存在しない場合は自動的に作成されますが、既定では、 **providerName**属性は `System.Data.SqlClient`に設定されます。これは SQL Server Compact では機能しません。 接続文字列を手動で追加することによって、不適切なプロバイダー名を持つ接続文字列要素を作成しないようにすることができます。
 
 これで、テストと運用のために Contoso 大学アプリケーションを展開するために必要なすべての*web.config 変換が*指定されました。 次のチュートリアルでは、プロジェクトのプロパティの設定を必要とする配置のセットアップタスクについて説明します。
 
