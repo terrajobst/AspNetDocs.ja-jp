@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/index
-title: ASP.NET MVC 5 の概要 |Microsoft Docs
+title: ASP.NET MVC 5 でのはじめに |Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 5 の概要
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: 9afe7454-f1bd-4e81-8ecf-12fe54d080c1
 msc.legacyurl: /mvc/overview/getting-started/introduction
 msc.type: chapter
 ms.openlocfilehash: 055142be60257f0917eb22bc08471c0bec54ca2e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387179"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76518747"
 ---
 # <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 の概要
 
@@ -21,7 +21,7 @@ ms.locfileid: "59387179"
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-この次のチュートリアル シリーズでは、ASP.NET MVC について説明します。上にあるソース[GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
+次のチュートリアルシリーズでは、 [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)にある ASP.NET MVC: ソースについて説明します。
 
 - [はじめに](getting-started.md)
 - [コントローラーの追加](adding-a-controller.md)

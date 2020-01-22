@@ -3,14 +3,14 @@ title: ASP.NET で SameSite cookie を使用する
 author: rick-anderson
 description: を使用して ASP.NET でクッキーを SameSite する方法について説明します。
 ms.author: riande
-ms.date: 12/03/2019
+ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: 47a3d7576edb0e818c39b32fbbcb98475248e18e
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.openlocfilehash: d2160bd9aeb93398b49b3a0e5e7a8a4404a5bc63
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993071"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519194"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET で SameSite cookie を使用する
 
@@ -25,7 +25,7 @@ SameSite は、クロスサイトリクエスト偽造 (CSRF) 攻撃に対して
 
 `None` パラメーターを指定すると、以前の[2016 ドラフト標準](https://tools.ietf.org/html/draft-west-first-party-cookies-07)(iOS 12 など) を実装したクライアントとの互換性の問題が発生します。 このドキュメントの「[古いブラウザーのサポート](#sob)」を参照してください。
 
-Cookie を生成する各 ASP.NET Core コンポーネントは、SameSite が適切かどうかを判断する必要があります。
+Cookie を生成する各 ASP.NET コンポーネントは、SameSite が適切かどうかを判断する必要があります。
 
 ## <a name="api-usage-with-samesite"></a>SameSite を使用した API の使用
 
@@ -35,7 +35,7 @@ Cookie を生成する各 ASP.NET Core コンポーネントは、SameSite が�
 
 SameSite のサポートは、 [2016 ドラフト標準](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1)を使用して最初に .net 4.7.2 に実装されました。
 
-Windows の2019年11月19日の更新プログラムで、.NET 4.7.2 + が2016標準から2019標準に更新されました。 その他のバージョンの Windows では、追加の更新が予定されています。 詳細については、「<xref:samesite/kbs-samesite>」を参照してください。
+Windows の2019年11月19日の更新プログラムで、.NET 4.7.2 + が2016標準から2019標準に更新されました。 その他のバージョンの Windows では、追加の更新が予定されています。 詳細については、「 <xref:samesite/kbs-samesite>」を参照してください。
 
  SameSite 仕様の2019ドラフト:
 
@@ -44,6 +44,10 @@ Windows の2019年11月19日の更新プログラムで、.NET 4.7.2 + が2016�
 * クロスサイト配信を有効にするために `SameSite=None` を明示的にアサートする cookie を `Secure`としてマークする必要があることを指定します。 `None` は、オプトアウトする新しいエントリです。
 * は、上記の KB に記載されているように発行された修正プログラムによってサポートされています。
 * [2 月 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)日に既定で[Chrome](https://chromestatus.com/feature/5088147346030592)によって有効になるようにスケジュールされています。 ブラウザーは2019でこの標準への移行を開始しました。
+
+### <a name="azure-app-servicesamesite-cookie-handling"></a>Azure App Service — SameSite cookie 処理
+
+詳細については[、「Azure App Service — SameSite cookie 処理」と「.NET Framework 4.7.2 patch](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/) 」を参照してください。
 
 <a name="sob"></a>
 

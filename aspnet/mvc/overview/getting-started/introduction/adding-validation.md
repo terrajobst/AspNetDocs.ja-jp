@@ -8,97 +8,97 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 6894d01af7cd142a5579f73ae5209ca13756ca52
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 67df1a473cd13a651c1276054b93f34323479082
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120751"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519025"
 ---
 # <a name="adding-validation"></a>検証の追加
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-このセクションでは検証ロジックを追加します、`Movie`モデル ユーザーが作成またはアプリケーションを使用してムービーを編集するときに検証規則が適用されているを確認します。
+このセクションでは、`Movie` モデルに検証ロジックを追加し、ユーザーがアプリケーションを使用してムービーを作成または編集しようとするたびに検証規則が適用されるようにします。
 
-## <a name="keeping-things-dry"></a>DRY に維持すること
+## <a name="keeping-things-dry"></a>ドライを維持する
 
-ASP.NET MVC の設計原則の 1 つは[ドライ](http://en.wikipedia.org/wiki/Don't_repeat_yourself)(&quot;Don't Repeat Yourself&quot;)。 ASP.NET MVC には、機能や動作を 1 回だけ指定して、それをアプリケーションですべての場所で反映することがお勧めします。 これを記述する必要があるコードの量を削減なり、エラーが発生しやすく保守が簡単に作成するコード。
+ASP.NET MVC の核となる設計の原則の1つは、[ドライ](http://en.wikipedia.org/wiki/Don't_repeat_yourself)(&quot;DRY 原則&quot;) です。 ASP.NET MVC を使用すると、機能または動作を一度だけ指定し、アプリケーション内のすべての場所に反映させることができます。 これにより、記述する必要があるコードの量が減り、記述するコードの記述がエラーを起こしやすくなり、保守が容易になります。
 
-ASP.NET MVC と Entity Framework Code First によって提供される検証のサポートは、アクションを使用している DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス) 内で宣言によって指定でき、アプリケーションで、規則をすべての場所で適用します。
+ASP.NET MVC と Entity Framework Code First によって提供される検証のサポートは、ドライの原則が動作する好例です。 (モデルクラス内の) 1 つの場所で検証規則を宣言によって指定すると、アプリケーション内のすべての場所で規則が適用されます。
 
-どのムービー アプリケーションでこの検証のサポートの利用を行うを見てみましょう。
+ムービーアプリケーションでこの検証サポートを利用する方法を見てみましょう。
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>ムービー モデルへの検証規則の追加
+## <a name="adding-validation-rules-to-the-movie-model"></a>ムービーモデルへの検証規則の追加
 
-いくつかの検証ロジックを追加することから始めます、`Movie`クラス。
+まず、`Movie` クラスに検証ロジックを追加します。
 
-*Movie.cs* ファイルを開きます。 通知、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間を含まない`System.Web`します。 DataAnnotations には、組み込みの宣言によって、クラスまたはプロパティに適用できる検証属性セットが提供します。 (などの書式設定属性も含まれています[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)を書式設定を支援し、検証が提供されません。)。
+*Movie.cs* ファイルを開きます。 [`System.ComponentModel.DataAnnotations`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間に `System.Web`が含まれていないことに注意してください。 DataAnnotations には、任意のクラスまたはプロパティに宣言して適用できる、組み込みの検証属性セットが用意されています。 (書式設定に役立ち、検証を行わない[データ型](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)のような書式属性も含まれています)。
 
-今すぐ更新、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、 [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)、および[`Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性。 置換、`Movie`を次のクラス。
+次に、組み込みの[`Required`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [`StringLength`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、 [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)、および[`Range`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性を利用するように `Movie` クラスを更新します。 `Movie` クラスを次のように置き換えます。
 
 [!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
-[ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、文字列の最大長を設定、データベースに対してこの制限を設定して、そのため、データベース スキーマを変更します。 右クリックして、**映画**テーブルに**サーバー エクスプ ローラー**クリック**テーブル定義を開く**:
+[`StringLength`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、文字列の最大長を設定し、データベースにこの制限を設定するため、データベーススキーマが変更されます。 **サーバーエクスプローラー**で**ムービー**テーブルを右クリックし、 **[テーブル定義を開く]** をクリックします。
 
 ![](adding-validation/_static/image1.png)
 
-上記の図で、文字列フィールドに設定すべてを表示できる[NVARCHAR (MAX)](https://technet.microsoft.com/library/ms186939.aspx)します。 スキーマを更新するのに移行を使用します。 ソリューションをビルドし、開き、**パッケージ マネージャー コンソール**ウィンドウし、次のコマンドを入力します。
+上の図では、すべての文字列フィールドが[NVARCHAR (MAX)](https://technet.microsoft.com/library/ms186939.aspx)に設定されていることがわかります。 ここでは、移行を使用してスキーマを更新します。 ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウを開き、次のコマンドを入力します。
 
 [!code-console[Main](adding-validation/samples/sample2.cmd)]
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`指定された名前の派生クラス (`DataAnnotations`)、し、`Up`メソッドのスキーマの制約を更新するコードを確認できます。
+このコマンドが終了すると、Visual Studio は、指定された名前 (`DataAnnotations`) を持つ新しい `DbMigration` 派生クラスを定義するクラスファイルを開き、`Up` メソッドで、スキーマ制約を更新するコードを確認できます。
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-`Genre`フィールド値が許容されなく (つまり、値を入力する必要があります)。 `Rating`フィールドが 5 の最大長と`Title`が 60 の最大長。 上の 3 の最小長`Title`上の範囲と`Price`スキーマの変更は作成されませんでした。
+`Genre` フィールドは null 許容ではなくなりました (つまり、値を入力する必要があります)。 `Rating` フィールドの最大長は5、`Title` の最大長は60です。 `Title` の3の最小値と `Price` の範囲では、スキーマの変更は作成されませんでした。
 
-ムービーのスキーマを確認します。
+ムービースキーマを確認します。
 
 ![](adding-validation/_static/image2.png)
 
-文字列フィールドは、新しい長さの制限を表示し、 `Genre` null 許容型としてチェックされていません。
+文字列フィールドに新しい長さの制限が示されており、`Genre` が null 許容としてチェックされなくなりました。
 
-検証属性では、適用対象のモデル プロパティに適用する動作を指定します。 `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、この検証を満たすためにユーザーが空白を入力することは禁止されていません。 [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)属性を使用できる文字の制限を入力します。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。 [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性が指定した範囲内に値を制限します。 `StringLength` 属性では、文字列プロパティの最大長を設定でき、オプションとして最小長も設定できます。 値の型 (など`decimal, int, float, DateTime`) は本質的に必須であり必要はありません、`Required`属性。
+検証属性では、適用対象のモデル プロパティに適用する動作を指定します。 `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、この検証を満たすためにユーザーが空白を入力することは禁止されていません。 [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)属性は、入力できる文字を制限するために使用されます。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。 [`Range`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性は、指定された範囲内のに値を制限します。 `StringLength` 属性では、文字列プロパティの最大長を設定でき、オプションとして最小長も設定できます。 値型 (`decimal, int, float, DateTime`など) は本質的に必須であり、`Required` 属性は必要ありません。
 
-コードでは、アプリケーションがデータベースに変更を保存する前に、モデル クラスで指定した検証規則が適用されている最初でいます。 たとえば、次のコードがスローされます、 [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx)例外ときに、`SaveChanges`メソッドが呼び出されると、いくつか必要なため、`Movie`プロパティの値はありません。
+Code First により、アプリケーションがデータベースに変更を保存する前に、モデルクラスで指定した検証規則が確実に適用されます。 たとえば、次のコードでは、`SaveChanges` メソッドが呼び出されたときに[Dbentityvalidationexception](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx)例外がスローされます。これは、いくつかの必要な `Movie` プロパティ値が不足しているためです。
 
 [!code-csharp[Main](adding-validation/samples/sample4.cs)]
 
 上記のコードでは、次の例外がスローされます。
 
-*1 つまたは複数のエンティティの検証に失敗しました。詳細については、'EntityValidationErrors' プロパティを参照してください。*
+*1つ以上のエンティティの検証に失敗しました。詳細については、' EntityValidationErrors ' プロパティを参照してください。*
 
-検証規則が、.NET Framework によって自動的に適用することで、アプリケーションより堅牢です。 また、ユーザーが何かを検証することを忘れてしまい、データベースに不適切なデータが誤って格納されることもなくなります。
+.NET Framework によって検証規則が自動的に適用されるため、アプリケーションの堅牢性が向上します。 また、ユーザーが何かを検証することを忘れてしまい、データベースに不適切なデータが誤って格納されることもなくなります。
 
 ## <a name="validation-error-ui-in-aspnet-mvc"></a>ASP.NET MVC の検証エラー UI
 
-アプリケーションを実行しに移動し、 */Movies* URL。
+アプリケーションを実行し、 */ムービー*の URL に移動します。
 
-をクリックして、**新規作成**のリンクを新しいムービーを追加します。 フォームに無効な値をいくつか入力します。 jQuery クライアント側の検証でエラーが検出されるとすぐに、エラー メッセージが表示されます。
+新しいムービーを追加するには、 **[新規作成]** リンクをクリックします。 フォームに無効な値をいくつか入力します。 jQuery クライアント側の検証でエラーが検出されるとすぐに、エラー メッセージが表示されます。
 
 ![8_validationErrors](adding-validation/_static/image3.png)
 
 > [!NOTE]
-> コンマを使用するロケールを英語以外の jQuery の検証をサポートするために (「,」)、小数点を NuGet を含める必要がありますこのチュートリアルで前述のようにグローバル化します。
+> 小数点にコンマ (",") を使用する英語以外のロケールの jQuery 検証をサポートするには、このチュートリアルで前述したように、NuGet グローバライズを含める必要があります。
 
-どのフォームが自動的に赤い境界線の色を強調表示に使用無効なデータが含まれ、それぞれの横にある該当する検証エラー メッセージが生成するテキスト ボックスに注意してください。 エラーは、(JavaScript と jQuery を使用している) クライアント側とサーバー側 (ユーザーが JavaScript を無効にしている場合) の両方に適用されます。
+フォームが赤い枠線の色を自動的に使用して、無効なデータを含むテキストボックスが強調表示され、それぞれの横に適切な検証エラーメッセージが出力されていることに注目してください。 エラーは、(JavaScript と jQuery を使用している) クライアント側とサーバー側 (ユーザーが JavaScript を無効にしている場合) の両方に適用されます。
 
-実際のメリットは、1 行のコードを変更する必要はありませんでした、`MoviesController`クラスまたは、 *Create.cshtml*この検証 UI を有効にするために表示します。 このチュートリアルで前に作成したコントローラーとビューにより、`Movie` モデル クラスのプロパティで検証属性を使って指定した検証規則が自動的に取得されます。 `Edit` アクション メソッドを使って検証をテストします。同じ検証が適用されます。
+実際の利点は、この検証 UI を有効にするために、`MoviesController` クラスまたは*Create. cshtml*ビューで1行のコードを変更する必要がないことです。 このチュートリアルで前に作成したコントローラーとビューにより、`Movie` モデル クラスのプロパティで検証属性を使って指定した検証規則が自動的に取得されます。 `Edit` アクション メソッドを使って検証をテストします。同じ検証が適用されます。
 
-クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これを確認するにを使用して、HTTP Post メソッドにブレークポイントを配置することで、 [fiddler ツール](http://fiddler2.com/fiddler2/)、または IE [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)します。
+クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これを確認するには、HTTP Post メソッドにブレークポイントを挿入するか、 [fiddler ツール](http://fiddler2.com/fiddler2/)を使用するか、または IE [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)を使用します。
 
-## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>作成の表示し、アクション メソッドを作成で発生する検証方法
+## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>Create View および Create Action メソッドでの検証の実行方法
 
-コントローラーまたはビューのコードを更新しなくても検証 UI が生成する仕組みが気になるかもしれません。 [次へ] の一覧表示、`Create`メソッド、`MovieController`クラスのようになります。 このチュートリアルで先ほどの作成方法を変更していません。
+コントローラーまたはビューのコードを更新しなくても検証 UI が生成する仕組みが気になるかもしれません。 次の一覧は、`MovieController` クラスの `Create` メソッドの外観を示しています。 これらは、このチュートリアルの前の手順で作成した方法から変更されていません。
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-最初の (HTTP GET の) `Create` アクション メソッドは、初期の作成フォームを表示します。 2 番目の (`[HttpPost]`) バージョンは、フォームの送信を処理します。 2 番目の`Create`メソッド (、`HttpPost`バージョン) を確認します`ModelState.IsValid`をムービーに検証エラーがあるかどうかを確認します。 このプロパティを取得するには、オブジェクトに適用されているすべての検証属性が評価されます。 オブジェクトに検証エラーがある場合、`Create`メソッドには、フォームが再表示します。 エラーがない場合、メソッドはデータベースに新しいムービーを保存します。 このムービーの例で**フォームがサーバーにポストされていない、クライアント側で検出された検証エラーがある場合に、2 つ目** `Create` **メソッドが呼び出されない**します。 クライアント検証が無効な場合、および HTTP POST は、ブラウザーで JavaScript を無効にした場合`Create`メソッド取得`ModelState.IsValid`ムービーに検証エラーがあるかどうかを確認します。
+最初の (HTTP GET の) `Create` アクション メソッドは、初期の作成フォームを表示します。 2 番目の (`[HttpPost]`) バージョンは、フォームの送信を処理します。 2番目の `Create` 方法 (`HttpPost` バージョン) では、ムービーに検証エラーがあるかどうか `ModelState.IsValid` 確認します。 このプロパティを取得すると、オブジェクトに適用されているすべての検証属性が評価されます。 オブジェクトに検証エラーがある場合は、`Create` メソッドによってフォームが再構成されます。 エラーがない場合、メソッドはデータベースに新しいムービーを保存します。 このムービーの例では、**クライアント側で検証エラーが検出された場合、フォームはサーバーにポスト**されません。2番目の `Create`**メソッドは呼び出されません**。 ブラウザーで JavaScript を無効にすると、クライアント検証が無効になり、HTTP POST `Create` メソッドによって、ムービーに検証エラーがあるかどうかを確認するための `ModelState.IsValid` が取得されます。
 
-`HttpPost Create` メソッドにブレークポイントを設定し、メソッドが呼び出されないことを確認できます。検証エラーが検出された場合、クライアント側の検証はフォームのデータを送信しません。 ブラウザーで JavaScript を無効にすると、エラーのあるフォームが送信され、ブレークポイントがヒットします。 JavaScript がなくても完全な検証が行われます。 次の図は、Internet Explorer で JavaScript を無効にする方法を示します。
+`HttpPost Create` メソッドにブレークポイントを設定し、メソッドが呼び出されないことを確認できます。検証エラーが検出された場合、クライアント側の検証はフォームのデータを送信しません。 ブラウザーで JavaScript を無効にすると、エラーのあるフォームが送信され、ブレークポイントがヒットします。 JavaScript がなくても完全な検証が行われます。 次の図は、Internet Explorer で JavaScript を無効にする方法を示しています。
 
 ![](adding-validation/_static/image5.png)
 
@@ -112,46 +112,46 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 ![](adding-validation/_static/image8.png)
 
-以下は、 *Create.cshtml*チュートリアルの前半でスキャフォールディングされたビュー テンプレート。 これは、前に示した両方のアクション メソッドで、初期フォームの表示と、エラー発生時のフォームの再表示に使われます。
+次に示すのは、このチュートリアルの前半でスキャフォールディングした*作成. cshtml*ビューテンプレートです。 これは、前に示した両方のアクション メソッドで、初期フォームの表示と、エラー発生時のフォームの再表示に使われます。
 
 [!code-cshtml[Main](adding-validation/samples/sample6.cshtml?highlight=16-17)]
 
-コードの使用に注意してください、`Html.EditorFor`を出力するヘルパー、`<input>`要素ごと`Movie`プロパティ。 呼び出しは、このヘルパーの横にある、`Html.ValidationMessageFor`ヘルパー メソッド。 これら 2 つのヘルパー メソッドがコント ローラーで、ビューに渡されるモデル オブジェクトを操作 (ここで、`Movie`オブジェクト)。 適切なモデルと表示のエラー メッセージに指定された検証属性に自動的に検索します。
+コードで `Html.EditorFor` ヘルパーを使用して、各 `Movie` プロパティの `<input>` 要素を出力する方法に注目してください。 このヘルパーの横には、`Html.ValidationMessageFor` ヘルパーメソッドの呼び出しがあります。 これらの2つのヘルパーメソッドは、コントローラーによってビューに渡されるモデルオブジェクト (この場合は `Movie` オブジェクト) と連携します。 これらは、モデルで指定された検証属性を自動的に検索し、必要に応じてエラーメッセージを表示します。
 
 この方法の非常によい点は、コントローラーも `Create` ビュー テンプレートも、適用される実際の検証規則や、表示される特定のエラー メッセージについて、何も知らないことです。 検証規則とエラー文字列は、`Movie` クラスでのみ指定されています。 同じ検証規則が、`Edit` ビューおよびモデルを編集する他のユーザー作成のビュー テンプレートに、自動的に適用されます。
 
-後で検証ロジックを変更する場合は、これを行うだけで、モデルに検証属性を追加することで (この例で、`movie`クラス)。 アプリケーションの異なる部分で規則の適用方法が一貫しない可能性を心配する必要はありません。すべての検証ロジックは 1 か所で定義され、すべての場所で使われます。 これにより、コードの簡潔さが保たれ、簡単に維持や更新できます。 完全に従うことを意味し、*ドライ*原則です。
+後で検証ロジックを変更する場合は、検証属性をモデルに追加して (この例では `movie` クラス)、厳密に1つの場所で検証ロジックを行うことができます。 アプリケーションの異なる部分で規則の適用方法が一貫しない可能性を心配する必要はありません。すべての検証ロジックは 1 か所で定義され、すべての場所で使われます。 これにより、コードの簡潔さが保たれ、簡単に維持や更新できます。 これは、*ドライ*の原則を完全に受け入れることを意味します。
 
 ## <a name="using-datatype-attributes"></a>DataType 属性の使用
 
-*Movie.cs* ファイルを開き、`Movie` クラスを調べます。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間は、組み込みの検証属性セットだけでなく、書式設定属性を提供します。 既に適用された、 [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドに列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性。
+*Movie.cs* ファイルを開き、`Movie` クラスを調べます。 [`System.ComponentModel.DataAnnotations`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間は、組み込みの検証属性のセットに加えて、書式設定属性を提供します。 [`DataType`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)列挙値は、リリース日と価格フィールドに既に適用されています。 次のコードは、適切な[`DataType`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性を持つ `ReleaseDate` および `Price` プロパティを示しています。
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、データの書式設定、ビュー エンジンに対してヒントのみを提供 (などの属性を提供し、 `<a>` url のおよび`<a href="mailto:EmailAddress.com">`電子メールの。 使用することができます、 [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)は、データベースの組み込み型よりも具体的であるデータ型を指定する属性が使用される***いない***検証属性。 この例では、追跡する必要があるのは、日付と時刻ではなく、日付のみです。 [DataType 列挙](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)など多くのデータ型を提供します*日付、時刻、PhoneNumber、Currency、EmailAddress*など。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 など、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)、日付セレクターを指定することができますと[DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) ("と発音*データ ダッシュ*) HTML 5 ブラウザーが認識できる属性。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を行いません。
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、ビューエンジンがデータを書式設定するためのヒントのみを提供します (また、電子メールの URL と `<a href="mailto:EmailAddress.com">` の `<a>` などの属性を提供します。 [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)属性を使用して、データの形式を検証できます。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。これらは検証属性では***ありません***。 この例では、追跡する必要があるのは、日付と時刻ではなく、日付のみです。 [DataType 列挙型](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)は、 *Date、Time、PhoneNumber、Currency、EmailAddress*など、多くのデータ型に対応しています。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、 [EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)に対して `mailto:` リンクを作成し、データ型に対して日付セレクターを指定することができます。 [HTML5](http://html5.org/)をサポートするブラウザーで[日付](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)を指定できます。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、html 5 ブラウザーが理解できる html 5[データ](http://ejohn.org/blog/html-5-data-attributes/)("*データダッシュ*" と読みます) 属性を出力します。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は検証を提供しません。
 
-`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドはサーバーの既定の書式に従って表示[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)します。
+`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データフィールドは、サーバーの[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)に基づく既定の形式に従って表示されます。
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
 
-`ApplyFormatInEditMode`設定では、指定した書式設定も適用されることを編集するためのテキスト ボックスが表示されたら、値を指定します。 (たくないをいくつかのフィールドをたとえば、通貨の値のたくない、テキスト ボックスに通貨記号を編集するためです)。
+`ApplyFormatInEditMode` 設定では、編集のためにテキストボックスに値を表示するときに、指定した書式設定も適用する必要があることを指定します。 (たとえば、通貨値の場合、テキストボックスに通貨記号を編集する必要がないなどの一部のフィールドには必要ありません)。
 
-使用することができます、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)自体が、属性が使用することをお勧めでは通常、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性もします。 `DataType`属性の伝達、*セマンティクス*のデータとだけで画面上でのレンダリング方法ではなくられると、次の利点を提供します`DisplayFormat`:
+[Displayformat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性は単独で使用できますが、通常は[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性も使用することをお勧めします。 `DataType` 属性は、画面に表示する方法とは対照的に、データの*セマンティクス*を伝達し、`DisplayFormat`では得られない次の利点を提供します。
 
-- ブラウザーでは、(たとえば、カレンダー コントロール、ロケールに適した通貨記号、メール リンクなどを表示する)。 HTML5 機能を有効にできます。
-- 既定では、ブラウザーがに基づいて正しい書式を使用してデータを表示、[ロケール](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx)します。
-- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性には、データを表示するために正しいフィールド テンプレートの選択を MVC が有効にすることができます (、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)文字列テンプレートを使用してそれ自体で使用される場合)。 詳細については、Brad Wilson を参照してください。 [ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)します。 (MVC 2 用に記述されたもこの記事でまだに適用 ASP.NET MVC の現在のバージョン)。
+- ブラウザーでは、HTML5 機能を有効にすることができます (たとえば、カレンダーコントロール、ロケールに適した通貨記号、電子メールリンクなどを表示します)。
+- 既定では、ブラウザーは[ロケール](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx)に基づいて正しい形式を使用してデータを表示します。
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用すると、MVC でデータを表示するための適切フィールドテンプレートを選択できます (それ自体で使用されている場合、 [displayformat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)は文字列テンプレートを使用します)。 詳細については、「Brad Wilson の[ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)」を参照してください。 (ただし、MVC 2 用に記述されていますが、この記事は現在のバージョンの ASP.NET MVC にも当てはまります)。
 
-使用する場合、`DataType`属性指定する必要が、日付フィールドを持つ、 `DisplayFormat` Chrome ブラウザーで、フィールドが正常に表示されることを確認するためにも属性。 詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)します。
+`DataType` 属性を日付フィールドと共に使用する場合、Chrome ブラウザーでフィールドが正しく表示されるようにするために、`DisplayFormat` 属性も指定する必要があります。 詳細については、[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)を参照してください。
 
 > [!NOTE]
-> jQuery の検証では機能しません、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)します。 たとえば、次のコードでは、指定した範囲内の日付であっても、クライアント側の検証エラーが常に表示されます。
+> jQuery validation は、 [Range](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)では機能しません。 たとえば、次のコードでは、指定した範囲内の日付であっても、クライアント側の検証エラーが常に表示されます。
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> 使用する jQuery の日付検証を無効にする必要があります、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)します。 これは一般にコンパイルを使用して、モデルで日付をハードコーディングすることをお勧め、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)をお勧めします。
+> [Range](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)を使用するには、jQuery の日付検証を無効にする必要があります。 一般に、モデルでハード日付をコンパイルすることはお勧めしません。そのため、 [Range](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)を使用しないことをお勧めします。
 
 次のコードは、1 行で複数の属性を組み合わせる例です。
 

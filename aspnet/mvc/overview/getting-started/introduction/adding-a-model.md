@@ -8,58 +8,58 @@ ms.date: 05/28/2015
 ms.assetid: 276552b5-f349-4fcf-8f40-6d042f7aa88e
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 0221539f5e468faacf3e38374452c0cc2a7d31d3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0d926c7a8bd99c56820208921c10e609da56d236
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398749"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519038"
 ---
 # <a name="adding-a-model"></a>モデルの追加
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-このセクションでは、データベースのムービーを管理するためのいくつかのクラスを追加します。 これらのクラスがありますが、&quot;モデル&quot;ASP.NET MVC アプリの一部です。
+このセクションでは、データベースのムービーを管理するためのクラスをいくつか追加します。 これらのクラスは、ASP.NET MVC アプリの一部&quot; &quot;モデルになります。
 
-呼ばれる .NET Framework データ アクセス テクノロジを使用します、 [Entity Framework](https://docs.microsoft.com/ef/)を定義し、これらのモデル クラスを使用します。 開発パラダイムと呼ばれる、(EF とも呼ばれます)、Entity Framework がサポート*Code First*します。 まず、コードを使用すると、単純なクラスを記述することで、モデル オブジェクトを作成できます。 (これらとも呼ばれる、POCO クラスから&quot;plain-old CLR object&quot;)。データベースが非常にクリーンで迅速な開発ワークフローを有効にするクラスからその場で作成することができます。 まずデータベースを作成するために必要な場合は、MVC と EF のアプリ開発の詳細については、このチュートリアルを引き続きに従ってできます。 その後 Tom Fizmakens [ASP.NET スキャフォールディング](xref:visual-studio/overview/2013/aspnet-scaffolding-overview)チュートリアルでは、データベースの最初のアプローチを対象とします。
+[Entity Framework](https://docs.microsoft.com/ef/)と呼ばれる .NET Framework のデータアクセステクノロジを使用して、これらのモデルクラスを定義および操作します。 Entity Framework (EF と呼ばれることもあります) では、 *Code First*と呼ばれる開発パラダイムがサポートされています。 Code First を使用すると、単純なクラスを記述することによってモデルオブジェクトを作成できます。 (これらは、&quot;の古い CLR オブジェクトからの POCO クラスとも呼ばれます。&quot;)その後、データベースをクラスからすぐに作成することができます。これにより、非常にクリーンで迅速な開発ワークフローが可能になります。 データベースを最初に作成する必要がある場合でも、このチュートリアルに従って MVC と EF アプリの開発について学習することができます。 その後、Tom Fizmakens [ASP.NET スキャフォールディング](xref:visual-studio/overview/2013/aspnet-scaffolding-overview)チュートリアルに従うことができます。このチュートリアルでは、データベースの最初のアプローチについて説明します。
 
-## <a name="adding-model-classes"></a>モデル クラスを追加します。
+## <a name="adding-model-classes"></a>モデルクラスの追加
 
-**ソリューション エクスプ ローラー**を右クリックして、*モデル*フォルダーで、**追加**、し、**クラス**します。
+**ソリューションエクスプローラー**で、[*モデル*] フォルダーを右クリックし、 **[追加]** 、 **[クラス]** の順に選択します。
 
 ![](adding-a-model/_static/image1.png)
 
-入力、*クラス*名前&quot;ムービー&quot;します。
+&quot;Movie&quot;*クラス*名を入力します。
 
-次の 5 つのプロパティを追加、`Movie`クラス。
+次の5つのプロパティを `Movie` クラスに追加します。
 
 [!code-csharp[Main](adding-a-model/samples/sample1.cs)]
 
-使用して、`Movie`をデータベースのムービーを表すクラス。 各インスタンスを`Movie`オブジェクトは、データベース テーブルとの各プロパティ内の行に対応している、`Movie`クラスは、テーブル内の列にマップされます。
+`Movie` クラスを使用して、データベース内の映画を表します。 `Movie` オブジェクトの各インスタンスは、データベーステーブル内の行に対応し、`Movie` クラスの各プロパティはテーブル内の列にマップされます。
 
-メモ:System.Data.Entity、および関連するクラスを使用するのには、インストールする必要があります、 [Entity Framework NuGet パッケージ](https://www.nuget.org/packages/EntityFramework/)します。 詳細については、リンクに従います。
+注: system.object と関連クラスを使用するには、 [Entity Framework NuGet パッケージ](https://www.nuget.org/packages/EntityFramework/)をインストールする必要があります。 詳細な手順については、リンク先を参照してください。
 
-同じファイルで次の追加`MovieDBContext`クラス。
+同じファイルで、次の `MovieDBContext` クラスを追加します。
 
 [!code-csharp[Main](adding-a-model/samples/sample2.cs?highlight=2,15-18)]
 
-`MovieDBContext`クラスは、フェッチ、格納、および更新を処理する Entity Framework ムービー データベース コンテキストを表します。`Movie`クラス、データベース内のインスタンス。 `MovieDBContext`から派生した、`DbContext`基本クラスを Entity Framework によって提供されます。
+`MovieDBContext` クラスは Entity Framework ムービーデータベースコンテキストを表します。このコンテキストでは、データベース内の `Movie` クラスインスタンスのフェッチ、格納、および更新が処理されます。 `MovieDBContext` は、Entity Framework によって提供される `DbContext` 基底クラスから派生します。
 
-参照できるようにするためには`DbContext`と`DbSet`、以下を追加する必要がある`using`ファイルの上部にあるステートメント。
+`DbContext` と `DbSet`を参照できるようにするには、ファイルの先頭に次の `using` ステートメントを追加する必要があります。
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-使用して、手動で追加することでこれを行うステートメント、またはすることができます合わせると赤色の波線をクリックします`Show potential fixes` をクリック `using System.Data.Entity;`
+これを行うには、using ステートメントを手動で追加するか、赤色の波線の上にマウスポインターを移動し、`Show potential fixes` をクリックして `using System.Data.Entity;` をクリックします。
 
 ![](adding-a-model/_static/image2.png)
 
-メモ:いくつか使用されていない`using`ステートメントが削除されました。 Visual Studio は、未使用の依存関係を灰色で表示されます。 ポインターを合わせると灰色の依存関係で使用されていない依存関係を削除するか、をクリックして`Show potential fixes`クリック**未使用の Using の削除します。**
+注: いくつかの未使用の `using` ステートメントが削除されました。 Visual Studio では、未使用の依存関係が灰色で表示されます。 灰色の依存関係をポイントし、[`Show potential fixes`] をクリックし、 **[未使用の using の削除]** をクリックすることで、未使用の依存関係を削除できます。
 
 ![](adding-a-model/_static/image3.png)
 
-最後にモデル (MVC で M) が追加されました。 次のセクションでは、データベース接続文字列を使用します。
+最後にモデル (MVC では M) を追加しました。 次のセクションでは、データベース接続文字列を操作します。
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-view.md)

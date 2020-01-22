@@ -8,182 +8,182 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 55e635c967e07e193dda0358b020638af46c688e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d79655bfadff83095bf4cb84445f5efaf44d6a89
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120834"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519077"
 ---
 # <a name="adding-a-new-field"></a>新しいフィールドの追加
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-このセクションでは、変更がデータベースに適用されるため、モデル クラスにいくつかの変更を移行するのに Entity Framework Code First Migrations を使用します。
+このセクションでは、Entity Framework Code First Migrations を使用して、変更がデータベースに適用されるように、モデルクラスにいくつかの変更を移行します。
 
-既定を使用する Entity Framework Code First のデータベースを自動的に作成するように、このチュートリアルで前に行ったときに Code First テーブル データベースに追加して、データベースのスキーマはから生成されたモデル クラスと同期されているかどうかを追跡できます。 同期していない、Entity Framework は、エラーをスローします。 これにより、表示されている可能性がありますそれ以外の場合のみ (原因不明のエラー) を実行時に、開発時に問題を追跡しやすくします。
+既定では、このチュートリアルの前に示したように Entity Framework Code First を使用してデータベースを自動的に作成すると、データベースのスキーマが生成元のモデルクラスと同期しているかどうかを追跡できるように Code First、データベースにテーブルが追加されます。 同期されていない場合は、Entity Framework によってエラーがスローされます。 これにより、開発時に問題を簡単に追跡できるようになります。これは、実行時に (あいまいなエラーによって) 検出された場合にのみ発生します。
 
-## <a name="setting-up-code-first-migrations-for-model-changes"></a>モデルの変更の Code First Migrations の設定
+## <a name="setting-up-code-first-migrations-for-model-changes"></a>モデル変更の Code First Migrations の設定
 
-ソリューション エクスプ ローラーに移動します。 右クリックして、 *Movies.mdf*ファイルおよび選択**削除**ムービー データベースを削除します。 表示されない場合、 *Movies.mdf*ファイルで、をクリックして、 **すべてのファイル**アイコンを赤色のアウトラインに示します。
+ソリューションエクスプローラーに移動します。 *ムービーの .mdf*ファイルを右クリックし、 **[削除]** を選択して、ムービーデータベースを削除します。 *ムービーの .mdf*ファイルが表示されない場合は、次の赤いアウトラインにある **[すべてのファイルを表示]** アイコンをクリックします。
 
 ![](adding-a-new-field/_static/image1.png)
 
-エラーがないかどうかを確認するアプリケーションをビルドします。
+アプリケーションをビルドしてエラーがないことを確認します。
 
-**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
+**[ツール]** メニューで **[NuGet パッケージ マネージャー]** 、 **[パッケージ マネージャー コンソール]** の順にクリックします。
 
-![パックのマニュアルを追加します。](adding-a-new-field/_static/image2.png)
+![パックマンの追加](adding-a-new-field/_static/image2.png)
 
-**パッケージ マネージャー コンソール**ウィンドウで、`PM>`プロンプトを入力します
+**パッケージマネージャーコンソール**ウィンドウの `PM>` プロンプトで、「」と入力します。
 
 Enable-Migrations -ContextTypeName MvcMovie.Models.MovieDBContext
 
 ![](adding-a-new-field/_static/image3.png)
 
-**Enable-migrations**コマンド (上記) を作成、 *Configuration.cs*で新しいファイル*移行*フォルダー。
+(上の図に示した)**移行を有効に**するコマンドを実行すると、新しい*移行*フォルダーに*Configuration.cs*ファイルが作成されます。
 
 ![](adding-a-new-field/_static/image4.png)
 
-Visual Studio を開き、 *Configuration.cs*ファイル。 置換、`Seed`メソッドで、 *Configuration.cs*を次のコード ファイル。
+Visual Studio によって*Configuration.cs*ファイルが開きます。 *Configuration.cs*ファイルの `Seed` メソッドを次のコードに置き換えます。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample1.cs)]
 
-下の赤の波線をポイント`Movie`クリック`Show Potential Fixes`順にクリックします**を使用して** **MvcMovie.Models;**
+`Movie` の下の赤い波線の上にマウスポインターを移動し、[`Show Potential Fixes`] をクリックして、[ **mvcmovie** **を使用する**] をクリックします。
 
 ![](adding-a-new-field/_static/image5.png)
 
-これにより、次を追加ステートメントを使用します。
+これにより、次の using ステートメントが追加されます。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
 > [!NOTE]
 > 
-> Code First Migrations を呼び出し、`Seed`すべて移行後のメソッド (呼び出しは、**データベースを更新**パッケージ マネージャー コンソールで)、このメソッドは、既に挿入されている、または場合に、それらを挿入する行を更新し、まだ存在しません。
+> Code First Migrations は、すべての移行の後 (つまり、パッケージマネージャーコンソールで**更新プログラムデータベース**を呼び出す) に `Seed` メソッドを呼び出します。このメソッドは、既に挿入されている行を更新するか、まだ存在しない場合は挿入します。
 > 
-> [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドは、次のコードでは、"upsert"操作を実行します。
+> 次のコードの[Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドは、"upsert" 操作を実行します。
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
-> [シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドは、すべての移行を実行、データベースを作成する最初の移行後に追加しようとしている行があるなる既にためだけデータを挿入できません。 "[Upsert](http://en.wikipedia.org/wiki/Upsert)"操作が既に存在する行を挿入しようとする場合に発生するとエラーを防ぐことが、アプリケーションのテスト中に行ったデータに対する変更を上書きします。 いくつかのテーブルでのテスト データたくないことが起こる: 場合によってはテスト中にデータを変更すると、変更するデータベースの更新後に残します。 条件付きの insert 操作を実行する場合: 存在しない場合にのみ行を挿入します。   
+> [シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドはすべての移行で実行されるため、データを挿入することはできません。これは、データベースを最初に移行した後に、追加しようとしている行が既に存在するためです。 "[Upsert](http://en.wikipedia.org/wiki/Upsert)" 操作は、既に存在する行を挿入しようとすると発生するエラーを防ぎますが、アプリケーションのテスト中に行われたデータの変更を上書きします。 一部のテーブルのテストデータでは、このような処理が不要な場合があります。テスト中にデータを変更し、データベースの更新後も変更を保持する場合があります。 その場合は、条件付き挿入操作を実行します。行がまだ存在しない場合にのみ、行を挿入します。   
 > 
-> 渡される最初のパラメーター、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを使用して、行が既に存在するかを確認するプロパティを指定します。 テスト ビデオ データを提供するには`Title`プロパティは、リスト内の各タイトルは一意であるために、この目的に使用できます。
+> [Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドに渡される最初のパラメーターは、行が既に存在するかどうかを確認するために使用するプロパティを指定します。 提供しているテストムービーデータの場合は、リスト内の各タイトルが一意であるため、この目的には `Title` プロパティを使用できます。
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
-> このコードでは、タイトルが一意であることを前提としています。 タイトルの重複を手動で追加する場合、次回の移行を実行する次の例外が表示されます。   
+> このコードは、タイトルが一意であることを前提としています。 重複するタイトルを手動で追加すると、次に移行を実行したときに次の例外が発生します。   
 > 
-> *シーケンスには、1 つ以上の要素が含まれています。*  
+> *シーケンスに複数の要素が含まれています*  
 > 
-> 詳細については、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを参照してください[EF 4.3 AddOrUpdate メソッドを使用して対処](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/).
+> [Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドの詳細については、「 [EF 4.3 Addorupdate メソッドに](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)対処する」を参照してください。
 
-**CTRL + SHIFT+B プロジェクトをビルドするキーを押します。**(次の手順は、この時点で構築しない場合失敗します)。
+**CTRL + SHIFT + B キーを押して、プロジェクトをビルドします。** (この時点でビルドしない場合、次の手順は失敗します)。
 
-次の手順が作成するには、`DbMigration`初回移行のためのクラス。 この移行が作成することは、新しいデータベースを削除する、 *movie.mdf*前の手順でファイル。
+次の手順では、初期移行のために `DbMigration` クラスを作成します。 この移行によって新しいデータベースが作成されます。これは、前の手順で*ムービー .mdf*ファイルを削除したためです。
 
-**パッケージ マネージャー コンソール**ウィンドウ、コマンドを入力して`add-migration Initial`初期移行を作成します。 「初期」という名前は任意なので名前を移行ファイルを作成するために使用します。
+**パッケージマネージャーコンソール**ウィンドウで、コマンド `add-migration Initial` を入力して、初期移行を作成します。 "Initial" という名前は任意であり、作成される移行ファイルに名前を指定するために使用されます。
 
 ![](adding-a-new-field/_static/image6.png)
 
-Code First Migrations は、別のクラス ファイルを作成、*移行*フォルダー (名前を持つ *{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。 移行ファイル名は事前のタイムスタンプを持つ順序付けに関するヘルプを修正しました。 確認、 *{日付スタンプ}\_Initial.cs*ファイルを作成する手順がある、 `Movies` Movie DB のテーブル。 以下、この手順では、データベースを更新すると *{日付スタンプ}\_Initial.cs*ファイルは実行され、DB のスキーマを作成します。 次に、**シード**DB にテスト データを設定するメソッドが実行されます。
+Code First Migrations は、*移行*フォルダー ( *{datestamp}\_Initial.cs* ) に別のクラスファイルを作成します。このクラスには、データベーススキーマを作成するコードが含まれています。 移行ファイル名は、順序付けを支援するタイムスタンプで事前に固定されています。 *{Datestamp}\_Initial.cs*ファイルを調べます。このファイルには、Movie DB の `Movies` テーブルを作成するための手順が含まれています。 以下の手順でデータベースを更新すると、この *{Datestamp}\_Initial.cs*ファイルが実行され、DB スキーマが作成されます。 次に、 **Seed**メソッドを実行して、データベースにテストデータを読み込みます。
 
-**パッケージ マネージャー コンソール**、コマンドを入力して`update-database`、データベースを作成し、実行、`Seed`メソッド。
+**パッケージマネージャーコンソール**で、コマンド `update-database` を入力してデータベースを作成し、`Seed` メソッドを実行します。
 
 ![](adding-a-new-field/_static/image7.png)
 
-テーブルが既に存在し、作成することはできませんを示すエラーが発生する場合は可能性があります、データベースを削除した後、および実行する前にアプリケーションを実行するため、`update-database`します。 その場合は、削除、 *Movies.mdf*ファイルをもう一度やり直して、`update-database`コマンド。 依然としてエラーが発生した場合、migrations フォルダーと内容を削除し、このページの上部にある手順を開始 (削除は、 *Movies.mdf*ファイルを Enable-migrations に進みます)。 依然としてエラーが発生した場合は、SQL Server オブジェクト エクスプ ローラーを開き、一覧からデータベースを削除します。
+テーブルが既に存在して作成できないことを示すエラーが表示された場合は、データベースを削除した後、`update-database`を実行する前にアプリケーションを実行したことが原因である可能性があります。 その場合は、もう一度*ムービーの .mdf*ファイルを削除し、`update-database` コマンドを再試行してください。 それでもエラーが発生する場合は、移行フォルダとコンテンツを削除してから、このページの上部にある指示に従って作業を開始してください (*つまり、この*ページの内容を削除してから、移行の有効化に進みます)。 それでもエラーが発生する場合は、SQL Server オブジェクトエクスプローラーを開き、データベースを一覧から削除します。
 
-アプリケーションを実行しに移動し、 */Movies* URL。 シード データが表示されます。
+アプリケーションを実行し、 */ムービー*の URL に移動します。 シードデータが表示されます。
 
 ![](adding-a-new-field/_static/image8.png)
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
 
-まず、新しい追加`Rating`プロパティを既存の`Movie`クラス。 開く、 *Models\Movie.cs*追加ファイルを開き、`Rating`次のようなプロパティ。
+まず、既存の `Movie` クラスに新しい `Rating` プロパティを追加します。 *Modelthe modelfile*を開き、次のように `Rating` プロパティを追加します。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample5.cs)]
 
-完全な`Movie`今のような次のコードをクラスします。
+完成した `Movie` クラスは次のコードのようになります。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample6.cs?highlight=12)]
 
-(Ctrl + Shift + B) アプリケーションをビルドします。
+アプリケーションをビルドします (Ctrl + Shift + B)。
 
-新しいフィールドを追加したので、`Movie`クラスもする必要があるバインドを更新*ホワイト リスト*この新しいプロパティが含まれるようにします。 更新プログラム、`bind`属性`Create`と`Edit`アクション メソッドに含める、`Rating`プロパティ。
+新しいフィールドを `Movie` クラスに追加したので、この新しいプロパティが含まれるように、バインドの*ホワイトリスト*も更新する必要があります。 `Create` および `Edit` アクションメソッドの `bind` 属性を更新して、`Rating` プロパティを含めます。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs?highlight=1)]
 
 ブラウザー ビューで新しい `Rating` プロパティを表示、作成、編集する目的でビュー テンプレートを更新する必要もあります。
 
-開く、 *\Views\Movies\Index.cshtml*追加ファイルを開き、`<th>Rating</th>`直後の列ヘッダー、**価格**列。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新*Index.cshtml*ビュー テンプレートのようになります。
+*\Views\Movies\Index.cshtml*ファイルを開き、 **Price**列の直後に `<th>Rating</th>` 列見出しを追加します。 次に、テンプレートの末尾付近に `<td>` 列を追加して、`@item.Rating` 値を表示します。 更新されたインデックスの例を次に示し*ます。 cshtml* view テンプレートは次のようになります。
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample8.cshtml?highlight=31-33,52-54)]
 
-次に、開く、 *\Views\Movies\Create.cshtml*追加ファイルを開き、`Rating`フィールドには、次の強調表示されているマークアップ。 これにより、新しいムービーの作成時に、評価を指定できるように、テキスト ボックスを表示します。
+次に、 *\Views\Movies\Create.cshtml*ファイルを開き、次の強調表示されたマークアップを含む `Rating` フィールドを追加します。 新しいムービーを作成するときに評価を指定できるように、テキストボックスが表示されます。
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample9.cshtml?highlight=9-15)]
 
-新しいをサポートするアプリケーション コードを更新するようになりました`Rating`プロパティ。
+これで、新しい `Rating` プロパティをサポートするようにアプリケーションコードが更新されました。
 
-アプリケーションを実行しに移動し、 */Movies* URL。 これを行うときに、表示されます、次のエラーのいずれか。
+アプリケーションを実行し、 */ムービー*の URL に移動します。 ただし、この操作を行うと、次のいずれかのエラーが表示されます。
 
 ![](adding-a-new-field/_static/image9.png)  
   
-データベースが作成されたために、'MovieDBContext' コンテキストのバックアップ モデルが変更されました。 データベースを更新する Code First Migrations を使用する (https://go.microsoft.com/fwlink/?LinkId=238269)します。
+データベースが作成されてから、' Mo? Dbcontext ' コンテキストをバッキングするモデルが変更されました。 Code First Migrations を使用してデータベースを更新することを検討してください (https://go.microsoft.com/fwlink/?LinkId=238269) 。
 
 ![](adding-a-new-field/_static/image10.png)
 
-ため、このエラーが表示されている更新された`Movie`アプリケーションでモデル クラスは、スキーマの異なる、`Movie`既存のデータベースのテーブル。 (データベース テーブルに `Rating` 列はありません)。
+このエラーが表示されるのは、アプリケーションの更新された `Movie` モデルクラスが、既存のデータベースの `Movie` テーブルのスキーマとは異なるようになったためです。 (データベース テーブルに `Rating` 列はありません)。
 
 このエラーを解決するための手法がいくつかあります。
 
-1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 短所は、データベース内の既存のデータが失われる-ようにする*しない*実稼働データベースでこのアプローチを使用する! 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。 Entity Framework データベースの初期化子の詳細については、次を参照してください。 [ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
+1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 ただし、この欠点は、データベース内の既存のデータが失われているため、運用データベースでこのアプローチを使用したく*ない*ということです。 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。 Entity Framework データベース初期化子の詳細については、「 [ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)」を参照してください。
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 3. Code First Migrations を使用して、データベース スキーマを更新します。
 
 このチュートリアルでは、Code First Migrations を利用します。
 
-新しい列の値を提供するように、Seed メソッドを更新します。 Migrations \configuration.cs ファイルを開き、ムービーの各オブジェクトに Rating フィールドを追加します。
+新しい列の値を提供するように、Seed メソッドを更新します。 Migrations\ configuration.cs ファイルを開き、各ムービーオブジェクトに評価フィールドを追加します。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample10.cs?highlight=6)]
 
-ソリューションをビルドし、開き、**パッケージ マネージャー コンソール**ウィンドウし、次のコマンドを入力します。
+ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウを開き、次のコマンドを入力します。
 
 `add-migration Rating`
 
-`add-migration`コマンドは現在のムービー DB スキーマを使用して現在のムービー モデルを調べるし、DB を新しいモデルに移行するために必要なコードを作成するために移行フレームワークに指示します。 名前*評価*任意であり、移行ファイルの名前に使用されます。 移行手順のわかりやすい名前を使用することをお勧めします。
+`add-migration` のコマンドは、現在のムービーの DB スキーマを使用して現在のムービーモデルを確認し、新しいモデルにデータベースを移行するために必要なコードを作成するように移行フレームワークに指示します。 名前の*評価*は任意であり、移行ファイルの名前を指定するために使用されます。 移行手順にわかりやすい名前を使用すると便利です。
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`クラスを派生し、`Up`メソッド、新しい列を作成するコードを表示できます。
+このコマンドが終了すると、Visual Studio によって、新しい `DbMigration` 派生クラスを定義するクラスファイルが開き、`Up` メソッドに新しい列を作成するコードが表示されます。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 
-ソリューションをビルドし、入力、`update-database`コマンド、**パッケージ マネージャー コンソール**ウィンドウ。
+ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウで `update-database` コマンドを入力します。
 
-次の図は、出力で、**パッケージ マネージャー コンソール**ウィンドウ (日付スタンプ プリペンド*評価*異なるものになります)。
+次の図は、**パッケージマネージャーコンソール**ウィンドウの出力を示しています (日付スタンプの前の*評価*は異なっています)。
 
 ![](adding-a-new-field/_static/image11.png)
 
-アプリケーションを再実行し、/Movies URL に移動します。 新しい Rating フィールドを確認できます。
+アプリケーションを再実行し、/ムービーの URL に移動します。 [新しい評価] フィールドが表示されます。
 
 ![](adding-a-new-field/_static/image12.png)
 
-をクリックして、**新規作成**のリンクを新しいムービーを追加します。 評価を追加できることに注意してください。
+新しいムービーを追加するには、 **[新規作成]** リンクをクリックします。 評価を追加できることに注意してください。
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-**[作成]** をクリックします。 評価を含む、新しいムービーに表示されるビデオを一覧表示します。
+**[作成]** をクリックします。 新しいムービー (評価を含む) がムービーの一覧に表示されるようになりました。
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 
-これで、プロジェクトは、移行を使用して、新しいフィールドを追加またはそれ以外の場合、スキーマを更新するときに、データベースを削除する必要はありません。 次のセクションではスキーマの変更がお migrations を使用してデータベースを更新します。
+プロジェクトが移行を使用しているので、新しいフィールドを追加するとき、またはスキーマを更新するときに、データベースを削除する必要はありません。 次のセクションでは、より多くのスキーマ変更を行い、移行を使用してデータベースを更新します。
 
-追加することも必要があります、`Rating`フィールドを編集、詳細、および Delete ビュー テンプレートにします。
+また、[編集]、[詳細]、および [削除] ビューテンプレートに `Rating` フィールドを追加する必要があります。
 
-「データベースの更新」のコマンドを入力する可能性があります、**パッケージ マネージャー コンソール**ウィンドウをもう一度と移行コードが実行、スキーマには、モデルが一致するためです。 ただし、「データベースの更新」を実行しているが実行されます、`Seed`メソッドを再度とシード データを変更した場合、変更は失われますので、`Seed`メソッド アップサート データ。 詳細をご覧ください、`Seed`メソッド Tom Dykstra の人気のある[ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
+**パッケージマネージャーコンソール**ウィンドウに [データベースの更新] コマンドをもう一度入力すると、スキーマがモデルに一致するので、移行コードは実行されません。 ただし、"データベースの更新" を実行すると、`Seed` メソッドが再度実行されます。また、いずれかのシードデータを変更した場合は、`Seed` メソッド upsert データによって変更が失われます。 `Seed` メソッドの詳細については、Tom Dykstra の一般的な[ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)を参照してください。
 
-このセクションでは、モデル オブジェクトを変更し、データベースの変更との同期を維持する方法を説明しました。 シナリオを試すことができますので、サンプル データを使って新しく作成したデータベースを設定する方法も学習しました。 これは、Code First に概要を参照してください[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)サブジェクトに関するより詳細なチュートリアルについてはします。 次に、高度な検証ロジックはモデル クラスを追加し、いくつかのビジネス ルールを適用するを有効にする方法を見てみましょう。
+このセクションでは、モデルオブジェクトを変更し、データベースと変更の同期を維持する方法について説明しました。 また、新しく作成されたデータベースにサンプルデータを設定して、シナリオを試す方法についても学習しました。 これは、Code First について簡単に説明したばかりです。詳細については、「 [ASP.NET MVC アプリケーションの Entity Framework データモデルを作成](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)する」を参照してください。 次に、より高度な検証ロジックをモデルクラスに追加し、一部のビジネスルールを適用できるようにする方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](adding-search.md)

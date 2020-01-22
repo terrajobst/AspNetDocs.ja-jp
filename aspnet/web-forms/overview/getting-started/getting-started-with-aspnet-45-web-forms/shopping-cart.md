@@ -8,24 +8,24 @@ ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 46264a0ab2244cff24761ce94b41722e61e3f426
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: d3b619ebd9448d30857ffbaf17fd245b1d54a662
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614920"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519298"
 ---
 # <a name="shopping-cart"></a>ショッピング カート
 
 [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys サンプルプロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)するか[、電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)します。
+[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> このチュートリアルシリーズでは、ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎と、Web 用の Microsoft Visual Studio Express 2013 について説明します。 このチュートリアルシリーズ[でC#は、ソースコードが含ま](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)れる Visual Studio 2013 プロジェクトを利用できます。
+> このチュートリアルシリーズでは、ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎と、Web 用の Microsoft Visual Studio Express 2013 について説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
 
 このチュートリアルでは、Wingtip Toys のサンプル ASP.NET Web フォームアプリケーションにショッピングカートを追加するために必要なビジネスロジックについて説明します。 このチュートリアルは、前のチュートリアル「データ項目と詳細の表示」に基づいており、Wingtip 玩具 Store チュートリアルシリーズの一部です。 このチュートリアルを完了すると、サンプルアプリのユーザーは、ショッピングカートで製品を追加、削除、および変更できるようになります。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 1. Web アプリケーションのショッピングカートを作成する方法。
 2. ユーザーがショッピングカートに商品を追加できるようにする方法。
@@ -62,7 +62,7 @@ ms.locfileid: "74614920"
 3. この新しいクラスに*CartItem.cs*という名前を指定します。
 4. **[追加]** をクリックします。  
    新しいクラスファイルがエディターに表示されます。
-5. 既定のコードを次のコードに置き換えます。   
+5. 既定のコードを以下のコードに置き換えます。   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
 
@@ -109,7 +109,7 @@ ms.locfileid: "74614920"
 1. **ソリューションエクスプローラー**で、**ウィング? toys**プロジェクトを右クリックし、[-の追加] を選択して &gt;**新しいフォルダー**を**追加**します。 新しいフォルダー*ロジック*に名前を指定します。
 2. *Logic*フォルダーを右クリックし、[ **Add** -&gt;**新しい項目**] を選択します。
 3. *ShoppingCartActions.cs*という名前の新しいクラスファイルを追加します。
-4. 既定のコードを次のコードに置き換えます。   
+4. 既定のコードを以下のコードに置き換えます。   
 
     [!code-csharp[Main](shopping-cart/samples/sample3.cs)]
 
@@ -229,7 +229,7 @@ ms.locfileid: "74614920"
 今すぐアプリケーションを実行して、ショッピングカートに製品を追加できないようにする方法を確認できますが、ショッピングカートの合計を確認することができます。
 
 1. **F5** キーを押してアプリケーションを実行します。  
- ブラウザーが開き、 *default.aspx*ページが表示されます。
+ ブラウザーが開き、 *Default.aspx* ページが表示されます。
 2. カテゴリナビゲーションメニューから **[車両]** を選択します。
 3. 最初の製品の横にある **[カートに追加]** リンクをクリックします。   
  *ShoppingCart*ページには、注文総数が表示されます。 
@@ -311,6 +311,8 @@ ms.locfileid: "74614920"
 このチュートリアルでは、Wingtip Toys Web Forms サンプルアプリケーション用のショッピングカートを作成しました。 このチュートリアルでは、Code First、データ注釈、厳密に型指定されたデータコントロール、およびモデルバインド Entity Framework を使用しました。
 
 ショッピングカートでは、ユーザーが購入対象として選択した項目の追加、削除、および更新がサポートされています。 ショッピングカートの機能を実装するだけでなく、 **GridView**コントロールにショッピングカートのアイテムを表示し、注文の合計を計算する方法についても説明しました。
+
+説明されている機能が実際のビジネスアプリケーションでどのように動作するかを理解するために、ASP.NET ベースのオープン[ソースの e コマースショッピング](https://github.com/nopSolutions/nopCommerce)カートの例をご覧ください。 当初は、Web フォーム上に構築されており、MVC に移行してから ASP.NET Core になっています。
 
 ## <a name="addition-information"></a>追加情報
 

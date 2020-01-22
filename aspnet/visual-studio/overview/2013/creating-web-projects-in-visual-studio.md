@@ -1,424 +1,424 @@
 ---
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
-title: Visual Studio 2013 での ASP.NET Web プロジェクトを作成する |Microsoft Docs
+title: Visual Studio 2013 で ASP.NET Web プロジェクトを作成する |Microsoft Docs
 author: tdykstra
-description: このトピックでは、Visual Studio 2013 with Update 3 は、ここでの ASP.NET web プロジェクトを作成するためのオプションは web 開発の c の新機能の一部について説明しています.
+description: このトピックでは、Update 3 で Visual Studio 2013 で ASP.NET web プロジェクトを作成するためのオプションについて説明します。ここでは、web 開発の新機能について説明します。
 ms.author: riande
 ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 3a446be8e2dff2ac66e2432c51b2d9f43bcb817d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fbb4cd7afa2506879d47bce980bf0164aad40c2c
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113180"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519272"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web プロジェクトを作成する
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> このトピックでは、Visual Studio 2013 with Update 3 での ASP.NET web プロジェクトを作成するためのオプションを説明します。
+> このトピックでは Visual Studio 2013 で Update 3 を使用して ASP.NET web プロジェクトを作成するためのオプションについて説明します。
 > 
-> Visual Studio の以前のバージョンと比較した web 開発の新機能の一部を次に示します。
+> 以前のバージョンの Visual Studio と比較した web 開発の新機能の一部を次に示します。
 > 
-> - 作成するための単純な UI がそのオファーをプロジェクト[複数の ASP.NET フレームワークのサポート](#add)(Web フォーム、MVC、および Web API)。
-> - [ASP.NET Identity](#indauth)、IIS 以外のソフトウェアをホストしている web を使用したすべての ASP.NET フレームワークと動作で同様に動作する新しい ASP.NET メンバーシップ システムです。
-> - 使用[ブートス トラップ](#bootstrap)レスポンシブ デザインおよびテーマの適用の機能を提供します。
-> - 新機能など、MVC のみに対して提供するために使用するフォームが Web[自動テスト プロジェクトの作成](#testproj)と[イントラネット サイト テンプレート](#winauth)します。
+> - [複数の ASP.NET フレームワーク](#add)(web フォーム、MVC、web API) のサポートを提供するプロジェクトを作成するための簡単な UI です。
+> - [ASP.NET Identity](#indauth)、すべての ASP.NET フレームワークで同じように動作し、IIS 以外の web ホスティングソフトウェアで動作する新しい ASP.NET メンバーシップシステムです。
+> - [ブートストラップ](#bootstrap)を使用して、応答性の高いデザインとテーマの機能を提供します。
+> - [自動テストプロジェクトの作成](#testproj)や[イントラネットサイトテンプレート](#winauth)など、MVC にのみ提供される Web フォームの新機能。
 > 
-> Azure Cloud Services や Azure Mobile Services の web プロジェクトを作成する方法については、次を参照してください[Azure Cloud Services と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/)と[Azure Mobile Services .NET を使用したランキング アプリケーションの作成。バックエンド](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)します。
+> Azure Cloud Services または Azure Mobile Services の web プロジェクトを作成する方法については、「azure [Cloud Services と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/)」と「 [Azure Mobile Services .net バックエンドでのランキングアプリの作成](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)」を参照してください。
 
 <a id="prerequisites"></a>
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>Prerequisites
 
-この記事は[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)で[Update 3](https://go.microsoft.com/fwlink/?linkid=397827&amp;clcid=0x409)をインストールします。
+この記事は、 [Update 3](https://go.microsoft.com/fwlink/?linkid=397827&amp;clcid=0x409)がインストールされている[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)に適用されます。
 
 <a id="wap"></a>
-## <a name="web-application-projects-versus-web-site-projects"></a>Web アプリケーション プロジェクトと web サイト プロジェクト
+## <a name="web-application-projects-versus-web-site-projects"></a>Web アプリケーションプロジェクトと web サイトプロジェクト
 
-ASP.NET では、web プロジェクトの 2 つの種類の選択: *web アプリケーション プロジェクト*と*web サイト プロジェクト*します。 新たに開発、web アプリケーション プロジェクトをお勧めして、この記事では、web アプリケーション プロジェクトにのみ適用されます。 詳細については、次を参照してください。 [Web アプリケーション プロジェクトと Visual Studio での Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590(v=vs.120).aspx)MSDN サイト。
+ASP.NET を使用すると、web*アプリケーションプロジェクト*と*web サイトプロジェクト*の2種類の web プロジェクトを選択できます。 新しい開発のために web アプリケーションプロジェクトを使用することをお勧めします。この記事は、web アプリケーションプロジェクトにのみ適用されます。 詳細については、MSDN サイトの「 [Web アプリケーションプロジェクトと Visual Studio の Web サイトプロジェクト](https://msdn.microsoft.com/library/dd547590(v=vs.120).aspx)」を参照してください。
 
 <a id="overview"></a>
-## <a name="overview-of-web-application-project-creation"></a>Web アプリケーション プロジェクトの作成の概要
+## <a name="overview-of-web-application-project-creation"></a>Web アプリケーションプロジェクトの作成の概要
 
-次の手順では、web プロジェクトを作成する方法を示します。
+次の手順は、web プロジェクトを作成する方法を示しています。
 
-1. クリックして**新しいプロジェクト**で、**開始**ページまたは、**ファイル**メニュー。
-2. **新しいプロジェクト**ダイアログ ボックスで、をクリックして**Web**左側のウィンドウで、 **ASP.NET Web アプリケーション**中央のペインで。
+1. **スタート**ページまたは **[ファイル]** メニューの **[新しいプロジェクト]** をクリックします。
+2. **[新しいプロジェクト]** ダイアログボックスで、左ペインの **[web]** をクリックし、中央のウィンドウで**ASP.NET web アプリケーション**をクリックします。
 
     ![[新しいプロジェクト] ダイアログ](creating-web-projects-in-visual-studio/_static/image1.png)
 
-    選択することができます**クラウド**を作成するには、左側のウィンドウで、 [Azure クラウド サービス](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)、 [Azure モバイル サービス](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx)、または[Azure WebJob](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs)します。 このトピックでこれらのテンプレートについては説明しません。
-3. 右側のウィンドウでをクリックして、**プロジェクトに Application Insights の追加**チェック ボックスをする場合、正常性と、アプリケーションの使用状況の監視します。 詳細については、次を参照してください。 [web アプリケーションのパフォーマンスを監視](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)します。
-4. プロジェクトを指定**名**、**場所**、およびその他のオプション、および順にクリックします**OK**します。
+    左側のウィンドウで **[クラウド]** を選択して、 [azure クラウドサービス](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)、 [azure Mobile Service](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx)、または[azure web ジョブ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs)を作成できます。 このトピックでは、これらのテンプレートについては説明しません。
+3. アプリケーションの正常性と使用状況の監視が必要な場合は、右側のウィンドウで **[Application Insights をプロジェクトに追加する]** チェックボックスをオンにします。 詳細については、「[Web アプリケーションのパフォーマンスを監視する](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)」を参照してください。
+4. プロジェクト**名**、**場所**、およびその他のオプションを指定し、[ **OK]** をクリックします。
 
-    **新しい ASP.NET プロジェクト**ダイアログが表示されます。
+    **[New ASP.NET Project]** ダイアログボックスが表示されます。
 
     ![[新しいプロジェクト] ダイアログ](creating-web-projects-in-visual-studio/_static/image2.png)
-5. [テンプレート] をクリックします。
+5. テンプレートをクリックします。
 
-    ![テンプレートを選択します。](creating-web-projects-in-visual-studio/_static/image3.png)
-6. テンプレートに含まれていない追加のフレームワークのサポートを追加する場合は、適切なチェック ボックスをクリックします。 (で示した例で追加できます MVC または Web API、Web フォーム プロジェクトにします。)
+    ![テンプレートの選択](creating-web-projects-in-visual-studio/_static/image3.png)
+6. テンプレートに含まれていない追加のフレームワークのサポートを追加する場合は、該当するチェックボックスをオンにします。 (この例では、MVC または Web API を Web フォームプロジェクトに追加できます)。
 
-    ![フレームワークを追加します。](creating-web-projects-in-visual-studio/_static/image4.png)
-7. <a id="testproj"></a>単体テスト プロジェクトを追加する場合は、クリックして**単体テストを追加**します。
+    ![フレームワークの追加](creating-web-projects-in-visual-studio/_static/image4.png)
+7. <a id="testproj"></a>単体テストプロジェクトを追加する場合は、 **[単体テストの追加]** をクリックします。
 
-    ![単体テストを追加します。](creating-web-projects-in-visual-studio/_static/image5.png)
-8. 既定で提供するテンプレートよりも、別の認証方法を実行する場合に、クリックして**認証の変更**します。
+    ![単体テストの追加](creating-web-projects-in-visual-studio/_static/image5.png)
+8. テンプレートが既定で提供するものとは異なる認証方法が必要な場合は、 **[認証の変更]** をクリックします。
 
-    ![[認証] を構成します。](creating-web-projects-in-visual-studio/_static/image6.png)
+    ![[認証の構成] ボタン](creating-web-projects-in-visual-studio/_static/image6.png)
 
-    ![認証ダイアログ ボックスを構成します。](creating-web-projects-in-visual-studio/_static/image7.png)
+    ![認証の構成ダイアログ](creating-web-projects-in-visual-studio/_static/image7.png)
 
 <a id="azurenewproj"></a>
-### <a name="create-a-web-app-or-virtual-machine-in-azure"></a>Azure で web アプリまたは仮想マシンを作成します。
+### <a name="create-a-web-app-or-virtual-machine-in-azure"></a>Azure で web アプリまたは仮想マシンを作成する
 
-Visual Studio には、web アプリケーションをホストするための Azure サービスを簡単に処理する機能が含まれています。 たとえばは次のすべてを Visual Studio IDE から直接実行できます。
+Visual Studio には、web アプリケーションをホストするために Azure サービスを簡単に操作できるようにする機能が含まれています。 たとえば、Visual Studio IDE から次のすべての操作を実行できます。
 
-- 作成し、web アプリまたはインターネット経由でアプリケーションを利用できるようにする仮想マシンを管理します。
-- クラウドで実行するときに、アプリケーションで作成されたログを表示します。
-- アプリケーションをクラウドで実行中にリモートでデバッグ モードで実行します。
-- 表示し、SQL データベースなどの他の Azure サービスを管理します。
+- インターネット経由でアプリケーションを利用できるようにする web アプリまたは仮想マシンを作成および管理します。
+- クラウドで実行されるアプリケーションによって作成されたログを表示します。
+- アプリケーションがクラウドで実行されている間は、リモートでデバッグモードで実行します。
+- SQL データベースなどの他の Azure サービスを表示および管理します。
 
-できます[Azure アカウントの作成](https://www.windowsazure.com/pricing/free-trial/)を無料で web apps などの基本的なサービスを含むし、MSDN サブスクライバーの場合は、[特典](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/)に向かって追加の Azure クレジットを提供します。サービス。 
+無料の web apps などの基本的なサービスを含む[Azure アカウントを作成](https://www.windowsazure.com/pricing/free-trial/)できます。 MSDN サブスクライバーの場合は、追加の azure サービスに対する月々のクレジットを提供する[特典を有効](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/)にすることができます。 
 
-既定では、**新しい ASP.NET プロジェクト** ダイアログ ボックスでは、web アプリまたは新しい web プロジェクト用の仮想マシンを作成することができます。 新しい web アプリまたは仮想マシンを作成しない場合は、オフ、**クラウドでホスト**チェック ボックスをオンします。
+既定では、 **[新しい ASP.NET プロジェクト]** ダイアログボックスを使用して、新しい web プロジェクトの web アプリまたは仮想マシンを作成できます。 新しい web アプリまたは仮想マシンを作成しない場合は、 **[クラウド内のホスト]** チェックボックスをオフにします。
 
-![リモート リソースを作成します。](creating-web-projects-in-visual-studio/_static/image8.png)
+![リモートリソースの作成](creating-web-projects-in-visual-studio/_static/image8.png)
 
-チェック ボックスのキャプションがあります**クラウドでホスト**または**リモート リソースを作成する**、いずれの場合も、効果は同じです。 チェック ボックスをオンにした場合は、Visual Studio は、既定では Azure App Service で web アプリを作成します。 変更する、ドロップ ダウン ボックスを使用することができます、**仮想マシン**したい場合。 されていない Azure にサインインしている場合は、Azure 資格情報のことをお求めです。 サインインした後、ダイアログ ボックスでは、Visual Studio は、プロジェクトを作成するリソースを構成することができます。 次の図は、web アプリのダイアログ ボックス仮想マシンを作成する場合、さまざまなオプションが表示されます。
+チェックボックスのキャプションは、**クラウド内のホストで**ある場合もあれば、**リモートリソースを作成**する場合もあります。どちらの場合も、影響は同じです。 このチェックボックスをオンのままにすると、Visual Studio は既定で Azure App Service web アプリを作成します。 ドロップダウンボックスを使用して、必要に応じて**仮想マシン**を変更できます。 Azure にまだサインインしていない場合は、Azure 資格情報を入力するように求められます。 サインインすると、Visual Studio によってプロジェクトに対して作成されるリソースを構成するためのダイアログボックスが表示されます。 次の図は、web アプリのダイアログを示しています。仮想マシンの作成を選択した場合は、異なるオプションが表示されます。
 
-![Azure アプリ設定を構成します。](creating-web-projects-in-visual-studio/_static/image9.png)
+![Azure アプリ設定の構成](creating-web-projects-in-visual-studio/_static/image9.png)
 
-Azure リソースを作成するため、このプロセスを使用する方法の詳細については、次を参照してください。 [Azure と ASP.NET の概要](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)と[Visual Studio を使用した web サイトの仮想マシンを作成する](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/)します。
+このプロセスを使用して Azure リソースを作成する方法の詳細については、「 [azure と ASP.NET の概要](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)」と「 [Visual Studio で web サイトの仮想マシンを作成](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/)する」を参照してください。
 
-この記事の残りの部分では、使用可能なテンプレートとオプションについて詳しく説明します。 記事には、テンプレートで使用されるブートス トラップ、レイアウトとテーマのフレームワークも導入されています。
+この記事の残りの部分では、使用可能なテンプレートとそのオプションの詳細について説明します。 また、この記事では、テンプレートで使用されるレイアウトおよびテーマフレームワークのブートストラップについても説明します。
 
 <a id="vs2013"></a>
-## <a name="visual-studio-2013-web-project-templates"></a>Visual Studio 2013 Web プロジェクト テンプレート
+## <a name="visual-studio-2013-web-project-templates"></a>Visual Studio 2013 Web プロジェクトテンプレート
 
-Visual Studio では、テンプレートを使用して、web プロジェクトを作成します。 プロジェクト テンプレートは新しいプロジェクトでファイルとフォルダーを作成、NuGet パッケージのインストールおよび基本的な実用アプリケーションのサンプル コードを提供します。 テンプレートは、最新の web 標準を実装し、ジャンプを出すだけでなく、ASP.NET のテクノロジを使用する方法のベスト プラクティスを独自のアプリケーションの作成の開始を示すために対象としています。
+Visual Studio では、テンプレートを使用して web プロジェクトを作成します。 プロジェクトテンプレートでは、新しいプロジェクトにファイルとフォルダーを作成し、NuGet パッケージをインストールして、基本的な動作アプリケーションのサンプルコードを提供できます。 テンプレートは、最新の web 標準を実装しており、ASP.NET テクノロジを使用する方法のベストプラクティスを紹介すると共に、独自のアプリケーションの作成をすぐに開始することを目的としています。
 
-Visual Studio 2013 では、.NET 4.5 または .NET framework の以降のバージョンを対象とするプロジェクトの web プロジェクト テンプレートを次の選択肢を提供します。
+Visual Studio 2013 は、.net 4.5 以降のバージョンの .NET framework を対象とするプロジェクトの web プロジェクトテンプレートに対して、次の選択肢を提供します。
 
 - [空のテンプレート](#empty)
-- [Web フォーム テンプレート](#wf)
+- [Web フォームテンプレート](#wf)
 - [MVC テンプレート](#mvc)
 - [Web API テンプレート](#webapi)
-- [シングル ページ アプリケーション テンプレート](#spa)
-- [Azure モバイル サービス テンプレート](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
-- [Visual Studio 2012 のテンプレート](#vs2012)
+- [シングルページアプリケーションテンプレート](#spa)
+- [Azure モバイルサービステンプレート](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
+- [Visual Studio 2012 テンプレート](#vs2012)
 
-提供する Visual Studio 拡張機能をインストールすることも、 [Facebook テンプレート](#facebook)します。
+[Facebook テンプレート](#facebook)を提供する Visual Studio 拡張機能をインストールすることもできます。
 
-.NET 4 を対象とするプロジェクトを作成する方法については、次を参照してください。 [Visual Studio 2012 のテンプレート](#vs2012)このトピックで後述します。
+.NET 4 を対象とするプロジェクトを作成する方法については、このトピックで後述する「 [Visual Studio 2012 のテンプレート](#vs2012)」を参照してください。
 
-モバイル クライアント向けの ASP.NET アプリケーションを作成する方法については、次を参照してください。 [ASP.NET でのモバイル サポート](../../../mobile/index.md)します。
+モバイルクライアント用の ASP.NET アプリケーションを作成する方法の詳細については、 [ASP.NET でのモバイルサポートに](../../../mobile/overview.md)関する説明を参照してください。
 
 <a id="empty"></a>
 ### <a name="empty-template"></a>空のテンプレート
 
-空のテンプレートには、ベア最小フォルダーとプロジェクト ファイルなど、ASP.NET web アプリのファイルが用意されています (*.csproj*または *。vbproj*) と*Web.config*ファイル。 Web フォーム、MVC、または Web API のサポートを追加するには、下のチェック ボックスを使用して、**フォルダーを追加し、コアの参照:** ラベル。
+空のテンプレートには、プロジェクトファイル ( *.csproj*または*など、ASP.NET web アプリの最小限のフォルダーとファイルが用意されています.vbproj*) と web.config*ファイル。* Web フォーム、MVC、または Web API のサポートを追加するには、 **[フォルダーの追加とコア参照]** ラベルの下にあるチェックボックスを使用します。
 
-空のテンプレートの認証オプションはありません。 認証機能は、サンプル アプリケーションで実装され、空のテンプレートは、サンプル アプリケーションを作成できません。
+空のテンプレートでは、認証オプションは使用できません。 認証機能はサンプルアプリケーションに実装されており、空のテンプレートはサンプルアプリケーションを作成しません。
 
 <a id="wf"></a>
-### <a name="web-forms-template"></a>Web フォーム テンプレート
+### <a name="web-forms-template"></a>Web フォームテンプレート
 
-フレームワークは、UI とデータの豊富な web サイトの構築に迅速にすることができます、次の機能を提供する Web フォームの機能にアクセスします。
+Web Forms framework には、UI およびデータアクセス機能に豊富な web サイトをすばやく作成するための次の機能が用意されています。
 
-- Visual Studio での WYSIWYG デザイナー。
-- HTML とプロパティとスタイルを設定してカスタマイズできるサーバー コントロール。
-- データのアクセスとデータの表示コントロールを豊富に備えています。
-- WPF などのクライアント アプリケーションのプログラムを作成するようにプログラミングできるイベントを公開するイベント モデル。
-- HTTP 要求の間の状態 (データ) の自動保存します。
+- Visual Studio の WYSIWYG デザイナー。
+- HTML を表示し、プロパティとスタイルを設定することによってカスタマイズできるサーバーコントロール。
+- データアクセスとデータ表示のための豊富なコントロールです。
+- WPF などのクライアントアプリケーションをプログラミングするようにプログラミングできるイベントを公開するイベントモデル。
+- HTTP 要求間の状態 (データ) の自動保存。
 
-一般に、Web フォーム アプリケーションを作成するには、ASP.NET MVC フレームワークを使用して、同じアプリケーションを作成するよりも少ないプログラミングの労力が必要です。 ただし、Web フォームだけではなくアプリケーションの迅速な開発です。 多くの複雑な商用アプリケーションと Web フォーム上に構築されたフレームワークがあります。
+一般に、Web フォームアプリケーションを作成するには、ASP.NET MVC フレームワークを使用して同じアプリケーションを作成するよりも、プログラミング作業が少なくて済みます。 ただし、Web フォームはアプリケーションの迅速な開発のためだけではありません。 Web フォーム上に構築された複雑な商用アプリケーションやフレームワークは多数あります。
 
-Web フォーム ページと、ページ上のコントロールは、ブラウザーに送信されるマークアップの大部分に自動的に生成、ため、ASP.NET MVC を提供する HTML をきめ細かく制御の種類がありません。 ページおよびコントロールを構成するための宣言型モデルには、記述する必要しますが、HTML と HTTP の動作の一部を非表示にするコードの量が最小限に抑えます。 たとえば、ことはできません常に正確にどのようなマークアップは、コントロールによって生成されることを指定します。
+Web フォームページとページ上のコントロールは、ブラウザーに送信される多くのマークアップを自動的に生成するため、ASP.NET MVC が提供する HTML をきめ細かく制御することはできません。 ページとコントロールを構成するための宣言型モデルでは、記述する必要のあるコードの量が最小限に抑えられますが、HTML および HTTP の動作の一部は非表示になります。 たとえば、コントロールによって生成されるマークアップを正確に指定することはできません。
 
-Web フォーム フレームワークは ASP.NET MVC、すぐに適してパターン ベースの開発プラクティスなど[テスト駆動開発](http://en.wikipedia.org/wiki/Test-driven_development)、[懸念事項の分離](http://en.wikipedia.org/wiki/Separation_of_concerns)、[の反転コントロール](http://en.wikipedia.org/wiki/Inversion_of_control)、および[依存関係の注入](http://en.wikipedia.org/wiki/Dependency_injection)します。 コード ファクタリングする方法を記述する場合は、以下の操作を実行できます。ASP.NET MVC フレームワークであるため、自動がないだけです。 [ASP.NET Web フォームの MVP](http://webformsmvp.com/)プロジェクトを Web フォームの配信が組み込まれている迅速な開発を維持しながらの問題とテストの容易性の分離を容易にする方法を示しています。 Microsoft SharePoint は、Web フォームの MVP に基づいて構築されます。
+Web フォームフレームワークは、[テスト駆動型](http://en.wikipedia.org/wiki/Test-driven_development)の開発、[懸念事項の分離](http://en.wikipedia.org/wiki/Separation_of_concerns)、[制御の反転](http://en.wikipedia.org/wiki/Inversion_of_control)、[依存関係の注入](http://en.wikipedia.org/wiki/Dependency_injection)などのパターンベースの開発手法に ASP.NET MVC ほど簡単には適していません。 そのようなコードを記述する場合は、ASP.NET MVC フレームワークの場合と同様に、自動ではありません。 [ASP.NET Web FORMS MVP](http://webformsmvp.com/)プロジェクトは、web フォームが提供される迅速な開発を維持しながら、問題とテスト容易性の分離を促進するアプローチを示しています。 Microsoft SharePoint は、Web フォーム MVP 上に構築されています。
 
-Web フォーム テンプレートを使用するサンプル Web フォーム アプリケーションを作成[ブートス トラップ](#bootstrap)レスポンシブ デザインおよびテーマの適用の機能を提供します。 次の図は、ホーム ページを示します。
+Web フォームテンプレートは、[ブートストラップ](#bootstrap)を使用して応答性の高いデザイン機能とテーマ機能を提供するサンプル Web フォームアプリケーションを作成します。 次の図は、ホームページを示しています。
 
-![Web フォーム テンプレート アプリのホーム ページ](creating-web-projects-in-visual-studio/_static/image10.png)
+![Web フォームテンプレートアプリのホームページ](creating-web-projects-in-visual-studio/_static/image10.png)
 
-Web フォームの詳細については、次を参照してください。 [ASP.NET Web フォーム](https://asp.net/web-forms)します。 Web フォーム テンプレートが何をする方法の詳細については、次を参照してください。 [Visual Studio 2013 を使用して基本的な Web フォーム アプリケーションを構築](https://blogs.msdn.com/b/webdev/archive/2013/12/19/building-a-basic-web-forms-application-using-visual-studio-2013.aspx)します。
+Web フォームの詳細については、「 [ASP.NET Web forms](https://asp.net/web-forms)」を参照してください。 Web フォームテンプレートの機能の詳細については、「 [Visual Studio 2013 を使用した基本的な Web フォームアプリケーションの構築](https://blogs.msdn.com/b/webdev/archive/2013/12/19/building-a-basic-web-forms-application-using-visual-studio-2013.aspx)」を参照してください。
 
 <a id="mvc"></a>
 ### <a name="mvc-template"></a>MVC テンプレート
 
-ASP.NET MVC は次のようなどのパターン ベースの開発手法を容易に設計された[テスト駆動開発](http://en.wikipedia.org/wiki/Test-driven_development)、[懸念事項の分離](http://en.wikipedia.org/wiki/Separation_of_concerns)、[の制御の反転](http://en.wikipedia.org/wiki/Inversion_of_control)、[依存関係の注入](http://en.wikipedia.org/wiki/Dependency_injection)します。 フレームワークは、そのプレゼンテーション層から web アプリケーションのビジネス ロジック層を分離することをお勧めします。 モデル (M)、ビュー (V)、およびコント ローラー (C) にアプリケーションを分割して ASP.NET MVC やすく大規模なアプリケーションの複雑さを管理します。
+ASP.NET MVC は、[テスト駆動型開発](http://en.wikipedia.org/wiki/Test-driven_development)、[懸念事項の分離](http://en.wikipedia.org/wiki/Separation_of_concerns)、[制御の逆転](http://en.wikipedia.org/wiki/Inversion_of_control)、[依存関係の注入](http://en.wikipedia.org/wiki/Dependency_injection)などのパターンベースの開発手法を容易にするように設計されています。 フレームワークは、web アプリケーションのビジネスロジック層とプレゼンテーション層を分離することをお勧めします。 アプリケーションをモデル (M)、ビュー (V)、およびコントローラー (C) に分割することにより、ASP.NET MVC を使用すると、大規模なアプリケーションの複雑さを管理しやすくなります。
 
-ASP.NET MVC、HTML および Web フォームでよりも HTTP をより直接操作することにします。 たとえば、Web フォームでは、HTTP 要求の間で状態を維持できます自動的が MVC でコードを明示的にする必要があります。 MVC モデルの利点は、正確に、アプリケーションの実行内容と、web 環境での動作を完全に制御できます。 欠点より多くのコードを記述する必要があります。
+ASP.NET MVC、HTML および Web フォームでよりも HTTP をより直接操作することにします。 たとえば、Web フォームは HTTP 要求間で状態を自動的に保持できますが、MVC では明示的にコードを記述する必要があります。 MVC モデルの利点は、アプリケーションが何を実行しているか、および web 環境でどのように動作するかを完全に制御できることです。 欠点は、さらに多くのコードを記述する必要があることです。
 
-MVC は、電源の開発者のニーズにアプリケーション フレームワークをカスタマイズする機能を提供する、拡張できるように設計されています。 さらに、ASP.NET MVC のソース コードは、OSI license で入手できます。
+MVC は拡張できるように設計されており、開発者はアプリケーションのニーズに合わせてフレームワークをカスタマイズできます。 また、ASP.NET MVC ソースコードは、OSI ライセンスで利用できます。
 
-MVC テンプレートを使用するサンプルの MVC 5 アプリケーションを作成します[ブートス トラップ](#bootstrap)レスポンシブ デザインおよびテーマの適用の機能を提供します。 次の図は、ホーム ページを示します。
+MVC テンプレートでは、[ブートストラップ](#bootstrap)を使用して応答性の高いデザイン機能とテーマ機能を提供するサンプル MVC 5 アプリケーションを作成します。 次の図は、ホームページを示しています。
 
-![MVC サンプル アプリケーション](creating-web-projects-in-visual-studio/_static/image11.png)
+![MVC サンプルアプリケーション](creating-web-projects-in-visual-studio/_static/image11.png)
 
-MVC の詳細については、次を参照してください。 [ASP.NET MVC](https://asp.net/mvc)します。 MVC 4 テンプレートを選択する方法については、次を参照してください。 [Visual Studio 2012 テンプレート](#vs2012)この記事で後述します。
+MVC の詳細については、「 [ASP.NET mvc](https://asp.net/mvc)」を参照してください。 MVC 4 テンプレートを選択する方法の詳細については、この記事で後述する「 [Visual Studio 2012 のテンプレート](#vs2012)」を参照してください。
 
 <a id="webapi"></a>
 ### <a name="web-api-template"></a>Web API テンプレート
 
-Web API テンプレートでは、MVC に基づいた API ヘルプ ページを含む、Web API に基づくサンプル web サービスを作成します。
+Web API テンプレートは、MVC に基づく API ヘルプページを含む、Web API に基づいたサンプル web サービスを作成します。
 
-ASP.NET Web API をさまざまなブラウザーやモバイル デバイスなどのクライアントに提供される HTTP サービスを構築するが容易にするフレームワークです。 ASP.NET Web API は、.NET framework RESTful サービスを作成するための理想的なプラットフォームです。
+ASP.NET Web API は、ブラウザーやモバイル デバイスなどを含む多様なクライアントに提供できる HTTP サービスの構築が容易になるフレームワークです。 ASP.NET Web API は、.NET Framework で RESTful サービスを構築するための理想的なプラットフォームです。
 
-Web API テンプレートでは、サンプル web サービスを作成します。 次の図は、サンプルのヘルプ ページを示しています。
+Web API テンプレートによって、サンプル web サービスが作成されます。 次の図は、サンプルのヘルプページを示しています。
 
-![Web API ヘルプ ページ](creating-web-projects-in-visual-studio/_static/image12.png)
+![Web API のヘルプページ](creating-web-projects-in-visual-studio/_static/image12.png)
 
-![Web API のヘルプ ページの取得 API を](creating-web-projects-in-visual-studio/_static/image13.png)
+![GET API の Web API ヘルプページ](creating-web-projects-in-visual-studio/_static/image13.png)
 
-Web API の詳細については、次を参照してください。 [ASP.NET Web API](https://asp.net/web-api)します。
+Web API の詳細については、「 [ASP.NET Web API](https://asp.net/web-api)」を参照してください。
 
 <a id="spa"></a>
 ### <a name="single-page-application-template"></a>単一ページ アプリケーション テンプレート
 
-Single Page Application (SPA) テンプレート、HTML 5、JavaScript を使用するサンプル アプリケーションを作成し、 [KnockoutJS](http://knockoutjs.com/)クライアント、およびサーバー上の ASP.NET Web API。
+シングルページアプリケーション (SPA) テンプレートでは、クライアントで JavaScript、HTML 5、および[KnockoutJS](http://knockoutjs.com/)を使用するサンプルアプリケーションを作成し、サーバー上で ASP.NET Web API します。
 
-SPA テンプレートの唯一の認証オプションが[個々 のユーザー アカウント](#indauth)します。
+SPA テンプレートの唯一の認証オプションは、[個々のユーザーアカウント](#indauth)です。
 
-次の図は、SPA テンプレートをビルドするサンプル アプリケーションの初期状態を示します。
+次の図は、SPA テンプレートによって作成されるサンプルアプリケーションの初期状態を示しています。
 
-![SPA のサンプル アプリケーション](creating-web-projects-in-visual-studio/_static/image14.png)
+![SPA サンプルアプリケーション](creating-web-projects-in-visual-studio/_static/image14.png)
 
-SPA テンプレートを使用して、アプリケーションを作成する方法については、次を参照してください。 [Web API の外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)します。
+SPA テンプレートを使用してアプリケーションを作成する方法の詳細については、「 [WEB API-外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)」を参照してください。
 
-ASP.NET シングル ページ アプリケーション、および KnockoutJS 以外の JavaScript フレームワークを使用する追加の SPA テンプレートについての詳細については、次のリソースを参照してください。
+ASP.NET シングルページアプリケーションの詳細と、KnockoutJS 以外の JavaScript フレームワークを使用する追加の SPA テンプレートについては、次のリソースを参照してください。
 
-- [ASP.NET シングル ページ アプリケーション](../../../single-page-application/index.md)します。
-- [VS2013 RC の SPA テンプレートのセキュリティ機能の理解](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)
-- [シングル ページ アプリケーション:ASP.NET を使用した最新のレスポンシブ Web アプリを構築します。](https://msdn.microsoft.com/magazine/dn463786.aspx)
+- [ASP.NET シングルページアプリケーション](../../../single-page-application/index.md)。
+- [VS2013 RC 用の SPA テンプレートのセキュリティ機能について](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)
+- [シングルページアプリケーション: ASP.NET を使用して最新で応答性の高い Web Apps を構築する](https://msdn.microsoft.com/magazine/dn463786.aspx)
 
 <a id="facebook"></a>
 ### <a name="facebook-template"></a>Facebook テンプレート
 
-インストールすることができます、 [Facebook テンプレートを提供する Visual Studio 拡張機能](https://go.microsoft.com/fwlink/?LinkID=509965&amp;clcid=0x409)します。 このテンプレートは、Facebook の web サイト内で実行するように設計されたサンプル アプリケーションを作成します。 ASP.NET MVC に基づいた、リアルタイムの更新機能の Web API を使用します。
+[Facebook テンプレートを提供する Visual Studio 拡張機能](https://go.microsoft.com/fwlink/?LinkID=509965&amp;clcid=0x409)をインストールできます。 このテンプレートは、Facebook web サイト内で実行するように設計されたサンプルアプリケーションを作成します。 これは ASP.NET MVC に基づいており、Web API を使用してリアルタイム更新機能を備えています。
 
-認証オプションはありません、Facebook テンプレートの Facebook アプリケーションが Facebook サイト内で実行し、Facebook の認証に依存しているためです。
+Facebook のアプリケーションは facebook サイト内で実行され、Facebook の認証を利用するため、Facebook テンプレートに使用できる認証オプションはありません。
 
-ASP.NET の Facebook アプリケーションの詳細については、次を参照してください。 [MVC Facebook API の更新](https://blogs.msdn.com/b/webdev/archive/2014/06/10/updating-the-mvc-facebook-api.aspx)します。
+ASP.NET Facebook アプリケーションの詳細については、「 [MVC FACEBOOK API の更新](https://blogs.msdn.com/b/webdev/archive/2014/06/10/updating-the-mvc-facebook-api.aspx)」を参照してください。
 
 <a id="vs2012"></a>
-### <a name="visual-studio-2012-templates"></a>Visual Studio 2012 のテンプレート
+### <a name="visual-studio-2012-templates"></a>Visual Studio 2012 テンプレート
 
-Visual Studio 2013 web プロジェクトの作成 ダイアログ ボックスでは、一部の Visual Studio 2012 で使用可能になったテンプレートへのアクセスは提供されません。 これらのテンプレートのいずれかを使用する場合は、Visual Studio の [新しいプロジェクト] ダイアログ ボックスの左側のウィンドウで、Visual Studio 2012 のノードをクリックすることができます。
+Visual Studio 2013 web プロジェクトの作成ダイアログでは、Visual Studio 2012 で使用できた一部のテンプレートにアクセスすることはできません。 これらのテンプレートのいずれかを使用する場合は、Visual Studio の [新しいプロジェクト] ダイアログボックスの左ペインで [Visual Studio 2012] ノードをクリックします。
 
-![Visual Studio 2012 のテンプレート](creating-web-projects-in-visual-studio/_static/image15.png)
+![Visual Studio 2012 テンプレート](creating-web-projects-in-visual-studio/_static/image15.png)
 
-**Visual Studio 2012**ノードがない次の web テンプレートを選択することができますへのアクセスをテンプレートの既定の一覧で Visual Studio 2013 の。
+**[Visual Studio 2012]** ノードでは、Visual Studio 2013 のテンプレートの既定の一覧で、アクセス権のない次の web テンプレートを選択できます。
 
 - ASP.NET MVC 4 Web アプリケーション
 - ASP.NET 動的データ エンティティ Web アプリケーション
-- ASP.NET AJAX サーバー コントロール
-- ASP.NET AJAX サーバー コントロール エクステンダー
-- ASP.NET サーバー コントロール
+- ASP.NET AJAX サーバーコントロール
+- ASP.NET AJAX サーバーコントロールエクステンダー
+- ASP.NET サーバーコントロール
 
 <a id="bootstrap"></a>
-## <a name="bootstrap-in-the-visual-studio-2013-web-project-templates"></a>Visual Studio 2013 web プロジェクト テンプレートでのブートス トラップします。
+## <a name="bootstrap-in-the-visual-studio-2013-web-project-templates"></a>Visual Studio 2013 web プロジェクトテンプレートでのブートストラップ
 
-Visual Studio 2013 のプロジェクト テンプレートを使用して、[ブートス トラップ](http://getbootstrap.com/)、Twitter によって作成されたレイアウトとテーマのフレームワークです。 ブートス トラップでは、CSS3 を使用して、レイアウトは、別のブラウザー ウィンドウのサイズに動的に対応できることを意味するレスポンシブ デザインを提供します。 たとえば、ワイド ブラウザー ウィンドウでは、次の図は、ように Web フォーム テンプレートで作成したホーム ページがなります。
+Visual Studio 2013 プロジェクトテンプレートでは[、Twitter](http://getbootstrap.com/)によって作成されたレイアウトとテーマフレームワークを使用します。 ブートストラップは CSS3 を使用して応答性の高いデザインを提供します。つまり、レイアウトはさまざまなブラウザーウィンドウサイズに動的に適応できます。 たとえば、ワイドブラウザーウィンドウでは、Web フォームテンプレートによって作成されたホームページは次の図のようになります。
 
-![Web フォーム テンプレート アプリのホーム ページ](creating-web-projects-in-visual-studio/_static/image16.png)
+![Web フォームテンプレートアプリのホームページ](creating-web-projects-in-visual-studio/_static/image16.png)
 
-ウィンドウの幅を狭くして、水平方向に配置後の列が上下に移動します。
+ウィンドウの幅を狭くし、水平方向に配置された列を垂直方向に移動します。
 
-![ブートス トラップの垂直列の配置](creating-web-projects-in-visual-studio/_static/image17.png)
+![ブートストラップ垂直方向の列配置](creating-web-projects-in-visual-studio/_static/image17.png)
 
-ウィンドウを少し、絞り込むし、水平方向の上部のメニューを垂直方向のメニューに拡張することができます をクリックしたアイコンに変わります。
+ウィンドウをもう少し狭くします。横にある上部のメニューはアイコンに変わり、クリックして垂直方向のメニューに展開することができます。
 
-![ブートス トラップのメニュー アイコン](creating-web-projects-in-visual-studio/_static/image18.png)
+![ブートストラップメニューアイコン](creating-web-projects-in-visual-studio/_static/image18.png)
 
-![ブートス トラップの垂直方向のメニュー](creating-web-projects-in-visual-studio/_static/image19.png)
+![ブートストラップの垂直方向のメニュー](creating-web-projects-in-visual-studio/_static/image19.png)
 
-アプリケーションの外観の変更を簡単に影響するのにブートス トラップのテーマ機能を使用することもできます。 たとえば、テーマを変更する、次の手順を行うことができます。
+ブートストラップのテーマ機能を使用して、アプリケーションのルックアンドフィールの変化に簡単に影響を与えることもできます。 たとえば、次の手順を実行して、テーマを変更できます。
 
-1. ブラウザーでに移動[ http://Bootswatch.com ](http://Bootswatch.com)、テーマを選択し、クリックして**ダウンロード**です。 (これによりダウンロード*bootstrap.min.css*既定では CSS コードを確認する場合が取得*bootstrap.css*縮小されたバージョンの代わりにします)。
+1. ブラウザーでに移動[ http://Bootswatch.com ](http://Bootswatch.com)、テーマを選択し、クリックして**ダウンロード**です。 (これにより、既定では、*ブートストラップ*がダウンロードされます。 css コードを確認する場合は、縮小版ではなく、*ブートストラップ*を取得します。)
 2. ダウンロードした CSS ファイルの内容をコピーします。
-3. Visual Studio で、作成、新しい**スタイル シート**という名前のファイル*ブートス トラップ theme.css*で、*コンテンツ*フォルダーと貼り付け、ダウンロードした CSS のコードにします。
-4. 開いている*アプリ\_Start/Bundle.config*変更と*bootstrap.css*に*ブートス トラップ theme.css*します。
+3. Visual Studio で、 *Content*フォルダーに*bootstrap-theme*という名前の新しい**スタイルシート**ファイルを作成し、ダウンロードした css コードを貼り付けます。
+4. \_アプリを開き、 *config を起動また*は bootstrap-theme し、*ブートストラップ*をに変更します。
 
-プロジェクトを再度実行して、アプリケーションが新しい外観。 次の図は、アメリア テーマの効果を示しています。
+プロジェクトをもう一度実行すると、アプリケーションの外観が新しくなります。 次の図は、アメリアテーマの効果を示しています。
 
-![ブートス トラップ アメリア テーマ](creating-web-projects-in-visual-studio/_static/image20.png)
+![ブートストラップのアメリアテーマ](creating-web-projects-in-visual-studio/_static/image20.png)
 
-多くのブートス トラップ テーマは、使用可能な free と premium の両方のバージョン。 ブートス トラップでさまざまな UI コンポーネントをなど提供も[ドロップダウン](http://twitter.github.io/bootstrap/components.html#dropdowns)、[ボタン グループ](http://twitter.github.io/bootstrap/components.html#buttonGroups)と[アイコン](http://twitter.github.io/bootstrap/base-css.html#images)。 ブートス トラップの詳細については、次を参照してください。 [Bootstrap サイト](http://twitter.github.io/bootstrap/)します。
+多くのブートストラップテーマを利用できます (free バージョンと premium バージョンの両方)。 ブートストラップには、[ドロップダウン](http://twitter.github.io/bootstrap/components.html#dropdowns)、[ボタングループ](http://twitter.github.io/bootstrap/components.html#buttonGroups)、[アイコン](http://twitter.github.io/bootstrap/base-css.html#images)など、さまざまな UI コンポーネントが用意されています。 ブートストラップの詳細については、「[ブートストラップサイト](http://twitter.github.io/bootstrap/)」を参照してください。
 
-Visual Studio で Web フォーム デザイナーを使用する場合は、デザイナーに CSS3 をサポートしないため、ブートス トラップ テーマや応答性の高いレイアウトの変更のすべての効果を正確に表示されないことに注意してください。 ただし、Web フォーム ページは、ブラウザーで表示すると、正しく表示します。
+Visual Studio で Web フォームデザイナーを使用している場合は、デザイナーで CSS3 がサポートされていないので、ブートストラップのテーマまたは応答性の高いレイアウトの変更によるすべての影響を正確に示すことはできません。 ただし、ブラウザーで表示すると、Web フォームページが正しく表示されます。
 
 <a id="add"></a>
-## <a name="adding-support-for-additional-frameworks"></a>追加のフレームワークのサポートの追加
+## <a name="adding-support-for-additional-frameworks"></a>追加のフレームワークのサポートを追加する
 
-テンプレートを選択すると、テンプレートで使用される framework(s) のチェック ボックスが自動的に選択します。 たとえば、選択した場合、 **Web フォーム**、テンプレート、 **Web フォーム** チェック ボックスをオンおよびオフにすることはできません。
+テンプレートを選択すると、テンプレートによって使用されているフレームワークのチェックボックスが自動的にオンになります。 たとえば、 **[Web フォーム]** テンプレートを選択した場合、 **[web フォーム]** チェックボックスがオンになっているので、これをオフにすることはできません。
 
-![テンプレートを選択します。](creating-web-projects-in-visual-studio/_static/image21.png)
+![テンプレートの選択](creating-web-projects-in-visual-studio/_static/image21.png)
 
-![フレームワークを追加します。](creating-web-projects-in-visual-studio/_static/image22.png)
+![フレームワークの追加](creating-web-projects-in-visual-studio/_static/image22.png)
 
-プロジェクトが作成されるときに、そのフレームワークのサポートを追加するには、テンプレートに含まれていないフレームワークのチェック ボックスを選択できます。 たとえば、Web フォームの使用を有効にする *.aspx* 、MVC テンプレートを選択したときに、ページの選択、 **Web フォーム**チェック ボックスをオンします。 Web フォーム テンプレートを使用しているときに有効にするには、MVC のまたは、 **MVC**チェック ボックスをオンします。 デザイン時と実行時のサポートを有効なフレームワークを追加します。 たとえば、Web フォーム プロジェクトに MVC サポートを追加する場合、コント ローラーとビューをスキャフォールディングできなきます。
+プロジェクトの作成時にそのフレームワークのサポートを追加するために、テンプレートに含まれていないフレームワークのチェックボックスをオンにすることができます。 たとえば、MVC テンプレートを選択したときに Web フォームの *.aspx*ページを使用できるようにするには、 **[web フォーム]** チェックボックスをオンにします。 または、Web フォームテンプレートを使用しているときに MVC を有効にするには、 **[mvc]** チェックボックスをオンにします。 フレームワークを追加すると、デザイン時および実行時サポートが有効になります。 たとえば、Web フォームプロジェクトに MVC サポートを追加すると、コントローラーとビューをスキャフォールディングすることができます。
 
-プロジェクトで Web フォームと MVC を組み合わせるし、有効にするかどうかは[フレンドリな Url](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx) Web フォームである可能性がありますいないルーティングの問題 1 つの URL が複数の可能なターゲットを持つ予期されます。 ルート定義されている最初の優先順位になります。 ある場合など、`Home`コント ローラーと*Home.aspx*  ページで、 `http://contoso.com/home` URL に移動します*Home.aspx*を呼び出す場合、`EnableFriendlyUrls`メソッド、を呼び出す前に`MapRoute`メソッド*RouteConfig.cs*、同じ URL の既定のビューに移動しますか、`Home`コント ローラーを呼び出す場合`MapRoute`する前に`EnableFriendlyUrls`します。
+Web フォームと MVC をプロジェクトで結合し、Web フォームで[フレンドリな url](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx)を有効にすると、1つの URL に複数の可能なターゲットがある場合に、予期しないルーティングの問題が発生する可能性があります。 最初に定義されたルートが優先されます。 たとえば、`Home` コントローラーと*default.aspx*ページがある場合、 *RouteConfig.cs*で `MapRoute` メソッドを呼び出す前に `EnableFriendlyUrls` メソッドを呼び出すと、`http://contoso.com/home` の url が*default.aspx*に表示されます。 `Home` の前に `MapRoute` を呼び出した場合は、同じ url が `EnableFriendlyUrls`コントローラーの既定のビューに送られます。
 
-フレームワークを追加、すべてのサンプル アプリケーションの機能が追加されることはできません。 たとえばを追加すると Web フォーム サポートいいえ、MVC テンプレートを選択したときに*Default.aspx*ホーム ページのファイルが作成されます。 フォルダー、ファイル、およびフレームワークをサポートするために必要な参照のみが追加されます。 そのため、フレームワークを追加する、テンプレートによって作成されたサンプル アプリケーション内のコードで実装されている認証オプションを変更しません。 空のテンプレートを選択し、追加する場合は、Web フォームまたは MVC サポートなど、**認証の構成**ボタンが無効になっています。
+フレームワークを追加しても、サンプルアプリケーションの機能は追加されません。 たとえば、MVC テンプレートを選択したときに Web フォームサポートを追加した場合、 *default.aspx*ホームページファイルは作成されません。 フレームワークをサポートするために必要なフォルダー、ファイル、および参照のみが追加されます。 そのため、フレームワークを追加しても、テンプレートによって作成されたサンプルアプリケーションのコードによって実装される認証オプションは変更されません。 たとえば、空のテンプレートを選択して Web フォームまたは MVC サポートを追加した場合でも、 **[認証の構成]** ボタンは無効になります。
 
-次のセクションは、各チェック ボックスの効果について簡単に説明します。
+以下のセクションでは、各チェックボックスの効果について簡単に説明します。
 
-### <a name="add-web-forms-support"></a>Web フォームのサポートを追加します。
+### <a name="add-web-forms-support"></a>Web フォームサポートの追加
 
-空の作成*アプリ\_データ*と*モデル*フォルダーと*Global.asax*ファイル。 これらは Web フォームのチェック ボックスをオンにしても他のテンプレートの違いはありませんので、空のテンプレート以外のすべてのテンプレートによって作成既に。
+空の*アプリ\_データ*と*モデル*のフォルダーおよび*global.asax*ファイルを作成します。 これらは、空のテンプレート以外のすべてのテンプレートで既に作成されているので、[Web フォーム] チェックボックスをオンにすると、他のテンプレートに違いはありません。
 
-Web フォーム テンプレートは、フレンドリな Url が自動的に有効でない Web フォームのチェック ボックスを選択すると他のテンプレートのサポートを Web フォームを追加すると、既定では、フレンドリな Url を使用します。
+Web フォームテンプレートでは、既定でフレンドリ Url が有効になっていますが、[Web フォーム] チェックボックスをオンにして Web フォームサポートを他のテンプレートに追加すると、フレンドリな Url は自動的に有効になりません。
 
-### <a name="add-mvc-support"></a>MVC サポートを追加します。
+### <a name="add-mvc-support"></a>MVC サポートの追加
 
-MVC、Razor、web ページの NuGet パッケージをインストールすると、空を作成します*アプリ\_データ*、*コント ローラー*、*モデル*、および*ビュー*フォルダーを作成します*アプリ\_開始*フォルダー *RouteConfig.cs*ファイル、および作成*Global.asax*ファイル。
+MVC、Razor、および Web ページの NuGet パッケージをインストールし、空の*アプリ\_データ*、*コントローラー*、*モデル*、および*ビュー*のフォルダーを作成し、*アプリ\_の開始*フォルダーを*RouteConfig.cs*ファイルで作成し、 *global.asax*ファイルを作成します。
 
-### <a name="add-web-api-support"></a>Web API のサポートを追加します。
+### <a name="add-web-api-support"></a>Web API サポートの追加
 
-WebApi、および Newtonsoft.Json NuGet パッケージをインストールすると、空を作成します*アプリ\_データ*、*コント ローラー*、および*モデル*フォルダーを作成します*アプリ\_開始*フォルダー *WebApiConfig.cs*ファイル、および作成*Global.asax*ファイル。
+WebApi および Newtonsoft. Json パッケージをインストールし、空*のアプリ\_データ*、*コントローラー*、*およびモデル*の各フォルダーを作成し、 *WebApiConfig.cs*ファイルを使用して*アプリ\_の開始*フォルダーを作成し、 *global.asax*ファイルを作成します。
 
 <a id="auth"></a>
-## <a name="authentication-methods"></a>認証方法
+## <a name="authentication-methods"></a>認証方式
 
-Visual Studio 2013 には、Web フォーム、MVC、Web API テンプレートのいくつかの認証オプションが用意されています。
+Visual Studio 2013 には、Web フォーム、MVC、および Web API テンプレートに対していくつかの認証オプションが用意されています。
 
 - [認証なし](#noauth)
-- [個々 のユーザー アカウント](#indauth)(Asp.net、ASP.NET メンバーシップと呼ばれていました)
+- [個々のユーザーアカウント](#indauth)(以前の ASP.NET メンバーシップと呼ばれていた ASP.NET Identity)
 - [組織アカウント](#orgauth)(Windows Server Active Directory または Azure Active Directory)
 - [Windows 認証](#winauth)(イントラネット)
 
-![認証ダイアログ ボックスを構成します。](creating-web-projects-in-visual-studio/_static/image23.png)
+![認証の構成ダイアログ](creating-web-projects-in-visual-studio/_static/image23.png)
 
 <a id="noauth"></a>
 
 ### <a name="no-authentication"></a>認証なし
 
-選択した場合**認証なし**いいえログオンしているユーザーを示す UI では、エンティティ クラス メンバーシップ データベース、およびメンバーシップ データベースの接続文字列のサンプル アプリケーションにログインするための web ページが含まれません。
+**[認証なし]** を選択した場合、サンプルアプリケーションには、ログインするための web ページが含まれません。ログインしているユーザーを示す UI、メンバーシップデータベースのエンティティクラスはなく、メンバーシップデータベースの接続文字列はありません。
 
 <a id="indauth"></a>
-### <a name="individual-user-accounts"></a>個々 のユーザー アカウント
+### <a name="individual-user-accounts"></a>個々のユーザー アカウント
 
-選択した場合**個々 のユーザー アカウント**、ユーザー認証用 (旧称 ASP.NET メンバーシップ) ASP.NET Identity を使用するサンプル アプリケーションに構成されます。 ASP.NET Identity では、サイトのユーザー名とパスワードを作成して、または Facebook、Google、Microsoft アカウント、Twitter などのソーシャル プロバイダーにサインインすることで、アカウントを登録するユーザーができます。 ASP.NET Identity でユーザー プロファイルの既定のデータ ストアは、SQL Server LocalDB データベースのことで、実稼働サイトの SQL Server または Azure SQL Database にデプロイすることができます。
+**個々のユーザーアカウント**を選択した場合、サンプルアプリケーションは、ユーザー認証のために ASP.NET Identity (旧称 ASP.NET membership) を使用するように構成されます。 ASP.NET Identity を使用すると、ユーザーは、サイトにユーザー名とパスワードを作成するか、Facebook、Google、Microsoft アカウント、Twitter などのソーシャルプロバイダーでサインインすることにより、アカウントを登録できます。 ASP.NET Identity のユーザープロファイルの既定のデータストアは SQL Server LocalDB データベースです。このデータベースは、運用サイトの SQL Server または Azure SQL Database に配置できます。
 
-これらの機能では Visual Studio 2013 では、Visual Studio 2012 と同じですが、ASP.NET メンバーシップ システムの基になるコードを書き直しました。 新しいコード ベースの利点を以下に示します。
+Visual Studio 2013、これらの機能は Visual Studio 2012 と同じですが、ASP.NET メンバーシップシステムの基になるコードが書き換えられています。 新しいコードベースには、次のような利点があります。
 
-- 新しいメンバーシップ システムをに基づいて[OWIN](http://owin.org/) ASP.NET フォーム認証モジュールではなく。 これは IIS では、Web フォームまたは MVC を使用しているか、Web API や SignalR を自己ホストしているかどうかに、同じ認証メカニズムを使用することを意味します。
-- Entity Framework Code First によって、新しいメンバーシップ データベースが管理されているし、変更可能なエンティティ クラスによって表される、すべてのテーブル。 つまり、データベース スキーマと web のプロファイルに関連する独自のニーズに合わせて UI を簡単にカスタマイズすることができます、Code First Migrations を使用して、更新プログラムを簡単にデプロイすることができます。
+- 新しいメンバーシップシステムは、ASP.NET Forms Authentication モジュールではなく、 [OWIN](http://owin.org/)に基づいています。 これは、IIS で Web フォームまたは MVC を使用しているかどうかにかかわらず、同じ認証メカニズムを使用できること、または Web API または SignalR を自己ホストしていることを意味します。
+- 新しいメンバーシップデータベースは Entity Framework Code First によって管理され、すべてのテーブルは、変更可能なエンティティクラスによって表されます。 つまり、データベーススキーマとプロファイル関連の web UI を独自のニーズに合わせて簡単にカスタマイズでき、Code First Migrations を使用して簡単に更新を展開できます。
 
-新しいメンバーシップ システムは、新しいテンプレートで自動的に実装して、.NET 4.5 を対象とするすべてのプロジェクトに手動で実装されている、またはそれ以降であることができます。
+新しいメンバーシップシステムは新しいテンプレートに自動的に実装され、.NET 4.5 以降を対象とする任意のプロジェクトで手動で実装できます。
 
-ASP.NET Identity では、主に外部の顧客であるインターネット web サイトを作成する場合は、適切な選択です。 組織で Active Directory を使用または Office 365 とする従業員やビジネス パートナー向けのシングル サインオンできるようにするプロジェクトを作成する場合、**組織アカウント**オプションは、ことをお勧めします。
+ASP.NET Identity は、主に外部の顧客向けのインターネット web サイトを作成する場合に適しています。 組織で Active Directory または Office 365 を使用していて、従業員とビジネスパートナーに対してシングルサインオンを有効にするプロジェクトを作成する場合は、 **[組織アカウント]** オプションを選択することをお勧めします。
 
-個々 のユーザー アカウントのオプションの詳細については、次のリソースを参照してください。
+個々のユーザーアカウントオプションの詳細については、次のリソースを参照してください。
 
-- [www.asp.net/identity](../../../identity/index.md)します。 ASP.NET web サイトで ASP.NET Identity に関するドキュメントです。
-- [Facebook と Google の OAuth2 や OpenID サインオンで、ASP.NET MVC 5 アプリを作成する](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)します。 ユーザー プロファイル データをカスタマイズする方法も示します。
-- [Web API の外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)
-- [Visual Studio 2013 で ASP.NET アプリケーションに外部ログインの追加](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
+- [www.asp.net/identity](../../../identity/index.md)。 ASP.NET web サイトでの ASP.NET Identity に関するドキュメント。
+- [Facebook と Google OAuth2、OpenID サインオンを使用して ASP.NET MVC 5 アプリを作成](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)します。 また、ユーザープロファイルデータをカスタマイズする方法についても説明します。
+- [Web API-外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)
+- [Visual Studio 2013 で ASP.NET アプリケーションに外部ログインを追加する](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
 
 <a id="orgauth"></a>
 ### <a name="organizational-accounts"></a>組織アカウント
 
-選択した場合**組織アカウント**、サンプル アプリケーションは、Azure Active Directory (Azure AD、Office 365 を含む) 内のユーザー アカウントに基づく認証に Windows Identity Foundation (WIF) を使用するように構成されますかWindows Server Active Directory。 詳細については、次を参照してください。[組織アカウントの認証オプション](#orgauthoptions)このトピックで後述します。
+**組織アカウント**を選択した場合、サンプルアプリケーションは、Azure Active Directory (Azure AD、Office 365 を含む) または windows Server Active Directory のユーザーアカウントに基づいた認証に Windows Identity FOUNDATION (WIF) を使用するように構成されます。 詳細については、このトピックで後述する「[組織アカウントの認証オプション](#orgauthoptions)」を参照してください。
 
 <a id="winauth"></a>
 ### <a name="windows-authentication"></a>Windows 認証
 
-選択した場合**Windows 認証**、サンプル アプリケーションは、認証に Windows 認証の IIS モジュールを使用するように構成されます。 アプリケーションが Windows にログインしますが、しませんユーザー登録を含めるか、またはログ UI をローカル コンピューター アカウントまたは Active directory のドメインとユーザー ID が表示されます。 このオプションは、イントラネットの web サイトを対象としています。
+**Windows 認証**を選択した場合、サンプルアプリケーションは認証用に WINDOWS 認証 IIS モジュールを使用するように構成されます。 アプリケーションでは、Windows にログインしている Active directory アカウントまたはローカルコンピューターアカウントのドメインとユーザー ID が表示されますが、ユーザー登録またはログイン UI は含まれません。 このオプションは、イントラネット web サイトを対象としています。
 
-選択して AD 認証を使用してイントラネット サイトを作成する代わりに、[オンプレミス組織アカウントでオプション](#orgauthonprem)します。 オンプレミスのオプションは、Windows 認証モジュールではなく、Windows Identity Foundation (WIF) を使用します。 オンプレミスのオプションを設定するために必要な追加の手順が、WIF には、Windows 認証モジュールで使用できない機能が有効になります。 たとえば、WIF の Active Directory とクエリのディレクトリ データのアプリケーションへのアクセスを構成できます。
+または、[[組織アカウント] の [オンプレミス] オプション](#orgauthonprem)を選択して、AD 認証を使用するイントラネットサイトを作成することもできます。 オンプレミスオプションでは、Windows 認証モジュールの代わりに Windows Identity Foundation (WIF) が使用されます。 オンプレミスオプションを設定するために、いくつかの追加の手順が必要ですが、WIF では Windows 認証モジュールでは使用できない機能が有効になっています。 たとえば、WIF では、Active Directory でアプリケーションアクセスを構成し、ディレクトリデータを照会できます。
 
 <a id="orgauthoptions"></a>
 ## <a name="organizational-account-authentication-options"></a>組織アカウントの認証オプション
 
-**認証の構成**ダイアログは、いくつかの Azure Active Directory (Azure AD、Office 365 を含む) または Windows Server ・ Active Directory (AD) アカウントの認証方法を示します。
+**[認証の構成]** ダイアログには、Azure Active Directory (Azure AD、Office 365 を含む)、または Windows Server ACTIVE DIRECTORY (AD) アカウント認証に関するいくつかのオプションがあります。
 
-- [クラウド - 単一の組織](#orgauthsingle)(Azure AD または AD と Azure AD ディレクトリの統合を使用して)
-- [クラウド - 複数組織](#orgauthmulti)(Azure AD または AD と Azure AD ディレクトリの統合を使用して)
+- [クラウドシングル組織](#orgauthsingle)(Azure AD、または Azure AD とディレクトリ統合を使用した AD)
+- [クラウド-マルチ組織](#orgauthmulti)(Azure AD、またはディレクトリと Azure AD との統合を使用した AD)
 - [オンプレミス](#orgauthonprem)(AD)
 
-Azure AD のオプションのいずれかを試すにはまだ、アカウントを持っていない[ここをクリックすると、Azure AD アカウントにサインアップする](https://go.microsoft.com/fwlink/?LinkId=309942)します。
+Azure AD のオプションのいずれかを試しても、まだアカウントがない場合は、[ここをクリックして Azure AD アカウントにサインアップ](https://go.microsoft.com/fwlink/?LinkId=309942)します。
 
 > [!NOTE]
-> Azure AD のオプションのいずれかを選択した場合、プロジェクトには、データベースが必要です。 と Azure AD テナントのグローバル管理者アカウントにサインインする必要があります。 組織のアカウント名とパスワードを入力します (たとえば、 admin@contoso.onmicrosoft.com)、Azure AD テナントの管理者権限を持っています。
+> Azure AD のオプションのいずれかを選択した場合、プロジェクトにはデータベースが必要であり、Azure AD テナントのグローバル管理者アカウントにサインインする必要があります。 Azure AD テナントの管理アクセス許可を持つ組織アカウント (admin@contoso.onmicrosoft.comなど) の名前とパスワードを入力します。
 > 
-> **Microsoft アカウントの資格情報を入力しないでください (たとえば、 contoso@hotmail.com) でサインイン ダイアログ ボックス。**
+> **サインインダイアログボックスに Microsoft アカウントの資格情報 (contoso@hotmail.comなど) を入力しないでください。**
 
 <a id="orgauthsingle"></a>
-### <a name="cloud---single-organization-authentication"></a>クラウド - 単一の組織の認証
+### <a name="cloud---single-organization-authentication"></a>クラウドシングル組織認証
 
-![1 つの組織の認証](creating-web-projects-in-visual-studio/_static/image24.png)
+![単一組織認証](creating-web-projects-in-visual-studio/_static/image24.png)
 
-1 つの Azure AD で定義されているユーザー アカウントの認証を有効にする場合は、このオプションを選択[テナント](https://technet.microsoft.com/library/jj573650.aspx)します。 たとえば、サイトが contoso.com し、それが利用できる contoso.onmicrosoft.com テナントでは、Contoso 社の従業員にします。 Azure AD アプリケーションにアクセスするには、他のテナントからユーザーの許可を構成することはできません。
+1つの Azure AD[テナント](https://technet.microsoft.com/library/jj573650.aspx)で定義されているユーザーアカウントの認証を有効にする場合は、このオプションを選択します。 たとえば、サイトは contoso.com で、contoso.onmicrosoft.com テナントに属している Contoso 社の従業員が使用できるようになります。 他のテナントのユーザーがアプリケーションにアクセスできるように Azure AD を構成することはできません。
 
 #### <a name="domain"></a>ドメイン
 
-たとえば、アプリケーションを設定する Azure AD ドメインを入力します:`contoso.onmicrosoft.com`します。 ある場合、[カスタム ドメイン](http://www.cloudidentity.com/blog/2013/04/14/adding-a-custom-domain-to-your-windows-azure-ad/)など`contoso.com`の代わりに`contoso.onmicrosoft.com`、ここで入力することができます。
+アプリケーションをセットアップする Azure AD ドメイン (例: `contoso.onmicrosoft.com`) を入力します。 `contoso.onmicrosoft.com`ではなく `contoso.com` などの[カスタムドメイン](http://www.cloudidentity.com/blog/2013/04/14/adding-a-custom-domain-to-your-windows-azure-ad/)がある場合は、ここで入力できます。
 
-#### <a name="access-level"></a>アクセス レベル
+#### <a name="access-level"></a>アクセスレベル
 
-アプリケーションは、クエリまたは Graph API を使用してディレクトリ情報の更新を選択する必要がある場合**でシングル サインオン、ディレクトリ データの読み取り**または**でシングル サインオン、読み取りおよびディレクトリ データを書き込む**します。 それ以外の場合、選択**でシングル サインオン**します。 詳細については、次を参照してください。[アプリケーションのアクセス レベル](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)と[クエリ Azure AD Graph API を使用して](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx)します。
+アプリケーションが Graph API を使用してディレクトリ情報のクエリまたは更新を行う必要がある場合は、[**シングルサインオン]、[ディレクトリデータの読み取り**] または **[シングルサインオン]、[ディレクトリデータの読み取りと書き込み**] の順に選択します。 それ以外の場合は、 **[シングルサインオン]** を選択します。 詳細については、「[アプリケーションアクセスレベル](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)」と「 [Graph API を使用したクエリ Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx)」を参照してください。
 
 #### <a name="application-id-uri"></a>アプリケーション ID URI
 
-既定では、プロジェクト名を Azure AD ドメインに追加することでのアプリケーション ID URI を作成します。 たとえば、プロジェクト名が`Example`、ドメインが`contoso.onmicrosoft.com`、アプリケーション ID URI が`https://contoso.onmicrosoft.com/Example`。 アプリケーション ID の URI を手動で指定する場合は、展開、**オプションより**セクションし、テキスト ボックスに、アプリケーション ID URI を入力します。 アプリケーション ID URI が始まる必要があります`https://`します。
+既定では、テンプレートは、Azure AD ドメインにプロジェクト名を追加することによって、アプリケーション ID の URI を作成します。 たとえば、プロジェクト名が `Example` で、ドメインが `contoso.onmicrosoft.com`場合、アプリケーション ID URI は `https://contoso.onmicrosoft.com/Example`になります。 アプリケーション ID の URI を手動で指定する場合は、 **[その他のオプション]** セクションを展開し、テキストボックスにアプリケーション ID の uri を入力します。 アプリケーション ID の URI は `https://`で始まる必要があります。
 
-既定では、Azure AD で既にプロビジョニングされているアプリケーションに、プロジェクトの Visual Studio を使用しているものと同じアプリケーション ID URI がある場合、プロジェクトは、新しいものをプロビジョニングする代わりに既存のアプリケーションに接続されます。 その場合はプロビジョニングされる新しいアプリケーションを実行する場合に、オフ、**同じ ID を持つ 1 つが既に存在する場合は、アプリケーションのエントリを上書き**チェック ボックスをオンします。
+既定では、Azure AD で既にプロビジョニングされているアプリケーションが、Visual Studio がプロジェクトに使用しているものと同じアプリケーション ID URI を持っている場合、プロジェクトは新しいアプリケーションをプロビジョニングするのではなく、既存のアプリケーションに接続されます。 新しいアプリケーションをプロビジョニングする場合は、[**同じ ID を持つアプリケーションエントリが既に存在する場合は上書き**する] チェックボックスをオフにします。
 
-場合、**上書き** チェック ボックスをオフにすると、および Visual Studio は、同じアプリケーション ID URI を既存のアプリケーションを検索、新しい URI を使用することになる URI に番号を付加して作成します。 たとえば、プロジェクト名が`Example`、テキスト ボックスを空白のままにして、オフにする、**上書き**URI を持つアプリケーションは既にチェック ボックスをオンし、Azure AD テナント`https://contoso.onmicrosoft.com/Example`します。 ID の URI などのアプリケーションで新しいアプリケーションをプロビジョニングする場合、`https://contoso.onmicrosoft.com/Example_20130619330903`します。
+**[上書き]** チェックボックスがオフになっていて、Visual Studio が同じアプリケーション ID の uri を持つ既存のアプリケーションを検出した場合、使用する uri に番号を追加することで新しい uri を作成します。 たとえば、プロジェクト名が `Example`で、テキストボックスを空白のままにして、 **[上書き]** チェックボックスをオフにし、Azure AD テナントに URI `https://contoso.onmicrosoft.com/Example`のアプリケーションが既にあるとします。 この場合、新しいアプリケーションは、`https://contoso.onmicrosoft.com/Example_20130619330903`のようなアプリケーション ID URI を使用してプロビジョニングされます。
 
-#### <a name="provisioning-the-application-in-azure-ad"></a>Azure AD でアプリケーションをプロビジョニング
+#### <a name="provisioning-the-application-in-azure-ad"></a>Azure AD でのアプリケーションのプロビジョニング
 
-Azure AD でアプリケーションをプロビジョニングする、またはプロジェクトを既存のアプリケーションに接続するには、Visual Studio、ドメインのグローバル管理者の資格情報する必要があります。 クリックすると **[ok]** で、**認証の構成**ダイアログ ボックスで、ユーザー名と指定したドメインのグローバル管理者のパスワードを求められます。 後をクリックすると**プロジェクトの作成**で、**新しい ASP.NET プロジェクト**ダイアログ ボックスで、Visual Studio は、Azure AD でアプリケーションをプロビジョニングします。 このプロセスの一部として Visual Studio クライアント シークレットの値に埋め込みます作成後 1 年間の有効期限を Web.config ファイルに注意してください。
+Azure AD でアプリケーションをプロビジョニングする場合、または既存のアプリケーションにプロジェクトを接続する場合、Visual Studio では、ドメインのグローバル管理者の資格情報が必要です。 **[認証の構成]** ダイアログボックスで **[OK]** をクリックすると、指定したドメインのグローバル管理者のユーザー名とパスワードを入力するように求められます。 その後、 **[新しい ASP.NET プロジェクト]** ダイアログで **[プロジェクトの作成]** をクリックすると、Visual Studio によって Azure AD にアプリケーションがプロビジョニングされます。 このプロセスの一部として、Visual Studio では、作成後1年の有効期限が切れるクライアントシークレット値が web.config ファイルに埋め込まれていることに注意してください。
 
-使用するアプリケーションを作成する方法については**クラウド - 単一の組織**認証では、次のリソースを参照してください。
+**クラウドシングル組織**認証を使用するアプリケーションを作成する方法の詳細については、次のリソースを参照してください。
 
-- [Azure の認証](../2012/windows-azure-authentication.md)
-- [Azure AD を使用して Web アプリケーションへのシングル サインオンの追加](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
+- [Azure 認証](../2012/windows-azure-authentication.md)
+- [Azure AD を使用した Web アプリケーションへのサインオンの追加](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
 - [Azure Active Directory を使った ASP.NET アプリの開発](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [Azure AD での ASP.NET Web API をセキュリティで保護し、Microsoft OWIN コンポーネント](https://msdn.microsoft.com/magazine/dn463788.aspx)
+- [Azure AD および Microsoft OWIN コンポーネントを使用した ASP.NET Web API のセキュリティ保護](https://msdn.microsoft.com/magazine/dn463788.aspx)
 
-Visual Studio 2013; まだ更新されていない、チュートリアルVisual Studio 2013 で手動で実行するユーザーを誘導したり、どのようなチュートリアルの一部が自動化されます。
+チュートリアルは Visual Studio 2013 に対してまだ更新されていません。チュートリアルで手動で行うことは、Visual Studio 2013 で自動化されています。
 
 <a id="orgauthmulti"></a>
-### <a name="cloud---multi-organization-authentication"></a>クラウド - 複数の組織の認証
+### <a name="cloud---multi-organization-authentication"></a>クラウド-マルチ組織認証
 
-![複数の組織の認証](creating-web-projects-in-visual-studio/_static/image25.png)
+![複数の組織認証](creating-web-projects-in-visual-studio/_static/image25.png)
 
-複数の Azure AD で定義されているユーザー アカウントの認証を有効にする場合は、このオプションを選択[テナント](https://technet.microsoft.com/library/jj573650.aspx)します。 たとえば、サイトが contoso.com とそれが利用できる contoso.onmicrosoft.com テナントでは、Contoso 社の従業員を fabrikam.onmicrosoft.com テナントでは、Fabrikam 企業の従業員。
+複数の Azure AD[テナント](https://technet.microsoft.com/library/jj573650.aspx)で定義されているユーザーアカウントの認証を有効にする場合は、このオプションを選択します。 たとえば、サイトは contoso.com で、contoso.onmicrosoft.com テナントに所属する Contoso 社の従業員と、fabrikam.onmicrosoft.com テナントにある Fabrikam 社の従業員が使用できるようになります。
 
-入力した設定とアプリケーションのプロビジョニングの手順に似ています[1 つの組織認証](#orgauthsingle)します。
+入力した設定とアプリケーションのプロビジョニング手順は、単一の[組織の認証](#orgauthsingle)に似ています。
 
-使用するアプリケーションを作成する方法については**クラウド - 複数組織**認証では、次のリソースを参照してください。
+**クラウドマルチ組織**認証を使用するアプリケーションを作成する方法の詳細については、次のリソースを参照してください。
 
-- [ASP.NET、Azure Active Directory と簡単に Web アプリ統合&amp;Visual Studio](https://blogs.msdn.com/b/active_directory_team_blog/archive/2013/06/26/improved-windows-azure-active-directory-integration-with-asp-net-amp-visual-studio.aspx) Active Directory チーム ブログ。
-- [Azure AD でマルチ テナント Web アプリケーションの開発](https://msdn.microsoft.com/library/windowsazure/dn151789.aspx)チュートリアル。 このチュートリアルは、for Visual Studio 2013; まだ更新されていません。どのようなチュートリアルの指示に従って手動で行うは、Visual Studio 2013 で自動化されています。
-- [サインインする前に、独自の複数の組織 ASP.NET アプリにサインアップする必要がある](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/)します。 一般的な問題のユーザーを解決する方法を説明する Vittorio Bertocci によるブログは、複数の組織の認証を使用してプロジェクトを作成するときに発生します。
+- Active Directory チームのブログで[、Azure Active Directory、ASP.NET &amp; Visual Studio と簡単に統合できる Web アプリ](https://blogs.msdn.com/b/active_directory_team_blog/archive/2013/06/26/improved-windows-azure-active-directory-integration-with-asp-net-amp-visual-studio.aspx)。
+- [Azure AD チュートリアルを使用したマルチテナント Web アプリケーションの開発](https://msdn.microsoft.com/library/windowsazure/dn151789.aspx)。 このチュートリアルは Visual Studio 2013 に対してまだ更新されていません。チュートリアルで手動で行うことができることの一部は、Visual Studio 2013 で自動化されています。
+- [サインインするには、独自の複数の組織 ASP.NET アプリでサインアップする必要があり](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/)ます。 Vittorio は、マルチ組織認証を使用するプロジェクトを作成するときに発生する一般的な問題を解決する方法を説明するブログです。
 
 <a id="orgauthonprem"></a>
-### <a name="on-premises-organizational-authentication"></a>オンプレミス組織認証
+### <a name="on-premises-organizational-authentication"></a>オンプレミスの組織認証
 
-![オンプレミス組織認証](creating-web-projects-in-visual-studio/_static/image26.png)
+![オンプレミスの組織認証](creating-web-projects-in-visual-studio/_static/image26.png)
 
-Windows Server Active Directory (AD) では定義されているユーザー アカウントの認証を有効にして、Azure AD を使用する場合は、このオプションを選択します。 このオプションを使用すると、イントラネット サイトやインターネット サイトを作成します。 インターネット サイトで Active Directory フェデレーション サービス (ADFS) を使用して、AD にアクセスできるようにします。 詳細については、次を参照してください。 [ASP.NET で、オンプレミス組織認証オプション (ADFS) を使用して、Visual Studio 2013 で](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)します。
+Windows Server Active Directory (AD) で定義されているユーザーアカウントの認証を有効にし、Azure AD を使用しないようにする場合は、このオプションを選択します。 このオプションを使用すると、イントラネットサイトまたはインターネットサイトを作成できます。 インターネットサイトの場合は、Active Directory フェデレーションサービス (AD FS) (ADFS) を使用して AD へのアクセスを提供します。 詳細については、Visual Studio 2013 の「[オンプレミスの組織認証オプション (ADFS) と ASP.NET の使用](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)」を参照してください。
 
-イントラネット サイトの代替として選択できます[Windows 認証](#winauth)このオプションの代わりにします。 Windows 認証オプションは、メタデータ ドキュメントの URL を指定する必要はありません。 ただし、Windows 認証与えませんできる Active Directory のアプリケーション アクセスを制御したり、ディレクトリ データを照会します。
+イントラネットサイトの場合は、このオプションの代わりに [ [Windows 認証](#winauth)] を選択できます。 Windows 認証オプションでは、メタデータドキュメントの URL を指定する必要はありません。 ただし、Windows 認証では、Active Directory でのアプリケーションアクセスを制御したり、ディレクトリデータを照会したりすることはできません。
 
-#### <a name="on-premises-authority"></a>オンプレミス機関
+#### <a name="on-premises-authority"></a>オンプレミスの機関
 
-メタデータ ドキュメントを指す URL を入力します。 メタデータ ドキュメントには、証明機関の座標が含まれています。 アプリケーションはこれらの座標を使用して web サインオン フロー。
+メタデータドキュメントを指す URL を入力します。 メタデータドキュメントには、証明機関の座標が含まれています。 アプリケーションはこれらの座標を使用して、web サインオンフローを駆動します。
 
 #### <a name="application-id-uri"></a>アプリケーション ID URI
 
-AD を使用して、このアプリケーションを識別または Visual Studio のいずれかを作成できるようにする場合は空白のままにする一意の URI を提供します。
+AD がこのアプリケーションを識別するために使用できる一意の URI を指定するか、空白のままにして Visual Studio で作成できるようにします。
 
 <a id="nextsteps"></a>
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ:
 
-このドキュメントは Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプを提供しています。 Web 開発用の Visual Studio の使用に関する詳細については、次を参照してください。 [ https://www.asp.net/visual-studio/](../../index.md)します。
+このドキュメントでは Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプを提供しました。 For Visual Studio を使用した web 開発の詳細については、「 [https://www.asp.net/visual-studio/](../../index.md)」を参照してください。

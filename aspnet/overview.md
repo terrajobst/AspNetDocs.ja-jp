@@ -8,12 +8,12 @@ ms.author: riande
 ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 9a6d08849f09c9d7a779df64f70e8770d2af3c87
-ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
+ms.openlocfilehash: aa4f627bca99f0a7ffbbb53ea45ebdcf0850fd89
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69995285"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519363"
 ---
 # <a name="aspnet-overview"></a>ASP.NET 概要
 
@@ -23,17 +23,17 @@ ASP.NET は、HTML、CSS、および JavaScript を使用して優れた web サ
 
 ## <a name="get-started"></a>作業開始
 
-ASP.NET on Windows の無料の IDE [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community edition をインストールしてください。
+Windows 上の ASP.NET 用の無料の IDE である[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2019) Community edition をインストールします。
 
 ## <a name="websites-and-web-applications"></a>Web サイトと web アプリケーション
 
- ASP.NET は、web アプリケーションを作成するための3つのフレームワークを提供します。Web フォーム、ASP.NET MVC、および ASP.NET Web ページ。 この3つのフレームワークはすべて安定して成熟しており、いずれのフレームワークでも優れた web アプリケーションを作成できます。 どのようなフレームワークを選択しても、どこにいても ASP.NET のすべての利点と機能が得られます。
+ ASP.NET には、web アプリケーションを作成するための3つのフレームワーク (Web フォーム、ASP.NET MVC、および ASP.NET Web ページ) が用意されています。 この3つのフレームワークはすべて安定して成熟しており、いずれのフレームワークでも優れた web アプリケーションを作成できます。 どのようなフレームワークを選択しても、どこにいても ASP.NET のすべての利点と機能が得られます。
 
 各フレームワークは、別の開発スタイルを対象としています。 どちらを選択するかは、プログラミングアセット (知識、スキル、および開発エクスペリエンス) の組み合わせ、作成するアプリケーションの種類、および使い慣れた開発アプローチによって異なります。
 
 各フレームワークの概要と、それらを選択する方法に関するいくつかのアイデアを以下に示します。 ビデオの概要については、「 [ASP.NET を使用した Web サイトの作成](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET)」および「 [Web ツールとは](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)」を参照してください。
 
-|   | の経験がある場合 | 開発スタイル | 家 |
+|   | の経験がある場合 | 開発スタイル | 専門知識 |
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Web フォーム | Win フォーム、WPF、.NET | HTML マークアップをカプセル化するコントロールの豊富なライブラリを使用した迅速な開発 | ミッドレベル、高度な RAD |
 | MVC       | Ruby on Rails、.NET  | HTML マークアップ、コードとマークアップの分離、およびテストの記述を簡単に行うことができます。 モバイルアプリケーションとシングルページアプリケーション (SPA) に最適な選択肢です。 | ミッドレベル、詳細 |
@@ -41,13 +41,13 @@ ASP.NET on Windows の無料の IDE [Visual Studio 2017](https://visualstudio.mi
 
 ### <a name="web-forms"></a>Web フォーム
 
-ASP.NET Web フォームを使用すると、使い慣れたドラッグアンドドロップのイベントドリブンモデルを使用して、動的な web サイトを構築できます。 デザインサーフェイスと数百のコントロールやコンポーネントを使用すると、データアクセスを使用して高度で強力な UI 駆動型サイトをすばやく構築できます。
+ASP.NET Web フォームを使用すると、使い慣れたドラッグアンドドロップのイベントドリブンモデルを使用して、動的な web サイトを構築できます。 デザイン サーフェスや数百あるコントロールとコンポーネントを利用し、洗練された強力な UI 駆動型サイトとデータ アクセスを短時間で構築できます。
 
 [Web フォームについての詳細情報](web-forms/index.md)
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC には、動的な web サイトを構築するための強力なパターンベースの方法が用意されています。これにより、問題を明確に分離し、アジャイル開発のためのマークアップを完全に制御できます。 ASP.NET MVC には、最新の web 標準を使用する高度なアプリケーションを作成するための、TDD に適した迅速な開発を可能にする多くの機能が含まれています。
+ASP.NET MVC には、動的な Web サイトを構築するための強力なパターン ベースの方法が用意されており、楽しみながら迅速に開発できるように、問題を完全に切し離しマークアップを自由に制御できます。 ASP.NET MVC には、高速な TDD 対応の開発環境で、最新の Web 規格を使用する高度なアプリケーションを作成できる数多くの機能があります。
 
 [MVC の詳細情報](mvc/index.md)
 
@@ -65,9 +65,9 @@ ASP.NET Web ページと Razor 構文は、サーバーコードと HTML を組�
 
 ## <a name="web-apis"></a>Web API
 
-ASP.NET Web API は、ブラウザーやモバイルデバイスを含む広範なクライアントに接続できる HTTP サービスを簡単に構築できるフレームワークです。 ASP.NET Web API は、.NET Framework に基づいて RESTful アプリケーションを構築するのに最適なプラットフォームです。
+ASP.NET Web API は、ブラウザーやモバイル デバイスなどを含む多様なクライアントに提供できる HTTP サービスの構築が容易になるフレームワークです。 ASP.NET Web API は、.NET Framework 上で RESTful アプリケーションを構築するためのプラットフォームとして理想的です。
 
-[Web API についての詳細情報](web-api/index.md)
+[Web API の詳細](web-api/index.md)
 
 <!-- Put first under Web API TOC:  Watch video (9 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/services-and-aspnet -->
 
@@ -83,11 +83,11 @@ ASP.NET SignalR は、リアルタイム web 機能の開発を容易にする A
 
 ASP.NET では、Web API バックエンドを使用してネイティブモバイルアプリを作成できます。また、Twitter ブートストラップなどの応答性の高い設計フレームワークを使用してモバイル Web サイトを作成することもできます。 ネイティブモバイルアプリを構築している場合は、アプリのデータアクセス、認証、およびプッシュ通知を処理するための JSON ベースの Web API を簡単に作成できます。 応答性の高いモバイルサイトを構築する場合は、任意の CSS フレームワークを使用するか、好みのグリッドシステムを開くか、jQuery Mobile や Sencha などの強力なモバイルシステムと PhoneGap を使用した優れたモバイルアプリケーションを選択することができます。
 
-[モバイルアプリとサイト開発の詳細情報](mobile/index.md)
+[モバイルアプリとサイト開発の詳細情報](mobile/overview.md)
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
-## <a name="single-page-applications"></a>シングルページアプリケーション
+## <a name="single-page-applications"></a>シングルページ アプリケーション
 
 ASP.NET Single Page Application (SPA) を使用すると、HTML 5、CSS 3、および JavaScript を使用したクライアント側の重要な相互作用を含むアプリケーションを構築できます。 Visual Studio には、ノックアウトと ASP.NET Web API を使用してシングルページアプリケーションを構築するためのテンプレートが含まれています。 組み込みの SPA テンプレートに加えて、コミュニティによって作成された SPA テンプレートをダウンロードすることもできます。
 

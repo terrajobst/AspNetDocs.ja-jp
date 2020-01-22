@@ -1,167 +1,167 @@
 ---
 uid: web-api/overview/security/authentication-filters
-title: ASP.NET Web API 2 での認証フィルター |Microsoft Docs
+title: ASP.NET Web API 2 | の認証フィルターMicrosoft Docs
 author: MikeWasson
-description: 認証フィルターは、HTTP 要求を認証するコンポーネントです。 認証フィルターを両方サポート web API 2 と MVC 5 がこれらとは若干.
+description: 認証フィルターは、HTTP 要求を認証するコンポーネントです。 Web API 2 と MVC 5 はどちらも認証フィルターをサポートしていますが、若干異なります。
 ms.author: riande
 ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 15a343a061c61313141dcb69bd329e08aa902d98
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b6815baf05303d5f47a14ee5fe0fdfc2836c1868
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126040"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519376"
 ---
-# <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での認証フィルター
+# <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の認証フィルター
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-> 認証フィルターは、HTTP 要求を認証するコンポーネントです。 認証フィルターを両方サポート web API 2 と MVC 5 がフィルター インターフェイスの名前付け規則のほとんどの場合、少しが異なります。 このトピックでは、Web API 認証フィルターについて説明します。
+> 認証フィルターは、HTTP 要求を認証するコンポーネントです。 Web API 2 と MVC 5 はどちらも認証フィルターをサポートしていますが、ほとんどの場合、フィルターインターフェイスの名前付け規則によって若干異なります。 このトピックでは、Web API 認証フィルターについて説明します。
 
-認証フィルターを使用して、個々 のコント ローラーまたはアクションの認証方式を設定できます。 これにより、アプリは、さまざまな HTTP リソースを異なる認証メカニズムをサポートできます。
+認証フィルターを使用すると、個々のコントローラーまたはアクションに対して認証スキームを設定できます。 こうすることで、アプリはさまざまな HTTP リソースに対してさまざまな認証メカニズムをサポートできます。
 
-この記事でのコードを紹介します、[基本認証](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/BasicAuthentication/ReadMe.txt)でサンプル[ http://aspnet.codeplex.com](http://aspnet.codeplex.com)します。 このサンプルでは、(RFC 2617) HTTP 基本アクセス認証スキームを実装する認証フィルターを示します。 フィルターがという名前のクラスで実装された`IdentityBasicAuthenticationAttribute`します。 見せしませんのサンプル コードはすべて認証フィルターを記述する方法を説明する部分だけです。
+この記事では、 [https://github.com/aspnet/samples](https://github.com/aspnet/samples)の[基本的な認証](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication)サンプルからのコードを紹介します。 このサンプルは、HTTP 基本アクセス認証スキーム (RFC 2617) を実装する認証フィルターを示しています。 このフィルターは `IdentityBasicAuthenticationAttribute`という名前のクラスに実装されています。 サンプルのコードをすべて表示するのではなく、認証フィルターを記述する方法を示す部分だけを示します。
 
-## <a name="setting-an-authentication-filter"></a>認証フィルターの設定
+## <a name="setting-an-authentication-filter"></a>認証フィルターを設定する
 
-他のフィルターのような認証フィルターは、適用されたコント ローラーごと、アクション、またはにグローバルにすべての Web API コント ローラー。
+他のフィルターと同様に、認証フィルターはコントローラーごと、アクション単位、またはすべての Web API コントローラーにグローバルに適用できます。
 
-コント ローラーには、認証フィルターを適用するには、フィルター属性でコント ローラー クラスを装飾します。 次のコード セット、`[IdentityBasicAuthentication]`コント ローラー クラスは、すべてのコント ローラーのアクションの基本認証を有効にするフィルター。
+コントローラーに認証フィルターを適用するには、コントローラークラスを filter 属性で装飾します。 次のコードは、コントローラークラスの `[IdentityBasicAuthentication]` フィルターを設定します。これにより、コントローラーのすべてのアクションに対して基本認証が有効になります。
 
 [!code-csharp[Main](authentication-filters/samples/sample1.cs)]
 
-1 つのアクションには、フィルターを適用するには、フィルターでアクションを装飾します。 次のコード セット、`[IdentityBasicAuthentication]`コント ローラーのフィルター`Post`メソッド。
+1つのアクションにフィルターを適用するには、フィルターを使用してアクションを装飾します。 次のコードは、コントローラーの `Post` メソッドの `[IdentityBasicAuthentication]` フィルターを設定します。
 
 [!code-csharp[Main](authentication-filters/samples/sample2.cs)]
 
-追加するすべての Web API コント ローラーに、フィルターを適用する**GlobalConfiguration.Filters**します。
+フィルターをすべての Web API コントローラーに適用するには、 **Globalconfiguration. Filters**に追加します。
 
 [!code-csharp[Main](authentication-filters/samples/sample3.cs)]
 
-## <a name="implementing-a-web-api-authentication-filter"></a>Web API の認証フィルターを実装します。
+## <a name="implementing-a-web-api-authentication-filter"></a>Web API 認証フィルターを実装する
 
-Web api では、認証フィルターを実装、 [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx)インターフェイス。 継承する必要がありますも**System.Attribute**、属性として適用するためにします。
+Web API では、認証フィルターによって、 [system.web. Http. フィルター](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx)インターフェイスが実装されます。 また、属性として適用するために、これら**の属性を system.string から継承**する必要があります。
 
-**IAuthenticationFilter**インターフェイスが 2 つのメソッドには。
+**Iauthenticationfilter**インターフェイスには、次の2つのメソッドがあります。
 
-- **AuthenticateAsync**存在する場合、要求で資格情報を検証することで要求を認証します。
-- **ChallengeAsync**必要な場合に、HTTP 応答に認証チャレンジを追加します。
+- **AuthenticateAsync**は、要求で資格情報を検証することによって要求を認証します (存在する場合)。
+- **ChallengeAsync**は、必要に応じて、HTTP 応答に認証チャレンジを追加します。
 
-これらのメソッドで定義されている認証フローに対応して[RFC 2612](http://tools.ietf.org/html/rfc2616)と[RFC 2617](http://tools.ietf.org/html/rfc2617):
+これらのメソッドは、 [rfc 2612](http://tools.ietf.org/html/rfc2616)および[rfc 2617](http://tools.ietf.org/html/rfc2617)で定義されている認証フローに対応します。
 
-1. クライアントは、Authorization ヘッダーで、資格情報を送信します。 これは通常、クライアントがサーバーから 401 (未承認) 応答を受信した後に発生します。 ただし、クライアントは、401 を取得した後だけでなく、すべての要求で資格情報を送信できます。
-2. サーバーが資格情報を受け付けない場合は、401 (未承認) 応答を返します。 応答には、1 つまたは複数の課題を含む Www-authenticate ヘッダーが含まれています。 各チャレンジでは、サーバーによって認識される認証方式を指定します。
+1. クライアントは、Authorization ヘッダーで資格情報を送信します。 これは通常、クライアントがサーバーから 401 (未承認) の応答を受信した後に発生します。 ただし、クライアントは、401を取得した直後ではなく、任意の要求で資格情報を送信できます。
+2. サーバーが資格情報を受け入れない場合は、401 (未承認) の応答を返します。 応答には、1つまたは複数のチャレンジを含む Www 認証ヘッダーが含まれています。 各チャレンジは、サーバーで認識される認証スキームを指定します。
 
-サーバーでは、匿名の要求から 401 を返すこともできます。 実際には、通常、これは、認証プロセスを開始する方法です。
+サーバーは、匿名要求から401を返すこともできます。 実際、これは通常、認証プロセスが開始される方法です。
 
-1. クライアントは、匿名の要求を送信します。
-2. サーバーは、401 を返します。
-3. クライアントは、資格情報を持つ要求を再送信します。
+1. クライアントが匿名要求を送信します。
+2. サーバーは401を返します。
+3. クライアントは、資格情報を使用して要求を再送信します。
 
-このフローでは、両方に含まれる*認証*と*承認*手順を実行します。
+このフローには、*認証*と*承認*の両方の手順が含まれています。
 
-- 認証では、クライアントの身元を証明します。
-- 承認は、クライアントが特定のリソースにアクセスできるかどうかを判断します。
+- 認証は、クライアントの id を証明します。
+- 承認によって、クライアントが特定のリソースにアクセスできるかどうかが決まります。
 
-Web api では、認証フィルター処理が、認証、承認ではありません。 承認フィルターまたはコント ローラー アクション内では、承認を行う必要があります。
+Web API では、認証フィルターは認証を処理しますが、承認は処理しません。 承認は、承認フィルターまたはコントローラーアクション内で実行する必要があります。
 
-Web API 2 のパイプラインで、フローを示します。
+Web API 2 パイプラインのフローを次に示します。
 
-1. アクションを呼び出す前に、Web API は、そのアクションの認証フィルターの一覧を作成します。 これには、アクションの範囲、コント ローラーのスコープ、およびグローバル スコープを使用したフィルターが含まれます。
-2. Web API 呼び出し**AuthenticateAsync**一覧内のすべてのフィルターにします。 各フィルターは、要求に資格情報を検証できます。 任意のフィルターに資格情報が正常に検証する場合、フィルターを作成、 **IPrincipal**要求にアタッチします。 フィルターはこの時点でエラーをトリガーもできます。 そうである場合、パイプラインの残りの部分は実行されません。
-3. エラーがないと仮定すると、要求は、パイプラインの残りの部分をフローします。
-4. 最後に、Web API 呼び出しはすべて認証フィルターの**ChallengeAsync**メソッド。 フィルターは、必要な場合、応答にチャレンジを追加するこのメソッドを使用します。 通常 (が常にではありません) ですが、発生 401 エラーに応答します。
+1. アクションを呼び出す前に、Web API によってそのアクションの認証フィルターの一覧が作成されます。 これには、アクションスコープ、コントローラースコープ、およびグローバルスコープを含むフィルターが含まれます。
+2. Web API は、リスト内のすべてのフィルターに対して**AuthenticateAsync**を呼び出します。 各フィルターでは、要求で資格情報を検証できます。 フィルターによって資格情報が正常に検証された場合、フィルターは**IPrincipal**を作成し、要求にアタッチします。 フィルターでは、この時点でエラーをトリガーすることもできます。 その場合、パイプラインの残りの部分は実行されません。
+3. エラーがないと仮定すると、要求はパイプラインの残りの部分を通過します。
+4. 最後に、Web API は、すべての認証フィルターの**ChallengeAsync**メソッドを呼び出します。 フィルターは、必要に応じて、このメソッドを使用して応答にチャレンジを追加します。 通常は (常にではありませんが)、401エラーに応答して発生します。
 
-次の図は、2 つの可能なケースを示します。 最初の例では、認証フィルターは、要求を正常に認証、承認フィルターは、要求を承認およびコント ローラー アクションは、200 (OK) を返します。
+次の図は、考えられる2つのケースを示しています。 最初の方法では、認証フィルターによって要求が正常に認証され、承認フィルターによって要求が承認され、コントローラーのアクションによって 200 (OK) が返されます。
 
 ![](authentication-filters/_static/image1.png)
 
-2 番目の例では、認証フィルターは、要求を認証、承認フィルターは 401 (Unauthorized) を返します。 この場合、コント ローラー アクションは呼び出されません。 認証フィルターは、Www 認証ヘッダーを応答に追加します。
+2番目の例では、認証フィルターは要求を認証しますが、承認フィルターは 401 (許可されていません) を返します。 この場合、コントローラーアクションは呼び出されません。 認証フィルターによって、Www 認証ヘッダーが応答に追加されます。
 
 ![](authentication-filters/_static/image2.png)
 
-その他の組み合わせが可能です。&mdash;など、コント ローラー アクションは、匿名の要求を許可している場合する必要がありますが、認証フィルター、承認なし。
+その他の組み合わせも&mdash;可能です。たとえば、コントローラーアクションによって匿名要求が許可されている場合は、認証フィルターを使用できますが、承認はありません。
 
-## <a name="implementing-the-authenticateasync-method"></a>AuthenticateAsync メソッドを実装します。
+## <a name="implementing-the-authenticateasync-method"></a>AuthenticateAsync メソッドの実装
 
-**AuthenticateAsync**メソッドは、要求を認証しようとしています。 メソッド シグネチャを次に示します。
+**AuthenticateAsync**メソッドは、要求の認証を試みます。 このメソッド シグネチャを次に示します。
 
 [!code-csharp[Main](authentication-filters/samples/sample4.cs)]
 
 **AuthenticateAsync**メソッドは、次のいずれかを実行する必要があります。
 
-1. Nothing (操作なし)。
-2. 作成、 **IPrincipal**し、要求に設定します。
+1. Nothing (no op)。
+2. **IPrincipal**を作成し、要求に対して設定します。
 3. エラーの結果を設定します。
 
-オプション (1) では、要求には、フィルターを認識する資格情報がありませんでした。 オプション (2) では、フィルターは、要求を正常に認証します。 オプション (3) では、要求は、エラー応答をトリガーする (正しくないパスワード) のような無効な資格情報をいました。
+オプション (1) は、要求に、フィルターによって認識される資格情報がないことを示します。 オプション (2) は、フィルターが要求を正常に認証したことを意味します。 オプション (3) は、要求に無効な資格情報 (間違ったパスワードなど) が含まれていることを示します。これにより、エラー応答がトリガーされます。
 
-実装するための一般的な概要を次に示します**AuthenticateAsync**します。
+ここでは、 **AuthenticateAsync**を実装するための一般的な概要について説明します。
 
-1. 要求で資格情報を参照してください。
-2. 資格情報がない場合は、何もしないし、(操作なし) を返します。
-3. 資格情報が、フィルターは、認証スキームを認識しない場合、何もしないし、(操作なし) を返します。 パイプライン内の別のフィルターは、スキームを理解する可能性があります。
-4. フィルターを認識する資格情報がある場合は、認証をお試しください。
-5. 資格情報が正しくない場合は、401 を返すを設定して`context.ErrorResult`します。
-6. 資格情報が有効な場合は、作成、 **IPrincipal**設定と`context.Principal`します。
+1. 要求で資格情報を探します。
+2. 資格情報がない場合は、何もしないで (no op) が返されます。
+3. 資格情報があるものの、フィルターで認証スキームが認識されない場合は、何も行わずに (no op) を返します。 パイプライン内の別のフィルターによって、スキームが認識される場合があります。
+4. フィルターによって認識される資格情報がある場合は、認証を試みます。
+5. 資格情報が正しくない場合は、`context.ErrorResult`を設定して401を返します。
+6. 資格情報が有効な場合は、 **IPrincipal**を作成し `context.Principal`を設定します。
 
-次のコードに示す、 **AuthenticateAsync**からメソッド、[基本認証](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/BasicAuthentication/ReadMe.txt)サンプル。 コメントは、各手順を示します。 コードをいくつかの種類のエラーを示します。ない資格情報、形式が正しくない資格情報、および不適切なユーザー名/パスワードでの承認ヘッダー。
+次のコードは、[基本認証](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication)サンプルの**AuthenticateAsync**メソッドを示しています。 コメントは各ステップを示します。 このコードは、資格情報のない Authorization ヘッダー、不適切な資格情報、および無効なユーザー名/パスワードを使用して、いくつかの種類のエラーを示しています。
 
 [!code-csharp[Main](authentication-filters/samples/sample5.cs)]
 
-## <a name="setting-an-error-result"></a>エラーの結果を設定
+## <a name="setting-an-error-result"></a>エラー結果の設定
 
-資格情報が有効でない場合、フィルターを設定する必要があります`context.ErrorResult`を**IHttpActionResult**エラー応答を作成します。 詳細については**IHttpActionResult**を参照してください[Web API 2 でアクションの結果](../getting-started-with-aspnet-web-api/action-results.md)します。
+資格情報が無効である場合、フィルターでは、エラー応答を作成する**Ihttpactionresult**に `context.ErrorResult` を設定する必要があります。 **Ihttpactionresult**の詳細については、「 [Web API 2 でのアクションの結果](../getting-started-with-aspnet-web-api/action-results.md)」を参照してください。
 
-基本認証のサンプルが含まれています、`AuthenticationFailureResult`はこの目的に適したクラスです。
+基本認証のサンプルには、この目的に適した `AuthenticationFailureResult` クラスが含まれています。
 
 [!code-csharp[Main](authentication-filters/samples/sample6.cs)]
 
-## <a name="implementing-challengeasync"></a>ChallengeAsync を実装します。
+## <a name="implementing-challengeasync"></a>ChallengeAsync の実装
 
-目的、 **ChallengeAsync**メソッドは、必要な場合、応答に認証チャレンジを追加するは。 メソッド シグネチャを次に示します。
+**ChallengeAsync**メソッドの目的は、必要に応じて、応答に認証チャレンジを追加することです。 このメソッド シグネチャを次に示します。
 
 [!code-csharp[Main](authentication-filters/samples/sample7.cs)]
 
-メソッドは、要求パイプライン内のすべての認証フィルターで呼び出されます。
+メソッドは、要求パイプラインのすべての認証フィルターで呼び出されます。
 
-理解することが重要**ChallengeAsync**呼びます*する前に*HTTP 応答が作成、され、コント ローラー アクションを実行する前にも可能性があります。 ときに**ChallengeAsync**が呼び出され、`context.Result`が含まれています、 **IHttpActionResult**、HTTP 応答を作成する後で使用します。 したがって**ChallengeAsync**が呼び出されると、何もわからない HTTP 応答についてまだします。 **ChallengeAsync**メソッドの元の値を置き換える必要があります`context.Result`を新しい**IHttpActionResult**します。 これは、 **IHttpActionResult**元をラップする必要があります`context.Result`します。
+**ChallengeAsync**は、HTTP 応答が作成される*前*と、場合によってはコントローラーアクションが実行される前に呼び出されることを理解しておくことが重要です。 **ChallengeAsync**が呼び出されると、`context.Result` には**Ihttpactionresult**が含まれます。これは、後で HTTP 応答を作成するために使用されます。 そのため、 **ChallengeAsync**を呼び出すと、HTTP 応答に関する情報はまだわかりません。 **ChallengeAsync**メソッドは、`context.Result` の元の値を新しい**Ihttpactionresult**に置き換える必要があります。 この**Ihttpactionresult**は元の `context.Result`をラップする必要があります。
 
 ![](authentication-filters/_static/image3.png)
 
-元と呼ぶことに**IHttpActionResult** 、*内部結果*、および新しい**IHttpActionResult** 、*外部結果*。 外部の結果では、次の操作を行う必要があります。
+元の**Ihttpactionresult**を呼び出すと*内部結果*が生成され、新しい**ihttpactionresult**によって*外部結果*が生成されます。 外部結果は、次の操作を行う必要があります。
 
-1. HTTP 応答を作成する内部の結果を呼び出します。
-2. 応答を確認します。
-3. 必要な場合は、応答に認証チャレンジを追加します。
+1. 内部結果を呼び出して、HTTP 応答を作成します。
+2. 結果を確認します。
+3. 必要に応じて、認証チャレンジを応答に追加します。
 
-次の例は、基本認証のサンプルから取得されます。 定義、 **IHttpActionResult**の外側の結果。
+次の例は、「基本認証のサンプル」から抜粋したものです。 外部結果の**Ihttpactionresult**を定義します。
 
 [!code-csharp[Main](authentication-filters/samples/sample8.cs)]
 
-`InnerResult`プロパティを保持する内部**IHttpActionResult**します。 `Challenge`プロパティは、Www 認証ヘッダーを表します。 注意して**ExecuteAsync**まず呼び出し`InnerResult.ExecuteAsync`HTTP 応答を作成するために必要な場合に、チャレンジを追加します。
+`InnerResult` プロパティは、内部の**Ihttpactionresult**を保持します。 `Challenge` プロパティは、Www 認証ヘッダーを表します。 **Executeasync**は、最初に `InnerResult.ExecuteAsync` を呼び出して HTTP 応答を作成し、必要に応じてチャレンジを追加することに注意してください。
 
-チャレンジを追加する前に、応答コードを確認します。 ほとんどの認証方式は、チャレンジを追加するだけ応答は、次に示すように、401 が場合。 ただし、一部の認証スキームでは、成功応答にチャレンジを追加しないでください。 たとえばを参照してください[ネゴシエート](http://tools.ietf.org/html/rfc4559#section-5)(RFC 4559)。
+チャレンジを追加する前に、応答コードを確認してください。 次に示すように、ほとんどの認証方式では、応答が401の場合にのみチャレンジが追加されます。 ただし、一部の認証方式では、成功応答にチャレンジが追加されます。 例については、「 [Negotiate](http://tools.ietf.org/html/rfc4559#section-5) (RFC 4559)」を参照してください。
 
-指定された、`AddChallengeOnUnauthorizedResult`クラス、実際のコードで**ChallengeAsync**は単純です。 だけ、結果を作成およびアタッチ先`context.Result`します。
+`AddChallengeOnUnauthorizedResult` クラスを指定すると、 **ChallengeAsync**の実際のコードは単純になります。 結果を作成し `context.Result`にアタッチするだけです。
 
 [!code-csharp[Main](authentication-filters/samples/sample9.cs)]
 
-メモ:基本認証のサンプルは、拡張メソッドに配置することによって、このロジックを抽出します。
+注: 基本認証のサンプルでは、このロジックを拡張メソッドに配置することによって、このロジックを抽象化します。
 
-## <a name="combining-authentication-filters-with-host-level-authentication"></a>ホスト レベルの認証を使用した認証フィルターを組み合わせる
+## <a name="combining-authentication-filters-with-host-level-authentication"></a>認証フィルターとホストレベル認証の組み合わせ
 
-「ホスト レベルの認証」では前の要求に達すると、Web API フレームワークに、(IIS) などのホストによって認証が実行です。
+"ホストレベルの認証" は、要求が Web API フレームワークに到達する前に、ホスト (IIS など) によって実行される認証です。
 
-多くの場合に、アプリケーションの残りのホスト レベルの認証を有効にするが、Web API コント ローラーに対して無効にする可能性があります。 たとえば、一般的なシナリオはホスト レベルでは、フォーム認証を有効にするが、Web API のトークン ベースの認証を使用します。
+多くの場合、アプリケーションの残りの部分に対してホストレベルの認証を有効にする必要がありますが、Web API コントローラーに対しては無効にすることができます。 たとえば、一般的なシナリオでは、ホストレベルでフォーム認証を有効にしますが、Web API にはトークンベースの認証を使用します。
 
-Web API パイプライン内のホスト レベルの認証を無効にするには、呼び出す`config.SuppressHostPrincipal()`構成します。 これが原因で削除する Web API、 **IPrincipal** Web API パイプラインが入力したすべての要求から。 実際には、その&quot;解除-認証&quot;要求。
+Web API パイプライン内でホストレベルの認証を無効にするには、構成で `config.SuppressHostPrincipal()` を呼び出します。 これにより、web api は Web API パイプラインに入る要求から**IPrincipal**を削除します。 実質的には、要求&quot; の認証を解除 &quot;ます。
 
 [!code-csharp[Main](authentication-filters/samples/sample10.cs)]
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の資料
 
-[ASP.NET Web API のセキュリティ フィルター](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN マガジン)
+[ASP.NET Web API セキュリティフィルター](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN マガジン)
