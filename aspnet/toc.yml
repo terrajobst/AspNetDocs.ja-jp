@@ -3338,11 +3338,10 @@
             - name: SignalR と Web ソケット
               href: signalr/videos/getting-started/signalr-and-web-sockets.md
 - name: 携帯
-  href: mobile/index.md
   items:
-    - name: 携帯
+    - name: 概要
       href: mobile/overview.md
-    - name: ASP.NET モバイル コントロールでテスト済みのデバイス
+    - name: コントロール-テストされたデバイス
       href: mobile/tested-devices.md
     - name: テスト目的で人気のモバイル デバイスをシミュレーションする
       href: mobile/device-simulators.md
