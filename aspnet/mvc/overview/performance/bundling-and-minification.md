@@ -2,245 +2,245 @@
 uid: mvc/overview/performance/bundling-and-minification
 title: バンドルと縮小 |Microsoft Docs
 author: Rick-Anderson
-description: バンドルと縮小は、2 つの手法を要求の読み込み時間を向上させるために ASP.NET 4.5 で使用することができます。 バンドルと縮小 reducin して読み込み時間が向上しています.
+description: バンドルと縮小は、要求の読み込み時間を向上させるために ASP.NET 4.5 で使用できる2つの手法です。 バンドルと縮小によって、reducin による読み込み時間が向上します...
 ms.author: riande
 ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 79d6b38c6464a749db9cd6d35e1f277b0adf2a02
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 239980d747c6e0d6be1e9b4fe0371e276e37cf21
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129434"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519285"
 ---
-# <a name="bundling-and-minification"></a>バンドルと縮小
+# <a name="bundling-and-minification"></a>バンドル化と縮小
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> バンドルと縮小は、2 つの手法を要求の読み込み時間を向上させるために ASP.NET 4.5 で使用することができます。 バンドルと縮小は、サーバーへの要求の数が減り、(CSS および JavaScript を使用します。) など、要求された資産のサイズを小さくして読み込み時間を向上します。
+> バンドルと縮小は、要求の読み込み時間を向上させるために ASP.NET 4.5 で使用できる2つの手法です。 バンドルと縮小は、サーバーへの要求の数を減らし、要求された資産のサイズ (CSS や JavaScript など) を減らすことによって、読み込み時間を短縮します。
 
-現在の主要なブラウザーのほとんどの数を制限する[同時接続](http://www.browserscope.org/?category=network)ごとに 6 つの各ホスト名。 6 つの要求が処理中に、ホスト上の資産に対する追加要求はブラウザーによってキューすることを意味します。 次の図では、IE F12 開発者ツール ネットワーク タブは、サンプル アプリケーションのバージョン情報の表示に必要な資産のタイミングを示します。
+現在の主要なブラウザーのほとんどは、各ホスト名の[同時接続](http://www.browserscope.org/?category=network)数を6に制限しています。 つまり、6つの要求が処理されている間に、ホスト上の資産に対する追加の要求は、ブラウザーによってキューに登録されます。 次の図では、IE F12 開発者ツールの [ネットワーク] タブに、サンプルアプリケーションの [About] ビューで必要とされる資産のタイミングが示されています。
 
 ![B/M](bundling-and-minification/_static/image1.png)
 
-灰色のバーには、6 つの接続の制限を待機しているブラウザーによって要求がキューに置かれた時間が表示されます。 黄色のバーは、最初のバイトへの要求時間、要求を送信し、サーバーから最初の応答を受信にかかった時間は、します。 青色のバーは、サーバーからの応答データを受信するのにかかる時間を表示します。 詳細なタイミング情報を取得する資産をダブルクリックすることができます。 たとえば、次の図は読み込みのタイミングの詳細を示しています。、 */Scripts/MyScripts/JavaScript6.js*ファイル。
+灰色のバーは、ブラウザーが6つの接続制限を待機しているときに、要求がキューに入れられた時間を示します。 黄色のバーは、最初のバイトまでの要求時間 (つまり、要求の送信とサーバーからの最初の応答の受信にかかった時間) です。 青色のバーは、サーバーからの応答データの受信にかかった時間を示します。 資産をダブルクリックすると、詳細なタイミング情報を取得できます。 たとえば、次の図は、 */Scripts/MyScripts/JavaScript6.js*ファイルを読み込むためのタイミングの詳細を示しています。
 
 ![](bundling-and-minification/_static/image2.png)
 
-上記の図は示しています、**開始**イベント、これにより、ブラウザーのため、要求がキューに入れられた時間は、同時接続の数を制限します。 ここでは、要求は別の要求が完了するを待つ 46 のミリ秒のキューに格納されました。
+上の図は、ブラウザーが同時接続の数を制限しているために要求がキューに入れられた時間を示す**開始**イベントを示しています。 この場合、要求は別の要求の完了を待機している46ミリ秒間キューに登録されました。
 
-## <a name="bundling"></a>バンドル
+## <a name="bundling"></a>まとめる
 
-バンドルとは、簡単に結合または複数のファイルを 1 つのファイルをバンドルする ASP.NET 4.5 での新機能です。 CSS、JavaScript、およびその他のバンドルを作成することができます。 少ないファイルは、少数の HTTP 要求とするには、最初のページ読み込みのパフォーマンスを改善するを意味します。
+バンドルは ASP.NET 4.5 の新機能で、複数のファイルを簡単に1つのファイルに結合したりバンドルしたりすることができます。 CSS、JavaScript、その他のバンドルを作成できます。 ファイルの数が減ると、HTTP 要求が減り、最初のページ読み込みのパフォーマンスが向上します。
 
-次の図は、バージョン情報に表示されるバンドルと縮小が有効になっていると、この時間が、以前は、同じタイミング ビューを示します。
+次の図は、前に示した [About] ビューと同じタイミングビューを示していますが、今回はバンドルと縮小が有効になっています。
 
 ![](bundling-and-minification/_static/image3.png)
 
 ## <a name="minification"></a>縮小
 
-縮小では、さまざまなスクリプトまたは不要な空白とコメントを削除して、1 つの文字を変数名を短縮することなど、css を別のコードの最適化を実行します。 次の JavaScript 関数を検討してください。
+縮小は、スクリプトや css に対してさまざまなコードの最適化を実行します。たとえば、不要な空白やコメントを削除し、変数名を1文字に短縮します。 次の JavaScript 関数を考えてみます。
 
 [!code-javascript[Main](bundling-and-minification/samples/sample1.js)]
 
-縮小後、は、関数は、次に縮小されます。
+縮小の後、関数は次のように縮小されます。
 
 [!code-javascript[Main](bundling-and-minification/samples/sample2.js)]
 
-コメントと不要な空白文字を削除するだけでなく、次のパラメーターと変数名が名前を変更 (短縮)。
+コメントや不要な空白文字を削除するだけでなく、次のようなパラメーターと変数名が変更されました (短縮)。
 
-| **翻訳元** | **名前変更** |
+| **Original** | **変わり** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | t |
 | imageElement | i |
 
-## <a name="impact-of-bundling-and-minification"></a>影響のバンドルと縮小
+## <a name="impact-of-bundling-and-minification"></a>バンドルと縮小の影響
 
-次の表では、すべての資産を個別に一覧表示して、サンプル プログラムのバンドルと縮小 (B/分) を使用してのいくつかの重要な違いを示します。
+次の表は、サンプルプログラムですべての資産を個別に一覧表示し、バンドルと縮小 (B/M) を使用する場合の、いくつかの重要な違いを示しています。
 
-|  | **B/分を使用します。** | **B/分なし** | **変更** |
+|  | **B/M を使用する** | **B/M なし** | **変更** |
 | --- | --- | --- | --- |
-| **ファイルの要求** | 9 | 34 | 256% |
-| **サポート技術情報の送信** | 3.26 | 11.92 | 266% |
-| **サポート技術情報の受信** | 388.51 | 530 | 36% |
-| **読み込み時間** | 510 MS | 780 MS | 53% |
+| **ファイル要求** | 9 | 34 | 256% |
+| **送信済み KB** | 3.26 | 11.92 | 266% |
+| **受信した KB** | 388.51 | 530 | 36% |
+| **読み込み時間** | 510ミリ秒 | 780 MS | 53% |
 
-送信バイト数では、ブラウザーが要求に適用される HTTP ヘッダーを非常に冗長のバンドルとは大幅に短縮必要があります。 受信したバイト数の減少がその大きさではありませんので、個のファイル (*スクリプト\\jquery-ui-1.8.11.min.js*と*スクリプト\\jquery 1.7.1.min.js*) 縮小は既に. メモ:使用するサンプル プログラムのタイミング、 [Fiddler](http://www.fiddler2.com/fiddler2/)低速ネットワークをシミュレートするためのツール。 (、Fiddler から**ルール**メニューの **パフォーマンス**し**モデム スピードのシミュレート**)。
+送信されるバイト数は、ブラウザーが要求に適用される HTTP ヘッダーとかなり冗長であるため、バンドルによって大幅に削減されました。 最大のファイル (*スクリプト\\jquery-ui-1.8.11* and *scripts\\jquery-1.7.1*) は、既に縮小されているため、受信バイト数の減少はそれほど大きくありません。 注: サンプルプログラムのタイミングでは、 [Fiddler](http://www.fiddler2.com/fiddler2/)ツールを使用して低速ネットワークをシミュレートしています。 (Fiddler の **[規則]** メニューで、 **[パフォーマンス]** 、 **[モデムの速度をシミュレート]** する の順に選択します)。
 
-## <a name="debugging-bundled-and-minified-javascript"></a>バンドルおよび縮小版の JavaScript デバッグ
+## <a name="debugging-bundled-and-minified-javascript"></a>バンドルされた、縮小された JavaScript のデバッグ
 
-開発環境で、JavaScript のデバッグが容易になります (場所、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`debug="true"`)、JavaScript ファイルが組み込まれていないため、または縮小します。 JavaScript ファイルのバンドルおよび縮小では、リリース ビルドをデバッグすることもできます。 IE F12 開発者ツールを使用して、次のアプローチを使用して、縮小されたバンドルに含まれる JavaScript 関数をデバッグします。
+Javascript ファイルがバンドルまたは縮小されていないため、開発環境で JavaScript を簡単にデバッグ*できます (web.config ファイルの*[コンパイル要素](https://msdn.microsoft.com/library/s10awwz0.aspx)は `debug="true"` に設定されています)。 JavaScript ファイルがバンドルおよび縮小されたリリースビルドをデバッグすることもできます。 IE F12 開発者ツールを使用すると、次の方法を使用して、縮小されたバンドルに含まれる JavaScript 関数をデバッグできます。
 
-1. 選択、**スクリプト**タブを選び、**デバッグを開始**ボタンをクリックします。
-2. [アセット] ボタンを使用してデバッグする JavaScript 関数を含む、バンドルを選択します。  
+1. **[スクリプト]** タブを選択し、 **[デバッグの開始]** ボタンを選択します。
+2. [アセット] ボタンを使用して、デバッグする JavaScript 関数を含むバンドルを選択します。  
     ![](bundling-and-minification/_static/image4.png)
-3. 縮小された JavaScript を選択して書式設定、**構成ボタン**![](bundling-and-minification/_static/image5.png)を選択し、**形式 JavaScript**します。
-4. **検索スクリプト**入力ボックスで、デバッグする関数の名前を選択します。 次の図の**AddAltToImg**で入力した、**検索スクリプト**入力ボックス。  
+3. [**構成] ボタン**![](bundling-and-minification/_static/image5.png)を選択し、 **[Javascript の書式設定]** を選択して、表示されている javascript の書式を設定します。
+4. **[検索スクリプト]** 入力ボックスで、デバッグする関数の名前を選択します。 次の図では、 **[検索スクリプト]** 入力ボックスに**Addalttoimg**が入力されています。  
     ![](bundling-and-minification/_static/image6.png)
 
-F12 開発者ツールを使用したデバッグの詳細については、MSDN の記事を参照してください。 [JavaScript エラーのデバッグに F12 開発者ツールを使用して](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx)します。
+F12 開発者ツールを使用したデバッグの詳細については、MSDN の記事「 [f12 開発者ツールを使用した JavaScript エラーのデバッグ」を](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx)参照してください。
 
-## <a name="controlling-bundling-and-minification"></a>制御のバンドルと縮小
+## <a name="controlling-bundling-and-minification"></a>バンドルと縮小の制御
 
-バンドルし縮小が有効か無効で debug 属性の値を設定して、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル。 次の XML で`debug`はこれを true に設定するバンドルと縮小が無効になっています。
+バンドルと縮小*は、web.config ファイルの*[コンパイル要素](https://msdn.microsoft.com/library/s10awwz0.aspx)の debug 属性の値を設定することによって有効または無効になります。 次の XML では、バンドルと縮小が無効になるように `debug` が true に設定されています。
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
-バンドルと縮小を有効にするには設定、`debug`値"false"にします。 オーバーライドすることができます、 *Web.config*による設定、`EnableOptimizations`プロパティを`BundleTable`クラス。 次のコードのバンドルと縮小を有効にしの設定をすべてオーバーライド、 *Web.config*ファイル。
+バンドルと縮小を有効にするには、`debug` 値を "false" に設定します。 `BundleTable` クラスの `EnableOptimizations` プロパティを*使用して web.config 設定を*オーバーライドできます。 次のコードを使用すると、バンドルと縮小が可能に*なり、web.config ファイルの*設定が上書きされます。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> しない限り、`EnableOptimizations`は`true`または debug 属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルや縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations` debug 属性をオーバーライド、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
+> `EnableOptimizations` が `true` さ*れてい*ない場合、または web.config ファイルの[コンパイル要素](https://msdn.microsoft.com/library/s10awwz0.aspx)の debug 属性が `false`に設定されている場合を除き、ファイルはバンドルまたは縮小されません。 また、ファイルの最小バージョンが使用されないため、完全なデバッグバージョンが選択されます。 `EnableOptimizations` は、web.config ファイルの[コンパイル要素](https://msdn.microsoft.com/library/s10awwz0.aspx)の debug 属性よりも優先され*ます。*
 
-## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>バンドルを使用して、ASP.NET Web フォームと Web ページの縮小
+## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>ASP.NET Web フォームと Web ページでのバンドルと縮小の使用
 
-- Web ページ、ブログ記事を参照してください。 [Web ページ サイトに Web の最適化を追加する](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx)します。
-- Web フォーム、ブログ記事を参照してください。[バンドルを追加すると Web フォームに縮小](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx)します。
+- Web ページについては、web[ページサイトへの Web 最適化の追加に](https://docs.microsoft.com/archive/blogs/rickandy/adding-web-optimization-to-a-web-pages-site)関するブログエントリを参照してください。
+- Web フォームについては、 [Web フォームへのバンドルと縮小の追加に](https://docs.microsoft.com/archive/blogs/rickandy/adding-bundling-and-minification-to-web-forms)関するブログエントリを参照してください。
 
-## <a name="using-bundling-and-minification-with-aspnet-mvc"></a>バンドルを使用してと ASP.NET MVC での縮小
+## <a name="using-bundling-and-minification-with-aspnet-mvc"></a>ASP.NET MVC でのバンドルと縮小の使用
 
-このセクションではプロジェクトのバンドルを確認して縮小、ASP.NET MVC を作成します。 という名前の新しい ASP.NET MVC インターネット プロジェクトを最初に、作成**MvcBM**既定値を変更することがなく。
+このセクションでは、ASP.NET MVC プロジェクトを作成して、バンドルと縮小を確認します。 まず、既定値を変更せずに、 **Mvcbm**という名前の新しい ASP.NET MVC インターネットプロジェクトを作成します。
 
-開く、*アプリ\\\_開始\\BundleConfig.cs*ファイルを調べ、`RegisterBundles`メソッドを作成し、登録して、バンドルを構成するために使用します。 次のコードの一部を示しています、`RegisterBundles`メソッド。
+*アプリ\\を開き \_\\BundleConfig.cs*ファイルを起動し、バンドルの作成、登録、および構成に使用される `RegisterBundles` 方法を確認します。 次のコードは、`RegisterBundles` メソッドの一部を示しています。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
-上記のコードは、という名前の新しい JavaScript バンドルを作成します *~/bundles/jquery*を含む、すべての適切な (デバッグまたはなく縮小する。 *。vsdoc*) 内のファイル、*スクリプト*ワイルドカード文字列"~/Scripts/jquery-{version} .js"に一致するフォルダー。 ASP.NET MVC 4、デバッグ構成では、ファイル、つまり*jquery 1.7.1.js*バンドルに追加されます。 リリース構成で*jquery 1.7.1.min.js*が追加されます。 バンドルのフレームワークにはなどのいくつかの一般的な規則が次に示します。
+上記のコードは、すべての適切な (デバッグまたは縮小) を含む、 */bundles/jquery*という名前の新しい JavaScript バンドルを作成します。*vsdoc*) ワイルドカード文字列 "~/Scripts/jquery-{version}.js" に一致する*Scripts*フォルダー内のファイル。 ASP.NET MVC 4 の場合、これはデバッグ構成で、ファイル*jquery-1.7.1*がバンドルに追加されることを意味します。 リリース構成では、 *jquery-1.7.1*が追加されます。 バンドルフレームワークは、次のようないくつかの一般的な規則に従います。
 
-- ".Min"ファイルを選択するときにリリース*FileX.min.js*と*FileX.js*が存在します。
-- デバッグ用の非".min"バージョンを選択します。
-- 無視"-vsdoc"ファイル (など*jquery-1.7.1-vsdoc.js*)、IntelliSense によってのみ使用されます。
+- ファイルが存在*する場合に*、release の ". min" ファイルを選択*します*。
+- デバッグの非 ". min" バージョンを選択しています。
+- "-Vsdoc" ファイル ( *jquery-1.7.1*など) は無視されます。これは、IntelliSense によってのみ使用されます。
 
-`{version}` JQuery の適切なバージョンの jQuery バンドルを自動的に作成される前に示したワイルドカードに一致する、*スクリプト*フォルダー。 この例では、ワイルド カードを使用すると次の利点があります。
+上に示した `{version}` ワイルドカード一致は、適切なバージョンの jQuery を*Scripts*フォルダーに自動的に作成するために使用されます。 この例では、ワイルドカードを使用すると、次のような利点があります。
 
-- NuGet を使用して、バンドルの上記のコードまたはページの表示で jQuery 参照を変更することがなく新しい jQuery バージョンに更新することができます。
-- 自動的に選択デバッグ構成の完全なバージョンとリリースの".min"バージョンをビルドします。
+- では、ビューページで前のバンドルコードや jQuery 参照を変更することなく、NuGet を使用して新しい jQuery バージョンに更新することができます。
+- では、デバッグ構成の完全バージョンと、リリースビルドの ". 分" バージョンが自動的に選択されます。
 
 ## <a name="using-a-cdn"></a>CDN の使用
 
- 次のコードでは、CDN の jQuery バンドルでローカル jQuery バンドルが置き換えられます。
+ 次のコードは、ローカルの jQuery バンドルを CDN jQuery バンドルに置き換えます。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample6.cs)]
 
-上記のコードでは、jQuery を要求された CDN から中に、リリース モードとデバッグ バージョンの jQuery がフェッチされるローカルでデバッグ モードでは。 CDN を使用する場合、CDN 要求が失敗した場合、フォールバック メカニズムが必要です。 次のマークアップは、jQuery は CDN 失敗要求に追加のレイアウト ファイル示しますスクリプトの末尾からフラグメントします。
+上記のコードでは、リリースモードでは CDN から jQuery が要求され、デバッグバージョンの jQuery はデバッグモードでローカルにフェッチされます。 CDN を使用する場合は、CDN 要求が失敗した場合に備えてフォールバックメカニズムが必要です。 レイアウトファイルの末尾にある次のマークアップフラグメントは、CDN が失敗したことを要求するために追加されたスクリプトを示しています。
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample7.cshtml?highlight=5-13)]
 
 ## <a name="creating-a-bundle"></a>バンドルの作成
 
-[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`Include`メソッドは各文字列のリソースへの仮想パスが、文字列の配列を受け取ります。 次のコードから、`RegisterBundles`メソッドで、*アプリ\\\_開始\\BundleConfig.cs*ファイルは複数のファイルは、バンドルに追加を示します。
+[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス `Include` メソッドは、文字列の配列を受け取ります。各文字列はリソースへの仮想パスです。 アプリの `RegisterBundles` メソッドの次のコードでは *\\BundleConfig.cs file の開始 \_\\* 、バンドルへの複数のファイルの追加方法を示しています。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`IncludeDirectory`ディレクトリ (および必要に応じてすべてのサブディレクトリ) 内の指定された検索パターンに一致するすべてのファイルを追加するメソッドが提供されます。 [バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`IncludeDirectory`API を次に示します。
+[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス `IncludeDirectory` メソッドは、検索パターンに一致するディレクトリ (および必要に応じてすべてのサブディレクトリ) 内のすべてのファイルを追加するために用意されています。 [バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス `IncludeDirectory` API を以下に示します。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-バンドルは、Render メソッドを使用してビューで参照されている (`Styles.Render` css と`Scripts.Render`JavaScript 用)。 次のマークアップ、*ビュー\\Shared\\\_Layout.cshtml*ファイルは ASP.NET のインターネット プロジェクトの既定のビューで CSS および JavaScript のバンドルを参照する方法を示しています。
+バンドルは、Render メソッドを使用してビュー内で参照されます (CSS の場合は`Styles.Render`、JavaScript の場合は `Scripts.Render`)。 *Views\\Shared \_\\のビュー*の次のマークアップは、既定の ASP.NET internet プロジェクトビューが CSS と JavaScript バンドルを参照する方法を示しています。
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
-Render メソッドには、文字列の配列があるので、コードの 1 つの行で複数のバンドルを追加することができますに注意してください。 一般に、資産を参照するために必要な HTML を作成するレンダリング メソッドを使用するは。 使用することができます、`Url`アセットを参照するために必要なマークアップことがなく、資産への URL を生成するメソッド。 新しい HTML5 を使用すると想定[async](http://www.whatwg.org/specs/web-apps/current-work/#attr-script-async)属性。 次のコードは、modernizr を使用して参照する方法を示します、`Url`メソッド。
+Render メソッドが文字列の配列を受け取ることに注意してください。そのため、1行のコードに複数のバンドルを追加できます。 通常は、アセットを参照するために必要な HTML を作成する Render メソッドを使用します。 `Url` メソッドを使用して、資産を参照するために必要なマークアップなしでアセットへの URL を生成できます。 新しい HTML5[非同期](http://www.whatwg.org/specs/web-apps/current-work/#attr-script-async)属性を使用するとします。 次のコードは、`Url` メソッドを使用して、modernizr を参照する方法を示しています。
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample11.cshtml?highlight=11)]
 
-## <a name="using-the--wildcard-character-to-select-files"></a>使用して、"\*"ファイルを選択するワイルドカード文字
+## <a name="using-the--wildcard-character-to-select-files"></a>"\*" ワイルドカード文字を使用したファイルの選択
 
-指定された仮想パス、`Include`メソッドと、検索パターン、`IncludeDirectory`メソッドには、いずれかを指定できる"\*"プレフィックスまたは最後のパス セグメントをサフィックスとしてワイルドカード文字です。 検索文字列が大文字小文字を区別します。 `IncludeDirectory`メソッドには、オプションのサブディレクトリを検索します。
+`Include` メソッドで指定した仮想パスと、`IncludeDirectory` メソッドの検索パターンでは、最後のパスセグメントののプレフィックスまたはサフィックスとして、1つの "\*" ワイルドカード文字を使用できます。 検索文字列の大文字と小文字は区別されません。 `IncludeDirectory` メソッドには、サブディレクトリを検索するオプションがあります。
 
-次の JavaScript ファイルでは、プロジェクトを検討してください。
+次の JavaScript ファイルを含むプロジェクトを考えてみましょう。
 
-- *スクリプト\\共通\\AddAltToImg.js*
-- *スクリプト\\共通\\ToggleDiv.js*
-- *スクリプト\\共通\\ToggleImg.js*
-- *スクリプト\\共通\\Sub1\\ToggleLinks.js*
+- *スクリプト\\共通\\AddAltToImg*
+- *スクリプト\\共通\\ToggleDiv*
+- *スクリプト\\共通\\ToggleImg*
+- *スクリプト\\共通\\Sub1\\ToggleLinks*
 
 ![dir imag](bundling-and-minification/_static/image7.png)
 
-次の表に示すように、ワイルドカードを使用してバンドルに追加されたファイルを示します。
+次の表は、ワイルドカードを使用してバンドルに追加されるファイルを示しています。
 
-| **Call** | **追加されたファイルまたは例外が発生しました** |
+| **Call** | **追加または例外が発生したファイル** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
-| Include("~/Scripts/Common/T\*.js") | 無効なパターンの例外。 ワイルドカード文字はプレフィックスまたはサフィックスにのみ使用できます。 |
-| Include("~/Scripts/Common/\*og.\*") | 無効なパターンの例外。 1 つだけのワイルドカード文字を許可します。 |
-| Include("~/Scripts/Common/T\*") | *ToggleDiv.js*、 *ToggleImg.js* |
-| Include("~/Scripts/Common/\*") | 無効なパターンの例外。 純粋なワイルドカード セグメントが無効です。 |
-| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js*、 *ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common"、"T\*", true) | *ToggleDiv.js*、 *ToggleImg.js*、 *ToggleLinks.js* |
+| Include("~/Scripts/Common/\*.js") | *Addalttoimg .js*、 *ToggleDiv*、 *ToggleImg* |
+| Include("~/Scripts/Common/T\*.js") | 無効なパターン例外です。 ワイルドカード文字は、プレフィックスまたはサフィックスに対してのみ使用できます。 |
+| Include("~/Scripts/Common/\*og.\*") | 無効なパターン例外です。 ワイルドカード文字は1つだけ使用できます。 |
+| Include ("~/スクリプト/Common/t\*") | *ToggleDiv*、 *ToggleImg* |
+| Include ("~/スクリプト/Common/\*") | 無効なパターン例外です。 純粋ワイルドカードセグメントが無効です。 |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv*、 *ToggleImg* |
+| IncludeDirectory ("~/スクリプト/共通"、"T\*"、true) | *ToggleDiv*、 *ToggleImg*、 *ToggleLinks*のようになります。 |
 
-一般に優先が明示的に各ファイルをバンドルに追加する理由は次のファイルの読み込みのワイルドカードの上。
+一般に、各ファイルをバンドルに明示的に追加することは、次のような理由で、ファイルのワイルドカード読み込みよりも優先されます。
 
-- ワイルドカードの既定値で、通常これが望ましくないのはアルファベット順に読み込むことにスクリプトを追加します。 CSS および JavaScript ファイルは頻繁に (アルファベット以外の) 特定の順序で追加する必要があります。 このリスクを軽減するには、カスタムの追加を[IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx)の実装が、各ファイルは、エラーが発生しやすいを明示的に追加します。 変更する必要がありますが、将来のフォルダーに新しい資産を追加するなど、 [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx)実装します。
-- 読み込みワイルド カードを使用してディレクトリに追加されるビューの特定のファイルは、そのバンドルを参照しているすべてのビューに含めることができます。 バンドルには、特定のスクリプトの表示を追加する場合、バンドルを参照している他のビューの JavaScript エラーが発生する可能性があります。
-- その他のファイルがインポートされる CSS ファイルと、2 回読み込まれて、インポートされたファイル。 たとえば、次のコードでは、ほとんどの 2 回読み込まれる jQuery UI テーマの CSS ファイルで、バンドルを作成します。 
+- ワイルドカードを使用してスクリプトを追加すると、既定ではアルファベット順に読み込まれます。これは通常は必要ありません。 CSS ファイルと JavaScript ファイルは、多くの場合、特定の (アルファベット順ではない) 順序で追加する必要があります。 このリスクを軽減するには、カスタム[IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx)実装を追加しますが、各ファイルを明示的に追加するとエラーが発生しやすくなります。 たとえば、将来的にはフォルダーに新しい資産を追加し、 [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx)の実装を変更することが必要になる場合があります。
+- ワイルドカードによる読み込みを使用してディレクトリに追加された特定のファイルを表示すると、そのバンドルを参照するすべてのビューに含めることができます。 ビュー固有のスクリプトがバンドルに追加されると、バンドルを参照する他のビューで JavaScript エラーが発生することがあります。
+- 他のファイルをインポートする CSS ファイルは、インポートされたファイルを2回読み込むことになります。 たとえば、次のコードでは、ほとんどの jQuery UI テーマ CSS ファイルが2回読み込まれたバンドルが作成されます。 
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  ワイルド カード セレクター"\*.css"は、フォルダー内の各 CSS ファイルを含む、*コンテンツ\\テーマ\\基本\\jquery.ui.all.css*ファイル。 *Jquery.ui.all.css*ファイルは、他の CSS ファイルをインポートします。
+  ワイルドカードセレクター "\*.css" は、フォルダー内の各 CSS ファイル (*コンテンツ\\テーマ\\base\\jquery. ui. すべての .css*ファイル) を取り込みます。 *すべての .css*ファイルは、他の css ファイルをインポートします。
 
-## <a name="bundle-caching"></a>キャッシュのバンドルします。
+## <a name="bundle-caching"></a>バンドルキャッシュ
 
-バンドルは、バンドルを作成するときから 1 年間の有効期限が切れる HTTP ヘッダーを設定します。 IE がバンドルの条件付き要求を行わない Fiddler 示しています、前に表示したページに移動する場合はありません、バンドルの IE から HTTP GET 要求と、サーバーから HTTP 304 返信はありません。 (その結果、各バンドルに対する応答を HTTP 304) F5 キーを持つ各バンドルの条件付き要求を行い、IE を強制することができます。 使用して完全更新を強制する ^ f5 キーを押して (その結果、HTTP 200 の応答を各バンドルします)。
+バンドルは、バンドルの作成時に、HTTP Expires ヘッダーを1年に設定します。 以前に表示されていたページに移動した場合、Fiddler は、バンドルに対する条件付き要求を作成しないことを示します。つまり、バンドルに対する IE からの HTTP GET 要求とサーバーからの HTTP 304 応答がありません。 F5 キーを使用して各バンドルの条件付き要求を実行するように、IE に強制することができます (その結果、各バンドルに対して HTTP 304 応答が返されます)。 ^ F5 を使用して完全更新を強制的に実行できます (その結果、各バンドルに対して HTTP 200 応答が返されます)。
 
-次の図は、 **Caching** Fiddler 応答ウィンドウのタブ。
+次の図は、Fiddler response ウィンドウの **キャッシュ** タブを示しています。
 
-![fiddler のキャッシュのイメージ](bundling-and-minification/_static/image8.png)
+![fiddler キャッシュイメージ](bundling-and-minification/_static/image8.png)
 
 要求   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- バンドルは**AllMyScripts**クエリ文字列のペアを格納および**v = r0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**。 クエリ文字列**v**はトークンのキャッシュに使用される一意の識別子の値を持ちます。 ASP.NET アプリケーションが要求は、バンドルが変更されない限り、 **AllMyScripts**このトークンを使用してバンドルします。 バンドル内のファイルが変更された場合、ASP.NET optimization フレームワークはバンドルのブラウザーの要求が、最新のバンドルを取得することを保証しながら、新しいトークンを生成します。
+ はバンドル**Allmyscripts**用であり、クエリ文字列 pair **v = R0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**を含んでいます。 クエリ文字列**v**には、キャッシュに使用される一意の識別子である値トークンがあります。 バンドルが変更されない限り、ASP.NET アプリケーションはこのトークンを使用して**Allmyscripts**バンドルを要求します。 バンドル内のいずれかのファイルが変更された場合、ASP.NET optimization framework は新しいトークンを生成します。これにより、バンドルに対するブラウザーの要求が最新のバンドルを取得することが保証されます。
 
-IE9 F12 開発者ツールを実行して、以前に読み込まれたページに移動して場合、条件付きの GET 要求を各バンドル、および HTTP 304 を返すサーバーに対して表示しない IE 正しくされます。 IE9 のブログ エントリで条件付きの要求が行われたかどうかの問題が理由を読み取ることができます[を使用して Cdn と Web サイトのパフォーマンスを向上させるには、期限切れ日時](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)します。
+IE9 F12 developer tools を実行し、以前に読み込まれたページに移動した場合、IE では、各バンドルに対して行われた条件付き GET 要求と、HTTP 304 を返すサーバーが誤って表示されます。 IE9 に問題がある理由を確認するには、CDNs を使用したブログエントリで条件付き要求が行われたかどうかを判断し、 [Web サイトのパフォーマンスを向上させるために期限切れに](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)します。
 
-## <a name="less-coffeescript-scss-sass-bundling"></a>LESS、CoffeeScript、SCSS、バンドルを Sass します。
+## <a name="less-coffeescript-scss-sass-bundling"></a>LESS、CoffeeScript、SCSS、Sass のバンドル。
 
-バンドルと縮小のフレームワークなど、中間言語を処理するためのメカニズムを提供する[SCSS](http://sass-lang.com/)、 [Sass](http://sass-lang.com/)、[少ない](http://www.dotlesscss.org/)または[Coffeescript](http://coffeescript.org/)、し、結果として得られるバンドルに縮小などの変換を適用します。 たとえば、追加する[.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
+バンドルと縮小フレームワークには、 [SCSS](http://sass-lang.com/)、 [sass](http://sass-lang.com/)、 [LESS](http://www.dotlesscss.org/) 、または[Coffeescript](http://coffeescript.org/)などの中間言語を処理し、縮小などの変換を結果のバンドルに適用するメカニズムが用意されています。 たとえば、追加する[.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
 
-1. 以下の内容を格納するフォルダーを作成します。 次の例では、*コンテンツ\\MyLess*フォルダー。
+1. コンテンツの少ないフォルダーを作成します。 次の例では、*コンテンツ\\MyLess*フォルダーを使用しています。
 2. 追加、 [.less](http://www.dotlesscss.org/) NuGet パッケージ**ドット**をプロジェクトにします。  
-    ![NuGet ドットなしのインストール](bundling-and-minification/_static/image9.png)
-3. 実装するクラスを追加、 [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイス。 .Less トランス フォームをプロジェクトに次のコードを追加します。
+    ![NuGet のドットのないインストール](bundling-and-minification/_static/image9.png)
+3. [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイスを実装するクラスを追加します。 .Less トランス フォームをプロジェクトに次のコードを追加します。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. 小さいファイルのバンドルを作成、`LessTransform`と[CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx)変換します。 次のコードを追加、`RegisterBundles`メソッドで、*アプリ\\開始 (_s)\\BundleConfig.cs*ファイル。
+4. `LessTransform` と[CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx)変換を使用して、LESS ファイルのバンドルを作成します。 *アプリ\\_Start\\BundleConfig.cs*ファイルの `RegisterBundles` メソッドに次のコードを追加します。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
-5. 小さいバンドルを参照するすべてのビューには、次のコードを追加します。
+5. LESS バンドルを参照するすべてのビューに次のコードを追加します。
 
     [!code-cshtml[Main](bundling-and-minification/samples/sample15.cshtml)]
 
-## <a name="bundle-considerations"></a>バンドルの考慮事項
+## <a name="bundle-considerations"></a>バンドルに関する考慮事項
 
-バンドルを作成するときに実行する適切な規則では、バンドル名のプレフィックスとして「バンドル」が含まれます。 これによりする可能性のある[ルーティング競合](https://forums.asp.net/post/5012037.aspx)します。
+バンドルを作成する場合は、バンドル名にプレフィックスとして "バンドル" を含めることをお勧めします。 これにより、[ルーティングの競合](https://forums.asp.net/post/5012037.aspx)を防ぐことができます。
 
-バンドル内の 1 つのファイルを更新するとは、バンドルのクエリ文字列パラメーターの新しいトークンが生成され、フル バンドルが次回クライアントが、バンドルを含むページを要求をダウンロードする必要があります。 個別に各資産が含まれる場合、従来のマークアップでは、変更されたファイルのみをダウンロードできるようにします。 頻繁に変更される資産は、バンドルの適切な候補をできないがあります。
+バンドル内の1つのファイルを更新すると、バンドルクエリ文字列パラメーターに対して新しいトークンが生成され、バンドルを含むページを次回クライアントが要求したときに完全なバンドルをダウンロードする必要があります。 各資産が個別に一覧表示される従来のマークアップでは、変更されたファイルのみがダウンロードされます。 頻繁に変更される資産は、バンドルに適していない可能性があります。
 
-バンドルと縮小は、最初のページ要求の読み込み時間を向上させる主にします。 (JavaScript、CSS、およびイメージ) の資産をキャッシュと、web ページが要求されたバンドルと縮小は示しません、パフォーマンスの向上、同じページを要求するときにしたり、同じページのサイトと同じ資産を要求するようにします。 設定しない場合、ヘッダー、資産を正しく有効期限が切れるとバンドルと縮小を使用しないでください、ブラウザーの鮮度ヒューリスティックがマーク資産古い数日後およびブラウザーは各資産の検証要求が必要です。 この場合は、バンドルと縮小は、最初のページ要求後にパフォーマンスが向上を指定します。 詳細については、ブログをご覧ください。[を使用して Cdn と Web サイトのパフォーマンスを向上させるには、期限切れ日時](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)します。
+バンドルと縮小は、主に最初のページ要求の読み込み時間を短縮します。 Web ページが要求されると、ブラウザーはアセット (JavaScript、CSS、およびイメージ) をキャッシュするので、バンドルと縮小では、同じページを要求しても、同じ資産を要求している同じサイト上のページを要求しても、パフォーマンスが向上しません。 資産に expires ヘッダーを正しく設定しておらず、バンドルと縮小を使用していない場合は、ブラウザーの鮮度ヒューリスティックによって、数日後に資産が古くなっているとマークされ、ブラウザーは各資産に対する検証要求を必要とします。 この場合、バンドルと縮小によって、最初のページ要求の後にパフォーマンスが向上します。 詳細については、「 [CDNs を使用する」および「Web サイトのパフォーマンスを向上させるための期限切れ](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)」を参照してください。
 
-使用して各ホスト名ごとに 6 つの同時接続のブラウザーの制限事項を軽減することができます、 [CDN](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)します。 あるため、CDN は別のホスト名、ホスティング サイトよりも、CDN からの資産の要求は、ホスティング環境に 6 つの同時接続数の制限に対してカウントされません。 CDN には、一般的なパッケージのキャッシュとのエッジ キャッシュの利点も提供できます。
+ブラウザーでは、各ホスト名につき6つの同時接続が制限されているため、 [CDN](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)を使用して軽減できます。 CDN はホスティングサイトとは異なるホスト名を持つため、CDN からの資産要求は、ホスト環境に対する6つの同時接続の制限に対してカウントされません。 CDN では、一般的なパッケージキャッシュとエッジキャッシュの利点も提供されます。
 
-バンドルは、必要とするページでパーティション分割する必要があります。 たとえば、既定のインターネット アプリケーションの ASP.NET MVC テンプレート バンドルを作成します jQuery 検証 jQuery は別です。 値を投稿しないで作成された既定のビューが入力があるないため、検証のバンドルが含まれますはありません。
+バンドルは、それらを必要とするページでパーティション分割する必要があります。 たとえば、インターネットアプリケーションの既定の ASP.NET MVC テンプレートでは、jQuery とは別の jQuery 検証バンドルが作成されます。 作成される既定のビューには入力がなく、値がポストされないため、検証バンドルは含まれません。
 
-`System.Web.Optimization`で名前空間が実装された*System.Web.Optimization.dll*します。 WebGrease ライブラリを利用しています (*WebGrease.dll*) の縮小の機能を順番に使用して*Antlr3.Runtime.dll*します。
+`System.Web.Optimization` 名前空間は、 *system.web. Optimization*に実装されています。 これは、縮小機能に WebGrease library (*webgrease .dll*) を利用し、さらに*Antlr3*を使用します。
 
-*Twitter を使用して簡単な投稿を行い、リンクを共有します。自分の Twitter ハンドルが*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Twitter を使用して、リンクをすばやく投稿し、共有します。Twitter のハンドルは次の*とおりです: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-- ビデオ:[バンドルと最適化](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing)によって[Howard dierking が](https://twitter.com/#!/howard_dierking)
-- [Web ページ サイトに Web の最適化を追加する](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx)します。
-- [追加のバンドルおよび縮小する Web フォーム](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx)します。
-- [バンドルのパフォーマンスに影響し、Web 閲覧に縮小](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx)によって[Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
-- [Cdn を使用して Web サイトのパフォーマンスを向上させるために有効期限が切れると](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)Rick anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
-- [RTT (ラウンドト リップ時間) を最小限に抑える](https://developers.google.com/speed/docs/best-practices/rtt)
+- ビデオ: [Howard Dierking](https://twitter.com/#!/howard_dierking)による[バンドルと最適化](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing)
+- Web[ページサイトに Web 最適化を追加する](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx)。
+- [Web フォームへのバンドルと縮小の追加](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx)。
+- [Henrik](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk) F による[Web 閲覧のバンドルと縮小のパフォーマンスへの影響](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx)
+- Rick Anderson によって[Web サイトのパフォーマンスを向上させるために、CDNs と有効期限を使用することが](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [RTT を最小化する (ラウンドトリップ時間)](https://developers.google.com/speed/docs/best-practices/rtt)
 
-## <a name="contributors"></a>共同作成者
+## <a name="contributors"></a>寄稿者
 
-- Hao 力
-- [Howard dierking が](https://twitter.com/#!/howard_dierking)
+- Hao Kung
+- [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - Diana LaRose
