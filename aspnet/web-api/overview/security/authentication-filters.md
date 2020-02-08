@@ -8,22 +8,22 @@ ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: b6815baf05303d5f47a14ee5fe0fdfc2836c1868
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 2ef9e62a6c634237e920b6d7aba2127b835f959d
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519376"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075074"
 ---
 # <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の認証フィルター
 
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 > 認証フィルターは、HTTP 要求を認証するコンポーネントです。 Web API 2 と MVC 5 はどちらも認証フィルターをサポートしていますが、ほとんどの場合、フィルターインターフェイスの名前付け規則によって若干異なります。 このトピックでは、Web API 認証フィルターについて説明します。
 
 認証フィルターを使用すると、個々のコントローラーまたはアクションに対して認証スキームを設定できます。 こうすることで、アプリはさまざまな HTTP リソースに対してさまざまな認証メカニズムをサポートできます。
 
-この記事では、 [https://github.com/aspnet/samples](https://github.com/aspnet/samples)の[基本的な認証](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication)サンプルからのコードを紹介します。 このサンプルは、HTTP 基本アクセス認証スキーム (RFC 2617) を実装する認証フィルターを示しています。 このフィルターは `IdentityBasicAuthenticationAttribute`という名前のクラスに実装されています。 サンプルのコードをすべて表示するのではなく、認証フィルターを記述する方法を示す部分だけを示します。
+この記事では、 [https://github.com/aspnet/samples](https://github.com/aspnet/samples)の[基本的な認証](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication)サンプルからのコードを紹介します。 このサンプルは、HTTP 基本アクセス認証スキーム (RFC 2617) を実装する認証フィルターを示しています。 このフィルターは `IdentityBasicAuthenticationAttribute`という名前のクラスに実装されています。 サンプルのコードをすべて表示するのではなく、認証フィルターを記述する方法を示す部分だけを示します。
 
 ## <a name="setting-an-authentication-filter"></a>認証フィルターを設定する
 
@@ -108,7 +108,7 @@ Web API 2 パイプラインのフローを次に示します。
 5. 資格情報が正しくない場合は、`context.ErrorResult`を設定して401を返します。
 6. 資格情報が有効な場合は、 **IPrincipal**を作成し `context.Principal`を設定します。
 
-次のコードは、[基本認証](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication)サンプルの**AuthenticateAsync**メソッドを示しています。 コメントは各ステップを示します。 このコードは、資格情報のない Authorization ヘッダー、不適切な資格情報、および無効なユーザー名/パスワードを使用して、いくつかの種類のエラーを示しています。
+次のコードは、[基本認証](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication)サンプルの**AuthenticateAsync**メソッドを示しています。 コメントは各ステップを示します。 このコードは、資格情報のない Authorization ヘッダー、不適切な資格情報、および無効なユーザー名/パスワードを使用して、いくつかの種類のエラーを示しています。
 
 [!code-csharp[Main](authentication-filters/samples/sample5.cs)]
 
@@ -135,7 +135,7 @@ Web API 2 パイプラインのフローを次に示します。
 元の**Ihttpactionresult**を呼び出すと*内部結果*が生成され、新しい**ihttpactionresult**によって*外部結果*が生成されます。 外部結果は、次の操作を行う必要があります。
 
 1. 内部結果を呼び出して、HTTP 応答を作成します。
-2. 結果を確認します。
+2. 応答を確認します。
 3. 必要に応じて、認証チャレンジを応答に追加します。
 
 次の例は、「基本認証のサンプル」から抜粋したものです。 外部結果の**Ihttpactionresult**を定義します。
@@ -162,6 +162,6 @@ Web API パイプライン内でホストレベルの認証を無効にするに
 
 [!code-csharp[Main](authentication-filters/samples/sample10.cs)]
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [ASP.NET Web API セキュリティフィルター](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN マガジン)

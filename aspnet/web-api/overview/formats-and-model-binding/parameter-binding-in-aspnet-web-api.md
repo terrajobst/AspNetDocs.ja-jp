@@ -9,16 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 032368f94ce32cf6231458649e8fdd42bee685e9
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 464cb9b45dc0b62c4da38b7cf612934808854d32
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519259"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074905"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API でのパラメーターバインド
 
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [!INCLUDE[](~/includes/coreWebAPI.md)]
 
@@ -45,7 +45,7 @@ Web API で URI から複合型を強制的に読み取るには、 **[Fromuri]*
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
-クライアントは、緯度と経度の値をクエリ文字列に含めることができ、Web API はそれらを使用して `GeoPoint`を作成します。 例:
+クライアントは、緯度と経度の値をクエリ文字列に含めることができ、Web API はそれらを使用して `GeoPoint`を作成します。 例 :
 
 `http://localhost/api/values/?Latitude=47.678558&Longitude=-122.130989`
 
@@ -203,9 +203,9 @@ Web API はすべての値プロバイダーを結合するため、モデルバ
 
 必要に応じて、 **Iactionvaluebinder**サービス全体をカスタム実装に置き換えることができます。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
-[カスタムパラメーターバインディングのサンプル](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
+[カスタムパラメーターバインディングのサンプル](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
 
 Mike ストールは、Web API パラメーターのバインドに関する一連のブログ投稿を作成しました。
 

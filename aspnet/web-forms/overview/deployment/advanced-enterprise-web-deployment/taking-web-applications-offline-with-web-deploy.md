@@ -1,167 +1,167 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
-title: Web アプリケーションをオフラインに Web 配置 |Microsoft Docs
+title: Web 配置を使用して Web アプリケーションをオフラインにする |Microsoft Docs
 author: jrjlee
-description: このトピックでは、インターネット インフォメーション サービス (IIS) Web 展開マネージャーを使用して自動展開の期間の web アプリケーションをオフラインする方法について説明しています.
+description: このトピックでは、インターネットインフォメーションサービス (IIS) Web 展開を使用して、自動展開の間に web アプリケーションをオフラインにする方法について説明します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: ba54454bcb6f5e4ceb269b128a6b72a4b75f64be
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ba60664a0c3daa0650cd7e7cfc4ab9da08df3440
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131411"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075139"
 ---
 # <a name="taking-web-applications-offline-with-web-deploy"></a>Web 配置の際、Web アプリをオフラインにする
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
 [PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、インターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して自動展開の期間の web アプリケーションをオフラインする方法について説明します。 Web アプリケーションを参照するユーザーをリダイレクト、*アプリ\_offline.htm*デプロイが完了するまでのファイルします。
+> このトピックでは、インターネットインフォメーションサービス (IIS) Web 配置ツール (Web 配置) を使用して、自動展開の間に web アプリケーションをオフラインにする方法について説明します。 Web アプリケーションを参照するユーザーは、デプロイが完了するまで、*オフライン .htm ファイル\_アプリ*にリダイレクトされます。
 
-このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
+このトピックでは、Fabrikam, Inc. という架空の企業のエンタープライズ展開要件に基づいて、一連のチュートリアルの一部を説明します。このチュートリアルシリーズでは、&#x2014; [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;のサンプルソリューションを使用して、ASP.NET MVC 3 アプリケーション、Windows Communication Foundation (WCF) サービス、データベースプロジェクトなど、現実的なレベルの複雑さを持つ web アプリケーションを表します。
 
-これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを格納しています。すべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+これらのチュートリアルの中核となる配置方法は、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」で説明されている分割プロジェクトファイルアプローチに基づいています。この&#x2014;プロジェクトファイルには、ビルドプロセスは、すべての変換先環境に適用されるビルド命令を含む2つのプロジェクトファイルと、環境固有のビルドおよび配置設定を含んでいます。 ビルド時に、環境固有のプロジェクトファイルが環境に依存しないプロジェクトファイルにマージされ、ビルド命令の完全なセットが形成されます。
 
 ## <a name="task-overview"></a>タスクの概要
 
-多数のシナリオでは、データベースや web サービスなどの関連コンポーネントを変更するときに、web アプリケーションをオフラインにします。 通常、IIS および ASP.NET では、そのために、という名前のファイルを配置する*アプリ\_offline.htm* IIS web サイトまたは web アプリケーションのルート フォルダーにします。 *アプリ\_offline.htm*ファイルは、標準の HTML ファイルでありは、通常は、サイトはメンテナンスのため一時的に使用できないことをユーザーに忠告する単純なメッセージが含まれます。 中に、*アプリ\_offline.htm* web サイトのルート フォルダーにファイルが存在する、IIS がファイルにすべての要求を自動的にリダイレクトされます。 更新が完了したらを削除する、*アプリ\_offline.htm*ファイルと、web サイトは、通常どおり要求の処理が再開されます。
+さまざまなシナリオでは、データベースや web サービスなどの関連コンポーネントに変更を加えるときに、web アプリケーションをオフラインにする必要があります。 通常、IIS と ASP.NET では、 *App\_* という名前のファイルを iis web サイトまたは web アプリケーションのルートフォルダーに配置することによってこれを実現します。 *\_のオフライン .htm*ファイルは標準の HTML ファイルであり、通常、メンテナンスのためにサイトが一時的に使用できないことを通知する単純なメッセージが含まれています。 *アプリ\_オフライン .htm*ファイルが web サイトのルートフォルダーに存在している間、IIS は自動的にすべての要求をファイルにリダイレクトします。 更新が完了したら、*アプリ\_offline .htm*ファイルを削除すると、web サイトは通常どおりに要求の処理を再開します。
 
-ターゲット環境に自動またはシングル ステップの展開を実行する Web Deploy を使用するときは、追加と削除を組み込むことができます、*アプリ\_offline.htm*展開プロセスにファイル。 これを行うには、これらの高度なタスクを完了する必要があります。
+Web 配置を使用して、対象の環境に対して自動または単一ステップの配置を実行する場合は、*アプリ\_のオフライン .htm*ファイルの追加と削除を展開プロセスに組み込むことをお勧めします。 これを行うには、次のような高レベルのタスクを実行する必要があります。
 
-- Microsoft Build Engine (MSBuild) プロジェクト ファイルで使用して MSBuild ターゲットを作成、展開プロセスを制御することをコピー、*アプリ\_offline.htm*任意の展開タスクの前に、移行先サーバーにファイル開始します。
-- 削除する別の MSBuild ターゲットを追加、*アプリ\_offline.htm*すべての展開タスクが完了したら、移行先サーバーからのファイル。
-- Web アプリケーション プロジェクトで作成、 *. wpp.targets*によりファイル、*アプリ\_offline.htm*ファイルは、Web Deploy が呼び出されたときに、展開パッケージに追加されます。
+- 配置プロセスの制御に使用する Microsoft Build Engine (MSBuild) プロジェクトファイルで、配置タスクを開始する前に、移行先サーバーに*アプリ\_オフライン .htm*ファイルをコピーする MSBuild ターゲットを作成します。
+- すべての展開タスクが完了したら、移行先サーバーから*アプリ\_offline .htm*ファイルを削除する別の MSBuild ターゲットを追加します。
+- Web アプリケーションプロジェクトで、Web 配置が呼び出されたときに、*アプリ\_オフライン .htm*ファイルが配置パッケージに追加されるようにするための、 *.targets*ファイルを作成します。
 
-このトピックでは、これらの手順を実行する方法を説明します。 タスクとこのトピックの「チュートリアルを少なくとも 1 つの web アプリケーション プロジェクトを含むソリューションを既に作成していて、」の説明に従って、展開プロセスを制御するカスタムのプロジェクト ファイルを使用することを想定しています[の Web 展開、。エンタープライズ](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)します。 また、使用することができます、 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプル ソリューションのトピックで例を実行します。
+このトピックでは、これらの手順を実行する方法について説明します。 このトピックのタスクとチュートリアルでは、少なくとも1つの web アプリケーションプロジェクトを含むソリューションが既に作成されていることを前提としています。また、「[エンタープライズでの Web 配置](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)」で説明されているように、カスタムプロジェクトファイルを使用してデプロイプロセスを制御します。 または、 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプルソリューションを使用して、「」の例に従ってください。
 
-## <a name="adding-an-appoffline-file-to-a-web-application-project"></a>アプリの追加\_オフライン ファイルを Web アプリケーション プロジェクト
+## <a name="adding-an-app_offline-file-to-a-web-application-project"></a>アプリ\_オフラインファイルを Web アプリケーションプロジェクトに追加する
 
-追加する最初のタスクを完了する必要があるは、*アプリ\_オフライン*ファイルを web アプリケーション プロジェクト。
+最初に完了する必要がある作業は、*アプリ\_オフライン*ファイルを web アプリケーションプロジェクトに追加することです。
 
-- ファイルが、開発プロセスに干渉するを防ぐために (完全にオフラインにするアプリケーションをたくない) を呼び出す必要があります、何か他にも*アプリ\_offline.htm*します。 たとえば、ファイルを名前*アプリ\_オフライン template.htm*します。
-- ファイルとしてデプロイされていることを防ぐためには、ビルド アクションを設定する必要があります**None**します。
+- ファイルが開発プロセスに干渉しないようにするには (アプリケーションを完全にオフラインにしないようにする場合)、 *App\_offline. .htm*以外のものを呼び出す必要があります。 たとえば、ファイルに*offline-template\_* という名前を指定できます。
+- ファイルがそのように配置されないようにするには、[ビルド] アクションを **[なし**] に設定する必要があります。
 
-**アプリを追加する\_オフライン ファイルを web アプリケーション プロジェクト**
+**アプリ\_オフラインファイルを web アプリケーションプロジェクトに追加するには**
 
 1. Visual Studio 2010 でソリューションを開きます。
-2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーション プロジェクトを右クリックし、 をポイント**追加**、 をクリックし、**新しい項目の**します。
-3. **新しい項目の追加**ダイアログ ボックスで、 **HTML ページ**します。
-4. **名前**ボックスに「**アプリ\_template.htm オフライン** をクリックし、**追加**します。
+2. **[ソリューションエクスプローラー]** ウィンドウで、web アプリケーションプロジェクトを右クリックし、 **[追加]** をポイントして、 **[新しい項目]** をクリックします。
+3. **[新しい項目の追加]** ダイアログボックスで、 **[HTML ページ]** を選択します。
+4. **[名前]** ボックスに「 **App\_offline-template**」と入力し、 **[追加]** をクリックします。
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image1.png)
-5. アプリケーションが使用できないことをユーザーに通知する簡単な HTML を追加し、ファイルを保存します。 サーバー側のタグを含めないでください (たとえば、任意のタグが付いている"asp:")。 
+5. 単純な HTML を追加して、アプリケーションが使用できないことをユーザーに通知し、ファイルを保存します。 サーバー側のタグを含めないでください (たとえば、"asp:" というプレフィックスが付いたタグなど)。 
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image2.png)
-6. **ソリューション エクスプ ローラー**ウィンドウで、新しいファイルを右クリックし、順にクリックします**プロパティ**します。
-7. **プロパティ**ウィンドウで、**ビルド アクション**行で、 **None**します。
+6. **[ソリューションエクスプローラー]** ウィンドウで、新しいファイルを右クリックし、 **[プロパティ]** をクリックします。
+7. **[プロパティ]** ウィンドウの **[ビルドアクション]** 行で、 **[なし]** を選択します。
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image3.png)
 
-## <a name="deploying-and-deleting-an-appoffline-file"></a>展開して、アプリの削除\_オフライン ファイル
+## <a name="deploying-and-deleting-an-app_offline-file"></a>アプリ\_オフラインファイルの展開と削除
 
-次の手順では、展開プロセスの開始時、移行先サーバーにファイルをコピーし、最後に削除して、デプロイ ロジックを変更します。
+次の手順では、デプロイロジックを変更して、デプロイプロセスの開始時に移行先サーバーにファイルをコピーし、最後にファイルを削除します。
 
 > [!NOTE]
-> 次の手順を使用しているカスタム MSBuild プロジェクト ファイルをデプロイ プロセスを制御する」の説明に従って前提としています。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。 Visual Studio から直接デプロイする場合、は、別のアプローチを使用する必要があります。 Sayed Ibrahim Hashimi で 1 つの方法を説明する[かかる Your Web App オフライン中に公開する方法](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx)します。
+> 次の手順では、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」で説明されているように、カスタム MSBuild プロジェクトファイルを使用して配置プロセスを制御していることを前提としています。 Visual Studio から直接デプロイする場合は、別の方法を使用する必要があります。 作成者は、[発行中に Web アプリをオフラインにする方法](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx)について説明します。
 
-展開する、*アプリ\_オフライン*ファイル変換先の IIS の web サイトに MSDeploy.exe を使用して呼び出す必要があります、 [Web Deploy **contentPath**プロバイダー](https://technet.microsoft.com/library/dd569034(WS.10).aspx)します。 **ContentPath**プロバイダーは、サポートの物理ディレクトリのパスと IIS の web サイトまたはアプリケーションのパスの両方と、Visual Studio プロジェクトのフォルダーと IIS web アプリケーションの間のファイルを同期するための理想的な選択肢になります。 ファイルを展開するには、MSDeploy コマンドのようにこのする必要があります。
+*アプリ\_オフライン*ファイルを移行先の IIS web サイトに展開するには、 [Web 配置**contentpath**プロバイダー](https://technet.microsoft.com/library/dd569034(WS.10).aspx)を使用して msdeploy.exe を呼び出す必要があります。 **Contentpath**プロバイダーは、物理ディレクトリパスと iis web サイトまたはアプリケーションパスの両方をサポートしています。これにより、Visual Studio プロジェクトフォルダーと iis web アプリケーションの間でファイルを同期するための最適な選択肢となります。 ファイルを配置するために、Msdeploy.exe コマンドは次のようになります。
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
 
-展開プロセスの最後に、接続先サイトから、ファイルを削除するには、MSDeploy コマンドのようにこのする必要があります。
+デプロイプロセスの最後に、転送先サイトからファイルを削除するために、Msdeploy.exe コマンドは次のようになります。
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample2.cmd)]
 
-ビルドと展開プロセスの一環としてこれらのコマンドを自動化するには、カスタム MSBuild プロジェクト ファイルに統合する必要があります。 次の手順では、これを行う方法について説明します。
+ビルドと配置のプロセスの一部としてこれらのコマンドを自動化するには、それらをカスタム MSBuild プロジェクトファイルに統合する必要があります。 次の手順では、これを行う方法について説明します。
 
-**展開し、アプリを削除する\_オフライン ファイル**
+**オフラインファイル\_アプリを展開および削除するには**
 
-1. Visual Studio 2010 で、デプロイ プロセスを制御する MSBuild プロジェクト ファイルを開きます。 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプル ソリューションでは、これは、 *Publish.proj*ファイル。
-2. ルートに**プロジェクト**要素を新規作成**PropertyGroup**の変数を格納する要素、*アプリ\_オフライン*展開。
+1. Visual Studio 2010 で、配置プロセスを制御する MSBuild プロジェクトファイルを開きます。 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプルソリューションでは、これは、 *Publish*ファイルです。
+2. ルート**プロジェクト**要素に、*アプリ\_のオフライン*展開の変数を格納する新しい**PropertyGroup**要素を作成します。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. **ソース ルート**でプロパティが他の場所で定義されている、 *Publish.proj*ファイル。 現在のパスを基準とソース コンテンツのルート フォルダーの場所を示します&#x2014;の位置を基準、 *Publish.proj*ファイル。
-4. **ContentPath**デプロイする前に、ソース ファイルへの絶対パスを取得する必要があるためプロバイダーは相対ファイル パスを受け入れません。 使用することができます、 [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx)これを行うタスクです。
-5. 新しい追加**ターゲット**という名前の要素**GetAppOfflineAbsolutePath**します。 このターゲットを使用して、 **ConvertToAbsolutePath**への絶対パスを取得するタスク、*アプリ\_テンプレート オフライン*プロジェクト フォルダー内のファイル。
+3. **SourceRoot**プロパティは、 *Publish*ファイル内の他の場所で定義されています。 これは、ソースコンテンツのルートフォルダーの場所を、現在のパス&#x2014;を基準とした、 *Publish. proj*ファイルの場所を基準とした相対的な位置を示します。
+4. **Contentpath**プロバイダーは、相対ファイルパスを受け入れません。そのため、ソースファイルの絶対パスを取得してから、デプロイする必要があります。 これを行うには、 [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx)タスクを使用します。
+5. **GetAppOfflineAbsolutePath**という名前の新しい**Target**要素を追加します。 このターゲット内で、 **ConvertToAbsolutePath**タスクを使用して、プロジェクトフォルダー内の*アプリ\_オフラインテンプレート*ファイルへの絶対パスを取得します。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
-6. このターゲットへの相対パスを受け取り、*アプリ\_テンプレート オフライン*プロジェクト フォルダー内のファイルに新しいプロパティを絶対ファイル パスとして保存します。 **BeforeTargets**属性は、前に実行するには、このターゲットにすることを指定します、 **DeployAppOffline**ターゲットで、次の手順で作成します。
-7. という名前の新しいターゲットを追加**DeployAppOffline**します。 このターゲット内でデプロイする MSDeploy.exe コマンドを呼び出す、*アプリ\_オフライン*ファイル変換先の web サーバーにします。
+6. このターゲットは、プロジェクトフォルダー内の*アプリ\_オフラインテンプレート*ファイルへの相対パスを取得し、絶対ファイルパスとして新しいプロパティに保存します。 **Beforetargets**属性は、このターゲットを**DeployAppOffline**ターゲットの前に実行することを指定します。これは、次の手順で作成します。
+7. **DeployAppOffline**という名前の新しいターゲットを追加します。 このターゲット内で、アプリを移行先の web サーバーに *\_オフライン*ファイルをデプロイする msdeploy.exe コマンドを呼び出します。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample5.xml)]
-8. この例で、 **ContactManagerIisPath**プロパティがプロジェクト ファイルで他の場所で定義されています。 これは、単に、IIS アプリケーション パス、フォームで *[IIS web サイト名]/[アプリケーション名]* します。 ターゲットの条件を含めることができますを切り替える、*アプリ\_オフライン*プロパティ値を変更またはコマンド ライン パラメーターを提供することによって展開をオンまたはオフ。
-9. という名前の新しいターゲットを追加**DeleteAppOffline**します。 このターゲット内で削除する MSDeploy.exe コマンドを呼び出す、*アプリ\_オフライン*送信先の web サーバーからのファイル。
+8. この例では、 **ContactManagerIisPath**プロパティはプロジェクトファイル内の他の場所で定義されています。 これは、単に *[Iis Web サイト名]/[アプリケーション名]* という形式の iis アプリケーションパスです。 ターゲットに条件を含めることで、ユーザーはプロパティ値を変更するかコマンドラインパラメーターを指定することによって、*アプリ\_オフライン*展開のオンとオフを切り替えることができます。
+9. **DeleteAppOffline**という名前の新しいターゲットを追加します。 このターゲット内で、保存先の web サーバーから*アプリ\_オフライン*ファイルを削除する msdeploy.exe コマンドを呼び出します。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample6.xml)]
-10. 最後のタスクでは、プロジェクト ファイルの実行中に適切な時点でこれらの新しいターゲットを呼び出します。 これは、さまざまな方法で行うことができます。 たとえば、 *Publish.proj*ファイル、 **FullPublishDependsOn**プロパティを実行する必要があるターゲットの一覧を指定しますで注文するときに、 **FullPublish**既定ターゲットが呼び出されます。
-11. 呼び出す MSBuild プロジェクト ファイルを変更、 **DeployAppOffline**と**DeleteAppOffline**パブリッシュ処理に適切な時点でのターゲット。
+10. 最後のタスクは、プロジェクトファイルの実行中に、これらの新しいターゲットを適切な時点で呼び出します。 これはさまざまな方法で行うことができます。 たとえば、 **FullPublishDependsOn**プロパティでは、 **fullpublish**の既定のターゲットが呼び出されたときに実行する必要があるターゲットのリストを指定し*ます*。
+11. MSBuild プロジェクトファイルを変更して、発行プロセスの適切なポイントで**DeployAppOffline**および**DeleteAppOffline**ターゲットを呼び出すようにします。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample7.xml)]
 
-カスタム MSBuild プロジェクト ファイルを実行すると、*アプリ\_オフライン*ファイルは、ビルドの成功後すぐに、サーバーに配置されます。 削除されます、サーバーからすべての展開タスクが完了します。
+カスタム MSBuild プロジェクトファイルを実行すると、ビルドが正常に完了した直後に、*アプリ\_オフライン*ファイルがサーバーに配置されます。 その後、すべてのデプロイタスクが完了すると、サーバーから削除されます。
 
-## <a name="adding-an-appoffline-file-to-deployment-packages"></a>アプリの追加\_の展開パッケージにオフライン ファイル
+## <a name="adding-an-app_offline-file-to-deployment-packages"></a>アプリ\_オフラインファイルを展開パッケージに追加する
 
-デプロイの構成方法に応じて、既存の IIS の転送先にコンテンツ web アプリケーション&#x2014;など、*アプリ\_offline.htm*ファイル&#x2014;web を展開するときに自動的に削除することがあります先にパッケージします。 いることを確認する、*アプリ\_offline.htm*ファイルは、デプロイ時間の場所には、さらに、ファイルの先頭に直接展開する web デプロイ パッケージ自体内でファイルを含める必要があります。展開するプロセス。
+展開を構成する方法によっては、移行先に web パッケージを配置&#x2014;するときに、*アプリ\_オフライン .htm*ファイル&#x2014;のように、移行先 IIS web アプリケーションの既存のコンテンツが自動的に削除されることがあります。 デプロイ中に*アプリ\_オフライン .htm*ファイルが配置されるようにするには、デプロイプロセスの開始時に直接ファイルを配置するだけでなく、web 配置パッケージ内にファイルを含める必要があります。
 
-- かどうか、このトピックで前のタスクに従った、なりましたね、*アプリ\_offline.htm*ファイルを別のファイル名の下で web アプリケーション プロジェクト (を使用して*アプリ\_オフライン template.htm*) ビルド アクションを設定したが**None**します。 これらの変更は、開発に干渉することと、デバッグからファイルを防ぐために必要です。 その結果、いることを確認するパッケージ化プロセスをカスタマイズする必要があります、*アプリ\_offline.htm*ファイルが web デプロイ パッケージに含まれています。
+- このトピックの前のタスクを実行したことがある場合は、*アプリ\_オフライン .htm*ファイルを別のファイル名 (*アプリ\_offline-template*を使用しました) の下に web アプリケーションプロジェクトに追加し、ビルドアクションを **[なし**] に設定します。 これらの変更は、ファイルが開発やデバッグに干渉するのを防ぐために必要です。 そのため、パッケージ化プロセスをカスタマイズして、*アプリ\_オフライン .htm*ファイルが web 配置パッケージに含まれるようにする必要があります。
 
-Web 発行パイプライン (WPP) という項目一覧を使用して**FilesForPackagingFromProject** web 展開パッケージに含める必要があるファイルの一覧を作成します。 Web パッケージの内容をカスタマイズするには、この一覧に、独自の項目を追加します。 これを行うには、これらの大まかな手順を完了する必要があります。
+Web 発行パイプライン (WPP) は、 **Filesforの Ingfromproject**という名前の項目リストを使用して、web 配置パッケージに含める必要があるファイルのリストを作成します。 独自の項目をこの一覧に追加することで、web パッケージの内容をカスタマイズできます。 これを行うには、次の大まかな手順を実行する必要があります。
 
-1. という名前のカスタム プロジェクト ファイルを作成する *[プロジェクト名].wpp.targets*プロジェクト ファイルと同じフォルダーにします。
+1. プロジェクトファイルと同じフォルダーに、 *[project name] wpp*という名前のカスタムプロジェクトファイルを作成します。
 
     > [!NOTE]
-    > *. Wpp.targets*ファイルは、web アプリケーション プロジェクト ファイルと同じフォルダーに移動する必要がある&#x2014;など*ContactManager.Mvc.csproj*&#x2014;任意のカスタムと同じフォルダー内ではなくプロジェクト ファイルを使用して、ビルドおよび展開プロセスを制御します。
-2. *. Wpp.targets*ファイルで実行される新しい MSBuild ターゲットを作成する*する前に*、 **CopyAllFilesToSingleFolderForPackage**ターゲット。 これは、パッケージに含める項目の一覧をビルドする WPP ターゲットです。
-3. 新しいターゲットを作成、 **ItemGroup**要素。
-4. **ItemGroup**要素を追加、 **FilesForPackagingFromProject**を指定し、*アプリ\_offline.htm*ファイル。
+    > *.Targets*ファイルは、web アプリケーションプロジェクトファイル&#x2014;と同じフォルダーに配置する必要があります。たとえば、ビルドと配置のプロセスを制御するために使用するカスタムプロジェクトファイルと同じフォルダーではなく、 *contactmanager. .csproj*&#x2014;というフォルダーにする必要があります。
+2. *Wpp*ファイルで、 **CopyAllFilesToSingleFolderForPackage**ターゲットの*前に*実行する新しい MSBuild ターゲットを作成します。 これは、パッケージに含める項目の一覧を作成する WPP ターゲットです。
+3. 新しいターゲットで、 **ItemGroup**要素を作成します。
+4. **ItemGroup**要素で、 **Filesfor ingfromプロジェクト**項目を追加し、 *\_アプリをオフライン .htm*ファイルとして指定します。
 
-*. Wpp.targets*このファイルのようになります。
+*. .Targets*ファイルは次のようになります。
 
 [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample8.xml)]
 
-この例での重要な点を次に示します。
+この例の重要な点を次に示します。
 
-- **BeforeTargets**属性内の直前に実行するかを指定することによって、WPP にこのターゲットの挿入、 **CopyAllFilesToSingleFolderForPackage**ターゲット。
-- **FilesForPackagingFromProject**項目は、 **DestinationRelativePath**からファイルの名前を変更するメタデータ値*アプリ\_オフライン template.htm* *アプリ\_offline.htm*ように、一覧に追加されます。
+- **Beforetargets**属性は、 **CopyAllFilesToSingleFolderForPackage**ターゲットの直前に実行されることを指定することによって、このターゲットを WPP に挿入します。
+- **FilesforDestinationRelativePath Ingfromproject**項目では、ファイルの名前を*app\_offline-template*から*app\_* に変更するために、リストに追加されたときに、このメタデータ値を使用します。
 
-次の手順は、これを追加する方法を示します *. wpp.targets*ファイルを web アプリケーション プロジェクト。
+次の手順では、この*wpp*ファイルを web アプリケーションプロジェクトに追加する方法について説明します。
 
-**追加する、です web 展開パッケージに wpp.targets ファイル。**
+**Web 配置パッケージに wpp ファイルを追加するには**
 
 1. Visual Studio 2010 でソリューションを開きます。
-2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックして (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
-3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに「 *[プロジェクト名]* **.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.
+2. **[ソリューションエクスプローラー]** ウィンドウで、web アプリケーションプロジェクトノード ( **contactmanager**など) を右クリックし、 **[追加]** をポイントして、 **[新しい項目]** をクリックします。
+3. **[新しい項目の追加]** ダイアログボックスで、 **[XML ファイル]** テンプレートを選択します。
+4. **[名前]** ボックスに「 *[project Name] * * ** を使用します。」と入力し (たとえば、 **contactmanager. Mvc. wpp**)、 **[追加]** をクリックします。
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 
     > [!NOTE]
-    > プロジェクトのルート ノードに新しい項目を追加する場合は、プロジェクト ファイルと同じフォルダーにファイルが作成されます。 これは、Windows エクスプ ローラーでフォルダーを開くことで確認できます。
+    > プロジェクトのルートノードに新しい項目を追加すると、そのファイルはプロジェクトファイルと同じフォルダーに作成されます。 これを確認するには、エクスプローラーでフォルダーを開きます。
 5. ファイルで、前に説明した MSBuild マークアップを追加します。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample9.xml)]
-6. 保存して閉じます、 *[プロジェクト名].wpp.targets*ファイル。
+6. *[Project name]. wpp. .targets*ファイルを保存して閉じます。
 
-次回ビルドとパッケージ、web アプリケーション プロジェクト、WPP を自動的に検出、 *. wpp.targets*ファイル。 *アプリ\_オフライン template.htm*ファイルとして生成される web デプロイ パッケージに含めるは*アプリ\_offline.htm*します。
+次に web アプリケーションプロジェクトをビルドしてパッケージ化すると、WPP によって自動的に*wpp*ファイルが検出されます。 アプリ *\_offline-template*ファイルは、*アプリ\_offline. .htm*として生成される web 展開パッケージに含まれます。
 
 > [!NOTE]
-> デプロイが失敗した場合、*アプリ\_offline.htm*ファイルが配置に保持され、アプリケーションがオフラインのままにします。 これは、通常、目的の動作です。 アプリケーションをオンラインに戻す、削除して、*アプリ\_offline.htm* web サーバーからのファイル。 また、エラーを修正して、展開を成功させるを実行する場合、*アプリ\_offline.htm*ファイルは削除されます。
+> 配置に失敗した場合、*アプリ\_オフライン .htm*ファイルはそのまま残り、アプリケーションはオフラインのままになります。 これは通常、望ましい動作です。 アプリケーションをオンラインに戻すには、web サーバーから*オフラインの .htm ファイル\_アプリ*を削除します。 または、エラーを修正して正常な配置を実行すると、*アプリ\_のオフライン .htm*ファイルが削除されます。
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックにパブリッシュすることによって、展開の期間の web アプリケーションをオフラインを実行する方法が説明されている、*アプリ\_offline.htm*削除することで、展開プロセスの開始時、移行先サーバーにファイルを開き、終わり。 含める方法についても説明、*アプリ\_offline.htm* web 展開パッケージ内のファイル。
+このトピックでは、デプロイ中に web アプリケーションをオフラインにする方法について説明します。そのためには、展開プロセスの開始時に移行先サーバーに*アプリ\_オフライン .htm*ファイルを発行し、最後にそのサーバーを削除します。 また、web 配置パッケージに*アプリ\_offline .htm*ファイルを組み込む方法についても説明します。
 
 ## <a name="further-reading"></a>関連項目
 
-パッケージ化と展開プロセスの詳細については、次を参照してください[のビルドとパッケージ化 Web Application Projects](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)、 [Web パッケージ展開の構成パラメーター](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md)、および[。Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)します。
+パッケージ化と配置のプロセスの詳細については、「 [Web アプリケーションプロジェクトのビルドとパッケージ化](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)」、「Web[パッケージ配置のパラメーターの構成](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md)」、および「 [web パッケージの配置](../web-deployment-in-the-enterprise/deploying-web-packages.md)」を参照してください。
 
-これらのチュートリアルで説明されているカスタム MSBuild プロジェクト ファイル手法を使用して、発行時に、アプリケーションをオフラインに少し異なる方法を使用する必要がありますのではなく、Visual Studio から直接 web アプリケーションを発行する場合プロセスです。 詳細については、次を参照してください。[発行時に、web アプリをオフラインを実行する](https://go.microsoft.com/?linkid=9805135)(ブログの投稿)。
+Web アプリケーションを Visual Studio から直接発行する場合は、これらのチュートリアルで説明されているカスタム MSBuild プロジェクトファイルの方法を使用するのではなく、発行中にアプリケーションをオフラインにするために、若干異なる方法を使用する必要があります。process.
 
 > [!div class="step-by-step"]
 > [前へ](excluding-files-and-folders-from-deployment.md)

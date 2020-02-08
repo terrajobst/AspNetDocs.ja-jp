@@ -6,22 +6,22 @@ description: ASP.NET Webhook の概要です。
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.openlocfilehash: aa65a20e1af16d58533e37fafc77ac246e0fe327
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.openlocfilehash: 1e21c92e950893c0ff87c63f03f4710a158441fd
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000731"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075087"
 ---
 # <a name="aspnet-webhooks-overview"></a>ASP.NET Webhook の概要
 
 Webhook は、Web API と SaaS サービスをまとめて配線の単純なパブリッシュ/サブスクライブ モデルを提供する軽量な HTTP パターンです。 サービスでイベントが発生すると、登録されたサブスクライバーに対して HTTP POST 要求の形式で通知が送信されます。 POST 要求には、イベントに関する情報が含まれています。これにより、受信側がそれに応じて動作できるようになります。
 
-単純なので、 [Dropbox](http://dropbox.com/)、 [GitHub](http://www.github.com/)、 [Bitbucket](https://bitbucket.org/)、 [mailchimp](http://www.mailchimp.com/)、 [PayPal](http://www.paypal.com/)、[余裕](http://www.slack.com)、[ストライプ](http://www.stripe.com)、 [Trello](http://www.trello.com/)、および many を含む多数のサービスによって、webhook が既に公開されています。もっとその。 たとえば、WebHook は、 [Dropbox](http://dropbox.com/)でファイルが変更されたこと、またはコード変更が GitHub でコミットされたか、または[PayPal](http://www.paypal.com/)で支払いが開始されたか、または[Trello](http://www.trello.com/)でカードが作成されたことを示すことができます。 可能性は無限です。
+単純なので、 [Dropbox](http://dropbox.com/)、 [GitHub](https://www.github.com/)、 [Bitbucket](https://bitbucket.org/)、 [mailchimp](http://www.mailchimp.com/)、 [PayPal](http://www.paypal.com/)、[余裕](http://www.slack.com)、[ストライプ](http://www.stripe.com)、 [Trello](http://www.trello.com/)など、多数のサービスによって webhook が既に公開されています。 たとえば、WebHook は、 [Dropbox](http://dropbox.com/)でファイルが変更されたこと、またはコード変更が GitHub でコミットされたか、または[PayPal](http://www.paypal.com/)で支払いが開始されたか、または[Trello](http://www.trello.com/)でカードが作成されたことを示すことができます。 可能性は無限です。
 
 Microsoft ASP.NET Webhook を使用すると、ASP.NET アプリケーションの一部として Webhook を送受信することが簡単になります。
 
-* 受信側では、任意の数の WebHook プロバイダーから webhook を受信して処理するための共通のモデルが提供されます。 [Dropbox](http://dropbox.com/)、 [GitHub](http://www.github.com/)、 [Bitbucket](https://bitbucket.org/)、 [mailchimp](http://www.mailchimp.com/)、 [PayPal](http://www.paypal.com/)、 [Pusher](http://www.pusher.com)、 [Salesforce](http://www.salesforce.com)、[余裕](http://www.slack.com)、[ストライプ](http://www.stripe.com)、 [Trello](http://www.trello.com/)、[WordPress](http://www.wordpress.com)のサポートが提供されています。[Zendesk](https://www.zendesk.com/)を使用すると、サポートをさらに簡単に追加できます。
+* 受信側では、任意の数の WebHook プロバイダーから webhook を受信して処理するための共通のモデルが提供されます。 [Dropbox](http://dropbox.com/)、 [GitHub](https://www.github.com/)、 [Bitbucket](https://bitbucket.org/)、 [mailchimp](http://www.mailchimp.com/)、 [PayPal](http://www.paypal.com/)、 [Pusher](http://www.pusher.com)、 [Salesforce](http://www.salesforce.com)、[余裕](http://www.slack.com)、[ストライプ](http://www.stripe.com)、 [Trello](http://www.trello.com/)、[WordPress](http://www.wordpress.com) 、 [Zendesk](https://www.zendesk.com/)のサポートが提供されていますが、さらにサポートを追加するのは簡単です。
 
 * 送信側では、サブスクリプションの管理と保存、および適切なサブスクライバーのセットへのイベント通知の送信がサポートされています。 これにより、サブスクライバーがサブスクライブできる独自のイベントセットを定義し、発生したときに通知を受け取ることができます。
 
@@ -33,7 +33,7 @@ Microsoft ASP.NET Webhook を使用すると、ASP.NET アプリケーション�
 
 Webhook は、サービス間でどのように使用されるかが異なることを意味するパターンですが、基本的な考え方は同じです。 Webhook は、他の場所で発生したイベントをユーザーがサブスクライブできる単純な pub/sub モデルと考えることができます。 イベント通知は、イベント自体に関する情報を含む HTTP POST 要求として伝達されます。
 
-通常、HTTP POST 要求には、webhook がトリガーするイベントに関する情報など、WebHook 送信者によって決定される JSON オブジェクトまたは HTML フォームデータが含まれます。 たとえば、 [GitHub](http://www.github.com/)からの WebHook POST 要求本文は、特定のリポジトリで新しい問題が開かれた結果として次のようになります。
+通常、HTTP POST 要求には、webhook がトリガーするイベントに関する情報など、WebHook 送信者によって決定される JSON オブジェクトまたは HTML フォームデータが含まれます。 たとえば、 [GitHub](https://www.github.com/)からの WebHook POST 要求本文は、特定のリポジトリで新しい問題が開かれた結果として次のようになります。
 
 ```json
 {

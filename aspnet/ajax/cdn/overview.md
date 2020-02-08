@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 51cb8d672139aaebd77bcdbe80bb579d4b3776aa
-ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
+ms.openlocfilehash: 228194a7b35e116cabae6d819e7a3a8060a3ef6a
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899571"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074918"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -64,7 +64,7 @@ CDN は、これらのライブラリの所有者によってアップロード�
 - jQuery (www.jquery.com)
 - jQuery UI (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
-- jQuery の検証 (www.jquery.com)
+- jQuery 検証 (https://jqueryvalidation.org/)
 - jQuery サイクル (www.malsup.com/jquery/cycle/)
 - jQuery Datatable (http://datatables.net/)
 
@@ -76,7 +76,7 @@ Microsoft Ajax CDN には、Microsoft によってアップロードされた次
 
 Microsoft は、この CDN でホストされているサードパーティ製ライブラリの所有権を要求しません。 ライブラリの著作権者は、これらのライブラリのライセンスを取得します。 このようなライブラリをダウンロードして使用する必要がある権利は、それぞれの著作権者によってのみ付与されます。 Microsoft はこれらのライブラリではないため、この CDN でホストされているサードパーティのライブラリに対して、マイクロソフトはいかなる保証も知的財産権の付与 (黙示的な特許権を含む) もいたしません。
 
-場合は、JavaScript ライブラリを提出して、ライブラリは、最上位の JavaScript ライブラリのいずれか (に示された http://trends.builtwith.com) または 拡張機能/プラグインには、人気のある (a)。 または (b) ASP.NET で使用するために役立ちますし、にお問い合わせくださいこれらのライブラリに AjaxCDNSubmission@Microsoft.com します。
+JavaScript ライブラリを送信する場合は、ライブラリが上位の JavaScript ライブラリの1つである (http://trends.builtwith.com)、または (a) 人気のライブラリの拡張機能/プラグインに関するページに記載されている) か、または (b) ASP.NET での使用に適している場合は、AjaxCDNSubmission@Microsoft.comにお問い合わせください。
 
 <a id="ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18"></a>
 
@@ -148,7 +148,7 @@ CDN は、jQuery UI ライブラリもホストします。 JQuery UI ライブ�
 - Jquery UI ライブラリ &mdash; jQuery ui ライブラリには、上のページで使用されている Datepicker ウィジェットなどのすべての jQuery UI 効果とウィジェットが含まれています。
 - Jquery ui の &mdash; jQuery UI テーマは、さまざまなテーマをサポートしています。 上のページには、Redmond テーマをインポートするための CSS ファイルへのリンクが含まれています。
 
-すべての標準的な jQuery UI テーマは CDN でホストされます。 [このページにアクセス](jquery-ui/cdnjqueryui1910.md "jMicrosoft Ajax CDN のクエリ UI 1.8.10)すると、各テーマのサムネイルが表示されます。
+すべての標準的な jQuery UI テーマは CDN でホストされます。 [このページにアクセス](jquery-ui/cdnjqueryui1910.md "Microsoft Ajax CDN の jQuery UI 1.8.10")すると、各テーマのサムネイルが表示されます。
 
 JQuery UI ライブラリの詳細については、公式の[JQUERY ui web サイト](http://jQueryUI.com "jQuery UI web サイト")を参照してください。
 
@@ -617,7 +617,7 @@ JQuery UI ライブラリの次のリリースは、この CDN でホストさ�
 
 ### <a name="jquery-validation-releases-on-the-cdn"></a>CDN での jQuery 検証リリース
 
-この CDN でホストされている jQuery 検証ライブラリのリリースは次のとおりです。 各リンクをクリックすると、ファイルの実際の一覧が表示されます。
+[JQuery Validation](https://jqueryvalidation.org/ "jQuery 検証プラグイン")プラグインの次のリリースは、この CDN でホストされています。 各リンクをクリックすると、ファイルの実際の一覧が表示されます。
 
 - [jQuery Validate 1.19.1](jquery-validate/cdnjqueryvalidate1191.md "jQuery Validation 1.19.1")
 - [jQuery Validate 1.19.0](jquery-validate/cdnjqueryvalidate1190.md "jQuery Validation 1.19.0")

@@ -8,12 +8,12 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 98089df48550216b50330d9b354168f570d857cd
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: daccaedae0b0e60f5086f270f214f87da564a85d
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583186"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074931"
 ---
 # <a name="mvc-recommended-resources"></a>MVC 推奨リソース
 
@@ -26,7 +26,7 @@ ms.locfileid: "74583186"
 
 ## <a name="getting-started-with-aspnet-mvc"></a>Getting Started with ASP.NET MVC (ASP.NET MVC の概要)
 
-- [ASP.NET MVC 5 の概要](introduction/getting-started.md)
+- [ASP.NET MVC 5 の入門ページ](introduction/getting-started.md)
 - [ASP.NET MVC の概要](https://pluralsight.com/training/Player?author=scott-allen&amp;name=mvc4-building-m1-intro&amp;mode=live&amp;clip=0&amp;course=mvc4-building)(ビデオ by Pluralsight)
 - [ASP.NET MVC のモデルビューコントローラーについ](http://www.dotnet-tricks.com/Tutorial/mvc/DIYG060113-Understanding-Model-View-Controller-in-Asp.Net-MVC.html)て (短いブログの概要)。
 - [ASP.NET MVC 概要](../older-versions-1/overview/asp-net-mvc-overview.md)
@@ -49,7 +49,7 @@ ms.locfileid: "74583186"
 
 <a id="azure"></a>
 
-## <a name="microsoft-azure"></a>[Microsoft Azure]
+## <a name="microsoft-azure"></a>Microsoft Azure
 
 - [世界最大の Azure デモ](http://www.troyhunt.com/2014/03/the-worlds-greatest-azure-demo.html)
 - [/2014 からのビデオ](https://channel9.msdn.com/Events/Build/2014?sort=sequential&amp;direction=desc&amp;page=2&amp;tag%5B0%5D=asp.net&amp;tag%5B1%5D=azure&amp;tag%5B2%5D=visual-studio&amp;tag%5B3%5D=web#theSessions): (Azure と Visual Studio)
@@ -155,7 +155,7 @@ ms.locfileid: "74583186"
 
 <a id="perf"></a>
 
-## <a name="performance"></a>パフォーマンス
+## <a name="performance"></a>パフォーマンス テスト
 
 - ビデオ:[詳細: ASP.NET アプリのパフォーマンス](https://channel9.msdn.com/Events/Build/2014/3-605)を Levi Broderick で向上させる
 - ビデオ:[クラウドベースのロードテストサービスと Application Insights を使用した、チャールズ Sterling によるスケールとパフォーマンスの検索](https://channel9.msdn.com/Events/Build/2014/3-595)
@@ -274,7 +274,7 @@ ms.locfileid: "74583186"
 
 <a id="mobile"></a>
 
-## <a name="mobile"></a>携帯
+## <a name="mobile"></a>モバイル
 
 - [ASP.NET MVC 4 Mobile チュートリアル](../older-versions/aspnet-mvc-4-mobile-features.md)
 - [VideoMVC 4 を使用したモバイルで使いやすい Web サイトの構築](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
@@ -291,7 +291,7 @@ ms.locfileid: "74583186"
 
 <a id="spa"></a>
 
-## <a name="single-page-application-spa"></a>シングルページアプリケーション (SPA)
+## <a name="single-page-application-spa"></a>シングル ページ アプリケーション (SPA)
 
 - [シングルページアプリケーションのための .Net 開発者向け入門](https://msdn.microsoft.com/magazine/dn605877.aspx)MSDN Magazine
 - [AngularJS と ASP.NET MVC 4 を使用したシングルページアプリ](http://tarkus.me/post/32121691785/angularjs-with-asp-net-mvc-4)
@@ -315,7 +315,7 @@ ms.locfileid: "74583186"
 - [ASP.NET MVC での単体テストが可能なアプリケーションの作成-初心者向けチュートリアル](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [ASP.NET MVC コントローラーの依存関係の注入 (初心者向け)](http://www.codeproject.com/Articles/560798/ASP-NET-MVC-controller-dependency-injection-for-be)
 - [Ajax 要求と通常の要求を処理する ASP.NET MVC アクションメソッドの単体テストの記述](https://weblogs.asp.net/shijuvarghese/archive/2012/12/09/writing-unit-tests-for-an-asp-net-mvc-action-method-that-handles-ajax-request-and-normal-request.aspx)
-- [オーク: 動的な利点と ASP.NET のない開発を、MVC にもたらす](http://amirrajan.github.com/Oak/)
+- [オーク: 動的な利点と ASP.NET のない開発を、MVC にもたらす](https://amirrajan.github.com/Oak/)
 - [XUnit と Moq を使用して TDD 用の ASP.NET MVC 4 アプリケーションを開発する](http://www.dotnetcurry.com/ShowArticle.aspx?ID=836)
 - [新しいプロジェクトからビルドサーバーへの ASP.NET MVC ビューのテスト](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server)(ビデオ)
 - [クイックスタート: テスト駆動開発](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(ビデオ)
@@ -356,7 +356,7 @@ ms.locfileid: "74583186"
 
 <a id="general"></a>
 
-## <a name="general"></a>[全般]
+## <a name="general"></a>全般
 
 - [ASP.NET MVC 4 と Web API プロジェクトを ASP.NET MVC 5 と Web API 2 にアップグレードする](../releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)
 - [ASP.NET MVC のフィルターと属性について](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)

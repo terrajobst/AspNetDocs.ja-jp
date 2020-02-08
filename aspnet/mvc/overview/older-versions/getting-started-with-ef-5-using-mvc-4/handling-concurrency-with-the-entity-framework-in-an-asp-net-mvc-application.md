@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 0383974baa16bb0d5fc588f9303290bdb0fd979c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9800a313879477f36a730e6a70c79bc06d403ae3
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595344"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074957"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>ASP.NET MVC アプリケーションでの Entity Framework を使用した同時実行の処理 (7/10)
 
@@ -85,6 +85,8 @@ Entity Framework がスローする[OptimisticConcurrencyException](https://msdn
 [Timestamp](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx)属性は、この列が `Update` の `Where` 句と、データベースに送信される `Delete` コマンドに含まれることを指定します。 この属性は[timestamp](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx)と呼ばれます。これは、以前のバージョンの SQL Server では、sql [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)によって置き換えられる前に sql [timestamp](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx)データ型が使用されているためです。 `rowversion` の .Net 型はバイト配列です。 Fluent API を使用する場合は、次の例に示すように、 [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx)メソッドを使用して追跡プロパティを指定できます。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
+
+GitHub の問題「 [IsConcurrencyToken By IsRowVersion](https://github.com/aspnet/AspNetDocs/issues/302)」を参照してください。
 
 プロパティを追加し、データベース モデルを変更したので、別の移行を行う必要があります。 パッケージ マネージャー コンソール (PMC) で、次のコマンドを入力します。
 
@@ -158,7 +160,7 @@ Kim Abercrombie の**編集**ハイパーリンクを右クリックし、[**新
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
-**[保存]** をもう一度クリックします。 2番目のブラウザーで入力した値は、最初のブラウザーで変更したデータの元の値と共に保存されます。 Index ページが表示されると、保存した値を確認できます。
+**[保存]** を再びクリックします。 2番目のブラウザーで入力した値は、最初のブラウザーで変更したデータの元の値と共に保存されます。 Index ページが表示されると、保存した値を確認できます。
 
 ![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
 

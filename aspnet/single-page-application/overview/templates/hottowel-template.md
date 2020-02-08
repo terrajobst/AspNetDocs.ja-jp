@@ -1,159 +1,159 @@
 ---
 uid: single-page-application/overview/templates/hottowel-template
-title: ホット Towel テンプレート |Microsoft Docs
+title: ホットタオルテンプレート |Microsoft Docs
 author: madskristensen
-description: HotTowel テンプレート
+description: ホットタオルテンプレート
 ms.author: riande
 ms.date: 02/09/2013
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: f3457840d1597d06c1a1b1ec2a865dd70726446c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: eeab69e75546791978bb09d7823d95caf9dca1a0
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113340"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075061"
 ---
 # <a name="hot-towel-template"></a>Hot Towel テンプレート
 
-によって[Mads Kristensen](https://github.com/madskristensen)
+[Mads Kristensen](https://github.com/madskristensen)
 
-> ホットのタオル MVC テンプレートは、John Papa によって書き込まれます。
+> ホットタオル MVC テンプレートは John Papa によって作成されます。
 > 
-> ダウンロードするバージョンを選択します。
+> ダウンロードするバージョンの選択:
 > 
-> [Visual Studio 2012 用のホット タオル MVC テンプレート](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
+> [Visual Studio 2012 用のホットペーパー MVC テンプレート](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
-> [Visual Studio 2013 のホット タオルの MVC テンプレート](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
+> [Visual Studio 2013 用のホットタオル MVC テンプレート](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
 > 
 > 
-> ホットのタオル:ない SPA に移動する場合。
+> ホットタオル: SPA にアクセスしないようにする必要があります。
 
-SPA を構築したいが、開始する場所を決定することはできませんか? ホット タオルを使用し、秒単位では、SPA とその上に構築する必要があるすべてのツールをしましたします。
+SPA を構築するが、どこから開始するかを決定できない場合は、 ホットタオルを使用して、数秒で SPA とすべてのツールを構築する必要があります。
 
-ホットのタオルでは、ASP.NET を使用したシングル ページ アプリケーション (SPA) を構築するための出発点を作成します。 すぐするモジュール式の構造を提供、コード、ビューのナビゲーション、データ バインディング、豊富なデータ管理および単純ですが、洗練されたスタイルをします。 ホット タオルは、すべてのプラミングではないアプリに集中できるように、SPA を構築する必要があるものを提供します。
+ホットタオルでは、ASP.NET を使用してシングルページアプリケーション (SPA) を構築するための開始点として優れています。 すぐに使えるように、コードのモジュール形式の構造、ビューのナビゲーション、データバインディング、豊富なデータ管理、シンプルで洗練されたスタイル設定を提供しています。 ホットタオルは SPA を構築するために必要なすべての機能を備えているので、アプリに集中することができます。
 
-> SPA を構築について詳しく学習[John Papa のビデオ、チュートリアル、および Pluralsight コース](http://johnpapa.net/spa?vsix)します。
+> 詳細については[、John Papa のビデオ、チュートリアル、Pluralsight コース](http://johnpapa.net/spa?vsix)からの SPA の構築に関するページを参照してください。
 
-## <a name="application-structure"></a>アプリケーションの構造
+## <a name="application-structure"></a>アプリケーション構造
 
-ホットのタオル SPA には、アプリケーションを定義する JavaScript と HTML ファイルを含むアプリ フォルダーが提供します。
+ホットタオル SPA には、アプリケーションを定義する JavaScript および HTML ファイルを含むアプリフォルダーが用意されています。
 
-アプリ フォルダー。
+アプリフォルダー内:
 
 - durandal
 - サービス
-- ビューモデル
-- ビュー
+- viewmodel
+- 表示
 
-アプリ フォルダーには、モジュールのコレクションが含まれています。 これらのモジュールは、機能をカプセル化し、他のモジュールの依存関係を宣言します。 Views フォルダーには、アプリケーションの HTML が含まれているし、ビューモデル フォルダーにはビュー (一般的な MVVM パターン) のプレゼンテーション ロジックが含まれています。 サービス フォルダーは、アプリケーションには、HTTP データを取得またはローカル ストレージとの対話など必要なすべての一般的なサービスの格納に最適です。 サービス モジュールからコードを再利用する複数のビューモデル一般的です。
+アプリフォルダーには、モジュールのコレクションが含まれています。 これらのモジュールは、機能をカプセル化し、他のモジュールとの依存関係を宣言します。 Views フォルダーには、アプリケーションの HTML が含まれています。また、viewmodel フォルダーには、ビューのプレゼンテーションロジック (共通 MVVM パターン) が含まれています。 Services フォルダーは、アプリケーションで必要になる可能性のある一般的なサービス (HTTP データの取得やローカルストレージの相互作用など) を格納するのに最適です。 複数の viewmodel では、サービスモジュールのコードを再利用するのが一般的です。
 
-## <a name="aspnet-mvc-server-side-application-structure"></a>ASP.NET MVC のサーバー側アプリケーションの構造
+## <a name="aspnet-mvc-server-side-application-structure"></a>ASP.NET MVC サーバー側のアプリケーション構造
 
-ホットのタオルは親しみやすく、強力な ASP.NET MVC の構造に基づいています。
+ホットタオルは、使い慣れた強力な ASP.NET MVC 構造を基盤としています。
 
 - アプリ\_開始
-- Content
-- Controllers
+- コンテンツ
+- コントローラー
 - モデル
 - スクリプト
-- Views
+- ビュー
 
 ## <a name="featured-libraries"></a>おすすめのライブラリ
 
 - ASP.NET MVC
 - ASP.NET Web API
-- ASP.NET Web の最適化 - バンドルと縮小
-- [Breeze.js](http://Breezejs.com) -豊富なデータ管理
-- [Durandal.js](http://Durandaljs.com) -ナビゲーションとビューの構成
-- [Knockout.js](http://Knockoutjs.com) -データのバインド
-- [Require.js](http://requirejs.org) -AMD と最適化モジュール
-- [Toastr.js](http://jpapa.me/c7toastr) -ポップアップ メッセージ
-- [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - 堅牢な CSS スタイル
+- ASP.NET Web Optimization-バンドルと縮小
+- 簡単な[.js](http://Breezejs.com) -豊富なデータ管理
+- [Durandal](http://Durandaljs.com) -ナビゲーションとビューのコンポジション
+- [ノックアウト](http://Knockoutjs.com)-データバインディング
+- [必要な .js](http://requirejs.org) -AMD および optimization によるモジュール性
+- [Toastr](http://jpapa.me/c7toastr) -ポップアップメッセージ
+- [Twitter のブートストラップ](https://twitter.github.com/bootstrap/)-堅牢な CSS スタイル
 
-## <a name="installing-via-the-visual-studio-2012-hot-towel-spa-template"></a>Visual Studio 2012 のホット タオル SPA テンプレートを使用してインストールします。
+## <a name="installing-via-the-visual-studio-2012-hot-towel-spa-template"></a>Visual Studio 2012 ホットタオルの SPA テンプレートを使用したインストール
 
-Visual Studio 2012 のテンプレートとしてホット タオルをインストールできます。 クリックするだけ`File`  |  `New Project`選択`ASP.NET MVC 4 Web Application`します。 選択し、' ホット タオル Single Page Application"テンプレートと実行。
+ホットタオルは、Visual Studio 2012 テンプレートとしてインストールできます。 `File` | `New Project` をクリックし、`ASP.NET MVC 4 Web Application` を選択します。 次に、"ホットタオルシングルページアプリケーション" テンプレートを選択し、を実行します。
 
-## <a name="installing-via-the-nuget-package"></a>NuGet パッケージをインストールします。
+## <a name="installing-via-the-nuget-package"></a>NuGet パッケージを使用したインストール
 
-ホットのタオルが空の既存の ASP.NET MVC プロジェクトを補足する NuGet パッケージもあります。 Nuget を使用してをインストールし、実行します。
+また、Hot タオルは、既存の空の ASP.NET MVC プロジェクトを補強する NuGet パッケージでもあります。 Nuget を使用してインストールするだけで、を実行します。
 
 [!code-powershell[Main](hottowel-template/samples/sample1.ps1)]
 
-## <a name="how-do-i-build-on-hot-towel"></a>ホットのタオルの構築方法
+## <a name="how-do-i-build-on-hot-towel"></a>ホットタオルでビルドするにはどうすればいいですか。
 
-単に開始のコードを追加します。
+単にコードの追加を開始します。
 
-1. 独自のサーバー側のコード (Breeze.js で真価) を Entity Framework では可能であれば、WebAPI の追加します。
-2. ビューを追加、`App/views`フォルダー
-3. Viewmodel の追加、`App/viewmodels`フォルダー
-4. 新しいビューへの HTML と Knockout のデータ バインディングを追加します。
-5. ナビゲーションのルートを更新します。 `shell.js`
+1. 独自のサーバー側コードを追加します (できれば Entity Framework と WebAPI)。
+2. `App/views` フォルダーへのビューの追加
+3. `App/viewmodels` フォルダーに viewmodel を追加する
+4. 新しいビューに HTML およびノックアウトデータバインドを追加する
+5. `shell.js` のナビゲーションルートを更新する
 
-## <a name="walkthrough-of-the-htmljavascript"></a>HTML または JavaScript のチュートリアル
+## <a name="walkthrough-of-the-htmljavascript"></a>HTML/JavaScript のチュートリアル
 
 ### <a name="viewshottowelindexcshtml"></a>Views/HotTowel/index.cshtml
 
-index.cshtml は、開始のルートと MVC アプリケーション用のビューです。 すべての標準のメタ タグ、css のリンク、および期待する JavaScript の参照が含まれています。 本文には、1 つが含まれています。`<div>`これは、すべてのコンテンツ (ビュー) が配置される要求されたとき。 `@Scripts.Render` Require.js を使用して、含まれているアプリケーションのコードの開始ポイントを実行する、`main.js`ファイル。 スプラッシュ スクリーンは、アプリが読み込まれるときに、スプラッシュ スクリーンを作成する方法を示すために提供されます。
+index. cshtml は、MVC アプリケーションの開始ルートおよびビューです。 これには、すべての標準的なメタタグ、css リンク、および必要とされる JavaScript の参照が含まれています。 本文には、要求されたときにすべてのコンテンツ (ビュー) が配置される1つの `<div>` が含まれています。 `@Scripts.Render` は、`main.js` ファイルに格納されているアプリケーションのコードの開始ポイントを実行するために、必要な .js を使用します。 スプラッシュスクリーンは、アプリの読み込み中にスプラッシュスクリーンを作成する方法を示すために用意されています。
 
 [!code-cshtml[Main](hottowel-template/samples/sample2.cshtml)]
 
-### <a name="appmainjs"></a>App/main.js
+### <a name="appmainjs"></a>アプリ/メイン js
 
-`main.js`ファイルには、アプリが読み込まれるとすぐに実行されるコードが含まれています。 これは、ナビゲーションのルートを定義、ビュー、スタートアップ設定、および任意のセットアップ/ブートス トラップなど、アプリケーションのデータを準備します。
+`main.js` ファイルには、アプリが読み込まれるとすぐに実行されるコードが含まれています。 ここでは、ナビゲーションルートを定義し、スタートアップビューを設定し、アプリケーションのデータの準備などの設定/ブートストラップを実行します。
 
-`main.js`起動アプリケーションの開始を支援する durandal のモジュールのいくつかのファイルを定義します。 定義するステートメントは、関数の場合、利用できるように、モジュールの依存関係を解決に役立ちます。 まず、デバッグ メッセージが有効なコンソール ウィンドウに、アプリケーションのパフォーマンスがどのようなイベントに関するメッセージを送信します。 App.start のコードでは、durandal framework アプリケーションを起動するように指示します。 Durandal に知っているすべてのビューとビューモデルがそれぞれの名前付きの同じフォルダーに含まれるように、規則が設定されます。 最後に、`app.setRoot`読み込みが起動し、`shell`事前に定義されたを使用して`entrance`アニメーション。
+`main.js` ファイルは、アプリケーションの起動を開始するために役立ついくつかの durandal のモジュールを定義します。 Define ステートメントを使用すると、モジュールの依存関係を解決して、関数で使用できるようになります。 まず、デバッグメッセージが有効になります。これにより、アプリケーションがコンソールウィンドウに対して実行しているイベントに関するメッセージが送信されます。 アプリの開始コードは、アプリケーションを起動するように durandal framework に指示します。 規則は、durandal がすべてのビューを認識し、viewmodel が同じ名前付きフォルダーにそれぞれ含まれるように設定されています。 最後に、定義済みの `entrance` アニメーションを使用して、`app.setRoot` によって `shell` が読み込まれます。
 
 [!code-javascript[Main](hottowel-template/samples/sample3.js)]
 
-## <a name="views"></a>Views
+## <a name="views"></a>ビュー
 
-内のビューにある、`App/views`フォルダー。
+ビューは `App/views` フォルダーにあります。
 
 ### <a name="shellhtml"></a>shell.html
 
-`shell.html` HTML のマスター レイアウトが含まれています。 すべて、その他のビューの合成されるどこかの側で、`shell`ビュー。 ホットのタオルを提供します、`shell`でこのような 3 つのリージョン: ヘッダー、コンテンツ領域、およびフッターです。 これらの各リージョンが読み込まれる内容が要求されたときに、その他のビューを形成します。
+`shell.html` には、HTML のマスターレイアウトが含まれています。 他のすべてのビューは、`shell` ビューの側のどこかに構成されます。 ホットタオルは、ヘッダー、コンテンツ領域、およびフッターという3つの領域を持つ `shell` を提供します。 これらの各リージョンには、要求されたときに他のビューのコンテンツと共に読み込まれます。
 
-`compose`ヘッダーとフッターのバインドが困難をポイントするホット タオルでコーディング、`nav`と`footer`ビューをそれぞれします。 セクションの compose バインド`#content`にバインドされて、`router`モジュールのアクティブな項目です。 つまり、クリックしたときに対応するビューのナビゲーション リンクがこの領域に読み込まれます。
+ヘッダーとフッターの `compose` バインドは、`nav` ビューと `footer` ビューを指すように、ホットタオルでハードコーディングされます。 セクション `#content` の作成バインドは、`router` モジュールのアクティブな項目にバインドされます。 つまり、ナビゲーションリンクをクリックすると、対応するビューがこの領域に読み込まれます。
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
 ### <a name="navhtml"></a>nav.html
 
-`nav.html` SPA のナビゲーション リンクが含まれています。 これは、メニュー構造を配置できる場所、たとえばです。 多くの場合 (Knockout を使用) にバインドされたデータには、`router`モジュールで定義されているナビゲーションを表示する、`shell.js`します。 Knockout はデータ バインド属性し、バインドに、 `shell` viewmodel ナビゲーション ルートを表示して (Twitter Bootstrap を使用して) プログレス バーを表示する場合、`router`モジュールが (参照別に 1 つのビューから移動中です`router.isNavigating`).
+`nav.html` には、SPA のナビゲーションリンクが含まれています。 たとえば、メニュー構造を配置できます。 多くの場合、これは、`shell.js`で定義したナビゲーションを表示するために、`router` モジュールへの (ノックアウトを使用した) データバインドです。 ノックアウトは、データバインド属性を検索し、それらを `shell` ビューモデルにバインドして、ナビゲーションルートを表示したり、`router` モジュールがあるビューから別のビューに移動しているときに (Twitter ブートストラップを使用して) progressbar を表示したりします (`router.isNavigating`を参照)。
 
 [!code-html[Main](hottowel-template/samples/sample5.html)]
 
-### <a name="homehtml-and-detailshtml"></a>home.html と details.html
+### <a name="homehtml-and-detailshtml"></a>home .html と details .html
 
-これらのビューには、カスタム ビューの HTML が含まれます。 ときに、`home`のリンクを`nav`ビューのメニューをクリックすると、`home`ビューのコンテンツ エリアに格納されます、`shell`ビュー。 これらのビューは拡張、または独自のカスタム ビューに置き換えられます。
+これらのビューには、カスタムビューの HTML が含まれています。 `nav` ビューのメニューの [`home`] リンクをクリックすると、`home` ビューが `shell` ビューのコンテンツ領域に配置されます。 これらのビューは、独自のカスタムビューに拡張することも、置き換えることもできます。
 
 ### <a name="footerhtml"></a>footer.html
 
-`footer.html`の下部に、フッターに表示される HTML が含まれています、`shell`ビュー。
+`footer.html` には、`shell` ビューの下部にあるフッターに表示される HTML が含まれています。
 
 ## <a name="viewmodels"></a>ViewModels
 
-Viewmodel がある、`App/viewmodels`フォルダー。
+Viewmodel フォルダー `App/viewmodels` にあります。
 
 ### <a name="shelljs"></a>shell.js
 
-`shell` Viewmodel にはプロパティおよびにバインドされている関数が含まれています、`shell`ビュー。 メニュー ナビゲーションのバインドがある多くの場合は (を参照してください、`router.mapNav`ロジック)。
+`shell` ビューモデルには、`shell` ビューにバインドされているプロパティおよび関数が含まれています。 多くの場合、メニューナビゲーションバインドが見つかります (`router.mapNav` ロジックを参照)。
 
 [!code-javascript[Main](hottowel-template/samples/sample6.js)]
 
-### <a name="homejs-and-detailsjs"></a>home.js と details.js
+### <a name="homejs-and-detailsjs"></a>home .js と details js
 
-これらの viewmodel にバインドされている関数とプロパティを含む、`home`ビュー。 ビューのプレゼンテーション ロジックが含まれていて、データとビューの間の結び付きは、します。
+これらの viewmodel には、`home` ビューにバインドされているプロパティおよび関数が含まれています。 また、ビューのプレゼンテーションロジックも含まれており、データとビューの間の接着です。
 
 [!code-javascript[Main](hottowel-template/samples/sample7.js)]
 
-## <a name="services"></a>Services
+## <a name="services"></a>サービス
 
-サービスは、アプリ/サービス フォルダーで表示されます。 理想的には、取得、およびリモート データを送信するため、dataservice モジュールなど、将来のサービスを配置する可能性があります。
+サービスは、App/services フォルダーにあります。 リモートデータの取得と送信を行う dataservice モジュールなどの今後のサービスを配置するのが理想的です。
 
 ### <a name="loggerjs"></a>logger.js
 
-ホットのタオルの提供、`logger`サービス フォルダー内のモジュール。 `logger`モジュールは、ログ メッセージをコンソールとトーストをポップアップで、ユーザーに最適です。
+ホットタオルでは、services フォルダーに `logger` モジュールが提供されます。 `logger` モジュールは、コンソールにメッセージを記録する場合と、ユーザーにポップアップで表示する場合に最適です。
