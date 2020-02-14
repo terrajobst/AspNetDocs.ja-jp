@@ -5,12 +5,12 @@ description: を使用して ASP.NET でクッキーを SameSite する方法に
 ms.author: riande
 ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: c81ca38648609aa5347d2a8cc11889fc85d81711
-ms.sourcegitcommit: 4d439e01c82c7c95b19216fedaf5b1a11a1deb06
+ms.openlocfilehash: c262e300361f33621e8bd126a34b251c23f56e1a
+ms.sourcegitcommit: 6bd0d7581ec36dc32cb85d0d5fc0e51068dd4423
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76826615"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77234763"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET で SameSite cookie を使用する
 
@@ -55,7 +55,7 @@ Cookie を生成する各 ASP.NET コンポーネントは、SameSite が適切�
    <forms cookieSameSite="Lax" requireSSL="false" />
   </authentication>
   <sessionState cookieSameSite="Lax" /> <!-- No config attribute for Secure -->
-  <roleManager cookieRequiresSSL="false" /> <!-- No config attribute for SameSite -->
+  <roleManager cookieRequireSSL="false" /> <!-- No config attribute for SameSite -->
  <system.web>
 <configuration>
 ```  
@@ -147,7 +147,7 @@ SameSite フラグは `edge://flags/#same-site-by-default-cookies` ページで�
 
 Electron の複数のバージョンには、Chromium の古いバージョンが含まれています。 たとえば、チームによって使用されている電子 66 Chromium のバージョンは、以前の動作を示しています。 製品で使用されている電子版を使用して、独自の互換性テストを実行する必要があります。 次のセクションの「[古いブラウザーのサポート](#sob)」を参照してください。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 * [ASP.NET と ASP.NET Core での今後の SameSite Cookie の変更](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 * [Chromium ブログ: 開発者: 新しい SameSite の準備 = None;セキュリティで保護された Cookie の設定](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
