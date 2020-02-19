@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6fda47babd3c2505315f42667c45f09482218c2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 896196bdb6a6b0d12a6c798ead510e37dd38a9fc
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583745"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456882"
 ---
 # <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: Fix It サンプルアプリケーション (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正プログラムのプロジェクトをダウンロードする](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
@@ -96,7 +96,7 @@ ASP.NET を使用すると、ユーザー入力テキストボックスにスク
 
 AutoFac によって `FixItTaskRepository` インスタンスが自動的に破棄されるので、明示的に破棄する必要がないことに注意してください。
 
-もう1つのオプションは、`FixItTaskRepository`から `DbContext` メンバー変数を削除し、`using` ステートメント内で各リポジトリメソッド内にローカル `DbContext` 変数を作成することです。 例:
+もう1つのオプションは、`FixItTaskRepository`から `DbContext` メンバー変数を削除し、`using` ステートメント内で各リポジトリメソッド内にローカル `DbContext` 変数を作成することです。 例 :
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample2.cs)]
 
@@ -215,7 +215,7 @@ Fix It アプリを実行するには、次の2つの方法があります。
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>基本アプリケーションを実行する
 
-1. [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)をインストールします。
+1. [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) のインストール。
 2. [AZURE SDK for .net For Visual Studio](https://azure.microsoft.com/downloads/)をインストールします。
 3. [MSDN コードギャラリー](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)から .zip ファイルをダウンロードします。
 4. ファイルエクスプローラーで、.zip ファイルを右クリックし、[プロパティ] をクリックして、プロパティウィンドウ [ブロック解除] をクリックします。
@@ -249,8 +249,8 @@ Fix It アプリを実行するには、次の2つの方法があります。
    3. ソリューションエクスプローラーで、FixIt ソリューションを右クリックし、**プロパティ** を選択します。
    4. **[マルチスタートアッププロジェクト]** を選択します。
    5. MyFixIt と MyFixItCloudService の下の **アクション** ドロップダウンリストで、**開始** を選択します。
-   6. **[OK]** をクリックします。
-   7. **F5**キーを押して両方のプロジェクトを実行します。
+   6. **[OK]** をクリックすると、
+   7. **F5** キーを押して両方のプロジェクトを実行します。
 
       MyFixItCloudService プロジェクトを実行すると、Visual Studio によって Azure コンピューティングエミュレーターが起動されます。 ファイアウォールの構成によっては、エミュレーターをファイアウォールで許可することが必要になる場合があります。
 
@@ -322,7 +322,7 @@ Fix It アプリを実行するには、次の2つの方法があります。
     スクリプトが失敗した場合、またはエラーが発生した場合 ("New-AzureWebsite: Call Set-Azurewebsite and Select-Azurewebsite first" など)、Azure PowerShell の構成が完了していない可能性があります。
 
     スクリプトが完了したら、[[すべて自動化](automate-everything.md)] の章に示されているように、Azure 管理ポータルを使用して、作成されたリソースを確認できます。
-10. 新しい Azure 環境に FixIt プロジェクトをデプロイするには、 *Azurewebsite. ps1*スクリプトを使用します。 例:
+10. 新しい Azure 環境に FixIt プロジェクトをデプロイするには、 *Azurewebsite. ps1*スクリプトを使用します。 例 :
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample28.cmd)]
 
@@ -395,4 +395,4 @@ MyFixItCloudService\ServiceConfiguration.Cloud.cscfg で、Azure ストレージ
 これで、クラウドサービスをデプロイする準備が整いました。 ソリューションエクスプローラーで、MyFixItCloudService プロジェクトを右クリックし、 **[発行]** を選択します。 詳細については、[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)のパート2の「[Azure へのアプリケーションのデプロイ](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)」を参照してください。
 
 > [!div class="step-by-step"]
-> [前へ](more-patterns-and-guidance.md)
+> [[戻る]](more-patterns-and-guidance.md)
