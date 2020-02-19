@@ -1,91 +1,91 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
-title: Iis の OWIN ミドルウェア パイプラインの統合 |Microsoft Docs
+title: IIS 統合パイプラインの OWIN ミドルウェア |Microsoft Docs
 author: Praburaj
-description: この記事では、IIS 統合パイプラインで OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を示していて、上、OMC パイプライン イベントを設定する方法で実行します。 必要があります.
+description: この記事では、IIS 統合パイプラインで OWIN ミドルウェアコンポーネント (OMCs) を実行する方法と、OMCS を実行するパイプラインイベントを設定する方法について説明します。 ...
 ms.author: riande
 ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: bb1211de0a3fe876f5640538034ab5a58b3a070c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7d157fb6bd9e2ae9b55af41ef06c1eb5e6310ce1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118222"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456713"
 ---
 # <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
 
-によって[Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> この記事では、IIS 統合パイプラインで OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を示していて、上、OMC パイプライン イベントを設定する方法で実行します。 確認する必要があります[プロジェクト Katana の概要を](an-overview-of-project-katana.md)と[OWIN スタートアップ クラス検出](owin-startup-class-detection.md)このチュートリアルを読む前にします。 このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )、Chris Ross、Praburaj Thiagarajan、Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) )。
+> この記事では、IIS 統合パイプラインで OWIN ミドルウェアコンポーネント (OMCs) を実行する方法と、OMCS を実行するパイプラインイベントを設定する方法について説明します。 このチュートリアルを読む前に、Project Katana と[OWIN Startup クラスの検出](owin-startup-class-detection.md)[の概要](an-overview-of-project-katana.md)を確認する必要があります。 このチュートリアルは、Rick Anderson ( [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT) )、Chris Ross、Praburaj Thiagarajan、Howard Dierking ( [@howard\_Dierking](https://twitter.com/howard_dierking) ) によって作成されました。
 
-[OWIN](an-overview-of-project-katana.md)ミドルウェア コンポーネント (OMCs) は、サーバーに依存しないパイプラインで実行する主な用途は、IIS 統合パイプラインも、OMC を実行することは (**クラシック モードが*いない*サポート**)。 パッケージ マネージャー コンソール (PMC) から、次のパッケージをインストールすることで、IIS 統合パイプラインで動作する、OMC ことができます。
+[OWIN](an-overview-of-project-katana.md)ミドルウェアコンポーネント (omcs) は、主にサーバーに依存しないパイプラインで実行されるように設計されていますが、IIS 統合パイプラインで omcs を実行することもできます (**クラシックモードはサポートされて*いません*** )。 パッケージマネージャーコンソール (PMC) から次のパッケージをインストールすることによって、IIS 統合パイプラインで OMC を機能させることができます。
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample1.cmd)]
 
-つまり、既存の OWIN ミドルウェア コンポーネントから IIS や System.Web、外部で実行することにはまだいる場合でも、すべてのアプリケーション フレームワークが役立ちます。 
+つまり、IIS と System.web の外部で実行できないアプリケーションフレームワークも含めて、既存の OWIN ミドルウェアコンポーネントの恩恵を受けることができます。 
 
 > [!NOTE]
-> すべての`Microsoft.Owin.Security.*`Visual Studio 2013 で新しい Id システムと配布のパッケージ (例。Cookie、Microsoft アカウント、Google、Facebook、Twitter、[ベアラー トークン](http://self-issued.info/docs/draft-ietf-oauth-v2-bearer.html)OAuth、承認サーバー、JWT、Azure Active directory、および Active directory フェデレーション サービス) OMCs、としては、作成し、自己ホスト型の両方で使用できますIIS でホストされるシナリオです。
+> Visual Studio 2013 の新しい Id システムに付属するすべての `Microsoft.Owin.Security.*` パッケージ (たとえば、Cookie、Microsoft アカウント、Google、Facebook、Twitter、[ベアラートークン](http://self-issued.info/docs/draft-ietf-oauth-v2-bearer.html)、OAuth、Authorization SERVER、JWT、Azure Active Directory、active directory フェデレーションサービスなど) は omcs として作成され、自己ホスト型および IIS ホスト型の両方のシナリオで使用できます。
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインで OWIN ミドルウェアを実行する方法
 
-コンソール アプリケーションの OWIN アプリケーション パイプライン ビルドを使用して、[スタートアップ構成](owin-startup-class-detection.md)を使用して、コンポーネントが追加された順序で設定されて、`IAppBuilder.Use`メソッド。 OWIN パイプラインでは、 [Katana](an-overview-of-project-katana.md)ランタイムを使用して登録された順番で OMCs の処理は`IAppBuilder.Use`します。 要求パイプラインは、IIS 統合パイプラインの[HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx)などの事前定義された一連のパイプライン イベントをサブスクライブして[BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx)、 [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)、 [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)など。
+OWIN コンソールアプリケーションでは、[スタートアップ構成](owin-startup-class-detection.md)を使用して構築されたアプリケーションパイプラインは、`IAppBuilder.Use` メソッドを使用して、コンポーネントが追加される順序によって設定されます。 つまり、 [Katana](an-overview-of-project-katana.md)ランタイムの OWIN パイプラインは、`IAppBuilder.Use`を使用して登録された順序で omcs を処理します。 IIS 統合パイプラインでは、要求パイプラインは、 [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx)、 [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)、 [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)などのパイプラインイベントの定義済みセットをサブスクライブしている[HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx)で構成されます。
 
-OMC を比べると、 [HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx)適切な定義済みのパイプライン イベントに登録する必要が、OMC ASP.NET の世界でします。 たとえば、HttpModule`MyModule`によって要求を受信ときに呼び出さ、 [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)パイプラインのステージ。
+OMC を ASP.NET 世界の[HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx)のものと比較する場合は、omc を適切な定義済みのパイプラインイベントに登録する必要があります。 たとえば、パイプラインの[AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)ステージに要求が送られたときに、HttpModule `MyModule` が呼び出されます。
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
-OMC この同じ、イベント ベースの実行順序に参加するために、 [Katana](an-overview-of-project-katana.md)によってランタイム コードがスキャンされ、[スタートアップ構成](owin-startup-class-detection.md)各ミドルウェア コンポーネントの定期受信し、統合パイプラインのイベントです。 たとえば、次 OMC と登録コードを使用すると、ミドルウェア コンポーネントの既定のイベントの登録を参照してください。 (OWIN startup クラスを作成する手順について詳細を参照してください[OWIN スタートアップ クラス検出](owin-startup-class-detection.md)。)。
+OMC を同じイベントベースの実行順序に参加させるために、 [Katana](an-overview-of-project-katana.md)ランタイムコードは[スタートアップ構成](owin-startup-class-detection.md)をスキャンし、各ミドルウェアコンポーネントを統合パイプラインイベントにサブスクライブします。 たとえば、次の OMC と登録コードを使用すると、ミドルウェアコンポーネントの既定のイベント登録を確認できます。 (OWIN startup クラスを作成する方法の詳細については、「 [OWIN Startup クラスの検出](owin-startup-class-detection.md)」を参照してください)。
 
-1. 空の web アプリケーション プロジェクトを作成し、名前**owin2**します。
-2. パッケージ マネージャー コンソール (PMC) からは、次のコマンドを実行します。 
+1. 空の web アプリケーションプロジェクトを作成し、 **owin2**という名前を指定します。
+2. パッケージマネージャーコンソール (PMC) から、次のコマンドを実行します。 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample3.cmd)]
-3. 追加、`OWIN Startup Class`名前を付けます`Startup`します。 生成されたコードを (その変更が強調表示) を次に置き換えます。  
+3. `OWIN Startup Class` を追加し、`Startup`という名前を指定します。 生成されたコードを次のコードに置き換えます (変更は強調表示されています)。  
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample4.cs?highlight=5-7,15-36)]
-4. アプリを実行するには、f5 キーを押します。
+4. F5 キーを押してアプリを実行します。
 
-スタートアップ構成は、3 つのミドルウェア コンポーネント、最初の 2 つの診断情報と最後の 1 つのイベントに応答を表示する (および診断情報の表示も) を使用するパイプラインを設定します。 `PrintCurrentIntegratedPipelineStage`メソッドでこのミドルウェアが呼び出された統合パイプラインのイベントとメッセージを表示します。 出力ウィンドウには、次の情報が表示されます。
+スタートアップ構成では、3つのミドルウェアコンポーネント (最初の2つは診断情報を表示し、最後の2つは診断情報を表示します) を含むパイプラインを設定します。 `PrintCurrentIntegratedPipelineStage` メソッドは、このミドルウェアが呼び出された統合パイプラインイベントとメッセージを表示します。 出力ウィンドウには次の内容が表示されます。
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-Katana ランタイムをマップする OWIN ミドルウェア コンポーネントの各[PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) IIS パイプラインのイベントに対応する既定では、 [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx)します。
+Katana ランタイムは、OWIN ミドルウェアの各コンポーネントを既定で[Preexecuter](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx)にマップします。これは、IIS パイプラインイベント[PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx)に対応します。
 
-## <a name="stage-markers"></a>ステージ マーカー
+## <a name="stage-markers"></a>ステージマーカー
 
-使用して、パイプラインの特定の段階で実行する OMCs をマークすることができます、`IAppBuilder UseStageMarker()`拡張メソッド。 特定のステージ中に一連のミドルウェア コンポーネントを実行するには、最後の要素の直後後のステージ マーカーの挿入の登録時に、セットです。 ミドルウェアを実行するパイプラインのステージで規則があるし、注文のコンポーネントを実行する必要があります (ルールは、チュートリアルの後半で説明します)。 追加、`UseStageMarker`メソッドを`Configuration`次に示すようにコードします。
+`IAppBuilder UseStageMarker()` 拡張メソッドを使用して、OMCs をパイプラインの特定の段階で実行するようにマークすることができます。 特定のステージ中に一連のミドルウェアコンポーネントを実行するには、登録時に最後のコンポーネントが設定された直後にステージマーカーを挿入します。 ミドルウェアを実行できるパイプラインのステージと、命令コンポーネントを実行する必要があるパイプラインのルールがあります (ルールについては、このチュートリアルの後半で説明します)。 次に示すように、`UseStageMarker` メソッドを `Configuration` コードに追加します。
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-`app.UseStageMarker(PipelineStage.Authenticate)`呼び出しパイプラインの認証段階で実行する (この例では、2 つの診断コンポーネント) では、すべての以前に登録されたミドルウェア コンポーネントを構成します。 実行されます (が診断を表示され、要求に応答する) 最後のミドルウェア コンポーネント、`ResolveCache`ステージ (、 [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx)イベント)。
+`app.UseStageMarker(PipelineStage.Authenticate)` の呼び出しによって、以前に登録されたすべてのミドルウェアコンポーネント (この場合は、2つの診断コンポーネント) がパイプラインの認証ステージで実行されるように構成されます。 最後のミドルウェアコンポーネント (診断を表示して要求に応答) は、`ResolveCache` 段階 ( [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx)イベント) で実行されます。
 
-アプリを実行するには、f5 キーを押します。次に、出力ウィンドウを示します。
+F5 キーを押してアプリを実行します。出力ウィンドウには次のように表示されます。
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample7.cmd)]
 
-## <a name="stage-marker-rules"></a>ステージ マーカーのルール
+## <a name="stage-marker-rules"></a>ステージマーカーのルール
 
-次の OWIN パイプラインのステージ イベントで実行する Owin ミドルウェア コンポーネント (OMC) を構成できます。
+Owin ミドルウェアコンポーネント (OMC) は、次の OWIN パイプラインステージイベントで実行するように構成できます。
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample8.cs)]
 
-1. 既定では、OMCs は最後のイベントで実行 (`PreHandlerExecute`)。 その理由は、最初のコード例には"PreExecuteRequestHandler"が表示されます。
-2. 使用することができます、`app.UseStageMarker`で OWIN パイプラインのいずれかの段階で以前では、実行の OMC を登録するメソッドが一覧表示、`PipelineStage`列挙型。
-3. OWIN パイプラインと、IIS パイプラインが順序付け、そのための呼び出しを`app.UseStageMarker`の順序である必要があります。 登録されている最後のイベントの前のイベントにイベント ハンドラーを設定することはできません`app.UseStageMarker`します。 たとえば、*後*呼び出し。
+1. 既定では、OMCs は最後のイベント (`PreHandlerExecute`) で実行されます。 このため、最初の例のコードは "PreExecuteRequestHandler" と表示されています。
+2. `PipelineStage` 列挙型に示されている OWIN パイプラインの任意のステージで、`app.UseStageMarker` メソッドを使用して OMC を登録し、前に実行することができます。
+3. OWIN パイプラインと IIS パイプラインが順序付けられているため、`app.UseStageMarker` への呼び出しは順番に行う必要があります。 に登録されている最後のイベントの前にあるイベントにイベントハンドラーを設定することはできません `app.UseStageMarker`します。 たとえば、を呼び出し*た後*、次のようになります。
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
-   呼び出す`app.UseStageMarker`渡す`Authenticate`または`PostAuthenticate`が受け入れしないと、例外はスローされません。 既定では、最新の段階で実行 OMCs`PreHandlerExecute`します。 ステージ マーカーを使用して、先に実行できるようにします。 誤順序のステージ マーカーを指定する場合は、以前のマーカーに丸められます。 つまり、ステージ マーカーを追加するという「ステージ X 以降実行」します。 OWIN パイプラインの後に追加された最初のステージ マーカー OMC の実行。
-4. 呼び出しの最も早いステージ`app.UseStageMarker`wins します。 たとえばの順序を切り替えること`app.UseStageMarker`前の例からの呼び出し。
+   `Authenticate` または `PostAuthenticate` を渡す `app.UseStageMarker` の呼び出しは受け入れられず、例外はスローされません。 OMCs は、既定では `PreHandlerExecute`である、最新のステージで実行されます。 ステージマーカーは、前の手順で実行するために使用されます。 ステージマーカーを順序どおりに指定しなかった場合は、前のマーカーに丸められます。 つまり、ステージマーカーを追加すると、"stage X より後に実行する" と表示されます。 OMC は、OWIN パイプラインで追加された最初のステージマーカーの後に実行されます。
+4. `app.UseStageMarker` を呼び出すための最も早い段階では、が優先されます。 たとえば、前の例の `app.UseStageMarker` 呼び出しの順序を切り替える場合は次のようになります。
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
-   出力ウィンドウが表示されます。 
+   出力ウィンドウに次の内容が表示されます。 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
-   OMCs すべて内で実行、`AuthenticateRequest`最後 OMC に登録されているため、ステージング、`Authenticate`イベント、および`Authenticate`イベントの前に他のすべてのイベント。
+   OMCs はすべて `AuthenticateRequest` ステージで実行されます。これは、`Authenticate` イベントに登録された最後の OMCS で、`Authenticate` イベントが他のすべてのイベントの前になるためです。

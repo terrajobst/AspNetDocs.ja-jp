@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 52c710053feca7872aa6fcc93c99bce90359f8fc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: cf3c65ef95528173eed3fb08984035b2512861c4
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585878"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457038"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的デリバリー (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -64,7 +64,7 @@ Azure DevOps Services の継続的インテグレーションと継続的配信�
 
 次のリソースも参照してください。
 
-- [Team Foundation Server 2012 でリリースパイプラインをビルド](https://aka.ms/ReleasePipeline)します。 Microsoft のパターンとプラクティスによる電子書籍、ハンズオンラボ、サンプルコードについては、継続的デリバリーの詳細について説明しています。 Visual Studio Lab Management と Visual Studio Release Management の使用について説明します。
+- [Team Foundation Server 2012 でリリースパイプラインをビルド](https://aka.ms/ReleasePipeline)します。 電子書籍、実践的なラボ、およびサンプル コードでは、Microsoft Patterns and Practices、継続的デリバリーの詳細な概要について説明します。 Visual Studio Lab Management と Visual Studio Release Management の使用について説明します。
 - [ALM Rangers DevOps ツールとガイダンス](https://aka.ms/vsarsolutions/)。 ALM の Rangers では、TFS 2012 の DevOps &amp; Release Management の概念を理解し、タイヤを開始するための優れた方法として、DevOps ワークベンチサンプルコンパニオンソリューションを導入し、パターンとの共同作業についての実用的なガイダンスを*2012*&amp; しました。 このガイダンスでは、1回構築して複数の環境にデプロイする方法を示します。
 - [Visual Studio 2012 を使用した継続的デリバリーのためのテスト](https://msdn.microsoft.com/library/jj159345.aspx)。 Microsoft のパターンとプラクティスによる電子書籍: 自動テストと継続的デリバリーを統合する方法について説明します。
 - [Windowsazuredeploymenttracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker)。 ビルドを TFS からキャプチャする (ラベルに基づいて) ツールのソースコード。ビルドしてパッケージ化し、DevOps ロール内のユーザーが特定の側面を構成して Azure にプッシュできるようにします。 ツールは、以前に展開されたバージョンに操作を "ロールバック" できるようにするために、展開プロセスを追跡します。 このツールには外部の依存関係がなく、TFS Api と Azure SDK を使用してスタンドアロンで機能できます。

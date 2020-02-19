@@ -1,91 +1,91 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
-title: ASP.NET MVC - 第 1 部での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用 |Microsoft Docs
+title: ASP.NET MVC での HTML5 と jQuery UI Datepicker ポップアップカレンダーの使用-パート 1 |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、エディターのテンプレート、表示のテンプレートと、ASP.NET MV の jQuery UI datepicker ポップアップ カレンダーを操作する方法の基本を説明しています.
+description: このチュートリアルでは、ASP.NET MV... でエディターテンプレート、表示テンプレート、jQuery UI datepicker popup カレンダーを操作する方法の基本について説明します。
 ms.author: riande
 ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 6e7d31d96a36b55e2e1a9a475e2d90526cc6a5b2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c1c2380f24c72f6aabaaacaf975e95288a384ff1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112394"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457623"
 ---
-# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - 第 1 部での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
+# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC での HTML5 と jQuery UI Datepicker ポップアップカレンダーの使用-パート1
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> このチュートリアルでは、エディターのテンプレート、画面テンプレート、および ASP.NET MVC Web アプリケーションで jQuery UI datepicker ポップアップ カレンダーを使用する方法の基本を説明します。
+> このチュートリアルでは、ASP.NET MVC Web アプリケーションでエディターテンプレート、表示テンプレート、jQuery UI datepicker popup カレンダーを操作する方法の基本について説明します。
 
-このチュートリアルがエディターのテンプレート、画面テンプレート、および jQuery を使用する方法の基礎を講義[UI datepicker ポップアップ カレンダー](http://plugins.jquery.com/project/datepicker) ASP.NET MVC Web アプリケーションにします。 このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用することができます (&quot;Visual Web Developer&quot;)、これは、Microsoft Visual Studio の無料バージョンまたはが既にある場合は、Visual Studio 2010 SP1 を使用することができます。
+このチュートリアルでは、ASP.NET MVC Web アプリケーションでエディターテンプレート、表示テンプレート、jQuery [UI datepicker popup カレンダー](http://plugins.jquery.com/project/datepicker)を操作する方法の基本について説明します。 このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer&quot;) を使用できます。これは Microsoft Visual Studio の無料バージョンです。または、既に Visual Studio 2010 SP1 を使用することもできます。
 
-始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して必要なソフトウェアを個別にインストールできます。
+開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、必要なソフトウェアを個別にインストールすることもできます。
 
 - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-- [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-- [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+- [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+- [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 
-Visual Web Developer ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+Visual Web Developer ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールしてください: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 
-このチュートリアルで完了して、 [MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアルまたは ASP.NET MVC の開発に慣れていること。 このチュートリアルから完成したプロジェクトでは、 [MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアル。
+このチュートリアルでは、「 [mvc 3 を使用](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)したはじめに」チュートリアルを完了していること、または ASP.NET mvc 開発に慣れていることを前提としています。 このチュートリアルでは、「 [MVC 3 を使用](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)したはじめに」チュートリアルの完成したプロジェクトから始めます。
 
-このチュートリアルでは、c# でコードを示します。 ただし、[スターター プロジェクト](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)な完成したプロジェクトも Visual Basic で用意されています。
+このチュートリアルでは、 C#のコードを示します。 ただし、[スタートプロジェクト](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)と完成したプロジェクトは、Visual Basic でも使用できます。
 
-Visual Studio プロジェクトとC#と Visual Basic ソース コードはこのトピックと共に使用できます。[ダウンロード](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)します。
+と Visual Basic ソースコードをC#含む Visual Studio プロジェクトは、「[ダウンロード](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)」を参照してください。
 
-### <a name="what-youll-build"></a>構築します
+### <a name="what-youll-build"></a>作成するアプリケーション:
 
-テンプレートを追加します (具体的には、編集し、テンプレートを表示) で作成された簡単なムービーの一覧をアプリケーションを[MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアル。 追加することもが、 [jQuery UI datepicker](http://jqueryui.com/demos/datepicker/)ポップアップ カレンダーの日付を入力するプロセスが簡略化します。 次のスクリーン ショットは、表示される jQuery UI datepicker ポップアップ カレンダーと、変更したアプリケーションを示します。
+「 [MVC 3 を使用](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)したはじめに」のチュートリアルで作成した単純なムービーリストアプリケーションに、テンプレート (具体的には編集および表示テンプレート) を追加します。 また、 [JQUERY UI datepicker](http://jqueryui.com/demos/datepicker/)ポップアップカレンダーを追加して、日付入力のプロセスを簡略化します。 次のスクリーンショットは、変更されたアプリケーションを示しています。 jQuery UI datepicker ポップアップカレンダーが表示されています。
 
-![完成した jQuery](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image1.png)
+![終了した jQuery](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image1.png)
 
 ### <a name="skills-youll-learn"></a>学習内容
 
-学習内容を次に示します。
+ここでは次の内容について学習します。
 
-- 属性を使用する方法、 [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間が表示されたら、それは、データの形式を制御しにあるときに編集モードにします。
-- テンプレートを作成する方法 (編集し、テンプレートを表示) するデータの書式を制御します。
-- 追加する方法、 [jQuery UI datepicker](http://jqueryui.com/demos/datepicker/)日付フィールドを入力する方法として。
+- [Dataannotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間の属性を使用して、データが表示されたときと編集モードになったときの形式を制御する方法。
+- テンプレートを作成する方法 (テンプレートの編集と表示) を行って、データの書式設定を制御する方法について説明します。
+- 日付フィールドを入力する方法として[JQUERY UI datepicker](http://jqueryui.com/demos/datepicker/)を追加する方法。
 
 ### <a name="getting-started"></a>作業の開始
 
-Starter プロジェクトからムービーの一覧をアプリケーションがまだしていない場合はダウンロードします。 
+スタートプロジェクトからムービー一覧アプリケーションをまだ持っていない場合は、次のようにダウンロードします。 
 
-* [ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。
-* Windows エクスプ ローラーで右クリックし、 *MvcMovie.zip*ファイルおよび選択**プロパティ**します。 
-* **MvcMovie.zip プロパティ**ダイアログ ボックスで、**ブロック解除**します。 (セキュリティの警告を使用しようとするときに発生するブロックを解除できないように、 *.zip* web からダウンロードしたファイルです)。
+* を[ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。
+* Windows エクスプローラーで、 *Mvcmovie*ファイルを右クリックし、 **[プロパティ]** を選択します。 
+* **[Mvcmovie のプロパティ]** ダイアログボックスで、 **[ブロックの解除]** を選択します。 (ブロックを解除すると、Web からダウンロードした *.zip* ファイルを使おうとしたときに表示されるセキュリティに関する警告を回避できます)。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image2.png)
 
-右クリックし、 *MvcMovie.zip*ファイルおよび選択**すべて展開**ファイルを解凍します。 Visual Studio 2010 または Visual Web Developer で、開く、 *MvcMovieCS\_TU.sln*ファイル。
+*Mvcmovie .zip*ファイルを右クリックし、 **[すべて展開]** を選択して、ファイルを解凍します。 Visual Web Developer または Visual Studio 2010 で、 *MvcMovieCS\_TU*ファイルを開きます。
 
-**ソリューション エクスプ ローラー**、ダブルクリックして、 *views \shared\\_Layout.cshtml*を開きます。 変更、`H1`からヘッダー **MVC ムービー アプリ**に**ムービー jQuery**します。 CTRL + f5 キーを押してアプリケーションを実行し、をクリックして、**ホーム** タブに移動、`Index`ムービー コント ローラーのメソッド。 アプリケーションには、次のように選択します。、**編集**リンクと**詳細**、映画のいずれかのリンク。 インデックス、編集、および詳細のビューで、リリース日と価格は適切にフォーマットされていることを確認します。
+**ソリューションエクスプローラー**で、 *Views\Shared\\_Layout*をダブルクリックして開きます。 `H1` ヘッダーを**MVC Movie アプリ**から**movie jQuery**に変更します。 CTRL キーを押しながら F5 キーを押してアプリケーションを実行し、 **[ホーム]** タブをクリックします。これにより、ムービーコントローラーの `Index` 方法が表示されます。 アプリケーションを試すには、いずれかのムービーの **[編集]** リンクと **[詳細]** リンクを選択します。 [インデックス]、[編集]、および [詳細] の各ビューで、リリース日と価格が適切に書式設定されていることに注意してください。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image3.png)
 
-使用した結果には、日付と価格の書式設定、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性のプロパティを`Movie`クラス。
+日付と価格の書式設定は、`Movie` クラスのプロパティで[Displayformat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性を使用した結果です。
 
-開く、 *Movie.cs*ファイルし、コメント アウト、`DisplayFormat`属性を`ReleaseDate`と`Price`プロパティ。 その結果、`Movie`次のようなクラス。
+*Movie.cs*ファイルを開き、`ReleaseDate` プロパティと `Price` プロパティの `DisplayFormat` 属性をコメントアウトします。 生成される `Movie` クラスは次のようになります。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/samples/sample1.cs)]
 
-アプリケーションを実行し、選択をもう一度 CTRL + f5 キーを押して、**ホーム**ムービーの一覧を表示するタブ。 今回のリリース日、日付と時刻を示していて、[price] フィールドに通貨記号が表示されなくなります。 変更、`Movie`クラスが見た、見やすいフォーマットを元に戻すをすぐに修正します。
+CTRL キーを押しながら F5 キーをもう一度押してアプリケーションを実行し、 **[ホーム]** タブを選択してムービーの一覧を表示します。 今回はリリース日に日付と時刻が表示され、price フィールドには通貨記号が表示されなくなりました。 `Movie` クラスでの変更により、前に見たような書式設定が元に戻されましたが、それをすぐに修正します。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image4.png)
 
-### <a name="using-the-dataannotations-datatype-attribute-to-specify-the-data-type"></a>DataAnnotations のデータ型の属性を使用して、データ型を指定するには
+### <a name="using-the-dataannotations-datatype-attribute-to-specify-the-data-type"></a>DataAnnotations DataType 属性を使用してデータ型を指定する
 
-コメント アウトを置き換えます`DisplayFormat`属性を`ReleaseDate`プロパティを[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性を使用して、`Date`列挙体。 置換、`DisplayFormat`属性を`Price`プロパティを[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)この時間を使用して、もう一度属性、`Currency`列挙型。 完成したコードのようになります。
+`Date` 列挙体を使用して、`ReleaseDate` プロパティのコメントアウトされた `DisplayFormat` 属性を[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性に置き換えます。 `Price` プロパティの `DisplayFormat` 属性を[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性に置き換えます。今回は `Currency` 列挙体を使用します。 完成したコードは次のようになります。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/samples/sample2.cs)]
 
-アプリケーションを実行します。 これで、リリース日と価格のプロパティは形式が正しく (つまり、適切な日付および通貨の形式を使用)。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性型のメタデータを提供、組み込みの ASP.NET MVC テンプレートのフィールドが正しい形式で表示されるようにします。 使用して、`DataType`属性を使用することをお勧め、`DisplayFormat`ために、コードでは、もともと属性、`DataType`属性は、クリーナーと国際化などの目的より柔軟なモデルです。
+アプリケーションを実行します。 これで、リリース日と価格プロパティが正しく書式設定されます (つまり、適切な日付と通貨の形式を使用します)。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性は、フィールドが正しい形式で表示されるように、組み込みの ASP.NET MVC テンプレートの型メタデータを提供します。 `DataType` 属性を使用すること `DisplayFormat` をお勧めします。これは、`DataType` 属性によってモデルが簡素化され、国際化などの目的で柔軟になるためです。
 
-次のセクションでは、日付フィールドを表示するカスタム テンプレートを作成する方法を確認します。
+次のセクションでは、カスタムテンプレートを使用して日付フィールドを表示する方法について説明します。
 
 > [!div class="step-by-step"]
-> [次へ](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
+> [Next](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)

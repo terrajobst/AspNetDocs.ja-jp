@@ -8,16 +8,16 @@ ms.date: 01/12/2012
 ms.assetid: 44aa1ac4-6ea2-48a2-972d-52710c48eae5
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: cb9053593e2ea788638aec063c845cb91121861b
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 3207079ee468232e5f75b081421241c232936baf
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075113"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455725"
 ---
 # <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>jQuery UI を使用し、DropDownList に新しいカテゴリを追加する
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 HTML `Select` タグは、固定カテゴリデータの一覧を表示するのに最適ですが、多くの場合、新しいカテゴリを追加する必要があります。 ジャンル "Opera" をデータベースのカテゴリに追加するとします。 このセクションでは、jQuery UI を使用して、新しいカテゴリを追加するために使用できるダイアログボックスを追加します。 次の図は、UI がブラウザーにどのように表示されるかを示しています。
 
@@ -139,4 +139,4 @@ Rick Anderson [at] Microsoft .com
 - Tom Dykstra
 
 > [!div class="step-by-step"]
-> [前へ](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [[戻る]](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

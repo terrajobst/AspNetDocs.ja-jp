@@ -9,22 +9,22 @@ ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 5f5218ca6c65ed3a2cd39d4e100349efa35d14cd
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.openlocfilehash: 527b4392846e60dae0b216fdeabf21fd6618e4d7
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115091"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456739"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>SMS と電子メールを使用した2要素認証 (ASP.NET Identity)
 
-[Hao Kung](https://github.com/HaoK)、 [Pranav rastogi](https://github.com/rustd)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [suhas Joshi](https://github.com/suhasj)
+[Hao Kung](https://github.com/HaoK)、 [Pranav rastogi](https://github.com/rustd)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [suhas Joshi](https://github.com/suhasj)
 
 > このチュートリアルでは、SMS と電子メールを使用して2要素認証 (2FA) を設定する方法について説明します。
 > 
 > この記事は、Rick Anderson ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT))、Pranav Rastogi ([@rustd](https://twitter.com/rustd))、Hao Kung、suhas Joshi によって作成されました。 NuGet サンプルは、主に Hao Kung によって作成されました。
 
-このトピックでは、次の内容について説明します。
+このトピックでは、以下の内容を説明します。
 
 - [Id サンプルのビルド](#build)
 - [2要素認証用に SMS を設定する](#SMS)
@@ -69,7 +69,7 @@ ms.locfileid: "74115091"
 2. **追加のパッケージのインストール、またはサービス参照の追加**  
   
    Twilio  
-   パッケージマネージャーコンソールで、次のコマンドを入力します。  
+   パッケージ マネージャー コンソールで、次のコマンドを入力します。  
     `Install-Package Twilio`  
   
    ASPSMS:  
@@ -77,7 +77,7 @@ ms.locfileid: "74115091"
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image1.png)  
   
-   アドレス:  
+   住所 :  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
    名前空間:  
@@ -177,7 +177,7 @@ Cookie ミドルウェアは、各要求の cookie を確認します。 `Startu
 
 <a id="enable2"></a>
 
-## <a name="enable-two-factor-authentication"></a>2要素認証を有効にする
+## <a name="enable-two-factor-authentication"></a>2 要素認証を有効にします。
 
 サンプルアプリでは、UI を使用して2要素認証 (2FA) を有効にする必要があります。 2FA を有効にするには、ナビゲーションバーでユーザー ID (電子メールエイリアス) をクリックします。![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image9.png)  
 [2FA を有効にする] をクリックします。![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image10.png) ログアウトしてから再度ログインします。 電子メールを有効にした場合 ([前のチュートリアル](account-confirmation-and-password-recovery-with-aspnet-identity.md)を参照)、2FA の SMS または電子メールを選択できます。![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image11.png) [コードの確認] ページが表示され、(SMS または電子メールから) コードを入力できます。![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image12.png) [**このブラウザーを記憶**する] チェックボックスをオンにすると、2fa を使用してそのコンピューターとブラウザーでログオンする必要がなくなります。 2FA を有効にし、[**このブラウザーを記憶**する] をクリックすると、悪意のあるユーザーが自分のアカウントにアクセスしようとしても、コンピューターへのアクセス権がない限り、強力な2fa による保護が提供されます。 この操作は、定期的に使用する任意のプライベートコンピューターで行うことができます。 [**このブラウザーを記憶**する] を設定すると、日常的に使用していないコンピューターから2fa のセキュリティが強化され、自分のコンピューターで2fa を使用する必要がなくなります。 
@@ -272,7 +272,7 @@ QR コードジェネレーターなど、さらに2FA プロバイダーを追�
 
 <a id="addRes"></a>
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 - [推奨されるリソースの ASP.NET Identity](../getting-started/aspnet-identity-recommended-resources.md)Id ブログ、ビデオ、チュートリアル、および優れたリンクの一覧が完成しました。
 - [Facebook、Twitter、LinkedIn、Google OAuth2 サインオンを使用した MVC 5 アプリで](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)は、ユーザーテーブルにプロファイル情報を追加する方法についても説明しています。

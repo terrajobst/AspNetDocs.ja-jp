@@ -1,83 +1,83 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
-title: Details メソッドと Delete メソッド (VB) の向上 |Microsoft Docs
+title: Details メソッドと Delete メソッドの改善 (VB) |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: c5c14ef0-c128-4dc1-8c01-7f0fdb09e411
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 1912a36c19b27993e2bf17368d671d5a3b7f6450
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 08d80cac071907e927bb30df53c6f84a28f53156
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130025"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456258"
 ---
 # <a name="improving-the-details-and-delete-methods-vb"></a>Details メソッドと Delete メソッドの改善 (VB)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+> このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+> - [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 > 
-> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 > 
-> VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/improving-the-details-and-delete-methods.md)このチュートリアルの。
+> このトピックには、VB.NET ソースコードを含む Visual Web Developer プロジェクトが用意されています。 [VB.NET バージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 必要に応じC#て[ C# ](../cs/improving-the-details-and-delete-methods.md) 、このチュートリアルのバージョンに切り替えます。
 
-このチュートリアルでは、これを自動的に生成されたいくつかの機能強化を行います`Details`と`Delete`メソッド。 これらの変更は不要ですが、コードのほんの小さなビット アプリケーションを簡単に拡張できます。
+チュートリアルのこの部分では、自動的に生成された `Details` および `Delete` メソッドに対していくつかの機能強化を行います。 これらの変更は必要ありませんが、わずか数ビットのコードだけで、アプリケーションを簡単に拡張できます。
 
-## <a name="improving-the-details-and-delete-methods"></a>詳細と Delete メソッドの改善
+## <a name="improving-the-details-and-delete-methods"></a>Details メソッドと Delete メソッドの改善
 
-スキャフォールディングすると、`Movie`コント ローラーで、ASP.NET MVC が、正しく動作したをすることも、いくつかの小さな変更をより堅牢なコードを生成します。
+`Movie` コントローラーをスキャフォールディングすると、ASP.NET MVC によって正常に機能したコードが生成されますが、わずかな変更を加えるだけでより堅牢にすることができます。
 
-開く、`Movie`コント ローラーを変更し、`Details`メソッドを返すことによって`HttpNotFound`ムービーが見つからない場合。 変更することも必要があります、`Details`メソッドに渡された ID の既定値を設定します。 (するような変更を加えた、`Edit`メソッド[パート 6](examining-the-edit-methods-and-edit-view.md)このチュートリアルの)。ただし、戻り値の型を変更する必要があります、`Details`メソッドから`ViewResult`に`ActionResult`ため、`HttpNotFound`メソッドが返さない、`ViewResult`オブジェクト。 次の例は、変更された`Details`メソッド。
+`Movie` コントローラーを開き、ムービーが見つからないときに `HttpNotFound` を返すことによって `Details` メソッドを変更します。 また、`Details` メソッドを変更して、渡された ID の既定値を設定する必要があります。 (このチュートリアルの[パート 6](examining-the-edit-methods-and-edit-view.md)では、`Edit` メソッドに対して同様の変更を行いました)。ただし、`HttpNotFound` メソッドが `ViewResult` オブジェクトを返さないため、`Details` メソッドの戻り値の型を `ViewResult` から `ActionResult`に変更する必要があります。 次の例は、変更された `Details` メソッドを示しています。
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample1.vb)]
 
-コード最初に簡単にデータを使用して検索、`Find`メソッド。 メソッドに作成した重要なセキュリティ機能は、コードが確認します、`Find`メソッドは、コードが、それ以降を実行する前に、ムービーが検出されます。 たとえば、ハッカーでしたにエラーが発生、サイトからのリンクが作成する URL を変更することで`http://localhost:xxxx/Movies/Details/1`ようなものに`http://localhost:xxxx/Movies/Details/12345`(または実際のムービーを表していないその他のいくつかの値)。 Null のムービー チェックがない場合は、データベース エラー、この可能性があります。
+Code First により、`Find` メソッドを使用してデータを簡単に検索できます。 メソッドに組み込まれている重要なセキュリティ機能は、コードがコードで何かを実行しようとする前に、`Find` メソッドがムービーを見つけたことを検証することです。 たとえば、ハッカーは、リンクによって作成された URL を `http://localhost:xxxx/Movies/Details/1` から `http://localhost:xxxx/Movies/Details/12345` (または実際のムービーを表さない他の値) に変更することによって、サイトにエラーを持ち込む可能性があります。 Null ムービーを確認しないと、データベースエラーが発生する可能性があります。
 
-同様に、変更、`Delete`と`DeleteConfirmed`メソッド ID パラメーターの既定値を指定して、返される`HttpNotFound`ムービーが見つからない場合。 更新された`Delete`メソッド、`Movie`コント ローラーを以下に示します。
+同様に、`Delete` および `DeleteConfirmed` メソッドを変更して、ID パラメーターの既定値を指定し、ムービーが見つからない場合に `HttpNotFound` を返すようにします。 `Movie` コントローラーで更新された `Delete` メソッドを次に示します。
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample2.vb)]
 
-なお、`Delete`メソッド データは削除されません。 GET 要求の応答で削除操作を実行すると (さらに言えば、編集操作、作成操作、データを変更するその他のあらゆる操作を実行すると)、セキュリティに穴が空きます。 詳細については、Stephen Walther のブログ記事を参照してください。 [ASP.NET MVC ヒントと 46: セキュリティ ホールを作成するため、削除のリンクを使用しない](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)します。
+`Delete` メソッドはデータを削除しないことに注意してください。 GET 要求の応答で削除操作を実行すると (さらに言えば、編集操作、作成操作、データを変更するその他のあらゆる操作を実行すると)、セキュリティに穴が空きます。 詳細については、「Stephen Walther's blog entry ASP.NET MVC Tip #46」を参照してください。[削除リンクは、セキュリティホールを作成するため、使用しないで](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)ください。
 
 データを削除する `HttpPost` メソッドの名前は「`DeleteConfirmed`」になり、HTTP POST メソッドに一意のシグネチャまたは名前が与えられます。 2 つのメソッド シグネチャは下の画像のようになります。
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample3.vb)]
 
-共通言語ランタイム (CLR) では、オーバー ロードされたメソッドが、一意のシグネチャを使用している (同じ名前、パラメーターのリストが異なる) が必要です。 ただし、ここで必要 2 つ削除メソッド--GET の 1 つ--、投稿の 1 つと同じシグネチャをどちらも必要とします。 (いずれも、1 つの整数をパラメーターとして受け取る必要があります。)
+共通言語ランタイム (CLR) では、オーバーロードされたメソッドに一意のシグネチャ (同じ名前、異なるパラメーターのリスト) が必要です。 ただし、ここでは2つの Delete メソッドが必要です。1つは GET 用で、もう1つは POST 用であり、両方とも同じシグネチャが必要です。 (いずれも、1 つの整数をパラメーターとして受け取る必要があります。)
 
-この出力を並べ替えるには、いくつかの点を行うことができます。 メソッドの別の名前を付けて 1 つです。 前の例で行ったです。 しかし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティング システムの URL を含むように<em>/delete/</em>要求を検索する投稿について、`DeleteConfirmed`メソッド。
+これを並べ替えるために、いくつかのことを行うことができます。 1つは、メソッドに異なる名前を付けることです。 前の例で行ったようになりました。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これにより、ルーティングシステムのマッピングが効果的に実行されるため、POST 要求の<em>/Delete/</em>が含まれている URL が `DeleteConfirmed` メソッドを見つけることができます。
 
-同じ名前とシグネチャを持つメソッドでの問題を回避するもう 1 つの方法は、意図的に未使用のパラメーターを含める POST メソッドのシグネチャを変更します。 たとえば、一部の開発者がパラメーターの型を追加`FormCollection`は POST メソッドに渡されると、単にパラメーターを使用しません。
+同じ名前およびシグネチャを持つメソッドに関する問題を回避するもう1つの方法は、POST メソッドのシグネチャを意図的に変更して、未使用のパラメーターを含めることです。 たとえば、一部の開発者は、POST メソッドに渡される `FormCollection` パラメーター型を追加し、パラメーターを使用しないようにします。
 
 [!code-vb[Main](improving-the-details-and-delete-methods/samples/sample4.vb)]
 
-## <a name="wrapping-up"></a>まとめ
+## <a name="wrapping-up"></a>折り返し
 
-SQL Server Compact データベースにデータを格納する完全な ASP.NET MVC アプリケーションがあるようになりました。 ことができますを作成、読み取り、更新、削除、および映画を検索します。
+これで、SQL Server Compact データベースにデータを格納する完全な ASP.NET MVC アプリケーションが完成しました。 ムービーの作成、読み取り、更新、削除、検索を行うことができます。
 
 ![](improving-the-details-and-delete-methods/_static/image1.png)
 
-この基本的なチュートリアルでは、コント ローラー、ビューと関連付けると、ハード コーディングされたデータの受け渡しを行う作業を開始する必要があります。 作成され、データ モデルを設計します。 Entity Framework Code First をその場でデータ モデルからデータベースを作成し、ASP.NET MVC のスキャフォールディング システムは、アクション メソッドと基本的な CRUD 操作のビューに自動的に生成します。 ユーザーがデータベースを検索できる検索フォームを追加しました。 データの新しい列を含めるようにデータベースを変更し、2 つのページを作成してこの新しいデータの表示を更新します。 検証を追加した属性を使用してデータ モデルをマークすることによって、`DataAnnotations`名前空間。 結果の検証には、クライアントとサーバーが実行されます。
+この基本的なチュートリアルでは、コントローラーの作成、ビューへの関連付け、ハードコーディングされたデータの受け渡しを開始しました。 次に、データモデルを作成して設計しました。 Entity Framework Code First によってデータモデルからデータベースが作成され、ASP.NET MVC スキャフォールディングシステムによって基本的な CRUD 操作のアクションメソッドとビューが自動的に生成されます。 次に、ユーザーがデータベースを検索できる検索フォームを追加しました。 新しいデータ列が含まれるようにデータベースを変更し、この新しいデータを作成して表示する2つのページを更新しました。 `DataAnnotations` 名前空間の属性を使用してデータモデルをマークすることによって検証を追加しました。 結果の検証は、クライアントとサーバー上で実行されます。
 
-アプリケーションをデプロイする場合は、最初のテスト、ローカルの IIS 7 サーバーでアプリケーションをことをお勧めします。 これを使用することができます[Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) ASP.NET アプリケーション用の IIS 設定を有効にリンクします。 次の展開のリンクを参照してください。
+アプリケーションをデプロイする場合は、まずローカルの IIS 7 サーバーでアプリケーションをテストすると便利です。 この[Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;)リンクを使用して、ASP.NET アプリケーションの IIS 設定を有効にすることができます。 次のデプロイリンクを参照してください。
 
-- [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/dd394698.aspx)
-- [Enabling IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
-- [Web アプリケーション プロジェクトの配置](https://msdn.microsoft.com/library/dd394698.aspx)
+- [ASP.NET 展開コンテンツマップ](https://msdn.microsoft.com/library/dd394698.aspx)
+- [IIS 2.x を有効にする](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
+- [Web アプリケーションプロジェクトの配置](https://msdn.microsoft.com/library/dd394698.aspx)
 
-中間レベルに移動するようになりました[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)と[MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md)チュートリアルでは、探索、 [ASP.NETmsdn の記事](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)と多くのビデオとリソースをチェック アウトする[ https://asp.net/mvc ](https://asp.net/mvc) ASP.NET MVC についてさらに学習します。 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問する絶好の場所します。
+ここでは、ASP.NET MVC アプリケーションと[Mvc ミュージックストア](../../mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルのための Entity Framework データモデルを作成](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)する中間レベルに進み、 [MSDN の ASP.NET](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)に関する記事をご覧ください。 ASP.NET MVC の詳細については、 [https://asp.net/mvc](https://asp.net/mvc)にある多くのビデオとリソースをご覧ください。 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)は、質問するための優れた場所です。
 
-それではお楽しみください。
+機能を有効にご活用ください。
 
-— Scott Hanselman ([ http://hanselman.com ](http://hanselman.com)と[ @shanselman ](http://twitter.com/shanselman) twitter) と Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+— Scott マン Selman ([http://hanselman.com](http://hanselman.com)と[@shanselman](http://twitter.com/shanselman) Twitter) と Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
 > [!div class="step-by-step"]
-> [前へ](adding-validation-to-the-model.md)
+> [[戻る]](adding-validation-to-the-model.md)

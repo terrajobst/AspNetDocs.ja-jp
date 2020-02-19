@@ -1,170 +1,170 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
-title: Movie モデルとテーブルに新しいフィールドの追加 |Microsoft Docs
+title: ムービーモデルとテーブルに新しいフィールドを追加する |Microsoft Docs
 author: Rick-Anderson
-description: メモ:このチュートリアルの最新バージョンは ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全なはるかに簡単に従い、デモをお勧めしています.
+description: '注: このチュートリアルの更新バージョンは、ASP.NET MVC 5 と Visual Studio 2013 を使用するこちらで入手できます。 より安全で、より簡単にフォローとデモができます...'
 ms.author: riande
 ms.date: 08/28/2012
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: b0a66cf62c34a59ca5c89c2f380093165e765100
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d966b95163f64b20a17d2327a12c5d6c44a4a66b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129899"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457701"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Movie モデルとテーブルに新しいフィールドを追加する
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > > [!NOTE]
-> > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全ではるかに簡単に従うしより多くの機能を示します。
+> > このチュートリアルの更新バージョンは、ASP.NET MVC 5 と Visual Studio 2013 を使用する[こちらで](../../getting-started/introduction/getting-started.md)入手できます。 より安全で、より簡単にフォローし、より多くの機能を紹介します。
 
-このセクションでは、変更がデータベースに適用されるため、モデル クラスにいくつかの変更を移行するのに Entity Framework Code First Migrations を使用します。
+このセクションでは、Entity Framework Code First Migrations を使用して、変更がデータベースに適用されるように、モデルクラスにいくつかの変更を移行します。
 
-既定を使用する Entity Framework Code First のデータベースを自動的に作成するように、このチュートリアルで前に行ったときに Code First テーブル データベースに追加して、データベースのスキーマはから生成されたモデル クラスと同期されているかどうかを追跡できます。 同期していない、Entity Framework は、エラーをスローします。 これにより、表示されている可能性がありますそれ以外の場合のみ (原因不明のエラー) を実行時に、開発時に問題を追跡しやすくします。
+既定では、このチュートリアルの前に示したように Entity Framework Code First を使用してデータベースを自動的に作成すると、データベースのスキーマが生成元のモデルクラスと同期しているかどうかを追跡できるように Code First、データベースにテーブルが追加されます。 同期されていない場合は、Entity Framework によってエラーがスローされます。 これにより、開発時に問題を簡単に追跡できるようになります。これは、実行時に (あいまいなエラーによって) 検出された場合にのみ発生します。
 
-## <a name="setting-up-code-first-migrations-for-model-changes"></a>モデルの変更の Code First Migrations の設定
+## <a name="setting-up-code-first-migrations-for-model-changes"></a>モデル変更の Code First Migrations の設定
 
-Visual Studio 2012 を使用している場合をダブルクリックして、 *Movies.mdf*ファイルがソリューション エクスプ ローラーで、データベース ツールを開きます。 Visual Studio の Express for Web はデータベース エクスプ ローラーを表示、サーバー エクスプ ローラーを Visual Studio 2012 が表示されます。 Visual Studio 2010 を使用している場合は、SQL Server オブジェクト エクスプ ローラーを使用します。
+Visual Studio 2012 を使用している場合は、ソリューションエクスプローラーからの*ムービーの .mdf*ファイルをダブルクリックして、データベースツールを開きます。 Web 用の Visual Studio Express にデータベースエクスプローラーが表示され、Visual Studio 2012 にサーバーエクスプローラーが表示されます。 Visual Studio 2010 を使用している場合は、SQL Server オブジェクトエクスプローラーを使用します。
 
-(データベース エクスプ ローラー、サーバー エクスプ ローラーまたは SQL Server オブジェクト エクスプ ローラー) は、データベース ツールで右クリック`MovieDBContext`選択**削除**ムービー データベースを削除します。
+データベースツール (データベースエクスプローラー、サーバーエクスプローラーまたは SQL Server オブジェクトエクスプローラー) で、`MovieDBContext` を右クリックし、 **[削除]** を選択して、ムービーデータベースを削除します。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image1.png)
 
-ソリューション エクスプ ローラーに移動します。 右クリックして、 *Movies.mdf*ファイルおよび選択**削除**ムービー データベースを削除します。
+ソリューションエクスプローラーに戻ります。 *ムービーの .mdf*ファイルを右クリックし、 **[削除]** を選択して、ムービーデータベースを削除します。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image2.png)
 
-エラーがないかどうかを確認するアプリケーションをビルドします。
+アプリケーションをビルドしてエラーがないことを確認します。
 
-**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
+**[ツール]** メニューで **[NuGet パッケージ マネージャー]** 、 **[パッケージ マネージャー コンソール]** の順にクリックします。
 
-![パックのマニュアルを追加します。](adding-a-new-field-to-the-movie-model-and-table/_static/image3.png)
+![パックマンの追加](adding-a-new-field-to-the-movie-model-and-table/_static/image3.png)
 
-**パッケージ マネージャー コンソール**ウィンドウで、`PM>`プロンプト"Enable-migrations ContextTypeName MvcMovie.Models.MovieDBContext"を入力します。
+**パッケージマネージャーコンソール**ウィンドウの `PM>` プロンプトで、「Enable-移行-ContextTypeName MvcMovie」と入力します。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image4.png)
 
-**Enable-migrations**コマンド (上記) を作成、 *Configuration.cs*で新しいファイル*移行*フォルダー。
+(上の図に示した)**移行を有効に**するコマンドを実行すると、新しい*移行*フォルダーに*Configuration.cs*ファイルが作成されます。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image5.png)
 
-Visual Studio を開き、 *Configuration.cs*ファイル。 置換、`Seed`メソッドで、 *Configuration.cs*を次のコード ファイル。
+Visual Studio によって*Configuration.cs*ファイルが開きます。 *Configuration.cs*ファイルの `Seed` メソッドを次のコードに置き換えます。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample1.cs)]
 
-下の赤の波線を右クリックして`Movie`選択**解決**し**を使用して** **MvcMovie.Models;**
+`Movie` の下の赤い波線を右クリックし、 **[解決]** 、[ **mvcmovie の** **使用**] の順に選択します。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image6.png)
 
-これにより、次を追加ステートメントを使用します。
+これにより、次の using ステートメントが追加されます。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample2.cs)]
 
 > [!NOTE] 
 > 
-> Code First Migrations を呼び出し、`Seed`すべて移行後のメソッド (呼び出しは、**データベースを更新**パッケージ マネージャー コンソールで)、このメソッドは、既に挿入されている、または場合に、それらを挿入する行を更新し、まだ存在しません。
+> Code First Migrations は、すべての移行の後 (つまり、パッケージマネージャーコンソールで**更新プログラムデータベース**を呼び出す) に `Seed` メソッドを呼び出します。このメソッドは、既に挿入されている行を更新するか、まだ存在しない場合は挿入します。
 
-**CTRL + SHIFT+B プロジェクトをビルドするキーを押します。**(、次の手順が失敗する場合、この時点でビルドはありません)。
+**CTRL + SHIFT + B キーを押して、プロジェクトをビルドします。** (この時点でをビルドしないと、次の手順は失敗します)。
 
-次の手順が作成するには、`DbMigration`初回移行のためのクラス。 移行が作成することは、新しいデータベースを削除する、 *movie.mdf*前の手順でファイル。
+次の手順では、初期移行のために `DbMigration` クラスを作成します。 この移行によって新しいデータベースが作成されます。これは、前の手順で*ムービーの .mdf*ファイルを削除したためです。
 
-**パッケージ マネージャー コンソール**ウィンドウで、"add-migration Initial"コマンドを入力して、初期移行を作成します。 「初期」という名前は任意なので名前を移行ファイルを作成するために使用します。
+**パッケージマネージャーコンソール**ウィンドウで、"追加-移行の初期" コマンドを入力して、初期移行を作成します。 "Initial" という名前は任意であり、作成される移行ファイルに名前を指定するために使用されます。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image7.png)
 
-Code First Migrations は、別のクラス ファイルを作成、*移行*フォルダー (名前を持つ *{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。 移行ファイル名は事前のタイムスタンプを持つ順序付けに関するヘルプを修正しました。 確認、 *{日付スタンプ}\_Initial.cs*ファイル、Movie DB の映画のテーブルを作成する手順があります。 以下、この手順では、データベースを更新すると *{日付スタンプ}\_Initial.cs*ファイルは実行され、DB のスキーマを作成します。 次に、**シード**DB にテスト データを設定するメソッドが実行されます。
+Code First Migrations は、*移行*フォルダー ( *{datestamp}\_Initial.cs* ) に別のクラスファイルを作成します。このクラスには、データベーススキーマを作成するコードが含まれています。 移行ファイル名は、順序付けを支援するタイムスタンプで事前に固定されています。 *{Datestamp}\_Initial.cs*ファイルを調べます。このファイルには、Movie DB のムービーテーブルを作成するための手順が含まれています。 以下の手順でデータベースを更新すると、この *{Datestamp}\_Initial.cs*ファイルが実行され、DB スキーマが作成されます。 次に、 **Seed**メソッドを実行して、データベースにテストデータを読み込みます。
 
-**パッケージ マネージャー コンソール**、コマンド「更新プログラム-データベース」、データベースを作成し、実行の入力、**シード**メソッド。
+**パッケージマネージャーコンソール**で、"データベースの更新" コマンドを入力してデータベースを作成し、 **Seed**メソッドを実行します。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image8.png)
 
-テーブルが既に存在し、作成することはできませんを示すエラーが発生する場合は可能性があります、データベースを削除した後、および実行する前にアプリケーションを実行するため、`update-database`します。 その場合は、削除、 *Movies.mdf*ファイルをもう一度やり直して、`update-database`コマンド。 依然としてエラーが発生した場合、migrations フォルダーと内容を削除し、このページの上部にある手順を開始 (削除は、 *Movies.mdf*ファイルを Enable-migrations に進みます)。
+テーブルが既に存在して作成できないことを示すエラーが表示された場合は、データベースを削除した後、`update-database`を実行する前にアプリケーションを実行したことが原因である可能性があります。 その場合は、もう一度*ムービーの .mdf*ファイルを削除し、`update-database` コマンドを再試行してください。 それでもエラーが発生する場合は、移行フォルダとコンテンツを削除してから、このページの上部にある指示に従って作業を開始してください (*つまり、この*ページの内容を削除してから、移行の有効化に進みます)。
 
-アプリケーションを実行しに移動し、 */Movies* URL。 シード データが表示されます。
+アプリケーションを実行し、 */ムービー*の URL に移動します。 シードデータが表示されます。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image9.png)
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
 
-まず、新しい追加`Rating`プロパティを既存の`Movie`クラス。 開く、 *Models\Movie.cs*追加ファイルを開き、`Rating`次のようなプロパティ。
+まず、既存の `Movie` クラスに新しい `Rating` プロパティを追加します。 *Modelthe modelfile*を開き、次のように `Rating` プロパティを追加します。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample3.cs)]
 
-完全な`Movie`今のような次のコードをクラスします。
+完成した `Movie` クラスは次のコードのようになります。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample4.cs?highlight=8)]
 
-使用して、アプリケーションをビルド、**ビルド** &gt;**ビルド ムービー**コマンドまたは CTRL-b shift キーを押してメニュー
+[ビルド &gt;**ビルド**] メニューコマンドを使用するか、CTRL + SHIFT + B キーを押し**て、アプリケーション**をビルドします。
 
-更新した、`Model`クラスもする必要がある更新、 *\Views\Movies\Index.cshtml* と *\Views\Movies\Create.cshtml* 新しいを表示するためにテンプレートを表示`Rating`ブラウザー ビューでのプロパティ。
+`Model` クラスを更新したので、新しい `Rating` プロパティをブラウザービューで表示するために、 *\Views\Movies\Index.cshtml*および *\Views\Movies\Create.cshtml* view テンプレートも更新する必要があります。
 
-開く、<em>\Views\Movies\Index.cshtml</em>追加ファイルを開き、`<th>Rating</th>`直後の列ヘッダー、<strong>価格</strong>列。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新<em>Index.cshtml</em>ビュー テンプレートのようになります。
+<em>\Views\Movies\Index.cshtml</em>ファイルを開き、 <strong>Price</strong>列の直後に `<th>Rating</th>` 列見出しを追加します。 次に、テンプレートの末尾付近に `<td>` 列を追加して、`@item.Rating` 値を表示します。 更新されたインデックスの例を次に示し<em>ます。 cshtml</em> view テンプレートは次のようになります。
 
 [!code-cshtml[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample5.cshtml?highlight=26-28,46-48)]
 
-次に、開く、 *\Views\Movies\Create.cshtml*ファイルを開き、フォームの末尾付近の次のマークアップを追加します。 これにより、新しいムービーの作成時に、評価を指定できるように、テキスト ボックスを表示します。
+次に、 *\Views\Movies\Create.cshtml*ファイルを開き、フォームの末尾付近に次のマークアップを追加します。 新しいムービーを作成するときに評価を指定できるように、テキストボックスが表示されます。
 
 [!code-cshtml[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample6.cshtml)]
 
-新しいをサポートするアプリケーション コードを更新するようになりました`Rating`プロパティ。
+これで、新しい `Rating` プロパティをサポートするようにアプリケーションコードが更新されました。
 
-これで、アプリケーションを実行しに移動し、 */Movies* URL。 これを行うときに、表示されます、次のエラーのいずれか。
+次に、アプリケーションを実行し、 */ムービー*の URL に移動します。 ただし、この操作を行うと、次のいずれかのエラーが表示されます。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image10.png)
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image11.png)
 
-ため、このエラーが表示されている更新された`Movie`アプリケーションでモデル クラスは、スキーマの異なる、`Movie`既存のデータベースのテーブル。 (データベース テーブルに `Rating` 列はありません)。
+このエラーが表示されるのは、アプリケーションの更新された `Movie` モデルクラスが、既存のデータベースの `Movie` テーブルのスキーマとは異なるようになったためです。 (データベース テーブルに `Rating` 列はありません)。
 
 このエラーを解決するための手法がいくつかあります。
 
-1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 テスト データベースでアクティブな開発を行うときに、このアプローチは非常に便利簡単にまとめてモデルとデータベース スキーマを進化させることができます。 短所は、データベース内の既存のデータが失われる-ようにする*しない*実稼働データベースでこのアプローチを使用する! データベースにテスト データを自動的にシード初期化子を使用するは、多くの場合、アプリケーションを開発する生産性の高い方法です。 Entity Framework データベースの初期化子の詳細については、Tom Dykstra を参照してください。 [ASP.NET MVC/Entity Framework チュートリアル](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
+1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この方法は、テストデータベースに対してアクティブな開発を行う場合に非常に便利です。これにより、モデルとデータベーススキーマを一緒に迅速に進化させることができます。 ただし、この欠点は、データベース内の既存のデータが失われているため、運用データベースでこのアプローチを使用したく*ない*ということです。 初期化子を使用して、データベースをテストデータで自動的にシード処理することは、多くの場合、アプリケーションを開発するための生産性の高い方法です。 Entity Framework データベース初期化子の詳細については、「Tom Dykstra の[ASP.NET MVC/Entity Framework チュートリアル](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)」を参照してください。
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 3. Code First Migrations を使用して、データベース スキーマを更新します。
 
 このチュートリアルでは、Code First Migrations を利用します。
 
-新しい列の値を提供するように、Seed メソッドを更新します。 Migrations \configuration.cs ファイルを開き、ムービーの各オブジェクトに Rating フィールドを追加します。
+新しい列の値を提供するように、Seed メソッドを更新します。 Migrations\ configuration.cs ファイルを開き、各ムービーオブジェクトに評価フィールドを追加します。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample7.cs?highlight=6)]
 
-ソリューションをビルドし、開き、**パッケージ マネージャー コンソール**ウィンドウし、次のコマンドを入力します。
+ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウを開き、次のコマンドを入力します。
 
 `add-migration AddRatingMig`
 
-`add-migration`コマンドは現在のムービー DB スキーマを使用して現在のムービー モデルを調べるし、DB を新しいモデルに移行するために必要なコードを作成するために移行フレームワークに指示します。 AddRatingMig は任意なので移行ファイルの名前を使用します。 移行手順のわかりやすい名前を使用することをお勧めします。
+`add-migration` のコマンドは、現在のムービーの DB スキーマを使用して現在のムービーモデルを確認し、新しいモデルにデータベースを移行するために必要なコードを作成するように移行フレームワークに指示します。 AddRatingMig は任意であり、移行ファイルの名前を指定するために使用されます。 移行手順にわかりやすい名前を使用すると便利です。
 
-このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMigration`クラスを派生し、`Up`メソッド、新しい列を作成するコードを表示できます。
+このコマンドが終了すると、Visual Studio によって、新しい `DbMigration` 派生クラスを定義するクラスファイルが開き、`Up` メソッドに新しい列を作成するコードが表示されます。
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample8.cs)]
 
-ソリューションをビルドし、「データベースの更新」のコマンドを入力、**パッケージ マネージャー コンソール**ウィンドウ。
+ソリューションをビルドし、 **[パッケージマネージャーコンソール]** ウィンドウで "データベースの更新" コマンドを入力します。
 
-次の図は、出力で、**パッケージ マネージャー コンソール**ウィンドウ (プリペンド AddRatingMig 日付スタンプが異なるあります)。
+次の図は、**パッケージマネージャーコンソール**ウィンドウの出力を示しています (日付スタンプの前に AddRatingMig があります)。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image12.png)
 
-アプリケーションを再実行し、/Movies URL に移動します。 新しい Rating フィールドを確認できます。
+アプリケーションを再実行し、/ムービーの URL に移動します。 [新しい評価] フィールドが表示されます。
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image13.png)
 
-をクリックして、**新規作成**のリンクを新しいムービーを追加します。 評価を追加できることに注意してください。
+新しいムービーを追加するには、 **[新規作成]** リンクをクリックします。 評価を追加できることに注意してください。
 
 ![7_CreateRioII](adding-a-new-field-to-the-movie-model-and-table/_static/image14.png)
 
-**[作成]** をクリックします。 評価を含む、新しいムービーに表示されるビデオを一覧表示します。
+[作成] をクリックします。 新しいムービー (評価を含む) がムービーの一覧に表示されるようになりました。
 
 ![7_ourNewMovie_SM](adding-a-new-field-to-the-movie-model-and-table/_static/image15.png)
 
-追加することも必要があります、`Rating`テンプレートの表示、編集、詳細、SearchIndex するフィールドします。
+また、[編集]、[詳細]、および [SearchIndex view] テンプレートに `Rating` フィールドを追加する必要があります。
 
-「データベースの更新」のコマンドを入力する可能性があります、**パッケージ マネージャー コンソール**ウィンドウをもう一度と変更なしになります、スキーマには、モデルが一致するためです。
+**パッケージマネージャーコンソール**ウィンドウに [データベースの更新] コマンドをもう一度入力すると、スキーマがモデルに一致するため、変更は行われません。
 
-このセクションでは、モデル オブジェクトを変更し、データベースの変更との同期を維持する方法を説明しました。 シナリオを試すことができますので、サンプル データを使って新しく作成したデータベースを設定する方法も学習しました。 次に、高度な検証ロジックはモデル クラスを追加し、いくつかのビジネス ルールを適用するを有効にする方法を見てみましょう。
+このセクションでは、モデルオブジェクトを変更し、データベースと変更の同期を維持する方法について説明しました。 また、新しく作成されたデータベースにサンプルデータを設定して、シナリオを試す方法についても学習しました。 次に、より高度な検証ロジックをモデルクラスに追加し、一部のビジネスルールを適用できるようにする方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](examining-the-edit-methods-and-edit-view.md)

@@ -9,16 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: eacfbb8a5b2d1aa3678892bc2077a56185fdebbc
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 633229cc4311d151121bf6a91b9fa8aeecca1197
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519155"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456154"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))、 [suhas Joshi](https://github.com/suhasj)
+[Rick Anderson](https://twitter.com/RickAndMSFT)、 [suhas Joshi](https://github.com/suhasj)
 
 > このチュートリアルでは、SQL メンバーシップを使用して作成されたユーザーデータとロールデータを使用して、既存の web アプリケーションを新しい ASP.NET Identity システムに移行する手順について説明します。 この方法では、既存のデータベーススキーマを ASP.NET Identity によって必要とされるスキーマに変更し、古い/新しいクラスにフックします。 このアプローチを採用した後、データベースを移行すると、今後 Id に対する更新が簡単に処理されるようになります。
 
@@ -83,29 +83,29 @@ ms.locfileid: "76519155"
 
 既存のユーザーのデータを使用して ASP.NET Identity クラスをすぐに使用できるようにするには、データベーススキーマを ASP.NET Identity で必要なものに移行する必要があります。 これを行うには、新しいテーブルを追加し、既存の情報をそれらのテーブルにコピーします。 既定では、ASP.NET Identity は EntityFramework を使用して Id モデルクラスをデータベースにマップし、情報を格納または取得します。 これらのモデルクラスは、ユーザーおよびロールオブジェクトを定義するコア Id インターフェイスを実装します。 データベース内のテーブルと列は、これらのモデルクラスに基づいています。 Identity v 2.1.0 の EntityFramework モデルクラスとそのプロパティは次のように定義されています。
 
-| **IdentityUser** | **型** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
+| **ユーザー** | **Type** | **"担当者" ロール** | **"Identity Userrole"** | **ユーザー名ログイン** | **ユーザー要求** |
 | --- | --- | --- | --- | --- | --- |
-| ID | string | ID | RoleId | ProviderKey | ID |
-| ユーザー名 | string | [名前] | UserId | UserId | ClaimType |
+| Id | string | Id | RoleId | ProviderKey | Id |
+| ユーザー名 | string | Name | UserId | UserId | ClaimType |
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
-| SecurityStamp | string |  |  |  | ユーザー\_Id |
-| 電子メール | string |  |  |  |  |
-| 電子メールの確認 | ブール |  |  |  |  |
+| セキュリティー | string |  |  |  | ユーザー\_Id |
+| Email | string |  |  |  |  |
+| 電子メールの確認 | bool |  |  |  |  |
 | PhoneNumber | string |  |  |  |  |
-| PhoneNumberConfirmed | ブール |  |  |  |  |
-| LockoutEnabled | ブール |  |  |  |  |
+| PhoneNumberConfirmed | bool |  |  |  |  |
+| LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
 | AccessFailedCount | int |  |  |  |  |
 
 これらの各モデルのテーブルには、プロパティに対応する列を用意する必要があります。 クラスとテーブル間のマッピングは、`IdentityDBContext`の `OnModelCreating` メソッドで定義されます。 これは、構成の fluent API 方法として知られています。詳細については、[こちら](https://msdn.microsoft.com/data/jj591617.aspx)を参照してください。 クラスの構成は次のとおりです。
 
-| **クラス** | **テーブル** | **主キー** | **外部キー** |
+| **クラス** | **Table** | **主キー** | **外部キー** |
 | --- | --- | --- | --- |
-| IdentityUser | AspnetUsers | ID |  |
-| IdentityRole | AspnetRoles | ID |  |
+| IdentityUser | AspnetUsers | Id |  |
+| IdentityRole | AspnetRoles | Id |  |
 | IdentityUserRole | AspnetUserRole | UserId + RoleId | ユーザー\_Id-&gt;AspnetUsers RoleId-&gt;AspnetRoles |
 | IdentityUserLogin | AspnetUserLogins | ProviderKey + UserId + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | ID | ユーザー\_Id-&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Id | ユーザー\_Id-&gt;AspnetUsers |
 
 この情報を使用して、新しいテーブルを作成する SQL ステートメントを作成できます。 各ステートメントを個別に記述するか、必要に応じて編集できる EntityFramework PowerShell コマンドを使用してスクリプト全体を生成することができます。 これを行うには、VS で **[ビュー]** メニューまたは **[ツール]** メニューから**パッケージマネージャーコンソール**を開きます。
 
@@ -165,7 +165,7 @@ SQL メンバーシップのユーザー情報には、Identity user model ク�
     User クラスでは、 *Microsoft .net framework* dll のユーザークラスを拡張する必要があります。 AspNetUser 列にマップし直すクラスのプロパティを宣言します。 プロパティ ID、ユーザー名、PasswordHash は、ユーザーに定義されているので、省略します。 すべてのプロパティを持つ User クラスのコードを次に示します。
 
     [!code-csharp[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample3.cs)]
-2. モデル内のデータをテーブルに保存し、テーブルからデータを取得してモデルを作成するためには、Entity Framework DbContext クラスが必要です。 *Microsoft.AspNet.Identity.EntityFramework* dll defines the IdentityDbContext class which interacts with the Identity tables to retrieve and store information. ユーザー&gt;&lt;tuser は、"TUser" クラスを受け取ります。このクラスには、ユーザークラスを拡張する任意のクラスを指定できます。
+2. モデル内のデータをテーブルに保存し、テーブルからデータを取得してモデルを作成するためには、Entity Framework DbContext クラスが必要です。 *Microsoft の identity. EntityFramework* dll は、id テーブルと対話して情報を取得および格納するための、id テーブルを定義します。 ユーザー&gt;&lt;tuser は、"TUser" クラスを受け取ります。このクラスには、ユーザークラスを拡張する任意のクラスを指定できます。
 
     ' Model ' フォルダーの下にある "ユーザー" クラスを渡して、"モデル" フォルダーの下にある [ユーザー] クラスを渡す新しいクラス ApplicationDBContext を作成します。
 
@@ -215,7 +215,7 @@ SQL メンバーシップのユーザー情報には、Identity user model ク�
 
 Id システムに移植すると、ユーザーが Open Authentication (OAuth) をアプリケーションに追加するのに役立ちます。 OAuth が有効[になっているサンプルを](https://github.com/aspnet/samples/tree/master/samples/aspnet/Identity/SQLMembership-Identity-OWIN/)参照してください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 このチュートリアルでは、ユーザーを SQL メンバーシップから ASP.NET Identity に移植する方法を説明しましたが、プロファイルデータを移植していませんでした。 次のチュートリアルでは、SQL メンバーシップから新しい Id システムへのプロファイルデータの移植について説明します。
 

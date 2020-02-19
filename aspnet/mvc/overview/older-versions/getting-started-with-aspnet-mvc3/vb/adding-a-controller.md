@@ -1,79 +1,79 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
-title: コント ローラー (VB) の追加 |Microsoft Docs
+title: コントローラーの追加 (VB) |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 741259e1-54ac-4f71-b4e8-2bd5560bb950
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 0c637f5758f8196c19ef8d5c71009e85f9dd706e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2e77f62a9796211b0e59a99c71bc532659b7cb92
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130036"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457405"
 ---
 # <a name="adding-a-controller-vb"></a>コントローラーの追加 (VB)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+> このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+> - [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 > 
-> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 > 
-> VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/adding-a-controller.md)このチュートリアルの。
+> このトピックには、VB.NET ソースコードを含む Visual Web Developer プロジェクトが用意されています。 [VB.NET バージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 必要に応じC#て[ C# ](../cs/adding-a-controller.md) 、このチュートリアルのバージョンに切り替えます。
 
-MVC の略*モデル-ビュー-コント ローラー*します。 MVC は、各部分がある別の責任になるようにアプリケーションを開発するためのパターンです。
+MVC は、*モデルビューコントローラー*を表します。 MVC は、各部分に個別の責任があるアプリケーションを開発するためのパターンです。
 
-- モデル:アプリケーションのデータ。
-- 表示モード：テンプレート ファイル、アプリケーションは、HTML 応答を動的に生成に使用されます。
-- コント ローラー:アプリケーションに受信 URL 要求を処理するクラスは、モデル、データを取得し、クライアントに応答をレンダリングするビュー テンプレートを指定します。
+- モデル: アプリケーションのデータ。
+- Views: アプリケーションが HTML 応答を動的に生成するために使用するテンプレートファイル。
+- コントローラー: アプリケーションへの受信 URL 要求を処理し、モデルデータを取得して、クライアントへの応答を表示するビューテンプレートを指定するクラス。
 
-このチュートリアルでは、これらすべての概念をカバーするがされ、アプリケーションの構築に使用する方法を示します。
+このチュートリアルでは、これらのすべての概念について説明し、それらを使用してアプリケーションを構築する方法について説明します。
 
-右クリックし、新しいコント ローラーを作成、*コント ローラー*フォルダー**ソリューション エクスプ ローラー**選択**コント ローラーの追加**します。
+**ソリューションエクスプローラー**で*Controllers*フォルダーを右クリックし、 **[コントローラーの追加]** を選択して、新しいコントローラーを作成します。
 
 [![AddController](adding-a-controller/_static/image2.png "AddController")](adding-a-controller/_static/image1.png)
 
-新しいコント ローラー &quot;HelloWorldController&quot;クリック**追加**します。
+新しいコントローラーに HelloWorldController&quot; という名前を &quot;、 **[追加]** をクリックします。
 
 [![2AddEmptyController](adding-a-controller/_static/image4.png "2AddEmptyController")](adding-a-controller/_static/image3.png)
 
-**ソリューション エクスプ ローラー** 、右側の新しいファイルが作成されたことという名前*HelloWorldController.cs*ファイルが IDE で開かれているとします。
+右側の**ソリューションエクスプローラー**に、 *HelloWorldController.cs*という名前の新しいファイルが作成され、そのファイルが IDE で開かれていることがわかります。
 
-新しい内部`public class HelloWorldController`ブロックで、次のコードのように 2 つの新しいメソッドを作成します。 例として、コント ローラーから直接 HTML の文字列を返しますします。
+新しい `public class HelloWorldController` ブロック内で、次のコードのような2つの新しいメソッドを作成します。 例として、コントローラーから直接 HTML の文字列を返します。
 
 [!code-vb[Main](adding-a-controller/samples/sample1.vb)]
 
-コント ローラーの名前は`HelloWorldController`と新しいメソッドが名前付き`Index`します。 (F5 キーまたは ctrl キーを押しながら f5 キーを押して) アプリケーションを実行します。 お使いのブラウザーが開始されると追加&quot;HelloWorld&quot;アドレス バーにパスにします。 (私のコンピューターでが`http://localhost:43246/HelloWorld`)、ブラウザーは次のスクリーン ショットのようになります。 上記のメソッドでは、コードは、文字列を直接返します。 いくつかの HTML を返すだけに、システムと言いましたおり、そうしました。
+コントローラーには `HelloWorldController` という名前が付けられ、新しいメソッドには `Index`という名前が付けられます。 アプリケーションを実行します (F5 キーを押すか、Ctrl キーを押しながら F5 キーを押します)。 ブラウザーが起動したら、&quot;HelloWorld&quot; をアドレスバーのパスに追加します。 (私のコンピューターでは `http://localhost:43246/HelloWorld`)ブラウザーは次のスクリーンショットのようになります。 上記のメソッドでは、コードによって文字列が直接返されました。 私たちは、HTML を返すだけをシステムに指示しました。
 
 ![](adding-a-controller/_static/image5.png)
 
-ASP.NET MVC では、着信 URL に応じて別のコント ローラー クラス (およびそれらに含まれるさまざまなアクション メソッド) を呼び出します。 ASP.NET MVC で使用される既定のマッピングのロジックでは、このような形式を使用して、どのようなコードが呼び出されるかを制御します。
+ASP.NET MVC は、受信 URL に応じて、さまざまなコントローラークラス (およびその中のさまざまなアクションメソッド) を呼び出します。 ASP.NET MVC で使用される既定のマッピングロジックでは、次のような形式を使用して、呼び出されるコードを制御します。
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって */HelloWorld*にマップされます、`HelloWorldController`クラス。 URL の 2 番目の部分は、実行するには、クラスのアクション メソッドを決定します。 したがって */HelloWorld/インデックス*なる、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照してくださいあったことに注意してください */HelloWorld*上、`Index`メソッドが既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合、コント ローラーで呼び出される既定のメソッドします。
+URL の最初の部分では、実行するコントローラークラスを指定します。 そのため、 *HelloWorld*は `HelloWorldController` クラスにマップされます。 URL の2番目の部分では、実行するクラスのアクションメソッドを決定します。 したがって、 */HelloWorld/Index*は、`HelloWorldController` クラスの `Index` メソッドを実行します。 上にある */HelloWorld*にアクセスするだけで、`Index` メソッドが既定で使用されていたことに注意してください。 これは、`Index` という名前のメソッドが、明示的に指定されていない場合にコントローラーで呼び出される既定のメソッドであるためです。
 
-`http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome`メソッドを実行し、文字列を返します&quot;へようこそ のアクション メソッドになります.&quot;. 既定の MVC のマッピングは`/[Controller]/[ActionName]/[Parameters]`します。 コント ローラーは、この url で`HelloWorld`と`Welcome`メソッドです。 私たちが使用されていない、`[Parameters]`まだ URL の一部です。
+[https://www.microsoft.com](`http://localhost:xxxx/HelloWorld/Welcome`) を参照します。 `Welcome` メソッドが実行され、文字列 &quot;返されます。これは、ウェルカムアクションメソッド...&quot;です。 既定の MVC マッピングは `/[Controller]/[ActionName]/[Parameters]`。 この URL では、コントローラーは `HelloWorld`、`Welcome` はメソッドです。 URL の `[Parameters]` 部分はまだ使用していません。
 
 ![](adding-a-controller/_static/image6.png)
 
-みましょうコント ローラーに、URL からの一部のパラメーター情報を渡すことができるように、例を少し変更 (たとえば、 */helloworld/welcome でしょうか。 名前 = Scott&amp;numtimes = 4*)。 変更、`Welcome`メソッドを次に示すように、2 つのパラメーターを含めます。 いることを示す、VB の省略可能なパラメーターの機能を使用したことに注意してください、`numTimes`そのパラメーターの値が渡されない場合、1 にパラメーターが既定する必要があります。
+例を少し変更して、URL からコントローラーにパラメーター情報を渡すことができるようにします (たとえば、 */HelloWorld/Welcome? name = Scott&amp;numtimes = 4*)。 次のように2つのパラメーターを含めるように `Welcome` メソッドを変更します。 VB の省略可能なパラメーター機能を使用して、パラメーターに値が渡されない場合、`numTimes` パラメーターの既定値は1であることを示すことに注意してください。
 
 [!code-vb[Main](adding-a-controller/samples/sample2.vb)]
 
-アプリケーションを実行しを参照する`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`**します。** さまざまな値を試みることができます`name`と`numtimes`します。 システムでは、メソッドのパラメーターに、アドレス バーで、クエリ文字列から名前付きパラメーターが自動的にマップされます。
+アプリケーションを実行し、`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`を参照し**ます。** `name` と `numtimes`に対して異なる値を試すことができます。 システムは、アドレスバーのクエリ文字列の名前付きパラメーターを、メソッドのパラメーターに自動的にマップします。
 
 ![](adding-a-controller/_static/image7.png)
 
-これら両方の例で、コント ローラーが実行されて MVC の VC 部分: ビューとコント ローラーの作業です。 コントローラーは HTML を直接返しています。 通常のコードに非常に面倒になるため、直接 HTML を返すコント ローラーのたくはありません。 代わりに、HTML 応答を生成するために使用します別のビュー テンプレート ファイルを通常。 そのため方法を見てみましょう。
+これらの例では、コントローラーが MVC の VC 部分を実行していました。これはビューとコントローラーの動作です。 コントローラーは HTML を直接返しています。 通常、コントローラーが HTML を直接返すことはありません。これは、コードが非常に煩雑になるためです。 代わりに、通常は別のビューテンプレートファイルを使用して、HTML 応答を生成します。 これを実行する方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](intro-to-aspnet-mvc-3.md)

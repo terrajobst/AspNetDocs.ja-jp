@@ -1,83 +1,83 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3
-title: ASP.NET MVC 3 (VB) の概要 |Microsoft Docs
+title: ASP.NET MVC 3 の概要 (VB) |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: a1b3d789-93b4-487f-b90d-80c9c9b4f8fa
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: e4fe82ed57e888363f22c84b178b83a07c32c95d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 24f7de303ef7f5a457bd509ecc6bd0e3be7e3d9d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130090"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456330"
 ---
 # <a name="intro-to-aspnet-mvc-3-vb"></a>ASP.NET MVC 3 入門 (VB)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+> このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+> - [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 > 
-> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 > 
-> VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/intro-to-aspnet-mvc-3.md)このチュートリアルの。
+> このトピックには、VB.NET ソースコードを含む Visual Web Developer プロジェクトが用意されています。 [VB.NET バージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 必要に応じC#て[ C# ](../cs/intro-to-aspnet-mvc-3.md) 、このチュートリアルのバージョンに切り替えます。
 
-このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 
 - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-- [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-- [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+- [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+- [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 
-Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 
-VB ソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [ここで、VB バージョンのダウンロード](https://code.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=14824)します。 CSharp を使用する場合に切り替えて、 [CSharp バージョン](../cs/intro-to-aspnet-mvc-3.md)このチュートリアルの。
+このトピックには、VB ソースコードを含む Visual Web Developer プロジェクトが用意されています。 [VB バージョンをこちらからダウンロードして](https://code.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=14824)ください。 CSharp を使用する場合は、このチュートリアルの[csharp バージョン](../cs/intro-to-aspnet-mvc-3.md)に切り替えてください。
 
-## <a name="what-youll-build"></a>構築します
+## <a name="what-youll-build"></a>作成するアプリケーション:
 
-作成、編集、およびデータベースからムービーを一覧表示をサポートする簡単なムービー リスト アプリケーションを実装します。 アプリケーションをビルドの 2 つのスクリーン ショットを次に示します。 データベースからムービーの一覧を表示するページが含まれています。
+データベースからのムービーの作成、編集、および一覧表示をサポートする単純なムービーリスティングアプリケーションを実装します。 ビルドするアプリケーションの2つのスクリーンショットを次に示します。 これには、データベースからムービーの一覧を表示するページが含まれています。
 
 [![MoviesWithVariousSm](intro-to-aspnet-mvc-3/_static/image2.png)](intro-to-aspnet-mvc-3/_static/image1.png)
 
-アプリケーションでは、追加、編集、および個別の詳細を参照するくださいと同様に、ムービーを削除することもできます。 すべてのデータ入力シナリオには、データベースに格納されたデータが正しいことを確認する検証が含まれます。
+また、このアプリケーションでは、ムービーの追加、編集、削除を行うことができます。また、個々のムービーの詳細も確認できます。 すべてのデータ入力シナリオには、データベースに格納されているデータが正しいことを確認するための検証が含まれます。
 
-[![CreateFormSo](intro-to-aspnet-mvc-3/_static/image4.png)](intro-to-aspnet-mvc-3/_static/image3.png)
+[CreateFormSo の ![](intro-to-aspnet-mvc-3/_static/image4.png)](intro-to-aspnet-mvc-3/_static/image3.png)
 
 ## <a name="skills-youll-learn"></a>学習内容
 
-学習内容を次に示します。
+ここでは次の内容について学習します。
 
 - 新しい ASP.NET MVC プロジェクトを作成する方法
 - Entity Framework code first を使用して新しいデータベースを作成する方法
-- ASP.NET MVC のコント ローラーとビューを作成する方法
-- データ取得して表示する方法
+- ASP.NET MVC コントローラーとビューを作成する方法
+- データを取得して表示する方法
 - データを編集し、データの検証を有効にする方法
 
 ## <a name="getting-started"></a>作業の開始
 
-Visual Web Developer 2010 Express (略しての"VWD") を実行して起動し、選択**新しいプロジェクト**から、**開始**ページ。
+Visual Web Developer 2010 Express (短い場合は "VWD") を実行し、**スタート**ページで **[新しいプロジェクト]** を選択します。
 
-Visual Web Developer は、IDE、または統合開発環境です。 Microsoft Word を使用してドキュメントを記述するのにのと同じようにアプリケーションを作成、IDE を使用します。 Visual Web Developer を使用できるさまざまなオプションを示す上部のツールバーがあります。 また、IDE でタスクを実行する別の方法を提供するメニューがあります。 (選択ではなく、たとえば、**新しいプロジェクト**から、**開始** ページで、メニューを使用して選択**ファイル** &gt; **の新しいプロジェクト**.)
+Visual Web Developer は、IDE または統合開発環境です。 Microsoft Word を使用してドキュメントを記述するのと同じように、IDE を使用してアプリケーションを作成します。 Visual Web Developer には、さまざまなオプションが表示されているツールバーが上部にあります。 IDE でタスクを実行する別の方法を提供するメニューもあります。 (たとえば、**スタート**ページで **[新しいプロジェクト]** を選択する代わりに、メニューを使用して [**ファイル**&gt;**新しいプロジェクト**] を選択できます)。
 
 [![](intro-to-aspnet-mvc-3/_static/image6.png)](intro-to-aspnet-mvc-3/_static/image5.png)
 
-## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
+## <a name="creating-your-first-application"></a>最初のアプリケーションの作成
 
-プログラミング言語として Visual Basic または Visual c# のいずれかの好みを使用してアプリケーションを作成することができます。 このチュートリアルでは、左側で、Visual Basic を選択し、選択**ASP.NET MVC 3 Web アプリケーション**します。 クリックして、プロジェクトに"MvcMovie" **OK**します。
+プログラミング言語として Visual Basic またはビジュアルC#のいずれかを選択して、アプリケーションを作成できます。 このチュートリアルでは、左側の Visual Basic を選択し、 **ASP.NET MVC 3 Web アプリケーション** を選択します。 プロジェクトに "MvcMovie" という名前を入力し、[ **OK]** をクリックします。
 
 ![1NewMVCproj_sm](intro-to-aspnet-mvc-3/_static/image7.png)
 
-**新しい ASP.NET MVC 3 プロジェクト**ダイアログ ボックスで、**インターネット アプリケーション**します。 まま**Razor**既定のビュー エンジンとして。
+**[New ASP.NET MVC 3 プロジェクト]** ダイアログボックスで、 **[インターネットアプリケーション]** を選択します。 既定のビューエンジンとして**Razor**をそのまま使用します。
 
 ![1InternetAppRazor_SM](intro-to-aspnet-mvc-3/_static/image8.png)
 
-**[OK]** をクリックします。 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるので何もせず、実用的なアプリケーションを今すぐ必要する! これは、単純です"Hello World!" プロジェクト、およびそのアプリケーションにお勧めです。
+**[OK]** をクリックすると、 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートを使用しています。これにより、何も実行することなく、すぐに動作するアプリケーションが完成しました。 これは単純な "Hello World!" です。 プロジェクトは、アプリケーションを起動するのに適した場所です。
 
 [![](intro-to-aspnet-mvc-3/_static/image10.png)](intro-to-aspnet-mvc-3/_static/image9.png)
 
@@ -85,13 +85,13 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 ![](intro-to-aspnet-mvc-3/_static/image11.png)
 
-デバッグを開始するキーボード ショートカットは、f5 キーであることを確認します。
+デバッグを開始するためのキーボードショートカットが F5 キーになっていることに注意してください。
 
-F5 キーは、Visual Web Developer を開発 web サーバーを起動し、web アプリケーションを実行します。 VWD は、ブラウザーを起動し、アプリケーションのホーム ページを開きます。 ブラウザーのアドレス バーが表示されますが`localhost`ようなものではありません`example.com`します。 だ`localhost`常にこの例でビルドしたアプリケーションを実行して、自分のローカル コンピューターを指します。 VWD が web プロジェクトを実行すると、プロジェクトのランダムなポートが使用されます。 次の図では、ランダムのポート番号は、43246 です。 プロジェクトでは、別のポート番号は使用可能性があります。
+F5 キーを押すと、Visual Web Developer によって開発 web サーバーが起動され、web アプリケーションが実行されます。 その後、VWD はブラウザーを起動し、アプリケーションのホームページを開きます。 ブラウザーのアドレスバーには `localhost` が表示され、`example.com`のようなものではないことに注意してください。 これは、`localhost` が常に独自のローカルコンピューターを指しているためです。この場合は、先ほど作成したアプリケーションが実行されています。 VWD で web プロジェクトを実行する場合、プロジェクトにはランダムなポートが使用されます。 次の図では、ランダムポート番号は43246です。 プロジェクトでは、別のポート番号を使用することがあります。
 
 ![](intro-to-aspnet-mvc-3/_static/image12.png)
 
-この既定のテンプレートはすぐする 2 つのページにアクセスして、基本的なログイン ページを示します。 このアプリケーションの動作を変更して、プロセスで ASP.NET MVC についてもう少し説明します。 ブラウザーを閉じて、いくつかのコードを変更してみましょう。
+すぐに使用できる既定のテンプレートでは、2つのページにアクセスでき、基本的なログインページが表示されます。 このアプリケーションの動作を変更し、プロセスでの ASP.NET MVC について少し説明しましょう。 ブラウザーを閉じて、コードを変更してみましょう。
 
 > [!div class="step-by-step"]
-> [次へ](adding-a-controller.md)
+> [Next](adding-a-controller.md)

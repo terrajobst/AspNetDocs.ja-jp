@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: e01953dcfb2abf2db53a8aa869aa75b40485daca
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 5d882d765133d32d3acdba9ffb5d43b69119a273
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519090"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457233"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -100,7 +100,7 @@ MVC では、*厳密*に型指定されたオブジェクトをビューテン�
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample5.cshtml?highlight=1-2)]
 
-ビューテンプレートファイルの先頭に `@model` ステートメントを含めることにより、ビューが想定するオブジェクトの型を指定できます。 ムービー コントローラーを作成したとき、Visual Studio によって *Details.cshtml* ファイルの先頭に `@model` ステートメントが自動的に追加されています。
+ビューテンプレートファイルの先頭に `@model` ステートメントを含めることにより、ビューが想定するオブジェクトの型を指定できます。 ムービー コントローラーを作成したとき、Visual Studio によって `@model`Details.cshtml*ファイルの先頭に* ステートメントが自動的に追加されています。
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 

@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: d5c8190d0b0c91bf9e42f6ef03adc5b07a65359a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: e741a753a36ebdaefbff8eee0b38911785c716ac
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582883"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457168"
 ---
 # <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>すべてを自動化 (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -49,8 +49,8 @@ ms.locfileid: "74582883"
 
 まず、 *New-AzureWebsiteEnv*という名前を付けます。 テスト用に修正プログラムをデプロイできる Azure 環境が作成されます。 このスクリプトが実行する主なタスクは次のとおりです。
 
-- Web アプリを作成する。
-- ストレージアカウントを作成します。 (後の章で説明するように、blob およびキューに対して必要です)。
+- Web アプリを作成します。
+- ストレージ アカウントを作成します。 (後の章で説明するように、blob およびキューに対して必要です)。
 - SQL Database サーバーと2つのデータベース (アプリケーションデータベースとメンバーシップデータベース) を作成します。
 - ストレージアカウントとデータベースへのアクセスにアプリが使用する設定を Azure に格納します。
 - デプロイを自動化するために使用される設定ファイルを作成します。
@@ -74,7 +74,7 @@ Azure サービスを管理する PowerShell スクリプトを実行するに�
 
 ストレージアカウント:
 
-![ストレージアカウント](automate-everything/_static/image4.png)
+![ストレージ アカウント](automate-everything/_static/image4.png)
 
 と web アプリは次のようになります。
 
@@ -84,7 +84,7 @@ Web アプリの **[構成]** タブで、修正プログラムのアプリ用�
 
 ![appSettings と connectionStrings](automate-everything/_static/image6.png)
 
-*Automation*フォルダーには、 *&lt;websitename&gt;pubxml*ファイルも含まれるようになりました。 このファイルには、先ほど作成した Azure 環境にアプリケーションをデプロイするために MSBuild が使用する設定が格納されます。 例:
+*Automation*フォルダーには、 *&lt;websitename&gt;pubxml*ファイルも含まれるようになりました。 このファイルには、先ほど作成した Azure 環境にアプリケーションをデプロイするために MSBuild が使用する設定が格納されます。 例 :
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
@@ -114,13 +114,13 @@ Web アプリの **[構成]** タブで、修正プログラムのアプリ用�
 
 省略可能なパラメーターを使用すると、データセンターの場所 (既定では "米国西部")、データベースサーバー管理者名 (既定では "dbuser")、およびデータベースサーバーのファイアウォール規則を指定できます。
 
-### <a name="create-the-web-app"></a>Web アプリを作成する
+### <a name="create-the-web-app"></a>Web アプリの作成
 
 最初のスクリプトでは、`New-AzureWebsite` コマンドレットを呼び出して web アプリを作成し、web アプリ名と場所のパラメーター値を渡します。
 
 [!code-powershell[Main](automate-everything/samples/sample3.ps1?highlight=2)]
 
-### <a name="create-the-storage-account"></a>ストレージアカウントを作成する
+### <a name="create-the-storage-account"></a>ストレージ アカウントの作成
 
 次に、メインスクリプトは、ストレージアカウント名に " *&lt;websitename&gt;* storage" を指定し、web アプリと同じデータセンターの場所を指定して、 *New-AzureStorage*スクリプトを実行します。
 
@@ -211,7 +211,7 @@ Azure には、設定と接続文字列を格納する機能があります。�
 
 [!code-powershell[Main](automate-everything/samples/sample22.ps1)]
 
-## <a name="deployment-script"></a>配置スクリプト
+## <a name="deployment-script"></a>デプロイ スクリプト
 
 *New-AzureWebsiteEnv*スクリプトは、環境の作成に使用されます。 *Publish-AzureWebsite*スクリプトは、アプリケーションの展開に使用します。
 
@@ -254,8 +254,8 @@ Azure には、設定と接続文字列を格納する機能があります。�
 - [週末 Scripter: はじめに Azure と PowerShell を使用](https://blogs.technet.com/b/heyscriptingguy/archive/2013/06/22/weekend-scripter-getting-started-with-windows-azure-and-powershell.aspx)します。 この記事では、Windows PowerShell 専用のブログで、Azure の管理機能に PowerShell を使用する方法について詳しく説明します。
 - [Azure クロスプラットフォームコマンドラインインターフェイスをインストールして構成](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)します。 Mac、Linux、および Windows システムで動作する Azure scripting framework の入門チュートリアルです。
 - 「 [Azure sdk とツールのダウンロード」の「コマンドラインツール」セクション](https://azure.microsoft.com/downloads/)。 Azure のコマンドラインツールに関連するドキュメントおよびダウンロードのポータルページです。
-- [Azure 管理ライブラリと .net を使用してすべてを自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)します。 Scott マン Selman は、Azure 用の .NET management API を紹介しています。
-- [Windows PowerShell スクリプトを使用して、開発環境とテスト環境に発行](https://msdn.microsoft.com/library/azure/dn642480.aspx)します。 Visual Studio によって web プロジェクトに自動的に生成される発行スクリプトの使用方法について説明する MSDN ドキュメントです。
+- [Azure 管理ライブラリと .NET を使用してすべてを自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)。 Scott マン Selman は、Azure 用の .NET management API を紹介しています。
+- [Windows PowerShell スクリプトを使用した開発環境およびテスト環境の発行](https://msdn.microsoft.com/library/azure/dn642480.aspx)。 Visual Studio によって web プロジェクトに自動的に生成される発行スクリプトの使用方法について説明する MSDN ドキュメントです。
 - [PowerShell Tools for Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597)。 Visual studio で Windows PowerShell の言語サポートを追加する visual Studio 拡張機能。
 
 > [!div class="step-by-step"]

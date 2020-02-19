@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 8a4ef3aa37a9296e92fbeb513968e3abeee072d0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: b88573b3702b755b155e8da35f5f8a67931bafc6
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585531"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457116"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure を使用した実際のクラウドアプリの構築
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -63,7 +63,7 @@ Scott Guthrie が*Azure プレゼンテーションを使用して実際のク�
 
     - Azure Active Directory の概要。
     - デモ: Azure Active Directory を使用する ASP.NET アプリを作成します。
-- [データストレージオプション](data-storage-options.md)。 
+- [データ ストレージ オプション](data-storage-options.md)。 
 
     - データストアの種類。
     - 適切データストアを選択する方法。
@@ -174,4 +174,4 @@ Visual Studio で web アプリケーションを作成し、それを Azure の
 - [Azure Websites 内部の Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski)。
 
 > [!div class="step-by-step"]
-> [次へ](automate-everything.md)
+> [Next](automate-everything.md)

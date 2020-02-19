@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: f1d2a916-626c-4a54-8df4-77e6b9fff355
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 4ec8d239377d37d7e27fa23c0b1caef7420046ae
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: da06815b5c1d76a939fdfb77ce11774081dfb881
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519012"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456401"
 ---
 # <a name="examining-the-details-and-delete-methods"></a>Details メソッドと Delete メソッドの確認
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -59,7 +59,7 @@ HTTP GET `Delete` メソッドは、指定されたムービーを削除しな�
 
 ![](examining-the-details-and-delete-methods/_static/image2.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 Web アプリケーションをビルドしてテストしたら、次の手順として、インターネット経由で他のユーザーが使用できるようにします。 これを行うには、それを web ホスティングプロバイダーに展開する必要があります。 Microsoft では、[無料の Azure 試用版アカウント](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)で、最大10個の web サイト向けの無料の web ホスティングを提供しています。 次に、 [「Azure へのメンバーシップ、OAuth、SQL Database を使用した Secure ASP.NET MVC アプリのデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)」を参照してください。 優れたチュートリアルとして、Tom Dykstra の中間レベルで、 [ASP.NET MVC アプリケーションの Entity Framework データモデルを作成して](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)います。 [Stackoverflow](http://stackoverflow.com/help)と[ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)は、質問をする絶好の場所です。 最新[のチュートリアル](https://twitter.com/RickAndMSFT)で更新プログラムを入手できるように、twitter でフォローします。
 
@@ -69,4 +69,4 @@ Web アプリケーションをビルドしてテストしたら、次の手順�
 — [Scott マン Selman](http://www.hanselman.com/blog/) twitter: [@shanselman](https://twitter.com/shanselman)
 
 > [!div class="step-by-step"]
-> [前へ](adding-validation.md)
+> [[戻る]](adding-validation.md)

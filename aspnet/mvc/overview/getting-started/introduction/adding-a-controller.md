@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: cc764f3b-6921-486a-8f44-c6ccd1249acd
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 80000b366203eff4b9524b7a5995832753b9eed3
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 194a8a7398e163f0c37164a8724f98b16444984b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519051"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457220"
 ---
 # <a name="adding-a-controller"></a>コントローラーの追加
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -65,7 +65,7 @@ ASP.NET MVC は、受信 URL に応じて、さまざまなコントローラー
 
 URL の最初の部分では、実行するコントローラークラスを指定します。 そのため、 *HelloWorld*は `HelloWorldController` クラスにマップされます。 URL の2番目の部分では、実行するクラスのアクションメソッドを決定します。 したがって、 */HelloWorld/Index*は、`HelloWorldController` クラスの `Index` メソッドを実行します。 また、 *HelloWorld*を参照するだけで、`Index` メソッドが既定で使用されていたことに注意してください。 これは、`Index` という名前のメソッドが、明示的に指定されていない場合にコントローラーで呼び出される既定のメソッドであるためです。 URL セグメントの 3 番目の部分 (`Parameters`) はルート データ用です。 ルートデータについては、このチュートリアルで後ほど説明します。
 
-`http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome` メソッドが実行され、文字列 &quot;返されます。これは、ウェルカムアクションメソッド...&quot;です。 既定の MVC マッピングは `/[Controller]/[ActionName]/[Parameters]`。 この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。 URL の `[Parameters]` の部分はまだ使っていません。
+[https://www.microsoft.com](`http://localhost:xxxx/HelloWorld/Welcome`) を参照します。 `Welcome` メソッドが実行され、文字列 &quot;返されます。これは、ウェルカムアクションメソッド...&quot;です。 既定の MVC マッピングは `/[Controller]/[ActionName]/[Parameters]`。 この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。 URL の `[Parameters]` の部分はまだ使っていません。
 
 ![](adding-a-controller/_static/image6.png)
 

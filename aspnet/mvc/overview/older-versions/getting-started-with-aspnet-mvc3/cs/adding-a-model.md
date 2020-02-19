@@ -1,63 +1,63 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
-title: モデルを追加する (c#) |Microsoft Docs
+title: モデルの追加 (C#) |Microsoft Docs
 author: Rick-Anderson
-description: メモ:このチュートリアルの最新バージョンは ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全なはるかに簡単に従い、デモをお勧めしています.
+description: '注: このチュートリアルの更新バージョンは、ASP.NET MVC 5 と Visual Studio 2013 を使用するこちらで入手できます。 より安全で、より簡単にフォローとデモができます...'
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 42355b95-5f1f-413e-8d16-14cdfaaefcd8
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 8cf8693b71509163860c78a87370c4765414fd5d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a5f494eaa05bcfcd9d49873db728d71c1fd332c8
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130334"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457787"
 ---
 # <a name="adding-a-model-c"></a>モデルの追加 (C#)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+> このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+> - [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 > 
-> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 > 
-> C# ソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [C# バージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 Visual Basic を使用する場合に切り替えて、 [Visual Basic バージョン](../vb/adding-a-model.md)このチュートリアルの。
+> このトピックには、ソースC#コードが含まれる Visual Web Developer プロジェクトが用意されています。 [バージョンをC#ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 Visual Basic を希望する場合は、このチュートリアルの[Visual Basic バージョン](../vb/adding-a-model.md)に切り替えてください。
 
 ## <a name="adding-a-model"></a>モデルの追加
 
-このセクションでは、データベースのムービーを管理するためのいくつかのクラスを追加します。 これらのクラスには、ASP.NET MVC アプリケーションの「モデル」の部分があります。
+このセクションでは、データベースのムービーを管理するためのクラスをいくつか追加します。 これらのクラスは、ASP.NET MVC アプリケーションの "モデル" 部分になります。
 
-Entity Framework と呼ばれる .NET Framework データ アクセス テクノロジは、これらのモデル クラスの定義および操作を使用します。 開発パラダイムと呼ばれる、(EF とも呼ばれます)、Entity Framework がサポート*Code First*します。 まず、コードを使用すると、単純なクラスを記述することで、モデル オブジェクトを作成できます。 (これらとも呼ばれます"plain-old CLR object"からの POCO クラス)データベースが非常にクリーンで迅速な開発ワークフローを有効にするクラスからその場で作成することができます。
+Entity Framework と呼ばれる .NET Framework のデータアクセステクノロジを使用して、これらのモデルクラスを定義および操作します。 Entity Framework (EF と呼ばれることもあります) では、 *Code First*と呼ばれる開発パラダイムがサポートされています。 Code First を使用すると、単純なクラスを記述することによってモデルオブジェクトを作成できます。 (これらは、"plain old CLR objects" の POCO クラスとも呼ばれます)。その後、データベースをクラスからすぐに作成することができます。これにより、非常にクリーンで迅速な開発ワークフローが可能になります。
 
-## <a name="adding-model-classes"></a>モデル クラスを追加します。
+## <a name="adding-model-classes"></a>モデルクラスの追加
 
-**ソリューション エクスプ ローラー**を右クリックして、*モデル*フォルダーで、**追加**、し、**クラス**します。
+**ソリューションエクスプローラー**で、[*モデル*] フォルダーを右クリックし、 **[追加]** 、 **[クラス]** の順に選択します。
 
 ![](adding-a-model/_static/image1.png)
 
-名前、*クラス*「ムービー」。
+*クラス*に "Movie" という名前を指定します。
 
 [![CreateMovieClass](adding-a-model/_static/image3.png)](adding-a-model/_static/image2.png)
 
-次の 5 つのプロパティを追加、`Movie`クラス。
+次の5つのプロパティを `Movie` クラスに追加します。
 
 [!code-csharp[Main](adding-a-model/samples/sample1.cs)]
 
-使用して、`Movie`をデータベースのムービーを表すクラス。 各インスタンスを`Movie`オブジェクトは、データベース テーブルとの各プロパティ内の行に対応している、`Movie`クラスは、テーブル内の列にマップされます。
+`Movie` クラスを使用して、データベース内の映画を表します。 `Movie` オブジェクトの各インスタンスは、データベーステーブル内の行に対応し、`Movie` クラスの各プロパティはテーブル内の列にマップされます。
 
-同じファイルで次の追加`MovieDBContext`クラス。
+同じファイルで、次の `MovieDBContext` クラスを追加します。
 
 [!code-csharp[Main](adding-a-model/samples/sample2.cs)]
 
-`MovieDBContext`クラスは、フェッチ、格納、および更新を処理する Entity Framework ムービー データベース コンテキストを表します。`Movie`クラス、データベース内のインスタンス。 `MovieDBContext`から派生した、`DbContext`基本クラスを Entity Framework によって提供されます。 詳細については`DbContext`と`DbSet`を参照してください[Entity Framework の生産性の向上](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)します。
+`MovieDBContext` クラスは Entity Framework ムービーデータベースコンテキストを表します。このコンテキストでは、データベース内の `Movie` クラスインスタンスのフェッチ、格納、および更新が処理されます。 `MovieDBContext` は、Entity Framework によって提供される `DbContext` 基底クラスから派生します。 `DbContext` と `DbSet`の詳細については、「 [Entity Framework の生産性の向上](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)」を参照してください。
 
-参照できるようにするためには`DbContext`と`DbSet`、以下を追加する必要がある`using`ファイルの上部にあるステートメント。
+`DbContext` と `DbSet`を参照できるようにするには、ファイルの先頭に次の `using` ステートメントを追加する必要があります。
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
@@ -65,25 +65,25 @@ Entity Framework と呼ばれる .NET Framework データ アクセス テクノ
 
 [!code-csharp[Main](adding-a-model/samples/sample4.cs)]
 
-## <a name="creating-a-connection-string-and-working-with-sql-server-compact"></a>接続文字列を作成し、SQL Server Compact の使用
+## <a name="creating-a-connection-string-and-working-with-sql-server-compact"></a>接続文字列の作成と SQL Server Compact の操作
 
-`MovieDBContext`クラスを作成したデータベースへの接続とマッピングのタスクを処理する`Movie`データベース レコードへのオブジェクト。 疑問に思うかもしれません質問の 1 つは、接続先データベースを指定する方法です。 内の接続情報を追加することによって行います、 *Web.config*アプリケーションのファイル。
+作成した `MovieDBContext` クラスによって、データベースへの接続と `Movie` オブジェクトのデータベースレコードへのマッピングのタスクが処理されます。 ただし、接続先のデータベースを指定する方法について質問することもできます。 これを行うに*は、アプリケーションの web.config ファイルに*接続情報を追加します。
 
-アプリケーションのルートを開く*Web.config*ファイル。 (いない、 *Web.config*ファイル、*ビュー*フォルダー)。次の図は、両方を表示*Web.config*ファイル; 開く、 *Web.config*ファイル赤い丸でします。
+アプリケーション*ルートの web.config ファイル*を開きます。 ( *Views*フォルダー*内の web.config ファイルで*はありません)。次の図は、両方の web.config ファイルを示して*い*ます。赤で囲まれた web.config ファイルを*開きます。*
 
 ![](adding-a-model/_static/image4.png)
 
-次の接続文字列を追加、`<connectionStrings>`内の要素、 *Web.config*ファイル。
+次の接続文字列を web.config ファイルの `<connectionStrings>` 要素に追加*します。*
 
 [!code-xml[Main](adding-a-model/samples/sample5.xml)]
 
-次の例の一部を示しています、 *Web.config*ファイルが追加された新しい接続文字列に置き換えます。
+次の例は、新しい接続文字列が追加された web.config ファイルの一部を示して*い*ます。
 
 [!code-xml[Main](adding-a-model/samples/sample6.xml)]
 
-この少量のコードと XML は、すべてを表し、映画のデータをデータベースに格納するために記述する必要があります。
+この少量のコードと XML は、ムービーデータを表現してデータベースに格納するために記述する必要があるすべてのものです。
 
-新しいを作成します次に、`MoviesController`ムービー データを表示し、新しいムービーの一覧の作成を許可するのに使用できるクラスです。
+次に、ムービーデータを表示するために使用できる新しい `MoviesController` クラスを作成し、ユーザーが新しいムービーの一覧を作成できるようにします。
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-view.md)

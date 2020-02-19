@@ -8,16 +8,16 @@ ms.date: 07/30/2013
 ms.assetid: d0a89089-eed8-4f61-a478-c5ffa30186f5
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: 0e720b3e4c5d3b8f779afe3a6e2b47baa86eec4c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 10237af40e3914b65e5181f17555697e86adea4b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74592708"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457857"
 ---
 # <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>EF 5 MVC 4 チュートリアルのダウンロード章をビルドする
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -44,7 +44,7 @@ ms.locfileid: "74592708"
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image4.png)  
 
     > [!NOTE]
-    > 次のエラーが表示された場合:  
+    > 次のエラーが発生する場合:  
     >   
     >  *"データベースの更新" という用語は、コマンドレット、関数、スクリプトファイル、または操作可能なプログラムの名前として認識されません。名前の綴りを確認するか、パスが含まれている場合は、パスが正しいことを確認してから、もう一度やり直してください。*  
     > Visual Studio を終了し、再起動します。
@@ -54,4 +54,4 @@ ms.locfileid: "74592708"
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image5.png)
 
 > [!div class="step-by-step"]
-> [前へ](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [[戻る]](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

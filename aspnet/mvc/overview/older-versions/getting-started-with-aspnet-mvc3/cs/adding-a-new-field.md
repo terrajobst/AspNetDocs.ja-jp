@@ -1,132 +1,132 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
-title: 新しいフィールドを追加する Movie モデルとテーブル (c#) |Microsoft Docs
+title: ムービーモデルとテーブルに新しいフィールドを追加する (C#) |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: b4e76c1a-f66e-43a0-aa72-f39df79c07c1
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: acac3ade54cc51c8004f9ea5f0ee4157d15251e5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 40b02a2f608f07091ce6b5339688a1e6290e2e37
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130188"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457452"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table-c"></a>Movie モデルとテーブルに新しいフィールドを追加する (C#)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > > [!NOTE]
-> > このチュートリアルの更新バージョンが利用可能な[ここ](../../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全ではるかに簡単に従うしより多くの機能を示します。
+> > このチュートリアルの更新バージョンは、ASP.NET MVC 5 と Visual Studio 2013 を使用する[こちらで](../../../getting-started/introduction/getting-started.md)入手できます。 より安全で、より簡単にフォローし、より多くの機能を紹介します。
 > 
 > 
-> このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+> このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+> - [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 > 
-> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 > 
-> C# ソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [C# バージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 Visual Basic を使用する場合に切り替えて、 [Visual Basic バージョン](../vb/intro-to-aspnet-mvc-3.md)このチュートリアルの。
+> このトピックには、ソースC#コードが含まれる Visual Web Developer プロジェクトが用意されています。 [バージョンをC#ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 Visual Basic を希望する場合は、このチュートリアルの[Visual Basic バージョン](../vb/intro-to-aspnet-mvc-3.md)に切り替えてください。
 
-このセクションではモデル クラスにいくつかの変更を加えるし、モデルの変更に合わせてデータベース スキーマを更新する方法について説明します。
+このセクションでは、モデルクラスにいくつかの変更を加え、モデルの変更に合わせてデータベーススキーマを更新する方法について説明します。
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
 
-まず、新しい追加`Rating`プロパティを既存の`Movie`クラス。 開く、 *Movie.cs*追加ファイルを開き、`Rating`次のようなプロパティ。
+まず、既存の `Movie` クラスに新しい `Rating` プロパティを追加します。 *Movie.cs*ファイルを開き、次のように `Rating` プロパティを追加します。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample1.cs)]
 
-完全な`Movie`今のような次のコードをクラスします。
+完成した `Movie` クラスは次のコードのようになります。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-アプリケーションを使用して、再コンパイル、**デバッグ** &gt;**ビルド ムービー**メニュー コマンド。
+[**デバッグ**&gt;**ビルドのムービー** ] メニューコマンドを使用して、アプリケーションを再コンパイルします。
 
-更新した、`Model`クラスもする必要がある更新、 *\Views\Movies\Index.cshtml* と *\Views\Movies\Create.cshtml* 新しいをサポートするためにテンプレートを表示`Rating`プロパティ。
+`Model` クラスを更新したので、新しい `Rating` プロパティをサポートするために、 *\Views\Movies\Index.cshtml*および *\Views\Movies\Create.cshtml* view テンプレートも更新する必要があります。
 
-開く、 *\Views\Movies\Index.cshtml*追加ファイルを開き、`<th>Rating</th>`直後の列ヘッダー、**価格**列。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新*Index.cshtml*ビュー テンプレートのようになります。
+*\Views\Movies\Index.cshtml*ファイルを開き、 **Price**列の直後に `<th>Rating</th>` 列見出しを追加します。 次に、テンプレートの末尾付近に `<td>` 列を追加して、`@item.Rating` 値を表示します。 更新されたインデックスの例を次に示し*ます。 cshtml* view テンプレートは次のようになります。
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample3.cshtml)]
 
-次に、開く、 *\Views\Movies\Create.cshtml*ファイルを開き、フォームの末尾付近の次のマークアップを追加します。 これにより、新しいムービーの作成時に、評価を指定できるように、テキスト ボックスを表示します。
+次に、 *\Views\Movies\Create.cshtml*ファイルを開き、フォームの末尾付近に次のマークアップを追加します。 新しいムービーを作成するときに評価を指定できるように、テキストボックスが表示されます。
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample4.cshtml)]
 
-## <a name="managing-model-and-database-schema-differences"></a>モデルとデータベース スキーマの相違点を管理します。
+## <a name="managing-model-and-database-schema-differences"></a>モデルとデータベーススキーマの違いの管理
 
-新しいをサポートするアプリケーション コードを更新するようになりました`Rating`プロパティ。
+これで、新しい `Rating` プロパティをサポートするようにアプリケーションコードが更新されました。
 
-これで、アプリケーションを実行しに移動し、 */Movies* URL。 ただし、これを行うときに、次のエラーを表示されます。
+次に、アプリケーションを実行し、 */ムービー*の URL に移動します。 ただし、この操作を行うと、次のエラーが表示されます。
 
 ![](adding-a-new-field/_static/image1.png)
 
-ため、このエラーが表示されている更新された`Movie`アプリケーションでモデル クラスは、スキーマの異なる、`Movie`既存のデータベースのテーブル。 (データベース テーブルに `Rating` 列はありません)。
+このエラーが表示されるのは、アプリケーションの更新された `Movie` モデルクラスが、既存のデータベースの `Movie` テーブルのスキーマとは異なるようになったためです。 (データベース テーブルに `Rating` 列はありません)。
 
-既定を使用する Entity Framework Code First のデータベースを自動的に作成するように、このチュートリアルで前に行ったときに Code First テーブル データベースに追加して、データベースのスキーマはから生成されたモデル クラスと同期されているかどうかを追跡できます。 同期していない、Entity Framework は、エラーをスローします。 これにより、表示されている可能性がありますそれ以外の場合のみ (原因不明のエラー) を実行時に、開発時に問題を追跡しやすくします。 同期チェック機能は、原因は何を表示するエラー メッセージがあります。
+既定では、このチュートリアルの前に示したように Entity Framework Code First を使用してデータベースを自動的に作成すると、データベースのスキーマが生成元のモデルクラスと同期しているかどうかを追跡できるように Code First、データベースにテーブルが追加されます。 同期されていない場合は、Entity Framework によってエラーがスローされます。 これにより、開発時に問題を簡単に追跡できるようになります。これは、実行時に (あいまいなエラーによって) 検出された場合にのみ発生します。 同期チェック機能により、エラーメッセージが表示されます。
 
-エラーを解決する 2 つの方法はあります。
+このエラーを解決するには、次の2つの方法があります。
 
-1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この方法は非常に便利な場合、テスト データベースでアクティブな開発を行うため、簡単にまとめてモデルとデータベース スキーマを進化させることができます。 短所は、データベース内の既存のデータが失われる-ようにする*しない*実稼働データベースでこのアプローチを使用する!
+1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この方法は、テストデータベースに対してアクティブな開発を行う場合に非常に便利です。これにより、モデルとデータベーススキーマを一緒に迅速に進化させることができます。 ただし、この欠点は、データベース内の既存のデータが失われているため、運用データベースでこのアプローチを使用したく*ない*ということです。
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 
-このチュートリアルでは、最初のアプローチを使用します:、Entity Framework Code First 自動的にモデルを変更するたびにデータベースを再作成する必要があります。
+このチュートリアルでは、最初の方法を使用します。モデルが変更されるたびに、データベースを自動的に再作成 Code First Entity Framework します。
 
-## <a name="automatically-re-creating-the-database-on-model-changes"></a>モデルの変更のデータベースを自動的に再作成
+## <a name="automatically-re-creating-the-database-on-model-changes"></a>モデルの変更時にデータベースを自動的に再作成する
 
-Code First 自動的に削除し、アプリケーションのモデルを変更するたびに、データベースを再作成できるようにアプリケーションを更新してみましょう。
+アプリケーションのモデルを変更するたびに、Code First によってデータベースが自動的に削除され、再作成されるようにアプリケーションを更新してみましょう。
 
 > [!NOTE] 
 > 
-> **警告**を自動的に削除して、開発またはテスト データベースを使用している場合にのみ、データベースを再作成するには、この方法を有効にする必要がありますと*決して*実際のデータを格納している実稼働データベースでします。 実稼働サーバー上で使用すると、データ損失につながることができます。
+> **警告**データベースを自動的に削除して再作成するには、この方法を有効にする必要があります。この方法では、開発またはテストデータベースを使用していて、実際のデータが含まれている実稼働データベースでは使用し*ません*。 実稼働サーバーで使用すると、データが失われる可能性があります。
 
-**ソリューション エクスプ ローラー**を右クリックして、*モデル*フォルダーで、**追加**、し、**クラス**します。
+**ソリューションエクスプローラー**で、[*モデル*] フォルダーを右クリックし、 **[追加]** 、 **[クラス]** の順に選択します。
 
 ![](adding-a-new-field/_static/image2.png)
 
-"MovieInitializer"クラスの名前を付けます。 更新プログラム、`MovieInitializer`クラスに次のコードを含めます。
+クラスに "Moの初期化子" という名前を指定します。 次のコードを含むように `MovieInitializer` クラスを更新します。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample5.cs)]
 
-`MovieInitializer`クラスは、モデルによって使用されるデータベースを削除してモデル クラスを変更する場合を自動的に再作成することを指定します。 コードが含まれています、`Seed`時間がいくつか既定のデータを自動的にデータベースに追加する、いずれかを指定するメソッドが作成 (または再作成) します。 これは、モデルを変更するたびに手動で設定することがなく、データベースにいくつかサンプル データを設定する便利な方法を提供します。
+`MovieInitializer` クラスは、モデルクラスが変更された場合に、モデルによって使用されるデータベースを削除し、自動的に再作成する必要があることを指定します。 コードには、作成 (または再作成) のたびにデータベースに自動的に追加される既定のデータを指定する `Seed` メソッドが含まれています。 これにより、モデルを変更するたびに手動でデータを入力することなく、いくつかのサンプルデータをデータベースに読み込むことができます。
 
-定義したところ、`MovieInitializer`クラスに確認するように、アプリケーションが実行されるたびに、モデル クラスが、データベース内のスキーマと異なるかどうかを接続する必要あります。 その場合は、モデルと一致し、サンプル データをデータベースにデータベースを再作成する初期化子を実行できます。
+`MovieInitializer` クラスの定義が完了したので、アプリケーションを実行するたびに、モデルクラスがデータベースのスキーマと異なるかどうかを確認します。 そのような場合は、初期化子を実行して、モデルに一致するデータベースを再作成してから、サンプルデータをデータベースに設定できます。
 
-開く、 *Global.asax*ファイルのルートにある、`MvcMovies`プロジェクト。
+`MvcMovies` プロジェクトのルートにある*global.asax*ファイルを開きます。
 
 [![](adding-a-new-field/_static/image4.png)](adding-a-new-field/_static/image3.png)
 
-*Global.asax*ファイルが含まれています、プロジェクトの完全なアプリケーションを定義するクラスが含まれています、`Application_Start`初回起動時にアプリケーションを実行しているイベント ハンドラー。
+*Global.asax*ファイルには、プロジェクトのアプリケーション全体を定義するクラスが含まれており、アプリケーションの最初の起動時に実行される `Application_Start` イベントハンドラーが含まれています。
 
-2 つ追加してみましょうファイルの先頭にステートメントを使用します。 最初は、Entity Framework の名前空間を参照し、2 つ目は、名前空間を参照場所、`MovieInitializer`生活がどれほどのクラスします。
+ファイルの先頭に2つの using ステートメントを追加してみましょう。 最初のは Entity Framework 名前空間を参照し、2番目のは `MovieInitializer` クラスが存在する名前空間を参照します。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample6.cs)]
 
-検索し、`Application_Start`メソッド呼び出しを追加および`Database.SetInitializer`次に示すよう、メソッドの先頭。
+次に示すように、`Application_Start` メソッドを見つけて、メソッドの先頭に `Database.SetInitializer` の呼び出しを追加します。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs)]
 
-`Database.SetInitializer`ステートメントを追加したが、データベースを使用することを示します、`MovieDBContext`インスタンスは自動的に削除してスキーマとデータベースが一致しない場合を再作成する必要があります。 で指定されているサンプル データでデータベースが設定されますも学習したように、`MovieInitializer`クラス。
+追加した `Database.SetInitializer` ステートメントは、スキーマとデータベースが一致しない場合に、`MovieDBContext` インスタンスで使用されているデータベースを自動的に削除して再作成する必要があることを示しています。 また、先ほど見たように、`MovieInitializer` クラスに指定されているサンプルデータもデータベースに設定します。
 
-閉じる、 *Global.asax*ファイル。
+*Global.asax*ファイルを閉じます。
 
-アプリケーションを再実行しに移動し、 */Movies* URL。 アプリケーションの起動時には、モデル構造に、データベース スキーマが一致しなくを検出します。 自動的に、新しいモデルの構造と一致するデータベースを再作成および、サンプルのムービーのデータベースを設定します。
+アプリケーションを再実行し、 */ムービー*の URL に移動します。 アプリケーションが起動すると、モデル構造がデータベーススキーマと一致しなくなったことが検出されます。 新しいモデル構造と一致するようにデータベースが自動的に再作成され、データベースにサンプルムービーが挿入されます。
 
 ![7_MyMovieList_SM](adding-a-new-field/_static/image5.png)
 
-をクリックして、**新規作成**のリンクを新しいムービーを追加します。 評価を追加できることに注意してください。
+新しいムービーを追加するには、 **[新規作成]** リンクをクリックします。 評価を追加できることに注意してください。
 
 [![7_CreateRioII](adding-a-new-field/_static/image7.png)](adding-a-new-field/_static/image6.png)
 
-**[作成]** をクリックします。 評価を含む、新しいムービーに表示されるビデオを一覧表示します。
+[作成] をクリックします。 新しいムービー (評価を含む) がムービーの一覧に表示されるようになりました。
 
 [![7_ourNewMovie_SM](adding-a-new-field/_static/image9.png)](adding-a-new-field/_static/image8.png)
 
-このセクションでは、モデル オブジェクトを変更し、データベースの変更との同期を維持する方法を説明しました。 シナリオを試すことができますので、サンプル データを使って新しく作成したデータベースを設定する方法も学習しました。 次に、高度な検証ロジックはモデル クラスを追加し、いくつかのビジネス ルールを適用するを有効にする方法を見てみましょう。
+このセクションでは、モデルオブジェクトを変更し、データベースと変更の同期を維持する方法について説明しました。 また、新しく作成されたデータベースにサンプルデータを設定して、シナリオを試す方法についても学習しました。 次に、より高度な検証ロジックをモデルクラスに追加し、一部のビジネスルールを適用できるようにする方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](examining-the-edit-methods-and-edit-view.md)

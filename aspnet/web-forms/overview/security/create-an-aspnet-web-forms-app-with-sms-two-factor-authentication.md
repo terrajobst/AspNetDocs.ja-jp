@@ -1,115 +1,115 @@
 ---
 uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
-title: 作成する ASP.NET Web フォーム アプリケーションを SMS 2 要素認証 (c#) |Microsoft Docs
+title: SMS 2 要素認証を使用して ASP.NET Web フォームアプリをC#作成する () |Microsoft Docs
 author: Erikre
-description: このチュートリアルでは、2 要素認証を使用して ASP.NET Web フォーム アプリをビルドする方法を示します。 このチュートリアルは、Cr の「チュートリアルを補完するものがしています.
+description: このチュートリアルでは、2要素認証を使用して ASP.NET Web フォームアプリを構築する方法について説明します。 このチュートリアルは、「Cr...」というタイトルのチュートリアルを補完するように設計されています。
 ms.author: riande
 ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 02c511f0e99e306daaf595da5bc618fe738e806c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c9558aca8a655071c0c94ed66433cf721f26c011
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106787"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466430"
 ---
 # <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>SMS 2 要素認証を利用し、ASP.NET Web フォームを作成する (C#)
 
-によって[Erik Reitan](https://github.com/Erikre)
+[Erik Reitan](https://github.com/Erikre)
 
-[電子メールと SMS 2 要素認証での ASP.NET Web フォーム アプリをダウンロードします。](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
+[電子メールと SMS 2 要素認証を使用して ASP.NET Web フォームアプリをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
 
-> このチュートリアルでは、2 要素認証を使用して ASP.NET Web フォーム アプリをビルドする方法を示します。 このチュートリアルは、「チュートリアルを補完するものが[ユーザー登録をセキュリティで保護された ASP.NET Web フォーム アプリケーションを作成、電子メール確認、パスワード リセットを](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)します。 さらに、このチュートリアルは、Rick Anderson に基づいてが[MVC チュートリアル](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)します。
+> このチュートリアルでは、2要素認証を使用して ASP.NET Web フォームアプリを構築する方法について説明します。 このチュートリアルは、 [「ユーザー登録、電子メール確認、パスワードリセットを使用して secure ASP.NET Web フォームアプリを作成する」](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)というタイトルのチュートリアルを補足することを目的としています。 また、このチュートリアルは Rick Anderson の[MVC チュートリアル](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)に基づいています。
 
 ## <a name="introduction"></a>はじめに
 
-このチュートリアルでは、Visual Studio を使用した 2 要素認証をサポートする ASP.NET Web フォーム アプリケーションを作成するための手順に従って操作します。 2 要素認証は、追加のユーザーの認証手順です。 この余分な手順は、サインイン時に一意の個人識別番号 (PIN) を生成します。 PIN は一般ユーザーに電子メールまたは SMS メッセージとして送信されます。 アプリのユーザーに署名するときにし、暗証番号 (pin) と、追加の認証手段として入力します。
+このチュートリアルでは、Visual Studio を使用して2要素認証をサポートする ASP.NET Web フォームアプリケーションを作成するために必要な手順について説明します。 2要素認証は、追加のユーザー認証手順です。 この追加の手順では、サインイン時に一意の暗証番号 (PIN) が生成されます。 PIN は、通常、電子メールまたは SMS メッセージとしてユーザーに送信されます。 その後、アプリのユーザーは、サインイン時に追加の認証手段として PIN を入力します。
 
-### <a name="tutorial-tasks-and-information"></a>チュートリアルのタスクと情報。
+### <a name="tutorial-tasks-and-information"></a>チュートリアルのタスクと情報:
 
-- [ASP.NET Web フォーム アプリを作成します。](#createWebForms)
-- [SMS と 2 要素認証をセットアップします。](#SMS)
-- [登録されたユーザーの 2 要素認証を有効にします。](#use2FA)
+- [ASP.NET Web フォームアプリを作成する](#createWebForms)
+- [SMS と2要素認証のセットアップ](#SMS)
+- [登録されたユーザーに対して2要素認証を有効にする](#use2FA)
 - [その他のリソース](#addRes)
 
 <a id="createWebForms"></a>
-## <a name="create-an-aspnet-web-forms-app"></a>ASP.NET Web フォーム アプリを作成します。
+## <a name="create-an-aspnet-web-forms-app"></a>ASP.NET Web フォームアプリを作成する
 
-インストールと実行によって開始[Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058)または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)します。 インストール[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)またはそれ以降もします。 また、作成する必要がありますには、 [Twilio](https://www.twilio.com/try-twilio)アカウントを次に示すようにします。
+まず、Web または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)[用の Visual Studio Express 2013 を](https://go.microsoft.com/fwlink/?LinkId=299058)インストールして実行します。 [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降もインストールします。 また、以下で説明するように、 [Twilio](https://www.twilio.com/try-twilio)アカウントを作成する必要があります。
 
 > [!NOTE]
-> 重要 : インストールする必要があります[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降に、このチュートリアルを完了します。
+> 重要: このチュートリアルを完了するには、 [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降をインストールする必要があります。
 
-1. 新しいプロジェクトを作成 (**ファイル** - &gt; **新しいプロジェクト**) を選択し、 **ASP.NET Web アプリケーション**.NET Framework と共にテンプレートバージョン 4.5.2 から、**新しいプロジェクト** ダイアログ ボックス。
-2. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、 **Web フォーム**テンプレート。 既定の認証としてのままに**個々 のユーザー アカウント**します。 をクリックし、 **OK**新しいプロジェクトを作成します。  
-    ![新しい ASP.NET プロジェクト ダイアログ ボックス](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image1.png)
-3. プロジェクトの Secure Sockets Layer (SSL) を有効にします。 使用可能な手順に従って、**プロジェクトの SSL を有効にする**のセクション、 [Web フォームのチュートリアル シリーズの概要](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)します。
-4. Visual Studio で開く、**パッケージ マネージャー コンソール**(**ツール** - &gt; **NuGet パッケージ マネージャー**  - &gt;**パッケージ マネージャー コンソール**)、次のコマンドを入力します。  
+1. 新しいプロジェクト (**ファイル** -&gt;**新しいプロジェクト**) を作成し、 **[新しいプロジェクト]** ダイアログボックスから、.NET Framework バージョンの4.5.2 と共に**ASP.NET Web アプリケーション**テンプレートを選択します。
+2. **[New ASP.NET プロジェクト]** ダイアログボックスで、 **[Web フォーム]** テンプレートを選択します。 既定の認証は、**個々のユーザーアカウント**として残しておきます。 次に、[ **OK]** をクリックして、新しいプロジェクトを作成します。  
+    ![[新しい ASP.NET プロジェクト] ダイアログ ボックス](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image1.png)
+3. プロジェクトの Secure Sockets Layer (SSL) を有効にします。 「 [Web フォームチュートリアルシリーズを使用したはじめに](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)」の「**プロジェクトに対して SSL を有効にする**」セクションで説明されている手順に従います。
+4. Visual Studio で、**パッケージマネージャーコンソール**([**ツール** -&gt; **NuGet パッケージ**マネージャー] -&gt;**パッケージマネージャーコンソール**) を開き、次のコマンドを入力します。  
     `Install-Package Twilio`
 
 <a id="SMS"></a>
-## <a name="setup-sms-and-two-factor-authentication"></a>SMS と 2 要素認証をセットアップします。
+## <a name="setup-sms-and-two-factor-authentication"></a>SMS と2要素認証のセットアップ
 
-このチュートリアルは、Twilio, を使用しますが、SMS プロバイダーを使用することができます。
+このチュートリアルでは Twilio を使用しますが、どの SMS プロバイダーでも使用できます。
 
-1. 作成、 [Twilio](https://www.twilio.com/try-twilio)アカウント。
-2. **ダッシュ ボード**、Twilio アカウントの コピーのタブ、**アカウント SID**と**認証トークン。** それらをアプリに後で追加します。
-3. **番号** タブで、コピー、Twilio**電話番号**もします。
-4. Twilio**アカウント SID**、**認証トークン**と**電話番号**アプリに使用します。 簡潔でこれらの値を格納する、 *web.config*ファイル。 Azure にデプロイするときに、安全での値を格納できる、 **appSettings**セクションで、web サイト タブを構成します。また、電話番号を追加する場合はのみ、番号を使用します。   
-   SendGrid の資格情報を追加することも注目してください。 SendGrid では、電子メールの通知サービスです。 SendGrid を有効にする方法の詳細については、「チュートリアルの ' フックを SendGrid' セクションを参照してください[ユーザー登録をセキュリティで保護された ASP.NET Web フォーム アプリを作成確認、パスワード リセットの電子メールを送信します。](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
+1. [Twilio](https://www.twilio.com/try-twilio)アカウントを作成します。
+2. Twilio アカウントの **[ダッシュボード]** タブで、**アカウント SID**と認証トークンをコピーし**ます。** 後でアプリに追加します。
+3. **[数値]** タブで、Twilio**電話番号**もコピーします。
+4. Twilio**アカウント SID**、**認証トークン**、および**電話番号**をアプリで使用できるようにします。 単純にするために、これらの値は web.config*ファイルに*格納します。 Azure にデプロイするときに、[web サイトの構成] タブの**appSettings**セクションに値を安全に格納できます。また、電話番号を追加するときは、数字のみを使用します。   
+   SendGrid の資格情報を追加することもできます。 SendGrid は、電子メール通知サービスです。 SendGrid を有効にする方法の詳細については、「[ユーザー登録、電子メール確認、パスワードリセットを使用した安全な ASP.NET Web フォームアプリの作成](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)」のチュートリアルの「Sendgrid をフックする」セクションを参照してください。
 
     [!code-xml[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample1.xml?highlight=2,6-10)]
 
     > [!WARNING]
-    > セキュリティ - ソース コード内の機密データは store ことはありません。 この例に、アカウントと資格情報を格納します。、 **appSettings**のセクション、 *Web.config*ファイル。 Azure では安全に保管するこれらの値で、 **[構成](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portal でのタブ。 関連情報については、Rick Anderson のトピックを参照してください。 [ASP.NET と Azure へパスワードやその他の機密データを展開するためのベスト プラクティス](https://go.microsoft.com/fwlink/?LinkId=513141)します。
-5. 構成、`SmsService`クラス、*アプリ\_Start\IdentityConfig.cs*次のことでファイルの変更が黄色で強調表示されています。 
+    > セキュリティ-機密データをソースコードに格納しません。 この例では、アカウントと資格情報*は、web.config ファイルの* **appSettings**セクションに格納されています。 Azure では、これらの値を Azure portal の [ **[構成](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ] タブに安全に格納できます。 関連情報については、Rick Anderson のトピック「[パスワードやその他の機密データを ASP.NET と Azure にデプロイするためのベストプラクティス](/aspnet/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)」を参照してください。
+5. 次の変更を黄色で強調表示して、*アプリ\_Start\IdentityConfig.cs*ファイルで `SmsService` クラスを構成します。 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample2.cs?highlight=5-17)]
-6. 次の追加`using`ステートメントの先頭に、 *IdentityConfig.cs*ファイル。 
+6. *IdentityConfig.cs*ファイルの先頭に、次の `using` ステートメントを追加します。 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample3.cs?highlight=1-4)]
-7. 更新プログラム、 *Account/Manage.aspx*黄色で強調表示されている行を削除することによってファイル。  
+7. 黄色で強調表示されている行を削除して、 *Account/Manage .aspx*ファイルを更新します。  
 
     [!code-aspx[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample4.aspx?highlight=38,53,57-60,63,66,70,73)]
-8. `Page_Load`のハンドラー、 *Manage.aspx.cs*分離コード、コードとして表示されるように、黄色で強調表示の行に依存してコメント解除します。 
+8. *Manage.aspx.cs*の `Page_Load` ハンドラーで、次のように黄色で強調表示されているコード行をコメント解除します。 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample5.cs?highlight=8)]
-9. 分離コードで*アカウント*/*TwoFactorAuthenticationSignIn.aspx.cs*、更新、`Page_Load`黄色で強調表示されている次のコードを追加することでハンドラー。 
+9. *アカウント*/*TwoFactorAuthenticationSignIn.aspx.cs*の分離コードで、次のコードを黄色で強調表示して、`Page_Load` ハンドラーを更新します。 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample6.cs?highlight=3-4,13)]
 
-   上記のコードを変更するには、認証のオプションを含む「プロバイダー」DropDownList は最初の値にリセットされません。 これによって、ユーザーが正常にだけでなく、最初の認証に使用するすべてのオプションを選択します。
-10. **ソリューション エクスプ ローラー**、右クリック*Default.aspx*選択と**スタート ページとして設定**します。
-11. アプリをテストして、アプリをビルド最初 (**Ctrl**+**shift キーを押し**+**B**) し、アプリを実行し、(**f5 キーを押して**) と選択するか**登録**を新しいユーザー アカウントを作成または選択**ログイン**ユーザー アカウントが既に登録されている場合。
-12. 表示のナビゲーション バーでユーザー ID (電子メール アドレス) にいったんログインする (ユーザー) として、クリックして、**アカウントの管理**ページ (Manage.aspx)。  
+   上記のコードを変更すると、認証オプションを含む "Providers" の DropDownList は、最初の値にリセットされません。 これにより、最初のオプションだけでなく、認証時に使用するすべてのオプションをユーザーが適切に選択できるようになります。
+10. **ソリューションエクスプローラー**で、 *default.aspx*を右クリックし、 **[スタートページとして設定]** を選択します。
+11. アプリをテストすることで、まずアプリをビルドし (**Ctrl**+**Shift**+**B**)、アプリを実行 (**F5**キー) し、 **[登録]** を選択して新しいユーザーアカウントを作成するか、ユーザーアカウントが既に登録されている場合は **[ログイン]** を選択します。
+12. ユーザーがログインした後、ナビゲーションバーのユーザー ID (電子メールアドレス) をクリックして、 **[アカウントの管理]** ページ (.aspx) を表示します。  
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image2.png)
-13. クリックして**追加**横に**電話番号**上、**アカウントの管理**ページ。  
+13. **[アカウントの管理]** ページで、 **[電話番号]** の横にある **[追加]** をクリックします。  
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image3.png)
-14. 場所 (ユーザー) としてたい SMS メッセージ (テキスト メッセージ) を受信し、をクリックする電話番号を追加、**送信**ボタンをクリックします。   
+14. ユーザーが SMS メッセージ (テキストメッセージ) を受信する電話番号を追加し、 **[送信]** ボタンをクリックします。   
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image4.png)  
-    この時点で、アプリはから資格情報を使用、 *Web.config* Twilio にお問い合わせください。 SMS メッセージ (テキスト メッセージ) は、ユーザー アカウントに関連付けられている電話に送信されます。 Twilio ダッシュ ボードを表示することによって、Twilio メッセージが送信されたことを確認することができます。
-15. 数秒後に、ユーザー アカウントに関連付けられている電話に確認コードを含むテキスト メッセージが表示されます。 確認コードとキーを押して入力**送信**します。  
+    この時点で、アプリは web.config の資格情報を使用して*Twilio に接続*します。 SMS メッセージ (テキストメッセージ) は、ユーザーアカウントに関連付けられている電話に送信されます。 Twilio メッセージが送信されたことを確認するには、Twilio ダッシュボードを表示します。
+15. 数秒後に、ユーザーアカウントに関連付けられている電話に、確認コードを含むテキストメッセージが表示されます。 確認コードを入力し、 **[送信]** を押します。  
      ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image5.png)
 
 <a id="use2FA"></a>
-## <a name="enable-two-factor-authentication-for-a-registered-user"></a>登録済みユーザーの 2 要素認証を有効にします。
+## <a name="enable-two-factor-authentication-for-a-registered-user"></a>登録されたユーザーに対して2要素認証を有効にする
 
-この時点では、アプリに対して 2 要素認証を有効にします。 2 要素認証を使用するユーザーの設定が、UI を使用して、単に変更できます。 
+この時点で、アプリの2要素認証が有効になりました。 ユーザーが2要素認証を使用するには、UI を使用して設定を変更するだけです。 
 
-1. アプリのユーザーとして有効にできます 2 要素認証、特定のアカウントのユーザー ID (電子メールのエイリアス) をクリックすると表示のナビゲーション バーで、**アカウントの管理**ページ。クリックし、**を有効にする**アカウントの 2 要素認証を有効にするリンク。![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image6.png)
-2. ログオフし、再度ログインします。 電子メールを有効にした場合は、SMS または 2 要素認証用電子メールのいずれかを選択できます。 電子メールを有効にしていない場合は、「チュートリアルを参照してください[ユーザー登録、確認電子メール パスワードをリセットして、セキュリティで保護された ASP.NET Web フォーム アプリを作成する](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)します。![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image7.png)
-3. 2 要素認証ページが表示されます (SMS または電子メール) からのコードを入力することができます。![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image8.png)  
- クリックすると、**このブラウザーを記憶する** チェック ボックスの除外 2 要素認証を使用して、チェック ボックスに、ブラウザーとデバイスを使用する場合にログインする必要がなくなります。 悪意のあるユーザーは、デバイスへのアクセスを得ることはできません、限り、2 要素認証を有効にすると、クリックすると、**このブラウザーを記憶する**は便利な 1 つのステップ パスワード アクセスを提供、厳密なを維持しながら信頼されていないデバイスからのすべてのアクセスの 2 要素認証の保護。 これは、定期的に使用するプライベートあらゆるデバイスで行うことができます。
+1. アプリのユーザーは、ナビゲーションバーのユーザー ID (電子メールエイリアス) をクリックして **[アカウントの管理]** ページを表示することにより、特定のアカウントに対して2要素認証を有効にすることができます。次に、 **[有効]** にする リンクをクリックして、アカウントの2要素認証を有効にします。![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image6.png)
+2. ログオフし、再度ログインします。 電子メールを有効にした場合は、2要素認証に SMS または電子メールのいずれかを選択できます。 電子メールを有効にしていない場合は、「[ユーザー登録、電子メール確認、パスワードリセットを使用して Secure ASP.NET Web フォームアプリを作成](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)する」というタイトルのチュートリアルを参照してください。![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image7.png)
+3. [2 要素認証] ページが表示されます。このページでは、(SMS または電子メールから) コードを入力できます。![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image8.png)  
+ [**このブラウザーを記憶**する] チェックボックスをオンにすると、チェックボックスをオンにしたブラウザーとデバイスを使用するときに、2要素認証を使用してログインする必要がなくなります。 悪意のあるユーザーがデバイスにアクセスできない限り、2要素認証を有効にし、[**このブラウザーを記憶**する] をオンにすると、信頼されていないデバイスからのすべてのアクセスに対して強力な2要素認証保護を維持しながら、便利なワンステップパスワードアクセスが提供されます。 これは、定期的に使用するプライベートあらゆるデバイスで行うことができます。
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
 - [ASP.NET Identity で SMS と電子メールを利用して 2 要素認証を行う](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [リンクを ASP.NET Identity 推奨リソース](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
-- [メンバーシップ、OAuth、SQL Database を使用したセキュリティで保護された ASP.NET Web フォーム アプリを Azure web サイトにデプロイします。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
-- [ASP.NET Web フォームのチュートリアル シリーズでは、OAuth 2.0 プロバイダーの追加します。](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
-- [ASP.NET Web フォーム チュートリアル シリーズで、プロジェクトの SSL を有効にします。](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)
-- [アカウントの確認と ASP.NET Identity によるパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Facebook でアプリを作成し、アプリ プロジェクトを接続します。](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)
+- [推奨されるリソースへのリンク ASP.NET Identity](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
+- [メンバーシップ、OAuth、SQL Database を持つ Secure ASP.NET Web フォームアプリを Azure Web サイトにデプロイする](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
+- [ASP.NET Web Forms チュートリアルシリーズ-OAuth 2.0 プロバイダーの追加](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
+- [ASP.NET Web フォームチュートリアルシリーズ-プロジェクトの SSL を有効にする](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)
+- [ASP.NET Identity を使用したアカウントの確認とパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
+- [Facebook でアプリを作成し、アプリをプロジェクトに接続する](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)

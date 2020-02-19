@@ -8,16 +8,16 @@ ms.date: 02/20/2013
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 41c4e6d02c965c10aa35b882964f4f04d9b8c44b
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: ce98effe18dd739504fb0d5453bae8a46c3ba102
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075152"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457480"
 ---
 # <a name="windows-azure-authentication"></a>Windows Azure 認証
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > Windows Azure Active Directory 用の Microsoft ASP.NET ツールを使用すると、 [Windows Azure Web サイト](https://www.windowsazure.com/home/features/web-sites/)でホストされている web アプリケーションの認証を簡単に有効にすることができます。 Windows Azure 認証を使用すると、社内 Active Directory、または独自のカスタム Windows Azure Active Directory ドメインで作成されたユーザーとの間で企業アカウントを使用して、Office 365 ユーザーを認証できます。 Windows Azure 認証を有効にすると、1つの[windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナントを使用してユーザーを認証するようにアプリケーションが構成されます。
 >

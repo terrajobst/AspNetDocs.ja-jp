@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: c73b070f11366e781bcea70ffc84fd49a47d469a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1177336b25479c06706227e5c8ff4d027cdaebb8
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582771"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456986"
 ---
 # <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>キュー中心の作業パターン (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -78,7 +78,7 @@ Web 層とバックエンドサービスは個別に拡張できます。 たと
 
 ![](queue-centric-work-pattern/_static/image3.png)
 
-自動スケールは、web 層と同様に、バックエンドサービスでも機能します。 バックエンド Vm の CPU 使用率に基づいて、キュー内のタスクを処理している Vm の数をスケールアップまたはスケールダウンすることができます。 または、キューにあるアイテムの数に基づいて自動スケールできます。 たとえば、キュー内の項目数が10個を超えないように自動スケールに指示できます。 キューに10個を超える項目がある場合は、自動スケールによって Vm が追加されます。 これらが追いつくと、自動スケールによって余分な Vm が破棄されます。
+自動スケールは、web 層と同様に、バックエンドサービスでも機能します。 スケール アップするか、バックエンド VM の CPU 使用率に基づいて、キュー内のタスクを処理している VM の数をスケール ダウンします。 または、キューにあるアイテムの数に基づいて自動スケールできます。 たとえば、キュー内の項目数が10個を超えないように自動スケールに指示できます。 キューに 10 個を超える項目がある場合は、自動スケールは VM を追加します。 追いつくまで、自動スケールは、余分な VM を破棄します。
 
 ## <a name="adding-queues-to-the-fix-it-application"></a>It アプリケーションを修正するためのキューの追加
 
@@ -127,7 +127,7 @@ Fix It アプリは、協調するプロデューサーと競合コンシュー�
 2. メッセージを修正するタスクに逆シリアル化します。
 3. 修正プログラムをデータベースに書き込みます。
 
-バックエンドサービスをホストするために、*ワーカーロール*を含む Azure クラウドサービスを作成します。 ワーカーロールは、バックエンド処理を実行できる1つ以上の Vm で構成されます。 これらの Vm で実行されるコードは、キューが使用可能になったときにメッセージをプルします。 各メッセージについて、JSON ペイロードを逆シリアル化して、web 層で前に使用したのと同じリポジトリを使用して、Fix It Task エンティティのインスタンスをデータベースに書き込みます。
+バックエンドサービスをホストするために、*ワーカーロール*を含む Azure クラウドサービスを作成します。 ワーカー ロールは、バックエンド処理を実行できる 1 つまたは複数の VM で構成されます。 これらの VM で実行されるコードでは、利用可能になったキューからメッセージをプルします。 各メッセージについて、JSON ペイロードを逆シリアル化して、web 層で前に使用したのと同じリポジトリを使用して、Fix It Task エンティティのインスタンスをデータベースに書き込みます。
 
 次の手順は、標準の web プロジェクトを持つソリューションにワーカーロールプロジェクトを追加する方法を示しています。 これらの手順は、ダウンロード可能な修正プログラムのプロジェクトで既に実行されています。
 

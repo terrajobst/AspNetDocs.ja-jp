@@ -8,16 +8,16 @@ ms.date: 07/20/2015
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: c66187b990a828c53bd2f8115e3c9660fc6022ed
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 87a7516415895e761d1589fd459b93e5c15c0f85
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582810"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456999"
 ---
 # <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>分散キャッシュ (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -90,12 +90,12 @@ Azure では、次のキャッシュサービスが提供されています: [Az
 
 キャッシュの詳細については、次のリソースを参照してください。
 
-Documentation
+ドキュメント
 
 - [Azure キャッシュ](https://msdn.microsoft.com/library/gg278356.aspx)。 Azure でのキャッシュに関する公式の MSDN ドキュメント。
 - [Microsoft のパターンとプラクティス-Azure のガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)。 キャッシュのガイダンスとキャッシュアサイドパターンを参照してください。
 - [フェイルセーフ: 回復力のあるクラウドアーキテクチャに関するガイダンス](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)。 ホワイトペーパー (Marc Mercuri、Ulrich Homann、Andrew Townhill)。 キャッシュに関するセクションを参照してください。
-- [Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 リダイレクト. マーク Simm と Michael Thomassy によるホワイトペーパー。 分散キャッシュに関するセクションを参照してください。
+- [Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 西 マーク Simm と Michael Thomassy によるホワイトペーパー。 分散キャッシュに関するセクションを参照してください。
 - [スケーラビリティへのパスでの分散キャッシュ](https://msdn.microsoft.com/magazine/dd942840.aspx)。 古い (2009) MSDN マガジンの記事ですが、一般的には、分散キャッシュの概要について説明しています。フェールセーフとベストプラクティスに関するホワイトペーパーのキャッシュに関するセクションよりも詳細に説明します。
 
 Videos

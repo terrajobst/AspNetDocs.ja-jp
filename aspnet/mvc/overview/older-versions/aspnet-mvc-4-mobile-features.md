@@ -8,16 +8,16 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 907a16946c93761cd543135b0b226c8696b041f0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9716def069ca9f7115af32e16381f41bd4d13342
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594636"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457649"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 のモバイル機能
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > このチュートリアルの MVC 5 バージョンは、 [Azure websites での ASP.NET MVC 5 モバイル Web アプリケーションのデプロイ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/)に関するページでコードサンプルと共に使用できます。
 
@@ -27,19 +27,19 @@ ms.locfileid: "74594636"
 
 - [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (推奨) または Visual Studio Web DEVELOPER Express SP1。 Visual Studio 2012 には ASP.NET MVC 4 が含まれています。 Visual Web Developer 2010 を使用している場合は、 [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)をインストールする必要があります。
 
-また、モバイルブラウザーエミュレーターも必要になります。 次のいずれかが機能します。
+モバイル ブラウザー エミュレーターも必要です。 次のいずれでも動作します。
 
 - [Windows 7 Phone エミュレーター](https://msdn.microsoft.com/library/ff402563(VS.92).aspx)。 (これは、このチュートリアルのほとんどのスクリーンショットで使用されるエミュレーターです)。
 - IPhone をエミュレートするようにユーザーエージェント文字列を変更します。 [この](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/)ブログエントリを参照してください。
 - [Opera Mobile エミュレーター](http://www.opera.com/developer/tools/mobile/)
 - ユーザーエージェントが iPhone に設定されている[Apple Safari](http://www.apple.com/safari/download/) 。 Safari のユーザーエージェントを "iPhone" に設定する方法については、David Alison のブログで[safari でその IE を使用する方法](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html)に関する記事をご覧ください。
 
-このトピックではC# 、ソースコードが含まれている Visual Studio プロジェクトを使用できます。
+次のトピック用に、C# のソース コードを使用した Visual Studio プロジェクトが用意されています。
 
 - [スタートプロジェクトのダウンロード](https://go.microsoft.com/fwlink/?linkid=228307&amp;clcid=0x409)
 - [完成したプロジェクトのダウンロード](https://go.microsoft.com/fwlink/?linkid=228306&amp;clcid=0x409)
 
-### <a name="what-youll-build"></a>ビルドする内容
+### <a name="what-youll-build"></a>作成するアプリケーション:
 
 このチュートリアルでは、[スタートプロジェクト](https://go.microsoft.com/fwlink/?LinkId=228307)に用意されている単純な会議一覧アプリケーションにモバイル機能を追加します。 次のスクリーンショットは、 [Windows 7 Phone エミュレーター](https://msdn.microsoft.com/library/ff402563(VS.92).aspx)での完成したアプリケーションの [タグ] ページを示しています。 キーボード入力を簡略化するには、「 [Windows Phone Emulator のキーボードマップ](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx)」を参照してください。
 
@@ -49,9 +49,9 @@ Internet Explorer バージョン9または10、FireFox、または Chrome を�
 
 ![](aspnet-mvc-4-mobile-features/_static/image3.png)
 
-### <a name="skills-youll-learn"></a>学習するスキル
+### <a name="skills-youll-learn"></a>学習内容
 
-学習する内容は次のとおりです。
+ここでは次の内容について学習します。
 
 - ASP.NET MVC 4 テンプレートで HTML5 `viewport` 属性とアダプティブレンダリングを使用してモバイルデバイスの表示を向上させる方法について説明します。
 - モバイル専用のビューを作成する方法。
@@ -59,7 +59,7 @@ Internet Explorer バージョン9または10、FireFox、または Chrome を�
 
 ### <a name="getting-started"></a>作業の開始
 
-次のリンクを使用して、スタートプロジェクトのカンファレンスリストアプリケーションを[ダウンロードします。](https://go.microsoft.com/fwlink/?LinkId=228307) 次に、Windows エクスプローラーで*Mvcmobile .zip*ファイルを右クリックし、 **[プロパティ]** を選択します。 **[Mvcmobile. .zip のプロパティ]** ダイアログボックスで、 **[ブロック解除]** ボタンを選択します。 (ブロックを解除すると、web からダウンロードした *.zip*ファイルを使用しようとしたときに発生するセキュリティ警告を回避できます。)
+次のリンクを使用して、スタートプロジェクトのカンファレンスリストアプリケーションを[ダウンロードします。](https://go.microsoft.com/fwlink/?LinkId=228307) 次に、Windows エクスプローラーで*Mvcmobile .zip*ファイルを右クリックし、 **[プロパティ]** を選択します。 **[Mvcmobile. .zip のプロパティ]** ダイアログボックスで、 **[ブロック解除]** ボタンを選択します。 (ブロックを解除すると、Web からダウンロードした *.zip* ファイルを使おうとしたときに表示されるセキュリティに関する警告を回避できます)。
 
 ![p1_unBlock](aspnet-mvc-4-mobile-features/_static/image4.png)
 
@@ -69,7 +69,7 @@ CTRL キーを押しながら F5 キーを押してアプリケーションを�
 
 [![p1_browseTag](aspnet-mvc-4-mobile-features/_static/image6.png)](aspnet-mvc-4-mobile-features/_static/image5.png)
 
-モバイルデバイスでは、表示が非常に読みやすくなります。 [ASP.NET] リンクを選択します。
+モバイル デバイス上でも読みやすい表示になっています。 [ASP.NET] リンクを選択します。
 
 [![p1_tagged_ASPNET](aspnet-mvc-4-mobile-features/_static/image8.png)](aspnet-mvc-4-mobile-features/_static/image7.png)
 
@@ -113,13 +113,13 @@ ASP.NET MVC 4 レイアウトファイルのビューポート `<meta>` タグ�
 
 ビューポート `<meta>` タグの詳細については、「 [tale of two」の2つのビューポート](http://www.quirksmode.org/mobile/viewports2.html)を参照してください。
 
-次のセクションでは、モバイルブラウザー固有のビューを提供する方法について説明します。
+次のセクションでは、モバイル ブラウザー専用ビューを作成する方法について説明します。
 
 ## <a name="overriding-views-layouts-and-partial-views"></a>ビュー、レイアウト、および部分ビューのオーバーライド
 
-ASP.NET MVC 4 の重要な新機能は、モバイルブラウザー全般、個々のモバイルブラウザー、または特定のブラウザーに対して、すべてのビュー (レイアウトと部分ビューを含む) を上書きできる単純なメカニズムです。 モバイル専用のビューを提供するには、ビューファイルをコピーしてを追加し*ます。* ファイル名への Mobile。 たとえば、モバイル*インデックス*ビューを作成するには、 *Views\Home\Index.cshtml*を*Views\Home\Index.Mobile.cshtml*にコピーします。
+ASP.NET MVC 4 の重要な新機能は、モバイルブラウザー全般、個々のモバイルブラウザー、または特定のブラウザーに対して、すべてのビュー (レイアウトと部分ビューを含む) を上書きできる単純なメカニズムです。 モバイル専用ビューを用意するには、ビュー ファイルをコピーして *.Mobile* をファイル名に追加します。 たとえば、モバイル*インデックス*ビューを作成するには、 *Views\Home\Index.cshtml*を*Views\Home\Index.Mobile.cshtml*にコピーします。
 
-このセクションでは、モバイル専用のレイアウトファイルを作成します。
+このセクションでは、モバイル専用のレイアウト ファイルを作成します。
 
 開始するには、 *Views\Shared\\_Layout*を*Views\Shared\\_Layout*にコピーします。 *\_Layout*を開き、 **MVC4 カンファレンス**から**カンファレンス (Mobile)** にタイトルを変更します。
 
@@ -127,11 +127,11 @@ ASP.NET MVC 4 の重要な新機能は、モバイルブラウザー全般、個
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample5.cshtml)]
 
-*Views\Home\AllTags.cshtml*ファイルを*Views\Home\AllTags.Mobile.cshtml*にコピーします。 新しいファイルを開き、`<h2>` 要素を "Tags" から "Tags (M)" に変更します。
+*Views\Home\AllTags.cshtml*ファイルを*Views\Home\AllTags.Mobile.cshtml*にコピーします。 新しいファイルを開き、次のように `<h2>` 要素を「Tags」から「Tags (M)」に変更します。
 
 [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample6.html)]
 
-デスクトップブラウザーを使用し、モバイルブラウザーエミュレーターを使用して、[タグ] ページを参照します。 モバイルブラウザーエミュレーターには、2つの変更が表示されます。
+デスクトップ ブラウザー、および、モバイル ブラウザー エミュレーターを使用してタグ ページに移動します。 モバイルブラウザーエミュレーターには、2つの変更が表示されます。
 
 [![p2m_layoutTags](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
@@ -141,19 +141,19 @@ ASP.NET MVC 4 の重要な新機能は、モバイルブラウザー全般、個
 
 ## <a name="browser-specific-views"></a>ブラウザー固有のビュー
 
-モバイル専用およびデスクトップ固有のビューに加えて、個々のブラウザーのビューを作成することもできます。 たとえば、iPhone ブラウザー専用のビューを作成できます。 このセクションでは、iPhone ブラウザーと iPhone バージョンの*Alltags*ビューのレイアウトを作成します。
+モバイル専用のビューやデスクトップ専用のビューに加え、個別のブラウザーに対してビューを作成できます。 たとえば、iPhone ブラウザー専用のビューを作成できます。 このセクションでは、iPhone ブラウザーと iPhone バージョンの *AllTags* ビュー用のレイアウトを作成します。
 
 *Global.asax*ファイルを開き、次のコードを `Application_Start` メソッドに追加します。
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample7.cs)]
 
-このコードでは、受信要求ごとに照合される "iPhone" という名前の新しい表示モードを定義します。 受信要求が定義した条件と一致する場合 (つまり、ユーザーエージェントに "iPhone" という文字列が含まれている場合)、ASP.NET MVC は、名前に "iPhone" というサフィックスが含まれているビューを検索します。
+このコードでは、"iPhone" という表示モードを定義し、受信された各要求をその定義に対して照合します。 受信された要求が定義した条件に一致する場合 (つまり、ユーザー エージェントに "iPhone" という文字列が含まれている場合)、"iPhone" というサフィックスが含まれる名前のビューが ASP.NET MVC によって検索されます。
 
-コードで、`DefaultDisplayMode`を右クリックし、**解決** をクリックして、`using System.Web.WebPages;` を選択します。 これにより、`System.Web.WebPages` 名前空間への参照が追加されます。ここで、`DisplayModes` と `DefaultDisplayMode` 型が定義されています。
+コードで、`DefaultDisplayMode` を右クリックし、 **[解決]** 、`using System.Web.WebPages;` の順にクリックします。 `System.Web.WebPages` 型と `DisplayModes` 型が定義されている `DefaultDisplayMode` 名前空間に参照が追加されます。
 
 [![p2_resolve](aspnet-mvc-4-mobile-features/_static/image16.png)](aspnet-mvc-4-mobile-features/_static/image15.png)
 
-または、ファイルの `using` セクションに次の行を手動で追加することもできます。
+別の方法として、単純にファイルの `using` セクションに、次の行を手動で追加することもできます。
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample8.cs)]
 
@@ -163,13 +163,13 @@ ASP.NET MVC 4 の重要な新機能は、モバイルブラウザー全般、個
 
 変更を保存します。 *MvcMobile\Views\Shared\\_Layout* *\\_Layout*にコピーします。このファイルは、MvcMobile\Views\Shared にコピーします。 新しいファイルを開き、`h1` 見出しを `Conference (Mobile)` から `Conference (iPhone)`に変更します。
 
-*MvcMobile\Views\Home\AllTags.Mobile.cshtml*ファイルを*MvcMobile\Views\Home\AllTags.iPhone.cshtml*にコピーします。 新しいファイルで、`<h2>` 要素を "Tags (M)" から "Tags (iPhone)" に変更します。
+*MvcMobile\Views\Home\AllTags.Mobile.cshtml*ファイルを*MvcMobile\Views\Home\AllTags.iPhone.cshtml*にコピーします。 新しいファイルで、 `<h2>` 要素を "Tags (M)" から "Tags (iPhone)" に変更します。
 
-アプリケーションを実行します。 モバイルブラウザーエミュレーターを実行し、そのユーザーエージェントが "iPhone" に設定されていることを確認して、 *Alltags*ビューを参照します。 次のスクリーンショットは、 [Safari](http://www.apple.com/safari/download/)ブラウザーに表示される*alltags*ビューを示しています。 Windows 用 Safari は[こちら](https://support.apple.com/kb/DL1531)からダウンロードできます。
+アプリケーションを実行します。 モバイル ブラウザー エミュレーターを実行し、ユーザー エージェントが "iPhone" に設定されていることを確認して、 *AllTags* ビューにアクセスします。 次のスクリーンショットは、 [Safari](http://www.apple.com/safari/download/)ブラウザーに表示される*alltags*ビューを示しています。 Windows 用 Safari は[こちら](https://support.apple.com/kb/DL1531)からダウンロードできます。
 
 [![p2_iphoneView](aspnet-mvc-4-mobile-features/_static/image18.png)](aspnet-mvc-4-mobile-features/_static/image17.png)
 
-このセクションでは、モバイルレイアウトとビューを作成する方法と、iPhone などの特定のデバイスのレイアウトとビューを作成する方法について説明しました。 次のセクションでは、より説得力のあるモバイルビューに jQuery Mobile を活用する方法について説明します。
+このセクションでは、モバイル レイアウトとビューの作成方法および iPhone などの特定のデバイス専用のレイアウトとビューの作成方法を説明しました。 次のセクションでは、より説得力のあるモバイルビューに jQuery Mobile を活用する方法について説明します。
 
 ## <a name="using-jquery-mobile"></a>JQuery Mobile の使用
 
@@ -255,7 +255,7 @@ JQuery の NuGet パッケージでは、次のものがインストールされ
 
 ## <a name="improving-the-speakers-list"></a>スピーカーリストを改善する
 
-モバイルブラウザーで、 **[スピーカー]** リンクを選択します。 モバイルビュー (*Allspeakers. cshtml*) がないため、既定のスピーカー表示 (*allspeakers. cshtml*) は、モバイルレイアウトビュー ( *\_layout*) を使用してレンダリングされます。
+モバイル ブラウザーで **[Speakers]** リンクをタップします。 モバイルビュー (*Allspeakers. cshtml*) がないため、既定のスピーカー表示 (*allspeakers. cshtml*) は、モバイルレイアウトビュー ( *\_layout*) を使用してレンダリングされます。
 
 [![p3_speakersDeskTop](aspnet-mvc-4-mobile-features/_static/image31.png)](aspnet-mvc-4-mobile-features/_static/image30.png)
 
@@ -273,7 +273,7 @@ JQuery の NuGet パッケージでは、次のものがインストールされ
 
 ## <a name="creating-a-mobile-speakers-view"></a>モバイルスピーカービューの作成
 
-先ほど見たように、*スピーカー*の表示は読み取り可能ですが、リンクは小さく、モバイルデバイスではタップが困難です。 このセクションでは、最新のモバイルアプリケーションのようなモバイル固有の*スピーカー*ビューを作成します。これには、大規模でタップしやすいリンクが表示され、スピーカーをすばやく見つけるための検索ボックスが含まれています。
+いま見たように、 *Speakers* ビューは読み取れますが、リンクが小さく、モバイル デバイスではタップが困難です。 このセクションでは、最新のモバイルアプリケーションのようなモバイル固有の*スピーカー*ビューを作成します。これには、大規模でタップしやすいリンクが表示され、スピーカーをすばやく見つけるための検索ボックスが含まれています。
 
 *Allspeakers. cshtml*を*Allspeakers. Mobile. cshtml*にコピーします。 *Allspeakers の cshtml*ファイルを開き、`<h2>` の見出し要素を削除します。
 
@@ -281,7 +281,7 @@ JQuery の NuGet パッケージでは、次のものがインストールされ
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample19.cshtml)]
 
-モバイルブラウザーを最新の状態に更新します。 更新されたビューは次のようになります。
+モバイル ブラウザーの表示を更新します。 更新されたビューは次のようになります。
 
 [![p3_updatedSpeakerView1](aspnet-mvc-4-mobile-features/_static/image35.png)](aspnet-mvc-4-mobile-features/_static/image34.png)
 
@@ -347,7 +347,7 @@ JQuery の NuGet パッケージでは、次のものがインストールされ
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample24.cshtml)]
 
-このコードでは、ルームとタグ列を削除し、タイトル、スピーカー、および日付を縦に書式設定して、すべての情報がモバイルブラウザーで読み取れるようにします。 次の画像は、コードの変更を反映しています。
+このコードでは、ルームとタグ列を削除し、タイトル、スピーカー、および日付を縦に書式設定して、すべての情報がモバイルブラウザーで読み取れるようにします。 次の図にはコードの変更が反映されています。
 
 [![ps_SessionsByScottHa](aspnet-mvc-4-mobile-features/_static/image51.png)](aspnet-mvc-4-mobile-features/_static/image50.png)
 
@@ -373,7 +373,7 @@ JQuery の NuGet パッケージでは、次のものがインストールされ
 
 新しいマークアップでは、`data-role` 属性を使用して、ビューのレイアウトを改善します。
 
-モバイルブラウザーを最新の状態に更新します。 次の図は、先ほど行ったコードの変更を反映しています。
+モバイル ブラウザーの表示を更新します。 次の図には行ったコードの変更が反映されています。
 
 [![p3_love2](aspnet-mvc-4-mobile-features/_static/image59.png)](aspnet-mvc-4-mobile-features/_static/image58.png)
 
@@ -390,5 +390,5 @@ JQuery の NuGet パッケージでは、次のものがインストールされ
 
 - [JQuery モバイル](http://jquerymobile.com)サイト。
 - [jQuery Mobile の概要](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
-- [W3C 勧告モバイル Web アプリケーションのベストプラクティス](http://www.w3.org/TR/mwabp/)
-- [メディアクエリの W3C 候補の推奨事項](http://www.w3.org/TR/css3-mediaqueries/)
+- [W3C 勧告: モバイル Web アプリケーションのベスト プラクティス](http://www.w3.org/TR/mwabp/)
+- [W3C のメディア クエリに関する勧告候補](http://www.w3.org/TR/css3-mediaqueries/)

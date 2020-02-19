@@ -8,16 +8,16 @@ ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 946c88d2b337e3bf634f815c7f1ce045f29d9d84
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 6cef963910b957e8b4ad7c7909385f6dbdff95c1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76518746"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456064"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Edit メソッドと Edit ビューの確認
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -77,13 +77,13 @@ ms.locfileid: "76518746"
 
 ## <a name="processing-the-post-request"></a>POST 要求の処理
 
-次のリストでは、`Edit` アクション メソッドの `HttpPost` バージョンを示します。
+次のリストでは、`HttpPost` アクション メソッドの `Edit` バージョンを示します。
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
 [Validateアンチ Forgerytoken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx)属性は、ビューの `@Html.AntiForgeryToken()` 呼び出しによって生成された[XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)トークンを検証します。
 
-[ASP.NET MVC モデルバインダー](https://msdn.microsoft.com/library/dd410405.aspx)は、ポストされたフォーム値を受け取り、`movie` パラメーターとして渡される `Movie` オブジェクトを作成します。 `ModelState.IsValid` は、フォームで送信されたデータを使用して、`Movie` オブジェクトの変更 (編集または更新) を行うことができるかどうかを確認します。 データが有効な場合、ムービーデータは `db`(`MovieDBContext` インスタンス) の `Movies` コレクションに保存されます。 新しいムービーデータは、`MovieDBContext`の `SaveChanges` メソッドを呼び出すことによってデータベースに保存されます。 データを保存した後、コードはユーザーを `MoviesController` クラスの `Index` アクション メソッドにリダイレクトします。そこでは、行われたばかりの変更を含むムービー コレクションが表示されます。
+[ASP.NET MVC モデルバインダー](https://msdn.microsoft.com/library/dd410405.aspx)は、ポストされたフォーム値を受け取り、`movie` パラメーターとして渡される `Movie` オブジェクトを作成します。 `ModelState.IsValid` は、フォームで送信されたデータを使用して、`Movie` オブジェクトの変更 (編集または更新) を行うことができるかどうかを確認します。 データが有効な場合、ムービーデータは `db`(`MovieDBContext` インスタンス) の `Movies` コレクションに保存されます。 新しいムービーデータは、`MovieDBContext`の `SaveChanges` メソッドを呼び出すことによってデータベースに保存されます。 データを保存した後、コードはユーザーを `Index` クラスの `MoviesController` アクション メソッドにリダイレクトします。そこでは、行われたばかりの変更を含むムービー コレクションが表示されます。
 
 クライアント側の検証によってフィールドの値が無効であると判断されるとすぐに、エラーメッセージが表示されます。 JavaScript が無効になっている場合、クライアント側の検証は無効になります。 ただし、ポストされた値が無効であることがサーバーによって検出され、フォームの値がエラーメッセージと共に再登録されます。
 

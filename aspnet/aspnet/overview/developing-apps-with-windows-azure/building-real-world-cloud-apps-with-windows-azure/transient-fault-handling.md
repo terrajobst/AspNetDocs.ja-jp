@@ -8,16 +8,16 @@ ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: fc281e3d8f7c9edd4d98b029a67e58113132a8b3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: e798cb83cfb97db63fef6dc38c8f62804461d01b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583656"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456856"
 ---
 # <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>一時的なエラー処理 (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -82,7 +82,7 @@ SQL Database 再試行ポリシーのガイダンスについては、「SQL Dat
 
 詳細については、次のリソースを参照してください。
 
-Documentation
+ドキュメント
 
 - [Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 マーク Simm と Michael Thomassy によるホワイトペーパー。 フェイルセーフシリーズに似ていますが、さらに詳細な方法について説明します。 「テレメトリと診断」セクションを参照してください。
 - [フェイルセーフ: 回復力のあるクラウドアーキテクチャに関するガイダンス](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)。 ホワイトペーパー (Marc Mercuri、Ulrich Homann、Andrew Townhill)。 フェールセーフビデオシリーズの Web ページバージョン。
@@ -98,7 +98,7 @@ Videos
 
 コード サンプル
 
-- [Azure のクラウドサービスの基礎](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。 [エンタープライズライブラリの一時的なエラー処理ブロック](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)(tfh) を使用する方法を示す Microsoft Azure カスタマーアドバイザリチームによって作成されたサンプルアプリケーション。 詳細については、「[クラウドサービスの基本データアクセス層–一時的なエラー処理](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)」を参照してください。 ADO.NET を直接使用して (Entity Framework を使用せずに) データベースにアクセスする場合は、TFH を使用することをお勧めします。
+- [Azure のクラウドサービスの基礎](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。 [エンタープライズライブラリの一時的なエラー処理ブロック](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)(tfh) を使用する方法を示す Microsoft Azure カスタマーアドバイザリチームによって作成されたサンプルアプリケーション。 詳細については、「[Cloud Service Fundamentals Data Access Layer – Transient Fault Handling (クラウド サービスの基本データ アクセス層 – 一時的エラー処理)](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)」を参照してください。 ADO.NET を直接使用して (Entity Framework を使用せずに) データベースにアクセスする場合は、TFH を使用することをお勧めします。
 
 > [!div class="step-by-step"]
 > [前へ](monitoring-and-telemetry.md)

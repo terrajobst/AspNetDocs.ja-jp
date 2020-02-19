@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: f97d973d87db895441f813376d757a8a2e94b255
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9357ed5aef39bed501cdac9ac26d46c884d4fae0
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585925"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457181"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データストレージのオプション (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -37,14 +37,14 @@ ms.locfileid: "74585925"
 
 次の表は、4種類の NoSQL データベースを示しています。
 
-- [キー/値データベース](https://msdn.microsoft.com/library/dn313285.aspx#sec7)は、キー値ごとに1つのシリアル化されたオブジェクトを格納します。 特定のキー値に対して1つの項目を取得する必要があり、その項目の他のプロパティに基づいてクエリを実行する必要がない大量のデータを格納する場合に適しています。
+- [キー/値データベース](https://msdn.microsoft.com/library/dn313285.aspx#sec7)は、キー値ごとに1つのシリアル化されたオブジェクトを格納します。 指定されたキー値に対して 1 つの項目を取得し、項目の他のプロパティに基づいてクエリを実行する必要がない、大量のデータを格納する場合に適しています。
 
     [Azure Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)は、クラウド内のファイルストレージのように機能するキー/値データベースであり、フォルダー名とファイル名に対応するキー値を持ちます。 ファイルは、ファイルの内容の値を検索するのではなく、フォルダーとファイル名で取得します。
 
     [Azure Table storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)は、キー/値データベースでもあります。 各値は、(パーティションキーと行キーによって識別される)*エンティティ*と呼ばれ、複数の*プロパティ*を含みます (列に似ていますが、テーブル内のすべてのエンティティが同じ列を共有する必要はありません)。 キー以外の列に対するクエリは非常に非効率的であり、回避する必要があります。 たとえば、1つのユーザーに関する情報を格納する1つのパーティションを使用して、ユーザープロファイルデータを格納することができます。 ユーザー名、パスワードハッシュ、生年月日などのデータを、1つのエンティティの個別のプロパティ、または同じパーティション内の別のエンティティに格納することができます。 ただし、特定の期間の生年月日を持つすべてのユーザーを照会することはできません。また、プロファイルテーブルと別のテーブルとの間で結合クエリを実行することもできません。 テーブルストレージは、リレーショナルデータベースよりもスケーラビリティが高く、コストが低くなりますが、複雑なクエリや結合は使用できません。
 - [Documentdatabases](https://msdn.microsoft.com/library/dn313285.aspx#sec8)は、値が*ドキュメント*であるキー/値データベースです。 ここでの "Document" は、Word または Excel のドキュメントの意味では使用されませんが、名前付きフィールドと値のコレクションを意味します。これらはいずれも子ドキュメントである可能性があります。 たとえば、注文履歴テーブルでは、注文書ドキュメントに order number、order date、および customer の各フィールドが含まれている可能性があります。また、customer フィールドには、[名前] フィールドと [住所] フィールドがあります。 データベースは、XML、YAML、JSON、BSON などの形式でフィールドデータをエンコードします。または、プレーンテキストを使用することもできます。 ドキュメントデータベースをキー/値データベースとは別に設定する機能の1つとして、非キーフィールドに対してクエリを実行し、セカンダリインデックスを定義してクエリの効率を高めることができます。 この機能により、ドキュメントデータベースは、ドキュメントキーの値よりも複雑な条件に基づいてデータを取得する必要があるアプリケーションに適しています。 たとえば、販売注文履歴ドキュメントデータベースでは、製品 ID、顧客 ID、顧客名などのさまざまなフィールドに対してクエリを実行できます。 [MongoDB](http://www.mongodb.org/)は、一般的なドキュメントデータベースです。
 - [列ファミリデータベース](https://msdn.microsoft.com/library/dn313285.aspx#sec9)は、列ファミリと呼ばれる関連列のコレクションにデータストレージを構造化するためのキー/値データストアです。 たとえば、国勢調査データベースには、個人の名前 (最初、中央、最後)、個人の住所のグループ、および個人のプロファイル情報 (DOB、性別など) の1つのグループが含まれているとします。 その後、データベースは各列ファミリを個別のパーティションに格納し、同じキーに関連付けられている1人のデータをすべて保持できます。 その後、すべてのプロファイル情報を読み取ることができます。すべての名前とアドレス情報を読み取る必要はありません。 [Cassandra](http://cassandra.apache.org/)は広く普及している列ファミリデータベースです。
-- [グラフデータベース](https://msdn.microsoft.com/library/dn313285.aspx#sec10)は、情報をオブジェクトとリレーションシップのコレクションとして格納します。 グラフデータベースの目的は、アプリケーションがオブジェクトのネットワークを通過するクエリと、オブジェクト間のリレーションシップを効率的に実行できるようにすることです。 たとえば、人事部の従業員がオブジェクトである場合、"Scott のために直接的または間接的に仕事をしているすべての従業員を検索する" などのクエリを容易にすることができます。 [Neo4j](http://www.neo4j.org/)は一般的なグラフデータベースです。
+- [グラフデータベース](https://msdn.microsoft.com/library/dn313285.aspx#sec10)は、情報をオブジェクトとリレーションシップのコレクションとして格納します。 グラフデータベースの目的は、アプリケーションがオブジェクトのネットワークを通過するクエリと、オブジェクト間のリレーションシップを効率的に実行できるようにすることです。 たとえば、人事データベースではオブジェクトは従業員の可能性があります。また、"佐藤さんのために直接的または間接的に働いているすべての従業員を検索する" などのクエリを簡単にすることもできます。 [Neo4j](http://www.neo4j.org/)は一般的なグラフデータベースです。
 
 リレーショナルデータベースと比較すると、NoSQL オプションを使用すると、構造化されていないデータのストレージと分析について、はるかに高いスケーラビリティとコスト効果が得ます。 トレードオフとは、リレーショナルデータベースの豊富な queryability と堅牢なデータ整合性機能を提供しないことです。 NoSQL は、クエリの結合を必要としない大量のボリュームを含む IIS ログデータに対して適切に機能します。 NoSQL は、データの絶対整合性を必要とし、他のアカウント関連データとの多くの関係を伴う銀行取引には適していません。
 
@@ -66,7 +66,7 @@ Azure では、Hadoop の機能を使用してビッグデータを処理、分�
     ![Blob Storage するログ](data-storage-options/_static/image2.png)
 - アプリがトラフィックを取得すると、web サーバーの IIS ログが Blob ストレージに書き込まれます。
 
-    ![Web サーバーのログ](data-storage-options/_static/image3.png)
+    ![Web サーバー ログ](data-storage-options/_static/image3.png)
 - ポータルで、**新規** -  をクリックして**Data Services** - **hdinsight** - **簡易作成** をクリックし、HDInsight クラスター名、クラスターのサイズ (hdinsight クラスターのデータノードの数)、hdinsight クラスターのユーザー名とパスワードを指定します。
 
     ![HDInsight](data-storage-options/_static/image4.png)
@@ -86,7 +86,7 @@ Azure では、Hadoop の機能を使用してビッグデータを処理、分�
 - MapReduce ジョブの実行可能ファイル (.jar または .exe ファイル) を HDInsight クラスターにアップロードします。
 - 出力データを Blob storage に格納する MapReduce を送信します。
 - ジョブが完了するまで待ちます。
-- HDInsight クラスターを削除します。
+- HDInsight クラスターを削除する。
 - Blob storage からの出力にアクセスします。
 
 すべてを実行するスクリプトを実行することで、HDInsight クラスターがプロビジョニングされる時間を最小限に抑えることができます。これにより、コストを最小限に抑えることができます。
@@ -99,8 +99,8 @@ Azure では、Hadoop の機能を使用してビッグデータを処理、分�
 Azure が提供する PaaS データソリューションには、次のものがあります。
 
 - Azure SQL Database (旧称 SQL Azure)。 SQL Server に基づくクラウドリレーショナルデータベース。
-- Azure Table storage。 キー/値 NoSQL データベース。
-- Azure Blob storage。 クラウド内のファイルストレージ。
+- Azure Table Storage。 キー/値 NoSQL データベース。
+- Azure Blob Storage。 クラウド内のファイルストレージ。
 
 IaaS の場合は、VM に読み込むことのできるすべてのものを実行できます。次に例を示します。
 
@@ -125,7 +125,7 @@ Azure では、IaaS データストレージオプションを可能な限り簡
 - Vm を作成する必要はありませんが、ポータルまたはスクリプトを使用してデータストアを設定するだけです。 200テラバイトのデータストアが必要な場合は、ボタンをクリックするかコマンドを実行するだけで、数秒で使用できるようになります。
 - サービスによって使用される Vm を管理または修正する必要はありません。Microsoft は自動的にこれを行います。-スケーリングや高可用性のためのインフラストラクチャのセットアップについて心配する必要はありません。Microsoft はすべてのことを処理します。
 - ライセンスを購入する必要はありません。ライセンス料金は、サービス料金に含まれています。
-- お支払いは、使用した分だけです。
+- 料金は使用した分だけになります。
 
 Azure の PaaS データストレージオプションには、サードパーティプロバイダーによって提供されるサービスが含まれています。 たとえば、Azure ストアから[MongoLab アドオン](https://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/)を選択して、MongoDB データベースをサービスとしてプロビジョニングすることができます。
 
@@ -151,7 +151,7 @@ Azure の PaaS データストレージオプションには、サードパー�
 
 データストレージソリューションを選択する前に、これらの各カテゴリの質問に対する回答を確認することをお勧めします。
 
-また、ワークロードには、プラットフォームによってはサポートされる可能性のある特定の要件がある場合があります。 例:
+また、ワークロードには、プラットフォームによってはサポートされる可能性のある特定の要件がある場合があります。 例 :
 
 - アプリケーションには監査機能が必要ですか。
 - データの保存期間の要件はどのようなものですか?-自動アーカイブまたは削除の機能が必要ですか?
@@ -168,7 +168,7 @@ Fix It アプリは、リレーショナルデータベースを使用してタ�
 
 **新規--Data Services** -- **SQL Database** -- **簡易作成** をクリックし、データベース名を入力します。アカウントに既にあるサーバーを選択するか、新しいサーバーを作成して、**SQL Database の作成** をクリックします。
 
-![新しい SQL Database](data-storage-options/_static/image9.png)
+![新しい SQL データベース](data-storage-options/_static/image9.png)
 
 数秒待ってから、Azure のデータベースを使用する準備ができていることを確認してください。
 
@@ -180,7 +180,7 @@ Azure では、オンプレミス環境での実行に1日または1週間以上
 
 ボタンをクリックすると、必要な正確な接続文字列が表示され、新しいデータベースの使用をすぐに開始できます。
 
-![接続文字列](data-storage-options/_static/image11.png)
+![Connection strings](data-storage-options/_static/image11.png)
 
 ダッシュボードには、接続の履歴と使用されているストレージの量が表示されます。
 

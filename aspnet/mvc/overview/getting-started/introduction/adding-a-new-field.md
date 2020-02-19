@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: d79655bfadff83095bf4cb84445f5efaf44d6a89
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 5974e53e4610dccc7812df261dc97a9b0327de85
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519077"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456687"
 ---
 # <a name="adding-a-new-field"></a>新しいフィールドの追加
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -131,7 +131,7 @@ Code First Migrations は、*移行*フォルダー ( *{datestamp}\_Initial.cs* 
 
 ![](adding-a-new-field/_static/image9.png)  
   
-データベースが作成されてから、' Mo? Dbcontext ' コンテキストをバッキングするモデルが変更されました。 Code First Migrations を使用してデータベースを更新することを検討してください (https://go.microsoft.com/fwlink/?LinkId=238269) 。
+データベースが作成されてから、' Mo? Dbcontext ' コンテキストをバッキングするモデルが変更されました。 Code First Migrations を使用してデータベースを更新することを検討してください (https://go.microsoft.com/fwlink/?LinkId=238269)。
 
 ![](adding-a-new-field/_static/image10.png)
 
@@ -173,7 +173,7 @@ Code First Migrations は、*移行*フォルダー ( *{datestamp}\_Initial.cs* 
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-**[作成]** をクリックします。 新しいムービー (評価を含む) がムービーの一覧に表示されるようになりました。
+[作成] をクリックします。 新しいムービー (評価を含む) がムービーの一覧に表示されるようになりました。
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 

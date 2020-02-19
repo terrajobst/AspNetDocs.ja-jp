@@ -1,123 +1,123 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
-title: ビュー (VB) の追加 |Microsoft Docs
+title: ビューの追加 (VB) |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: d3633f64-5d3c-45c9-ae4b-cb1563e3739f
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: cf2e73b4245de6fe702b8c74550e6c7fc701a47f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: fa200935d83bb26c07b302449a6eba6fd67b5322
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129972"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457341"
 ---
 # <a name="adding-a-view-vb"></a>ビューの追加 (VB)
 
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、Microsoft Visual Studio の無料版であるを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して、前提条件を個別にインストールできます。
+> このチュートリアルでは、Microsoft Visual Studio の無料バージョンである Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用した ASP.NET MVC Web アプリケーションの構築の基本について説明します。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 これらのすべてをインストールするには、[ [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)] リンクをクリックします。 または、次のリンクを使用して、前提条件を個別にインストールすることもできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
+> - [ASP.NET MVC 3 ツールの更新](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイム + ツールのサポート)
 > 
-> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+> Visual Web Developer 2010 ではなく Visual Studio 2010 を使用している場合は、次のリンクをクリックして必要なコンポーネントをインストールします: [Visual studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)。
 > 
-> VB.NET のソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [VB.NET のバージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 C# を使用する場合に切り替えて、 [c# バージョン](../cs/adding-a-view.md)このチュートリアルの。
+> このトピックには、VB.NET ソースコードを含む Visual Web Developer プロジェクトが用意されています。 [VB.NET バージョンをダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 必要に応じC#て[ C# ](../cs/adding-a-view.md) 、このチュートリアルのバージョンに切り替えます。
 
-このセクションでお見せ変更、`HelloWorldController`をクリーンにビュー テンプレート ファイルを使用するクラスがクライアントへの HTML 応答を生成するプロセスをカプセル化します。
+このセクションでは、`HelloWorldController` クラスを変更して、ビューテンプレートファイルを使用して、クライアントに HTML 応答を生成するプロセスを完全にカプセル化します。
 
-ビュー テンプレートを使用して、まず、`Index`メソッドで、`HelloWorldController`クラス。 現在、`Index`メソッドがコント ローラー クラス内でハードコーディングされているメッセージに文字列を返します。 変更、`Index`を返すメソッドを`View`オブジェクトを次に示すようにします。
+まず、ビューテンプレートと、`HelloWorldController` クラスの `Index` メソッドを使用します。 現在、`Index` メソッドは、コントローラークラス内でハードコーディングされたメッセージを含む文字列を返します。 次に示すように、`View` オブジェクトを返すように `Index` メソッドを変更します。
 
 [!code-vb[Main](adding-a-view/samples/sample1.vb)]
 
-呼び出すことができるプロジェクトにビュー テンプレートを追加してみましょう今すぐ、`Index`メソッド。 これを行うには、内を右クリックして、`Index`メソッドとクリック**ビューの追加**します。
+ここで、`Index` メソッドを使用して呼び出すことができるビューテンプレートをプロジェクトに追加しましょう。 これを行うには、`Index` メソッド内を右クリックし、 **[ビューの追加]** をクリックします。
 
 [![IndexAddView](adding-a-view/_static/image2.png "IndexAddView")](adding-a-view/_static/image1.png)
 
-**ビューの追加** ダイアログ ボックスが表示されます。 既定のエントリのままにし、をクリックして、**追加**ボタンをクリックします。
+**[ビューの追加]** ダイアログボックスが表示されます。 既定のエントリをそのまま使用し、 **[追加]** ボタンをクリックします。
 
 [![3addView](adding-a-view/_static/image4.png "3addView")](adding-a-view/_static/image3.png)
 
-*MvcMovie\Views\HelloWorld*フォルダーと*MvcMovie\Views\HelloWorld\Index.vbhtml*ファイルが作成されます。 わかります**ソリューション エクスプ ローラー**:
+*MvcMovie\Views\HelloWorld*フォルダーと*MvcMovie\Views\HelloWorld\Index.vbhtml*ファイルが作成されます。 **ソリューションエクスプローラー**で確認できます。
 
 [![SolnExpHelloWorldIndx](adding-a-view/_static/image6.png "SolnExpHelloWorldIndx")](adding-a-view/_static/image5.png)
 
-HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index.vbhtml*ファイルを次に示します。
+`<h2>` タグの下に HTML を追加します。 変更した*MvcMovie\Views\HelloWorld\Index.vbhtml*ファイルを次に示します。
 
 [!code-vbhtml[Main](adding-a-view/samples/sample2.vbhtml)]
 
-アプリケーションを実行しを参照、 &quot;hello world&quot;コント ローラー (`http://localhost:xxxx/HelloWorld`)。 `Index`コント ローラーのメソッドは多くの作業を行わない; に単に、ステートメントを実行した`return View()`クライアントに応答をレンダリングするビュー テンプレート ファイルを使用したいことが示されます。 ASP.NET MVC の既定値を使用してに明示的に使用するビュー テンプレート ファイルの名前を指定しましたいない、ため、 *Index.vbhtml*内でファイルの表示、 *\Views\HelloWorld*フォルダー。 次の図では、ビューにハード コードされた文字列を示します。
+アプリケーションを実行し、&quot;hello world&quot; controller (`http://localhost:xxxx/HelloWorld`) に移動します。 コントローラーの `Index` メソッドでは、多くの作業が行われませんでした。単にステートメント `return View()`を実行しました。これは、ビューテンプレートファイルを使用してクライアントに応答を表示するように指定したことを示しています。 使用するビューテンプレートファイルの名前を明示的に指定しなかったため、 *\Views\HelloWorld*フォルダー内の ASP.NET*ビューファイル*を使用するように既定で設定されています。 次の画像は、ビューにハードコーディングされた文字列を示しています。
 
 [![3HelloWorld](adding-a-view/_static/image8.png "3HelloWorld")](adding-a-view/_static/image7.png)
 
-ように見えますね。 ただし、ブラウザーのタイトル バーに表示されることを確認&quot;インデックス&quot;ビッグ、ページのタイトルと&quot;マイ MVC アプリケーションです。&quot;これらの名前を変更してみましょう。
+すばらしいですね。 ただし、ブラウザーのタイトルバーに &quot;インデックス&quot; と表示され、ページ上のタイトルに [My MVC Application &quot;] と表示されていることに注意してください。&quot; 変更しましょう。
 
 ## <a name="changing-views-and-layout-pages"></a>ビューとレイアウト ページの変更
 
-まず、テキストを変更してみましょう&quot;マイ MVC アプリケーションです。&quot;そのテキストは、共有され、すべてのページに表示されます。 アプリケーション内の各ページ上にある場合でも実際に、プロジェクト内の 1 か所で表示します。 移動して、 */ビュー/共有*フォルダー**ソリューション エクスプ ローラー**を開くと、  *\_Layout.vbhtml*ファイル。 このファイルは、レイアウト ページと呼ばれ、共有は&quot;シェル&quot;他のすべてのページを使用します。
+まず、MVC アプリケーション &quot;テキストを変更してみましょう。テキストが共有され、すべてのページに表示される&quot; ます。 アプリケーション内のすべてのページにある場合でも、実際にはプロジェクト内の1つの場所にのみ表示されます。 **ソリューションエクスプローラー**の [ */* ]/[共有] フォルダーにアクセスし、 *\_Layout*ファイルを開きます。 このファイルはレイアウトページと呼ばれ、他のすべてのページで使用される共有 &quot;シェル&quot; です。
 
-注、`@RenderBody()`のファイルの下部にあるコード行。 `RenderBody` プレース ホルダーを作成するすべてのページが表示するには&quot;ラップ&quot;レイアウト ページ。 変更、`<h1>`から見出し **&quot;** My MVC Application&quot;に&quot;MVC ムービー アプリ&quot;します。
+ファイルの下部付近にあるコードの `@RenderBody()` 行に注意してください。 `RenderBody` は、作成したすべてのページが表示されるプレースホルダーであり &quot;レイアウト ページで&quot; ラップされます。 `<h1>` 見出しを、 **&quot;** の mvc アプリケーション&quot; から &quot;Mvc Movie アプリ&quot;に変更します。
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
-アプリケーションを実行し、伝えることに注意してください。 &quot;MVC ムービー アプリ&quot;します。 をクリックして、**について**リンク、およびページ表示&quot;MVC ムービー アプリ&quot;もします。
+アプリケーションを実行して、&quot;MVC Movie App&quot;になっていることを確認します。 **[About]** リンクをクリックすると、そのページに &quot;MVC ムービーアプリ&quot;も表示されます。
 
-完全な *\_Layout.vbhtml*ファイルを次に示します。
+完全な *\_のレイアウトの vbhtml*ファイルを次に示します。
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-ここで、インデックス ページ (ビュー) のタイトルを変更してみましょう。
+次に、インデックスページ (ビュー) のタイトルを変更してみましょう。
 
 [!code-vbhtml[Main](adding-a-view/samples/sample5.vbhtml)]
 
-Open *MvcMovie\Views\HelloWorld\Index.vbhtml*. 2 か所変更する場合: 最初に、テキスト表示される、ブラウザーのタイトルにおよび、セカンダリ ヘッダー (、`<h2>`要素)。 しましょうに若干異なるため、どのビット コードの変更、アプリのどの部分を参照してください。
+*MvcMovie\Views\HelloWorld\Index.vbhtml*を開きます。 2つの場所で変更を行うことができます。最初に、ブラウザーのタイトルに表示されるテキスト、2番目のヘッダー (`<h2>` 要素) の順に移動します。 アプリのどの部分でコードが変更されるかを確認できるように、これらを少し異なるものにします。
 
-アプリケーションを実行しを参照する`http://localhost:xx/HelloWorld`します。 ブラウザーのタイトル、プライマリ見出し、およびセカンダリ見出しが変更されていることに注意してください ビューに少し変更を加えて、アプリケーションで大きな変更を加えるには簡単です。 (ブラウザーに変更内容が表示されない場合は、キャッシュされたコンテンツを表示している可能性があります。 ブラウザーで Ctrl + F5 キーを押して、サーバーからの応答が強制的に読み込まれるようにしてください)。
+アプリケーションを実行し、`http://localhost:xx/HelloWorld`を参照します。 ブラウザーのタイトル、プライマリ見出し、およびセカンダリ見出しが変更されていることに注意してください ビューに小さな変更を加えることで、アプリケーションの大きな変更を簡単に行うことができます。 (ブラウザーに変更内容が表示されない場合は、キャッシュされたコンテンツを表示している可能性があります。 ブラウザーで Ctrl + F5 キーを押して、サーバーからの応答が強制的に読み込まれるようにしてください)。
 
 [![3_MyMovieList](adding-a-view/_static/image10.png "3_MyMovieList")](adding-a-view/_static/image9.png)
 
-ごく一部&quot;データ&quot;(この場合、 &quot;Hello World!&quot;メッセージ) はハード コーディング、ただしします。 MVC アプリケーションは V (ビュー) を備え、C (コント ローラー) がないの M (モデル) まだがあります。 方法を説明します、データベースを作成し、モデル データを取得します。
+ほとんどの &quot;データ&quot; (この例では、&quot;Hello World!&quot; メッセージ) はハードコーディングされています。 MVC アプリケーションには V (ビュー) がありますが、C (コントローラー) はありますが、M (モデル) はまだありません。 ここでは、データベースを作成し、そこからモデルデータを取得する方法について説明します。
 
 ## <a name="passing-data-from-the-controller-to-the-view"></a>コントローラーからビューへのデータの受け渡し
 
-データベースに移動してモデルについて説明する前に、まずについて説明しましょうコント ローラーからビューに情報を渡します。 クライアントへの HTML 応答を表示するためにビュー テンプレートで必要がありますを渡すたいのです。 これらのオブジェクトが通常作成され、コント ローラー クラスによって、ビュー テンプレートに渡され、テンプレートの表示が必要とするデータのみを含める必要がありますとは。
+データベースにアクセスしてモデルについて説明する前に、まずコントローラーからビューに情報を渡す方法について説明します。 クライアントに HTML 応答を表示するために、ビューテンプレートで必要なものを渡す必要があります。 これらのオブジェクトは、通常、コントローラークラスによって作成され、ビューテンプレートに渡されます。また、ビューテンプレートに必要なデータのみが含まれている必要があります。
 
-以前、`HelloWorldController`クラス、`Welcome`アクション メソッドが、`name`と`numTimes`パラメーターと、ブラウザーに、パラメーターの値からの出力。 代わりこの応答を直接表示するために引き続きコント ローラーがある、みましょう代わりを用意データ バッグに、ビューの。 コント ローラーとビューを使用できる、`ViewBag`そのデータを保持するオブジェクト。 ビュー テンプレートに自動的には、渡さし、するデータとして、バッグのコンテンツを使用して HTML 応答をレンダリングするために使用します。 これにより、コント ローラーでは 1 つと別のビュー テンプレート-クリーンに維持するためにできるようになりました&quot;懸念事項の分離&quot;アプリケーション内で。
+以前は、`HelloWorldController` クラスを使用して、`Welcome` アクションメソッドは `name` と `numTimes` パラメーターを受け取り、パラメーター値をブラウザーに出力していました。 コントローラーがこの応答を直接レンダリングするのではなく、そのデータをビューのバッグに配置します。 コントローラーとビューは、`ViewBag` オブジェクトを使用してそのデータを保持できます。 これはビューテンプレートに自動的に渡され、バッグの内容をデータとして使用して HTML 応答を表示するために使用されます。 このようにすることで、コントローラーは1つの機能とビューテンプレートを考慮し、アプリケーション内で&quot; の問題を明確に分離 &quot;分離を維持できるようになります。
 
-またはカスタム クラスを定義、当社が単独でそのオブジェクトのインスタンスを作成とデータの挿入し、ビューに渡すことです。 カスタム ビューのモデルのため、ViewModel は、多くの場合、呼び出されます。 少量のデータは、ただし、ViewBag うまく動作します。
+または、カスタムクラスを定義してから、そのオブジェクトのインスタンスを独自に作成し、データを入力してビューに渡すこともできます。 これは、ビューのカスタムモデルであるため、通常はビューモデルと呼ばれます。 ただし、少量のデータの場合は、ViewBag が優れています。
 
-戻り、 *HelloWorldController.vb*ファイルの変更、 `Welcome` ViewBag に NumTimes とメッセージを格納するコント ローラーの内部メソッド。 ViewBag、動的オブジェクトです。 つまりに自由に配置することができます。 内部に、何かを設定するまで、ViewBag は定義されているプロパティがありません。
+*HelloWorldController*ファイルに戻り、メッセージと Numtimes を ViewBag に配置するように、コントローラー内の `Welcome` メソッドを変更します。 ViewBag は動的なオブジェクトです。 つまり、任意のものを自由に配置できます。 ViewBag には、その中に何かを配置するまで定義されたプロパティはありません。
 
-完全な`HelloWorldController.vb`同じファイル内の新しいクラスを使用します。
+同じファイル内の新しいクラスを持つ完全な `HelloWorldController.vb`。
 
 [!code-vb[Main](adding-a-view/samples/sample6.vb)]
 
-これで、ViewBag には、渡される経由でのビューに自動的にデータが含まれています。 ここでも、またはでしたが渡された次のように、独自のオブジェクト苦する場合。
+これで、ViewBag には、自動的にビューに渡されるデータが含まれています。 ここでも、次のような独自のオブジェクトを渡すこともできます。
 
 [!code-csharp[Main](adding-a-view/samples/sample7.cs)]
 
-必要があります、`WelcomeView`テンプレート。 新しいコードをコンパイルするためには、アプリケーションを実行します。 ブラウザーを閉じて、内を右クリックし、`Welcome`メソッド、およびクリック**ビューの追加**します。
+ここで、`WelcomeView` テンプレートが必要です。 アプリケーションを実行して、新しいコードがコンパイルされるようにします。 ブラウザーを閉じ、`Welcome` メソッド内を右クリックして、 **[ビューの追加]** をクリックします。
 
-ここでは、**ビューの追加** ダイアログ ボックスのようになります。
+**[ビューの追加]** ダイアログボックスは次のようになります。
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-次のコードを追加、 `<h2>` 、新しい要素<em>ようこそ</em>。vbhtml ファイルです。 ループを作成し、たとえば&quot;こんにちは&quot;回数だけ、ユーザーがあります。
+新しい [ようこそ] の `<h2>` 要素の下に次のコードを追加し<em>ます。</em>vbhtml ファイル。 ループを作成して、ユーザーが必要としている回数だけ &quot;Hello&quot; と言います。
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-アプリケーションを実行しを参照 `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+アプリケーションを実行し、を参照して `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
-今すぐデータでは、URL から取得され、コント ローラーに自動的に渡されます。 コント ローラーがパッケージにデータを`Model`オブジェクトと、ビューにオブジェクトを渡します。 ビューよりも、ユーザーに HTML としてデータが表示されます。
+これで、データは URL から取得され、コントローラーに自動的に渡されます。 コントローラーは、`Model` オブジェクトにデータをパッケージ化し、そのオブジェクトをビューに渡します。 ビューでは、データが HTML としてユーザーに表示されます。
 
 [![3Hello_Scott_4](adding-a-view/_static/image14.png "3Hello_Scott_4")](adding-a-view/_static/image13.png)
 
-一種の&quot;M&quot;モデルがデータベースの種類ではありません。 学習したことを確認し、ムービーのデータベースを作成してみましょう。
+これは、モデルの &quot;M&quot; ですが、データベースの種類ではありませんでした。 学習したことを確認し、ムービーのデータベースを作成してみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-controller.md)

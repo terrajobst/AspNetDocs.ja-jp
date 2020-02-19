@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 7e32f444dc38132296cffd45ac658f5abf51f314
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1ca93cce22487295a24aae95437b3e69dfc5b504
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585278"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457142"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングルサインオン (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -128,7 +128,7 @@ Azure アカウント用に1つの Azure AD テナントが自動的に作成さ
 
 Microsoft では、これがどのようにセキュリティで保護されているのかをたずねられる場合があります。 答えは "はい" です。 たとえば、 [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/)の内部 Microsoft SharePoint サイトに移動すると、ログインを求めるメッセージが表示されます。
 
-![Office 365 サインイン](single-sign-on/_static/image20.png)
+![Office 365 のサインイン](single-sign-on/_static/image20.png)
 
 Microsoft では ADFS が有効になっているため、Microsoft ID を入力すると、ADFS ログインページにリダイレクトされます。
 
@@ -146,7 +146,7 @@ Visual Studio を使用すると、いくつかのスクリーンショットか
 
 新しい ASP.NET アプリケーション (MVC または Web フォーム) を作成する場合は、既定の認証方法が ASP.NET Identity ます。 これを Azure AD に変更するには、 **[認証の変更]** ボタンをクリックします。
 
-![認証の変更](single-sign-on/_static/image23.png)
+![[認証の変更]](single-sign-on/_static/image23.png)
 
 [組織アカウント] を選択し、ドメイン名を入力して、[シングルサインオン] を選択します。
 
@@ -179,7 +179,7 @@ Visual Studio を使用すると、いくつかのスクリーンショットか
 
 詳細については、次のリソースを参照してください。
 
-- [Azure Active Directory ドキュメント](https://docs.microsoft.com/azure/active-directory/)。 Windowsazure.com サイトの Azure AD ドキュメントのポータルページです。 詳細な手順のチュートリアルについては、「**開発**」セクションを参照してください。
+- [Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory/) Windowsazure.com サイトの Azure AD ドキュメントのポータルページです。 詳細な手順のチュートリアルについては、「**開発**」セクションを参照してください。
 - [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)。 Azure での multi-factor authentication に関するドキュメントのポータルページです。
 - [組織アカウントの認証オプション](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions)。 [新しいプロジェクトの Visual Studio 2013] ダイアログボックスの Azure AD 認証オプションについて説明します。
 - [Microsoft のパターンとプラクティス-フェデレーション Id パターン](https://msdn.microsoft.com/library/dn589790.aspx)。

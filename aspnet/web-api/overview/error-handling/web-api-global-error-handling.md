@@ -1,129 +1,129 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: グローバル エラー処理では、ASP.NET Web API 2 - ASP.NET 4.x
+title: ASP.NET Web API 2 でのグローバルエラー処理-ASP.NET 4.x
 author: davidmatson
-description: グローバル エラー ASP.NET 用の ASP.NET Web API 2 で処理の概要 4.x です。
+description: ASP.NET 4.x の ASP.NET Web API 2 でのグローバルエラー処理の概要について説明します。
 ms.author: riande
 ms.date: 02/03/2014
 ms.custom: seoapril2019
 ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 7d9f4fb9909671d7c4c8ee2aa9285b0186c4b125
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 94f2d6d31d0b37f9bb0077e6258c70a2dfb1918d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414375"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457740"
 ---
-# <a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のグローバル エラー処理
+# <a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのグローバルエラー処理
 
-によって[David Matson](https://github.com/davidmatson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
+[David Matson](https://github.com/davidmatson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このトピックでは、グローバル エラー ASP.NET 用の ASP.NET Web API 2 で処理の概要を示します 4.x です。 今日は簡単な方法でログインするか、世界中にエラーを処理する Web API です。 使用して、いくつかのハンドルされない例外を処理できる[例外フィルター](exception-handling.md)が、さまざまな例外フィルターが処理できない場合があります。 例えば:
+このトピックでは、ASP.NET 4.x の ASP.NET Web API 2 でのグローバルエラー処理の概要について説明します。 現在、Web API では、エラーをグローバルに記録または処理する簡単な方法はありません。 一部のハンドルされない例外は[例外フィルター](exception-handling.md)を使用して処理できますが、例外フィルターが処理できないケースがいくつかあります。 例 :
 
-1. コント ローラーのコンス トラクターからスローされる例外。
+1. コントローラー コンストラクターからスローされる例外。
 2. メッセージ ハンドラーからスローされる例外。
 3. ルーティング中にスローされる例外。
 4. 応答コンテンツのシリアル化中にスローされる例外。
 
-ログインし、処理可能な限りシンプルで一貫した方法を提供するこれらの例外。 
+これらの例外をログに記録して処理するための、簡単で一貫性のある方法を提供したいと考えています。 
 
-エラー応答を送信することがあり、すべてためには、ログ、例外の場合、例外を処理するための 2 つの主要な場合があります。 後者の場合の例は応答コンテンツのストリーミングの途中で例外がスローされたときにその例では遅すぎるため、状態コード、ヘッダー、およびコンテンツの一部が既に終了、ネットワーク経由で接続を単純に中止しましたので、新しい応答メッセージを送信します。 場合でも、新しい応答メッセージを生成するために、例外を処理できない場合、例外をログ記録を引き続きサポートします。 エラーを検出できる場合では、次に示すように、適切なエラー応答を返すできます。
+例外処理の主なケースとしては、エラー応答を送信できるケースと、例外をログに記録することだけが可能なケースがあります。 後者の場合の例として、ストリーミング応答コンテンツの途中で例外がスローされた場合があります。この場合は、状態コード、ヘッダー、部分的な内容が既にネットワーク経由で送信されているため、新しい応答メッセージを送信するには遅すぎます。そのため、単に接続を中止します。 新しい応答メッセージを生成するために例外を処理することはできませんが、例外のログ記録は引き続きサポートされています。 エラーを検出できる場合は、次に示すように、適切なエラー応答を返すことができます。
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample1.cs?highlight=6)]
 
 ### <a name="existing-options"></a>既存のオプション
 
-ほかに[例外フィルター](exception-handling.md)、[メッセージ ハンドラー](../advanced/http-message-handlers.md) 500 番台のすべての応答を観察する今日使用できますが、元のエラーに関するコンテキストがないと、それらの応答で動作するが困難であり、します。 メッセージ ハンドラーでは、いくつかの例外フィルターに関する処理できるようにする場合と同じ制限もあります。Web API はエラー状態をキャプチャするトレース インフラストラクチャは、トレース インフラストラクチャは診断目的とはしないに設計されています。 または運用環境で実行するために最適な。 グローバルの例外処理とログ記録は、実稼動中に実行でき、既存の監視ソリューションに接続するサービスをする必要があります (たとえば、 [ELMAH](https://code.google.com/p/elmah/) )。
+[例外フィルター](exception-handling.md)に加えて、[メッセージハンドラー](../advanced/http-message-handlers.md)を使用して500レベルのすべての応答を確認できますが、元のエラーに関するコンテキストがないため、これらの応答に対して動作するのは困難です。 また、メッセージハンドラーには、処理できるケースに関する例外フィルターと同じ制限事項がいくつかあります。Web API には、エラー状態をキャプチャするトレースインフラストラクチャがありますが、トレースインフラストラクチャは診断のためのものであり、実稼働環境での実行には適していません。 グローバルな例外処理とログ記録は、運用中に実行できるサービスであり、既存の監視ソリューション ( [ELMAH](https://code.google.com/p/elmah/)など) に接続されている必要があります。
 
 ### <a name="solution-overview"></a>ソリューションの概要
 
- 2 つの新しいユーザーによるサービス提供[IExceptionLogger](../releases/whats-new-in-aspnet-web-api-21.md) IExceptionHandler、ログインして、未処理の例外を処理するとします。 サービスは、2 つの主な相違点とよく似ています。
+ 未処理の例外をログに記録して処理するために、 [Iexceptionlogger](../releases/whats-new-in-aspnet-web-api-21.md)と Iexceptionlogger という2つの新しいユーザー置き換え可能なサービスを提供しています。 これらのサービスは非常によく似ていますが、主に2つの違いがあります。
 
-1. サポートされていますが、複数の例外ロガー、1 つの例外ハンドラーのみを登録します。
-2. 例外ロガー常に呼び出される、接続を中止しようとしている場合でもです。 例外ハンドラーの取得時のみ呼び出す私たちに送信する応答メッセージを選択することも可能です。
+1. 複数の例外ロガーの登録はサポートしていますが、例外ハンドラーは1つだけです。
+2. 接続を中止しようとしている場合でも、例外ロガーは常に呼び出されます。 例外ハンドラーは、送信する応答メッセージを選択できる場合にのみ呼び出されます。
 
-両方のサービス例外が検出されたポイントからの関連情報を格納している例外コンテキストへのアクセスを提供する、特に[HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx)、 [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx)、例外と例外のソース (以下の詳細) をスローします。
+どちらのサービスも、例外が検出されたポイントからの関連情報 (特に、 [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx)、 [httprequestcontext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx)、スローされた例外、例外ソース (以下の詳細) を含む) を含む例外コンテキストへのアクセスを提供します。
 
-### <a name="design-principles"></a>設計の原則
+### <a name="design-principles"></a>設計原則
 
-1. **互換性に影響する変更なし**または動作を 1 つのソリューションに影響を与える重要な制約が存在しないように重大な変更は、契約を入力するいずれかをマイナー リリースでこの機能が追加されているためです。 この制約は、今回は 500 の応答に例外を有効にする既存の catch ブロックの観点からの作業が完了するいくつかのクリーンアップを候補から外されました。 この追加のクリーンアップは後続のメジャー リリースのことをお勧めします。 これは重要な場合については、「ご投票ください[ASP.NET Web API のユーザーの声](http://aspnet.uservoice.com/forums/147201-asp-net-web-api/suggestions/5451321-add-flag-to-enable-iexceptionlogger-and-iexception)します。
-2. **Web API を使用した整合性の維持を構築します**Web API のフィルターのパイプラインは、特定のアクション、コント ローラーに固有またはグローバル スコープでロジックを適用する柔軟性を横断的問題を処理する優れた方法です。 フィルターなど、例外フィルター、フィルターでは、グローバル スコープで登録されている場合でも、常にアクションとコント ローラーのコンテキストがあります。 コントラクトに適したフィルターがいくつかの例外を処理、コンテキストなしでアクションまたはコント ローラーの場合は、メッセージ ハンドラーからの例外など、使用に適していますが、例外フィルターもグローバルにスコープを持つものにないことになります。 次のように存在します。 例外処理のためのフィルターによって、柔軟なスコープを使用する場合、例外フィルター必要があります。 必要がありますコント ローラー コンテキストの外部で例外の処理に必要な場合も別のコンストラクト (何か、コント ローラー コンテキストとアクション コンテキストの制限なし) の完全なグローバル エラー処理します。
+1. **互換性に影響する変更はありません**この機能はマイナーリリースで追加されているため、ソリューションに影響を与える重要な制約の1つは、コントラクトまたは動作に種類を指定するための重大な変更がないことです。 この制約は、例外を500の応答に変換する既存の catch ブロックの観点から実行する必要のあるクリーンアップを除外します。 この追加のクリーンアップは、後続のメジャーリリースで検討することができます。 これが重要な場合は、 [ASP.NET Web API ユーザーの声](http://aspnet.uservoice.com/forums/147201-asp-net-web-api/suggestions/5451321-add-flag-to-enable-iexceptionlogger-and-iexception)で投票してください。
+2. **WEB API コンストラクトとの一貫性の維持**Web API のフィルターパイプラインは、アクション固有のコントローラー固有またはグローバルスコープでロジックを適用する柔軟性により、横断的な懸念を処理する優れた方法です。 例外フィルターを含むフィルターには、グローバルスコープで登録されている場合でも、常にアクションおよびコントローラーコンテキストがあります。 このコントラクトはフィルターにとって理にかなっていますが、例外フィルターはグローバルにスコープが設定されている場合でも、メッセージハンドラーからの例外 (アクションやコントローラーコンテキストが存在しないなど) には適していないことを意味します。 例外処理のためにフィルターによる柔軟なスコープ設定を使用する場合でも、例外フィルターが必要です。 ただし、コントローラーコンテキストの外部で例外を処理する必要がある場合は、完全なグローバルエラー処理 (コントローラーコンテキストとアクションコンテキスト制約のないもの) に対して個別の構成要素も必要になります。
 
 ### <a name="when-to-use"></a>使用する場合
 
-- 例外ロガーは、Web API によってキャッチされたすべてのハンドルされない例外を表示するソリューションです。
-- 例外ハンドラーは、Web API でキャッチされた未処理の例外をすべての可能な応答をカスタマイズするためのソリューションです。
-- 例外フィルターは、特定のアクションまたはコント ローラーに関連するサブセットが未処理の例外を処理するための最も簡単なソリューションです。
+- 例外ロガーは、Web API でキャッチされた未処理の例外をすべて表示するためのソリューションです。
+- 例外ハンドラーは、Web API でキャッチされた未処理の例外に対して可能なすべての応答をカスタマイズするためのソリューションです。
+- 例外フィルターは、特定のアクションまたはコントローラーに関連するハンドルされない例外を処理するための最も簡単なソリューションです。
 
 ### <a name="service-details"></a>サービスの詳細
 
- 例外ロガーやハンドラーのサービス インターフェイスは、それぞれのコンテキストを受け取る単純な非同期メソッドです。 
+ 例外ロガーとハンドラーサービスインターフェイスは、それぞれのコンテキストを取得する単純な非同期メソッドです。 
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample2.cs)]
 
- これらのインターフェイスの両方の基本クラスも指定します。 ログインするか、推奨される処理に必要なすべてがコア (同期または非同期) メソッドをオーバーライドする時間。 ログに記録、`ExceptionLogger`基底クラスのようになります、core のログ記録メソッドは、例外ごとに 1 回というのみが (場合でも、後で伝達さらに、コール スタックをセットアップおよび再度キャッチされます)。 `ExceptionHandler`基底クラスは、コア処理メソッドを入れ子になっているレガシを無視して、コール スタックの上部にある例外の catch ブロックにのみを呼び出します。 (これらの基本クラスの簡略化されたバージョンは、後述の付録では) です。両方`IExceptionLogger`と`IExceptionHandler`経由での例外に関する情報が表示される、`ExceptionContext`します。
+ また、これらのインターフェイスの両方に基本クラスを用意しています。 コア (同期または非同期) メソッドのオーバーライドは、推奨される時刻にログ記録または処理を行うために必要です。 ログ記録のために、`ExceptionLogger` の基本クラスでは、コアログメソッドが例外ごとに1回だけ呼び出されるようにします (後でコールスタックの上位に伝達して、再びキャッチする場合でも)。 `ExceptionHandler` 基底クラスは、呼び出し履歴の一番上にある例外に対してのみコア処理メソッドを呼び出し、従来の入れ子になった catch ブロックを無視します。 (これらの基本クラスの簡略化されたバージョンについては、以下の付録を参照してください)。`IExceptionLogger` と `IExceptionHandler` はどちらも `ExceptionContext`を介して例外に関する情報を受け取ります。
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample3.cs)]
 
-常に提供するフレームワークが例外ロガーをまたは例外ハンドラーを呼び出すと、`Exception`と`Request`します。 単体テストを除いても常に提供する、`RequestContext`します。 提供することはほとんどありません、`ControllerContext`と`ActionContext`(例外フィルターの catch ブロックからの呼び出し) の場合のみです。 非常にまれを提供する、 `Response`(特定の IIS 場合のみ、応答を記述しようとしています。 中央ときに)。 これらのプロパティの一部になるので注意して`null`をチェックするコンシューマーの責任です`null`例外クラスのメンバーにアクセスする前にします。`CatchBlock` catch ブロックが例外を見たを示す文字列です。 Catch ブロックの文字列は次のとおりです。
+フレームワークが例外ロガーまたは例外ハンドラーを呼び出すと、常に `Exception` と `Request`が提供されます。 単体テスト以外にも、常に `RequestContext`が提供されます。 `ControllerContext` と `ActionContext` が提供されることはほとんどありません (例外フィルターの catch ブロックからを呼び出す場合のみ)。 `Response`が提供されることはほとんどありません (応答を書き込もうとしているときに、特定の IIS の場合のみ)。 これらのプロパティの一部は `null` 可能性があるため、例外クラスのメンバーにアクセスする前に、コンシューマーが `null` を確認する必要があります。`CatchBlock` 例外を検出した catch ブロックを示す文字列を指定します。 Catch ブロック文字列は次のとおりです。
 
 - HttpServer (SendAsync メソッド)
-- HttpControllerDispatcher (SendAsync メソッド)
+- Httpコントローラーディスパッチャー (SendAsync メソッド)
 - HttpBatchHandler (SendAsync メソッド)
-- IExceptionFilter (ExecuteAsync の例外フィルター パイプラインの ApiController の処理)
-- OWIN ホスト:
+- IExceptionFilter (ExecuteAsync での例外フィルターパイプラインの ApiController の処理)
+- ホストの OWIN:
 
-    - HttpMessageHandlerAdapter.BufferResponseContentAsync (の出力をバッファリング)
-    - (ストリーミング出力) 用 HttpMessageHandlerAdapter.CopyResponseContentAsync
+    - HttpmessageBufferResponseContentAsync (出力のバッファリング用)
+    - HttpmessageCopyResponseContentAsync (ストリーミング出力用)
 - Web ホスト:
 
-    - HttpControllerHandler.WriteBufferedResponseContentAsync (の出力をバッファリング)
-    - (ストリーミング出力) 用 HttpControllerHandler.WriteStreamedResponseContentAsync
-    - HttpControllerHandler.WriteErrorResponseContentAsync (のバッファリングされている出力モードでのエラー回復エラー)
+    - Httpsystem.web.http.webhost.httpcontrollerhandler.writebufferedresponsecontentasync (出力のバッファリング用)
+    - Httpsystem.web.http.webhost.httpcontrollerhandler.writestreamedresponsecontentasync (出力のストリーミング用)
+    - Httpsystem.web.http.webhost.httpcontrollerhandler.writeerrorresponsecontentasync (バッファー出力モードでのエラー復旧エラー用)
 
-Catch ブロックの文字列のリストも静的読み取り専用プロパティを使用して使用できます。 (静的 ExceptionCatchBlocks はコアの catch ブロックの文字列。 1 つ静的クラスの各 OWIN と web ホストの残りの部分が表示されます)。`IsTopLevelCatchBlock` 呼び出しスタックの一番上にのみ例外処理の推奨パターンに従うに役立ちます。 500 の応答を入れ子になった catch ブロックが発生した任意の場所に例外を有効にするのではなく、例外ハンドラーに例外がホストで認識されるに約までに伝達することができます。
+Catch ブロック文字列の一覧は、静的な読み取り専用プロパティでも使用できます。 (コア catch ブロック文字列は静的な System.web.http.exceptionhandling.exceptioncatchblocks.httpserver.sendasync 上にあります。剰余は、OWIN と web ホストのそれぞれに対して1つの静的クラスに表示されます)。`IsTopLevelCatchBlock` は、呼び出し履歴の一番上でのみ例外を処理することをお勧めします。 入れ子になった catch ブロックが発生するたびに例外を500応答に変換するのではなく、例外ハンドラーによって、ホストに表示されるまで例外を反映させることができます。
 
-加え、 `ExceptionContext`、ロガー経由での完全な情報のもう 1 つを取得する`ExceptionLoggerContext`:
+ロガーは、`ExceptionContext`に加えて、完全な `ExceptionLoggerContext`を介して1つ以上の情報を取得します。
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample4.cs)]
 
-2 番目のプロパティでは、 `CanBeHandled`、処理できない例外を識別するためにロガーを使用します。 ときに、接続が中止されるし新しい応答メッセージを送信できません、ロガーが呼び出されますが、ハンドラーは***いない***が呼び出されると、ロガーこのプロパティからは、このシナリオを特定できます。
+2番目のプロパティである `CanBeHandled`を使用すると、処理できない例外を logger で識別できます。 接続を中止しようとしているときに、新しい応答メッセージを送信できない場合、ロガーは呼び出されますが、ハンドラーは呼び出さ***れず、*** logger はこのプロパティからこのシナリオを識別できます。
 
-追加する、 `ExceptionContext`、ハンドラーが完全に設定できます 1 つの複数のプロパティを取得`ExceptionHandlerContext`例外を処理します。
+`ExceptionContext`に加えて、ハンドラーは、例外を処理するために、完全な `ExceptionHandlerContext` に設定できるもう1つのプロパティを取得します。
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-例外ハンドラーを設定して例外を処理したことを示します、`Result`プロパティをアクションの結果 (たとえば、 [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx)、 [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx)、 [StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx)、またはカスタムの結果)。 場合、`Result`プロパティが null で、例外が処理されないと、元の例外が再度スローされます。
+例外ハンドラーは、`Result` プロパティをアクションの結果 ( [Exceptionresult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx)、 [internalservererrorresult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx)、 [StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx)、またはカスタム結果) に設定することによって例外を処理したことを示します。 `Result` プロパティが null の場合、例外は処理されないため、元の例外が再スローされます。
 
-コール スタックの上部にある例外の場合は、応答が API の呼び出し元に適切なことを確認する追加の手順をしました。 例外は、ホストまで伝達する場合、呼び出し元の死の黄色い画面が表示または他のホストには、これは通常の HTML 応答と、通常は適切な API エラー応答が提供されています。 このような場合は、null 以外の場合、およびカスタム例外ハンドラーが明示的に設定されている場合にのみ、結果が開始のバックアップを`null`(未処理の) は、例外ホストに伝達します。 設定`Result`に`null`このような場合は 2 つのシナリオに適していることができます。
+呼び出し履歴の一番上にある例外については、API 呼び出し元に対して応答が適切であることを確認するための追加の手順を実行しました。 例外がホストに伝達されると、呼び出し元には、死亡の黄色の画面、または通常は HTML であり、通常は適切な API エラー応答ではないその他のホスト提供の応答が表示されます。 このような場合、結果は null 以外の値から開始されます。また、カスタム例外ハンドラーが明示的に `null` (未処理) に設定した場合にのみ、例外がホストに反映されます。 このような場合に `Result` を `null` に設定すると、次の2つのシナリオで役に立ちます。
 
-1. OWIN には、カスタム例外処理ミドルウェアを登録する前に/外部 Web API と Web API がホストされています。
-2. ローカルの死の黄色い画面が実際に未処理の例外の便利な応答は、ブラウザー経由でデバッグします。
+1. Web API の前/外側に登録されたカスタム例外処理ミドルウェアを使用して、OWIN にホストされる Web API を作成します。
+2. ブラウザーを使用したローカルデバッグ。これは、実際には、ハンドルされない例外が発生した場合に、実際には、死亡の黄色い画面が役に立つ応答です。
 
-例外ロガーと例外ハンドラーの両方で何もしませんロガーやハンドラー自体が例外をスローする場合に回復します。 (例外の伝達で場合に、このページの下部でフィードバックを送信をそのまま使用できるようにすること以外があるのより優れたアプローチです。)例外ロガーやハンドラーのコントラクトは、例外が伝達されます。 呼び出し元が許可する必要がありますいないされました。それ以外の場合、例外はだけを反映する多くの場合、(ASP のような HTML エラーが発生するホストに至る。NET の黄色い画面) (これは、通常は、JSON または XML に予想される API の呼び出し元の推奨されるオプション)、クライアントに返送されます。
+例外ロガーと例外ハンドラーの両方について、logger またはハンドラー自体が例外をスローする場合、復旧するものはありません。 (例外が反映されないように、より適切な方法を使用している場合は、このページの下部にフィードバックを残してください。)例外ロガーとハンドラーのコントラクトは、例外が呼び出し元に伝達されないようにする必要があるということです。そうしないと、多くの場合、例外が伝達されます。これは、多くの場合、ホストに対して HTML エラー (ASP など) が発生します。ネットワークの黄色の画面) がクライアントに送り返されます (通常、JSON または XML を想定している API の呼び出し元では、このオプションは推奨されません)。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
-### <a name="tracing-exception-logger"></a>トレースの例外ロガー
+### <a name="tracing-exception-logger"></a>トレース例外ロガー
 
-次の例外ロガーは、構成済みのトレース ソース (Visual Studio でのデバッグ出力ウィンドウを含む) に例外データを送信します。
+次の例外ロガーは、構成されたトレースソース (Visual Studio の [デバッグ出力] ウィンドウを含む) に例外データを送信します。
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample6.cs)]
 
-### <a name="custom-error-message-exception-handler"></a>カスタム エラー メッセージの例外ハンドラー
+### <a name="custom-error-message-exception-handler"></a>カスタムエラーメッセージ例外ハンドラー
 
-次は、サポートに連絡用電子メール アドレスを含む、クライアントへのカスタム エラー応答を生成します。
+次の例では、サポートに連絡するための電子メールアドレスを含む、クライアントに対するカスタムエラー応答を生成します。
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample7.cs)]
 
-## <a name="registering-exception-filters"></a>例外フィルターを登録します。
+## <a name="registering-exception-filters"></a>登録 (例外フィルターを)
 
-配置内で Web API の構成コードの「ASP.NET MVC 4 Web アプリケーション」プロジェクト テンプレートをプロジェクトの作成に使用する場合、`WebApiConfig`クラスで、*アプリ/開始 (_s)* フォルダー。
+"ASP.NET MVC 4 Web アプリケーション" プロジェクトテンプレートを使用してプロジェクトを作成する場合は、Web API 構成コードを `WebApiConfig` クラス内の*App/_Start*フォルダーに配置します。
 
 [!code-csharp[Main](exception-handling/samples/sample7.cs?highlight=5)]
 
-## <a name="appendix-base-class-details"></a>付録:基本クラスの詳細
+## <a name="appendix-base-class-details"></a>付録: 基本クラスの詳細
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample8.cs)]

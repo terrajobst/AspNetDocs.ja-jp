@@ -8,16 +8,16 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6f445e46d41b646cf6c25af2e65bc73e831d5ed
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 5a1e0d7cd3c396d4be79c8958422602055eb3db1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583711"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457103"
 ---
 # <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -147,7 +147,7 @@ Visual Studio は、TFVC (一元化されたバージョン管理) と Git の�
 
 Git を選択し、 **OK** をクリックすると、Visual Studio によってソリューションフォルダーに新しいローカル Git リポジトリが作成されます。 新しいリポジトリにはまだファイルがありません。Git コミットを実行してリポジトリに追加する必要があります。 **ソリューションエクスプローラー**でソリューションを右クリックし、 **[コミット]** をクリックします。
 
-![確定](source-control/_static/image11.png)
+![Commit](source-control/_static/image11.png)
 
 Visual Studio では、コミットのすべてのプロジェクトファイルが自動的にステージングされ、 **[含まれる変更]** ウィンドウの**チームエクスプローラー**に一覧表示されます。 (コミットに追加したくないものがある場合は、それを選択して右クリックし、 **[除外]** をクリックします)。
 

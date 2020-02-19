@@ -8,20 +8,20 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: fb7e76101cbe6a874ddf5b3429ca2dc6d474334b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1965063a9b613d0e2857cddcc2165f5fda64ec0c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595759"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455530"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC と Web ページの XSRF/CSRF 防止
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> クロスサイト要求偽造 (XSRF または CSRF とも呼ばれます) は、web でホストされるアプリケーションに対する攻撃であり、悪意のある web サイトが、クライアントブラウザーとそのブラウザーによって信頼されている web サイトとの間の対話に影響を与える可能性があります。 Web ブラウザーは web サイトへのすべての要求で認証トークンを自動的に送信するため、これらの攻撃が可能になります。 標準的な例として、ASP などの認証 cookie があります。NET のフォーム認証チケット。 ただし、永続的な認証メカニズム (Windows 認証、基本など) を使用する web サイトは、これらの攻撃の対象にすることができます。
+> クロスサイト要求偽造 (XSRF または CSRF とも呼ばれます) は、web でホストされるアプリケーションに対する攻撃であり、悪意のある web サイトが、クライアントブラウザーとそのブラウザーによって信頼されている web サイトとの間の対話に影響を与える可能性があります。 Web ブラウザーは web サイトへのすべての要求で認証トークンを自動的に送信するため、これらの攻撃が可能になります。 標準的な例は、ASP.NET のフォーム認証チケットなどの認証クッキーです。 ただし、永続的な認証メカニズム (Windows 認証、基本など) を使用する web サイトは、これらの攻撃の対象にすることができます。
 > 
-> XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシング攻撃では、被害者との対話が必要です。 フィッシング攻撃では、悪意のある web サイトがターゲット web サイトを模倣し、攻撃者に機密情報を提供することはできません。 XSRF 攻撃では、多くの場合、標的からの相互作用は必要ありません。 攻撃者は、ブラウザーによって、関連するすべての cookie が送信先の web サイトに自動的に送信されます。
+> XSRF 攻撃はフィッシング攻撃とは異なります。 フィッシング攻撃には攻撃対象とのやり取りが必要です。 フィッシング攻撃では、悪意のある web サイトがターゲット web サイトを模倣し、攻撃者に機密情報を提供することはできません。 XSRF 攻撃では、多くの場合に攻撃対象とのやり取りは必要ありません。 攻撃者は、ブラウザーによって、関連するすべての cookie が送信先の web サイトに自動的に送信されます。
 > 
 > 詳細については、 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page)(owasp) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))を参照してください。
 
@@ -155,21 +155,21 @@ XSRF システムには、匿名ユーザーの特別なサポートが含まれ
 
 *Gettokens*メソッドは、既存の XSRF 要求確認セッショントークン (null) を入力として受け取り、新しい XSRF request 検証セッショントークンとフィールドトークンを出力として生成します。 トークンは、装飾のない単なる不透明な文字列です。インスタンスの*Formtoken*値は、&lt;入力&gt; タグにラップされません。 *Newcookietoken*値は null にすることができます。このエラーが発生した場合は、 *Oldcookietoken*値が引き続き有効であり、新しい応答クッキーを設定する必要はありません。 *Gettokens*の呼び出し元は、必要な応答クッキーを保持したり、必要なマークアップを生成したりします。*Gettokens*メソッド自体は、応答を副作用として変更しません。 *Validate*メソッドは、受信セッションとフィールドトークンを受け取り、前述の検証ロジックを実行します。
 
-### <a name="antiforgeryconfig"></a>アンチ Forgeryconfig
+### <a name="antiforgeryconfig"></a>AntiForgeryConfig
 
 開発者は、アプリケーション\_の起動から、XSRF システムを構成できます。 構成はプログラムによって行います。 次に、静的な*アンチ Forgeryconfig*型のプロパティについて説明します。 クレームを使用するほとんどのユーザーは、UniqueClaimTypeIdentifier プロパティを設定します。
 
-| **Property** | **説明** |
+| **プロパティ** | **説明** |
 | --- | --- |
-| **AdditionalDataProvider** | トークンの生成中に追加データを提供し、トークンの検証中に追加のデータを使用する[Iアンチ Forgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) 。 既定値は*null*です。 詳細については、「 [Iアンチ Forgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) 」セクションを参照してください。 |
-| **CookieName** | XSRF のセッショントークンを格納するために使用される HTTP クッキーの名前を提供する文字列。 この値が設定されていない場合、アプリケーションの展開された仮想パスに基づいて、名前が自動的に生成されます。 既定値は*null*です。 |
+| **AdditionalDataProvider** | トークンの生成中に追加データを提供し、トークンの検証中に追加のデータを使用する[Iアンチ Forgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) 。 既定値は、*null* です。 詳細については、「 [Iアンチ Forgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) 」セクションを参照してください。 |
+| **CookieName** | XSRF のセッショントークンを格納するために使用される HTTP クッキーの名前を提供する文字列。 この値が設定されていない場合、アプリケーションの展開された仮想パスに基づいて、名前が自動的に生成されます。 既定値は、*null* です。 |
 | **RequireSsl** | SSL で保護されたチャネル経由で XSRF トークンを送信する必要があるかどうかを指定するブール値。 この値が*true*の場合、自動的に生成される cookie には "secure" フラグが設定され、SSL 経由で送信されていない要求内から呼び出された場合、XSRF api はスローします。 既定値は *false* です。 |
-| **SuppressIdentityHeuristicChecks** | XSRF システムで、要求ベースの id のサポートを非アクティブ化するかどうかを指定するブール値。 この値が*true*の場合、 *IIdentity.Name*はユーザーごとの一意の識別子として使用するのが適切であると想定し、WIF/ACS/で説明されているように、特殊なケースの*IClaimsIdentity*または*ClClaimsIdentity*を試行しません。 [要求ベースの認証](#_WIF_ACS)セクション。 既定値は `false`です。 |
-| **UniqueClaimTypeIdentifier** | 一意のユーザーごとの識別子としての使用に適した要求の種類を示す文字列。 この値が設定されていて、現在の*IIdentity*がクレームベースの場合、システムは*UniqueClaimTypeIdentifier*によって指定された種類の要求を抽出しようとします。また、対応する値は、ユーザーのユーザー名の代わりに使用されます。フィールドトークンを生成しています。 要求の種類が見つからない場合、システムは要求に失敗します。 既定値は*null*です。これは、ユーザーのユーザー名の代わりに、前に説明したように、システムが (id プロバイダー、名前識別子) タプルを使用する必要があることを示します。 |
+| **SuppressIdentityHeuristicChecks** | XSRF システムで、要求ベースの id のサポートを非アクティブ化するかどうかを指定するブール値。 この値が*true*の場合、 *IIdentity.Name*はユーザーごとの一意の識別子として使用するのが適切であると想定し、 [WIF/ACS/要求ベースの認証](#_WIF_ACS)セクションで説明されているように、特殊なケースの*IClaimsIdentity*または*ClClaimsIdentity*を試行しません。 既定値は `false` です。 |
+| **UniqueClaimTypeIdentifier** | 一意のユーザーごとの識別子としての使用に適した要求の種類を示す文字列。 この値が設定されていて、現在の*IIdentity*がクレームベースの場合、システムは*UniqueClaimTypeIdentifier*によって指定された種類の要求を抽出しようとし、フィールドトークンを生成するときに、ユーザーのユーザー名の代わりに対応する値が使用されます。 要求の種類が見つからない場合、システムは要求に失敗します。 既定値は*null*です。これは、ユーザーのユーザー名の代わりに、前に説明したように、システムが (id プロバイダー、名前識別子) タプルを使用する必要があることを示します。 |
 
 <a id="_IAntiForgeryAdditionalDataProvider"></a>
 
-### <a name="iantiforgeryadditionaldataprovider"></a>Iアンチ Forgeryadditionaldataprovider
+### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
 *[Iアンチ Forgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)* 型を使用すると、開発者は、各トークンの追加データをラウンドトリップさせることで、XSRF システムの動作を拡張できます。 *Getadditionaldata*メソッドは、フィールドトークンが生成されるたびに呼び出され、戻り値は生成されたトークン内に埋め込まれます。 実装者は、タイムスタンプ、nonce、またはこのメソッドからのその他の値を返すことができます。
 
@@ -185,6 +185,6 @@ XSRF システムには、匿名ユーザーの特別なサポートが含まれ
 
 Web 開発者は、サイトが XSS 攻撃に対して脆弱でないことを継続的に確認する必要があります。 XSS 攻撃は非常に強力であり、悪用が成功すると、XSRF 攻撃に対して ASP.NET Web Stack Runtime 防御も破壊されます。
 
-## <a name="acknowledgment"></a>認識
+## <a name="acknowledgment"></a>Acknowledgement (受信確認)
 
 [@LeviBroderick](https://twitter.com/LeviBroderick)、ASP.NET のセキュリティコードの大部分をこの情報の大部分に書いています。

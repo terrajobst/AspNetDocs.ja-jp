@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 9bf9acb8b4f8521d03c053c124c5fc4a07d6cb9a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 348232af531b5d53dc3cb46d6d2c7931d95a572d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585651"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457129"
 ---
 # <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>障害に耐えられるように設計する (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -58,7 +58,7 @@ Azure では、障害が発生したサーバーは自動的に新しいもの�
 
 Azure の目標は、このようなすべてのエラーをより簡単に処理できるようにすることです。次の章では、その方法の例をいくつか紹介します。
 
-## <a name="slas"></a>Sla
+## <a name="slas"></a>SLA
 
 多くの場合、クラウド環境でのサービスレベルアグリーメント (Sla) について話します。 基本的に、これらは、企業がサービスの信頼性を確保することを約束します。 99.9% の SLA は、サービスが正常に動作していることを、99.9% の時間において期待する必要があることを意味します。 これは SLA の非常に一般的な値であり、非常に高い数値のように聞こえますが、実際にどれだけダウンタイムが発生しているかわからない可能性があります。 次の表では、1年、1か月、および1週間にわたって、さまざまな SLA の割合がどの程度に増加しているかを示しています。
 
@@ -70,7 +70,7 @@ SLA について理解しておくべき点の1つは、どのタイムフレー
 
 もちろん、SLA よりも常に優れた目指しがあります。通常は、これよりもはるかに少なくなります。 約束は、ダウンタイムの最大値よりも長い時間が経過すると、返金を求めることができるということです。 返される金額は、超過したダウンタイムのビジネスへの影響を完全に補正することはできませんが、SLA の側面は実施ポリシーとして機能し、非常に真剣であることを知ることができます。
 
-### <a name="composite-slas"></a>複合 Sla
+### <a name="composite-slas"></a>複合 SLA
 
 Sla を検討する際に考慮すべき重要な点は、アプリで複数のサービスを使用することによる影響です。各サービスには個別の SLA があります。 たとえば、It アプリの修正プログラムでは、Web Apps、Azure Storage、および SQL Database Azure App Service 使用します。 次に示すのは、この電子書籍が2013年12月に作成された日からの SLA 番号です。
 

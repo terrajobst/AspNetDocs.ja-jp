@@ -1,135 +1,135 @@
 ---
 uid: identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
-title: メンバーシップと ASP.NET identity のユーザー プロファイル用のユニバーサル プロバイダー データの移行 (C#)-ASP.NET 4.x
+title: メンバーシップとユーザープロファイルのユニバーサルプロバイダーデータを ASP.NET Identity (C#)-ASP.NET 4.x に移行する
 author: rustd
-description: このチュートリアルでは、ユーザーとロールのデータと既存のアプリのユニバーサル プロバイダーを使用して作成されたユーザー プロファイル データを移行するために必要な手順について説明しています.
+description: このチュートリアルでは、既存のアプリのユニバーサルプロバイダーを使用して作成されたユーザーとロールのデータとユーザープロファイルデータを移行するために必要な手順について説明します...
 ms.author: riande
 ms.date: 12/13/2013
 ms.custom: seoapril2019
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: de154dde122886976054159ad745982669ca9315
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 31f02a0cec3c531c45c37b7aad8456e01e80b5ea
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121384"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456115"
 ---
 # <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>メンバーシップとユーザー プロファイルのユニバーサル プロバイダー データを ASP.NET Identity に移行する (C#)
 
-によって[Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Robert McMurray](https://github.com/rmcmurray)、 [Suhas Joshi](https://github.com/suhasj)
+[Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Robert mcmurray](https://github.com/rmcmurray)、 [suhas Joshi](https://github.com/suhasj)
 
-> このチュートリアルでは、ユーザーとロールのデータと既存のアプリケーションを ASP.NET Identity のモデルのユニバーサル プロバイダーを使用して作成されたユーザー プロファイル データを移行するために必要な手順について説明します。 ここで説明したアプローチはユーザー プロファイル データを移行すると、SQL のメンバーシップも使用したアプリケーションで使用できます。
+> このチュートリアルでは、既存のアプリケーションのユニバーサルプロバイダーを使用して作成されたユーザーとロールのデータおよびユーザープロファイルデータを ASP.NET Identity モデルに移行するために必要な手順について説明します。 ここで説明する方法を使用して、ユーザープロファイルデータを移行することもできます。
 
-Visual Studio 2013 のリリースでは、ASP.NET チームは、新しい ASP.NET Id システムを導入して、詳細については、そのリリース[ここ](../../index.md)します。 Web アプリケーションを移行するアーティクルが[新しい Id システムを SQL メンバーシップ](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)、この記事では、次のユーザーとロール管理のためのプロバイダー モデルを既存のアプリケーションを移行する手順を示しています。新しい Id モデル。 このチュートリアルの焦点は、主にシームレスにそれを新しいシステムにフックするユーザー プロファイル データの移行になります。 移行すると、ユーザーとロールについては、SQL メンバーシップに似ています。 SQL メンバーシップもアプリケーションでは、プロファイル データを移行する方法を使用できます。
+Visual Studio 2013 のリリースでは、ASP.NET チームによって新しい ASP.NET Identity システムが導入されました。このリリースの詳細については、[こちら](../../index.md)を参照してください。 この記事では、 [SQL メンバーシップから新しい id システムに](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)web アプリケーションを移行する方法について説明します。この記事では、ユーザーとロールの管理のためにプロバイダーモデルに従っている既存のアプリケーションを新しい id モデルに移行する手順について説明します。 このチュートリアルでは、主にユーザープロファイルデータを移行して、新しいシステムにシームレスにフックする方法について説明します。 ユーザーとロールの情報の移行は、SQL メンバーシップに似ています。 プロファイルデータを移行するためのアプローチは、SQL メンバーシップを持つアプリケーションでも使用できます。
 
-たとえば、プロバイダー モデルを使用して Visual Studio 2012 を使用して作成された web アプリで開始します。 しますプロファイル管理のためのコードを追加、ユーザーを登録、ユーザーのプロファイル データを追加、データベース スキーマを移行し、ユーザーおよびロール管理用の Id システムを使用するアプリケーションを変更します。 移行のテストとしてユニバーサル プロバイダーを使用して作成されたユーザーにログインできるようにする必要があり、新しいユーザーが登録できる必要があります。
+例として、プロバイダーモデルを使用する Visual Studio 2012 を使用して作成された web アプリから始めます。 次に、プロファイル管理用のコードを追加し、ユーザーを登録して、ユーザーのプロファイルデータを追加し、データベーススキーマを移行します。次に、ユーザーとロールの管理に Id システムを使用するようにアプリケーションを変更します。 移行のテストとして、ユニバーサルプロバイダーを使用して作成されたユーザーはログインして、新しいユーザーが登録できるようにする必要があります。
 
 > [!NOTE]
-> 完全なサンプルを見つけることができます[ https://github.com/suhasj/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations)します。
+> 完全なサンプルについては、 [https://github.com/suhasj/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations)を参照してください。
 
-## <a name="profile-data-migration-summary"></a>プロファイル データの移行の概要
+## <a name="profile-data-migration-summary"></a>プロファイルデータ移行の概要
 
-移行を開始する前に、プロファイル データを格納するプロバイダー モデルでのエクスペリエンスについて見てみましょう。 ユーザーは、複数の方法で格納できるアプリケーションのプロファイル データ、それらの間で最も一般的なされるを使用してユニバーサル プロバイダーと共に出荷された組み込みのプロファイル プロバイダー。 手順が含まれます
+移行を開始する前に、プロファイルデータをプロバイダーモデルに格納する操作を見てみましょう。 アプリケーションユーザーのプロファイルデータは、複数の方法で格納できます。多くの場合、ユニバーサルプロバイダーと共に出荷された組み込みのプロファイルプロバイダーを使用します。 手順は次のとおりです。
 
-1. プロファイル データを格納するためのプロパティを持つクラスを追加します。
-2. 'ProfileBase' を拡張し、ユーザーに対して、上記のプロファイル データを取得するメソッドを実装するクラスを追加します。
-3. 既定のプロファイル プロバイダーを使用して有効にする、 *web.config*ファイルし、プロファイル情報へのアクセスに使用する 2 の手順で宣言されたクラスを定義します。
+1. プロファイルデータを格納するために使用されるプロパティを持つクラスを追加します。
+2. ' ProfileBase ' を拡張し、メソッドを実装してユーザーの上記のプロファイルデータを取得するクラスを追加します。
+3. *Web.config ファイルで*既定のプロファイルプロバイダーを使用できるようにし、プロファイル情報へのアクセスに使用される手順 #2 で宣言されたクラスを定義します。
 
-プロファイル情報は、シリアル化された xml と、データベース内の"Profiles"テーブル内のバイナリ データとして格納されます。
+プロファイル情報は、シリアル化された xml およびバイナリデータとしてデータベースの "Profiles" テーブルに格納されます。
 
-新しい ASP.NET Identity システムを使用するアプリケーションを移行した後は、プロファイル情報が逆シリアル化し、ユーザー クラスのプロパティとして格納されます。 各プロパティは、ユーザー テーブル内の列にマップできます。 プロパティをデータの情報をシリアル化/逆シリアル化する必要があるだけでなく、ユーザー クラスを使用して直接に作業できることの利点は、それにアクセスするときの時間します。
+新しい ASP.NET Identity システムを使用するようにアプリケーションを移行すると、プロファイル情報が逆シリアル化され、ユーザークラスのプロパティとして格納されます。 各プロパティは、ユーザーテーブルの列にマップできます。 ここでの利点は、アクセスするたびにデータ情報をシリアル化または逆シリアル化する必要がないだけでなく、ユーザークラスを使用して直接プロパティを操作できることです。
 
 ## <a name="getting-started"></a>作業の開始
 
-1. Visual Studio 2012 では、新しい ASP.NET 4.5 Web フォーム アプリケーションを作成します。 現在のサンプルは、Web フォーム テンプレートを使用しますが、MVC アプリケーションにも使用できます。  
+1. Visual Studio 2012 で新しい ASP.NET 4.5 Web フォームアプリケーションを作成します。 現在のサンプルでは、Web フォームテンプレートを使用しますが、MVC アプリケーションを使用することもできます。  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image1.jpg)
-2. 新しいフォルダーを作成するには、プロファイル情報を格納するには、' モデル'  
+2. プロファイル情報を格納するための新しいフォルダー ' モデル ' を作成します  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image1.png)
-3. たとえば、プロファイルに生年月日、市区町村、高さ、およびユーザーの重みの日付を格納お知らせします。 高さと重みは、'PersonalStats' と呼ばれるカスタム クラスとして格納されます。 格納およびプロファイルを取得、'ProfileBase' を拡張するクラスを必要があります。 新しいクラスを取得し、プロファイル情報を格納するには、' AppProfile' を作成しましょう。
+3. 例として、ユーザーの生年月日、市区町村、高さ、および重量をプロファイルに格納します。 高さと重みは、"ユーザーの統計情報" と呼ばれるカスタムクラスとして格納されます。 プロファイルを格納および取得するには、"ProfileBase" を拡張するクラスが必要です。 プロファイル情報を取得して格納するための新しいクラス ' AppProfile ' を作成してみましょう。
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample1.cs)]
-4. プロファイルを有効にする、 *web.config*ファイル。 手順 3 で作成したユーザー情報の保存/取得するために使用するクラス名を入力します。
+4. *Web.config ファイルで*プロファイルを有効にします。 手順 #3 で作成したユーザー情報を格納または取得するために使用するクラス名を入力します。
 
     [!code-xml[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample2.xml)]
-5. 'Account' フォルダー ユーザーからプロファイル データを取得し、格納するには、web フォーム ページを追加します。 プロジェクトを右クリックし、新しい項目の追加 を選択します。 マスター ページ 'AddProfileData.aspx' を含む新しい webforms ページを追加します。 'MainContent' セクションでは、次をコピーします。
+5. [アカウント] フォルダーに web フォームページを追加して、ユーザーからプロファイルデータを取得して保存します。 プロジェクトを右クリックし、[新しい項目の追加] を選択します。 マスターページ ' AddProfileData .aspx ' を含む新しい webforms ページを追加します。 ' MainContent ' セクションに次の内容をコピーします。
 
     [!code-html[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample3.html)]
 
-   分離コードで、次のコードを追加します。
+   分離コードに次のコードを追加します。
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample4.cs)]
 
-   コンパイル エラーを削除するどの AppProfile でクラスが定義されている名前空間を追加します。
-6. アプリを実行し、ユーザー名を持つ新しいユーザーの作成 '**olduser'。** 'AddProfileData' のページに移動し、ユーザーのプロファイル情報を追加します。  
+   AppProfile クラスが定義されている名前空間を追加して、コンパイルエラーを削除します。
+6. アプリを実行し、ユーザー名が "**olduser"** の新しいユーザーを作成します。 [AddProfileData] ページに移動し、ユーザーのプロファイル情報を追加します。  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image2.png)
 
-サーバー エクスプ ローラー ウィンドウを使用して"Profiles"テーブル内のシリアル化された xml としてデータが格納されていることを確認できます。 Visual Studio での表示 メニューからのサーバー エクスプ ローラーを選択します。 定義されているデータベースのデータ接続が必要があります、 *web.config*ファイル。 データ接続 をクリックすると、異なるサブ カテゴリが表示されます。 データベースで、別のテーブルを表示し、"Profiles"を右クリックし、プロファイル テーブルに格納されているプロファイル データを表示する ' テーブル データの表示 を選択するには、' テーブル' を展開します。
+[サーバーエクスプローラー] ウィンドウを使用して、データがシリアル化された xml として [プロファイル] テーブルに格納されていることを確認できます。 Visual Studio の [表示] メニューで、[サーバーエクスプローラー] を選択します。 *Web.config ファイルで*定義されているデータベースのデータ接続が存在する必要があります。 データ接続をクリックすると、異なるサブカテゴリが表示されます。 [テーブル] を展開してデータベース内のさまざまなテーブルを表示し、[プロファイル] を右クリックして、[テーブルデータの表示] を選択し、プロファイルテーブルに格納されているプロファイルデータを表示します。
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image3.png)
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image4.png)
 
-## <a name="migrating-database-schema"></a>データベース スキーマを移行します。
+## <a name="migrating-database-schema"></a>データベーススキーマの移行
 
-既存のデータベースの Id システムを使用するために、元のデータベースに追加するフィールドをサポートするために Id のデータベースでスキーマを更新する必要があります。 これ行う SQL スクリプトを使用して、新しいテーブルを作成し、既存の情報をコピーします。 サーバー エクスプ ローラー ウィンドウでテーブルを表示する 'DefaultConnection' を展開します。 テーブルを右クリックし、[新規クエリ] を選択します。
+既存のデータベースが Id システムで動作するようにするには、元のデータベースに追加したフィールドをサポートするように、Id データベースのスキーマを更新する必要があります。 これを行うには、SQL スクリプトを使用して新しいテーブルを作成し、既存の情報をコピーします。 [サーバーエクスプローラー] ウィンドウで、[DefaultConnection] を展開してテーブルを表示します。 [テーブル] を右クリックし、[新しいクエリ] を選択します。
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image5.png)
 
-SQL スクリプトを貼り付けて[ https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt ](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt)して実行します。 'DefaultConnection' が更新された場合、新しいテーブルが追加されたことを確認できます。 情報が移行されたことを確認、テーブル内のデータを確認することができます。
+SQL スクリプトを[https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt)から貼り付けて実行します。 ' DefaultConnection ' が更新された場合は、新しいテーブルが追加されていることがわかります。 テーブル内のデータをチェックして、情報が移行されたことを確認できます。
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image6.png)
 
-## <a name="migrating-the-application-to-use-aspnet-identity"></a>ASP.NET Identity を使用するアプリケーションへの移行
+## <a name="migrating-the-application-to-use-aspnet-identity"></a>ASP.NET Identity を使用するためのアプリケーションの移行
 
 1. ASP.NET Identity に必要な Nuget パッケージをインストールします。
 
     - Microsoft.AspNet.Identity.EntityFramework
     - Microsoft.AspNet.Identity.Owin
     - Microsoft.Owin.Host.SystemWeb
-    - Microsoft.Owin.Security.Facebook
+    - Owin (Microsoft. Security)
     - Microsoft.Owin.Security.Google
     - Microsoft.Owin.Security.MicrosoftAccount
     - Microsoft.Owin.Security.Twitter
 
-   Nuget パッケージの管理の詳細についてはあります[ここ](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
-2. テーブル内の既存のデータを操作するには、テーブルにマップし、Id システムでそれらをフックするモデル クラスを作成する必要があります。 Identity コントラクトの一部として、モデル クラスは Identity.Core dll で定義されたインターフェイスを実装する必要がありますか、または Microsoft.AspNet.Identity.EntityFramework で利用できるこれらのインターフェイスの既存の実装を拡張することができます。 使用する既存のクラスの役割、ユーザーのログインおよびユーザーの信頼性情報。 このサンプルのカスタム ユーザーを使用する必要があります。 プロジェクトを右クリックし、新しいフォルダー 'IdentityModels' を作成します。 次に示すように新しい 'User' クラスを追加します。
+   Nuget パッケージの管理の詳細については、こちらを参照して[ください](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)。
+2. テーブル内の既存のデータを操作するには、テーブルにマップし直して Id システムにフックするモデルクラスを作成する必要があります。 Id コントラクトの一部として、モデルクラスは、Identity. Core dll で定義されているインターフェイスを実装するか、またはこれらのインターフェイスの既存の実装を拡張して使用できます。 ロール、ユーザーログイン、およびユーザー要求には、既存のクラスを使用します。 このサンプルでは、カスタムユーザーを使用する必要があります。 プロジェクトを右クリックして、新しいフォルダー ' ' の作成 ' を作成します。 次に示すように、新しい ' User ' クラスを追加します。
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample5.cs)]
 
-   'ProfileInfo' が、ユーザー クラスのプロパティでになったことに注意してください。 そのため、ユーザー クラスを使用してプロファイル データを直接操作することができます。
+   ' ProfileInfo ' が user クラスのプロパティになっていることに注意してください。 そのため、ユーザークラスを使用してプロファイルデータを直接操作できます。
 
-内のファイルをコピー、 **IdentityModels**と**IdentityAccount**ダウンロード元のフォルダー ( [ https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) )。 これらは、残りのモデル クラスと必要なユーザーおよびロール管理を ASP.NET Identity Api を使用して新しいページがあります。 使用されているアプローチは SQL メンバーシップに似ており、詳細については、ある[ここ](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)します。
+**Id およびアカウント**フォルダー内**のファイル**をダウンロードソース ( [https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ) からコピーします。 これらには、残りのモデルクラスと、ASP.NET Identity Api を使用したユーザーとロールの管理に必要な新しいページがあります。 使用される方法は SQL のメンバーシップに似ており、詳細な説明については[こちら](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)を参照してください。
 
 [!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
-## <a name="copying-profile-data-to-the-new-tables"></a>新しいテーブルにプロファイル データのコピー
+## <a name="copying-profile-data-to-the-new-tables"></a>プロファイルデータを新しいテーブルにコピーする
 
-前述のように、プロファイル テーブルに xml データを逆シリアル化し、AspNetUsers テーブルの列に格納する必要があります。 列が必要なデータを設定するため、残っているはすべて、前の手順で、users テーブルに新しい列が作成されました。 これには、ここには、users テーブル内の新しく作成された列の設定に 1 回実行され、コンソール アプリケーションを使用します。
+前述のように、プロファイルテーブルの xml データを逆シリアル化し、AspNetUsers テーブルの列に格納する必要があります。 前の手順でユーザーテーブルに新しい列が作成されているので、これらの列に必要なデータを設定します。 これを行うには、コンソールアプリケーションを使用します。このアプリケーションは、ユーザーテーブルに新しく作成された列を設定するために1回実行されます。
 
-1. 既存のソリューションでは、新しいコンソール アプリケーションを作成します。  
+1. 既存のソリューションに新しいコンソールアプリケーションを作成します。  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image2.jpg)
 2. Entity Framework パッケージの最新バージョンをインストールします。
-3. コンソール アプリケーションへの参照として上記で作成した web アプリケーションを追加します。 このプロジェクトを右クリック、し、' 参照の追加 ' で、ソリューションは、プロジェクトをクリックし、[ok] をクリックします。
-4. コピー、次のコードを Program.cs クラスにします。 このロジックは、'ProfileInfo' のオブジェクトとしてシリアル化して、および元のデータベースに格納する各ユーザーのプロファイル データを読み取る。
+3. 上で作成した web アプリケーションをコンソールアプリケーションへの参照として追加します。 これを行うには、[プロジェクト]、[参照の追加]、[ソリューション] の順にクリックし、プロジェクトをクリックして、[OK] をクリックします。
+4. 次のコードを Program.cs クラスにコピーします。 このロジックは、各ユーザーのプロファイルデータを読み取り、それを ' ProfileInfo ' オブジェクトとしてシリアル化して、データベースに保存します。
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample6.cs)]
 
-   使用モデルの一部には、対応する名前空間を含める必要がありますので、web アプリケーション プロジェクトの 'IdentityModels' フォルダーで定義されます。
-5. 上記のコードは、アプリ内のデータベース ファイルで動作\_前の手順で、web アプリケーション プロジェクトのデータ フォルダーを作成します。 それを参照するには、web アプリケーションの web.config 内の接続文字列で、コンソール アプリケーションの app.config ファイル内の接続文字列を更新します。 また、'AttachDbFilename' プロパティの完全な物理パスを提供します。
-6. コマンド プロンプトを開き、上記のコンソール アプリケーションの bin フォルダーに移動します。 実行可能ファイルを実行し、次の図のように、ログ出力を確認します。  
+   使用されるモデルの一部は、web アプリケーションプロジェクトの ' ユーザーモデル ' フォルダーで定義されているため、対応する名前空間を含める必要があります。
+5. 上記のコードは、前の手順で作成した web アプリケーションプロジェクトの App\_Data フォルダー内のデータベースファイルで動作します。 これを参照するには、コンソールアプリケーションの app.config ファイル内の接続文字列を、web アプリケーションの web.config の接続文字列で更新します。 また、' AttachDbFilename ' プロパティに完全な物理パスを指定します。
+6. コマンドプロンプトを開き、上のコンソールアプリケーションの bin フォルダーに移動します。 次の図に示すように、実行可能ファイルを実行し、ログ出力を確認します。  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image3.jpg)
-7. サーバー エクスプ ローラーで 'AspNetUsers' テーブルを開き、プロパティを保持する新しい列のデータを確認します。 対応するプロパティの値で更新します。
+7. サーバーエクスプローラーの ' AspNetUsers ' テーブルを開き、プロパティが格納されている新しい列のデータを確認します。 これらは、対応するプロパティ値で更新する必要があります。
 
-## <a name="verify-functionality"></a>機能を確認します。
+## <a name="verify-functionality"></a>機能の確認
 
-古いデータベースからユーザーをログインに、ASP.NET Identity を使用して実装されている、新しく追加されたメンバーシップ ページを使用します。 ユーザーは、同じ資格情報を使用してログインできる必要があります。 ロールなどにユーザーを追加する OAuth、パスワードの変更、新しいユーザーの作成、ロールの追加を追加するなど、他の機能をお試しください。
+ASP.NET Identity を使用して実装された新しく追加されたメンバーシップページを使用して、古いデータベースからユーザーをログインします。 ユーザーは、同じ資格情報を使用してログインできる必要があります。 OAuth の追加、新しいユーザーの作成、パスワードの変更、ロールの追加、ロールへのユーザーの追加など、他の機能を試してみてください。
 
-古いユーザーと、新しいユーザーのプロファイル データの取得され、users テーブルに格納されている必要があります。 古いテーブルを参照できなくする必要があります。
+古いユーザーと新しいユーザーのプロファイルデータを取得して、users テーブルに保存する必要があります。 古いテーブルは参照できなくなります。
 
 ## <a name="conclusion"></a>まとめ
 
-この記事では、ASP.NET Identity にメンバーシップ プロバイダー モデルを使用する web アプリケーションを移行するプロセスについて説明します。 さらに、情報の記事 Id システムにフックするユーザーのプロファイル データの移行の概要です。 質問や、アプリを移行するときに発生した問題のための下のコメントを残してください。
+この記事では、ASP.NET Identity のメンバーシップのためにプロバイダーモデルを使用した web アプリケーションの移行プロセスについて説明しています。 この記事では、ユーザーが Id システムにフックするためのプロファイルデータの移行についても説明しています。 アプリを移行するときに発生する質問や問題については、以下のコメントを残してください。
 
-*Rick Anderson、Robert McMurray、記事のレビューに協力してくれた*
+*記事を確認するための Rick Anderson と Robert McMurray に感謝します。*

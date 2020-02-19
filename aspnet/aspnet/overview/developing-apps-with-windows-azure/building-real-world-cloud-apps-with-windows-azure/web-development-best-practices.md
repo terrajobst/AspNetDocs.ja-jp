@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: 0956aaaf1f6a1a0d2f5d93f98cb6959cec98dbaf
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: dfd8a3ac2328d3f17dfbe36e68b37d181177b0f4
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582699"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457090"
 ---
 # <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web 開発のベストプラクティス (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -76,7 +76,7 @@ Windows Azure では、アプリケーションのスケールアウトの機能
 <a id="sessionstate"></a>
 ## <a name="avoid-session-state"></a>セッション状態を回避する
 
-実際のクラウドアプリでは、ユーザーセッションに何らかの形式の状態を保存しないようにするのは現実的ではありませんが、一部の方法はパフォーマンスとスケーラビリティに影響を与えます。 状態を保存する必要がある場合は、状態のサイズを小さくして cookie に保存することをお勧めします。 そうでない場合は、次の最良の解決策は、ASP.NET セッション状態を、[分散型メモリ内キャッシュ](distributed-caching.md#sessionstate)のプロバイダーと共に使用することです。 パフォーマンスとスケーラビリティの観点から最も悪いソリューションは、データベースのサポートされたセッション状態プロバイダーを使用することです。
+ユーザー セッションの状態をなんらかの形で格納しないのは、実際のクラウド アプリケーションでは実用的でない場合が多いですが、方法によっては、パフォーマンスとスケーラビリティに与える影響が大きくなります。 状態を格納する必要がある場合は、状態の量を少なくし、Cookie に格納することをお勧めします。 そうでない場合は、次の最良の解決策は、ASP.NET セッション状態を、[分散型メモリ内キャッシュ](distributed-caching.md#sessionstate)のプロバイダーと共に使用することです。 パフォーマンスとスケーラビリティの観点から最もお勧めできないのが、データベースを利用したセッション状態プロバイダーを使用する方法です。
 
 <a id="cdn"></a>
 ## <a name="use-a-cdn-to-cache-static-file-assets"></a>CDN を使用して静的ファイルアセットをキャッシュする

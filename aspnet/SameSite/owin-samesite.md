@@ -5,12 +5,12 @@ description: SameSite cookie と Open Web Interface for .NET (OWIN) を使用す
 ms.author: riande
 ms.date: 12/6/2019
 uid: owin-samesite
-ms.openlocfilehash: ac5ae24eeb9e8e1cc6296667a4bebef72c3eb62c
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.openlocfilehash: a3353fd0f0332899aaba26b83aea0ff7c3a6d19b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993077"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455738"
 ---
 # <a name="samesite-cookies-and-the-open-web-interface-for-net-owin"></a>SameSite cookie と Open Web Interface for .NET (OWIN)
 
@@ -74,14 +74,14 @@ owinContext.Response.Cookies.Append("My Key", "My Value", new CookieOptions()
 * Cookie を既定で `SameSite=Lax` として扱うことを指定します。
 * クロスサイト配信を有効にするために `SameSite=None` を明示的にアサートする cookie を `Secure`としてマークする必要があることを指定します。 `None` は、オプトアウトする新しいエントリです。
 * [2 月 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)日に既定で[Chrome](https://chromestatus.com/feature/5088147346030592)によって有効になるようにスケジュールされています。 ブラウザーは2019でこの標準への移行を開始しました。
-* は、サポート技術情報の記事の説明に従って発行された修正プログラムによってサポートされます 詳細については、「<xref:samesite/kbs-samesite>」を参照してください。
+* は、サポート技術情報の記事の説明に従って発行された修正プログラムによってサポートされます 詳細については、<xref:samesite/kbs-samesite> を参照してください。
 
 <a name="sob"></a>
 
 ## <a name="supporting-older-browsers"></a>古いブラウザーのサポート
 
 2016 `SameSite` 標準では、不明な値を `SameSite=Strict` 値として扱う必要があることが義務付けられています。 2016 `SameSite` 標準をサポートする古いブラウザーからアクセスされるアプリは、値が `None`の `SameSite` プロパティを取得すると壊れます。 Web apps が古いブラウザーをサポートする予定の場合は、ブラウザーの検出を実装する必要があります。 ASP.NET は、ユーザーエージェントの値が変動し頻繁に変更されるため、ブラウザーの検出を実装しません。 [ICookieManager](/previous-versions/aspnet/dn800238(v%3Dvs.113))の拡張ポイントを使用すると、ユーザーエージェント固有のロジックをプラグインできます。
-<!-- https://docs.microsoft.com/en-us/previous-versions/aspnet/dn800238(v%3Dvs.113) -->
+<!-- https://docs.microsoft.com/previous-versions/aspnet/dn800238(v%3Dvs.113) -->
 
 `Startup.Configuration`で、次のようなコードを追加します。
 
@@ -144,7 +144,7 @@ Edge では、古い `SameSite` 標準がサポートされています。 Edge 
 
 Electron の複数のバージョンには、Chromium の古いバージョンが含まれています。 たとえば、チームによって使用されている電子 66 Chromium のバージョンは、以前の動作を示しています。 製品で使用されている電子版を使用して、独自の互換性テストを実行する必要があります。 次のセクションの「[古いブラウザーのサポート](#sob)」を参照してください。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 * [Chromium ブログ: 開発者: 新しい SameSite の準備 = None;セキュリティで保護された Cookie の設定](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [SameSite cookie の説明](https://web.dev/samesite-cookies-explained/)

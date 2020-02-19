@@ -8,16 +8,16 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: daccaedae0b0e60f5086f270f214f87da564a85d
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 11f4a7cae8d425873b1828a9e5f51471def954fb
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074931"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457155"
 ---
 # <a name="mvc-recommended-resources"></a>MVC 推奨リソース
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > このトピックでは、ASP.NET MVC 5 に関するドキュメントリソースへのリンクを示します。 優れたブログ投稿、 [stackoverflow](http://stackoverflow.com/)スレッド、または役に立つその他のリンクがわかっている場合は、リンクを含む電子[メールをお送りください](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link)。 ここに記載されているリンクは、定期的に更新されます。 [MSDN コンテンツマップ](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx)の ASP.NET MVC リンクは、古い (ただし、多くの場合、引き続き関連性があります) ことができます。
 >
@@ -99,7 +99,7 @@ ms.locfileid: "77074931"
 - [ASP.NET MVC のセキュリティ](http://www.codeproject.com/Articles/654846/Security-In-ASP-NET-MVC)
 - [ASP.NET MVC 4 アプリをセキュリティで保護する](https://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)
 - [Pluralsight ビデオのセキュリティ運用の概要](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-security&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
-- [ASP.NET MVC と Web ページの XSRF/CSRF 防止](../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
+- [ASP.NET MVC と Web ページでの XSRF/CSRF の防止](../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
 - [.NET 開発者向け OWASP トップ10](http://www.troyhunt.com/2010/05/owasp-top-10-for-net-developers-part-1.html)
 - [MVC 4 で OAuth プロバイダーを使用する](../older-versions/using-oauth-providers-with-mvc.md)
 - [ASP.NET アプリケーションのハッキング](https://msdn.microsoft.com/magazine/hh580736.aspx)2011年12月の MSDN Magazine 記事 (Adam Tuliper

@@ -8,16 +8,16 @@ ms.date: 03/30/2015
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 2afd4b5cf640eb97080de7e5280409f5e5347731
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: f48b2be755b84dff9b2672bd348c73107602c6dd
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583632"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456792"
 ---
 # <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>非構造化 Blob Storage (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -25,7 +25,7 @@ ms.locfileid: "74583632"
 
 前の章では、パーティション構成について説明し、It アプリの修正によって Azure Storage Blob サービスに画像が格納される方法、および Azure SQL Database のその他のタスクデータについて説明しました。 この章では、Blob service について詳しく説明し、修正した It プロジェクトコードでの実装方法を示します。
 
-## <a name="what-is-blob-storage"></a>Blob storage とは
+## <a name="what-is-blob-storage"></a>BLOB ストレージとは
 
 Azure Storage Blob サービスは、クラウドにファイルを格納する方法を提供します。 Blob service には、ローカルネットワークファイルシステムにファイルを保存するよりも多くの利点があります。
 

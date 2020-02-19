@@ -8,16 +8,16 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 44941c9fd0dcd3223604fc4a4f2836f587578acb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: f61810ea7b486b2fa0bbb234edea7541eedde835
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585605"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457064"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure を使用した実際のクラウドアプリの構築)
 
-[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
+[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [修正 It プロジェクトをダウンロード](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)するか[、電子書籍をダウンロード](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)します
 
@@ -32,7 +32,7 @@ ms.locfileid: "74585605"
 
 クラウド環境にとって優れた点の1つは、お客様の勝利を簡単に購入またはレンタルできることです。 テレメトリは一例です。 多くの労力を費やすことなく、非常に優れたテレメトリシステムを稼働させることができ、コスト効率に優れています。 Azure と統合される優れたパートナーが多数あり、その中には free レベルがあるものもあります。これにより、何の基本テレメトリも取得できます。 Azure で現在使用できるもののほんの一部を次に示します。
 
-- [新しい聖箱](http://newrelic.com/)
+- [New Relic](http://newrelic.com/)
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
@@ -98,7 +98,7 @@ Visual Studio で、新しい聖なる NuGet パッケージをアプリにイ�
     ![外部サービス](monitoring-and-telemetry/_static/image17.png)
 - 世界中のどこにあるか、または米国 web アプリのトラフィックのどこにあるかに関する情報。
 
-    ![Geography](monitoring-and-telemetry/_static/image18.png)
+    ![[地理的な場所]](monitoring-and-telemetry/_static/image18.png)
 
 また、レポートとイベントを設定することもできます。 たとえば、エラーが発生し始めるたびに、アラートサポートスタッフに電子メールを送信して問題を報告することができます。
 
@@ -129,7 +129,7 @@ Visual Studio で、新しい聖なる NuGet パッケージをアプリにイ�
 
 .NET システムの診断トレースでは、ログにエラー、警告、情報、デバッグ/詳細レベルを割り当てることができます。 Act ログのエラーレベルを予約し、ログ記録のために低いレベルを使用することで、ACT ログから ACT を区別できます。
 
-![ログ レベル](monitoring-and-telemetry/_static/image20.png)
+![ログ記録のレベル](monitoring-and-telemetry/_static/image20.png)
 
 ### <a name="configure-logging-levels-at-run-time"></a>実行時にログ記録レベルを構成する
 

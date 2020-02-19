@@ -5,22 +5,22 @@ description: MVC アプリへのビューの追加
 ms.author: riande
 ms.date: 01/23/2019
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 4b369028aca1e8a6cace60466b8049ccc02a2ec2
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 0bc6ac06d12aaee4b2a11c1bf246f9f20f0be017
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519064"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456648"
 ---
 # <a name="adding-a-view"></a>ビューの追加
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
 このセクションでは、`HelloWorldController` クラスを変更して、ビューテンプレートファイルを使用して、クライアントに HTML 応答を生成するプロセスを完全にカプセル化します。 
 
-[Razor ビューエンジン](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md)を使用して、ビューテンプレートファイルを作成します。 Razor ベースのビュー テンプレートが、 *.cshtml*ファイル拡張子、および HTML 出力を C# を使用して作成する洗練された方法を提供します。 Razor では、ビューテンプレートを記述するときに必要な文字数とキーストロークの数が最小限に抑えられ、滑らかなコーディングワークフローが可能になります。
+[Razor ビューエンジン](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md)を使用して、ビューテンプレートファイルを作成します。 Razor ベースのビューテンプレートには、ファイル拡張子が*cshtml*と、を使用してC#HTML 出力を作成するための洗練された方法が用意されています。 Razor では、ビューテンプレートを記述するときに必要な文字数とキーストロークの数が最小限に抑えられ、滑らかなコーディングワークフローが可能になります。
 
 現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。 次のコードに示すように、`Index` メソッドを変更して controllers[ビュー](/dotnet/api/microsoft.aspnetcore.mvc.controller.view#Microsoft_AspNetCore_Mvc_Controller_View)メソッドを呼び出します。
 
