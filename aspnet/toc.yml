@@ -3770,7 +3770,19 @@
     - name: ホワイト ペーパー
       href: whitepapers/overview.md
     - name: ASP.NET での SameSite
-      href: SameSite/system-web-samesite.md
+      items:
+        - name: ASP.NET の SameSite Cookie
+          href: SameSite/system-web-samesite.md
+        - name: SameSite のサポート技術情報の記事
+          uid: samesite/kbs-samesite
+        - name: 'C# MVC'
+          uid: samesite/csMVC
+        - name: 'C# WebForms'
+          uid: samesite/CSharpWebForms
+        - name: VB WebForms
+          uid: samesite/vbWF
+        - name: VB MVC
+          uid: samesite/vbMVC
     - name: ASP.NET 4 と Visual Studio 2010 Web 開発の概要
       href: whitepapers/aspnet4/index.md
       items:
