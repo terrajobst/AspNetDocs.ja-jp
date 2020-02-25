@@ -8,16 +8,16 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 239980d747c6e0d6be1e9b4fe0371e276e37cf21
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 61bfe5dbac04b57e1461183b66ead2f01fe0734c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519285"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457766"
 ---
-# <a name="bundling-and-minification"></a>バンドル化と縮小
+# <a name="bundling-and-minification"></a>バンドルと縮小
 
-[Rick Anderson]((https://twitter.com/RickAndMSFT))
+[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > バンドルと縮小は、要求の読み込み時間を向上させるために ASP.NET 4.5 で使用できる2つの手法です。 バンドルと縮小は、サーバーへの要求の数を減らし、要求された資産のサイズ (CSS や JavaScript など) を減らすことによって、読み込み時間を短縮します。
 
@@ -68,7 +68,7 @@ ms.locfileid: "76519285"
 | **受信した KB** | 388.51 | 530 | 36% |
 | **読み込み時間** | 510ミリ秒 | 780 MS | 53% |
 
-送信されるバイト数は、ブラウザーが要求に適用される HTTP ヘッダーとかなり冗長であるため、バンドルによって大幅に削減されました。 最大のファイル (*スクリプト\\jquery-ui-1.8.11* and *scripts\\jquery-1.7.1*) は、既に縮小されているため、受信バイト数の減少はそれほど大きくありません。 注: サンプルプログラムのタイミングでは、 [Fiddler](http://www.fiddler2.com/fiddler2/)ツールを使用して低速ネットワークをシミュレートしています。 (Fiddler の **[規則]** メニューで、 **[パフォーマンス]** 、 **[モデムの速度をシミュレート]** する の順に選択します)。
+送信されるバイト数は、ブラウザーが要求に適用される HTTP ヘッダーとかなり冗長であるため、バンドルによって大幅に削減されました。 最大のファイル (*スクリプト\\jquery-ui-1.8.11* and *scripts\\jquery-1.7.1*) は、既に縮小されているため、受信バイト数の減少はそれほど大きくありません。 メモ:サンプルプログラムのタイミングでは、 [Fiddler](http://www.fiddler2.com/fiddler2/)ツールを使用して低速ネットワークをシミュレートしていました。 (Fiddler の **[規則]** メニューで、 **[パフォーマンス]** 、 **[モデムの速度をシミュレート]** する の順に選択します)。
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>バンドルされた、縮小された JavaScript のデバッグ
 
@@ -199,7 +199,7 @@ IE9 F12 developer tools を実行し、以前に読み込まれたページに�
 
 ## <a name="less-coffeescript-scss-sass-bundling"></a>LESS、CoffeeScript、SCSS、Sass のバンドル。
 
-バンドルと縮小フレームワークには、 [SCSS](http://sass-lang.com/)、 [sass](http://sass-lang.com/)、 [LESS](http://www.dotlesscss.org/) 、または[Coffeescript](http://coffeescript.org/)などの中間言語を処理し、縮小などの変換を結果のバンドルに適用するメカニズムが用意されています。 たとえば、追加する[.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
+バンドルと縮小フレームワークには、 [SCSS](http://sass-lang.com/)、 [sass](http://sass-lang.com/)、 [LESS](http://www.dotlesscss.org/) 、または[Coffescript](http://coffeescript.org/)などの中間言語を処理し、縮小などの変換を結果のバンドルに適用するメカニズムが用意されています。 たとえば、追加する[.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
 
 1. コンテンツの少ないフォルダーを作成します。 次の例では、*コンテンツ\\MyLess*フォルダーを使用しています。
 2. 追加、 [.less](http://www.dotlesscss.org/) NuGet パッケージ**ドット**をプロジェクトにします。  
@@ -228,7 +228,7 @@ IE9 F12 developer tools を実行し、以前に読み込まれたページに�
 
 `System.Web.Optimization` 名前空間は、 *system.web. Optimization*に実装されています。 これは、縮小機能に WebGrease library (*webgrease .dll*) を利用し、さらに*Antlr3*を使用します。
 
-*Twitter を使用して、リンクをすばやく投稿し、共有します。Twitter のハンドルは次の*とおりです: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Twitter を使用して、リンクをすばやく投稿し、共有することができます。Twitter のハンドルが*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
@@ -239,7 +239,7 @@ IE9 F12 developer tools を実行し、以前に読み込まれたページに�
 - Rick Anderson によって[Web サイトのパフォーマンスを向上させるために、CDNs と有効期限を使用することが](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [RTT を最小化する (ラウンドトリップ時間)](https://developers.google.com/speed/docs/best-practices/rtt)
 
-## <a name="contributors"></a>寄稿者
+## <a name="contributors"></a>共同作成者
 
 - Hao Kung
 - [Howard Dierking](https://twitter.com/#!/howard_dierking)
