@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: '[How Do i:]カスケード スタイル シートを使用して、Web ページのレイアウトのでしょうか。 | Microsoft Docs'
+title: '[操作方法:]Web ページレイアウトにはカスケードスタイルシートを使用しますか? | Microsoft Docs'
 author: rick-anderson
-description: このビデオでは使用する方法を学習します&amp;lt; div&amp;gt; web p 堅牢で高いパフォーマンスを作成する、カスケード スタイル シート (CSS) と組み合わせて要素.
+description: このビデオでは、&amp;lt; div&amp;gt; を使用する方法について説明します。要素をカスケードスタイルシート (CSS) と組み合わせて、堅牢で高パフォーマンスの web p を作成...
 ms.author: riande
 ms.date: 10/05/2007
 ms.assetid: c812231d-e811-4048-9922-b34df1d0f300
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
 msc.type: video
 ms.openlocfilehash: 8ac51219a3734d3d2c8657bcfac159e28faa7d7c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417287"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520702"
 ---
-# <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a><span data-ttu-id="901c9-104">[How Do i:]カスケード スタイル シートを使用して、Web ページのレイアウトのでしょうか。</span><span class="sxs-lookup"><span data-stu-id="901c9-104">[How Do I:] Use Cascading Style Sheets for Web Page Layout?</span></span>
+# <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a><span data-ttu-id="fecb5-104">[操作方法:]Web ページレイアウトにはカスケードスタイルシートを使用しますか?</span><span class="sxs-lookup"><span data-stu-id="fecb5-104">[How Do I:] Use Cascading Style Sheets for Web Page Layout?</span></span>
 
-<span data-ttu-id="901c9-105">によって[Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="901c9-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
+<span data-ttu-id="fecb5-105">[Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="fecb5-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 
-<span data-ttu-id="901c9-106">このビデオでは使用する方法を学習します`<div>`堅牢で高いパフォーマンスの web ページを作成する、カスケード スタイル シート (CSS) と組み合わせて内の要素。</span><span class="sxs-lookup"><span data-stu-id="901c9-106">In this video we learn how to use `<div>` elements in combination with cascading style sheets (CSS) to create robust and higher performance web pages.</span></span> <span data-ttu-id="901c9-107">`<div>`ベースのアプローチと比較されます、`<table>`ベースのレイアウト アプローチのほとんどの web サイトが近年経由で使用します。</span><span class="sxs-lookup"><span data-stu-id="901c9-107">The `<div>`based approach will be compared to the `<table>` based layout approach used by most web sites over recent years.</span></span> <span data-ttu-id="901c9-108">次に、いくつかの CSS ベースのアプローチが表示されます、要素をフロートする絶対配置の範囲します。</span><span class="sxs-lookup"><span data-stu-id="901c9-108">Then, several CSS-based approaches will be shown, ranging from absolute positioning to floating elements.</span></span> <span data-ttu-id="901c9-109">CSS の使用量、設計から構造的な HTML を分離することのメリットも説明します。</span><span class="sxs-lookup"><span data-stu-id="901c9-109">We also learn the benefits of separating structural HTML from design with the use of CSS.</span></span>
+<span data-ttu-id="fecb5-106">このビデオでは、`<div>` 要素をカスケードスタイルシート (CSS) と組み合わせて使用して、堅牢で高性能な web ページを作成する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="fecb5-106">In this video we learn how to use `<div>` elements in combination with cascading style sheets (CSS) to create robust and higher performance web pages.</span></span> <span data-ttu-id="fecb5-107">`<div>`ベースのアプローチは、近年のほとんどの web サイトで使用されている `<table>` ベースのレイアウトアプローチと比較されます。</span><span class="sxs-lookup"><span data-stu-id="fecb5-107">The `<div>`based approach will be compared to the `<table>` based layout approach used by most web sites over recent years.</span></span> <span data-ttu-id="fecb5-108">次に、いくつかの CSS ベースのアプローチが、絶対位置から浮動要素までの範囲で表示されます。</span><span class="sxs-lookup"><span data-stu-id="fecb5-108">Then, several CSS-based approaches will be shown, ranging from absolute positioning to floating elements.</span></span> <span data-ttu-id="fecb5-109">また、CSS を使用して設計から構造的 HTML を分離する利点についても説明します。</span><span class="sxs-lookup"><span data-stu-id="fecb5-109">We also learn the benefits of separating structural HTML from design with the use of CSS.</span></span>
 
-[<span data-ttu-id="901c9-110">&#9654;ビデオ (29 分)</span><span class="sxs-lookup"><span data-stu-id="901c9-110">&#9654; Watch video (29 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-cascading-style-sheets-for-web-page-layout)
+[<span data-ttu-id="fecb5-110">&#9654;ビデオを見る (29 分)</span><span class="sxs-lookup"><span data-stu-id="fecb5-110">&#9654; Watch video (29 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-cascading-style-sheets-for-web-page-layout)
