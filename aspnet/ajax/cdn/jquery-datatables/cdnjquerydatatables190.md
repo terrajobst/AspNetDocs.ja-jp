@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-datatables/cdnjquerydatatables190
-title: jQuery Datatable 1.9.0 |Microsoft Docs
+title: jQuery Datatable 1.9.0 以降 |Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: 0f9c7b5e-bac0-40f1-b353-bd46e8759836
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables190
 msc.type: content
 ms.openlocfilehash: c2f251f6b2ca9a810de5d6e7fb93886ae510094b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59408551"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454030"
 ---
-# <a name="jquery-datatables-190"></a><span data-ttu-id="fdf97-102">jQuery DataTables 1.9.0</span><span class="sxs-lookup"><span data-stu-id="fdf97-102">jQuery DataTables 1.9.0</span></span>
+# <a name="jquery-datatables-190"></a><span data-ttu-id="e9f53-102">jQuery DataTables 1.9.0</span><span class="sxs-lookup"><span data-stu-id="e9f53-102">jQuery DataTables 1.9.0</span></span>
 
-<span data-ttu-id="fdf97-103">CDN では、jQuery プラグインの Datatable には、次のファイルがホストされています。</span><span class="sxs-lookup"><span data-stu-id="fdf97-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
+<span data-ttu-id="e9f53-103">JQuery Datatable プラグインの次のファイルは、CDN でホストされます。</span><span class="sxs-lookup"><span data-stu-id="e9f53-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js

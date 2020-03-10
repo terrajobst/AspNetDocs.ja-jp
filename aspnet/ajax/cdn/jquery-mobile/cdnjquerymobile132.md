@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile132
-title: jQuery Mobile 1.3.2 Microsoft Ajax CDN |Microsoft Docs
+title: Microsoft Ajax CDN の jQuery Mobile 1.3.2 |Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: 89d6cf36-4dd1-46e3-ae2f-d3dee67e7805
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile132
 msc.type: content
 ms.openlocfilehash: f6413f40898422db28575e1a7b7b5cab9e3d75bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59401882"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78453766"
 ---
-# <a name="jquery-mobile-132-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="b1774-102">Microsoft Ajax CDN の jQuery Mobile 1.3.2</span><span class="sxs-lookup"><span data-stu-id="b1774-102">jQuery Mobile 1.3.2 on the Microsoft Ajax CDN</span></span>
+# <a name="jquery-mobile-132-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="23dab-102">Microsoft Ajax CDN の jQuery Mobile 1.3.2</span><span class="sxs-lookup"><span data-stu-id="23dab-102">jQuery Mobile 1.3.2 on the Microsoft Ajax CDN</span></span>
 
-<span data-ttu-id="b1774-103">JQuery Mobile 1.3.2 ライブラリには、次のファイルが含まれます。</span><span class="sxs-lookup"><span data-stu-id="b1774-103">The jQuery Mobile 1.3.2 library includes the following files:</span></span>
+<span data-ttu-id="23dab-103">JQuery Mobile 1.3.2 ライブラリには、次のファイルが含まれています。</span><span class="sxs-lookup"><span data-stu-id="23dab-103">The jQuery Mobile 1.3.2 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.3.2/jquery.mobile.structure-1.3.2.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css

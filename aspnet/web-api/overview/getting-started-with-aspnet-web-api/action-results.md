@@ -10,112 +10,112 @@ ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
 ms.openlocfilehash: f00ac0db453053e53d6d6942dd1557b409f4167b
-ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985845"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448774"
 ---
-# <a name="action-results-in-web-api-2"></a><span data-ttu-id="084b3-103">Web API 2 のアクションの結果</span><span class="sxs-lookup"><span data-stu-id="084b3-103">Action Results in Web API 2</span></span>
+# <a name="action-results-in-web-api-2"></a><span data-ttu-id="fc2fb-103">Web API 2 のアクションの結果</span><span class="sxs-lookup"><span data-stu-id="fc2fb-103">Action Results in Web API 2</span></span>
 
 [!INCLUDE[](~/includes/coreWebAPI.md)]
 
-<span data-ttu-id="084b3-104">このトピックでは、ASP.NET Web API がコントローラーアクションからの戻り値を HTTP 応答メッセージに変換する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="084b3-104">This topic describes how ASP.NET Web API converts the return value from a controller action into an HTTP response message.</span></span>
+<span data-ttu-id="fc2fb-104">このトピックでは、ASP.NET Web API がコントローラーアクションからの戻り値を HTTP 応答メッセージに変換する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-104">This topic describes how ASP.NET Web API converts the return value from a controller action into an HTTP response message.</span></span>
 
-<span data-ttu-id="084b3-105">Web API コントローラーアクションは、次のいずれかを返すことができます。</span><span class="sxs-lookup"><span data-stu-id="084b3-105">A Web API controller action can return any of the following:</span></span>
+<span data-ttu-id="fc2fb-105">Web API コントローラーアクションは、次のいずれかを返すことができます。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-105">A Web API controller action can return any of the following:</span></span>
 
-1. <span data-ttu-id="084b3-106">void</span><span class="sxs-lookup"><span data-stu-id="084b3-106">void</span></span>
-2. <span data-ttu-id="084b3-107">**HttpResponseMessage**</span><span class="sxs-lookup"><span data-stu-id="084b3-107">**HttpResponseMessage**</span></span>
-3. <span data-ttu-id="084b3-108">**IHttpActionResult**</span><span class="sxs-lookup"><span data-stu-id="084b3-108">**IHttpActionResult**</span></span>
-4. <span data-ttu-id="084b3-109">その他の型</span><span class="sxs-lookup"><span data-stu-id="084b3-109">Some other type</span></span>
+1. <span data-ttu-id="fc2fb-106">void</span><span class="sxs-lookup"><span data-stu-id="fc2fb-106">void</span></span>
+2. <span data-ttu-id="fc2fb-107">**HttpResponseMessage**</span><span class="sxs-lookup"><span data-stu-id="fc2fb-107">**HttpResponseMessage**</span></span>
+3. <span data-ttu-id="fc2fb-108">**IHttpActionResult**</span><span class="sxs-lookup"><span data-stu-id="fc2fb-108">**IHttpActionResult**</span></span>
+4. <span data-ttu-id="fc2fb-109">その他の型</span><span class="sxs-lookup"><span data-stu-id="fc2fb-109">Some other type</span></span>
 
-<span data-ttu-id="084b3-110">これらのどちらが返されるかに応じて、Web API は異なるメカニズムを使用して HTTP 応答を作成します。</span><span class="sxs-lookup"><span data-stu-id="084b3-110">Depending on which of these is returned, Web API uses a different mechanism to create the HTTP response.</span></span>
+<span data-ttu-id="fc2fb-110">これらのどちらが返されるかに応じて、Web API は異なるメカニズムを使用して HTTP 応答を作成します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-110">Depending on which of these is returned, Web API uses a different mechanism to create the HTTP response.</span></span>
 
-| <span data-ttu-id="084b3-111">戻り値の型</span><span class="sxs-lookup"><span data-stu-id="084b3-111">Return type</span></span> | <span data-ttu-id="084b3-112">Web API による応答の作成方法</span><span class="sxs-lookup"><span data-stu-id="084b3-112">How Web API creates the response</span></span> |
+| <span data-ttu-id="fc2fb-111">の戻り値の型 :</span><span class="sxs-lookup"><span data-stu-id="fc2fb-111">Return type</span></span> | <span data-ttu-id="fc2fb-112">Web API による応答の作成方法</span><span class="sxs-lookup"><span data-stu-id="fc2fb-112">How Web API creates the response</span></span> |
 | --- | --- |
-| <span data-ttu-id="084b3-113">void</span><span class="sxs-lookup"><span data-stu-id="084b3-113">void</span></span> | <span data-ttu-id="084b3-114">空の204を返す (コンテンツなし)</span><span class="sxs-lookup"><span data-stu-id="084b3-114">Return empty 204 (No Content)</span></span> |
-| <span data-ttu-id="084b3-115">**HttpResponseMessage**</span><span class="sxs-lookup"><span data-stu-id="084b3-115">**HttpResponseMessage**</span></span> | <span data-ttu-id="084b3-116">HTTP 応答メッセージに直接変換します。</span><span class="sxs-lookup"><span data-stu-id="084b3-116">Convert directly to an HTTP response message.</span></span> |
-| <span data-ttu-id="084b3-117">**IHttpActionResult**</span><span class="sxs-lookup"><span data-stu-id="084b3-117">**IHttpActionResult**</span></span> | <span data-ttu-id="084b3-118">**HttpResponseMessage**を作成して HTTP 応答メッセージに変換するには、 **executeasync**を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="084b3-118">Call **ExecuteAsync** to create an **HttpResponseMessage**, then convert to an HTTP response message.</span></span> |
-| <span data-ttu-id="084b3-119">その他の型</span><span class="sxs-lookup"><span data-stu-id="084b3-119">Other type</span></span> | <span data-ttu-id="084b3-120">シリアル化された戻り値を応答本文に書き込みます。200 (OK) を返します。</span><span class="sxs-lookup"><span data-stu-id="084b3-120">Write the serialized return value into the response body; return 200 (OK).</span></span> |
+| <span data-ttu-id="fc2fb-113">void</span><span class="sxs-lookup"><span data-stu-id="fc2fb-113">void</span></span> | <span data-ttu-id="fc2fb-114">空の204を返す (コンテンツなし)</span><span class="sxs-lookup"><span data-stu-id="fc2fb-114">Return empty 204 (No Content)</span></span> |
+| <span data-ttu-id="fc2fb-115">**HttpResponseMessage**</span><span class="sxs-lookup"><span data-stu-id="fc2fb-115">**HttpResponseMessage**</span></span> | <span data-ttu-id="fc2fb-116">HTTP 応答メッセージに直接変換します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-116">Convert directly to an HTTP response message.</span></span> |
+| <span data-ttu-id="fc2fb-117">**IHttpActionResult**</span><span class="sxs-lookup"><span data-stu-id="fc2fb-117">**IHttpActionResult**</span></span> | <span data-ttu-id="fc2fb-118">**HttpResponseMessage**を作成して HTTP 応答メッセージに変換するには、 **executeasync**を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-118">Call **ExecuteAsync** to create an **HttpResponseMessage**, then convert to an HTTP response message.</span></span> |
+| <span data-ttu-id="fc2fb-119">その他の型</span><span class="sxs-lookup"><span data-stu-id="fc2fb-119">Other type</span></span> | <span data-ttu-id="fc2fb-120">シリアル化された戻り値を応答本文に書き込みます。200 (OK) を返します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-120">Write the serialized return value into the response body; return 200 (OK).</span></span> |
 
-<span data-ttu-id="084b3-121">このトピックの残りの部分では、各オプションについて詳しく説明します。</span><span class="sxs-lookup"><span data-stu-id="084b3-121">The rest of this topic describes each option in more detail.</span></span>
+<span data-ttu-id="fc2fb-121">このトピックの残りの部分では、各オプションについて詳しく説明します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-121">The rest of this topic describes each option in more detail.</span></span>
 
-## <a name="void"></a><span data-ttu-id="084b3-122">void</span><span class="sxs-lookup"><span data-stu-id="084b3-122">void</span></span>
+## <a name="void"></a><span data-ttu-id="fc2fb-122">void</span><span class="sxs-lookup"><span data-stu-id="fc2fb-122">void</span></span>
 
-<span data-ttu-id="084b3-123">戻り値の型が`void`の場合、Web API は、ステータスコード 204 (コンテンツなし) の空の HTTP 応答を単純に返します。</span><span class="sxs-lookup"><span data-stu-id="084b3-123">If the return type is `void`, Web API simply returns an empty HTTP response with status code 204 (No Content).</span></span>
+<span data-ttu-id="fc2fb-123">戻り値の型が `void`場合、Web API は、ステータスコード 204 (コンテンツなし) の空の HTTP 応答を単に返します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-123">If the return type is `void`, Web API simply returns an empty HTTP response with status code 204 (No Content).</span></span>
 
-<span data-ttu-id="084b3-124">コントローラーの例:</span><span class="sxs-lookup"><span data-stu-id="084b3-124">Example controller:</span></span>
+<span data-ttu-id="fc2fb-124">コントローラーの例:</span><span class="sxs-lookup"><span data-stu-id="fc2fb-124">Example controller:</span></span>
 
 [!code-csharp[Main](action-results/samples/sample1.cs)]
 
-<span data-ttu-id="084b3-125">HTTP 応答:</span><span class="sxs-lookup"><span data-stu-id="084b3-125">HTTP response:</span></span>
+<span data-ttu-id="fc2fb-125">HTTP 応答:</span><span class="sxs-lookup"><span data-stu-id="fc2fb-125">HTTP response:</span></span>
 
 [!code-console[Main](action-results/samples/sample2.cmd)]
 
-## <a name="httpresponsemessage"></a><span data-ttu-id="084b3-126">HttpResponseMessage</span><span class="sxs-lookup"><span data-stu-id="084b3-126">HttpResponseMessage</span></span>
+## <a name="httpresponsemessage"></a><span data-ttu-id="fc2fb-126">HttpResponseMessage</span><span class="sxs-lookup"><span data-stu-id="fc2fb-126">HttpResponseMessage</span></span>
 
-<span data-ttu-id="084b3-127">アクションが[HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx)を返す場合、Web API は、 **HttpResponseMessage**オブジェクトのプロパティを使用して応答を設定し、戻り値を直接 HTTP 応答メッセージに変換します。</span><span class="sxs-lookup"><span data-stu-id="084b3-127">If the action returns an [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web API converts the return value directly into an HTTP response message, using the properties of the **HttpResponseMessage** object to populate the response.</span></span>
+<span data-ttu-id="fc2fb-127">アクションが[HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx)を返す場合、Web API は、 **HttpResponseMessage**オブジェクトのプロパティを使用して応答を設定し、戻り値を直接 HTTP 応答メッセージに変換します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-127">If the action returns an [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web API converts the return value directly into an HTTP response message, using the properties of the **HttpResponseMessage** object to populate the response.</span></span>
 
-<span data-ttu-id="084b3-128">このオプションを使用すると、応答メッセージを細かく制御できます。</span><span class="sxs-lookup"><span data-stu-id="084b3-128">This option gives you a lot of control over the response message.</span></span> <span data-ttu-id="084b3-129">たとえば、次のコントローラーアクションは Cache-control ヘッダーを設定します。</span><span class="sxs-lookup"><span data-stu-id="084b3-129">For example, the following controller action sets the Cache-Control header.</span></span>
+<span data-ttu-id="fc2fb-128">このオプションを使用すると、応答メッセージを細かく制御できます。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-128">This option gives you a lot of control over the response message.</span></span> <span data-ttu-id="fc2fb-129">たとえば、次のコントローラーアクションは Cache-control ヘッダーを設定します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-129">For example, the following controller action sets the Cache-Control header.</span></span>
 
 [!code-csharp[Main](action-results/samples/sample3.cs)]
 
-<span data-ttu-id="084b3-130">応答 :</span><span class="sxs-lookup"><span data-stu-id="084b3-130">Response:</span></span>
+<span data-ttu-id="fc2fb-130">応答:</span><span class="sxs-lookup"><span data-stu-id="fc2fb-130">Response:</span></span>
 
 [!code-console[Main](action-results/samples/sample4.cmd?highlight=2)]
 
-<span data-ttu-id="084b3-131">ドメインモデルを**CreateResponse**メソッドに渡すと、Web API は[メディアフォーマッタ](../formats-and-model-binding/media-formatters.md)を使用して、シリアル化されたモデルを応答本文に書き込みます。</span><span class="sxs-lookup"><span data-stu-id="084b3-131">If you pass a domain model to the **CreateResponse** method, Web API uses a [media formatter](../formats-and-model-binding/media-formatters.md) to write the serialized model into the response body.</span></span>
+<span data-ttu-id="fc2fb-131">ドメインモデルを**CreateResponse**メソッドに渡すと、Web API は[メディアフォーマッタ](../formats-and-model-binding/media-formatters.md)を使用して、シリアル化されたモデルを応答本文に書き込みます。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-131">If you pass a domain model to the **CreateResponse** method, Web API uses a [media formatter](../formats-and-model-binding/media-formatters.md) to write the serialized model into the response body.</span></span>
 
 [!code-csharp[Main](action-results/samples/sample5.cs)]
 
-<span data-ttu-id="084b3-132">Web API では、要求の Accept ヘッダーを使用してフォーマッタを選択します。</span><span class="sxs-lookup"><span data-stu-id="084b3-132">Web API uses the Accept header in the request to choose the formatter.</span></span> <span data-ttu-id="084b3-133">詳細については、「[コンテンツネゴシエーション](../formats-and-model-binding/content-negotiation.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="084b3-133">For more information, see [Content Negotiation](../formats-and-model-binding/content-negotiation.md).</span></span>
+<span data-ttu-id="fc2fb-132">Web API では、要求の Accept ヘッダーを使用してフォーマッタを選択します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-132">Web API uses the Accept header in the request to choose the formatter.</span></span> <span data-ttu-id="fc2fb-133">詳細については、「[コンテンツネゴシエーション](../formats-and-model-binding/content-negotiation.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-133">For more information, see [Content Negotiation](../formats-and-model-binding/content-negotiation.md).</span></span>
 
-## <a name="ihttpactionresult"></a><span data-ttu-id="084b3-134">IHttpActionResult</span><span class="sxs-lookup"><span data-stu-id="084b3-134">IHttpActionResult</span></span>
+## <a name="ihttpactionresult"></a><span data-ttu-id="fc2fb-134">IHttpActionResult</span><span class="sxs-lookup"><span data-stu-id="fc2fb-134">IHttpActionResult</span></span>
 
-<span data-ttu-id="084b3-135">**Ihttpactionresult**インターフェイスは、Web API 2 で導入されました。</span><span class="sxs-lookup"><span data-stu-id="084b3-135">The **IHttpActionResult** interface was introduced in Web API 2.</span></span> <span data-ttu-id="084b3-136">基本的には、 **HttpResponseMessage**ファクトリを定義します。</span><span class="sxs-lookup"><span data-stu-id="084b3-136">Essentially, it defines an **HttpResponseMessage** factory.</span></span> <span data-ttu-id="084b3-137">**Ihttpactionresult**インターフェイスを使用すると、次のような利点があります。</span><span class="sxs-lookup"><span data-stu-id="084b3-137">Here are some advantages of using the **IHttpActionResult** interface:</span></span>
+<span data-ttu-id="fc2fb-135">**Ihttpactionresult**インターフェイスは、Web API 2 で導入されました。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-135">The **IHttpActionResult** interface was introduced in Web API 2.</span></span> <span data-ttu-id="fc2fb-136">基本的には、 **HttpResponseMessage**ファクトリを定義します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-136">Essentially, it defines an **HttpResponseMessage** factory.</span></span> <span data-ttu-id="fc2fb-137">**Ihttpactionresult**インターフェイスを使用すると、次のような利点があります。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-137">Here are some advantages of using the **IHttpActionResult** interface:</span></span>
 
-- <span data-ttu-id="084b3-138">コントローラーの[単体テスト](../testing-and-debugging/unit-testing-controllers-in-web-api.md)を簡略化します。</span><span class="sxs-lookup"><span data-stu-id="084b3-138">Simplifies [unit testing](../testing-and-debugging/unit-testing-controllers-in-web-api.md) your controllers.</span></span>
-- <span data-ttu-id="084b3-139">HTTP 応答を作成するための共通のロジックを別のクラスに移動します。</span><span class="sxs-lookup"><span data-stu-id="084b3-139">Moves common logic for creating HTTP responses into separate classes.</span></span>
-- <span data-ttu-id="084b3-140">応答を構築するための下位レベルの詳細を非表示にすることにより、コントローラーアクションの目的を明確にします。</span><span class="sxs-lookup"><span data-stu-id="084b3-140">Makes the intent of the controller action clearer, by hiding the low-level details of constructing the response.</span></span>
+- <span data-ttu-id="fc2fb-138">コントローラーの[単体テスト](../testing-and-debugging/unit-testing-controllers-in-web-api.md)を簡略化します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-138">Simplifies [unit testing](../testing-and-debugging/unit-testing-controllers-in-web-api.md) your controllers.</span></span>
+- <span data-ttu-id="fc2fb-139">HTTP 応答を作成するための共通のロジックを別のクラスに移動します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-139">Moves common logic for creating HTTP responses into separate classes.</span></span>
+- <span data-ttu-id="fc2fb-140">応答を構築するための下位レベルの詳細を非表示にすることにより、コントローラーアクションの目的を明確にします。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-140">Makes the intent of the controller action clearer, by hiding the low-level details of constructing the response.</span></span>
 
-<span data-ttu-id="084b3-141">**Ihttpactionresult**には、 **executeasync**という1つのメソッドが含まれています。このメソッドは、非同期的に**HttpResponseMessage**インスタンスを作成します。</span><span class="sxs-lookup"><span data-stu-id="084b3-141">**IHttpActionResult** contains a single method, **ExecuteAsync**, which asynchronously creates an **HttpResponseMessage** instance.</span></span>
+<span data-ttu-id="fc2fb-141">**Ihttpactionresult**には、 **executeasync**という1つのメソッドが含まれています。このメソッドは、非同期的に**HttpResponseMessage**インスタンスを作成します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-141">**IHttpActionResult** contains a single method, **ExecuteAsync**, which asynchronously creates an **HttpResponseMessage** instance.</span></span>
 
 [!code-csharp[Main](action-results/samples/sample6.cs)]
 
-<span data-ttu-id="084b3-142">コントローラーアクションが**Ihttpactionresult**を返す場合、Web API は**executeasync**メソッドを呼び出して**HttpResponseMessage**を作成します。</span><span class="sxs-lookup"><span data-stu-id="084b3-142">If a controller action returns an **IHttpActionResult**, Web API calls the **ExecuteAsync** method to create an **HttpResponseMessage**.</span></span> <span data-ttu-id="084b3-143">次に、 **HttpResponseMessage**を HTTP 応答メッセージに変換します。</span><span class="sxs-lookup"><span data-stu-id="084b3-143">Then it converts the **HttpResponseMessage** into an HTTP response message.</span></span>
+<span data-ttu-id="fc2fb-142">コントローラーアクションが**Ihttpactionresult**を返す場合、Web API は**executeasync**メソッドを呼び出して**HttpResponseMessage**を作成します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-142">If a controller action returns an **IHttpActionResult**, Web API calls the **ExecuteAsync** method to create an **HttpResponseMessage**.</span></span> <span data-ttu-id="fc2fb-143">次に、 **HttpResponseMessage**を HTTP 応答メッセージに変換します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-143">Then it converts the **HttpResponseMessage** into an HTTP response message.</span></span>
 
-<span data-ttu-id="084b3-144">次に示すのは、プレーンテキスト応答を作成する**Ihttpactionresult**の単純な実装です。</span><span class="sxs-lookup"><span data-stu-id="084b3-144">Here is a simple implementation of **IHttpActionResult** that creates a plain text response:</span></span>
+<span data-ttu-id="fc2fb-144">次に示すのは、プレーンテキスト応答を作成する**Ihttpactionresult**の単純な実装です。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-144">Here is a simple implementation of **IHttpActionResult** that creates a plain text response:</span></span>
 
 [!code-csharp[Main](action-results/samples/sample7.cs)]
 
-<span data-ttu-id="084b3-145">コントローラーアクションの例:</span><span class="sxs-lookup"><span data-stu-id="084b3-145">Example controller action:</span></span>
+<span data-ttu-id="fc2fb-145">コントローラーアクションの例:</span><span class="sxs-lookup"><span data-stu-id="fc2fb-145">Example controller action:</span></span>
 
 [!code-csharp[Main](action-results/samples/sample8.cs)]
 
-<span data-ttu-id="084b3-146">応答 :</span><span class="sxs-lookup"><span data-stu-id="084b3-146">Response:</span></span>
+<span data-ttu-id="fc2fb-146">応答:</span><span class="sxs-lookup"><span data-stu-id="fc2fb-146">Response:</span></span>
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-<span data-ttu-id="084b3-147">多くの場合、名前空間に定義されている**Ihttpactionresult**実装を使用 **[します。](https://msdn.microsoft.com/library/system.web.http.results.aspx)**</span><span class="sxs-lookup"><span data-stu-id="084b3-147">More often, you use the **IHttpActionResult** implementations defined in the **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** namespace.</span></span> <span data-ttu-id="084b3-148">**ApiController**クラスは、これらの組み込みアクションの結果を返すヘルパーメソッドを定義します。</span><span class="sxs-lookup"><span data-stu-id="084b3-148">The **ApiController** class defines helper methods that return these built-in action results.</span></span>
+<span data-ttu-id="fc2fb-147">多くの場合、名前空間に定義されている**Ihttpactionresult**実装を使用 **[します。](https://msdn.microsoft.com/library/system.web.http.results.aspx)**</span><span class="sxs-lookup"><span data-stu-id="fc2fb-147">More often, you use the **IHttpActionResult** implementations defined in the **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** namespace.</span></span> <span data-ttu-id="fc2fb-148">**ApiController**クラスは、これらの組み込みアクションの結果を返すヘルパーメソッドを定義します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-148">The **ApiController** class defines helper methods that return these built-in action results.</span></span>
 
-<span data-ttu-id="084b3-149">次の例では、要求が既存の製品 ID と一致しない場合、コントローラーは[ApiController](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx)を呼び出して 404 (見つかりません) 応答を作成します。</span><span class="sxs-lookup"><span data-stu-id="084b3-149">In the following example, if the request does not match an existing product ID, the controller calls [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) to create a 404 (Not Found) response.</span></span> <span data-ttu-id="084b3-150">それ以外の場合、コントローラーは ApiController を呼び出します。これにより、製品を含む 200 (OK) の応答が作成され[ます。](https://msdn.microsoft.com/library/dn314591.aspx)</span><span class="sxs-lookup"><span data-stu-id="084b3-150">Otherwise, the controller calls [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), which creates a 200 (OK) response that contains the product.</span></span>
+<span data-ttu-id="fc2fb-149">次の例では、要求が既存の製品 ID と一致しない場合、コントローラーは[ApiController](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx)を呼び出して 404 (見つかりません) 応答を作成します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-149">In the following example, if the request does not match an existing product ID, the controller calls [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) to create a 404 (Not Found) response.</span></span> <span data-ttu-id="fc2fb-150">それ以外の場合、コントローラーは ApiController を呼び出します。これにより、製品を含む 200 (OK) の応答が作成され[ます。](https://msdn.microsoft.com/library/dn314591.aspx)</span><span class="sxs-lookup"><span data-stu-id="fc2fb-150">Otherwise, the controller calls [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), which creates a 200 (OK) response that contains the product.</span></span>
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 
-## <a name="other-return-types"></a><span data-ttu-id="084b3-151">その他の戻り値の型</span><span class="sxs-lookup"><span data-stu-id="084b3-151">Other Return Types</span></span>
+## <a name="other-return-types"></a><span data-ttu-id="fc2fb-151">その他の戻り値の型</span><span class="sxs-lookup"><span data-stu-id="fc2fb-151">Other Return Types</span></span>
 
-<span data-ttu-id="084b3-152">その他のすべての戻り値の型では、Web API は[メディアフォーマッタ](../formats-and-model-binding/media-formatters.md)を使用して戻り値をシリアル化します。</span><span class="sxs-lookup"><span data-stu-id="084b3-152">For all other return types, Web API uses a [media formatter](../formats-and-model-binding/media-formatters.md) to serialize the return value.</span></span> <span data-ttu-id="084b3-153">Web API は、シリアル化された値を応答本文に書き込みます。</span><span class="sxs-lookup"><span data-stu-id="084b3-153">Web API writes the serialized value into the response body.</span></span> <span data-ttu-id="084b3-154">応答状態コードは 200 (OK) です。</span><span class="sxs-lookup"><span data-stu-id="084b3-154">The response status code is 200 (OK).</span></span>
+<span data-ttu-id="fc2fb-152">その他のすべての戻り値の型では、Web API は[メディアフォーマッタ](../formats-and-model-binding/media-formatters.md)を使用して戻り値をシリアル化します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-152">For all other return types, Web API uses a [media formatter](../formats-and-model-binding/media-formatters.md) to serialize the return value.</span></span> <span data-ttu-id="fc2fb-153">Web API は、シリアル化された値を応答本文に書き込みます。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-153">Web API writes the serialized value into the response body.</span></span> <span data-ttu-id="fc2fb-154">応答状態コードは 200 (OK) です。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-154">The response status code is 200 (OK).</span></span>
 
 [!code-csharp[Main](action-results/samples/sample11.cs)]
 
-<span data-ttu-id="084b3-155">この方法の欠点は、404などのエラーコードを直接返すことができないことです。</span><span class="sxs-lookup"><span data-stu-id="084b3-155">A disadvantage of this approach is that you cannot directly return an error code, such as 404.</span></span> <span data-ttu-id="084b3-156">ただし、エラーコードの**HttpResponseException**をスローすることはできます。</span><span class="sxs-lookup"><span data-stu-id="084b3-156">However, you can throw an **HttpResponseException** for error codes.</span></span> <span data-ttu-id="084b3-157">詳細については、「 [ASP.NET Web API での例外処理](../error-handling/exception-handling.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="084b3-157">For more information, see [Exception Handling in ASP.NET Web API](../error-handling/exception-handling.md).</span></span>
+<span data-ttu-id="fc2fb-155">この方法の欠点は、404などのエラーコードを直接返すことができないことです。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-155">A disadvantage of this approach is that you cannot directly return an error code, such as 404.</span></span> <span data-ttu-id="fc2fb-156">ただし、エラーコードの**HttpResponseException**をスローすることはできます。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-156">However, you can throw an **HttpResponseException** for error codes.</span></span> <span data-ttu-id="fc2fb-157">詳細については、「 [ASP.NET Web API での例外処理](../error-handling/exception-handling.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-157">For more information, see [Exception Handling in ASP.NET Web API](../error-handling/exception-handling.md).</span></span>
 
-<span data-ttu-id="084b3-158">Web API では、要求の Accept ヘッダーを使用してフォーマッタを選択します。</span><span class="sxs-lookup"><span data-stu-id="084b3-158">Web API uses the Accept header in the request to choose the formatter.</span></span> <span data-ttu-id="084b3-159">詳細については、「[コンテンツネゴシエーション](../formats-and-model-binding/content-negotiation.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="084b3-159">For more information, see [Content Negotiation](../formats-and-model-binding/content-negotiation.md).</span></span>
+<span data-ttu-id="fc2fb-158">Web API では、要求の Accept ヘッダーを使用してフォーマッタを選択します。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-158">Web API uses the Accept header in the request to choose the formatter.</span></span> <span data-ttu-id="fc2fb-159">詳細については、「[コンテンツネゴシエーション](../formats-and-model-binding/content-negotiation.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="fc2fb-159">For more information, see [Content Negotiation](../formats-and-model-binding/content-negotiation.md).</span></span>
 
-<span data-ttu-id="084b3-160">要求の例</span><span class="sxs-lookup"><span data-stu-id="084b3-160">Example request</span></span>
+<span data-ttu-id="fc2fb-160">要求の例</span><span class="sxs-lookup"><span data-stu-id="fc2fb-160">Example request</span></span>
 
 [!code-console[Main](action-results/samples/sample12.cmd)]
 
-<span data-ttu-id="084b3-161">応答の例</span><span class="sxs-lookup"><span data-stu-id="084b3-161">Example response</span></span>
+<span data-ttu-id="fc2fb-161">応答の例</span><span class="sxs-lookup"><span data-stu-id="fc2fb-161">Example response</span></span>
 
 [!code-console[Main](action-results/samples/sample13.cmd)]
