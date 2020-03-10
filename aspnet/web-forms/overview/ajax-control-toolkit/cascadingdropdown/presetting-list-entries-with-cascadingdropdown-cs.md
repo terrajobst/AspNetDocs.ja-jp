@@ -9,53 +9,53 @@ ms.assetid: 04c79748-0f21-4a3b-aba5-e1ce3161c32e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3bb4a51092534e6fddbd40f868c53c58d12eef2f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574668"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78483784"
 ---
-# <a name="presetting-list-entries-with-cascadingdropdown-c"></a><span data-ttu-id="fad1c-103">CascadingDropDown で一覧のエントリを事前設定する (C#)</span><span class="sxs-lookup"><span data-stu-id="fad1c-103">Presetting List Entries with CascadingDropDown (C#)</span></span>
+# <a name="presetting-list-entries-with-cascadingdropdown-c"></a><span data-ttu-id="28be6-103">CascadingDropDown で一覧のエントリを事前設定する (C#)</span><span class="sxs-lookup"><span data-stu-id="28be6-103">Presetting List Entries with CascadingDropDown (C#)</span></span>
 
-<span data-ttu-id="fad1c-104">[Christian Wenz](https://github.com/wenz)別</span><span class="sxs-lookup"><span data-stu-id="fad1c-104">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="28be6-104">[Christian Wenz](https://github.com/wenz)別</span><span class="sxs-lookup"><span data-stu-id="28be6-104">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="fad1c-105">[コードのダウンロード](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown2.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingDropDown2CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="fad1c-105">[Download Code](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown2.cs.zip) or [Download PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingDropDown2CS.pdf)</span></span>
+<span data-ttu-id="28be6-105">[コードのダウンロード](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown2.cs.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingDropDown2CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="28be6-105">[Download Code](https://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown2.cs.zip) or [Download PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingDropDown2CS.pdf)</span></span>
 
-> <span data-ttu-id="fad1c-106">AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。</span><span class="sxs-lookup"><span data-stu-id="fad1c-106">The CascadingDropDown control in the AJAX Control Toolkit extends a DropDownList control so that changes in one DropDownList loads associated values in another DropDownList.</span></span> <span data-ttu-id="fad1c-107">少量のコードを使用すると、データが動的に読み込まれた後でリスト要素が事前選択される可能性があります。</span><span class="sxs-lookup"><span data-stu-id="fad1c-107">With a little bit of code it is possible that a list element is preselected once the data has been dynamically loaded.</span></span>
+> <span data-ttu-id="28be6-106">AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。</span><span class="sxs-lookup"><span data-stu-id="28be6-106">The CascadingDropDown control in the AJAX Control Toolkit extends a DropDownList control so that changes in one DropDownList loads associated values in another DropDownList.</span></span> <span data-ttu-id="28be6-107">少量のコードを使用すると、データが動的に読み込まれた後でリスト要素が事前選択される可能性があります。</span><span class="sxs-lookup"><span data-stu-id="28be6-107">With a little bit of code it is possible that a list element is preselected once the data has been dynamically loaded.</span></span>
 
-## <a name="overview"></a><span data-ttu-id="fad1c-108">の概要</span><span class="sxs-lookup"><span data-stu-id="fad1c-108">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="28be6-108">概要</span><span class="sxs-lookup"><span data-stu-id="28be6-108">Overview</span></span>
 
-<span data-ttu-id="fad1c-109">AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。</span><span class="sxs-lookup"><span data-stu-id="fad1c-109">The CascadingDropDown control in the AJAX Control Toolkit extends a DropDownList control so that changes in one DropDownList loads associated values in another DropDownList.</span></span> <span data-ttu-id="fad1c-110">(たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。少量のコードを使用すると、データが動的に読み込まれた後でリスト要素が事前選択される可能性があります。</span><span class="sxs-lookup"><span data-stu-id="fad1c-110">(For instance, one list provides a list of US states, and the next list is then filled with major cities in that state.) With a little bit of code it is possible that a list element is preselected once the data has been dynamically loaded.</span></span>
+<span data-ttu-id="28be6-109">AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。</span><span class="sxs-lookup"><span data-stu-id="28be6-109">The CascadingDropDown control in the AJAX Control Toolkit extends a DropDownList control so that changes in one DropDownList loads associated values in another DropDownList.</span></span> <span data-ttu-id="28be6-110">(たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。少量のコードを使用すると、データが動的に読み込まれた後でリスト要素が事前選択される可能性があります。</span><span class="sxs-lookup"><span data-stu-id="28be6-110">(For instance, one list provides a list of US states, and the next list is then filled with major cities in that state.) With a little bit of code it is possible that a list element is preselected once the data has been dynamically loaded.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="fad1c-111">手順</span><span class="sxs-lookup"><span data-stu-id="fad1c-111">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="28be6-111">手順</span><span class="sxs-lookup"><span data-stu-id="28be6-111">Steps</span></span>
 
-<span data-ttu-id="fad1c-112">ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、ページの任意の場所に `ScriptManager` コントロールを配置する必要があります (`<form>` 要素内)。</span><span class="sxs-lookup"><span data-stu-id="fad1c-112">In order to activate the functionality of ASP.NET AJAX and the Control Toolkit, the `ScriptManager` control must be put anywhere on the page (but within the `<form>` element):</span></span>
+<span data-ttu-id="28be6-112">ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、ページの任意の場所に `ScriptManager` コントロールを配置する必要があります (`<form>` 要素内)。</span><span class="sxs-lookup"><span data-stu-id="28be6-112">In order to activate the functionality of ASP.NET AJAX and the Control Toolkit, the `ScriptManager` control must be put anywhere on the page (but within the `<form>` element):</span></span>
 
 [!code-aspx[Main](presetting-list-entries-with-cascadingdropdown-cs/samples/sample1.aspx)]
 
-<span data-ttu-id="fad1c-113">次に、DropDownList コントロールが必要です。</span><span class="sxs-lookup"><span data-stu-id="fad1c-113">Then, a DropDownList control is required:</span></span>
+<span data-ttu-id="28be6-113">次に、DropDownList コントロールが必要です。</span><span class="sxs-lookup"><span data-stu-id="28be6-113">Then, a DropDownList control is required:</span></span>
 
 [!code-aspx[Main](presetting-list-entries-with-cascadingdropdown-cs/samples/sample2.aspx)]
 
-<span data-ttu-id="fad1c-114">この一覧では、web サービスの URL とメソッドの情報を提供する CascadingDropDown extender が追加されます。</span><span class="sxs-lookup"><span data-stu-id="fad1c-114">For this list, a CascadingDropDown extender is added, providing web service URL and method information:</span></span>
+<span data-ttu-id="28be6-114">この一覧では、web サービスの URL とメソッドの情報を提供する CascadingDropDown extender が追加されます。</span><span class="sxs-lookup"><span data-stu-id="28be6-114">For this list, a CascadingDropDown extender is added, providing web service URL and method information:</span></span>
 
 [!code-aspx[Main](presetting-list-entries-with-cascadingdropdown-cs/samples/sample3.aspx)]
 
-<span data-ttu-id="fad1c-115">次に、CascadingDropDown extender は、次のメソッドシグネチャを使用して web サービスを非同期に呼び出します。</span><span class="sxs-lookup"><span data-stu-id="fad1c-115">The CascadingDropDown extender then asynchronously calls a web service with the following method signature:</span></span>
+<span data-ttu-id="28be6-115">次に、CascadingDropDown extender は、次のメソッドシグネチャを使用して web サービスを非同期に呼び出します。</span><span class="sxs-lookup"><span data-stu-id="28be6-115">The CascadingDropDown extender then asynchronously calls a web service with the following method signature:</span></span>
 
 [!code-csharp[Main](presetting-list-entries-with-cascadingdropdown-cs/samples/sample4.cs)]
 
-<span data-ttu-id="fad1c-116">このメソッドは、CascadingDropDown value 型の配列を返します。</span><span class="sxs-lookup"><span data-stu-id="fad1c-116">The method returns an array of type CascadingDropDown value.</span></span> <span data-ttu-id="fad1c-117">型のコンストラクターは、最初にリストエントリのキャプションを受け取り、次に値 (HTML `value` 属性) を必要とします。</span><span class="sxs-lookup"><span data-stu-id="fad1c-117">The type's constructor expects first the list entry's caption and then the value (HTML `value` attribute).</span></span> <span data-ttu-id="fad1c-118">3番目の引数が true に設定されている場合、リスト要素はブラウザーで自動的に選択されます。</span><span class="sxs-lookup"><span data-stu-id="fad1c-118">If the third argument is set to true, the list element is automatically selected in the browser.</span></span>
+<span data-ttu-id="28be6-116">このメソッドは、CascadingDropDown value 型の配列を返します。</span><span class="sxs-lookup"><span data-stu-id="28be6-116">The method returns an array of type CascadingDropDown value.</span></span> <span data-ttu-id="28be6-117">型のコンストラクターは、最初にリストエントリのキャプションを受け取り、次に値 (HTML `value` 属性) を必要とします。</span><span class="sxs-lookup"><span data-stu-id="28be6-117">The type's constructor expects first the list entry's caption and then the value (HTML `value` attribute).</span></span> <span data-ttu-id="28be6-118">3番目の引数が true に設定されている場合、リスト要素はブラウザーで自動的に選択されます。</span><span class="sxs-lookup"><span data-stu-id="28be6-118">If the third argument is set to true, the list element is automatically selected in the browser.</span></span>
 
 [!code-aspx[Main](presetting-list-entries-with-cascadingdropdown-cs/samples/sample5.aspx)]
 
-<span data-ttu-id="fad1c-119">ブラウザーにページを読み込むと、ドロップダウンリストに3つのベンダが挿入され、2番目のベンダーが事前に選択されます。</span><span class="sxs-lookup"><span data-stu-id="fad1c-119">Loading the page in the browser will fill the dropdown list with three vendors, the second one being preselected.</span></span>
+<span data-ttu-id="28be6-119">ブラウザーにページを読み込むと、ドロップダウンリストに3つのベンダが挿入され、2番目のベンダーが事前に選択されます。</span><span class="sxs-lookup"><span data-stu-id="28be6-119">Loading the page in the browser will fill the dropdown list with three vendors, the second one being preselected.</span></span>
 
-<span data-ttu-id="fad1c-120">[リストが自動的に入力されて事前選択される ![](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="fad1c-120">[![The list is filled and preselected automatically](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)</span></span>
+<span data-ttu-id="28be6-120">[リストが自動的に入力されて事前選択される ![](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="28be6-120">[![The list is filled and preselected automatically](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)</span></span>
 
-<span data-ttu-id="fad1c-121">リストが自動的に入力され、事前選択されます ([クリックすると、フルサイズの画像が表示](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png)されます)</span><span class="sxs-lookup"><span data-stu-id="fad1c-121">The list is filled and preselected automatically ([Click to view full-size image](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png))</span></span>
+<span data-ttu-id="28be6-121">リストが自動的に入力され、事前選択されます ([クリックすると、フルサイズの画像が表示](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png)されます)</span><span class="sxs-lookup"><span data-stu-id="28be6-121">The list is filled and preselected automatically ([Click to view full-size image](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="fad1c-122">[前へ](using-cascadingdropdown-with-a-database-cs.md)
-> [次へ](using-auto-postback-with-cascadingdropdown-cs.md)</span><span class="sxs-lookup"><span data-stu-id="fad1c-122">[Previous](using-cascadingdropdown-with-a-database-cs.md)
+> <span data-ttu-id="28be6-122">[前へ](using-cascadingdropdown-with-a-database-cs.md)
+> [次へ](using-auto-postback-with-cascadingdropdown-cs.md)</span><span class="sxs-lookup"><span data-stu-id="28be6-122">[Previous](using-cascadingdropdown-with-a-database-cs.md)
 [Next](using-auto-postback-with-cascadingdropdown-cs.md)</span></span>
