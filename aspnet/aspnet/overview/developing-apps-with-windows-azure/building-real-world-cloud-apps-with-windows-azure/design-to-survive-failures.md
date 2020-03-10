@@ -9,11 +9,11 @@ ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
 ms.openlocfilehash: 348232af531b5d53dc3cb46d6d2c7931d95a572d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457129"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500764"
 ---
 # <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>障害に耐えられるように設計する (Azure を使用した実際のクラウドアプリの構築)
 
@@ -98,7 +98,7 @@ Sla を検討する際に考慮すべき重要な点は、アプリで複数の�
 
 一部のクラウドサービスは、アプリで過剰に使用されている場合にサービスを意図的に拒否することがあります。 これは "*調整*" と呼ばれます。 サービスに SLA が適用されている場合は、調整される可能性がある条件を指定する必要があります。また、アプリの設計では、これらの条件を回避し、発生した場合に調整に適切に対応する必要があります。 たとえば、1秒あたりに特定の数を超えたときにサービスへの要求が失敗し始めた場合、自動再試行が行われないようにして、調整が続行されるようにする必要があります。 [一時的なエラー処理の章](transient-fault-handling.md)では、スロットルについてさらに説明します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 この章では、障害を適切に維持するために、実際のクラウドアプリを設計する必要がある理由について説明しました。 [次の章](monitoring-and-telemetry.md)から、このシリーズの残りのパターンは、そのために使用できるいくつかの方法についてさらに詳しく説明します。
 
@@ -111,7 +111,7 @@ Sla を検討する際に考慮すべき重要な点は、アプリで複数の�
 
 詳細については、この電子ブックの後の章と次のリソースを参照してください。
 
-ドキュメント:
+ドキュメント
 
 - [フェイルセーフ: 回復力のあるクラウドアーキテクチャに関するガイダンス](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)。 ホワイトペーパー (Marc Mercuri、Ulrich Homann、Andrew Townhill)。 フェールセーフビデオシリーズの Web ページバージョン。
 - [Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 マーク Simm と Michael Thomassy によるホワイトペーパー。

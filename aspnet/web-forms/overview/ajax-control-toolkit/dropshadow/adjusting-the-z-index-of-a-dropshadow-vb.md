@@ -9,11 +9,11 @@ ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 10495a9590ce1f25e9e3fa218ac5144268f50711
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574177"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497512"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>DropShadow の Z インデックスを調整する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74574177"
 
 > AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、ASP.NET Menu コントロールなど、他のコントロールと競合することがあります。 メニューエントリがポップアップ表示されると、ドロップシャドウの背後に表示されます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、ASP.NET Menu コントロールなど、他のコントロールと競合することがあります。 メニューエントリがポップアップ表示されると、ドロップシャドウの背後に表示されます。
 

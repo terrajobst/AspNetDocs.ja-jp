@@ -9,11 +9,11 @@ ms.assetid: 9410a23c-9697-4f07-bd71-e62b0ceac655
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 49b09cbf0f12f7c7233c3bb2a8b3b2c073bf117e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74573401"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78495244"
 ---
 # <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>DataList のデータの編集と削除の概要 (VB)
 
@@ -282,7 +282,7 @@ DataList に削除機能を追加する手順は、編集機能を追加する�
 
 製品を削除した後、データを DataList (`DataList1.DataBind()`) に再バインドすることが重要です。そうしないと、削除されたばかりの製品が DataList によって引き続き表示されます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 DataList はポイントを持たないのに対し、GridView によって使用されている編集および削除のサポートはわずかですが、これらの機能を含めるように拡張することができます。 このチュートリアルでは、削除して名前と価格を編集できる2列の製品の一覧を作成する方法を説明しました。 編集と削除のサポートを追加するには、適切な Web コントロールを `ItemTemplate` と `EditItemTemplate`に含め、対応するイベントハンドラーを作成し、ユーザーが入力したキーと主キーの値を読み取り、ビジネスロジック層とやり取りする必要があります。
 
@@ -292,7 +292,7 @@ DataList には基本的な編集機能と削除機能が追加されていま�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -9,11 +9,11 @@ ms.assetid: 14d9aa1b-4dca-43a0-aa9d-a6e891fee019
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 9bb39712855c37f5cbcbb447f7691e9451b8dc92
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74642315"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78461452"
 ---
 # <a name="nested-master-pages-vb"></a>入れ子にされたマスター ページ (VB)
 
@@ -185,7 +185,7 @@ ContentPlaceHolder コントロールを含めるには、入れ子になった�
 
 最初のタスクは、[管理] セクションのページで使用する、入れ子になったマスターページを作成することです。 手順 2. で見たように、入れ子になった新しいマスターページを追加するときは、入れ子になったマスターページの親マスターページを指定する必要があります。 しかし、`Site.master` と `Alternate.master`というトップレベルのマスターページが2つあります。 前のチュートリアルで `Alternate.master` を作成し、`Site.master` Session 変数の値に応じて、実行時に `Page` オブジェクトの `MasterPageFile` プロパティを `Alternate.master` または `MyMasterPage` に設定するコードを `BasePage` クラスに記述したことを思い出してください。
 
-適切なトップレベルマスターページを使用するように、入れ子になったマスターページを構成するにはどうすればよいですか。 2つのオプションがあります。
+適切なトップレベルマスターページを使用するように、入れ子になったマスターページを構成するにはどうすればよいですか。 2 つのオプションがあります。
 
 - 2つの入れ子になったマスターページ `AdminNestedSite.master` と `AdminNestedAlternate.master`を作成し、それぞれをトップレベルのマスターページ `Site.master` および `Alternate.master`にバインドします。 `BasePage`では、`Page` オブジェクトの `MasterPageFile` を適切な入れ子になったマスターページに設定します。
 - 1つの入れ子になったマスターページを作成し、コンテンツページがこの特定のマスターページを使用するようにします。 次に、実行時に、入れ子になったマスターページの `MasterPageFile` プロパティを、実行時に適切な最上位レベルのマスターページに設定する必要があります。 (現時点では、マスターページには `MasterPageFile` のプロパティもあります)。
@@ -232,7 +232,7 @@ ContentPlaceHolder コントロールを含めるには、入れ子になった�
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample12.vb)]
 
-宛先:
+変更後:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample13.vb)]
 
@@ -246,13 +246,13 @@ ContentPlaceHolder コントロールを含めるには、入れ子になった�
 
 `~/Admin/AddProduct.aspx` ページと `~/Admin/Products.aspx` ページは、マスターページとプログラムによって対話することを思い出してください。 `~/Admin/AddProduct.aspx` は、マスターページのパブリック `RefreshRecentProductsGrid` メソッドを呼び出し、その `GridMessageText` プロパティを設定します。`~/Admin/Products.aspx` には、`PricesDoubled` イベントのイベントハンドラーがあります。 前のチュートリアルでは、これらのパブリックメンバーを定義する `MustInherit` `BaseMasterPage` クラスを作成しました。
 
-`~/Admin/AddProduct.aspx` ページと `~/Admin/Products.aspx` ページでは、マスターページが `BaseMasterPage` クラスから派生していることを前提としています。 ただし、`AdminNested.master` ページでは、現在 `System.Web.UI.MasterPage` クラスが拡張されています。 その結果、`~/Admin/Products.aspx` にアクセスすると、"型 ' ASP のオブジェクトをキャストできませんでした。管理者\_adminnested\_master ' を型 ' BaseMasterPage ' にキャストできません。" というメッセージが表示されます。
+`~/Admin/AddProduct.aspx` ページと `~/Admin/Products.aspx` ページでは、マスターページが `BaseMasterPage` クラスから派生していることを前提としています。 ただし、`AdminNested.master` ページでは、現在 `System.Web.UI.MasterPage` クラスが拡張されています。 その結果、`~/Admin/Products.aspx` にアクセスすると、"型 ' ASP のオブジェクトをキャストできませんでした。管理者\_adminnested\_master ' を型 ' BaseMasterPage ' にキャストできません。" というメッセージが表示されます。`InvalidCastException`
 
 この問題を解決するには、`AdminNested.master` 分離コードクラスで `BaseMasterPage`を拡張する必要があります。 入れ子になったマスターページの分離コードクラスの宣言を次のように更新します。
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample14.vb)]
 
-宛先:
+変更後:
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample15.vb)]
 
@@ -292,13 +292,13 @@ ContentPlaceHolder コントロールを含めるには、入れ子になった�
 
 **図 13**: 入れ子になった管理ページで、ユーザーが選択した最上位レベルのマスターページを使用[する (クリックしてフルサイズの画像を表示する](nested-master-pages-vb/_static/image39.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 コンテンツページをマスターページにバインドするのと同じように、子マスターページを親マスターページにバインドすることで、入れ子になったマスターページを作成できます。 子マスターページでは、各親の ContentPlaceHolders のコンテンツコントロールを定義できます。その後、独自の ContentPlaceHolder コントロール (およびその他のマークアップ) をこれらのコンテンツコントロールに追加できます。 入れ子になったマスターページは、すべてのページが包括的なルックアンドフィールを共有する大規模な web アプリケーションで非常に便利ですが、サイトの特定のセクションでは独自のカスタマイズが必要です。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -306,7 +306,7 @@ ContentPlaceHolder コントロールを含めるには、入れ子になった�
 - [入れ子になったマスターページと VS 2005 デザイン時のヒント](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)
 - [VS 2008 入れ子になったマスターページのサポート](https://weblogs.asp.net/scottgu/archive/2007/07/09/vs-2008-nested-master-page-support.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
@@ -315,4 +315,4 @@ ContentPlaceHolder コントロールを含めるには、入れ子になった�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
-> [前へ](specifying-the-master-page-programmatically-vb.md)
+> [[戻る]](specifying-the-master-page-programmatically-vb.md)

@@ -9,11 +9,11 @@ ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 413a0e209b1899414eaab70aff07ee0d3223f28f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74643118"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78501490"
 ---
 # <a name="batch-inserting-vb"></a>一括挿入 (VB)
 
@@ -219,7 +219,7 @@ Supplier DropDownList `ID` プロパティを `Suppliers` に設定し、`Suppli
 > [!NOTE]
 > このチュートリアルで使用するバッチ挿入ロジックでは、トランザクションのスコープ内で挿入をラップします。 これを確認するには、データベースレベルのエラーを意図的に導入します。 たとえば、新しい `ProductsRow` インスタンスの `CategoryID` プロパティを `Categories` DropDownList で選択されている値に割り当てるのではなく、`i * 5`などの値に割り当てます。 ここで `i` はループインデクサーで、1 ~ 5 の範囲の値を持ちます。 したがって、バッチ挿入に2つ以上の製品を追加する場合、最初の製品には有効な `CategoryID` 値 (5) が設定されますが、それ以降の製品では、`Categories` テーブルの値 `CategoryID` に一致しない値が `CategoryID` されます。 実質的には、最初の `INSERT` は成功しますが、それ以降は外部キー制約違反で失敗します。 バッチ挿入はアトミックであるため、最初の `INSERT` がロールバックされ、バッチ挿入プロセスが開始される前にデータベースがその状態に戻ります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルと前の2つのチュートリアルでは、データのバッチの更新、削除、および挿入を可能にするインターフェイスを作成しました。トランザクションを使用する場合は、[トランザクション内でデータベースをラップ](wrapping-database-modifications-within-a-transaction-vb.md)することで、データアクセス層に追加しました。 特定のシナリオでは、このようなバッチ処理のユーザーインターフェイスを使用すると、基になるデータの整合性を維持しながら、クリック、ポストバック、キーボードからマウスへのコンテキストスイッチの数を減らすことで、エンドユーザーの効率を大幅に向上させることができます。
 
@@ -227,7 +227,7 @@ Supplier DropDownList `ID` プロパティを `Suppliers` に設定し、`Suppli
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -236,4 +236,4 @@ Supplier DropDownList `ID` プロパティを `Suppliers` に設定し、`Suppli
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Giesenow と S ren Jacob Lauritsen でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](batch-deleting-vb.md)
+> [[戻る]](batch-deleting-vb.md)

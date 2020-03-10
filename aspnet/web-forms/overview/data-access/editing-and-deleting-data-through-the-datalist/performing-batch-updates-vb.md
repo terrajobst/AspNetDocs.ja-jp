@@ -9,11 +9,11 @@ ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
 ms.openlocfilehash: e54c9fc12da278492b54164cf657eea142a3dae6
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74632615"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78494752"
 ---
 # <a name="performing-batch-updates-vb"></a>バッチ更新を実行する (VB)
 
@@ -131,13 +131,13 @@ ADO.NET DataTable および DataAdapter クラスはバッチ更新をサポー�
 > [!NOTE]
 > `UpdateSupplierAddress` メソッドが呼び出されるたびに、データベースに対して呼び出しが行われ、更新されたレコードに関する情報が取得されます。 次に、データが変更された場合、テーブル行を更新するための別のデータベース呼び出しが行われます。 このワークフローを最適化するには、`BatchUpdate.aspx` ページの*すべて*の変更を含む `EmployeesDataTable` インスタンスを受け入れる `UpdateSupplierAddress` メソッドのオーバーロードを作成します。 次に、データベースを1回呼び出して、`Suppliers` テーブルからすべてのレコードを取得することができます。 その後、2つの結果セットを列挙し、変更が発生したレコードのみを更新できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、完全に編集可能な DataList を作成し、ユーザーが複数のサプライヤーのアドレス情報をすばやく変更できるようにする方法を説明しました。 このチュートリアルでは、まず、DataList s アドレス、市区町村、および国の値に対して、編集インターフェイスの TextBox Web コントロールを `ItemTemplate`します。 次に、DataList の上と下に [すべて更新] ボタンを追加しました。 ユーザーが自分の変更を行って [すべて更新] ボタンをクリックすると、`DataListItem` s が列挙され、`SuppliersBLL` クラス s `UpdateSupplierAddress` メソッドの呼び出しが行われます。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

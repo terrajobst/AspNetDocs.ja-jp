@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-search-view-hierarchy
-title: Visual Studio 2010 クイック ヒット - コード検索表示階層
+title: Visual Studio 2010 クイックヒット Code Search ビュー階層
 author: JoeStagner
-description: このビデオでは、Visual Studio のコード検索表示階層について学びます。
+description: このビデオでは、Visual Studio のコード検索ビュー階層について説明します。
 ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 0f24b680-e3a6-46f6-a52a-91191e09ab78
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-search-view-hierarchy
 msc.type: video
 ms.openlocfilehash: a6ae54ef28b9fbfe99c0efb1dde22084f1b1acfc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408811"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516976"
 ---
-# <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a>ビジュアルの Studio 2010「クイック ヒット」- コード検索表示階層
+# <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a>Visual Studio 2010 "クイックヒット"-Code Search ビュー階層
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、Visual Studio のコード検索表示階層について学びます。
+このビデオでは、Visual Studio のコード検索ビュー階層について説明します。
 
-[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-code-search-view-hierarchy)
+[&#9654;ビデオを見る (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-code-search-view-hierarchy)
 
 > [!div class="step-by-step"]
 > [前へ](visual-studio-2010-quick-hit-code-optimized-profile.md)

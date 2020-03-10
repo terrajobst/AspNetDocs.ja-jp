@@ -9,11 +9,11 @@ ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8ef15bebb2c29976274b0cca1d6ace434ccc55ce
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640273"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78481270"
 ---
 # <a name="nested-data-web-controls-c"></a>入れ子になったデータ Web コントロール (C#)
 
@@ -145,7 +145,7 @@ Repeater s `DataSource` プロパティは、データが `GetProductsInCategory
 
 常に、2つの手法のパフォーマンスを分析する場合、唯一の surefire メジャーは、アプリケーションの一般的なケースシナリオに合わせて調整された制御されたテストを実行することです。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、1つのデータ Web コントロールを別のデータ Web コントロールに入れ子にする方法を説明しました。具体的には、外部リピータが各カテゴリの項目を表示する方法について説明します。具体的には、各カテゴリの製品を箇条書きリストに一覧表示します。 入れ子になったユーザーインターフェイスを構築する際の主な課題は、にアクセスして、正しいデータを内部データ Web コントロールにバインドすることです。 このチュートリアルでは、次の2つの方法を使用できます。 最初の方法では、`DataSourceID` プロパティを使用して内部データ Web コントロールにバインドされた `ItemTemplate` 外側のデータ Web コントロールに ObjectDataSource を使用しました。 2番目の手法では、ASP.NET ページの分離コードクラスのメソッドを使用してデータにアクセスします。 このメソッドは、databinding 構文を通じて内部データ Web コントロール s `DataSource` プロパティにバインドできます。
 
@@ -153,7 +153,7 @@ Repeater s `DataSource` プロパティは、データが `GetProductsInCategory
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

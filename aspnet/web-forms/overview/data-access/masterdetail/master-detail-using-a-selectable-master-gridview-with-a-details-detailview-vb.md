@@ -9,11 +9,11 @@ ms.assetid: 1d1a7c93-971d-4690-9c5e-dac0e5014a09
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: a953c00acc4c37fd563321477b6b21689d6e686c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576439"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78503488"
 ---
 # <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>選択可能なマスター GridView と詳細 DetailView を使用してマスター/詳細を表示する (VB)
 
@@ -123,7 +123,7 @@ GridView コントロールの `SelectedValue` プロパティから取得した
 
 **図 12**: 行を選択すると、製品の詳細が表示されます ([クリックすると、フルサイズの画像が表示](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image36.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 この3つのチュートリアルでは、マスター/詳細レポートを表示するためのいくつかの手法について説明しました。 このチュートリアルでは、選択可能な GridView を使用してマスターレコードを格納し、DetailsView を使用して、選択したマスターレコードの詳細を同じページに表示します。 前のチュートリアルでは、DropDownLists を使用してマスター/詳細レポートを表示する方法と、1つの web ページにマスターレコードを表示する方法と、別の web ページで詳細レコードを表示する方法を説明しました。
 
@@ -131,7 +131,7 @@ GridView コントロールの `SelectedValue` プロパティから取得した
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -140,4 +140,4 @@ GridView コントロールの `SelectedValue` プロパティから取得した
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Hilton Giesenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](master-detail-filtering-across-two-pages-vb.md)
+> [[戻る]](master-detail-filtering-across-two-pages-vb.md)

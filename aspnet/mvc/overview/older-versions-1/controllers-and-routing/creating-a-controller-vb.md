@@ -1,87 +1,87 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
-title: コント ローラー (VB) の作成 |Microsoft Docs
+title: コントローラーを作成する (VB) |Microsoft Docs
 author: StephenWalther
-description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションをコント ローラーを追加する方法について説明します。
+description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションにコントローラーを追加する方法を示しています。
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 204b7e86-f560-4611-8adb-785b33e777b9
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 60636b79ab5fc06ca904dee90ce74f256e046d12
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123626"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486832"
 ---
 # <a name="creating-a-controller-vb"></a>コントローラーを作成する (VB)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-> このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションをコント ローラーを追加する方法について説明します。
+> このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションにコントローラーを追加する方法を示しています。
 
-このチュートリアルの目的では、作成する新しい ASP.NET MVC コント ローラーについて説明します。 Visual Studio コント ローラーの追加 メニュー オプションを使用して、クラス ファイルを手動で作成して、コント ローラーを作成する方法について説明します。
+このチュートリアルの目的は、新しい ASP.NET MVC コントローラーを作成する方法を説明することです。 コントローラーを作成する方法については、Visual Studio の [コントローラーの追加] メニューオプションを使用する方法と、手動でクラスファイルを作成する方法に関するページを参照してください。
 
-### <a name="using-the-add-controller-menu-option"></a>使用して、コント ローラーのメニュー オプションの追加
+### <a name="using-the-add-controller-menu-option"></a>[コントローラーの追加] メニューオプションの使用
 
-新しいコント ローラーを作成する最も簡単な方法は、Visual Studio ソリューション エクスプ ローラー ウィンドウで、Controllers フォルダーを右クリックして、選択、**追加、コント ローラー**メニュー オプション (図 1 参照)。 このメニュー オプションを選択すると表示、**コント ローラーの追加**ダイアログ (図 2 参照)。
+新しいコントローラーを作成する最も簡単な方法は、Visual Studio のソリューションエクスプローラーウィンドウで Controllers フォルダーを右クリックし、[**追加]、[コントローラー** ] メニューオプション (図1を参照) を選択することです。 このメニューオプションを選択すると、 **[コントローラーの追加]** ダイアログボックスが開きます (図2を参照)。
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-a-controller-vb/_static/image1.jpg)](creating-a-controller-vb/_static/image1.png)
+[[新しいプロジェクト] ダイアログボックスの ![](creating-a-controller-vb/_static/image1.jpg)](creating-a-controller-vb/_static/image1.png)
 
-**図 01**:新しいコント ローラーの追加 ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image2.png))。
+**図 01**: 新しいコントローラーを追加[する (クリックすると、フルサイズの画像が表示](creating-a-controller-vb/_static/image2.png)される)
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-a-controller-vb/_static/image2.jpg)](creating-a-controller-vb/_static/image3.png)
+[[新しいプロジェクト] ダイアログボックスの ![](creating-a-controller-vb/_static/image2.jpg)](creating-a-controller-vb/_static/image3.png)
 
-**図 02**:コント ローラーの追加 ダイアログ ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image4.png))。
+**図 02**: [コントローラーの追加] ダイアログボックス ([クリックすると、フルサイズの画像が表示](creating-a-controller-vb/_static/image4.png)されます)
 
-コント ローラー名の最初の部分が強調表示されますが、**コント ローラーの追加**ダイアログ。 サフィックスを持つすべてのコント ローラー名が終了する必要があります*コント ローラー*します。 たとえば、という名前のコント ローラーを作成することができます *「productcontroller」* がという名前のコント ローラー以外*製品*します。
+コントローラー名の最初の部分が **[コントローラーの追加]** ダイアログボックスで強調表示されていることに注意してください。 すべてのコントローラー名は、サフィックス*コントローラー*で終わる必要があります。 たとえば、 *Productcontroller*という名前のコントローラーを作成できますが、 *product*という名前のコントローラーは作成できません。
 
-不足しているコント ローラーを作成する場合、*コント ローラー*コント ローラーを起動することはできませんし、サフィックスが付いています。 これを行わない--この間違いを犯す後に自分の人生に膨大な時間を無駄しました。
+*コントローラーのサフィックスが*ないコントローラーを作成すると、コントローラーを呼び出すことができなくなります。 そうしないでください。この間違いを犯した後、非常に時間を無駄にすることはありません。
 
-**Listing 1 - Controllers\ProductController.vb**
+**リスト 1-コントローラーと vb**
 
 [!code-vb[Main](creating-a-controller-vb/samples/sample1.vb)]
 
-Controllers フォルダーで、常にコント ローラーを作成する必要があります。 それ以外の場合、ASP.NET MVC の規則に違反するし、他の開発者がアプリケーションを理解することが難しく時間が必要があります。
+コントローラーは、常に Controllers フォルダーに作成する必要があります。 そうしないと、ASP.NET MVC の規則に違反することになり、他の開発者はアプリケーションを理解するのが困難になります。
 
-### <a name="scaffolding-action-methods"></a>アクション メソッドのスキャフォールディング
+### <a name="scaffolding-action-methods"></a>スキャフォールディングアクションメソッド
 
-コント ローラーを作成するときに自動的に作成、更新、および詳細のアクション メソッドを生成するオプションがある (図 3 を参照してください)。 このオプションを選択する場合は、リスト 2 でコント ローラー クラスが生成されます。
+コントローラーを作成するときに、Create、Update、および Details アクションメソッドを自動的に生成するオプションがあります (図3を参照)。 このオプションを選択すると、リスト2のコントローラークラスが生成されます。
 
-[![アクション メソッドを自動的に作成します。](creating-a-controller-vb/_static/image3.jpg)](creating-a-controller-vb/_static/image5.png)
+[アクションメソッドを自動的に作成 ![](creating-a-controller-vb/_static/image3.jpg)](creating-a-controller-vb/_static/image5.png)
 
-**図 03**:アクション メソッドを自動的に作成する ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image6.png))。
+**図 03**: アクションメソッドを自動的に作成[する (クリックすると、フルサイズの画像が表示](creating-a-controller-vb/_static/image6.png)される)
 
-**Listing 2 - Controllers\CustomerController.vb**
+**リスト 2-顧客コントローラー (vb)**
 
 [!code-vb[Main](creating-a-controller-vb/samples/sample2.vb)]
 
-これらの生成されたメソッドはスタブ メソッドです。 作成、更新、および自分で顧客の詳細を示す実際のロジックを追加する必要があります。 優れた出発点に、スタブ メソッドが提供します。
+これらのメソッドは、スタブメソッドです。 顧客の詳細を作成、更新、表示するための実際のロジックを自分で追加する必要があります。 ただし、スタブメソッドは、適切な開始点を提供します。
 
-### <a name="creating-a-controller-class"></a>コント ローラー クラスを作成します。
+### <a name="creating-a-controller-class"></a>コントローラークラスの作成
 
-ASP.NET MVC コント ローラーは、単なるクラスです。 場合は、便利な Visual Studio コント ローラーのスキャフォールディングを無視し、コント ローラー クラスを手動で作成できます。 この場合は、以下の手順に従ってください。
+ASP.NET MVC コントローラーはクラスにすぎません。 必要に応じて、Visual Studio コントローラーの便利なスキャフォールディングを無視し、手動でコントローラークラスを作成することもできます。 次の手順に従います。
 
-1. Controllers フォルダーを右クリックし、メニュー オプションを選択**追加]、[新しい項目の**を選択し、**クラス**テンプレート (図 4 参照)。
-2. 新しいクラス PersonController.vb の名前を指定し、をクリックして、**追加**ボタンをクリックします。
-3. (リスト 3 参照)、基本 System.Web.Mvc.Controller クラスからクラスを継承するので、結果として得られるクラス ファイルを変更します。
+1. Controllers フォルダーを右クリックし、[**追加]、[新しい項目**] の順に選択し、 **[クラス]** テンプレートを選択します (図4を参照)。
+2. 新しいクラスに「visual Controller .vb」という名前を指定し、 **[追加]** ボタンをクリックします。
+3. 生成されたクラスファイルを変更して、クラスが基本の System.web. Mvc. Controller クラスから継承するようにします (リスト3を参照)。
 
-[![新しいクラスを作成します。](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
+[新しいクラスの作成 ![](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
 
-**図 04**:新しいクラスを作成する ([フルサイズの画像を表示する をクリックします](creating-a-controller-vb/_static/image8.png))。
+**図 04**: 新しいクラスを作成[する (クリックすると、フルサイズの画像が表示](creating-a-controller-vb/_static/image8.png)される)
 
-**Listing 3 - Controllers\PersonController.vb**
+**リスト 3-フルマイコントローラー、vb**
 
 [!code-vb[Main](creating-a-controller-vb/samples/sample3.vb)]
 
-リスト 3 のコント ローラーは、文字列"Hello World!"を返します Index() という名前の 1 つのアクションを公開します。 このコント ローラー アクションを起動するには、アプリケーションを実行して、次のような URL を要求します。
+リスト3のコントローラーは、"Hello World!" という文字列を返す Index () という名前の1つのアクションを公開します。 このコントローラーアクションを呼び出すには、アプリケーションを実行し、次のような URL を要求します。
 
 `http://localhost:40071/Person`
 
 > [!NOTE]
 > 
-> ASP.NET 開発サーバーは、ランダムなポート番号 (たとえば、40071) を使用します。 コント ローラーを呼び出す URL を入力すると、右側のポート番号を指定する必要があります。 Windows 通知領域 (画面の下部にある-右側) で、ASP.NET 開発サーバーのアイコンの上にマウスを置くことによって、ポート番号を指定できます。
+> ASP.NET 開発サーバーはランダムなポート番号 (40071 など) を使用します。 コントローラーを起動するための URL を入力するときは、適切なポート番号を指定する必要があります。 ポート番号を確認するには、Windows 通知領域 (画面の右下) にある ASP.NET 開発サーバーのアイコンの上にマウスポインターを置きます。
 > 
 > [!div class="step-by-step"]
 > [前へ](adding-dynamic-content-to-a-cached-page-vb.md)

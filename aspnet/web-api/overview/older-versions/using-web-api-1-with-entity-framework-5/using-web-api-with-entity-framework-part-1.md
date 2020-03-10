@@ -9,11 +9,11 @@ ms.assetid: 94421d86-68c4-4471-bf5f-82d654a17252
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
 ms.openlocfilehash: a76a18f2bd95969358452085ef342fdca8a386e2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600322"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78447934"
 ---
 # <a name="part-1-overview-and-creating-the-project"></a>パート 1: 概要とプロジェクトの作成
 
@@ -33,9 +33,9 @@ Entity Framework は、オブジェクト/リレーショナルマッピング�
 
 ![](using-web-api-with-entity-framework-part-1/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>学習するスキル
+## <a name="skills-youll-learn"></a>学習内容
 
-学習する内容は次のとおりです。
+ここでは次の内容について学習します。
 
 - ASP.NET Web API で Entity Framework を使用する方法について説明します。
 - ノックアウトを使用して動的クライアント UI を作成する方法。
@@ -43,12 +43,12 @@ Entity Framework は、オブジェクト/リレーショナルマッピング�
 
 このチュートリアルは自己完結していますが、まず次のチュートリアルを読むことをお勧めします。
 
-- [最初の ASP.NET Web API](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
+- [ASP.NET Web API の入門ページ](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
 - [CRUD 操作をサポートする Web API の作成](../creating-a-web-api-that-supports-crud-operations.md)
 
 [ASP.NET MVC](../../../../mvc/index.md)に関する知識も役に立ちます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 大まかに言えば、アプリケーションのアーキテクチャは次のようになります。
 
@@ -92,4 +92,4 @@ Entity Framework は、オブジェクト/リレーショナルマッピング�
 [!code-css[Main](using-web-api-with-entity-framework-part-1/samples/sample1.css)]
 
 > [!div class="step-by-step"]
-> [次へ](using-web-api-with-entity-framework-part-2.md)
+> [Next](using-web-api-with-entity-framework-part-2.md)

@@ -9,11 +9,11 @@ ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
 ms.openlocfilehash: 52d5eb7abe4520ebdf6667d299d055fc7619a635
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615451"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78458344"
 ---
 # <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4.5 Web フォームと Visual Studio 2017 でのはじめに
 
@@ -25,7 +25,7 @@ ms.locfileid: "74615451"
 
 このチュートリアルシリーズでは、Visual Studio 2017 と ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを作成する手順について説明します。 **Wingtip Toys**という名前のアプリケーションを作成します。これは、簡素化されたストア web サイトで、オンラインでアイテムを販売します。 シリーズの中で、新しい ASP.NET 4.5 の機能が強調表示されています。
 
-### <a name="target-audience"></a>対象ユーザー
+### <a name="target-audience"></a>対象読者
 
 ASP.NET Web フォームを初めて使用する開発者は、このチュートリアルシリーズの対象ユーザーです。
 
@@ -33,14 +33,14 @@ ASP.NET Web フォームを初めて使用する開発者は、このチュー�
 
 - オブジェクト指向プログラミング (OOP) と言語
 - Web 開発 (HTML、CSS、JavaScript)
-- リレーショナルデータベース
+- リレーショナル データベース
 - n 層アーキテクチャ
 
 これらの領域を確認するには、次の内容を確認することを検討してください。
 
 - [Visual C# 入門](https://msdn.microsoft.com/library/a72418yk.aspx)
 - [Web 開発](https://msdn.microsoft.com/beginner/bb308760.aspx)、 [HTML、CSS、JavaScript、SQL、PHP、JQuery](http://w3schools.com/)
-- [リレーショナルデータベース](http://en.wikipedia.org/wiki/Relational_database)
+- [リレーショナル データベース](http://en.wikipedia.org/wiki/Relational_database)
 - [多層アーキテクチャ](http://en.wikipedia.org/wiki/Multitier_architecture)
 
 ### <a name="application-features"></a>アプリケーションの機能
@@ -83,7 +83,7 @@ ASP.NET Web フォームを初めて使用する開発者は、このチュー�
 - Web アプリケーションのルートを登録しています
 - エラー処理とエラーログの実装
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルシリーズは、プログラミングの概念に習熟している方を対象としていますが、ASP.NET Web フォームが新しく追加されました。 ASP.NET の Web フォームを既に使い慣れている場合でも、このシリーズでは、ASP.NET 4.5 の新機能について学習できます。 プログラミングの概念と ASP.NET の Web フォームに慣れていない読者には、ASP.NET Web サイトの[はじめに](../../../index.md)セクションに記載されている追加の web フォームチュートリアルを参照してください。
 
@@ -134,7 +134,7 @@ PayPal から戻った後、注文を確認して完了することができま�
 
 ![Wingtip Toys-注文レビュー](introduction-and-overview/_static/image7.png)
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 開始する前に、次のソフトウェアがコンピューターにインストールされていることを確認してください。
 
@@ -154,7 +154,7 @@ Visual Studio については、次の点に注意してください。
 
 前提条件をインストールしたら、このチュートリアルシリーズで紹介する Web プロジェクトの作成を開始できます。
 
-## <a name="download-the-sample-application"></a>サンプルアプリケーションをダウンロードする
+## <a name="download-the-sample-application"></a>サンプル アプリケーションのダウンロード
 
  完成したサンプルアプリケーションは、MSDN サンプルサイトからいつでもダウンロードできます。
 
@@ -191,4 +191,4 @@ C# [ASP.NET 4.5 Web フォームと Visual Studio 2013-Wingtip Toys () を使用
 エラーが発生した場合は、対応するエラーメッセージが混乱する可能性があり、修正方法についての適切な説明はありません。 ヘルプを表示するには、 [ASP.NET フォーラム](https://forums.asp.net/)を確認してください。 もう1つの優れたソースは、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) サンプルページのはじめにの Q と A セクションです。 
 
 > [!div class="step-by-step"]
-> [次へ](create-the-project.md)
+> [Next](create-the-project.md)

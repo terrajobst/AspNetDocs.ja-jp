@@ -9,11 +9,11 @@ ms.assetid: 1caac9d0-e21e-49d6-a8ff-e563a736d6ca
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8034f5aeb5a1a80f1ea8cbc9d638f3dfb1a38706
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599008"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78496918"
 ---
 # <a name="positioning-a-modalpopup-c"></a>ModalPopup の位置を決める (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599008"
 
 > AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、このコントロールにはポップアップを配置するための組み込みの機能は用意されていません。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ただし、このコントロールにはポップアップを配置するための組み込みの機能は用意されていません。
 

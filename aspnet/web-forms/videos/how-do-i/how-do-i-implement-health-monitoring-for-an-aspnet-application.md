@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
-title: '[How Do i:] ASP.NET アプリケーションの正常性の監視を実装するか。 | Microsoft Docs'
+title: '[操作方法:] ASP.NET アプリケーションの正常性の監視を実装しますか。 | Microsoft Docs'
 author: rick-anderson
-description: このビデオの Chris Pels で、ASP.NET アプリケーションの実行時の詳細な情報を取得する監視の正常性を実装する方法を紹介します。 強力な学習としています.
+description: このビデオでは、ASP.NET アプリケーションの実行時の詳細情報を取得するために正常性監視を実装する方法について説明します。 強力な機能について説明します。
 ms.author: riande
 ms.date: 11/05/2007
 ms.assetid: b3abd282-840a-42e3-ac27-cddbb22c5e33
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
 msc.type: video
 ms.openlocfilehash: 18b84615d60deac2f06122d3d2b9689dc8efb09a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402857"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78457912"
 ---
-# <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[How Do i:] ASP.NET アプリケーションの正常性の監視を実装するか。
+# <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[操作方法:] ASP.NET アプリケーションの正常性の監視を実装しますか。
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオの Chris Pels で、ASP.NET アプリケーションの実行時の詳細な情報を取得する監視の正常性を実装する方法を紹介します。 正常性の監視などの強力で柔軟な構成オプションを説明します一般的に使用される設定は、および最適化するために buffermode のプロファイルの状態監視イベント、web イベント、データ プロバイダーが、イベントのマッピングの規則を格納するためのプロバイダーとも呼ばれます。正常性の最適なパフォーマンスを監視します。 Windows イベント ログにイベントの書き込みを有効になっている正常性の監視とアクションのサンプル web アプリケーションを表示します。
+このビデオでは、ASP.NET アプリケーションの実行時の詳細情報を取得するために正常性監視を実装する方法について説明します。 正常性を監視するための強力で柔軟な構成オプションについて説明します。これには、正常性監視イベント、web イベント、データを格納するためのプロバイダー、プロバイダーにイベントをマップするためのルール、よく使用される設定のプロファイル、および buffermode を最適化するためのルールが含まれます。最高のパフォーマンスを得るための正常性の監視。 次に、「正常性の監視を有効にして Windows イベントログへのイベントの書き込みが有効になっている web アプリケーションの例」を参照してください。
 
-[&#9654;ビデオ (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-health-monitoring-for-an-aspnet-application)
+[&#9654;ビデオを見る (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-health-monitoring-for-an-aspnet-application)

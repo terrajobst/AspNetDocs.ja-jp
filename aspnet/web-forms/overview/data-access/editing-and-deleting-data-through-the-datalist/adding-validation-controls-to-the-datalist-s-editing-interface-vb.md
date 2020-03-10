@@ -9,11 +9,11 @@ ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
 ms.openlocfilehash: f952a7bb95e956a2ad935f8bdef5c3efa7437ecb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621962"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78480886"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>DataList の編集インターフェイスに検証コントロールを追加する (VB)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74621962"
 
 このチュートリアルでは、簡単に編集できるユーザーインターフェイスを提供するために、DataList s `EditItemTemplate` に検証コントロールを追加することがいかに簡単かを説明します。 具体的には、このチュートリアルでは、前のチュートリアルで作成した例を使用して、適切な検証を含むように編集インターフェイスを強化します。
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>手順 1:[BLL および DAL レベルの例外の処理](handling-bll-and-dal-level-exceptions-vb.md)から例をレプリケートする
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptions"></a>手順 1:[BLL および DAL レベルの例外の処理](handling-bll-and-dal-level-exceptions-vb.md)から例をレプリケートする
 
 「 [BLL および DAL レベルの例外の処理](handling-bll-and-dal-level-exceptions-vb.md)」チュートリアルでは、2列の編集可能な DataList で製品の名前と価格を記載したページを作成しました。 このチュートリアルの目的は、DataList s 編集インターフェイスを拡張して検証コントロールを含めることです。 特に、検証ロジックは次のようになります。
 
@@ -156,7 +156,7 @@ CompareValidator s `Currency``Type`を使用する場合、検証対象の入力
 
 **図 6**: 検証エラーがクライアント側のメッセージボックスにまとめられている ([クリックしてフルサイズのイメージを表示する](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、検証コントロールを使用して、ユーザーの入力が有効であることを事前に確認してから、更新ワークフローでの使用を試行する方法について説明しました。 ASP.NET には、特定の Web コントロールの入力を検査し、入力の有効性を報告するように設計された5つの検証 Web コントロールが用意されています。 このチュートリアルでは、RequiredFieldValidator と CompareValidator の2つのコントロールを使用して、製品名が指定されていること、および価格の値が0以上の通貨形式であることを確認しました。
 
@@ -166,7 +166,7 @@ DataList の編集インターフェイスに検証コントロールを追加�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

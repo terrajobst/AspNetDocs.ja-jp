@@ -1,301 +1,301 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: コント ローラーとビューを使用して、リスティング/詳細 UI を実装する |Microsoft Docs
+title: コントローラーとビューを使用して、リスティング/Details UI を実装します。Microsoft Docs
 author: microsoft
-description: 手順 4 では、コント ローラーのユーザー データのリスティング/詳細ナビゲーション エクスペリエンスを提供するには、このモデルを利用するアプリケーションを追加する方法を示します.
+description: 手順 4. では、モデルを利用してアプリケーションにコントローラーを追加し、ユーザーにデータリスト/詳細ナビゲーションエクスペリエンスを提供する方法を示します。
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 64116e56-1c9a-4f07-8097-bb36cbb6e57f
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: 74319fe5ea4c79b50140834349e2fdf86420cfbb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128212"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486220"
 ---
 # <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>コントローラーとビューを使用し、リスティング/詳細 UI を実装する
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料の手順 4 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
+> これは、ASP.NET MVC 1 を使用して小規模で完成した web アプリケーションを構築する方法を説明する無料の["" アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)の手順4です。
 > 
-> 手順 4 では、コント ローラーのユーザー データ リスティング/詳細ナビゲーション エクスペリエンスを dinners NerdDinner サイトに提供するには、このモデルを利用するアプリケーションを追加する方法を示します。
+> 手順 4. では、モデルを利用してアプリケーションにコントローラーを追加し、ユーザーにディナーのデータリスト/詳細ナビゲーションエクスペリエンスを提供する方法を示します。
 > 
-> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
+> ASP.NET MVC 3 を使用している場合は、MVC 3 または[Mvc ミュージックストア](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルではじめに](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)に従うことをお勧めします。
 
-## <a name="nerddinner-step-4-controllers-and-views"></a>NerdDinner 手順 4:コント ローラーとビュー
+## <a name="nerddinner-step-4-controllers-and-views"></a>ステップ 4: コントローラーとビューの操作
 
-従来の web フレームワーク (classic ASP、PHP、ASP.NET Web フォームなど)、受信した Url は通常ディスク上のファイルにマップされます。 例: のような要求 URL の"/ディスク上のファイル"または"/されず"、「繰り返し」または「されず」ファイルで処理される可能性があります。
+従来の web フレームワーク (classic ASP、PHP、ASP.NET Web Forms など) では、通常、着信 Url はディスク上のファイルにマップされます。 たとえば、"/-.Aspx" や "/" などの URL の要求は、"Products" ファイルまたは "Products. php" ファイルによって処理される場合があります。
 
-Web ベースの MVC フレームワークは、少し異なる方法で Url をサーバー コードにマップします。 受信した Url をファイルにマップするには、代わりには、代わりに、クラスのメソッドに Url をマップします。 これらのクラスは「コント ローラー」と呼ばれますとユーザー入力を処理する受信 HTTP 要求を処理する責任が、クライアント バックアップを取得して、データの保存と送信する応答を決定する (HTML を表示、ダウンロード ファイルを別にリダイレクトURL など)。
+Web ベースの MVC フレームワークでは、Url が少し異なる方法でサーバーコードにマップされます。 受信 Url をファイルにマッピングする代わりに、代わりに、Url をクラスのメソッドにマップします。 これらのクラスは "コントローラー" と呼ばれ、受信 HTTP 要求の処理、ユーザー入力の処理、データの取得と保存、クライアントに返信するための応答の決定 (HTML の表示、ファイルのダウンロード、別のファイルへのリダイレクトなど) を担当します。URL など)。
 
-NerdDinner アプリケーションの基本的なモデルを構築しましたが、次の手順はコント ローラーのユーザー データ リスティング/詳細ナビゲーション エクスペリエンスを Dinners サイトに提供することを利用するアプリケーションを追加するとします。
+私たちは、このアプリケーションの基本的なモデルを構築したので、次のステップとして、アプリケーションにコントローラーを追加して、ユーザーにサイトのディナーのデータリスト/詳細ナビゲーションエクスペリエンスを提供します。
 
-### <a name="adding-a-dinnerscontroller-controller"></a>DinnersController コント ローラーの追加
+### <a name="adding-a-dinnerscontroller-controller"></a>Dinのコントローラーコントローラーの追加
 
-当社の web プロジェクト内でコント ローラー」フォルダーを右クリックして開始し、いますが、**追加 -&gt;コント ローラー** (もコマンドを実行できるこの Ctrl M, Ctrl + C を入力して) メニューのコマンド。
+まず、web プロジェクト内の "Controllers" フォルダーを右クリックし、[ **&gt;コントローラー** ] メニューコマンドを選択します (このコマンドは、Ctrl + M キー、Ctrl + C キーを押して実行することもできます)。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image1.png)
 
-「コント ローラーの追加」ダイアログが表示されます。
+これにより、[コントローラーの追加] ダイアログボックスが表示されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image2.png)
 
-新しいコント ローラー"DinnersController"という名前がされ、[追加] ボタンをクリックします。 Visual Studio は、\Controllers ディレクトリの下に DinnersController.cs ファイルを追加します。
+新しいコントローラーに "Din" という名前を指定し、[追加] ボタンをクリックします。 次に、DinnersController.cs ファイルが \ Controllers ディレクトリに追加されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image3.png)
 
-コード エディター内で新しい DinnersController クラスも開きます。
+また、コードエディター内で新しい Dinのコントローラークラスも開きます。
 
-### <a name="adding-index-and-details-action-methods-to-the-dinnerscontroller-class"></a>DinnersController クラスへの Index() と Details() アクション メソッドの追加
+### <a name="adding-index-and-details-action-methods-to-the-dinnerscontroller-class"></a>Index () アクションメソッドと Details () アクションメソッドを Dinのコントローラークラスに追加する
 
-アプリケーションを使用して今後の dinners の一覧を参照し、固有の詳細については、それを表示する一覧で任意の Dinner をクリックすることを許可するユーザーを有効にします。 アプリケーションから次の Url を発行することで実施します。
+アプリケーションを使用している訪問者が、今後のディナーの一覧を参照し、リスト内のディナーをクリックして、その詳細を確認できるようにしたいと考えています。 これを行うには、アプリケーションから次の Url を発行します。
 
-| **URL** | **目的** |
+| **[URL]** | **目的** |
 | --- | --- |
-| */Dinners/* | 今後の dinners の HTML リストを表示します。 |
-| */Dinners 詳細/[id]* | これが一致するデータベースの dinner の DinnerID、URL 内に埋め込まれて、"id"パラメーターで指定された特定の dinner に関する詳細を表示します。 例:/Dinners/Details/2 DinnerID 値 2 は、Dinner の詳細を含む HTML ページが表示されます。 |
+| *ディナー* | 今後のディナーの HTML リストを表示する |
+| *///[Id]* | URL 内に埋め込まれている "id" パラメーターによって示される特定のディナーに関する詳細を表示します。これは、データベース内の夕食の Dinid と一致します。 たとえば、次の例では、Dinid 値が2であるディナーに関する詳細を含む HTML ページが表示されます。 |
 
-次のように、DinnersController クラスに 2 つのパブリック「操作方法」を追加することでこれらの Url の最初の実装を発行します。
+これらの Url の初期実装は、次のような2つのパブリック "アクションメソッド" を Dinのコントローラークラスに追加することによって発行されます。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample1.cs)]
 
-NerdDinner アプリケーションを実行し、呼び出し、ブラウザーを使用します。 入力、 *「Dinners/」* により、URL、 *Index()* 実行するメソッドが戻り、次の応答で送信は。
+次に、このアプリケーションを実行し、ブラウザーを使用して呼び出します。 *"/Din" と*いう URL を入力すると、 *Index ()* メソッドが実行され、次の応答が返されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image4.png)
 
-入力、 *「/Dinners/詳細/2」* により、URL、 *Details()* メソッドを実行し、次の応答を返信します。
+*"/Din/詳細/月"* の URL を入力すると、 *Details ()* メソッドが実行され、次の応答が返されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image5.png)
 
-かもしれません。-ASP.NET MVC 知った、DinnersController クラスを作成し、これらのメソッドを呼び出しますか。 みましょうを理解するルーティングの動作の概要を確認します。
+ASP.NET MVC では、Dinのコントローラークラスを作成し、それらのメソッドを呼び出す方法について疑問に思うかもしれません。 ここでは、ルーティングのしくみについて簡単に見ていきましょう。
 
-### <a name="understanding-aspnet-mvc-routing"></a>Understanding ASP.NET MVC のルーティング
+### <a name="understanding-aspnet-mvc-routing"></a>ASP.NET MVC ルーティングについて
 
-ASP.NET MVC には、強力な URL ルーティング エンジンで Url をコント ローラー クラスにマップする方法を制御する柔軟性を提供するが含まれています。 ASP.NET MVC がどのメソッドを呼び出すには、できるだけでなくのさまざまな方法を変数できます。 が自動的に URL/クエリ文字列から解析されたパラメーターとしてメソッドに渡される構成を作成するには、どのコント ローラー クラスを選択する方法を完全にカスタマイズすることができます。引数。 まったく SEO (検索エンジンの最適化) のサイトを最適化するだけでなく、アプリケーションからすべての URL 構造を公開する柔軟性を提供します。
+ASP.NET MVC には、Url をコントローラークラスにマップする方法を柔軟に制御できる強力な URL ルーティングエンジンが用意されています。 これにより、ASP.NET MVC では、作成するコントローラークラスをどのように選択するか、どの方法を呼び出すか、また、変数が URL/Querystring から自動的に解析され、パラメーター引数としてメソッドに渡されるさまざまな方法を構成することができます。 また、SEO (検索エンジンの最適化) のためにサイトを完全に最適化し、必要な URL 構造をアプリケーションから発行できる柔軟性を備えています。
 
-既定では、新しい ASP.NET MVC プロジェクトの URL ルーティング ルールが既に登録されている事前構成済みのセットが付属します。 これにより、アプリケーションで明示的に何も構成することがなく簡単に開始します。 既定のルーティング ルールの登録は、このプロジェクトのルートに"Global.asax"ファイルをダブルクリックして開くことができます: プロジェクトの"Application"クラス内で確認できます。
+既定では、新しい ASP.NET MVC プロジェクトには、既に登録済みの URL ルーティングルールのセットが付属しています。 これにより、何も明示的に構成することなく、簡単にアプリケーションを開始できます。 既定のルーティング規則の登録は、プロジェクトの "Application" クラス内にあります。これは、プロジェクトのルートにある "global.asax" ファイルをダブルクリックして開くことができます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image6.png)
 
-既定の ASP.NET MVC ルーティング ルールは、このクラスの"RegisterRoutes"メソッド内で登録されます。
+既定の ASP.NET MVC ルーティング規則は、このクラスの "RegisterRoutes" メソッド内に登録されます。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample2.cs)]
 
-"ルート。MapRoute()"上記のメソッド呼び出しが受信した Url を URL の形式を使用して、コント ローラー クラスにマップされる既定のルーティング規則を登録します:"/{controller}/{action}/{id}"、インスタンス化するコント ローラー クラスの名前が"controller"–"action"はの名前をパブリック メソッドを呼び出すし、"id"は、メソッドに引数として渡すことができる URL に埋め込まれた省略可能なパラメーターです。 "MapRoute()"メソッドの呼び出しに渡される 3 番目のパラメーターは、一連の既定値は URL に存在しないことに、コント ローラーとアクション/id 値を使用する (コント ローラー アクションを"Home"= ="Index"、Id ="")。
+"ルート。MapRoute () "上記のメソッド呼び出しは、次の URL 形式を使用して、受信 Url をコントローラークラスにマップする既定のルーティング規則を登録します。"/{"コントローラー" は、インスタンス化するコントローラークラスの名前、"action" はそれに対して呼び出すパブリックメソッドの名前、"id" は、引数としてメソッドに渡すことができる URL 内に埋め込まれた省略可能なパラメーターである/{/} "MapRoute ()" メソッド呼び出しに渡される3番目のパラメーターは、URL (Controller = "Home"、Action = "Index"、Id = "") に存在しない場合に、コントローラー/アクション/id 値に使用する既定値のセットです。
 
-以下は Url のさまざまな方法を示すテーブルが既定値を使用してマップされている"<em>/{コント ローラー}/{action}/{id}"</em>ルート ルール。
+次の表は、既定の "<em>/{controllers}/{action}/{id}"</em>ルート規則を使用してさまざまな url がどのようにマップされるかを示しています。
 
-| **URL** | **コント ローラー クラス** | **アクション メソッド** | **渡されたパラメーター** |
+| **[URL]** | **コントローラークラス** | **アクションメソッド** | **渡されたパラメーター** |
 | --- | --- | --- | --- |
-| */Dinners/Details/2* | DinnersController | Details(id) | id=2 |
-| */Dinners/Edit/5* | DinnersController | Edit(id) | id=5 |
-| */Dinners/Create* | DinnersController | Create() | N/A |
-| */Dinners* | DinnersController | Index() | N/A |
-| */Home* | HomeController | Index() | N/A |
-| */* | HomeController | Index() | N/A |
+| */月/月* | DinnersController | 詳細 (id) | id=2 |
+| *//編集/5* | DinnersController | 編集 (id) | id=5 |
+| */Din* | DinnersController | Create() | 該当なし |
+| */Dinners* | DinnersController | Index () | 該当なし |
+| */Home* | HomeController | Index () | 該当なし |
+| */* | HomeController | Index () | 該当なし |
 
-最後の 3 つの行が既定値を表示する (コント ローラー = アクションでは、インデックス、Id を = ="") 使用されています。 1 つ指定されていない場合、既定のアクション名として"Index"メソッドが登録されているため、"/Dinners"し、そのコント ローラー クラスで呼び出される Url 原因 Index() アクション メソッドを"/home"。 いずれかが指定されていない場合に既定のコント ローラーとして"Home"コント ローラーが登録されているため、「/」URL と、作成するテンプレートを使用して、Index() アクション メソッドを呼び出すことが。
+最後の3行は、使用されている既定値 (Controller = Home、Action = Index、Id = "") を示しています。 "Index" メソッドが指定されていない場合は、既定のアクション名として登録されるため、"/Dinners" と "/Home" の Url によって、コントローラークラスで Index () アクションメソッドが呼び出されます。 "Home" コントローラーが指定されていない場合、"Home" コントローラーは既定のコントローラーとして登録されるため、"/" URL によって HomeController が作成され、Index () アクションメソッドが呼び出されます。
 
-これら既定の URL ルーティング ルールしない場合は、良いニュースは簡単に変更するだけ、上記の RegisterRoutes メソッド内で編集されるは。 NerdDinner アプリケーションでは、既定の URL ルーティング ルールのいずれかを変更するつもり – 代わりにだけとして使用します-です。
+これらの既定の URL ルーティングルールが気に入らない場合は、簡単に変更できます。上記の RegisterRoutes メソッド内で編集するだけです。 ただし、このアプリケーションでは、既定の URL ルーティングルールを変更することはありません。代わりにそのまま使用します。
 
-### <a name="using-the-dinnerrepository-from-our-dinnerscontroller"></a>DinnersController のときは必ず DinnerRepository を使用します。
+### <a name="using-the-dinnerrepository-from-our-dinnerscontroller"></a>Dinのコントローラーからの Dinレポジトリの使用
 
-みましょう DinnersController の現在の実装に置き換える Index() と Details() のアクション メソッドをモデルを使用する実装。
+ここでは、Dinの現在の実装である、() および Details () アクションメソッドを、モデルを使用する実装に置き換えます。
 
-動作を実装する前に作成したときは必ず DinnerRepository クラスを使用します。 "NerdDinner.Models"名前空間を参照する"using"ステートメントを追加することで開始して、フィールドとして、DinnerController クラスのときは、必ず DinnerRepository インスタンスを宣言しました行います。
+以前に構築した Dinのリポジトリクラスを使用して、動作を実装します。 まず、"using" ステートメントを追加し、"" を "使用" します。次に、"the" という名前空間を参照する "using" ステートメントを追加し、dinをコントローラークラスのフィールドとして、そのインスタンスを宣言します。
 
-この章の「依存関係の挿入」の概念を紹介およびのときは、必ず DinnerRepository インスタンスを作成しますので、– テストが、右側の見方をするときは必ず DinnerRepository より良い単体できるへの参照を取得するコント ローラーを表示しましたします次のようにインラインです。
+この章の後半では、"依存関係の挿入" の概念を紹介します。また、コントローラーが単体テストを有効にする Dinのリポジトリへの参照を取得するもう1つの方法を示しますが、ここでは、Dinレポジトリのインスタンスを作成するだけです。次のようにインライン化します。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample3.cs)]
 
-取得したデータ モデル オブジェクトを使用して HTML 応答を生成する準備が整いました。
+これで、取得したデータモデルオブジェクトを使用して HTML 応答を返す準備ができました。
 
-### <a name="using-views-with-our-controller"></a>コント ローラーとビューを使用します。
+### <a name="using-views-with-our-controller"></a>コントローラーでのビューの使用
 
-HTML をアセンブルし、使用して、アクション メソッド内でコードを記述することはできますが、 *Response.Write()* アプローチが迅速にかなり扱いにくくなります、クライアントに送信するヘルパー メソッド。 はるかに優れた方法がアプリケーションとデータ ロジック、DinnersController のアクション メソッド内でのみを実行して、HTML 形式の出力を担当する個別の「ビュー」テンプレートへの HTML 応答を表示するために必要なデータを渡すためにはことです。 すぐに表示されるよう、「表示」テンプレートは、通常の HTML マークアップとレンダリングの埋め込みコードの組み合わせを含むテキスト ファイルになります。
+HTML をアセンブルするためのアクションメソッド内にコードを記述し、それをクライアントに送信するために*Response ()* ヘルパーメソッドを使用することは可能ですが、この方法は非常に扱いにくくなります。 はるかに優れたアプローチは、アプリケーションとデータロジックを Dincontroller のアクションメソッド内でのみ実行し、html 応答のレンダリングに必要なデータを、HTML 表現の出力を行う別の "view" テンプレートに渡すことです。このようになります。 すぐにわかるように、"view" テンプレートは、通常、HTML マークアップと埋め込みのレンダリングコードの組み合わせを含むテキストファイルです。
 
-このビューの表示から、コント ローラー ロジックを分離するには、いくつかの大きな利点が表示されます。 具体的には、アプリケーション コードと UI の書式設定/レンダリング コード間をクリア"関心の分離"を適用できるようにします。 これがずっと簡単単体テスト アプリケーション ロジックを分離する UI のレンダリング ロジックから。 簡単にアプリケーション コードを変更することがなく UI レンダリング テンプレートを後で変更します。 そのやすく開発者および設計者は、プロジェクトの共同します。
+ビューレンダリングからコントローラーロジックを分離すると、いくつかの大きな利点が得られます。 特に、アプリケーションコードと UI 書式設定/レンダリングコードの間で、明確な "問題の分離" を適用するのに役立ちます。 これにより、UI レンダリングロジックから分離されたアプリケーションロジックの単体テストがはるかに簡単になります。 これにより、アプリケーションコードを変更することなく、UI レンダリングテンプレートを後で簡単に変更できるようになります。 また、開発者やデザイナーがプロジェクトで共同作業を簡単に行えるようになります。
 
-"Void"に代わりに"ActionResult"の戻り値の型の戻り値の型のことから、2 つのアクション メソッドのメソッド シグネチャを変更することで、HTML UI の応答を返信するビュー テンプレートを使用することを示す、DinnersController クラスを更新できます。 呼び出し、 *View()* 以下のようなヘルパー メソッドを返すコント ローラーの基本クラスを"ViewResult"オブジェクト。
+Dinの Scontroller クラスを更新して、ビューテンプレートを使用して、2つのアクションメソッドの戻り値の型を "void" にして、代わりに戻り値の型が "ActionResult" になるようにすることで、HTML UI の応答を返信するように指定できます。 次のように、コントローラーの基本クラスで*View ()* ヘルパーメソッドを呼び出して、"viewresult" オブジェクトを返すことができます。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample4.cs)]
 
-署名、 *View()* 上を使用しているヘルパー メソッドは以下のようになります。
+上記で使用している*View ()* ヘルパーメソッドのシグネチャは次のようになります。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image7.png)
 
-最初のパラメーター、 *View()* ヘルパー メソッドは、HTML 応答を表示するために使用するビュー テンプレート ファイルの名前です。 2 番目のパラメーターは、テンプレートの表示が HTML 応答を表示するために必要なデータを含むモデル オブジェクトです。
+*View ()* ヘルパーメソッドの最初のパラメーターは、HTML 応答を表示するために使用するビューテンプレートファイルの名前です。 2番目のパラメーターは、ビューテンプレートが HTML 応答を表示するために必要なデータを含むモデルオブジェクトです。
 
-呼び出す、Index() アクション メソッド内で、 *View()* ヘルパー メソッドとの dinners"Index"ビュー テンプレートを使用して、HTML の一覧を表示することを指定します。 ビュー テンプレートからリストを生成する Dinner オブジェクトのシーケンスを渡しています。
+Index () アクションメソッドでは、 *view ()* ヘルパーメソッドを呼び出し、"index" ビューテンプレートを使用してディナーの HTML リストを表示することを示しています。 ここでは、リストを生成するディナーオブジェクトのシーケンスをビューテンプレートに渡しています。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample5.cs)]
 
-Details() アクション メソッド内には、URL 内で指定された id を使用して Dinner オブジェクトを取得しようとします。 有効な Dinner のいわゆるが見つかった場合、 *View()* "Details"ビュー テンプレートを使用して取得した Dinner オブジェクトを表示することを示す、ヘルパー メソッド。 役に立つエラー メッセージ"NotFound"のビュー テンプレートを使用して、Dinner が存在しないことを示す場合は、無効な夕食を要求すると、レンダリング (とオーバー ロードされたバージョンの*View()* ヘルパー メソッドをテンプレート名を受け取るだけです):
+詳細 () アクションメソッド内で、URL 内で指定された id を使用してディナーオブジェクトを取得しようとしています。 有効なディナーが見つかった場合は、 *view ()* ヘルパーメソッドを呼び出します。これは、取得したディナーオブジェクトを表示するために "Details" ビューテンプレートを使用することを示します。 無効なディナーが要求された場合は、"NotFound" ビューテンプレート (および、テンプレート名を受け取る*ビュー ()* ヘルパーメソッドのオーバーロードされたバージョン) を使用してディナーが存在しないことを示す役立つエラーメッセージが表示されます。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample6.cs)]
 
-これで、"NotFound"、「詳細」と"Index"ビュー テンプレートを実装してみましょう。
+ここで、"NotFound"、"Details"、"Index" の各ビューテンプレートを実装しましょう。
 
-### <a name="implementing-the-notfound-view-template"></a>"NotFound"のビュー テンプレートの実装
+### <a name="implementing-the-notfound-view-template"></a>"NotFound" ビューテンプレートの実装
 
-まず、要求された dinner が見つからないことを示すわかりやすいエラー メッセージを表示する –"NotFound"のビュー テンプレートの実装します。
+まず、"NotFound" ビューテンプレートを実装します。これにより、要求されたディナーが見つからないことを示すわかりやすいエラーメッセージが表示されます。
 
-コント ローラー アクション メソッド内にテキスト カーソルを配置し、新しいテンプレートの表示を作成し、右クリックし、(私たちも実行できるこのコマンド Ctrl M, ctrl + V」と入力して)「ビューの追加」メニュー コマンドを選択します。
+コントローラーアクションメソッド内にテキストカーソルを配置し、右クリックして [ビューの追加] メニューコマンドを選択することによって、新しいビューテンプレートを作成します (Ctrl + M、Ctrl + V キーを押して、このコマンドを実行することもできます)。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image8.png)
 
-これは、次のような「ビューの追加」ダイアログが表示されます。 既定では、ダイアログ ボックスが作成するビューの名前を事前に設定のアクション メソッドの名前と一致する、カーソル時の (この例では「詳細」) では、ダイアログが起動されました。 まず、"NotFound"テンプレートを実装するため、このビューの名前をオーバーライドし、"NotFound"のように変更するように設定しましたします。
+これにより、次のような [ビューの追加] ダイアログが表示されます。 既定では、ダイアログが起動されたときのアクションメソッド (この場合は "Details") の名前と一致するように、作成するビューの名前が事前に設定されます。 最初に "NotFound" テンプレートを実装するので、このビュー名をオーバーライドし、代わりに "NotFound" に設定します。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image9.png)
 
-[追加] ボタンをクリックすると、ときに Visual Studio は新しい"NotFound.aspx"ビュー テンプレートを (が、ディレクトリが既に存在しない場合も作成されます)、"\Views\Dinners"ディレクトリ内の作成します。
+[追加] ボタンをクリックすると、Visual Studio は "\Views\Dinners" ディレクトリ内に新しい "NotFound" ビューテンプレートを作成します (ディレクトリがまだ存在しない場合にも作成されます)。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image10.png)
 
-コード エディター内に、新しい"NotFound.aspx"ビュー テンプレートも開きます。
+また、コードエディター内で新しい "NotFound" ビューテンプレートが開きます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image11.png)
 
-既定ではテンプレートの表示がある 2 つ「コンテンツ領域」のコンテンツとコードを追加します。 1 つ目では、「タイトル」、HTML ページの返信をカスタマイズできます。 2 番目の内容をカスタマイズする"メイン"の HTML ページに送信できます。
+既定では、ビューテンプレートには、コンテンツとコードを追加できる2つの "コンテンツ領域" があります。 1つ目の方法では、返信した HTML ページの "タイトル" をカスタマイズできます。 2つ目の方法では、返信した HTML ページの "メインコンテンツ" をカスタマイズできます。
 
-"NotFound"のビュー テンプレートを実装するために、いくつかの基本的なコンテンツを追加します。
+"NotFound" ビューテンプレートを実装するには、いくつかの基本的なコンテンツを追加します。
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample7.aspx)]
 
-試すことができますし、ブラウザー内で。 これを行うみましょう要求、 *「/Dinners/詳細/9999」* URL。 これは、データベースに現在存在しないし、"NotFound"のビュー テンプレートを表示するために、DinnersController.Details() アクション メソッドが発生する dinner をご覧ください。
+その後、ブラウザー内で試してみることができます。 これを行うには、 *"/Din/9999"* の URL を要求します。 これは、データベースに現在存在していないディナーを指し、"NotFound" ビューテンプレートをレンダリングするために、Din() アクションメソッドによって表示されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image12.png)
 
-1 つに気付くことで、上記のスクリーン ショットは、基本的なビュー テンプレートには、一連の画面にメイン コンテンツを囲む HTML が継承されてます。 これは、このビュー テンプレートが、サイト上のすべてのビューで一貫性のあるレイアウトを適用できる「マスター ページ」テンプレートを使用しているためにです。 マスター ページのこのチュートリアルの後半で複数のしくみについて説明します。
+上のスクリーンショットでは、基本的なビューテンプレートによって、画面上のメインコンテンツを囲む HTML がいくつか継承されていることがわかります。 これは、ビューテンプレートが "マスターページ" テンプレートを使用しているためです。これにより、サイト上のすべてのビューで一貫したレイアウトを適用できるようになります。 このチュートリアルの後半では、マスターページがどのように機能するかについて説明します。
 
-### <a name="implementing-the-details-view-template"></a>「詳細」のビュー テンプレートの実装
+### <a name="implementing-the-details-view-template"></a>"Details" ビューテンプレートの実装
 
-「詳細」のビュー テンプレート – Dinner モデルが 1 つの HTML が生成されますを今すぐ実装してみましょう。
+ここで、"Details" ビューテンプレートを実装します。これにより、単一のディナーモデルの HTML が生成されます。
 
-私たちします詳細アクション メソッド内でテキスト カーソルを配置し、右クリックし"ビューの追加 メニューのコマンドを選択するか Ctrl M, ctrl + V キーを押します)。
+これを行うには、詳細アクションメソッド内にテキストカーソルを配置し、右クリックして [ビューの追加] メニューコマンドを選択します (または、Ctrl + M キー、Ctrl キーを押しながら V キーを押します)。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image13.png)
 
-「ビューの追加」ダイアログが表示されます。 既定のビュー名 (「詳細」) にしておきます。 ダイアログ ボックスで [厳密に型指定されたビューを作成する] チェック ボックスをオンもされ、コント ローラーからビューに渡されるモデルの種類の名前を (コンボ ボックスのドロップダウンを使用して) を選択します。 このビューは、Dinner オブジェクトを渡しています (この型の完全修飾名は。"NerdDinner.Models.Dinner"):
+[ビューの追加] ダイアログが表示されます。 既定のビュー名 ("Details") はそのままにします。 また、ダイアログの [厳密に型指定されたビューを作成する] チェックボックスをオンにし、コントローラーからビューに渡すモデルの種類の名前を選択します (コンボボックスのドロップダウンリストを使用します)。 このビューでは、ディナーオブジェクトを渡しています (この型の完全修飾名は次のとおりです。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image14.png)
 
-私たちが付けた"空"ビューを作成する、以前のテンプレートとは異なりを自動的に選択して、この時間「スキャフォールディング」"Details"テンプレートを使用して表示します。 これは、前述のダイアログ ボックスで「コンテンツの表示」のドロップダウン リストを変更することで指定できます。
+"空のビュー" の作成を選択した前のテンプレートとは異なり、今回は "詳細" テンプレートを使用してビューを自動的に "スキャフォールディング" することを選択します。 これを示すには、上のダイアログボックスの [コンテンツの表示] ドロップダウンを変更します。
 
-「スキャフォールディング」を渡している Dinner オブジェクトに基づいて、詳細ビュー テンプレートの最初の実装が生成されます。 これは、すぐに、ビュー テンプレートの実装を開始するための簡単な方法を提供します。
+"スキャフォールディング" は、渡されるディナーオブジェクトに基づいて、詳細ビューテンプレートの初期実装を生成します。 これにより、ビューテンプレートの実装を簡単に開始できるようになります。
 
-[追加] ボタンをクリックすると、ときに Visual Studio は新しい"Details.aspx"ビュー テンプレート ファイルを"\Views\Dinners"ディレクトリ内の作成します。
+[追加] ボタンをクリックすると、Visual Studio によって "\Views\Dinners" ディレクトリ内に新しい "Details" ビューテンプレートファイルが作成されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image15.png)
 
-コード エディター内で、新しい"Details.aspx"ビュー テンプレートも開きます。 Dinner モデルに基づいて詳細ビューのスキャフォールディングの初期実装が含まれます。 スキャフォールディング エンジンは、.NET リフレクションを使用して、渡されたクラスで公開されているパブリック プロパティを確認し、見つけたの各種類に基づく適切なコンテンツを追加します。
+また、コードエディター内で新しい "Details" ビューテンプレートが開きます。 これには、ディナーモデルに基づく詳細ビューの初期スキャフォールディング実装が含まれます。 スキャフォールディングエンジンは、.NET リフレクションを使用して、渡されたクラスで公開されているパブリックプロパティを確認し、見つかった各型に基づいて適切なコンテンツを追加します。
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample8.aspx)]
 
-*「/1/Dinners/詳細」* ブラウザーでこの「詳細」のスキャフォールディングの実装がどのように表示する URL。 この URL を使用して手動で追加したデータベースに最初に作成したときに、dinners の 1 つ表示されます。
+*"/Dinners/Details/1"* という URL を要求して、ブラウザーでのこの "詳細" スキャフォールディング実装の外観を確認できます。 この URL を使用すると、最初にデータベースを作成したときにデータベースに手動で追加したディナーの1つが表示されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image16.png)
 
-これにより、すばやく作業を開始、私たちを取得し、この Details.aspx ビューの最初の実装を提供します。 移動しを満足度に UI をカスタマイズすることを調整できます。
+これにより、すぐに稼働が開始され、詳細な .aspx ビューの初期実装が提供されます。 それを調整して、UI を満足できるようにカスタマイズすることができます。
 
-もっとよく Details.aspx テンプレートを見てみると、静的な HTML が含まれていますと、レンダリング コードを埋め込みわかります。 &lt;%%&gt;コード ナゲットはビュー テンプレートをレンダリングするときにコードを実行し、 &lt;% = %&gt;コード ナゲットがそれに含まれるコードを実行し、テンプレートの出力ストリームに結果をレンダリングします。
+詳細 .aspx テンプレートについて詳しく説明すると、静的な HTML と埋め込みの描画コードが含まれていることがわかります。 &lt;%%&gt; コードナゲットはビューテンプレートのレンダリング時にコードを実行し、&lt;% =%&gt; コードナゲットに含まれるコードを実行し、その結果をテンプレートの出力ストリームにレンダリングします。
 
-厳密に型指定された"Model"プロパティを使用して、コント ローラーから渡された"Dinner"モデル オブジェクトにアクセスする、ビュー内でコードを記述できます。 Visual Studio により、完全なコードの intellisense、エディター内での「モデル」このプロパティにアクセスする場合。
+このビューには、厳密に型指定された "モデル" プロパティを使用してコントローラーから渡された "ディナー" モデルオブジェクトにアクセスするコードを記述できます。 Visual Studio には、エディター内でこの "モデル" プロパティにアクセスするときに完全なコード intellisense が用意されています。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image17.png)
 
-いくつかの修正は、最後の詳細ビュー テンプレートのソースは次のようになりますようにしましょう。
+最終的な詳細ビューテンプレートのソースが次のようになるように、いくつかの調整を行いましょう。
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample9.aspx)]
 
-アクセスして、 *「/1/Dinners/詳細」* URL もう一度これは、次のようなレンダリング。
+*"/Dinners/Details/1"* URL にもう一度アクセスすると、次のように表示されるようになります。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image18.png)
 
-### <a name="implementing-the-index-view-template"></a>"Index"のビュー テンプレートの実装
+### <a name="implementing-the-index-view-template"></a>"Index" ビューテンプレートの実装
 
-今すぐ – 今後 Dinners の一覧を生成する"Index"ビュー テンプレートを実装してみましょう。 To-do これをインデックス アクション メソッド内にテキスト カーソルを配置し、右 をクリックし、"ビューの追加 メニューのコマンドを選択 (または Ctrl M, ctrl + V キーを押します)。
+"Index" ビューテンプレートを実装しましょう。これにより、今後のディナーの一覧が生成されます。 これを行うには、Index アクションメソッド内にテキストカーソルを置き、右クリックして [ビューの追加] メニューコマンドを選択します (または、Ctrl + M キー、Ctrl キーを押しながら V キーを押します)。
 
-"ビューの追加 ダイアログ ボックスで"Index"という名前のテンプレートの表示の維持がされ"厳密に型指定されたビューを作成する チェック ボックスを選択します。 この時間を自動的に"List"ビュー テンプレートを生成し、"NerdDinner.Models.Dinner"モデルの種類として、ビューに渡されるを選択します (このスキャフォールディングと、ビューの追加ダイアログが前提としていますが、"List"を作成することによって示されたがためシーケンスを渡して Dinner オブジェクトのコント ローラーからビューに)。
+[ビューの追加] ダイアログボックスで、"Index" という名前のビューテンプレートを保持し、[厳密に型指定されたビューを作成する] チェックボックスをオンにします。 今回は、"リスト" ビューテンプレートを自動的に生成し、ビューに渡されるモデルの種類として "スキャフォールディング" を選択します。これは、"リスト" を作成すると、[ビューの追加] ダイアログでは次のようになります。コントローラーからビューにディナーオブジェクトのシーケンスを渡します。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image19.png)
 
-[追加] ボタンをクリックすると、ときに Visual Studio は新しい"Index.aspx"ビュー テンプレート ファイルを"\Views\Dinners"ディレクトリ内を作成します。 これは「スキャフォールディング」ビューに渡す Dinners の HTML テーブルの一覧を提供する内部に初期実装。
+[追加] ボタンをクリックすると、Visual Studio によって "\Views\Dinners" ディレクトリ内に新しい "Index" ビューテンプレートファイルが作成されます。 ビューに渡すディナーの HTML テーブルリストを提供する、その内部の初期実装を "スキャフォールディング" します。
 
-アプリケーションとアクセスを実行したときに、 *「Dinners/」* URL dinners の一覧を表示するようになります。
+アプリケーションを実行して *"* ディナー" の URL にアクセスすると、次のような一覧が表示されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image20.png)
 
-上記のテーブル ソリューションでは、Dinner データ – これは非常に必要な Dinner リストに接続する、コンシューマーのグリッドのようなレイアウトをによりします。 Index.aspx ビュー テンプレートを更新し、データのより少ない列を一覧表示して使用するように変更を&lt;ul&gt;レンダリングして、次のコードを使用してテーブルではなく要素。
+上のテーブルソリューションでは、ディナーデータのグリッド形式のレイアウトが提供されています。これは、お客様に向けたディナーのリストについてはあまり必要ではありません。 次のコードを使用して、インデックスの .aspx ビューテンプレートを更新し、それを変更してデータの列数を減らすことができます。また、&lt;ul&gt; 要素を使用して、テーブルではなくレンダリングします。
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample10.aspx)]
 
-このモデルで各 dinner 経由でループと上記の foreach ステートメント内で"の var"キーワードを使用しています。 Dinner オブジェクトがある遅延バインディングを意味"の var"を使用して c# 3.0 で未知のものと考えるかもしれません。 コンパイラが厳密に型指定された「モデル」プロパティに対して型推論を使用している代わりに意味 (型の"IEnumerable&lt;Dinner&gt;") といっぱいになることを意味する – Dinner の種類としてローカル"dinner"変数のコンパイルintellisense とコンパイル時のコード ブロック内でチェックします。
+上記の foreach ステートメントでは、モデルの各ディナーをループ処理する "var" キーワードを使用しています。 3\.0 にC#精通している方は、"var" を使用すると、ディナーオブジェクトが遅延バインディングされることを意味します。 代わりに、コンパイラが厳密に型指定された "Model" プロパティ ("IEnumerable&lt;ディナー&gt;") に対して型の推論を使用し、ローカルの "ディナー" 変数をディナー型としてコンパイルしていることを意味します。これは、intellisense を完全に取得し、コードブロック内でコンパイル時にチェックします。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image21.png)
 
-更新をヒットしました、 */Dinners*以下のような更新されたビューの現時点では、ブラウザーで URL:
+ブラウザーで */Dinners* URL の更新にヒットすると、更新されたビューは次のようになります。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image22.png)
 
-これにより、ほうが検索しているはまだ完全にあります。 最後に、エンドユーザー、リスト内の個々 の Dinners をクリックし、それらについての詳細を参照してください。 これで、DinnersController の詳細アクション メソッドにリンクする HTML ハイパーリンク要素をレンダリングすることにより実装します。
+この方が優れていますが、まだ完全ではありません。 最後の手順は、エンドユーザーがリスト内の個々のディナーをクリックして、その詳細を確認できるようにすることです。 これを実装するには、Dinのコントローラーの Details アクションメソッドにリンクする HTML ハイパーリンク要素をレンダリングします。
 
-2 つの方法のいずれかで、インデックス ビュー内でこれらのハイパーリンクを生成しています。 1 つは、HTML を手動で作成する&lt;、&gt;などの要素以下、場所を埋め込む&lt;%%&gt;ブロック内で、 &lt;、&gt; HTML 要素。
+これらのハイパーリンクは、次の2つの方法のいずれかで、インデックスビュー内に生成できます。 1つ目は、次のような&gt; の要素 &lt;HTML を手動で作成することです。ここでは、&lt;%%&gt; ブロックを &lt;HTML 要素&gt; に埋め込みます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image23.png)
 
-使用して別のアプローチは、HTML をプログラムで作成をサポートする ASP.NET MVC 内で組み込みの"Html.ActionLink()"ヘルパー メソッドを活用するために、 &lt;、&gt;で別のアクション メソッドにリンクする要素、コント ローラー:
+別の方法として、ASP.NET MVC 内で組み込みの "Html.actionlink ()" ヘルパーメソッドを利用して、プログラムによって、コントローラー上の別のアクションメソッドにリンクする HTML &lt;&gt; 要素を作成することができます。
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample11.aspx)]
 
-Html.ActionLink() のヘルパー メソッドの最初のパラメーターを表示するリンク テキストは、(ここでは、タイトル、dinner の) 2 番目のパラメーター (この場合、詳細メソッド) へのリンクを生成するコント ローラー アクション名は、3 番目のパラメーター(プロパティの名前/値を持つ匿名型として実装)、アクションに送信するパラメーターのセット。 ここでおにリンクするため、既定の URL ルーティング ルールの ASP.NET MVC では、dinner の"id"パラメーターを指定することは"{controller}/{action}/{id}"Html.ActionLink() ヘルパー メソッドは、次の出力が生成されます。
+Html の最初のパラメーター。 Html.actionlink () ヘルパーメソッドは、表示するリンクテキスト (この場合はディナーのタイトル)、2番目のパラメーターはリンクを生成するコントローラーアクション名 (この場合は詳細メソッド)、3番目のパラメーターはアクションに送信するパラメーターのセットです (プロパティ名/値を持つ匿名型として実装されます)。 この例では、リンク先のディナーの "id" パラメーターを指定しています。また、ASP.NET MVC の既定の URL ルーティングルールは "{Controller}/{action}/{Html.actionlink () ヘルパーメソッドによって次の出力が生成されます。
 
 [!code-html[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample12.html)]
 
-Index.aspx ビュー Html.ActionLink() ヘルパー メソッドのアプローチを使用して各 dinner が適切な詳細情報の URL を一覧のリンクであるなります。
+この例では、Html.actionlink () ヘルパーメソッドを使用して、リスト内の各ディナーを適切な詳細 URL にリンクします。
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample13.aspx)]
 
-今すぐおをヒットした時と、 */Dinners* dinner 一覧は、次のように次の URL:
+*/Dinners*の URL にヒットすると、ディナーリストは次のようになります。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image24.png)
 
-一覧でディナーのいずれかをクリックしたとき詳細が表示に移動します。
+一覧でディナーのいずれかをクリックすると、その詳細が表示されます。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image25.png)
 
-### <a name="convention-based-naming-and-the-views-directory-structure"></a>名前付け規則に基づくと \Views ディレクトリ構造
+### <a name="convention-based-naming-and-the-views-directory-structure"></a>規則ベースの名前付けおよび \ ビューのディレクトリ構造
 
-既定では ASP.NET MVC アプリケーションでは、テンプレートの表示を解決するときに、名前付け構造、規則ベースのディレクトリを使用します。 これにより、開発者は完全修飾の場所のパスから、コント ローラー クラス内でのビューを参照するときにする必要があります。 既定では ASP.NET MVC ビュー テンプレート ファイル内の検索は、* \Views\[ControllerName]\*アプリケーションの下にあるディレクトリ。
+既定では、ASP.NET MVC アプリケーションは、ビューテンプレートを解決するときに、規則ベースのディレクトリ名前付け構造を使用します。 これにより、開発者は、コントローラークラス内からビューを参照するときに、ロケーションパスを完全修飾する必要がなくなります。 既定では、ASP.NET MVC は、アプリケーションの下にある * \ Views\[ControllerName]\* ディレクトリ内のビューテンプレートファイルを検索します。
 
-たとえば、操作している 3 つのビュー テンプレートを明示的に参照する – DinnersController クラス。"Index"、「詳細」および"NotFound"の場合は。 ASP.NET MVC は既定で検索内でこれらのビュー、 *\Views\Dinners*アプリケーションのルート ディレクトリの下にあるディレクトリ。
+たとえば、"Index"、"Details"、"NotFound" という3つのビューテンプレートを明示的に参照する、Din: Controller クラスに取り組んでいます。 既定では、ASP.NET MVC は、アプリケーションのルートディレクトリの下にある *\Views\Dinners*ディレクトリ内でこれらのビューを検索します。
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image26.png)
 
-プロジェクト内の 3 つのコント ローラー クラスのいる方法がありますの上に注意してください (DinnersController、HomeController と AccountController – プロジェクトを作成したときに、最後の 2 つが既定で追加された)、3 つのサブディレクトリ (1 つずつ、コント ローラー) \Views ディレクトリ内。
+プロジェクト内に現在3つのコントローラークラスがあることに注目してください (HomeController と AccountController –プロジェクトの作成時に既定で最後の2つが追加されています)。サブディレクトリは3つあります (コントローラー) を参照してください。
 
-ホームおよびアカウント コント ローラーから参照されているビューは、それぞれから、ビュー テンプレートを自動的に解決 *\Views\Home*と *\Views\Account*ディレクトリ。 *\Views\Shared*サブディレクトリが、アプリケーション内で複数のコント ローラー間で再利用されるビュー テンプレートを格納する方法を提供します。 内でチェックが最初に ASP.NET MVC がビュー テンプレートを解決しようとした場合、 *\Views\[コント ローラー]* 特定のディレクトリにビュー テンプレートを見つけられない場合がありますよ内で、 *\Views\共有*ディレクトリ。
+ホームコントローラーとアカウントコントローラーから参照されているビューは、それぞれの *\Views\Home*ディレクトリと *\Views\Account*ディレクトリから、ビューテンプレートを自動的に解決します。 *ある \views\shared*サブディレクトリは、アプリケーション内の複数のコントローラー間で再利用されるビューテンプレートを格納するための方法を提供します。 ASP.NET MVC は、ビューテンプレートを解決しようとすると、最初に *\ Views\[Controller]* 特定のディレクトリ内をチェックし、ビューテンプレートが見つからない場合は*ある \views\shared*ディレクトリ内で確認します。
 
-個々 のビュー テンプレートの名前付けに関しては、推奨されるガイダンスが、ビュー テンプレートを表示するためにその原因となったアクション メソッドと同じ名前を共有します。 たとえば、「インデックス」上のアクション メソッドがビューの結果を表示するために"Index"ビューを使用して、"Details"アクション メソッドは、その結果を表示するために「詳細」ビューを使用しています。 これにより、簡単にすばやく参照するテンプレートは、各アクションに関連付けられています。
+個々のビューテンプレートに名前を付ける場合は、ビューテンプレートでレンダリングの原因となったアクションメソッドと同じ名前を共有することをお勧めします。 たとえば、"Index" アクションメソッドの上では、"Index" ビューを使用してビューの結果を表示し、"Details" アクションメソッドは "Details" ビューを使用して結果を表示しています。 これにより、各アクションに関連付けられているテンプレートを簡単に確認できます。
 
-開発者は、ビュー テンプレートがコント ローラーで呼び出されるアクション メソッドと同じ名前を持つときにビュー テンプレートの名前を明示的に指定する必要はありません。 代わりにだけ、モデル オブジェクトに渡す"View()"のヘルパー メソッド (ビューの名前を指定)、なしと ASP.NET MVC を使用することが自動的に推測、 *\Views\[ControllerName]\[ActionName]* ビュー テンプレートのレンダリングのディスクにします。
+ビューテンプレートの名前がコントローラーで呼び出されているアクションメソッドと同じである場合、開発者はビューテンプレート名を明示的に指定する必要はありません。 代わりに、モデルオブジェクトを "View ()" ヘルパーメソッドに渡すだけで (ビュー名を指定する必要はありません)、ASP.NET MVC は *\[ControllerName を\[* 使用してディスク上に ActionName] ビューテンプレートをレンダリングすることを自動的に推測します。
 
-これにより、コント ローラーのコードを少しクリーンアップし、2 回、コード内の名前の重複を避けます。
+これにより、コントローラーコードを少しクリーンアップし、コードで名前を2回複製することを回避できます。
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample14.cs)]
 
-上記のコードは、サイトの便利な Dinner リスティング/詳細を実装するために必要なすべてが発生します。
+上記のコードは、サイトのディナーリスト/詳細エクスペリエンスを実装するために必要なすべてのものです。
 
 #### <a name="next-step"></a>次の手順
 
-ブラウズ エクスペリエンスの構築の優れた Dinner があるようになりました。
+これで、ディナーブラウズエクスペリエンスが作成されました。
 
-みましょう CRUD (作成、読み取り、更新、削除) データ フォームの編集のサポートを今すぐ有効にします。
+CRUD (作成、読み取り、更新、削除) データフォーム編集サポートを有効にしましょう。
 
 > [!div class="step-by-step"]
 > [前へ](build-a-model-with-business-rule-validations.md)

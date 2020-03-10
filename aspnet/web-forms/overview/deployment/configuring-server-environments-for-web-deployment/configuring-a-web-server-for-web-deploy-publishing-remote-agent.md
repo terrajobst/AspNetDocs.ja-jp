@@ -9,21 +9,21 @@ ms.assetid: 239c7aa8-d09a-4d02-9c0e-6bd52be5f0d5
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
 ms.openlocfilehash: ce0d246afdfb65c2ea15a287064511e7d1d58622
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589049"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78457702"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web 配置発行の Web サーバーを構成する (リモート エージェント)
 
 [Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、IIS Web Deployment Tool (Web 配置) リモートエージェントサービスを使用して、web 発行および展開をサポートするようにインターネットインフォメーションサービス (IIS) web サーバーを構成する方法について説明します。
 > 
-> Web 配置2.0 以降を使用する場合は、アプリケーションまたはサイトを Web サーバーに取り込むために使用できる3つの主な方法があります。 次の操作を行うことができます。
+> Web 配置2.0 以降を使用する場合は、アプリケーションまたはサイトを Web サーバーに取り込むために使用できる3つの主な方法があります。 次のようにすることができます。
 > 
 > - *Web 配置リモートエージェントサービス*を使用します。 この方法では、web サーバーの構成が少なくて済みますが、サーバーに何かを展開するには、ローカルサーバー管理者の資格情報を指定する必要があります。
 > - *Web 配置ハンドラー*を使用します。 この方法ははるかに複雑で、web サーバーを設定するためにより多くの初期作業が必要になります。 ただし、この方法を使用する場合は、管理者以外のユーザーが展開を実行できるように IIS を構成できます。 Web 配置ハンドラーは、IIS バージョン7以降でのみ使用できます。
@@ -150,7 +150,7 @@ IIS の既定の web サイトへのコンテンツのデプロイは停止さ�
     > [!NOTE]
     > 運用環境では、web サイトをポート80でホストし、一致する DNS レコードと共にホストヘッダーを構成することが必要になる場合があります。 IIS 7 でホストヘッダーを構成する方法の詳細については、「 [Web サイトのホストヘッダーを構成する (iis 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx)」を参照してください。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、「 [Dns サーバーの概要](https://technet.microsoft.com/library/cc770392.aspx)」および「 [dns サーバー](https://technet.microsoft.com/windowsserver/dd448607)」を参照してください。
 9. **[アクション]** ウィンドウの **[サイトの編集]** の下にある **[バインド]** をクリックします。
-10. **[サイトバインド]** ダイアログボックスで、 **[追加]** をクリックします。
+10. **[サイト バインド]** ダイアログ ボックスの **[追加]** をクリックします。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image5.png)
 11. **[サイトバインドの追加]** ダイアログボックスで、既存のサイト構成に合わせて**IP アドレス**と**ポート**を設定します。
@@ -159,8 +159,8 @@ IIS の既定の web サイトへのコンテンツのデプロイは停止さ�
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
     > [!NOTE]
-    > 最初のサイトバインドでは、IP アドレスとポートまたは `http://localhost:85`を使用してサイトにローカルにアクセスできます。 2番目のサイトバインドを使用すると、コンピューター名 (http://testweb1:85) など) を使用して、ドメイン上の他のコンピューターからサイトにアクセスできます。
-13. **[サイトバインド]** ダイアログボックスで、 **[閉じる]** をクリックします。
+    > 最初のサイトバインドでは、IP アドレスとポートまたは `http://localhost:85`を使用してサイトにローカルにアクセスできます。 2番目のサイトバインドを使用すると、コンピューター名 (http://testweb1:85)など) を使用して、ドメイン上の他のコンピューターからサイトにアクセスできます。
+13. **[サイト バインド]** ダイアログ ボックスの **[閉じる]** をクリックします。
 14. **[接続]** ウィンドウで、 **[アプリケーションプール]** をクリックします。
 15. **[アプリケーションプール]** ウィンドウで、アプリケーションプールの名前を右クリックし、 **[基本設定]** をクリックします。 既定では、アプリケーションプールの名前は web サイトの名前 ( **Demosite**など) と一致します。
 16. **[.NET Framework のバージョン]** ボックスの一覧で **[.NET Framework v v4.0.30319]** を選択し、 **[OK]** をクリックします。
@@ -186,7 +186,7 @@ Web サイトがコンテンツを提供できるようにするには、アプ�
 
 1. Windows エクスプローラーで、ローカルフォルダーの場所を参照します。
 2. フォルダーを右クリックし、 **[プロパティ]** をクリックします。
-3. **[セキュリティ]** タブで、 **[編集]** をクリックし、 **[追加]** をクリックします。
+3. **[Security]** タブで、 **[Edit]** 、 **[Add]** の順にクリックします。
 4. **[場所]** をクリックします。 **[場所]** ダイアログボックスで、ローカルサーバーを選択し、[ **OK]** をクリックします。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
@@ -214,7 +214,7 @@ Web サイトがコンテンツを提供できるようにするには、アプ�
 
 ほとんどの場合、web サーバーはポート80で HTTP 要求をリッスンするため、リモートエージェントサービスに対して追加のファイアウォール規則を構成する必要はありません。 標準以外のポートでリッスンするようにインストールをカスタマイズした場合は、必要に応じてファイアウォールの例外を構成する必要があります。
 
-## <a name="conclusion"></a>結論
+## <a name="conclusion"></a>まとめ
 
 この時点で、web サーバーは、リモートコンピューターから web パッケージを受け入れてインストールする準備ができています。 サーバーに web アプリケーションを配置する前に、次のキーポイントを確認することをお勧めします。
 
@@ -222,7 +222,7 @@ Web サイトがコンテンツを提供できるようにするには、アプ�
 - アプリケーションプール id に web サイトのソースフォルダーへの読み取りアクセス権があるかどうか。
 - Web Deployment Agent サービスは実行されていますか?
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 カスタム Microsoft Build Engine (MSBuild) プロジェクトファイルを構成してリモートエージェントサービスに web パッケージを配置する方法のガイダンスについては、「[ターゲット環境の配置プロパティの構成](configuring-deployment-properties-for-a-target-environment.md)」を参照してください。
 

@@ -1,27 +1,27 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/working-with-images
-title: 画像の操作 |Microsoft Docs
+title: イメージの操作 |Microsoft Docs
 author: JoeStagner
-description: ビデオの主役にイメージのチュートリアルを使用した作業
+description: イメージの操作に関するチュートリアルのビデオ最適
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 38e21ba3-9b08-4397-a8ab-45d0e45448af
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-images
 msc.type: video
 ms.openlocfilehash: 09da6e57c524f4a1e9b9a97193dc83e7a2b5f61a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390793"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514078"
 ---
-# <a name="working-with-images"></a>イメージの処理
+# <a name="working-with-images"></a>イメージの操作
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-ビデオの主役にイメージのチュートリアルを使用した作業
+イメージの操作に関するチュートリアルのビデオ最適
 
-[&#9654;ビデオ (26 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-images)
+[&#9654;ビデオを見る (26 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-images)
 
 > [!div class="step-by-step"]
 > [前へ](working-with-files.md)

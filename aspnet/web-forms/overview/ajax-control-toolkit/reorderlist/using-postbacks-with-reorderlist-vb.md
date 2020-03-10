@@ -9,11 +9,11 @@ ms.assetid: e5b6ed70-19ed-4024-ba4f-6d78e8acdc0f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5d6075e40df2c32df6c0d801243eff98fa7790b2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611366"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78445930"
 ---
 # <a name="using-postbacks-with-reorderlist-vb"></a>ReorderList でポストバックを使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611366"
 
 > AJAX コントロールツールキットの ReorderList コントロールは、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストを提供します。 リストが並べ替えられるたびに、ポストバックはサーバーに変更を通知します。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの `ReorderList` コントロールには、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストが用意されています。 リストが並べ替えられるたびに、ポストバックはサーバーに変更を通知します。
 

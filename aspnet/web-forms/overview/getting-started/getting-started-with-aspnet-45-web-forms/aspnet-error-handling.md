@@ -9,11 +9,11 @@ ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 9514142ca50b33470a3f4c033e4f8e319a9ee09b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636466"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78457024"
 ---
 # <a name="aspnet-error-handling"></a>ASP.NET エラー処理
 
@@ -25,7 +25,7 @@ ms.locfileid: "74636466"
 
 このチュートリアルでは、Wingtip Toys サンプルアプリケーションを変更して、エラー処理とエラーログを含めます。 エラー処理により、アプリケーションはエラーを適切に処理し、それに応じてエラーメッセージを表示できます。 エラーログを使用すると、発生したエラーを検出して修正することができます。 このチュートリアルは、前の「URL ルーティング」チュートリアルに基づいており、Wingtip Toys チュートリアルシリーズの一部です。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 - アプリケーションの構成にグローバルエラー処理を追加する方法。
 - アプリケーション、ページ、およびコードレベルでエラー処理を追加する方法について説明します。
@@ -33,7 +33,7 @@ ms.locfileid: "74636466"
 - セキュリティを損なうことのないエラーメッセージを表示する方法。
 - エラーログモジュールとハンドラー (ELMAH) のエラーログを実装する方法。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET アプリケーションは、実行中に発生したエラーを一貫した方法で処理できる必要があります。 ASP.NET は、共通言語ランタイム (CLR) を使用します。これにより、一貫した方法でアプリケーションにエラーを通知することができます。 エラーが発生すると、例外がスローされます。 例外とは、アプリケーションで発生したエラー、条件、または予期しない動作のことです。
 
@@ -53,8 +53,8 @@ Exception クラスは、例外の継承元となる基本クラスです。 ほ
 
 ASP.NET Web フォームアプリケーションでは、特定の処理階層に基づいて例外を処理できます。 例外は、次のレベルで処理できます。
 
-- アプリケーションレベル
-- ページレベル
+- アプリケーション レベル
+- ページレベルのロック
 - コードレベル
 
 アプリケーションで例外を処理する場合、例外クラスから継承された例外に関する追加情報を取得して、ユーザーに表示できます。 アプリケーション、ページ、およびコードレベルに加えて、HTTP モジュールレベルおよび IIS カスタムハンドラーを使用して例外を処理することもできます。
@@ -139,7 +139,7 @@ Wingtip Toys サンプルアプリケーションでは、1つのページを使
 2. 次のように `<system.web>` ノード内の*web.config*ファイルに `customErrors` セクションを追加します。   
 
     [!code-xml[Main](aspnet-error-handling/samples/sample8.xml?highlight=3-5)]
-3. *Web.config ファイルを*保存します。
+3. *Web.config* ファイルを保存します。
 
 `customErrors` セクションでは、モードを指定します。これは "On" に設定されています。 また、`defaultRedirect`を指定します。これは、エラーが発生したときに移動するページをアプリケーションに通知します。 また、ページが見つからない場合に404エラーを処理する方法を指定する特定の error 要素を追加しました。 このチュートリアルの後の方で、アプリケーションレベルでエラーの詳細をキャプチャする追加のエラー処理を追加します。
 
@@ -303,7 +303,7 @@ ELMAH ログを表示するのは簡単ですが、最初に、ELMAH ログに�
 
     ![ASP.NET エラー処理-ELMAH エラーログ](aspnet-error-handling/_static/image9.png)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、アプリケーションレベル、ページレベル、およびコードレベルでエラーを処理する方法について学習しました。 また、処理されたエラーと未処理のエラーをログに記録して後で確認する方法についても学習しました。 ここでは、NuGet を使用してアプリケーションに例外ログと通知を提供するために、ELMAH ユーティリティを追加しました。 また、安全なエラーメッセージの重要性についても説明しました。
 
@@ -313,7 +313,7 @@ ELMAH ログを表示するのは簡単ですが、最初に、ELMAH ログに�
 
 ![ありがとうございました-Erik](aspnet-error-handling/_static/image10.png)  
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 Microsoft Azure するための web アプリケーションのデプロイの詳細については、「 [Azure の Web サイトへのメンバーシップ、OAuth、SQL Database を使用した安全な ASP.NET Web フォームアプリのデプロイ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)」を参照してください。
 
@@ -322,7 +322,7 @@ Microsoft Azure するための web アプリケーションのデプロイの�
 [Microsoft Azure-無料試用版](https://azure.microsoft.com/pricing/free-trial/)  
  Web サイトを Microsoft Azure に公開すると、時間、メンテナンス、コストが節約されます。 これは、web アプリを Azure にデプロイするための簡単なプロセスです。 Web アプリを保守および監視する必要がある場合、Azure にはさまざまなツールとサービスが用意されています。 Azure のデータ、トラフィック、id、バックアップ、メッセージング、メディア、パフォーマンスを管理します。 また、これらはすべて、非常にコスト効率のよい方法で提供されます。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [ASP.NET Health Monitoring  でエラーの詳細をログに記録](../../older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs.md)する  
 [ELMAH](https://code.google.com/p/elmah/)
@@ -349,7 +349,7 @@ Microsoft Azure するための web アプリケーションのデプロイの�
 - [Tim Ammann、Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tom Dykstra、Microsoft](https://blogs.msdn.com/aspnetue)
 
-## <a name="community-contributions"></a>コミュニティへの貢献
+## <a name="community-contributions"></a>コミュニティへの投稿
 
 - Graham Mendick ([@grahammendick](http://twitter.com/grahammendick))  
   MSDN の Visual Studio 2012 関連コードサンプル:[ナビゲーション Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
@@ -359,4 +359,4 @@ Microsoft Azure するための web アプリケーションのデプロイの�
   Visual Studio 2012 translation: [Iniciando com ASP.NET Web フォーム 4.5-Parte 1-Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
 > [!div class="step-by-step"]
-> [前へ](url-routing.md)
+> [[戻る]](url-routing.md)

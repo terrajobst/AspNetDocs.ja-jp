@@ -9,11 +9,11 @@ ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e55ed9b92814753e95bdfdf26c2f051df6f2630d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74642383"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78476824"
 ---
 # <a name="sorting-custom-paged-data-c"></a>カスタム ページングを適用したデータを並べ替える (C#)
 
@@ -144,7 +144,7 @@ GridView で並べ替えを有効にするには、gridview s スマートタグ
 
 **図 10**: Supplier で結果を並べ替えることができる ([クリックすると、フルサイズの画像が表示](sorting-custom-paged-data-cs/_static/image16.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 前のチュートリアルで検証したカスタムページング実装では、デザイン時に結果の並べ替え順序を指定する必要がありました。 つまり、実装したカスタムページング実装は、並べ替え機能を提供することができなかったことを意味します。 このチュートリアルでは、最初からストアドプロシージャを拡張し、結果を並べ替えるための `@sortExpression` 入力パラメーターを含めることによって、この制限を克服しました。
 
@@ -152,7 +152,7 @@ GridView で並べ替えを有効にするには、gridview s スマートタグ
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

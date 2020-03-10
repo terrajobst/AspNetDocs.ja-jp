@@ -1,286 +1,286 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
-title: ASP.NET MVC 4 依存関係の挿入 |Microsoft Docs
+title: ASP.NET MVC 4 依存関係の注入 |Microsoft Docs
 author: rick-anderson
-description: メモ:このハンズオン ラボでは、ASP.NET MVC と ASP.NET MVC 4 のフィルターの基本的な知識があることを前提としています。 場合 rec する前に、ASP.NET MVC 4 のフィルターに使用していない.
+description: '注: このハンズオンラボでは、ASP.NET MVC と ASP.NET MVC 4 のフィルターに関する基本的な知識があることを前提としています。 前に ASP.NET MVC 4 フィルターを使用していない場合は、...'
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
 ms.openlocfilehash: 15c9d4dcb9e2c6b9f6adf54d65d15737b32cca3b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129736"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78451822"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 依存関係挿入
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web キャンプトレーニングキットをダウンロードする](https://aka.ms/webcamps-training-kit)
 
-このハンズオン ラボは、の基本的な知識があることを前提**ASP.NET MVC**と**ASP.NET MVC 4 をフィルター処理**します。 使用していない場合**ASP.NET MVC 4 をフィルター処理**前を経由することを勧めします。 **ASP.NET MVC のカスタム アクション フィルター**ハンズオン ラボ。
+このハンズオンラボでは、 **ASP.NET mvc**と**ASP.NET mvc 4 フィルター**に関する基本的な知識があることを前提としています。 前に**ASP.NET mvc 4 フィルター**を使用していない場合は、 **ASP.NET Mvc カスタムアクションフィルター**のハンズオンラボに進むことをお勧めします。
 
 > [!NOTE]
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)します。 このラボに固有のプロジェクトは、「 [ASP.NET MVC 4 依存関係の注入](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection)します。
+> すべてのサンプルコードとスニペットは、 [Microsoft web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)から入手できる Web キャンプトレーニングキットに含まれています。 このラボに固有のプロジェクトは、 [ASP.NET MVC 4 依存関係の挿入](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection)で入手できます。
 
-**オブジェクト指向プログラミング**パラダイムでは、各オブジェクトが連携コラボレーション モデルでの共同作成者とコンシューマーがある場合。 当然ながら、この通信モデルは、オブジェクトと複雑さが増すと管理が困難になるコンポーネント間の依存関係を生成します。
+**オブジェクト指向プログラミング**パラダイムでは、オブジェクトは共同作成者とコンシューマーが存在するコラボレーションモデルで連携します。 当然ながら、この通信モデルでは、オブジェクトとコンポーネント間の依存関係が生成されるため、複雑さが増加しても管理が困難になります。
 
-![クラスの依存関係と、モデルの複雑さ](aspnet-mvc-4-dependency-injection/_static/image1.png "クラスの依存関係と、モデルの複雑さ")
+![クラスの依存関係とモデルの複雑さ](aspnet-mvc-4-dependency-injection/_static/image1.png "クラスの依存関係とモデルの複雑さ")
 
 *クラスの依存関係とモデルの複雑さ*
 
-おそらく耳にしたが、**ファクトリ パターン**およびインターフェイスとクライアント オブジェクトはサービスの場所を担当多くの場合、サービスを使用する実装の間の分離。
+多くの場合、**ファクトリパターン**と、サービスを使用したインターフェイスと実装の分離について耳にします。クライアントオブジェクトは、サービスの場所を担当します。
 
-依存関係の注入パターンは、制御の反転の特定の実装です。 **反転 (IoC) コントロールの**オブジェクトが依存しているが作業を行う他のオブジェクトを作成しないことを意味します。 代わりに、これらは、外部ソース (たとえば、xml 構成ファイル) から必要なオブジェクトを取得します。
+依存関係の注入パターンは、制御の反転の特定の実装です。 **制御の反転 (IoC)** は、オブジェクトがその他のオブジェクトを作成せずに作業に依存することを意味します。 代わりに、外部ソース (xml 構成ファイルなど) から必要なオブジェクトを取得します。
 
-**依存関係挿入 (DI)** つまりこれは、オブジェクトの介入なしは、通常、コンポーネントによって実行フレームワークをコンス トラクターのパラメーターを渡すし、プロパティを設定します。
+**依存関係の挿入 (DI)** は、オブジェクトの介入なしに実行されることを意味します。通常は、コンストラクターのパラメーターを渡し、プロパティを設定するフレームワークコンポーネントによって行われます。
 
 <a id="The_Dependency_Injection_DI_Design_Pattern"></a>
-### <a name="the-dependency-injection-di-design-pattern"></a>依存関係の注入 (DI) デザイン パターン
+### <a name="the-dependency-injection-di-design-pattern"></a>依存関係の挿入 (DI) デザインパターン
 
-大まかに言えば、依存関係の注入の目的は、するクライアント クラス (例: *、ゴルファー*) ものをインターフェイスを満たす必要があります (例: *IClub*)。 具象型では関係ありません (例: *WoodClub、IronClub、WedgeClub*または*PutterClub*)、それを処理する他のユーザーが必要 (例: 適切な*キャディ*)。 ASP.NET MVC では、依存関係競合回避モジュールは依存関係のロジックを別の場所を登録することを許可することができます (例: コンテナーまたは*クラブのバッグ*)。
+大まかに言えば、依存関係の注入の目的は、クライアントクラス (*ゴルファー*など) がインターフェイスを満たすもの ( *iclub*など) を必要とすることです。 具象型 (例: *WoodClub、IronClub、WedgeClub* 、または*putterclub*) は考慮されません。他のユーザーがそれを処理するようにします (たとえば、適切な*caddy*)。 ASP.NET MVC の依存関係競合回避モジュールを使用すると、他の場所 (コンテナーや*クラブのバッグ*など) に依存関係ロジックを登録できます。
 
-![依存関係の注入ダイアグラム](aspnet-mvc-4-dependency-injection/_static/image2.png "依存関係の挿入の図")
+![依存関係の挿入の図](aspnet-mvc-4-dependency-injection/_static/image2.png "依存関係の挿入の図")
 
-*依存関係の挿入 - ゴルフとの類似性*
+*依存関係の挿入-ゴルフの例え*
 
-依存関係の注入パターンと制御の反転を使用する利点は次のとおりです。
+依存関係の挿入パターンと制御の反転を使用する利点は次のとおりです。
 
-- クラス結合度を削減します。
-- コードの再利用が増加します。
-- コードの保守性を向上します。
-- アプリケーションのテストが向上します。
-
-> [!NOTE]
-> 依存関係の挿入は抽象ファクトリ デザイン パターンと比較場合がありますが、両方のアプローチのわずかな違いがあります。 DI には、フレームワーク、ファクトリと、登録済みサービスを呼び出すことによって依存関係を解決するために、背後にある作業があります。
-
-依存関係の注入パターンを理解したところで ASP.NET MVC 4 を適用する方法をこの演習全体を通じて学習がします。 依存関係挿入を使用して開始、**コント ローラー**にデータベース アクセス サービスが含まれます。 次に、依存関係の挿入が適用されますが、**ビュー**サービスを使用して、情報を表示します。 最後に、ソリューション内のカスタム アクション フィルターを挿入する ASP.NET MVC 4 のフィルターに、DI を拡張します。
-
-このハンズオン ラボでは、学習する方法。
-
-- NuGet パッケージを使用して依存関係の注入に Unity を使用した ASP.NET MVC 4 を統合します。
-- ASP.NET MVC のコント ローラー内の依存関係の挿入を使用して、
-- ASP.NET MVC ビュー内の依存関係の挿入を使用して、
-- ASP.NET MVC のアクション フィルター内の依存関係の挿入を使用して、
+- クラスの結合を減らす
+- コードの再利用を増やす
+- コードの保守性を向上させる
+- アプリケーションテストの向上
 
 > [!NOTE]
-> このラボは、依存関係の解決の Unity.Mvc3 NuGet パッケージを使用して、ASP.NET MVC 4 で動作する任意の依存関係挿入フレームワークを調整することができます。
+> 依存関係の挿入は、抽象ファクトリデザインパターンと比較されることがありますが、両方の方法にわずかな違いがあります。 DI には、ファクトリと登録済みサービスを呼び出すことによって依存関係を解決するためのフレームワークが用意されています。
+
+依存関係の挿入パターンについて理解したところで、このラボ全体を通じて ASP.NET MVC 4 で適用する方法を学習します。 **コントローラー**で依存関係の挿入を使用して、データベースアクセスサービスを含めることを開始します。 次に、サービスを使用して情報を表示するために、依存関係の挿入を**ビュー**に適用します。 最後に、DI を ASP.NET MVC 4 フィルターに拡張し、ソリューションにカスタムアクションフィルターを挿入します。
+
+このハンズオンラボでは、次の方法を学習します。
+
+- NuGet パッケージを使用して依存関係の挿入を行うために ASP.NET MVC 4 と Unity を統合する
+- ASP.NET MVC コントローラー内での依存関係の挿入の使用
+- ASP.NET MVC ビュー内での依存関係の挿入の使用
+- ASP.NET MVC アクションフィルター内での依存関係の挿入の使用
+
+> [!NOTE]
+> このラボでは、依存関係の解決に Mvc3 NuGet パッケージを使用していますが、ASP.NET MVC 4 で動作するように依存関係挿入フレームワークを調整することもできます。
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
+### <a name="prerequisites"></a>前提条件
 
-このラボを完成させるのには、次の項目が必要です。
+このラボを完了するには、次の項目が必要です。
 
-- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 A](#AppendixA)をインストールする方法について)。
+- Web またはそれ以降[の2012を Microsoft Visual Studio Express](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)ます (付録 a をインストールする手順については[、「付録 a](#AppendixA) 」を参照してください)。
 
 <a id="Setup"></a>
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
 
-**コード スニペットをインストールします。**
+**コードスニペットのインストール**
 
-便宜上、このラボに管理するコードの多くは、Visual Studio コード スニペットとして利用できます。 実行コード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボで管理するコードの多くは、Visual Studio のコードスニペットとして提供されています。 コードスニペットをインストールするには、 **.\Source\Setup\CodeSnippets.vsi**ファイルを実行します。
 
-このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b:コード スニペットを使用して](#AppendixB)&quot;します。
+Visual Studio Code のスニペットを使い慣れておらず、その使用方法を学習する場合は、このドキュメントの付録「[付録 B: コードスニペット](#AppendixB)&quot;の使用」 &quot;参照してください。
 
 ---
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-次の演習では、このハンズオン ラボから成ります。
+このハンズオンラボは、次の演習によって構成されています。
 
-1. [手順 1:コント ローラーを挿入します。](#Exercise1)
-2. [手順 2:ビューを挿入します。](#Exercise2)
-3. [手順 3:フィルターを挿入します。](#Exercise3)
+1. [演習 1: コントローラーの挿入](#Exercise1)
+2. [演習 2: ビューの挿入](#Exercise2)
+3. [演習 3: フィルターの挿入](#Exercise3)
 
 > [!NOTE]
-> 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
+> 各演習には、演習を完了した後に取得する必要があるソリューションを含む**終了**フォルダーが付属しています。 演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-この演習の所要時間を推定するには。**30 分**します。
+このラボの推定所要時間: **30 分**。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Injecting_a_Controller"></a>
-### <a name="exercise-1-injecting-a-controller"></a>演習 1:コント ローラーを挿入します。
+### <a name="exercise-1-injecting-a-controller"></a>演習 1: コントローラーの挿入
 
-この演習では、Unity は NuGet パッケージを使用して統合することにより、ASP.NET MVC のコント ローラーで依存関係の挿入を使用する方法を学びます。 そのため、サービスをデータ アクセス ロジックを分離する、MvcMusicStore コント ローラーに含まれます。 サービスはコント ローラーのコンス トラクターは、のヘルプで依存関係の挿入を使用して、解決に新しい依存関係を作成**Unity**します。
+この演習では、NuGet パッケージを使用して Unity を統合することによって、ASP.NET MVC コントローラーで依存関係の挿入を使用する方法を学習します。 そのため、データアクセスからロジックを分離するために、MvcMusicStore コントローラーにサービスを含めます。 サービスは、コントローラーコンストラクターに新しい依存関係を作成します。これは、 **Unity**のヘルプを使用して依存関係の挿入を使用して解決されます。
 
-このアプローチでは、小さい結合された、アプリケーションはより柔軟で簡単に管理およびテストを生成する方法を示します。 Unity を使用した ASP.NET MVC を統合する方法も学習します。
+このアプローチでは、より柔軟性が高く、保守とテストが容易な、結合の少ないアプリケーションを生成する方法について説明します。 また、ASP.NET MVC と Unity を統合する方法についても説明します。
 
 <a id="About_StoreManager_Service"></a>
 #### <a name="about-storemanager-service"></a>StoreManager サービスについて
 
-今すぐ begin ソリューションで提供されている MVC Music Store にはという名前のデータ ストアのコント ローラーを管理するサービスが含まれています**StoreService**します。 次のとおり、ストア サービスの実装が表示されます。 すべてのメソッドがモデルのエンティティを返すことに注意してください。
+Begin ソリューションで提供される MVC ミュージックストアには、 **Storeservice**という名前のストアコントローラーデータを管理するサービスが含まれるようになりました。 以下では、ストアサービスの実装について説明します。 すべてのメソッドがモデルエンティティを返すことに注意してください。
 
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample1.cs)]
 
-**StoreController**ソリューションのようになりましたの使用を開始から**StoreService**します。 すべてのデータの参照が削除された**StoreController**、および使用する任意のメソッドを変更することがなく、現在のデータ アクセス プロバイダーを変更する実行可能なようになりました**StoreService**します。
+Begin ソリューションの**StoreController**が**storeservice**を使用するようになりました。 すべてのデータ参照が**StoreController**から削除され、 **storeservice**を使用するメソッドを変更せずに現在のデータアクセスプロバイダーを変更できるようになりました。
 
-その下に表示されます、 **StoreController**実装との依存関係を持つ**StoreService**クラスのコンス トラクター内。
+**StoreController**実装には、クラスコンストラクター内で**storeservice**との依存関係があることがわかります。
 
 > [!NOTE]
-> この演習で導入された依存関係に関連する**Inversion of Control** (IoC)。
+> この演習で導入された依存関係は、**制御の反転**(IoC) に関連しています。
 > 
-> **StoreController**クラスのコンス トラクターは、 **IStoreService**型のパラメーターは、クラス内からのサービス呼び出しを実行するために不可欠です。 ただし、 **StoreController**を ASP.NET MVC を使用する任意のコント ローラーを持つ必要があります (パラメーターなし) での既定コンス トラクターを実装していません。
+> **StoreController**クラスコンストラクターは、 **istoreservice**型パラメーターを受け取ります。これは、クラス内からのサービス呼び出しを実行するために不可欠です。 ただし、 **StoreController**は、コントローラーが ASP.NET MVC を操作するために必要な既定のコンストラクター (パラメーターなし) を実装していません。
 > 
-> 依存関係を解決するには、コント ローラーを抽象ファクトリ (指定した型の任意のオブジェクトを返すクラス) で作成する必要があります。
+> 依存関係を解決するには、抽象ファクトリ (指定された型のオブジェクトを返すクラス) によってコントローラーを作成する必要があります。
 
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample2.cs)]
 
 > [!NOTE]
-> クラスは、パラメーターなしのコンス トラクターが宣言されていないため、サービス オブジェクトを送信することがなく、StoreController を作成するとき、エラーが発生します。
+> 宣言されたパラメーターなしのコンストラクターがないため、クラスがサービスオブジェクトを送信せずに StoreController を作成しようとすると、エラーが発生します。
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Running_the_Application"></a>
-#### <a name="task-1---running-the-application"></a>タスク 1 - アプリケーションの実行
+#### <a name="task-1---running-the-application"></a>タスク 1-アプリケーションを実行する
 
-このタスクで、データ アクセスでは、アプリケーション ロジックから分離されるストア コント ローラーに、サービスを含む開始アプリケーションを実行します。
+このタスクでは、Begin アプリケーションを実行します。このアプリケーションでは、アプリケーションロジックからデータアクセスを分離するストアコントローラーにサービスが含まれています。
 
-アプリケーションを実行するときにコント ローラー サービスが既定でのパラメーターとして渡されないと、例外が表示されます。
+アプリケーションを実行すると、既定ではコントローラーサービスがパラメーターとして渡されないため、例外が発生します。
 
-1. 開く、**開始**ソリューション**Source\Ex01 挿入 Controller\Begin**します。
+1. **ソース \ Ex01-の挿入 Controller\Begin**にある**Begin**ソリューションを開きます。
 
-   1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行する前にします。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
-   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
-   3. 最後をクリックして、ソリューションをビルド**ビルド** | **ソリューションのビルド**します。
+   1. 続行する前に、不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、 **[プロジェクト]** メニューをクリックし、 **[NuGet パッケージの管理]** を選択します。
+   2. **[NuGet パッケージの管理]** ダイアログで、 **[復元]** をクリックして、不足しているパッケージをダウンロードします。
+   3. 最後に、[**ビルド** | **ビルド**] をクリックしてソリューションをビルドします。
 
       > [!NOTE]
-      > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
-2. キーを押して**ctrl キーを押しながら f5 キーを押して**デバッグなしでアプリケーションを実行します。 エラー メッセージが表示されます&quot;**パラメーターなしのコンス トラクターはこのオブジェクトに対して定義されている**&quot;:
+      > NuGet を使用する利点の1つは、プロジェクトのすべてのライブラリを配布する必要がなく、プロジェクトのサイズを小さくすることです。 NuGet パワーツールを使用すると、パッケージのバージョンを app.config ファイルで指定することで、プロジェクトを初めて実行するときに必要なすべてのライブラリをダウンロードできます。 このため、このラボから既存のソリューションを開いた後に、これらの手順を実行する必要があります。
+2. Ctrl キーを押し**ながら F5**キーを押して、デバッグを行わずにアプリケーションを実行します。 **このオブジェクト&quot;にパラメーターなしのコンストラクターが定義されていない**&quot;エラーメッセージが表示されます。
 
-    ![ASP.NET MVC の開始のアプリケーションの実行中にエラー](aspnet-mvc-4-dependency-injection/_static/image3.png "ASP.NET MVC の開始のアプリケーションの実行中にエラー")
+    ![ASP.NET MVC Begin Application の実行中にエラーが発生しました](aspnet-mvc-4-dependency-injection/_static/image3.png "ASP.NET MVC Begin Application の実行中にエラーが発生しました")
 
-    *ASP.NET MVC の開始のアプリケーションの実行中にエラー*
+    *ASP.NET MVC Begin Application の実行中にエラーが発生しました*
 3. ブラウザーを閉じます。
 
-次の手順では、このコント ローラーが必要な依存関係を挿入する音楽ストア ソリューションの機能します。
+次の手順では、このコントローラーが必要とする依存関係を挿入するミュージックストアソリューションについて説明します。
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Including_Unity_into_MvcMusicStore_Solution"></a>
-#### <a name="task-2---including-unity-into-mvcmusicstore-solution"></a>タスク 2 - MvcMusicStore ソリューションに Unity を含む
+#### <a name="task-2---including-unity-into-mvcmusicstore-solution"></a>タスク 2-Unity を MvcMusicStore ソリューションに含める
 
-このタスクで含める**Unity.Mvc3** NuGet パッケージをソリューションにします。
+このタスクでは、 **Mvc3** NuGet パッケージをソリューションに追加します。
 
 > [!NOTE]
-> Unity.Mvc3 パッケージは、ASP.NET MVC 3 では、用に設計されましたが、ASP.NET MVC 4 と完全な互換性です。
+> Mvc3 パッケージは ASP.NET MVC 3 向けに設計されていますが、ASP.NET MVC 4 と完全に互換性があります。
 > 
-> Unity では、インスタンス オプション サポートで軽量で拡張可能な依存関係挿入コンテナーにし、型のインターセプトします。 あらゆる種類の .NET アプリケーションで使用するための汎用コンテナーになります。 などの依存関係の注入メカニズムで見つかったすべての一般的な機能を提供します。 オブジェクトの作成、コンテナーにコンポーネントの構成を遅らせることで、ランタイムと柔軟性の依存関係を指定することによって要件を抽象化します。
+> Unity は、拡張可能な軽量の依存関係挿入コンテナーであり、オプションでインスタンスと型のインターセプトをサポートします。 これは、あらゆる種類の .NET アプリケーションで使用するための汎用コンテナーです。 オブジェクトの作成、実行時の依存関係の指定による要件の抽象化、コンポーネントの構成をコンテナーに延期することによって、依存関係の注入メカニズムに含まれる共通の機能をすべて提供します。
 
-1. インストール**Unity.Mvc3**で NuGet パッケージ、 **MvcMusicStore**プロジェクト。 これを行うには、開く、**パッケージ マネージャー コンソール**から**ビュー** | **その他の Windows**します。
+1. **MvcMusicStore**プロジェクトに**Mvc3** NuGet パッケージをインストールします。 これを行うには、[**他のウィンドウ** | **表示**] から**パッケージマネージャーコンソール**を開きます。
 2. 次のコマンドを実行します。
 
     PMC
 
     [!code-powershell[Main](aspnet-mvc-4-dependency-injection/samples/sample3.ps1)]
 
-    ![Unity.Mvc3 NuGet パッケージをインストールする](aspnet-mvc-4-dependency-injection/_static/image4.png "Unity.Mvc3 NuGet パッケージをインストールします。")
+    ![Mvc3 NuGet パッケージをインストールしています](aspnet-mvc-4-dependency-injection/_static/image4.png "Mvc3 NuGet パッケージをインストールしています")
 
-    *Unity.Mvc3 NuGet パッケージをインストールします。*
-3. 1 回、 **Unity.Mvc3**パッケージがインストールされている、探索ファイルとフォルダーの Unity の構成を簡略化するために自動的に追加します。
+    *Mvc3 NuGet パッケージをインストールしています*
+3. Unity の構成を簡略化するために、 **Mvc3**パッケージがインストールされたら、自動的に追加されるファイルとフォルダーを調べます。
 
-    ![Unity.Mvc3 パッケージがインストールされている](aspnet-mvc-4-dependency-injection/_static/image5.png "Unity.Mvc3 パッケージがインストールされています。")
+    ![インストールされている Mvc3 パッケージ](aspnet-mvc-4-dependency-injection/_static/image5.png "インストールされている Mvc3 パッケージ")
 
-    *Unity.Mvc3 パッケージがインストールされています。*
+    *インストールされている Mvc3 パッケージ*
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Registering_Unity_in_Globalasaxcs_Application_Start"></a>
-#### <a name="task-3---registering-unity-in-globalasaxcs-applicationstart"></a>タスク 3 - Global.asax.cs のアプリケーションを登録する Unity\_開始
+#### <a name="task-3---registering-unity-in-globalasaxcs-application_start"></a>タスク 3-Global.asax.cs アプリケーションへの Unity の登録\_開始
 
-このタスクでは更新、**アプリケーション\_開始**メソッドにある**Global.asax.cs** Unity ブートス トラップ初期化子を呼び出すし、次に、ブートス トラップ ファイルの登録を更新するにはサービスと依存関係の挿入に使用するコント ローラー。
+このタスクでは、 **Global.asax.cs**にある**アプリケーション\_開始**メソッドを更新して Unity ブートストラップ初期化子を呼び出し、依存関係の挿入に使用するサービスとコントローラーを登録するブートストラップファイルを更新します。
 
-1. ここで、これは、Unity コンテナーを初期化するファイル ブートス トラップと依存関係競合回避モジュールをフックするされます。 これを行うには、開く**Global.asax.cs**内で強調表示されている次のコードを追加し、**アプリケーション\_開始**メソッド。
+1. 次に、Unity コンテナーと依存関係競合回避モジュールを初期化するファイルであるブートストラップをフックします。 これを行うには、 **Global.asax.cs**を開き、次の強調表示されたコードを**Application\_Start**メソッド内に追加します。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex01 - 初期化 Unity*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex01-Initialize Unity*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample4.cs)]
-2. 開いている**Bootstrapper.cs**ファイル。
-3. 次の名前空間を含めます。**MvcMusicStore.Services**と**MusicStore.Controllers**します。
+2. **Bootstrapper.cs**ファイルを開きます。
+3. **MvcMusicStore**と**MusicStore**の各名前空間を含めます。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex01 - ブートス トラップ名前空間を追加する*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex01-ブートストラップ名前空間の追加*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample5.cs)]
-4. 置換**BuildUnityContainer**メソッドの内容をストアのコント ローラーとストア サービスを登録する次のコードにします。
+4. **Buildunitycontainer**メソッドの内容を、ストアコントローラーとストアサービスを登録する次のコードに置き換えます。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex01 - 登録ストア コント ローラーとサービス*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex01-Register Store Controller And Service*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample6.cs)]
 
 <a id="Ex1Task4"></a>
 
 <a id="Task_4_-_Running_the_Application"></a>
-#### <a name="task-4---running-the-application"></a>タスク 4 - アプリケーションの実行
+#### <a name="task-4---running-the-application"></a>タスク 4-アプリケーションを実行する
 
-このタスクで Unity を含めた後にロードするようになりましたことを確認するアプリケーションを実行します。
+このタスクでは、アプリケーションを実行して、Unity をインクルードした後でアプリケーションを読み込むことができることを確認します。
 
-1. キーを押して**F5**アプリケーションを実行する、アプリケーションはすべてのエラー メッセージを表示することがなく読み込むようになりました必要があります。
+1. **F5**キーを押してアプリケーションを実行すると、エラーメッセージを表示せずにアプリケーションが読み込まれるようになります。
 
-    ![アプリケーションを実行して、依存関係の挿入](aspnet-mvc-4-dependency-injection/_static/image6.png "アプリケーションを実行して、依存関係の挿入")
+    ![依存関係の挿入を使用したアプリケーションの実行](aspnet-mvc-4-dependency-injection/_static/image6.png "依存関係の挿入を使用したアプリケーションの実行")
 
-    *実行中のアプリケーション依存関係の挿入*
-2. 参照する **/格納**します。 これを呼び出す**StoreController**を使用して今すぐ作成されます**Unity**します。
+    *依存関係の挿入を使用したアプリケーションの実行*
+2. **/ストア**に移動します。 これにより、 **Unity**を使用して作成された**StoreController**が呼び出されます。
 
-    ![MVC Music Store](aspnet-mvc-4-dependency-injection/_static/image7.png "MVC Music Store")
+    ![MVC ミュージックストア](aspnet-mvc-4-dependency-injection/_static/image7.png "MVC ミュージックストア")
 
-    *MVC Music Store*
+    *MVC ミュージックストア*
 3. ブラウザーを閉じます。
 
-次の演習では、ASP.NET MVC ビューとアクション フィルター内で使用する依存関係の挿入のスコープを拡張する方法を学びます。
+次の演習では、ASP.NET MVC ビューおよびアクションフィルター内で使用するように依存関係挿入スコープを拡張する方法について説明します。
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Injecting_a_View"></a>
-### <a name="exercise-2-injecting-a-view"></a>演習 2:ビューを挿入します。
+### <a name="exercise-2-injecting-a-view"></a>演習 2: ビューの挿入
 
-この演習では、Unity の統合を ASP.NET MVC 4 の新機能を含むビューの依存関係の挿入を使用する方法を学びます。 このため、ストア ビューの参照、これは、メッセージと、次の図に記載内にカスタム サービスを呼び出します。
+この演習では、ASP.NET MVC 4 for Unity 統合の新機能を使用して、ビューで依存関係の挿入を使用する方法について説明します。 そのためには、ストアの参照ビュー内でカスタムサービスを呼び出します。これにより、次のメッセージと画像が表示されます。
 
-次に、プロジェクトを Unity に統合し、依存関係を挿入するカスタム依存関係競合回避モジュールを作成します。
+次に、プロジェクトを Unity と統合し、カスタム依存関係競合回避モジュールを作成して依存関係を挿入します。
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Creating_a_View_that_Consumes_a_Service"></a>
-#### <a name="task-1---creating-a-view-that-consumes-a-service"></a>タスク 1 - サービスを使用するビューを作成します。
+#### <a name="task-1---creating-a-view-that-consumes-a-service"></a>タスク 1-サービスを使用するビューの作成
 
-このタスクでは、新しい依存関係を生成するサービスの呼び出しを実行するビューを作成します。 このソリューションに含まれる単純なメッセージング サービスで、サービスが構成されます。
+このタスクでは、サービス呼び出しを実行して新しい依存関係を生成するビューを作成します。 このサービスは、このソリューションに含まれる単純なメッセージングサービスで構成されています。
 
-1. 開く、**開始**ソリューション、 **Source\Ex02 挿入 View\Begin**フォルダー。 使用を続ける可能性がありますそれ以外の場合、**エンド**ソリューションは、前の演習を完了して取得します。
+1. **Sourceex02-挿入 View\ begin**フォルダーにある**begin**ソリューションを開きます。 それ以外の場合は、前の演習を完了することによって得られた**終了**ソリューションを引き続き使用することができます。
 
-   1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
-   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
-   3. 最後をクリックして、ソリューションをビルド**ビルド** | **ソリューションのビルド**します。
+   1. 提供された**Begin**ソリューションを開いた場合は、続行する前に、不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、 **[プロジェクト]** メニューをクリックし、 **[NuGet パッケージの管理]** を選択します。
+   2. **[NuGet パッケージの管理]** ダイアログで、 **[復元]** をクリックして、不足しているパッケージをダウンロードします。
+   3. 最後に、[**ビルド** | **ビルド**] をクリックしてソリューションをビルドします。
 
       > [!NOTE]
-      > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
+      > NuGet を使用する利点の1つは、プロジェクトのすべてのライブラリを配布する必要がなく、プロジェクトのサイズを小さくすることです。 NuGet パワーツールを使用すると、パッケージのバージョンを app.config ファイルで指定することで、プロジェクトを初めて実行するときに必要なすべてのライブラリをダウンロードできます。 このため、このラボから既存のソリューションを開いた後に、これらの手順を実行する必要があります。
       > 
-      > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 含める、 **MessageService.cs**と**IMessageService.cs**クラスに格納、 **\Assets をソース**フォルダー **/サービス**。 これを行うには、右クリックして**サービス**フォルダーと選択**既存項目の追加**します。 ファイルの場所を参照し、それらが含まれます。
+      > 詳細については、「 [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)」を参照してください。
+2. **ソース \ Assets**フォルダーにある**MessageService.cs**クラスと**IMessageService.cs**クラスを **/Services**に含めます。 これを行うには、 **[サービス]** フォルダーを右クリックし、 **[既存項目の追加]** を選択します。 ファイルの場所を参照して指定します。
 
-    ![メッセージのサービスとサービスのインターフェイスを追加する](aspnet-mvc-4-dependency-injection/_static/image8.png "メッセージ サービスとサービスのインターフェイスを追加します。")
+    ![メッセージサービスとサービスインターフェイスの追加](aspnet-mvc-4-dependency-injection/_static/image8.png "メッセージサービスとサービスインターフェイスの追加")
 
-    *サービス インターフェイスと追加のメッセージ サービス*
+    *メッセージサービスとサービスインターフェイスの追加*
 
     > [!NOTE]
-    > **IMessageService**インターフェイスによって実装される 2 つのプロパティを定義する、 **MessageService**クラス。 これらのプロパティ -**メッセージ**と**ImageUrl**-表示するには、メッセージと、イメージの URL を格納します。
-3. フォルダーを作成**ページ/** プロジェクトのルート フォルダー、および既存のクラスを追加し、 **MyBasePage.cs**から**Source\Assets**します。 継承する基本ページには、次の構造があります。
+    > **IMessageService**インターフェイスは、 **messageservice**クラスによって実装される2つのプロパティを定義します。 これらのプロパティ-**メッセージ**と**ImageUrl**-メッセージと、表示されるイメージの URL を格納します。
+3. プロジェクトのルートフォルダーにフォルダー **/ページ**を作成し、 **MyBasePage.cs**の既存のクラスを追加し**ます。** 継承元の基本ページの構造は次のとおりです。
 
-    ![Pages フォルダー](aspnet-mvc-4-dependency-injection/_static/image9.png "Pages フォルダー")
+    ![ページフォルダー](aspnet-mvc-4-dependency-injection/_static/image9.png "Pages フォルダー")
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample7.cs)]
-4. 開いている**Browse.cshtml**から表示 **/ビュー/ストア**フォルダーから継承し**MyBasePage.cs**します。
+4. /ビュー/**ストア**フォルダーから**Browse**ビューを開き、 **MyBasePage.cs**から継承されるようにします。
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample8.cshtml)]
-5. **参照**ビューで、呼び出しを追加して**MessageService**イメージと、サービスによって取得したメッセージを表示します。
+5. **参照**ビューで、 **messageservice**の呼び出しを追加して、イメージとサービスによって取得されたメッセージを表示します。
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample9.cshtml)]
@@ -288,193 +288,193 @@ ms.locfileid: "65129736"
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_Including_a_Custom_Dependency_Resolver_and_a_Custom_View_Page_Activator"></a>
-#### <a name="task-2---including-a-custom-dependency-resolver-and-a-custom-view-page-activator"></a>タスク 2 - カスタム依存関係競合回避モジュールと、カスタム ビュー ページ アクティベーターを含む
+#### <a name="task-2---including-a-custom-dependency-resolver-and-a-custom-view-page-activator"></a>タスク 2-カスタム依存関係競合回避モジュールとカスタムビューページアクティベーターを含む
 
-前のタスクでは、その中のサービス呼び出しを実行して、ビュー内の新しい依存関係を挿入します。 ここで、ASP.NET MVC 依存関係の注入インターフェイスを実装することでその依存関係を解決する**IViewPageActivator**と**IDependencyResolver**します。 実装、ソリューションに含めるは**IDependencyResolver** Unity を使用してサービスの取得を処理するされます。 別のカスタム実装が含まれますが、 **IViewPageActivator**インターフェイス ビューの作成を解決するためです。
+前のタスクでは、ビュー内に新しい依存関係を挿入し、その中でサービス呼び出しを実行していました。 次に、ASP.NET MVC 依存関係挿入インターフェイス**Iviewpageactivator**と**idependencyresolver**を実装することで、その依存関係を解決します。 Unity を使用したサービスの取得を処理する**Idependencyresolver**の実装は、ソリューションに含めます。 次に、ビューの作成を解決する**Iviewpageactivator**インターフェイスの別のカスタム実装を追加します。
 
 > [!NOTE]
-> ASP.NET MVC 3 では、以降の依存関係の挿入の実装にサービスを登録するインターフェイスが簡略化されます。 **IDependencyResolver**と**IViewPageActivator**依存関係の挿入の ASP.NET MVC 3 の機能の一部であります。
+> ASP.NET MVC 3 以降、依存関係の挿入の実装により、サービスを登録するためのインターフェイスが簡略化されました。 **Idependencyresolver**と**Iviewpageactivator**は、依存関係の挿入のための ASP.NET MVC 3 機能の一部です。
 > 
-> **-IDependencyResolver**インターフェイスには、前の IMvcServiceLocator が置き換えられます。 IDependencyResolver を実装には、サービスまたはサービスのコレクションのインスタンスを返す必要があります。
+> **-Idependencyresolver**インターフェイスは、前の IMvcServiceLocator を置き換えます。 IDependencyResolver の実装は、サービスまたはサービスコレクションのインスタンスを返す必要があります。
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample10.cs)]
 > 
-> **-IViewPageActivator**インターフェイスには、ページの表示に依存関係の挿入を使用してインスタンス化きめの細かい制御が用意されています。 実装するクラス**IViewPageActivator**インターフェイスは、コンテキスト情報を使用してビューのインスタンスを作成できます。
+> **-Iviewpageactivator**インターフェイスを使用すると、依存関係の挿入によってビューページをインスタンス化する方法をより細かく制御できます。 **Iviewpageactivator**インターフェイスを実装するクラスは、コンテキスト情報を使用してビューインスタンスを作成できます。
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample11.cs)]
 
-1. 作成、/**ファクトリ**プロジェクトのルート フォルダー内のフォルダー。
-2. 含める**CustomViewPageActivator.cs**からソリューションに**ソース/資産/** に**ファクトリ**フォルダー。 そのためには右クリックし、 **/Factories**フォルダーで、**追加 |既存項目の**選び**CustomViewPageActivator.cs**します。 このクラスは、実装、 **IViewPageActivator** Unity コンテナーを保持するインターフェイス。
+1. プロジェクトのルートフォルダーに/**factory**フォルダーを作成します。
+2. **/Sources/Assets/** to **factory**フォルダーからソリューションに**CustomViewPageActivator.cs**を追加します。 これを行うには、 **/工場** フォルダーを右クリックし、追加 を選択します。 **既存の項目** をクリックし、**CustomViewPageActivator.cs** を選択します。 このクラスは、Unity コンテナーを保持する**Iviewpageactivator**インターフェイスを実装します。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample12.cs)]
 
     > [!NOTE]
-    > **CustomViewPageActivator** Unity コンテナーを使用して、ビューの作成の管理を担当します。
-3. 含める**UnityDependencyResolver.cs**ファイルから **/ソース/資産**に **/Factories**フォルダー。 そのためには右クリックし、 **/Factories**フォルダーで、**追加 |既存項目の**選び**UnityDependencyResolver.cs**ファイル。
+    > **Customviewpageactivator**は、Unity コンテナーを使用してビューの作成を管理する役割を担います。
+3. **UnityDependencyResolver.cs** **ファイルをインクルードフォルダーに追加** **します**。 これを行うには、 **/工場** フォルダーを右クリックし、追加 を選択します。 **既存の項目** をクリックし、**UnityDependencyResolver.cs** file を選択します。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample13.cs)]
 
     > [!NOTE]
-    > **UnityDependencyResolver**クラスは、Unity のカスタム DependencyResolver します。 Unity コンテナー内でサービスが見つからない場合は、ベースの競合回避モジュールが invocated します。
+    > **Unitydependencyresolver**クラスは、Unity のカスタム dependencyresolver です。 Unity コンテナー内にサービスが見つからない場合、基本競合回避モジュールは invocated です。
 
-次の実習で両方の実装は、サービスと、ビューの場所を知っているモデルに登録されます。
+次のタスクでは、両方の実装が登録され、モデルでサービスとビューの場所を把握できるようになります。
 
 <a id="Ex2Task3"></a>
 
 <a id="Task_3_-_Registering_for_Dependency_Injection_within_Unity_container"></a>
-#### <a name="task-3---registering-for-dependency-injection-within-unity-container"></a>タスク 3 - Unity コンテナー内の依存関係の挿入に登録します。
+#### <a name="task-3---registering-for-dependency-injection-within-unity-container"></a>タスク 3-Unity コンテナー内での依存関係の挿入の登録
 
-このタスクでは、依存関係の挿入操作を作成する前、すべての操作を格納します。
+このタスクでは、依存関係の挿入を行うために、前のすべての項目をまとめます。
 
-ここまで、ソリューションは、次の要素があります。
+現在、ソリューションには次の要素があります。
 
-- A**参照**ビューから継承する**MyBaseClass**消費**MessageService**します。
-- 中間クラス -**MyBaseClass**-依存関係の挿入サービス インターフェイスの宣言を持ちます。
-- サービス - **MessageService** - とそのインターフェイス**IMessageService**します。
-- Unity - 使用するカスタム依存関係リゾルバー **UnityDependencyResolver** -サービスの取得を処理します。
-- ビュー ページ アクティベーター - **CustomViewPageActivator** -ページを作成します。
+- **MyBaseClass**から継承し、 **messageservice**を使用する**参照**ビュー。
+- サービスインターフェイスに対して依存関係の挿入が宣言されている中間クラス**MyBaseClass**。
+- サービス**Messageservice**とそのインターフェイス**IMessageService**。
+- サービスの取得を処理する Unity- **Unitydependencyresolver**のカスタム依存関係競合回避モジュール。
+- ページを作成するビューページアクティベーター- **Customviewpageactivator** 。
 
-挿入する**参照**ビュー、今すぐ登録するカスタム依存関係競合回避モジュール Unity コンテナーにします。
+**参照**ビューを挿入するには、Unity コンテナーにカスタム依存関係競合回避モジュールを登録します。
 
-1. 開いている**Bootstrapper.cs**ファイル。
-2. インスタンスを登録**MessageService**サービスを初期化するために Unity コンテナーに。
+1. **Bootstrapper.cs**ファイルを開きます。
+2. サービスを初期化するために、 **Messageservice**のインスタンスを Unity コンテナーに登録します。
 
-    (コード スニペット - *ASP.NET 依存関係注入ラボ - Ex02 - 登録メッセージ サービス*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex02-Register Message Service*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample14.cs)]
-3. 参照を追加**MvcMusicStore.Factories**名前空間。
+3. **MvcMusicStore**名前空間への参照を追加します。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex02 - ファクトリ Namespace*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex02 名前空間*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample15.cs)]
-4. 登録**CustomViewPageActivator**として Unity コンテナーにビュー ページ アクティベーター。
+4. **Customviewpageactivator**をビューページアクティベーターとして Unity コンテナーに登録します。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex02 - 登録 CustomViewPageActivator*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex02-Register CustomViewPageActivator*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample16.cs)]
-5. インスタンスでの ASP.NET MVC 4 の既定の依存関係競合回避モジュールを置き換えます**UnityDependencyResolver**します。 これを行うには、置き換える**初期化**メソッドの内容を次のコードに。
+5. ASP.NET MVC 4 の既定の依存関係競合回避モジュールを**Unitydependencyresolver**のインスタンスに置き換えます。 これを行うには、 **Initialize**メソッドの内容を次のコードに置き換えます。
 
-    (コード スニペット - *ASP.NET 依存関係の挿入ラボ - Ex02 - 更新プログラムの依存関係リゾルバー*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex02-Update Dependency Resolver*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample17.cs)]
 
     > [!NOTE]
-    > ASP.NET MVC には、既定の依存関係競合回避モジュールのクラスが用意されています。 Unity に対して作成した 1 つとして、カスタム依存関係競合回避モジュールを操作するには、この競合回避モジュールを交換する必要があります。
+    > ASP.NET MVC には、既定の依存関係リゾルバークラスが用意されています。 Unity 用に作成したものとしてカスタム依存関係競合回避モジュールを使用するには、このリゾルバーを置き換える必要があります。
 
 <a id="Ex2Task4"></a>
 
 <a id="Task_4_-_Running_the_Application"></a>
-#### <a name="task-4---running-the-application"></a>タスク 4 - アプリケーションの実行
+#### <a name="task-4---running-the-application"></a>タスク 4-アプリケーションを実行する
 
-このタスクでストア ブラウザーが、サービスを利用して、取得したメッセージのイメージを示していますを確認するアプリケーションを実行します。
+このタスクでは、アプリケーションを実行して、ストアブラウザーがサービスを使用し、取得したイメージとメッセージが表示されることを確認します。
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. をクリックして**Rock**を参照し、[ジャンル] メニュー内方法、 **MessageService**ビューに挿入され、ウェルカム メッセージと、イメージが読み込まれます。 この例で入力は&quot; **Rock**&quot;:
+2. ジャンル メニュー内の **ロック** をクリックし、 **messageservice**がビューに挿入され、ウェルカムメッセージと画像が読み込まれたことを確認します。 この例では、を入力して、**ロック**&quot;を &quot;します。
 
-    ![MVC Music Store - ビュー挿入](aspnet-mvc-4-dependency-injection/_static/image10.png "MVC Music Store - ビューの挿入")
+    ![MVC ミュージックストア-ビューの挿入](aspnet-mvc-4-dependency-injection/_static/image10.png "MVC ミュージックストア-ビューの挿入")
 
-    *MVC Music Store - ビューの挿入*
+    *MVC ミュージックストア-ビューの挿入*
 3. ブラウザーを閉じます。
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Injecting_Action_Filters"></a>
-### <a name="exercise-3-injecting-action-filters"></a>手順 3:アクション フィルターを挿入します。
+### <a name="exercise-3-injecting-action-filters"></a>演習 3: アクションフィルターの挿入
 
-前のハンズオン ラボで**カスタム アクション フィルター**フィルターのカスタマイズと挿入を使用してきた。 この演習では、依存関係の注入に Unity コンテナーを使用してフィルターを挿入する方法を学習します。 そのためにするソリューションに追加されます、ミュージック ストア サイトのアクティビティをトレースするカスタム アクション フィルター。
+前のハンズオンラボの**カスタムアクションフィルター**では、フィルターのカスタマイズと挿入が使用されていました。 この演習では、Unity コンテナーを使用して依存関係の挿入を含むフィルターを挿入する方法について説明します。 これを行うには、サイトのアクティビティをトレースするカスタムアクションフィルターをミュージックストアソリューションに追加します。
 
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_Including_the_Tracking_Filter_in_the_Solution"></a>
-#### <a name="task-1---including-the-tracking-filter-in-the-solution"></a>タスク 1 - ソリューションで追跡フィルターを含む
+#### <a name="task-1---including-the-tracking-filter-in-the-solution"></a>タスク 1-ソリューション内の追跡フィルターを含む
 
-このタスクでに含める音楽ストア イベントをトレースするカスタム アクション フィルター。 概念を既に前の実習で扱うカスタム アクション フィルターとして&quot;カスタム アクション フィルター&quot;、このラボでの Assets フォルダーからフィルター クラスを含めるだけですし、し、Unity のフィルター プロバイダーを作成します。
+このタスクでは、[ミュージックストアにカスタムアクションフィルターを追加してイベントをトレースする] を選択します。 カスタムアクションフィルターの概念は、前のラボで既に処理されています。カスタムアクションフィルター&quot;&quot;、このラボの Assets フォルダーからフィルタークラスを追加し、Unity のフィルタープロバイダーを作成します。
 
-1. 開く、**開始**ソリューション、 **Source\Ex03 - 挿入アクション Filter\Begin**フォルダー。 使用を続ける可能性がありますそれ以外の場合、**エンド**ソリューションは、前の演習を完了して取得します。
+1. **ソース \ ex03-挿入アクション filter¥ begin**フォルダーにある**begin**ソリューションを開きます。 それ以外の場合は、前の演習を完了することによって得られた**終了**ソリューションを引き続き使用することができます。
 
-   1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
-   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
-   3. 最後をクリックして、ソリューションをビルド**ビルド** | **ソリューションのビルド**します。
+   1. 提供された**Begin**ソリューションを開いた場合は、続行する前に、不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、 **[プロジェクト]** メニューをクリックし、 **[NuGet パッケージの管理]** を選択します。
+   2. **[NuGet パッケージの管理]** ダイアログで、 **[復元]** をクリックして、不足しているパッケージをダウンロードします。
+   3. 最後に、[**ビルド** | **ビルド**] をクリックしてソリューションをビルドします。
 
       > [!NOTE]
-      > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
+      > NuGet を使用する利点の1つは、プロジェクトのすべてのライブラリを配布する必要がなく、プロジェクトのサイズを小さくすることです。 NuGet パワーツールを使用すると、パッケージのバージョンを app.config ファイルで指定することで、プロジェクトを初めて実行するときに必要なすべてのライブラリをダウンロードできます。 このため、このラボから既存のソリューションを開いた後に、これらの手順を実行する必要があります。
       > 
-      > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 含める**TraceActionFilter.cs**ファイルから **/ソース/資産**に**フィルター/** フォルダー。
+      > 詳細については、「 [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)」を参照してください。
+2. **TraceActionFilter.cs** **ファイルをインクルードフォルダーに追加** **します**。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample18.cs)]
 
     > [!NOTE]
-    > このカスタム アクション フィルターは、ASP.NET のトレースを実行します。 チェックすることができます&quot;ASP.NET MVC 4 ローカルおよびアクション フィルターが動的&quot;ラボ他の参照。
-3. 空のクラスを追加**FilterProvider.cs**フォルダー内のプロジェクトに  **/フィルター処理します。**
-4. 追加、 **System.Web.Mvc**と**Microsoft.Practices.Unity**内の名前空間**FilterProvider.cs**します。
+    > このカスタムアクションフィルターは、ASP.NET のトレースを実行します。 詳細については、&quot;ASP.NET MVC 4 のローカルアクションフィルターと動的アクションフィルター&quot; ラボを確認してください。
+3. 空のクラス**FilterProvider.cs** **をフォルダー内**のプロジェクトに追加します。
+4. FilterProvider.cs 名前**空間と、** **その名前**空間をに追加します。
 
-    (コード スニペット - *ASP.NET 依存関係のインジェクション ラボ - Ex03 - フィルター プロバイダーが名前空間を追加する*)
+    (コードスニペット- *ASP.NET 依存関係挿入ラボ-Ex03 プロバイダーの名前空間の追加*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample19.cs)]
-5. クラスから継承するように**IFilterProvider**インターフェイス。
+5. クラスが**Ifilterprovider**インターフェイスから継承されるようにします。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample20.cs)]
-6. 追加、 **IUnityContainer**プロパティ、 **FilterProvider**クラス、し、コンテナーを割り当てるクラスのコンス トラクターを作成します。
+6. **Filterprovider**クラスに**Iunitycontainer**プロパティを追加し、コンテナーを割り当てるクラスコンストラクターを作成します。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex03 - フィルター プロバイダー コンス トラクター*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Ex03-Filter Provider コンストラクター*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample21.cs)]
 
     > [!NOTE]
-    > フィルター プロバイダーのクラス コンス トラクターを作成しない、**新しい**内のオブジェクトします。 コンテナーは、パラメーターとして渡され、依存関係は、Unity によって解決されます。
-7. **FilterProvider**クラス、メソッドを実装**GetFilters**から**IFilterProvider**インターフェイス。
+    > フィルタープロバイダークラスコンストラクターが、内に**新しい**オブジェクトを作成していません。 コンテナーはパラメーターとして渡され、その依存関係は Unity によって解決されます。
+7. **Filterprovider**クラスで、 **ifilterprovider**インターフェイスから**getfilters**メソッドを実装します。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex03 - フィルター プロバイダー GetFilters*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Ex03-Filter Provider GetFilters*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample22.cs)]
 
 <a id="Ex3Task2"></a>
 
 <a id="Task_2_-_Registering_and_Enabling_the_Filter"></a>
-#### <a name="task-2---registering-and-enabling-the-filter"></a>タスク 2 - 登録して、フィルターを有効にします。
+#### <a name="task-2---registering-and-enabling-the-filter"></a>タスク 2-フィルターの登録と有効化
 
-このタスクでは、サイトの追跡を有効になります。 フィルターを登録するには、 **Bootstrapper.cs BuildUnityContainer**トレースを開始するメソッド。
+このタスクでは、サイトの追跡を有効にします。 これを行うには、 **Bootstrapper.cs BuildUnityContainer**メソッドにフィルターを登録して、トレースを開始します。
 
-1. 開いている**Web.config** System.Web グループで有効にするトレースの追跡とプロジェクトのルートにあります。
+1. プロジェクトルートに**ある web.config を開き、** system.web グループでトレース追跡を有効にします。
 
     [!code-xml[Main](aspnet-mvc-4-dependency-injection/samples/sample23.xml)]
-2. 開いている**Bootstrapper.cs**プロジェクト ルートにあります。
-3. 参照を追加、 **MvcMusicStore.Filters**名前空間。
+2. プロジェクトルートで**Bootstrapper.cs**を開きます。
+3. **MvcMusicStore**名前空間への参照を追加します。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex03 - ブートス トラップ名前空間を追加する*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex03-ブートストラップ名前空間の追加*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample24.cs)]
-4. 選択、 **BuildUnityContainer**メソッドと Unity コンテナーでのフィルターを登録します。 アクション フィルターとフィルター プロバイダーを登録する必要があります。
+4. **Buildunitycontainer**メソッドを選択し、Unity コンテナーにフィルターを登録します。 フィルタープロバイダーとアクションフィルターを登録する必要があります。
 
-    (コード スニペット - *ASP.NET 依存関係の注入ラボ - Ex03 - 登録 FilterProvider と ActionFilter*)
+    (コードスニペット- *ASP.NET Dependency インジェクション Lab-Ex03-Register FilterProvider And ActionFilter*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample25.cs)]
 
 <a id="Ex3Task3"></a>
 
 <a id="Task_3_-_Running_the_Application"></a>
-#### <a name="task-3---running-the-application"></a>タスク 3 - アプリケーションの実行
+#### <a name="task-3---running-the-application"></a>タスク 3-アプリケーションを実行する
 
-このタスクでは、アプリケーションを実行し、カスタム アクション フィルターが、アクティビティをトレースしているテストします。
+このタスクでは、アプリケーションを実行し、カスタムアクションフィルターがアクティビティをトレースしていることをテストします。
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. クリックして**Rock**ジャンル メニュー内で。 する場合は、ジャンルの詳細を参照できます。
+2. ジャンル メニュー内の **ロック** をクリックします。 必要に応じて、より多くのジャンルを参照できます。
 
-    ![ミュージック ストア](aspnet-mvc-4-dependency-injection/_static/image11.png "ミュージック ストア")
+    ![Music Store](aspnet-mvc-4-dependency-injection/_static/image11.png "Music Store")
 
     *Music Store*
-3. 参照する **/Trace.axd** ] ページの [クリックして、アプリケーション トレースを表示する**詳細を表示する**します。
+3. [アプリケーショントレース] ページを参照して選択し、[**詳細の表示** **] をクリック**します。
 
-    ![アプリケーション トレース ログ](aspnet-mvc-4-dependency-injection/_static/image12.png "アプリケーション トレース ログ")
+    ![アプリケーショントレースログ](aspnet-mvc-4-dependency-injection/_static/image12.png "アプリケーショントレースログ")
 
-    *アプリケーション トレース ログ*
+    *アプリケーショントレースログ*
 
-    ![アプリケーション トレース - 要求の詳細](aspnet-mvc-4-dependency-injection/_static/image13.png "アプリケーション トレース - 要求の詳細")
+    ![アプリケーショントレース-要求の詳細](aspnet-mvc-4-dependency-injection/_static/image13.png "アプリケーショントレース-要求の詳細")
 
-    *アプリケーション トレース - 要求の詳細*
+    *アプリケーショントレース-要求の詳細*
 4. ブラウザーを閉じます。
 
 ---
@@ -484,92 +484,92 @@ ms.locfileid: "65129736"
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このハンズオン ラボは、Unity は NuGet パッケージを使用して統合することにより、ASP.NET MVC 4 で依存関係の挿入を使用する方法を学習しました。 これを実現するには、コント ローラー、ビュー、およびアクション フィルター内で依存関係の挿入を使用しています。
+このハンズオンラボを完了すると、NuGet パッケージを使用して Unity を統合することで、ASP.NET MVC 4 で依存関係の挿入を使用する方法を学習できました。 これを実現するには、コントローラー、ビュー、およびアクションフィルター内で依存関係の挿入を使用しました。
 
-次の概念がについて説明します。
+次の概念について説明しました。
 
-- ASP.NET MVC 4 依存関係の注入機能
-- Unity.Mvc3 NuGet パッケージを使用して unity の統合
-- コント ローラーで依存関係の挿入
-- ビューの依存関係挿入
-- アクション フィルターの依存関係の挿入
+- ASP.NET MVC 4 依存関係挿入機能
+- Unity の Mvc3 NuGet パッケージを使用した統合
+- コントローラーでの依存関係の挿入
+- ビューでの依存関係の挿入
+- アクションフィルターの依存関係の挿入
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 A: Visual Studio Express 2012 を Web 用にインストールする
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+**[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** を使用して、Web または別の &quot;Express&quot; バージョン**用に Microsoft Visual Studio Express 2012**をインストールできます。 次の手順では、 *Microsoft Web Platform Installer*を使用して*Visual studio Express 2012 for Web*をインストールするために必要な手順について説明します。
 
-1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
-2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
-3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、Web Platform Installer が既にインストールされている場合は、それを開いて、製品 &quot;<em>Visual Studio Express 2012 For web With Windows AZURE SDK</em>&quot;を検索することもできます。
+2. **[今すぐインストール]** をクリックします。 **Web Platform Installer**がない場合は、最初にダウンロードしてインストールするようにリダイレクトされます。
+3. **Web Platform Installer**が開いたら、 **[インストール]** をクリックしてセットアップを開始します。
 
     ![Visual Studio Express のインストール](aspnet-mvc-4-dependency-injection/_static/image14.png "Visual Studio Express のインストール")
 
-    *Visual Studio Express をインストールします。*
-4. すべての製品のライセンスと使用条件を読み、クリックして**同意**を続行します。
+    *Visual Studio Express のインストール*
+4. すべての製品のライセンスと条項を読み、[**同意**する] をクリックして続行します。
 
-    ![ライセンス条項に同意](aspnet-mvc-4-dependency-injection/_static/image15.png)
+    ![ライセンス条項に同意する](aspnet-mvc-4-dependency-injection/_static/image15.png)
 
-    *ライセンス条項に同意*
-5. ダウンロードとインストール プロセスが完了するまで待機します。
+    *ライセンス条項に同意する*
+5. ダウンロードとインストールのプロセスが完了するまで待ちます。
 
-    ![インストールの進行状況](aspnet-mvc-4-dependency-injection/_static/image16.png)
+    ![Installation progress](aspnet-mvc-4-dependency-injection/_static/image16.png)
 
     *インストールの進行状況*
-6. インストールが完了したら、クリックして**完了**します。
+6. インストールが完了したら、 **[完了]** をクリックします。
 
-    ![インストールが完了しました](aspnet-mvc-4-dependency-injection/_static/image17.png)
+    ![インストールの完了](aspnet-mvc-4-dependency-injection/_static/image17.png)
 
-    *インストールが完了しました*
-7. クリックして**終了**Web Platform Installer を閉じます。
-8. Visual Studio Express for Web を開きするには、**開始**画面し、書き込みを開始&quot; **VS Express**&quot;、 をクリックし、 **VS Express for Web**並べて表示します。
+    *インストールの完了*
+7. **[終了]** をクリックして Web Platform Installer を閉じます。
+8. Web 用の Visual Studio Express を開くには、**スタート**画面にアクセスして &quot;**VS Express**&quot;の書き込みを開始し、 **[VS Express for Web]** タイルをクリックします。
 
-    ![VS Express for Web のタイル](aspnet-mvc-4-dependency-injection/_static/image18.png)
+    ![VS Express for Web タイル](aspnet-mvc-4-dependency-injection/_static/image18.png)
 
-    *VS Express for Web のタイル*
+    *VS Express for Web タイル*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>付録 B:コード スニペットを使用
+## <a name="appendix-b-using-code-snippets"></a>付録 B: コードスニペットの使用
 
-コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
+コードスニペットを使用すると、必要なすべてのコードをすぐに利用できます。 次の図に示すように、ラボドキュメントには、使用できるタイミングがわかります。
 
-![Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入する](aspnet-mvc-4-dependency-injection/_static/image19.png "プロジェクトにコードを挿入するコード スニペットを Visual Studio の使用")
+![Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する](aspnet-mvc-4-dependency-injection/_static/image19.png "Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する")
 
-*Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
+*Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する*
 
-***キーボード (c# のみ) を使用するコード スニペットを追加するには***
+***キーボードを使用してコードスニペットを追加C#するには (のみ)***
 
-1. コードを挿入するには、カーソルを置きます。
-2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。
-3. スニペットの名前に一致する IntelliSense の表示を確認します。
-4. 適切なスニペットを選択します (または全体のスニペットの名前が選択されるまで」と入力してください)。
-5. カーソル位置にスニペットを挿入するには、2 回、Tab キーを押します。
+1. コードを挿入する場所にカーソルを置きます。
+2. (スペースまたはハイフンを含まない) スニペット名の入力を開始します。
+3. IntelliSense によって、一致するスニペットの名前が表示されます。
+4. 正しいスニペットを選択します (または、スニペットの名前全体が選択されるまで入力し続けます)。
+5. Tab キーを2回押すと、スニペットがカーソル位置に挿入されます。
 
-![スニペットの名前の入力を開始](aspnet-mvc-4-dependency-injection/_static/image20.png "スニペット名の入力を開始")
+![スニペット名の入力を開始します](aspnet-mvc-4-dependency-injection/_static/image20.png "スニペット名の入力を開始します")
 
-*スニペットの名前の入力を開始します。*
+*スニペット名の入力を開始します*
 
-![強調表示されているスニペットを選択して Tab キーを押して](aspnet-mvc-4-dependency-injection/_static/image21.png "キーを押してタブが強調表示されているスニペットを選択するには")
+![Tab キーを押して、強調表示されているスニペットを選択します](aspnet-mvc-4-dependency-injection/_static/image21.png "Tab キーを押して、強調表示されているスニペットを選択します")
 
 *Tab キーを押して、強調表示されているスニペットを選択します*
 
-![キーを押して タブで再度とスニペットが展開](aspnet-mvc-4-dependency-injection/_static/image22.png "キーを押して タブで再度とスニペットが展開されます")
+![もう一度 Tab キーを押すと、スニペットが展開されます。](aspnet-mvc-4-dependency-injection/_static/image22.png "もう一度 Tab キーを押すと、スニペットが展開されます。")
 
-*キーを押して タブで再度とスニペットが展開されます。*
+*もう一度 Tab キーを押すと、スニペットが展開されます。*
 
-***(C#、Visual Basic および XML) にマウスを使用するコード スニペットを追加する***1。 コード スニペットを挿入するを右クリックします。
+***マウスC#(、Visual Basic および XML) を使用してコードスニペットを追加するに***は1. コードスニペットを挿入する場所を右クリックします。
 
-1. 選択**スニペットの挿入**続けて**マイ コード スニペット**します。
-2. クリックして、一覧から関連するスニペットを選択します。
+1. **[スニペットの挿入]** 、 **[マイコードスニペット**] の順に選択します。
+2. 一覧から該当するスニペットをクリックして選択します。
 
-![コード スニペットを挿入し、スニペットの挿入を選択する場所を右クリックして](aspnet-mvc-4-dependency-injection/_static/image23.png "コード スニペットを挿入し、スニペットの挿入を選択する場所を右クリック")
+![コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。](aspnet-mvc-4-dependency-injection/_static/image23.png "コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。")
 
-*コード スニペットを挿入して、スニペットの挿入先の選択します。*
+*コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。*
 
-![クリックして、一覧から関連するスニペットを選択](aspnet-mvc-4-dependency-injection/_static/image24.png "クリックして、一覧から関連するスニペットを選択")
+![一覧から関連するスニペットをクリックして選択します。](aspnet-mvc-4-dependency-injection/_static/image24.png "一覧から関連するスニペットをクリックして選択します。")
 
-*クリックして、一覧から関連するスニペットを選択します。*
+*一覧から関連するスニペットをクリックして選択します。*

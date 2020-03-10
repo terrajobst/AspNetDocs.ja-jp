@@ -9,11 +9,11 @@ ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 8727d8faead02340d223c75845bf29f63d1a0834
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600915"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78442276"
 ---
 # <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>GridView にボタンを追加し、応答する (VB)
 
@@ -245,9 +245,9 @@ ButtonField は、`e.CommandArgument` パラメーターを通じてボタンが
 
 > [!NOTE]
 > GridView (および DetailsView) には、TemplateFields にボタン、リンクボタン、または ImageButtons を追加することもできます。 BoundField の場合と同様に、これらのボタンをクリックするとポストバックが実行され、GridView の `RowCommand` イベントが発生します。 ただし、TemplateField にボタンを追加する場合、ボタンの `CommandArgument` は、ButtonFields を使用する場合と同様に、行のインデックスに自動的に設定されるわけではありません。 `RowCommand` イベントハンドラー内でクリックされたボタンの行インデックスを確認する必要がある場合は、次のようなコードを使用して、TemplateField 内の宣言構文でボタン s `CommandArgument` プロパティを手動で設定する必要があります。  
-> `<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`.
+> [https://login.microsoftonline.com/consumers/](`<asp:Button runat="server" ... CommandArgument='<%# CType(Container, GridViewRow).RowIndex %>' />`)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView、DetailsView、および FormView コントロールには、ボタン、リンクボタン、または ImageButtons を含めることができます。 このようなボタンをクリックすると、ポストバックが発生し、FormView および DetailsView コントロールと GridView の `RowCommand` イベントで `ItemCommand` イベントが発生します。 これらのデータ Web コントロールには、レコードの削除や編集など、コマンドに関連する一般的な操作を処理するための機能が組み込まれています。 ただし、ボタンをクリックすると、独自のカスタムコードを実行して応答することもできます。
 
@@ -255,9 +255,9 @@ GridView、DetailsView、および FormView コントロールには、ボタン
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
-> [前へ](adding-and-responding-to-buttons-to-a-gridview-cs.md)
+> [[戻る]](adding-and-responding-to-buttons-to-a-gridview-cs.md)

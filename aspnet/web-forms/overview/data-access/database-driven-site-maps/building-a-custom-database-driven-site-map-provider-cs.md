@@ -9,11 +9,11 @@ ms.assetid: 04b7591d-106f-4f05-87e9-d416cb65a8a6
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
 msc.type: authoredcontent
 ms.openlocfilehash: a3e27b37703b12c9796e8516f0d805aef1fdf8d8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637262"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78495856"
 ---
 # <a name="building-a-custom-database-driven-site-map-provider-c"></a>カスタム データベース駆動型サイト マップ プロバイダーを構築する (C#)
 
@@ -189,7 +189,7 @@ Web アプリケーションでサイトマッププロバイダーを使用す�
 
 ## <a name="step-6-creating-the-custom-site-map-provider"></a>手順 6: カスタムサイトマッププロバイダーを作成する
 
-Northwind データベースのカテゴリと製品からサイトマップを構築するカスタムサイトマッププロバイダーを作成するには、`StaticSiteMapProvider`を拡張するクラスを作成する必要があります。 手順 1. では、`App_Code` フォルダーに `CustomProviders` フォルダーを追加するように求められました。 `NorthwindSiteMapProvider`という名前の新しいクラスをこのフォルダーに追加します。 `NorthwindSiteMapProvider` クラスに次のコードを追加します。
+Northwind データベースのカテゴリと製品からサイトマップを構築するカスタムサイトマッププロバイダーを作成するには、`StaticSiteMapProvider`を拡張するクラスを作成する必要があります。 手順 1. では、`App_Code` フォルダーに `CustomProviders` フォルダーを追加するように求められました。 `NorthwindSiteMapProvider`という名前の新しいクラスをこのフォルダーに追加します。 以下のコードを `NorthwindSiteMapProvider` クラスに追加します。
 
 [!code-csharp[Main](building-a-custom-database-driven-site-map-provider-cs/samples/sample6.cs)]
 
@@ -284,7 +284,7 @@ SiteMapPath コントロールは、`ProductsByCategory.aspx` ページと `Prod
 > [!NOTE]
 > SQL キャッシュ依存関係機能を必ずテストしてください。 `Default.aspx`、`ProductsByCategory.aspx`、および `ProductDetails.aspx` ページにアクセスした後、[編集]、[挿入]、[削除] セクションのいずれかのチュートリアルにアクセスし、カテゴリまたは製品の名前を編集します。 次に、`SiteMapProvider` フォルダー内のいずれかのページに戻ります。 基になるデータベースへの変更を記録するためにポーリングメカニズムに十分な時間が経過していると仮定した場合、新しい製品名またはカテゴリ名を表示するようにサイトマップを更新する必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET 2.0 s サイトマップ機能には、`SiteMap` クラス、多数の組み込みナビゲーション Web コントロール、および XML ファイルに保存されているサイトマップ情報を期待する既定のサイトマッププロバイダーが含まれています。 データベース、アプリケーションのアーキテクチャ、リモート Web サービスなど、他のソースからのサイトマップ情報を使用するには、カスタムのサイトマッププロバイダーを作成する必要があります。 これには、`SiteMapProvider` クラスから直接的または間接的に派生するクラスを作成する必要があります。
 
@@ -292,7 +292,7 @@ ASP.NET 2.0 s サイトマップ機能には、`SiteMap` クラス、多数の�
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -301,7 +301,7 @@ ASP.NET 2.0 s サイトマップ機能には、`SiteMap` クラス、多数の�
 - [プロバイダーツールキット](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 - [ASP.NET 2.0 s サイトナビゲーション機能の確認](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -310,4 +310,4 @@ ASP.NET 2.0 s サイトマップ機能には、`SiteMap` クラス、多数の�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Dave Gardner、Zack Jones、Teresa Murphy、Bernadette Leigh でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](building-a-custom-database-driven-site-map-provider-vb.md)
+> [Next](building-a-custom-database-driven-site-map-provider-vb.md)

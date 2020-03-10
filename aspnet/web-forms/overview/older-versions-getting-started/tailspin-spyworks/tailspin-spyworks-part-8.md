@@ -1,81 +1,81 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
-title: 第 8 部:最終的なページ、例外処理、およびまとめ |Microsoft Docs
+title: 'パート 8: 最終的なページ、例外処理、および結論 |Microsoft Docs'
 author: JoeStagner
-description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 8 では、ページ、および例外に関する、連絡先ページを追加します.
+description: このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート8は、連絡先ページ、ページ、および例外を追加します。
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
 ms.openlocfilehash: 707dc9d87ae324a7897c971a451e40bc54c96cb3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130603"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78474340"
 ---
-# <a name="part-8-final-pages-exception-handling-and-conclusion"></a>第 8 部:最終ページ、例外処理、まとめ
+# <a name="part-8-final-pages-exception-handling-and-conclusion"></a>パート 8: 最終的なページ、例外処理、および結論
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
+> Tailspin Spyworks は、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを簡単に作成する方法を示しています。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェックアウト、管理などのオンラインストアを構築する方法を示しています。
 > 
-> このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 8 では、ページ、および例外処理についての連絡のページを追加します。 これは、シリーズのまとめです。
+> このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート8では、連絡先ページ、ページ、例外処理を追加します。 これがシリーズの結論です。
 
-## <a id="_Toc260221680"></a>  ページ (ASP.NET から電子メールを送信する) にお問い合わせください。
+## <a id="_Toc260221680"></a>連絡先ページ (ASP.NET からの電子メールの送信)
 
-ContactUs.aspx をという名前の新しいページを作成します。
+ContactUs という名前の新しいページを作成します。
 
-デザイナーを使用して、ToolkitScriptManager、AjaxControlToolkit からエディター コントロールなど、特別な注意事項は次の形式を作成します。 .
+デザイナーを使用して、次のフォームを作成します。これには、ToolkitScriptManager と AjaxControlToolkit のエディターコントロールを含めるための特別な注意事項があります。 。
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 
-分離コード ファイルで、クリック イベント ハンドラーを生成し、連絡先情報を電子メールとして送信するメソッドを実装する [送信] ボタンをダブルクリックします。
+[送信] ボタンをダブルクリックして、分離コードファイルに click イベントハンドラーを生成し、電子メールとして連絡先情報を送信するメソッドを実装します。
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample1.cs)]
 
-このコードでは、web.config ファイルにメールを送信するのに使用する SMTP サーバーを指定する構成セクションのエントリが含まれている必要があります。
+このコードでは、電子メールの送信に使用する SMTP サーバーを指定する構成セクションに、web.config ファイルにエントリが含まれている必要があります。
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>  ページについて
+## <a id="_Toc260221681"></a>[バージョン情報] ページ
 
-AboutUs.aspx という名前のページを作成し、任意のコンテンツを追加します。
+AboutUs という名前のページを作成し、任意の内容を追加します。
 
-## <a id="_Toc260221682"></a>  グローバル例外ハンドラー
+## <a id="_Toc260221682"></a>グローバル例外ハンドラー
 
-最後に、アプリケーション全体では、例外をスローしましたが、不測の事態をコールドも web アプリケーションでは原因が未処理の例外。
+最後に、アプリケーション全体で例外がスローされました。また、web アプリケーションでハンドルされない例外が発生する可能性がある予期しない状況もあります。
 
-未処理の例外の web サイトの訪問者に表示されることはありません必要があります。
+未処理の例外を web サイトの訪問者に表示させたくありません。
 
 ![](tailspin-spyworks-part-8/_static/image2.jpg)
 
-悲惨なユーザー エクスペリエンスとは別のハンドルされない例外は、セキュリティ上の問題をこともできます。
+ユーザーエクスペリエンスの低下とは別に、ハンドルされない例外がセキュリティ上の問題になることもあります。
 
-この問題を解決するためには、グローバル例外ハンドラーを実装します。
+この問題を解決するには、グローバル例外ハンドラーを実装します。
 
-これを行うには、Global.asax ファイルを開き、次の事前生成されたイベント ハンドラーに注意してください。
+これを行うには、global.asax ファイルを開き、次の事前生成されたイベントハンドラーを確認します。
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample3.cs)]
 
-アプリケーションを実装するコードを追加\_エラー ハンドラーとして次のとおりです。
+次のように、アプリケーション\_のエラーハンドラーを実装するコードを追加します。
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample4.cs)]
 
-ソリューションに Error.aspx をという名前のページを追加し、次のマークアップ スニペットを追加します。
+次に、エラー .aspx という名前のページをソリューションに追加し、このマークアップスニペットを追加します。
 
 [!code-aspx[Main](tailspin-spyworks-part-8/samples/sample5.aspx)]
 
-ページで今すぐ\_要求オブジェクトからイベント ハンドラーの抽出、エラー メッセージを読み込みます。
+次に、ページ\_読み込みイベントハンドラーは、要求オブジェクトからエラーメッセージを抽出します。
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>  まとめ
+## <a id="_Toc260221683"></a>最後
 
-ASP.NET WebForms 簡単見たなどのデータベース アクセス、メンバーシップ、AJAX、高度な web サイトを作成します。 非常に短時間です。
+ASP.NET WebForms により、データベースアクセス、メンバーシップ、AJAX などを使用して、洗練された web サイトを簡単に作成できることがわかりました。 非常に迅速です。
 
-このチュートリアルが願って、独自の ASP.NET WebForms アプリケーションの構築を開始する必要があるツールです。
+このチュートリアルでは、独自の ASP.NET WebForms アプリケーションの構築を開始するために必要なツールを提供しています。
 
 > [!div class="step-by-step"]
-> [前へ](tailspin-spyworks-part-7.md)
+> [[戻る]](tailspin-spyworks-part-7.md)

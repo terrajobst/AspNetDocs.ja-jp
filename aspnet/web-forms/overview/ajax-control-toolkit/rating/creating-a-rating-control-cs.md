@@ -9,11 +9,11 @@ ms.assetid: 969fb28f-2bff-4fc4-b24a-27f5e2534a37
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c0bf793406e378321f54f0460031c526a0b41a02
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611576"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78496162"
 ---
 # <a name="creating-a-rating-control-c"></a>評価コントロールを作成する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611576"
 
 > E コマースからコミュニティサイトまで、多くの web サイトでは、記事や項目を評価することができます。 これには通常、何らかのコーディング作業が必要ですが、制御ツールキットが用意されています。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 E コマースからコミュニティサイトまで、多くの web サイトでは、記事や項目を評価することができます。 これには通常、何らかのコーディング作業が必要ですが、制御ツールキットが用意されています。
 
@@ -69,4 +69,4 @@ E コマースからコミュニティサイトまで、多くの web サイト�
 最小限のコードで評価システムを作成[する (クリックすると、フルサイズの画像が表示](creating-a-rating-control-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](creating-a-rating-control-vb.md)
+> [Next](creating-a-rating-control-vb.md)

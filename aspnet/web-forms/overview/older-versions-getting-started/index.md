@@ -1,34 +1,34 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/index
-title: 旧バージョン - Getting Started Web フォーム |Microsoft Docs
+title: 以前のバージョン-Web フォームはじめに |Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web フォーム 4 と以前のバージョンのチュートリアル。
+description: ASP.NET Web フォーム4およびそれ以前のバージョンに関するチュートリアル。
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started
 msc.type: chapter
 ms.openlocfilehash: 94c995ee1e636f1250efb3a90887d8d73badeca7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393640"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78474568"
 ---
-# <a name="older-versions---web-forms-getting-started"></a>旧バージョン - Getting Started Web フォーム
+# <a name="older-versions---web-forms-getting-started"></a>以前のバージョン-Web フォームはじめに
 
-> ASP.NET Web フォーム 4 と以前のバージョンに関するドキュメントです。
+> ASP.NET Web フォーム4およびそれ以前のバージョンに関するドキュメント。
 
 - [ASP.NET 4 - Tailspin Spyworks](tailspin-spyworks/index.md)
 
-    - [第 1 部: 新しいプロジェクトのファイル](tailspin-spyworks/tailspin-spyworks-part-1.md)
-    - [第 2 部: データ アクセス層](tailspin-spyworks/tailspin-spyworks-part-2.md)
-    - [パート 3:レイアウトとカテゴリ メニュー](tailspin-spyworks/tailspin-spyworks-part-3.md)
-    - [パート 4:製品のリスティング](tailspin-spyworks/tailspin-spyworks-part-4.md)
-    - [パート 5:ビジネス ロジック](tailspin-spyworks/tailspin-spyworks-part-5.md)
-    - [パート 6:ASP.NET メンバーシップ](tailspin-spyworks/tailspin-spyworks-part-6.md)
-    - [パート 7:機能の追加](tailspin-spyworks/tailspin-spyworks-part-7.md)
-    - [パート 8:最終的なページ、例外処理、およびまとめ](tailspin-spyworks/tailspin-spyworks-part-8.md)
+    - [パート 1: ファイル -> 新しいプロジェクト](tailspin-spyworks/tailspin-spyworks-part-1.md)
+    - [パート 2: データ アクセス層](tailspin-spyworks/tailspin-spyworks-part-2.md)
+    - [パート 3: レイアウトとカテゴリ メニュー](tailspin-spyworks/tailspin-spyworks-part-3.md)
+    - [パート 4: 製品のリスティング](tailspin-spyworks/tailspin-spyworks-part-4.md)
+    - [パート 5: ビジネス ロジック](tailspin-spyworks/tailspin-spyworks-part-5.md)
+    - [パート 6: ASP.NET メンバーシップ](tailspin-spyworks/tailspin-spyworks-part-6.md)
+    - [パート 7: 機能の追加](tailspin-spyworks/tailspin-spyworks-part-7.md)
+    - [パート 8: 最終ページ、例外処理、まとめ](tailspin-spyworks/tailspin-spyworks-part-8.md)
 - [ASP.NET 4 - Entity Framework 4 と Web フォームの概要](getting-started-with-ef/index.md)
 
     - [Entity Framework 4.0 Database First の概要](getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -41,9 +41,9 @@ ms.locfileid: "59393640"
     - [Entity Framework 4.0 Database First の概要 - パート 8](getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
 - [ASP.NET 4 - Entity Framework 4 と Web フォームの続き](continuing-with-ef/index.md)
 
-    - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 1:作業の開始](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-    - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 2:ビジネス ロジック層と単体テストの追加](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-    - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 3:並べ替えとフィルター処理](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+    - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 1: 概要](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+    - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 2: ビジネス ロジック層と単体テストの追加](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+    - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 3: 並べ替えとフィルター処理](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
     - [ASP.NET 4 の Entity Framework 4.0 でコンカレンシーを処理する](continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
     - [ASP.NET 4 の Entity Framework 4.0 でパフォーマンスを最大化する](continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
     - [Entity Framework 4.0 の新機能](continuing-with-ef/what-s-new-in-the-entity-framework-4.md)

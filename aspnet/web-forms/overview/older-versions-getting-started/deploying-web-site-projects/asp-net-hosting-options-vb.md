@@ -9,17 +9,17 @@ ms.assetid: 492f5ae2-bad7-4107-89a9-f04a9525dee7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 4293114002aee15ddace1a3f19c240f35e6065f5
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74620758"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520792"
 ---
 # <a name="aspnet-hosting-options-vb"></a>ASP.NET ホスティングのオプション (VB)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_vb.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_vb.pdf)
 
 > ASP.NET web アプリケーションは、通常、ローカル開発環境で設計、作成、およびテストされます。リリースの準備ができたら、運用環境に配置する必要があります。 このチュートリアルでは、デプロイプロセスの概要を説明し、このチュートリアルシリーズの概要を示します。
 
@@ -42,7 +42,7 @@ Web アプリケーションは、通常、サイトで作業しているプロ�
 - 開発中に加えられた変更によって運用環境のデータベースをスムーズに更新するための戦略。
 - 運用環境で発生したエラーをログに記録する方法と、エラーが発生したときに開発者に通知する方法。
 
-これらのチュートリアルは簡潔にすることを目的としており、プロセスを視覚的に説明するためのさまざまなスクリーンショットを記載した詳細な手順を提供することを目的としています。 この初めチュートリアルでは、ASP.NET デプロイプロセスの概要と、web ホスティングプロバイダーの検索に関するアドバイスを示します。 では、始めましょう。
+これらのチュートリアルは簡潔にすることを目的としており、プロセスを視覚的に説明するためのさまざまなスクリーンショットを記載した詳細な手順を提供することを目的としています。 この初めチュートリアルでは、ASP.NET デプロイプロセスの概要と、web ホスティングプロバイダーの検索に関するアドバイスを示します。 作業開始
 
 ## <a name="an-overview-of-the-aspnet-deployment-process"></a>ASP.NET 展開プロセスの概要
 
@@ -76,7 +76,7 @@ Web ホストプロバイダーを選択する際の2つの重要な考慮事項
 > [!NOTE]
 > 一部の web ホスティング企業では、.NET や[ランプ](http://en.wikipedia.org/wiki/LAMP_stack)(**L** inux、 **a** Pache、 **M** ysql、 **P** HP) などの特定のテクノロジスタックにビジネスを集中しているため、選択した会社が ASP.NET アプリケーションをホストしていることを確認してください。 また、アプリケーションのビルドに使用しているバージョンの ASP.NET がサポートされていることを確認します。 また、データドリブンアプリケーションを構築する場合は、使用しているのと同じデータベースサーバーとバージョンが web ホストに用意されていることを確認してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET web アプリケーションは、通常、ローカル開発環境で設計、作成、およびテストされます。 リリースの準備が整ったバージョンは、運用環境に移動されます。 パーソナルコンピューターや社内のサーバーで ASP.NET web サイトをホストすることは可能ですが、多くの企業や個人は、ホスティングを web ホストプロバイダーにアウトソーシングすることを選択しています。
 

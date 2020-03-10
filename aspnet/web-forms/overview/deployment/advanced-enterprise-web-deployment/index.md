@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: ASP.NET 4 - エンタープライズ展開シリーズ 4 のトピックを Advanced |Microsoft Docs
+title: ASP.NET 4-エンタープライズ展開シリーズ4高度なトピック |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、必要なまたはエンタープライズ展開シナリオの多くの望ましいさまざまなタスクを実行する方法を説明します。
+description: このチュートリアルでは、多くのエンタープライズ展開シナリオで必要または望ましいさまざまなタスクを実行する方法について説明します。
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: eacf0e3a-c2e9-4f77-a676-249146f393e8
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
 ms.openlocfilehash: f72ec780623b4240762f35e479b36895db42cee0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127116"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78464128"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a>ASP.NET 4 - エンタープライズ配置シリーズ 4 高度なトピック
 
-> このチュートリアルでは、必要なまたはエンタープライズ展開シナリオの多くの望ましいさまざまなタスクを実行する方法を説明します。
+> このチュートリアルでは、多くのエンタープライズ展開シナリオで必要または望ましいさまざまなタスクを実行する方法について説明します。
 
 - [高度なエンタープライズ Web 配置](advanced-enterprise-web-deployment.md)
 - ["What If" 展開を実行する](performing-a-what-if-deployment.md)

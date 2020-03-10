@@ -1,29 +1,29 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
-title: Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部 |Microsoft Docs
+title: Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート 2 |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
+description: Contoso 大学のサンプル web アプリケーションは、Entity Framework を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 サンプルアプリケーションは...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: fb63a326-a4ae-4b0c-a4f5-412327197216
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: bd6a2e29e6f0df04e39be29160e2e08cc99c4706
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126858"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78456448"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート2
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、次を参照してください[シリーズの最初のチュートリアル。](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 チュートリアルシリーズの詳細については、[シリーズの最初のチュートリアル](the-entity-framework-and-aspnet-getting-started-part-1.md)を参照してください。
 
 ## <a name="the-entitydatasource-control"></a>EntityDataSource コントロール
 
-前のチュートリアルでは、web サイト、データベース、およびデータ モデルを作成します。 このチュートリアルで使用する、 `EntityDataSource` Entity Framework データ モデルを使用して作業をしやすくために ASP.NET が提供するコントロール。 作成、`GridView`を表示すると、学生データの編集コントロール、`DetailsView`新しいの受講者を追加するためのコントロールと`DropDownList`(これは、関連付けられているコースを表示するため後で使用します) 部門の選択コントロール。
+前のチュートリアルでは、web サイト、データベース、およびデータモデルを作成しました。 このチュートリアルでは、ASP.NET が提供する `EntityDataSource` コントロールを使用して、Entity Framework データモデルを簡単に操作できるようにします。 学生データを表示および編集するための `GridView` コントロール、新しい学生を追加するための `DetailsView` コントロール、部署を選択するための `DropDownList` コントロール (関連付けられたコースを表示するために後で使用する) を作成します。
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-2/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image1.png)
 
@@ -31,219 +31,219 @@ ms.locfileid: "65126858"
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-このアプリケーションではありませんに追加する入力の検証、データベースを更新するページ、実稼働アプリケーションで処理するために必要な堅牢いくつかのエラー処理ができないことに注意してください。 Entity Framework に重点を置いて、このチュートリアルを保持して長くなりすぎます。 これらの機能をアプリケーションに追加する方法の詳細については、次を参照してください。 [ASP.NET Web Pages でのユーザー入力の検証](https://msdn.microsoft.com/library/7kh55542.aspx)と[ASP.NET ページとアプリケーションのエラー処理](https://msdn.microsoft.com/library/w16865z6.aspx)します。
+このアプリケーションでは、データベースを更新するページに入力検証を追加することはできません。また、一部のエラー処理は、実稼働アプリケーションで必要になるほど堅牢ではありません。 このチュートリアルでは、Entity Framework に重点を置いているので、時間がかかりすぎないようにします。 これらの機能をアプリケーションに追加する方法の詳細については、「 [ASP.NET Web ページでのユーザー入力の検証](https://msdn.microsoft.com/library/7kh55542.aspx)」および「 [ASP.NET ページとアプリケーションでのエラー処理](https://msdn.microsoft.com/library/w16865z6.aspx)」を参照してください。
 
-## <a name="adding-and-configuring-the-entitydatasource-control"></a>追加と EntityDataSource コントロールの構成
+## <a name="adding-and-configuring-the-entitydatasource-control"></a>EntityDataSource コントロールの追加と構成
 
-構成から始めます、`EntityDataSource`を読み取るコントロール`Person`からエンティティ、`People`エンティティ セット。
+まず、`People` エンティティセットから `Person` エンティティを読み取るように `EntityDataSource` コントロールを構成します。
 
-Visual Studio を開いていることを確認し、パート 1 で作成したプロジェクトを使用していること。 データ モデルを作成するか、または最後の変更以降に加えたからプロジェクトをビルドしていない場合は、ここで、プロジェクトをビルドします。 データ モデルへの変更が使用はできませんをデザイナーに、プロジェクトがビルドされるまでです。
+Visual Studio が開いていること、およびパート1で作成したプロジェクトを操作していることを確認します。 データモデルを作成した後、または前回変更を行った後にプロジェクトをビルドしていない場合は、ここでプロジェクトをビルドします。 データモデルへの変更は、プロジェクトがビルドされるまで、デザイナーでは使用できません。
 
-使用して新しい web ページを作成、**マスター ページを使用して Web フォーム**テンプレート、名前を付けます*Students.aspx*します。
+**マスターページテンプレートを使用して Web フォーム**を使用して新しい web ページを作成し、「 *Students*」という名前を指定します。
 
 [![Image23](the-entity-framework-and-aspnet-getting-started-part-2/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image7.png)
 
-指定*Site.Master*のマスター ページとして。 これらのチュートリアルを作成するページのすべては、このマスター ページで使用されます。
+マスターページとして「 *.master* 」と指定します。 これらのチュートリアル用に作成したすべてのページで、このマスターページが使用されます。
 
-[![image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
+[![Image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
 
-**ソース**ビューで、追加、`h2`に見出し、`Content`という名前のコントロール`Content2`次の例のように。
+**ソース**ビューで、次の例に示すように、`Content2`という名前の `Content` コントロールに `h2` 見出しを追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample1.aspx)]
 
-**データ**のタブ、**ツールボックス**、ドラッグ、`EntityDataSource`コントロールをページ、見出しの下にドロップする ID を変更`StudentsEntityDataSource`:
+**ツールボックス**の **[データ]** タブから `EntityDataSource` コントロールをページにドラッグし、見出しの下にドロップして、ID を `StudentsEntityDataSource`に変更します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample2.aspx)]
 
-切り替える**デザイン**表示、データ ソース コントロールのスマート タグをクリックして**データ ソースの構成**を起動する、**データ ソースの構成**ウィザード。
+**デザイン**ビューに切り替え、データソースコントロールのスマートタグをクリックします。次に、 **[データソースの構成]** をクリックして、**データソースの構成**ウィザードを起動します。
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-2/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image11.png)
 
-**ObjectContext の構成**ウィザード手順**SchoolEntities**の値として**という名前の接続**、選び**SchoolEntities**として、 **DefaultContainerName**値。 その後、 **[次へ]** をクリックします。
+ObjectContext の**構成**ウィザードの手順で、 **[名前付き接続]** の値として **[SchoolEntities]** を選択し、 **DefaultContainerName**値として **[SchoolEntities]** を選択します。 続けて、 **[次へ]** をクリックします。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-2/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image13.png)
 
-メモ:次のダイアログ ボックスをこの時点で発生した場合は、続行する前にプロジェクトをビルドする必要があります。
+注: この時点で次のダイアログボックスが表示される場合は、続行する前にプロジェクトをビルドする必要があります。
 
-[![image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
+[![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
-**構成データの選択**手順で、**人**の値として**EntitySetName**します。 **選択**、ことを確認、 **を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、クリックして**完了**します。
+**[データ選択の構成]** ステップで、 **[EntitySetName]** の値として **[People]** を選択します。 **[選択]** で、Ll を **[選択する]** チェックボックスがオンになっていることを確認します。 次に、更新と削除を有効にするオプションを選択します。 完了したら、 **[完了]** をクリックします。
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-2/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image17.png)
 
-## <a name="configuring-database-rules-to-allow-deletion"></a>削除を許可するデータベースの規則を構成します。
+## <a name="configuring-database-rules-to-allow-deletion"></a>削除を許可するデータベースルールの構成
 
-ユーザーから受講者を削除できるようにするページを作成すること、`Person`と他のテーブルの 3 つのリレーションシップのあるテーブル (`Course`、 `StudentGrade`、および`OfficeAssignment`)。 既定では、データベースは削除できない場合内の行`Person`他のテーブルのいずれかで関連する行がある場合。 最初に、手動で、関連する行を削除できますか削除するときに自動的に削除するデータベースを構成することができます、`Person`行。 このチュートリアルでは、学生のレコードの関連データを自動的に削除するデータベースを構成します。 受講者に行を関連付けることがあるためにのみ、`StudentGrade`テーブル、3 つのリレーションシップのいずれかのみを構成する必要があります。
+ユーザーが `Person` テーブルから学生を削除できるページを作成します。このテーブルには、他のテーブル (`Course`、`StudentGrade`、および `OfficeAssignment`) との3つのリレーションシップがあります。 既定では、他のいずれかのテーブルに関連する行がある場合、データベースによって `Person` の行が削除されるのを防ぐことができます。 最初に関連する行を手動で削除することも、`Person` 行を削除したときにデータベースを自動的に削除するように構成することもできます。 このチュートリアルの student レコードでは、関連データを自動的に削除するようにデータベースを構成します。 学生は `StudentGrade` テーブルにのみ関連する行を持つことができるため、3つのリレーションシップのうち1つだけを構成する必要があります。
 
-使用している場合、 *School.mdf*ファイルこのチュートリアルではプロジェクトからをダウンロードして、これらの構成変更が既に実行されているため、このセクションをスキップすることができます。 スクリプトを実行して、データベースを作成した場合は、次の手順を実行することによって、データベースを構成します。
+このチュートリアルで作成したプロジェクトからダウンロードした*School .mdf*ファイルを使用している場合は、これらの構成の変更が既に行われているため、このセクションをスキップできます。 スクリプトを実行してデータベースを作成した場合は、次の手順を実行してデータベースを構成します。
 
-**サーバー エクスプ ローラー**パート 1 で作成したデータベース ダイアグラムを開きます。 間のリレーションシップを右クリックして`Person`と`StudentGrade`(テーブルの行) を選び**プロパティ**します。
+**サーバーエクスプローラー**で、パート1で作成したデータベースダイアグラムを開きます。 `Person` と `StudentGrade` (テーブル間の線) の間のリレーションシップを右クリックし、 **[プロパティ]** を選択します。
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-2/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image19.png)
 
-**プロパティ**ウィンドウで、展開**INSERT および UPDATE の指定**設定と、 **DeleteRule**プロパティを**Cascade**します。
+**[プロパティ]** ウィンドウで、 **[挿入と更新の指定]** を展開し、 **DeleteRule**プロパティを**Cascade**に設定します。
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-2/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image21.png)
 
-保存して、図を閉じます。 データベースを更新するかどうかをクリックするかを尋ねられたら場合**はい**します。
+ダイアグラムを保存して閉じます。 データベースを更新するかどうかを確認するメッセージが表示されたら、 **[はい]** をクリックします。
 
-モデルが、データベースが行っている内容との同期のメモリ内のエンティティを保持することを確認するには、データ モデルに対応するルールを設定する必要があります。 開いている*SchoolModel.edmx*、間の関連行を右クリックして`Person`と`StudentGrade`、し、**プロパティ**します。
+モデルで、メモリ内のエンティティがデータベースで実行されているものと同期されるようにするには、データモデルで対応するルールを設定する必要があります。 *SchoolModel*を開き、`Person` と `StudentGrade`の間の関連行を右クリックし、 **[プロパティ]** を選択します。
 
 [![Image21](the-entity-framework-and-aspnet-getting-started-part-2/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image23.png)
 
-**プロパティ**ウィンドウで、設定**End1 OnDelete**に**Cascade**します。
+**[プロパティ]** ウィンドウで、 **End1 OnDelete**を**Cascade**に設定します。
 
 [![Image22](the-entity-framework-and-aspnet-getting-started-part-2/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image25.png)
 
-保存して閉じます、 *SchoolModel.edmx*ファイルを開き、プロジェクトをリビルドします。
+*SchoolModel*ファイルを保存して閉じてから、プロジェクトをリビルドします。
 
-一般に、データベースが変更されたときに、モデルを同期する方法のいくつかの選択肢があります。
+一般に、データベースが変更された場合、モデルを同期する方法にはいくつかの選択肢があります。
 
-- 特定の種類の変更 (追加または更新のテーブル、ビュー、またはストアド プロシージャ) などのクリックし、デザイナーで右クリックし**データベースからモデルを更新**デザイナーの作成、変更を自動的が。
-- データ モデルを再生成します。
-- 次のような手動の更新プログラムを作成します。
+- 特定の種類の変更 (テーブル、ビュー、またはストアドプロシージャの追加や更新など) については、デザイナー内で右クリックし、 **[データベースからモデルを更新]** を選択して、デザイナーが変更を自動的に行うようにします。
+- データモデルを再生成します。
+- このような手動更新を行います。
 
-フィールド名の変更をもう一度作成する必要しますが、ここでは、モデルを再生成でしたまたはリレーションシップの変更によって影響を受けるテーブルを更新する (から`FirstName`に`FirstMidName`)。
+この場合、モデルを再生成するか、リレーションシップの変更によって影響を受けるテーブルを更新することができますが、その場合は、フィールド名を再度変更する必要があります (`FirstName` から `FirstMidName`)。
 
-## <a name="using-a-gridview-control-to-read-and-update-entities"></a>GridView コントロールを使用して、読み取りし、エンティティを更新するには
+## <a name="using-a-gridview-control-to-read-and-update-entities"></a>GridView コントロールを使用したエンティティの読み取りと更新
 
-このセクションで使用する、`GridView`コントロールを表示し、更新、または、受講者を削除します。
+このセクションでは、`GridView` コントロールを使用して、学生の表示、更新、または削除を行います。
 
-開く、またはに切り替える*Students.aspx*に切り替えると**デザイン**ビュー。 **データ**のタブ、**ツールボックス**、ドラッグ、`GridView`コントロールの右側に、`EntityDataSource`制御、名前を付けます`StudentsGridView`、スマート タグをクリックし、 **StudentsEntityDataSource**データ ソースとして。
+*Student .aspx*に移動し、 **[デザイン]** ビューに切り替えます。 **ツールボックス**の **[データ]** タブから、`GridView` コントロールを `EntityDataSource` コントロールの右側にドラッグし、`StudentsGridView`という名前を付けて、スマートタグをクリックし、データソースとして **[StudentsEntityDataSource]** を選択します。
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-2/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image27.png)
 
-をクリックして**スキーマの更新**(をクリックして**はい**ことを確認するよう求める場合)、順にクリックします**ページングを有効にする**、**並べ替えを有効にする**、 **編集を有効にする**、および**の削除を有効にする**します。
+**スキーマの更新** をクリックし (確認を求められたら **はい**をクリックします)、**ページング**を有効にする、**並べ替え**を有効にする、**編集**を有効にする、および **削除を**有効
 
-クリックして**列の編集**します。
+**[列の編集]** をクリックします。
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-2/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image29.png)
 
-**選択されたフィールド**ボックスで、削除**PersonID**、 **LastName**、および**HireDate**します。 通常しないレコードのキーをユーザーに表示する、雇用された日付に関連する学生、およびため必要名フィールドの 1 つのみに、1 つのフィールドを名前の両方の部分を配置します。)
+**[選択されたフィールド]** ボックスで、 **PersonID**、 **LastName**、および**HireDate**を削除します。 通常、ユーザーにはレコードキーを表示せず、採用日は学生には関係しません。また、名前の両方の部分を1つのフィールドに入力するので、名前フィールドのいずれか1つだけが必要です。
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
 
-選択、 **FirstMidName**フィールドをクリックして**このフィールドを TemplateField に変換**します。
+**[Firstmidname]** フィールドを選択し、 **[このフィールドを TemplateField に変換する]** をクリックします。
 
-同じ**EnrollmentDate**します。
+**EnrollmentDate**に対しても同じ操作を行います。
 
 [![Image13](the-entity-framework-and-aspnet-getting-started-part-2/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image33.png)
 
-クリックして**OK**に切り替えると**ソース**ビュー。 残りの変更は、マークアップで直接実行しやすくなります。 `GridView`今が次の例のようにマークアップを制御します。
+[ **OK]** をクリックし、[**ソース**ビュー] に切り替えます。 残りの変更は、マークアップで直接行う方が簡単です。 `GridView` コントロールマークアップは、次の例のようになります。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample3.aspx)]
 
-[コマンド] フィールドが現在テンプレート フィールドは、後の最初の列には、最初の名前が表示されます。 次の例のようにこのテンプレート フィールドのマークアップを変更します。
+コマンドフィールドの後の最初の列は、現在名を表示しているテンプレートフィールドです。 このテンプレートフィールドのマークアップを次の例のように変更します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample4.aspx)]
 
-表示モードでは、2 つ`Label`コントロールは、最初と最後の名前を表示します。 編集モードで、2 つのテキスト ボックスは、最初と最後の名前を変更できるように提供されます。 同様、`Label`内のコントロールの表示モードを使用する`Bind`と`Eval`データベースに直接接続する ASP.NET データ ソース コントロールの式と同じ状態の場合します。 唯一の違いは、データベース列ではなく、エンティティのプロパティを指定することです。
+表示モードでは、2つの `Label` コントロールに姓と名が表示されます。 編集モードでは、姓と名を変更できるように、2つのテキストボックスが用意されています。 表示モードの `Label` コントロールと同様に、データベースに直接接続するデータソースコントロールを ASP.NET する場合と同じように `Bind` と `Eval` 式を使用します。 唯一の違いは、データベース列ではなくエンティティプロパティを指定することです。
 
-最後の列は、登録日付を表示するテンプレートのフィールドです。 次の例のようにこのフィールドのマークアップを変更します。
+最後の列は、登録日を表示するテンプレートフィールドです。 このフィールドのマークアップを次の例のように変更します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample5.aspx)]
 
-両方の表示し、編集モードと、"short 日付"形式で表示される日付の書式指定文字列「{0, d}」。 (コンピューターはこのチュートリアルで示すように画面の画像から異なる方法では、この形式を表示する構成があります)。
+表示モードと編集モードの両方で、書式文字列 "{0, d}" を指定すると、日付が "short date" 形式で表示されます。 (このコンピューターは、このチュートリアルで示されている画面イメージとは異なる形式で表示されるように構成されている場合があります)。
 
-これらのテンプレート フィールドごとに、デザイナーは使用に注意してください、`Bind`が既定では、式を変更する、`Eval`内の式、`ItemTemplate`要素。 `Bind`データで使用できる式`GridView`コード内のデータにアクセスする必要がある場合は、プロパティを制御します。 このページを使用できるようにコードでは、このデータにアクセスする必要はありません`Eval`、これが効率的です。 詳細については、次を参照してください。[データ コントロールからデータを取得](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx)します。
+これらの各テンプレートフィールドでは、デザイナーでは既定で `Bind` 式が使用されていましたが、これは `ItemTemplate` 要素の `Eval` 式に変更されています。 `Bind` 式を使用すると、コード内のデータにアクセスする必要がある場合に、`GridView` コントロールのプロパティでデータを使用できるようになります。 このページでは、コード内でこのデータにアクセスする必要はないため、`Eval`を使用できますが、これはより効率的です。 詳細については、「データ[コントロールからのデータの取得](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx)」を参照してください。
 
-## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>パフォーマンスを向上させるために改訂 EntityDataSource コントロール マークアップ
+## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>パフォーマンスを向上させるために EntityDataSource コントロールのマークアップを改訂する
 
-マークアップで、`EntityDataSource`コントロールを削除、`ConnectionString`と`DefaultContainerName`属性し、置き換え、`ContextTypeName="ContosoUniversity.DAL.SchoolEntities"`属性。 これは、変更を作成するたびにする必要があります、`EntityDataSource`制御、オブジェクト コンテキスト クラス内でハードコーディングされているとは異なる接続を使用する必要がある場合を除き、します。 使用して、`ContextTypeName`属性は、次の利点を提供します。
+`EntityDataSource` コントロールのマークアップで、`ConnectionString` 属性と `DefaultContainerName` 属性を削除し、`ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` 属性に置き換えます。 これは、オブジェクトコンテキストクラスにハードコーディングされている接続とは異なる接続を使用する必要がある場合を除き、`EntityDataSource` コントロールを作成するたびに行う必要がある変更です。 `ContextTypeName` 属性を使用すると、次のような利点があります。
 
-- パフォーマンスが向上します。 ときに、`EntityDataSource`コントロールを使用してデータ モデルを初期化します、`ConnectionString`と`DefaultContainerName`属性、追加の作業要求のたびにメタデータの読み込みを実行します。 これは指定した場合は必要ありません、`ContextTypeName`属性。
-- 遅延読み込みが生成されたオブジェクト コンテキスト クラスに既定でオン (など`SchoolEntities`このチュートリアルでは) では、Entity Framework 4.0。 これはナビゲーション プロパティが読み込まれる関連データを自動的に必要なときすぐを意味します。 遅延読み込みは、このチュートリアルの後半で詳しく説明します。
-- オブジェクト コンテキスト クラスに適用したカスタマイズ (ここで、`SchoolEntities`クラス) を使用するコントロールで使用できる、`EntityDataSource`コントロール。 このチュートリアル シリーズでは説明しません高度なトピックは、オブジェクト コンテキスト クラスをカスタマイズします。 詳細については、次を参照してください。 [Entity Framework 生成型の拡張](https://msdn.microsoft.com/library/dd456844.aspx)します。
+- パフォーマンスが向上します。 `EntityDataSource` コントロールが `ConnectionString` 属性と `DefaultContainerName` 属性を使用してデータモデルを初期化すると、すべての要求にメタデータを読み込むための追加作業が実行されます。 これは、`ContextTypeName` 属性を指定する場合は必要ありません。
+- 遅延読み込みは、Entity Framework 4.0 の生成されたオブジェクトコンテキストクラス (このチュートリアルでは `SchoolEntities` など) で既定で有効になっています。 これは、必要に応じて、ナビゲーションプロパティが関連データと共に自動的に読み込まれることを意味します。 遅延読み込みの詳細については、このチュートリアルの後半で説明します。
+- オブジェクトコンテキストクラス (この場合は `SchoolEntities` クラス) に適用したカスタマイズは、`EntityDataSource` コントロールを使用するコントロールで使用できるようになります。 オブジェクトコンテキストクラスのカスタマイズは、このチュートリアルシリーズでは説明されていない高度なトピックです。 詳細については、「 [Entity Framework 生成された型の拡張](https://msdn.microsoft.com/library/dd456844.aspx)」を参照してください。
 
-マークアップは次の例 (プロパティの順序が異なる可能性があります) のようになります。
+マークアップは次の例のようになります (プロパティの順序が異なる場合があります)。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening`属性が、外部キー列は、エンティティのプロパティとして公開されていなかったため、Entity Framework の以前のバージョンで必要な機能を参照します。 現在のバージョンを使用して*外部キー アソシエーション*、つまり、外部キー プロパティは、多対多のアソシエーションの公開します。 外部キー プロパティとなしに、エンティティがある[複合型](https://msdn.microsoft.com/library/bb738472.aspx)、この属性に設定しておくことができます`False`します。 既定値であるために、マークアップから属性を削除しない`True`します。 詳細については、次を参照してください。[フラット化オブジェクト (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx)します。
+`EnableFlattening` 属性は、外部キー列がエンティティプロパティとして公開されていないため、以前のバージョンの Entity Framework で必要な機能を参照します。 現在のバージョンでは、*外部キーの関連付け*を使用できるようになっています。つまり、外部キーのプロパティは、すべての多対多のアソシエーションに対して公開されます。 エンティティに外部キープロパティがあり、[複合型](https://msdn.microsoft.com/library/bb738472.aspx)がない場合は、この属性を `False`に設定したままにすることができます。 既定値は `True`ので、マークアップから属性を削除しないでください。 詳細については、「オブジェクトのフラット化」 [(EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx)を参照してください。
 
-ページを実行し、受講者と従業員 (しますをフィルター処理するだけの学生で、次のチュートリアル) の一覧を参照してください。 名と姓がまとめて表示されます。
+ページを実行すると、学生と従業員の一覧が表示されます (次のチュートリアルでは、生徒にのみフィルターを適用します)。 姓と名が一緒に表示されます。
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-2/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image35.png)
 
 表示を並べ替えるには、列名をクリックします。
 
-クリックして**編集**いずれかの行。 テキスト ボックスを表示するには、最初と最後の名前を変更することができます。
+任意の行の **[編集]** をクリックします。 テキストボックスが表示され、姓と名を変更できます。
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-2/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image37.png)
 
-**削除**ボタンもは機能します。 加入契約の日を含む行の削除 をクリックし、行は表示されなくなります。 (登録日を設定せずに行がインストラクターを表す、参照整合性エラーが発生する可能性があります。 次のチュートリアルをフィルター処理するだけで生徒を追加するには、この一覧。)
+**[削除]** ボタンも機能します。 登録日がある行の [削除] をクリックすると、行が表示されなくなります。 (登録日のない行は講師を表し、参照整合性エラーが発生する可能性があります。 次のチュートリアルでは、このリストにフィルターを適用して、学生だけを含めます)。
 
-## <a name="displaying-data-from-a-navigation-property"></a>ナビゲーション プロパティからデータを表示します。
+## <a name="displaying-data-from-a-navigation-property"></a>ナビゲーションプロパティからのデータの表示
 
-今すぐコースの数を知りたいと各受講者に登録されます。 Entity Framework では、その情報を提供する、`StudentGrades`のナビゲーション プロパティ、`Person`エンティティ。 データベースの設計が、学生に割り当てられているグレードをしなくてもコースの登録を許可しないため、このチュートリアルと想定できます内を持つ行、`StudentGrade`コースに関連付けられているテーブルの行は、コースに登録されていると同じです。 (、`Courses`ナビゲーション プロパティはインストラクターのみ)。
+ここで、各学生が登録されているコースの数を知りたいとします。 Entity Framework は、`Person` エンティティの `StudentGrades` ナビゲーションプロパティにその情報を提供します。 データベースの設計では、学年が割り当てられていなくても学生を講座に登録することはできないため、このチュートリアルでは、コースに関連付けられている `StudentGrade` テーブル行内の行が、コースに登録されているものと同じであることを想定できます。 (`Courses` ナビゲーションプロパティは、インストラクターだけを対象としています)。
 
-使用すると、`ContextTypeName`の属性、`EntityDataSource`コントロール、Entity Framework に自動的に情報を取得しますナビゲーション プロパティのプロパティにアクセスするとします。 これは呼び出されます*遅延読み込み*します。 ただし、このことができます、効率的なためにできないを個別に呼び出して、データベースの各時間の追加情報が必要になります。 によって返されるすべてのエンティティのナビゲーション プロパティからのデータが必要があります、`EntityDataSource`コントロールは、データベースに 1 回の呼び出しでは、エンティティ自体と関連データを取得する方が効率的です。 これは呼び出されます*一括読み込み*、ナビゲーション プロパティの一括読み込みを設定して指定して、`Include`のプロパティ、`EntityDataSource`コントロール。
+`EntityDataSource` コントロールの `ContextTypeName` 属性を使用すると、そのプロパティにアクセスしたときに、ナビゲーションプロパティの情報が Entity Framework によって自動的に取得されます。 これは*遅延読み込み*と呼ばれます。 ただし、追加情報が必要になるたびにデータベースが個別に呼び出されるため、これは非効率的になる可能性があります。 `EntityDataSource` コントロールによって返されるすべてのエンティティのナビゲーションプロパティからのデータが必要な場合は、データベースへの1回の呼び出しで、関連するデータをエンティティ自体と共に取得する方が効率的です。 これは、*一括読み込み*と呼ばれ、`EntityDataSource` コントロールの `Include` プロパティを設定することによって、ナビゲーションプロパティの一括読み込みを指定します。
 
-*Students.aspx*は、各受講者のコースの数を表示するための一括読み込みは、最適な選択肢です。 すべての学生を表示するが、コースの数を示す場合 (これは、マークアップに加えてコードを記述する必要は) その一部に対してのみ遅延読み込みがあります適しています。
+*Students*では、各学生のコース数を表示したいので、一括読み込みが最適な選択肢です。 すべての学生を表示していても、いくつかのコース (マークアップに加えていくつかのコードを記述する必要があります) のコースのみを表示している場合は、遅延読み込みの方が適している可能性があります。
 
-開くかに切り替えます*Students.aspx*、切り替える**デザイン**ビューで、 `StudentsEntityDataSource`、し、**プロパティ**ウィンドウのセット、 **Include**プロパティを**StudentGrades**します。 (複数のナビゲーション プロパティを取得する場合は、コンマで区切られた名前を指定できます: たとえば、 **StudentGrades、コース**)。
+*Student .aspx*に切り替えて、**デザイン**ビューに切り替え、[`StudentsEntityDataSource`] を選択します。次に、 **[プロパティ]** ウィンドウで、 **Include**プロパティを**StudentGrades**に設定します。 (複数のナビゲーションプロパティを取得する場合は、名前をコンマで区切って指定できます (たとえば、 **StudentGrades、** course)。
 
 [![Image19](the-entity-framework-and-aspnet-getting-started-part-2/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image39.png)
 
-切り替える**ソース**ビュー。 `StudentsGridView` 、最後の後に、コントロール`asp:TemplateField`要素では、次の新しいテンプレート フィールドの追加。
+**ソース**ビューに切り替えます。 `StudentsGridView` コントロールで、最後の `asp:TemplateField` 要素の後に、次の新しいテンプレートフィールドを追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample7.aspx)]
 
-`Eval`式、ナビゲーション プロパティを参照する`StudentGrades`します。 このプロパティには、コレクションが含まれている、ため、`Count`コースの受講者が登録されている数を表示するのに使用できるプロパティです。 後のチュートリアルでは、データ コレクションではなく単一のエンティティを含むナビゲーション プロパティを表示する方法を確認します。 (使用することはできません注`BoundField`ナビゲーション プロパティからデータを表示する要素)。
+`Eval` 式では、ナビゲーションプロパティ `StudentGrades`を参照できます。 このプロパティにはコレクションが含まれているため、学生が登録されているコースの数を表示するために使用できる `Count` のプロパティがあります。 後のチュートリアルでは、コレクションではなく単一のエンティティを含むナビゲーションプロパティからデータを表示する方法について説明します。 (`BoundField` 要素を使用して、ナビゲーションプロパティのデータを表示することはできません)。
 
-ページを実行し、数のコースの受講者が登録されている表示されます。
+ページを実行すると、各学生が登録したコースの数が表示されます。
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-2/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image41.png)
 
-## <a name="using-a-detailsview-control-to-insert-entities"></a>DetailsView コントロールを使用してエンティティを挿入するには
+## <a name="using-a-detailsview-control-to-insert-entities"></a>DetailsView コントロールを使用してエンティティを挿入する
 
-次の手順を持つページを作成するには、`DetailsView`新しい生徒を追加できるようにするコントロール。 ブラウザーを閉じて、使用して新しい web ページを作成し、 *Site.Master*マスター ページ。 ページの名前を付けます*StudentsAdd.aspx*、しに切り替える**ソース**ビュー。
+次の手順では、新しい学生を追加できる `DetailsView` コントロールを持つページを作成します。 ブラウザーを閉じてから、新しい web ページを作成し*ます。* ページに*StudentsAdd*という名前を指定し、**ソース**ビューに切り替えます。
 
-既存のマークアップを置き換えるには、次のマークアップを追加、`Content`という名前のコントロール`Content2`:
+次のマークアップを追加して、`Content2`という名前の `Content` コントロールの既存のマークアップを置き換えます。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample8.aspx)]
 
-このマークアップを作成、`EntityDataSource`で作成したようなコントロール*Students.aspx*を除き、これにより、挿入します。 同様、`GridView`コントロールのバインドされたフィールド、`DetailsView`コントロールにエンティティのプロパティを参照する点を除いて、データベースに直接接続するデータ コントロールの場合と同じに正確にコーディングされています。 ここで、`DetailsView`コントロールは、行を挿入するため、既定のモードを設定するには使用`Insert`します。
+このマークアップは、挿入を可能にする以外は、 *student*で作成したコントロールに似た `EntityDataSource` コントロールを作成します。 `GridView` コントロールと同様に、`DetailsView` コントロールのバインドされたフィールドは、エンティティのプロパティを参照することを除いて、データベースに直接接続するデータコントロールの場合とまったく同じようにコード化されます。 この場合、`DetailsView` コントロールは行の挿入にのみ使用されるため、既定のモードを `Insert`に設定します。
 
-ページを実行し、新しい生徒を追加します。
+ページを実行し、新しい学生を追加します。
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-2/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image43.png)
 
-今すぐ実行する場合は、新しい生徒を挿入した後、何も起こりません*Students.aspx*、新しい生徒の情報が表示されます。
+新しい学生を挿入した後は何も起こりませんが、ここで student*を実行すると、新しい*学生情報が表示されます。
 
-## <a name="displaying-data-in-a-drop-down-list"></a>ドロップダウン リストでデータを表示します。
+## <a name="displaying-data-in-a-drop-down-list"></a>ドロップダウンリストでのデータの表示
 
-データ バインドが、次の手順で、`DropDownList`コントロールを使用して設定エンティティを`EntityDataSource`コントロール。 このチュートリアルでは、この一覧では多くの操作も行いません。 以降の部分がリストを使用する、ユーザーの部門に関連付けられているコースを表示するのに部署を選択できるようにします。
+次の手順では、`EntityDataSource` コントロールを使用して、`DropDownList` コントロールをエンティティセットにバインドします。 チュートリアルのこの部分では、この一覧についてはあまりいきません。 ただし、その後の部分では、一覧を使用して、ユーザーが部署を選択して部門に関連付けられているコースを表示できるようにします。
 
-という名前の新しい web ページを作成する*Courses.aspx*します。 **ソース**、見出しを追加、表示、`Content`というコントロール`Content2`:
+「Course」という名前の新しい web ページを作成*します。* **ソース**ビューで、`Content2`という名前の `Content` コントロールに見出しを追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample9.aspx)]
 
-**デザイン**ビューで、追加、`EntityDataSource`コントロールをページと同様、前に、この時間を除くという名前を付けます`DepartmentsEntityDataSource`します。 選択**部門**として、 **EntitySetName**値に設定して、のみを選択、 **DepartmentID**と**名前**プロパティ。
+**デザイン**ビューで、前と同じように `EntityDataSource` コントロールをページに追加します。ただし、この時刻の名前は `DepartmentsEntityDataSource`ます。 **EntitySetName**値と**して [department] を選択**し、 **[DepartmentID]** および **[Name]** プロパティのみを選択します。
 
 [![Image15](the-entity-framework-and-aspnet-getting-started-part-2/_static/image46.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image45.png)
 
-**標準**のタブ、**ツールボックス**、ドラッグ、`DropDownList`コントロールをページで、名前を付けます`DepartmentsDropDownList`、スマート タグをクリックし、選択**データ ソースの選択**に開始、**データ ソース構成ウィザード**します。
+**ツールボックス**の **[標準]** タブで `DropDownList` コントロールをページにドラッグし、`DepartmentsDropDownList`という名前を付けて、スマートタグをクリックし、 **[データソースの選択]** を選択してデータソース**構成ウィザード**を開始します。
 
 [![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
 
-**データ ソースの選択**手順で、 **DepartmentsEntityDataSource**データ ソースとして次のようにクリックします**スキーマの更新**、し、 **名。** として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとして。 **[OK]** をクリックします。
+**データソースの選択** ステップで、データソースとして **DepartmentsEntityDataSource** を選択し、**スキーマの更新** をクリックします。次に、表示するデータフィールドとして **名前** を選択し、値のデータ フィールドに**DepartmentID**を選択します。 **[OK]** をクリックします。
 
 [![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
 
-データをバインドする Entity Framework を使用してコントロールを使用するメソッドでは、エンティティとエンティティのプロパティを他の ASP.NET データを除き、ソース コントロールを指定と同じです。
+Entity Framework を使用してコントロールをデータバインドするために使用するメソッドは、エンティティとエンティティのプロパティを指定する点を除いて、他の ASP.NET データソースコントロールと同じです。
 
-切り替える**ソース**を表示および追加"部署を選択します:"の直前に、`DropDownList`コントロール。
+**ソース**ビューに切り替えて、`DropDownList` コントロールの直前に "Select a department:" を追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample10.aspx)]
 
-マークアップを変更するアラームとして、`EntityDataSource`コントロールを置き換えることで、この時点で、`ConnectionString`と`DefaultContainerName`属性を`ContextTypeName="ContosoUniversity.DAL.SchoolEntities"`属性。 変更する前に、データ ソース コントロールにリンクされているデータ バインド コントロールを作成した後にまで待機する最適な多くの場合は、`EntityDataSource`変更を行った後、デザイナーは提供しないために、マークアップを制御、**更新スキーマ**データ バインド コントロールでオプションです。
+この時点で、`ConnectionString` 属性と `DefaultContainerName` 属性を `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` 属性で置き換えることによって、この時点で `EntityDataSource` コントロールのマークアップを変更します。 `EntityDataSource` コントロールのマークアップを変更する前に、データソースコントロールにリンクされているデータバインドコントロールを作成しておくと、多くの場合は待機することをお勧めします。これは、変更を行った後に、デザイナーがデータバインドコントロールの **[スキーマの更新]** オプションを提供しないためです。
 
-ページを実行し、ドロップダウン リストから、部門を選択することができます。
+ページを実行すると、ドロップダウンリストから部門を選択できます。
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image51.png)
 
-これで完了の使用の概要、`EntityDataSource`コントロール。 このコントロールの操作ですが一般的に使用可能なその他の ASP.NET データ ソース コントロールから同じエンティティとテーブルと列の代わりにプロパティを参照します。 唯一の例外は、ナビゲーション プロパティにアクセスする場合です。 次のチュートリアルで使用する構文が表示されます`EntityDataSource`フィルター処理してグループ化、データの並べ替えを実行するときに、コントロールは他のデータ ソース コントロールから異なるも場合があります。
+これで、`EntityDataSource` コントロールの使用方法の概要が完成します。 このコントロールの操作は、通常、他の ASP.NET データソースコントロールとは異なりますが、テーブルや列ではなくエンティティとプロパティを参照する点が異なります。 唯一の例外は、ナビゲーションプロパティにアクセスする場合です。 次のチュートリアルでは、データのフィルター処理、グループ化、および並べ替えを行うときに、`EntityDataSource` コントロールで使用する構文も、他のデータソースコントロールとは異なる場合があることがわかります。
 
 > [!div class="step-by-step"]
 > [前へ](the-entity-framework-and-aspnet-getting-started-part-1.md)

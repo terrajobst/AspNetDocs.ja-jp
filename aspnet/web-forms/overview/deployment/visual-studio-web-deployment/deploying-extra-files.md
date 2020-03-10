@@ -9,11 +9,11 @@ ms.assetid: 1cd91055-84bc-42c6-9d80-646f41429d4d
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
 ms.openlocfilehash: eaa3141c22980f0c816e2f33b5597ac9fe69c23c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594907"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78441364"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Visual Studio を使用した ASP.NET Web 配置: 追加ファイルの配置
 
@@ -23,7 +23,7 @@ ms.locfileid: "74594907"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、Visual Studio web 発行パイプラインを拡張して、デプロイ中に追加のタスクを実行する方法について説明します。 このタスクでは、プロジェクトフォルダーに含まれていない余分なファイルをコピー先の web サイトにコピーします。
 
@@ -73,11 +73,11 @@ ms.locfileid: "74594907"
 
 ワンクリック発行を使用する場合は、 **[プレビュー]** ウィンドウで、 *robots.txt*がコピーされることを確認できます。 それ以外の場合は、FTP ツールを使用して、 *robots.txt*ファイルが配置後に web サイトのルートフォルダーにあることを確認します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、ASP.NET web アプリケーションをサードパーティのホスティングプロバイダーにデプロイするための一連のチュートリアルが完了します。 これらのチュートリアルで説明されているトピックの詳細については、「 [ASP.NET Deployment Content Map](https://go.microsoft.com/fwlink/p/?LinkId=282413)」を参照してください。
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>詳細情報
 
 MSBuild ファイルを操作する方法がわかっている場合は、(プロファイル固有のタスク用の) *pubxml*ファイルまたはプロジェクトの *.targets*ファイル (すべてのプロファイルに適用されるタスク用) にコードを記述することで、他の多くの配置タスクを自動化できます。 *Pubxml*および*wpp*ファイルの詳細については、「[方法: 発行プロファイル (Pubxml) ファイルの配置設定を編集する」および「Visual Studio Web プロジェクトの .targets ファイル](https://msdn.microsoft.com/library/ff398069)」を参照してください。 MSBuild コードの基本的な概要については、「エンタープライズ展開シリーズで**のプロジェクトファイルの構造** [: プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」を参照してください。 MSBuild ファイルを操作して独自のシナリオでタスクを実行する方法については、「 [Microsoft Build Engine: msbuild と Team Foundation ビルド](http://msbuildbook.com)による作成者 Ibraham Hashimi とウィリアム Bartholow の使用」を参照してください。
 

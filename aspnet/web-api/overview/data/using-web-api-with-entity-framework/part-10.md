@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: Azure の Azure App Service へのアプリの発行 |Microsoft Docs
+title: アプリを Azure Azure App Service | に発行します。Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,50 +9,50 @@ ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
 ms.openlocfilehash: a9a7b74a07c71b47253c0af304c7a26ffa4eaae5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417365"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504760"
 ---
-# <a name="publish-the-app-to-azure-azure-app-service"></a>Azure の Azure App Service にアプリを公開します。
+# <a name="publish-the-app-to-azure-azure-app-service"></a>アプリを Azure Azure App Service に発行する
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
-最後の手順としては、Azure にアプリケーションを公開します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**発行**します。
+最後の手順として、アプリケーションを Azure に発行します。 ソリューションエクスプローラーで、プロジェクトを右クリックし、 **[発行]** を選択します。
 
 ![](part-10/_static/image1.png)
 
-クリックすると**発行**呼び出す、 **Web の発行**ダイアログ。 オンにした場合**クラウド内のホスト**ときに接続し、プロジェクトでは、最初に作成して、設定が既に構成されています。 その場合は、クリックするだけです、**設定** タブで確認し、 &quot;Code First Migrations の実行&quot;します。 (確認しなかった場合**クラウド内のホスト**を先頭に次の手順では、[次のセクション](#new-website))。
+**[発行]** をクリックすると、 **[Web の発行]** ダイアログが呼び出されます。 最初にプロジェクトを作成したときに **[クラウドでホスト]** をオンにした場合、接続と設定は既に構成されています。 その場合は、 **[設定]** タブをクリックし、Code First Migrations&quot;を実行 &quot;を確認します。 (最初に**クラウドのホスト**を確認していない場合は、[次のセクション](#new-website)の手順に従います)。
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-アプリを展開する をクリックして**発行**します。 発行の進行状況を表示することができます、 **Web 発行アクティビティ**ウィンドウ。 (から、**ビュー**メニューの **その他の Windows**を選択し、 **Web 発行アクティビティ**)。
+アプリをデプロイするには、 **[発行]** をクリックします。 発行の進行状況は、 **[Web 発行アクティビティ]** ウィンドウで確認できます。 ( **[表示]** メニューの **[その他のウィンドウ]** を選択し、 **[Web 発行アクティビティ]** を選択します)。
 
 ![](part-10/_static/image4.png)
 
-Visual Studio では、アプリのデプロイが完了したら、デプロイされた web サイトの URL に既定のブラウザーが自動的に開き、作成したアプリケーションが、クラウドで実行されるようになりました。 ブラウザーのアドレス バーに URL では、サイトがインターネットから読み込まれていることを示します。
+Visual Studio でアプリのデプロイが完了すると、既定のブラウザーが自動的に開き、デプロイされた web サイトの URL が表示され、作成したアプリケーションがクラウドで実行されるようになります。 ブラウザーのアドレスバーの URL は、サイトがインターネットから読み込まれていることを示しています。
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
-## <a name="deploying-to-a-new-website"></a>新しい web サイトに展開します。
+## <a name="deploying-to-a-new-website"></a>新しい Web サイトへのデプロイ
 
-選択しなかった場合**クラウド内のホスト**最初にプロジェクトを作成したときに、新しい web アプリを今すぐ構成できます。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**発行**します。 選択、**プロファイル** タブでをクリックし、 **Microsoft Azure Websites**します。 現在 Azure にサインインしていない場合は、サインインする促されます。
+最初にプロジェクトを作成したときに**クラウドのホスト**を確認しなかった場合は、ここで新しい web アプリを構成できます。 ソリューションエクスプローラーで、プロジェクトを右クリックし、 **[発行]** を選択します。 **[プロファイル]** タブを選択し、 **[Microsoft Azure Websites]** をクリックします。 現在 Azure にサインインしていない場合は、サインインするように求められます。
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-**既存の web サイト**ダイアログ ボックスで、をクリックして**新規**します。
+**[既存の Web サイト]** ダイアログで、 **[新規]** をクリックします。
 
 ![](part-10/_static/image9.png)
 
-サイト名を入力します。 Azure サブスクリプションとリージョンを選択します。 **データベース サーバー**を選択します**新しいサーバーの作成**、または既存のサーバーを選択します。 **[作成]** をクリックします。
+サイト名を入力してください。 Azure サブスクリプションとリージョンを選択します。 **[データベースサーバー]** で、 **[新しいサーバーの作成]** を選択するか、既存のサーバーを選択します。 **Create** をクリックしてください。
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-をクリックして、**設定** タブで確認し、 &quot;Code First Migrations の実行&quot;します。 クリックして**発行**します。
+**[設定]** タブをクリックし、Code First Migrations&quot;を実行 &quot;を確認します。 **[発行]** をクリックします。
 
 > [!div class="step-by-step"]
-> [前へ](part-9.md)
+> [[戻る]](part-9.md)

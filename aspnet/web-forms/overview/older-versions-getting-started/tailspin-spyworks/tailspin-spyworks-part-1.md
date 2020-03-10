@@ -1,103 +1,103 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
-title: 第 1 部:ファイルに新しいプロジェクト-> |Microsoft Docs
+title: 'パート 1: ファイル > 新しいプロジェクト |Microsoft Docs'
 author: JoeStagner
-description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 1 部では、概要とファイル]/[新しいプロジェクトについて説明します。
+description: このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート1では、概要とファイル/新しいプロジェクトについて説明します。
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 15d4652b-d5aa-4172-b186-2c7f96ba316d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
 ms.openlocfilehash: 05a3ace3d8fef9c1f3593f7948e42b4725d70134
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130571"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516538"
 ---
-# <a name="part-1-file--new-project"></a>第 1 部:ファイル -> 新しいプロジェクト
+# <a name="part-1-file--new-project"></a>パート 1: ファイル > 新しいプロジェクト
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
+> Tailspin Spyworks は、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを簡単に作成する方法を示しています。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェックアウト、管理などのオンラインストアを構築する方法を示しています。
 > 
-> このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 1 部では、概要とファイル]/[新しいプロジェクトについて説明します。
+> このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート1では、概要とファイル/新しいプロジェクトについて説明します。
 
-## <a id="_Toc260221666"></a>  概要
+## <a id="_Toc260221666"></a>概要
 
-このチュートリアルでは、ASP.NET WebForms の概要についてです。 私たちはゆっくりと開始されます、初心者レベルの web 開発のエクスペリエンスは問題ありません。
+このチュートリアルでは、ASP.NET WebForms の概要について説明します。 開始に時間がかかります。初心者レベルの web 開発エクスペリエンスは問題ありません。
 
-ビルドするアプリケーションは、シンプルなオンライン ストアです。
+構築するアプリケーションは、単純なオンラインストアです。
 
 ![](tailspin-spyworks-part-1/_static/image1.jpg)
 
-訪問者には、カテゴリ別の製品を参照できます。
+訪問者はカテゴリで製品を参照できます。
 
 ![](tailspin-spyworks-part-1/_static/image2.jpg)
 
-1 つの製品を表示およびカートに追加できます。
+1つの製品を表示し、カートに追加することができます。
 
 ![](tailspin-spyworks-part-1/_static/image3.jpg)
 
-必要がなくなったすべての項目を削除する、カートを確認することができます。
+カートをレビューして、不要になったアイテムを削除することができます。
 
 ![](tailspin-spyworks-part-1/_static/image4.jpg)
 
-チェック アウトに進むには、するように求められます
+チェックアウトに進むと、
 
 ![](tailspin-spyworks-part-1/_static/image5.jpg)
 
 ![](tailspin-spyworks-part-1/_static/image6.jpg)
 
-、順序付けの後に、単純な確認画面が参照してください。
+順序を付けると、簡単な確認画面が表示されます。
 
 ![](tailspin-spyworks-part-1/_static/image7.jpg)
 
-まず、Visual Studio 2010 では、新しい ASP.NET WebForms プロジェクトを作成して、段階的に機能している完全なアプリケーションを作成する機能を追加します。 その過程について説明しますデータベースへのアクセス、リストやグリッド ビュー、データ更新のページ、データの検証、マスター ページを使用して、一貫性のあるページ レイアウト、AJAX、検証、ユーザーのメンバーシップ。
+まず、Visual Studio 2010 で新しい ASP.NET WebForms プロジェクトを作成します。次に、機能を段階的に追加して、完全に機能するアプリケーションを作成します。 その過程で、データベースアクセス、リストとグリッドビュー、データ更新ページ、データの検証、ページレイアウトの一貫性のためのマスターページの使用、AJAX、検証、ユーザーメンバーシップなどについて説明します。
 
-ステップ バイ ステップに従うことができます。 か、完成したアプリケーションをダウンロードすることができます。 [http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
+ステップバイステップで進めることができます。または、完成したアプリケーションをからダウンロードすることもでき[http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
 
-Visual Studio 2010 または、無料 Visual Web Developer 2010 からのいずれかを使用する[ https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/)します。 アプリケーションをビルドするには、SQL Server または free SQL Server Express データベースをホストするのいずれかを使用できます。
+[https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/)から visual Studio 2010 または無料の Visual Web Developer 2010 を使用できます。 アプリケーションをビルドするには、SQL Server または無料の SQL Server Express を使用してデータベースをホストできます。
 
-## <a id="_Toc260221667"></a>  ファイル/新しいプロジェクト
+## <a id="_Toc260221667"></a>ファイル/新しいプロジェクト
 
-まず、Visual Studio で [ファイル] メニューから新しいプロジェクトを選択します。 新しいプロジェクト ダイアログが表示されます。
+まず、Visual Studio の [ファイル] メニューから新しいプロジェクトを選択します。 [新しいプロジェクト] ダイアログが表示されます。
 
 ![](tailspin-spyworks-part-1/_static/image8.jpg)
 
-選択、Visual c#]、[Web テンプレートは、左側のグループし、中央の列で、「ASP.NET Web アプリケーション」テンプレートを選択します。 TailspinSpyworks をプロジェクトに名前を [ok] ボタンを押します。
+左側の [ビジュアルC# /Web テンプレート] グループを選択し、中央の列で [ASP.NET Web Application] テンプレートを選択します。 プロジェクトに TailspinSpyworks という名前を指定し、[OK] をクリックします。
 
 ![](tailspin-spyworks-part-1/_static/image9.jpg)
 
-これにより、プロジェクトが作成されます。 右側にある ソリューション エクスプ ローラーで、アプリケーションに含まれているフォルダーを見ていきましょう。
+これにより、プロジェクトが作成されます。 アプリケーションに含まれているフォルダーを右側のソリューションエクスプローラーに見てみましょう。
 
 ![](tailspin-spyworks-part-1/_static/image10.jpg)
 
-空のソリューションが完全に空でない – 基本的なフォルダー構造を追加します。
+空のソリューションは完全に空ではないため、基本的なフォルダー構造が追加されます。
 
 ![](tailspin-spyworks-part-1/_static/image1.png)
 
-ASP.NET 4 の既定のプロジェクト テンプレートによって実装される規則に注意してください。
+ASP.NET 4 の既定のプロジェクトテンプレートによって実装される規則に注意してください。
 
-- 「アカウント」フォルダーは、ASP の基本的なユーザー インターフェイスを実装します。NET のメンバーシップのサブシステムです。
-- "Scripts"フォルダーがクライアント側の JavaScript ファイルのリポジトリとして機能し、コア jQuery の .js ファイルは、既定で利用可能な。
-- [スタイル] フォルダーは、web サイトのビジュアル (CSS スタイル シート) を整理するために使用します。
+- "Account" フォルダーには、ASP 用の基本的なユーザーインターフェイスが実装されています。NET のメンバーシップサブシステム。
+- "Scripts" フォルダーは、クライアント側の JavaScript ファイルのリポジトリとして機能し、主要な jQuery .js ファイルは既定で使用可能になります。
+- "Styles" フォルダーは、web サイトのビジュアルを整理するために使用されます (CSS スタイルシート)
 
-F5 キーを押して、アプリケーションを実行し、default.aspx ページをレンダリングするキーを押すときに、次のわかります。
+F5 キーを押してアプリケーションを実行し、default.aspx ページを表示すると、次のような画面が表示されます。
 
 ![](tailspin-spyworks-part-1/_static/image11.jpg)
 
-この最初のアプリケーションの拡張機能は、CSS クラスと関連付けられているイメージ ファイル、Tailspin Spyworks アプリケーションに追加する visual asthetics をレンダリングする WebForms の既定のテンプレートから Style.css ファイルを置換するになります。
+最初のアプリケーション拡張機能では、既定の WebForms テンプレートの .css ファイルを、CSS クラスと、Tailspin Spyworks アプリケーションに必要な visual asthetics をレンダリングする関連イメージファイルに置き換えます。
 
-これを行った後、default.aspx ページは、次のように表示します。
+その後、default.aspx ページは次のようにレンダリングします。
 
 ![](tailspin-spyworks-part-1/_static/image12.jpg)
 
-上部にあるイメージ リンクに注意してください、ページとマスター ページに追加されたメニュー項目の右。 「サインイン」と「アカウント」のリンクは、ページは、(既定のテンプレートによって生成された) に存在して、アプリケーションの構築を実装しますが、ページの残りの部分をポイントします。
+ページの右上の画像リンクと、マスターページに追加されたメニュー項目に注目してください。 "サインイン" リンクと "アカウント" リンクのみが、(既定のテンプレートによって生成される) 存在するページと、アプリケーションをビルドするときに実装する残りのページをポイントします。
 
-マスター ページをスタイル ディレクトリに配置する場合にもなります。 これは、優先順位ことをおモ ノを少し簡単にアプリケーションを今後で"skinable"になった場合。
+また、マスターページを Styles ディレクトリに再配置します。 これは単なる優先事項ですが、将来アプリケーションを "skinable" にする場合は、少し簡単にすることができます。
 
-マスター ページを変更する必要がありますこれを行った後は、すべての .aspx ファイル内の参照は、ASP.NET WebForms ページを既定で生成されます。
+この操作を行った後、既定の ASP.NET WebForms ページによって生成されるすべての .aspx ファイルのマスターページ参照を変更する必要があります。
 
 > [!div class="step-by-step"]
-> [次へ](tailspin-spyworks-part-2.md)
+> [Next](tailspin-spyworks-part-2.md)

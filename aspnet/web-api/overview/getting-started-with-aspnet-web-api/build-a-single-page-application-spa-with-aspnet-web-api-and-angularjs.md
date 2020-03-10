@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: ハンズ オン ラボ:ASP.NET Web API と Angular.js - ASP.NET シングル ページ アプリケーション (SPA) をビルド 4.x
+title: 'ハンズオンラボ: ASP.NET Web API と ASP.NET 4.x を使用して単一ページアプリケーション (SPA) を構築する'
 author: rick-anderson
-description: コードのステップ バイ ステップ。ASP.NET 用の ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルド 4.x です。
+description: 'ステップバイステップコード: ASP.NET 4.x 用の ASP.NET Web API とを使用して単一ページアプリケーション (SPA) をビルドします。'
 ms.author: riande
 ms.date: 09/30/2015
 ms.custom: seoapril2019
@@ -10,437 +10,437 @@ ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 86833a890da759e489dd11dc9afb128a9b7a75e3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125256"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448762"
 ---
-# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ:ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする
+# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズオンラボ: ASP.NET Web API と角速度を使用してシングルページアプリケーション (SPA) を構築する
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web キャンプトレーニングキットをダウンロードする](https://aka.ms/webcamps-training-kit)
 
-このハンズオン ラボは、ASP.NET の ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) を構築する方法を示します 4.x です。
+このハンズオンラボでは、ASP.NET 4.x 用の ASP.NET Web API とを使用してシングルページアプリケーション (SPA) を構築する方法を示します。
 
-このハンズオン ラボでは、ギーク Quiz、SPA の概念に基づくトリビアの web サイトを実装するためにこれらのテクノロジの利点がかかります。 まず、質問を取得し、回答を保存するに必要なエンドポイントを公開する ASP.NET Web API を使用したサービス層を実装します。 次に、AngularJS、および CSS3 の変換の効果を使用して、リッチで応答性の高い UI をビルドします。
+このラボでは、これらのテクノロジを利用して、SPA の概念に基づくトリビア web サイトであるマニアクイズを実装します。 まず、ASP.NET Web API を使用してサービス層を実装し、クイズの質問を取得して回答を格納するために必要なエンドポイントを公開します。 次に、AngularJS および CSS3 変換効果を使用して、優れた応答性の高い UI を構築します。
 
-従来の web アプリケーションでは、クライアント (ブラウザー) は、ページを要求することによって、サーバーとの通信を開始します。 サーバーは、要求を処理し、ページの HTML をクライアントに送信します。 – ユーザーなどのリンクに移動またはフォームにデータを送信する – ページと後続のやり取りで新しい要求は、サーバーに送信され、フローをもう一度開始します。 サーバーが要求を処理し、新しいアクションの要求に応答してブラウザーに新しいページを送信します。クライアントによって ed します。
+従来の web アプリケーションでは、クライアント (ブラウザー) がページを要求することによってサーバーとの通信を開始します。 次に、サーバーが要求を処理し、ページの HTML をクライアントに送信します。 このページとの後続の操作 (ユーザーがリンクに移動したり、データでフォームを送信したりする場合など) では、新しい要求がサーバーに送信され、フローが再び開始されます。サーバーが要求を処理し、新しいページを新しいアクション要求への応答としてブラウザーに送信します。クライアントによる ed。
 > 
-> シングル ページ アプリケーション (Spa) では、ブラウザーで全体のページを読み込む最初の要求の後が、以降の Ajax 要求を通じて行われます。 つまり、ブラウザーが変更されました。 ページの部分だけを更新するにはページ全体を再読み込みする必要はありません。 SPA のアプローチには、その結果より滑らかなエクスペリエンス、ユーザーの操作に応答するアプリケーションでは時間が短縮されます。
+> シングルページアプリケーション (spa) では、最初の要求の後にページ全体がブラウザーに読み込まれますが、それ以降の対話は Ajax 要求によって行われます。 これは、ブラウザーが変更されたページの部分のみを更新する必要があることを意味します。ページ全体を再読み込みする必要はありません。 SPA アプローチを使用すると、アプリケーションがユーザーの操作に応答するためにかかる時間が短縮され、より滑らかなエクスペリエンスが得られます。
 > 
-> SPA のアーキテクチャには、従来の web アプリケーションではないいくつかの課題が含まれます。 ただし、ASP.NET Web API などのテクノロジを新たな JavaScript フレームワークなどの AngularJS と CSS3 によって提供される新しいスタイル機能簡単本当に設計し、Spa を構築します。
+> SPA のアーキテクチャには、従来の web アプリケーションには存在しない特定の課題が伴います。 ただし、ASP.NET Web API などの新しいテクノロジや、CSS3 によって提供される新しいスタイル機能などの JavaScript フレームワークにより、SPAs の設計とビルドが非常に簡単になります。
 > 
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
+> すべてのサンプルコードとスニペットは、 [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)で入手できる Web キャンプトレーニングキットに含まれています。
 
 ## <a name="overview"></a>概要
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
-このハンズオン ラボでは、学習する方法。
+このハンズオンラボでは、次の方法を学習します。
 
-- JSON データを送受信する ASP.NET Web API サービスを作成します。
-- AngularJS を使用して、レスポンシブ UI を作成します。
-- 変換する CSS3 UI エクスペリエンスを向上します。
+- JSON データを送受信するための ASP.NET Web API サービスを作成する
+- AngularJS を使用して応答性の高い UI を作成する
+- CSS3 変換による UI エクスペリエンスの向上
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
+### <a name="prerequisites"></a>前提条件
 
-このハンズオン ラボを完了する、次が必要。
+このハンズオンラボを完了するには、次のものが必要です。
 
-- [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/)以上
+- [Web 用に2013を Visual Studio Express](https://www.microsoft.com/visualstudio/)
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
 
-このハンズオン ラボの演習を実行するためには、まず環境を設定する必要があります。
+このハンズオンラボの演習を実行するには、まず環境をセットアップする必要があります。
 
-1. Windows Explorer をラボの [参照] を開いて**ソース**フォルダー。
-2. 右クリックして**Setup.cmd**選択と**管理者として実行**環境を構成すると、このラボの Visual Studio のコード スニペットがインストールのセットアップ プロセスを起動します。
+1. エクスプローラーを開き、ラボの**ソース**フォルダーを参照します。
+2. **Setup.exe**を右クリックし、 **[管理者として実行]** を選択して、環境を構成し、このラボ用の Visual Studio コードスニペットをインストールするセットアッププロセスを開始します。
 3. ユーザー アカウント制御ダイアログ ボックスが表示されている場合は、続行するアクションを確認します。
 
 > [!NOTE]
-> セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
+> セットアップを実行する前に、このラボのすべての依存関係を確認していることを確認してください。
 
 <a id="CodeSnippets"></a>
-### <a name="using-the-code-snippets"></a>コード スニペットの使用
+### <a name="using-the-code-snippets"></a>コードスニペットの使用
 
-ラボ ドキュメント全体を通じて、コード ブロックを挿入するよう指示されます。 便宜上、このコードのほとんどは、Visual Studio コード スニペットを手動で追加することを避けるために Visual Studio 2013 内からアクセスできるとして提供されます。
+ラボドキュメント全体で、コードブロックを挿入するように指示されます。 便宜上、このコードのほとんどは Visual Studio Code のスニペットとして提供されており、Visual Studio 2013 内からアクセスして、手動で追加する必要がないようにすることができます。
 
 > [!NOTE]
-> ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
+> 各演習には、演習の**Begin**フォルダーに配置された開始ソリューションが付属しています。これにより、各演習を別の手順に従って実行することができます。 演習中に追加されたコードスニペットは、これらの開始ソリューションにはないため、演習を完了するまで機能しないことがあります。 演習用のソースコード内では、対応する演習の手順を完了した結果として得られるコードを使用して、Visual Studio ソリューションを含む**終了**フォルダーも検索します。 このハンズオンラボを使用して作業する際に、追加のヘルプが必要な場合は、これらのソリューションをガイダンスとして使用できます。
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-このハンズオン ラボには、次の演習が含まれます。
+このハンズオンラボには、次の演習が含まれています。
 
-1. [Web API を作成します。](#Exercise1)
-2. [SPA のインターフェイスを作成します。](#Exercise2)
+1. [Web API の作成](#Exercise1)
+2. [SPA インターフェイスの作成](#Exercise2)
 
-この演習の所要時間を推定するには。**60 分**
+このラボの推定所要時間: **60 分**
 
 > [!NOTE]
-> Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
+> Visual Studio を初めて起動するときに、定義済みの設定コレクションのいずれかを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されており、ウィンドウのレイアウト、エディターの動作、IntelliSense コードスニペット、およびダイアログボックスのオプションを決定します。 このラボの手順では、**全般的な開発設定**のコレクションを使用するときに、Visual Studio で特定のタスクを実行するために必要なアクションについて説明します。 開発環境に対して別の設定コレクションを選択した場合は、注意が必要な手順が異なる場合があります。
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-creating-a-web-api"></a>演習 1:Web API を作成します。
+### <a name="exercise-1-creating-a-web-api"></a>演習 1: Web API の作成
 
-SPA の重要な部分の 1 つは、サービス層です。 UI とその呼び出しに対する応答で返されるデータによって送信される Ajax 呼び出しを処理するため、します。 取得されたデータが解析され、クライアントで使用するためにコンピューターが判読できる形式で表示されます。
+SPA の重要な部分の1つは、サービス層です。 これは、UI によって送信された Ajax 呼び出しを処理し、その呼び出しに応答してデータを返す役割を担います。 取得したデータは、クライアントによって解析および使用されるために、コンピューターが判読できる形式で表示される必要があります。
 
-Web API フレームワークは、ASP.NET スタックの一部でありは HTTP サービス、一般に RESTful API を使用して JSON または XML 形式のデータの送受信を実装するが簡単に設計されています。 この演習では、おたくのクイズ アプリケーションをホストし、公開、クイズを ASP.NET Web API を使用してデータを永続化するバックエンド サービスを実装する Web サイトを作成します。
+Web API フレームワークは ASP.NET スタックの一部であり、HTTP サービスを簡単に実装できるように設計されています。これは、一般に、RESTful API を使用して JSON または XML 形式のデータを送受信します。 この演習では、マニアクイズアプリケーションをホストする Web サイトを作成し、ASP.NET Web API を使用して、クイズデータを公開して永続化するバックエンドサービスを実装します。
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>タスク 1 – おたくのクイズの初期のプロジェクトを作成します。
+#### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>タスク 1-マニアクイズの初期プロジェクトを作成する
 
-このタスクで ASP.NET Web API ベースのサポートで新しい ASP.NET MVC プロジェクトの作成を開始は、 **One ASP.NET** Visual Studio に付属する型を射影します。 **1 つの ASP.NET**すべての ASP.NET のテクノロジの統合し、を混在させるし、必要に応じてとに一致させることができます。 Entity Framework のモデル クラスと、質問を挿入するデータベースの初期化子を追加します。
+このタスクでは、Visual Studio に付属する**ASP.NET**プロジェクトの種類に基づいて ASP.NET Web API をサポートする新しい ASP.NET MVC プロジェクトの作成を開始します。 **ASP.NET**は、すべての ASP.NET テクノロジを統合し、必要に応じてそれらを組み合わせて照合するオプションを提供します。 次に、Entity Framework のモデルクラスとデータベース初期化子を追加して、クイズの質問を挿入します。
 
-1. 開いている**Visual Studio Express 2013 for Web**選択**ファイル |新しいプロジェクト.** 新しいソリューションを開始します。
+1. **Web 用 Visual Studio Express 2013**を開き、[ファイル] を選択します。 **新しいプロジェクト...** を実行すると、新しいソリューションが開始されます。
 
-    ![新しいプロジェクトを作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image1.png "新しいプロジェクトを作成します。")
+    ![新しいプロジェクトの作成](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image1.png "新規プロジェクトの作成")
 
-    *新しいプロジェクトを作成します。*
-2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下、 **(Visual C#) |Web**タブ。確認します **.NET Framework 4.5**がという名前を選択すると、 *GeekQuiz*、選択、**場所** をクリック**OK**。
+    *新しいプロジェクトの作成*
+2. **[新しいプロジェクト]** ダイアログボックスで、Visual  **C# | の下にある [ASP.NET Web Application] を選択します。[Web** ] タブ。 **.NET Framework 4.5**が選択されていることを確認し、 *GeekQuiz*という名前を設定して、**場所**を選択し、 **[OK]** をクリックします。
 
-    ![新しい ASP.NET Web アプリケーション プロジェクトを作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image2.png "新しい ASP.NET Web アプリケーション プロジェクトを作成します。")
+    ![新しい ASP.NET Web アプリケーションプロジェクトの作成](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image2.png "新しい ASP.NET Web アプリケーションプロジェクトの作成")
 
-    *新しい ASP.NET Web アプリケーション プロジェクトを作成します。*
-3. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、 **MVC**テンプレートと選択、 **Web API**オプション。 確認、**認証**にオプションが設定されている**個々 のユーザー アカウント**します。 **[OK]** をクリックして続行します。
+    *新しい ASP.NET Web アプリケーションプロジェクトの作成*
+3. **[New ASP.NET プロジェクト]** ダイアログボックスで、 **[MVC]** テンプレートを選択し、 **[Web API]** オプションを選択します。 また、**認証**オプションが**個々のユーザーアカウント**に設定されていることを確認します。 続行するには、 **[OK]** をクリックします。
 
-    ![Web API のコンポーネントを含む、MVC テンプレートを使用して新しいプロジェクトを作成します。](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image3.png)
+    ![MVC テンプレートを使用した新しいプロジェクトの作成 (Web API コンポーネントを含む)](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image3.png)
 
-    *Web API のコンポーネントを含む、MVC テンプレートを使用して新しいプロジェクトを作成します。*
-4. **ソリューション エクスプ ローラー**を右クリックし、**モデル**のフォルダー、 **GeekQuiz**順に選択して**追加 |既存の項目.**.
+    *MVC テンプレートを使用した新しいプロジェクトの作成 (Web API コンポーネントを含む)*
+4. **ソリューションエクスプローラー**で、 **GeekQuiz**プロジェクトの **モデル** フォルダーを右クリックし、追加 を選択します。 **既存の項目...** .
 
-    ![既存の項目を追加する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image4.png "既存の項目の追加")
+    ![既存の項目の追加](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image4.png "既存の項目の追加")
 
-    *既存の項目を追加します。*
-5. **既存項目の追加** ダイアログ ボックスに移動し、**ソース/資産/モデル**フォルダーとすべてのファイルを選択します。 **[追加]** をクリックします。
+    *既存の項目の追加*
+5. **[既存項目の追加]** ダイアログボックスで、 **[ソース/アセット/モデル]** フォルダーに移動し、すべてのファイルを選択します。 **[追加]** をクリックします。
 
-    ![モデルの資産を追加する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image5.png "モデル資産を追加します。")
+    ![モデルアセットの追加](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image5.png "モデルアセットの追加")
 
-    *モデルの資産を追加します。*
+    *モデルアセットの追加*
 
     > [!NOTE]
-    > これらのファイルを追加すると、データ モデル、Entity Framework のデータベース コンテキストおよびギーク Quiz アプリケーション データベースの初期化子に追加されます。
+    > これらのファイルを追加することで、データモデル、Entity Framework のデータベースコンテキスト、マニアクイズアプリケーションのデータベース初期化子を追加します。
     > 
-    > **Entity Framework (EF)** は、オブジェクト リレーショナル マッパー (ORM)、リレーショナル ストレージ スキーマを使用して直接プログラミングではなく、概念アプリケーション モデルを使用したプログラミングでデータ アクセス アプリケーションを作成することができます。 Entity Framework に関する詳細については、[ここ](../../../entity-framework.md)します。
+    > **Entity Framework (EF)** は、リレーショナルストレージスキーマを使用して直接プログラミングするのではなく、概念アプリケーションモデルを使用してプログラミングすることで、データアクセスアプリケーションを作成できる、オブジェクトリレーショナルマッパー (ORM) です。 Entity Framework の詳細については、[こちら](../../../entity-framework.md)を参照してください。
     > 
     > 追加したクラスの説明を次に示します。
     > 
-    > - **TriviaOption:** クイズの質問に関連付けられている 1 つのオプションを表します
-    > - **TriviaQuestion:** クイズの質問を表し、を通じて関連付けられているオプションを公開して、**オプション**プロパティ
-    > - **TriviaAnswer:** クイズの質問への応答でユーザーが選択したオプションを表します
-    > - **TriviaContext:** ギーク Quiz アプリケーションの Entity Framework のデータベース コンテキストを表します。 このクラスから派生**DContext**公開**DbSet**上記で説明したエンティティのコレクションを表すプロパティ。
-    > - **TriviaDatabaseInitializer:** Entity Framework の初期化子の実装、 **TriviaContext**クラスから継承される**CreateDatabaseIfNotExists**します。 指定されたエンティティを挿入するこのクラスの既定の動作が存在しない場合にのみデータベースを作成するが、**シード**メソッド。
-6. 開く、 **Global.asax.cs**ファイルを開き、次を追加するステートメントを使用します。
+    > - **TriviaOption:** クイズ質問に関連付けられた1つのオプションを表します。
+    > - **TriviaQuestion:** クイズの質問を表し、 **options**プロパティを使用して関連するオプションを公開します。
+    > - **TriviaAnswer:** クイズの質問への応答としてユーザーが選択したオプションを表します。
+    > - **TriviaContext:** マニアクイズアプリケーションの Entity Framework のデータベースコンテキストを表します。 このクラスは、 **Dcontext**から派生し、上で説明したエンティティのコレクションを表す**dbset**プロパティを公開します。
+    > - **TriviaDatabaseInitializer:** **Createdatabaseifnotexists**から継承する**TriviaContext**クラスの Entity Framework 初期化子の実装。 このクラスの既定の動作では、データベースが存在しない場合にのみデータベースを作成し、 **Seed**メソッドで指定したエンティティを挿入します。
+6. **Global.asax.cs**ファイルを開き、次の using ステートメントを追加します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample1.cs)]
-7. 先頭に次のコードを追加、**アプリケーション\_開始**を設定するメソッド、 **TriviaDatabaseInitializer**データベース初期化子として。
+7. **Application\_Start**メソッドの先頭に次のコードを追加して、データベース初期化子として**TriviaDatabaseInitializer**を設定します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample2.cs)]
-8. 変更、**ホーム**コント ローラーへのアクセスを制限するユーザーを認証します。 これを行うには、開く、 **HomeController.cs**ファイル内で、**コント ローラー**フォルダーを追加し、 **Authorize**属性を**HomeController**クラスの定義。
+8. 認証されたユーザーへのアクセスを制限するように**Home**コントローラーを変更します。 これを行うには、 **Controllers**フォルダー内の**HomeController.cs**ファイルを開き、 **HomeController**クラス定義に**承認**属性を追加します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample3.cs)]
 
     > [!NOTE]
-    > **Authorize**フィルターのかどうか、ユーザーは認証を確認します。 ユーザーが認証されていない場合は、アクションを呼び出すことがなく HTTP 状態コード 401 (Unauthorized) を返します。 コント ローラー レベル、または個々 のアクションのレベルでグローバルにフィルターを適用することができます。
-9. これで web ページと、ブランド化のレイアウトをカスタマイズします。 これを行うには、開く、  **\_Layout.cshtml**ファイル内で、**ビュー |共有**フォルダーの内容を更新し、 **&lt;タイトル&gt;** 置き換え要素*My ASP.NET Application*で*ギーク Quiz*.
+    > **承認**フィルターは、ユーザーが認証されているかどうかを確認します。 ユーザーが認証されていない場合は、アクションを呼び出さずに HTTP 状態コード 401 (未承認) が返されます。 フィルターは、グローバルに、コントローラーレベルで、または個々のアクションのレベルで適用できます。
+9. ここでは、web ページとブランドのレイアウトをカスタマイズします。 これを行うには、ビュー内で **\_Layout**ファイルを開きます。 *ASP.NET アプリケーション*を*マニアクイズ*に置き換えることによって、 **&lt;title&gt;** 要素の内容を共有フォルダーに更新します。
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
-10. 同じファイルで削除することで、ナビゲーション バーを更新、*について*と*連絡先*リンクと名前を変更する、*ホーム*へのリンク*再生*します。 さらに、名前の変更、*アプリケーション名*へのリンク*ギーク Quiz*します。 ナビゲーション バーの HTML は、次のコードのようになります。
+10. 同じファイルで、 *About*リンクと*Contact*リンクを削除し、*ホーム*リンクの名前を*Play*に変更して、ナビゲーションバーを更新します。 また、[*アプリケーション名*] リンクの名前を「*マニアクイズ*」に変更します。 ナビゲーションバーの HTML は、次のコードのようになります。
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. レイアウト ページのフッターを置き換えることで、更新*My ASP.NET Application*で*ギーク Quiz*します。 これを行うには、内容が置換、 **&lt;フッター&gt;** 要素を次の強調表示されたコード。
+11. *ASP.NET アプリケーション*を*マニアクイズ*に置き換えることにより、レイアウトページのフッターを更新します。 これを行うには、 **&lt;フッターの&gt;** 要素の内容を、次の強調表示されたコードに置き換えます。
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
 <a id="Ex1Task2"></a>
-#### <a name="task-2--creating-the-triviacontroller-web-api"></a>タスク 2 – TriviaController Web API を作成します。
+#### <a name="task-2--creating-the-triviacontroller-web-api"></a>タスク2– TriviaController Web API の作成
 
-前のタスクでは、ギーク Quiz の web アプリケーションの初期構造を作成します。 クイズのデータ モデルと対話し、次の操作を公開する単純な Web API サービスをビルドします。
+前のタスクでは、マニアクイズ web アプリケーションの初期構造を作成しました。 クイズデータモデルと対話する単純な Web API サービスを構築し、次のアクションを公開するようになりました。
 
-- **Api/GET トリビア**:認証されたユーザーが回答するクイズ リストから、次の質問を取得します。
-- **POST/api/トリビア**:認証済みユーザーが指定したクイズの答えを格納します。
+- **GET/api/trivia**: 認証されたユーザーが回答する次の質問をクイズ一覧から取得します。
+- **POST/api/trivia**: 認証されたユーザーによって指定されたクイズ回答を格納します。
 
-Visual Studio によって提供される ASP.NET スキャフォールディング ツールを使用して、Web API コント ローラー クラスの基準を作成します。
+Visual Studio に用意されている ASP.NET スキャフォールディングツールを使用して、Web API コントローラークラスのベースラインを作成します。
 
-1. 開く、 **WebApiConfig.cs**ファイル内で、**アプリ\_開始**フォルダー。 このファイルは、Web API コント ローラー アクションへのルートをマップする方法のように、Web API サービスの構成を定義します。
-2. 次の追加ファイルの先頭にステートメントを使用します。
+1. **アプリ\_** の [開始] フォルダー内の**WebApiConfig.cs**ファイルを開きます。 このファイルは、web api コントローラーアクションにルートをマップする方法など、Web API サービスの構成を定義します。
+2. ファイルの先頭に次の using ステートメントを追加します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample7.cs)]
-3. 次の強調表示されたコードを追加、**登録**のフォーマッタを Web API アクション メソッドによって取得された JSON データをグローバルに構成する方法。
+3. 次の強調表示されたコードを**Register**メソッドに追加して、Web API アクションメソッドによって取得される JSON データのフォーマッタをグローバルに構成します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample8.cs)]
 
     > [!NOTE]
-    > **CamelCasePropertyNamesContractResolver**するプロパティの名前を自動的に変換*キャメル形式*場合は、JavaScript のプロパティ名の一般的な規則です。
-4. **ソリューション エクスプ ローラー**を右クリックし、**コント ローラー**のフォルダー、 **GeekQuiz**順に選択して**追加 |新規スキャフォールディング アイテム.**.
+    > **CamelCasePropertyNamesContractResolver**は、プロパティ名を*camel*形式に自動的に変換します。これは、JavaScript でのプロパティ名の一般的な規則です。
+4. **ソリューションエクスプローラー**で、 **GeekQuiz**プロジェクトの**Controllers**フォルダーを右クリックし、[追加] を選択します。 **新しいスキャフォールディング項目...**
 
-    ![新しくスキャフォールディングした項目を作成する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image6.png "新しくスキャフォールディングした項目を作成します。")
+    ![新しいスキャフォールディング項目の作成](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image6.png "新しいスキャフォールディング項目の作成")
 
-    *新しくスキャフォールディングした項目を作成します。*
-5. **スキャフォールディングの追加** ダイアログ ボックスで、ことを確認します、**共通**左側のウィンドウでノードを選択します。 次に、選択、 **Web API 2 コント ローラー - 空**中央のウィンドウにテンプレート**追加**します。
+    *新しいスキャフォールディング項目の作成*
+5. **[スキャフォールディングの追加]** ダイアログボックスで、左側のウィンドウで **[共通]** ノードが選択されていることを確認します。 次に、中央のウィンドウで **[WEB API 2 コントローラー-空]** のテンプレート テンプレートを選択し、 **[追加]** をクリックします。
 
-    ![Web API 2 コント ローラー空のテンプレートを選択する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image7.png "Web API 2 コント ローラー空のテンプレートを選択します。")
+    ![Web API 2 コントローラーの空のテンプレートを選択する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image7.png "Web API 2 コントローラーの空のテンプレートを選択する")
 
-    *Web API 2 コント ローラー空のテンプレートを選択します。*
+    *Web API 2 コントローラーの空のテンプレートを選択する*
 
     > [!NOTE]
-    > **ASP.NET スキャフォールディング**は ASP.NET Web アプリケーションのコード生成フレームワークです。 Visual Studio 2013 には、MVC と Web API プロジェクトに対して事前にインストールされているコード ジェネレーターが含まれています。 標準的なデータ操作を開発するために必要な時間を軽減するために、データ モデルとやり取りするコードをすばやく追加する場合は、プロジェクトでスキャフォールディングを使用する必要があります。
+    > **ASP.NET スキャフォールディング**は、ASP.NET Web アプリケーションのコード生成フレームワークです。 Visual Studio 2013 には、MVC および Web API プロジェクト用のプレインストールされたコードジェネレーターが含まれています。 標準データ操作の開発に必要な時間を短縮するために、データモデルと対話するコードをすばやく追加する場合は、プロジェクトでスキャフォールディングを使用する必要があります。
     > 
-    > スキャフォールディングのプロセスでは、必要なすべての依存関係がプロジェクトにインストールされているまた。 たとえば、空の ASP.NET プロジェクトを開始し、スキャフォールディングを使用して Web API コント ローラーを追加すると場合、必要な Web API の NuGet パッケージと参照をプロジェクトに自動的に追加されます。
-6. **コント ローラーの追加**ダイアログ ボックスに「 *TriviaController*で、**コント ローラー名**テキスト ボックスをクリックします**追加**します。
+    > また、スキャフォールディングプロセスによって、必要なすべての依存関係がプロジェクトにインストールされます。 たとえば、空の ASP.NET プロジェクトから開始し、スキャフォールディングを使用して Web API コントローラーを追加すると、必要な Web API の NuGet パッケージと参照がプロジェクトに自動的に追加されます。
+6. **[コントローラーの追加]** ダイアログボックスで、 **[コントローラー名]** ボックスに「 *TriviaController* 」と入力し、 **[追加]** をクリックします。
 
-    ![トリビア コント ローラーを追加する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image8.png "トリビア コント ローラーを追加します。")
+    ![トリビアコントローラーの追加](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image8.png "トリビアコントローラーの追加")
 
-    *トリビア コント ローラーを追加します。*
-7. **TriviaController.cs**にファイルが追加し、**コント ローラー**のフォルダー、 **GeekQuiz**空を含むプロジェクトは、 **TriviaController**クラス。 次の追加、ファイルの先頭にステートメントを使用します。
+    *トリビアコントローラーの追加*
+7. 次に、 **TriviaController.cs**ファイルが**GeekQuiz**プロジェクトの**Controllers**フォルダーに追加されます。このフォルダーには空の**TriviaController**クラスが含まれています。 ファイルの先頭に次の using ステートメントを追加します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex1 - TriviaControllerUsings*)
+    (コードスニペット- *AspNetWebApiSpa-Ex1-TriviaControllerUsings*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample9.cs)]
-8. 先頭に次のコードを追加、 **TriviaController**クラスを定義、初期化および破棄、 **TriviaContext**コント ローラー インスタンス。
+8. **TriviaController**クラスの先頭に次のコードを追加して、コントローラーの**TriviaContext**インスタンスを定義、初期化、および破棄します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex1 - TriviaControllerContext*)
+    (コードスニペット- *AspNetWebApiSpa-Ex1-TriviaControllerContext*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample10.cs)]
 
     > [!NOTE]
-    > **Dispose**メソッドの**TriviaController**呼び出す、 **Dispose**のメソッド、 **TriviaContext**インスタンスで、確実にすべてコンテキスト オブジェクトで使用されるリソースがリリースされたときに、 **TriviaContext**インスタンスが破棄またはガベージ コレクトします。 これは、Entity Framework によって開かれているすべてのデータベース接続の終了が含まれます。
-9. 末尾に次のヘルパー メソッドを追加、 **TriviaController**クラス。 このメソッドは、指定したユーザーが回答をデータベースから、クイズの次の質問を取得します。
+    > **TriviaController**の**dispose**メソッドは、 **TriviaContext**インスタンスの**dispose**メソッドを呼び出します。これにより、 **TriviaContext**インスタンスが破棄またはガベージコレクトされたときに、context オブジェクトによって使用されるすべてのリソースが解放されます。 これには、Entity Framework によって開かれたすべてのデータベース接続の終了が含まれます。
+9. **TriviaController**クラスの末尾に、次のヘルパーメソッドを追加します。 このメソッドは、指定されたユーザーによって応答されるように、データベースから次のクイズ質問を取得します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex1 - TriviaControllerNextQuestion*)
+    (コードスニペット- *AspNetWebApiSpa-Ex1-TriviaControllerNextQuestion*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample11.cs)]
-10. 次の追加**取得**アクション メソッドを**TriviaController**クラス。 このアクション メソッドを呼び出す、 **NextQuestionAsync**認証されたユーザーは次の質問を取得する前の手順で定義されているヘルパー メソッド。
+10. 次の**Get** action メソッドを**TriviaController**クラスに追加します。 このアクションメソッドは、前の手順で定義した**NextQuestionAsync** helper メソッドを呼び出して、認証されたユーザーの次の質問を取得します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex1 - TriviaControllerGetAction*)
+    (コードスニペット- *AspNetWebApiSpa-Ex1-TriviaControllerGetAction*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample12.cs)]
-11. 末尾に次のヘルパー メソッドを追加、 **TriviaController**クラス。 このメソッドは、データベースに指定された応答を格納し、答えが正しいかどうかを示すブール値を返します。
+11. **TriviaController**クラスの末尾に、次のヘルパーメソッドを追加します。 このメソッドは、指定された回答をデータベースに格納し、答えが正しいかどうかを示すブール値を返します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex1 - TriviaControllerStoreAsync*)
+    (コードスニペット- *AspNetWebApiSpa-Ex1-TriviaControllerStoreAsync*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample13.cs)]
-12. 次の追加**Post**アクション メソッドを**TriviaController**クラス。 このアクション メソッドは、認証されたユーザーと呼び出しに応答を関連付けます、 **StoreAsync**ヘルパー メソッド。 次に、ヘルパー メソッドによって返されるブール値を持つ応答を送信します。
+12. 次の**Post**アクションメソッドを**TriviaController**クラスに追加します。 このアクションメソッドは、認証されたユーザーに回答を関連付け、 **StoreAsync** helper メソッドを呼び出します。 次に、ヘルパーメソッドによって返されるブール値を使用して応答を送信します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex1 - TriviaControllerPostAction*)
+    (コードスニペット- *AspNetWebApiSpa-Ex1-TriviaControllerPostAction*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample14.cs)]
-13. 追加することで認証されたユーザーへのアクセスを制限する Web API コント ローラーの変更、 **Authorize**属性を**TriviaController**クラスの定義。
+13. 認証されたユーザーへのアクセスを制限するように Web API コントローラーを変更するには、 **TriviaController**クラス定義に**承認**属性を追加します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample15.cs)]
 
 <a id="Ex1Task3"></a>
-#### <a name="task-3--running-the-solution"></a>タスク 3 – ソリューションの実行
+#### <a name="task-3--running-the-solution"></a>タスク3–ソリューションを実行する
 
-このタスクでは、前のタスクで作成した Web API サービスが正しく動作することを確認します。 Internet Explorer を使用する**F12 開発者ツール**をネットワーク トラフィックをキャプチャして、Web API サービスから完全な応答を検査します。
+このタスクでは、前のタスクで作成した Web API サービスが想定どおりに動作していることを確認します。 ネットワークトラフィックをキャプチャし、Web API サービスからの完全な応答を調べるには、Internet Explorer **F12 開発者ツール**を使用します。
 
 > [!NOTE]
-> 確認します**Internet Explorer**でが選択されている、**開始**Visual Studio ツールバーにあるボタンをクリックします。
+> Visual Studio ツールバーの **[スタート]** ボタンで**Internet Explorer**が選択されていることを確認します。
 > 
 > ![Internet Explorer オプション](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image9.png)
 
-1. キーを押して**F5**ソリューションを実行します。 **ログイン**ページがブラウザーに表示する必要があります。
+1. F5 キーを押して、ソリューションを実行します。 ブラウザーに**ログイン**ページが表示されます。
 
     > [!NOTE]
-    > アプリケーションの起動時に既定でマップは既定の MVC ルートがトリガーされます。、**インデックス**のアクション、 **HomeController**クラス。 **HomeController**は認証されたユーザーに制限されます (とそのクラスを装飾する注意してください、 **Authorize**演習 1 での属性) はユーザーが認証されていない、まだアプリケーションログイン ページには、元の要求をリダイレクトします。
+    > アプリケーションの起動時に、既定の MVC ルートがトリガーされます。既定では、 **HomeController**クラスの**Index**アクションにマップされます。 **HomeController**は認証されたユーザーに限定されるため (演習1では**承認**属性を使用してクラスを修飾しています)、まだユーザーが認証されていないため、アプリケーションは元の要求をログインページにリダイレクトします。
 
-    ![ソリューションを実行している](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image10.png "ソリューションの実行")
+    ![ソリューションの実行](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image10.png "ソリューションの実行")
 
     *ソリューションの実行*
-2. クリックして**登録**新しいユーザーを作成します。
+2. **[登録]** をクリックして、新しいユーザーを作成します。
 
-    ![新しいユーザーを登録する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image11.png "新しいユーザーを登録します。")
+    ![新しいユーザーの登録](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image11.png "新しいユーザーの登録")
 
-    *新しいユーザーを登録します。*
-3. **登録**ページで、入力、**ユーザー名**と**パスワード**、順にクリックします**登録**します。
+    *新しいユーザーの登録*
+3. **[登録]** ページで、**ユーザー名**と**パスワード**を入力し、 **[登録]** をクリックします。
 
-    ![登録 ページ](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image12.png "登録ページ")
+    ![[登録] ページ](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image12.png "[登録] ページ")
 
-    *登録 ページ*
-4. アプリケーションが、新しいアカウントを登録し、ユーザーが認証され、ホーム ページにリダイレクトします。
+    *[登録] ページ*
+4. アプリケーションが新しいアカウントを登録すると、ユーザーが認証され、ホームページにリダイレクトされます。
 
-    ![ユーザーが認証される](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image13.png "認証されたユーザー")
+    ![ユーザーは認証されています](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image13.png "認証されたユーザー")
 
-    *ユーザーを認証します。*
-5. キーを押して、ブラウザーで**F12**を開く、 **Developer Tools**パネル。 キーを押して**CTRL + 4**  をクリックしてまたは、**ネットワーク**緑色の矢印は、ネットワーク トラフィックのキャプチャを開始するボタン アイコンをクリックします。
+    *ユーザーは認証されています*
+5. ブラウザーで**F12**キーを押して、 **[開発者ツール]** パネルを開きます。 **CTRL + 4**キーを押すか、**ネットワーク**アイコンをクリックし、緑色の矢印ボタンをクリックしてネットワークトラフィックのキャプチャを開始します。
 
-    ![Web API のネットワーク キャプチャを開始する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image14.png "ネットワーク キャプチャを開始する Web API")
+    ![Web API ネットワークキャプチャを開始しています](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image14.png "Web API ネットワークキャプチャを開始しています")
 
-    *Web API のネットワーク キャプチャを開始します。*
-6. 追加**api/トリビア**ブラウザーのアドレス バーで URL にします。 応答の詳細を調べるようになりましたが、**取得**内のアクション メソッド**TriviaController**します。
+    *Web API ネットワークキャプチャを開始しています*
+6. ブラウザーのアドレスバーの URL に**api/トリビア**を追加します。 次に、 **TriviaController**の**Get** action メソッドから応答の詳細を調べます。
 
-    ![Web API を介して次の質問のデータを取得する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image15.png "Web API を介して次の質問のデータを取得します。")
+    ![Web API を使用して次の質問データを取得する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image15.png "Web API を使用して次の質問データを取得する")
 
-    *Web API を介して次の質問のデータを取得します。*
+    *Web API を使用して次の質問データを取得する*
 
     > [!NOTE]
-    > ダウンロードが完了すると、ダウンロードしたファイルを使用して行う促されます。 ダイアログ ボックスは、開発者ツール ウィンドウからの応答のコンテンツを視聴できるように開いたままにしておきます。
-7. ここでは、応答の本文を検査します。 これを行うには、をクリックして、**詳細** タブをクリックして**応答本文**します。 ダウンロードされたデータが、プロパティを持つオブジェクトをチェックする**オプション**(の一覧は**TriviaOption**オブジェクト)、 **id**と**のタイトル**に対応する、 **TriviaQuestion**クラス。
+    > ダウンロードが完了すると、ダウンロードしたファイルに対してアクションを実行するように求められます。 [開発者ツール] ウィンドウで応答の内容を確認できるようにするには、ダイアログボックスを開いたままにしておきます。
+7. 次に、応答の本文を調べます。 これを行うには、 **[詳細]** タブをクリックし、 **[応答本文]** をクリックします。 ダウンロードしたデータが、 **TriviaQuestion**クラスに対応するプロパティ**オプション**( **TriviaOption**オブジェクトのリスト)、 **id** 、および**タイトル**を持つオブジェクトであることを確認できます。
 
-    ![Web API の応答本文を表示する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image16.png "Web API の応答本文を表示します。")
+    ![Web API 応答本文の表示](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image16.png "Web API 応答本文の表示")
 
-    *表示する Web API の応答本文*
-8. Visual Studio とキーを押してに戻って**shift キーを押しながら f5 キーを押して**デバッグを停止します。
+    *Web API の応答本文を表示しています*
+8. Visual Studio に戻り、SHIFT キーを押し**ながら F5**キーを押してデバッグを停止します。
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-creating-the-spa-interface"></a>演習 2:SPA のインターフェイスを作成します。
+### <a name="exercise-2-creating-the-spa-interface"></a>演習 2: SPA インターフェイスの作成
 
-この演習ではまず作成ギーク Quiz、web フロント エンド部分を使用してシングル ページ アプリケーションの対話**AngularJS**します。 また、リッチなアニメーションを実行し、コンテキストの切り替え、次に、1 つの質問から移行する場合の視覚効果を提供する CSS3 のユーザー エクスペリエンス、強化されます。
+この演習では、まず、マニアクイズの web フロントエンドの部分を構築します。 **AngularJS**を使用したシングルページアプリケーションの操作に重点を置いています。 次に、CSS3 でのユーザーエクスペリエンスを向上させ、豊富なアニメーションを実行し、1つの質問から次の質問に移行するときにコンテキストの切り替え効果を視覚的に示すことができるようにします。
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1--creating-the-spa-interface-using-angularjs"></a>タスク 1 – AngularJS を使用して SPA インターフェイスを作成します。
+#### <a name="task-1--creating-the-spa-interface-using-angularjs"></a>タスク1– AngularJS を使用して SPA インターフェイスを作成する
 
-このタスクでは、使用**AngularJS**ギーク Quiz アプリケーションのクライアント側を実装します。 **AngularJS**でブラウザー ベースのアプリケーションを補足するオープン ソースの JavaScript フレームワークは、*モデル-ビュー-コント ローラー* (MVC) 機能、両方の開発を促進することと、テストします。
+このタスクでは、 **AngularJS**を使用して、マニアクイズアプリケーションのクライアント側を実装します。 **AngularJS**は、ブラウザーベースのアプリケーションを*モデルビューコントローラー* (MVC) 機能で強化するオープンソースの JavaScript フレームワークであり、開発とテストの両方を容易にします。
 
-Visual Studio のパッケージ マネージャー コンソールから AngularJS をインストールすることで始めます。 次に、ギーク クイズ アプリと、クイズの質問と回答の AngularJS テンプレート エンジンを使用してレンダリングするビューの動作を提供するコント ローラーを作成します。
+最初に、Visual Studio のパッケージマネージャーコンソールから AngularJS をインストールします。 次に、マニアクイズアプリの動作を提供するコントローラーを作成し、AngularJS テンプレートエンジンを使用してクイズの質問と回答を表示するビューを作成します。
 
 > [!NOTE]
-> AngularJS の詳細についてを参照してください[ [ http://angularjs.org/ ](http://angularjs.org/)](http://angularjs.org/)します。
+> AngularJS の詳細については、 [[http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/)を参照してください。
 
-1. 開く**Visual Studio Express 2013 for Web**を開くと、 **GeekQuiz.sln**ソリューション、**ソース/Ex2-CreatingASPAInterface/開始**フォルダー。 または、前の手順で取得したソリューションを続行できます。
-2. 開く、**パッケージ マネージャー コンソール**から**ツール** > **NuGet パッケージ マネージャー**します。 インストールするには、次のコマンドを入力、 **AngularJS.Core** NuGet パッケージ。
+1. **Web 用に Visual Studio Express 2013**を開き、 **Source/Ex2 GeekQuiz/Begin**フォルダーにあるソリューションを開きます。 または、前の演習で取得したソリューションを続行することもできます。
+2. [**ツール** > **NuGet パッケージマネージャー**] から**パッケージマネージャーコンソール**を開きます。 次のコマンドを入力して、 **AngularJS** NuGet パッケージをインストールします。
 
     [!code-powershell[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample16.ps1)]
-3. **ソリューション エクスプ ローラー**を右クリックし、**スクリプト**のフォルダー、 **GeekQuiz**順に選択して**追加 |新しいフォルダー**します。 フォルダーの名前**アプリ**キーを押します**Enter**します。
-4. 右クリックし、**アプリ**フォルダーを作成して選択**追加 |JavaScript ファイル**します。
+3. **ソリューションエクスプローラー**で、 **GeekQuiz**プロジェクトの**Scripts**フォルダーを右クリックし、[追加] を選択します。 **新しいフォルダー**。 フォルダーに**アプリ**の名前を**指定**し、enter キーを押します。
+4. 先ほど作成した**アプリ**フォルダーを右クリックし、[追加] を選択します。 **JavaScript ファイル**。
 
-    ![新しい JavaScript ファイルを作成します。](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image17.png)
+    ![新しい JavaScript ファイルの作成](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image17.png)
 
-    *新しい JavaScript ファイルを作成します。*
-5. **項目の名前を指定**ダイアログ ボックスに「*クイズ コント ローラー*で、**項目名**テキスト ボックスをクリックします**OK**。
+    *新しい JavaScript ファイルの作成*
+5. **[項目の名前の指定]** ダイアログボックスの **[項目名]** ボックスに「*クイズ-controller* 」と入力し、 **[OK]** をクリックします。
 
-    ![新しい JavaScript ファイルの名前を付ける](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image18.png)
+    ![新しい JavaScript ファイルに名前を付ける](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image18.png)
 
-    *新しい JavaScript ファイルの名前を付ける*
-6. **クイズ controller.js**ファイルに追加し、次のコードを宣言して初期化 AngularJS **QuizCtrl**コント ローラー。
+    *新しい JavaScript ファイルに名前を付ける*
+6. **Quiz-controller**ファイルで、AngularJS **QuizCtrl** controller を宣言して初期化する次のコードを追加します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex2 - AngularQuizController*)
+    (コードスニペット- *AspNetWebApiSpa-Ex2-AngularQuizController*)
 
     [!code-javascript[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample17.js)]
 
     > [!NOTE]
-    > コンス トラクター関数、 **QuizCtrl**コント ローラーという injectable のパラメーターが必要ですが **$scope**します。 スコープの初期状態する必要があります設定コンス トラクター関数のプロパティをアタッチすることにより、 **$scope**オブジェクト。 プロパティに含まれる、**ビュー モデル**、コント ローラーが登録されているときに、テンプレートにアクセス可能になります。
+    > **QuizCtrl**コントローラーのコンストラクター関数には、 **$scope**という名前の injectable パラメーターが必要です。 スコープの初期状態は、プロパティを **$scope**オブジェクトにアタッチすることによって、コンストラクター関数で設定する必要があります。 プロパティには**ビューモデル**が含まれており、コントローラーが登録されると、テンプレートにアクセスできるようになります。
     > 
-    > **QuizCtrl**コント ローラーがという名前のモジュール内で定義されている**QuizApp**します。 モジュールは、できる作業単位が、アプリケーションを個別のコンポーネントに分割されます。 モジュールを使用しての主な利点は、コードがより容易に理解し、単体テスト、再利用性と保守を容易にします。
-7. ビューからトリガーされるイベントに対応するために、スコープに今すぐ動作を追加します。 末尾に次のコードを追加、 **QuizCtrl**を定義するコント ローラー、 **nextQuestion**で機能、 **$scope**オブジェクト。
+    > **QuizCtrl**コントローラーは、 **QuizApp**という名前のモジュール内で定義されています。 モジュールは、アプリケーションを別のコンポーネントに分割できるようにする作業単位です。 モジュールを使用する主な利点は、コードが理解しやすく、単体テスト、再利用性、および保守容易性が向上することです。
+7. ここで、ビューからトリガーされたイベントに応答するために、スコープに動作を追加します。 **QuizCtrl**コントローラーの末尾に次のコードを追加して、 **$Scope**オブジェクトで**nextquestion**関数を定義します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex2 - AngularQuizControllerNextQuestion*)
+    (コードスニペット- *AspNetWebApiSpa-Ex2-AngularQuizControllerNextQuestion*)
 
     [!code-javascript[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample18.js)]
 
     > [!NOTE]
-    > この関数から次の質問の取得、**トリビア**Web API は、前の演習で作成したし、する質問のデータをアタッチします、 **$scope**オブジェクト。
-8. 末尾に次のコードを挿入、 **QuizCtrl**を定義するコント ローラー、 **sendAnswer**で機能、 **$scope**オブジェクト。
+    > この関数は、前の演習で作成した**トリビア**Web API から次の質問を取得し、その質問データを **$scope**オブジェクトにアタッチします。
+8. **QuizCtrl**コントローラーの末尾に次のコードを挿入して、 **$Scope**オブジェクトで**sendanswer**関数を定義します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex2 - AngularQuizControllerSendAnswer*)
+    (コードスニペット- *AspNetWebApiSpa-Ex2-AngularQuizControllerSendAnswer*)
 
     [!code-javascript[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample19.js)]
 
     > [!NOTE]
-    > この関数にユーザーが選択した応答の送信、**トリビア**Web API で – つまり、正解ですか -場合の結果を格納し、 **$scope**オブジェクト。
+    > この関数は、ユーザーによって選択された回答を**トリビア**Web API に送信し、結果を格納します。つまり、 **$scope**オブジェクト内の結果が正しいかどうかを示します。
     > 
-    > **NextQuestion**と**sendAnswer**上記の関数が、AngularJS を使用して **$http** XMLHttpRequest を使用して Web API との通信を抽象化するオブジェクトブラウザーから JavaScript オブジェクトです。 AngularJS より高度な RESTful Api を使用して、リソースに対する CRUD 操作を実行する抽象化は、その他のサービスをサポートします。 AngularJS **$resource**オブジェクトと対話することがなく高レベルの動作を提供するアクション メソッドがあります、 **$http**オブジェクト。 使用を検討して、 **$resource** CRUD モデルを必要とするシナリオでのオブジェクト (fore についてを参照してください、 [$resource ドキュメント](https://docs.angularjs.org/api/ngResource/service/$resource))。
-9. 次の手順では、クイズのビューを定義する AngularJS テンプレートを作成します。 これを行うには、開く、 **Index.cshtml**ファイル内で、**ビュー |ホーム**フォルダーと次のコードでコンテンツを置換します。
+    > 上記の**Nextquestion**と**sendanswer**関数は、AngularJS **$http**オブジェクトを使用して、ブラウザーから XMLHttpRequest JAVASCRIPT オブジェクトを介して Web API との通信を抽象化します。 AngularJS は、RESTful Api を介してリソースに対して CRUD 操作を実行するために、より高いレベルの抽象化を提供する別のサービスをサポートしています。 AngularJS **$resource**オブジェクトには、 **$http**オブジェクトと対話する必要がない高レベルの動作を提供するアクションメソッドがあります。 CRUD モデルを必要とするシナリオでは、 **$resource**オブジェクトの使用を検討してください (前景の情報、 [$resource のドキュメント](https://docs.angularjs.org/api/ngResource/service/$resource)を参照してください)。
+9. 次の手順では、クイズのビューを定義する AngularJS テンプレートを作成します。 これを行うには、Views | の内側にある**Index. cshtml**ファイルを開きます。 **[ホーム**] フォルダーを使用して、内容を次のコードに置き換えます。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex2 - GeekQuizView*)
+    (コードスニペット- *AspNetWebApiSpa-Ex2-GeekQuizView*)
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample20.cshtml)]
 
     > [!NOTE]
-    > AngularJS テンプレートは、静的なマークアップをユーザーに、ブラウザーで表示される動的なビューに変換するモデルとコント ローラーからの情報を使用して宣言型の仕様です。 AngularJS 要素とテンプレートで使用できる要素の属性の例を次に示します。
+    > AngularJS テンプレートは、モデルとコントローラーの情報を使用して、ブラウザーでユーザーに表示される動的ビューに静的マークアップを変換する宣言型の仕様です。 テンプレートで使用できる AngularJS 要素と要素属性の例を次に示します。
     > 
-    > - **Ng アプリ**ディレクティブは AngularJS アプリケーションのルート要素を表す DOM 要素。
-    > - **Ng コント ローラー**ディレクティブ、コント ローラーをディレクティブが宣言されている時点で、DOM にアタッチします。
-    > - 中かっこによる表記 **{{}}** コント ローラーで定義されているスコープのプロパティへのバインドを表します。
-    > - **Ng クリック**ディレクティブを使用して、ユーザーのクリックに応答内のスコープで定義された関数を呼び出します。
-10. オープン、 **Site.css**内でファイル、**コンテンツ**フォルダー クイズ ビューに、ルック アンド フィールを提供するファイルの最後に、次の強調表示されているスタイルを追加します。
+    > - AngularJS**ディレクティブは、アプリケーション**のルート要素を表す DOM 要素をに指示します。
+    > - **Ng コントローラー**ディレクティブは、ディレクティブが宣言されているポイントで、コントローラーを DOM にアタッチします。
+    > - 中かっこの表記 **{{}}** は、コントローラーで定義されているスコーププロパティへのバインドを示します。
+    > - **Ng**ディレクティブは、ユーザーのクリックに応じてスコープ内で定義されている関数を呼び出すために使用されます。
+10. **Content**フォルダー内で**サイトの .css**ファイルを開き、次の強調表示されたスタイルをファイルの末尾に追加して、クイズビューのルックアンドフィールを提供します。
 
-    (コード スニペット - *AspNetWebApiSpa - Ex2 - GeekQuizStyles*)
+    (コードスニペット- *AspNetWebApiSpa-Ex2-GeekQuizStyles*)
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample21.css)]
 
 <a id="Ex2Task2"></a>
-#### <a name="task-2--running-the-solution"></a>タスク 2 – ソリューションの実行
+#### <a name="task-2--running-the-solution"></a>タスク2–ソリューションを実行する
 
-実行は、このタスクでは、新しいユーザーを使用して、ソリューションのクイズの質問の一部に回答するための AngularJS でビルドするインターフェイスです。
+このタスクでは、AngularJS で作成した新しいユーザーインターフェイスを使用してソリューションを実行し、いくつかのクイズの質問に回答します。
 
-1. キーを押して**F5**ソリューションを実行します。
-2. 新しいユーザー アカウントを登録します。 これを行うには、演習 1 では、タスク 3 で説明されている登録手順に従います。
+1. F5 キーを押して、ソリューションを実行します。
+2. 新しいユーザーアカウントを登録します。 これを行うには、「演習1、タスク3」で説明されている登録手順に従います。
 
     > [!NOTE]
-    > 前の演習からソリューションを使用している場合は、前に作成したユーザー アカウントを使用してログインすることができます。
-3. **ホーム**ページが表示されます、クイズの最初の質問を表示します。 質問の回答のオプションのいずれかをクリックします。 これにより、 **sendAnswer**送信するオプションが選択されている、以前に定義した関数、**トリビア**Web API。
+    > 前の演習のソリューションを使用している場合は、前に作成したユーザーアカウントを使用してログインできます。
+3. **ホーム**ページが表示され、クイズの最初の質問が表示されます。 いずれかのオプションをクリックして質問に回答します。 これにより、前に定義した**Sendanswer**関数がトリガーされ、選択したオプションが**トリビア**Web API に送信されます。
 
-    ![質問に答え](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image19.png "質問の回答")
+    ![質問への回答](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image19.png "質問への回答")
 
-    *質問の回答*
-4. ボタンのいずれかをクリックした後、応答が表示されます。 クリックして**次の質問**の次の質問を表示します。 これにより、 **nextQuestion**コント ローラーで定義された関数。
+    *質問への回答*
+4. いずれかのボタンをクリックすると、回答が表示されます。 **[次の質問]** をクリックして、次の質問を表示します。 これにより、コントローラーで定義されている**Nextquestion**関数がトリガーされます。
 
-    ![次の質問を要求する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image20.png "次の質問を要求します。")
+    ![次の質問を要求する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image20.png "次の質問を要求する")
 
-    *次の質問を要求します。*
-5. 次の質問が表示されます。 必要な回数だけの質問に回答を続行します。 すべての質問を完了した後は、最初の質問に戻ります。
+    *次の質問を要求する*
+5. 次の質問が表示されます。 必要に応じて何度でも質問に答えることができます。 すべての質問を完了したら、最初の質問に戻ります。
 
-    ![もう 1 つ質問](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image21.png "別の質問")
+    ![もう1つの質問](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image21.png "もう1つの質問")
 
     *次の質問*
-6. Visual Studio とキーを押してに戻って**shift キーを押しながら f5 キーを押して**デバッグを停止します。
+6. Visual Studio に戻り、SHIFT キーを押し**ながら F5**キーを押してデバッグを停止します。
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--creating-a-flip-animation-using-css3"></a>タスク 3 – CSS3 を使用して、フリップ アニメーションを作成します。
+#### <a name="task-3--creating-a-flip-animation-using-css3"></a>タスク3– CSS3 を使用したフリップアニメーションの作成
 
-このタスクでは、CSS3 プロパティを使用して、リッチなアニメーションを実行するには、質問の回答と、次の質問を取得するときに反転効果を追加します。
+このタスクでは、CSS3 プロパティを使用して、質問に回答し、次の質問を取得したときにフリップ効果を追加することにより、豊富なアニメーションを実行します。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、**コンテンツ**のフォルダー、 **GeekQuiz**順に選択して**追加 |既存の項目.**.
+1. **ソリューションエクスプローラー**で、 **GeekQuiz**プロジェクトの**Content**フォルダーを右クリックし、[追加] を選択します。 **既存の項目...** .
 
-    ![コンテンツのフォルダーへの既存の項目の追加](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image22.png "コンテンツのフォルダーへの既存の項目の追加")
+    ![既存の項目をコンテンツフォルダーに追加する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image22.png "既存の項目をコンテンツフォルダーに追加する")
 
-    *コンテンツのフォルダーへの既存の項目の追加*
-2. **既存項目の追加** ダイアログ ボックスに移動、**ソース/資産**フォルダーと選択**Flip.css**します。 **[追加]** をクリックします。
+    *既存の項目をコンテンツフォルダーに追加する*
+2. **[既存項目の追加]** ダイアログボックスで、 **[ソース/アセット]** フォルダーに移動し、 **[css の反転]** を選択します。 **[追加]** をクリックします。
 
-    ![アセットから Flip.css ファイルを追加する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image23.png "資産から Flip.css ファイルの追加")
+    ![アセットからのフリップ .css ファイルの追加](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image23.png "アセットからのフリップ .css ファイルの追加")
 
-    *アセットから Flip.css ファイルを追加します。*
-3. 開く、 **Flip.css**先ほど追加したファイルし、その内容を確認します。
-4. 検索、**変換を反転**コメント。 そのコメントの下のスタイルが CSS を使用して**パースペクティブ**と**rotateY**を生成する変換、&quot;カード フリップ&quot;効果。
+    *アセットからのフリップ .css ファイルの追加*
+3. 追加した**フリップ .css**ファイルを開き、その内容を検査します。
+4. **フリップ変換**のコメントを探します。 このコメントの下にあるスタイルでは、CSS**パースペクティブ**と**rotateY**変換を使用して &quot;カードフリップ&quot; 効果を生成します。
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample22.css)]
-5. 検索、**フリップ中にウィンドウの非表示に**コメント。 設定して、ビューアー離れている場合に、ときにそのコメントの下のスタイルを顔の背面にある非表示に、**背面を表示**CSS プロパティを*隠し*します。
+5. [**フリップコメント中にウィンドウの背景を非表示にする]** を探します。 このコメントの下のスタイルでは、 **[背景の表示]** CSS プロパティを [*非表示*] に設定することにより、顔がビューアーから離れているときに、顔の背面が非表示になります。
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. 開く、 **BundleConfig.cs**ファイル内で、**アプリ\_開始**フォルダーへの参照を追加し、 **Flip.css**ファイル、 **&quot;~/Content/css&quot;** スタイル バンドル
+6. **App\_Start**フォルダー内の**BundleConfig.cs**ファイルを開き、 **&quot;~/content/Css&quot;** スタイルバンドルに**フリップ .css**ファイルへの参照を追加します。
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
-7. キーを押して**F5**ソリューションと、資格情報でログインを実行します。
-8. クリックすると、オプションのいずれかの質問に回答します。 ビューの間で遷移するときに、フリップ効果に注目してください。
+7. **F5**キーを押してソリューションを実行し、資格情報でログインします。
+8. いずれかのオプションをクリックして質問に回答します。 ビュー間を切り替えるときのフリップ効果に注意してください。
 
-    ![フリップの影響の質問に答える](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image24.png "フリップの影響の質問に答える")
+    ![フリップ効果のある質問への回答](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image24.png "フリップ効果のある質問への回答")
 
-    *フリップの影響の質問に答える*
-9. クリックして**次の質問**の次の質問を取得します。 フリップの効果は、もう一度表示されます。
+    *フリップ効果のある質問への回答*
+9. **[次の質問]** をクリックして、次の質問を取得します。 フリップ効果が再び表示されます。
 
-    ![フリップの影響は、次の質問を取得する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image25.png "フリップの影響は、次の質問を取得します。")
+    ![フリップ効果で次の質問を取得する](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image25.png "フリップ効果で次の質問を取得する")
 
-    *フリップの影響は、次の質問を取得します。*
+    *フリップ効果で次の質問を取得する*
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このハンズオン ラボについて説明した方法。
+このハンズオンラボを完了することで、次の方法を学習できました。
 
-- ASP.NET のスキャフォールディングを使用した ASP.NET Web API コント ローラーを作成します。
-- クイズの次の質問を取得する Web API の Get 操作を実装します。
-- クイズの解答を格納する Web API の事後アクションを実装します。
-- Visual Studio パッケージ マネージャー コンソールから AngularJS をインストールします。
-- 実装の AngularJS テンプレートとコント ローラー
-- CSS3 遷移を使用して、アニメーション効果を実行するには
+- ASP.NET スキャフォールディングを使用して ASP.NET Web API コントローラーを作成する
+- Web API の Get アクションを実装して、次のクイズの質問を取得する
+- クイズの回答を格納するための Web API Post アクションを実装する
+- Visual Studio パッケージマネージャーコンソールから AngularJS をインストールする
+- AngularJS のテンプレートとコントローラーを実装する
+- CSS3 の切り替えを使用してアニメーション効果を行う

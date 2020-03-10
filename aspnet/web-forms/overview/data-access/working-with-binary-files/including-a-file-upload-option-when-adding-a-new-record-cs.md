@@ -9,11 +9,11 @@ ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
 ms.openlocfilehash: f1287e180151b3034a7b90ef4b3f1fbe68354a09
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576991"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78475540"
 ---
 # <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>新しいレコードを追加するとき、ファイル アップロード オプションを含める (C#)
 
@@ -224,7 +224,7 @@ ObjectDataSource s `Insert()` メソッドが呼び出される前に、適切�
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample13.cs)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 バイナリデータを含むレコードを追加するための web ベースのインターフェイスを提供するために、いくつかの手順を実行する必要があります。 バイナリデータがデータベースに直接格納されている場合、アーキテクチャを更新し、バイナリデータが挿入されるケースを処理するための特定のメソッドを追加する必要が生じる可能性があります。 アーキテクチャが更新されたら、次の手順では挿入インターフェイスを作成します。これは、バイナリデータフィールドごとに FileUpload コントロールを含めるようにカスタマイズされた DetailsView を使用して実現できます。 アップロードされたデータは、web サーバーのファイルシステムに保存するか、または DetailsView s `ItemInserting` イベントハンドラーのデータソースパラメーターに割り当てることができます。
 
@@ -234,7 +234,7 @@ ObjectDataSource s `Insert()` メソッドが呼び出される前に、適切�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

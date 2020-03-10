@@ -1,27 +1,27 @@
 ---
 uid: mvc/overview/getting-started/index
-title: ASP.NET MVC の概要 |Microsoft Docs
+title: ASP.NET MVC はじめに |Microsoft Docs
 author: rick-anderson
-description: 学習について ASP.NET MVC ASP.NET MVC には、懸念事項とその g を明確に区別できるようにする動的な web サイトを構築する強力なパターンに基づく方法.
+description: ASP.NET MVC ASP.NET MVC では、動的な web サイトを構築するための強力なパターンベースの方法が提供されています。これにより、問題を明確に分離することができます。
 ms.author: riande
 ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 8e25c3a01634df6c3d9c81df8ab1738cc079d341
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471022"
 ---
-# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC の概要
+# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC はじめに
 
-> 次のガイダンスには、ASP.NET MVC を通知し、開始する方法を示しますがについて説明します。
+> 次のガイダンスでは、ASP.NET MVC の概要について説明し、作業を開始する方法を示します。
 
-- [ASP.NET MVC 5 の概要](introduction/index.md)
+- [Getting Started with ASP.NET MVC 5 (ASP.NET MVC 5 の使用)](introduction/index.md)
 
-    - [はじめに](introduction/getting-started.md)
+    - [作業の開始](introduction/getting-started.md)
     - [コントローラーの追加](introduction/adding-a-controller.md)
     - [ビューの追加](introduction/adding-a-view.md)
     - [モデルの追加](introduction/adding-a-model.md)

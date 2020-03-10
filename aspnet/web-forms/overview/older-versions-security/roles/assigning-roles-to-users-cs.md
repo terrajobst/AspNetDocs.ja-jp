@@ -9,11 +9,11 @@ ms.assetid: d522639a-5aca-421e-9a76-d73f95607f57
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3346e47cf604ed1d4003ca83203116666e37cb1b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74634070"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78461386"
 ---
 # <a name="assigning-roles-to-users-c"></a>ユーザーにロールを割り当てる (C#)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74634070"
 
 このチュートリアルでは、ユーザーがどのロールに属しているかを管理するのに役立つ2つの ASP.NET ページを作成します。 最初のページには、特定のロールに属しているユーザー、特定のユーザーが属するロール、特定のロールから特定のユーザーを割り当てたり削除したりする機能が含まれます。 2番目のページでは、CreateUserWizard コントロールを拡張して、新しく作成されたユーザーが所属するロールを指定する手順が含まれるようにします。 これは、管理者が新しいユーザーアカウントを作成できる場合に便利です。
 
-では、始めましょう。
+作業開始
 
 ## <a name="listing-what-users-belong-to-what-roles"></a>ユーザーがどのロールに属しているかを一覧表示する
 
@@ -305,7 +305,7 @@ GridView の下にテキストボックスとボタンを追加します。 テ�
 
 **図 14**: すべてのスーパーバイザーが表示されます ([クリックすると、フルサイズの画像が表示](assigning-roles-to-users-cs/_static/image42.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ロールフレームワークには、特定のユーザーのロールに関する情報を取得するメソッドと、指定したロールに属するユーザーを決定するためのメソッドが用意されています。 さらに、1人以上のユーザーを1つ以上のロールに追加したり、削除したりするための方法がいくつかあります。 このチュートリアルでは、`AddUserToRole` と `RemoveUserFromRole`の2つの方法に焦点を絞っています。 1つのロールに複数のユーザーを追加し、1人のユーザーに複数のロールを割り当てるように設計された追加のバリエーションがあります。
 
@@ -315,7 +315,7 @@ GridView の下にテキストボックスとボタンを追加します。 テ�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -323,7 +323,7 @@ GridView の下にテキストボックスとボタンを追加します。 テ�
 - [ASP を調べています。NET のメンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [独自の Web サイト管理ツールのロール](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

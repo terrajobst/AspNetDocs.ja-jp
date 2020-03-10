@@ -9,11 +9,11 @@ ms.assetid: 848e6bcf-4c3f-4d14-974d-e45b9444ab79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 3f7c5749053d8bf587467fb1939fca05ce2872a4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74598620"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78446086"
 ---
 # <a name="drag-and-drop-via-reorderlist-vb"></a>ReorderList 経由でドラッグ アンド ドロップする (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74598620"
 
 > AJAX コントロールツールキットの ReorderList コントロールは、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストを提供します。 リストの現在の順序は、サーバーで保持されている必要があります。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの `ReorderList` コントロールには、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストが用意されています。 リストの現在の順序は、サーバーで保持されている必要があります。
 
@@ -82,4 +82,4 @@ AJAX テーブルの初期データ ([クリックすると、フルサイズの
 データベース内のデータは、新しいリスト項目の順序に従って変更されます ([クリックすると、フルサイズの画像が表示](drag-and-drop-via-reorderlist-vb/_static/image9.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](using-postbacks-with-reorderlist-vb.md)
+> [[戻る]](using-postbacks-with-reorderlist-vb.md)

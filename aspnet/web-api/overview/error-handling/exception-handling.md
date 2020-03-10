@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/error-handling/exception-handling
-title: 例外処理では、ASP.NET Web API - ASP.NET 4.x
+title: ASP.NET Web API での例外処理-ASP.NET 4.x
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -10,106 +10,106 @@ ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
 ms.openlocfilehash: dbdbab6aefec840e2fec9e9cd33f3d124093750e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125314"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504700"
 ---
 # <a name="exception-handling-in-aspnet-web-api"></a>ASP.NET Web API での例外処理
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-この記事では、エラーと ASP.NET Web API での例外処理について説明します。
+この記事では、ASP.NET Web API でのエラーと例外の処理について説明します。
 
 - [HttpResponseException](#httpresponserexception)
 - [例外フィルター](#exception_filters)
-- [例外フィルターを登録します。](#registering_exception_filters)
+- [登録 (例外フィルターを)](#registering_exception_filters)
 - [Http エラー](#httperror)
 
 <a id="httpresponserexception"></a>
 ## <a name="httpresponseexception"></a>HttpResponseException
 
-Web API コント ローラーがキャッチされない例外をスローするとどうなりますか。 既定では、ほとんどの例外は、ステータス コード 500 内部サーバー エラーの HTTP 応答に変換されます。
+Web API コントローラーでキャッチされない例外がスローされるとどうなりますか。 既定では、ほとんどの例外は、状態コード500、内部サーバーエラーを含む HTTP 応答に変換されます。
 
-**HttpResponseException**型が特殊なケースです。 この例外は、例外のコンス トラクターで指定した任意の HTTP ステータス コードを返します。 次のメソッドに見つからない、404 が返されます場合など、 *id*パラメーターが無効です。
+**HttpResponseException**型は特殊なケースです。 この例外は、例外コンストラクターで指定した HTTP 状態コードを返します。 たとえば、次のメソッドは、 *id*パラメーターが有効でない場合に、404 (見つからない) を返します。
 
 [!code-csharp[Main](exception-handling/samples/sample1.cs)]
 
-応答をより細かく制御することができますも全体の応答メッセージの構築とで、 **HttpResponseException:** 
+応答をより詳細に制御するには、応答メッセージ全体を作成し、HttpResponseException に含めることもでき**ます。** 
 
 [!code-csharp[Main](exception-handling/samples/sample2.cs)]
 
 <a id="exception_filters"></a>
 ## <a name="exception-filters"></a>例外フィルター
 
-Web API が記述することで例外を処理する方法をカスタマイズすることができます、*例外フィルター*します。 コント ローラー メソッドがある未処理の例外をスローした場合、例外フィルターが実行される*いない*、 **HttpResponseException**例外。 **HttpResponseException** HTTP 応答を返すためには、具体的には設計されているので、型が特殊なケースです。
+*例外フィルター*を記述することで、Web API が例外を処理する方法をカスタマイズできます。 例外フィルターは、コントローラーメソッドが、 **HttpResponseException**例外ではないハンドルされ*ない*例外をスローしたときに実行されます。 **HttpResponseException**型は特殊なケースです。これは、HTTP 応答を返す専用に設計されているためです。
 
-例外フィルターの実装、 **System.Web.Http.Filters.IExceptionFilter**インターフェイス。 例外フィルターを記述する最も簡単な方法がから派生するには、 **System.Web.Http.Filters.ExceptionFilterAttribute**クラスし、オーバーライド、 **OnException**メソッド。
+例外フィルターは、 **System.web Exceptionfilter**インターフェイスを実装します。 例外フィルターを記述する最も簡単な方法**は、system.exception クラスから**派生させ、 **onexception**メソッドをオーバーライドすることです。
 
 > [!NOTE]
-> ASP.NET Web API での例外フィルターは、ASP.NET MVC と似ています。 ただし、個別に、別の名前空間と関数で宣言されています。 具体的には、 **HandleErrorAttribute** MVC で使用されるクラスでは、Web API コント ローラーによってスローされた例外は処理されません。
+> ASP.NET Web API での例外フィルターは、ASP.NET MVC と似ています。 ただし、これらは個別の名前空間と関数で宣言されています。 特に、MVC で使用される**Handleerrorattribute**クラスは、Web API コントローラーによってスローされる例外を処理しません。
 
-ここでは、変換を行うフィルター **NotImplementedException**例外に HTTP 状態コード、501 Not Implemented:
+**NotImplementedException**例外を HTTP 状態コード501に変換するフィルターを次に示します (実装されていません)。
 
 [!code-csharp[Main](exception-handling/samples/sample3.cs)]
 
-**応答**のプロパティ、 **HttpActionExecutedContext**オブジェクトには、クライアントに送信される HTTP 応答メッセージが含まれています。
+**Httpactionexecutedcontext**オブジェクトの**response**プロパティには、クライアントに送信される HTTP 応答メッセージが含まれています。
 
 <a id="registering_exception_filters"></a>
-## <a name="registering-exception-filters"></a>例外フィルターを登録します。
+## <a name="registering-exception-filters"></a>登録 (例外フィルターを)
 
-Web API 例外フィルターを登録するいくつかの方法はあります。
+Web API 例外フィルターを登録する方法はいくつかあります。
 
-- アクションによって
-- コント ローラーによって
-- グローバルに
+- アクションごと
+- コントローラーごと
+- グローバル
 
-特定のアクションにフィルターを適用するには、アクションに属性として、フィルターを追加します。
+特定のアクションにフィルターを適用するには、フィルターをアクションに属性として追加します。
 
 [!code-csharp[Main](exception-handling/samples/sample4.cs)]
 
-すべてのコント ローラーのアクションをフィルターを適用するには、コント ローラー クラスに属性としてフィルターを追加します。
+コントローラー上のすべてのアクションにフィルターを適用するには、フィルターを属性としてコントローラークラスに追加します。
 
 [!code-csharp[Main](exception-handling/samples/sample5.cs)]
 
-すべての Web API コント ローラーにグローバルにフィルターを適用するフィルターのインスタンスを追加、 **GlobalConfiguration.Configuration.Filters**コレクション。 このコレクション内の例外フィルターは、任意の Web API コント ローラー アクションに適用されます。
+すべての Web API コントローラーに対してフィルターをグローバルに適用するには、フィルターのインスタンスを**Globalconfiguration. Configuration. Filters**コレクションに追加します。 このコレクション内の例外フィルターは、任意の Web API コントローラー アクションに適用されます。
 
 [!code-csharp[Main](exception-handling/samples/sample6.cs)]
 
-配置内で Web API の構成コードの「ASP.NET MVC 4 Web アプリケーション」プロジェクト テンプレートをプロジェクトの作成に使用する場合、`WebApiConfig`クラスは、アプリである\_開始フォルダー。
+"ASP.NET MVC 4 Web アプリケーション" プロジェクトテンプレートを使用してプロジェクトを作成する場合は、Web API 構成コードを `WebApiConfig` クラス内に配置します。このクラスは、アプリ\_の [開始] フォルダーにあります。
 
 [!code-csharp[Main](exception-handling/samples/sample7.cs?highlight=5)]
 
 <a id="httperror"></a>
 ## <a name="httperror"></a>Http エラー
 
-**HttpError**オブジェクトは、応答本文にエラー情報を返す一貫した方法を提供します。 次の例では、HTTP 状態コード 404 (Not Found) を返す方法を示しますで、 **HttpError**応答の本文。
+**Httperror**オブジェクトは、応答本文にエラー情報を返す一貫した方法を提供します。 次の例では、HTTP 状態コード 404 (見つからない) を応答本文で**httperror**状態で返す方法を示します。
 
 [!code-csharp[Main](exception-handling/samples/sample8.cs)]
 
-**CreateErrorResponse**拡張メソッドで定義されている、 **System.Net.Http.HttpRequestMessageExtensions**クラス。 内部的には、 **CreateErrorResponse**作成、 **HttpError**をインスタンス化し、作成、 **HttpResponseMessage**を格納している、 **httpエラー**.
+**Createerrorresponse**は、 **HttpRequestMessageExtensions**クラスで定義されている拡張メソッドです。 内部的には、 **Createerrorresponse**は**httperror**インスタンスを作成し、 **httperror**を含むを作成します。
 
-この例でメソッドが成功した場合、製品、HTTP 応答で返します。 HTTP 応答に含まれる、要求された製品が存在しない場合は、 **HttpError**要求本文にします。 応答は、次のようになります。
+この例では、メソッドが成功した場合、HTTP 応答で製品が返されます。 ただし、要求された製品が見つからない場合、HTTP 応答には要求本文に**httperror**含まれています。 応答は次のようになります。
 
 [!code-console[Main](exception-handling/samples/sample9.cmd)]
 
-注意、 **HttpError**がこの例では JSON にシリアル化します。 使用する利点の 1 つ**HttpError**を同一になったことが[コンテンツ ネゴシエーション](../formats-and-model-binding/content-negotiation.md)およびシリアル化は、他の厳密に型指定されたモデルを処理します。
+この例では、 **HTTPERROR** JSON にシリアル化されていることに注意してください。 **Httperror**使用する利点の1つは、その他の厳密に型指定されたモデルと同じ[コンテンツネゴシエーション](../formats-and-model-binding/content-negotiation.md)およびシリアル化プロセスを通過することです。
 
-### <a name="httperror-and-model-validation"></a>Http エラーとモデルの検証
+### <a name="httperror-and-model-validation"></a>HttpError エラーとモデルの検証
 
-モデルの検証のためには、モデルの状態を渡すことができます**CreateErrorResponse**応答に検証エラーを含める。
+モデルの検証では、モデルの状態を**Createerrorresponse**に渡して、検証エラーを応答に含めることができます。
 
 [!code-csharp[Main](exception-handling/samples/sample10.cs)]
 
-この例では、次の応答を返す可能性があります。
+この例では、次の応答が返される場合があります。
 
 [!code-console[Main](exception-handling/samples/sample11.cmd)]
 
-モデルの検証の詳細については、次を参照してください。 [Model Validation in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)します。
+モデルの検証の詳細については、「 [ASP.NET Web API でのモデルの検証](../formats-and-model-binding/model-validation-in-aspnet-web-api.md)」を参照してください。
 
-### <a name="using-httperror-with-httpresponseexception"></a>HttpResponseException での http エラーの使用
+### <a name="using-httperror-with-httpresponseexception"></a>HttpResponseException での HttpError 使用
 
-前の例では、返されます、 **HttpResponseMessage** 、コント ローラー アクションからのメッセージを使用することも**HttpResponseException**を返す、 **HttpError**します。 これにより、まだを返すときに通常の成功の場合、厳密に型指定されたモデルを返すできます**HttpError**エラーがある場合。
+前の例では、コントローラーアクションから**HttpResponseMessage**メッセージが返されますが、 **HttpResponseException**を使用して**httperror**返すこともできます。 これにより、通常の成功事例では厳密に型指定されたモデルを返すことができますが、エラーが発生しても**httperror**返されます。
 
 [!code-csharp[Main](exception-handling/samples/sample12.cs)]

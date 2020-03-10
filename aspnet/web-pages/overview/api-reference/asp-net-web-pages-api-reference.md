@@ -1,43 +1,43 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: ASP.NET Web Pages (Razor) API のクイック リファレンス |Microsoft Docs
+title: ASP.NET Web ページ (Razor) API クイックリファレンス |Microsoft Docs
 author: Rick-Anderson
-description: このページには、最もよく使用されるオブジェクト、プロパティ、および Razor 構文を使用した ASP.NET Web Pages をプログラミングする方法の簡単な例を含む一覧が含まれています。
+description: このページには、Razor 構文で ASP.NET Web ページをプログラミングするための最も一般的に使用されるオブジェクト、プロパティ、およびメソッドの簡単な例を含む一覧が含まれています。
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
 ms.openlocfilehash: e010307fc0576e8b003fbfe665cae77618d9c9a5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132981"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78463582"
 ---
-# <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) API のクイック リファレンス
+# <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web ページ (Razor) API クイックリファレンス
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> このページには、最もよく使用されるオブジェクト、プロパティ、および Razor 構文を使用した ASP.NET Web Pages をプログラミングする方法の簡単な例を含む一覧が含まれています。
+> このページには、Razor 構文で ASP.NET Web ページをプログラミングするための最も一般的に使用されるオブジェクト、プロパティ、およびメソッドの簡単な例を含む一覧が含まれています。
 > 
-> 説明"(v2)"とマークされている ASP.NET Web Pages 2 のバージョンで導入されました。
+> "(V2)" でマークされた説明は ASP.NET Web ページバージョン2で導入されました。
 > 
-> API リファレンス ドキュメントについては、次を参照してください。、 [ASP.NET Web ページのリファレンス ドキュメント](https://go.microsoft.com/fwlink/?LinkId=208659)msdn です。
+> API リファレンスドキュメントについては、MSDN の[ASP.NET Web ページリファレンスドキュメント](https://go.microsoft.com/fwlink/?LinkId=208659)を参照してください。
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 >   
 > 
-> このチュートリアルは、(v2 をマークされた機能) を除く ASP.NET Web Pages 2 および ASP.NET Web Pages 1.0 でも動作します。
+> このチュートリアルでは、ASP.NET Web ページ2および ASP.NET Web ページ 1.0 (v2 とマークされている機能を除く) でも動作します。
 
 このページには、次の参照情報が含まれています。
 
 - [クラス](#Classes)
 - [データ](#Data)
-- [ヘルパー](#Helpers)
+- [支援](#Helpers)
 - [検証](#Validation)
 
 <a id="Classes"></a>
@@ -45,104 +45,104 @@ ms.locfileid: "65132981"
 
 ### `AppState[key], AppState[index],App`
 
-アプリケーション内のすべてのページで共有できるデータが含まれています。 動的を使用する`App`プロパティを次の例のように、同じデータにアクセスします。
+アプリケーション内の任意のページで共有できるデータを格納します。 次の例のように、動的 `App` プロパティを使用して、同じデータにアクセスできます。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample1.html)]
 
 ### `AsBool(), AsBool(true|false)`
 
-文字列値をブール値 (true または false) に変換します。 False を返します。 または、文字列が true または false を表していない場合は、指定された値。
+文字列値をブール値 (true/false) に変換します。 False を返します。文字列が true または false を表さない場合は、指定された値を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample2.cs)]
 
 ### `AsDateTime(), AsDateTime(value)`
 
-日付/時刻の文字列値に変換します。 返します`DateTime.MinValue`または文字列が日付/時刻を表していない場合は、指定された値。
+文字列値を日付/時刻に変換します。 文字列が日付/時刻を表していない場合は `DateTime.MinValue` または指定された値を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample3.cs)]
 
 ### `AsDecimal(), AsDecimal(value)`
 
-文字列値を 10 進値に変換します。 文字列が 10 進値を表していない場合は、指定した値または 0.0 を返します。
+文字列値を10進値に変換します。 文字列が10進数値を表していない場合は、0.0 または指定された値を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample4.cs)]
 
 ### `AsFloat(), AsFloat(value)`
 
-文字列値を float 型に変換します。 文字列が 10 進値を表していない場合は、指定した値または 0.0 を返します。
+文字列値を float に変換します。 文字列が10進数値を表していない場合は、0.0 または指定された値を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample5.cs)]
 
 ### `AsInt(), AsInt(value)`
 
-文字列値を整数に変換します。 文字列が整数値を表していない場合は、指定した値または 0 を返します。
+文字列値を整数に変換します。 文字列が整数を表さない場合は、0または指定された値を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample6.cs)]
 
 ### `Href(path [, param1 [, param2]])`
 
-省略可能な追加のパス部分と、ローカル ファイル パスから、ブラウザーと互換性のある URL を作成します。
+省略可能な追加のパス部分を使用して、ローカルファイルパスからブラウザーと互換性のある URL を作成します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample7.cshtml)]
 
 ### `Html.Raw(value)`
 
-レンダリング*値*として HTML エンコードされた出力をレンダリングするのではなく HTML マークアップとして。
+HTML エンコードされた出力として表示するのではなく、*値*を html マークアップとしてレンダリングします。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample8.cshtml)]
 
 ### `IsBool(), IsDateTime(), IsDecimal(), IsFloat(), IsInt()`
 
-値は、文字列から指定した型に変換できる場合は true を返します。
+値を文字列から指定した型に変換できる場合は true を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample9.cs)]
 
 ### `IsEmpty()`
 
-オブジェクトまたは変数に値があるない場合は true を返します。
+オブジェクトまたは変数に値がない場合に true を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample10.cs)]
 
 ### `IsPost`
 
-要求が POST である場合に true を返します。 (最初の要求は通常、GET) です。
+要求が POST の場合は true を返します。 (最初の要求は通常 GET です)。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample11.cs)]
 
 ### `Layout`
 
-このページに適用するレイアウト ページのパスを指定します。
+このページに適用するレイアウトページのパスを指定します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample12.html)]
 
 ### `PageData[key], PageData[index],Page`
 
-現在の要求 ページ、レイアウト ページ、および部分ページ間で共有データが含まれています。 動的を使用する`Page`プロパティを次の例のように、同じデータにアクセスします。
+現在の要求のページ、レイアウトページ、および部分ページ間で共有されるデータを格納します。 次の例のように、動的 `Page` プロパティを使用して、同じデータにアクセスできます。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample13.html)]
 
 ### `RenderBody()`
 
-(レイアウト ページ)名前付きのセクションではないコンテンツ ページのコンテンツをレンダリングします。
+(レイアウトページ)名前付きセクションに含まれていないコンテンツページのコンテンツをレンダリングします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample14.cs)]
 
 ### `RenderPage(path, values)`  
 `RenderPage(path[,param1 [, param2]])`
 
-指定されたパスと省略可能な追加のデータを使用して、コンテンツ ページを表示します。 余分なパラメーターの値を取得できます`PageData`によって (例 1) の位置またはキー (例 2)。
+指定されたパスと省略可能な追加データを使用してコンテンツページを表示します。 余分なパラメーターの値は、位置 (例 1) またはキー (例 2) で `PageData` から取得できます。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample15.js)]
 
 ### `RenderSection(sectionName [, required = true|false])`
 
-(レイアウト ページ)名前を持つコンテンツ セクションを表示します。 設定*必要*が false にセクションを省略可能です。
+(レイアウトページ)名前を持つコンテンツセクションをレンダリングします。 省略可能なセクションを作成するには、 *required*を false に設定します。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample16.js)]
 
 ### `Request.Cookies[key]`
 
-取得または HTTP クッキーの値を設定します。
+HTTP クッキーの値を取得または設定します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample17.cs)]
 
@@ -154,32 +154,32 @@ ms.locfileid: "65132981"
 
 ### `Request.Form[key]`
 
-(文字列として) のフォームにポストされたデータを取得します。 `Request[key]` 両方のチェック、`Request.Form`と`Request.QueryString`コレクション。
+(文字列として) フォームにポストされたデータを取得します。 `Request[key]` は、`Request.Form` コレクションと `Request.QueryString` コレクションの両方をチェックします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-URL クエリ文字列で指定されたデータを取得します。 `Request[key]` 両方のチェック、`Request.Form`と`Request.QueryString`コレクション。
+URL クエリ文字列で指定されたデータを取得します。 `Request[key]` は、`Request.Form` コレクションと `Request.QueryString` コレクションの両方をチェックします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
 ### `Request.Unvalidated(key)`  
 `Request.Unvalidated().QueryString|Form|Cookies|Headers[key]`
 
-選択的に無効には、フォーム要素、クエリ文字列値、cookie、またはヘッダーの値の検証を要求します。 要求の検証は、既定で有効にし、ユーザーがマークアップまたはその他の危険性のあるコンテンツを投稿するを防ぎます。
+フォーム要素、クエリ文字列値、cookie、またはヘッダー値の要求の検証を選択的に無効にします。 要求の検証は既定で有効になっており、ユーザーがマークアップや危険な可能性のあるその他のコンテンツを投稿できないようにします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample21.cs)]
 
 ### `Response.AddHeader(name, value)`
 
-HTTP サーバー ヘッダーを応答に追加します。
+HTTP サーバーヘッダーを応答に追加します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample22.cs)]
 
 ### `Response.OutputCache(seconds [, sliding] [, varyByParams])`
 
-指定した時間には、ページ出力をキャッシュします。 必要に応じて設定*スライディング*ページ アクセスごとにタイムアウトをリセットして*varyByParams*ページの各ページ要求別のクエリ文字列の異なるバージョンをキャッシュします。
+指定された時間のページ出力をキャッシュします。 必要に応じて*スライディング*を設定して各ページのアクセスと*varyByParams*のタイムアウトをリセットし、ページ要求内の異なるクエリ文字列ごとに異なるバージョンのページをキャッシュします。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample23.js)]
 
@@ -191,13 +191,13 @@ HTTP サーバー ヘッダーを応答に追加します。
 
 ### `Response.SetStatus(httpStatusCode)`
 
-ブラウザーに送信する HTTP 状態コードを設定します。
+ブラウザーに送信される HTTP ステータスコードを設定します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample25.cs)]
 
 ### `Response.WriteBinary(data [, mimetype])`
 
-内容を書き込みます*データ*省略可能な MIME の種類の応答にします。
+オプションの MIME の種類を使用して、*データ*の内容を応答に書き込みます。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample26.js)]
 
@@ -209,25 +209,25 @@ HTTP サーバー ヘッダーを応答に追加します。
 
 ### `@section(sectionName) {content }`
 
-(レイアウト ページ)名前を持つコンテンツ セクションを定義します。
+(レイアウトページ)名前を持つコンテンツセクションを定義します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample28.cshtml)]
 
 ### `Server.HtmlDecode(htmlText)`
 
-Html エンコードする文字列をデコードします。
+HTML エンコードされた文字列をデコードします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample29.cs)]
 
 ### `Server.HtmlEncode(text)`
 
-HTML マークアップで表示するための文字列をエンコードします。
+HTML マークアップでの表示用に文字列をエンコードします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample30.cs)]
 
 ### `Server.MapPath(virtualPath)`
 
-指定された仮想パスのサーバーの物理パスを返します。
+指定された仮想パスのサーバー物理パスを返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample31.cs)]
 
@@ -239,19 +239,19 @@ URL からテキストをデコードします。
 
 ### `Server.UrlEncode(text)`
 
-URL に配置するテキストをエンコードします。
+URL に配置するためにテキストをエンコードします。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample33.cs)]
 
 ### `Session[key]`
 
-取得またはユーザーがブラウザーを閉じるまでに存在する値を設定します。
+ユーザーがブラウザーを閉じるまで存在する値を取得または設定します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample34.css)]
 
 ### `ToString()`
 
-オブジェクトの値の文字列表現を表示します。
+オブジェクトの値の文字列形式を表示します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample35.html)]
 
@@ -269,51 +269,51 @@ URL から追加のデータを取得します (たとえば、 */MyPage/ExtraDa
 
 ### `WebSecurity.ConfirmAccount(accountConfirmationToken)`
 
-アカウントの確認トークンを使用して、アカウントを確認します。
+アカウント確認トークンを使用してアカウントを確認します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample38.cs)]
 
 ### `WebSecurity.CreateAccount(userName, password`  
  `[, requireConfirmationToken = true|false])`
 
-指定されたユーザー名とパスワードを持つ新しいユーザー アカウントを作成します。 確認トークンを要求するように true を渡す*requireConfirmationToken します。*
+指定されたユーザー名とパスワードを使用して、新しいユーザーアカウントを作成します。 確認トークンを要求するには、RequireConfirmationToken に true を渡し*ます。*
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample39.cs)]
 
 ### `WebSecurity.CurrentUserId`
 
-現在ログイン ユーザーの整数識別子を取得します。
+現在ログインしているユーザーの整数識別子を取得します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample40.cs)]
 
 ### `WebSecurity.CurrentUserName`
 
-現在ログイン ユーザーの名前を取得します。
+現在ログインしているユーザーの名前を取得します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample41.cs)]
 
 ### `WebSecurity.GeneratePasswordResetToken(username`  
  `[, tokenExpirationInMinutesFromNow])`
 
-送信できる電子メールでユーザーに、ユーザーがパスワードをリセットできるようにパスワード リセット トークンを生成します。
+ユーザーがパスワードをリセットできるように、ユーザーに電子メールで送信できるパスワードリセットトークンを生成します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample42.cs)]
 
 ### `WebSecurity.GetUserId(userName)`
 
-ユーザー名とユーザー ID を返します。
+ユーザー名からユーザー ID を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample43.cs)]
 
 ### `WebSecurity.IsAuthenticated`
 
-現在のユーザーがログインしている場合に true を返します。
+現在のユーザーがログインしている場合は true を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample44.cs)]
 
 ### `WebSecurity.IsConfirmed(userName)`
 
-(確認の電子メール) を使用して、ユーザーが確認されている場合は true を返します。
+ユーザーが確認されている場合 (確認メールなど)、true を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample45.cs)]
 
@@ -325,84 +325,84 @@ URL から追加のデータを取得します (たとえば、 */MyPage/ExtraDa
 
 ### `WebSecurity.Login(userName,password[, persistCookie])`
 
-Cookie に認証トークンを設定してユーザーを記録します。
+Cookie の認証トークンを設定して、にユーザーを記録します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample47.cs)]
 
 ### `WebSecurity.Logout()`
 
-認証トークンのクッキーを削除することによって、ユーザーを記録します。
+認証トークン cookie を削除してユーザーをログアウトします。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample48.css)]
 
 ### `WebSecurity.RequireAuthenticatedUser()`
 
-ユーザーが認証されていない場合は、HTTP ステータスを 401 (Unauthorized) に設定します。
+ユーザーが認証されていない場合、HTTP ステータスを 401 (Unauthorized) に設定します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample49.css)]
 
 ### `WebSecurity.RequireRoles(roles)`
 
-現在のユーザーが指定されたロールのいずれかのメンバーでない場合は、HTTP ステータスを 401 (Unauthorized) に設定します。
+現在のユーザーが指定されたいずれかのロールのメンバーでない場合は、HTTP ステータスを 401 (未承認) に設定します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample50.html)]
 
 ### `WebSecurity.RequireUser(userId)`  
 `WebSecurity.RequireUser(userName)`
 
-現在のユーザーがで指定されたユーザーでないかどうか*username*、HTTP ステータスを 401 (Unauthorized) に設定します。
+現在のユーザーがユーザー*名*で指定されたユーザーでない場合は、HTTP ステータスを 401 (未承認) に設定します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample51.css)]
 
 ### `WebSecurity.ResetPassword(passwordResetToken,newPassword)`
 
-パスワード リセット トークンが有効な場合は、新しいパスワードにユーザーのパスワードを変更します。
+パスワードリセットトークンが有効な場合、はユーザーのパスワードを新しいパスワードに変更します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample52.css)]
 
 <a id="Data"></a>
-## <a name="data"></a>データ
+## <a name="data"></a>Data
 
 ### `Database.Execute(SQLstatement [,parameters]`
 
-実行します*SQLstatement* (省略可能なパラメーター) で INSERT、DELETE、または UPDATE などの影響を受けるレコードの数を返します。
+INSERT、DELETE、UPDATE などの*SQLstatement* (省略可能なパラメーターを使用) を実行し、影響を受けたレコードの数を返します。
 
 [!code-sql[Main](asp-net-web-pages-api-reference/samples/sample53.sql)]
 
 ### `Database.GetLastInsertId()`
 
-最近挿入された行から id 列を返します。
+最近挿入された行から ID 列を返します。
 
 [!code-sql[Main](asp-net-web-pages-api-reference/samples/sample54.sql)]
 
 ### `Database.Open(filename)`  
 `Database.Open(connectionStringName)`
 
-指定されたデータベース ファイルまたはから名前付き接続文字列を使用して指定されたデータベースのいずれかを開き、 *Web.config*ファイル。
+指定されたデータベースファイルまたは web.config ファイルの名前付き接続文字列を使用して指定されたデータベースを*開きます。*
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample55.cs)]
 
 ### `Database.OpenConnectionString(connectionString)`
 
-接続文字列を使用してデータベースを開きます。 (これに対して`Database.Open`、接続文字列名を使用する)。
+接続文字列を使用してデータベースを開きます。 (これは、接続文字列名を使用する `Database.Open`とは対照的です)。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample56.cs)]
 
 ### `Database.Query(SQLstatement[,parameters])`
 
-使用してデータベース クエリ*SQLstatement* (必要に応じてパラメーターを渡す) し、コレクションとして結果を返します。
+*SQLstatement* (必要に応じてパラメーターを渡す) を使用してデータベースにクエリを実行し、結果をコレクションとして返します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample57.html)]
 
 ### `Database.QuerySingle(SQLstatement [, parameters])`
 
-実行*SQLstatement* (省略可能なパラメーターは) を使用し、1 つのレコードを返します。
+(省略可能なパラメーターを使用して) *SQLstatement*を実行し、1つのレコードを返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample58.cs)]
 
 ### `Database.QueryValue(SQLstatement [, parameters])`
 
-実行*SQLstatement* (省略可能なパラメーターは) を使用し、1 つの値を返します。
+(省略可能なパラメーターを使用して) *SQLstatement*を実行し、単一の値を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample59.cs)]
 
@@ -411,25 +411,25 @@ Cookie に認証トークンを設定してユーザーを記録します。
 
 ### `Analytics.GetGoogleHtml(webPropertyId)`
 
-指定した ID の Google Analytics の JavaScript コードを表示します。
+指定された ID の Google Analytics JavaScript コードをレンダリングします。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample60.js)]
 
 ### `Analytics.GetStatCounterHtml(project,security)`
 
-指定されたプロジェクトの StatCounter Analytics の JavaScript コードを表示します。
+指定されたプロジェクトの StatCounter Analytics JavaScript コードをレンダリングします。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample61.css)]
 
 ### `Analytics.GetYahooHtml(account)`
 
-指定されたアカウントの Yahoo Analytics の JavaScript コードを表示します。
+指定されたアカウントの Yahoo Analytics JavaScript コードをレンダリングします。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample62.js)]
 
 ### `Bing.SearchBox([boxWidth])`
 
-Bing 検索に渡します。 設定することができます、サイトを検索し、検索ボックスのタイトルを指定する、`Bing.SiteUrl`と`Bing.SiteTitle`プロパティ。 これらのプロパティを設定する通常の *\_AppStart*ページ。
+Bing に検索を渡します。 検索するサイトと検索ボックスのタイトルを指定するには、`Bing.SiteUrl` と `Bing.SiteTitle` のプロパティを設定します。 通常は、これらのプロパティを [ *\_該当*] ページで設定します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample63.html)]
 
@@ -451,97 +451,97 @@ Bing 検索に渡します。 設定することができます、サイトを�
  `[, axisLabel] [, legend] [, markerStep] [, xValue]`  
  `[, xField] [, yValues] [, yFields] [, options])`
 
-グラフには、一連の値を追加します。
+グラフに一連の値を追加します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample67.cshtml)]
 
 ### `Crypto.Hash(string [, algorithm])`  
 `Crypto.Hash(bytes [, algorithm])`
 
-指定されたデータのハッシュを返します。 既定のアルゴリズムは`sha256`します。
+指定されたデータのハッシュを返します。 既定のアルゴリズムは `sha256`です。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample68.html)]
 
 ### `Facebook.LikeButton(href [, buttonLayout] [, showFaces] [, width] [, height]`   
  `[, action] [, font] [, colorScheme] [, refLabel])`
 
-Facebook ユーザーのページへの接続を作成することができます。
+Facebook ユーザーがページに接続できるようにします。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample69.js)]
 
 ### `FileUpload.GetHtml([initialNumberOfFiles] [, allowMoreFilesToBeAdded]`  
  `[, includeFormTag] [, addText] [, uploadText])`
 
-ファイルをアップロードするには、UI をレンダリングします。
+ファイルをアップロードするための UI をレンダリングします。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample70.html)]
 
 ### `GamerCard.GetHtml(gamerTag)`
 
-指定した Xbox ゲーマー タグをレンダリングします。
+指定された Xbox ゲーマータグをレンダリングします。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample71.js)]
 
 ### `Gravatar.GetHtml(email [, imageSize] [, defaultImage] [, rating]`  
  `[, imageExtension] [, attributes])`
 
-指定した電子メール アドレスの Gravatar イメージをレンダリングします。
+指定された電子メールアドレスの Gravatar イメージをレンダリングします。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample72.css)]
 
 ### `Json.Encode(object)`
 
-データ オブジェクトを JavaScript Object Notation (JSON) 形式の文字列に変換します。
+データオブジェクトを JavaScript Object Notation (JSON) 形式の文字列に変換します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample73.cs)]
 
 ### `Json.Decode(string)`
 
-JSON でエンコードされた入力文字列を反復処理またはデータベースに挿入できるデータ オブジェクトに変換します。
+JSON でエンコードされた入力文字列を、反復処理またはデータベースへの挿入が可能なデータオブジェクトに変換します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample74.cs)]
 
 ### `LinkShare.GetHtml(pageTitle[, pageLinkBack] [, twitterUserName]`  
  `[, additionalTweetText] [, linkSites])`
 
-指定されたタイトルと省略可能な URL を使用して、ソーシャル ネットワーク リンクを表示します。
+指定されたタイトルと省略可能な URL を使用してソーシャルネットワークリンクを表示します。
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample75.xml)]
 
 ### `ModelStateDictionary.AddError(key, errorMessage)`
 
-フォーム フィールドと、エラー メッセージに関連付けます。 使用して、`ModelState`このメンバーにアクセスするヘルパー。
+エラーメッセージをフォームフィールドに関連付けます。 このメンバーにアクセスするには、`ModelState` ヘルパーを使用します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample76.cs)]
 
 ### `ModelStateDictionary.AddFormError(errorMessage)`
 
-エラー メッセージをフォームに関連付けます。 使用して、`ModelState`このメンバーにアクセスするヘルパー。
+エラーメッセージをフォームに関連付けます。 このメンバーにアクセスするには、`ModelState` ヘルパーを使用します。
 
 [!code-powershell[Main](asp-net-web-pages-api-reference/samples/sample77.ps1)]
 
 ### `ModelStateDictionary.IsValid`
 
-検証エラーがない場合は true を返します。 使用して、`ModelState`このメンバーにアクセスするヘルパー。
+検証エラーがない場合は true を返します。 このメンバーにアクセスするには、`ModelState` ヘルパーを使用します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample78.cs)]
 
 ### `ObjectInfo.Print(value [, depth] [, enumerationLength])`
 
-プロパティと値のオブジェクトとすべての子オブジェクトをレンダリングします。
+オブジェクトおよび子オブジェクトのプロパティと値を表示します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample79.css)]
 
 ### `Recaptcha.GetHtml([, publicKey] [, theme] [, language] [, tabIndex])`
 
-ReCAPTCHA の検証テストを表示します。
+ReCAPTCHA 検証テストをレンダリングします。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample80.css)]
 
 ### `ReCaptcha.PublicKey`  
  `ReCaptcha.PrivateKey`
 
-ReCAPTCHA サービスのパブリックおよびプライベート キーを設定します。 これらのプロパティを設定する通常の *\_AppStart*ページ。
+ReCAPTCHA サービスの公開キーと秘密キーを設定します。 通常は、これらのプロパティを [ *\_該当*] ページで設定します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample81.css)]
 
@@ -553,73 +553,73 @@ ReCAPTCHA テストの結果を返します。
 
 ### `ServerInfo.GetHtml()`
 
-状態情報の詳細については、ASP.NET Web ページを表示します。
+ASP.NET Web ページに関するステータス情報を表示します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample83.cshtml)]
 
 ### `Twitter.Profile(twitterUserName)`
 
-指定したユーザーの Twitter ストリームを表示します。
+指定されたユーザーの Twitter ストリームをレンダリングします。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample84.js)]
 
 ### `Twitter.Search(searchQuery)`
 
-指定された検索テキストの Twitter ストリームを表示します。
+指定された検索テキストの Twitter ストリームをレンダリングします。
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample85.xml)]
 
 ### `Video.Flash(filename [, width, height])`
 
-省略可能な幅と高さで指定されたファイルのフラッシュ ビデオ プレーヤーを表示します。
+指定したファイルに対して、オプションの幅と高さを指定して Flash video player をレンダリングします。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample86.cshtml)]
 
 ### `Video.MediaPlayer(filename [, width, height])`
 
-省略可能な幅と高さで指定したファイル用の Windows Media player をレンダリングします。
+指定したファイルの Windows Media player を、オプションの幅と高さを使用して表示します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample87.cshtml)]
 
 ### `Video.Silverlight(filename, width, height)`
 
-指定した Silverlight プレーヤーをレンダリング *.xap*ファイルに必要な幅と高さ。
+指定*した .xap*ファイルの、必要な幅と高さを持つ Silverlight プレーヤーをレンダリングします。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample88.cshtml)]
 
 ### `WebCache.Get(key)`
 
-指定されたオブジェクトを返します*キー*オブジェクトが見つからない場合は null です。
+*キー*で指定されたオブジェクトを返します。オブジェクトが見つからない場合は null を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample89.cs)]
 
 ### `WebCache.Remove(key)`
 
-指定されたオブジェクトを削除します。*キー*キャッシュから。
+*キー*で指定されたオブジェクトをキャッシュから削除します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample90.cs)]
 
 ### `WebCache.Set(key, value [, minutesToCache] [, slidingExpiration])`
 
-配置*値*で指定された名前でキャッシュに*キー*します。
+*キー*で指定された名前でキャッシュに*値*を格納します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample91.html)]
 
 ### `WebGrid(data)`
 
-新たに作成`WebGrid`オブジェクト クエリからのデータを使用しています。
+クエリのデータを使用して、新しい `WebGrid` オブジェクトを作成します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample92.cs)]
 
 ### `WebGrid.GetHtml()`
 
-HTML テーブルにデータを表示するマークアップをレンダリングします。
+HTML テーブルにデータを表示するためのマークアップをレンダリングします。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample93.html)]
 
 ### `WebGrid.Pager()`
 
-用のページャーを表示、`WebGrid`オブジェクト。
+`WebGrid` オブジェクトのポケットベルを表示します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample94.html)]
 
@@ -631,39 +631,39 @@ HTML テーブルにデータを表示するマークアップをレンダリン
 
 ### `WebImage.AddImagesWatermark(image)`
 
-基準値として指定したイメージを追加します。
+指定されたイメージをウォーターマークとして追加します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample96.cs)]
 
 ### `WebImage.AddTextWatermark(text)`
 
-イメージを指定したテキストを追加します。
+指定したテキストをイメージに追加します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample97.cs)]
 
 ### `WebImage.FlipHorizontal()`  
 `WebImage.FlipVertical()`
 
-イメージは、水平方向または垂直方向に反転します。
+画像を水平方向または垂直方向に反転します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample98.css)]
 
 ### `WebImage.GetImageFromRequest()`
 
-ファイルのアップロード中にイメージがページに投稿されたときに、イメージを読み込みます。
+ファイルのアップロード中にイメージがページにポストされたときにイメージを読み込みます。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample99.cs)]
 
 ### `WebImage.Resize(width,height)`
 
-サイズを変更する画像。
+イメージのサイズを変更します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample100.css)]
 
 ### `WebImage.RotateLeft()`  
 `WebImage.RotateRight()`
 
-左または右にイメージを回転します。
+イメージを左または右に回転します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample101.css)]
 
@@ -675,26 +675,26 @@ HTML テーブルにデータを表示するマークアップをレンダリン
 
 ### `WebMail.Password`
 
-SMTP サーバーのパスワードを設定します。 このプロパティを設定する通常の *\_AppStart*ページ。
+SMTP サーバーのパスワードを設定します。 通常、このプロパティは [ *\_該当*] ページで設定します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample103.cs)]
 
 ### `WebMail.Send(to, subject, body [, from] [, cc] [, filesToAttach] [, isBodyHtml]`  
  `[, additionalHeaders])`
 
-電子メールを送信します。
+電子メール メッセージを送信します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample104.css)]
 
 ### `WebMail.SmtpServer`
 
-SMTP サーバー名を設定します。 このプロパティを設定する通常の *\_AppStart*ページ。
+SMTP サーバー名を設定します。 通常、このプロパティは [ *\_該当*] ページで設定します。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 
 ### `WebMail.UserName`
 
-SMTP サーバーのユーザー名を設定します。 通常このプロパティを設定する必要があります、  *\_AppStart*ページ。
+SMTP サーバーのユーザー名を設定します。 通常は、[ *\_該当*] ページでこのプロパティを設定する必要があります。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample106.html)]
 
@@ -703,49 +703,49 @@ SMTP サーバーのユーザー名を設定します。 通常このプロパ�
 
 ### `Html.ValidationMessage(field)`
 
-(v2)指定したフィールドの検証エラー メッセージを表示します。
+v2指定したフィールドの検証エラーメッセージを表示します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample107.cshtml)]
 
 ### `Html.ValidationSummary([message])`
 
-(v2)すべての検証エラーの一覧を表示します。
+v2すべての検証エラーの一覧を表示します。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample108.cshtml)]
 
 ### `Validation.Add(field, validationType)`
 
-(v2)検証の指定した型のユーザー入力要素を登録します。
+v2指定された種類の検証にユーザー入力要素を登録します。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample109.js)]
 
 ### `Validation.ClassFor(field)`
 
-(v2)検証エラー メッセージの書式を設定できるように、クライアント側検証用の CSS クラス属性を動的にレンダリングします。 (適切なクライアント スクリプト ライブラリを参照して、CSS クラスを定義することが必要)。
+v2検証エラーメッセージを書式設定できるように、クライアント側検証の CSS クラス属性を動的にレンダリングします。 (適切なクライアントスクリプトライブラリを参照し、CSS クラスを定義する必要があります)。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample110.html)]
 
 ### `Validation.For(field)`
 
-(v2)ユーザーの入力フィールドのクライアント側の検証を有効にします。 (適切なクライアント スクリプト ライブラリを参照することが必要です)。
+v2ユーザー入力フィールドに対してクライアント側の検証を有効にします。 (適切なクライアントスクリプトライブラリを参照する必要があります)。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample111.html)]
 
 ### `Validation.IsValid()`
 
-(v2)検証のために登録するすべてのユーザー入力要素には、有効な値が含まれている場合に true を返します。
+v2検証のために registred されているすべてのユーザー入力要素に有効な値が含まれている場合に true を返します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample112.cs)]
 
 ### `Validation.RequireField(field[, errorMessage])`
 
-(v2)ユーザーがユーザー入力要素の値を指定する必要がありますを指定します。
+v2ユーザーがユーザー入力要素の値を指定する必要があることを指定します。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample113.cs)]
 
 ### `Validation.RequireFields(field1[, field12, field3, ...])`
 
-(v2)ユーザーが各ユーザー入力要素の値を指定する必要がありますを指定します。 このメソッドでは、カスタム エラー メッセージを指定することはできません。
+v2ユーザーが各ユーザー入力要素の値を指定する必要があることを指定します。 このメソッドでは、カスタムエラーメッセージを指定することはできません。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample114.html)]
 
@@ -760,6 +760,6 @@ SMTP サーバーのユーザー名を設定します。 通常このプロパ�
 `Validator.StringLength(length)`  
 `Validator.Url([error message])`
 
-(v2)使用する場合は、検証テストを指定します、`Validation.Add`メソッド。
+v2`Validation.Add` メソッドを使用する場合の検証テストを指定します。
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample115.js)]

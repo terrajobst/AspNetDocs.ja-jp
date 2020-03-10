@@ -9,11 +9,11 @@ ms.assetid: 0edcd653-f24a-41aa-aef4-75f868fe5ac2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 3b039b22bef38ae6ebf80be070820dc1638f87f4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74618670"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78457306"
 ---
 # <a name="specifying-the-master-page-programmatically-vb"></a>プログラムでマスター ページを指定する (VB)
 
@@ -159,7 +159,7 @@ Web サイトのコンテンツページには、1つまたは2つのコンテ�
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample11.aspx)]
 
-宛先:
+変更後:
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample12.aspx)]
 
@@ -226,13 +226,13 @@ Web サイトのコンテンツページには、1つまたは2つのコンテ�
 
 **図 07**: `Alternate.master` マスターページを使用してコンテンツページが表示されるようになりました ([クリックしてフルサイズのイメージを表示](specifying-the-master-page-programmatically-vb/_static/image21.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 コンテンツページにアクセスすると、そのコンテンツコントロールは、そのマスターページの ContentPlaceHolder コントロールと共に使用されます。 コンテンツページのマスターページは `Page` クラスの `MasterPageFile` プロパティによって示されます。このプロパティは、初期化段階で `@Page` ディレクティブの `MasterPageFile` 属性に割り当てられます。 このチュートリアルで説明したように、PreInit 段階の終了前に `MasterPageFile` 値を割り当てることができます。 プログラムを使用してマスターページを指定することで、外部要因に基づいてコンテンツページをマスターページに動的にバインドするなど、より高度なシナリオのためにドアを開くことができます。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -242,7 +242,7 @@ Web サイトのコンテンツページには、1つまたは2つのコンテ�
 - [マスターページ: ヒント、テクニック、およびトラップ](http://www.odetocode.com/articles/450.aspx)
 - [ASP.NET のテーマ](http://www.odetocode.com/articles/423.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

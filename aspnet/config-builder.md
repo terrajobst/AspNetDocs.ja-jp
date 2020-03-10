@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 10/29/2018
 msc.type: content
 ms.openlocfilehash: 5299d9ab057c3096773955a7461e77a80673ebfe
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586761"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472306"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET の構成ビルダー
 
@@ -82,7 +82,7 @@ Web.config の次のマークアップ*により、* `Strict` モードでの環
 
 * 既定の `Strict` モードの `EnvironmentConfigBuilder`、および構成ファイル内の適切なキー名。 上記のコードとマークアップは、この方法を採用しています。 この方法を使用すると、`<appSettings/>` と `<connectionStrings/>`の両方で同じ名前のキーを持つことはでき**ません**。
 * 異なるプレフィックスと `stripPrefix`を使用して、`Greedy` モードで2つの `EnvironmentConfigBuilder`s を使用します。 この方法では、構成ファイルを更新しなくても、アプリは `<appSettings/>` と `<connectionStrings/>` を読み取ることができます。 次の[セクションでは、この](#stripprefix)方法について説明します。
-* 異なるプレフィックスを使用して、`Greedy` モードで2つの `EnvironmentConfigBuilder`s を使用します。 この方法では、キー名がプレフィックスによって異なる必要があるため、キー名を重複させることはできません。  例:
+* 異なるプレフィックスを使用して、`Greedy` モードで2つの `EnvironmentConfigBuilder`s を使用します。 この方法では、キー名がプレフィックスによって異なる必要があるため、キー名を重複させることはできません。  次に例を示します。
 
 [!code-xml[Main](config-builder/MyConfigBuilders/WebPrefix.config?name=snippet&highlight=11-99)]
 
@@ -103,7 +103,7 @@ Web.config の次のマークアップ*により、* `Strict` モードでの環
 
 たとえば、前の*web.config*ファイル、前の環境エディターイメージのキー/値、前のコードを使用すると、次の値が設定されます。
 
-|  [キー]              | Value |
+|  Key              | 値 |
 | ----------------- | ------------ |
 |     AppSetting_ServiceID           | Env 変数からの AppSetting_ServiceID|
 |    AppSetting_default            | Env からの値の AppSetting_default |
@@ -136,11 +136,11 @@ Web.config の次のマークアップ*により、* `Strict` モードでの環
 
 たとえば、前の*web.config*ファイル、前の環境エディターイメージのキー/値、前のコードを使用すると、次の値が設定されます。
 
-|  [キー]              | Value |
+|  Key              | 値 |
 | ----------------- | ------------ |
 |     ServiceID           | Env 変数からの AppSetting_ServiceID|
-|    default            | Env からの値の AppSetting_default |
-|    default         | Env からの ConnStr_default val|
+|    既定値 (default)            | Env からの値の AppSetting_default |
+|    既定値 (default)         | Env からの ConnStr_default val|
 
 ### <a name="tokenpattern"></a>tokenPattern
 
@@ -277,10 +277,10 @@ Web.config の次のマークアップ*により、* `Strict` モードでの環
 
 * `jsonFile` - 必須。 読み取る JSON ファイルを指定します。 `~` 文字は、アプリのルートを参照するために開始時に使用できます。
 * `optional`-ブール値。既定値は `true`です。 JSON ファイルが見つからない場合に例外をスローしないようにします。
-* `jsonMode` - `[Flat|Sectional]`. `Flat` が既定値です。 `jsonMode` が `Flat`場合、JSON ファイルは1つのフラットキー/値ソースです。 `EnvironmentConfigBuilder` と `AzureKeyVaultConfigBuilder` は、単一のフラットキー/値ソースでもあります。 `SimpleJsonConfigBuilder` が `Sectional` モードで構成されている場合:
+* `jsonMode` - `[Flat|Sectional]`」を参照してください。 `Flat` は既定値です。 `jsonMode` が `Flat`場合、JSON ファイルは1つのフラットキー/値ソースです。 `EnvironmentConfigBuilder` と `AzureKeyVaultConfigBuilder` は、単一のフラットキー/値ソースでもあります。 `SimpleJsonConfigBuilder` が `Sectional` モードで構成されている場合:
 
   * JSON ファイルは、概念的に最上位から複数の辞書に分割されています。
-  * 各ディクショナリは、接続されている最上位レベルのプロパティ名と一致する構成セクションにのみ適用されます。 例:
+  * 各ディクショナリは、接続されている最上位レベルのプロパティ名と一致する構成セクションにのみ適用されます。 次に例を示します。
 
 ```json
     {
@@ -306,7 +306,7 @@ Web.config の次のマークアップ*により、* `Strict` モードでの環
 
 `KeyValueConfigBuilder` の基本クラスを使用すると、キー/値構成ビルダー間での作業と一貫性のある動作が多くなります。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 * [構成ビルダー GitHub リポジトリ](https://github.com/aspnet/MicrosoftConfigurationBuilders)
 * [.NET を使用して Azure Key Vault するためのサービス間認証](/azure/key-vault/service-to-service-authentication#connection-string-support)

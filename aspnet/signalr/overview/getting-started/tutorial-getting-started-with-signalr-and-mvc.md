@@ -10,28 +10,28 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-s
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: 5671e4f0123ca2b0cb5314336cf4411467feac70
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600486"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431620"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>チュートリアル: SignalR 2 と MVC 5 を使用したリアルタイムチャット
 
 このチュートリアルでは、ASP.NET SignalR 2 を使用してリアルタイムチャットアプリケーションを作成する方法について説明します。 SignalR を MVC 5 アプリケーションに追加し、メッセージを送信して表示するためのチャットビューを作成します。
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * プロジェクトを設定する
-> * サンプルの実行
+> * プロジェクトのセットアップ
+> * サンプルを実行する
 > * コードを確認する
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-* **ASP.NET と web 開発**ワークロードを含む[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) と **ASP.NET および開発**ワークロード。
 
 ## <a name="set-up-the-project"></a>プロジェクトを設定する
 
@@ -176,11 +176,11 @@ SignalR chat アプリケーションは、2つの基本的な SignalR 開発タ
 
 このコードは接続を開始し、チャットページの **[送信]** ボタンでクリックイベントを処理する関数を渡します。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 SignalR の詳細については、次のリソースを参照してください。
 
@@ -190,12 +190,12 @@ SignalR の詳細については、次のリソースを参照してください
 
 * [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * プロジェクトを設定する
+> * プロジェクトのセットアップ
 > * サンプルを実行しました
 > * コードを調べる
 

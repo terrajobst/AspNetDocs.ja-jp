@@ -9,17 +9,17 @@ ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
 ms.openlocfilehash: 003e7939accd7a68dab97441b3d999bca835b85a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600859"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78456628"
 ---
 # <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX ローカライズについて理解する
 
 [Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
 > ローカリゼーションは、特定の言語とカルチャのサポートを設計し、アプリケーションまたはアプリケーションコンポーネントに統合するプロセスです。 Microsoft ASP.NET プラットフォームでは、標準の .NET ローカライズモデルを統合することによって、標準の ASP.NET アプリケーションのローカライズを広範にサポートしています。Microsoft AJAX Framework は、統合モデルを使用して、ローカライズを実行できるさまざまなシナリオをサポートします。
 
@@ -57,12 +57,12 @@ Microsoft AJAX Framework スクリプト管理は、スクリプトの配置と�
 
 次の表は、ファイルの名前付け規則と例をまとめたものです。
 
-| Filename | 説明 |
+| ファイル名 | 意味 |
 | --- | --- |
-| スクリプト .js | リリースバージョンのカルチャに依存しないスクリプト。 |
-| スクリプト. debug. .js | デバッグバージョンのカルチャに依存しないスクリプト。 |
-| En-US | リリースバージョン英語、米国スクリプト。 |
-| Script.debug.es | デバッグバージョンのスペイン語、コロンビア用スクリプト。 |
+| Script.js | リリースバージョンのカルチャに依存しないスクリプト。 |
+| Script.debug.js | デバッグバージョンのカルチャに依存しないスクリプト。 |
+| Script.en-US.js | リリースバージョン英語、米国スクリプト。 |
+| Script.debug.es-CO.js | デバッグバージョンのスペイン語、コロンビア用スクリプト。 |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>チュートリアル: ローカライズされた埋め込みスクリプトの作成
 
@@ -101,7 +101,7 @@ JavaScript Regex 構文に慣れていない場合、1つのスラッシュ (前
 
 [!code-aspx[Main](understanding-asp-net-ajax-localization/samples/sample4.aspx)]
 
-1. F5 キーを押します。 メッセージが表示されたら、デバッグを有効にします。 ページが読み込まれたら、[削除] ボタンをクリックします。 確認のために、(コンピューターが既定でスペイン語の言語リソースを優先するように設定されている場合を除き) 英語でメッセージが表示されることに注意してください。
+1. F5 キーを押す。 メッセージが表示されたら、デバッグを有効にします。 ページが読み込まれたら、[削除] ボタンをクリックします。 確認のために、(コンピューターが既定でスペイン語の言語リソースを優先するように設定されている場合を除き) 英語でメッセージが表示されることに注意してください。
 2. ブラウザーウィンドウを閉じ、default.aspx に戻ります。 @Page header ディレクティブで、auto for Culture と UICulture を es ES に置き換えます。 もう一度 F5 キーを押して、ブラウザーで web アプリケーションを再び起動します。 今回は、スペイン語でファイルを削除するように求められます。
 
 [![](understanding-asp-net-ajax-localization/_static/image2.png)](understanding-asp-net-ajax-localization/_static/image1.png)
@@ -136,7 +136,7 @@ ScriptManager コントロールによって、ローカライズされたアプ
 
 スクリプト参照を ScriptManager コントロールに追加するには、プログラムから、または宣言型のマークアップを使用します。 宣言型マークアップは、web サイトプロジェクト自体以外のアセンブリに埋め込まれたスクリプトを使用する場合に特に便利です。これは、スクリプトの名前が変更されても変更されない可能性があるためです。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Web アプリケーションの規模が拡大するにつれて、より多くのユーザーにリーチできるようにするためには、より広範なカルチャに至ることができ、コミュニティはビジネスモデルの中核になります。e コマース web アプリケーションは、国外の通貨を扱うことができる必要があります。コンテンツ管理システムでは、コンテンツだけでなく、ナビゲーションヒントやフォームフィールドを他の言語でも表示できる必要があります。また、会社のニーズが利用.
 

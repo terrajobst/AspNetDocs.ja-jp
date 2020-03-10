@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/index
-title: 旧バージョン - MVC 1 と 2 |Microsoft Docs
+title: 以前のバージョン-MVC 1 および 2 |Microsoft Docs
 author: rick-anderson
-description: MVC の 1. と 2. をプログラムする方法を学習するためのリソース。
+description: MVC 1 と2をプログラミングする方法を学習するためのリソース。
 ms.author: riande
 ms.date: 10/10/2014
 ms.assetid: 1506f70f-6919-45bd-8c75-a17aff77510c
 msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
 ms.openlocfilehash: 297f9ce7d16b49ef0f0ff376f57fc414584fc286
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117621"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469552"
 ---
 # <a name="older-versions---mvc-1-and-2"></a>旧バージョン - MVC 1 と 2
 
-> MVC の 1. と 2. をプログラムする方法を学習するためのリソース。
+> MVC 1 と2をプログラミングする方法を学習するためのリソース。
 
 - [概要](overview/index.md)
 
@@ -85,7 +85,7 @@ ms.locfileid: "65117621"
     - [カスタム ルートを作成する (VB)](controllers-and-routing/creating-custom-routes-vb.md)
     - [ルート制約を作成する (VB)](controllers-and-routing/creating-a-route-constraint-vb.md)
     - [カスタム ルート制約を作成する (VB)](controllers-and-routing/creating-a-custom-route-constraint-vb.md)
-- [配置](deployment/index.md)
+- [デプロイ](deployment/index.md)
 
     - [さまざまなバージョンの IIS と共に ASP.NET MVC (C#)](deployment/using-asp-net-mvc-with-different-versions-of-iis-cs.md)
     - [さまざまなバージョンの IIS と共に ASP.NET MVC (VB)](deployment/using-asp-net-mvc-with-different-versions-of-iis-vb.md)
@@ -121,7 +121,7 @@ ms.locfileid: "65117621"
 
     - [NerdDinner チュートリアルの紹介](nerddinner/introducing-the-nerddinner-tutorial.md)
     - [新しい ASP.NET MVC プロジェクトを作成する](nerddinner/create-a-new-aspnet-mvc-project.md)
-    - [データベースを作成する](nerddinner/create-a-database.md)
+    - [データベースの作成](nerddinner/create-a-database.md)
     - [ビジネス ルール検証でモデルをビルドする](nerddinner/build-a-model-with-business-rule-validations.md)
     - [コントローラーとビューを使用し、リスティング/詳細 UI を実装する](nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui.md)
     - [CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する](nerddinner/provide-crud-create-read-update-delete-data-form-entry-support.md)

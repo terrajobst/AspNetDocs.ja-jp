@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/index
-title: ドキュメントは以前のバージョンの Web API - ASP.NET 4.x
+title: 以前のバージョンの Web API に関するドキュメント-ASP.NET 4.x
 author: rick-anderson
-description: ドキュメントでは、以前のバージョンの Web API ASP.NET 4.x です。
+description: 以前のバージョンの Web API for ASP.NET 4.x に関するドキュメント。
 ms.author: riande
 ms.date: 10/23/2014
 ms.custom: seoapril2019
@@ -10,15 +10,15 @@ ms.assetid: f5bc7426-27c6-492c-914f-b9d2eb49753d
 msc.legacyurl: /web-api/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: 9ef642b52d61d7737b37d4499564d71a3bedcd8a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109116"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78447994"
 ---
-# <a name="documentation-on-older-versions-of-web-api"></a>以前のバージョンの Web API のドキュメント
+# <a name="documentation-on-older-versions-of-web-api"></a>以前のバージョンの Web API に関するドキュメント
 
-> ドキュメントでは、以前のバージョンの Web API ASP.NET 4.x です。
+> 以前のバージョンの Web API for ASP.NET 4.x に関するドキュメント。
 
 - [Web API 1 で CRUD 操作を有効にする](creating-a-web-api-that-supports-crud-operations.md)
 - [ASP.NET Web API 1 と Entity Framework 5 を使用する](using-web-api-1-with-entity-framework-5/index.md)

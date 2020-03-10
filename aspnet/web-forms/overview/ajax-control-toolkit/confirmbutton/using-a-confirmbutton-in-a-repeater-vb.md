@@ -9,11 +9,11 @@ ms.assetid: 18c31709-3f9d-4d93-8b01-f1356bf610b4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 001233d866d8a731d93d6900f714cd2060f3d08c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599331"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497542"
 ---
 # <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Repeater で ConfirmButton を使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599331"
 
 > AJAX コントロールツールキットの ConfirmButton エクステンダーは、ユーザーがボタン (LinkButton コントロールを含む) をクリックしたときに、[はい/いいえ] ポップアップを作成します。 [はい] をクリックした場合にのみ、ボタンのアクションが実行されます。それ以外の場合は取り消されます。 これは、リピータでも可能です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの ConfirmButton エクステンダーは、ユーザーがボタン (LinkButton コントロールを含む) をクリックしたときに、[はい/いいえ] ポップアップを作成します。 [はい] をクリックした場合にのみ、ボタンのアクションが実行されます。それ以外の場合は取り消されます。 これは、リピータでも可能です。
 
@@ -50,4 +50,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 データソースからの各エントリの横に [確認] ボタンが表示されます ([クリックすると、フルサイズの画像が表示](using-a-confirmbutton-in-a-repeater-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](using-a-confirmbutton-in-a-repeater-cs.md)
+> [[戻る]](using-a-confirmbutton-in-a-repeater-cs.md)

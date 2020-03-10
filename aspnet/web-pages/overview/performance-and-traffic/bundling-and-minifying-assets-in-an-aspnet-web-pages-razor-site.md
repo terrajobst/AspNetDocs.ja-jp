@@ -1,25 +1,25 @@
 ---
 uid: web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
-title: バンドルと縮小の資産を ASP.NET web ページ (Razor) サイト |Microsoft Docs
+title: ASP.NET Web ページ (Razor) サイトでの資産のバンドルと縮小 |Microsoft Docs
 author: microsoft
-description: バンドルと縮小には、サイトを速く方法です。 バンドルで結合する複数の JavaScript (.js) ファイルまたは複数のスタイル シート (.
+description: バンドルと縮小は、サイトをより迅速に作成する方法です。 バンドルを使用すると、複数の JavaScript (.js) ファイルまたは複数のカスケードスタイルシート (...
 ms.author: riande
 ms.date: 06/21/2012
 ms.assetid: 8906f1e9-4b66-4a03-8e8a-9e9debf8ed91
 msc.legacyurl: /web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
 msc.type: authoredcontent
 ms.openlocfilehash: 5e42111ad71ec65581e56c73822e23ecd5fcbd58
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59400452"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516178"
 ---
 # <a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでアセットをバンドルし、小さくする
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> バンドルと縮小には、サイトを速く方法です。 複数の JavaScript を結合することができますのバンドル (*.js*) ファイルまたは複数のカスケード スタイル シート (*.css*) それらを一度に 1 つずつではなく、単位としてダウンロードできるようにします。 縮小では、空白を絞り出すし、他の種類のことがある小規模としてダウンロードしたファイルを作成するために圧縮を実行します。
+> バンドルと縮小は、サイトをより迅速に作成する方法です。 バンドルを使用すると、複数の JavaScript ( *.js*) ファイルまたは複数のカスケードスタイルシート ( *.css*) ファイルを結合して、一度に1つずつではなく、1つの単位としてダウンロードできます。 縮小 squeezes は空白を除外し、他の種類の圧縮を実行して、ダウンロードされたファイルを可能な限り小さくします。
 > 
 > > [!NOTE]
-> > ASP.NET Web Pages 2 の RC リリースはサポートしていませんバンドルと縮小に必要な要素を含むパッケージがまだ Microsoft WebMatrix では使用できないためです。 この不便をおかけして申し訳ありません。 パッケージは、ASP.NET Web ページ 2 と WebMatrix 2 の最終リリースで使用できることが必要です。
+> > ASP.NET Web ページ2の RC リリースでは、必要な要素を含むパッケージが Microsoft WebMatrix ではまだ使用できないため、バンドルと縮小はサポートされていません。 ご不便をおかけして申し訳ありません。 パッケージは、ASP.NET Web ページ2および WebMatrix 2 の最終リリースで使用できることが想定されています。

@@ -9,11 +9,11 @@ ms.assetid: 11f6fe44-64ef-4a38-a3b4-35c7bb992352
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 5018023eced23e7a70eab90e649f85862c548940
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74570494"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462808"
 ---
 # <a name="logging-error-details-with-elmah-c"></a>ELMAH でエラーの詳細をログに記録する (C#)
 
@@ -31,7 +31,7 @@ ms.locfileid: "74570494"
 
 正常性監視システムの代替手段は、 [Atif た](http://www.raboof.com/)によって作成された無料のオープンソースのエラーログシステムである、エラーログモジュールとハンドラー (ELMAH) です。 2つのシステムの最も顕著な違いは、エラーの一覧と、web ページおよび RSS フィードからの特定のエラーの詳細を表示する ELAMH の機能です。 ELMAH は、エラーをログに記録するだけなので、正常性の監視よりも簡単に構成できます。 さらに、ELMAH には、ASP.NET 1.x、ASP.NET 2.0、および ASP.NET 3.5 アプリケーションのサポートが含まれており、さまざまなログソースプロバイダーが付属しています。
 
-このチュートリアルでは、ASP.NET アプリケーションに ELMAH を追加するために必要な手順について説明します。 では、始めましょう。
+このチュートリアルでは、ASP.NET アプリケーションに ELMAH を追加するために必要な手順について説明します。 作業開始
 
 > [!NOTE]
 > 正常性監視システムと ELMAH の両方に、独自の長所と短所があります。 両方のシステムを試して、ニーズに最も適したものを決定することをお勧めします。
@@ -226,7 +226,7 @@ ELMAH の `ErrorLogModule` HTTP モジュールは、未処理の例外を指定
 
 ELMAH のエラーフィルタリング機能の詳細については、 [elmah wiki](https://code.google.com/p/elmah/w/list)の[「エラーのフィルター処理」セクション](https://code.google.com/p/elmah/wiki/ErrorFiltering)を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ELMAH は、ASP.NET web アプリケーションのエラーをログに記録するためのシンプルで、かつ強力なメカニズムを提供します。 Microsoft の正常性監視システムと同様に、ELMAH はデータベースにエラーを記録し、電子メールでエラーの詳細を開発者に送信することができます。 正常性監視システムとは異なり、ELMAH には、Microsoft SQL Server、Microsoft Access、Oracle、XML ファイルなど、さまざまな種類のエラーログデータストアの既定のサポートが含まれています。 また、ELMAH には、エラーログと、web ページからの特定のエラーに関する詳細情報を表示するための組み込みのメカニズムが用意されています (`elmah.axd`)。 また、[`elmah.axd`] ページでは、エラー情報を RSS フィードまたはコンマ区切り値ファイル (CSV) として表示することもできます。このファイルは、Microsoft Excel を使用して読み取ることができます。 また、宣言型またはプログラムによるアサーションを使用して、ログからのエラーをフィルター処理するように ELMAH に指示することもできます。 および ELMAH は、ASP.NET バージョン1.x アプリケーションで使用できます。
 
@@ -234,7 +234,7 @@ ELMAH は、ASP.NET web アプリケーションのエラーをログに記録�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

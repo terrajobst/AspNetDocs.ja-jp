@@ -9,11 +9,11 @@ ms.assetid: 70d5d106-b547-442c-a7fd-3492b3e3d646
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-cs
 msc.type: authoredcontent
 ms.openlocfilehash: f83201fc6fd458e730b6bb5ffee184d303b52e90
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611386"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78508912"
 ---
 # <a name="using-postbacks-with-reorderlist-c"></a>ReorderList でポストバックを使用する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611386"
 
 > AJAX コントロールツールキットの ReorderList コントロールは、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストを提供します。 リストが並べ替えられるたびに、ポストバックはサーバーに変更を通知します。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの `ReorderList` コントロールには、ドラッグアンドドロップを使用してユーザーが並べ替えることのできるリストが用意されています。 リストが並べ替えられるたびに、ポストバックはサーバーに変更を通知します。
 
@@ -65,4 +65,4 @@ AJAX コントロールツールキットの `ReorderList` コントロールに
 各並べ替え順序によってポストバックがトリガーされる ([クリックすると、フルサイズの画像が表示](using-postbacks-with-reorderlist-cs/_static/image3.png)される)
 
 > [!div class="step-by-step"]
-> [次へ](drag-and-drop-via-reorderlist-cs.md)
+> [Next](drag-and-drop-via-reorderlist-cs.md)

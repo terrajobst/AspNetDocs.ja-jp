@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: ヘルプ ページを作成する ASP.NET web API - ASP.NET 4.x
+title: ASP.NET Web API のヘルプページを作成する-ASP.NET 4.x
 author: MikeWasson
-description: コードで、このチュートリアルは、ASP.NET での ASP.NET Web API のヘルプ ページを作成する方法を示しています。 4.x です。
+description: このチュートリアルでは、ASP.NET 4.x で ASP.NET Web API 用のヘルプページを作成する方法を示します。
 ms.author: riande
 ms.date: 04/01/2013
 ms.custom: seoapril2019
@@ -10,120 +10,120 @@ ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 8308dab8bd66aa8f5a3c5fb4133fc7a3df78f671
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125243"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448618"
 ---
-# <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API のヘルプ ページの作成
+# <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API のヘルプページの作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-コードで、このチュートリアルは、ASP.NET での ASP.NET Web API のヘルプ ページを作成する方法を示しています。 4.x です。
+このチュートリアルでは、ASP.NET 4.x で ASP.NET Web API 用のヘルプページを作成する方法を示します。
 
-Web API を作成するときに多くの場合のヘルプ ページを作成すると便利他の開発者は、API を呼び出す方法を認識できるようにします。 すべてのドキュメントを手動で作成する可能性がありますが、できるだけ多くの自動生成することをお勧めします。 この作業を容易にするには、ASP.NET Web API は、実行時のヘルプ ページの自動生成するライブラリを提供します。
+Web API を作成するときは、多くの場合、他の開発者が API の呼び出し方法を理解できるように、ヘルプページを作成すると便利です。 すべてのドキュメントを手動で作成することもできますが、可能な限り自動生成することをお勧めします。 このタスクを簡単にするために、ASP.NET Web API では、実行時に自動生成ヘルプページ用のライブラリが用意されています。
 
 ![](creating-api-help-pages/_static/image1.png)
 
-## <a name="creating-api-help-pages"></a>API ヘルプ ページを作成します。
+## <a name="creating-api-help-pages"></a>API ヘルプページの作成
 
-インストール[ASP.NET および Web Tools 2012.2 の Update](https://go.microsoft.com/fwlink/?LinkId=282650)します。 この更新プログラムは、Web API プロジェクト テンプレートに、ヘルプ ページを統合します。
+[ASP.NET and Web Tools 2012.2 更新プログラム](https://go.microsoft.com/fwlink/?LinkId=282650)をインストールします。 この更新プログラムは、ヘルプページを Web API プロジェクトテンプレートに統合します。
 
-次に、新しい ASP.NET MVC 4 プロジェクトを作成し、Web API プロジェクト テンプレートを選択します。 プロジェクト テンプレートの作成という名前の API の例のコント ローラーを`ValuesController`します。 テンプレートには、API のヘルプ ページも作成します。 すべてのヘルプ ページのコード ファイルは、プロジェクトの [区分] フォルダーに配置されます。
+次に、新しい ASP.NET MVC 4 プロジェクトを作成し、[Web API プロジェクト] テンプレートを選択します。 プロジェクトテンプレートは、`ValuesController`という名前の API コントローラーの例を作成します。 このテンプレートは、API のヘルプページも作成します。 ヘルプページのすべてのコードファイルは、プロジェクトの [区分] フォルダーに配置されます。
 
 ![](creating-api-help-pages/_static/image2.png)
 
-アプリケーションを実行すると、ホーム ページには、API ヘルプ ページへのリンクが含まれています。 ホーム ページからは、相対パスは、/Help が。
+アプリケーションを実行すると、ホームページに API ヘルプページへのリンクが表示されます。 ホームページから、相対パスは/helpになります。
 
 ![](creating-api-help-pages/_static/image3.png)
 
-このリンクでは、API の概要ページに表示されます。
+このリンクを使用すると、API の概要ページが表示されます。
 
 ![](creating-api-help-pages/_static/image4.png)
 
-このページの MVC ビューは、Areas/HelpPage/Views/Help/Index.cshtml で定義されます。 レイアウト、概要、タイトル、スタイル、およびなどを変更するには、このページを編集することができます。
+このページの MVC ビューは、Areas/HelpPage/Views/Help/Index. cshtml で定義されています。 このページを編集して、レイアウト、概要、タイトル、スタイルなどを変更できます。
 
-ページの主要部分では、コント ローラーでグループ化された Api のテーブルです。 テーブルのエントリも動的に生成されたを使用して、 **IApiExplorer**インターフェイス。 (説明しますこのインターフェイスについては後で。)新しい API コント ローラーを追加すると、実行時に、テーブルが自動的に更新します。
+ページの主要な部分は、コントローラー別にグループ化された Api のテーブルです。 テーブルエントリは、 **Iapiexplorer**インターフェイスを使用して動的に生成されます。 (このインターフェイスについては後で詳しく説明します)。新しい API コントローラーを追加すると、テーブルは実行時に自動的に更新されます。
 
-"API"の列には、HTTP メソッドと相対 URI が表示されます。 「説明」列には、各 API のドキュメントが含まれています。 最初に、ドキュメントは、プレース ホルダー テキストだけです。 次のセクションでは、XML のコメントからドキュメントを追加する方法を紹介します。
+[API] 列には、HTTP メソッドと相対 URI が一覧表示されます。 [説明] 列には、各 API のドキュメントが含まれています。 最初に、ドキュメントはプレースホルダーテキストにすぎません。 次のセクションでは、XML コメントからドキュメントを追加する方法について説明します。
 
-各 API では、例の要求および応答の本文を含む、詳細な情報をページにリンクがあります。
+各 API には、要求や応答の本文など、詳細な情報が記載されたページへのリンクがあります。
 
 ![](creating-api-help-pages/_static/image5.png)
 
-## <a name="adding-help-pages-to-an-existing-project"></a>既存のプロジェクトに追加のヘルプ ページ
+## <a name="adding-help-pages-to-an-existing-project"></a>既存のプロジェクトへのヘルプページの追加
 
-ヘルプ ページは、NuGet パッケージ マネージャーを使用して既存の Web API プロジェクトに追加できます。 このオプションは、"Web API"テンプレートよりも、別のプロジェクト テンプレートから開始するは便利です。
+NuGet パッケージマネージャーを使用して、既存の Web API プロジェクトにヘルプページを追加できます。 このオプションは、"Web API" テンプレートとは別のプロジェクトテンプレートから開始する場合に便利です。
 
-**ツール**メニューの  **NuGet パッケージ マネージャー**、し、**パッケージ マネージャー コンソール**します。 [パッケージ マネージャー コンソール](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)ウィンドウで、次のコマンドのいずれかを入力します。
+**[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [[パッケージマネージャーコンソール](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)] ウィンドウで、次のいずれかのコマンドを入力します。
 
-**C#** アプリケーション。 `Install-Package Microsoft.AspNet.WebApi.HelpPage`
+**C#** アプリケーションの場合: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-**Visual Basic**アプリケーション。 `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+**Visual Basic**アプリケーションの場合: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
-C# と Visual basic の 2 つのパッケージがあります。 プロジェクトに一致する 1 つを使用してください。
+パッケージは2つあります。 C# 1 つは Visual Basic 用、もう1つは1つです。 プロジェクトに一致するものを使用してください。
 
-このコマンドは、必要なアセンブリをインストールし、(領域/HelpPage フォルダーにあります) のヘルプ ページの MVC ビューを追加します。 ヘルプ ページへのリンクを手動で追加する必要があります。 URI は、/Help です。 Razor ビューで、リンクを作成するには、次のように追加します。
+このコマンドは、必要なアセンブリをインストールし、ヘルプページの MVC ビューを追加します (区分/ヘルプページフォルダーにあります)。 ヘルプページへのリンクを手動で追加する必要があります。 URI は/helpです。 Razor ビューでリンクを作成するには、次のように追加します。
 
 [!code-cshtml[Main](creating-api-help-pages/samples/sample1.cshtml)]
 
-また、領域を登録することを確認してください。 Global.asax ファイルで次のコードを追加、**アプリケーション\_開始**メソッドが存在しない場合。
+また、領域を登録してください。 Global.asax ファイルで、次のコードを**アプリケーション\_Start**メソッドに追加します (まだ存在していない場合)。
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample2.cs?highlight=4)]
 
-## <a name="adding-api-documentation"></a>API のドキュメントを追加します。
+## <a name="adding-api-documentation"></a>API ドキュメントの追加
 
-既定では、ヘルプ ページがあるドキュメントのプレース ホルダー文字列。 使用することができます[XML ドキュメント コメント](https://msdn.microsoft.com/library/b2s063f7.aspx)ドキュメントを作成します。 この機能を有効にするには、ファイル領域/HelpPage/アプリを開く\_Start/HelpPageConfig.cs、次の行をコメント解除します。
+既定では、ヘルプページにドキュメントのプレースホルダー文字列があります。 [XML ドキュメントコメント](https://msdn.microsoft.com/library/b2s063f7.aspx)を使用して、ドキュメントを作成できます。 この機能を有効にするには、[ファイルエリア]、[ヘルプ] ページ、[アプリ] の順に開き、[Start/\_] を開き、次の行をコメント解除します。
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample3.cs)]
 
-XML ドキュメントを有効にするようになりました。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**プロパティ**します。 選択、**ビルド**ページ。
+ここで XML ドキュメントを有効にします。 ソリューションエクスプローラーで、プロジェクトを右クリックし、 **[プロパティ]** を選択します。 **[ビルド]** ページを選択します。
 
 ![](creating-api-help-pages/_static/image6.png)
 
-**出力**、確認**XML ドキュメント ファイル**します。 編集ボックスで、次のように入力します。"アプリ\_Data/XmlDocument.xml"。
+**[出力]** で、 **[XML ドキュメントファイル]** を確認します。 [編集] ボックスに「App\_Data/XmlDocument .xml」と入力します。
 
 ![](creating-api-help-pages/_static/image7.png)
 
-コードを次に、開く、 `ValuesController` /Controllers/ValuesController.cs で定義されている API コント ローラー。 コント ローラーのメソッドには、いくつかのドキュメントのコメントを追加します。 例:
+次に、/Controllers/ValuesController.cs. で定義されている `ValuesController` API コントローラーのコードを開きます。 いくつかのドキュメントコメントをコントローラーメソッドに追加します。 次に例を示します。
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample4.cs)]
 
 > [!NOTE]
-> ヒント :メソッド上の行にキャレットを配置し、次の 3 つのスラッシュを入力する場合、Visual Studio は自動的に XML 要素を挿入します。 空白を入力します。
+> ヒント: メソッドの上の行にカレットを置き、3つのスラッシュを入力すると、Visual Studio によって自動的に XML 要素が挿入されます。 次に、空白を入力します。
 
-今すぐビルドし、もう一度アプリケーションを実行し、ヘルプ ページに移動します。 API テーブル内のドキュメント文字列が表示されます。
+次に、アプリケーションを再度ビルドして実行し、ヘルプページに移動します。 ドキュメント文字列が API テーブルに表示されます。
 
 ![](creating-api-help-pages/_static/image8.png)
 
-ヘルプ ページは、実行時に、XML ファイルから文字列を読み取ります。 (アプリケーションを展開するときに必ず XML ファイルをデプロイする。)
+ヘルプページは、実行時に XML ファイルから文字列を読み取ります。 (アプリケーションを配置するときは、必ず XML ファイルを展開してください)。
 
-## <a name="under-the-hood"></a>内部的には
+## <a name="under-the-hood"></a>しくみ
 
-ヘルプ ページがの上に構築された、**ための ApiExplorer**クラスは、Web API フレームワークの一部です。 **ための ApiExplorer**クラスは、ヘルプ ページを作成するため、原材料を提供します。 各 api では、**ための ApiExplorer**が含まれています、 **ApiDescription** API を記述します。 このため、"API"は、HTTP メソッドと相対 URI の組み合わせとして定義されます。 たとえば、異なる Api がいくつか次に示します。
+ヘルプページは、Web API フレームワークの一部である**Apiexplorer**クラスの上に構築されています。 **Apiexplorer**クラスは、ヘルプページを作成するための未加工のマテリアルを提供します。 API ごとに、 **Apiexplorer**に api を説明する**apiexplorer**が含まれています。 このため、"API" は HTTP メソッドと相対 URI の組み合わせとして定義されています。 たとえば、次の Api があります。
 
-- /Api/Products を取得します。
+- Api/製品を入手
 - GET /api/Products/{id}
-- Api/製品を投稿します。
+- 投稿/Api/製品
 
-コント ローラーのアクションは、複数の HTTP メソッドをサポートしている場合、**ための ApiExplorer**各メソッドを個別の API として扱われます。
+コントローラーアクションで複数の HTTP メソッドがサポートされている場合、 **Apiexplorer**は各メソッドを個別の API として扱います。
 
-API を非表示にする、**ための ApiExplorer**、追加、 **ApiExplorerSettings**属性を設定しアクション*IgnoreApi*を true にします。
+**Apiexplorer**から API を非表示にするには、アクションに**ApiExplorerSettings**属性を追加し、 *ignoreapi*を true に設定します。
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample5.cs)]
 
-コント ローラー全体を除外する、コント ローラーにこの属性を追加することもできます。
+コントローラー全体を除外するために、コントローラーにこの属性を追加することもできます。
 
-ドキュメント文字列を取得するための ApiExplorer クラス、 **IDocumentationProvider**インターフェイス。 ヘルプ ページ ライブラリは、既に説明したように**IDocumentationProvider** XML ドキュメントの文字列からドキュメントを取得します。 コードは/Areas/HelpPage/XmlDocumentationProvider.cs にあります。 取得できますドキュメントの別のソースを記述して、独自**IDocumentationProvider**します。 結び付けるを呼び出し、 **SetDocumentationProvider**で定義された拡張機能メソッド**HelpPageConfigurationExtensions**
+ApiExplorer クラスは、 **Idocumentation プロバイダー**インターフェイスからドキュメント文字列を取得します。 既に説明したように、ヘルプページライブラリには、XML ドキュメント文字列からドキュメントを取得する**Idocumentation プロバイダー**が用意されています。 このコードは/Areas/HelpPage/XmlDocumentationProvider.cs. にあります。 独自の**Idocumentation プロバイダー**を作成することによって、別のソースからドキュメントを取得できます。 これを行うには、 **HelpPageConfigurationExtensions**で定義されている**setdocumentation provider**拡張メソッドを呼び出します。
 
-**ための ApiExplorer**を自動的に呼び出す、 **IDocumentationProvider**各 api のドキュメント文字列を取得するインターフェイス。 それらを保存、**ドキュメント**のプロパティ、 **ApiDescription**と**ApiParameterDescription**オブジェクト。
+**Apiexplorer**は、 **idocumentation プロバイダー**インターフェイスを自動的に呼び出し、各 API のドキュメント文字列を取得します。 これらは、 **apidescription**オブジェクトと**apiparameterdescription**オブジェクトの**Documentation**プロパティに格納されます。
 
 ## <a name="next-steps"></a>次の手順
 
-方法は、次のとおりのヘルプ ページに限定されません。 実際、**ための ApiExplorer**ヘルプ ページを作成するのには限定されません。 Yao Huang Lin はすぐ概説するいくつかの優れたブログの投稿を書き込まれます。
+ここに表示されているヘルプページには制限がありません。 実際、 **Apiexplorer**はヘルプページの作成に限定されません。 Yao のリンクは、すぐに使えるように、優れたブログ投稿を作成しました。
 
-- [ASP.NET Web API ヘルプ ページへの単純なテスト クライアントの追加](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/02/adding-a-simple-test-client-to-asp-net-web-api-help-page.aspx)
-- [ASP.NET Web API ヘルプ ページ自己ホスト型サービスで作業を行う](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/20/making-asp-net-web-api-help-page-work-on-self-hosted-services.aspx)
-- [ヘルプ ページ (またはクライアント) の ASP.NET Web API のデザイン時の生成](https://blogs.msdn.com/b/yaohuang1/archive/2013/01/20/design-time-generation-of-help-page-or-proxy-for-asp-net-web-api.aspx)
-- [高度なヘルプ ページのカスタマイズ](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/10/asp-net-web-api-help-page-part-3-advanced-help-page-customizations.aspx)
+- [ASP.NET Web API のヘルプページへの単純なテストクライアントの追加](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/02/adding-a-simple-test-client-to-asp-net-web-api-help-page.aspx)
+- [自己ホスト型サービスでの ASP.NET Web API ヘルプページの作成](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/20/making-asp-net-web-api-help-page-work-on-self-hosted-services.aspx)
+- [ASP.NET Web API 用のヘルプページ (またはクライアント) のデザイン時生成](https://blogs.msdn.com/b/yaohuang1/archive/2013/01/20/design-time-generation-of-help-page-or-proxy-for-asp-net-web-api.aspx)
+- [詳細なヘルプページのカスタマイズ](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/10/asp-net-web-api-help-page-part-3-advanced-help-page-customizations.aspx)

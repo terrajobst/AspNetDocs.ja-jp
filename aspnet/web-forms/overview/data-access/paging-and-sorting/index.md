@@ -2,22 +2,22 @@
 uid: web-forms/overview/data-access/paging-and-sorting/index
 title: ページングと並べ替え |Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルでは、データ レポートをいくつかの初期の並べ替えとページング機能を追加します。
+description: これらのチュートリアルでは、初期の並べ替え機能とページング機能をデータレポートに追加します。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: d45a8c0c-e8ec-46d3-bc1c-ce446df005c8
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting
 msc.type: chapter
 ms.openlocfilehash: e534cd2a4e836df3943475c3d15a302ec78581c5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131424"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78476914"
 ---
 # <a name="paging-and-sorting"></a>ページングと並べ替え
 
-> これらのチュートリアルでは、データ レポートをいくつかの初期の並べ替えとページング機能を追加します。
+> これらのチュートリアルでは、初期の並べ替え機能とページング機能をデータレポートに追加します。
 
 - [レポート データのページングと並べ替え (C#)](paging-and-sorting-report-data-cs.md)
 - [大量のデータを効率的にページングする (C#)](efficiently-paging-through-large-amounts-of-data-cs.md)

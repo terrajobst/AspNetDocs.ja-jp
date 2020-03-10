@@ -9,11 +9,11 @@ ms.assetid: 8e11b813-ba0d-4c29-b0f8-f65db6dbef1e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-cs
 msc.type: authoredcontent
 ms.openlocfilehash: ddc154601752cc856f00dd4f3207952ab7e0e3e0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606498"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78496786"
 ---
 # <a name="creating-mutually-exclusive-checkboxes-c"></a>相互に排他的なチェックボックスを作成する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606498"
 
 > 選択できるオプションのセットが1つだけの場合は、通常、ラジオボタンが使用されます。 ただし、欠点があります。グループ内の1つのラジオボタンを選択すると、すべてのラジオボタンをオフにすることはできません。 チェックボックスは、いつでもオフにすることができますが、相互に排他的ではありません。 このチュートリアルでは、2つのアプローチ (相互に排他的なチェックボックス) について説明します。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 選択できるオプションのセットが1つだけの場合は、通常、ラジオボタンが使用されます。 ただし、欠点があります。グループ内の1つのラジオボタンを選択すると、すべてのラジオボタンをオフにすることはできません。 チェックボックスは、いつでもオフにすることができますが、相互に排他的ではありません。 このチュートリアルでは、2つのアプローチ (相互に排他的なチェックボックス) について説明します。
 
@@ -50,4 +50,4 @@ ASP.NET AJAX Control Toolkit には、MutuallyExclusiveCheckBox extender が含�
 チェックボックスは一度に1つしかチェックできません ([クリックすると、フルサイズの画像が表示](creating-mutually-exclusive-checkboxes-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](creating-mutually-exclusive-checkboxes-vb.md)
+> [Next](creating-mutually-exclusive-checkboxes-vb.md)

@@ -9,11 +9,11 @@ ms.assetid: 56e15b33-93b8-43ad-8e19-44c6647ea05c
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3cddb0efd28249ffc5708ece39c80581d078a5a2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74617484"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78492424"
 ---
 # <a name="implementing-optimistic-concurrency-c"></a>オプティミスティック同時実行制御を実装する (C#)
 
@@ -354,7 +354,7 @@ BLL メソッドの戻り値は、ObjectDataSource のポストレベルのイ�
 
 **図 20**: 同時実行違反が発生したときにユーザーの削除が取り消される ([クリックしてフルサイズのイメージを表示する](implementing-optimistic-concurrency-cs/_static/image58.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 同時実行ユーザーが複数のデータを更新または削除できるようにするすべてのアプリケーションには、同時実行違反の可能性があります。 このような違反が考慮されていない場合、2人のユーザーが前回の書き込みで取得した同じデータを同時に更新すると、他のユーザーの変更が上書きされます。 また、開発者はオプティミスティックまたはペシミスティック同時実行制御を実装できます。 オプティミスティック同時実行制御では、同時実行違反が頻繁に発生しないことを前提としています。また、単に、同時実行違反を構成する update または delete コマンドを禁止します ペシミスティック同時実行制御は、同時実行違反が頻繁に発生することを前提としており、1人のユーザーの update コマンドまたは delete コマンドを拒否するだけでは許容できません。 ペシミスティック同時実行制御では、レコードを更新することによって、ロックされている間に他のユーザーがレコードを変更または削除できないようにします。
 
@@ -364,7 +364,7 @@ BLL メソッドの戻り値は、ObjectDataSource のポストレベルのイ�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

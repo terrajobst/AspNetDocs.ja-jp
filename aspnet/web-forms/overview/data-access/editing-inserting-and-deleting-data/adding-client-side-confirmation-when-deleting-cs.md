@@ -9,11 +9,11 @@ ms.assetid: f6e2a12a-2b5e-48fd-8db3-1e94a500c19a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e7d53bc65fdbbfa9ce9bfa5fbdbfa0dea598eebe
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623566"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78479818"
 ---
 # <a name="adding-client-side-confirmation-when-deleting-c"></a>削除時、クライアント側の確認を追加する (C#)
 
@@ -125,7 +125,7 @@ CommandField の欠点の1つは、インデックスを使用してそのボタ
 
 ここで、 *controlID*はボタン s `ID` プロパティの値です。 このパターンでは、キャストにハードコーディングされた型が必要ですが、インデックスを作成する必要がなくなり、実行時エラーが発生することなくレイアウトを変更できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 JavaScript `confirm(string)` 関数は、フォーム送信ワークフローを制御するためによく使用される手法です。 この関数を実行すると、モーダルのクライアント側ダイアログボックスが表示されます。このダイアログボックスには、[OK] と [キャンセル] の2つのボタンが含まれます。 ユーザーが [OK] をクリックすると、`confirm(string)` 関数は `true`を返します。[キャンセル] をクリックすると `false`が返されます。 この機能は、ブラウザーの動作と組み合わせて、送信プロセス中にイベントハンドラーが `false`を返した場合に、フォームの送信をキャンセルします。これを使用すると、レコードを削除するときに確認メッセージボックスを表示できます。
 
@@ -133,7 +133,7 @@ JavaScript `confirm(string)` 関数は、フォーム送信ワークフローを
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

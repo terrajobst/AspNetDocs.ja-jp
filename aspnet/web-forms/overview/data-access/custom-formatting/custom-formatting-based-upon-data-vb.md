@@ -9,11 +9,11 @@ ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 268dc763ef6954903f721a3015daaf10bf9bccb1
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74613047"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78482764"
 ---
 # <a name="custom-formatting-based-upon-data-vb"></a>データに基づくカスタム書式設定 (VB)
 
@@ -266,7 +266,7 @@ GridView の個々のレコードの形式をカスタマイズするには、`R
 
 **図 11**: 最も低価格の製品が黄色で強調表示されている ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-vb/_static/image27.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、コントロールにバインドされたデータに基づいて GridView、DetailsView、および FormView の書式を設定する方法を説明しました。 これを実現するために、必要に応じて、基になるデータを書式設定の変更と共に調べた `DataBound` イベントまたは `RowDataBound` イベントのイベントハンドラーを作成しました。 DetailsView または FormView にバインドされたデータにアクセスするには、`DataBound` イベントハンドラーの `DataItem` プロパティを使用します。GridView の場合、各 `GridViewRow` インスタンスの `DataItem` プロパティには、その行にバインドされたデータが含まれます。これは、`RowDataBound` イベントハンドラーで使用できます。
 
@@ -276,7 +276,7 @@ GridView の個々のレコードの形式をカスタマイズするには、`R
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

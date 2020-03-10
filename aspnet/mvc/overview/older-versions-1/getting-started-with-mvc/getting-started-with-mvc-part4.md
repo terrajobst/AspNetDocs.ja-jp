@@ -2,86 +2,86 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 title: データベースを作成する |Microsoft Docs
 author: shanselman
-description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。
+description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 データベースを読み書きする単純な web アプリケーションを作成します。
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
 ms.openlocfilehash: 995db714ce6365415d06dc458aee84a31c7c8fd6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117674"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469672"
 ---
 # <a name="creating-a-database"></a>データベースを作成します。
 
-[Scott Hanselman](https://github.com/shanselman)による
+[Scott マン Selman](https://github.com/shanselman)
 
-> これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
+> これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 データベースを読み書きする単純な web アプリケーションを作成します。 他の ASP.NET MVC のチュートリアルとサンプルについては、 [ASP.NET mvc learning center](../../../index.md)を参照してください。
 
-このセクションでは、ムービー データ格納および取得に使用する新しい SQL Express データベースを作成するいきます。 Visual Web Developer IDE 内での選択ビュー |サーバー エクスプ ローラー。 データ接続を右クリックし、[接続の追加] をクリックしてください.
+このセクションでは、ムービーデータを格納および取得するために使用する新しい SQL Express データベースを作成します。 Visual Web Developer IDE 内から、[表示] を選択します。サーバー エクスプローラー。 [データ接続] を右クリックし、[接続の追加] をクリックします。
 
 ![AddConnection](getting-started-with-mvc-part4/_static/image1.png)
 
-データ ソースの選択 ダイアログ ボックスで、Microsoft SQL Server を選択し、続行 を選択します。
+データソースの選択 ダイアログで、Microsoft SQL Server を選択し、続行 を選択します。
 
 ![](getting-started-with-mvc-part4/_static/image2.png)
 
-接続の追加 ダイアログ ボックスで次のように入力します。"。 \SQLEXPRESS"、サーバー名に対応し、新しいデータベースの名前として"Movies"を入力します。
+[接続の追加] ダイアログボックスで、サーバー名として「.\SQLEXPRESS」と入力し、新しいデータベースの名前として「ムービー」と入力します。
 
-[![追加の接続 ダイアログ ボックス](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
+[[接続の追加] ダイアログ ![](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
 
-[OK] をクリックし、求められますかどうかは、そのデータベースを作成します。 [はい] を選択します。
+[OK] をクリックすると、そのデータベースを作成するかどうかを確認するメッセージが表示されます。 [はい] を選択します。
 
-[![ムービーを作成しますか。](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
+[ムービーを作成 ![には](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
 
-サーバー エクスプ ローラーで、空のデータベースがあります。
+サーバーエクスプローラーに空のデータベースが作成されました。
 
-![新しいテーブルを追加します。](getting-started-with-mvc-part4/_static/image7.png)
+![新しいテーブルの追加](getting-started-with-mvc-part4/_static/image7.png)
 
-テーブルを右クリックし、[テーブルの追加] をクリックします。 テーブル デザイナーが表示されます。 Id、タイトル、ReleaseDate、ジャンル、および価格の列を追加します。 ID 列を右クリックし、主キーの設定 をクリックします。 次のようになります、どのようなデザイン領域に示します。
+テーブルを右クリックし、[テーブルの追加] をクリックします。 テーブルデザイナーが表示されます。 Id、タイトル、ReleaseDate、Genre、および Price の列を追加します。 [ID] 列を右クリックし、[主キーの設定] をクリックします。 デザイン領域は次のようになります。
 
-[![データベース テーブル エディター](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
+[![データベーステーブルエディター](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
 
-また、Id 列を選択し、以下の列のプロパティを"Yes"にします「Id の指定」を変更します。
+また、[Id] 列を選択し、[列のプロパティ] の下にある [Identity Specification] を [Yes] に変更します。
 
-[![IsIdentity - 列のプロパティ](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
+[![IsIdentity のプロパティ](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
 
-これを取得したら、ツールバーの [保存] アイコンをクリックしますまたはファイルを選択します |。メニューから、保存し、テーブルの名前"**ムービー**"(単数形)。 データベースとテーブルを作成しました!
+完了したら、ツールバーの [保存] アイコンをクリックするか、[ファイル] を選択します。メニューから [保存] を指定し、テーブルに "**Movie**" という名前を付けます (単数形)。 データベースとテーブルがあります。
 
-[![名前を選択します。](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
+[![名の選択](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
 
-サーバー エクスプ ローラーに戻り、Movie テーブルを右クリックし、"テーブル データの表示。 を選択します。 データベースにいくつかのデータがあるため、いくつかの映画を入力します。
+サーバーエクスプローラーに戻り、Movie テーブルを右クリックして、[テーブルデータの表示] を選択します。 いくつかのムービーを入力すると、データベースにいくつかのデータが含まれます。
 
-[![データベース テーブルの編集](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
+[![データベーステーブルの編集](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
 ## <a name="creating-a-model"></a>モデルの作成
 
-ここで、IDE の右側に、ソリューション エクスプ ローラーに戻るし、Models フォルダーを右クリックし、追加 |新しい項目。
+次に、IDE の右側にあるソリューションエクスプローラーに戻り、[モデル] フォルダーを右クリックして [追加] を選択します。新しい項目。
 
-[![addnewmodelitem](getting-started-with-mvc-part4/_static/image17.png)](getting-started-with-mvc-part4/_static/image16.png)
+[addnewmodelitem の ![](getting-started-with-mvc-part4/_static/image17.png)](getting-started-with-mvc-part4/_static/image16.png)
 
-新しいデータベースからエンティティ モデルを作成しようとしています。 これにより、一連のクラスを照会して、データベース内のデータを操作するが容易にするプロジェクトに追加されます。 ダイアログの左側にあるデータ ノードを選択し、ADO.NET Entity Data Model 項目テンプレートを選択します。 Movies.edmx 名前を付けます。
+ここでは、新しいデータベースからエンティティモデルを作成します。 これにより、一連のクラスがプロジェクトに追加され、データベース内のデータを簡単に照会して操作できるようになります。 ダイアログの左側にある [データ] ノードを選択し、ADO.NET Entity Data Model 項目テンプレートを選択します。 「ムービー .edmx」という名前を指定します。
 
 [![AddNewDataModel](getting-started-with-mvc-part4/_static/image19.png)](getting-started-with-mvc-part4/_static/image18.png)
 
-[追加] ボタンをクリックします。 これが、「Entity Data Model ウィザード」を起動しています。
+[追加] ボタンをクリックします。 これにより、"Entity Data Model ウィザード" が起動します。
 
-新しいダイアログが表示されたらでは、データベースから生成を選択します。 データベースだけしていますので、新しいデータベースとそのテーブルについて、Entity Framework にのみ必要あります。 Web アプリケーションの構成では、データベース接続の横をクリックします。 ここで、テーブルとムービーを確認 [完了] チェック ボックスをクリックします。
+ポップアップ表示された新しいダイアログボックスで、[データベースから生成] を選択します。 データベースを作成したばかりなので、新しいデータベースとそのテーブルに関する Entity Framework についてのみ説明します。 [次へ] をクリックして、web アプリケーションの構成にデータベース接続を保存します。 次に、[テーブルとムービー] チェックボックスをオンにして、[完了] をクリックします。
 
 [![Entity Data Model ウィザード](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
 
-ここで、Entity Framework デザイナーで新しいムービー テーブルを参照してください。 し、コードからアクセスできます。
+これで、Entity Framework Designer に新しいムービーテーブルが表示され、コードからアクセスできるようになりました。
 
-[![ビデオ - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
+[![映画-Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
 
-デザイン画面では、「ビデオ」クラスを確認できます。 このクラスは、データベース内の「ムービー」テーブルにマップし、内の各プロパティは、テーブルの列にマップします。 「ビデオ」クラスの各インスタンスは"Movie"テーブル内の行に対応します。
+デザイン画面には、"Movie" クラスが表示されます。 このクラスは、データベースの "Movie" テーブルにマップされ、その中の各プロパティはテーブルを含む列にマップされます。 "Movie" クラスの各インスタンスは、"Movie" テーブル内の行に対応します。
 
-既定の名前付けと Entity Framework によって使用される規則のマッピングを希望しない場合は、変更またはそれらをカスタマイズする Entity Framework デザイナーを使用できます。 このアプリケーションの既定値を使用して、なりますファイルとして保存-です。
+Entity Framework によって使用される既定の名前付け規則とマッピング規則が気に入らない場合は、Entity Framework デザイナーを使用して変更またはカスタマイズすることができます。 このアプリケーションでは、既定値を使用し、ファイルをそのまま保存します。
 
-ここで、実際のデータはいくつか見ていきましょう。
+では、実際のデータを使用してみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](getting-started-with-mvc-part3.md)

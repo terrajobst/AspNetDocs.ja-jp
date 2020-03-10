@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience
-title: ASP.NET MVC Storefront 第 18 部:エクスペリエンスを作成する |Microsoft Docs
+title: 'ASP.NET MVC ネットショップパート 18: エクスペリエンスの作成 |Microsoft Docs'
 author: robconery
-description: このエピソードでは、一貫性のある '' のエクスペリエンス、買い物客を形成する技術的な情報をすべて取り除くことでの作業です。
+description: このエピソードでは、すべての技術面をまとめて、買い物客の一貫性のある "エクスペリエンス" を形成しています。
 ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 1636464e-900e-4926-bd5a-88adb5315ff9
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience
 msc.type: video
 ms.openlocfilehash: 00390fe4b618f09a0b3f8bfbff513827a504626c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411775"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78432310"
 ---
-# <a name="aspnet-mvc-storefront-part-18-creating-an-experience"></a>ASP.NET MVC Storefront 第 18 部:エクスペリエンスを作成します。
+# <a name="aspnet-mvc-storefront-part-18-creating-an-experience"></a>ASP.NET MVC ネットショップパート 18: エクスペリエンスの作成
 
-によって[Rob Conery](https://github.com/robconery)
+[渡](https://github.com/robconery)される方法
 
-このエピソードでは、一貫性のある""のエクスペリエンス、買い物客を形成する技術的な情報をすべて取り除くことでの作業です。
+このエピソードでは、すべての技術部分をまとめて、買い物客の一貫した "エクスペリエンス" を形成しています。
 
-[&#9654;ビデオ (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-18-creating-an-experience)
+[&#9654;ビデオを見る (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-18-creating-an-experience)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)

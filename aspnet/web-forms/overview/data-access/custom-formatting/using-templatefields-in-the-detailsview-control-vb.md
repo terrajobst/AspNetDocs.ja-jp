@@ -9,11 +9,11 @@ ms.assetid: 0b91d5f8-127d-4f6a-b204-f2e2b35ef703
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: e96f954c27ae1c8ccc18a9c40fe7e541b487c1cc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625079"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78481798"
 ---
 # <a name="using-templatefields-in-the-detailsview-control-vb"></a>DetailsView コントロールで TemplateFields を使用する (VB)
 
@@ -37,7 +37,7 @@ GridView で使用できるのと同じ TemplateFields 機能も、DetailsView �
 
 **図 1**: 2 つの Templatefields を使用してディスプレイをカスタマイズする ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-vb/_static/image3.png)されます)
 
-では、始めましょう。
+作業開始
 
 ## <a name="step-1-binding-the-data-to-the-detailsview"></a>手順 1: データを DetailsView にバインドする
 
@@ -153,7 +153,7 @@ CheckBoxField を表示するのではなく、製品が廃止されたかどう
 
 **図 10**: [はい] または [廃止された行に値が表示されない] ([クリックすると、フルサイズの画像が表示](using-templatefields-in-the-detailsview-control-vb/_static/image30.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 DetailsView コントロールの TemplateField を使用すると、他のフィールドコントロールで使用できるデータよりも高い柔軟性が得られ、次のような状況に適しています。
 
@@ -167,7 +167,7 @@ FormView コントロールを利用すると、表示される出力をより�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -9,11 +9,11 @@ ms.assetid: 21a178de-4c5a-4211-8a9c-74ec576c0f30
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: 325cc90eb6e717c47863eda6253e0d48d796386b
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455894"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78498418"
 ---
 # <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>ASP.NET MVC での HTML5 と jQuery UI Datepicker ポップアップカレンダーの使用-パート2
 
@@ -109,7 +109,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 ### <a name="using-uihint-to-specify-a-display-template"></a>UIHint を使用して表示テンプレートを指定する
 
-Web アプリケーションに多くの `DateTime` フィールドがあり、既定ではそれらのすべてまたはほとんどを日付のみの形式で表示する場合は、 *DateTime. cshtml*テンプレートを使用することをお勧めします。 しかし、完全な日付と時刻を表示する日付がいくつかある場合はどうすればよいでしょうか。 ご心配なく。 追加のテンプレートを作成し、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)属性を使用して、完全な日付と時刻の書式を指定できます。 その後、そのテンプレートを選択的に適用できます。 モデルレベルで[UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)属性を使用することも、ビュー内でテンプレートを指定することもできます。 このセクションでは、`UIHint` 属性を使用して、日付/時刻フィールドの一部のインスタンスの書式設定を選択的に変更する方法について説明します。
+Web アプリケーションに多くの `DateTime` フィールドがあり、既定ではそれらのすべてまたはほとんどを日付のみの形式で表示する場合は、 *DateTime. cshtml*テンプレートを使用することをお勧めします。 しかし、完全な日付と時刻を表示する日付がいくつかある場合はどうすればよいでしょうか。 ご安心ください。 追加のテンプレートを作成し、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)属性を使用して、完全な日付と時刻の書式を指定できます。 その後、そのテンプレートを選択的に適用できます。 モデルレベルで[UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)属性を使用することも、ビュー内でテンプレートを指定することもできます。 このセクションでは、`UIHint` 属性を使用して、日付/時刻フィールドの一部のインスタンスの書式設定を選択的に変更する方法について説明します。
 
 *Views\Movies\DisplayTemplates\LoudDateTime.cshtml*ファイルを開き、既存のコードを次のコードに置き換えます。
 

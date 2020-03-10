@@ -9,11 +9,11 @@ ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: d8af9c8e7ee1316a5eac90c5959d07c628154e09
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600438"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449524"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Visual Studio 2013 の ASP.NET と Web ツールのリリース ノート
 
@@ -21,7 +21,7 @@ ms.locfileid: "74600438"
 
 > このドキュメントでは、Visual Studio 2013 の ASP.NET and Web Tools のリリースについて説明します。
 
-## <a name="contents"></a>目次
+## <a name="contents"></a>内容
 
 - [インストールに関する注意事項](#TOC1)
 - [ドキュメント](#TOC2)
@@ -54,7 +54,7 @@ ms.locfileid: "74600438"
 Visual Studio 2013 の ASP.NET and Web Tools はメインインストーラーにバンドルされており、[ここで](https://www.asp.net/downloads)ダウンロードできます。
 
 <a id="TOC2"></a>
-## <a name="documentation"></a>Documentation
+## <a name="documentation"></a>ドキュメント
 
 [ASP.NET の Web サイト](https://www.asp.net/)から、Visual Studio 2013 の ASP.NET and Web Tools に関するチュートリアルやその他の情報を入手できます。
 
@@ -69,7 +69,7 @@ ASP.NET and Web Tools には Visual Studio 2013 が必要です。
 以下のセクションでは、リリースで導入された機能について説明します。
 
 <a id="TOC6"></a>
-## <a name="one-aspnet"></a>1つの ASP.NET
+## <a name="one-aspnet"></a>One ASP.NET
 
 Visual Studio 2013 のリリースでは、ASP.NET テクノロジの使用経験を統合するための手順を実行しました。これによって、必要なものを簡単に組み合わせることができます。 たとえば、MVC を使用してプロジェクトを開始し、後で web フォームページをプロジェクトに簡単に追加したり、web フォームプロジェクトのスキャフォールディング Web Api を追加したりすることができます。 ASP.NET の1つは、ASP.NET で気に入っていることを開発者が簡単に実行できるようにすることです。 どのテクノロジを選択した場合でも、1つの ASP.NET の信頼された基盤となるフレームワークを使用して、自信を持って構築できます。
 
@@ -82,7 +82,7 @@ Visual Studio 2013 で新しい web プロジェクトを作成するための�
 
 新しいダイアログボックスでは、多くのテンプレートの既定の認証オプションを変更できます。 たとえば、ASP.NET Web フォームプロジェクトを作成するときに、次のいずれかのオプションを選択できます。
 
-- 認証なし
+- [認証なし]
 - 個々のユーザーアカウント (ASP.NET メンバーシップまたはソーシャルプロバイダーのログイン)
 - 組織アカウント (インターネットアプリケーションの Active Directory)
 - Windows 認証 (イントラネットアプリケーションでの Active Directory)
@@ -139,7 +139,7 @@ Azure SDK for .NET 2.2 の Visual Studio 2013 では、**サーバーエクス�
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Web 発行の機能強化
 
-Visual Studio 2013 には、Web 公開の新機能と強化された機能が含まれています。 その一部を次に示します。
+Visual Studio 2013 には、Web 公開の新機能と強化された機能が含まれています。 いくつかを次に示します。
 
 - Web.config[ファイルの暗号化](https://go.microsoft.com/fwlink/?LinkId=325529)を簡単に自動化できます。 (このリンクと、次の2つのポイントは、10/17 の当日に予定されていない可能性がある MSDN のドキュメントを示しています)。
 - [デプロイ中にアプリケーションをオフラインにする操作を](https://go.microsoft.com/fwlink/?LinkId=325530)簡単に自動化できます。
@@ -156,9 +156,9 @@ NuGet 2.7 には新機能の豊富なセットが含まれています。詳細�
 このバージョンの NuGet では、パッケージをダウンロードするために NuGet のパッケージ復元機能に明示的に同意する必要もなくなります。 NuGet をインストールすることにより、同意 (および NuGet の [基本設定] ダイアログの関連するチェックボックス) が許可されるようになりました。 既定では、パッケージの復元が正常に機能するようになりました。
 
 <a id="TOC9"></a>
-## <a name="aspnet-web-forms"></a>ASP.NET Web フォーム
+## <a name="aspnet-web-forms"></a>ASP.NET Web Forms
 
-### <a name="one-aspnet"></a>1つの ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web フォームプロジェクトテンプレートは、新しい1つの ASP.NET エクスペリエンスとシームレスに統合されます。 Web フォームプロジェクトに MVC と Web API のサポートを追加できます。また、ASP.NET プロジェクト作成ウィザードを使用して認証を構成することもできます。 詳細については、「 [Visual Studio 2013 での ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)」を参照してください。
 
@@ -173,7 +173,7 @@ Web フォームテンプレートでは、[ブートストラップ](http://twi
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>1つの ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web MVC プロジェクトテンプレートは、新しい1つの ASP.NET エクスペリエンスとシームレスに統合されます。 1つの ASP.NET プロジェクト作成ウィザードを使用して、MVC プロジェクトをカスタマイズし、認証を構成することができます。 MVC 5 を ASP.NET する入門用のチュートリアルについては、「 [ASP.NET mvc 5 を使用](../../../mvc/overview/getting-started/introduction/getting-started.md)したはじめに」を参照してください。
 
@@ -280,9 +280,9 @@ IHttpActionResult を実装して、Web API アクションメソッドの結果
 
 Brock Allen によるもう1つの優れた投稿により、ASP.NET はクロスオリジン要求共有 (CORS) を完全にサポートするようになりました。
 
-ブラウザーのセキュリティでは、web ページが別のドメインに対して AJAX 要求を行うことを防止します。 [CORS](http://www.w3.org/TR/cors/)は、サーバーが同じオリジンポリシーを緩めることを可能にする W3C 標準です。 CORS を使用すると、サーバーは、他のユーザーを拒否しながら、一部のクロスオリジン要求を明示的に許可できます。
+ブラウザーのセキュリティ機能により、Web ページでは AJAX 要求を別のドメインに送信することはできません。 [CORS](http://www.w3.org/TR/cors/)は、サーバーが同じオリジンポリシーを緩めることを可能にする W3C 標準です。 CORS を使用することで、サーバーが一部のクロス オリジン要求を、その他の要求を拒否しながら、明示的に許可することができます。
 
-Web API 2 では、プレフライト要求の自動処理を含む CORS がサポートされるようになりました。 詳細については、「 [ASP.NET Web API でのクロスオリジン要求の有効化](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)」を参照してください。
+Web API 2 では、プレフライト要求の自動処理を含む CORS がサポートされるようになりました。 詳細については、 [ASP.NET Web API でのクロスオリジン要求の有効化](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)に関する文書を参照してください。
 
 ### <a name="authentication-filters"></a>認証フィルター
 
@@ -624,13 +624,13 @@ ASP.NET App Suspend は、1台のコンピューターで多数の ASP.NET サ�
 
 1. MVC5 と OrgAuth を使用しているときに、検証を行うビューがある場合、データをビューにポストすると、次のエラーが表示されることがあります。
 
-    **エラー**:
+    **Error**:
 
     *'/' アプリケーションでサーバーエラーが発生しています。*
 
     <em>型 '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>' または '<https://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' のクレームが、指定された ClaimsIdentity に存在しませんでした。要求ベースの認証による偽造防止トークンのサポートを有効にするには、構成された要求プロバイダーが、生成した ClaimsIdentity インスタンスに対して両方の要求を提供していることを確認してください。構成された要求プロバイダーが、一意の識別子として別の要求の種類を使用する場合は、静的なプロパティの UniqueClaimTypeIdentifier を設定することによって構成できます。</em>
 
-    **対応策**:
+    **回避策**:
 
     Global.asax に次の行を追加して修正します。
 
@@ -659,7 +659,7 @@ ASP.NET App Suspend は、1台のコンピューターで多数の ASP.NET サ�
 
     `@Html.EditorFor(person => person.Age)`
 
-    宛先:
+    変更後:
 
     `@Html.TextBoxFor(person => person.Age)`
 4. ASP.NET MVC 5 では、部分信頼はサポートされなくなりました。 MVC または WebAPI バイナリにリンクするプロジェクトでは、 [Securitytransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx)属性と[AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx)属性を削除する必要があります。 これらの属性を削除すると、次のようなコンパイラエラーが発生しなくなります。
@@ -688,7 +688,7 @@ MVC を Web フォームプロジェクトに追加するには、新しいス�
 
 スキャフォールディング項目をプロジェクトに追加したときにエラーが発生した場合は、プロジェクトが不整合な状態のままになる可能性があります。 スキャフォールディングに加えられた変更の一部はロールバックされますが、インストールされている NuGet パッケージなどのその他の変更はロールバックされません。 ルーティング構成の変更がロールバックされた場合、スキャフォールディング items に移動すると、ユーザーには HTTP 404 エラーが表示されます。
 
-対応策 :
+対処法:
 
 - MVC のこのエラーを修正するには、新しいスキャフォールディング項目を追加し、[MVC 5 の依存関係] ([最小] または [完全]) を選択します。 このプロセスによって、必要なすべての変更がプロジェクトに追加されます。
 - このエラーを解決するには、次のように Web API を使用します。

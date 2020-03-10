@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose
-title: '[How Do i:]拡張し、特定の目的を ASP.NET サーバー コントロールのカスタマイズ |Microsoft Docs'
+title: '[操作方法:]特定の目的のために ASP.NET サーバーコントロールを拡張およびカスタマイズする |Microsoft Docs'
 author: rick-anderson
-description: このビデオの Chris Pels で、標準の ASP.NET サーバー コントロールを拡張し、特定の目的に合わせてカスタマイズする方法を紹介します。 特殊なコントロールは、c を提供しています.
+description: このビデオでは、ASP.NET server の標準コントロールを拡張し、特定の目的でカスタマイズする方法について説明します。 特殊なコントロールは、c...
 ms.author: riande
 ms.date: 05/20/2008
 ms.assetid: ed460e6b-8f4e-4fcb-83c4-2495180c1f14
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose
 msc.type: video
 ms.openlocfilehash: 3562e9c4ec994f04b312476c1357d810f4b5e28a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420160"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78458050"
 ---
-# <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a>[How Do i:]拡張し、特定の目的で、ASP.NET サーバー コントロールをカスタマイズします。
+# <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a>[操作方法:]特定の目的で ASP.NET サーバーコントロールを拡張およびカスタマイズする
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオの Chris Pels で、標準の ASP.NET サーバー コントロールを拡張し、特定の目的に合わせてカスタマイズする方法を紹介します。 特殊なコントロールは、個人やチームの開発者の標準化されたユーザー インターフェイス要素の複数の web サイトを実装するために、便利な方法を提供します。 この例では、特殊な目的の年選択コントロールを作成する DropDownList コントロールを拡張する方法を参照してください。 表示できる年の範囲の動作を制御するカスタム属性のプロパティを追加する方法について説明します。 次に、コントロールの標準的な属性のような宣言構文内でこれらのカスタム属性を設定する方法を参照してください。 リストの動作を制御するための追加機能を提供する追加できるいくつか追加のプロパティを参照してください。 最後に、どの拡張 ASP.NET サーバー コントロールに移動できる個別のアセンブリを複数の web サイトで使用できるように参照してください。
+このビデオでは、ASP.NET server の標準コントロールを拡張し、特定の目的でカスタマイズする方法について説明します。 特殊なコントロールを使用すると、開発者の個人やチームに対して、複数の web サイト用に標準化されたユーザーインターフェイス要素を実装することができます。 この例では、「DropDownList コントロールを拡張して特殊な目的の年の選択コントロールを作成する方法」を参照してください。 表示できる年数の範囲の動作を制御するカスタム属性のプロパティを追加する方法について説明します。 次に、これらのカスタム属性をコントロールの標準属性などの宣言構文で設定する方法について説明します。 リストの動作を制御する追加機能を提供するために、いくつかの追加のプロパティを追加する方法を確認します。 最後に、複数の web サイトで使用できるように、拡張 ASP.NET サーバーコントロールを別のアセンブリに移動する方法について説明します。
 
-[&#9654;ビデオ (26 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose)
+[&#9654;ビデオを見る (26 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose)

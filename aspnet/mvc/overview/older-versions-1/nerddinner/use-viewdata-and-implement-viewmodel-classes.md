@@ -1,127 +1,127 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
-title: ViewData を使用し、ViewModel クラスの実装 |Microsoft Docs
+title: ViewData を使用して、ビューモデルクラスを実装する |Microsoft Docs
 author: microsoft
-description: 手順 6 の表示には、シナリオの編集より豊富なフォームのサポートが有効にする方法もコント ローラーからビューにデータを渡すために使用できる 2 つの方法を説明しています:.
+description: 手順6では、豊富なフォーム編集シナリオのサポートを有効にする方法と、コントローラーからビューにデータを渡すために使用できる2つの方法について説明します。
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 5755ec4c-60f1-4057-9ec0-3a5de3a20e23
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
 ms.openlocfilehash: ca9775417c2e25952511a73096fb76d5d4edaea2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125446"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78435532"
 ---
 # <a name="use-viewdata-and-implement-viewmodel-classes"></a>ViewData を使用し、ViewModel クラスを実装する
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料の手順 6 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
+> これは、ASP.NET MVC 1 を使用して小規模で完成した web アプリケーションを構築する方法を説明する無料の["" アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)の手順6です。
 > 
-> 手順 6 の表示には、シナリオの編集より豊富なフォームのサポートが有効にする方法と、コント ローラーからビューにデータを渡すために使用できる 2 つの方法についても説明します。ViewData とビューモデルです。
+> 手順6は、豊富なフォーム編集シナリオのサポートを有効にする方法と、コントローラーからビューにデータを渡すために使用できる2つの方法である ViewData とビューについても説明します。
 > 
-> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
+> ASP.NET MVC 3 を使用している場合は、MVC 3 または[Mvc ミュージックストア](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルではじめに](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)に従うことをお勧めします。
 
-## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>NerdDinner 手順 6:ViewData とビューモデル
+## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>ステップ 6: ViewData とビューモデルの操作
 
-多くのフォーム post のシナリオを対象として実装する方法について説明しました作成、更新、削除 (CRUD) のサポート。 DinnersController の実装をさらにかかるようになりましたされ高度なフォームのシナリオの編集のサポートを有効にします。 これを行う際に、コント ローラーからビューにデータを渡すために使用できる 2 つの方法を取り上げます。ViewData とビューモデルです。
+ここでは、いくつかのフォームポストシナリオについて説明し、作成、更新、削除 (CRUD) のサポートを実装する方法について説明しました。 ここでは、さらに詳しく説明します。これにより、より豊富なフォーム編集シナリオがサポートされるようになります。 ここでは、コントローラーからビューにデータを渡すために使用できる2つの方法 (ViewData とビューモデル) について説明します。
 
-### <a name="passing-data-from-controllers-to-view-templates"></a>コント ローラーからビュー テンプレートにデータを渡す
+### <a name="passing-data-from-controllers-to-view-templates"></a>コントローラーからビューテンプレートにデータを渡す
 
-厳密な"関心の分離"MVC パターンの定義特性の 1 つは、アプリケーションの異なるコンポーネント間を適用できるようにします。 モデル、コント ローラーとビューの各適切に定義のロールと職務と適切に定義された方法で互いの間で通信します。 これにより、テストの容易性を昇格させるし、コードの再利用できます。
+MVC パターンの定義特性の1つは、アプリケーションのさまざまなコンポーネントの間で適用される、厳密な "懸念事項の分離" です。 モデル、コントローラー、およびビューには、ロールと責任が明確に定義されており、それぞれが明確に定義された方法で相互に通信します。 これにより、テストの容易性とコードの再利用が促進されます。
 
-クライアントに、HTML 応答を表示するために、コント ローラー クラスが決定したらは、応答を表示するために必要なすべてのデータのビュー テンプレートを明示的に渡す責任を負います。 ビュー テンプレートでは、– データの取得やアプリケーション ロジックを実行することはありませんし、代わりに、自体は、コント ローラーによって渡されたモデル/データ駆動するレンダリング コードのみを制限する必要があります。
+コントローラークラスは、クライアントに HTML 応答を返すことを決定するときに、応答を表示するために必要なすべてのデータをビューテンプレートに明示的に渡す役割を担います。 ビューテンプレートは、データの取得またはアプリケーションロジックを実行しないようにする必要があります。代わりに、コントローラーによって渡されたモデル/データから駆動されるレンダリングコードだけを表示するように制限する必要があります。
 
-今すぐモデル データ、DinnersController で渡されたテンプレートを表示するクラスは単純であり簡単 – の場合は、Index() Dinner オブジェクトの一覧、および 1 つの Dinner オブジェクト Details()、Edit()、Create() および Delete() の場合。 アプリケーションに UI 機能を追加すると、多くの場合、ここ、ビュー テンプレート内での HTML 応答を表示するためにこのデータだけを渡す必要があります。 たとえば、dropdownlist に HTML をテキスト ボックスの中からビューを作成、編集内の"Country"フィールドを変更する必要な可能性があります。 ハード コード国名ビュー テンプレートでのドロップダウン リストではなく動的に設定しますが、サポートされている国の一覧からそれを生成する可能性があります。 Dinner オブジェクトを渡す方法は必要があります*と*ビュー テンプレートに、コント ローラーからサポートされている国の一覧。
+ここで、DinnersController クラスによってビューテンプレートに渡されるモデルデータは単純で、簡単です。 Index () の場合はディナーオブジェクトのリスト、Details ()、Edit ()、Create ()、Delete () の場合は1つのディナーオブジェクトです。 アプリケーションに UI 機能を追加すると、多くの場合、ビューテンプレート内に HTML 応答を表示するために、このデータだけではなく、さらに多くのデータを渡す必要があります。 たとえば、Edit および Create ビュー内の "Country" フィールドを、HTML テキストボックスから dropdownlist に変更することができます。 ビューテンプレートで国名のドロップダウンリストをハードコーディングするのではなく、動的に設定する、サポートされている国の一覧から生成することをお勧めします。 ディナーオブジェクト*と*、サポートされている国の一覧をコントローラーからビューテンプレートに渡す方法が必要になります。
 
-そのためにできる 2 つの方法を見てみましょう。
+これを実現する2つの方法を見てみましょう。
 
-### <a name="using-the-viewdata-dictionary"></a>ViewData 辞書を使用します。
+### <a name="using-the-viewdata-dictionary"></a>ViewData Dictionary の使用
 
-コント ローラーの基本クラスは、コント ローラーからビューを他のデータ項目を渡すために使用できる"ViewData"ディクショナリ プロパティを公開します。
+コントローラーの基本クラスは、コントローラーからビューに追加のデータ項目を渡すために使用できる "ViewData" ディクショナリプロパティを公開します。
 
-たとえば、dropdownlist に HTML をテキスト ボックスから編集ビューで、「国」テキスト ボックスを変更しシナリオをサポートするために更新できます (Dinner オブジェクト) だけでなく、m として使用できる SelectList オブジェクトを渡す、Edit() アクション メソッド国の dropdownlist のデルします。
+たとえば、編集ビュー内の "Country" テキストボックスを HTML テキストボックスから dropdownlist に変更するというシナリオをサポートするために、Edit () アクションメソッドを更新して、m として使用できる SelectList オブジェクトを (ディナーオブジェクトに加えて) 渡すことができます。国の odel の dropdownlist。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample1.cs)]
 
-上記の SelectList のコンス トラクターでは、郡を使用すると、ドロップ ダウン リストを設定すると、現在選択されている値の一覧を受け付けてください。
+上記の SelectList のコンストラクターは、現在選択されている値だけでなく、ドロップダウンリストに入力する郡の一覧を受け入れています。
 
-Html.DropDownList() ヘルパー メソッドを使用して、以前に使いました Html.TextBox() ヘルパー メソッドではなく、テンプレートの Edit.aspx 表示し、更新できます。
+次に、前に使用した .Html () ヘルパーメソッドではなく、.Html () ヘルパーメソッドを使用するように、編集 .aspx ビューテンプレートを更新できます。
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample2.aspx)]
 
-上記の Html.DropDownList() ヘルパー メソッドは、2 つのパラメーターを受け取ります。 最初は、出力を HTML フォーム要素の名前です。 2 つ目は、それは ViewData 辞書を使用して渡された"SelectList"モデルです。 使用、c#"キーワード as"を SelectList としてディクショナリ内で型をキャストします。
+上記の .Html () ヘルパーメソッドは、2つのパラメーターを受け取ります。 1つ目は、出力する HTML フォーム要素の名前です。 2つ目は、ViewData 辞書を介して渡された "SelectList" モデルです。 C# "As" キーワードを使用して、ディクショナリ内の型を selectlist としてキャストしています。
 
-今すぐ実行するとき、アプリケーションとアクセスと、 */Dinners/Edit/1* URL、ブラウザー内で見て、テキスト ボックスの代わりに国の dropdownlist を表示、編集 UI が更新されたこと。
+ここで、アプリケーションを実行し、ブラウザー内で */Dinners/Edit/1* URL にアクセスすると、エディット UI が更新され、テキストボックスではなく country of country が表示されていることがわかります。
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image1.png)
 
-また、HTTP POST メソッドの編集 (でエラーが発生したときに使用する場合) から、テンプレートの編集ビューをレンダリングしますので、エラーのシナリオで、ビュー テンプレートが表示されるときに、SelectList を ViewData に追加するには、このメソッドも更新するかどうかを確認する必要があります。
+また、編集ビューテンプレートは、HTTP ポスト編集メソッド (エラーが発生した場合) からもレンダリングされるので、エラーシナリオでビューテンプレートがレンダリングされたときに、このメソッドを更新して、SelectList を ViewData に追加するようにします。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample3.cs)]
 
-これで、DinnersController 編集シナリオが DropDownList をサポートしています。
+これで、Dinがコントローラーを編集するシナリオで DropDownList がサポートされるようになりました。
 
-### <a name="using-a-viewmodel-pattern"></a>ViewModel パターンを使用します。
+### <a name="using-a-viewmodel-pattern"></a>ビューモデルパターンの使用
 
-ViewData 辞書のアプローチでは、非常に高速で簡単に実装されているのメリットがあります。 一部の開発者が気文字列ベースのディクショナリを使用して、入力ミスがコンパイル時にキャッチされず、エラー発生する可能性があるためです。 型指定されていない ViewData 辞書は、"as"演算子を使用して、またはキャスト ビュー テンプレートで c# のような厳密に型指定された言語を使用する場合にも必要です。
+ViewData dictionary のアプローチには、非常に高速で実装が簡単であるという利点があります。 ただし、文字列ベースの辞書を使用しない開発者もいます。これは、入力ミスによってコンパイル時に検出されないエラーが発生する可能性があるためです。 また、型指定されていない ViewData 辞書では、ビューテンプレートでのようC#に、厳密に型指定された言語を使用する場合に、"as" 演算子またはキャストを使用する必要があります。
 
-使用して別のアプローチでは、"ViewModel"パターンと呼ばれます。 このパターンを使用する場合、特定のビューのシナリオ用に最適化されたと、ビュー テンプレートで必要な動的値/コンテンツ プロパティを公開する厳密に型指定されたクラスを作成します。 コント ローラー クラスを設定し、使用するには、このビュー テンプレートにこれらのビューに最適化されたクラスを渡します。 これにより、タイプ セーフ、コンパイル時のチェック、およびビュー テンプレート内のエディターの intellisense。
+使用できる別の方法として、しばしば "モデル化" パターンと呼ばれるものがあります。 このパターンを使用すると、特定のビューシナリオ用に最適化された、厳密に型指定されたクラスを作成し、ビューテンプレートに必要な動的な値/コンテンツのプロパティを公開します。 次に、コントローラークラスを設定して、ビューに最適化されたこれらのクラスをビューテンプレートに渡して使用できるようにします。 これにより、ビューテンプレート内でタイプセーフ、コンパイル時チェック、およびエディター intellisense が有効になります。
 
-たとえば、厳密に型指定された 2 つのプロパティを公開する dinner フォーム"DinnerFormViewModel"を作成編集シナリオは次のようなクラスを有効にする: Dinner オブジェクト、および国の dropdownlist を設定するために必要な SelectList モデル。
+たとえば、ディナーフォーム編集シナリオを有効にするには、次のように、2つの厳密に型指定されたプロパティを公開する "DinnerFormViewModel" クラスを作成します。ディナーオブジェクトと、country に設定するために必要な SelectList モデルです。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample4.cs)]
 
-リポジトリから取得する Dinner オブジェクトを使用して DinnerFormViewModel を作成する、Edit() アクション メソッドを更新して、ビュー テンプレートに渡します。
+次に、Edit () アクションメソッドを更新して、リポジトリから取得したディナーオブジェクトを使用して Dinを作成し、ビューテンプレートに渡すことができます。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample5.cs)]
 
-よう edit.aspx ページの上部にある"inherits"属性を変更することでオブジェクトのため、その it"Dinner"ではなく"DinnerFormViewModel"が必要ですが、ビュー テンプレートを更新し、作成します。
+次に、ビューテンプレートを更新して、次のように .aspx ページの上部にある "inherits" 属性を変更することによって、"ディナー" オブジェクトではなく "Din" を必要とするようにします。
 
 [!code-cshtml[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample6.cshtml)]
 
-このビュー テンプレート内の"Model"プロパティの intellisense を渡している DinnerFormViewModel 型のオブジェクト モデルを反映するように更新されます。
+この操作を実行すると、ビューテンプレート内の "Model" プロパティの intellisense が更新され、それに渡される Dinare Formmodel 型のオブジェクトモデルが反映されます。
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image2.png)
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image3.png)
 
-これを使用するコードの表示、私たちを更新できます。 ここでは作成方法入力要素の名前を変更しない次の通知 (フォーム要素がある名前は"Title"、「国」) – DinnerFormViewModel クラスを使用して値を取得する HTML ヘルパー メソッドを更新していますが。
+その後で、ビューコードを更新して、作業を開始することができます。 ここでは、作成している入力要素の名前を変更していないことに注意してください (form 要素には "Title"、"Country" という名前が付けられます)。ただし、HTML ヘルパーメソッドを更新して、Dinare Formformクラスを使用して値を取得します。
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample7.aspx)]
 
-エラーを表示するときに、DinnerFormViewModel クラスを使用して、編集の post メソッドも更新します。
+また、レンダリングエラーが発生したときに Dinを使用するように、Edit post メソッドを更新します。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample8.cs)]
 
-今後も更新できる、Create() のアクション メソッドを再利用、正確な同じ*DinnerFormViewModel* DropDownList 内も国を有効にするクラス。 HTTP GET の実装を次に示します。
+また、Create () アクションメソッドを更新して、まったく同じ*Dinのフォームビューモデル*クラスを再利用し、その中でも Country の DropDownList を有効にすることができます。 HTTP GET 実装は次のようになります。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample9.cs)]
 
-作成する HTTP POST メソッドの実装を次に示します。
+次に、HTTP ポストの Create メソッドの実装を示します。
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample10.cs)]
 
-国を選択するため、両方の編集および作成画面がドロップダウン リストをサポートするようになりました。
+これで、編集画面と作成画面の両方で、国を選択するためのドロップダウンリストがサポートされるようになりました。
 
-### <a name="custom-shaped-viewmodel-classes"></a>カスタム型の ViewModel クラス
+### <a name="custom-shaped-viewmodel-classes"></a>カスタムの型のビューモデルクラス
 
-上記のシナリオでは、DinnerFormViewModel クラスは SelectList モデル プロパティのサポートと共に、プロパティとして Dinner のモデル オブジェクトを直接公開します。 この方法で正しく動作のシナリオで、ビュー テンプレートで作成する HTML UI に対応して比較的密接にドメイン モデル オブジェクト。
+上記のシナリオでは、Dinの Formformmodel クラスが、サポートされている SelectList モデルプロパティと共に、ディナーモデルオブジェクトをプロパティとして直接公開しています。 この方法は、ビューテンプレート内で作成する HTML UI がドメインモデルオブジェクトに対して比較的厳密に対応するシナリオに適しています。
 
-シナリオではない場合は、使用できる 1 つのオプションではビュー – によって消費のオブジェクト モデルがより最適化されており、基になるドメイン モデル オブジェクトとはまったく異なるになりますにカスタムの形 ViewModel クラスを作成します。 たとえば、さまざまなプロパティ名や複数のモデル オブジェクトから収集した集計のプロパティを公開、でした可能性があります。
+そうではないシナリオでは、使用できるオプションの1つとして、オブジェクトモデルがビューによって消費されるように最適化され、基になるドメインモデルオブジェクトと完全に異なる場合がある、カスタムの形式のビューモデルクラスを作成する方法があります。 たとえば、複数のモデルオブジェクトから収集されたさまざまなプロパティ名や集計プロパティを公開する可能性があります。
 
-カスタム型の ViewModel クラスは、両方をコント ローラーからビューをレンダリングするだけでなく、コント ローラーのアクション メソッドにポストバックされたフォーム データの処理に役立つデータを渡すために使用します。 この後のシナリオでは、アクション メソッドで、フォーム ポストされたデータを ViewModel オブジェクトを更新し、ViewModel インスタンスを使用して、マップまたは実際のドメイン モデル オブジェクトを取得するがあります。
+カスタム整形型のビューモデルクラスを使用すると、コントローラーからビューにデータを渡したり、コントローラーのアクションメソッドにポストバックされるフォームデータを処理したりすることができます。 この後のシナリオでは、アクションメソッドを使用して、フォームポストされたデータを含むビューモデルオブジェクトを更新してから、ビューモデルインスタンスを使用して実際のドメインモデルオブジェクトをマップまたは取得することができます。
 
-ViewModel クラスのカスタムの形では、大量の柔軟性を指定できるほかは複雑すぎる取得を開始しています、アクション メソッド内で、テンプレートの表示またはフォーム ポスト コード内でレンダリング コードを検索する任意の時点を調査するものです。 これは、多くの場合、記号、ドメイン モデルが生成すると、UI に対応していないクリーンにして、カスタムの形の中間の ViewModel クラスが役立つのです。
+カスタムの型のビューモデルクラスでは、柔軟性を高めることができます。また、ビューテンプレート内のレンダリングコードや、アクションメソッド内のフォームポストコードを見つけるたびに調査して、複雑になることがあります。 これは多くの場合、ドメインモデルが生成する UI に明確に対応していないこと、および中間のカスタムのビューモデルクラスが役立つことを示しています。
 
 ### <a name="next-step"></a>次の手順
 
-これで、パーシャルとマスター ページを使用すると、再利用し、アプリケーション全体で UI を共有した方法を見てみましょう。
+次に、パーシャルとマスターページを使用して、アプリケーション全体で UI を再利用し、共有する方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](provide-crud-create-read-update-delete-data-form-entry-support.md)

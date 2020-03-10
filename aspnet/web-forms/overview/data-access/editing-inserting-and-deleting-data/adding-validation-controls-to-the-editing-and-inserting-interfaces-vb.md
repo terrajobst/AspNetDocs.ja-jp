@@ -9,11 +9,11 @@ ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5c5ad110ee0836f0a464b02a2b29254e2e06381e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74571348"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78479434"
 ---
 # <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>編集および挿入インターフェイスに検証コントロールを追加する (VB)
 
@@ -33,7 +33,7 @@ BoundField と CheckBoxField の既定の編集および挿入インターフェ
 
 このチュートリアルでは、TemplateField の `EditItemTemplate` に検証コントロールを追加して、より簡単なユーザーインターフェイスを提供する `InsertItemTemplate` 方法について説明します。 具体的には、このチュートリアルでは、「[挿入、更新、削除に関連するイベントの調査](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)」で作成した例を使用して、適切な検証を含むように編集および挿入インターフェイスを強化します。
 
-## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>手順 1:[挿入、更新、および削除に関連付けられたイベントを調べる](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)例をレプリケートする
+## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deleting"></a>手順 1:[挿入、更新、および削除に関連付けられたイベントを調べる](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)例をレプリケートする
 
 [「挿入、更新、および削除](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)」チュートリアルに関連するイベントを確認すると、編集可能な GridView で製品の名前と価格を記載したページが作成されました。 また、ページには、`DefaultMode` プロパティが `Insert`に設定されている DetailsView が含まれており、これによって常に挿入モードでレンダリングされます。 この DetailsView から、ユーザーは新しい製品の名前と価格を入力し、[挿入] をクリックして、システムに追加することができます (図1を参照)。
 
@@ -181,7 +181,7 @@ RequiredFieldValidator の3つのプロパティを設定した後、画面は�
 
 ## <a name="step-5-adding-the-validation-controls-to-the-detailsviewsinsertitemtemplate"></a>手順 5: DetailsView の`InsertItemTemplate` に検証コントロールを追加する
 
-このチュートリアルでは、検証コントロールを DetailsView の挿入インターフェイスに追加します。 DetailsView のテンプレートに検証コントロールを追加するプロセスは、手順3で確認したものと同じです。このため、この手順では簡単に説明します。 GridView の `EditItemTemplate` で行ったように、テキストボックスの `ID` の名前を nondescript `TextBox1` から `InsertProductName` に変更し、`TextBox2` することをお勧めします。
+このチュートリアルでは、検証コントロールを DetailsView の挿入インターフェイスに追加します。 DetailsView のテンプレートに検証コントロールを追加するプロセスは、手順3で確認したものと同じです。このため、この手順では簡単に説明します。 GridView の `EditItemTemplate` で行ったように、テキストボックスの `ID` の名前を nondescript `TextBox1` から `InsertProductName` に変更し、`TextBox2` することをお勧めします。`InsertUnitPrice`
 
 `ProductName` `InsertItemTemplate`に RequiredFieldValidator を追加します。 `ControlToValidate` を、テンプレートのテキストボックスの `ID` に設定し、その `Text` プロパティを "\*" に設定し、その `ErrorMessage` プロパティを「製品の名前を指定する必要があります」に設定します。
 
@@ -225,7 +225,7 @@ GridView の CommandField フィールドと TemplateFields
 
 この追加により、チュートリアルは完了です。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 BoundFields は挿入と編集の両方のインターフェイスを提供できますが、インターフェイスはカスタマイズできません。 一般的には、ユーザーが必要な入力を正しい形式で入力できるように、編集および挿入インターフェイスに検証コントロールを追加します。 これを実現するには、BoundFields を TemplateFields に変換し、適切なテンプレートに検証コントロールを追加する必要があります。 このチュートリアルでは、「*挿入、更新、および削除」チュートリアルに関連付けられているイベントを調べ*、DetailsView の挿入インターフェイスと GridView の編集インターフェイスの両方に検証コントロールを追加して、この例を拡張しています。 さらに、ValidationSummary コントロールを使用して概要検証情報を表示する方法と、ページ上の検証コントロールを個別の検証グループに分割する方法についても説明しました。
 
@@ -233,7 +233,7 @@ BoundFields は挿入と編集の両方のインターフェイスを提供で�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

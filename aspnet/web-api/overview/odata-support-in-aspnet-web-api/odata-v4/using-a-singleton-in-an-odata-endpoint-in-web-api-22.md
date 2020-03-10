@@ -2,72 +2,72 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
 title: Web API 2.2 を使用して OData v4 でシングルトンを作成する |Microsoft Docs
 author: rick-anderson
-description: このトピックでは、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。
+description: このトピックでは、Web API 2.2 で OData エンドポイントにシングルトンを定義する方法について説明します。
 ms.author: riande
 ms.date: 06/27/2014
 ms.assetid: 4064ab14-26ee-4d5c-ae58-1bdda525ad06
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
 msc.type: authoredcontent
 ms.openlocfilehash: 218449c18759b306e425c55f8e7b573d837b4658
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504502"
 ---
-# <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Web API 2.2 を使用して OData v4 でシングルトンを作成します。
+# <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Web API 2.2 を使用して OData v4 でシングルトンを作成する
 
-Zoe ルオ語で
+Zoe Luo 別
 
-> これまでは、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセスできます。 OData v4、シングルトンおよびコンテインメント、web Api 2.2 をサポートする 2 つの追加オプションを提供します。
+> 従来、エンティティはエンティティセット内にカプセル化されている場合にのみアクセスできました。 ただし、OData v4 には、シングルトンとコンテインメントという2つの追加オプションが用意されています。どちらも WebAPI 2.2 でサポートされています。
 
-この記事では、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。 どのようなシングルトン、およびこれを使用する利点については、次を参照してください。[シングルトンを使用して、特別なエンティティを定義する](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx)します。 Web api OData V4 エンドポイントを作成するを参照してください。[作成 OData v4 エンドポイントを使用して ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md)します。 
+この記事では、Web API 2.2 で OData エンドポイントにシングルトンを定義する方法について説明します。 シングルトンとは何か、およびそれを使用する利点については、「[シングルトンを使用した特殊なエンティティの定義](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx)」を参照してください。 Web API で OData V4 エンドポイントを作成するには、「 [ASP.NET Web API 2.2 を使用して odata V4 エンドポイントを作成](create-an-odata-v4-endpoint.md)する」を参照してください。 
 
-次のデータ モデルを使用して Web API プロジェクトでシングルトンを作成します。
+次のデータモデルを使用して、Web API プロジェクトにシングルトンを作成します。
 
 ![データ モデル](using-a-singleton-in-an-odata-endpoint-in-web-api-22/_static/image1.png)
 
-という名前の単一`Umbrella`の種類に基づいて定義されます`Company`、およびエンティティ セットの名前付き`Employees`の種類に基づいて定義されます`Employee`します。
+`Umbrella` という名前のシングルトンが `Company`型に基づいて定義され、`Employees` という名前のエンティティセットが `Employee`型に基づいて定義されます。
 
-このチュートリアルで使用するソリューションをからダウンロードできます[CodePlex](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/)します。
+このチュートリアルで使用するソリューションは、 [CodePlex](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/)からダウンロードできます。
 
 ## <a name="define-the-data-model"></a>データ モデルを定義する
 
 1. CLR 型を定義します。
 
     [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample1.cs)]
-2. CLR 型に基づく EDM モデルを生成します。
+2. CLR 型に基づいて EDM モデルを生成します。
 
     [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample2.cs)]
 
-    ここでは、`builder.Singleton<Company>("Umbrella")`という名前のシングルトンを作成するモデル ビルダーに指示`Umbrella`EDM モデル。
+    ここでは、`builder.Singleton<Company>("Umbrella")` はモデルビルダーに対して、EDM モデルで `Umbrella` という名前のシングルトンを作成するように指示します。
 
-    生成されるメタデータは、次のようになります。
+    生成されたメタデータは、次のようになります。
 
     [!code-xml[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample3.xml)]
 
-    メタデータから確認できます、ナビゲーション プロパティ`Company`で、`Employees`エンティティ セットは、シングルトンにバインドされて`Umbrella`します。 バインディングはによって自動的に行われます`ODataConventionModelBuilder`、のでのみ`Umbrella`が、`Company`型。 使用することができます、モデル内であいまいさがある場合`HasSingletonBinding`シングルトン; にナビゲーション プロパティを明示的にバインドするには`HasSingletonBinding`を使用して同じ効果があります、 `Singleton` CLR 型の定義内の属性。
+    メタデータから、`Employees` エンティティセットのナビゲーションプロパティ `Company` がシングルトン `Umbrella`にバインドされていることがわかります。 バインドは `ODataConventionModelBuilder`によって自動的に行われます。これは、`Umbrella` には `Company` 型しかないためです。 モデルにあいまいさがある場合は、`HasSingletonBinding` を使用して、ナビゲーションプロパティをシングルトンに明示的にバインドすることができます。`HasSingletonBinding` は、CLR 型定義で `Singleton` 属性を使用するのと同じ効果があります。
 
     [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample4.cs)]
 
-## <a name="define-the-singleton-controller"></a>単一のコント ローラーを定義します。
+## <a name="define-the-singleton-controller"></a>シングルトンコントローラーを定義する
 
-単一のコント ローラーが継承、EntitySet のコント ローラーのような`ODataController`、単一のコント ローラー名を指定する必要があります`[singletonName]Controller`します。
+EntitySet コントローラーと同様に、シングルトンコントローラーは `ODataController`から継承し、シングルトンコントローラー名を `[singletonName]Controller`する必要があります。
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample5.cs)]
 
-さまざまな種類の要求を処理するためには、アクションをコント ローラーに事前定義する必要があります。 **属性ルーティング**web Api 2.2 で既定で有効です。 たとえば、処理クエリを実行するアクションを定義する`Revenue`から`Company`属性ルーティングを使用して、次を使用します。
+さまざまな種類の要求を処理するには、コントローラーでアクションを事前定義する必要があります。 WebApi 2.2 では、既定で**属性ルーティング**が有効になっています。 たとえば、属性ルーティングを使用して `Company` からの `Revenue` のクエリを処理するアクションを定義するには、次のように指定します。
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample6.cs)]
 
-各アクションの属性を定義する場合は、次の操作の定義だけ[OData ルーティング規約](../odata-routing-conventions.md)します。 キーが、単一のクエリを実行するために必要ないため、単一のコント ローラーで定義されたアクションは entityset コント ローラーで定義されたアクションとは若干異なります。
+各アクションの属性を定義しない場合は、 [OData ルーティング規則](../odata-routing-conventions.md)に従うアクションを定義するだけです。 シングルトンに対してクエリを実行するためにキーは必要ないため、シングルトンコントローラーで定義されたアクションは、entityset コントローラーで定義されているアクションとは少し異なります。
 
-リファレンスについては、単一のコント ローラーのすべてのアクション定義のメソッド シグネチャは、以下に示します。
+参照用に、シングルトンコントローラーのすべてのアクション定義のメソッドシグネチャを次に示します。
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample7.cs)]
 
-基本的に、これはサービス側で行う必要があるすべてです。 [サンプル プロジェクト](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/)すべてのソリューションおよびシングルトンを使用する方法を示す OData クライアント コードが含まれています。 クライアントは次の手順に従って構築[OData v4 クライアント アプリを作成する](create-an-odata-v4-client-app.md)します。
+基本的に、これはサービス側で行う必要があることです。 [サンプルプロジェクト](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/)には、ソリューションのすべてのコードと、シングルトンの使用方法を示す OData クライアントが含まれています。 クライアントは、「 [OData V4 クライアントアプリの作成](create-an-odata-v4-client-app.md)」の手順に従って構築されます。
 
-. 
+。 
 
-*Leo Hu に改訂された記事については、元のコンテンツいただきありがとうございます。*
+*この記事の元の内容については、Leo Hu に感謝します。*

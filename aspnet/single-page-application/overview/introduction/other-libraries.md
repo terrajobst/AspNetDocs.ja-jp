@@ -9,60 +9,60 @@ ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
 ms.openlocfilehash: 64a4ad1fb411f7291a5cba634afdf4d2fdb16d55
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116081"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467194"
 ---
 # <a name="know-a-library-other-than-knockout"></a>Knockout 以外のライブラリを知っていますか?
 
-によって[Mads Kristensen](https://github.com/madskristensen)
+[Mads Kristensen](https://github.com/madskristensen)
 
-[Single Page Application (SPA) テンプレート](knockoutjs-template.md)はシングル ページ アプリケーションの記述を開始する優れた方法です。 テンプレートを使用して[KnockoutJS](http://knockoutjs.com/)アプリケーション データを DOM 要素にバインドします。
+シングルページ[アプリケーション (SPA) テンプレート](knockoutjs-template.md)は、シングルページアプリケーションの作成を開始するための優れた方法です。 このテンプレートでは、 [KnockoutJS](http://knockoutjs.com/)を使用して、アプリケーションデータを DOM 要素にバインドします。
 
-Knockout はリッチ クライアント アプリケーションを作成するための唯一の JavaScript ライブラリではありません。 その他のライブラリは、さまざまな方法でこのような課題を解決します。 行いましたコミュニティが作成したテンプレートがいくつかダウンロードできるように別、1 つのライブラリしたい場合があります。 これらの各テンプレートは、クライアントの JavaScript ライブラリの異なる組み合わせを使用します。
+しかし、ノックアウトは、リッチクライアントアプリケーションを作成するための唯一の JavaScript ライブラリではありません。 他のライブラリは、さまざまな方法で同様の課題を解決します。 別のライブラリを使用することもできます。そのため、コミュニティによって作成された複数のテンプレートをダウンロードできるようになりました。 これらの各テンプレートでは、さまざまなクライアント JavaScript ライブラリが使用されています。
 
-コミュニティが作成したテンプレートをインストールするには、ページは、以下に示すし、[ダウンロード] ボタンをクリックします。 テンプレートのいずれかを参照してください。 テンプレートは、VSIX ファイルとして提供されます。
+コミュニティによって作成されたテンプレートをインストールするには、次のいずれかのテンプレートページにアクセスし、[ダウンロード] ボタンをクリックします。 テンプレートは、VSIX ファイルとして提供されます。
 
 ## <a name="backbonejs"></a>BackboneJS
 
-[Backbone.js SPA テンプレート](../templates/backbonejs-template.md)します。 このテンプレートを開発するため、初期のスケルトンには、 [Backbone.js](http://backbonejs.org/) ASP.NET MVC アプリケーションです。 既定は、ユーザーのサインアップ、サインイン、パスワードのリセットと基本的な電子メール テンプレートをユーザーの確認など、基本的なユーザーのログイン機能を提供します。
+[バックボーンの JS SPA テンプレート](../templates/backbonejs-template.md)。 このテンプレートは、ASP.NET MVC で[バックボーン](http://backbonejs.org/)アプリケーションを開発するための初期スケルトンを提供します。 既定では、ユーザーのサインアップ、サインイン、パスワードのリセット、基本的な電子メールテンプレートを使用したユーザーの確認など、基本的なユーザーログイン機能が提供されています。
 
 ## <a name="breezejs"></a>BreezeJS
 
-[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa) JavaScript クライアント内での豊富なデータを管理するためのオープン ソース ライブラリです。 簡単では、クエリを実行する、キャッシュ、変更の追跡、検証、および詳細を処理します。 2 つのテンプレート機能の簡単。
+[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa)は、JavaScript クライアントでリッチデータを管理するためのオープンソースライブラリです。 クエリ、キャッシュ、変更の追跡、検証などを簡単に処理できます。 2つのテンプレート機能は簡単です。
 
-- [Breeze/knockout](../templates/breezeknockout-template.md)テンプレートは、シングル ページ アプリケーションを簡単にデータ管理および KnockoutJS のデータ バインディングをビルドする簡単にする方法を示す、Knockout SPA テンプレートを拡張します。
-- [Breeze/angular](../templates/breezeangular-template.md)拡張し、Knockout SPA テンプレートを簡単を使用して、テンプレート、 [AngularJS](http://angularjs.org)データ バインド、依存関係の挿入、および画面の管理用のライブラリです。
+- 簡単[/ノックアウト](../templates/breezeknockout-template.md)テンプレートによって、ノックアウト SPA テンプレートが拡張されます。これは、データの管理とデータバインドのための KnockoutJS が簡単な単一ページアプリケーションを簡単に作成できるようにするためのものです。
+- また、簡単な[/角度](../templates/breezeangular-template.md)のテンプレートを使用すると、抜き合わせ SPA テンプレートも簡単に拡張できますが、データバインディング、依存関係の挿入、および画面管理には[AngularJS](http://angularjs.org)ライブラリが使用されます。
 
-さらに、[ホット タオル SPA テンプレート](../templates/hottowel-template.md)BreezeJS を使用します。
+また、[ホットタオル SPA テンプレート](../templates/hottowel-template.md)では、BreezeJS が使用されます。
 
 ## <a name="emberjs"></a>EmberJS
 
-[EmberJS SPA テンプレート](../templates/emberjs-template.md)します。 このテンプレートでは[Ember](http://emberjs.com/)さまざまなリッチ クライアント アプリケーションを構築するための課題を解決する強力な MVC JavaScript ライブラリです。
+[EMBERJS SPA テンプレート](../templates/emberjs-template.md)。 このテンプレートは、リッチクライアントアプリケーションを構築するためのさまざまな課題を解決する強力な MVC JavaScript ライブラリである[ember.js](http://emberjs.com/)を使用します。
 
-Ember SPA テンプレートは、EmberJS と Handlebars のテンプレートを使用して、Knockout SPA テンプレートの再実装です。
+Ember.js SPA テンプレートは、EmberJS とハンドルテンプレートを使用した、ノックアウト SPA テンプレートの再実装です。
 
-## <a name="hot-towel"></a>ホットのタオル
+## <a name="hot-towel"></a>ホットタオル
 
-[ホットのタオル SPA テンプレート](../templates/hottowel-template.md)します。 このテンプレートは、簡単、Knockout、RequireJS Twitter Bootstrap など、いくつかの JavaScript ライブラリで表示されます。
+[ホットタオル SPA テンプレート](../templates/hottowel-template.md)。 このテンプレートには、簡単、ノックアウト、RequireJS、Twitter のブートストラップなど、いくつかの JavaScript ライブラリが用意されています。
 
-次のとおり、他のテンプレートと比べると、ホット タオル テンプレートは、元の作成、独自のより完全なアプリケーションを提供します。 、注意すべきその他の概念がありますが、このテンプレートがある可能性がありますだけそれらを理解すると探しているもの。 秒にする必要があります、SPA とすべてのツールとホット タオルの使用を開始する場所を決定することはできませんが、SPA を構築する場合は、その上に構築する必要があります。
+ここに記載されている他のテンプレートと比較して、Hot タオルテンプレートには、独自のアプリケーションを作成するための、より完全なアプリケーションが用意されています。 注意すべき概念は他にもありますが、理解しておくと、このテンプレートは探しているものになる可能性があります。 SPA を構築するが、どこから開始するかを決定できない場合は、ホットタオルを使用します。数秒で SPA と、それに必要なすべてのツールが用意されています。
 
 ## <a name="feature-table"></a>機能テーブル
 
 各 SPA テンプレートによって提供される機能を次に示します。
 
-|                        | ASP.NET SPA | バックボーン | Breeze/Angular | Breeze/KO |  Ember   | ホットのタオル |
+|                        | ASP.NET SPA | バックボーン | 簡単/角度 | 簡単/KO |  Ember.js   | ホットタオル |
 |------------------------|-------------|----------|----------------|-----------|----------|-----------|
 |      ToDo サンプル       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
-|     ベア テンプレート      |             | &#10003; |                |           |          | &#10003;  |
+|     ベアテンプレート      |             | &#10003; |                |           |          | &#10003;  |
 | ナビゲーションと履歴 |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
 |        ライブラリ       |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
 |    &#8195;バックボーン     |             | &#10003; |                |           |          |           |
-|         簡単です。         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
+|         風         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
 |        durandal        |             |          |                |           |          | &#10003;  |
-|         Ember          |             |          |                |           | &#10003; |           |
-|        Knockout        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
+|         Ember.js          |             |          |                |           | &#10003; |           |
+|        抜き合わせ        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |

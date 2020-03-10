@@ -10,15 +10,15 @@ ms.assetid: ce11b017-0ca6-4376-aa9d-a7f3288101de
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
 ms.openlocfilehash: ccbc0372120301b1cd8d4cdc86bd9fba9404d8ae
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519332"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504682"
 ---
 # <a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2.1 での BSON のサポート
 
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 このトピックでは、Web API コントローラー (サーバー側) と .NET クライアントアプリで BSON を使用する方法について説明します。 Web API 2.1 では、BSON のサポートが導入されています。 
 
@@ -104,7 +104,7 @@ BSON を他のメディアの種類と関連付けるには、SupportedMediaType
 
 逆シリアル化すると、フォーマッタはデータを元の値に変換します。 ただし、web API から生の値が返された場合、別の BSON パーサーを使用するクライアントはこのケースを処理する必要があります。 一般に、未加工の値ではなく、構造化されたデータを返すことを検討する必要があります。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [Web API の BSON サンプル](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BSONSample/)
 

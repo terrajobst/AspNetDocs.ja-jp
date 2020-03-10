@@ -9,11 +9,11 @@ ms.assetid: 90582e54-3e90-432a-9da5-689fb39ed56b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
 msc.type: authoredcontent
 ms.openlocfilehash: b2bd5b1571ccebc9baa501b29743aecdb4543fb2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599211"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497380"
 ---
 # <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>JavaScript コードを使用してコントロールに動的に入力する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599211"
 
 > ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 また、カスタムクライアント側の JavaScript コードを使用して、作成をトリガーすることもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit の `DynamicPopulate` コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 また、カスタムクライアント側の JavaScript コードを使用して、作成をトリガーすることもできます。
 

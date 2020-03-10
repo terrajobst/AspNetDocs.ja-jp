@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: 'チュートリアル: Entity Framework 6 Code First MVC 5 の使用の概要 |Microsoft Docs'
-description: このチュートリアル シリーズでは、データ アクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。
+title: 'チュートリアル: MVC 5 を使用した Entity Framework 6 Code First の概要 |Microsoft Docs'
+description: この一連のチュートリアルでは、データアクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。
 author: tdykstra
 ms.author: riande
 ms.date: 01/22/2019
@@ -10,16 +10,16 @@ ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: a00a5a3aa295c2584b90abbf931c258c9e1b58ca
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57057969"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499408"
 ---
-# <a name="tutorial-get-started-with-entity-framework-6-code-first-using-mvc-5"></a>チュートリアル: Entity Framework 6 Code First MVC 5 の使用の概要します。
+# <a name="tutorial-get-started-with-entity-framework-6-code-first-using-mvc-5"></a>チュートリアル: MVC 5 を使用した Entity Framework 6 Code First の概要
 
 > [!NOTE]
-> 新しい開発の場合はお勧めします[ASP.NET Core Razor ページ](/aspnet/core/razor-pages)ASP.NET MVC コント ローラーとビューを経由します。 このようなチュートリアルのシリーズの Razor ページを使用して、参照してください[チュートリアル。ASP.NET Core で Razor ページの概要](/aspnet/core/tutorials/razor-pages/razor-pages-start)します。 新しいチュートリアル:
+> 新しい開発では、ASP.NET MVC コントローラーとビューを[ASP.NET Core Razor Pages](/aspnet/core/razor-pages)をお勧めします。 Razor Pages を使用したこの例に似たチュートリアルシリーズについては、「[チュートリアル: ASP.NET Core で Razor Pages](/aspnet/core/tutorials/razor-pages/razor-pages-start)の使用を開始する」を参照してください。 新しいチュートリアルは次のとおりです。
 > * 理解しやすい。
 > * より多くの EF Core のベスト プラクティスが提供されている。
 > * より効率的なクエリを使用している。
@@ -27,106 +27,106 @@ ms.locfileid: "57057969"
 > * 多くの機能をカバーしている。
 > * 新しいアプリケーションの開発で推奨されるアプローチである。
 
-このチュートリアル シリーズでは、データ アクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。 このチュートリアルでは、Code First ワークフローを使用します。 Code First、Database First または Model First を選択する方法については、[モデルを作成する](/ef/ef6/modeling/)を参照してください。
+この一連のチュートリアルでは、データアクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。 このチュートリアルでは、Code First ワークフローを使用します。 Code First、Database First、Model First の選択方法の詳細については、「[モデルを作成](/ef/ef6/modeling/)する」を参照してください。
 
-このチュートリアル シリーズでは、Contoso University のサンプル アプリケーションを構築する方法について説明します。 サンプル アプリケーションは、簡単な大学向け web サイトです。 それには表示して学生、コース、およびインストラクターの情報を更新します。 作成する画面の 2 つを次に示します。
+このチュートリアルシリーズでは、Contoso 大学サンプルアプリケーションを構築する方法について説明します。 サンプルアプリケーションは、単純な大学の web サイトです。 これを使用すると、学生、コース、およびインストラクターの情報を表示および更新できます。 次の2つの画面を作成します。
 
 ![Students_Index_page](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
-![学生を編集します。](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image2.png)
+![学生の編集](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image2.png)
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * MVC web アプリを作成します。
+> * MVC web アプリを作成する
 > * サイトのスタイルを設定する
-> * Entity Framework 6 をインストールします。
+> * Entity Framework 6 をインストールする
 > * データ モデルを作成する
 > * データベース コンテキストの作成
 > * テスト データで DB を初期化する
-> * LocalDB を使用するよう EF 6 に設定します。
+> * LocalDB を使用するように EF 6 を設定する
 > * コントローラーとビューを作成する
 > * データベースを表示する
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 
-## <a name="create-an-mvc-web-app"></a>MVC web アプリを作成します。
+## <a name="create-an-mvc-web-app"></a>MVC web アプリを作成する
 
-1. Visual Studio を開き、作成、 C# web プロジェクトを使用して、 **ASP.NET Web アプリケーション (.NET Framework)** テンプレート。 プロジェクトに名前を*ContosoUniversity*選択**OK**。
+1. Visual Studio を開き、 C# **ASP.NET web アプリケーション (.NET Framework)** テンプレートを使用して web プロジェクトを作成します。 プロジェクトに*ContosoUniversity*という名前を指定し、[ **OK]** を選択します。
 
-   ![Visual Studio で新しいプロジェクト ダイアログ ボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/new-project-dialog.png)
+   ![Visual Studio の [新しいプロジェクト] ダイアログボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/new-project-dialog.png)
 
-1. **新しい ASP.NET Web アプリケーション - ContosoUniversity**、 **MVC**します。
+1. **New ASP.NET Web Application-ContosoUniversity**で、 **[MVC]** を選択します。
 
-   ![Visual Studio での新しい web アプリ ダイアログ ボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/new-web-app-dialog.png)
+   ![Visual Studio の [新しい web アプリ] ダイアログボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/new-web-app-dialog.png)
 
     > [!NOTE]
-    > 既定で、**認証**にオプションが設定されている**認証なし**します。 このチュートリアルでは、web アプリにサインインするユーザーを必要としません。 また、これサインインしているユーザーに基づくアクセスは制限されません。
+    > 既定では、**認証**オプションは **[認証なし]** に設定されています。 このチュートリアルでは、web アプリでユーザーにサインインする必要はありません。 また、サインインしたユーザーに基づいてアクセスを制限することもありません。
 
-1. **[OK]** をクリックして、プロジェクトを作成します。
+1. **[OK]** を選択すると、プロジェクトが作成されます。
 
 ## <a name="set-up-the-site-style"></a>サイトのスタイルを設定する
 
 簡単な変更をいくつか行い、サイトのメニュー、レイアウト、ホーム ページを決めます。
 
-1. 開いている*views \shared\\_Layout.cshtml*、次の変更を行います。
+1. *Views\Shared\\_Layout*を開き、次のように変更します。
 
-   - 各出現する"My ASP.NET Application"、"Application name"を"Contoso University"に変更します。
-   - 学生、コース、教員、および部門、メニュー エントリを追加し、連絡先エントリを削除します。
+   - "My ASP.NET Application" と "Application name" の出現箇所をそれぞれ "Contoso 大学" に変更します。
+   - 学生、コース、インストラクター、部署のメニューエントリを追加し、連絡先エントリを削除します。
 
-   次のコード スニペットでは、変更が強調表示されます。
+   変更は、次のコードスニペットで強調表示されています。
 
    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample1.cshtml?highlight=6,19,24-27,38)]
 
-2. *Views\Home\Index.cshtml*ファイルの内容を ASP.NET と MVC に関するテキストをこのアプリケーションに関するテキストに置き換えるには、次のコードに置き換えます。
+2. *Views\Home\Index.cshtml*で、ファイルの内容を次のコードに置き換えて、ASP.NET と MVC に関するテキストをこのアプリケーションに関するテキストに置き換えます。
 
    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample2.cshtml)]
 
-3. Web サイトを実行するには、Ctrl + F5 キーを押します。 メイン メニューで、ホーム ページを参照してください。
+3. Ctrl キーを押しながら F5 キーを押して web サイトを実行します。 メインメニューが表示されたホームページが表示されます。
 
-## <a name="install-entity-framework-6"></a>Entity Framework 6 をインストールします。
+## <a name="install-entity-framework-6"></a>Entity Framework 6 をインストールする
 
-1. **ツール**] メニューの [選択**NuGet パッケージ マネージャー**を選び、**パッケージ マネージャー コンソール**します。
+1. **[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。
 
-2. **パッケージ マネージャー コンソール**ウィンドウで、次のコマンドを入力します。
+2. **[パッケージ マネージャー コンソール]** ウィンドウで、次のコマンドを入力します。
 
    ```text
    Install-Package EntityFramework
    ```
 
-この手順は、このチュートリアルでは、手動で行うことがいる可能性がありますが完了に自動的に ASP.NET MVC のスキャフォールディング機能によって、いくつかの手順のいずれかです。 Entity Framework (EF) を使用するために必要な手順が表示されるため、それらを手動で行ってしています。 MVC コント ローラーとビューを作成して後でスキャフォールディングを使用します。 別の方法はスキャフォールディングを自動的に EF の NuGet パッケージをインストール、データベース コンテキスト クラスを作成および接続文字列を作成します。 方法で実行する準備ができたら、行う必要があるすべてがこれらの手順をスキップし、エンティティ クラスを作成した後に、MVC コント ローラーをスキャフォールディングします。
+この手順は、このチュートリアルで手動で行うことができるいくつかの手順の1つですが、ASP.NET MVC のスキャフォールディング機能によって自動的に実行される可能性があります。 Entity Framework (EF) を使用するために必要な手順を確認できるように、手動で実行します。 スキャフォールディングを後で使用して、MVC コントローラーとビューを作成します。 別の方法として、スキャフォールディングを使用して EF NuGet パッケージを自動的にインストールし、データベースコンテキストクラスを作成して、接続文字列を作成する方法があります。 これを行う準備ができたら、これらの手順を省略し、エンティティクラスを作成した後に MVC コントローラーをスキャフォールディングするだけです。
 
 ## <a name="create-the-data-model"></a>データ モデルを作成する
 
-次に、Contoso University アプリケーションのエンティティ クラスを作成します。 次の 3 つのエンティティをから始めます。
+次に、Contoso University アプリケーションのエンティティ クラスを作成します。 次の3つのエンティティから始めます。
 
-**コース** <-> **登録** <-> **学生**
+**コース** <-> **登録** <-> **Student**
 
-| エンティティ | Relationship |
+| [エンティティ] | リレーションシップ |
 | -------- | ------------ |
-| コースの登録を | 一対多 |
-| 学生を登録する | 一対多 |
+| 登録のコース | 一対多 |
+| 学生の登録 | 一対多 |
 
 `Student` エンティティと `Enrollment` エンティティの間に一対多の関係があり、`Course` エンティティと `Enrollment` エンティティの間に一対多の関係があります。 言い換えると、1 人の学生をさまざまな講座に登録し、1 つの講座にたくさんの学生を登録できます。
 
-次のセクションでは、これらのエンティティのそれぞれのクラスを作成します。
+以下のセクションでは、これらのエンティティのいずれかにクラスを作成します。
 
 > [!NOTE]
-> これらのエンティティ クラスのすべての作成を完了する前に、プロジェクトをコンパイルしようとすると、コンパイラ エラーが表示されます。
+> これらのエンティティクラスのすべての作成を完了する前にプロジェクトをコンパイルしようとすると、コンパイラエラーが発生します。
 
 ### <a name="the-student-entity"></a>Student エンティティ
 
-- *モデル*フォルダー、という名前のクラス ファイルを作成する*Student.cs*でフォルダーを右クリックして**ソリューション エクスプ ローラー**を選択して**追加**  > **クラス**します。 テンプレート コードを次のコードに置き換えます。
+- [*モデル*] フォルダーで、**ソリューションエクスプローラー**のフォルダーを右クリックし、[ > **クラス**の**追加**] を選択して、 *Student.cs*という名前のクラスファイルを作成します。 テンプレート コードを次のコードに置き換えます。
 
    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample3.cs)]
 
-`ID` プロパティは、このクラスに相当するデータベース テーブルの主キー列になります。 既定では、Entity Framework がという名前のプロパティを解釈`ID`または*classname* `ID`主キーとして。
+`ID` プロパティは、このクラスに相当するデータベース テーブルの主キー列になります。 既定では、Entity Framework は `ID` または*classname* `ID` という名前のプロパティを主キーとして解釈します。
 
-`Enrollments` プロパティは*ナビゲーション プロパティ*です。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティが含まれます。 ここで、`Enrollments`のプロパティを`Student`すべてのエンティティを保持、`Enrollment`に関連付けられているエンティティ`Student`エンティティ。 つまり場合、指定された`Student`データベース内の行が 2 つの関連`Enrollment`行 (その学生の主キーを含む行の値で、`StudentID`外部キー列)、その`Student`エンティティの`Enrollments`ナビゲーション プロパティこれら 2 つが含まれます`Enrollment`エンティティ。
+`Enrollments` プロパティは*ナビゲーション プロパティ*です。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティが含まれます。 この場合、`Student` エンティティの `Enrollments` プロパティには、その `Student` エンティティに関連付けられているすべての `Enrollment` エンティティが保持されます。 言い換えると、データベース内の特定の `Student` 行に2つの関連する `Enrollment` 行 (その学生の主キー値が `StudentID` 外部キー列に含まれる行) がある場合、その `Student` エンティティの `Enrollments` ナビゲーションプロパティには、その2つの `Enrollment` エンティティが含まれます。
 
-ナビゲーション プロパティは、通常、として定義`virtual`などの特定の Entity Framework の機能を利用を行うことができるように*遅延読み込み*します。 (遅延読み込みについては説明後の「、[関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズの後半のチュートリアルです)。
+通常、ナビゲーションプロパティは、*遅延読み込み*などの特定の Entity Framework 機能を利用できるように `virtual` として定義されます。 (遅延読み込みについては、このシリーズの後の「[関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)」チュートリアルで後ほど説明します)。
 
 ナビゲーション プロパティに複数のエンティティが含まれる場合 (多対多または一対多の関係で)、その型はリストにする必要があります。`ICollection` のように、エンティティを追加、削除、更新できるリストです。
 
@@ -136,186 +136,186 @@ ms.locfileid: "57057969"
 
    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample4.cs)]
 
-`EnrollmentID`プロパティは、主キーになります。 このエンティティを使用して、 *classname* `ID`の代わりにパターン`ID`を単独で使用した、`Student`エンティティ。 通常、パターンを 1 つ選択し、データ モデル全体でそれを使用します。 ここのバリエーションから、いずれのパターンも利用できることがわかります。 後のチュートリアルで紹介を使用する方法`ID`せず`classname`データ モデルで継承を実装しやすきます。
+`EnrollmentID` プロパティは主キーになります。このエンティティは、`Student` エンティティで見たように `ID` ではなく*classname* `ID` パターンを使用します。 通常、パターンを 1 つ選択し、データ モデル全体でそれを使用します。 ここのバリエーションから、いずれのパターンも利用できることがわかります。 後のチュートリアルでは、`classname` を使用せずに `ID` を使用することにより、データモデルでの継承の実装を容易にする方法について説明します。
 
-`Grade`プロパティは、 [enum](/ef/ef6/modeling/code-first/data-types/enums)します。 後の疑問符、`Grade`型宣言では、ことを示します、`Grade`プロパティは[null 許容](/dotnet/csharp/programming-guide/nullable-types/using-nullable-types)します。 Null であるグレードが 0 の点から異なる-null は、評価が不明なまたはまだ割り当てられていないことを意味します。
+`Grade` プロパティは[列挙型](/ef/ef6/modeling/code-first/data-types/enums)です。 `Grade` の型宣言の後の疑問符は、`Grade` プロパティが [nullable](/dotnet/csharp/programming-guide/nullable-types/using-nullable-types) であることを示します。 Null のグレードは0グレードとは異なります。 null は、グレードが不明であるか、まだ割り当てられていないことを示します。
 
-`StudentID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Student` です。 `Enrollment` エンティティは 1 つの `Student` エンティティに関連付けられており、1 つの `Student` エンティティだけを保持できます (先に見た、複数の `Enrollment` エンティティを保持できる `Student.Enrollments` ナビゲーション プロパティとは異なります)。
+`StudentID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Student` です。 `Enrollment` エンティティは 1 つの `Student` エンティティに関連付けられており、1 つの `Student` エンティティだけを保持できます (先に見た、複数の `Student.Enrollments` エンティティを保持できる `Enrollment` ナビゲーション プロパティとは異なります)。
 
 `CourseID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Course` です。 `Enrollment` エンティティは 1 つの `Course` エンティティに関連付けられます。
 
-Entity Framework がという名前が場合に、外部キー プロパティとしてプロパティを解釈 *&lt;ナビゲーション プロパティの名前&gt;&lt;主キー プロパティ名&gt;* (たとえば、 `StudentID`の`Student`からナビゲーション プロパティ、`Student`エンティティの主キーが`ID`)。 外部キー プロパティできますも同じ名前に単に *&lt;主キー プロパティ名&gt;* (たとえば、`CourseID`ので、`Course`エンティティの主キーが`CourseID`)。
+Entity Framework は、プロパティを外部キープロパティとして解釈します ( *&lt;ナビゲーションプロパティ名&gt;&lt;主キープロパティ名&gt;* (`StudentID` エンティティの主キーが `Student` であるために `Student` ナビゲーションプロパティの `ID`など)。 外部キープロパティの名前を同じにすることもできます。これは、*主キーのプロパティ名&gt;* (たとえば、`Course` エンティティの主キーが `CourseID`であるため `CourseID`)&lt;同じです。
 
 ### <a name="the-course-entity"></a>Course エンティティ
 
-- *モデル*フォルダー作成*Course.cs*、テンプレート コードを次のコードに置き換えます。
+- [*モデル*] フォルダーで*Course.cs*を作成し、テンプレートコードを次のコードに置き換えます。
 
    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
 `Enrollments` プロパティはナビゲーション プロパティです。 1 つの `Course` エンティティにたくさんの `Enrollment` エンティティを関連付けることができます。
 
-ここでの詳細について、<xref:System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute>このシリーズの以降のチュートリアルでは属性。 基本的に、この属性によって、講座の主キーをデータベースに生成させず、自分で入力できるようになります。
+<xref:System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute> 属性の詳細については、このシリーズの後のチュートリアルで説明します。 基本的に、この属性によって、講座の主キーをデータベースに生成させず、自分で入力できるようになります。
 
 ## <a name="create-the-database-context"></a>データベース コンテキストの作成
 
-指定されたデータ モデルの Entity Framework の機能を調整するメイン クラスは、*データベース コンテキスト*クラス。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx)クラス。 コードでは、データ モデルのエンティティが含まれているを指定します。 Entity Framework の特定の動作をカスタマイズすることもできます。 このプロジェクトでは、クラスに `SchoolContext` という名前が付けられています。
+特定のデータモデルの Entity Framework 機能を調整するメインクラスは、*データベースコンテキスト*クラスです。 このクラスは、system.string[コンテキスト](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx)クラスから派生させることによって作成します。 コードでは、データモデルに含めるエンティティを指定します。 Entity Framework の特定の動作をカスタマイズすることもできます。 このプロジェクトでは、クラスに `SchoolContext` という名前が付けられています。
 
-- ContosoUniversity プロジェクトのフォルダーを作成するでプロジェクトを右クリックして**ソリューション エクスプ ローラー**クリック**追加**、順にクリックします**新しいフォルダー**します。 新しいフォルダーの名前*DAL* (のデータ アクセス層)。 という名前の新しいクラス ファイルを作成すると、そのフォルダー内*SchoolContext.cs*、テンプレート コードを次のコードに置き換えます。
+- ContosoUniversity プロジェクトにフォルダーを作成するには、**ソリューションエクスプローラー**でプロジェクトを右クリックし、 **[追加]** をクリックして、 **[新しいフォルダー]** をクリックします。 新しいフォルダーに「 *DAL* 」という名前を指定します (データアクセス層の場合)。 そのフォルダーで、 *SchoolContext.cs*という名前の新しいクラスファイルを作成し、テンプレートコードを次のコードに置き換えます。
 
    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample6.cs)]
 
-### <a name="specify-entity-sets"></a>エンティティ セットを指定します。
+### <a name="specify-entity-sets"></a>エンティティセットの指定
 
-このコードを作成、 [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.113).aspx)各エンティティ セットのプロパティ。 Entity Framework の用語で、*エンティティ セット*通常、データベース テーブルに対応し、*エンティティ*テーブルの行に対応しています。
+このコードでは、エンティティセットごとに[dbset](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.113).aspx)プロパティを作成します。 Entity Framework 用語では、*エンティティセット*は通常、データベーステーブルに対応し、*エンティティ*はテーブル内の行に対応します。
 
 > [!NOTE]
 >
-> 省略することができます、`DbSet<Enrollment>`と`DbSet<Course>`ステートメントと同じように動作します。 Entity Framework はそれらを含める暗黙的に、`Student`エンティティ参照、`Enrollment`エンティティと`Enrollment`エンティティ参照、`Course`エンティティ。
+> `DbSet<Enrollment>` と `DbSet<Course>` ステートメントを省略すると、同じように動作します。 `Student` エンティティは `Enrollment` エンティティを参照し、`Enrollment` エンティティは `Course` エンティティを参照するため、Entity Framework に暗黙的に含まれます。
 
-### <a name="specify-the-connection-string"></a>接続文字列を指定します。
+### <a name="specify-the-connection-string"></a>接続文字列を指定します
 
-(これは後で、Web.config ファイルに追加されます) 接続文字列の名前で、コンストラクターに渡されます。
+(後で web.config ファイルに追加する) 接続文字列の名前は、コンストラクターに渡されます。
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs?highlight=1)]
 
-現在、Web.config ファイルに格納されているいずれかの名前ではなく、接続文字列自体に渡すこともできます。 使用するデータベースを指定するためのオプションの詳細については、[接続文字列とモデル](/ef/ef6/fundamentals/configuring/connection-strings)を参照してください。
+Web.config ファイルに格納されている名前ではなく、接続文字列自体を渡すこともできます。 使用するデータベースを指定するためのオプションの詳細については、「[接続文字列とモデル](/ef/ef6/fundamentals/configuring/connection-strings)」を参照してください。
 
-接続文字列またはいずれかの名前を明示的に指定しない場合、Entity Framework では、接続文字列名は、クラス名と同じ前提としています。 この例では既定の接続文字列名になりますし`SchoolContext`、明示的に指定しているものと同じです。
+接続文字列または1つの名前を明示的に指定しない場合、Entity Framework は、接続文字列名がクラス名と同じであると想定します。 この例の既定の接続文字列名は、明示的に指定したものと同じ `SchoolContext`になります。
 
-### <a name="specify-singular-table-names"></a>単数のテーブル名を指定します。
+### <a name="specify-singular-table-names"></a>単数形のテーブル名を指定する
 
-`modelBuilder.Conventions.Remove`内のステートメント、 [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、複数の中からテーブル名を防ぎます。 このしなかった場合、データベースで生成されたテーブルの名前は`Students`、 `Courses`、および`Enrollments`します。 代わりに、テーブル名になります`Student`、 `Course`、および`Enrollment`します。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルは、単数形を使用しますが、重要な点が含むかのコード行を省略すると、希望するどのフォームを選択することができます。
+[Onmodelcreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドの `modelBuilder.Conventions.Remove` ステートメントを実行すると、テーブル名をにできなくなります。 この操作を行わないと、データベース内の生成されたテーブルの名前は `Students`、`Courses`、および `Enrollments`になります。 代わりに、テーブル名は `Student`、`Course`、および `Enrollment`になります。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルでは単数形を使用しますが、重要な点は、このコード行を含めたり省略したりすることで、任意の形式を選択できることです。
 
 ## <a name="initialize-db-with-test-data"></a>テスト データで DB を初期化する
 
-Entity Framework できます自動的に作成 (または削除して再作成) すると、アプリケーションの実行時のデータベース。 アプリケーションを実行するたびに、または既存のデータベースと同期されていません。 モデルの場合にのみこの行わ 必要がありますを指定できます。 記述することも、`Seed`その Entity Framework メソッドのテスト データを格納するために、データベースを作成した後。
+Entity Framework は、アプリケーションの実行時にデータベースを自動的に作成 (または削除して再作成) できます。 アプリケーションが実行されるたびに、またはモデルが既存のデータベースと同期しなくなったときにのみ実行するように指定できます。 また、データベースを作成した後に、テストデータを設定するために自動的にを呼び出す Entity Framework `Seed` メソッドを作成することもできます。
 
-既定の動作では、それが存在しない (とモデルが変更され、データベースが既に存在する場合に例外をスロー) 場合にのみデータベースを作成します。 このセクションでは、データベースを削除し、モデルが変更されるたびを再作成するを指定します。 データベースを削除すると、すべてのデータの損失とします。 これは、一般に開発中なので問題は、`Seed`メソッドは、データベースの再作成、テスト データが再作成時に実行されます。 運用環境で一般的にしたくない、データベース スキーマを変更する必要があるたびに、すべてのデータが失われます。 後で削除して、データベースを再作成ではなく、データベース スキーマを変更する Code First Migrations を使用してモデルの変更を処理する方法を確認します。
+既定の動作では、データベースが存在しない場合にのみデータベースを作成します (モデルが変更され、データベースが既に存在する場合は例外をスローします)。 このセクションでは、モデルが変更されるたびにデータベースを削除して再作成するように指定します。 データベースを削除すると、すべてのデータが失われます。 `Seed` メソッドはデータベースが再作成されるときに実行され、テストデータが再作成されるため、これは通常、開発時には問題ありません。 しかし、実稼働環境では、データベーススキーマを変更する必要があるたびに、すべてのデータを失わないようにする必要があります。 後で、データベースを削除して再作成するのではなく、Code First Migrations を使用してデータベーススキーマを変更することにより、モデルの変更を処理する方法について説明します。
 
-1. という名前の新しいクラス ファイルを作成、DAL フォルダーで*SchoolInitializer.cs*負荷テスト、新しいデータベースにデータと、テンプレート コードをデータベースに必要な時に作成されると、次のコードに置き換えます。
+1. DAL フォルダーで、 *SchoolInitializer.cs*という名前の新しいクラスファイルを作成し、テンプレートコードを次のコードに置き換えます。これにより、必要に応じてデータベースが作成され、テストデータが新しいデータベースに読み込まれます。
 
    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample8.cs)]
 
-   `Seed`メソッドは、入力パラメーターとして、データベース コンテキストのオブジェクトとメソッドのコードがそのオブジェクトを使用して、データベースに新しいエンティティを追加します。 エンティティ型ごとに、コードは、新しいエンティティのコレクションを作成、適切なに追加します`DbSet`プロパティ、および、データベースへの変更を保存します。 呼び出す必要はありません、`SaveChanges`エンティティの各グループの後にメソッドは、ここでは、として行われますが、これを行うコードは、データベースに書き込んでいるときに例外が発生した場合は、問題の原因を見つけることができます。
+   `Seed` メソッドは、データベースコンテキストオブジェクトを入力パラメーターとして受け取ります。メソッドのコードは、そのオブジェクトを使用して新しいエンティティをデータベースに追加します。 このコードは、エンティティ型ごとに新しいエンティティのコレクションを作成し、適切な `DbSet` プロパティに追加してから、変更をデータベースに保存します。 ここで行ったように、エンティティの各グループの後に `SaveChanges` メソッドを呼び出す必要はありませんが、コードがデータベースに書き込んでいる間に例外が発生した場合に、問題の原因を特定するのに役立ちます。
 
-2. 初期化子クラスを使用する Entity Framework を指示するには、要素を追加、`entityFramework`アプリケーション内の要素*Web.config*ファイル (ファイル、ルート プロジェクト フォルダー内)、次の例に示すようにします。
+2. 初期化子クラスを使用する Entity Framework を指定するには、次の例に示すように、アプリケーションの*web.config*ファイル (ルートプロジェクトフォルダー内の要素) の `entityFramework` 要素に要素を追加します。
 
    [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample9.xml?highlight=2-6)]
 
-   `context type`コンテキストの完全修飾クラス名とには、アセンブリを指定します、`databaseinitializer type`と内にあるアセンブリの初期化子クラスの完全修飾名を指定します。 (で属性を設定するには、初期化子を使用する EF をしたくない場合、`context`要素: `disableDatabaseInitialization="true"`)。詳細については、[構成ファイルの設定](/ef/ef6/fundamentals/configuring/config-file)を参照してください。
+   `context type` は、完全修飾コンテキストクラス名とそれが含まれるアセンブリを指定し、`databaseinitializer type` は初期化子クラスの完全修飾名とそれが含まれるアセンブリを指定します。 (EF で初期化子を使用しない場合は、`context` 要素で属性を設定できます: `disableDatabaseInitialization="true"`。)詳細については、「[構成ファイルの設定](/ef/ef6/fundamentals/configuring/config-file)」を参照してください。
 
-   初期化子を設定する代わりに、 *Web.config*ファイルを追加してコードで行うが、`Database.SetInitializer`ステートメントを`Application_Start`メソッドで、 *Global.asax.cs*ファイル。 詳細については、[Entity Framework Code First でデータベース初期化子を理解する](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)を参照してください。
+   *Web.config ファイルで*初期化子を設定する代わりに、 *Global.asax.cs*ファイルの `Application_Start` メソッドに `Database.SetInitializer` ステートメントを追加することによって、コード内で初期化子を設定することもできます。 詳細については、「 [Entity Framework Code First でのデータベース初期化子につい](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)て」を参照してください。
 
-アプリケーションは Entity Framework がモデルにデータベースを比較し、アプリケーションの特定の実行で初めてデータベースにアクセスするときにできるように、今すぐを設定 (、`SchoolContext`とエンティティ クラス)。 違いがある場合、アプリケーションは削除し、データベースを再作成します。
+これで、アプリケーションの特定の実行でデータベースに初めてアクセスしたときに、Entity Framework によってデータベースがモデル (`SchoolContext` とエンティティクラス) と比較されるようになりました。 違いがある場合は、アプリケーションによってデータベースが削除され、再作成されます。
 
 > [!NOTE]
-> 実稼働 web サーバーにアプリケーションを展開するときに、削除するか、削除し、データベースを再作成するコードを無効にする必要があります。 このシリーズの以降のチュートリアルを実行してみましょう。
+> アプリケーションを実稼働 web サーバーに配置する場合は、データベースを削除して再作成するコードを削除または無効にする必要があります。 これは、このシリーズの後のチュートリアルで行います。
 
-## <a name="set-up-ef-6-to-use-localdb"></a>LocalDB を使用するよう EF 6 に設定します。
+## <a name="set-up-ef-6-to-use-localdb"></a>LocalDB を使用するように EF 6 を設定する
 
-[LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017)は、SQL Server Express データベース エンジンの軽量バージョンです。 簡単にインストールして構成するには、オンデマンドで開始およびユーザー モードで実行します。 LocalDB は SQL Server Express データベースとして使用することができますの特殊な実行モードで実行 *.mdf*ファイル。 LocalDB のデータベース ファイルを配置することができます、*アプリ\_データ*プロジェクトにデータベースをコピーする場合は、web プロジェクトのフォルダー。 SQL Server express ユーザー インスタンス機能では使用することもできます *.mdf*ユーザー インスタンスの機能は、ファイルが非推奨とされます。 そのため、LocalDB を使用するため推奨 *.mdf*ファイル。 LocalDB は、Visual Studio では、既定でインストールされます。
+[LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017)は、SQL Server Express データベースエンジンの軽量バージョンです。 インストールと構成が簡単で、オンデマンドで開始し、ユーザーモードで実行できます。 LocalDB は、 *.mdf*ファイルとしてデータベースを操作できるようにする SQL Server Express の特別な実行モードで実行されます。 プロジェクトと共にデータベースをコピーできるようにするには、web プロジェクトの*App\_Data*フォルダーに LocalDB データベースファイルを配置します。 SQL Server Express のユーザーインスタンス機能では、.mdf ファイルを使用することもでき*ます*が、ユーザーインスタンス機能は非推奨とされます。そのため、 *.mdf*ファイルを使用する場合は LocalDB をお勧めします。 LocalDB は、既定で Visual Studio と共にインストールされます。
 
-通常、実稼働 web アプリケーションの SQL Server Express は使用されません。 LocalDB 具体的には使用しないで web アプリケーションを運用環境で使用ため、これは、IIS を使用する意図していません。
+通常、SQL Server Express は、運用 web アプリケーションでは使用されません。 LocalDB は、IIS で動作するように設計されていないため、web アプリケーションでの運用環境での使用は推奨されません。
 
-- このチュートリアルでは、LocalDB を使用します。 アプリケーションを開く*Web.config*追加ファイルを開き、`connectionStrings`前の要素、`appSettings`要素は、次の例に示すようにします。 (必ず更新して、 *Web.config*ルート プロジェクト フォルダー内のファイル。 *Web.config*ファイル、*ビュー*サブフォルダーを更新する必要はありません)。
+- このチュートリアルでは、LocalDB を操作します。 次の例に示すように、アプリケーションの*web.config*ファイルを開き、`appSettings` 要素の前に `connectionStrings` 要素を追加します。 (ルートプロジェクトフォルダー*内の web.config ファイルを*必ず更新してください。 また、[ *Views* ] サブフォルダーには、更新する必要のない*web.config ファイルも*あります)。
 
    [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample10.xml?highlight=1-3)]
 
-追加した接続文字列は、Entity Framework がという名前の LocalDB データベースを使用するを指定します*ContosoUniversity1.mdf*します。 (データベースがまだ存在しないが EF によって作成されます)。データベースを作成する場合、*アプリ\_データ*でしたを追加するフォルダー、`AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf`接続文字列にします。 接続文字列の詳細については、[ASP.NET Web アプリケーションの SQL Server 接続文字列](/previous-versions/aspnet/jj653752(v=vs.110))を参照してください。
+追加した接続文字列は、Entity Framework が*ContosoUniversity1*という名前の LocalDB データベースを使用することを指定します。 (データベースはまだ存在しませんが、EF によって作成されます)。*アプリ\_データ*フォルダーにデータベースを作成する場合は、接続文字列に `AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf` を追加できます。 接続文字列の詳細については、「 [ASP.NET Web Applications の接続文字列の SQL Server](/previous-versions/aspnet/jj653752(v=vs.110))」を参照してください。
 
-内の接続文字列を実際には必要はありません、 *Web.config*ファイル。 接続文字列を指定しない場合、Entity Framework には、コンテキスト クラスに基づいた既定の接続文字列が使用されます。 詳細については、[新しいデータベースを Code First](/ef/ef6/modeling/code-first/workflows/new-database)を参照してください。
+実際に*は、web.config ファイルに*接続文字列は必要ありません。 接続文字列を指定しない場合、Entity Framework は、コンテキストクラスに基づく既定の接続文字列を使用します。 詳細については、「[新しいデータベースへの Code First](/ef/ef6/modeling/code-first/workflows/new-database)」を参照してください。
 
 ## <a name="create-controller-and-views"></a>コントローラーとビューを作成する
 
-これでデータを表示する web ページを作成します。 データを自動的に要求するプロセスは、データベースの作成をトリガーします。 新しいコント ローラーの作成から始めます。 その前に、モデルおよびコンテキスト クラスを MVC コント ローラーのスキャフォールディングを使用できるようにプロジェクトを作成します。
+次に、データを表示する web ページを作成します。 データを要求するプロセスによって、データベースの作成が自動的にトリガーされます。 まず、新しいコントローラーを作成します。 ただし、その前に、プロジェクトをビルドして、MVC コントローラーのスキャフォールディングでモデルとコンテキストクラスを使用できるようにします。
 
-1. 右クリックし、**コント ローラー**フォルダー**ソリューション エクスプ ローラー**を選択します**追加**、 をクリックし、**スキャフォールディングされた新しい項目**します。
-2. **スキャフォールディングの追加**ダイアログ ボックスで、 **MVC 5 コント ローラーとビュー、Entity Framework を使用して**を選び、**追加**します。
+1. **ソリューションエクスプローラー**で **[Controllers]** フォルダーを右クリックし、 **[追加]** をポイントして、 **[新しいスキャフォールディング Item]** をクリックします。
+2. **[スキャフォールディングの追加]** ダイアログボックスで、 **[MVC 5 コントローラー]** を選択し Entity Framework を使用して **[追加]** を選択します。
 
-     ![Visual Studio でスキャフォールディング ダイアログ ボックスを追加します。](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/add-scaffold.png)
+     ![Visual Studio での [スキャフォールディングの追加] ダイアログボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/add-scaffold.png)
 
-3. **コント ローラーの追加**ダイアログ ボックスで、次の項目を選択し、**追加**:
+3. **[コントローラーの追加]** ダイアログボックスで、次の選択を行い、 **[追加]** を選択します。
 
-   - モデル クラス:**学生 (ContosoUniversity.Models)** します。 (プロジェクトのビルド ドロップダウン リストでは、このオプションが表示されない場合ともう一度やり直してください。)
-   - データ コンテキスト クラス:**[Schoolcontext] (ContosoUniversity.DAL)** します。
-   - コント ローラー名:**StudentController** (StudentsController されません)。
-   - その他のフィールドの既定値のままにします。
+   - モデルクラス: **Student (ContosoUniversity)** 。 (このオプションがドロップダウンリストに表示されない場合は、プロジェクトをビルドして、もう一度やり直してください。)
+   - データコンテキストクラス: **schoolcontext.cs (ContosoUniversity)** 。
+   - コントローラー名: **StudentController** (StudentsController ではありません)。
+   - 他のフィールドの既定値はそのままにします。
 
-     クリックすると**追加**をスキャフォールダーの作成、 *StudentController.cs*ファイルと、一連のビュー (*.cshtml*ファイル)、コント ローラーと連動します。 今後の Entity Framework を使用するプロジェクトを作成する場合は、ことができますも活用する、スキャフォールダーの追加機能の一部: 最初のモデル クラスを作成、接続文字列を作成しませんし、 **追加コントローラー**ボックス指定**新しいデータ コンテキスト**を選択して、 **+** 横に**データ コンテキスト クラス**します。 スキャフォールダーの作成、`DbContext`だけでなく、コント ローラーおよびビューのクラスとの接続文字列します。
-4. Visual Studio を開き、 *Controllers\StudentController.cs*ファイル。 クラスの変数が作成されているデータベースのコンテキスト オブジェクトをインスタンス化するを参照してください。
+     **[追加]** をクリックすると、scaffolder によって、コントローラーで動作する*StudentController.cs*ファイルと一連のビュー (*cshtml*ファイル) が作成されます。 今後 Entity Framework を使用するプロジェクトを作成するときに、scaffolder の追加機能を利用することもできます。最初のモデルクラスを作成し、接続文字列を作成せずに、 **[コントローラーの追加**] ボックスで **[データコンテキストクラス]** の横にある [ **+** ] ボタンを選択して**新しいデータコンテキスト**を指定します。 Scaffolder は、コントローラーとビューだけでなく、`DbContext` クラスと接続文字列を作成します。
+4. Visual Studio によって*Controllers\StudentController.cs*ファイルが開きます。 データベースコンテキストオブジェクトをインスタンス化するクラス変数が作成されていることがわかります。
 
      [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-     `Index`アクション メソッドから受講者の一覧を取得する、*学生*エンティティ セットを読み取ることによって、`Students`データベース コンテキスト インスタンスのプロパティ。
+     `Index` アクションメソッドは、データベースコンテキストインスタンスの `Students` プロパティを読み取って、 *students*エンティティセットから学生のリストを取得します。
 
      [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
-     *Student\Index.cshtml*ビューは、テーブルのこの一覧を表示します。
+     *Student\Index.cshtml*ビューでは、テーブルに次の一覧が表示されます。
 
      [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cshtml)]
-5. Ctrl + f5 キーを押してプロジェクトを実行します。 (「シャドウ コピーを作成できません」エラーが発生する場合、ブラウザーを閉じてもう一度お試し。)
+5. Ctrl キーを押しながら F5 キーを押してプロジェクトを実行します。 ("シャドウコピーを作成できません" というエラーが表示された場合は、ブラウザーを閉じて、もう一度やり直してください。)
 
-     をクリックして、**学生**テスト データを表示するタブを`Seed`メソッドを挿入します。 どの幅の狭いブラウザー ウィンドウが、最上位のアドレス バーに受講者 タブのリンクが表示されますかに応じてへのリンクを参照してください。 右上隅をクリックする必要があります。
+     **[Students]** タブをクリックして、`Seed` メソッドによって挿入されたテストデータを表示します。 ブラウザーウィンドウの幅が狭いかどうかに応じて、上部のアドレスバーに [Student] タブのリンクが表示されます。または、右上隅をクリックしてリンクを表示する必要があります。
 
-     ![メニュー ボタン](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+     ![メニューボタン](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
 ## <a name="view-the-database"></a>データベースを表示する
 
-Students のページを実行すると、アプリケーションが、データベースにアクセスしようとしています。、EF はデータベースがないと、1 つずつ作成があることを検出します。 EF は、データベースにデータを設定するシード メソッドを実行します。
+[Students] ページを実行し、アプリケーションがデータベースにアクセスしようとすると、EF によってデータベースが作成されず、データベースが作成されていないことが検出されました。 EF は、seed メソッドを実行して、データベースにデータを設定します。
 
-いずれかを使用する**サーバー エクスプ ローラー**または**SQL Server オブジェクト エクスプ ローラー** Visual Studio でデータベースを表示するには、(SSOX)。 このチュートリアルで使用する**サーバー エクスプ ローラー**します。
+**サーバーエクスプローラー**または**SQL Server オブジェクトエクスプローラー** (ssox) のいずれかを使用して、Visual Studio でデータベースを表示できます。 このチュートリアルでは、**サーバーエクスプローラー**を使用します。
 
 1. ブラウザーを閉じます。
-2. **サーバー エクスプ ローラー**、展開**データ接続**(最初に更新 ボタンを選択する必要があります、) 展開**学校のコンテキスト (ContosoUniversity)** 順に展開**テーブル**に新しいデータベースのテーブルを参照してください。
+2. **サーバーエクスプローラー**で、**データ接続** を展開し (最初に 更新 ボタンを選択する必要があります)、 **School Context (ContosoUniversity)** を展開し、**テーブル** を展開して、新しいデータベース内のテーブルを表示します。
 
-3. 右クリックし、**学生**テーブルし、クリックして**テーブル データの表示**に作成された列とテーブルに挿入された行を参照してください。
+3. **Student**テーブルを右クリックし、 **[テーブルデータの表示]** をクリックして、作成された列とテーブルに挿入された行を確認します。
 
-4. 閉じる、**サーバー エクスプ ローラー**接続します。
+4. **サーバーエクスプローラー**接続を閉じます。
 
-*ContosoUniversity1.mdf*と *.ldf*データベース ファイルは、 *%userprofile%* フォルダー。
+*ContosoUniversity1*および *.ldf*データベースファイルは *% USERPROFILE%* フォルダーにあります。
 
-使用しているため、`DropCreateDatabaseIfModelChanges`初期化子、行うことができますようになりましたへの変更、`Student`クラス、アプリケーションを再実行、およびデータベースに再作成された、変更に合わせて自動的になります。 追加する場合など、`EmailAddress`プロパティを`Student`クラス、学生のページを再度実行して、参照した後の表に、もう一度、表示、新しい`EmailAddress`列。
+`DropCreateDatabaseIfModelChanges` 初期化子を使用しているため、`Student` クラスを変更し、アプリケーションを再度実行すると、変更内容に合わせてデータベースが自動的に再作成されます。 たとえば、`Student` クラスに `EmailAddress` プロパティを追加した場合は、[Students] ページをもう一度実行し、もう一度テーブルを確認すると、新しい `EmailAddress` 列が表示されます。
 
-## <a name="conventions"></a>規約
+## <a name="conventions"></a>規則
 
-完全なデータベースを作成できるように Entity Framework の順序で記述する必要があるコードの量は最小限のため*規則*、または Entity Framework は、想定します。 既に説明した一部の場合、または自分がそれらを認識せずに使用されていたは。
+Entity Framework が完全なデータベースを作成できるようにするために記述する必要があるコードの量は、規則や Entity Framework によって*決まり*ます。 これらの一部は既にメモされているか、使用されていないことを認識していません。
 
-- エンティティ クラス名の複数形のフォームは、テーブル名として使用されます。
+- エンティティクラス名の複数化形式はテーブル名として使用されます。
 - 列名には、エンティティ プロパティ名が使用されます。
-- という名前のエンティティ プロパティ`ID`または*classname* `ID`主キー プロパティとして認識されます。
-- という名前が場合、外部キー プロパティとして、プロパティの解釈 *&lt;ナビゲーション プロパティの名前&gt;&lt;主キー プロパティ名&gt;* (たとえば、 `StudentID` の`Student`からナビゲーション プロパティ、`Student`エンティティの主キーが`ID`)。 外部キー プロパティできますも同じ名前に単に&lt;主キー プロパティ名&gt;(たとえば、`EnrollmentID`ので、`Enrollment`エンティティの主キーが`EnrollmentID`)。
+- `ID` または*classname* `ID` という名前のエンティティプロパティは、主キーのプロパティとして認識されます。
+- プロパティは外部キープロパティとして解釈されます。 *&lt;ナビゲーションプロパティ名&gt;&lt;主キープロパティ名&gt;* (たとえば、`StudentID` エンティティの主キーが `Student` であるために、`Student` ナビゲーションプロパティの `ID`) という名前が付けられている場合です。 外部キープロパティの名前を同じにすることもできます。これは、主キーのプロパティ名&gt; (たとえば、`Enrollment` エンティティの主キーが `EnrollmentID`であるため `EnrollmentID`) &lt;同じです。
 
-規則をオーバーライドできることを見てきました。 たとえば、テーブル名を複数化しないでくださいと、後述することを指定を外部キー プロパティとしてプロパティを明示的にマークする方法。
+この規則はオーバーライドできることがわかりました。 たとえば、テーブル名を複数化にしないように指定した場合、後でプロパティを外部キープロパティとして明示的にマークする方法がわかります。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトのダウンロード](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
-詳細については、EF 6 は、次の記事を参照してください。
+EF 6 の詳細については、次の記事を参照してください。
 
 * [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)
 
-* [コードの最初の規則](/ef/ef6/modeling/code-first/conventions/built-in)
+* [Code First 規則](/ef/ef6/modeling/code-first/conventions/built-in)
 
 * [より複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * MVC web アプリの作成
+> * MVC web アプリを作成しました
 > * サイトのスタイルを設定する
-> * インストールされている Entity Framework 6
+> * インストール済み Entity Framework 6
 > * データ モデルを作成した
 > * データベース コンテキストを作成した
 > * テスト データで DB を初期化した
-> * LocalDB を使用するよう EF 6 に設定します。
+> * LocalDB を使用するように EF 6 を設定する
 > * コントローラーとビューを作成した
 > * データベースを表示した
 
-確認しカスタマイズの作成、読み取り、更新、コント ローラーとビューの (CRUD) のコードを削除する方法については、次の記事に進んでください。
+次の記事に進み、コントローラーとビューの作成、読み取り、更新、削除 (CRUD) コードを確認し、カスタマイズする方法を学習してください。
 > [!div class="nextstepaction"]
 > [基本 CRUD 機能を実装する](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

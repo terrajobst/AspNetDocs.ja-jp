@@ -9,11 +9,11 @@ ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
 ms.openlocfilehash: cdcb3578725c41e3c801afd54e6d34455bc4b281
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74618518"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78517282"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用した ASP.NET Web 配置: データベース配置の準備
 
@@ -23,7 +23,7 @@ ms.locfileid: "74618518"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、データベースの配置の準備ができているプロジェクトを取得する方法について説明します。 アプリケーションの2つのデータベース内のデータのデータベース構造と一部 (すべてではない) は、テスト環境、ステージング環境、および運用環境に配置する必要があります。
 
@@ -212,7 +212,7 @@ SQL Server インストールセンターの最初のページで、[**新規 SQ
 3. **[OK]** をクリックします。
 4. 前に使用したのと同じ手順に従って、実稼働ファイル用のスクリプトを作成します。 スクリプトファイルに*aspnet-data-prod*という名前を指定します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、両方のデータベースを配置する準備ができました。ソリューションフォルダーには、2つのデータ配置スクリプトが用意されています。
 
@@ -220,7 +220,7 @@ SQL Server インストールセンターの最初のページで、[**新規 SQ
 
 次のチュートリアルでは、配置に影響を与えるプロジェクト設定を構成し、配置されたアプリケーションで異なる必要がある設定に対して、自動 web.config ファイル変換を設定*します。*
 
-## <a name="more-information"></a>その他の情報
+## <a name="more-information"></a>詳細情報
 
 NuGet の詳細については、「NuGet と Nuget の[ドキュメント](http://docs.nuget.org/docs/start-here/overview)[を使用したプロジェクトライブラリの管理](https://msdn.microsoft.com/magazine/hh547106.aspx)」を参照してください。 NuGet を使用しない場合は、NuGet パッケージを分析してインストールしたときの動作を確認する方法について学習する必要があります。 (たとえば、web.config 変換を構成したり、PowerShell スクリプトをビルド時に実行するように構成し*たりすること*があります)。NuGet のしくみの詳細については、「パッケージと構成ファイル[の作成と発行](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)」[および「ソースコード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)」を参照してください。
 

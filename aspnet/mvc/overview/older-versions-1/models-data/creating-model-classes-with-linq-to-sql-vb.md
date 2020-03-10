@@ -9,17 +9,17 @@ ms.assetid: a4a25a75-d71f-4509-98b4-df72e748985a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 88a5f1037d93ef3bdc95bf60b6005ebb254ab440
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74588626"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469528"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-vb"></a>LINQ to SQL でモデル クラスを作成する (VB)
 
 [Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_VB.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_VB.pdf)
 
 > このチュートリアルの目的は、ASP.NET MVC アプリケーションのモデルクラスを作成する方法の1つについて説明することです。 このチュートリアルでは、Microsoft LINQ to SQL を利用して、モデルクラスを作成し、データベースへのアクセスを実行する方法について説明します。
 
@@ -63,11 +63,11 @@ Mvc モデルには、MVC ビューまたは MVC コントローラーに含ま�
 
 次の列をデータベーステーブルに追加する必要があります。
 
-| **列名** | **データ型** | **Null を許容** |
+| **列名** | **[データ型]** | **[NULL を許容]** |
 | --- | --- | --- |
-| Id | Int | [False] |
-| [タイトル] | Nvarchar (200) | [False] |
-| ・ | Nvarchar (50) | [False] |
+| Id | int | False |
+| タイトル | Nvarchar(200) | False |
+| ディレクター | Nvarchar (50) | False |
 
 Id 列には、2つの特殊な操作を行う必要があります。 まず、テーブルデザイナーで列を選択し、キーのアイコンをクリックして、Id 列を主キー列としてマークする必要があります。 LINQ to SQL では、データベースに対して挿入または更新を実行するときに主キー列を指定する必要があります。
 
@@ -177,7 +177,7 @@ Moviescontroller.cs クラスのすべてのコード (最初のコンストラ�
 
 さらに、Moviescontroller.cs クラスをテストする場合は、フェイクムービーリポジトリクラスを Moviescontroller.cs に渡すことができます。 IMovieRepository クラスは、実際にはデータベースにアクセスせず、IMovieRepository インターフェイスのすべての必須メソッドを含むクラスを使用して実装できます。 これにより、実際のデータベースに実際にアクセスしなくても、Moviescontroller.cs クラスの単体テストを行うことができます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、Microsoft LINQ to SQL を利用して、MVC モデルクラスを作成する方法を説明することでした。 ASP.NET MVC アプリケーションでデータベースデータを表示するための2つの方法を検討しています。 まず、LINQ to SQL クラスを作成し、コントローラーアクション内でクラスを直接使用しました。 コントローラー内で LINQ to SQL クラスを使用すると、MVC アプリケーションでデータベースデータをすばやく簡単に表示できます。
 

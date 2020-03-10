@@ -9,11 +9,11 @@ ms.assetid: 6227233a-6254-4b6b-9a89-947efef22330
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 51c9255f80f83a68cf26decf318347752498491a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74634801"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78489490"
 ---
 # <a name="creating-a-data-access-layer-vb"></a>データ アクセス層を作成する (VB)
 
@@ -168,11 +168,11 @@ TableAdapter では、これらのパターンのいずれかまたは両方を�
 
 この例で使用される各オブジェクトも厳密に型指定されているため、Visual Studio で IntelliSense とコンパイル時の型チェックを行うことができます。 また、TableAdapter によって返されるすべての Datatable を ASP.NET データ Web コントロール (GridView、DetailsView、DropDownList、CheckBoxList など) にバインドすることもできます。 次の例では、`GetProducts()` メソッドによって返される DataTable を、`Page_Load` イベントハンドラー内の scan 3 行のコードだけで GridView にバインドする方法を示します。
 
-AllProducts .aspx
+AllProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample2.aspx)]
 
-AllProducts .aspx .vb
+AllProducts.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample3.vb)]
 
@@ -226,11 +226,11 @@ AllProducts .aspx .vb
 
 DAL の `GetProductsByCategoryID(categoryID)` メソッドを使用して、指定したカテゴリの製品のみを表示する ASP.NET ページを作成できるようになりました。 次の例では、飲料カテゴリに含まれるすべての製品を示しています。これは、`CategoryID` が1です。
 
-飲み物
+Beverages.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample4.aspx)]
 
-飲み物 .vb
+Beverages.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample5.vb)]
 
@@ -422,11 +422,11 @@ DAL をカスタマイズする方法を示すために、`GetProducts()` メソ
 
 このようなマスター/詳細レポートを今後のチュートリアルで表示する方法について説明します。 ここでは、この例は、`Northwind.SuppliersRow` クラスに追加されたカスタムメソッドの使用方法を示すように設計されています。
 
-SuppliersAndProducts
+SuppliersAndProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample24.aspx)]
 
-SuppliersAndProducts
+SuppliersAndProducts.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample25.vb)]
 
@@ -434,13 +434,13 @@ SuppliersAndProducts
 
 **図 35**: 仕入先の会社名が左側の列に一覧表示され、右側に製品が表示される ([クリックすると、フルサイズの画像が表示](creating-a-data-access-layer-vb/_static/image93.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Web アプリケーションを構築する場合、DAL は、プレゼンテーション層の作成を開始する前に最初に実行する手順の1つである必要があります。 Visual Studio では、型指定されたデータセットに基づいて DAL を作成するタスクは、コード行を記述しなくても10-15 分で実現できます。 前のチュートリアルでは、この DAL を基にしています。 次の[チュートリアル](creating-a-business-logic-layer-vb.md)では、さまざまなビジネスルールを定義し、それらを個別のビジネスロジックレイヤーに実装する方法について説明します。
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -460,7 +460,7 @@ Web アプリケーションを構築する場合、DAL は、プレゼンテー
 - [データセットを Datagrid に手動でバインドする方法](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [ASP アプリケーションからデータセットとフィルターを操作する方法](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

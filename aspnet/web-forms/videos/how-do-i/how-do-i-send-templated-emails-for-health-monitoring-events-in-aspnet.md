@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
-title: '[How Do i:]ASP.NET のイベントの監視の正常性のテンプレート化された電子メールを送信 |Microsoft Docs'
+title: '[操作方法:]ASP.NET | の正常性監視イベントに対してテンプレート化される電子メールを送信するMicrosoft Docs'
 author: rick-anderson
-description: このビデオでは、Chris Pels は、TemplatedEmailWebEventProvider を使用して、t のテンプレートを利用する状態監視イベントが発生すると、電子メールを送信する方法を説明しています.
+description: このビデオでは、TemplatedEmailWebEventProvider を使用して、テンプレートを使用する正常性監視イベントが発生したときに電子メールを送信する方法について説明します。
 ms.author: riande
 ms.date: 09/18/2008
 ms.assetid: 5c107c6e-9fb7-4206-bd3f-221cb0767f8a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
 msc.type: video
 ms.openlocfilehash: e7b929c6e186e59b43180e8f26cf0f8b4608328f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417989"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78510484"
 ---
-# <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a>[How Do i:]ASP.NET のイベントの監視の正常性のテンプレート化された電子メールを送信します。
+# <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a>[操作方法:]ASP.NET で正常性監視イベントのテンプレート化される電子メールを送信する
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは、Chris Pels は、TemplatedEmailWebEventProvider を使用して、電子メールの本文のテンプレートを使用する正常性の監視イベントが発生したときに電子メールを送信する方法を説明します。 最初に、構成する方法を参照してください、&lt;プロバイダー&gt;と&lt;ルール&gt;テンプレート化された電子メールの使用を実装し、状態の監視テンプレート化された電子メール プロバイダーでイベントを関連付けるのために web.config ファイル内の要素。 テンプレートのプロバイダーを構成した後は、標準の .aspx ページを使用して、電子メール テンプレートを作成する方法を参照してください。 どのような情報がテンプレートの .aspx ページに、TemplatedEmailWebEventProvider によって渡される MailEventNotificaitonInfo クラスで使用できる説明します。 電子メールの内容で適切な情報をすべて含めるの使用方法を参照してください。 最後に、状態監視イベントへの応答メールを送信するテストの web サイトを表示します。 実際に受信した正常性の監視テンプレートに基づくイベント情報を含む電子メールを表示します。
+このビデオでは、TemplatedEmailWebEventProvider を使用して、電子メールコンテンツのテンプレートを利用する正常性監視イベントが発生したときに電子メールを送信する方法について説明します。 まず、web.config ファイルの &lt;provider&gt; と &lt;rules&gt; 要素を構成して、テンプレート化された電子メールの使用を実装し、正常性監視イベントをテンプレート化された電子メールプロバイダーに関連付ける方法について説明します。 テンプレート化されたプロバイダーの構成が完了したら、「標準 .aspx ページとしてを使用して電子メールテンプレートを作成する方法」を参照してください。 TemplatedEmailWebEventProvider によってテンプレート .aspx ページに渡される MailEventNotificaitonInfo クラスで使用できる情報について説明します。 この方法を使用して、電子メールコンテンツに適切な情報を含めることができます。 最後に、正常性監視イベントに応答して電子メールを送信するテスト web サイトを表示します。 次に、テンプレートに基づいて、正常性監視イベント情報が含まれている実際に受信した電子メールを表示します。
 
-[&#9654;ビデオでは (25 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet)
+[&#9654;ビデオを見る (25 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet)

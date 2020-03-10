@@ -9,11 +9,11 @@ ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
 ms.openlocfilehash: e741a753a36ebdaefbff8eee0b38911785c716ac
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457168"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472678"
 ---
 # <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>すべてを自動化 (Azure を使用した実際のクラウドアプリの構築)
 
@@ -78,13 +78,13 @@ Azure サービスを管理する PowerShell スクリプトを実行するに�
 
 と web アプリは次のようになります。
 
-![[Web サイト]](automate-everything/_static/image5.png)
+![Web サイト](automate-everything/_static/image5.png)
 
 Web アプリの **[構成]** タブで、修正プログラムのアプリ用にストレージアカウントの設定と SQL database 接続文字列が設定されていることを確認できます。
 
 ![appSettings と connectionStrings](automate-everything/_static/image6.png)
 
-*Automation*フォルダーには、 *&lt;websitename&gt;pubxml*ファイルも含まれるようになりました。 このファイルには、先ほど作成した Azure 環境にアプリケーションをデプロイするために MSBuild が使用する設定が格納されます。 例 :
+*Automation*フォルダーには、 *&lt;websitename&gt;pubxml*ファイルも含まれるようになりました。 このファイルには、先ほど作成した Azure 環境にアプリケーションをデプロイするために MSBuild が使用する設定が格納されます。 次に例を示します。
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
@@ -239,7 +239,7 @@ Azure には、設定と接続文字列を格納する機能があります。�
 
 ![Windows Azure に展開された It アプリの修正](automate-everything/_static/image7.png)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これらのスクリプトを使用すると、同じ手順が常に同じ順序で同じオプションを使用して実行されることを保証できます。 これにより、チームの各開発者は、他のチームメンバーの環境や運用環境では実際には同じように動作しない、自分のコンピューターに独自の作業をしたり、何かを行ったりしないようにすることができます。
 

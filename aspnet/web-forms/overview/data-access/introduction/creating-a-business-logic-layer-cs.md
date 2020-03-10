@@ -9,11 +9,11 @@ ms.assetid: 85554606-47cb-4e4f-9848-eed9da579056
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: df96f3e7422a0537bf1b003a33fe8d71a671ac33
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586166"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78490402"
 ---
 # <a name="creating-a-business-logic-layer-c"></a>ビジネス ロジック層を作成する (C#)
 
@@ -143,7 +143,7 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 
 **図 5**: `App_Code` フォルダーに新しいクラスを追加する ([クリックすると、フルサイズの画像が表示](creating-a-business-logic-layer-cs/_static/image11.png)されます)
 
-次に、`UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、および `ReorderLevel` 列の値が0以上であることを確認する `ColumnChanging` イベントのイベントハンドラーを作成します。 このような列が範囲外の場合は、`ArgumentException`をスローします。
+次に、`UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、および `ReorderLevel` 列の値が0以上であることを確認する `ColumnChanging` イベントのイベントハンドラーを作成します。`NULL` このような列が範囲外の場合は、`ArgumentException`をスローします。
 
 ProductsDataTable.ColumnChanging.cs
 
@@ -173,7 +173,7 @@ BLL クラスには、アプリケーションのビジネスルールに準拠�
 
 今後のチュートリアルで説明するように、データ Web コントロールを使用してデータを挿入、更新、または削除するときに、BLL からバブルアップする例外の処理は、`try...catch` ブロックでコードをラップする必要があるのではなく、イベントハンドラーで直接処理できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 適切に設計されたアプリケーションは、それぞれが特定のロールをカプセル化する別個の層に作られています。 この記事シリーズの最初のチュートリアルでは、型指定されたデータセットを使用してデータアクセス層を作成しました。このチュートリアルでは、アプリケーションの `App_Code` フォルダーにある一連のクラスとしてビジネスロジック層を構築し、DAL を呼び出します。 BLL は、アプリケーションのフィールドレベルおよびビジネスレベルのロジックを実装しています。 このチュートリアルで行ったように、別の BLL を作成するだけでなく、部分クラスを使用して Tableadapter のメソッドを拡張することもできます。 ただし、この方法を使用しても、既存のメソッドをオーバーライドすることはできません。また、この記事で説明した方法と同様に、DAL と BLL を分離することもできません。
 
@@ -181,7 +181,7 @@ DAL と BLL が完成したら、プレゼンテーション層から始める�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

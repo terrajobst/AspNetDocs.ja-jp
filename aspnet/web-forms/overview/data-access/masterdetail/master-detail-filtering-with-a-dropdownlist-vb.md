@@ -9,11 +9,11 @@ ms.assetid: ea44717e-ab2e-46cd-a692-e4a9c0de194c
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 62cd296a3f36e1779666a6b5db15b0ce2488d0e4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640227"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78424486"
 ---
 # <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>DropDownList でマスター/詳細をフィルター処理する (VB)
 
@@ -130,7 +130,7 @@ ObjectDataSource を構成した後も、DropDownList に表示するデータ�
 
 **図 14**: 既定ですべての製品が表示される ([クリックすると、フルサイズの画像が表示](master-detail-filtering-with-a-dropdownlist-vb/_static/image40.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 階層的に関連するデータを表示する場合は、多くの場合、マスター/詳細レポートを使用してデータを表示することができます。この場合、ユーザーは階層の最上位からデータのつい man を開始し、詳細にドリルダウンできます。 このチュートリアルでは、選択したカテゴリの製品を示す単純なマスター/詳細レポートを作成する方法を説明しました。 これを実現するには、選択したカテゴリに属する製品のカテゴリの一覧の DropDownList と GridView を使用します。
 
@@ -138,7 +138,7 @@ ObjectDataSource を構成した後も、DropDownList に表示するデータ�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

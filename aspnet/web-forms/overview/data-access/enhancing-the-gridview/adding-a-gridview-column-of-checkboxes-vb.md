@@ -9,11 +9,11 @@ ms.assetid: 39253d05-75c0-41c7-b9d4-a6c58ecf69ce
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
 ms.openlocfilehash: c620b2eac5844d4030c1309b45e7d6a72d1f386a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74592427"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78491884"
 ---
 # <a name="adding-a-gridview-column-of-checkboxes-vb"></a>チェックボックスの GridView 列を追加する (VB)
 
@@ -122,7 +122,7 @@ GridView s [`Rows` プロパティ](https://msdn.microsoft.com/library/system.we
 > [!NOTE]
 > チェックボックスの列を表示する場合、すべてのチェックボックスをオンまたはオフにするには、ヘッダー行のチェックボックスを使用します。 また、すべての実装を確認し、すべての実装をオフにするには、ポストバックが必要です。 ただし、チェックボックスをオンまたはオフにすることはできますが、クライアント側のスクリプトでは、snappier のユーザーエクスペリエンスを提供します。 [すべてをチェック] の [ヘッダー行] チェックボックスを使用して詳細を確認するには、クライアント側の手法を使用する方法については、「クライアント側の[スクリプトを使用して GridView ですべて](http://aspnet.4guysfromrolla.com/articles/053106-1.aspx)のチェックボックスをチェックする」および「すべてを確認する」チェックボックスをオンにしてください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 続行する前にユーザーが GridView から任意の数の行を選択できるようにする必要がある場合は、チェックボックスの列を追加する方法が1つあります。 このチュートリアルで説明したように、GridView にチェックボックスの列を含めると、CheckBox Web コントロールで TemplateField を追加することができます。 (前のチュートリアルで行ったように) Web コントロールを使用して、ASP.NET が、ポストバック間でチェックされなかったチェックボックスを自動的に記憶します。 また、コード内のチェックボックスにプログラムでアクセスして、特定のチェックボックスがオンになっているかどうかを判断したり、チェックされた状態を変更したりすることもできます。
 
@@ -130,7 +130,7 @@ GridView s [`Rows` プロパティ](https://msdn.microsoft.com/library/system.we
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

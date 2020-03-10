@@ -9,11 +9,11 @@ ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
 ms.openlocfilehash: 504202068f5db4f8614bba02e8066ffecfd15b48
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74619240"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78501040"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -60,7 +60,7 @@ ms.locfileid: "74619240"
 - [ASP.NET MVC 3 リリース候補 (2010 年11月9日)](#TOC_ASP_NET_3_RC)
 
     - [ASP.NET MVC 3 RC の新機能](#_Toc276711785)
-    - [NuGet パッケージマネージャー](#_Toc276711786)
+    - [NuGet パッケージ マネージャー](#_Toc276711786)
     - [[新しいプロジェクト] ダイアログボックスの機能強化](#_Toc276711787)
     - [セッションレスコントローラー](#_Toc276711788)
     - [新しい検証属性](#_Toc276711789)
@@ -91,7 +91,7 @@ ms.locfileid: "74619240"
 - [免責事項](#0.1__Toc274034231)
 
 <a id="overview"></a>
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このドキュメントでは、Visual Studio 2010 用 ASP.NET MVC 3 RTM のリリースについて説明します。 ASP.NET MVC は、モデルビューコントローラー (MVC) パターンを使用する Web アプリケーションを開発するためのフレームワークです。 ASP.NET MVC 3 インストーラーには、次のコンポーネントが含まれています。
 
@@ -130,7 +130,7 @@ ASP.NET MVC 3 ランタイムコンポーネントには、次のソフトウェ
 - Visual Studio 2010 または Visual Web Developer 2010 Express。
 
 <a id="documentation"></a>
-## <a name="documentation"></a>Documentation
+## <a name="documentation"></a>ドキュメント
 
 ASP.NET MVC のドキュメントは、MSDN Web サイトの次の URL から入手できます。
 
@@ -141,7 +141,7 @@ ASP.NET MVC に関するチュートリアルやその他の情報について�
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>でのサポート
+## <a name="support"></a>サポート
 
 このリリースは完全にサポートされています。 テクニカルサポートを受ける方法については、 [Microsoft サポート web サイト](https://support.microsoft.com/)を参照してください。
 
@@ -150,7 +150,7 @@ ASP.NET MVC に関するチュートリアルやその他の情報について�
 [https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
-## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 Tools Update にアップグレードする
+## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。
 
 ASP.NET MVC 3 は、ASP.NET MVC 2 とサイドバイサイドで同じコンピューターにインストールできます。これにより、ASP.NET MVC 2 アプリケーションを ASP.NET MVC 3 にアップグレードするタイミングを柔軟に選択できます。
 
@@ -169,7 +169,7 @@ ASP.NET MVC 3 は、ASP.NET MVC 2 とサイドバイサイドで同じコンピ�
 
     [!code-console[Main](mvc3-release-notes/samples/sample1.cmd)]
 
-    上記を次の文字列に置き換えます。
+    これを次のコードに置き換えます。
 
     [!code-console[Main](mvc3-release-notes/samples/sample2.cmd)]
 6. ソリューションエクスプローラーで、(バージョン2の DLL を指す) system.web *. mvc*への参照を削除し、3.0.0.0 への*参照 (v) を追加*します。
@@ -355,7 +355,7 @@ ASP.NET MVC 3 のプレリリース版では、Razor ファイルに空白を含
 - Visual Studio がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Web Developer Express をインストールし、後で Visual Studio をインストールする場合は、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express がインストールされていないコンピューターに ASP.NET MVC 3 for Visual Studio をインストールし、後で Visual Web Developer Express をインストールした場合も、同じ問題が発生します。
 
 <a id="RTM-BC"></a>
-## <a name="breaking-changes"></a>互換性に影響する変更点
+## <a name="breaking-changes"></a>重大な変更
 
 - 以前のバージョンの ASP.NET MVC では、アクションフィルターは、いくつかのケースを除き、要求ごとに作成されます。 この動作は保証される動作ではありませんが、実装の詳細だけでなく、フィルターのコントラクトによってステートレスであると見なされていました。 ASP.NET MVC 3 では、フィルターはより積極的にキャッシュされます。 そのため、インスタンスの状態を不適切に格納するカスタムアクションフィルターが壊れている可能性があります。
 - 同じ*順序*の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターと同じ*順序*値を持つコントローラー上の例外フィルターが、アクションメソッドの例外フィルターの前に実行されます。 これは通常、特定の*順序*の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、 *order*プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
@@ -457,7 +457,7 @@ Html の*validationmessage*メソッドは、検証メッセージを表示す�
 以前のバージョンでは、 *renderaction*メソッドに渡された明示的な値は、子アクション内のモデルバインド時に現在のフォーム値を優先して無視されていました。 修正により、モデルバインド中に明示的な値が優先されるようになります。
 
 <a id="_Toc2_BC"></a>
-## <a name="breaking-changes"></a>互換性に影響する変更点
+## <a name="breaking-changes"></a>重大な変更
 
 - 以前のバージョンの ASP.NET MVC では、いくつかのケースを除き、要求ごとにアクションフィルターが作成されました。 この動作は保証される動作ではありませんが、実装の詳細だけでなく、フィルターのコントラクトによってステートレスであると見なされていました。 ASP.NET MVC 3 では、フィルターはより積極的にキャッシュされます。 そのため、インスタンスの状態を不適切に格納するカスタムアクションフィルターが壊れている可能性があります。
 - 同じ*順序*の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターの前に、アクションメソッドと同じ*順序*値を持つコントローラーの例外フィルターが実行されました。 これは通常、特定の*順序*の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、 *order*プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
@@ -602,7 +602,7 @@ Namespace.ClassName
 [!code-csharp[Main](mvc3-release-notes/samples/sample24.cs)]
 
 <a id="_Toc276711794"></a>
-## <a name="breaking-changes"></a>互換性に影響する変更点
+## <a name="breaking-changes"></a>重大な変更
 
 - 同じ*順序*の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターは、アクションメソッドの例外フィルターの前に実行さ*れてい*た、コントローラー上の例外フィルターが実行されました。 これは通常、特定の*順序*の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、 *order*プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
 - *Virtualpathproviderviewengine*基本クラスに*FileExtensions*という名前の新しいプロパティを追加しました。 (名前ではなく) パスによってビューを検索する場合、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューだけが考慮されます。 これは、カスタムビルドプロバイダーを登録して web フォームビューのカスタムファイル拡張子を有効にし、名前ではなく完全パスを使用してそれらのビューを参照している場合に、互換性に影響する変更点です。 回避策として、 *FileExtensions*プロパティの値を変更して、カスタムファイル拡張子を含めることができます。
@@ -672,7 +672,7 @@ NuGet の詳細については、 [nuget のドキュメント](https://docs.mic
 | 暗号 | ハッシュアルゴリズムを使用して、適切なソルトおよびハッシュされたパスワードを作成します。 |
 | WebGrid | オブジェクト (通常はデータベースのデータ) のコレクションをグリッドとして表示します。 ページングと並べ替えをサポートします。 |
 | WebImage | イメージをレンダリングします。 |
-| Web メール | 電子メールを送信します。 |
+| WebMail | 電子メール メッセージを送信します。 |
 
 ヘルパーと基本構文の一覧に関するクイックリファレンストピックは、次の URL にある ASP.NET Razor 構文のドキュメントの一部として入手できます。
 
@@ -733,15 +733,15 @@ Defaultコントローラーファクトリクラスには、IControllerFactory 
 
 ASP.NET MVC には、次のような Ajax ヘルパーメソッドが含まれています。
 
-- Html.actionlink
-- Ajax. Teltelink
+- Ajax.ActionLink
+- Ajax.RouteLink
 - Ajax. BeginForm
-- Ajax. BeginRouteForm
+- Ajax.BeginRouteForm
 
 これらのメソッドは、JavaScript を使用して、完全なポストバックを使用するのではなく、サーバー上でアクションメソッドを呼び出します。 この機能は、jQuery を控えめな方法で利用するように更新されました。 これらのヘルパーメソッドは、インラインクライアントスクリプトを出力するのではなく、*データ ajax*プレフィックスを使用して HTML5 属性を出力することによって、マークアップからの動作を分離します。 次に、適切な JavaScript ファイルを参照することによって、動作がマークアップに適用されます。 次の JavaScript ファイルが参照されていることを確認します。
 
-- jquery-1.4.1
-- jquery。 node.js
+- jquery-1.4.1.js
+- jquery.unobtrusive.ajax.js
 
 この機能は、ASP.NET MVC 3 の新しいプロジェクトテンプレートの Web.config ファイルでは既定で有効になっていますが、既存のプロジェクトでは既定で無効になっています。 詳細については、このドキュメントで後述する「[クライアント検証と控えめな JavaScript のためのアプリケーション全体のフラグの追加](#0.1_AddedApplicationWideFlagsForClientValida)」を参照してください。
 
@@ -757,9 +757,9 @@ ASP.NET MVC には、次のような Ajax ヘルパーメソッドが含まれ�
 
 また、次の JavaScript ファイルが参照されていることを確認します。
 
-- jquery-1.4.1
-- jquery. .js の検証
-- jquery. 検証 (控えめ)
+- jquery-1.4.1.js
+- jquery.validate.js
+- jquery.validate.unobtrusive.js
 
 この機能は、ASP.NET MVC 3 の新しいプロジェクトテンプレートの Web.config ファイルでは既定で有効になっていますが、既存のプロジェクトでは既定で無効になっています。 詳細については、このドキュメントで後述する「[クライアント検証と控えめな JavaScript のための新しいアプリケーション全体のフラグ](#0.1_AddedApplicationWideFlagsForClientValida)」を参照してください。
 
@@ -839,7 +839,7 @@ JsonValueProviderFactory が既定で登録されるようになりました。
 
 同じ順序の値を持つ例外フィルターの実行順序が変更されました。 ASP.NET MVC 2 以前では、アクションメソッドの例外フィルターと同じ順序で、アクションメソッドの例外フィルターが実行されました。 これは通常、特定の順序の値を指定せずに例外フィルターが適用された場合に発生します。 ASP.NET MVC 3 では、最も具体的な例外ハンドラーが最初に実行されるように、この順序は逆になっています。 以前のバージョンと同様に、Order プロパティが明示的に指定されている場合、フィルターは指定された順序で実行されます。
 
-## <a id="0.1__Toc274034230"></a>既知の問題
+## <a id="0.1__Toc274034230"></a> 既知の問題
 
 インストール中にライセンス条項への同意を確認するためのダイアログ ボックスで、意図したよりも小さいウィンドウにライセンス条項が表示されます。
 
@@ -849,7 +849,7 @@ Razor ビュー (CSHTML ファイル) <a id="0.1__Toc224729061"></a> <a id="0.1_
 
 厳密に型指定された CSHTML ビューを指定するために @model 構文を使用する場合、型の言語固有のショートカットは認識されません。 たとえば、@model int は機能しませんが、@model Int32 が機能します。 このバグの回避策は、モデルの種類を指定するときに実際の型名を使用することです。
 
-@model 構文を使用して、厳密に型指定された CSHTML ビュー (または厳密に型指定された VBHTML ビューを指定する @ModelType) を指定する場合、null 許容型および配列宣言はサポートされません。 たとえば、@model int?はサポートされていません。 代わりに、`@model Nullable<Int32>`を使用します。 文字列 [] @model 構文もサポートされていません。代わりに、`@model IList<string>`を使用します。
+@model 構文を使用して、厳密に型指定された CSHTML ビュー (または厳密に型指定された VBHTML ビューを指定する @ModelType) を指定する場合、null 許容型および配列宣言はサポートされません。 たとえば、@model int?はサポートされていません。 代わりに `@model Nullable<Int32>` を使用してください。 文字列 [] @model 構文もサポートされていません。代わりに、`@model IList<string>`を使用します。
 
 ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 にアップグレードする場合は、web.config ファイルの appSettings セクションに次の項目を追加してください。
 
@@ -861,6 +861,6 @@ ASP.NET MVC 2 プロジェクトを ASP.NET MVC 3 にアップグレードする
 
 ## <a id="0.1__Toc274034231"></a>免責事項
 
-© 2011 Microsoft Corporation. All rights reserved. このドキュメントは何等保障もない現状有姿のままで提供されるものです。 このドキュメントに記載されている情報と表示 (URL および他のインターネット Web サイトの参照を含む) は、将来予告なく変更されることがあります。 お客様ご自身の責任において使用してください。
+© 2011 Microsoft Corporation. All rights reserved. このドキュメントは "現状のまま" 提供されます。 このドキュメントに記載された情報および見解は、URL やその他のインターネット Web サイトの参照も含め、予告なく変更する可能性があります。 お客様は、その使用に関するリスクを負うものとします。
 
-このドキュメントは、Microsoft 製品の知的財産権に関する法的な権利をお客様に許諾するものではありません。 内部的な参照目的に限り、このドキュメントを複製して使用することができます。
+このドキュメントは、Microsoft 製品に含まれる知的財産に対するいかなる法的権利も提供するものではありません。 お客様の社内での参照目的に限り、このドキュメントをコピーし使用することができます。

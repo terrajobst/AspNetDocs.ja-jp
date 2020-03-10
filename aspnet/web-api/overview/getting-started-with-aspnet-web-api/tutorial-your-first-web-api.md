@@ -1,193 +1,193 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: ASP.NET Web API 2 の概要 (C#)-ASP.NET 4.x
+title: ASP.NET Web API 2 (C#)-ASP.NET 4.X の概要
 author: MikeWasson
-description: コードのチュートリアルです。 Web API を製品の一覧を返すを作成するのにには、ASP.NET Web API を使用します。
+description: コードを使用したチュートリアル。 製品の一覧を返す Web API を作成するには、ASP.NET Web API を使用します。
 ms.author: riande
 ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125233"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448552"
 ---
-# <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要します。
+# <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) を使ってみる
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
-このチュートリアルでは、web を製品の一覧を返す API を作成するのに ASP.NET Web API を使用します。
+このチュートリアルでは、ASP.NET Web API を使用して、製品の一覧を返す Web API を作成します。
 
-HTTP は web ページを提供するためだけではありません。 HTTP は、サービスとデータを公開する Api を構築するための強力なプラットフォームではまたです。 HTTP は、シンプルかつ柔軟なユビキタスです。 考えることができ、ほとんどすべてのプラットフォームでは、HTTP ライブラリを持つため、HTTP サービスがクライアント、ブラウザー、モバイル デバイスは、従来のデスクトップ アプリケーションなどの広範な範囲に到達できます。
+HTTP は web ページを提供するためのものではありません。 HTTP は、サービスとデータを公開する Api を構築するための強力なプラットフォームでもあります。 HTTP はシンプルで柔軟性があり、ユビキタスです。 考えられるほとんどすべてのプラットフォームは HTTP ライブラリを持っているので、HTTP サービスは、ブラウザー、モバイルデバイス、従来のデスクトップアプリケーションを含む広範なクライアントに接続できます。
 
-ASP.NET Web API とは、web Api、.NET Framework 上に構築するためのフレームワークです。 
+ASP.NET Web API は、.NET Framework 上に Web Api を構築するためのフレームワークです。 
 
-## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 - Web API 2
 
-参照してください[ASP.NET Core と Windows の Visual Studio で web API の作成](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api)のこのチュートリアルの最新バージョン。
+このチュートリアルの新しいバージョンについては、「 [ASP.NET Core と Visual Studio For Windows で WEB API を作成する](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api)」を参照してください。
 
-## <a name="create-a-web-api-project"></a>Web API プロジェクトを作成します。
+## <a name="create-a-web-api-project"></a>Web API プロジェクトを作成する
 
-このチュートリアルでは、web を製品の一覧を返す API を作成するのに ASP.NET Web API を使用します。 フロント エンドの web ページは、結果を表示するのに jQuery を使用します。
+このチュートリアルでは、ASP.NET Web API を使用して、製品の一覧を返す Web API を作成します。 フロントエンド web ページでは、jQuery を使用して結果を表示します。
 
 ![](tutorial-your-first-web-api/_static/image1.png)
 
-Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**します。
+Visual Studio を起動し、**スタート**ページで **[新しいプロジェクト]** を選択します。 または、 **[ファイル]** メニューの **[新規作成]** をポイントし、 **[プロジェクト]** をクリックします。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**します。 プロジェクトに"ProductsApp"という名前にして**OK**します。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET Web Application]** を選択します。 プロジェクトに "製品アプリ" という名前を指定し、[ **OK]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
-**新しい ASP.NET プロジェクト**ダイアログ ボックスで、**空**テンプレート。 &quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**します。 **[OK]** をクリックします。
+**[New ASP.NET Project]** ダイアログボックスで、**空**のテンプレートを選択します。 &quot;のフォルダーとコア参照を追加 &quot;には、**WEB API** チェックボックスをオンにします。 **[OK]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
 > [!NOTE]
-> 使用して Web API プロジェクトを作成することも、 &quot;Web API&quot;テンプレート。 Web API テンプレートでは、ASP.NET MVC を使用して、API のヘルプ ページを提供します。 MVC せず Web API を表示する必要があるために、このチュートリアルでは、空のテンプレートを使っています。 一般に、Web API を使用して ASP.NET MVC を把握する必要はありません。
+> &quot;Web API&quot; テンプレートを使用して Web API プロジェクトを作成することもできます。 Web API テンプレートでは、ASP.NET MVC を使用して API のヘルプページを提供します。 このチュートリアルでは、MVC を使用せずに Web API を表示するため、空のテンプレートを使用しています。 一般に、Web API を使用するために ASP.NET MVC を理解する必要はありません。
 
 ## <a name="adding-a-model"></a>モデルの追加
 
-*モデル*は、アプリケーションのデータを表すオブジェクトです。 ASP.NET Web API では、JSON、XML、またはその他のいくつかの形式にモデルを自動的にシリアル化でき、HTTP 応答メッセージの本文にシリアル化されたデータを記述することができます。 クライアントでは、シリアル化形式を読み取り、限り、オブジェクトを逆シリアル化できます。 ほとんどのクライアントには、XML または JSON を解析できます。 さらに、クライアントは、HTTP 要求メッセージに Accept ヘッダーを設定して、どの形式を指定できます。
+*"モデル"* は、アプリケーションでデータを表すオブジェクトです。 ASP.NET Web API は、モデルを JSON、XML、またはその他の形式に自動的にシリアル化し、シリアル化されたデータを HTTP 応答メッセージの本文に書き込むことができます。 クライアントがシリアル化形式を読み取ることができる限り、オブジェクトを逆シリアル化できます。 ほとんどのクライアントは、XML または JSON を解析できます。 さらに、クライアントは、HTTP 要求メッセージで Accept ヘッダーを設定することによって、必要な形式を示すことができます。
 
-製品を表す単純なモデルを作成してみましょう。
+まず、製品を表す単純なモデルを作成してみましょう。
 
-ソリューション エクスプ ローラーが表示されない場合は、クリックして、**ビュー**メニュー選択し、**ソリューション エクスプ ローラー**します。 ソリューション エクスプ ローラーで、Models フォルダーを右クリックします。 コンテキスト メニューでは、次のように選択します。**追加**選び**クラス**します。
+ソリューション エクスプローラーが表示されていない場合は、 **[表示]** メニューをクリックし、 **[ソリューション エクスプローラー]** を選択します。 ソリューション エクスプローラーで、[モデル] フォルダーを右クリックします。 コンテキスト メニューの **[追加]** を選択し、 **[クラス]** を選択します。
 
 ![](tutorial-your-first-web-api/_static/image4.png)
 
-クラスの名前&quot;製品&quot;します。 次のプロパティを追加、`Product`クラス。
+クラスに Product&quot;&quot;名前を指定します。 次のプロパティを `Product` クラスに追加します。
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample1.cs)]
 
-## <a name="adding-a-controller"></a>コントローラーを追加する
+## <a name="adding-a-controller"></a>コントローラーの追加
 
-Web api で、*コント ローラー*は HTTP 要求を処理するオブジェクトです。 ID で指定された 1 つの製品または製品の一覧のいずれかを返すことができるコント ローラーを追加します
+Web API では、"*コントローラー*" は、HTTP 要求を処理するオブジェクトです。 製品の一覧または ID で指定された1つの製品のいずれかを返すことができるコントローラーを追加します。
 
 > [!NOTE]
-> ASP.NET MVC を使用している場合を理解しているコント ローラー。 Web API コント ローラーは MVC コント ローラーに似ていますが、継承、 **ApiController**クラスの代わりに、**コント ローラー**クラス。
+> ASP.NET MVC を使用している場合は、既にコントローラーに精通しています。 Web API コントローラーは MVC コントローラーに似ていますが、**コントローラー**クラスではなく**ApiController**クラスを継承します。
 
-**ソリューション エクスプ ローラー**、Controllers フォルダーを右クリックします。 選択**追加**選び**コント ローラー**します。
+**ソリューション エクスプローラー**で、[コントローラー] フォルダーを右クリックします。 **[追加]** 、 **[コントローラー]** の順に選択します。
 
 ![](tutorial-your-first-web-api/_static/image5.png)
 
-**スキャフォールディングの追加**ダイアログ ボックスで、 **Web API コント ローラー - 空**します。 **[追加]** をクリックします。
+**[スキャフォールディングの追加]** ダイアログで **[Web API コントローラー - 空]** を選択します。 **[追加]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image6.png)
 
-**コント ローラーの追加**ダイアログ ボックスで、名前、コント ローラー &quot;ProductsController&quot;します。 **[追加]** をクリックします。
+**[コントローラーの追加]** ダイアログボックスで、コントローラーに &quot;製品コントローラー&quot;という名前を指定します。 **[追加]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image7.png)
 
-スキャフォールディングは、Controllers フォルダーで ProductsController.cs という名前のファイルを作成します。
+スキャフォールディングによって、Controllers フォルダーに ProductsController.cs という名前のファイルが作成されます。
 
 ![](tutorial-your-first-web-api/_static/image8.png)
 
 > [!NOTE]
-> コント ローラーをという名前のフォルダーに、コント ローラーを配置する必要はありません。 フォルダー名が、ソース ファイルを整理する便利な方法だけです。
+> コントローラーを Controllers という名前のフォルダーに配置する必要はありません。 フォルダー名は、ソースファイルを整理するための便利な方法にすぎません。
 
-このファイルがまだ開いていない場合、は、開くファイルをダブルクリックします。 次のようにこのファイル内のコードに置き換えます。
+このファイルがまだ開かれていない場合は、ファイルをダブルクリックして開きます。 このファイルのコードを次のコードに置き換えます。
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample2.cs)]
 
-例を簡潔にするには、製品は、コント ローラー クラス内で固定長の配列に格納されます。 もちろん、実際のアプリケーションには、データベースの照会または他の外部データ ソースを使用するは。
+例を単純にするために、製品はコントローラークラス内の固定配列に格納されています。 もちろん、実際のアプリケーションでは、データベースに対してクエリを実行したり、他の外部データソースを使用したりすることがあります。
 
-コント ローラーには、製品を返す 2 つのメソッドを定義します。
+コントローラーは、製品を返す2つのメソッドを定義します。
 
-- `GetAllProducts`メソッド全体として製品のリストを返します、 **IEnumerable&lt;製品&gt;** 型。
-- `GetProduct`メソッドは、ID によって 1 つの製品を検索
+- `GetAllProducts` メソッドは、製品のリスト全体を**IEnumerable&lt;Product&gt;** 型として返します。
+- `GetProduct` メソッドは、1つの製品をその ID で検索します。
 
-これで完了です。 作業用の web API があります。 コント ローラーの各メソッドは、1 つまたは複数の Uri に対応します。
+これで完了です。 Web API が動作しています。 コントローラーの各メソッドは、1つまたは複数の Uri に対応します。
 
-| コント ローラー メソッド | URI |
+| コントローラーメソッド | URI |
 | --- | --- |
 | GetAllProducts | /api/products |
-| GetProduct | /api/products/*id* |
+| GetProduct | /api/*id* |
 
-`GetProduct`メソッド、 *id* URI にプレース ホルダーです。 たとえば、id が 5 の製品を取得する URI は`api/products/5`します。
+`GetProduct` メソッドの場合、URI の*id*はプレースホルダーです。 たとえば、ID が5の製品を取得するために、URI は `api/products/5`ます。
 
-Web API がコント ローラーのメソッドに HTTP 要求をルーティングする方法の詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)します。
+Web API が HTTP 要求をコントローラーメソッドにルーティングする方法の詳細については、「 [ASP.NET Web API でのルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)」を参照してください。
 
-## <a name="calling-the-web-api-with-javascript-and-jquery"></a>Javascript や jQuery による Web API を呼び出す
+## <a name="calling-the-web-api-with-javascript-and-jquery"></a>Javascript と jQuery を使用した Web API の呼び出し
 
-このセクションでは、web API を呼び出す AJAX を使用する HTML ページを追加します。 AJAX 呼び出しを実行して結果で、ページを更新することも、jQuery を使用します。
+このセクションでは、AJAX を使用して web API を呼び出す HTML ページを追加します。 ここでは、jQuery を使用して AJAX 呼び出しを行い、結果を使用してページを更新します。
 
-ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**します。
+ソリューションエクスプローラーで、プロジェクトを右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択します。
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-**新しい項目の追加**ダイアログ ボックスで、 **Web**ノードの下**Visual c#** を選び、 **HTML ページ**項目。 ページの名前を付けます&quot;index.html&quot;します。
+**[新しい項目の追加]** ダイアログで、 **[ビジュアルC# ]** の下にある **[Web]** ノードを選択し、 **[HTML ページ]** 項目を選択します。 ページに「index .html&quot;&quot;名前を付けます。
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 
-次のように、このファイル内のすべてを置き換えます。
+このファイル内のすべてを次のものに置き換えます。
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample3.html)]
 
-jQuery を取得するには、いくつかの方法があります。 この例では使用して、 [Microsoft Ajax CDN](../../../ajax/cdn/overview.md)します。 ダウンロードすることも[ http://jquery.com/ ](http://jquery.com/)、および"Web API"の ASP.NET プロジェクト テンプレートが jQuery にも含まれています。
+jQuery を取得するには、いくつかの方法があります。 この例では、 [Microsoft AJAX CDN](../../../ajax/cdn/overview.md)を使用しました。 また、 [http://jquery.com/](http://jquery.com/)からダウンロードすることもできます。また、ASP.NET "Web API" プロジェクトテンプレートには jQuery も含まれています。
 
-### <a name="getting-a-list-of-products"></a>製品の一覧を取得します。
+### <a name="getting-a-list-of-products"></a>製品の一覧を取得する
 
-製品の一覧を取得する HTTP GET 要求を送信&quot;api/製品&quot;します。
+製品の一覧を取得するには、HTTP GET 要求を &quot;/api&quot;に送信します。
 
-JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/)関数は、AJAX 要求を送信します。 応答には、JSON オブジェクトの配列が含まれています。 `done`関数は、要求が成功した場合に呼び出されるコールバックを指定します。 コールバックでは、製品情報、DOM を更新します。
+JQuery [Getjson](http://api.jquery.com/jQuery.getJSON/)関数は、AJAX 要求を送信します。 応答には、JSON オブジェクトの配列が含まれます。 `done` 関数は、要求が成功した場合に呼び出されるコールバックを指定します。 コールバックで、DOM を製品情報で更新します。
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample4.html)]
 
-### <a name="getting-a-product-by-id"></a>ID によって製品を取得します。
+### <a name="getting-a-product-by-id"></a>ID で製品を取得する
 
-ID によって製品を取得する HTTP GET 要求を送信&quot;/api/製品/*id*&quot;ここで、 *id*は製品 ID です。
+ID で製品を取得するには、HTTP GET 要求を &quot;/api/*id*&quot;に送信します。ここで、 *ID*は製品 id です。
 
 [!code-javascript[Main](tutorial-your-first-web-api/samples/sample5.js)]
 
-まだ呼んで`getJSON`この時間が、AJAX 要求を送信する要求 URI に ID を格納します。 この要求からの応答は、1 つの製品の JSON 表現です。
+引き続き AJAX 要求を送信するために `getJSON` を呼び出しますが、今回は要求 URI に ID を含めます。 この要求からの応答は、1つの製品の JSON 表現です。
 
 ## <a name="running-the-application"></a>アプリケーションの実行
 
-F5 キーを押して、アプリケーションのデバッグを開始します。 Web ページは、次のようになります。
+F5 キーを押してアプリケーションのデバッグを開始します。 Web ページは次のようになります。
 
 ![](tutorial-your-first-web-api/_static/image11.png)
 
-ID によって製品を取得するには、ID を入力し、検索 をクリックします。
+ID で製品を取得するには、ID を入力し、[検索] をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image12.png)
 
-無効な ID を入力すると、サーバーは HTTP エラーを返します。
+無効な ID を入力すると、サーバーから HTTP エラーが返されます。
 
 ![](tutorial-your-first-web-api/_static/image13.png)
 
-## <a name="using-f12-to-view-the-http-request-and-response"></a>F12 キーを使用して、HTTP 要求と応答を表示するには
+## <a name="using-f12-to-view-the-http-request-and-response"></a>F12 を使用した HTTP 要求と応答の表示
 
-HTTP サービスを使用する場合は、HTTP 要求を表示、メッセージを要求する非常に便利ですができます。 Internet Explorer 9 で F12 開発者ツールを使用して、これを行うことができます。 Internet Explorer 9 からキーを押します。 **F12**ツールを開きます。 をクリックして、**ネットワーク**タブ キーを押します**キャプチャ開始**します。 キーを押して、web ページに移動**F5** web ページを更新します。 Internet Explorer では、ブラウザーと web サーバー間の HTTP トラフィックをキャプチャします。 概要ビューは、ページのすべてのネットワーク トラフィックを示しています。
+HTTP サービスを使用している場合は、HTTP 要求と要求メッセージを確認すると非常に便利です。 これを行うには、Internet Explorer 9 の F12 開発者ツールを使用します。 Internet Explorer 9 で、 **F12**キーを押してツールを開きます。 **[ネットワーク]** タブをクリックし、 **[キャプチャの開始]** をクリックします。 次に、web ページに戻り、 **F5**キーを押して web ページを再読み込みします。 Internet Explorer は、ブラウザーと web サーバー間の HTTP トラフィックをキャプチャします。 [概要] ビューには、ページのすべてのネットワークトラフィックが表示されます。
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
-相対 URI のエントリを見つけ"api/製品/"。 このエントリを選択し、クリックして**詳細ビューに移動**します。 詳細ビューでは、要求と応答ヘッダーと本文を表示するタブがあります。 たとえばをクリックする、**要求ヘッダー**  タブで、クライアントが要求された参照できます&quot;、application/json&quot; Accept ヘッダー。
+相対 URI "api/products/" のエントリを見つけます。 このエントリを選択し、[**詳細ビューにジャンプ] を**クリックします。 詳細ビューには、要求と応答のヘッダーと本文を表示するタブがあります。 たとえば、 **[要求ヘッダー]** タブをクリックすると、クライアントが Accept ヘッダーで &quot;application/json&quot; を要求したことがわかります。
 
 ![](tutorial-your-first-web-api/_static/image15.png)
 
-応答の本文 タブをクリックすると、製品一覧が JSON にシリアル化する方法がわかります。 その他のブラウザーでは、同様の機能があります。 もう 1 つの便利なツールが[Fiddler](http://www.fiddler2.com/fiddler2/)の web デバッグ プロキシです。 使用できます Fiddler、HTTP トラフィックを表示して、HTTP 要求を作成することも、要求で HTTP ヘッダーを完全に制御を提供します。
+[応答本文] タブをクリックすると、製品リストが JSON にシリアル化された方法を確認できます。 他のブラウザーも同様の機能を備えています。 もう1つの便利なツールとして、web デバッグプロキシ[Fiddler](http://www.fiddler2.com/fiddler2/)があります。 Fiddler を使用して HTTP トラフィックを表示することができます。また、http 要求を構成することもできます。これにより、要求の HTTP ヘッダーを完全に制御できます。
 
-## <a name="see-this-app-running-on-azure"></a>Azure で実行されているこのアプリを参照してください。
+## <a name="see-this-app-running-on-azure"></a>このアプリが Azure で実行されていることを確認する
 
-ライブ web アプリとして実行されている完成したサイトを参照してもよろしいですか。 Azure アカウントに、アプリの完全なバージョンを展開するには、次のボタンをクリックするだけです。
+完成したサイトがライブ web アプリとして実行されていることを確認しますか? 次のボタンをクリックするだけで、アプリの完全なバージョンを Azure アカウントにデプロイできます。
 
 [![](https://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
 
-このソリューションを Azure にデプロイする Azure アカウントが必要です。 アカウントがいない場合は、次のオプションがあります。
+このソリューションを Azure にデプロイするには、Azure アカウントが必要です。 まだアカウントを持っていない場合は、次のオプションがあります。
 
-- [無料 Azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得する有料の Azure サービスを使用することができますをも使用されるアカウントは維持する最大無料の Azure サービスを使用します。
-- [MSDN サブスクライバーの特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-MSDN サブスクリプションでは、クレジットの有料の Azure サービスを使用することができる毎月。
+- [無料で azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-有料の azure サービスを試用するために使用できるクレジットが得られます。また、使用した後でも、アカウントを保持し、無料の azure サービスを使用できます。
+- [Msdn サブスクライバーの特典を有効](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)にする-msdn サブスクリプションでは、有料の Azure サービスに使用できるクレジットが毎月提供されます。
 
 ## <a name="next-steps"></a>次の手順
 
-- POST、PUT、および DELETE 操作をサポートし、データベースに書き込みます HTTP サービスのより完全な例を参照してください。 [Entity Framework 6 で Web API 2 を使用して](../data/using-web-api-with-entity-framework/part-1.md)します。
-- HTTP サービス上で流動性と応答性の高い web アプリケーションを作成する方法の詳細は、次を参照してください。 [ASP.NET Single Page Application](../../../single-page-application/index.md)します。
-- Visual Studio web プロジェクトを Azure App Service にデプロイする方法については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)です。
+- POST、PUT、DELETE の各アクションとデータベースへの書き込みをサポートする HTTP サービスの完全な例については、「 [Using WEB API 2 with Entity Framework 6](../data/using-web-api-with-entity-framework/part-1.md)」を参照してください。
+- HTTP サービス上に流動的で応答性の高い web アプリケーションを作成する方法の詳細については、「 [ASP.NET Single Page Application](../../../single-page-application/index.md)」を参照してください。
+- Azure App Service に Visual Studio web プロジェクトを配置する方法の詳細については、「 [Azure App Service での ASP.NET web アプリの作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)」を参照してください。
