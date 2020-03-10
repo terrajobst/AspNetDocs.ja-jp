@@ -9,11 +9,11 @@ ms.assetid: a8fa72ee-8328-4854-a419-c1b271772303
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 431734b5245c20ac840147cf0827fa7f8d1e4d17
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74597645"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78445312"
 ---
 # <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>SqlDataSource でオプティミスティック同時実行制御を実装する (VB)
 
@@ -183,7 +183,7 @@ Update または delete を実行すると、データソースコントロー�
 
 **図 9**: 同時実行違反の発生時にメッセージが表示される ([クリックすると、フルサイズの画像が表示](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image16.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 複数の同時実行ユーザーが同じデータを編集している可能性がある web アプリケーションを作成する場合は、同時実行制御オプションを考慮することが重要です。 既定では、ASP.NET データの Web コントロールとデータソースコントロールは、同時実行制御を使用しません。 このチュートリアルで説明したように、SqlDataSource を使用したオプティミスティック同時実行制御の実装は比較的迅速で簡単です。 SqlDataSource は、拡張された `WHERE` 句を自動生成された `UPDATE` および `DELETE` のステートメントに追加するためのほとんどの業務を処理しますが、`NULL` 値の列の処理にはいくつかの微妙な違いがあります。詳細については、「`NULL` 値を正しく処理する」セクションを参照してください。
 
@@ -191,9 +191,9 @@ Update または delete を実行すると、データソースコントロー�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
-> [前へ](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
+> [[戻る]](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)

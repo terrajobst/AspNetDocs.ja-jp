@@ -9,11 +9,11 @@ ms.assetid: a526f0ec-779e-4a2b-a476-6604090d25ce
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 495e0e81a67e6926e1c4fa92e29ebbda747cd418
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74610516"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78445018"
 ---
 # <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>SqlDataSource でデータを挿入、更新、削除する (C#)
 
@@ -175,7 +175,7 @@ DetailsView のデータ変更機能を有効にするには、[挿入を有効�
 > [!NOTE]
 > データ Web コントロールに対応するフィールドがないパラメーターを追加する場合は、これらのパラメーター値に何らかの方法で値を割り当てる必要があることに注意してください。 これらの値は、`InsertCommand` または `UpdateCommand`で直接ハードコーディングすることができます。定義済みのソース (querystring、セッション状態、ページ上の Web コントロールなど) から取得できます。またはは、前のチュートリアルで説明したように、プログラムで割り当てることができます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 データ Web コントロールで組み込みの挿入、編集、および削除機能を使用するには、バインドされているデータソースコントロールがそのような機能を提供する必要があります。 SqlDataSource の場合、これは `INSERT`、`UPDATE`、および `DELETE` SQL ステートメントを `InsertCommand`、`UpdateCommand`、および `DeleteCommand` の各プロパティに割り当てる必要があることを意味します。 これらのプロパティおよび対応する parameters コレクションは、データソースの構成ウィザードを使用して手動で追加することも、自動的に生成することもできます。 このチュートリアルでは、両方の手法を検討しています。
 
@@ -183,7 +183,7 @@ DetailsView のデータ変更機能を有効にするには、[挿入を有効�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

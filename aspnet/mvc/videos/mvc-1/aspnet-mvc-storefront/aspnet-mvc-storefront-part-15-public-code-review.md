@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
-title: ASP.NET MVC Storefront 第 15 部:パブリック コード レビュー |Microsoft Docs
+title: 'ASP.NET MVC ネットショップパート 15: パブリックコードレビュー |Microsoft Docs'
 author: robconery
-description: このエピソードでは、Rob Conery は、ユーザーからのフィードバックに基づく Storefront アプリケーションのパブリック コード レビューが。 Rob Conery は、開発の各手順を文書化しています.
+description: このエピソードでは、ユーザーのフィードバックに基づいて、ネットストアアプリケーションのパブリックコードレビューを行います。 作成手順については、「開発」をご覧ください。
 ms.author: riande
 ms.date: 07/10/2008
 ms.assetid: c06b991f-b1d8-4315-9bc7-d17bc644cbd3
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
 msc.type: video
 ms.openlocfilehash: c8aa86eac1823cf59b06bdb297ebe018d9af8a91
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390806"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78450664"
 ---
-# <a name="aspnet-mvc-storefront-part-15-public-code-review"></a>ASP.NET MVC Storefront 第 15 部:パブリック コード レビュー
+# <a name="aspnet-mvc-storefront-part-15-public-code-review"></a>ASP.NET MVC ネットショップパート 15: パブリックコードレビュー
 
-によって[Rob Conery](https://github.com/robconery)
+[渡](https://github.com/robconery)される方法
 
-このエピソードでは、Rob Conery は、ユーザーからのフィードバックに基づく Storefront アプリケーションのパブリック コード レビューが。 Rob Conery が彼の開発プロセスでは、各手順を文書化[ブログ](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-15/)します。
+このエピソードでは、ユーザーのフィードバックに基づいて、ネットストアアプリケーションのパブリックコードレビューを行います。 この[ブログ](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-15/)では、開発プロセスの各手順について説明しています。
 
-[&#9654;ビデオ (37 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-15-public-code-review)
+[&#9654;ビデオを見る (37 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-15-public-code-review)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-14-rich-client-interaction.md)

@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-user-selectable-themes-for-a-web-site
-title: '[How Do i:]Web サイトのユーザーの選択可能なテーマの作成 |Microsoft Docs'
+title: '[操作方法:]Web サイトのユーザー選択可能なテーマを作成する |Microsoft Docs'
 author: rick-anderson
-description: このビデオでは、Chris Pels としては web サイトの複数のテーマを作成し、ユーザーがサイトにテーマの適用を選択できるようにする方法を示します。 表示する方法.
+description: このビデオでは、web サイトに対して複数のテーマを作成し、そのサイトに適用するテーマをユーザーが選択できるようにする方法について説明します。 参照してください...
 ms.author: riande
 ms.date: 03/13/2008
 ms.assetid: d19152e7-ba19-4729-9e30-d311630aaf95
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-user-selectable-themes-for-a-web-site
 msc.type: video
 ms.openlocfilehash: c9c97bb2627054380d92eee5468ca03a81d2f61e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413361"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462286"
 ---
-# <a name="how-do-i-create-user-selectable-themes-for-a-web-site"></a>[How Do i:]Web サイトのユーザーの選択可能なテーマを作成します。
+# <a name="how-do-i-create-user-selectable-themes-for-a-web-site"></a>[操作方法:]Web サイトのユーザー選択可能なテーマを作成する
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは、Chris Pels としては web サイトの複数のテーマを作成し、ユーザーがサイトにテーマの適用を選択できるようにする方法を示します。 ユーザーは、各ユーザー コントロールでテーマを選択できるようにするシンプルなユーザー インターフェイスを作成する方法を参照してください。 さらに、マスター ページのユーザー コントロールからのコンテンツ ページのテーマを設定する方法について説明します。
+このビデオでは、web サイトに対して複数のテーマを作成し、そのサイトに適用するテーマをユーザーが選択できるようにする方法について説明します。 ユーザーが各テーマをユーザーコントロールで選択できる単純なユーザーインターフェイスを作成する方法について説明します。 また、マスターページのユーザーコントロールからコンテンツページのテーマを設定する方法についても説明します。
 
-[&#9654;(19 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-user-selectable-themes-for-a-web-site)
+[&#9654;ビデオを見る (19 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-user-selectable-themes-for-a-web-site)

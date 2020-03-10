@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-new-multi-targeting
-title: Visual Studio 2010 クイック ヒット - 新しい複数バージョン対応 |Microsoft Docs
+title: Visual Studio 2010 クイックヒット-新しいマルチターゲット |Microsoft Docs
 author: JoeStagner
-description: このビデオでは、Visual Studio の複数バージョン対応サポートの強化を使用すると、複数のバージョンの .NET を対象にしてこれを使用する方法を学習します。
+description: このビデオでは、Visual Studio の強化されたマルチターゲットサポートを使用して、複数のバージョンの .NET を使用し、対象にする方法について説明します。
 ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 2ad38b3c-7297-4de9-8421-75c8907401dd
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-new-multi-targeting
 msc.type: video
 ms.openlocfilehash: 77e9ce027bd161722d59a6a9ea62cf47cb5e9f74
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397228"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78521932"
 ---
-# <a name="visual-studio-2010-quick-hit---new-multi-targeting"></a>Visual Studio 2010「クイック ヒット」には新しいマルチ ターゲット
+# <a name="visual-studio-2010-quick-hit---new-multi-targeting"></a>Visual Studio 2010 "クイックヒット"-新しいマルチターゲット
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、Visual Studio の複数バージョン対応サポートの強化を使用すると、複数のバージョンの .NET を対象にしてこれを使用する方法を学習します。
+このビデオでは、Visual Studio の強化されたマルチターゲットサポートを使用して、複数のバージョンの .NET を使用し、対象にする方法について説明します。
 
-[&#9654;ビデオ (6 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-new-multi-targeting)
+[&#9654;ビデオを見る (6 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-new-multi-targeting)
 
 > [!div class="step-by-step"]
 > [前へ](visual-studio-2010-quick-hit-new-web-project-template.md)

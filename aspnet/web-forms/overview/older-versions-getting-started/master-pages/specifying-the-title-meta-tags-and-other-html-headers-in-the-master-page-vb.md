@@ -9,11 +9,11 @@ ms.assetid: ea8196f5-039d-43ec-8447-8997ad4d3900
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 160af664cdf27f9ede1273aaf915da749a39ad48
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637705"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78522490"
 ---
 # <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>マスター ページでタイトル、メタ タグ、その他の HTML ヘッダーを指定する (VB)
 
@@ -139,7 +139,7 @@ ASP.NET ページが要求されるたびに、HTML にレンダリングされ�
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample7.vb)]
 
-宛先:
+変更後:
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample8.vb)]
 
@@ -276,13 +276,13 @@ ListView のテンプレートを構成したら、web サイトにアクセス�
 > [!NOTE]
 > 任意のマークアップを追加するには、 [`LiteralControl`](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx)インスタンスを作成し、その `Text` プロパティを設定して、`Header`の `Controls` コレクションに追加します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、`<head>` 領域のマークアップをページ単位で追加するさまざまな方法を見てきました。 マスターページには、ContentPlaceHolder を含む `HtmlHead` インスタンス (`<head runat="server">`) が含まれている必要があります。 `HtmlHead` インスタンスを使用すると、コンテンツページは、プログラムによって `<head>` 領域にアクセスしたり、ページのタイトルを宣言およびプログラムによって設定したりできます。ContentPlaceHolder コントロールを使用すると、カスタムマークアップをコンテンツコントロールを使用して宣言によって `<head>` セクションに追加できます。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -293,7 +293,7 @@ ListView のテンプレートを構成したら、web サイトにアクセス�
 - [ASP.NET 3.5 の ListView コントロールと DataPager コントロールの使用](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
 - [ASP.NET ページの分離コードクラスにカスタム基本クラスを使用する](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

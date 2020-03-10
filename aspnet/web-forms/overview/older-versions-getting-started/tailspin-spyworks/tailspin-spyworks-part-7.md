@@ -1,234 +1,234 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: 第 7 部:機能の追加 |Microsoft Docs
+title: 'パート 7: 機能の追加 |Microsoft Docs'
 author: JoeStagner
-description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、アカウントの確認などの追加機能を追加しています.
+description: このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート7では、account 確認などの機能が追加されています。
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 50223ee9-11b9-4cf3-bca2-e2f10bf471f3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: ffd2b862c727db9572c272b7b21bcc33c822fffa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126871"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78521566"
 ---
-# <a name="part-7-adding-features"></a>第 7 部:機能の追加
+# <a name="part-7-adding-features"></a>パート 7: 機能の追加
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
+> Tailspin Spyworks は、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを簡単に作成する方法を示しています。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェックアウト、管理などのオンラインストアを構築する方法を示しています。
 > 
-> このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、アカウントの確認、製品レビュー、および「人気のある項目」および「も購入済み」のユーザー コントロールなどの追加機能を追加します。
+> このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート7では、アカウントレビュー、製品レビュー、"人気のあるアイテム"、"購入した" ユーザーコントロールなどの追加機能を追加します。
 
-## <a id="_Toc260221673"></a>  機能の追加
+## <a id="_Toc260221673"></a>機能の追加
 
-ユーザーが、カタログを参照できる、買い物かごにアイテムを配置、清算処理を完了ししましたが、サイトを向上させるために含まれるをサポートしている多数の機能があります。
+ユーザーはカタログを参照し、ショッピングカートにアイテムを配置し、チェックアウトプロセスを完了することができますが、サイトを改善するためのサポート機能がいくつか用意されています。
 
-1. アカウントの確認 (リストから注文が配置され、詳細を表示します。)
-2. 最初のページには、いくつかのコンテキストの特定のコンテンツを追加します。
-3. カタログ内のユーザーがレビューできるようにするための機能、製品を追加します。
-4. 表紙を制御する人気のある項目と場所を表示するユーザー コントロールを作成します。
-5. 「も購入した」ユーザー コントロールを作成し、製品の詳細ページに追加します。
-6. 連絡先を追加するページ。
-7. 追加、ページについて。
-8. グローバル エラー
+1. アカウントレビュー (注文の一覧表示と詳細の表示)
+2. コンテキスト固有のコンテンツを前面ページに追加します。
+3. カタログ内の製品をユーザーが確認できるようにする機能を追加します。
+4. 人気のある項目を表示し、そのコントロールを前面のページに配置するユーザーコントロールを作成します。
+5. "購入済み" のユーザーコントロールを作成し、[製品の詳細] ページに追加します。
+6. 連絡先ページを追加します。
+7. [バージョン情報] ページを追加します。
+8. グローバルエラー
 
-## <a id="_Toc260221674"></a>  アカウントの確認
+## <a id="_Toc260221674"></a>アカウントのレビュー
 
-「アカウント」フォルダーで 1 つの名前付き OrderList.aspx とその他の名前付きの OrderDetails.aspx の 2 つの .aspx ページを作成します
+"Account" フォルダーで、OrderList という名前の2つの .aspx ページを作成し、OrderDetails という名前を付けます。
 
-私たちがある以前と同様、OrderList.aspx は GridView と EntityDataSource コントロールを活用します。
+OrderList .aspx では、以前と同じように GridView と EntityDataSource のコントロールが活用されます。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample1.aspx)]
 
-EntityDataSource、ユーザー名でフィルター処理、Orders テーブルからレコードを選択します (WhereParameter を参照してください) をユーザー ログオンのときにセッション変数に設定します。
+EntityDataSource は、ユーザーのログイン時にセッション変数に設定されている、ユーザー名でフィルター処理された Orders テーブルからレコードを選択します (where-object パラメーターを参照)。
 
-GridView の内でこれらのパラメーターにも注意してください。
+GridView の [ハイパーリンク] フィールドにも、次のパラメーターがあります。
 
 [!code-xml[Main](tailspin-spyworks-part-7/samples/sample2.xml)]
 
-これらの OrderDetails.aspx ページへのクエリ文字列パラメーターとして、OrderID フィールドを指定する各製品の注文の詳細ビューへのリンクを指定します。
+これらは、各製品の注文詳細ビューへのリンクを指定します。これは、OrderDetails ページの QueryString パラメーターとして OrderID フィールドを指定します。
 
-## <a id="_Toc260221675"></a>  OrderDetails.aspx
+## <a id="_Toc260221675"></a>OrderDetails
 
-EntityDataSource コントロールを注文と FormView、注文データと別の EntityDataSource による GridView を表示するのにすべての注文の品目を表示するのにへのアクセスに使用します。
+注文データを表示するために EntityDataSource コントロールを使用し、他の EntityDataSource を GridView と共に使用して注文のすべての行項目を表示します。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample3.aspx)]
 
-分離コード ファイル (OrderDetails.aspx.cs) では、ハウスキーピングの 2 つの小さなビットがあります。
+分離コードファイル (OrderDetails.aspx.cs) には、2つの簡単なハウスキーピングがあります。
 
-まず OrderDetails が常に、OrderId を取得するかどうかを確認する必要があります。
+まず、OrderDetails が常に OrderId を取得するようにする必要があります。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample4.cs)]
 
-また、計算され、注文の品目の合計を表示する必要があります。
+また、行アイテムから注文合計を計算して表示する必要もあります。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>  ホーム ページ
+## <a id="_Toc260221676"></a>ホームページ
 
-Default.aspx ページには、いくつかの静的コンテンツを追加してみましょう。
+Default.aspx ページに静的コンテンツをいくつか追加してみましょう。
 
-最初に「コンテンツ」フォルダーを作成しますその中で、Images フォルダー (およびホーム ページで使用されるイメージに含めます)。
+まず、"Content" フォルダーを作成し、Images フォルダー内に作成します (ホームページで使用するイメージを含めます)。
 
-Default.aspx ページの下部にあるプレース ホルダーには、次のマークアップを追加します。
+Default.aspx ページの下のプレースホルダーに、次のマークアップを追加します。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>  製品のレビュー
+## <a id="_Toc260221677"></a>製品レビュー
 
-最初に製品のレビューを入力するために使用できるフォームのリンク付きのボタンを追加します。
+まず、製品レビューを開始するために使用できるフォームへのリンクを含むボタンを追加します。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample7.aspx)]
 
 ![](tailspin-spyworks-part-7/_static/image1.jpg)
 
-クエリ文字列で、ProductID を渡していることに注意してください。
+クエリ文字列で ProductID を渡していることに注意してください。
 
-[次へ] ReviewAdd.aspx という名前のページを追加してみましょう
+次に、ReviewAdd という名前のページを追加します。
 
-このページでは、ASP.NET AJAX Control Toolkit を使用します。 かどうかを行っていないためからダウンロードできます[DevExpress](http://devexpress.com/act)ここで Visual Studio で使用するためのツールキットの設定に関するガイダンスがあると[ https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)します。
+このページでは、ASP.NET AJAX Control Toolkit を使用します。 まだ実行していない場合は、 [Devexpress](http://devexpress.com/act)からダウンロードできます。このツールキットを Visual Studio で使用するための設定については、 [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)を参照してください。
 
-デザイン モードでコントロールと検証コントロールをツールボックスからドラッグし、次のようにフォームを作成します。
+デザインモードで、[ツールボックス] からコントロールとバリデーターをドラッグし、次のようなフォームを作成します。
 
 ![](tailspin-spyworks-part-7/_static/image2.jpg)
 
-マークアップは、次のようになります。
+マークアップは次のようになります。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample8.aspx)]
 
-レビューを入力しましたが、これで、製品ページにこれらのレビューを表示することができます。
+レビューを入力できるようになったので、これらのレビューを製品ページで表示できるようになりました。
 
-ProductDetails.aspx ページには、このマークアップを追加します。
+このマークアップを ProductDetails .aspx ページに追加します。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample9.aspx)]
 
-これで、アプリケーションを実行している製品に移動して、顧客レビューなどの製品情報を示します。
+ここでアプリケーションを実行し、製品に移動すると、顧客のレビューなどの製品情報が表示されます。
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>  人気のある項目のコントロール (ユーザー コントロールを作成する)
+## <a id="_Toc260221678"></a>一般的な項目コントロール (ユーザーコントロールの作成)
 
-Web サイトの売上を強化するためには、「推奨の販売」人気のあるまたは関連する製品に、いくつかの機能を追加します。
+Web サイトの売上を向上させるために、人気のある製品や関連製品を "推奨販売" する機能をいくつか追加します。
 
-これらの機能の 1 つ目は、製品カタログで人気の製品の一覧になります。
+これらの機能の1つは、製品カタログの人気のある製品の一覧です。
 
-最も売れているアプリケーションのホーム ページ上の項目を表示する「ユーザー コントロール」を作成します。 これは、コントロールであるが、ためには、ドラッグ アンドを気に入っている任意のページに、Visual Studio のデザイナーでコントロールを削除するだけで任意のページで使用できます。
+"ユーザーコントロール" を作成して、アプリケーションのホームページで上位の販売項目を表示します。 これはコントロールであるため、Visual Studio のデザイナーでコントロールを任意のページにドラッグアンドドロップするだけで、任意のページで使用できます。
 
-Visual Studio のソリューション エクスプ ローラーでソリューション名を右クリックし、「コントロール」をという名前の新しいディレクトリを作成します。 これを行うには必要ありませんが、「コントロール」のディレクトリで、すべてのユーザー コントロールを作成して整理された、プロジェクトの継続的されます。
+Visual Studio のソリューションエクスプローラーで、ソリューション名を右クリックし、"Controls" という名前の新しいディレクトリを作成します。 これを行う必要はありませんが、"Controls" ディレクトリにすべてのユーザーコントロールを作成して、プロジェクトを整理したままにしておくことをお勧めします。
 
-コントロールのフォルダーを右クリックし、"新しい項目 を選択します。
+[コントロール] フォルダーを右クリックし、[新しい項目] を選択します。
 
 ![](tailspin-spyworks-part-7/_static/image4.jpg)
 
-"PopularItems"のユーザーのコントロールの名前を指定します。 ユーザー コントロールのファイル拡張子が .ascx .aspx できませんに注意してください。
+"PopularItems" のコントロールの名前を指定します。 ユーザーコントロールのファイル拡張子は .ascx ではないことに注意してください。
 
-人気のある項目のユーザー コントロールは次のように定義されます。
+人気のある項目のユーザーコントロールは、次のように定義されます。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample10.aspx)]
 
-ここでこのアプリケーションでまだ使用がないメソッドを使用しています。 Repeater コントロールを使用していることとデータ ソース コントロールを使用する代わりに、LINQ to Entities クエリの結果を Repeater コントロールをバインドしているいます。
+ここでは、このアプリケーションでまだ使用していないメソッドを使用しています。 Repeater コントロールを使用しています。データソースコントロールを使用する代わりに、Repeater コントロールを LINQ to Entities クエリの結果にバインドしています。
 
-コントロールの分離コードのようなこととしては、次のようにします。
+コントロールの分離コードでは、次のようにします。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample11.cs)]
 
-また、コントロールのマークアップの上部にある重要な行に注意してください。
+また、この重要な行は、コントロールのマークアップの上部にあります。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample12.aspx)]
 
-分単位で最も人気のある項目を変更しないため、アプリケーションのパフォーマンスを向上させるために出るディレクティブを追加できます。 このディレクティブは、コントロールのキャッシュされた出力の有効期限が切れる場合に、実行されるのみコントロール コードになります。 それ以外の場合は、コントロールの出力のキャッシュされたバージョンが使用されます。
+最も人気のある項目は分単位で変更されないため、aching ディレクティブを追加してアプリケーションのパフォーマンスを向上させることができます。 このディレクティブを使用すると、コントロールのキャッシュされた出力の有効期限が切れたときにのみ、コントロールコードが実行されます。 それ以外の場合は、コントロールの出力のキャッシュされたバージョンが使用されます。
 
-次に行う必要があるは、Default.aspx ページで、新しいコントロールを含めます。
+次に、default.aspx ページに新しいコントロールを追加する必要があります。
 
-ドラッグ アンド ドロップで、既定のフォームのオープンの列に、コントロールのインスタンスを配置します。
+ドラッグアンドドロップを使用して、既定のフォームの [開く] 列にコントロールのインスタンスを配置します。
 
 ![](tailspin-spyworks-part-7/_static/image5.jpg)
 
-これで、アプリケーションの実行ときに、ホーム ページには、最も人気のある項目が表示されます。
+アプリケーションを実行すると、最も人気のある項目がホームページに表示されるようになりました。
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>  (パラメーターを持つユーザー コントロール) を制御する「も購入」
+## <a id="_Toc260221679"></a>"購入済み" コントロール (パラメーターを使用したユーザーコントロール)
 
-コンテキストの特異性を追加することで、次のレベルへの販売挑発的な方で作成する 2 つ目のユーザー コントロールになります。
+2番目に作成するユーザーコントロールは、コンテキストの特異性を追加することによって、次のレベルに推奨することになります。
 
-最初の「も購入」の項目を計算するロジックが自明でないです。
+上位の "購入した" 項目を計算するロジックは、重要ではありません。
 
-「も購入」コントロールは、現在選択されている ProductID に対して (以前に購入された) OrderDetails レコードを選択しが見つかった各一意の注文の Orderid を取得します。
+"購入済み" コントロールは、現在選択されている ProductID の OrderDetails レコード (以前に購入したもの) を選択し、見つかった一意の注文ごとに OrderIDs を取得します。
 
-私たちは製品を選択 al からこれらすべての注文と合計数量を購入しました。 製品を並べ替えるその量の合計がされ、上位 5 つの項目を表示します。
+次に、これらすべての注文から製品を選択し、購入した数量を合計します。 製品をその数量の合計で並べ替え、上位5つの項目を表示します。
 
-このロジックの複雑さを考えると、ストアド プロシージャとして、このアルゴリズムを実装しましたします。
+このロジックが複雑になると、このアルゴリズムはストアドプロシージャとして実装されます。
 
-ストアド プロシージャの T-SQL では次のとおりです。
+ストアドプロシージャの T-sql は次のようになります。
 
 [!code-sql[Main](tailspin-spyworks-part-7/samples/sample13.sql)]
 
-アプリケーションでは、テーブルと、必要な Entity Data Model ビューだけでなく、指定したエンティティ データ モデルを生成したときに含めて ときにデータベースでこのストアド プロシージャ (SelectPurchasedWithProducts) が存在したことに注意してください。このストアド プロシージャを含める必要があります。
+このストアドプロシージャ (SelectPurchasedWithProducts) は、アプリケーションに含まれていたデータベース内に存在していたので Entity Data Model、必要なテーブルとビューに加えて、必要なテーブルとビューに加えて、Entity Data Model を生成した場合は、次のように指定されていることに注意してください。には、このストアドプロシージャを含める必要があります。
 
-Entity Data Model からストアド プロシージャにアクセスするには、関数をインポートする必要があります。
+Entity Data Model からストアドプロシージャにアクセスするには、関数をインポートする必要があります。
 
-ダブルクリックしてデザイナーで開き、モデル ブラウザーを開き、ソリューション エクスプ ローラーで、Entity Data Model デザイナー内を右クリックし、「関数インポートの追加」を選択します。
+ソリューションエクスプローラーで Entity Data Model をダブルクリックしてデザイナーで開き、モデルブラウザーを開き、デザイナーで右クリックして、[関数インポートの追加] を選択します。
 
 ![](tailspin-spyworks-part-7/_static/image1.png)
 
-そうと、このダイアログ ボックスが開きます。
+そうすると、このダイアログが開きます。
 
 ![](tailspin-spyworks-part-7/_static/image2.png)
 
-"SelectPurchasedWithProducts"を選択すると、上記に参照するようにしてフィールドに入力し、インポートされた関数の名前のプロシージャ名を使用します。
+上記のフィールドに入力し、"SelectPurchasedWithProducts" を選択して、インポートした関数の名前としてプロシージャ名を使用します。
 
 [Ok] をクリックします。
 
-かもしれませんモデルの他のアイテムとしてストアド プロシージャに対してプログラミングできる単にこれを行うこと。
+これを行うには、モデル内の他の項目と同じように、ストアドプロシージャに対してプログラミングするだけです。
 
-そのため、「コントロール」フォルダーでは、AlsoPurchased.ascx という名前の新しいユーザー コントロールを作成します。
+そのため、"コントロール" フォルダーで、AlsoPurchased という名前の新しいユーザーコントロールを作成します。
 
-このコントロールのマークアップは非常に使いやすく PopularItems コントロールになります。
+このコントロールのマークアップは、PopularItems コントロールに非常によく似ています。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample14.aspx)]
 
-重要な違いは、出力キャッシュしないすると、項目の表示には製品によって異なるためです。
+注目すべき違いは、表示される項目の内容が製品によって異なるため、出力がキャッシュされないことです。
 
-ProductId をコントロールに"property"となります。
+ProductId は、コントロールの "プロパティ" になります。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample15.cs)]
 
-コントロールの PreRender イベント ハンドラーで次の 3 つの作業を行う eed します。
+コントロールの PreRender イベントハンドラーで、3つの処理を eed します。
 
 1. ProductID が設定されていることを確認します。
-2. 現在の 1 つで購入された製品があるかどうかを参照してください。
-3. 手順 2 で決定されるいくつかの項目を出力します。
+2. 現在の製品が購入されている製品があるかどうかを確認します。
+3. #2 で決定されたとおりに項目を出力します。
 
-モデルを使ってストアド プロシージャを呼び出すがいかに簡単かに注意してください。
+モデルを通じてストアドプロシージャを呼び出すことがいかに簡単であるかに注意してください。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample16.cs)]
 
-ですが、「も購入」を決定した後だけです、repeater、クエリによって返される結果にバインドできます。
+「購入済み」があることを確認した後は、クエリによって返された結果にリピータをバインドするだけで済みます。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample17.cs)]
 
-「も購入」項目がない場合は、弊社のカタログから他の人気のある項目を表示しますがだけです。
+"購入済み" の項目がない場合は、カタログから他の人気のある項目を表示するだけです。
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample18.cs)]
 
-「購入も」アイテムを表示するには、ProductDetails.aspx ページを開き、マークアップでは、この位置に表示されるように、ソリューション エクスプ ローラーから AlsoPurchased コントロールをドラッグします。
+"購入済み" の項目を表示するには、ProductDetails .aspx ページを開き、ソリューションエクスプローラーから AlsoPurchased コントロールをドラッグして、マークアップ内のこの位置に表示されるようにします。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample19.aspx)]
 
-そうと、ProductDetails ページの上部にあるコントロールへの参照が作成されます。
+これにより、ProductDetails ページの上部にコントロールへの参照が作成されます。
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample20.aspx)]
 
-AlsoPurchased ユーザー コントロールには、ページの現在のデータ モデルのアイテムに対しては Eval ステートメントを使用して、コントロールの ProductID プロパティを設定しますが、ProductId 番号が必要です。
+AlsoPurchased ユーザーコントロールには ProductId 番号が必要であるため、ページの現在のデータモデルアイテムに対して Eval ステートメントを使用して、コントロールの ProductID プロパティを設定します。
 
 ![](tailspin-spyworks-part-7/_static/image3.png)
 
-開発し今すぐ実行および成果物への参照時に、「購入も」アイテムがわかります。
+今すぐビルドして実行し、製品を参照すると、"購入済み" の項目も表示されます。
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 

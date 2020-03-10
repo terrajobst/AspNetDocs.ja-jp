@@ -9,11 +9,11 @@ ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 56ceabc79947967846d342354fd033510be5f05a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625530"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78458254"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server Compact データベースの配置-2/12
 
@@ -25,7 +25,7 @@ ms.locfileid: "74625530"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、配置用に2つの SQL Server Compact データベースとデータベースエンジンを設定する方法について説明します。
 
@@ -73,11 +73,11 @@ NuGet パッケージのインストールは、通常、このソフトウェ�
 
 **[Bin]** フォルダーを展開して**amd64**および**x86**フォルダーを表示し、それらのフォルダーを選択して右クリックし、 **[プロジェクトに含める]** を選択します。
 
-![amd64_and_x86_in_Solution_Explorer .png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
 フォルダーアイコンが変更され、そのフォルダーがプロジェクトに含まれていることが示されます。
 
-![Solution_Explorer_amd64_included .png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
 ## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>アプリケーションデータベースの展開のための Code First Migrations の構成
 
@@ -108,7 +108,7 @@ Code First Migrations を使用するため、 **Dropcreatedatabaseifmodelchange
 
 最初の手順として、ContosoUniversity プロジェクトがスタートアッププロジェクトとして設定されていることを確認します。 **ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを右クリックし、 **[スタートアッププロジェクトに設定]** を選択します。 Code First Migrations によってスタートアッププロジェクトが検索され、データベース接続文字列が検索されます。
 
-**[ツール]** メニューの **[NuGet パッケージマネージャー]** をクリックし、 **[パッケージマネージャーコンソール]** をクリックします。
+**[ツール]** メニューで **[NuGet パッケージ マネージャー]** 、 **[パッケージ マネージャー コンソール]** の順にクリックします。
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 
@@ -153,13 +153,13 @@ CTRL + SHIFT + B キーを押して、プロジェクトをビルドします。
 
 **[パッケージマネージャーコンソール]** ウィンドウで、「最初の移行を作成するには」というコマンドを入力し、"initial" という名前を指定します。
 
-![migration_command の追加](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![add-migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
 Code First Migrations は、*移行*フォルダーに別のクラスファイルを作成します。このクラスには、データベーススキーマを作成するコードが含まれています。
 
 **パッケージマネージャーコンソール**で、"データベースの更新" コマンドを入力してデータベースを作成し、 **Seed**メソッドを実行します。
 
-![更新プログラム-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
 (テーブルが既に存在していて作成できないことを示すエラーが表示される場合は、データベースを削除した後、`update-database`を実行する前にアプリケーションを実行したことが原因である可能性があります。 その場合は、 *School .sdf*ファイルをもう一度削除し、`update-database` コマンドを再試行してください)。
 
@@ -192,7 +192,7 @@ Contoso 大学アプリケーションは、ASP.NET メンバーシップシス�
 
 **ソリューションエクスプローラー**で、web プロジェクト (ContosoUniversity ではなく ContosoUniversity) が選択されていることを確認します。 次に、 **[プロジェクト]** メニューの **[ASP.NET Configuration]** を選択して、 **Web サイト管理ツール**(WAT) を実行します。
 
-**[セキュリティ]** タブを選択します
+**[セキュリティ]** タブをクリックします。
 
 [![WAT_Security_tab](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image19.png)
 
@@ -206,7 +206,7 @@ Contoso 大学アプリケーションは、ASP.NET メンバーシップシス�
 
 ブラウザーを閉じます。 **ソリューションエクスプローラー**で、[更新] ボタンをクリックして新しい*aspnet. .sdf*ファイルを表示します。
 
-![New_aspnet。 sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
+![New_aspnet.sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
 
 **[Aspnet. .sdf]** を右クリックし、 **[プロジェクトに含める]** を選択します。
 
@@ -216,7 +216,7 @@ Contoso 大学アプリケーションは、ASP.NET メンバーシップシス�
 
 **ソリューションエクスプローラー**で、 **[最新]** の情報に更新 をクリックし、App\_Data フォルダーを展開して、先ほど作成した School データベースを表示します。それを右クリックし、 **[プロジェクトに含める]** を選択します。
 
-![Including_School。 sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
+![Including_School.sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
 
 *Aspnet. .sdf*を*aspnet-Prod*に変更します。
 
@@ -234,7 +234,7 @@ Visual Studio でアプリケーションを実行するときに、- *Dev*バ�
 
 これで、SQL Server Compact データベースエンジンと両方のデータベースを配置する準備ができました。 次のチュートリアルでは、開発環境、テスト環境、および運用環境で異なる必要がある設定に対して、web.config ファイルの自動変換を設定*します。* (変更が必要な設定の中には接続文字列がありますが、後で発行プロファイルを作成するときにこれらの変更を設定します)。
 
-## <a name="more-information"></a>その他の情報
+## <a name="more-information"></a>詳細情報
 
 NuGet の詳細については、「NuGet と Nuget の[ドキュメント](http://docs.nuget.org/docs/start-here/overview)[を使用したプロジェクトライブラリの管理](https://msdn.microsoft.com/magazine/hh547106.aspx)」を参照してください。 NuGet を使用しない場合は、NuGet パッケージを分析してインストールしたときの動作を確認する方法について学習する必要があります。 (たとえば、web.config 変換を構成したり、PowerShell スクリプトをビルド時に実行するように構成し*たりすること*があります)。NuGet のしくみの詳細については、「パッケージと構成ファイル[の作成と発行](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)」[および「ソースコード変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)」を参照してください。
 

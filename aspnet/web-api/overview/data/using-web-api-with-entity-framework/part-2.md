@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
-title: モデルとコント ローラーの追加 |Microsoft Docs
+title: モデルとコントローラーの追加 |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,84 +9,84 @@ ms.assetid: 88908ff8-51a9-40eb-931c-a8139128b680
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
 ms.openlocfilehash: 57dacda421968f341284d89c9a3ad80040c16e25
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405080"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449188"
 ---
 # <a name="add-models-and-controllers"></a>モデルとコントローラーの追加
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
-このセクションでは、データベースのエンティティを定義するモデル クラスを追加します。 これらのエンティティに対する CRUD 操作を実行する Web API コント ローラーを追加します。
+このセクションでは、データベースエンティティを定義するモデルクラスを追加します。 次に、それらのエンティティに対して CRUD 操作を実行する Web API コントローラーを追加します。
 
-## <a name="add-model-classes"></a>モデル クラスを追加します。
+## <a name="add-model-classes"></a>モデルクラスの追加
 
-このチュートリアルで、データベース「Code First」アプローチを Entity Framework (EF) を使用して作成します。 Code First でのデータベース テーブルに対応する c# クラスを作成して EF がデータベースを作成します。 (詳細については、次を参照してください[Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf)。)。
+このチュートリアルでは、Entity Framework (EF) への "Code First" アプローチを使用してデータベースを作成します。 Code First では、データベースC#テーブルに対応するクラスを記述し、EF によってデータベースが作成されます。 (詳細については、「 [Entity Framework の開発方法](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf)」を参照してください)。
 
-まず、Poco (plain-old CLR object) としてのドメイン オブジェクトを定義します。 次の Poco を作成します。
+まず、ドメインオブジェクトを POCOs (plain old CLR object) として定義します。 次の POCOs が作成されます。
 
-- 作成者
-- 書籍
+- Author
+- Book
 
-ソリューション エクスプ ローラーで、Models フォルダーを右クリックします。 選択**追加**を選択し、**クラス**します。 クラスに `Author` という名前を付けます。
+ソリューションエクスプローラーで、[モデル] フォルダーを右クリックします。 **[追加]** を選択し、 **[クラス]** を選択します。 クラスに `Author` という名前を付けます。
 
 ![](part-2/_static/image1.png)
 
-すべての Author.cs の定型コードを次のコードで置き換えます。
+Author.cs のすべての定型コードを次のコードに置き換えます。
 
 [!code-csharp[Main](part-2/samples/sample1.cs)]
 
-という名前の別のクラスを追加`Book`、次のコード。
+次のコードを使用して、`Book`という名前の別のクラスを追加します。
 
 [!code-csharp[Main](part-2/samples/sample2.cs)]
 
-Entity Framework では、これらのモデルを使用して、データベース テーブルを作成します。 各モデルの場合、`Id`プロパティは、データベース テーブルの主キー列になります。
+Entity Framework は、これらのモデルを使用してデータベーステーブルを作成します。 モデルごとに、`Id` プロパティがデータベーステーブルの主キー列になります。
 
-Book クラスで、`AuthorId`への外部キーの定義、`Author`テーブル。 (わかりやすくするために、前提に話を各書籍には、1 つの作成者がいる。)Book クラスは、関連するナビゲーション プロパティも含まれています。`Author`します。 ナビゲーション プロパティを使用するには、関連するへのアクセスに`Author`コード。 第 4 部でナビゲーション プロパティの詳細と言った[エンティティ関係の処理](part-4.md)します。
+Book クラスでは、`AuthorId` によって `Author` テーブルに外部キーが定義されます。 (わかりやすくするために、各書籍には1人の著者がいることを前提としています)。Book クラスには、関連する `Author`へのナビゲーションプロパティも含まれています。 ナビゲーションプロパティを使用して、コード内の関連する `Author` にアクセスできます。 第4部では、エンティティの関係を[処理](part-4.md)するナビゲーションプロパティについて詳しく説明します。
 
-## <a name="add-web-api-controllers"></a>Web API コント ローラーを追加します。
+## <a name="add-web-api-controllers"></a>Web API コントローラーの追加
 
-このセクションでは、CRUD 操作をサポートする Web API コント ローラーを追加します (作成、読み取り、更新、および削除) します。 コント ローラーでは、データベース層との通信に Entity Framework を使用します。
+このセクションでは、CRUD 操作 (作成、読み取り、更新、および削除) をサポートする Web API コントローラーを追加します。 コントローラーは Entity Framework を使用してデータベース層と通信します。
 
-最初に、Controllers/ValuesController.cs ファイルを削除することができます。 このファイルには、例の Web API コント ローラーが含まれていますが、このチュートリアルでは必要ありません。
+最初に、ファイルコントローラー/ファイルコントローラーの .cs を削除します。 このファイルには Web API コントローラーの例が含まれていますが、このチュートリアルでは必要ありません。
 
 ![](part-2/_static/image2.png)
 
-次に、プロジェクトをビルドします。 Web API のスキャフォールディングでは、リフレクションを使用して、コンパイル済みのアセンブリが必要があるため、モデル クラスを検索します。
+次に、プロジェクトをビルドします。 Web API のスキャフォールディングは、リフレクションを使用してモデルクラスを検索するため、コンパイルされたアセンブリが必要です。
 
-ソリューション エクスプ ローラーで、Controllers フォルダーを右クリックします。 選択**追加**を選択し、**コント ローラー**します。
+ソリューションエクスプローラーで、Controllers フォルダーを右クリックします。 **[追加]** を選択し、 **[コントローラー]** を選択します。
 
 ![](part-2/_static/image3.png)
 
-**スキャフォールディングの追加**ダイアログ ボックスで、"Web API 2 コント ローラーとアクション、Entity Framework を使用"です。 **[追加]** をクリックします。
+**スキャフォールディングの追加** ダイアログで、Entity Framework アクションを含む Web API 2 コントローラー を選択します。 **[追加]** をクリックします。
 
 ![](part-2/_static/image4.png)
 
-**コント ローラーの追加**ダイアログ ボックスで、次の操作を行います。
+**[コントローラーの追加]** ダイアログで、次の操作を行います。
 
-1. **モデル クラス**] ドロップダウンで、[、`Author`クラス。 (ドロップダウンの一覧に表示されない場合、は、プロジェクトを作成することを確認します)。
-2. 「非同期コント ローラー アクションを使用する」を確認します。
-3. としてコント ローラーの名前をそのまま&quot;AuthorsController&quot;します。
-4. クリック プラス (+) ボタンを**データ コンテキスト クラス**します。
+1. **[モデルクラス]** ドロップダウンで、`Author` クラスを選択します。 (ドロップダウンリストに表示されない場合は、プロジェクトをビルドしたことを確認してください)。
+2. [Async controller アクションを使用する] をオンにします。
+3. コントローラー名は &quot;AuthorsController&quot;のままにします。
+4. **[データコンテキストクラス]** の横にある正符号 (+) ボタンをクリックします。
 
 ![](part-2/_static/image5.png)
 
-**新しいデータ コンテキスト**ダイアログ ボックスで、既定の名前のままにし、をクリックして**追加**します。
+**[新しいデータコンテキスト]** ダイアログボックスで、既定の名前をそのまま使用し、 **[追加]** をクリックします。
 
 ![](part-2/_static/image6.png)
 
-クリックして**追加**を完了する、**コント ローラーの追加**ダイアログ。 ダイアログ ボックスでは、プロジェクトに 2 つのクラスを追加します。
+**[追加]** をクリックして、 **[コントローラーの追加]** ダイアログを完了します。 このダイアログでは、2つのクラスがプロジェクトに追加されます。
 
-- `AuthorsController` Web API コント ローラーを定義します。 コント ローラーは、作成者の一覧に対する CRUD 操作を実行するクライアントを使用する REST API を実装します。
-- `BookServiceContext` データベース、変更の追跡、およびデータの永続化から、データベースにデータを使用してオブジェクトの設定が含まれています。 ランタイム処理中にエンティティ オブジェクトを管理します。 継承`DbContext`します。
+- `AuthorsController` は、Web API コントローラーを定義します。 コントローラーは、クライアントが作成者の一覧に対して CRUD 操作を実行するために使用する REST API を実装します。
+- `BookServiceContext` は、実行時にエンティティオブジェクトを管理します。これには、データベースからのデータを使用したオブジェクトの読み込み、変更の追跡、データベースへのデータの保持などが含まれます。 `DbContext` から継承します。
 
 ![](part-2/_static/image7.png)
 
-この時点では、プロジェクトを再度ビルドします。 API コント ローラーを追加する同じ手順に従って`Book`エンティティ。 この時点で、`Book`既存を選択し、モデル クラスの`BookServiceContext`データ コンテキスト クラスのクラス。 (しないは新しいデータ コンテキストを作成します。)クリックして**追加**コント ローラーを追加します。
+この時点で、プロジェクトをもう一度ビルドします。 次に、同じ手順を実行して `Book` エンティティの API コントローラーを追加します。 今度は、モデルクラスの `Book` を選択し、データコンテキストクラスの既存の `BookServiceContext` クラスを選択します。 (新しいデータコンテキストを作成しないでください)。 **[追加]** をクリックしてコントローラーを追加します。
 
 ![](part-2/_static/image8.png)
 

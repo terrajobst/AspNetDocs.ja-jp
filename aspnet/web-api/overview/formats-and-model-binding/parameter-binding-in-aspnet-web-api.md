@@ -10,11 +10,11 @@ ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 464cb9b45dc0b62c4da38b7cf612934808854d32
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074905"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448894"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API でのパラメーターバインド
 
@@ -45,7 +45,7 @@ Web API で URI から複合型を強制的に読み取るには、 **[Fromuri]*
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
-クライアントは、緯度と経度の値をクエリ文字列に含めることができ、Web API はそれらを使用して `GeoPoint`を作成します。 例 :
+クライアントは、緯度と経度の値をクエリ文字列に含めることができ、Web API はそれらを使用して `GeoPoint`を作成します。 次に例を示します。
 
 `http://localhost/api/values/?Latitude=47.678558&Longitude=-122.130989`
 

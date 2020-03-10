@@ -7,18 +7,18 @@ ms.author: csfanos
 ms.date: 01/10/2019
 msc.type: content
 ms.openlocfilehash: b5f38285128bd2119fb88b94ffa84cb6e1af3401
-ms.sourcegitcommit: 6a564984ad448db34cdfab5458af755d6b65e69c
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538786"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438040"
 ---
 # <a name="jquery-validation-1190"></a>jQuery Validation 1.19.0
 
-次のファイルは、CDN にホストされます。
+CDN でホストされているファイルは次のとおりです。
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/additional-methods.min.js
-- あるファイルをローカライズ https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/localization/messages\_##.js 場所 ## loc コードに示します。
+- https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/localization/messages\_##.js のローカライズファイル (# # は loc コード)。

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-calendar-control
-title: '[How Do i:]ASP.NET AJAX のカレンダー コントロールを構成しますか。 | Microsoft Docs'
+title: '[操作方法:]ASP.NET AJAX Calendar コントロールを構成しますか? | Microsoft Docs'
 author: JoeStagner
-description: このビデオでは、さまざまな外観を構成に使用できるオプションと t からカレンダー エクステンダー コントロールの動作のデモを参照しています.
+description: このビデオでは、カレンダーのエクステンダーコントロールの外観と動作を構成するために使用できるさまざまなオプションのデモンストレーションについて説明します。
 ms.author: riande
 ms.date: 03/30/2007
 ms.assetid: bee087cc-7fed-4dce-8b52-19987f2d38a6
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-calendar-control
 msc.type: video
 ms.openlocfilehash: 2d3a4b64f747a4cb57dfc7c66c964af9c56c368f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396656"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454732"
 ---
-# <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[How Do i:]ASP.NET AJAX のカレンダー コントロールを構成しますか。
+# <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[操作方法:]ASP.NET AJAX Calendar コントロールを構成しますか?
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、さまざまな外観を構成に使用できるオプションと、ASP.NET AJAX Control Toolkit からカレンダー エクステンダー コントロールの動作のデモを参照します。
+このビデオでは、ASP.NET AJAX Control Toolkit から Calendar extender コントロールの外観と動作を構成するために使用できるさまざまなオプションのデモを紹介しています。
 
-[&#9654;ビデオ (8 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-the-aspnet-ajax-calendar-control)
+[&#9654;ビデオを見る (8 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-the-aspnet-ajax-calendar-control)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-use-the-aspnet-ajax-autocomplete-control.md)

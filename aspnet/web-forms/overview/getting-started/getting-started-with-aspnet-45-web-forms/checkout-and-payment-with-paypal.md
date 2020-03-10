@@ -9,11 +9,11 @@ ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
 ms.openlocfilehash: 62d00a86c6c5845fb894896df65002c7086d039f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615148"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78455932"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>精算と PayPal による支払い
 
@@ -31,7 +31,7 @@ ms.locfileid: "74615148"
 > 
 > Wingtip Toys サンプルアプリケーションは、ASP.NET web 開発者が使用できる特定の ASP.NET の概念と機能を示すように設計されています。 このサンプルアプリケーションは、スケーラビリティとセキュリティに関して考えられるすべての状況に合わせて最適化されていませんでした。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 - フォルダー内の特定のページへのアクセスを制限する方法。
 - 匿名ショッピングカートから既知のショッピングカートを作成する方法。
@@ -55,7 +55,7 @@ ms.locfileid: "74615148"
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample1.cs)]
 3. *OrderDetail.cs*クラスを [*モデル*] フォルダーに追加します。
-4. 既定のコードを次のコードに置き換えます。   
+4. 既定のコードを以下のコードに置き換えます。   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample2.cs)]
 
@@ -92,10 +92,10 @@ Wingtip Toys サンプルアプリケーションを使用すると、匿名ユ�
 6. 前と同様に、マスターページとして [] を選択し*ます。*
 7. 上記と同じ手順を使用して、次の追加ページを*Checkout*フォルダーに追加します。   
 
-    - CheckoutReview
-    - CheckoutComplete
-    - CheckoutCancel
-    - CheckoutError
+    - CheckoutReview.aspx
+    - CheckoutComplete.aspx
+    - CheckoutCancel.aspx
+    - CheckoutError.aspx
 
 ### <a name="add-a-webconfig-file"></a>Web.config ファイルを追加する
 
@@ -104,77 +104,77 @@ Wingtip Toys サンプルアプリケーションを使用すると、匿名ユ�
 1. [*チェックアウト*] フォルダーを右クリックし、[**新しい項目**の**追加** -&gt;] を選択します。  
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 左側の **[ C# Visual** -&gt; **Web**テンプレート] グループを選択します。 次に、中央のペインで **[Web 構成ファイル]** を選択し、web.config*の既定*の名前をそのまま使用して、 **[追加]** を選択します。
-3. *Web.config ファイル内*の既存の XML コンテンツを次の内容に置き換えます。  
+3. *Web.config* ファイルの XML の内容を次の内容で置き換えます。  
 
     [!code-xml[Main](checkout-and-payment-with-paypal/samples/sample4.xml)]
-4. *Web.config ファイルを*保存します。
+4. *Web.config* ファイルを保存します。
 
 Web.config*ファイルは*、web アプリケーションのすべての不明なユーザーが、 *Checkout*フォルダーに格納されているページへのアクセスを拒否する必要があることを指定します。 ただし、ユーザーがアカウントを登録し、ログオンしている場合は、既知のユーザーになり、 *Checkout*フォルダー内のページにアクセスできるようになります。
 
 ASP.NET の構成は階層に従っていることに注意してください。各 web.config ファイルでは、構成設定が含まれているフォルダーとその下のすべての子ディレクトリに適用さ*れます。*
 
 <a id="SSLWebForms"></a>
-## <a name="enable-ssl-for-the-project"></a>プロジェクトの SSL を有効にする
+## <a name="enable-ssl-for-the-project"></a>プロジェクトに対して SSL を有効にする
 
- Secure Sockets Layer (SSL) は、Web サーバーと Web クライアントが暗号化を使用してより安全に通信できるように定義されたプロトコルです。 SSL が使用されていない場合、クライアントとサーバーの間で送信されるデータは、ネットワークへの物理的なアクセスを持つすべてのユーザーによってパケットスニッフィングで開かれます。 また、いくつかの一般的な認証方式は、プレーンな HTTP を介してセキュリティで保護されていません。 特に、基本認証とフォーム認証では、暗号化されていない資格情報が送信されます。 セキュリティを確保するために、これらの認証方式では SSL を使用する必要があります。 
+ Secure Sockets Layer (SSL) は、Web サーバーと Web クライアント間の通信に定義されたプロトコルで、暗号化によって通信の安全性を強化することができます。 SSL を使わないと、クライアントとサーバー間で送信されるデータが、ネットワークに物理的にアクセスできる第三者によるパケット スニッフィングの標的になります。 また、プレーンな HTTP を使用すると、いくつかの一般的な認証方式の安全性も低下します。 具体的には、基本認証とフォーム認証で送信する資格情報が暗号化されません。 安全性を確保するには、これらの認証方式で SSL を使用する必要があります。 
 
 1. **ソリューションエクスプローラー**で、**ウィングヒントの toys**プロジェクトをクリックし、 **F4**キーを押して **[プロパティ]** ウィンドウを表示します。
 2. **SSL Enabled**を `true`に変更します。
-3. **SSL URL**をコピーして、後で使用できるようにします。   
+3. 後で使用するための **SSL URL** をコピーします。   
  Ssl Web サイトを以前に作成した場合を除き、SSL URL は `https://localhost:44300/` になります (以下の図を参照)。   
     ![プロジェクト プロパティ](checkout-and-payment-with-paypal/_static/image4.png)
 4. **ソリューションエクスプローラー**で、**ウィングヒントの toys**プロジェクトを右クリックし、 **[プロパティ]** をクリックします。
-5. 左側のタブで、 **[Web]** をクリックします。
+5. 左側のタブで **[Web]** をクリックします。
 6. 以前に保存した**SSL url**を使用するように**プロジェクト url**を変更します。   
-    ![Project の Web プロパティ](checkout-and-payment-with-paypal/_static/image5.png)
-7. **CTRL + S**キーを押して、ページを保存します。
-8. **Ctrl キーを押しながら F5 キーを押して**アプリケーションを実行します。 Visual Studio には、SSL 警告を回避するためのオプションが表示されます。
-9. **[はい]** をクリックして IIS Express SSL 証明書を信頼し、続行します。   
-    SSL 証明書の詳細を ![IIS Express](checkout-and-payment-with-paypal/_static/image6.png)  
+    ![プロジェクトの Web プロパティ](checkout-and-payment-with-paypal/_static/image5.png)
+7. **CTRL + S キーを押して**ページを保存します。
+8. **Ctrl キーを押しながら F5 キーを押して** アプリケーションを実行します。 Visual Studio により、SSL の警告を回避するためのオプションが表示されます。
+9. IIS Express SSL 証明書を信頼する場合は **[はい]** をクリックして続行します。   
+    ![IIS Express SSL 証明書の詳細](checkout-and-payment-with-paypal/_static/image6.png)  
  セキュリティ警告が表示されます。
-10. **[はい]** をクリックして、localhost に証明書をインストールします。   
-    [セキュリティ警告の ![] ダイアログボックス](checkout-and-payment-with-paypal/_static/image7.png)  
- ブラウザーウィンドウが表示されます。
+10. **[はい]** をクリックしてローカルホストに証明書をインストールします。   
+    ![セキュリティ警告ダイアログ ボックス](checkout-and-payment-with-paypal/_static/image7.png)  
+ ブラウザー ウィンドウが表示されます。
 
 SSL を使用して、Web アプリケーションをローカルで簡単にテストできるようになりました。
 
 <a id="OAuthWebForms"></a>
 ## <a name="add-an-oauth-20-provider"></a>OAuth 2.0 プロバイダーを追加する
 
-ASP.NET Web フォームは、メンバーシップと認証のための拡張オプションを提供します。 これらの機能強化には、OAuth が含まれます。 OAuth は、web、モバイル、およびデスクトップのアプリケーションからシンプルで標準的な方法で、セキュリティで保護された承認を可能にするオープンプロトコルです。 ASP.NET Web フォームテンプレートでは、OAuth を使用して、Facebook、Twitter、Google、Microsoft を認証プロバイダーとして公開しています。 このチュートリアルでは、認証プロバイダーとして Google のみを使用しますが、任意のプロバイダーを使用するようにコードを簡単に変更できます。 他のプロバイダーを実装する手順は、このチュートリアルで説明されている手順とよく似ています。
+ASP.NET Web フォームは、メンバーシップと認証のオプションが強化されています。 OAuth もこうした強化点の 1 つです。 OAuth は、Web、モバイル、およびデスクトップのアプリケーションからシンプルで標準的な方法で安全に認証するためのオープン プロトコルです。 ASP.NET Web フォームテンプレートでは、OAuth を使用して、Facebook、Twitter、Google、Microsoft を認証プロバイダーとして公開しています。 このチュートリアルでは Google のみを認証プロバイダーとして使用しますが、コードを少し変更すれば他のプロバイダーも使用できます。 他のプロバイダーを実装する手順は、このチュートリアルで説明する手順とほとんど同じです。
 
-このチュートリアルでは、認証に加えて、ロールを使用して承認を実装します。 `canEdit` のロールに追加したユーザーのみが、データの変更 (連絡先の作成、編集、削除) を行うことができます。
+このチュートリアルでは、認証の他にロールを使用して権限を付与します。 `canEdit` ロールに追加したユーザーだけが連絡先を変更 (作成、編集、削除) できます。
 
 > [!NOTE] 
 > 
 > Windows Live アプリケーションは、実用的な web サイトのライブ URL のみを受け入れるため、ログインのテストにローカル web サイトの URL を使用することはできません。
 
-次の手順では、Google authentication プロバイダーを追加できます。
+次の手順を実行することで、Google 認証プロバイダーを追加できます。
 
 1. *アプリ\_Start\Startup.Auth.cs*ファイルを開きます。
-2. メソッドが次のように表示されるように、`app.UseGoogleAuthentication()` メソッドからコメント文字を削除します。 
+2. `app.UseGoogleAuthentication()` メソッドのコメント文字を削除して、メソッドを次のような記述にします。 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample5.cs)]
-3. [Google 開発者コンソール](https://console.developers.google.com/)に移動します。 また、Google 開発者の電子メールアカウント (gmail.com) を使用してサインインする必要があります。 Google アカウントを持っていない場合は、 **[アカウントの作成]** リンクを選択します。   
-   次に、 **Google 開発者コンソール**が表示されます。   
-    ![Google 開発者コンソール](checkout-and-payment-with-paypal/_static/image8.png)
+3. [Google Developers Console](https://console.developers.google.com/)にアクセスします。 Google デベロッパーの電子メール アカウント (gmail.com) でサインインする必要があります。 Google アカウントを持っていない場合は、 **[Create an account]** リンクを選択します。   
+   **Google Developers Console**が表示されます。   
+    ![Google Developers Console](checkout-and-payment-with-paypal/_static/image8.png)
 4. **[プロジェクトの作成]** ボタンをクリックし、プロジェクトの名前と ID を入力します (既定値を使用できます)。 次に、[**アグリーメント] チェックボックス**と **[作成]** ボタンをクリックします。  
 
     ![Google-新しいプロジェクト](checkout-and-payment-with-paypal/_static/image9.png)
 
-   数秒すると、新しいプロジェクトが作成され、ブラウザーに [新しいプロジェクト] ページが表示されます。
+   新しいプロジェクトが数秒で作成され、新しいプロジェクトのページがブラウザーに表示されます。
 5. 左側のタブで、[ **api &amp; auth**] をクリックし、 **[資格情報]** をクリックします。
 6. **[OAuth]** の **[新しいクライアント ID の作成]** をクリックします。   
-   **[クライアント ID の作成]** ダイアログボックスが表示されます。   
-    ![Google-クライアント ID の作成](checkout-and-payment-with-paypal/_static/image10.png)
+   **[Create Client ID]** ダイアログ ボックスが表示されます。   
+    ![Google - クライアント ID の作成](checkout-and-payment-with-paypal/_static/image10.png)
 7. **[クライアント ID の作成]** ダイアログボックスで、アプリケーションの種類の既定の**Web アプリケーション**をそのまま使用します。
 8. 承認された**JavaScript オリジン**を、このチュートリアルの前半で使用した ssl URL (他の ssl プロジェクトを作成していない場合は`https://localhost:44300/`) に設定します。   
    この URL は、アプリケーションのオリジンです。 このサンプルでは、localhost テスト URL だけを入力します。 ただし、複数の Url を入力して、localhost と運用環境を考慮することができます。
-9. 承認された**リダイレクト URI**を次のように設定します。 
+9. **[Authorized Redirect URI]** には次の値を設定します。 
 
     [!code-html[Main](checkout-and-payment-with-paypal/samples/sample6.html)]
 
-   この値は、ASP.NET OAuth ユーザーが google OAuth サーバーと通信するために使用する URI です。 上記で使用した SSL URL を記憶します (他の SSL プロジェクトを作成していない場合は `https://localhost:44300/`)。
+   この値は、ASP.NET OAuth ユーザーが Google の OAuth サーバーとの通信に使用する URI です。 上記で使用した SSL URL を記憶します (他の SSL プロジェクトを作成していない場合は `https://localhost:44300/`)。
 10. **[クライアント ID の作成]** ボタンをクリックします。
 11. Google 開発者コンソールの左側のメニューで、 **[同意画面]** メニュー項目をクリックし、電子メールアドレスと製品名を設定します。 フォームが完了したら、 **[保存]** をクリックします。
 12. **[Api]** メニュー項目をクリックして下にスクロールし、 **[Google + API]** の横にある **[オフ]** ボタンをクリックします。   
@@ -185,16 +185,16 @@ ASP.NET Web フォームは、メンバーシップと認証のための拡張�
 14. Visual Studio で、**クライアント ID**と**クライアントシークレット**をコピーしてメソッドに貼り付けることにより、 *Startup.Auth.cs*ページの `UseGoogleAuthentication` メソッドを更新します。 次に示す**クライアント ID**と**クライアントシークレット**の値はサンプルであり、機能しません。 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
-15. CTRL キーを押し**ながら F5**キーを押して、アプリケーションをビルドして実行します。 **[ログイン]** リンクをクリックします。
+15. **Ctrl キーを押しながら F5 キーを押して** アプリケーションをビルドし、実行します。 **[Log in]** リンクをクリックします。
 16. **[別のサービスを使用してログインする]** で、 **[Google]** をクリックします。  
-    ![のログイン](checkout-and-payment-with-paypal/_static/image11.png)
-17. 資格情報を入力する必要がある場合は、資格情報を入力する google サイトにリダイレクトされます。  
-    ![Google-サインイン](checkout-and-payment-with-paypal/_static/image12.png)
+    ![ログイン](checkout-and-payment-with-paypal/_static/image11.png)
+17. 資格情報の入力が必要な場合、Google のサイトにリダイレクトされるので、リダイレクト先のサイトで資格情報を入力します。  
+    ![Google - サインイン](checkout-and-payment-with-paypal/_static/image12.png)
 18. 資格情報を入力すると、作成した web アプリケーションにアクセス許可を付与するように求められます。  
-    ![プロジェクトの既定のサービスアカウント](checkout-and-payment-with-paypal/_static/image13.png)
-19. [**同意**する] をクリックします。 これで、**ウィングヒント toys**アプリケーションの**登録**ページにリダイレクトされ、Google アカウントを登録できるようになります。  
-    Google アカウントに登録 ![](checkout-and-payment-with-paypal/_static/image14.png)
-20. Gmail アカウントに使用するローカルの電子メール登録名を変更することもできますが、通常は既定の電子メールエイリアス (認証に使用したもの) をそのままにしておきます。 上に示すよう**に、[ログイン**] をクリックします。
+    ![プロジェクトのデフォルト サービス アカウント](checkout-and-payment-with-paypal/_static/image13.png)
+19. **[Accept]\(受け入れる\)** をクリックします。 これで、**ウィングヒント toys**アプリケーションの**登録**ページにリダイレクトされ、Google アカウントを登録できるようになります。  
+    ![Google アカウントへの登録](checkout-and-payment-with-paypal/_static/image14.png)
+20. Google アカウントに使用するローカルの電子メール登録名を変更できますが、通常は既定の電子メール エイリアス (認証に使用したエイリアス) を変更しません。 上に示すよう**に、[ログイン**] をクリックします。
 
 ### <a name="modifying-login-functionality"></a>ログイン機能の変更
 
@@ -292,7 +292,7 @@ Wingtip Toys サンプルアプリケーションから PayPal テスト環境�
 3. 中央のウィンドウで、 **[クラス]** を選択します。 この新しいクラスに**PayPalFunctions.cs**という名前を指定します。
 4. **[追加]** をクリックします。  
    新しいクラスファイルがエディターに表示されます。
-5. 既定のコードを次のコードに置き換えます。  
+5. 既定のコードを以下のコードに置き換えます。  
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample12.cs)]
 6. このチュートリアルで前に表示したマーチャント API 資格情報 (ユーザー名、パスワード、署名) を追加して、PayPal テスト環境への関数呼び出しを行うことができるようにします。  
@@ -381,7 +381,7 @@ PayPal から戻った後、Wingtip Toys サンプルアプリケーションの
 
 > [!NOTE] 
 > 
-> **形**
+> **ヒント**
 > 
 > *CheckoutReview*ページのマークアップで、ページの下部付近にある**DetailsView**コントロール内の項目のスタイルを変更するために `<ItemStyle>` タグが使用されていることに注意してください。 **デザインビュー**でページを表示するには (Visual Studio の左下隅にある **[デザイン]** を選択)、 **detailsview**コントロールを選択し、**スマートタグ**(コントロールの右上にある矢印アイコン) を選択します。これにより、 **detailsview タスク**を表示できます。
 > 
@@ -495,17 +495,17 @@ PayPal から戻った後、Wingtip Toys サンプルアプリケーションの
 12. Wingtip Toys データベースファイル (*ウィングのおもちゃ*) を右クリックし、[接続を**閉じる**] を選択します。
 13. **[ソリューションエクスプローラー]** ウィンドウが表示されない場合は、**サーバーエクスプローラー**ウィンドウの下部にある **[ソリューションエクスプローラー]** をクリックして、もう一度**ソリューションエクスプローラー**を表示します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、注文と注文の詳細スキーマを追加して、製品の購入を追跡しました。 また、PayPal の機能を Wingtip Toys サンプルアプリケーションに統合しています。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [ASP.NET 構成の概要](https://msdn.microsoft.com/library/ms178683(v=vs.100).aspx)  
 [メンバーシップ、OAuth、SQL Database を持つ Secure ASP.NET Web フォームアプリを Azure App Service にデプロイする](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure-無料試用版](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="disclaimer"></a>免責情報
+## <a name="disclaimer"></a>免責事項
 
 このチュートリアルには、サンプルコードが含まれています。 このようなサンプルコードは、いかなる種類の保証も伴わず、「現状有姿」で提供されます。 そのため、Microsoft では、サンプルコードの精度、整合性、品質を保証していません。 独自のリスクでサンプルコードを使用することに同意します。 どのような場合でも、どのようなサンプルコードやコンテンツについても、どのような方法でもお客様に対して一切の責任を負いません。ただし、すべてのサンプルコード、コンテンツ、またはサンプルコードを使用した結果として発生するあらゆる種類の損失や損害については一切ありません。 お客様は、お客様が通知を受け取り、補償に同意することになります。マイクロソフトは、いかなる損失、損失の損害、けが、または損害についても、いかなる場合でも、または投稿したマテリアルによって occasioned されたかどうかにかかわらず、いかなるものでもありません。送信、使用、またはその中に表示されているビューへの制限はありません。
 

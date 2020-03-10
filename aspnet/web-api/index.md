@@ -1,8 +1,8 @@
 ---
 uid: web-api/index
-title: ASP.NET Web API - ASP.NET 4.x
+title: ASP.NET Web API-ASP.NET 4.x
 author: rick-anderson
-description: ASP.NET MVC 4 をダウンロードして、さまざまなクライアントに提供される HTTP サービスをビルドします。
+description: ASP.NET MVC 4 をダウンロードし、広範なクライアントに接続する HTTP サービスを構築します。
 ms.author: riande
 ms.date: 01/17/2012
 ms.custom: seoapril2019
@@ -10,23 +10,23 @@ ms.assetid: f571ca7a-c06b-400d-8051-f62f9f0bcc9b
 msc.legacyurl: /web-api
 msc.type: categoryindex
 ms.openlocfilehash: c04719e06c6c0900c8f8268b73f833b525ea3dd6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410839"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449350"
 ---
 # <a name="aspnet-web-api"></a>ASP.NET Web API
 
 - [ガイダンス](overview/index.md)
 
-    - [はじめに](overview/getting-started-with-aspnet-web-api/index.md)
+    - [作業の開始](overview/getting-started-with-aspnet-web-api/index.md)
 
         - [Web API 2 の概要 (C#)](overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
         - [Web API 2 のアクションの結果](overview/getting-started-with-aspnet-web-api/action-results.md)
         - [ASP.NET Web フォームで Web API を使用する](overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
         - [Web API ヘルプ ページを作成する](overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-        - [ハンズ オン ラボ:ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルドします。](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+        - [ハンズ オン ラボ: ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
     - [ルーティング](overview/web-api-routing-and-actions/index.md)
 
         - [Web API のルーティング](overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)
@@ -55,7 +55,7 @@ ms.locfileid: "59410839"
         - [OData v4](overview/odata-support-in-aspnet-web-api/odata-v4/index.md)
 
             - [OData v4 エンドポイントを作成する](overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint.md)
-            - [OData v4 クライアント アプリ (C#) を作成します。](overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app.md)
+            - [OData v4 クライアント アプリを作成する (C#)](overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app.md)
             - [OData v4 のエンティティ関係](overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4.md)
             - [OData v4 のアクションと関数](overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions.md)
             - [OData v4 のコンテインメイト](overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22.md)
@@ -114,8 +114,8 @@ ms.locfileid: "59410839"
         - [.NET クライアントから Web API を呼び出す (C#)](overview/advanced/calling-a-web-api-from-a-net-client.md)
         - [Web API の HTTP メッセージ ハンドラー](overview/advanced/http-message-handlers.md)
         - [Web API の HttpClient メッセージ ハンドラー](overview/advanced/httpclient-message-handlers.md)
-        - [Web API で HTML フォーム データを送信します。Url エンコード フォーム データ](overview/advanced/sending-html-form-data-part-1.md)
-        - [Web API で HTML フォーム データを送信します。ファイルのアップロードとマルチパート MIME](overview/advanced/sending-html-form-data-part-2.md)
+        - [Web API で HTML フォーム データを送信する: URL エンコード フォーム データ](overview/advanced/sending-html-form-data-part-1.md)
+        - [Web API で HTML フォーム データを送信する: ファイル アップロードとマルチパート MIME](overview/advanced/sending-html-form-data-part-2.md)
         - [ASP.NET Web API の HTTP Cookie](overview/advanced/http-cookies.md)
     - [リリース](overview/releases/index.md)
 
@@ -141,10 +141,10 @@ ms.locfileid: "59410839"
     - [概要と入門](videos/getting-started/index.md)
 
         - [ASP.NET Web API](videos/getting-started/aspnet-web-api.md)
-        - [ASP.NET Web API、パート 1:Web API の入門](videos/getting-started/your-first-web-api.md)
-        - [ASP.NET Web API、パート 2:データの取得](videos/getting-started/getting-data.md)
-        - [ASP.NET Web API、パート 3:削除および更新](videos/getting-started/delete-and-update.md)
-        - [ASP.NET Web API、パート 4:ページングとクエリ実行](videos/getting-started/paging-and-querying.md)
-        - [ASP.NET Web API、パート 5:カスタム検証](videos/getting-started/custom-validation.md)
-        - [ASP.NET Web API、パート 6:承認](videos/getting-started/authorization.md)
+        - [ASP.NET Web API、パート 1: 初めての Web API](videos/getting-started/your-first-web-api.md)
+        - [ASP.NET Web API、パート 2: データの取得](videos/getting-started/getting-data.md)
+        - [ASP.NET Web API、パート 3: 削除と更新](videos/getting-started/delete-and-update.md)
+        - [ASP.NET Web API、パート 4: ページングとクエリ実行](videos/getting-started/paging-and-querying.md)
+        - [ASP.NET Web API、パート 5: カスタム検証](videos/getting-started/custom-validation.md)
+        - [ASP.NET Web API、パート 6: 承認](videos/getting-started/authorization.md)
 - [Web API サンプル一覧](samples-list.md)

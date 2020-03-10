@@ -9,15 +9,15 @@ ms.assetid: 5b59c0d3-dd21-43bf-bb4d-e008f011296d
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile10rc1
 msc.type: content
 ms.openlocfilehash: 09ecfa7fad0af2dc92fbd1ba3c09ab648227833d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59420069"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78453958"
 ---
 # <a name="jquery-mobile-10-rc1-on-the-microsoft-ajax-cdn"></a>Microsoft Ajax CDN の jQuery Mobile 1.0 RC1
 
-JQuery Mobile 1.0 RC 1 のライブラリには、次のファイルが含まれます。
+JQuery Mobile 1.0 RC 1 ライブラリには、次のファイルが含まれています。
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0rc1/jquery.mobile-1.0rc1.js
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0rc1/jquery.mobile-1.0rc1.min.js

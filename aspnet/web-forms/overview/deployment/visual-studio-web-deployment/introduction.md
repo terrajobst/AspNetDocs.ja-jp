@@ -9,11 +9,11 @@ ms.assetid: 24ad086d-865e-433c-9ac9-05f1a553da16
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
 ms.openlocfilehash: 96dd31d949633e001fc595621bedbf74e98000fc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640236"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78521758"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用した ASP.NET Web デプロイ: 概要
 
@@ -23,7 +23,7 @@ ms.locfileid: "74640236"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 と Azure SDK for .NET を使用して、ASP.NET web アプリケーションを Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにデプロイ (発行) する方法について説明します。 ほとんどの手順は Visual Studio 2013 に似ています。
 > 
-> Web アプリケーションは、インターネットを介してユーザーが使用できるようにするために開発します。 ただし、web プログラミングのチュートリアルは通常、開発用コンピューターで動作する方法を説明した直後に停止します。 この一連のチュートリアルでは、web アプリを構築してテストし、準備ができていることを確認します。 次の内容 これらのチュートリアルでは、まず、テスト用にローカル開発用コンピューターの IIS にデプロイした後、ステージングと運用のために Azure またはサードパーティのホスティングプロバイダーにデプロイする方法を説明します。 デプロイするサンプルアプリケーションは、Entity Framework、SQL Server、および ASP.NET メンバーシップシステムを使用する web アプリケーションプロジェクトです。 サンプルアプリケーションでは ASP.NET Web フォームを使用しますが、表示される手順は ASP.NET MVC と Web API にも適用されます。
+> Web アプリケーションは、インターネットを介してユーザーが使用できるようにするために開発します。 ただし、web プログラミングのチュートリアルは通常、開発用コンピューターで動作する方法を説明した直後に停止します。 この一連のチュートリアルでは、web アプリを構築してテストし、準備ができていることを確認します。 次の操作 これらのチュートリアルでは、まず、テスト用にローカル開発用コンピューターの IIS にデプロイした後、ステージングと運用のために Azure またはサードパーティのホスティングプロバイダーにデプロイする方法を説明します。 デプロイするサンプルアプリケーションは、Entity Framework、SQL Server、および ASP.NET メンバーシップシステムを使用する web アプリケーションプロジェクトです。 サンプルアプリケーションでは ASP.NET Web フォームを使用しますが、表示される手順は ASP.NET MVC と Web API にも適用されます。
 > 
 > これらのチュートリアルでは、Visual Studio で ASP.NET を使用する方法を理解していることを前提としています。 そうでない場合は、[基本的な ASP.NET Web フォームチュートリアル](../../older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)または[基本的な ASP.NET MVC チュートリアル](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)を開始することをお勧めします。
 > 
@@ -31,7 +31,7 @@ ms.locfileid: "74640236"
 > 
 > このコンテンツは、 [TechNet の電子書籍ギャラリー](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETWebDeploymentusingVisualStudio)から無料の電子書籍として入手することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 これらのチュートリアルでは、SQL Server データベースを含む ASP.NET web アプリケーションをデプロイする手順について説明します。 まず、ローカルの開発用コンピューターの IIS に配置してテストを行い、次に Azure App Service で Web Apps し、ステージングと運用の Azure SQL Database します。 Visual Studio のワンクリック発行を使用してデプロイする方法を確認できます。コマンドラインを使用してをデプロイする方法を確認できます。
 
@@ -39,7 +39,7 @@ ms.locfileid: "74640236"
 
 チュートリアルは順番に実行するように設計されており、各部分は前の部分に基づいています。 状況に関係のない部分はスキップできますが、その後のチュートリアルでは、手順の調整が必要になる場合があります。
 
-## <a name="intended-audience"></a>対象読者
+## <a name="intended-audience"></a>対象ユーザー
 
 このチュートリアルは、次の環境で作業する ASP.NET 開発者を対象としています。
 
@@ -49,7 +49,7 @@ ms.locfileid: "74640236"
 [継続的デリバリー](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)プロセスを使用した[ソース管理](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)からのデプロイについては、コマンドラインからの展開方法を示す1つのチュートリアルを除き、これらのチュートリアルでは説明されていません。 継続的デリバリーの詳細については、次のリソースを参照してください。
 
 - [継続的インテグレーションと継続的デリバリー (Windows Azure を使用した実際のクラウドアプリの構築)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Azure App Service で web アプリをデプロイする](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
+- [Azure App Service で Web アプリをデプロイします](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [エンタープライズシナリオでの Web アプリケーションの配置](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)(Visual Studio 2010 向けに記述された古いチュートリアルのセットであり、エンタープライズ環境に関する有益な情報が含まれています)。
 
 ## <a name="using-a-third-party-hosting-provider"></a>サードパーティのホスティングプロバイダーの使用
@@ -66,7 +66,7 @@ ms.locfileid: "74640236"
 
 ## <a name="programming-language"></a>プログラミング言語
 
-サンプルアプリケーションはをC#使用しますが、チュートリアルではC#の知識は必要ありません。また、チュートリアルで示されている配置手法は言語固有ではありません。
+C# サンプル アプリケーションを使用が、チュートリアルには、C# の知識が必要としないと、チュートリアルで示すように、展開方法は、言語固有ではないです。
 
 ## <a name="database-deployment-methods"></a>データベースの配置方法
 
@@ -110,7 +110,7 @@ Entity Framework Code First で管理されていない SQL Server データベ�
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 このチュートリアルは、次の製品向けに作成されました。
 
@@ -126,7 +126,7 @@ Visual Studio 2010 SP1 を使用している場合は、次のソフトウェア
 
 - [Azure SDK for Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [LocalDB の SQL Server Express](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx)。
+- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx)
 
 コンピューターに既にある SDK の依存関係の数によっては、Azure SDK のインストールに時間がかかる場合があります (数分から30分以上)。 SDK には Visual Studio web 発行機能の最新の更新プログラムが含まれているため、azure ではなくサードパーティのホスティングプロバイダーに発行する予定の場合でも、Azure SDK が必要です。
 
@@ -137,7 +137,7 @@ Visual Studio 2010 SP1 を使用している場合は、次のソフトウェア
 
 このチュートリアルを完了するには、他にもいくつかのソフトウェアが必要ですが、まだインストールしておく必要はありません。 このチュートリアルでは、必要なときにインストールする手順について説明します。
 
-## <a name="download-the-sample-application"></a>サンプルアプリケーションをダウンロードする
+## <a name="download-the-sample-application"></a>サンプル アプリケーションのダウンロード
 
 デプロイするアプリケーションは Contoso 大学という名前で、既に作成されています。 これは、 [ASP.NET サイトの Entity Framework チュートリアル](https://asp.net/entity-framework/tutorials)で説明されている Contoso 大学のアプリケーションに弱い、大学の web サイトの簡略化されたバージョンです。
 
@@ -193,9 +193,9 @@ Web サイトのページには、メニューバーからアクセスでき、�
 - アプリケーションには、配置先の環境 (テスト、ステージング、または運用) に応じて、配置された*web.config*ファイルで変更する必要があるいくつかの設定と、ビルド構成 (デバッグまたはリリース) に応じて変更する必要があるその他の設定が含まれます。
 - Visual Studio ソリューションには、クラスライブラリプロジェクトが含まれています。 プロジェクト自体ではなく、このプロジェクトが生成するアセンブリだけを配置する必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このシリーズの最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションのデプロイ方法に影響を与えるサイトの機能を確認しました。 次のチュートリアルでは、これらのいくつかを自動的に処理するように設定することによって、デプロイを準備します。 他のユーザーは手動で行うことができます。
 
 > [!div class="step-by-step"]
-> [次へ](preparing-databases.md)
+> [Next](preparing-databases.md)

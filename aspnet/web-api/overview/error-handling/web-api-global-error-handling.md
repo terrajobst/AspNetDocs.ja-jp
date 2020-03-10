@@ -10,17 +10,17 @@ ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 94f2d6d31d0b37f9bb0077e6258c70a2dfb1918d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457740"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448966"
 ---
 # <a name="global-error-handling-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのグローバルエラー処理
 
 [David Matson](https://github.com/davidmatson)、 [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このトピックでは、ASP.NET 4.x の ASP.NET Web API 2 でのグローバルエラー処理の概要について説明します。 現在、Web API では、エラーをグローバルに記録または処理する簡単な方法はありません。 一部のハンドルされない例外は[例外フィルター](exception-handling.md)を使用して処理できますが、例外フィルターが処理できないケースがいくつかあります。 例 :
+このトピックでは、ASP.NET 4.x の ASP.NET Web API 2 でのグローバルエラー処理の概要について説明します。 現在、Web API では、エラーをグローバルに記録または処理する簡単な方法はありません。 一部のハンドルされない例外は[例外フィルター](exception-handling.md)を使用して処理できますが、例外フィルターが処理できないケースがいくつかあります。 次に例を示します。
 
 1. コントローラー コンストラクターからスローされる例外。
 2. メッセージ ハンドラーからスローされる例外。

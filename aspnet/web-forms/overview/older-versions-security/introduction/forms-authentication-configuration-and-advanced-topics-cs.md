@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
-title: フォーム認証構成と高度なトピックC#() |Microsoft Docs
+title: フォーム認証構成と高度なトピック (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、さまざまなフォーム認証設定を確認し、forms 要素を使用して変更する方法を確認します。 詳細情報...
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: b9c29865-a34e-48bb-92c0-c443a72cb860
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b296f31da1c73df97175d94402b4d618df425d8d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74579291"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78521374"
 ---
 # <a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証構成と高度なトピック (C#)
 
@@ -31,7 +31,7 @@ ms.locfileid: "74579291"
 
 ## <a name="step-1-examining-the-ltformsgt-configuration-settings"></a>手順 1: &lt;フォーム&gt; 構成設定を調べる
 
-ASP.NET のフォーム認証システムには、アプリケーションごとにカスタマイズできる構成設定が多数用意されています。 これには、フォーム認証チケットの有効期間などの設定が含まれます。チケットにはどのような種類の保護が適用されますか。cookie なしの認証チケットが使用される条件を次に示します。ログインページへのパスです。その他の情報もあります。 既定値を変更するには、 [&lt;authentication&gt; 要素](https://msdn.microsoft.com/library/532aee0e.aspx)の子として[&lt;forms&gt; 要素](https://msdn.microsoft.com/library/1d3t3c61.aspx)を追加し、次のように XML 属性としてカスタマイズするプロパティ値を指定します。
+ASP.NET フォーム認証システムは、アプリケーションごとにカスタマイズ可能な構成設定のいくつかあります。 これには、フォーム認証チケットの有効期間などの設定が含まれます。チケットにはどのような種類の保護が適用されますか。cookie なしの認証チケットが使用される条件を次に示します。ログインページへのパスです。その他の情報もあります。 既定値を変更するには、 [&lt;authentication&gt; 要素](https://msdn.microsoft.com/library/532aee0e.aspx)の子として[&lt;forms&gt; 要素](https://msdn.microsoft.com/library/1d3t3c61.aspx)を追加し、次のように XML 属性としてカスタマイズするプロパティ値を指定します。
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample1.xml)]
 
@@ -39,24 +39,24 @@ ASP.NET のフォーム認証システムには、アプリケーションごと
 
 | <strong>属性</strong> |                                                                                                                                                                                                                                     <strong>説明</strong>                                                                                                                                                                                                                                      |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         cookie         |                                                                                                                この属性は、認証チケットがクッキーに格納される条件、および URL に埋め込まれているかどうかを指定します。 使用可能な値: UseCookies;UseUri;認識と UseDeviceProfile (既定値) を設定します。 手順2では、この設定を詳細に調べます。                                                                                                                |
+|         cookieless         |                                                                                                                この属性は、URL に埋め込まれていると、cookie にどのような条件下で、認証チケットが格納されているを指定します。 使用可能な値: 既定値です。UseUri;自動検出します。値 (既定)。 手順 2 では、さらに詳しくは、この設定を検証します。                                                                                                                |
 |         defaultUrl         |                                                                                                                                                         クエリ文字列に RedirectUrl 値が指定されていない場合に、ログインページからサインインした後にユーザーがリダイレクトされる URL を示します。 既定値は default.aspx です。                                                                                                                                                         |
-|           ドメイン           | Cookie ベースの認証チケットを使用する場合、この設定では cookie のドメイン値を指定します。 既定値は空の文字列です。これにより、ブラウザーは発行元のドメイン (www.yourdomain.com など) を使用します。 この場合、admin.yourdomain.com などのサブドメインに要求を行うときに cookie は送信され<strong>ません</strong>。 Cookie をすべてのサブドメインに渡す必要がある場合は、ドメイン属性を yourdomain.com に設定するようにカスタマイズする必要があります。 |
+|           domain           | Cookie ベースの認証チケットを使用する場合、この設定は、Cookie の domain の値を指定します。 既定値は、空の文字列です。そのため、ブラウザは発行元のドメイン (www.yourdomain.com) などを使用します。 この場合、admin.yourdomain.com などのサブドメインに要求を行うときに cookie は送信され<strong>ません</strong>。 すべてのサブドメインに渡される Cookie が必要な場合は、yourdomain.com に設定すると、 domain 属性をカスタマイズする必要があります。 |
 |  enableCrossAppRedirects   |                                                                                                                                                                   同じサーバー上の他の web アプリケーションの Url にリダイレクトされたときに、認証されたユーザーを記憶するかどうかを示すブール値。 既定値は false です。                                                                                                                                                                   |
 |          loginUrl          |                                                                                                                                                                                                                      ログインページの URL です。 既定値は login.aspx です。                                                                                                                                                                                                                      |
 |            name            |                                                                                                                                                                                                   Cookie ベースの認証チケットを使用する場合は、cookie の名前。 既定値はです.ASPXAUTH です.                                                                                                                                                                                                   |
-|            path            |                                                                             Cookie ベースの認証チケットを使用する場合は、この設定によって cookie のパス属性が指定されます。 パス属性を使用すると、開発者は cookie のスコープを特定のディレクトリ階層に限定できます。 既定値は/です。これは、ドメインに対して行われたすべての要求に認証チケットクッキーを送信するようブラウザーに通知します。                                                                              |
-|         保護         |                                                                                                                                            フォーム認証チケットを保護するために使用される手法を示します。 使用できる値は、All (既定値) です。よる存在および検証。 これらの設定については、手順3で詳しく説明します。                                                                                                                                            |
+|            path            |                                                                             Cookie ベースの認証チケットを使用する場合は、この設定によって cookie のパス属性が指定されます。 Path 属性は、開発者は特定のディレクトリ階層のクッキーのスコープを制限できます。 既定値は/で、domain に対して行われた要求に認証チケットの Cookie を送信するようブラウザに通知します。                                                                              |
+|         protection         |                                                                                                                                            フォーム認証チケットの保護にどのような手法を使用することを示します。 使用可能な値: すべて (既定)。暗号化。None;および検証します。 これらの設定は、手順 3 で詳しく説明します。                                                                                                                                            |
 |         requireSSL         |                                                                                                                                                                                認証 cookie の送信に SSL 接続が必要かどうかを示すブール値。 既定値は false です。                                                                                                                                                                                |
-|     slidingExpiration      |                                                                                                 シングルセッション中にユーザーがサイトにアクセスするたびに認証 cookie のタイムアウトをリセットするかどうかを示すブール値です。 既定値は true です。 認証チケットタイムアウトポリシーの詳細については、「チケットのタイムアウト値の指定」セクションを参照してください。                                                                                                 |
-|          タイムアウト           |                                                                                                                               認証チケットのクッキーの有効期限が切れるまでの時間を分単位で指定します。 既定値は、30 です。 認証チケットタイムアウトポリシーの詳細については、「チケットのタイムアウト値の指定」セクションを参照してください。                                                                                                                               |
+|     slidingExpiration      |                                                                                                 シングルセッション中にユーザーがサイトにアクセスするたびに認証 cookie のタイムアウトをリセットするかどうかを示すブール値です。 既定値は、true です。 認証チケットのタイムアウト ポリシーが、指定することで詳細に説明されているチケットのタイムアウト値のセクション。                                                                                                 |
+|          timeout           |                                                                                                                               認証チケットのクッキーの有効期限が切れるまでの分、時間を指定します。 既定値は 30 です。 認証チケットのタイムアウト ポリシーが、指定することで詳細に説明されているチケットのタイムアウト値のセクション。                                                                                                                               |
 
 **表 1**: &lt;フォーム&gt; 要素の属性の概要
 
-ASP.NET 2.0 以降では、既定のフォーム認証値は、.NET Framework のフォーム Authenticationconfiguration クラスにハードコーディングされています。 変更は、web.config ファイルでアプリケーションごとに適用する必要があります。 これは ASP.NET 1.x とは異なり、既定のフォーム認証値は machine.config ファイルに格納されています (したがって、machine.config の編集によって変更できます)。 ASP.NET 1.x のトピックでは、フォーム認証システム設定の多くが ASP.NET 2.0 と ASP.NET 1.x 以外で異なる既定値を持っていることに言及することをお勧めします。 ASP.NET 1.x 環境からアプリケーションを移行する場合は、これらの違いに注意することが重要です。 相違点の一覧について[は、&lt;forms&gt; 要素の技術ドキュメント](https://msdn.microsoft.com/library/1d3t3c61.aspx)を参照してください。
+ASP.NET 2.0 以降では、既定のフォーム認証値は、.NET Framework のフォーム Authenticationconfiguration クラスにハードコーディングされています。 変更は、web.config ファイルでアプリケーションごとに適用する必要があります。 これは ASP.NET 1.x とは異なり、既定のフォーム認証値は machine.config ファイルに格納されています (したがって、machine.config の編集によって変更できます)。 ASP.NET のトピックで説明することは、1.x では、さまざまなフォーム認証システムの設定がある ASP.NET 2.0 では、異なる既定値の ASP.NET よりも拡張 1.x します。 ASP.NET 1.x 環境からアプリケーションを移行する場合は、これらの違いに注意することが重要です。 相違点の一覧について[は、&lt;forms&gt; 要素の技術ドキュメント](https://msdn.microsoft.com/library/1d3t3c61.aspx)を参照してください。
 
 > [!NOTE]
-> タイムアウト、ドメイン、パスなど、いくつかのフォーム認証設定では、結果として生成されるフォーム認証チケット cookie の詳細を指定します。 Cookie、そのしくみ、およびさまざまなプロパティの詳細については、[この cookie](http://www.quirksmode.org/js/cookies.html)に関するチュートリアルを参照してください。
+> timeout、domain、および、path など、いくつかのフォーム認証設定は、結果として得られるフォーム認証チケット Cookie の詳細を指定します。 Cookie、そのしくみ、およびさまざまなプロパティの詳細については、[この cookie](http://www.quirksmode.org/js/cookies.html)に関するチュートリアルを参照してください。
 
 ### <a name="specifying-the-tickets-timeout-value"></a>チケットのタイムアウト値の指定
 
@@ -149,7 +149,7 @@ URL 内にそのような情報を埋め込む方法を確認する最善の方�
 
 クッキーレス認証チケットを機能させるには、システムがページ上のすべての Url をエンコードして認証チケットデータを含める必要があります。そうしないと、ユーザーがリンクをクリックすると認証チケットが失われます。 さいわいにも、この埋め込みロジックは自動的に実行されます。 この機能をデモンストレーションするには、default.aspx ページを開き、HyperLink コントロールを追加して、Text プロパティと NavigateUrl プロパティをそれぞれ Test Link に設定します。 実際には、プロジェクトには .aspx という名前のページが存在しないという問題はありません。
 
-変更内容を default.aspx に保存し、ブラウザーからアクセスします。 フォーム認証チケットが URL に埋め込まれるように、サイトにログオンします。 次に、default.aspx から、[リンクのテスト] リンクをクリックします。 どうなっているのでしょうか。 ".Aspx" という名前のページが存在しない場合、404エラーが発生しますが、ここでは重要なことではありません。 代わりに、ブラウザーのアドレスバーにフォーカスを移動します。 URL にはフォーム認証チケットが含まれていることに注意してください。
+変更内容を default.aspx に保存し、ブラウザーからアクセスします。 フォーム認証チケットが URL に埋め込まれるように、サイトにログオンします。 次に、default.aspx から、[リンクのテスト] リンクをクリックします。 なぜでしょうか? ".Aspx" という名前のページが存在しない場合、404エラーが発生しますが、ここでは重要なことではありません。 代わりに、ブラウザーのアドレスバーにフォーカスを移動します。 URL にはフォーム認証チケットが含まれていることに注意してください。
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
@@ -187,9 +187,9 @@ Microsoft では、[すべて] 設定を使用することを強くお勧めし�
 
 | **属性** | **説明** |
 | --- | --- |
-| 暗号化解除 | 暗号化に使用されるアルゴリズムを示します。 この属性には、次の4つの値のいずれかを指定できます。-Auto-既定値。decryptionKey 属性の長さに基づいてアルゴリズムを決定します。 -AES- [Advanced Encryption Standard (aes)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)アルゴリズムを使用します。 -DES-[データ暗号化標準 (DES)](http://en.wikipedia.org/wiki/Data_Encryption_Standard)を使用します。このアルゴリズムは計算上脆弱であると見なされるため、使用しないでください。 -3DES- [TRIPLE des](http://en.wikipedia.org/wiki/Triple_DES)アルゴリズムを使用します。これは、des アルゴリズムを3回適用することで機能します。 |
+| decryption | 暗号化に使用されるアルゴリズムを示します。 この属性には、次の4つの値のいずれかを指定できます。-Auto-既定値。decryptionKey 属性の長さに基づいてアルゴリズムを決定します。 -AES- [Advanced Encryption Standard (aes)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)アルゴリズムを使用します。 -DES-[データ暗号化標準 (DES)](http://en.wikipedia.org/wiki/Data_Encryption_Standard)を使用します。このアルゴリズムは計算上脆弱であると見なされるため、使用しないでください。 -3DES- [TRIPLE des](http://en.wikipedia.org/wiki/Triple_DES)アルゴリズムを使用します。これは、des アルゴリズムを3回適用することで機能します。 |
 | decryptionKey | 暗号化アルゴリズムによって使用される秘密キー。 この値は、(暗号化解除の値に基づいて) 適切な長さの16進数文字列であるか、自動生成であるか、または IsolateApps で値が追加されたかのいずれかである必要があります。 IsolateApps を追加すると、ASP.NET は、アプリケーションごとに一意の値を使用するように指示します。 既定値は自動生成、IsolateApps です。 |
-| 検証 | 検証に使用されるアルゴリズムを示します。 この属性には、次の4つの値のいずれかを指定できます。-AES-Advanced Encryption Standard (AES) アルゴリズムを使用します。 -MD5-では、[メッセージダイジェスト 5 (MD5)](http://en.wikipedia.org/wiki/MD5)アルゴリズムが使用されます。 -SHA1- [sha1](http://en.wikipedia.org/wiki/Sha1)アルゴリズム (既定値) を使用します。 -3DES-Triple DES アルゴリズムを使用します。 |
+| validation | 検証に使用されるアルゴリズムを示します。 この属性には、次の4つの値のいずれかを指定できます。-AES-Advanced Encryption Standard (AES) アルゴリズムを使用します。 -MD5-では、[メッセージダイジェスト 5 (MD5)](http://en.wikipedia.org/wiki/MD5)アルゴリズムが使用されます。 -SHA1- [sha1](http://en.wikipedia.org/wiki/Sha1)アルゴリズム (既定値) を使用します。 -3DES-Triple DES アルゴリズムを使用します。 |
 | validationKey | 検証アルゴリズムによって使用される秘密キー。 この値は、適切な長さの16進数文字列 (検証の値に基づく)、自動生成、または IsolateApps を使用して追加された値のいずれかである必要があります。 IsolateApps を追加すると、ASP.NET は、アプリケーションごとに一意の値を使用するように指示します。 既定値は自動生成、IsolateApps です。 |
 
 **表 2**: &lt;MachineKey&gt; 要素の属性
@@ -244,7 +244,7 @@ Web ファームで作業するときに、同じサーバー上の複数のア�
 
 これらの手順は、上記のコードでレプリケートされています。 最初に、UserData プロパティに格納する文字列は、会社名とタイトルを組み合わせて、2つの値をパイプ文字 (|) で区切ることで形成されます。
 
-文字列 userDataString = 文字列。Concat (companyName [i], "|", タイトル Atcompany [i]);
+string userDataString = string.Concat(companyName[i], "|", titleAtCompany[i]);
 
 次に、FormsAuthentication メソッドが呼び出されます。このメソッドは認証チケットを作成し、構成設定に従って暗号化して検証し、HttpCookie オブジェクトに配置します。
 
@@ -252,15 +252,15 @@ HttpCookie authCookie = FormsAuthentication (ユーザー名. Text, RememberMe);
 
 Cookie 内に埋め込まれている FormAuthenticationTicket を操作するには、cookie 値を渡す Formauthentauthentication クラスの[復号化メソッド](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx)を呼び出す必要があります。
 
-フォーム認証チケットチケット = FormsAuthentication (authCookie. 値);
+FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
 次に、既存のフォーム Authenticationticket の値に基づいて、*新しい*フォーム authenticationticket インスタンスを作成します。 ただし、この新しいチケットには、ユーザー固有の情報 (userDataString) が含まれています。
 
-フォーム Authenticationticket newTicket = 新しいフォーム Authenticationticket (チケット)。バージョン、チケット。名前、チケット。IssueDate、ticket。有効期限、チケット。IsPersistent、userDataString)、
+FormsAuthenticationTicket newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration, ticket.IsPersistent, userDataString);
 
 次に、 [encrypt メソッド](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)を呼び出して新しいフォーム authenticationticket インスタンスを暗号化 (および検証) し、この暗号化 (および検証済み) データを authcookie に戻します。
 
-authCookie。値 = FormsAuthentication (newTicket);
+authCookie.Value = FormsAuthentication.Encrypt(newTicket);
 
 最後に、authCookie が応答に追加されます。 Cookies コレクションと GetRedirectUrl メソッドは、ユーザーを送信するための適切なページを決定するために呼び出されます。
 
@@ -368,15 +368,15 @@ ASP.NET ランタイムは、これらのプロパティ値を自動的に同期
 
 [!code-csharp[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample12.cs)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、web.config を使用してフォーム認証システムの設定をカスタマイズする方法について説明します。認証チケットの有効期限がどのように処理されるか、および暗号化と検証のセーフガードを使用して、検査と変更からチケットを保護する方法について説明しました。 最後に、認証チケットの UserData プロパティを使用して、チケット自体に追加のユーザー情報を格納します。また、カスタムプリンシパルオブジェクトと id オブジェクトを使用して、開発者にとってわかりやすい方法でこの情報を公開する方法についても説明しました。
 
-このチュートリアルでは、ASP.NET でのフォーム認証の検査を終了します。 次のチュートリアルでは、メンバーシップフレームワークへの取り組みを開始します。
+このチュートリアルでは、ASP.NET フォーム認証、調査を終了します。 次のチュートリアルでは、メンバーシップフレームワークへの取り組みを開始します。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -399,7 +399,7 @@ ASP.NET ランタイムは、これらのプロパティ値を自動的に同期
 - [認証方法にカスタム データを追加する](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
 - [カスタム プリンシパル オブジェクトを使用する](../../../videos/authentication/use-custom-principal-objects.md)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

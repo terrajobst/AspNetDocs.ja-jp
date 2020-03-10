@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/building-35-applications/submit-and-postback
-title: 提出し、ポストバック |Microsoft Docs
+title: 送信とポストバック |Microsoft Docs
 author: JoeStagner
-description: このビデオでは紹介で、何が起こって&quot;内部的&quot;ASP.NET アプリケーションのブラウザーとサーバーが対話します。
+description: このビデオでは、ASP.NET アプリケーションのブラウザーとサーバーが相互作用するときに&quot; の &quot;について説明します。
 ms.author: riande
 ms.date: 04/20/2009
 ms.assetid: 8ccbfcee-a2e4-496d-aded-5a7119c54244
 msc.legacyurl: /web-forms/videos/building-35-applications/submit-and-postback
 msc.type: video
 ms.openlocfilehash: f2d27c6d624ceafbdc3f880ffc2a91cae0fddddf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392899"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454396"
 ---
 # <a name="submit-and-postback"></a>提出とポストバック
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオで説明で何が起こって&quot;裏では、&quot; ASP.NET アプリケーションのブラウザーとサーバーが対話します。
+このビデオでは、ASP.NET アプリケーションのブラウザーとサーバーが対話するときに&quot; の &quot;について説明します。
 
-[&#9654;(19 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/submit-and-postback)
+[&#9654;ビデオを見る (19 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/submit-and-postback)

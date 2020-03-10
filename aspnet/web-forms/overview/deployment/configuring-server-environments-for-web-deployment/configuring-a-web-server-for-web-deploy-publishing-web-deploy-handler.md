@@ -9,19 +9,19 @@ ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
 ms.openlocfilehash: baaebd32f08d3c6b861572c5c5a16ec0fb70aaf0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589034"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78458638"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Web 配置発行の Web サーバーを構成する (Web 配置ハンドラー)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、IIS Web 配置ハンドラーを使用した web 発行と配置をサポートするようにインターネットインフォメーションサービス (IIS) web サーバーを構成する方法について説明します。
 > 
-> Web 配置2.0 以降を使用する場合は、アプリケーションまたはサイトを Web サーバーに取り込むために使用できる3つの主な方法があります。 次の操作を行うことができます。
+> Web 配置2.0 以降を使用する場合は、アプリケーションまたはサイトを Web サーバーに取り込むために使用できる3つの主な方法があります。 次のようにすることができます。
 > 
 > - *Web 配置リモートエージェントサービス*を使用します。 この方法では、web サーバーの構成が少なくて済みますが、サーバーに何かを展開するには、ローカルサーバー管理者の資格情報を指定する必要があります。
 > - *Web 配置ハンドラー*を使用します。 この方法ははるかに複雑で、web サーバーを設定するためにより多くの初期作業が必要になります。 ただし、この方法を使用する場合は、管理者以外のユーザーが展開を実行できるように IIS を構成できます。 Web 配置ハンドラーは、IIS バージョン7以降でのみ使用できます。
@@ -86,7 +86,7 @@ ContactManager サンプルソリューションを具体的にホストする�
 
     > [!NOTE]
     > **[スタート]** メニューからいつでも Web Platform Installer を起動できるようになりました。 これを行うには、 **[スタート]** メニューの **[すべてのプログラム]** をクリックし、 **[Microsoft Web Platform Installer]** をクリックします。
-3. **[Web Platform Installer]** ウィンドウの上部にある **[Products]** をクリックします。
+3. **[Web Platform Installer]** ウィンドウの上部で、 **[製品]** をクリックします。
 4. ウィンドウの左側のナビゲーションウィンドウで、 **[フレームワーク]** をクリックします。
 5. **Microsoft .NET Framework 4**行に、.NET Framework がまだインストールされていない場合は、 **[追加]** をクリックします。
 
@@ -204,7 +204,7 @@ IIS の既定の web サイトへのコンテンツのデプロイは停止さ�
     > [!NOTE]
     > 運用環境では、web サイトをポート80でホストし、一致する DNS レコードと共にホストヘッダーを構成することが必要になる場合があります。 IIS 7 でホストヘッダーを構成する方法の詳細については、「 [Web サイトのホストヘッダーを構成する (iis 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx)」を参照してください。 Windows Server の DNS サーバーの役割の詳細については、「 [Dns サーバーの概要](https://technet.microsoft.com/library/cc770392.aspx)」および「 [dns サーバー](https://technet.microsoft.com/windowsserver/dd448607)」を参照してください。
 9. **[アクション]** ウィンドウの **[サイトの編集]** の下にある **[バインド]** をクリックします。
-10. **[サイトバインド]** ダイアログボックスで、 **[追加]** をクリックします。
+10. **[サイト バインド]** ダイアログ ボックスの **[追加]** をクリックします。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image12.png)
 11. **[サイトバインドの追加]** ダイアログボックスで、既存のサイト構成に合わせて**IP アドレス**と**ポート**を設定します。
@@ -213,8 +213,8 @@ IIS の既定の web サイトへのコンテンツのデプロイは停止さ�
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image13.png)
 
     > [!NOTE]
-    > 最初のサイトバインドでは、IP アドレスとポートまたは `http://localhost:85`を使用してサイトにローカルにアクセスできます。 2番目のサイトバインドを使用すると、コンピューター名 (http://stageweb1:85) など) を使用して、ドメイン上の他のコンピューターからサイトにアクセスできます。
-13. **[サイトバインド]** ダイアログボックスで、 **[閉じる]** をクリックします。
+    > 最初のサイトバインドでは、IP アドレスとポートまたは `http://localhost:85`を使用してサイトにローカルにアクセスできます。 2番目のサイトバインドを使用すると、コンピューター名 (http://stageweb1:85)など) を使用して、ドメイン上の他のコンピューターからサイトにアクセスできます。
+13. **[サイト バインド]** ダイアログ ボックスの **[閉じる]** をクリックします。
 14. **[接続]** ウィンドウで、 **[アプリケーションプール]** をクリックします。
 15. **[アプリケーションプール]** ウィンドウで、アプリケーションプールの名前を右クリックし、 **[基本設定]** をクリックします。 既定では、アプリケーションプールの名前は web サイトの名前 ( **Demosite**など) と一致します。
 16. **[.NET clr バージョン]** ボックスの一覧で **[.net clr v v4.0.30319]** を選択し、 **[OK]** をクリックします。
@@ -240,7 +240,7 @@ Web サイトがコンテンツを提供できるようにするには、アプ�
 
 1. Windows エクスプローラーで、ローカルフォルダーの場所を参照します。
 2. フォルダーを右クリックし、 **[プロパティ]** をクリックします。
-3. **[セキュリティ]** タブで、 **[編集]** をクリックし、 **[追加]** をクリックします。
+3. **[Security]** タブで、 **[Edit]** 、 **[Add]** の順にクリックします。
 4. **[場所]** をクリックします。 **[場所]** ダイアログボックスで、ローカルサーバーを選択し、[ **OK]** をクリックします。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
@@ -275,12 +275,12 @@ Web サイトがコンテンツを提供できるようにするには、アプ�
 
 | Direction | ポートから | ポートへの | ポートの種類 |
 | --- | --- | --- | --- |
-| 内部 | すべての | 8172 | TCP |
-| 向け | 8172 | すべての | TCP |
+| 受信 | Any | 8172 | TCP |
+| 送信 | 8172 | Any | TCP |
 
 Windows ファイアウォールでの規則の構成の詳細については、「[ファイアウォール規則の構成](https://technet.microsoft.com/library/dd448559(WS.10).aspx)」を参照してください。 サードパーティ製のファイアウォールについては、製品ドキュメントを参照してください。
 
-## <a name="conclusion"></a>結論
+## <a name="conclusion"></a>まとめ
 
 Web サーバーでは、Web 管理サービスを介して Web 配置ハンドラーへのリモート配置を受け入れる準備ができました。 サーバーに web アプリケーションを配置する前に、次のキーポイントを確認することをお勧めします。
 
@@ -292,7 +292,7 @@ Web サーバーでは、Web 管理サービスを介して Web 配置ハンド�
 - 管理者以外のユーザーアカウントは、IIS でサイトレベルのアクセス許可を持っていますか。
 - ファイアウォールでは、TCP ポート8172でサーバーへの着信接続が許可されていますか。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 Web 配置ハンドラーに web パッケージを配置するためにカスタム Microsoft Build Engine (MSBuild) プロジェクトファイルを構成する方法については、「[ターゲット環境の配置プロパティの構成](configuring-deployment-properties-for-a-target-environment.md)」を参照してください。
 

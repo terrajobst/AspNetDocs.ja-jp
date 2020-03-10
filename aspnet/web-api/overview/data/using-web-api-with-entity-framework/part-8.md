@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-8
-title: 項目の詳細の表示 |Microsoft Docs
+title: 項目の詳細を表示する |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,29 +9,29 @@ ms.assetid: 75ef94b1-bbec-4681-9210-452dba816144
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-8
 msc.type: authoredcontent
 ms.openlocfilehash: 3f48c5ad73ceb9a4873fbbb621b518553a498966
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389051"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449002"
 ---
 # <a name="display-item-details"></a>作業項目の表示
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
-このセクションでは、各書籍の詳細を表示する機能を追加します。 App.js では、次のコードをビュー モデルに追加します。
+このセクションでは、各ブックの詳細を表示する機能を追加します。 App.config で、ビューモデルに次のコードを追加します。
 
 [!code-javascript[Main](part-8/samples/sample1.js)]
 
-Views/Home/Index.cshtml で、[詳細] リンクをデータ バインド要素を追加します。
+Views/Home/Index. cshtml で、データバインド要素を Details リンクに追加します。
 
 [!code-html[Main](part-8/samples/sample2.html?highlight=5)]
 
-バインドの click ハンドラー、 &lt;、&gt;要素を`getBookDetail`ビュー モデルの関数。
+これにより、&gt; 要素 &lt;のクリックハンドラーがビューモデルの `getBookDetail` 関数にバインドされます。
 
-同じファイルで次のマークアップに置き換えます。
+同じファイルで、次のマークアップを置き換えます。
 
 [!code-html[Main](part-8/samples/sample3.html)]
 
@@ -39,13 +39,13 @@ Views/Home/Index.cshtml で、[詳細] リンクをデータ バインド要素�
 
 [!code-html[Main](part-8/samples/sample4.html)]
 
-このマークアップは、のプロパティにデータ バインドするテーブルを作成、`detail`ビュー モデルで監視可能な。
+このマークアップは、ビューモデルで監視可能な `detail` のプロパティにデータバインドされたテーブルを作成します。
 
-"&lt;!--Ko--&gt; &quot;構文は、DOM 要素の外部で Knockout バインディングを含めることができます。 ここで、`if`バインドによって表示されるマークアップのこのセクションで場合にのみ`details`以外の場合します。
+"&lt;!--ko--&gt;&quot; 構文では、DOM 要素の外側にあるノックアウトバインドを含めることができます。 この場合、`if` バインドを使用すると、`details` が null 以外の場合にのみ、マークアップのこのセクションが表示されます。
 
 [!code-html[Main](part-8/samples/sample5.html)]
 
-ここで、アプリの実行の 1 つをクリックすると、&quot;詳細&quot;書籍の詳細をアプリのリンクが表示されます。
+アプリを実行して &quot;詳細&quot; リンクのいずれかをクリックすると、アプリにブックの詳細が表示されます。
 
 [![](part-8/_static/image2.png)](part-8/_static/image1.png)
 

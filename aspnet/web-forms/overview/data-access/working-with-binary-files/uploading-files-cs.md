@@ -9,11 +9,11 @@ ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 4e3e32a829de386a681504c8d5d61dd258b8b2e6
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74581697"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78441694"
 ---
 # <a name="uploading-files-c"></a>ファイルのアップロード (C#)
 
@@ -229,13 +229,13 @@ FileUpload コントロールは、大きなファイルのアップロードに
 
 アプリケーションで大きなファイルを処理する必要がある場合は、問題を慎重に調査し、特定のニーズに適したソリューションを見つける必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 バイナリデータをキャプチャする必要があるアプリケーションを構築すると、さまざまな課題が生じます。 このチュートリアルでは、最初の2つについて説明します。バイナリデータを格納する場所を決定し、ユーザーが web ページを使用してバイナリコンテンツをアップロードできるようにします。 次の3つのチュートリアルでは、アップロードされたデータをデータベース内のレコードに関連付ける方法と、バイナリデータをテキストデータフィールドと共に表示する方法について説明します。
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -244,7 +244,7 @@ FileUpload コントロールは、大きなファイルのアップロードに
 - [ASP.NET 2.0 FileUpload サーバーコントロール](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [ファイルのアップロードのダークサイド](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -253,4 +253,4 @@ FileUpload コントロールは、大きなファイルのアップロードに
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Teresa Murphy and Bernadette Leigh でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](displaying-binary-data-in-the-data-web-controls-cs.md)
+> [Next](displaying-binary-data-in-the-data-web-controls-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: 9128aaac-afe2-449f-84b2-bb1d035083c4
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 241dc8c089d4faa9eb95a63684e8a56756bb302c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611299"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78444850"
 ---
 # <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>パラメーター化されたクエリと SqlDataSource を使用する (C#)
 
@@ -245,7 +245,7 @@ SqlDataSource ウィザードを完了すると、次のような宣言型マー
 
 **図 15**: パラメーターのソースまたは既定値を指定しない ([クリックすると、フルサイズの画像が表示](using-parameterized-queries-with-the-sqldatasource-cs/_static/image30.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 SqlDataSource を使用すると、ページ開発者は、パラメーター化されたクエリを定義して、パラメーター値をハードコーディングしたり、定義済みのパラメーターソースから取得したり、プログラムによって割り当てたりすることができます。 このチュートリアルでは、アドホック SQL クエリとストアドプロシージャの両方について、データソースの構成ウィザードからパラメーター化クエリを作成する方法について説明しました。 また、ハードコーディングされたパラメーターソース、パラメーターソースとしての Web コントロール、およびパラメーター値をプログラムによって指定する方法についても説明しました。
 
@@ -253,7 +253,7 @@ ObjectDataSource と同様に、SqlDataSource には、基になるデータを�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

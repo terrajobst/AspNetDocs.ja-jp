@@ -9,11 +9,11 @@ ms.assetid: 51900291-7787-4a6e-be4e-fa558486f5ff
 msc.legacyurl: /visual-studio/overview/2012
 msc.type: chapter
 ms.openlocfilehash: 56db68a976226cc77084aad782cdfe2e7fbf31e1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113201"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449632"
 ---
 # <a name="aspnet-and-visual-studio-2012"></a>ASP.NET と Visual Studio 2012
 

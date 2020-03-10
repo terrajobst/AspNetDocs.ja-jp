@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-make-client-side-network-callbacks-with-aspnet-ajax
-title: '[How Do i:]ASP.NET AJAX でのクライアント側のネットワーク コールバックを行うか。 | Microsoft Docs'
+title: '[操作方法:]ASP.NET AJAX を使用してクライアント側のネットワークコールバックを作成しますか? | Microsoft Docs'
 author: JoeStagner
-description: このビデオでは、Microsoft ASP.NET AJAX がクライアント側スクリプト コードから直接ネットワーク コールバックを行う web 開発者を支援する方法がわかります。 ASP.NET の方法も参照しています.
+description: このビデオでは、web 開発者がクライアント側のスクリプトコードからネットワークコールバックを直接行うことができるように Microsoft ASP.NET AJAX について説明します。 ASP.NET についても説明します。
 ms.author: riande
 ms.date: 01/26/2007
 ms.assetid: ea4211be-faf9-40a0-8a7b-63427218b947
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-make-client-side-network-callbacks-with-aspnet-ajax
 msc.type: video
 ms.openlocfilehash: e8b36a829f90380a6b077df9790a6ea081b3fe51
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392158"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438682"
 ---
-# <a name="how-do-i-make-client-side-network-callbacks-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX でのクライアント側のネットワーク コールバックを行うか。
+# <a name="how-do-i-make-client-side-network-callbacks-with-aspnet-ajax"></a>[操作方法:]ASP.NET AJAX を使用してクライアント側のネットワークコールバックを作成しますか?
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、Microsoft ASP.NET AJAX がクライアント側スクリプト コードから直接ネットワーク コールバックを行う web 開発者を支援する方法がわかります。 また、ASP.NET AJAX 対応 web サービスが web サービスを呼び出すために必要な JavaScript がどのように生成するか参照してください。
+このビデオでは、web 開発者がクライアント側のスクリプトコードからネットワークコールバックを直接行うことができるように Microsoft ASP.NET AJAX について説明します。 また、ASP.NET AJAX 対応 web サービスが web サービスの呼び出しに必要な JavaScript を生成する方法についても説明します。
 
-[&#9654;(15 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-client-side-network-callbacks-with-aspnet-ajax)
+[&#9654;ビデオを見る (15 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-client-side-network-callbacks-with-aspnet-ajax)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

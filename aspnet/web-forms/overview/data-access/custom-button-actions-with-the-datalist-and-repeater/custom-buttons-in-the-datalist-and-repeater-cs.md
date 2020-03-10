@@ -9,11 +9,11 @@ ms.assetid: 1f42e332-78dc-438b-9e35-0c97aa0ad929
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e8cb1054068327c25e057b6df1cc7506feec8d37
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74601778"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78465346"
 ---
 # <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>DataList と Repeater のカスタム ボタン (C#)
 
@@ -130,13 +130,13 @@ Datalist の[データの編集と削除の概要](../editing-and-deleting-data-
 
 **図 7**: BulletedList を使用して、選択したカテゴリの製品を表示する ([クリックすると、フルサイズの画像が表示](custom-buttons-in-the-datalist-and-repeater-cs/_static/image17.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 DataList コントロールと Repeater コントロールには、テンプレート内に任意の数のボタン、リンクボタン、または ImageButtons を含めることができます。 このようなボタンをクリックすると、ポストバックが発生し、`ItemCommand` イベントが発生します。 カスタムサーバー側の操作をクリックされたボタンと関連付けるには、`ItemCommand` イベントのイベントハンドラーを作成します。 このイベントハンドラーでは、最初に受信 `CommandName` 値をチェックして、クリックされたボタンを判別します。 必要に応じて、ボタン s `CommandArgument` プロパティを使用して追加情報を指定することもできます。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -145,4 +145,4 @@ DataList コントロールと Repeater コントロールには、テンプレ�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは、Patterson がになりました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](custom-buttons-in-the-datalist-and-repeater-vb.md)
+> [Next](custom-buttons-in-the-datalist-and-repeater-vb.md)

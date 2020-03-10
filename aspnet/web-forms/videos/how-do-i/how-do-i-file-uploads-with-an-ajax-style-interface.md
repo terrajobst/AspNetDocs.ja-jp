@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-file-uploads-with-an-ajax-style-interface
-title: '[How Do i:] ファイルのアップロードの AJAX スタイル インターフェイス |Microsoft Docs'
+title: '[操作方法:] AJAX スタイルのインターフェイスを使用したファイルのアップロード |Microsoft Docs'
 author: JoeStagner
-description: このビデオで紹介、ASP.NET のサーバーにクライアント コンピューターからファイルをアップロード、AJAX スタイルを使用します。 あるため、AJAX スタイルと言ったをしています.
+description: このビデオでは、ASP.NET を使用して、クライアントコンピューターからサーバーにファイルをアップロードする AJAX スタイルを使用する方法を説明します。 AJAX スタイルには...
 ms.author: riande
 ms.date: 02/12/2008
 ms.assetid: fef628a1-e86d-428f-a931-e3bbae53a878
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-file-uploads-with-an-ajax-style-interface
 msc.type: video
 ms.openlocfilehash: 4a8e9020f2e171e4549670915290df5aab78a3e0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414440"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78458044"
 ---
-# <a name="how-do-i--file-uploads-with-an-ajax-style-interface"></a>[How Do i:] AJAX スタイルのインターフェイスでのファイルのアップロード
+# <a name="how-do-i--file-uploads-with-an-ajax-style-interface"></a>[操作方法:] AJAX スタイルのインターフェイスを使用したファイルのアップロード
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオで紹介、ASP.NET のサーバーにクライアント コンピューターからファイルをアップロード、AJAX スタイルを使用します。 実際にファイルをアップロードする AJAX を使用して問題があるため、AJAX スタイルと言った。 ビデオでは、何かを示します。
+このビデオでは、ASP.NET を使用して、クライアントコンピューターからサーバーにファイルをアップロードする AJAX スタイルを使用する方法を説明します。 Ajax を使用してファイルをアップロードすると、実際に問題が発生するため、AJAX スタイルを使用します。 このビデオでは、何を意味するのかを説明します。
 
-[&#9654;ビデオ (27 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-file-uploads-with-an-ajax-style-interface)
+[&#9654;ビデオを見る (27 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-file-uploads-with-an-ajax-style-interface)

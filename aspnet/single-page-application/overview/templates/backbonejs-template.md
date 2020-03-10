@@ -9,11 +9,11 @@ ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 7297db7d5b35a53b40f9d9162960e529a167bd12
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074892"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449776"
 ---
 # <a name="backbone-template"></a>Backbone テンプレート
 
@@ -35,7 +35,7 @@ ms.locfileid: "77074892"
 
 上の [ダウンロード] ボタンをクリックして、テンプレートをダウンロードしてインストールします。 このテンプレートは、Visual Studio 拡張機能 (VSIX) ファイルとしてパッケージ化されています。 場合によっては、Visual Studio を再起動する必要があります。
 
-**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクトに名前を付けて、 **[OK]** をクリックします。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクト名を指定して、 **[OK]** をクリックします。
 
 ![](backbonejs-template/_static/image1.png)
 
@@ -55,7 +55,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 では、クライアント側から始めましょう。 クライアントアプリケーションスクリプトは、~/Scripts/application フォルダーにあります。 アプリケーションは、JavaScript (.js ファイル) にコンパイルされる[TypeScript](http://www.typescriptlang.org/) (ts ファイル) で記述されます。
 
-**アプリケーション**
+**Application**
 
 `Application` は、application. ts に定義されています。 このオブジェクトは、アプリケーションを初期化し、ルート名前空間として機能します。 ユーザーがサインインしているかどうかなど、アプリケーション間で共有される構成および状態の情報を保持します。
 
@@ -87,7 +87,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 [!code-csharp[Main](backbonejs-template/samples/sample4.cs)]
 
-**Models**
+**モデル**
 
 モデルは ~/Scripts/application/models. で定義されています。 すべてのモデルには、既定の属性、検証規則、およびサーバー側のエンドポイントという3つの基本的な特徴があります。 一般的な例を次に示します。
 
@@ -113,7 +113,7 @@ Flashbar プラグインは、さまざまな種類のフィードバックメ�
 
 シングルページアプリケーションでは、サーバーはユーザーインターフェイスでごくわずかな役割を果たします。 通常、サーバーは最初のページを表示し、JSON データを送受信します。
 
-テンプレートには、2つの MVC コントローラーがあります。 `HomeController` 最初のページを表示し、`SupportsController` を使用して新しいユーザーアカウントを確認し、パスワードをリセットします。 テンプレート内の他のすべてのコントローラーは ASP.NET Web API コントローラーで、JSON データを送受信します。 既定では、コントローラーは新しい `WebSecurity` クラスを使用して、ユーザー関連のタスクを実行します。 ただし、これらのタスクに対してデリゲートを渡すことができるオプションのコンストラクターも用意されています。 これにより、テストが容易になり、IoC コンテナーを使用して `WebSecurity` を別のものに置き換えることができます。 次に例を示します。
+テンプレートには、2つの MVC コントローラーがあります。 `HomeController` 最初のページを表示し、`SupportsController` を使用して新しいユーザーアカウントを確認し、パスワードをリセットします。 テンプレート内の他のすべてのコントローラーは ASP.NET Web API コントローラーで、JSON データを送受信します。 既定では、コントローラーは新しい `WebSecurity` クラスを使用して、ユーザー関連のタスクを実行します。 ただし、これらのタスクに対してデリゲートを渡すことができるオプションのコンストラクターも用意されています。 これにより、テストが容易になり、IoC コンテナーを使用して `WebSecurity` を別のものに置き換えることができます。 たとえば次のようになります。
 
 [!code-csharp[Main](backbonejs-template/samples/sample8.cs)]
 

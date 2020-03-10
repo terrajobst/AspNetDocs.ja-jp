@@ -1,80 +1,80 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
-title: Visual Studio 2010 を使用してエンタープライズ シナリオで Web アプリケーションの配置 |Microsoft Docs
+title: Visual Studio 2010 を使用したエンタープライズシナリオでの Web アプリケーションのデプロイ | |Microsoft Docs
 author: jrjlee
-description: この一連のチュートリアルでは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。 最適な使用方法について説明しています.
+description: この一連のチュートリアルでは、さまざまなエンタープライズシナリオで web アプリケーションをデプロイするために使用できるツールと手法について説明します。 最適な使用方法について説明します。
 ms.author: riande
 ms.date: 05/03/2012
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
 ms.openlocfilehash: eb7b82d16079d4d086af1919d092fb28db60d8b3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109229"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78463432"
 ---
 # <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを配置する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> この一連のチュートリアルでは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。 最適な Visual Studio 2010、Microsoft Build Engine (MSBuild)、インターネット インフォメーション サービス (IIS) 7.5、IIS の Web 配置ツール (Web 配置)、Web Farm Framework (WFF) およびに VSDBCMD.exe などのユーティリティなどのテクノロジを使用する方法について説明します簡略化と展開プロセスを管理します。 概念の要約とするのに役立つタスク指向のガイダンスが含まれています。
+> この一連のチュートリアルでは、さまざまなエンタープライズシナリオで web アプリケーションをデプロイするために使用できるツールと手法について説明します。 ここでは、Visual Studio 2010、Microsoft Build Engine (MSBuild)、インターネットインフォメーションサービス (IIS) 7.5、IIS Web 配置ツール (Web 配置)、Web Farm Framework (WFF)、および VSDBCMD などのユーティリティを使用して、次のようなテクノロジを最大限に活用する方法について説明します。デプロイプロセスを簡素化し、管理します。 これには、次のことを支援する概念的な概要とタスク指向のガイダンスが含まれています。
 > 
-> - 確認し、エンタープライズ規模の web アプリケーションのデプロイ要件を確立します。
-> - Web 配置をサポートするために、テスト、ステージング、および運用環境の web サーバー環境を構成します。
-> - 自動 web 配置をサポートする Team Foundation Server (TFS) の継続的インテグレーション (CI) プロセスを構成します。
-> - さまざまな要件と制限の別のサーバー環境にエンタープライズ規模の web アプリケーションをデプロイします。
-> - 変更を別のサーバー環境で実行されている web アプリケーションに配置します。
+> - エンタープライズ規模の web アプリケーションのデプロイ要件を確認して確立します。
+> - テスト、ステージング、および運用 web サーバー環境を構成して、web 配置をサポートします。
+> - 自動 web デプロイをサポートするように Team Foundation Server (TFS) の継続的インテグレーション (CI) プロセスを構成します。
+> - さまざまな要件や制限があるさまざまなサーバー環境に、エンタープライズ規模の web アプリケーションをデプロイします。
+> - 異なるサーバー環境で実行されている web アプリケーションに変更を配置します。
 > 
 > > [!NOTE]
-> > これらのチュートリアルでは、CI サーバーとして、TFS の使用について説明する、中にガイダンスが任意の CI サーバーに簡単に応用です。 理解して、チュートリアルでは、TFS の詳細な知識は不要です。
+> > これらのチュートリアルでは、TFS を CI サーバーとして使用する方法について説明しますが、ガイダンスは任意の CI サーバーに簡単に応用できます。 チュートリアルを理解して活用するために、TFS に関する詳細な知識は必要ありません。
 > 
 > 
-> これらのチュートリアルのイタリア語の翻訳を参照してください。 [ http://www.lucamorelli.it](http://www.lucamorelli.it)します。
+> これらのチュートリアルのイタリア語翻訳については、 [http://www.lucamorelli.it](http://www.lucamorelli.it)を参照してください。
 
 ## <a name="about-the-authors"></a>作成者について
 
-Jason Lee はプリンシパルの技術者と[コンテンツ マスター](http://www.contentmaster.com/)で取り組んでいます Microsoft 製品とテクノロジ、SharePoint と ASP.NET を特に数年間です。 Jason コンピューティングで博士号を持ちは現在 MCPD、MCTS 認定します。 Jason の技術的なブログを読むことができます[www.jrjlee.com](http://www.jrjlee.com/)します。
+Jason Lee は、Microsoft の製品やテクノロジ (特に SharePoint と ASP.NET) を数年間操作した[コンテンツマスタ](http://www.contentmaster.com/)を持つ主要技術者です。 Jason は、コンピューティングの博士号を保持し、現在は MCPD および MCTS 認定を受けています。 Jason のテクニカルブログは、 [www.jrjlee.com](http://www.jrjlee.com/)で読むことができます。
 
-Benjamin Curry はプリンシパルの技術者と[コンテンツ マスター](http://www.contentmaster.com/)キャリアの中に、ホワイト ペーパー、SDK のドキュメント、PowerPoint プレゼンテーション、およびインストラクター主導とオンライン トレーニング コースを記述するがします。 ASP.NET ドキュメント チームの元のメンバー、携わってきましたを Microsoft の web テクノロジ 10 年以上。
+Benjamin は、彼のキャリアに、ホワイトペーパー、SDK ドキュメント、PowerPoint プレゼンテーション、およびインストラクター主導のオンライントレーニングコースを執筆した[コンテンツマスタ](http://www.contentmaster.com/)を持つ主要技術者です。 ASP.NET ドキュメントチームの元のメンバーは、10年以上にわたって Microsoft の web テクノロジを使用しました。
 
-## <a name="target-audience"></a>対象ユーザー
+## <a name="target-audience"></a>対象読者
 
-このチュートリアルのセットは ASP.NET web アプリケーションの開発者と Visual Studio 2010 を使用して、エンタープライズ規模の web アプリケーションを作成するソリューション設計者です。 コンテンツからほとんどの値を取得するには、Visual Studio 2010 を使用して快適し、と共に ASP.NET MVC 3、Windows Communication Foundation (WCF)、IIS、SQL などの Microsoft web プラットフォーム テクノロジの認識、TFS での基本的な知識がある必要があります。サーバー、および Visual Studio データベース プロジェクト。 ただし、CI システムを設定する方法を理解する必要がありますまたは展開ツールとテクノロジについて理解する必要はありません。
+この一連のチュートリアルは、Visual Studio 2010 を使用してエンタープライズ規模の web アプリケーションを作成する ASP.NET web アプリケーション開発者およびソリューションアーキテクトを対象としています。 コンテンツから最大限の価値を得るには、Visual Studio 2010 を使い慣れており、TFS に関する基本的な知識を持ち、ASP.NET MVC 3、Windows Communication Foundation (WCF)、IIS、SQL などの Microsoft web platform テクノロジを認識している必要があります。サーバーと Visual Studio データベースプロジェクト。 ただし、展開ツールやテクノロジについて理解している必要はなく、CI システムを設定する方法を知っておく必要もありません。
 
 ## <a name="requirements"></a>必要条件
 
-次のチュートリアルをこれらのチュートリアルを記述するタスクの実行は、開発用コンピューターにこのソフトウェアをインストールする必要があります。
+チュートリアルに従って、これらのチュートリアルで説明されているタスクを実行するには、開発用コンピューターにこのソフトウェアをインストールする必要があります。
 
 - Visual Studio 2010 Premium または Ultimate Edition Service Pack 1
 - .NET Framework 4.0
-- .NET framework 3.5 Service pack 1
+- .NET Framework 3.5 Service Pack 1
 - ASP.NET MVC 3.0
-- IIS 7.5 Express します。
+- IIS 7.5 Express
 - SQL Server Express 2008 R2
 
-これらのチュートリアルで説明されている展開の手順を実行するには、サンプル Web アプリケーションの展開環境にアクセスする必要があります。 最良の結果をこれらの環境は、組織のエンタープライズ デプロイ パターンを反映する必要があります。 デプロイ環境と組織の要件を反映するように、このドキュメントのチュートリアルを変更できます。
+これらのチュートリアルで説明されている配置手順を実行するには、サンプルの Web アプリケーション配置環境にアクセスする必要があります。 最良の結果を得るために、これらの環境は組織のエンタープライズ展開パターンを反映する必要があります。 その後、このドキュメントに記載されているチュートリアルを変更して、組織の展開環境と要件を反映することができます。
 
-## <a name="series-contents"></a>シリーズの内容
+## <a name="series-contents"></a>系列の内容
 
-この概要のセクションでは、さらに 2 つのトピックで構成されます。 これらは、次のチュートリアルについては、いくつかのより広範なコンテキストを提供する設計されています。
+この概要セクションは、2つのトピックで構成されています。 これらは、次のチュートリアルのための広範なコンテキストを提供するように設計されています。
 
-- [エンタープライズ Web 展開:シナリオの概要](enterprise-web-deployment-scenario-overview.md)します。 このトピックを支えるは、このシリーズのチュートリアルでは、各シナリオについて説明します。 シナリオでは、エンタープライズ規模の web アプリケーションを開発して、Fabrikam, Inc. のという架空の会社のアプリケーション ライフ サイクル管理 (ALM) の要件に重点を置いています。
-- [アプリケーション ライフ サイクル管理:開発運用から](application-lifecycle-management-from-development-to-production.md)します。 このトピックでは、展開プロセスの概要、エンド ツー エンドの概要を説明します。 Fabrikam, Inc. が継続的な開発プロセスの一部としてテスト、ステージング、実稼働環境でエンタープライズ スケール ASP.NET web アプリケーションを移動する方法を示しています。
+- [エンタープライズ Web 展開: シナリオの概要](enterprise-web-deployment-scenario-overview.md)。 このトピックでは、このシリーズの各チュートリアルを過小にピン留めするシナリオについて説明します。 このシナリオでは、エンタープライズ規模の web アプリケーションを開発するため、Fabrikam, Inc. という架空の会社のアプリケーションライフサイクル管理 (ALM) 要件に焦点を当てています。
+- [アプリケーションライフサイクル管理: 開発から運用まで](application-lifecycle-management-from-development-to-production.md)。 このトピックでは、デプロイプロセスの概要とエンドツーエンドの概要について説明します。 Fabrikam, Inc. が、継続的な開発プロセスの一環として、テスト環境、ステージング環境、および運用環境を通じて、エンタープライズ規模の ASP.NET web アプリケーションを移行する方法を示します。
 
-系列には、チュートリアルの 4 つのセットが含まれています。 各 web 配置のさまざまな側面に焦点を当てています。
+このシリーズには、4つのチュートリアルセットが含まれています。 それぞれが、web 配置のさまざまな側面に焦点を当てています。
 
-- [Web、企業内の配置](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)します。 このチュートリアルでは、概念的な概要 MSBuild プロジェクト ファイルを Web 発行パイプライン、Web デプロイ、およびその他の関連テクノロジを提供します。 これは、複雑な展開プロセスを管理するこれらのツールをまとめて使用する方法について説明します。
-- [Web 配置のサーバー環境を構成する](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)します。 このチュートリアルでは、Web Deployment Agent サービス (「リモート エージェント」) または Web 配置ハンドラーとリモートのデータベースの配置を使用して、リモート web パッケージ展開を含め、さまざまなデプロイメント シナリオをサポートするために Windows サーバーを構成する方法について説明します。 独自の環境の適切な展開方法の選択のガイダンスを提供し、WFF を使用して、サーバー ファーム内のすべての web サーバー間でデプロイされた web アプリケーションをレプリケートする方法について説明します。
-- [Web 配置の Team Foundation Server を構成する](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)します。 このチュートリアルでは、CI プロセスの一部として自動化された展開を含め、特定のビルドの展開を手動でトリガーされる、さまざまなデプロイ シナリオをサポートするために TFS を構成する方法について説明します。
-- [エンタープライズ Web 配置を高度な](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md)します。 このチュートリアルは、複数の環境のデータベースの展開をカスタマイズ、展開からのファイルとフォルダーの除外、展開プロセス中に web アプリケーションをオフラインすることなどのさまざまな高度な展開タスクを実行する方法を説明します.
+- [企業の Web 配置](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)。 このチュートリアルでは、MSBuild プロジェクトファイル、Web 発行パイプライン、Web 配置、およびその他の関連テクノロジについて概念的に説明します。 これらのツールを組み合わせて使用して、複雑な展開プロセスを管理する方法について説明します。
+- [Web 配置用のサーバー環境の構成](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)。 このチュートリアルでは、Web Deployment Agent サービス ("リモートエージェント") を使用したリモート web パッケージの展開や、Web 配置ハンドラーとリモートデータベースの配置など、さまざまな展開シナリオをサポートするように Windows サーバーを構成する方法について説明します。 独自の環境に適した配置方法を選択するためのガイダンスを提供します。また、WFF を使用して、サーバーファーム内のすべての web サーバーにデプロイされた web アプリケーションをレプリケートする方法についても説明します。
+- [Web 配置の Team Foundation Server を構成して](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)います。 このチュートリアルでは、CI プロセスの一部としての自動デプロイ、特定のビルドの手動による配置など、さまざまな配置シナリオをサポートするように TFS を構成する方法について説明します。
+- [高度なエンタープライズ Web デプロイ](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md)。 このチュートリアルでは、複数の環境でのデータベース配置のカスタマイズ、展開からのファイルとフォルダーの除外、展開プロセス中の web アプリケーションのオフライン化など、さまざまな高度な展開タスクを実行する方法について説明します.
 
-## <a name="where-to-start"></a>開始します。
+## <a name="where-to-start"></a>開始する場所
 
-この一連のチュートリアルは、参照実装を提供して、タスクとチュートリアルの一般的なコンテキストを提供すると共に、架空の企業の展開シナリオの複雑さの現実的なレベルを持つサンプル ソリューションを使用します。 次のトピックでは、[エンタープライズ Web 展開。シナリオの概要](enterprise-web-deployment-scenario-overview.md)シナリオとサンプルのソリューションが導入されています。 そこから、チュートリアルと、ニーズに最も近いトピックを操作できます。
+この一連のチュートリアルでは、架空のエンタープライズ展開シナリオと共に、現実的な複雑さレベルのサンプルソリューションを使用して、参照実装を提供し、タスクとチュートリアルに共通のコンテキストを提供します。 次のトピック「[エンタープライズ Web 配置: シナリオの概要](enterprise-web-deployment-scenario-overview.md)」では、シナリオとサンプルソリューションについて説明します。 そこから、お客様のニーズに最も合ったチュートリアルとトピックを利用できます。
 
 > [!div class="step-by-step"]
-> [次へ](enterprise-web-deployment-scenario-overview.md)
+> [Next](enterprise-web-deployment-scenario-overview.md)
