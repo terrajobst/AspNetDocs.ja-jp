@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
-title: Razor 構文を使用した ASP.NET Web プログラミングのC#概要 () |Microsoft Docs
+title: Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要 |Microsoft Docs
 author: Rick-Anderson
 description: この章では、Razor 構文を使用した ASP.NET Web ページによるプログラミングの概要について説明します。 ASP.NET は、動的な web pa を実行するための Microsoft のテクノロジです...
 ms.author: riande
@@ -9,23 +9,23 @@ ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
 ms.openlocfilehash: c2f420bb7c2f7d2e31654c20fb9ec7497a30a9f7
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74564886"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78521206"
 ---
-# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文を使用した ASP.NET Web プログラミングのC#概要 ()
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要
 
 [Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、Razor 構文を使用した ASP.NET Web ページによるプログラミングの概要について説明します。 ASP.NET は、web サーバー上で動的 web ページを実行するための Microsoft のテクノロジです。 この記事では、プログラミングC#言語の使用に焦点を当てています。
+> この記事では、Razor 構文を使ったASP.NET Web ページにおけるプログラミングの概要を解説します。 ASP.NETは、Webサーバーで動的な Web ページを運用するためのマイクロソフトの技術です。 この記事を使用して C# のプログラミング言語での焦点を当てます。
 > 
 > **学習内容**:
 > 
-> - Razor 構文を使用したプログラミング ASP.NET Web ページを開始するための上位8のプログラミングヒントです。
-> - 基本的なプログラミング概念が必要です。
-> - ASP.NET のサーバーコードと Razor 構文について説明します。
+> - Razor構文を使ったASP.NET Webページのプログラミングをはじめるための上位8つのプログラミング Tips
+> - 必要とする基本的なプログラミング概念
+> - ASP.NETサーバーコードとRazor構文に関する全体像
 >   
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
@@ -36,12 +36,12 @@ ms.locfileid: "74564886"
 > 
 > このチュートリアルは ASP.NET Web ページ2でも動作します。
 
-## <a name="the-top-8-programming-tips"></a>上位8のプログラミングヒント
+## <a name="the-top-8-programming-tips"></a>8 つのプログラミング Tips
 
 このセクションでは、Razor 構文を使用して ASP.NET サーバーコードの記述を開始するときに理解しておく必要があるいくつかのヒントを示します。
 
 > [!NOTE]
-> Razor 構文はC#プログラミング言語に基づいており、ASP.NET Web ページで最も頻繁に使用される言語です。 ただし、Razor 構文は Visual Basic の言語をサポートしています。また、Visual Basic でも実行できます。 詳細については、付録[Visual Basic の言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)を参照してください。
+> Razor 構文は C# プログラミング言語に基づいており、ASP.NET Web Pages を最もよく使用されている言語です。 ただし、Razor 構文は Visual Basic の言語をサポートしています。また、Visual Basic でも実行できます。 詳細については、付録[Visual Basic の言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)を参照してください。
 
 これらのプログラミング手法のほとんどの詳細については、この記事の後半で説明します。
 
@@ -77,7 +77,7 @@ ms.locfileid: "74564886"
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3. ブロック内では、各コードステートメントをセミコロンで終了します。
 
-コードブロック内では、すべての完全なコードステートメントはセミコロンで終わる必要があります。 インライン式はセミコロンで終了しません。
+コードブロックの中では、それぞれの完結するコード文はセミコロンで終わらせます。 インライン式は、セミコロンで終わりません。
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample3.html)]
 
@@ -94,7 +94,7 @@ ms.locfileid: "74564886"
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. リテラル文字列値を二重引用符で囲みます。
 
-*文字列*は、テキストとして扱われる文字のシーケンスです。 文字列を指定するには、次のように二重引用符で囲みます。
+*文字列*は、テキストとして扱われる文字のシーケンスです。 文字列を指定するには、ダブル クォーテーション記号で囲みます。
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample5.cshtml)]
 
@@ -216,7 +216,7 @@ Razor 構文は、ASP.NET のすべての機能を提供しますが、初心者
 
 前に、ASP.NET Web ページページを作成する方法の基本的な例と、HTML マークアップにサーバーコードを追加する方法について説明しました。 ここでは、プログラミング言語の規則である Razor 構文&#8212;を使用して、ASP.NET サーバーコードを記述する方法の基本について説明します。
 
-プログラミングの経験がある場合 (特に、C、 C++、 C#、Visual Basic、または JavaScript を使用している場合)、この記事で読まれている内容の多くは理解しやすくなります。 場合によっては、ファイル内のマークアップにサーバーコードを追加する方法についてのみ理解しておく必要が*あります。*
+(特に C、C++、C#、Visual Basic、または JavaScript を使用した) 場合のプログラミング経験豊富な場合は、ここで読んだの多くが使い慣れたになります。 場合によっては、ファイル内のマークアップにサーバーコードを追加する方法についてのみ理解しておく必要が*あります。*
 
 <a id="BM_CombiningTextMarkupAndCode"></a>
 ### <a name="combining-text-markup-and-code-in-code-blocks"></a>コードブロック内のテキスト、マークアップ、およびコードの結合
@@ -241,7 +241,7 @@ Razor 構文は、ASP.NET のすべての機能を提供しますが、初心者
     > [!NOTE]
     > HTML 要素を使用して、このセクション&#8212;に示すようにテキストを出力する場合、`@:` 演算子、 &#8212;または `<text>` 要素 ASP.NET は、出力を html エンコードしません。 (前述のように、ASP.NET は、このセクションに記載されている特殊なケースを除き、`@`の前にあるサーバーコード式とサーバーコードブロックの出力をエンコードします)。
 
-### <a name="whitespace"></a>Whitespace
+### <a name="whitespace"></a>空白文字
 
 ステートメント内の余分なスペース (および文字列リテラルの外部) は、ステートメントに影響しません。
 
@@ -295,7 +295,7 @@ Razor コメントとは異なり、HTML コメントはページに表示*さ�
 
 Razor には、のC#入れ子になったブロックに関する制限があります。 詳細について[はC# 、「名前付き変数と入れ子になったブロックの生成](http://aspnetwebstack.codeplex.com/workitem/1914)」を参照してください。
 
-## <a name="variables"></a>［変数］
+## <a name="variables"></a>変数:
 
 変数は、データを格納するために使用する名前付きオブジェクトです。 変数には任意の名前を指定できますが、名前の先頭には英字を使用する必要があり、空白や予約文字を含めることはできません。
 
@@ -335,7 +335,7 @@ ASP.NET は通常、データ型を自動的に判断することができます
 
 :::row:::
     :::column:::
-    <strong>メソッド</strong>
+    <strong>方法</strong>
     :::column-end:::
     :::column:::
     <strong>説明</strong>
@@ -429,19 +429,19 @@ ASP.NET は通常、データ型を自動的に判断することができます
     :::column-end:::
 :::row-end:::
 
-## <a name="operators"></a>演算子
+## <a name="operators"></a>オペレーター
 
 演算子は、式で実行するコマンドの種類を ASP.NET に指示するキーワードまたは文字です。 C#言語 (およびそれに基づく Razor 構文) では、多くの演算子がサポートされていますが、最初に知っておく必要があるのはいくつかの操作だけです。 次の表は、最も一般的な演算子をまとめたものです。
 
 :::row:::
     :::column:::
-    <strong>Operator</strong>
+    <strong>[オペレーター]</strong>
     :::column-end:::
     :::column:::
     <strong>説明</strong>
     :::column-end:::
     :::column:::
-    <strong>例</strong>
+    <strong>使用例</strong>
     :::column-end:::
 :::row-end:::
 
@@ -648,7 +648,7 @@ Url とパスに関する重要な詳細情報を次に示します。
 
 ### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>仮想ルートの参照: ~ 演算子と Href メソッド
 
-*Cshtml*ファイルまたは*vbhtml*ファイルでは、`~` 演算子を使用して仮想ルートパスを参照できます。 これは、サイト内でページを移動することができ、他のページに含まれているすべてのリンクが破損しないため、非常に便利です。 また、web サイトを別の場所に移動した場合にも便利です。 次にいくつかの例を示します。
+*Cshtml*ファイルまたは*vbhtml*ファイルでは、`~` 演算子を使用して仮想ルートパスを参照できます。 これは、サイト内でページを移動することができ、他のページに含まれているすべてのリンクが破損しないため、非常に便利です。 また、web サイトを別の場所に移動した場合にも便利です。 次に例をいくつか示します。
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample47.cshtml)]
 
@@ -743,8 +743,8 @@ ASP.NET の最も基本的なオブジェクトはページです。 ページ�
 
 `Page` オブジェクトのプロパティを使用して、次のような大量の情報を取得できます。
 
-- `Request`. 既に説明したように、これは現在の要求に関する情報のコレクションです。要求を行ったブラウザーの種類、ページの URL、ユーザー id などが含まれます。
-- `Response`. これは、サーバーコードの実行が終了したときにブラウザーに送信される応答 (ページ) に関する情報のコレクションです。 たとえば、このプロパティを使用して、応答に情報を書き込むことができます。 
+- [https://login.microsoftonline.com/consumers/](`Request`) 既に説明したように、これは現在の要求に関する情報のコレクションです。要求を行ったブラウザーの種類、ページの URL、ユーザー id などが含まれます。
+- [https://login.microsoftonline.com/consumers/](`Response`) これは、サーバーコードの実行が終了したときにブラウザーに送信される応答 (ページ) に関する情報のコレクションです。 たとえば、このプロパティを使用して、応答に情報を書き込むことができます。 
 
     [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample58.cshtml)]
 
@@ -810,7 +810,7 @@ Razor 構文には、メソッドにパラメーターを渡す方法として�
 
 ### <a name="try-catch-statements"></a>Try-catch ステートメント
 
-多くの場合、コントロール以外の理由で失敗する可能性のあるステートメントがコードに含まれています。 例:
+多くの場合、コントロール以外の理由で失敗する可能性のあるステートメントがコードに含まれています。 次に例を示します。
 
 - コードでファイルを作成またはアクセスしようとすると、すべてのエラーが発生する可能性があります。 必要なファイルが存在しない可能性があります。ロックされているか、コードにアクセス許可がない可能性があります。
 - 同様に、コードがデータベース内のレコードを更新しようとすると、アクセス許可の問題が発生し、データベースへの接続が切断され、保存するデータが無効になっている可能性があります。
@@ -830,13 +830,13 @@ Razor 構文には、メソッドにパラメーターを渡す方法として�
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample67.cshtml)]
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 **Visual Basic を使用したプログラミング**
 
 [付録: Visual Basic の言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)
 
-**リファレンスドキュメント**
+**リファレンス ドキュメント**
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 

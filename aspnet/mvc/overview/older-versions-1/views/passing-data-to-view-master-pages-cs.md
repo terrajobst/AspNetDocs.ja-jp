@@ -9,17 +9,17 @@ ms.assetid: 5fee879b-8bde-42a9-a434-60ba6b1cf747
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1492175812b0a092cd1594a770e348efe9b4122b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74593809"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78485704"
 ---
 # <a name="passing-data-to-view-master-pages-c"></a>ビュー マスター ページにデータを渡す (C#)
 
 [Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_CS.pdf)
 
 > このチュートリアルの目的は、コントローラーからビューマスターページにデータを渡す方法について説明することです。 ビューマスターページにデータを渡す2つの方法を検討します。 まず、管理が困難なアプリケーションを生成する簡単なソリューションについて説明します。 次に、より多くの初期作業を必要とする、より優れたソリューションを確認しますが、結果として、保守しやすいアプリケーションが得られます。
 
@@ -27,7 +27,7 @@ ms.locfileid: "74593809"
 
 このチュートリアルの目的は、コントローラーからビューマスターページにデータを渡す方法について説明することです。 ビューマスターページにデータを渡す2つの方法を検討します。 まず、管理が困難なアプリケーションを生成する簡単なソリューションについて説明します。 次に、より多くの初期作業を必要とする、より優れたソリューションを確認しますが、結果として、保守しやすいアプリケーションが得られます。
 
-### <a name="the-problem"></a>問題を
+### <a name="the-problem"></a>問題
 
 たとえば、ムービーデータベースアプリケーションを構築しているときに、アプリケーションのすべてのページにムービーカテゴリの一覧を表示したいとします (図1を参照)。 さらに、ムービーカテゴリのリストがデータベーステーブルに格納されているとします。 そのような場合は、データベースからカテゴリを取得し、ムービーカテゴリのリストをビューマスターページ内に表示するのが理にかなっています。
 
@@ -101,7 +101,7 @@ ApplicationController クラスは、リスト4に含まれています。
 
 ビューマスターページのビューデータを追加するこのソリューションは、ドライ (DRY 原則) の原則に違反していないことに注意してください。 データを表示するためのムービーカテゴリのリストを追加するためのコードは、アプリケーションコントローラーのコンストラクターという1つの場所にのみ含まれています。
 
-### <a name="summary"></a>要約
+### <a name="summary"></a>まとめ
 
 このチュートリアルでは、コントローラーからビューマスターページにビューデータを渡す2つの方法について説明しました。 まず、単純な方法を検討しましたが、アプローチを維持するのは困難です。 最初のセクションでは、アプリケーションの各コントローラーアクションでビューマスターページのビューデータを追加する方法について説明しました。 ドライ (DRY 原則) の原則に違反しているため、これは不適切なアプローチでした。
 

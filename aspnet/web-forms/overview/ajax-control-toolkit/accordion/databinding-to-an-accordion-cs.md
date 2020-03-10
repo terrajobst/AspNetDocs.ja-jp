@@ -9,11 +9,11 @@ ms.assetid: 9c8f0054-e319-46f8-80c0-35b606d2fbd4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordion-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 6c28cc958a1de9844627ae16175a5aed153993a8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607272"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78498058"
 ---
 # <a name="databinding-to-an-accordion-c"></a>アコーディオンにデータバインドする (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74607272"
 
 > AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルはページ内で宣言されますが、データソースへのバインドにより柔軟性が向上します。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルはページ内で宣言されますが、データソースへのバインドにより柔軟性が向上します。
 
@@ -62,4 +62,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 アコーディオン内のデータはデータソースから直接取得されます ([クリックすると、フルサイズの画像が表示](databinding-to-an-accordion-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](dynamically-adding-an-accordion-pane-cs.md)
+> [Next](dynamically-adding-an-accordion-pane-cs.md)

@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
 ms.openlocfilehash: 28425ea8d1312dfc6e14df9677396f2cbcf6f16d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456726"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471742"
 ---
 # <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory を使った ASP.NET アプリの開発
 
@@ -34,7 +34,7 @@ Azure Active Directory 用の Microsoft ASP.NET ツールを使用すると、 [
 
 1. [Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
 2. すべての Azure アカウントには**既定のディレクトリ**が含まれています。これをクリックし、ページの上部にある **[ユーザー]** タブをクリックします (下図を参照)。
-3. [Add User] をクリックします。
+3. [ユーザーの追加] をクリックします。
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image1.png)
 4. **グローバル管理者**ロールを持つ新しいユーザーを作成します。 上部のメニューの **[ユーザー]** をクリックし、コマンドバーの **[ユーザーの追加]** ボタンをクリックします。
 5. **[ユーザーの追加]** ダイアログボックスで、新しいユーザーの名前を入力し、右矢印をクリックします。
@@ -73,13 +73,13 @@ Azure Active Directory 用の Microsoft ASP.NET ツールを使用すると、 [
 4. **[OK]** をクリックすると、サインインダイアログが表示され、(サブスクリプションに関連付けられている Microsoft アカウントではなく) グローバル管理者アカウントを使用してサインインする必要があります。 以前に新しい管理者アカウントを作成した場合は、パスワードを変更してから、新しいパスワードを使用してもう一度サインインする必要があります。
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image9.png)
-5. 認証が正常に完了すると、**新しい [ASP.NET プロジェクト**] ダイアログボックスに、認証の選択 (**組織**) と、新しいアプリケーションを登録するディレクトリ (下の図の*aricka0yahoo.onmicrosoft.com* ) が表示されます。 この情報の下にある **[クラウド内のホスト]** チェックボックスをオンにします。 このチェックボックスをオンにすると、プロジェクトは Azure web アプリとしてプロビジョニングされ、後で簡単に発行できるようになります。 **[OK]** をクリックすると、
+5. 認証が正常に完了すると、**新しい [ASP.NET プロジェクト**] ダイアログボックスに、認証の選択 (**組織**) と、新しいアプリケーションを登録するディレクトリ (下の図の*aricka0yahoo.onmicrosoft.com* ) が表示されます。 この情報の下にある **[クラウド内のホスト]** チェックボックスをオンにします。 このチェックボックスをオンにすると、プロジェクトは Azure web アプリとしてプロビジョニングされ、後で簡単に発行できるようになります。 **[OK]** をクリックします。
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image10.png)
 6. 自動生成されたサイト名とリージョンを使用して、 **[Azure Web サイトの構成]** ダイアログボックスが表示されます。 また、ダイアログで現在サインインしているアカウントにも注意してください。 このアカウントが、Azure サブスクリプションがアタッチされているアカウント (通常は Microsoft アカウント) であることを確認する必要があります。
 
     > [!NOTE]
-    > このプロジェクトにはデータベースが必要です。 既存のデータベースのいずれかを選択するか、新しいデータベースを作成する必要があります。 データベースは、少数の認証構成データを格納するためにローカルデータベースファイルが既に使用されているため、必要です。 アプリケーションを Azure Web サイトにデプロイする場合、このデータベースはデプロイでパッケージ化されていないため、クラウドでアクセス可能なデータベースを選択する必要があります。 **[OK]** をクリックすると、
+    > このプロジェクトにはデータベースが必要です。 既存のデータベースのいずれかを選択するか、新しいデータベースを作成する必要があります。 データベースは、少数の認証構成データを格納するためにローカルデータベースファイルが既に使用されているため、必要です。 アプリケーションを Azure Web サイトにデプロイする場合、このデータベースはデプロイでパッケージ化されていないため、クラウドでアクセス可能なデータベースを選択する必要があります。 **[OK]** をクリックします。
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image11.png)
 7. プロジェクトが作成され、認証オプションと web アプリのオプションがプロジェクトで自動的に構成されます。 このプロセスが完了したら、 **^ F5**キーを押してプロジェクトをローカルで実行します。 組織のアカウントを使用してサインインする必要があります。 前の手順で作成したアカウントのユーザー名とパスワードを入力し、 **[サインイン]** をクリックします。
@@ -139,7 +139,7 @@ Azure Active Directory 用の Microsoft ASP.NET ツールを使用すると、 [
 
 このチュートリアルでは、Rick Rainey の詳細について説明します。 [Azure AD を使用した Azure Websites と組織認証](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)です。
 
-## <a name="more-information"></a>詳細
+## <a name="more-information"></a>詳細情報
 
 - [詳細: Azure AD を使用した Azure Websites と組織認証](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
 - [Azure AD Graph API の概要](https://msdn.microsoft.com/library/azure/hh974476.aspx)

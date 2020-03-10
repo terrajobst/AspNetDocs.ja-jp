@@ -9,11 +9,11 @@ ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
 ms.openlocfilehash: 0fcf050474a57be9ed53ec0783a6d6b7dde2bf4c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74575751"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438376"
 ---
 # <a name="create-the-data-access-layer"></a>データ アクセス層の作成
 
@@ -25,7 +25,7 @@ ms.locfileid: "74575751"
 
 このチュートリアルでは、ASP.NET Web フォームと Entity Framework Code First を使用して、データベースのデータを作成、アクセス、および確認する方法について説明します。 このチュートリアルは、前の「プロジェクトを作成する」チュートリアルに基づいており、Wingtip 玩具 Store チュートリアルシリーズの一部です。 このチュートリアルを完了すると、プロジェクトの [*モデル*] フォルダーにあるデータアクセスクラスのグループが作成されます。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 - データモデルを作成する方法。
 - データベースを初期化してシードする方法。
@@ -71,7 +71,7 @@ Entity Framework は、 *Code First*と呼ばれる開発パラダイムをサ�
 3. 中央のペインから **[クラス]** を選択し、この新しいクラスに*Product.cs*という名前を指定します。
 4. **[追加]** をクリックします。  
    新しいクラスファイルがエディターに表示されます。
-5. 既定のコードを次のコードに置き換えます。   
+5. 既定のコードを以下のコードに置き換えます。   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
 6. 手順 1. ~ 4. を繰り返して別のクラスを作成し、新しいクラスに*Category.cs*という名前を付けて、既定のコードを次のコードに置き換えます。  
@@ -166,19 +166,19 @@ Web アプリケーションに対するすべてのクラスと変更が確実�
 
 エラーが発生した場合は、上記の手順を再確認してください。 **[出力]** ウィンドウの情報には、問題が発生しているファイルと、ファイル内の変更が必要な場所が示されます。 この情報を使用すると、プロジェクトで上記の手順のどの部分を確認し、修正する必要があるかを判断できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このシリーズのこのチュートリアルでは、と同様に、データモデルを作成し、データベースの初期化とシードに使用するコードを追加しました。 また、アプリケーションの実行時にデータモデルを使用するようにアプリケーションを構成しました。
 
 次のチュートリアルでは、UI を更新し、ナビゲーションを追加して、データベースからデータを取得します。 これにより、このチュートリアルで作成したエンティティクラスに基づいて、データベースが自動的に作成されます。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [Entity Framework の概要](https://msdn.microsoft.com/library/bb399567.aspx)   
 [ADO.NET Entity Framework  の初心](https://msdn.microsoft.com/data/ee712907)者向けガイド  
 [Entity Framework を使用した Code First 開発](http://www.msteched.com/2010/Europe/DEV212)(ビデオ)   
 [Code First リレーションシップの FLUENT API](https://msdn.microsoft.com/data/hh134698)   
-[データ注釈の Code First](https://msdn.microsoft.com/data/gg193958)  
+[Code First Data Annotations (Code First のデータ注釈)](https://msdn.microsoft.com/data/gg193958)  
 [Entity Framework の生産性の向上](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 > [!div class="step-by-step"]

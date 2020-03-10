@@ -1,82 +1,82 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
-title: 作成して、ヘルパーを使用して ASP.NET web Pages (Razor) サイト |Microsoft Docs
+title: ASP.NET Web ページ (Razor) サイトでのヘルパーの作成と使用 |Microsoft Docs
 author: Rick-Anderson
-description: この記事では、ASP.NET Web Pages (Razor) の web サイトでヘルパーを作成する方法について説明します。 コードとパフォーマンスにマークアップを含む再利用可能なコンポーネントをヘルパーには.
+description: この記事では、ASP.NET Web ページ (Razor) web サイトにヘルパーを作成する方法について説明します。 ヘルパーは再利用可能なコンポーネントであり、コードと、パフォーマンスに対するマークアップを含んでいます...
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
 ms.openlocfilehash: 380663951094c9fc7d5f0601e30995fa073a204b
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67410963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454306"
 ---
-# <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトで作成およびヘルパー
+# <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトでのヘルパーの作成と使用
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、ASP.NET Web Pages (Razor) の web サイトでヘルパーを作成する方法について説明します。 A*ヘルパー*はコードと面倒か複雑になる可能性があるタスクを実行するためのマークアップを含む再利用可能なコンポーネントです。
+> この記事では、ASP.NET Web ページ (Razor) web サイトにヘルパーを作成する方法について説明します。 *ヘルパー*は、煩雑または複雑なタスクを実行するためのコードとマークアップを含む再利用可能なコンポーネントです。
 > 
-> **学習内容。** 
+> **学習内容:** 
 > 
-> - 作成して単純なヘルパーを使用する方法。
+> - 単純なヘルパーを作成して使用する方法。
 > 
 > この記事で導入された ASP.NET 機能を次に示します。
 > 
-> - `@helper`構文。
+> - `@helper` 構文。
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 >   
 > 
-> このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
+> このチュートリアルは ASP.NET Web ページ2でも動作します。
 
 ## <a name="overview-of-helpers"></a>ヘルパーの概要
 
-サイト内のさまざまなページで、同じタスクを実行する必要がある場合は、ヘルパーを使用できます。 ASP.NET Web ページには、さまざまなヘルパーが含まれています。 また、ダウンロードしてインストールをさらに多くがあります。 (ASP.NET Web Pages での組み込みのヘルパーの一覧が記載されて、 [ASP.NET API クイック リファレンス](https://go.microsoft.com/fwlink/?LinkId=202907))。ニーズを満たす既存のヘルパーの場合は、独自のヘルパーを作成できます。
+サイト内の異なるページで同じタスクを実行する必要がある場合は、ヘルパーを使用できます。 ASP.NET Web ページには多くのヘルパーが含まれており、ダウンロードしてインストールすることもできます。 (ASP.NET Web ページの組み込みヘルパーの一覧については、「 [ASP.NET API クイックリファレンス](https://go.microsoft.com/fwlink/?LinkId=202907)」を参照してください)。既存のヘルパーがニーズに合わない場合は、独自のヘルパーを作成することができます。
 
-ヘルパーを使用して、複数のページ、一般的なコードのブロックを使用できます。 ページに多くの場合する通常の段落とは別に設定されている注項目を作成するとします。 としてメモを作成するなど、`<div>`要素を境界線付きのボックスとしてスタイルが適用されます。 メモを表示するたびに、この同じマークアップをページに追加ではなく、ヘルパーとしてマークアップをパッケージ化することができます。 メモに 1 行のコードを挿入して必要な任意の場所。
+ヘルパーを使用すると、複数のページで共通のコードブロックを使用できます。 ページ内で通常の段落とは別に設定されたノート項目を作成することがよくあるとします。 メモは、境界線を持つボックスとしてスタイルを作成する `<div>` 要素として作成される場合があります。 メモを表示するたびに、この同じマークアップをページに追加するのではなく、マークアップをヘルパーとしてパッケージ化することができます。 その後、必要な場所に1行のコードでメモを挿入できます。
 
-このようなヘルパーを使用しては各ページでにより、コードと簡素化され、読みやすくします。 簡単に、サイトを維持するために、ノートを検索する方法を変更する必要がある場合は、1 か所でマークアップを変更できるためです。
+このようなヘルパーを使用すると、各ページのコードがより簡単に読みやすくなります。 また、ノートの外観を変更する必要がある場合は、マークアップを1か所で変更できるので、サイトの保守が容易になります。
 
 ## <a name="creating-a-helper"></a>ヘルパーの作成
 
-この手順では、前述のように、メモを作成するヘルパーを作成する方法を示します。 これは単純な例ですが、カスタム ヘルパーは、マークアップと必要な ASP.NET コードを含めることができます。
+この手順では、説明したように、メモを作成するヘルパーを作成する方法を示します。 これは簡単な例ですが、カスタムヘルパーには、必要なマークアップと ASP.NET のコードを含めることができます。
 
-1. という名前のフォルダーを作成、web サイトのルート フォルダーに*App\_Code*します。 これは、ヘルパーなどのコンポーネントのコードを配置する ASP.NET の予約済みフォルダーの名前です。
-2. *アプリ\_コード*フォルダーを作成する新しい *.cshtml*ファイルし、名前を付けます*MyHelpers.cshtml*します。
-3. 次のように、既存のコンテンツを置き換えます。
+1. Web サイトのルートフォルダーで、 *App\_Code*という名前のフォルダーを作成します。 これは ASP.NET で予約されているフォルダー名であり、ヘルパーなどのコンポーネントのコードを配置できます。
+2. *アプリ\_コード*フォルダーで、新しい*cshtml*ファイルを作成し、 *myhelpers. cshtml*という名前を指定します。
+3. 既存のコンテンツを次の内容に置き換えます。
 
     [!code-cshtml[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample1.cshtml)]
 
-    コードを使用して、`@helper`という名前の新しいヘルパーを宣言する構文`MakeNote`します。 この特定のヘルパーには、という名前のパラメーターを渡すことができます`content`テキストとマークアップの組み合わせを含めることができます。 ヘルパーにメモの本文を使用した文字列を挿入する、`@content`変数。
+    このコードでは、`@helper` 構文を使用して `MakeNote`という名前の新しいヘルパーを宣言します。 この特定のヘルパーを使用すると、テキストとマークアップの組み合わせを含むことができる `content` という名前のパラメーターを渡すことができます。 ヘルパーは、`@content` 変数を使用して、ノート本体に文字列を挿入します。
 
-    ファイルの名前はことに注意してください。 *MyHelpers.cshtml*、ヘルパーがという名前が`MakeNote`します。 複数のカスタム ヘルパーは、1 つのファイルに配置できます。
+    このファイルは*myhelpers. cshtml*という名前であることに注意してください。ヘルパーには `MakeNote`という名前が付けられています。 複数のカスタムヘルパーを1つのファイルに含めることができます。
 4. ファイルを保存して閉じます。
 
-## <a name="using-the-helper-in-a-page"></a>ページで、ヘルパーの使用
+## <a name="using-the-helper-in-a-page"></a>ページでのヘルパーの使用
 
-1. 呼ばれる新しい空のファイルを作成、ルート フォルダーで*TestHelper.cshtml*します。
+1. ルートフォルダーに、 *TestHelper*という名前の新しい空のファイルを作成します。
 2. 次のコードをファイルに追加します。
 
     [!code-html[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample2.html)]
 
-    作成したヘルパーを呼び出すには、次のように使用します。`@`ヘルパーの名前と場所、ヘルパーは、ドットのファイル名が続きます。 (複数のフォルダーがある場合、*アプリ\_コード*フォルダー、構文を使用する`@FolderName.FileName.HelperName`入れ子になったフォルダー レベルのいずれかのヘルパーを呼び出す)。 かっこ内の引用符で追加したテキストは、ヘルパーは、web ページの注意事項の一部として表示されるテキストです。
-3. ページを保存し、ブラウザーで実行します。 ヘルパー、ヘルパーが呼び出されている右注項目を生成する: 2 つの段落の間。
+    作成したヘルパーを呼び出すには、`@` を使用し、その後にヘルパーがあるファイル名、ドット、ヘルパー名を指定します。 (*アプリ\_コード*フォルダーに複数のフォルダーがある場合は、`@FolderName.FileName.HelperName` 構文を使用して、入れ子になったフォルダーレベルでヘルパーを呼び出すことができます)。 かっこ内に引用符で囲んだテキストは、ヘルパーが web ページのノートの一部として表示されるテキストです。
+3. ページを保存し、ブラウザーで実行します。 ヘルパーは、2つの段落の間でヘルパーを呼び出したときに、ノート項目の右側を生成します。
 
-    ![ヘルパーが、指定したテキストを囲むボックスを配置するマークアップを生成する方法と、ブラウザーでページを示すスクリーン ショット。](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
+    ![ブラウザー内のページを示すスクリーンショットと、指定したテキストをボックスに配置するためのマークアップをヘルパーが生成した方法を示します。](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
 
 ## <a name="additional-resources"></a>その他のリソース
 
-[Razor ヘルパーとしての水平メニュー](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341)します。 Mike 教皇によるブログ エントリでは、マークアップ、CSS、およびコードを使用するヘルパーと水平方向のメニューを作成する方法を示します。
+[Razor ヘルパーとしての水平メニュー](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341)。 Mike Pope によるこのブログエントリは、マークアップ、CSS、およびコードを使用して、水平メニューをヘルパーとして作成する方法を示しています。
 
-[For WebMatrix and ASP.NET MVC3 ページ ヘルパーを ASP.NET Web での HTML5 の活用](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx)します。 Sam Abraham によるブログ エントリは、HTML5 を表示するヘルパーを示しています。`Canvas`要素。
+[WebMatrix と ASP.NET MVC3 の ASP.NET Web ページヘルパーでの HTML5 の活用](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx)。 Sam Abraham によるこのブログエントリは、HTML5 `Canvas` 要素をレンダリングするヘルパーを示しています。
 
-[間の差@Helpersと@FunctionsWebMatrix で](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix)します。 Mike Brind によるブログ エントリについて説明します`@helper`構文と`@function`構文と使用すると、それぞれを使用します。
+[WebMatrix での @Helpers と @Functions の違い](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix)。 Mike Brind によるこのブログエントリでは、`@helper` 構文と `@function` 構文、およびそれぞれを使用するタイミングについて説明します。

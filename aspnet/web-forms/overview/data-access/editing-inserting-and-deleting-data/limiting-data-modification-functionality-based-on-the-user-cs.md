@@ -9,11 +9,11 @@ ms.assetid: 2b251c82-77cf-4e36-baa9-b648eddaa394
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c3cacaddb7e9b493ba39718f41dcaab360d36fd9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74580706"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78478426"
 ---
 # <a name="limiting-data-modification-functionality-based-on-the-user-c"></a>ユーザーに基づいてデータ編集機能を制限する (C#)
 
@@ -194,7 +194,7 @@ GridView s `RowDataBound` イベントのイベントハンドラーを作成し
 
 ここでは、このような BLL レイヤーチェックを含めませんでした。このチュートリアルでは、ユーザーの権利はページの DropDownList によって決定され、BLL クラスはアクセスできません。 メンバーシップシステムを使用する場合、または ASP.NET によって提供される既定の認証スキーム (Windows 認証など) のいずれかを使用する場合は、現在ログオンしているユーザーの情報とロール情報に BLL からアクセスして、そのようなアクセスを行うことができます。権限は、プレゼンテーション層と BLL レイヤーの両方で確認できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ユーザーアカウントを提供するほとんどのサイトでは、ログインしているユーザーに基づいてデータ変更インターフェイスをカスタマイズする必要があります。 管理ユーザーは任意のレコードを削除して編集できますが、管理者以外のユーザーは、自分が作成したレコードの更新または削除のみに制限される可能性があります。 シナリオに関係なく、データ Web コントロール、ObjectDataSource、およびビジネスロジックレイヤークラスを拡張して、ログオンしているユーザーに基づいて特定の機能を追加または拒否することができます。 このチュートリアルでは、ユーザーが特定の業者に関連付けられているかどうか、または会社で働いていたかに応じて、表示可能なデータと編集可能なデータを制限する方法について説明しました。
 
@@ -202,7 +202,7 @@ GridView s `RowDataBound` イベントのイベントハンドラーを作成し
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

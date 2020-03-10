@@ -9,11 +9,11 @@ ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
 ms.openlocfilehash: eeab69e75546791978bb09d7823d95caf9dca1a0
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467140"
 ---
 # <a name="hot-towel-template"></a>Hot Towel テンプレート
 
@@ -43,9 +43,9 @@ SPA を構築するが、どこから開始するかを決定できない場合�
 アプリフォルダー内:
 
 - durandal
-- サービス
+- services
 - viewmodel
-- 表示
+- views
 
 アプリフォルダーには、モジュールのコレクションが含まれています。 これらのモジュールは、機能をカプセル化し、他のモジュールとの依存関係を宣言します。 Views フォルダーには、アプリケーションの HTML が含まれています。また、viewmodel フォルダーには、ビューのプレゼンテーションロジック (共通 MVVM パターン) が含まれています。 Services フォルダーは、アプリケーションで必要になる可能性のある一般的なサービス (HTTP データの取得やローカルストレージの相互作用など) を格納するのに最適です。 複数の viewmodel では、サービスモジュールのコードを再利用するのが一般的です。
 

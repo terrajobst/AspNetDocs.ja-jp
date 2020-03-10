@@ -9,11 +9,11 @@ ms.assetid: 7f07c112-cd4f-4427-9699-57cfab2791fd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 9386aa2fe3a6174bbed52218337107733cb1fa99
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606649"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504064"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-vb"></a>Repeater コントロールで HoverMenu を使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606649"
 
 > AJAX コントロールツールキットの HoverMenu コントロールは、単純なポップアップ効果を提供します。マウスポインターが要素の上に置かれると、ポップアップが指定した位置に表示されます。 リピータ内でこのコントロールを使用することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの `HoverMenu` コントロールは、単純なポップアップ効果を提供します。マウスポインターが要素の上に移動すると、指定した位置にポップアップが表示されます。 リピータ内でこのコントロールを使用することもできます。
 
@@ -56,4 +56,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 リピータの各項目の横に、ホバーメニューが表示されます ([クリックすると、フルサイズの画像が表示](using-hovermenu-with-a-repeater-control-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](using-hovermenu-with-a-repeater-control-cs.md)
+> [[戻る]](using-hovermenu-with-a-repeater-control-cs.md)

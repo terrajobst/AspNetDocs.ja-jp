@@ -9,11 +9,11 @@ ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
 ms.openlocfilehash: 1ca93cce22487295a24aae95437b3e69dfc5b504
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500524"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングルサインオン (Azure を使用した実際のクラウドアプリの構築)
 
@@ -68,7 +68,7 @@ Azure AD ディレクトリは Azure AD[テナント](https://technet.microsoft.
 
 Azure アカウント用に1つの Azure AD テナントが自動的に作成されます。ページの下部にある **[追加]** ボタンをクリックすると、追加のディレクトリを作成できます。 たとえば、テスト環境用に1つ、運用環境用に1つを使用することができます。 新しいディレクトリの名前については、慎重に検討してください。 ディレクトリの名前を使用した後で、いずれかのユーザーに対して名前を再び使用すると、混乱を招く可能性があります。
 
-![ディレクトリを追加する](single-sign-on/_static/image6.png)
+![[ディレクトリの追加]](single-sign-on/_static/image6.png)
 
 ポータルでは、この環境内でのユーザーの作成、削除、管理を完全にサポートしています。 たとえば、ユーザーを追加するには、 **[ユーザー]** タブにアクセスし、 **[ユーザーの追加]** ボタンをクリックします。
 
@@ -84,7 +84,7 @@ Azure アカウント用に1つの Azure AD テナントが自動的に作成さ
 
 ロールにユーザーを割り当てることができます。
 
-![ユーザー プロファイル](single-sign-on/_static/image11.png)
+![User Profile](single-sign-on/_static/image11.png)
 
 アカウントは一時パスワードで作成されます。
 
@@ -168,7 +168,7 @@ Visual Studio を使用すると、いくつかのスクリーンショットか
 
 これらのスクリーンショットは、Azure AD 認証を使用するアプリを構築する方法を示す完全なステップバイステップのチュートリアルであり、 [Azure Active Directory を使用した ASP.NET アプリの開発](../../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)について説明しています。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 この章では、Azure Active Directory、Visual Studio、および ASP.NET を使用して、組織のユーザーのインターネットアプリケーションでのシングルサインオンを簡単にセットアップできるようにしました。 ユーザーは、内部ネットワークで Active Directory を使用したサインオンに使用するのと同じ資格情報を使用して、インターネットアプリでサインオンできます。
 

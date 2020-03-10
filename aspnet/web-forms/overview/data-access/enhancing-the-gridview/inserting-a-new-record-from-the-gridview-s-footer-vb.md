@@ -9,11 +9,11 @@ ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 67ef370a90bc843f5c2da80bb43c8ef8de216b51
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74631782"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78477412"
 ---
 # <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView のフッターから新しいレコードを挿入する (VB)
 
@@ -210,7 +210,7 @@ GridView の組み込み編集機能を使用すると、更新プログラム�
 
 どちらのオプションも同様に機能します。 これまでのチュートリアルでは、後者のオプションを使用して、`ProductsBLL` クラス s `UpdateProduct` メソッドに対して複数のオーバーロードを作成しました。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView には、DetailsView と FormView に含まれる組み込みの挿入機能がありませんが、挿入インターフェイスをフッター行に追加することができます。 GridView にフッター行を表示するには、単に `ShowFooter` プロパティを `True`に設定します。 フィールドを TemplateField に変換し、挿入インターフェイスを `FooterTemplate`に追加することで、フィールドごとにフッター行の内容をカスタマイズできます。 このチュートリアルで説明したように、`FooterTemplate` には、ボタン、テキストボックス、DropDownLists、チェックボックス、データドリブン Web コントロール (DropDownLists など) を設定するためのデータソースコントロール、および検証コントロールを含めることができます。 ユーザー入力を収集するためのコントロールと共に、Add Button、LinkButton、または ImageButton が必要です。
 
@@ -220,7 +220,7 @@ GridView には、DetailsView と FormView に含まれる組み込みの挿入�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -229,4 +229,4 @@ GridView には、DetailsView と FormView に含まれる組み込みの挿入�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Bernadette Leigh でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](adding-a-gridview-column-of-checkboxes-vb.md)
+> [[戻る]](adding-a-gridview-column-of-checkboxes-vb.md)

@@ -1,415 +1,415 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理 |Microsoft Docs
+title: 'ハンズオンラボ: メンテナンス可能な Azure Websites: 変更とスケールの管理 |Microsoft Docs'
 author: rick-anderson
-description: このラボでは、どの Microsoft Azure 簡単にビルドして、web サイトを運用環境にデプロイについて説明します。
+description: このラボでは、Microsoft Azure を使用して、web サイトを簡単に構築して運用環境に展開する方法について説明します。
 ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
 ms.openlocfilehash: c88bae40a8aa092037c0b359ee391acaf161cf10
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118295"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506374"
 ---
-# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズ オン ラボ:保守管理の楽な Azure Web サイト:変更とスケールの管理
+# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズオンラボ: メンテナンス可能な Azure Websites: 変更とスケールの管理
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web キャンプトレーニングキットをダウンロードする](https://aka.ms/webcamps-training-kit)
 
-> Microsoft Azure では、簡単にビルドし、web サイトを運用環境にデプロイできます。 アプリケーションのライブが完了して、始めたばかりという方します。 変化する要件、データベースの更新、スケール、および詳細を処理する必要があります。 さいわい、Azure App Service では、多数の機能をスムーズに実行されている、サイトを保護するために、対応していますが。
+> Microsoft Azure を使用すると、簡単に web サイトを構築して運用環境にデプロイできます。 しかし、アプリケーションが稼働しているときには完了していません。 変化する要件、データベースの更新、スケールなどを処理する必要があります。 幸いにも、サイトの円滑な実行を維持するのに役立つ多くの機能が用意されており、Azure App Service について説明しています。
 >
-> Azure では、セキュリティで保護された柔軟性の高い開発、展開、および拡張オプションをあらゆるサイズの web アプリケーションを提供します。 インフラストラクチャの管理の負担をかけずアプリケーションの展開を作成し、既存のツールを活用します。
+> Azure では、あらゆる規模の web アプリケーションに対して、セキュリティで保護された柔軟な開発、デプロイ、スケーリングのオプションを提供しています。 既存のツールを活用して、インフラストラクチャを管理する手間をかけずにアプリケーションを作成してデプロイします。
 >
-> 運用環境の web アプリケーションを自分で数分でプロビジョニング、好みの開発ツールを使用して作成されたコンテンツを簡単にデプロイすることで。 対応のソース管理から直接既存のサイトを展開する**Git**、 **GitHub**、 **Bitbucket**、 **TFS**とでも**DropBox**します。 お気に入りの IDE から直接、またはを使用してスクリプトから展開**PowerShell**で Windows または**CLI**あらゆる OS で実行されるツールです。 展開した後、サイトを継続的なデプロイのサポートを常に最新の状態のままにします。
+> お気に入りの開発ツールを使用して作成されたコンテンツを簡単にデプロイできるため、実稼働 web アプリケーションを数分でプロビジョニングできます。 **Git**、 **GitHub**、 **Bitbucket**、 **TFS**、および**DropBox**のサポートを使用して、既存のサイトをソース管理から直接デプロイできます。 Windows の**PowerShell**または任意の OS で実行されている**CLI**ツールを使用して、お気に入りの IDE またはスクリプトから直接デプロイできます。 デプロイが完了したら、継続的なデプロイのサポートによって、サイトを常に最新の状態に保ちます。
 >
-> Azure にはスケーラブルで持続性のあるクラウド ストレージ、バックアップ、および回復ソリューションのすべてのデータでは、小規模または大規模な。 実稼働環境では、テーブル、Blob、SQL データベースなどのストレージ サービスにアプリケーションをデプロイするときに、クラウドでアプリケーションがスケール アップできます。
+> Azure は、あらゆるデータに対応したスケーラブルで持続性のあるクラウドストレージ、バックアップ、回復のソリューションを提供します。 アプリケーションを運用環境にデプロイする場合、テーブル、Blob、SQL データベースなどのストレージサービスは、クラウドでのアプリケーションのスケーリングに役立ちます。
 >
-> SQL データベースが新しいバージョンのアプリケーションをデプロイするときに、生産性の高いデータベースを最新に重要です。 方々 に感謝**Entity Framework Code First Migrations**、分単位でお使いの環境を更新する、開発と、データ モデルの展開が簡素化されています。 このハンズオン ラボでは、web アプリを Microsoft Azure で運用環境にデプロイするときに発生する可能性があります、さまざまなトピックを示します。
+> SQL データベースでは、アプリケーションの新しいバージョンをデプロイするときに、生産性の高いデータベースを最新の状態に保つことが重要です。 **Entity Framework Code First Migrations**のおかげで、データモデルの開発とデプロイは、数分で環境を更新するために簡略化されています。 このハンズオンラボでは、Microsoft Azure で運用環境に web アプリをデプロイするときに発生する可能性のあるさまざまなトピックを示します。
 >
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
+> すべてのサンプルコードとスニペットは、 [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)で入手できる Web キャンプトレーニングキットに含まれています。
 >
-> このトピックの詳しい内容について詳細を参照してください、 [Azure 電子書籍の実際のクラウド アプリの構築](building-real-world-cloud-apps-with-windows-azure/introduction.md)します。
+> このトピックの詳細については、「 [Azure 電子ブックを使用した実際のクラウドアプリの構築](building-real-world-cloud-apps-with-windows-azure/introduction.md)」を参照してください。
 
 <a id="Overview"></a>
 ## <a name="overview"></a>概要
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
-このハンズオン ラボでは、学習する方法。
+このハンズオンラボでは、次の方法を学習します。
 
-- 既存のモデルで Entity Framework の移行を有効にします。
-- オブジェクト モデルと Entity Framework の移行を適宜使用してデータベースを更新します。
-- Git を使用して Azure App Service にデプロイします。
-- Azure Management portal を使用して以前の展開にロールバックします。
-- Azure Storage を使用して web アプリをスケーリング
-- Azure 管理ポータルを使用して web アプリの自動スケーリングの構成します。
-- 作成し、Visual Studio でロード テストのプロジェクトを構成します。
+- 既存のモデルを使用して Entity Framework 移行を有効にする
+- Entity Framework の移行を使用して、オブジェクトモデルとデータベースを適宜更新する
+- Git を使用した Azure App Service へのデプロイ
+- Microsoft Azure 管理ポータルを使用して以前のデプロイにロールバックする
+- Azure Storage を使用して web アプリをスケールする
+- Azure 管理ポータルを使用して web アプリの自動スケールを構成する
+- Visual Studio でのロードテストプロジェクトの作成と構成
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
+### <a name="prerequisites"></a>前提条件
 
-このハンズオン ラボを完了する、次が必要。
+このハンズオンラボを完了するには、次のものが必要です。
 
-- [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/)以上
+- [Web 用に2013を Visual Studio Express](https://www.microsoft.com/visualstudio/)
 - [Azure SDK for .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
 - [GIT バージョン管理システム](http://git-scm.com/download)
 - Microsoft Azure サブスクリプション
 
-    - サインアップ、[無料試用版](https://aka.ms/watk-freetrial)
-    - アクティブ Visual Studio Professional、Test Professional、Premium または Ultimate with MSDN または MSDN Platforms のサブスクライバーに、 [MSDN の特典](https://aka.ms/watk-msdn)Azure で開発とテストを開始するようになりました
-    - [BizSpark](https://aka.ms/watk-bizspark)メンバーは、Azure に自動的に受信、Visual Studio Ultimate with MSDN サブスクリプション特典
-    - メンバー、 [Microsoft Partner Network](https://aka.ms/watk-mpn) Cloud Essentials プログラムが無料で毎月の Azure クレジットを受け取る
+    - [無料試用版](https://aka.ms/watk-freetrial)にサインアップする
+    - Visual Studio Professional、Test Professional、Premium、または Ultimate with MSDN または MSDN Platforms サブスクライバーであれば、今すぐ[msdn の特典](https://aka.ms/watk-msdn)をアクティブ化して、Azure での開発とテストを開始できます。
+    - [Bizspark](https://aka.ms/watk-bizspark)メンバーは、Visual Studio Ultimate with MSDN サブスクリプションを通じて Azure 特典を自動的に受け取ります
+    - [Microsoft Partner Network](https://aka.ms/watk-mpn) Cloud Essentials プログラムのメンバーは、毎月 Azure クレジットを無料で受け取ることができます
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
 
-このハンズオン ラボの演習を実行するためには、まず環境を設定する必要があります。
+このハンズオンラボの演習を実行するには、まず環境をセットアップする必要があります。
 
-1. Windows Explorer をラボの [参照] を開いて**ソース**フォルダー。
-2. 右クリックして**Setup.cmd**選択と**管理者として実行**環境を構成すると、このラボの Visual Studio のコード スニペットがインストールのセットアップ プロセスを起動します。
-3. ユーザー アカウント制御 ダイアログが表示されている場合は、操作を続行を確認します。
+1. エクスプローラーを開き、ラボの**ソース**フォルダーを参照します。
+2. **Setup.exe**を右クリックし、 **[管理者として実行]** を選択して、環境を構成し、このラボ用の Visual Studio コードスニペットをインストールするセットアッププロセスを開始します。
+3. [ユーザーアカウント制御] ダイアログが表示されている場合は、操作を続行することを確認します。
 
 > [!NOTE]
-> セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
+> セットアップを実行する前に、このラボのすべての依存関係を確認していることを確認してください。
 
 <a id="CodeSnippets"></a>
-### <a name="using-the-code-snippets"></a>コード スニペットの使用
+### <a name="using-the-code-snippets"></a>コードスニペットの使用
 
-ラボ ドキュメント全体を通じて、コード ブロックを挿入するよう指示されます。 便宜上、このコードのほとんどは、Visual Studio コード スニペットを手動で追加することを避けるために Visual Studio 2013 内からアクセスできるとして提供されます。
+ラボドキュメント全体で、コードブロックを挿入するように指示されます。 便宜上、このコードのほとんどは Visual Studio Code のスニペットとして提供されており、Visual Studio 2013 内からアクセスして、手動で追加する必要がないようにすることができます。
 
 > [!NOTE]
-> ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
+> 各演習には、演習の**Begin**フォルダーに配置された開始ソリューションが付属しています。これにより、各演習を別の手順に従って実行することができます。 演習中に追加されたコードスニペットは、これらの開始ソリューションにはないため、演習を完了するまで機能しないことがあります。 演習用のソースコード内では、対応する演習の手順を完了した結果として得られるコードを使用して、Visual Studio ソリューションを含む**終了**フォルダーも検索します。 このハンズオンラボを使用して作業する際に、追加のヘルプが必要な場合は、これらのソリューションをガイダンスとして使用できます。
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-このハンズオン ラボには、次の演習が含まれます。
+このハンズオンラボには、次の演習が含まれています。
 
-1. [Entity Framework の移行を使用します。](#Exercise1)
-2. [ステージング Web アプリを展開します。](#Exercise2)
-3. [運用環境でデプロイのロールバックを実行します。](#Exercise3)
+1. [Entity Framework 移行の使用](#Exercise1)
+2. [Web アプリをステージングにデプロイする](#Exercise2)
+3. [運用環境での配置ロールバックの実行](#Exercise3)
 4. [Azure Storage を使用したスケーリング](#Exercise4)
-5. [Web アプリの自動スケールを使用して](#Exercise5)(Visual Studio 2013 Ultimate エディションの省略可能)
+5. [Web Apps に自動スケールを使用する](#Exercise5)(Visual Studio 2013 Ultimate edition では省略可能)
 
-この演習の所要時間を推定するには。**75 分**
+このラボの推定所要時間: **75 分**
 
 > [!NOTE]
-> Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
+> Visual Studio を初めて起動するときに、定義済みの設定コレクションのいずれかを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されており、ウィンドウのレイアウト、エディターの動作、IntelliSense コードスニペット、およびダイアログボックスのオプションを決定します。 このラボの手順では、**全般的な開発設定**のコレクションを使用するときに、Visual Studio で特定のタスクを実行するために必要なアクションについて説明します。 開発環境に対して別の設定コレクションを選択した場合は、注意が必要な手順が異なる場合があります。
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-using-entity-framework-migrations"></a>演習 1:Entity Framework の移行を使用します。
+### <a name="exercise-1-using-entity-framework-migrations"></a>演習 1: Entity Framework の移行の使用
 
-アプリケーションを開発しているときに、データ モデルが時間の経過と共に変更可能性があります。 これらの変更に影響する可能性、データベース内の既存のモデル (新しいバージョンを作成する) 場合と、データベースのエラーを防ぐために最新の状態を維持することが重要です。
+アプリケーションを開発するときに、データモデルが時間の経過と共に変化することがあります。 これらの変更は、データベース内の既存のモデルに影響を与える可能性があります (新しいバージョンを作成している場合)。また、エラーを防ぐために、データベースを最新の状態に保つことが重要です。
 
-モデルのこれらの変更の追跡を簡略化する**Entity Framework Code First Migrations**自動的にデータベース スキーマを使用してモデルを比較する変更を検出し、データベースを更新する特定のコードを生成します新規作成*バージョン*データベースの。
+モデルにおけるこれらの変更の追跡を簡単にするために、 **Entity Framework Code First Migrations**モデルとデータベーススキーマを比較して変更を自動的に検出し、データベースを更新するための特定のコードを生成して、データベースの新しい*バージョン*を作成します。
 
-この演習は、有効にする方法を示します**移行**アプリケーションと簡単に検出しする方法、データベースを更新する変更を生成します。
+この演習では、アプリケーションの**移行**を有効にする方法と、データベースを更新するための変更を簡単に検出して生成する方法について説明します。
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1--enabling-migrations"></a>タスク 1 – Migrations の有効化
+#### <a name="task-1--enabling-migrations"></a>タスク1–移行を有効にする
 
-このタスクで有効にすると次の手順を参照してください**Entity Framework Code First Migrations**を**ギーク Quiz**データベース、モデルを変更してでこれらの変更を反映する方法を理解すること、データベース。
+この実習では、**マニアクイズ**データベースに対して**Entity Framework Code First Migrations**を有効にする手順について説明し、モデルを変更して、変更がデータベースに反映される方法を理解します。
 
-1. Visual Studio を開き、開く、 **GeekQuiz.sln**ソリューション ファイルから**Source\Ex1 UsingEntityFrameworkMigrations\Begin**します。
-2. ダウンロードしてインストールするためにソリューションをビルド、 **NuGet**依存関係をパッケージ化します。 これを行うには、ソリューションを右クリックし、をクリックして**ソリューションのビルド**またはキーを押します**Ctrl + Shift + B**します。
-3. **ツール** メニューの選択 Visual Studio で**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
-4. **パッケージ マネージャー コンソール**、次のコマンドを入力し、キーを押します**Enter**します。 既存のモデルに基づく最初の移行が作成されます。
+1. Visual Studio を開き、 **Source\Ex1-UsingEntityFrameworkMigrations\Begin**から**GeekQuiz**ソリューションファイルを開きます。
+2. **NuGet**パッケージの依存関係をダウンロードしてインストールするために、ソリューションをビルドします。 これを行うには、ソリューションを右クリックし、 **[ソリューションのビルド]** をクリックするか、 **Ctrl + Shift + B**キーを押します。
+3. Visual Studio の **[ツール]** メニューで、 **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** をクリックします。
+4. **パッケージマネージャーコンソール**で、次のコマンドを入力**して、enter キーを**押します。 既存のモデルに基づく初期移行が作成されます。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample1.ps1)]
 
-    ![移行を有効にする](maintainable-azure-websites-managing-change-and-scale/_static/image1.png "Migrations を有効にします。")
+    ![移行の有効化](maintainable-azure-websites-managing-change-and-scale/_static/image1.png "移行を有効にする")
 
-    *移行を有効にします。*
-
-    > [!NOTE]
-    > このコマンドを追加、**移行**というフォルダーにファイルを含むギーク Quiz プロジェクト**Configuration.cs**します。 **構成**クラスでは、コンテキストの移行の動作を構成できます。
-5. 移行が有効になっている、更新する必要があります、**構成**初期データと共にデータベースを設定するクラスを**ギーク Quiz**が必要です。 **移行**、置換、 **Configuration.cs**に 1 つのファイルがある、 **Source\Assets**このラボのフォルダー。
+    *移行の有効化*
 
     > [!NOTE]
-    > **移行**が呼び出す、**シード**メソッドすべてのデータベース更新をデータベース内のレコードが重複していないことを確認する必要があります。 **AddOrUpdate**方法は、データの重複を防ぐために役立ちます。
-6. 最初の移行を追加するに次のコマンドを入力し、キーを押します**Enter**します。
+    > このコマンドは、 **Configuration.cs**という名前のファイルを含むマニアクイズプロジェクトに、**移行**フォルダーを追加します。 **構成**クラスを使用すると、コンテキストの移行の動作を構成できます。
+5. 移行を有効にした場合、**構成**クラスを更新して、**マニアクイズ**が必要とする初期データをデータベースに設定する必要があります。 **[移行]** で、 **Configuration.cs**ファイルを、このラボの **[source\ Assets]** フォルダーにあるものに置き換えます。
 
     > [!NOTE]
-    > という名前のデータベースがないことを確認&quot;GeekQuizProd&quot; LocalDB インスタンスにします。
+    > **移行**では、すべてのデータベース更新で**Seed**メソッドが呼び出されるため、データベース内でレコードが複製されないようにする必要があります。 **Addorupdate**メソッドを使用すると、重複するデータを防ぐことができます。
+6. 初期移行を追加するには、次のコマンドを入力**して、enter キーを**押します。
+
+    > [!NOTE]
+    > LocalDB インスタンスに &quot;GeekQuizProd&quot; という名前のデータベースがないことを確認します。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample2.ps1)]
 
-    ![ベース スキーマの移行を追加する](maintainable-azure-websites-managing-change-and-scale/_static/image2.png "追加ベース スキーマの移行")
+    ![ベーススキーマの移行の追加](maintainable-azure-websites-managing-change-and-scale/_static/image2.png "ベーススキーマの移行の追加")
 
-    *ベース スキーマの移行を追加します。*
+    *ベーススキーマの移行の追加*
 
     > [!NOTE]
-    > **Add-migration**最後の移行が作成されたため、モデルに加えられた変更内容に基づいて次の移行をスキャフォールディングします。 ここでは、プロジェクトの最初の移行は、これはスクリプトを追加で定義されているすべてのテーブルを作成する、 **TriviaContext**クラス。
-7. 次のコマンドを実行して、データベースの更新への移行を実行します。 このコマンドを指定します、 **Verbose**先データベースに適用される SQL ステートメントを表示するフラグ。
+    > **追加移行**では、前回の移行が作成されてからモデルに対して行った変更に基づいて、次の移行がスキャフォールディングされます。 この場合、プロジェクトの最初の移行として、 **TriviaContext**クラスで定義されているすべてのテーブルを作成するスクリプトが追加されます。
+7. 次のコマンドを実行して、移行を実行し、データベースを更新します。 このコマンドでは、ターゲットデータベースに適用されている SQL ステートメントを表示する**Verbose**フラグを指定します。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample3.ps1)]
 
-    ![最初のデータベースを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image3.png "初期データベースを作成します。")
+    ![初期データベースの作成](maintainable-azure-websites-managing-change-and-scale/_static/image3.png "初期データベースの作成")
 
-    *初期データベースを作成します。*
+    *初期データベースの作成*
 
     > [!NOTE]
-    > **Update Database**保留中の移行をデータベースに適用されます。 この場合、web.config ファイルで定義されている接続文字列を使用してデータベースを作成、されます。
-8. 移動して**ビュー**メニューを開く**SQL Server オブジェクト エクスプ ローラー**します。
+    > **更新データベース**では、保留中の移行がデータベースに適用されます。 この場合、web.config ファイルで定義されている接続文字列を使用してデータベースが作成されます。
+8. **[表示]** メニューにアクセスして**SQL Server オブジェクトエクスプローラー**を開きます。
 
-    ![SQL Server オブジェクト エクスプ ローラーで開く](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "SQL Server オブジェクト エクスプ ローラーで開く")
+    ![SQL Server オブジェクトエクスプローラーで開く](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "SQL Server オブジェクトエクスプローラーで開く")
 
-    *SQL Server オブジェクト エクスプ ローラーで開く*
-9. **SQL Server オブジェクト エクスプ ローラー**ウィンドウを右クリックして、LocalDB インスタンスに接続、 **SQL Server**ノードと選択**SQL Server の追加.** オプション。
+    *SQL Server オブジェクトエクスプローラーで開く*
+9. **[SQL Server オブジェクトエクスプローラー]** ウィンドウで、 **[SQL Server]** ノードを右クリックし、 **[SQL Server の追加]** オプションを選択して、LocalDB インスタンスに接続します。
 
-    ![SQL Server のインスタンスを追加する](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "SQL Server のインスタンスを追加します。")
+    ![SQL Server インスタンスの追加](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "SQL Server インスタンスの追加")
 
-    *SQL Server オブジェクト エクスプ ローラーへの SQL Server インスタンスの追加*
-10. 設定、**サーバー名**に *(localdb) \v11.0*して**Windows 認証**認証モードとして。 クリックして**Connect**を続行します。
+    *SQL Server オブジェクトエクスプローラーへの SQL Server インスタンスの追加*
+10. **サーバー名**を *(localdb) \ v11.0*に設定し、認証モードとして**Windows 認証**をそのまま使用します。 **[接続]** をクリックして続行します。
 
-    ![LocalDB への接続](maintainable-azure-websites-managing-change-and-scale/_static/image6.png "LocalDB への接続")
+    ![LocalDB に接続しています](maintainable-azure-websites-managing-change-and-scale/_static/image6.png "LocalDB に接続しています")
 
-    *LocalDB への接続*
-11. 開く、 **GeekQuizProd**データベースし、展開、**テーブル**ノード。 ご覧のとおり、 **Update-database**コマンドで定義されているすべてのテーブルを生成する、 **TriviaContext**クラス。 検索、 **dbo します。TriviaQuestions**テーブルし、列のノードを開きます。 次のタスクでは、このテーブルに新しい列を追加し、データベースを使用して、更新**移行**します。
+    *LocalDB に接続しています*
+11. **GeekQuizProd**データベースを開き、 **[テーブル]** ノードを展開します。 ご覧のように、 **TriviaContext**クラスで定義されているすべてのテーブルが、**データベースの更新**コマンドによって生成されました。 Dbo を見つけ**ます。TriviaQuestions**テーブルを開き、[列] ノードを開きます。 次のタスクでは、このテーブルに新しい列を追加し、**移行**を使用してデータベースを更新します。
 
-    ![トリビアは、列を質問](maintainable-azure-websites-managing-change-and-scale/_static/image7.png "トリビアの列の質問")
+    ![トリビアの質問列](maintainable-azure-websites-managing-change-and-scale/_static/image7.png "トリビアの質問列")
 
-    *トリビアの列を質問します。*
+    *トリビアの質問列*
 
 <a id="Ex1Task2"></a>
-#### <a name="task-2--updating-database-schema-using-migrations"></a>タスク 2 – Migrations を使用してデータベース スキーマの更新
+#### <a name="task-2--updating-database-schema-using-migrations"></a>タスク2–移行を使用してデータベーススキーマを更新する
 
-このタスクで使用する**Entity Framework Code First Migrations**モデルの変更を検出し、データベースを更新するために必要なコードを生成します。 更新は、 **TriviaQuestions**エンティティに新しいプロパティを追加しています。 テーブルに新しい列を含めるには新しい移行を作成するためのコマンドを実行します。
+このタスクでは、 **Entity Framework Code First Migrations**を使用して、モデルの変更を検出し、データベースを更新するために必要なコードを生成します。 **TriviaQuestions**エンティティを更新するには、新しいプロパティを追加します。 次に、コマンドを実行して新しい移行を作成し、新しい列をテーブルに含めます。
 
-1. **ソリューション エクスプ ローラー**、ダブルクリックして、 **TriviaQuestion.cs**ファイル内にある、**モデル**フォルダー。
-2. という名前の新しいプロパティを追加**ヒント**の次のコード スニペットに示すようにします。
+1. **ソリューションエクスプローラー**で、 **[モデル]** フォルダー内にある**TriviaQuestion.cs**ファイルをダブルクリックします。
+2. 次のコードスニペットに示すように、**ヒント**という名前の新しいプロパティを追加します。
 
     [!code-csharp[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample4.cs)]
-3. **パッケージ マネージャー コンソール**、次のコマンドを入力し、キーを押します**Enter**します。 私たちのモデルの変更を反映した新しい移行が作成されます。
+3. **パッケージマネージャーコンソール**で、次のコマンドを入力**して、enter キーを**押します。 モデルの変更を反映した新しい移行が作成されます。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample5.ps1)]
 
-    ![Add-migration](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "Add-migration")
+    ![移行の追加](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "Add-Migration")
 
-    *追加の移行*
+    *移行の追加*
 
     > [!NOTE]
-    > 移行ファイルが 2 つの方法で構成される**を**と**ダウン**します。
+    > 移行ファイルは、**上下**に2つの方法で構成さ**れてい**ます。
     >
-    > - **を**どのような変更をデータベースに適用する、アプリケーションのニーズの現在のバージョンの指定に使用されるメソッド。
-    > - **ダウン**に追加した変更を取り消すために使用、**を**メソッド。
+    > - **Up**メソッドは、アプリケーションの現在のバージョンがデータベースに適用する必要がある変更を指定するために使用されます。
+    > - **Down**は、 **Up**メソッドに追加した変更を元に戻すために使用されます。
     >
-    > データベースの移行では、データベースを更新と、は、タイムスタンプの順序と前回の更新以降に使用されていないものだけですべての移行が実行されます (、 \_MigrationHistory テーブルの追跡どの移行が適用されています)。 **を**すべての移行のメソッドが呼び出され、データベースを指定して、変更すると、します。 以前の移行に戻るになった場合、**ダウン**逆の順序の変更を元に戻すメソッドが呼び出されます。
-4. **パッケージ マネージャー コンソール**、次のコマンドを入力し、キーを押します**Enter**します。
+    > データベースの移行によってデータベースが更新されると、すべての移行がタイムスタンプの順序で実行され、最後の更新以降に使用されていないもののみが実行されます (\_MigrationHistory テーブルは、適用されている移行を追跡します)。 すべての移行の**Up**メソッドが呼び出され、指定した変更がデータベースに対して行われます。 前の移行に戻る場合は、逆の順序で変更を再実行するために**Down**メソッドが呼び出されます。
+4. **パッケージマネージャーコンソール**で、次のコマンドを入力**して、enter キーを**押します。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample6.ps1)]
-5. 出力、 **Update-database**生成されたコマンド、 **Alter Table**に新しい列を追加する SQL ステートメント、 **TriviaQuestions**テーブル、次の図に示すようにします。
+5. 次の図に示すように、 **TriviaQuestions**テーブルに新しい列を追加するために、**データベースの更新**コマンドの出力で**Alter Table** SQL ステートメントが生成されました。
 
-    ![生成される SQL ステートメントの列を追加](maintainable-azure-websites-managing-change-and-scale/_static/image9.png "生成される SQL ステートメントの列の追加")
+    ![列の追加 SQL ステートメントが生成されました](maintainable-azure-websites-managing-change-and-scale/_static/image9.png "列の追加 SQL ステートメントが生成されました")
 
-    *生成される SQL ステートメントの列を追加します。*
-6. **SQL Server オブジェクト エクスプ ローラー**、更新、 **dbo します。TriviaQuestions**テーブル、いることを確認し、新しい**ヒント**列が表示されます。
+    *列の追加 SQL ステートメントが生成されました*
+6. **SQL Server オブジェクトエクスプローラー**で、dbo を更新し**ます。TriviaQuestions**テーブルを作成し、新しい**ヒント**列が表示されていることを確認します。
 
-    ![新しいヒント列を示す](maintainable-azure-websites-managing-change-and-scale/_static/image10.png "新しいヒント列の表示")
+    ![新しいヒント列を表示しています](maintainable-azure-websites-managing-change-and-scale/_static/image10.png "新しいヒント列を表示しています")
 
-    *新しいヒント列の表示*
-7. 戻り、 **TriviaQuestion.cs**エディター、追加、 **StringLength**に制約、*ヒント*プロパティは、次のコード スニペットに示すようにします。
+    *新しいヒント列を表示しています*
+7. 次のコードスニペットに示すように、 **TriviaQuestion.cs**エディターに戻り、 *Hint*プロパティに**stringlength**制約を追加します。
 
     [!code-csharp[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample7.cs)]
-8. **パッケージ マネージャー コンソール**、次のコマンドを入力し、キーを押します**Enter**します。
+8. **パッケージマネージャーコンソール**で、次のコマンドを入力**して、enter キーを**押します。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample8.ps1)]
-9. **パッケージ マネージャー コンソール**、次のコマンドを入力し、キーを押します**Enter**します。
+9. **パッケージマネージャーコンソール**で、次のコマンドを入力**して、enter キーを**押します。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample9.ps1)]
-10. 出力、 **Update-database**生成されたコマンド、 **Alter Table**を更新する SQL ステートメント、*ヒント*の列の型、 **TriviaQuestions**テーブル、次の図に示すようにします。
+10. 次の図に示すように、 **TriviaQuestions**テーブルの*ヒント*列の型を更新するために、**データベースの更新**コマンドの出力で**Alter table** SQL ステートメントが生成されました。
 
-    ![生成される SQL ステートメントの列を alter](maintainable-azure-websites-managing-change-and-scale/_static/image11.png "Alter column SQL ステートメントの生成")
+    ![Alter column SQL ステートメントが生成されました](maintainable-azure-websites-managing-change-and-scale/_static/image11.png "Alter column SQL ステートメントが生成されました")
 
-    *Alter column SQL ステートメントの生成*
-11. **SQL Server オブジェクト エクスプ ローラー**、更新、 **dbo します。TriviaQuestions**テーブルが表示されことを確認、**ヒント**列の型が**nvarchar(150)** します。
+    *Alter column SQL ステートメントが生成されました*
+11. **SQL Server オブジェクトエクスプローラー**で、dbo を更新し**ます。TriviaQuestions**テーブルを確認し、**ヒント**列の型が**nvarchar (150)** であることを確認します。
 
-    ![新しい制約を示す](maintainable-azure-websites-managing-change-and-scale/_static/image12.png "新しい制約を示す")
+    ![新しい制約を表示しています](maintainable-azure-websites-managing-change-and-scale/_static/image12.png "新しい制約を表示しています")
 
-    *新しい制約を示す*
+    *新しい制約を表示しています*
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-deploying-a-web-app-to-staging"></a>演習 2:ステージング Web アプリを展開します。
+### <a name="exercise-2-deploying-a-web-app-to-staging"></a>演習 2: ステージングへの Web アプリのデプロイ
 
-**Web アプリを Azure App Service で**ステージングされた発行を実行することができます。 ステージングされた発行では、既定の運用サイトごとにステージング サイト スロットを作成し、ダウンタイムなしでこれらのスロットをスワップすることができます。 これは、パブリックにリリースする前に変更を検証、段階的サイトのコンテンツを統合し、変更が期待どおりに動作していない場合はロールバックを本当に便利です。
+**Azure App Service の Web Apps**を使用すると、ステージングされた発行を実行できます。 ステージングされた発行では、既定の運用サイトごとにステージングサイトスロットを作成し、ダウンタイムなしでこれらのスロットを交換できるようにします。 これは、パブリックにリリースする前に変更を検証し、サイトコンテンツを段階的に統合し、変更が期待どおりに機能していない場合はロールバックするのに非常に役立ちます。
 
-この演習ではデプロイ、**ギーク Quiz** Git ソース管理を使用して web アプリのステージング環境へのアプリケーション。 これを行うが web アプリを作成し、管理ポータルで必要なコンポーネントのプロビジョニング、構成、 **Git**リポジトリとプッシュ アプリケーション ソース コードをローカル コンピューターから、ステージング スロットにします。 実稼働データベースを更新することもが、 **Code First Migrations**前の演習で作成しました。 その操作を確認するには、このテスト環境でアプリケーションを実行します。 問題がなければ、期待どおりに動作しているそのこと、運用環境にアプリケーションが昇格されます。
+この演習では、Git ソース管理を使用して、web アプリのステージング環境に**マニアクイズ**アプリケーションをデプロイします。 これを行うには、web アプリを作成し、必要なコンポーネントを管理ポータルでプロビジョニングします。次に、 **Git**リポジトリを構成し、ローカルコンピューターからステージングスロットにアプリケーションのソースコードをプッシュします。 また、前の演習で作成した**Code First Migrations**を使用して、実稼働データベースを更新します。 次に、このテスト環境でアプリケーションを実行して、その操作を確認します。 期待どおりに動作していることを確認したら、アプリケーションを運用環境に昇格させます。
 
 > [!NOTE]
-> ステージングされた発行を有効にするのには、web アプリである必要があります**標準モード**します。 Web アプリを標準モードに変更する場合は、追加料金が発生することに注意してください。 価格の詳細については、次を参照してください。 [App Service の価格](https://azure.microsoft.com/pricing/details/app-service/)します。
+> ステージングされた発行を有効にするには、web アプリが**標準モード**である必要があります。 Web アプリを標準モードに変更すると、追加料金が発生することに注意してください。 価格の詳細については、「 [App Service の価格](https://azure.microsoft.com/pricing/details/app-service/)」を参照してください。
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>タスク 1 – Azure App Service で Web アプリの作成
+#### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>タスク1– Azure App Service で Web アプリを作成する
 
-このタスクでの web アプリを作成します**Azure App Service**管理ポータルから。 構成することもが、 **SQL Database**アプリケーションのデータを保持し、ソース コントロールのローカル Git リポジトリを構成します。
+このタスクでは、管理ポータルから**Azure App Service**で web アプリを作成します。 また、 **SQL Database**を構成して、アプリケーションデータを永続化し、ソース管理用のローカル Git リポジトリを構成します。
 
-1. 移動して、 [Azure 管理ポータル](https://manage.windowsazure.com)サブスクリプションに関連付けられた Microsoft アカウントを使用してサインインします。
+1. [Azure 管理ポータル](https://manage.windowsazure.com)にアクセスし、サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
 
-    ![Azure 管理ポータルにサインインするには](maintainable-azure-websites-managing-change-and-scale/_static/image13.png)
+    ![Microsoft Azure 管理ポータルにサインインします。](maintainable-azure-websites-managing-change-and-scale/_static/image13.png)
 
-    *Azure 管理ポータルにサインインするには*
-2. クリックして**新規**ページの下部にあるコマンド バーにします。
+    *Microsoft Azure 管理ポータルにサインインします。*
+2. ページの下部にあるコマンドバーで **[新規]** をクリックします。
 
-    ![新しい web アプリを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image14.png "新しい web アプリを作成します。")
+    ![新しい web アプリの作成](maintainable-azure-websites-managing-change-and-scale/_static/image14.png "新しい web アプリの作成")
 
-    *新しい web アプリを作成します。*
-3. クリックして**コンピューティング**、 **web サイト**し**カスタム作成**です。
+    *新しい web アプリの作成*
+3. **[Compute]** 、 **[web サイト]** 、 **[カスタム作成]** の順にクリックします。
 
-    ![カスタム作成を使用して新しい web アプリを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image15.png "カスタム作成を使用して新しい web アプリを作成します。")
+    ![カスタム作成を使用した新しい web アプリの作成](maintainable-azure-websites-managing-change-and-scale/_static/image15.png "カスタム作成を使用した新しい web アプリの作成")
 
-    *カスタム作成を使用して新しい web アプリを作成します。*
-4. **新規 web サイト - カスタム作成** ダイアログ ボックスで、使用可能な入力**URL** (例:*おたくクイズ*)、場所を選択、**リージョン**ドロップダウン リスト、および選択**新しい SQL データベースの作成**で、**データベース**ドロップダウン リスト。 最後に、選択、**ソース管理から発行** チェック ボックスをクリックします**次**します。
+    *カスタム作成を使用した新しい web アプリの作成*
+4. **[新しい Web サイト-カスタム作成]** ダイアログボックスで、使用可能な**URL** (例:*マニア*) を指定し、 **[リージョン]** ボックスの一覧で場所を選択し、 **[データベース]** ボックスの一覧で **[新しい SQL データベースを作成する]** を選択します。 最後に、 **[ソース管理から発行]** する チェックボックスをオンにし、 **[次へ]** をクリックします。
 
-    ![新しい web アプリをカスタマイズします。](maintainable-azure-websites-managing-change-and-scale/_static/image16.png)
+    ![新しい web アプリのカスタマイズ](maintainable-azure-websites-managing-change-and-scale/_static/image16.png)
 
-    *新しい web アプリをカスタマイズします。*
-5. データベースの設定の次の情報を指定します。
+    *新しい web アプリのカスタマイズ*
+5. データベースの設定に関する次の情報を指定します。
 
-   - **名前**テキスト ボックスに、データベース名を入力します (例: *geekquiz\_db*)
-   - サーバーで**ドロップダウン**一覧で、**新しい SQL database server**します。 または、既存のサーバーを選択できます。
-   - **データベース ユーザー名**と**データベース パスワード**ボックスに、SQL database のサーバー管理者のユーザー名とパスワードを入力します。 サーバーを選択する場合は、既に作成して、パスワードを求められます。
+   - **[名前]** テキストボックスに、データベース名 (例: *geekquiz\_db*) を入力します。
+   - [サーバー **] ドロップダウン**リストで、 **[新しい SQL データベースサーバー]** を選択します。 または、既存のサーバーを選択することもできます。
+   - **[データベースのユーザー名]** ボックスと **[データベースパスワード]** ボックスに、SQL データベースサーバーの管理者のユーザー名とパスワードを入力します。 既に作成してあるサーバーを選択した場合は、パスワードの入力を求めるメッセージが表示されます。
 
-     ![データベースの設定を指定します。](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![データベースの設定の指定](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-     *データベースの設定を指定します。*
-6. **[次へ]** をクリックして、続行します。
-7. 選択**ローカル Git リポジトリ**してをクリックしてソース管理の**次**。
-
-    > [!NOTE]
-    > 展開資格情報 (ユーザー名とパスワード) が求められるあります。
-
-    ![Git リポジトリを作成します。](maintainable-azure-websites-managing-change-and-scale/_static/image18.png)
-
-    *Git リポジトリを作成します。*
-8. 新しい web アプリが作成されるまで待機します。
+     *データベースの設定の指定*
+6. **[次へ]** をクリックして次に進みます。
+7. 使用するソース管理の **[ローカル Git リポジトリ]** を選択し、 **[次へ]** をクリックします。
 
     > [!NOTE]
-    > 既定では、Azure には、ドメインに*azurewebsites.net*が、Azure 管理ポータルを使用してカスタム ドメインを設定することができます。 ただし、特定の Azure App Service のモードを使用している場合、のみカスタム ドメインを管理することができます。
+    > デプロイ資格情報 (ユーザー名とパスワード) の入力を求められる場合があります。
+
+    ![Git リポジトリの作成](maintainable-azure-websites-managing-change-and-scale/_static/image18.png)
+
+    *Git リポジトリの作成*
+8. 新しい web アプリが作成されるまで待ちます。
+
+    > [!NOTE]
+    > 既定では、Azure は*azurewebsites.net*にドメインを提供しますが、azure 管理ポータルを使用してカスタムドメインを設定することもできます。 ただし、特定の Azure App Service モードを使用している場合にのみ、カスタムドメインを管理できます。
     >
-    > Azure App Service は、Free、Shared、Basic、Standard、および Premium エディションで使用できます。 Free および Shared のモードでは、すべての web アプリはマルチ テナント環境で実行され、CPU、メモリ、およびネットワークの使用量クォータがあります。 プランの無料のアプリの最大数が異なる場合があります。 標準モードでは、標準の Azure への対応する専用の仮想マシンで実行されるアプリはコンピューティング リソースを選択します。 Web アプリ モードの構成を見つけることができます、**スケール**web アプリのメニュー。
+    > Azure App Service は、Free、Shared、Basic、Standard、および Premium の各エディションで使用できます。 無料モードと共有モードでは、すべての web アプリがマルチテナント環境で実行され、CPU、メモリ、およびネットワーク使用率のクォータがあります。 無料アプリの最大数は、プランによって異なる場合があります。 標準モードでは、標準の Azure コンピューティングリソースに対応する専用の仮想マシンで実行されるアプリを選択します。 Web アプリモードの構成は、web アプリの **[スケール]** メニューで確認できます。
     >
-    > ![Azure App Service モード](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure App Service のモード")
+    > ![Azure App Service モード](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure App Service モード")
     >
-    > 使用する場合**Shared**または**標準**モードができます、アプリに移動して、web アプリ用のカスタム ドメインを管理する**構成**をクリックしてメニュー **ドメインの管理** *ドメイン名* します。
+    > **共有**モードまたは**標準**モードを使用している場合は、アプリの **[構成]** メニューに移動し、[*ドメイン名*] の **[ドメインの管理]** をクリックすることで、web アプリのカスタムドメインを管理できます。
     >
     > ![ドメインの管理](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "ドメインの管理")
     >
-    > ![カスタム ドメインを管理](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "カスタム ドメインの管理")
-9. Web アプリを作成した後は、下のリンクをクリックして、 **URL**新しい web アプリが実行されていることを確認する列。
+    > ![カスタムドメインの管理](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "カスタムドメインの管理")
+9. Web アプリが作成されたら、 **[URL]** 列の下のリンクをクリックして、新しい web アプリが実行されていることを確認します。
 
-    ![新しい web アプリを参照](maintainable-azure-websites-managing-change-and-scale/_static/image22.png)
+    ![新しい web アプリを参照しています](maintainable-azure-websites-managing-change-and-scale/_static/image22.png)
 
-    *新しい web アプリを参照*
+    *新しい web アプリを参照しています*
 
-    ![実行されている web アプリ](maintainable-azure-websites-managing-change-and-scale/_static/image23.png)
+    ![実行中の web アプリ](maintainable-azure-websites-managing-change-and-scale/_static/image23.png)
 
-    *実行されている web アプリ*
+    *実行中の web アプリ*
 
 <a id="Ex2Task2"></a>
-#### <a name="task-2--creating-the-production-sql-database"></a>タスク 2 – 運用環境の SQL データベースを作成します。
+#### <a name="task-2--creating-the-production-sql-database"></a>タスク2–運用 SQL Database を作成する
 
-このタスクでは、使用、 **Entity Framework Code First Migrations**対象とするデータベースを作成する、 **Azure SQL Database**前のタスクで作成したインスタンス。
+このタスクでは、 **Entity Framework Code First Migrations**を使用して、前の作業で作成した**Azure SQL Database**インスタンスを対象とするデータベースを作成します。
 
-1. 管理ポータルで、前のタスクで作成した web アプリに移動しに移動その**ダッシュ ボード**します。
-2. **ダッシュ ボード**] ページで [**接続文字列を表示**下のリンク、**概要**セクション。
+1. 管理ポータルで、前のタスクで作成した web アプリに移動し、**ダッシュボード**に移動します。
+2. **[ダッシュボード]** ページで、 **[概要] セクションの** **[接続文字列の表示]** リンクをクリックします。
 
-    ![接続文字列を表示](maintainable-azure-websites-managing-change-and-scale/_static/image24.png "接続文字列を表示")
+    ![接続文字列の表示](maintainable-azure-websites-managing-change-and-scale/_static/image24.png "接続文字列の表示")
 
     *接続文字列の表示*
-3. コピー、**接続文字列**値し、ダイアログ ボックスを閉じます。
+3. **[接続文字列]** の値をコピーして、ダイアログボックスを閉じます。
 
-    ![Azure 管理ポータルで接続文字列](maintainable-azure-websites-managing-change-and-scale/_static/image25.png "Azure 管理ポータルで接続文字列")
+    ![Azure 管理ポータルの接続文字列](maintainable-azure-websites-managing-change-and-scale/_static/image25.png "Azure 管理ポータルの接続文字列")
 
-    *Azure 管理ポータルで接続文字列*
-4. クリックして**SQL データベース**で、Azure SQL データベースの一覧を表示するには
+    *Azure 管理ポータルの接続文字列*
+4. **[Sql データベース]** をクリックして、Azure 内の sql データベースの一覧を表示します。
 
-    ![SQL Database メニューの ](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "SQL Database のメニュー")
+    ![SQL Database メニュー](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "SQL Database メニュー")
 
-    *SQL Database のメニュー*
-5. 前のタスクで作成したデータベースを検索し、[サーバー] をクリックします。
+    *SQL Database メニュー*
+5. 前のタスクで作成したデータベースを見つけて、サーバーをクリックします。
 
     ![SQL Database サーバー](maintainable-azure-websites-managing-change-and-scale/_static/image27.png "SQL Database サーバー")
 
     *SQL Database サーバー*
-6. **クイック スタート**ページ サーバーのクリックして**構成**します。
+6. サーバーの **[クイックスタート]** ページで、 **[構成]** をクリックします。
 
-    ![構成メニュー](maintainable-azure-websites-managing-change-and-scale/_static/image28.png "構成メニュー")
+    ![[構成] メニュー](maintainable-azure-websites-managing-change-and-scale/_static/image28.png "[構成] メニュー")
 
-    *メニューを構成します。*
-7. **使用できる IP アドレス**セクションで、をクリックして**許可された IP アドレスを追加**ip アドレスを SQL Database サーバーへの接続を有効にするリンク。
+    *[構成] メニュー*
+7. [**許可さ**れた ip アドレス] セクションで、[**許可された Ip アドレスに追加**する] リンクをクリックして、ip が SQL Database サーバーに接続できるようにします。
 
-    ![使用できる IP アドレス](maintainable-azure-websites-managing-change-and-scale/_static/image29.png "使用できる IP アドレス")
+    ![使用できる IP アドレス](maintainable-azure-websites-managing-change-and-scale/_static/image29.png "許可された IP アドレス")
 
-    *許可された IP アドレス*
-8. クリックして**保存**手順を実行するページの下部にあります。
-9. Visual Studio に切り替えます。
-10. **パッケージ マネージャー コンソール**、次のコマンドの置換を実行する *[YOUR CONNECTION STRING]* プレース ホルダーを Azure からコピーした接続文字列
+    *使用できる IP アドレス*
+8. ページの下部にある **[保存]** をクリックして、手順を完了します。
+9. Visual Studio に戻ります。
+10. **パッケージマネージャーコンソール**で、次のコマンドを実行します。 *[your-CONNECTION-STRING]* プレースホルダーを、Azure からコピーした接続文字列に置き換えます。
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample10.ps1)]
 
-    ![Windows Azure SQL データベースを対象とするデータベースの更新](maintainable-azure-websites-managing-change-and-scale/_static/image30.png "Windows Azure SQL データベースを対象とするデータベースの更新")
+    ![Windows Azure SQL Database を対象とするデータベースの更新](maintainable-azure-websites-managing-change-and-scale/_static/image30.png "Windows Azure SQL Database を対象とするデータベースの更新")
 
-    *Azure SQL データベースを対象とするデータベースの更新*
+    *データベースターゲットの更新 Azure SQL Database*
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--deploying-geek-quiz-to-staging-using-git"></a>タスク 3 – Git を使用してステージング環境に展開するコンピューターおたくクイズ
+#### <a name="task-3--deploying-geek-quiz-to-staging-using-git"></a>タスク3– Git を使用してマニアクイズをステージングにデプロイする
 
-このタスクでは、web アプリのステージングされた発行を有効にします。 次に、ギーク Quiz アプリケーションをローカル コンピューターから直接 web アプリのステージング環境に発行を Git を使用します。
+このタスクでは、web アプリでステージングされた発行を有効にします。 次に、Git を使用して、ローカルコンピューターから web アプリのステージング環境にマニアクイズアプリケーションを直接発行します。
 
-1. ポータルに戻り、下で web アプリの名前をクリックして、**名前**管理ページを表示する列。
+1. ポータルに戻り、 **[名前]** 列の下にある web アプリの名前をクリックして、管理ページを表示します。
 
-    ![Web アプリの管理ページを開く](maintainable-azure-websites-managing-change-and-scale/_static/image31.png)
+    ![Web アプリ管理ページを開く](maintainable-azure-websites-managing-change-and-scale/_static/image31.png)
 
-    *Web アプリの管理ページを開く*
-2. 移動し、**スケール**ページ。 下、**全般**セクションで、**標準**構成をクリックします**保存**コマンド バーでします。
+    *Web アプリ管理ページを開く*
+2. **[スケール]** ページに移動します。 **[全般]** セクションで、構成の **[標準]** を選択し、コマンドバーの **[保存]** をクリックします。
 
     > [!NOTE]
-    > 現在の地域とサブスクリプションのすべての web アプリを実行する**標準**モードのままにしてください、**すべて選択**チェック ボックスをオン、**サイトの選択**構成。 それ以外の場合、オフ、**すべて選択**チェック ボックスをオンします。
+    > 現在のリージョンとサブスクリプションのすべての web アプリを**標準**モードで実行するには、 **[サイトの選択]** 構成で **[すべて選択**] チェックボックスをオンのままにします。 それ以外の場合は、 **[すべて選択**] チェックボックスをオフにします。
 
-    ![Web アプリを標準モードにアップグレードする](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "標準モードに web アプリをアップグレードします。")
+    ![Web アプリを標準モードにアップグレードする](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Web アプリを標準モードにアップグレードする")
 
-    *Web アプリを標準モードにアップグレードします。*
-3. クリックして**はい**変更を確認します。
+    *Web アプリを標準モードにアップグレードする*
+3. **[はい]** をクリックして変更を確定します。
 
-    ![標準モードに変更を確認する](maintainable-azure-websites-managing-change-and-scale/_static/image33.png "web アプリのモードの変更を続行")
+    ![標準モードへの変更を確認しています](maintainable-azure-websites-managing-change-and-scale/_static/image33.png "Web アプリモードの変更を続行しています")
 
-    *標準モードに変更を確認します。*
-4. 移動して、**ダッシュ ボード**ページし、をクリックして**ステージングされた発行を有効にする**下、**概要**セクション。
+    *標準モードへの変更を確認しています*
+4. **[ダッシュボード]** ページにアクセスし、[概要 **] セクションの**ステージングされた **[発行を有効にする]** をクリックします。
 
-    ![ステージングされた発行を有効にする](maintainable-azure-websites-managing-change-and-scale/_static/image34.png "ステージングされた発行を有効にします。")
+    ![ステージングされる発行の有効化](maintainable-azure-websites-managing-change-and-scale/_static/image34.png "ステージングされる発行の有効化")
 
-    *ステージングされた発行を有効にします。*
-5. クリックして**はい**ステージングされた発行を有効にします。
+    *ステージングされる発行の有効化*
+5. **[はい]** をクリックしてステージングされた発行を有効にします。
 
-    ![発行を段階的な確認](maintainable-azure-websites-managing-change-and-scale/_static/image35.png "ステージングされた発行を有効にするには、[はい] をクリックして")
+    ![ステージングされる発行の確認](maintainable-azure-websites-managing-change-and-scale/_static/image35.png "[はい] をクリックしてステージングされる発行を有効にする")
 
-    *ステージングされた発行を確認します。*
-6. Web アプリの一覧では、ステージング サイト スロットを表示する web アプリ名の左側に、マークを展開します。 続けて、web アプリの名前を持つ ***(ステージング)*** します。 管理ページに移動するステージング サイトをクリックします。
+    *ステージングされる発行の確認*
+6. Web アプリの一覧で、web アプリ名の左側にあるマークを展開し、ステージングサイトスロットを表示します。 これには、web アプリの名前の後に ***(ステージング)*** が続きます。 [ステージングサイト] をクリックして、管理ページにアクセスします。
 
-    ![ステージング web アプリに移動する](maintainable-azure-websites-managing-change-and-scale/_static/image36.png "ステージング web アプリに移動します。")
+    ![ステージング web アプリへの移動](maintainable-azure-websites-managing-change-and-scale/_static/image36.png "ステージング web アプリへの移動")
 
-    *ステージングのアプリに移動します。*
-7. その彼の管理 ページの管理ページの他の web アプリのように注意してください。 移動し、**展開**ページとコピー、 **Git URL**値。 この演習の後半で使用します。
+    *ステージングアプリへの移動*
+7. 管理ページは他の web アプリの管理ページのように見えます。 **[デプロイ]** ページに移動し、 **[Git URL]** の値をコピーします。 この演習では、後で使用します。
 
-    ![Git URL 値をコピー](maintainable-azure-websites-managing-change-and-scale/_static/image37.png)
+    ![Git URL 値をコピーしています](maintainable-azure-websites-managing-change-and-scale/_static/image37.png)
 
-    *Git URL 値をコピー*
-8. 新しく開きます**Git Bash**コンソールし、次のコマンドを実行します。 更新プログラム、 *[YOUR APPLICATION PATH]* へのパスのプレース ホルダー、 **GeekQuiz**内にあるソリューション、 **Source\Ex1 DeployingWebSiteToStaging\Begin**のフォルダーこのラボでは。
+    *Git URL 値をコピーしています*
+8. 新しい**Git Bash**コンソールを開き、次のコマンドを実行します。 このラボの**Source\Ex1-DeployingWebSiteToStaging\Begin**フォルダーにある**GeekQuiz**ソリューションへのパスを使用して、 *[your-APPLICATION-path]* プレースホルダーを更新します。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample11.cmd)]
 
-    ![Git の初期化と最初のコミット](maintainable-azure-websites-managing-change-and-scale/_static/image38.png)
+    ![Git 初期化と最初のコミット](maintainable-azure-websites-managing-change-and-scale/_static/image38.png)
 
-    *Git の初期化と最初のコミット*
-9. Web アプリをリモートにプッシュするには、次のコマンドを実行**Git**リポジトリ。 管理ポータルから取得した URL では、プレース ホルダーを置き換えます。 デプロイ パスワードを求めるメッセージが表示されます。
+    *Git 初期化と最初のコミット*
+9. 次のコマンドを実行して、web アプリをリモート**Git**リポジトリにプッシュします。 プレースホルダーは、管理ポータルから取得した URL に置き換えてください。 デプロイパスワードを入力するように求められます。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample12.cmd)]
 
@@ -418,494 +418,494 @@ ms.locfileid: "65118295"
     *Azure へのプッシュ*
 
     > [!NOTE]
-    > FTP ホストや GIT リポジトリの web アプリにコンテンツを展開する場合を使用して認証する必要があります、**デプロイ資格情報**から web アプリの作成した**クイック スタート**または**ダッシュ ボード**管理ページ。 デプロイ資格情報がわからない場合、管理ポータルを使用して簡単にリセットできます。 Web アプリを開いて**ダッシュ ボード**ページ、をクリックし、**デプロイ資格情報をリセット**リンク。 新しいパスワードを入力し、クリックして**OK**します。 デプロイ資格情報は、サブスクリプションに関連付けられているすべての web apps の使用に対して有効です。
-10. Web アプリは、Azure に正常にプッシュされたことを確認するために、管理ポータルに戻り をクリックして**Websites**します。
-11. Web アプリを検索し、ステージング サイト スロットを表示するエントリを展開します。 をクリックして、**名前**管理ページに移動します。
-12. クリックして**展開**を参照してください、**デプロイ履歴**します。 あることを確認、**アクティブなデプロイ**で、 *&quot;初期コミット&quot;* します。
+    > Web アプリの FTP ホストまたは GIT リポジトリにコンテンツをデプロイする場合は、web アプリの **[クイックスタート]** または **[ダッシュボード]** 管理ページから作成した**デプロイ資格情報**を使用して認証する必要があります。 デプロイ資格情報がわからない場合は、管理ポータルを使用して簡単にリセットできます。 Web アプリの**ダッシュボード**ページを開き、 **[デプロイ資格情報のリセット]** リンクをクリックします。 新しいパスワードを入力し、[ **OK]** をクリックします。 デプロイ資格情報は、サブスクリプションに関連付けられているすべての web アプリで使用できます。
+10. Web アプリが Azure に正常にプッシュされたことを確認するには、管理ポータルに戻り、 **[Web サイト]** をクリックします。
+11. Web アプリを検索し、エントリを展開してステージングサイトスロットを表示します。 **[名前]** をクリックして、管理ページにアクセスします。
+12. **デプロイの履歴**を表示するには、 **[デプロイ]** をクリックします。 *&quot;の初期コミット&quot;* で**アクティブなデプロイ**があることを確認します。
 
-    ![アクティブなデプロイ](maintainable-azure-websites-managing-change-and-scale/_static/image40.png)
+    ![アクティブな配置](maintainable-azure-websites-managing-change-and-scale/_static/image40.png)
 
-    *アクティブなデプロイ*
-13. 最後に、クリックして**参照**web アプリに移動して、コマンド バーにします。
+    *アクティブな配置*
+13. 最後に、コマンドバーの **[参照]** をクリックして、web アプリに移動します。
 
-    ![Web アプリを参照します。](maintainable-azure-websites-managing-change-and-scale/_static/image41.png)
+    ![Web アプリの参照](maintainable-azure-websites-managing-change-and-scale/_static/image41.png)
 
-    *Web アプリを参照します。*
-14. アプリケーションが正常にデプロイされている場合は、ギーク Quiz ログイン ページが表示されます。
+    *Web アプリの参照*
+14. アプリケーションが正常にデプロイされた場合は、マニアクイズログインページが表示されます。
 
     > [!NOTE]
-    > デプロイされたアプリケーションのアドレスの URL に続けて、web アプリの名前が含まれています *-ステージング*します。
+    > デプロイされたアプリケーションのアドレス URL には、web アプリの名前と*ステージング*が含まれます。
 
     ![ステージング環境で実行されているアプリケーション](maintainable-azure-websites-managing-change-and-scale/_static/image42.png)
 
     *ステージング環境で実行されているアプリケーション*
-15. アプリケーションを探索する場合は、クリックして**登録**新しいユーザーを登録します。 ユーザー名、電子メール アドレスとパスワードを入力して、アカウントの詳細を完了します。 次に、アプリケーションは、クイズの最初の質問を示します。 想定どおりに動作を確認するいくつかの質問に回答します。
+15. アプリケーションを調査する場合は、 **[登録]** をクリックして新しいユーザーを登録します。 ユーザー名、電子メールアドレス、パスワードを入力して、アカウントの詳細を入力します。 次に、アプリケーションはクイズの最初の質問を表示します。 いくつかの質問に答えて、想定どおりに動作していることを確認してください。
 
-    ![アプリケーションをすぐに使用できます。](maintainable-azure-websites-managing-change-and-scale/_static/image43.png)
+    ![使用する準備ができているアプリケーション](maintainable-azure-websites-managing-change-and-scale/_static/image43.png)
 
-    *アプリケーションをすぐに使用できます。*
+    *使用する準備ができているアプリケーション*
 
 <a id="Ex2Task4"></a>
-#### <a name="task-4--promoting-the-web-app-to-production"></a>タスク 4 – Web アプリを運用環境に昇格します。
+#### <a name="task-4--promoting-the-web-app-to-production"></a>タスク 4-Web アプリを運用環境に昇格する
 
-Web アプリがステージング環境で正しく動作していることを確認できた運用環境に昇格させることする準備が整いました。 このタスクでは、運用サイト スロットとステージング サイト スロットをスワップします。
+これで、web アプリがステージング環境で正常に動作していることを確認できたので、運用環境に昇格させることができます。 このタスクでは、ステージングサイトスロットと運用サイトスロットをスワップします。
 
-1. 管理ポータルに戻るし、ステージング サイト スロットを選択します。 クリックして**スワップ**コマンド バーにします。
+1. 管理ポータルに戻り、ステージングサイトスロットを選択します。 コマンドバーの **[スワップ]** をクリックします。
 
-    ![運用環境にスワップします。](maintainable-azure-websites-managing-change-and-scale/_static/image44.png)
+    ![運用環境に切り替える](maintainable-azure-websites-managing-change-and-scale/_static/image44.png)
 
-    *運用環境にスワップします。*
-2. クリックして**はい**スワップ操作を続行する確認のダイアログ ボックスでします。 Azure は、ステージング サイトのコンテンツを含む実稼働サイトのコンテンツをすぐにスワップされます。
-
-    > [!NOTE]
-    > (例: 接続文字列の上書き、ハンドラー マッピングなど) の production バージョンには、ステージングされたバージョンからのいくつかの設定が自動的にコピーされますが、(例: DNS エンドポイント、SSL のバインドなど)、その他の設定は変更されません。
-
-    ![スワップ操作を確認します。](maintainable-azure-websites-managing-change-and-scale/_static/image45.png)
-
-    *スワップ操作を確認します。*
-3. スワップが完了すると、運用スロットを選択し、をクリックして**参照**コマンド バーを実稼働サイトを開きます。 アドレス バーの URL に注意してください。
+    *運用環境に切り替える*
+2. 確認ダイアログボックスで **[はい]** をクリックして、スワップ操作を続行します。 Azure では、運用サイトのコンテンツとステージングサイトのコンテンツが即座に交換されます。
 
     > [!NOTE]
-    > キャッシュをクリアするブラウザーを更新する必要があります。 Internet Explorer で、これを行うキーを押して**CTRL + R**します。
+    > ステージングバージョンの一部の設定は、自動的に運用バージョン (接続文字列の上書き、ハンドラーマッピングなど) にコピーされますが、その他の設定は変更されません (DNS エンドポイント、SSL バインドなど)。
 
-    ![運用環境で実行されている web アプリ](maintainable-azure-websites-managing-change-and-scale/_static/image46.png)
-4. **GitBash**コンソールで、運用スロットを対象に、ローカルの Git リポジトリのリモート URL を更新します。 これを行うには、プレース ホルダーをデプロイ ユーザー名と、web アプリの名前に置き換えて、次のコマンドを実行します。
+    ![スワップ操作を確認しています](maintainable-azure-websites-managing-change-and-scale/_static/image45.png)
+
+    *スワップ操作を確認しています*
+3. スワップが完了したら、運用スロットを選択し、コマンドバーの **[参照]** をクリックして運用サイトを開きます。 アドレスバーに URL が表示されていることを確認します。
 
     > [!NOTE]
-    > 次の演習では、ステージング ラボの簡潔さのためだけではなく、運用サイトへ変更をプッシュします。 実際のシナリオで、運用環境に昇格する前にステージング環境の変更を確認することをお勧めします。
+    > キャッシュをクリアするには、ブラウザーを更新する必要がある場合があります。 Internet Explorer では、CTRL キーを押し**ながら R**キーを押すと、この操作を行うことができます。
+
+    ![運用環境で実行されている Web アプリ](maintainable-azure-websites-managing-change-and-scale/_static/image46.png)
+4. **GitBash**コンソールで、ローカル Git リポジトリのリモート URL を更新して、運用スロットを対象にします。 これを行うには、次のコマンドを実行します。プレースホルダーは、デプロイユーザー名と web アプリの名前に置き換えてください。
+
+    > [!NOTE]
+    > 次の演習では、ラボを簡単にするためだけに、ステージングではなく運用サイトに変更をプッシュします。 実際のシナリオでは、運用環境に昇格する前にステージング環境の変更を確認することをお勧めします。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample13.cmd)]
 
 <a id="Exercise3"></a>
-### <a name="exercise-3-performing-deployment-rollback-in-production"></a>手順 3:運用環境でデプロイのロールバックを実行します。
+### <a name="exercise-3-performing-deployment-rollback-in-production"></a>演習 3: 運用環境で展開のロールバックを実行する
 
-場所がないステージングや運用などの間でのホット スワップを実行するステージング スロットを使用する場合のシナリオがある**Free**または**Shared**モード。 そのようなシナリオでする必要がありますアプリケーションをテストするテスト環境で – ローカルまたはリモート サイトで – 運用環境にデプロイする前にします。 ただし、実稼働サイトに、テスト フェーズ中に検出されない問題が発生することが可能です。 この場合、可能な限り早く前とより安定したバージョンのアプリケーションに切り替える簡単にするためのメカニズムを理解しておくことができます。
+ステージングと運用の間でホットスワップを実行するステージングスロットがない場合 (たとえば、 **Free**モードまたは**共有**モードを使用している場合)。 これらのシナリオでは、実稼働環境に配置する前に、ローカルまたはリモートサイトでテスト環境でアプリケーションをテストする必要があります。 ただし、テストフェーズ中に検出されない問題が運用サイトで発生する可能性があります。 この場合、できるだけ早く、より安定したバージョンのアプリケーションに簡単に切り替えるメカニズムを用意することが重要です。
 
-**Azure App Service**、ソース管理からの継続的なデプロイは、考えられるこのおかげ、**再デプロイ**管理ポータルで使用できるアクション。 Azure では、リポジトリにプッシュされたコミットに関連付けられている展開を追跡し、いつでも、以前の展開のいずれかを使用してアプリケーションを再デプロイするためのオプションを提供します。
+**Azure App Service**では、ソース管理からの継続的なデプロイによって、管理ポータルで使用できる再**デプロイ**アクションが発生します。 Azure では、リポジトリにプッシュされたコミットに関連付けられているデプロイを追跡し、いつでも以前のデプロイを使用してアプリケーションを再デプロイするオプションを提供します。
 
-この演習では、コードに変更を実行して、**ギーク Quiz**意図的に挿入するアプリケーション、*バグ*します。 ときに、運用環境にアプリケーションを展開するし、以前の状態に戻るに再デプロイ機能がかかります。
+この演習では、*バグ*を意図的に挿入する**マニアクイズ**アプリケーションのコードに変更を行います。 アプリケーションを運用環境にデプロイしてエラーを確認した後、再デプロイ機能を利用して前の状態に戻ります。
 
 <a id="Ex3Task1"></a>
-#### <a name="task-1--updating-the-geek-quiz-application"></a>タスク 1 – おたくクイズ アプリケーションの更新
+#### <a name="task-1--updating-the-geek-quiz-application"></a>タスク1–マニアクイズアプリケーションを更新する
 
-このタスクでは、小型のコードのリファクタリングが、 **TriviaController**クラスの新しいメソッドに、データベースから選択したクイズ オプションを取得するロジックの一部を抽出します。
+このタスクでは、 **TriviaController**クラスの小さな部分のコードをリファクターして、選択したクイズオプションをデータベースから新しいメソッドに取得するロジックの一部を抽出します。
 
-1. Visual Studio のインスタンスに切り替え、 **GeekQuiz**前の演習からソリューション。
-2. **ソリューション エクスプ ローラー**、オープン、 **TriviaController.cs**ファイル内で、**コント ローラー**フォルダー。
-3. 検索、 **StoreAsync**メソッドと、コードは次の図で強調表示を選択します。
+1. 前の演習で**GeekQuiz**ソリューションを使用して Visual Studio インスタンスに切り替えます。
+2. **ソリューションエクスプローラー**で、 **Controllers**フォルダー内の**TriviaController.cs**ファイルを開きます。
+3. **StoreAsync**メソッドを見つけて、次の図で強調表示されているコードを選択します。
 
-    ![コードを選択します。](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
+    ![コードの選択](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
 
-    *コードを選択します。*
-4. 選択したコードを右クリックし、展開、**リファクタリング**メニュー選択し、**メソッドの抽出しています.** .
+    *コードの選択*
+4. 選択したコードを右クリックし、 **[リファクター]** メニューを展開して **[メソッドの抽出...]** を選択します。
 
-    ![新しいメソッドとして、コードを抽出](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
+    ![新しいメソッドとしてのコードの抽出](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
 
-    *メソッドの抽出を選択します。*
-5. **メソッドの抽出**ダイアログ ボックスで、新しいメソッドの名前*MatchesOption*  をクリック**OK**します。
+    *Extract メソッドの選択*
+5. **[メソッドの抽出]** ダイアログボックスで、新しいメソッドに*MatchesOption*という名前を指定し、[ **OK]** をクリックします。
 
-    ![メソッド名を指定します。](maintainable-azure-websites-managing-change-and-scale/_static/image49.png)
+    ![メソッド名の指定](maintainable-azure-websites-managing-change-and-scale/_static/image49.png)
 
-    *抽出されたメソッドの名前を指定します。*
-6. 選択したコードに抽出し、 **MatchesOption**メソッド。 結果として得られるコードは、次のスニペットに示します。
+    *抽出されたメソッドの名前を指定する*
+6. 次に、選択したコードを**MatchesOption**メソッドに抽出します。 結果のコードは、次のスニペットに示されています。
 
     [!code-csharp[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample14.cs)]
-7. キーを押して**CTRL + S**変更を保存します。
+7. **CTRL + S**キーを押して、変更を保存します。
 
 <a id="Ex3Task2"></a>
-#### <a name="task-2--redeploying-the-geek-quiz-application"></a>タスク 2 – おたくクイズのアプリケーションを再デプロイします。
+#### <a name="task-2--redeploying-the-geek-quiz-application"></a>タスク2–マニアクイズアプリケーションを再展開する
 
-運用環境への新しい配置をトリガーすると、リポジトリに、前のタスクで加えた変更をプッシュします。 次を使用して、問題のトラブルシューティングは、 **F12 開発ツール**、Internet Explorer によって提供され、Azure 管理ポータルから、以前のデプロイにロールバックを実行します。
+次に、前のタスクで行った変更をリポジトリにプッシュします。これにより、運用環境への新しいデプロイがトリガーされます。 次に、Internet Explorer に用意されている**F12 開発ツール**を使用して問題を解決してから、Azure 管理ポータルから以前のデプロイへのロールバックを実行します。
 
-1. 新しく開きます**Git Bash**更新されたアプリケーションを Azure App Service をデプロイするコンソール。
-2. Azure に変更をプッシュするには、次のコマンドを実行します。 更新プログラム、 *[YOUR APPLICATION PATH]* へのパスのプレース ホルダー、 **GeekQuiz**ソリューション。 デプロイ パスワードを求めるメッセージが表示されます。
+1. 新しい**Git Bash**コンソールを開き、Azure App Service に更新されたアプリケーションをデプロイします。
+2. 次のコマンドを実行して、変更を Azure にプッシュします。 **GeekQuiz**ソリューションへのパスを使用して、 *[your-APPLICATION-path]* プレースホルダーを更新します。 デプロイパスワードを入力するように求められます。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample15.cmd)]
 
-    ![リファクタリング後のコードを Azure にプッシュ](maintainable-azure-websites-managing-change-and-scale/_static/image50.png)
+    ![リファクタリングされるコードを Azure にプッシュする](maintainable-azure-websites-managing-change-and-scale/_static/image50.png)
 
-    *リファクタリング後のコードを Azure にプッシュ*
-3. Internet Explorer を開き、web アプリに移動します (例: `http://<your-web-site>.azurewebsites.net`)。 以前に作成した資格情報を使用してをログインします。
-4. キーを押して**F12**開発ツールを起動するには、次のように選択します。、**ネットワーク** タブで  をクリックし、**再生**記録を開始するボタンをクリックします。
+    *リファクタリングされるコードを Azure にプッシュする*
+3. Internet Explorer を開き、web アプリに移動します (例: `http://<your-web-site>.azurewebsites.net`)。 以前に作成した資格情報を使用してログインします。
+4. **F12**キーを押して開発ツールを起動し、 **[ネットワーク]** タブを選択し、 **[再生]** ボタンをクリックして記録を開始します。
 
-    ![ネットワークの記録を開始](maintainable-azure-websites-managing-change-and-scale/_static/image51.png "ネットワークの記録を開始")
+    ![ネットワーク記録の開始](maintainable-azure-websites-managing-change-and-scale/_static/image51.png "ネットワーク記録の開始")
 
-    *ネットワークの記録を開始*
-5. クイズの任意のオプションを選択します。 何も起こらないことが表示されます。
-6. **F12**ウィンドウで、POST HTTP 要求に対応するエントリを示しています、HTTP **500**結果。
+    *ネットワーク記録の開始*
+5. クイズの任意のオプションを選択します。 何も起こらないことがわかります。
+6. **F12**ウィンドウで、POST http 要求に対応するエントリに http **500**の結果が表示されます。
 
     ![HTTP 500 エラー](maintainable-azure-websites-managing-change-and-scale/_static/image52.png)
 
     *HTTP 500 エラー*
-7. 選択、**コンソール**タブ。エラーが原因の詳細を記録します。
+7. **[コンソール]** タブを選択します。エラーは、原因の詳細と共に記録されます。
 
     ![ログに記録されたエラー](maintainable-azure-websites-managing-change-and-scale/_static/image53.png)
 
     *ログに記録されたエラー*
-8. エラーの詳細部分を見つけます。 明らかに、リファクタリング前の手順でコミットするコードによってこのエラーが発生します。
+8. エラーの詳細部分を見つけます。 明らかに、このエラーは、前の手順でコミットしたコードリファクタリングが原因で発生します。
 
-    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
+    [https://login.microsoftonline.com/consumers/](`Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`)
 9. ブラウザーを閉じないでください。
-10. 新しいブラウザー インスタンスでは、に移動、 [Azure 管理ポータル](https://manage.windowsazure.com)サブスクリプションに関連付けられた Microsoft アカウントを使用してサインインします。
-11. 選択**Websites**手順 2 で作成した web アプリをクリックします。
-12. 移動し、**展開**ページ。 デプロイ履歴で、実行されるすべてのコミットが表示されていることに注意してください。
+10. 新しいブラウザーインスタンスで、 [Azure 管理ポータル](https://manage.windowsazure.com)に移動し、サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
+11. **[Web サイト]** を選択し、演習2で作成した web アプリをクリックします。
+12. **[デプロイ]** ページに移動します。 実行されたすべてのコミットがデプロイ履歴に表示されていることに注意してください。
 
     ![既存の展開の一覧](maintainable-azure-websites-managing-change-and-scale/_static/image54.png)
 
     *既存の展開の一覧*
-13. 以前のコミットを選択し、クリックして**再デプロイ**コマンド バーにします。
+13. 以前のコミットを選択し、コマンドバーの [再**デプロイ**] をクリックします。
 
-    ![以前のコミットを再デプロイします。](maintainable-azure-websites-managing-change-and-scale/_static/image55.png)
+    ![前回のコミットの再デプロイ](maintainable-azure-websites-managing-change-and-scale/_static/image55.png)
 
-    *以前のコミットを再デプロイします。*
-14. 確認するメッセージが表示されたら、クリックして**はい**します。
+    *前回のコミットの再デプロイ*
+14. 確認メッセージが表示されたら、 **[はい]** をクリックします。
 
-    ![再展開を確認します。](maintainable-azure-websites-managing-change-and-scale/_static/image56.png)
-15. デプロイが完了したらは、web アプリとキーを押して、ブラウザー インスタンスに切り替える**ctrl キーを押しながら f5 キーを押して**します。
-16. 任意のオプションをクリックします。 フリップ アニメーション処理を実行し、結果 (*修正または正しくない*) が表示されます。
-17. (省略可能)切り替えて、 **Git Bash**コンソールし、以前のコミットに戻すには、次のコマンドを実行します。
+    ![再展開の確認](maintainable-azure-websites-managing-change-and-scale/_static/image56.png)
+15. デプロイが完了したら、web アプリでブラウザーインスタンスに戻り、Ctrl キーを押し**ながら F5**キーを押します。
+16. いずれかのオプションをクリックします。 フリップアニメーションが表示されるようになり、結果 (*正しい/正しくない*) が表示されます。
+17. Optional**Git Bash**コンソールに切り替え、次のコマンドを実行して前のコミットに戻します。
 
     > [!NOTE]
-    > これらのコマンドは、Git リポジトリに正しくないコミットに加えられたすべての変更を元に戻すための新しいコミットを作成します。 Azure は、新しいコミットを使用して、アプリケーションとし、再デプロイします。
+    > これらのコマンドは、無効なコミットで作成された Git リポジトリ内のすべての変更を元に戻す新しいコミットを作成します。 その後、Azure は新しいコミットを使用してアプリケーションを再デプロイします。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample16.cmd)]
 
 <a id="Exercise4"></a>
-### <a name="exercise-4-scaling-using-azure-storage"></a>演習 4:Azure Storage を使用したスケーリング
+### <a name="exercise-4-scaling-using-azure-storage"></a>演習 4: Azure Storage を使用したスケーリング
 
-**Blob**は大量の非構造化テキストまたはバイナリ データなど、ビデオ、オーディオ、イメージを格納する最も簡単な方法です。 記憶域をアプリケーションの静的コンテンツを移動するは、画像またはドキュメントをブラウザーに直接配信することによって、アプリケーションをスケールするのに役立ちます。
+**Blob**は、大量の非構造化テキストまたはバイナリデータ (ビデオ、オーディオ、画像など) を格納する最も簡単な方法です。 アプリケーションの静的コンテンツをストレージに移行することで、イメージまたはドキュメントを直接ブラウザーに提供してアプリケーションを拡張できます。
 
-この演習では、Blob コンテナーに、アプリケーションの静的コンテンツを移動します。 アプリケーションを追加するを構成し、 **ASP.NET URL の書き換え規則**で、 **Web.config**コンテンツを Blob コンテナーにリダイレクトします。
+この演習では、アプリケーションの静的コンテンツを Blob コンテナーに移動します。 次に、コンテンツを Blob コンテナーに**リダイレクトするために、** web.config で**ASP.NET URL 書き換えルール**を追加するようにアプリケーションを構成します。
 
 <a id="Ex4Task1"></a>
-#### <a name="task-1--creating-an-azure-storage-account"></a>タスク 1 – Azure ストレージ アカウントの作成
+#### <a name="task-1--creating-an-azure-storage-account"></a>タスク1– Azure Storage アカウントを作成する
 
-このタスクでは、管理ポータルを使用して、新しいストレージ アカウントを作成する方法を学びます。
+このタスクでは、管理ポータルを使用して新しいストレージアカウントを作成する方法について説明します。
 
-1. 移動し、 [Azure 管理ポータル](https://manage.windowsazure.com)サブスクリプションに関連付けられた Microsoft アカウントを使用してサインインします。
-2. 選択**新しい |Data Services |記憶域 |簡易作成**新しいストレージ アカウントの作成を開始します。 クリックし、アカウントの一意の名前を入力、**リージョン**一覧から。 クリックして**ストレージ アカウントの作成**を続行します。
+1. [Azure 管理ポータル](https://manage.windowsazure.com)に移動し、サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
+2. 新規 を選択します。 **Data Services |Storage |簡易作成**を実行して、新しいストレージアカウントの作成を開始します。 アカウントの一意の名前を入力し、一覧から**リージョン**を選択します。 **[ストレージアカウントの作成]** をクリックして続行します。
 
-    ![新しいストレージ アカウントを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image57.png "新しいストレージ アカウントの作成")
+    ![新しいストレージアカウントを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image57.png "新しいストレージアカウントを作成する")
 
-    *新しいストレージ アカウントの作成*
-3. **ストレージ**セクションで、新しいストレージ アカウントの状態に変わるまで待機*オンライン*次の手順を続行するためです。
+    *新しいストレージアカウントを作成する*
+3. **[ストレージ]** セクションで、新しいストレージアカウントの状態が [*オンライン*] に変わるまで待ってから、次の手順に進みます。
 
-    ![作成したストレージ アカウント](maintainable-azure-websites-managing-change-and-scale/_static/image58.png "ストレージ アカウントの作成")
+    ![作成されたストレージアカウント](maintainable-azure-websites-managing-change-and-scale/_static/image58.png "作成されたストレージアカウント")
 
-    *ストレージ アカウントの作成*
-4. ストレージ アカウントの名前をクリックし、**ダッシュ ボード**ページの上部にあるリンクです。 **ダッシュ ボード**ページによって、アカウントと、アプリケーション内で使用できるサービス エンドポイントの状態に関する情報を提供します。
+    *作成されたストレージアカウント*
+4. ストレージアカウント名をクリックし、ページの上部にある **[ダッシュボード]** リンクをクリックします。 **[ダッシュボード]** ページには、アカウントの状態と、アプリケーション内で使用できるサービスエンドポイントに関する情報が表示されます。
 
-    ![ストレージ アカウント ダッシュ ボードを表示する](maintainable-azure-websites-managing-change-and-scale/_static/image59.png "ストレージ アカウント ダッシュ ボードを表示します。")
+    ![ストレージアカウントダッシュボードの表示](maintainable-azure-websites-managing-change-and-scale/_static/image59.png "ストレージアカウントダッシュボードの表示")
 
-    *ストレージ アカウント ダッシュ ボードを表示します。*
-5. をクリックして、**アクセス キーの管理**ナビゲーション バーのボタンをクリックします。
+    *ストレージアカウントダッシュボードの表示*
+5. ナビゲーションバーの **[アクセスキーの管理]** ボタンをクリックします。
 
-    ![アクセス キーの管理 ボタン](maintainable-azure-websites-managing-change-and-scale/_static/image60.png "アクセス キーの管理 ボタン")
+    ![[アクセスキーの管理] ボタン](maintainable-azure-websites-managing-change-and-scale/_static/image60.png "[アクセスキーの管理] ボタン")
 
-    *[アクセス キー] ボタンを管理します。*
-6. **アクセス キーの管理**ダイアログ ボックスで、コピー、**ストレージ アカウント名**と**プライマリ アクセス キー**に次の手順で必要になります。 次に、ダイアログ ボックスを閉じます。
+    *[アクセスキーの管理] ボタン*
+6. **[アクセスキーの管理]** ダイアログボックスで、**ストレージアカウント名**と**プライマリアクセスキー**をコピーします。次の演習で必要になります。 次に、ダイアログボックスを閉じます。
 
-    ![アクセス キーの管理 ダイアログ ボックス](maintainable-azure-websites-managing-change-and-scale/_static/image61.png "アクセス キーの管理 ダイアログ ボックス")
+    ![[アクセスキーの管理] ダイアログボックス](maintainable-azure-websites-managing-change-and-scale/_static/image61.png "[アクセスキーの管理] ダイアログボックス")
 
-    *管理アクセス キー ダイアログ ボックス*
+    *[アクセスキーの管理] ダイアログボックス*
 
 <a id="Ex4Task2"></a>
-#### <a name="task-2--uploading-an-asset-to-azure-blob-storage"></a>タスク 2 – Azure Blob Storage への資産のアップロード
+#### <a name="task-2--uploading-an-asset-to-azure-blob-storage"></a>タスク2– Azure Blob Storage に資産をアップロードする
 
-このタスクでは、ストレージ アカウントに接続する Visual Studio から、サーバー エクスプ ローラー ウィンドウを使用します。 Blob コンテナーを作成し、ギーク Quiz ロゴのファイルをコンテナーにアップロードされます。
+このタスクでは、Visual Studio の [サーバーエクスプローラー] ウィンドウを使用して、ストレージアカウントに接続します。 次に、blob コンテナーを作成し、マニアクイズロゴを含むファイルをコンテナーにアップロードします。
 
-1. Visual Studio のインスタンスに切り替え、 **GeekQuiz**前の演習からソリューション。
-2. メニュー バーから選択**ビュー**  をクリックし、**サーバー エクスプ ローラー**します。
-3. **サーバー エクスプ ローラー**を右クリックし、 **Azure**ノード**を Azure に接続しています.** .サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
+1. 前の演習で**GeekQuiz**ソリューションを使用して Visual Studio インスタンスに切り替えます。
+2. メニューバーから **[表示]** を選択し、 **[サーバーエクスプローラー]** をクリックします。
+3. **サーバーエクスプローラー**で、 **[azure]** ノードを右クリックし、 **[azure に接続]** を選択します。サブスクリプションに関連付けられている Microsoft アカウントを使用してサインインします。
 
-    ![Windows Azure への接続します。](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
+    ![Windows Azure へ接続](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
-    *Azure への接続します。*
-4. 展開、 **Azure**ノードを右クリックし**ストレージ**選択と**外部ストレージのアタッチしています.** .
-5. **新しいストレージ アカウントの追加** ダイアログ ボックスに、入力、**アカウント名**と**アカウント キー** 、前のタスクとクリックで取得した**OK**.
+    *Azure への接続*
+4. **[Azure]** ノードを展開し、 **[ストレージ]** を右クリックして、 **[外部ストレージの接続]** を選択します。
+5. **[新しいストレージアカウントの追加]** ダイアログボックスで、前のタスクで取得した**アカウント名**と**アカウントキー**を入力し、 **[OK]** をクリックします。
 
-    ![新しいストレージ アカウント ダイアログ ボックスを追加します。](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
+    ![[新しいストレージアカウントの追加] ダイアログボックス](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
 
-    *新しいストレージ アカウント ダイアログ ボックスを追加します。*
-6. ストレージ アカウントは、下に表示する必要があります、**ストレージ**ノード。 ストレージ アカウントを展開し、右クリックして**Blob**選択**Blob コンテナーの作成.** .
+    *[新しいストレージアカウントの追加] ダイアログボックス*
+6. ストレージ**ノードの下にストレージ**アカウントが表示されます。 ストレージアカウントを展開し、 **[blob]** を右クリックして、 **[Blob コンテナーの作成...]** を選択します。
 
-    ![Blob コンテナーを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "Blob コンテナーを作成します。")
+    ![Blob コンテナーの作成](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "BLOB コンテナーの作成")
 
-    *Blob コンテナーを作成します。*
-7. **Blob コンテナーの作成** ダイアログ ボックスで、blob コンテナーの名前を入力し、をクリックして**OK**します。
+    *Blob コンテナーの作成*
+7. **[Blob コンテナーの作成]** ダイアログボックスで、blob コンテナーの名前を入力し、[ **OK]** をクリックします。
 
-    ![Blob コンテナーの作成 ダイアログ ボックス](maintainable-azure-websites-managing-change-and-scale/_static/image65.png "Blob コンテナーの作成 ダイアログ ボックス")
+    ![[Blob コンテナーの作成] ダイアログボックス](maintainable-azure-websites-managing-change-and-scale/_static/image65.png "[Blob コンテナーの作成] ダイアログボックス")
 
-    *Blob コンテナー ダイアログ ボックスを作成します。*
-8. 新しい blob コンテナーに追加する必要があります、 **Blob**ノード。 コンテナーを公開して、コンテナーのアクセス許可を変更します。 これを行うを右クリックし、**イメージ**コンテナーと選択**プロパティ**します。
+    *[Blob コンテナーの作成] ダイアログボックス*
+8. 新しい blob コンテナーを**blob**ノードに追加する必要があります。 コンテナーのアクセス許可を変更して、コンテナーをパブリックにします。 これを行うには、 **images**コンテナーを右クリックし、 **[プロパティ]** を選択します。
 
-    ![コンテナーのプロパティをイメージ](maintainable-azure-websites-managing-change-and-scale/_static/image66.png "イメージのコンテナーのプロパティ")
+    ![images コンテナーのプロパティ](maintainable-azure-websites-managing-change-and-scale/_static/image66.png "images コンテナーのプロパティ")
 
-    *コンテナー イメージのプロパティ*
-9. **プロパティ**ウィンドウで、設定、**パブリック読み取りアクセス**に**コンテナー**します。
+    *Images コンテナーのプロパティ*
+9. **[プロパティ]** ウィンドウで、 **[パブリック読み取りアクセス]** を **[コンテナー]** に設定します。
 
-    ![パブリック読み取りアクセスのプロパティを変更する](maintainable-azure-websites-managing-change-and-scale/_static/image67.png "パブリック読み取りアクセスのプロパティを変更します。")
+    ![パブリック読み取りアクセスプロパティの変更](maintainable-azure-websites-managing-change-and-scale/_static/image67.png "パブリック読み取りアクセスプロパティの変更")
 
-    *パブリック読み取りアクセスのプロパティを変更します。*
-10. パブリック アクセス プロパティを変更するには、をクリックする場合は、確認を求められたら**はい**します。
+    *パブリック読み取りアクセスプロパティの変更*
+10. パブリックアクセスプロパティを変更するかどうかを確認するメッセージが表示されたら、 **[はい]** をクリックします。
 
     ![Microsoft Visual Studio 警告](maintainable-azure-websites-managing-change-and-scale/_static/image68.png "Microsoft Visual Studio 警告")
 
     *Microsoft Visual Studio 警告*
-11. **サーバー エクスプ ローラー**でを右クリックし、**イメージ**blob コンテナーと選択**Blob コンテナーの表示**します。
+11. **サーバーエクスプローラー**で、 **images** blob コンテナー内を右クリックし、 **[blob コンテナーの表示]** を選択します。
 
-    ![Blob コンテナーを表示](maintainable-azure-websites-managing-change-and-scale/_static/image69.png "Blob コンテナーの表示")
+    ![Blob コンテナーの表示](maintainable-azure-websites-managing-change-and-scale/_static/image69.png "Blob コンテナーの表示")
 
     *Blob コンテナーの表示*
-12. イメージ コンテナーが新しいウィンドウで開く必要があり、エントリがないの凡例を表示する必要があります。 をクリックして、**アップロード**アイコン ファイルを blob コンテナーにアップロードします。
+12. 新しいウィンドウで images コンテナーが開き、エントリのない凡例が表示されます。 **アップロード**アイコンをクリックして、ファイルを blob コンテナーにアップロードします。
 
-    ![エントリがないイメージ コンテナー](maintainable-azure-websites-managing-change-and-scale/_static/image70.png "エントリがないイメージ コンテナー")
+    ![エントリのないイメージコンテナー](maintainable-azure-websites-managing-change-and-scale/_static/image70.png "エントリのないイメージコンテナー")
 
-    *エントリがないイメージ コンテナー*
-13. **Blob のアップロード** ダイアログ ボックスに移動、**資産**ラボのフォルダー。 選択、**ロゴ big.png**ファイルし、クリックして**オープン**。
-14. ファイルがアップロードされるまで待ちます。 アップロードが完了したら、ファイルがイメージのコンテナーに表示されます。 ファイルのエントリを右クリックして**URL のコピー**します。
+    *エントリのないイメージコンテナー*
+13. **[Blob のアップロード]** ダイアログボックスで、ラボの**Assets**フォルダーに移動します。 **Logo-big**ファイルを選択し、 **[開く]** をクリックします。
+14. ファイルがアップロードされるまで待ちます。 アップロードが完了すると、[images] コンテナーにファイルが表示されます。 ファイルエントリを右クリックし、 **[URL のコピー]** を選択します。
 
-    ![Blob の URL をコピー](maintainable-azure-websites-managing-change-and-scale/_static/image71.png "blob ファイルの URL をコピー")
+    ![Blob URL のコピー](maintainable-azure-websites-managing-change-and-scale/_static/image71.png "Blob ファイルの URL のコピー")
 
-    *Blob の URL をコピーします。*
-15. Internet Explorer を開き、URL を貼り付けます。 次の図は、ブラウザーに表示する必要があります。
+    *Blob URL のコピー*
+15. Internet Explorer を開き、URL を貼り付けます。 次の画像がブラウザーに表示されます。
 
-    ![Windows の Blob ストレージからイメージをロゴ big.png](maintainable-azure-websites-managing-change-and-scale/_static/image72.png "ストレージからロゴ big.png イメージ")
+    ![Windows Blob Storage からの logo-big イメージ](maintainable-azure-websites-managing-change-and-scale/_static/image72.png "ストレージからの logo-big イメージ")
 
-    *logo-big.png image from Azure Blob Storage*
+    *Azure Blob Storage からの logo-big イメージ*
 
 <a id="Ex4Task3"></a>
-#### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a>タスク 3 – Azure Blob Storage から静的コンテンツを使用するソリューションを更新しています
+#### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a>タスク3– Azure Blob Storage からの静的コンテンツを使用するようにソリューションを更新する
 
-このタスクでは、構成、 **GeekQuiz**ソリューション、イメージを使用する Azure Blob Storage にアップロード (web アプリにあるイメージ) ではなくで ASP.NET URL 書き換え規則を追加することで、 **web.config**ファイル。
+このタスクでは、 **web.config ファイルに**ASP.NET URL 書き換えルールを追加することによって、(web アプリに存在するイメージではなく) Azure Blob Storage にアップロードされたイメージを使用するように**GeekQuiz**ソリューションを構成します。
 
-1. Visual Studio で開く、 **Web.config**ファイル内で、 **GeekQuiz**プロジェクトし、検索、 **&lt;system.webServer&gt;** 要素。
-2. URL 書き換え規則が、プレース ホルダーをストレージ アカウント名で更新を追加するには、次のコードを追加します。
+1. Visual Studio で、 **GeekQuiz**プロジェクト**内の web.config ファイルを**開き、 **&lt;system.webserver&gt;** 要素を見つけます。
+2. 次のコードを追加して、URL 書き換えルールを追加し、プレースホルダーをストレージアカウント名で更新します。
 
-    (コード スニペット - *WebSitesInProduction - Ex4 - UrlRewriteRule*)
+    (コードスニペット- *webEx4-UrlRewriteRule*)
 
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > URL リライトは、受信 Web 要求をインターセプトし、別のリソースへの要求のリダイレクトのプロセスです。 URL 書き換えルールでは、書き換えエンジンを要求をリダイレクトする必要がある場合と、リダイレクト先にするように指示します。 書き換えルールは 2 つの文字列で構成されます: 要求された URL で検索するパターン (通常は、正規表現を使用して) 場合に使用すると、パターンを置換する文字列が見つかったとします。 詳細については、次を参照してください。 [ASP.NET における URL リライト](https://msdn.microsoft.com/library/ms972974.aspx)します。
-3. キーを押して**CTRL + S**変更を保存します。
-4. 新しく開きます**Git Bash**更新されたアプリケーションを Azure App Service をデプロイするコンソール。
-5. Azure に変更をプッシュするには、次のコマンドを実行します。 更新プログラム、 *[YOUR APPLICATION PATH]* へのパスのプレース ホルダー、 **GeekQuiz**ソリューション。 デプロイ パスワードを求めるメッセージが表示されます。
+    > URL 書き換えは、受信 Web 要求をインターセプトし、要求を別のリソースにリダイレクトするプロセスです。 URL 書き換え規則は、要求をリダイレクトする必要がある場合や、要求をリダイレクトする必要がある場合に、リライトエンジンに通知します。 書き換え規則は2つの文字列で構成されます。要求された URL で検索するパターン (通常は正規表現を使用) と、パターンを置換する文字列 (見つかった場合) です。 詳細については、「 [ASP.NET での URL の書き換え](https://msdn.microsoft.com/library/ms972974.aspx)」を参照してください。
+3. **CTRL + S**キーを押して、変更を保存します。
+4. 新しい**Git Bash**コンソールを開き、Azure App Service に更新されたアプリケーションをデプロイします。
+5. 次のコマンドを実行して、変更を Azure にプッシュします。 **GeekQuiz**ソリューションへのパスを使用して、 *[your-APPLICATION-path]* プレースホルダーを更新します。 デプロイパスワードを入力するように求められます。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample18.cmd)]
 
-    ![Azure への更新プログラムの展開](maintainable-azure-websites-managing-change-and-scale/_static/image73.png)
+    ![Azure への更新プログラムのデプロイ](maintainable-azure-websites-managing-change-and-scale/_static/image73.png)
 
-    *Azure への更新プログラムの展開*
+    *Azure への更新プログラムのデプロイ*
 
 <a id="Ex4Task4"></a>
-#### <a name="task-4--verification"></a>タスク 4 – 検証
+#### <a name="task-4--verification"></a>タスク4–検証
 
-このタスクでは、使用**Internet Explorer**を参照する、**ギーク Quiz**でホストされているイメージにアプリケーションと、URL の書き換え規則がのイメージが機能し、チェックをリダイレクト**Azure Blob記憶域**します。
+このタスクでは、 **Internet Explorer**を使用して**マニアクイズ**アプリケーションを参照し、イメージの URL 書き換えルールが動作し、 **Azure Blob Storage**でホストされているイメージにリダイレクトされることを確認します。
 
-1. Internet Explorer を開き、web アプリに移動します (例: `http://<your-web-site>.azurewebsites.net`)。 以前に作成した資格情報を使用してをログインします。
+1. Internet Explorer を開き、web アプリに移動します (例: `http://<your-web-site>.azurewebsites.net`)。 以前に作成した資格情報を使用してログインします。
 
-    ![イメージとギーク Quiz web アプリを表示](maintainable-azure-websites-managing-change-and-scale/_static/image74.png "イメージ ギーク Quiz web アプリを表示")
+    ![イメージを使用したマニアクイズ web アプリの表示](maintainable-azure-websites-managing-change-and-scale/_static/image74.png "イメージを使用したマニアクイズ web アプリの表示")
 
-    *イメージとギーク Quiz web アプリを表示*
-2. キーを押して**F12**開発ツールを起動するには、選択、**ネットワーク**タブし、記録を開始します。
+    *イメージを使用したマニアクイズ web アプリの表示*
+2. **F12**キーを押して開発ツールを起動し、 **[ネットワーク]** タブを選択して記録を開始します。
 
-    ![ネットワークの記録を開始](maintainable-azure-websites-managing-change-and-scale/_static/image75.png "ネットワークの記録を開始")
+    ![ネットワーク記録の開始](maintainable-azure-websites-managing-change-and-scale/_static/image75.png "ネットワーク記録の開始")
 
-    *ネットワークの記録を開始*
-3. キーを押して**ctrl キーを押しながら f5 キーを押して**web ページを更新します。
-4. HTTP 要求が表示、ページの読み込みが完了すると、 **/img/logo-big.png** http URL **301**結果 (リダイレクト) と別の要求を`http://[YOUR-STORAGE-ACCOUNT].blob.core.windows.net/images/logo-big.png`URL と HTTP **200**結果。
+    *ネットワーク記録の開始*
+3. CTRL キーを押し**ながら F5**キーを押して、web ページを更新します。
+4. ページの読み込みが完了すると、http **301**の結果 (リダイレクト) と、http **200**の結果を含む `http://[YOUR-STORAGE-ACCOUNT].blob.core.windows.net/images/logo-big.png` url に対する別の要求で、 **/img/logo-big.png** url に対する http 要求が表示されます。
 
-    ![URL リダイレクトの確認](maintainable-azure-websites-managing-change-and-scale/_static/image76.png "開発ツールでリダイレクトを示す")
+    ![URL リダイレクトを確認しています](maintainable-azure-websites-managing-change-and-scale/_static/image76.png "開発ツールでのリダイレクトの表示")
 
-    *URL リダイレクトの確認*
+    *URL リダイレクトを確認しています*
 
 <a id="Exercise5"></a>
-### <a name="exercise-5-using-autoscale-for-web-apps"></a>演習 5:Web アプリの自動スケールの使用
+### <a name="exercise-5-using-autoscale-for-web-apps"></a>演習 5: Web Apps に自動スケールを使用する
 
 > [!NOTE]
-> Web ロードのサポートを必要があるために、この手順は省略可能で&amp;パフォーマンス テストで使用可能なだけ**Visual Studio 2013 Ultimate Edition**します。 Visual Studio 2013 の特定の機能の詳細については、のバージョンを比較[ここ](https://www.microsoft.com/visualstudio/eng/products/compare)します。
+> この演習は、 **Visual Studio 2013 Ultimate Edition**でのみ利用可能な Web ロード &amp; パフォーマンステストをサポートする必要があるため、省略可能です。 特定の Visual Studio 2013 機能の詳細について[は、ここで](https://www.microsoft.com/visualstudio/eng/products/compare)バージョンを比較してください。
 
-**Azure App Service Web Apps**実行されている web アプリの自動スケール機能を提供して**標準モード**します。 自動スケールは、Azure の負荷に応じて、web アプリのインスタンス数の自動スケールを使用できます。 自動スケールを有効にすると、Azure は、web アプリの CPU が 5 分ごとに 1 回チェックし、その時点で必要に応じてインスタンスが追加されます。 CPU 使用率が低い場合インスタンスが削除されます 2 時間おきに web アプリのパフォーマンスが低下しないことを確認します。
+**Azure App Service Web Apps**は、**標準モード**で実行されている Web アプリの自動スケール機能を提供します。 自動スケールを使用すると、負荷に応じて Azure で web アプリのインスタンス数を自動的にスケーリングできます。 自動スケールが有効になっている場合、Azure は web アプリの CPU を5分ごとに確認し、その時点で必要に応じてインスタンスを追加します。 CPU 使用率が低い場合、Azure は2時間ごとにインスタンスを削除して、web アプリのパフォーマンスが低下しないようにします。
 
-この演習では構成に必要な手順を参照してください、**自動スケール**の特徴として、**ギーク Quiz** web アプリ。 インスタンスのアップグレードをトリガーするアプリケーションで十分な CPU の負荷を生成する Visual Studio ロード テストを実行して、この機能を確認します。
+この演習では、**マニアクイズ**web アプリの**自動スケール**機能を構成するために必要な手順について説明します。 この機能を確認するには、Visual Studio ロードテストを実行して、インスタンスのアップグレードをトリガーするためにアプリケーションに十分な CPU 負荷を生成します。
 
 <a id="Ex5Task1"></a>
-#### <a name="task-1--configuring-autoscale-based-on-the-cpu-metric"></a>タスク 1 –、CPU のメトリックに基づく自動スケールを構成します。
+#### <a name="task-1--configuring-autoscale-based-on-the-cpu-metric"></a>タスク 1-CPU メトリックに基づいて自動スケールを構成する
 
-このタスクでは、手順 2 で作成した web アプリの自動スケール機能を有効にするのに、Azure 管理ポータルを使用します。
+このタスクでは、Azure 管理ポータルを使用して、演習2で作成した web アプリの自動スケール機能を有効にします。
 
-1. [Azure 管理ポータル](https://manage.windowsazure.com/)を選択します**Websites**手順 2 で作成した web アプリをクリックします。
-2. 移動し、**スケール**ページ。 で、**容量**セクションで、 **CPU**の**メトリックによるスケール**構成します。
-
-    > [!NOTE]
-    > CPU によってスケーリング、Azure は、CPU 使用率が変更された場合に、アプリが使用するインスタンスの数を動的に調整されます。
-
-    ![CPU によるスケールを選択する](maintainable-azure-websites-managing-change-and-scale/_static/image77.png "自動スケーリングの CPU のメトリックを選択します。")
-
-    *CPU によるスケールを選択します。*
-3. 変更、**ターゲット CPU**構成**20**-**40** %。
+1. [Microsoft Azure 管理ポータル](https://manage.windowsazure.com/)で、 **[web サイト]** を選択し、演習2で作成した web アプリをクリックします。
+2. **[スケール]** ページに移動します。 **[容量]** セクションで、 **[メトリックによるスケール]** 構成の **[CPU]** を選択します。
 
     > [!NOTE]
-    > この範囲は、web アプリの平均 CPU 使用率を表します。 Azure では、追加または、この範囲内で web アプリを保持するインスタンスを削除します。 拡張するために使用されるインスタンスの最小値と最大数がで指定された、**インスタンス数**構成します。 上またはその制限を超える azure になることはありません。
+    > CPU によってスケーリングする場合、CPU の使用率が変化した場合にアプリが使用するインスタンスの数が Azure によって動的に調整されます。
+
+    ![CPU によるスケールの選択](maintainable-azure-websites-managing-change-and-scale/_static/image77.png "自動スケーリングの CPU メトリックの選択")
+
+    *CPU によるスケールの選択*
+3. **ターゲット CPU**構成を**20**-**40** % に変更します。
+
+    > [!NOTE]
+    > この範囲は、web アプリの平均 CPU 使用率を表します。 Azure では、web アプリをこの範囲内に維持するためにインスタンスを追加または削除します。 スケーリングに使用されるインスタンスの最小数と最大数は、**インスタンス数**の構成で指定されます。 Azure はこの制限を超えることはありません。
     >
-    > 既定の**ターゲット CPU**値は、このラボの目的でのみ変更されます。 中程度の負荷をアプリケーションに配置すると、CPU の範囲を小さい値に構成すると、自動スケールをトリガーする機会は増加します。
+    > 既定の**ターゲット CPU**値は、このラボの目的のためだけに変更されます。 CPU の範囲を小さい値で構成すると、アプリケーションに中程度の負荷が発生したときに自動スケールがトリガーされる可能性が高くなります。
 
-    ![CPU の 20 ~ 40% がターゲットの変更](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "に 20 ~ 40% に CPU ターゲットの変更")
+    ![ターゲット CPU を 20 ~ 40% に変更する](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "ターゲット CPU を 20 ~ 40% に変更する")
 
-    *ターゲット CPU の 20 ~ 40% に変更します。*
-4. クリックして**保存**変更を保存するコマンド バーにします。
+    *ターゲット CPU を 20 ~ 40% に変更する*
+4. コマンドバーの **[保存]** をクリックして、変更を保存します。
 
 <a id="Ex5Task2"></a>
-#### <a name="task-2--load-testing-with-visual-studio"></a>タスク 2 – Visual Studio によるロード テスト
+#### <a name="task-2--load-testing-with-visual-studio"></a>タスク 2-Visual Studio を使用したロードテスト
 
-できた**自動スケール**された作成は、構成されている、 **Web パフォーマンスとロード テストのプロジェクト**で Visual Studio で web アプリに対する CPU 負荷を生成します。
+**自動スケール**が構成されたので、web アプリに CPU 負荷を生成するために、Visual Studio で**Web パフォーマンスとロードテストのプロジェクト**を作成します。
 
-1. 開いている**Visual Studio Ultimate 2013**選択**ファイル |新しい |プロジェクトの追加.** 新しいソリューションを開始します。
+1. **Visual Studio Ultimate 2013**を開き、 **File | を選択します。新規 |プロジェクト...** を実行すると、新しいソリューションが開始されます。
 
-    ![新しいプロジェクトを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "新しいプロジェクトを作成します。")
+    ![新しいプロジェクトの作成](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "新しいプロジェクトを作成します。")
 
-    *新しいプロジェクトを作成します。*
-2. **新しいプロジェクト**ダイアログ ボックスで、 **Web パフォーマンスとロード テストのプロジェクト**下、 **(Visual C#) |テスト**タブ。確認します **.NET Framework 4.5**がプロジェクトに名前を選択すると、 *WebAndLoadTestProject*、選択、**場所** をクリック**OK**。
+    *新しいプロジェクトの作成*
+2. **[新しいプロジェクト]** ダイアログボックスで、 **[Web パフォーマンスとロードテストのプロジェクト]** を選択します。  **C#[テスト**] タブ。 **.NET Framework 4.5**が選択されていることを確認し、プロジェクトに*WebAndLoadTestProject*という名前を設定して、**場所**を選択し、 **[OK]** をクリックします。
 
-    ![新しい Web およびロード テスト プロジェクトを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image80.png "Web およびロード テスト プロジェクトを新規作成")
+    ![新しい Web およびロードテストプロジェクトの作成](maintainable-azure-websites-managing-change-and-scale/_static/image80.png "新しい Web およびロードテストプロジェクトの作成")
 
-    *新しい Web およびロード テスト プロジェクトを作成します。*
-3. **WebTest1.webtest**を右クリックし、 **WebTest1**ノードをクリックします**要求の追加**します。
+    *新しい Web およびロードテストプロジェクトの作成*
+3. Webtest1.webtest で、 **Web テスト** **Webtest1.webtest**ノードを右クリックし、 **[要求の追加]** をクリックします。
 
-    ![[Webtest1] への要求の追加](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "[webtest1] への要求の追加")
+    ![Webtest1.webtest への要求の追加](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "Webtest1.webtest への要求の追加")
 
-    *[Webtest1] への要求の追加*
-4. **プロパティ**ウィンドウ、新しい要求のノードの更新、 **Url** web アプリの URL を指すプロパティ (例: *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)* ).
+    *Webtest1.webtest への要求の追加*
+4. 新しい要求 ノードの **[プロパティ]** ウィンドウで、 **[url]** プロパティを web アプリの url を指すように更新します (例: *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)* )。
 
-    ![Url プロパティを変更する](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Url プロパティを変更します。")
+    ![Url プロパティの変更](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Url プロパティの変更")
 
-    *Url プロパティを変更します。*
-5. **WebTest1.webtest**ウィンドウで、右クリック**WebTest1**  をクリック**ループの追加.** .
+    *Url プロパティの変更*
+5. **Webtest1.webtest**ウィンドウで、 **[webtest1.webtest]** を右クリックし、 **[ループの追加...]** をクリックします。
 
-    ![[Webtest1] へのループの追加](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "WebTest1 にループの追加")
+    ![Webtest1.webtest へのループの追加](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "Webtest1.webtest へのループの追加")
 
-    *[Webtest1] へのループの追加*
-6. **条件付き規則の追加と項目をループ**ダイアログ ボックスで、 **For ループ**ルールし、次のプロパティを変更します。
+    *Webtest1.webtest へのループの追加*
+6. **[条件付き規則と項目をループに追加]** ダイアログボックスで、 **for ループ**規則を選択し、次のプロパティを変更します。
 
-   1. **終了値。** 1000
-   2. **コンテキスト パラメーター名:** Iterator
-   3. **増分値。** 1
+   1. **終了値:** 1000
+   2. **コンテキストパラメーター名:** 反
+   3. **増分値:** 1
 
-      ![For ループのルールを選択し、プロパティを更新](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For ループのルールを選択し、プロパティの更新")
+      ![For ループルールを選択してプロパティを更新する](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For ループルールを選択してプロパティを更新する")
 
-      *For ループのルールを選択し、プロパティの更新*
-7. で、**ループ内の項目**セクションで、ループの最初と最後の項目にする前に作成した要求を選択します。 **[OK]** をクリックして続行します。
+      *For ループルールを選択してプロパティを更新する*
+7. **[ループ内の項目]** セクションで、ループの最初と最後の項目として以前に作成した要求を選択します。 続行するには、 **[OK]** をクリックします。
 
-    ![ループの最初と最後の項目を選択する](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "ループの最初と最後の項目を選択します。")
+    ![ループの最初と最後の項目を選択する](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "ループの最初と最後の項目を選択する")
 
-    *ループの最初と最後の項目を選択します。*
-8. **ソリューション エクスプ ローラー**を右クリックし、 **WebAndLoadTestProject**プロジェクトで、展開、**追加**メニュー選択し、**ロード テストしています.** .
+    *ループの最初と最後の項目を選択する*
+8. **ソリューションエクスプローラー**で、 **WebAndLoadTestProject**プロジェクトを右クリックし、 **[追加]** メニューを展開して、 **[ロードテスト]** を選択します。
 
-    ![WebAndLoadTestProject プロジェクトへのロード テストの追加](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "WebAndLoadTestProject プロジェクトへのロード テストの追加")
+    ![WebAndLoadTestProject プロジェクトへのロードテストの追加](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "WebAndLoadTestProject プロジェクトへのロードテストの追加")
 
-    *WebAndLoadTestProject プロジェクトへのロード テストの追加*
-9. **新しいロード テスト ウィザード**ダイアログ ボックスで、をクリックして**次**します。
+    *WebAndLoadTestProject プロジェクトへのロードテストの追加*
+9. **[新しいロードテストウィザード]** ダイアログボックスで、 **[次へ]** をクリックします。
 
-    ![新しいロード テスト ウィザード](maintainable-azure-websites-managing-change-and-scale/_static/image87.png "新しいロード テスト ウィザード")
+    ![新しいロードテストウィザード](maintainable-azure-websites-managing-change-and-scale/_static/image87.png "新しいロードテストウィザード")
 
-    *新しいロード テスト ウィザード*
-10. **シナリオ** ページで、**待ち時間を使用しないでください** をクリック**次**します。
+    *新しいロードテストウィザード*
+10. **[シナリオ]** ページで、 **[待ち時間を使用しない]** を選択し、 **[次へ]** をクリックします。
 
-    ![待ち時間を使用しないように選択](maintainable-azure-websites-managing-change-and-scale/_static/image88.png "待ち時間を使用しないように選択します。")
+    ![待ち時間を使用しないことを選択する](maintainable-azure-websites-managing-change-and-scale/_static/image88.png "待ち時間を使用しないことを選択する")
 
-    *待ち時間を使用しないように選択します。*
-11. **ロード パターン**ことを確認します ページで、**持続ロード**オプションを選択します。 変更、**ユーザー カウント**に設定**250**ユーザーとクリック **[次へ]** します。
+    *待ち時間を使用しないことを選択する*
+11. **[ロードパターン]** ページで、 **[定数読み込み]** オプションが選択されていることを確認します。 **[ユーザーカウント]** 設定を**250**ユーザーに変更し、 **[次へ]** をクリックします。
 
-    ![ユーザー カウントを 250 に変更する](maintainable-azure-websites-managing-change-and-scale/_static/image89.png "を 250 ユーザー数を変更します。")
+    ![ユーザーカウントを250に変更する](maintainable-azure-websites-managing-change-and-scale/_static/image89.png "ユーザーカウントを250に変更する")
 
-    *ユーザー カウントを 250 に変更します。*
-12. **テスト ミックス モデル** ページで、**時系列順に基づいて** をクリック**次**します。
+    *ユーザーカウントを250に変更する*
+12. **[テストミックスモデル]** ページで、 **[順次テスト順序に基づく]** を選択し、 **[次へ]** をクリックします。
 
-    ![テスト ミックス モデルを選択する](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "テスト ミックス モデルの選択")
+    ![テストミックスモデルの選択](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "テストミックスモデルの選択")
 
-    *テスト ミックス モデルの選択*
-13. **テスト ミックス モデル**] ページで [**追加しています.** テストをミックスに追加します。
+    *テストミックスモデルの選択*
+13. **[テストミックスモデル]** ページで **[追加...]** をクリックして、テストをミックスに追加します。
 
-    ![テスト ミックスにテストを追加する](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "テスト ミックスにテストを追加します。")
+    ![テストミックスへのテストの追加](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "テストミックスへのテストの追加")
 
-    *テスト ミックスにテストを追加します。*
-14. **テストの追加**ダイアログ ボックスをダブルクリック**WebTest1**にテストを追加する、**選択されたテスト**一覧。 **[OK]** をクリックして続行します。
+    *テストミックスへのテストの追加*
+14. **[テストの追加]** ダイアログボックスで、 **[webtest1.webtest]** をダブルクリックして、 **[選択したテスト]** の一覧にテストを追加します。 続行するには、 **[OK]** をクリックします。
 
-    ![[Webtest1] テストを追加する](maintainable-azure-websites-managing-change-and-scale/_static/image92.png "[webtest1] テストを追加します。")
+    ![Webtest1.webtest テストの追加](maintainable-azure-websites-managing-change-and-scale/_static/image92.png "Webtest1.webtest テストの追加")
 
-    *[Webtest1] テストを追加します。*
-15. 戻り、**テスト ミックス**] ページで [**次**します。
+    *Webtest1.webtest テストの追加*
+15. **[テストミックス]** ページに戻り、 **[次へ]** をクリックします。
 
-    ![テスト ミックスのページを完了](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "テスト ミックスのページの完了")
+    ![[テストミックスの完了] ページ](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "[テストミックスの完了] ページ")
 
-    *テスト ミックスのページの完了*
-16. **ネットワーク ミックス**] ページで [**次**します。
+    *[テストミックスの完了] ページ*
+16. **[ネットワークミックス]** ページで、 **[次へ]** をクリックします。
 
-    ![クリックして、[ネットワーク ミックス] ページで次に](maintainable-azure-websites-managing-change-and-scale/_static/image94.png "ネットワーク ミックス ページで次をクリックすると")
+    ![[ネットワークミックス] ページで [次へ] をクリックします。](maintainable-azure-websites-managing-change-and-scale/_static/image94.png "[ネットワークミックス] ページで [次へ] をクリックします。")
 
-    *ネットワーク ミックス ページで 次へ をクリックします。*
-17. **ブラウザー ミックス**] ページで、[ **Internet Explorer 10.0**ブラウザーの種類をクリックします**次**します。
+    *[ネットワークミックス] ページで [次へ] をクリックします。*
+17. **[ブラウザーミックス]** ページで、ブラウザーの種類として **[Internet Explorer 10.0]** を選択し、 **[次へ]** をクリックします。
 
-    ![ブラウザーの種類を選択する](maintainable-azure-websites-managing-change-and-scale/_static/image95.png "ブラウザーの種類を選択します。")
+    ![ブラウザーの種類の選択](maintainable-azure-websites-managing-change-and-scale/_static/image95.png "ブラウザーの種類の選択")
 
-    *ブラウザーの種類を選択します。*
-18. **カウンター セット**] ページで [**次**します。
+    *ブラウザーの種類の選択*
+18. **[カウンターセット]** ページで、 **[次へ]** をクリックします。
 
-    ![カウンター セット ページで 次へ をクリックすると](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "カウンター セット ページでは、次をクリックすると")
+    ![[カウンターセット] ページで [次へ] をクリックします。](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "[カウンターセット] ページで [次へ] をクリックします。")
 
-    *カウンター セット ページで 次へ をクリックして*
-19. **実行設定** ページで、設定、**ロード テストの継続時間**に**5 分** をクリック**完了**します。
+    *[カウンターセット] ページで [次へ] をクリックします。*
+19. **[実行設定]** ページで、 **[ロードテストの期間]** を**5 分**に設定し、 **[完了]** をクリックします。
 
-    ![ロード テストの継続時間を 5 分に設定](maintainable-azure-websites-managing-change-and-scale/_static/image97.png "ロード テストの継続時間を 5 分に設定します。")
+    ![ロードテストの期間を5分に設定する](maintainable-azure-websites-managing-change-and-scale/_static/image97.png "ロードテストの期間を5分に設定する")
 
-    *ロード テストの継続時間を 5 分に設定します。*
-20. **ソリューション エクスプ ローラー**、ダブルクリックして、 **Local.settings**テストの設定を表示するファイル。 既定では、Visual Studio は、テストを実行するのにローカル コンピューターを使用します。
+    *ロードテストの期間を5分に設定する*
+20. **ソリューションエクスプローラー**で、**ローカルの設定**ファイルをダブルクリックして、テストの設定を調べます。 既定では、Visual Studio はローカルコンピューターを使用してテストを実行します。
 
     > [!NOTE]
-    > 使用して、クラウドでロード テストを実行するテスト プロジェクトを構成する代わりに、 **Azure テスト計画**します。 Azure のテスト計画には、クラウド ベースのロード テスト サービスをより現実的な負荷をシミュレートする、CPU 容量、使用可能なメモリ、ネットワーク帯域幅などのローカル環境の制約を回避が提供します。 Azure のテスト計画を使用して、ロード テストを実行する方法の詳細については、次を参照してください。[ロード テスト シナリオ](/azure/devops/test/load-test/overview?view=vsts)します。
+    > または、 **Azure Test Plans**を使用して、クラウドでロードテストを実行するようにテストプロジェクトを構成することもできます。 Azure Test Plans は、より現実的な負荷をシミュレートし、CPU 容量、使用可能なメモリ、ネットワーク帯域幅などのローカル環境の制約を回避するクラウドベースのロードテストサービスを提供します。 Azure Test Plans を使用したロードテストの実行の詳細については、「[ロードテストのシナリオ](/azure/devops/test/load-test/overview?view=vsts)」を参照してください。
 
     ![テストの設定](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
 <a id="Ex5Task3"></a>
-#### <a name="task-3--autoscale-verification"></a>タスク 3 – 自動スケール検証
+#### <a name="task-3--autoscale-verification"></a>タスク 3-自動スケール検証
 
-前のタスクで作成したロード テストを実行するようになりましたし負荷の下で web アプリの動作を参照してください。
+ここでは、前のタスクで作成したロードテストを実行し、web アプリが負荷の下でどのように動作するかを確認します。
 
-1. **ソリューション エクスプ ローラー**、ダブルクリックして**LoadTest1.loadtest**をロード テストを開きます。
+1. **ソリューションエクスプローラー**で、 **loadtest1.loadtest**をダブルクリックしてロードテストを開きます。
 
-    ![LoadTest1.loadtest を開く](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "LoadTest1.loadtest を開く")
+    ![Loadtest1.loadtest を開いています。 loadtest](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "Loadtest1.loadtest を開いています。 loadtest")
 
-    *LoadTest1.loadtest を開く*
-2. **LoadTest1.loadtest**ウィンドウで、ロード テストを実行するツールボックス内の最初のボタンをクリックします。
+    *Loadtest1.loadtest を開いています。 loadtest*
+2. **Loadtest1.loadtest**ウィンドウで、ツールボックスの最初のボタンをクリックして、ロードテストを実行します。
 
-    ![ロード テストを実行している](maintainable-azure-websites-managing-change-and-scale/_static/image100.png "ロード テストの実行")
+    ![ロードテストの実行](maintainable-azure-websites-managing-change-and-scale/_static/image100.png "ロードテストの実行")
 
-    *ロード テストの実行*
-3. ロード テストが完了するまで待機します。
-
-    > [!NOTE]
-    > ロード テストでは、web アプリを同時に要求を送信する複数のユーザーをシミュレートします。 テストが実行されている場合は、すべてのエラー、警告、またはロード テストの実行に関連するその他の情報を検出するために使用可能なカウンターを監視できます。
-
-    ![ロード テストを実行している](maintainable-azure-websites-managing-change-and-scale/_static/image101.png "ロード テストが完了するまで待機しています")
-
-    *ロード テストの実行*
-4. テストが完了すると、管理ポータルに戻るしに移動します、**スケール**web アプリのページ。 で、**容量**セクションに表示されます、グラフの新しいインスタンスが自動的にデプロイされたことです。
-
-    ![新しいインスタンスを自動的にデプロイ](maintainable-azure-websites-managing-change-and-scale/_static/image102.png)
-
-    *新しいインスタンスを自動的にデプロイ*
+    *ロードテストの実行*
+3. ロードテストが完了するまで待ちます。
 
     > [!NOTE]
-    > 変更、グラフに表示されるまで数分かかる場合があります (キーを押して**ctrl キーを押しながら f5 キーを押して**ページを更新するには、定期的に)。 すべての変更が表示されない場合、次の操作を行うことができます。
+    > ロードテストでは、web アプリに要求を同時に送信する複数のユーザーをシミュレートします。 テストの実行中は、使用可能なカウンターを監視して、ロードテストの実行に関連するエラー、警告、その他の情報を検出することができます。
+
+    ![ロードテストの実行中](maintainable-azure-websites-managing-change-and-scale/_static/image101.png "ロードテストが完了するまで待機しています")
+
+    *ロードテストの実行中*
+4. テストが完了したら、管理ポータルに戻り、web アプリの **[スケール]** ページに移動します。 **[容量]** セクションで、新しいインスタンスが自動的にデプロイされたことをグラフに表示します。
+
+    ![新しいインスタンスが自動的に展開されました](maintainable-azure-websites-managing-change-and-scale/_static/image102.png)
+
+    *新しいインスタンスが自動的に展開されました*
+
+    > [!NOTE]
+    > グラフに変更が表示されるまでに数分かかる場合があります (ページを更新するには、CTRL キーを押し**ながら F5**キーを押します)。 何も変更されていない場合は、次のようにしてみてください。
     >
-    > - ロード テストの期間は長くなります (例: に**10 分**)
-    > - 最大値と最小値を減らして、**ターゲット CPU**範囲は、web アプリの自動スケールの構成
-    > - 使用してクラウドでロード テストの実行**Azure テスト計画**します。 詳細については[ここ](/azure/devops/test/load-test/index?view=vsts)
+    > - ロードテストの期間を長くする (例: **10 分**)
+    > - Web アプリの自動スケール構成で、**ターゲット CPU**範囲の最大値と最小値を小さくします。
+    > - **Azure Test Plans**を使用して、クラウドでロードテストを実行します。 詳細情報は[こちら](/azure/devops/test/load-test/index?view=vsts)です
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このハンズオン ラボを設定して、Azure で web アプリを運用環境にアプリケーションを配置する方法について説明しました。 使用してデータベースの更新を検出して開始した**Entity Framework Code First Migrations**、しを使用して、サイトの新しいバージョンを展開することで続き**Git**へのロールバックを実行して、サイトの最新の安定バージョン。 さらに、記憶域を使用して静的コンテンツを Blob コンテナーに移動するアプリをスケールする方法を学習しました。
+このハンズオンラボでは、Azure の運用 web アプリにアプリケーションをセットアップしてデプロイする方法を学習しました。 まず、 **Entity Framework Code First Migrations**を使用してデータベースを検出して更新した後、 **Git**を使用してサイトの新しいバージョンをデプロイし、サイトの最新の安定したバージョンへのロールバックを実行します。 また、ストレージを使用してアプリケーションを拡張し、静的コンテンツを Blob コンテナーに移動する方法についても説明しました。

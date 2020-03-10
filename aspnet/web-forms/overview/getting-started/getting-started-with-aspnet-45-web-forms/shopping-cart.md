@@ -9,19 +9,19 @@ ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
 ms.openlocfilehash: d3b619ebd9448d30857ffbaf17fd245b1d54a662
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519298"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78521116"
 ---
 # <a name="shopping-cart"></a>ショッピング カート
 
 [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys サンプルプロジェクト (C#) をダウンロード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)するか[、電子書籍 (PDF) をダウンロード](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)します。
 
-> このチュートリアルシリーズでは、ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎と、Web 用の Microsoft Visual Studio Express 2013 について説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
+> このチュートリアルシリーズでは、ASP.NET 4.5 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎と、Web 用の Microsoft Visual Studio Express 2013 について説明します。 このチュートリアルシリーズ[でC#は、ソースコードが含ま](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)れる Visual Studio 2013 プロジェクトを利用できます。
 
 このチュートリアルでは、Wingtip Toys のサンプル ASP.NET Web フォームアプリケーションにショッピングカートを追加するために必要なビジネスロジックについて説明します。 このチュートリアルは、前のチュートリアル「データ項目と詳細の表示」に基づいており、Wingtip 玩具 Store チュートリアルシリーズの一部です。 このチュートリアルを完了すると、サンプルアプリのユーザーは、ショッピングカートで製品を追加、削除、および変更できるようになります。
 
@@ -306,7 +306,7 @@ ms.locfileid: "76519298"
 
     ![ショッピングカート-カートの更新](shopping-cart/_static/image9.png)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、Wingtip Toys Web Forms サンプルアプリケーション用のショッピングカートを作成しました。 このチュートリアルでは、Code First、データ注釈、厳密に型指定されたデータコントロール、およびモデルバインド Entity Framework を使用しました。
 

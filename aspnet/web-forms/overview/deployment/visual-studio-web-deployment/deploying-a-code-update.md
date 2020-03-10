@@ -9,11 +9,11 @@ ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
 ms.openlocfilehash: 3881833bfe2a50a38a357614f92f434a04a8ab08
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74626779"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78457642"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio を使用した ASP.NET Web 配置: コード更新の配置
 
@@ -23,13 +23,13 @@ ms.locfileid: "74626779"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 最初のデプロイの後、web サイトの保守と開発の作業が継続し、その前に更新プログラムを展開する必要があります。 このチュートリアルでは、アプリケーションコードに更新プログラムをデプロイするプロセスについて順を追って紹介します。 このチュートリアルで実装およびデプロイする更新プログラムには、データベースの変更は含まれません。次のチュートリアルでは、データベースの変更を配置する場合の違いについて説明します。
 
 リマインダー: チュートリアルを実行しているときにエラーメッセージが表示されたり機能しない場合は、必ず[トラブルシューティングのページ](troubleshooting.md)を確認してください。
 
-## <a name="make-a-code-change"></a>コードを変更する
+## <a name="make-a-code-change"></a>コードに変更を加える
 
 アプリケーションの更新の簡単な例として **、インストラクターのページに**、選択したインストラクターが担当するコースの一覧を追加します。
 
@@ -195,7 +195,7 @@ URL は、Azure 管理ポータルの web サイトの [ダッシュボード] �
     ![通常の CSS を使用したホームページ](deploying-a-code-update/_static/image15.png)
 6. ブラウザーを閉じます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ここでは、データベースの変更を伴わないアプリケーションの更新を展開するいくつかの方法を説明しました。また、変更をプレビューして、更新対象が期待どおりであることを確認する方法についても説明しました。 これで、インストラクターのページに、**コース**のセクションがあります。
 

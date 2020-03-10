@@ -1,91 +1,91 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
-title: Windows 認証 (c#) でユーザー |Microsoft Docs
+title: Windows 認証を使用してC#ユーザーを認証する () |Microsoft Docs
 author: microsoft
-description: MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 アプリケーションの web co 内での Windows 認証を有効にする方法について説明します.
+description: MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 アプリケーションの web co で Windows 認証を有効にする方法について説明します。
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 418bb07e-f369-4119-b4b0-08f890f7abb2
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
 ms.openlocfilehash: bb3909bff2791c15a8737fc12cac69f79b55733f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125438"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506248"
 ---
 # <a name="authenticating-users-with-windows-authentication-c"></a>Windows 認証でユーザーを認証する (C#)
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 アプリケーションの web 構成ファイル内で Windows 認証を有効にする方法と iis 認証を構成する方法について説明します。 最後に、[Authorize] 属性を使用して、特定の Windows ユーザーまたはグループにコント ローラー アクションへのアクセスを制限する方法について説明します。
+> MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 アプリケーションの web 構成ファイル内で Windows 認証を有効にする方法と、IIS で認証を構成する方法について説明します。 最後に、[承認] 属性を使用して、特定の Windows ユーザーまたはグループに対するコントローラーアクションへのアクセスを制限する方法について説明します。
 
-このチュートリアルの目標は、利用を実行できる方法について説明する、セキュリティのパスワードには、インターネット インフォメーション サービスに組み込まれている機能は、MVC アプリケーション内のビューを保護します。 特定の Windows ユーザーまたは特定の Windows グループのメンバーであるユーザーによってのみ呼び出されるコント ローラー アクションを許可する方法について説明します。
+このチュートリアルの目的は、MVC アプリケーションのビューをパスワードで保護するためにインターネットインフォメーションサービスに組み込まれているセキュリティ機能を活用する方法を説明することです。 特定の windows ユーザーまたは特定の Windows グループのメンバーであるユーザーのみがコントローラーアクションを呼び出せるようにする方法について説明します。
 
-Windows 認証を使用して意味を会社の内部 web サイト (イントラネット サイト) を作成すると、ユーザー、web サイトにアクセスするときに、標準の Windows ユーザー名とパスワードを使用できるようにします。 Web サイト (Internet の web サイト、) に接続するの外側を構築している場合は、代わりにフォーム認証の使用を検討してください。
+社内の社内 web サイト (イントラネットサイト) を構築していて、ユーザーが web サイトにアクセスするときに標準の Windows ユーザー名とパスワードを使用できるようにする場合は、Windows 認証を使用するのが理にかなっています。 外部に接続する web サイト (インターネット web サイト) を構築する場合は、代わりにフォーム認証を使用することを検討してください。
 
-#### <a name="enabling-windows-authentication"></a>Windows 認証を有効にします。
+#### <a name="enabling-windows-authentication"></a>Windows 認証を有効にする
 
-新しい ASP.NET MVC アプリケーションを作成するときに Windows 認証は既定で有効になっていません。 フォーム認証は、MVC アプリケーションを有効になっている既定の認証の種類です。 MVC アプリケーションの web の構成 (web.config) ファイルを変更して、Windows 認証を有効にする必要があります。 検索、&lt;認証&gt;セクションし、このようなフォーム認証ではなく Windows を使用するように変更します。
+新しい ASP.NET MVC アプリケーションを作成する場合、Windows 認証は既定では有効になっていません。 フォーム認証は、MVC アプリケーションに対して有効になっている既定の認証の種類です。 MVC アプリケーションの web 構成 (web.config) ファイルを変更して、Windows 認証を有効にする必要があります。 &lt;authentication&gt; セクションを見つけて、次のようなフォーム認証ではなく Windows を使用するように変更します。
 
 [!code-xml[Main](authenticating-users-with-windows-authentication-cs/samples/sample1.xml)]
 
-Windows 認証を有効にすると、web サーバーはユーザーを認証するための責任になります。 通常、2 種類の作成と、ASP.NET MVC アプリケーションを展開するときに使用する web サーバーがあります。
+Windows 認証を有効にすると、web サーバーはユーザーの認証を担当します。 通常、ASP.NET MVC アプリケーションを作成してデプロイするときに使用する web サーバーには2種類あります。
 
-最初に、MVC アプリケーションの開発中には、Visual Studio に付属する ASP.NET 開発 Web サーバーを使用します。 既定では、ASP.NET 開発 Web サーバーは、現在の Windows アカウント (任意のアカウントが Windows にログオンするため) のコンテキストですべてのページを実行します。
+まず、MVC アプリケーションを開発するときに、Visual Studio に付属の ASP.NET Development Web サーバーを使用します。 既定では、ASP.NET Development Web サーバーは、Windows へのログインに使用したすべてのアカウントについて、現在の Windows アカウントのコンテキストですべてのページを実行します。
 
-ASP.NET 開発 Web サーバーには、NTLM 認証もサポートしています。 ソリューション エクスプ ローラー ウィンドウで、プロジェクトの名前を右クリックし、プロパティ を選択して、NTLM 認証を有効にすることができます。 次に、[Web] タブを選択し、NTLM のチェック ボックスをオン (図 1 参照)。
+ASP.NET Development Web サーバーは、NTLM 認証もサポートしています。 NTLM 認証を有効にするには、[ソリューションエクスプローラー] ウィンドウでプロジェクトの名前を右クリックし、[プロパティ] を選択します。 次に、[Web] タブを選択し、[NTLM] チェックボックスをオンにします (図1を参照)。
 
-**図 1 – 有効にすると、ASP.NET 開発 Web サーバーの NTLM 認証**
+**図 1: ASP.NET Development Web サーバーの NTLM 認証を有効にする**
 
 ![clip_image002](authenticating-users-with-windows-authentication-cs/_static/image1.jpg)
 
-実稼働 web アプリケーションでは、一方でとして使用する IIS web サーバー。 IIS では、認証などのいくつかの種類をサポートします。
+実稼働 web アプリケーションの場合は、IIS を web サーバーとして使用します。 IIS は次のようないくつかの種類の認証をサポートしています。
 
-- 基本認証 – は、HTTP 1.0 プロトコルの一部として定義します。 ユーザー名とパスワードをクリア テキスト (Base64 エンコード) で、インターネット経由で送信します。 ダイジェスト認証 – インターネット経由でそれ自体には、パスワードの代わりに、パスワードのハッシュを送信します。 -統合された Windows (NTLM) 認証 – windows を使用するイントラネット環境で使用する認証の最適な型です。 -証明書の認証: クライアント側の証明書を使用して認証を有効にします。 証明書は、Windows ユーザー アカウントにマップされます。
+- 基本認証-HTTP 1.0 プロトコルの一部として定義されます。 インターネット経由でユーザー名とパスワードをクリアテキスト (Base64 エンコード) で送信します。 -Digest 認証–パスワード自体ではなく、パスワードのハッシュをインターネット経由で送信します。 -統合 Windows (NTLM) 認証– windows を使用してイントラネット環境で使用する最適な認証の種類。 -証明書認証–クライアント側の証明書を使用した認証を有効にします。 証明書は Windows ユーザーアカウントにマップされます。
 
 > [!NOTE] 
 > 
-> これらの認証の種類の詳細な概要については、次を参照してください。 [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx)します。
+> これらのさまざまな種類の認証の詳細については、「 [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx)」を参照してください。
 
-インターネット インフォメーション サービス マネージャーを使用して、特定の種類の認証を有効にすることができます。 すべての種類の認証はすべてのオペレーティング システムの場合は使用できないことに注意します。 さらに、Windows Vista で IIS 7.0 を使用する場合、インターネット インフォメーション サービス マネージャーに表示される前に、別の種類の Windows 認証を有効にする必要があります。 開いている**コントロール パネル、プログラム、プログラムと機能を有効にする Windows 機能のオンまたはオフ**、インターネット インフォメーション サービス ノードを展開し、(図 2 参照)。
+インターネットインフォメーションサービス Manager を使用して、特定の種類の認証を有効にすることができます。 すべての種類の認証は、すべてのオペレーティングシステムで使用できるわけではないことに注意してください。 さらに、Windows Vista で IIS 7.0 を使用している場合は、インターネットインフォメーションサービス Manager に表示する前に、さまざまな種類の Windows 認証を有効にする必要があります。 [**コントロールパネル]、[プログラム]、[プログラムと機能] の順に開き、[Windows の機能の有効化または無効化**] を開き、[インターネットインフォメーションサービス] ノードを展開します (図2を参照)。
 
-**図 2 – Windows IIS を有効にする機能**
+**図 2-Windows IIS 機能の有効化**
 
 ![clip_image004](authenticating-users-with-windows-authentication-cs/_static/image2.jpg)
 
-インターネット インフォメーション サービスを使用して、有効または、さまざまな種類の認証を無効にできます。 たとえば、図 3 に示します匿名認証を無効にして、統合 Windows (NTLM) 認証を有効にすると IIS 7.0 を使用する場合。
+インターネットインフォメーションサービスを使用すると、さまざまな種類の認証を有効または無効にすることができます。 たとえば、図3は、IIS 7.0 を使用する場合に、匿名認証を無効にし、統合 Windows (NTLM) 認証を有効にする方法を示しています。
 
-**図 3: 統合 Windows 認証を有効にします。**
+**図 3-統合 Windows 認証の有効化**
 
 ![clip_image006](authenticating-users-with-windows-authentication-cs/_static/image3.jpg)
 
-#### <a name="authorizing-windows-users-and-groups"></a>Windows を承認するユーザーとグループ
+#### <a name="authorizing-windows-users-and-groups"></a>Windows ユーザーとグループの承認
 
-Windows 認証を有効にした後は、コント ローラーまたはコント ローラー アクションへのアクセスを制御するのに [Authorize] 属性を使用することができます。 この属性は、MVC コント ローラーが全体または特定のコント ローラー アクションに適用できます。
+Windows 認証を有効にした後は、[承認] 属性を使用してコントローラーまたはコントローラーアクションへのアクセスを制御できます。 この属性は、MVC コントローラー全体または特定のコントローラーアクションに適用できます。
 
-たとえば、リスト 1 で、Home コント ローラーは、Index()、CompanySecrets()、StephenSecrets() という 3 つのアクションを公開します。 Index() アクションだれでも呼び出すことができます。 ただし、Windows のローカル管理者グループのメンバーだけが CompanySecrets() アクションを呼び出すことができます。 最後に、(Redmond ドメイン) で Stephen という名前の Windows ドメイン ユーザーのみが StephenSecrets() アクションを呼び出すことができます。
+たとえば、リスト1のホームコントローラーでは、Index ()、企業秘密 ()、StephenSecrets () という3つのアクションが公開されています。 すべてのユーザーが Index () アクションを呼び出すことができます。 ただし、会社のシークレット () アクションを呼び出すことができるのは、Windows ローカルマネージャーグループのメンバーだけです。 最後に、Stephen (Redmond ドメイン内) という名前の Windows ドメインユーザーのみが StephenSecrets () アクションを呼び出すことができます。
 
-**Listing 1 – Controllers\HomeController.cs**
+**リスト1– Controllers\ homecontroller.cs**
 
 [!code-csharp[Main](authenticating-users-with-windows-authentication-cs/samples/sample2.cs)]
 
 > [!NOTE] 
 > 
-> により Windows ユーザー アカウント制御 (UAC)、Windows Vista または Windows Server 2008 を使用する場合、ローカルの Administrators グループの他のグループとは異なる動作はします。 コンピューターの UAC 設定を変更しない限り、[Authorize] 属性は、ローカルの Administrators グループのメンバーを正しく認識しません。
+> Windows ユーザーアカウント制御 (UAC) のため、Windows Vista または Windows Server 2008 を使用する場合、ローカルの Administrators グループの動作は他のグループとは異なります。 [承認] 属性では、コンピューターの UAC 設定を変更しない限り、ローカルの Administrators グループのメンバーが正しく認識されません。
 
-適切なアクセス許可でなくてコント ローラーのアクションを呼び出すしようとしたときの動作については、有効な認証の種類によって異なります。 既定では、ASP.NET 開発サーバーを使用する場合、空白のページだけを取得します。 ページが提供され、 **401 未承認**HTTP 応答の状態。
+適切なアクセス許可がない状態でコントローラーアクションを呼び出そうとすると、有効になっている認証の種類によって、正確に発生します。 既定では、ASP.NET 開発サーバーを使用すると、空白のページが表示されます。 ページには、401の**承認されていない**HTTP 応答ステータスが提供されます。
 
-かどうか、その一方で、匿名認証を無効になっていると、基本認証を有効にすると、IIS を使用しているし、保護されたページを要求するたびに、ログイン ダイアログ プロンプト続けて表示 (図 4 参照)。
+一方、匿名認証を無効にし、基本認証を有効にした状態で IIS を使用している場合は、保護されたページを要求するたびにログインダイアログプロンプトが表示されます (図4を参照)。
 
-**図 4 – 基本認証のログイン ダイアログ ボックス**
+**図4–基本認証のログインダイアログ**
 
 ![clip_image008](authenticating-users-with-windows-authentication-cs/_static/image4.jpg)
 
 #### <a name="summary"></a>まとめ
 
-このチュートリアルでは、ASP.NET MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 アプリケーションの web 構成ファイル内で Windows 認証を有効にする方法と iis 認証を構成する方法を学習しました。 最後に、[Authorize] 属性を使用して、特定の Windows ユーザーまたはグループにコント ローラー アクションへのアクセスを制限する方法を学習しました。
+このチュートリアルでは、ASP.NET MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明しました。 アプリケーションの web 構成ファイル内で Windows 認証を有効にする方法と、IIS で認証を構成する方法について学習しました。 最後に、[承認] 属性を使用して、特定の Windows ユーザーまたはグループに対するコントローラーアクションへのアクセスを制限する方法を学習しました。
 
 > [!div class="step-by-step"]
 > [前へ](authenticating-users-with-forms-authentication-cs.md)

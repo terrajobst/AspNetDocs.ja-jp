@@ -9,11 +9,11 @@ ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
 ms.openlocfilehash: f61810ea7b486b2fa0bbb234edea7541eedde835
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457064"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471136"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure を使用した実際のクラウドアプリの構築)
 
@@ -102,7 +102,7 @@ Visual Studio で、新しい聖なる NuGet パッケージをアプリにイ�
 
 また、レポートとイベントを設定することもできます。 たとえば、エラーが発生し始めるたびに、アラートサポートスタッフに電子メールを送信して問題を報告することができます。
 
-![レポート](monitoring-and-telemetry/_static/image19.png)
+![Reports](monitoring-and-telemetry/_static/image19.png)
 
 新しい聖箱は、テレメトリシステムの一例にすぎません。これは、他のサービスからも取得できます。 クラウドの利点は、コードを記述しなくても、最小限またはまったく費用をかけることなく、アプリケーションの使用状況や顧客の実際の使用状況について、さらに多くの情報を得ることができることです。
 
@@ -247,7 +247,7 @@ Azure でのログ記録を有効にすると、Visual Studio の [出力] ウ�
 
 ![サーバーエクスプローラーのログイン](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 すぐに使えるテレメトリシステムを実装し、独自のコードでログ記録を行い、Azure でのログ記録を構成するのは非常に簡単です。 また、運用上の問題がある場合は、テレメトリシステムとカスタムログを組み合わせて使用することで、顧客にとって大きな問題になる前に問題を迅速に解決できるようになります。
 

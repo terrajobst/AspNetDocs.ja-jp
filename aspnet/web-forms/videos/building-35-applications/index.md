@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/building-35-applications/index
-title: 3.5 アプリケーションの構築 |Microsoft Docs
+title: 3\.5 アプリケーションのビルド |Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web フォーム アプリケーションの作成の基本です。
+description: ASP.NET Web フォームアプリケーションの作成の基本。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 20060b05-3c1b-41ca-9621-4434ba233adc
 msc.legacyurl: /web-forms/videos/building-35-applications
 msc.type: chapter
 ms.openlocfilehash: 34136f8601630362fd17f9a4a12b6647285c9bb1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133741"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78464308"
 ---
-# <a name="building-35-applications"></a>3.5 アプリケーションをビルドする
+# <a name="building-35-applications"></a>3\.5 アプリケーションをビルドする
 
-> ASP.NET Web フォーム アプリケーションの作成の基本です。
+> ASP.NET Web フォームアプリケーションの作成の基本。
 
 - [Visual Web Developer 入門](intro-to-visual-web-developer.md)
 - [IntelliSense](intellisense.md)

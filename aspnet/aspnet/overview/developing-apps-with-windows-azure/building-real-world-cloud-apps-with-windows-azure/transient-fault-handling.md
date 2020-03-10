@@ -9,11 +9,11 @@ ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
 ms.openlocfilehash: e798cb83cfb97db63fef6dc38c8f62804461d01b
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456856"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500422"
 ---
 # <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>一時的なエラー処理 (Azure を使用した実際のクラウドアプリの構築)
 
@@ -72,7 +72,7 @@ ms.locfileid: "77456856"
 
 SQL Database 再試行ポリシーのガイダンスについては、「SQL Database の一時的なエラー[と接続エラーのトラブルシューティング](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 再試行/バックオフ戦略を使用すると、一時的なエラーをお客様のほとんどの時間に非表示にすることができます。また、Microsoft は、ADO.NET、Entity Framework、Azure Storage サービスのいずれを使用しているかにかかわらず、作業を最小限に抑えるために使用できるフレームワークを提供します。
 
@@ -91,7 +91,7 @@ SQL Database 再試行ポリシーのガイダンスについては、「SQL Dat
 - [Entity Framework 接続の回復性/再試行ロジック](https://msdn.microsoft.com/data/dn456835)。 Entity Framework 6 の一時的なエラー処理機能を使用およびカスタマイズする方法について説明します。
 - [ASP.NET MVC アプリケーションでの Entity Framework を使用した接続の回復性とコマンドのインターセプト](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)。 9部構成のチュートリアルシリーズの第4部では、SQL Database の EF 6 の接続復元機能を設定する方法について説明します。
 
-Videos
+ビデオ
 
 - [フェイルセーフ: スケーラブルで回復力のある Cloud Services を構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simm による9パートシリーズ。 高度な概念とアーキテクチャの原則を、非常にアクセスしやすく興味深い方法で紹介します。実際の顧客との Microsoft カスタマーアドバイザリチーム (CAT) エクスペリエンスによってストーリーが描画されます。 40:55 で始まるエピソード3のサーキットブレーカーについて説明します。
 - [大規模な構築: Azure のお客様から学んだ教訓-パート II](https://channel9.msdn.com/Events/Build/2012/3-030)。 Simm をマークすると、エラーの設計、一時的なエラー処理、すべてのインストルメント化について話します。

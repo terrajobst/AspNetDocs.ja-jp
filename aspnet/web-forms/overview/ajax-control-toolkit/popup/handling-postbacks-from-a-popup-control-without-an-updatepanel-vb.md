@@ -9,11 +9,11 @@ ms.assetid: a0b9186c-0912-4fff-916a-6d17e696a50b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb
 msc.type: authoredcontent
 ms.openlocfilehash: aaecf77c1d25f2c99ef4e9948d79fc01b837169b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611728"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78446140"
 ---
 # <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-vb"></a>ポップアップ コントロールからポストバックを処理する (UpdatePanel なし) (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611728"
 
 > AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 このようなパネルでポストバックが発生し、ページに複数のパネルがある場合は、どのパネルがクリックされたかを判断するのは困難です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 このようなパネルでポストバックが発生し、ページに複数のパネルがある場合は、どのパネルがクリックされたかを判断するのは困難です。
 
@@ -56,4 +56,4 @@ AJAX Control Toolkit の PopupControl extender は、他のコントロールが
 日付をクリックするとテキストボックスに挿入されます ([クリックすると、フルサイズの画像が表示](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb/_static/image6.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
+> [[戻る]](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)

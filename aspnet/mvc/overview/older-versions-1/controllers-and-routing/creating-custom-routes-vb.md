@@ -1,71 +1,71 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
-title: カスタム ルート (VB) を作成する |Microsoft Docs
+title: カスタムルートを作成する (VB) |Microsoft Docs
 author: microsoft
-description: ASP.NET MVC アプリケーションにカスタム ルートを追加する方法について説明します。 このチュートリアルでは、Global.asax ファイルの既定のルート テーブルを変更する方法について説明します。
+description: ASP.NET MVC アプリケーションにカスタムルートを追加する方法について説明します。 このチュートリアルでは、global.asax ファイルの既定のルートテーブルを変更する方法について説明します。
 ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 6ac5758b-6199-42af-adcb-21954b864951
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 22b44e9e575c9d404881a23ee735bb0c8b7109e1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123351"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486694"
 ---
 # <a name="creating-custom-routes-vb"></a>カスタム ルートを作成する (VB)
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> ASP.NET MVC アプリケーションにカスタム ルートを追加する方法について説明します。 このチュートリアルでは、Global.asax ファイルの既定のルート テーブルを変更する方法について説明します。
+> ASP.NET MVC アプリケーションにカスタムルートを追加する方法について説明します。 このチュートリアルでは、global.asax ファイルの既定のルートテーブルを変更する方法について説明します。
 
-このチュートリアルでは、ASP.NET MVC アプリケーションにカスタム ルートを追加する方法について説明します。 カスタム ルートを使用して、Global.asax ファイルの既定のルート テーブルを変更する方法について説明します。
+このチュートリアルでは、ASP.NET MVC アプリケーションにカスタムルートを追加する方法について説明します。 Global.asax ファイルの既定のルートテーブルをカスタムルートで変更する方法について説明します。
 
-ASP.NET MVC アプリケーションでは既定のルーティング テーブルが正しく機能します。 ただし、ルーティングのニーズが特殊化されたことを見つけることがあります。 その場合は、カスタム ルートを作成することができます。
+ASP.NET MVC アプリケーションでは、既定のルートテーブルは正常に機能します。 ただし、特化されたルーティングニーズがあることがわかります。 その場合は、カスタムルートを作成できます。
 
-たとえば、ブログ アプリケーションを作成することは想像してください。 次のように受信要求を処理する可能性があります。
+たとえば、ブログアプリケーションを作成する場合を考えてみましょう。 次のような受信要求を処理することができます。
 
-/Archive/12-25-2009
+/アーカイブ/月3日
 
-日付に対応するブログ エントリを取得するユーザーには、この要求が入ると、2009 年 12 月 25 日。 この種の要求を処理するためには、カスタム ルートを作成する必要があります。
+ユーザーがこの要求を入力すると、12/25/2009 日付に対応するブログエントリが返されます。 この種類の要求を処理するには、カスタムルートを作成する必要があります。
 
-リスト 1 で、Global.asax ファイルには、ブログ、/Archive/のような要求を処理するという名前の新しいカスタム ルートが含まれています。*エントリの日付*します。
+リスト1の global.asax ファイルには、"ブログ" という名前の新しいカスタムルートが含まれています。このルートは、/アーカイブ/*エントリ日付*のような要求を処理します。
 
-**1 - Global.asax (カスタム ルーティングあり) を一覧表示します。**
+**リスト 1-global.asax (カスタムルートを使用)**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample1.vb)]
 
-ルート テーブルに追加するルートの順序が重要です。 既存の既定のルートの前に、新しいカスタムのブログのルートが追加されます。 順序を反転する場合、既定のルート常に呼び出されるカスタム ルートではなく。
+ルートテーブルに追加するルートの順序は重要です。 新しいカスタムブログルートは、既存の既定のルートの前に追加されます。 順序を逆にした場合、既定のルートは常にカスタムルートではなく呼び出されます。
 
-カスタムのブログのルートでは、/アーカイブ/で始まるすべての要求と一致します。 そのため、次の Url はすべて一致します。
+カスタムブログルートは、/Archive/. で始まるすべての要求と一致します。 そのため、これは次のすべての Url と一致します。
 
-- /Archive/12-25-2009
+- /アーカイブ/月3日
 
 - /Archive/10-6-2004
 
-- /Archive/apple
+- /アーカイブ/apple
 
-カスタム ルートでは、アーカイブをという名前のコント ローラーに、受信要求をマップし、Entry() アクションを呼び出します。 Entry() メソッドが呼び出されたときに、エントリの日付が entryDate という名前のパラメーターとして渡されます。
+カスタムルートは、受信要求を Archive という名前のコントローラーにマップし、Entry () アクションを呼び出します。 Entry () メソッドが呼び出されると、エントリ日付は entryDate という名前のパラメーターとして渡されます。
 
-リスト 2 でコント ローラーでは、ブログのカスタム ルートを使用できます。
+リスト2のコントローラーで、ブログカスタムルートを使用できます。
 
-**2 - ArchiveController.vb を一覧表示します。**
+**リスティング 2-ArchiveController**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample2.vb)]
 
-リスト 2 で Entry() メソッドが DateTime 型のパラメーターを受け入れることに注意してください。 MVC フレームワークには、URL からエントリの日付を自動的に DateTime 値に変換します。 URL からエントリの日付のパラメーターは、DateTime に変換できない、エラーが発生します (図 1 参照)。
+リスト2の Entry () メソッドでは、DateTime 型のパラメーターを受け取ることに注意してください。 MVC フレームワークは、URL のエントリ日付を DateTime 値に自動的に変換するのに十分なスマートです。 URL のエントリ日付パラメーターを DateTime に変換できない場合は、エラーが発生します (図1を参照)。
 
-**図 1 - パラメーターの変換からのエラー**
+**図 1-パラメーターの変換エラー**
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
+[[新しいプロジェクト] ダイアログボックスの ![](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
-**図 01**:パラメーターの変換からのエラー ([フルサイズの画像を表示する をクリックします](creating-custom-routes-vb/_static/image2.png))。
+**図 01**: パラメーターの変換時のエラー ([クリックすると、フルサイズの画像が表示](creating-custom-routes-vb/_static/image2.png)される)
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルの目的は、カスタム ルートを作成する方法を説明することでした。 ブログ エントリを表す、Global.asax ファイルのルート テーブルにカスタム ルートを追加する方法を学習しました。 ブログのエントリに対する要求を ArchiveController という名前のコント ローラーと Entry() という名前のコント ローラー アクションにマップする方法を説明しました。
+このチュートリアルの目的は、カスタムルートを作成する方法を説明することでした。 ブログエントリを表す global.asax ファイルのルートテーブルにカスタムルートを追加する方法について学習しました。 ブログエントリの要求を、ArchiveController という名前のコントローラーと、Entry () という名前のコントローラーアクションにマップする方法について説明しました。
 
 > [!div class="step-by-step"]
 > [前へ](asp-net-mvc-controller-overview-vb.md)

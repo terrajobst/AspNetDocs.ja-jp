@@ -9,15 +9,15 @@ ms.assetid: 1a2ed0e8-63da-4110-9896-e2731d86f7c4
 msc.legacyurl: /web-pages/overview
 msc.type: book
 ms.openlocfilehash: b4c9e9eb85f6ba9a1e2b2d0a1bbaf027ee25bc0d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381849"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520558"
 ---
 # <a name="web-pages-guidance"></a>Web ページのガイダンス
 
-- [はじめに](getting-started/index.md)
+- [作業の開始](getting-started/index.md)
 
     - [Visual Studio で ASP.NET Web ページをプログラミングする](getting-started/program-asp-net-web-pages-in-visual-studio.md)
     - [ASP.NET Web プログラミング Razor 構文入門](getting-started/introducing-razor-syntax-c.md)
@@ -27,7 +27,7 @@ ms.locfileid: "59381849"
     - [Web サイトにソーシャル ネットワーキングを追加する](getting-started/13-adding-social-networking-to-your-web-site.md)
     - [ASP.NET Web ページの概要](getting-started/introducing-aspnet-web-pages-2/index.md)
 
-        - [はじめに](getting-started/introducing-aspnet-web-pages-2/getting-started.md)
+        - [作業の開始](getting-started/introducing-aspnet-web-pages-2/getting-started.md)
         - [プログラミングの基礎](getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
         - [データの表示](getting-started/introducing-aspnet-web-pages-2/displaying-data.md)
         - [HTML フォームの基本](getting-started/introducing-aspnet-web-pages-2/form-basics.md)
@@ -51,7 +51,7 @@ ms.locfileid: "59381849"
     - [ヘルパーをインストールする](ui-layouts-and-themes/installing-helpers.md)
     - [Twitter ヘルパーと ASP.NET Web ページ](ui-layouts-and-themes/twitter-helper.md)
     - [ASP.NET Web ページ サイトでマップを表示する](ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site.md)
-- [モバイル](mobile/index.md)
+- [Mobile](mobile/index.md)
 
     - [モバイル デバイスで ASP.NET Web ページ サイトをレンダリングする](mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
 - [データの使用](data/index.md)

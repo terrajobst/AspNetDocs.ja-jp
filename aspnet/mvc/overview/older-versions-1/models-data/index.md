@@ -2,22 +2,22 @@
 uid: mvc/overview/older-versions-1/models-data/index
 title: モデル (データ) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアル シリーズでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 このチュートリアルの過程で、web アプリケーションを構築しています.
+description: このチュートリアルシリーズでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 このチュートリアルでは、web アプリケーションを構築します。
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
 ms.openlocfilehash: e4e4cce840d46ceceeb3ea77db91ad99d73ef483
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117588"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469426"
 ---
 # <a name="models-data"></a>モデル (データ)
 
-> このチュートリアル シリーズでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションをビルドします。
+> このチュートリアルシリーズでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 このチュートリアルでは、Entity Framework を使用してデータベースデータを選択、挿入、更新、および削除する方法を示す web アプリケーションを作成します。
 
 - [Entity Framework でモデル クラスを作成する (C#)](creating-model-classes-with-the-entity-framework-cs.md)
 - [LINQ to SQL でモデル クラスを作成する (C#)](creating-model-classes-with-linq-to-sql-cs.md)

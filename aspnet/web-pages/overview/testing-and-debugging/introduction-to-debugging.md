@@ -1,139 +1,139 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: ページ (Razor) サイトを ASP.NET Web のデバッグの概要 |Microsoft Docs
+title: ASP.NET Web ページ (Razor) サイトのデバッグの概要 |Microsoft Docs
 author: Rick-Anderson
-description: デバッグは、検出とコード ページ内エラーを修正のプロセスです。 この章ではいくつかのツールとデバッグに使用できる手法と率の分析をしています.
+description: デバッグは、コードページ内のエラーを検出して修正するプロセスです。 この章では、デバッグと率のために使用できるツールと手法について説明します。
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
 ms.openlocfilehash: ae7d871e56326610c043dc20fe6e0919e1b4ac89
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127811"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506458"
 ---
-# <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web のデバッグの概要
+# <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>デバッグ ASP.NET Web ページ (Razor) サイトの概要
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、ASP.NET Web Pages (Razor) の web サイトのページをデバッグするさまざまな方法について説明します。 デバッグは、検出とコード ページ内エラーを修正のプロセスです。
+> この記事では、ASP.NET Web ページ (Razor) web サイトでページをデバッグするさまざまな方法について説明します。 デバッグは、コードページ内のエラーを検出して修正するプロセスです。
 >
-> **学習内容。**
+> **学習内容:**
 >
-> - 役立つ情報を表示する方法は、分析し、ページをデバッグします。
-> - デバッグを使用する方法は、Visual Studio のツールです。
+> - ページの分析とデバッグに役立つ情報を表示する方法について説明します。
+> - Visual Studio でデバッグツールを使用する方法について説明します。
 >
 >
 > この記事で導入された ASP.NET 機能を次に示します。
 >
-> - `ServerInfo`ヘルパー。
+> - `ServerInfo` ヘルパー。
 > - `ObjectInfo` ヘルパー。
 >
 >
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 >
 >
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 > - Visual Studio 2013
 >
 >
-> このチュートリアルは、ASP.NET Web Pages 2 でも機能します。 WebMatrix 3 を使用できますが、統合デバッガーがサポートされていません。
+> このチュートリアルは ASP.NET Web ページ2でも動作します。 WebMatrix 3 を使用することはできますが、統合デバッガーはサポートされていません。
 
-エラーと、コード内の問題のトラブルシューティングの重要な側面は、最初にそれらを回避するためには。 エラーが発生する可能性のあるコードのセクションを配置することで行うことができます`try/catch`ブロックします。 詳細については、上でのエラー処理セクションをご覧ください。 [Web プログラミングを使用して ASP.NET Razor 構文の概要](https://go.microsoft.com/fwlink/?LinkId=202890)します。
+コードのエラーや問題をトラブルシューティングするための重要な側面は、これらの問題を最初に回避することです。 これを行うには、エラーの原因となる可能性があるコードのセクションを `try/catch` ブロックに配置します。 詳細については、「 [Razor 構文を使用した ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkId=202890)」のエラー処理に関するセクションを参照してください。
 
-`ServerInfo`ヘルパーは、ページをホストする web サーバー環境に関する情報の概要を示す診断ツール。 ブラウザーのページを要求時に送信される HTTP 要求の情報も示します。 `ServerInfo`ヘルパーは、現在のユーザー id の要求を行ったブラウザーの種類を表示します。 これにします。 この種の情報は、一般的な問題をトラブルシューティングするのに役立ちます。
+`ServerInfo` helper は、ページをホストする web サーバー環境に関する情報の概要を提供する診断ツールです。 また、ブラウザーがページを要求したときに送信される HTTP 要求情報も表示されます。 `ServerInfo` ヘルパーには、現在のユーザー id、要求を行ったブラウザーの種類などが表示されます。 この種の情報は、一般的な問題のトラブルシューティングに役立ちます。
 
-1. という名前の新しい web ページを作成する*ServerInfo.cshtml*します。
-2. ページの末尾には、直前の終了`</body>`タグを追加`@ServerInfo.GetHtml()`:
+1. *Serverinfo. cshtml*という名前の新しい web ページを作成します。
+2. ページの最後で、終了 `</body>` タグの直前に `@ServerInfo.GetHtml()`を追加します。
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample1.cshtml)]
 
-    追加することができます、`ServerInfo`ページ内の任意の場所のコード。 末尾に追加するには、出力から分離して他のページのコンテンツを読みやすくなります。
+    `ServerInfo` コードは、ページの任意の場所に追加できます。 ただし、末尾に追加すると、他のページコンテンツとは別に出力が保持されるため、読みやすくなります。
 
     > [!NOTE]
     >
-    > **重要な**実稼働サーバーへの web ページを移動する前に、web ページから診断コードを削除する必要があります。 これに適用されます、`ServerInfo`ヘルパーとこの記事でコード ページへの追加に関連するその他の診断技法。 この種の情報が悪意のある方に役立つ可能性があるため、web サイトの訪問者、server、および同様の詳細については、サーバー名、ユーザー名、パスを参照してください。 には必要ありません。
+    > **重要**Web ページを実稼働サーバーに移動する前に、web ページから診断コードを削除する必要があります。 これは、`ServerInfo` ヘルパーに適用されます。また、この記事では、ページへのコードの追加を含むその他の診断手法にも当てはまります。 この種の情報が悪意のあるユーザーにとって役立つ可能性があるため、web サイトの訪問者にサーバー名、ユーザー名、サーバー上のパスなどの情報が表示されないようにする必要があります。
 3. ページを保存し、ブラウザーで実行します。
 
     ![デバッグ-1](introduction-to-debugging/_static/image1.jpg)
 
-    `ServerInfo`ヘルパー ページの情報の 4 つのテーブルを表示します。
+    `ServerInfo` ヘルパーは、次の4つのテーブルの情報をページに表示します。
 
-   - サーバーの構成。 このセクションでは、コンピューター名、ASP.NET を実行している、ドメイン名、およびサーバーの時刻のバージョンを含む、ホスト web サーバーについてを説明します。
-   - ASP.NET サーバー変数。 このセクションでは、多くの HTTP プロトコルの詳細 (呼び出された HTTP 変数) について詳しく説明し、値を各 web ページ要求の一部であります。
-   - HTTP ランタイム情報。 このセクションでは、バージョンの Microsoft .NET Framework で web ページが実行されている、パス、キャッシュについての詳細については、詳細を提供します。 (で説明したよう[Web プログラミングを使用して ASP.NET Razor 構文の概要](https://go.microsoft.com/fwlink/?LinkId=202890)構文は、広範なソフトウェア上に構築自体がマイクロソフトの ASP.NET web server テクノロジに基づいて構築され、Razor を使用して ASP.NET Web ページ開発ライブラリ、.NET Framework と呼ばれます。)
-   - 環境変数。 このセクションは、web サーバー上のすべてのローカルの環境変数とその値の一覧を示します。
+   - サーバーの構成。 このセクションでは、ホストしている web サーバーに関する情報を提供します。これには、コンピューター名、実行している ASP.NET のバージョン、ドメイン名、サーバー時間などが含まれます。
+   - ASP.NET サーバー変数。 このセクションでは、多くの HTTP プロトコルの詳細 (HTTP 変数と呼ばれます) と、各 web ページ要求に含まれる値について詳しく説明します。
+   - HTTP ランタイム情報。 このセクションでは、web ページが実行されている Microsoft .NET Framework のバージョン、パス、キャッシュに関する詳細などについて詳しく説明します。 ( [Razor 構文を使用した ASP.NET Web プログラミングの概要につい](https://go.microsoft.com/fwlink/?LinkId=202890)て学習したように、Razor 構文を使用する ASP.NET Web ページは、Microsoft の ASP.NET Web サーバーテクノロジを基盤としています。これは、.NET Framework と呼ばれる広範なソフトウェア開発ライブラリに基づいて構築されています)。
+   - 環境変数。 このセクションでは、web サーバー上のすべてのローカル環境変数とその値の一覧を示します。
 
-     すべてのサーバーと要求の情報の完全な説明については、この記事の範囲外、ことを確認できますが、`ServerInfo`ヘルパーが、多くの診断情報を返します。 値の詳細についてを`ServerInfo`戻り値を参照してください[環境変数の認識](https://technet.microsoft.com/library/dd560744(WS.10).aspx)、Microsoft TechNet web サイトと[IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)MSDN web サイト。
+     すべてのサーバーと要求情報の詳細については、この記事では説明しませんが、`ServerInfo` ヘルパーが多くの診断情報を返すことを確認できます。 `ServerInfo` 返される値の詳細については、MSDN web サイトの Microsoft TechNet web サイトおよび[IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)の「認識された[環境変数](https://technet.microsoft.com/library/dd560744(WS.10).aspx)」を参照してください。
 
-## <a name="embedding-output-expressions-to-display-page-values"></a>ページの値を表示する埋め込み式
+## <a name="embedding-output-expressions-to-display-page-values"></a>ページ値を表示するための出力式の埋め込み
 
-コードで何が起こっているかを確認するもう 1 つの方法では、ページに出力式を埋め込むです。 ようなものを追加することで、変数の値を直接出力ご存知のように、`@myVariable`または`@(subTotal * 12)`ページにします。 デバッグについては、コードで重要なポイントをこれらの式の出力を配置できます。 これにより、ページの実行時に、主要な変数または計算の結果の値を参照してください。 完了したら、デバッグ、式を削除したり、コメント アウトします。この手順は、ページをデバッグする際に埋め込み式を使用する一般的な方法を示しています。
+コード内で何が起こっているかを確認するもう1つの方法は、出力式をページに埋め込むことです。 ご存じのように、`@myVariable` や `@(subTotal * 12)` などの値をページに追加して、変数の値を直接出力できます。 デバッグ用には、コード内の戦略的なポイントでこれらの出力式を配置できます。 これにより、ページの実行時に、キー変数の値または計算結果を確認できます。 デバッグが完了したら、式を削除するか、コメントアウトすることができます。この手順は、ページのデバッグを支援するために、埋め込み式を使用する一般的な方法を示しています。
 
-1. という新しい WebMatrix ページ作成*OutputExpression.cshtml*します。
-2. 次のようにコンテンツのページに置き換えます。
+1. *Outputexpression. cshtml*という名前の新しい WebMatrix ページを作成します。
+2. ページの内容を次の内容に置き換えます。
 
     [!code-html[Main](introduction-to-debugging/samples/sample2.html)]
 
-    この例では、`switch`の値を確認するステートメント、`weekday`変数とはどの曜日に応じて異なる出力メッセージを表示します。 この例で、`if`最初のコード ブロック内のブロックが 1 日を現在の曜日の値に追加することで週の曜日を任意に変更します。 これは、わかりやすくするために導入されたエラーです。
+    この例では、`switch` ステートメントを使用して `weekday` 変数の値を確認し、その曜日に応じて別の出力メッセージを表示します。 この例では、最初のコードブロック内の `if` ブロックは、現在の曜日の値に1日を加算することによって、曜日を任意に変更します。 これは、図を示すために導入されたエラーです。
 3. ページを保存し、ブラウザーで実行します。
 
-    ページでは、間違った曜日のメッセージが表示されます。 実際には、その週のすべての日、1 日以降、メッセージが表示されます。 (コードは、意図的に正しくない日付の値を設定する) ためにのオフ、メッセージが理由はわかってここでは、実際には多くの場合、処理は、コードで問題がどこかを知ることが難しい。 デバッグするには、何が起こっているかの主要なオブジェクトと変数の値になどを確認する必要があります`weekday`します。
-4. 挿入して出力式を追加`@weekday`コード内のコメントで示される 2 つの場所で示すようにします。 これらの出力式では、コードの実行に、変数の値をその時点で表示されます。
+    このページには、曜日が正しくないことを示したメッセージが表示されます。 曜日にかかわらず、1日後にメッセージが表示されます。 この例では、メッセージが無効になっている理由 (コードが意図的に誤った日付値を設定しているため) がわかっていますが、実際には、コード内のどこが間違っているかを把握するのが難しい場合があります。 デバッグするには、`weekday`などの主要なオブジェクトと変数の値に何が起こっているかを調べる必要があります。
+4. コード内のコメントに示されている2つの場所に示されているように `@weekday` を挿入して、出力式を追加します。 これらの出力式では、コード実行のその時点の変数の値が表示されます。
 
     [!code-csharp[Main](introduction-to-debugging/samples/sample3.cs?highlight=2-3,15-16)]
-5. 保存し、ブラウザーでページを実行します。
+5. ブラウザーでページを保存して実行します。
 
-    ページが最初に、実際の曜日を表示した後 1 日とし、結果のメッセージからの追加を結果の更新された曜日、`switch`ステートメント。 2 つの変数の式からの出力 (`@weekday`) 任意の HTML を追加していないため、日の間のスペースがない`<p>`出力にタグをテストするためだけは、式は。
+    このページには、最初に週の実際の曜日、次に1日後に更新された曜日が表示されます。その後、`switch` ステートメントから結果として得られるメッセージが表示されます。 HTML `<p>` タグを出力に追加していないため、2つの変数式 (`@weekday`) からの出力には、その日の間にスペースがありません。式はテスト専用です。
 
     ![デバッグ-2](introduction-to-debugging/_static/image2.jpg)
 
-    エラーを含むことがわかります。 表示すると、`weekday`コードに変数が、正しい日はすべて表示します。 表示すると、2 番目の時間後に、`if`コードのブロック、1 日が 1 つがオフです。 したがって、曜日の変数の最初と 2 つ目の外観の間で何かが発生したことがわかります。 これが、実際のバグの場合、この種のアプローチに役立つ、問題の原因となっているコードの場所を絞り込みます。
-6. ページで、追加した 2 つの出力の式を削除して、週の曜日を変更するコードを削除して、コードを修正します。 コードの残り、完了ブロックは、次の例のようになります。
+    ここで、エラーの場所を確認できます。 コードに最初に `weekday` 変数を表示すると、正しい日が表示されます。 2回目に表示すると、コードの `if` ブロックの後に、その日が1つずつオフになります。 これは、weekday 変数の1番目と2番目の外観の間に何らかの問題が発生したことを把握しています。 これが実際のバグである場合、この種のアプローチは、問題の原因となっているコードの場所を絞り込むのに役立ちます。
+6. 追加した2つの出力式を削除し、曜日を変更するコードを削除して、ページ内のコードを修正します。 コードの残りの完全なブロックは、次の例のようになります。
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample4.cshtml)]
-7. ブラウザーでページを実行します。 この時間、実際の曜日が表示されます正しいメッセージが表示します。
+7. ブラウザーでページを実行します。 今回は、実際の曜日に対して正しいメッセージが表示されます。
 
-## <a name="using-the-objectinfo-helper-to-display-object-values"></a>ObjectInfo ヘルパーを使用して、オブジェクトの値を表示するには
+## <a name="using-the-objectinfo-helper-to-display-object-values"></a>ObjectInfo ヘルパーを使用したオブジェクト値の表示
 
-`ObjectInfo`ヘルパー型とそれに渡す各オブジェクトの値を表示します。 (出力式は、前の例で行った) など、コード内の変数およびオブジェクトの値を表示する使用すると、データ型のオブジェクトに関する情報を確認できます。
+`ObjectInfo` ヘルパーには、渡された各オブジェクトの型と値が表示されます。 これを使用すると、前の例の出力式の場合と同様に、コード内の変数とオブジェクトの値を表示できます。さらに、オブジェクトに関するデータ型情報を確認することもできます。
 
-1. という名前のファイルを開く*OutputExpression.cshtml*先ほど作成しました。
-2. ページ内のすべてのコードを次のコード ブロックに置き換えます。
+1. 先ほど作成した*Outputexpression. cshtml*という名前のファイルを開きます。
+2. ページ内のすべてのコードを次のコードブロックに置き換えます。
 
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
-3. 保存し、ブラウザーでページを実行します。
+3. ブラウザーでページを保存して実行します。
 
     ![デバッグ-4](introduction-to-debugging/_static/image3.jpg)
 
-    この例で、`ObjectInfo`ヘルパーは、2 つの項目を表示します。
+    この例では、`ObjectInfo` ヘルパーは次の2つの項目を表示します。
 
-   - 型。 最初の変数の型は`DayOfWeek`します。 2 番目の変数の型は`String`します。
-   - 値。 この場合は、既に ページで、あいさつの変数の値を表示するため、値が表示されますもう一度に変数を渡すときに`ObjectInfo`します。
+   - 型。 最初の変数の場合、型は `DayOfWeek`になります。 2番目の変数の場合、型は `String`になります。
+   - 値。 この場合、ページにあいさつ変数の値が既に表示されているので、変数を `ObjectInfo`に渡すと、値が再び表示されます。
 
-     複雑なオブジェクトの場合、`ObjectInfo`ヘルパーは、詳細情報を表示できる&#8212;基本的には、型とすべてのオブジェクトのプロパティの値を表示できます。
+     より複雑なオブジェクトの場合、`ObjectInfo` ヘルパーは、基本的&#8212;により多くの情報を表示できます。また、オブジェクトのすべてのプロパティの型と値を表示できます。
 
-## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio でのデバッグ ツールの使用
+## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio でのデバッグツールの使用
 
-デバッグ エクスペリエンスをより包括的な使用[Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)します。 Visual Studio を使用して検査する行で、コードでブレークポイントを設定できます。
+より包括的なデバッグエクスペリエンスを実現するには、 [Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)を使用します。 Visual Studio では、検査する行のコードにブレークポイントを設定できます。
 
 ![ブレークポイントの設定](introduction-to-debugging/_static/image1.png)
 
-Web サイトをテストするときに実行中のコードは、ブレークポイントで停止します。
+Web サイトをテストすると、実行中のコードがブレークポイントで停止します。
 
-![ブレークポイントに到達します。](introduction-to-debugging/_static/image2.png)
+![リーチブレークポイント](introduction-to-debugging/_static/image2.png)
 
-変数、およびコードで行をステップの現在の値を確認することができます。
+変数の現在の値を確認し、コードを1行ずつステップ実行することができます。
 
-![値を参照してください。](introduction-to-debugging/_static/image3.png)
+![値の表示](introduction-to-debugging/_static/image3.png)
 
-Visual Studio で、統合デバッガーを使用して、ASP.NET Razor ページをデバッグする方法については、次を参照してください。[プログラミング ASP.NET Web Pages (Razor) を使用して Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)します。
+Visual Studio で統合デバッガーを使用して ASP.NET Razor ページをデバッグする方法の詳細については、「 [Visual Studio を使用したプログラミング ASP.NET Web ページ (Razor)](https://go.microsoft.com/fwlink/?LinkId=205854)」を参照してください。
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Visual Studio を使用して ASP.NET Web ページ (Razor) のプログラミング](https://go.microsoft.com/fwlink/?LinkId=205854)
+- [Visual Studio を使用したプログラミング ASP.NET Web ページ (Razor)](https://go.microsoft.com/fwlink/?LinkId=205854)
 - [IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)(MSDN)
-- [環境変数を認識](https://technet.microsoft.com/library/dd560744(WS.10).aspx)(TechNet)
+- 認識された[環境変数](https://technet.microsoft.com/library/dd560744(WS.10).aspx)(TechNet)

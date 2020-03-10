@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
-title: '[How Do i:]Aspnet_merge.exe ユーティリティを使用してアセンブリをマージ |Microsoft Docs'
+title: '[操作方法:]アセンブリをマージするには aspnet_merge ユーティリティを使用します。Microsoft Docs'
 author: rick-anderson
-description: このビデオで Chris Pels は aspnet_merge.exe ユーティリティを使用して、aspnet_compiler.exe ユーティリティを使用してコンパイルされたアセンブリを結合する方法を紹介しています.
+description: このビデオでは、aspnet_merge ユーティリティを使用して、aspnet_compiler .exe utilit を使用してコンパイルされたアセンブリを組み合わせる方法について説明します。
 ms.author: riande
 ms.date: 06/26/2008
 ms.assetid: 2bfd5353-2a35-449e-aeff-0fb94cf10030
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
 msc.type: video
 ms.openlocfilehash: 7e768c508441bc08ff53c04e3d9982179fdfc88f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410384"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78488050"
 ---
-# <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[How Do i:]Aspnet_merge.exe ユーティリティを使用してアセンブリをマージするには
+# <a name="how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies"></a>[操作方法:]Aspnet_merge ユーティリティを使用してアセンブリをマージする
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは、Chris Pels が、aspnet を使用する方法を示しますが\_aspnet を使用してコンパイルされたアセンブリにまとめる merge.exe ユーティリティ\_compiler.exe ユーティリティ。 最初に、どのようなアセンブリの作成については、ASP.NET コンパイル処理の出力を表示します。 次に、使用、aspnet のしくみについて説明します\_merge.exe ユーティリティの web サイトでは、コンパイルからのアセンブリをマージするプレフィックス オプションを使用して名前を最初に、コンパイルされたアセンブリを制御する方法を確認します。 1 つのアセンブリにコンパイル済みの web サイトのすべてのアセンブリをマージする方法を参照してください。 最後に、アプリなどの最上位レベル アセンブリのまま、1 つのアセンブリ (aspx、ascs など) のコンテンツに関連するアセンブリだけをマージする方法について説明します\_、/App を表す code.dll\_コード フォルダー。 各オプションの中に長所と短所のオプションについて説明します。
+このビデオでは、aspnet\_のマージ .exe ユーティリティを使用して、aspnet\_compiler ユーティリティを使用してコンパイルされたアセンブリを結合する方法について説明します。 まず、ASP.NET コンパイルプロセスの出力を表示して、作成されるアセンブリについて学習します。 次に、aspnet\_の merge .exe ユーティリティを使用して、web サイトのコンパイルからアセンブリをマージするしくみについて説明します。まず、– prefix オプションを使用してコンパイル済みのアセンブリ名を制御する方法について説明します。 次に、コンパイルされた web サイトのすべてのアセンブリを1つのアセンブリにマージする方法について説明します。 最後に、コンテンツに関連するアセンブリ (aspx、ascs など) だけを1つのアセンブリにマージして、アプリ\_コード .dll などの最上位レベルのアセンブリを、アプリ\_コードフォルダーを表すようにする方法について説明します。 各オプションでは、そのオプションの長所と短所について説明します。
 
-[&#9654;ビデオでは (28 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies)
+[&#9654;ビデオを見る (28 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies)

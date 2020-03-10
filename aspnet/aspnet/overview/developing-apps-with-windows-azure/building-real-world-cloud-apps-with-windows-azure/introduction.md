@@ -9,11 +9,11 @@ ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
 ms.openlocfilehash: b88573b3702b755b155e8da35f5f8a67931bafc6
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457116"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500650"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure を使用した実際のクラウドアプリの構築
 
@@ -25,7 +25,7 @@ ms.locfileid: "77457116"
 > 
 > このコンテンツは、Scott Guthrie によって開発されたプレゼンテーションに基づいており、2013年6月 ([パート 1](http://vimeo.com/68215538)、[パート 2](http://vimeo.com/68215602)) で、ノルウェーの開発者のカンファレンス (NDC) によって提供されています。また、2013年9月 (パート[1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)、パート[2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)) の Microsoft Tech Ed オーストラリアで開催されています。 [他の多く](more-patterns-and-guidance.md#acknowledgments)は、ビデオから書面によるフォームへの移行中にコンテンツを更新し、強化しました。
 
-## <a name="intended-audience"></a>想定読者
+## <a name="intended-audience"></a>対象ユーザー
 
 クラウドの開発に関心を持っている開発者、クラウドへの移行を検討している開発者、またはクラウド開発の経験がない開発者には、知っておく必要がある最も重要な概念とベストプラクティスの簡潔な概要が記載されています。 概念については具体的な例を示し、各章は他のリソースにリンクして詳細な情報を参照しています。 この例とその他のリソースへのリンクは、Microsoft のフレームワークとサービスを対象としていますが、前述の原則は他の web 開発フレームワークやクラウド環境にも当てはまります。
 
@@ -154,7 +154,7 @@ It アプリケーションの修正に使用されるクラウド環境は、We
 Visual Studio で web アプリケーションを作成し、それを Azure の Web サイトにデプロイする方法を説明する簡単で簡単なステップバイステップのチュートリアルについては、「 [azure と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)」を参照してください。
 
 <a id="summary"></a>
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 この概要では、本書に記載されているトピックの一覧、サンプルアプリケーションのスクリーンショット、Azure App Service クラウド環境での Web Apps の概要について説明しました。 とクラウド用のアプリを開発する大きな利点の1つは、テスト環境の作成や、コードのデプロイなど、反復的な開発タスクを簡単に自動化できることです。 その方法については、次の[章](automate-everything.md)で説明します。
 
@@ -162,7 +162,7 @@ Visual Studio で web アプリケーションを作成し、それを Azure の
 
 この章で説明しているトピックの詳細については、次のリソースを参照してください。
 
-ドキュメント:
+ドキュメント
 
 - [Azure App Service で Web Apps](https://azure.microsoft.com/services/app-service/web/)ます。 Web Apps に関する Azure ドキュメントのポータルページです。
 - [Web Apps、Cloud Services、Vm: どのような場合に使用するか。](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) この章で説明する WAWS は、Azure で web アプリを実行する3つの方法のうちの1つです。 この記事では、3つの方法の違いについて説明し、シナリオに適したものを選択する方法についてのガイダンスを示します。 Web サイトと同様に、Cloud Services は Azure の PaaS 機能です。 Vm は IaaS 機能です。 PaaS と IaaS の詳細については、「 [Data Options](data-storage-options.md#paasiaas) 」の章を参照してください。

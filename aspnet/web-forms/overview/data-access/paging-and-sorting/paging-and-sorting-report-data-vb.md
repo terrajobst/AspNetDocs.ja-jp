@@ -9,11 +9,11 @@ ms.assetid: b895e37e-0e69-45cc-a7e4-17ddd2e1b38d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 6785b5cd2d4d3a2c2e7f2c2fea93f5cd5e2fdf24
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74619083"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78502354"
 ---
 # <a name="paging-and-sorting-report-data-vb"></a>レポート データのページングと並べ替え (VB)
 
@@ -245,7 +245,7 @@ Gridview s [`Sort` メソッド](https://msdn.microsoft.com/library/system.web.u
 
 **図 15**: ボタンをクリックすると、最もコストの高い製品から最もコストが高くなります ([クリックすると、フルサイズの画像が表示](paging-and-sorting-report-data-vb/_static/image33.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、既定のページングと並べ替えの機能を実装する方法について説明しました。どちらもチェックボックスをオンにするのと同じくらい簡単でした。 ユーザーがデータを並べ替えたり、ページを上したりすると、同様のワークフローは次のようになります。
 
@@ -258,7 +258,7 @@ Gridview s [`Sort` メソッド](https://msdn.microsoft.com/library/system.web.u
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/index
-title: ASP.NET Identity の概要 - ASP.NET 4.x
+title: ASP.NET Identity の概要-ASP.NET 4.x
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: d3972a0e-9ff6-4de1-bf4d-c94943cab048
 msc.legacyurl: /identity/overview
 msc.type: book
 ms.openlocfilehash: ef4eb7428770453596090af111576ab23a27206b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406173"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471712"
 ---
 # <a name="aspnet-identity-overview"></a>ASP.NET Identity の概要
 
@@ -23,7 +23,7 @@ ms.locfileid: "59406173"
     - [ASP.NET Identity 推奨リソース](getting-started/aspnet-identity-recommended-resources.md)
     - [ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する](getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
     - [Azure Active Directory を使った ASP.NET アプリの開発](getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-    - [ASP.NET Identity:EntityFramework MySQL プロバイダーと MySQL ストレージを使用して (C#)](getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+    - [ASP.NET Identity: EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)](getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
 - [機能と API](features-api/index.md)
 
     - [ASP.NET と Azure App Service にパスワードやその他の機密データを展開するためのベスト プラクティス](features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)

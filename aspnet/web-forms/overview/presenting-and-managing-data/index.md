@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/index
-title: ASP.NET Web フォームでデータを扱う |Microsoft Docs
+title: ASP.NET Web Forms | でデータを操作するMicrosoft Docs
 author: rick-anderson
-description: コントロールを使用してデータにアクセスする方法および要求間の情報を永続化する方法。
+description: コントロールを使用してデータにアクセスする方法と、要求間で情報を永続化する方法。
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: bb2b79bd-aaf4-4f5e-82a1-fc199514a3e2
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data
 msc.type: chapter
 ms.openlocfilehash: 0a439ca8d0631dabdc224693f4d7bb23b04d4dad
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133071"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512572"
 ---
-# <a name="working-with-data-in-aspnet-web-forms"></a>ASP.NET Web フォームでデータを扱う
+# <a name="working-with-data-in-aspnet-web-forms"></a>ASP.NET Web フォームでのデータの操作
 
-> コントロールを使用してデータにアクセスする方法および要求間の情報を永続化する方法。
+> コントロールを使用してデータにアクセスする方法と、要求間で情報を永続化する方法。
 
 - [Visual Studio 2013 のモデル バインディングと Web フォーム](model-binding/index.md)
 

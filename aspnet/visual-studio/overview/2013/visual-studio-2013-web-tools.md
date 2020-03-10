@@ -1,51 +1,51 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-tools
-title: ハンズ オン ラボ:Visual Studio 2013 Web ツール |Microsoft Docs
+title: 'ハンズオンラボ: Visual Studio 2013 Web ツール |Microsoft Docs'
 author: rick-anderson
-description: Visual Studio には、優れた開発環境です。NET ベースの Windows と web プロジェクト。 簡単に使用できる強力なテキスト エディターが含まれています.
+description: Visual Studio は、の優れた開発環境です。NET ベースの Windows および web プロジェクト。 これには、簡単に使用できる強力なテキストエディターが含まれています。
 ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
 ms.openlocfilehash: 2fb987dd9b26ad9f0e8a88fd881bde4505ec4148
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115894"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78505006"
 ---
-# <a name="hands-on-lab-visual-studio-2013-web-tools"></a>ハンズ オン ラボ:Visual Studio 2013 Web ツール
+# <a name="hands-on-lab-visual-studio-2013-web-tools"></a>ハンズオンラボ: Visual Studio 2013 Web ツール
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web キャンプトレーニングキットをダウンロードする](https://aka.ms/webcamps-training-kit)
 
-> Visual Studio には、優れた開発環境です。NET ベースの Windows と web プロジェクト。 これには、プロジェクトなしのスタンドアロン ファイルの編集を簡単に使用できる強力なテキスト エディターが含まれます。
+> Visual Studio は、の優れた開発環境です。NET ベースの Windows および web プロジェクト。 これには、プロジェクトなしでスタンドアロンファイルを編集するために簡単に使用できる強力なテキストエディターが含まれています。
 > 
-> Visual Studio は、各ファイルを編集すると、全機能装備の解析ツリーを保持します。 これにより、Visual Studio 開発体験をはるかに高速より快適比類のないオート コンプリートとドキュメントに基づくアクションを提供します。 これらの機能は、HTML および CSS のドキュメントでは特に強力です。
+> Visual Studio では、各ファイルを編集するときに、すべての機能を備えた解析ツリーが維持されます。 これにより、Visual Studio は比類のないオートコンプリートとドキュメントベースのアクションを提供しながら、開発環境をはるかに高速かつ快適にすることができます。 これらの機能は、HTML および CSS ドキュメントで特に強力です。
 > 
-> すべてこの電源は、拡張機能、強力な新しい機能によって、ニーズに合わせてのエディターの拡張を簡単に使用できます。 Web Essentials は、Visual Studio に拡張を (主に) web 関連のコレクションです。 (特に、CSS) の新しい IntelliSense 入力候補、ブラウザー リンクの新機能、自動の多くが含まれています JSHint の JavaScript ファイル、HTML、CSS、および最新の web 開発に不可欠な他の多くの機能の新しい警告します。
+> また、拡張機能でもこの機能を利用できるため、必要に応じて強力な新機能を使用してエディターを簡単に拡張できます。 Web Essentials は、ほとんどの場合、Visual Studio の web 関連の拡張機能のコレクションです。 これには、多くの新しい IntelliSense 入力候補 (特に、CSS の場合)、新しいブラウザーリンク機能、JavaScript ファイルの自動 JSHint、HTML と CSS の新しい警告、および最新の web 開発に不可欠なその他多くの機能が含まれています。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)します。
+> すべてのサンプルコードとスニペットは、 [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)で入手できる Web キャンプトレーニングキットに含まれています。
 
 <a id="Overview"></a>
 ## <a name="overview"></a>概要
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
-このハンズオン ラボでは、学習する方法。
+このハンズオンラボでは、次の方法を学習します。
 
-- 豊富な HTML5 コード スニペットや Zen コーディングなど、Web Essentials に含まれる HTML エディターの新機能を使用します。
-- カラー ピッカーやブラウザー マトリックス ツールヒントなど、Web Essentials に含まれる CSS エディターの新機能を使用します。
-- すべての HTML 要素を抽出するファイルと IntelliSense などの Web Essentials に含まれる JavaScript エディターの新機能を使用します。
-- ブラウザーとブラウザー リンクを使用して Visual Studio 間の Exchange データ
+- 豊富な HTML5 コードスニペットや Zen コーディングなど、Web Essentials に含まれる新しい HTML エディター機能を使用する
+- カラーピッカーやブラウザーマトリックスのツールヒントなど、Web Essentials に含まれる新しい CSS エディター機能を使用する
+- すべての HTML 要素のファイルや IntelliSense の抽出など、Web Essentials に含まれる新しい JavaScript エディター機能を使用する
+- ブラウザーリンクを使用してブラウザーと Visual Studio の間でデータを交換する
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
+### <a name="prerequisites"></a>前提条件
 
-このハンズオン ラボを完了する、次が必要。
+このハンズオンラボを完了するには、次のものが必要です。
 
 - [Microsoft Visual Studio Professional 2013](https://www.microsoft.com/visualstudio/)以上
 - [Web Essentials 2013](http://vswebessentials.com/)
@@ -54,467 +54,467 @@ ms.locfileid: "65115894"
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
 
-このハンズオン ラボの演習を実行するためには、まず環境を設定する必要があります。
+このハンズオンラボの演習を実行するには、まず環境をセットアップする必要があります。
 
-1. Windows エクスプ ローラー ウィンドウを開き、ラボを参照**ソース**フォルダー。
-2. 右クリック**Setup.cmd**選択**管理者として実行**環境を構成すると、このラボの Visual Studio のコード スニペットがインストールのセットアップ プロセスを起動します。
+1. Windows エクスプローラーウィンドウを開き、ラボの**ソース**フォルダーを参照します。
+2. **[Setup.exe]** を右クリックし、 **[管理者として実行]** を選択して、環境を構成し、このラボ用の Visual Studio コードスニペットをインストールするセットアッププロセスを開始します。
 3. ユーザー アカウント制御ダイアログ ボックスが表示されている場合は、続行するアクションを確認します。
 
 > [!NOTE]
-> セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認します。
+> セットアップを実行する前に、このラボのすべての依存関係を確認していることを確認してください。
 
 <a id="CodeSnippets"></a>
-### <a name="using-the-code-snippets"></a>コード スニペットの使用
+### <a name="using-the-code-snippets"></a>コードスニペットの使用
 
-ラボ ドキュメント全体を通じて、コード ブロックを挿入するよう指示されます。 便宜上、このコードのほとんどは、Visual Studio コード スニペットを手動で追加することを避けるために Visual Studio 2013 内からアクセスできるとして提供されます。
+ラボドキュメント全体で、コードブロックを挿入するように指示されます。 便宜上、このコードのほとんどは Visual Studio Code のスニペットとして提供されており、Visual Studio 2013 内からアクセスして、手動で追加する必要がないようにすることができます。
 
 > [!NOTE]
-> ソリューションでは個々 の演習を伴います、**開始**を使用すると、各演習を他のユーザーとは無関係に練習のフォルダー。 演習の中に追加されるコード スニペットはこれらのスターティング ソリューションが表示されないし、演習を完了するまで動作しない可能性がありますに注意してください。 演習では、ソース コード内でも表示されます、**エンド**結果から、対応する演習の手順を実行するコードと Visual Studio ソリューションを含むフォルダー。 このハンズオン ラボを使用すると、追加のヘルプが必要な場合は、これらのソリューションをガイドとして使用できます。
+> 各演習には、演習の**Begin**フォルダーに配置された開始ソリューションが付属しています。これにより、各演習を別の手順に従って実行することができます。 演習中に追加されたコードスニペットは、これらの開始ソリューションにはないため、演習を完了するまで機能しないことがあります。 演習用のソースコード内では、対応する演習の手順を完了した結果として得られるコードを使用して、Visual Studio ソリューションを含む**終了**フォルダーも検索します。 このハンズオンラボを使用して作業する際に、追加のヘルプが必要な場合は、これらのソリューションをガイダンスとして使用できます。
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-このハンズオン ラボには、次の演習が含まれます。
+このハンズオンラボには、次の演習が含まれています。
 
-1. [Browser Link と Web Essentials の使用](#Exercise1)
-2. [コード スニペットと IntelliSense の活用](#Exercise2)
+1. [ブラウザーリンクと Web Essentials の操作](#Exercise1)
+2. [コードスニペットと IntelliSense の活用](#Exercise2)
 
 > [!NOTE]
-> Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
+> Visual Studio を初めて起動するときに、定義済みの設定コレクションのいずれかを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されており、ウィンドウのレイアウト、エディターの動作、IntelliSense コードスニペット、およびダイアログボックスのオプションを決定します。 このラボの手順では、**全般的な開発設定**のコレクションを使用するときに、Visual Studio で特定のタスクを実行するために必要なアクションについて説明します。 開発環境に対して別の設定コレクションを選択した場合は、注意が必要な手順が異なる場合があります。
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-working-with-browser-link-and-web-essentials"></a>演習 1:Browser Link と Web Essentials の使用
+### <a name="exercise-1-working-with-browser-link-and-web-essentials"></a>演習 1: ブラウザーリンクと Web Essentials の操作
 
-**Web Essentials**はさまざまな web 開発体験をはるかに高速より快適に焦点を合わせた、最新の web 開発用の便利な機能を追加する Visual Studio 拡張機能です。 Web Essentials は、Visual Studio の拡張機能ギャラリーからインストールできます。
+**Web Essentials**は、最新の web 開発に役立つさまざまな機能を追加する Visual Studio の拡張機能であり、ほとんどの場合、web 開発のエクスペリエンスをはるかに高速かつ快適にすることに重点を置いています。 Web Essentials は、Visual Studio の拡張機能ギャラリーからインストールできます。
 
-**Browser Link**は Visual Studio、web アプリケーションの間でデータを交換するには、Visual Studio IDE と任意の開いているブラウザー間のチャネルを提供する Visual Studio 2013 に含まれる新機能です。 Web Essentials は、DOM オブジェクト モデルと、ブラウザーから直接 web ページの CSS スタイルを操作するためのツールを Browser Link を拡張します。
+**ブラウザーリンク**は Visual Studio 2013 に含まれる新機能であり、VISUAL studio IDE と、web アプリケーションと visual studio の間でデータを交換するための任意のオープンブラウザーの間のチャネルを提供します。 Web Essentials は、ブラウザーリンクをツールと共に拡張し、DOM オブジェクトモデルと web ページの CSS スタイルをブラウザーから直接操作します。
 
-この演習で一部の機能でサポートされている探索は**Web Essentials**と**Browser Link**簡単なクイズ ページを強化するためにします。
+この演習では、簡単なクイズページを強化するために、 **Web Essentials**と**ブラウザーリンク**でサポートされている機能をいくつか紹介します。
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1---running-the-project-in-multiple-browsers"></a>タスク 1 - 複数のブラウザーでプロジェクトを実行します。
+#### <a name="task-1---running-the-project-in-multiple-browsers"></a>タスク 1-複数のブラウザーでプロジェクトを実行する
 
-このタスクでは、クロス ブラウザー テスト用の便利なは、一度に複数のブラウザーで実行する web アプリケーションを構成します。
+このタスクでは、複数のブラウザーで同時に実行されるように web アプリケーションを構成します。これは、ブラウザー間のテストに役立ちます。
 
-1. 開いている**Microsoft Visual Studio**します。
-2. **ファイル**メニューの**開く |プロジェクト/ソリューションしています.** を見つけて**Ex1 WorkingwithBrowserLinkandWebEssentials\Begin**で、**ソース**ラボ (C:\WebCampsTK\HOL\VSWebTooling\Source) のフォルダーです。 選択**Begin.sln**をクリック**開く**です。
-3. Visual Studio のツールバーで、[ブラウザー] メニューを展開し、選択**を参照しています.**.
+1. **Microsoft Visual Studio**を開きます。
+2. **ファイル** メニューの 開く を選択します。 **プロジェクト/ソリューション...** ラボの**ソース**フォルダー (C:\WebCampsTK\HOL\VSWebTooling\Source) で**Ex1-WorkingwithBrowserLinkandWebEssentials\Begin**を参照します。 **[開始]** を選択し、 **[開く]** をクリックします。
+3. Visual Studio のツールバーで、ブラウザー メニューを展開し、**参照** をクリックします。
 
-    ![ブラウザーのメニュー オプション](visual-studio-2013-web-tools/_static/image1.png "ブラウザーのメニューでで [参照]")
+    ![メニューオプションを使用して参照](visual-studio-2013-web-tools/_static/image1.png "参照...ブラウザーメニュー内")
 
-    *ブラウザーのメニュー オプション*
-4. **Browse With**ダイアログ ボックスの両方をオン**Google Chrome**と**Internet Explorer**押したまま、 **CTRL**キーおよびをクリックして**既定値として設定**です。
+    *メニューオプションを使用して参照*
+4. [**ブラウザー**の選択] ダイアログボックスで、 **CTRL**キーを押しながら [**既定と**して設定] をクリックして、 **Google Chrome**と**Internet Explorer**の両方を選択します。
 
-    ![ダイアログ ボックスで [参照]](visual-studio-2013-web-tools/_static/image2.png "ダイアログ ボックスで [参照]")
+    ![[参照] ダイアログボックス](visual-studio-2013-web-tools/_static/image2.png "[参照] ダイアログボックス")
 
-    *複数の既定のブラウザーを選択します。*
-5. Google Chrome や Internet Explorer の両方が既定のブラウザーとしては表示されます。 をクリックして**キャンセル**ダイアログ ボックスを閉じます。
+    *複数の既定のブラウザーの選択*
+5. Google Chrome と Internet Explorer の両方が既定のブラウザーとして表示されるようになります。 **[キャンセル]** をクリックして、ダイアログボックスを閉じます。
 
-    ![Google Chrome と既定のブラウザーとして Internet Explorer](visual-studio-2013-web-tools/_static/image3.png "Google Chrome や Internet Explorer の既定のブラウザー")
+    ![既定のブラウザーとしての Google Chrome および Internet Explorer](visual-studio-2013-web-tools/_static/image3.png "Google Chrome と Internet Explorer の既定のブラウザー")
 
-    *Google Chrome と既定のブラウザーとして Internet Explorer*
+    *既定のブラウザーとしての Google Chrome および Internet Explorer*
 
     > [!NOTE]
-    > 既定のブラウザーを構成した後、**複数のブラウザー**ブラウザー メニューのオプションを選択します。
+    > 既定のブラウザーを構成した後、ブラウザー メニューで **複数のブラウザー** オプションが選択されます。
     > 
     > ![複数のブラウザー](visual-studio-2013-web-tools/_static/image4.png "複数のブラウザー")
-6. キーを押して**CTRL** + **F5**デバッグなしでアプリケーションを実行します。
-7. 両方のブラウザー ウィンドウが開いたときに、更新プログラムを同時に両方のブラウザーで表示するには、上記のうちの 1 つを配置します。 ブラウザーでは、薄い青色の四角形を持つ web ページを表示する必要があります。
+6. **CTRL** + **F5**キーを押して、デバッグなしでアプリケーションを実行します。
+7. 両方のブラウザーウィンドウを開いたときに、両方のブラウザーで同時に更新プログラムを表示するために、どちらか一方を配置します。 ブラウザーには、薄い青の四角形の付いた web ページが表示されます。
 
-    ![上の 1 つのブラウザーを配置する](visual-studio-2013-web-tools/_static/image5.png "上、もう 1 つのブラウザーを配置します。")
+    ![1つのブラウザーを他のブラウザーの上に配置する](visual-studio-2013-web-tools/_static/image5.png "1つのブラウザーを他のブラウザーの上に配置する")
 
-    *上の 1 つのブラウザーを配置します。*
-8. ブラウザーを閉じないでください。 次のタスクでは、それらを使用します。
+    *1つのブラウザーを他のブラウザーの上に配置する*
+8. ブラウザーを閉じないでください。 これらは、次のタスクで使用します。
 
 <a id="Ex1Task2"></a>
-#### <a name="task-2---using-zen-coding-to-create-html-elements"></a>タスク 2 - HTML 要素を作成する場合、コーディングを使用して Zen
+#### <a name="task-2---using-zen-coding-to-create-html-elements"></a>タスク 2-Zen コーディングを使用して HTML 要素を作成する
 
-**Zen コーディング**エディターは、高速の HTML、XML、XSL (またはその他の構造化されたコード形式) 用のプラグインのコーディングおよび編集します。 このプラグインのコアは、HTML コードに - CSS セレクターのように式を拡張できるようにする強力な省略形エンジンです。 Zen コーディングは、HTML、CSS を使用してスタイルのセレクターの構文を記述する高速の方法です。
+**Zen コーディング**は、高速 HTML、XML、XSL (またはその他の構造化されたコード形式) のコーディングおよび編集用のエディタープラグインです。 このプラグインの中核となるのは、CSS セレクターに似た式を HTML コードに展開できる強力な省略形エンジンです。 Zen コーディングは、CSS スタイルセレクター構文を使用して HTML を記述する高速な方法です。
 
-この演習では、質問のオプションを表す HTML ボタンを生成するのに Web Essentials によって提供される Zen コーディング機能を使用します。
+この演習では、Web Essentials によって提供される Zen コーディング機能を使用して、質問のオプションを表す HTML ボタンを生成します。
 
-1. Visual Studio に切り替えます。
-2. 開く、 **Index.cshtml**にあるファイル、**ビュー** | **ホーム**フォルダー。
-3. 置換、 **&lt;!--TODO: ここでオプションを追加する&gt;** コメントを次のコード、およびキーを押して**タブ**。
+1. Visual Studio に戻ります。
+2. **Views** | **ホーム**フォルダーにある**インデックスの cshtml**ファイルを開きます。
+3. **&lt;!--TODO: [オプションの追加]--&gt;** コメントを次のコードに置き換え、 **tab**キーを押します。
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample1.css)]
-4. コードは、HTML に拡張する必要があります。
+4. コードは HTML に展開する必要があります。
 
-    ![HTML を拡張](visual-studio-2013-web-tools/_static/image6.png "HTML の展開")
+    ![拡張 HTML](visual-studio-2013-web-tools/_static/image6.png "拡張 HTML")
 
-    *展開された HTML*
+    *拡張 HTML*
 
     > [!NOTE]
-    > Zen コーディングの構文の詳細については、次を参照してください。[記事](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/)します。
-5. をクリックして、**リンクされたブラウザーを更新**両方のブラウザーを更新するボタンをクリックします。
+    > Zen コーディング構文の詳細については、次の[記事](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/)を参照してください。
+5. [リンクされた**ブラウザーの更新**] ボタンをクリックして、両方のブラウザーを更新します。
 
-    ![リンクされたブラウザーを更新](visual-studio-2013-web-tools/_static/image7.png "リンクされたブラウザーを更新")
+    ![リンクされたブラウザーの更新](visual-studio-2013-web-tools/_static/image7.png "リンクされたブラウザーの更新")
 
-    *リンクされたブラウザーを更新します。*
+    *リンクされたブラウザーの更新*
 
-    ![Internet Explorer - ページは 4 つのボタンで更新](visual-studio-2013-web-tools/_static/image8.png "4 つのボタンで Internet Explorer - ページの更新")
+    ![Internet Explorer-4 つのボタンで更新されたページ](visual-studio-2013-web-tools/_static/image8.png "Internet Explorer-4 つのボタンで更新されたページ")
 
-    *4 つのボタンで Internet Explorer - ページの更新*
+    *Internet Explorer-4 つのボタンで更新されたページ*
 
-    ![Google Chrome のページは 4 つのボタンで更新](visual-studio-2013-web-tools/_static/image9.png "4 つのボタンで Google Chrome のページの更新")
+    ![Google Chrome-4 つのボタンで更新されたページ](visual-studio-2013-web-tools/_static/image9.png "Google Chrome-4 つのボタンで更新されたページ")
 
-    *Google Chrome の 4 つのボタンのページの更新*
-6. Visual Studio に切り替えます。
-7. ページにボタンを追加したが、テンプレートの質問を追加する必要があります。 これを行うと呼ばれる Web Essentials の新機能を使用します**Lorem Ipsum ジェネレーター**します。 検索、 **div**を持つ要素、**クラス**属性**前面**します。
-8. 最初の子要素として次のコードを追加、 **div**、キーを押します**タブ**します。
+    *Google Chrome-4 つのボタンで更新されたページ*
+6. Visual Studio に戻ります。
+7. ボタンをページに追加しましたが、それでもテンプレートの質問を追加する必要があります。 これを行うには、 **Lorem Ipsum generator**と呼ばれる Web Essentials の新機能を使用します。 **クラス**属性**front**の**div**要素を見つけます。
+8. 次のコードを**div**の最初の子要素として追加し、 **tab**キーを押します。
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample2.css)]
-9. コードは、HTML に拡張する必要があります。
+9. コードは HTML に展開する必要があります。
 
-    ![Lorem Ipsum の自動生成された](visual-studio-2013-web-tools/_static/image10.png "Lorem Ipsum の自動生成")
+    ![Lorem Ipsum 自動生成](visual-studio-2013-web-tools/_static/image10.png "Lorem Ipsum 自動生成")
 
-    *Lorem Ipsum の自動生成*
+    *Lorem Ipsum 自動生成*
 
     > [!NOTE]
-    > Zen コーディングの一部として、HTML エディターで直接 Lorem Ipsum のコードを生成できます。 入力するだけ**lorem**ヒットと**タブ**し、30 Lorem Ipsum のテキストが挿入されます。 たとえば、 *lorem10* Lorem Ipsum の 10 単語を挿入します。
-10. もう 1 つの新しい機能と呼ばれる Web Essentials を使用して、質問の上部にあるロゴを追加する**Lorem ピクセル ジェネレーター**します。 最初の子要素として次のコードを追加、 **div**を持つ要素**コンテナー**として**クラス**値、およびキーを押して**タブ**します。
+    > Zen コーディングの一部として、HTML エディターで直接 Lorem Ipsum コードを生成できるようになりました。 「 **Lorem** And Hit **TAB」** と入力するだけで、30ワード lorem Ipsum text が挿入されます。 例: *lorem10*によって 10 Lorem Ipsum 単語が挿入されます。
+10. **Lorem Pixel generator**と呼ばれる Web Essentials の別の新機能を使用して、質問の一番上にロゴを追加します。 次のコードを**div**要素の最初の子要素として、**コンテナー**を**クラス**値として追加し、 **tab**キーを押します。
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample3.css)]
-11. コードを HTML に展開する必要があります。
+11. コードは HTML に展開する必要があります。
 
-    ![Lorem ピクセルの自動生成された](visual-studio-2013-web-tools/_static/image11.png "Lorem ピクセルの自動生成")
+    ![Lorem ピクセル自動生成](visual-studio-2013-web-tools/_static/image11.png "Lorem ピクセル自動生成")
 
-    *Lorem ピクセルの自動生成*
-
-    > [!NOTE]
-    > Zen コーディングの一部として、HTML エディターで直接 Lorem ピクセルのコードを生成することもできます。 入力**pix の動物 200 x 200**ヒットと**タブ**と**img**動物の 200 x 200 イメージにタグが挿入されます。 詳細についてを参照してください[Lorem ピクセル](http://www.lorempixel.com)します。
-12. をクリックして、**リンクされたブラウザーを更新**両方のブラウザーを更新するボタンをクリックします。
-
-    ![Internet Explorer - 自動生成されたイメージとテキスト](visual-studio-2013-web-tools/_static/image12.png "Internet Explorer - 自動生成されたイメージとテキスト")
-
-    *Internet Explorer - 自動生成されたイメージとテキスト*
-
-    ![Google Chrome の自動生成されたイメージとテキスト](visual-studio-2013-web-tools/_static/image13.png "Google Chrome の自動生成されたイメージとテキスト")
-
-    *Google Chrome の自動生成されたイメージとテキスト*
+    *Lorem ピクセル自動生成*
 
     > [!NOTE]
-    > コード スニペットを追加するときに、イメージがランダムに選択、ために、ブラウザーに表示されるイメージが異なる場合があります。
-13. ブラウザーを閉じないでください。 次のタスクでは、それらを使用します。
+    > Zen コーディングの一部として、HTML エディターで直接 Lorem ピクセルコードを生成することもできます。 「 **Pix-200 x 200-** animal And Hit **TAB」** と入力するだけで、animal の 200 x 200 イメージを含む**img**タグが挿入されます。 詳細については、「 [Lorem ピクセル](http://www.lorempixel.com)」を参照してください。
+12. [リンクされた**ブラウザーの更新**] ボタンをクリックして、両方のブラウザーを更新します。
+
+    ![Internet Explorer で自動生成されたイメージとテキスト](visual-studio-2013-web-tools/_static/image12.png "Internet Explorer で自動生成されたイメージとテキスト")
+
+    *Internet Explorer で自動生成されたイメージとテキスト*
+
+    ![Google Chrome で自動生成されたイメージとテキスト](visual-studio-2013-web-tools/_static/image13.png "Google Chrome で自動生成されたイメージとテキスト")
+
+    *Google Chrome で自動生成されたイメージとテキスト*
+
+    > [!NOTE]
+    > コードスニペットを追加すると、イメージがランダムに選択されるため、ブラウザーに表示されるイメージが異なる場合があります。
+13. ブラウザーを閉じないでください。 これらは、次のタスクで使用します。
 
 <a id="Ex1Task3"></a>
-#### <a name="task-3---updating-a-style-property"></a>タスク 3 - スタイル プロパティを更新しています
+#### <a name="task-3---updating-a-style-property"></a>タスク 3-スタイルプロパティの更新
 
-このタスクでは、ブラウザー リンクを使用して**検査モード**特定の DOM 要素が生成される場所の正確な場所を検出し、Web で提供されるカラー ピッカーを使用してその要素の色のプロパティを更新する機能Essentials。
+このタスクでは、ブラウザーリンクの**検査モード**機能を使用して、特定の DOM 要素が生成される場所を正確に検出し、Web Essentials によって提供されるカラーピッカーを使用してその要素の color プロパティを更新します。
 
-1. Internet Explorer のブラウザーでキーを押して**CTRL** + **ALT** + **は**検査モードを有効にします。
-2. 薄い青の枠線の上にポインターを移動し をクリックします。
+1. Internet Explorer ブラウザーで、 **CTRL** + **ALT** + **I**キーを押して、検査モードを有効にします。
+2. 薄い青の境界線の上にポインターを移動し、[] をクリックします。
 
-    ![薄い青の枠線にポインターを移動](visual-studio-2013-web-tools/_static/image14.png "明るい青色の枠線にポインターを移動")
+    ![薄い青の境界線の上にポインターを移動する](visual-studio-2013-web-tools/_static/image14.png "薄い青の境界線の上にポインターを移動する")
 
-    *薄い青の枠線にポインターを移動*
-3. Visual Studio に切り替えます。 Visual Studio の HTML エディターで、ブラウザーで選択した HTML 要素を選択することも注目してください。
+    *薄い青の境界線の上にポインターを移動する*
+3. Visual Studio に戻ります。 Visual Studio HTML エディターで、ブラウザーで選択した HTML 要素も選択されていることに注意してください。
 
-    ![Visual Studio の HTML エディターで選択されている HTML 要素](visual-studio-2013-web-tools/_static/image15.png "Visual Studio の HTML エディターで選択されている HTML 要素")
+    ![Visual Studio HTML エディターで選択された HTML 要素](visual-studio-2013-web-tools/_static/image15.png "Visual Studio HTML エディターで選択された HTML 要素")
 
-    *Visual Studio の HTML エディターで選択されている HTML 要素*
-4. 今すぐ更新する、**前面**選択した要素のスタイルを変更するために CSS クラス。 これを行うには、キーを押します**CTRL** + **、** を開く、**移動**検索ボックス。 型**site.css**キーを押します**ENTER**ファイルを開きます。
+    *Visual Studio HTML エディターで選択された HTML 要素*
+4. 次に、選択した要素のスタイルを変更するために、 **front** CSS クラスを更新します。 これを行うには 、CTRL ** + キーを押し**て、 **[移動]** 検索ボックスを開きます。 「 **Site .Css** 」と入力し、 **enter**キーを押してファイルを開きます。
 
-    ![Site.css ファイルを開く](visual-studio-2013-web-tools/_static/image16.png "Site.css ファイルを開いています")
+    ![ファイルサイト .css を開いています](visual-studio-2013-web-tools/_static/image16.png "ファイルサイト .css を開いています")
 
-    *Site.css ファイルを開いています*
-5. キーを押して**CTRL** + **F**と種類 **.flip コンテナー .front** CSS セレクターを検索します。
-6. カラー ピッカーを開きますクラスの枠線のプロパティで明るい青い四角形をクリックします。
+    *ファイルサイト .css を開いています*
+5. **CTRL** + **F**キーを押し、「」と入力**し**て CSS セレクターを検索します。
+6. クラスの [border] プロパティで薄い青色の四角をクリックして、カラーピッカーを開きます。
 
-    ![カラー ピッカーを開いて](visual-studio-2013-web-tools/_static/image17.png "カラー ピッカーを開く")
+    ![カラーピッカーを開く](visual-studio-2013-web-tools/_static/image17.png "カラーピッカーを開く")
 
-    *カラー ピッカーを開く*
-7. シェブロンをクリックして、カラー ピッカーを展開し、新しい色を選択します。
+    *カラーピッカーを開く*
+7. シェブロンボタンをクリックしてカラーピッカーを展開し、新しい色を選択します。
 
-    ![カラー ピッカーの展開](visual-studio-2013-web-tools/_static/image18.png "カラー ピッカーの展開")
+    ![カラーピッカーを展開する](visual-studio-2013-web-tools/_static/image18.png "カラーピッカーを展開する")
 
-    *カラー ピッカーの展開*
-8. キーを押して**CTRL** + **ALT** + **ENTER**リンクされたブラウザーを更新します。
-9. Internet Explorer に切り替えるし、罫線の色がどのように変更されたかに注意してください。
+    *カラーピッカーを展開する*
+8. **CTRL** + **ALT** ** + 押して、** リンクされたブラウザーを更新します。
+9. Internet Explorer に切り替えて、境界線の色がどのように変化したかを確認します。
 
-    ![Internet Explorer - 更新された境界線の色](visual-studio-2013-web-tools/_static/image19.png "Internet Explorer - 更新された境界線の色")
+    ![Internet Explorer-境界線の色が更新されました](visual-studio-2013-web-tools/_static/image19.png "Internet Explorer-境界線の色が更新されました")
 
-    *Internet Explorer - 更新された境界線の色*
-10. Google Chrome に切り替えるし、罫線の色がどのように変更されたかに注意してください。
+    *Internet Explorer-境界線の色が更新されました*
+10. Google Chrome に切り替え、境界線の色がどのように変化したかを確認します。
 
-    ![Google Chrome - 更新された境界線の色](visual-studio-2013-web-tools/_static/image20.png "Google Chrome - 更新された境界線の色")
+    ![Google Chrome-更新された境界線の色](visual-studio-2013-web-tools/_static/image20.png "Google Chrome-更新された境界線の色")
 
-    *Google Chrome - 更新された境界線の色*
-11. Visual Studio に切り替えます。
-12. 末尾に移動して、 **Site.css**ファイルとキーを押して**CTRL** + **F**を検索する、 **.btn**セレクター。
-13. 注意、 **webkit の境界線の radius**プロパティは、緑色の下線が引かれます。
+    *Google Chrome-更新された境界線の色*
+11. Visual Studio に戻ります。
+12. **Btn**セレクターを見つけるには、**サイトの .css**ファイルの末尾に移動し、 **CTRL** + **F**キーを押します。
+13. **-Webkit**プロパティが緑色で下線が引かれていることに注意してください。
 
-    ![btn セレクターの webkit の境界線の半径プロパティ](visual-studio-2013-web-tools/_static/image21.png "btn セレクターの webkit の境界線の半径プロパティ")
+    ![-webkit-btn selector の radius プロパティ](visual-studio-2013-web-tools/_static/image21.png "-webkit-btn selector の radius プロパティ")
 
-    *btn セレクターの webkit の境界線の半径プロパティ*
-14. キャレットを置き、 **webkit-罫線-radius**プロパティ。 青い線は、プロパティの最初の単語の最初の文字の下に表示する必要があります。 これは、**スマート タグ**します。
-15. キーを押して**CTRL** + **します。** 推奨事項 メニューを開き、をクリックする**標準プロパティ (radius 境界線) が不足している追加**します。
+    *-webkit-btn selector の radius プロパティ*
+14. **-Webkit-radius**プロパティにカレットを置きます。 プロパティの最初の単語の最初の文字の下に青い線が表示されます。 これは**スマートタグ**です。
+15. **Ctrl** + キーを押し**ます。** [候補] メニューを開き、[**存在しない標準プロパティの追加] (罫線-半径)** をクリックします。
 
-    ![追加の標準プロパティの提案が不足している](visual-studio-2013-web-tools/_static/image22.png "追加の修正候補の標準プロパティがありません")
+    ![不足している標準プロパティの追加の提案](visual-studio-2013-web-tools/_static/image22.png "不足している標準プロパティの追加の提案")
 
-    *追加の修正候補の標準プロパティがありません。*
-16. **境界の半径**プロパティは、CSS 規則を自動的に追加します。
+    *不足している標準プロパティの追加の提案*
+16. **境界線**のプロパティが CSS 規則に自動的に追加されます。
 
-    ![追加標準プロパティが欠落して](visual-studio-2013-web-tools/_static/image23.png "追加標準プロパティが見つかりません")
+    ![欠落した標準プロパティが追加されました](visual-studio-2013-web-tools/_static/image23.png "欠落した標準プロパティが追加されました")
 
-    *追加標準プロパティが見つかりません*
-17. ポインターを置く、**境界の半径**プロパティを表示、**ブラウザー マトリックス ツールヒント**します。 **ブラウザー マトリックス ツールヒント**各ブラウザーで、プロパティの可用性を示します。
+    *欠落した標準プロパティが追加されました*
+17. **境界半径**プロパティの上にポインターを移動すると、**ブラウザーのマトリックスのツールヒント**が表示されます。 **ブラウザーのマトリックスのツールヒント**には、各ブラウザーでプロパティが利用可能かどうかが表示されます。
 
-    ![ブラウザーのマトリックス ツールヒント](visual-studio-2013-web-tools/_static/image24.png "ブラウザー マトリックス ツールヒント")
+    ![ブラウザーマトリックスのツールヒント](visual-studio-2013-web-tools/_static/image24.png "ブラウザーマトリックスのツールヒント")
 
-    *ブラウザーのマトリックスのツールヒント*
-18. 注意の値、**境界の半径**プロパティがまだ下線が引かれました。 警告メッセージが表示される値の上にポインターを移動します。
+    *ブラウザーマトリックスのツールヒント*
+18. **Border-radius**プロパティの値に下線が表示されていることに注意してください。 値の上にポインターを移動すると、警告メッセージが表示されます。
 
-    ![境界の半径プロパティ値の警告](visual-studio-2013-web-tools/_static/image25.png "境界の半径プロパティ値の警告")
+    ![罫線-radius プロパティ値-警告](visual-studio-2013-web-tools/_static/image25.png "罫線-radius プロパティ値-警告")
 
-    *境界の半径プロパティ値の警告*
-19. 単位を削除、**境界の半径**プロパティ値、ツールヒントで示されているとします。
-20. として**境界の半径**コーナーは、削除することができます丸みのある方法の境界を定義するための標準プロパティは、 **webkit-罫線-radius**プロパティと、CSS 規則からの値。
-21. キャレットを置き、**ワード ラップ**プロパティとスマート タグは、以下も表示されることがわかります。
-22. メニューを開き、をクリックして**不足しているベンダーの仕様を追加**します。
+    *罫線-radius プロパティ値-警告*
+19. ツールヒントで提案されているように、**境界半径**プロパティ値の単位を削除します。
+20. **境界線**として、丸みのある境界線の角を定義するための標準プロパティとして、 **-webkit-radius**プロパティと値を CSS 規則から削除できます。
+21. **"ワードラップ**" プロパティにカレットを置き、スマートタグも下に表示されることを確認します。
+22. メニューを開き、[**不足**しているベンダの詳細の追加] をクリックします。
 
-    ![不足しているベンダーの仕様の修正候補を追加](visual-studio-2013-web-tools/_static/image26.png "不足しているベンダーの仕様の修正候補の追加")
+    ![不足しているベンダーの詳細の提案の追加](visual-studio-2013-web-tools/_static/image26.png "不足しているベンダーの詳細の提案の追加")
 
-    *不足しているベンダーの仕様の修正候補を追加します。*
-23. **Ms 折り返し**プロパティは、CSS 規則を自動的に追加します。
+    *不足しているベンダーの詳細の提案の追加*
+23. **-Ms-ワードラップ**プロパティは、CSS 規則に自動的に追加されます。
 
-    ![ベンダー固有のプロパティが追加](visual-studio-2013-web-tools/_static/image27.png "ベンダー固有のプロパティを追加")
+    ![仕入先固有のプロパティの追加](visual-studio-2013-web-tools/_static/image27.png "仕入先固有のプロパティの追加")
 
-    *ベンダー固有のプロパティを追加*
+    *仕入先固有のプロパティの追加*
 
 <a id="Ex1Task4"></a>
-#### <a name="task-4---updating-the-html-code-from-the-browser"></a>タスク 4 - ブラウザーから HTML コードの更新
+#### <a name="task-4---updating-the-html-code-from-the-browser"></a>タスク 4-ブラウザーから HTML コードを更新する
 
-このタスクでは、ブラウザー リンクを使用して**デザイン モード**ブラウザーからの DOM オブジェクトを編集し、Visual Studio での HTML ソース ファイルに変更を転送する機能。
+このタスクでは、ブラウザーリンクの**デザインモード**機能を使用して、ブラウザーから DOM オブジェクトを編集し、Visual STUDIO の HTML ソースファイルに変更を転送します。
 
-1. Google Chrome でキーを押して**CTRL** + **ALT** + **D**デザイン モードを有効にします。
-2. ポインターを置く、 **Lorem Ipsum dolor sit amet**ラベルを付け、をクリックします。
+1. Google Chrome で、 **CTRL** + **ALT** + **D**キーを押してデザインモードを有効にします。
+2. **Lorem Ipsum dolor 座っ amet**ラベルの上にポインターを移動し、[] をクリックします。
 
-    ![質問を編集](visual-studio-2013-web-tools/_static/image28.png "質問の編集")
-
-    *質問の編集*
-3. カーソルが表示されます。 元のテキストを置換*どのそのような長い質問を書き込むときにしますか?*、しキーを押します**ESC**デザイン モードを終了します。
-
-    ![編集の質問](visual-studio-2013-web-tools/_static/image29.png "質問の編集")
+    ![質問の編集](visual-studio-2013-web-tools/_static/image28.png "質問の編集")
 
     *質問の編集*
-4. Visual Studio に戻り、開いているスイッチ**Index.cshtml**開いていない場合、します。 注意しての内部テキ スト、 **&lt;p&gt;** 要素が更新されました。
+3. カーソルが表示されます。 元のテキストを、*長い質問を書いたときに表示される内容*に置き換え、 **ESC**キーを押してデザインモードを終了します。
 
-    ![HTML ページで更新された質問](visual-studio-2013-web-tools/_static/image30.png "HTML ページに最新の質問")
+    ![編集した質問](visual-studio-2013-web-tools/_static/image29.png "編集した質問")
 
-    *HTML ページで、更新された質問*
+    *編集した質問*
+4. Visual Studio に戻り、(まだ開いていない場合は) **cshtml**を開きます。 **&lt;p&gt;** 要素の内部テキストが更新されていることに注意してください。
+
+    ![HTML ページで更新された質問](visual-studio-2013-web-tools/_static/image30.png "HTML ページで更新された質問")
+
+    *HTML ページで更新された質問*
 
 <a id="Ex1Task5"></a>
 #### <a name="task-5---reviewing-seo-related-warnings"></a>タスク 5 - 変更履歴の SEO に関連する警告
 
-**検索エンジンの最適化**(SEO) とは、結果の検索エンジンの一覧で web サイトのランクを与えるをするプロセスです。 サイトの順位が高いほど、記載されているより一貫した多くの訪問者、サイトは、その検索エンジンから取得されます。 Web Essentials には、HTML を検査する分析ツールが組み込まれています、問題のレポートは検出し、それを修正するアシスタンスを提供します。
+**検索エンジンの最適化**(SEO) は、検索エンジンの結果の一覧で web サイトの順位を高くするプロセスです。 サイトの順位が高く、より一貫して一覧表示されていれば、その検索エンジンからサイトが取得する訪問者の数が増えます。 Web Essentials には、HTML を検査して検出された問題を報告し、それらを修正するためのサポートを提供する分析ツールが組み込まれています。
 
-1. 移動して、**ビュー**メニューをクリックします**エラー一覧**を開く、**エラー一覧**ウィンドウ。
+1. **[表示]** メニューにアクセスし、 **[エラー一覧]** をクリックして **[エラー一覧]** ウィンドウを開きます。
 
-    ![エラーをビューに一覧表示メニューの](visual-studio-2013-web-tools/_static/image31.png "表示 メニューのエラー一覧")
+    ![[表示] メニューのエラー一覧](visual-studio-2013-web-tools/_static/image31.png "[表示] メニューのエラー一覧")
 
-    *エラーをビューに一覧表示メニュー*
-2. 通知を SEO 警告があることに注意してください、 **&lt;メタ&gt;** タグ ページの説明がありません。 これを修正する SEO 警告エントリをダブルクリックします。
+    *[表示] メニューのエラー一覧*
+2. **&lt;メタ&gt;** タグがページの説明に含まれていないことを通知する SEO 警告が表示されていることに注意してください。 SEO 警告エントリをダブルクリックして修正します。
 
-    ![エラー一覧ウィンドウ](visual-studio-2013-web-tools/_static/image32.png "エラー一覧ウィンドウ")
+    ![[エラー一覧] ウィンドウ](visual-studio-2013-web-tools/_static/image32.png "[エラー一覧] ウィンドウ")
 
-    *エラー一覧ウィンドウ*
-3. **Web Essentials**ダイアログ ボックスで、をクリックして**はい**説明を挿入する&lt;メタ&gt;タグ。
+    *[エラー一覧] ウィンドウ*
+3. **[Web Essentials]** ダイアログボックスで、 **[はい]** をクリックして説明 &lt;meta&gt; タグに挿入します。
 
-    ![Web Essentials ダイアログ ボックス](visual-studio-2013-web-tools/_static/image33.png "Web Essentials ダイアログ ボックス")
+    ![[Web Essentials] ダイアログボックス](visual-studio-2013-web-tools/_static/image33.png "[Web Essentials] ダイアログボックス")
 
-    *Web Essentials ダイアログ ボックス*
-4. 用のエディター **\_Layout.cshtml**開きます、 **&lt;メタ&gt;** にタグが自動的に追加、**ヘッド**のセクション、HTML ファイルです。
+    *[Web Essentials] ダイアログボックス*
+4. **\_Layout**のエディターが開き、 **&lt;meta&gt;** タグが HTML ファイルの**head**セクションに自動的に追加されます。
 
-    ![自動的に追加されます (_l) ページに Meta タグ](visual-studio-2013-web-tools/_static/image34.png "(_l) ページに自動的に追加のメタ タグ")
+    ![_Layout ページに自動的に追加された Meta タグ](visual-studio-2013-web-tools/_static/image34.png "_Layout ページに自動的に追加された Meta タグ")
 
-    *自動的に追加のメタ タグ\_レイアウト ページ*
-5. 値を変更、**コンテンツ**属性を*GeekQuiz*ファイルを保存します。
+    *\_レイアウトページに自動的に追加された Meta タグ*
+5. **Content**属性の値を*GeekQuiz*に変更し、ファイルを保存します。
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-taking-advantage-of-code-snippets-and-intellisense"></a>演習 2:コード スニペットと IntelliSense の活用
+### <a name="exercise-2-taking-advantage-of-code-snippets-and-intellisense"></a>演習 2: コードスニペットと IntelliSense の活用
 
-Web essentials、余分な機能を持つ、HTML エディターが拡張されました。 この演習では、web アプリケーションの開発に役立つものをいくつかの新しい機能が表示されます。
+Web Essentials では、HTML エディターは追加機能を使用して拡張されています。 この演習では、web アプリケーションを開発する際に役立ついくつかの新機能について紹介します。
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1---using-intellisense-in-html-documents"></a>タスク 1 - HTML ドキュメントで IntelliSense の使用
+#### <a name="task-1---using-intellisense-in-html-documents"></a>タスク 1-HTML ドキュメントでの IntelliSense の使用
 
-このタスクに表示される最初の新機能と呼びます**動的 IntelliSense**します。 動的 IntelliSense では、その他のタグとは使用可能な id を推論する属性を読み取ります。
+このタスクに表示される最初の新機能は、**動的 IntelliSense**と呼ばれます。 動的 IntelliSense では、他のタグや属性を読み取って、使用する可能性のある id を推測します。
 
-このタスクでは、ラベルと、入力フィールドが含まれた新しい HTML フォーム要素を作成します。 追加し、**の**属性に、入力に連結するラベルをスコープ内の入力の id に基づく IntelliSense による候補が表示されます。
+このタスクでは、ラベルと入力フィールドを含む新しい HTML フォーム要素を作成します。 次に、の属性をラベルに追加して入力にバインドします。これにより、スコープ内の入力の id に基づいて IntelliSense**の**候補が表示されます。
 
-1. 開いている**Visual Studio Express 2013 for Web**と**Begin.sln**ソリューション、**ソース/Ex2-TakingAdvantageofCodeSnippetsandIntelliSense/開始**フォルダー。 または、前の手順で取得したソリューションを続行できます。
-2. **ソリューション エクスプ ローラー**、オープン、 **Index.cshtml**にあるファイル、**ビュー** | **ホーム**フォルダー。
-3. 内で、次の形式を追加、 **&lt;セクション&gt;** 要素。
+1. **Web 用 Visual Studio Express 2013**を開き、 **Source/Ex2-TakingAdvantageofCodeSnippetsandIntelliSense/begin**フォルダーにある**ソリューションを開きます。** または、前の演習で取得したソリューションを続行することもできます。
+2. **ソリューションエクスプローラー**で、 **Views** | **ホーム**フォルダーにある**インデックスの cshtml**ファイルを開きます。
+3. **&lt;section&gt;** 要素内に次のフォームを追加します。
 
-    (コード スニペット - *VisualStudio2013WebTooling* - *Ex2* - *フォーム*)
+    (コードスニペット- *VisualStudio2013WebTooling* - *Ex2* - *フォーム*)
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample4.html)]
-4. 入力タグは、フィールドのいくつかの説明のラベルによって先行されなければなりません。 入力タグの前に次のラベルを追加します。
+4. 入力タグの前には、フィールドの説明を含むラベルを付ける必要があります。 入力タグの前に次のラベルを追加します。
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample5.html)]
-5. **の** の属性を **&lt;ラベル&gt;** にラベルをフォーム要素がバインドされているを指定します。 属性の値は、関連する要素の id と同じでなければなりません。 追加、 **の** 属性を **&lt;ラベル&gt;** 要素。 次の図に示すように、&quot;名前&quot;値が表示されます、[IntelliSense] ボックスで、同じスコープ内の要素の id に基づく (囲んでいる **&lt;フォーム&gt;**)。
+5. ラベル**のバインド**先のフォーム要素を指定 **&gt;&lt;ラベル**の属性。 属性の値は、関連する要素の id と同じである必要があります。 **&lt;label&gt;** 要素に**for**属性を追加します。 次の図に示すように、同じスコープ (外側の **&lt;フォーム&gt;** ) 内の要素の id に基づいて、[IntelliSense] ボックスに &quot;名&quot; 値がポップアップ表示されます。
 
-    ![IntelliSense で、id を示す](visual-studio-2013-web-tools/_static/image35.png "IntelliSense 内の id を表示")
+    ![IntelliSense で id を表示する](visual-studio-2013-web-tools/_static/image35.png "IntelliSense で id を表示する")
 
-    *IntelliSense 内の id を表示*
-6. 最近追加された削除 **&lt;フォーム&gt;** 要素とそのコンテンツ。
+    *IntelliSense で id を表示する*
+6. 最近追加された **&lt;フォーム&gt;** 要素とその内容を削除します。
 
 <a id="Ex2Task2"></a>
-#### <a name="task-2---using-html-code-snippets"></a>タスク 2 - を使用して HTML コード スニペット
+#### <a name="task-2---using-html-code-snippets"></a>タスク 2-HTML コードスニペットの使用
 
-HTML5 では、25 を超える新しいセマンティック タグが導入されました。 Visual Studio が IntelliSense でこれらのタグのサポートに既に存在しますが、Visual Studio 2013 では、高速化し、新しいコード スニペットを追加することでマークアップを記述しやすくなります。 します。 これらのタグが複雑でない場合、これらにはの正しいコーデック フォールバックを追加するなど、いくつかの小さな細部について、*オーディオ*タグ。 このタスクでは、オーディオ タグの HTML コード スニペットが表示されます。
+HTML5 では、25個を超える新しいセマンティックタグが導入されました。 Visual Studio には既にこれらのタグの IntelliSense がサポートされていましたが、Visual Studio 2013 新しいコードスニペットを追加することにより、マークアップの記述が高速で簡単になります。 これらのタグは複雑ではありませんが、*オーディオ*タグに適切なコーデックフォールバックを追加するなど、若干の微妙な違いがあります。 このタスクでは、オーディオタグの HTML コードスニペットを確認します。
 
-1. **Index.cshtml**ファイルに、入力 **&lt;aud**内で、 **&lt;セクション&gt;** 要素の次の図に示すようにします。
+1. **Index. cshtml**ファイルで、次の図に示すように、 **&lt;セクション&gt;** 要素内に **&lt;aud**と入力します。
 
-    ![要素を挿入するオーディオ](visual-studio-2013-web-tools/_static/image36.png "オーディオの要素を挿入")
+    ![オーディオ要素の挿入](visual-studio-2013-web-tools/_static/image36.png "オーディオ要素の挿入")
 
-    *オーディオの要素を挿入*
-2. キーを押して**タブ**2 回ページで、次のコードを追加する方法に注意してください。 および上にカーソルが置かれます、 **src**最初のソースの属性です。
+    *オーディオ要素の挿入*
+2. **Tab**キーを2回押して、ページに次のコードが追加され、カーソルが最初のソースの**src**属性に配置されていることを確認します。
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample6.html)]
 
     > [!NOTE]
-    > キーを押して、**タブ**キー 2 回、コード スニペットが挿入されます。 オーディオのスニペットの標準的な使用法を示しています、*オーディオ*サポートの強化を 2 つのソース ファイルのタグ。
-3. 2 番目の行を削除し、WebCampsTV Katana 表示するには、次のリンクで最初の行のソースを更新: [ http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3)します。 結果として得られるコードは、以下に示します。
+    > **Tab**キーを2回押すと、コードスニペットが挿入されます。 オーディオスニペットは、サポートを強化するために2つのソースファイルを使用して、*オーディオ*タグの標準的な使用方法を示しています。
+3. 2行目を削除し、最初の行のソースを更新します。次のリンクを使用して、Webキャンプ Stv Katana show: [http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3)にします。 結果のコードは次のようになります。
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample7.html)]
 
     > [!NOTE]
-    > ソース ファイル*KatanaProject.mp3*例として使用されます。 たい場合は、別のソースを使用できます。
-4. キーを押して**CTRL** + **S**ファイルを保存します。
-5. キーを押して**CTRL** + **F5**アプリケーションを起動します。
-6. オーディオ プレーヤーをアプリケーションに追加されたことに注意してください。
+    > ソースファイル*KatanaProject*が例として使用されています。 必要に応じて、別のソースを使用することもできます。
+4. **Ctrl** + **S**キーを押して、ファイルを保存します。
+5. **CTRL** + **F5**キーを押してアプリケーションを起動します。
+6. オーディオプレーヤーがアプリケーションに追加されたことに注意してください。
 
-    ![Internet Explorer でのオーディオ プレーヤー](visual-studio-2013-web-tools/_static/image37.png "Internet Explorer でのオーディオ プレーヤー")
+    ![Internet Explorer のオーディオプレーヤー](visual-studio-2013-web-tools/_static/image37.png "Internet Explorer のオーディオプレーヤー")
 
-    *Internet Explorer でのオーディオ プレーヤー*
+    *Internet Explorer のオーディオプレーヤー*
 
-    ![Google Chrome でオーディオ プレーヤー](visual-studio-2013-web-tools/_static/image38.png "Google Chrome でオーディオ プレーヤー")
+    ![Google Chrome のオーディオプレーヤー](visual-studio-2013-web-tools/_static/image38.png "Google Chrome のオーディオプレーヤー")
 
-    *Google Chrome でオーディオ プレーヤー*
-7. ブラウザーを閉じないでください。 次のタスクでは、それらを使用します。
+    *Google Chrome のオーディオプレーヤー*
+7. ブラウザーを閉じないでください。 これらは、次のタスクで使用します。
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3---using-intellisense-in-javascript-documents"></a>タスク 3 - JavaScript のドキュメントで IntelliSense の使用
+#### <a name="task-3---using-intellisense-in-javascript-documents"></a>タスク 3-JavaScript ドキュメントでの IntelliSense の使用
 
-Web Essentials 2013 では、スタイル シートと HTML ページは、Id 名とクラス名の一覧を生成します。 このタスクでは、それらのリストが Web Essentials 2013 での JavaScript IntelliSense のサポートを改善する方法を説明します。
+Web Essentials 2013 では、スタイルシートと HTML ページによって、Id とクラス名の一覧が生成されます。 このタスクでは、Web Essentials 2013 での JavaScript IntelliSense のサポートを向上させる方法について説明します。
 
-1. **Index.cshtml**ファイルを定義する次のコードを追加、**スクリプト**JavaScript コードのタグ。
+1. **Index. cshtml**ファイルに次のコードを追加して、JavaScript コードの**スクリプト**タグを定義します。
 
     [!code-cshtml[Main](visual-studio-2013-web-tools/samples/sample8.cshtml)]
-2. 内の次のコードを追加、**スクリプト**準備完了コールバック関数を定義するタグ。
+2. **スクリプト**タグ内に次のコードを追加して、準備完了のコールバック関数を定義します。
 
-    (コード スニペット - *VisualStudio2013WebTooling* - *Ex2* - *ReadyFunction*)
+    (コードスニペット- *VisualStudio2013WebTooling* - *Ex2* - *ReadyFunction*)
 
     [!code-javascript[Main](visual-studio-2013-web-tools/samples/sample9.js)]
-3. キャレットを置き、**スクリプト**タグとキーを押して**CTRL** + **します。** 提案メニューを開きます。
-4. クリックして**ファイルに抽出**します。
+3. **スクリプト**タグにカレットを置き、 **ctrl** + キーを押し**ます。** を開き、[候補] メニューを開きます。
+4. [ **Extract To File] を**クリックします。
 
-    ![ファイルの提案に抽出する JavaScript](visual-studio-2013-web-tools/_static/image39.png "JavaScript ファイルの提案に抽出します。")
+    ![JavaScript によるファイルへの抽出の提案](visual-studio-2013-web-tools/_static/image39.png "JavaScript によるファイルへの抽出の提案")
 
-    *JavaScript は、ファイルの提案に抽出します。*
-5. **名前を付けて保存**ウィンドウで、**スクリプト**フォルダー、ファイルの名前**init.js** をクリック**保存**です。
+    *JavaScript によるファイルへの抽出の提案*
+5. **[名前を付けて保存]** ウィンドウで**Scripts**フォルダーを選択し、ファイルに「 **init** 」という名前を付けて、 **[保存]** をクリックします。
 
-    ![名前を付けて保存ウィンドウ](visual-studio-2013-web-tools/_static/image40.png "名前を付けて保存ウィンドウ")
+    ![ウィンドウとして保存](visual-studio-2013-web-tools/_static/image40.png "ウィンドウとして保存")
 
-    *名前を付けて保存ウィンドウ*
+    *ウィンドウとして保存*
 
     > [!NOTE]
-    > **Init.js**ファイルが作成され、スクリプトの内容が、ファイルに移動します。
+    > この場合、**初期化**ファイルが作成され、スクリプトの内容がファイルに移動されます。
     > 
-    > ![含まれるコンテンツと共に作成 Init.js ファイル](visual-studio-2013-web-tools/_static/image41.png "Init.js ファイルが含まれているコンテンツの作成")
+    > ![含まれているコンテンツを使用して作成された初期化 .js ファイル](visual-studio-2013-web-tools/_static/image41.png "含まれているコンテンツを使用して作成された初期化 .js ファイル")
     > 
-    > *含まれるコンテンツと共に作成 Init.js ファイル*
-6. 開く、 **Index.cshtml**ファイルを開き、script タグをへの参照に置き換えられたことを確認、 **init.js**ファイル。
+    > *含まれているコンテンツを使用して作成された初期化 .js ファイル*
+6. インデックスの**cshtml**ファイルを開き、スクリプトタグが**初期化**ファイルへの参照に置き換えられていることを確認します。
 
-    ![Html の参照を Init.js](visual-studio-2013-web-tools/_static/image42.png "Init.js html リファレンス")
+    ![Js html リファレンス](visual-studio-2013-web-tools/_static/image42.png "Js html リファレンス")
 
-    *Init.js html リファレンス*
-7. 移動して、**ソリューション エクスプ ローラー**ことに注意して、 **init.js**ファイルは、ソリューションに自動的に含まれていた。
+    *Js html リファレンス*
+7. **ソリューションエクスプローラー**にアクセスして、ソリューションに**初期化**ファイルが自動的に含まれていることを確認します。
 
-    ![ソリューションに含まれる Init.js ファイル](visual-studio-2013-web-tools/_static/image43.png "Init.js ファイルがソリューションに含まれる")
+    ![ソリューションに含まれている初期 .js ファイル](visual-studio-2013-web-tools/_static/image43.png "ソリューションに含まれている初期 .js ファイル")
 
-    *ソリューションに含まれる Init.js ファイル*
-8. 戻り、 **init.js**更新ファイルを**準備**コールバック関数。
-9. 渡される関数コールバック定義内で*準備*、特定のクラスの属性によってすべての要素を取得する次のコードを追加します。
+    *ソリューションに含まれている初期 .js ファイル*
+8. **Init**ファイルに戻り、**準備ができ**ている関数のコールバックを更新します。
+9. *準備完了*に渡される関数コールバック定義内で、次のコードを追加して、特定のクラス属性によってすべての要素を取得します。
 
     [!code-javascript[Main](visual-studio-2013-web-tools/samples/sample10.js)]
-10. キーを押して**CTRL** + **領域**内の引用符の間、 **getElementsByClassName**関数呼び出し。
+10. **GetElementsByClassName**関数呼び出し内の引用符の間に、 **ctrl** + **Space**キーを押します。
 
-    ![GetElementsByClassName 関数の IntelliSense を示す](visual-studio-2013-web-tools/_static/image44.png "getElementsByClassName 関数を示す IntelliSense")
+    ![GetElementsByClassName 関数の IntelliSense を表示する](visual-studio-2013-web-tools/_static/image44.png "GetElementsByClassName 関数の IntelliSense を表示する")
 
-    *GetElementsByClassName 関数の IntelliSense の表示*
+    *GetElementsByClassName 関数の IntelliSense を表示する*
 
     > [!NOTE]
-    > プロジェクトのスタイル シートで定義されたクラスが IntelliSense に表示されることを確認します。
-11. 次のコードを使用して作成する行を置き換えます。
+    > IntelliSense により、プロジェクトのスタイルシートで定義されているクラスが表示されることに注意してください。
+11. 作成した行を次のコードで置き換えます。
 
     [!code-javascript[Main](visual-studio-2013-web-tools/samples/sample11.js)]
-12. 後ろにカーソルを置きます**au**で引用符で囲んで、 **getElementsByTagName**関数およびキーを押して**CTRL** + **領域**.
+12. **GetElementsByTagName**関数の引用符内に、 **au**の後にカーソルを置き、 **ctrl** + **Space**キーを押します。
 
-    ![GetElementByTagName メソッドの IntelliSense を示す](visual-studio-2013-web-tools/_static/image45.png "getElementByTagName メソッド用の IntelliSense の表示")
+    ![GetElementByTagName メソッドの IntelliSense を表示する](visual-studio-2013-web-tools/_static/image45.png "GetElementByTagName メソッドの IntelliSense を表示する")
 
-    *GetElementsByTagName メソッドを示す IntelliSense*
-13. 選択 **&quot;オーディオ&quot;** キーを押して、一覧から**ENTER**します。 結果を次の例に示します。
+    *GetElementsByTagName メソッドの IntelliSense を表示する*
+13. 一覧から [ **&quot;audio&quot;** ] を選択し、 **enter キーを**押します。 結果を次の例に示します。
 
-    ![オーディオの要素を取得する](visual-studio-2013-web-tools/_static/image46.png "オーディオ要素を取得します。")
+    ![取得 (オーディオ要素を)](visual-studio-2013-web-tools/_static/image46.png "取得 (オーディオ要素を)")
 
-    *オーディオの要素を取得します。*
-14. **ソリューション エクスプ ローラー**を右クリックし、 **init.js**ファイル、**スクリプト**フォルダーと選択**アンミニファイ JavaScript ファイル**から、**Web Essentials**メニュー。
+    *取得 (オーディオ要素を)*
+14. **ソリューションエクスプローラー**で、 **Scripts**フォルダー内の**init**ファイルを右クリックして、 **[Web Essentials]** メニューの **[minify JavaScript ファイル]** を選択します。
 
-    ![JavaScript ファイルを縮小](visual-studio-2013-web-tools/_static/image47.png "アンミニファイ JavaScript ファイル")
+    ![JavaScript ファイルをミニする](visual-studio-2013-web-tools/_static/image47.png "JavaScript ファイルをミニにする")
 
-    *JavaScript ファイルを縮小します。*
-15. ソース ファイルの変更をクリックすると、自動縮小を有効にするように求められたら**はい**です。
+    *JavaScript ファイルをミニする*
+15. ソースファイルの変更時に自動縮小を有効にするように求めるメッセージが表示されたら、[**はい]** をクリックします。
 
-    ![自動縮小の警告を有効にする](visual-studio-2013-web-tools/_static/image48.png "自動縮小の警告を有効にします。")
+    ![自動縮小の警告を有効にする](visual-studio-2013-web-tools/_static/image48.png "自動縮小の警告を有効にする")
 
-    *自動縮小の警告を有効にします。*
+    *自動縮小の警告を有効にする*
 
     > [!NOTE]
-    > **Init.min.js**が作成され、追加の依存関係として、 **init.js**ファイル。
+    > 初期化された **.js** **ファイルの**依存関係として追加されます。
     > 
-    > ![作成した Init.min.js ファイル](visual-studio-2013-web-tools/_static/image49.png "Init.min.js ファイルの作成")
+    > ![作成された、最小の .js ファイル](visual-studio-2013-web-tools/_static/image49.png "作成された、最小の .js ファイル")
     > 
-    > *Init.min.js ファイルの作成*
-16. 開く、 **init.min.js**ファイルを開き、ファイルを縮小ことに注意してください。
+    > *作成された、最小の .js ファイル*
+16. ファイルが縮小されていることを確認**します。**
 
-    ![ファイルの内容を Init.min.js](visual-studio-2013-web-tools/_static/image50.png "Init.min.js ファイルの内容")
+    ![.Js ファイルの内容を初期化します。](visual-studio-2013-web-tools/_static/image50.png ".Js ファイルの内容を初期化します。")
 
-    *Init.min.js ファイルの内容*
-17. **Init.js**ファイルに、次の次のコードを追加、 **getElementsByTagName**関数呼び出しにオーディオのすべての要素を再生します。
+    *.Js ファイルの内容を初期化します。*
+17. **GetElementsByTagName**関数の呼び出しの下に次のコードを**追加して**、すべてのオーディオ要素を再生します。
 
-    (コード スニペット - *VisualStudio2013WebTooling* - *Ex2* - *PlayAudioElements*)
+    (コードスニペット- *VisualStudio2013WebTooling* - *Ex2* - *playaudioelements*)
 
     [!code-csharp[Main](visual-studio-2013-web-tools/samples/sample12.cs)]
-18. クリックして**CTRL** + **S**ファイルを保存します。 縮小されたファイルが既に開かれているために、ソース エディター以外でファイルが変更されたことを通知するダイアログ ボックスが表示されます。 **[はい]** をクリックします。
+18. CTRL + **S** **キーを押し**て、ファイルを保存します。 縮小表示ファイルは既に開かれているため、ファイルがソースエディターの外部で変更されたことを示すダイアログボックスが表示されます。 **[はい]** をクリックします。
 
     ![Microsoft Visual Studio 警告](visual-studio-2013-web-tools/_static/image51.png "Microsoft Visual Studio 警告")
 
     *Microsoft Visual Studio 警告*
-19. 戻り、 **init.min.js**ファイルを新しいコードで、ファイルが更新されたことを確認します。
+19. 新しいコードでファイルが更新されたことを確認するために、**初期の .js**ファイルに戻ります。
 
-    ![更新された Init.min.js ファイル](visual-studio-2013-web-tools/_static/image52.png "Init.min.js ファイルが更新されました")
+    ![初期の .js ファイルの更新](visual-studio-2013-web-tools/_static/image52.png "初期の .js ファイルの更新")
 
-    *Init.min.js ファイルが更新されました*
-20. をクリックして、**ブラウザー リンクの更新**ボタンをクリックします。
-21. 両方のブラウザーが更新されると、前のタスクで学習したオーディオ プレーヤーは自動的に再生を開始します。
+    *初期の .js ファイルの更新*
+20. ブラウザーの**リンク**の [更新] ボタンをクリックします。
+21. 両方のブラウザーが更新されると、前のタスクで表示されたオーディオプレーヤーが自動的に再生を開始します。
 
-    ![ビューに含まれるオーディオ プレーヤー](visual-studio-2013-web-tools/_static/image53.png "ビューに含まれるオーディオ プレーヤー")
+    ![オーディオプレーヤーがビューに含まれる](visual-studio-2013-web-tools/_static/image53.png "オーディオプレーヤーがビューに含まれる")
 
-    *ビューに含まれるオーディオ プレーヤー*
+    *オーディオプレーヤーがビューに含まれる*
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このハンズオン ラボについて説明した方法。
+このハンズオンラボを完了することで、次の方法を学習できました。
 
-- 豊富な HTML5 コード スニペットや Zen コーディングなど、Web Essentials に含まれる HTML エディターの新機能を使用します。
-- カラー ピッカーやブラウザー マトリックス ツールヒントなど、Web Essentials に含まれる CSS エディターの新機能を使用します。
-- すべての HTML 要素を抽出するファイルと IntelliSense などの Web Essentials に含まれる JavaScript エディターの新機能を使用します。
-- ブラウザーとブラウザー リンクを使用して Visual Studio 間の Exchange データ
+- 豊富な HTML5 コードスニペットや Zen コーディングなど、Web Essentials に含まれる新しい HTML エディター機能を使用する
+- カラーピッカーやブラウザーマトリックスのツールヒントなど、Web Essentials に含まれる新しい CSS エディター機能を使用する
+- すべての HTML 要素のファイルや IntelliSense の抽出など、Web Essentials に含まれる新しい JavaScript エディター機能を使用する
+- ブラウザーリンクを使用してブラウザーと Visual Studio の間でデータを交換する

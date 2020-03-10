@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
-title: How Do i:MVC アプリケーション用のカスタム HTML ヘルパーを作成しますか。 | Microsoft Docs
+title: '操作方法: MVC アプリケーションのカスタム HTML ヘルパーを作成する | Microsoft Docs'
 author: rick-anderson
-description: このビデオでは、Chris Pels はつまり、MVC アプリケーションで標準のセットで使用できないカスタム HtmlHelper を作成する方法を示します。 最初に、サンプルの MVC アプリケーションがインストールしています.
+description: このビデオでは、ユーザーが MVC アプリケーションの標準セットでは使用できないカスタム HtmlHelper を作成する方法を示します。 最初に、サンプルの MVC アプリケーション...
 ms.author: riande
 ms.date: 12/11/2009
 ms.assetid: 58b5eb15-4160-4ce2-ae70-6ba94262ea73
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
 msc.type: video
 ms.openlocfilehash: 60953243d3038667e4f729b1394e68f0c9d7c178
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415051"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78450478"
 ---
-# <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>How Do i:MVC アプリケーション用のカスタム HTML ヘルパーを作成しますか。
+# <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>操作方法: MVC アプリケーションのカスタム HTML ヘルパーを作成する
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは、Chris Pels はつまり、MVC アプリケーションで標準のセットで使用できないカスタム HtmlHelper を作成する方法を示します。 最初に、デモのコント ローラーとビューをカスタムの HtmlHelper をテストするサンプルの MVC アプリケーションが作成されます。 次に、モジュールは、カスタムの HtmlHelper の実装を表す拡張メソッドであるパブリック関数で作成されます。 作成するためのカスタム ヘルパーは`<img>`ページでタグし、は、id、url、およびイメージのタグの代替テキストを含むいくつかの受信パラメーターを受け取ります。 完成したを返す関数に、ロジックを追加して、`<img>`指定された情報のタグ。 カスタムの HtmlHelper は、イメージを表示するデモ ページに使用されます。 カスタムの HtmlHelper を拡張して、簡単に作成するさまざまな詳細は柔軟性を提供する複数のコンス トラクターのオーバーライドを含める最後に、`<img>`タグ。
+このビデオでは、ユーザーが MVC アプリケーションの標準セットでは使用できないカスタム HtmlHelper を作成する方法を示します。 まず、デモコントローラーとビューを使用してサンプル MVC アプリケーションを作成し、カスタム HtmlHelper をテストします。 次に、モジュールは、カスタム HtmlHelper の実装を表す拡張メソッドであるパブリック関数を使用して作成されます。 カスタムヘルパーは、ページに `<img>` タグを作成するためのものであり、イメージタグの id、url、および alt テキストを含むいくつかの受信パラメーターを受け取ります。 次に、指定された情報で完了した `<img>` タグを返すように、ロジックが関数に追加されます。 次に、デモページでカスタム HtmlHelper を使用してイメージを表示します。 最後に、カスタム HtmlHelper が拡張され、複数のコンストラクターのオーバーライドが含まれるようになり、さまざまな `<img>` タグをより簡単に作成できるようになります。
 
-[&#9654;ビデオ (18 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-html-helper-for-an-mvc-application)
+[&#9654;ビデオを見る (18 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-html-helper-for-an-mvc-application)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)

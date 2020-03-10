@@ -9,11 +9,11 @@ ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
 ms.openlocfilehash: 738318cce442fdc5d58dd1e4c992d4941be2487e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74591251"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520372"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用した ASP.NET Web 配置: テストへの配置
 
@@ -23,7 +23,7 @@ ms.locfileid: "74591251"
 
 現在のバージョンの Azure へのデプロイについては、「 [azure で ASP.NET Core web アプリを作成](/azure/app-service/app-service-web-get-started-dotnet)する」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、ローカルコンピューター上のインターネットインフォメーションサーバー (IIS) に ASP.NET web アプリケーションを展開します。
 
@@ -115,7 +115,7 @@ IIS をインストールした後、 **Iis マネージャー**を実行して�
 
 <a id="sqlexpress"></a>
 
-## <a name="install-sql-server-express"></a>SQL Server Express のインストール
+## <a name="install-sql-server-express"></a>SQL Server Express をインストールする
 
 LocalDB は IIS で動作するように設計されていないため、テスト環境には SQL Server Express がインストールされている必要があります。 SQL Server Express Visual Studio 2010 を使用している場合は、既定でインストールされています。 Visual Studio 2012 以降を使用している場合は、SQL Server Express をインストールします。
 
@@ -201,7 +201,7 @@ Visual Studio と Web 配置を使用して IIS に配置できる方法はい�
 
 ### <a name="create-the-publish-profile"></a>発行プロファイルを作成する
 
-1. **ソリューションエクスプローラー**で、 **ContosoUniversity**プロジェクト ( **ContosoUniversity**プロジェクトではありません) を右クリックします。 **[発行]** を選びます。 **[発行]** ページが表示されます。
+1. **ソリューションエクスプローラー**で、 **ContosoUniversity**プロジェクト ( **ContosoUniversity**プロジェクトではありません) を右クリックします。 **[発行]** を選択します。 **[発行]** ページが表示されます。
 
 2. **[新しいプロファイル]** を選択します。 **[発行先の選択]** ダイアログボックスが表示されます。
 
@@ -330,7 +330,7 @@ Visual Studio によって Entity Framework `DbContext` クラスが検出され
 
    また、[データベースの**プレビュー** ] リンクを選択して、メンバーシップデータベースで実行されるスクリプトを確認することもできます。 (Code First Migrations 配置に対して実行されるスクリプトはありません。そのため、アプリケーションデータベースをプレビューすることはできません)。
 
-3. **[発行]** を選びます。
+3. **[発行]** を選択します。
 
    Visual Studio が管理者モードでない場合は、アクセス許可のエラーメッセージが表示されることがあります。 その場合は、Visual Studio を閉じて、管理者モードで開き、もう一度発行してみてください。
 
@@ -372,7 +372,7 @@ Visual Studio によって Entity Framework `DbContext` クラスが検出され
 
 2. アプリケーションで実行時に使用する接続文字列の Web.config ファイル変換を作成します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、開発用コンピューター上の IIS にアプリケーションを配置し、そこでテストしました。
 
@@ -380,7 +380,7 @@ Visual Studio によって Entity Framework `DbContext` クラスが検出され
 
 これにより、展開プロセスによって、アプリケーションのコンテンツが適切な場所にコピーされたことが確認されます (展開する必要のないファイルは除外されます)。また、展開時に IIS が正しく構成されていることを Web 配置ます。 次のチュートリアルでは、まだ完了していない配置タスクを検索するテストをもう1つ実行します。この場合、 *Elm ah*フォルダーのフォルダーアクセス許可を設定します。
 
-## <a name="more-information"></a>説明
+## <a name="more-information"></a>詳細情報
 
 Visual Studio で IIS または IIS Express を実行する方法の詳細については、次のリソースを参照してください。
 

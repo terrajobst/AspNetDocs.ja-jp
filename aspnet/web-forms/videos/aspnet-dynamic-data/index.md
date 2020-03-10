@@ -2,22 +2,22 @@
 uid: web-forms/videos/aspnet-dynamic-data/index
 title: ASP.NET 動的データ |Microsoft Docs
 author: rick-anderson
-description: ASP.NET Dynamic Data を使用して作成するには、アプリケーションを自動的にスキャフォールディングする方法は、データ アクセスを実行する方法を理解します。
+description: ASP.NET 動的データを使用して、データアクセスの実行方法を自動的に認識するスキャフォールディングアプリケーションを作成する方法。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
 ms.openlocfilehash: 622f4c5243d094d1ab6b58a909795bc5230c62ce
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116409"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514528"
 ---
 # <a name="aspnet-dynamic-data"></a>ASP.NET 動的データ
 
-> ASP.NET Dynamic Data を使用して作成するには、アプリケーションを自動的にスキャフォールディングする方法は、データ アクセスを実行する方法を理解します。
+> ASP.NET 動的データを使用して、データアクセスの実行方法を自動的に認識するスキャフォールディングアプリケーションを作成する方法。
 
 - [初めてのスキャフォールディングと動的データ概要](your-first-scaffold-and-what-is-dynamic-data.md)
 - [インライン GridView 編集を有効にする](how-do-i-enable-inline-gridview-editing.md)

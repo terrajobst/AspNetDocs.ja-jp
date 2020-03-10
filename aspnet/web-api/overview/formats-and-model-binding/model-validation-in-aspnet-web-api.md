@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: モデルの検証に ASP.NET Web API - ASP.NET 4.x
+title: ASP.NET Web API でのモデル検証-ASP.NET 4.x
 author: MikeWasson
-description: ASP.NET の ASP.NET Web API でのモデル検証の概要 4.x です。
+description: ASP.NET 4.x の ASP.NET Web API でのモデル検証の概要について説明します。
 ms.author: riande
 ms.date: 07/20/2012
 ms.custom: seoapril2019
@@ -10,79 +10,79 @@ ms.assetid: 7d061207-22b8-4883-bafa-e89b1e7749ca
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 531a66b7ab642bd012663517640f2766f1917f25
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112819"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448930"
 ---
-# <a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API でモデルの検証
+# <a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API でのモデル検証
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-この記事では、モデルの注釈を設定、データの検証のため、注釈を使用して、web API で検証エラーを処理する方法を示しています。 クライアントは、web API へのデータを送信するときに多くの場合、検証するデータ、処理を実行する前にします。 
+この記事では、モデルに注釈を付け、データ検証に注釈を使用して、web API で検証エラーを処理する方法について説明します。 クライアントが web API にデータを送信する場合、多くの場合、処理を行う前にデータを検証する必要があります。 
 
 ## <a name="data-annotations"></a>データの注釈
 
-ASP.NET Web api からの属性を使用することができます、 [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations)名前空間をモデルに検証規則のプロパティを設定します。 次のモデルがあるとします。
+ASP.NET Web API では、 [system.componentmodel](/dotnet/api/system.componentmodel.dataannotations)名前空間の属性を使用して、モデルのプロパティの検証規則を設定できます。 次のモデルがあるとします。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 
-ASP.NET MVC のモデルの検証を使用している場合この使い慣れたになります。 **必要**属性という、`Name`プロパティを null にすることはできません。 **範囲**属性という`Weight`0 ~ 999 にする必要があります。
+ASP.NET MVC でモデルの検証を使用したことがある場合は、このことを理解しておく必要があります。 **Required**属性では、`Name` プロパティを null にすることはできません。 **Range**属性では、`Weight` が0から999の間である必要があることが示されます。
 
-クライアントが次の JSON 表現を含む POST 要求を送信するとします。
+クライアントが POST 要求を次の JSON 表現で送信するとします。
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample2.json)]
 
-クライアントが含まれていないことを確認できます、`Name`としてマークされているプロパティが必要です。 Web API に JSON を変換するときに、`Product`インスタンス、検証、`Product`検証属性に対して。 コント ローラー アクションでは、モデルが有効かどうかを確認できます。
+クライアントには、必須としてマークされている `Name` プロパティが含まれていないことがわかります。 Web API が JSON を `Product` インスタンスに変換すると、検証属性に対して `Product` が検証されます。 コントローラーアクションでは、モデルが有効かどうかを確認できます。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample3.cs)]
 
-モデルの検証では、クライアント データが安全であるは保証されません。 追加の検証は、アプリケーションの他のレイヤーで必要な場合があります。 (たとえば、データ層可能性があります外部キー制約を適用します。)このチュートリアル[Entity Framework で Web API を使用して](../data/using-web-api-with-entity-framework/part-1.md)これらの問題のいくつか解説します。
+モデルの検証では、クライアントデータが安全であることは保証されません。 アプリケーションの他の層では、追加の検証が必要になる場合があります。 (たとえば、データ層によって外部キー制約が適用される場合があります)。[WEB API と Entity Framework を使用し](../data/using-web-api-with-entity-framework/part-1.md)たチュートリアルでは、これらの問題について説明します。
 
-**「過小投稿」**:過小投稿は、いくつかのプロパティをクライアントがから出たときに発生します。 たとえば、クライアントは、次に送信します。
+**"投稿中"** : クライアントがいくつかのプロパティを除外した場合に発生します。 たとえば、クライアントが次のものを送信するとします。
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample4.json)]
 
-ここでは、クライアントがの値を指定しなかった`Price`または`Weight`します。 JSON フォーマッタは、0 不足しているプロパティからの既定値を割り当てます。
+ここでは、クライアントは `Price` または `Weight`の値を指定しませんでした。 JSON フォーマッタは、不足しているプロパティに既定値の0を割り当てます。
 
 ![](model-validation-in-aspnet-web-api/_static/image1.png)
 
-これらのプロパティの有効な値は 0 ですので、モデルの状態は有効です。 これは問題であるかどうかは、シナリオによって異なります。 たとえば、更新操作では、可能性がある「0」と「設定なし」とを区別 値を設定するクライアントを強制的に設定して null 許容にプロパティを作成、**必要**属性。
+モデルの状態は有効です。これは、これらのプロパティの値が0であるためです。 これが問題かどうかは、実際のシナリオによって異なります。 たとえば、更新操作では、"zero" と "not set" の区別が必要になる場合があります。 強制的にクライアントが値を設定するようにするには、プロパティを nullable にし、 **Required**属性を設定します。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample5.cs?highlight=1-2)]
 
-**「オーバーポスティング」**:クライアントが送信も*詳細*が予想よりもデータ。 例えば:
+**"過剰ポスト"** : クライアントは、予想よりも*多く*のデータを送信できます。 次に例を示します。
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample6.json)]
 
-JSON に存在しないプロパティ ("Color") が含まれていますここでは、`Product`モデル。 この場合は、JSON フォーマッタは、この値を無視するだけです。 (XML フォーマッタは同じです。)オーバーポスティング攻撃では、モデルに読み取り専用にしようとしたプロパティが設定されている場合に問題が発生します。 例:
+ここでは、JSON には、`Product` モデルに存在しないプロパティ ("Color") が含まれています。 この場合、JSON フォーマッタは単にこの値を無視します。 (XML フォーマッタは同じように動作します)。モデルに読み取り専用のプロパティが含まれている場合、過剰なポストによって問題が発生します。 次に例を示します。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample7.cs)]
 
-ユーザーを更新しない、`IsAdmin`プロパティ自体を管理者に昇格させるとします。 最も安全な戦略を送信するクライアントが許可されていると完全に一致するモデル クラスを使用することです。
+ユーザーが `IsAdmin` プロパティを更新し、自身を管理者に昇格させたくない。 最も安全な方法は、クライアントが送信できるものと完全に一致するモデルクラスを使用することです。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample8.cs)]
 
 > [!NOTE]
-> Brad Wilson のブログの投稿"[入力の検証とします。ASP.NET MVC でのモデル検証](http://bradwilson.typepad.com/blog/2010/01/input-validation-vs-model-validation-in-aspnet-mvc.html)"が過少投稿およびオーバーポスティング攻撃の詳細。 投稿は、ASP.NET MVC 2 の詳細については、問題は、Web API にも関連します。
+> Brad Wilson のブログ投稿「[ASP.NET MVC での入力検証とモデル検証」で](http://bradwilson.typepad.com/blog/2010/01/input-validation-vs-model-validation-in-aspnet-mvc.html)は、投稿と過剰投稿についてよく説明しています。 この投稿は ASP.NET MVC 2 に関するものですが、問題は引き続き Web API に関連しています。
 
 ## <a name="handling-validation-errors"></a>検証エラーの処理
 
-Web API は、検証が失敗したときに、クライアントにエラーを自動的に返しません。 モデルの状態を確認し、適切に対応するコント ローラー アクションの責任です。
+検証が失敗した場合、Web API からクライアントに自動的にエラーが返されることはありません。 モデルの状態を確認し、適切に応答するには、コントローラーアクションが必要です。
 
-コント ローラー アクションが呼び出される前に、モデルの状態を確認するアクション フィルターを作成することもできます。 次のコード例に示します。
+また、アクションフィルターを作成して、コントローラーアクションが呼び出される前にモデルの状態を確認することもできます。 次に例を示します。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample9.cs)]
 
-モデルの検証に失敗した場合、このフィルターは、検証エラーを含む HTTP 応答を返します。 その場合は、コント ローラー アクションは呼び出されません。
+モデルの検証が失敗した場合、このフィルターは検証エラーを含む HTTP 応答を返します。 その場合、コントローラーアクションは呼び出されません。
 
 [!code-console[Main](model-validation-in-aspnet-web-api/samples/sample10.cmd)]
 
-すべての Web API コント ローラーにこのフィルターを適用するフィルターのインスタンスを追加、 **HttpConfiguration.Filters**構成中にコレクション。
+このフィルターをすべての Web API コントローラーに適用するには、構成時にフィルターのインスタンスを**Httpconfiguration. Filters**コレクションに追加します。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample11.cs)]
 
-別のオプションでは、個々 のコント ローラーまたはコント ローラー アクションに属性として、フィルターを設定します。
+別の方法として、フィルターを個々のコントローラーまたはコントローラーアクションの属性として設定することもできます。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample12.cs)]

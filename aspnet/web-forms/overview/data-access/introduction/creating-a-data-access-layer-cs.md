@@ -9,21 +9,21 @@ ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 5aaf97dc8448dcb7b94ef2e4e23f34fd37ac4426
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115249"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78489904"
 ---
 # <a name="creating-a-data-access-layer-c"></a>データ アクセス層を作成する (C#)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](creating-a-data-access-layer-cs/_static/datatutorial01cs1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](creating-a-data-access-layer-cs/_static/datatutorial01cs1.pdf)
 
 > このチュートリアルでは、最初から開始し、型指定されたデータセットを使用してデータアクセス層 (DAL) を作成し、データベース内の情報にアクセスします。
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Web 開発者として、データの操作を中心にしています。 データを格納するデータベース、データを取得および変更するコード、収集して集計するための web ページを作成します。 これは、ASP.NET 2.0 でこれらの共通パターンを実装するための手法を紹介する、長いシリーズの最初のチュートリアルです。 まず、型指定されたデータセットを使用するデータアクセス層 (DAL)、カスタムビジネスルールを適用するビジネスロジック層 (BLL)、および共通ページレイアウトを共有する ASP.NET ページで構成されるプレゼンテーション層で構成される[ソフトウェアアーキテクチャ](http://en.wikipedia.org/wiki/Software_architecture)の作成から始めます。 このバックエンドの基礎を説明した後、レポートを作成し、web アプリケーションのデータを表示、要約、収集、検証する方法を示します。 これらのチュートリアルは簡潔にすることを目的としており、プロセスを視覚的に説明するためのさまざまなスクリーンショットを含む詳細な手順を説明しています。 各チュートリアルは、およびC# Visual Basic バージョンで使用でき、使用されている完全なコードのダウンロードが含まれています。 (この最初のチュートリアルでは非常に時間がかかりますが、残りの部分はより多くの消化チャンクで示されています)。
 
@@ -168,7 +168,7 @@ TableAdapter では、これらのパターンのいずれかまたは両方を�
 
 この例で使用される各オブジェクトも厳密に型指定されているため、Visual Studio で IntelliSense とコンパイル時の型チェックを行うことができます。 また、TableAdapter によって返されるすべての Datatable を ASP.NET データ Web コントロール (GridView、DetailsView、DropDownList、CheckBoxList など) にバインドすることもできます。 次の例は、 **Getproducts ()** メソッドによって返される DataTable を、scan Load イベントハンドラーの **\_ページ**内の3行のコードだけで GridView にバインドする方法を示しています。
 
-AllProducts .aspx
+AllProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample2.aspx)]
 
@@ -422,7 +422,7 @@ DAL をカスタマイズする方法を示すために、 **Getproducts ()** �
 
 このようなマスター/詳細レポートを今後のチュートリアルで表示する方法について説明します。 ここでは、この例は、 **SuppliersRow**クラスに追加されたカスタムメソッドの使用方法を示すように設計されています。
 
-SuppliersAndProducts
+SuppliersAndProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample24.aspx)]
 
@@ -440,7 +440,7 @@ Web アプリケーションを構築する場合、DAL は、プレゼンテー
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -460,7 +460,7 @@ Web アプリケーションを構築する場合、DAL は、プレゼンテー
 - [データセットを Datagrid に手動でバインドする方法](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [ASP アプリケーションからデータセットとフィルターを操作する方法](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -469,4 +469,4 @@ Web アプリケーションを構築する場合、DAL は、プレゼンテー
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Ron Green、Hilton Giesenow、Patterson が、Liz Shulok、Abel Gomez、および Carlos Santos でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](creating-a-business-logic-layer-cs.md)
+> [Next](creating-a-business-logic-layer-cs.md)

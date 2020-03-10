@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: ASP.NET 4 - SQL Server compact の Visual Studio を使用して Web 配置 |Microsoft Docs
+title: ASP.NET 4-Visual Studio を使用した SQL Server Compact を使用した Web 配置 |Microsoft Docs
 author: rick-anderson
-description: このチュートリアル シリーズでは、サード パーティ製 h に展開して、インターネット経由で、SQL Server Compact 使用可能なを使用する ASP.NET web アプリケーションを作成する方法を紹介しています.
+description: このチュートリアルシリーズでは、SQL Server Compact を使用する ASP.NET web アプリケーションを、サードパーティの h にデプロイすることにより、インターネット経由で使用できるようにする方法について説明します。
 ms.author: riande
 ms.date: 11/29/2011
 ms.assetid: 6798c7e4-f08e-4802-9fa5-443f67d5df62
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider
 msc.type: chapter
 ms.openlocfilehash: bb9a47eeb4197348e85bb469b68c0055e7c696a0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119445"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514696"
 ---
 # <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 - Visual Studio を利用した SQL Server Compact の Web 配置
 
-> このチュートリアル シリーズでは、SQL Server Compact 使用可能なインターネット経由でサード パーティのホスティング プロバイダーへのデプロイで使用する ASP.NET web アプリケーションを作成する方法を紹介します。 Visual Studio 2012 RC または Visual Studio 2010 が必要です。 展開の機能に関する最新の情報、または SQL Server Compact 以外の SQL Server のエディションをデプロイする方法についてを参照してください。 [Visual Studio を使用して ASP.NET Web 配置](../../deployment/visual-studio-web-deployment/introduction.md)します。
+> このチュートリアルシリーズでは、SQL Server Compact を使用する ASP.NET web アプリケーションを、サードパーティのホスティングプロバイダーにデプロイすることによって、インターネット経由で使用できるようにする方法を示します。 Visual Studio 2012 RC または Visual Studio 2010 が必要です。 配置機能の最新情報については、または SQL Server Compact 以外の SQL Server のエディションをデプロイする方法の詳細については、「 [ASP.NET Web deployment Using Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md)」を参照してください。
 
 - [Visual Studio による SQL Server Compact の Web 展開 - 概要](deployment-to-a-hosting-provider-introduction-1-of-12.md)
 - [Visual Studio による SQL Server Compact の Web 展開 - SQL Server Compact データベースの展開](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

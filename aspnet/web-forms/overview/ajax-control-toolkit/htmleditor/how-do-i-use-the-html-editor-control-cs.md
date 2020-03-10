@@ -1,101 +1,101 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
-title: HTML エディター コントロールの使用方法 (C#) |Microsoft Docs
+title: HTML エディターコントロールを使用操作方法には (C#) |Microsoft Docs
 author: microsoft
-description: HTMLEditor は、ASP.NET AJAX コントロールを簡単に作成し、ツールバーのボタンを使用して HTML コンテンツを編集することができます。
+description: HTMLEditor は、ツールバーのボタンを使用して HTML コンテンツを簡単に作成および編集できるようにする ASP.NET AJAX コントロールです。
 ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: f47e6224-c2e5-4472-b069-b6c7b6115200
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: cb7d75b59b1361abeb6d3c38ad6e42e34d6e3f7b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115488"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78466606"
 ---
-# <a name="how-do-i-use-the-html-editor-control-c"></a>HTML エディター コントロールの使用方法 (C#)
+# <a name="how-do-i-use-the-html-editor-control-c"></a>HTML エディターコントロールを使用操作方法には (C#)
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> HTMLEditor は、ASP.NET AJAX コントロールを簡単に作成し、ツールバーのボタンを使用して HTML コンテンツを編集することができます。
+> HTMLEditor は、ツールバーのボタンを使用して HTML コンテンツを簡単に作成および編集できるようにする ASP.NET AJAX コントロールです。
 
-このチュートリアルの目的は、AJAX Control Toolkit に含まれている HTML エディター コントロールの概要を提供するためにです。 HTML エディターには、リンクを追加するには、テキストの配置を変更するイメージの追加、フォント サイズを変更する、フォントを選択すると、背景色を変更する、前景色の色を変更するためのオプションと切り取りを実行するには、コピー、および貼り付けの操作 (図 1 参照)。
+このチュートリアルの目的は、AJAX Control Toolkit に含まれている HTML エディターコントロールの概要を説明することです。 HTML エディターには、フォントサイズの変更、フォントの選択、背景色の変更、前景色の変更、リンクの追加、イメージの追加、テキストの配置の変更、および切り取り、コピー、貼り付けの操作 (図1を参照) を行うためのオプションが含まれています。
 
-[![HTML エディター](how-do-i-use-the-html-editor-control-cs/_static/image1.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image1.png)
+[HTML エディターの ![](how-do-i-use-the-html-editor-control-cs/_static/image1.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image1.png)
 
-**図 01**:HTML エディター ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-cs/_static/image2.png))。
+**図 01**: HTML エディター ([クリックすると、フルサイズの画像が表示](how-do-i-use-the-html-editor-control-cs/_static/image2.png)されます)
 
-HTML エディターでは、デザイン モードを使用してコンテンツを入力できます。 または、HTML を直接入力することができます。 HTML コンテンツをプレビューするオプションも提供されます (図 2 参照)。
+HTML エディターを使用すると、デザインモードでコンテンツを入力したり、HTML を直接入力したりできます。 HTML コンテンツをプレビューするオプションも用意されています (図2を参照)。
 
-[![デザイン、HTML、およびプレビュー ボタン](how-do-i-use-the-html-editor-control-cs/_static/image2.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image3.png)
+[![デザイン、HTML、およびプレビューボタン](how-do-i-use-the-html-editor-control-cs/_static/image2.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image3.png)
 
-**図 02**:デザイン、HTML、およびプレビュー ボタン ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-cs/_static/image4.png))。
+**図 02**: デザイン、HTML、およびプレビューのボタン ([クリックしてフルサイズのイメージを表示](how-do-i-use-the-html-editor-control-cs/_static/image4.png))
 
-このチュートリアルでは、HTML エディターを表示する方法、HTML エディターで表示されるツールバーのボタンをカスタマイズする方法、およびクロス サイト スクリプティング攻撃を回避する方法について説明します。
+このチュートリアルでは、HTML エディターを表示する方法、HTML エディターに表示されるツールバーボタンをカスタマイズする方法、クロスサイトスクリプト攻撃を回避する方法について説明します。
 
-## <a name="displaying-the-html-editor"></a>HTML エディターを表示します。
+## <a name="displaying-the-html-editor"></a>HTML エディターを表示する
 
-HTML エディターを使用するには、ASP.NET ページで、前に、ページに ScriptManager コントロールを追加する必要があります。 ScriptManager コントロールは、Visual Studio または Visual Web Developer Express ツールボックスの [AJAX Extensions] タブの下に配置します。
+ASP.NET ページで HTML エディターを使用するには、まず、ScriptManager コントロールをページに追加する必要があります。 ScriptManager コントロールは、Visual Studio/Visual Web Developer Express ツールボックスの [AJAX 拡張] タブの下にあります。
 
-ページ上の他のコントロールの前にページの上部にある、ScriptManager コントロールを配置する必要があります。 たとえば、することができます下に配置すぐに開始サーバー側&lt;フォーム&gt;タグ。
+ScriptManager コントロールは、ページ上の他のコントロールの前に、ページの一番上に配置する必要があります。 たとえば、開いているサーバー側の &lt;フォーム&gt; タグのすぐ下に配置できます。
 
-AJAX Control Toolkit のコントロールの残りの部分を使用して、ツールボックスには、HTML エディター コントロールがあります。 エディター コントロールという名前です (図 3 を参照してください)。
+HTML エディターコントロールは、他の AJAX コントロールツールキットコントロールと共にツールボックスに配置されます。 これは、エディターコントロールと呼ばれます (図3を参照)。
 
-[![HTML エディター コントロール](how-do-i-use-the-html-editor-control-cs/_static/image3.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image5.png)
+[HTML エディターコントロールの ![](how-do-i-use-the-html-editor-control-cs/_static/image3.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image5.png)
 
-**図 03**:HTML エディター コード ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-cs/_static/image6.png))。
+**図 03**: HTML エディターコントロール ([クリックしてフルサイズのイメージを表示する](how-do-i-use-the-html-editor-control-cs/_static/image6.png))
 
-HTML エディターをページにドラッグした後は、プロパティ シートでそのプロパティを設定できます。 たとえば、通常 Width および Height プロパティを設定する必要があります。 1 を一覧表示するには、HTML エディターを含む ASP.NET ページのソースが含まれています。
+HTML エディターをページにドラッグした後は、プロパティシートでそのプロパティを設定できます。 たとえば、通常は Width プロパティと Height プロパティを設定します。 リスト1には、HTML エディターを含む ASP.NET ページのソースが含まれています。
 
-**1 - SimpleEditor.aspx を一覧表示します。**
+**リスト 1-SimpleEditor .aspx**
 
 [!code-aspx[Main](how-do-i-use-the-html-editor-control-cs/samples/sample1.aspx)]
 
-リスト 1 で、ページには、HTML エディター コントロール、Button コントロール、およびリテラル コントロールが含まれています。 リテラル コントロールの HTML エディターの内容が表示されます、ボタンをクリックすると (図 4 参照)。
+リスト1のページには、HTML エディターコントロール、ボタンコントロール、およびリテラルコントロールが含まれています。 このボタンをクリックすると、HTML エディターの内容がリテラルコントロールに表示されます (図4を参照)。
 
-[![HTML エディターでフォームを送信します。](how-do-i-use-the-html-editor-control-cs/_static/image4.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image7.png)
+[HTML エディターを使用してフォームを送信 ![には](how-do-i-use-the-html-editor-control-cs/_static/image4.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image7.png)
 
-**図 04**:HTML エディターでフォームを送信する ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-cs/_static/image8.png))。
+**図 04**: HTML エディターを使用してフォームを送信[する (クリックすると、フルサイズの画像が表示](how-do-i-use-the-html-editor-control-cs/_static/image8.png)されます)
 
-HTML エディターのコンテンツ プロパティは、HTML エディターに入力した HTML コンテンツの検索に使用されます。 この HTML コンテンツが JavaScript を含めることができますに注意します。 次のセクションでは、JavaScript インジェクション攻撃を防止する方法について説明します。
+Html エディターのコンテンツプロパティは、html エディターに入力された HTML コンテンツを取得するために使用されます。 この HTML コンテンツには JavaScript を含めることができることに注意してください。 次のセクションでは、JavaScript インジェクション攻撃を防ぐ方法について説明します。
 
-## <a name="customizing-the-html-editor-toolbar"></a>HTML エディターのツールバーをカスタマイズします。
+## <a name="customizing-the-html-editor-toolbar"></a>HTML エディターツールバーのカスタマイズ
 
-正確にボタンをカスタマイズすることができます、エディターに表示されます。 たとえばをユーザーが HTML エディターを HTML モードに切り替えることを防ぐために、[HTML] タブを削除する場合があります。 または、ユーザーがフォーラムに過度に大きなテキストを作成できないようにするには、フォント サイズ ドロップダウン リストを削除したい場合があります (図 5 参照) を post メッセージします。
+エディターに表示されるボタンを正確にカスタマイズできます。 たとえば、ユーザーが html エディターを HTML モードに切り替えられないようにするには、[HTML] タブを削除します。 または、[フォントサイズ] ドロップダウンリストを削除して、ユーザーがフォーラムのメッセージの投稿で極端に大きいテキストを作成できないようにすることもできます (図5を参照)。
 
-[![カスタマイズされた HTML エディター](how-do-i-use-the-html-editor-control-cs/_static/image5.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image9.png)
+[カスタマイズされた HTML エディターの ![](how-do-i-use-the-html-editor-control-cs/_static/image5.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image9.png)
 
-**図 05**:A HTML エディターのカスタマイズ ([フルサイズの画像を表示する をクリックします](how-do-i-use-the-html-editor-control-cs/_static/image10.png))。
+**図 05**: カスタマイズされた HTML エディター ([クリックしてフルサイズのイメージを表示する](how-do-i-use-the-html-editor-control-cs/_static/image10.png))
 
-ツール バー ボタンをカスタマイズするには、新しい HTML エディターのエディターの基本クラスから派生します。 たとえば、リスト 2 でのカスタム エディターには、太字と斜体のツール バー ボタンにはのみが含まれます。 その他のすべてのツール バー ボタンが削除されました。 さらに、エディターの下部にある HTML タブがなくなりました (ただし、デザインおよびプレビュー タブが残っています)。
+ツールバーのボタンをカスタマイズするには、基本エディタークラスから新しい HTML エディターを派生させます。 たとえば、リスト2のカスタムエディターには、太字と斜体のツールバーボタンのみが含まれています。 その他のツールバーボタンはすべて削除されました。 さらに、エディターの下部から [HTML] タブが削除されています (ただし、[デザイン] タブと [プレビュー] タブはまだ表示されています)。
 
-**2 - アプリの一覧を表示する\_Code\CustomEditor.cs**
+**リスト 2-アプリ\_Code/customeditorcs**
 
 [!code-csharp[Main](how-do-i-use-the-html-editor-control-cs/samples/sample2.cs)]
 
-クラスが自動的にコンパイルされるように、リスト 2 のクラスを App\_Code フォルダーに追加する必要があります。 App\_Code フォルダーが Web サイトに存在しない場合は、フォルダーを追加するだけです。
+クラスが自動的にコンパイルされるように、リスト2のクラスをアプリ\_コードフォルダーに追加する必要があります。 アプリ\_コードフォルダーが web サイトに存在しない場合は、単にフォルダーを追加できます。
 
-カスタム エディターを作成した後追加できますが、ASP.NET ページに同じ方法で、通常の HTML エディター (リスト 3 参照) を追加すると。
+カスタムエディターを作成した後は、通常の HTML エディターを追加するのと同じ方法で、ASP.NET ページに追加できます (リスト3を参照)。
 
-**Listing 3 - ShowCustomEditor.aspx**
+**リスト 3-ShowCustomEditor .aspx**
 
 [!code-aspx[Main](how-do-i-use-the-html-editor-control-cs/samples/sample3.aspx)]
 
-## <a name="avoiding-cross-site-scripting-xss-attacks"></a>クロス サイト スクリプティング (XSS) 攻撃の回避
+## <a name="avoiding-cross-site-scripting-xss-attacks"></a>クロスサイトスクリプティング (XSS) 攻撃の回避
 
-ユーザーからの入力をそのまま使用し、web サイトにその入力を再表示すると、可能性のあるクロスサイト スクリプティング (XSS) 攻撃に web サイトを開きます。 理論上は、悪意のあるハッカーは、入力が再表示と実行される JavaScript コードを送信でした。 JavaScript は、ユーザーのパスワードやその他の機密情報の盗用される可能性があります。
+ユーザーからの入力を受け入れ、web サイトでその入力を再表示すると、web サイトがクロスサイトスクリプティング (XSS) 攻撃につながる可能性があります。 理論的には、悪意のあるハッカーが、入力が再提示されたときに実行される JavaScript コードを送信する可能性があります。 JavaScript を使用すると、ユーザーのパスワードやその他の機密情報を盗むことができます。
 
-通常、html web ページに表示する前に、ユーザーから取得する任意の入力をエンコード XSS 攻撃を倒すことができます。 ただし、HTML 出力を HTML エディターのエンコードはのみエンコードしない&lt;スクリプト&gt;タグも、すべての HTML タグをエンコードことはできます。 つまり、すべての種類のフォント、フォント サイズ、および背景色などの書式設定が失われます。
+通常、web ページに表示する前に、ユーザーから取得した入力を HTML エンコードすることによって、XSS 攻撃を防ぐことができます。 ただし、html エディターの出力を html エンコードすると、スクリプト&gt; のタグ &lt;エンコードされるだけでなく、すべての HTML タグもエンコードされます。 つまり、フォントの種類、フォントサイズ、背景色など、すべての書式設定が失われる可能性があります。
 
-パスワード、クレジット_カード番号、社会保障番号のなどのユーザーから機密情報を収集している場合、HTML エディターでのユーザーから取得したコンテンツのエンコードされていないいない表示されます。 HTML コンテンツを再表示できませんまたは HTML コンテンツを送信していますの状況でのみ、HTML エディターを使用して、信頼されたパーティで web サイトにする必要があります。
+パスワード、クレジットカード番号、社会保障番号など、ユーザーから機密情報を収集する場合は、HTML エディターを使用してユーザーから取得したエンコードされていないコンテンツを表示しないようにする必要があります。 Html エディターは、html コンテンツを再表示しない場合、または HTML コンテンツが信頼できるパーティによって web サイトに送信されている場合にのみ使用してください。
 
-たとえば、ブログのアプリケーションを作成することに想像してください。 このような状況で理にかなってブログの投稿を作成するときに、HTML エディターを使用します。 ブログの投稿を送信した 1 つのみと、悪意のある JavaScript の送信が自分で信頼の。 ただし、匿名ユーザーがコメントの投稿を許可する場合は、HTML エディターを使用しても意味は行いません。 ユーザーがパスワードなどの機密情報を送信する場合に特に注意が必要があります。 場合によっては、悪意のあるユーザーは、パスワードを盗むの適切な JavaScript を含むコメントを投稿する可能性があります。
+たとえば、ブログアプリケーションを作成する場合を考えてみましょう。 このような状況では、ブログの投稿を作成するときに HTML エディターを使用するのが理にかなっています。 ブログ投稿を送信するのは自分だけで、おそらく悪意のある JavaScript を送信することはできません。 ただし、匿名ユーザーにコメントの投稿を許可する場合、HTML エディターを使用することは意味がありません。 パスワードなどの機密情報をユーザーが送信する状況に特に注意する必要があります。 悪意のあるユーザーが、パスワードを盗むための適切な JavaScript を含むコメントを投稿する可能性があります。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルでは、AJAX Control Toolkit に含まれる HTML エディター コントロールの概要を簡単にいました。 HTML エディターを使用して、ユーザーからの豊富なコンテンツを受け取るし、サーバーにコンテンツを送信する方法を学習しました。 HTML エディターによって表示されるツールバー ボタンをカスタマイズする方法についても説明しました。 最後に、HTML エディターを使用して、可能性のある悪意のある入力をそのまま使用する場合、クロスサイト スクリプティング攻撃を回避する方法を学習しました。
+このチュートリアルでは、AJAX Control Toolkit に含まれている HTML エディターコントロールの概要を簡単に説明しました。 HTML エディターを使用して、ユーザーからのリッチコンテンツを受け入れ、コンテンツをサーバーに送信する方法を学習しました。 また、HTML エディターによって表示されるツールバーボタンをカスタマイズする方法についても説明しました。 最後に、HTML エディターを使用して悪意のある入力を受け入れるときのクロスサイトスクリプト攻撃を回避する方法を学習しました。
 
 > [!div class="step-by-step"]
-> [次へ](how-do-i-use-the-html-editor-control-vb.md)
+> [Next](how-do-i-use-the-html-editor-control-vb.md)

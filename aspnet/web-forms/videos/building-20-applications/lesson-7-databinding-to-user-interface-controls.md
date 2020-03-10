@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
-title: '[レッスン 7:]ユーザー インターフェイス コントロールにデータ バインドする |Microsoft Docs'
+title: '[レッスン 7:]ユーザーインターフェイスコントロールへのデータバインド |Microsoft Docs'
 author: microsoft
-description: このレッスンでは、ASP.NET でデータを表示する方法について説明します&#160;2.0 web アプリケーションをいくつかの新しいデータ バインド コントロール。
+description: このレッスンでは、いくつかの新しいデータバインドコントロールを使用&#160;して、ASP.NET 2.0 web アプリケーションにデータを表示する方法について説明します。
 ms.author: riande
 ms.date: 11/29/2005
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
 ms.openlocfilehash: bec31c6d45701e2a27c38cea066fec0d0dc908c8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378807"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78511456"
 ---
 # <a name="lesson-7-databinding-to-user-interface-controls"></a>[レッスン 7:] ユーザー インターフェイス コントロールにデータバインドする
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-このレッスンでは、新しいデータ バインド コントロールの一部を ASP.NET2.0 web アプリケーションでデータを表示する方法を学びます。
+このレッスンでは、新しいデータバインドコントロールのいくつかを使用して、ASP.NET web アプリケーションにデータを表示する方法について説明します。
 
-[&#9654;ビデオ (22 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-7-databinding-to-user-interface-controls)
+[&#9654;ビデオを見る (22 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-7-databinding-to-user-interface-controls)
 
 > [!div class="step-by-step"]
 > [前へ](lesson-6-working-with-stylesheets-and-master-pages.md)

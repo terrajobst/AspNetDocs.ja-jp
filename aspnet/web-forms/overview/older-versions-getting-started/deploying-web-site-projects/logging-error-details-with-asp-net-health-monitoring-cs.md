@@ -9,11 +9,11 @@ ms.assetid: b1abb452-642a-4ff3-8504-37b85590ff79
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e52ed94f78d053701771690fce432d5a1d465b62
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637326"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520996"
 ---
 # <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>ASP.NET の状態監視でエラーの詳細をログに記録する (C#)
 
@@ -128,7 +128,7 @@ Web サイトの現在の構成では、未処理の例外がすべてデータ�
 **図 2**: エラーの詳細が電子メールメッセージで送信される  
 ([クリックすると、フルサイズの画像が表示](logging-error-details-with-asp-net-health-monitoring-cs/_static/image6.png)される)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET health monitoring システムは、管理者が展開された web アプリケーションの正常性を監視できるように設計されています。 正常性監視イベントは、アプリケーションが停止したとき、ユーザーがサイトに正常にログオンしたとき、またはハンドルされない例外が発生したときなど、特定のアクションが展開されると発生します。 これらのイベントは、任意の数のログソースに記録できます。 このチュートリアルでは、未処理の例外の詳細をデータベースおよび電子メールメッセージを使用してログに記録する方法を示しました。
 
@@ -136,7 +136,7 @@ ASP.NET health monitoring システムは、管理者が展開された web ア�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

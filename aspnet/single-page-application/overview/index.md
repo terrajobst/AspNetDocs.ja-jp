@@ -1,25 +1,25 @@
 ---
 uid: single-page-application/overview/index
-title: シングル ページ アプリケーションの概要 |Microsoft Docs
+title: シングルページアプリケーションの概要 |Microsoft Docs
 author: rick-anderson
-description: これは、SPA ドラフトの説明です。ASP.NET シングル ページ アプリケーション (SPA) は、MVC 4 beta のプレビューで新しい機能です。 これより優れたエンド ツー エンド e を提供します。
+description: ここでは、SPA の概要について説明します。 ASP.NET シングルページアプリケーション (SPA) は、MVC 4 beta preview の新機能です。 より優れたエンドツーエンドの機能を提供します...
 ms.author: riande
 ms.date: 11/14/2012
 ms.assetid: a17452c8-35fc-4ac2-811e-16d29f647cf7
 msc.legacyurl: /single-page-application/overview
 msc.type: book
 ms.openlocfilehash: ba656ecc14204d833e9dc18b941a2c19ec5e06ef
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397729"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467314"
 ---
-# <a name="single-page-application-overview"></a>シングル ページ アプリケーションの概要
+# <a name="single-page-application-overview"></a>シングルページアプリケーションの概要
 
 - [はじめに](introduction/index.md)
 
-    - [シングル ページ アプリケーション:KnockoutJS テンプレート](introduction/knockoutjs-template.md)
+    - [シングル ページ アプリケーション: KnockoutJS テンプレート](introduction/knockoutjs-template.md)
     - [Knockout 以外のライブラリを知っていますか?](introduction/other-libraries.md)
 - [テンプレート](templates/index.md)
 

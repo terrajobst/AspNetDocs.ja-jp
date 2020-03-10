@@ -1,92 +1,92 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: チームのアクセス許可の構成のビルドの配置 |Microsoft Docs
+title: チームビルド配置のアクセス許可を構成する |Microsoft Docs
 author: jrjlee
-description: このトピックでは、自動の b の一部として、コンテンツを web サーバーとデータベース サーバーをデプロイするビルド サーバーを有効にするアクセス許可を構成する方法について説明しています.
+description: このトピックでは、ビルドサーバーが自動 b の一部として web サーバーおよびデータベースサーバーにコンテンツをデプロイできるようにするためのアクセス許可を構成する方法について説明します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 5699f72af6b8d7f18d1a2c631dfdedd63c66e1e6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133852"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78518506"
 ---
 # <a name="configuring-permissions-for-team-build-deployment"></a>チーム ビルド配置のアクセス許可を構成する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、自動化されたビルド プロセスの一部として、コンテンツを web サーバーとデータベース サーバーをデプロイするビルド サーバーを有効にするアクセス許可を構成する方法について説明します。
+> このトピックでは、ビルドサーバーが自動ビルドプロセスの一環として web サーバーおよびデータベースサーバーにコンテンツを配置できるようにするためのアクセス許可を構成する方法について説明します。
 
-このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
+このトピックでは、Fabrikam, Inc. という架空の企業のエンタープライズ展開要件に基づいて、一連のチュートリアルの一部を説明します。このチュートリアルシリーズでは、&#x2014; [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;のサンプルソリューションを使用して、ASP.NET MVC 3 アプリケーション、Windows Communication Foundation (WCF) サービス、データベースプロジェクトなど、現実的なレベルの複雑さを持つ web アプリケーションを表します。
 
-これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを格納しています。すべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+これらのチュートリアルの中核となる配置方法は、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」で説明されている分割プロジェクトファイルアプローチに基づいています。この&#x2014;プロジェクトファイルには、ビルドプロセスは、すべての変換先環境に適用されるビルド命令を含む2つのプロジェクトファイルと、環境固有のビルドおよび配置設定を含んでいます。 ビルド時に、環境固有のプロジェクトファイルが環境に依存しないプロジェクトファイルにマージされ、ビルド命令の完全なセットが形成されます。
 
 ## <a name="task-overview"></a>タスクの概要
 
-Team Foundation Server (TFS) 2010年のビルド サービスをインストールするときに、サービスを実行する id を指定します。 既定では、これは、Network Service アカウントです。 または、ドメイン アカウントを使用して実行するビルド サービスを構成できます。
+Team Foundation Server (TFS) 2010 ビルドサービスをインストールするときに、サービスを実行する id を指定します。 既定では、これは Network Service アカウントです。 または、ドメインアカウントを使用してビルドサービスを実行するように構成することもできます。
 
-ビルド サービス id を使用して、Windows 認証とチームがビルドを使用して自動化を計画することが必要なすべての展開タスクが実行されます。 そのため、ビルド サービス id、web サーバーおよびデータベース サーバーで必要なアクセス許可を付与する必要があります。
+Windows 認証を必要とし、チームビルドを使用して自動化する予定の展開タスクは、ビルドサービス id を使用して実行されます。 そのため、web サーバーとデータベースサーバーで必要なアクセス許可をビルドサービス id に付与する必要があります。
 
 > [!NOTE]
-> ネットワーク サービス アカウントは、他のコンピューターへの認証にコンピューター アカウントを使用します。 コンピューター アカウント形式になります *[ドメイン名]\[マシン名]* **$** &#x2014;など**FABRIKAM\TFSBUILD$** します。 そのため、ビルド サービスが Network Service の id を使用して、実行する場合は、ビルド サーバーのコンピューター アカウント id に必要なアクセス許可を付与する必要があります。
+> Network Service アカウントは、コンピューターアカウントを使用して他のコンピューターに対する認証を行います。 コンピューターアカウントは、* [ドメイン名]\[マシン名] * **$** &#x2014;のようになります。たとえば、 **FABRIKAM\TFSBUILD $** です。 そのため、ビルドサービスがネットワークサービス id を使用して実行されている場合は、ビルドサーバーのコンピューターアカウント id に必要なアクセス許可を付与する必要があります。
 
 ## <a name="configuring-web-server-permissions"></a>Web サーバーのアクセス許可の構成
 
-」の説明に従って[Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)、2 つの主な方法がリモート web サーバーに web パッケージを展開する場合に使用することができます。
+「 [Web 配置に適切なアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)する」で説明したように、web パッケージをリモート web サーバーに配置する場合は、次の2つの主な方法を使用できます。
 
-- ターゲットにするリモートの場所からアプリケーションをデプロイ、 *Web Deployment Agent サービス*(リモート エージェントとも呼ばれます)、移行先サーバーにします。
-- ターゲットにするリモートの場所からアプリケーションをデプロイ、*インターネット インフォメーション サービス*(*IIS) Web 配置ハンドラー*移行先サーバーでします。
+- 移行先サーバーで*Web Deployment Agent サービス*(リモートエージェントとも呼ばれます) を対象にして、リモートの場所からアプリケーションを展開します。
+- 移行先サーバーで*インターネットインフォメーションサービス*(*IIS) Web 配置ハンドラー*をターゲットにして、リモートの場所からアプリケーションを展開します。
 
-リモート エージェントでは、ここで 2 つのキーの制限があります。
+この場合、リモートエージェントには次の2つの重要な制限があります。
 
-- リモート エージェントは、NTLM 認証のみをサポートします。 つまり、展開は、ビルド サービス id を使用する必要があります&#x2014;別のアカウントを偽装することはできません。
-- リモート エージェントを使用するには、は、ターゲット サーバーの管理者が展開を実行するアカウントにあります。
+- リモートエージェントは、NTLM 認証のみをサポートしています。 言い換えると、デプロイでは、別のアカウントを偽装&#x2014;できないビルドサービス id を使用する必要があります。
+- リモートエージェントを使用するには、展開を実行するアカウントが対象サーバーの管理者である必要があります。
 
-同時に、これら 2 つの制限にすること、リモート エージェントのアプローチはチーム ビルド展開の自動化については望ましくないにします。 この方法を使用するには、と、ビルド サービスがターゲット web サーバーの管理者のアカウントを作成する必要があります。
+これらの2つの制限により、自動化されたチームビルドの配置に対してリモートエージェントのアプローチが望ましくないようになります。 この方法を使用するには、ビルドサービスアカウントをターゲット web サーバーの管理者にする必要があります。
 
-これに対し、Web 配置ハンドラー アプローチには、さまざまな利点が提供しています。
+これに対し、Web 配置ハンドラーのアプローチには、次のような利点があります。
 
-- Web 配置ハンドラーは、IIS の Web 配置ツール (Web 配置) に別のアカウントの資格情報を渡すことができます、HTTPS 経由で基本認証をサポートします。
-- Web 配置ハンドラーを使用して特定の IIS web サイトにコンテンツを展開する管理者以外のユーザーを許可する対象の web サーバーを構成することができます。
+- Web 配置ハンドラーは、HTTPS 経由の基本認証をサポートしています。これにより、別のアカウントの資格情報を IIS Web 配置ツール (Web 配置) に渡すことができます。
+- 対象の web サーバーを構成して、管理者以外のユーザーが Web 配置ハンドラーを使用して特定の IIS web サイトにコンテンツを展開できるようにすることができます。
 
-その結果、チーム ビルドから web パッケージ展開を自動化するときに、Web 配置ハンドラーを対象とすることをお勧め明確になります。 これは、推奨されるプロセスです。
+そのため、チームビルドから Web パッケージの配置を自動化する場合は、Web 配置ハンドラーを対象にすることをお勧めします。 これは推奨されるプロセスです。
 
-1. 展開に使用する低特権のドメイン アカウントを作成します。
-2. Web 配置ハンドラーを構成し、」の説明に従って、アカウントの特定の IIS web サイトにコンテンツを配置に必要なアクセス許可を付与[Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)します。
-3. Web Deploy を呼び出すと、Web 配置ハンドラーの対象、基本認証を使用して、ドメイン アカウントの資格情報を提供作成、配置を実行します。
+1. 展開に使用する低特権ドメインアカウントを作成します。
+2. Web 配置ハンドラーを構成し、特定の IIS web サイトにコンテンツを展開するために必要なアクセス許可をアカウントに付与します。詳細については、「 [Web サーバーを Web 配置発行用に構成する (Web 配置ハンドラー)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)」を参照してください。
+3. 基本認証を使用し、作成したドメインアカウントの資格情報を指定して、デプロイを実行するために、Web 配置を呼び出し、Web 配置ハンドラーをターゲットにします。
 
-[Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプル ソリューションでは、認証の種類を指定する (基本または NTLM)、Web デプロイの資格情報と、環境固有のプロジェクト ファイル内のエンドポイント アドレス (リモート エージェントまたは Web 配置ハンドラー)。 これらの値は、作成して、プロジェクト ファイルを実行すると、Web Deploy コマンドを実行に使用されます。 詳細については、次を参照してください。 [Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)します。
+[Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプルソリューションでは、認証の種類 (基本または NTLM)、Web 配置の資格情報、および環境固有のプロジェクトファイル内のエンドポイントアドレス (リモートエージェントまたは Web 配置ハンドラー) を指定します。 これらの値は、プロジェクトファイルの実行時に Web 配置コマンドを策定して実行するために使用されます。 詳細については、「 [Web パッケージの配置](../web-deployment-in-the-enterprise/deploying-web-packages.md)」を参照してください。
 
-Web デプロイのハンドラーを許可を構成する方法などの構成の詳細については、次を参照してください。 [Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)します。 リモート エージェントの構成の詳細については、次を参照してください。 [Web 配置発行 (リモート エージェント) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)します。
+アクセス許可の構成方法など、Web 配置ハンドラーの構成の詳細については、「 [Web 配置発行用の Web サーバーの構成 (Web 配置ハンドラー)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)」を参照してください。 リモートエージェントの構成の詳細については、「 [Web 配置の発行用の Web サーバーの構成 (リモートエージェント)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)」を参照してください。
 
-## <a name="configuring-database-server-permissions"></a>データベース サーバーのアクセス許可の構成
+## <a name="configuring-database-server-permissions"></a>データベースサーバーのアクセス許可の構成
 
-SQL Server にデータベースを展開するには、次の必要があります。
+SQL Server にデータベースを配置するには、次のことを行う必要があります。
 
 - SQL Server インスタンスに展開するアカウントのログインを作成します。
-- ログインを与える**DBCreator** SQL Server インスタンスに対する権限。
-- 初期のデプロイ後にログインを追加、 **db\_所有者**ターゲット データベースのロール。 以降のデプロイで、既存のデータベースを変更することはなくする新しいデータベースを作成するために必要です。
+- SQL Server インスタンスに対して、ログインの**DBCreator**権限を付与します。
+- 初期デプロイ後に、ターゲットデータベースの**db\_所有者**ロールにログインを追加します。 これは、後続の配置では、新しいデータベースを作成するのではなく、既存のデータベースを変更するために必要です。
 
-NTLM 認証または SQL Server 認証を使用して SQL Server インスタンスに対して認証することができます。
+NTLM 認証または SQL Server 認証を使用して、SQL Server インスタンスに対する認証を行うことができます。
 
-- NTLM 認証を使用する場合は、ビルド サービス アカウントに上記で説明したアクセス許可を付与する必要があります。
-- SQL Server 認証を使用する場合は、SQL Server アカウントに上記で説明したアクセス許可を付与する必要があります。 また、データベースの配置に使用する接続文字列に、SQL Server ユーザー名とパスワードを含める必要があります。
+- NTLM 認証を使用する場合は、上記で説明したアクセス許可をビルドサービスアカウントに付与する必要があります。
+- SQL Server 認証を使用する場合は、前に説明したアクセス許可を SQL Server アカウントに付与する必要があります。 また、データベースの配置に使用する接続文字列に SQL Server のユーザー名とパスワードを含める必要があります。
 
-データベースの配置のアクセス許可を構成する方法の詳細な手順については、次を参照してください。 [Web 配置発行のデータベース サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)します。
+データベース配置のアクセス許可を構成する方法の詳細な手順については、「 [Web 配置発行用のデータベースサーバーの構成](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)」を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 
-この時点で、必要なアクセス許可に、認証オプションと共に Team Build から web アプリケーションとデータベースのデプロイを自動化する場合を理解する必要があります。 IIS web サーバーおよび SQL Server データベース サーバーで必要なアクセス許可を実装するためにできる必要があります。
+この時点で、チームビルドから web アプリケーションとデータベースの配置を自動化するときに、必要なアクセス許可と、開いている認証オプションを理解しておく必要があります。 また、IIS web サーバーおよび SQL Server データベースサーバーに対して必要なアクセス許可を実装することもできます。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-リモート展開をサポートする Windows server 環境の構成の詳細については、次を参照してください。 [Web 配置のサーバー環境の構成](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)します。
+リモート展開をサポートするように Windows server 環境を構成する方法の詳細については、「 [Web 配置用のサーバー環境の構成](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)」を参照してください。
 
 > [!div class="step-by-step"]
-> [前へ](deploying-a-specific-build.md)
+> [[戻る]](deploying-a-specific-build.md)

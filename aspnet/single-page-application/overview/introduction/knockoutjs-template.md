@@ -1,232 +1,232 @@
 ---
 uid: single-page-application/overview/introduction/knockoutjs-template
-title: シングル ページ アプリケーション:KnockoutJS テンプレート |Microsoft Docs
+title: 'シングルページアプリケーション: KnockoutJS template |Microsoft Docs'
 author: MikeWasson
-description: Knockout のテンプレート
+description: テンプレートのノックアウト
 ms.author: riande
 ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3a551db1caa9636eb7f2e04c287d3ef371263584
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113457"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467320"
 ---
-# <a name="single-page-application-knockoutjs-template"></a>シングル ページ アプリケーション:KnockoutJS テンプレート
+# <a name="single-page-application-knockoutjs-template"></a>シングルページアプリケーション: KnockoutJS テンプレート
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-> Knockout の MVC テンプレートは ASP.NET and Web Tools 2012.2 の一部
+> ノックアウト MVC テンプレートは ASP.NET and Web Tools 2012.2 の一部です
 > 
-> [ASP.NET と Web ツール 2012.2 をダウンロードします。](https://go.microsoft.com/fwlink/?LinkId=282650)
+> [ASP.NET and Web Tools 2012.2 のダウンロード](https://go.microsoft.com/fwlink/?LinkId=282650)
 
-ASP.NET and Web Tools 2012.2 の更新には、ASP.NET MVC 4 用のシングル ページ アプリケーション (SPA) のテンプレートが含まれています。 このテンプレートは、対話型のクライアント側 web アプリをすばやく構築を開始するために設計されています。
+ASP.NET and Web Tools 2012.2 の更新プログラムには、ASP.NET MVC 4 用の単一ページアプリケーション (SPA) テンプレートが含まれています。 このテンプレートは、対話型のクライアント側 web アプリの構築をすぐに始めることができるように設計されています。
 
-「シングル ページ アプリケーション」(SPA) は、1 つの HTML ページが読み込まれ、新しいページの読み込みではなく、ページを動的に更新する web アプリケーションの一般的な用語です。 最初のページの読み込み後に、SPA は、AJAX 要求を介してサーバーとで説明します。
+"シングルページアプリケーション" (SPA) は、1つの HTML ページを読み込み、新しいページを読み込むのではなく、ページを動的に更新する web アプリケーションの一般的な用語です。 最初のページの読み込み後、SPA は AJAX 要求によってサーバーと通信します。
 
 ![](knockoutjs-template/_static/image1.png)
 
-AJAX は目新しいものでは、現在 JavaScript フレームワークを構築し、大規模な高度な SPA アプリケーションを管理するが容易では。 また、HTML 5、CSS3 が簡単に豊富な Ui を作成します。
+AJAX はまったく新しいものではありませんが、今日では、大規模な高度な SPA アプリケーションを簡単に構築して維持できる JavaScript フレームワークが用意されています。 また、HTML 5 と CSS3 は、豊富な Ui の作成を容易にします。
 
-開始するため、SPA テンプレートは、"To-do list"サンプル アプリケーションを作成します。 このチュートリアルでは、テンプレートのガイド付きツアーをみましょう。 まず、to do リスト アプリケーション自体を見てをし、連携できるようにするテクノロジの部分を確認します。
+始めるには、SPA テンプレートでサンプルの "To do list" アプリケーションを作成します。 このチュートリアルでは、テンプレートのガイドツアーを実行します。 まず、To do list アプリケーション自体を見て、それが機能するテクノロジを確認します。
 
-## <a name="create-a-new-spa-template-project"></a>新しい SPA テンプレート プロジェクトを作成します。
+## <a name="create-a-new-spa-template-project"></a>新しい SPA テンプレートプロジェクトを作成する
 
 要件:
 
-- Visual Studio 2012 または Visual Studio Express 2012 for Web
-- ASP.NET Web Tools 2012.2 を更新します。 更新プログラムをインストールする[ここ](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2)します。
+- Web 用 Visual Studio 2012 または Visual Studio Express 2012
+- ASP.NET Web Tools 2012.2 更新プログラム。 [ここで](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2)更新プログラムをインストールできます。
 
-Visual Studio を起動し、選択**新しいプロジェクト**スタート ページから。 またはから、**ファイル**メニューの **新規**し**プロジェクト**します。
+Visual Studio を起動し、スタートページで **[新しいプロジェクト]** を選択します。 または、 **[ファイル]** メニューの **[新規作成]** をポイントし、 **[プロジェクト]** をクリックします。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクト名を指定して、 **[OK]** をクリックします。
 
 ![](knockoutjs-template/_static/image2.png)
 
-**新しいプロジェクト**ウィザードで、 **Single Page Application**します。
+**新しいプロジェクト**ウィザードで、 **[シングルページアプリケーション]** を選択します。
 
 ![](knockoutjs-template/_static/image3.png)
 
-F5 キーを押してアプリケーションをビルドし、実行します。 まず、アプリケーションを実行すると、ログイン画面が表示されます。
+F5 キーを押して、アプリケーションをビルドして実行します。 アプリケーションを初めて実行すると、ログイン画面が表示されます。
 
 ![](knockoutjs-template/_static/image4.png)
 
-をクリックして、&quot;サインアップ&quot;リンクし、新しいユーザーを作成します。
+&quot;サインアップ&quot; リンクをクリックして、新しいユーザーを作成します。
 
 ![](knockoutjs-template/_static/image5.png)
 
-ログインした後、アプリケーションは、2 つの項目を含む既定の Todo リストを作成します。 "Todo リストの追加 をクリックする新しいリストを追加します。
+ログインすると、アプリケーションは2つの項目を含む既定の Todo リストを作成します。 新しいリストを追加するには、[Todo リストの追加] をクリックします。
 
 ![](knockoutjs-template/_static/image6.png)
 
-リストの名前を変更、リストに項目を追加し、それらのチェックします。 項目を削除またはリスト全体を削除することもできます。 変更は、サーバー上のデータベースに自動的に永続化 (この時点では、LocalDB 実際には、アプリケーションをローカルで実行しているため)。
+リストの名前を変更し、リストに項目を追加して、それらのチェックボックスをオフにします。 また、項目を削除したり、一覧全体を削除したりすることもできます。 変更は、サーバー上のデータベースに自動的に保存されます (アプリケーションをローカルで実行しているため、この時点では実際には LocalDB です)。
 
 ![](knockoutjs-template/_static/image7.png)
 
 ## <a name="architecture-of-the-spa-template"></a>SPA テンプレートのアーキテクチャ
 
-この図は、アプリケーションの主な構成要素を示しています。
+次の図は、アプリケーションの主な構成要素を示しています。
 
 ![](knockoutjs-template/_static/image8.png)
 
-サーバー側では、ASP.NET MVC は、HTML を提供しもフォーム ベース認証を処理します。
+サーバー側では、ASP.NET MVC は HTML を提供し、フォームベースの認証も処理します。
 
-ASP.NET Web API は、ToDoLists と取得、作成、更新、削除など、ToDoItems に関連するすべての要求を処理します。 クライアントは、JSON 形式で Web API を使用したデータを交換します。
+ASP.NET Web API は、ToDoLists と ToDoItems に関連するすべての要求を処理します。これには、取得、作成、更新、および削除が含まれます。 クライアントは、JSON 形式の Web API とデータを交換します。
 
-Entity Framework (EF) は、O/RM 層です。 ASP.NET のオブジェクト指向の世界と基になるデータベースの間を仲介します。 データベースが LocalDB を使用しますが、これは、Web.config ファイルで変更できます。 通常は LocalDB を使用して、ローカル開発用なり、EF code first の移行を使用して、サーバー上の SQL データベースに展開します。
+Entity Framework (EF) は、O/RM レイヤーです。 ASP.NET のオブジェクト指向の世界と基になるデータベースを仲介します。 データベースは LocalDB を使用しますが、これは web.config ファイルで変更できます。 通常は、ローカル開発に LocalDB を使用してから、EF code first の移行を使用してサーバー上の SQL データベースに配置します。
 
-クライアント側では、Knockout.js ライブラリは、AJAX 要求からのページ更新を処理します。 Knockout では、データ バインディングを使用して、ページを最新のデータと同期します。 これにより、任意の JSON データについて説明し、DOM を更新するコードを記述する必要はありません。 代わりに、Knockout、データを表示する方法を指示する HTML で宣言型属性を配置します。
+クライアント側では、node.js ライブラリが AJAX 要求からページの更新を処理します。 ノックアウトでは、データバインディングを使用して、ページと最新のデータを同期します。 このようにして、JSON データを処理するコードを記述して DOM を更新する必要はありません。 代わりに、データを表示する方法をノックアウトするように、宣言型の属性を HTML に配置します。
 
-このアーキテクチャの大きな利点は、アプリケーション ロジックからプレゼンテーション層を分離します。 Web ページがどのように表示されるかについて何も知らなくても、Web API の部分を作成できます。 「ビュー モデル」を作成する、クライアント側でそのデータを表し、ビュー モデルでは、Knockout を使用して、HTML にバインドします。 ビュー モデルを変更することがなく、HTML を簡単に変更できます。 (見て Knockout 後で説明します。)
+このアーキテクチャの大きな利点は、プレゼンテーション層とアプリケーションロジックが分離されていることです。 Web ページがどのように表示されるかを知らなくても、Web API の部分を作成できます。 クライアント側では、データを表す "ビューモデル" を作成し、ビューモデルがノックアウトを使用して HTML にバインドします。 これにより、ビューモデルを変更せずに HTML を簡単に変更できます。 (後でもう少しノックアウトを見てみましょう)。
 
 ## <a name="models"></a>モデル
 
-Visual Studio プロジェクトでは、Models フォルダーには、サーバー側で使用されるモデルが含まれています。 (クライアント側でのモデルもにわかります)。
+Visual Studio プロジェクトの [モデル] フォルダーには、サーバー側で使用されるモデルが含まれています。 (クライアント側にもモデルがあります。これらのモデルについて説明します)。
 
 ![](knockoutjs-template/_static/image9.png)
 
-**TodoItem, TodoList**
+**TodoItem、TodoList**
 
-これらは、Entity Framework Code First のデータベース モデルです。 これらのモデルが互いを指すプロパティを持つことに注意してください。 `ToDoList` ToDoItems、およびそれぞれのコレクションを含む`ToDoItem`がその親 ToDoList への参照。 これらのプロパティは、ナビゲーション プロパティと呼ばれるされ、to do リストとその to do 項目一対多リレーションシップを表します。
+これらは、Entity Framework Code First のデータベースモデルです。 これらのモデルには、互いを指し示すプロパティがあることに注意してください。 `ToDoList` には ToDoItems のコレクションが含まれ、各 `ToDoItem` には親の ToDoList への参照があります。 これらのプロパティはナビゲーションプロパティと呼ばれ、一対多の関係、to do リスト、およびその to do 項目を表します。
 
-`ToDoItem`クラスで使用でも、 **[不変]** ことを指定する属性`ToDoListId`への外部キーは、`ToDoList`テーブル。 これにより、EF がデータベースに foreign key 制約を追加するように指示します。
+また `ToDoItem` クラスでは、 **[ForeignKey]** 属性を使用して、`ToDoListId` が `ToDoList` テーブルの外部キーであることを指定します。 これは、データベースに外部キー制約を追加するように EF に指示します。
 
 [!code-csharp[Main](knockoutjs-template/samples/sample1.cs)]
 
 **TodoItemDto, TodoListDto**
 
-これらのクラスは、クライアントに送信されるデータを定義します。 "DTO"の略「のデータ転送オブジェクトです」 DTO は、JSON に、エンティティのシリアル化する方法を定義します。 一般は、Dto を使用するいくつかの理由があります。
+これらのクラスは、クライアントに送信されるデータを定義します。 "DTO" は "データ転送オブジェクト" を表します。 DTO は、エンティティを JSON にシリアル化する方法を定義します。 通常、Dto を使用する理由はいくつかあります。
 
-- プロパティがシリアル化を制御します。 DTO は、ドメイン モデルからプロパティのサブセットを含めることができます。 これを行います (機密性の高いデータを非表示にする) にセキュリティ上の理由から、または単に送信するデータの量を削減します。
-- などのデータの形状を変更するより複雑なデータ構造をフラット化します。
-- DTO (関心の分離) からすべてのビジネス ロジックを保持します。
-- 場合は、ドメイン モデルは、何らかの理由によりシリアル化することはできません。 たとえば、循環参照問題が生じるがあるオブジェクトをシリアル化すると Web API では、この問題を処理する方法 (を参照してください[循環オブジェクト参照の処理](../../../web-api/overview/formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)); 完全、問題、DTO を使用して単に回避できますが、します。
+- シリアル化するプロパティを制御します。 DTO には、ドメインモデルのプロパティのサブセットを含めることができます。 これは、セキュリティ上の理由 (機密データを非表示にするため) または単に送信するデータの量を減らすために行うことができます。
+- データの形状を変更する場合 (たとえば、より複雑なデータ構造をフラット化する場合)。
+- DTO からビジネスロジックを維持する (懸念事項の分離)。
+- 何らかの理由でドメインモデルをシリアル化できない場合。 たとえば、循環参照では、オブジェクトをシリアル化するときに問題が発生する可能性があります。 Web API でこの問題を処理する方法があります (「[循環オブジェクト参照の処理](../../../web-api/overview/formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)」を参照してください)。しかし、DTO を使用すると、単に問題を回避できます。
 
-SPA テンプレートでは、Dto には、ドメイン モデルと同じデータが含まれています。 ただし、これらは有用です、ナビゲーション プロパティからの循環参照を回避して、DTO の一般的なパターンを示すためです。
+SPA テンプレートでは、Dto にはドメインモデルと同じデータが含まれています。 ただし、これらはナビゲーションプロパティからの循環参照を避け、一般的な DTO パターンを示すため便利です。
 
 **AccountModels.cs**
 
-このファイルには、サイトのメンバーシップのモデルが含まれています。 `UserProfile`クラスは、メンバーシップ DB でのユーザー プロファイルのスキーマを定義します。 (この場合、唯一の情報は、ユーザー ID とユーザー名) です。このファイルに他のモデル クラスを使用して、ユーザー登録、ログイン フォームを作成します。
+このファイルには、サイトメンバーシップのモデルが含まれています。 `UserProfile` クラスは、メンバーシップデータベース内のユーザープロファイルのスキーマを定義します。 (この場合、唯一の情報は、ユーザー ID とユーザー名です)。このファイル内の他のモデルクラスを使用して、ユーザー登録フォームとログインフォームを作成します。
 
 ## <a name="entity-framework"></a>Entity Framework
 
-EF Code First SPA テンプレートを使用します。 Code First の開発では、コードでは、モデルを最初に定義して、EF でモデルを使用して、データベースを作成します。 既存のデータベースで、EF を使用することもできます ([Database First](https://msdn.microsoft.com/data/jj206878.aspx))。
+SPA テンプレートは EF Code First を使用します。 Code First 開発では、まずコードでモデルを定義し、次に EF でモデルを使用してデータベースを作成します。 EF は、既存のデータベース ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)) と共に使用することもできます。
 
-`TodoItemContext`モデル フォルダー内のクラスから派生**DbContext**します。 このクラスは、モデルと EF の間の「グルー」を提供します。 `TodoItemContext`を保持する`ToDoItem`コレクションと`TodoList`コレクション。 データベースを照会するには、単にこれらのコレクションに対して LINQ クエリを記述する必要があります。 たとえば、すべてのユーザー"Alice"to do リストを選択する方法を示します。
+[モデル] フォルダー内の `TodoItemContext` クラスは、 **Dbcontext**から派生します。 このクラスは、モデルと EF の間に "グルー" を提供します。 `TodoItemContext` には `ToDoItem` コレクションと `TodoList` コレクションが格納されます。 データベースに対してクエリを実行するには、これらのコレクションに対して LINQ クエリを記述するだけです。 たとえば、ユーザー "Alice" の to do リストをすべて選択するには、次のようにします。
 
 [!code-csharp[Main](knockoutjs-template/samples/sample2.cs)]
 
-コレクションに新しい項目を追加、項目を更新または、コレクションから項目を削除でき、データベースへの変更を保持できます。
+また、コレクションに新しい項目を追加したり、項目を更新したり、コレクションから項目を削除したりして、変更をデータベースに保持することもできます。
 
-## <a name="aspnet-web-api-controllers"></a>ASP.NET Web API コント ローラー
+## <a name="aspnet-web-api-controllers"></a>ASP.NET Web API コントローラー
 
-ASP.NET Web api では、コント ローラーは、HTTP 要求を処理するオブジェクトです。 SPA テンプレートで Web API を使用して、CRUD 操作を有効にする前述のように、`ToDoList`と`ToDoItem`インスタンス。 コント ローラーは、ソリューションの Controllers フォルダーに配置されます。
+ASP.NET Web API では、コントローラーは HTTP 要求を処理するオブジェクトです。 前述のように、SPA テンプレートでは、Web API を使用して `ToDoList` および `ToDoItem` インスタンスで CRUD 操作を有効にします。 コントローラーは、ソリューションの Controllers フォルダーに配置されます。
 
 ![](knockoutjs-template/_static/image10.png)
 
-- `TodoController`:To do 項目の HTTP 要求を処理します。
-- `TodoListController`:To do リストの HTTP 要求を処理します。
+- `TodoController`: to do 項目に対する HTTP 要求を処理します
+- `TodoListController`: to do リストに対する HTTP 要求を処理します。
 
-これらの名前は重要では Web API コント ローラー名を URI パスに一致するためです。 (Web API がコント ローラーに HTTP 要求をルーティングする方法については、次を参照してください[ASP.NET Web API におけるルーティング](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)。)。
+これらの名前は、Web API が URI パスをコントローラー名と照合するため、重要です。 (Web API が HTTP 要求をコントローラーにルーティングする方法については、「 [ASP.NET Web API でのルーティング](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)」を参照してください)。
 
-見て、`ToDoListController`クラス。 1 つのデータ メンバーが含まれています。
+`ToDoListController` クラスを見てみましょう。 1つのデータメンバーが含まれています。
 
 [!code-csharp[Main](knockoutjs-template/samples/sample3.cs)]
 
-`TodoItemContext`前述のように、EF との通信に使用します。 コント ローラーのメソッドは、CRUD 操作を実装します。 Web API では、コント ローラーのメソッドに、クライアントから HTTP 要求をようにマップします。
+前に説明したように、`TodoItemContext` は EF との通信に使用されます。 コントローラーのメソッドは CRUD 操作を実装します。 Web API は、次のように、クライアントからの HTTP 要求をコントローラーメソッドにマップします。
 
-| HTTP 要求 | コント ローラー メソッド | 説明 |
+| HTTP 要求 | コントローラーメソッド | Description |
 | --- | --- | --- |
 | GET /api/todo | `GetTodoLists` | To do リストのコレクションを取得します。 |
-| GET /api/todo/*id* | `GetTodoList` | ID で to do リストを取得します |
-| PUT /api/todo/*id* | `PutTodoList` | To do リストを更新します。 |
+| /Api/todo/*id*の取得 | `GetTodoList` | ID を使って to do リストを取得します |
+| PUT/api/todo/*id* | `PutTodoList` | To do リストを更新します。 |
 | POST /api/todo | `PostTodoList` | 新しい to do リストを作成します。 |
-| DELETE /api/todo/*id* | `DeleteTodoList` | TODO リストを削除します。 |
+| /Api/todo/*id*の削除 | `DeleteTodoList` | TODO リストを削除します。 |
 
-ID 値のプレース ホルダーにはいくつかの操作の Uri が含まれていることがわかります。 たとえば、リストを削除するに - 42 の ID を持つ、URI は`/api/todo/42`します。
+一部の操作の Uri には、ID 値のプレースホルダーが含まれていることに注意してください。 たとえば、ID が42の to リストを削除するには、URI を `/api/todo/42`します。
 
-CRUD 操作用の Web API の使用方法の詳細については、次を参照してください。[そのサポートの CRUD 操作を作成するには、Web API](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md)します。 このコント ローラーのコードはとても簡単です。 いくつかの興味深い点を次に示します。
+CRUD 操作に Web API を使用する方法の詳細については、「 [Crud 操作をサポートする WEB api の作成](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md)」を参照してください。 このコントローラーのコードは非常に簡単です。 いくつかの興味深い点を次に示します。
 
-- `GetTodoLists`メソッドでは、LINQ クエリを使用して、ログイン ユーザーの ID で結果をフィルター処理します。 これにより、ユーザーには、自分が属しているデータのみが表示されます。 また、Select ステートメントを使用に変換することに注意してください、`ToDoList`インスタンスを`TodoListDto`インスタンス。
-- PUT と POST メソッドは、データベースを変更する前に、モデルの状態を確認します。 場合**ModelState.IsValid**が false の場合、これらのメソッドは、HTTP 400 正しくない要求を返します。 モデルの検証で Web API の詳細については[モデルの検証](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md)です。
-- コント ローラー クラスが修飾されても、 **[Authorize]** 属性。 この属性は、HTTP 要求が認証されているかどうかを確認します。 要求が認証されていない、クライアントは HTTP 401、許可されていません。 認証の詳細について[ASP.NET Web API で認証と承認](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md)します。
+- `GetTodoLists` メソッドは、LINQ クエリを使用して、ログインしているユーザーの ID で結果をフィルター処理します。 そうすることで、ユーザーは自分に属するデータだけを見ることができます。 また、Select ステートメントを使用して、`ToDoList` インスタンスを `TodoListDto` インスタンスに変換することにも注意してください。
+- PUT メソッドと POST メソッドは、データベースを変更する前にモデルの状態を確認します。 **Modelstate. IsValid**が false の場合、これらのメソッドは HTTP 400、Bad Request を返します。 モデルの検証の詳細については、「モデルの検証」を[参照して](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md)ください。
+- コントローラークラスも **[承認]** 属性で修飾されています。 この属性は、HTTP 要求が認証されているかどうかを確認します。 要求が認証されていない場合、クライアントは、許可されていない HTTP 401 を受信します。 認証と承認の詳細について[は、ASP.NET Web API を](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md)参照してください。
 
-`TodoController`クラスはほぼ`TodoListController`します。 最も大きな違いは、クライアントは各 to do リストと共に to do 項目を取得するための GET メソッドを定義しません。
+`TodoController` クラスは `TodoListController`とよく似ています。 最大の違いは、クライアントが to do 項目を各 to do リストと共に取得するため、GET メソッドが定義されていないことです。
 
-## <a name="mvc-controllers-and-views"></a>MVC コント ローラーとビュー
+## <a name="mvc-controllers-and-views"></a>MVC コントローラーとビュー
 
-MVC コント ローラーは、ソリューションの Controllers フォルダーにもあります。 `HomeController` アプリケーションのメインの HTML をレンダリングします。 Home コント ローラーのビューは、Views/Home/Index.cshtml で定義されます。 ホーム ビューには、ユーザーがログインしているかどうかに応じてさまざまなコンテンツがレンダリングされます。
+MVC コントローラーは、ソリューションの Controllers フォルダーにもあります。 `HomeController` は、アプリケーションのメインの HTML をレンダリングします。 Home コントローラーのビューは、Views/Home/Index. cshtml に定義されています。 ホームビューでは、ユーザーがログインしているかどうかに応じて、さまざまなコンテンツが表示されます。
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-ユーザーがログオンして、主要な UI が表示されます。 それ以外の場合、ログイン パネルが表示されます。 この条件付きのレンダリングがサーバー側で行われますことに注意してください。 クライアント側で機密性の高いコンテンツを非表示にしようとすることはありません&#8212;が生の HTTP メッセージを視聴者に表示されている HTTP 応答で送信することができます。
+ユーザーがログインすると、メイン UI が表示されます。 それ以外の場合は、[ログイン] パネルが表示されます。 この条件付きレンダリングはサーバー側で行われることに注意してください。 クライアント側&#8212;の機密コンテンツを非表示にしないでください。 http 応答で送信されるものは、未加工の http メッセージを監視しているユーザーに表示されます。
 
-## <a name="client-side-javascript-and-knockoutjs"></a>クライアント側の JavaScript と Knockout.js
+## <a name="client-side-javascript-and-knockoutjs"></a>クライアント側の JavaScript とノックアウト
 
-これでアプリケーションをクライアントのサーバー側からしてみましょう。 SPA テンプレートは、smooth、対話型の UI を作成するのに、jQuery と Knockout.js の組み合わせを使用します。 Knockout.js では、JavaScript ライブラリをデータに HTML をバインドするが容易にします。 Knockout.js「モデル-ビュー-ビューモデル」という名前のパターンを使用します。
+次に、アプリケーションのサーバー側からクライアントに切り替えます。 SPA テンプレートでは、jQuery とノックアウトの組み合わせを使用して、スムーズで対話型の UI を作成します。 ノックアウトは、HTML をデータに簡単にバインドできる JavaScript ライブラリです。 ノックアウトは、"モデルビュービューモデル" と呼ばれるパターンを使用します。
 
-- モデルは、ドメイン データ (ToDo リストと ToDo 項目) です。
-- ビューは、HTML ドキュメントです。
-- ビュー モデルは、モデル データを保持する JavaScript オブジェクトです。 ビュー モデルは、UI のコードの抽象化です。 HTML 形式の知識がありません。 代わりに、「ToDo 項目の一覧」など、ビューの抽象の機能を表します。
+- モデルはドメインデータ (ToDo リストと ToDo 項目) です。
+- ビューは HTML ドキュメントです。
+- ビューモデルは、モデルデータを保持する JavaScript オブジェクトです。 ビューモデルは、UI のコード抽象化です。 HTML 表現に関する情報はありません。 代わりに、"ToDo 項目のリスト" など、ビューの抽象的な機能を表します。
 
-ビューはデータ バインド ビュー モデルにします。 ビュー モデルに更新プログラムは、ビューで自動的に反映されます。 バインドの他の方向も動作します。 (クリックするなど)、DOM 内のイベント データ バインド関数、ビュー モデルで AJAX 呼び出しをトリガーします。
+ビューは、ビューモデルにデータバインドされています。 ビューモデルに対する更新は、自動的にビューに反映されます。 バインドも同様に機能します。 DOM 内のイベント (クリックなど) は、AJAX 呼び出しをトリガーするビューモデルの関数にデータバインドされます。
 
-SPA テンプレートでは、3 つの層にクライアント側の JavaScript を編成されています。
+SPA テンプレートでは、クライアント側の JavaScript が次の3つのレイヤーに編成されます。
 
-- todo.datacontext.js:AJAX 要求を送信します。
-- todo.model.js:モデルを定義します。
-- todo.viewmodel.js:ビュー モデルを定義します。
+- todo. datacontext: AJAX 要求を送信します。
+- todo: モデルを定義します。
+- todo。ビューモデルを定義します。
 
 ![](knockoutjs-template/_static/image11.png)
 
-これらのスクリプト ファイルは、ソリューションのスクリプト/アプリ フォルダーに配置されます。
+これらのスクリプトファイルは、ソリューションの Scripts/app フォルダーにあります。
 
 ![](knockoutjs-template/_static/image12.png)
 
-**todo.datacontext** Web API コント ローラーのすべての AJAX 呼び出しを処理します。 (でのログ記録の AJAX 呼び出しで定義されます他の場所で ajaxlogin.js。)
+**todo. datacontext**は、Web API コントローラーに対するすべての AJAX 呼び出しを処理します。 (ログインのための AJAX 呼び出しは、ajaxlogin 内の他の場所で定義されています)。
 
-**todo.model.js** to do リストのクライアント側 (ブラウザー) モデルを定義します。 2 つのモデル クラスがあります: todoItem todoList とします。
+**todo。モデル**は、to do リストのクライアント側 (ブラウザー) モデルを定義します。 モデルクラスには、todoItem と todoList の2つがあります。
 
-モデル クラスでプロパティの多くは、型"ko.observable"です。 観測可能なオブジェクトは、Knockout がそのマジックをどのようにします。 [Knockout ドキュメント](http://knockoutjs.com/documentation/introduction.html):可能なオブジェクトは「を JavaScript オブジェクトの変更についてサブスクライバーに通知できます」 可能なオブジェクトの値が変更されたときに、Knockout はそれらの観測可能なオブジェクトにバインドされている任意の HTML 要素を更新します。 たとえば、todoItem では、観測可能なオブジェクトのタイトルと先読みプロパティがあります。
+モデルクラスのプロパティの多くは、"ko" 型です。 Observable は、ノックアウトがどのようにマジックを行うかを示します。 [ノックアウトドキュメント](http://knockoutjs.com/documentation/introduction.html)から: 観測可能なは、変更についてサブスクライバーに通知できる "JavaScript オブジェクト" です。 観測可能な変更の値を指定すると、observable にバインドされているすべての HTML 要素が更新されます。 たとえば、todoItem には、title プロパティと isDone プロパティの observable があります。
 
 [!code-javascript[Main](knockoutjs-template/samples/sample5.js)]
 
-コードの観測可能なオブジェクトにサブスクライブすることもできます。 たとえば、todoItem クラスは「先読み」と"title"プロパティの変更をサブスクライブします。
+また、コードで観測可能なにサブスクライブすることもできます。 たとえば、todoItem クラスは、"isDone" プロパティと "title" プロパティの変更をサブスクライブします。
 
 [!code-javascript[Main](knockoutjs-template/samples/sample6.js)]
 
-**ビュー モデル**
+**モデルの表示**
 
-ビュー モデルは、todo.viewmodel.js で定義されます。 ビュー モデルは、中心点のアプリケーションがドメインのデータを HTML ページの要素をバインドします。 SPA テンプレートでは、ビュー モデルには、todoLists の観測可能な配列が含まれています。 ビュー モデルでは、次のコードは、バインドを適用する Knockout を指示します。
+ビューモデルは、todo. ビューモデルで定義されます。 ビューモデルは、アプリケーションが HTML ページ要素をドメインデータにバインドする中心点です。 SPA テンプレートでは、ビューモデルには todoLists の観測可能な配列が含まれています。 ビューモデルの次のコードは、バインドを適用するようにノックアウトに指示します。
 
 [!code-javascript[Main](knockoutjs-template/samples/sample7.js)]
 
-## <a name="html-and-data-binding"></a>HTML とデータ バインド
+## <a name="html-and-data-binding"></a>HTML およびデータバインド
 
-ページのメインの HTML は Views/Home/Index.cshtml で定義されます。 データ バインディングを使用しているため、HTML は、どのような実際にレンダリングを取得テンプレートのみです。 Knockout を使用して*宣言*バインドします。 ページ要素をデータにバインドするには、要素に「データ バインド」属性を追加します。 Knockout ドキュメントから抜粋した、非常に単純な例を次に示します。
+ページのメインの HTML は Views/Home/Index. cshtml に定義されています。 データバインディングを使用しているため、HTML は実際に表示される内容のテンプレートにすぎません。 ノックアウトは*宣言型*のバインドを使用します。 ページ要素をデータにバインドするには、要素に "データバインド" 属性を追加します。 次に示すのは、ノックアウトドキュメントから取得した非常に単純な例です。
 
 [!code-html[Main](knockoutjs-template/samples/sample8.html)]
 
-この例では、Knockout での内容が更新、 **&lt;span&gt;** の値を持つ要素`myItems.count()`します。 この値が変更されるたびに、Knockout は、ドキュメントを更新します。
+この例では、ノックアウトは `myItems.count()`の値を使用して **&lt;スパン&gt;** 要素の内容を更新します。 この値が変更されるたびに、抜き合わせによってドキュメントが更新されます。
 
-Knockout では、各種のバインディング数を提供します。 SPA テンプレートで使用されるバインディングの一部を次に示します。
+ノックアウトは、さまざまな種類のバインドを提供します。 SPA テンプレートで使用されるバインドの一部を次に示します。
 
-- **foreach**:ループを反復処理し、一覧内の各項目に同じマークアップを適用できます。 これは、to do リストと to do 項目を表示するために使用されます。 内で、 **foreach**リストの要素にバインドが適用されます。
-- **表示される**:表示を切り替えるために使用します。 コレクションが空では、マークアップを非表示にまたはエラー メッセージが表示されるようにします。
-- **値**:フォームの値を設定するために使用します。
-- **クリックして**:ビュー モデルの関数には、クリック イベントをバインドします。
+- **foreach**: ループを反復処理し、リスト内の各項目に同じマークアップを適用できます。 これは、to do リストと to do 項目を表示するために使用されます。 **Foreach**内では、リストの要素にバインドが適用されます。
+- **visible**: 表示/非表示を切り替えるために使用されます。 コレクションが空のときにマークアップを非表示にするか、エラーメッセージを表示します。
+- **value**: フォーム値の設定に使用されます。
+- **クリックし**て、ビューモデルの関数に click イベントをバインドします。
 
-## <a name="anti-csrf-protection"></a>CSRF 対策保護
+## <a name="anti-csrf-protection"></a>CSRF 防止
 
-クロスサイト リクエスト フォージェリ (CSRF) は、悪意のあるサイトがで、ユーザーが現在ログインしている脆弱性のあるサイトに要求を送信する攻撃です。 ASP.NET MVC が使用するには CSRF 攻撃を防ぐために、*偽造防止トークン*、確認トークンの要求とも呼ばれます。 考え方は、サーバーが web ページにランダムに生成されたトークンを格納することです。 クライアントは、サーバーにデータを送信するときに、要求メッセージ内でこの値を含める必要がありますに。
+クロスサイト要求偽造 (CSRF) は、ユーザーが現在ログインしている脆弱なサイトに、悪意のあるサイトから要求を送信する攻撃です。 CSRF 攻撃を防ぐために、ASP.NET MVC では*偽造防止トークン*を使用します。これは、要求検証トークンとも呼ばれます。 これは、サーバーがランダムに生成されたトークンを web ページに配置するということです。 クライアントは、サーバーにデータを送信するときに、要求メッセージにこの値を含める必要があります。
 
-偽造防止トークンは、悪意のあるページが同一オリジン ポリシーにより、ユーザーのトークンを読み取ることができませんので機能します。 (同一オリジン ポリシーは、互いのコンテンツへのアクセスを 2 つの異なるサイトでホストされているドキュメントを禁止します)。
+悪意のあるページでは、同じオリジンのポリシーによってユーザーのトークンを読み取ることができないため、偽造防止トークンが機能します。 (同じオリジンポリシーを利用すると、2つの異なるサイトでホストされているドキュメントから互いのコンテンツにアクセスできなくなります)。
 
-ASP.NET MVC で偽造防止トークンの組み込みサポートを提供します、[偽造防止](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx)クラスおよび[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx)属性。 現時点では、この機能は現在の Web API には組み込まれていません。 ただし、SPA テンプレートには、Web API のカスタム実装が含まれます。 このコードで定義、`ValidateHttpAntiForgeryTokenAttribute`クラスは、ソリューションの [フィルター] フォルダーにあります。 Web API での CSRF の詳細については、次を参照してください。[防止クロスサイト リクエスト フォージェリ (CSRF) 攻撃](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md)します。
+ASP.NET MVC では[、偽造防止のクラスと](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) [[Validateアンチ Forgerytoken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx)属性を使用して、偽造防止トークンの組み込みサポートを提供しています。 現在、この機能は Web API には組み込まれていません。 ただし、SPA テンプレートには、Web API のカスタム実装が含まれています。 このコードは、ソリューションの Filters フォルダーにある `ValidateHttpAntiForgeryTokenAttribute` クラスで定義されています。 Web API での CSRF の防止の詳細については、「[クロスサイト要求偽造 (csrf) 攻撃の防止](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md)」を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 
-SPA テンプレートは、最新の対話型の web アプリケーションをすばやく記述を開始するために設計されています。 プレゼンテーション (HTML マークアップ) のデータとアプリケーション ロジックからを分離するのに、Knockout.js ライブラリを使用します。 Knockout は、SPA を作成に使用できる唯一の JavaScript ライブラリではありません。 その他のオプションを表示する場合を見て、 [SPA テンプレートのコミュニティによって作成された](../templates/index.md)します。
+SPA テンプレートは、最新の対話型 web アプリケーションの作成をすぐに開始できるように設計されています。 また、ノックアウトライブラリを使用して、データとアプリケーションロジックからプレゼンテーション (HTML マークアップ) を分離します。 ただし、ノックアウトは、SPA の作成に使用できる唯一の JavaScript ライブラリではありません。 他のオプションを調べる場合は、コミュニティによって[作成された SPA テンプレート](../templates/index.md)を参照してください。

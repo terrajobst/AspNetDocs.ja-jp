@@ -9,11 +9,11 @@ ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
 ms.openlocfilehash: 1177336b25479c06706227e5c8ff4d027cdaebb8
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456986"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472570"
 ---
 # <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>キュー中心の作業パターン (Azure を使用した実際のクラウドアプリの構築)
 
@@ -166,7 +166,7 @@ Worker ロール内では、前に見た `FixItQueueManager` クラスの `Proce
 
 Web プロジェクトで非同期コードを追加すると、IIS が制限されたスレッドプールを管理するため、パフォーマンスが自動的に向上します。 これは、ワーカーロールプロジェクトの場合には当てはまりません。 ワーカーロールのスケーラビリティを向上させるには、マルチスレッドコードを記述するか、非同期コードを使用して[並列プログラミング](https://msdn.microsoft.com/library/ff963553.aspx)を実装します。 このサンプルは並列プログラミングを実装していませんが、並列プログラミングを実装できるようにコードを非同期にする方法を示しています。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 この章では、キュー中心の作業パターンを実装することによって、アプリケーションの応答性、信頼性、スケーラビリティを向上させる方法について説明しました。
 
@@ -177,7 +177,7 @@ Web プロジェクトで非同期コードを追加すると、IIS が制限さ
 
 キューの詳細については、次のリソースを参照してください。
 
-ドキュメント:
+ドキュメント
 
 - [Microsoft Azure Storage キューパート 1: はじめに](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/microsoft-azure-storage-queues-part-1-getting-started/)。 Roman Schacherl の記事。
 - [バックグラウンドタスクの実行](https://msdn.microsoft.com/library/ff803365.aspx)、クラウドへのアプリケーションの移動の第5章[、3エディション (](https://msdn.microsoft.com/library/ff728592.aspx) Microsoft のパターンとプラクティスを参照)。 (特に、「 [Azure Storage キューの使用」](https://msdn.microsoft.com/library/ff803365.aspx#sec7)を参照してください)。

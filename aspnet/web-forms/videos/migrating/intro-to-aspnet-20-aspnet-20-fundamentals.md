@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/migrating/intro-to-aspnet-20-aspnet-20-fundamentals
-title: '[ASP.NET 2.0 入門:]ASP.NET 2.0 の基礎 |Microsoft Docs'
+title: '[ASP.NET 2.0 の導入:]ASP.NET 2.0 の基礎 |Microsoft Docs'
 author: microsoft
-description: ASP.NET に不慣れな開発者はこの web キャスト、重要な機能を理解するように設計するとします。
+description: ASP.NET を初めて使用する開発者は、重要な機能を理解するために設計されたこの web キャストに参加することを希望しています。
 ms.author: riande
 ms.date: 07/25/2006
 ms.assetid: ff36f242-5f40-44d1-b65d-5ab2fb622742
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-20-aspnet-20-fundamentals
 msc.type: video
 ms.openlocfilehash: 4fa306d25868ace7d713f968efe083438655f8bf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416156"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506734"
 ---
 # <a name="intro-to-aspnet-20-aspnet-20-fundamentals"></a>[ASP.NET 2.0 入門:] ASP.NET 2.0 の基礎
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-ASP.NET に不慣れな開発者はこの web キャスト、重要な機能を理解するように設計するとします。
+ASP.NET を初めて使用する開発者は、重要な機能を理解するために設計されたこの web キャストに参加することを希望しています。
 
-[&#9654;ビデオ (70 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-20-aspnet-20-fundamentals)
+[&#9654;ビデオを見る (70 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-20-aspnet-20-fundamentals)
 
 > [!div class="step-by-step"]
-> [次へ](intro-to-aspnet-20-user-interface-elements.md)
+> [Next](intro-to-aspnet-20-user-interface-elements.md)

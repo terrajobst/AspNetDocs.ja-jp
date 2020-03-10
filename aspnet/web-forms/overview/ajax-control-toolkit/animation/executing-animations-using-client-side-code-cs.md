@@ -9,11 +9,11 @@ ms.assetid: 0270e0df-6fde-4a8f-a2cb-2cacc55143f2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b6ba1553b9c8c51d5d6ae1679e53f9cc1d17b769
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599657"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484024"
 ---
 # <a name="executing-animations-using-client-side-code-c"></a>クライアント側コードを使用してアニメーションを実行する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599657"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションの実行は、カスタムクライアント側の JavaScript コードを使用してトリガーすることもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションの実行は、カスタムクライアント側の JavaScript コードを使用してトリガーすることもできます。
 

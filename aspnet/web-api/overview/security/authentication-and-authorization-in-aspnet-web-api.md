@@ -1,120 +1,120 @@
 ---
 uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
-title: ASP.NET Web API で認証と承認 |Microsoft Docs
+title: ASP.NET Web API での認証と承認 |Microsoft Docs
 author: MikeWasson
-description: ASP.NET Web API で認証と承認の概要を示します。
+description: ASP.NET Web API での認証と承認の概要について説明します。
 ms.author: riande
 ms.date: 11/27/2012
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 368d2b9456d12b2bb4063a23333e5c8837faa3b8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134713"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484420"
 ---
-# <a name="authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API で認証と承認
+# <a name="authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API での認証と承認
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-Web API を作成したが、それへのアクセスを制御するようになりました。 この一連の記事では、承認されていないユーザーから web API をセキュリティで保護するためのいくつかのオプションを紹介します。 このシリーズは、認証と承認の両方について説明します。
+Web API を作成しましたが、それへのアクセスを制御する必要があります。 この一連の記事では、承認されていないユーザーから web API をセキュリティで保護するためのオプションについて説明します。 このシリーズでは、認証と承認の両方について説明します。
 
-- *認証*ユーザーの id が把握することです。 たとえば、Alice は自分のユーザー名とパスワード、ログイン、サーバーでは、パスワードを使用して、Alice の認証。
-- *承認*アクションを実行するユーザーが許可されているかどうかを決めることです。 たとえば、Alice、リソースを取得するが、リソースを作成できません権があるのです。
+- *認証*は、ユーザーの id を認識しています。 たとえば、Alice はユーザー名とパスワードを使用してログインし、サーバーはパスワードを使用して Alice を認証します。
+- *承認*は、ユーザーがアクションの実行を許可されているかどうかを判断するためのものです。 たとえば、Alice はリソースを取得するためのアクセス許可を持っていますが、リソースを作成することはできません。
 
-シリーズの最初の記事では、ASP.NET Web API で認証と承認の概要を示します。 その他のトピックでは、Web API の一般的な認証シナリオについて説明します。
+このシリーズの最初の記事では、ASP.NET Web API での認証と承認の概要について説明します。 その他のトピックでは、Web API の一般的な認証シナリオについて説明します。
 
 > [!NOTE]
-> このシリーズを確認し、貴重なフィードバックを提供するユーザーに感謝します。Rick Anderson、Levi Broderick、Barry Dorrans、Tom Dykstra、Hongmei Ge、David Matson、Daniel Roth、Tim Teebken
+> このシリーズをレビューし、Rick Anderson、Levi Broderick、Dorrans、Tom Dykstra、Hongmei Ge、David Matson、Daniel Roth、Tim Teebken のお客様のご意見をお寄せいただき、ありがとうございます。
 
 ## <a name="authentication"></a>認証
 
-Web API では、ホストでその認証を行いますを前提としています。 Web ホスト、ホスト認証のための HTTP モジュールを使用して、IIS です。 IIS または ASP.NET に組み込まれている認証モジュールのいずれかを使用するプロジェクトを構成したり、カスタム認証を実行する独自の HTTP モジュールを記述できます。
+Web API は、ホストで認証が行われることを前提としています。 Web ホストの場合、ホストは IIS で、認証に HTTP モジュールを使用します。 IIS または ASP.NET に組み込まれている認証モジュールのいずれかを使用するようにプロジェクトを構成するか、独自の HTTP モジュールを記述してカスタム認証を実行することができます。
 
-作成、ホストが、ユーザーを認証するとき、*プリンシパル*は、 [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx)コードが実行されているセキュリティ コンテキストを表すオブジェクト。 ホストを設定して現在のスレッドにプリンシパルをアタッチします**Thread.CurrentPrincipal**します。 プリンシパルが含まれていますが、関連付けられている**Identity**ユーザーに関する情報を含むオブジェクト。 ユーザーが認証されている場合、 **Identity.IsAuthenticated**プロパティが返す**true**します。 匿名の要求に対して**IsAuthenticated**返します**false**します。 プリンシパルの詳細については、次を参照してください。[ロール ベース セキュリティ](https://msdn.microsoft.com/library/shz8h065.aspx)します。
+ホストがユーザーを認証すると、*プリンシパル*が作成されます。これは、コードが実行されているセキュリティコンテキストを表す[IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx)オブジェクトです。 ホストは、 **thread.currentprincipal**を設定することによって、プリンシパルを現在のスレッドにアタッチします。 プリンシパルには、ユーザーに関する情報を含む、関連付けられた**id**オブジェクトが含まれています。 ユーザーが認証されると、 **IsAuthenticated**プロパティは**true**を返します。 匿名要求の場合、 **Isauthenticated**は**false**を返します。 プリンシパルの詳細については、「[ロールベースのセキュリティ](https://msdn.microsoft.com/library/shz8h065.aspx)」を参照してください。
 
-### <a name="http-message-handlers-for-authentication"></a>認証のための HTTP メッセージ ハンドラー
+### <a name="http-message-handlers-for-authentication"></a>認証用の HTTP メッセージハンドラー
 
-ホストの認証を使用する代わりに認証ロジックを配置することができます、 [HTTP メッセージ ハンドラー](../advanced/http-message-handlers.md)します。 その場合は、メッセージ ハンドラーでは、HTTP 要求を検査し、プリンシパルを設定します。
+認証にはホストを使用するのではなく、 [HTTP メッセージハンドラー](../advanced/http-message-handlers.md)に認証ロジックを配置することができます。 この場合、メッセージハンドラーは HTTP 要求を調べ、プリンシパルを設定します。
 
-認証メッセージ ハンドラーを使用するにとする必要がありますか。 一部のトレードオフについて次に示します。
+認証にメッセージハンドラーを使用する必要があるのはいつですか。 いくつかのトレードオフを次に示します。
 
-- HTTP モジュールでは、ASP.NET パイプラインを通過するすべての要求が表示されます。 メッセージ ハンドラーには、Web API にルーティングされる要求のみが表示されます。
-- -ルート メッセージ ハンドラーでは、特定のルートへの認証方式を適用できる設定できます。
-- HTTP モジュールは、IIS に固有です。 メッセージ ハンドラーは、web ホスティングと自己ホスト両方で使えるように、ホストに依存しないをします。
-- HTTP モジュールは、IIS ログ、監査、および具合に参加します。
-- HTTP モジュールは、パイプラインの前で実行します。 メッセージ ハンドラーでの認証を処理する場合、プリンシパルはまで設定されません、ハンドラーが実行されます。 さらに、応答が、メッセージ ハンドラーを離れると、プリンシパルは、以前のプリンシパルに戻ります。
+- HTTP モジュールは、ASP.NET パイプラインを経由するすべての要求を認識します。 メッセージハンドラーには、Web API にルーティングされる要求のみが表示されます。
+- ルートごとのメッセージハンドラーを設定できます。これにより、特定のルートに認証スキームを適用できます。
+- HTTP モジュールは IIS に固有のものです。 メッセージハンドラーは、ホストに依存しないため、web ホストと自己ホストの両方で使用できます。
+- HTTP モジュールは、IIS のログ記録や監査などに関与します。
+- HTTP モジュールは、パイプラインで以前に実行されています。 メッセージハンドラーで認証を処理する場合、プリンシパルはハンドラーが実行されるまで設定されません。 さらに、応答がメッセージハンドラーから外れると、プリンシパルは前のプリンシパルに戻ります。
 
-一般に、自己ホストをサポートするために不要な場合は、HTTP モジュールはより適切なオプションには。 自己ホストをサポートする必要がある場合は、メッセージ ハンドラーを検討してください。
+一般に、自己ホストをサポートする必要がない場合は、HTTP モジュールを使用することをお勧めします。 自己ホストをサポートする必要がある場合は、メッセージハンドラーを検討してください。
 
 ### <a name="setting-the-principal"></a>プリンシパルの設定
 
-アプリケーションでは、任意のカスタム認証ロジックを実行する場合は、2 つの場所にプリンシパルを設定する必要があります。
+アプリケーションでカスタム認証ロジックを実行する場合は、次の2つの場所でプリンシパルを設定する必要があります。
 
-- **Thread.CurrentPrincipal**します。 このプロパティは、.net では、スレッドのプリンシパルを設定する標準的な方法です。
-- **ロール**します。 このプロパティは、ASP.NET に固有です。
+- **Thread.currentprincipal**。 このプロパティは、.NET でスレッドのプリンシパルを設定するための標準的な方法です。
+- **HttpContext. Current. User**. このプロパティは、ASP.NET に固有です。
 
-次のコードでは、プリンシパルを設定する方法を示します。
+次のコードは、プリンシパルを設定する方法を示しています。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample1.cs)]
 
-Web ホストの両方の場所で、プリンシパルを設定する必要があります。それ以外の場合、セキュリティ コンテキストは、一貫性のないなる可能性があります。 自己ホスト、ただし、 **HttpContext.Current**が null です。 コードがホストに依存しないのためには、そのため、null チェックを割り当てる前に**HttpContext.Current**に示すようにします。
+Web ホストの場合、両方の場所でプリンシパルを設定する必要があります。そうしないと、セキュリティコンテキストが不整合になる可能性があります。 ただし、自己ホストの場合、 **HttpContext**は null になります。 コードがホストに依存しないようにするには、以下に示すように、null を確認してから**HttpContext**に割り当てます。
 
 ## <a name="authorization"></a>承認
 
-承認の発生、パイプラインの後半で、コント ローラーに近いです。 リソースへのアクセスを付与する場合より詳細な選択を行うことができます。
+承認は、後で、コントローラーに近いパイプラインで行われます。 これにより、リソースへのアクセスを許可するときにより詳細な選択を行うことができます。
 
-- *承認フィルター*コント ローラー アクションの前に実行します。 要求が許可されていない場合、フィルターが、エラー応答を返すし、アクションは呼び出されません。
-- コント ローラーのアクション内から現在のプリンシパルを取得できます、 **ApiController.User**プロパティ。 など、ユーザー名に基づくリソースの一覧をフィルターする可能性がありますにそのユーザーに属しているリソースのみを返します。
+- *承認フィルター*は、コントローラーアクションの前に実行されます。 要求が承認されていない場合、フィルターはエラー応答を返し、アクションは呼び出されません。
+- コントローラーアクション内では、 **ApiController**プロパティから現在のプリンシパルを取得できます。 たとえば、ユーザー名に基づいてリソースの一覧をフィルター処理し、そのユーザーに属するリソースのみを返すことができます。
 
 ![](authentication-and-authorization-in-aspnet-web-api/_static/image1.png)
 
 <a id="auth3"></a>
-### <a name="using-the-authorize-attribute"></a>使用して、[承認] 属性
+### <a name="using-the-authorize-attribute"></a>[承認] 属性の使用
 
-Web API は、組み込みの承認フィルターを提供します。 [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx)します。 このフィルターは、ユーザーが認証されたかどうかを確認します。 それ以外の場合は、アクションを呼び出すことがなく HTTP 状態コード 401 (Unauthorized) を返します。
+Web API には、組み込みの承認フィルターである[Authorizeattribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx)が用意されています。 このフィルターは、ユーザーが認証されているかどうかを確認します。 そうでない場合は、アクションを呼び出さずに HTTP 状態コード 401 (未承認) が返されます。
 
-コント ローラー レベル、または個々 のアクションのレベルでグローバルにフィルターを適用することができます。
+フィルターは、グローバルに、コントローラーレベルで、または個々のアクションのレベルで適用できます。
 
-**グローバルに**:すべての Web API コント ローラーのアクセスを制限するには、追加、 **AuthorizeAttribute**グローバル フィルターの一覧にフィルター。
+**グローバル**: すべての Web API コントローラーのアクセスを制限するには、 **authorizeattribute**フィルターをグローバルフィルター一覧に追加します。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample2.cs)]
 
-**コントローラー**:特定のコント ローラーへのアクセスを制限するには、コント ローラーに属性として、フィルターを追加します。
+**コントローラー**: 特定のコントローラーへのアクセスを制限するには、フィルターを属性としてコントローラーに追加します。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample3.cs)]
 
-**アクション**:特定の操作に対してアクセスを制限するには、アクション メソッドに属性を追加します。
+**アクション**: 特定のアクションに対するアクセスを制限するには、属性をアクションメソッドに追加します。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample4.cs)]
 
-また、コント ローラーを制限しを使用して、特定のアクションへの匿名アクセスを許可、`[AllowAnonymous]`属性。 次の例では、`Post`メソッドが制限されていますが、`Get`メソッドは匿名アクセスを許可します。
+または、`[AllowAnonymous]` 属性を使用して、コントローラーを制限し、特定のアクションへの匿名アクセスを許可することもできます。 次の例では、`Post` メソッドが制限されていますが、`Get` メソッドは匿名アクセスを許可しています。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample5.cs)]
 
-前の例では、フィルターが認証されたユーザーに制限されているメソッド; へのアクセスを許可します。匿名ユーザーのみが保持されます。特定のユーザーまたは特定のロールのユーザーへのアクセスを制限することもできます。
+前の例では、フィルターを使用して、認証されたユーザーが制限されたメソッドにアクセスすることを許可しています。匿名ユーザーのみが保持されます。特定のユーザーまたは特定のロールのユーザーへのアクセスを制限することもできます。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample6.cs)]
 
 > [!NOTE]
-> **AuthorizeAttribute**に Web API コント ローラーのフィルターがある、 **System.Web.Http**名前空間。 MVC コント ローラーのようなフィルターがある、 **System.Web.Mvc**名前空間は、Web API コント ローラーと互換性がありません。
+> Web API コントローラーの**Authorizeattribute**フィルター**は、system.web 名前空間**にあります。 **System.web 名前空間**には、web API コントローラーと互換性のない mvc コントローラーに似たフィルターがあります。
 
 ### <a name="custom-authorization-filters"></a>カスタム承認フィルター
 
-カスタム承認フィルターを作成するには、これらの型のいずれかから派生します。
+カスタム承認フィルターを作成するには、次のいずれかの型から派生します。
 
-- **AuthorizeAttribute**します。 現在のユーザーとユーザーのロールに基づいて承認ロジックを実行するには、このクラスを拡張します。
-- **AuthorizationFilterAttribute**します。 現在のユーザーまたはロールに対しては必ずしも基づいていない同期承認ロジックを実行するには、このクラスを拡張します。
-- **IAuthorizationFilter**します。 非同期の承認ロジックを実行するには、このインターフェイスを実装します。たとえば、承認ロジックが非同期 I/O またはネットワーク呼び出しを行った場合。 (から派生する方が簡単では、承認ロジックが CPU バインドの場合は、 **AuthorizationFilterAttribute**のため、非同期のメソッドを記述する必要はありません)。
+- **Authorizeattribute**。 現在のユーザーとユーザーのロールに基づいて承認ロジックを実行するように、このクラスを拡張します。
+- **Authorizationfilterattribute**。 このクラスを拡張して、現在のユーザーまたはロールに基づいているとは限らない同期承認ロジックを実行します。
+- **IAuthorizationFilter**。 非同期承認ロジックを実行するには、このインターフェイスを実装します。たとえば、承認ロジックが非同期 i/o またはネットワーク呼び出しを行う場合です。 (認証ロジックが CPU にバインドされている場合は、 **Authorizationfilterattribute**から派生する方が簡単です。これは、非同期メソッドを記述する必要がないためです)。
 
-次の図は、クラスの階層構造、 **AuthorizeAttribute**クラス。
+次の図は、 **Authorizeattribute**クラスのクラス階層を示しています。
 
 ![](authentication-and-authorization-in-aspnet-web-api/_static/image2.png)
 
-### <a name="authorization-inside-a-controller-action"></a>コント ローラー アクション内での承認
+### <a name="authorization-inside-a-controller-action"></a>コントローラーアクション内の承認
 
-場合によっては、続行して、プリンシパルに基づく動作を変更するには、要求を許可する場合があります。 などを返す情報は、ユーザーのロールに応じて変更可能性があります。 コント ローラー メソッド内から現在のプリンシパルを取得できます、 **ApiController.User**プロパティ。
+場合によっては、要求の続行を許可しても、プリンシパルに基づいて動作を変更することがあります。 たとえば、返される情報は、ユーザーのロールによって変わる可能性があります。 コントローラーメソッド内では、 **ApiController**プロパティから現在のプリンシパルを取得できます。
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample7.cs)]

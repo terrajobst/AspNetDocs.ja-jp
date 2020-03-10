@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/getting-started/index
-title: ASP.NET Web フォームの概要 |Microsoft Docs
+title: ASP.NET Web Forms | を使用したはじめにMicrosoft Docs
 author: rick-anderson
-description: 学習の ASP.NET Web フォーム ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトをビルドできます。 デザイン サーフェイスと hund.
+description: ASP.NET Web Forms ASP.NET Web Forms について学習すると、使い慣れたドラッグアンドドロップのイベントドリブンモデルを使用して動的な web サイトを構築できます。 デザインサーフェイスと hund...
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: f645d3b1-1092-43c6-a28a-074b413924b4
 msc.legacyurl: /web-forms/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: d76e65ae807b1da97d07199e7f0fce21fbf14af6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133431"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78513616"
 ---
-# <a name="getting-started-with-aspnet-web-forms"></a>ASP.NET Web フォームの概要
+# <a name="getting-started-with-aspnet-web-forms"></a>ASP.NET Web フォームでのはじめに
 
-> Web フォーム モデルとページを作成し、コントロールを使用する方法。
+> Web フォームモデルと、ページを作成してコントロールを使用する方法について説明します。
 
 - [ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](getting-started-with-aspnet-45-web-forms/index.md)
 

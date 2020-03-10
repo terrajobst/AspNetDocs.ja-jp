@@ -1,160 +1,160 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
-title: 'チュートリアル: SignalR の概要 1.x |Microsoft Docs'
+title: 'チュートリアル: SignalR 1.x を使用したはじめに |Microsoft Docs'
 author: bradygaster
-description: ASP.NET SignalR を使用すると、HTML ページで、リアルタイムのチャット アプリケーションを作成します。
+description: ASP.NET SignalR を使用して、HTML ページでリアルタイムチャットアプリケーションを作成します。
 ms.author: bradyg
 ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 87a90b47ae30bee43e0b0c1e078597db54b8e67d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113868"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78505750"
 ---
-# <a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR 1.x の概要
+# <a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR 1.x でのはじめに
 
-によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tim Teebken](https://github.com/timlt)
+([パトリック Fletcher](https://github.com/pfletcher)、 [Tim teebken](https://github.com/timlt) )
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、送信し、メッセージを表示する HTML ページを作成します。
+> このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、メッセージを送信および表示する HTML ページを作成します。
 
 ## <a name="overview"></a>概要
 
-このチュートリアルでは、ブラウザー ベースの単純なチャット アプリケーションを構築する方法を示す、SignalR の開発について説明します。 SignalR ライブラリ空の ASP.NET web アプリケーションを追加、クライアントにメッセージを送信するためのハブ クラスを作成、およびユーザー チャット メッセージを送受信できるようにする HTML ページが作成されます。 MVC 4 のチャット アプリケーションを作成する方法を示しています、MVC ビューを使用して類似のチュートリアルを参照してください。 [SignalR と MVC 4 の概要](index.md)します。
+このチュートリアルでは、簡単なブラウザーベースのチャットアプリケーションを構築する方法を紹介することによって、SignalR の開発について説明します。 SignalR ライブラリを空の ASP.NET web アプリケーションに追加し、クライアントにメッセージを送信するためのハブクラスを作成して、ユーザーがチャットメッセージを送受信できるようにする HTML ページを作成します。 Mvc ビューを使用して MVC 4 でチャットアプリケーションを作成する方法について説明した同様のチュートリアルについては、「[はじめに With SignalR AND MVC 4](index.md)」を参照してください。
 
 > [!NOTE]
-> このチュートリアルでは、SignalR のリリース (1.x) バージョンを使用します。 SignalR の間の変更の詳細についての 1.x と 2.0 を参照してください。[アップグレード SignalR 1.x プロジェクト](../releases/upgrading-signalr-1x-projects-to-20.md)します。
+> このチュートリアルでは、SignalR のリリース (1.x) バージョンを使用します。 SignalR 1.x と2.0 の間の変更の詳細については、「 [SignalR 1.X プロジェクトのアップグレード](../releases/upgrading-signalr-1x-projects-to-20.md)」を参照してください。
 
-SignalR はライブ ユーザーとの対話やリアルタイムのデータの更新プログラムを必要とする web アプリケーションを構築するためのオープン ソース .NET ライブラリです。 例には、ソーシャル アプリケーション、ゲームのマルチ ユーザー、ビジネス コラボレーション、およびニュース、天気、またはアプリケーションの財務の更新が含まれます。 これらは多くの場合、リアルタイム アプリケーションと呼ばれます。
+SignalR は、web アプリケーションを構築するためのオープンソースの .NET ライブラリであり、ライブユーザー操作やリアルタイムのデータ更新を必要とします。 例としては、ソーシャルアプリケーション、マルチユーザーゲーム、ビジネスコラボレーション、ニュース、気象、金融更新アプリケーションなどがあります。 これらは、多くの場合、リアルタイムアプリケーションと呼ばれます。
 
-SignalR は、リアルタイム アプリケーションの構築プロセスを簡略化します。 これには、ASP.NET のサーバー ライブラリとクライアント サーバー接続を管理し、クライアントにコンテンツの更新をプッシュするが簡単に JavaScript クライアント ライブラリが含まれます。 SignalR ライブラリは、リアルタイムの機能を利用する既存の ASP.NET アプリケーションを追加できます。
+SignalR は、リアルタイムアプリケーションの構築プロセスを簡略化します。 これには、クライアントとサーバー間の接続の管理とクライアントへのコンテンツの更新のプッシュを容易にするための、ASP.NET サーバーライブラリと JavaScript クライアントライブラリが含まれています。 SignalR ライブラリを既存の ASP.NET アプリケーションに追加して、リアルタイムの機能を取得できます。
 
-このチュートリアルでは、次の SignalR 開発タスクを示しています。
+このチュートリアルでは、次の SignalR の開発タスクについて説明します。
 
-- ASP.NET web アプリケーションに SignalR ライブラリを追加します。
-- クライアントにコンテンツをプッシュするハブ クラスを作成します。
-- Web ページで、SignalR jQuery ライブラリを使用して、メッセージを送信し、ハブから更新プログラムを表示します。
+- SignalR ライブラリを ASP.NET web アプリケーションに追加する。
+- クライアントにコンテンツをプッシュするハブクラスを作成する。
+- Web ページで SignalR jQuery ライブラリを使用して、メッセージを送信し、ハブから更新を表示します。
 
-次のスクリーン ショットは、ブラウザーで実行されているチャット アプリケーションを示しています。 各新規ユーザー コメントを投稿でき、ユーザーがチャットに参加した後に追加されたコメントを参照してください。
+次のスクリーンショットは、ブラウザーで実行されているチャットアプリケーションを示しています。 新しいユーザーごとに、コメントを投稿し、ユーザーがチャットに参加した後に追加されたコメントを表示することができます。
 
-![チャット インスタンス](tutorial-getting-started-with-signalr/_static/image1.png)
+![チャットインスタンス](tutorial-getting-started-with-signalr/_static/image1.png)
 
-セクション:
+各項
 
-- [プロジェクトを設定します。](#setup)
-- [サンプルを実行します。](#run)
-- [コードを確認します](#code)
+- [プロジェクトを設定する](#setup)
+- [サンプルを実行する](#run)
+- [コードを確認する](#code)
 - [次の手順](#next)
 
 <a id="setup"></a>
 
-## <a name="set-up-the-project"></a>プロジェクトを設定します。
+## <a name="set-up-the-project"></a>プロジェクトを設定する
 
-SignalR を追加するこのセクションでは、空の ASP.NET web アプリケーションを作成する方法を示していて、チャット アプリケーションを作成します。
+このセクションでは、空の ASP.NET web アプリケーションを作成し、SignalR を追加して、チャットアプリケーションを作成する方法について説明します。
 
-必要条件:
+前提条件:
 
-- Visual Studio 2010 SP1 または 2012。 Visual Studio がないを参照してください。 [ASP.NET ダウンロード](https://www.asp.net/downloads)無料 Visual Studio 2012 Express 開発ツールを取得します。
-- [Microsoft ASP.NET および Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=279941)します。 Visual Studio 2012 の場合は、このインストーラーは、Visual Studio に SignalR テンプレートを含む ASP.NET の新機能を追加します。 Visual Studio 2010 SP1 では、インストーラーは使用できませんが、セットアップ手順」の説明に従って、SignalR の NuGet パッケージをインストールすることで、チュートリアルを行うことができます。
+- Visual Studio 2010 SP1 または2012。 Visual Studio がインストールされていない場合は、無料の Visual Studio 2012 Express 開発ツールを入手するには、「 [ASP.NET のダウンロード](https://www.asp.net/downloads)」を参照してください。
+- [Microsoft ASP.NET and Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=279941)。 Visual Studio 2012 では、このインストーラーによって、SignalR テンプレートを含む新しい ASP.NET 機能が Visual Studio に追加されます。 Visual Studio 2010 SP1 では、インストーラーは使用できませんが、セットアップ手順の説明に従って SignalR NuGet パッケージをインストールすることによって、このチュートリアルを完了できます。
 
-次の手順では、空の ASP.NET Web アプリケーションを作成し、SignalR ライブラリを追加する Visual Studio 2012 を使用します。
+次の手順では、Visual Studio 2012 を使用して、空の ASP.NET Web アプリケーションを作成し、SignalR ライブラリを追加します。
 
-1. Visual Studio では、空の ASP.NET Web アプリケーションを作成します。
+1. Visual Studio で、ASP.NET 空の Web アプリケーションを作成します。
 
-    ![空の web を作成します。](tutorial-getting-started-with-signalr/_static/image2.png)
-2. 開く、**パッケージ マネージャー コンソール**を選択して**ツール |NuGet パッケージ マネージャー |パッケージ マネージャー コンソール**します。 コンソール ウィンドウには、次のコマンドを入力します。
+    ![空の web の作成](tutorial-getting-started-with-signalr/_static/image2.png)
+2. [ツール] を選択して**パッケージマネージャーコンソール**を開きます。 **NuGet パッケージマネージャー |パッケージマネージャーコンソール**。 コンソールウィンドウに次のコマンドを入力します。
 
     `Install-Package Microsoft.AspNet.SignalR -Version 1.1.3`
 
-    このコマンドは、SignalR の最新バージョンをインストールします。 1.x します。
-3. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |クラス**します。 新しいクラスの名前**ChatHub**します。
-4. **ソリューション エクスプ ローラー**スクリプト ノードを展開します。 JQuery と SignalR 用のスクリプト ライブラリは、プロジェクトに表示されます。
+    このコマンドは、SignalR 1.x の最新バージョンをインストールします。
+3. **ソリューションエクスプローラー**で、プロジェクトを右クリックし、[追加] を選択します。 **クラス**。 新しいクラスに**ChatHub**という名前を指定します。
+4. **ソリューションエクスプローラー** [スクリプト] ノードを展開します。 JQuery と SignalR のスクリプトライブラリは、プロジェクトに表示されます。
 
-    ![ライブラリの参照](tutorial-getting-started-with-signalr/_static/image3.png)
-5. コードに置き換えます、 **ChatHub**クラスを次のコード。
+    ![ライブラリ参照](tutorial-getting-started-with-signalr/_static/image3.png)
+5. **ChatHub**クラスのコードを次のコードに置き換えます。
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample1.cs)]
-6. **ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして**追加 |新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、**グローバル アプリケーション クラス**クリック**追加**します。
+6. **ソリューションエクスプローラー**で、プロジェクトを右クリックし、[追加] をクリックします。 **新しい項目**。 **[新しい項目の追加]** ダイアログで、 **[グローバルアプリケーションクラス]** を選択し、 **[追加]** をクリックします。
 
-    ![グローバルの追加します。](tutorial-getting-started-with-signalr/_static/image4.png)
-7. 次の追加`using`後にある、指定されたステートメント`using`Global.asax.cs クラス内のステートメント。
+    ![グローバルの追加](tutorial-getting-started-with-signalr/_static/image4.png)
+7. Global.asax.cs クラスの指定された `using` ステートメントの後に、次の `using` ステートメントを追加します。
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
-8. 次のコードの行を追加、 `Application_Start` SignalR ハブの既定のルートを登録するグローバル クラスのメソッド。
+8. SignalR hub の既定のルートを登録するには、グローバルクラスの `Application_Start` メソッドに次のコード行を追加します。
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample3.cs)]
-9. **ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして**追加 |新しい項目の**します。 **新しい項目の追加**ダイアログ、選択の Html ページとクリック**追加**します。
-10. **ソリューション エクスプ ローラー**で作成した HTML ページを右クリックし、をクリックして**スタート ページとして設定**します。
+9. **ソリューションエクスプローラー**で、プロジェクトを右クリックし、[追加] をクリックします。 **新しい項目**。 **[新しい項目の追加]** ダイアログで、Html ページ を選択し、 **[追加]** をクリックします。
+10. **ソリューションエクスプローラー**で、先ほど作成した HTML ページを右クリックし、 **[スタートページとして設定]** をクリックします。
 11. HTML ページの既定のコードを次のコードに置き換えます。
 
     [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample4.html)]
-12. **すべて保存**プロジェクト。
+12. プロジェクトの**すべてを保存**します。
 
 <a id="run"></a>
 
-## <a name="run-the-sample"></a>サンプルを実行します。
+## <a name="run-the-sample"></a>サンプルを実行する
 
-1. F5 キーを押して、デバッグ モードで、プロジェクトを実行します。 ブラウザーのインスタンスとユーザー名のプロンプトで、HTML ページが読み込まれます。
+1. F5 キーを押して、プロジェクトをデバッグモードで実行します。 HTML ページがブラウザーインスタンスに読み込まれ、ユーザー名の入力が求められます。
 
     ![ユーザー名の入力](tutorial-getting-started-with-signalr/_static/image5.png)
 2. ユーザー名を入力します。
-3. ブラウザーのアドレスの行から URL をコピーし、2 つのブラウザー インスタンスを開くために使用します。 各ブラウザー インスタンスでは、一意のユーザー名を入力します。
-4. 各ブラウザー インスタンスでコメントを追加し、をクリックして**送信**します。 すべてのブラウザー インスタンスで、コメントが表示されます。
+3. ブラウザーのアドレス行から URL をコピーし、それを使用して2つ以上のブラウザーインスタンスを開きます。 各ブラウザーインスタンスで、一意のユーザー名を入力します。
+4. 各ブラウザーインスタンスで、コメントを追加し、 **[送信]** をクリックします。 コメントは、すべてのブラウザーインスタンスに表示されます。
 
     > [!NOTE]
-    > この簡単なチャット アプリケーションでは、サーバー上のディスカッション コンテキストは保持されません。 ハブは、現在のすべてのユーザーへのコメントをブロードキャストします。 後で、チャットに参加するユーザーは、参加する時点から追加されたメッセージに表示されます。
+    > この単純なチャットアプリケーションでは、サーバー上のディスカッションコンテキストは維持されません。 ハブは、現在のすべてのユーザーにコメントをブロードキャストします。 後でチャットに参加したユーザーには、参加したときから追加されたメッセージが表示されます。
 
-    次のスクリーン ショットは、1 つのインスタンス メッセージを送信するすべての更新は、次の 3 つのブラウザー インスタンスで実行されるチャット アプリケーションを示しています。
+    次のスクリーンショットは、3つのブラウザーインスタンスで実行されているチャットアプリケーションを示しています。これらはすべて、1つのインスタンスがメッセージを送信したときに更新されます。
 
-    ![チャット ブラウザー](tutorial-getting-started-with-signalr/_static/image6.png)
-5. **ソリューション エクスプ ローラー**、検査、**スクリプト ドキュメント**実行中のアプリケーションのノード。 という名前のスクリプト ファイルがある**hubs** SignalR ライブラリは、実行時に動的に生成します。 このファイルは、jQuery スクリプトとサーバー側コード間の通信を管理します。
+    ![チャットブラウザー](tutorial-getting-started-with-signalr/_static/image6.png)
+5. **ソリューションエクスプローラー**で、実行中のアプリケーションの **[スクリプトドキュメント]** ノードを調べます。 SignalR ライブラリによって実行時に動的に生成される**ハブ**という名前のスクリプトファイルがあります。 このファイルは、jQuery スクリプトとサーバー側コード間の通信を管理します。
 
-    ![生成されたハブのスクリプト](tutorial-getting-started-with-signalr/_static/image7.png)
+    ![生成されたハブスクリプト](tutorial-getting-started-with-signalr/_static/image7.png)
 
 <a id="code"></a>
 
-## <a name="examine-the-code"></a>コードを確認します
+## <a name="examine-the-code"></a>コードを確認する
 
-SignalR チャット アプリケーションを 2 つの基本的な SignalR 開発タスクを示します。 サーバーで、主要な調整オブジェクトとしてハブを作成し、メッセージを送受信する SignalR jQuery ライブラリを使用します。
+SignalR chat アプリケーションでは、2つの基本的な SignalR 開発タスクを示しています。サーバー上の主要な調整オブジェクトとしてハブを作成し、SignalR jQuery ライブラリを使用してメッセージを送受信します。
 
 ### <a name="signalr-hubs"></a>SignalR Hubs
 
-コード サンプルでは、 **ChatHub**クラスから派生、 **Microsoft.AspNet.SignalR.Hub**クラス。 派生する、**ハブ**クラスは、SignalR アプリケーションを構築する便利な方法です。 ハブ クラスにパブリック メソッドを作成し、web ページに jQuery スクリプトから呼び出すことによってこれらのメソッドにアクセスできます。
+コードサンプルでは、 **ChatHub**クラスは**SignalR**クラスから派生しています。 **ハブ**クラスからの派生は、SignalR アプリケーションを構築するための便利な方法です。 ハブクラスにパブリックメソッドを作成し、web ページの jQuery スクリプトからメソッドを呼び出すことによって、これらのメソッドにアクセスできます。
 
-クライアントが呼び出すチャットのコードで、 **ChatHub.Send**メソッドを新しいメッセージを送信します。 ハブに送信メッセージのすべてのクライアントを呼び出して**Clients.All.broadcastMessage**します。
+チャットコードでは、クライアントは**ChatHub**メソッドを呼び出して、新しいメッセージを送信します。 ハブは、 **broadcastMessage**を呼び出すことによって、すべてのクライアントにメッセージを送信します。
 
-**送信**メソッドがいくつかのハブの概念を示します。
+**Send**メソッドは、いくつかのハブの概念を示しています。
 
-- クライアントが呼び出すことができるように、ハブ上のパブリック メソッドを宣言します。
-- 使用して、 **Microsoft.AspNet.SignalR.Hub.Clients**この hub に接続されているすべてのクライアントにアクセスする動的プロパティ。
-- クライアントの jQuery 関数を呼び出す (など、`broadcastMessage`関数) クライアントを更新します。
+- クライアントがそれらを呼び出すことができるように、ハブでパブリックメソッドを宣言します。
+- このハブに接続されているすべてのクライアントにアクセスするには、 **SignalR**動的プロパティを使用します。
+- クライアントの jQuery 関数 (`broadcastMessage` 関数など) を呼び出して、クライアントを更新します。
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample5.cs)]
 
 ### <a name="signalr-and-jquery"></a>SignalR と jQuery
 
-コード サンプルでは、HTML ページは、SignalR jQuery ライブラリを使用して、SignalR hub と通信する方法を示しています。 コードで基本的なタスクは、プロキシをクライアントにコンテンツをプッシュするサーバーを呼び出すことができる関数を宣言して、ハブにメッセージを送信する接続を開始、ハブの参照を宣言することです。
+コードサンプルの HTML ページは、SignalR jQuery ライブラリを使用して SignalR hub と通信する方法を示しています。 コードの重要なタスクは、ハブを参照するようにプロキシを宣言し、サーバーがクライアントにコンテンツをプッシュするために呼び出すことができる関数を宣言し、ハブにメッセージを送信するための接続を開始することです。
 
-次のコードは、ハブのプロキシを宣言します。
+次のコードでは、ハブのプロキシを宣言しています。
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample6.js)]
 
 > [!NOTE]
-> JQuery でサーバー クラスとそのメンバーへの参照がキャメル ケースです。 コード サンプルを参照して、C# **ChatHub**クラスとしての jquery **chatHub**します。
+> JQuery では、サーバークラスとそのメンバーへの参照は camel 形式です。 このコードサンプルではC# 、jQuery の**ChatHub**クラスを**ChatHub**として参照しています。
 
-次のコードは、スクリプトのコールバック関数を作成する方法です。 サーバー上のハブ クラスは、各クライアントにコンテンツの更新をプッシュするには、この関数を呼び出します。 HTML が表示する前にコンテンツをエンコードする 2 つの行は省略可能ですし、スクリプト インジェクションを防止する簡単な方法を表示します。
+次のコードは、スクリプトでコールバック関数を作成する方法を示しています。 サーバー上のハブクラスは、この関数を呼び出して、コンテンツの更新を各クライアントにプッシュします。 HTML でコンテンツを表示する前にエンコードする2行は省略可能であり、スクリプトインジェクションを防ぐ簡単な方法を示しています。
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample7.html)]
 
-次のコードでは、ハブとの接続を開く方法を示します。 コードが接続を開始しのクリック イベントを処理する関数に渡します、**送信**HTML ページにボタンをクリックします。
+次のコードは、ハブとの接続を開く方法を示しています。 このコードは接続を開始し、HTML ページの **[送信]** ボタンでクリックイベントを処理する関数に渡します。
 
 > [!NOTE]
-> このアプローチでは、イベント ハンドラーが実行される前に、接続が確立されていることを保証します。
+> この方法では、イベントハンドラーが実行される前に接続が確立されることを保証します。
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample8.js)]
 
@@ -162,12 +162,12 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 
 ## <a name="next-steps"></a>次の手順
 
-SignalR がリアルタイムの web アプリケーションを構築するためのフレームワークについて説明しました。 いくつかの SignalR 開発タスクも学習しました。 SignalR を ASP.NET アプリケーションを追加する方法、ハブ クラスを作成する方法と、ハブからメッセージを送受信する方法。
+SignalR は、リアルタイム web アプリケーションを構築するためのフレームワークであることを学習しました。 また、いくつかの SignalR 開発タスク (SignalR を ASP.NET アプリケーションに追加する方法、ハブクラスを作成する方法、ハブからメッセージを送受信する方法) についても学習しました。
 
-利用できるサンプル アプリケーションは、このチュートリアルやその他の SignalR アプリケーションで、インターネット経由でしてホスティング プロバイダーにデプロイすること。 Microsoft 提供の無料 web ホスティングを無料で最大 10 個の web サイトを[Windows Azure トライアル アカウント](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 サンプルの SignalR アプリケーションをデプロイする方法のチュートリアルは、次を参照してください。 [、SignalR 入門サンプルとして Windows Azure の Web サイトを発行](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法の詳細については、次を参照してください。 [ASP.NET アプリケーションを Windows Azure Web サイトを展開する](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)します。 (メモ: WebSocket トランスポートでは、Windows Azure の Web サイトは現在サポートされていません。 ときに WebSocket トランスポートを使用できません、SignalR のトランスポートのセクションで説明したように、その他の利用可能なトランスポートを使用して、 [SignalR のトピックで初めに](index.md))。
+このチュートリアルまたは他の SignalR アプリケーションのサンプルアプリケーションは、ホストプロバイダーに展開することで、インターネット経由で利用できます。 Microsoft では、無料の[Windows Azure 試用版アカウント](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)で最大10個の web サイトを無料で提供しています。 サンプル SignalR アプリケーションをデプロイする方法のチュートリアルについては、「 [Windows Azure Web サイトとしての SignalR はじめにサンプルの発行](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx)」を参照してください。 Visual Studio web プロジェクトを Windows Azure の Web サイトに配置する方法の詳細については、「 [Windows azure Web サイトへの ASP.NET アプリケーションの配置](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)」を参照してください。 (注: WebSocket トランスポートは、現在、Windows Azure Websites ではサポートされていません。 WebSocket トランスポートが使用できない場合、SignalR は、 [SignalR の概要](index.md)に関するトピックの「トランスポート」セクションで説明されている他の利用可能なトランスポートを使用します。)
 
-高度な SignalR 開発の概念については、SignalR のソース コードおよびリソースは、次のサイトを参照してください。
+より高度な SignalR 開発の概念を学習するには、次のサイトで SignalR ソースコードとリソースを参照してください。
 
 - [SignalR プロジェクト](http://signalr.net)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
-- [SignalR の Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

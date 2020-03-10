@@ -9,11 +9,11 @@ ms.assetid: 27591afa-3c14-47e6-8323-573f8f7aa862
 msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 12c988e64c5b724e04b6fc5f8eddc6a181764e1d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114921"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519844"
 ---
 # <a name="how-do-i"></a>操作方法
 
@@ -73,7 +73,7 @@ ms.locfileid: "65114921"
 - [ASP.NET Web ページでブラウザーの機能を検出する](how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
 - [ASP.NET サーバー コントロールをそのレンダリングに使用されるアダプターにマッピングする](how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
 - [クエリ文字列を利用し、あるページから別のページに情報を渡す](how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-- [Aspnet を使用して、\_merge.exe アセンブリをマージするためのユーティリティ](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+- [Aspnet\_merge .exe ユーティリティを使用してアセンブリをマージする](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
 - [ASP.NET でページ間ポストバックを実装する](how-do-i-implement-a-cross-page-postback-in-aspnet.md)
 - [プログラミングで ASP.NET Web ページにコントロールを追加する](how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
 - [非表示フィールドを利用し、クライアント側の情報を格納し、操作する](how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)

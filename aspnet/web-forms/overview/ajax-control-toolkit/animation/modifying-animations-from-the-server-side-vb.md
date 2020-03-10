@@ -9,11 +9,11 @@ ms.assetid: addcf4aa-340a-460b-9c64-506424a1f725
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ebc311d1a931ad611d9556799c94440d41a9cf49
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74575233"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78483868"
 ---
 # <a name="modifying-animations-from-the-server-side-vb"></a>サーバー側からアニメーションを変更する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74575233"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションはサーバー側でも変更される可能性があります。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションはサーバー側でも変更される可能性があります。
 

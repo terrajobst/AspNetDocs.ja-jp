@@ -2,200 +2,200 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 title: ASP.NET MVC 4 Entity Framework スキャフォールディングと移行 |Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 4 コント ローラーのメソッドに慣れてまたは、完了したかどうか、&quot;ヘルパー、フォーム、検証&quot;ハンズオン ラボは、注意する必要が.
+description: ASP.NET MVC 4 コントローラーの方法に慣れている場合、またはハンズオンラボ&quot; &quot;ヘルパー、フォーム、検証を完了している場合は、以下の点に注意する必要があります...
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
 ms.openlocfilehash: 2b26224390af70e19ca0593abe93a6867140f8ab
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129723"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484642"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework スキャフォールディングと移行
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web キャンプトレーニングキットをダウンロードする](https://aka.ms/webcamps-training-kit)
 
-ASP.NET MVC 4 コント ローラーのメソッドに慣れてまたは、完了したかどうか、&quot;ヘルパー、フォーム、検証&quot;ハンズオン ラボは、注意すべきことを作成するためのロジックの多くを更新、一覧表示およびこれが繰り返される任意のデータ エンティティの削除間でのアプリケーションです。 モデルにいくつかのクラスを操作する場合はもちろんのことを各エンティティ操作だけでなく各ビューの POST および GET アクション メソッドの記述、かなりの時間を費やす可能性ができます。
+ASP.NET MVC 4 コントローラーの方法に慣れている場合、またはハンズオンラボ&quot; &quot;ヘルパー、フォーム、および検証を完了している場合は、アプリケーション間で繰り返されるデータエンティティを作成、更新、一覧表示、および削除するロジックの多くに注意する必要があります。 これに触れないと、モデルに操作するクラスが複数ある場合、各エンティティ操作の POST アクションメソッドと GET アクションメソッドの作成にかなりの時間がかかる可能性があります。また、各ビューも同様です。
 
-このラボでは、ASP.NET MVC 4 のスキャフォールディングを使用して、アプリケーションの CRUD (作成、読み取り、更新、削除) のベースラインを自動的に生成する方法を学びます。 以降は、単純なモデル クラス、および、1 行のコードを記述することがなく、すべての CRUD 操作だけでなく、すべての必要なビューを含むコント ローラーを作成します。 構築し、単純なソリューションを実行すると、生成されると、MVC のロジックとデータ操作にビューと共に、アプリケーション データベースがあります。
+このラボでは、ASP.NET MVC 4 スキャフォールディングを使用して、アプリケーションの CRUD (作成、読み取り、更新、および削除) のベースラインを自動的に生成する方法について説明します。 単純なモデルクラスから開始し、1行のコードを記述せずに、すべての CRUD 操作と、必要なすべてのビューを格納するコントローラーを作成します。 単純なソリューションをビルドして実行すると、アプリケーションデータベースが生成され、データ操作用の MVC ロジックとビューが作成されます。
 
-さらに、Entity Framework の移行を使用して、アプリケーション全体のモデルの更新プログラムを実行するがいかに簡単かを学習します。 Entity Framework の移行を使用すると、簡単な手順で、モデルが変更された後に、データベースを変更できます。 これらすべての点で、できなくをビルドして、web アプリケーションをより効率的に管理する ASP.NET MVC 4 の最新の機能を活用します。
+さらに、Entity Framework の移行を使用して、アプリケーション全体でモデルの更新を実行することがいかに簡単であるかについても説明します。 Entity Framework の移行では、簡単な手順でモデルを変更した後にデータベースを変更できます。 これらすべてを念頭に置いて、ASP.NET MVC 4 の最新の機能を活用して、web アプリケーションをより効率的に構築して管理できるようになります。
 
 > [!NOTE]
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)します。 このラボに固有のプロジェクトは、「 [ASP.NET MVC 4 Entity Framework スキャフォールディングと移行](https://github.com/Microsoft-Web/HOL-EntityFrameworkScaffoldingAndMigrations)します。
+> すべてのサンプルコードとスニペットは、 [Microsoft web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)から入手できる Web キャンプトレーニングキットに含まれています。 このラボに固有のプロジェクトは、 [ASP.NET MVC 4 Entity Framework のスキャフォールディングと移行](https://github.com/Microsoft-Web/HOL-EntityFrameworkScaffoldingAndMigrations)で入手できます。
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
-このハンズオン ラボでは、学習する方法。
+このハンズオンラボでは、次の方法を学習します。
 
-- コント ローラーでの CRUD 操作には、ASP.NET のスキャフォールディングを使用します。
-- Entity Framework の移行を使用して、データベース モデルを変更します。
-
-<a id="Prerequisites"></a>
+- コントローラーで CRUD 操作に ASP.NET スキャフォールディングを使用します。
+- Entity Framework の移行を使用してデータベースモデルを変更します。
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
 
-このラボを完成させるのには、次の項目が必要です。
+<a id="Prerequisites"></a>
+### <a name="prerequisites"></a>前提条件
 
-- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 A](#AppendixA)をインストールする方法について)。
+このラボを完了するには、次の項目が必要です。
+
+- Web またはそれ以降[の2012を Microsoft Visual Studio Express](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)ます (付録 a をインストールする手順については[、「付録 a](#AppendixA) 」を参照してください)。
 
 <a id="Setup"></a>
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
 
-**コード スニペットをインストールします。**
+**コードスニペットのインストール**
 
-便宜上、このラボに管理するコードの多くは、Visual Studio コード スニペットとして利用できます。 実行コード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボで管理するコードの多くは、Visual Studio のコードスニペットとして提供されています。 コードスニペットをインストールするには、 **.\Source\Setup\CodeSnippets.vsi**ファイルを実行します。
 
-このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b:コード スニペットを使用して](#AppendixB)&quot;します。
+Visual Studio Code のスニペットを使い慣れておらず、その使用方法を学習する場合は、このドキュメントの付録「[付録 B: コードスニペット](#AppendixB)&quot;の使用」 &quot;参照してください。
 
 ---
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-次の演習では、このハンズオン ラボを構成します。
+次の演習では、このハンズオンラボを作成します。
 
-1. [Entity Framework の移行と ASP.NET MVC 4 のスキャフォールディングを使用します。](#Exercise1)
+1. [Entity Framework 移行での ASP.NET MVC 4 スキャフォールディングの使用](#Exercise1)
 
 > [!NOTE]
-> この演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 演習を通して追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
+> この演習には、演習の完了後に取得する必要があるソリューションを含む**終了**フォルダーが付属しています。 演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
-この演習の所要時間を推定するには。**30 分**
+このラボの推定所要時間: **30 分**
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Using_ASPNET_MVC_4_Scaffolding_with_Entity_Framework_Migrations"></a>
-### <a name="exercise-1-using-aspnet-mvc-4-scaffolding-with-entity-framework-migrations"></a>演習 1:Entity Framework の移行と ASP.NET MVC 4 のスキャフォールディングを使用します。
+### <a name="exercise-1-using-aspnet-mvc-4-scaffolding-with-entity-framework-migrations"></a>演習 1: Entity Framework 移行での ASP.NET MVC 4 スキャフォールディングの使用
 
-ASP.NET MVC のスキャフォールディングにより、アプリケーションで、データベース層と対話するために必要なロジックを作成する、標準化された方法で CRUD 操作を生成する簡単な方法を提供します。
+ASP.NET MVC スキャフォールディングは、CRUD 操作を標準化された方法で生成し、アプリケーションがデータベース層と対話できるようにするために必要なロジックを作成するための簡単な方法を提供します。
 
-この演習では、CRUD メソッドを作成する最初のコードを ASP.NET MVC 4 のスキャフォールディングを使用する方法を学びます。 次に、Entity Framework の移行を使用してデータベースの変更を適用してモデルを更新する方法を学習します。
+この演習では、ASP.NET MVC 4 スキャフォールディングを code first と共に使用して CRUD メソッドを作成する方法について説明します。 次に、Entity Framework の移行を使用して、データベースの変更を適用してモデルを更新する方法について説明します。
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1-_Creating_a_new_ASPNET_MVC_4_project_using_Scaffolding"></a>
-#### <a name="task-1--creating-a-new-aspnet-mvc-4-project-using-scaffolding"></a>タスク 1-作成する新しい ASP.NET MVC 4 プロジェクトのスキャフォールディングを使用
+#### <a name="task-1--creating-a-new-aspnet-mvc-4-project-using-scaffolding"></a>タスク 1-スキャフォールディングを使用して新しい ASP.NET MVC 4 プロジェクトを作成する
 
-1. 既に開かれていない場合は開始**Visual Studio 2012**します。
-2. 選択**ファイル |新しいプロジェクト**します。 [プロジェクト] ダイアログ、new、 **(Visual C#) |Web**セクションで、 **ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を**MVC4andEFMigrations**に場所を設定および**Source\Ex1 UsingMVC4ScaffoldingEFMigrations**このラボのフォルダー。 設定、**ソリューション名**に**開始**を確認して**ソリューションのディレクトリを作成**がチェックされます。 **[OK]** をクリックします。
+1. まだ開いていない場合は、 **Visual Studio 2012**を起動します。
+2. ファイルの選択 **|新しいプロジェクト**。 [新しいプロジェクト] ダイアログで、[ **Visual C# |] を選択します。[Web** ] セクションで、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクトに**MVC4andEFMigrations**という名前を設定し、このラボの [location to **Source\Ex1-UsingMVC4ScaffoldingEFMigrations** ] フォルダーに移動します。 **[ソリューション名]** を **[開始]** に設定し、 **[ソリューションのディレクトリを作成]** する がオンになっていることを確認します。 **[OK]** をクリックします。
 
-    ![新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image1.png "新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス")
+    ![[新しい ASP.NET MVC 4 プロジェクト] ダイアログボックス](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image1.png "[新しい ASP.NET MVC 4 プロジェクト] ダイアログボックス")
 
-    *新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス*
-3. **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスの 、**インターネット アプリケーション**テンプレート、ことを確認および**Razor**が、選択されている**ビュー エンジン**. **[OK]** をクリックして、プロジェクトを作成します。
+    *[新しい ASP.NET MVC 4 プロジェクト] ダイアログボックス*
+3. **[新しい ASP.NET MVC 4 プロジェクト]** ダイアログボックスで、 **[インターネットアプリケーション**] テンプレートを選択し、 **Razor**が選択した**ビューエンジン**であることを確認します。 **[OK]** をクリックしてプロジェクトを作成します。
 
-    ![新しい ASP.NET MVC 4 のインターネット アプリケーション](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image2.png "新しい ASP.NET MVC 4 のインターネット アプリケーション")
+    ![新しい ASP.NET MVC 4 インターネットアプリケーション](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image2.png "新しい ASP.NET MVC 4 インターネットアプリケーション")
 
-    *新しい ASP.NET MVC 4 のインターネット アプリケーション*
-4. ソリューション エクスプ ローラーで右クリックして**モデル**選択**追加 |クラス**単純なクラス person (POCO) を作成します。 名前を付けます**人** をクリック**OK**します。
+    *新しい ASP.NET MVC 4 インターネットアプリケーション*
+4. ソリューションエクスプローラーで、**モデル** を右クリックし、追加 を選択します。 **クラス**を作成して、単純なクラス (POCO) を作成します。 「 **Person** 」という名前を指定し、[ **OK]** をクリックします。
 5. Person クラスを開き、次のプロパティを挿入します。
 
-    (コード スニペット - *ASP.NET MVC 4 と Entity Framework の移行 - Ex1 Person プロパティ*)
+    (コードスニペット- *ASP.NET MVC 4 および Entity Framework 移行-Ex1 Person プロパティ*)
 
     [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
-6. クリックして**ビルド |ソリューションをビルド**変更を保存し、プロジェクトをビルドします。
+6. [ビルド] をクリックします。 **ソリューションをビルド**して変更を保存し、プロジェクトをビルドします。
 
-    ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "アプリケーションを構築します。")
+    ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "アプリケーションのビルド")
 
     *アプリケーションのビルド*
-7. ソリューション エクスプ ローラーでは、controllers フォルダーを右クリックして**追加 |コント ローラー**します。
-8. コント ローラーに名前*PersonController*を完了して、**スキャフォールディングのオプション**次の値。
+7. ソリューションエクスプローラーで、controllers フォルダーを右クリックし、[追加] を選択します。 **コントローラー**。
+8. コントローラーに「*個人コントローラー* 」という名前を付け、次の値を使用して**スキャフォールディングオプション**を完成させます。
 
-   1. **テンプレート**ドロップダウン リストで、**読み取り/書き込みアクションと Entity Framework を使用して、ビューがある MVC コント ローラー**オプション。
-   2. **モデル クラス**ドロップダウン リストで、 **Person**クラス。
-   3. **データ コンテキスト クラス**一覧で、 **&lt;新しいデータ コンテキスト.&gt;**. 任意の名前を選択し、クリックして**OK**します。
-   4. **ビュー**ドロップダウン リストで、ことを確認します**Razor**が選択されています。
+   1. **[テンプレート]** ボックスの一覧で、Entity Framework オプション**を使用して、読み取り/書き込みアクションとビューを含む MVC コントローラー**を選択します。
+   2. **[モデルクラス]** ボックスの一覧で、 **Person**クラスを選択します。
+   3. **[データコンテキストクラス]** の一覧で [ **&lt;新しいデータコンテキスト...&gt;** ] を選択します。 任意の名前を選択し、[ **OK]** をクリックします。
+   4. **[ビュー]** ドロップダウンリストで、 **[Razor]** が選択されていることを確認します。
 
-      ![スキャフォールディングと Person のコント ローラーを追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "スキャフォールディングと Person のコント ローラーを追加します。")
+      ![スキャフォールディングを使用した Person コントローラーの追加](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "スキャフォールディングを使用した Person コントローラーの追加")
 
-      *スキャフォールディングと Person のコント ローラーを追加します。*
-9. クリックして**追加**スキャフォールディングとユーザーを新しいコント ローラーを作成します。 コント ローラー アクションとビューを生成したようになりました。
+      *スキャフォールディングを使用した Person コントローラーの追加*
+9. **[追加]** をクリックして、スキャフォールディングを持つユーザーの新しいコントローラーを作成します。 これで、コントローラーアクションとビューが生成されました。
 
-    ![Person コント ローラーをスキャフォールディングを作成したら](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image5.png "Person コント ローラーをスキャフォールディングで作成した後")
+    ![スキャフォールディングを使用して Person コントローラーを作成した後](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image5.png "スキャフォールディングを使用して Person コントローラーを作成した後")
 
-    *Person コント ローラーをスキャフォールディングで作成した後*
-10. 開いている**PersonController**クラス。 完全な CRUD アクション メソッドが自動的に生成されたことに注意してください。
+    *スキャフォールディングを使用して Person コントローラーを作成した後*
+10. [**個人] コントローラー**クラスを開きます。 完全な CRUD アクションメソッドが自動的に生成されていることに注意してください。
 
-   ![Person コント ローラーの内部](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "内で、Person のコント ローラー")
+   ![Person コントローラー内](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "Person コントローラー内")
 
-   *Person コント ローラーの内部*
+   *Person コントローラー内*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2-_Running_the_application"></a>
-#### <a name="task-2--running-the-application"></a>タスク 2-実行中のアプリケーション
+#### <a name="task-2--running-the-application"></a>タスク 2-アプリケーションの実行
 
-この時点では、データベースがまだ作成されていません。 このタスクでは、最初にアプリケーションを実行し、CRUD 操作をテストします。 データベースは、Code First ですぐに作成されます。
+この時点では、データベースはまだ作成されていません。 このタスクでは、初めてアプリケーションを実行し、CRUD 操作をテストします。 データベースは Code First を使用してすぐに作成されます。
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. ブラウザーで、追加 **/Person**人 ページを開くための URL にします。
+2. ブラウザーで、URL に **/person**を追加して、[person] ページを開きます。
 
     ![アプリケーションの初回実行](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image7.png "アプリケーションの初回実行")
 
-    *アプリケーションの場合: 最初の実行します。*
-3. ユーザー ページを調べ、CRUD 操作のテストはようになりました。
+    *アプリケーション: 最初の実行*
+3. ここでは、ユーザーのページを探索し、CRUD 操作をテストします。
 
-    1. クリックして**新規作成**新しいメンバーを追加します。 名と姓を入力し、クリックして**作成**です。
+    1. **[新規作成]** をクリックして、新しいユーザーを追加します。 名と姓を入力し、 **[作成]** をクリックします。
 
-        ![新しいユーザーを追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image8.png "新しいユーザーを追加します。")
+        ![新しいユーザーの追加](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image8.png "新しいユーザーの追加")
 
-        *新しいユーザーを追加します。*
-    2. ユーザーの一覧で、削除、編集または項目を追加することができます。
+        *新しいユーザーの追加*
+    2. ユーザーの一覧で、アイテムの削除、編集、または追加を行うことができます。
 
-        ![人物リスト](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image9.png "人物リスト")
+        ![個人一覧](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image9.png "個人一覧")
 
-        *人物リスト*
-    3. クリックして**詳細**人の詳細を開きます。
+        *個人一覧*
+    3. **[詳細]** をクリックすると、個人の詳細が表示されます。
 
-        ![ユーザーの詳細](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image10.png "人の詳細")
+        ![個人の詳細](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image10.png "個人の詳細")
 
-        *ユーザーの詳細*
-4. ブラウザーを閉じて、Visual Studio に戻ります。 Person エンティティの全体の CRUD を 1 行のコードを記述しなくても、ビューに、モデルからアプリケーション全体で作成したことを確認します。
+        *個人の詳細*
+4. ブラウザーを閉じて、Visual Studio に戻ります。 アプリケーション全体で person エンティティの CRUD 全体が作成されていることに注意してください。つまり、モデルからビューまで、1行のコードを記述する必要はありません。
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3-_Updating_the_database_using_Entity_Framework_Migrations"></a>
-#### <a name="task-3--updating-the-database-using-entity-framework-migrations"></a>タスク 3-更新の Entity Framework の移行を使用して、データベース
+#### <a name="task-3--updating-the-database-using-entity-framework-migrations"></a>タスク 3-Entity Framework の移行を使用してデータベースを更新する
 
-このタスクでは、Entity Framework の移行を使用してデータベースを更新します。 モデルを変更し、Entity Framework の移行機能を使用して、データベースの変更が反映がいかに簡単かが検出されます。
+このタスクでは、Entity Framework の移行を使用してデータベースを更新します。 Entity Framework 移行機能を使用して、モデルを変更し、データベースの変更を反映することがいかに簡単であるかがわかります。
 
-1. パッケージ マネージャー コンソールを開きます。 選択**ツール** > **NuGet パッケージ マネージャー** > **パッケージ マネージャー コンソール**します。
+1. パッケージマネージャーコンソールを開きます。 **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** の順に選択します。
 2. パッケージ マネージャー コンソールで、次のコマンドを入力します。
 
     PMC
 
     [!code-powershell[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample2.ps1)]
 
-    ![移行を有効にする](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image11.png "Migrations を有効にします。")
+    ![移行の有効化](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image11.png "移行を有効にする")
 
-    *移行を有効にします。*
+    *移行の有効化*
 
-    移行の有効化コマンドは、作成、**移行**フォルダーで、データベースを初期化するためのスクリプトが含まれています。
+    [移行の有効化] コマンドを実行すると、**移行**フォルダーが作成されます。このフォルダーには、データベースを初期化するスクリプトが含まれています。
 
-    ![Migrations フォルダー](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image12.png "Migrations フォルダー")
+    ![移行フォルダー](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image12.png "移行フォルダー")
 
-    *Migrations フォルダー*
-3. 開く、 **Configuration.cs** Migrations フォルダーにファイル。 クラスのコンス トラクターを検索し、変更、 **AutomaticMigrationsEnabled**値を*true*します。
+    *移行フォルダー*
+3. [移行] フォルダーの**Configuration.cs**ファイルを開きます。 クラスコンストラクターを見つけて、 **AutomaticMigrationsEnabled**値を*true*に変更します。
 
     [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
-4. Person クラスを開き、個人のミドル ネームの属性を追加します。 この新しい属性では、モデルを変更します。
+4. Person クラスを開き、人名のミドルネームの属性を追加します。 この新しい属性を使用して、モデルを変更します。
 
     [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
-5. 選択**ビルド |ソリューションをビルド**メニュー アプリケーションをビルドします。
+5. Build | を選択します。メニューの [ソリューションのビルド] をオンにして、アプリケーションをビルドします。
 
-    ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "アプリケーションを構築します。")
+    ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "アプリケーションのビルド")
 
     *アプリケーションのビルド*
 6. パッケージ マネージャー コンソールで、次のコマンドを入力します。
@@ -204,60 +204,60 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 
     [!code-powershell[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample5.ps1)]
 
-    このコマンドは、データ オブジェクトの変更を検索し、それに応じて、データベースを変更するために必要なコマンドを追加し、します。
+    このコマンドにより、データオブジェクトの変更が検索され、それに応じてデータベースを変更するために必要なコマンドが追加されます。
 
-    ![ミドル ネームを追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image14.png "ミドル ネームを追加します。")
+    ![ミドルネームの追加](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image14.png "ミドルネームの追加")
 
-    *ミドル ネームを追加します。*
-7. (省略可能)差分の更新プログラムでの SQL スクリプトを生成するには、次のコマンドを実行することができます。 これにより、データベースを手動で更新する (この場合必要はありません)、または他のデータベースで変更を適用します。
+    *ミドルネームの追加*
+7. Optional次のコマンドを実行すると、差分更新を使用して SQL スクリプトを生成できます。 これにより、データベースを手動で更新 (この場合は必要ありません) することができます。また、変更を他のデータベースに適用することもできます。
 
     PMC
 
     [!code-powershell[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample6.ps1)]
 
-    ![SQL スクリプトを生成して](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image15.png "SQL スクリプトの生成")
+    ![SQL スクリプトの生成](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image15.png "SQL スクリプトを生成する")
 
     *SQL スクリプトの生成*
 
-    ![SQL スクリプトの update](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image16.png "SQL スクリプトの更新")
+    ![SQL スクリプトの更新](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image16.png "SQL スクリプトの更新")
 
     *SQL スクリプトの更新*
-8. パッケージ マネージャー コンソールでは、データベースを更新する次のコマンドを入力します。
+8. パッケージマネージャーコンソールで、次のコマンドを入力してデータベースを更新します。
 
     PMC
 
     [!code-powershell[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample7.ps1)]
 
-    ![データベースの更新](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image17.png "データベースの更新")
+    ![データベースを更新しています](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image17.png "データベースの更新")
 
-    *データベースの更新*
+    *データベースを更新しています*
 
-    これは追加、 **MiddleName**内の列、**人**の現在の定義と一致するテーブル、**人**クラス。
-9. データベースを更新すると、コント ローラーのフォルダーを右クリックし **追加 |コント ローラー** Person コントをもう一度 (同じ値で完了) を追加します。 これは、既存のメソッドとビューの新しい属性を追加することで更新されます。
+    これに**より、Person テーブルの** **MiddleName**列が、 **Person**クラスの現在の定義に一致するように追加されます。
+9. データベースが更新されたら、コントローラーフォルダーを右クリックし、[追加] を選択します。Person コントローラーを再び追加するコントローラー (同じ値で完了します)。 これにより、既存のメソッドとビューが更新され、新しい属性が追加されます。
 
-    ![コント ローラーの更新を追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image18.png "コント ローラーの更新を追加します。")
+    ![コントローラー更新プログラムの追加](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image18.png "コントローラー更新プログラムの追加")
 
-    *コント ローラーを更新しています*
-10. **[追加]** をクリックします。 値を選択し、**上書き PersonController.cs**と**上書きするには、ビューが関連付けられている** をクリック**ok**します。
+    *コントローラーを更新しています*
+10. **[追加]** をクリックします。 次に、 **PersonController.cs を上書き**する の値を選択し、**関連付けられているビューを上書き**します を選択し、 **OK**
 
-   ![コント ローラーの上書きを追加します。](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
+   ![コントローラーの上書きの追加](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
 
-   *コント ローラーを更新しています*
+   *コントローラーを更新しています*
 
 <a id="Ex1Task4"></a>
 
 <a id="Task4-_Running_the_application"></a>
-#### <a name="task4--running-the-application"></a>Task4 - アプリケーションの実行
+#### <a name="task4--running-the-application"></a>Task4-アプリケーションの実行
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. 開いている **/Person**します。 データが保持されて、ミドル ネームの列が追加されたときに注意してください。
+2. 開く **/Person**。 中央の [名前] 列が追加されたときに、データが保持されていることに注意してください。
 
-    ![追加のミドル ネーム](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image20.png "ミドル ネームの追加")
+    ![追加されたミドルネーム](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image20.png "追加されたミドルネーム")
 
-    *ミドル ネームの追加*
-3. クリックすると**編集**、ミドル ネームを現在のユーザーに追加することができます。
+    *追加されたミドルネーム*
+3. **[編集]** をクリックすると、現在のユーザーにミドルネームを追加できるようになります。
 
-    ![ミドル ネーム edition](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image21.png "ミドル ネームのエディション")
+    ![ミドルネームエディション](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image21.png "ミドルネームエディション")
 
 ---
 
@@ -266,84 +266,84 @@ ASP.NET MVC のスキャフォールディングにより、アプリケーシ�
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このハンズオン ラボでは、どのモデル クラスを使用して ASP.NET MVC 4 スキャフォールディングで CRUD 操作を作成する簡単な手順を説明しました。 次に、元のデータベースのビューに、アプリケーションで Entity Framework の移行を使用してエンド ツー エンドの更新プログラムを実行する方法を説明しました。
+このハンズオンラボでは、任意のモデルクラスを使用して ASP.NET MVC 4 スキャフォールディングで CRUD 操作を作成するための簡単な手順を学習しました。 次に、Entity Framework の移行を使用して、アプリケーションでエンドツーエンドの更新を実行する方法について説明しました。これは、データベースからビューへの更新です。
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 A: Visual Studio Express 2012 を Web 用にインストールする
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+**[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** を使用して、Web または別の &quot;Express&quot; バージョン**用に Microsoft Visual Studio Express 2012**をインストールできます。 次の手順では、 *Microsoft Web Platform Installer*を使用して*Visual studio Express 2012 for Web*をインストールするために必要な手順について説明します。
 
-1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
-2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
-3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、Web Platform Installer が既にインストールされている場合は、それを開いて、製品 &quot;<em>Visual Studio Express 2012 For web With Windows AZURE SDK</em>&quot;を検索することもできます。
+2. **[今すぐインストール]** をクリックします。 **Web Platform Installer**がない場合は、最初にダウンロードしてインストールするようにリダイレクトされます。
+3. **Web Platform Installer**が開いたら、 **[インストール]** をクリックしてセットアップを開始します。
 
     ![Visual Studio Express のインストール](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image22.png "Visual Studio Express のインストール")
 
-    *Visual Studio Express をインストールします。*
-4. すべての製品のライセンスと使用条件を読み、クリックして**同意**を続行します。
+    *Visual Studio Express のインストール*
+4. すべての製品のライセンスと条項を読み、[**同意**する] をクリックして続行します。
 
-    ![ライセンス条項に同意](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
+    ![ライセンス条項に同意する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    *ライセンス条項に同意*
-5. ダウンロードとインストール プロセスが完了するまで待機します。
+    *ライセンス条項に同意する*
+5. ダウンロードとインストールのプロセスが完了するまで待ちます。
 
-    ![インストールの進行状況](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
+    ![Installation progress](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
 
     *インストールの進行状況*
-6. インストールが完了したら、クリックして**完了**します。
+6. インストールが完了したら、 **[完了]** をクリックします。
 
-    ![インストールが完了しました](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
+    ![インストールの完了](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    *インストールが完了しました*
-7. クリックして**終了**Web Platform Installer を閉じます。
-8. Visual Studio Express for Web を開きするには、**開始**画面し、書き込みを開始&quot; **VS Express**&quot;、 をクリックし、 **VS Express for Web**並べて表示します。
+    *インストールの完了*
+7. **[終了]** をクリックして Web Platform Installer を閉じます。
+8. Web 用の Visual Studio Express を開くには、**スタート**画面にアクセスして &quot;**VS Express**&quot;の書き込みを開始し、 **[VS Express for Web]** タイルをクリックします。
 
-    ![VS Express for Web のタイル](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
+    ![VS Express for Web タイル](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    *VS Express for Web のタイル*
+    *VS Express for Web タイル*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>付録 B:コード スニペットを使用
+## <a name="appendix-b-using-code-snippets"></a>付録 B: コードスニペットの使用
 
-コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
+コードスニペットを使用すると、必要なすべてのコードをすぐに利用できます。 次の図に示すように、ラボドキュメントには、使用できるタイミングがわかります。
 
-![Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image27.png "プロジェクトにコードを挿入するコード スニペットを Visual Studio の使用")
+![Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image27.png "Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する")
 
-*Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
+*Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する*
 
-***キーボード (c# のみ) を使用するコード スニペットを追加するには***
+***キーボードを使用してコードスニペットを追加C#するには (のみ)***
 
-1. コードを挿入するには、カーソルを置きます。
-2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。
-3. スニペットの名前に一致する IntelliSense の表示を確認します。
-4. 適切なスニペットを選択します (または全体のスニペットの名前が選択されるまで」と入力してください)。
-5. カーソル位置にスニペットを挿入するには、2 回、Tab キーを押します。
+1. コードを挿入する場所にカーソルを置きます。
+2. (スペースまたはハイフンを含まない) スニペット名の入力を開始します。
+3. IntelliSense によって、一致するスニペットの名前が表示されます。
+4. 正しいスニペットを選択します (または、スニペットの名前全体が選択されるまで入力し続けます)。
+5. Tab キーを2回押すと、スニペットがカーソル位置に挿入されます。
 
-![スニペットの名前の入力を開始](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image28.png "スニペット名の入力を開始")
+![スニペット名の入力を開始します](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image28.png "スニペット名の入力を開始します")
 
-*スニペットの名前の入力を開始します。*
+*スニペット名の入力を開始します*
 
-![強調表示されているスニペットを選択して Tab キーを押して](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image29.png "キーを押してタブが強調表示されているスニペットを選択するには")
+![Tab キーを押して、強調表示されているスニペットを選択します](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image29.png "Tab キーを押して、強調表示されているスニペットを選択します")
 
 *Tab キーを押して、強調表示されているスニペットを選択します*
 
-![キーを押して タブで再度とスニペットが展開](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image30.png "キーを押して タブで再度とスニペットが展開されます")
+![もう一度 Tab キーを押すと、スニペットが展開されます。](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image30.png "もう一度 Tab キーを押すと、スニペットが展開されます。")
 
-*キーを押して タブで再度とスニペットが展開されます。*
+*もう一度 Tab キーを押すと、スニペットが展開されます。*
 
-***(C#、Visual Basic および XML) にマウスを使用するコード スニペットを追加する***1。 コード スニペットを挿入するを右クリックします。
+***マウスC#(、Visual Basic および XML) を使用してコードスニペットを追加するに***は1. コードスニペットを挿入する場所を右クリックします。
 
-1. 選択**スニペットの挿入**続けて**マイ コード スニペット**します。
-2. クリックして、一覧から関連するスニペットを選択します。
+1. **[スニペットの挿入]** 、 **[マイコードスニペット**] の順に選択します。
+2. 一覧から該当するスニペットをクリックして選択します。
 
-![コード スニペットを挿入し、スニペットの挿入を選択する場所を右クリックして](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image31.png "コード スニペットを挿入し、スニペットの挿入を選択する場所を右クリック")
+![コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image31.png "コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。")
 
-*コード スニペットを挿入して、スニペットの挿入先の選択します。*
+*コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。*
 
-![クリックして、一覧から関連するスニペットを選択](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image32.png "クリックして、一覧から関連するスニペットを選択")
+![一覧から関連するスニペットをクリックして選択します。](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image32.png "一覧から関連するスニペットをクリックして選択します。")
 
-*クリックして、一覧から関連するスニペットを選択します。*
+*一覧から関連するスニペットをクリックして選択します。*

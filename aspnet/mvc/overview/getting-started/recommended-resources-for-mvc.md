@@ -9,11 +9,11 @@ ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 11f4a7cae8d425873b1828a9e5f51471def954fb
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457155"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78470320"
 ---
 # <a name="mvc-recommended-resources"></a>MVC 推奨リソース
 
@@ -80,7 +80,7 @@ ms.locfileid: "77457155"
 
 <a id="security"></a>
 
-## <a name="security"></a>セキュリティ
+## <a name="security"></a>Security
 
 - [Facebook と Google OAuth2 サインオンを使用して ASP.NET MVC 5 アプリを作成する](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [ASP.NET ではしないこと。その代わりにすること。](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
@@ -155,7 +155,7 @@ ms.locfileid: "77457155"
 
 <a id="perf"></a>
 
-## <a name="performance"></a>パフォーマンス テスト
+## <a name="performance"></a>パフォーマンス
 
 - ビデオ:[詳細: ASP.NET アプリのパフォーマンス](https://channel9.msdn.com/Events/Build/2014/3-605)を Levi Broderick で向上させる
 - ビデオ:[クラウドベースのロードテストサービスと Application Insights を使用した、チャールズ Sterling によるスケールとパフォーマンスの検索](https://channel9.msdn.com/Events/Build/2014/3-595)
@@ -340,7 +340,7 @@ ms.locfileid: "77457155"
 
 <a id="deploy"></a>
 
-## <a name="deployment"></a>展開
+## <a name="deployment"></a>デプロイ
 
 - [Visual Studio と ASP.NET の Web 配置コンテンツマップ](../../../whitepapers/aspnet-web-deployment-content-map.md)
 

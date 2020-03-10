@@ -9,11 +9,11 @@ ms.assetid: cb4afbae-9b8f-483d-9729-476d4b9f85fc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e55eab9feebc18f39dd40c59cfb423208296b6c5
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74598849"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78508966"
 ---
 # <a name="testing-the-strength-of-a-password-c"></a>パスワードの強度をテストする (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74598849"
 
 > パスワードはほとんどすべての場所で必要になるため、レイジーユーザーは簡単に解読できる単純なパスワードを選択する傾向があります。 ASP.NET AJAX Control Toolkit の PasswordStrength 制御では、パスワードがどれだけ良好かを確認できます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 パスワードはほとんどすべての場所で必要になるため、レイジーユーザーは簡単に解読できる単純なパスワードを選択する傾向があります。 ASP.NET AJAX Control Toolkit の `PasswordStrength` コントロールは、パスワードがどれだけ良好かを確認できます。
 
@@ -47,4 +47,4 @@ ms.locfileid: "74598849"
 これで、パスワードが (かなり) 良好になりました ([クリックすると、フルサイズの画像が表示](testing-the-strength-of-a-password-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](testing-the-strength-of-a-password-vb.md)
+> [Next](testing-the-strength-of-a-password-vb.md)

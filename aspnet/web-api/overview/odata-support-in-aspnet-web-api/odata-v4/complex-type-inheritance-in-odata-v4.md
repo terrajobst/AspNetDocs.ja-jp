@@ -1,29 +1,29 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
-title: ASP.NET Web API を使用した OData v4 の複合型の継承 |Microsoft Docs
+title: ASP.NET Web API | を使用した OData v4 での複合型の継承Microsoft Docs
 author: microsoft
-description: OData v4 仕様では、複合型は、別の複合型から継承できます。 (複合型は、キーのない構造化型です)。Web API.
+description: OData v4 仕様によれば、複合型は別の複合型から継承できます。 複合型は、キーを持たない構造化された型です。Web API...
 ms.author: riande
 ms.date: 09/16/2014
 ms.assetid: a00d3600-9c2a-41bc-9460-06cc527904e2
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
 msc.type: authoredcontent
 ms.openlocfilehash: 3d90216c8e594055f77577eb6d8b1d978ae4c24d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132742"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448132"
 ---
-# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API を使用した OData v4 の複合型の継承
+# <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API を使用した OData v4 での複合型の継承
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> OData v4 に従って[仕様](http://www.odata.org/documentation/odata-version-4-0/)、複合型は、別の複合型から継承できます。 (A*複雑な*型はキーのない構造化された型です)。Web API OData 5.3 は、複合型の継承をサポートします。
+> OData v4[仕様](http://www.odata.org/documentation/odata-version-4-0/)によれば、複合型は別の複合型から継承できます。 *複合*型は、キーを持たない構造化された型です。Web API OData 5.3 では、複合型の継承がサポートされています。
 > 
-> このトピックでは、複雑な継承の種類で entity data model (EDM) を構築する方法を示します。 完全なソース コードでは、次を参照してください。 [OData の複合型継承サンプル](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt)します。
+> このトピックでは、複雑な継承型を使用して entity data model (EDM) を構築する方法について説明します。 完全なソースコードについては、「 [OData 複合型の継承のサンプル](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataComplexTypeInheritanceSample/ReadMe.txt)」を参照してください。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
 > - Web API OData 5.3
@@ -31,43 +31,43 @@ ms.locfileid: "65132742"
 
 ## <a name="model-hierarchy"></a>モデル階層
 
-複合型の継承を示すためには、次のクラス階層を使用します。
+複合型の継承について説明するために、次のクラス階層を使用します。
 
 ![](complex-type-inheritance-in-odata-v4/_static/image1.png)
 
-`Shape` 抽象複合型です。 `Rectangle`、 `Triangle`、および`Circle`複合型から派生`Shape`、および`RoundRectangle`から派生した`Rectangle`します。 `Window` エンティティ型は、含む、`Shape`インスタンス。
+`Shape` は抽象複合型です。 `Rectangle`、`Triangle`、および `Circle` は `Shape`から派生した複合型であり、`RoundRectangle` から派生します。`Rectangle` `Window` はエンティティ型で、`Shape` インスタンスが含まれています。
 
 これらの型を定義する CLR クラスを次に示します。
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample1.cs)]
 
-## <a name="build-the-edm-model"></a>EDM モデルを構築します。
+## <a name="build-the-edm-model"></a>EDM モデルの構築
 
-使用することができます、EDM を作成する**ODataConventionModelBuilder**CLR 型からの継承関係を推論します。
+EDM を作成するには、CLR 型から継承関係を推論する**ODataConventionModelBuilder**を使用できます。
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample2.cs)]
 
-ビルドすることも、EDM に明示的を使用して**に**します。 これにより、多くのコードを受け取るが、EDM より詳細に制御できます。
+**使用**を使用して、EDM を明示的に構築することもできます。 この処理にはより多くのコードが必要ですが、EDM をより細かく制御できます。
 
 [!code-csharp[Main](complex-type-inheritance-in-odata-v4/samples/sample3.cs)]
 
-これら 2 つの例では、同じ EDM スキーマを作成します。
+次の2つの例では、同じ EDM スキーマを作成します。
 
-## <a name="metadata-document"></a>メタデータ ドキュメント
+## <a name="metadata-document"></a>メタデータドキュメント
 
-OData の複合型の継承を示すメタデータ ドキュメントを次に示します。
+ここでは、複合型の継承を示す OData メタデータドキュメントについて説明します。
 
 [!code-xml[Main](complex-type-inheritance-in-odata-v4/samples/sample4.xml?highlight=13,17,25,30)]
 
-メタデータ ドキュメントをことを確認できます。
+メタデータドキュメントから、次のことを確認できます。
 
-- `Shape`複雑な型が抽象型。
-- `Rectangle`、 `Triangle`、および`Circle`複合型が基本型である`Shape`します。
-- `RoundRectangle`型が基本型`Rectangle`します。
+- `Shape` 複合型は abstract です。
+- `Rectangle`、`Triangle`、および `Circle` 複合型には `Shape`の基本型があります。
+- `RoundRectangle` 型には `Rectangle`基本型があります。
 
-## <a name="casting-complex-types"></a>複合型のキャスト
+## <a name="casting-complex-types"></a>キャスト (複合型を)
 
-複合型のキャストはサポートされています。 たとえば、次のクエリのキャスト、`Shape`を`Rectangle`します。
+複合型へのキャストがサポートされるようになりました。 たとえば、次のクエリでは、`Shape` を `Rectangle`にキャストします。
 
 [!code-console[Main](complex-type-inheritance-in-odata-v4/samples/sample5.cmd)]
 

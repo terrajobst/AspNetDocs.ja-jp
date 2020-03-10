@@ -9,6 +9,6 @@
 * クラウド対応の環境ベースの構成システム。
 * 組み込みの依存関係の挿入。
 * 軽量で高パフォーマンスのモジュール化された HTTP 要求パイプライン。
-* [Kestrel](/aspnet/core/fundamentals/servers/kestrel)でホストする機能、[IIS] (xref: ホストとデプロイ、iis/インデックス、 [http.sys](xref:fundamentals/servers/httpsys)、 [Nginx](xref:host-and-deploy/linux-nginx)、 [Apache](xref:host-and-deploy/linux-apache)、 [Docker](xref:host-and-deploy/docker/index))。
+* [Kestrel](/aspnet/core/fundamentals/servers/kestrel)、 [IIS](xref:host-and-deploy/iis/index) [、http.sys](xref:fundamentals/servers/httpsys)、 [Nginx](xref:host-and-deploy/linux-nginx)、 [Apache](xref:host-and-deploy/linux-apache)、 [Docker](xref:host-and-deploy/docker/index)でホストできる機能。
 * side-by-side でのバージョン管理。
 * 最新の Web 開発を簡単にするツール。

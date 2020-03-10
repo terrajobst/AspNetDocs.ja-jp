@@ -9,11 +9,11 @@ ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 825e2afb750925637d308b7ceb35e1b02b708c1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586267"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78455914"
 ---
 # <a name="creating-and-managing-roles-vb"></a>ロールを作成し、管理する (VB)
 
@@ -31,7 +31,7 @@ ms.locfileid: "74586267"
 
 ASP.NET には、ロールを定義し、それらをユーザーアカウントに関連付けるためのロールフレームワークが用意されています。 ロールフレームワークを使用すると、ロールの作成と削除、ロールに対するユーザーの追加または削除、特定のロールに属するユーザーのセットの特定、およびユーザーが特定のロールに属しているかどうかの確認を行うことができます。 ロールフレームワークを構成したら、URL 承認規則によってロールごとのページへのアクセスを制限し、現在ログオンしているユーザーのロールに基づいてページの追加情報や機能を表示または非表示にすることができます。
 
-このチュートリアルでは、ロールフレームワークを構成するために必要な手順について説明します。 ここでは、ロールを作成および削除するための web ページを作成します。 <a id="_msoanchor_2"> </a>[*ユーザーへのロールの割り当て*](assigning-roles-to-users-vb.md)に関するチュートリアルでは、ロールのユーザーを追加および削除する方法について説明します。 ロールベースの<a id="_msoanchor_3"> </a>[*承認*](role-based-authorization-vb.md)のチュートリアルでは、ロールごとのページへのアクセスを制限する方法に加えて、訪問ユーザーのロールに応じてページの機能を調整する方法についても説明します。 では、始めましょう。
+このチュートリアルでは、ロールフレームワークを構成するために必要な手順について説明します。 ここでは、ロールを作成および削除するための web ページを作成します。 <a id="_msoanchor_2"> </a>[*ユーザーへのロールの割り当て*](assigning-roles-to-users-vb.md)に関するチュートリアルでは、ロールのユーザーを追加および削除する方法について説明します。 ロールベースの<a id="_msoanchor_3"> </a>[*承認*](role-based-authorization-vb.md)のチュートリアルでは、ロールごとのページへのアクセスを制限する方法に加えて、訪問ユーザーのロールに応じてページの機能を調整する方法についても説明します。 作業開始
 
 ## <a name="step-1-adding-new-aspnet-pages"></a>手順 1: 新しい ASP.NET ページを追加する
 
@@ -95,7 +95,7 @@ ASP.NET には、ロールを定義し、それらをユーザーアカウント
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample5.xml)]
 
-上のマークアップでは、(`<roleManager>` 要素の `defaultProvider` 属性を使用して) 既定のプロバイダーとして `SecurityTutorialsSqlRoleProvider` が定義されています。 また、`SecurityTutorialsSqlRoleProvider`の `applicationName` 設定を `SecurityTutorials`に設定します。これは、メンバーシッププロバイダー (`SecurityTutorialsSqlMembershipProvider`) によって使用されるのと同じ `applicationName` 設定です。 ここには示されていませんが、`SqlRoleProvider` の[`<add>` 要素](https://msdn.microsoft.com/library/ms164662.aspx)には、データベースのタイムアウト期間を秒単位で指定するための `commandTimeout` 属性が含まれている場合もあります。 既定値は、30 です。
+上のマークアップでは、(`<roleManager>` 要素の `defaultProvider` 属性を使用して) 既定のプロバイダーとして `SecurityTutorialsSqlRoleProvider` が定義されています。 また、`SecurityTutorialsSqlRoleProvider`の `applicationName` 設定を `SecurityTutorials`に設定します。これは、メンバーシッププロバイダー (`SecurityTutorialsSqlMembershipProvider`) によって使用されるのと同じ `applicationName` 設定です。 ここには示されていませんが、`SqlRoleProvider` の[`<add>` 要素](https://msdn.microsoft.com/library/ms164662.aspx)には、データベースのタイムアウト期間を秒単位で指定するための `commandTimeout` 属性が含まれている場合もあります。 既定値は 30 です。
 
 この構成マークアップを使用すると、アプリケーション内でロール機能の使用を開始する準備が整います。
 
@@ -218,7 +218,7 @@ GridView を使用してデータを表示する場合は、GridView によっ�
 > [!NOTE]
 > [ロールの削除] ボタンでは、ロールを削除する前に、ユーザーからの確認を行う必要はありません。 アクションを確認する最も簡単な方法の1つは、クライアント側の [確認] ダイアログボックスを使用することです。 この手法の詳細については、「[削除時にクライアント側の確認を追加](https://asp.net/learn/data-access/tutorial-42-vb.aspx)する」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 多くの web アプリケーションには、特定のクラスのユーザーのみが使用できる特定の承認規則またはページレベルの機能があります。 たとえば、管理者のみがアクセスできる web ページのセットがある場合があります。 ユーザーごとにこれらの承認規則を定義するのではなく、ロールに基づいて規則を定義する方が便利な場合がよくあります。 つまり、Scott と Jisun ユーザーに管理 web ページへのアクセスを明示的に許可するのではなく、管理者ロールのメンバーにこれらのページへのアクセスを許可したうえで、ユーザーに属しているユーザーとして Scott と Jisun を示すという方法があります。管理者ロール。
 
@@ -226,7 +226,7 @@ GridView を使用してデータを表示する場合は、GridView によっ�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -237,7 +237,7 @@ GridView を使用してデータを表示する場合は、GridView によっ�
 - [`<roleManager>` 要素の技術ドキュメント](https://msdn.microsoft.com/library/ms164660.aspx)
 - [メンバーシップ Api とロールマネージャー Api の使用](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/membership.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

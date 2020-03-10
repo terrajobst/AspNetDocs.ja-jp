@@ -9,17 +9,17 @@ ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
 ms.openlocfilehash: fb00ee8a7e3d678e824052060eb5d9fd5d4b6a42
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594847"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78485932"
 ---
 # <a name="preventing-javascript-injection-attacks-c"></a>JavaScript インジェクション攻撃を防ぐ (C#)
 
 [Stephen Walther](https://github.com/StephenWalther)
 
-[PDF のダウンロード](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
 
 > JavaScript インジェクション攻撃やクロスサイトスクリプティング攻撃を防ぐことができます。 このチュートリアルでは、Stephen Walther が、コンテンツを HTML エンコードすることによって、これらの種類の攻撃を簡単に打破する方法について説明します。
 
@@ -107,7 +107,7 @@ HTML で文字列をエンコードするとはどういう意味ですか。 �
 
 なぜこれが悪いのでしょうか。 データベースのデータを web ページ以外に表示する必要がある場合は、問題が発生します。 たとえば、Windows フォームアプリケーションでは、データを簡単に表示できなくなります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、JavaScript インジェクション攻撃の対象となることです。 このチュートリアルでは、ASP.NET MVC アプリケーションを JavaScript インジェクション攻撃に対して保護するための2つの方法について説明しました。ユーザーが表示するデータを HTML エンコードするか、ユーザーが送信したデータをコントローラーに HTML エンコードすることができます。
 

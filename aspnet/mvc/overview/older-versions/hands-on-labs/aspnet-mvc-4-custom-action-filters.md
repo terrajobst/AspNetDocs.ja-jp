@@ -1,354 +1,354 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
-title: ASP.NET MVC 4 カスタム アクション フィルター |Microsoft Docs
+title: ASP.NET MVC 4 カスタムアクションフィルター |Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC には前に、または後、アクション メソッドが呼び出されるフィルター処理のロジックを実行するためのアクション フィルターが用意されています。 アクション フィルターは、カスタム属性 tha.
+description: ASP.NET MVC には、アクションメソッドが呼び出される前または後にフィルター処理ロジックを実行するためのアクションフィルターが用意されています。 アクションフィルターはカスタム属性 tha...
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
 ms.openlocfilehash: eaeb32180f79fabf557cbc38ff067eb26b47fea7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129749"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78468178"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 カスタム アクション フィルター
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-[Web のキャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
+[Web キャンプトレーニングキットをダウンロードする](https://aka.ms/webcamps-training-kit)
 
-ASP.NET MVC には前に、または後、アクション メソッドが呼び出されるフィルター処理のロジックを実行するためのアクション フィルターが用意されています。 アクション フィルターは、コント ローラーのアクション メソッドへの事前アクションと事後アクションの動作を追加する宣言型の手段を提供するカスタム属性です。
+ASP.NET MVC には、アクションメソッドが呼び出される前または後にフィルター処理ロジックを実行するためのアクションフィルターが用意されています。 アクションフィルターは、コントローラーのアクションメソッドに事前アクション動作とアクション後動作を追加するための宣言型の手段を提供するカスタム属性です。
 
-このハンズオン ラボでは、コント ローラーの要求をキャッチし、データベース テーブルに、サイトのアクティビティ ログに記録する MvcMusicStore ソリューションにカスタム アクション フィルター属性を作成します。 挿入によって、コント ローラーまたはアクションに、ログ記録フィルターを追加することができます。 最後に、訪問者の一覧を示すログ ビューが表示されます。
+このハンズオンラボでは、MvcMusicStore solution にカスタムアクションフィルター属性を作成して、コントローラーの要求をキャッチし、サイトのアクティビティをデータベーステーブルに記録します。 任意のコントローラーまたはアクションに挿入することによって、ログ記録フィルターを追加することができます。 最後に、訪問者の一覧を示すログビューが表示されます。
 
-このハンズオン ラボは、の基本的な知識があることを前提**ASP.NET MVC**します。 使用していない場合**ASP.NET MVC**前を経由することを勧めします。 **ASP.NET MVC 4 の基礎**ハンズオン ラボ。
+このハンズオンラボでは、 **ASP.NET MVC**に関する基本的な知識があることを前提としています。 以前に**ASP.NET mvc**を使用していない場合は、 **ASP.NET Mvc 4 の基礎**となるハンズオンラボに進むことをお勧めします。
 
 > [!NOTE]
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)します。 このラボに固有のプロジェクトは、「 [ASP.NET MVC 4 カスタム アクション フィルター](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters)します。
+> すべてのサンプルコードとスニペットは、 [Microsoft web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)から入手できる Web キャンプトレーニングキットに含まれています。 このラボに固有のプロジェクトは、 [ASP.NET MVC 4 カスタムアクションフィルター](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters)で入手できます。
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
-このハンズオン ラボでは、学習する方法。
+このハンズオンラボでは、次の方法を学習します。
 
-- フィルター処理機能を拡張するカスタム アクション フィルター属性を作成します。
-- 特定のレベルの挿入によって、カスタム フィルター属性を適用します。
-- カスタム アクション フィルターをグローバルに登録します。
-
-<a id="Prerequisites"></a>
+- フィルター機能を拡張するカスタムアクションフィルター属性を作成する
+- 特定のレベルへの挿入によるカスタムフィルター属性の適用
+- カスタムアクションフィルターをグローバルに登録する
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
 
-このラボを完成させるのには、次の項目が必要です。
+<a id="Prerequisites"></a>
+### <a name="prerequisites"></a>前提条件
 
-- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 A](#AppendixA)をインストールする方法について)。
+このラボを完了するには、次の項目が必要です。
+
+- Web またはそれ以降[の2012を Microsoft Visual Studio Express](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)ます (付録 a をインストールする手順については[、「付録 a](#AppendixA) 」を参照してください)。
 
 <a id="Setup"></a>
 
 <a id="Setup"></a>
 ### <a name="setup"></a>セットアップ
 
-**コード スニペットをインストールします。**
+**コードスニペットのインストール**
 
-便宜上、このラボに管理するコードの多くは、Visual Studio コード スニペットとして利用できます。 実行コード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボで管理するコードの多くは、Visual Studio のコードスニペットとして提供されています。 コードスニペットをインストールするには、 **.\Source\Setup\CodeSnippets.vsi**ファイルを実行します。
 
-このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c:コード スニペットを使用して](#AppendixC)&quot;します。
+Visual Studio Code のスニペットを使い慣れておらず、その使用方法を学習したい場合は、この &quot;ドキュメントの付録「[付録 C: コードスニペットの使用](#AppendixC)&quot;」を参照してください。
 
 ---
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-次の演習では、このハンズオン ラボから成ります。
+このハンズオンラボは、次の演習によって構成されています。
 
-1. [手順 1:ログ記録操作](#Exercise1)
-2. [手順 2:複数のアクション フィルターの管理](#Exercise2)
+1. [演習 1: 操作のログ記録](#Exercise1)
+2. [演習 2: 複数のアクションフィルターの管理](#Exercise2)
 
-この演習の所要時間を推定するには。**30 分**します。
+このラボの推定所要時間: **30 分**。
 
 > [!NOTE]
-> 各演習が用意されており、**エンド**演習を完了した後に取得する必要があります、結果として得られるソリューションに含まれているフォルダー。 作業、演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
+> 各演習には、演習を完了した後に取得する必要があるソリューションを含む**終了**フォルダーが付属しています。 演習を通じて追加のヘルプが必要な場合は、このソリューションをガイドとして使用できます。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Logging_Actions"></a>
-### <a name="exercise-1-logging-actions"></a>演習 1:ログ記録操作
+### <a name="exercise-1-logging-actions"></a>演習 1: 操作のログ記録
 
-この演習では、ASP.NET MVC 4 のフィルター プロバイダーを使用してカスタム アクションのログ フィルターを作成する方法を学習します。 目的のためには、選択したコント ローラーで、すべてのアクティビティを記録する MusicStore サイトにログ記録フィルターが適用されます。
+この演習では、ASP.NET MVC 4 フィルタープロバイダーを使用してカスタムアクションログフィルターを作成する方法について説明します。 そのため、選択したコントローラー内のすべてのアクティビティを記録するログフィルターを MusicStore サイトに適用します。
 
-フィルターを拡張**ActionFilterAttributeClass**オーバーライドと**OnActionExecuting**メソッドを各要求をキャッチし、ログ記録アクションを実行します。 HTTP 要求に関するコンテキスト情報、メソッド、結果、およびパラメーターを実行することが ASP.NET MVC によって**ActionExecutingContext**クラス**します。**
+フィルターは**Actionfilter属性 eclass**を拡張し、 **onactionexecuting**メソッドをオーバーライドして各要求をキャッチし、ログアクションを実行します。 HTTP 要求、実行メソッド、結果、およびパラメーターに関するコンテキスト情報は、ASP.NET MVC **Actionexecutingcontext**クラスによって提供され**ます。**
 
 > [!NOTE]
-> ASP.NET MVC 4 では、カスタム フィルターを作成せずに使用できる既定のフィルター プロバイダーもあります。 ASP.NET MVC 4 では、次の種類のフィルターを提供します。
+> ASP.NET MVC 4 には、カスタムフィルターを作成せずに使用できる既定のフィルタープロバイダーもあります。 ASP.NET MVC 4 には、次の種類のフィルターが用意されています。
 > 
-> - **承認**認証の実行や要求のプロパティの検証などのアクション メソッドを実行するかどうかに関するセキュリティ上の決定は、これをフィルター処理します。
-> - **アクション**フィルターで、アクション メソッドの実行をラップします。 このフィルターは、アクション メソッドに追加のデータの提供、戻り値の検査、アクション メソッドの実行の取り消しなど、追加の処理を実行できます。
-> - **結果**フィルターで、ActionResult オブジェクトの実行をラップします。 このフィルターは、HTTP 応答の変更など、結果の追加の処理を実行できます。
-> - **例外**フィルターで、結果の実行で始まり、承認フィルターを使用して、アクション メソッドでどこかにスローされた未処理の例外がある場合に実行されます。 例外フィルターは、ログ記録やエラー ページの表示などのタスクで使用できます。
+> - **承認**フィルター。認証の実行、要求のプロパティの検証など、アクションメソッドを実行するかどうかに関するセキュリティ上の決定を行います。
+> - **アクションフィルター。** アクションメソッドの実行をラップします。 このフィルターでは、アクションメソッドへの追加データの提供、戻り値の検査、アクションメソッドの実行の取り消しなど、追加の処理を実行できます。
+> - **結果**フィルター。 actionresult オブジェクトの実行をラップします。 このフィルターは、HTTP 応答の変更など、結果の追加処理を実行できます。
+> - **例外**フィルター。アクションメソッドのどこかでスローされた未処理の例外がある場合に実行されます。承認フィルターから開始し、結果の実行で終了します。 例外フィルターは、ログの記録やエラー ページの表示などのタスクに使用できます。
 > 
-> フィルター プロバイダーの詳細についてはこの MSDN リンクを参照してください: ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx))。
+> フィルタープロバイダーの詳細については、こちらの MSDN リンク ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx)) を参照してください。
 
 <a id="AboutLoggingFeature"></a>
 
 <a id="About_MVC_Music_Store_Application_logging_feature"></a>
-#### <a name="about-mvc-music-store-application-logging-feature"></a>MVC のミュージック ストア アプリケーションのログ記録機能について
+#### <a name="about-mvc-music-store-application-logging-feature"></a>MVC ミュージックストアアプリケーションログ機能について
 
-このミュージック ストア ソリューションが、サイトのログ記録を新しいデータ モデル テーブル**ActionLog**、以下のフィールド。要求、呼び出されるアクション、クライアントの ip アドレス、およびタイムスタンプを受信したコント ローラーの名前です。
+このミュージックストアソリューションには、サイトログ、 **Actionlog**の新しいデータモデルテーブルがあります。このフィールドには、要求を受信したコントローラーの名前 (Action、Client IP、および Time stamp) が含まれています。
 
-![データ モデル。ActionLog テーブルです。](aspnet-mvc-4-custom-action-filters/_static/image1.png "データ モデル。ActionLog テーブルです。")
+![データモデル。ActionLog テーブル。](aspnet-mvc-4-custom-action-filters/_static/image1.png "データモデル。ActionLog テーブル。")
 
-*データ モデル - ActionLog テーブル*
+*データモデル-ActionLog テーブル*
 
-ソリューションにあることができますが、操作ログ用の ASP.NET MVC ビューを提供します**MvcMusicStores/ビュー/ActionLog**:
+このソリューションには、アクションログの ASP.NET MVC ビューが用意されています。これは、 **MvcMusicStores/Views/ActionLog**にあります。
 
-![アクション ログ ビュー](aspnet-mvc-4-custom-action-filters/_static/image2.png "アクション ログの表示")
+![操作ログの表示](aspnet-mvc-4-custom-action-filters/_static/image2.png "操作ログの表示")
 
-*アクション ログの表示*
+*操作ログの表示*
 
-この構造は、すべての作業が注目コント ローラーの要求を中断することと、カスタム フィルター処理を使用して、ログ記録を実行します。
+この構造では、すべての作業はコントローラーの要求を中断し、カスタムフィルターを使用してログ記録を実行します。
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Creating_a_Custom_Filter_to_Catch_a_Controllers_Request"></a>
-#### <a name="task-1---creating-a-custom-filter-to-catch-a-controllers-request"></a>タスク 1 - コント ローラーの要求をキャッチするカスタム フィルターを作成します。
+#### <a name="task-1---creating-a-custom-filter-to-catch-a-controllers-request"></a>タスク 1-コントローラーの要求をキャッチするカスタムフィルターを作成する
 
-このタスクは、ログのロジックを含むカスタム フィルター属性クラスを作成します。 目的のためには、ASP.NET MVC を拡張する**ActionFilterAttribute**クラスとそのインターフェイスを実装**IActionFilter**します。
+この作業では、ログ記録ロジックを含むカスタムフィルター属性クラスを作成します。 そのためには、ASP.NET MVC **Actionfilterattribute**クラスを拡張し、インターフェイス**iactionfilter**を実装します。
 
 > [!NOTE]
-> **ActionFilterAttribute**属性のすべてのフィルターの基本クラスです。 後、コント ローラー アクションの実行前に特定のロジックを実行する次のメソッドを提供します。
+> **Actionfilterattribute**は、すべての属性フィルターの基本クラスです。 このメソッドには、コントローラーアクションの実行後および実行前に特定のロジックを実行するための次のメソッドが用意されています。
 > 
-> - **OnActionExecuting**(ActionExecutingContext filterContext)。直前に、アクション メソッドが呼び出されます。
-> - **OnActionExecuted**(ActionExecutedContext filterContext)。アクション メソッドが呼び出された後と前に、結果は (ビューのレンダリング) の前に実行されます。
-> - **OnResultExecuting**(ResultExecutingContext filterContext)。結果の前にのみ (ビューのレンダリング) の前に実行されます。
-> - **OnResultExecuted**(ResultExecutedContext filterContext)。後 (後のビューが表示される)、結果が実行されます。
+> - **Onactionexecuting**(actionexecutingcontext filtercontext): アクションメソッドが呼び出される直前。
+> - **Onactionexecuted**(actionexecutedcontext filtercontext): アクションメソッドが呼び出された後、結果が実行される前 (ビューレンダリングの前)。
+> - **Onresultexecuting**(resultexecutingcontext filtercontext): 結果が実行される直前 (ビューレンダリングの前)。
+> - **Onresultexecuted**(resultexecutedcontext filtercontext): 結果が実行された後 (ビューが表示された後)。
 > 
-> これらのメソッドをオーバーライドする派生クラスに、独自のフィルター処理のコードを実行できます。
+> これらのメソッドのいずれかを派生クラスにオーバーライドすることにより、独自のフィルター処理コードを実行できます。
 
-1. 開く、**開始**ソリューションがある **\Source\Ex01-LoggingActions\Begin**フォルダー。
+1. **\ Source\ Ex01-のジョブ \ 開始**フォルダーにある**begin**ソリューションを開きます。
 
-   1. 続行する前に、いくつか不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
-   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
-   3. 最後をクリックして、ソリューションをビルド**ビルド** | **ソリューションのビルド**します。
+   1. 続行する前に、不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、 **[プロジェクト]** メニューをクリックし、 **[NuGet パッケージの管理]** を選択します。
+   2. **[NuGet パッケージの管理]** ダイアログで、 **[復元]** をクリックして、不足しているパッケージをダウンロードします。
+   3. 最後に、[**ビルド** | **ビルド**] をクリックしてソリューションをビルドします。
 
       > [!NOTE]
-      > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
+      > NuGet を使用する利点の1つは、プロジェクトのすべてのライブラリを配布する必要がなく、プロジェクトのサイズを小さくすることです。 NuGet パワーツールを使用すると、パッケージのバージョンを app.config ファイルで指定することで、プロジェクトを初めて実行するときに必要なすべてのライブラリをダウンロードできます。 このため、このラボから既存のソリューションを開いた後に、これらの手順を実行する必要があります。
       > 
-      > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 新しい c# クラスを追加、**フィルター**フォルダーと名前を付けます*CustomActionFilter.cs*します。 このフォルダーでは、すべてのカスタム フィルターを格納します。
-3. 開いている**CustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
+      > 詳細については、「 [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)」を参照してください。
+2. Filters フォルダーにC#新しいクラスを追加し、 *CustomActionFilter.cs*という名前を指定します。 このフォルダーには、すべてのカスタムフィルターが格納されます。
+3. **CustomActionFilter.cs**を開き、 **MvcMusicStore**名前空間と名前**空間への**参照を追加します。
 
-    (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex1 CustomActionFilterNamespaces*)
+    (コードスニペット- *ASP.NET MVC 4 カスタムアクションフィルター-Ex1-CustomActionFilterNamespaces*)
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample1.cs)]
-4. 継承、 **CustomActionFilter**クラス**ActionFilterAttribute**行い**CustomActionFilter**クラス実装**IActionFilter**インターフェイス。
+4. **Actionfilterattribute**から**CustomActionFilter**クラスを継承し、 **CustomActionFilter**クラスが**iactionfilter**インターフェイスを実装するようにします。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample2.cs)]
-5. ように**CustomActionFilter**クラス、メソッドをオーバーライド**OnActionExecuting**フィルターの実行ログを記録するために必要なロジックを追加します。 これを行うには、内の次の強調表示されたコードを追加**CustomActionFilter**クラス。
+5. **CustomActionFilter**クラスは、 **onactionexecuting**メソッドをオーバーライドし、フィルターの実行をログに記録するために必要なロジックを追加します。 これを行うには、 **CustomActionFilter**クラス内に次の強調表示されたコードを追加します。
 
-    (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex1 LoggingActions*)
+    (コードスニペット- *ASP.NET MVC 4 カスタムアクションフィルター-Ex1-ログインアクション*)
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample3.cs#Highlight)]
 
     > [!NOTE]
-    > **OnActionExecuting**メソッドを使用して**Entity Framework**新しい ActionLog レジスタを追加します。 作成し、新しいエンティティ インスタンスからコンテキスト情報を設定**filterContext**します。
+    > **Onactionexecuting**メソッドでは**Entity Framework**を使用して新しい actionlog レジスタを追加しています。 **Filtercontext**からのコンテキスト情報を使用して、新しいエンティティインスタンスを作成して入力します。
     > 
-    > 詳細をご覧ください**ControllerContext**でクラス[msdn](https://msdn.microsoft.com/library/system.web.mvc.controllercontext.aspx)します。
+    > **コントローラーのコントローラー**の詳細については、 [msdn](https://msdn.microsoft.com/library/system.web.mvc.controllercontext.aspx)を参照してください。
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Injecting_a_Code_Interceptor_into_the_Store_Controller_Class"></a>
-#### <a name="task-2---injecting-a-code-interceptor-into-the-store-controller-class"></a>タスク 2 - ストアのコント ローラー クラスにコードのインターセプターを挿入します。
+#### <a name="task-2---injecting-a-code-interceptor-into-the-store-controller-class"></a>タスク 2-ストアコントローラークラスにコードインターセプターを挿入する
 
-このタスクでは、すべてのログに記録するコント ローラー アクションとコント ローラー クラスに挿入することによってカスタム フィルターを追加します。 この演習では、ストアのコント ローラー クラスは、ログがあります。
+このタスクでは、ログに記録されるすべてのコントローラークラスとコントローラーアクションにカスタムフィルターを挿入することによって、カスタムフィルターを追加します。 この演習では、Store Controller クラスにログがあります。
 
-メソッド**OnActionExecuting**から**ActionLogFilterAttribute**挿入された要素が呼び出されたときに、カスタム フィルターが実行されます。
+**Actionlogfilterattribute**カスタムフィルターから実行されるメソッド**onactionexecuting** 、挿入された要素が呼び出されると実行されます。
 
-特定のコント ローラー メソッドをインターセプトすることもできます。
+特定のコントローラーメソッドをインターセプトすることもできます。
 
-1. 開く、 **StoreController**で**MvcMusicStore\Controllers**への参照を追加し、**フィルター**名前空間。
+1. **MvcMusicStore\Controllers**で**StoreController**を開き、 **Filters**名前空間への参照を追加します。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample4.cs)]
-2. カスタム フィルターを挿入**CustomActionFilter**に**StoreController**クラスを追加して **[CustomActionFilter]** クラス宣言の前に、の属性。
+2. クラス宣言の前に **[CustomActionFilter]** 属性を追加して、カスタムフィルター **CustomActionFilter**を**StoreController**クラスに挿入します。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
    > [!NOTE]
-   > フィルターは、コント ローラー クラスに挿入されますが、ときに、すべてのアクションも挿入されます。 一連のアクションに対してのみフィルターを適用するには、挿入する必要があります **[CustomActionFilter]** それらのいずれか。
+   > フィルターがコントローラークラスに挿入されると、そのすべてのアクションも挿入されます。 一連のアクションに対してのみフィルターを適用する場合は、 **[CustomActionFilter]** をそれぞれに挿入する必要があります。
    > 
    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Running_the_Application"></a>
-#### <a name="task-3---running-the-application"></a>タスク 3 - アプリケーションの実行
+#### <a name="task-3---running-the-application"></a>タスク 3-アプリケーションを実行する
 
-このタスクでは、ログ記録フィルターが動作しているかをテストします。 アプリケーションを起動して、ストアにアクセスして、ログに記録されたアクティビティを確認します。
+このタスクでは、ログ記録フィルターが機能していることをテストします。 アプリケーションを起動してストアにアクセスし、ログに記録されたアクティビティを確認します。
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. 参照する **/ActionLog**ログ ビューの初期状態を確認します。
+2. **/Actionlog**を参照して、ログビューの初期状態を確認します。
 
-    ![ページのアクティビティの前にトラッカーの状態をログ記録](aspnet-mvc-4-custom-action-filters/_static/image3.png "ページ アクティビティの前にトラッカーの状態をログ記録")
+    ![ページアクティビティ前のログトラッカーの状態](aspnet-mvc-4-custom-action-filters/_static/image3.png "ページアクティビティ前のログトラッカーの状態")
 
-    *ページのアクティビティの前にログの追跡ツールの状態*
+    *ページアクティビティ前のログトラッカーの状態*
 
    > [!NOTE]
-   > 既定では、1 つの項目 メニューの既存のジャンルを取得するときに生成された常に表示されます。
+   > 既定では、メニューの既存のジャンルを取得するときに生成される1つの項目が常に表示されます。
    > 
-   > 簡略化のためをクリーンアップいたします、 **ActionLog**たびに、アプリケーションが実行されるは、それぞれ特定のタスクの検証のログのみが表示するためのテーブルします。
+   > わかりやすくするために、アプリケーションを実行するたびに**Actionlog**テーブルをクリーンアップしています。これにより、各タスクの検証のログのみが表示されるようになります。
    > 
-   > 次のコードから削除する必要があります、**セッション\_開始**メソッド (で、 **Global.asax**クラス)、ストア内で実行されるすべてのアクションの履歴ログを保存するために、コント ローラー。
+   > ストアコントローラー内で実行されるすべてのアクションの履歴ログを保存するために、**セッション\_Start**メソッド ( **global.asax**クラス) から次のコードを削除する必要がある場合があります。
    > 
    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
-3. いずれかを**ジャンル** メニューから使用可能なアルバムを閲覧など、操作を実行したりします。
-4. 参照 **/ActionLog**ログが空のキーを押して**F5**ページを更新します。 訪問者が追跡されなかったことを確認します。
+3. メニューからいずれかの**ジャンル**をクリックし、利用可能なアルバムの閲覧など、いくつかの操作を実行します。
+4. **/Actionlog**を参照し、ログが空の場合は**F5**キーを押してページを更新します。 訪問が追跡されたことを確認します。
 
-    ![アクティビティ ログに記録を含むアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image4.png "ログに記録するアクティビティを含むアクション ログ")
+    ![アクティビティが記録されたアクションログ](aspnet-mvc-4-custom-action-filters/_static/image4.png "アクティビティが記録されたアクションログ")
 
-    *アクティビティ ログに記録を含むアクション ログ*
+    *アクティビティが記録されたアクションログ*
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Managing_Multiple_Action_Filters"></a>
-### <a name="exercise-2-managing-multiple-action-filters"></a>演習 2:複数のアクション フィルターの管理
+### <a name="exercise-2-managing-multiple-action-filters"></a>演習 2: 複数のアクションフィルターの管理
 
-この演習では、StoreController クラスに 2 つ目のカスタム操作フィルターを追加し、両方のフィルターを実行する特定の順序を定義します。 フィルターをグローバルに登録するコードが更新されます。
+この演習では、StoreController クラスに2つ目のカスタムアクションフィルターを追加し、両方のフィルターが実行される特定の順序を定義します。 次に、フィルターをグローバルに登録するようにコードを更新します。
 
-フィルターの実行順序を定義するときに考慮するさまざまなオプションがあります。 たとえば、注文プロパティとフィルターのスコープ:
+フィルターの実行順序を定義する際には、さまざまなオプションを考慮する必要があります。 たとえば、Order プロパティとフィルターのスコープは、次のようになります。
 
-定義することができます、**スコープ**フィルターごとに、たとえば、する可能性がありますスコープ内で実行するすべてのアクション フィルター、**コント ローラーのスコープ**とで実行するすべての承認フィルター**グローバル スコープ**. スコープは定義されている実行順序があります。
+フィルターごとに**スコープ**を定義できます。たとえば、**コントローラースコープ**内で実行するすべてのアクションフィルターと、**グローバルスコープ**で実行するすべての承認フィルターのスコープを設定できます。 スコープには、定義済みの実行順序があります。
 
-また、各アクション フィルターでは、フィルターのスコープ内での実行順序を決定するために使用される順序プロパティがあります。
+また、各アクションフィルターには、フィルターのスコープ内で実行順序を決定するために使用される Order プロパティがあります。
 
-カスタム アクション フィルターの実行順序の詳細については、この MSDN の記事をご覧ください。 ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx))。
+カスタムアクションフィルターの実行順序の詳細については、MSDN の記事「([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx))」を参照してください。
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_Creating_a_new_Custom_Action_Filter"></a>
-#### <a name="task-1-creating-a-new-custom-action-filter"></a>タスク 1:新しいカスタム アクション フィルターの作成
+#### <a name="task-1-creating-a-new-custom-action-filter"></a>タスク 1: 新しいカスタムアクションフィルターを作成する
 
-このタスクでには、フィルターの実行順序を管理する方法を学習、StoreController クラスに挿入する新しいカスタム アクション フィルター作成されます。
+このタスクでは、新しいカスタムアクションフィルターを作成して、StoreController クラスに挿入し、フィルターの実行順序を管理する方法を学習します。
 
-1. 開く、**開始**ソリューションがある **\Source\Ex02-ManagingMultipleActionFilters\Begin**フォルダー。 使用を続ける可能性がありますそれ以外の場合、**エンド**ソリューションは、前の演習を完了して取得します。
+1. **\Source\Ex02-ManagingMultipleActionFilters\Begin**フォルダーにある**Begin**ソリューションを開きます。 それ以外の場合は、前の演習を完了することによって得られた**終了**ソリューションを引き続き使用することができます。
 
-    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うには、クリックして、**プロジェクト**メニュー選択し、 **NuGet パッケージの管理**します。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**不足しているパッケージをダウンロードするには。
-    3. 最後をクリックして、ソリューションをビルド**ビルド** | **ソリューションのビルド**します。
+    1. 提供された**Begin**ソリューションを開いた場合は、続行する前に、不足している NuGet パッケージをダウンロードする必要があります。 これを行うには、 **[プロジェクト]** メニューをクリックし、 **[NuGet パッケージの管理]** を選択します。
+    2. **[NuGet パッケージの管理]** ダイアログで、 **[復元]** をクリックして、不足しているパッケージをダウンロードします。
+    3. 最後に、[**ビルド** | **ビルド**] をクリックしてソリューションをビルドします。
 
         > [!NOTE]
-        > NuGet を使用する利点の 1 つは、必要はありません、プロジェクトのすべてのライブラリを配布するプロジェクトのサイズを減らすことです。 With NuGet Power Tools では、Packages.config ファイルでパッケージのバージョンを指定することによってができる初めてのプロジェクトを実行するすべての必要なライブラリをダウンロードします。 これは、なぜこのラボから既存のソリューションを開いた後、次の手順を実行する必要があります。
+        > NuGet を使用する利点の1つは、プロジェクトのすべてのライブラリを配布する必要がなく、プロジェクトのサイズを小さくすることです。 NuGet パワーツールを使用すると、パッケージのバージョンを app.config ファイルで指定することで、プロジェクトを初めて実行するときに必要なすべてのライブラリをダウンロードできます。 このため、このラボから既存のソリューションを開いた後に、これらの手順を実行する必要があります。
         > 
-        > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)します。
-2. 新しい c# クラスを追加、**フィルター**フォルダーと名前を付けます*MyNewCustomActionFilter.cs*
-3. 開いている**MyNewCustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
+        > 詳細については、「 [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)」を参照してください。
+2. Filters フォルダーにC#新しいクラスを追加し、 *MyNewCustomActionFilter.cs*という名前を指定します。
+3. **MyNewCustomActionFilter.cs**を開き、 **system.web**および**MvcMusicStore**名前空間への参照を追加します。
 
-    (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex2 MyNewCustomActionFilterNamespaces*)
+    (コードスニペット- *ASP.NET MVC 4 カスタムアクションフィルター-Ex2-MyNewCustomActionFilterNamespaces*)
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample8.cs)]
 4. 既定のクラス宣言を次のコードに置き換えます。
 
-    (コード スニペット - *ASP.NET MVC 4 カスタム アクション フィルター - Ex2 MyNewCustomActionFilterClass*)
+    (コードスニペット- *ASP.NET MVC 4 カスタムアクションフィルター-Ex2-MyNewCustomActionFilterClass*)
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > このカスタム アクション フィルターは、前の演習で作成したものよりもほぼ同じです。 主な違いは、持っていること、 *&quot;ログに記録して&quot;* 属性を識別するためにこの新しいクラス名で更新するフィルターには、ログが登録されています。
+    > このカスタムアクションフィルターは、前の演習で作成したものとほぼ同じです。 主な違いは、 *&quot;属性によって記録*された&quot;がこの新しいクラスの名前で更新され、どのフィルターがログに登録されたかを識別することです。
 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_Injecting_a_new_Code_Interceptor_into_the_StoreController_Class"></a>
-#### <a name="task-2-injecting-a-new-code-interceptor-into-the-storecontroller-class"></a>タスク 2:StoreController クラスに新しいコード インターセプターを挿入します。
+#### <a name="task-2-injecting-a-new-code-interceptor-into-the-storecontroller-class"></a>タスク 2: 新しいコードインターセプターを StoreController クラスに挿入する
 
-このタスクでは、StoreController クラスに新しいカスタム フィルターを追加し、どのように両方のフィルターが連携することを確認するソリューションを実行します。
+このタスクでは、新しいカスタムフィルターを StoreController クラスに追加し、ソリューションを実行して、両方のフィルターが連携する方法を確認します。
 
-1. 開く、 **StoreController**クラスがある**MvcMusicStore\Controllers**し、新しいカスタム フィルターを注入**MyNewCustomActionFilter**に**StoreController**のようなクラスは、次のコードを示します。
+1. **MvcMusicStore\Controllers**にある**StoreController**クラスを開き、次のコードに示すように、新しいカスタムフィルター **MyNewCustomActionFilter**を**StoreController**クラスに挿入します。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample10.cs)]
-2. 次に、これら 2 つのカスタム アクション フィルターの動作を確認するためにアプリケーションを実行します。 これを行うには、キーを押して**F5**と、アプリケーションが開始されるまで待ちます。
-3. 参照する **/ActionLog**ログ ビューの初期状態を確認します。
+2. ここで、アプリケーションを実行して、これら2つのカスタムアクションフィルターがどのように機能するかを確認します。 これを行うには、 **F5**キーを押して、アプリケーションが起動するまで待ちます。
+3. **/Actionlog**を参照して、ログビューの初期状態を確認します。
 
-    ![ページのアクティビティの前にトラッカーの状態をログ記録](aspnet-mvc-4-custom-action-filters/_static/image5.png "ページ アクティビティの前にトラッカーの状態をログ記録")
+    ![ページアクティビティ前のログトラッカーの状態](aspnet-mvc-4-custom-action-filters/_static/image5.png "ページアクティビティ前のログトラッカーの状態")
 
-    *ページのアクティビティの前にログの追跡ツールの状態*
-4. いずれかを**ジャンル** メニューから使用可能なアルバムを閲覧など、操作を実行したりします。
-5. この時間を確認します。2 回、訪問者が追跡されていた: 後で追加した各カスタム アクション フィルター、 **StorageController**クラス。
+    *ページアクティビティ前のログトラッカーの状態*
+4. メニューからいずれかの**ジャンル**をクリックし、利用可能なアルバムの閲覧など、いくつかの操作を実行します。
+5. この時刻を確認してください。訪問が2回追跡されました。 **StorageController**クラスに追加したカスタムアクションフィルターごとに1回です。
 
-    ![アクティビティ ログに記録を含むアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image6.png "ログに記録するアクティビティを含むアクション ログ")
+    ![アクティビティが記録されたアクションログ](aspnet-mvc-4-custom-action-filters/_static/image6.png "アクティビティが記録されたアクションログ")
 
-    *アクティビティ ログに記録を含むアクション ログ*
+    *アクティビティが記録されたアクションログ*
 6. ブラウザーを閉じます。
 
 <a id="Ex2Task3"></a>
 
 <a id="Task_3_Managing_Filter_Ordering"></a>
-#### <a name="task-3-managing-filter-ordering"></a>タスク 3:フィルターの順序を管理します。
+#### <a name="task-3-managing-filter-ordering"></a>タスク 3: フィルターの順序を管理する
 
-このタスクでは、順序のプロパティを使用して、フィルターの実行順序を管理する方法を学びます。
+このタスクでは、Order プロパティを使用してフィルターの実行順序を管理する方法を学習します。
 
-1. オープン、 **StoreController**クラスがある**MvcMusicStore\Controllers**を指定し、**順序**などの両方のフィルター プロパティ下図のようにします。
+1. **MvcMusicStore\Controllers**にある**StoreController**クラスを開き、次に示すように、両方のフィルターで**Order**プロパティを指定します。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample11.cs)]
-2. ここで、その順序のプロパティの値に応じて、フィルターを実行する方法を確認します。 表示されますが、最小の順序の値でフィルター (**CustomActionFilter**) が実行される最初の 1 つ。 キーを押して**F5**と、アプリケーションが開始されるまで待ちます。
-3. 参照する **/ActionLog**ログ ビューの初期状態を確認します。
+2. 次に、Order プロパティの値に応じて、フィルターがどのように実行されるかを確認します。 最小の順序の値 (**CustomActionFilter**) を持つフィルターが、最初に実行されるフィルターであることがわかります。 **F5**キーを押して、アプリケーションが起動するまで待ちます。
+3. **/Actionlog**を参照して、ログビューの初期状態を確認します。
 
-    ![ページのアクティビティの前にトラッカーの状態をログ記録](aspnet-mvc-4-custom-action-filters/_static/image7.png "ページ アクティビティの前にトラッカーの状態をログ記録")
+    ![ページアクティビティ前のログトラッカーの状態](aspnet-mvc-4-custom-action-filters/_static/image7.png "ページアクティビティ前のログトラッカーの状態")
 
-    *ページのアクティビティの前にログの追跡ツールの状態*
-4. いずれかを**ジャンル** メニューから使用可能なアルバムを閲覧など、操作を実行したりします。
-5. 今回は、訪問者が追跡されるチェックは、フィルターの順序の値で並べ替えられます。**CustomActionFilter**ログの最初。
+    *ページアクティビティ前のログトラッカーの状態*
+4. メニューからいずれかの**ジャンル**をクリックし、利用可能なアルバムの閲覧など、いくつかの操作を実行します。
+5. この時間が経過すると、最初にフィルターの順序値: **CustomActionFilter** logs によってアクセスが追跡されることを確認します。
 
-    ![アクティビティ ログに記録を含むアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image8.png "ログに記録するアクティビティを含むアクション ログ")
+    ![アクティビティが記録されたアクションログ](aspnet-mvc-4-custom-action-filters/_static/image8.png "アクティビティが記録されたアクションログ")
 
-    *アクティビティ ログに記録を含むアクション ログ*
-6. ここで、フィルターの順序の値を更新し、ログ記録の順序を変更する方法を確認します。 **StoreController**クラスを次に示すようにフィルターの順序の値を更新します。
+    *アクティビティが記録されたアクションログ*
+6. ここで、フィルターの順序の値を更新し、ログの順序がどのように変わるかを確認します。 **StoreController**クラスで、フィルターの順序の値を次のように更新します。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample12.cs)]
-7. キーを押してアプリケーションをもう一度実行**F5**します。
-8. いずれかを**ジャンル** メニューから使用可能なアルバムを閲覧など、操作を実行したりします。
-9. によって作成されたログを現時点では、ことを確認**MyNewCustomActionFilter**最初にフィルターが表示されます。
+7. **F5**キーを押してアプリケーションを再実行します。
+8. メニューからいずれかの**ジャンル**をクリックし、利用可能なアルバムの閲覧など、いくつかの操作を実行します。
+9. この時間が経過すると、 **MyNewCustomActionFilter** filter によって作成されたログが先に表示されます。
 
-    ![アクティビティ ログに記録を含むアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image9.png "ログに記録するアクティビティを含むアクション ログ")
+    ![アクティビティが記録されたアクションログ](aspnet-mvc-4-custom-action-filters/_static/image9.png "アクティビティが記録されたアクションログ")
 
-    *アクティビティ ログに記録を含むアクション ログ*
+    *アクティビティが記録されたアクションログ*
 
 <a id="Ex2Task4"></a>
 
 <a id="Task_4_Registering_Filters_Globally"></a>
-#### <a name="task-4-registering-filters-globally"></a>タスク 4:グローバル フィルターを登録します。
+#### <a name="task-4-registering-filters-globally"></a>タスク 4: フィルターをグローバルに登録する
 
-このタスクでは、新しいフィルターを登録するソリューションを更新します (**MyNewCustomActionFilter**) グローバル フィルターとして。 これにより、アプリケーションで、前のタスクのように StoreController ものだけでなくでを実行するすべてのアクションによってトリガーされます。
+このタスクでは、新しいフィルター (**MyNewCustomActionFilter**) をグローバルフィルターとして登録するようにソリューションを更新します。 これにより、アプリケーションで実行されるすべてのアクションによってトリガーされます。前のタスクと同様に、StoreController のすべてのアクションがトリガーされます。
 
-1. **StoreController**クラスを削除 **[MyNewCustomActionFilter]** 属性と順序プロパティから **[CustomActionFilter]** します。 以下のようになっています。
+1. **StoreController**クラスで、[ **MyNewCustomActionFilter]** 属性と Order プロパティを **[CustomActionFilter]** から削除します。 この要素は次のようになります。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. 開いている**Global.asax**ファイルし、検索、**アプリケーション\_開始**メソッド。 呼び出すことによってグローバル フィルターを登録するたびに、アプリケーションが開始されることに注意してください**RegisterGlobalFilters**メソッド内で**FilterConfig**クラス。
+2. **Global.asax**ファイルを開き、 **Application\_Start**メソッドを見つけます。 アプリケーションが起動するたびに、 **Filterconfig**クラス内で**registerglobalfilters**メソッドを呼び出すことによってグローバルフィルターが登録されることに注意してください。
 
-    ![Global.asax でグローバル フィルターを登録する](aspnet-mvc-4-custom-action-filters/_static/image10.png "Global.asax でグローバル フィルターを登録します。")
+    ![グローバルフィルターを global.asax に登録しています](aspnet-mvc-4-custom-action-filters/_static/image10.png "グローバルフィルターを global.asax に登録しています")
 
-    *Global.asax でグローバル フィルターを登録します。*
-3. 開いている**FilterConfig.cs**内ファイル**アプリ\_開始**フォルダー。
-4. System.Web.Mvc; を使用してへの参照を追加します。MvcMusicStore.Filters; を使用します。名前空間。
+    *グローバルフィルターを global.asax に登録しています*
+3. **アプリ\_** の [開始フォルダー] で**FilterConfig.cs**ファイルを開きます。
+4. System.web. Mvc を使用してへの参照を追加します。MvcMusicStore を使用します。空間.
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample14.cs)]
-5. Update **RegisterGlobalFilters**メソッドは、カスタム フィルターを追加します。 これを行うには、強調表示されたコードを追加します。
+5. **Registerglobalfilters**メソッドを更新して、カスタムフィルターを追加します。 これを行うには、強調表示されたコードを追加します。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample15.cs)]
 6. **F5** キーを押してアプリケーションを実行します。
-7. いずれかを**ジャンル** メニューから使用可能なアルバムを閲覧など、操作を実行したりします。
-8. チェックなった **[MyNewCustomActionFilter]** すぎる HomeController と ActionLogController で挿入されるは。
+7. メニューからいずれかの**ジャンル**をクリックし、利用可能なアルバムの閲覧など、いくつかの操作を実行します。
+8. 今すぐ **[MyNewCustomActionFilter]** が HomeController と ActionLogController に挿入されていることを確認してください。
 
-    ![アクティビティ ログに記録を含むアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image11.png "ログに記録するアクティビティを含むアクション ログ")
+    ![アクティビティが記録されたアクションログ](aspnet-mvc-4-custom-action-filters/_static/image11.png "アクティビティが記録されたアクションログ")
 
-    *グローバル アクティビティをログに記録を含むアクション ログ*
+    *グローバルアクティビティが記録されたアクションログ*
 
 > [!NOTE]
-> また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
+> また、 [「付録 B: Web 配置を使用した ASP.NET MVC 4 アプリケーションの発行](#AppendixB)」に従って、このアプリケーションを Windows Azure の Web サイトにデプロイすることもできます。
 
 ---
 
@@ -357,229 +357,229 @@ ASP.NET MVC には前に、または後、アクション メソッドが呼び�
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このハンズオン ラボは、カスタム アクションを実行するアクション フィルターを拡張する方法を学習しました。 任意のフィルター、ページのコント ローラーを挿入する方法についても説明しました。 次の概念を使用しました。
+このハンズオンラボでは、アクションフィルターを拡張してカスタムアクションを実行する方法について学習しました。 また、任意のフィルターをページコントローラーに挿入する方法についても学習しました。 次の概念が使用されました。
 
-- ASP.NET MVC ActionFilterAttribute クラスを使用してカスタム アクション フィルターを作成する方法
-- ASP.NET MVC コント ローラーにフィルターを挿入する方法
-- フィルターの順序のプロパティを使用して順序を管理する方法
+- ASP.NET MVC ActionFilterAttribute クラスを使用してカスタムアクションフィルターを作成する方法
+- ASP.NET MVC コントローラーにフィルターを挿入する方法
+- Order プロパティを使用してフィルターの順序を管理する方法
 - フィルターをグローバルに登録する方法
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 A: Visual Studio Express 2012 を Web 用にインストールする
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+**[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** を使用して、Web または別の &quot;Express&quot; バージョン**用に Microsoft Visual Studio Express 2012**をインストールできます。 次の手順では、 *Microsoft Web Platform Installer*を使用して*Visual studio Express 2012 for Web*をインストールするために必要な手順について説明します。
 
-1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
-2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
-3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) に移動します。 または、Web Platform Installer が既にインストールされている場合は、それを開いて、製品 &quot;<em>Visual Studio Express 2012 For web With Windows AZURE SDK</em>&quot;を検索することもできます。
+2. **[今すぐインストール]** をクリックします。 **Web Platform Installer**がない場合は、最初にダウンロードしてインストールするようにリダイレクトされます。
+3. **Web Platform Installer**が開いたら、 **[インストール]** をクリックしてセットアップを開始します。
 
     ![Visual Studio Express のインストール](aspnet-mvc-4-custom-action-filters/_static/image12.png "Visual Studio Express のインストール")
 
-    *Visual Studio Express をインストールします。*
-4. すべての製品のライセンスと使用条件を読み、クリックして**同意**を続行します。
+    *Visual Studio Express のインストール*
+4. すべての製品のライセンスと条項を読み、[**同意**する] をクリックして続行します。
 
-    ![ライセンス条項に同意](aspnet-mvc-4-custom-action-filters/_static/image13.png)
+    ![ライセンス条項に同意する](aspnet-mvc-4-custom-action-filters/_static/image13.png)
 
-    *ライセンス条項に同意*
-5. ダウンロードとインストール プロセスが完了するまで待機します。
+    *ライセンス条項に同意する*
+5. ダウンロードとインストールのプロセスが完了するまで待ちます。
 
-    ![インストールの進行状況](aspnet-mvc-4-custom-action-filters/_static/image14.png)
+    ![Installation progress](aspnet-mvc-4-custom-action-filters/_static/image14.png)
 
     *インストールの進行状況*
-6. インストールが完了したら、クリックして**完了**します。
+6. インストールが完了したら、 **[完了]** をクリックします。
 
-    ![インストールが完了しました](aspnet-mvc-4-custom-action-filters/_static/image15.png)
+    ![インストールの完了](aspnet-mvc-4-custom-action-filters/_static/image15.png)
 
-    *インストールが完了しました*
-7. クリックして**終了**Web Platform Installer を閉じます。
-8. Visual Studio Express for Web を開きするには、**開始**画面し、書き込みを開始&quot; **VS Express**&quot;、 をクリックし、 **VS Express for Web**並べて表示します。
+    *インストールの完了*
+7. **[終了]** をクリックして Web Platform Installer を閉じます。
+8. Web 用の Visual Studio Express を開くには、**スタート**画面にアクセスして &quot;**VS Express**&quot;の書き込みを開始し、 **[VS Express for Web]** タイルをクリックします。
 
-    ![VS Express for Web のタイル](aspnet-mvc-4-custom-action-filters/_static/image16.png)
+    ![VS Express for Web タイル](aspnet-mvc-4-custom-action-filters/_static/image16.png)
 
-    *VS Express for Web のタイル*
+    *VS Express for Web タイル*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B: Web 配置を使用した ASP.NET MVC 4 アプリケーションの発行
 
-この付録では、Windows Azure 管理ポータルから新しい web サイトを作成して Windows Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
+この付録では、windows azure 管理ポータルから新しい web サイトを作成し、Windows Azure によって提供される Web 配置公開機能を活用して、ラボに従って取得したアプリケーションを発行する方法について説明します。
 
 <a id="ApxBTask1"></a>
 
 <a id="Task_1_-_Creating_a_New_Web_Site_from_the_Windows_Azure_Portal"></a>
-#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>タスク 1 - 新しい Web サイトを作成する、Windows から Azure Portal
+#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>タスク 1-Windows Azure ポータルから新しい Web サイトを作成する
 
-1. 移動して、 [Windows Azure 管理ポータル](https://manage.windowsazure.com/)サブスクリプションに関連付けられている Microsoft の資格情報を使用してサインインします。
-
-    > [!NOTE]
-    > Windows Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](https://aka.ms/aspnet-hol-azure)します。
-
-    ![Windows Azure ポータルにログオン](aspnet-mvc-4-custom-action-filters/_static/image17.png "Windows Azure ポータルにログオン")
-
-    *Windows Azure 管理ポータルにログオン*
-2. クリックして**新規**コマンド バーにします。
-
-    ![新しい Web サイトを作成する](aspnet-mvc-4-custom-action-filters/_static/image18.png "新しい Web サイトを作成します。")
-
-    *新しい Web サイトを作成します。*
-3. クリックして**コンピューティング** | **Web サイト**します。 選び**簡易作成**オプション。 新しい web サイトの URL を指定し、をクリックして**Web サイトの作成**です。
+1. [Windows Azure 管理ポータル](https://manage.windowsazure.com/)にアクセスし、サブスクリプションに関連付けられている Microsoft 資格情報を使用してサインインします。
 
     > [!NOTE]
-    > Windows Azure の Web サイトには、制御および管理できる、クラウドで実行されている web アプリケーション、ホストです。 簡易作成 オプションを使用すると、完成した web アプリケーションを Windows Azure の Web サイトから、ポータル外からデプロイできます。 データベースを設定するための手順は含まれません。
+    > Windows Azure では、10 ASP.NET の Web サイトを無料でホストし、トラフィックの増加に合わせて拡張できます。 [ここで](https://aka.ms/aspnet-hol-azure)サインアップできます。
 
-    ![簡易作成を使用して新しい Web サイトを作成する](aspnet-mvc-4-custom-action-filters/_static/image19.png "簡易作成を使用して新しい Web サイトを作成します。")
+    ![Windows Azure portal にログオンします。](aspnet-mvc-4-custom-action-filters/_static/image17.png "Windows Azure portal にログオンします。")
 
-    *簡易作成を使用して新しい Web サイトを作成します。*
-4. 新しいまで待つ**Web サイト**が作成されます。
-5. Web サイトを作成した後は、下のリンクをクリックして、 **URL**列。 新しい Web サイトが動作していることを確認します。
+    *Windows Azure 管理ポータルにログオンします。*
+2. コマンドバーの **[新規]** をクリックします。
 
-    ![新しい web サイトを参照](aspnet-mvc-4-custom-action-filters/_static/image20.png "新しい web サイトを参照")
+    ![新しい Web サイトの作成](aspnet-mvc-4-custom-action-filters/_static/image18.png "新しい Web サイトの作成")
 
-    *新しい web サイトを参照*
+    *新しい Web サイトの作成*
+3. [ **Compute** | **Web サイト**] をクリックします。 次に、 **[簡易作成]** オプションを選択します。 新しい web サイトの使用可能な URL を指定し、 **[Web サイトの作成]** をクリックします。
 
-    ![Web サイトが実行されている](aspnet-mvc-4-custom-action-filters/_static/image21.png "実行している Web サイト")
+    > [!NOTE]
+    > Windows Azure の Web サイトは、制御および管理が可能なクラウドで実行されている web アプリケーションのホストです。 [簡易作成] オプションを使用すると、完成した web アプリケーションをポータルの外部から Windows Azure の Web サイトにデプロイできます。 データベースを設定する手順は含まれていません。
 
-    *実行している web サイト*
-6. ポータルに戻り、下にある web サイトの名前をクリックして、**名前**管理ページを表示する列。
+    ![簡易作成を使用した新しい Web サイトの作成](aspnet-mvc-4-custom-action-filters/_static/image19.png "簡易作成を使用した新しい Web サイトの作成")
 
-    ![Web サイトの管理ページを開く](aspnet-mvc-4-custom-action-filters/_static/image22.png "web サイトの管理ページを開く")
+    *簡易作成を使用した新しい Web サイトの作成*
+4. 新しい**Web サイト**が作成されるまで待ちます。
+5. Web サイトが作成されたら、 **[URL]** 列の下のリンクをクリックします。 新しい Web サイトが機能していることを確認します。
+
+    ![新しい web サイトを参照しています](aspnet-mvc-4-custom-action-filters/_static/image20.png "新しい web サイトを参照しています")
+
+    *新しい web サイトを参照しています*
+
+    ![実行中の Web サイト](aspnet-mvc-4-custom-action-filters/_static/image21.png "実行中の Web サイト")
+
+    *実行中の Web サイト*
+6. ポータルに戻り、 **[名前]** 列の下にある web サイトの名前をクリックして、管理ページを表示します。
+
+    ![Web サイトの管理ページを開く](aspnet-mvc-4-custom-action-filters/_static/image22.png "Web サイトの管理ページを開く")
 
     *Web サイトの管理ページを開く*
-7. **ダッシュ ボード**ページの**概要**セクションで、、**発行プロファイルのダウンロード**リンク。
+7. **[ダッシュボード]** ページの **[概要] セクションで**、 **[発行プロファイルのダウンロード]** リンクをクリックします。
 
     > [!NOTE]
-    > *発行プロファイル*すべてのパブリケーションを有効になっているメソッドごとに Windows Azure web サイトに web アプリケーションを発行するために必要な情報が含まれています。 発行プロファイルには、Url、ユーザーの資格情報およびに接続し、各発行メソッドが有効になっているエンドポイントに対して認証するために必要なデータベースの文字列が含まれています。 **Microsoft WebMatrix 2**、 **Microsoft Visual Studio Express for Web**と**Microsoft Visual Studio 2012**読み取りのサポートと、発行プロファイルのこれらのプログラムの構成を自動化するにはWindows Azure の web サイトへの web アプリケーションを発行しています。
+    > *発行プロファイル*には、有効になっている各発行方法について、Windows Azure web サイトに web アプリケーションを発行するために必要なすべての情報が含まれています。 発行プロファイルには、発行メソッドが有効化される各エンドポイントに接続して認証するために必要な URL、ユーザーの資格情報、およびデータベース文字列が含まれています。 **Microsoft WebMatrix 2**、 **Microsoft Visual Studio Express for Web**および**Microsoft Visual Studio 2012**では、発行プロファイルを読み取り、Web アプリケーションを Windows Azure websites に発行するためのこれらのプログラムの構成を自動化することがサポートされています。
 
-    ![発行プロファイルのダウンロード web サイト](aspnet-mvc-4-custom-action-filters/_static/image23.png "発行プロファイルの web サイトのダウンロード")
+    ![Web サイト発行プロファイルをダウンロードしています](aspnet-mvc-4-custom-action-filters/_static/image23.png "Web サイト発行プロファイルをダウンロードしています")
 
-    *発行プロファイルの Web サイトのダウンロード*
-8. 既知の場所に発行プロファイル ファイルをダウンロードします。 さらにこの演習ではこのファイルを使用して、Visual Studio から Windows Azure Web サイトに web アプリケーションを発行する方法が表示されます。
+    *Web サイト発行プロファイルをダウンロードしています*
+8. 発行プロファイルファイルを既知の場所にダウンロードします。 この演習では、このファイルを使用して、Visual Studio から Windows Azure Web サイトに web アプリケーションを発行する方法について説明します。
 
-    ![発行プロファイル ファイルを保存する](aspnet-mvc-4-custom-action-filters/_static/image24.png "発行プロファイルを保存しています")
+    ![発行プロファイルファイルを保存しています](aspnet-mvc-4-custom-action-filters/_static/image24.png "発行プロファイルを保存しています")
 
-    *発行プロファイル ファイルを保存しています*
+    *発行プロファイルファイルを保存しています*
 
 <a id="ApxBTask2"></a>
 
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
-#### <a name="task-2---configuring-the-database-server"></a>タスク 2 - データベース サーバーの構成
+#### <a name="task-2---configuring-the-database-server"></a>タスク 2-データベースサーバーの構成
 
-アプリケーションが SQL Server を使用する場合のデータベースは SQL Database サーバーを作成する必要があります。 SQL Server を使用しない単純なアプリケーションをデプロイする場合は、このタスクをスキップする可能性があります。
+アプリケーションで SQL Server データベースを使用する場合は、SQL Database サーバーを作成する必要があります。 SQL Server を使用しない単純なアプリケーションを展開する場合は、このタスクを省略できます。
 
-1. SQL Database サーバーは、アプリケーション データベースを格納する必要があります。 Windows Azure 管理ポータル内のサブスクリプションから SQL Database サーバーを表示する**Sql データベース** | **サーバー** | **サーバーのダッシュ ボード**します。 使用して 1 つを作成するには作成したサーバーがない、**追加**コマンド バーのボタンをクリックします。 メモ、**サーバー名および URL、管理者のログイン名とパスワード**次のタスクで使用すると、します。 データベースを作成しない、まだ、後の段階でそれが作成されます。
+1. アプリケーションデータベースを格納するには、SQL Database サーバーが必要です。 サブスクリプションの**SQL Database サーバーは**、Windows Azure 管理ポータルの**SQL データベース** | サーバー | **サーバーのダッシュボード**で確認できます。 サーバーを作成していない場合は、コマンドバーの **[追加]** ボタンを使用して作成できます。 次のタスクで使用するので、**サーバー名と URL、管理者のログイン名、パスワード**をメモしておきます。 データベースは、後の段階で作成されるため、まだ作成しないでください。
 
-    ![SQL データベース サーバーのダッシュ ボード](aspnet-mvc-4-custom-action-filters/_static/image25.png "SQL データベース サーバーのダッシュ ボード")
+    ![SQL Database サーバーダッシュボード](aspnet-mvc-4-custom-action-filters/_static/image25.png "SQL Database サーバーダッシュボード")
 
-    *SQL データベース サーバーのダッシュ ボード*
-2. 次のタスクでは、サーバーの一覧で、ローカル IP アドレスを含める必要があるため、Visual Studio からデータベース接続をテストします**使用できる IP アドレス**します。 次のようにクリックします**構成**、から IP アドレスを選択して**現在のクライアント IP アドレス**で貼り付けます、**開始 IP アドレス**と**終了 IP アドレス。** テキスト ボックスをクリックして、 ![add-client-ip-address-ok-button](aspnet-mvc-4-custom-action-filters/_static/image26.png)ボタンをクリックします。
+    *SQL Database サーバーダッシュボード*
+2. 次のタスクでは、Visual Studio からデータベース接続をテストします。そのため、**使用可能な Ip アドレス**の一覧にローカル ip アドレスを含める必要があります。 これを行うには、 **[構成]** をクリックし、 **[現在のクライアント IP アドレス]** の ip アドレスを選択して、 **[開始 Ip アドレス]** と **[終了 ip アドレス]** のテキストボックスに貼り付け、[![の](aspnet-mvc-4-custom-action-filters/_static/image26.png) 追加] をクリックします。
 
-    ![クライアント IP アドレスを追加します。](aspnet-mvc-4-custom-action-filters/_static/image27.png)
+    ![クライアント IP アドレスを追加しています](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    *クライアント IP アドレスを追加します。*
-3. 1 回、**クライアント IP アドレス**が許可された IP アドレスに追加一覧で、をクリックして**保存**変更を確認します。
+    *クライアント IP アドレスを追加しています*
+3. [許可された IP アドレス] の一覧に**クライアントの Ip アドレス**が追加されたら、 **[保存]** をクリックして変更を確認します。
 
-    ![変更を確認します。](aspnet-mvc-4-custom-action-filters/_static/image28.png)
+    ![変更の確認](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    *変更を確認します。*
+    *変更の確認*
 
 <a id="ApxBTask3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>タスク 3 - Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>タスク 3-Web 配置を使用した ASP.NET MVC 4 アプリケーションの発行
 
-1. ASP.NET MVC 4 のソリューションに戻ります。 **ソリューション エクスプ ローラー**を web サイト プロジェクトを右クリックし、**発行**します。
+1. ASP.NET MVC 4 ソリューションに戻ります。 **ソリューションエクスプローラー**で、web サイトプロジェクトを右クリックし、 **[発行]** を選択します。
 
     ![アプリケーションの発行](aspnet-mvc-4-custom-action-filters/_static/image29.png "アプリケーションの発行")
 
-    *Web サイトの発行*
+    *Web サイトの公開*
 2. 最初のタスクで保存した発行プロファイルをインポートします。
 
-    ![発行プロファイルをインポートする](aspnet-mvc-4-custom-action-filters/_static/image30.png "発行プロファイルをインポートします。")
+    ![発行プロファイルをインポートしています](aspnet-mvc-4-custom-action-filters/_static/image30.png "発行プロファイルをインポートしています")
 
-    *発行プロファイルのインポート*
-3. クリックして**接続の検証**です。 検証が完了したら、クリックして**次**します。
+    *発行プロファイルをインポートしています*
+3. **[接続の検証]** をクリックします。 検証が完了したら、 **[次へ]** をクリックします。
 
     > [!NOTE]
-    > 接続の検証ボタンの横に表示される緑のチェック マークが表示されたら、検証が完了しました。
+    > 検証が完了すると、[接続の検証] ボタンの横に緑色のチェックマークが表示されます。
 
     ![接続の検証](aspnet-mvc-4-custom-action-filters/_static/image31.png "接続の検証")
 
     *接続の検証*
-4. **設定**ページの**データベース**セクションで、データベース接続のテキスト ボックスの横にあるボタンをクリックします (つまり**DefaultConnection**)。
+4. **[設定]** ページの **[データベース]** セクションで、データベース接続のテキストボックスの横にあるボタン ( **defaultconnection**など) をクリックします。
 
-    ![Web 配置の構成](aspnet-mvc-4-custom-action-filters/_static/image32.png "Web 配置の構成")
+    ![Web deploy の構成](aspnet-mvc-4-custom-action-filters/_static/image32.png "Web deploy の構成")
 
-    *Web 配置の構成*
-5. データベース接続を次のように構成します。
+    *Web deploy の構成*
+5. 次のようにデータベース接続を構成します。
 
-   - **サーバー名**SQL Database サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
-   - **ユーザー名**サーバー管理者ログイン名を入力します。
-   - **パスワード**サーバー管理者ログイン パスワードを入力します。
+   - **サーバー名**には、 *tcp:* プレフィックスを使用して SQL Database サーバーの URL を入力します。
+   - **User name (ユーザー名**) に、サーバー管理者のログイン名を入力します。
+   - **パスワード**で、サーバー管理者のログインパスワードを入力します。
    - 新しいデータベース名を入力します。
 
-     ![ターゲットの接続文字列を構成する](aspnet-mvc-4-custom-action-filters/_static/image33.png "ターゲットの接続文字列を構成します。")
+     ![変換先の接続文字列を構成しています](aspnet-mvc-4-custom-action-filters/_static/image33.png "変換先の接続文字列を構成しています")
 
-     *ターゲットの接続文字列を構成します。*
-6. 次に、 **[OK]** をクリックします。 データベースのクリックを作成するように求められたら**はい**します。
+     *変換先の接続文字列を構成しています*
+6. 次に、 **[OK]** をクリックします データベースの作成を求めるメッセージが表示されたら、[**はい]** をクリックします。
 
-    ![データベースを作成する](aspnet-mvc-4-custom-action-filters/_static/image34.png "データベース文字列を作成します。")
+    ![データベースの作成](aspnet-mvc-4-custom-action-filters/_static/image34.png "データベース文字列の作成")
 
     *データベースの作成*
-7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
+7. Windows Azure の SQL Database に接続するために使用する接続文字列は、[既定の接続] ボックスに表示されます。 続けて、 **[次へ]** をクリックします。
 
-    ![SQL データベースを指す接続文字列](aspnet-mvc-4-custom-action-filters/_static/image35.png "SQL データベースを指す接続文字列")
+    ![SQL Database を指す接続文字列](aspnet-mvc-4-custom-action-filters/_static/image35.png "SQL Database を指す接続文字列")
 
-    *SQL データベースを指す接続文字列*
-8. **プレビュー** ] ページで [**発行**します。
+    *SQL Database を指す接続文字列*
+8. **[プレビュー]** ページで、 **[発行]** をクリックします。
 
-    ![Web アプリケーションの発行](aspnet-mvc-4-custom-action-filters/_static/image36.png "web アプリケーションの発行")
+    ![Web アプリケーションの発行](aspnet-mvc-4-custom-action-filters/_static/image36.png "Web アプリケーションの発行")
 
     *Web アプリケーションの発行*
-9. 発行プロセスが完了すると、既定のブラウザーが発行した web サイトを開きます。
+9. 発行プロセスが完了すると、既定のブラウザーによって公開された web サイトが開きます。
 
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>付録 Cコード スニペットを使用
+## <a name="appendix-c-using-code-snippets"></a>付録 C: コードスニペットの使用
 
-コードのスニペットでは、指先ひとつで必要なすべてのコードがあります。 ラボ ドキュメントがわかりますだけをいつ使用できる、次の図に示すようにします。
+コードスニペットを使用すると、必要なすべてのコードをすぐに利用できます。 次の図に示すように、ラボドキュメントには、使用できるタイミングがわかります。
 
-![Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入する](aspnet-mvc-4-custom-action-filters/_static/image37.png "プロジェクトにコードを挿入するコード スニペットを Visual Studio の使用")
+![Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する](aspnet-mvc-4-custom-action-filters/_static/image37.png "Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する")
 
-*Visual Studio コード スニペットを使用して、プロジェクトにコードを挿入するには*
+*Visual Studio のコードスニペットを使用してプロジェクトにコードを挿入する*
 
-***キーボード (c# のみ) を使用するコード スニペットを追加するには***
+***キーボードを使用してコードスニペットを追加C#するには (のみ)***
 
-1. コードを挿入するには、カーソルを置きます。
-2. スニペットの名前 (なし、スペースやハイフン) の入力を開始します。
-3. スニペットの名前に一致する IntelliSense の表示を確認します。
-4. 適切なスニペットを選択します (または全体のスニペットの名前が選択されるまで」と入力してください)。
-5. カーソル位置にスニペットを挿入するには、2 回、Tab キーを押します。
+1. コードを挿入する場所にカーソルを置きます。
+2. (スペースまたはハイフンを含まない) スニペット名の入力を開始します。
+3. IntelliSense によって、一致するスニペットの名前が表示されます。
+4. 正しいスニペットを選択します (または、スニペットの名前全体が選択されるまで入力し続けます)。
+5. Tab キーを2回押すと、スニペットがカーソル位置に挿入されます。
 
-![スニペットの名前の入力を開始](aspnet-mvc-4-custom-action-filters/_static/image38.png "スニペット名の入力を開始")
+![スニペット名の入力を開始します](aspnet-mvc-4-custom-action-filters/_static/image38.png "スニペット名の入力を開始します")
 
-*スニペットの名前の入力を開始します。*
+*スニペット名の入力を開始します*
 
-![強調表示されているスニペットを選択して Tab キーを押して](aspnet-mvc-4-custom-action-filters/_static/image39.png "キーを押してタブが強調表示されているスニペットを選択するには")
+![Tab キーを押して、強調表示されているスニペットを選択します](aspnet-mvc-4-custom-action-filters/_static/image39.png "Tab キーを押して、強調表示されているスニペットを選択します")
 
 *Tab キーを押して、強調表示されているスニペットを選択します*
 
-![キーを押して タブで再度とスニペットが展開](aspnet-mvc-4-custom-action-filters/_static/image40.png "キーを押して タブで再度とスニペットが展開されます")
+![もう一度 Tab キーを押すと、スニペットが展開されます。](aspnet-mvc-4-custom-action-filters/_static/image40.png "もう一度 Tab キーを押すと、スニペットが展開されます。")
 
-*キーを押して タブで再度とスニペットが展開されます。*
+*もう一度 Tab キーを押すと、スニペットが展開されます。*
 
-***(C#、Visual Basic および XML) にマウスを使用するコード スニペットを追加する***1。 コード スニペットを挿入するを右クリックします。
+***マウスC#(、Visual Basic および XML) を使用してコードスニペットを追加するに***は1. コードスニペットを挿入する場所を右クリックします。
 
-1. 選択**スニペットの挿入**続けて**マイ コード スニペット**します。
-2. クリックして、一覧から関連するスニペットを選択します。
+1. **[スニペットの挿入]** 、 **[マイコードスニペット**] の順に選択します。
+2. 一覧から該当するスニペットをクリックして選択します。
 
-![コード スニペットを挿入し、スニペットの挿入を選択する場所を右クリックして](aspnet-mvc-4-custom-action-filters/_static/image41.png "コード スニペットを挿入し、スニペットの挿入を選択する場所を右クリック")
+![コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。](aspnet-mvc-4-custom-action-filters/_static/image41.png "コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。")
 
-*コード スニペットを挿入して、スニペットの挿入先の選択します。*
+*コードスニペットを挿入する場所を右クリックし、[スニペットの挿入] を選択します。*
 
-![クリックして、一覧から関連するスニペットを選択](aspnet-mvc-4-custom-action-filters/_static/image42.png "クリックして、一覧から関連するスニペットを選択")
+![一覧から関連するスニペットをクリックして選択します。](aspnet-mvc-4-custom-action-filters/_static/image42.png "一覧から関連するスニペットをクリックして選択します。")
 
-*クリックして、一覧から関連するスニペットを選択します。*
+*一覧から関連するスニペットをクリックして選択します。*

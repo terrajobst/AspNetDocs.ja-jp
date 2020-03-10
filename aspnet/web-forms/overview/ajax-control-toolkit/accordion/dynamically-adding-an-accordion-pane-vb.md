@@ -9,11 +9,11 @@ ms.assetid: fae968c9-1902-487d-b053-86a46dd52c3f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
 ms.openlocfilehash: be48db5ea3de4af46b0f864cc9e73d2f518294a4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607198"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484144"
 ---
 # <a name="dynamically-adding-an-accordion-pane-vb"></a>アコーディオンウィンドウを動的に追加する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74607198"
 
 > AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルはページ内で宣言されますが、サーバー側のコードを使用して同じ結果を得ることができます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットのアコーディオンコントロールは、複数のウィンドウを提供し、ユーザーが一度に1つずつ表示できるようにします。 通常、パネルはページ内で宣言されますが、サーバー側のコードを使用して同じ結果を得ることができます。
 
@@ -58,4 +58,4 @@ AJAX コントロールツールキットのアコーディオンコントロー
 アコーディオン内のデータはサーバー側のコードによって動的に追加されました ([クリックすると、フルサイズの画像が表示](dynamically-adding-an-accordion-pane-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](databinding-to-an-accordion-vb.md)
+> [[戻る]](databinding-to-an-accordion-vb.md)

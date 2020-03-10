@@ -1,80 +1,80 @@
 ---
 uid: signalr/overview/performance/scaleout-with-sql-server
-title: SQL Server による SignalR スケール アウト |Microsoft Docs
+title: SQL Server を使用したスケールアウトの SignalR |Microsoft Docs
 author: bradygaster
-description: このトピックの「Visual Studio 2013 .NET 4.5 SignalR 使用されるソフトウェアのバージョンは以前のバージョンについてはこのトピック以前バージョンをバージョン 2.
+description: この Visual Studio 2013 トピックで使用されているソフトウェアのバージョンについては、このトピックの以前のバージョンの .NET 4.5 SignalR バージョン2以前のバージョンを参照してください。
 ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
 ms.openlocfilehash: 709a9ebf8f3396842bee0d87e621c00ae1418ec1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113638"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467740"
 ---
 # <a name="signalr-scaleout-with-sql-server"></a>SQL Server による SignalR スケールアウト
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+[Mike Wasson](https://github.com/MikeWasson)、[パトリック Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR 2 のバージョン
+> - SignalR バージョン2
 >
 >
 >
-> ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
+> ## <a name="previous-versions-of-this-topic"></a>このトピックの前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> 以前のバージョンの SignalR の詳細については、「[古いバージョンの SignalR](../older-versions/index.md)」を参照してください。
 >
-> ## <a name="questions-and-comments"></a>意見やご質問
+> ## <a name="questions-and-comments"></a>質問とコメント
 >
-> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
-このチュートリアルでは、2 つの IIS インスタンスで配置されている SignalR アプリケーション間でメッセージを配布するのに SQL Server を使用します。 1 つのテスト コンピューターで、このチュートリアルを実行することもできますが、完全な効果を取得するには SignalR アプリケーションを 2 つまたは複数のサーバーをデプロイする必要があります。 サーバーのいずれか、または別の専用サーバーでは、SQL Server をインストールすることもする必要があります。 別のオプションでは、Azure で Vm を使用してチュートリアルを実行します。
+このチュートリアルでは、SQL Server を使用して、2つの異なる IIS インスタンスに配置されている SignalR アプリケーション全体にメッセージを配布します。 このチュートリアルは1つのテストコンピューターで実行することもできますが、完全な効果を得るには、SignalR アプリケーションを複数のサーバーに配置する必要があります。 また、いずれかのサーバーまたは別の専用サーバーに SQL Server をインストールする必要があります。 もう1つの方法は、Azure で Vm を使用してチュートリアルを実行することです。
 
 ![](scaleout-with-sql-server/_static/image1.png)
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-Microsoft SQL Server 2005 以降。 バック プレーンには、SQL Server のデスクトップとサーバーの両方のエディションがサポートされています。 SQL Server Compact Edition または Azure SQL Database はサポートされません。 (場合は、アプリケーションは、Azure でホストされる、Service Bus のバック プレーン代わりに、検討します。)
+Microsoft SQL Server 2005 以降。 バックプレーンは、SQL Server のデスクトップエディションとサーバーエディションの両方をサポートします。 SQL Server Compact Edition または Azure SQL Database はサポートされていません。 (アプリケーションが Azure でホストされている場合は、代わりに Service Bus バックプレーンを検討してください)。
 
 ## <a name="overview"></a>概要
 
-詳細なチュートリアルを始める前に、作業内容の簡単な概要を示します。
+詳細なチュートリアルを開始する前に、実行する操作の概要を簡単に説明します。
 
-1. 新しい空のデータベースを作成します。 バック プレーンはこのデータベースに必要なテーブルを作成します。
-2. これらの NuGet パッケージをアプリケーションに追加します。
+1. 新しい空のデータベースを作成します。 バックプレーンによって、このデータベースに必要なテーブルが作成されます。
+2. 次の NuGet パッケージをアプリケーションに追加します。
 
-    - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.SqlServer](http://nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
+    - [SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
+    - [SignalR. SqlServer](http://nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
 3. SignalR アプリケーションを作成します。
-4. Startup.cs バック プレーンを構成するには、次のコードを追加します。
+4. Startup.cs に次のコードを追加して、バックプレーンを構成します。
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
-   このコードでは、バック プレーンを構成の既定値を持つ[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス。スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。
+   このコードは、 [Tablecount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)の既定値を使用してバックプレーンを構成します。 これらの値を変更する方法の詳細については、「 [SignalR Performance: スケールアウトメトリック](signalr-performance.md#scaleout_metrics)」を参照してください。
 
-## <a name="configure-the-database"></a>データベースを構成します。
+## <a name="configure-the-database"></a>データベースを構成する
 
-かどうか、アプリケーションが Windows 認証または SQL Server 認証に使用、データベースへのアクセスを決定します。 関係なく、データベース ユーザーにログインし、スキーマを作成して、テーブルを作成するアクセス許可を確認します。
+アプリケーションで Windows 認証を使用するか SQL Server 認証を使用してデータベースにアクセスするかを決定します。 に関係なく、データベースユーザーがログインし、スキーマを作成し、テーブルを作成する権限を持っていることを確認します。
 
-使用するバック プレーンの新しいデータベースを作成します。 データベースに任意の名前を付けることができます。 データベースでは、テーブルを作成する必要はありません。バック プレーンでは、必要なテーブルを作成します。
+バックプレーンが使用する新しいデータベースを作成します。 データベースに任意の名前を付けることができます。 データベースにテーブルを作成する必要はありません。バックプレーンによって、必要なテーブルが作成されます。
 
 ![](scaleout-with-sql-server/_static/image2.png)
 
-## <a name="enable-service-broker"></a>Service Broker を有効にします。
+## <a name="enable-service-broker"></a>Service Broker を有効にする
 
-バック プレーンのデータベースの Service Broker を有効にすることをお勧めします。 Service Broker では、メッセージングとバック プレーンのより効率的に更新プログラムを受信できるように SQL Server でのキューのネイティブ サポートを提供します。 (ただし、バック プレーンもさせずに Service Broker。)
+バックプレーンデータベースの Service Broker を有効にすることをお勧めします。 Service Broker は SQL Server でのメッセージングとキューのネイティブサポートを提供します。これにより、バックプレーンが更新をより効率的に受信できるようになります。 (ただし、バックプレーンは Service Broker なしでも動作します)。
 
-Service Broker が有効になっているかどうかを確認するには、クエリ、**は\_broker\_有効になっている**内の列、 **sys.databases**カタログ ビューです。
+Service Broker が有効になっているかどうかを確認するには、**データベース**カタログビューの **\_Broker\_enabled**列に対してクエリを実行します。
 
 [!code-sql[Main](scaleout-with-sql-server/samples/sample2.sql)]
 
@@ -85,55 +85,55 @@ Service Broker を有効にするには、次の SQL クエリを使用します
 [!code-sql[Main](scaleout-with-sql-server/samples/sample3.sql)]
 
 > [!NOTE]
-> このクエリは、デッドロックを確認が表示された場合、DB に接続されているアプリケーションはありません。
+> このクエリでデッドロックが発生した場合は、データベースに接続されているアプリケーションがないことを確認してください。
 
-トレースを有効にした場合、トレースが表示されます Service Broker が有効になっているかどうか。
+トレースを有効にした場合、トレースには Service Broker が有効になっているかどうかも表示されます。
 
-## <a name="create-a-signalr-application"></a>SignalR アプリケーションを作成します。
+## <a name="create-a-signalr-application"></a>SignalR アプリケーションを作成する
 
-これらのチュートリアルのいずれかを次で SignalR アプリケーションを作成します。
+次のいずれかのチュートリアルに従って、SignalR アプリケーションを作成します。
 
-- [SignalR 2.0 の概要](../getting-started/tutorial-getting-started-with-signalr.md)
-- [SignalR 2.0 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
+- [SignalR 2.0 でのはじめに](../getting-started/tutorial-getting-started-with-signalr.md)
+- [SignalR 2.0 および MVC 5 でのはじめに](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-次に、私たちと SQL Server のスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.SqlServer NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、SQL Server によるスケールアウトをサポートするようにチャットアプリケーションを変更します。 まず、SignalR NuGet パッケージをプロジェクトに追加します。 Visual Studio で、 **[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 
-次に、Startup.cs ファイルを開きます。 次のコードを追加、**構成**メソッド。
+次に、Startup.cs ファイルを開きます。 **Configure**メソッドに次のコードを追加します。
 
 [!code-csharp[Main](scaleout-with-sql-server/samples/sample5.cs)]
 
-## <a name="deploy-and-run-the-application"></a>展開し、アプリケーションを実行
+## <a name="deploy-and-run-the-application"></a>アプリケーションをデプロイして実行する
 
-SignalR アプリケーションをデプロイするには、Windows Server インスタンスを準備します。
+SignalR アプリケーションをデプロイするための Windows Server インスタンスを準備します。
 
-IIS の役割を追加します。 WebSocket プロトコルを含む、「アプリケーションの開発」機能が含まれます。
+IIS ロールを追加します。 WebSocket プロトコルなど、"アプリケーション開発" 機能を含めます。
 
 ![](scaleout-with-sql-server/_static/image4.png)
 
-管理サービス ([管理ツール] の下に表示) とも含まれます。
+また、管理サービス ([管理ツール] の下に表示されます) も含めます。
 
 ![](scaleout-with-sql-server/_static/image5.png)
 
-**インストール Web Deploy 3.0 です。** IIS マネージャーを実行するとき、Microsoft Web プラットフォームをインストールするように求められますできます[インストーラーをダウンロード](https://go.microsoft.com/fwlink/?LinkId=255386)します。 プラットフォーム インストーラーで Web Deploy を検索し、Web Deploy 3.0 をインストール
+**Web 配置3.0 をインストールします。** IIS マネージャーを実行すると、Microsoft Web Platform のインストールを求めるメッセージが表示されます。または、[インストーラーをダウンロード](https://go.microsoft.com/fwlink/?LinkId=255386)することもできます。 プラットフォームインストーラーで Web 配置を検索し、Web 配置3.0 をインストールします。
 
 ![](scaleout-with-sql-server/_static/image6.png)
 
-Web 管理サービスが実行されていることを確認します。 それ以外の場合は、サービスを開始します。 (Web 管理サービスで Windows サービスの一覧が表示されない場合は、IIS の役割を追加したときに、管理サービスがインストールされていることを確認)。
+Web 管理サービスが実行されていることを確認します。 実行されていない場合は、サービスを開始します。 (Windows サービスの一覧に [Web 管理サービス] が表示されない場合は、IIS ロールを追加したときに管理サービスがインストールされていることを確認してください)。
 
-最後に、tcp ポート 8172 を開きます。 これは、Web 配置ツールで使用されるポートです。
+最後に、TCP 用にポート8172を開きます。 これは Web 配置ツールが使用するポートです。
 
-サーバーに、開発コンピューターから Visual Studio プロジェクトを配置する準備が整いました。 ソリューション エクスプ ローラーでソリューションを右クリックし、をクリックして**発行**します。
+これで、開発用コンピューターからサーバーに Visual Studio プロジェクトを配置する準備ができました。 ソリューションエクスプローラーで、ソリューションを右クリックし、 **[発行]** をクリックします。
 
-Web デプロイに関するドキュメントの詳細を参照してください。 [for Visual Studio および ASP.NET の Web 配置コンテンツ マップ](../../../whitepapers/aspnet-web-deployment-content-map.md)します。
+Web 配置に関する詳細なドキュメントについては、「 [Visual Studio と ASP.NET の Web 配置コンテンツマップ](../../../whitepapers/aspnet-web-deployment-content-map.md)」を参照してください。
 
-2 つのサーバー アプリケーションをデプロイする場合は、別のブラウザー ウィンドウで各インスタンスを開くし、もう一方の SignalR メッセージを受信互いを参照してください。 (もちろん、実稼働環境で 2 つのサーバー放置ロード バランサーの背後にします。)
+アプリケーションを2台のサーバーに配置する場合は、各インスタンスを別のブラウザーウィンドウで開き、各インスタンスがもう一方から SignalR メッセージを受信することを確認できます。 (もちろん、運用環境では、2つのサーバーはロードバランサーの背後に配置されます)。
 
 ![](scaleout-with-sql-server/_static/image7.png)
 
-アプリケーションを実行した後、SignalR がデータベース内でテーブルを作成が自動的にことが確認できます。
+アプリケーションを実行すると、SignalR によってデータベースにテーブルが自動的に作成されたことがわかります。
 
 ![](scaleout-with-sql-server/_static/image8.png)
 
-SignalR は、テーブルを管理します。 アプリケーションが展開されている限りしない行を削除、変更、テーブルのなど。
+SignalR はテーブルを管理します。 アプリケーションが配置されている限り、行を削除したり、テーブルを変更したりしないでください。

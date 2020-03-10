@@ -1,53 +1,53 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
-title: カスタム ルート制約 (VB) を作成する |Microsoft Docs
+title: カスタムルート制約を作成する (VB) |Microsoft Docs
 author: StephenWalther
-description: Stephen Walther では、カスタム ルート制約を作成する方法を示します。 単純な実装のルートがされたりすることを防止するカスタムの制約に一致する w.
+description: Stephen Walther は、カスタムルート制約を作成する方法を示しています。 ルートが一致しないようにする単純なカスタム制約を実装しています...
 ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 2330708cf4a28180ce8a05f4696bf7a7a32092d6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123414"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486790"
 ---
 # <a name="creating-a-custom-route-constraint-vb"></a>カスタム ルート制約を作成する (VB)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-> Stephen Walther では、カスタム ルート制約を作成する方法を示します。 ルートがリモート コンピューターからブラウザーの要求が行われたときに一致することを防止する単純なカスタム制約を実装します。
+> Stephen Walther は、カスタムルート制約を作成する方法を示しています。 リモートコンピューターからブラウザーの要求が行われたときに、ルートが一致しないようにする単純なカスタム制約を実装します。
 
-このチュートリアルの目的は、カスタム ルート制約を作成する方法を示すです。 カスタム ルート制約では、ルートがいくつかのカスタム条件が一致しない限り、一致することを防止することができます。
+このチュートリアルの目的は、カスタムルート制約を作成する方法を説明することです。 カスタムルート制約を使用すると、一部のカスタム条件に一致しない限り、ルートが一致しないようにすることができます。
 
-このチュートリアルでは、Localhost のルート制約を作成します。 Localhost のルート制約では、ローカル コンピューターからの要求のみと一致します。 インターネット経由でのリモート要求は一致していません。
+このチュートリアルでは、Localhost ルート制約を作成します。 Localhost route 制約は、ローカルコンピューターからの要求のみと一致します。 インターネット経由のリモート要求が一致しません。
 
-カスタム ルート制約を実装するには、また、IRouteConstraint インターフェイスを実装します。 これは、1 つのメソッドを記述する非常にシンプルなインターフェイスです。
+カスタムルート制約を実装するには、IRouteConstraint インターフェイスを実装します。 これは、1つのメソッドを記述する非常に単純なインターフェイスです。
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample1.vb)]
 
-メソッドは、ブール値を返します。 False を返す場合、制約に関連付けられているルートは、ブラウザーの要求に一致しません。
+メソッドはブール値を返します。 False を返した場合、制約に関連付けられているルートはブラウザーの要求と一致しません。
 
-リスト 1 で、Localhost の制約が含まれています。
+Localhost 制約は、リスト1に含まれています。
 
-**1 - LocalhostConstraint.vb を一覧表示します。**
+**リスト 1-LocalhostConstraint .vb**
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample2.vb)]
 
-リスト 1 で制約では、HttpRequest クラスによって公開される IsLocal プロパティを利用します。 このプロパティは、要求の IP アドレスが、127.0.0.1、または要求の ip アドレスがサーバーの IP アドレスと同じ場合に true を返します。
+リスト1の制約では、HttpRequest クラスによって公開されている IsLocal プロパティを利用します。 このプロパティは、要求の IP アドレスが127.0.0.1 であるか、要求の IP アドレスがサーバーの IP アドレスと同じである場合に true を返します。
 
-Global.asax ファイルで定義されているルート内のカスタムの制約を使用するとします。 リスト 2 で Global.asax ファイルでは、Localhost の制約を使用して、ローカル サーバーから要求を行った場合を除き、[管理] ページを要求できないようにします。 たとえば、リモート サーバーから行われたときに、/Admin/DeleteAll の要求は失敗します。
+Global.asax ファイルで定義されているルート内でカスタム制約を使用します。 リスト2の global.asax ファイルは Localhost 制約を使用して、ローカルサーバーから要求を行う場合を除き、だれでも管理ページを要求しないようにします。 たとえば、リモートサーバーからの/Admin/DeleteAll 要求は失敗します。
 
-**2 - Global.asax を一覧表示します。**
+**リスト 2-global.asax**
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample3.vb)]
 
-Localhost の制約は、管理者のルートの定義に使用されます。 このルートは、リモートのブラウザー要求によってとも一致しません。 ただし、Global.asax で定義されている他のルートが同じ要求を一致することに注意してください。 制約は、要求を照合から特定のルートを防止し、いないすべてのルートが Global.asax ファイルで定義されていることを理解しておく必要があります。
+Localhost 制約は、管理ルートの定義で使用されます。 このルートは、リモートブラウザーの要求と一致しません。 ただし、global.asax で定義されている他のルートは、同じ要求と一致している可能性があります。 制約は、グローバルな global.asax ファイルで定義されているすべてのルートではなく、特定のルートが要求と一致しないようにすることを理解しておくことが重要です。
 
-既定のルート コメント アウトされているリスト 2 で、Global.asax ファイルからに注意してください。 既定のルートを含める場合、既定のルートは、管理コントローラの要求と一致は。 その場合は、管理者ルートは一致しません、要求でも、リモート ユーザーは管理者コント ローラーのアクションを呼び出しても場合があります。
+リスト2の global.asax ファイルから、既定のルートがコメントアウトされていることに注意してください。 既定のルートを含めると、既定のルートは管理コントローラーの要求と一致します。 その場合でも、リモートユーザーは、要求が管理者ルートと一致しない場合でも、管理コントローラーのアクションを呼び出すことができます。
 
 > [!div class="step-by-step"]
-> [前へ](creating-a-route-constraint-vb.md)
+> [[戻る]](creating-a-route-constraint-vb.md)

@@ -1,29 +1,29 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: 第 6 部:ASP.NET メンバーシップ |Microsoft Docs
+title: 'パート 6: ASP.NET Membership |Microsoft Docs'
 author: JoeStagner
-description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 6 では、ASP.NET メンバーシップを追加します。
+description: このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート6では、ASP.NET メンバーシップを追加します。
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
 ms.openlocfilehash: b0caa89dc9ffb5bb7451fa2d9d346c7db2bf1466
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130873"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454882"
 ---
-# <a name="part-6-aspnet-membership"></a>第 6 部:ASP.NET メンバーシップ
+# <a name="part-6-aspnet-membership"></a>パート 6: ASP.NET メンバーシップ
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
+> Tailspin Spyworks は、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを簡単に作成する方法を示しています。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェックアウト、管理などのオンラインストアを構築する方法を示しています。
 > 
-> このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 6 では、ASP.NET メンバーシップを追加します。
+> このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート6では、ASP.NET メンバーシップを追加します。
 
-## <a id="_Toc260221672"></a>  ASP.NET メンバーシップの使用
+## <a id="_Toc260221672"></a>ASP.NET メンバーシップの使用
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -31,81 +31,81 @@ ms.locfileid: "65130873"
 
 ![](tailspin-spyworks-part-6/_static/image1.jpg)
 
-フォーム認証が使用されていることを確認します。
+フォーム認証を使用していることを確認します。
 
 ![](tailspin-spyworks-part-6/_static/image2.jpg)
 
-数人のユーザーを作成するのにには、「ユーザーの作成」リンクを使用します。
+[Create User] \ (ユーザーの作成 \) リンクを使用して、いくつかのユーザーを作成します。
 
 ![](tailspin-spyworks-part-6/_static/image3.jpg)
 
-完了したら、ソリューション エクスプ ローラー ウィンドウを参照してくださいし、表示を更新します。
+完了したら、[ソリューションエクスプローラー] ウィンドウを参照して、ビューを更新します。
 
 ![](tailspin-spyworks-part-6/_static/image2.png)
 
-なお、ASPNETDB します。MDF の問題が作成されました。 このファイルには、メンバーシップのように ASP.NET のコア サービスをサポートするためにテーブルが含まれています。
+ASPNETDB.MDF であることに注意してください。MDF が正常に作成されました。 このファイルには、メンバーシップのようなコア ASP.NET サービスをサポートするテーブルが含まれています。
 
-これでチェック アウト プロセスの実装を開始できます。
+これで、チェックアウトプロセスの実装を開始できます。
 
-まず CheckOut.aspx ページを作成します。
+まず、CheckOut ページを作成します。
 
-CheckOut.aspx ページのみへのアクセスは制限がログインしてユーザーとリダイレクトのユーザーがログイン ページにログインしていないためにログオンしているユーザーが使用できる場合があります。
+チェックアウトページは、ログインしているユーザーのみが使用できるようにする必要があります。ログインしているユーザーへのアクセスを制限し、ログインページにログインしていないユーザーをリダイレクトします。
 
-これを行うには次の web.config ファイルの構成セクションを追加します。
+これを行うには、web.config ファイルの構成セクションに次の内容を追加します。
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample1.xml)]
 
-ASP.NET Web フォーム アプリケーション テンプレートは自動的に、web.config ファイルに、[認証] セクションを追加し、既定のログイン ページが確立されています。
+ASP.NET Web フォームアプリケーション用のテンプレートによって、認証セクションが web.config ファイルに自動的に追加され、既定のログインページが確立されました。
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample2.xml)]
 
-Login.aspx 分離コード ファイルに、ユーザーがログインすると、匿名のショッピング カートを移行するよう変更する必要があります。 ページを変更する\_読み込みイベントは次のようにします。
+ユーザーがログインするときに、匿名ショッピングカートを移行するには、login.aspx コードビハインドファイルを変更する必要があります。 次のように、ページ\_読み込みイベントを変更します。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample3.cs)]
 
-新しくログイン ユーザーに、セッション名を設定し、MyShoppingCart クラス MigrateCart メソッドを呼び出しているユーザーのショッピング カートに一時的なセッション id に変更は、このような「当てはまります」イベント ハンドラーを追加します。 (.Cs ファイルで実装)
+次に、このような "LoggedIn" イベントハンドラーを追加して、新しくログインしたユーザーにセッション名を設定し、MyShoppingCart クラスの MigrateCart メソッドを呼び出して、ショッピングカート内の一時的なセッション id をユーザーの一時的なセッション id に変更します。 (.Cs ファイルに実装されています)
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample4.cs)]
 
-MigrateCart() メソッドの実装では、このような。
+このような MigrateCart () メソッドを実装します。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample5.cs)]
 
-Checkout.aspx で使用します、EntityDataSource と GridView、チェック アウト ページで、ショッピング カート ページで行ったようにします。
+Checkout では、ショッピングカートページで行ったように、チェックアウトページで EntityDataSource と GridView を使用します。
 
 [!code-aspx[Main](tailspin-spyworks-part-6/samples/sample6.aspx)]
 
-GridView コントロールが MyList という名前の"ondatabound"イベント ハンドラーを指定することに注意してください\_RowDataBound このような場合は、そのイベント ハンドラーを実装してみましょう。
+GridView コントロールで、\_MyList という名前の "ondatabound バインド" イベントハンドラーが指定されていることに注意してください。そのため、このようなイベントハンドラーを実装してみましょう。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample7.cs)]
 
-このメソッドは、累計のショッピング カートの各行がバインドされているし、GridView の一番下の行を更新を保持します。
+このメソッドは、各行がバインドされ、GridView の下部の行を更新するときに、ショッピングカートの累計を保持します。
 
-この段階で配置する順序を"review"プレゼンテーションを実装しました。
+この段階では、配置する順序の "レビュー" プレゼンテーションを実装しました。
 
-ページに数行のコードを追加することで、空のカート シナリオを処理しましょう\_Load イベント。
+次のように、ページ\_の読み込みイベントに数行のコードを追加して、空のカートシナリオを処理してみましょう。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample8.cs)]
 
-ユーザーが [送信] ボタンをクリックすると、送信ボタンの Click イベント ハンドラーで、次のコードを実行しますが。
+ユーザーが [送信] ボタンをクリックすると、[送信] ボタンの [イベントハンドラー] で次のコードが実行されます。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample9.cs)]
 
-注文の送信処理の「核心部分」MyShoppingCart クラスの SubmitOrder() メソッドで実装することです。
+注文送信プロセスの "肉" は、MyShoppingCart クラスの SubmitOrder () メソッドに実装されます。
 
-SubmitOrder を行います。
+SubmitOrder は次のようになります。
 
-- ショッピング カート内のすべての行項目を実行し、新しい注文レコードと関連付けられている OrderDetails レコードの作成に使用します。
+- ショッピングカート内のすべての品目を取得し、それらを使用して新しい注文レコードと関連付けられた OrderDetails レコードを作成します。
 - 出荷日を計算します。
-- ショッピング カートをオフにします。
+- ショッピングカートをクリアします。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample10.cs)]
 
-このサンプル アプリケーションの目的で 2 日間を現在の日付に追加するだけで出荷日を計算します。
+このサンプルアプリケーションでは、現在の日付に2日を加算するだけで出荷日を計算します。
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample11.cs)]
 
-これでアプリケーションを実行している、最初から最後までショッピングのプロセスをテストすることが許可されます。
+今すぐアプリケーションを実行すると、ショッピングプロセスを開始から終了までテストできるようになります。
 
 > [!div class="step-by-step"]
 > [前へ](tailspin-spyworks-part-5.md)

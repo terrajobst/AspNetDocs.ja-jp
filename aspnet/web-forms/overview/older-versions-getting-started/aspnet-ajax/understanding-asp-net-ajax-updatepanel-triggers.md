@@ -9,17 +9,17 @@ ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
 ms.openlocfilehash: b1cc869f373d4f8283b4d92af74707c3f11fef61
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74588808"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78440542"
 ---
 # <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel トリガーについて理解する
 
 [Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
 > Visual Studio のマークアップエディターで作業するときに、UpdatePanel コントロールの2つの子要素があることを (IntelliSense から) 確認できます。 そのうちの1つは、要素が存在する UpdatePanel コントロールの部分的なレンダリングをトリガーする、ページ上のコントロール (または、使用している場合はユーザーコントロール) を指定する Triggers 要素です。
 
@@ -53,7 +53,7 @@ Visual Studio のマークアップエディターで作業する場合、`Updat
 
 *マークアップの子孫:*
 
-| **番号** | **説明** |
+| **Tag** | **説明** |
 | --- | --- |
 | &lt;asp: AsyncPostBackTrigger&gt; | このトリガー参照を含む UpdatePanel の部分ページ更新を発生させるコントロールとイベントを指定します。 |
 | &lt;asp: PostBackTrigger&gt; | ページ全体の更新を発生させるコントロールとイベントを指定します (ページ全体の更新)。 このタグを使用すると、コントロールが部分的なレンダリングをトリガーする場合に、完全な更新を強制的に実行できます。 |
@@ -129,7 +129,7 @@ UpdatePanel は、ScriptManager1 パラメーターを使用して起動され�
 
 ただし、これは指摘されるはずですが、ページ\_読み込みイベント内の時間を初期化したので、時間が正しくインクリメントされました。 そのため、開発者は、適切なイベントハンドラーの実行中に適切なコードが実行されていることを慎重に考慮し、コントロールイベントハンドラーが適切な場合にページ\_の読み込みを使用しないようにする必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET AJAX Extensions UpdatePanel コントロールは汎用性があり、更新を引き起こす可能性のあるコントロールイベントを識別するための多数のメソッドを利用できます。 子コントロールによって自動的に更新されることをサポートしますが、ページ上の他の場所にあるコントロールイベントに応答することもできます。
 

@@ -10,11 +10,11 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtim
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: 2503e90735d6cfa445ee08c9e43f8443aa106096
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600454"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78450118"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>チュートリアル: SignalR 2 を使用した高頻度のリアルタイムアプリの作成
 
@@ -24,10 +24,10 @@ ms.locfileid: "74600454"
 
 このチュートリアルで導入された概念には、リアルタイムゲームやその他のシミュレーションアプリケーションのアプリケーションがあります。
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * プロジェクトを設定する
+> * プロジェクトのセットアップ
 > * 基本アプリケーションを作成する
 > * アプリの起動時にハブにマップする
 > * クライアントを追加する
@@ -38,11 +38,11 @@ ms.locfileid: "74600454"
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-* **ASP.NET と web 開発**ワークロードを含む[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) と **ASP.NET および開発**ワークロード。
 
-## <a name="set-up-the-project"></a>プロジェクトを設定する
+## <a name="set-up-the-project"></a>プロジェクトのセットアップ
 
 このセクションでは、Visual Studio 2017 でプロジェクトを作成します。
 
@@ -62,7 +62,7 @@ ms.locfileid: "74600454"
 
     この手順では、 *MoveShapeHub.cs*クラスファイルを作成します。 同時に、SignalR をサポートする一連のスクリプトファイルとアセンブリ参照をプロジェクトに追加します。
 
-1. [**ツール** > **NuGet パッケージマネージャー** > **パッケージマネージャーコンソール**] を選択します。
+1. **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** の順に選択します。
 
 1. **パッケージマネージャーコンソール**で、次のコマンドを実行します。
 
@@ -224,11 +224,11 @@ Javascript `setInterval` 関数を使用して、固定レートでサーバー�
 
 このコードは、図形を古い位置から新しい位置に移動します。 サーバーは、アニメーションの間隔の間に図形の位置を示します。 この場合、これは100ミリ秒です。 新しいアニメーションが開始される前に、その図形で実行されていた前のアニメーションがアプリによってクリアされます。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 ここで学習した通信パラダイムは、 [SignalR で作成された ShootR ゲーム](https://shootr.azurewebsites.net/)と同様に、オンラインゲームやその他のシミュレーションの開発に役立ちます。
 
@@ -240,12 +240,12 @@ SignalR の詳細については、次のリソースを参照してください
 
 * [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * プロジェクトを設定する
+> * プロジェクトのセットアップ
 > * 基本アプリケーションを作成しました
 > * アプリの起動時にハブにマップされます
 > * クライアントを追加しました

@@ -9,13 +9,13 @@ ms.assetid: abc7c78d-cb09-4a4c-a887-61bc401d40e3
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
 ms.openlocfilehash: b4a1316feb8d9b7f3ef5ca4755bf1cc5b23e6ef9
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77458206"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78498844"
 ---
-# <a name="adding-a-view-c"></a>ビューの追加 (C#)
+# <a name="adding-a-view-c"></a>ビュー (C#) を追加します。
 
 [Rick Anderson](https://twitter.com/RickAndMSFT)
 

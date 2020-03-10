@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
 ms.openlocfilehash: 2f0b47d45bce82c71d1864536309f9e2ffed2d63
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519129"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500068"
 ---
 # <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>カスタム MySQL ASP.NET Identity ストレージ プロバイダーの実装
 
@@ -40,7 +40,7 @@ ms.locfileid: "76519129"
 
 ## <a name="the-steps-you-will-perform"></a>実行する手順
 
-このチュートリアルでは次のことを行います。
+このチュートリアルでは、次のことについて説明します。
 
 1. Azure で MySQL データベースを作成する
 2. MySQL で ASP.NET Identity テーブルを作成する
@@ -113,7 +113,7 @@ MySQL 記憶域プロバイダーを作成する手順に進む前に、記憶�
 ### <a name="create-a-new-mvc-application-project-from-template"></a>テンプレートからの新しい MVC アプリケーションプロジェクトの作成
 
 1. **AspNet. id. MySQL**ソリューションを右クリックし、[**新しいプロジェクト**の**追加**] をクリックします。
-2. **[新しいプロジェクトの追加]** ダイアログで、左側の **[ビジュアルC# ]** 、 **[web]** の順に選択し、 **[ASP.NET web Application]** を選択します。 プロジェクトに名前を **IdentityMySQLDemo** ;[ok] をクリックします。  
+2. **[新しいプロジェクトの追加]** ダイアログで、左側の **[ビジュアルC# ]** 、 **[web]** の順に選択し、 **[ASP.NET web Application]** を選択します。 **プロジェクトに**名前を指定します。[OK] をクリックします。  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.jpg)
 3. **[New ASP.NET プロジェクト]** ダイアログボックスで、既定のオプション (認証方法として**個々のユーザーアカウント**を含む) を使用して MVC テンプレートを選択し、[ **OK]** をクリックします。![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)
@@ -121,7 +121,7 @@ MySQL 記憶域プロバイダーを作成する手順に進む前に、記憶�
 5. 識別子 プロジェクトを右クリックし、**追加**、**参照、ソリューション、プロジェクト** の順に選択し、AspNet プロジェクトを選択して  **OK**をクリックします。
 6. 識別子のすべての参照を置き換えます。  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
-   を使用する場合  
+   with  
      `using AspNet.Identity.MySQL;`
 7. IdentityModels.cs で、 **Applicationdbcontext**を**MySqlDatabase**から派生するように設定し、接続名と共に1つのパラメーターを受け取るコンストラクターを含めます。  
 
@@ -148,7 +148,7 @@ MySQL 記憶域プロバイダーを作成する手順に進む前に、記憶�
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image10.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 このアプリで他の認証方法を有効にする方法の詳細については、「 [Facebook と Google OAuth2 を使用した ASP.NET MVC 5 アプリの作成」と「OpenID サインオン](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)」を参照してください。
 

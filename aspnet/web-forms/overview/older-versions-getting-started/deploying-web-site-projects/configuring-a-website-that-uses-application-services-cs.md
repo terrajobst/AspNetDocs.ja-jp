@@ -9,11 +9,11 @@ ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 72aaca84b8c8d6e558d4c946faa57fa999d48bf8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74570193"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78511780"
 ---
 # <a name="configuring-a-website-that-uses-application-services-c"></a>アプリケーション サービスを使用する Web サイトを構成する (C#)
 
@@ -127,7 +127,7 @@ ASP.NET には、Visual Studio から起動できる便利な[*Web サイト管�
 
 ### <a name="copying-user-accounts-from-development-to-production"></a>開発環境から運用環境へのユーザーアカウントのコピー
 
-`SqlMembershipProvider` および `SqlRoleProvider` プロバイダークラスを使用してアプリケーションサービス情報を SQL Server データベースに格納する場合、ユーザーアカウントとロール情報は、`aspnet_Users`、`aspnet_Membership`、`aspnet_Roles`、`aspnet_UsersInRoles`など、さまざまなデータベーステーブルに格納されます。 開発時に開発環境でユーザーアカウントを作成する場合は、該当するデータベーステーブルから対応するレコードをコピーすることで、これらのユーザーアカウントを実稼働環境にレプリケートできます。 データベース公開ウィザードを使用してアプリケーションサービスデータベースオブジェクトを配置した場合、レコードもコピーすることを選択した可能性があります。これにより、開発で作成されたユーザーアカウントも運用環境に存在することになります。 ただし、構成設定によっては、アカウントが開発中に作成され、運用環境にコピーされたユーザーは、運用 web サイトからログインできないことがわかります。 何をするのでしょうか。
+`SqlMembershipProvider` および `SqlRoleProvider` プロバイダークラスを使用してアプリケーションサービス情報を SQL Server データベースに格納する場合、ユーザーアカウントとロール情報は、`aspnet_Users`、`aspnet_Membership`、`aspnet_Roles`、`aspnet_UsersInRoles`など、さまざまなデータベーステーブルに格納されます。 開発時に開発環境でユーザーアカウントを作成する場合は、該当するデータベーステーブルから対応するレコードをコピーすることで、これらのユーザーアカウントを実稼働環境にレプリケートできます。 データベース公開ウィザードを使用してアプリケーションサービスデータベースオブジェクトを配置した場合、レコードもコピーすることを選択した可能性があります。これにより、開発で作成されたユーザーアカウントも運用環境に存在することになります。 ただし、構成設定によっては、アカウントが開発中に作成され、運用環境にコピーされたユーザーは、運用 web サイトからログインできないことがわかります。 何のためでしょう。
 
 `SqlMembershipProvider` および `SqlRoleProvider` プロバイダークラスは、1つのデータベースが複数のアプリケーションのユーザーストアとして機能するように設計されています。つまり、理論的には、同じ名前のユーザー名とロールを持つユーザーを持つことができます。 この柔軟性を実現するために、データベースは `aspnet_Applications` テーブルにアプリケーションの一覧を保持し、各ユーザーはこれらのアプリケーションのいずれかに関連付けられています。 具体的には、`aspnet_Users` テーブルには、各ユーザーを `aspnet_Applications` テーブル内のレコードに結び付ける `ApplicationId` 列があります。
 
@@ -161,13 +161,13 @@ WSAT によって公開されているすべての機能は、メンバーシッ
 
 WSAT の完全な機能が必要な場合は、 [ *「独自の Web サイト管理ツールをロール*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)アウトする」をご覧ください。このツールでは、作成者 Dan clem がカスタムの WSAT に似たツールを構築するプロセスを説明しています。 Dan は、アプリケーションのソースコード ( C#) を共有し、ホストされている web サイトに追加するための詳細な手順を示します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 アプリケーションサービスデータベースの実装を使用する web アプリケーションを配置する場合は、まず、実稼働データベースに必要なデータベースオブジェクトがあることを確認する必要があります。 これらのオブジェクトは、「*データベースの配置*」チュートリアルで説明されている手法を使用して追加できます。または、このチュートリアルで説明したように、`aspnet_regsql.exe` ツールを使用することもできます。 開発環境および運用環境で使用されているアプリケーション名の同期を中心に説明した他の課題 (開発環境で作成されたユーザーとロールが運用環境で有効になるようにする場合は重要です) との手法運用環境でのユーザーとロールの管理。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

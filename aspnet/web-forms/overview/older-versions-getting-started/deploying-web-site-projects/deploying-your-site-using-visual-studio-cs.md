@@ -9,11 +9,11 @@ ms.assetid: cde4ee53-a5d0-4937-a54b-67877e8266c3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 4259e51f5a3e6a97bae2aa27b76cbd56ca3449d6
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636377"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78522796"
 ---
 # <a name="deploying-your-site-using-visual-studio-c"></a>Visual Studio を使用してサイトを配置する (C#)
 
@@ -117,13 +117,13 @@ Publish オプションは、Web サイトのコピーツールよりも微妙�
 
 運用環境と開発環境でコンテンツが異なる特定のファイルが存在することは珍しくありません。 キーの例としては、アプリケーションの構成ファイル `Web.config`があります。 発行オプションによって web アプリケーションファイルが無条件にコピーされるため、運用環境のカスタマイズされた構成ファイルは開発環境のバージョンで上書きされます。 以降のチュートリアルでは、このトピックについて詳しく説明し、このような違いが存在する場合に web アプリケーションをデプロイするためのヒントを提供します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Web サイトを配置するには、必要なファイルを開発環境から運用環境にコピーする必要があります。 前のチュートリアルでは、FileZilla のような FTP クライアントを使用してファイルを転送する方法を説明しました。 このチュートリアルでは、Visual Studio の2つの配置ツール (Web サイトのコピーツールと [発行] オプション) を確認しています。 Web サイトのコピーツールは、FTP クライアントに似ています。これは、ローカルコンピューター上のファイルと、2つのコンピューター間でファイルを簡単にアップロードまたはダウンロードできるように指定されたリモートコンピューターの2つのペインからなるインターフェイスがあることです。 Publish オプションは、プロジェクトを明示的にコンパイルし、指定された変換先にアプリケーション全体を配置する、より無愛想ツールです。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

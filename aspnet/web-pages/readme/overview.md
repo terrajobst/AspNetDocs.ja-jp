@@ -1,33 +1,33 @@
 ---
 uid: web-pages/readme/overview
-title: WebMatrix のリリース ノート |Microsoft Docs
+title: WebMatrix の Readme |Microsoft Docs
 author: rick-anderson
-description: WebMatrix と ASP.NET Web Pages (Razor) 1.0 リリースの Readme
+description: WebMatrix および ASP.NET Web Pages (Razor) 1.0 リリースの Readme
 ms.author: riande
 ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
 ms.openlocfilehash: fac53e935860a90d8f2aa96699d56d66ade3a40f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133190"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454270"
 ---
 # <a name="webmatrix-readme"></a>WebMatrix Readme
 
-2011 年 1 月 13日
+2011年1月13日
 
-## <a name="contents"></a>目次
+## <a name="contents"></a>内容
 
 > [!NOTE]
-> この readme は WebMatrix の 1.0 リリースに適用されます。
+> この readme は、WebMatrix の1.0 リリースに適用されます。
 
 - [概要](#Overview)
 - [インストール](#Installation_Notes)
 - [アプリケーションを発行する方法](#InstructionsForPublishingApplications)
-- [変更点と問題](#ChangesAndIssues)
+- [変更と懸案事項](#ChangesAndIssues)
 
     - [WebMatrix 1.0 のインストール](#Known_Issues_Installation)
     - [ASP.NET Web ページ](#Known_Issues_ASPNET)
@@ -42,20 +42,20 @@ ms.locfileid: "65133190"
 
 ## <a name="overview"></a>概要
 
-> Microsoft WebMatrix 1.0 は、数分でインストールする無料の web 開発スタックです。 データベース プログラミング フレームワークが 1 つ、統合されたエクスペリエンスを作成すると、web サーバーが統合されています。 WebMatrix を使用して、コーディング、テスト、および独自の ASP.NET または PHP web のサイトを公開する方法を効率化、または WebMatrix を使用して、DotNetNuke、Umbraco、WordPress、Joomla などの一般的なオープン ソース アプリを使用して新しい web サイトを開始することができます。 WebMatrix は、同じ強力な web サーバー、データベース エンジン、および円滑かつシームレスに開発から運用環境への移行を使用すると、インターネット上の web サイトを実行するフレームワークの環境を使用します。
+> WebMatrix は、わずか数分でインストール可能な無償の Web 開発ツールです。 データベースとプログラミングのフレームワークに Web サーバーを組み合わせることによって、1 つの統合的な環境を実現します。 WebMatrix では、独自の ASP.NET または PHP Web サイトを効率よくコーディング、テスト、発行することができるほか、広く普及しているオープン ソース アプリケーション (DotNetNuke、Umbraco、WordPress、Joomla など) をベースにして、新しい Web サイトを作成することもできます。 WebMatrix には、インターネット上で Web サイトを実行するものと同じ強力な Web サーバー、データベース エンジン、フレームワークが使用されているため、開発環境から実稼働環境への円滑かつシームレスな移行が可能です。
 
 <a id="Installation_Notes"></a>
 
 ## <a name="installation"></a>インストール
 
-> WebMatrix 1.0 をインストールする必要があります最初にインストールする、 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/fwlink/?LinkID=194638)します。 Web Platform Installer をインストールした後は、WebMatrix のインストールに使用できます。
+> WebMatrix 1.0 をインストールするには、最初に[Microsoft Web Platform Installer 3.0](https://go.microsoft.com/fwlink/?LinkID=194638)をインストールする必要があります。 まず Web Platform Installer のインストールし、それを使用して WebMatrix をインストールすることになります。
 > 
-> インストール中に問題がある場合を参照してください[Microsoft Web Platform Installer に関する問題をトラブルシューティング](https://go.microsoft.com/fwlink/?LinkId=196212)します。
+> インストール中に問題が発生した場合は、「 [Microsoft Web Platform Installer に関する問題のトラブルシューティング](https://go.microsoft.com/fwlink/?LinkId=196212)」を参照してください。
 
 <a id="InstructionsForPublishingApplications"></a>
-## <a name="how-to-publish-applications"></a>アプリケーションを発行する方法
+## <a name="how-to-publish-applications"></a>アプリケーションの発行方法
 
-> 参照してください[でアプリケーションを公開する手順](https://go.microsoft.com/fwlink/?LinkID=196149)
+> [アプリケーションを公開するための詳細な手順を確認する](https://go.microsoft.com/fwlink/?LinkID=196149)
 
 <a id="ChangesAndIssues"></a>
 
@@ -63,14 +63,14 @@ ms.locfileid: "65133190"
 
 <a id="Known_Issues_Installation"></a>
 
-### <a name="webmatrix-10-installation-issues"></a>WebMatrix 1.0 のインストールに関する問題
+### <a name="webmatrix-10-installation-issues"></a>WebMatrix 1.0 のインストールの問題
 
-#### <a name="issue-webmatrix-10-is-available-only-on-platforms-that-support-microsoft-net-framework-4"></a>問題:WebMatrix 1.0 は Microsoft .NET Framework 4 をサポートするプラットフォームでのみ使用できます。
+#### <a name="issue-webmatrix-10-is-available-only-on-platforms-that-support-microsoft-net-framework-4"></a>問題: Microsoft .NET Framework 4 をサポートするプラットフォームでしか WebMatrix 1.0 は使用できない
 
-> .NET Framework version 4 が WebMatrix に必要です。 場合によっては、WebMatrix 1.0 インストーラーができます、サポートされている構成セットの一部ではないプラットフォームをインストールしようとしています。 具体的には、Windows Vista SP1 更新プログラムがないと、WebMatrix のインストールを開始するが、.NET Framework 4 のコンポーネントは失敗し、インストールをブロックします。
+> WebMatrix には .NET Framework Version 4 が必須です。 特定の条件が揃うと、サポートされたプラットフォーム構成でないにもかかわらず、WebMatrix 1.0 インストーラーが先に進む場合があります。 たとえば、SP1 更新プログラムが適用されていない Windows Vista では、WebMatrix のインストールが正常に開始されますが、.NET Framework 4 コンポーネントでエラーが発生し、インストールはブロックされます。
 > 
 > **回避策**  
-> 含む、サポートされているプラットフォームにインストールします。
+> サポートされているプラットフォームにインストールします。サポート対象のプラットフォームは次のとおりです。
 > 
 > - Windows 7
 > - Windows Server 2008
@@ -79,432 +79,432 @@ ms.locfileid: "65133190"
 > - Windows XP SP3
 > - Windows Server 2003 SP2
 
-#### <a name="issue-cannot-install-webmatrix-10-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>問題:Microsoft Visual Studio 2008 SP1 がない場合に Microsoft Visual Studio 2008 がインストールされている場合、WebMatrix 1.0 をインストールことはできません。
+#### <a name="issue-cannot-install-webmatrix-10-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>問題: Microsoft Visual Studio 2008 が SP1 未適用の状態でインストールされていると WebMatrix 1.0 をインストールできない
 
 > **回避策**  
-> インストール[Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) Microsoft ダウンロード センターから。
+> Microsoft ダウンロードセンターから[Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en)をインストールします。
 
-#### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>問題:SQL Server Compact 4.0 の一部のアセンブリが GAC にインストールされていません
+#### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>問題: SQL Server Compact 4.0 のアセンブリの一部が GAC にインストールされない
 
-> 64 ビット コンピューターで SQL Server Compact 4.0 をインストールして、コンピューターにのみ、.NET Framework 3.5 SP1 Client Profile インストールされているときに、SQL Server Compact 4.0 のマネージ アセンブリがグローバル アセンブリ キャッシュ (GAC) に配置されていません。 マネージ アセンブリを GAC にインストールされていない次のとおりです。
+> SQL Server Compact 4.0 を 64 ビット コンピューターにインストールする際、そのコンピューターに .NET Framework 3.5 SP1 Client Profile しかインストールされていないと、SQL Server Compact 4.0 のマネージド アセンブリがグローバル アセンブリ キャッシュ (GAC) に配置されません。 GAC にインストールされないマネージド アセンブリは次のとおりです。
 > 
-> - *System.Data.SqlServerCe.dll* (ADO.NET プロバイダー)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
+> - *System.data.sqlserverce* (ADO.NET provider) (システムプロバイダー)
+> - *System.data.sqlserverce* (ADO.NET) (Entity Framework)
 > 
 > **回避策**  
-> アンインストールの SQL Server Compact 4.0。 ダウンロードして、次の場所から、フル バージョンの .NET Framework 3.5 SP1 をインストールします。  
+> SQL Server Compact 4.0 をアンインストールします。 次の場所から完全バージョンの .NET Framework 3.5 SP1 をダウンロードしてインストールします。  
 >   
-> [Microsoft .NET Framework 3.5 Service pack 1 (フル パッケージ)](https://go.microsoft.com/fwlink/?LinkId=194828)  
+> [Microsoft .NET Framework 3.5 Service pack 1 (フルパッケージ)](https://go.microsoft.com/fwlink/?LinkId=194828)  
 >   
-> SQL Server Compact 4.0 を再インストールします。
+> そのうえで SQL Server Compact 4.0 を再インストールします。
 
-#### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>問題:SQL Server Compact のコマンドラインを使用してアンインストールできません。
+#### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>問題: コマンド ラインを使用して SQL Server Compact をアンインストールすることはできない
 
-> SQL Server Compact のコマンド ライン オプションを使用してのアンインストールは、このリリースでは機能しません。
+> このリリースでは、コマンド ライン オプションを使用して SQL Server Compact をアンインストールすることはできません。
 > 
 > **回避策**  
-> 使用*プログラムと機能*Windows コントロール パネルの Microsoft SQL Server Compact 4.0 をアンインストールします。
+> Windows のコントロールパネルの [*プログラムと機能*] を使用して、Microsoft SQL Server Compact 4.0 をアンインストールします。
 
 <a id="Known_Issues_ASPNET"></a>
 
-### <a name="aspnet-web-pages"></a>ASP.NET Web ページ
+### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
-ドキュメントのこのセクションでは、新機能、変更、および Razor 構文を使用して ASP.NET Web Pages の 1.0 リリースの既知の問題について説明します。
+ここでは、Razor 構文を使用した ASP.NET Web Pages 1.0 リリースの新機能、変更点、および既知の問題について説明します。
 
 - [新機能](#NewFeatures)
-- [変更](#Changes)
+- [[変更点]](#Changes)
 - [問題](#Issues)
 
-#### <a id="NewFeatures"></a>  新機能
+#### <a id="NewFeatures"></a>新機能
 
-#### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>新規 : パッケージ マネージャーを無効にする構成設定の追加
+#### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>新機能: パッケージ マネージャーを無効にするための構成設定を追加
 
-> 新しい`asp:AdminManagerEnabled`キーが利用可能、`<appSettings>`内の要素、 *web.config*ファイルで、パッケージ マネージャーを完全に無効にすることができます。 この要素の既定値は true、存在してしない場合、つまり、 *web.config*ファイル、パッケージ マネージャーを有効にします。 パッケージ マネージャーを無効にするには、次の要素を追加、 *web.config* web サイトのルートにあるファイル。
+> *Web.config ファイルの*`<appSettings>` 要素に新しい `asp:AdminManagerEnabled` キーを使用できます。これにより、パッケージマネージャーを完全に無効にすることができます。 この要素の既定値は true です。これは、 *web.config ファイルに*含まれていない場合、パッケージマネージャーが有効になっていることを意味します。 パッケージマネージャーを無効にするには、 *web*サイトのルートにある web.config ファイルに次の要素を追加します。
 > 
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
-#### <a id="Changes"></a>  変更
+#### <a id="Changes"></a>変化
 
-#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>変更:"webPages:AdminFolderVirtualPath"キーを"Asp:adminfoldervirtualpath"に変更されました
+#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>変更点: "webPages:AdminFolderVirtualPath" キーの名前を "asp:AdminFolderVirtualPath" に変更
 
-> `webPages:AdminFolderVirtualPath`キーに追加することができますが、 *web.config*を使用して、パッケージ マネージャーの場所を指定するファイルの名前は、`asp:`名前空間の代わりに、`webPages`名前空間。 この要素を使用している場合は、構成ファイルで変更する必要があります。
+> パッケージマネージャーの場所を指定するために*web.config ファイルに*追加できる `webPages:AdminFolderVirtualPath` キーは、`webPages` 名前空間ではなく `asp:` 名前空間を使用するように名前が変更されました。 この要素を使用している場合は、構成ファイルで名前を変更する必要があります。
 
-#### <a id="Issues"></a>  既知の問題
+#### <a id="Issues"></a> 既知の問題
 
-#### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>問題:認識されないメンバーシップ ユーザーのパスワード
+#### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>問題: メンバーシップ ユーザーのパスワードが認識されなくなった
 
-> 安全な作成とメンバーシップ (ログイン) パスワードを格納するためのアルゴリズムが変更されました。 その結果、ASP.NET Razor のベータ版で作成されたメンバー (ユーザー) に格納されているパスワードは認識されません。 
+> セキュリティを強化するため、メンバーシップ (ログイン) パスワードの作成と保存のアルゴリズムが変更されました。 その結果、ASP.NET Razor のベータ版で作成されたメンバー (ユーザー) 用に保存されたパスワードは認識されなくなります。 
 > 
-> **回避策**サイトが運用環境にまだ配置されていない場合は、メンバーシップ データベースからユーザー レコードを削除します。 データベースがライブの場合は、プログラムでメンバーシップ データベース内の既存のパスワードを再生成します。
+> **回避策**サイトがまだ運用環境に配置されていない場合は、メンバーシップデータベースからユーザーレコードを削除します。 データベースが有効な場合は、プログラムによってメンバーシップデータベース内の既存のパスワードを再生成します。
 
-#### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>問題:メンバーシップのカスタム ユーザー テーブルを使用する場合、予期しない動作
+#### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>問題: メンバーシップ用のカスタム ユーザー テーブルを使用しているときに予期しない動作が生じる
 
-> ASP.NET Razor の web サイトのメンバーシップ プロバイダーを初期化するために呼び出す、`WebSecurity.InitializeDatabaseConnection`メソッド。 (WebMatrix で、スターター サイト テンプレートには、このメソッドの呼び出しが含まれています、  *\_AppStart.cshtml*ファイルです)。場合、`autoCreateTables`このメソッドのパラメーターの設定を true に (に既定では、設定は、スターター サイト テンプレートの場合は true)、メソッドがエラーをスローしない場合は、認識できないテーブル名は、(2 番目のパラメーター) のメソッドに渡されます。 代わりに、テーブルを自動的に作成します。
+> ASP.NET Razor web サイトのメンバーシッププロバイダーを初期化するには、`WebSecurity.InitializeDatabaseConnection` メソッドを呼び出します。 (WebMatrix では、スターターサイトテンプレートには、 *\_該当*ファイルにこのメソッドの呼び出しが含まれています)。このメソッドの `autoCreateTables` パラメーターが true に設定されている場合 (既定では、スタートサイトテンプレートで true に設定されています)、認識できないテーブル名がメソッドに渡された場合 (2 番目のパラメーター)、メソッドはエラーをスローしません。 エラーがスローされずに、自動的にテーブルが作成されます。
 > 
-> これをカスタム ユーザー テーブルを使用して、メンバーシップが間違ったテーブル名を渡すする場合、問題になることができます、`WebSecurity.InitializeDatabaseConnection`メソッド。 メソッドは既定では、エラーは発生を指定するテーブルが存在しない場合、代わりに新しいテーブルを作成するため、アプリケーションが動作して表示できます。 ただし、カスタム ユーザー テーブル (および内のフィールド) に依存しているアプリケーション コード最終的に予期しないエラーで失敗します。
+> メンバーシップにカスタムユーザーテーブルを使用するが、間違ったテーブル名を `WebSecurity.InitializeDatabaseConnection` メソッドに渡す場合は、この問題が発生する可能性があります。 指定したテーブルが存在しなかったとしても、既定ではメソッドからエラーが生成されません。新しいテーブルが作成されるため、アプリケーションは一見、正常に機能しているように見えます。 しかし、最終的には、カスタム ユーザー テーブル (とそのテーブル内のフィールド) に依存しているアプリケーション コードで予期しないエラーが発生します。
 > 
 > **回避策**  
-> 渡された名前を確認、`InitializeDatabaseConnection`メソッドと一致するユーザー プロファイル、メンバーシップ データベースにテーブルまたはことを確認、`autoCreateTables`パラメーターが false に設定します。
+> `InitializeDatabaseConnection` メソッドで渡された名前がメンバーシップデータベースのユーザープロファイルテーブルと一致していることを確認するか、`autoCreateTables` パラメーターが false に設定されていることを確認してください。
 
-#### <a name="issue-error-message-the-admin-module-requires-access-to-appdata"></a>問題:エラー メッセージ"Admin モジュールでは、~/App へのアクセスを必要と\_データ"
+#### <a name="issue-error-message-the-admin-module-requires-access-to-app_data"></a>問題: "管理者モジュールは、~/アプリの\_データへのアクセスが必要です" というエラーメッセージが表示される
 
-> 状況によっては、ユーザーを作成したり、それ以外の場合、ASP.NET メンバーシップ システムを使用しようとした可能性があります、エラーを表示するページ*Admin モジュールでは、~/App へのアクセスを必要と\_データ*します。 これは、IIS または IIS Express を実行しているアカウントが作成およびへの書き込みアクセス許可を持たない場合に発生します、*アプリ\_データ*web サイトのルートの下のフォルダー。 
+> 状況によっては、ユーザーを作成しようとしたり、ASP.NET メンバーシップシステムを使用しようとしたりすると、ページには、*管理モジュールからアプリケーション\_データへのアクセスが必要に*なるというエラーが表示されることがあります。 これは、IIS または IIS Express が実行されているアカウントに、web サイトのルートにある*アプリ\_Data*フォルダーに対して作成および書き込みを行うためのアクセス許可がない場合に発生します。 
 > 
-> **回避策**を手動で作成、*アプリ\_データ*web サイトのフォルダー。 (通常は NETWORK SERVICE) でアプリケーションを実行する Windows アカウントが、アプリケーションのルート フォルダーとサブフォルダー アプリなどの読み取り/書き込みアクセス許可を持っているかどうかを確認して\_データ。 詳細については、サポート技術情報の記事で使用可能な[SQL Server Express ユーザー インスタンスと ASP.net Web アプリケーション プロジェクトに関する問題を](https://support.microsoft.com/kb/2002980)します。
+> **回避策**Web サイトの*アプリ\_データ*フォルダーを手動で作成します。 次に、アプリケーションを実行する Windows アカウント (通常は NETWORK SERVICE) に、アプリケーションのルートフォルダーと、アプリの\_データなどのサブフォルダーに対する読み取り/書き込みアクセス許可が付与されていることを確認します。 詳細については、サポート技術情報の記事「 [SQL Server Express ユーザーインスタンスと ASP.net Web アプリケーションプロジェクトに関する問題](https://support.microsoft.com/kb/2002980)」を参照してください。
 
-#### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>問題:「SQL Server のユーザー インスタンスの生成に失敗しました」エラー
+#### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>問題: "SQL Server のユーザー インスタンスを生成できませんでした" というエラーが表示される
 
-> WebMatrix Web アプリケーションが SQL Server Express を使用して、Windows 7 または Windows Server 2008 R2 に IIS 7.5 を実行している場合は、SQL Server が実行時にユーザーのローカル アプリケーション パスを取得できませんかを示すエラーが表示可能性があります。
+> WebMatrix Web アプリケーションに SQL Server Express が使用されており、Windows 7 または Windows Server 2008 R2 で IIS 7.5 が実行されている場合、ユーザーのローカル アプリケーション パスを SQL Server が実行時に取得できないことを示すエラーが表示される場合があります。
 > 
-> **回避策**(通常は NETWORK SERVICE) でアプリケーションを実行する Windows アカウントが、アプリケーションのルート フォルダーとサブフォルダーの読み取り/書き込みアクセス許可をなどがあるかどうかを確認*アプリ\_データ*. 詳細については、サポート技術情報の記事で使用可能な[SQL Server Express ユーザー インスタンスと ASP.net Web アプリケーション プロジェクトに関する問題を](https://support.microsoft.com/kb/2002980)します。
+> **回避策**アプリケーションが実行されている Windows アカウント (通常は NETWORK SERVICE) に、アプリケーションのルートフォルダーと、*アプリの\_データ*などのサブフォルダーに対する読み取り/書き込みアクセス許可があることを確認します。 詳細については、サポート技術情報の記事「 [SQL Server Express ユーザーインスタンスと ASP.net Web アプリケーションプロジェクトに関する問題](https://support.microsoft.com/kb/2002980)」を参照してください。
 
-#### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a>問題:パッケージ マネージャーのリソースまたはパッケージ マネージャーのパスワードを含むファイルが IIS 6.0 で提供され、以前
+#### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a>問題: IIS 6.0 以前の環境でパッケージ マネージャーのリソースまたはパスワードを含んだファイルが返される
 
-> RC2 リリースを使用して構築された ASP.NET Web Pages (Razor) アプリケーションをデプロイする場合と、アプリケーションが含まれている場合、 *password.txt*または*packagesources.txt*ファイル */App\_データ/管理者*、IIS 6.0 は要求されると、パッケージ マネージャー インスタンスのパスワードを公開する可能性がある場合は、ファイルにサービスを提供します。 
+> RC2 リリースを使用してビルドされた ASP.NET Web ページ (Razor) アプリケーションを配置する場合、アプリケーションの packagesources に、 */App\_Data/admin*の下に*パスワード .txt*またはファイルが含まれていると、IIS 6.0 は要求された場合にファイルを提供し、パッケージマネージャーインスタンスのパスワードを公開する可能性があります。 
 > 
-> **回避策**の名前を変更、 *password.txt*または*packagesources.txt*ファイルを*password.config*または*packagesources.configに変更します*.既定では、IIS 6.0 ファイルを処理しませんが、 *.config*拡張機能。 (IIS 7 でのファイルはありません、*アプリ\_データ*フォルダーが提供されるは、ので、ファイルの名前を変更する必要はありません)。
+> **回避策***パスワード .txt*または*packagesources*ファイルの名前を packagesources または*に変更*します。既定では、IIS 6.0 は *.config*拡張子を持つファイルを提供しません。 (IIS 7 では、 *App\_Data*フォルダー内のファイルは提供されないため、ファイルの名前を変更する必要はありません)。
 
-#### <a name="issue-uninstalling-packages-installed-using-the-beta-3-release-does-not-completely-remove-package-components"></a>問題:Beta 3 リリースを使用してインストールされているパッケージをアンインストールしても、パッケージのコンポーネントは完全に削除しません
+#### <a name="issue-uninstalling-packages-installed-using-the-beta-3-release-does-not-completely-remove-package-components"></a>問題: Beta 3 リリースを使用してインストールしたパッケージをアンインストールしても、パッケージのコンポーネントが完全には削除されない
 
-> ベータ 3 リリースでは、パッケージ マネージャーを使用してパッケージをインストールしてから、現在のリリースを使用してアンインストールを再試行してください。 場合、パッケージは完全にアンインストールされません。 パッケージ マネージャーの使用**アンインストール**ボタンの一部のコンポーネントを削除しますが、パッケージのライブラリ コードし、は更新されません、 *package.config*ファイル。
+> Beta 3 リリースのパッケージ マネージャーを使用してインストールされたパッケージを、現在のリリースを使用してアンインストールしようとすると、完全にはパッケージがアンインストールされません。 パッケージマネージャーの **[アンインストール]** ボタンを使用すると、一部のコンポーネントが削除されますが、パッケージのライブラリコードは残され、*パッケージの .config*ファイルは更新されません。
 > 
 > **回避策**   
-> これらの手順に従います。  
-> 1. 削除、*アプリ\_Data\packages*フォルダー。 これには、すべてのパッケージが削除されます。   
-> 2. 削除、 *packages.config* web サイトのルートにあるファイル。
+> 次の手順を実行します。  
+> 1. *アプリ\_Data\packages*フォルダーを削除します。 これにより、すべてのパッケージが削除されます。   
+> 2. Web サイトのルートにある*パッケージの .config*ファイルを削除します。
 
-#### <a name="issue-in-visual-studio-invoking-the-web-based-package-manager-takes-the-application-offline"></a>問題:Visual Studio で、web ベースのパッケージ マネージャーを呼び出すはアプリケーションをオフライン
+#### <a name="issue-in-visual-studio-invoking-the-web-based-package-manager-takes-the-application-offline"></a>問題: Visual Studio で Web ベースのパッケージ マネージャーを呼び出すとアプリケーションがオフラインになる
 
-> Visual Studio (WebMatrix ではなく) で作業しているを使用したかどうか、 *\_管理者*パッケージ マネージャー Visual Studio を起動する機能、アプリケーションをオフラインにして、投稿、*アプリ\_offline.htm*を web サイトのルートに、パッケージ マネージャーを使用する機能を中断されます。
+> (WebMatrix ではなく) Visual Studio で作業していて、 *\_管理*機能を使用してパッケージマネージャーを起動している場合、visual studio はアプリケーションをオフラインにし、web サイトルートに*アプリ\_* を送信します。これにより、パッケージマネージャーを使用する機能が中断されます。
 > 
 > [!NOTE]
-> 同じ動作には、追加、削除、または内のファイルを変更する場合に発生しますが、通常、web ベースのパッケージ マネージャーのインターフェイスを使用する場合は、この動作を確認した、*アプリ\_データ*フォルダー。
+> ほとんどの場合、web ベースのパッケージマネージャーインターフェイスを使用しているときにこの動作が表示されますが、 *App\_Data*フォルダー内のファイルを追加、削除、または変更すると、同じ動作が発生します。
 > 
 > **回避策**   
-> Visual Studio でパッケージを使用するには、web ベースのパッケージ マネージャーではなく、NuGet 拡張機能を使用します。 詳しくは、次を参照してください。、 [NuGet のドキュメント](https://docs.microsoft.com/nuget/)します。 他のファイルを使用している場合、*アプリ\_データ*フォルダー、この問題を回避するために別の場所でファイルを残すようにしてください。 ですが実用的でない場合は、削除、*アプリ\_offline.htm*ファイルを手動でまたは自動的に (既定では、30 秒後) で、サイトがオンラインに戻るまで待機します。
+> Visual Studio でパッケージを扱う場合は、Web ベースのパッケージ マネージャーではなく、NuGet 拡張機能を使用します。 詳細については、 [NuGet のドキュメント](https://docs.microsoft.com/nuget/)を参照してください。 *App\_Data*フォルダー内の他のファイルを操作する場合は、この問題を回避するためにファイルを他の場所に保持することを検討してください。 これが現実的でない場合は、*アプリ\_オフライン .htm*ファイルを手動で削除するか、サイトが自動的にオンラインに戻るまで待機します (既定では30秒後)。
 
-#### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>問題:Visual Studio IntelliSense およびプロジェクトで使用できるテンプレートのみ ASP.NET MVC version 3
+#### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>問題: Visual Studio IntelliSense およびプロジェクト テンプレートは ASP.NET MVC Version 3 でしか利用できない
 
-> ASP.NET Web Pages をインストールすることもはインストールされません tools for Visual Studio ASP.NET Web Pages アプリケーション用の IntelliSense およびプロジェクトのテンプレートなど。
+> ASP.NET Web Pages をインストールしても Visual Studio 用のツール (ASP.NET Web Pages アプリケーション用のプロジェクト テンプレート、IntelliSense など) はインストールされません。
 > 
-> **回避策**を Visual Studio での ASP.NET Web Pages アプリケーション用の IntelliSense およびプロジェクト テンプレートを使用するインストール ASP.NET MVC 3 RC、Web Platform Installer を使用するか、または[スタンドアロン インストーラー](https://go.microsoft.com/fwlink/?LinkID=191797)します。
+> **回避策**Visual Studio で ASP.NET Web ページアプリケーションの IntelliSense とプロジェクトテンプレートを使用するには、Web Platform Installer または[スタンドアロンインストーラー](https://go.microsoft.com/fwlink/?LinkID=191797)を使用して ASP.NET MVC 3 RC をインストールします。
 
-#### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>問題:読み取りフィードまたはプロキシ サーバー経由で他の外部データ
+#### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>問題: フィードなどの外部データをプロキシ サーバーから読み取る
 
-> プロキシ情報を構成する必要がありますが、サイトを実行しているサーバーがプロキシ サーバーの背後にある場合は、 *web.config*ファイルをサイトの外部から送信される情報を読み取ることができるようにします。 たとえば、使用する場合、`ReCaptcha`ヘルパー、ヘルパーは、reCAPTCHA サービスと通信がプロキシ サーバーによってブロックされる可能性があります。 同様に、フィード、パッケージ マネージャーによって使用されているフィードなどの ASP.NET Web Pages を使用するには、プロキシ構成を必要があります。
+> サイトを実行しているサーバーがプロキシサーバーの背後にある場合は、サイトの外部からの情報を読み取ることができるよう*に、web.config ファイルに*プロキシ情報を構成することが必要になる場合があります。 たとえば、`ReCaptcha` ヘルパーを使用する場合、ヘルパーは reCAPTCHA サービスと通信しますが、プロキシサーバーによってブロックされる可能性があります。 同様に、ASP.NET Web Pages で使用されているフィード (パッケージ マネージャーによって使用されているフィードなど) にもプロキシ構成が必要となることがあります。
 > 
-> 外部サービスの操作またはパッケージ フィードの操作で問題が発生する場合は、アプリケーションのルートに、次の要素を配置*web.config*ファイル。
+> 外部サービスの操作中またはパッケージフィードの操作で問題が発生した場合は、アプリケーションのルート*web.config*ファイルに次の要素を追加します。
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> プロキシ サーバーを構成する方法の詳細については、次を参照してください。 [&lt;プロキシ&gt;要素 (ネットワーク設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web サイト。
+> プロキシサーバーの構成の詳細については、MSDN Web サイトの「 [&lt;proxy&gt; 要素 (ネットワーク設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) 」を参照してください。
 
-#### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>問題:.NET Framework version 4 をアンインストールする Razor 構文を使用して ASP.NET Web ページを無効にします
+#### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>問題: .NET Framework  Version 4 をアンインストールすると Razor 構文を使用する ASP.NET Web Pages が無効になる
 
-> .NET Framework version 4 をアンインストールし、再インストールして、Razor 構文を使用して ASP.NET Web Pages は無効になります。 ページで、 *.cshtml*拡張機能が正常に動作しません。 ASP.NET Web ページには、マシン ルートのアセンブリが登録されます*web.config*ファイル、および .NET Framework の削除は、そのファイルを削除します。 .NET Framework を再インストール、構成ファイルの新しいバージョンがインストールされますが、ASP.NET Web Pages アセンブリの参照を追加できません。
+> .NET Framework  Version 4 をアンインストールして再インストールした場合、Razor 構文を使用する ASP.NET Web Pages は無効になります。 拡張子が*cshtml*のページは正しく動作しません。 ASP.NET Web ページは、アセンブリをコンピューターのルート*web.config*ファイルに登録し、.NET Framework を削除するとそのファイルが削除されます。 .NET Framework を再インストールすると、新しいバージョンの構成ファイルがインストールされますが、ASP.NET Web Pages アセンブリに対する参照は追加されません。
 > 
-> **回避策**.NET Framework を再インストール後に Razor 構文を使用する ASP.NET Web ページを再インストールします。 次の要素が追加されます、 *web.config*マシンのルートには、通常、次の場所にファイル。  
+> **回避策**.NET Framework を再インストールした後、Razor 構文で ASP.NET Web ページを再インストールします。 これにより、コンピュータールートの*web.config ファイルに*次の要素が追加されます。通常は次の場所にあります。  
 > 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](overview/samples/sample3.xml)]
 
-#### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>問題:拡張子のない Url に IIS 7 または IIS 7.5.cshtml/.vbhtml ファイルが見つからない
+#### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Issue: Extensionless URLs do not find .cshtml/.vbhtml files on IIS 7 or IIS 7.5
 
-> IIS 7 または IIS 7.5 では、次のような URL を使用して要求をできないがページを検索、 *.cshtml*または *.vbhtml*拡張機能。  
+> IIS 7 または IIS 7.5 では、次のような URL の要求は、拡張子が*cshtml*または*vbhtml*のページを見つけることができません。  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
-> この問題は、URL リライトが有効でない既定で IIS 7 または IIS 7.5 のために発生します。 考えられるシナリオでは、IIS Express を使用してローカルでテストするときに問題は表示されないが、web サイトをホスティング web サイトにデプロイするときに発生することです。
+> IIS 7 または IIS 7.5 では URL の書き換えが既定で有効になっていないため、この問題が発生します。 Likeliest シナリオでは、IIS Express を使用してローカルでテストするときに問題が発生することはありませんが、web サイトをホストする web サイトにデプロイするときにこの問題が発生します。
 > 
 > **回避策**
 > 
-> - インストールで説明されている更新プログラムをサーバー コンピューターの場合は、サーバー コンピューター上のコントロールがある場合は、 [、更新プログラムを処理するために IIS 7.0 または IIS 7.5 のハンドラーは要求 Url を特定できますが、期間で終わっていない利用可能な](https://support.microsoft.com/kb/980368)します。
-> - サーバー コンピューター上のコントロールがいないかどうか (たとえばを展開しているホスティング web サイトに) 次に、web サイトの追加*web.config*ファイル。 
+> - サーバーコンピューターを制御している場合は、サーバーコンピューターで、更新プログラムに記載されている更新プログラムをインストールします。この更新プログラムは[、特定の iis 7.0 または iis 7.5 ハンドラーが、url の末尾がピリオドではない要求を処理](https://support.microsoft.com/kb/980368)できるようにします。
+> - サーバーコンピューターを制御できない場合は (たとえば、ホスティング web サイトに配置する場合)、 *web*サイトの web.config ファイルに次のコードを追加します。 
 > 
 >     [!code-xml[Main](overview/samples/sample4.xml)]
 
-#### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>問題:SQL Server Compact がインストールされていないコンピューターにアプリケーションを展開します。
+#### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>問題: SQL Server Compact がインストールされていないコンピューターにアプリケーションを展開する
 
-> SQL Server Compact データベースを含むアプリケーションは、SQL Server Compact がインストールされていないコンピューターで実行できます。 Microsoft WebMatrix 1.0 は自動的がこれらのバイナリをコピーし、適切な実行*web.config*ファイルの変換。
+> SQL Server Compact データベースを含むアプリケーションは、SQL Server Compact がインストールされていないコンピューターで実行できます。 Microsoft WebMatrix 1.0 は、これらのバイナリを自動的にコピーし *、適切な web.config ファイル*変換を実行します。
 > 
-> **回避策**これらのファイルをコピーする必要がある場合、 *web.config*ファイルの変更を手動で、次の操作します。
+> **回避策**これらのファイルをコピーし*て、web.config ファイルを*手動で変更する必要がある場合は、次の手順を実行します。
 > 
-> 1. データベース エンジン アセンブリをコピー、 *Bin*ターゲット コンピューター上のアプリケーションのフォルダー (とサブフォルダー)。  
+> 1. データベースエンジンアセンブリを、ターゲットコンピューター上のアプリケーションの*Bin*フォルダー (およびサブフォルダー) にコピーします。  
 > 
->    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->      **to** *\Bin*
->    - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\*  **に** *\Bin\x86*
->    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
+>    - *SQL Server C:\Program Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*をコピー   
+>      **to** *\bin*
+>    - *SQL Server Compact C:\Program Edition\v4.0\Private\x86\\* **を** *\Bin\x86*にコピーします。
+>    - *SQL Server Compact C:\Program Edition\v4.0\Private\amd64\\* * を \Bin\amd64**にコピーし**ます。
 > 
-> 2. Web サイトのルート フォルダーに作成または開き、 *web.config*ファイル。 (WebMatrix 1.0 では、このファイルの種類がクリックした場合に使用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
-> 3. 子として次の要素を追加、`<configuration>`要素 (内部ではなく、`<system.web>`要素)。
+> 2. *Web*サイトのルートフォルダーで、web.config ファイルを作成するか、開きます。 (WebMatrix 1.0 では、 **[ファイルの種類の選択]** ダイアログボックスで **[すべて]** をクリックすると、このファイルの種類が使用可能になります)。
+> 3. 次の要素を `<configuration>` 要素の子として追加します (`<system.web>` 要素内ではありません)。
 > 
 >     [!code-xml[Main](overview/samples/sample5.xml)]
 
-#### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>問題:"Database"と"の WebGrid"ヘルパーは、Visual Basic で中程度の信頼では機能しません
+#### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>問題点: "Database" および "WebGrid" のヘルパーは、Visual Basic の中程度の信頼では機能しません
 
-> Visual Basic を使用している場合 (作成 *.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用するアプリケーションが設定されている場合、ヘルパーは機能しません。
+> Visual Basic ( *vbhtml*ファイルの作成) を使用している場合、アプリケーションが中程度の信頼を使用するように設定されていると、`Database` と `WebGrid` のヘルパーは機能しません。
 > 
 > **回避策**  
-> Visual Studio 2010 を使用する場合は、Service Pack 1 リリースをインストールすることによってこの問題を解決できます。 SP1 のベータ版をダウンロードするには、SP1 のリリースの最終バージョンが利用されるまで、 [Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) Microsoft ダウンロード センター ページ。   
+> Visual Studio 2010 を使用している場合は、Service Pack 1 のリリースをインストールすることで、この問題を解決できます。 SP1 リリースの最終版が利用可能になるまでは、Microsoft ダウンロードセンターの[Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en)のページからベータ版の sp1 をダウンロードできます。   
 >   
-> これは実用的ではないかを一時的に Visual Studio 2010 を使用しない場合は、完全な信頼を使用するアプリケーションを設定します。
+> これが現実的でない場合、または Visual Studio 2010 を使用していない場合は、アプリケーションを一時的に完全信頼を使用するように設定できます。
 
-#### <a name="issue-applicationpart-resources-are-externally-accessible"></a>問題:"ApplicationPart"リソースにアクセスできる外部
+#### <a name="issue-applicationpart-resources-are-externally-accessible"></a>問題: "ApplicationPart" リソースに外部からアクセスできる
 
-> アセンブリから派生したオブジェクトに含まれる場合、`ApplicationPart`クラスによって、アセンブリのリソースが公開されること、`ResourceRouteHandler`クラス。 たとえば、次のような URL があるとします。  
+> アセンブリに `ApplicationPart` クラスから派生したオブジェクトが含まれている場合、そのアセンブリのリソースは `ResourceRouteHandler` クラスによって公開されます。 たとえば、次のような URL があるとします。  
 >   
 > `~/r.ashx/System.Web.WebPages.Administration/Resources/AdminResources.resources`  
 >   
-> この要求は、リソースの文字列のすべてをダウンロード、 *System.Web.WebPages.Administration.dll*アセンブリ。 すべての埋め込みリソース (もしない静的なコンテンツとして提供することを意図したもの) がダウンロードされます。 埋め込みリソースに機密情報が含まれている場合は、セキュリティ上のリスクを表すこのことができます。 
+> この要求は、すべてのリソース文字列を*system.web. Web ページの管理*アセンブリにダウンロードします。 すべての埋め込みリソース (静的コンテンツとして提供される予定ではないものも含む) がダウンロードされます。 埋め込みリソースに機密情報が含まれている場合は、セキュリティ上のリスクが生じる可能性があります。 
 > 
 > **回避策**   
-> 作成する場合、 **ApplicationPart**オブジェクト、その埋め込みリソースが関連付けられていることを確認**ApplicationPart**オブジェクトのアセンブリには機密情報が含まれていません。
+> **Applicationpart**オブジェクトを作成する場合は、その**applicationpart**オブジェクトのアセンブリに関連付けられている埋め込みリソースに機密情報が含まれていないことを確認してください。
 
 <a id="Known_Issues_WebMatrix"></a>
 
 ### <a name="webmatrix"></a>WebMatrix
 
 > [!NOTE]
-> WebMatrix のインストールの問題については、次を参照してください。 [WebMatrix のインストールに関する問題](#Known_Issues_Installation)この文書で前述しました。
+> WebMatrix のインストールに関する問題の詳細については、このドキュメントの「 [webmatrix のインストールに関する問題](#Known_Issues_Installation)」を参照してください。
 
-ドキュメントのこのセクションでは、WebMatrix 開発環境の既知の問題について説明します。
+ドキュメントのこのセクションでは、WebMatrix 開発環境に関する既知の問題について説明します。
 
-#### <a name="issue-changes-in-the-username-or-password-of-a-database-connection-string-in-a-webconfig-file-are-not-reflected-in-the-databases-workspace"></a>問題:データベース ワークスペースにユーザー名または web.config ファイル内のデータベース接続文字列のパスワードの変更は反映されません。
+#### <a name="issue-changes-in-the-username-or-password-of-a-database-connection-string-in-a-webconfig-file-are-not-reflected-in-the-databases-workspace"></a>問題点: web.config ファイルのデータベース接続文字列のユーザー名またはパスワードの変更は、[データベース] ワークスペースに反映されません。
 
 > **回避策**  
 > 
-> 1. *Web.config*ファイルで、接続文字列でデータベース名を変更する (これには、「1」を追加など)。
-> 2. 保存、 *web.config*ファイル。
-> 3. クリックして**データベース**を更新します。
-> 4. 接続文字列でデータベース名を変更、 *web.config*ファイルを再度元のデータベース名。
-> 5. 保存、 *web.config*ファイル。
-> 6. クリックして**データベース**を更新します。
+> 1. *Web.config ファイルで*、接続文字列のデータベース名を変更します (たとえば、"1" を追加します)。
+> 2. *Web.config ファイルを*保存します。
+> 3. [**データベース**と更新] をクリックします。
+> 4. *Web.config*ファイルの接続文字列でデータベース名を元のデータベース名に変更します。
+> 5. *Web.config ファイルを*保存します。
+> 6. [**データベース**と更新] をクリックします。
 
-#### <a name="issue-folders-created-by-webmatrix-cannot-be-deleted"></a>問題:WebMatrix で作成されたフォルダーを削除できません。
+#### <a name="issue-folders-created-by-webmatrix-cannot-be-deleted"></a>問題: WebMatrix によって作成されたフォルダーを削除することはできません
 
-> WebMatrix では、昇格されたアクセス許可を使用して実行している場合 (WebMatrix を使用して開始した、**管理者として実行**Windows オプション)、Windows エクスプ ローラーを使用して WebMatrix で作成されるフォルダーを削除できません。
+> 高度なアクセス許可を使用して WebMatrix が実行されている場合 (つまり、Windows の **[管理者として実行]** オプションを使用して webmatrix を開始した場合)、webmatrix によって作成されたフォルダーをエクスプローラーを使用して削除することはできません。
 > 
 > **回避策**  
-> 昇格されたアクセス許可を使用して Windows エクスプ ローラーを実行します。 この場合は、以下の手順に従ってください。  
+> 昇格されたアクセス許可を使用してエクスプローラーを実行します。 次の手順に従います。  
 > 
-> 1. Windows、 をクリックして**開始**します。
-> 2. [Windows エクスプ ローラー] を入力し、エントリを右クリックして**Windows エクスプ ローラー**します。
-> 3. クリックして**管理者として実行**します。 フォルダーを削除することができます。
+> 1. Windows で、 **[開始]** をクリックします。
+> 2. 「Windows Explorer」と入力し、**エクスプローラー**のエントリを右クリックします。
+> 3. **[管理者として実行]** をクリックします。 その後、フォルダーを削除できます。
 
-#### <a name="issue-webmatrix-10-is-unable-to-perform-certain-tasks-that-require-elevation"></a>問題:WebMatrix 1.0 は昇格が必要な特定のタスクを実行できません。
+#### <a name="issue-webmatrix-10-is-unable-to-perform-certain-tasks-that-require-elevation"></a>問題: WebMatrix 1.0 は、昇格が必要な特定のタスクを実行できない
 
-> WebMatrix 1.0 では、次の状況で追加コンポーネントのインストールなどの昇格が必要な特定のタスクを実行できません。
+> WebMatrix 1.0 は、次の状況での追加コンポーネントのインストールなど、昇格が必要な特定のタスクを実行できません。
 > 
-> - Windows Vista または Windows 7 では、管理者特権がないアカウントを使用してログオンして、ユーザー アカウント制御 (UAC) が無効になっています。
-> - Microsoft Windows XP または Microsoft Windows Server 2003 を使用しています。
-> 
-> **回避策**  
-> WebMatrix 1.0 のほとんどのタスクでは、管理アクセス許可は必要ありません。 該当するには、管理者は、操作を実行するか、これらの手順に従います。
-> 
-> - Windows Vista または Windows 7 で UAC を有効にします。
-> - Windows xp では、Administrators セキュリティ グループにユーザーを追加します。
-
-#### <a name="issue-site-from-web-gallery-is-disabled"></a>問題:「Web ギャラリーからサイト」は無効です。
-
-> **Web ギャラリーからのサイト**Web Platform Installer 3.0 がインストールされていない場合に、オプションが無効になっています。
+> - Windows Vista または Windows 7 では、管理者特権を持たないアカウントを使用してログインし、ユーザーアカウント制御 (UAC) が無効になっています。
+> - Microsoft Windows XP または Microsoft Windows Server 2003 を使用している。
 > 
 > **回避策**  
-> インストール、 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/fwlink/?LinkID=194638)します。
+> WebMatrix 1.0 のほとんどのタスクには、管理者権限は必要ありません。 そのためには、管理者として操作を実行するか、次の手順に従います。
+> 
+> - Windows Vista または Windows 7 では、UAC を有効にします。
+> - Windows XP では、ユーザーを管理者セキュリティグループに追加します。
 
-#### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>問題:Google Chrome を実行 オプションとしてご利用いただけません
+#### <a name="issue-site-from-web-gallery-is-disabled"></a>問題: "Web ギャラリーからのサイト" が無効になっています
 
-> Google Chrome が ブラウザーの一覧に表示されない**実行**上、**ホーム**タブ。
+> Web Platform Installer 3.0 がインストールされていない場合、 **[Web ギャラリーからのサイト]** オプションは無効になっています。
 > 
 > **回避策**  
-> Google Chrome の一部のバージョンを登録しないで自体正しく Windows の既定のプログラム機能。 この問題を回避するには、Google Chrome を開始 をクリックして、*カスタマイズと制御 Google Chrome*  メニューのをクリックして*オプション*、順にクリックします*Make Google Chrome、既定のブラウザー*します。
+> [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/fwlink/?LinkID=194638)をインストールします。
 
-#### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>問題:「外部キー」ダイアログ ボックスは、プライマリ キーを入力できません。
+#### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>問題: Google Chrome は Run オプションとして使用できません
 
-> **Foreign Key**  ダイアログ ボックスは、主キー テーブルから主キーの名前を入力することを許可しません。
+> Google Chrome は、 **[ホーム]** タブの **[実行]** にあるブラウザーの一覧に表示されません。
 > 
 > **回避策**  
-> これは意図的なものであり、 主キー テーブルの主キーの名前を入力する必要はありません。
+> Google Chrome の一部のバージョンは、Windows の既定のプログラム機能に正しく登録されません。 回避策として、Google Chrome を起動し、[ *Google chrome* ] メニューをクリックして、[*オプション*] をクリックし、[ *google chrome の既定のブラウザーを作成*する] をクリックします。
 
-#### <a name="issue-intellisense-is-not-available-in-webmatrix-for-razor-syntax-c-or-visual-basic"></a>問題:IntelliSense が Razor 構文では、WebMatrix でご利用いただけませんC#、または Visual Basic
+#### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>問題点: [外部キー] ダイアログボックスで主キーを入力できない
 
-> WebMatrix で、HTML および CSS の IntelliSense がサポートされています。 ただし、他の言語でご利用いただけません。 
+> **[外部キー]** ダイアログボックスでは、主キーテーブルの主キーの名前を入力することはできません。
+> 
+> **回避策**  
+> これは意図的なものであり、 主キーテーブルの主キーの名前を入力する必要はありません。
+
+#### <a name="issue-intellisense-is-not-available-in-webmatrix-for-razor-syntax-c-or-visual-basic"></a>問題: Razor 構文、、またはの WebMatrix ではC#、IntelliSense を使用できません Visual Basic
+
+> HTML および CSS では、IntelliSense が WebMatrix でサポートされています。 ただし、他の言語では使用できません。 
 > 
 > **回避策**   
-> なし。
+> [なし] :
 
-#### <a name="issue-intellisense-for-html-and-css-suggests-elements-that-are-not-contextually-appropriate"></a>問題:IntelliSense の HTML と CSS の提案がコンテキストに応じて適切でない要素
+#### <a name="issue-intellisense-for-html-and-css-suggests-elements-that-are-not-contextually-appropriate"></a>問題点: HTML および CSS 用の IntelliSense は、文脈に適していない要素を提案します。
 
-> WebMatrix のマークアップの IntelliSense サポートを使用して HTML、 [XHTML 1.0 Transitional スキーマ](http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/#xhtml1-transitional)と CSS を使用して、 [CSS 2.1 スキーマ](http://www.w3.org/TR/CSS2/)します。 IntelliSense は、これらの特定のスキーマに基づいているため、特定のタグ、属性、またはプロパティが提案の現在のページまたはスタイルの定義に不適切な。 HTML の可能性もあります (たとえば、タグが閉じられていません) の形式が正しくない XHTML として解釈される可能性がありますコンテンツで予期しない候補にします。 この問題は、カーソルが; 不完全なタグ内にある場合に顕著な可能性があります。その場合は、IntelliSense は、新しいタグの開始をお勧めします。 または、他の不適切な提案を提供します。 
+> WebMatrix のマークアップ用の IntelliSense では、 [css 2.1 スキーマ](http://www.w3.org/TR/CSS2/)を使用した[XHTML 1.0 移行スキーマ](http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/#xhtml1-transitional)と css を使用した HTML がサポートされます。 IntelliSense はこれらの特定のスキーマに基づいているため、特定のタグ、属性、またはプロパティが、現在のページまたはスタイル定義に適していない可能性があります。 HTML の場合は、不適切な形式の XHTML として解釈される可能性があるコンテンツ (タグが閉じられていない場合など) に予期しない候補が表示されることもあります。 挿入ポイントが不完全なタグ内にある場合、この問題はさらに顕著になる可能性があります。その場合は、IntelliSense によって新しい開始タグが提示されるか、またはその他の不適切な候補が提示されます。 
 > 
 > **回避策**   
-> HTML、適切な形式で、完全な XHTML ページ内で作業していることを確認します。 CSS、回避策はありません。
+> HTML の場合は、整形式の完全な XHTML ページ内で作業していることを確認してください。 CSS の場合、回避策はありません。
 
-#### <a name="issue-intellisense-is-not-invoked-while-you-type"></a>問題:入力するときに、IntelliSense は呼び出されません
+#### <a name="issue-intellisense-is-not-invoked-while-you-type"></a>問題: 入力中に IntelliSense が呼び出されない
 
-> HTML や CSS がエディターに入力されているように IntelliSense が呼び出されません可能性があります。 具体的には、カーソルが別の要素の横にある、またはファイルの最後に、これが発生可能性があります。 
+> 場合によっては、エディターに HTML または CSS が入力されているときに IntelliSense が呼び出されないことがあります。 特に、挿入ポイントが別の要素の横、またはファイルの末尾にある場合に発生する可能性があります。 
 > 
 > **回避策**   
-> カーソルを前後に空白があることと、カーソルがファイルの末尾でないことを確認してください。 Ctrl キーを押しながら Space キーを押して手動で IntelliSense を呼び出すことができます。
+> 挿入ポイントの周囲に空白があること、および挿入ポイントがファイルの末尾にないことを確認します。 Ctrl キーを押しながら Space キーを押すと、IntelliSense を手動で呼び出すこともできます。
 
-#### <a name="issue-no-ui-is-available-for-disabling-intellisense"></a>問題:IntelliSense を無効にするために使用可能な UI がありません。
+#### <a name="issue-no-ui-is-available-for-disabling-intellisense"></a>問題: IntelliSense を無効にするための UI が使用できない
 
-> WebMatrix 1.0 は UI またはジェスチャを IntelliSense を無効にします。 
+> WebMatrix 1.0 では、IntelliSense を無効にするための UI やジェスチャは提供されません。 
 > 
 > **回避策**   
-> IntelliSense を無効にするスイッチを含む次のコマンドを使用して WebMatrix を起動します。  
+> 次のコマンドを使用して WebMatrix を開始します。これには、IntelliSense を無効にするスイッチが含まれています。  
 >   
 > `WebMatrix.exe #ExecuteCommand# EditorIntelliSense off`
 
 <a id="Known_Issues_IISExpress"></a>
 ### <a name="iis-express"></a>IIS Express
 
-IIS Express には、次の URL で利用可能な独自の readme ファイルがあります。
+IIS Express には、次の URL から入手できる独自の readme ファイルがあります。
 
-[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp; clcid = 0x411](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
 ### <a name="sql-server-compact"></a>SQL Server Compact
 
-SQL Server Compact では、次の URL で利用可能な独自の readme ファイルがあります。
+SQL Server Compact には、次の URL から入手できる独自の readme ファイルがあります。
 
 [https://go.microsoft.com/fwlink/?LinkID=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
 
-WebMatrix の一部として SQL Server Compact のインストールに関連する問題については、次を参照してください。 [WebMatrix のインストールに関する問題](#Known_Issues_Installation)この文書で前述しました。
+WebMatrix の一部として SQL Server Compact をインストールする場合の問題の詳細については、このドキュメントの「 [webmatrix のインストールに関する問題](#Known_Issues_Installation)」を参照してください。
 
-### <a id="Known_Issues_Installing_Applications"></a>  アプリケーションのインストール
+### <a id="Known_Issues_Installing_Applications"></a>アプリケーションのインストール
 
-#### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>問題:アプリケーションをインストールすることができます、長い時間がかかる場合は、ユーザーのマイ ドキュメント フォルダーはネットワーク共有にリダイレクトされます。
+#### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>問題: ユーザーの [マイドキュメント] フォルダーがネットワーク共有にリダイレクトされると、アプリケーションのインストールに時間がかかることがある
 
 > **回避策**  
-> なし。 アプリケーションをインストールするにはしばらくかかる場合がありますが、正常にインストールされます。
+> [なし] : アプリケーションのインストールには時間がかかる場合がありますが、正しくインストールされます。
 
-### <a id="Known_Issues_Publishing_Applications"></a>  アプリケーションの発行
+### <a id="Known_Issues_Publishing_Applications"></a>アプリケーションの発行
 
-#### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>問題:SQL Compact データベースを発行するときに「必須のアクセス許可を取得できません」エラー
+#### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>問題: SQL Compact データベースを公開すると、"必要なアクセス許可を取得できません" というエラーが発生する
 
-> WebMatrix は完全にサポートしていません中程度の信頼の構成で .NET Framework version 3.5 を実行しているサーバーに SQL Server Compact のサポートのバイナリを展開します。
+> WebMatrix では、中程度の信頼の構成で .NET Framework バージョン3.5 を実行しているサーバーに、SQL Server Compact のサポートバイナリを展開することは完全にサポートされていません。
 > 
 > **回避策**  
-> 推奨される回避策では、サーバーで、.NET Framework 4 をインストールします。 または、次の操作を行います。
+> 推奨される回避策は、サーバーに .NET Framework 4 をインストールすることです。 または、次の手順を実行します。
 > 
-> 1. 次の要素を追加、`SecurityClasses`セクション*Web\_MediumTrust.config*ファイル。
+> 1. *Web\_MediumTrust*ファイルの `SecurityClasses` セクションに次の要素を追加します。
 > 
 >     [!code-html[Main](overview/samples/sample6.html)]
-> 2. 新しいアクセス許可のセットを作成、 *Web\_MediumTrust.config*次の必要なアクセス許可を持つファイル。
+> 2. 次の必要なアクセス許可を使用して、 *Web\_MediumTrust*ファイルに新しいアクセス許可セットを作成します。
 > 
 >     [!code-html[Main](overview/samples/sample7.html)]
-> 3. 次の要素を配置することで、SQL Server Compact に設定するアクセス許可の適用、 *Web\_MediumTrust.config*ファイル。
+> 3. *Web\_MediumTrust*ファイルに次の要素を配置して、アクセス許可セットを SQL Server Compact に適用します。
 > 
 >     [!code-html[Main](overview/samples/sample8.html)]
 
-#### <a name="issue-gallery-and-phpbb-web-applications-display-a-service-is-unavailable-error-after-publishing"></a>問題:ギャラリーおよび PhpBB の web アプリケーションの発行後に「サービスは利用できません」エラーを表示します。
+#### <a name="issue-gallery-and-phpbb-web-applications-display-a-service-is-unavailable-error-after-publishing"></a>問題: ギャラリーおよび PhpBB web アプリケーションで、発行後に "サービスを利用できません" というエラーが表示される
 
-> 状況によっては、アプリケーションを公開すると、「サービスは利用できません」エラーが発生します。
+> 状況によっては、アプリケーションの発行によって "サービスを利用できません" というエラーが発生することがあります。
 > 
 > **回避策**  
-> WebMatrix で、追加の円記号 (\)でサーバー名の末尾に、**発行設定**ウィンドウし、もう一度アプリケーションを発行します。
+> WebMatrix で、 **[発行の設定]** ウィンドウでサーバー名の末尾に円記号 (\) を追加し、もう一度アプリケーションを発行します。
 
-#### <a name="issue-moodle-website-layout-and-links-are-broken-after-publishing"></a>問題:Moodle web サイトのレイアウトとリンクが破損している発行した後
+#### <a name="issue-moodle-website-layout-and-links-are-broken-after-publishing"></a>問題: 発行後に Moodle web サイトのレイアウトとリンクが壊れている
 
-> Moodle アプリケーションを発行した後、アプリケーションが正しく機能しません。
+> Moodle アプリケーションを発行すると、アプリケーションが正常に動作しなくなります。
 > 
 > **回避策**  
-> WebMatrix の末尾にスラッシュ (/) を追加、**サイト名**フィールドに、**発行設定**ウィンドウし、もう一度アプリケーションを発行します。
+> WebMatrix で、 **[発行の設定]** ウィンドウの **[サイト名]** フィールドの末尾にスラッシュ (/) を追加し、アプリケーションを再度発行します。
 
-#### <a name="issue-publishing-nopcommerce-fails-with-a-database-error"></a>問題:発行 nopCommerce は、データベース エラーで失敗します。
+#### <a name="issue-publishing-nopcommerce-fails-with-a-database-error"></a>問題: nopCommerce のパブリッシングがデータベースエラーで失敗する
 
-> NopCommerce の発行が失敗しのようなデータベース エラーの報告"します nop 挿入\_ログ table は失敗しました"。
+> NopCommerce の発行に失敗し、"nop\_ログテーブルに挿入できませんでした。" などのデータベースエラーが報告されます。
 > 
 > **回避策**  
 > 
-> 1. WebMatrix で、次のようにクリックします。**実行**nopCommerce をローカルで起動します。
+> 1. WebMatrix で、 **[実行]** をクリックして nopCommerce をローカルで起動します。
 > 2. [管理] ページにログインします。
-> 3. をクリックして、**システム**メニュー。
-> 4. をクリックして、**ログ**オプション。
-> 5. をクリックして、**ログの消去**ボタンをクリックします。
-> 6. NopCommerce をもう一度発行します。
+> 3. **[システム]** メニューをクリックします。
+> 4. **[ログ]** オプションをクリックします。
+> 5. **[ログの消去]** ボタンをクリックします。
+> 6. NopCommerce をもう一度公開します。
 
-#### <a name="issue-silverstripe-cms-displays-a-http-500-php-fcgi-error-when-you-download-a-published-site"></a>問題:Silverstripe CMS では、発行されたサイトをダウンロードするときに「HTTP 500 PHP FCGI エラー」が表示されます。
-
-> **回避策**  
-> クリックした後**ダウンロード サイトに発行**、スキップ`silverstripe-cache/manifest_main`で**発行のプレビュー**します。 このファイルは、キャッシュのために使用あり、各コンピューターに固有です。
-
-#### <a name="issue-subtext-displays-server-error-in--application-when-you-download-a-published-site"></a>問題:サブ文字列には、「サーバー エラーは '/' アプリケーションで」が表示されます発行されたサイトをダウンロードするときに。
+#### <a name="issue-silverstripe-cms-displays-a-http-500-php-fcgi-error-when-you-download-a-published-site"></a>問題: 発行されたサイトをダウンロードすると、Silverstripe CMS に "HTTP 500 PHP FCGI エラー" が表示される
 
 > **回避策**  
-> サイトの開く*web.config*ファイルを開き、ユーザー ID とパスワード、データベース接続文字列で SQL Server 管理者の資格情報 ("sa"の資格情報) に置き換えます。
+> [発行**済みサイトのダウンロード**] をクリックした後、**発行プレビュー**で `silverstripe-cache/manifest_main` をスキップします。 このファイルはキャッシュの目的で使用され、各コンピューターに固有です。
+
+#### <a name="issue-subtext-displays-server-error-in--application-when-you-download-a-published-site"></a>問題: 発行されたサイトをダウンロードすると、Subtext に "/' アプリケーションでのサーバーエラーが表示される
+
+> **回避策**  
+> サイトの*web.config*ファイルを開き、データベース接続文字列のユーザー ID とパスワードを SQL Server 管理者の資格情報 ("sa" の資格情報) に置き換えます。
 > 
-> または、次の手順をログインに使用したユーザー アカウントを付与するには`db_owner`アクセス許可。
+> または、次の手順に従って、ログインしているユーザーアカウントに `db_owner` アクセス許可を付与します。
 > 
 > 1. Web Platform Installer を使用して SQL Server Management Studio をインストールします。
-> 2. ローカルの SQL Server Express インスタンスに接続 (既定では、 `.\SQLEXPRESS`)。
-> 3. クリックして**データベース** &gt; *[localSubtextDatabase]* &gt; **セキュリティ** &gt; **ユーザー**&gt; *[localSubtextUser*] (既定値は`subtextuser`] を右クリックし、クリック**プロパティ**します。
-> 4. 選択**db\_所有者**ロール メンバーシップのセクションでします。
+> 2. ローカル SQL Server Express インスタンス (既定では `.\SQLEXPRESS`) に接続します。
+> 3. [**データベース**&gt; *[Localsubtextdatabase]* をクリックし &gt;**セキュリティ**&gt; **Users** &gt; *[localsubtextdatabase*] (既定値は `subtextuser`]、右クリックして、 **[プロパティ]** をクリックします。
+> 4. [ロールメンバーシップ] セクションで [ **db\_所有者**] を選択します。
 
-#### <a name="issue-site-might-not-work-after-publishing-if-the-destination-url-field-is-not-prefixed-with-http-or-https"></a>問題:サイトが"送信先 URL"フィールドが http:// または https:// でプレフィックスが付いていない場合に発行した後に機能しません。
+#### <a name="issue-site-might-not-work-after-publishing-if-the-destination-url-field-is-not-prefixed-with-http-or-https"></a>問題: [宛先 URL] フィールドに http://または https://のプレフィックスが付いていないと、発行後にサイトが機能しない場合がある
 
-> **公開設定**ダイアログ ボックスで、リンク先の URL で始まらない場合`http://`または`https://`デプロイ後に、サイトが機能しない可能性があります。
+> **[発行の設定]** ダイアログボックスで、インストール先の URL が `http://` または `https://`で始まらない場合は、展開後にサイトが動作しない可能性があります。
 > 
 > **回避策**  
-> 確認して、サイトでリンク先の URL を発行する前に、**発行設定** ダイアログ ボックスが始まる`http://`または`https://`します。
+> サイトを発行する前に、 **[発行の設定]** ダイアログボックスの目的の URL が `http://` または `https://`で始まることを確認します。
 
-#### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>問題:"データベースを発行できませんでしたエラーで失敗 MySQL データベースのパブリッシュします。 これは、場合に発生、リモート データベースは、スクリプトを実行できません。"
+#### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>問題点: MySQL データベースの公開が失敗し、"データベースをパブリッシュできませんでした。 これは、リモートデータベースがスクリプトを実行できない場合に発生する可能性があります。
 
-> さまざまな理由からこのエラーが発生します。 このエラーが表示できる理由の 1 つは、データベース スクリプトには、単一引用符文字 (') が含まれているし、対象の MySQL データベースの既定の文字セットを utf-8 ではないです。
+> このエラーは、さまざまな理由で発生する可能性があります。 このエラーが表示される理由の1つは、データベーススクリプトに単一引用符 (') が含まれていて、MySQL データベースの既定の文字セットが UTF-8 に設定されていない場合です。
 > 
 > **回避策**  
-> 既定の文字が utf-8 に、リモートの MySQL データベースの設定を設定します。
+> リモート MySQL データベースの既定の文字セットを UTF-8 に設定します。
 
-#### <a name="issue-some-links-are-not-visible-in-dotnetnuke-after-publishing-or-downloading-the-site"></a>問題:一部のリンクが表示されない DotNetNuke の発行や、サイトのダウンロード
+#### <a name="issue-some-links-are-not-visible-in-dotnetnuke-after-publishing-or-downloading-the-site"></a>問題: サイトを公開またはダウンロードした後に、DotNetNuke に一部のリンクが表示されない
 
-> パブリッシュまたは DotNetNuke サイトをダウンロードする場合は、サイトに表示される新しいリンクを取得するキャッシュをクリアする必要があります。
+> DotNetNuke サイトを発行またはダウンロードする場合は、キャッシュをクリアして、サイトに新しいリンクが表示されるようにすることが必要になる場合があります。
 > 
 > **回避策**
 > 
-> 1. "Host"としてログインします。
-> 2. [ホスト] メニューに移動し、選択**ホスト設定**します。
-> 3. スクロール ダウンし、**詳細設定**、展開**パフォーマンス設定**します。
-> 4. をクリックして、**キャッシュのクリア**ページのリンク。
-> 5. ページの下部に移動し、アプリケーションを再起動します。
+> 1. "Host" としてログインします。
+> 2. ホスト メニューにアクセスし、**ホストの設定** を選択します。
+> 3. 下にスクロールし、 **[詳細設定]** の **[パフォーマンスの設定]** を展開します。
+> 4. ページの **[キャッシュのクリア]** リンクをクリックします。
+> 5. ページの下部にアクセスし、アプリケーションを再起動します。
 
-#### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>問題:発行されたサイトをダウンロードした後、AtomSite でいくつかのリンクが壊れています
+#### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>問題: 発行されたサイトをダウンロードした後、AtomSite の一部のリンクが壊れている
 
 > **回避策**  
-> *Service.config*ファイル、 *users.config*ファイル、およびすべて *.xml*ファイル、URL 文字列に置き換えます (たとえば、 `http://myhost.com/atomsite`) ローカル サイトの (たとえば、 `http://localhost:1239`).
+> *App.config*ファイル、*ユーザー .config*ファイル、およびすべての *.xml*ファイルで、URL 文字列 (たとえば、`http://myhost.com/atomsite`) をローカルの文字列 (たとえば、`http://localhost:1239`) に置き換えます。
 
-#### <a name="issue-mysql-based-applications-like-wordpress-fail-to-publish-and-report-a-database-error"></a>問題:WordPress のように MySQL ベースのアプリケーションが発行し、データベース エラーの報告に失敗します。
+#### <a name="issue-mysql-based-applications-like-wordpress-fail-to-publish-and-report-a-database-error"></a>問題: WordPress などの MySQL ベースのアプリケーションがデータベースエラーを発行して報告できない
 
-> 既定では、WebMatrix は、utf-8 文字セットで MySQL をインストールします。 自分で MySQL をインストールして、文字セットが utf-8 ではない場合 (たとえば、これはラテン語-1 の場合)、データベースの発行プロセスが失敗する可能性があります。
+> 既定では、WebMatrix は、UTF-8 文字セットを使用して MySQL をインストールします。 独自のに MySQL をインストールし、文字セットが UTF-8 ではない場合 (たとえば、Latin1)、データベースの発行プロセスが失敗する可能性があります。
 > 
 > **回避策**
 > 
-> 1. MySQL への utf-8 の文字セットを変更します。 (詳細については、次を参照してください[Server 文字セットと照合順序](http://dev.mysql.com/doc/refman/5.0/en/charset-server.html)、MySQL の web サイトです。)。
+> 1. MySQL の文字セットを UTF-8 に変更します。 (詳細については、MySQL の web サイトの「[サーバー文字セットと照合順序](http://dev.mysql.com/doc/refman/5.0/en/charset-server.html)」を参照してください)。
 > 2. アプリケーションを再インストールします。
 > 3. アプリケーションを再発行します。
 
-#### <a name="issue-download-published-site-fails-for-applications-that-have-browser-based-setup"></a>問題:アプリケーションでブラウザー ベースのセットアップが失敗した"公開済みのサイトをダウンロードする
+#### <a name="issue-download-published-site-fails-for-applications-that-have-browser-based-setup"></a>問題: ブラウザーベースのセットアップを実行しているアプリケーションで、"発行済みサイトのダウンロード" に失敗する
 
-> 一部のアプリケーション (たとえば、Kentico CMS) では、データベースを作成するなど、インストール後セットアップを実行するには、ブラウザーで起動する必要があります。 ブラウザー ベースのセットアップを完了しなくてもこのようなアプリケーションを発行すると、リモート サーバーから、同じサイトのダウンロードを試みては失敗します。
+> 一部のアプリケーション (たとえば、Kentico CMS) では、データベースの作成などのインストール後のセットアップを実行するために、それらのアプリケーションをブラウザーで起動する必要があります。 ブラウザーベースのセットアップを完了せずにこのようなアプリケーションを発行した場合、リモートサーバーから同じサイトをダウンロードしようとすると失敗します。
 > 
 > **回避策**  
-> サイトを発行する前に、ブラウザー ベースのセットアップを完了します。
+> サイトを公開する前に、ブラウザーベースのセットアップを完了します。
 
-#### <a name="issue-download-published-site-fails-with-a-database-error-for-dotnetnuke-and-kooboo-cms"></a>問題:DotNetNuke と Kooboo CMS のデータベース エラーで失敗"公開済みのサイトをダウンロードする
+#### <a name="issue-download-published-site-fails-with-a-database-error-for-dotnetnuke-and-kooboo-cms"></a>問題: "公開されたサイトのダウンロード" が DotNetNuke および Kooboo CMS のデータベースエラーで失敗する
 
-> サーバーからアプリケーションをダウンロードしようとして、管理者の資格情報がデータベース接続文字列であるかどうか、**発行設定**ダイアログ ボックスで、発行ログには、次のエラーを表示可能性があります。
+> サーバーからアプリケーションをダウンロードしようとしたときに、 **[発行の設定]** ダイアログボックスのデータベース接続文字列に管理者の資格情報がある場合、発行ログに次のエラーが表示されることがあります。
 > 
 > [!code-console[Main](overview/samples/sample9.cmd)]
 > 
 > **回避策**  
-> 可能であれば、サイトを再パブリッシュ (または公開する) データベースの非管理者の資格情報を使用します。
+> 実際には、データベースの管理者以外の資格情報を使用して、サイトを (または公開している) 再発行します。
 
 <a id="More_Info"></a>
 
-## <a name="for-more-information"></a>参照項目
+## <a name="for-more-information"></a>詳細情報
 
 WebMatrix 1.0 の詳細については、次の web サイトを参照してください。
 
@@ -512,4 +512,4 @@ WebMatrix 1.0 の詳細については、次の web サイトを参照してく�
 - [ASP.NET](https://asp.net/webmatrix)
 - [Microsoft.com/web](https://www.microsoft.com/web)
 
-© 2011 Microsoft Corporation. All Rights Reserved. [利用規約](https://msdn.microsoft.cos/cc300389.aspx)します。
+© 2011 Microsoft Corporation. All rights reserved. [使用条件](https://msdn.microsoft.cos/cc300389.aspx)。

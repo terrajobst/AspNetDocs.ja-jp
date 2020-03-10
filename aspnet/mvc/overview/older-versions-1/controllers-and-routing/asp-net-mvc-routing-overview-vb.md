@@ -1,51 +1,51 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
-title: ASP.NET MVC ルーティング概要 (VB) |Microsoft Docs
+title: ASP.NET MVC ルーティングの概要 (VB) |Microsoft Docs
 author: StephenWalther
-description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラー アクションへのブラウザーの要求をマップする方法を示します。
+description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがブラウザー要求をコントローラーアクションにマップする方法を示しています。
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 4bc8d19a-80f1-44b4-adbf-95ed22d691ca
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ed043d76b89ce31945cf3423b0c5afca9383cc21
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123644"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486898"
 ---
 # <a name="aspnet-mvc-routing-overview-vb"></a>ASP.NET MVC ルーティング概要 (VB)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-> このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラー アクションへのブラウザーの要求をマップする方法を示します。
+> このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがブラウザー要求をコントローラーアクションにマップする方法を示しています。
 
-このチュートリアルと呼ばれるすべての ASP.NET MVC アプリケーションの重要な機能に導入された*ASP.NET ルーティング*します。 ASP.NET ルーティング モジュールは、特定の MVC コント ローラー アクションへの受信ブラウザー要求をマッピングします。 このチュートリアルの目的は、標準的なルート テーブルがコント ローラー アクションへの要求をマップする方法を理解します。
+このチュートリアルでは、 *ASP.NET Routing*という名前のすべての ASP.NET MVC アプリケーションの重要な機能を紹介します。 ASP.NET ルーティングモジュールは、受信ブラウザー要求を特定の MVC コントローラーアクションにマップする役割を担います。 このチュートリアルを終了すると、標準のルートテーブルが要求をコントローラーアクションにどのようにマップするかを理解できるようになります。
 
-## <a name="using-the-default-route-table"></a>既定のルート テーブルを使用します。
+## <a name="using-the-default-route-table"></a>既定のルートテーブルを使用する
 
-新しい ASP.NET MVC アプリケーションを作成するときに ASP.NET のルーティングを使用するアプリケーションが既に構成されています。 ASP.NET ルーティングは、2 つの場所でのセットアップです。
+新しい ASP.NET MVC アプリケーションを作成する場合、アプリケーションは既に ASP.NET Routing を使用するように構成されています。 ASP.NET ルーティングは2か所で設定されます。
 
-最初に、ASP.NET ルーティングは、アプリケーションの Web 構成ファイル (web.config) で有効です。 ルーティングに関連する構成ファイルで次の 4 つのセクションがあります: system.web.httpModules セクション、system.web.httpHandlers セクション、system.webserver.modules セクションおよび system.webserver.handlers セクション。 これらのセクションではないルーティングは動作しないために、これらのセクションを削除しないように注意します。
+まず、アプリケーションの Web 構成ファイル (web.config ファイル) で ASP.NET ルーティングが有効になっています。 ルーティングに関連する構成ファイルには、次の4つのセクションがあります。-system.servicemodel セクション、system.web. httpHandlers セクション、system.webserver. modules セクション、および system.webserver. ハンドラーセクションを参照してください。 これらのセクションを削除しないように注意してください。これらのセクションでは、ルーティングが機能しなくなります。
 
-次に、そして何よりも、ルート テーブルは、アプリケーションの Global.asax ファイルに作成されます。 Global.asax ファイルは、ASP.NET アプリケーションのライフ サイクル イベントのイベント ハンドラーを含む特殊なファイルです。 ルート テーブルは、アプリケーションの開始イベント中に作成されます。
+2つ目は、さらに重要なのは、アプリケーションの global.asax ファイルにルートテーブルを作成することです。 Global.asax ファイルは、ASP.NET アプリケーションライフサイクルイベントのイベントハンドラーを含む特殊なファイルです。 ルートテーブルは、アプリケーションの開始イベント時に作成されます。
 
-リスト 1 でファイルには、ASP.NET MVC アプリケーションの既定の Global.asax ファイルが含まれています。
+リスト1のファイルには、ASP.NET MVC アプリケーションの既定の global.asax ファイルが含まれています。
 
-**1 - Global.asax.vb を一覧表示します。**
+**リスト 1-global.asax**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample1.vb)]
 
-MVC アプリケーションを最初の起動時、アプリケーション\_Start() メソッドが呼び出されます。 このメソッドは、さらに、RegisterRoutes() メソッドを呼び出します。 RegisterRoutes() メソッドは、ルート テーブルを作成します。
+MVC アプリケーションを初めて起動すると、アプリケーション\_Start () メソッドが呼び出されます。 次に、このメソッドは RegisterRoutes () メソッドを呼び出します。 RegisterRoutes () メソッドは、ルートテーブルを作成します。
 
-既定のルーティング テーブルには、Default という 1 つのルートが含まれています。 既定のルートがコント ローラー名、コント ローラーのアクションへの URL は、2 番目のセグメントおよびという名前のパラメーターを 3 番目のセグメントに URL の最初のセグメントをマップ**id**します。
+既定のルートテーブルには、1つのルートが含まれています (既定)。 既定のルートは、URL の最初のセグメントをコントローラー名に、URL の2番目のセグメントをコントローラーアクションに、3番目のセグメントを**id**という名前のパラメーターにマップします。
 
-Web ブラウザーのアドレス バーには、次の URL を入力することを想像してください。
+Web ブラウザーのアドレスバーに次の URL を入力したとします。
 
 /Home/Index/3
 
-既定のルートは、この URL を次のパラメーターにマッピングされます。
+既定のルートは、この URL を次のパラメーターにマップします。
 
 - controller = Home
 
@@ -53,55 +53,55 @@ Web ブラウザーのアドレス バーには、次の URL を入力するこ�
 
 - id = 3
 
-URL/Home、インデックス、3 を要求するときに、次のコードが実行されます。
+URL/Home/Index/3 を要求すると、次のコードが実行されます。
 
 HomeController.Index(3)
 
-既定のルートには、次の 3 つのすべてのパラメーターの既定値が含まれています。 コント ローラーを指定しない場合、コント ローラー パラメーターの既定値、値**ホーム**します。 アクション パラメーターの値に既定値アクションを指定しない場合**インデックス**します。 最後に、id を指定しない場合は、id パラメーターが空の文字列に既定値です。
+既定のルートには、3つのパラメーターすべての既定値が含まれています。 コントローラーを指定しない場合、コントローラーパラメーターの既定値は**Home**です。 アクションを指定しない場合、アクションパラメーターの既定値は**Index**です。 最後に、id を指定しない場合、id パラメーターの既定値は空の文字列になります。
 
-既定のルートがコント ローラー アクションへの Url をマップする方法の例をいくつか見てみましょう。 ブラウザーのアドレス バーには、次の URL を入力することを想像してください。
+既定のルートでは、Url をコントローラーアクションにマップする方法の例をいくつか見てみましょう。 ブラウザーのアドレスバーに次の URL を入力したとします。
 
 /Home
 
-既定ルート パラメーターの既定値のためこの URL を入力する、HomeController クラスの Index() メソッドを呼び出せるリスト 2 でします。
+既定のルートパラメーターの既定値が指定されているため、この URL を入力すると、リスト2の HomeController クラスの Index () メソッドが呼び出されます。
 
-**2 - HomeController.vb を一覧表示します。**
+**リスティング 2-HomeController**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample2.vb)]
 
-リスト 2 では、HomeController クラスに Index() という名前の id。 1 つのパラメーターを受け取るという名前のメソッドが含まれます。URL/Home はにより呼び出される値は、Id パラメーターの値として何も Index() メソッドです。
+リスト2では、HomeController クラスに、Id という名前の単一のパラメーターを受け取る Index () という名前のメソッドが含まれています。URL/Home を使用すると、Id パラメーターの値として Nothing を指定して Index () メソッドが呼び出されます。
 
-URL/Home には、MVC フレームワークがコント ローラー アクションを呼び出すことにより、リスト 3 のテンプレートを使用するクラスの Index() メソッドもと一致します。
+MVC フレームワークがコントローラーアクションを呼び出す方法により、URL/Home も、リスト3の HomeController クラスの Index () メソッドに一致します。
 
-**3 - HomeController.vb (パラメーターなしでの Index アクション) を一覧表示します。**
+**リスト 3-HomeController (パラメーターなしのインデックスアクション)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample3.vb)]
 
-Index() メソッドは、リスト 3 では、すべてのパラメーターは受け入れられません。 URL/Home をこの Index() メソッドが呼び出されるとなります。 また、URL /Home/Index/3 は、(Id は無視されます) このメソッドを呼び出します。
+リスト3の Index () メソッドは、パラメーターを受け取りません。 URL/Home によって、この Index () メソッドが呼び出されます。 また、URL /Home/Index/3 は、(Id は無視されます) このメソッドを呼び出します。
 
-URL/Home には、リスト 4 HomeController クラスの Index() メソッドもと一致します。
+また、URL/Home は、リスト4の HomeController クラスの Index () メソッドにも一致します。
 
-**4 - HomeController.vb (null 許容パラメーターを使用してインデックスの操作) を一覧表示します。**
+**リスト 4-HomeController (null 値を許容するパラメーターを持つインデックスアクション)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample4.vb)]
 
-Index() メソッドではリスト 4、1 つの整数パラメーターがあります。 パラメーターは null 許容パラメーター (値を持つことは Nothing) では、エラーを発生させず、Index() を呼び出すことができます。
+リスティング4では、Index () メソッドに1つの整数パラメーターがあります。 パラメーターは null 許容型パラメーターであるため (値は Nothing でもかまいません)、エラーを発生させることなくインデックス () を呼び出すことができます。
 
-最後に、Id パラメーターから例外が発生した URL/Home でリスト 5 で Index() メソッドを呼び出す*ない*null 許容パラメーター。 Index() メソッドを呼び出すしようとした場合、エラーが発生した図 1 に表示されます。
+最後に、URL/Home を使用してリスト5の Index () メソッドを呼び出すと、Id パラメーターが null 許容パラメーターで*はない*ため、例外が発生します。 Index () メソッドを呼び出そうとすると、図1にエラーが表示されます。
 
-**5 - HomeController.vb (Id パラメーターを使用してインデックスの操作) を一覧表示します。**
+**リスト 5-HomeController (Id パラメーターを持つインデックスアクション)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample5.vb)]
 
-[![パラメーターの値が必要とするコント ローラー アクションの呼び出し](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
+[パラメーター値を要求するコントローラーアクションを呼び出す ![](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
 
-**図 01**:パラメーターの値が必要とするコント ローラー アクションの呼び出し ([フルサイズの画像を表示する をクリックします](asp-net-mvc-routing-overview-vb/_static/image2.png))。
+**図 01**: パラメーター値を必要とするコントローラーアクションを呼び出す ([クリックすると、フルサイズのイメージが表示](asp-net-mvc-routing-overview-vb/_static/image2.png)されます)
 
-URL /Home/Index/3 は一方で、リスト 5 でインデックスのコント ローラー アクションでうまくいきます。 要求/Home/Index/3 とにより、3 の値を持つ Id パラメーターで呼び出される Index() メソッドです。
+URL /Home/Index/3 は一方で、リスト 5 でインデックスのコント ローラー アクションでうまくいきます。 要求/Home/Index/3 は、値が3の Id パラメーターを使用して Index () メソッドを呼び出します。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルの目的は、ASP.NET ルーティングの概要を提供することでした。 新しい ASP.NET MVC アプリケーションで得られる既定のルーティング テーブルを調査します。 既定のルートがコント ローラー アクションへの Url をマップする方法を学習しました。
+このチュートリアルの目的は、ASP.NET ルーティングの概要を説明することでした。 新しい ASP.NET MVC アプリケーションを使用して取得した既定のルートテーブルを調べます。 既定のルートでは、Url をコントローラーアクションにマップする方法を学習しました。
 
 > [!div class="step-by-step"]
 > [前へ](creating-an-action-cs.md)

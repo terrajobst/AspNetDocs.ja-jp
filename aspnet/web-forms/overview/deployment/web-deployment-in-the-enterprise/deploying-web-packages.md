@@ -2,195 +2,195 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 title: Web パッケージの配置 |Microsoft Docs
 author: jrjlee
-description: このトピックでは、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web... を使用して、リモート サーバーに web 配置パッケージを発行する方法について説明します
+description: このトピックでは、インターネットインフォメーションサービス (IIS) Web 配置ツール ([Web...] を使用して、web 配置パッケージをリモートサーバーに発行する方法について説明します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
 ms.openlocfilehash: 91b99e6e250342851aea6860164b6f6af54818d1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119322"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78464968"
 ---
 # <a name="deploying-web-packages"></a>Web パッケージを配置する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、インターネット インフォメーション サービス (IIS) の Web 配置ツール (Web 配置) を使用して、リモート サーバーに web 配置パッケージを発行する方法について説明します 2.0。
+> このトピックでは、インターネットインフォメーションサービス (IIS) Web 配置ツール (Web 配置) 2.0 を使用して、web 配置パッケージをリモートサーバーに発行する方法について説明します。
 > 
-> リモート サーバーに web パッケージを展開する 2 つの主な方法はあります。
+> Web パッケージをリモートサーバーに配置するには、主に次の2つの方法があります。
 > 
-> - MSDeploy.exe コマンド ライン ユーティリティを直接使用することができます。
-> - 実行することができます、 *[プロジェクト名].deploy.cmd*ビルド プロセスによって生成されるファイル。
+> - Msdeploy.exe コマンドラインユーティリティは直接使用できます。
+> - ビルドプロセスによって生成される *[project name]. .deploy*ファイルを実行できます。
 > 
-> 最終的な結果は、使用する方法にかかわらず同じです。 基本的には、すべて、 *. deploy.cmd*ファイルは、パッケージをデプロイするには多くの情報を提供する必要があるないように、いくつかの事前に定義された値に MSDeploy.exe を実行することです。 これには、展開プロセスが簡略化します。 その一方で、MSDeploy.exe を直接使用する柔軟性、はるかに多く、パッケージの配置を正確に経由。
+> 使用する方法に関係なく、最終的な結果は同じになります。 基本的に、すべての *.deploy*ファイルは、指定された値を使用して msdeploy.exe を実行します。これにより、パッケージを配置するために必要な情報を提供する必要がなくなります。 これにより、デプロイプロセスが簡略化されます。 一方、Msdeploy.exe を直接使用すると、パッケージの配置方法よりもはるかに柔軟になります。
 > 
-> 使用する方法はさまざまな要因によって異なります、展開プロセスを必要とどの程度制御など、Web デプロイのリモート エージェントのサービスまたは Web 配置ハンドラーのどちらを対象としているかどうか。 このトピックでは、それぞれのアプローチを使用する方法について説明し、それぞれのアプローチは適切なタイミングを識別します。
+> どの方法を使用するかは、展開プロセスで必要とされる制御量や、Web 配置リモートエージェントサービスと Web 配置ハンドラーのどちらを対象としているかなど、さまざまな要因によって異なります。 このトピックでは、各方法の使用方法と、それぞれの方法が適切であることを確認する方法について説明します。
 > 
-> タスクとこのトピックの「チュートリアル仮定します。
+> このトピックのタスクとチュートリアルでは、次のことを前提としています。
 > 
-> - 」の説明に従って、web アプリケーションをパッケージ化し、[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
-> - 変更した、 *SetParameters.xml* 」の説明に従って、ターゲット環境の適切なパラメーター値を提供するファイル[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)します。
+> - 「 [Web アプリケーションプロジェクトのビルドとパッケージ化](building-and-packaging-web-application-projects.md)」で説明されているように、web アプリケーションをビルドしてパッケージ化しました。
+> - 「 [Web パッケージ配置のパラメーターの構成](configuring-parameters-for-web-package-deployment.md)」で説明されているように、ターゲット環境に適切なパラメーター値を指定するように*setparameters .xml*ファイルを変更しました。
 
-実行して、[*プロジェクト名*]*. deploy.cmd*ファイルは web パッケージを配置する最も簡単な方法です。 具体的を使用して、 *. deploy.cmd*ファイルは、これら MSDeploy.exe を直接使用する利点を提供しています。
+Web パッケージを配置する最も簡単な方法は、[*project name*] *. .deploy*ファイルを実行することです。 特に、 *.deploy*ファイルを使用すると、msdeploy.exe を直接使用するよりも、次のような利点があります。
 
-- Web デプロイ パッケージの場所を指定する必要はありません&#x2014;、 *. deploy.cmd*ファイルが既にあるを知っています。
-- 場所を指定する必要はありません、 *SetParameters.xml*ファイル&#x2014;、 *. deploy.cmd*ファイルが既にあるを知っています。
-- ソースと宛先の MSDeploy プロバイダーを指定する必要はありません&#x2014;、 *. deploy.cmd*ファイルに使用するには、どの値が既に認識しています。
-- MSDeploy 操作設定を指定する必要はありません&#x2014;、 *. deploy.cmd*ファイル一般的に必要な値 MSDeploy.exe コマンドを自動的に追加します。
+- Web 配置パッケージ&#x2014;の場所を指定する必要はありません。 *.deploy*ファイルは、どこにあるかを既に認識しています。
+- *Setparameters .xml*ファイル&#x2014;の場所を指定する必要はありません。 *.cmd*ファイルは、その場所を既に認識しています。
+- ソースとターゲットの Msdeploy.exe プロバイダー&#x2014;を指定する必要はありません。 *.deploy*ファイルは、使用する値を既に認識しています。
+- Msdeploy.exe 操作の設定&#x2014;を指定する必要はありません *。 .deploy*ファイルによって、通常必要な値が msdeploy.exe コマンドに自動的に追加されます。
 
-使用する前に、 *. deploy.cmd*ファイル、web パッケージを展開することを確認する必要があります。
+*.Deploy*ファイルを使用して web パッケージを展開する前に、次のことを確認する必要があります。
 
-- *. Deploy.cmd*ファイルで、[*プロジェクト名*].*SetParameters.xml*ファイル、および web パッケージ ([*プロジェクト名*].*zip*) と同じフォルダーにします。
-- Web Deploy (MSDeploy.exe) が実行しているコンピューターにインストールされている、 *. deploy.cmd*ファイル。
+- *.Deploy*ファイル ([*プロジェクト名*])。*Setparameters .xml*ファイルと web パッケージ ([*プロジェクト名*])。*zip*) は同じフォルダー内にあります。
+- Web 配置 (Msdeploy.exe) は、 *.deploy*ファイルを実行するコンピューターにインストールされます。
 
-*. Deploy.cmd*ファイルには、さまざまなコマンド ライン オプションがサポートしています。 コマンド プロンプトから、ファイルを実行するときにこの基本的な構文を示します。
+*.Deploy*ファイルは、さまざまなコマンドラインオプションをサポートしています。 コマンドプロンプトからファイルを実行すると、基本的な構文は次のようになります。
 
 [!code-console[Main](deploying-web-packages/samples/sample1.cmd)]
 
-いずれかを指定する必要があります、 **/T**フラグまたは **/Y**試用版の実行または実際の展開をそれぞれ実行するかどうかを示すフラグ、(同じコマンド内に両方のフラグを使用しないでください)。 このテーブルには、これらのフラグの目的について説明します。
+試用版の実行とライブデプロイのどちらを実行するかを指定するには、 **/t**フラグまたは **/y**フラグを指定する必要があります (同じコマンドで両方のフラグを使用しないでください)。 次の表では、これらのフラグの用途について説明します。
 
-| フラグ | 説明 |
+| フラグ | Description |
 | --- | --- |
-| **/T** | MSDeploy.exe を呼び出すと、 **– whatif**を試用版の実行を示すフラグをします。 パッケージを配置するのではなく、パッケージを展開している場合、何が起こるのレポートを作成します。 |
-| **/Y** | MSDeploy.exe を呼び出します、 **– whatif**フラグ。 これは、パッケージがローカル コンピューターまたは指定された移行先サーバーにデプロイします。 |
-| **/M** | 移行先サーバーを指定します。 名前を付けるか、サービスの URL。 ここで指定できる値の詳細については、次を参照してください。、**エンドポイントに関する考慮事項**このトピックの「します。 省略した場合、 **/M**フラグは、パッケージは、ローカル コンピューターに展開されます。 |
-| **/A** | MSDeploy.exe が、展開の実行に使用する認証の種類を指定します。 指定できる値は**NTLM**と**基本的な**します。 省略した場合、 **/A**フラグは、既定の認証の種類**NTLM**にされ、Web デプロイのリモート エージェント サービスの展開の**基本的な**Web Deploy への展開ハンドラー。 |
+| **/T** | 評価版の実行を示す **– whatif**フラグを指定して msdeploy.exe を呼び出します。 パッケージを配置するのではなく、パッケージを配置した場合に何が起こるかのレポートを作成します。 |
+| **/Y** | **– Whatif**フラグを指定せずに msdeploy.exe を呼び出します。 これにより、パッケージがローカルコンピューターまたは指定した移行先サーバーに配置されます。 |
+| **/M** | 移行先サーバーの名前またはサービスの URL を指定します。 ここで指定できる値の詳細については、このトピックの「**エンドポイントに関する考慮事項**」セクションを参照してください。 **/M**フラグを省略した場合、パッケージはローカルコンピューターに配置されます。 |
+| **/A** | Msdeploy.exe が展開を実行するために使用する認証の種類を指定します。 指定できる値は、 **NTLM**と**Basic**です。 **/A**フラグを省略した場合、認証の種類は、Web 配置リモートエージェントサービスに配置する場合は**NTLM** 、Web 配置ハンドラーに配置する場合は **[基本]** に設定されます。 |
 | **/U** | ユーザー名を指定します。 これは、基本認証を使用している場合にのみ適用されます。 |
 | **/P** | パスワードを指定します。 これは、基本認証を使用している場合にのみ適用されます。 |
-| **/L** | パッケージがローカルの IIS Express のインスタンスに配置することを示します。 |
-| **/G** | 使用して、パッケージを配置することを指定します、 [tempAgent プロバイダー設定](https://technet.microsoft.com/library/ee517345(WS.10).aspx)します。 省略した場合、 **/G**フラグは、既定値は**false**します。 |
+| **/L** | パッケージをローカル IIS Express インスタンスに配置する必要があることを示します。 |
+| **/G** | [Tempagent プロバイダー設定](https://technet.microsoft.com/library/ee517345(WS.10).aspx)を使用してパッケージを配置することを指定します。 **/G**フラグを省略した場合、値は既定で**false**に設定されます。 |
 
 > [!NOTE]
-> という名前のファイルも作成、ビルド プロセスでは、web パッケージを作成するたびに*readme.txt-[プロジェクト名] .deploy*これらの展開オプションをについて説明します。
+> ビルドプロセスによって web パッケージが作成されるたびに、これらの配置オプションについて説明する *[project name] deploy-readme*という名前のファイルも作成されます。
 
-これらのフラグに加え、追加として Web 配置操作の設定を指定できます *. deploy.cmd*パラメーター。 追加設定を指定するは、基になる MSDeploy.exe コマンドに渡さだけです。 これらの設定の詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。
+これらのフラグに加えて、Web 配置操作設定を追加*の .deploy*パラメーターとして指定できます。 指定した追加の設定は、単に基になる Msdeploy.exe コマンドに渡されます。 これらの設定の詳細については、「 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)」を参照してください。
 
-実行して、テスト環境に ContactManager.Mvc web アプリケーション プロジェクトを展開すると、 *. deploy.cmd*ファイル。 」の説明に従って、Web デプロイのリモート エージェント サービスを使用するテスト環境が構成されている[Web 配置発行 (リモート エージェント) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)します。 Web アプリケーションを配置するには、次の手順を完了する必要があります。
+たとえば、 *.deploy*ファイルを実行して、Contactmanager Mvc web アプリケーションプロジェクトをテスト環境に配置するとします。 テスト環境は Web 配置リモートエージェントサービスを使用するように構成されています。詳細については、「 [Configure The Web Server for Web 配置 Publishing (リモートエージェント)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)」を参照してください。 Web アプリケーションをデプロイするには、次の手順を完了する必要があります。
 
-**使用して web アプリケーションを展開します deploy.cmd ファイル。**
+**.Deploy ファイルを使用して web アプリケーションを配置するには**
 
-1. ビルドおよび」の説明に従って、web アプリケーション プロジェクトをパッケージ化[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
-2. 変更、 *ContactManager.Mvc.SetParameters.xml* 」の説明に従って、テスト環境内の適切なパラメーターの値を格納するファイル[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)します。
-3. コマンド プロンプト ウィンドウを開きの場所に移動し、 *ContactManager.Mvc.deploy.cmd*ファイル。
-4. このコマンドを入力し、Enter キーを押します。
+1. 「 [Web アプリケーションプロジェクトのビルドおよびパッケージ化](building-and-packaging-web-application-projects.md)」で説明されているように、web アプリケーションプロジェクトをビルドしてパッケージ化します。
+2. 「 [Web パッケージ配置のパラメーターの構成](configuring-parameters-for-web-package-deployment.md)」で説明されているように、テスト環境の正しいパラメーター値を含むように*Contactmanager. Mvc. setparameters .xml*ファイルを変更します。
+3. コマンドプロンプトウィンドウを開き、 *Contactmanager. Mvc. .deploy*ファイルの場所に移動します。
+4. 次のコマンドを入力し、enter キーを押します。
 
     [!code-console[Main](deploying-web-packages/samples/sample2.cmd)]
 
-この例では、次のように記述されています。
+次の点に注意してください。
 
-- **/Y**フラグは、ことを実際には、パッケージを展開するではなく実行、試用版を行うことを示します。
-- **/M**フラグは TESTWEB1 という名前のサーバーにパッケージを展開することを示します。 Web デプロイのリモート エージェントのサービスにパッケージを展開する試行は MSDeploy.exe からこの値は、 http://TESTWEB1/MSDeployAgentService します。
+- **/Y**フラグは、評価版を実行するのではなく、実際にパッケージを展開することを示します。
+- **/M**フラグは、TESTWEB1 という名前のサーバーにパッケージを配置することを示します。 この値から、Msdeploy.exe は http://TESTWEB1/MSDeployAgentServiceで Web 配置リモートエージェントサービスにパッケージを配置しようとします。
 - **/A**フラグは、NTLM 認証を使用することを示します。 そのため、ユーザー名とパスワードを指定する必要はありません。
 
-説明するためを使用する方法、 *. deploy.cmd*ファイルには、展開プロセスが簡略化され、生成を取得しを実行するときに実行する MSDeploy.exe コマンドについて見て*ContactManager.Mvc.deploy.cmd*上記のオプションを使用します。
+*.Deploy*ファイルを使用してデプロイプロセスを簡略化する方法を説明するために、上記のオプションを使用して*contactmanager*を実行するときに生成されて実行される msdeploy.exe コマンドを見てみましょう。
 
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
-使用しての詳細については、 *. deploy.cmd* web パッケージ展開を参照してくださいファイル[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。
+*.Deploy ファイルを*使用した web パッケージの配置の詳細については、「[方法: .Deploy ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)する」を参照してください。
 
-## <a name="using-msdeployexe"></a>MSDeploy.exe を使用します。
+## <a name="using-msdeployexe"></a>Msdeploy.exe の使用
 
-使用すること、 *. deploy.cmd*ファイルは通常、展開プロセスを簡略化、状況によっては、ときに、MSDeploy.exe を直接使用することをお勧めします。 例えば:
+通常、 *.deploy*ファイルを使用すると展開プロセスが単純化されますが、msdeploy.exe を直接使用する方が好ましい場合もあります。 次に例を示します。
 
-- 管理者以外のユーザーとして Web 配置ハンドラーを展開する場合は、使用できません、 *. deploy.cmd*ファイル。 」の説明に従って、Web Deploy 2.0 では、バグが原因はこの**エンドポイントに関する考慮事項**します。
-- 手動で別の間で切り替えたい場合*SetParameters.xml*異なる場所にファイル、MSDeploy.exe を直接使用することもできます。
-- いくつかの MSDeploy.exe コマンドライン引数をオーバーライドする場合は、MSDeploy.exe を直接使用することができます。
+- Web 配置ハンドラーに管理者以外のユーザーとして展開する場合は、 *.deploy*ファイルを使用できません。 これは、「**エンドポイントの考慮事項**」で説明されているように Web 配置2.0 のバグが原因です。
+- 異なる場所にある異なる*Setparameters .xml*ファイルを手動で切り替える場合は、msdeploy.exe を直接使用することをお勧めします。
+- Msdeploy.exe のコマンドライン引数をいくつかオーバーライドする場合は、Msdeploy.exe を直接使用することをお勧めします。
 
-MSDeploy.exe を使用する場合は、次の 3 つの重要な情報を提供する必要があります。
+Msdeploy.exe を使用する場合は、次の3つの重要な情報を提供する必要があります。
 
-- A **– ソース**からデータが送信される場所を示すパラメーターです。
-- A **– dest**にデータを移動する場所を示すパラメーターです。
-- A **– 動詞**を示すパラメーターです、[操作](https://technet.microsoft.com/library/dd568989(WS.10).aspx)を実行します。
+- データの取得元の場所を示す **-source**パラメーター。
+- データの移動先を示す **– dest**パラメーター。
+- 実行する[操作](https://technet.microsoft.com/library/dd568989(WS.10).aspx)を示す **–動詞**パラメーター。
 
-MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 Web Deploy には使用するアプリケーションとデータ ソースの範囲を表す、プロバイダーの多くが含まれています&#x2014;などの SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーにはさまざまな別の構成ファイル、および多数のデータの他の型。 両方の **– ソース**パラメーターおよび **– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります **– ソース**: [*providerName*] = [*場所*]。 IIS の web サイトに web パッケージをデプロイするときは、これらの値を使用する必要があります。
+Msdeploy.exe は、 [Web 配置プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)に依存して、ソースとターゲットのデータを処理します。 Web 配置には、使用できる&#x2014;アプリケーションとデータソースの範囲を表すプロバイダーが多数用意されています。たとえば、SQL Server データベース、IIS web サーバー、証明書、グローバルアセンブリキャッシュ (GAC) アセンブリ、さまざまな構成ファイル、その他多くの種類のデータのプロバイダーがあります。 – **Source**パラメーターと **– dest**パラメーターの両方で、 **-source**: [*providerName*] = [*location*] の形式でプロバイダーを指定する必要があります。 IIS web サイトに web パッケージを配置する場合は、次の値を使用する必要があります。
 
-- **– ソース**プロバイダーは常に[パッケージ](https://technet.microsoft.com/library/dd569019(WS.10).aspx)します。 例えば:
+- **– Source**プロバイダーは常に[パッケージ](https://technet.microsoft.com/library/dd569019(WS.10).aspx)です。 次に例を示します。
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- **– Dest**プロバイダーは常に[自動](https://technet.microsoft.com/library/dd569016(WS.10).aspx)します。例えば:
+- **– Dest**プロバイダーは常に[auto](https://technet.microsoft.com/library/dd569016(WS.10).aspx)です。例えば：
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
-- **– 動詞**は常に**同期**します。
+- **–動詞**は常に**同期**されます。
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-さらに、必要がありますを指定するさまざまな他の[プロバイダーに固有の設定](https://technet.microsoft.com/library/dd569001(WS.10).aspx)や一般的な[操作設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。 たとえば、ContactManager.Mvc web アプリケーションをステージング環境をデプロイするとします。 展開では、Web 配置ハンドラーをターゲットし、基本認証を使用する必要があります。 Web アプリケーションを配置するには、次の手順を完了する必要があります。
+さらに、その他の[プロバイダー固有の設定](https://technet.microsoft.com/library/dd569001(WS.10).aspx)と一般的な[操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)を指定する必要があります。 たとえば、ContactManager の Mvc web アプリケーションをステージング環境にデプロイするとします。 この配置は、Web 配置ハンドラーを対象とし、基本認証を使用する必要があります。 Web アプリケーションをデプロイするには、次の手順を完了する必要があります。
 
-**MSDeploy.exe を使用して web アプリケーションをデプロイするには**
+**Msdeploy.exe を使用して web アプリケーションを展開するには**
 
-1. ビルドおよび」の説明に従って、web アプリケーション プロジェクトをパッケージ化[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
-2. 変更、 *ContactManager.Mvc.SetParameters.xml* 」の説明に従って、ステージング環境に適切なパラメーター値を格納するファイル[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)します。
-3. コマンド プロンプト ウィンドウを開き、MSDeploy.exe の場所を指定します。 これは通常 %PROGRAMFILES%\IIS\Microsoft Web デプロイ V2\msdeploy.exe にします。
-4. このコマンドを入力し、Enter キーを押します (改行は無視)。
+1. 「 [Web アプリケーションプロジェクトのビルドおよびパッケージ化](building-and-packaging-web-application-projects.md)」で説明されているように、web アプリケーションプロジェクトをビルドしてパッケージ化します。
+2. 「 [Web パッケージ配置のパラメーターの構成](configuring-parameters-for-web-package-deployment.md)」で説明されているように、ステージング環境の正しいパラメーター値が含まれるように*Contactmanager. Mvc パラメーター .xml*ファイルを変更します。
+3. コマンドプロンプトウィンドウを開き、Msdeploy.exe の場所を参照します。 これは通常、%PROGRAMFILES%\IIS\Microsoft Web 配置 V2\msdeploy.exe. にあります。
+4. 次のコマンドを入力し、enter キーを押します (改行は無視します)。
 
     [!code-console[Main](deploying-web-packages/samples/sample7.cmd)]
 
-この例では、次のように記述されています。
+次の点に注意してください。
 
-- **– ソース**パラメーターを指定します、**パッケージ**プロバイダーと web のパッケージの場所を示します。
-- **– Dest**パラメーターを指定します、**自動**プロバイダー。 **ComputerName**設定が移行先サーバーで Web 配置ハンドラーのサービスの URL を提供します。 **Authtype**設定は、基本認証を使用するよう指定する必要があります、ことを示します、 **username**と**パスワード**します。 最後に、 **includeAcls ="False"** 設定では、移行先サーバーに、ソース web アプリケーションで、ファイルのアクセス制御リスト (Acl) をコピーしないことを示します。
-- **– 動詞: 同期**引数は、移行先サーバー上のソース コンテンツをレプリケートすることを示します。
-- **–-Disablelink:contentextension**引数は、アプリケーション プール、仮想ディレクトリの構成、または移行先サーバーで Secure Sockets Layer (SSL) 証明書にレプリケートしないことを示します。 詳細については、次を参照してください。 [Web デプロイ リンク拡張機能](https://technet.microsoft.com/library/dd569028(WS.10).aspx)します。
-- **– SetParamFile**パラメーターの場所を提供する、 *SetParameters.xml*ファイル。
-- **– AllowUntrusted**スイッチでは、Web Deploy で信頼された証明機関によって発行されたしない SSL 証明書を受け入れる必要があることを示します。 Web 配置ハンドラーにデプロイするサービスの URL をセキュリティで保護する自己署名証明書を使用した場合は、このスイッチに含める必要があります。
+- **– Source**パラメーターは**パッケージ**プロバイダーを指定し、web パッケージの場所を示します。
+- **– Dest**パラメーターは、**自動**プロバイダーを指定します。 **ComputerName**設定は、移行先サーバーの Web 配置ハンドラーのサービス URL を提供します。 **[Authtype]** 設定は基本認証を使用することを示します。そのため、**ユーザー名**と**パスワード**を入力する必要があります。 最後に、 **Includeacls = "False"** の設定は、ソース web アプリケーション内のファイルのアクセス制御リスト (acl) を移行先サーバーにコピーしないことを示します。
+- **– Verb: sync**引数は、移行先サーバーでソースコンテンツをレプリケートすることを示します。
+- **– Disablelink**引数は、アプリケーションプール、仮想ディレクトリ構成、または SECURE SOCKETS LAYER (SSL) 証明書を移行先サーバーにレプリケートしないことを示します。 詳細については、「 [Web 配置リンク拡張機能](https://technet.microsoft.com/library/dd569028(WS.10).aspx)」を参照してください。
+- **– Setparamfile**パラメーターは、 *setparameters .xml*ファイルの場所を提供します。
+- **– Allowuntrusted**スイッチは、信頼された証明機関によって発行されていない SSL 証明書を Web 配置が受け入れる必要があることを示します。 Web 配置ハンドラーにデプロイしていて、自己署名証明書を使用してサービス URL を保護している場合は、このスイッチを含める必要があります。
 
-## <a name="automating-web-package-deployment"></a>Web パッケージ展開を自動化します。
+## <a name="automating-web-package-deployment"></a>Web パッケージの配置の自動化
 
-多数のエンタープライズ シナリオでは、シングル ステップの拡大または自動展開の一部として、web パッケージを配置するします。 Web パッケージを実行してデプロイを選択するかどうかに関係なく、 *. deploy.cmd*ファイルまたは MSDeploy.exe を直接使用すると、お客様のコマンドをパラメーター化し Microsoft Build Engine (MSBuild) 内のターゲットからこれらを呼び出すプロジェクト ファイルです。
+多くのエンタープライズシナリオでは、大規模なシングルステップまたは自動化されたデプロイの一部として、web パッケージをデプロイする必要があります。 *.Deploy*ファイルを実行して、または msdeploy.exe を直接使用して、web パッケージを配置するかどうかに関係なく、コマンドをパラメーター化して、Microsoft Build Engine (MSBuild) プロジェクトファイルのターゲットから呼び出すことができます。
 
-連絡先のマネージャーのサンプル ソリューションで見て、 **PublishWebPackages**ターゲット、 *Publish.proj*ファイル。 このターゲットは、それぞれに 1 回実行 *. deploy.cmd*という名前の項目一覧で識別されるファイル**PublishPackages**します。 ターゲットの各引数の値の完全なセットを構築するプロパティと項目のメタデータを使用して *. deploy.cmd*ファイルおよび、使用、 **Exec**コマンドを実行するタスク。
+Contact Manager サンプルソリューションで、 *Publish*ファイル内の**publishwebpackages**ターゲットを確認します。 このターゲットは、 **Publishpackages**という名前の項目リストによって識別される *.deploy*ファイルごとに1回実行されます。 ターゲットは、プロパティと項目メタデータを使用して、各 *.deploy*ファイルの引数値の完全なセットを作成してから、 **Exec**タスクを使用してコマンドを実行します。
 
 [!code-xml[Main](deploying-web-packages/samples/sample8.xml)]
 
 > [!NOTE]
-> サンプル ソリューションでは、および一般的なカスタムのプロジェクト ファイルの概要で、プロジェクト ファイルのモデルのより広範な概要については、次を参照してください。[プロジェクト ファイルを理解する](understanding-the-project-file.md)と[ビルド プロセスを理解する](understanding-the-build-process.md)します。
+> サンプルソリューションのプロジェクトファイルモデルの概要と、一般的なカスタムプロジェクトファイルの概要については、「[プロジェクトファイルについ](understanding-the-project-file.md)て」および「[ビルドプロセスについ](understanding-the-build-process.md)て」を参照してください。
 
 ## <a name="endpoint-considerations"></a>エンドポイントに関する考慮事項
 
-実行して、web パッケージを展開するかどうかに関係なく、 *. deploy.cmd*ファイルまたは MSDeploy.exe を直接使用すると、コンピューター名またはデプロイのサービス エンドポイントを指定する必要があります。
+*.Deploy*ファイルを実行して、または msdeploy.exe を直接使用して、web パッケージを配置するかどうかにかかわらず、デプロイのコンピューター名またはサービスエンドポイントを指定する必要があります。
 
-Web デプロイのリモート エージェント サービスを使用した展開先の web サーバーを構成する場合は、変換先として、ターゲット サービスの URL を指定します。
+対象の web サーバーが Web 配置リモートエージェントサービスを使用してデプロイするように構成されている場合は、ターゲットサービスの URL を送信先として指定します。
 
 [!code-console[Main](deploying-web-packages/samples/sample9.cmd)]
 
-または、サーバー名だけを指定するには、変換先としてし、Web Deploy は、リモート エージェント サービスの URL を推論します。
+または、宛先としてサーバー名だけを指定することも、リモートエージェントサービスの URL を推測 Web 配置こともできます。
 
 [!code-console[Main](deploying-web-packages/samples/sample10.cmd)]
 
-Web 配置ハンドラーを使用した展開先の web サーバーを構成する場合は、変換先として、IIS Web 管理サービス (WMSvc) のエンドポイント アドレスを指定する必要があります。 既定では、形式をとります。
+対象の web サーバーが Web 配置ハンドラーを使用して配置するように構成されている場合は、IIS Web 管理サービス (WMSvc) のエンドポイントアドレスを宛先として指定する必要があります。 既定では、次の形式になります。
 
 [!code-console[Main](deploying-web-packages/samples/sample11.cmd)]
 
-いずれかを使用してこれらのエンドポイントのいずれかの対象にすることができます、 *. deploy.cmd*ファイルまたは直接 MSDeploy.exe します。 ただし、」の説明に従って管理者以外のユーザーとして Web 配置ハンドラーを配置する場合[Web 配置発行 (Web 配置ハンドラー) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)サービスのエンドポイント アドレスにクエリ文字列を追加する必要があります。
+これらのエンドポイントのいずれかをターゲットにするには、 *.deploy*ファイルまたは msdeploy.exe を直接使用します。 ただし、「 [Web 配置発行用に Web サーバーを構成する (Web 配置ハンドラー)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)」の説明に従って、管理者以外のユーザーとして Web 配置ハンドラーに展開する場合は、サービスエンドポイントアドレスにクエリ文字列を追加する必要があります。
 
 [!code-console[Main](deploying-web-packages/samples/sample12.cmd)]
 
-これは、管理者以外のユーザーが IIS サーバー レベルのアクセスを持っていないためです。そのユーザーは、特定の IIS web サイトへのアクセスのみが。 Web 発行パイプライン (WPP) でのバグが原因の書き込み時に実行することはできません、 *. deploy.cmd*ファイルのクエリ文字列を含むエンドポイント アドレスを使用します。 このシナリオで直接 MSDeploy.exe を使用して、web パッケージを展開する必要があります。
+これは、管理者以外のユーザーが IIS サーバー レベルのアクセスを持っていないためです。そのユーザーは、特定の IIS web サイトへのアクセスのみが。 このドキュメントの執筆時点では、Web 発行パイプライン (WPP) のバグが原因で、クエリ文字列を含むエンドポイントアドレスを使用して *.deploy*ファイルを実行することはできません。 このシナリオで直接 MSDeploy.exe を使用して、web パッケージを展開する必要があります。
 
 > [!NOTE]
-> Web デプロイのリモート エージェントのサービスと Web 配置ハンドラーの詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)します。 これらのエンドポイントにデプロイする環境に固有のプロジェクト ファイルを構成する方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
+> リモートエージェントサービスと Web 配置ハンドラーの Web 配置の詳細については、「 [Web 配置に適切なアプローチを選択する](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)」を参照してください。 これらのエンドポイントに配置するために環境固有のプロジェクトファイルを構成する方法については、「[ターゲット環境の配置プロパティを構成](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)する」を参照してください。
 
 ## <a name="authentication-considerations"></a>認証に関する注意点
 
-実行して、web パッケージを展開するかどうかに関係なく、 *. deploy.cmd*ファイルまたは MSDeploy.exe を直接使用すると、認証の種類を指定する必要があります。 Web Deploy は、2 つの値を受け取ります。**NTLM**または**基本的な**します。 基本認証を指定する場合は、ユーザー名とパスワードを指定する必要があります。 認証の種類を選択するときに注意する必要があるさまざまな要素があります。
+*.Deploy*ファイルを実行して、または msdeploy.exe を直接使用して、web パッケージを配置するかどうかに関係なく、認証の種類を指定する必要があります。 Web 配置には、 **NTLM**または**Basic**の2つの値を指定できます。 基本認証を指定する場合は、ユーザー名とパスワードも指定する必要があります。 認証の種類を選択する際には、次の点に注意する必要があるさまざまな要素があります。
 
-- Web デプロイのリモート エージェントのサービスにデプロイする場合は、NTLM 認証を使用する必要があります。 リモート エージェント サービスでは、基本認証資格情報を受け入れません。
-- Web 配置ハンドラーに配置する場合は、NTLM または基本認証のいずれかを使用することができます。 既定の設定は、基本認証です。 基本認証は、ユーザー名とパスワードがプレーン テキストで送信中に依存するが、Web 配置ハンドラーが常に SSL 暗号化を使用して、資格情報が保護されます。
-- ために NTLM 認証を使用してデータベースをデプロイすることはできませんする場合は、web のパッケージには、データベースが含まれています。 web サーバーとデータベース サーバーが別のコンピューター、、 [NTLM"ダブルホップ"制限](https://go.microsoft.com/?linkid=9805120)します。 デプロイの接続文字列に SQL Server 資格情報を使用するか、Web Deploy に基本認証資格情報を指定する必要があります。 この問題がでさらに詳しく記載されている[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)します。
+- Web 配置リモートエージェントサービスにデプロイする場合は、NTLM 認証を使用する必要があります。 リモートエージェントサービスは、基本認証資格情報を受け入れません。
+- Web 配置ハンドラーにデプロイする場合は、NTLM 認証または基本認証のいずれかを使用できます。 既定の設定は [基本認証] です。 基本認証は、プレーンテキストで送信されるユーザー名とパスワードに依存しますが、Web 配置ハンドラーが常に SSL 暗号化を使用するため、資格情報が保護されます。
+- Web パッケージにデータベースが含まれており、web サーバーとデータベースサーバーが別々のコンピューターである場合、 [ntlm の "ダブルホップ" の制限](https://go.microsoft.com/?linkid=9805120)により、ntlm 認証を使用してデータベースをデプロイすることはできません。 デプロイ接続文字列で SQL Server 資格情報を使用するか、基本認証の資格情報を指定して Web 配置する必要があります。 この問題の詳細については、「[エンタープライズ環境にメンバーシップデータベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)」を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックで説明するデプロイ方法 web パッケージを実行するか、 *. deploy.cmd*ファイルまたは MSDeploy.exe を直接使用しています。 それぞれのアプローチは、適切な可能性があり、パラメーター化し、大規模なシングル ステップまたは自動化されたビルド プロセスの一部としてデプロイ コマンドを実行する方法が説明されていることについて説明します。
+このトピックでは、 *.deploy*ファイルを実行するか、または msdeploy.exe を直接使用して、web パッケージを配置する方法について説明します。 この記事では、各方法が適切であることを説明し、より大きなシングルステップまたは自動のビルドプロセスの一部として配置コマンドをパラメーター化して実行する方法について説明しました。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-作成し、web 配置パッケージのパラメーター化する方法のガイダンスについては、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)と[Web パッケージ展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)します。 ビルドし、Team Foundation Server (TFS) のインスタンスから web パッケージを配置する方法のガイダンスについては、次を参照してください。 [Web デプロイの自動化用の Team Foundation Server の構成](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)します。 カスタマイズし、展開プロセスをトラブルシューティングする方法については、次を参照してください。[展開から除外ファイルとフォルダー](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md)します。
+Web 配置パッケージを作成してパラメーター化する方法のガイダンスについては、「web[アプリケーションプロジェクトのビルドおよびパッケージ化](building-and-packaging-web-application-projects.md)」および「 [web パッケージ配置のパラメーターの構成](configuring-parameters-for-web-package-deployment.md)」を参照してください。 Team Foundation Server (TFS) インスタンスから web パッケージを構築および配置する方法については、「[自動 Web デプロイの Team Foundation Server の構成](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)」を参照してください。 展開プロセスをカスタマイズおよびトラブルシューティングする方法については、「[展開からのファイルとフォルダーの除外](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](configuring-parameters-for-web-package-deployment.md)

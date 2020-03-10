@@ -9,11 +9,11 @@ ms.assetid: 1c4588bb-255d-4088-b319-5208da756f4d
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8aa57172abcfc779fa74b128ad76d42c41dc5b98
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74602231"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78465940"
 ---
 # <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>ObjectDataSource のパラメーター値をプログラムで設定する (C#)
 
@@ -37,7 +37,7 @@ ObjectDataSource の `Select` メソッドが呼び出されるたびに、Objec
 
 このチュートリアルでは、`int` 型の1つの入力パラメーター `Month`を受け取り、指定された `Month`で採用記念日がある従業員を含む `EmployeesDataTable` オブジェクトを返す、DAL および BLL にメソッドを追加する方法について説明します。 この例では、現在の月に基づいて、このパラメーターをプログラムによって設定し、「今月の従業員記念日」の一覧を示します。
 
-では、始めましょう。
+作業開始
 
 ## <a name="step-1-adding-a-method-toemployeestableadapter"></a>手順 1:`EmployeesTableAdapter` にメソッドを追加する
 
@@ -111,7 +111,7 @@ ObjectDataSource の `Select` メソッドが呼び出されるたびに、Objec
 
 **図 10**: 今月の記念日が表示されている従業員 ([フルサイズの画像を表示するにはクリックし](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image28.png)ます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ObjectDataSource のパラメーターの値は通常、コード行を必要とせずに宣言して設定できますが、パラメーター値はプログラムで簡単に設定できます。 必要なのは、ObjectDataSource の `Selecting` イベントのイベントハンドラーを作成することだけです。これは、基になるオブジェクトのメソッドが呼び出される前に発生し、`InputParameters` コレクションを介して1つ以上のパラメーターの値を手動で設定します。
 
@@ -119,7 +119,7 @@ ObjectDataSource のパラメーターの値は通常、コード行を必要と
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

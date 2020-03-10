@@ -9,11 +9,11 @@ ms.assetid: 866a7177-6884-451e-88f4-c934b1dd1af5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
 ms.openlocfilehash: b71cacb143094dcc5cf483c69c2fcc0f10def51c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74628681"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78461494"
 ---
 # <a name="multiple-contentplaceholders-and-default-content-vb"></a>複数の ContentPlaceHolders と既定のコンテンツ (VB)
 
@@ -148,7 +148,7 @@ ASP.NET では、マスターページで定義されているすべての Conte
 
 **図 08**: `LeftColumnContent` および `QuickLoginUI` Contentplaceholders の既定の内容が表示される ([クリックすると、フルサイズの画像が表示](multiple-contentplaceholders-and-default-content-vb/_static/image24.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET マスターページモデルでは、マスターページで任意の数の ContentPlaceHolders を使用できます。 さらに、ContentPlaceHolders には既定のコンテンツが含まれています。これは、コンテンツページに対応するコンテンツコントロールがない場合に出力されます。 このチュートリアルでは、マスターページに追加の ContentPlaceHolder コントロールを追加する方法と、新しい ASP.NET ページと既存のページの両方でこれらの新しい ContentPlaceHolders のコンテンツコントロールを定義する方法を説明しました。 また、ContentPlaceHolder での既定のコンテンツの指定についても説明しました。これは、少数のページだけが特定の地域内のその他の標準化されたコンテンツをカスタマイズする必要があるシナリオで役に立ちます。
 
@@ -156,7 +156,7 @@ ASP.NET マスターページモデルでは、マスターページで任意の
 
 プログラミングを楽しんでください。
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

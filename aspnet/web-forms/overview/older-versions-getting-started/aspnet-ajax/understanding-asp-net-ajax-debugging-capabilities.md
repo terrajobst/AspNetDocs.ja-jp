@@ -9,17 +9,17 @@ ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
 ms.openlocfilehash: 08ced380f3551407d757524dbc84b5feeeb5482b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74601363"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78510862"
 ---
 # <a name="understanding-aspnet-ajax-debugging-capabilities"></a>ASP.NET AJAX デバッグ機能について理解する
 
 [Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial06_Debugging_MS_Ajax_Applications_cs.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial06_Debugging_MS_Ajax_Applications_cs.pdf)
 
 > コードをデバッグする機能は、使用しているテクノロジに関係なく、すべての開発者がコレクションに必要とするスキルです。 多くの開発者は、Visual Studio .NET または Web Developer Express を使用して、VB.NET やC#コードを使用する ASP.NET アプリケーションをデバッグすることに慣れていますが、JavaScript などのクライアント側コードをデバッグする場合にも非常に便利であることを認識していません。 .NET アプリケーションのデバッグに使用するのと同じ種類の手法は、AJAX 対応アプリケーションや、より具体的に ASP.NET AJAX アプリケーションにも適用できます。
 
@@ -219,10 +219,10 @@ Sys. Debug クラスでは、表1に示すように、トレース、コード�
 | **関数名** | **説明** |
 | --- | --- |
 | assert (condition、message、displayCaller) | Condition パラメーターが true であることをアサートします。 テスト対象の条件が false の場合は、メッセージボックスを使用してメッセージパラメーター値が表示されます。 DisplayCaller パラメーターが true の場合、メソッドは呼び出し元に関する情報も表示します。 |
-| clearTrace () | トレース操作から出力するステートメントを消去します。 |
+| clearTrace() | トレース操作から出力するステートメントを消去します。 |
 | fail (メッセージ) | プログラムの実行を停止し、デバッガーを中断します。 メッセージパラメーターを使用して、エラーの理由を指定できます。 |
 | トレース (message) | メッセージパラメーターをトレース出力に書き込みます。 |
-| traceDump (オブジェクト、名前) | オブジェクトのデータを読み取り可能な形式で出力します。 Name パラメーターを使用して、トレースダンプのラベルを指定できます。 ダンプされるオブジェクト内のすべてのサブオブジェクトは、既定で書き出されます。 |
+| traceDump(object, name) | オブジェクトのデータを読み取り可能な形式で出力します。 Name パラメーターを使用して、トレースダンプのラベルを指定できます。 ダンプされるオブジェクト内のすべてのサブオブジェクトは、既定で書き出されます。 |
 
 クライアント側のトレースは、ASP.NET で使用できるトレース機能とほぼ同じ方法で使用できます。 これにより、アプリケーションのフローを中断せずに、さまざまなメッセージを簡単に表示できます。 リスト5は、トレースログに書き込むためのトレース関数の使用例を示しています。 この関数は、パラメーターとして書き出す必要があるメッセージを単に受け取ります。
 
@@ -301,7 +301,7 @@ ScriptManager コントロールに設定されている ScriptMode プロパテ
 
 ScriptMode プロパティを適切に使用することで、アプリケーションをより簡単にデバッグし、プロセス全体を簡略化することができます。 デバッグスクリプトがデバッグのために特別にフォーマットされている間は、コードの書式設定が削除されているので、ASP.NET AJAX ライブラリのリリーススクリプトは、ステップ実行や読み取りが困難です。
 
-## <a name="conclusion"></a>結論
+## <a name="conclusion"></a>まとめ
 
 Microsoft の ASP.NET AJAX テクノロジは、エンドユーザーの全体的なエクスペリエンスを向上させることができる AJAX 対応アプリケーションを構築するための堅固な基盤を提供します。 ただし、プログラミングテクノロジと同様に、バグやその他のアプリケーションの問題は確実に発生します。 使用可能なさまざまなデバッグオプションを把握することで、時間を節約し、より安定した製品にすることができます。
 
@@ -314,4 +314,4 @@ Dan Wahlin (ASP.NET と XML Web サービスの Microsoft の最も重要なプ�
 Scott Cate は1997以来 Microsoft の Web テクノロジを使用しています。また、myKB.com ([www.myKB.com](http://www.myKB.com)) の大統領で、サポート技術情報のソフトウェアソリューションに重点を置いた ASP.NET ベースのアプリケーションを作成することを専門としています。 Scott は、 [scott.cate@myKB.com](mailto:scott.cate@myKB.com)または彼のブログ ( [ScottCate.com](http://ScottCate.com) ) で、電子メールで連絡を受けることができます。
 
 > [!div class="step-by-step"]
-> [前へ](understanding-asp-net-ajax-web-services.md)
+> [[戻る]](understanding-asp-net-ajax-web-services.md)

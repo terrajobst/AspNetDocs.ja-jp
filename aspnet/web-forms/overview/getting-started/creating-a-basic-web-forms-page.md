@@ -9,11 +9,11 @@ ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
 ms.openlocfilehash: 5d13a51128eecd92a82cfd06054448582a348e11
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445677"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78511078"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Visual Studio 2013 を使用した基本的な ASP.NET 4.5 Web フォームページの作成
 
@@ -32,9 +32,9 @@ ms.locfileid: "73445677"
 - イベントハンドラーを追加しています。
 - Visual Studio からのページの実行とテスト。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-このチュートリアルを完了するための要件は次のとおりです。
+このチュートリアルを完了するには、以下が必要です。
 
 - [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Web 用 Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web)。 .NET Framework は自動的にインストールされます。 
 
@@ -58,11 +58,11 @@ ms.locfileid: "73445677"
 
     **[新しいプロジェクト]** ダイアログ ボックスが表示されます。
 3. 左側にある [**テンプレート** -&gt; **Visual C#**  -&gt; **Web**テンプレート] グループを選択します。
-4. 中央の列で**ASP.NET Web アプリケーション**テンプレートを選択します。
+4. 中央の列で **[ASP.NET Web アプリケーション]** を選択します。
 5. プロジェクトに***Basicwebapp***という名前を指定し、 **[OK]** ボタンをクリックします。   
-[新しいプロジェクトの ![] ダイアログボックス](creating-a-basic-web-forms-page/_static/image2.png)
+![[新しいプロジェクト] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image2.png)
 6. 次に、 **[Web フォーム]** テンプレートを選択し、 **[OK]** ボタンをクリックしてプロジェクトを作成します。  
-[新しい ASP.NET プロジェクトの ![] ダイアログボックス](creating-a-basic-web-forms-page/_static/image3.png)  
+![[新しい ASP.NET プロジェクト] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image3.png)  
 
     Visual Studio によって、Web フォームテンプレートに基づく事前構築済みの機能を含む新しいプロジェクトが作成されます。 これは *、default.aspx ページ*、 *About .aspx*ページ、および*Contact .aspx*ページを提供するだけでなく、ユーザーが web サイトにログインできるように、ユーザーを登録して資格情報を保存するメンバーシップ機能も備えています。 新しいページが作成されると、既定では、Visual Studio によってページが**ソース**ビューに表示されます。このページでは、ページの HTML 要素を確認できます。 次の図は、 *Basicwebapp*という名前の新しい Web ページを作成した場合に**ソース**ビューに表示される内容を示しています。  
     ![ソース ビュー](creating-a-basic-web-forms-page/_static/image4.png)
@@ -101,7 +101,7 @@ ms.locfileid: "73445677"
 2. **ソリューションエクスプローラー**で、Web アプリケーション名 (このチュートリアルではアプリケーション名は**basicwebsite**) を右クリックし、[ -の**追加**] をクリックして &gt;**新しい項目**を追加します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 3. 左側の **[ C# Visual** -&gt; **Web**テンプレート] グループを選択します。 次に、中央の一覧から **[Web フォーム]** を選択し、 *firstwebpage ページ*にという名前を指定します。   
-    [新しい項目の追加] ダイアログボックス ![](creating-a-basic-web-forms-page/_static/image6.png)
+    ![[新しい項目の追加] ダイアログ ボックス](creating-a-basic-web-forms-page/_static/image6.png)
 4. **[追加]** をクリックして、web ページをプロジェクトに追加します。  
 新しいページが作成されて開きます。
 
@@ -180,7 +180,7 @@ Visual Studio には、ページ上のコントロールのプロパティを設
 
     > [!NOTE] 
     > 
-    > すべてのコントロールは**フォーム**要素内にあり、 **runat =&quot;server&quot;** 属性も持っています。 **Runat =&quot;server&quot;** 属性と、コントロールタグの**asp:** prefix は、ページの実行時にサーバー上の ASP.NET によって処理されるようにコントロールをマークします。 &lt;の外部のコード**runat =&quot;server&quot;&gt;** および **&lt;script runat =&quot;server&quot;** 要素は変更されずにブラウザーに送信されます。そのため、ASP.NET コードは要素内に存在する必要があります。開始タグに**runat =&quot;server&quot;** 属性が含まれている。
+    > すべてのコントロールは**フォーム**要素内にあり、 **runat =&quot;server&quot;** 属性も持っています。 **Runat =&quot;server&quot;** 属性と、コントロールタグの**asp:** prefix は、ページの実行時にサーバー上の ASP.NET によって処理されるようにコントロールをマークします。 &lt;の外部のコード**runat =&quot;server&quot;&gt;** および **&lt;script runat =&quot;server&quot;** 要素は変更されずにブラウザーに送信されます。そのため、ASP.NET コードは、開始タグに**runat = &gt;server&quot;** 属性が含まれている要素内に存在する必要があります。&quot;
 4. 次に、 [Label](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールにプロパティを追加します。 **&lt;asp: label&gt;** タグの**asp: label**の直後に挿入ポイントを置き、 **space**キーを押します。
 
     ドロップダウンリストが表示され、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールに設定できる使用可能なプロパティの一覧が表示されます。 **IntelliSense**と呼ばれるこの機能を使用すると、ページ上のサーバーコントロール、HTML 要素、およびその他の項目の構文で**ソース**ビューを使用できます。 次の図は、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロールの**IntelliSense**ドロップダウンリストを示しています。
@@ -304,7 +304,7 @@ Visual Studio には、ページ上のコントロールのプロパティを設
     [カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)コントロールは、各日が**td**要素として**テーブル**としてページにレンダリングされていることに注意してください。
 4. ブラウザーを閉じます。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 <a id="nextStepsToggle"></a>
 

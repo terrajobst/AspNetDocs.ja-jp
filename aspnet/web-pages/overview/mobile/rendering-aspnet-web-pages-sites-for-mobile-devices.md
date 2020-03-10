@@ -1,58 +1,58 @@
 ---
 uid: web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
-title: モバイル デバイスのページ (Razor) サイトを ASP.NET Web の表示 |Microsoft Docs
+title: モバイルデバイス用の ASP.NET Web ページ (Razor) サイトのレンダリング |Microsoft Docs
 author: Rick-Anderson
-description: この記事では、モバイル デバイスで適切にレンダリングする ASP.NET Web Pages (Razor) サイトでページを作成する方法について説明します。 学習内容。する方法.
+description: 'この記事では、モバイルデバイスに適切に表示される ASP.NET Web ページ (Razor) サイトでページを作成する方法について説明します。 学習内容: 操作方法...'
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
 ms.openlocfilehash: c012348d65e48a275cb0e4808fef2a7f31e5fb33
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133509"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78454354"
 ---
-# <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示
+# <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイルデバイスのレンダリング ASP.NET Web ページ (Razor) サイト
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、モバイル デバイスで適切にレンダリングする ASP.NET Web Pages (Razor) サイトでページを作成する方法について説明します。
+> この記事では、モバイルデバイスに適切に表示される ASP.NET Web ページ (Razor) サイトでページを作成する方法について説明します。
 > 
-> 学習内容。
+> ここでは、次の内容について学習します。
 > 
-> - 名前付け規則を使用して、ページが特にモバイル デバイス向けに設計されているを指定する方法。
+> - 名前付け規則を使用して、ページがモバイルデバイス専用に設計されていることを指定する方法。
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 >   
 > 
-> このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
+> このチュートリアルは ASP.NET Web ページ2でも動作します。
 
-ASP.NET Web ページを使用して、モバイル デバイスまたはその他のデバイスでコンテンツの描画のカスタムの表示を作成できます。
+ASP.NET Web ページを使用すると、モバイルデバイスまたはその他のデバイスでコンテンツを表示するためのカスタム表示を作成できます。
 
-ASP.NET Web Pages サイトでデバイスに固有のページを作成する最も簡単な方法では、このようなファイルの名前付けパターンを使用しています。*FileName.Mobile.cshtml*します。 ページの 2 つのバージョンを作成することができます (たとえば、1 つという名前*MyFile.cshtml*という名前の 1 つ*MyFile.Mobile.cshtml*)。 実行時に、モバイル デバイスを要求したとき*MyFile.cshtml*、ASP.NET からコンテンツをレンダリングする*MyFile.Mobile.cshtml*します。 それ以外の場合、 *MyFile.cshtml*を表示します。
+ASP.NET Web ページサイトにデバイス固有のページを作成する最も簡単な方法は、ファイル名の形式でファイル名を使用する方法です。たとえば、「 *FileName. Mobile. cshtml*」と指定します。 ページの2つのバージョンを作成できます (たとえば、 *myfile.txt*という名前の1つと、 *myfile.txt*という名前の1つ)。 実行時に、モバイルデバイスが*myfile.txt*を要求すると、ASP.NET は、 *myfile.txt*からコンテンツをレンダリングします。 それ以外の場合は、 *myfile.txt*がレンダリングされます。
 
-次の例では、モバイル デバイスのコンテンツ ページを追加して、モバイルのレンダリングを有効にする方法を示します。 *Page1.cshtml*コンテンツにはナビゲーション サイド バーが含まれています。 *Page1.Mobile.cshtml* 、同じコンテンツが含まれていますが、サイドバーが省略されます。
+次の例は、モバイルデバイスのコンテンツページを追加することによって、モバイルレンダリングを有効にする方法を示しています。 *Page1*には、コンテンツとナビゲーションサイドバーが含まれています。 *Page1*には同じコンテンツが含まれていますが、サイドバーは省略されています。
 
-1. という名前のファイルを作成する ASP.NET Web Pages サイトで*Page1.cshtml*現在のコンテンツを次のマークアップに置き換えます。
+1. ASP.NET Web ページサイトで、 *Page1*という名前のファイルを作成し、現在の内容を次のマークアップに置き換えます。
 
     [!code-html[Main](rendering-aspnet-web-pages-sites-for-mobile-devices/samples/sample1.html)]
-2. という名前のファイルを作成する*Page1.Mobile.cshtml*既存のコンテンツを次のマークアップに置き換えます。 モバイル バージョンのページが小さい画面できれいに表示のナビゲーション セクションを省略することに注意してください。
+2. *Page1*という名前のファイルを作成し、既存の内容を次のマークアップに置き換えます。 モバイルバージョンのページでは、より小さい画面でのレンダリングを改善するためにナビゲーションセクションが省略されていることに注意してください。
 
     [!code-html[Main](rendering-aspnet-web-pages-sites-for-mobile-devices/samples/sample2.html)]
-3. デスクトップ ブラウザーを実行しを参照*Page1.cshtml*します。 ![mobilesites-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
-4. モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*します。 (通知を組み込んでいない *.mobile します。* URL の一部として、します。)要求されている場合でも*Page1.cshtml*、ASP.NET のレンダリング*Page1.Mobile.cshtml*します。
+3. デスクトップブラウザーを実行し、 *Page1*に移動します。 ![mobil-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
+4. モバイルブラウザー (またはモバイルデバイスエミュレーター) を実行し、 *Page1*に移動します。 ( *. Mobile*は含まれていないことに注意してください。 URL の一部として。)要求が*page1*に対して行う場合でも、ASP.NET は*page1*をレンダリングします。
 
     ![mobilesites 2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)
 
 > [!NOTE]
-> モバイル ページをテストするには、デスクトップ コンピューターで実行されているモバイル デバイス シミュレーターを使用できます。 このツールを使用して、モバイル デバイスでになりますが、web ページをテストできます (つまり、通常ははるかに小さいで領域を表示)。 シミュレーターの 1 つの例は、[ユーザー エージェント切り替えアドオン](http://addons.mozilla.org/firefox/addon/user-agent-switcher/)、Mozilla firefox に対応することができます Firefox のデスクトップ バージョンからのさまざまなモバイル ブラウザーをエミュレートします。
+> モバイルページをテストするには、デスクトップコンピューターで実行されるモバイルデバイスシミュレーターを使用します。 このツールを使用すると、モバイルデバイスで見ているように web ページをテストできます (通常、表示領域が非常に小さくなります)。 シミュレーターの1つの例として、Mozilla Firefox 用の[ユーザーエージェントスイッチャーアドオン](http://addons.mozilla.org/firefox/addon/user-agent-switcher/)があります。これにより、デスクトップバージョンの firefox からさまざまなモバイルブラウザーをエミュレートできます。
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース

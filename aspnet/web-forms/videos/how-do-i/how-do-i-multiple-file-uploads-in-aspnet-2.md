@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
-title: '[How Do i:] ASP.NET 2 での複数のファイルのアップロード |Microsoft Docs'
+title: '[操作方法:] ASP.NET 2 | での複数ファイルのアップロードMicrosoft Docs'
 author: JoeStagner
-description: このビデオでは、ASP.NET アプリケーションへのファイル数が動的に決定のアップロードについて説明します。
+description: このビデオでは、動的に決定された数のファイルを ASP.NET アプリケーションにアップロードする方法について説明します。
 ms.author: riande
 ms.date: 02/12/2008
 ms.assetid: 7cf3f5ed-2a87-4208-a71d-2b39bc19832a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
 msc.type: video
 ms.openlocfilehash: 0e7757e24fea52034d15728a8e4c37b0d1bd954e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421642"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78473428"
 ---
-# <a name="how-do-i--multiple-file-uploads-in-aspnet2"></a>[How Do i:] ASP.NET 2 での複数のファイルをアップロードします。
+# <a name="how-do-i--multiple-file-uploads-in-aspnet2"></a>[操作方法:] ASP.NET 2 での複数ファイルのアップロード
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、ASP.NET アプリケーションへのファイル数が動的に決定のアップロードについて説明します。
+このビデオでは、動的に決定された数のファイルを ASP.NET アプリケーションにアップロードする方法について説明します。
 
-[&#9654;ビデオ (16 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-multiple-file-uploads-in-aspnet-2)
+[&#9654;ビデオを見る (16 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-multiple-file-uploads-in-aspnet-2)

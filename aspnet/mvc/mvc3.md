@@ -9,11 +9,11 @@ ms.assetid: dddc8812-a0bc-49f9-aafb-caf2064c2b8c
 msc.legacyurl: /mvc/mvc3
 msc.type: content
 ms.openlocfilehash: 421a06c89d4dbcb05d4080033813cc6558b7c698
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586752"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499648"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -72,7 +72,7 @@ ASP.NET MVC 3 は、ASP.NET MVC 1 および2上に構築されており、コー
 
 新しいスキャフォールディングシステムを使用すると、フレームワークを初めて使用する場合に、より簡単に選択して使い始めることができます。また、経験があり、実行していることがわかっている場合には、一般的な開発タスクを自動化することができます。
 
-これは、 **Mvcscaffolding**と呼ばれる新しい NuGet*スキャフォールディング*パッケージによってサポートされています。 "スキャフォールディング" という用語は、多くのソフトウェアテクノロジで、"編集とカスタマイズが可能なソフトウェアの基本的な概要をすばやく生成する" という意味で使用されています。 ASP.NET MVC 用に作成しているスキャフォールディングパッケージは、次のいくつかのシナリオで非常に役立ちます。
+これは、 **Mvcscaffolding**と呼ばれる新しい NuGet*スキャフォールディング*パッケージによってサポートされています。 "スキャフォールディング" という用語は、多くのソフトウェアテクノロジで、"編集とカスタマイズが可能なソフトウェアの基本的な概要をすばやく生成する" という意味で使用されています。 ASP.NET MVC を作成しています、スキャフォールディング パッケージは、いくつかのシナリオで大幅に利点があります。
 
 - **ASP.NET MVC を初めて学習する場合**は、便利で実用的なコードを簡単に取得できるので、必要に応じて編集し、調整することができます。 空のページを見て、どこから始めればよいかわからないトラウマからお客様を節約できます。
 - **ASP.NET MVC がよくわかっていて**、オブジェクトリレーショナルマッパー、ビューエンジン、テストライブラリなどの新しいアドオンテクノロジを調査している場合は、そのテクノロジの作成者がスキャフォールディングパッケージも作成している可能性があるためです。
@@ -132,11 +132,11 @@ ASP.NET MVC 3 には Razor という名前の新しいビューエンジンが�
 
 Razor には、次のような新しい HTML ヘルパーも含まれています。
 
-- `Chart`. ASP.NET 4 のグラフコントロールと同じ機能を提供するグラフを表示します。
-- `WebGrid`. ページングと並べ替えの機能を備えたデータグリッドをレンダリングします。
-- `Crypto`. ハッシュアルゴリズムを使用して、適切なソルトおよびハッシュされたパスワードを作成します。
-- `WebImage`. イメージをレンダリングします。
-- `WebMail`. 電子メールを送信します。
+- [https://login.microsoftonline.com/consumers/](`Chart`) ASP.NET 4 のグラフコントロールと同じ機能を提供するグラフを表示します。
+- [https://login.microsoftonline.com/consumers/](`WebGrid`) ページングと並べ替えの機能を備えたデータグリッドをレンダリングします。
+- [https://login.microsoftonline.com/consumers/](`Crypto`) ハッシュアルゴリズムを使用して、適切なソルトおよびハッシュされたパスワードを作成します。
+- [https://login.microsoftonline.com/consumers/](`WebImage`) イメージをレンダリングします。
+- [https://login.microsoftonline.com/consumers/](`WebMail`) 電子メール メッセージを送信します。
 
 Razor の詳細については、次のリソースを参照してください。
 

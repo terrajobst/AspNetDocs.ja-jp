@@ -1,131 +1,131 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/create-a-database
-title: データベースを作成する |Microsoft Docs
+title: データベースの作成 | Microsoft Docs
 author: microsoft
-description: 手順 2 では、dinner のすべてを保持しているデータベースを作成し、NerdDinner アプリケーションのデータを RSVP の手順を示します。
+description: 手順 2. では、データベースを作成する手順を示します。この手順では、すべてのディナーデータと、このアプリケーションのすべてのデータを保持します。
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 983f3ffa-08b8-4868-b8c9-aa34593fc683
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
 ms.openlocfilehash: b0aa7c8cdf741f44e09ed18e2b2f73fe6bf786ae
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117471"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469300"
 ---
-# <a name="create-a-database"></a>データベースを作成する
+# <a name="create-a-database"></a>データベースの作成
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料の手順 2 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
+> これは、ASP.NET MVC 1 を使用して小規模で完成した web アプリケーションを構築する方法について説明する無料の["" アプリケーションチュートリアル](introducing-the-nerddinner-tutorial.md)の手順2です。
 > 
-> 手順 2 では、dinner のすべてを保持しているデータベースを作成し、NerdDinner アプリケーションのデータを RSVP の手順を示します。
+> 手順 2. では、データベースを作成する手順を示します。この手順では、すべてのディナーデータと、このアプリケーションのすべてのデータを保持します。
 > 
-> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
+> ASP.NET MVC 3 を使用している場合は、MVC 3 または[Mvc ミュージックストア](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルではじめに](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)に従うことをお勧めします。
 
-## <a name="nerddinner-step-2-creating-the-database"></a>NerdDinner 手順 2:データベースの作成
+## <a name="nerddinner-step-2-creating-the-database"></a>手順 2: データベースを作成する
 
-使用するデータベースすべて Dinner および RSVP のデータのアプリケーションで NerdDinner を格納します。
+ここでは、データベースを使用して、世界中のアプリケーションのディナーと RSVP のすべてのデータを格納します。
 
-以下の手順は、無料の SQL Server Express edition を使用してデータベースの作成を示します (の V2 を使用して簡単にインストールできますが、 [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx))。 SQL Server Express と完全な SQL Server の両方で動作するすべてのコードを記述します。
+次の手順では、free SQL Server Express edition ( [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)の V2 を使用して簡単にインストールできる) を使用してデータベースを作成する方法を示します。 記述するすべてのコードは、SQL Server Express と完全 SQL Server の両方で動作します。
 
-### <a name="creating-a-new-sql-server-express-database"></a>新しい SQL Server Express データベースを作成します。
+### <a name="creating-a-new-sql-server-express-database"></a>新しい SQL Server Express データベースの作成
 
-右クリックし、web プロジェクトを開始し、いますが、**追加 -&gt;新しい項目の**メニュー コマンド。
+まず、web プロジェクトを右クリックし、 **[新しい項目の追加]** メニューコマンド&gt;選択します。
 
 ![](create-a-database/_static/image1.png)
 
-Visual Studio の「新しい項目の追加」ダイアログが表示されます。 「データ」カテゴリでフィルター処理、「SQL Server データベース」の項目テンプレートを選択します。
+これにより、Visual Studio の [新しい項目の追加] ダイアログが表示されます。 "データ" カテゴリでフィルター処理し、"SQL Server データベース" 項目テンプレートを選択します。
 
 ![](create-a-database/_static/image2.png)
 
-という名前を SQL Server Express のデータベースを"NerdDinner.mdf"を作成し、[ok] をクリックします。 Visual Studio は、ご質問、\App にこのファイルを追加するかどうかは\_データ ディレクトリ (ディレクトリは既に読み書きの両方でのセットアップし、セキュリティ Acl を記述)。
+ここでは、"" を作成する SQL Server Express データベースに名前を指定し、[ok] をクリックします。 次に、このファイルをアプリの\_データディレクトリ (読み取りと書き込みの両方のセキュリティ Acl が既に設定されているディレクトリ) に追加するかどうかを確認するメッセージが表示されます。
 
 ![](create-a-database/_static/image3.png)
 
-[はい] をクリックし、新しいデータベースが作成され、ソリューション エクスプ ローラーに追加します。
+[はい] をクリックすると、新しいデータベースが作成され、ソリューションエクスプローラーに追加されます。
 
 ![](create-a-database/_static/image4.png)
 
-### <a name="creating-tables-within-our-database"></a>データベース内のテーブルを作成します。
+### <a name="creating-tables-within-our-database"></a>データベース内にテーブルを作成する
 
-新しい空のデータベースがあるようになりました。 いくつかのテーブルを追加してみましょう。
+これで、新しい空のデータベースが作成されました。 いくつかのテーブルを追加してみましょう。
 
-これを行う、データベースとサーバーの管理により、Visual Studio 内の [サーバー エクスプ ローラー] タブ ウィンドウへ移動します。 SQL Server Express のデータベース、\App に格納されている\_サーバー エクスプ ローラーで、アプリケーションのデータ フォルダーが自動的に表示。 必要に応じてもリストに追加の SQL Server データベース (ローカルおよびリモート) を追加するのに"サーバー エクスプ ローラー ウィンドウの上部にある「データベースに接続」アイコンを使用できます。
+これを行うには、Visual Studio 内の [サーバーエクスプローラー] タブウィンドウに移動します。これにより、データベースとサーバーを管理できるようになります。 アプリケーションの \ App\_Data フォルダーに格納されている SQL Server Express データベースは、サーバーエクスプローラー内に自動的に表示されます。 必要に応じて、[サーバーエクスプローラー] ウィンドウの上部にある [データベースに接続] アイコンを使用して、一覧に SQL Server データベース (ローカルとリモートの両方) を追加することもできます。
 
 ![](create-a-database/_static/image5.png)
 
-NerdDinner データベース –、Dinners、およびその他、RSVP の承諾を追跡を格納する 1 つを 2 つのテーブルに追加します。 データベース内の「テーブル」フォルダーを右クリックして、"新しいテーブルの追加 メニューのコマンドを選択して新しいテーブルを作成できます。
+このデータベースに2つのテーブルを追加します。1つはディナーを格納するテーブル、もう1つは RSVP acceptances を追跡するためのテーブルです。 新しいテーブルを作成するには、データベース内の "Tables" フォルダーを右クリックし、[新しいテーブルの追加] メニューコマンドを選択します。
 
 ![](create-a-database/_static/image6.png)
 
-テーブルのスキーマを構成することができるようにする、テーブル デザイナーが開きます。 "Dinners"テーブルは 10 個の列のデータの追加します。
+テーブルデザイナーが開き、テーブルのスキーマを構成することができます。 "ディナー" テーブルでは、次の10列のデータが追加されます。
 
 ![](create-a-database/_static/image7.png)
 
-テーブルの一意の主キー列に"DinnerID"します。 この"DinnerID"列を右クリックし、「主キーの設定」メニュー項目を選択して構成できます。
+"Dinid" 列をテーブルの一意の主キーにする必要があります。 これを構成するには、[Dinid] 列を右クリックし、[主キーの設定] メニュー項目を選択します。
 
 ![](create-a-database/_static/image8.png)
 
-DinnerID 主キーを作成に加えたいことも、テーブルに新しいデータ行が追加されると、値が自動的にインクリメントされる"id"列として構成する場合 (つまり、最初に挿入された Dinner 行が 1 の DinnerID が、2 番目の挿入された行DinnerID が 2 など)。
+Dinare Id を主キーにするだけでなく、新しいデータ行がテーブルに追加されたときに自動的に値がインクリメントされる "identity" 列として構成する必要もあります (つまり、挿入された最初のディナー行の Dinは1、2番目に挿入された行になります)。には、2のような Dinid が割り当てられます。
 
-"DinnerID"列を選択してこれを"Yes"には、列に「(Id である)」プロパティを設定する [列のプロパティ] エディターを使用できます。 標準の id の既定値を使用して、(1 から始まりますおよび新しい Dinner 行ごとに 1 インクリメント)。
+これを行うには、[Dinid] 列を選択し、[列のプロパティ] エディターを使用して、列の "(Is Id)" プロパティを "Yes" に設定します。 標準の id の既定値を使用します (新しいディナー行ごとに1から増分1を開始します)。
 
 ![](create-a-database/_static/image9.png)
 
-CTRL-S を入力するかを使用していますし、テーブルを保存します、**ファイル -&gt;保存**メニュー コマンド。 テーブルの名前を入力を求められます。 という名前に"Dinners"。
+次に、Ctrl + S キーを押すか、または [**ファイル&gt;保存**] メニューコマンドを使用して、テーブルを保存します。 これにより、テーブルに名前を指定するように求められます。 "ディナー" という名前を指定します。
 
 ![](create-a-database/_static/image10.png)
 
-新しい Dinners テーブルも、サーバー エクスプ ローラーで、データベース内で表示されます。
+新しいディナーテーブルは、サーバーエクスプローラーのデータベース内に表示されます。
 
-上記の手順を繰り返して、され"RSVP"テーブルを作成します。 このテーブルでは、3 つの列があります。 RsvpID 列、主キーとしてセットアップされ、id 列にすることもされます。
+次に、上記の手順を繰り返し、"RSVP" テーブルを作成します。 このテーブルには3つの列があります。 RsvpID 列を主キーとして設定し、さらに id 列にします。
 
 ![](create-a-database/_static/image11.png)
 
-保存がされ"RSVP"という名前を付けます。
+このファイルを保存し、"RSVP" という名前を付けます。
 
-### <a name="setting-up-a-foreign-key-relationship-between-tables"></a>テーブル間に外部キー リレーションシップの設定
+### <a name="setting-up-a-foreign-key-relationship-between-tables"></a>テーブル間の外部キーリレーションシップの設定
 
-これで 2 つのテーブルがある、データベース内で。 Dinner 行ごとに適用する 0 個以上の RSVP の行に関連付けられたできますように – 2 つのテーブル間の「1 対多」リレーションシップを設定する、最後のスキーマのデザイン手順がなります。 "Dinners"テーブルに"DinnerID"列に外部キー リレーションシップが RSVP テーブルの"DinnerID"列を構成することによって行います。
+これで、データベース内に2つのテーブルが作成されました。 スキーマデザインの最後の手順では、これら2つのテーブル間に "一対多" リレーションシップを設定します。これにより、各ディナー行を、それに適用される0個以上の RSVP 行に関連付けることができます。 これを行うには、"ディナー" テーブルの "Din Id" 列との外部キーリレーションシップを持つように、RSVP テーブルの "Dinの Id" 列を構成します。
 
-これを行うサーバー エクスプ ローラーでダブルクリックして、テーブル デザイナー内で予約テーブルを開くします。 "DinnerID"の列選択し、右クリックし、「リレーションシップ…」を選択コンテキスト メニューのコマンド:
+これを行うには、サーバーエクスプローラーでテーブルデザイナー内の RSVP テーブルをダブルクリックして、そのテーブルを開きます。 次に、その中の "Dinの Id" 列を選択し、右クリックして、[リレーションシップ...] を選択します。コンテキストメニューコマンド:
 
 ![](create-a-database/_static/image12.png)
 
-テーブル間のリレーションシップをセットアップするために使用できるダイアログが表示されます。
+これにより、テーブル間のリレーションシップを設定するために使用できるダイアログが表示されます。
 
 ![](create-a-database/_static/image13.png)
 
-ダイアログ ボックスに新しいリレーションシップを追加する、[追加] ボタンをクリックします。 リレーションシップを追加するは、ダイアログ ボックスの右側にプロパティ グリッド内で「テーブルと列の仕様」ツリー ビュー ノードを展開し、右側に「...」ボタンをクリックしましたします。
+[追加] ボタンをクリックして、ダイアログに新しいリレーションシップを追加します。 リレーションシップを追加したら、ダイアログの右側にあるプロパティグリッド内の [テーブルと列の指定] ツリービューノードを展開し、[...] をクリックします。右側のボタンをクリックします。
 
 ![](create-a-database/_static/image14.png)
 
-「...」ボタンをクリックすると、どのテーブルと列は、リレーションシップに関係するだけでなく、リレーションシップの名前を指定できるようにする別のダイアログが表示されます。
+[...] をクリックすると、ボタンをクリックすると、リレーションシップに関係するテーブルと列を指定したり、リレーションシップに名前を付けたりできるようにするためのダイアログボックスが表示されます。
 
-主キー テーブルの"Dinners"を変更いたします。 その主キーとして Dinners テーブル内の"DinnerID"列を選択します。 RSVP テーブルは、外部キー テーブルと、予約になります。外部キーとして関連付けられている DinnerID 列になります。
+主キーテーブルを "ディナー" に変更し、ディナーテーブル内の "Din Id" 列を主キーとして選択します。 RSVP テーブルは外部キーテーブル、および RSVP です。Dinの Id 列は、外部キーとして関連付けられます。
 
 ![](create-a-database/_static/image15.png)
 
-ようになりました RSVP テーブルの各行の Dinner テーブルの行に関連付けられます。 SQL Server は私たちの参照整合性を維持し、これが有効な Dinner 行を指していない場合に新しい RSVP 行を追加することはできません。 これはもすることはできませんからまだ行が参照することを RSVP がある場合は、Dinner 行を削除します。
+これで、RSVP テーブルの各行が、ディナーテーブルの行に関連付けられます。 SQL Server は参照整合性を維持し、有効なディナー行を指していない場合は新しい RSVP 行を追加しないようにします。 また、これを参照している予約行がある場合は、ディナー行を削除できなくなります。
 
-### <a name="adding-data-to-our-tables"></a>データ テーブルを追加します。
+### <a name="adding-data-to-our-tables"></a>テーブルへのデータの追加
 
-[完了]、Dinners テーブルにサンプル データを追加してみましょう。 サーバー エクスプ ローラー内で右クリックし、「テーブル データの表示」コマンドを選択して、テーブルにデータを追加します。
+それでは、いくつかのサンプルデータをディナーテーブルに追加してみましょう。 テーブルにデータを追加するには、サーバーエクスプローラー内で右クリックし、[テーブルデータの表示] コマンドを選択します。
 
 ![](create-a-database/_static/image16.png)
 
-アプリケーションの実装を開始すると後で使用できるデータを Dinner の少数の行を追加します。
+ここでは、アプリケーションの実装を開始するときに使用できるディナーデータを数行追加します。
 
 ![](create-a-database/_static/image17.png)
 
 ### <a name="next-step"></a>次の手順
 
-データベースの作成は終了しました。 クエリを実行し、更新するために使用できるモデル クラスを今すぐ作成しましょう。
+これで、データベースの作成が完了しました。 クエリと更新に使用できるモデルクラスを作成しましょう。
 
 > [!div class="step-by-step"]
 > [前へ](create-a-new-aspnet-mvc-project.md)

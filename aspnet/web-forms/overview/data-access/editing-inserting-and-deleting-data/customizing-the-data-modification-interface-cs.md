@@ -9,11 +9,11 @@ ms.assetid: 22e99600-8d18-4a94-a20e-a3a62bb63798
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
 ms.openlocfilehash: af68d1a0b744a2c1fd9d21a8bf6165bafa4de683
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74624229"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78493684"
 ---
 # <a name="customizing-the-data-modification-interface-c"></a>データ変更インターフェイスをカスタマイズする (C#)
 
@@ -98,7 +98,7 @@ ObjectDataSource は、製品値のサブセットのみを更新するように
 
 "仕入先" フィールドと "カテゴリ" フィールドには、"読み取り専用モード" の場合 (現時点では)、カテゴリと仕入先の名前が表示され、編集時には適用可能なオプションのドロップダウンリストが表示されます。 ドロップダウンリストを使用すると、エンドユーザーは、どのカテゴリやサプライヤーを選択できるかをすばやく確認して、より簡単に選択できるようにすることができます。
 
-この動作を実現するには、`SupplierName` および `CategoryName` BoundFields を、`ItemTemplate` が `SupplierName` と `CategoryName` の値を出力し、使用可能なカテゴリとサプライヤーを一覧表示するために DropDownList コントロールを使用する TemplateFields に変換する必要があります。
+この動作を実現するには、`SupplierName` および `CategoryName` BoundFields を、`ItemTemplate` が `SupplierName` と `CategoryName` の値を出力し、使用可能なカテゴリとサプライヤーを一覧表示するために DropDownList コントロールを使用する TemplateFields に変換する必要があります。`EditItemTemplate`
 
 ## <a name="adding-thecategoriesandsuppliersdropdownlists"></a>`Categories`と`Suppliers`の DropDownLists を追加する
 
@@ -220,7 +220,7 @@ DropDownLists を2つの `EditItemTemplate` s に追加した後、ブラウザ�
 > [!NOTE]
 > `Products` データベースの `Discontinued` 列には `NULL` 値を設定できないため、インターフェイスでの `NULL` 情報のキャプチャについて心配する必要はありません。 ただし、`Discontinued` 列に `NULL` 値が含まれている可能性がある場合は、category および supplier DropDownLists と同じように、3番目のオプションボタンを一覧に追加し、その `Value` を空の文字列 (`Value=""`) に設定します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 BoundField と CheckBoxField は、読み取り専用、編集、および挿入の各インターフェイスを自動的に表示しますが、カスタマイズする機能はありません。 ただし、多くの場合、(前のチュートリアルで説明したように) 検証コントロールを追加したり、(このチュートリアルで説明したように) データコレクションユーザーインターフェイスをカスタマイズしたりして、編集または挿入インターフェイスをカスタマイズする必要があります。 TemplateField を使用してインターフェイスをカスタマイズするには、次の手順を実行します。
 
@@ -232,7 +232,7 @@ BoundField と CheckBoxField は、読み取り専用、編集、および挿入
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -9,11 +9,11 @@ ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
 ms.openlocfilehash: 41c8c3803923e76ef238a5c5937cbe7f81e6aa82
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74578577"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78450166"
 ---
 # <a name="tutorial-signalr-self-host"></a>チュートリアル: SignalR 自己ホスト
 
@@ -47,9 +47,9 @@ ms.locfileid: "74578577"
 >
 > ## <a name="questions-and-comments"></a>質問とコメント
 >
-> このチュートリアルの気に入った点と、ページの下部にあるコメントで改善できることについて、フィードバックをお寄せください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 SignalR サーバーは通常、IIS の ASP.NET アプリケーションでホストされますが、自己ホストライブラリを使用して自己ホスト型 (コンソールアプリケーションや Windows サービスなど) にすることもできます。 このライブラリは、すべての SignalR 2 と同様に、OWIN ([Open Web Interface for .net](http://owin.org)) 上に構築されています。 OWIN は、.NET web サーバーと web アプリケーションの間の抽象化を定義します。 OWIN は、サーバーから web アプリケーションを分離します。これにより、IIS の外部にある独自のプロセスで web アプリケーションを自己ホストするために OWIN が理想的になります。
 
@@ -86,7 +86,7 @@ IIS でホストしない理由には、次のようなものがあります。
     [!code-powershell[Main](tutorial-signalr-self-host/samples/sample2.ps1)]
 
     このコマンドは、Owin ライブラリをプロジェクトに追加します。 このライブラリは、ドメイン間のサポートに使用されます。これは、SignalR をホストするアプリケーションと、異なるドメインの web ページクライアントに必要です。 SignalR サーバーと web クライアントを別のポートでホストするため、これは、これらのコンポーネント間の通信に対してクロスドメインを有効にする必要があることを意味します。
-5. Program.cs の内容を次のコードで置き換えます。
+5. Program.cs の内容を次のコードに置き換えます。
 
     [!code-csharp[Main](tutorial-signalr-self-host/samples/sample3.cs)]
 

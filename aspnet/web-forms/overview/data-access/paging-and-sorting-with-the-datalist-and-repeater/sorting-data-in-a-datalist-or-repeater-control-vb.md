@@ -9,11 +9,11 @@ ms.assetid: 97c13898-0741-45f9-b3fa-7540ab1679e6
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 81e07bec8569b9ee987dfaa84dec9eec95a2692f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74638531"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78465256"
 ---
 # <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>DataList または Repeater コントロールのデータを並べ替える (VB)
 
@@ -317,7 +317,7 @@ ObjectDataSource によって `GetProductsPagedAndSorted` メソッドが呼び�
 > [!NOTE]
 > 前の例では、supplier SupplierName による並べ替えが並べ替え式として使用されていました。 ただし、カスタムページング実装の場合は、CompanyName を使用する必要があります。 これは、カスタムページング `GetProductsPagedAndSorted` を実装するストアドプロシージャが `ROW_NUMBER()` キーワードに並べ替え式を渡す場合、`ROW_NUMBER()` キーワードには別名ではなく実際の列名が必要であるためです。 そのため、並べ替え式の `SELECT` クエリ (`SupplierName`) で使用される別名ではなく、`CompanyName` (`Suppliers` テーブルの列名) を使用する必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 DataList も Repeater も、組み込みの並べ替えサポートを提供していませんが、コードとカスタムの並べ替えインターフェイスを使用して、そのような機能を追加することができます。 並べ替えを実装するときにページングではなく、ObjectDataSource s `Select` メソッドに渡される `DataSourceSelectArguments` オブジェクトを使用して並べ替え式を指定できます。 この `DataSourceSelectArguments` オブジェクト s `SortExpression` プロパティは、ObjectDataSource s `Selecting` イベントハンドラーで割り当てることができます。
 
@@ -327,7 +327,7 @@ DataList も Repeater も、組み込みの並べ替えサポートを提供し�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -336,4 +336,4 @@ DataList も Repeater も、組み込みの並べ替えサポートを提供し�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は David, u です。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
+> [[戻る]](paging-report-data-in-a-datalist-or-repeater-control-vb.md)

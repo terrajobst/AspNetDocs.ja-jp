@@ -1,75 +1,75 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
-title: ルート制約を作成 (c#) |Microsoft Docs
+title: ルート制約を作成するC#() |Microsoft Docs
 author: StephenWalther
-description: このチュートリアルでは、Stephen Walther は、正規表現のルート制約を作成して、ブラウザーが一致するルートを要求する方法を制御する方法について説明します。
+description: このチュートリアルでは、Stephen Walther は、正規表現を使用してルート制約を作成することによって、ルートがどのように一致するかを制御する方法を示しています。
 ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 0bfd06b1-12d3-4fbb-9779-a82e5eb7fe7d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 51ef859287b3424faf85f4a3606a220ab48a9466
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123434"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78470164"
 ---
 # <a name="creating-a-route-constraint-c"></a>ルート制約を作成する (C#)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-> このチュートリアルでは、Stephen Walther は、正規表現のルート制約を作成して、ブラウザーが一致するルートを要求する方法を制御する方法について説明します。
+> このチュートリアルでは、Stephen Walther は、正規表現を使用してルート制約を作成することによって、ルートがどのように一致するかを制御する方法を示しています。
 
-ルート制約を使用すると、特定のルートに一致するブラウザーの要求を制限できます。 正規表現を使用して、ルート制約を指定することができます。
+ルート制約は、特定のルートに一致するブラウザー要求を制限するために使用します。 正規表現を使用して、ルート制約を指定することができます。
 
-たとえば、ルート、Global.asax ファイルでリスト 1 で定義したとします。
+たとえば、リスト1のルートが global.asax ファイルに定義されているとします。
 
-**1 - Global.asax.cs の一覧を表示します。**
+**リスト 1-Global.asax.cs**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample1.cs)]
 
-1 を一覧表示するには、製品をという名前のルートが含まれています。 製品のルートを使用して、リスト 2 に含まれる「productcontroller」ブラウザー要求をマップすることができます。
+リスト1には、Product という名前のルートが含まれています。 製品ルートを使用して、リスト2に含まれる ProductController にブラウザーの要求をマップできます。
 
-**Listing 2 - Controllers\ProductController.cs**
+**リスト 2-コントローラー (productコントローラー)**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample2.cs)]
 
-製品のコント ローラーによって公開される Details() アクションが productId という 1 つのパラメーターを受け入れることに注意してください。 このパラメーターは、整数パラメーターです。
+Product コントローラーによって公開されている Details () アクションでは、productId という名前の1つのパラメーターを受け取ることに注意してください。 このパラメーターは整数のパラメーターです。
 
-リスト 1 で定義されているルートは、次の Url のいずれかに一致します。
+リスト1で定義されているルートは、次の Url のいずれかと一致します。
 
-- /製品/23
-- /製品/7
+- /Product/23
+- /Product/7
 
-残念ながら、ルートには、次の Url は一致も。
+残念ながら、ルートは次の Url とも一致します。
 
-- /製品/とおりです。
-- /製品/apple
+- /Product/blah
+- /Product/apple
 
-Details() アクションには、整数パラメーターが必要ですが、ため、整数値以外のものを含む要求を行うと、エラーが発生します。 たとえば、URL/Product/apple をお使いのブラウザーに入力した場合は、図 1 エラー ページを表示がされます。
+Details () アクションには整数のパラメーターが必要であるため、整数値以外を含む要求を行うと、エラーが発生します。 たとえば、ブラウザーに「/Product/apple」と入力すると、図1のエラーページが表示されます。
 
-[![[新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
+[[新しいプロジェクト] ダイアログボックスの ![](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
 
-**図 01**:展開のページが表示 ([フルサイズの画像を表示する をクリックします](creating-a-route-constraint-cs/_static/image2.png))。
+**図 01**: ページの爆発を[確認する (クリックすると、フルサイズの画像が表示](creating-a-route-constraint-cs/_static/image2.png)される)
 
-本当にする内容は、のみ一致する適切な整数 productId を含む Url です。 ルートに一致する Url を制限するのにルートを定義するときに制約を使用できます。 リスト 3 で修正された製品のルートには、整数にのみ一致する正規表現の制約が含まれています。
+実際に必要なのは、productId が適切な整数を含む Url だけです。 ルートを定義するときに、ルートに一致する Url を制限するための制約を使用できます。 リスト3の変更された製品ルートには、整数のみに一致する正規表現制約が含まれています。
 
-**3 - Global.asax.cs の一覧を表示します。**
+**リスト 3-Global.asax.cs**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample3.cs)]
 
-正規表現 \d+ では、1 つまたは複数の整数と一致します。 この制約により、次の Url と一致する製品ルート。
+正規表現 \d + は、1つ以上の整数に一致します。 この制約により、製品ルートは次の Url と一致します。
 
-- /製品/3
-- /製品/8999
+- /Product/3
+- /Product/8999
 
-次の Url ではないです。
+ただし、次の Url はありません。
 
-- /製品/apple
-- /製品
+- /Product/apple
+- /Product
 
-- 別のルートでこれらのブラウザー要求を処理します。 または、一致のルートがない場合、*リソースが見つかりませんでした*エラーが返されます。
+- これらのブラウザー要求は別のルートによって処理されます。一致するルートがない場合は、*リソースが見つからない*というエラーが返されます。
 
 > [!div class="step-by-step"]
 > [前へ](creating-custom-routes-cs.md)

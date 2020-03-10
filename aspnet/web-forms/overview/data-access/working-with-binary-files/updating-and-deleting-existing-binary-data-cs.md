@@ -9,11 +9,11 @@ ms.assetid: 35798f21-1606-434b-83f8-30166906ef49
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3e37381ee48fcda8e0e10374aa7a6ae53c3cc77c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587415"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78475144"
 ---
 # <a name="updating-and-deleting-existing-binary-data-c"></a>既存のバイナリ データの更新と削除 (C#)
 
@@ -57,7 +57,7 @@ DAL を更新するだけでなく、カテゴリを更新および削除する�
 
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample2.cs)]
 
-このチュートリアルでは、2つの方法でカテゴリを更新します。これは、バイナリ画像データを想定し、`CategoriesTableAdapter` に追加した `UpdateWithPicture` メソッドを呼び出し、`CategoryName`、`Description`、および `BrochurePath` の値のみを受け取り、クラスの自動生成された `CategoriesTableAdapter` ステートメントを使用します。 2つの方法を使用する場合の背後では、ユーザーが category s picture を他のフィールドと共に更新することが必要になる場合があります。この場合、ユーザーは新しい画像をアップロードする必要があります。 アップロードされた画像のバイナリデータは、`UPDATE` ステートメントで使用できます。 場合によっては、ユーザーが名前と説明を更新するだけでよい場合もあります。 ただし、`UPDATE` ステートメントで `Picture` 列のバイナリデータも必要な場合は、その情報も提供する必要があります。 この場合、編集中のレコードの画像データを戻すために、データベースへの追加のトリップが必要になります。 そのため、2つの `UPDATE` メソッドが必要です。 ビジネスロジックレイヤーでは、カテゴリの更新時に画像データが提供されるかどうかに基づいて、どちらを使用するかが決定されます。
+このチュートリアルでは、2つの方法でカテゴリを更新します。これは、バイナリ画像データを想定し、`CategoriesTableAdapter` に追加した `UpdateWithPicture` メソッドを呼び出し、`CategoryName`、`Description`、および `BrochurePath` の値のみを受け取り、クラスの自動生成された `CategoriesTableAdapter` ステートメントを使用します。`Update` 2つの方法を使用する場合の背後では、ユーザーが category s picture を他のフィールドと共に更新することが必要になる場合があります。この場合、ユーザーは新しい画像をアップロードする必要があります。 アップロードされた画像のバイナリデータは、`UPDATE` ステートメントで使用できます。 場合によっては、ユーザーが名前と説明を更新するだけでよい場合もあります。 ただし、`UPDATE` ステートメントで `Picture` 列のバイナリデータも必要な場合は、その情報も提供する必要があります。 この場合、編集中のレコードの画像データを戻すために、データベースへの追加のトリップが必要になります。 そのため、2つの `UPDATE` メソッドが必要です。 ビジネスロジックレイヤーでは、カテゴリの更新時に画像データが提供されるかどうかに基づいて、どちらを使用するかが決定されます。
 
 これを容易にするために、2つのメソッドを `CategoriesBLL` クラスに追加します。どちらも `UpdateCategory`という名前です。 最初の1つは、3つの `string`、`byte` 配列、および `int` を入力パラメーターとして受け取る必要があります。2つ目は、3つの `string` s と `int`です。 `string` 入力パラメーターは、カテゴリの名前、説明、およびパンフレットのファイルパス用で、`byte` 配列は category s picture のバイナリコンテンツ用であり、`int` は更新するレコードの `CategoryID` を識別します。 渡された `byte` 配列が `null`場合、最初のオーバーロードは2番目のオーバーロードを呼び出します。
 
@@ -298,7 +298,7 @@ DetailsView s `ItemInserting` イベントハンドラーからリファクタ�
 > [!NOTE]
 > `UpdatingAndDeleting.aspx` ページでは、インターフェイスの挿入と編集に少し多くの作業が使用されます。 DetailsView と GridView の `CategoryName` および `Description` BoundFields を TemplateFields に変換する必要があります。 `CategoryName` では `NULL` 値が許可されないため、RequiredFieldValidator を追加する必要があります。 `Description` テキストボックスは、複数行のテキストボックスに変換される可能性があります。 ここでは、これらの仕上げに触れます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、バイナリデータの使用方法について説明します。 このチュートリアルと前の3つでは、バイナリデータをファイルシステムに格納する方法、またはデータベース内に直接格納する方法について説明しました。 ユーザーは、ハードドライブからファイルを選択し、web サーバーにアップロードすることによって、システムにバイナリデータを提供します。このファイルは、ファイルシステムに格納したり、データベースに挿入したりすることができます。 ASP.NET 2.0 には、ドラッグアンドドロップと同様に、このようなインターフェイスを提供する FileUpload コントロールが含まれています。 ただし、[ファイルのアップロード](uploading-files-cs.md)に関するチュートリアルに記載されているように、FileUpload コントロールは、比較的小さなファイルのアップロードにのみ適しています。理想的には、メガバイトを超えてはなりません。 また、アップロードしたデータを基になるデータモデルに関連付ける方法と、既存のレコードからバイナリデータを編集および削除する方法についても説明しました。
 
@@ -306,7 +306,7 @@ DetailsView s `ItemInserting` イベントハンドラーからリファクタ�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

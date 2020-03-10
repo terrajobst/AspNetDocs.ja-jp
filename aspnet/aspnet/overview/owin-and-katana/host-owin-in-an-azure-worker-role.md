@@ -1,107 +1,107 @@
 ---
 uid: aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
-title: Azure Worker ロールで OWIN ホスト |Microsoft Docs
+title: Azure ワーカーロールで OWIN をホストする |Microsoft Docs
 author: MikeWasson
-description: このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法を示します。 Open Web Interface for .NET (OWIN) は、.NET の web サーバー間の抽象化を定義しています.
+description: このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法について説明します。 Open Web Interface for .NET (OWIN) は、.NET Web サーバー間の抽象化を定義します...
 ms.author: riande
 ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
 ms.openlocfilehash: 59d2e0d549427093f8a2424b17af81169b78ef30
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118262"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472396"
 ---
 # <a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホストする
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-> このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法を示します。
+> このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法について説明します。
 >
-> [.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションの分離 – Azure worker ロール内など。
+> [Open Web Interface for .net](http://owin.org/) (OWIN) は、.net web サーバーと web アプリケーションの間の抽象化を定義します。 OWIN は、サーバーから web アプリケーションを分離します。これにより、OWIN は、Azure ワーカーロール内など、IIS の外部にある独自のプロセスで web アプリケーションを自己ホストするのに最適です。
 >
-> このチュートリアルでは、Microsoft Azure worker ロール内での OWIN アプリケーションを自己ホストする方法を学習します。 ワーカー ロールの詳細については、次を参照してください。 [Azure 実行モデル](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)します。
+> このチュートリアルでは、Microsoft Azure worker ロール内で OWIN アプリケーションを自己ホストする方法について説明します。 Worker ロールの詳細については、「 [Azure 実行モデル](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)」を参照してください。
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
-> - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
+> - [Owin. Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
-## <a name="create-a-microsoft-azure-project"></a>Microsoft Azure プロジェクトを作成します。
+## <a name="create-a-microsoft-azure-project"></a>Microsoft Azure プロジェクトを作成する
 
-管理者特権で Visual Studio を起動します。 Azure コンピューティング エミュレーターを使用してローカルでのアプリケーションをデバッグするには、管理者特権が必要です。
+管理者特権で Visual Studio を起動します。 Azure コンピューティングエミュレーターを使用してローカルでアプリケーションをデバッグするには、管理者特権が必要です。
 
-**ファイル** メニューのをクリックして**新規**、 をクリックし、**プロジェクト**します。 **インストールされたテンプレート**、Visual c# では、クリックして**クラウド** をクリックし、 **Windows Azure クラウド サービス**します。 プロジェクトとして「AzureApp」という名前にして**OK**します。
+**[ファイル]** メニューの **[新規作成]** をクリックし、 **[プロジェクト]** をクリックします。 **インストールされているテンプレート**から、ビジュアルC# の下にある **クラウド** をクリックし、**Windows Azure クラウドサービス** をクリックします。 プロジェクトに "AzureApp" という名前を指定し、[ **OK]** をクリックします。
 
 [![](host-owin-in-an-azure-worker-role/_static/image2.png)](host-owin-in-an-azure-worker-role/_static/image1.png)
 
-**新しい Windows Azure クラウド サービス**ダイアログ ボックスで、ダブルクリックして**ワーカー ロール**します。 既定の名前 ("WorkerRole1") のままにします。 この手順では、ソリューションにワーカー ロールを追加します。 **[OK]** をクリックします。
+**[新しい Windows Azure クラウドサービス]** ダイアログで、 **[Worker ロール]** をダブルクリックします。 既定の名前 ("WorkerRole1") をそのまま使用します。 この手順では、ワーカーロールをソリューションに追加します。 **[OK]** をクリックします。
 
 [![](host-owin-in-an-azure-worker-role/_static/image4.png)](host-owin-in-an-azure-worker-role/_static/image3.png)
 
-作成された Visual Studio ソリューションには、2 つのプロジェクトが含まれています。
+作成される Visual Studio ソリューションには、次の2つのプロジェクトが含まれます。
 
-- &quot;AzureApp&quot;ロールと Azure のアプリケーションの構成を定義します。
-- &quot;WorkerRole1&quot;ワーカー ロールのコードが含まれています。
+- AzureApp&quot; &quot;Azure アプリケーションのロールと構成を定義します。
+- &quot;WorkerRole1&quot; には、ワーカーロールのコードが含まれています。
 
-一般に、Azure のアプリケーションは、このチュートリアルは、1 つのロールを使用しますが、複数のロールを含めることができます。
+一般に、Azure アプリケーションには複数のロールを含めることができますが、このチュートリアルでは1つのロールを使用します。
 
 ![](host-owin-in-an-azure-worker-role/_static/image5.png)
 
-## <a name="add-the-owin-self-host-packages"></a>OWIN 自己ホスト パッケージを追加します。
+## <a name="add-the-owin-self-host-packages"></a>OWIN 自己ホストパッケージを追加する
 
-**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
+**[ツール]** メニューの **[NuGet パッケージマネージャー]** をクリックし、 **[パッケージマネージャーコンソール]** をクリックします。
 
-パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+[パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](host-owin-in-an-azure-worker-role/samples/sample1.cmd)]
 
-## <a name="add-an-http-endpoint"></a>HTTP エンドポイントを追加します。
+## <a name="add-an-http-endpoint"></a>HTTP エンドポイントを追加する
 
-ソリューション エクスプ ローラーで、AzureApp プロジェクトを展開します。 ロール ノードを展開し、WorkerRole1 を右クリックし、**プロパティ**します。
+ソリューションエクスプローラーで、AzureApp プロジェクトを展開します。 ロール ノードを展開し、WorkerRole1 を右クリックして、**プロパティ** を選択します。
 
 ![](host-owin-in-an-azure-worker-role/_static/image6.png)
 
-クリックして**エンドポイント**、 をクリックし、**エンドポイントの追加**します。
+**[エンドポイント]** をクリックして、 **[エンドポイントの追加]** をクリックします。
 
-**プロトコル**ドロップダウン リストで、"http"を選択します。 **パブリック ポート**と**プライベート ポート**80」と入力します。 これらのポート番号が異なることがあります。 パブリック ポートは、ロール要求を送信するときに使用するクライアントです。
+**プロトコル** ドロップダウンリストで、http を選択します。 **[パブリックポート]** と **[プライベートポート]** に、「80」と入力します。 このポート番号は別の番号でもかまいません。 パブリックポートは、クライアントがロールに要求を送信するときに使用されます。
 
 [![](host-owin-in-an-azure-worker-role/_static/image8.png)](host-owin-in-an-azure-worker-role/_static/image7.png)
 
-## <a name="create-the-owin-startup-class"></a>OWIN Startup クラスを作成します。
+## <a name="create-the-owin-startup-class"></a>OWIN Startup クラスを作成する
 
-ソリューション エクスプ ローラーで WorkerRole1 プロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。 クラスに `Startup` という名前を付けます。
+ソリューションエクスプローラーで、WorkerRole1 プロジェクトを右クリックし、[ / **クラス**の**追加**] を選択して新しいクラスを追加します。 クラスに `Startup` という名前を付けます。
 
-次のようにすべての定型コードに置き換えます。
+すべての定型コードを次のコードに置き換えます。
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample2.cs)]
 
-`UseWelcomePage`拡張メソッドは、アプリケーションには、サイトの動作を確認する単純な HTML ページを追加します。
+`UseWelcomePage` 拡張メソッドは、アプリケーションに単純な HTML ページを追加して、サイトが動作していることを確認します。
 
-## <a name="start-the-owin-host"></a>OWIN ホストを開始します。
+## <a name="start-the-owin-host"></a>OWIN ホストを開始する
 
-WorkerRole.cs ファイルを開きます。 このクラスは、ワーカー ロールが開始および停止時に実行されるコードを定義します。
+WorkerRole.cs ファイルを開きます。 このクラスは、ワーカーロールが開始および停止したときに実行されるコードを定義します。
 
-次の追加ステートメントを使用します。
+次の using ステートメントを追加します。
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample3.cs)]
 
-追加、 **IDisposable**メンバーを`WorkerRole`クラス。
+`WorkerRole` クラスに**IDisposable**メンバーを追加します。
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample4.cs)]
 
-`OnStart`メソッドでは、ホストを起動する次のコードを追加します。
+`OnStart` メソッドで、次のコードを追加してホストを起動します。
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample5.cs?highlight=5)]
 
-**WebApp.Start**メソッドは、OWIN ホストを開始します。 名前、`Startup`クラスは、メソッドの型パラメーター。 慣例により、ホストが呼び出す、`Configure`このクラスのメソッド。
+**WebApp**メソッドは、OWIN ホストを開始します。 `Startup` クラスの名前は、メソッドの型パラメーターです。 慣例により、ホストはこのクラスの `Configure` メソッドを呼び出します。
 
-上書き、`OnStop`を破棄する、 *\_アプリ*インスタンス。
+*\_アプリ*インスタンスを破棄するには、`OnStop` をオーバーライドします。
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample6.cs)]
 
@@ -109,33 +109,33 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [!code-csharp[Main](host-owin-in-an-azure-worker-role/samples/sample7.cs)]
 
-ソリューションをビルドし、f5 キーを押して Azure コンピューティング エミュレーターでアプリケーションをローカルで実行します。 ファイアウォールの設定によっては、ファイアウォール経由のエミュレーターを許可する必要があります。
+ソリューションをビルドし、F5 キーを押して、Azure コンピューティングエミュレーターでアプリケーションをローカルに実行します。 ファイアウォールの設定によっては、エミュレーターでのファイアウォールの使用を許可することが必要になる場合があります。
 
-コンピューティング エミュレーターでは、エンドポイントに、ローカル IP アドレスが割り当てられます。 コンピューティング エミュレーター UI を表示することによって、IP アドレスを見つけることができます。 タスク バー通知領域のエミュレーター アイコンを右クリックして**コンピューティング エミュレーター UI**します。
+コンピューティングエミュレーターは、エンドポイントにローカル IP アドレスを割り当てます。 IP アドレスを見つけるには、コンピューティングエミュレーターの UI を表示します。 タスクバーの通知領域のエミュレーターアイコンを右クリックし、 **[コンピューティングエミュレーター UI の表示]** を選択します。
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http に移動します:\/\/*アドレス*ここで、*アドレス*は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`します。 OWIN へようこそ ページを参照する必要があります。
+サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http:\/\/*アドレス*に移動します。ここで、 *address*はコンピューティングエミュレーターによって割り当てられた IP アドレスです。たとえば、`http://127.0.0.1:80`のようにします。 OWIN のようこそページが表示されます。
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 
-## <a name="deploy-to-azure"></a>Azure に配置する
+## <a name="deploy-to-azure"></a>Deploy to Azure (Azure へのデプロイ)
 
-この手順では、Azure アカウントが必要です。 1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。 詳細については、次を参照してください。 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)します。
+この手順では、Azure アカウントが必要です。 まだお持ちでない場合は、無料試用版アカウントを数分で作成できます。 詳細については、「 [Microsoft Azure 無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)」を参照してください。
 
-ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。 **[発行]** を選びます。
+ソリューションエクスプローラーで、AzureApp プロジェクトを右クリックします。 **[発行]** を選択します。
 
 ![](host-owin-in-an-azure-worker-role/_static/image12.png)
 
-Azure アカウントにサインインしていない場合はクリックして**サインイン**します。
+Azure アカウントにサインインしていない場合は、 **[サインイン]** をクリックします。
 
 [![](host-owin-in-an-azure-worker-role/_static/image14.png)](host-owin-in-an-azure-worker-role/_static/image13.png)
 
-サインインした後、サブスクリプションを選択およびクリックして**次**します。
+サインインしたら、サブスクリプションを選択し、 **[次へ]** をクリックします。
 
 [![](host-owin-in-an-azure-worker-role/_static/image16.png)](host-owin-in-an-azure-worker-role/_static/image15.png)
 
-クラウド サービスの名前を入力し、リージョンを選択します。 **[作成]** をクリックします。
+クラウドサービスの名前を入力し、リージョンを選択します。 **Create** をクリックしてください。
 
 ![](host-owin-in-an-azure-worker-role/_static/image17.png)
 
@@ -143,7 +143,7 @@ Azure アカウントにサインインしていない場合はクリックし�
 
 [![](host-owin-in-an-azure-worker-role/_static/image19.png)](host-owin-in-an-azure-worker-role/_static/image18.png)
 
-Azure アクティビティ ログ ウィンドウには、展開の進行状況が表示されます。 アプリが展開されると、参照`http://appname.cloudapp.net/`ここで、 *appname*クラウド サービスの名前を指定します。
+[Azure のアクティビティログ] ウィンドウに、デプロイの進行状況が表示されます。 アプリがデプロイされたら、`http://appname.cloudapp.net/`に移動します。ここで、 *appname*はクラウドサービスの名前です。
 
 ## <a name="additional-resources"></a>その他のリソース
 

@@ -9,11 +9,11 @@ ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: c5281a42596d95e725b32e652c75785abe0fd64e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640563"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462838"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server 12 の10への移行
 
@@ -25,7 +25,7 @@ ms.locfileid: "74640563"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、SQL Server Compact から SQL Server に移行する方法について説明します。 そのためには、ストアドプロシージャ、トリガー、ビュー、レプリケーションなど、SQL Server Compact でサポートされていない SQL Server 機能を利用することが必要になることがあります。 SQL Server Compact と SQL Server の違いの詳細については、 [SQL Server Compact のデプロイ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)に関するチュートリアルを参照してください。
 
@@ -244,7 +244,7 @@ SqlServerCompact NuGet パッケージには、Contoso 大学アプリケーシ�
 
 **[宛先 URL]** ボックスに、「`http://localhost/ContosoUniversity/`」と入力します。
 
-[次へ] をクリックします。
+**[次へ]** をクリックします。
 
 **設定** タブには、**SQL のパッケージ化/発行** タブが構成されていることが警告され、新しいデータベースの公開の強化を有効にする をクリックして上書きすることができます。 このデプロイでは、 **[SQL のパッケージ化/発行]** タブの設定を上書きしないため、 **[次へ]** をクリックします。
 
@@ -281,7 +281,7 @@ Visual Studio によってアプリケーションが配置され、テスト環
 **[SQL ユーザーのプロパティ]** ページで、必要なフィールドを入力します。
 
 - 名前として「ユーザー」と入力します。
-- パスワードを入力してください。
+- パスワードを入力します。
 - 既定のデータベースとして **[contosouSchool]** を選択します。
 - **[ContosouSchool]** チェックボックスをオンにします。
 
@@ -361,7 +361,7 @@ Web.config*を開き、* `connectionStrings` 要素を次の例のような `con
 
 **[インポート]** をクリックし、前の手順でダウンロードした .publishsettings ファイルを選択します。
 
-**[接続]** タブで、**宛先 URL**を正しい一時 URL (この例では http://contosouniversity.com.vserver01.cytanium.com ) に変更します。
+**[接続]** タブで、**宛先 URL**を正しい一時 URL (この例では http://contosouniversity.com.vserver01.cytanium.com) に変更します。
 
 プロファイルの名前を運用環境に変更します。 ( **[プロファイル]** タブを選択し、 **[プロファイルの管理]** をクリックして実行します)。
 
@@ -398,7 +398,7 @@ Web 上の **[発行**] ツールバーで、**運用**プロファイルが選�
 
 **ソリューションエクスプローラー**で、ContosoUniversity プロジェクトを選択し、 **[プロジェクト]** メニューの **[ASP.NET の構成]** をクリックします。
 
-[セキュリティ] タブを選択します。
+[セキュリティ] タブをクリックします。
 
 **[ロールの作成または管理]** をクリックし、**管理者**ロールを作成します。
 

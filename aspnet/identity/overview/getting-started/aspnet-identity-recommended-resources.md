@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
 ms.openlocfilehash: 4b2a6689839f66121f4a32ee5934f6cda50ae812
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456571"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499792"
 ---
 # <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity 推奨リソース
 
@@ -126,7 +126,7 @@ ms.locfileid: "77456571"
 
 <a id="video"></a>
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>ビデオ
 
 - Channel 9 [ASP.NET アプリケーションとサービスのセキュリティ保護: Ido Flatow による最新のアプリケーションのセキュリティの facの](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B421#fbid=PhVT9E1WRtr?hashlink=fbid)強化
 - 「Channel 9 [ASP.NET Identity 入門](https://channel9.msdn.com/Events/dotnetConf/2014/ASP-NET-Identity-Security)者の Pranav Rastogi

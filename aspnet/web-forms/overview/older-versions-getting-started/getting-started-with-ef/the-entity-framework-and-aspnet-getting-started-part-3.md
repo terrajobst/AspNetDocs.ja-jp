@@ -1,31 +1,31 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
-title: Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 3 部 |Microsoft Docs
+title: Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート 3 |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
+description: Contoso 大学のサンプル web アプリケーションは、Entity Framework を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 サンプルアプリケーションは...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: ccdc3f8c-2568-40a7-8f8b-3c23d2e05388
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: 88debb11a9157dce9ff000b1cb459b876dbceaf3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116658"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78522640"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォーム - パート 3
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート3
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、次を参照してください[シリーズの最初のチュートリアル。](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 チュートリアルシリーズの詳細については、[シリーズの最初のチュートリアル](the-entity-framework-and-aspnet-getting-started-part-1.md)を参照してください。
 
-## <a name="filtering-ordering-and-grouping-data"></a>フィルター処理、並べ替え、およびデータをグループ化
+## <a name="filtering-ordering-and-grouping-data"></a>データのフィルター処理、並べ替え、およびグループ化
 
-前のチュートリアルでは使用して、`EntityDataSource`コントロール データを表示および編集します。 このチュートリアルではありますフィルター、および順は、データをグループ化します。 プロパティを設定してのこれを行うと、`EntityDataSource`コントロール、構文は他のデータ ソース コントロールによって異なります。 わかる、ただし、使用できます、`QueryExtender`これらの相違点を最小限に抑えるコントロール。
+前のチュートリアルでは、`EntityDataSource` コントロールを使用してデータを表示および編集しています。 このチュートリアルでは、データのフィルター処理、並べ替え、およびグループ化を行います。 `EntityDataSource` コントロールのプロパティを設定してこの操作を行う場合、構文は他のデータソースコントロールとは異なります。 ただし、ここで説明するように、`QueryExtender` コントロールを使用して、これらの違いを最小限に抑えることができます。
 
-変更します、 *Students.aspx*ページ、受講者をフィルター処理を並べ替え、名、および名前で検索します。 変更することもあります、 *Courses.aspx*名前で、選択した部門とコースを検索するためのコースを表示するページ。 最後に、学生の統計情報を追加します、 *About.aspx*ページ。
+*Students ページを*変更して、学生をフィルター処理し、名前で並べ替え、名前を検索します。 また *、[course] ページ*を変更して、選択した学科のコースを表示し、名前でコースを検索します。 最後に、student の統計情報を*About .aspx*ページに追加します。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-3/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image1.png)
 
@@ -35,150 +35,150 @@ ms.locfileid: "65116658"
 
 [![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
 
-## <a name="using-the-entitydatasource-where-property-to-filter-data"></a>プロパティを使用して、EntityDataSource"Where"データをフィルター処理
+## <a name="using-the-entitydatasource-where-property-to-filter-data"></a>EntityDataSource "Where" プロパティを使用してデータをフィルター処理する
 
-開く、 *Students.aspx*前のチュートリアルで作成したページです。 構成は、現在、`GridView`ページ内のコントロールからのすべての名前を表示する、`People`エンティティ セット。 、受講者のみを表示するただし、これを選択して`Person`null 以外の登録日を取得するエンティティ。
+前のチュートリアルで作成した*student .aspx*ページを開きます。 現在構成されているように、ページの `GridView` コントロールには、`People` エンティティセットのすべての名前が表示されます。 ただし、学生だけを表示したい場合は、null 以外の登録日がある `Person` エンティティを選択します。
 
-切り替える**デザイン**表示し、選択、`EntityDataSource`コントロール。 **[プロパティ]** ウィンドウで、 `Where` プロパティを `it.EnrollmentDate is not null`に設定します。
+**デザイン**ビューに切り替え、[`EntityDataSource`] コントロールを選択します。 **[プロパティ]** ウィンドウで、 `Where` プロパティを `it.EnrollmentDate is not null`に設定します。
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-3/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image9.png)
 
-使用する構文、`Where`のプロパティ、`EntityDataSource`コントロールは、Entity SQL です。 Entity SQL は、TRANSACT-SQL に似ていますが、データベース オブジェクトではなく、エンティティで使用するためにカスタマイズが。 式で`it.EnrollmentDate is not null`、単語`it`クエリによって返されるエンティティへの参照を表します。 そのため、`it.EnrollmentDate`を指す、`EnrollmentDate`のプロパティ、`Person`エンティティを`EntityDataSource`制御を返します。
+`EntityDataSource` コントロールの `Where` プロパティで使用する構文は Entity SQL です。 Entity SQL は Transact-sql に似ていますが、データベースオブジェクトではなくエンティティで使用するようにカスタマイズされています。 `it.EnrollmentDate is not null`式では、`it` は、クエリによって返されたエンティティへの参照を表します。 したがって、`it.EnrollmentDate` は、`EntityDataSource` コントロールが返す `Person` エンティティの `EnrollmentDate` プロパティを参照します。
 
-ページを実行します。 学生のリストには、今すぐ受講者のみが含まれています。 (ここに表示される行がない加入契約日はありません)。
+ページを実行します。 学生リストに学生のみが含まれるようになりました。 (登録日がない場所に表示される行はありません)。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-3/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image11.png)
 
-## <a name="using-the-entitydatasource-orderby-property-to-order-data"></a>注文データを EntityDataSource"OrderBy"プロパティを使用します。
+## <a name="using-the-entitydatasource-orderby-property-to-order-data"></a>EntityDataSource "OrderBy" プロパティを使用してデータを並べ替える
 
-この一覧は、最初に表示されるときに、名前の順序であるを場合もあります。 *Students.aspx*で開いているページ**デザイン**ビューを使用して、`EntityDataSource`コントロールが選択したままで、**プロパティ**ウィンドウのセット、 **OrderBy**プロパティを`it.LastName`します。
+また、この一覧が最初に表示されたときに名前の順序で表示されるようにします。 **[デザイン]** ビューで*student*ページを開いたまま、`EntityDataSource` コントロールを選択した状態で、 **[プロパティ]** ウィンドウで**OrderBy**プロパティを `it.LastName`に設定します。
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-3/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image13.png)
 
-ページを実行します。 受講者の一覧にして、姓の順になります。
+ページを実行します。 学生リストは、姓の順に並べられています。
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-3/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image15.png)
 
-## <a name="using-a-control-parameter-to-set-the-where-property"></a>コントロールのパラメーターを使用して、"Where"プロパティを設定するには
+## <a name="using-a-control-parameter-to-set-the-where-property"></a>コントロールパラメーターを使用して "Where" プロパティを設定する
 
-他のデータ ソース コントロールでのパラメーター値を渡すことができます、`Where`プロパティ。 *Courses.aspx*ページ、チュートリアルのパート 2 で作成したことは、このメソッドを使用して、ユーザーがドロップダウン リストから選択する部門に関連付けられているコースを表示することができます。
+他のデータソースコントロールと同様に、パラメーター値を `Where` プロパティに渡すことができます。 チュートリアルのパート2で作成した [course *] ページで*、この方法を使用して、ユーザーがドロップダウンリストから選択した学科に関連付けられているコースを表示できます。
 
-開いている*Courses.aspx*に切り替えると**デザイン**ビュー。 1 秒あたりの追加`EntityDataSource`コントロールをページ、および名前を付けます`CoursesEntityDataSource`します。 接続先の`SchoolEntities`モデル、および選択`Courses`として、 **EntitySetName**値。
+Course*を開き、[* **デザイン**] ビューに切り替えます。 2つ目の `EntityDataSource` コントロールをページに追加し、`CoursesEntityDataSource`という名前を指定します。 それを `SchoolEntities` モデルに接続し、[`Courses`] を**EntitySetName**値として選択します。
 
-**プロパティ** ウィンドウで省略記号をクリックして、**場所**プロパティ ボックス。 (確認、`CoursesEntityDataSource`コントロールが使用する前に選択したまま、**プロパティ**ウィンドウ)。
+**[プロパティ]** ウィンドウで、 **[Where]** プロパティボックスの省略記号をクリックします。 ( **[プロパティ]** ウィンドウを使用する前に、`CoursesEntityDataSource` コントロールが選択されていることを確認してください)。
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-3/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image17.png)
 
-**式エディター**  ダイアログ ボックスが表示されます。 このダイアログ ボックスで選択**Where を自動的に生成式が指定されたパラメーターに基づいて**、順にクリックします**パラメーターの追加**します。 パラメーターの名前`DepartmentID`、**コントロール**として、**パラメーター ソース**値、および選択**DepartmentsDropDownList**として、 **ControlID**値。
+**[式エディター]** ダイアログボックスが表示されます。 このダイアログボックスで、 **[指定されたパラメーターに基づいて Where 式を自動的に生成する]** を選択し、 **[パラメーターの追加]** をクリックします。 パラメーターに `DepartmentID`という名前を付け、 **[ソース]** の値として **[コントロール]** を選択し、 **ControlID**値として **[DepartmentsDropDownList]** を選択します。
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-3/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image19.png)
 
-クリックして**詳細プロパティの表示**、し、**プロパティ**のウィンドウ、**式エディター**  ダイアログ ボックスで、変更、`Type`プロパティを`Int32`します。
+**[詳細プロパティの表示]** をクリックし、 **[式エディター]** ダイアログボックスの **[プロパティ]** ウィンドウで、[`Type`] プロパティを `Int32`に変更します。
 
 [![Image15](the-entity-framework-and-aspnet-getting-started-part-3/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image21.png)
 
-完了したら、クリックして**OK**します。
+完了したら **[OK]** をクリックします。
 
-ドロップダウン リストで、以下を追加、`GridView`コントロールをページと名前を付けます`CoursesGridView`します。 接続先の`CoursesEntityDataSource`データ ソース コントロールで、をクリックして**スキーマの更新**、 をクリックして**列の編集**、および削除、`DepartmentID`列。 `GridView`コントロールのマークアップが次の例に似ています。
+ドロップダウンリストの下で、ページに `GridView` コントロールを追加し、`CoursesGridView`という名前を指定します。 `CoursesEntityDataSource` データソースコントロールに接続し、 **[スキーマの更新]** をクリックし、 **[列の編集]** をクリックして、`DepartmentID` 列を削除します。 `GridView` コントロールのマークアップは、次の例のようになります。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample1.aspx)]
 
-ドロップダウン リストで選択した部門を変更するときに自動的に変更の関連付けられているコースの一覧が必要。 これには、ドロップダウン リストを選択して、**プロパティ**ウィンドウのセット、`AutoPostBack`プロパティを`True`します。
+ユーザーがドロップダウンリストで選択した部署を変更すると、関連するコースの一覧が自動的に変更されます。 これを行うには、ドロップダウンリストを選択し、 **[プロパティ]** ウィンドウの [`AutoPostBack`] プロパティを `True`に設定します。
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-3/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image23.png)
 
-デザイナーの使用が完了したら、これで切り替える**ソース**を表示して、置換、`ConnectionString`と`DefaultContainer`のプロパティの名前、`CoursesEntityDataSource`コントロールを`ContextTypeName="ContosoUniversity.DAL.SchoolEntities"`属性。 完了すると、コントロールのマークアップは次の例のようになります。
+デザイナーの使用が終了したので、**ソース**ビューに切り替えて、`CoursesEntityDataSource` コントロールの `ConnectionString` と `DefaultContainer` name プロパティを `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` 属性に置き換えます。 完了すると、コントロールのマークアップは次の例のようになります。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample2.aspx)]
 
-ページを実行し、ドロップダウン リストを使用して、別の部署を選択します。 選択した部門によって提供されているコースのみが表示されます、`GridView`コントロール。
+ページを実行し、ドロップダウンリストを使用して異なる部門を選択します。 選択した部門によって提供されるコースのみが、`GridView` コントロールに表示されます。
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-3/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image25.png)
 
-## <a name="using-the-entitydatasource-groupby-property-to-group-data"></a>データをグループ化 EntityDataSource"GroupBy"プロパティを使用します。
+## <a name="using-the-entitydatasource-groupby-property-to-group-data"></a>EntityDataSource "GroupBy" プロパティを使用してデータをグループ化する
 
-Contoso University がそのについてのページにいくつかの学生本文の統計情報を配置する必要があるとします。 具体的には、登録日付で生徒数の内訳を表示しようとします。
+Contoso 大学が [About] ページに生徒の本文の統計をいくつか配置したいとします。 具体的には、学生の数の内訳を、登録した日付で表示したいと考えています。
 
-開いている*About.aspx*、し、**ソース**ビューで、既存の内容を置き換える、 `BodyContent` 「学生本文の統計情報」の間でコントロール`h2`タグ。
+*About .aspx*を開き、**ソース**ビューで、`BodyContent` コントロールの既存の内容を、`h2` タグの "Student Body Statistics" に置き換えます。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample3.aspx)]
 
-見出しの後の追加、`EntityDataSource`を制御し、名前を`StudentStatisticsEntityDataSource`します。 接続先の`SchoolEntities`を選択します、`People`エンティティ セット、およびのままに、**選択**ボックス、ウィザードをそのままにします。 次のプロパティを設定、**プロパティ**ウィンドウ。
+見出しの後に `EntityDataSource` コントロールを追加し、`StudentStatisticsEntityDataSource`という名前を指定します。 `SchoolEntities`に接続し、`People` エンティティセットを選択して、ウィザードの **[選択**] ボックスを変更せずにそのままにします。 **[プロパティ]** ウィンドウで、次のプロパティを設定します。
 
-- 受講者のみをフィルターするには、設定、`Where`プロパティを`it.EnrollmentDate is not null`します。
-- 結果をグループ化、登録日で、設定、`GroupBy`プロパティを`it.EnrollmentDate`します。
-- 加入契約日と生徒の数を選択するには、設定、`Select`プロパティを`it.EnrollmentDate, Count(it.EnrollmentDate) AS NumberOfStudents`します。
-- 登録日で、結果の順序を設定、`OrderBy`プロパティを`it.EnrollmentDate`します。
+- 学生のみをフィルター処理するには、[`Where`] プロパティを [`it.EnrollmentDate is not null`] に設定します。
+- 登録日に結果をグループ化するには、`GroupBy` プロパティを `it.EnrollmentDate`に設定します。
+- 学生の登録日と数を選択するには、`Select` プロパティを `it.EnrollmentDate, Count(it.EnrollmentDate) AS NumberOfStudents`に設定します。
+- 登録日によって結果を並べ替えるには、`OrderBy` プロパティを `it.EnrollmentDate`に設定します。
 
-**ソース**ビューで、置換、`ConnectionString`と`DefaultContainer`でプロパティの名前、`ContextTypeName`プロパティ。 `EntityDataSource`コントロールのマークアップ例では、次のようになります。
+**ソース**ビューで、`ConnectionString` と `DefaultContainer` name プロパティを `ContextTypeName` プロパティに置き換えます。 `EntityDataSource` コントロールのマークアップは、次の例のようになります。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample4.aspx)]
 
-構文、 `Select`、 `GroupBy`、および`Where`プロパティが以外には、TRANSACT-SQL に似ています、`it`現在のエンティティを指定するキーワード。
+`Select`、`GroupBy`、および `Where` プロパティの構文は、現在のエンティティを指定する `it` キーワードを除き、Transact-sql に似ています。
 
-作成する次のマークアップを追加、`GridView`データを表示するコントロール。
+次のマークアップを追加して、データを表示する `GridView` コントロールを作成します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample5.aspx)]
 
-登録日で受講者の数を示す一覧を表示するページを実行します。
+ページを実行して、登録日別に生徒の数を示す一覧を表示します。
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image27.png)
 
-## <a name="using-the-queryextender-control-for-filtering-and-ordering"></a>フィルター処理と並べ替えのによる QueryExtender コントロールを使用します。
+## <a name="using-the-queryextender-control-for-filtering-and-ordering"></a>フィルター処理と順序付けに QueryExtender コントロールを使用する
 
-`QueryExtender`コントロール マークアップのフィルターおよび並べ替えを指定する方法を提供します。 構文は、使用しているデータベース管理システム (DBMS) に依存しません。 一般に、ナビゲーション プロパティを使用する構文が、Entity Framework には一意である例外、Entity Framework に依存しないこともです。
+`QueryExtender` コントロールは、マークアップでフィルター処理と並べ替えを指定する方法を提供します。 構文は、使用しているデータベース管理システム (DBMS) に依存しません。 また、一般に Entity Framework に依存しません。ただし、ナビゲーションプロパティに使用する構文は、Entity Framework に固有です。
 
-このチュートリアルのこの部分で使用する、`QueryExtender`フィルターおよび並べ替えのデータへの制御と order by フィールドの 1 つには、ナビゲーション プロパティになります。
+チュートリアルのこの部分では、`QueryExtender` コントロールを使用してデータのフィルター処理と並べ替えを行います。また、いずれかの並べ替えフィールドがナビゲーションプロパティになります。
 
-(マークアップではなくコードを使用して、によって自動的に生成されるクエリを拡張する場合、`EntityDataSource`制御を行うことができます処理、`QueryCreated`イベント。 これは、どのように`QueryExtender`コントロールを拡張`EntityDataSource`もクエリを制御します)。
+(マークアップではなくコードを使用して、`EntityDataSource` コントロールによって自動的に生成されるクエリを拡張する場合は、`QueryCreated` イベントを処理することによってこれを行うことができます。 これは、`QueryExtender` コントロールが `EntityDataSource` コントロールクエリも拡張する方法です)。
 
-開く、 *Courses.aspx*ページ、および前に追加したマークアップの下には、見出し、検索文字列を検索ボタンを入力するためのテキスト ボックスを作成する次のマークアップを挿入し、 `EntityDataSource` にバインドされたコントロール`Courses`エンティティ セット。
+*[Course] ページを*開き、前の手順で追加したマークアップの下に、次のマークアップを挿入して、見出し、検索文字列を入力するためのテキストボックス、検索ボタン、および `Courses` エンティティセットにバインドされている `EntityDataSource` コントロールを作成します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample6.aspx)]
 
-なお、`EntityDataSource`コントロールの`Include`プロパティに設定されて`Department`します。 データベースで、`Course`テーブルに部署名が含まれていません。 含まれている、`DepartmentID`外部キー列。 参加する必要がありますが、データベースを直接、コースのデータと共に部門名を取得するクエリを実行する場合、`Course`と`Department`テーブル。 設定して、`Include`プロパティを`Department`、Entity Framework が、関連の作業を行う必要がありますを指定する`Department`エンティティを取得するとき、`Course`エンティティ。 `Department`エンティティが格納し、`Department`のナビゲーション プロパティ、`Course`エンティティ。 (既定で、`SchoolEntities`ことが必要であり、データ ソース コントロールを設定するため、そのクラスにバインドした場合、データのモデル デザイナーによって生成されたクラスに関連するデータを取得します、`Include`プロパティが必要ではありません。 ただし、設定するとパフォーマンスが向上、ページの Entity Framework は、データを取得するデータベースへの呼び出しを分離しますそれ以外の場合、`Course`エンティティと関連`Department`エンティティです。)。
+`EntityDataSource` コントロールの `Include` プロパティが `Department`に設定されていることに注意してください。 データベースでは、`Course` テーブルに部門名が含まれていません。これには、`DepartmentID` の外部キー列が含まれています。 データベースに対して直接クエリを実行した場合は、学科名をコースデータと共に取得するために、`Course` テーブルと `Department` テーブルを結合する必要があります。 `Include` プロパティを `Department`に設定することにより、Entity Framework が `Course` エンティティを取得するときに関連する `Department` エンティティを取得する処理を行う必要があることを指定します。 `Department` エンティティは、`Course` エンティティの `Department` ナビゲーションプロパティに格納されます。 (既定では、データモデルデザイナーによって生成された `SchoolEntities` クラスは、必要に応じて関連データを取得します。また、データソースコントロールをそのクラスにバインドしているので、`Include` プロパティを設定する必要はありません。 ただし、これを設定すると、ページのパフォーマンスが向上します。それ以外の場合、Entity Framework は、`Course` エンティティおよび関連する `Department` エンティティのデータを取得するためにデータベースを個別に呼び出します。
 
-後に、`EntityDataSource`したコントロールを作成する次のマークアップを挿入、作成、`QueryExtender`コントロールにバインドされている`EntityDataSource`コントロール。
+`EntityDataSource` コントロールを作成した後、次のマークアップを挿入して、その `EntityDataSource` コントロールにバインドされている `QueryExtender` コントロールを作成します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample7.aspx)]
 
-`SearchExpression`要素は、コースのタイトルが一致するテキスト ボックスに入力された値を選択することを指定します。 ため、多くの文字は、テキスト ボックスに入力は比較する場合のみ、`SearchType`プロパティを指定します`StartsWith`します。
+`SearchExpression` 要素は、テキストボックスに入力された値にタイトルが一致するコースを選択するように指定します。 `SearchType` プロパティでは `StartsWith`が指定されているため、テキストボックスに入力した文字数だけが比較されます。
 
-`OrderByExpression`要素は、結果セットは、部門名に含まれるコース タイトルで並べ替えられますことを指定します。 部門名を指定する方法に注意してください:`Department.Name`します。 の間の関連付け、`Course`エンティティと`Department`エンティティは、一対一、`Department`ナビゲーション プロパティが含まれています、`Department`エンティティ。 (これが、一対多リレーションシップで場合は、プロパティはコレクション格納が)。部門名を取得することを指定する必要があります、`Name`のプロパティ、`Department`エンティティ。
+`OrderByExpression` 要素は、結果セットが学科名内のコースタイトルで並べ替えられることを指定します。 部署名が指定されていることに注意してください: `Department.Name`。 `Course` エンティティと `Department` エンティティ間のアソシエーションは一対一であるため、`Department` ナビゲーションプロパティには `Department` エンティティが含まれます。 (これが一対多のリレーションシップである場合、プロパティにはコレクションが含まれます)。部署名を取得するには、`Department` エンティティの `Name` プロパティを指定する必要があります。
 
-最後に、追加、`GridView`コースのリストを表示するコントロール。
+最後に、`GridView` コントロールを追加してコースの一覧を表示します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample8.aspx)]
 
-最初の列は、部門名を表示するテンプレートのフィールドです。 データ バインディング式を指定します`Department.Name`で見たのと同様、`QueryExtender`コントロール。
+最初の列は、部署名を表示するテンプレートフィールドです。 Databinding 式は、`QueryExtender` コントロールの場合と同様に `Department.Name`を指定します。
 
-ページを実行します。 最初の表示では、部門とコースのタイトルの順序ですべてのコースの一覧が表示されます。
+ページを実行します。 最初の表示では、すべてのコースの一覧が部署別、そしてコースタイトル別に表示されます。
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image29.png)
 
-"M"を入力し、クリックして**検索**にタイトルが"m"(検索はいない大文字と小文字) で始まるすべてのコースをご覧ください。
+"M" を入力し、 **[検索]** をクリックすると、タイトルが "m" で始まるすべてのコースが表示されます (検索では大文字と小文字が区別されません)。
 
 [![Image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
 
-## <a name="using-the-like-operator-to-filter-data"></a>"Like"演算子を使用してデータをフィルター処理
+## <a name="using-the-like-operator-to-filter-data"></a>"Like" 演算子を使用したデータのフィルター処理
 
-同様の効果を実現することができます、`QueryExtender`コントロールの`StartsWith`、 `Contains`、および`EndsWith`を使用して型を検索、`Like`演算子、`EntityDataSource`コントロールの`Where`プロパティ。 このチュートリアルでは、使用する方法が紹介、`Like`受講者名で検索する演算子。
+`Like` コントロールの `EntityDataSource` プロパティで `Where` 演算子を使用することにより、`QueryExtender` コントロールの `StartsWith`、`Contains`、および `EndsWith` 検索の種類と同様の効果を得ることができます。 チュートリアルのこの部分では、`Like` 演算子を使用して、名前で学生を検索する方法について説明します。
 
-開いている*Students.aspx*で**ソース**ビュー。 後に、`GridView`コントロールを次のマークアップを追加します。
+**ソース**ビューで*student を*開きます。 `GridView` コントロールの後に、次のマークアップを追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample9.aspx)]
 
-このマークアップは経験した前述以外に似ています、`Where`プロパティの値。 2 番目の部分、`Where`式の部分文字列検索を定義します (`LIKE %FirstMidName% or LIKE %LastName%`) テキスト ボックスに入力した内容の最初と最後の名前を検索します。
+このマークアップは、前に示したものと似ていますが、`Where` のプロパティ値は除きます。 `Where` 式の2番目の部分では、テキストボックスに入力されたものの姓と名の両方を検索する部分文字列検索 (`LIKE %FirstMidName% or LIKE %LastName%`) を定義します。
 
-ページを実行します。 最初にすべての表示、受講者の既定値であるため、`StudentName`パラメーターは、「%」です。
+ページを実行します。 `StudentName` パラメーターの既定値は "%" であるため、最初はすべての学生が表示されます。
 
 [![Image13](the-entity-framework-and-aspnet-getting-started-part-3/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image33.png)
 
-テキスト ボックスに文字"g"を入力し、クリックして**検索**します。 姓または名のいずれかの"g"がある学生の一覧を表示します。
+テキストボックスに「g」という文字を入力し、 **[検索]** をクリックします。 姓または名のいずれかに "g" を持つ学生の一覧が表示されます。
 
 [![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
 
-ようになりました表示、更新、フィルター処理、ordered、して個々 のテーブルからデータをグループ化します。 次のチュートリアルでは、関連データ (マスター/詳細シナリオ) を操作する始めます。
+個々のテーブルのデータの表示、更新、フィルター処理、並べ替え、およびグループ化が完了しました。 次のチュートリアルでは、関連データ (マスター詳細シナリオ) の操作を開始します。
 
 > [!div class="step-by-step"]
 > [前へ](the-entity-framework-and-aspnet-getting-started-part-2.md)

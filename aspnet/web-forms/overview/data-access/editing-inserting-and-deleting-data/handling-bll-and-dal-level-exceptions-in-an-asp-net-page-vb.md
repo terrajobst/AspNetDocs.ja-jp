@@ -9,11 +9,11 @@ ms.assetid: 129d4338-1315-4f40-89b5-2b84b807707d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ee277596ade18d2603892d134b47c2c8697836bb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74620935"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78478990"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>ASP.NET ページで BLL レベルと DAL レベルの例外を処理する (VB)
 
@@ -35,7 +35,7 @@ ms.locfileid: "74620935"
 
 手順1で発生するイベントを既に調べており、それらを使用して入力パラメーターをカスタマイズしたり操作を取り消したりする方法について説明しました。 このチュートリアルでは、操作が完了した後に発生するイベントに注目します。 これらの投稿レベルのイベントハンドラーを使用すると、操作中に例外が発生したかどうかを判断し、適切に処理することができます。標準の ASP.NET を既定のままにするのではなく、わかりやすい情報を示すエラーメッセージが画面に表示されます。例外ページ。
 
-これらの投稿レベルのイベントを使用する方法を示すために、編集可能な GridView で製品を一覧表示するページを作成してみましょう。 製品を更新するときに、例外が発生した場合、ASP.NET ページには、問題が発生したことを示す、GridView の上に短いメッセージが表示されます。 では、始めましょう。
+これらの投稿レベルのイベントを使用する方法を示すために、編集可能な GridView で製品を一覧表示するページを作成してみましょう。 製品を更新するときに、例外が発生した場合、ASP.NET ページには、問題が発生したことを示す、GridView の上に短いメッセージが表示されます。 作業開始
 
 ## <a name="step-1-creating-an-editable-gridview-of-products"></a>手順 1: 編集可能な製品の GridView を作成する
 
@@ -177,7 +177,7 @@ Web アプリケーションがどのように構成されているか、およ�
 > [!NOTE]
 > ビジネスロジックルールが `UpdateProduct` メソッドのオーバーロードから共通のメソッドにリファクタリングされるのが理想的です。 これは、リーダーの演習として残されています。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 挿入、更新、削除の各操作では、データ Web コントロールと ObjectDataSource の両方が、実際の操作をもうする前レベルと後レベルのイベントを発生させます。 このチュートリアルと前のチュートリアルで説明したように、gridview の `RowUpdating` イベントが発生し、その後に ObjectDataSource の `Updating` イベントが発生します。この時点で、ObjectDataSource の基になるオブジェクトに対して update コマンドが実行されます。 操作が完了すると、ObjectDataSource の `Updated` イベントが発生し、その後に GridView の `RowUpdated` イベントが続きます。
 
@@ -187,7 +187,7 @@ Web アプリケーションがどのように構成されているか、およ�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

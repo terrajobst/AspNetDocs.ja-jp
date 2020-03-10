@@ -9,11 +9,11 @@ ms.assetid: 68b8c023-92fa-4df6-9563-1764e16e4b04
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 545b24a66476c55aff88ac62d3a6528105fea6c0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74631477"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78491650"
 ---
 # <a name="masterdetail-filtering-across-two-pages-c"></a>2 つのページでマスター/詳細をフィルター処理する (C#)
 
@@ -144,7 +144,7 @@ Northwind データベースのすべてのカテゴリは、1つまたは複数
 
 **図 9**: 選択したカテゴリに属する製品がない場合は、メッセージが表示されます ([クリックすると、フルサイズの画像が表示](master-detail-filtering-acess-two-pages-datalist-cs/_static/image27.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 マスター/詳細レポートでは、マスターレコードと詳細レコードの両方を1ページに表示できますが、多くの web サイトでは、2つの web ページに分割されています。 このチュートリアルでは、マスター/詳細レポートを実装する方法について説明しました。これには、"マスター" web ページでリピータを使用し、[詳細] ページに一覧表示されている関連する製品を使用して、リストにカテゴリを表示します。 マスター web ページの各リスト項目には、行の `CategoryID` 値に従って渡された詳細ページへのリンクが含まれていました。
 
@@ -152,7 +152,7 @@ Northwind データベースのすべてのカテゴリは、1つまたは複数
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

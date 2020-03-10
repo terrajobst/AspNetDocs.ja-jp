@@ -1,28 +1,28 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/index
-title: 旧バージョン - Ajax Control Toolkit |Microsoft Docs
+title: 旧バージョン-Ajax Control Toolkit |Microsoft Docs
 author: rick-anderson
-description: いくつかの最も人気のあるコントロールを使用する方法と、Ajax Control Toolkit を使用する方法。 DevExpress では、無料かつオープン ソースの Ajax Contr. を維持.
+description: Ajax Control Toolkit の使用を開始する方法と、最も一般的なコントロールの使用方法について説明します。 DevExpress は、無料のオープンソースの Ajax を維持します...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
 ms.openlocfilehash: d7d0426ed427f3b8fc8c7f9c2fe1518b1887d695
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115373"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78446278"
 ---
 # <a name="older-versions---ajax-control-toolkit"></a>旧バージョン - Ajax Control Toolkit
 
-> いくつかの最も人気のあるコントロールを使用する方法と、Ajax Control Toolkit を使用する方法。 DevExpress では、無料かつオープン ソースの Ajax Control Toolkit を保持します。
+> Ajax Control Toolkit の使用を開始する方法と、最も一般的なコントロールの使用方法について説明します。 DevExpress は、無料のオープンソースの Ajax Control Toolkit を維持します。
 > 
 > 
-> ![](index/_static/image1.png) DevExpress、受賞歴のある ASP.NET WebForms、MVC と HTML5 UI コントロール、フレームワーク、開発者は、この要求の高度のオープン ソース ライブラリを信頼性の高い状態に戻すために、ASP.NET AJAX Control Toolkit のメンテナンスと引き継ぎました。 [詳細については](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx)します。
+> ASP.NET WebForms、MVC、HTML5 の UI コントロールとフレームワークの数々を受賞した開発者は、このような非常に要求されたオープンソースライブラリを信頼性の高い状態に戻すために、ASP.NET AJAX Control Toolkit のメンテナンスを経ていました。 ![](index/_static/image1.png) 詳細については、[こちら](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx)をご覧ください。
 
-- [はじめに](getting-started/index.md)
+- [作業の開始](getting-started/index.md)
 
     - [AJAX Control Toolkit の概要 (C#)](getting-started/get-started-with-the-ajax-control-toolkit-cs.md)
     - [AJAX Control Toolkit のコントロールとコントロール エクステンダーを使用する (C#)](getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs.md)

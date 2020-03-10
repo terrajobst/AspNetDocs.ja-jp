@@ -9,11 +9,11 @@ ms.assetid: fd2a1c52-d717-44af-8a61-67c8279bb26e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
 ms.openlocfilehash: d1e367becd574e31d24fca8545f76b1ed3c4d85e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611757"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78446356"
 ---
 # <a name="allowing-only-certain-characters-in-a-text-box-c"></a>テキスト ボックスで特定の文字だけを許可する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611757"
 
 > ASP.NET 検証コントロールを使用すると、ユーザー入力で特定の文字のみが許可されるようにすることができます。 ただし、これによって、ユーザーが無効な文字を入力したり、フォームを送信したりするのを防ぐことはできません。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET 検証コントロールを使用すると、ユーザー入力で特定の文字のみが許可されるようにすることができます。 ただし、これによって、ユーザーが無効な文字を入力したり、フォームを送信したりするのを防ぐことはできません。
 
@@ -59,4 +59,4 @@ ASP.NET AJAX Control Toolkit には、テキストボックスを拡張する `F
 数字のみを入力できます ([クリックすると、フルサイズの画像が表示](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](allowing-only-certain-characters-in-a-text-box-vb.md)
+> [Next](allowing-only-certain-characters-in-a-text-box-vb.md)

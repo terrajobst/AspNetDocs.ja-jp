@@ -9,11 +9,11 @@ ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
 ms.openlocfilehash: 87a7516415895e761d1589fd459b93e5c15c0f85
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456999"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471478"
 ---
 # <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>分散キャッシュ (Azure を使用した実際のクラウドアプリの構築)
 
@@ -82,7 +82,7 @@ Azure では、次のキャッシュサービスが提供されています: [Az
 
 [「Web 開発のベストプラクティス](web-development-best-practices.md)」の章で説明したように、セッション状態を使用しないことをお勧めします。 アプリケーションでセッション状態が必要な場合は、次のベストプラクティスとして、既定のメモリ内プロバイダーを使用しないでください。これは、スケールアウト (web サーバーの複数のインスタンス) を有効にしないためです。 ASP.NET SQL Server セッション状態プロバイダーを使用すると、複数の web サーバーで実行されているサイトでセッション状態を使用できますが、メモリ内プロバイダーと比較して待機時間が長くなります。 セッション状態を使用する必要がある場合は、 [Azure cache のセッション状態プロバイダー](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx)などのキャッシュプロバイダーを使用することをお勧めします。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 応答時間とスケーラビリティを向上させ、データベースが使用できなくなったときにアプリが読み取り操作に応答し続けることができるようにするために、It アプリの修正によってキャッシュを実装する方法について説明しました。 次の[章](queue-centric-work-pattern.md)では、スケーラビリティをさらに向上させ、アプリが書き込み操作に応答し続けるようにする方法について説明します。
 
@@ -98,7 +98,7 @@ Azure では、次のキャッシュサービスが提供されています: [Az
 - [Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 西 マーク Simm と Michael Thomassy によるホワイトペーパー。 分散キャッシュに関するセクションを参照してください。
 - [スケーラビリティへのパスでの分散キャッシュ](https://msdn.microsoft.com/magazine/dd942840.aspx)。 古い (2009) MSDN マガジンの記事ですが、一般的には、分散キャッシュの概要について説明しています。フェールセーフとベストプラクティスに関するホワイトペーパーのキャッシュに関するセクションよりも詳細に説明します。
 
-Videos
+ビデオ
 
 - [フェイルセーフ: スケーラブルで回復力のある Cloud Services を構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simm による9パートシリーズ。 クラウドアプリを設計する方法の400レベルのビューについて説明します。 このシリーズでは、理論と理由を中心に説明します。詳細については、「Simm」を参照してください。 1:24:14 以降のエピソード3でのキャッシュの説明を参照してください。
 - [大規模な構築: Azure のお客様から学んだ教訓-パート I](https://channel9.msdn.com/Events/Build/2012/3-029)。Simon Davies は、46:00 以降の分散キャッシュについて説明します。 フェイルセーフシリーズに似ていますが、さらに詳細な方法について説明します。 プレゼンテーションには2012年10月31日が指定されているため、2013で導入された Azure App Service の Web Apps のキャッシュサービスについては説明しません。

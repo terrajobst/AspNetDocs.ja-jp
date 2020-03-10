@@ -2,22 +2,22 @@
 uid: mvc/overview/older-versions-1/contact-manager/index
 title: 連絡先マネージャー |Microsoft Docs
 author: rick-anderson
-description: '[完了] を最初から全体連絡先管理アプリケーションを構築する方法。'
+description: 最初から最後まで、連絡先管理アプリケーション全体を構築する方法について説明します。
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 6b0f1fd7-6768-4549-ae9c-be9131103c4d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
 ms.openlocfilehash: 3ec9811be5afc00a126936529480082bf2d620e9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78470314"
 ---
 # <a name="contact-manager"></a>連絡先マネージャー
 
-> [完了] を最初から全体連絡先管理アプリケーションを構築する方法。
+> 最初から最後まで、連絡先管理アプリケーション全体を構築する方法について説明します。
 
 - [繰り返し #1 – アプリケーションを作成する (C#)](iteration-1-create-the-application-cs.md)
 - [繰り返し #2 – アプリケーションの外観を良くする (C#)](iteration-2-make-the-application-look-nice-cs.md)

@@ -2,22 +2,22 @@
 uid: web-forms/videos/net-4/core/index
 title: コア |Microsoft Docs
 author: rick-anderson
-description: このビデオ シリーズでは、ASP.NET 4 で自動開始、クリーンな構成ファイル、HTML エンコードなどの主要な改良点について説明します。
+description: このビデオシリーズでは、自動開始、構成ファイルのクリーン、HTML エンコードなど、ASP.NET 4 のコアの機能強化について説明します。
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 257686f7-7e10-4c4b-a2e9-299f93c0f917
 msc.legacyurl: /web-forms/videos/net-4/core
 msc.type: chapter
 ms.openlocfilehash: 2737578294e63c80205d6ca2d7671a6f42e498cd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128586"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78511438"
 ---
 # <a name="core"></a>コア
 
-> このビデオ シリーズでは、ASP.NET 4 で自動開始、クリーンな構成ファイル、HTML エンコードなどの主要な改良点について説明します。
+> このビデオシリーズでは、自動開始、構成ファイルのクリーン、HTML エンコードなど、ASP.NET 4 のコアの機能強化について説明します。
 
 - [自動開始](aspnet-4-quick-hit-auto-start.md)
 - [Web.Config ファイルのクリーニング](aspnet-4-quick-hit-clean-webconfig-files.md)

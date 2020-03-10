@@ -9,11 +9,11 @@ ms.assetid: ecd5a4de-beb7-4d1d-bbbb-e31003633267
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
 ms.openlocfilehash: cb42398f44f3cd16ab83a9976e7b34f132384456
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74635827"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462874"
 ---
 # <a name="precompiling-your-website-c"></a>Web サイトを事前コンパイルする (C#)
 
@@ -164,7 +164,7 @@ Visual Studio の [Web サイトの発行] ダイアログボックスを使用�
 
 開発環境から運用環境へのファイルのコピーの詳細については、「 [*FTP クライアントを使用した Web サイトのデプロイ*](deploying-your-site-using-an-ftp-client-cs.md)」と[ *「Visual Studio を使用した Web サイトのデプロイ*](determining-what-files-need-to-be-deployed-cs.md)」チュートリアルを参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET は、自動と explicit の2つのコンパイルモードをサポートしています。 前のチュートリアルで説明したように、Web アプリケーションプロジェクト (Wap) は明示的なコンパイルを使用しますが、Web サイトプロジェクト (WSPs) は既定で自動コンパイルを使用します。 ただし、ASP.NET コンパイルツールを使用すると、デプロイの前に WSP を明示的にコンパイルできます。
 
@@ -172,7 +172,7 @@ ASP.NET は、自動と explicit の2つのコンパイルモードをサポー�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

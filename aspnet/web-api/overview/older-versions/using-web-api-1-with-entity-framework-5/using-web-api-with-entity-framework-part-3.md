@@ -9,11 +9,11 @@ ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: f39be7a84e85db93487d246e9f8cb59c401fe5ce
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600041"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78447910"
 ---
 # <a name="part-3-creating-an-admin-controller"></a>パート 3: 管理コントローラーの作成
 
@@ -64,13 +64,13 @@ OrdersContext.cs ファイルを開きます。 コンストラクターはデ�
 
 `AdminController` クラスは、基本的な CRUD 機能を実装する5つのメソッドを定義します。 各メソッドは、クライアントが呼び出すことができる URI に対応します。
 
-| コントローラーメソッド | 説明 | URI | HTTP メソッド |
+| コントローラーメソッド | Description | URI | HTTP メソッド |
 | --- | --- | --- | --- |
 | GetProducts | すべての製品を取得します。 | api/製品 | GET |
 | GetProduct | ID で製品を検索します。 | api/製品/*id* | GET |
 | PutProduct | 製品を更新します。 | api/製品/*id* | PUT |
-| PostProduct | 新しい製品を作成します。 | api/製品 | 投稿 |
-| DeleteProduct | 製品を削除します。 | api/製品/*id* | Del |
+| PostProduct | 新しい製品を作成します。 | api/製品 | POST |
+| DeleteProduct | 製品を削除します。 | api/製品/*id* | DELETE |
 
 各メソッドは、`OrdersContext` を呼び出してデータベースにクエリを実行します。 コレクション (PUT、POST、および DELETE) を変更するメソッドは、データベースへの変更を保持するために `db.SaveChanges` を呼び出します。 コントローラーは HTTP 要求ごとに作成され、破棄されます。そのため、メソッドが返される前に変更を保持する必要があります。
 

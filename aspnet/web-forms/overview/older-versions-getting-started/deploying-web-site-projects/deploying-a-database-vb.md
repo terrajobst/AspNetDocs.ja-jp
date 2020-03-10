@@ -9,11 +9,11 @@ ms.assetid: 96ac3e69-04c7-4917-ad06-5f8968c3fbf1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 8221025bec06e052016070f74deabb3e6d936045
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74643449"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78455140"
 ---
 # <a name="deploying-a-database-vb"></a>データベースを配置する (VB)
 
@@ -153,7 +153,7 @@ SSMS を起動し、web ホストプロバイダーから提供された情報�
 
 この時点で、開発データベースは運用環境にのみデプロイされています。 Web アプリケーション自体のデプロイ、または運用環境でアプリケーションが運用データベースを使用するために必要な構成変更を確認していません。 これらの問題については、次のチュートリアルで説明します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 データドリブン web アプリケーションを配置するには、開発時に使用したデータベースを運用環境にコピーする必要があります。 多くの web ホストプロバイダーには、データベースの配置プロセスを簡略化するツールが用意されています。 たとえば、DiscountASP.NET を使用すると、データベース `.mdf` ファイル (またはバックアップ) に FTP 接続してから、コントロールパネルからデータベースサーバーにデータベースをアタッチすることができます。 Web ホストプロバイダーが提供する機能に関係なく機能するもう1つのオプションは、Microsoft のデータベース発行ウィザードツールです。これにより、開発用データベースのスキーマとデータを作成するための SQL コマンドのスクリプトが生成されます。 このスクリプトが生成されたら、実稼働データベースで実行できます。
 
@@ -161,7 +161,7 @@ SSMS を起動し、web ホストプロバイダーから提供された情報�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

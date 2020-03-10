@@ -1,113 +1,113 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
-title: 第 9 部:登録と精算 |Microsoft Docs
+title: 'パート 9: 登録とチェックアウト |Microsoft Docs'
 author: jongalloway
-description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 9 では、登録と精算について説明します。
+description: このチュートリアルシリーズでは、ASP.NET MVC ミュージックストアサンプルアプリケーションをビルドするために実行するすべての手順について詳しく説明します。 パート9では、登録とチェックアウトについて説明します。
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
 ms.openlocfilehash: 040bc0ccef889fb9a7c3d9b5ce88c75b7b754248
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129623"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78450898"
 ---
-# <a name="part-9-registration-and-checkout"></a>第 9 部:登録と精算
+# <a name="part-9-registration-and-checkout"></a>パート 9: 登録とチェックアウト
 
-[Jon Galloway](https://github.com/jongalloway) による
+( [Jon Galloway](https://github.com/jongalloway) )
 
-> MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
+> MVC Music Store は、ASP.NET MVC と Visual Studio を使用して web 開発を行う方法を紹介したチュートリアルアプリケーションです。  
 >   
-> MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
+> MVC ミュージックストアは、音楽アルバムをオンラインで販売し、基本的なサイト管理、ユーザーサインイン、およびショッピングカート機能を実装する軽量のサンプルストア実装です。  
 >   
-> このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 9 では、登録と精算について説明します。
+> このチュートリアルシリーズでは、ASP.NET MVC ミュージックストアサンプルアプリケーションをビルドするために実行するすべての手順について詳しく説明します。 パート9では、登録とチェックアウトについて説明します。
 
-このセクションでを作成します、CheckoutController 買い物客のアドレスと支払い情報を収集します。 ユーザーはこのコント ローラーが承認を要求するために、チェックインする前に、サイトを登録することが求められます。
+このセクションでは、顧客の住所と支払い情報を収集する CheckoutController を作成します。 ユーザーは、チェックアウトの前にサイトに登録する必要があるため、このコントローラーには承認が必要です。
 
-ユーザーは、「チェック アウト」ボタンをクリックして、ショッピング カートからチェック アウト プロセスに移動されます。
+ユーザーは、[チェックアウト] ボタンをクリックして、ショッピングカートからチェックアウトプロセスに移動します。
 
 ![](mvc-music-store-part-9/_static/image1.jpg)
 
-ユーザーがログインしていない場合に要求されます。
+ユーザーがログインしていない場合は、メッセージが表示されます。
 
 ![](mvc-music-store-part-9/_static/image1.png)
 
-ログインが成功すると、ユーザーに、アドレスと支払いのビューが表示されます。
+ログインが成功すると、ユーザーにはアドレスと支払いのビューが表示されます。
 
 ![](mvc-music-store-part-9/_static/image2.png)
 
-フォームの入力し、は注文を送信するに表示されます、注文確認画面。
+フォームに入力して注文を送信すると、注文確認画面が表示されます。
 
 ![](mvc-music-store-part-9/_static/image3.png)
 
-存在しない注文かに属していない注文を表示しようとすると、エラー ビューが表示されます。
+存在しない順序を表示しようとしたか、または属していない順序を表示しようとすると、エラービューが表示されます。
 
 ![](mvc-music-store-part-9/_static/image4.png)
 
-## <a name="migrating-the-shopping-cart"></a>ショッピング カートを移行します。
+## <a name="migrating-the-shopping-cart"></a>ショッピングカートの移行
 
-ショッピングのプロセスは、匿名がチェック アウト ボタンをクリックすると、登録する必要があり、ログインします。 ユーザーは、訪問に登録またはログインを完了すると、ショッピング カートの内容をユーザーに関連付ける必要があります。 間、ショッピング カート情報を維持することが期待されます。
+ショッピングプロセスは匿名ですが、ユーザーが [チェックアウト] ボタンをクリックすると、登録とログインが必要になります。 ユーザーは、訪問の間にショッピングカートの情報を保持することを期待しています。そのため、登録またはログインが完了したら、ショッピングカートの情報をユーザーに関連付ける必要があります。
 
-これは、ShoppingCart クラスが既にユーザー名で現在のカート内のすべての項目を関連付けるメソッドを持つようには、実際には非常に単純です。 ユーザーが登録またはログインを完了すると、このメソッドを呼び出すだけ必要になります。
+ShoppingCart クラスには、現在のカート内のすべての項目をユーザー名と関連付けるメソッドが既に用意されているため、これは実際には非常に簡単です。 ユーザーが登録またはログインを完了したときに、このメソッドを呼び出す必要があります。
 
-開く、 **AccountController**メンバーシップと承認を設定しているときに追加したクラス。 追加、次の MigrateShoppingCart メソッドを追加し、MvcMusicStore.Models を参照するステートメントを使用します。
+メンバーシップと承認を設定したときに追加した**Accountcontroller**クラスを開きます。 MvcMusicStore を参照する using ステートメントを追加し、次の MigrateShoppingCart メソッドを追加します。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample1.cs)]
 
-次に示すよう、ユーザーが確認されると、MigrateShoppingCart を呼び出すログオン後のアクションを次に、変更するには。
+次に、次に示すように、ユーザーが検証された後に MigrateShoppingCart を呼び出すように、ログオン post アクションを変更します。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample2.cs)]
 
-ユーザー アカウントが正常に作成された直後後にアクションを投稿レジスタに同じ変更を行います。
+ユーザーアカウントが正常に作成された直後に、Register post アクションに対して同じ変更を行います。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample3.cs)]
 
-これでは、匿名ショッピング カートが自動的に登録に成功したか、ログイン時にユーザー アカウントに転送するようになりました。
+これで完了です。登録またはログインが成功すると、匿名ショッピングカートが自動的にユーザーアカウントに転送されるようになりました。
 
-## <a name="creating-the-checkoutcontroller"></a>CheckoutController を作成します。
+## <a name="creating-the-checkoutcontroller"></a>CheckoutController の作成
 
-Controllers フォルダーを右クリックし、空のコント ローラー テンプレートを使用して CheckoutController という名前のプロジェクトに新しいコント ローラーを追加します。
+Controllers フォルダーを右クリックし、空のコントローラーテンプレートを使用して、CheckoutController という名前のプロジェクトに新しいコントローラーを追加します。
 
 ![](mvc-music-store-part-9/_static/image5.png)
 
-最初に、ユーザーのチェック アウトする前に登録する必要がコント ローラーのクラス宣言の上の Authorize 属性を追加します。
+まず、ユーザーにチェックアウトの前に登録するように要求するために、コントローラークラス宣言の上に承認属性を追加します。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample4.cs)]
 
-*注:これは以前、StoreManagerController に行われた変更に似ていますが、Authorize 属性のユーザーが管理者ロールであることが必要な場合。チェック アウト コント ローラーで要求しているユーザーがログインする管理者である必要はありませんが。*
+*注: これは、StoreManagerController に対して以前に行った変更に似ていますが、その場合、承認属性では、ユーザーが管理者ロールに存在する必要がありました。チェックアウトコントローラーでは、ユーザーはログインする必要がありますが、管理者である必要はありません。*
 
-わかりやすくは、私たちはこのチュートリアルでは支払い情報を扱うはありません。 代わりに、ユーザーにキャンペーン コードを使用して、チェック アウトできるようにしています。 プロモーションをという名前の定数を使用してこのプロモーション コードを保存します。
+わかりやすくするために、このチュートリアルでは支払い情報については扱いません。 代わりに、ユーザーがプロモーションコードを使用してチェックアウトできるようにしています。 このキャンペーンコードは、プロモーションコードという名前の定数を使用して保存されます。
 
-StoreController のように storeDB をという名前の MusicStoreEntities クラスのインスタンスを保持するフィールドを宣言します。 作成するには、MusicStoreEntities クラスの使用を使用して、追加する必要があります。 MvcMusicStore.Models 名前空間のステートメント。 チェック アウト コント ローラーの上部には、以下が表示されます。
+StoreController のように、storeDB という名前の MusicStoreEntities クラスのインスタンスを保持するフィールドを宣言します。 MusicStoreEntities クラスを使用するには、MvcMusicStore 名前空間の using ステートメントを追加する必要があります。 Checkout コントローラーの上部が下に表示されます。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample5.cs)]
 
-CheckoutController は、次のコント ローラー アクションが適用されます。
+CheckoutController には、次のコントローラーアクションがあります。
 
-**AddressAndPayment (GET メソッド)** ユーザーの情報を入力するためのフォームが表示されます。
+**AddressAndPayment (GET メソッド)** は、ユーザーが情報を入力するためのフォームを表示します。
 
-**AddressAndPayment (POST メソッド)** 入力を検証し、注文を処理します。
+**AddressAndPayment (POST メソッド)** は入力を検証し、注文を処理します。
 
-**完全な**清算処理をユーザーが正常に終了した後に表示されます。 このビューは、確認として、ユーザーの注文番号に含まれます。
+ユーザーがチェックアウトプロセスを正常に完了すると、**完了**したことが表示されます。 このビューには、確認としてユーザーの注文番号が含まれます。
 
-まず、AddressAndPayment にしましょう (これは、コント ローラーを作成したときに生成された) インデックス コント ローラー アクションの名前を変更します。 このコント ローラー アクションでは、モデル情報は必要ありませんので、チェック アウト フォームだけ表示します。
+まず、(コントローラーを作成したときに生成された) インデックスコントローラーアクションの名前を AddressAndPayment に変更してみましょう。 このコントローラーアクションでは、チェックアウトフォームのみが表示されるため、モデル情報は必要ありません。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample6.cs)]
 
-AddressAndPayment POST メソッドは、同じパターンに従って、StoreManagerController で使用: これは、フォームの送信に同意し、注文を完了しようし、失敗した場合、フォームが再表示します。
+AddressAndPayment POST メソッドは、StoreManagerController で使用したのと同じパターンに従います。フォームの送信を受け入れて注文を完了しようとし、失敗した場合はフォームを再表示します。
 
-注文の検証要件を満たしているフォームの入力の検証後、直接プロモーションのフォーム値がチェックされます。 すべてが正しい順序で更新された情報を保存しますと仮定すると、注文プロセスを完了し、完全なアクションにリダイレクト ShoppingCart オブジェクトに伝えます。
+フォーム入力が注文の検証要件を満たしていることを検証した後、プロモーションコード form 値を直接確認します。 すべてが正しいことを前提として、更新された情報を注文と共に保存し、注文プロセスを完了するように ShoppingCart オブジェクトに指示して、完全なアクションにリダイレクトします。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample7.cs)]
 
-チェック アウト プロセスの正常に完了したら、ユーザーは、完全なコント ローラー アクションにリダイレクトされます。 このアクションでは、順序が確認メッセージとして注文番号を表示する前に実際にログインしたユーザーに属しているはことを検証する簡単なチェックを実行します。
+チェックアウトプロセスが正常に完了すると、ユーザーはコントローラーの完了アクションにリダイレクトされます。 このアクションでは、注文番号を確認のために表示する前に、その注文が実際にログインしているユーザーに属していることを検証するための簡単なチェックを実行します。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample8.cs)]
 
-*注:エラー ビューが自動的に作成お/Views/Shared フォルダーにプロジェクトを開始したとき。*
+*注: プロジェクトを開始したときに、エラービューが/ビュー/共有フォルダーに自動的に作成されました。*
 
 完全な CheckoutController コードは次のとおりです。
 
@@ -115,46 +115,46 @@ AddressAndPayment POST メソッドは、同じパターンに従って、StoreM
 
 ## <a name="adding-the-addressandpayment-view"></a>AddressAndPayment ビューの追加
 
-ここで、AddressAndPayment ビューを作成してみましょう。 AddressAndPayment コント ローラーのアクションのいずれかを右クリックし、次に示すように注文として厳密に型指定し、テンプレートの編集を使用して AddressAndPayment をという名前のビューを追加します。
+ここで、AddressAndPayment ビューを作成してみましょう。 AddressAndPayment controller アクションの1つを右クリックし、次に示すように、注文として厳密に型指定された AddressAndPayment という名前のビューを追加します。
 
 ![](mvc-music-store-part-9/_static/image6.png)
 
-このビューにより、2 つのこれまで見てきた StoreManagerEdit ビューの作成中に手法の使用します。
+このビューでは、StoreManagerEdit ビューの構築時に見た2つの手法を使用します。
 
-- Html.EditorForModel() 順序モデルのフォーム フィールドの表示を使用して、
-- 検証属性を持つ、Order クラスを使用して検証規則を使用します
+- Html EditorForModel () を使用して、注文モデルのフォームフィールドを表示します。
+- 検証属性を持つ Order クラスを使用して検証規則を活用します。
 
-まず、Html.EditorForModel()、プロモーション コードの後に、追加のテキスト ボックスを使用するフォームのコードを更新します。 AddressAndPayment ビューの完全なコードは、以下に示します。
+まず、Html EditorForModel () を使用するようにフォームコードを更新し、次にプロモーションコード用に追加のテキストボックスを作成します。 AddressAndPayment ビューの完全なコードを次に示します。
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample10.cshtml)]
 
-## <a name="defining-validation-rules-for-the-order"></a>注文の検証規則を定義します。
+## <a name="defining-validation-rules-for-the-order"></a>注文の検証規則の定義
 
-できたので、ビューを設定すると、私たちは検証ルールをモデルの設定、順序、アルバムのモデルの以前に行ったよう。 Models フォルダーを右クリックし、注文をという名前のクラスを追加します。 アルバム用に以前使用した検証属性、だけでなくをも使用正規ユーザーの電子メール アドレスを検証します。
+ビューが設定されたので、前にアルバムモデルに対して行ったように、注文モデルの検証規則を設定します。 [モデル] フォルダーを右クリックし、Order という名前のクラスを追加します。 以前にアルバムで使用していた検証属性に加えて、正規表現を使用してユーザーの電子メールアドレスを検証します。
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample11.cs)]
 
-しようとしてが欠落しているフォームを送信するか、無効な情報がクライアント側の検証を使用してエラー メッセージを表示するようになりました。
+不明または無効な情報が含まれているフォームを送信しようとすると、クライアント側の検証を使用したエラーメッセージが表示されるようになりました。
 
 ![](mvc-music-store-part-9/_static/image7.png)
 
-さて、チェック アウト プロセスの困難な作業のほとんど完了しました[完了] に、いくつかのオッズ and 端があるだけです。 2 つの単純なビューを追加する必要があり、ログイン プロセス中にカートの内容のハンドオフに対処する必要があります。
+それでは、チェックアウトプロセスでは、ほとんどの作業が完了しました。いくつかのことが終わり、終了します。 2つの単純なビューを追加する必要があり、ログインプロセス中にカート情報のハンドオフを処理する必要があります。
 
-## <a name="adding-the-checkout-complete-view"></a>チェック アウト完了ビューの追加
+## <a name="adding-the-checkout-complete-view"></a>チェックアウトの完了ビューの追加
 
-だけ、順序の ID を表示する必要がある、チェック アウトの完全なビューは非常に単純で、 完全なコント ローラーのアクションを右クリックし、int として厳密に型指定された完了という名前のビューの追加
+[チェックアウトの完了] ビューは、注文 ID を表示するだけで済むため、非常に単純です。 Complete controller アクションを右クリックし、「Complete」という名前のビューを追加します。これは int として厳密に型指定されています。
 
 ![](mvc-music-store-part-9/_static/image8.png)
 
-これで次に示すよう、注文 ID を表示するコードの表示を更新します。
+次に示すように、ビューコードを更新して注文 ID を表示します。
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample12.cshtml)]
 
-## <a name="updating-the-error-view"></a>エラー ビューを更新しています
+## <a name="updating-the-error-view"></a>エラービューの更新
 
-既定のテンプレートにはが再利用できる別の場所、サイトのように、共有ビュー フォルダーでビュー エラーにはが含まれます。 このエラーの表示では、非常に単純なエラーを含んでいるし、レイアウト、私たちのサイトを使用してしないため、更新します。
+既定のテンプレートには、サイト内の他の場所で再利用できるように、[共有ビュー] フォルダーに [エラー] ビューが含まれています。 このエラー表示には非常に単純なエラーが含まれており、サイトレイアウトは使用しないため、更新します。
 
-これは、一般的なエラー ページであるため、コンテンツは非常に単純です。 ユーザーがそれらのアクションをもう一度お試したい場合は、履歴に前のページに移動するには、メッセージとのリンクを含めます。
+これは一般的なエラーページであるため、コンテンツは非常に単純です。 ユーザーが操作をやり直す必要がある場合は、履歴内の前のページに移動するためのメッセージとリンクを含めます。
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample13.cshtml)]
 

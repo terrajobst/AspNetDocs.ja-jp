@@ -9,11 +9,11 @@ ms.assetid: ec1cec4c-a75f-47af-a2ba-b1e2f971d24b
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
 ms.openlocfilehash: b2811791a897c9166f6222c23dddc6921e5267ab
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614955"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78522940"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio を使用した ASP.NET Web 配置: プロジェクトのプロパティ
 
@@ -23,7 +23,7 @@ ms.locfileid: "74614955"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 一部の配置オプションは、プロジェクトファイル ( *.csproj*または *.vbproj*ファイル) に格納されているプロジェクトプロパティで構成されます。 ほとんどの場合、これらの設定の既定値は必要ですが、Visual Studio に組み込まれている**プロジェクトプロパティ**の UI を使用すると、これらの設定を変更する必要がある場合に、これらの設定を操作できます。 このチュートリアルでは、 **[プロジェクトのプロパティ]** で配置設定を確認します。 また、空のフォルダーを配置するプレースホルダーファイルも作成します。
 
@@ -60,7 +60,7 @@ ms.locfileid: "74614955"
 
 **ソリューションエクスプローラー**で、[ *Elmah* ] フォルダーを右クリックし、 **[新しい項目の追加]** を選択して、" *file.txt*" という名前のテキストファイルを作成します。 "これはプレースホルダーファイルで、フォルダーが展開されることを確認します。" というテキストを入力します。 ファイルを保存します。 これで、Visual Studio でこのファイルとフォルダーが配置されていることを確認する必要があります。これは、 *.txt*ファイルの "**ビルドアクション**" プロパティが既定で **[コンテンツ]** に設定されているためです。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、すべてのデプロイのセットアップタスクが完了しました。 次のチュートリアルでは、Contoso 大学サイトをテスト環境にデプロイしてテストします。
 

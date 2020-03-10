@@ -1,179 +1,179 @@
 ---
 uid: signalr/overview/testing-and-debugging/enabling-signalr-tracing
-title: SignalR トレースを有効にする |Microsoft Docs
+title: SignalR Tracing の有効化 |Microsoft Docs
 author: bradygaster
-description: このドキュメントでは、有効にして、SignalR のサーバーとクライアントのトレースを構成する方法について説明します。 トレースでは、イベントに関する診断情報を表示することができます.
+description: このドキュメントでは、SignalR サーバーとクライアントのトレースを有効にして構成する方法について説明します。 トレースを使用すると、イベントに関する診断情報を表示できます...
 ms.author: bradyg
 ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
 ms.openlocfilehash: 34fe2cdb10c4b41a6e8cac7fb1741d53c02dfc80
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114403"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467440"
 ---
 # <a name="enabling-signalr-tracing"></a>SignalR トレースを有効にする
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> このドキュメントでは、有効にして、SignalR のサーバーとクライアントのトレースを構成する方法について説明します。 トレースでは、SignalR アプリケーションでのイベントに関する診断情報を表示することができます。
+> このドキュメントでは、SignalR サーバーとクライアントのトレースを有効にして構成する方法について説明します。 トレースを使用すると、SignalR アプリケーションのイベントに関する診断情報を表示できます。
 >
-> このトピックでは、Patrick Fletcher によって作成当初されました。
+> このトピックは、最初は、パトリック Fletcher によって作成されました。
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET Framework 4.5
-> - SignalR 2 のバージョン
+> - SignalR バージョン2
 >
 >
 >
-> ## <a name="questions-and-comments"></a>意見やご質問
+> ## <a name="questions-and-comments"></a>質問とコメント
 >
-> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
-トレースが有効にすると、SignalR アプリケーションは、イベントのログ エントリを作成します。 クライアントとサーバーの両方からイベントを記録することができます。 サーバー ログの接続、スケール アウトのプロバイダー、およびメッセージ バスのイベントをトレースしています。 クライアント ログの接続イベントをトレースしています。 SignalR 2.1 以降では、クライアントのトレースはハブ呼び出しメッセージの完全な内容を記録します。
+トレースを有効にすると、SignalR アプリケーションによってイベントのログエントリが作成されます。 クライアントとサーバーの両方からイベントをログに記録できます。 サーバー上のトレースでは、接続、スケールアウトプロバイダー、およびメッセージバスイベントがログに記録されます。 クライアントでのトレースでは、接続イベントがログに記録されます。 SignalR 2.1 以降では、クライアントのトレースによってハブ呼び出しメッセージの完全な内容がログに記録されます。
 
-## <a name="contents"></a>目次
+## <a name="contents"></a>内容
 
-- [サーバーのトレースを有効にします。](#server)
+- [サーバーでトレースを有効にする](#server)
 
-    - [サーバー イベントをテキスト ファイルにログ記録](#server_text)
-    - [サーバー イベントのイベント ログにログ記録](#server_eventlog)
-- [.NET クライアント (Windows デスクトップ アプリ) でのトレースを有効にします。](#net_client)
+    - [サーバーイベントをテキストファイルに記録する](#server_text)
+    - [イベントログへのサーバーイベントのログ記録](#server_eventlog)
+- [.NET クライアントでのトレースの有効化 (Windows デスクトップアプリ)](#net_client)
 
-    - [デスクトップ クライアントのイベントをコンソールにログ記録](#desktop_console)
-    - [デスクトップ クライアントのイベントをテキスト ファイルにログ記録](#desktop_text)
-- [Windows Phone 8 クライアントでトレースを有効にします。](#phone)
+    - [コンソールへのデスクトップクライアントイベントのログ記録](#desktop_console)
+    - [デスクトップクライアントのイベントをテキストファイルに記録する](#desktop_text)
+- [Windows Phone 8 クライアントでトレースを有効にする](#phone)
 
-    - [UI を Windows Phone クライアント イベントのログ記録](#phone_ui)
-    - [デバッグ コンソールに Windows Phone クライアント イベントのログ記録](#phone_debug)
-- [JavaScript クライアント内でトレースを有効にします。](#javascript)
+    - [UI への Windows Phone クライアントイベントのログ記録](#phone_ui)
+    - [デバッグコンソールへの Windows Phone クライアントイベントのログ記録](#phone_debug)
+- [JavaScript クライアントでのトレースの有効化](#javascript)
 
 <a id="server"></a>
-## <a name="enabling-tracing-on-the-server"></a>サーバーのトレースを有効にします。
+## <a name="enabling-tracing-on-the-server"></a>サーバーでトレースを有効にする
 
-アプリケーションの構成ファイル (App.config または Web.config プロジェクトの種類に応じてのいずれかです。) 内でサーバーのトレースを有効にします。ログに記録するイベントのカテゴリを指定するとします。 構成ファイルで指定することも、イベントをテキスト ファイルや、Windows イベント ログの実装を使用して、カスタム ログに記録するかどうか[TraceListener](https://msdn.microsoft.com/library/system.diagnostics.tracelistener(v=vs.110).aspx)します。
+アプリケーションの構成ファイル内のサーバーでトレースを有効にします (プロジェクトの種類に応じて App.config または web.config のいずれか)。ログに記録するイベントのカテゴリを指定します。 構成ファイルでは、 [TraceListener](https://msdn.microsoft.com/library/system.diagnostics.tracelistener(v=vs.110).aspx)の実装を使用して、イベントをテキストファイル、Windows イベントログ、またはカスタムログに記録するかどうかも指定します。
 
-サーバーのイベント カテゴリには、次のようなメッセージがあります。
+サーバーイベントカテゴリには、次のような種類のメッセージが含まれます。
 
-| ソース | [メッセージ] |
+| source | メッセージ |
 | --- | --- |
-| SignalR.SqlMessageBus | SQL Message Bus スケール アウトのプロバイダーのセットアップ、データベースの操作、エラー、およびタイムアウト イベント |
-| SignalR.ServiceBusMessageBus | Service bus スケール アウト プロバイダーのトピックで作成し、サブスクリプション、エラー、およびメッセージングのイベント |
-| SignalR.RedisMessageBus | Redis スケール アウト プロバイダーの接続、切断、およびエラー イベント |
-| SignalR.ScaleoutMessageBus | スケール アウト メッセージングのイベント |
-| SignalR.Transports.WebSocketTransport | WebSocket トランスポートの接続、切断、メッセージング、およびエラー イベント |
-| SignalR.Transports.ServerSentEventsTransport | ServerSentEvents トランスポートの接続、切断、メッセージング、およびエラー イベント |
-| SignalR.Transports.ForeverFrameTransport | ForeverFrame トランスポートの接続、切断、メッセージング、およびエラー イベント |
-| SignalR.Transports.LongPollingTransport | LongPolling トランスポートの接続、切断、メッセージング、およびエラー イベント |
-| SignalR.Transports.TransportHeartBeat | トランスポートの接続、切断、キープア ライブ イベント |
-| SignalR.ReflectedHubDescriptorProvider | ハブの検出イベント |
+| SignalR | SQL メッセージバスのスケールアウトプロバイダーのセットアップ、データベース操作、エラー、およびタイムアウトイベント |
+| SignalR. ServiceBusMessageBus | Service bus スケールアウトプロバイダーのトピックの作成とサブスクリプション、エラー、およびメッセージングイベント |
+| SignalR.RedisMessageBus | Redis スケールアウトプロバイダーの接続、切断、およびエラーイベント |
+| SignalR.ScaleoutMessageBus | スケールアウトメッセージングイベント |
+| SignalR.Transports.WebSocketTransport | WebSocket トランスポート接続、切断、メッセージング、およびエラーイベント |
+| SignalR.Transports.ServerSentEventsTransport | Server送信イベントトランスポート接続、切断、メッセージング、およびエラーイベント |
+| SignalR.Transports.ForeverFrameTransport | 事前にフレーム転送接続、切断、メッセージング、およびエラーイベントを送信する |
+| SignalR.Transports.LongPollingTransport | LongPolling トランスポート接続、切断、メッセージング、およびエラーイベント |
+| SignalR.Transports.TransportHeartBeat | Transport 接続、切断、および keepalive イベント |
+| SignalR.ReflectedHubDescriptorProvider | ハブ検出イベント |
 
 <a id="server_text"></a>
-### <a name="logging-server-events-to-text-files"></a>サーバー イベントをテキスト ファイルにログ記録
+### <a name="logging-server-events-to-text-files"></a>サーバーイベントをテキストファイルに記録する
 
-次のコードでは、各カテゴリのイベントのトレースを有効にする方法を示します。 このサンプルでは、テキスト ファイルにイベントを記録するアプリケーションを構成します。
+次のコードは、イベントの各カテゴリのトレースを有効にする方法を示しています。 このサンプルでは、イベントをテキストファイルに記録するようにアプリケーションを構成します。
 
-**トレースを有効にするための XML サーバー コード**
+**トレースを有効にするための XML サーバーコード**
 
 [!code-html[Main](enabling-signalr-tracing/samples/sample1.html)]
 
-上記のコードで、`SignalRSwitch`エントリを指定します、 [TraceLevel](https://msdn.microsoft.com/library/system.diagnostics.tracelevel(v=vs.110).aspx)指定されたログに送信されるイベントのために使用します。 この場合設定されて`Verbose`つまりすべてデバッグ出力およびメッセージをトレース ログに記録されます。
+上記のコードでは、`SignalRSwitch` エントリは、指定されたログに送信されるイベントに使用される[TraceLevel](https://msdn.microsoft.com/library/system.diagnostics.tracelevel(v=vs.110).aspx)を指定します。 この場合、これは `Verbose` に設定されます。これは、すべてのデバッグメッセージとトレースメッセージがログに記録されることを意味します。
 
-次の出力からのエントリを示しています、`transports.log.txt`上記の構成ファイルを使用してアプリケーションのファイル。 表示、新しい接続、削除された接続では、およびトランスポート ハートビート イベント。
+次の出力は、上の構成ファイルを使用するアプリケーションの `transports.log.txt` ファイルのエントリを示しています。 新しい接続、削除された接続、およびトランスポートハートビートイベントが表示されます。
 
 [!code-console[Main](enabling-signalr-tracing/samples/sample2.cmd)]
 
 <a id="server_eventlog"></a>
-### <a name="logging-server-events-to-the-event-log"></a>サーバー イベントのイベント ログにログ記録
+### <a name="logging-server-events-to-the-event-log"></a>イベントログへのサーバーイベントのログ記録
 
-テキスト ファイルではなく、イベント ログにイベントを記録するには、内のエントリの値を変更、`sharedListeners`ノード。 次のコードでは、サーバー イベントをイベント ログに記録する方法を示します。
+テキストファイルではなくイベントログにイベントを記録するには、[`sharedListeners`] ノードのエントリの値を変更します。 次のコードは、サーバーイベントをイベントログに記録する方法を示しています。
 
-**イベント ログにイベントのログの XML サーバー コード**
+**イベントログにイベントを記録するための XML サーバーコード**
 
 [!code-xml[Main](enabling-signalr-tracing/samples/sample3.xml)]
 
-イベントは、アプリケーション ログに記録され、、次に示すように、イベント ビューアーを利用。
+次に示すように、イベントはアプリケーションログに記録され、イベントビューアーを通じて使用できます。
 
-![SignalR のログを表示するイベント ビューアー](enabling-signalr-tracing/_static/image1.png)
+![SignalR ログを示すイベントビューアー](enabling-signalr-tracing/_static/image1.png)
 
 > [!NOTE]
-> イベント ログを使用する場合は、設定、 **TraceLevel**に**エラー**管理可能なメッセージの数を保持します。
+> イベントログを使用する場合は、 **TraceLevel**を**Error**に設定して、メッセージの数を管理可能な状態にします。
 
 <a id="net_client"></a>
-## <a name="enabling-tracing-in-the-net-client-windows-desktop-apps"></a>.NET クライアント (Windows デスクトップ アプリ) でのトレースを有効にします。
+## <a name="enabling-tracing-in-the-net-client-windows-desktop-apps"></a>.NET クライアントでのトレースの有効化 (Windows デスクトップアプリ)
 
-.NET クライアントはコンソールにテキスト ファイル、またはの実装を使用して、カスタム ログにイベントを記録できます[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)します。
+.NET クライアントは、 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)の実装を使用して、イベントをコンソール、テキストファイル、またはカスタムログに記録できます。
 
-.NET クライアントでのログ記録を有効にする設定、接続の`TraceLevel`プロパティを[TraceLevels](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx)値、および`TraceWriter`プロパティを有効な[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)インスタンス。
+.NET クライアントでログ記録を有効にするには、接続の `TraceLevel` プロパティを[TraceLevels](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx)値に設定し、`TraceWriter` プロパティを有効な[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)インスタンスに設定します。
 
 <a id="desktop_console"></a>
-### <a name="logging-desktop-client-events-to-the-console"></a>デスクトップ クライアントのイベントをコンソールにログ記録
+### <a name="logging-desktop-client-events-to-the-console"></a>コンソールへのデスクトップクライアントイベントのログ記録
 
-次の c# コードでは、コンソールに .NET クライアントでイベントを記録する方法を示します。
+次C#のコードは、.net クライアントのイベントをコンソールに記録する方法を示しています。
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample4.cs?highlight=2-3)]
 
 <a id="desktop_text"></a>
-### <a name="logging-desktop-client-events-to-a-text-file"></a>デスクトップ クライアントのイベントをテキスト ファイルにログ記録
+### <a name="logging-desktop-client-events-to-a-text-file"></a>デスクトップクライアントのイベントをテキストファイルに記録する
 
-次の c# コードでは、テキスト ファイルに .NET クライアントでイベントを記録する方法を示します。
+次C#のコードは、.net クライアントのイベントをテキストファイルに記録する方法を示しています。
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample5.cs?highlight=4-5)]
 
-次の出力からのエントリを示しています、`ClientLog.txt`上記の構成ファイルを使用してアプリケーションのファイル。 表示、サーバーに接続するクライアントとクライアント メソッドを呼び出し、ハブと呼ばれる`addMessage`:
+次の出力は、上の構成ファイルを使用するアプリケーションの `ClientLog.txt` ファイルのエントリを示しています。 サーバーに接続しているクライアントと、`addMessage`と呼ばれるクライアントメソッドを呼び出すハブが表示されます。
 
 [!code-console[Main](enabling-signalr-tracing/samples/sample6.cmd)]
 
 <a id="phone"></a>
-## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Windows Phone 8 クライアントでトレースを有効にします。
+## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Windows Phone 8 クライアントでトレースを有効にする
 
-Windows Phone アプリ用の SignalR アプリケーションとデスクトップ アプリは、同じ .NET クライアントを使用してが[Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx)ファイルへの書き込みと[StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx)は使用できません。 代わりに、カスタムの実装を作成する必要があります[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)トレースします。
+Windows Phone アプリ用の SignalR アプリケーションでは、デスクトップアプリと同じ .NET クライアントが使用されますが、[コンソールの Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx)と、 [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx)を使用したファイルへの書き込みは使用できません。 代わりに、トレース用に[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)のカスタム実装を作成する必要があります。
 
 <a id="phone_ui"></a>
-### <a name="logging-windows-phone-client-events-to-the-ui"></a>UI を Windows Phone クライアント イベントのログ記録
+### <a name="logging-windows-phone-client-events-to-the-ui"></a>UI への Windows Phone クライアントイベントのログ記録
 
-[SignalR コードベース](https://github.com/SignalR/SignalR/archive/master.zip)トレースに出力する Windows Phone のサンプルが含まれています、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)カスタムを使用して[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)という実装`TextBlockWriter`します。 このクラスが記載されて、 **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples**プロジェクト。 インスタンスを作成するときに`TextBlockWriter`、現在の渡す[SynchronizationContext](https://msdn.microsoft.com/library/system.threading.synchronizationcontext(v=vs.110).aspx)と[StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)は作成、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)トレースに使用するには出力:
+[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip)には、`TextBlockWriter`と呼ばれるカスタムの[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)実装を使用して、トレース出力を[TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)に書き込む Windows Phone サンプルが含まれています。 このクラスは、 **samples/SignalR**プロジェクトにあります。このクラスは、WP8 プロジェクトにあります。 `TextBlockWriter`のインスタンスを作成するときに、現在の[SynchronizationContext](https://msdn.microsoft.com/library/system.threading.synchronizationcontext(v=vs.110).aspx)と、トレース出力に使用する[TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)を作成する[StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)を渡します。
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample7.cs)]
 
-新しいトレース出力を記述し、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)で作成した、 [StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)で渡されます。
+次に、渡された[StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)に作成された新しい[TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)にトレース出力が書き込まれます。
 
 ![](enabling-signalr-tracing/_static/image2.png)
 
 <a id="phone_debug"></a>
-### <a name="logging-windows-phone-client-events-to-the-debug-console"></a>デバッグ コンソールに Windows Phone クライアント イベントのログ記録
+### <a name="logging-windows-phone-client-events-to-the-debug-console"></a>デバッグコンソールへの Windows Phone クライアントイベントのログ記録
 
-実装を作成、UI ではなく、デバッグ コンソールに出力を送信する[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)をデバッグ ウィンドウに書き込みの接続に割り当てる[TraceWriter](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx)プロパティ。
+出力を UI ではなくデバッグコンソールに送信するには、[デバッグ] ウィンドウに書き込む[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)の実装を作成し、接続の[tracewriter](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx)プロパティに割り当てます。
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample8.cs)]
 
-トレース情報は、Visual Studio でのデバッグ ウィンドウに書き込まれます。
+トレース情報は、Visual Studio の [デバッグ] ウィンドウに書き込まれます。
 
 ![](enabling-signalr-tracing/_static/image3.png)
 
 <a id="javascript"></a>
-## <a name="enabling-tracing-in-the-javascript-client"></a>JavaScript クライアント内でトレースを有効にします。
+## <a name="enabling-tracing-in-the-javascript-client"></a>JavaScript クライアントでのトレースの有効化
 
-接続でクライアント側のログ記録を有効にするには設定、`logging`を呼び出す前に、接続オブジェクトのプロパティ、`start`メソッドは、接続を確立します。
+接続でクライアント側のログ記録を有効にするには、接続オブジェクトの `logging` プロパティを設定してから、`start` メソッドを呼び出して接続を確立します。
 
-**(生成されたプロキシ) を使用して、ブラウザーのコンソールへのトレースを有効にするためのクライアントの JavaScript コード**
+**ブラウザーコンソールへのトレースを有効にするためのクライアント JavaScript コード (生成されたプロキシを使用)**
 
 [!code-javascript[Main](enabling-signalr-tracing/samples/sample9.js?highlight=1)]
 
-**(なし、生成されたプロキシ)、ブラウザーのコンソールへのトレースを有効にするためのクライアントの JavaScript コード**
+**ブラウザーコンソールへのトレースを有効にするためのクライアント JavaScript コード (生成されたプロキシを使用しない)**
 
 [!code-javascript[Main](enabling-signalr-tracing/samples/sample10.js?highlight=2)]
 
-トレースが有効にすると、JavaScript クライアントは、ブラウザーのコンソールにイベントを記録します。 ブラウザーのコンソールにアクセスするを参照してください。[監視トランスポート](../getting-started/introduction-to-signalr.md#MonitoringTransports)します。
+トレースが有効になっている場合、JavaScript クライアントは、ブラウザーコンソールにイベントを記録します。 ブラウザーコンソールにアクセスするには、「 [Monitoring トランスポート](../getting-started/introduction-to-signalr.md#MonitoringTransports)」を参照してください。
 
-次のスクリーン ショットは、トレースを有効に SignalR JavaScript クライアントを示します。 ブラウザーのコンソールで、接続とハブ呼び出しイベントを示します。
+次のスクリーンショットは、トレースが有効になっている SignalR JavaScript クライアントを示しています。 次の図は、ブラウザーコンソールでの接続とハブの呼び出しイベントを示しています。
 
-![ブラウザーのコンソールで SignalR トレース イベント](enabling-signalr-tracing/_static/image4.png)
+![ブラウザーコンソールでの SignalR トレースイベント](enabling-signalr-tracing/_static/image4.png)

@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/features-api/index
-title: ASP.NET Identity 機能と API - ASP.NET 4.x
+title: ASP.NET Identity の機能 & API-ASP.NET 4.x
 author: rick-anderson
 description: 機能と API
 ms.author: riande
@@ -10,13 +10,13 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api
 msc.type: chapter
 ms.openlocfilehash: 377834bde332707f8e1e08b41a5d126bfb4db156
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121521"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472138"
 ---
-# <a name="aspnet-4x-identity-features--api"></a>ASP.NET 4.x Id 機能と API
+# <a name="aspnet-4x-identity-features--api"></a>ASP.NET 4.x Id 機能 & API
 
 > 機能と API
 

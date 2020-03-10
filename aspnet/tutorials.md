@@ -1,26 +1,26 @@
 ---
 uid: tutorials
-title: ASP.NET のチュートリアル |Microsoft Docs
+title: ASP.NET チュートリアル |Microsoft Docs
 author: tdykstra
-description: ASP.NET アプリケーションを開発するためのステップ バイ ステップ ガイドの一覧。
+description: ASP.NET アプリケーションを開発するためのステップバイステップガイドの一覧です。
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.openlocfilehash: 106b4b88d2e7de90900b7a73570ecd6140e2db66
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113191"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449728"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET のチュートリアル
 
 [!INCLUDE[](~/includes/rp.md)]
 
-ASP.NET アプリケーションを開発するための次のステップ バイ ステップ ガイドが利用できます。
+ASP.NET アプリケーションを開発するための次のステップバイステップガイドが用意されています。
 
 > [!NOTE]
-> ASP.NET Core のチュートリアルを探しですか。  検索[ここ](https://docs.microsoft.com/aspnet/core/tutorials/)します。
+> ASP.NET Core チュートリアルをお探しですか?  [こちら](https://docs.microsoft.com/aspnet/core/tutorials/)を参照してください。
 
 ## <a name="web-forms"></a>Web フォーム
 
@@ -47,8 +47,8 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [ASP.NET MVC で Page Inspector を使用する](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Facebook、Twitter、LinkedIn、Google の OAuth2 でサインインできる ASP.NET MVC 5 アプリを作成する (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 * [ログイン、電子メール確認、パスワード リセットを利用し、安全な ASP.NET MVC 5 Web アプリを作成する (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
-* [SMS や電子メールで 2 要素認証する ASP.NET MVC 5 アプリ](mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
-* [ASP.NET MVC と Web ページの XSRF/CSRF 防止](mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
+* [ASP.NET MVC 5 app with SMS and email Two-Factor Authentication (SMS と電子メールの 2 要素認証を使用する ASP.NET MVC 5 アプリケーション)](mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
+* [ASP.NET MVC と Web ページでの XSRF/CSRF の防止](mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
 * [オープン リダイレクト攻撃の防止 (C#)](mvc/overview/security/preventing-open-redirection-attacks.md)
 * [Windows コンテナーへの ASP.NET MVC アプリケーションの移行](mvc/overview/deployment/docker-aspnetmvc.md)
 * [Glimpse で ASP.NET MVC アプリをプロファイリングし、デバッグする](mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
@@ -60,7 +60,7 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [Web API 2 の概要 (C#)](web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
 * [ASP.NET Web フォームで Web API を使用する](web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
 * [Web API ヘルプ ページを作成する](web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-* [ハンズ オン ラボ:ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルドします。](web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+* [ハンズ オン ラボ: ASP.NET Web API と Angular.js でシングル ページ アプリケーション (SPA) をビルドする](web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
 * [Web API 2 で属性ルーティングを使用して REST API を作成する](web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing.md)
 * [Web API 2 と Entity Framework 6 を使用する](web-api/overview/data/using-web-api-with-entity-framework/index.md)
 * [Windows Phone 8 アプリケーションから Web API を呼び出す (C#)](web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application.md)
@@ -78,8 +78,8 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [Azure Worker ロールで Web API 2 をホストする](web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role.md)
 * [Web API 2 の依存関係挿入](web-api/overview/advanced/dependency-injection.md)
 * [.NET クライアントから Web API を呼び出す (C#)](web-api/overview/advanced/calling-a-web-api-from-a-net-client.md)
-* [Web API で HTML フォーム データを送信します。Url エンコード フォーム データ](web-api/overview/advanced/sending-html-form-data-part-1.md)
-* [Web API で HTML フォーム データを送信します。ファイルのアップロードとマルチパート MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
+* [Web API で HTML フォーム データを送信する: URL エンコード フォーム データ](web-api/overview/advanced/sending-html-form-data-part-1.md)
+* [Web API で HTML フォーム データを送信する: ファイル アップロードとマルチパート MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
 
 ## <a name="web-pages"></a>Web ページ
 
@@ -116,7 +116,7 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 * [チュートリアル: SignalR 2 と MVC 5 の概要](signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 * [チュートリアル: SignalR 2 による高頻度リアルタイム メッセージング](signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
 * [チュートリアル: SignalR 2 によるサーバー ブロードキャスト](signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-* [ハンズ オン ラボ:SignalR によるリアルタイムの Web アプリケーション](signalr/overview/getting-started/real-time-web-applications-with-signalr.md)
+* [ハンズ オン ラボ: SignalR によるリアルタイム Web アプリケーション](signalr/overview/getting-started/real-time-web-applications-with-signalr.md)
 * [SignalR アプリケーションの単体テスト](signalr/overview/testing-and-debugging/unit-testing-signalr-applications.md)
 * [SignalR トレースを有効にする](signalr/overview/testing-and-debugging/enabling-signalr-tracing.md)
 * [Azure Service Bus による SignalR スケールアウト](signalr/overview/performance/scaleout-with-windows-azure-service-bus.md)
@@ -131,7 +131,7 @@ ASP.NET アプリケーションを開発するための次のステップ バ�
 
 * [ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する](identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 * [Azure Active Directory を使った ASP.NET アプリの開発](identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-* [ASP.NET Identity:EntityFramework MySQL プロバイダーと MySQL ストレージを使用して (C#)](identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+* [ASP.NET Identity: EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)](identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
 * [ASP.NET Identity でのアカウントの確認とパスワードの回復 (C#)](identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 * [ASP.NET Identity で SMS と電子メールを利用して 2 要素認証を行う](identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
 * [カスタム MySQL ASP.NET Identity ストレージ プロバイダーの実装](identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
