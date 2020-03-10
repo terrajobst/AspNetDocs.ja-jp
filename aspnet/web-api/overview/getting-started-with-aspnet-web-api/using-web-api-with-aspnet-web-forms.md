@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: Web API を使用して ASP.NET Web フォーム、ASP.NET 4.x
+title: Web API と ASP.NET Web フォームの使用-ASP.NET 4.x
 author: MikeWasson
-description: コード、ASP.NET フォーム アプリケーションに asp.net Web API を追加するステップ バイ ステップ チュートリアル 4.x
+description: ASP.NET 4.x 用の ASP.NET Forms アプリケーションに Web API を追加するためのコード手順を説明したチュートリアル
 ms.author: riande
 ms.date: 04/03/2012
 ms.custom: seoapril2019
@@ -10,99 +10,99 @@ ms.assetid: 25da8c3f-4e90-4946-9765-4f160985e1e4
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 msc.type: authoredcontent
 ms.openlocfilehash: ae553b62998fefd128e12711cbde958ea42d8c63
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59422578"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448534"
 ---
-# <a name="using-web-api-with-aspnet-web-forms"></a><span data-ttu-id="87535-103">ASP.NET Web フォームで Web API を使用する</span><span class="sxs-lookup"><span data-stu-id="87535-103">Using Web API with ASP.NET Web Forms</span></span>
+# <a name="using-web-api-with-aspnet-web-forms"></a><span data-ttu-id="86b35-103">ASP.NET Web フォームでの Web API の使用</span><span class="sxs-lookup"><span data-stu-id="86b35-103">Using Web API with ASP.NET Web Forms</span></span>
 
-<span data-ttu-id="87535-104">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="87535-104">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="86b35-104">[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="86b35-104">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-<span data-ttu-id="87535-105">このチュートリアルで Web API ASP.NET の従来の ASP.NET Web フォーム アプリケーションを追加する手順を 4.x です。</span><span class="sxs-lookup"><span data-stu-id="87535-105">This tutorial walks you through the steps to add Web API to a traditional ASP.NET Web Forms application in ASP.NET 4.x.</span></span> 
+<span data-ttu-id="86b35-105">このチュートリアルでは、ASP.NET 4.x の従来の ASP.NET Web フォームアプリケーションに Web API を追加する手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="86b35-105">This tutorial walks you through the steps to add Web API to a traditional ASP.NET Web Forms application in ASP.NET 4.x.</span></span> 
 
-## <a name="overview"></a><span data-ttu-id="87535-106">概要</span><span class="sxs-lookup"><span data-stu-id="87535-106">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="86b35-106">概要</span><span class="sxs-lookup"><span data-stu-id="86b35-106">Overview</span></span>
 
-<span data-ttu-id="87535-107">ASP.NET Web API は、ASP.NET MVC にパッケージ化されてが簡単に Web API を従来の ASP.NET Web フォーム アプリケーションに追加できます。</span><span class="sxs-lookup"><span data-stu-id="87535-107">Although ASP.NET Web API is packaged with ASP.NET MVC, it is easy to add Web API to a traditional ASP.NET Web Forms application.</span></span>
+<span data-ttu-id="86b35-107">ASP.NET Web API は ASP.NET MVC でパッケージ化されていますが、従来の ASP.NET Web フォームアプリケーションに Web API を簡単に追加できます。</span><span class="sxs-lookup"><span data-stu-id="86b35-107">Although ASP.NET Web API is packaged with ASP.NET MVC, it is easy to add Web API to a traditional ASP.NET Web Forms application.</span></span>
 
-<span data-ttu-id="87535-108">Web フォーム アプリケーションで Web API を使用するには、2 つの主な手順があります。</span><span class="sxs-lookup"><span data-stu-id="87535-108">To use Web API in a Web Forms application, there are two main steps:</span></span>
+<span data-ttu-id="86b35-108">Web フォームアプリケーションで Web API を使用するには、次の2つの主要な手順を実行します。</span><span class="sxs-lookup"><span data-stu-id="86b35-108">To use Web API in a Web Forms application, there are two main steps:</span></span>
 
-- <span data-ttu-id="87535-109">派生した Web API コント ローラーを追加、 **ApiController**クラス。</span><span class="sxs-lookup"><span data-stu-id="87535-109">Add a Web API controller that derives from the **ApiController** class.</span></span>
-- <span data-ttu-id="87535-110">ルート テーブルを追加、**アプリケーション\_開始**メソッド。</span><span class="sxs-lookup"><span data-stu-id="87535-110">Add a route table to the **Application\_Start** method.</span></span>
+- <span data-ttu-id="86b35-109">**ApiController**クラスから派生した Web API コントローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-109">Add a Web API controller that derives from the **ApiController** class.</span></span>
+- <span data-ttu-id="86b35-110">ルートテーブルを**アプリケーション\_の開始**メソッドに追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-110">Add a route table to the **Application\_Start** method.</span></span>
 
-## <a name="create-a-web-forms-project"></a><span data-ttu-id="87535-111">Web フォーム プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="87535-111">Create a Web Forms Project</span></span>
+## <a name="create-a-web-forms-project"></a><span data-ttu-id="86b35-111">Web フォームプロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="86b35-111">Create a Web Forms Project</span></span>
 
-<span data-ttu-id="87535-112">Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="87535-112">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="87535-113">またはから、**ファイル**メニューの **新規**し**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="87535-113">Or, from the **File** menu, select **New** and then **Project**.</span></span>
+<span data-ttu-id="86b35-112">Visual Studio を起動し、**スタート**ページで **[新しいプロジェクト]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-112">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="86b35-113">または、 **[ファイル]** メニューの **[新規作成]** をポイントし、 **[プロジェクト]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="86b35-113">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="87535-114">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="87535-114">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="87535-115">**Visual c#**、 **Web**します。</span><span class="sxs-lookup"><span data-stu-id="87535-115">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="87535-116">プロジェクト テンプレートの一覧で選択**ASP.NET Web フォーム アプリケーション**します。</span><span class="sxs-lookup"><span data-stu-id="87535-116">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="87535-117">プロジェクトの名前を入力し、クリックして**OK**します。</span><span class="sxs-lookup"><span data-stu-id="87535-117">Enter a name for the project and click **OK**.</span></span>
+<span data-ttu-id="86b35-114">**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。</span><span class="sxs-lookup"><span data-stu-id="86b35-114">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="86b35-115">**[ビジュアルC# ]** で **[Web]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-115">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="86b35-116">プロジェクトテンプレートの一覧で、 **[ASP.NET Web フォームアプリケーション]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-116">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="86b35-117">プロジェクトの名前を入力し、[ **OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="86b35-117">Enter a name for the project and click **OK**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 
-## <a name="create-the-model-and-controller"></a><span data-ttu-id="87535-118">モデルとコント ローラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="87535-118">Create the Model and Controller</span></span>
+## <a name="create-the-model-and-controller"></a><span data-ttu-id="86b35-118">モデルとコントローラーを作成する</span><span class="sxs-lookup"><span data-stu-id="86b35-118">Create the Model and Controller</span></span>
 
-<span data-ttu-id="87535-119">このチュートリアルと同じモデルとコント ローラー クラスを使用して、 [Getting Started](tutorial-your-first-web-api.md)チュートリアル。</span><span class="sxs-lookup"><span data-stu-id="87535-119">This tutorial uses the same model and controller classes as the [Getting Started](tutorial-your-first-web-api.md) tutorial.</span></span>
+<span data-ttu-id="86b35-119">このチュートリアルでは、[はじめに](tutorial-your-first-web-api.md)チュートリアルと同じモデルとコントローラークラスを使用します。</span><span class="sxs-lookup"><span data-stu-id="86b35-119">This tutorial uses the same model and controller classes as the [Getting Started](tutorial-your-first-web-api.md) tutorial.</span></span>
 
-<span data-ttu-id="87535-120">最初に、モデル クラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-120">First, add a model class.</span></span> <span data-ttu-id="87535-121">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**クラスの追加**します。</span><span class="sxs-lookup"><span data-stu-id="87535-121">In **Solution Explorer**, right-click the project and select **Add Class**.</span></span> <span data-ttu-id="87535-122">製品、クラスの名前を次の実装を追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-122">Name the class Product, and add the following implementation:</span></span>
+<span data-ttu-id="86b35-120">まず、モデルクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-120">First, add a model class.</span></span> <span data-ttu-id="86b35-121">**ソリューションエクスプローラー**で、プロジェクトを右クリックし、 **[クラスの追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-121">In **Solution Explorer**, right-click the project and select **Add Class**.</span></span> <span data-ttu-id="86b35-122">クラスに Product という名前を指定し、次の実装を追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-122">Name the class Product, and add the following implementation:</span></span>
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample1.cs)]
 
-<span data-ttu-id="87535-123">次に、Web API コント ローラーを追加、プロジェクトに、A*コント ローラー*は Web API の HTTP 要求を処理するオブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="87535-123">Next, add a Web API controller to the project., A *controller* is the object that handles HTTP requests for Web API.</span></span>
+<span data-ttu-id="86b35-123">次に、Web API コントローラーをプロジェクトに追加します。*コントローラー*は、web API の HTTP 要求を処理するオブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="86b35-123">Next, add a Web API controller to the project., A *controller* is the object that handles HTTP requests for Web API.</span></span>
 
-<span data-ttu-id="87535-124">**Solution Explorer** で、プロジェクト名を右クリックします。</span><span class="sxs-lookup"><span data-stu-id="87535-124">In **Solution Explorer**, right-click the project.</span></span> <span data-ttu-id="87535-125">選択**新しい項目の追加**します。</span><span class="sxs-lookup"><span data-stu-id="87535-125">Select **Add New Item**.</span></span>
+<span data-ttu-id="86b35-124">**Solution Explorer** で、プロジェクト名を右クリックします。</span><span class="sxs-lookup"><span data-stu-id="86b35-124">In **Solution Explorer**, right-click the project.</span></span> <span data-ttu-id="86b35-125">**[新しい項目の追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-125">Select **Add New Item**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image2.png)
 
-<span data-ttu-id="87535-126">**インストールされたテンプレート**、展開**Visual c#** 選択**Web**します。</span><span class="sxs-lookup"><span data-stu-id="87535-126">Under **Installed Templates**, expand **Visual C#** and select **Web**.</span></span> <span data-ttu-id="87535-127">次に、テンプレートの一覧から次のように選択します。 **Web API コント ローラー クラス**します。</span><span class="sxs-lookup"><span data-stu-id="87535-127">Then, from the list of templates, select **Web API Controller Class**.</span></span> <span data-ttu-id="87535-128">コント ローラーの名前を"ProductsController"にして**追加**します。</span><span class="sxs-lookup"><span data-stu-id="87535-128">Name the controller "ProductsController" and click **Add**.</span></span>
+<span data-ttu-id="86b35-126">**[インストールされたテンプレート]** で **[ C#ビジュアル]** を展開し、 **[Web]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-126">Under **Installed Templates**, expand **Visual C#** and select **Web**.</span></span> <span data-ttu-id="86b35-127">次に、テンプレートの一覧から **[WEB API コントローラークラス]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="86b35-127">Then, from the list of templates, select **Web API Controller Class**.</span></span> <span data-ttu-id="86b35-128">コントローラーに "製品コントローラー" という名前を指定し、 **[追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="86b35-128">Name the controller "ProductsController" and click **Add**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image3.png)
 
-<span data-ttu-id="87535-129">**新しい項目の追加**ProductsController.cs という名前のファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="87535-129">The **Add New Item** wizard will create a file named ProductsController.cs.</span></span> <span data-ttu-id="87535-130">ウィザードが含まれているメソッドを削除し、次のメソッドを追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-130">Delete the methods that the wizard included and add the following methods:</span></span>
+<span data-ttu-id="86b35-129">**新しい項目の追加**ウィザードでは、ProductsController.cs という名前のファイルが作成されます。</span><span class="sxs-lookup"><span data-stu-id="86b35-129">The **Add New Item** wizard will create a file named ProductsController.cs.</span></span> <span data-ttu-id="86b35-130">ウィザードに含まれているメソッドを削除し、次のメソッドを追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-130">Delete the methods that the wizard included and add the following methods:</span></span>
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample2.cs)]
 
-<span data-ttu-id="87535-131">このコント ローラー コードの詳細については、次を参照してください。、 [Getting Started](tutorial-your-first-web-api.md)チュートリアル。</span><span class="sxs-lookup"><span data-stu-id="87535-131">For more information about the code in this controller, see the [Getting Started](tutorial-your-first-web-api.md) tutorial.</span></span>
+<span data-ttu-id="86b35-131">このコントローラーのコードの詳細については、[はじめに](tutorial-your-first-web-api.md)チュートリアルを参照してください。</span><span class="sxs-lookup"><span data-stu-id="86b35-131">For more information about the code in this controller, see the [Getting Started](tutorial-your-first-web-api.md) tutorial.</span></span>
 
-## <a name="add-routing-information"></a><span data-ttu-id="87535-132">ルーティング情報を追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-132">Add Routing Information</span></span>
+## <a name="add-routing-information"></a><span data-ttu-id="86b35-132">ルーティング情報の追加</span><span class="sxs-lookup"><span data-stu-id="86b35-132">Add Routing Information</span></span>
 
-<span data-ttu-id="87535-133">次に、追加します URI ルートのため形式の Uri &quot;/api/製品/&quot;コント ローラーにルーティングされます。</span><span class="sxs-lookup"><span data-stu-id="87535-133">Next, we'll add a URI route so that URIs of the form &quot;/api/products/&quot; are routed to the controller.</span></span>
+<span data-ttu-id="86b35-133">次に、URI ルートを追加します。これにより、フォーム &quot;/api/&quot; の Uri がコントローラーにルーティングされるようになります。</span><span class="sxs-lookup"><span data-stu-id="86b35-133">Next, we'll add a URI route so that URIs of the form &quot;/api/products/&quot; are routed to the controller.</span></span>
 
-<span data-ttu-id="87535-134">**ソリューション エクスプ ローラー**、Global.asax Global.asax.cs の分離コード ファイルを開く をダブルクリックします。</span><span class="sxs-lookup"><span data-stu-id="87535-134">In **Solution Explorer**, double-click Global.asax to open the code-behind file Global.asax.cs.</span></span> <span data-ttu-id="87535-135">次の追加**を使用して**ステートメント。</span><span class="sxs-lookup"><span data-stu-id="87535-135">Add the following **using** statement.</span></span>
+<span data-ttu-id="86b35-134">**ソリューションエクスプローラー**で、[global.asax] をダブルクリックして、分離コードファイル Global.asax.cs を開きます。</span><span class="sxs-lookup"><span data-stu-id="86b35-134">In **Solution Explorer**, double-click Global.asax to open the code-behind file Global.asax.cs.</span></span> <span data-ttu-id="86b35-135">次の**using ステートメントを**追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-135">Add the following **using** statement.</span></span>
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample3.cs)]
 
-<span data-ttu-id="87535-136">次のコードを追加し、**アプリケーション\_開始**メソッド。</span><span class="sxs-lookup"><span data-stu-id="87535-136">Then add the following code to the **Application\_Start** method:</span></span>
+<span data-ttu-id="86b35-136">次に、 **Application\_Start**メソッドに次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-136">Then add the following code to the **Application\_Start** method:</span></span>
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample4.cs)]
 
-<span data-ttu-id="87535-137">ルーティング テーブルの詳細については、次を参照してください。 [ASP.NET Web API におけるルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)します。</span><span class="sxs-lookup"><span data-stu-id="87535-137">For more information about routing tables, see [Routing in ASP.NET Web API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md).</span></span>
+<span data-ttu-id="86b35-137">ルーティングテーブルの詳細については、「 [ASP.NET Web API でのルーティング](../web-api-routing-and-actions/routing-in-aspnet-web-api.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="86b35-137">For more information about routing tables, see [Routing in ASP.NET Web API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md).</span></span>
 
-## <a name="add-client-side-ajax"></a><span data-ttu-id="87535-138">クライアント側 AJAX を追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-138">Add Client-Side AJAX</span></span>
+## <a name="add-client-side-ajax"></a><span data-ttu-id="86b35-138">クライアント側 AJAX の追加</span><span class="sxs-lookup"><span data-stu-id="86b35-138">Add Client-Side AJAX</span></span>
 
-<span data-ttu-id="87535-139">Web クライアントにアクセスできる API を作成する必要があるだけです。</span><span class="sxs-lookup"><span data-stu-id="87535-139">That's all you need to create a web API that clients can access.</span></span> <span data-ttu-id="87535-140">これで、API の呼び出しに jQuery を使用する HTML ページを追加してみましょう。</span><span class="sxs-lookup"><span data-stu-id="87535-140">Now let's add an HTML page that uses jQuery to call the API.</span></span>
+<span data-ttu-id="86b35-139">これで、クライアントがアクセスできる web API を作成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="86b35-139">That's all you need to create a web API that clients can access.</span></span> <span data-ttu-id="86b35-140">次に、jQuery を使用して API を呼び出す HTML ページを追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-140">Now let's add an HTML page that uses jQuery to call the API.</span></span>
 
-<span data-ttu-id="87535-141">マスター ページを確認します (たとえば、 *Site.Master*) が含まれています、`ContentPlaceHolder`で`ID="HeadContent"`:</span><span class="sxs-lookup"><span data-stu-id="87535-141">Make sure your master page (for example, *Site.Master*) includes a `ContentPlaceHolder` with `ID="HeadContent"`:</span></span>
+<span data-ttu-id="86b35-141">マスターページ (たとえば、「 *master*」) に `ID="HeadContent"`の `ContentPlaceHolder` が含まれていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="86b35-141">Make sure your master page (for example, *Site.Master*) includes a `ContentPlaceHolder` with `ID="HeadContent"`:</span></span>
 
 [!code-html[Main](using-web-api-with-aspnet-web-forms/samples/sample8.html)]
 
-<span data-ttu-id="87535-142">Default.aspx ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="87535-142">Open the file Default.aspx.</span></span> <span data-ttu-id="87535-143">示すように、メイン コンテンツのセクションでは、定型テキストを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="87535-143">Replace the boilerplate text that is in the main content section, as shown:</span></span>
+<span data-ttu-id="86b35-142">Default.aspx ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="86b35-142">Open the file Default.aspx.</span></span> <span data-ttu-id="86b35-143">次に示すように、メインコンテンツセクションにある定型テキストを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="86b35-143">Replace the boilerplate text that is in the main content section, as shown:</span></span>
 
 [!code-aspx[Main](using-web-api-with-aspnet-web-forms/samples/sample5.aspx)]
 
-<span data-ttu-id="87535-144">次に、jQuery のソース ファイルへの参照を追加、`HeaderContent`セクション。</span><span class="sxs-lookup"><span data-stu-id="87535-144">Next, add a reference to the jQuery source file in the `HeaderContent` section:</span></span>
+<span data-ttu-id="86b35-144">次に、`HeaderContent` セクションで jQuery ソースファイルへの参照を追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-144">Next, add a reference to the jQuery source file in the `HeaderContent` section:</span></span>
 
 [!code-aspx[Main](using-web-api-with-aspnet-web-forms/samples/sample6.aspx?highlight=2)]
 
-<span data-ttu-id="87535-145">メモ:ドラッグ アンド ドロップ ファイルからスクリプト参照を簡単に追加することができます**ソリューション エクスプ ローラー**がコード エディター ウィンドウにします。</span><span class="sxs-lookup"><span data-stu-id="87535-145">Note: You can easily add the script reference by dragging and dropping the file from **Solution Explorer** into the code editor window.</span></span>
+<span data-ttu-id="86b35-145">注:**ソリューションエクスプローラー**からコードエディターウィンドウにファイルをドラッグアンドドロップすることで、スクリプト参照を簡単に追加できます。</span><span class="sxs-lookup"><span data-stu-id="86b35-145">Note: You can easily add the script reference by dragging and dropping the file from **Solution Explorer** into the code editor window.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image4.png)
 
-<span data-ttu-id="87535-146">JQuery スクリプト タグでは、下には、次のスクリプト ブロックを追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-146">Below the jQuery script tag, add the following script block:</span></span>
+<span data-ttu-id="86b35-146">JQuery script タグの下に、次のスクリプトブロックを追加します。</span><span class="sxs-lookup"><span data-stu-id="86b35-146">Below the jQuery script tag, add the following script block:</span></span>
 
 [!code-html[Main](using-web-api-with-aspnet-web-forms/samples/sample7.html)]
 
-<span data-ttu-id="87535-147">このスクリプトで、AJAX 要求には、ドキュメントが読み込まれると、 &quot;api/製品&quot;します。</span><span class="sxs-lookup"><span data-stu-id="87535-147">When the document loads, this script makes an AJAX request to &quot;api/products&quot;.</span></span> <span data-ttu-id="87535-148">要求は、JSON 形式で製品の一覧を返します。</span><span class="sxs-lookup"><span data-stu-id="87535-148">The request returns a list of products in JSON format.</span></span> <span data-ttu-id="87535-149">スクリプトでは、HTML テーブルに製品情報を追加します。</span><span class="sxs-lookup"><span data-stu-id="87535-149">The script adds the product information to the HTML table.</span></span>
+<span data-ttu-id="86b35-147">ドキュメントが読み込まれると、このスクリプトは、&quot;api/products&quot;に AJAX 要求を行います。</span><span class="sxs-lookup"><span data-stu-id="86b35-147">When the document loads, this script makes an AJAX request to &quot;api/products&quot;.</span></span> <span data-ttu-id="86b35-148">要求は、JSON 形式で製品の一覧を返します。</span><span class="sxs-lookup"><span data-stu-id="86b35-148">The request returns a list of products in JSON format.</span></span> <span data-ttu-id="86b35-149">このスクリプトにより、製品情報が HTML テーブルに追加されます。</span><span class="sxs-lookup"><span data-stu-id="86b35-149">The script adds the product information to the HTML table.</span></span>
 
-<span data-ttu-id="87535-150">アプリケーションを実行するようになります。</span><span class="sxs-lookup"><span data-stu-id="87535-150">When you run the application, it should look like this:</span></span>
+<span data-ttu-id="86b35-150">アプリケーションを実行すると、次のようになります。</span><span class="sxs-lookup"><span data-stu-id="86b35-150">When you run the application, it should look like this:</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image5.png)

@@ -1,82 +1,82 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
-title: 第 6 部:モデル検証のためのデータ注釈の使用 |Microsoft Docs
+title: 'パート 6: モデルの検証にデータ注釈を使用する |Microsoft Docs'
 author: jongalloway
-description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 6 では、V のモデルのデータ注釈の使用について説明しています.
+description: このチュートリアルシリーズでは、ASP.NET MVC ミュージックストアサンプルアプリケーションをビルドするために実行するすべての手順について詳しく説明します。 パート6では、モデル V のデータ注釈の使用について説明します。
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
 ms.openlocfilehash: bc031dd5be61cc6707c522f85f6af77a420c8b31
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129667"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78433534"
 ---
-# <a name="part-6-using-data-annotations-for-model-validation"></a><span data-ttu-id="f287d-104">第 6 部:モデル検証にデータ注釈を使用する</span><span class="sxs-lookup"><span data-stu-id="f287d-104">Part 6: Using Data Annotations for Model Validation</span></span>
+# <a name="part-6-using-data-annotations-for-model-validation"></a><span data-ttu-id="c5ce1-104">パート 6: モデルの検証にデータ注釈を使用する</span><span class="sxs-lookup"><span data-stu-id="c5ce1-104">Part 6: Using Data Annotations for Model Validation</span></span>
 
-<span data-ttu-id="f287d-105">[Jon Galloway](https://github.com/jongalloway) による</span><span class="sxs-lookup"><span data-stu-id="f287d-105">by [Jon Galloway](https://github.com/jongalloway)</span></span>
+<span data-ttu-id="c5ce1-105">( [Jon Galloway](https://github.com/jongalloway) )</span><span class="sxs-lookup"><span data-stu-id="c5ce1-105">by [Jon Galloway](https://github.com/jongalloway)</span></span>
 
-> <span data-ttu-id="f287d-106">MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。</span><span class="sxs-lookup"><span data-stu-id="f287d-106">The MVC Music Store is a tutorial application that introduces and explains step-by-step how to use ASP.NET MVC and Visual Studio for web development.</span></span>  
+> <span data-ttu-id="c5ce1-106">MVC Music Store は、ASP.NET MVC と Visual Studio を使用して web 開発を行う方法を紹介したチュートリアルアプリケーションです。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-106">The MVC Music Store is a tutorial application that introduces and explains step-by-step how to use ASP.NET MVC and Visual Studio for web development.</span></span>  
 >   
-> <span data-ttu-id="f287d-107">MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。</span><span class="sxs-lookup"><span data-stu-id="f287d-107">The MVC Music Store is a lightweight sample store implementation which sells music albums online, and implements basic site administration, user sign-in, and shopping cart functionality.</span></span>  
+> <span data-ttu-id="c5ce1-107">MVC ミュージックストアは、音楽アルバムをオンラインで販売し、基本的なサイト管理、ユーザーサインイン、およびショッピングカート機能を実装する軽量のサンプルストア実装です。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-107">The MVC Music Store is a lightweight sample store implementation which sells music albums online, and implements basic site administration, user sign-in, and shopping cart functionality.</span></span>  
 >   
-> <span data-ttu-id="f287d-108">このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="f287d-108">This tutorial series details all of the steps taken to build the ASP.NET MVC Music Store sample application.</span></span> <span data-ttu-id="f287d-109">パート 6 では、モデル検証のためのデータ注釈の使用について説明します。</span><span class="sxs-lookup"><span data-stu-id="f287d-109">Part 6 covers Using Data Annotations for Model Validation.</span></span>
+> <span data-ttu-id="c5ce1-108">このチュートリアルシリーズでは、ASP.NET MVC ミュージックストアサンプルアプリケーションをビルドするために実行するすべての手順について詳しく説明します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-108">This tutorial series details all of the steps taken to build the ASP.NET MVC Music Store sample application.</span></span> <span data-ttu-id="c5ce1-109">パート6では、モデルの検証にデータ注釈を使用する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-109">Part 6 covers Using Data Annotations for Model Validation.</span></span>
 
-<span data-ttu-id="f287d-110">Create と Edit のフォームの主要な問題がある: いずれかの検証を行わない。</span><span class="sxs-lookup"><span data-stu-id="f287d-110">We have a major issue with our Create and Edit forms: they're not doing any validation.</span></span> <span data-ttu-id="f287d-111">価格フィールドに、型の数字または必要なフィールドを空白のままにするなどの処理を行ってし、データベースが最初のエラーを説明します。</span><span class="sxs-lookup"><span data-stu-id="f287d-111">We can do things like leave required fields blank or type letters in the Price field, and the first error we'll see is from the database.</span></span>
+<span data-ttu-id="c5ce1-110">作成フォームと編集フォームには重大な問題があります。検証は行われません。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-110">We have a major issue with our Create and Edit forms: they're not doing any validation.</span></span> <span data-ttu-id="c5ce1-111">必須フィールドを空白のままにする、または価格フィールドに文字を入力するなどの操作を実行できます。最初に表示されるエラーは、データベースからのものです。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-111">We can do things like leave required fields blank or type letters in the Price field, and the first error we'll see is from the database.</span></span>
 
-<span data-ttu-id="f287d-112">データ注釈をモデル クラスに追加することでアプリケーションに検証を簡単に追加できます。</span><span class="sxs-lookup"><span data-stu-id="f287d-112">We can easily add validation to our application by adding Data Annotations to our model classes.</span></span> <span data-ttu-id="f287d-113">データ注釈を使用すると、必要、モデルのプロパティに適用される規則を詳しく説明して、ASP.NET MVC が使用を強制して、ユーザーに適切なメッセージを表示するが取得されます。</span><span class="sxs-lookup"><span data-stu-id="f287d-113">Data Annotations allow us to describe the rules we want applied to our model properties, and ASP.NET MVC will take care of enforcing them and displaying appropriate messages to our users.</span></span>
+<span data-ttu-id="c5ce1-112">モデルクラスにデータ注釈を追加することで、アプリケーションに検証を簡単に追加できます。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-112">We can easily add validation to our application by adding Data Annotations to our model classes.</span></span> <span data-ttu-id="c5ce1-113">データ注釈を使用すると、モデルのプロパティに適用するルールを記述することができます。また、ASP.NET MVC では、ユーザーへの適切なメッセージの表示と表示が自動的に行われます。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-113">Data Annotations allow us to describe the rules we want applied to our model properties, and ASP.NET MVC will take care of enforcing them and displaying appropriate messages to our users.</span></span>
 
-## <a name="adding-validation-to-our-album-forms"></a><span data-ttu-id="f287d-114">アルバムのフォーム検証の追加</span><span class="sxs-lookup"><span data-stu-id="f287d-114">Adding Validation to our Album Forms</span></span>
+## <a name="adding-validation-to-our-album-forms"></a><span data-ttu-id="c5ce1-114">アルバムフォームへの検証の追加</span><span class="sxs-lookup"><span data-stu-id="c5ce1-114">Adding Validation to our Album Forms</span></span>
 
-<span data-ttu-id="f287d-115">次のデータ注釈属性を使用します。</span><span class="sxs-lookup"><span data-stu-id="f287d-115">We'll use the following Data Annotation attributes:</span></span>
+<span data-ttu-id="c5ce1-115">次のデータ注釈属性を使用します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-115">We'll use the following Data Annotation attributes:</span></span>
 
-- <span data-ttu-id="f287d-116">**必要な**– プロパティが必須のフィールドであることを示します。</span><span class="sxs-lookup"><span data-stu-id="f287d-116">**Required** – Indicates that the property is a required field</span></span>
-- <span data-ttu-id="f287d-117">**DisplayName** – フォーム フィールドと検証メッセージで使用される対象のテキストを定義します。</span><span class="sxs-lookup"><span data-stu-id="f287d-117">**DisplayName** – Defines the text we want used on form fields and validation messages</span></span>
-- <span data-ttu-id="f287d-118">**StringLength** – 文字列フィールドの最大長を定義します。</span><span class="sxs-lookup"><span data-stu-id="f287d-118">**StringLength** – Defines a maximum length for a string field</span></span>
-- <span data-ttu-id="f287d-119">**範囲**– 数値フィールドの最大値と最小値は、</span><span class="sxs-lookup"><span data-stu-id="f287d-119">**Range** – Gives a maximum and minimum value for a numeric field</span></span>
-- <span data-ttu-id="f287d-120">**バインド**– を除外または含めるパラメーターまたはフォームの値をモデルのプロパティにバインドするときにフィールドを一覧表示されます。</span><span class="sxs-lookup"><span data-stu-id="f287d-120">**Bind** – Lists fields to exclude or include when binding parameter or form values to model properties</span></span>
-- <span data-ttu-id="f287d-121">**ScaffoldColumn** – エディターのフォームのフィールドを非表示を許可</span><span class="sxs-lookup"><span data-stu-id="f287d-121">**ScaffoldColumn** – Allows hiding fields from editor forms</span></span>
+- <span data-ttu-id="c5ce1-116">**必須**–プロパティが必須フィールドであることを示します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-116">**Required** – Indicates that the property is a required field</span></span>
+- <span data-ttu-id="c5ce1-117">**DisplayName** –フォームフィールドおよび検証メッセージで使用するテキストを定義します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-117">**DisplayName** – Defines the text we want used on form fields and validation messages</span></span>
+- <span data-ttu-id="c5ce1-118">**Stringlength** –文字列フィールドの最大長を定義します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-118">**StringLength** – Defines a maximum length for a string field</span></span>
+- <span data-ttu-id="c5ce1-119">**Range** –数値フィールドの最大値と最小値を指定します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-119">**Range** – Gives a maximum and minimum value for a numeric field</span></span>
+- <span data-ttu-id="c5ce1-120">**Bind** –パラメーターまたはフォーム値をモデルプロパティにバインドするときに、除外または含めるフィールドを一覧表示します</span><span class="sxs-lookup"><span data-stu-id="c5ce1-120">**Bind** – Lists fields to exclude or include when binding parameter or form values to model properties</span></span>
+- <span data-ttu-id="c5ce1-121">**ScaffoldColumn** –エディターフォームのフィールドを非表示にすることができます</span><span class="sxs-lookup"><span data-stu-id="c5ce1-121">**ScaffoldColumn** – Allows hiding fields from editor forms</span></span>
 
-<span data-ttu-id="f287d-122">*注:データ注釈属性を使用してモデルの検証の詳細については、MSDN ドキュメントを参照してください。*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)</span><span class="sxs-lookup"><span data-stu-id="f287d-122">*Note: For more information on Model Validation using Data Annotation attributes, see the MSDN documentation at*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)</span></span>
+<span data-ttu-id="c5ce1-122">*注: データ注釈属性を使用したモデル検証の詳細については、MSDN のドキュメントを参照してください*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)</span><span class="sxs-lookup"><span data-stu-id="c5ce1-122">*Note: For more information on Model Validation using Data Annotation attributes, see the MSDN documentation at*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)</span></span>
 
-<span data-ttu-id="f287d-123">アルバム クラスを開き、次の追加*を使用して*ステートメントを先頭にします。</span><span class="sxs-lookup"><span data-stu-id="f287d-123">Open the Album class and add the following *using* statements to the top.</span></span>
+<span data-ttu-id="c5ce1-123">アルバムクラスを開き、次の*using*ステートメントを先頭に追加します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-123">Open the Album class and add the following *using* statements to the top.</span></span>
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample1.cs)]
 
-<span data-ttu-id="f287d-124">次に、次に示すように、表示と検証の属性を追加するプロパティを更新します。</span><span class="sxs-lookup"><span data-stu-id="f287d-124">Next, update the properties to add display and validation attributes as shown below.</span></span>
+<span data-ttu-id="c5ce1-124">次に、次に示すように、プロパティを更新して表示属性と検証属性を追加します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-124">Next, update the properties to add display and validation attributes as shown below.</span></span>
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample2.cs)]
 
-<span data-ttu-id="f287d-125">調査中にもに変更されましたジャンル、アーティスト仮想プロパティ。</span><span class="sxs-lookup"><span data-stu-id="f287d-125">While we're there, we've also changed the Genre and Artist to virtual properties.</span></span> <span data-ttu-id="f287d-126">これにより、遅延読み込みに必要に応じて、Entity Framework です。</span><span class="sxs-lookup"><span data-stu-id="f287d-126">This allows Entity Framework to lazy-load them as necessary.</span></span>
+<span data-ttu-id="c5ce1-125">ここでは、ジャンルとアーティストも仮想プロパティに変更しました。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-125">While we're there, we've also changed the Genre and Artist to virtual properties.</span></span> <span data-ttu-id="c5ce1-126">これにより、必要に応じて Entity Framework が遅延読み込みされます。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-126">This allows Entity Framework to lazy-load them as necessary.</span></span>
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample3.cs)]
 
-<span data-ttu-id="f287d-127">アルバム、モデルにこれらの属性を追加すること後、は、フィールドの検証、作成および編集画面がすぐに開始され、表示名を使用して (例: アルバム アートの Url AlbumArtUrl ではなく) を選択しました。</span><span class="sxs-lookup"><span data-stu-id="f287d-127">After having added these attributes to our Album model, our Create and Edit screen immediately begin validating fields and using the Display Names we've chosen (e.g. Album Art Url instead of AlbumArtUrl).</span></span> <span data-ttu-id="f287d-128">アプリケーションを実行し、/StoreManager/Create を参照します。</span><span class="sxs-lookup"><span data-stu-id="f287d-128">Run the application and browse to /StoreManager/Create.</span></span>
+<span data-ttu-id="c5ce1-127">これらの属性をアルバムモデルに追加した後、[作成] 画面と [編集] 画面では、すぐにフィールドの検証が開始され、選択した表示名 (AlbumArtUrl の代わりにアルバムアートの Url など) が使用されます。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-127">After having added these attributes to our Album model, our Create and Edit screen immediately begin validating fields and using the Display Names we've chosen (e.g. Album Art Url instead of AlbumArtUrl).</span></span> <span data-ttu-id="c5ce1-128">アプリケーションを実行し、/StoreManager/Create. に移動します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-128">Run the application and browse to /StoreManager/Create.</span></span>
 
 ![](mvc-music-store-part-6/_static/image1.png)
 
-<span data-ttu-id="f287d-129">次に、いくつかの検証ルールを破るします。</span><span class="sxs-lookup"><span data-stu-id="f287d-129">Next, we'll break some validation rules.</span></span> <span data-ttu-id="f287d-130">0 の価格を入力し、タイトルを空白のままにします。</span><span class="sxs-lookup"><span data-stu-id="f287d-130">Enter a price of 0 and leave the Title blank.</span></span> <span data-ttu-id="f287d-131">[作成] ボタンをクリックしたときの検証エラーを示すメッセージ フィールド検証規則を満たしていない定義したと表示されるフォームが表示されます。</span><span class="sxs-lookup"><span data-stu-id="f287d-131">When we click on the Create button, we will see the form displayed with validation error messages showing which fields did not meet the validation rules we have defined.</span></span>
+<span data-ttu-id="c5ce1-129">次に、いくつかの検証規則を解除します。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-129">Next, we'll break some validation rules.</span></span> <span data-ttu-id="c5ce1-130">価格に0を入力し、タイトルを空白のままにします。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-130">Enter a price of 0 and leave the Title blank.</span></span> <span data-ttu-id="c5ce1-131">[作成] ボタンをクリックすると、検証エラーメッセージが表示され、定義した検証ルールを満たしていないフィールドが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-131">When we click on the Create button, we will see the form displayed with validation error messages showing which fields did not meet the validation rules we have defined.</span></span>
 
 ![](mvc-music-store-part-6/_static/image2.png)
 
-## <a name="testing-the-client-side-validation"></a><span data-ttu-id="f287d-132">クライアント側検証のテスト</span><span class="sxs-lookup"><span data-stu-id="f287d-132">Testing the Client-Side Validation</span></span>
+## <a name="testing-the-client-side-validation"></a><span data-ttu-id="c5ce1-132">クライアント側の検証のテスト</span><span class="sxs-lookup"><span data-stu-id="c5ce1-132">Testing the Client-Side Validation</span></span>
 
-<span data-ttu-id="f287d-133">サーバー側検証は、ユーザーはクライアント側の検証を回避できるため、アプリケーションの観点から非常に重要です。</span><span class="sxs-lookup"><span data-stu-id="f287d-133">Server-side validation is very important from an application perspective, because users can circumvent client-side validation.</span></span> <span data-ttu-id="f287d-134">ただし、web ページ フォームのみサーバー側の検証を実装するには、次の 3 つの重要な問題が発生します。</span><span class="sxs-lookup"><span data-stu-id="f287d-134">However, webpage forms which only implement server-side validation exhibit three significant problems.</span></span>
+<span data-ttu-id="c5ce1-133">サーバー側の検証は、ユーザーがクライアント側の検証を回避できるため、アプリケーションの観点から非常に重要です。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-133">Server-side validation is very important from an application perspective, because users can circumvent client-side validation.</span></span> <span data-ttu-id="c5ce1-134">ただし、サーバー側の検証のみを実装する web ページフォームでは、3つの重要な問題が発生しています。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-134">However, webpage forms which only implement server-side validation exhibit three significant problems.</span></span>
 
-1. <span data-ttu-id="f287d-135">ユーザーは、投稿、サーバーで、検証するフォームと、ブラウザーに送信される応答を待機します。</span><span class="sxs-lookup"><span data-stu-id="f287d-135">The user has to wait for the form to be posted, validated on the server, and for the response to be sent to their browser.</span></span>
-2. <span data-ttu-id="f287d-136">今すぐ、検証規則を通過するようにフィールドを修正するときに、ユーザーは迅速なフィードバックを取得しません。</span><span class="sxs-lookup"><span data-stu-id="f287d-136">The user doesn't get immediate feedback when they correct a field so that it now passes the validation rules.</span></span>
-3. <span data-ttu-id="f287d-137">ユーザーのブラウザーを利用する代わりに検証ロジックを実行するサーバーのリソースを無駄にしています。</span><span class="sxs-lookup"><span data-stu-id="f287d-137">We are wasting server resources to perform validation logic instead of leveraging the user's browser.</span></span>
+1. <span data-ttu-id="c5ce1-135">ユーザーは、フォームがポストされ、サーバーで検証され、応答がブラウザーに送信されるまで待機する必要があります。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-135">The user has to wait for the form to be posted, validated on the server, and for the response to be sent to their browser.</span></span>
+2. <span data-ttu-id="c5ce1-136">ユーザーは、フィールドを修正するとすぐにフィードバックを得られず、検証ルールが渡されるようになります。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-136">The user doesn't get immediate feedback when they correct a field so that it now passes the validation rules.</span></span>
+3. <span data-ttu-id="c5ce1-137">ユーザーのブラウザーを利用する代わりに、検証ロジックを実行するためにサーバーリソースを無駄にしています。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-137">We are wasting server resources to perform validation logic instead of leveraging the user's browser.</span></span>
 
-<span data-ttu-id="f287d-138">さいわい、ASP.NET MVC 3 のスキャフォールディング テンプレートは一切追加の作業を必要としない組み込まれており、クライアント側検証があります。</span><span class="sxs-lookup"><span data-stu-id="f287d-138">Fortunately, the ASP.NET MVC 3 scaffold templates have client-side validation built in, requiring no additional work whatsoever.</span></span>
+<span data-ttu-id="c5ce1-138">幸い、ASP.NET MVC 3 スキャフォールディングテンプレートでは、クライアント側の検証が組み込まれているので、追加の作業は必要ありません。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-138">Fortunately, the ASP.NET MVC 3 scaffold templates have client-side validation built in, requiring no additional work whatsoever.</span></span>
 
-<span data-ttu-id="f287d-139">検証メッセージがすぐに削除するため、検証の要件を満たすタイトル フィールドに 1 つの文字を入力します。</span><span class="sxs-lookup"><span data-stu-id="f287d-139">Typing a single letter in the Title field satisfies the validation requirements, so the validation message is immediately removed.</span></span>
+<span data-ttu-id="c5ce1-139">[タイトル] フィールドに1文字を入力すると検証要件が満たされるため、検証メッセージはすぐに削除されます。</span><span class="sxs-lookup"><span data-stu-id="c5ce1-139">Typing a single letter in the Title field satisfies the validation requirements, so the validation message is immediately removed.</span></span>
 
 ![](mvc-music-store-part-6/_static/image3.png)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="f287d-140">[前へ](mvc-music-store-part-5.md)
-> [次へ](mvc-music-store-part-7.md)</span><span class="sxs-lookup"><span data-stu-id="f287d-140">[Previous](mvc-music-store-part-5.md)
+> <span data-ttu-id="c5ce1-140">[前へ](mvc-music-store-part-5.md)
+> [次へ](mvc-music-store-part-7.md)</span><span class="sxs-lookup"><span data-stu-id="c5ce1-140">[Previous](mvc-music-store-part-5.md)
 [Next](mvc-music-store-part-7.md)</span></span>
