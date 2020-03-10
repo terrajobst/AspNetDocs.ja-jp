@@ -9,11 +9,11 @@ ms.assetid: 5e2bb092-cb22-4511-ad0a-22ae12dd99b3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 0894c0ac24737e66b6960ef3d48aa17f78c6aa1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621068"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78423976"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: SQL Server データベース更新プログラムのデプロイ-11/12
 
@@ -25,7 +25,7 @@ ms.locfileid: "74621068"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、および Windows Azure Web サイトへのデプロイ方法については、「 [ASP.NET Web deployment Using Visual studio](../../deployment/visual-studio-web-deployment/introduction.md)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、データベースの更新を完全な SQL Server データベースに配置する方法について説明します。 Code First Migrations はデータベースを更新するすべての作業を実行するため、このプロセスは「[データベースの更新の配置](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)」チュートリアルの SQL Server Compact とほぼ同じです。
 
@@ -119,7 +119,7 @@ Web の**発行**ウィザードをもう一度開き、 **[インポート]** �
 
 一時的な URL を使用している場合は、 **[接続]** タブで、 **[送信先 URL]** を適切な値に変更します。
 
-[次へ] をクリックします。
+**[次へ]** をクリックします。
 
 **[設定]** タブで、 **[新しいデータベース発行の機能強化を有効にする]** をクリックします。
 
@@ -147,7 +147,7 @@ Code First Migrations は、テスト環境での場合と同じ方法でデー�
 
 これで、SQL Server データベースを使用して、データベースの変更を含むアプリケーションの更新が正常に展開されました。
 
-## <a name="more-information"></a>その他の情報
+## <a name="more-information"></a>詳細情報
 
 これで、ASP.NET web アプリケーションをサードパーティのホスティングプロバイダーにデプロイするための一連のチュートリアルが完了します。 これらのチュートリアルで説明されているトピックの詳細については、MSDN web サイトの「 [ASP.NET Deployment コンテンツマップ](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx)」を参照してください。
 

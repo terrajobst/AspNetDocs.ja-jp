@@ -9,11 +9,11 @@ ms.assetid: 0b34f7f6-a0cc-4b9f-9761-643fb0bb3ece
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5dea23a20aba00af5109f05f18365b89e409a131
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574460"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430660"
 ---
 # <a name="using-auto-postback-with-cascadingdropdown-vb"></a>CascadingDropDown で自動ポストバックを使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74574460"
 
 > AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 ただし、CascadingDropDown コントロールを使用する場合は ASP を使用します。リストにデータを非同期で読み込むと (不要な) ポストバック自体が生成されるため、ネットワークの DropDownList コントロールの AutoPostBack 機能は機能しません。 一部の JavaScript コードでは、この影響を回避できます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。ただし、CascadingDropDown コントロールを使用する場合は ASP を使用します。リストにデータを非同期で読み込むと (不要な) ポストバック自体が生成されるため、ネットワークの DropDownList コントロールの AutoPostBack 機能は機能しません。 一部の JavaScript コードでは、この影響を回避できます。
 
@@ -60,4 +60,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 リスト要素を選択するとポストバックが発生します ([クリックすると、フルサイズの画像が表示](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png)される)
 
 > [!div class="step-by-step"]
-> [前へ](presetting-list-entries-with-cascadingdropdown-vb.md)
+> [[戻る]](presetting-list-entries-with-cascadingdropdown-vb.md)

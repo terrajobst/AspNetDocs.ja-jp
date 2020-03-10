@@ -5,12 +5,12 @@ description: を使用して ASP.NET でクッキーを SameSite する方法に
 ms.author: riande
 ms.date: 2/15/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: edb368910b24be2d042afe3c19ffa1fb23245443
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.openlocfilehash: 7987a5d6c9b3a82679d42a2d381d471d56f495c2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455707"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439936"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET で SameSite cookie を使用する
 
@@ -177,7 +177,7 @@ Microsoft がこの問題を解決するには、ブラウザーがサポート�
 * テストサイトではないブラウザーがアプリに表示されることがあります。
 * 必要に応じて環境に検出を追加できるように準備する必要があります。
 
-検出を接続する方法は、使用している .NET のバージョンと web フレームワークによって異なります。 <xref:HTTP.HttpCookie> 呼び出しサイトで、次のコードを呼び出すことができます。
+検出を接続する方法は、使用している .NET のバージョンと web フレームワークによって異なります。 [HttpCookie](/dotnet/api/system.web.httpcookie) call サイトでは、次のコードを呼び出すことができます。
 
 [!code-csharp[](sample/SameSiteCheck.cs?name=snippet)]
 
@@ -248,6 +248,8 @@ Google では、以前のバージョンの chrome は使用できません。 �
 * [Chromium 74 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/638880/)
 * Windows の64ビット版を使用していない場合は、 [Omahaproxy ビューアー](https://omahaproxy.appspot.com/)を使用して、 [Chromium の指示](https://www.chromium.org/getting-involved/download-chromium)に従って、Chrome 74 (v 74.0.3729.108) に対応する Chromium 分岐を調べることができます。
 
+カナリアバージョン `80.0.3975.0`以降では、新しいフラグ `--enable-features=SameSiteDefaultChecksMethodRigorously` を使用することにより、テスト用に厳密ではない + POST 一時軽減を無効にすることができます。これは、軽減策が削除された機能の最終的な終了状態でサイトとサービスをテストできるようにするためのものです。 詳細については、「Chromium Projects [SameSite Updates](https://www.chromium.org/updates/same-site) 」を参照してください。
+
 #### <a name="test-with-chrome-80"></a>Chrome 80 + を使用したテスト
 
 新しい属性をサポートするバージョンの Chrome を[ダウンロード](https://www.google.com/chrome/)します。 このドキュメントの執筆時点では、現在のバージョンは Chrome 80 です。 Chrome 80 では、新しい動作を使用するためにフラグ `chrome://flags/#same-site-by-default-cookies` 有効にする必要があります。 また、sameSite 属性が有効になっていない cookie の今後の動作をテストするには、(`chrome://flags/#cookies-without-same-site-must-be-secure`) を有効にする必要があります。 Chrome 80 はターゲット上にあります。これは、特定の要求に対して一定の猶予期間がある場合でも、`SameSite=Lax`のように属性を持たない cookie をスイッチが処理するようにするためのものです。 時間指定の猶予期間を無効にするには、次のコマンドライン引数を使用して Chrome 80 を起動します。
@@ -302,6 +304,7 @@ Web.config*を更新*して、次の構成設定を含めます。
 ## <a name="additional-resources"></a>その他のリソース
 
 * [ASP.NET と ASP.NET Core での今後の SameSite Cookie の変更](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
+* [SameSite および "SameSite = None; のテストとデバッグに関するヒントセキュリティで保護された cookie](https://www.chromium.org/updates/same-site/test-debug)
 * [Chromium ブログ: 開発者: 新しい SameSite の準備 = None;セキュリティで保護された Cookie の設定](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [SameSite cookie の説明](https://web.dev/samesite-cookies-explained/)
 * [Chrome の更新](https://www.chromium.org/updates/same-site)

@@ -9,11 +9,11 @@ ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
 ms.openlocfilehash: 805eb84c24764cf921291f89054435601dbac48e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636830"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78440788"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用した ASP.NET Web 配置: データベース更新プログラムの配置
 
@@ -23,7 +23,7 @@ ms.locfileid: "74636830"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、データベースの変更と関連するコードの変更を行い、Visual Studio で変更をテストしてから、テスト環境、ステージング環境、および運用環境に更新プログラムを配置します。
 
@@ -156,7 +156,7 @@ DbDacFx プロバイダーを使用して配置するには、発行プロファ
 
     データベースの変更を含む実際の運用アプリケーションの更新については、[前のチュートリアル](deploying-a-code-update.md)で説明したように、後で発行および削除する前に、*アプリ\_offline .htm*をアップロードしてデプロイ中にアプリケーションをオフラインにすることもできます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、Code First Migrations と dbDacFx プロバイダーの両方を使用してデータベースの変更を含むアプリケーションの更新が配置されました。
 

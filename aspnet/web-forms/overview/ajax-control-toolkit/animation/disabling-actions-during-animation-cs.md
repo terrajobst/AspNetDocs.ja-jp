@@ -9,11 +9,11 @@ ms.assetid: 918026b4-2f63-421d-8546-df12856960a8
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e91205ad2f9e6ee1fdd869ceb7587c3a82754772
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599723"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430954"
 ---
 # <a name="disabling-actions-during-animation-c"></a>アニメーション中のアクションを無効にする (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599723"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、マウスクリックなどの操作もサポートしています。 ただし、マウスクリックでアニメーションを開始する場合は、アニメーション中にマウスのクリックを無効にすることをお勧めします。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、マウスクリックなどの操作もサポートしています。 ただし、マウスクリックでアニメーションを開始する場合は、アニメーション中にマウスのクリックを無効にすることをお勧めします。
 

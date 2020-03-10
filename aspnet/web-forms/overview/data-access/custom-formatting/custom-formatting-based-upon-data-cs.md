@@ -9,11 +9,11 @@ ms.assetid: 871a4574-f89c-4214-b786-79253ed3653b
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: d8f3fa337eda0ceed041475ecb52f8b378b9fbba
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600575"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78442138"
 ---
 # <a name="custom-formatting-based-upon-data-c"></a>データに基づくカスタム書式設定 (C#)
 
@@ -263,7 +263,7 @@ GridView の個々のレコードの形式をカスタマイズするには、`R
 
 **図 11**: 最も低価格の製品が黄色で強調表示されている ([クリックすると、フルサイズの画像が表示](custom-formatting-based-upon-data-cs/_static/image27.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、コントロールにバインドされたデータに基づいて GridView、DetailsView、および FormView の書式を設定する方法を説明しました。 これを実現するために、必要に応じて、基になるデータを書式設定の変更と共に調べた `DataBound` イベントまたは `RowDataBound` イベントのイベントハンドラーを作成しました。 DetailsView または FormView にバインドされたデータにアクセスするには、`DataBound` イベントハンドラーの `DataItem` プロパティを使用します。GridView の場合、各 `GridViewRow` インスタンスの `DataItem` プロパティには、その行にバインドされたデータが含まれます。これは、`RowDataBound` イベントハンドラーで使用できます。
 
@@ -273,7 +273,7 @@ GridView の個々のレコードの形式をカスタマイズするには、`R
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -282,4 +282,4 @@ GridView の個々のレコードの形式をカスタマイズするには、`R
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は E.R. でした Gilmore、Patterson が、Dan Jagers。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](using-templatefields-in-the-gridview-control-cs.md)
+> [Next](using-templatefields-in-the-gridview-control-cs.md)

@@ -1,146 +1,146 @@
 ---
 uid: signalr/overview/guide-to-the-api/mapping-users-to-connections
-title: SignalR ユーザー接続をマッピング |Microsoft Docs
+title: SignalR ユーザーの接続へのマッピング |Microsoft Docs
 author: bradygaster
-description: このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。 Patrick Fletcher は、このトピックに記述できました。 ソフトウェアのバージョンがこのトピックで使用しています.
+description: このトピックでは、ユーザーとその接続に関する情報を保持する方法について説明します。 パトリック Fletcher はこのトピックの執筆に役立っています。 このトピックで使用されているソフトウェアのバージョン...
 ms.author: bradyg
 ms.date: 12/30/2014
 ms.assetid: f80c08b1-3f1f-432c-980c-c7b6edeb31b1
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
 ms.openlocfilehash: d55d40848e1e9d40570850c3552b225235c5e814
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389792"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431392"
 ---
 # <a name="mapping-signalr-users-to-connections"></a>SignalR ユーザーを接続にマッピングする
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。
+> このトピックでは、ユーザーとその接続に関する情報を保持する方法について説明します。
 >
-> Patrick Fletcher は、このトピックに記述できました。
+> パトリック Fletcher はこのトピックの執筆に役立っています。
 >
-> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR 2 のバージョン
+> - SignalR バージョン2
 >
 >
 >
-> ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
+> ## <a name="previous-versions-of-this-topic"></a>このトピックの前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> 以前のバージョンの SignalR の詳細については、「[古いバージョンの SignalR](../older-versions/index.md)」を参照してください。
 >
-> ## <a name="questions-and-comments"></a>意見やご質問
+> ## <a name="questions-and-comments"></a>質問とコメント
 >
-> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
 ## <a name="introduction"></a>はじめに
 
-ハブに接続する各クライアントでは、一意の接続 id を渡します。この値を取得することができます、`Context.ConnectionId`ハブ コンテキストのプロパティ。 アプリケーションにユーザーの接続 id を割り当てるし、そのマッピングを保持する場合、次のいずれかを使用できます。
+ハブに接続する各クライアントは、一意の接続 id を渡します。この値は、ハブコンテキストの `Context.ConnectionId` プロパティで取得できます。 アプリケーションでユーザーを接続 id にマップし、そのマッピングを保持する必要がある場合は、次のいずれかを使用できます。
 
-- [ユーザーの ID プロバイダー (SignalR 2)](#IUserIdProvider)
-- [メモリ内ストレージ](#inmemory)、ディクショナリなど
-- [ユーザーごとに SignalR グループ](#groups)
-- [永続的な外部の記憶域](#database)など、データベース テーブルまたは Azure テーブル ストレージ
+- [ユーザー ID プロバイダー (SignalR 2)](#IUserIdProvider)
+- [メモリ内ストレージ](#inmemory)(ディクショナリなど)
+- [各ユーザーの SignalR グループ](#groups)
+- [永続的な外部ストレージ](#database)(データベーステーブルや Azure table storage など)
 
-このトピックでこれらの各実装に表示されます。 使用する、 `OnConnected`、 `OnDisconnected`、および`OnReconnected`のメソッド、`Hub`ユーザー接続の状態を追跡するクラス。
+このトピックでは、これらの各実装について説明します。 `Hub` クラスの `OnConnected`、`OnDisconnected`、および `OnReconnected` の各メソッドを使用して、ユーザー接続の状態を追跡します。
 
-アプリケーションに最適な方法によって異なります。
+アプリケーションに最適な方法は、次のとおりです。
 
-- アプリケーションをホストする web サーバーの数。
-- かどうかは、現在接続しているユーザーの一覧を取得する必要があります。
-- かどうかは、アプリケーションまたはサーバーを再起動すると、グループとユーザーの情報を保持する必要があります。
-- かどうか、外部のサーバーの呼び出しの待機時間が問題です。
+- アプリケーションをホストしている web サーバーの数。
+- 現在接続しているユーザーの一覧を取得する必要があるかどうか。
+- アプリケーションまたはサーバーの再起動時に、グループとユーザーの情報を保持する必要があるかどうか。
+- 外部サーバーの呼び出しの待機時間が問題になるかどうか。
 
-どちらのアプローチがこれらの考慮事項の動作を次の表に示します。
+次の表は、これらの考慮事項に対して機能する方法を示しています。
 
-|  | 複数のサーバー | 現在接続しているユーザーの一覧を取得します。 | 再起動後の情報を永続化します。 | 最適なパフォーマンス |
+|  | 複数のサーバー | 現在接続しているユーザーの一覧を取得します。 | 再起動後に情報を保持する | 最適なパフォーマンス |
 | --- | --- | --- | --- | --- |
-| ユーザー Id プロバイダー | ![](mapping-users-to-connections/_static/image1.png) |  |  | ![](mapping-users-to-connections/_static/image2.png) |
+| UserID プロバイダー | ![](mapping-users-to-connections/_static/image1.png) |  |  | ![](mapping-users-to-connections/_static/image2.png) |
 | メモリ内 |  | ![](mapping-users-to-connections/_static/image3.png) |  | ![](mapping-users-to-connections/_static/image4.png) |
-| シングル ユーザー グループ | ![](mapping-users-to-connections/_static/image5.png) |  |  | ![](mapping-users-to-connections/_static/image6.png) |
-| 恒久的な外部 | ![](mapping-users-to-connections/_static/image7.png) | ![](mapping-users-to-connections/_static/image8.png) | ![](mapping-users-to-connections/_static/image9.png) |  |
+| シングルユーザーグループ | ![](mapping-users-to-connections/_static/image5.png) |  |  | ![](mapping-users-to-connections/_static/image6.png) |
+| パーマネント、外部 | ![](mapping-users-to-connections/_static/image7.png) | ![](mapping-users-to-connections/_static/image8.png) | ![](mapping-users-to-connections/_static/image9.png) |  |
 
 <a id="IUserIdProvider"></a>
 
 ## <a name="iuserid-provider"></a>IUserID プロバイダー
 
-この機能により、ユーザー Id を指定するユーザー IUserIdProvider 新しいインターフェイスを使用して、IRequest に基づいています。
+この機能を使用すると、ユーザーは新しいインターフェイス IUserIdProvider を使用して、IRequest に基づいてユーザー Id を指定できます。
 
 **IUserIdProvider**
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample1.cs)]
 
-既定があります、ユーザーを使用する実装`IPrincipal.Identity.Name`としてユーザー名。 これを変更するには、実装を登録`IUserIdProvider`グローバルのホスト アプリケーションの起動時に使用します。
+既定では、ユーザーの `IPrincipal.Identity.Name` をユーザー名として使用する実装が存在します。 これを変更するには、アプリケーションの起動時に、`IUserIdProvider` の実装をグローバルホストに登録します。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample2.cs)]
 
-ハブ内でことができます、次の API を使用してこれらのユーザーにメッセージを送信します。
+ハブ内から、次の API を使用して、これらのユーザーにメッセージを送信できるようになります。
 
-**特定のユーザーにメッセージを送信します。**
+**特定のユーザーへのメッセージの送信**
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample3.cs?highlight=5)]
 
 <a id="inmemory"></a>
 
-## <a name="in-memory-storage"></a>メモリ内ストレージ
+## <a name="in-memory-storage"></a>インメモリストレージ
 
-次の例では、メモリに格納されているディクショナリ内の接続とユーザーの情報を保持する方法を示します。 ディクショナリを使用して、`HashSet`接続 id を格納します。いつでもユーザーには、SignalR アプリケーションへの接続を 1 つ以上の可能性があります。 たとえば、複数のデバイスまたは 1 つ以上のブラウザー タブで接続されているユーザーは、1 つ以上の接続 id があります。
+次の例は、メモリに格納されているディクショナリに接続情報とユーザー情報を保持する方法を示しています。 ディクショナリは、`HashSet` を使用して接続 id を格納します。ユーザーは、いつでも SignalR アプリケーションに対して複数の接続を持つことができます。 たとえば、複数のデバイスまたは複数のブラウザータブを介して接続されているユーザーには、複数の接続 id があります。
 
-場合は、アプリケーションがシャット ダウン、すべての情報が失われたがする再作成ように、ユーザーは、その接続を再確立します。 メモリ内ストレージには、各サーバーが接続の別のコレクションをことになるため、環境に 1 つ以上の web サーバーが含まれている場合は機能しません。
+アプリケーションがシャットダウンすると、すべての情報が失われますが、ユーザーが接続を再確立すると、この情報は再設定されます。 環境に複数の web サーバーが含まれている場合、各サーバーには個別の接続のコレクションが存在するため、インメモリストレージは機能しません。
 
-最初の例では、接続に対するユーザーのマッピングを管理するクラスを示します。 HashSet のキーは、ユーザーの名前になります。
+最初の例は、ユーザーと接続のマッピングを管理するクラスを示しています。 HashSet のキーがユーザー名になります。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample4.cs)]
 
-次の例では、ハブからの接続マッピング クラスを使用する方法を示します。 変数名で、クラスのインスタンスが格納されている`_connections`します。
+次の例は、ハブから接続マッピングクラスを使用する方法を示しています。 クラスのインスタンスは、変数名 `_connections`に格納されます。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample5.cs)]
 
 <a id="groups"></a>
 
-## <a name="single-user-groups"></a>シングル ユーザー グループ
+## <a name="single-user-groups"></a>シングルユーザーグループ
 
-ユーザーごとにグループを作成し、そのユーザーだけに接続するときに、そのグループにメッセージを送信できます。 各グループの名前は、ユーザーの名前です。 ユーザーが 1 つ以上の接続を持つ場合は、各接続の id がユーザーのグループに追加されます。
+ユーザーごとにグループを作成し、そのユーザーにのみリーチする場合は、そのグループにメッセージを送信できます。 各グループの名前は、ユーザーの名前です。 ユーザーが複数の接続を持っている場合は、各接続 id がユーザーのグループに追加されます。
 
-必要がありますいない手動で削除するユーザー、グループからユーザーが切断されたとき。 この操作は、SignalR フレームワークによって自動的に実行されます。
+ユーザーが切断された場合は、グループからユーザーを手動で削除しないでください。 このアクションは、SignalR フレームワークによって自動的に実行されます。
 
-次の例では、シングル ユーザー グループを実装する方法を示します。
+次の例は、シングルユーザーグループを実装する方法を示しています。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample6.cs)]
 
 <a id="database"></a>
 
-## <a name="permanent-external-storage"></a>永続的な外部のストレージ
+## <a name="permanent-external-storage"></a>永続的な外部ストレージ
 
-このトピックでは、接続情報を格納するため、データベースまたは Azure テーブル ストレージを使用する方法を示します。 このアプローチは、各 web サーバーが、同じデータ リポジトリと対話できるため、複数の web サーバーがある場合は動作します。 Web サーバー アプリケーションが再起動されるかの処理を停止する場合、`OnDisconnected`メソッドは呼び出されません。 したがって、データ リポジトリが有効になっている接続 id のレコードにあることができます。 これらの孤立したレコードをクリーンアップするには、アプリケーションに関連する時間枠の外部で作成されたすべての接続を無効にします。 このセクションの例には、接続が作成された日時を追跡するための値が含まれているバック グラウンド プロセスとして実行するために古いレコードをクリーンアップする方法を表示しません。
+このトピックでは、データベースまたは Azure table storage を使用して接続情報を格納する方法について説明します。 この方法は、各 web サーバーが同じデータリポジトリを操作できるため、複数の web サーバーがある場合に機能します。 Web サーバーが動作を停止した場合、またはアプリケーションが再起動した場合、`OnDisconnected` メソッドは呼び出されません。 そのため、有効ではなくなった接続 id のレコードがデータリポジトリに含まれている可能性があります。 孤立したレコードをクリーンアップするには、アプリケーションに関連する時間枠以外で作成された接続を無効にすることをお勧めします。 このセクションの例には、接続が作成された時間を追跡するための値が含まれていますが、バックグラウンド処理として必要になる可能性があるため、古いレコードをクリーンアップする方法については説明していません。
 
 ### <a name="database"></a>データベース
 
-次の例では、データベースに接続し、ユーザーの情報を保持する方法を示します。 任意のデータ アクセス テクノロジを使用することができます。ただし、次の例では、Entity Framework を使用してモデルを定義する方法を示します。 これらのエンティティ モデルは、データベース テーブルとフィールドに対応します。 データ構造は、アプリケーションの要件に応じて大きく異なる可能性があります。
+次の例は、接続情報とユーザー情報をデータベースに保持する方法を示しています。 任意のデータアクセステクノロジを使用できます。ただし、次の例では、Entity Framework を使用してモデルを定義する方法を示しています。 これらのエンティティモデルは、データベースのテーブルとフィールドに対応しています。 データ構造は、アプリケーションの要件によって大きく異なる可能性があります。
 
-最初の例では、多くの接続のエンティティに関連付けることができるユーザー エンティティを定義する方法を示します。
+最初の例では、多くの接続エンティティに関連付けることができるユーザーエンティティを定義する方法を示します。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample7.cs)]
 
-次に、ハブから、以下に示すコードで各接続の状態を追跡できます。
+次に、ハブから、次に示すコードを使用して、各接続の状態を追跡できます。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample8.cs)]
 
 <a id="azure"></a>
-### <a name="azure-table-storage"></a>Azure テーブル ストレージ
+### <a name="azure-table-storage"></a>Azure Table Storage
 
-Azure テーブル ストレージの次の例では、データベースの例に似ています。 すべての Azure Table Storage サービスを開始する必要のある情報が含まれません。 詳しくは、次を参照してください。 [.NET からテーブル ストレージを使用する方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)します。
+次の Azure table storage の例は、データベースの例と似ています。 Azure Table Storage サービスの使用を開始するために必要なすべての情報が含まれているわけではありません。 詳細については、「 [.net からテーブルストレージを使用する方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)」を参照してください。
 
-次の例では、接続情報を格納するためのテーブル エンティティを示します。 ユーザーの名前で、データをパーティション分割し、ユーザーでは、いつでも複数の接続ができるように、接続 id を使用して各エンティティを識別します。
+次の例は、接続情報を格納するためのテーブルエンティティを示しています。 データはユーザー名でパーティション分割され、各エンティティは接続 id で識別されるため、ユーザーはいつでも複数の接続を持つことができます。
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample9.cs)]
 

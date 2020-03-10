@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/index
-title: コント ローラーとルーティング |Microsoft Docs
+title: コントローラーとルーティング |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルのセットについて説明します、ASP.NET のルーティングの ASP.NET MVC コント ローラー アクションへのブラウザーの要求をマップします。
+description: このチュートリアルでは、ASP.NET routing について説明します。これにより、ブラウザー要求が ASP.NET MVC コントローラーアクションにマップされます。
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 124df537-428c-4861-b6c2-4830c094fe0c
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing
 msc.type: chapter
 ms.openlocfilehash: 62e8c3c7451373829e2e8fbf65e37a14cfea54df
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123305"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78437644"
 ---
 # <a name="controllers-and-routing"></a>コントローラーとルーティング
 
-> このチュートリアルのセットについて説明します、ASP.NET のルーティングの ASP.NET MVC コント ローラー アクションへのブラウザーの要求をマップします。
+> このチュートリアルでは、ASP.NET routing について説明します。これにより、ブラウザー要求が ASP.NET MVC コントローラーアクションにマップされます。
 
 - [ASP.NET MVC ルーティング概要 (C#)](asp-net-mvc-routing-overview-cs.md)
 - [アクション フィルターについて理解する (C#)](understanding-action-filters-cs.md)

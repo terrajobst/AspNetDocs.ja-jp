@@ -2,314 +2,314 @@
 uid: whitepapers/mvc4-beta-release-notes
 title: ASP.NET MVC 4 |Microsoft Docs
 author: rick-anderson
-description: このドキュメントでは、ASP.NET MVC 4 Beta の Visual Studio 2010 のリリースについて説明します。
+description: このドキュメントでは、Visual Studio 2010 用の ASP.NET MVC 4 Beta のリリースについて説明します。
 ms.author: riande
 ms.date: 09/09/2011
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
 ms.openlocfilehash: 17800dfe091bbb7afb25f7f41e3bd885b882edb0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108356"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78419842"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 
-> このドキュメントでは、ASP.NET MVC 4 Beta の Visual Studio 2010 のリリースについて説明します。
+> このドキュメントでは、Visual Studio 2010 用の ASP.NET MVC 4 Beta のリリースについて説明します。
 > 
 > > [!NOTE]
-> > これは、最新のリリースではありません。 ASP.NET MVC 4 RC のリリース ノートは[ここ](mvc4-release-notes.md)します。
+> > これは、最新のリリースではありません。 ASP.NET MVC 4 RC のリリースノートについては、[こちら](mvc4-release-notes.md)を参照してください。
 
-- [インストールに関する注記](#_Toc303253802)
+- [インストールに関する注意事項](#_Toc303253802)
 - [ドキュメント](#_Toc303253803)
 - [サポート](#_Toc303253804)
-- [ソフトウェアの要件](#_Toc303253805)
-- [ASP.NET MVC 4、ASP.NET MVC 3 プロジェクトをアップグレードします。](#_Toc303253806)
+- [ソフトウェア要件](#_Toc303253805)
+- [ASP.NET MVC 3 プロジェクトを ASP.NET MVC 4 にアップグレードする](#_Toc303253806)
 - [ASP.NET MVC 4 Beta の新機能](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
-    - [ASP.NET Single Page Application](#_Toc317096198)
-    - [既定のプロジェクト テンプレートの機能強化](#_Toc303253808)
-    - [モバイル プロジェクト テンプレート](#_Toc303253809)
+    - [ASP.NET シングルページアプリケーション](#_Toc317096198)
+    - [既定のプロジェクトテンプレートの機能強化](#_Toc303253808)
+    - [モバイルプロジェクトテンプレート](#_Toc303253809)
     - [表示モード](#_Toc303253810)
-    - [jQuery Mobile、ビュー スイッチャー、およびブラウザーのオーバーライド](#_Toc303253811)
-    - [Visual Studio でのコード生成のレシピ](#_Toc303253812)
-    - [非同期コント ローラーのタスクのサポート](#_Toc303253813)
+    - [jQuery Mobile、ビュースイッチャー、およびブラウザーのオーバーライド](#_Toc303253811)
+    - [Visual Studio でのコード生成のためのレシピ](#_Toc303253812)
+    - [非同期コントローラーのタスクサポート](#_Toc303253813)
     - [Azure SDK](#_Toc303253814)
     - [既知の問題と重大な変更](#_Toc303253815)
 
 <a id="_Toc303253802"></a>
-## <a name="installation-notes"></a>インストールに関する注記
+## <a name="installation-notes"></a>インストールに関する注意事項
 
-Visual Studio 2010 の ASP.NET MVC 4 Beta をインストールすることができます、[ホーム ページの ASP.NET MVC 4](../mvc/mvc4.md) Web Platform Installer を使用します。
+ASP.NET MVC 4 Beta for Visual Studio 2010 は、Web Platform Installer を使用して[ASP.NET mvc 4 ホームページ](../mvc/mvc4.md)からインストールできます。
 
-ASP.NET MVC 4 Beta をインストールする前に、ASP.NET MVC 4 の以前にインストールのプレビューをアンインストールする必要があります。
+ASP.NET MVC 4 Beta をインストールする前に、以前にインストールされた ASP.NET MVC 4 のプレビューをアンインストールする必要があります。
 
 このリリースは、.NET Framework 4.5 Developer Preview と互換性がありません。 ASP.NET MVC 4 Beta をインストールする前に、.NET 4.5 Developer Preview をアンインストールする必要があります。
 
-ASP.NET MVC 4 インストールでき、サイド バイ サイドでを実行できる ASP.NET MVC 3 でします。
+ASP.NET MVC 4 はインストールでき、ASP.NET MVC 3 とサイドバイサイドで実行できます。
 
 <a id="_Toc303253803"></a>
 ## <a name="documentation"></a>ドキュメント
 
-ASP.NET MVC に関する次の URL で MSDN web サイトで提供されています。
+ASP.NET MVC のドキュメントについては、次の URL で MSDN Web サイトを参照してください。
 
 [https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
-チュートリアルと ASP.NET MVC に関する他の情報は、ASP.NET web サイトの MVC 4 のページで使用可能な ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md))。
+ASP.NET MVC に関するチュートリアルやその他の情報については、ASP.NET web サイト ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)) の mvc 4 ページを参照してください。
 
 <a id="_Toc303253804"></a>
 ## <a name="support"></a>サポート
 
-これは、プレビュー リリースであり、正式にサポートされていません。 このリリースの操作について質問等がございましたら、ASP.NET MVC フォーラムに投稿 ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx))、ASP.NET コミュニティのメンバーが頻繁に、非公式のサポートを提供することができます。
+これはプレビューリリースであり、公式にはサポートされていません。 このリリースの使用についてご質問がある場合は、ASP.NET MVC フォーラム ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)) に投稿してください。 ASP.NET コミュニティのメンバーは、多くの場合、非公式のサポートを提供できます。
 
 <a id="_Toc303253805"></a>
 ## <a name="software-requirements"></a>ソフトウェア要件
 
-Visual Studio の ASP.NET MVC 4 コンポーネントでは、PowerShell 2.0 と Visual Studio 2010 Service Pack 1 または Visual Web Developer Express 2010 Service Pack 1 のいずれかが必要です。
+Visual Studio の ASP.NET MVC 4 コンポーネントには、PowerShell 2.0、Visual Studio 2010 Service Pack 1、または Visual Web Developer Express 2010 Service Pack 1 が必要です。
 
 <a id="_Toc303253806"></a>
-## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>ASP.NET MVC 4、ASP.NET MVC 3 プロジェクトをアップグレードします。
+## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>ASP.NET  4、ASP.NET MVC 3 プロジェクトをアップグレードします。
 
-ASP.NET MVC 4 は、ASP.NET MVC 4、ASP.NET MVC 3 アプリケーション アップグレードするときに選択できる柔軟性を提供する同じコンピューター上の ASP.NET MVC 3 サイドでインストールできます。
+ASP.NET MVC 4 は、ASP.NET MVC 3 とサイドバイサイドで同じコンピューターにインストールできます。これにより、ASP.NET MVC 3 アプリケーションを ASP.NET MVC 4 にアップグレードするタイミングを柔軟に選択できます。
 
-アップグレードする最も簡単な方法は、新しい ASP.NET MVC 4 プロジェクトとコピーを作成するすべてのビュー、コント ローラー、コード、およびコンテンツ ファイルの既存の MVC 3 プロジェクトから新しいプロジェクトに、古いプロジェクトと一致する新しいプロジェクトで参照アセンブリを更新するのには、です。 MVC 3 プロジェクトの Web.config ファイルに変更を加えた場合は、MVC 4 プロジェクトの Web.config ファイルにもこれらの変更をマージする必要があります。
+アップグレードする最も簡単な方法は、新しい ASP.NET MVC 4 プロジェクトを作成し、既存の MVC 3 プロジェクトのすべてのビュー、コントローラー、コード、コンテンツファイルを新しいプロジェクトにコピーしてから、新しいプロジェクトのアセンブリ参照を古いプロジェクトに一致するように更新することです。 MVC 3 プロジェクトの web.config ファイルに変更を加えた場合は、それらの変更を MVC 4 プロジェクトの web.config ファイルにマージする必要もあります。
 
-既存の ASP.NET MVC 3 アプリケーションをバージョン 4 を手動でアップグレードするには、次の操作を行います。
+既存の ASP.NET MVC 3 アプリケーションをバージョン4に手動でアップグレードするには、次の手順を実行します。
 
-1. (は Views フォルダー、およびプロジェクト内の各領域の Views フォルダー内のプロジェクトのルートに 1 つずつ) プロジェクトのすべての Web.config ファイルでは、次のテキストのすべてのインスタンスを置き換えます。
+1. プロジェクトのすべての web.config ファイル (プロジェクトのルートに1つ、[Views] フォルダーに1つ、プロジェクト内の各領域の [Views] フォルダーに1つ) で、次のテキストのすべてのインスタンスを置き換えます。
 
     [!code-console[Main](mvc4-beta-release-notes/samples/sample1.cmd)]
 
-    次の対応するテキスト。
+    には、次の対応するテキストがあります。
 
     [!code-console[Main](mvc4-beta-release-notes/samples/sample2.cmd)]
-2. ルートの Web.config ファイルで更新、 *webPages:Version*要素「2.0.0.0」を新しい追加*PreserveLoginUrl*値"true"を持つキー。
+2. ルートの Web.config ファイルで、Web*ページ: Version*要素を "2.0.0.0" に更新し、値 "true" を持つ新しい*PreserveLoginUrl*キーを追加します。
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample3.xml)]
-3. ソリューション エクスプ ローラーへの参照を削除*System.Web.Mvc* (どの地点をバージョン 3 の DLL) です。 参照を追加し、 *System.Web.Mvc* (v4.0.0.0)。 具体的には、アセンブリ参照を更新する次の変更を行います。 その詳細な手順を次に示します。
+3. ソリューションエクスプローラーで、(バージョン3の DLL を指す) *system.web. Mvc*への参照を削除します。 次に、4.0.0.0 (v) に*参照を追加*します。 特に、アセンブリ参照を更新するには、次の変更を行います。 これらについて詳しく説明します。
 
-    1. ソリューション エクスプ ローラーで、次のアセンブリへの参照を削除します。 
+    1. ソリューションエクスプローラーで、次のアセンブリへの参照を削除します。 
 
-        - *System.Web.Mvc*(v3.0.0.0)
-        - *System.Web.WebPages*(v1.0.0.0)
-        - *System.Web.Razor*(v1.0.0.0)
-        - *System.Web.WebPages.Deployment*(v1.0.0.0)
-        - *System.Web.WebPages.Razor*(v1.0.0.0)
+        - *System.web. Mvc*(v 3.0.0.0)
+        - *System.web. Web ページ*(1.0.0.0)
+        - *System.web. Razor*(v 1.0.0.0)
+        - *System.web. Web ページ*(1.0.0.0)
+        - *System.web. Web ページ*(v 1.0.0.0)
     2. 次のアセンブリへの参照を追加します。 
 
-        - *System.Web.Mvc*(v4.0.0.0)
-        - *System.Web.WebPages*(v2.0.0.0)
-        - *System.Web.Razor*(v2.0.0.0)
-        - *System.Web.WebPages.Deployment*(v2.0.0.0)
-        - *System.Web.WebPages.Razor*(v2.0.0.0)
-4. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 名前をもう一度右クリックし、編集*ProjectName*.csproj します。
-5. 検索、 *ProjectTypeGuids*要素と置換 {E53F8FEA-EAE0-44A6-8774-FFD645390401} {E3E379DF-F4C6-4180-9B81-6769533ABE47}。
-6. 変更を保存、編集していたプロジェクト (.csproj) ファイルを閉じて、プロジェクトを右クリックしておよびプロジェクトの再読み込みを選択します。
-7. ルートの Web.config ファイルを開き、プロジェクトでは、ASP.NET MVC の以前のバージョンを使用してコンパイルされたすべてのサード パーティ製ライブラリを参照する場合、次の 3 つの追加*bindingRedirect*下の要素、 *構成*セクション。 
+        - *System.web. Mvc*(v 4.0.0.0)
+        - *System.web. Web ページ*(v 2.0.0.0)
+        - *System.web. Razor*(v 2.0.0.0)
+        - *System.web. Web ページ. 配置*(v 2.0.0.0)
+        - *System.web. Web ページ*(v 2.0.0.0)
+4. ソリューションエクスプローラーで、プロジェクト名を右クリックし、[プロジェクトのアンロード] を選択します。 次に、名前をもう一度右クリックし、[ *ProjectName*の編集] を選択します。
+5. *Projecttypeguids*要素を見つけ、{E53F8FEA-EAE0-44A6-8774-FFD645390401} を {E3E379DF-F4C6-4180-9B81-6769533ABE47} に置き換えます。
+6. 変更を保存し、編集中のプロジェクト (.csproj) ファイルを閉じて、プロジェクトを右クリックし、[プロジェクトの再読み込み] を選択します。
+7. 以前のバージョンの ASP.NET MVC を使用してコンパイルされたサードパーティ製のライブラリをプロジェクトが参照する場合は、ルートの Web.config ファイルを開き、*構成*セクションの下に次の3つの*bindingRedirect*要素を追加します。 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample4.xml)]
 
 <a id="_Toc303253807"></a>
 ## <a name="new-features-in-aspnet-mvc-4-beta"></a>ASP.NET MVC 4 Beta の新機能
 
-このセクションが導入された機能について説明します、ASP.NET MVC 4 Beta リリースにします。
+このセクションでは、ASP.NET MVC 4 ベータリリースで導入された機能について説明します。
 
 <a id="_Toc317096197"></a>
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-HTTP サービスを作成するための新しいフレームワークは、さまざまなブラウザーやモバイル デバイスなどのクライアントに到達できる、ASP.NET MVC 4 には、ASP.NET Web API にはようになりましたが含まれます。 ASP.NET Web API は RESTful サービスを構築するための理想的なプラットフォームではもです。
+ASP.NET MVC 4 には、ブラウザーやモバイルデバイスを含む広範なクライアントに接続できる HTTP サービスを作成するための新しいフレームワークである ASP.NET Web API が含まれるようになりました。 ASP.NET Web API は、RESTful サービスを構築するための最適なプラットフォームでもあります。
 
 ASP.NET Web API には、次の機能のサポートが含まれています。
 
-- **最新の HTTP プログラミング モデル:** 直接アクセスし、HTTP 要求と応答を返す新しい、厳密に型指定された HTTP オブジェクト モデルを使用して、Web Api を操作します。 同じプログラミング モデルと HTTP パイプラインは、新しい種類の HttpClient を介してクライアントで対称的に使用します。
-- **完全にサポート ルート**:Web Api では、常に、ルート パラメーターや制約を含む、Web スタックの一部であったルート機能の完全なセットできるようになりました。 さらに、アクションへのマッピングに、規則の完全なサポート [HttpPost] などの属性を適用するが不要になったため、クラスとメソッド。
-- **コンテンツ ネゴシエーション**:クライアントとサーバーは、API から返されるデータの適切な形式に共同作業することができます。 XML、JSON、およびフォームの URL でエンコードされた形式では、既定のサポートを提供して、独自のフォーマッタを追加することでこのサポートを拡張または既定のコンテンツ ネゴシエーション戦略を置き換えることもできます。
-- **モデル バインドと検証の場合:** モデル バインダーは、HTTP 要求のさまざまな部分からデータを抽出し、それらのメッセージ部分を Web API の操作が使用できる .NET オブジェクトに変換する簡単な方法を提供します。
-- **フィルター:** Web Api は、[Authorize] 属性などのよく知られているフィルターなどのフィルターをサポートします。 作成し、操作、承認、および例外処理フィルターを接続できます。
-- **クエリの構成:** IQueryable を返すだけで&lt;T&gt;、Web API は OData URL 表記規則を使用してクエリをサポートします。
-- **HTTP の詳細の強化されたテストの容易性:** 静的コンテキスト オブジェクトでは、HTTP の詳細を設定するのではなく、Web API アクションは HttpRequestMessage と HttpResponseMessage のインスタンス機能ようになりましたことができます。 これらのオブジェクトのジェネリック バージョンは、HTTP の種類に加えて、カスタムの型を操作するためにも存在します。
-- **DependencyResolver による制御を (IoC) の向上の反転:** Web API は、MVC の依存関係競合回避モジュールによって実装されるサービス ロケーターのパターンを使って、多くのさまざまな機能のインスタンスを取得します。
-- **コード ベースの構成:** Web API の構成は、クリーン、構成ファイルを残して、コードを介してのみ実行されます。
-- **自己ホストします。** Web Api は、ルートの完全な機能と Web API の他の機能を使用中に、IIS に加え、独自のプロセスでホストできます。
+- **最新の HTTP プログラミングモデル:** 新しい厳密に型指定された HTTP オブジェクトモデルを使用して、Web Api の HTTP 要求と応答に直接アクセスして操作します。 新しい HttpClient 型を使用して、クライアントで同じプログラミングモデルと HTTP パイプラインを対称的に使用できます。
+- **ルートの完全なサポート**: web api では、ルートパラメーターや制約など、常に web スタックの一部であるルート機能の完全なセットがサポートされるようになりました。 また、アクションへのマッピングでは規約が完全にサポートされているため、[HttpPost] などの属性をクラスやメソッドに適用する必要がなくなりました。
+- **コンテンツネゴシエーション**: クライアントとサーバーは連携して、API から返されるデータの適切な形式を判断できます。 XML、JSON、およびフォームの URL エンコード形式の既定のサポートが用意されています。独自のフォーマッタを追加することによって、このサポートを拡張することも、既定のコンテンツネゴシエーション戦略を置き換えることもできます。
+- **モデルのバインドと検証:** モデルバインダーを使用すると、HTTP 要求のさまざまな部分からデータを抽出し、それらのメッセージ部分を .NET オブジェクトに変換して、Web API アクションで使用できるようにすることができます。
+- **フィルター:** Web Api では、[承認] 属性などの既知のフィルターを含むフィルターがサポートされるようになりました。 アクション、承認、および例外処理のために、独自のフィルターを作成してプラグインすることができます。
+- **クエリの構成:** IQueryable&lt;T&gt;を返すだけで、Web API は OData URL 規則を使用したクエリをサポートします。
+- **HTTP 詳細のテストの容易性の向上:** 静的コンテキストオブジェクトで HTTP の詳細を設定するのではなく、Web API アクションを HttpRequestMessage および HttpResponseMessage のインスタンスと共に使用できるようになりました。 これらのオブジェクトのジェネリックバージョンは、HTTP 型に加えてカスタム型を操作できるようにするためにも存在します。
+- **DependencyResolver を使用したコントロールの反転 (IoC) の向上:** Web API では、MVC の依存関係競合回避モジュールによって実装されたサービスロケーターパターンを使用して、さまざまな機能のインスタンスを取得するようになりました。
+- **コードベースの構成:** Web API の構成はコードを使用してのみ実行され、構成ファイルはクリーンなままになります。
+- **自己ホスト:** Web api は、IIS だけでなく、独自のプロセスでホストすることもできます。また、Web API のルートやその他の機能を最大限に活用できます。
 
-ASP.NET Web API の詳細についてを参照してくださいの[ https://www.asp.net/web-api](../web-api/index.md)します。
+の詳細については ASP.NET Web API [https://www.asp.net/web-api](../web-api/index.md)を参照してください。
 
 <a id="_Toc317096198"></a>
-### <a name="aspnet-single-page-application"></a>ASP.NET Single Page Application
+### <a name="aspnet-single-page-application"></a>ASP.NET シングルページアプリケーション
 
-ASP.NET MVC 4 には、JavaScript、および Web Api を使用して重要なクライアント側の対話をシングル ページ アプリケーションを構築するためのエクスペリエンスの早期プレビュー版が含まれています。 このサポートは次のとおりです。
+ASP.NET MVC 4 には、JavaScript と Web Api を使用して、クライアント側の重要な対話機能を備えたシングルページアプリケーションを構築するための初期プレビューが含まれるようになりました。 このサポートには次のものが含まれます。
 
-- キャッシュされたデータとローカルのやり取りを高度な JavaScript ライブラリのセット
-- 作業単位と DAL サポートの追加の Web API コンポーネント
-- すぐに開始するためにスキャフォールディングでの MVC プロジェクト テンプレート
+- キャッシュされたデータとのより高度なローカル操作のための JavaScript ライブラリのセット
+- 作業単位と DAL のサポートのための追加の Web API コンポーネント
+- すぐに作業を開始するためのスキャフォールディングを含む MVC プロジェクトテンプレート
 
-シングル ページ アプリケーションの詳細については、ASP.NET MVC 4 のサポートを参照してください[ https://www.asp.net/single-page-application](../single-page-application/index.md)します。
+ASP.NET MVC 4 のシングルページアプリケーションサポートの詳細については、 [https://www.asp.net/single-page-application](../single-page-application/index.md)を参照してください。
 
 <a id="_Toc303253808"></a>
-### <a name="enhancements-to-default-project-templates"></a>既定のプロジェクト テンプレートの機能強化
+### <a name="enhancements-to-default-project-templates"></a>既定のプロジェクトテンプレートの機能強化
 
-現代的な外観の web サイトを作成する、新しい ASP.NET MVC 4 プロジェクトを作成するために使用するテンプレートが更新されました。
+新しい ASP.NET MVC 4 プロジェクトを作成するために使用されるテンプレートは、最新の web サイトを作成するように更新されました。
 
 ![](mvc4-beta-release-notes/_static/image1.png)
 
-表面的な機能強化、だけでなく向上には、新しいテンプレートの機能がいます。 テンプレートでは、デスクトップ ブラウザーとモバイル ブラウザーのカスタマイズの両方でスケッチをアダプティブ レンダリングと呼ばれる手法を採用しています。
+表面的な機能強化に加えて、新しいテンプレートの機能が強化されています。 このテンプレートは、デスクトップブラウザーとモバイルブラウザーの両方で適切に表示されるように、アダプティブレンダリングと呼ばれる手法を採用しています。カスタマイズは必要ありません。
 
 ![](mvc4-beta-release-notes/_static/image2.png)
 
-アダプティブ レンダリングの動作を表示するはモバイル エミュレーターを使用したり小さくなるように、デスクトップ ブラウザー ウィンドウのサイズを変更してみてください。 ブラウザー ウィンドウが十分に小さいと、ページのレイアウトが変わります。
+アダプティブレンダリングが動作していることを確認するには、モバイルエミュレーターを使用するか、デスクトップブラウザーウィンドウのサイズを小さくしてみてください。 ブラウザーウィンドウのサイズが十分に小さくなると、ページのレイアウトが変わります。
 
-既定のプロジェクト テンプレートを別の拡張機能より豊富な UI を提供する JavaScript の使用です。 テンプレートで使用されるログインと登録のリンクは、jQuery UI ダイアログを使用して、豊富なログイン画面を表示する方法の例を示します。
+既定のプロジェクトテンプレートのもう1つの拡張機能は、JavaScript を使用して豊富な UI を提供することです。 テンプレートで使用されるログインリンクとレジスタリンクは、jQuery UI ダイアログを使用してリッチログイン画面を表示する方法の例です。
 
 ![](mvc4-beta-release-notes/_static/image3.png)
 
 <a id="_Toc303253809"></a>
-### <a name="mobile-project-template"></a>モバイル プロジェクト テンプレート
+### <a name="mobile-project-template"></a>モバイルプロジェクトテンプレート
 
-新しいプロジェクトを開始しているモバイル専用のサイトとタブレットのブラウザーを作成する場合、新しいモバイル アプリケーション プロジェクト テンプレートを使用することができます。 これは、jQuery Mobile、タッチに最適化された UI を構築するため、オープン ソース ライブラリに基づいています。
+新しいプロジェクトを開始していて、モバイルおよびタブレットのブラウザー専用のサイトを作成する場合は、[新しいモバイルアプリケーション] プロジェクトテンプレートを使用できます。 これは、タッチに最適化された UI を構築するためのオープンソースライブラリである jQuery Mobile に基づいています。
 
 ![](mvc4-beta-release-notes/_static/image4.png)
 
-このテンプレートには、インターネット アプリケーション テンプレートと同じアプリケーションの構造が含まれています (およびコント ローラーのコードはほぼ同じです) が、jQuery Mobile を使用して、適切に表示して、タッチ ベースのモバイル デバイスで適切に動作するスタイルを設定します。 構造体し、モバイルの UI のスタイルを設定する方法の詳細については、次を参照してください。、 [jQuery モバイル プロジェクトの web サイト](http://jquerymobile.com/)します。
+このテンプレートには、インターネットアプリケーションテンプレートと同じアプリケーション構造が含まれています (コントローラーコードは実質的に同じです) が、jQuery Mobile を使用してスタイルを適用し、タッチベースのモバイルデバイスで適切に動作します。 モバイル UI を構造化およびスタイルする方法の詳細については、 [JQuery mobile プロジェクトの web サイト](http://jquerymobile.com/)を参照してください。
 
-デスクトップ指向のサイト、モバイルに最適化されたビューを追加するデスクトップとモバイル ブラウザー スタイルの異なるビューを提供する 1 つのサイトを作成する場合に既にある場合は、新しい表示モード機能を使用できます。 (詳しくは、次のセクションを参照してください)。
+モバイル最適化されたビューを追加するデスクトップ指向サイトが既にある場合、またはデスクトップとモバイルのブラウザーに異なるスタイルのビューを提供する1つのサイトを作成する場合は、新しい表示モード機能を使用できます。 (次のセクションを参照してください)。
 
 <a id="_Toc303253810"></a>
 ### <a name="display-modes"></a>表示モード
 
-新しい表示モード機能は、要求を行っているブラウザーによってビューを選択してアプリケーションを使用できます。 たとえば、デスクトップ ブラウザーでは、ホーム ページを要求する場合に、アプリケーションは Views\Home\Index.cshtml テンプレートを使用可能性があります。 モバイル ブラウザーでは、ホーム ページを要求するアプリケーションは Views\Home\Index.mobile.cshtml テンプレートを返す可能性があります。
+新しい表示モード機能を使用すると、アプリケーションは、要求を行っているブラウザーに応じて、ビューを選択できます。 たとえば、デスクトップブラウザーがホームページを要求した場合、アプリケーションは Views\Home\Index.cshtml テンプレートを使用することがあります。 モバイルブラウザーがホームページを要求した場合、アプリケーションは Views\Home\Index.mobile.cshtml テンプレートを返すことがあります。
 
-レイアウト、パーシャルは、特定のブラウザーの種類を無効にできます。 例えば:
+また、レイアウトとパーシャルは、特定のブラウザーの種類に対してオーバーライドすることもできます。 次に例を示します。
 
-- Views \shared フォルダーには、両方が含まれている場合、 \_Layout.cshtml と\_Layout.mobile.cshtml テンプレート、既定では、アプリケーションで使用\_モバイルブラウザーからの要求中にLayout.mobile.cshtml\_Layout.cshtml 他の要求中にします。
-- フォルダーには、両方が含まれている場合\_MyPartial.cshtml と\_MyPartial.mobile.cshtml、命令@Html.Partial("\_MyPartial") はレンダリング\_MyPartial.mobile.cshtml 携帯電話からの要求時にブラウザー、および\_MyPartial.cshtml 他の要求中にします。
+- Views\Shared フォルダーに \_Layout と \_Layout の両方のテンプレートが含まれている場合、既定では、アプリケーションは、モバイルブラウザーからの要求中に \_を使用し、他の要求時には \_を使用します。
+- フォルダーに \_MyPartial. cshtml と \_MyPartial.\_の両方が含まれている場合、命令 @Html.Partial("MyPartial") は、モバイルブラウザーからの要求時に MyPartial を表示し、他の要求では MyPartial. cshtml を \_します。\_
 
-新しい登録することがより特定のビュー、レイアウト、またはその他のデバイス部分ビューを作成する場合は、 *DefaultDisplayMode*要求は、特定の条件を満たすときに検索する名前を指定するインスタンス。 次のコードを追加するなど、*アプリケーション\_開始*Apple iPhone ブラウザー要求を作成するときに適用される表示モードとして文字列"iPhone"を登録する Global.asax ファイル内のメソッド。
+他のデバイスの特定のビュー、レイアウト、または部分ビューを作成する場合は、新しい*Defaultdisplaymode*インスタンスを登録して、要求が特定の条件を満たすときに検索する名前を指定できます。 たとえば、次のコードを*アプリケーション\_* の global.asax ファイルに追加して、Apple iPhone ブラウザーが要求を行うときに適用される表示モードとして文字列 "iPhone" を登録することができます。
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample5.cs)]
 
-アプリケーションで、views \shared を使用して、Apple iPhone ブラウザー要求を作成するときにこのコードが実行された後、\\_Layout.iPhone.cshtml レイアウト (存在する場合)。
+このコードを実行すると、Apple iPhone ブラウザーが要求を行うときに、アプリケーションで Views\Shared\\_Layout (存在する場合) が使用されます。
 
 <a id="_Toc303253811"></a>
-### <a name="jquery-mobile-the-view-switcher-and-browser-overriding"></a>jQuery Mobile、ビュー スイッチャー、およびブラウザーのオーバーライド
+### <a name="jquery-mobile-the-view-switcher-and-browser-overriding"></a>jQuery Mobile、ビュースイッチャー、およびブラウザーのオーバーライド
 
-jQuery Mobile は、タッチに最適化された web UI を構築するためのオープン ソース ライブラリです。 ASP.NET MVC 4 アプリケーションで jQuery Mobile を使用する場合は、ダウンロードして開始するのに役立つ NuGet パッケージをインストールできます。 Visual Studio パッケージ マネージャー コンソールからインストールするには、次のコマンドを入力します。
+jQuery Mobile は、タッチに最適化された web UI を構築するためのオープンソースライブラリです。 ASP.NET MVC 4 アプリケーションで jQuery Mobile を使用する場合は、作業の開始に役立つ NuGet パッケージをダウンロードしてインストールすることができます。 Visual Studio パッケージマネージャーコンソールからインストールするには、次のコマンドを入力します。
 
 [!code-powershell[Main](mvc4-beta-release-notes/samples/sample6.ps1)]
 
-これには、jQuery Mobile、および、次のいくつかのヘルパー ファイルがインストールされます。
+これにより、jQuery Mobile と、次のようなヘルパーファイルがインストールされます。
 
-- Views/shared/\_Layout.Mobile.cshtml、jQuery Mobile ベースのレイアウトであります。
-- ビュー/共有で構成されるビュー スイッチャーのコンポーネント/\_ViewSwitcher.cshtml 部分ビューと ViewSwitcherController.cs コント ローラー。
+- Views/Shared/\_Layout。これは jQuery モバイルベースのレイアウトです。
+- Views/Shared/\_ViewSwitcher. cshtml partial ビューと ViewSwitcherController.cs controller で構成されるビュースイッチャーコンポーネント。
 
-パッケージをインストールした後は、モバイル ブラウザーを使用してアプリケーションを実行 (または、Firefox など、同等の[ユーザー エージェント切り替え](http://chrispederick.com/work/user-agent-switcher/)アドオン)。 JQuery モバイル レイアウトを処理するため、ページ検索は、まったく異なることがわかりますおよびスタイル設定します。 これを活用するには、次の操作を行うことができます。
+パッケージをインストールした後、モバイルブラウザーを使用してアプリケーションを実行します (または、Firefox[ユーザーエージェントスイッチャー](http://chrispederick.com/work/user-agent-switcher/)アドオンなどの同等のものを使用します)。 JQuery Mobile はレイアウトとスタイル設定を処理するため、ページの外観が大きく異なることがわかります。 この機能を利用するには、次の操作を行います。
 
-- モバイル専用ビューの上書きを作成する」の説明に従って[表示モード](#_Toc303253810)以前 (たとえば、モバイル ブラウザーの Views\Home\Index.cshtml をオーバーライドする Views\Home\Index.mobile.cshtml を作成します)。
-- 読み取り、 [jQuery モバイル ドキュメント](http://jquerymobile.com/)モバイル ビューで、タッチに最適化された UI 要素を追加する方法の詳細を表示します。
+- 前の「[表示モード](#_Toc303253810)」で説明されているように、モバイル固有のビューの上書きを作成します (たとえば、モバイルブラウザーの Views\Home\Index.cshtml を上書きするように Views\Home\Index.mobile.cshtml を作成します)。
+- タッチに最適化された UI 要素をモバイルビューに追加する方法の詳細については、 [JQuery Mobile のドキュメント](http://jquerymobile.com/)を参照してください。
 
-モバイルに最適化された web ページ用の規則では、デスクトップ ビューなど、ページのデスクトップ バージョンに切り替えることができますサイトの完全なモードはテキストがリンクを追加します。 JQuery.Mobile.MVC パッケージには、この目的のためのサンプル ビュー スイッチャーのコンポーネントが含まれています。 Views \shared 既定で使用される\\_Layout.Mobile.cshtml ビュー、およびページがレンダリングされるようになります。
+モバイルで最適化された web ページの規則としては、ユーザーがデスクトップバージョンのページに切り替えることができるように、デスクトップビューや完全サイトモードなどのテキストを持つリンクを追加します。 JQuery パッケージには、この目的のためのサンプルのビュースイッチャーコンポーネントが含まれています。 これは、既定の Views\Shared\\_Layout で使用されます。これは、ページが表示されたときの次のようになります。
 
 ![](mvc4-beta-release-notes/_static/image5.png)
 
-ユーザーは、リンクをクリックする、同じページのデスクトップ バージョンに切り替えられますしています。
+ビジターがリンクをクリックすると、同じページのデスクトップバージョンに切り替わります。
 
-デスクトップ レイアウトには既定のビューの切り替え機能が含まれていないために、訪問者はモバイルのモードを取得する方法を必要はありません。 これを有効にするには、次の参照を追加 *\_ViewSwitcher* 、デスクトップ レイアウトに内部でだけ、 *&lt;本文&gt;* 要素。
+既定では、デスクトップレイアウトにはビュースイッチャーが含まれないため、訪問者はモバイルモードに戻ることができません。 これを有効にするには、 *\_ViewSwitcher*への次の参照を、 *&lt;body&gt;* 要素の内側にあるデスクトップレイアウトに追加します。
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
-ビュー スイッチャーは、ブラウザーのオーバーライドと呼ばれる新しい機能を使用します。 この機能により、アプリケーションで送られてきますかのように要求を扱うよりも、別のブラウザー (ユーザー エージェント) から、あなたが実際にします。 次の表では、ブラウザーのオーバーライドを提供する方法を示します。
+ビュースイッチャーは、ブラウザーのオーバーライドと呼ばれる新しい機能を使用します。 この機能を使用すると、アプリケーションは、実際のものとは異なるブラウザー (ユーザーエージェント) からの要求を処理できます。 次の表に、ブラウザーがオーバーライドするメソッドを示します。
 
 | `HttpContext.SetOverriddenBrowser(userAgentString)` | 指定されたユーザー エージェントを使用して、要求の実際のユーザー エージェント値をオーバーライドします。 |
 | --- | --- |
-| `HttpContext.GetOverriddenUserAgent()` | オーバーライドが指定されていない場合は、要求のユーザー エージェントの上書き値、または、実際のユーザー エージェント文字列を返します。 |
-| `HttpContext.GetOverriddenBrowser()` | 返します、 *HttpBrowserCapabilitiesBase*要求に設定されているユーザー エージェントに対応するインスタンス (実際またはオーバーライド) します。 この値を使用して、プロパティを取得します。 *IsMobileDevice*します。 |
-| `HttpContext.ClearOverriddenBrowser()` | 現在の要求でオーバーライドされたユーザー エージェントを削除します。 |
+| `HttpContext.GetOverriddenUserAgent()` | 要求のユーザーエージェントのオーバーライド値、またはオーバーライドが指定されていない場合は実際のユーザーエージェント文字列を返します。 |
+| `HttpContext.GetOverriddenBrowser()` | 要求に対して現在設定されているユーザーエージェントに対応する*HttpBrowserCapabilitiesBase*インスタンスを返します (実際またはオーバーライドされます)。 この値を使用して、 *IsMobileDevice*などのプロパティを取得できます。 |
+| `HttpContext.ClearOverriddenBrowser()` | 現在の要求でオーバーライドされたユーザー エージェントがあれば削除します。 |
 
-ブラウザー オーバーライドは ASP.NET MVC 4 のコア機能でありは、jQuery.Mobile.MVC パッケージをインストールしていない場合でも使用できます。 影響ただし、ビュー、レイアウト、および部分ビューの選択-その他の ASP.NET 機能に依存するのには影響しません、 *Request.Browser*オブジェクト。
+ブラウザーのオーバーライドは ASP.NET MVC 4 の中核機能であり、jQuery パッケージをインストールしない場合でも使用できます。 ただし、ビュー、レイアウト、および部分ビューの選択にのみ影響します *。 Browser*オブジェクトに依存する他の ASP.NET 機能には影響しません。
 
-既定では、cookie を使用して、ユーザー エージェントの上書きが格納されます。 既定のプロバイダーを置き換えることができます (たとえば、データベース) に別の場所の上書きを保存する場合は、(*BrowserOverrideStores.Current*)。 このプロバイダーのドキュメントは、ASP.NET MVC の今後のリリースと共に使用できるになります。
+既定では、ユーザーエージェントのオーバーライドは cookie を使用して格納されます。 (たとえば、データベースで) 上書きを別の場所に保存する場合は、既定のプロバイダー (*Browseroverridestores. Current*) を置き換えることができます。 このプロバイダーのドキュメントは、ASP.NET MVC の今後のリリースに付属しています。
 
 <a id="_Toc303253812"></a>
-### <a name="recipes-for-code-generation-in-visual-studio"></a>Visual Studio でのコード生成のレシピ
+### <a name="recipes-for-code-generation-in-visual-studio"></a>Visual Studio でのコード生成のためのレシピ
 
-新しいレシピ機能は、NuGet を使用してをインストールするパッケージに基づくソリューションに固有のコードを生成する Visual Studio を使用できます。 レシピのフレームワークを簡単に書き込むコード生成のプラグインは、領域の追加、コント ローラーの追加、およびビューの追加の組み込みコード ジェネレーターを置換する使用することもできます。 開発者向け。 レシピは NuGet パッケージとして展開するため、簡単にソース管理にチェックインでき自動的にプロジェクトのすべての開発者と共有します。 これらは、ソリューションごとに入手できます。
+新しいレシピ機能により、Visual Studio は、NuGet を使用してインストールできるパッケージに基づいて、ソリューション固有のコードを生成できます。 レシピフレームワークを使用すると、開発者はコード生成プラグインを簡単に記述できるようになります。このプラグインを使用すると、追加領域、コントローラーの追加、ビューの追加用の組み込みのコードジェネレーターを置き換えることができます。 レシピは NuGet パッケージとして配置されるため、簡単にソース管理にチェックインし、プロジェクトのすべての開発者と共有することができます。 また、ソリューションごとに使用することもできます。
 
 <a id="_Toc303253813"></a>
-### <a name="task-support-for-asynchronous-controllers"></a>非同期コント ローラーのタスクのサポート
+### <a name="task-support-for-asynchronous-controllers"></a>非同期コントローラーのタスクサポート
 
-これで記述できる非同期アクション メソッドを型のオブジェクトを返す 1 つのメソッド*タスク*または*タスク&lt;ActionResult&gt;* します。
+*ActionResult&gt;&lt;* *型の*オブジェクトを返す単一のメソッドとして、非同期アクションメソッドを記述できるようになりました。
 
-たとえば、Visual c# 5 を使用している場合 (またはを使用して、 [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx))、次のような非同期アクション メソッドを作成することができます。
+たとえば、Visual C# 5 (または[Async CTP](https://msdn.microsoft.com/vstudio/async.aspx)を使用) を使用している場合は、次のような非同期アクションメソッドを作成できます。
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 
-前のアクション メソッドへの呼び出しで*newsService.GetHeadlinesAsync*と*sportsService.GetScoresAsync*非同期に呼び出され、スレッド プールからスレッドをブロックされません。
+前のアクションメソッドでは、 *NewsService async*と*sportsService*の呼び出しは非同期に呼び出され、スレッドプールからのスレッドはブロックされません。
 
-非同期アクション メソッドが返す*タスク*インスタンスは、タイムアウトもサポートできます。 アクション メソッドをキャンセルするためには、型のパラメーターを追加*CancellationToken*アクション メソッドのシグネチャにします。 次の例では、2500 時間をミリ秒単位のタイムアウトを持つし、表示する非同期アクション メソッドを*TimedOut*タイムアウトが発生した場合、クライアントに表示します。
+*タスク*インスタンスを返す非同期アクションメソッドは、タイムアウトをサポートすることもできます。 アクションメソッドをキャンセル可能なにするには、アクションメソッドシグネチャに*CancellationToken*型のパラメーターを追加します。 次の例は、タイムアウトが2500ミリ秒で、タイムアウトが発生した場合に*TimedOut*ビューをクライアントに表示する非同期アクションメソッドを示しています。
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample9.cs)]
 
 <a id="_Toc303253814"></a>
 ### <a name="azure-sdk"></a>Azure SDK
 
-ASP.NET MVC 4 Beta には、Windows Azure SDK の 2011 年 9 月 1.5 のリリースがサポートしています。
+ASP.NET MVC 4 Beta では、Windows Azure SDK の9月 2011 1.5 リリースがサポートされています。
 
 <a id="_Toc303253815"></a>
 ## <a name="known-issues-and-breaking-changes"></a>既知の問題と重大な変更
 
-- **ASP.NET MVC 4 Beta をインストールした後、CSHTML と VBHTML エディターが Visual Studio 2010 Service Pack 1 CSHTML と VBHTML エディターでは可能性があります cshtml"や"vbhtml ファイル内で作成するか、JavaScript を入力した後に長時間一時停止します。** これは、作成された直後、まだコンパイルされていないと ASP.NET MVC 4 アプリケーションでのみ発生します。
+- **ASP.NET MVC 4 Beta をインストールすると、Visual Studio 2010 Service Pack 1 の cshtml/vbhtml エディターの cshtml/VBHTML エディターが、cshtml または VBHTML ファイル内にスニペットまたは JavaScript を入力した後、長い時間一時停止する場合があります。** これは、作成されたばかりでまだコンパイルされていない ASP.NET MVC 4 アプリケーションでのみ発生します。
 
-    回避策では、bin フォルダーにアセンブリを取得するプロジェクトをコンパイルします。 エディターの問題が返される、アセンブリを bin フォルダーから削除され、プロジェクトをクリーンアップする場合に注意してください。
+    この回避策は、プロジェクトをコンパイルして bin フォルダー内のアセンブリを取得することです。 Bin フォルダーからアセンブリを削除するプロジェクトをクリーニングすると、エディターの問題が返されます。
 
     これは、次のリリースで修正される予定です。
-- **Visual Studio 11 Beta 用の c# プロジェクト テンプレートには、global.asax.cs、不適切な接続文字列が含まれます。** アプリケーションで指定された既定の接続\_Start メソッドを Visual Studio 11 Beta で作成されたプロジェクトにエスケープされていない円記号を含む LocalDB 接続文字列が含まれています (\)文字。 これは、結果、接続エラー、SqlException を生成する Entity Framework の DbContext にアクセスしようとします。
+- **C#Visual Studio 11 Beta のプロジェクトテンプレートに、Global.asax.cs に正しくない接続文字列が含まれています。** Visual Studio 11 Beta で作成されたプロジェクトの Application\_Start メソッドに指定された既定の接続には、エスケープされていない円記号 (\) 文字を含む LocalDB 接続文字列が含まれています。 この結果、SqlException を生成する DbContext Entity Framework にアクセスしようとすると接続エラーが発生します。
 
-    この問題を修正するには、アプリでバック スラッシュ文字をエスケープ\_Global.asax.cs のメソッドを起動して、そこに次のようにします。
+    この問題を解決するには、次のように読み取られるように、App\_Start メソッドで円記号をエスケープします。
 
     [!code-csharp[Main](mvc4-beta-release-notes/samples/sample10.cs)]
-- **.NET 4.5 を対象とする ASP.NET MVC 4 アプリケーションが、FileLoadException System.Net.Http.dll アセンブリが .NET 4.0 で実行する場合にアクセスしようとするとスローされます。** .NET 4.5 で作成された ASP.NET MVC 4 アプリケーションには、バインドが含まれているという FileLoadException 原因となるリダイレクト「を読み込めませんでしたファイルまたはアセンブリ 'System.Net.Http' またはその依存関係の 1 つ」。 ときに、アプリケーションは、.NET 4.0 がインストールされたシステムで実行されます。 この問題を修正するには、web.config ファイルから次のバインド リダイレクトを削除します。
+- **.Net 4.5 を対象とする ASP.NET MVC 4 アプリケーションは、.NET 4.0 で実行されるときに FileLoadException アセンブリにアクセスしようとすると、をスローします。** .NET 4.5 で作成された ASP.NET MVC 4 アプリケーションには、バインドリダイレクトが含まれています。これにより、"ファイルまたはアセンブリ ' FileLoadException ' またはその依存関係の1つを読み込めませんでした。" という状態になります。 .NET 4.0 がインストールされているシステムでアプリケーションを実行する場合。 この問題を解決するには、web.config から次のバインドリダイレクトを削除します。
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample11.xml)]
 
-    変更した web.config 内のアセンブリのバインド要素には、次のように表示されます。
+    変更した web.config のアセンブリバインド要素は、次のように表示されます。
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- <strong>Visual Basic プロジェクトで「コント ローラーの追加」の項目テンプレートが、正しくない名前空間が呼び出されたときに生成されます</strong><strong>から領域内で。</strong> Visual Basic を使用する ASP.NET MVC プロジェクト内の領域に、コント ローラーを追加すると、項目テンプレートは、コント ローラーに間違った名前空間を挿入します。 コント ローラーでのアクションに移動すると、「ファイルが見つかりません」エラーになります。  
+- <strong>Visual Basic プロジェクトの "コントローラーの追加" 項目テンプレートは、領域内から呼び出されたときに正しくない名前空間を生成し</strong><strong>ます。</strong> Visual Basic を使用する ASP.NET MVC プロジェクトの領域にコントローラーを追加すると、項目テンプレートによって、コントローラーに間違った名前空間が挿入されます。 コントローラーのアクションに移動すると、"ファイルが見つかりません" というエラーが発生します。  
   
-  生成された名前空間は、ルート名前空間の後にすべてを省略します。 たとえば、生成された名前空間は*RootNamespace*する必要がありますが、 *RootNamespace.Areas.AreaName.Controllers*します。
-- **Razor ビュー エンジンにおける重大な変更。** Razor パーサーの書き換えの一環として、次の種類はから削除された*System.Web.Mvc.Razor*: 
+  生成された名前空間は、ルート名前空間の後にあるすべてのものを省略します。 たとえば、生成される名前空間は*RootNamespace*ですが、 *RootNamespace*である必要があります。
+- **Razor ビューエンジンでの重大な変更。** Razor パーサーの書き換えの一環として、次の型が*system.web*から削除されました。 
 
     - *ModelSpan*
     - *MvcVBRazorCodeGenerator*
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
-  次のメソッドも削除されます。 
+  次のメソッドも削除されました。 
 
-    - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-    - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
-    - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **WebMatrix.WebData.dll が、ASP.NET MVC 4 アプリケーションの/bin ディレクトリに含まれる、フォーム認証の URL にかかります。** ログオン/アカウントへのリダイレクトを認証ログインが上書きされます (たとえば、配置可能な依存関係の追加 ダイアログを使用する場合は、「Razor 構文で ASP.NET Web ページ」を選択) して WebMatrix.WebData.dll アセンブリをアプリケーションに追加するのではなく/既定の ASP.NET MVC アカウント コント ローラーで期待どおりに、アカウント/ログインします。 この動作を回避し、web.config ファイルの [認証] セクションで既に指定された URL を使用して、PreserveLoginUrl と呼ばれる、appSetting を追加および true に設定できます。 
+    - *MvcCSharpRazorCodeParser (System.web..... パーサー. CodeBlockInfo)*
+    - *MvcWebPageRazorHost (RazorCodeGenerator) のようになります。*
+    - *MvcVBRazorCodeParser (System.web..... パーサー. CodeBlockInfo)*
+- **ASP.NET MVC 4 アプリの/bin ディレクトリに WebData が含まれている場合、フォーム認証の URL が引き継がれます。** WebData アセンブリをアプリケーションに追加する ([配置可能な依存関係の追加] ダイアログボックスを使用して [Razor 構文を使用する] を ASP.NET Web ページ選択するなど) と、既定の ASP.NET MVC アカウントコントローラーによって想定されているように、/account/ログインではなく、認証ログインリダイレクトがオーバーライドされます。 この動作を回避し、web.config の認証セクションに既に指定されている URL を使用するには、PreserveLoginUrl という名前の appSetting を追加し、それを true に設定します。 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
-- **NuGet パッケージ マネージャーは、Visual Studio 2010 および Visual Web Developer 2010 のサイド バイ サイド インストールの ASP.NET MVC 4 をインストールするときのインストールに失敗します。** Visual Studio 2010 と ASP.NET MVC 4 と並んで、Visual Web Developer 2010 を実行するには、両方のバージョンの Visual Studio を既にインストールした後、ASP.NET MVC 4 をインストールする必要があります。
-- **前提条件が既にアンインストールされている場合、ASP.NET MVC 4 のアンインストールが失敗します。** ASP.NET MVC を完全にアンインストールするには、4you は Visual Studio をアンインストールする前に、ASP.NET MVC 4 をアンインストールする必要があります。
-- **既定の Web API プロジェクトを実行すると、存在しない RegisterApis メソッドを使用してルートを追加するユーザーを正しく指示する命令が表示されます。** ASP.NET のルート テーブルを使用して、RegisterRoutes メソッドでは、ルートを追加する必要があります。
-- **ASP.NET MVC 4 Beta をインストールするには、ASP.NET MVC 3 RTM アプリケーションが中断されます。** 作成された ASP.NET MVC 3 アプリケーション (ASP.NET MVC 3 Tools Update リリース) ではなくリリースは RTM で、ASP.NET MVC 4 Beta と並行して動作させるには、次の変更を必要とします。 これらの更新プログラムの結果にコンパイル エラーが発生せず、プロジェクトをビルドします。 
+- **Visual Studio 2010 と Visual Web Developer 2010 をサイドバイサイドでインストールするために ASP.NET MVC 4 をインストールしようとすると、NuGet パッケージマネージャーのインストールが失敗します。** Visual Studio 2010 と Visual Web Developer 2010 を ASP.NET MVC 4 とサイドバイサイドで実行するには、Visual Studio の両方のバージョンが既にインストールされていると、ASP.NET MVC 4 をインストールする必要があります。
+- **前提条件が既にアンインストールされている場合、ASP.NET MVC 4 のアンインストールは失敗します。** ASP.NET MVC 4you 正常にアンインストールするには、Visual Studio をアンインストールする前に ASP.NET MVC 4 をアンインストールする必要があります。
+- **既定の Web API プロジェクトを実行すると、存在しない RegisterApis メソッドを使用してルートを追加するようにユーザーに誤って指示する命令が示されます。** ルートは、ASP.NET route テーブルを使用して RegisterRoutes メソッドに追加する必要があります。
+- **ASP.NET MVC 4 Beta ASP.NET をインストールすると、MVC 3 RTM アプリケーションが中断します。** RTM リリース (ASP.NET MVC 3 Tools Update リリースではない) で作成された ASP.NET MVC 3 アプリケーションでは、ASP.NET MVC 4 Beta とサイドバイサイドで動作するために次の変更が必要です。 これらの更新を行わずにプロジェクトをビルドすると、コンパイルエラーになります。 
 
     **必要な更新プログラム**
 
-  1. ルートの Web.config ファイルでは、新しい追加 *&lt;appSettings&gt;* キーを持つエントリ*webPages:Version*値*1.0.0.0*します。
+  1. ルートの Web.config ファイルで、新しい *&lt;appSettings&gt;* エントリを追加します。このキー*ページ*には、バージョンと値*1.0.0.0*があります。
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-  2. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 名前をもう一度右クリックし、編集*ProjectName*.csproj します。
+  2. ソリューションエクスプローラーで、プロジェクト名を右クリックし、[プロジェクトのアンロード] を選択します。 次に、名前をもう一度右クリックし、[ *ProjectName*の編集] を選択します。
   3. 次のアセンブリ参照を見つけます。 
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-      次のように、それらを置き換えます。
+      次のように置き換えます。
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-  4. 変更を保存、編集していたし、プロジェクトを右クリックして選択して再読み込み、プロジェクト (.csproj) ファイルを閉じます。
+  4. 変更を保存し、編集中のプロジェクト (.csproj) ファイルを閉じてから、プロジェクトを右クリックして [再読み込み] を選択します。

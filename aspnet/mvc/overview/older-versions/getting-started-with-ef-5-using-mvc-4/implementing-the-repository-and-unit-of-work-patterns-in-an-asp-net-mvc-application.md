@@ -9,11 +9,11 @@ ms.assetid: 44761193-04ba-4990-9f90-145d3c10a716
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 18de9b125ee5d10795b9ce1a366918dadf4fc4e3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595240"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78434380"
 ---
 # <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>ASP.NET MVC アプリケーションでのリポジトリと作業単位のパターンの実装 (9 件)
 
@@ -237,7 +237,7 @@ CRUD メソッドでは、リポジトリはコンテキストではなく呼び
 
 ページは変更前と同じように見えますが、他のコースページも同じように動作します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、リポジトリと作業単位の両方のパターンが実装されました。 汎用リポジトリでは、メソッドパラメーターとしてラムダ式を使用しました。 これらの式を `IQueryable` オブジェクトと共に使用する方法の詳細については、MSDN ライブラリの「 [IQueryable (t) インターフェイス (system.string)](https://msdn.microsoft.com/library/bb351562.aspx) 」を参照してください。 次のチュートリアルでは、いくつかの高度なシナリオを処理する方法について学習します。
 

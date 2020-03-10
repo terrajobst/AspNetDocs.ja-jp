@@ -9,11 +9,11 @@ ms.assetid: 68968b8a-4f60-449e-8639-978fc40aed70
 msc.legacyurl: /mvc/videos/mvc-2
 msc.type: chapter
 ms.openlocfilehash: d2ddf52b01b8a1ae0e6c3b8db104d16775d144e6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120176"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431902"
 ---
 # <a name="aspnet-mvc-2"></a>ASP.NET MVC 2
 
@@ -35,10 +35,10 @@ ms.locfileid: "65120176"
     - [データベース データの表を表示する](how-do-i/displaying-a-table-of-database-data.md)
     - [ASP.NET MVC とは何か。開発者向けの技術的な動画で NerdDinner をビルドします。80 分。](how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
     - [ASP.NET MVC を使う理由。意思決定者のための概要動画。3 分。](how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-    - [ASP.NET MVC:開発者向け方法 10 分の技術的な動画](how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+    - [ASP.NET MVC: 使い方。開発者向けの技術的な動画。10 分。](how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
     - [ASP.NET MVC Web アプリケーションで AJAX 呼び出しに対して JSON 形式のデータを返す](how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
     - [ASP.NET MVC 部分的ビューのデータを操作する](how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-    - [ASP.NET MVC ビューのデータを管理するビュー モデルを実装します。](how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
+    - [ASP.NET MVC ビューのデータを管理するためのビューモデルを実装する](how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
     - [MVC アプリケーションのカスタム HTML ヘルパーを作成する](how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
     - [MVC アプリケーションのモデル バインダーを使用する](how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application.md)
     - [MVC アプリケーションで HttpVerbs 属性を使用する](how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)
@@ -52,12 +52,12 @@ ms.locfileid: "65120176"
     - [最もわかりやすい ASP.NET MVC 講座](how-do-i/how-to-best-learn-asp-net-mvc.md)
 - [残りの人のための ASP.NET MVC](aspnet-mvc-for-the-rest-of-us/index.md)
 
-    - [残りの人のための ASP.NET MVC:第 1 部](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
-    - [残りの人のための ASP.NET MVC:第 2 部](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
-    - [残りの人のための ASP.NET MVC:パート 3](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
-    - [残りの人のための ASP.NET MVC:パート 4](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
+    - [残りの人のための ASP.NET MVC: パート 1](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
+    - [残りの人のための ASP.NET MVC: パート 2](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
+    - [残りの人のための ASP.NET MVC: パート 3](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
+    - [残りの人のための ASP.NET MVC: パート 4](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
 - [Music Store](music-store/index.md)
 
-    - [MVC Music Store パート 1:入門、ツール、およびプロジェクトの構造](music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
-    - [MVC Music Store パート 2:コント ローラー](music-store/mvc-music-store-part-2-controllers.md)
-    - [MVC Music Store パート 3:Views と ViewModels](music-store/mvc-music-store-part-3-views-and-viewmodels.md)
+    - [MVC Music Store パート 1: 入門、ツール、プロジェクト構造](music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
+    - [MVC Music Store パート 2: コントローラー](music-store/mvc-music-store-part-2-controllers.md)
+    - [MVC Music Store パート 3: Views と ViewModels](music-store/mvc-music-store-part-3-views-and-viewmodels.md)

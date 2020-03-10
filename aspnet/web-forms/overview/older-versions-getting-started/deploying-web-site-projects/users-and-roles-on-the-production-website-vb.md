@@ -9,17 +9,17 @@ ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
 ms.openlocfilehash: d4ce8b278322684be2d44faefd6e69fc524bbe18
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74617920"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78424096"
 ---
 # <a name="users-and-roles-on-the-production-website-vb"></a>運用 Web サイトのユーザーとロール (VB)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
 
 > ASP.NET Web サイト管理ツール (WSAT) には、メンバーシップとロールの設定を構成したり、ユーザーとロールを作成、編集、および削除したりするための web ベースのユーザーインターフェイスが用意されています。 残念ながら、WSAT は localhost からアクセスした場合にのみ機能します。つまり、ブラウザーを使用して運用 web サイトの管理ツールにアクセスすることはできません。 実は、運用環境でユーザーとロールを管理するための回避策があるということです。 このチュートリアルでは、これらの回避策とその他の方法について見ていきます。
 
@@ -97,7 +97,7 @@ ASP.NET には、さまざまなログイン関連の Web コントロールが�
 
 運用 web サイトに WSAT のような機能を実装するには、WSAT の機能を実装する独自の一連の web ページをいつでも作成できます。 作業を開始するには、`%WINDIR%\Microsoft.NET\Framework\v2.0.50727\ASP.NETWebAdminFiles`のフォルダーにある WSAT ソースコードを確認してください。 別の方法として、Dan Clem の WSAT 代替手段を使用することもできます。この方法では、[独自の Web サイト管理ツールをロール](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)します。 Dan は、WSAT のようなカスタムツールを構築するプロセスを通じて、アプリケーションのダウンロード用ソースコード (でC#は) をインクルードし、ホストされた web サイトにカスタム WSAT を追加するための詳細な手順を示します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET Web サイト管理ツール (WSAT) は、メンバーシップとロールアプリケーションサービスと共に使用して、web サイトのユーザーとロールの情報を管理できます。 残念ながら、WSAT はローカルでのみアクセスでき、運用 web サイトからはアクセスできません。 ただし、運用データベースを指すように開発環境の接続文字列を変更することにより、WSAT を使用して運用 web サイトのユーザーとロールを管理できます。
 
@@ -105,7 +105,7 @@ WSAT アプローチでは、ユーザーとロールをすばやく簡単に管
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -115,4 +115,4 @@ WSAT アプローチでは、ユーザーとロールをすばやく簡単に管
 - [Web サイトのセキュリティに関するチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]
-> [前へ](precompiling-your-website-vb.md)
+> [[戻る]](precompiling-your-website-vb.md)

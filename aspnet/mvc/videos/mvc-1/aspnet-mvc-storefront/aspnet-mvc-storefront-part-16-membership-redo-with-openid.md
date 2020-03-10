@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid
-title: ASP.NET MVC Storefront 第 16 部:メンバーシップの変更と OpenID |Microsoft Docs
+title: 'ASP.NET MVC ネットショップパート 16: OpenID | を使用したメンバーシップの再実行Microsoft Docs'
 author: robconery
-description: Rob は、メンバーシップ システムを変更し、3 つの独立したサービス/部分に分割して、サインアウトします。 Rob は OpenID についてお話し Jon Galloway とし、配置方法の概要としています.
+description: 渡されるメンバーシップシステムを変更し、3つの個別のサービス/パーツに分割します。 次に、Jon Galloway によって OpenID について説明し、i 方法について説明します。
 ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: afc038e6-555e-4dfa-ae45-f4d3d50e8f96
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid
 msc.type: video
 ms.openlocfilehash: 3c9a6be576af4342c520b755d51da68b1d73a95b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383006"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78432316"
 ---
-# <a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a>ASP.NET MVC Storefront 第 16 部:メンバーシップ変更と OpenID
+# <a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a>ASP.NET MVC ネットショップパート 16: OpenID によるメンバーシップの再実行
 
-によって[Rob Conery](https://github.com/robconery)
+[渡](https://github.com/robconery)される方法
 
-Rob は、メンバーシップ システムを変更し、3 つの独立したサービス/部分に分割して、サインアウトします。 Rob は、Jon Galloway OpenID および実装する方法について説明するに配置されます。
+渡されるメンバーシップシステムを変更し、3つの個別のサービス/パーツに分割します。 次に、Jon Galloway と共に OpenID とを実装する方法について説明します。
 
-[&#9654;ビデオ (40 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-16-membership-redo-with-openid)
+[&#9654;ビデオを見る (40 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-16-membership-redo-with-openid)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-15-public-code-review.md)

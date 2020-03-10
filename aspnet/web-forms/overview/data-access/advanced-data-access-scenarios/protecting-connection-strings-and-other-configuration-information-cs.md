@@ -9,11 +9,11 @@ ms.assetid: ad8dd396-30f7-4abe-ac02-a0b84422e5be
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 15970bee1e990d3a139673efe12486e08f79814c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74573490"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421072"
 ---
 # <a name="protecting-connection-strings-and-other-configuration-information-c"></a>接続文字列とその他の構成情報を保護する (C#)
 
@@ -179,7 +179,7 @@ Integrated Security = True であり、ユーザー名とパスワードがな�
 > [!NOTE]
 > SQL Server で使用できるさまざまな種類の認証の詳細については、「[セキュリティで保護された ASP.NET アプリケーションの構築: 認証、承認、セキュリティで保護された通信](https://msdn.microsoft.com/library/aa302392.aspx)」を参照してください。 Windows と SQL の認証構文の違いを示す接続文字列の例については、 [ConnectionStrings.com](http://www.connectionstrings.com/)を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 既定では、ASP.NET アプリケーションの `.config` 拡張子を持つファイルには、ブラウザーからアクセスすることはできません。 これらの種類のファイルには、データベース接続文字列、ユーザー名とパスワードなどの機密情報が含まれている可能性があるため、返されません。 .NET 2.0 の保護された構成システムは、指定された構成セクションを暗号化できるようにすることで、機密情報をさらに保護するのに役立ちます。 保護された構成プロバイダーには、RSA アルゴリズムを使用するものと、Windows Data Protection API (DPAPI) を使用するものの2つがあります。
 
@@ -187,7 +187,7 @@ Integrated Security = True であり、ユーザー名とパスワードがな�
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -199,7 +199,7 @@ Integrated Security = True であり、ユーザー名とパスワードがな�
 - [.NET 2.0 の構成 API](http://www.odetocode.com/Articles/418.aspx)
 - [Windows データ保護](https://msdn.microsoft.com/library/ms995355.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

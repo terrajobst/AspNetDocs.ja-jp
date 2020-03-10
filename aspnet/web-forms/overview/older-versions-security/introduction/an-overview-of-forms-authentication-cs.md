@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: フォーム認証の概要 (C#) |Microsoft Docs
+title: フォーム認証 (C#) の概要 |Microsoft Docs
 author: rick-anderson
 description: カスタムルートの作成
 ms.author: riande
@@ -9,13 +9,13 @@ ms.assetid: de2d65b9-aadc-42ba-abe1-4e87e66521a0
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 009c3f84e00d648ede4a15e530ceac2d23e01eec
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74620749"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439666"
 ---
-# <a name="an-overview-of-forms-authentication-c"></a>フォーム認証の概要 (C#)
+# <a name="an-overview-of-forms-authentication-c"></a>フォーム認証 (C#) の概要
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
@@ -205,7 +205,7 @@ ASP.NET 2.0 では、開発者はメンバーシッププロバイダーの1つ�
 
 ユーザーが有効な資格情報を入力すると、"適切なページ" にリダイレクトされることを説明しました。 適切なページは何ですか。 ユーザーが表示を許可されていないページにアクセスすると、FormsAuthenticationModule によって自動的にログインページにリダイレクトされることを思い出してください。 その場合、ReturnUrl パラメーターを使用して、要求された URL を querystring に含めます。 つまり、ユーザーが ProtectedPage にアクセスしようとしたときに、ユーザーがその操作を許可されていない場合、FormsAuthenticationModule は次のようにリダイレクトします。
 
-Login.aspx ですか?ReturnUrl = ProtectedPage
+Login.aspx?ReturnUrl=ProtectedPage.aspx
 
 ログインに成功すると、ユーザーは ProtectedPage にリダイレクトされます。 または、ユーザーが自分の volition のログインページにアクセスすることもできます。 この場合、ユーザーをログインした後、ルートフォルダーの default.aspx ページに送信する必要があります。
 
@@ -221,7 +221,7 @@ GetAuthCookie は、cookie を Cookie コレクションに書き込む前に認
 
 ユーザーをログインし、適切なページにリダイレクトするため、RedirectFromLoginPage を使用してみましょう。 LoginButton の Click イベントハンドラーを更新して、2つのコメントが付いた TODO 行を次のコード行に置き換えます。
 
-FormsAuthentication ページ (ユーザー名. Text, RememberMe);
+FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked);
 
 フォーム認証チケットを作成するときは、フォーム認証チケットの*username*パラメーターに Username テキストボックスの Text プロパティを使用し、 *persistcookie*パラメーターの [Rememberme] チェックボックスのチェック状態を使用します。
 
@@ -266,7 +266,7 @@ Web サイトに機密情報が含まれていない場合は、ログインペ�
 
 ![認証されたユーザーが表示されます。](an-overview-of-forms-authentication-cs/_static/image28.png)
 
-**図 12**: 認証されたユーザーに "ようこそ!" と表示される [メッセージ]
+**図 12**: 認証されたユーザーに "ようこそ!" と表示される Message
 
 [HttpContext オブジェクト](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)の[user プロパティ](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx)を使用して、現在ログオンしているユーザーの id を確認できます。 HttpContext オブジェクトは、現在の要求に関する情報を表します。このオブジェクトは、応答、要求、セッションなどの一般的な ASP.NET オブジェクトのホームです。 User プロパティは、現在の HTTP 要求のセキュリティコンテキストを表し、 [IPrincipal インターフェイス](https://msdn.microsoft.com/library/system.security.principal.iprincipal.aspx)を実装します。
 
@@ -289,7 +289,7 @@ User プロパティは、FormsAuthenticationModule によって設定されま�
 
 Default.aspx でよりパーソナライズされたメッセージを提供してみましょう。 WelcomeBackMessage ラベルの Text プロパティに "Welcome back, *username*!" という文字列が割り当てられるように、ページ\_読み込みイベントハンドラーを更新します。
 
-WelcomeBackMessage = "Welcome back," + User.Identity.Name + "!";
+WelcomeBackMessage.Text = "Welcome back, " + User.Identity.Name + "!";
 
 図13は、この変更の影響を示しています (ユーザー Scott としてログインしている場合)。
 
@@ -394,7 +394,7 @@ LoginStatus は LoginView コントロールの外部にあるため、匿名ユ
 > [!NOTE]
 > Logout ページをカスタマイズして、マスターページの LoginContent ContentPlaceHolder を非表示にすることをお勧めします (手順4の login.aspx の場合と同様)。 その理由は、LoginStatus コントロールによってレンダリングされる "Login" LinkButton ("Hello, こんにちは") によってユーザーがログインページに送信され、ReturnUrl querystring パラメーターに現在の URL が渡されるためです。 つまり、ログアウトしたユーザーがこの LoginStatus の "Login" LinkButton をクリックし、ログインすると、ユーザーを混乱させる可能性がある Logout にリダイレクトされます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、フォーム認証ワークフローの調査を開始し、ASP.NET アプリケーションでフォーム認証を実装しました。 フォーム認証は FormsAuthenticationModule を利用しています。これには、フォーム認証チケットに基づいてユーザーを識別し、承認されていないユーザーをログインページにリダイレクトするという2つの役割があります。
 
@@ -404,7 +404,7 @@ LoginStatus は LoginView コントロールの外部にあるため、匿名ユ
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -418,7 +418,7 @@ LoginStatus は LoginView コントロールの外部にあるため、匿名ユ
 
 - [ASP.NET で基本フォーム認証を使用する](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

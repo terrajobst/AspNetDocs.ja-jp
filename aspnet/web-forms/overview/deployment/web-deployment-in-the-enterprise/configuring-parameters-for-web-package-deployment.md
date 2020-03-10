@@ -1,133 +1,133 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
-title: Web パッケージ展開のパラメーターの構成 |Microsoft Docs
+title: Web パッケージ配置のパラメーターの構成 |Microsoft Docs
 author: jrjlee
-description: このトピックでは、インターネット インフォメーション サービス (IIS) web アプリケーションの名前、接続文字列、およびサービスのエンドポイントなどのパラメーター値を設定する方法について説明しています.
+description: このトピックでは、インターネットインフォメーションサービス (IIS) web アプリケーション名、接続文字列、サービスエンドポイントなどのパラメーター値を設定する方法について説明し,...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 37947d79-ab1e-4ba9-9017-52e7a2757414
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: f04ace98d81a33053b10cab7e40dbd75a6c0992c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108724"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438400"
 ---
 # <a name="configuring-parameters-for-web-package-deployment"></a>Web パッケージ配置のパラメーターを構成する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、リモートの IIS web サーバーに web パッケージを展開するときに、インターネット インフォメーション サービス (IIS) web アプリケーションの名前、接続文字列、およびサービスのエンドポイントなどのパラメーター値を設定する方法について説明します。
+> このトピックでは、リモート IIS web サーバーに web パッケージを展開するときに、インターネットインフォメーションサービス (IIS) web アプリケーション名、接続文字列、サービスエンドポイントなどのパラメーター値を設定する方法について説明します。
 
-Web アプリケーション プロジェクト、ビルドおよびパッケージ化プロセスを作成する場合に、3 つのキー ファイルが生成されます。
+Web アプリケーションプロジェクトをビルドすると、ビルドおよびパッケージ化プロセスによって次の3つのキーファイルが生成されます。
 
-- A *[プロジェクト名] .zip*ファイル。 これは、web アプリケーション プロジェクトの web 配置パッケージです。 このパッケージには、すべてのアセンブリ、ファイル、データベースのスクリプト、およびリモートの IIS web サーバーに web アプリケーションを再作成に必要なリソースが含まれています。
-- A *[プロジェクト名].deploy.cmd*ファイル。 これには、一連リモートの IIS web サーバーに web 配置パッケージを公開する Web Deploy (MSDeploy.exe) のパラメーター化されたコマンドにはが含まれています。
-- A *[プロジェクト名]。SetParameters.xml*ファイル。 これは、MSDeploy.exe コマンドにパラメーター値のセットを提供します。 このファイル内の値を更新し、Web Deploy をパラメーターとして渡す、コマンド ライン web パッケージを展開するときにできます。
+- *[プロジェクト名] .zip*ファイル。 これは、web アプリケーションプロジェクトの web 配置パッケージです。 このパッケージには、リモート IIS web サーバーで web アプリケーションを再作成するために必要なすべてのアセンブリ、ファイル、データベーススクリプト、およびリソースが含まれています。
+- *[プロジェクト名]. .deploy*ファイルを指定します。 これには、web 配置パッケージをリモート IIS web サーバーに発行するパラメーター化された Web 配置 (Msdeploy.exe) コマンドのセットが含まれます。
+- *[プロジェクト名]。SetParameters .xml*ファイル。 これにより、Msdeploy.exe コマンドにパラメーター値のセットが提供されます。 このファイルの値を更新し、Web パッケージを配置するときにコマンドラインパラメーターとして Web 配置に渡すことができます。
 
 > [!NOTE]
-> ビルドとパッケージ化プロセスの詳細については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
+> ビルドおよびパッケージ化のプロセスの詳細については、「 [Web アプリケーションプロジェクトのビルドおよびパッケージ化](building-and-packaging-web-application-projects.md)」を参照してください。
 
-*SetParameters.xml*ファイルは、web アプリケーションのプロジェクト ファイルと、プロジェクト内のすべての構成ファイルから動的に生成します。 ビルドおよび Web 発行パイプライン (WPP)、プロジェクトをパッケージ化する場合、変換先の IIS web アプリケーションのように、デプロイ環境とデータベース接続文字列の間を変更する可能性のある変数の多くが自動的に検出します。 これらの値が自動的に web デプロイ パッケージでパラメーター化されたに追加された、 *SetParameters.xml*ファイル。 接続文字列を追加する場合など、 *web.config*ファイル、web アプリケーション プロジェクトでビルド プロセスは、この変更を検出およびエントリを追加、 *SetParameters.xml*ファイルそれに応じて。
+*Setparameters .xml*ファイルは、web アプリケーションプロジェクトファイルと、プロジェクト内の構成ファイルから動的に生成されます。 プロジェクトをビルドしてパッケージ化すると、Web 発行パイプライン (WPP) によって、配置先の IIS Web アプリケーションや任意のデータベース接続文字列などの配置環境間で変更される可能性のある多くの変数が自動的に検出されます。 これらの値は、web 配置パッケージで自動的にパラメーター化され、 *Setparameters .xml*ファイルに追加されます。 たとえば *、web アプリケーション*プロジェクトの web.config ファイルに接続文字列を追加すると、ビルドプロセスによってこの変更が検出され、それに応じて*setparameters .xml*ファイルにエントリが追加されます。
 
-多くの場合、この自動パラメーター化は、十分になります。 ただし、ユーザーがアプリケーションやサービスのエンドポイント Url のように、展開環境の間には、その他の設定を変更する必要がある、展開パッケージでこれらの値をパラメーター化し、を対応するエントリを追加するWPPを指示する*SetParameters.xml*ファイル。 次のセクションでは、これを行う方法について説明します。
+多くの場合、この自動パラメーター化は十分です。 ただし、ユーザーがアプリケーションの設定やサービスエンドポイントの Url など、デプロイ環境間で他の設定を変更する必要がある場合は、展開パッケージでこれらの値をパラメーター化し、対応するエントリを*Setparameters .xml*ファイルに追加するように WPP に指示する必要があります。 次のセクションでは、その方法について説明します。
 
 ### <a name="automatic-parameterization"></a>自動パラメーター化
 
-ビルドし、web アプリケーションをパッケージ化すると、WPP をこれらの操作は自動的にパラメーター化します。
+Web アプリケーションをビルドしてパッケージ化すると、WPP は自動的に次のようなパラメーター化を行います。
 
-- 変換先の IIS の web アプリケーションのパスと名前。
-- すべての接続文字列、 *web.config*ファイル。
-- 追加するすべてのデータベースの接続文字列、**パッケージ化/発行 SQL**プロジェクトのプロパティ ページ タブ。
+- 宛先 IIS web アプリケーションのパスと名前。
+- *Web.config ファイル内*の任意の接続文字列。
+- プロジェクトのプロパティページの **[パッケージ/発行]** タブに追加するすべてのデータベースの接続文字列。
 
-たとえば、ビルドおよびパッケージ化した場合、 [Contact Manager](the-contact-manager-solution.md) WPP、何らかの方法でパラメーター化のプロセスに触れることがなく、サンプル ソリューションでは、これが生成*ContactManager.Mvc.SetParameters.xml*ファイル。
+たとえば、パラメーター化プロセスに触れることなく[Contact manager](the-contact-manager-solution.md)サンプルソリューションをビルドしてパッケージ化する場合、次のように WPP によってこの*contactmanager*サンプルファイルが生成されます。
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample1.xml)]
 
 この場合、次のようになります。
 
-- **IIS Web アプリケーション名**パラメーターは、web アプリケーションを展開する IIS のパス。 既定値を取得、**パッケージ化/発行 Web**プロジェクトのプロパティ ページでページ。
-- **ApplicationServices-web.config Connection String**から生成されたパラメーターを**connectionStrings/追加**内の要素、 *web.config*ファイル。 これは、メンバーシップ データベースに接続するため、アプリケーションが使用する接続文字列を表します。 ここでされますを指定した値に代入され、デプロイされている*web.config*ファイル。 配置前から既定値を取得*web.config*ファイル。
+- **Iis Web アプリケーション名**パラメーターは、web アプリケーションを配置する iis パスです。 既定値は、プロジェクトのプロパティページの [**パッケージ/発行] Web**ページから取得されます。
+- **Applicationservices-Web.config 接続文字列**パラメーターは、 *Web.config ファイルの* **connectionStrings/add**要素から生成されました。 これは、アプリケーションがメンバーシップデータベースにアクセスするために使用する接続文字列を表します。 ここで指定する値は、配置された*web.config*ファイルに置き換えられます。 既定値は *、配置前の web.config ファイル*から取得されます。
 
-WPP には、これらのプロパティを生成する展開パッケージにもパラメーター化します。 展開パッケージをインストールするときに、これらのプロパティの値を指定できます。 」の説明に従って手動で IIS マネージャーから、パッケージをインストールするかどうか[Web パッケージを手動でインストール](manually-installing-web-packages.md)、インストール ウィザードでは、すべてのパラメーターの値を指定するように求められます。 使用してリモート パッケージをインストールする場合、 *. deploy.cmd* 」の説明に従って、ファイル[Web パッケージを展開する](deploying-web-packages.md)、次のようになります Web Deploy *SetParameters.xml*ファイルをパラメーター値を指定します。 内の値を編集することができます、 *SetParameters.xml*ファイルを手動で、または自動のビルドと展開プロセスの一環としてファイルをカスタマイズすることができます。 このプロセスは、このトピックで後で詳しく説明します。
+また、WPP は、生成する展開パッケージでこれらのプロパティをパラメーター化します。 展開パッケージをインストールするときに、これらのプロパティの値を指定できます。 IIS マネージャーを使用して手動でパッケージをインストールする場合、「 [Web パッケージを手動でインストール](manually-installing-web-packages.md)する」で説明されているように、インストールウィザードでは、任意のパラメーターの値を指定するように求められます。 「 [Web パッケージの配置](deploying-web-packages.md)」で説明されているように、 *.deploy*ファイルを使用してパッケージをリモートでインストールした場合、Web 配置は、パラメーター値を提供するためにこの*setparameters .xml*ファイルを検索します。 *Setparameters .xml*ファイルの値は手動で編集できます。また、自動ビルドおよび配置プロセスの一環としてファイルをカスタマイズすることもできます。 このプロセスの詳細については、このトピックの後半で説明します。
 
-### <a name="custom-parameterization"></a>カスタムのパラメーター化
+### <a name="custom-parameterization"></a>カスタムパラメーター化
 
-複雑な展開シナリオで多くの場合、プロジェクトを展開する前に、追加のプロパティをパラメーター化するします。 一般に、任意のプロパティと変換先の環境間で変化する設定がパラメーター化する必要があります。 これらを含めることができます。
+より複雑な配置シナリオでは、プロジェクトを配置する前に追加のプロパティをパラメーター化することが必要になることがよくあります。 一般に、接続先の環境によって異なるプロパティと設定をパラメーター化する必要があります。 次のようなものがあります。
 
-- サービスのエンドポイント、 *web.config*ファイル。
-- アプリケーションの設定、 *web.config*ファイル。
-- その他の宣言型プロパティには、指定するユーザーが求められます。
+- *Web.config ファイル内*のサービスエンドポイント。
+- *Web.config ファイルの*アプリケーション設定。
+- ユーザーに指定を求めるその他の宣言プロパティ。
 
-これらのプロパティをパラメーター化する最も簡単な方法が追加するには、 *'parameters.xml'* ファイルを web アプリケーション プロジェクトのルート フォルダー。 たとえば、連絡先マネージャー ソリューション、ContactManager.Mvc プロジェクトが含まれています、 *'parameters.xml'* ルート フォルダー内のファイル。
+これらのプロパティをパラメーター化する最も簡単な方法は、web アプリケーションプロジェクトのルートフォルダーに*parameters .xml*ファイルを追加することです。 たとえば、Contact Manager ソリューションでは、ContactManager. Mvc プロジェクトには、ルートフォルダーに*parameters .xml*ファイルが含まれています。
 
 ![](configuring-parameters-for-web-package-deployment/_static/image1.png)
 
-このファイルを開く場合、1 つが含まれている表示されます**パラメーター**エントリ。 エントリを見つけてで ContactService Windows Communication Foundation (WCF) サービスのエンドポイント URL をパラメーター化、XML Path Language (XPath) クエリを使用して、 *web.config*ファイル。
+このファイルを開くと、1つの**パラメーター**エントリが含まれていることがわかります。 このエントリでは、XML パス言語 (XPath) クエリを使用して、 *web .config*ファイル内の contactservice WINDOWS COMMUNICATION FOUNDATION (WCF) サービスのエンドポイント URL を検索し、パラメーター化しています。
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample2.xml)]
 
-展開パッケージにエンドポイントの URL をパラメーター化だけでなく、WPP も追加に対応するエントリ、 *SetParameters.xml*展開パッケージに生成されるファイル。
+配置パッケージのエンドポイント URL をパラメーター化するだけでなく、WPP は、配置パッケージと共に生成される*Setparameters .xml*ファイルに対応するエントリも追加します。
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample3.xml)]
 
-展開パッケージを手動でインストールする場合は、IIS マネージャー、サービス エンドポイントのアドレスを自動的にパラメーター化されたプロパティの横を求められます。 実行して、展開パッケージをインストールする場合、 *. deploy.cmd*ファイルを編集できます、 *SetParameters.xml*の値と共に、サービスのエンドポイント アドレスの値を指定するファイル、自動的にパラメーター化されたプロパティです。
+展開パッケージを手動でインストールすると、自動的にパラメーター化されたプロパティと共に、IIS マネージャーによってサービスエンドポイントアドレスの入力が求められます。 *.Deploy*ファイルを実行して配置パッケージをインストールする場合は、 *setparameters .xml*ファイルを編集して、自動的にパラメーター化されたプロパティの値と共にサービスエンドポイントアドレスの値を指定できます。
 
-作成する方法の詳細について、 *'parameters.xml'* ファイルを参照してください[方法。展開の設定時に、パッケージの構成を使用してパラメーターがインストールされている](https://msdn.microsoft.com/library/ff398068.aspx)します。 という名前のプロシージャ**Web.config ファイルの設定のデプロイ パラメーターを使用する**手順について説明します。
+*パラメーターの .xml*ファイルを作成する方法の詳細については、「[方法: パッケージのインストール時にパラメーターを使用して展開設定を構成](https://msdn.microsoft.com/library/ff398068.aspx)する」を参照してください。 **「Web.config ファイル設定に展開パラメーターを使用する**」という名前の手順では、手順を追って説明します。
 
-## <a name="modifying-the-setparametersxml-file"></a>SetParameters.xml ファイルの変更
+## <a name="modifying-the-setparametersxml-file"></a>SetParameters .xml ファイルの変更
 
-Web アプリケーションのパッケージを手動で展開する予定のかどうか&#x2014;実行するか、 *. deploy.cmd*ファイルまたはコマンドラインから MSDeploy.exe を実行して&#x2014;停止を手動で編集するには何もない、 *SetParameters.xml*展開する前にファイル。 ただし、エンタープライズ規模のソリューションで作業する場合は、大規模で自動化されたビルドと展開プロセスの一部として web アプリケーション パッケージを配置する必要があります。 このシナリオで Microsoft Build Engine (MSBuild) を変更する必要があります、 *SetParameters.xml*ファイル。 MSBuild を使用してこれを行う**XmlPoke**タスク。
+*.Deploy*ファイルを実行するか、コマンドライン&#x2014;から msdeploy.exe を実行して、web アプリケーションパッケージを手動で&#x2014;展開する予定がある場合は、配置前に*setparameters .xml*ファイルを手動で編集する必要はありません。 ただし、エンタープライズ規模のソリューションで作業している場合は、大規模で自動化されたビルドおよび配置プロセスの一部として、web アプリケーションパッケージをデプロイする必要があります。 このシナリオでは、Microsoft Build Engine (MSBuild) を使用して、 *Setparameters .xml*ファイルを変更する必要があります。 これを行うには、MSBuild **XmlPoke**タスクを使用します。
 
-[Contact Manager サンプル ソリューション](the-contact-manager-solution.md)このプロセスを示しています。 後のコード例は、この例に関連する詳細のみを表示する編集されています。
+[Contact Manager サンプルソリューション](the-contact-manager-solution.md)では、このプロセスについて説明します。 次のコード例は、この例に関連する詳細のみを表示するように編集されています。
 
 > [!NOTE]
-> サンプル ソリューションでは、および一般的なカスタムのプロジェクト ファイルの概要で、プロジェクト ファイルのモデルのより広範な概要については、次を参照してください。[プロジェクト ファイルを理解する](understanding-the-project-file.md)と[ビルド プロセスを理解する](understanding-the-build-process.md)します。
+> サンプルソリューションのプロジェクトファイルモデルの概要と、一般的なカスタムプロジェクトファイルの概要については、「[プロジェクトファイルについ](understanding-the-project-file.md)て」および「[ビルドプロセスについ](understanding-the-build-process.md)て」を参照してください。
 
-最初に、関心のあるパラメーターの値は、環境固有のプロジェクト ファイル内のプロパティとして定義されます (たとえば、 *Env Dev.proj*)。
+まず、対象のパラメーター値は、環境固有のプロジェクトファイルのプロパティとして定義されます (たとえば、 *Env Dev. proj*)。
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample4.xml)]
 
 > [!NOTE]
-> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
+> 独自のサーバー環境用に環境固有のプロジェクトファイルをカスタマイズする方法については、「[ターゲット環境の配置プロパティを構成](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)する」を参照してください。
 
-次に、 *Publish.proj*ファイルは、これらのプロパティをインポートします。 ため、各*SetParameters.xml*ファイルが関連付けられている、 *. deploy.cmd*をそれぞれ呼び出すプロジェクト ファイルが最終的にするファイル、および *. deploy.cmd*ファイル、プロジェクトファイルには、MSBuild が作成されます*項目*各 *. deploy.cmd*として関心のあるプロパティを定義ファイルを開き*項目メタデータ*します。
+次に、このプロパティを*インポートします*。 各*Setparameters .xml*ファイルは *.deploy*ファイルに関連付けられているため、最終的にプロジェクトファイルで各 *.deploy*ファイルを呼び出す必要があります。プロジェクトファイルでは *、各 .deploy*ファイルの MSBuild*項目*を作成し、*項目メタデータ*として関心のあるプロパティを定義します。
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample5.xml)]
 
 この場合、次のようになります。
 
-- **ParametersXml**メタデータ値の位置を示す、 *SetParameters.xml*ファイル。
-- **IisWebAppName**値は、web アプリケーションを配置する IIS パス。
-- **MembershipDBConnectionString**値は、メンバーシップ データベースの接続文字列と**MembershipDBConnectionName**値は、**名前**属性内の対応するパラメーターの*SetParameters.xml*ファイル。
-- **ServiceEndpointValue**値は、移行先サーバー上の WCF サービスのエンドポイント アドレスと**ServiceEndpointParamName**値に対応するパラメーターの name 属性は、*SetParameters.xml*ファイル。
+- **ParametersXml**メタデータ値は、 *setparameters .xml*ファイルの場所を示します。
+- **Iiswebappname**値は、web アプリケーションをデプロイする IIS パスです。
+- メンバーシップ**Dbconnectionstring**値はメンバーシップデータベースの接続文字列で、 **MembershipDBConnectionName**値は*setparameters .xml*ファイル内の対応するパラメーターの**name**属性です。
+- **Serviceendpointvalue**の値は、移行先サーバー上の WCF サービスのエンドポイントアドレスです。 **ServiceEndpointParamName**値は、 *setparameters .xml*ファイル内の対応するパラメーターの name 属性です。
 
-最後に、 *Publish.proj*ファイル、 **PublishWebPackages**対象には、 **XmlPoke**でこれらの値を変更するタスク、 *SetParameters.xml*ファイル。
+最後に、 *Publish*ファイルの**publishwebpackages**ターゲットは、 **XmlPoke**タスクを使用して、 *setparameters .xml*ファイル内のこれらの値を変更します。
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample6.xml)]
 
-各わかります**XmlPoke**タスクでは、4 つの属性の値を指定します。
+各**XmlPoke**タスクでは、次の4つの属性値が指定されていることがわかります。
 
-- **XmlInputPath**属性を変更するファイルの検索場所をタスクに指示します。
-- **クエリ**属性が変更する XML ノードを識別する XPath クエリ。
-- **値**属性が選択されている XML ノードに挿入する新しい値。
-- **条件**属性は、条件のロックを実行する必要がありますまたはタスクが実行されません。 Null または空の値を挿入しようとしていないことが条件では、このような場合は、により、 *SetParameters.xml*ファイル。
+- **XmlInputPath**属性は、変更するファイルを検索する場所をタスクに指示します。
+- **Query**属性は、変更する XML ノードを識別する XPath クエリです。
+- **Value**属性は、選択した XML ノードに挿入する新しい値です。
+- **Condition**属性は、タスクを実行する条件、または実行しない条件です。 このような場合、条件によって、 *Setparameters .xml*ファイルに null 値または空の値が挿入されないようにします。
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックには、役割が説明されている、 *SetParameters.xml*ファイルし、web アプリケーション プロジェクトをビルドするときの生成方法について説明します。 追加することで追加の設定をパラメーター化する方法について説明しました、 *'parameters.xml'* ファイルをプロジェクト。 変更する方法を説明し、 *SetParameters.xml*ファイルを使用して、拡大、自動化されたビルド プロセスの一部として、 **XmlPoke**プロジェクト ファイルで作業します。
+このトピックでは、 *Setparameters .xml*ファイルの役割について説明し、web アプリケーションプロジェクトをビルドするときに生成される方法について説明しました。 また、*パラメーター .xml*ファイルをプロジェクトに追加することで、追加の設定をパラメーター化する方法についても説明しました。 また、プロジェクトファイルの**XmlPoke**タスクを使用して、大きな自動化されたビルドプロセスの一部として*setparameters .xml*ファイルを変更する方法についても説明します。
 
-次のトピックでは、 [Web パッケージを展開する](deploying-web-packages.md)、いずれかを実行して web パッケージを展開する方法について説明、 *. deploy.cmd*ファイルまたは直接 MSDeploy.exe を使用してコマンドします。 どちらの場合も、指定することができます、 *SetParameters.xml*デプロイ パラメーターとしてファイル。
+次のトピック「 [Web パッケージの配置](deploying-web-packages.md)」では、 *.deploy*ファイルを実行するか、msdeploy.exe コマンドを直接使用して、web パッケージを配置する方法について説明します。 どちらの場合も、 *Setparameters .xml*ファイルを配置パラメーターとして指定できます。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-Web パッケージを作成する方法については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。 実際に web パッケージをデプロイする方法のガイダンスについては、次を参照してください。 [Web パッケージを展開する](deploying-web-packages.md)します。 作成する方法についてステップ バイ ステップ チュートリアルについては、 *'parameters.xml'* ファイルを参照してください[方法。展開の設定時に、パッケージの構成を使用してパラメーターがインストールされている](https://msdn.microsoft.com/library/ff398068.aspx)します。
+Web パッケージの作成方法の詳細については、「 [Web アプリケーションプロジェクトのビルドおよびパッケージ化](building-and-packaging-web-application-projects.md)」を参照してください。 実際に web パッケージを配置する方法のガイダンスについては、「 [Web パッケージの配置](deploying-web-packages.md)」を参照してください。 *パラメーター .xml*ファイルを作成する方法の詳細な手順については、「[方法: パッケージのインストール時にパラメーターを使用して展開設定を構成](https://msdn.microsoft.com/library/ff398068.aspx)する」を参照してください。
 
-Web デプロイのパラメーター化の一般的なについては、次を参照してください。[アクションで Web デプロイ Parameterization](https://go.microsoft.com/?linkid=9805119) (ブログの投稿)。
+Web 配置でのパラメーター化に関する全般的な情報については、「[アクションの Web 配置のパラメーター](https://go.microsoft.com/?linkid=9805119)化 (ブログの投稿)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](building-and-packaging-web-application-projects.md)

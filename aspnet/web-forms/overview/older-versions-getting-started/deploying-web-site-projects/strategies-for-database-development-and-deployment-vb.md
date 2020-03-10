@@ -9,17 +9,17 @@ ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 1ea4ade32fb05b9e69647ece7d1a4c400fe9fb21
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74616120"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439768"
 ---
 # <a name="strategies-for-database-development-and-deployment-vb"></a>データベースの開発と配置のための戦略 (VB)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](https://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial10_DBDevel_vb.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial10_DBDevel_vb.pdf)
 
 > データドリブンアプリケーションを初めて配置する場合は、開発環境内のデータベースを実稼働環境に無条件でコピーできます。 ただし、その後の配置でブラインドコピーを実行すると、運用データベースに入力されたすべてのデータが上書きされます。 その代わりに、データベースを配置するには、運用データベースへの最後の配置以降に開発データベースに加えられた変更を適用する必要があります。 このチュートリアルでは、これらの課題について考察し、最後の配置以降にデータベースに加えられた変更を chronicling して適用するためのさまざまな戦略を提供します。
 
@@ -134,7 +134,7 @@ Web サイトをデプロイする場合は、デプロイが完了するまで 
 
 デプロイ中にアプリケーションをオフラインにすると、デプロイが完了すると、展開プロセスを開始する前に `app_offline.htm` ファイルを実稼働環境のルートディレクトリにアップロードするのと同じように簡単に行うことができます。 この手法の詳細については、John Peterson の記事「 [*ASP.NET アプリケーションをオフライン*](http://www.15seconds.com/issue/061207.htm)にする」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 データドリブンアプリケーションを配置する際の主な課題は、データベースの配置に関するものです。 2つのバージョンのデータベース (開発環境に1つ、運用環境に存在する) があるため、開発時に新機能が追加されると、これら2つのデータベーススキーマは同期しなくなる可能性があります。 さらに、実稼働データベースは実際のユーザーからの実際のデータを使用して作成されているため、アプリケーションを構成するファイルを配置するときのように、変更された開発データベースで運用データベースを上書きすることはできません (ASP.NET ページ、画像ファイルなど)。 その代わりに、データベースを配置するには、前回の配置以降に運用データベースで開発データベースに加えられた変更の正確なセットを実装することが伴います。
 

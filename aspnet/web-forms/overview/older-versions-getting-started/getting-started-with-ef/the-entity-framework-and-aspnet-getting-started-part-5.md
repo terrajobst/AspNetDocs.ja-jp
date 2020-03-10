@@ -1,117 +1,117 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォーム - パート 5 |Microsoft Docs
+title: Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート 5 |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
+description: Contoso 大学のサンプル web アプリケーションは、Entity Framework を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 サンプルアプリケーションは...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: 24ad4379-3fb2-44dc-ba59-85fe0ffcb2ae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
 ms.openlocfilehash: 75328e67abb4295b619cac5423a9eb970942fff7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133111"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78423868"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォーム - パート 5
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート5
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、次を参照してください[シリーズの最初のチュートリアル。](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 チュートリアルシリーズの詳細については、[シリーズの最初のチュートリアル](the-entity-framework-and-aspnet-getting-started-part-1.md)を参照してください。
 
-## <a name="working-with-related-data-continued"></a>続き関連データを扱う
+## <a name="working-with-related-data-continued"></a>関連データの操作 (続き)
 
-使用を開始し、前のチュートリアルで、`EntityDataSource`関連データを操作するコントロール。 階層の複数のレベルを表示し、ナビゲーション プロパティのデータを編集します。 このチュートリアルで追加してリレーションシップを削除して、既存のエンティティの関係がある新しいエンティティを追加することで、関連するデータを操作する進みます。
+前のチュートリアルでは、`EntityDataSource` コントロールを使用して関連データを操作しました。 複数レベルの階層と、ナビゲーションプロパティで編集されたデータを表示しています。 このチュートリアルでは、リレーションシップを追加および削除し、既存のエンティティとのリレーションシップを持つ新しいエンティティを追加することによって、関連データの操作を続行します。
 
-学科に割り当てられているコースを追加するページを作成します。 各部署が既に存在して、新しいコースを作成するときに同時が関係を確立して、既存の部門間。
+部門に割り当てられているコースを追加するページを作成します。 部門は既に存在しています。新しいコースを作成するときは、その部門と既存の部門との間にリレーションシップを確立します。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-5/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image1.png)
 
-(選択した 2 つのエンティティ間のリレーションシップの追加) コースにインストラクターを割り当てることで、多対多リレーションシップで動作するページを作成することもありますまたはコースの講師を削除する (2 つのエンティティ間のリレーションシップを削除します。オンにします。 データベース内に追加される新しい行の結果、インストラクターとコースの間のリレーションシップの追加、`CourseInstructor`関連テーブル; からの行を削除するリレーションシップは、削除、`CourseInstructor`関連テーブル。 ただし、これを行う Entity Framework で参照することがなくナビゲーション プロパティを設定して、`CourseInstructor`明示的にテーブルです。
+また、インストラクターを講座に割り当て (選択した2つのエンティティ間にリレーションシップを追加する)、またはコースからインストラクターを削除する (2 つのエンティティ間のリレーションシップを削除する) ことによって、多対多リレーションシップで動作するページを作成します ([] を選択します)。 データベースでは、インストラクターとコースの間にリレーションシップを追加すると、`CourseInstructor` association テーブルに新しい行が追加されます。リレーションシップを削除するには、`CourseInstructor` アソシエーションテーブルから行を削除する必要があります。 ただし、Entity Framework では、`CourseInstructor` テーブルを明示的に参照せずにナビゲーションプロパティを設定することによって、この操作を行います。
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image3.png)
 
-## <a name="adding-an-entity-with-a-relationship-to-an-existing-entity"></a>既存のエンティティにリレーションシップを持つエンティティを追加します。
+## <a name="adding-an-entity-with-a-relationship-to-an-existing-entity"></a>既存のエンティティへのリレーションシップを持つエンティティの追加
 
-という名前の新しい web ページを作成する*CoursesAdd.aspx*を使用して、 *Site.Master*マスター ページ、および次のマークアップを追加、`Content`という名前のコントロール`Content2`:
+*CoursesAdd*という名前の新しい web ページを作成し、*そのマスターページ*を使用して、`Content2`という名前の `Content` コントロールに次のマークアップを追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample1.aspx)]
 
-このマークアップを作成、`EntityDataSource`を挿入できるようにして、ハンドラーを指定する、コースの選択コントロール、`Inserting`イベント。 ハンドラーの更新に使用する、`Department`ナビゲーション プロパティの新しい`Course`エンティティを作成します。
+このマークアップは、挿入を可能にし、`Inserting` イベントのハンドラーを指定する、コースを選択する `EntityDataSource` コントロールを作成します。 新しい `Course` エンティティが作成されたときに、`Department` ナビゲーションプロパティを更新するには、ハンドラーを使用します。
 
-マークアップを作成も、`DetailsView`新規追加に使用するコントロール`Course`エンティティ。 マークアップにバインドされたフィールドを使用して`Course`エンティティのプロパティ。 入力する必要がある、`CourseID`これがシステムによって生成された ID フィールドではないため、その値します。 代わりに、コースの作成時に手動で指定する必要がありますコース番号になります。
+また、マークアップによって、新しい `Course` エンティティを追加するために使用する `DetailsView` コントロールも作成されます。 マークアップでは、`Course` エンティティのプロパティにバインドされたフィールドを使用します。 システムによって生成された ID フィールドではないため、`CourseID` 値を入力する必要があります。 もちろん、コースの作成時に手動で指定する必要があるコース番号です。
 
-テンプレート フィールドを使用する、`Department`ナビゲーション プロパティとナビゲーション プロパティを使用できないため`BoundField`コントロール。 [テンプレート] フィールドでは、部門を選択するドロップダウン リストを提供します。 ドロップダウン リストにバインドされた、`Departments`エンティティ セットを使用して`Eval`なく`Bind`、もう一度ため、それらを更新するにはナビゲーション プロパティを直接バインドすることはできません。 ハンドラーを指定する、`DropDownList`コントロールの`Init`イベントを更新するコードで使用するためのコントロールへの参照を保存するため、`DepartmentID`外部キーです。
+ナビゲーションプロパティは `BoundField` コントロールでは使用できないため、`Department` ナビゲーションプロパティのテンプレートフィールドを使用します。 [テンプレート] フィールドには、部門を選択するドロップダウンリストが表示されます。 ドロップダウンリストは `Bind`ではなく `Eval` を使用して `Departments` エンティティセットにバインドされます。これは、ナビゲーションプロパティを更新するために直接バインドすることができないためです。 `DepartmentID` 外部キーを更新するコードで使用するために、コントロールへの参照を格納できるように、`DropDownList` コントロールの `Init` イベントのハンドラーを指定します。
 
-*CoursesAdd.aspx.cs*への参照を保持するためにクラス フィールドを追加、部分クラス宣言の直後後、`DepartmentsDropDownList`コントロール。
+部分クラス宣言の直後に*CoursesAdd.aspx.cs*で、`DepartmentsDropDownList` コントロールへの参照を保持するクラスフィールドを追加します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample2.cs)]
 
-ハンドラーを追加、`DepartmentsDropDownList`コントロールの`Init`イベントのため、コントロールへの参照を格納することです。 これにより、ユーザーが入力した値を取得し、更新に使用できます、`DepartmentID`の値、`Course`エンティティ。
+コントロールへの参照を格納できるように、`DepartmentsDropDownList` コントロールの `Init` イベントのハンドラーを追加します。 これにより、ユーザーが入力した値を取得し、それを使用して `Course` エンティティの `DepartmentID` 値を更新できます。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample3.cs)]
 
-ハンドラーを追加、`DetailsView`コントロールの`Inserting`イベント。
+`DetailsView` コントロールの `Inserting` イベントのハンドラーを追加します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample4.cs)]
 
-ユーザーがクリックすると`Insert`、`Inserting`新しいレコードが挿入される前に、イベントが発生します。 ハンドラーのコードを取得、`DepartmentID`から、`DropDownList`を制御し、使用される値を設定するため、`DepartmentID`のプロパティ、`Course`エンティティ。
+ユーザーが [`Insert`] をクリックすると、新しいレコードが挿入される前に `Inserting` イベントが発生します。 ハンドラー内のコードは、`DropDownList` コントロールから `DepartmentID` を取得し、それを使用して `Course` エンティティの `DepartmentID` プロパティに使用される値を設定します。
 
-Entity Framework が処理するには、このコースを追加する、`Courses`ナビゲーション プロパティ、関連付けられている`Department`エンティティ。 部署をさらに追加、`Department`のナビゲーション プロパティ、`Course`エンティティ。
+Entity Framework は、関連付けられている `Department` エンティティの `Courses` ナビゲーションプロパティにこのコースを追加する処理を行います。 また、`Course` エンティティの `Department` ナビゲーションプロパティに department を追加します。
 
 ページを実行します。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-5/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image5.png)
 
-ID、タイトル、クレジットの数値を入力し、部署を選択します をクリックして**挿入**します。
+ID、タイトル、クレジットの数を入力し、部門を選択して、 **[挿入]** をクリックします。
 
-実行、 *Courses.aspx*ページ、および新しいコースを表示する同じ部門を選択します。
+[Course *] ページを*実行し、同じ部門を選択して新しいコースを表示します。
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-5/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image7.png)
 
-## <a name="working-with-many-to-many-relationships"></a>多対多リレーションシップの使用
+## <a name="working-with-many-to-many-relationships"></a>多対多リレーションシップの操作
 
-間のリレーションシップ、`Courses`エンティティ セットと`People`エンティティ セットは、多対多リレーションシップ。 A`Course`エンティティという名前のナビゲーション プロパティには`People`0、1、またはその関連する詳細を格納できる`Person`エンティティ (そのコースを教えるに割り当てられている講師を表す)。 および`Person`エンティティという名前のナビゲーション プロパティには`Courses`0、1、またはその関連する詳細を含めることができます`Course`エンティティ (コースを表すについて解説するそのインストラクターが割り当てられます)。 1 人の講師は、複数のコースを学ぶことし、複数の講師が 1 つのコースを担当する可能性があります。 チュートリアルのこのセクションで追加し、間のリレーションシップを削除`Person`と`Course`エンティティ関連エンティティのナビゲーション プロパティを更新します。
+`Courses` エンティティセットと `People` エンティティセットのリレーションシップは、多対多リレーションシップです。 `Course` エンティティには、`People` という名前のナビゲーションプロパティがあります。このプロパティには、0個以上の関連 `Person` エンティティを含めることができます (そのコースに割り当てられたインストラクターを表す)。 また、`Person` エンティティには `Courses` という名前のナビゲーションプロパティがあります。これには、0個以上の関連 `Course` エンティティ (インストラクターが教えるために割り当てられたコースを表す) を含めることができます。 1人のインストラクターが複数のコースを教えることができ、1つのコースは複数の教師によって講習される可能性があります。 チュートリアルのこのセクションでは、関連エンティティのナビゲーションプロパティを更新して、`Person` エンティティと `Course` エンティティ間のリレーションシップを追加および削除します。
 
-という名前の新しい web ページを作成する*InstructorsCourses.aspx*を使用して、 *Site.Master*マスター ページ、および次のマークアップを追加、`Content`という名前のコントロール`Content2`:
+*InstructorsCourses*という名前の新しい web ページを作成し、*そのマスターページ*を使用して、`Content2`という名前の `Content` コントロールに次のマークアップを追加します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample5.aspx)]
 
-このマークアップを作成、 `EntityDataSource` 、名前を取得するコントロールと`PersonID`の`Person`インストラクター エンティティ。 A`DropDrownList`コントロールにバインドする、`EntityDataSource`コントロール。 `DropDownList`コントロールのハンドラーを指定する、`DataBound`イベント。 このハンドラーのコースを表示するデータ バインド、2 つのドロップダウン リストを使用します。
+このマークアップは、インストラクターの `Person` エンティティの名前と `PersonID` を取得する `EntityDataSource` コントロールを作成します。 `DropDrownList` コントロールは、`EntityDataSource` コントロールにバインドされます。 `DropDownList` コントロールは、`DataBound` イベントのハンドラーを指定します。 このハンドラーを使用して、コースを表示する2つのドロップダウンリストをバインドします。
 
-マークアップでは、選択したインストラクターにコースの割り当てに使用するコントロールの次のグループも作成されます。
+マークアップでは、選択したインストラクターにコースを割り当てるために使用する次のコントロールグループも作成されます。
 
-- A`DropDownList`を割り当てるコースを選択するためのコントロール。 選択したインストラクターに現在割り当てられていないコースでは、このコントロールが表示されます。
-- A`Button`割り当てを開始するコントロール。
-- A`Label`割り当てが失敗した場合、エラー メッセージを表示するコントロール。
+- 割り当てるコースを選択するための `DropDownList` コントロールです。 このコントロールには、選択したインストラクターに現在割り当てられていないコースが設定されます。
+- 割り当てを開始する `Button` コントロール。
+- 割り当てが失敗した場合にエラーメッセージを表示する `Label` コントロール。
 
-最後に、マークアップでは、選択したインストラクターのコースを削除するために使用するコントロールのグループも作成します。
+また、マークアップは、選択したインストラクターからコースを削除するために使用するコントロールのグループも作成します。
 
-*InstructorsCourses.aspx.cs*を使用して、追加ステートメント。
+*InstructorsCourses.aspx.cs*で、using ステートメントを追加します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample6.cs)]
 
-コースを表示する 2 つのドロップダウン リストを設定するためのメソッドを追加します。
+コースを表示する2つのドロップダウンリストを設定するためのメソッドを追加します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample7.cs)]
 
-このコードからすべてのコースを取得する、`Courses`エンティティが設定されからコースを取得、`Courses`のナビゲーション プロパティ、`Person`選択したインストラクター エンティティ。 コースは、そのインストラクターに割り当てられているかを決定し、ドロップダウン リストを適宜設定します。
+このコードでは、`Courses` エンティティセットからすべてのコースを取得し、選択したインストラクターの `Person` エンティティの `Courses` ナビゲーションプロパティからコースを取得します。 次に、そのインストラクターに割り当てられているコースを特定し、それに応じてドロップダウンリストを設定します。
 
-ハンドラーを追加、`Assign`ボタンの`Click`イベント。
+`Assign` ボタンの `Click` イベントのハンドラーを追加します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample8.cs)]
 
-このコードを取得、`Person`選択されたインストラクターのエンティティを取得、`Course`選択したコースのエンティティを選択したコースを追加します、`Courses`のインストラクターのナビゲーション プロパティ`Person`エンティティ。 データベースに変更を保存し、結果をすぐに確認できるように、ドロップダウン リストを再作成します。
+このコードは、選択したインストラクターの `Person` エンティティを取得し、選択したコースの `Course` エンティティを取得し、選択したコースをインストラクターの `Person` エンティティの `Courses` ナビゲーションプロパティに追加します。 次に、変更内容をデータベースに保存し、ドロップダウンリストを再設定して、結果をすぐに表示できるようにします。
 
-ハンドラーを追加、`Remove`ボタンの`Click`イベント。
+`Remove` ボタンの `Click` イベントのハンドラーを追加します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample9.cs)]
 
-このコードを取得、`Person`選択されたインストラクターのエンティティを取得、`Course`選択したコースのエンティティから選択したコースを削除し、`Person`エンティティの`Courses`ナビゲーション プロパティ。 データベースに変更を保存し、結果をすぐに確認できるように、ドロップダウン リストを再作成します。
+このコードは、選択したインストラクターの `Person` エンティティを取得し、選択したコースの `Course` エンティティを取得し、`Person` エンティティの `Courses` ナビゲーションプロパティから選択したコースを削除します。 次に、変更内容をデータベースに保存し、ドロップダウンリストを再設定して、結果をすぐに表示できるようにします。
 
-コードを追加して、`Page_Load`ことを確認して、エラー メッセージは、メソッドはレポートと用のハンドラーを追加するとエラーがない場合に表示されない、`DataBound`と`SelectedIndexChanged`コースのドロップダウン リストを設定するインストラクターのドロップダウン リストのイベント。
+報告するエラーがないときにエラーメッセージが表示されないようにするコードを `Page_Load` メソッドに追加し、[講師] ドロップダウンリストの `DataBound` イベントと `SelectedIndexChanged` イベントのハンドラーを追加して、コースのドロップダウンリストを設定します。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample10.cs)]
 
@@ -119,9 +119,9 @@ ID、タイトル、クレジットの数値を入力し、部署を選択しま
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-インストラクターを選択します。 <strong>コースを割り当てる</strong>、インストラクターが指導するコースを表示するドロップダウン リスト、<strong>コースを削除</strong>ドロップダウン リストに既に割り当てられている、インストラクター コースを表示します。 <strong>コースを割り当てる</strong>セクション、コースを選択し、クリックして<strong>割り当てる</strong>します。 コースに移動、<strong>コースを削除</strong>ドロップダウン リスト。 コースを選択、<strong>コースを削除</strong>セクションし、をクリックして<strong>削除</strong><em>します。</em> コースに移動、<strong>コースを割り当てる</strong>ドロップダウン リスト。
+インストラクターを選択します。 [<strong>コースの割り当て</strong>] ドロップダウンリストには、インストラクターが学習していないコースが表示され、[<strong>コースの削除</strong>] ドロップダウンリストには、インストラクターが既に割り当てられているコースが表示されます。 [<strong>コースの割り当て</strong>] セクションでコースを選択し、[<strong>割り当て</strong>] をクリックします。 コースは [コースの<strong>削除</strong>] ドロップダウンリストに移動します。 [<strong>コースの削除</strong>] セクションでコースを選択し、[<strong>削除</strong>] をクリックし<em>ます。</em> コースが [コースの<strong>割り当て</strong>] ドロップダウンリストに移動します。
 
-関連データを操作する方法がいくつか見てきました。 次のチュートリアルでは、アプリケーションの保守容易性を向上させるために、データ モデルで継承を使用する方法を学習します。
+これで、関連データを操作するいくつかの方法が見られました。 次のチュートリアルでは、データモデルで継承を使用して、アプリケーションの保守性を向上させる方法について説明します。
 
 > [!div class="step-by-step"]
 > [前へ](the-entity-framework-and-aspnet-getting-started-part-4.md)

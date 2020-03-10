@@ -9,11 +9,11 @@ ms.assetid: 5138b8fe-98ff-4e73-a00b-e263fc3ff11d
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 183974564764aab9c0d8a4e577995f3c444bf2d3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606793"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430900"
 ---
 # <a name="dynamically-controlling-updatepanel-animations-c"></a>UpdatePanel アニメーションを動的に制御する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606793"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 UpdatePanel の内容については、animation framework: Updateパネルアニメーションに大きく依存する特別な extender が存在します。 また、UpdatePanel トリガーと共に使用することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 `UpdatePanel`の内容については、`UpdatePanelAnimation`のアニメーションフレームワークに大きく依存する特別な extender が存在します。 また、`UpdatePanel` トリガーと共に使用することもできます。
 

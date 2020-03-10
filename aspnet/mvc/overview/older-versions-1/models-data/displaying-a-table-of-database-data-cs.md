@@ -9,17 +9,17 @@ ms.assetid: d6e758b6-6571-484d-a132-34ee6c47747a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3c908d030076fc8400190ef3cf1672632ac1ed6b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589612"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78436846"
 ---
 # <a name="displaying-a-table-of-database-data-c"></a>データベース データの表を表示する (C#)
 
 [Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_CS.pdf)
 
 > このチュートリアルでは、一連のデータベースレコードを表示する2つの方法について説明します。 ここでは、一連のデータベースレコードを HTML テーブルに書式設定する2つの方法について説明します。 まず、ビュー内でデータベースレコードを直接書式設定する方法を説明します。 次に、データベースレコードを書式設定するときにパーシャルを活用する方法を説明します。
 
@@ -31,12 +31,12 @@ ms.locfileid: "74589612"
 
 <a id="0.3_table01"></a>
 
-| **列名** | **データ型** | **Null を許容** |
+| **列名** | **[データ型]** | **[NULL を許容]** |
 | --- | --- | --- |
-| Id | Int | [False] |
-| [タイトル] | Nvarchar (200) | [False] |
-| ・ | NVarchar (50) | [False] |
-| DateReleased | DateTime | [False] |
+| Id | int | False |
+| タイトル | Nvarchar(200) | False |
+| ディレクター | NVarchar (50) | False |
+| DateReleased | DateTime | False |
 
 ASP.NET MVC アプリケーションのムービーテーブルを表すために、モデルクラスを作成する必要があります。 このチュートリアルでは、Microsoft Entity Framework を使用して、モデルクラスを作成します。
 
@@ -53,7 +53,7 @@ Entity Data Model ウィザードを起動するには、次の手順を実行�
 [追加] ボタンをクリックすると、Entity Data Model ウィザードが表示されます (図1を参照)。 ウィザードを完了するには、次の手順を実行します。
 
 1. **[モデルの内容の選択]** ステップで、 **[データベースから生成]** オプションを選択します。
-2. **[データ接続の選択]** 手順で、 *MoviesDB*データ接続を使用し、接続設定に*MoviesDBEntities*という名前を使用します。 **[次へ]** ボタンをクリックします。
+2. **[データ接続の選択]** 手順で、 *MoviesDB*データ接続を使用し、接続設定に*MoviesDBEntities*という名前を使用します。 **[次へ]** をクリックします。
 3. **データベースオブジェクトの選択** ステップで、テーブル ノードを展開し、映画 テーブルを選択します。 名前空間*モデル*を入力し、 **[完了]** をクリックします。
 
 [LINQ to SQL クラスの作成 ![](displaying-a-table-of-database-data-cs/_static/image1.jpg)](displaying-a-table-of-database-data-cs/_static/image1.png)
@@ -162,7 +162,7 @@ Index () アクションを右クリックし、 **[ビューの追加]** メニ
 
 RenderPartial () メソッドは、文字列を返さないため、他のヘルパーメソッドとは異なります。 そのため、&lt;% .Html 部分 () を使用して、RenderPartial () メソッドを呼び出す必要があります。%&gt; &lt;% = Html. RenderPartial ();%&gt;。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、一連のデータベースレコードを HTML テーブルに表示する方法を説明することでした。 まず、Microsoft Entity Framework を利用して、コントローラーアクションから一連のデータベースレコードを返す方法について学習しました。 次に、Visual Studio のスキャフォールディングを使用して、項目のコレクションを自動的に表示するビューを生成する方法を学習しました。 最後に、部分的なを利用して、ビューを簡略化する方法について学習しました。 各データベースレコードをフォーマットできるように、部分をテンプレートとして使用する方法について学習しました。
 

@@ -1,26 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/index
-title: ASP.NET Web API での OData v4 のサポート |Microsoft Docs
+title: ASP.NET Web API | での OData v4 のサポートMicrosoft Docs
 author: rick-anderson
-description: ASP.NET Web API を使用すると、OData バージョン 4 をサポートするエンドポイントを作成できます。
+description: OData バージョン4をサポートするエンドポイントを作成するには、ASP.NET Web API を使用します。
 ms.author: riande
 ms.date: 06/26/2014
 ms.assetid: bb807fdd-0bd8-43d0-b068-e88de7e5fd87
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4
 msc.type: chapter
 ms.openlocfilehash: 2068b7ad8d7b47ba4dd8768e4e35a28c5cf84de3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132734"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421408"
 ---
 # <a name="supporting-odata-v4-in-aspnet-web-api"></a>ASP.NET Web API での OData v4 のサポート
 
-> ASP.NET Web API を使用すると、OData バージョン 4 をサポートするエンドポイントを作成できます。
+> OData バージョン4をサポートするエンドポイントを作成するには、ASP.NET Web API を使用します。
 
 - [OData v4 エンドポイントを作成する](create-an-odata-v4-endpoint.md)
-- [OData v4 クライアント アプリ (C#) を作成します。](create-an-odata-v4-client-app.md)
+- [OData v4 クライアント アプリを作成する (C#)](create-an-odata-v4-client-app.md)
 - [OData v4 のエンティティ関係](entity-relations-in-odata-v4.md)
 - [OData v4 のアクションと関数](odata-actions-and-functions.md)
 - [OData v4 のコンテインメイト](odata-containment-in-web-api-22.md)

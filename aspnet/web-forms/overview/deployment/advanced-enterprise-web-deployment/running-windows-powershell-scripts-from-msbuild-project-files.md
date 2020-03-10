@@ -1,159 +1,159 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
-title: MSBuild プロジェクト ファイルからの Windows PowerShell スクリプトの実行 |Microsoft Docs
+title: MSBuild プロジェクトファイルから Windows PowerShell スクリプトを実行する |Microsoft Docs
 author: jrjlee
-description: このトピックでは、ビルドおよび配置プロセスの一部として Windows PowerShell スクリプトを実行する方法について説明します。 スクリプトをローカルで実行することができます (つまり、b の..。
+description: このトピックでは、ビルドおよび配置のプロセスの一部として Windows PowerShell スクリプトを実行する方法について説明します。 スクリプトはローカルで実行できます (つまり、b...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
 ms.openlocfilehash: 7b09c07b8b7c2a61ca534f7a66a929593f3d04ca
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131565"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78441448"
 ---
 # <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、ビルドおよび配置プロセスの一部として Windows PowerShell スクリプトを実行する方法について説明します。 (つまり、ビルド サーバー) でローカル スクリプトを実行したり、送信先の web サーバーまたはデータベース サーバーなどのリモートでできます。
+> このトピックでは、ビルドおよび配置のプロセスの一部として Windows PowerShell スクリプトを実行する方法について説明します。 スクリプトは、移行先の web サーバーやデータベースサーバーなど、ローカルで (つまり、ビルドサーバー上で) 実行することも、リモートで実行することもできます。
 > 
-> 配置後の Windows PowerShell スクリプトを実行するかの理由が います。 たとえば、次の操作を行います。
+> 配置後の Windows PowerShell スクリプトを実行する理由は多数あります。 たとえば、次の場合です。
 > 
-> - カスタム イベント ソースをレジストリに追加します。
-> - ファイル システム ディレクトリのアップロードを生成します。
-> - ビルド ディレクトリをクリーンアップします。
-> - カスタム ログ ファイルにエントリを記述します。
-> - 新しくプロビジョニングされた web アプリケーションにユーザーの招待メールを送信します。
-> - 適切なアクセス許可を持つユーザー アカウントを作成します。
+> - カスタムイベントソースをレジストリに追加します。
+> - アップロード用のファイルシステムディレクトリを生成します。
+> - ビルドディレクトリをクリーンアップします。
+> - カスタムログファイルにエントリを書き込みます。
+> - 新しくプロビジョニングされた web アプリケーションにユーザーを招待する電子メールを送信します。
+> - 適切なアクセス許可を持つユーザーアカウントを作成します。
 > - SQL Server インスタンス間のレプリケーションを構成します。
 > 
-> このトピックでは、Microsoft Build Engine (MSBuild) プロジェクト ファイルでカスタム ターゲットからローカルとリモートの両方に、Windows PowerShell スクリプトを実行する方法を示します。
+> このトピックでは、Microsoft Build Engine (MSBuild) プロジェクトファイルのカスタムターゲットから Windows PowerShell スクリプトをローカルとリモートの両方で実行する方法について説明します。
 
-このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
+このトピックでは、Fabrikam, Inc. という架空の企業のエンタープライズ展開要件に基づいて、一連のチュートリアルの一部を説明します。このチュートリアルシリーズでは、&#x2014; [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;のサンプルソリューションを使用して、ASP.NET MVC 3 アプリケーション、Windows Communication Foundation (WCF) サービス、データベースプロジェクトなど、現実的なレベルの複雑さを持つ web アプリケーションを表します。
 
-これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを格納しています。すべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+これらのチュートリアルの中核となる配置方法は、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」で説明されている分割プロジェクトファイルアプローチに基づいています。この&#x2014;プロジェクトファイルには、ビルドプロセスは、すべての変換先環境に適用されるビルド命令を含む2つのプロジェクトファイルと、環境固有のビルドおよび配置設定を含んでいます。 ビルド時に、環境固有のプロジェクトファイルが環境に依存しないプロジェクトファイルにマージされ、ビルド命令の完全なセットが形成されます。
 
 ## <a name="task-overview"></a>タスクの概要
 
-を、自動またはシングル ステップの展開プロセスの一部として Windows PowerShell スクリプトを実行するには、これらの高度なタスクを完了する必要があります。
+自動またはシングルステップのデプロイプロセスの一環として Windows PowerShell スクリプトを実行するには、次の高レベルのタスクを実行する必要があります。
 
-- ソリューションをソース管理には、Windows PowerShell スクリプトを追加します。
-- Windows PowerShell スクリプトを起動するコマンドを作成します。
-- コマンドで、予約済みの XML 文字をエスケープします。
-- カスタム MSBuild プロジェクト ファイルでターゲットを作成し、使用、 **Exec**コマンドを実行するタスク。
+- Windows PowerShell スクリプトをソリューションとソース管理に追加します。
+- Windows PowerShell スクリプトを呼び出すコマンドを作成します。
+- コマンドで予約済みの XML 文字をエスケープします。
+- カスタム MSBuild プロジェクトファイルにターゲットを作成し、 **Exec**タスクを使用してコマンドを実行します。
 
-このトピックでは、これらの手順を実行する方法を説明します。 タスクとチュートリアルでは、このトピックでは、MSBuild ターゲットおよびプロパティ、慣れている既にことと、カスタム MSBuild プロジェクト ファイルを使用してビルドおよび配置プロセスを促進する方法を理解することを想定しています。 詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。
+このトピックでは、これらの手順を実行する方法について説明します。 このトピックのタスクとチュートリアルでは、MSBuild のターゲットとプロパティについて理解していること、およびカスタム MSBuild プロジェクトファイルを使用してビルドおよび配置プロセスを実行する方法について理解していることを前提としています。 詳細については、「[プロジェクトファイルに](../web-deployment-in-the-enterprise/understanding-the-project-file.md)ついて」および「[ビルドプロセスについ](../web-deployment-in-the-enterprise/understanding-the-build-process.md)て」を参照してください。
 
-## <a name="creating-and-adding-windows-powershell-scripts"></a>作成して、Windows PowerShell スクリプトの追加
+## <a name="creating-and-adding-windows-powershell-scripts"></a>Windows PowerShell スクリプトの作成と追加
 
-という名前のサンプル Windows PowerShell スクリプトを使用して、このトピックのタスクで**LogDeploy.ps1** MSBuild からスクリプトを実行する方法について説明します。 **LogDeploy.ps1**スクリプトには、ログ ファイルを単一行のエントリを書き込む単純な関数が含まれています。
+このトピックのタスクでは、「 **Logdeploy. ps1** 」という名前のサンプル Windows PowerShell スクリプトを使用して、MSBuild からスクリプトを実行する方法を説明します。 **Logdeploy. ps1**スクリプトには、1行のエントリをログファイルに書き込む単純な関数が含まれています。
 
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
-**LogDeploy.ps1**スクリプトは 2 つのパラメーターを受け取ります。 最初のパラメーターは、エントリを追加するログ ファイルに完全なパスを表すし、2 番目のパラメーターは、ログ ファイルに記録する、配置先を表します。 スクリプトを実行するときに、この形式でログ ファイルに行が追加されます。
+**Logdeploy. ps1**スクリプトは2つのパラメーターを受け取ります。 最初のパラメーターは、エントリを追加するログファイルへの完全パスを表し、2番目のパラメーターは、ログファイルに記録する配置先を表します。 スクリプトを実行すると、次の形式でログファイルに行が追加されます。
 
 [!code-html[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample2.html)]
 
-させる、 **LogDeploy.ps1** MSBuild を使用可能なスクリプト、する必要があります。
+MSBuild で**Logdeploy. ps1**スクリプトを使用できるようにするには、次のことを行う必要があります。
 
-- スクリプトをソース コントロールに追加します。
-- Visual Studio 2010 でのソリューションに対して、スクリプトを追加します。
+- スクリプトをソース管理に追加します。
+- Visual Studio 2010 で、スクリプトをソリューションに追加します。
 
-ビルド サーバー上またはリモート コンピューターでスクリプトを実行するかどうかに関係なく、ソリューションのコンテンツでスクリプトを展開する必要はありません。 1 つのオプションでは、ソリューション フォルダーにスクリプトを追加します。 連絡先のマネージャーの例で、展開プロセスの一部として、Windows PowerShell スクリプトを使用するため、理にかなって発行ソリューション フォルダーにスクリプトを追加します。
+ビルドサーバーとリモートコンピューターのどちらでスクリプトを実行するかに関係なく、スクリプトをソリューションコンテンツと共に配置する必要はありません。 1つの方法として、スクリプトをソリューションフォルダーに追加します。 Contact Manager の例では、デプロイプロセスの一部として Windows PowerShell スクリプトを使用する必要があるため、[ソリューションの発行] フォルダーにスクリプトを追加するのが理にかなっています。
 
 ![](running-windows-powershell-scripts-from-msbuild-project-files/_static/image1.png)
 
-ソリューション フォルダーの内容は、ソース マテリアルとしてビルド サーバーにコピーされます。 ただし、プロジェクト出力の一部を形成しません。
+ソリューションフォルダーの内容がソース資料としてビルドサーバーにコピーされます。 ただし、これらはプロジェクトの出力の一部を形成しません。
 
-## <a name="executing-a-windows-powershell-script-on-the-build-server"></a>ビルド サーバーで Windows PowerShell スクリプトの実行
+## <a name="executing-a-windows-powershell-script-on-the-build-server"></a>ビルドサーバーで Windows PowerShell スクリプトを実行する
 
-一部のシナリオで、プロジェクトをビルドしているコンピューターで Windows PowerShell スクリプトを実行する場合があります。 たとえば、ビルド フォルダーをクリーンアップまたはカスタムのログ ファイルにエントリを書き込むに Windows PowerShell スクリプトを使用する可能性があります。
+場合によっては、プロジェクトをビルドするコンピューターで Windows PowerShell スクリプトを実行することが必要になることがあります。 たとえば、Windows PowerShell スクリプトを使用して、ビルドフォルダーのクリーンアップやカスタムログファイルへのエントリの書き込みを行うことができます。
 
-構文の観点から MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行しているが通常コマンド プロンプトから、Windows PowerShell スクリプトを実行すると同じ。 実行可能ファイル、powershell.exe を起動し、使用する必要がある、 **– コマンド**スイッチを実行する Windows PowerShell のコマンドを提供します。 (Windows PowerShell v2 を使用することも、 **– ファイル**切り替えます)。 コマンドは、この形式を実行する必要があります。
+構文に関しては、MSBuild プロジェクトファイルから Windows PowerShell スクリプトを実行することは、通常のコマンドプロンプトから Windows PowerShell スクリプトを実行することと同じです。 Powershell 実行可能ファイルを起動し、 **– command**スイッチを使用して、Windows powershell で実行するコマンドを指定する必要があります。 (Windows PowerShell v2 では、 **– file**スイッチを使用することもできます)。 コマンドの形式は次のようになります。
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample3.cmd)]
 
-例えば:
+次に例を示します。
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample4.cmd)]
 
-スクリプトへのパスにスペースが含まれている場合は、ファイルのパスを単一引用符の前にアンパサンドで囲む必要があります。 コマンドを囲むために既に使用しているため、二重引用符を使用することはできません。
+スクリプトへのパスにスペースが含まれている場合は、アンパサンドで始まる単一引用符でファイルパスを囲む必要があります。 二重引用符は使用できません。コマンドを囲むために既に使用されているためです。
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample5.cmd)]
 
-MSBuild からこのコマンドを呼び出す場合は、いくつか追加の考慮事項にもあります。 最初に、含める必要がある、 **– NonInteractive**スクリプトをサイレント モードで実行されるようにするフラグ。 次に、含める必要がある、 **– ExecutionPolicy**フラグを適切な引数の値。 これには、Windows PowerShell はスクリプトに適用され、スクリプトの実行を防ぐことがあります既定の実行ポリシーをオーバーライドすることができます、実行ポリシーを指定します。 これらの引数の値から選択できます。
+MSBuild からこのコマンドを呼び出す際には、いくつかの追加の考慮事項があります。 最初に、スクリプトが自動的に実行されるように、 **–非対話**フラグを含める必要があります。 次に、適切な引数値を使用して **– set-executionpolicy**フラグを含める必要があります。 これにより、Windows PowerShell がスクリプトに適用する実行ポリシーが指定され、既定の実行ポリシーをオーバーライドできるようになります。これにより、スクリプトの実行が妨げられる可能性があります。 次の引数の値から選択できます。
 
-- 値**Unrestricted** Windows PowerShell スクリプトを署名するかどうかに関係なく、スクリプトを実行できるようになります。
-- 値**RemoteSigned** Windows PowerShell をローカル コンピューター上に作成された符号なしのスクリプトを実行できるようになります。 ただし、別の場所で作成されたスクリプトを署名する必要があります。 (実際には、していない場合に、ビルド サーバーで Windows PowerShell スクリプトをローカルで作成した)。
-- 値**AllSigned**により、署名済みスクリプトのみを実行する Windows PowerShell。
+- 値を**無制限**に設定すると、スクリプトが署名されているかどうかに関係なく、Windows PowerShell でスクリプトを実行できます。
+- **RemoteSigned**の値を指定すると、Windows PowerShell はローカルコンピューター上で作成された未署名のスクリプトを実行できます。 ただし、他の場所で作成されたスクリプトには署名が必要です。 (実際には、ビルドサーバーで Windows PowerShell スクリプトをローカルに作成することはほとんどありません)。
+- **AllSigned**の値を指定すると、Windows PowerShell は署名されたスクリプトのみを実行できます。
 
-既定の実行ポリシーは**Restricted**、され、Windows PowerShell は任意のスクリプト ファイルを実行できなきます。
+既定の実行ポリシーは**制限**されています。これにより、Windows PowerShell はスクリプトファイルを実行できなくなります。
 
-最後に、Windows PowerShell コマンドで発生する予約済み XML 文字をエスケープする必要があります。
+最後に、Windows PowerShell コマンドで発生した予約済み XML 文字をエスケープする必要があります。
 
-- 単一引用符を置き換える **&amp;apos;**
-- 二重引用符で置き換える **&amp;quot;**
-- アンパサンドを置き換える **&amp;amp;**
+- 単一引用符を **&amp;apos;** に置き換える
+- 二重引用符を **&amp;quot; に置き換えます。**
+- アンパサンドを **&amp;amp; に置き換えます。**
 
-- これらの変更を行ったときに、コマンドがこのようになります。
+- これらの変更を行うと、コマンドは次のようになります。
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample6.cmd)]
 
-カスタム MSBuild プロジェクト ファイル内には、新しいターゲットを作成して使用することができます、 **Exec**このコマンドを実行するタスク。
+カスタム MSBuild プロジェクトファイル内で、新しいターゲットを作成し、 **Exec**タスクを使用して次のコマンドを実行できます。
 
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample7.xml)]
 
-この例に注意してください。
+この例では、次の点に注意してください。
 
-- パラメーター値と、Windows PowerShell 実行可能ファイルの場所など、任意の変数は、MSBuild プロパティとして宣言されます。
-- コマンドラインからこれらの値を上書きするユーザーを有効にするのには、条件が含まれています。
-- **MSDeployComputerName**どこかプロジェクト ファイルでプロパティを宣言します。
+- パラメーター値や Windows PowerShell 実行可能ファイルの場所など、すべての変数は MSBuild プロパティとして宣言されます。
+- ユーザーがコマンドラインからこれらの値をオーバーライドできるようにするための条件が含まれています。
+- **Msdeploycomputername**プロパティは、プロジェクトファイル内の他の場所で宣言されています。
 
-ビルド プロセスの一部としてこのターゲットを実行するときに Windows PowerShell がコマンドを実行し、指定したファイルにログ エントリを書き込みます。
+このターゲットをビルドプロセスの一部として実行すると、Windows PowerShell によってコマンドが実行され、指定したファイルにログエントリが書き込まれます。
 
-## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>リモート コンピューターで Windows PowerShell スクリプトの実行
+## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>リモートコンピューターでの Windows PowerShell スクリプトの実行
 
-Windows PowerShell がリモート コンピューターでスクリプトを実行できる[Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx)(WinRM)。 これを行うには、使用する必要があります、 [Invoke-command](https://technet.microsoft.com/library/dd347578.aspx)コマンドレット。 これにより、スクリプトをリモート コンピューターにコピーすることがなく 1 つまたは複数のリモート コンピューターに対してスクリプトを実行できます。 スクリプトの実行に使用したローカル コンピューターには、すべての結果が返されます。
+Windows PowerShell は、 [Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx)(WinRM) を介してリモートコンピューターでスクリプトを実行することができます。 これを行うには、[コマンド](https://technet.microsoft.com/library/dd347578.aspx)レットを使用する必要があります。 これにより、スクリプトをリモートコンピューターにコピーせずに、1つまたは複数のリモートコンピューターに対してスクリプトを実行できます。 スクリプトを実行したローカルコンピューターに結果が返されます。
 
 > [!NOTE]
-> 使用する前に、 **Invoke-command**リモート コンピューターでスクリプトを Windows PowerShell を実行するコマンドレット、リモートのメッセージを受け入れるように WinRM リスナーを構成する必要があります。 コマンドを実行してこれを行う**winrm quickconfig**リモート コンピューター。 詳細については、次を参照してください。[インストールと構成の Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx)します。
+> **コマンド**レットを使用してリモートコンピューターで Windows PowerShell スクリプトを実行する前に、リモートメッセージを受け入れるように WinRM リスナーを構成する必要があります。 これを行うには、リモートコンピューターでコマンド**winrm quickconfig**を実行します。 詳細については、「 [Windows リモート管理のインストールと構成](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx)」を参照してください。
 
-実行するこの構文を使用する、Windows PowerShell ウィンドウから、 **LogDeploy.ps1**リモート コンピューター上のスクリプト。
+Windows PowerShell ウィンドウから、次の構文を使用してリモートコンピューターで**Logdeploy. ps1**スクリプトを実行します。
 
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample8.ps1)]
 
 > [!NOTE]
-> 使用するさまざまな他の方法がある**Invoke-command**スクリプトを実行するが、この方法が最も簡単なパラメーター値を指定して、パスにスペースを管理する必要がある場合。
+> **呼び出しコマンド**を使用してスクリプトファイルを実行するには、他にもさまざまな方法がありますが、この方法は、パラメーター値を指定し、パスをスペースで管理する必要がある場合に最も簡単です。
 
-これをコマンド プロンプトから実行するときに実行可能ファイル、Windows PowerShell を起動して使用する必要があります、 **– コマンド**の説明を指定するパラメーター。
+これをコマンドプロンプトから実行する場合は、Windows PowerShell 実行可能ファイルを起動し、 **– command**パラメーターを使用して指示を行う必要があります。
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample9.cmd)]
 
-前に、いくつか追加のスイッチを行い、MSBuild からコマンドを実行すると、予約済み XML 文字をエスケープする必要があります。
+前と同様に、MSBuild からコマンドを実行するときに、いくつかの追加のスイッチを指定し、予約済みの XML 文字をエスケープする必要があります。
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample10.cmd)]
 
-使用できると同様に、最後に、 **Exec**コマンドを実行するカスタム MSBuild ターゲット内のタスク。
+最後に、前と同様に、カスタム MSBuild ターゲット内で**Exec**タスクを使用してコマンドを実行できます。
 
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample11.xml)]
 
-Windows PowerShell がで指定したコンピューターでスクリプトを実行、ビルド プロセスの一部としてこのターゲットを実行するときに、 **– computername**引数。
+このターゲットをビルドプロセスの一部として実行すると、Windows PowerShell は、 **– computername**引数で指定したコンピューター上でスクリプトを実行します。
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックでは、MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行する方法について説明します。 このアプローチを使用すると、またはシングル ステップの自動ビルドと展開プロセスの一環としてローカルまたはリモート コンピューター上の Windows PowerShell スクリプトを実行します。
+このトピックでは、MSBuild プロジェクトファイルから Windows PowerShell スクリプトを実行する方法について説明します。 この方法を使用すると、自動または単一ステップのビルドおよび展開プロセスの一部として、ローカルまたはリモートコンピューターで Windows PowerShell スクリプトを実行できます。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-Windows PowerShell スクリプトに署名して、実行ポリシーの管理に関するガイダンスについては、次を参照してください。 [Windows PowerShell スクリプトの実行](https://technet.microsoft.com/library/ee176949.aspx)します。 リモート コンピューターから Windows PowerShell コマンドを実行する方法の詳細については、次を参照してください。[リモート コマンドを実行している](https://technet.microsoft.com/library/dd819505.aspx)します。
+Windows PowerShell スクリプトへの署名と実行ポリシーの管理に関するガイダンスについては、「 [Windows Powershell スクリプトの実行](https://technet.microsoft.com/library/ee176949.aspx)」を参照してください。 リモートコンピューターからの Windows PowerShell コマンドの実行に関するガイダンスについては、「[リモートコマンドの実行](https://technet.microsoft.com/library/dd819505.aspx)」を参照してください。
 
-カスタム MSBuild プロジェクト ファイルを使用して、展開プロセスを制御する詳細については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)します。
+カスタム MSBuild プロジェクトファイルを使用した配置プロセスの制御の詳細については、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」および「[ビルドプロセスについ](../web-deployment-in-the-enterprise/understanding-the-build-process.md)て」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](taking-web-applications-offline-with-web-deploy.md)

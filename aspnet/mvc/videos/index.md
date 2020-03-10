@@ -9,11 +9,11 @@ ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
 msc.legacyurl: /mvc/videos
 msc.type: book
 ms.openlocfilehash: 4557a4442d59ec6314dcd2039c8c89b8b5b3d821
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414336"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78432346"
 ---
 # <a name="videos"></a>ビデオ
 
@@ -43,10 +43,10 @@ ms.locfileid: "59414336"
         - [データベース データの表を表示する](mvc-2/how-do-i/displaying-a-table-of-database-data.md)
         - [ASP.NET MVC とは何か。開発者向けの技術的な動画で NerdDinner をビルドします。80 分。](mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
         - [ASP.NET MVC を使う理由。意思決定者のための概要動画。3 分。](mvc-2/how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-        - [ASP.NET MVC:開発者向け方法 10 分の技術的な動画](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+        - [ASP.NET MVC: 使い方。開発者向けの技術的な動画。10 分。](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
         - [ASP.NET MVC Web アプリケーションで AJAX 呼び出しに対して JSON 形式のデータを返す](mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
         - [ASP.NET MVC 部分的ビューのデータを操作する](mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-        - [ASP.NET MVC ビューのデータを管理するビュー モデルを実装します。](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
+        - [ASP.NET MVC ビューのデータを管理するためのビューモデルを実装する](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
         - [MVC アプリケーションのカスタム HTML ヘルパーを作成する](mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
         - [MVC アプリケーションのモデル バインダーを使用する](mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application.md)
         - [MVC アプリケーションで HttpVerbs 属性を使用する](mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)
@@ -60,45 +60,45 @@ ms.locfileid: "59414336"
         - [最もわかりやすい ASP.NET MVC 講座](mvc-2/how-do-i/how-to-best-learn-asp-net-mvc.md)
     - [残りの人のための ASP.NET MVC](mvc-2/aspnet-mvc-for-the-rest-of-us/index.md)
 
-        - [残りの人のための ASP.NET MVC:第 1 部](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
-        - [残りの人のための ASP.NET MVC:第 2 部](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
-        - [残りの人のための ASP.NET MVC:パート 3](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
-        - [残りの人のための ASP.NET MVC:パート 4](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
+        - [残りの人のための ASP.NET MVC: パート 1](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
+        - [残りの人のための ASP.NET MVC: パート 2](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
+        - [残りの人のための ASP.NET MVC: パート 3](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
+        - [残りの人のための ASP.NET MVC: パート 4](mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
     - [Music Store](mvc-2/music-store/index.md)
 
-        - [MVC Music Store パート 1:入門、ツール、およびプロジェクトの構造](mvc-2/music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
-        - [MVC Music Store パート 2:コント ローラー](mvc-2/music-store/mvc-music-store-part-2-controllers.md)
-        - [MVC Music Store パート 3:Views と ViewModels](mvc-2/music-store/mvc-music-store-part-3-views-and-viewmodels.md)
+        - [MVC Music Store パート 1: 入門、ツール、プロジェクト構造](mvc-2/music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
+        - [MVC Music Store パート 2: コントローラー](mvc-2/music-store/mvc-music-store-part-2-controllers.md)
+        - [MVC Music Store パート 3: Views と ViewModels](mvc-2/music-store/mvc-music-store-part-3-views-and-viewmodels.md)
 - [ASP.NET MVC 1](mvc-1/index.md)
 
     - [ASP.NET MVC Storefront](mvc-1/aspnet-mvc-storefront/index.md)
 
-        - [ASP.NET MVC Storefront パート 1:アーキテクチャの説明と概要](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
-        - [ASP.NET MVC Storefront パート 2:リポジトリ パターン](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern.md)
-        - [ASP.NET MVC Storefront パート 3:パイプとフィルター](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters.md)
-        - [ASP.NET MVC Storefront パート 4:Linq To Sql スパイク](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
-        - [ASP.NET MVC Storefront パート 5:グローバリゼーション](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization.md)
-        - [ASP.NET MVC Storefront パート 6:リポジトリの完了、および最初の UI 作業](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
-        - [ASP.NET MVC Storefront パート 7:ルーティングと UI 作業](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work.md)
-        - [ASP.NET MVC Storefront パート 8:テスト コント ローラー、繰り返し 1 完了します。](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
-        - [ASP.NET MVC Storefront パート 9:ショッピング カート](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart.md)
-        - [ASP.NET MVC Storefront パート 10:ショッピング カートのリファクターと承認](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
-        - [ASP.NET MVC Storefront パート 11:ショッピング カートとコンポーネントを使用してフック](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
-        - [ASP.NET MVC Storefront パート 12:モックの作成](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking.md)
-        - [ASP.NET MVC Storefront パート 13:依存関係の挿入](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection.md)
-        - [ASP.NET MVC Storefront パート 14:リッチ クライアント相互作用](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction.md)
-        - [ASP.NET MVC Storefront パート 15:パブリック コード レビュー](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review.md)
-        - [ASP.NET MVC Storefront パート 16:メンバーシップの変更と OpenID](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
-        - [ASP.NET MVC Storefront パート 17:精算と Jeff Atwood](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
-        - [ASP.NET MVC Storefront パート 18:エクスペリエンスを作成します。](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-        - [ASP.NET MVC Storefront パート 19:注文処理と Windows ワークフロー](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
-        - [ASP.NET MVC Storefront パート 19 a:Windows ワークフローの続き](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
-        - [ASP.NET MVC Storefront パート 20:ログ記録](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
-        - [ASP.NET MVC Storefront パート 21:注文マネージャと個人用設定](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)
-        - [ASP.NET MVC Storefront パート 22:再構築、再ルーティング、および PayPal](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal.md)
-        - [ASP.NET MVC Storefront パート 23:ドメイン駆動設計の概要](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
-        - [ASP.NET MVC Storefront パート 24:自動](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis.md)
-    - [講演](mvc-1/conference-presentations/index.md)
+        - [ASP.NET MVC Storefront Part 1: アーキテクチャの説明と概要](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
+        - [ASP.NET MVC Storefront パート 2: リポジトリ パターン](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern.md)
+        - [ASP.NET MVC Storefront パート 3: パイプとフィルター](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters.md)
+        - [ASP.NET MVC Storefront パート 4: Linq To Sql スパイク](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
+        - [ASP.NET MVC Storefront パート 5: グローバリゼーション](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization.md)
+        - [ASP.NET MVC Storefront パート 6: リポジトリの完了、最初の UI 作業](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
+        - [ASP.NET MVC Storefront パート 7: ルーティングと UI 作業](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work.md)
+        - [ASP.NET MVC Storefront パート 8: コントローラーのテスト、繰り返し 1 完了](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
+        - [ASP.NET MVC Storefront パート 9: ショッピング カート](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart.md)
+        - [ASP.NET MVC Storefront パート 10: ショッピング カートのリファクターと認証](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
+        - [ASP.NET MVC Storefront パート 11: ショッピング カートの接続とコンポーネントの使用](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
+        - [ASP.NET MVC Storefront パート 12: モック](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking.md)
+        - [ASP.NET MVC Storefront パート 13: 依存関係の挿入](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection.md)
+        - [ASP.NET MVC Storefront パート 14: リッチ クライアント相互作用](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction.md)
+        - [ASP.NET MVC Storefront パート 15: パブリック コード レビュー](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review.md)
+        - [ASP.NET MVC Storefront パート 16: メンバーシップ変更と OpenID](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
+        - [ASP.NET MVC Storefront パート 17: 精算と Jeff Atwood](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
+        - [ASP.NET MVC Storefront パート 18: 顧客体験を生み出す](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
+        - [ASP.NET MVC Storefront パート 19: 注文処理と Windows ワークフロー](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+        - [ASP.NET MVC Storefront パート 19a: Windows ワークフローの続き](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
+        - [ASP.NET MVC Storefront パート 20: ログに記録する](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
+        - [ASP.NET MVC Storefront パート 21: 発注管理とパーソナル化](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)
+        - [ASP.NET MVC Storefront パート 22: 再構成、再ルーティング、PayPal](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal.md)
+        - [ASP.NET MVC Storefront パート 23: ドメイン駆動型設計の概要](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+        - [ASP.NET MVC Storefront パート 24: 終わり](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis.md)
+    - [説明](mvc-1/conference-presentations/index.md)
 
         - [Microsoft ASP.NET モデル ビュー コントローラー (MVC) で NerdDinner.com を作成する](mvc-1/conference-presentations/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc.md)
         - [アメリカズ ネクスト トップ モデル ビュー コントローラー フレームワーク](mvc-1/conference-presentations/americas-next-top-model-view-controller-framework.md)

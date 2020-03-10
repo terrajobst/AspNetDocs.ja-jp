@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-table-free-templated-controls
-title: テーブルのないテンプレート コントロール |Microsoft Docs
+title: テーブルのフリーテンプレートコントロール |Microsoft Docs
 author: JoeStagner
-description: RenderOuterTable について説明しますが、このビデオでは、外部テーブルかどうかを制御することができます、template 宣言されたコントロールのプロパティをレンダリングしています.
+description: このビデオでは、テンプレート化されたコントロールの RenderOuterTable プロパティについて説明します。これにより、外側のテーブルを表示するかどうかを制御できます...
 ms.author: riande
 ms.date: 11/16/2009
 ms.assetid: 3d8c871d-7e00-4f13-937c-aa1f9b5a7dba
 msc.legacyurl: /web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-table-free-templated-controls
 msc.type: video
 ms.openlocfilehash: ad6ac3e88f0e619a254d03ca61e97adfbce5a90d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394394"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78423226"
 ---
-# <a name="aspnet-4-quick-hit--table-free-templated-controls"></a>ASP.NET 4 のないテンプレート コントロールにテーブル「クイック ヒット」–
+# <a name="aspnet-4-quick-hit--table-free-templated-controls"></a>ASP.NET 4 "クイックヒット" –テーブルのフリーテンプレートコントロール
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、ページに、外部テーブルを表示するかどうかを制御することができますが、コントロールにテンプレート化された RenderOuterTable プロパティの詳細について学びます。 
+このビデオでは、テンプレート化されたコントロールの RenderOuterTable プロパティについて説明します。これにより、外側のテーブルをページに表示するかどうかを制御できます。 
 
-[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-table-free-templated-controls)
+[&#9654;ビデオを見る (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-table-free-templated-controls)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-4-quick-hit-new-rendering-option-for-check-box-lists-and-radio-button-lists.md)

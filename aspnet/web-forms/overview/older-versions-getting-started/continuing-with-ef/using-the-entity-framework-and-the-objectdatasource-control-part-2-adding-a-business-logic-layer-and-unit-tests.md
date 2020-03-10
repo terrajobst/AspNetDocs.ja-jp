@@ -1,224 +1,224 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: 使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 2。ビジネス ロジック層と単体テストの追加 |Microsoft Docs
+title: 'Entity Framework 4.0 と ObjectDataSource コントロールの使用、パート 2: ビジネスロジック層と単体テストの追加 |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズでは、Entity Framework 4.0 のチュートリアル シリーズの概要を作成した Contoso University web アプリケーションに基づいています。 ここには.
+description: このチュートリアルシリーズは、Entity Framework 4.0 チュートリアルシリーズを使用してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 ...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
 ms.openlocfilehash: 24344cc33d7c26d7c408db26c0530ef2c708a7d3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133453"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439954"
 ---
-# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 2。ビジネス ロジック層と単体テストの追加
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 と ObjectDataSource コントロールの使用、パート 2: ビジネスロジック層と単体テストの追加
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](https://asp.net/entity-framework/tutorials#Getting%20Started)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
+> このチュートリアルシリーズは、 [Entity Framework 4.0 チュートリアルシリーズを使用](https://asp.net/entity-framework/tutorials#Getting%20Started)してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点として、作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)できます。 チュートリアルシリーズ全体で作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)することもできます。 チュートリアルについてご質問がある場合は、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)に投稿することができます。
 
-前のチュートリアルでは、Entity Framework を使用して n 層 web アプリケーションを作成し、`ObjectDataSource`コントロール。 このチュートリアルでは、ビジネス ロジック層 (BLL) とデータ アクセス層 (DAL) を個別に維持しながら、ビジネス ロジックを追加する方法と、BLL の自動化された単体テストを作成する方法を示します。
+前のチュートリアルでは、Entity Framework と `ObjectDataSource` コントロールを使用して n 層 web アプリケーションを作成しました。 このチュートリアルでは、ビジネスロジック層 (BLL) とデータアクセス層 (DAL) を分離した状態でビジネスロジックを追加する方法について説明します。また、BLL 用の自動化された単体テストを作成する方法についても説明します。
 
-このチュートリアルでは、次のタスクを完了します。
+このチュートリアルでは、次のタスクを実行します。
 
-- 必要なデータ アクセス メソッドを宣言するリポジトリ インターフェイスを作成します。
-- リポジトリ クラスには、リポジトリ インターフェイスを実装します。
-- データ アクセス機能を実行するリポジトリ クラスを呼び出すビジネス ロジック クラスを作成します。
-- 接続、`ObjectDataSource`にリポジトリ クラスの代わりに、ビジネス ロジック クラスを制御します。
-- 単体テスト プロジェクトとそのデータ ストアのメモリ内コレクションを使用するリポジトリ クラスを作成します。
-- テストを実行して失敗を確認し、ビジネス ロジック クラスに追加するビジネス ロジックの単体テストを作成します。
-- ビジネス ロジック クラスでビジネス ロジックを実装し、テストし、か確認して、ユニットを再実行します。
+- 必要なデータアクセスメソッドを宣言するリポジトリインターフェイスを作成します。
+- リポジトリクラスにリポジトリインターフェイスを実装します。
+- リポジトリクラスを呼び出してデータアクセス関数を実行するビジネスロジッククラスを作成します。
+- `ObjectDataSource` コントロールを、リポジトリクラスではなくビジネスロジッククラスに接続します。
+- 単体テストプロジェクトと、そのデータストアのメモリ内コレクションを使用するリポジトリクラスを作成します。
+- ビジネスロジッククラスに追加するビジネスロジックの単体テストを作成し、テストを実行して失敗したことを確認します。
+- ビジネスロジッククラスにビジネスロジックを実装し、単体テストを再実行して、合格したことを確認します。
 
-使用する、 *Departments.aspx*と*DepartmentsAdd.aspx*前のチュートリアルで作成したページです。
+前のチュートリアルで作成した department および*DepartmentsAdd*ページを操作し*ます。*
 
-## <a name="creating-a-repository-interface"></a>リポジトリ インターフェイスを作成します。
+## <a name="creating-a-repository-interface"></a>リポジトリインターフェイスの作成
 
-リポジトリ インターフェイスの作成から始めます。
+まず、リポジトリインターフェイスを作成します。
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image1.png)
 
-*DAL*フォルダー、新しいクラス ファイルを作成、名前を付けます*ISchoolRepository.cs*、既存のコードを次のコードに置き換えます。
+*DAL*フォルダーで、新しいクラスファイルを作成し、 *ISchoolRepository.cs*という名前を付けて、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample1.cs)]
 
-インターフェイスの各 CRUD の 1 つのメソッドを定義します (作成、読み取り、更新、削除)、リポジトリ クラスで作成したメソッド。
+このインターフェイスは、repository クラスで作成した CRUD (作成、読み取り、更新、削除) の各メソッドに対して1つのメソッドを定義します。
 
-`SchoolRepository`クラス*SchoolRepository.cs*、このクラスで実装するかを示す、`ISchoolRepository`インターフェイス。
+*SchoolRepository.cs*の `SchoolRepository` クラスで、このクラスが `ISchoolRepository` インターフェイスを実装することを示します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample2.cs)]
 
-## <a name="creating-a-business-logic-class"></a>ビジネス ロジック クラスを作成します。
+## <a name="creating-a-business-logic-class"></a>ビジネスロジッククラスの作成
 
-次に、ビジネス ロジック クラスを作成します。 によって実行されるビジネス ロジックを追加できるように、これは、`ObjectDataSource`まだ行いますされませんが、制御します。 ここでは、新しいビジネス ロジック クラスは、リポジトリは通常の CRUD 操作のみを実行します。
+次に、ビジネスロジッククラスを作成します。 これにより、`ObjectDataSource` コントロールによって実行されるビジネスロジックを追加できるようになります。ただし、これはまだ行われません。 現時点では、新しいビジネスロジッククラスは、リポジトリと同じ CRUD 操作のみを実行します。
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image3.png)
 
-新しいフォルダーを作成し、名前*BLL*します。 (実際のアプリケーションでこれらのビジネス ロジック層は通常、クラス ライブラリとして実装する、別のプロジェクト: に、このチュートリアルを簡潔にするには、BLL クラスをプロジェクト フォルダーに保存されますが、)。
+新しいフォルダーを作成し、 *BLL*という名前を指定します。 (実際のアプリケーションでは、ビジネスロジック層は通常、独立したプロジェクトであるクラスライブラリとして実装されますが、このチュートリアルを単純にするために、BLL クラスはプロジェクトフォルダーに保持されます)。
 
-*BLL*フォルダー、新しいクラス ファイルを作成、名前を付けます*SchoolBL.cs*、既存のコードを次のコードに置き換えます。
+[ *BLL* ] フォルダーで、新しいクラスファイルを作成し、 *SchoolBL.cs*という名前を付けて、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample3.cs)]
 
-このコードは、前のリポジトリ クラス、見た同じ CRUD メソッドを作成しますが、Entity Framework メソッドに直接アクセスするのではなく、リポジトリ クラス メソッドを呼び出します。
+このコードは、前にリポジトリクラスで見たものと同じ CRUD メソッドを作成しますが、Entity Framework メソッドに直接アクセスするのではなく、リポジトリクラスのメソッドを呼び出します。
 
-リポジトリ クラスへの参照を保持するクラスの変数がインターフェイス型として定義されているし、2 つのコンス トラクターに、リポジトリ クラスをインスタンス化するコードが含まれています。 パラメーターなしのコンス トラクターで使用される、`ObjectDataSource`コントロール。 インスタンスを作成、`SchoolRepository`先ほど作成したクラス。 その他のコンス トラクターは、リポジトリ インターフェイスを実装する任意のオブジェクトを渡すためのビジネス ロジック クラスをインスタンス化するコードをすべてできます。
+リポジトリクラスへの参照を保持するクラス変数は、インターフェイス型として定義され、リポジトリクラスをインスタンス化するコードは2つのコンストラクターに含まれています。 パラメーターなしのコンストラクターは、`ObjectDataSource` コントロールによって使用されます。 これにより、前に作成した `SchoolRepository` クラスのインスタンスが作成されます。 もう1つのコンストラクターは、ビジネスロジッククラスをインスタンス化するすべてのコードが、リポジトリインターフェイスを実装する任意のオブジェクトに渡すことを許可します。
 
-リポジトリのクラスと 2 つのコンス トラクターを呼び出す CRUD メソッドを使用すれば、どのようなバックエンド データ ストアを選択すると、ビジネス ロジック クラスを使用できます。 ビジネス ロジック クラスは、呼び出し元のクラスが、データを保持する方法を認識する必要はありません。 (これは多くの場合に呼び出されます*永続化非依存*)。単純なものを使用するリポジトリの実装にビジネス ロジック クラスを接続できるため、単体テストを容易にインメモリとして`List`データを格納するコレクション。
+Repository クラスと2つのコンストラクターを呼び出す CRUD メソッドにより、選択した任意のバックエンドデータストアでビジネスロジッククラスを使用できるようになります。 ビジネスロジッククラスは、呼び出し元のクラスがデータを永続化する方法を認識する必要はありません。 (これは、"*永続化無視*" と呼ばれることがよくあります)。これにより、単体テストが容易になります。これは、データを格納するためのメモリ内 `List` コレクションと同様に単純なものを使用するリポジトリ実装にビジネスロジッククラスを接続できるためです。
 
 > [!NOTE]
-> Entity Framework の継承クラスからそれらをインスタンス化しているため、エンティティ オブジェクトがまだない永続化非依存には技術的には、`EntityObject`クラス。 使用することができますの完了の永続化非依存、 *plain old CLR object*、または*Poco*から継承されるオブジェクトの代わりに、`EntityObject`クラス。 このチュートリアルの範囲を超えては Poco を使用します。 詳細については、次を参照してください[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) 、MSDN web サイトです。)。
+> 技術的には、エンティティオブジェクトは、Entity Framework の `EntityObject` クラスを継承するクラスからインスタンス化されるため、永続化非依存とは見なされません。 完全な永続化の無視では、`EntityObject` クラスを継承するオブジェクトの代わりに、 *plain OLD CLR オブジェクト*または*pocos*を使用できます。 POCOs の使用は、このチュートリアルの範囲を超えています。 詳細については、MSDN web サイトの「[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) 」を参照してください)。
 
-接続できるので、`ObjectDataSource`コントロールをビジネス ロジックは、クラスの代わりに、リポジトリにし前に、と同様の動作を確認します。
+これで、リポジトリではなくビジネスロジッククラスに `ObjectDataSource` コントロールを接続し、すべてが以前と同じように動作することを確認できます。
 
-*Departments.aspx*と*DepartmentsAdd.aspx*、出現するたびに変更`TypeName="ContosoUniversity.DAL.SchoolRepository"`に`TypeName="ContosoUniversity.BLL.SchoolBL`"。 (4 つのインスタンスにあるすべてです。)
+Department および*DepartmentsAdd*で、各 `TypeName="ContosoUniversity.DAL.SchoolRepository"` が `TypeName="ContosoUniversity.BLL.SchoolBL` *"に変更*されます。 (すべてに4つのインスタンスがあります)。
 
-実行、 *Departments.aspx*と*DepartmentsAdd.aspx*ページまでと同じように動作することを確認します。
+Department *.aspx*と*DepartmentsAdd*ページを実行して、以前と同じように動作することを確認します。
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image5.png)
 
 [![Image02](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image8.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image7.png)
 
-## <a name="creating-a-unit-test-project-and-repository-implementation"></a>単体テスト プロジェクトとリポジトリの実装を作成します。
+## <a name="creating-a-unit-test-project-and-repository-implementation"></a>単体テストプロジェクトとリポジトリの実装の作成
 
-ソリューションを使用して、新しいプロジェクトを追加、**テスト プロジェクト**テンプレート、名前を付けます`ContosoUniversity.Tests`します。
+**テストプロジェクト**テンプレートを使用してソリューションに新しいプロジェクトを追加し、`ContosoUniversity.Tests`という名前を指定します。
 
-参照を追加、テスト プロジェクトで`System.Data.Entity`への参照をプロジェクトに追加し、`ContosoUniversity`プロジェクト。
+テストプロジェクトで、`System.Data.Entity` への参照を追加し、`ContosoUniversity` プロジェクトにプロジェクト参照を追加します。
 
-単体テストで使用するリポジトリ クラスを作成できます。 このリポジトリのデータ ストアは、クラス内になります。
+これで、単体テストで使用するリポジトリクラスを作成できるようになりました。 このリポジトリのデータストアは、クラス内にあります。
 
 [![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
-新しいクラス ファイルを作成、テスト プロジェクトで、名前を付けます*MockSchoolRepository.cs*、既存のコードを次のコードに置き換えます。
+テストプロジェクトで、新しいクラスファイルを作成し、 *MockSchoolRepository.cs*という名前を付けて、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample4.cs)]
 
-このリポジトリのクラスは Entity Framework に直接アクセスすると同じ CRUD メソッドを含んでいますが、それらが扱う`List`データベースではなく、メモリ内コレクション。 これにより、テスト クラスを設定し、ビジネス ロジック クラスの単体テストを検証しやすくなります。
+このリポジトリクラスには、Entity Framework に直接アクセスするものと同じ CRUD メソッドがありますが、データベースではなくメモリ内の `List` コレクションを使用します。 これにより、テストクラスはビジネスロジッククラスの単体テストを簡単に設定および検証できます。
 
 ## <a name="creating-unit-tests"></a>単体テストの作成
 
-**テスト**プロジェクト テンプレートが、スタブの単体テスト クラスを作成し、次のタスクにビジネス ロジック クラスに追加するビジネス ロジックの単体テスト メソッドを追加してこのクラスを変更するのには。
+**テスト**プロジェクトテンプレートによってスタブ単体テストクラスが作成されました。次のタスクでは、ビジネスロジッククラスに追加するビジネスロジックに対して単体テストメソッドを追加することによって、このクラスを変更します。
 
 [![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
 
-Contoso 大学、個々 の講師が 1 つの部門の管理者をできるだけと、この規則を適用するビジネス ロジックを追加する必要があります。 テストを追加し、失敗することを確認するテストを実行しているから始めます。 コードを追加し、期待どおりに渡すこと、テストを再実行します。
+Contoso 大学では、個々のインストラクターは1つの部門の管理者にしかできません。このルールを適用するには、ビジネスロジックを追加する必要があります。 まず、テストを追加し、テストを実行して失敗したことを確認します。 次に、コードを追加し、テストを再実行します。成功したかどうかを確認します。
 
-開く、 *UnitTest1.cs*ファイルし、追加`using`ContosoUniversity プロジェクトで作成したビジネス ロジックとデータ アクセス層のステートメント。
+*UnitTest1.cs*ファイルを開き、ContosoUniversity プロジェクトで作成したビジネスロジックとデータアクセス層の `using` ステートメントを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample5.cs)]
 
-置換、`TestMethod1`次のメソッドを持つメソッド。
+`TestMethod1` メソッドを次のメソッドに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample6.cs)]
 
-`CreateSchoolBL`メソッドは、単体テスト プロジェクトで、その後、ビジネス ロジック クラスの新しいインスタンスを渡します用に作成したリポジトリ クラスのインスタンスを作成します。 メソッドは、ビジネス ロジック クラスを使用してテスト メソッドで使用できる 3 つの部門を挿入します。
+`CreateSchoolBL` メソッドは、単体テストプロジェクト用に作成したリポジトリクラスのインスタンスを作成し、そのインスタンスをビジネスロジッククラスの新しいインスタンスに渡します。 次に、メソッドはビジネスロジッククラスを使用して、テストメソッドで使用できる3つの部門を挿入します。
 
-テスト メソッドは、新しい部門は、既存の部門と同じ管理者の挿入を試行した場合、または部門の管理者をユーザーの ID に設定することで更新を試行した場合、ビジネス ロジック クラスは例外をスローします。 を確認します。既に別の部門の管理者は誰です。
+テストメソッドは、他のユーザーが既存の部署と同じ管理者を持つ新しい部署を挿入しようとした場合、または他のユーザーが自分の ID に設定して部門の管理者を更新しようとした場合に、ビジネスロジッククラスが例外をスローすることを確認します。既に別の部門の管理者であるユーザー。
 
-まだ、このコードはコンパイルされませんので例外クラスを作成していません。 コンパイルすることを取得するを右クリックして`DuplicateAdministratorException`選択**生成**、し**クラス**します。
+例外クラスをまだ作成していないため、このコードはコンパイルされません。 コンパイルするには、`DuplicateAdministratorException` を右クリックし、**生成**、**クラス** の順に選択します。
 
 [![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
-削除することができるテスト プロジェクトにクラスが作成されます例外クラスは、メインのプロジェクトで作成した後。 ビジネス ロジックを実装します。
+これにより、テストプロジェクトにクラスが作成されます。このクラスは、メインプロジェクトで例外クラスを作成した後に削除できます。 とは、ビジネスロジックを実装したものです。
 
-テスト プロジェクトを実行します。 予想どおり、テストが失敗します。
+テストプロジェクトを実行します。 予想どおり、テストは失敗します。
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image16.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image15.png)
 
-## <a name="adding-business-logic-to-make-a-test-pass"></a>テスト成功するビジネス ロジックの追加
+## <a name="adding-business-logic-to-make-a-test-pass"></a>テストパスを作成するためのビジネスロジックの追加
 
-次に、部門の管理者は既に別の部門の管理者ユーザーに設定することはできませんが、ビジネス ロジックを実装します。 ビジネス ロジック層から例外をスローし、それをキャッチ、プレゼンテーション層の場合は、ユーザーは、部署を編集しをクリックして**Update**既に管理者であるユーザーが選択した後。 (Instructors ページをレンダリングする前に、管理者は既にドロップダウン リストから削除することも可能性がありますが、今回の目的は、ビジネス ロジック層を使用する)。
+次に、別の部門の管理者である部署の管理者として設定できないビジネスロジックを実装します。 ビジネスロジック層から例外をスローし、ユーザーが部署を編集し、既に管理者であるユーザーを選択した後に **[更新]** をクリックした場合に、プレゼンテーション層でキャッチします。 (ページを表示する前に、既に管理者であることを示すドロップダウンリストから講師を削除することもできますが、ここではビジネスロジックレイヤーを使用することを目的としています)。
 
-まずユーザーがインストラクターに 1 つ以上の部門の管理者を作成するときにスローします例外クラスを作成します。 メインのプロジェクトで新しいクラス ファイルを作成、 *BLL*フォルダー、という名前を付けます*DuplicateAdministratorException.cs*、既存のコードを次のコードに置き換えます。
+まず、ユーザーが複数の部門の管理者を作成しようとしたときにスローされる例外クラスを作成します。 メインプロジェクトで、[ *BLL* ] フォルダーに新しいクラスファイルを作成し、 *DuplicateAdministratorException.cs*という名前を付けて、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample7.cs)]
 
-一時的なを削除するようになりました*DuplicateAdministratorException.cs*先ほど作成したテスト プロジェクトでコンパイルするにはファイル。
+次に、前の手順でテストプロジェクトで作成した一時*DuplicateAdministratorException.cs*ファイルを、コンパイルできるように削除します。
 
-メインのプロジェクトで開き、 *SchoolBL.cs*ファイルを開き、検証ロジックを含む次のメソッドを追加します。 (コードは、後で作成するメソッドを参照)。
+メインプロジェクトで、 *SchoolBL.cs*ファイルを開き、検証ロジックを含む次のメソッドを追加します。 (コードは、後で作成するメソッドを参照します)。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample8.cs)]
 
-挿入または更新する場合は、このメソッドを呼び出すことが`Department`別の部署が既に同じ管理者かどうかを確認するためにエンティティ。
+別の部門が既に同じ管理者を持っているかどうかを確認するために `Department` エンティティを挿入または更新するときに、このメソッドを呼び出します。
 
-コードは、のデータベースを検索するメソッドを呼び出す、`Department`同じエンティティ`Administrator`エンティティとプロパティの値が挿入または更新されました。 1 つが見つかった場合、コードは例外をスローします。 検証チェックは必要ありません、エンティティを挿入または更新されたにない場合`Administrator`値、および例外は、更新中に、メソッドが呼び出された場合にスローされると、`Department`エンティティの一致が見つかりませんでした、`Department`更新されるエンティティ。
+このコードは、メソッドを呼び出して、挿入または更新されるエンティティと同じ `Administrator` プロパティ値を持つ `Department` エンティティをデータベースで検索します。 見つかった場合、コードは例外をスローします。 挿入または更新するエンティティに `Administrator` 値がない場合、検証チェックは必要ありません。更新中にメソッドが呼び出され、見つかった `Department` エンティティが更新される `Department` エンティティと一致する場合、例外はスローされません。
 
-新しいメソッドを呼び出し、`Insert`と`Update`メソッド。
+`Insert` および `Update` メソッドから新しいメソッドを呼び出します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample9.cs)]
 
-*ISchoolRepository.cs*、新しいデータ アクセス メソッドの次の宣言を追加します。
+*ISchoolRepository.cs*で、新しいデータアクセスメソッドに次の宣言を追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample10.cs)]
 
-*SchoolRepository.cs*、次の追加`using`ステートメント。
+*SchoolRepository.cs*で、次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample11.cs)]
 
-*SchoolRepository.cs*、次の新しいデータ アクセス メソッドを追加します。
+*SchoolRepository.cs*で、次の新しいデータアクセスメソッドを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample12.cs)]
 
-このコードを取得`Department`を指定した管理者を持つエンティティ。 1 つだけの部門はする必要があります (ある場合) にあります。 ただし、データベースに組み込まれている制約はありません、ためには、複数の部門が見つかった場合に戻り値の型コレクションは。
+このコードは、指定された管理者を持つ `Department` エンティティを取得します。 1つの部門のみが検索されます (存在する場合)。 ただし、データベースには制約が組み込まれていないため、複数の部門が見つかった場合の戻り値の型はコレクションです。
 
-既定では、オブジェクト コンテキストは、データベースからエンティティを取得するときの記録に、オブジェクトの状態マネージャーでします。 `MergeOption.NoTracking`パラメーターを指定する、この追跡はこのクエリの実行できません。 これは、クエリを更新しようとしている正確なエンティティを返す可能性がありますので、必要としないことができますにそのエンティティをアタッチします。 履歴の部署を編集する場合など、 *Departments.aspx*ページと、管理者が変更されないように、このクエリは史学部を返します。 場合`NoTracking`がオブジェクト コンテキストは既に存在して履歴 department エンティティ、オブジェクトの状態マネージャーで、設定されていません。 ビューステートから再作成される履歴 department エンティティをアタッチするときにオブジェクト コンテキストはことを示す例外をスローし、`"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`します。
+既定では、オブジェクトコンテキストは、データベースからエンティティを取得するときに、オブジェクト状態マネージャーでエンティティを追跡します。 `MergeOption.NoTracking` パラメーターは、このクエリに対してこの追跡が行われないことを指定します。 この操作が必要なのは、更新しようとしているエンティティがクエリで返される可能性があるためです。そのエンティティをアタッチすることはできません。 たとえば、department *. .aspx*ページで履歴部門を編集し、管理者を変更しないままにした場合、このクエリは履歴部門を返します。 `NoTracking` が設定されていない場合、オブジェクトコンテキストでは、オブジェクト状態マネージャーに History department エンティティが既に存在します。 次に、ビューステートから再作成された履歴部署エンティティをアタッチすると、オブジェクトコンテキストによって `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`という例外がスローされます。
 
-(を指定する代わりとして`MergeOption.NoTracking`、このクエリのためだけに新しいオブジェクト コンテキストを作成できます。 新しいオブジェクト コンテキストが必要で、独自のオブジェクト状態マネージャーがあります、ためにがなくなるの競合を呼び出すとき、`Attach`メソッド。 新しいオブジェクト コンテキスト共有の場合メタデータとデータベースの接続元のオブジェクト コンテキストにためこの代替アプローチのパフォーマンスの低下を最小限になります。 ただし、ここに示したアプローチが導入されて、`NoTracking`を他のコンテキストで便利なオプションです。 `NoTracking`オプションが説明したこのシリーズの後のチュートリアルでさらにします)。
+(`MergeOption.NoTracking`を指定する代わりに、このクエリに対してのみ新しいオブジェクトコンテキストを作成することもできます。 新しいオブジェクトコンテキストには独自のオブジェクト状態マネージャーがあるため、`Attach` メソッドを呼び出すときに競合が発生することはありません。 新しいオブジェクトコンテキストでは、メタデータとデータベース接続が元のオブジェクトコンテキストと共有されるため、この代替アプローチのパフォーマンスが低下することは少なくありません。 ただし、ここに示す方法では `NoTracking` オプションが導入されており、他のコンテキストでも便利です。 `NoTracking` オプションの詳細については、このシリーズの後のチュートリアルで説明します)。
 
-テスト プロジェクトで追加する新しいデータ アクセス メソッド*MockSchoolRepository.cs*:
+テストプロジェクトで、新しいデータアクセスメソッドを*MockSchoolRepository.cs*に追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample13.cs)]
 
-このコードでは、LINQ を使用して、同じデータの選択を実行する、`ContosoUniversity`プロジェクト リポジトリが使用する LINQ to Entities の。
+このコードでは、LINQ を使用して、`ContosoUniversity` プロジェクトリポジトリが LINQ to Entities に使用するのと同じデータ選択を実行します。
 
-テスト プロジェクトをもう一度実行します。 今回はテストに合格します。
+テストプロジェクトを再度実行します。 今回はテストに合格します。
 
 [![Image04](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image17.png)
 
-## <a name="handling-objectdatasource-exceptions"></a>ObjectDataSource の例外の処理
+## <a name="handling-objectdatasource-exceptions"></a>ObjectDataSource 例外の処理
 
-`ContosoUniversity`プロジェクト、実行、 *Departments.aspx*ページし、は既に別の部門の管理者ユーザーに部門の管理者を変更しようとしています。 (部門は、このチュートリアルでは、中に追加した無効なデータを事前に読み込まれたデータベースが含まれているために編集のみできることに注意してください)。次のサーバー エラー ページを取得します。
+`ContosoUniversity` プロジェクト*で、department ページを*実行し、部門の管理者を別の部門の管理者に変更してみます。 (このチュートリアルで追加したのは、データベースに無効なデータが事前に読み込まれているためです)。次のサーバーエラーページが表示されます。
 
 [![Image05](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image19.png)
 
-エラー処理コードを追加する必要があるために、この種のエラー ページを参照してくださいさせない。 開いている*Departments.aspx*のハンドラーを指定し、`OnUpdated`のイベント、`DepartmentsObjectDataSource`します。 `ObjectDataSource`次の例では、開始タグを今すぐに似ています。
+この種類のエラーページを表示しないようにするには、エラー処理コードを追加する必要があります。 Department *.aspx*を開き、`DepartmentsObjectDataSource`の `OnUpdated` イベントのハンドラーを指定します。 `ObjectDataSource` 開始タグは、次の例のようになります。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample14.aspx)]
 
-*Departments.aspx.cs*、次の追加`using`ステートメント。
+*Departments.aspx.cs*で、次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample15.cs)]
 
-次のハンドラーを追加、`Updated`イベント。
+`Updated` イベントに対して次のハンドラーを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample16.cs)]
 
-場合、`ObjectDataSource`コントロールは、更新を実行するときに例外をキャッチ、例外イベントの引数を渡します (`e`) このハンドラーにします。 ハンドラーのコードは、例外が重複する管理者の例外かどうかを確認します。 コードが、エラー メッセージを含む検証コントロールを作成する場合は、`ValidationSummary`を表示するコントロール。
+`ObjectDataSource` コントロールは、更新を実行しようとしたときに例外をキャッチした場合、イベント引数 (`e`) の例外をこのハンドラーに渡します。 ハンドラーのコードは、例外が管理者の重複する例外であるかどうかを確認します。 そうである場合、コードは、表示する `ValidationSummary` コントロールのエラーメッセージを含むバリデーターコントロールを作成します。
 
-ページを実行し、ユーザーが 2 つの部門の管理者を再びようにしようとしてください。 この時間、`ValidationSummary`コントロールには、エラー メッセージが表示されます。
+ページを実行し、2つの部門の管理者をもう一度作成します。 今回は、`ValidationSummary` コントロールによってエラーメッセージが表示されます。
 
 [![Image06](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image21.png)
 
-同様に変更する、 *DepartmentsAdd.aspx*ページ。 *DepartmentsAdd.aspx*のハンドラーを指定、`OnInserted`のイベント、`DepartmentsObjectDataSource`します。 結果として得られるマークアップは、次の例では、ようになります。
+*DepartmentsAdd*ページに同様の変更を加えます。 *DepartmentsAdd*で、`DepartmentsObjectDataSource`の `OnInserted` イベントのハンドラーを指定します。 結果のマークアップは、次の例のようになります。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample17.aspx)]
 
-*DepartmentsAdd.aspx.cs*、同じ追加`using`ステートメント。
+*DepartmentsAdd.aspx.cs*で、同じ `using` ステートメントを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample18.cs)]
 
-次のイベント ハンドラーを追加します。
+次のイベントハンドラーを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample19.cs)]
 
-今すぐテストすることができます、 *DepartmentsAdd.aspx.cs*ページ 1 人のユーザーには、複数の部門の管理者を実行する試行も正しく処理することを確認します。
+これで、 *DepartmentsAdd.aspx.cs*ページをテストして、1人のユーザーが複数の部門の管理者になる試みも正しく処理していることを確認できます。
 
-使用するリポジトリ パターンの実装概要これが完了すると、 `ObjectDataSource` Entity Framework でのコントロール。 リポジトリ パターンとテストの容易性の詳細については、MSDN ホワイト ペーパーを参照してください。[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx)します。
+このチュートリアルでは、Entity Framework で `ObjectDataSource` コントロールを使用するためのリポジトリパターンの実装の概要について説明します。 リポジトリパターンとテストの容易性の詳細については、MSDN ホワイトペーパー「[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx)」を参照してください。
 
-次のチュートリアルでは、並べ替えとフィルター機能をアプリケーションに追加する方法を確認します。
+次のチュートリアルでは、並べ替えとフィルター処理の機能をアプリケーションに追加する方法について説明します。
 
 > [!div class="step-by-step"]
 > [前へ](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)

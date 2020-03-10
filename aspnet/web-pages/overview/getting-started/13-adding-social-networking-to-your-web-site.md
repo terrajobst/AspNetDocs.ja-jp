@@ -1,109 +1,109 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
-title: ページ (Razor) サイトを ASP.NET web のソーシャル ネットワー キングの追加 |Microsoft Docs
+title: ソーシャルネットワークを ASP.NET Web ページ (Razor) サイトに追加する |Microsoft Docs
 author: Rick-Anderson
-description: この章では、ソーシャル ネットワー キング サービスと、サイトを統合する方法について説明します。 この章では、ユーザー web サイトをブックマーク/リンクできるようにする方法を学習しています.
+description: この章では、サイトをソーシャルネットワークサービスと統合する方法について説明します。 この章では、ユーザーに web サイトのブックマーク/リンクを許可する方法について説明します。
 ms.author: riande
 ms.date: 02/21/2014
 ms.assetid: 03c342f9-b35c-4d7c-b9ed-cd9aaaffedb6
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
 ms.openlocfilehash: 1637464b0473bba8133acbbf8918d92b4f552701
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114474"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78422956"
 ---
-# <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ソーシャル ネットワー キングを ASP.NET Web ページ (Razor) サイトを追加します。
+# <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ASP.NET Web ページ (Razor) サイトへのソーシャルネットワークの追加
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、Twitter のフィード、Xbox のゲーマー カードおよび Gravatar イメージに含める方法と、ASP.NET Web Pages (Razor) の web サイトのページに、Facebook、Twitter、Reddit、Digg、ソーシャル ネットワー キングへのリンクを追加する方法について説明します。
+> この記事では、Facebook、Twitter、Reddit、Digg のソーシャルネットワークリンクを ASP.NET Web ページ (Razor) web サイトのページに追加する方法と、Twitter フィード、Xbox ゲーマーカード、Gravatar イメージを含める方法について説明します。
 > 
-> 学習内容。
+> ここでは、次の内容について学習します。
 > 
-> - ユーザーに、サイト/リンクをブックマークする方法。
-> - Twitter のフィードを追加する方法。
-> - Facebook を追加する方法**など**ページにボタンをクリックします。
+> - サイトのブックマーク/リンクをユーザーに許可する方法。
+> - Twitter フィードを追加する方法。
+> - Facebook の**ような**ボタンをページに追加する方法。
 > - Gravatar.com イメージをレンダリングする方法。
-> - Xbox ゲームのカードをサイトに表示する方法。
+> - Xbox ゲーマーカードをサイトに表示する方法。
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
-> - ASP.NET Web ヘルパー ライブラリ (NuGet パッケージ)
+> - ASP.NET Web ページ (Razor) 2
+> - ASP.NET Web Helper Library (NuGet パッケージ)
 >   
 > 
-> このチュートリアルは、ASP.NET Web ヘルパー ライブラリを使用する部分を除く ASP.NET Web ページの 3 でも動作します。
+> このチュートリアルでは、ASP.NET Web Helper ライブラリを使用するパーツを除き、ASP.NET Web ページ3でも使用できます。
 
 <a id="Linking_Your_Website"></a>
-## <a name="linking-your-website-on-social-networking-sites"></a>ソーシャル ネットワー キング サイトで web サイトのリンク
+## <a name="linking-your-website-on-social-networking-sites"></a>ソーシャルネットワークサイトでの Web サイトのリンク
 
-ユーザーなどのサイトで何か、友人と共有する場合よくあります。 この簡単な Digg、Reddit、Facebook、Twitter、または類似したサイトのページを共有するユーザーがクリックできるグリフ (アイコン) を表示することで。
+サイトで何らかの問題が発生した場合は、多くの場合、友人と共有したいと考えています。 これを簡単にするには、ユーザーがクリックして Digg、Reddit、Facebook、Twitter などのサイトでページを共有できるようにするグリフ (アイコン) を表示します。
 
-これらのグリフを表示するには追加、`LinkSharecode`ページ ヘルパー。 ページの閲覧者は、個々 のグリフをクリックできます。 ソーシャル ネットワーク サイトを持つアカウントがそのサイトでし、ページへのリンクに投稿できます。
+これらのグリフを表示するには、`LinkSharecode` ヘルパーをページに追加します。 ページにアクセスするユーザーは、個々のグリフをクリックできます。 そのソーシャルネットワークサイトのアカウントを持っている場合は、そのサイトのページへのリンクを投稿できます。
 
-![図 1](13-adding-social-networking-to-your-web-site/_static/image1.jpg)
+![画像 1](13-adding-social-networking-to-your-web-site/_static/image1.jpg)
 
-1. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)してください - 既に追加していない場合、という名前のページを作成*ListLinkShare.cshtml*追加。次のマークアップ。
+1. 「 [ASP.NET Web ページサイトにヘルパーをインストール](https://go.microsoft.com/fwlink/?LinkId=252372)する」の説明に従って、ASP.NET Web ヘルパーライブラリを web サイトに追加します (まだ追加していない場合)。- *listlinkshare. cshtml*という名前のページを作成し、次のマークアップを追加します。
 
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
-    この例では、ときに、`LinkShare`ヘルパーの実行、ページのタイトルは、パラメーターをソーシャル ネットワー キング サイトにページ タイトルを渡しますとして渡されます。 ただしで任意の文字列を渡す可能性があります。 この例では、一覧に含めるソーシャル ネットワーク サイトを指定します。 サイトに関連するソーシャル ネットワーク サイトを指定できます。
-2. 実行、 *ListLinkShare.cshtml*ブラウザーでページ。 (内でページが選択されていることを確認、**ファイル**ワークスペースを実行する前にします)。
-3. サインアップ、サインインしているサイトのいずれかのグリフをクリックします。 リンク ページに移動、共有できる、選択したソーシャル ネットワーク サイトにリンクします。 たとえば、Reddit リンクをクリックすると表示されます、 `submit to reddit` Reddit web サイトのページ。
+    この例では、`LinkShare` ヘルパーを実行すると、ページタイトルがパラメーターとして渡され、そのページタイトルがソーシャルネットワークサイトに渡されます。 ただし、任意の文字列を渡すことができます。 この例では、一覧に含めるソーシャルネットワークサイトも指定します。 サイトに関連するソーシャルネットワークサイトを指定できます。
+2. ブラウザーで*Listlinkshare. cshtml*ページを実行します。 (実行する前に、 **[ファイル]** ワークスペースでページが選択されていることを確認してください)。
+3. サインアップしているいずれかのサイトのグリフをクリックします。 リンクを選択すると、選択したソーシャルネットワークサイトのページに移動し、リンクを共有することができます。 たとえば、Reddit リンクをクリックすると、Reddit web サイトの [`submit to reddit`] ページが表示されます。
 
-     ![2 番目の画像](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
+     ![画像 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
-## <a name="adding-a-twitter-feed"></a>フィード、Twitter を追加します。
+## <a name="adding-a-twitter-feed"></a>Twitter フィードの追加
 
-Twitter API の現在のバージョンと互換性がある Twitter ヘルパーの使用方法の詳細については、次を参照してください。 [Twitter ヘルパー](../ui-layouts-and-themes/twitter-helper.md)します。 この例では、多くのページからコードを簡単に再利用できるように、独自のヘルパーを記述する方法を示します。
+Twitter API の現在のバージョンと互換性のある Twitter ヘルパーの使用方法については、「 [twitter ヘルパー](../ui-layouts-and-themes/twitter-helper.md)」を参照してください。 この例では、さまざまなページのコードを簡単に再利用できるように、独自のヘルパーを記述する方法を示します。
 
 <a id="Displaying_a_Facebook_Button"></a>
-## <a name="displaying-a-facebook-quotlikequot-button"></a>Facebook を表示する&quot;など&quot;ボタン
+## <a name="displaying-a-facebook-quotlikequot-button"></a>&quot; ボタンなどの Facebook &quot;を表示する
 
-場合によっては、最善の対処方法は、ヘルパーに依存するのではなく、ソーシャル ネットワーク プロバイダーから直接コードを取得するがします。 これは、ソーシャル ネットワーク プロバイダーは、ヘルパーが更新されたよりもすばやくそのオプションを更新する場合に特に当てはまります。
+場合によっては、ヘルパーに依存するのではなく、ソーシャルネットワークプロバイダーから直接コードを取得するのが最善の方法です。 これは特に、ソーシャルネットワークプロバイダーがヘルパーを更新するよりも迅速にオプションを更新する場合に当てはまります。
 
-コード スニペットを取得するには、サイトを Facebook 機能 (など、Like ボタン) を追加する、 [developers.facebook.com](https://developers.facebook.com/)サイト。 Facebook のサイトでは、そのツールを使用して、サイトに関連するコード スニペットを生成します。
+Facebook 機能 ([Like] ボタンなど) をサイトに追加するには、 [developers.facebook.com](https://developers.facebook.com/)サイトからコードスニペットを取得します。 Facebook サイトでは、自分のツールを使用して、サイトに関連するコードスニペットを生成します。
 
-次の強調表示されたコードでは、developers.facebook.com のサイトで、ボタンのようなツールから取得されたコードを示します。 独自のアプリ ID を提供する必要があります。
+次の強調表示されたコードは、developers.facebook.com サイトの同様のボタンツールから取得したコードです。 独自のアプリ ID を指定する必要があります。
 
 [!code-html[Main](13-adding-social-networking-to-your-web-site/samples/sample2.html?highlight=7-14,16-17)]
 
 <a id="Rendering_a_Gravatar_Image"></a>
-## <a name="rendering-a-gravatar-image"></a>Gravatar イメージを表示
+## <a name="rendering-a-gravatar-image"></a>Gravatar イメージのレンダリング
 
-A *Gravatar* (、&quot;グローバルに認識されたアバター&quot;) 複数の web サイトで自分のアバターとして使用できるイメージは、&#8212;を表すイメージは、します。 たとえば、Gravatar はフォーラム投稿をブログ コメント内のユーザーを識別しにできます。 (Gravatar web サイトで、独自の Gravatar を登録する[ http://www.gravatar.com/ ](http://www.gravatar.com/))。Web サイト上のユーザーの名前または電子メール アドレスの横にあるイメージを表示するには、Gravatar ヘルパーを使用することができます。
+*Gravatar* (&quot;グローバルに認識されるアバター&quot;) は、アバター &#8212;として複数の web サイトで使用できるイメージで、ユーザーを表すイメージです。 たとえば、Gravatar は、フォーラムの投稿、ブログのコメントなどで個人を識別できます。 (独自の Gravatar は、[Gravatar] web サイトの[http://www.gravatar.com/](http://www.gravatar.com/)に登録できます)。Web サイトのユーザーの名前または電子メールアドレスの横に画像を表示する場合は、Gravatar ヘルパーを使用できます。
 
-この例では、自分自身を表す 1 つ Gravatar を使用しています。 Gravatar を使用する別の方法では、ユーザーに、サイトで登録するときに、Gravatar アドレスを指定します。 (ユーザーに登録する方法を学習できます[追加のセキュリティと ASP.NET Web ページ サイトには、メンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904))。そのユーザーの情報を表示するたびに、ユーザーの名前を表示する、Gravatar だけ追加できます。
+この例では、自分を表す1つの Gravatar を使用しています。 Gravatar を使用するもう1つの方法は、サイトに登録するときに、ユーザーが自分の Gravatar アドレスを指定できるようにすることです。 (ユーザーが[ASP.NET Web ページサイトにセキュリティとメンバーシップを追加](https://go.microsoft.com/fwlink/?LinkId=202904)する方法については、「」を参照してください)。その後、そのユーザーの情報を表示するときに、ユーザーの名前を表示する場所に Gravatar を追加するだけで済みます。
 
-1. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)まだ行っていない場合は、します。
-2. という名前の新しい web ページを作成する*Gravatar.cshtml*します。
-3. ファイルには、次のマークアップを追加します。 
+1. 「 [ASP.NET Web ページサイトにヘルパーをインストール](https://go.microsoft.com/fwlink/?LinkId=252372)する」の説明に従って、ASP.NET Web ヘルパーライブラリを web サイトに追加します (まだインストールしていない場合)。
+2. *Gravatar*という名前の新しい web ページを作成します。
+3. 次のマークアップをファイルに追加します。 
 
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample3.cshtml)]
 
-    `Gravatar.GetHtml`メソッドがページに Gravatar イメージを表示します。 イメージのサイズを変更するには、2 番目のパラメーターとして数値を含めることができます。 既定のサイズは、80 です。 番号が 80 未満の作成、イメージより小さい。 80 より大きい数値では、画像を拡大します。
-4. `Gravatar.GetHtml`メソッドを置き換える`<Your Gravatar account here>`Gravatar アカウントを使用する電子メール アドレス。 (Gravatar アカウントを持っていない場合を使用できますがユーザーの電子メール アドレス。)
-5. お使いのブラウザーでページを実行します。 ページには、指定した電子メール アドレスの 2 つの Gravatar イメージが表示されます。 2 番目のイメージは、最初よりも小さくなります。 
+    `Gravatar.GetHtml` メソッドは、ページに Gravatar イメージを表示します。 イメージのサイズを変更するには、数値を2番目のパラメーターとして含めることができます。 既定のサイズは80です。 80未満の数値を設定すると、画像が小さくなります。 80より大きい数値を指定すると、イメージが大きくなります。
+4. `Gravatar.GetHtml` メソッドで、`<Your Gravatar account here>` を Gravatar アカウントに使用する電子メールアドレスに置き換えます。 (Gravatar アカウントを持っていない場合は、他のユーザーの電子メールアドレスを使用できます)。
+5. ブラウザーでページを実行します。 このページには、指定した電子メールアドレスの2つの Gravatar イメージが表示されます。 2番目のイメージは、最初のイメージよりも小さくなります。 
 
-    ![図 4](13-adding-social-networking-to-your-web-site/_static/image3.jpg)
+    ![画像4](13-adding-social-networking-to-your-web-site/_static/image3.jpg)
 
 <a id="Displaying_an_Xbox_Gamer_Card"></a>
-## <a name="displaying-an-xbox-gamer-card"></a>Xbox ゲームのカードを表示します。
+## <a name="displaying-an-xbox-gamer-card"></a>Xbox ゲーマーカードを表示する
 
-各ユーザーが一意の ID を持つユーザーは、Microsoft Xbox オンライン ゲームを再生、ときに 表示、評価、ゲーマー スコア、およびゲームを最近再生したゲーマー、カードの形式では、各プレーヤーでは、統計は保持されます。 ゲーマー Xbox 場合は、サイト内のページ上のゲーマーのカードを表示を使用して、`GamerCard`ヘルパー。
+Microsoft Xbox ゲームをオンラインで再生すると、各ユーザーに一意の ID が与えられます。 統計は、ゲーマーカードの形式で各プレーヤーに対して保持されます。このカードには、評判、ゲーマースコア、および最近再生したゲームが表示されます。 Xbox ゲーマーの場合は、`GamerCard` ヘルパーを使用して、サイト内のページにゲーマーカードを表示できます。
 
-1. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)まだ行っていない場合は、します。
-2. という名前の新しいページを作成する*XboxGamer.cshtml*し、次のマークアップを追加します。
+1. 「 [ASP.NET Web ページサイトにヘルパーをインストール](https://go.microsoft.com/fwlink/?LinkId=252372)する」の説明に従って、ASP.NET Web ヘルパーライブラリを web サイトに追加します (まだインストールしていない場合)。
+2. *Xboxgamer. cshtml*という名前の新しいページを作成し、次のマークアップを追加します。
 
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample4.cshtml)]
 
-    使用する、`GamerCard.GetHtml`プロパティを表示するゲーマーのカードのエイリアスを指定します。
-3. お使いのブラウザーでページを実行します。 ページには、指定した Xbox ゲーマー カードが表示されます。
+    `GamerCard.GetHtml` プロパティを使用して、表示するゲーマーカードのエイリアスを指定します。
+3. ブラウザーでページを実行します。 このページには、指定した Xbox ゲーマーカードが表示されます。
 
-    ![図 5](13-adding-social-networking-to-your-web-site/_static/image4.jpg)
+    ![画像 5](13-adding-social-networking-to-your-web-site/_static/image4.jpg)

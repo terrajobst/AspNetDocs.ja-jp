@@ -9,11 +9,11 @@ ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e1ddd43524a61ff2e012171eba1a8dc8efbf8f1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587516"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78426304"
 ---
 # <a name="master-pages-and-site-navigation-c"></a>マスター ページとサイト ナビゲーション (C#)
 
@@ -37,7 +37,7 @@ ms.locfileid: "74587516"
 
 ## <a name="step-1-creating-the-master-page"></a>手順 1: マスターページの作成
 
-最初の手順では、サイトのマスターページを作成します。 現在、web サイトは、型指定されたデータセット (`Northwind.xsd`、`App_Code` フォルダー内)、BLL クラス (`ProductsBLL.cs`、`CategoriesBLL.cs`など)、すべて `App_Code` フォルダー内のデータベース、データベース (`NORTHWND.MDF`フォルダー内)、構成ファイル (`App_Data`)、および CSS スタイルシートファイル (`Web.config`) で構成されています。 これらのページとファイルは、最初の2つのチュートリアルの DAL と BLL の使用をデモンストレーションしています。これらの例については、今後のチュートリアルでさらに詳しく説明します。
+最初の手順では、サイトのマスターページを作成します。 現在、web サイトは、型指定されたデータセット (`Northwind.xsd`、`App_Code` フォルダー内)、BLL クラス (`ProductsBLL.cs`、`CategoriesBLL.cs`など)、すべて `App_Code` フォルダー内のデータベース、データベース (`NORTHWND.MDF`フォルダー内)、構成ファイル (`App_Data`)、および CSS スタイルシートファイル (`Web.config`) で構成されています。`Styles.css` これらのページとファイルは、最初の2つのチュートリアルの DAL と BLL の使用をデモンストレーションしています。これらの例については、今後のチュートリアルでさらに詳しく説明します。
 
 ![プロジェクト内のファイル](master-pages-and-site-navigation-cs/_static/image4.png)
 
@@ -129,7 +129,7 @@ ASP.NET 2.0 サイトナビゲーションシステムは、開発者がサイ�
 
 ファイルシステムの構造を模倣するようにサイトマップを定義します。 つまり、次のように、3つの各フォルダーの `<siteMapNode>` 要素と、それらのフォルダー内の各 ASP.NET ページの子 `<siteMapNode>` 要素を追加します。
 
-Web サイトマップ
+Web.sitemap
 
 [!code-xml[Main](master-pages-and-site-navigation-cs/samples/sample4.xml)]
 
@@ -219,7 +219,7 @@ SiteMapDataSource コントロールは、一度に1レベルずつサイトマ�
 
 **図 13**: `UserControls` フォルダーに新しい Web ユーザーコントロールを追加する ([クリックしてフルサイズのイメージを表示する](master-pages-and-site-navigation-cs/_static/image31.png))
 
-SectionLevelTutorialListing
+SectionLevelTutorialListing.ascx
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample12.aspx)]
 
@@ -239,7 +239,7 @@ SectionLevelTutorialListing.ascx.cs
 
 **図 15**: 基本的なレポートのチュートリアルが一覧表示されます ([クリックすると、フルサイズの画像が表示](master-pages-and-site-navigation-cs/_static/image37.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 サイトマップが定義され、マスターページが完成したので、データ関連のチュートリアルのページレイアウトとナビゲーションスキームが一貫しています。 サイトに追加するページの数に関係なく、サイト全体のページレイアウトまたはサイトナビゲーション情報の更新は、この情報が集中管理されているため、短時間で簡単なプロセスです。 具体的には、ページレイアウト情報は `Site.master` マスターページと `Web.sitemap`のサイトマップで定義されています。 このサイト全体のページレイアウトとナビゲーション機構を実現するため*にコードを*記述する必要はありませんでした。 Visual Studio では完全な WYSIWYG デザイナーサポートを維持しています。
 
@@ -247,7 +247,7 @@ SectionLevelTutorialListing.ascx.cs
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -261,7 +261,7 @@ SectionLevelTutorialListing.ascx.cs
 - [方法: ASP.NET ページのトレースを有効にする](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
 - [ASP.NET ユーザーコントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

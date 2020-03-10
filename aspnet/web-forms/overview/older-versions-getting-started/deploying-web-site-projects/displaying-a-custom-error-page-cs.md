@@ -9,11 +9,11 @@ ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c1ff4c112b9a489b8fb9ef3443663cd71eda7965
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625487"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78420616"
 ---
 # <a name="displaying-a-custom-error-page-c"></a>カスタム エラー ページを表示する (C#)
 
@@ -55,7 +55,7 @@ ASP.NET アプリケーションでハンドルされない例外が発生する
 
 もう1つの種類の YSOD はランタイムエラー YSOD であり、**図 2**に示します。 ランタイムエラー YSOD は、実行時エラーが発生したことをビジターに通知しますが、スローされた例外に関する情報は含まれていません。 (ただし、このような YSOD ルック不自然見えるの一部である `Web.config` ファイルを変更することによって、エラーの詳細を表示する方法について説明します)。
 
-既定では、ランタイムエラー YSOD は、ブラウザーのアドレスバーの URL (**図 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`) で示されているように、 http://www.yoursite.com) を通じてリモートでアクセスしているユーザーに表示されます。 この2つの異なる YSOD 画面は、開発者がエラーの詳細を知りたいと考えていますが、このような情報をライブサイトに表示することはできません。これは、潜在的なセキュリティの脆弱性やその他の機密情報が、サイト.
+既定では、ランタイムエラー YSOD は、ブラウザーのアドレスバーの URL (**図 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`) で示されているように、 http://www.yoursite.com)を通じてリモートでアクセスしているユーザーに表示されます。 この2つの異なる YSOD 画面は、開発者がエラーの詳細を知りたいと考えていますが、このような情報をライブサイトに表示することはできません。これは、潜在的なセキュリティの脆弱性やその他の機密情報が、サイト.
 
 > [!NOTE]
 > 後で DiscountASP.NET を web ホストとして使用している場合は、ライブサイトにアクセスしたときにランタイムエラー YSOD が表示されないことがあります。 これは、既定では、DiscountASP.NET には例外の詳細を表示するようにサーバーが構成されているためです。 この既定の動作は、`Web.config` ファイルに `<customErrors>` セクションを追加することでオーバーライドできます。 「どのエラーページが表示されるかを構成する」セクションでは、`<customErrors>` について詳しく説明します。
@@ -147,7 +147,7 @@ ASP.NET ページによって例外がスローされ、処理されない場合
 > [!NOTE]
 > カスタムエラーページは、ASP.NET エンジンによって処理されるリソースに対して要求が行われた場合にのみ表示されます。 [IIS と ASP.NET 開発サーバー](core-differences-between-iis-and-the-asp-net-development-server-cs.md)チュートリアルの主な違いについて説明したように、web サーバーは特定の要求を処理することがあります。 既定では、IIS web サーバーは、ASP.NET エンジンを呼び出さずに、イメージや HTML ファイルなどの静的なコンテンツに対する要求を処理します。 その結果、ユーザーが存在しないイメージファイルを要求した場合、ASP ではなく IIS の既定の404エラーメッセージが返されます。ネットワークの構成されたエラーページ。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET アプリケーションでハンドルされない例外が発生すると、次の3つのエラーページのいずれかが表示されます。例外の詳細: 黄色い画面実行時エラー: 黄色い画面またはカスタムエラーページ。 表示されるエラーページは、アプリケーションの `<customErrors>` 構成と、ユーザーがローカルまたはリモートのどちらにアクセスしているかによって異なります。 既定の動作では、ローカル訪問者に YSOD 例外の詳細が表示され、リモート訪問者に対してランタイムエラー YSOD が表示されます。
 
@@ -157,7 +157,7 @@ ASP.NET アプリケーションでハンドルされない例外が発生する
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

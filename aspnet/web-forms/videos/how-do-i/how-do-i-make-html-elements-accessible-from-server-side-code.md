@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
-title: '[How Do i:]HTML 要素をサーバー側コードからアクセスできるように |Microsoft Docs'
+title: '[操作方法:]サーバー側コードから HTML 要素にアクセスできるようにする |Microsoft Docs'
 author: rick-anderson
-description: このビデオの Chris Pels で、標準の HTML 要素で .aspx ページからアクセスできるようにサーバー側のコード ページの処理で使用できるようにする方法を紹介しています.
+description: このビデオでは、サーバー側のコードから .aspx ページに標準の HTML 要素をアクセスできるようにする方法について説明します。
 ms.author: riande
 ms.date: 05/29/2008
 ms.assetid: 1e2bafaa-ae6a-4c4c-839b-ff2dfe836902
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
 msc.type: video
 ms.openlocfilehash: 7c3d70c0d91478e0f62fa9e009733485f9d5ad7e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394010"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78419968"
 ---
-# <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a>[How Do i:]HTML 要素をサーバー側コードからアクセスできるように
+# <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a>[操作方法:]サーバー側コードから HTML 要素にアクセスできるようにする
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは、Chris Pels としては標準の HTML 要素で .aspx ページからアクセスできるようにサーバー側のコード ページの標準の ASP.NET サーバー コントロールのような処理で使用できるようにする方法を示します。 最初を参照してください方法の runat ="server"属性のような標準の HTML コントロールを&lt;div&gt;のフル機能 Intellisense とサーバー側コードで参照されるようになります。 次に、この方法では、ページの HTML 要素を操作する方法のいくつかの例を参照してください。 最後に、この手法をされる使用方法と組み合わせてを .NET Framework バージョン 3.5 の新しい ListView コントロール リストのレイアウトを制御するを参照してください。
+このビデオでは、サーバー側コードから .aspx ページに標準の HTML 要素を作成し、標準の ASP.NET サーバーコントロールのようなページ処理で使用できるようにする方法について説明します。 最初に、runat = "server" 属性を &lt;&gt; div のような標準 HTML コントロールに追加することで、完全な Intellisense を使用してサーバー側コードで参照できるようにする方法について説明します。 次に、この手法を使用してページ上の HTML 要素を操作する方法の例をいくつか示します。 最後に、この手法を .NET Framework バージョン3.5 の新しい ListView コントロールと組み合わせて使用して、リストのレイアウトを制御する方法について説明します。
 
-[&#9654;ビデオ (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-html-elements-accessible-from-server-side-code)
+[&#9654;ビデオを見る (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-html-elements-accessible-from-server-side-code)

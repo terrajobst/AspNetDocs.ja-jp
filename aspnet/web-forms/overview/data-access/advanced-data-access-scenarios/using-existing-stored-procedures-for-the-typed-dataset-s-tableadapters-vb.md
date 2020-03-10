@@ -9,11 +9,11 @@ ms.assetid: 2da25f6a-757e-4e7b-a812-1575288d8f7a
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
 ms.openlocfilehash: e35c3d6a98516a07f6119e6cb9dbeb99bc28fe33
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74613575"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78427126"
 ---
 # <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>型指定された DataSet の TableAdapters に既存のストアド プロシージャを使用する (VB)
 
@@ -220,13 +220,13 @@ DAL が更新されると、カテゴリを削除すると、そのカテゴリ�
 > [!NOTE]
 > 選択したカテゴリと一緒に複数の製品を削除する `Categories_Delete` ストアドプロシージャをテストする前に、データベースのバックアップコピーを作成することをお勧めします。 `App_Data`で `NORTHWND.MDF` データベースを使用している場合は、単に Visual Studio を閉じ、`App_Data` 内の MDF ファイルと LDF ファイルを他のフォルダーにコピーします。 機能のテスト後、データベースを復元するには、Visual Studio を終了し、`App_Data` 内の現在の MDF ファイルと LDF ファイルをバックアップコピーに置き換えます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 TableAdapter ウィザードによって自動的にストアドプロシージャが生成されますが、そのようなストアドプロシージャが既に作成されている場合や、手動で作成したり、他のツールを使用したりする場合もあります。 このようなシナリオに対応するために、既存のストアドプロシージャを参照するように TableAdapter を構成することもできます。 このチュートリアルでは、Visual Studio 環境を使用してデータベースにストアドプロシージャを手動で追加する方法と、TableAdapter のメソッドをこれらのストアドプロシージャに接続する方法について説明しました。 また、ストアドプロシージャ内からのトランザクションの開始、コミット、およびロールバックに使用される T-sql コマンドとスクリプトパターンについても説明します。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

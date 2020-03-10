@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/authentication/index
-title: 認証 |Microsoft Docs
+title: 認証 | Microsoft Docs
 author: rick-anderson
-description: 実装して、ASP.NET アプリケーションのセキュリティ (認証) を管理する方法。
+description: ASP.NET アプリケーションでセキュリティ (認証) を実装および管理する方法。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 4a365e58-9b18-4bd2-bfd5-6981e7f2e179
 msc.legacyurl: /web-forms/videos/authentication
 msc.type: chapter
 ms.openlocfilehash: 9802eee31ecafeb17a09d6c154d811b3d0bb01de
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133749"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421720"
 ---
 # <a name="authentication"></a>認証
 
-> 実装して、ASP.NET アプリケーションのセキュリティ (認証) を管理する方法。
+> ASP.NET アプリケーションでセキュリティ (認証) を実装および管理する方法。
 
 - [ASP.NET で基本フォーム認証を使用する](using-basic-forms-authentication-in-aspnet.md)
 - [フォーム認証プロパティを変更する](how-to-change-the-forms-authentication-properties.md)

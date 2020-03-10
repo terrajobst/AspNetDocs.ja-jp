@@ -9,11 +9,11 @@ ms.assetid: 81ba9116-d485-40c0-8ff6-7e9ae23e0a0c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 694416532b558291ff6ab57a442058b53d6167e0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606735"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430822"
 ---
 # <a name="picking-one-animation-out-of-a-list-vb"></a>一覧からアニメーションを 1 つ選択する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606735"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、一部の JavaScript コードの評価に応じて、アニメーションの一覧から1つのアニメーションを取得することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、一部の JavaScript コードの評価に応じて、アニメーションの一覧から1つのアニメーションを取得することもできます。
 

@@ -9,11 +9,11 @@ ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 199ddb46e877c3a0937672d33241a240660684da
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606017"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430060"
 ---
 # <a name="querying-data-with-the-sqldatasource-control-vb"></a>SqlDataSource コントロールでデータにクエリを実行する (VB)
 
@@ -177,7 +177,7 @@ SqlDataSource コントロールを構成する場合、データを返すため
 
 **図 13**: カスタム SQL ステートメントを入力するか、ストアドプロシージャを選択する
 
-カスタム SQL ステートメントは、手動でテキストボックスに入力することも、[クエリビルダー] ボタンをクリックしてグラフィカルに作成することもできます。 `JOIN` テーブルから製品 `CategoryName` を取得するには、次のクエリを使用して、クエリビルダーまたはテキストボックスから、次のクエリを使用して、`Products` テーブルの `ProductID` と `ProductName` のフィールドを返します。
+カスタム SQL ステートメントは、手動でテキストボックスに入力することも、[クエリビルダー] ボタンをクリックしてグラフィカルに作成することもできます。 `JOIN` テーブルから製品 `CategoryName` を取得するには、次のクエリを使用して、クエリビルダーまたはテキストボックスから、次のクエリを使用して、`Products` テーブルの `ProductID` と `ProductName` のフィールドを返します。`Categories`
 
 [!code-sql[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample4.sql)]
 
@@ -195,7 +195,7 @@ SqlDataSource コントロールを構成する場合、データを返すため
 
 **図 15**: GridView には、各製品の ID、名前、および関連付けられているカテゴリ名が表示されます ([クリックすると、フルサイズの画像が表示](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、SqlDataSource コントロールを使用してデータのクエリと表示を行う方法について説明しました。 ObjectDataSource と同様に、SqlDataSource はプロキシとして機能し、データにアクセスするための宣言型のアプローチを提供します。 このプロパティは、接続先のデータベースと実行する SQL `SELECT` クエリを指定します。これらは、プロパティウィンドウまたはデータソースの構成ウィザードを使用して指定できます。
 
@@ -203,7 +203,7 @@ SqlDataSource コントロールを構成する場合、データを返すため
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -213,7 +213,7 @@ SqlDataSource コントロールを構成する場合、データを返すため
 - [Web.config `<connectionStrings>` 要素](https://msdn.microsoft.com/library/bf7sd233.aspx)
 - [データベース接続文字列のリファレンス](http://www.connectionstrings.com/)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

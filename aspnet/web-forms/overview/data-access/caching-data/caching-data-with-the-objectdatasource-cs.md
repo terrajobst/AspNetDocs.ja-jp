@@ -9,11 +9,11 @@ ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c9883314d6153b9816d9bad2a281ab3c0a816448
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74612624"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78420658"
 ---
 # <a name="caching-data-with-the-objectdatasource-c"></a>ObjectDataSource でデータをキャッシュする (C#)
 
@@ -149,9 +149,9 @@ ObjectDataSource がデータのアーキテクチャに要求を行うたびに
 
 いくつかのプロパティを設定するだけで、取得したデータを ASP.NET データキャッシュに自動的にキャッシュするように ObjectDataSource を構成できます。 次の一覧は、ObjectDataSource のキャッシュ関連のプロパティをまとめたものです。
 
-- キャッシュを有効にするには、 [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx)を `true` に設定する必要があります。 既定値は、 `false`です。
+- キャッシュを有効にするには、 [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx)を `true` に設定する必要があります。 既定では、 `false`です。
 - [Cacheduration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx)データがキャッシュされる時間の長さ (秒単位)。 既定値は 0 です。 ObjectDataSource は、`EnableCaching` が `true`、`CacheDuration` がゼロより大きい値に設定されている場合にのみデータをキャッシュします。
-- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx)は、`Absolute` または `Sliding`に設定できます。 `Absolute`した場合、ObjectDataSource は取得したデータを `CacheDuration` 秒間キャッシュします。`Sliding`した場合、データは、`CacheDuration` 秒間アクセスされていない場合にのみ有効期限が切れます。 既定値は、 `Absolute`です。
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx)は、`Absolute` または `Sliding`に設定できます。 `Absolute`した場合、ObjectDataSource は取得したデータを `CacheDuration` 秒間キャッシュします。`Sliding`した場合、データは、`CacheDuration` 秒間アクセスされていない場合にのみ有効期限が切れます。 既定では、 `Absolute`です。
 - [Cachekeydependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx)このプロパティを使用して、ObjectDataSource のキャッシュエントリと既存のキャッシュ依存関係を関連付けます。 ObjectDataSource s データエントリは、関連付けられた `CacheKeyDependency`を期限切れにすることで、キャッシュから早期に削除できます。 このプロパティは、SQL キャッシュの依存関係を ObjectDataSource のキャッシュと関連付けるために最も一般的に使用されます。これについては、後で[Sql キャッシュの依存関係](using-sql-cache-dependencies-cs.md)のチュートリアルを使用して説明します。
 
 では、`ProductsDataSource` ObjectDataSource を構成して、データを30秒間、絶対スケールにキャッシュします。 ObjectDataSource s `EnableCaching` プロパティを `true` に設定し、その `CacheDuration` プロパティを30に設定します。 `CacheExpirationPolicy` プロパティは、既定の `Absolute`に設定したままにします。
@@ -187,7 +187,7 @@ ObjectDataSource がデータのアーキテクチャに要求を行うたびに
 
 つまり、古いデータの可能性がある場合は時間ベースの expiries のみを使用し、データの鮮度が重要なシナリオでは短い expiries を使用します。 古いデータを使用できない場合は、済ませるをキャッシュするか、SQL キャッシュの依存関係を使用します (キャッシュし直すデータベースデータであることを前提としています)。 SQL キャッシュの依存関係については、今後のチュートリアルで説明します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ObjectDataSource s の組み込みのキャッシュ機能について説明しました。 いくつかのプロパティを設定するだけで、指定された `SelectMethod` から返された結果を ASP.NET データキャッシュにキャッシュするように ObjectDataSource に指示できます。 `CacheDuration` と `CacheExpirationPolicy` のプロパティは、項目がキャッシュされている期間と、その項目が絶対有効期限またはスライド式有効期限であるかどうかを示します。 `CacheKeyDependency` プロパティは、すべての ObjectDataSource キャッシュエントリと既存のキャッシュ依存関係を関連付けます。 これは、時間ベースの有効期限が切れる前にキャッシュから ObjectDataSource s エントリを削除するために使用でき、通常は SQL キャッシュの依存関係で使用されます。
 
@@ -195,7 +195,7 @@ ObjectDataSource は単にその値をデータキャッシュにキャッシュ
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -203,7 +203,7 @@ ObjectDataSource は単にその値をデータキャッシュにキャッシュ
 - [.NET Framework アプリケーション用のキャッシュアーキテクチャガイド](https://msdn.microsoft.com/library/ee817645.aspx)
 - [ASP.NET 2.0 での出力キャッシュ](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -212,4 +212,4 @@ ObjectDataSource は単にその値をデータキャッシュにキャッシュ
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Teresa Murphy でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](caching-data-in-the-architecture-cs.md)
+> [Next](caching-data-in-the-architecture-cs.md)

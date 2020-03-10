@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/older-versions/scaleout-in-signalr
-title: SignalR のスケール アウト入門 1.x |Microsoft Docs
+title: SignalR 1.x のスケールアウトの概要 |Microsoft Docs
 author: bradygaster
 description: ''
 ms.author: bradyg
@@ -9,40 +9,40 @@ ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 9bad72d31a0ebc491910ebb128b3b3a7fb537958
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402688"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431212"
 ---
 # <a name="introduction-to-scaleout-in-signalr-1x"></a>SignalR 1.x のスケールアウト入門
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+[Mike Wasson](https://github.com/MikeWasson)、[パトリック Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-一般は、web アプリケーションのスケール設定の 2 つの方法があります:*スケール アップ*と*スケール アウト*します。
+一般に、web アプリケーションを拡張するには、*スケールアップ*と*スケールアウト*の2つの方法があります。
 
-- スケール アップは、RAM、Cpu などの大規模なサーバー (またはより大きな VM) を使用することを意味します。
-- スケール アウト、負荷を処理するより多くのサーバーを追加することを意味します。
+- スケールアップとは、より大規模なサーバー (またはより大きな VM) を使用して、より多くの RAM、Cpu などを使用することです。
+- Scale out は、負荷を処理するためにサーバーを追加することを意味します。
 
-スケール アップの問題は、迅速に、マシンのサイズの上限に達したことです。 さらに、スケール アウトする必要があります。ただし、スケール アウトするときにクライアントを別のサーバーにルーティングを取得できます。 1 つのサーバーに接続されているクライアントは、別のサーバーから送信されたメッセージを受信しません。
+スケールアップの問題は、コンピューターのサイズの上限に達することです。 それ以外の場合は、スケールアウトする必要があります。ただし、スケールアウトすると、クライアントは別のサーバーにルーティングされる可能性があります。 1つのサーバーに接続されているクライアントは、別のサーバーから送信されたメッセージを受信しません。
 
 ![](scaleout-in-signalr/_static/image1.png)
 
-1 つのソリューションと呼ばれるコンポーネントを使用して、サーバー間でメッセージを転送するように、*バック プレーン*します。 有効になっているバック プレーン、各アプリケーション インスタンスが、バック プレーンにメッセージを送信し、バック プレーンの他のアプリケーション インスタンスに転送します。 (電子機器、バック プレーンです並列コネクタのグループ。 たとえて、SignalR のバック プレーン接続する複数のサーバーです。)
+1つの解決策は、*バックプレーン*と呼ばれるコンポーネントを使用して、サーバー間でメッセージを転送することです。 バックプレーンが有効になっている場合、各アプリケーションインスタンスはバックプレーンにメッセージを送信し、バックプレーンはそれらを他のアプリケーションインスタンスに転送します。 (エレクトロニクスでは、バックプレーンは並列コネクタのグループです。 例えとして、SignalR バックプレーンは複数のサーバーを接続します)。
 
 ![](scaleout-in-signalr/_static/image2.png)
 
-現在、SignalR は、次の 3 つのバック プレーンを提供します。
+現在、SignalR には次の3つの背面があります。
 
-- **Azure Service Bus**します。 Service Bus は、メッセージング インフラストラクチャを使用する疎結合方式でメッセージを送信するコンポーネントです。
-- **Redis**します。 Redis はメモリ内のキー値ストアです。 Redis では、メッセージを送信するため、(「パブリッシュ/サブスクライブ」) の発行/サブスクライブ パターンをサポートしています。
-- **SQL Server**します。 SQL Server バック プレーンでは、SQL テーブルにメッセージを書き込みます。 バック プレーンでは、効率的なメッセージングを Service Broker を使用します。 ただし、これは Service Broker が有効になっていない場合にも機能します。
+- **Azure Service Bus**。 Service Bus は、疎結合された方法でコンポーネントがメッセージを送信できるようにするメッセージングインフラストラクチャです。
+- **Redis**。 Redis は、メモリ内のキーと値のストアです。 Redis は、メッセージを送信するためのパブリッシュ/サブスクライブ ("pub/sub") パターンをサポートしています。
+- **SQL Server**。 SQL Server バックプレーンは、SQL テーブルにメッセージを書き込みます。 バックプレーンは、効率的なメッセージングのために Service Broker を使用します。 ただし、Service Broker が有効になっていない場合にも機能します。
 
-Azure 上のアプリケーションをデプロイする場合は、Azure Service Bus のバック プレーンの使用を検討します。 サーバー ファームに展開する場合は、SQL Server または Redis のバック プレーンを検討してください。
+アプリケーションを Azure にデプロイする場合は、Azure Service Bus バックプレーンの使用を検討してください。 独自のサーバーファームにデプロイする場合は、SQL Server または Redis 背面を検討してください。
 
-次のトピックには、各バック プレーンのステップバイ ステップ チュートリアルが含まれます。
+次のトピックには、各バックプレーンの手順に関するチュートリアルが含まれています。
 
 - [Azure Service Bus による SignalR スケールアウト](scaleout-with-windows-azure-service-bus.md)
 - [Redis による SignalR スケールアウト](scaleout-with-redis.md)
@@ -50,24 +50,24 @@ Azure 上のアプリケーションをデプロイする場合は、Azure Servi
 
 ## <a name="implementation"></a>実装
 
-Signalr では、すべてのメッセージはメッセージ バスを通じて送信されます。 メッセージ バス実装、 [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx)インターフェイスで、パブリッシュ/サブスクライブ抽象化を提供します。 既定値を置き換えることで、バック プレーンの動作**IMessageBus**バス バック プレーンに対するに設計されています。 Redis メッセージ バスは、たとえば、 [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx)、Redis を使用して[パブリッシュ/サブスクライブ](http://redis.io/topics/pubsub)メッセージを送受信するためのメカニズムです。
+SignalR では、すべてのメッセージがメッセージバスを介して送信されます。 メッセージバスは、パブリッシュ/サブスクライブの抽象化を提供する[IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx)インターフェイスを実装します。 背面は、既定の**IMessageBus**をそのバックプレーン用に設計されたバスに置き換えることによって機能します。 たとえば、Redis のメッセージバスは[Redismessagebus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx)で、redis [pub/sub](http://redis.io/topics/pubsub)メカニズムを使用してメッセージを送受信します。
 
-各サーバー インスタンスは、バスを介してバック プレーンに接続します。 メッセージが送信されると、バック プレーンに移動して、バック プレーンのすべてのサーバーに送信します。 サーバーは、バック プレーンからメッセージを取得、そのローカル キャッシュ内でメッセージが保存されます。 サーバーはし、そのローカル キャッシュから、クライアントにメッセージを配信します。
+各サーバーインスタンスは、バスを介してバックプレーンに接続します。 メッセージが送信されると、バックプレーンに送られ、バックプレーンがすべてのサーバーに送信します。 サーバーがバックプレーンからメッセージを取得すると、メッセージはローカルキャッシュに格納されます。 サーバーは、ローカルキャッシュからクライアントにメッセージを配信します。
 
-各クライアント接続のため、カーソルを使用して、メッセージ ストリームを読み取り中に、クライアントの進行状況が追跡されます。 (カーソルは、メッセージ ストリーム内の位置を表します)。クライアントが切断して再接続して、クライアントのカーソル値の後に到着したすべてのメッセージ バスを要求します。 接続を使用する場合に、同じことが起こります[ポーリング時間の長い](../getting-started/introduction-to-signalr.md#transports)します。 長いポーリング要求が完了した後、クライアントは新しい接続を開き、カーソルより後に到着したメッセージを要求します。
+クライアント接続ごとに、カーソルを使用して、メッセージストリームの読み取りにおけるクライアントの進行状況が追跡されます。 (カーソルはメッセージストリーム内の位置を表します)。クライアントが切断された後に再接続すると、クライアントのカーソル値の後に到着したメッセージをバスに要求します。 接続で[長いポーリング](../getting-started/introduction-to-signalr.md#transports)が使用されている場合も同じことが起こります。 長いポーリング要求が完了すると、クライアントは新しい接続を開き、カーソルの後に到着したメッセージを要求します。
 
-カーソルのメカニズムの動作でクライアントが別のサーバーにルーティングされる場合でも再接続します。 バック プレーンは、すべてのサーバーを認識しており、クライアントが接続する先のサーバーかは関係ありません。
+カーソルメカニズムは、再接続時にクライアントが別のサーバーにルーティングされている場合でも機能します。 バックプレーンは、すべてのサーバーを認識しており、クライアントが接続しているサーバーには関係ありません。
 
 ## <a name="limitations"></a>制限事項
 
-バック プレーンを使用して、メッセージの最大スループットは、クライアントは、1 台のサーバー ノードに直接話すときよりも低い。 バック プレーンがバック プレーンがボトルネックになることができますので、すべてのノードにすべてのメッセージを転送するためです。 この制限は、問題であるかどうかは、アプリケーションによって異なります。 たとえば、SignalR の一般的なシナリオを示します。
+バックプレーンを使用する場合、最大メッセージスループットは、クライアントが単一のサーバーノードに直接通信する場合よりも低くなります。 これは、バックプレーンがすべてのメッセージをすべてのノードに転送するため、バックプレーンがボトルネックになる可能性があるためです。 この制限が問題になるかどうかは、アプリケーションによって異なります。 たとえば、一般的な SignalR シナリオを次に示します。
 
-- [サーバー ブロードキャスト](tutorial-server-broadcast-with-aspnet-signalr.md)(株価情報など)。バック プレーンがこのシナリオに動作するは、サーバー メッセージが送信される速度を制御するためです。
-- [クライアントで](tutorial-getting-started-with-signalr.md)(チャットなど)。このシナリオでバック プレーン場合があります、ボトルネックのメッセージの数に合わせてクライアントの数メッセージの数が増加した場合は、それに比例して増えるクライアントが参加します。
-- [高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)(リアルタイムのゲームなど)。このシナリオでは、バック プレーンは推奨されません。
+- [サーバーブロードキャスト](tutorial-server-broadcast-with-aspnet-signalr.md)(stock ティッカーなど): 背面は、このシナリオに適しています。これは、サーバーがメッセージの送信速度を制御するためです。
+- [クライアント対クライアント](tutorial-getting-started-with-signalr.md)(チャットなど): このシナリオでは、メッセージの数がクライアントの数に合わせてスケーリングされる場合、バックプレーンはボトルネックになる可能性があります。これは、より多くのクライアントが参加したときにメッセージの割合が増加した場合に発生します。
+- [高頻度リアル](tutorial-high-frequency-realtime-with-signalr.md)タイム (リアルタイムゲームなど): このシナリオでは、バックプレーンはお勧めできません。
 
-## <a name="enabling-tracing-for-signalr-scaleout"></a>SignalR スケール アウトのトレースを有効にします。
+## <a name="enabling-tracing-for-signalr-scaleout"></a>SignalR のスケールアウトのトレースを有効にする
 
-バック プレーンのトレースを有効にするには、web.config ファイルのルートの下に次のセクションを追加**構成**要素。
+背面のトレースを有効にするには、次のセクションを web.config ファイルのルート**構成**要素の下に追加します。
 
 [!code-html[Main](scaleout-in-signalr/samples/sample1.html)]

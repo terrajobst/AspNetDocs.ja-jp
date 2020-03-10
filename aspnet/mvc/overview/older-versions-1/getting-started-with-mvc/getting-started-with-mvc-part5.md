@@ -1,63 +1,63 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
-title: コント ローラーからモデルのデータへのアクセス |Microsoft Docs
+title: コントローラーからモデルのデータにアクセスする |Microsoft Docs
 author: shanselman
-description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。
+description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 データベースを読み書きする単純な web アプリケーションを作成します。
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
 ms.openlocfilehash: 207ed880977d794d81efdc1ea458d17a68d501d8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122889"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78437368"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>コントローラーからモデルのデータにアクセスする
 
-[Scott Hanselman](https://github.com/shanselman)による
+[Scott マン Selman](https://github.com/shanselman)
 
-> これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
+> これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 データベースを読み書きする単純な web アプリケーションを作成します。 他の ASP.NET MVC のチュートリアルとサンプルについては、 [ASP.NET mvc learning center](../../../index.md)を参照してください。
 
-このセクションでは、新しい MoviesController クラスを作成し、映画のデータを取得し、ビュー テンプレートを使用して、ブラウザーに表示するコードを作成するでしょう。
+このセクションでは、新しい Moviescontroller.cs クラスを作成し、ムービーデータを取得して、ビューテンプレートを使用してブラウザーに表示するコードを記述します。
 
-Controllers フォルダーを右クリックし、新しい MoviesController を作成します。
+Controllers フォルダーを右クリックし、新しい Moviescontroller.cs を作成します。
 
-[![コント ローラーを追加します。](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[コントローラーの追加 ![](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
-これにより、プロジェクト内で、\Controllers フォルダーの下に新しい"MoviesController.cs"ファイルが作成されます。 新しく設定されたデータベースからムービーの一覧を取得する MovieController を更新してみましょう。
+これにより、プロジェクト内の \ Controllers フォルダーの下に新しい "MoviesController.cs" ファイルが作成されます。 MovieController を更新して、新しく設定されたデータベースから映画の一覧を取得してみましょう。
 
 [!code-csharp[Main](getting-started-with-mvc-part5/samples/sample1.cs)]
 
-1984 年の夏の後にリリースされた映画のみ取得できるように LINQ クエリを実行しています。 ビュー テンプレートの映画に戻るには、この一覧を表示、そこでメソッドで右クリックし、それを作成するには、ビューの追加を選択する必要があります。
+1984年の夏の後にリリースされた映画のみを取得するように LINQ クエリを実行しています。 このムービーの一覧を表示するにはビューテンプレートが必要です。そのため、メソッドを右クリックし、[ビューの追加] を選択して作成します。
 
-ビューの追加 ダイアログ ボックスで指定するリストを渡している&lt;Movies.Models.Movie&gt;テンプレートの表示にします。 前の時間ビューの追加 ダイアログを使用して、「空」のテンプレートを作成することを選択とは異なりこの時間を指定する Visual Studio で自動的に「スキャフォールディング」ビュー テンプレートの既定のコンテンツとします。 "ビューのコンテンツのドロップダウン メニュー内の"List"項目を選択してこれは。
+[ビューの追加] ダイアログボックスで、ビューテンプレートに&lt;映画&gt; リストを渡していることを示します。 以前に [ビューの追加] ダイアログを使用し、"空の" テンプレートを作成することを選択したのとは異なり、今回は、Visual Studio が既定のコンテンツを含むビューテンプレートを自動的に "スキャフォールディング" するように指定します。 これを行うには、[コンテンツの表示] ドロップダウンメニュー内の [リスト] 項目を選択します。
 
-ただしがある場合、作成された新しいクラス ビューの追加 ダイアログに表示するアプリケーションをコンパイルする必要があります。
+新しいクラスを作成した場合は、[ビューの追加] ダイアログボックスに表示されるように、アプリケーションをコンパイルする必要があることに注意してください。
 
-![ビューを追加します。](getting-started-with-mvc-part5/_static/image3.png)
+![ビューの追加](getting-started-with-mvc-part5/_static/image3.png)
 
-追加 をクリックし、システムはムービーの一覧を表示するためビューのコードを自動的に生成されます。 これは、変更すると良い、 &lt;h2&gt; Hello World ビューで以前に行ったように"マイ Movie List"のように向かっています。
+[追加] をクリックすると、ムービーの一覧を表示するビューのコードが自動的に生成されます。 &lt;h2&gt; の見出しを、前に Hello World ビューで行ったような "マイムービーリスト" のように変更することをお勧めします。
 
-[![ビデオ - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![映画-Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
-アプリケーションを実行し、アドレス バーに/Movies を参照してください。 ここで、コント ローラー内での基本的なクエリを使用してデータベースからデータを取得したし、映画について認識しているビューにデータが返されます。 そのビューは、ムービーのリストをループ処理し、私たちのデータのテーブルを作成します。
+アプリケーションを実行し、アドレスバーで [/ムービー] にアクセスします。 これで、コントローラー内の基本的なクエリを使用してデータベースからデータを取得し、ムービーを認識するビューにデータを返しました。 その後、そのビューはムービーの一覧をスピンし、データのテーブルを作成します。
 
-[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![ムービーの一覧-Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
-私たちはありませんする機能を実装する編集、詳細、削除 - このアプリケーションでのスキャフォールディング テンプレートが作成された既定のリンクしない必要があります。 /Movies/Index.aspx ファイルを開き、それらを削除します。
+このアプリケーションでは編集、詳細、削除機能を実装しません。そのため、スキャフォールディングテンプレートによって作成された既定のリンクは必要ありません。 /Movies/Index.aspx ファイルを開き、削除します。
 
-次に、更新されたテンプレートの表示がどのようにこれらの変更を行った後のソース コードを示します。
+更新されたビューテンプレートのソースコードを次に示します。これらの変更を行った後は、次のようになります。
 
 [!code-aspx[Main](getting-started-with-mvc-part5/samples/sample2.aspx)]
 
-この例には削除されますので必要はありませんが、あるリンクを作成します。 次へ を、新規作成 が保持されます。 削除する列で、アプリがどのようにを次に示します。
+必要のないリンクが作成されているので、この例ではリンクを削除します。 次に示すように、新しいリンクを作成しておきます。 この列を削除すると、アプリは次のようになります。
 
-[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![ムービーの一覧-Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
-ムービー データの単純なリストがあるようになりました。 ただし、"新規作成 リンクをクリックすると場合、そのように接続されていないエラーが発生しましたします! 作成アクション メソッドを実装して、データベースに新しい映画を入力するユーザーを有効にします。
+これで、ムービーデータを簡単に一覧表示できるようになりました。 ただし、[新規作成] リンクをクリックすると、フックされていないためエラーが発生します。 Create Action メソッドを実装し、ユーザーがデータベースに新しい映画を入力できるようにしましょう。
 
 > [!div class="step-by-step"]
 > [前へ](getting-started-with-mvc-part4.md)

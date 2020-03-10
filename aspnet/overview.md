@@ -9,19 +9,19 @@ ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: aa4f627bca99f0a7ffbbb53ea45ebdcf0850fd89
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519363"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431878"
 ---
 # <a name="aspnet-overview"></a>ASP.NET 概要
 
 ASP.NET は、HTML、CSS、および JavaScript を使用して優れた web サイトや web アプリケーションを構築するための無料の web フレームワークです。 Web API を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
 
-[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。  [ASP.NET と ASP.NET Core の選択方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) を参照してください。
+[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は、ASP.NET の代わりになります。  [ASP.NET と ASP.NET Core のどちらを選択するかについ](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)ては、ガイダンスを参照してください。
 
-## <a name="get-started"></a>作業開始
+## <a name="get-started"></a>はじめに
 
 Windows 上の ASP.NET 用の無料の IDE である[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2019) Community edition をインストールします。
 
@@ -33,7 +33,7 @@ Windows 上の ASP.NET 用の無料の IDE である[Visual Studio 2019](https:/
 
 各フレームワークの概要と、それらを選択する方法に関するいくつかのアイデアを以下に示します。 ビデオの概要については、「 [ASP.NET を使用した Web サイトの作成](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET)」および「 [Web ツールとは](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)」を参照してください。
 
-|   | の経験がある場合 | 開発スタイル | 専門知識 |
+|   | の経験がある場合 | 開発スタイル | 家 |
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Web フォーム | Win フォーム、WPF、.NET | HTML マークアップをカプセル化するコントロールの豊富なライブラリを使用した迅速な開発 | ミッドレベル、高度な RAD |
 | MVC       | Ruby on Rails、.NET  | HTML マークアップ、コードとマークアップの分離、およびテストの記述を簡単に行うことができます。 モバイルアプリケーションとシングルページアプリケーション (SPA) に最適な選択肢です。 | ミッドレベル、詳細 |
@@ -51,7 +51,7 @@ ASP.NET MVC には、動的な Web サイトを構築するための強力なパ
 
 [MVC の詳細情報](mvc/index.md)
 
-### <a name="aspnet-web-pages"></a>ASP.NET Web ページ
+### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
 ASP.NET Web ページと Razor 構文は、サーバーコードと HTML を組み合わせて動的な Web コンテンツを作成するための高速でわかりやすく、軽量な方法を提供します。 データベースに接続し、ビデオを追加し、ソーシャルネットワーキングサイトにリンクします。また、最新の web 標準に準拠した美しいサイトの作成に役立つ多くの機能が追加されています。
 
@@ -93,7 +93,7 @@ ASP.NET Single Page Application (SPA) を使用すると、HTML 5、CSS 3、お�
 
 [シングルページアプリの開発についての詳細情報](single-page-application/index.md)
 
-## <a name="webhooks"></a>Web フック
+## <a name="webhooks"></a>WebHook
 
 Webhook は、Web API と SaaS サービスをまとめて配線の単純なパブリッシュ/サブスクライブ モデルを提供する軽量な HTTP パターンです。 サービスでイベントが発生すると、登録されたサブスクライバーに対して HTTP POST 要求の形式で通知が送信されます。 POST 要求には、イベントに関する情報が含まれています。これにより、受信側がそれに応じて動作できるようになります。
 

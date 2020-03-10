@@ -9,11 +9,11 @@ ms.assetid: 081fe010-ba0f-4e7d-b4ba-774840b601c2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: fe1f7b80b26ff25c1ce744e4f823e3fb35eea074
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74577226"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78441196"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>コンテンツ ページからマスター ページと対話する (VB)
 
@@ -123,7 +123,7 @@ ms.locfileid: "74577226"
 
 ウィザードが完了したら、DetailsView のスマートタグにアクセスし、[挿入を有効にする] チェックボックスをオンにします。 これにより、`ShowInsertButton` プロパティが True に設定された CommandField が DetailsView に追加されます。 この DetailsView はデータを挿入するためだけに使用されるため、DetailsView の `DefaultMode` プロパティを `Insert`に設定します。
 
-必要な作業は以上です。 このページをテストしてみましょう。 ブラウザーを使用して `AddProduct.aspx` にアクセスし、名前と価格を入力します (図6を参照)。
+これですべて完了です。 このページをテストしてみましょう。 ブラウザーを使用して `AddProduct.aspx` にアクセスし、名前と価格を入力します (図6を参照)。
 
 [新しい製品をデータベースに追加 ![には](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
 
@@ -208,7 +208,7 @@ ASP.NET ページがアクセスされるたびに発生する自動コード生
 
 **図 08**: マスターページのラベルと GridView は、追加された製品を表示します ([クリックすると、フルサイズの画像が表示](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 マスターページとそのコンテンツページが相互に完全に分離されていることが理想的であり、操作のレベルは必要ありません。 マスターページとコンテンツページはその目標を念頭に置いて設計する必要がありますが、コンテンツページがマスターページとのインターフェイスを必要とする一般的なシナリオがいくつかあります。 最も一般的な理由の1つは、コンテンツページで発生する何らかのアクションに基づいて、マスターページの特定の部分を更新することです。
 
@@ -218,7 +218,7 @@ ASP.NET ページがアクセスされるたびに発生する自動コード生
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -228,7 +228,7 @@ ASP.NET ページがアクセスされるたびに発生する自動コード生
 - [コンテンツとマスターページの間で情報を渡す](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [ASP.NET チュートリアルでのデータの操作](../../data-access/index.md)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

@@ -1,88 +1,88 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: ASP.NET Web Pages (Razor) サイトの訪問者の情報 (分析) の追跡 |Microsoft Docs
+title: ASP.NET Web ページ (Razor) サイトのトラッキング訪問者情報 (Analytics)Microsoft Docs
 author: Rick-Anderson
-description: Web サイトから取得した後、web サイト トラフィックを分析する可能性があります。
+description: Web サイトのアクセスが完了したら、web サイトのトラフィックを分析することができます。
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
 ms.openlocfilehash: 095a5572c755446e0661c052ca9de82d636429fd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134598"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421456"
 ---
-# <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトの訪問者情報 (分析) の追跡
+# <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトのトラッキング訪問者情報 (Analytics)
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、ヘルパーを使用して ASP.NET Web Pages (Razor) の web サイトのページに web サイト分析を追加する方法について説明します。
+> この記事では、ヘルパーを使用して、ASP.NET Web ページ (Razor) web サイトのページに web サイトの分析を追加する方法について説明します。
 > 
-> 学習内容。
+> ここでは、次の内容について学習します。
 > 
-> - 分析プロバイダーに、web サイト トラフィックに関する情報を送信する方法。
+> - Web サイトのトラフィックに関する情報を分析プロバイダーに送信する方法。
 > 
-> この記事で導入された機能のプログラミング、ASP.NET を次に示します。
+> この記事で紹介する ASP.NET プログラミング機能を次に示します。
 > 
-> - `Analytics`ヘルパー。
+> - `Analytics` ヘルパー。
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
-> - ASP.NET Web Helpers Library (NuGet パッケージ)
+> - ASP.NET Web ページ (Razor) 2
+> - ASP.NET Web ヘルパーライブラリ (NuGet パッケージ)
 
-Analytics は、ユーザーが、サイトを使用する方法を理解できるように、web サイト上のトラフィックを測定するテクノロジの一般的な用語です。 多くの分析サービスは、使用可能な Google、Yahoo、StatCounter、およびその他のユーザーからサービスを含みます。
+Analytics は、ユーザーがサイトをどのように使用しているかを理解できるように、web サイトのトラフィックを測定するテクノロジの一般的な用語です。 Google、Yahoo、StatCounter などのサービスを含む多くの分析サービスを利用できます。
 
-追跡することへのサインアップ、アカウント分析プロバイダーは、サイトを登録することはように分析が必要。プロバイダーでは、ID またはアカウントのコードの追跡が含まれる JavaScript コードのスニペットを送信します。 JavaScript のスニペットを追跡しサイト上の web ページに追加します。(通常、スニペットを追加する analytics フッターまたはレイアウト ページまたはサイト内の各ページに表示されるその他の HTML マークアップ。)ユーザーは、これらの JavaScript スニペットのいずれかを含むページを要求するときに、スニペットは分析プロバイダーは、ページのさまざまな詳細を記録するに、現在のページに関する情報を送信します。
+Analytics の機能として、分析プロバイダーを使用してアカウントにサインアップし、追跡するサイトを登録するという方法があります。プロバイダーは、お客様のアカウントの ID または追跡コードを含む JavaScript コードのスニペットを送信します。 JavaScript スニペットは、追跡するサイトの web ページに追加します。(通常、分析スニペットは、サイト内のすべてのページに表示されるフッターまたはレイアウトページやその他の HTML マークアップに追加します)。これらの JavaScript スニペットの1つが含まれているページをユーザーが要求すると、スニペットは現在のページに関する情報を分析プロバイダーに送信し、そのページに関するさまざまな詳細情報を記録します。
 
-サイトの統計情報を確認する場合は、分析プロバイダーの web サイトにログインします。 ように、サイトに関する、あらゆる種類のレポートを表示できます。
+サイトの統計情報を確認するには、analytics プロバイダーの web サイトにログインします。 次のように、サイトに関するすべての種類のレポートを表示できます。
 
-- 個々 のページのページ ビューの数。 これは、(ほぼ) 多くの人たちが、サイトにアクセスして、サイトでは、どのページが最も人気のあります。
-- どのくらいの期間のユーザーは、特定のページに費やしています。 ホーム ページがユーザーの関心を維持するかどうかなどが確認できます。
-- どのようなサイトのユーザーは、サイトを訪問する前ででした。 これにより、検索、およびなどからのリンクから、トラフィックが送信されるかどうかを理解することができます。
-- ユーザーが、サイトを訪問するときと期間します。
-- どのような国の利用者はからです。
-- どのようなブラウザーとオペレーティング システム、訪問者が使用しています。
+- 個々のページのページビューの数。 これにより、サイトにアクセスしているユーザーの数と、最も人気のあるサイトのページがわかります。
+- 特定のページに対して、どのくらいの時間がかかっているか。 これにより、ホームページがユーザーの関心を持っているかどうかがわかります。
+- サイトにアクセスする前に、どのサイトを使用していたか。 これにより、トラフィックがリンクから送信されるか、検索から送信されるかなどを把握できます。
+- ユーザーがサイトにアクセスするときと、その期間の長さ。
+- 訪問者の国を示します。
+- 訪問者が使用しているブラウザーとオペレーティングシステム
 
-    ![Ch14traffic 1](14-analyzing-traffic/_static/image1.jpg)
+    ![Ch14traffic-1](14-analyzing-traffic/_static/image1.jpg)
 
-## <a name="using-a-helper-to-add-analytics-to-a-page"></a>ヘルパーを使用して分析ページを追加するには
+## <a name="using-a-helper-to-add-analytics-to-a-page"></a>ヘルパーを使用してページに Analytics を追加する
 
-ASP.NET Web ページには、いくつかの analytics ヘルパーが含まれています (`Analytics.GetGoogleHtml`、 `Analytics.GetYahooHtml`、および`Analytics.GetStatCounterHtml`) を簡単に分析するための JavaScript スニペットを管理します。 方法と場所を把握するのではなく、JavaScript コードを配置する行う必要があるすべてがページに、ヘルパーを追加します。 唯一の情報を提供する必要があるは、アカウント名、ID、または追跡コードです。 (StatCounter、するも指定する必要あります、いくつか追加の値。)
+ASP.NET Web ページには、分析に使用される JavaScript スニペットを簡単に管理できるようにする分析ヘルパー (`Analytics.GetGoogleHtml`、`Analytics.GetYahooHtml`、および `Analytics.GetStatCounterHtml`) がいくつか含まれています。 JavaScript コードを配置する方法と場所を確認するのではなく、ヘルパーをページに追加するだけで済みます。 指定する必要がある情報は、アカウント名、ID、または追跡コードだけです。 (StatCounter の場合は、いくつかの追加の値も指定する必要があります)。
 
-この手順では、使用するレイアウト ページを作成します、`GetGoogleHtml`ヘルパー。 その他の分析プロバイダーのいずれかのアカウントを既にがある場合は、代わりにそのアカウントを使用し、必要に応じて、若干の調整を行います。
+この手順では、`GetGoogleHtml` ヘルパーを使用するレイアウトページを作成します。 他のいずれかの分析プロバイダーを持つアカウントが既にある場合は、代わりにそのアカウントを使用し、必要に応じて微調整を行うことができます。
 
 > [!NOTE]
-> Analytics アカウントを作成するときにをトラッキングするサイトの URL を登録します。 (トラフィックのみユーザーは)、実際のトラフィックが追跡するされない場合は、ローカル コンピューター上のすべてをテストするため、サイトの統計情報を記録および表示することはできません。 この手順は、ページを analytics ヘルパーを追加する方法を示します。 サイトを発行するときに、ライブ サイトは、分析プロバイダーに情報が送信されます。
+> Analytics アカウントを作成するときに、追跡対象のサイトの URL を登録します。 ローカルコンピューター上のすべてをテストする場合は、実際のトラフィック (唯一のトラフィック) を追跡することはありません。そのため、サイトの統計情報を記録して表示することはできません。 ただし、この手順では、分析ヘルパーをページに追加する方法について説明します。 サイトを発行すると、ライブサイトから分析プロバイダーに情報が送信されます。
 
-1. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)、既に追加していない場合。
+1. 「 [ASP.NET Web ページサイトにヘルパーをインストール](https://go.microsoft.com/fwlink/?LinkId=252372)する」の説明に従って、ASP.NET Web ヘルパーライブラリを web サイトに追加します (まだ追加していない場合)。
 2. Google アナリティクスでアカウントを作成し、アカウント名を記録します。
-3. という名前のレイアウト ページを作成する*Analytics.cshtml*し、次のマークアップを追加します。
+3. *Analytics*という名前のレイアウトページを作成し、次のマークアップを追加します。
 
     [!code-cshtml[Main](14-analyzing-traffic/samples/sample1.cshtml)]
 
     > [!NOTE]
-    > 呼び出しを配置する必要があります、 `Analytics` 、web ページの本文でヘルパー (の前に、`</body>`タグ)。 それ以外の場合、ブラウザーでは、スクリプトは実行されません。
+    > `Analytics` ヘルパーへの呼び出しは、(`</body>` タグの前に) web ページの本文に配置する必要があります。 そうしないと、ブラウザーでスクリプトが実行されません。
 
-    別の分析プロバイダーを使用している場合は、代わりに使用のヘルパーを次のいずれか。
+    別の分析プロバイダーを使用している場合は、代わりに次のいずれかのヘルパーを使用します。
 
     - (Yahoo) `@Analytics.GetYahooHtml("myaccount")`
     - (StatCounter) `@Analytics.GetStatCounterHtml("project", "security")`
-4. 置換`myaccount`アカウント、ID、または手順 1. で作成した追跡コードの名前に置き換えます。
-5. ブラウザーでページを実行します。 (内でページが選択されていることを確認、**ファイル**ワークスペースを実行する前にします)。
-6. ブラウザーでページ ソースを表示します。 レンダリングされた分析コードを表示することができます。
+4. `myaccount` は、手順 1. で作成したアカウントの名前、ID、または追跡コードに置き換えます。
+5. ブラウザーでページを実行します。 (実行する前に、 **[ファイル]** ワークスペースでページが選択されていることを確認してください)。
+6. ブラウザーでページソースを表示します。 表示される分析コードは次のようになります。
 
     [!code-html[Main](14-analyzing-traffic/samples/sample2.html)]
-7. Google アナリティクスのサイトにログオンし、サイトの統計を確認します。 ライブ サイトでページを実行している場合、ページへのアクセス ログに記録するエントリを参照してください。
+7. Google アナリティクスサイトにログオンし、サイトの統計情報を確認します。 ライブサイトでページを実行している場合は、アクセスをページに記録するエントリが表示されます。
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Google Analytics サイト](https://www.google.com/analytics/)
-- [Yahoo!サイトを Web Analytics](http://help.yahoo.com/l/us/yahoo/ywa/)
+- [Google アナリティクスサイト](https://www.google.com/analytics/)
+- [Yahoo! Web Analytics サイト](http://help.yahoo.com/l/us/yahoo/ywa/)
 - [StatCounter サイト](http://statcounter.com/)

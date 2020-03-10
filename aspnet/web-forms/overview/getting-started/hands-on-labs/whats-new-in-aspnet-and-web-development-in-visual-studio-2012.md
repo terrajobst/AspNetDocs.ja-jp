@@ -1,264 +1,264 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
-title: ASP.NET と Visual Studio 2012 での Web 開発における新 |Microsoft Docs
+title: Visual Studio 2012 での ASP.NET と Web 開発の新機能 |Microsoft Docs
 author: rick-anderson
-description: 新しいバージョンの Visual Studio には、さまざまな Web テクノロジを使用する場合、エクスペリエンスとパフォーマンスの向上に重点を置いての機能強化が導入されています.
+description: 新しいバージョンの Visual Studio では、Web テクノロジを使用する際のエクスペリエンスとパフォーマンスの向上に焦点を合わせた多くの拡張機能が導入されています。
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: 80c77ec65ed86b06e417d3f6ba608e404c46768b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132099"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78422098"
 ---
 # <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Visual Studio 2012 の ASP.NET と Web 開発の新機能
 
-によって[Web キャンプ チーム](https://twitter.com/webcamps)
+[Web キャンプチーム](https://twitter.com/webcamps)別
 
-> 新しいバージョンの Visual Studio には、多数の Web テクノロジを使用する場合、エクスペリエンスとパフォーマンスの向上に重点を置いた機能が導入されています。 CSS、JavaScript と HTML の visual Studio エディターは、IntelliSense や自動インデントなど、最も、オンデマンドでコード補助機能の多くを完全に刷新されました。 パフォーマンスに関してバンドルと縮小は統合されました ページを簡単に削減する組み込み機能の読み込み時間と。
+> 新しいバージョンの Visual Studio では、Web テクノロジを使用する際のエクスペリエンスとパフォーマンスの向上に焦点を合わせた多くの拡張機能が導入されています。 CSS、JavaScript、HTML 用の Visual Studio エディターは、IntelliSense や自動インデントなど、最も多くのオンデマンドコード機能を含むように完全に改良されています。 パフォーマンスに関しては、バンドルと縮小が組み込み機能として統合され、ページの読み込み時間を短縮できるようになりました。
 > 
-> Visual Studio では、最新の web サイト テクノロジと連携することができます。 クロスブラウザー CSS3 のスニペットを使用すると、新しい HTML5 の要素と機能の活用しながら、サイトがクライアント プラットフォームに関係なく動作を確認します。
+> Visual Studio では、最新の web サイトテクノロジを使用することができます。 クロスブラウザーの CSS3 スニペットを使用すると、新しい HTML5 の要素と機能を利用しながら、クライアントプラットフォームに関係なく、サイトが機能することを確認できます。
 > 
-> 書き込みと JavaScript コードのプロファイリングは、このバージョンの Visual Studio で簡単になります。 IntelliSense リストでは、XML ドキュメントとナビゲーション機能の統合は現在、JavaScript コードにはできます。 指先ひとつで、JavaScript のカタログがあるようになりました。 さらに、各自のスクリプトで ECMAScript5 のコンプライアンスを確認し、早い段階で構文エラーを検出できます。
+> この Visual Studio のバージョンでは、JavaScript コードの記述とプロファイルを簡単に行うことができます。 IntelliSense の一覧、統合された XML ドキュメントおよびナビゲーション機能を JavaScript コードで使用できるようになりました。 これで、JavaScript カタログをすぐに使用できるようになりました。 さらに、スクリプトに対する ECMAScript5 の準拠を確認し、初期段階で構文エラーを検出することもできます。
 > 
-> 最後に、しかし大事なこのバージョンの Visual Studio は、組み込みのバンドルと縮小を実装します。 スタイル シート、スクリプト ファイルをパックし、圧縮、サイトが高速に実行できるようにします。
+> 最新ではありませんが、この Visual Studio のバージョンでは、組み込みのバンドルと縮小が実装されています。 スクリプトファイルとスタイルシートは、サイトの実行速度が速くなるように、パックされて圧縮されます。
 > 
-> このラボでは、拡張機能とソース フォルダーにサンプル Web アプリケーションに軽微な変更を適用することで以前に説明する新機能について説明します。
+> このラボでは、ソースフォルダーに用意されているサンプル Web アプリケーションに軽微な変更を適用することによって前述した機能強化と新機能について説明します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)します。
+> すべてのサンプルコードとスニペットは、 [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)で入手できる Web キャンプトレーニングキットに含まれています。
 
 <a id="Objectives"></a>
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
-このハンズ オン ラボでは、学習する方法。
+この実習では、次の方法を学習します。
 
-- CSS エディターの新機能と機能強化を使用します。
-- HTML エディターで新しい機能と機能強化を使用します。
-- 新しい機能と機能強化を使用して、JavaScript エディター
-- 構成および使用のバンドルと縮小
-
-<a id="Prerequisites"></a>
+- CSS エディターでの新機能と強化された機能の使用
+- HTML エディターでの新機能と強化された機能の使用
+- JavaScript エディターの新機能と機能強化を使用する
+- バンドルと縮小の構成と使用
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必須コンポーネント
 
-- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 A](#AppendixA)をインストールする方法について)。
-- [Windows PowerShell](https://support.microsoft.com/kb/968930/) (セットアップ スクリプト - Windows 8 および Windows Server 2008 R2 に既にインストールされている) に使用
-- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home)または HTML5 準拠のブラウザー
+<a id="Prerequisites"></a>
+### <a name="prerequisites"></a>前提条件
+
+- Web またはそれ以降[の2012を Microsoft Visual Studio Express](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)ます (付録 a をインストールする手順については[、「付録 a](#AppendixA) 」を参照してください)。
+- [Windows PowerShell](https://support.microsoft.com/kb/968930/) (セットアップスクリプトの場合-windows 8 および windows Server 2008 R2 に既にインストールされています)
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home)または HTML5 に準拠したブラウザー
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>演習
+## <a name="exercises"></a>手順
 
-このハンズオン ラボでは、次の演習が含まれています。
+このハンズオンラボには、次の演習が含まれています。
 
-1. [手順 1:新機能については、CSS エディターです。](#Exercise1)
-2. [手順 2:新しい HTML エディターの新機能](#Exercise2)
-3. [手順 3:新機能については、JavaScript エディターです。](#Exercise3)
-4. [手順 4:バンドルと縮小](#Exercise4)
+1. [演習 1: CSS エディターの新機能](#Exercise1)
+2. [演習 2: HTML エディターの新機能](#Exercise2)
+3. [演習 3: JavaScript エディターの新機能](#Exercise3)
+4. [演習 4: バンドルと縮小](#Exercise4)
 
-この演習の所要時間を推定するには。**60 分**します。
+このラボの推定所要時間: **60 分**。
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Whats_New_in_the_CSS_Editor"></a>
-### <a name="exercise-1-whats-new-in-the-css-editor"></a>演習 1:新機能については、CSS エディターです。
+### <a name="exercise-1-whats-new-in-the-css-editor"></a>演習 1: CSS エディターの新機能
 
-Web 開発者は、CSS の編集に関連する問題の多くをよく知って必要があります。 CSS スタイルの最も大きな問題の 1 つは、ブラウザーの間の互換性です。 多くの場合、スタイルを適用すると、サイト、わかります表示が異なること別のブラウザーまたはデバイスで開く場合行われます。 そのため、その視覚的な問題、最後に 1 つのブラウザーで動作することを行ったときに壊れている、他のユーザーに認識する修正にかなりの時間を費やす可能性があります。
+Web 開発者は、CSS 編集に関連する多くの問題に精通している必要があります。 CSS スタイルの最大の問題の1つは、ブラウザー間の互換性です。 場合によっては、サイトにスタイルを適用した後で、別のブラウザーやデバイスでそのスタイルを開いたときに表示が変わることがよくあります。 そのため、これらの視覚的な問題を修正するにはかなりの時間がかかることがあります。これは、最終的に1つのブラウザーで動作していると、他のブラウザーでは動作しなくなったことを認識します。
 
-Visual Studio には、開発者は、アクセス、動作、および CSS スタイル シートを効果的に整理に役立つ機能が含まれています。 この演習での 有効な組織や edition の新機能とブラウザー間で互換性の CSS3 のコード スニペットを満たします。
+Visual Studio には、開発者が CSS スタイルシートに効果的にアクセスし、作業し、整理するのに役立つ機能が含まれるようになりました。 この演習では、有効な組織とエディションの新機能に加え、ブラウザー間の互換性のための CSS3 コードスニペットを使用します。
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_New_Editor_Features"></a>
-#### <a name="task-1---new-editor-features"></a>タスク 1 - エディターの新機能
+#### <a name="task-1---new-editor-features"></a>タスク 1-新しいエディター機能
 
-このタスクでは、CSS エディターの新しい機能を検出します。 この新しいエディターを使用すると、新しいスマート インデント、改善されたコードのコメントおよび強化された IntelliSense リストを活用して生産性を向上できます。
+このタスクでは、CSS エディターの新機能について説明します。 この新しいエディターでは、新しいスマートインデント、強化されたコードコメント、および拡張された IntelliSense リストを利用して生産性を向上させることができます。
 
-1. 開始**Visual Studio**を開くと、 **WhatsNewASPNET.sln**ソリューション、 **Source\WhatsNewASPNET**このラボのフォルダー。
-2. ソリューション エクスプ ローラーで開く、 **Site.css**下にあるファイル、**スタイル**フォルダー。 必ず、**テキスト エディター**ツールは、ツールバーに表示されます。 そのためには次のように選択します。、**ビュー** | **ツールバー**メニュー オプション、およびチェック、**テキスト エディター**オプション。 以降、この新しいバージョンでは、いることを確認は、**コメント**ボタン (![コメント ボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image1.png)) および**コメントを解除します**ボタン (![のコメントを解除します-ボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image2.png))、CSS エディターのも有効にします。
+1. **Visual Studio**を起動し、このラボの**Source\WhatsNewASPNET**フォルダーにある**WhatsNewASPNET**ソリューションを開きます。
+2. ソリューションエクスプローラーで、 **[スタイル]** フォルダーの下にある**サイトの .css**ファイルを開きます。 ツールバーに **[テキストエディター]** ツールが表示されていることを確認します。 これを行うには、[ | **ツールバー**の**表示**] メニューオプションを選択し、 **[テキストエディター]** オプションをオンにします。 この新しいバージョンでは、 **[コメント]** ボタン (![コメントボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image1.png)) と [コメント解除] ボタン (![コメント**解除ボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image2.png)** ) が CSS エディターでも有効になっていることがわかります。
 
-    ![エディターと CSS ツールを有効にする](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image3.png "エディターと CSS ツールを有効にします。")
+    ![エディターと CSS ツールの有効化](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image3.png "エディターと CSS ツールの有効化")
 
-    *エディターと CSS ツールを有効にします。*
-3. コードをスクロールし、任意の CSS クラスの定義を選択します。 をクリックして、**コメント**(![コメント ボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image4.png)) ボタンを選択した行をコメントします。 をクリックし、**コメントを解除します**(![のコメントを解除ボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image5.png))、変更を元に戻すボタンをクリックします。
-4. をクリックして、**折りたたむ**(![折りたたむ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image6.png)) と**展開**(![展開](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image7.png)) ボタンがテキストの左余白にあります。 クリーナー ビューを使用しないスタイルを隠すようになりましたことができることに注意してください。
+    *エディターと CSS ツールの有効化*
+3. コードをスクロールし、任意の CSS クラス定義を選択します。 **コメント**(![コメントボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image4.png)) ボタンをクリックして、選択した行にコメントをコメントします。 次に、**コメント**解除ボタン (![コメント解除ボタン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image5.png)) をクリックして、変更を元に戻します。
+4. **[折りたたみ]** (![折りたたみ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image6.png)) をクリックし、テキストの左余白にある [(![](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image7.png) 展開)] ボタンを**展開**します。 これで、使用していないスタイルを表示しないようにすることができます。
 
-    ![CSS クラスの折りたたみ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image8.png "折りたたみの CSS クラス")
+    ![CSS クラスの折りたたみ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image8.png "CSS クラスの折りたたみ")
 
     *CSS クラスの折りたたみ*
-5. スマート インデント機能が有効になっていることを確認します。 選択、**ツール** | **オプション**メニュー オプション、および選択し、**テキスト エディター** | **CSS**  | **書式**画面の左側のウィンドウでページ。 チェック、**階層インデント**オプション。
+5. スマートインデント機能が有効になっていることを確認します。 [**ツール** | **オプション**] メニューオプションを選択し、画面の左側のウィンドウにある **[テキストエディター]**  | [ **CSS** | **書式設定**] ページを選択します。 **[階層インデント]** オプションをオンにします。
 
-    ![階層インデントを有効にする](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image9.png "階層インデントを有効にします。")
+    ![階層インデントの有効化](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image9.png "階層インデントの有効化")
 
-    *階層インデントを有効にします。*
-6. メイン クラスの定義 (.main) を検索し、div 要素にスタイルを追加します。 コード配置の概要、親クラスを検索するユーザーで自動的に表示されます。
+    *階層インデントの有効化*
+6. メインクラス定義 (. main) を見つけて、div 要素にスタイルを追加します。 このコードは自動的に調整されるので、ユーザーは親クラスを一目で確認できます。
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample1.css)]
 
-    ![CSS で階層的な配置](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image10.png "CSS 内の階層の配置")
+    ![CSS での階層的な配置](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image10.png "CSS での階層的な配置")
 
-    *CSS で階層的な配置*
-7. 内部 **.main div**クラスの末尾にカーソルを置いて**境界線。0 px;** キーを押します**Enter** IntelliSense の一覧を表示します。 入力を開始**上部**に入力すると、一覧のフィルター方法に注意してください。 リストが含まれている要素が表示されます**上部**という単語の任意の部分で (Visual Studio の以前のバージョンでは、リストは項目でフィルター処理を*開始*用語で)。
+    *CSS での階層的な配置*
+7. **Main div**クラスの中で、境界の最後にある**0px;** カーソルを探し、 **enter**キーを押して、IntelliSense の一覧を表示します。 「 **Top** 」と入力すると、入力に応じて一覧がどのようにフィルター処理されるかがわかります。 この一覧には、単語の任意の部分に**top**が含まれている要素が表示されます (以前のバージョンの Visual Studio では、一覧は用語で*始まる*項目によってフィルター処理されます)。
 
-    ![CSS で IntelliSense の機能強化](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image11.png "CSS で IntelliSense の機能強化")
+    ![CSS における IntelliSense の機能強化](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image11.png "CSS における IntelliSense の機能強化")
 
-    *CSS で IntelliSense の機能強化*
+    *CSS における IntelliSense の機能強化*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_The_Color_Picker"></a>
-#### <a name="task-2---the-color-picker"></a>タスク 2 - カラー ピッカー
+#### <a name="task-2---the-color-picker"></a>タスク 2-カラーピッカー
 
-このタスクでは、Visual Studio の IntelliSense 統合され、新しい CSS カラー ピッカーを検出します。
+このタスクでは、Visual Studio IntelliSense に統合された新しい CSS カラーピッカーを見つけます。
 
-1. **Site.css、** ヘッダーのクラス定義 (.header) を見つけて横にカーソルを置き**背景色**属性は、間、 &quot;:&quot;と&quot; #&quot;文字コードの行に**します。**
+1. **.Css**で、ヘッダークラス定義 (. header) を見つけて、 **[背景色]** 属性の横にカーソルを置きます。 &quot;:&quot; と &quot;、**そのコード行**の &quot; 文字を #します。
 
-    ![カーソルを検索する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image12.png "カーソルを検索します。")
+    ![カーソルを検索する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image12.png "カーソルを検索する")
 
-    *カーソルを検索します。*
-2. 削除、**コロン**(:)、カラー ピッカーを表示するには、もう一度記述します。 最初の色が表示されますが、サイトの最も一般的な色に注意してください。 白のカラーをクリックした場合、HTML のカラー コード (#fff) は、スタイル シートでは、現在のカラー コードを置き換えます。
+    *カーソルを検索する*
+2. **コロン**(:) を削除します。カラーピッカーを表示するには、もう一度書き込みます。 最初に表示される色は、サイトで最も頻繁に使用される色です。 白い色をクリックすると、その HTML カラーコード (#fff) によって、スタイルシート内の現在のカラーコードが置き換えられます。
 
-    ![カラー ピッカー](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image13.png "カラー ピッカー")
+    ![カラーピッカー](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image13.png "Color picker")
 
-    *カラー ピッカー*
-3. キーを押して、**展開**(![com](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image14.png) ) 色のグラデーションを表示し、別の色を選択するグラデーションのカーソルをドラッグするには、カラー ピッカーのボタンをクリックします。 その後、をクリックして、**スポイト**ボタンをクリックし、画面から色を選択します。 カーソルを移動するときに、背景色の値が動的に変更することに注意してください。
+    *カラーピッカー*
+3. カラーピッカーの**展開**(![com](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image14.png)) ボタンを押して色のグラデーションを表示し、グラデーションカーソルをドラッグして別の色を選択します。 その後、**スポイト**ボタンをクリックし、画面から任意の色を選択します。 カーソルを移動すると、背景色の値が動的に変化することに注意してください。
 
-    ![グラデーション ピッカー](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image15.png "グラデーション ピッカー")
+    ![カラーピッカーのグラデーション](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image15.png "カラーピッカーのグラデーション")
 
-    *グラデーション ピッカー*
-4. **不透明度**スライダー、セレクターを不透明度を減らすバーの中央に移動します。 背景色の値は、RGBA にそのスケールを今すぐ変更に注意してください。
+    *カラーピッカーのグラデーション*
+4. **不透明度**スライダーで、セレクターをバーの中央に移動して不透明度を下げます。 背景色の値が、そのスケールが RGBA に変わることに注意してください。
 
-    ![カラー ピッカーの不透明度](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image16.png "不透明度のカラー ピッカー")
+    ![カラーピッカーの不透明度](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image16.png "カラーピッカーの不透明度")
 
-    *不透明度のカラー ピッカー*
+    *カラーピッカーの不透明度*
 
     > [!NOTE]
-    > CSS3 で RGBA (赤、緑、青、アルファ) の色の定義では、1 つの項目の色の不透明度値を定義することができます。 異なり**不透明度 -** のような CSS 属性 **-** RGBA 色は、最新のブラウザーと互換性があります。
+    > CSS3 で RGBA (赤、緑、青、アルファ) の色の定義を使用すると、1つの項目の色の不透明度を定義できます。 **不透明度**とは異なり、同様の CSS 属性 **-** RGBA 色も最新のブラウザーと互換性があります。
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_CSS_Compatible_Code_Snippets"></a>
-#### <a name="task-3---css-compatible-code-snippets"></a>タスク 3 - CSS 互換性のあるコード スニペット
+#### <a name="task-3---css-compatible-code-snippets"></a>タスク 3-CSS と互換性のあるコードスニペット
 
-このタスクでは、web サイトで一部の機能を実装するためにクロス ブラウザーの互換性のある CSS3 のスニペットを使用する方法を学習します。
+このタスクでは、web サイトにいくつかの機能を実装するために、ブラウザーと互換性のある CSS3 スニペットを使用する方法について説明します。
 
-1. **Site.css**を探し、ファイル、**ヘッダー** CSS クラスの定義 (.header) と、以下のカーソルを置き、  **/\*境界の半径\*/** プレース ホルダーを新しいスニペットを追加します。 キーを押して **」と入力**、IntelliSense の一覧を表示し**radius**一覧をフィルター処理します。 選択、**境界の半径**ダブル クリックで、一覧からオプションし、キーを押します、**タブ**スニペットを挿入するキー。 Radius のサイズを入力し、ピクセルとキーを押して**Enter**します。 たとえば、入力**15px**します。
+1. サイトの **.css**ファイルで、**ヘッダー**の css クラス定義 (. header) を見つけて、 **/\*罫線の半径\*/** プレースホルダーの下にカーソルを置き、新しいスニペットを追加します。 Enter キーを押して、IntelliSense の一覧を表示し、「 **Radius** **」** と入力してリストをフィルター処理します。 リストから **[罫線-半径]** オプションをダブルクリックして選択し、 **tab**キーを押してスニペットを挿入します。 次に、半径のサイズをピクセル単位で**入力し、enter キーを**押します。 たとえば、「 **15px**」と入力します。
 
-    スニペットによって追加される CSS3 属性は、角の丸い境界線などの Mozilla ブラウザーの WebKit ベース HTML5 準拠のほとんどのブラウザーにレンダリングされます。
+    スニペットによって追加された CSS3 属性は、Mozilla および WebKit ベースのブラウザーを含むほとんどの HTML5 準拠ブラウザーで、丸みのある境界線を表示します。
 
-    ![境界の半径のスニペットを使用して](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image17.png "境界の半径のスニペットを使用して")
+    ![境界線を使用する-半径スニペット](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image17.png "境界線を使用する-半径スニペット")
 
-    *境界の半径のスニペットを使用してください。*
-2. 同じ**境界線**スニペットでは、ページのスタイル (.page)。
+    *境界線を使用する-半径スニペット*
+2. ページスタイル (. ページ) に同じ**罫線**スニペットを適用します。
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample2.css)]
-3. キーを押して**F5**ソリューションを実行します。 各ページようになりましたが丸い境界線に注意してください。
+3. F5 キーを押して、ソリューションを実行します。 各ページの罫線が丸くなっていることに注意してください。
 
-    ![角が丸く](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image18.png "角を丸く")
+    ![角の丸み](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image18.png "角の丸み")
 
-    *角が丸い*
+    *角の丸み*
 4. ブラウザーを閉じて、Visual Studio に戻ります。
-5. 開く、 **Custom.css**下にあるファイル、**スタイル**フォルダー内でカーソルを置き**div.images ul li img**クラスの定義。
-6. Enter キーを押して IntelliSense リストを表示型**ボックス シャドウ**キーを押すと、**タブ**クラス定義内の既定のシャドウ コード スニペットを挿入するには、2 回のキー。 シャドウの値に設定**10px 10px 5 px #888**します。 次に、入力**境界の半径**とコード スニペットを挿入します。 型**15px**半径のサイズとキーを押してを設定する**ENTER**します。
+5. **[スタイル]** フォルダーの下にある**カスタム .css**ファイルを開き、div 内にカーソルを置き**ます。 ul li img**クラスの定義。
+6. Enter キーを押して IntelliSense の一覧を表示し、「 **box-Shadow** 」と入力し、 **TAB**キーを2回押して、クラス定義内に既定のシャドウコードスニペットを挿入します。 Shadow 値を**10px 10px 5px #888**に設定します。 次に、「 **border-radius** 」と入力し、コードスニペットを挿入します。 「 **15px** 」と入力して半径のサイズを設定し、 **enter**キーを押します。
 
-    ![シャドウを伴って角を丸く](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image19.png "シャドウを伴って角を丸く")
+    ![影付きの角の丸み](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image19.png "影付きの角の丸み")
 
-    *影付きの角が丸い*
+    *影付きの角の丸み*
 
     > [!NOTE]
-    > この時点で、対応するプレフィックス (moz、webkit、o) Mozilla をサポートするために、Webkit (Chrome、Safari、Konkeror) ブラウザーとシャドウ属性が挿入されます。
-7. 新しいクラスを作成**div.images ul li img:hover**下、 **div.images ul li img**クラスの定義と、角かっこ内でカーソルを置き**します。**
+    > 現時点では、Mozilla と Webkit (Chrome、Safari、Konkeror) ブラウザーをサポートするために、対応するプレフィックス (moz、webkit、o) を使用して shadow 属性が挿入されます。
+7. 新しいクラスの div を作成**します。 images ul li img:** **div**の下にマウスポインターを移動し、その中にカーソルを**置きます。**
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample3.css)]
-8. 型**変換**キーを押すと、**タブ**変換スニペットを挿入するために 2 回のキー。 次に、入力**rotate(-15deg)** イメージが置かれているときに、回転の角度の値を変更します。
+8. 変換スニペットを挿入するには、「 **transform** 」と入力し、 **tab**キーを2回押します。 次に、[**回転] (-15deg)** を入力して、イメージがホバーされるときの回転角度の値を変更します。
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample4.css)]
-9. キーを押して**F5**ソリューションを実行し、CSS3 のページを参照します。 イメージがコーナーが丸くし、影のボックスに注意してください。 イメージの上にマウスを移動し、回転させることを確認します。
+9. **F5**キーを押してソリューションを実行し、CSS3 ページに移動します。 画像の角が丸く、ボックスの影が付いていることに注意してください。 画像の上にマウスポインターを移動し、回転します。
 
-    ![スニペットのイメージの回転の変換](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image20.png "イメージの回転変換スニペット")
+    ![イメージを回転する Transform スニペット](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image20.png "イメージを回転する Transform スニペット")
 
-    *スニペットのイメージの回転の変換します。*
+    *イメージを回転する Transform スニペット*
 
     > [!NOTE]
-    > Internet Explorer 10 を使用しているし、影を表示することはできませんの場合は、ドキュメント モードが IE10 標準に設定されていることを確認してください。 キーを押して**F12**を Internet Explorer 開発者ツールを開き、をクリックして**ドキュメント モード**IE10 標準に変更します。
+    > Internet Explorer 10 を使用していて、影が表示されない場合は、ドキュメントモードが IE10 標準に設定されていることを確認してください。 **F12**キーを押して Internet Explorer 開発者ツールを開き、 **[ドキュメントモード]** をクリックして IE10 標準に変更します。
 
-    ![についてのご](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
+    ![about-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Whats_New_in_the_HTML_Editor"></a>
-### <a name="exercise-2-whats-new-in-the-html-editor"></a>演習 2:新しい HTML エディターの新機能
+### <a name="exercise-2-whats-new-in-the-html-editor"></a>演習 2: HTML エディターの新機能
 
-Visual Studio では、HTML エディターの強化には。 このバージョンに含まれる拡張機能の一部は、HTML ドキュメント、HTML5 のスニペット、HTML の開始と終了タグが一致する、および HTML 検証のスマート インデントです。 この演習では、web サイトのマークアップで作業するときに、これらの変更が、自在に操作できることを改善する方法がわかります。
+Visual Studio には、HTML エディターが強化されています。 このバージョンに含まれる機能強化の一部は、HTML ドキュメントのスマートインデント、HTML5 スニペット、HTML 開始タグと終了タグの一致、および HTML 検証です。 この演習では、web サイトマークアップで作業するときに、これらの変更によって自在がどのように改善されるかを確認します。
 
-CSS エディターのように、HTML エディターも強化されました。 これらの機能強化のほとんどは、Web 開発者の作業を簡単にする小規模なものです。 さらにコード スニペットは、html5、スマート インデントは、編集、および HTML ドキュメントの DOCTYPE を対象とする検証がこれらの機能強化の一部である場合の開始および終了タグに一致するなど。
+CSS エディターと同様に、HTML エディターも改善されました。 これらの改善点のほとんどは、Web 開発者の作業が容易になる小さなものです。 HTML ドキュメント DOCTYPE を対象とする編集や検証を行うときに、HTML5、スマートインデント、一致する開始タグと終了タグのようなものもありますが、これらの機能強化が行われています。
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Improved_DOCTYPE_Validation"></a>
-#### <a name="task-1---improved-doctype-validation"></a>タスク 1 - 強化された DOCTYPE の検証
+#### <a name="task-1---improved-doctype-validation"></a>タスク 1-DOCTYPE 検証の機能強化
 
-HTML エディターでは、マスター ページで、定義としても、今すぐ、ページの DOCTYPE を確認する機能があります。 によって、ページの DOCTYPE、HTML エディターは適切な一連の規則の検証し、DOCTYPE 要素を検討して IntelliSense の一覧をフィルター処理されます。
+HTML エディターでは、マスターページに定義が存在する場合でも、ページの DOCTYPE をチェックできるようになりました。 ページの DOCTYPE に応じて、HTML エディターは正しい規則セットで検証し、DOCTYPE 要素を考慮して IntelliSense リストをフィルター処理します。
 
-このタスクでは、HTML エディターの動作を適宜変更する方法を表示するページの DOCTYPE が変わります。
+このタスクでは、ページの DOCTYPE を変更して、HTML エディターの動作がそれに応じてどのように変化するかを確認します。
 
-1. これを開いていない場合は、開始**Visual Studio**を開くと、 **WhatsNewASPNET.sln**ソリューション、 **Source\WhatsNewASPNET**このラボのフォルダー。
-2. 開く、 **Site.Master**ページ。
-3. 検証のツールバーには、ターゲット スキーマに注意してください。 HTML エディターの動作 (検証、IntelliSense など) は、Doctype の選択に合わせて正しく変更されます。
+1. まだ開いていない場合は、 **Visual Studio**を起動し、このラボの**Source\WhatsNewASPNET**フォルダーにある**WhatsNewASPNET**ソリューションを開きます。
+2. **[.Master]** ページを開きます。
+3. 検証ツールバーのターゲットスキーマに注意してください。 HTML エディターがどのように動作するか (検証、IntelliSense など) は、Doctype が選択された場合に適切に変更されます。
 
-    ![Doctype を使用して、HTML ソースの編集 ツールバーで](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image22.png "HTML ソースの編集 ツールバーで使用して Doctype")
+    ![HTML ソース編集ツールバーで Doctype を使用する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image22.png "HTML ソース編集ツールバーで Doctype を使用する")
 
-    *HTML ソースの編集 ツールバーに Doctype を使用します。*
-4. HTML 4.01 にターゲット スキーマを変更します。
+    *HTML ソース編集ツールバーで Doctype を使用する*
+4. ターゲットスキーマを HTML 4.01 に変更します。
 
-    ![HTML ソースの編集 ツールバーに Doctype を変更する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image23.png "HTML ソースの編集 ツールバーで Doctype の変更")
+    ![HTML ソース編集ツールバーでの Doctype の変更](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image23.png "HTML ソース編集ツールバーでの Doctype の変更")
 
-    *HTML ソースの編集 ツールバーで Doctype の変更*
-5. カーソルを置き、**本文**要素、および HTML5 の要素の名前を入力する (たとえば、**ビデオ**)。 要素が、IntelliSense リストで使用できないことに注意してください。
+    *HTML ソース編集ツールバーでの Doctype の変更*
+5. **Body**要素の下にカーソルを置き、HTML5 要素の名前 ( **video**など) の入力を開始します。 この要素は、IntelliSense の一覧では使用できないことに注意してください。
 
-    ![HTML5 の要素が表示されていない](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image24.png "HTML5 の要素が表示されていません。")
+    ![HTML5 要素が一覧に含まれていません](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image24.png "HTML5 要素が一覧に含まれていません")
 
-    *HTML5 の要素が表示されていません。*
-6. 検証のツールバーで、DOCTYPE の選択のターゲット スキーマへの変更を元に戻します。ドロップダウン リストから XHTML5 します。
+    *HTML5 要素が一覧に含まれていません*
+6. 検証ツールバーのターゲットスキーマへの変更を元に戻します。ドロップダウンリストから [DOCTYPE: XHTML5] を選択します。
 
-    ![Doctype を使用して、HTML ソースの編集 ツールバーで](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image25.png "HTML ソースの編集 ツールバーで使用して Doctype")
+    ![HTML ソース編集ツールバーで Doctype を使用する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image25.png "HTML ソース編集ツールバーで Doctype を使用する")
 
-    *Doctype の HTML ソースの編集 ツールバーをリセットします。*
-7. 下にカーソルを置き、**本文**HTML5 の要素をもう一度入力する要素と (たとえば、**ビデオ**)。 HTML5 の要素は、IntelliSense リストで使用できるようになりましたことに注意してください。
+    *HTML ソース編集ツールバーで Doctype をリセットする*
+7. **Body**要素の下にカーソルを置き、HTML5 要素の入力を開始します (**ビデオ**など)。 HTML5 要素が IntelliSense の一覧で使用できるようになったことに注意してください。
 
-    ![HTML5 の要素が表示される](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image26.png "HTML5 の要素が一覧表示すること")
+    ![表示されている HTML5 要素](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image26.png "表示されている HTML5 要素")
 
-    *HTML5 の要素が一覧表示すること*
+    *表示されている HTML5 要素*
 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_StartEnd_Tags_Automatic_Update"></a>
-#### <a name="task-2---startend-tags-automatic-update"></a>タスク 2 - 開始/終了タグの自動更新
+#### <a name="task-2---startend-tags-automatic-update"></a>タスク 2-開始タグと終了タグの自動更新
 
-Visual Studio は、今すぐ開く、または終了タグが相互に一致する編集している要素の HTML を更新します。 HTML タグを編集するときに、この新しい機能では、生産性が向上します。
+Visual Studio で、編集中の要素の HTML の開始タグまたは終了タグが相互に一致するように更新されるようになりました。 この新機能により、HTML タグを編集するときの生産性が向上します。
 
-1. **Default.aspx**ページで、追加、 **H3**タイトル (たとえば、Visual Studio 2012 Rocks!) を持つ要素。
+1. **Default.aspx**ページで、タイトルを含む**H3**要素 (たとえば、Visual Studio 2012 の岩!) を追加します。
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
-2. 変更、 **H3**タグと型**H2**または**H1 します。**
+2. **H3**タグを変更し、「 **H2** 」または「H1」と入力し**ます。**
 
-    終了タグが自動的に更新することを確認します。 開始タグを更新するそれに応じてすぎるを表示する終了タグを変更することもできます。
+    終了タグが自動的に更新されることに注意してください。 また、終了タグを変更して、それに応じて開始タグが更新されていることを確認することもできます。
 
     ![終了タグの自動更新](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image27.png "終了タグの自動更新")
 
@@ -267,596 +267,596 @@ Visual Studio は、今すぐ開く、または終了タグが相互に一致す
 <a id="Ex2Task3"></a>
 
 <a id="Task_3_-_New_HTML5_Code_Snippets"></a>
-#### <a name="task-3---new-html5-code-snippets"></a>タスク 3 - 新しい HTML5 コード スニペット
+#### <a name="task-3---new-html5-code-snippets"></a>タスク 3-新しい HTML5 コードスニペット
 
-Visual Studio には、いくつかの HTML5 のコード スニペットが含まれています。 このタスクでは、これらのスニペットの一部を使用します。
+Visual Studio に HTML5 コードスニペットがいくつか追加されました。 このタスクでは、これらのスニペットのいくつかを使用します。
 
-1. という名前の新しいフォルダーを追加**オーディオ**web サイト フォルダーのルートにします。 Windows エクスプ ローラーを開きにオーディオ ファイルをコピー、**オーディオ**のフォルダー、 **WhatsNewASPNET.sln**ソリューション。
-2. **Default.aspx**  ページで、Web11 Rocks でカーソルを置いてください。 ヘッダー。 型**オーディオ**TAB キーを押します。
+1. Web サイトフォルダーのルートに、 **audio**という名前の新しいフォルダーを追加します。 Windows エクスプローラーを開き、 **WhatsNewASPNET**ソリューションの**オーディオ**フォルダーにオーディオファイルをコピーします。
+2. **Default.aspx**ページで、Web11 の下にあるカーソルを探します。 ヘッダー。 「 **AUDIO** 」と入力し、tab キーを押します。
 
-    新しい HTML エディターには、HTML5 のコンテンツのコード スニペットが含まれています。 適切な DOCTYPE 定義を使用して、HTML5 のスニペットを有効にしてください。
+    新しい HTML エディターには、HTML5 コンテンツ用のコードスニペットが含まれています。 HTML5 スニペットを有効にするには、必ず適切な DOCTYPE 定義を使用するようにしてください。
 
-    ![HTML5 のコード スニペットの挿入](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image28.png "HTML5 コード スニペットの挿入")
+    ![HTML5 コードスニペットの挿入](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image28.png "HTML5 コードスニペットの挿入")
 
-    *HTML5 のコード スニペットの挿入*
-3. 既存のオーディオ ファイルをポイントするオーディオ ソースを更新します。
+    *HTML5 コードスニペットの挿入*
+3. 既存のオーディオファイルを指すようにオーディオソースを更新します。
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
 
     > [!NOTE]
-    > オーディオ ファイルをソリューションに追加する必要があります。
-4. キーを押して**F5**サイトを実行し、オーディオを再生します。
+    > この場合、オーディオファイルをソリューションに追加する必要があります。
+4. **F5**キーを押してサイトを実行し、オーディオを再生します。
 
-    ![オーディオ コントロールを実行している](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "オーディオ コントロールの実行")
+    ![オーディオコントロールの実行](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "オーディオコントロールの実行")
 
-    *オーディオ コントロールの実行*
+    *オーディオコントロールの実行*
 
     > [!NOTE]
-    > ビデオや図など、Visual Studio に含まれる複数のスニペットを試すこともできます。
-5. ここで、ページの一部のコントロールを挿入してみてください。 挿入しようとするなど、 **GridView**コントロールが入力する代わりに **&lt;合わせる、** の入力を開始 **&lt;GV**します。 IntelliSense の一覧を示していますが、 **: asp GridView**コントロール。
+    > また、Visual Studio に含まれているその他のスニペット (ビデオ、図など) を試すこともできます。
+5. 次に、ページの一部にコントロールを挿入してみます。 たとえば、 **GridView**コントロールを挿入しようとしますが、 **&lt;合わせるを**入力するのではなく、 **&lt;GV**の入力を開始します。 IntelliSense の一覧に**asp: GridView**コントロールが表示されていることに注意してください。
 
-    HTML エディターでの IntelliSense は、タイトルの大文字と小文字の検索と部分一致する (要素を取得するすべての用語を含む) に現在提供します。
+    HTML エディターの IntelliSense では、タイトルの大文字と小文字の区別と、部分的な一致 (用語を含むすべての要素の取得) が提供されるようになりました。
 
-    ![IntelliSense のリストを使用した GridView を挿入する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image30.png "IntelliSense リストを使用した GridView を挿入します。")
+    ![IntelliSense リストを使用した GridView の挿入](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image30.png "IntelliSense リストを使用した GridView の挿入")
 
-    *IntelliSense のリストを使用した GridView を挿入します。*
+    *IntelliSense リストを使用した GridView の挿入*
 
-    入力した場合 **&lt;グリッド**という用語に一致するすべての項目が表示されますが、Visual Studio をお勧めしますが、 **gridview**コントロール。
+    **&lt;grid**と入力すると、用語に一致するすべての項目が表示されますが、Visual Studio は**gridview**コントロールを提案します。
 
-    ![IntelliSense リスト部分に一致すると、GridView を挿入する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image31.png "IntelliSense リスト部分に一致すると、GridView を挿入します。")
+    ![IntelliSense リストと部分一致を含む GridView の挿入](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image31.png "IntelliSense リストと部分一致を含む GridView の挿入")
 
-    *IntelliSense リスト部分に一致すると、GridView を挿入します。*
+    *IntelliSense リストと部分一致を含む GridView の挿入*
 
 <a id="Ex2Task4"></a>
 
 <a id="Task_4_-_HTML_Editor_Smart_Tags"></a>
-#### <a name="task-4---html-editor-smart-tags"></a>タスク 4 - HTML エディターのスマート タグ
+#### <a name="task-4---html-editor-smart-tags"></a>タスク 4-HTML エディターのスマートタグ
 
-別の機能強化、HTML エディターでは、スマート タグ機能です。 スマート タグを簡単にコントロールごとに一般的なや反復的な開発タスクを実行します。 この機能が既に使用できる HTML デザイナーで、HTML エディターでありません。
+HTML エディターのもう1つの改良点は、スマートタグ機能です。 スマートタグを使用すると、一般的な開発タスクや繰り返し発生する開発タスクを、コントロールごとに簡単に実行できます。 この機能は、html デザイナーでは既に使用可能ですが、HTML エディターでは使用できませんでした。
 
-1. 開いている**Site.Master**探し、 **asp: メニュー**要素。 カーソルを置き、開始タグと - 要素の下部に表示される小さいグリフをクリックして、[スマート タスク] メニューを開くことに注意してください。 メニュー コントロールに関連するいくつかのタスクにすばやくアクセスすることがわかります。
+1. **[.Master]** を開き、[ **Asp: Menu]** 要素を探します。 開始タグにカーソルを置き、要素の下部に表示されている小さなグリフをクリックして、[スマートタスク] メニューを開きます。 メニューコントロールに関連する一部のタスクにすばやくアクセスできることに注意してください。
 
-    ![メニュー コントロールのタスクのスマート](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image32.png "メニュー コントロールのタスクのスマート")
+    ![メニューコントロールのスマートタスク](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image32.png "メニューコントロールのスマートタスク")
 
-    *メニュー コントロールのスマート タスク*
+    *メニューコントロールのスマートタスク*
 
 <a id="Ex2Task5"></a>
 
 <a id="Task_5_-_Smart_Indentation"></a>
-#### <a name="task-5---smart-indentation"></a>タスク 5 - スマート インデント
+#### <a name="task-5---smart-indentation"></a>タスク 5-スマートインデント
 
-読み取り可能なコードを保持する入れ子になった要素をインデント HTML でのベスト プラクティスの 1 つです。 Visual Studio 2012 で、コードを記述するときに、エディターがその要素を自動的にインデントすることがわかります。
+HTML のベストプラクティスの1つは、コードを読みやすくするために、入れ子になった要素をインデントすることです。 Visual Studio 2012 では、コードの記述中にエディターによって要素が自動的にインデントされることがわかります。
 
 > [!NOTE]
-> Visual Studio の以前のバージョンではスマート インデントされた使用可能な HTML エディターではなく、XML エディターにします。
+> 以前のバージョンの Visual Studio では、スマートインデントは XML エディターでは使用できましたが、HTML エディターでは使用できませんでした。
 
-1. スマート インデントに HTML エディターでインデント構成が設定されていることを確認します。 そのためには次のように選択します、**ツール |。オプション**メニュー オプションと選択し、**テキスト エディター |HTML |タブ**画面の左側のウィンドウでページ。 スマート インデント オプションを選択します。
+1. HTML エディターのインデントの構成がスマートインデントに設定されていることを確認します。 これを行うには、[ツール] を選択します。 **[オプション**] メニューオプションをクリックし、[テキストエディター] を選択します。 **HTML |** 画面の左側のウィンドウにある [タブ] ページ。 [スマートインデント] オプションを選択します。
 
-    ![HTML エディター設定](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "HTML エディターの設定")
+    ![HTML エディターの設定](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "HTML エディターの設定")
 
     *HTML エディターの設定*
-2. **Default.aspx**  ページで、オーディオの要素の下のすべてのコンテンツを削除します。
-3. 開始の末尾にカーソルを置き**オーディオ**要素とヒット**ENTER**します。
+2. **Default.aspx**ページで、audio 要素の下にあるすべてのコンテンツを削除します。
+3. 開いている**オーディオ**要素の末尾にカーソルを置き、 **ENTER キーを**押します。
 
-    新しいカーソルの位置、インデントの追加レベルであることに注意してください。
+    カーソルの新しい位置にインデントレベルが追加されていることに注意してください。
 
-    ![スマート インデント HTML エディターで](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image34.png "スマート インデント、HTML エディター")
+    ![HTML エディターでのスマートインデント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image34.png "HTML エディターでのスマートインデント")
 
-    *HTML エディターでのスマート インデント*
-4. オーディオ コンテンツを削除するか、閉じるタグを復元**Default.aspx**せず、変更を保存します。
+    *HTML エディターでのスマートインデント*
+4. 削除したコンテンツを使用してオーディオタグを復元するか、変更を保存せずに**default.aspx**を閉じます。
 
 <a id="Ex2Task6"></a>
 
 <a id="Task_6_-_Extract_to_User_Control"></a>
-#### <a name="task-6---extract-to-user-control"></a>タスク 6: ユーザー コントロールへの抽出
+#### <a name="task-6---extract-to-user-control"></a>タスク 6-ユーザーコントロールに抽出する
 
-抽出する関数の場合、コードの一部など、Visual Studio に含まれる、リファクタリング ツールを改善し、既存のコードのリファクタリングを容易にするための優れた機能です。 ASP.NET ページの対応するユーザー コントロールへの HTML コードの抽出となります。 手動で行うと、新しいユーザー コントロールの作成、ユーザー コントロールに、コードのセクションを移動、ユーザー コントロールのタグ プレフィックスを登録および、最後に、ページ上のユーザー コントロールをインスタンス化するように、いくつかの手順は必要があります。 ここで、新しい*ユーザー コントロールに展開*ツールが自動的にこれらの手順を実行します。
+コードの一部を関数に抽出するなど、Visual Studio に含まれるリファクタリングツールは、改善を促進し、既存のコードをリファクタリングするための優れた機能です。 ASP.NET ページに対応するのは、ユーザーコントロールへの HTML コードの抽出です。 手動で実行するには、新しいユーザーコントロールの作成、ユーザーコントロールへのコードセクションの移動、ユーザーコントロールのタグプレフィックスの登録、最後にページ上のユーザーコントロールのインスタンス化など、いくつかの手順を実行します。 これで、*ユーザーコントロールへ*の新しい Extract ツールによって、これらのすべての手順が自動的に実行されるようになりました。
 
-このタスクでは、選択したコードから新しいユーザー コントロールを生成するのにコンテキストの操作をユーザー コントロールに新しい展開を使用します。
+このタスクでは、新しい Extract to User Control コンテキスト操作を使用して、選択したコードから新しいユーザーコントロールを生成します。
 
-1. **Default.aspx** ] ページで、[、 **H2**と**オーディオ**要素。
-2. 右クリックし、選択**ユーザー コントロールに展開**します。
+1. **Default.aspx**ページで、 **H2**要素と**audio**要素を選択します。
+2. 右クリックして **[ユーザーコントロールに展開]** を選択します。
 
-    ![ユーザー コントロール メニュー オプションに抽出](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image35.png "ユーザー コントロール メニュー オプションに抽出します。")
+    ![[ユーザーコントロールに展開] メニューオプション](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image35.png "[ユーザーコントロールに展開] メニューオプション")
 
-    *ユーザー コントロール メニュー オプションに抽出します。*
-3. 新しいユーザー コントロールの名前を入力します。 たとえば、 **Jukebox.ascx**、 をクリックし、 **OK**。
+    *[ユーザーコントロールに展開] メニューオプション*
+3. 新しいユーザーコントロールの名前を入力します。 たとえば、「 **Jukebox**」と入力し、[ **OK]** をクリックします。
 
-    ![抽出されたユーザー コントロールを保存](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image36.png "抽出されたユーザー コントロールを保存しています")
+    ![抽出されたユーザーコントロールを保存しています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image36.png "抽出されたユーザーコントロールを保存しています")
 
-    *抽出されたユーザー コントロールを保存しています*
-4. ユーザー コントロールに、選択したコードの抽出、選択したコードの元の場所は、新しいユーザー コントロールのインスタンスに置き換えられたことに注意してください。
+    *抽出されたユーザーコントロールを保存しています*
+4. 選択したコードがユーザーコントロールに抽出され、選択したコードの元の場所が新しいユーザーコントロールのインスタンスに置き換えられたことに注意してください。
 
-    ![新しいユーザー コントロールを使用するページが自動的に更新](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image37.png "ページは、新しいユーザー コントロールを使用して自動的に更新")
+    ![新しいユーザーコントロールを使用するために自動的に更新されたページ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image37.png "新しいユーザーコントロールを使用するために自動的に更新されたページ")
 
-    *新しいユーザー コントロールを使用するページが自動的に更新*
-5. キーを押して**F5**ページを実行し、コントロールが動作することを確認します。
+    *新しいユーザーコントロールを使用するために自動的に更新されたページ*
+5. **F5**キーを押してページを実行し、コントロールが動作することを確認します。
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Whats_New_in_the_JavaScript_Editor"></a>
-### <a name="exercise-3-whats-new-in-the-javascript-editor"></a>手順 3:新機能については、JavaScript エディターです。
+### <a name="exercise-3-whats-new-in-the-javascript-editor"></a>演習 3: JavaScript エディターの新機能
 
-書き込みまたは JavaScript コードの編集が簡単な作業では、特に、アプリケーションの起動時にサイズの増加や長いファイルを扱うと数百の関数の自分で検索する場合。 通常、スクリプトの開発者は、コードの読みやすさを維持し、ファイルをナビゲートする特別な作業を行う必要があります。 スクリプトのナビゲーションで jQuery などの JavaScript ライブラリのコードの長さのため自体課題となっています。
+JavaScript コードの記述や編集は、特にアプリケーションのサイズが大きくなり、長いファイルや数百の関数を扱う場合には、簡単なタスクではありません。 通常、スクリプト開発者は、コードの読みやすさを維持し、ファイル間を移動するために、余分な作業を行う必要があります。 JQuery のような JavaScript ライブラリが含まれているので、コードの長さが原因でスクリプトナビゲーションが困難になっています。
 
-Visual Studio には、アクセス可能で、構成されたコードのモードにする約束を JavaScript エディターが更新されます。 既に存在していた多くの Visual Studio 機能C#または VB エディターは、JavaScript エディターで実装されているようになりました。定義へ移動、自動インデント、ドキュメント、および記述するときに検証します。 更新された IntelliSense リストでは、指先ひとつで JavaScript 関数のカタログをことができます。
+Visual Studio によって JavaScript エディターが更新され、コードモードをアクセス可能にして整理できるようになりました。 または VB エディターにC#既に存在していた Visual Studio の多くの機能は、JavaScript エディターで実装されるようになりました。 [定義へ]、[自動インデント]、[ドキュメントと検証] を記述するときに使用します。 IntelliSense の一覧を更新すると、JavaScript 関数カタログをすぐに使用できるようになります。
 
-この演習では、JavaScript エディターの機能強化と新機能の一部を説明します。 サンプル ファイルを参照し、それぞれが、JavaScript プログラミングの Visual Studio 2012 内でより効率的なように新しい特性を検出します。
+この演習では、JavaScript エディターの新機能と改善点について学習します。 ここでは、サンプルファイルを参照し、Visual Studio 2012 内で JavaScript プログラミングをより効率的にするための新しい各特性について説明します。
 
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_JavaScript_Editor_New_Features"></a>
-#### <a name="task-1---javascript-editor-new-features"></a>タスク 1 - JavaScript エディターの新機能
+#### <a name="task-1---javascript-editor-new-features"></a>タスク 1-JavaScript エディターの新機能
 
-このタスクでは、コードを整理し、優れたユーザー エクスペリエンスを集中新しい JavaScript エディター機能をいくつか紹介します。
+このタスクでは、コードの整理とユーザーエクスペリエンスの向上に重点を置いた、JavaScript エディターの新機能の一部を紹介します。
 
-1. これを開いていない場合は、開始**Visual Studio**を開くと、 **WhatsNewASPNET.sln**ソリューション、 **Source\WhatsNewASPNET**このラボのフォルダー。
-2. キーを押して**F5**アプリケーションを実行し、ナビゲーション バーで JavaScript リンクをクリックします。 ページを更新、いくつかの時間とチェックする方法はカウンターがインクリメントします。
+1. まだ開いていない場合は、 **Visual Studio**を起動し、このラボの**Source\WhatsNewASPNET**フォルダーにある**WhatsNewASPNET**ソリューションを開きます。
+2. **F5**キーを押してアプリケーションを実行し、ナビゲーションバーの JavaScript リンクをクリックします。 ページを何度も更新して、カウンターの増加を確認します。
 
-    ![ページ カウンター](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image38.png "ページ カウンター")
+    ![ページカウンター](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image38.png "ページカウンター")
 
-    *ページ カウンター*
+    *ページカウンター*
 3. ブラウザーを閉じて、Visual Studio に戻ります。
-4. 開く、 **JavaScript.aspx**ページし、検索、 **&lt;スクリプト&gt;** ブロック (下記参照)。
+4. **Default.aspx**ページを開き、 **&lt;スクリプト&gt;** ブロック (下図参照) を探します。
 
-    次のコードを格納する HTML5 ローカル ストレージを使用して、 *pageLoadCount*ページが現在のユーザーがアクセスした回数の合計を格納する変数です。 ローカル ストレージは、標準の HTML5 で導入されたクライアント側のキー値データベースです。 データは、ユーザーのブラウザー内で、ローカル コンピューターに保存されます。
+    次のコードでは、HTML5 ローカルストレージを使用して、現在のユーザーがページにアクセスした回数を格納する*Pageloadcount*変数を格納します。 ローカルストレージは、HTML5 標準で導入されたクライアント側のキー値データベースです。 データは、ユーザーのブラウザー内のローカルコンピューターに保存されます。
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample7.html)]
 
     > [!NOTE]
-    > DOCTYPE 次の手順に進む前に XHTML5 に設定されていることを確認します。
-5. コードを編集して、JavaScript 用 IntelliSense がローカル ストレージは、その内部メソッドなどの HTML5 機能が含まれることに注意してください。
+    > 次の手順に進む前に、DOCTYPE が XHTML5 に設定されていることを確認します。
+5. コードを編集します。 JavaScript 用の IntelliSense には、ローカルストレージやその内部メソッドなどの HTML5 機能が含まれていることに注意してください。
 
-    ![JavaScript での HTML5 の JavaScript 機能](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image39.png "JavaScript での HTML5 の JavaScript 機能")
+    ![HTML5 JavaScript の javascript 機能](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image39.png "HTML5 JavaScript の javascript 機能")
 
-    *JavaScript での HTML5 の JavaScript 機能*
-6. 任意の始め角かっこをクリックして ( **{** ) から、スクリプト コードし、角かっこが強調表示されていることに注意してください。
+    *HTML5 JavaScript の javascript 機能*
+6. スクリプトコードから左中かっこ ( **{** ) をクリックすると、角かっこが強調表示されます。
 
-    ![角かっこが強調表示されている](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image40.png "角かっこが強調表示されます")
+    ![角かっこが強調表示される](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image40.png "角かっこが強調表示される")
 
-    *角かっこが強調表示されます。*
-7. 関数をコメント解除します**testAutoAlign()** (3 つの行を選択し、使用することができます**CTRL** + **K**;**CTRL** + **U**) し、関数コード内にカーソルを探します。 2 番目の行を追加して enter キーを押します。 これで、コードが通知**揃え**と**自動インデント**します。
+    *角かっこが強調表示される*
+7. 関数**Testautoalign ()** をコメント解除します (3 行を選択すると、 **CTRL** + **K**を使用できます。**CTRL** + **U**) を押して、関数コード内でカーソルを見つけます。 2行目を追加するには、enter キーを押します。 コードが**アラ**インされ、**自動インデント**されていることに注意してください。
 
-    ![JavaScript コードは自動配置](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image41.png "JavaScript コードは自動配置")
+    ![JavaScript コードは自動的にアラインされます](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image41.png "JavaScript コードは自動的にアラインされます")
 
-    *JavaScript コードは自動配置*
+    *JavaScript コードは自動的にアラインされます*
 
 <a id="Ex3Task2"></a>
 
 <a id="Task_2_-_Validating_JavaScript"></a>
-#### <a name="task-2---validating-javascript"></a>タスク 2 - JavaScript の検証
+#### <a name="task-2---validating-javascript"></a>タスク 2-JavaScript の検証
 
-このタスクでは、標準の ECMAScript5 の新しい JavaScript 検証を検出します。 この機能はサイトに展開する前にスクリプトの問題を防止しながら、準拠の JavaScript コードを記述するのに役立ちます。
+このタスクでは、ECMAScript5 標準の新しい JavaScript 検証について説明します。 この機能を使用すると、準拠している JavaScript コードを記述しながら、サイトを展開する前にスクリプトの問題を回避できます。
 
 > [!NOTE]
-> Visual Studio 2010 では、Visual Studio 2012 ECMAScript5 のコンプライアンスを提供しますが、ECMAStript3 のコンプライアンスが実装されています。
+> Visual Studio 2010 では ECMAStript3 準拠が実装されていますが、Visual Studio 2012 では ECMAScript5 準拠が提供されています。
 
-1. 開いている**ECMA5script5.js**の下にある、 **Scripts\custom**プロジェクト フォルダーです。 今すぐ ECMAScript5 の標準の検証をテストします。
+1. **スクリプト \ カスタム**プロジェクトフォルダーの下にある**ECMA5script5 を**開きます。 次に、ECMAScript5 standard の検証をテストします。
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample8.html)]
 
-    チェック アウトすることができます、 &quot; **strict 使用** &quot; ECMAScript5 できると、ファイルの最初の行方向**厳格モード**します。 このモードでは、過去のエディションからあいまいさを明確化し、オブジェクトのプロパティの getter と setter、JSON、およびより完全なリフレクション ライブラリのサポートなど、いくつかの新機能を追加する言語のサブセットで構成されます。
-2. 開く、**エラー一覧**開いていない場合 (**ビュー**メニュー |**エラー一覧**)。 通知、**関数**宣言の下線が引かれます。 これは、ため、ECMA5 で標準的な関数内にネストできません言語構造体です。 エラーが発生する次の一覧に警告の詳細が表示されます。
+    ファイルの最初の行で**strict** &quot; direction &quot; 使用して、ECMAScript5 **strict モード**を有効にすることができます。 このモードは、過去のエディションのあいまいさを明確にする言語のサブセットで構成され、getter や setter、JSON のライブラリサポート、オブジェクトのプロパティに対する完全なリフレクションなど、いくつかの新機能が追加されています。
+2. まだ開いていない場合は**エラー一覧**を開きます ( **[表示]** メニュー |**エラー一覧**)。 **関数**の宣言に下線が引かれていることに注意してください。 これは、ECMA5 標準関数を言語構造体内で入れ子にすることができないためです。 下の [エラー一覧] には、警告の詳細が表示されます。
 
-    ![JavaScript の検証エラー メッセージ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image42.png "JavaScript の検証エラー メッセージ")
+    ![JavaScript の検証エラーメッセージ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image42.png "JavaScript の検証エラーメッセージ")
 
-    *JavaScript の検証エラー メッセージ*
-3. コメント アウト、  **&quot;strict 使用&quot;** 方向とエラーが非表示になりますが、警告のままにすることがわかります。
-4. ファイルの最後の行のような任意の文字列を書き込む **&quot;テスト&quot;** (文字列であることを示す引用符を含む)。 IntelliSense の一覧を表示し、選択する文字列の横にあるピリオドを書き込み、**トリミング**オプション。
+    *JavaScript の検証エラーメッセージ*
+3. 厳密な&quot;方向を**使用する&quot;** をコメントアウトすると、エラーが消えますが、警告は残ります。
+4. ファイルの最後の行に **&quot;test&quot;** のような文字列を記述します (文字列として指定するには引用符を含めます)。 文字列の横にピリオドを書き込んで、IntelliSense の一覧を表示し、 **[トリム]** オプションを選択します。
 
-    ECMAScript5 の標準で文字列値および変数もメソッドを持つ文字列定義、トリミング、大文字、検索し、置換と同様にします。
+    ECMAScript5 standard では、文字列値と変数にも、trim、大文字、検索、置換などの文字列メソッドが定義されています。
 
-    ![JavaScript での IntelliSense リスト](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image43.png "javascript IntelliSense の一覧")
+    ![JavaScript での IntelliSense の一覧](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image43.png "JavaScript での IntelliSense の一覧")
 
-    *Javascript IntelliSense の一覧*
+    *JavaScript での IntelliSense の一覧*
 
 <a id="Ex3Task3"></a>
 
 <a id="Task_3_-_XML_Documentation_for_JavaScript"></a>
-#### <a name="task-3---xml-documentation-for-javascript"></a>タスク 3 - JavaScript の XML ドキュメント
+#### <a name="task-3---xml-documentation-for-javascript"></a>タスク 3-JavaScript の XML ドキュメント
 
-このタスクでは、JavaScript での XML ドキュメントの Visual Studio の機能を説明します。 JavaScript IntelliSense の一覧では、各関数の XML ドキュメントに表示されますが表示されます。 さらに、JavaScript でのナビゲーション機能が検出されます。
+このタスクでは、Visual Studio の JavaScript での XML ドキュメントの機能について説明します。 JavaScript IntelliSense の一覧に、各関数の XML ドキュメントが表示されるようになります。 さらに、JavaScript のナビゲーション機能についても説明します。
 
-1. 開いている**XMLDoc.js**にあるファイル**スクリプト/カスタム**プロジェクト フォルダーです。 このファイルには、JavaScript 関数の各 XML ドキュメントが含まれています。
+1. [**スクリプト]/[カスタム**プロジェクトフォルダー] にある、 **XMLDoc**ファイルを開きます。 このファイルには、各 JavaScript 関数に関する XML ドキュメントが含まれています。
 
-    ![JavaScript XML ドキュメントが IntelliSense に統合された](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image44.png "JavaScript XML ドキュメントに IntelliSense が統合されています。")
+    ![IntelliSense に統合された JavaScript XML ドキュメント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image44.png "IntelliSense に統合された JavaScript XML ドキュメント")
 
     *IntelliSense に統合された JavaScript XML ドキュメント*
-2. 下**追加**関数**XMLDoc.js**ファイル、という名前の新しい関数を作成**テスト**します。
-3. **テスト**関数を呼び出し、**乗算**を 2 つのパラメーターを受け取る関数。 ツールヒント ボックスが表示されていることを確認、**乗算**関数のドキュメント。
+2. 次に、 **XMLDoc**ファイルの関数を**追加**し、 **test**という名前の新しい関数を作成します。
+3. **テスト**関数で、2つのパラメーターを受け取る**乗算**関数を呼び出します。 [ツールヒント] ボックスに、**乗算**関数のドキュメントが表示されていることを確認します。
 
     [!code-javascript[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample9.js)]
 
     ![JavaScript 関数の XML ドキュメント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image45.png "JavaScript 関数の XML ドキュメント")
 
     *JavaScript 関数の XML ドキュメント*
-4. 種類と関数の呼び出しステートメントの完了を*ドット*戻り値に対して、IntelliSense の一覧を開きます。 Visual Studio の検出に注意してください、**返す**値、ドキュメントでは、数値として処理されます。
+4. 関数呼び出しステートメントを完了し、*ドット*を入力して、戻り値の IntelliSense リストを開きます。 Visual Studio では、値を数値として扱うドキュメント内の**戻り**値が検出されていることに注意してください。
 
-    ![戻り値の型の XML ドキュメント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image46.png "戻り値の型の XML ドキュメント")
+    ![戻り値の型に関する XML ドキュメント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image46.png "戻り値の型に関する XML ドキュメント")
 
-    *戻り値の型の XML ドキュメント*
-5. ここで、関数を追加する呼び出しを挿入します。 JavaScript エディターが今すぐ関数のオーバー ロードをサポートしていることに注意してください。 関数名を記述するときに、ドキュメントで指定された使用可能なオーバー ロードのいずれかを選択することができます。
+    *戻り値の型に関する XML ドキュメント*
+5. 次に、add 関数の呼び出しを挿入します。 JavaScript エディターが関数のオーバーロードをサポートするようになったことに注意してください。 関数名を記述する場合は、ドキュメントで指定されている使用可能なオーバーロードのいずれかを選択できます。
 
-    ![XML ドキュメントのオーバー ロードを](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image47.png "オーバー ロードの XML ドキュメント")
+    ![オーバーロードに関する XML ドキュメント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image47.png "オーバーロードに関する XML ドキュメント")
 
-    *オーバー ロードの XML ドキュメント*
-6. 開いている**GotoDefinition.js**ファイルし、検索、 **$().html()** 関数呼び出し。 カーソルを置いて**html**します。
-7. キーを押して**F12**定義に移動します。 アクセスしを使用せず、JavaScript コードを閲覧できますに注意してください、**検索**ツール。
-8. コード ファイルの下部にある署名ブロックの前に、jQuery の命令にカーソルを見つけます。 キーを押して**F12**します。 JQuery ライブラリ ファイルに移動します。 使用して、jQuery ファイル間で移動することもできますに注意してください。 **F12**します。
+    *オーバーロードに関する XML ドキュメント*
+6. **GotoDefinition**ファイルを開き、 **$ () .html ()** 関数呼び出しを見つけます。 **Html**でカーソルを見つけます。
+7. **F12**キーを押して、定義に移動します。 **検索**ツールを使用せずに、JavaScript コードにアクセスして閲覧できるようになりました。
+8. コードファイルの一番下にあるシグネチャブロックの前にある jQuery 命令でカーソルを探します。 **F12**キーを押します。 JQuery ライブラリファイルに移動します。 また、 **F12 キー**を使用して jQuery ファイル間を移動することもできます。
 
-    ![JQuery の定義に移動する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image48.png "jQuery の定義に移動します。")
+    ![JQuery 定義への移動](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image48.png "JQuery 定義への移動")
 
-    *JQuery の定義に移動します。*
+    *JQuery 定義への移動*
 
 > [!NOTE]
-> GotoDefinition.js ファイルを保存する前に構文エラーがないことを確認します。
+> ファイルを保存する前に、GotoDefinition に構文エラーがないことを確認してください。
 
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Bundling_and_Minification"></a>
-### <a name="exercise-4-bundling-and-minification"></a>演習 4:バンドルと縮小
+### <a name="exercise-4-bundling-and-minification"></a>演習 4: バンドルと縮小
 
-何回か、web サイトは 1 つ以上の JavaScript または CSS ファイルか。 これは、バンドルと縮小に役立つファイル サイズを小さくし、高速で実行するサイトをごく一般的なシナリオです。 ASP.NET 4.5 の新機能でバンドルは、JS または CSS ファイルのセットを 1 つの要素にパックし、(必須ではない空白を削除する、コメントを削除する、識別子の削減) コンテンツを縮小してサイズを縮小します。
+Web サイトに複数の JavaScript または CSS ファイルが含まれている回数 これは、バンドルと縮小によってファイルサイズを縮小し、サイトのパフォーマンスを向上させるために役立つ、非常に一般的なシナリオです。 ASP.NET 4.5 の新しいバンドル機能は、一連の JS または CSS ファイルを1つの要素にパックし、コンテンツを縮小することによってサイズを縮小します (つまり、不要な空白を削除したり、コメントを削除したり、識別子を減らしたりします)。
 
-プロセスは (たとえば IE、Mozilla など)、ユーザー エージェントを識別して、そのため、(たとえば、削除するとか色々 な処理は Mozilla の特定のユーザーのブラウザーを対象とすることによって、圧縮が向上できるように、実行時に実行はバンドルと縮小 ASP.NET 4.5 でときに、要求元が IE)。
+ASP.NET 4.5 でのバンドルと縮小は実行時に実行されるため、プロセスでユーザーエージェント (たとえば、IE、Mozilla など) を識別できます。したがって、ユーザーブラウザーを対象にして圧縮を改善します (たとえば、Mozilla 固有のものを削除するなど)。要求が IE から取得された場合)。
 
-この演習では、有効にして ASP.NET 4.5 でのバンドルと縮小のさまざまな種類を使用する方法を学びます。
+この演習では、ASP.NET 4.5 でさまざまな種類のバンドルと縮小を有効にして使用する方法について説明します。
 
 <a id="Ex4Task1"></a>
 
 <a id="Task_1_-_Installing_the_Bundling_and_Minification_Package_from_NuGet"></a>
-#### <a name="task-1---installing-the-bundling-and-minification-package-from-nuget"></a>タスク 1 - バンドルをインストールし、NuGet からパッケージを縮小
+#### <a name="task-1---installing-the-bundling-and-minification-package-from-nuget"></a>タスク 1-NuGet からのバンドルと縮小パッケージのインストール
 
-1. これを開いていない場合は、開始**Visual Studio**を開くと、 **WhatsNewASPNET.sln**ソリューション、 **Source\WhatsNewASPNET**このラボのフォルダー。
-2. NuGet パッケージ マネージャー コンソールを開きます。 これを行うには、メニューを使用して**ビュー** | **その他の Windows** | **パッケージ マネージャー コンソール**します。
+1. まだ開いていない場合は、 **Visual Studio**を起動し、このラボの**Source\WhatsNewASPNET**フォルダーにある**WhatsNewASPNET**ソリューションを開きます。
+2. NuGet パッケージマネージャーコンソールを開きます。 そのためには、メニュー**ビュー** | **その他の Windows** | **パッケージマネージャーコンソール**を使用します。
 
-    ![開くパッケージ マネージャーの file:///C:/Users/User/AppData/Local/Temp/Marker3744//media/44462/Multiple-Stylesheets-and-JavaScript-files-in-the-application.pngconsole](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image49.png "パッケージ マネージャー コンソールを開く")
+    ![パッケージマネージャー file:///C:/Users/User/AppData/Local/Temp/Marker3744//media/44462/Multiple-Stylesheets-and-JavaScript-files-in-the-application.pngconsole を開く](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image49.png "パッケージマネージャーコンソールを開く")
 
-    *パッケージ マネージャー コンソールを開く*
-3. **パッケージ マネージャー コンソールで、** 型**Install-package Microsoft.Web.Optimization**キーを押します**ENTER**します。
+    *パッケージマネージャーコンソールを開く*
+3. **パッケージマネージャーコンソールで、** 「 **Install-Package Microsoft web.config** 」と入力し、 **enter**キーを押します。
 
 <a id="Ex4Task2"></a>
 
 <a id="Task_2_-_Default_Bundles"></a>
-#### <a name="task-2---default-bundles"></a>タスク 2 - 既定のバンドル
+#### <a name="task-2---default-bundles"></a>タスク 2-既定のバンドル
 
-既定のバンドルはバンドルと縮小を使用する最も簡単な方法です。 このメソッドでは、規則を使用して、フォルダー内の JS、CSS ファイルのバンドルと縮小されたバージョンを参照することができます。
+バンドルと縮小を使用する最も簡単な方法は、既定のバンドルを有効にすることです。 この方法では、規則を使用して、フォルダー内の JS ファイルと CSS ファイルのバンドルされたバージョンと縮小版を参照できます。
 
-このタスクでは、有効にしてバンドルおよび縮小された JS、CSS ファイルを参照して、結果の出力を表示する方法を学びます。
+このタスクでは、バンドルされた、縮小された JS および CSS ファイルを有効にして参照し、結果の出力を表示する方法を学習します。
 
-1. これを開いていない場合は、開始**Visual Studio**を開くと、 **WhatsNewASPNET.sln**ソリューション、 **Source\WhatsNewASPNET**このラボのフォルダー。
-2. **ソリューション エクスプ ローラー**、展開、**スタイル**、 **Scripts\custom**と**Scripts\bundle**フォルダー。
+1. まだ開いていない場合は、 **Visual Studio**を起動し、このラボの**Source\WhatsNewASPNET**フォルダーにある**WhatsNewASPNET**ソリューションを開きます。
+2. **ソリューションエクスプローラー**で、**スタイル**、**スクリプト**作成、および**スクリプト**作成フォルダーを展開します。
 
-    アプリケーションが 1 つ以上の CSS と JS ファイルを使用することに注意してください。
+    アプリケーションで複数の CSS および JS ファイルが使用されていることに注意してください。
 
-    ![アプリケーションの複数のスタイル シートおよび JavaScript ファイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image50.png "アプリケーションで複数のスタイル シートおよび JavaScript ファイル")
+    ![アプリケーション内の複数のスタイルシートと JavaScript ファイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image50.png "アプリケーション内の複数のスタイルシートと JavaScript ファイル")
 
-    *アプリケーションで複数のスタイル シートおよび JavaScript ファイル*
-3. 開く、 **Global.asax.cs**ファイル。
+    *アプリケーション内の複数のスタイルシートと JavaScript ファイル*
+3. **Global.asax.cs**ファイルを開きます。
 
-    注意して、新しい**Microsoft.Web.Optimization**名前空間が、ファイルの先頭にコメント アウトされています。 使用して、コメントを解除します。 バンドルと縮小の機能をインクルードします。
+    新しい**web.config**名前空間がファイルの先頭でコメントアウトされていることに注意してください。 Using ディレクティブをコメント解除して、バンドル機能と縮小機能を含めます。
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
-4. 検索、**アプリケーション\_開始**メソッド。
+4. **Application\_Start**メソッドを見つけます。
 
-    このメソッドは、次のスニペットに示すように EnableDefaultBundles 呼び出しをコメント解除します。 これにより、そのフォルダーのパスを使用してフォルダー内の CSS ファイルのバンドル コレクションを参照するだけでなく、 &quot;CSS&quot;または&quot;JS&quot;サフィックス。
+    このメソッドでは、次のスニペットに示すように、EnableDefaultBundles の呼び出しをコメント解除します。 これにより、そのフォルダーへのパス、および &quot;CSS&quot; または &quot;JS&quot; サフィックスを使用して、フォルダー内の CSS ファイルのバンドルされたコレクションを参照できます。
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
-5. 開く、 **Optimization.aspx**ファイルし、のコンテンツ コントロールを探して**HeadContent**します。
+5. **最適化 .aspx**ファイルを開き、**コンテンツのヘッド**のコンテンツコントロールを探します。
 
-    CSS ファイルと 1 つの参照されているタグがある JS ファイルに注意してください。
+    CSS ファイルと JS ファイルに参照されるタグが1つあることに注意してください。
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
 
     > [!NOTE]
-    > このコードは、デモの目的では。 理想的には、Site.Master ファイル内のバンドルを参照します。 このサンプル コードで紹介するバンドル ファイルの一部もによって参照されている、Site.Master ファイル冗長この最後の参照を作成します。
-6. リンクがバンドル内の規則を使用していることに注意してください、 **href**スタイルと Scripts\custom からすべての CSS または JS ファイルを取得する属性フォルダーそれぞれします。
+    > このコードはデモを目的としています。 サイトのマスターファイルでバンドルを参照するのが理想的です。 このサンプルコードでは、一部のバンドルファイルも、この最後の参照が冗長になるように、サイトのマスターファイルによって参照されていることがわかります。
+6. リンクは**href**属性でバンドル規則を使用して、スタイルとスクリプト \ カスタムフォルダーからすべての CSS または JS ファイルを取得することに注意してください。
 
-    パスを使用することができます**スクリプト/カスタム/JS**バンドルし、縮小内のすべての JS ファイルに次のような**スクリプト/カスタム**フォルダー。 これは、既定のバンドルと既定の動作です。
+    次に示すように、path **scripts/custom/JS**を使用して、**スクリプト/カスタム**フォルダー内のすべての JS ファイルのバンドルと縮小を行うことができます。 これは、既定のバンドルでの既定の動作です。
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
-7. 開く、 **Styles\Site.css**ファイル。
+7. **Styles\Site.css**ファイルを開きます。
 
-    元の CSS ファイルには、インデントされたコード、空白、およびファイルを拡大するコメントが含まれていることを確認します。 (また、JavaScript ファイルが含まれています空白とコメント)。
+    元の CSS ファイルには、インデントされたコード、空白、およびファイルを拡大するコメントが含まれていることに注意してください。 (JavaScript ファイルにも空白とコメントが含まれています)。
 
-    ![スクリプト フォルダーにファイルを元の CSS のいずれかの](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image51.png "スクリプト フォルダーにファイルを元の CSS のいずれか")
+    ![Scripts フォルダー内の元の CSS ファイルの1つ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image51.png "Scripts フォルダー内の元の CSS ファイルの1つ")
 
-    *Scripts フォルダーでは、元の CSS ファイルのいずれか*
-8. キーを押して**F5**アプリケーションを実行しに移動する、**最適化**ページ。
-9. をクリックして、 **CSS バンドル**へのリンクをダウンロードして、ファイルを開きます。
+    *Scripts フォルダー内の元の CSS ファイルの1つ*
+8. **F5**キーを押してアプリケーションを実行し、 **[最適化]** ページに移動します。
+9. **[CSS バンドル]** リンクをクリックして、ファイルをダウンロードして開きます。
 
-    縮小されたバンドルされているファイルを確認します。 表示されます、空白、コメントおよびインデント文字をすべて削除されていること、サイズの小さいファイルを生成します。
+    バンドルされている縮小されたファイルを確認します。 空白、コメント、およびインデントの文字がすべて削除され、より小さなファイルが生成されていることがわかります。
 
-    ![CSS ファイルをバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image52.png "バンドルされている CSS ファイル")
+    ![バンドルの CSS ファイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image52.png "バンドルの CSS ファイル")
 
     *バンドルの CSS ファイル*
-10. クリックし、 **JS バンドル**バンドルされている JavaScript ファイルを開くためのリンク。 エクスプ ローラーの警告は無視して構いません。 JavaScript ファイルに注意してください、**カスタム**フォルダーもバンドルおよび縮小します。
+10. 次に、 **[JS バンドル]** リンクをクリックして、JavaScript のバンドルファイルを開きます。 エクスプローラーの警告は無視してかまいません。 **カスタム**フォルダーにある JavaScript ファイルもバンドルされ、縮小されていることに注意してください。
 
-    ![JavaScript ファイルをバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image53.png "バンドルされている JavaScript ファイル")
+    ![バンドルした JavaScript ファイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image53.png "バンドルした JavaScript ファイル")
 
-    *バンドルの JavaScript ファイル*
+    *バンドルした JavaScript ファイル*
 
-    CSS または JS ファイルの圧縮を有効にするは、ASP.NET の以前のバージョンではるかに複雑ですが。 ここで説明したようにするだけ 1 つの行を追加、 *Global.asax*ファイルのバンドル化、有効にして、サイトからバンドルのファイルを参照します。
+    CSS または JS ファイルの圧縮を有効にすることは、以前の ASP.NET バージョンでははるかに複雑でした。 ここでは、 *global.asax*ファイルに1行を追加して、バンドルを有効にした後、サイトからバンドルされたファイルを参照する必要があります。
 
 <a id="Ex4Task3"></a>
 
 <a id="Task_3_-_Static_Bundles"></a>
-#### <a name="task-3---static-bundles"></a>タスク 3 - 静的バンドル
+#### <a name="task-3---static-bundles"></a>タスク 3-静的なバンドル
 
-バンドルの静的なアプローチでは、バンドル、参照および使用される縮小メソッドへのファイルのセットをカスタマイズできます。
+静的なバンドルアプローチでは、バンドルするファイルのセット、参照、および使用される縮小方法をカスタマイズできます。
 
-このタスクでは、バンドルし、縮小するファイルの特定のセットを定義する静的バンドルを構成します。
+このタスクでは、バンドルおよび縮小する特定のファイルセットを定義するように、静的なバンドルを構成します。
 
 1. ブラウザーを閉じます。
-2. 開く、 **Global.asax.cs**ファイルし、検索、**アプリケーション\_開始**メソッド。
-3. 次のコードに示すように、静的バンドル コードをコメント解除します。
+2. **Global.asax.cs**ファイルを開き、 **Application\_Start**メソッドを見つけます。
+3. 次のコードに示すように、静的バンドルコードのコメントを解除します。
 
-    参照される静的バンドルを定義する、 &quot; **~/StaticBundle** &quot;仮想パスと使用**JsMinify**で指定されたすべてのファイルの縮小を**AddFile**メソッド。 最後に、静的バンドルを追加する場合は、 **BundleTable**有効化します。
+    &quot; **~/staticバンドル**&quot; 仮想パスで参照される静的バンドルを定義し、 **addfile**メソッドを使用して指定されたすべてのファイルを縮小するために**JsMinify**を使用します。 最後に、静的なバンドルを**bundletable.enableoptimization とき**に追加し、それを有効にします。
 
-    ファイルが、同じ場所にいないにあることに注意してください。これは、既定のバンドルをもう 1 つの利点です。
+    ファイルが同じ場所に配置されていないことに注意してください。これは、既定のバンドルを超えるもう1つの利点です。
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
-4. 開く、 **Optimization.aspx**ファイル。
+4. **最適化 .aspx**ファイルを開きます。
 
-    注意へのリンク**静的 JS バンドル**Global.asax.cs ファイルの静的なバンドルの構成時に宣言されているパスを使用して: **/StaticBundle**します。
+    **静的 JS バンドル**へのリンクでは、Global.asax.cs ファイルで静的バンドルを構成したときに宣言したパスが使用されていることに注意してください: **/staticバンドル**。
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
-5. キーを押して**F5**アプリケーションを実行しに移動する、**最適化**ページ。
-6. をクリックして、**静的 JS バンドル**ファイルを開くためのリンク。
+5. **F5**キーを押してアプリケーションを実行し、 **[最適化]** ページに移動します。
+6. **[静的な JS バンドル]** リンクをクリックして、ファイルを開きます。
 
-    パスの下の静的なバンドル ファイルで構成されているすべての JavaScript ファイルの出力は、縮小されたバンドルの JavaScript ファイル&quot;/StaticBundle&quot;します。
+    バンドルされている縮小された JavaScript ファイルが、パス &quot;/staticバンドル&quot;の下にある静的バンドルファイルに構成されているすべての JavaScript ファイルの出力になっていることに注意してください。
 
-    ![静的な JavaScript ファイルのバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image54.png "静的 JavaScript ファイルのバンドル")
+    ![静的な JavaScript ファイルバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image54.png "静的な JavaScript ファイルバンドル")
 
-    *静的な JavaScript ファイルをバンドルします。*
+    *静的な JavaScript ファイルバンドル*
 7. ブラウザーを閉じて、Visual Studio に戻ります。
 
 <a id="Ex4Task4"></a>
 
 <a id="Task_4_-_Dynamic_Folder_Bundles"></a>
-#### <a name="task-4---dynamic-folder-bundles"></a>タスク 4 - 動的フォルダー バンドル
+#### <a name="task-4---dynamic-folder-bundles"></a>タスク 4-動的なフォルダーバンドル
 
-このタスクでは、動的フォルダー バンドルを構成する方法を学習します。 動的バンドルの電源は、こと、JavaScript にコンパイルされる言語で、静的な JavaScript だけでなく、他のファイルを含めるし、そのため、バンドルが実行される前に、何らかの処理が必要ですが。
+このタスクでは、動的フォルダーバンドルを構成する方法について説明します。 動的バンドルの機能として、静的な JavaScript を含めることができます。また、JavaScript にコンパイルされる言語の他のファイルも含めることができるため、バンドルを実行する前に処理が必要になります。
 
-この例を使用する方法について説明します、 **DynamicFolderBundle** CofeeScript で記述されたファイルの動的なバンドルを作成するクラス。 CofeeScript は、JavaScript にコンパイルし、JavaScript コードの記述が JavaScript の簡潔さと読みやすさを向上させるの単純な構文を提供するプログラミング言語です。
+この例では、 **Dynamicfolderbundle**クラスを使用して、CofeeScript で記述されたファイルの動的バンドルを作成する方法について説明します。 CofeeScript は javascript にコンパイルされるプログラミング言語で、javascript コードを記述するための簡単な構文を提供し、JavaScript の簡潔さと読みやすさを強化します。
 
-1. 開く、 **Global.asax.cs**ファイルし、検索、**アプリケーション\_開始**メソッド。
-2. 次のコードに示すように動的なバンドル コードをコメント解除します。
+1. **Global.asax.cs**ファイルを開き、 **Application\_Start**メソッドを見つけます。
+2. 次のコードに示すように、動的バンドルコードのコメントを解除します。
 
-    使用する動的フォルダー バンドルを定義する、 **CoffeeMinify**でファイルにのみ適用されるカスタムの縮小プロセッサ、 &quot; ***.coffee** &quot;拡張機能 (CoffeeScript ファイル)。 通知など、フォルダー内にバンドルするファイルを選択し、検索パターンを使用することができます '\**.coffee '。
+    **CoffeeMinify**カスタム縮小プロセッサを使用する動的フォルダーバンドルを定義します **。** これは、&quot;の&quot; 拡張機能 (CoffeeScript files) を持つファイルにのみ適用されます。 検索パターンを使用して、フォルダー内にバンドルするファイルを選択することができます。たとえば、"\*. コーヒー" のようにします。
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
-3. NuGet パッケージ マネージャー コンソールを開きます。 これを行うには、メニューを使用して**ビュー** | **その他の Windows** | **パッケージ マネージャー コンソール**します。
-4. **パッケージ マネージャー コンソールで、** 型**Install-package CoffeeSharp**キーを押します**ENTER**します。
-5. をクリックして、 **すべてのファイル**ボタン、**ソリューション エクスプ ローラー**ウィンドウ
+3. NuGet パッケージマネージャーコンソールを開きます。 そのためには、メニュー**ビュー** | **その他の Windows** | **パッケージマネージャーコンソール**を使用します。
+4. **パッケージマネージャーコンソールで、** 「 **CoffeeSharp** 」と入力し、 **enter**キーを押します。
+5. **[ソリューションエクスプローラー]** ウィンドウの **[すべてのファイルを表示]** ボタンをクリックします。
 
-    ![すべてのファイルを示す](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image55.png "すべてのファイルを表示")
+    ![すべてのファイルを表示](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image55.png "すべてのファイルを表示")
 
     *すべてのファイルを表示*
-6. 右クリックして、 **CoffeeMinify.cs**ファイル、**ソリューション エクスプ ローラー**選択**プロジェクトに含める**
+6. **ソリューションエクスプローラー**で**CoffeeMinify.cs**ファイルを右クリックし、 **[プロジェクトに含める]** を選択します。
 
     ![CoffeeMinify.cs ファイルをプロジェクトに含める](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image56.png "CoffeeMinify.cs ファイルをプロジェクトに含める")
 
     *CoffeeMinify.cs ファイルをプロジェクトに含める*
-7. 開く、 **CoffeeMinify.cs**ファイル。
+7. **CoffeeMinify.cs**ファイルを開きます。
 
-    このクラスは、JavaScript の出力、CoffeeScript コードのコンパイルから結果を縮小する JsMinify から継承します。 最初に、JavaScript コードを生成する CoffeeScript コンパイラを呼び出すし、結果のコードを縮小する JsMinify.Process メソッドに送信、し。
+    このクラスは、JsMinify から継承して、CoffeeScript コードのコンパイルによって生成される JavaScript 出力を縮小します。 まず、CoffeeScript コンパイラを呼び出して JavaScript コードを生成します。次に、そのコードを JsMinify メソッドに送信して、結果のコードを縮小します。
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
-8. 開く、 **Script1.coffee**と**Script2.coffee**ファイルから、**スクリプト/バンドル**フォルダー。
+8. **Scripts/バンドル**フォルダーから**Script1**ファイルと**Script2**ファイルを開きます。
 
-    これらのファイルは、CoffeeMinify クラスを使用してバンドルを実行中にコンパイルする CoffeScript コードが含まれます。
+    これらのファイルには、CoffeeMinify クラスでのバンドルの実行中にコンパイルされる CoffeScript コードが含まれます。
 
-    わかりやすくするための目的で提供されている CoffeeScript ファイルは CoffeeScript のサンプル コードのみを含むです。 コメントは、JsMinify プロセスによって除外されます。
+    わかりやすくするために、提供される CoffeeScript ファイルには CoffeeScript サンプルコードのみが含まれています。 コメントは JsMinify プロセスによって除外されます。
 
     ![CoffeeScript ファイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image57.png "CoffeeScript ファイル")
 
     *CoffeeScript ファイル*
 
     > [!NOTE]
-    > [CofeeScript](https://github.com/jashkenas/coffeescript/)の JavaScript コードを記述、JavaScript の簡潔さと読みやすさ、強化だけでなく配列理解してパターン マッチングのようなその他の機能を追加する単純な構文を提供します。
-9. 開く、 **Optimization.aspx**ファイルし、バンドルのリンクを探します。
+    > [CofeeScript](https://github.com/jashkenas/coffeescript/)は、javascript コードを記述したり、javascript の簡潔さと読みやすさを強化したり、配列の認識やパターンマッチングなどの他の機能を追加したりするための、より単純な構文を提供します。
+9. **最適化 .aspx**ファイルを開き、バンドルリンクを見つけます。
 
-    注意してへのリンク**動的 JS バンドル**を参照して、**スクリプト/バンドル**フォルダーを使用して、 **コーヒー/** 動的フォルダー バンドルの構成されているサフィックス。
+    動的な**JS バンドル**へのリンクは、動的フォルダーバンドル用に構成した **/コーヒー**サフィックスを使用して、 **Scripts/バンドル**フォルダーを参照していることに注意してください。
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
-10. キーを押して**F5**アプリケーションを実行しに移動する、**最適化**ページ。
-11. をクリックして、**動的 JS バンドル**生成されたファイルを開くためのリンク。
+10. **F5**キーを押してアプリケーションを実行し、 **[最適化]** ページに移動します。
+11. **[動的 JS バンドル]** リンクをクリックして、生成されたファイルを開きます。
 
-    このバンドルに含まれているコンテンツのみを含む通知 ***.coffee**ファイル。 CoffeeScript コードが JavaScript にコンパイルされたされ、コメント アウトされた行が削除されたこともわかります。
+    このバンドルに含まれていたコンテンツには、**コーヒー**ファイルのみが含まれていることに注意してください。 CoffeeScript コードが JavaScript にコンパイルされ、コメントアウトされた行が削除されていることを確認することもできます。
 
-    ![動的な JS ファイルをバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image58.png "動的 JS ファイルのバンドル")
+    ![動的 JS ファイルバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image58.png "動的 JS ファイルバンドル")
 
-    *動的な JS ファイルのバンドル*
+    *動的 JS ファイルバンドル*
 
 > [!NOTE]
-> また、Windows Azure Web サイトの次に、このアプリケーションを展開できます[付録 b:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行](#AppendixB)します。
+> また、 [「付録 B: Web 配置を使用した ASP.NET MVC 4 アプリケーションの発行](#AppendixB)」に従って、このアプリケーションを Windows Azure の Web サイトにデプロイすることもできます。
 
 <a id="Summary"></a>
 ## <a name="summary"></a>まとめ
 
-このラボでは、ASP.NET の新機能と Visual Studio 2012 での Web 開発と Visual Studio 2012 で、さまざまな機能強化の活用方法を理解するのに役立ちます。
+このラボでは、Visual Studio 2012 の ASP.NET および Web 開発の新機能と、Visual Studio 2012 のさまざまな拡張機能を活用する方法を理解することができます。
 
-このハンズオン ラボを完了するが、Visual Studio 2012 のエディターで CSS、JavaScript と HTML の新しい機能と機能強化を使用する方法を習得します。 さらに、Visual Studio 2012 で組み込みのバンドルと縮小を実装する方法を習得があります。
+このハンズオンラボでは、CSS、JavaScript、HTML 用に Visual Studio 2012 エディターの新機能と機能強化を使用する方法について学習しました。 また、Visual Studio 2012 が組み込みのバンドルと縮小を実装する方法についても説明しました。
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a:For Web Express 2012 の Visual Studio のインストール
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 A: Visual Studio Express 2012 を Web 用にインストールする
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順をインストールするために必要な手順をガイドします。 *Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*します。
+**[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** を使用して、Web または別の &quot;Express&quot; バージョン**用に Microsoft Visual Studio Express 2012**をインストールできます。 次の手順では、 *Microsoft Web Platform Installer*を使用して*Visual studio Express 2012 for Web*をインストールするために必要な手順について説明します。
 
-1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)します。 または、既に Web Platform Installer をインストールした場合を開くことも、製品を検索して、 &quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;します。
-2. をクリックして**を今すぐインストール**します。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
-3. 1 回**Web Platform Installer**を開くと、クリックして**インストール**セットアップを開始します。
+1. [[https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)にアクセスします。 または、Web Platform Installer が既にインストールされている場合は、それを開いて、製品 &quot;<em>Visual Studio Express 2012 For web With Windows AZURE SDK</em>&quot;を検索することもできます。
+2. **[今すぐインストール]** をクリックします。 **Web Platform Installer**がない場合は、最初にダウンロードしてインストールするようにリダイレクトされます。
+3. **Web Platform Installer**が開いたら、 **[インストール]** をクリックしてセットアップを開始します。
 
     ![Visual Studio Express のインストール](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image59.png "Visual Studio Express のインストール")
 
-    *Visual Studio Express をインストールします。*
-4. すべての製品のライセンスと使用条件を読み、クリックして**同意**を続行します。
+    *Visual Studio Express のインストール*
+4. すべての製品のライセンスと条項を読み、[**同意**する] をクリックして続行します。
 
-    ![ライセンス条項に同意](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image60.png)
+    ![ライセンス条項に同意する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image60.png)
 
-    *ライセンス条項に同意*
-5. ダウンロードとインストール プロセスが完了するまで待機します。
+    *ライセンス条項に同意する*
+5. ダウンロードとインストールのプロセスが完了するまで待ちます。
 
-    ![インストールの進行状況](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image61.png)
+    ![Installation progress](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image61.png)
 
     *インストールの進行状況*
-6. インストールが完了したら、クリックして**完了**します。
+6. インストールが完了したら、 **[完了]** をクリックします。
 
-    ![インストールが完了しました](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image62.png)
+    ![インストールの完了](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image62.png)
 
-    *インストールが完了しました*
-7. クリックして**終了**Web Platform Installer を閉じます。
-8. Visual Studio Express for Web を開きするには、**開始**画面し、書き込みを開始&quot; **VS Express**&quot;、 をクリックし、 **VS Express for Web**並べて表示します。
+    *インストールの完了*
+7. **[終了]** をクリックして Web Platform Installer を閉じます。
+8. Web 用の Visual Studio Express を開くには、**スタート**画面にアクセスして &quot;**VS Express**&quot;の書き込みを開始し、 **[VS Express for Web]** タイルをクリックします。
 
-    ![VS Express for Web のタイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image63.png)
+    ![VS Express for Web タイル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image63.png)
 
-    *VS Express for Web のタイル*
+    *VS Express for Web タイル*
 
 ---
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B:Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>付録 B: Web 配置を使用した ASP.NET MVC 4 アプリケーションの発行
 
-この付録では、Windows Azure 管理ポータルから新しい web サイトを作成して Windows Azure によって提供される、Web 配置発行機能を活用して、次の演習では、取得したアプリケーションを発行する方法を示します。
+この付録では、windows azure 管理ポータルから新しい web サイトを作成し、Windows Azure によって提供される Web 配置公開機能を活用して、ラボに従って取得したアプリケーションを発行する方法について説明します。
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Creating_a_New_Web_Site_from_the_Windows_Azure_Portal"></a>
-#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>タスク 1 - 新しい Web サイトを作成する、Windows から Azure Portal
+#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>タスク 1-Windows Azure ポータルから新しい Web サイトを作成する
 
-1. 移動して、 [Windows Azure 管理ポータル](https://manage.windowsazure.com/)サブスクリプションに関連付けられている Microsoft の資格情報を使用してサインインします。
-
-    > [!NOTE]
-    > Windows Azure を無料で 10 個の ASP.NET Web サイトをホストでき、トラフィックの増加に応じてスケールできます。 サインアップする[ここ](https://aka.ms/aspnet-hol-azure)します。
-
-    ![Windows Azure ポータルにログオン](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image64.png "Windows Azure ポータルにログオン")
-
-    *Windows Azure 管理ポータルにログオン*
-2. クリックして**新規**コマンド バーにします。
-
-    ![新しい Web サイトを作成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image65.png "新しい Web サイトを作成します。")
-
-    *新しい Web サイトを作成します。*
-3. クリックして**コンピューティング** | **Web サイト**します。 選び**簡易作成**オプション。 新しい web サイトの URL を指定し、をクリックして**Web サイトの作成**です。
+1. [Windows Azure 管理ポータル](https://manage.windowsazure.com/)にアクセスし、サブスクリプションに関連付けられている Microsoft 資格情報を使用してサインインします。
 
     > [!NOTE]
-    > Windows Azure の Web サイトには、制御および管理できる、クラウドで実行されている web アプリケーション、ホストです。 簡易作成 オプションを使用すると、完成した web アプリケーションを Windows Azure の Web サイトから、ポータル外からデプロイできます。 データベースを設定するための手順は含まれません。
+    > Windows Azure では、10 ASP.NET の Web サイトを無料でホストし、トラフィックの増加に合わせて拡張できます。 [ここで](https://aka.ms/aspnet-hol-azure)サインアップできます。
 
-    ![簡易作成を使用して新しい Web サイトを作成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image66.png "簡易作成を使用して新しい Web サイトを作成します。")
+    ![Windows Azure portal にログオンします。](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image64.png "Windows Azure portal にログオンします。")
 
-    *簡易作成を使用して新しい Web サイトを作成します。*
-4. 新しいまで待つ**Web サイト**が作成されます。
-5. Web サイトを作成した後は、下のリンクをクリックして、 **URL**列。 新しい Web サイトが動作していることを確認します。
+    *Windows Azure 管理ポータルにログオンします。*
+2. コマンドバーの **[新規]** をクリックします。
 
-    ![新しい web サイトを参照](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image67.png "新しい web サイトを参照")
+    ![新しい Web サイトの作成](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image65.png "新しい Web サイトの作成")
 
-    *新しい web サイトを参照*
+    *新しい Web サイトの作成*
+3. [ **Compute** | **Web サイト**] をクリックします。 次に、 **[簡易作成]** オプションを選択します。 新しい web サイトの使用可能な URL を指定し、 **[Web サイトの作成]** をクリックします。
 
-    ![Web サイトが実行されている](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image68.png "実行している Web サイト")
+    > [!NOTE]
+    > Windows Azure の Web サイトは、制御および管理が可能なクラウドで実行されている web アプリケーションのホストです。 [簡易作成] オプションを使用すると、完成した web アプリケーションをポータルの外部から Windows Azure の Web サイトにデプロイできます。 データベースを設定する手順は含まれていません。
 
-    *実行している web サイト*
-6. ポータルに戻り、下にある web サイトの名前をクリックして、**名前**管理ページを表示する列。
+    ![簡易作成を使用した新しい Web サイトの作成](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image66.png "簡易作成を使用した新しい Web サイトの作成")
 
-    ![Web サイトの管理ページを開く](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image69.png "web サイトの管理ページを開く")
+    *簡易作成を使用した新しい Web サイトの作成*
+4. 新しい**Web サイト**が作成されるまで待ちます。
+5. Web サイトが作成されたら、 **[URL]** 列の下のリンクをクリックします。 新しい Web サイトが機能していることを確認します。
+
+    ![新しい web サイトを参照しています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image67.png "新しい web サイトを参照しています")
+
+    *新しい web サイトを参照しています*
+
+    ![実行中の Web サイト](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image68.png "実行中の Web サイト")
+
+    *実行中の Web サイト*
+6. ポータルに戻り、 **[名前]** 列の下にある web サイトの名前をクリックして、管理ページを表示します。
+
+    ![Web サイトの管理ページを開く](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image69.png "Web サイトの管理ページを開く")
 
     *Web サイトの管理ページを開く*
-7. **ダッシュ ボード**ページの**概要**セクションで、、**発行プロファイルのダウンロード**リンク。
+7. **[ダッシュボード]** ページの **[概要] セクションで**、 **[発行プロファイルのダウンロード]** リンクをクリックします。
 
     > [!NOTE]
-    > *発行プロファイル*すべてのパブリケーションを有効になっているメソッドごとに Windows Azure web サイトに web アプリケーションを発行するために必要な情報が含まれています。 発行プロファイルには、Url、ユーザーの資格情報およびに接続し、各発行メソッドが有効になっているエンドポイントに対して認証するために必要なデータベースの文字列が含まれています。 **Microsoft WebMatrix 2**、 **Microsoft Visual Studio Express for Web**と**Microsoft Visual Studio 2012**読み取りのサポートと、発行プロファイルのこれらのプログラムの構成を自動化するにはWindows Azure の web サイトへの web アプリケーションを発行しています。
+    > *発行プロファイル*には、有効になっている各発行方法について、Windows Azure web サイトに web アプリケーションを発行するために必要なすべての情報が含まれています。 発行プロファイルには、発行メソッドが有効化される各エンドポイントに接続して認証するために必要な URL、ユーザーの資格情報、およびデータベース文字列が含まれています。 **Microsoft WebMatrix 2**、 **Microsoft Visual Studio Express for Web**および**Microsoft Visual Studio 2012**では、発行プロファイルを読み取り、Web アプリケーションを Windows Azure websites に発行するためのこれらのプログラムの構成を自動化することがサポートされています。
 
-    ![発行プロファイルのダウンロード web サイト](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image70.png "発行プロファイルの web サイトのダウンロード")
+    ![Web サイト発行プロファイルをダウンロードしています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image70.png "Web サイト発行プロファイルをダウンロードしています")
 
-    *発行プロファイルの Web サイトのダウンロード*
-8. 既知の場所に発行プロファイル ファイルをダウンロードします。 さらにこの演習ではこのファイルを使用して、Visual Studio から Windows Azure Web サイトに web アプリケーションを発行する方法が表示されます。
+    *Web サイト発行プロファイルをダウンロードしています*
+8. 発行プロファイルファイルを既知の場所にダウンロードします。 この演習では、このファイルを使用して、Visual Studio から Windows Azure Web サイトに web アプリケーションを発行する方法について説明します。
 
-    ![発行プロファイル ファイルを保存する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image71.png "発行プロファイルを保存しています")
+    ![発行プロファイルファイルを保存しています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image71.png "発行プロファイルを保存しています")
 
-    *発行プロファイル ファイルを保存しています*
+    *発行プロファイルファイルを保存しています*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
-#### <a name="task-2---configuring-the-database-server"></a>タスク 2 - データベース サーバーの構成
+#### <a name="task-2---configuring-the-database-server"></a>タスク 2-データベースサーバーの構成
 
-アプリケーションが SQL Server を使用する場合のデータベースは SQL Database サーバーを作成する必要があります。 SQL Server を使用しない単純なアプリケーションをデプロイする場合は、このタスクをスキップする可能性があります。
+アプリケーションで SQL Server データベースを使用する場合は、SQL Database サーバーを作成する必要があります。 SQL Server を使用しない単純なアプリケーションを展開する場合は、このタスクを省略できます。
 
-1. SQL Database サーバーは、アプリケーション データベースを格納する必要があります。 Windows Azure 管理ポータル内のサブスクリプションから SQL Database サーバーを表示する**Sql データベース** | **サーバー** | **サーバーのダッシュ ボード**します。 使用して 1 つを作成するには作成したサーバーがない、**追加**コマンド バーのボタンをクリックします。 メモ、**サーバー名および URL、管理者のログイン名とパスワード**次のタスクで使用すると、します。 データベースを作成しない、まだ、後の段階でそれが作成されます。
+1. アプリケーションデータベースを格納するには、SQL Database サーバーが必要です。 サブスクリプションの**SQL Database サーバーは**、Windows Azure 管理ポータルの**SQL データベース** | サーバー | **サーバーのダッシュボード**で確認できます。 サーバーを作成していない場合は、コマンドバーの **[追加]** ボタンを使用して作成できます。 次のタスクで使用するので、**サーバー名と URL、管理者のログイン名、パスワード**をメモしておきます。 データベースは、後の段階で作成されるため、まだ作成しないでください。
 
-    ![SQL データベース サーバーのダッシュ ボード](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image72.png "SQL データベース サーバーのダッシュ ボード")
+    ![SQL Database サーバーダッシュボード](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image72.png "SQL Database サーバーダッシュボード")
 
-    *SQL データベース サーバーのダッシュ ボード*
-2. 次のタスクでは、サーバーの一覧で、ローカル IP アドレスを含める必要があるため、Visual Studio からデータベース接続をテストします**使用できる IP アドレス**します。 次のようにクリックします**構成**、から IP アドレスを選択して**現在のクライアント IP アドレス**で貼り付けます、**開始 IP アドレス**と**終了 IP アドレス。** テキスト ボックス。 ルールの名前を入力し、クリックして、 ![add-client-ip-address-ok-button](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image73.png)ボタンをクリックします。
+    *SQL Database サーバーダッシュボード*
+2. 次のタスクでは、Visual Studio からデータベース接続をテストします。そのため、**使用可能な Ip アドレス**の一覧にローカル ip アドレスを含める必要があります。 これを行うには、 **[構成]** をクリックし、 **[現在のクライアント IP アドレス]** から ip アドレスを選択して、 **[開始 Ip アドレス]** および **[終了 ip アドレス]** ボックスに貼り付けます。 規則の名前を入力し、[![の追加]](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image73.png) ボタンをクリックします。
 
-    ![クライアント IP アドレスを追加します。](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image74.png)
+    ![クライアント IP アドレスを追加しています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image74.png)
 
-    *クライアント IP アドレスを追加します。*
-3. 1 回、**クライアント IP アドレス**が許可された IP アドレスに追加一覧で、をクリックして**保存**変更を確認します。
+    *クライアント IP アドレスを追加しています*
+3. [許可された IP アドレス] の一覧に**クライアントの Ip アドレス**が追加されたら、 **[保存]** をクリックして変更を確認します。
 
-    ![変更を確認します。](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image75.png)
+    ![変更の確認](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image75.png)
 
-    *変更を確認します。*
+    *変更の確認*
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>タスク 3 - Web Deploy を使用して ASP.NET MVC 4 アプリケーションの発行
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>タスク 3-Web 配置を使用した ASP.NET MVC 4 アプリケーションの発行
 
-1. ASP.NET MVC 4 のソリューションに戻ります。 **ソリューション エクスプ ローラー**を web サイト プロジェクトを右クリックし、**発行**します。
+1. ASP.NET MVC 4 ソリューションに戻ります。 **ソリューションエクスプローラー**で、web サイトプロジェクトを右クリックし、 **[発行]** を選択します。
 
     ![アプリケーションの発行](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image76.png "アプリケーションの発行")
 
-    *Web サイトの発行*
+    *Web サイトの公開*
 2. 最初のタスクで保存した発行プロファイルをインポートします。
 
-    ![発行プロファイルをインポートする](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image77.png "発行プロファイルをインポートします。")
+    ![発行プロファイルをインポートしています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image77.png "発行プロファイルをインポートしています")
 
-    *発行プロファイルのインポート*
-3. クリックして**接続の検証**です。 検証が完了したら、クリックして**次**します。
+    *発行プロファイルをインポートしています*
+3. **[接続の検証]** をクリックします。 検証が完了したら、 **[次へ]** をクリックします。
 
     > [!NOTE]
-    > 接続の検証ボタンの横に表示される緑のチェック マークが表示されたら、検証が完了しました。
+    > 検証が完了すると、[接続の検証] ボタンの横に緑色のチェックマークが表示されます。
 
     ![接続の検証](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image78.png "接続の検証")
 
     *接続の検証*
-4. **設定**ページの**データベース**セクションで、データベース接続のテキスト ボックスの横にあるボタンをクリックします (つまり**DefaultConnection**)。
+4. **[設定]** ページの **[データベース]** セクションで、データベース接続のテキストボックスの横にあるボタン ( **defaultconnection**など) をクリックします。
 
-    ![Web 配置の構成](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image79.png "Web 配置の構成")
+    ![Web deploy の構成](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image79.png "Web deploy の構成")
 
-    *Web 配置の構成*
-5. データベース接続を次のように構成します。
+    *Web deploy の構成*
+5. 次のようにデータベース接続を構成します。
 
-   - **サーバー名**SQL Database サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
-   - **ユーザー名**サーバー管理者ログイン名を入力します。
-   - **パスワード**サーバー管理者ログイン パスワードを入力します。
-   - たとえば、新しいデータベース名を入力します。*MVC4SampleDB*します。
+   - **サーバー名**には、 *tcp:* プレフィックスを使用して SQL Database サーバーの URL を入力します。
+   - **User name (ユーザー名**) に、サーバー管理者のログイン名を入力します。
+   - **パスワード**で、サーバー管理者のログインパスワードを入力します。
+   - 新しいデータベース名を入力します (例: *MVC4SampleDB*)。
 
-     ![ターゲットの接続文字列を構成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "ターゲットの接続文字列を構成します。")
+     ![変換先の接続文字列を構成しています](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "変換先の接続文字列を構成しています")
 
-     *ターゲットの接続文字列を構成します。*
-6. 次に、 **[OK]** をクリックします。 データベースのクリックを作成するように求められたら**はい**します。
+     *変換先の接続文字列を構成しています*
+6. 次に、 **[OK]** をクリックします データベースの作成を求めるメッセージが表示されたら、[**はい]** をクリックします。
 
-    ![データベースを作成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "データベース文字列を作成します。")
+    ![データベースの作成](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "データベース文字列の作成")
 
     *データベースの作成*
-7. Windows azure SQL Database への接続に使用する接続文字列は、接続の既定のテキスト ボックス内に表示されます。 その後、 **[次へ]** をクリックします。
+7. Windows Azure の SQL Database に接続するために使用する接続文字列は、[既定の接続] ボックスに表示されます。 続けて、 **[次へ]** をクリックします。
 
-    ![SQL データベースを指す接続文字列](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image82.png "SQL データベースを指す接続文字列")
+    ![SQL Database を指す接続文字列](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image82.png "SQL Database を指す接続文字列")
 
-    *SQL データベースを指す接続文字列*
-8. **プレビュー** ] ページで [**発行**します。
+    *SQL Database を指す接続文字列*
+8. **[プレビュー]** ページで、 **[発行]** をクリックします。
 
-    ![Web アプリケーションの発行](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image83.png "web アプリケーションの発行")
+    ![Web アプリケーションの発行](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image83.png "Web アプリケーションの発行")
 
     *Web アプリケーションの発行*
-9. 発行プロセスが完了すると、既定のブラウザーが発行した web サイトを開きます。
+9. 発行プロセスが完了すると、既定のブラウザーによって公開された web サイトが開きます。
 
-    ![Windows Azure にアプリケーションが発行される](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image84.png "アプリケーションは Windows Azure に発行")
+    ![Windows Azure に発行されたアプリケーション](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image84.png "Windows Azure に発行されたアプリケーション")
 
     *Windows Azure に発行されたアプリケーション*

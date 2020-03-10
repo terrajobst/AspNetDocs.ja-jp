@@ -1,262 +1,262 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
-title: ASP.NET 4 Web アプリケーションで Entity Framework 4.0 でパフォーマンスを最大化 |Microsoft Docs
+title: ASP.NET 4 Web アプリケーションでの Entity Framework 4.0 を使用したパフォーマンスの最大化 |Microsoft Docs
 author: tdykstra
-description: このチュートリアル シリーズでは、Entity Framework 4.0 のチュートリアル シリーズの概要を作成した Contoso University web アプリケーションに基づいています。 ここには.
+description: このチュートリアルシリーズは、Entity Framework 4.0 チュートリアルシリーズを使用してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 ...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 4e43455e-dfa1-42db-83cb-c987703f04b5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: 5630200a1ad1d30f6d89b38e15179f15b699fa9f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108581"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439264"
 ---
-# <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>ASP.NET 4 Web アプリケーションで Entity Framework 4.0 でパフォーマンスの最大化
+# <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>ASP.NET 4 Web アプリケーションでの Entity Framework 4.0 を使用したパフォーマンスの最大化
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](https://asp.net/entity-framework/tutorials#Getting%20Started)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
+> このチュートリアルシリーズは、 [Entity Framework 4.0 チュートリアルシリーズを使用](https://asp.net/entity-framework/tutorials#Getting%20Started)してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点として、作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)できます。 チュートリアルシリーズ全体で作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)することもできます。 チュートリアルについてご質問がある場合は、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)に投稿することができます。
 
-前のチュートリアルでは、同時実行の競合を処理する方法を説明しました。 このチュートリアルでは、Entity Framework を使用する ASP.NET web アプリケーションのパフォーマンスを向上させるためのオプションを使用します。 パフォーマンスを最大化するため、またはパフォーマンスの問題を診断するためのいくつかの方法について説明します。
+前のチュートリアルでは、同時実行の競合を処理する方法を説明しました。 このチュートリアルでは、Entity Framework を使用する ASP.NET web アプリケーションのパフォーマンスを向上させるためのオプションについて説明します。 パフォーマンスを最大化したり、パフォーマンスの問題を診断したりするためのいくつかの方法について説明します。
 
-次のセクションで説明する情報は、幅広いシナリオで役に立ちますする可能性があります。
+以下のセクションに記載されている情報は、さまざまなシナリオで役に立つ可能性があります。
 
-- 関連するデータを効率的に読み込みます。
-- ビュー ステートを管理します。
+- 関連データを効率的に読み込みます。
+- ビューステートを管理します。
 
-個々 のクエリを現在のパフォーマンスの問題がある場合に役立ちます。 以下のセクションで説明する情報があります。
+以下のセクションに記載されている情報は、パフォーマンスの問題が発生する個々のクエリがある場合に役立ちます。
 
-- 使用して、`NoTracking`マージ オプションです。
-- LINQ クエリを事前にコンパイルします。
-- データベースに送信されたクエリ コマンドを確認します。
+- `NoTracking` merge オプションを使用します。
+- LINQ クエリをプリコンパイルします。
+- データベースに送信されたクエリコマンドを確認します。
 
-次のセクションで説明する情報は非常に大きなデータ モデルを持つアプリケーションに役立つ可能性があります。
+次のセクションで説明する情報は、非常に大きなデータモデルを持つアプリケーションに役立つ可能性があります。
 
 - ビューを事前に生成します。
 
 > [!NOTE]
-> Web アプリケーションのパフォーマンスは、要求と応答データのサイズのデータベースにクエリがキューに入れること、サーバー要求の数、およびどの程度の速度、および任意の効率も処理できる速度などを含む、さまざまな要因の影響を受けるクライアント スクリプト ライブラリを使用する場合があります。 パフォーマンスがアプリケーションでは、重要な場合、またはテストまたは経験によってアプリケーションのパフォーマンスが満足されていないことが表示されている場合は、パフォーマンス チューニングの通常のプロトコルに従ってください。 パフォーマンスのボトルネックの発生場所を確認する測定し、アプリケーション全体のパフォーマンスに大きな影響を与える点を解決します。
+> Web アプリケーションのパフォーマンスは多くの要因の影響を受けます。これには、要求と応答のデータのサイズ、データベースクエリの速度、サーバーがキューに入れられる要求の数、サーバーがキューに入れられる要求の数、サービスの効率、クライアントスクリプトライブラリを使用している可能性があります。 アプリケーションでパフォーマンスが重要な場合、またはテストまたは経験によってアプリケーションのパフォーマンスが不十分であることが示された場合は、パフォーマンスチューニングのために通常のプロトコルに従う必要があります。 パフォーマンスのボトルネックが発生している場所を判断し、アプリケーション全体のパフォーマンスに最大の影響を与える領域に対処します。
 > 
-> このトピックを具体的には ASP.NET で Entity Framework のパフォーマンスを向上することができます可能性のある方法で主に重点を置いています。 ここで、推奨事項は、データ アクセスでは、アプリケーションでパフォーマンスのボトルネックのいずれかの判断した場合に便利です。 ここで説明するメソッドと見なすべきではないように、点を除いて&quot;ベスト プラクティス&quot;一般に、これらの多くは例外的な状況でのみ、または非常に特定の種類をパフォーマンスのボトルネックのアドレスを適切な。
+> このトピックでは、主に ASP.NET の Entity Framework のパフォーマンスを向上させる方法に焦点を当てています。 ここでの推奨事項は、データアクセスがアプリケーションのパフォーマンスボトルネックの1つであると判断した場合に役立ちます。 ただし、前述のように、ここで説明する方法は、一般的&quot; のベストプラクティス &quot;とは見なされません。その多くは、例外的な状況にのみ適しています。また、非常に具体的なパフォーマンスのボトルネックに対処するためにも適しています。
 
-チュートリアルを開始するには、Visual Studio を起動し、前のチュートリアルで作業していた Contoso University web アプリケーションを開きます。
+チュートリアルを開始するには、Visual Studio を起動し、前のチュートリアルで使用していた Contoso 大学 web アプリケーションを開きます。
 
-## <a name="efficiently-loading-related-data"></a>関連データの読み込みを効率的に
+## <a name="efficiently-loading-related-data"></a>関連データの効率的な読み込み
 
-いくつかの方法が、Entity Framework がエンティティのナビゲーション プロパティに関連するデータを読み込むことができます。
+Entity Framework がエンティティのナビゲーションプロパティに関連データを読み込むには、いくつかの方法があります。
 
-- *遅延読み込み*。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ただし、ナビゲーション プロパティに初めてアクセスしようとすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 これは、データベースに送信する複数のクエリ結果: 1 つ、エンティティ自体は、1 つに関連したエンティティのデータを毎回を取得する必要があります。 
+- *遅延読み込み*。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ただし、ナビゲーション プロパティに初めてアクセスしようとすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 この結果、複数のクエリがデータベースに送信されます。1つはエンティティ自体に対して、もう1つはエンティティの関連データを取得する必要があるときです。 
 
     [![Image05](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image2.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image1.png)
 
-*一括読み込み*。 エンティティが読み取られるときに、関連データがエンティティと共に取得されます。 これは通常、必要なデータをすべて取得する 1 つの結合クエリになります。 一括読み込みを使用して指定する、`Include`メソッドと、既に確認したこれらのチュートリアル。
+*一括読み込み*。 エンティティが読み取られるときに、関連データがエンティティと共に取得されます。 これは通常、必要なデータをすべて取得する 1 つの結合クエリになります。 このチュートリアルで既に説明したように、`Include` メソッドを使用して一括読み込みを指定します。
 
 [![Image07](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image4.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image3.png)
 
-- *明示的読み込み*。 はコードで、関連するデータを明示的に取得する点を除いて、遅延読み込みと同様にはナビゲーション プロパティにアクセスするときに自動的に発生しません。 使用して手動で関連データを読み込む、`Load`するか、コレクション ナビゲーション プロパティのメソッドを使用して、`Load`参照プロパティの 1 つのオブジェクトを保持するプロパティのメソッド。 (たとえばを呼び出す、`PersonReference.Load`を読み込むメソッド、`Person`のナビゲーション プロパティ、`Department`エンティティ)。
+- *明示的読み込み*。 これは、コード内の関連データを明示的に取得する点を除いて、遅延読み込みに似ています。ナビゲーションプロパティにアクセスしても、自動的には発生しません。 関連データは、コレクションのナビゲーションプロパティの `Load` メソッドを使用して手動で読み込むか、または1つのオブジェクトを保持するプロパティの reference プロパティの `Load` メソッドを使用します。 (たとえば、`PersonReference.Load` メソッドを呼び出して、`Department` エンティティの `Person` ナビゲーションプロパティを読み込みます)。
 
     [![Image06](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image6.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image5.png)
 
-すぐに、プロパティの値を取得、ため、遅延読み込みと明示的な読み込みは両方とも呼ばれます*遅延読み込み*します。
+遅延読み込みと明示的な読み込みは、すぐにプロパティ値を取得しないため、*遅延読み込み*とも呼ばれます。
 
-遅延読み込みは、デザイナーによって生成されたオブジェクト コンテキストの既定の動作です。 開く場合、 *SchoolModel.Designer.cs*ファイル、オブジェクト コンテキスト クラスを定義する、3 つのコンス トラクター メソッドが見つかりますおよびそれぞれに、次のステートメントが含まれています。
+遅延読み込みは、デザイナーによって生成されたオブジェクトコンテキストの既定の動作です。 オブジェクトコンテキストクラスを定義する*SchoolModel.Designer.cs*ファイルを開くと、3つのコンストラクターメソッドが見つかり、それぞれに次のステートメントが含まれています。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample1.cs)]
 
-一般に、わかっている場合必要関連データのすべてのエンティティを取得した、一括読み込みは、最適なパフォーマンスをデータベースに送信する 1 つのクエリが通常は分離したクエリの各エンティティを取得するよりも効率的であるためです。 その一方、頻度、エンティティのナビゲーション プロパティにアクセスする必要がある場合または小さなに対してのみは、一括読み込みでは、必要以上に多くのデータを取得するためエンティティ、遅延読み込みと明示的な読み込みのセットより効率的ですあります。
+一般に、取得したすべてのエンティティに関連データが必要であることがわかっている場合は、一括読み込みで最高のパフォーマンスが得られます。これは、データベースに送信される単一のクエリは、通常、取得されたエンティティごとに個別のクエリよりも効率的であるためです。 一方、エンティティのナビゲーションプロパティにアクセスする頻度が低い場合、または少数のエンティティセットに対してのみアクセスする必要がある場合は、一括読み込みで必要以上のデータが取得されるため、遅延読み込みまたは明示的な読み込みの方が効率的です。
 
-Web アプリケーションで遅延読み込みできなかった可能性があります比較的小さな値の関連データの必要性に影響を与えるユーザー アクションがページを表示するオブジェクト コンテキストへの接続がないと、ブラウザーで実行します。 その一方で、コントロールを databind を通常データを把握し、一括読み込みまたはに基づいて遅延読み込みを選択する最適なので、通常はときに各シナリオで適切なは。
+Web アプリケーションでは、関連するデータのニーズに影響を与えるユーザー操作がブラウザーで実行されるため、遅延読み込みの値が比較的小さくなることがあります。これは、ページをレンダリングしたオブジェクトコンテキストへの接続がないためです。 一方、コントロールをデータバインドする場合は、通常、必要なデータを把握しているため、通常は、各シナリオに適した方法に基づいて、一括読み込みまたは遅延読み込みを選択することをお勧めします。
 
-さらに、データ バインド コントロールは、オブジェクト コンテキストが破棄された後に、エンティティ オブジェクトを使用可能性があります。 その場合は、遅延読み込みのナビゲーション プロパティの試行は失敗します。 表示されるエラー メッセージは明確です。 &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
+また、オブジェクトコンテキストが破棄された後で、データバインドコントロールでエンティティオブジェクトを使用する場合もあります。 その場合、ナビゲーションプロパティの遅延読み込みの試行は失敗します。 次のエラーメッセージが表示されます。 &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
 
-`EntityDataSource`コントロールは、既定で遅延読み込みを無効にします。 `ObjectDataSource`コントロールの現在のチュートリアルを使用している (または、オブジェクト コンテキストは、ページ コードからアクセスするかどうか)、いくつかの方法を最短に行うことができます読み込みを既定で無効にします。 オブジェクト コンテキストをインスタンス化するときに、それが無効にできます。 たとえば、次の行を追加のコンス トラクター メソッドに、`SchoolRepository`クラス。
+`EntityDataSource` コントロールは、既定で遅延読み込みを無効にします。 現在のチュートリアルで使用している `ObjectDataSource` コントロール (またはページコードからオブジェクトコンテキストにアクセスする場合) では、遅延読み込みを既定で無効にする方法がいくつかあります。 オブジェクトコンテキストをインスタンス化するときに無効にすることができます。 たとえば、次の行を `SchoolRepository` クラスのコンストラクターメソッドに追加できます。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample2.cs)]
 
-Contoso University アプリケーションの場合、オブジェクト コンテキストが自動的にこのプロパティは、コンテキストをインスタンス化されるたびに設定する必要があるないように、遅延読み込みを無効にすることになります。
+Contoso 大学アプリケーションでは、コンテキストがインスタンス化されるたびにこのプロパティを設定する必要がないように、オブジェクトコンテキストによって遅延読み込みが自動的に無効になります。
 
-開く、 *SchoolModel.edmx*データがモデル化し、デザイン画面で、をクリックし、[プロパティ] ウィンドウで次のように設定します。、**遅延読み込みを有効に**プロパティを`False`します。 保存して、データ モデルを閉じます。
+*SchoolModel*データモデルを開き、デザイン画面をクリックします。次に、[プロパティ] ペインで、[**遅延読み込みを有効**にする] プロパティを `False`に設定します。 データモデルを保存して閉じます。
 
 [![Image04](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image8.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image7.png)
 
-## <a name="managing-view-state"></a>ビュー ステートを管理します。
+## <a name="managing-view-state"></a>ビューステートの管理
 
-更新機能を提供するために、ページが表示されるときに、ASP.NET web ページは、エンティティの元のプロパティ値を格納する必要があります。 ポストバック コントロールを処理中に、エンティティの元の状態を再作成して、エンティティの呼び出し`Attach`メソッドの変更を適用して、呼び出しの前に、`SaveChanges`メソッド。 既定では、ASP.NET Web フォームのデータ コントロールは、元の値を格納するのにビュー ステートを使用します。 ただし、ビュー ステートに影響する可能性、パフォーマンスとブラウザーの間に送信されるページのサイズを大幅に増加することが非表示フィールドに格納されているためです。
+更新機能を提供するために、ページを表示するときに、ASP.NET web ページにエンティティの元のプロパティ値を格納する必要があります。 ポストバック処理中に、コントロールはエンティティの元の状態を再作成し、変更を適用して `SaveChanges` メソッドを呼び出す前に、エンティティの `Attach` メソッドを呼び出すことができます。 既定では、ASP.NET Web フォームデータコントロールは、ビューステートを使用して元の値を格納します。 ただし、ビューステートは、ブラウザーとの間で送受信されるページのサイズを大幅に増やすことができる非表示フィールドに格納されているため、パフォーマンスに影響する可能性があります。
 
-このチュートリアルは、このトピックの詳細に移動しないようにビュー状態、またはセッション状態などの代替手段を管理するための手法は一意で、Entity Framework にはありません。 詳細については、チュートリアルの最後に、リンクを参照してください。
+ビューステートを管理する方法、またはセッション状態などの代替手段は Entity Framework に固有のものではないため、このチュートリアルでは詳しく説明しません。 詳細については、チュートリアルの最後にあるリンクを参照してください。
 
-ただし、ASP.NET のバージョン 4 が Web フォーム アプリケーションのすべての ASP.NET 開発者が注意する必要があるビュー ステートを使用した作業の新しい方法を提供します。、`ViewStateMode`プロパティ。 ページまたはコントロールのレベルでこの新しいプロパティを設定することができ、既定では、ページのビューステートを無効にし、必要なコントロールに対してのみ有効にできます。
+ただし、ASP.NET のバージョン4では、Web フォームアプリケーションのすべての ASP.NET 開発者が認識する必要がある、ビューステートを操作する新しい方法が提供されます。これは、`ViewStateMode` プロパティです。 この新しいプロパティは、ページレベルまたはコントロールレベルで設定できます。また、ページのビューステートを既定で無効にし、それを必要とするコントロールに対してのみ有効にすることができます。
 
-アプリケーションのパフォーマンスが重要では、ことをお勧めは常にページ レベルでのビュー ステートを無効にしてが必要なコントロールに対してのみ有効にするのには。 Contoso University のページのビュー ステートのサイズは、このメソッドによって大幅に低下はありませんが、そのしくみについては、する仕事を*Instructors.aspx*ページ。 そのページには含む、多くのコントロールが含まれています、`Label`ビューステートが無効になっているコントロール。 このページのコントロールのいずれも実際には、ビュー状態が有効にする必要があります。 (、`DataKeyNames`のプロパティ、`GridView`コントロールがポストバック間で保持する必要がある状態を指定しますが、これらの値がコントロールの状態は、影響を与えませんに保持される、`ViewStateMode`プロパティです)。
+パフォーマンスが重要なアプリケーションの場合は、常にページレベルでビューステートを無効にし、それを必要とするコントロールに対してのみ有効にすることをお勧めします。 Contoso 大学のページのビューステートのサイズは、この方法によって大幅に減少することはありませんが、そのしくみを確認するために、*教員の .aspx*ページに対して行います。 このページには、ビューステートが無効になっている `Label` コントロールなど、多くのコントロールが含まれています。 このページのコントロールでは、実際にはビューステートを有効にする必要がありません。 (`GridView` コントロールの `DataKeyNames` プロパティは、ポストバック間で管理する必要がある状態を指定しますが、これらの値は `ViewStateMode` プロパティの影響を受けないコントロールの状態で保持されます)。
 
-`Page`ディレクティブと`Label`コントロール マークアップには、次の例では、現在に似ています。
+現在、`Page` ディレクティブと `Label` コントロールのマークアップは、次の例のようになります。
 
 [!code-aspx[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample3.aspx)]
 
-次の変更を加えます。
+次の変更を行います。
 
-- 追加`ViewStateMode="Disabled"`を`Page`ディレクティブ。
-- 削除`ViewStateMode="Disabled"`から、`Label`コントロール。
+- `Page` ディレクティブに `ViewStateMode="Disabled"` を追加します。
+- `Label` コントロールから `ViewStateMode="Disabled"` を削除します。
 
-マークアップでは、次の例では、今すぐようになります。
+このマークアップは、次の例のようになります。
 
 [!code-aspx[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample4.aspx)]
 
-すべてのコントロールは、ビュー ステートが無効になりました。 含める行う必要があるすべてが後では、ビュー ステートを使用する必要があるコントロールを追加する場合、`ViewStateMode="Enabled"`そのコントロールの属性。
+すべてのコントロールでビューステートが無効になりました。 ビューステートを使用する必要があるコントロールを後で追加する場合は、そのコントロールの `ViewStateMode="Enabled"` 属性を含めるだけで済みます。
 
-## <a name="using-the-notracking-merge-option"></a>NoTracking マージ オプションを使用します。
+## <a name="using-the-notracking-merge-option"></a>NoTracking マージオプションの使用
 
-オブジェクト コンテキストでは、データベースの行を取得し、それらを表すエンティティ オブジェクトを作成、ときに既定の追跡も、オブジェクトの状態マネージャーを使用してそれらのエンティティ オブジェクト。 この追跡データはキャッシュとして機能し、エンティティを更新するときに使用されます。 Web アプリケーションには、通常は時間が短いオブジェクト コンテキストのインスタンスがあるためクエリは多くの場合、もう一度そこにエンティティのいずれかの使用前にそれらを読み取るオブジェクト コンテキストが破棄されるため、追跡する必要がないデータを返すまたは更新します。
+オブジェクトコンテキストがデータベース行を取得し、それらを表すエンティティオブジェクトを作成すると、既定では、オブジェクト状態マネージャーを使用してそれらのエンティティオブジェクトも追跡されます。 この追跡データはキャッシュとして機能し、エンティティを更新するときに使用されます。 通常、web アプリケーションには有効期間が短いオブジェクトコンテキストインスタンスがあるため、クエリは、読み取られる必要のないデータを返すことがよくあります。これは、読み取られたすべてのエンティティが再度使用されるか、または更新される前に、それらを読み取るオブジェクトコンテキストが破棄されるためです。
 
-Entity framework では、オブジェクト コンテキストが設定してエンティティ オブジェクトを追跡するかどうかを指定できます、*マージ オプション*します。 個々 のクエリに対してまたはのエンティティ セットのマージ オプションを設定することができます。 場合は、エンティティ セットに対して設定すると、そのエンティティ セットに対して作成されるすべてのクエリの既定のマージ オプションを設定することを意味します。
+Entity Framework では、*マージオプション*を設定することによって、オブジェクトコンテキストでエンティティオブジェクトを追跡するかどうかを指定できます。 マージオプションは、個々のクエリまたはエンティティセットに対して設定できます。 エンティティセットに対して設定した場合、そのエンティティセットに対して作成されるすべてのクエリに対して、既定のマージオプションを設定することになります。
 
-Contoso University のアプリケーションのエンティティ セット マージ オプションを設定できるように、リポジトリからのアクセスのいずれかの追跡は必要`NoTracking`のリポジトリ クラスにオブジェクト コンテキストをインスタンス化するときにこれらのエンティティ セット。 (このチュートリアルでマージ オプションを設定しませんがあるアプリケーションのパフォーマンスに大きな影響が及ぶに注意してください。 `NoTracking`オプションは、特定のデータ量の多いシナリオでのみ、監視可能なパフォーマンスが向上する可能性があります)。
+Contoso 大学アプリケーションでは、リポジトリからアクセスするエンティティセットの追跡は必要ありません。そのため、リポジトリクラスでオブジェクトコンテキストをインスタンス化するときに、これらのエンティティセットの `NoTracking` にマージオプションを設定できます。 (このチュートリアルでは、merge オプションを設定しても、アプリケーションのパフォーマンスに大きな影響はありません。 `NoTracking` オプションは、データ量の多い特定のシナリオでのみ監視可能なパフォーマンス向上を実現する可能性があります)。
 
-DAL フォルダーで開き、 *SchoolRepository.cs*ファイルを開き、エンティティ セットがリポジトリにアクセスするは、マージ オプションを設定するコンス トラクター メソッドを追加します。
+DAL フォルダーで、 *SchoolRepository.cs*ファイルを開き、リポジトリがアクセスするエンティティセットのマージオプションを設定するコンストラクターメソッドを追加します。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample5.cs)]
 
-## <a name="pre-compiling-linq-queries"></a>Pre-Compiling LINQ Queries
+## <a name="pre-compiling-linq-queries"></a>LINQ クエリのプリコンパイル
 
-Entity Framework の有効期間内の Entity SQL クエリを実行する最初の時間を指定した`ObjectContext`インスタンス、時間がかかるクエリをコンパイルします。 つまり、クエリの後続の実行が大幅に短縮するコンパイルの結果がキャッシュされます。 LINQ クエリは、クエリが実行されるたびに、クエリのコンパイルに必要な作業の一部が完了する点を除いて、同様のパターンに従います。 つまり、LINQ クエリでは、既定ですべてのコンパイルの結果のキャッシュされます。
+Entity Framework が、指定された `ObjectContext` インスタンスの有効期間内に Entity SQL クエリを初めて実行するときは、クエリのコンパイルに多少の時間がかかります。 コンパイルの結果がキャッシュされます。これは、クエリの後続の実行がはるかに高速になることを意味します。 LINQ クエリは同様のパターンに従います。ただし、クエリをコンパイルするために必要な作業の一部は、クエリが実行されるたびに実行されます。 つまり、LINQ クエリの場合、既定では、コンパイルのすべての結果がキャッシュされるわけではありません。
 
-オブジェクト コンテキストの有効期間で繰り返し実行すると思われる LINQ クエリがある場合は、すべてのキャッシュを初めて LINQ クエリを実行するコンパイルの結果を原因となるコードを記述できます。
+オブジェクトコンテキストの有効期間内に繰り返し実行することが予想される LINQ クエリがある場合は、LINQ クエリを初めて実行するときにコンパイルのすべての結果がキャッシュされるようにするコードを記述できます。
 
-例として、これを行う 2 つの`Get`メソッド、`SchoolRepository`任意のパラメーターをとらないうちの 1 つのクラス (、`GetInstructorNames`メソッド)、いずれかのパラメーターを必要として (、`GetDepartmentsByAdministrator`メソッド)。 これらのメソッド目立つようになりました実際にする必要はありませんので LINQ クエリをコンパイルします。
+図として、`SchoolRepository` クラスの2つの `Get` メソッドに対してこれを実行します。1つはパラメーター (`GetInstructorNames` メソッド) を取らず、もう1つはパラメーター (`GetDepartmentsByAdministrator` メソッド) を必要とします。 これらのメソッドは、LINQ クエリではないため、実際にコンパイルする必要がなくなりました。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample6.cs)]
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample7.cs)]
 
-ただし、コンパイル済みクエリを試すことができるように、これらを次の LINQ クエリとして記述されている必要がある場合とを続行します。
+ただし、コンパイル済みのクエリを試すことができるように、次の LINQ クエリとして記述されているかのように続行します。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample8.cs)]
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample9.cs)]
 
-前に示したし、続行する前に動作することを確認するアプリケーションの実行内容が、これらのメソッドでコードを変更できます。 次の手順はそれらのコンパイル済みのバージョンの作成に取りかかります。
+これらのメソッドのコードを上記のように変更し、アプリケーションを実行して、続行する前に動作することを確認できます。 ただし、次の手順は、事前にコンパイルされたバージョンを作成することに直接対応しています。
 
-クラス ファイルを作成、 *DAL*フォルダー、という名前を付けます*SchoolEntities.cs*、既存のコードを次のコードに置き換えます。
+*DAL*フォルダーにクラスファイルを作成し、 *SchoolEntities.cs*という名前を付けて、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample10.cs)]
 
-このコードは、自動的に生成されたオブジェクト コンテキスト クラスを拡張する部分クラスを作成します。 部分クラスには使用して 2 つのコンパイル済み LINQ クエリが含まれています、`Compile`のメソッド、`CompiledQuery`クラス。 クエリの呼び出しに使用できるメソッドも作成します。 保存して、このファイルを閉じます。
+このコードは、自動的に生成されたオブジェクトコンテキストクラスを拡張する部分クラスを作成します。 部分クラスには、`CompiledQuery` クラスの `Compile` メソッドを使用する2つのコンパイル済み LINQ クエリが含まれています。 また、クエリを呼び出すために使用できるメソッドも作成します。 このファイルを保存して閉じます。
 
-次に、 *SchoolRepository.cs*、既存の変更`GetInstructorNames`と`GetDepartmentsByAdministrator`コンパイル済みクエリを呼び出すことができるように、リポジトリ内のメソッドがクラスします。
+次に、 *SchoolRepository.cs*で、コンパイルされたクエリを呼び出すように、リポジトリクラスの既存の `GetInstructorNames` および `GetDepartmentsByAdministrator` メソッドを変更します。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample11.cs)]
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample12.cs)]
 
-実行、 *Departments.aspx*前に、と同様に動作することを確認します。 `GetInstructorNames`管理者のボックスの一覧を設定するためにメソッドが呼び出されると`GetDepartmentsByAdministrator`をクリックすると、メソッドが呼び出された**Update**講師が 1 つ以上の管理者がないことを確認するには部門。
+Department *.aspx*ページを実行して、以前と同じように動作することを確認します。 `GetInstructorNames` メソッドは、管理者 ドロップダウンリストを設定するために呼び出されます。 **更新** をクリックすると、複数の部門の管理者であるインストラクターがいないことを確認するために、`GetDepartmentsByAdministrator` メソッドが呼び出されます。
 
 [![Image03](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image10.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image9.png)
 
-Contoso University のアプリケーション パフォーマンスを向上させることはある程度までためではなく、これを行う方法について説明するだけでは、コンパイル済みクエリをしています。 LINQ クエリをプリコンパイルする、複雑さのレベルをコードに追加は、実際には、アプリケーションでパフォーマンスのボトルネックを表すクエリに対してのみ行うようにします。
+Contoso 大学アプリケーションで事前にコンパイルされたクエリは、その方法を確認するためにのみ使用できます。これは、パフォーマンスがある程度までになるためです。 LINQ クエリをプリコンパイルすると、コードに複雑さのレベルが追加されるため、アプリケーションのパフォーマンスのボトルネックを実際に表すクエリに対してのみ実行してください。
 
-## <a name="examining-queries-sent-to-the-database"></a>データベースに送信されるクエリの調査
+## <a name="examining-queries-sent-to-the-database"></a>データベースに送信されたクエリの調査
 
-パフォーマンスの問題を調査しているときに、Entity Framework がデータベースに送信する正確な SQL コマンドを把握する便利です。 使用している場合、`IQueryable`オブジェクト、これを行う方法の 1 つが使用するには、`ToTraceString`メソッド。
+パフォーマンスの問題を調査しているときに、Entity Framework がデータベースに送信している SQL コマンドを正確に把握しておくと役立つ場合があります。 `IQueryable` オブジェクトを使用している場合は、`ToTraceString` メソッドを使用する方法があります。
 
-*SchoolRepository.cs*、コードを変更、`GetDepartmentsByName`メソッドを次の例。
+*SchoolRepository.cs*で、次の例に一致するように `GetDepartmentsByName` メソッドのコードを変更します。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample13.cs)]
 
-`departments`に変数をキャストする必要があります、`ObjectQuery`型のためにのみ、 `Where` 、前の行の最後のメソッドを作成、`IQueryable`オブジェクト; せず、`Where`メソッドのキャストは必要ありません。
+`departments` 変数は、前の行の末尾にある `Where` メソッドによって `IQueryable` オブジェクトが作成されるため、`ObjectQuery` 型にのみキャストする必要があります。`Where` メソッドを使用しない場合、キャストは必要ありません。
 
-ブレークポイントを設定、`return`行、および実行し、 *Departments.aspx*デバッガーでのページ。 ブレークポイントがヒットしたら、確認、`commandText`変数、**ローカル**ウィンドウとテキスト ビジュアライザーを使用して (虫眼鏡の**値**列)、にその値を表示する**テキスト ビジュアライザー**ウィンドウ。 このコードによって生成される SQL コマンド全体を確認できます。
+`return` 行にブレークポイントを設定し、デバッガーで department *.aspx*ページを実行します。 ブレークポイントにヒットしたら、 **[ローカル]** ウィンドウで `commandText` 変数を調べ、テキストビジュアライザー ( **[値]** 列の虫眼鏡) を使用して、 **[テキストビジュアライザー]** ウィンドウに値を表示します。 次のコードから結果として得られた SQL コマンド全体を確認できます。
 
 [![Image08](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image12.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image11.png)
 
-別の方法としては、Visual Studio Ultimate で IntelliTrace の機能は、コードを変更またはもブレークポイントを設定する必要がない Entity Framework によって生成された SQL コマンドを表示する方法を提供します。
+別の方法として、Visual Studio Ultimate の IntelliTrace 機能を使用すると、Entity Framework によって生成された SQL コマンドを表示して、コードを変更したり、ブレークポイントを設定したりする必要がなくなります。
 
 > [!NOTE]
-> Visual Studio Ultimate がある場合にのみ、次の手順を実行することができます。
+> 次の手順は、Visual Studio Ultimate がある場合にのみ実行できます。
 
-復元元のコードに、`GetDepartmentsByName`メソッド、および実行し、 *Departments.aspx*デバッガーでのページ。
+`GetDepartmentsByName` メソッドで元のコードを復元した後、デバッガーで department *.aspx*ページを実行します。
 
-Visual Studio で、選択、**デバッグ**メニュー、 **IntelliTrace**、し**IntelliTrace イベント**します。
+Visual Studio で、 **[デバッグ]** メニュー、 **[intellitrace]** 、 **[intellitrace イベント]** の順に選択します。
 
 [![Image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
-**IntelliTrace**ウィンドウで、をクリックして**すべて中断**します。
+**[IntelliTrace]** ウィンドウで、 **[すべて中断]** をクリックします。
 
 [![Image12](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
 
-**IntelliTrace**ウィンドウには、最近のイベントの一覧が表示されます。
+**[IntelliTrace]** ウィンドウには、最近のイベントの一覧が表示されます。
 
 [![Image09](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image18.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image17.png)
 
-をクリックして、 **ADO.NET**行。 コマンド テキストを表示する展開します。
+**[ADO.NET]** 行をクリックします。 展開すると、コマンドテキストが表示されます。
 
 [![Image10](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
 
-コマンド全体のテキスト文字列をからクリップボードにコピーすることができます、**ローカル**ウィンドウ。
+コマンドテキスト文字列全体をクリップボードにコピーするには、 **[ローカル]** ウィンドウを使用します。
 
-複数のテーブル、リレーションシップ、およびより単純な列を持つデータベースを使用するいると仮定`School`データベース。 1 つで必要なすべての情報を収集するクエリを見つけることがあります`Select`複数を含むステートメント`Join`句が複雑すぎて効率的に作業になります。 その場合は一括クエリを簡単に明示的な読み込みに読み込みから切り替えることができます。
+単純な `School` データベースよりも多くのテーブル、リレーションシップ、および列を含むデータベースを操作しているとします。 複数の `Join` 句を含む1つの `Select` ステートメントで必要なすべての情報を収集するクエリが複雑すぎるため、効率的に作業できなくなる場合があります。 その場合は、一括読み込みから明示的な読み込みに切り替えて、クエリを簡略化することができます。
 
-たとえば、でコードを変更してみてください、`GetDepartmentsByName`メソッド*SchoolRepository.cs*します。 メソッドを持つオブジェクト クエリがあることに現在`Include`のメソッド、`Person`と`Courses`ナビゲーション プロパティ。 置換、`return`ステートメントを次の例に示すように、明示的な読み込みを実行するコード。
+たとえば、 *SchoolRepository.cs*の `GetDepartmentsByName` メソッドでコードを変更してみてください。 現在、このメソッドには、`Person` と `Courses` ナビゲーションプロパティの `Include` メソッドを持つオブジェクトクエリがあります。 次の例に示すように、`return` ステートメントを明示的な読み込みを実行するコードに置き換えます。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample14.cs)]
 
-実行、 *Departments.aspx*デバッガーでページ、 **IntelliTrace**する前にもう一度ウィンドウがでした。 ここで、前に 1 つのクエリがあった場合は、それらの長いシーケンス参照してください。
+デバッガーで学科の *.aspx*ページを実行し、前と同じように **[IntelliTrace]** ウィンドウをもう一度確認します。 ここでは、1つのクエリがあったところで、長いシーケンスが表示されています。
 
 [![Image13](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image22.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image21.png)
 
-1 つ目のクリックして**ADO.NET**に起こった複雑なクエリを表示する行が以前に表示します。
+最初の **[ADO.NET]** 行をクリックして、前に表示した複雑なクエリに何が起こったかを確認します。
 
 [![Image14](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
 
-部門からのクエリは、単純ななった`Select`なしでクエリ`Join`元によって返される 2 つのクエリのセットを使用して、各部門の句が、これは、関連のコースと管理者を取得する個別のクエリに続く、クエリ。
+部門からのクエリは、`Join` 句を使用しない単純な `Select` クエリになっていますが、その後に、元のクエリによって返された部門ごとに2つのクエリのセットを使用して、関連するコースと管理者を取得する個別のクエリが続きます。
 
 > [!NOTE]
-> 遅延のままにする遅延読み込みから読み込みを有効にすると、パターンの繰り返し、同じクエリをここでは、「することもあります。 回避する通常のパターンでは、主テーブルのすべての行に関連するデータの遅延読み込みです。 1 つの結合クエリが複雑すぎて効率的ことを確認できたので、しない限り、通常ことができます、一括読み込みを使用する主要なクエリを変更することでこのような場合のパフォーマンスを向上させるためにします。
+> 遅延読み込みを有効にしたままにした場合、ここに表示されるパターンは、同じクエリが何度も繰り返されるため、遅延読み込みによって発生する可能性があります。 一般的に回避するパターンは、プライマリテーブルのすべての行について、遅延読み込み関連データです。 1つの結合クエリが複雑すぎて効率的に処理できないことを確認していない場合は、通常、一括読み込みを使用するようにプライマリクエリを変更することで、パフォーマンスを向上させることができます。
 
 ## <a name="pre-generating-views"></a>生成前のビュー
 
-ときに、`ObjectContext`オブジェクトが新しいアプリケーション ドメインで最初に作成、Entity Framework には、一連のデータベースへのアクセスに使用されるクラスが生成されます。 これらのクラスと呼ばれます*ビュー*、非常に大きなデータ モデルがあれば、これらのビューを生成する遅れることが、ページの最初の要求に応答を web サイトの新しいアプリケーション ドメインの初期化後にします。 実行時ではなく、コンパイル時に、ビューを作成して、この最初の要求の遅延を減らすことができます。
+`ObjectContext` オブジェクトが新しいアプリケーションドメインに最初に作成されると、Entity Framework によって、データベースへのアクセスに使用するクラスのセットが生成されます。 これらのクラスは*ビュー*と呼ばれ、非常に大きなデータモデルがある場合、これらのビューを生成すると、新しいアプリケーションドメインの初期化後にページの最初の要求に対して web サイトの応答が遅れることがあります。 実行時ではなく、コンパイル時にビューを作成することによって、この最初の要求の遅延を減らすことができます。
 
 > [!NOTE]
-> アプリケーションは、非常に大規模なデータ モデルを持っていない場合、または大きなデータ モデルが IIS のリサイクル後、最初のページ要求のみに影響するパフォーマンスの問題に関する問題がない場合は、このセクションをスキップできます。 ビューの作成がインスタンス化するたびに行われないとき、`ObjectContext`オブジェクト、ビューは、アプリケーション ドメインでキャッシュされるためです。 そのため、IIS でアプリケーションを頻繁にリサイクルしている場合を除き、ほとんどのページ要求が有利事前生成済みのビュー。
+> アプリケーションに非常に大きなデータモデルがない場合、またはデータモデルが大規模な場合に、IIS を再利用した後の最初のページ要求のみに影響するパフォーマンス上の問題を懸念していない場合は、このセクションをスキップできます。 ビューはアプリケーションドメインにキャッシュされるため、`ObjectContext` オブジェクトをインスタンス化するたびにビューの作成は行われません。 そのため、IIS でアプリケーションを頻繁にリサイクルしていない限り、事前に生成されたビューを使用すると、ページ要求の数が非常に少なくなります。
 
-使用してビューを事前に生成することができます、 *EdmGen.exe*コマンド ライン ツールを使用して、または、*テキスト テンプレート変換ツールキット*(T4) テンプレート。 このチュートリアルでは、T4 テンプレートを使用します。
+*Edmgen.exe*コマンドラインツールを使用するか、*テキストテンプレート変換ツールキット*(T4) テンプレートを使用して、ビューを事前に生成できます。 このチュートリアルでは、T4 テンプレートを使用します。
 
-*DAL*フォルダーを使用してファイルを追加、**テキスト テンプレート**テンプレート (がある、**全般**内のノード、**インストールされたテンプレート**一覧)、名前を付けます*SchoolModel.Views.tt*します。 ファイルの既存のコードを次のコードに置き換えます。
+*DAL*フォルダーで、**テキストテンプレート**テンプレート ( **[インストールされたテンプレート]** の一覧の **[全般]** ノードの下にあります) を使用してファイルを追加し、 *SchoolModel.Views.tt*という名前を指定します。 ファイル内の既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/samples/sample15.cs)]
 
-このコード生成のビュー、 *.edmx*テンプレートと同じフォルダーにあるし、テンプレート ファイルと同じ名前を持つファイル。 たとえば、テンプレート ファイルの名前は*SchoolModel.Views.tt*、という名前のデータ モデル ファイルが検索される*SchoolModel.edmx*します。
+このコードは、テンプレートと同じフォルダーに配置され、テンプレートファイルと同じ名前を持つ *.edmx*ファイルのビューを生成します。 たとえば、テンプレートファイルの名前が*SchoolModel.Views.tt*の場合、 *SchoolModel*という名前のデータモデルファイルが検索されます。
 
-ファイルを保存し、内のファイルを右クリックし、**ソリューション エクスプ ローラー**選択**カスタム ツールの実行**します。
+ファイルを保存し、**ソリューションエクスプローラー**でファイルを右クリックして、 **[カスタムツールの実行]** を選択します。
 
 [![Image02](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image26.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image25.png)
 
-Visual Studio の名前は、ビューを作成するコード ファイルを生成する*SchoolModel.Views.cs*テンプレートに基づきます。 (お気付きかもしれませんが、選択する前にもコード ファイルの生成**カスタム ツールの実行**テンプレート ファイルを保存するとすぐに、します)。
+Visual Studio では、テンプレートに基づいて*SchoolModel.Views.cs*という名前のビューを作成するコードファイルが生成されます。 (テンプレートファイルを保存するとすぐに **[カスタムツールの実行]** を選択する前に、コードファイルが生成されていることに気付きます)。
 
 [![Image01](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image28.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image27.png)
 
-アプリケーションを実行し、以前と同じように動作することを確認できます。
+これで、アプリケーションを実行し、以前と同じように動作することを確認できます。
 
-事前に生成したビューの詳細については、次のリソースを参照してください。
+事前に生成されたビューの詳細については、次のリソースを参照してください。
 
-- [方法: クエリ パフォーマンスを向上するビューを事前に生成](https://msdn.microsoft.com/library/bb896240.aspx)MSDN web サイト。 使用する方法について説明します、`EdmGen.exe`ビューを事前に生成するコマンド ライン ツール。
-- [プリコンパイル済み/事前生成されたビューを含む Entity Framework 4 のパフォーマンスを分離する](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx)Windows Server AppFabric の Customer Advisory Team ブログ。
+- [方法: ビューを事前に生成してクエリのパフォーマンスを向上](https://msdn.microsoft.com/library/bb896240.aspx)させるには、MSDN web サイトを参照してください。 `EdmGen.exe` コマンドラインツールを使用して、ビューを事前に生成する方法について説明します。
+- Windows Server AppFabric カスタマーアドバイザリチームブログの[Entity Framework 4 で、プリコンパイル済み/生成済みのビューを使用してパフォーマンスを分離](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx)します。
 
-これは、Entity Framework を使用する ASP.NET web アプリケーションのパフォーマンス向上の概要を完了します。 詳細については、次のリソースを参照してください。
+このチュートリアルでは、Entity Framework を使用する ASP.NET web アプリケーションでのパフォーマンス向上の概要について説明します。 詳細については、次のリソースを参照してください。
 
-- [パフォーマンスに関する考慮事項 (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) MSDN web サイト。
-- [Entity Framework チームのブログの投稿のパフォーマンスに関連する](https://blogs.msdn.com/b/adonet/archive/tags/performance/)します。
-- [EF はマージ オプションおよびコンパイル済みクエリ](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx)します。 コンパイル済みクエリとマージの予期しない動作を説明するブログの投稿などのオプション`NoTracking`します。 コンパイル済みクエリを使用したり、アプリケーションでのマージ オプションの設定を操作する場合は、最初に読み取ります。
-- [Entity Framework 関連のデータとモデリングの Customer Advisory Team のブログ投稿](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/)します。 コンパイル済みクエリと Visual Studio 2010 Profiler を使用してパフォーマンスの問題を検出する投稿が含まれています。
-- [非常に複雑なクエリのパフォーマンスの向上に関するアドバイスをエンティティ フレームワークのフォーラム スレッド](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6)します。
-- [ASP.NET 状態管理の推奨事項](https://msdn.microsoft.com/library/z1hkazw7.aspx)します。
-- [Entity Framework と ObjectDataSource を使用します。カスタム ページング](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx)します。 ブログの投稿でページングを実装する方法を説明するこれらのチュートリアルで作成した ContosoUniversity アプリケーション上に構築される、 *Departments.aspx*ページ。
+- MSDN web サイトの[パフォーマンスに関する考慮事項 (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) 。
+- [Entity Framework チームブログのパフォーマンス関連の投稿](https://blogs.msdn.com/b/adonet/archive/tags/performance/)。
+- [EF のマージオプションとコンパイル](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx)されたクエリ。 コンパイル済みクエリの予期しない動作と、`NoTracking`などのマージオプションについて説明するブログ記事。 コンパイル済みのクエリを使用する場合、またはアプリケーションでマージオプションの設定を操作する場合は、まずこれを参照してください。
+- [データとモデリングのカスタマーアドバイザリチームブログの Entity Framework 関連の投稿](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/)。 コンパイルされたクエリに関する投稿を含み、Visual Studio 2010 Profiler を使用してパフォーマンスの問題を検出します。
+- [非常に複雑なクエリのパフォーマンス向上に関するアドバイスを含むフォーラムスレッド Entity Framework](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6)ます。
+- [ASP.NET 状態管理に関する推奨事項](https://msdn.microsoft.com/library/z1hkazw7.aspx)。
+- [Entity Framework と ObjectDataSource: カスタムページングを使用](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx)します。 これらのチュートリアルで作成した ContosoUniversity アプリケーションを基にしたブログ投稿では、department*ページで*ページングを実装する方法を説明しています。
 
-次のチュートリアルでは、バージョン 4 の新機能は、Entity Framework に重要な拡張機能の一部を確認します。
+次のチュートリアルでは、バージョン4の新機能である Entity Framework のいくつかの重要な機能強化について確認します。
 
 > [!div class="step-by-step"]
 > [前へ](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)

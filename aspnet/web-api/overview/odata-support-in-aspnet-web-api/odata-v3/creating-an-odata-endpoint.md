@@ -9,11 +9,11 @@ ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: e68a454398f109dfd089be9c9a44d3fe662acc2f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448222"
 ---
 # <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 で OData v3 エンドポイントを作成する
 
@@ -64,9 +64,9 @@ Visual Studio を起動し、スタートページで **[新しいプロジェ�
 <a id="add-model"></a>
 ## <a name="add-an-entity-model"></a>エンティティモデルを追加する
 
-*モデル*は、アプリケーションのデータを表すオブジェクトです。 このチュートリアルでは、製品を表すモデルが必要です。 このモデルは、OData エンティティ型に対応しています。
+*"モデル"* は、アプリケーションでデータを表すオブジェクトです。 このチュートリアルでは、製品を表すモデルが必要です。 このモデルは、OData エンティティ型に対応しています。
 
-ソリューションエクスプローラーで、[モデル] フォルダーを右クリックします。 コンテキストメニューから **[追加]** を選択し、 **[クラス]** を選択します。
+ソリューション エクスプローラーで、[モデル] フォルダーを右クリックします。 コンテキスト メニューの **[追加]** を選択し、 **[クラス]** を選択します。
 
 ![](creating-an-odata-endpoint/_static/image3.png)
 
@@ -90,7 +90,7 @@ ID プロパティはエンティティキーになります。 クライアン�
 
 *コントローラー*は、HTTP 要求を処理するクラスです。 OData サービスでは、エンティティセットごとに個別のコントローラーを定義します。 このチュートリアルでは、1つのコントローラーを作成します。
 
-ソリューションエクスプローラーで、Controllers フォルダーを右クリックします。 **[追加]** を選択し、 **[コントローラー]** を選択します。
+ソリューションエクスプローラーで、Controllers フォルダーを右クリックします。 **[追加]** 、 **[コントローラー]** の順に選択します。
 
 ![](creating-an-odata-endpoint/_static/image5.png)
 
@@ -152,7 +152,7 @@ EDM は、データの抽象モデルです。 EDM は、メタデータドキ�
 
 この手順では、Entity Framework を使用して、いくつかのテストデータをデータベースにシード処理します。 この手順は省略可能ですが、OData エンドポイントをすぐにテストできます。
 
-**[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [パッケージマネージャーコンソール] ウィンドウで、次のコマンドを入力します。
+**[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
@@ -223,7 +223,7 @@ Products エンティティセットを取得するには、GET 要求を `http:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample11.cmd)]
 
-### <a name="entity"></a>エンティティ
+### <a name="entity"></a>Entity
 
 個々の製品を取得するには、GET 要求を `http://localhost:port/odata/Products(1)`に送信します。 "1" は製品 ID です。
 
@@ -240,7 +240,7 @@ OData は、いくつかのシリアル化形式をサポートします。
 
 既定では、Web API は AtomPubJSON "light" 形式を使用します。
 
-AtomPub 形式を取得するには、Accept ヘッダーを "application/atom + xml" に設定します。 応答本文の例を次に示します。
+AtomPub 形式を取得するには、Accept ヘッダーを "application/atom + xml" に設定します。 次は応答本文の例です。
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample13.cmd)]
 
@@ -256,7 +256,7 @@ JSON light 形式は、OData プロトコルのバージョン3で導入され�
 
 この形式では、応答本文により多くのメタデータが伝達されます。これにより、セッション全体でかなりのオーバーヘッドが発生する可能性があります。 また、"d" という名前のプロパティにオブジェクトをラップすることによって、レベルの間接参照を追加します。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 - [エンティティリレーションの追加](working-with-entity-relations.md)
 - [OData アクションの追加](odata-actions.md)

@@ -9,19 +9,19 @@ ms.assetid: 0fd07176-b74b-48f0-9fac-0f02e3ffa213
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
 ms.openlocfilehash: fc0463420207eba764014b8ec7123c5150e38247
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445759"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449026"
 ---
 # <a name="create-data-transfer-objects-dtos"></a>データ転送オブジェクト (DTO) の作成
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
-現在、web API では、データベースエンティティがクライアントに公開されています。 クライアントは、データベーステーブルに直接マップされるデータを受信します。 ただし、これは必ずしも良いアイデアではありません。 場合によっては、クライアントに送信するデータの形状を変更する必要があります。 たとえば、次の操作を行います。
+現在、web API では、データベースエンティティがクライアントに公開されています。 クライアントは、データベーステーブルに直接マップされるデータを受信します。 ただし、これは必ずしも良いアイデアではありません。 場合によっては、クライアントに送信するデータの形状を変更する必要があります。 たとえば、次の場合です。
 
 - 循環参照を削除します (前のセクションを参照してください)。
 - クライアントが表示することが想定されていない特定のプロパティを非表示にします。

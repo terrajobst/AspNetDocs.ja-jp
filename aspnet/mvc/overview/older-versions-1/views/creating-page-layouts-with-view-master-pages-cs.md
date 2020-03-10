@@ -9,17 +9,17 @@ ms.assetid: dff54fcb-68b1-4488-89a2-ca97532d6a4c
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 026e3efb4ebf84016aa0f6a5fda4af549fdadfcb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594152"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78435196"
 ---
 # <a name="creating-page-layouts-with-view-master-pages-c"></a>ビュー マスター ページでページ レイアウトを作成する (C#)
 
 [Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_CS.pdf)
 
 > このチュートリアルでは、ビューのマスターページを利用して、アプリケーションの複数のページに共通のページレイアウトを作成する方法について説明します。 ビューマスターページを使用すると、たとえば、2列のページレイアウトを定義し、web アプリケーションのすべてのページに2列のレイアウトを使用することができます。
 
@@ -123,7 +123,7 @@ Title 属性が機能するためには、マスタービューページが満�
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample6.aspx)]
 
-### <a name="summary"></a>要約
+### <a name="summary"></a>まとめ
 
 このチュートリアルでは、マスターページの表示とコンテンツページの表示の基本的な概要について説明しました。 新しいビューマスターページを作成し、それらに基づいてビューコンテンツページを作成する方法について学習しました。 また、特定のビューコンテンツページからビューマスターページのコンテンツを変更する方法についても説明します。
 

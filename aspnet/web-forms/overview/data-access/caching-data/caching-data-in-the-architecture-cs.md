@@ -9,11 +9,11 @@ ms.assetid: d29a7c41-0628-4a23-9dfc-bfea9c6c1054
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 192cadb8e2f862ac2a97a36b375e247b281ece93
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600815"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78443728"
 ---
 # <a name="caching-data-in-the-architecture-c"></a>アーキテクチャでデータをキャッシュする (C#)
 
@@ -159,7 +159,7 @@ ASP.NET page s 分離コードクラスからは、`Page` クラス s [`Cache` �
 > [!NOTE]
 > この記事に付属するダウンロードで提供されているキャッシュレイヤーは完全ではありません。 このクラスには、1つのクラス (`ProductsCL`) のみが含まれています。これは、いくつかのメソッドにのみ使用できます。 さらに、CL (`~/Caching/FromTheArchitecture.aspx`) を使用するのは1つの ASP.NET ページのみですが、他のすべてのページは BLL を直接参照しています。 アプリケーションで CL の使用を計画している場合、プレゼンテーション層からのすべての呼び出しは CL に送られる必要があります。そのためには、CL のクラスとメソッドが、プレゼンテーション層で現在使用されている BLL のクラスとメソッドをカバーしている必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 キャッシュは ASP.NET 2.0 s SqlDataSource および ObjectDataSource コントロールと共にプレゼンテーション層で適用できますが、理想的なキャッシュの役割はアーキテクチャの別の層に委任されます。 このチュートリアルでは、プレゼンテーション層とビジネスロジック層の間に存在するキャッシュレイヤーを作成しました。 キャッシュレイヤーは、BLL に存在し、プレゼンテーション層から呼び出されるクラスとメソッドの同じセットを提供する必要があります。
 
@@ -167,7 +167,7 @@ ASP.NET page s 分離コードクラスからは、`Page` クラス s [`Cache` �
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
-title: データ アクセス シナリオの詳細 |Microsoft Docs
+title: 高度なデータアクセスのシナリオ |Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルでは、ストアド プロシージャ、および計算列を操作する方法、データベースのテーブルで結合を使用する方法、およびデータ接続情報を暗号化する方法について説明しています.
+description: これらのチュートリアルでは、ストアドプロシージャと計算列を操作する方法、データベーステーブルと結合を使用する方法、およびデータ接続情報を暗号化する方法について説明します。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 00d198ed-fddc-4fd3-a86e-3f29c5f707cc
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
 ms.openlocfilehash: 25041560b9e8ff0a8c944572dad344e655100b0d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108543"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78428200"
 ---
 # <a name="advanced-data-access-scenarios"></a>高度なデータ アクセス シナリオ
 
-> これらのチュートリアルでは、ストアド プロシージャ、および計算列を操作する方法、データベースのテーブルで結合を使用する方法、およびデータの接続情報を暗号化する方法について説明します。
+> これらのチュートリアルでは、ストアドプロシージャと計算列を操作する方法、データベーステーブルと結合を使用する方法、およびデータ接続情報を暗号化する方法について説明します。
 
 - [型指定された DataSet の TableAdapters に新しいストアド プロシージャを作成する (C#)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
 - [型指定された DataSet の TableAdapters に既存のストアド プロシージャを使用する (C#)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)

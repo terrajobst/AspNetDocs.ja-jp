@@ -1,6 +1,6 @@
 ---
 uid: web-forms/index
-title: ASP.NET Web フォーム |Microsoft Docs
+title: ASP.NET Web Forms |Microsoft Docs
 author: rick-anderson
 description: Visual Web Developer Express をダウンロードして、web アプリのビジュアル デ ザインで ASP.NET Web フォームでわかりやすくコントロールの使用の環境をすばやく構築する方法について説明します。
 ms.author: riande
@@ -9,17 +9,17 @@ ms.assetid: 7e4ce5d2-ab22-44f0-9825-c12eed7b8fcb
 msc.legacyurl: /web-forms
 msc.type: categoryindex
 ms.openlocfilehash: 623df5d3ffe357f42d72ee0a33bc50aa60a8c4d0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397007"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78446890"
 ---
-# <a name="aspnet-web-forms"></a>ASP.NET Web フォーム
+# <a name="aspnet-web-forms"></a>ASP.NET Web Forms
 
 - [ガイダンス](overview/index.md)
 
-    - [はじめに](overview/getting-started/index.md)
+    - [作業の開始](overview/getting-started/index.md)
 
         - [ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](overview/getting-started/getting-started-with-aspnet-45-web-forms/index.md)
 
@@ -58,7 +58,7 @@ ms.locfileid: "59397007"
     - [パフォーマンス](overview/performance-and-caching/index.md)
 
         - [ASP.NET 4.5 での非同期メソッドの使用](overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45.md)
-    - [配置](overview/deployment/index.md)
+    - [デプロイ](overview/deployment/index.md)
 
         - [Visual Studio を利用する ASP.NET Web 展開](overview/deployment/visual-studio-web-deployment/index.md)
 
@@ -77,8 +77,8 @@ ms.locfileid: "59397007"
         - [ASP.NET 4 - エンタープライズ展開の概要](overview/deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
             - [Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを展開する](overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-            - [エンタープライズ Web 展開:シナリオの概要](overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-            - [アプリケーション ライフ サイクル管理:開発運用環境から](overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+            - [エンタープライズ Web 展開シナリオ概要](overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+            - [アプリケーション ライフサイクル管理: 開発から本稼働まで](overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
         - [ASP.NET 4 - エンタープライズ展開シリーズ 1](overview/deployment/web-deployment-in-the-enterprise/index.md)
 
             - [エンタープライズの Web 展開](overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -96,9 +96,9 @@ ms.locfileid: "59397007"
 
             - [Web 展開のサーバー環境を構成する](overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
             - [適切な Web 展開手法を選択する](overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-            - [シナリオ: Web 配置のテスト環境を構成します。](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-            - [シナリオ: Web デプロイのステージング環境を構成します。](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-            - [シナリオ: Web デプロイ用の運用環境の構成](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+            - [シナリオ: Web 展開のテスト環境を構成する](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+            - [シナリオ: Web 展開のステージング環境を構成する](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+            - [シナリオ: Web 展開の運用環境を構成する](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
             - [Web 配置発行の Web サーバーを構成する (リモート エージェント)](overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
             - [Web 配置発行の Web サーバーを構成する (Web 配置ハンドラー)](overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
             - [Web 配置発行の Web サーバーを構成する (オフライン展開)](overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
@@ -125,21 +125,21 @@ ms.locfileid: "59397007"
             - [Web 配置の際、Web アプリケーションをオフラインにする](overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy.md)
             - [MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行する](overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files.md)
             - [パッケージ化処理のトラブルシューティング](overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process.md)
-    - [詳細設定](overview/advanced/index.md)
+    - [詳細](overview/advanced/index.md)
 
         - [ASP.NET Web フォームの接続復元性とコマンド傍受](overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception.md)
     - [旧バージョン - 概要](overview/older-versions-getting-started/index.md)
 
         - [ASP.NET 4 - Tailspin Spyworks](overview/older-versions-getting-started/tailspin-spyworks/index.md)
 
-            - [第 1 部: 新しいプロジェクトのファイル](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
-            - [第 2 部: データ アクセス層](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-            - [パート 3:レイアウトとカテゴリ メニュー](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
-            - [パート 4:製品のリスティング](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
-            - [パート 5:ビジネス ロジック](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-            - [パート 6:ASP.NET メンバーシップ](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
-            - [パート 7:機能の追加](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-            - [パート 8:最終的なページ、例外処理、およびまとめ](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+            - [パート 1: ファイル -> 新しいプロジェクト](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
+            - [パート 2: データ アクセス層](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
+            - [パート 3: レイアウトとカテゴリ メニュー](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+            - [パート 4: 製品のリスティング](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
+            - [パート 5: ビジネス ロジック](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
+            - [パート 6: ASP.NET メンバーシップ](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+            - [パート 7: 機能の追加](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
+            - [パート 8: 最終ページ、例外処理、まとめ](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
         - [ASP.NET 4 - Entity Framework 4 と Web フォームの概要](overview/older-versions-getting-started/getting-started-with-ef/index.md)
 
             - [Entity Framework 4.0 Database First の概要](overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -152,9 +152,9 @@ ms.locfileid: "59397007"
             - [Entity Framework 4.0 Database First の概要 - パート 8](overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
         - [ASP.NET 4 - Entity Framework 4 と Web フォームの続き](overview/older-versions-getting-started/continuing-with-ef/index.md)
 
-            - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 1:作業の開始](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-            - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 2:ビジネス ロジック層と単体テストの追加](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-            - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 3:並べ替えとフィルター処理](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+            - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 1: 概要](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+            - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 2: ビジネス ロジック層と単体テストの追加](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+            - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 3: 並べ替えとフィルター処理](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
             - [ASP.NET 4 の Entity Framework 4.0 でコンカレンシーを処理する](overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
             - [ASP.NET 4 の Entity Framework 4.0 でパフォーマンスを最大化する](overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
             - [Entity Framework 4.0 の新機能](overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)
@@ -238,7 +238,7 @@ ms.locfileid: "59397007"
             - [運用 Web サイトのユーザーとロール (VB)](overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb.md)
     - [旧バージョン - Ajax Control Toolkit](overview/ajax-control-toolkit/index.md)
 
-        - [はじめに](overview/ajax-control-toolkit/getting-started/index.md)
+        - [作業の開始](overview/ajax-control-toolkit/getting-started/index.md)
 
             - [AJAX Control Toolkit の概要 (C#)](overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs.md)
             - [AJAX Control Toolkit のコントロールとコントロール エクステンダーを使用する (C#)](overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
@@ -680,7 +680,7 @@ ms.locfileid: "59397007"
         - [ASP.NET Web ページでブラウザーの機能を検出する](videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
         - [ASP.NET サーバー コントロールをそのレンダリングに使用されるアダプターにマッピングする](videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
         - [クエリ文字列を利用し、あるページから別のページに情報を渡す](videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-        - [Aspnet を使用して、\_merge.exe アセンブリをマージするためのユーティリティ](videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+        - [Aspnet\_merge .exe ユーティリティを使用してアセンブリをマージする](videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
         - [ASP.NET でページ間ポストバックを実装する](videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet.md)
         - [プログラミングで ASP.NET Web ページにコントロールを追加する](videos/how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
         - [非表示フィールドを利用し、クライアント側の情報を格納し、操作する](videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)
@@ -787,7 +787,7 @@ ms.locfileid: "59397007"
         - [構造化照会言語に関するその他の情報](videos/sql-2005/more-structured-query-language.md)
         - [セキュリティとネットワーク接続について理解する](videos/sql-2005/understanding-security-and-network-connectivity.md)
         - [SQL Server 2005 Express Edition に Web アプリケーションを接続する](videos/sql-2005/connecting-your-web-application-to-sql-server-2005-express-edition.md)
-        - [SQL Server Management Studio を使用する](videos/sql-2005/using-sql-server-management-studio.md)
+        - [SQL Server Management Studio の使用](videos/sql-2005/using-sql-server-management-studio.md)
         - [Reporting Services 入門](videos/sql-2005/getting-started-with-reporting-services.md)
         - [Business Intelligence Development Studio でレポートをビルドし、カスタマイズする](videos/sql-2005/building-and-customizing-reports-in-business-intelligence-development-studio.md)
         - [ストアド プロシージャを作成し、使用する](videos/sql-2005/creating-and-using-stored-procedures.md)
@@ -828,16 +828,16 @@ ms.locfileid: "59397007"
         - [[ASP.NET 2.0 入門:] ASP.NET 2.0 の基礎](videos/migrating/intro-to-aspnet-20-aspnet-20-fundamentals.md)
         - [[ASP.NET 2.0 入門:] ユーザー インターフェイス要素](videos/migrating/intro-to-aspnet-20-user-interface-elements.md)
         - [クラシック ASP から ASP.NET に移行する](videos/migrating/migrating-from-classic-asp-to-aspnet.md)
-        - [JSP 開発者向け ASP.NET 入門:ASP.NET 2.0 へようこそ](videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
-        - [JSP 開発者向け ASP.NET 入門:アプリケーションの構築](videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
-        - [ColdFusion 開発者向け ASP.NET 入門:ASP.NET をレパートリーに追加します。](videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-        - [ColdFusion 開発者向け ASP.NET 入門:ASP.NET アプリケーションの構築](videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+        - [JSP 開発者向け ASP.NET 入門: ASP.NET 2.0 へようこそ](videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
+        - [JSP 開発者向け ASP.NET 入門: アプリケーションをビルドする](videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
+        - [ColdFusion 開発者向け ASP.NET 入門: ASP.NET をレパートリーに追加する](videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+        - [ColdFusion 開発者向け ASP.NET 入門: ASP.NET アプリケーションをビルドする](videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
         - [PHP と Windows プラットフォームの間の相互運用](videos/migrating/interop-between-php-and-the-windows-platform.md)
     - [2.0 アプリケーションをビルドする](videos/building-20-applications/index.md)
 
         - [[レッスン 1:] Visual Web Developer Express 入門](videos/building-20-applications/lesson-1-getting-started-with-visual-web-developer-express.md)
         - [[レッスン 2:] Web フォーム ユーザー インターフェイスを作成する](videos/building-20-applications/lesson-2-creating-a-web-forms-user-interface.md)
-        - [[レッスン 3:]イベントとポストバックについてより理解します。](videos/building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
+        - [[レッスン 3:]イベントとポストバックについて理解する](videos/building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
         - [[レッスン 4:] Web アプリケーションの状態について理解する](videos/building-20-applications/lesson-4-understanding-web-application-state.md)
         - [[レッスン 5:] Web サイトのデバッグとトレース](videos/building-20-applications/lesson-5-debugging-and-tracing-your-website.md)
         - [[レッスン 6:] スタイルシートとマスター ページを使用する](videos/building-20-applications/lesson-6-working-with-stylesheets-and-master-pages.md)
@@ -960,15 +960,15 @@ ms.locfileid: "59397007"
             - [ASP アプリケーションからデータセットとフィルターを使用する](videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
         - [LINQ の操作方法](videos/data-access/how-do-i-with-linq/index.md)
 
-            - [LINQ to SQL:概要](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-            - [LINQ to SQL:データ モデル](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-            - [LINQ to SQL:データベースのクエリを実行します。](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-            - [LINQ to SQL:データベースの更新](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
-            - [LINQ to SQL:LinqDataSource](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
-            - [LINQ to SQL:Custom LinqDataSource](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-            - [LINQ to SQL:ストアド プロシージャの使用](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-            - [LINQ to SQL:ストアド プロシージャで更新しています](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-            - [LINQ to SQL:任意の SQL を実行します。](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+            - [LINQ to SQL: 概要](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
+            - [LINQ to SQL: データ モデル](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+            - [LINQ to SQL: データベースにクエリを実行する](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+            - [LINQ to SQL: データベースを更新する](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+            - [LINQ to SQL: LinqDataSource](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
+            - [LINQ to SQL: カスタム LinqDataSource](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
+            - [LINQ to SQL: ストアド プロシージャを使用する](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+            - [LINQ to SQL: ストアド プロシージャによる更新](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+            - [LINQ to SQL: 任意の SQL を実行する](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
         - [VB チーム提供の LINQ ビデオ](videos/data-access/linq-videos-from-the-vb-team/index.md)
 
             - [LINQ 入門](videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
@@ -999,7 +999,7 @@ ms.locfileid: "59397007"
         - [ASP.NET 動的データ カスタム フォームの初期設定](videos/aspnet-dynamic-data/aspnet-dynamic-data-custom-form-formatting.md)
     - [ASP.NET 3.5](videos/aspnet-35/index.md)
 
-        - [操作方法](videos/aspnet-35/how-do-i/index.md)
+        - [[カテゴリから検索]](videos/aspnet-35/how-do-i/index.md)
 
             - [Visual Studio 2008 でマスター ページを作成する](videos/aspnet-35/how-do-i/how-do-i-create-a-master-page-in-visual-studio-2008.md)
             - [Visual Studio 2008 で入れ子になったマスター ページを作成する](videos/aspnet-35/how-do-i/how-do-i-create-nested-master-page-in-visual-studio-2008.md)
@@ -1017,7 +1017,7 @@ ms.locfileid: "59397007"
             - [Visual Studio 2008 の ASP.NET AJAX サポート](videos/aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
             - [既存の ASP.NET ページに AJAX 機能を追加する](videos/aspnet-35/aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
             - [Web サイトで AJAX 対応 Web サービスを作成し、使用する](videos/aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-            - [ASP.NET AJAX:ASP.NET AJAX のデモンストレーション](videos/aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
+            - [ASP.NET AJAX: ASP.NET AJAX のデモンストレーション](videos/aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
             - [ADO.NET Data Services と ASP.NET AJAX サポート](videos/aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
             - [ASP.NET Ajax History 入門](videos/aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history.md)
             - [スクリプトを結合し、AJAX のパフォーマンスを改善する](videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)

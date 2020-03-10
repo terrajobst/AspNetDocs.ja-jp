@@ -1,1 +1,1 @@
-新しい web アプリケーションの開発、Razor ページはお勧めします。 詳細については、[Razor ページの概要](/aspnet/core/tutorials/razor-pages/razor-pages-start)を参照してください。
+新しい web アプリケーションを開発する場合は、Razor Pages をお勧めします。 詳細については、「 [Razor Pages の概要](/aspnet/core/tutorials/razor-pages/razor-pages-start)」を参照してください。

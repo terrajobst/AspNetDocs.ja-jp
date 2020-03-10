@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-multi-lingual-site-with-localization
-title: '[How Do i:]ローカライズされた多言語サイトを作成しますか。 | Microsoft Docs'
+title: '[操作方法:]ローカリゼーションを使用した多言語サイトの作成 | Microsoft Docs'
 author: microsoft
-description: 追加コードがなくてもカルチャを認識し、ロケール固有の web コンテンツを作成する方法について説明します。 リソース エディターを使用して、ページ レベル、アプリケーション レベルを作成する.
+description: 追加のコードを使用せずに、カルチャ対応およびロケール固有の web コンテンツを作成する方法について説明します。 リソースエディターを使用して、ページレベルおよびアプリケーションレベルを作成します...
 ms.author: riande
 ms.date: 01/06/2006
 ms.assetid: 93190bb9-83fa-4318-a261-0de41ff72b24
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-multi-lingual-site-with-localization
 msc.type: video
 ms.openlocfilehash: 15c4a0341afcbd273508a420518b637b07b3476f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381472"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78420016"
 ---
-# <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a>[How Do i:]ローカライズされた多言語サイトを作成しますか。
+# <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a>[操作方法:]ローカリゼーションを使用した多言語サイトの作成
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-追加コードがなくてもカルチャを認識し、ロケール固有の web コンテンツを作成する方法について説明します。 リソース エディターを使用して、ページ レベル、アプリケーション レベルのリソースを作成します。
+追加のコードを使用せずに、カルチャ対応およびロケール固有の web コンテンツを作成する方法について説明します。 リソースエディターを使用して、ページレベルおよびアプリケーションレベルのリソースを作成します。
 
-[&#9654;(13 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-multi-lingual-site-with-localization)
+[&#9654;ビデオを見る (13 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-multi-lingual-site-with-localization)

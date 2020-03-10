@@ -1,73 +1,73 @@
 ---
 uid: web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
-title: サイトの CAPTCHA を使用して、ボットが、ASP.NET Web Razor を使用するを防ぐために) |Microsoft Docs
+title: CAPTCHA を使用して、ボットが ASP.NET Web Razor を使用しないようにします。Microsoft Docs
 author: microsoft
-description: 自動化されたプログラム (ボット) がタスクで、ASP.NET Web Pages (Razor) を実行することを防ぐために、ReCaptcha (セキュリティ メジャー) を使用する方法について説明します.
+description: この記事では、ReCaptcha (セキュリティ対策) を使用して、自動プログラム (ボット) が ASP.NET Web ページ (Razor) のタスクを実行できないようにする方法について説明します。
 ms.author: riande
 ms.date: 05/21/2012
 ms.assetid: 2b381a41-2cb3-40c0-8545-1d393e22877f
 msc.legacyurl: /web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
 msc.type: authoredcontent
 ms.openlocfilehash: 2647a3155893a3dfb3214795a5f9cf1e8931fa91
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128458"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78440194"
 ---
-# <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>サイトの CAPTCHA を使用して、ボットが、ASP.NET Web Razor を使用するを防ぐために)
+# <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>CAPTCHA を使用して、ボットが ASP.NET Web Razor) サイトを使用しないようにする
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> この記事では、ReCaptcha (セキュリティ メジャー) を使用して、自動プログラム (ボット) が ASP.NET Web Pages (Razor) の web サイトにタスクを実行することを防止する方法について説明します。
+> この記事では、ReCaptcha (セキュリティ対策) を使用して、自動プログラム (ボット) が ASP.NET Web ページ (Razor) web サイトでタスクを実行できないようにする方法について説明します。
 > 
-> **学習内容。** 
+> **学習内容:** 
 > 
-> - サイトに CAPTCHA テストを追加する方法。
+> - CAPTCHA テストをサイトに追加する方法。
 > 
 > この記事で導入された ASP.NET 機能を次に示します。
 > 
-> - `ReCaptcha`ヘルパー。
+> - `ReCaptcha` ヘルパー。
 > 
 > > [!NOTE]
-> > この記事の情報は、ASP.NET Web Pages 1.0 と Web ページ 2 に適用されます。
+> > この記事の情報は、ASP.NET Web ページ1.0 と Web ページ2に適用されます。
 
-## <a name="about-captchas"></a>な Captcha について
+## <a name="about-captchas"></a>CAPTCHAs について
 
-サイトで、または単にユーザーの登録ができるように、いつは、名前と URL (ブログのコメントのように) を入力してください。、偽名を大量に取得する可能性があります。 Url のままにすべての web サイトを検索できることにしようとする自動化されたプログラム (ボット) によってこれらのままには多くの場合。 (一般的な動機は、製品を販売目的の Url を投稿するです)。
+ユーザーがサイトに登録するとき、または名前と URL を入力するだけで (ブログコメントなど)、フェイク名があふれてしまうことがあります。 これらは、多くの場合、検索可能なすべての web サイトに Url を残しようとする自動プログラム (ボット) によって残されています。 (一般的な動機は、販売する製品の Url を投稿することです)。
 
-ユーザーが実際のユーザーとコンピューター プログラムではなくを使用しているかどうかを確認できます、 *CAPTCHA*登録またはそれ以外の場合、名前とサイトを入力したときにユーザーを検証します。 CAPTCHA のコンピューターと人間離れているかを知らせるパブリック チューリングを完全に自動テストの略です。 CAPTCHA が、*チャレンジ/レスポンス*は簡単に行う人が実行するプログラムの自動ハード テストが、ユーザーは何かを求められます。 CAPTCHA の最も一般的な種類は、歪んで表示される一部の文字を参照してください、ユーザーが入力を求められます。 (ゆがみは、ボットの文字を解読するが困難と想定されます)。
+ユーザーが*CAPTCHA*を使用してユーザーを登録したとき、またはその他の方法で名前とサイトを入力したときにユーザーを検証することで、ユーザーがコンピュータープログラムではないことを確認できます。 CAPTCHA は、コンピューターや人間を区別するために、完全に自動化されたパブリックチューリングテストを意味します。 CAPTCHA は*チャレンジ/レスポンス*テストであり、ユーザーは簡単に実行できますが、自動化されたプログラムを実行するのは難しいものです。 最も一般的な種類の CAPTCHA は、歪んだ文字が表示され、入力を求められるものです。 (ゆがみは、ボットが文字を解読するのを困難にすることが想定されています)。
 
-## <a name="adding-a-recaptcha-test"></a>ReCaptcha テストを追加します。
+## <a name="adding-a-recaptcha-test"></a>ReCaptcha テストの追加
 
-使用することができます、ASP.NET ページで、 `ReCaptcha` ReCaptcha サービスに基づいている CAPTCHA テストを表示するためにヘルパー ([http://recaptcha.net](http://recaptcha.net))。 `ReCaptcha`ヘルパーはユーザーがページを検証する前に、正しく入力する必要がある歪んで表示される単語が 2 つのイメージを表示します。 ユーザーの応答は、recaptcha. Net サービスによって検証されます。
+ASP.NET ページでは、`ReCaptcha` ヘルパーを使用して、ReCaptcha サービス ([http://recaptcha.net](http://recaptcha.net)) に基づく CAPTCHA テストを表示できます。 `ReCaptcha` ヘルパーは、ページが検証される前にユーザーが正しく入力する必要がある、2つの歪んだ単語の画像を表示します。 ユーザーの応答は、ReCaptcha.Net サービスによって検証されます。
 
 ![](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/_static/image1.jpg)
 
-1. Web サイトには、recaptcha. Net の登録 ([http://recaptcha.net](http://recaptcha.net))。 登録が完了したら、公開キーと秘密キーが表示されます。
-2. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)まだ行っていない場合は、します。
-3. まだ持っていない場合、  *\_AppStart.cshtml*という名前のファイルを作成、web サイトのルート フォルダーにファイルを *\_AppStart.cshtml*します。
-4. 次の追加`Recaptcha`ヘルパーの設定、  *\_AppStart.cshtml*ファイル。 
+1. Web サイトを ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)) に登録します。 登録が完了すると、公開キーと秘密キーが取得されます。
+2. 「 [ASP.NET Web ページサイトにヘルパーをインストール](https://go.microsoft.com/fwlink/?LinkId=252372)する」の説明に従って、ASP.NET Web ヘルパーライブラリを web サイトに追加します (まだインストールしていない場合)。
+3. *\_該当*ファイルをまだ持っていない場合は、web サイトのルートフォルダーに *\_該当*という名前のファイルを作成します。
+4. *\_該当*ファイルに次の `Recaptcha` helper 設定を追加します。 
 
     [!code-cshtml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample1.cshtml?highlight=6-7)]
-5. 設定、`PublicKey`と`PrivateKey`プロパティは、独自のパブリックおよびプライベート キーを使用します。
-6. 保存、  *\_AppStart.cshtml*ファイルして閉じます。
-7. Web サイトのルート フォルダーに作成するという名前の新しいページ*Recaptcha.cshtml*します。
-8. 次のように、既存のコンテンツを置き換えます。 
+5. 独自の公開キーと秘密キーを使用して、`PublicKey` と `PrivateKey` のプロパティを設定します。
+6. *\_該当*ファイルを保存して閉じます。
+7. Web サイトのルートフォルダーに、 *Recaptcha*という名前の新しいページを作成します。
+8. 既存のコンテンツを次の内容に置き換えます。 
 
     [!code-cshtml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample2.cshtml)]
-9. 実行、 *Recaptcha.cshtml*ブラウザーでページ。 場合、`PrivateKey`値が有効では、ページには、ReCaptcha コントロールとボタンが表示されます。 内でグローバルにキーを設定する必要があるされていない場合 *\_AppStart.html*ページにエラーが表示されます。 
+9. ブラウザーで*Recaptcha*ページを実行します。 `PrivateKey` の値が有効な場合、ページには ReCaptcha コントロールとボタンが表示されます。 *\_該当*でグローバルにキーを設定しなかった場合は、ページにエラーが表示されます。 
 
     ![](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/_static/image1.png)
-10. テストの単語を入力します。 ReCaptcha テストを通過する場合、それに対応するメッセージを参照してください。 それ以外の場合、エラー メッセージを表示し、ReCaptcha コントロールが再表示されます。
+10. テスト用の単語を入力します。 ReCaptcha テストに合格すると、その効果に関するメッセージが表示されます。 それ以外の場合は、エラーメッセージが表示され、ReCaptcha コントロールが再表示されます。
 
 > [!NOTE]
-> 構成する必要がありますが、コンピューターがプロキシ サーバーを使用しているドメインにある場合、`defaultproxy`の要素、 *Web.config*ファイル。 次の例は、 *Web.config*ファイルと、 `defaultproxy` ReCaptcha サービスを動作を有効にするように構成要素。
+> コンピューターがプロキシサーバーを使用するドメインにある場合*は、web.config ファイルの*`defaultproxy` 要素の構成が必要になることがあります。 次の例は、ReCaptcha サービスが機能するように構成された `defaultproxy` 要素を含む*web.config ファイルを*示しています。
 > 
 > [!code-xml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample3.xml)]
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
-- [ASP.NET Web Pages サイトのサイト全体の動作をカスタマイズします。](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [ASP.NET Web ページサイトのサイト全体の動作のカスタマイズ](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [ReCaptcha サイト](https://www.google.com/recaptcha)

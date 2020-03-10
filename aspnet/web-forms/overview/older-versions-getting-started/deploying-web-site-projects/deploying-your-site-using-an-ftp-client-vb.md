@@ -9,11 +9,11 @@ ms.assetid: 09279194-bcf9-4b59-a09d-c68e5926a758
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 7875304c672625d8c0eaaf0fea8ef509bb801a3a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611833"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438874"
 ---
 # <a name="deploying-your-site-using-an-ftp-client-vb"></a>FTP クライアントを使用してサイトを配置する (VB)
 
@@ -134,13 +134,13 @@ Web アプリケーションの開発と配置は、1回限りのプロセスで
 
 最後に、運用環境にコピーする必要があるファイルの数とサイズによっては、アプリケーションの再デプロイに数秒から数分かかる場合があることに注意してください。 この期間中、サイトにアクセスしているユーザーには、エラーまたは異常な動作が発生する可能性があります。 アプリケーション全体を "オフ" にするには、アプリケーションのルートディレクトリに `App_Offline.htm` という名前のページを追加します。これにより、サイトがメンテナンスのためにダウンしていることをユーザーに説明すると共に、すぐにバックアップが実行されます。 `App_Offline.htm` ファイルが存在する場合、ASP.NET ランタイムはすべての受信要求をそのページにリダイレクトします。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Web アプリケーションを配置するには、開発環境から運用環境に必要なファイルをコピーする必要があります。 ネットワーク経由でファイルを転送する最も一般的な方法はファイル転送プロトコル (FTP) であり、ほとんどの web ホストプロバイダーは web サーバーへの FTP アクセスをサポートしています。 このチュートリアルでは、FTP クライアントを使用して、必要なファイルを web サーバーに展開する方法を説明しました。 デプロイされると、インターネットに接続しているすべてのユーザーが web サイトにアクセスできるようになります。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

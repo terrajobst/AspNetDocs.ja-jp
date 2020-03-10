@@ -9,11 +9,11 @@ ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: fbb4cd7afa2506879d47bce980bf0164aad40c2c
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519272"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78447202"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web プロジェクトを作成する
 
@@ -31,7 +31,7 @@ ms.locfileid: "76519272"
 > Azure Cloud Services または Azure Mobile Services の web プロジェクトを作成する方法については、「azure [Cloud Services と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/)」と「 [Azure Mobile Services .net バックエンドでのランキングアプリの作成](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)」を参照してください。
 
 <a id="prerequisites"></a>
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>前提条件
 
 この記事は、 [Update 3](https://go.microsoft.com/fwlink/?linkid=397827&amp;clcid=0x409)がインストールされている[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)に適用されます。
 
@@ -54,7 +54,7 @@ ASP.NET を使用すると、web*アプリケーションプロジェクト*と*
 3. アプリケーションの正常性と使用状況の監視が必要な場合は、右側のウィンドウで **[Application Insights をプロジェクトに追加する]** チェックボックスをオンにします。 詳細については、「[Web アプリケーションのパフォーマンスを監視する](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)」を参照してください。
 4. プロジェクト**名**、**場所**、およびその他のオプションを指定し、[ **OK]** をクリックします。
 
-    **[New ASP.NET Project]** ダイアログボックスが表示されます。
+    **[新しい ASP.NET プロジェクト]** ダイアログ ボックスが表示されます。
 
     ![[新しいプロジェクト] ダイアログ](creating-web-projects-in-visual-studio/_static/image2.png)
 5. テンプレートをクリックします。
@@ -65,7 +65,7 @@ ASP.NET を使用すると、web*アプリケーションプロジェクト*と*
     ![フレームワークの追加](creating-web-projects-in-visual-studio/_static/image4.png)
 7. <a id="testproj"></a>単体テストプロジェクトを追加する場合は、 **[単体テストの追加]** をクリックします。
 
-    ![単体テストの追加](creating-web-projects-in-visual-studio/_static/image5.png)
+    ![単体テストを追加する](creating-web-projects-in-visual-studio/_static/image5.png)
 8. テンプレートが既定で提供するものとは異なる認証方法が必要な場合は、 **[認証の変更]** をクリックします。
 
     ![[認証の構成] ボタン](creating-web-projects-in-visual-studio/_static/image6.png)
@@ -239,7 +239,7 @@ Visual Studio 2013 プロジェクトテンプレートでは[、Twitter](http:/
 
 ブートストラップのテーマ機能を使用して、アプリケーションのルックアンドフィールの変化に簡単に影響を与えることもできます。 たとえば、次の手順を実行して、テーマを変更できます。
 
-1. ブラウザーでに移動[ http://Bootswatch.com ](http://Bootswatch.com)、テーマを選択し、クリックして**ダウンロード**です。 (これにより、既定では、*ブートストラップ*がダウンロードされます。 css コードを確認する場合は、縮小版ではなく、*ブートストラップ*を取得します。)
+1. ブラウザーで[http://Bootswatch.com](http://Bootswatch.com)にアクセスし、テーマを選択して、 **[ダウンロード]** をクリックします。 (これにより、既定では、*ブートストラップ*がダウンロードされます。 css コードを確認する場合は、縮小版ではなく、*ブートストラップ*を取得します。)
 2. ダウンロードした CSS ファイルの内容をコピーします。
 3. Visual Studio で、 *Content*フォルダーに*bootstrap-theme*という名前の新しい**スタイルシート**ファイルを作成し、ダウンロードした css コードを貼り付けます。
 4. \_アプリを開き、 *config を起動また*は bootstrap-theme し、*ブートストラップ*をに変更します。
@@ -284,7 +284,7 @@ MVC、Razor、および Web ページの NuGet パッケージをインストー
 WebApi および Newtonsoft. Json パッケージをインストールし、空*のアプリ\_データ*、*コントローラー*、*およびモデル*の各フォルダーを作成し、 *WebApiConfig.cs*ファイルを使用して*アプリ\_の開始*フォルダーを作成し、 *global.asax*ファイルを作成します。
 
 <a id="auth"></a>
-## <a name="authentication-methods"></a>認証方式
+## <a name="authentication-methods"></a>認証方法
 
 Visual Studio 2013 には、Web フォーム、MVC、および Web API テンプレートに対していくつかの認証オプションが用意されています。
 
@@ -297,7 +297,7 @@ Visual Studio 2013 には、Web フォーム、MVC、および Web API テンプ
 
 <a id="noauth"></a>
 
-### <a name="no-authentication"></a>認証なし
+### <a name="no-authentication"></a>[認証なし]
 
 **[認証なし]** を選択した場合、サンプルアプリケーションには、ログインするための web ページが含まれません。ログインしているユーザーを示す UI、メンバーシップデータベースのエンティティクラスはなく、メンバーシップデータベースの接続文字列はありません。
 
@@ -328,7 +328,7 @@ ASP.NET Identity は、主に外部の顧客向けのインターネット web �
 **組織アカウント**を選択した場合、サンプルアプリケーションは、Azure Active Directory (Azure AD、Office 365 を含む) または windows Server Active Directory のユーザーアカウントに基づいた認証に Windows Identity FOUNDATION (WIF) を使用するように構成されます。 詳細については、このトピックで後述する「[組織アカウントの認証オプション](#orgauthoptions)」を参照してください。
 
 <a id="winauth"></a>
-### <a name="windows-authentication"></a>Windows 認証
+### <a name="windows-authentication"></a>[Windows 認証]
 
 **Windows 認証**を選択した場合、サンプルアプリケーションは認証用に WINDOWS 認証 IIS モジュールを使用するように構成されます。 アプリケーションでは、Windows にログインしている Active directory アカウントまたはローカルコンピューターアカウントのドメインとユーザー ID が表示されますが、ユーザー登録またはログイン UI は含まれません。 このオプションは、イントラネット web サイトを対象としています。
 
@@ -357,11 +357,11 @@ Azure AD のオプションのいずれかを試しても、まだアカウン�
 
 1つの Azure AD[テナント](https://technet.microsoft.com/library/jj573650.aspx)で定義されているユーザーアカウントの認証を有効にする場合は、このオプションを選択します。 たとえば、サイトは contoso.com で、contoso.onmicrosoft.com テナントに属している Contoso 社の従業員が使用できるようになります。 他のテナントのユーザーがアプリケーションにアクセスできるように Azure AD を構成することはできません。
 
-#### <a name="domain"></a>ドメイン
+#### <a name="domain"></a>Domain
 
 アプリケーションをセットアップする Azure AD ドメイン (例: `contoso.onmicrosoft.com`) を入力します。 `contoso.onmicrosoft.com`ではなく `contoso.com` などの[カスタムドメイン](http://www.cloudidentity.com/blog/2013/04/14/adding-a-custom-domain-to-your-windows-azure-ad/)がある場合は、ここで入力できます。
 
-#### <a name="access-level"></a>アクセスレベル
+#### <a name="access-level"></a>アクセス レベル
 
 アプリケーションが Graph API を使用してディレクトリ情報のクエリまたは更新を行う必要がある場合は、[**シングルサインオン]、[ディレクトリデータの読み取り**] または **[シングルサインオン]、[ディレクトリデータの読み取りと書き込み**] の順に選択します。 それ以外の場合は、 **[シングルサインオン]** を選択します。 詳細については、「[アプリケーションアクセスレベル](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)」と「 [Graph API を使用したクエリ Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx)」を参照してください。
 
@@ -419,6 +419,6 @@ Windows Server Active Directory (AD) で定義されているユーザーアカ�
 AD がこのアプリケーションを識別するために使用できる一意の URI を指定するか、空白のままにして Visual Studio で作成できるようにします。
 
 <a id="nextsteps"></a>
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次のステップ
 
 このドキュメントでは Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプを提供しました。 For Visual Studio を使用した web 開発の詳細については、「 [https://www.asp.net/visual-studio/](../../index.md)」を参照してください。

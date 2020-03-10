@@ -9,11 +9,11 @@ ms.assetid: dd1be137-91c5-47a8-8137-fecf0789c7f5
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1be5d135a44feb27626dd26a544b64cfb57b18a9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74596362"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78435862"
 ---
 # <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>ASP.NET MVC を使用し、映画データベース アプリケーションを 15 分で作成する (C#)
 
@@ -49,7 +49,7 @@ Active Server のページや ASP.NET を使用していた場合は、ASP.NET M
 4. ASP.NET MVC コントローラーを作成する
 5. ASP.NET MVC ビューを作成する
 
-## <a name="preliminaries"></a>準備作業
+## <a name="preliminaries"></a>準備
 
 ASP.NET MVC アプリケーションをビルドするには、Visual Studio 2008 または Visual Web Developer 2008 Express が必要です。 また、ASP.NET MVC フレームワークをダウンロードする必要もあります。
 
@@ -73,7 +73,7 @@ Visual Studio 2008 または Visual Web Developer 2008 をインストールし�
 
 ## <a name="creating-an-aspnet-mvc-web-application-project"></a>ASP.NET MVC Web アプリケーションプロジェクトの作成
 
-まず、Visual Studio 2008 で新しい ASP.NET MVC Web アプリケーションプロジェクトを作成します。 メニューオプションファイル **新しいプロジェクト** を選択すると、図1の 新しいプロジェクト ダイアログボックスが表示されます。 プログラミングC#言語としてを選択し、ASP.NET MVC Web アプリケーションプロジェクトテンプレートを選択します。 プロジェクトに名前を付け、[OK] ボタンをクリックします。
+まず、Visual Studio 2008 で新しい ASP.NET MVC Web アプリケーションプロジェクトを作成します。 メニューオプションファイル **新しいプロジェクト** を選択すると、図1の 新しいプロジェクト ダイアログボックスが表示されます。 プログラミング言語として C# を選択し、ASP.NET MVC Web アプリケーション プロジェクト テンプレートを選択します。 プロジェクトに名前を付け、[OK] ボタンをクリックします。
 
 [[新しいプロジェクト] ダイアログボックスの ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image1.png)
 
@@ -95,7 +95,7 @@ ASP.NET MVC アプリケーションには、モデル、ビュー、および�
 
 Visual Studio で新しい MVC アプリケーションを作成すると、サンプルアプリケーションが取得されます。 最初から開始する必要があるため、このサンプルアプリケーションのコンテンツを削除する必要があります。 次のファイルとフォルダーを削除する必要があります。
 
-- Controllers\ homecontroller.cs
+- Controllers\HomeController.cs
 - Views\Home
 
 ## <a name="creating-the-database"></a>データベースの作成
@@ -120,12 +120,12 @@ Visual Studio で新しい MVC アプリケーションを作成すると、サ�
 
 <a id="0.1_table01"></a>
 
-| **列名** | **データ型** | **Null を許容** |
+| **列名** | **[データ型]** | **[NULL を許容]** |
 | --- | --- | --- |
-| Id | Int | [False] |
-| [タイトル] | Nvarchar (100) | [False] |
-| ・ | Nvarchar (100) | [False] |
-| DateReleased | DateTime | [False] |
+| Id | int | False |
+| タイトル | Nvarchar (100) | False |
+| ディレクター | Nvarchar (100) | False |
+| DateReleased | DateTime | False |
 
 最初の列である Id 列には、2つの特殊なプロパティがあります。 まず、Id 列を主キー列としてマークする必要があります。 Id 列を選択したら、**主キーの設定** ボタンをクリックします (これは、キーのようなアイコンです)。 次に、Id 列を Id 列としてマークする必要があります。 列プロパティウィンドウで、[Identity Specification] セクションまで下にスクロールし、それを展開します。 **[Id]** プロパティを **[はい]** に変更します。 完了すると、テーブルは図4のようになります。
 
@@ -158,7 +158,7 @@ Entity Data Model ウィザードを起動するには、次の手順を実行�
 [追加] ボタンをクリックすると、Entity Data Model ウィザードが表示されます (図6を参照)。 ウィザードを完了するには、次の手順を実行します。
 
 1. **[モデルの内容の選択]** ステップで、 **[データベースから生成]** オプションを選択します。
-2. **[データ接続の選択]** 手順で、 *MoviesDB*データ接続を使用し、接続設定に*MoviesDBEntities*という名前を使用します。 **[次へ]** ボタンをクリックします。
+2. **[データ接続の選択]** 手順で、 *MoviesDB*データ接続を使用し、接続設定に*MoviesDBEntities*という名前を使用します。 **[次へ]** をクリックします。
 3. **データベースオブジェクトの選択** ステップで、テーブル ノードを展開し、映画 テーブルを選択します。 名前空間を入力し、 **[完了]** ボタンをクリックし*ます。*
 
 [[新しいプロジェクト] ダイアログボックスの ![](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image6.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image11.png)
@@ -179,7 +179,7 @@ Entity Data Model ウィザードを完了すると、Entity Data Model デザ�
 
 次の手順では、ASP.NET MVC コントローラーを作成します。 コントローラーは、ユーザーが ASP.NET MVC アプリケーションと対話する方法を制御する役割を担います。
 
-この場合は、以下の手順に従ってください。
+次の手順に従います。
 
 1. [ソリューションエクスプローラー] ウィンドウで、Controllers フォルダーを右クリックし、[追加] **、[コントローラー**] の順に選択します。
 2. [コントローラーの追加] ダイアログボックスで、「 *HomeController* 」という名前を入力し、[**作成、更新、詳細のシナリオのアクションメソッドを追加**する] のチェックボックスをオンにします (図8を参照)。
@@ -211,7 +211,7 @@ Index () メソッドを使用して、映画データベーステーブルの�
 
 [!code-csharp[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/samples/sample2.cs)]
 
-Index () メソッドは、Index という名前のビューを返します。 ムービーデータベースレコードの一覧を表示するには、このビューを作成する必要があります。 この場合は、以下の手順に従ってください。
+Index () メソッドは、Index という名前のビューを返します。 ムービーデータベースレコードの一覧を表示するには、このビューを作成する必要があります。 次の手順に従います。
 
 **ビューの追加** ダイアログを開く前にプロジェクトをビルドし (メニューオプション ビルド、**ソリューションのビルド**)、**ビューデータクラス** ボックスの一覧に クラス が表示されないようにする必要があります。
 
@@ -259,7 +259,7 @@ Home コントローラーには、Create () という名前の2つのメソッ�
 
 [!code-csharp[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/samples/sample4.cs)]
 
-Visual Studio を使用すると、新しいムービーデータベースレコードを作成するためのフォームを簡単に作成できます (図12を参照)。 この場合は、以下の手順に従ってください。
+Visual Studio を使用すると、新しいムービーデータベースレコードを作成するためのフォームを簡単に作成できます (図12を参照)。 次の手順に従います。
 
 1. コードエディターで Create () メソッドを右クリックし、 **[ビューの追加]** メニューオプションを選択します。
 2. [**厳密に型指定されたビューを作成**する] チェックボックスがオンになっていることを確認します。
@@ -321,11 +321,11 @@ Visual Studio によって、リスト5に自動的にビューが生成され�
 
 元のムービーを取得し、ApplyPropertyChanges () を呼び出して、データベース内の既存のムービーを更新する必要があることに注意してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET MVC アプリケーションを構築する経験を理解することでした。 ASP.NET MVC web アプリケーションを構築することは、Active Server ページまたは ASP.NET アプリケーションを構築する場合とよく似ていると思います。
 
 このチュートリアルでは、ASP.NET MVC フレームワークの最も基本的な機能のみを検討しています。 今後のチュートリアルでは、コントローラー、コントローラーアクション、ビュー、ビューデータ、HTML ヘルパーなどのトピックについて詳しく説明します。
 
 > [!div class="step-by-step"]
-> [次へ](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)
+> [Next](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)

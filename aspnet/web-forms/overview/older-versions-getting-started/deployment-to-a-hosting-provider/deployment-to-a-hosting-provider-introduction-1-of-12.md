@@ -9,11 +9,11 @@ ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: ea88da1e6d510f706fc7ca370cfa32974c1243f8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587720"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421840"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Visual Studio を使用した SQL Server Compact での ASP.NET Web アプリケーションのデプロイ: 概要-1/12
 
@@ -31,7 +31,7 @@ ms.locfileid: "74587720"
 > 
 > チュートリアルに直接関係のない質問がある場合は、 [ASP.NET Deployment フォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)に投稿できます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 これらのチュートリアルでは、最初にローカルの開発用コンピューターに配置し、次にサードパーティのホスティングプロバイダーに展開する方法を説明します。 デプロイするアプリケーションでは、アプリケーションデータベースと ASP.NET メンバーシップデータベースを使用します。 SQL Server Compact の使用と SQL Server Compact への配置を開始します。以降のチュートリアルでは、データベースの変更を展開する方法と、SQL Server に移行する方法について説明します。
 
@@ -39,7 +39,7 @@ ms.locfileid: "74587720"
 
 チュートリアルは順番に実行するように設計されており、各部分は前の部分に基づいています。 ただし、状況に関係のない部分はスキップできます。 (パートをスキップすると、後のチュートリアルで手順の調整が必要になる場合があります)。
 
-## <a name="intended-audience"></a>想定読者
+## <a name="intended-audience"></a>対象ユーザー
 
 このチュートリアルは、小規模な組織や、次のような環境で作業する ASP.NET 開発者を対象としています。
 
@@ -67,7 +67,7 @@ Contoso 大学は、Visual Studio web アプリケーションプロジェクト
 
 ## <a name="programming-language"></a>プログラミング言語
 
-サンプルアプリケーションはをC#使用しますが、チュートリアルではC#の知識は必要ありません。また、チュートリアルで示されている配置手法は言語固有ではありません。
+C# サンプル アプリケーションを使用が、チュートリアルには、C# の知識が必要としないと、チュートリアルで示すように、展開方法は、言語固有ではないです。
 
 ## <a name="troubleshooting-during-this-tutorial"></a>このチュートリアル中のトラブルシューティング
 
@@ -77,7 +77,7 @@ Contoso 大学は、Visual Studio web アプリケーションプロジェクト
 
 チュートリアルのコメントは歓迎されます。チュートリアルが更新されると、チュートリアルのコメントに記載されている修正や改善の提案が行われます。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 開始する前に、Windows 7 以降と、次のいずれかの製品がコンピューターにインストールされていることを確認してください。
 
@@ -139,4 +139,4 @@ Web サイトのページには、メニューバーからアクセスでき、�
 このシリーズの最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションのデプロイ方法に影響を与えるサイトの機能を確認しました。 次のチュートリアルでは、これらのいくつかを自動的に処理するように設定することによって、デプロイを準備します。 他のユーザーは手動で行うことができます。
 
 > [!div class="step-by-step"]
-> [次へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

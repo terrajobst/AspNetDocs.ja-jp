@@ -9,11 +9,11 @@ ms.assetid: 1e8e65f9-fe3e-4250-810b-c90227786bed
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 3a55f8bc4d3508387927ca81674073a001867de7
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74608195"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78429100"
 ---
 # <a name="adding-additional-datatable-columns-vb"></a>その他の DataTable 列を追加する (VB)
 
@@ -168,7 +168,7 @@ GridView のフィールドを編集し、`ProductName`、`UnitPrice`、およ�
 
 このチュートリアルのダウンロードには、この代替アプローチを示す `ProductsWithPriceQuartileTableAdapter` クラスが `NorthwindWithSprocs` データセットに含まれています。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ほとんどのシナリオでは、TableAdapter 内のすべてのメソッドは同じデータフィールドのセットを返しますが、特定のメソッドまたは2が追加のフィールドを返す必要がある場合もあります。 たとえば、マスター[レコードの箇条書きリストを使用した、詳細データを含むマスターレコードの一覧を使用したマスター/詳細](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)のチュートリアルでは、`CategoriesTableAdapter` にメソッドを追加しました。このメソッドは、メインクエリ s のデータフィールドに加えて、各カテゴリに関連付けられている製品の数を報告する `NumberOfProducts` フィールドを返しました。 このチュートリアルでは、メインのクエリ s データフィールドに加えて、`PriceQuartile` フィールドを返す `ProductsTableAdapter` にメソッドを追加する方法を説明しました。 TableAdapter のメソッドによって返された追加のデータフィールドを取得するには、対応する列を DataTable に追加する必要があります。
 
@@ -176,7 +176,7 @@ DataTable に列を手動で追加する予定の場合は、TableAdapter でス
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -9,11 +9,11 @@ ms.assetid: bea66072-59b6-42b4-98fa-211812f5925f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 97a52bd75fdf63ad62282afd9df772f0a9e4f931
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599687"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430858"
 ---
 # <a name="dynamically-controlling-updatepanel-animations-vb"></a>UpdatePanel アニメーションを動的に制御する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599687"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 UpdatePanel の内容については、animation framework: Updateパネルアニメーションに大きく依存する特別な extender が存在します。 また、UpdatePanel トリガーと共に使用することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 `UpdatePanel`の内容については、`UpdatePanelAnimation`のアニメーションフレームワークに大きく依存する特別な extender が存在します。 また、`UpdatePanel` トリガーと共に使用することもできます。
 
@@ -56,4 +56,4 @@ ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コ
 現在の時刻はフェードインします ([クリックすると、フルサイズの画像が表示](dynamically-controlling-updatepanel-animations-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](animating-an-updatepanel-control-vb.md)
+> [[戻る]](animating-an-updatepanel-control-vb.md)

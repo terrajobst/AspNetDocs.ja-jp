@@ -9,11 +9,11 @@ ms.assetid: e1fec43e-1daf-49d2-b0c7-7f1b930455cc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 24f88e44e0f878127314774d4e8846f80133413e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599283"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430558"
 ---
 # <a name="dynamically-populating-a-control-c"></a>コントロールに動的に入力する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599283"
 
 > ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit の `DynamicPopulate` コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 このチュートリアルでは、これを設定する方法について説明します。
 
@@ -69,4 +69,4 @@ Html ボタン (サーバーへのポストバックを必要としないため�
 このボタンをクリックすると、サーバーから日付が取得されます ([クリックすると、フルサイズの画像が表示](dynamically-populating-a-control-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [Next](dynamically-populating-a-control-using-javascript-code-cs.md)

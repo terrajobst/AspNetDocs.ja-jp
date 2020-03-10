@@ -9,11 +9,11 @@ ms.assetid: 090e9205-52f3-4d72-ae31-44775b8b8421
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 880bb403e671446a77d7eebccf578a1dc714d1f9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586523"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438976"
 ---
 # <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>IIS と ASP.NET 開発サーバーの間の中心的違い (VB)
 
@@ -79,7 +79,7 @@ ASP.NET ランタイムは、要求されたコンテンツを生成するため
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample3.xml)]
 
-この文を、次の文に置き換えます。
+置換後のコード:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample4.xml)]
 
@@ -110,13 +110,13 @@ ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラ
 > [!NOTE]
 > Web ホストプロバイダーがまだ IIS 6 を使用している場合は、統合パイプライン機能を使用できません。 回避策の1つは、HTTP アクセスを禁止するフォルダー (`App_Data`など) にプライベートドキュメントを配置し、これらのドキュメントを提供するページを作成することです。 このページは `GetPDF.aspx`と呼ばれる場合があります。また、クエリ文字列パラメーターを使用して PDF の名前が渡されます。 `GetPDF.aspx` のページでは、まず、ユーザーがファイルを表示するアクセス許可を持っていることを確認し、存在する場合は、 [`Response.WriteFile(filePath)`](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx)メソッドを使用して、要求された PDF ファイルの内容を要求元のクライアントに送り返します。 この手法は、統合パイプラインを有効にしたくない場合に、IIS 7 でも機能します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 運用環境の web アプリケーションは、Microsoft の IIS web サーバーソフトウェアを使用してホストされます。 ただし、開発環境では、アプリケーションは IIS または ASP.NET 開発サーバーを使用してホストされる場合があります。 異なるソフトウェアを使用すると、混合に別の変数が追加されるため、同じ web サーバーソフトウェアを両方の環境で使用するのが理想的です。 ただし、ASP.NET 開発サーバーを使いやすくすることで、開発環境での選択が魅力的になります。 IIS と ASP.NET 開発サーバーにはいくつかの基本的な違いがありますが、これらの違いを認識している場合は、アプリケーションの動作と機能に関係なく同じ方法で動作し、機能するようにするための対策を講じることができます。environment.
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

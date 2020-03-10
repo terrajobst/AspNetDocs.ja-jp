@@ -9,11 +9,11 @@ ms.assetid: d3f062af-88cf-426d-af44-e41f32c41672
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 013c6878aad1a2277b0a334c096ff16ed84a95f1
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625669"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78426616"
 ---
 # <a name="using-the-formviews-templates-c"></a>FormView のテンプレート (C#) の使用
 
@@ -88,7 +88,7 @@ FormView で使用できる CheckBoxFields がないため、`Discontinued` 値�
 
 **図 4**: 流体の FormView 出力 ([クリックすると、フルサイズの画像が表示](using-the-formview-s-templates-cs/_static/image12.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView コントロールと DetailsView コントロールの出力は TemplateFields を使用してカスタマイズできますが、どちらもデータをグリッドのような boxy 形式で表示します。 1つのレコードをより固定されていないレイアウトで表示する必要がある場合は、FormView が最適な選択肢です。 DetailsView と同様に、FormView は `DataSource`から1つのレコードを表示しますが、DetailsView とは異なり、テンプレートだけで構成されており、フィールドはサポートされていません。
 
@@ -96,7 +96,7 @@ GridView コントロールと DetailsView コントロールの出力は Templa
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

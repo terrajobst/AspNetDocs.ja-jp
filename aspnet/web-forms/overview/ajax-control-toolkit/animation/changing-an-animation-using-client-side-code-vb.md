@@ -9,11 +9,11 @@ ms.assetid: a7fe5de5-a964-4780-ae5e-70821dfb50a0
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 msc.type: authoredcontent
 ms.openlocfilehash: cce0a5a901f71edd40eada59ac7eeba93222e2b3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606919"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430990"
 ---
 # <a name="changing-an-animation-using-client-side-code-vb"></a>クライアント側コードを使用してアニメーションを変更する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606919"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションは、カスタムクライアント側の JavaScript コードを使用して変更することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションは、カスタムクライアント側の JavaScript コードを使用して変更することもできます。
 
@@ -51,7 +51,7 @@ ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コ
 
 `AnimationExtender` コントロール内に `<Animations>` ノードがないことに注意してください。 カスタム JavaScript コードを使用して、コントロールで使用されるアニメーションを提供します。
 
-`AnimationExtender`のサーバー API と同様に、まだ extender にアニメーションを割り当てる簡単な方法はありません。 ただし、extender では、さまざまなイベント (`OnClick`、`OnLoad`など) に登録されたアニメーションの読み取りおよび書き込みを行うためのメソッドがいくつか公開されています。 次にいくつかの例を示します。
+`AnimationExtender`のサーバー API と同様に、まだ extender にアニメーションを割り当てる簡単な方法はありません。 ただし、extender では、さまざまなイベント (`OnClick`、`OnLoad`など) に登録されたアニメーションの読み取りおよび書き込みを行うためのメソッドがいくつか公開されています。 次に例をいくつか示します。
 
 - `get_OnClick()`
 - `set_OnClick()`

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/self-host-a-web-api
-title: ASP.NET Web API 1 をセルフホスト (C#)-ASP.NET 4.x
+title: 自己ホスト ASP.NET Web API 1 (C#)-ASP.NET 4.x
 author: MikeWasson
-description: チュートリアルのコードでは、コンソール アプリケーション内部の web API をホストする方法を示します。
+description: コードを使用したチュートリアルでは、コンソールアプリケーション内で web API をホストする方法を示します。
 ms.author: riande
 ms.date: 01/26/2012
 ms.custom: seoapril2019
@@ -10,179 +10,179 @@ ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: bae1737ba5b16bc67fa0ed0474ff04df0add1b3a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134769"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421372"
 ---
-# <a name="self-host-aspnet-web-api-1-c"></a>ASP.NET Web API 1 (c#) を自己ホストします。
+# <a name="self-host-aspnet-web-api-1-c"></a>自己ホスト ASP.NET Web API 1 (C#)
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-> このチュートリアルでは、コンソール アプリケーション内部の web API をホストする方法を示します。 ASP.NET Web API では、IIS は必要ありません。 Web API は、独自のホスト プロセスで自己ホストできます。 
+> このチュートリアルでは、コンソールアプリケーション内で web API をホストする方法について説明します。 ASP.NET Web API には IIS は必要ありません。 独自のホストプロセスで web API を自己ホストすることができます。 
 > 
-> **新しいアプリケーションは、OWIN を使用して、Web API を自己ホストする必要があります。** 参照してください[OWIN を使用して、ASP.NET Web API 2 をセルフホスト](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)します。
+> **新しいアプリケーションでは、OWIN を使用して Web API をセルフホストする必要があります。** 「 [USE OWIN To Self Host ASP.NET Web API 2」を](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)参照してください。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
 > - Web API 1
 > - Visual Studio 2012
 
-## <a name="create-the-console-application-project"></a>コンソール アプリケーション プロジェクトを作成します。
+## <a name="create-the-console-application-project"></a>コンソールアプリケーションプロジェクトを作成する
 
-Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**します。
+Visual Studio を起動し、**スタート**ページで **[新しいプロジェクト]** を選択します。 または、 **[ファイル]** メニューの **[新規作成]** をポイントし、 **[プロジェクト]** をクリックします。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Windows**します。 プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**します。 プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**します。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で、 **[Windows]** を選択します。 プロジェクトテンプレートの一覧で、 **[コンソールアプリケーション]** を選択します。 プロジェクトに SelfHost Host &quot;という名前を指定し、[ **OK]** をクリックします。&quot;
 
 ![](self-host-a-web-api/_static/image1.png)
 
-## <a name="set-the-target-framework-visual-studio-2010"></a>ターゲット フレームワーク (Visual Studio 2010) に設定します。
+## <a name="set-the-target-framework-visual-studio-2010"></a>ターゲットフレームワークを設定する (Visual Studio 2010)
 
-Visual Studio 2010 を使用している場合は、.NET Framework 4.0 をターゲット フレームワークを変更します。 (既定では、プロジェクト テンプレートの対象として、 [.Net Framework クライアント プロファイル](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile))。
+Visual Studio 2010 を使用している場合は、ターゲットフレームワークを .NET Framework 4.0 に変更します。 (既定では、プロジェクトテンプレートは[.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile)を対象としています)。
 
-ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**プロパティ**します。 **ターゲット フレームワーク**ドロップダウン リストで、ターゲット フレームワークを .NET Framework 4.0 に変更します。 変更を適用するメッセージが表示されたら、クリックして**はい**します。
+ソリューションエクスプローラーで、プロジェクトを右クリックし、 **[プロパティ]** を選択します。 **ターゲットフレームワーク** ドロップダウンリストで、ターゲットフレームワーク を .NET Framework 4.0 に変更します。 変更を適用するように求めるメッセージが表示されたら、[**はい]** をクリックします。
 
 ![](self-host-a-web-api/_static/image2.png)
 
-## <a name="install-nuget-package-manager"></a>NuGet パッケージ マネージャーをインストールします。
+## <a name="install-nuget-package-manager"></a>NuGet パッケージマネージャーのインストール
 
-NuGet パッケージ マネージャーは、Web API アセンブリを非 ASP.NET プロジェクトに追加する最も簡単な方法です。
+NuGet パッケージマネージャーは、non-ASP.NET プロジェクトに Web API アセンブリを追加する最も簡単な方法です。
 
-NuGet パッケージ マネージャーがインストールされていることを確認するには、クリックして、**ツール**Visual Studio のメニュー。 メニュー項目を表示する場合は**NuGet パッケージ マネージャー**、NuGet パッケージ マネージャーがあります。
+NuGet パッケージマネージャーがインストールされているかどうかを確認するには、Visual Studio の **[ツール]** メニューをクリックします。 **Nuget パッケージマネージャー**というメニュー項目が表示された場合は、Nuget パッケージマネージャーがあります。
 
-NuGet パッケージ マネージャーをインストールするには
+NuGet パッケージマネージャーをインストールするには:
 
 1. Visual Studio を起動します。
-2. **[ツール]** メニューから **[拡張機能と更新プログラム]** を選択します。
-3. **拡張機能と更新**ダイアログ ボックスで、**オンライン**します。
-4. 「NuGet パッケージ マネージャー」が表示されない場合は、検索ボックスに「nuget パッケージ マネージャー」を入力します。
-5. NuGet パッケージ マネージャーを選択し、クリックして**ダウンロード**します。
-6. ダウンロードの完了後は、インストールを促されます。
-7. インストールの完了後は、Visual Studio を再起動する求め可能性があります。
+2. **[ツール]** メニューの **[拡張機能と更新プログラム]** を選択します。
+3. **[拡張機能と更新プログラム]** ダイアログで、 **[オンライン]** を選択します。
+4. "NuGet パッケージマネージャー" が表示されない場合は、検索ボックスに「nuget package manager」と入力します。
+5. NuGet パッケージマネージャーを選択し、 **[ダウンロード]** をクリックします。
+6. ダウンロードが完了すると、をインストールするように求められます。
+7. インストールが完了すると、Visual Studio を再起動するように求められる場合があります。
 
 ![](self-host-a-web-api/_static/image3.png)
 
-## <a name="add-the-web-api-nuget-package"></a>Web API の NuGet パッケージを追加します。
+## <a name="add-the-web-api-nuget-package"></a>Web API NuGet パッケージを追加する
 
-NuGet パッケージ マネージャーをインストールした後は、プロジェクトに Web API Self-Host パッケージを追加します。
+NuGet パッケージマネージャーがインストールされたら、Web API の自己ホストパッケージをプロジェクトに追加します。
 
-1. **ツール**メニューの  **NuGet パッケージ マネージャー**します。 *注*:かどうかは表示されないこのメニュー項目をその NuGet パッケージ マネージャーが正しくインストールされていることを確認します。
-2. 選択**ソリューションの NuGet パッケージの管理**
-3. **NugGet パッケージの管理**ダイアログ ボックスで、**オンライン**します。
-4. 検索ボックスに「 &quot;Microsoft.AspNet.WebApi.SelfHost&quot;します。
-5. ASP.NET Web API の自己ホスト パッケージを選択し、クリックして**インストール**します。
-6. パッケージをインストールした後にをクリックして**閉じます**ダイアログ ボックスを閉じます。
+1. **[ツール]** メニューの **[NuGet パッケージマネージャー]** をクリックします。 *注*: このメニュー項目が表示されない場合は、NuGet パッケージマネージャーが正しくインストールされていることを確認してください。
+2. **[ソリューションの NuGet パッケージの管理]** を選択します。
+3. **[NugGet パッケージの管理]** ダイアログボックスで、 **[オンライン]** を選択します。
+4. 検索ボックスに、「&quot;WebApi&quot;」と入力します。
+5. ASP.NET Web API セルフホストパッケージを選択し、 **[インストール]** をクリックします。
+6. パッケージがインストールされたら、 **[閉じる]** をクリックしてダイアログボックスを閉じます。
 
 > [!NOTE]
-> Microsoft.AspNet.WebApi.SelfHost、AspNetWebApi.SelfHost しないという名前のパッケージをインストールしてください。
+> AspNetWebApi ではなく、WebApi という名前のパッケージを必ずインストールしてください。
 
 ![](self-host-a-web-api/_static/image4.png)
 
-## <a name="create-the-model-and-controller"></a>モデルとコント ローラーを作成します。
+## <a name="create-the-model-and-controller"></a>モデルとコントローラーを作成する
 
-このチュートリアルと同じモデルとコント ローラー クラスを使用して、 [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアル。
+このチュートリアルでは、[はじめに](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアルと同じモデルとコントローラークラスを使用します。
 
-という名前のパブリック クラスを追加`Product`します。
+`Product`という名前のパブリッククラスを追加します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample1.cs)]
 
-という名前のパブリック クラスを追加`ProductsController`します。 このクラスから派生**System.Web.Http.ApiController**します。
+`ProductsController`という名前のパブリッククラスを追加します。 このクラスを**ApiController**から派生させます。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample2.cs)]
 
-このコント ローラー コードの詳細については、次を参照してください。、 [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアル。 このコント ローラーには、次の 3 つの GET 操作を定義します。
+このコントローラーのコードの詳細については、[はじめに](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアルを参照してください。 このコントローラーは、次の3つの GET アクションを定義します。
 
-| URI | 説明 |
+| URI | Description |
 | --- | --- |
 | /api/products | すべての製品の一覧を取得します。 |
-| /api/products/*id* | ID によって製品を取得します。 |
-| /api/products/?category=*category* | カテゴリ別、製品の一覧を取得します。 |
+| /api/*id* | ID で製品を取得します。 |
+| //カテゴリ =*カテゴリ* | カテゴリ別に製品の一覧を取得します。 |
 
-## <a name="host-the-web-api"></a>Web API をホストします。
+## <a name="host-the-web-api"></a>Web API をホストする
 
-Program.cs ファイルを開き、次を追加するステートメントを使用します。
+Program.cs ファイルを開き、次の using ステートメントを追加します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample3.cs)]
 
-次のコードを追加、**プログラム**クラス。
+**Program**クラスに次のコードを追加します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample4.cs)]
 
-## <a name="optional-add-an-http-url-namespace-reservation"></a>(省略可能)HTTP URL Namespace 予約を追加します。
+## <a name="optional-add-an-http-url-namespace-reservation"></a>OptionalHTTP URL 名前空間の予約を追加する
 
-このアプリケーションがリッスン`http://localhost:8080/`します。 既定では、特定の HTTP アドレスでリッスンしている管理者特権が必要です。 チュートリアルを実行するときにそのため、このエラーが発生する可能性があります。"HTTP URL を登録できませんでした http://+:8080/"はこのエラーを回避するために 2 つの方法があります。
+このアプリケーションは `http://localhost:8080/`をリッスンします。 既定では、特定の HTTP アドレスでリッスンするには、管理者特権が必要です。 このチュートリアルを実行すると、次のエラーが表示されることがあります。 "HTTP は URL http://+:8080/を登録できませんでした。このエラーを回避する方法は2つあります。
 
-- Visual Studio を管理者として昇格されたアクセス許可を持つ実行または
-- Netsh.exe を使用して、URL を予約するアカウントのアクセス許可を与えます。
+- 管理者特権で Visual Studio を実行します。または、
+- Netsh.exe を使用して、アカウントに URL を予約するアクセス許可を付与します。
 
-Netsh.exe を使用して、管理者特権でコマンド プロンプトを開きし、次のコマンド: 次のコマンドを入力します。
+Netsh.exe を使用するには、管理者特権でコマンドプロンプトを開き、次のコマンドを入力します。コマンド:
 
 [!code-console[Main](self-host-a-web-api/samples/sample5.cmd)]
 
-場所*machine \username など*は、ユーザー アカウントです。
+ここで、 *machine\username など*はユーザーアカウントです。
 
-自己ホストを終了したら、必ず、予約を削除します。
+自己ホストを完了したら、予約を削除してください。
 
 [!code-console[Main](self-host-a-web-api/samples/sample6.cmd)]
 
-## <a name="call-the-web-api-from-a-client-application-c"></a>クライアント アプリケーション (c#) から Web API の呼び出し
+## <a name="call-the-web-api-from-a-client-application-c"></a>クライアントアプリケーションから Web API を呼び出す (C#)
 
-Web API を呼び出す単純なコンソール アプリケーションを記述してみましょう。
+ここでは、web API を呼び出す簡単なコンソールアプリケーションを作成します。
 
-新しいコンソール アプリケーション プロジェクトをソリューションに追加します。
+新しいコンソールアプリケーションプロジェクトをソリューションに追加します。
 
-- ソリューション エクスプ ローラーでソリューションを右クリックし、選択**新しいプロジェクトの追加**します。
-- という名前の新しいコンソール アプリケーションを作成&quot;ClientApp&quot;します。
+- ソリューションエクスプローラーで、ソリューションを右クリックし、 **[新しいプロジェクトの追加]** を選択します。
+- &quot;ClientApp&quot;という名前の新しいコンソールアプリケーションを作成します。
 
 ![](self-host-a-web-api/_static/image5.png)
 
-ASP.NET Web API のコア ライブラリのパッケージを追加するには、NuGet パッケージ マネージャーを使用します。
+NuGet パッケージマネージャーを使用して ASP.NET Web API コアライブラリパッケージを追加します。
 
-- [ツール] メニューで、次のように選択します。 **NuGet パッケージ マネージャー**します。
-- 選択**ソリューションの NuGet パッケージの管理**
-- **NuGet パッケージの管理**ダイアログ ボックスで、**オンライン**します。
-- 検索ボックスに「 &quot;Microsoft.AspNet.WebApi.Client&quot;します。
-- Microsoft ASP.NET Web API クライアント ライブラリのパッケージを選択し、クリックして**インストール**します。
+- ツール メニューの  **NuGet パッケージマネージャー** をクリックします。
+- **[ソリューションの NuGet パッケージの管理]** を選択します。
+- **[NuGet パッケージの管理]** ダイアログで、 **[オンライン]** を選択します。
+- 検索ボックスに、「&quot;WebApi&quot;」と入力します。
+- Microsoft ASP.NET Web API クライアントライブラリパッケージを選択し、 **[インストール]** をクリックします。
 
-ClientApp で自己ホスト型プロジェクトへの参照を追加します。
+ClientApp に参照を SelfHost プロジェクトに追加します。
 
-- ソリューション エクスプ ローラーで、ClientApp プロジェクトを右クリックします。
+- ソリューションエクスプローラーで、ClientApp プロジェクトを右クリックします。
 - **[参照の追加]** をクリックします。
-- **参照マネージャー**ダイアログで、**ソリューション**を選択します**プロジェクト**します。
-- 自己ホスト型プロジェクトを選択します。
+- **[参照マネージャー]** ダイアログボックスの **[ソリューション]** で、 **[プロジェクト]** を選択します。
+- SelfHost プロジェクトを選択します。
 - **[OK]** をクリックします。
 
 ![](self-host-a-web-api/_static/image6.png)
 
-Client/Program.cs ファイルを開きます。 次の追加**を使用して**ステートメント。
+クライアント/プログラム .cs ファイルを開きます。 次の **using** ステートメントを追加します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample7.cs)]
 
-追加の静的な**HttpClient**インスタンス。
+静的**Httpclient**インスタンスを追加します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample8.cs)]
 
-カテゴリ別一覧、製品 ID を使用して、すべての製品と製品の一覧を一覧表示する次のメソッドを追加します。
+すべての製品を一覧表示し、ID で製品を一覧表示し、カテゴリ別に製品を一覧表示するには、次のメソッドを追加します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample9.cs)]
 
-これらの各メソッドには、同じパターンがとおりです。
+これらの各メソッドは、同じパターンに従います。
 
-1. 呼び出す**HttpClient.GetAsync**適切な URI に GET 要求を送信します。
-2. 呼び出す**HttpResponseMessage.EnsureSuccessStatusCode**します。 このメソッドは、HTTP 応答の状態がエラー コードの場合、例外をスローします。
-3. 呼び出す**ReadAsAsync&lt;T&gt;** を HTTP 応答から CLR 型を逆シリアル化します。 このメソッドで定義されている、拡張メソッドは、 **System.Net.Http.HttpContentExtensions**します。
+1. GET 要求を適切な URI に送信するには、 **Httpclient**を呼び出します。
+2. **HttpResponseMessage EnsureSuccessStatusCode**を呼び出します。 このメソッドは、HTTP 応答の状態がエラーコードの場合に例外をスローします。
+3. **Readasasync&lt;t&gt;** を呼び出して、HTTP 応答から CLR 型を逆シリアル化します。 このメソッドは、**システムの .net. HttpContentExtensions**で定義されている拡張メソッドです。
 
-**GetAsync**と**ReadAsAsync**メソッドは、非同期のどちらもします。 返される**タスク**非同期操作を表すオブジェクト。 取得、**結果**プロパティは、操作が完了するまでスレッドをブロックします。
+**GetAsync**メソッドと**readasasync**メソッドは両方とも非同期です。 これらは、非同期操作を表す**タスク**オブジェクトを返します。 **Result**プロパティを取得すると、操作が完了するまでスレッドがブロックされます。
 
-非ブロッキング呼び出しを実行する方法など、HttpClient を使用しての詳細については、次を参照してください。 [Web API から、.NET クライアントを呼び出す](../advanced/calling-a-web-api-from-a-net-client.md)します。
+非ブロッキング呼び出しを行う方法など、HttpClient の使用方法の詳細については、「 [.Net クライアントからの WEB API の呼び出し](../advanced/calling-a-web-api-from-a-net-client.md)」を参照してください。
 
-これらのメソッドを呼び出す前に BaseAddress プロパティを設定する HttpClient インスタンス"`http://localhost:8080`"。 例:
+これらのメソッドを呼び出す前に、HttpClient インスタンスの BaseAddress プロパティを "`http://localhost:8080`" に設定します。 次に例を示します。
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample10.cs)]
 
-これは、次を出力します。 (自己ホスト型アプリケーションを最初に実行してください。)
+これにより、次のように出力されます。 (最初に SelfHost アプリケーションを実行してください)。
 
 [!code-console[Main](self-host-a-web-api/samples/sample11.cmd)]
 

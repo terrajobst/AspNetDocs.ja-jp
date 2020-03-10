@@ -1,200 +1,200 @@
 ---
 uid: signalr/overview/advanced/dependency-injection
-title: SignalR の依存関係の挿入 |Microsoft Docs
+title: SignalR | での依存関係の挿入Microsoft Docs
 author: bradygaster
-description: このトピックの「Visual Studio 2013 .NET 4.5 SignalR 使用されるソフトウェアのバージョンは以前のバージョンについてはこのトピック以前バージョンをバージョン 2.
+description: この Visual Studio 2013 トピックで使用されているソフトウェアのバージョンについては、このトピックの以前のバージョンの .NET 4.5 SignalR バージョン2以前のバージョンを参照してください。
 ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
 ms.openlocfilehash: 52978b10b6c131ac8eff4535216cc60b43fdf3de
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65120104"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431866"
 ---
 # <a name="dependency-injection-in-signalr"></a>SignalR の依存関係挿入
 
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+[Mike Wasson](https://github.com/MikeWasson)、[パトリック Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されているソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR 2 のバージョン
+> - SignalR バージョン2
 >
 >
 >
-> ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
+> ## <a name="previous-versions-of-this-topic"></a>このトピックの前のバージョン
 >
-> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
+> 以前のバージョンの SignalR の詳細については、「[古いバージョンの SignalR](../older-versions/index.md)」を参照してください。
 >
-> ## <a name="questions-and-comments"></a>意見やご質問
+> ## <a name="questions-and-comments"></a>質問とコメント
 >
-> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
-依存関係の挿入は、簡単になります (モック オブジェクトを使用して) テストのいずれかのオブジェクトの依存関係を置換するか、実行時の動作を変更するオブジェクト間の依存関係をハードコーディングを削除する方法です。 このチュートリアルでは、SignalR ハブの依存関係の挿入を実行する方法を示します。 SignalR で IoC コンテナーを使用する方法も示します。 IoC コンテナーは、依存関係の挿入の一般的なフレームワークです。
+依存関係の挿入は、オブジェクト間のハードコーディングされた依存関係を削除する方法であり、テスト (モックオブジェクトを使用) または実行時の動作の変更のために、オブジェクトの依存関係を簡単に置き換えることができます。 このチュートリアルでは、SignalR hub で依存関係の挿入を実行する方法について説明します。 また、SignalR で IoC コンテナーを使用する方法も示します。 IoC コンテナーは、依存関係の挿入のための一般的なフレームワークです。
 
-## <a name="what-is-dependency-injection"></a>依存関係の挿入とは何ですか。
+## <a name="what-is-dependency-injection"></a>依存関係の挿入とは
 
-依存関係の挿入を理解している場合は、このセクションをスキップします。
+依存関係の挿入について既によく理解している場合は、このセクションをスキップしてください。
 
-*依存関係の注入*(DI) は、パターン オブジェクトが独自の依存関係の作成を担当します。 DI を顧客が簡単な例を次に示します。 メッセージを記録する必要があるオブジェクトがあるとします。 ログ記録のインターフェイスを定義する場合があります。
+*依存関係の挿入*(DI) は、オブジェクトが独自の依存関係を作成することを担当しないパターンです。 DI を動機付けする簡単な例を次に示します。 メッセージをログに記録する必要があるオブジェクトがあるとします。 ログインターフェイスを定義することもできます。
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 
-オブジェクトを作成できます、`ILogger`メッセージを記録します。
+オブジェクトでは、メッセージをログに記録するための `ILogger` を作成できます。
 
 [!code-csharp[Main](dependency-injection/samples/sample2.cs)]
 
-これは、動作しますが、最適なデザインではありません。 置換する場合`FileLogger`別`ILogger`の実装を変更する必要がある`SomeComponent`します。 多くの他のオブジェクトで使用されると`FileLogger`、それらのすべてを変更する必要があります。 作成する場合または`FileLogger`シングルトンもする必要があります、アプリケーション全体での変更を加えます。
+これは機能しますが、最適な設計ではありません。 `FileLogger` を別の `ILogger` 実装に置き換える場合は、`SomeComponent`を変更する必要があります。 他のオブジェクトの中には `FileLogger`を使用するものがあるため、すべてを変更する必要があります。 または、シングルトン `FileLogger` する場合は、アプリケーション全体で変更を行う必要があります。
 
-「注入」するほうが効果的、`ILogger`オブジェクトに、たとえば、コンス トラクター引数を使用しています。
+より適切な方法は、コンストラクター引数を使用して、オブジェクトに `ILogger` を "挿入" することです。
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-選択するため、オブジェクトはありませんので`ILogger`を使用します。 切り替えることができます`ILogger`それに依存するオブジェクトを変更することがなく実装します。
+これで、オブジェクトは、使用する `ILogger` を選択する責任を負いません。 `ILogger` の実装は、依存するオブジェクトを変更せずに切り替えることができます。
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
-このパターンと呼ばれます[コンス トラクターの挿入](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection)します。 パターンの 1 つは、セッターの挿入、setter メソッドまたはプロパティから依存関係を設定します。
+このパターンは、[コンストラクターの挿入](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection)と呼ばれます。 もう1つのパターンは setter インジェクションで、setter メソッドまたはプロパティを使用して依存関係を設定します。
 
-## <a name="simple-dependency-injection-in-signalr"></a>SignalR で単純な依存関係の挿入
+## <a name="simple-dependency-injection-in-signalr"></a>SignalR での単純な依存関係の挿入
 
-チュートリアルのチャット アプリケーションを考えます[SignalR の概要](../getting-started/tutorial-getting-started-with-signalr.md)します。 そのアプリケーションからハブ クラスを次に示します。
+[SignalR を使用](../getting-started/tutorial-getting-started-with-signalr.md)したチュートリアルはじめにのチャットアプリケーションについて考えてみましょう。 そのアプリケーションのハブクラスを次に示します。
 
 [!code-csharp[Main](dependency-injection/samples/sample5.cs)]
 
-チャット メッセージを送信する前にサーバーに格納するとします。 この機能は、抽象化するインターフェイスを定義してにインターフェイスを挿入する DI を使用する場合があります、`ChatHub`クラス。
+送信前にチャットメッセージをサーバーに保存するとします。 この機能を抽象化するインターフェイスを定義し、DI を使用して `ChatHub` クラスにインターフェイスを挿入することもできます。
 
 [!code-csharp[Main](dependency-injection/samples/sample6.cs)]
 
-唯一の問題は、SignalR アプリケーションがハブ; を直接作成していないことSignalR を作成します。 既定では、SignalR には、パラメーターなしのコンス トラクターを持つハブ クラスが必要です。 ただし、ハブのインスタンスを作成する関数を登録して、この関数を使用して、DI を実行することができます簡単にします。 関数を呼び出すことによって登録**GlobalHost.DependencyResolver.Register**します。
+唯一の問題は、SignalR アプリケーションが直接ハブを作成しないことです。SignalR によって作成されます。 既定では、SignalR はハブクラスにパラメーターなしのコンストラクターがあることを想定しています。 ただし、ハブインスタンスを作成する関数を簡単に登録し、この関数を使用して DI を実行できます。 **Globalhost. DependencyResolver. register**を呼び出して、関数を登録します。
 
 [!code-csharp[Main](dependency-injection/samples/sample7.cs)]
 
-SignalR は、作成する必要があるたびに、この匿名関数が呼び出すので、`ChatHub`インスタンス。
+これで、SignalR インスタンス `ChatHub` を作成する必要があるときに、はこの匿名関数を呼び出します。
 
 ## <a name="ioc-containers"></a>IoC コンテナー
 
-前のコードは、単純なケースに適してします。 これを記述する必要があります。
+前のコードは、単純なケースでは問題ありません。 しかし、次のように記述する必要がありました。
 
 [!code-csharp[Main](dependency-injection/samples/sample8.cs)]
 
-多くの依存関係を持つ複雑なアプリケーションでは、多くの「接続」このコードを記述する必要があります。 このコードの依存関係が入れ子になった場合に特にハードを維持することはできます。 また、単体テストは困難です。
+多くの依存関係がある複雑なアプリケーションでは、この "配線" コードの多くを記述しなければならない場合があります。 特に依存関係が入れ子になっている場合は、このコードを維持することは困難です。 単体テストも困難です。
 
-1 つのソリューションでは、IoC コンテナーを使用します。 IoC コンテナーは、依存関係の管理を担当するソフトウェア コンポーネントです。型、コンテナーを登録し、コンテナーを使用して、オブジェクトを作成します。 コンテナーは、依存関係を自動的に検出します。 多くの IoC コンテナーでは、オブジェクトの有効期間とスコープなどを制御することもできます。
+1つの解決策は、IoC コンテナーを使用することです。 IoC コンテナーは、依存関係の管理を担当するソフトウェアコンポーネントです。型をコンテナーに登録した後、コンテナーを使用してオブジェクトを作成します。 コンテナーは、依存関係の関係を自動的に判別します。 多くの IoC コンテナーでは、オブジェクトの有効期間やスコープなどを制御することもできます。
 
 > [!NOTE]
-> "IoC"「の制御の反転」の略フレームワークからアプリケーション コードを呼び出す、一般的なパターンは。 IoC コンテナーを構築、オブジェクト、コントロールの通常のフローの「反転」をします。
+> "IoC" は、フレームワークがアプリケーションコードを呼び出す一般的なパターンである "コントロールの反転" を表します。 IoC コンテナーによってオブジェクトが構築され、通常の制御フローが "反転" されます。
 
-## <a name="using-ioc-containers-in-signalr"></a>SignalR の IoC コンテナーの使用
+## <a name="using-ioc-containers-in-signalr"></a>SignalR での IoC コンテナーの使用
 
-チャット アプリケーションは、IoC コンテナーのメリットは単純すぎる可能性があります。 代わりを見てみましょう、 [StockTicker](http://nuget.org/packages/microsoft.aspnet.signalr.sample)サンプル。
+多くの場合、このチャットアプリケーションは、IoC コンテナーを活用するのには簡単ではありません。 では、 [Stockticker](http://nuget.org/packages/microsoft.aspnet.signalr.sample)サンプルを見てみましょう。
 
-StockTicker サンプルでは、2 つの主要なクラスを定義します。
+StockTicker サンプルでは、次の2つの主要なクラスを定義します。
 
-- `StockTickerHub`:ハブ クラスはクライアント接続を管理します。
-- `StockTicker`:株価を保持し、定期的に更新するシングルトン。
+- `StockTickerHub`: クライアント接続を管理するハブクラス。
+- `StockTicker`: 株価を保持し、定期的に更新するシングルトン。
 
-`StockTickerHub` 参照を保持、`StockTicker`シングルトン、中に`StockTicker`への参照を保持、 **IHubConnectionContext**の`StockTickerHub`します。 このインターフェイスを使用して通信を`StockTickerHub`インスタンス。 (詳細については、次を参照してください[ASP.NET SignalR によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)。)。
+`StockTickerHub` は `StockTicker` シングルトンへの参照を保持し、`StockTicker` は `StockTickerHub`の**IHubConnectionContext**への参照を保持します。 このインターフェイスを使用して、`StockTickerHub` インスタンスと通信します。 (詳細については、「 [ASP.NET SignalR でのサーバーブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)」を参照してください)。
 
-これらの依存関係を少し整理して、IoC コンテナーを使用できます。 まず、少し簡略化し、`StockTickerHub`と`StockTicker`クラス。 次のコードではコメント部分にしない必要があります。
+IoC コンテナーを使用して、これらの依存関係をビットに untangle ことができます。 まず、`StockTickerHub` クラスと `StockTicker` クラスを簡略化しましょう。 次のコードでは、必要のない部分をコメント化しています。
 
-パラメーターなしのコンス トラクターを削除`StockTickerHub`します。 代わりに、ハブを作成するのに DI を常に使用します。
+パラメーターなしのコンストラクターを `StockTickerHub`から削除します。 代わりに、常に DI を使用してハブを作成します。
 
 [!code-csharp[Main](dependency-injection/samples/sample9.cs)]
 
-StockTicker シングルトン インスタンスを削除します。 その後、StockTicker 有効期間を制御、IoC コンテナーを使用します。 パブリック コンス トラクターは、また、ください。
+StockTicker の場合は、シングルトンインスタンスを削除します。 後で、IoC コンテナーを使用して StockTicker の有効期間を制御します。 また、コンストラクターをパブリックにします。
 
 [!code-csharp[Main](dependency-injection/samples/sample10.cs?highlight=7)]
 
-次に、インターフェイスを作成して、コードをリファクタリングできます`StockTicker`します。 このインターフェイスを使用して、分離、`StockTickerHub`から、`StockTicker`クラス。
+次に、`StockTicker`のインターフェイスを作成してコードをリファクターできます。 このインターフェイスを使用して、`StockTicker` クラスの `StockTickerHub` を分離します。
 
-Visual Studio でこの種のリファクタリングも簡単。 StockTicker.cs ファイルを開きを右クリックし、`StockTicker`クラス宣言、および選択**リファクタリング**.**インターフェイスの抽出**します。
+この種のリファクタリングは、Visual Studio によって簡単に行うことができます。 StockTicker.cs ファイルを開き、`StockTicker` クラスの宣言を右クリックして、[**リファクター** ...] を選択します。**インターフェイスを抽出**します。
 
 ![](dependency-injection/_static/image1.png)
 
-**インターフェイスの抽出**ダイアログ ボックスで、をクリックして**すべて選択**します。 その他の既定値のままにします。 **[OK]** をクリックします。
+**[インターフェイスの抽出]** ダイアログで、 **[すべて選択]** をクリックします。 他の既定値はそのままにします。 **[OK]** をクリックします。
 
 ![](dependency-injection/_static/image2.png)
 
-Visual Studio は、という名前の新しいインターフェイスを作成します。 `IStockTicker`、し、変更も`StockTicker`から派生する`IStockTicker`します。
+Visual Studio によって `IStockTicker`という名前の新しいインターフェイスが作成され、`IStockTicker`から派生する `StockTicker` も変更されます。
 
-IStockTicker.cs ファイルを開き、インターフェイスを変更**パブリック**します。
+IStockTicker.cs ファイルを開き、インターフェイスを**public**に変更します。
 
 [!code-csharp[Main](dependency-injection/samples/sample11.cs?highlight=1)]
 
-`StockTickerHub`クラス、2 つのインスタンスを変更する`StockTicker`に`IStockTicker`:
+`StockTickerHub` クラスで、`StockTicker` の2つのインスタンスを `IStockTicker`に変更します。
 
 [!code-csharp[Main](dependency-injection/samples/sample12.cs?highlight=4,6)]
 
-作成、`IStockTicker`インターフェイスが厳密には必要はありませんが、DI、アプリケーションのコンポーネント間の結合の削減を支援する方法を表示したいです。
+`IStockTicker` インターフェイスの作成は、厳密には必要ありませんが、アプリケーション内のコンポーネント間の結合を減らすために DI がどのように役立つかを説明したいと考えました。
 
-## <a name="add-the-ninject-library"></a>Ninject ライブラリを追加します。
+## <a name="add-the-ninject-library"></a>Ninject ライブラリを追加する
 
-.NET の多くのオープン ソース IoC コンテナーがあります。 このチュートリアルで使用します[Ninject](http://www.ninject.org/)します。 (その他の一般的なライブラリを含める[Castle Windsor](http://www.castleproject.org/)、 [Spring.Net](http://www.springframework.net/)、 [Autofac](https://code.google.com/p/autofac/)、 [Unity](https://github.com/unitycontainer/unity)、および[StructureMap](http://docs.structuremap.net).)
+.NET 用に多数のオープンソースの IoC コンテナーがあります。 このチュートリアルでは、 [Ninject](http://www.ninject.org/)を使用します。 (他の一般的なライブラリには、[城主の Windsor](http://www.castleproject.org/)、 [Spring.Net](http://www.springframework.net/)、 [Autofac](https://code.google.com/p/autofac/)、 [Unity](https://github.com/unitycontainer/unity)、および構造体の[マップ](http://docs.structuremap.net)が含まれています)。
 
-NuGet パッケージ マネージャーを使用して、インストール、 [Ninject ライブラリ](https://nuget.org/packages/Ninject/3.0.1.10)します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー** > **パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+NuGet パッケージマネージャーを使用して、 [Ninject ライブラリ](https://nuget.org/packages/Ninject/3.0.1.10)をインストールします。 Visual Studio で、 **[ツール]** メニューの [ **NuGet パッケージマネージャー** > **パッケージマネージャーコンソール**] を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](dependency-injection/samples/sample13.ps1)]
 
-## <a name="replace-the-signalr-dependency-resolver"></a>SignalR の依存関係競合回避モジュールを置き換えます
+## <a name="replace-the-signalr-dependency-resolver"></a>SignalR Dependency Resolver を置き換える
 
-SignalR 内 Ninject を使用するから派生したクラスを作成**DefaultDependencyResolver**します。
+SignalR 内で Ninject を使用するには、 **Defaultdependencyresolver**から派生するクラスを作成します。
 
 [!code-csharp[Main](dependency-injection/samples/sample14.cs)]
 
-このクラスのオーバーライド、 **GetService**と**GetServices**メソッドの**DefaultDependencyResolver**します。 SignalR ハブのインスタンスの SignalR によって内部的に使用されるさまざまなサービスなど、実行時にさまざまなオブジェクトを作成するこれらのメソッドを呼び出します。
+このクラスは、 **Defaultdependencyresolver**の**GetService**メソッドと**getservices**メソッドをオーバーライドします。 SignalR は、これらのメソッドを呼び出して、ハブインスタンスを含む、実行時にさまざまなオブジェクトを作成します。また、SignalR によって内部的に使用されるさまざまなサービスを作成します。
 
-- **GetService**メソッドは、型の 1 つのインスタンスを作成します。 このメソッドを呼び出す、Ninject カーネルのオーバーライド**TryGet**メソッド。 そのメソッドが null を返す場合は、既定の競合回避モジュールに戻ります。
-- **GetServices**メソッドは、指定した型のオブジェクトのコレクションを作成します。 既定のリゾルバーからの結果には、Ninject からの結果を連結するには、このメソッドをオーバーライドします。
+- **GetService**メソッドは、型の1つのインスタンスを作成します。 Ninject カーネルの**Tryget**メソッドを呼び出すには、このメソッドをオーバーライドします。 このメソッドが null を返す場合は、既定の競合回避モジュールに戻ります。
+- **Getservices**メソッドは、指定された型のオブジェクトのコレクションを作成します。 このメソッドをオーバーライドして、Ninject の結果と既定の競合回避モジュールの結果を連結します。
 
-## <a name="configure-ninject-bindings"></a>Ninject バインドを構成します。
+## <a name="configure-ninject-bindings"></a>Ninject バインドを構成する
 
-宣言型バインディングに Ninject を使用します。
+ここで、Ninject を使用して型バインドを宣言します。
 
-アプリケーションの Startup.cs クラスを開きます (ことか手動で作成したパッケージ」の手順に従って`readme.txt`プロジェクトに認証を追加することによって作成されたか)。 `Startup.Configuration`メソッド、Ninject 呼び出す Ninject コンテナーを作成、*カーネル*します。
+アプリケーションの Startup.cs クラスを開きます (`readme.txt`のパッケージの指示に従って手動で作成したか、プロジェクトに認証を追加することによって作成されたもの)。 `Startup.Configuration` メソッドで、ninject コンテナーを作成します。 Ninject は*カーネル*を呼び出します。
 
 [!code-csharp[Main](dependency-injection/samples/sample15.cs)]
 
-このカスタム依存関係競合回避モジュールのインスタンスを作成します。
+カスタム依存関係競合回避モジュールのインスタンスを作成します。
 
 [!code-csharp[Main](dependency-injection/samples/sample16.cs)]
 
-バインドを作成`IStockTicker`次のようにします。
+次のように `IStockTicker` のバインドを作成します。
 
 [!code-csharp[Main](dependency-injection/samples/sample17.cs)]
 
-このコードは次の 2 つことを示しています。 最初に、アプリケーションに必要なときに、 `IStockTicker`、カーネルがのインスタンスを作成する必要があります`StockTicker`します。 2 番目、`StockTicker`クラスはシングルトン オブジェクトとして作成する必要があります。 Ninject では、オブジェクトの 1 つのインスタンスを作成し、要求ごとに同じインスタンスを返します。
+このコードは2つのことを言います。 まず、アプリケーションに `IStockTicker`が必要な場合は常に、カーネルが `StockTicker`のインスタンスを作成する必要があります。 次に、`StockTicker` クラスをシングルトンオブジェクトとして作成する必要があります。 Ninject は、オブジェクトのインスタンスを1つ作成し、要求ごとに同じインスタンスを返します。
 
-バインドを作成**IHubConnectionContext**次のようにします。
+次のように、 **IHubConnectionContext**のバインドを作成します。
 
 [!code-csharp[Main](dependency-injection/samples/sample18.cs)]
 
-このコードを返す匿名関数の作成、 **IHubConnection**します。 **WhenInjectedInto**メソッドに指示を作成するときにのみ、この関数を使用する Ninject`IStockTicker`インスタンス。 理由は、SignalR が作成される**IHubConnectionContext**インスタンスを内部的には、SignalR での作成方法をオーバーライドする必要はないです。 この関数にのみ適用されます、`StockTicker`クラス。
+このコードは、 **IHubConnection**を返す匿名関数を作成します。 **WhenInjectedInto**メソッドは、`IStockTicker` のインスタンスを作成するときにのみ、この関数を使用するように ninject を指示します。 その理由は、SignalR が**IHubConnectionContext**インスタンスを内部で作成し、SignalR がそれらを作成する方法をオーバーライドしないためです。 この関数は、`StockTicker` クラスにのみ適用されます。
 
-依存関係の競合回避モジュールに渡す、 **MapSignalR**ハブ構成を追加して、メソッド。
+ハブ構成を追加して、依存関係競合回避モジュールを**MapSignalR**メソッドに渡します。
 
 [!code-csharp[Main](dependency-injection/samples/sample19.cs)]
 
-新しいパラメーターを使用して、サンプルの Startup クラスで Startup.ConfigureSignalR メソッドを更新します。
+新しいパラメーターを使用して、サンプルの Startup クラスの ConfigureSignalR メソッドを更新します。
 
 [!code-csharp[Main](dependency-injection/samples/sample20.cs)]
 
-SignalR がで指定された競合回避モジュールを使用して**MapSignalR**既定のリゾルバーではなく。
+SignalR では、既定の競合回避モジュールではなく、 **MapSignalR**で指定された競合回避モジュールが使用されるようになりました。
 
-完全なコードを次に示します`Startup.Configuration`します。
+`Startup.Configuration`の完全なコードリストを次に示します。
 
 [!code-csharp[Main](dependency-injection/samples/sample21.cs)]
 
-Visual Studio で、StockTicker アプリケーションを実行するには、f5 キーを押します。 ブラウザーのウィンドウでに移動します。`http://localhost:*port*/SignalR.Sample/StockTicker.html`します。
+Visual Studio で StockTicker アプリケーションを実行するには、F5 キーを押します。 ブラウザーウィンドウで、`http://localhost:*port*/SignalR.Sample/StockTicker.html`に移動します。
 
 ![](dependency-injection/_static/image3.png)
 
-アプリケーションには、正確に前に、のと同じ機能があります。 (詳細については、次を参照してください[ASP.NET SignalR によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)。)。動作を変更していません。テスト、保守、および進化を簡単にコードを単になりました。
+アプリケーションの機能は以前とまったく同じです。 (説明については、「 [ASP.NET SignalR でのサーバーブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)」を参照してください)。動作は変更されていません。コードを簡単にテスト、保守、および進化させることができました。

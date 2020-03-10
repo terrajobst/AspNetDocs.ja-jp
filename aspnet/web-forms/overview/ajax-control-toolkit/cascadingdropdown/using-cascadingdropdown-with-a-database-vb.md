@@ -9,11 +9,11 @@ ms.assetid: 97a3d33c-c856-43f3-8acb-f1ccbc48221a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 4482aa18c4446ec8f5f160c423008398ea2e1d0d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599465"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430654"
 ---
 # <a name="using-cascadingdropdown-with-a-database-vb"></a>データベースで CascadingDropDown を使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599465"
 
 > AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 これを機能させるには、特別な web サービスを作成する必要があります。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。これを機能させるには、特別な web サービスを作成する必要があります。
 

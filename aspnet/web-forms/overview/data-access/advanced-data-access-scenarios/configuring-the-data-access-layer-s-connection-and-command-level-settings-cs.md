@@ -9,11 +9,11 @@ ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8fe7a5a2e410b47c8c2be62851f2b7b775d60209
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74604906"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78444388"
 ---
 # <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>データ アクセス層の接続レベルとコマンド レベルの設定を構成する (C#)
 
@@ -141,7 +141,7 @@ BLL によって `CommandTimeout` プロパティを調整できるようにす�
 > [!NOTE]
 > `Adapter` プロパティと `CommandCollection` プロパティは `private`としてマークされます。つまり、TableAdapter 内のコードからのみアクセスできます。 `Connection` プロパティとは異なり、これらのアクセス修飾子は構成できません。 したがって、コマンドレベルのプロパティをアーキテクチャ内の他のレイヤーに公開する必要がある場合は、上記の部分クラスのアプローチを使用して、`private` コマンドオブジェクトの読み取りまたは書き込みを行う `public` メソッドまたはプロパティを指定する必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 型指定された DataSet 内の Tableadapter は、データアクセスの詳細と複雑さをカプセル化するために機能します。 Tableadapter を使用して、データベースに接続したり、コマンドを実行したり、DataTable に結果を設定したりするための ADO.NET コードの記述について心配する必要はありません。 すべて自動的に処理されます。
 
@@ -149,7 +149,7 @@ BLL によって `CommandTimeout` プロパティを調整できるようにす�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

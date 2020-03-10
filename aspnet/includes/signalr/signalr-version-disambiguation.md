@@ -1,2 +1,2 @@
 > [!WARNING]
-> このドキュメントは SignalR の最新バージョンはありません。 見て[ASP.NET Core SignalR](/aspnet/core/signalr/introduction)します。
+> このドキュメントは、SignalR の最新バージョンではありません。 [ASP.NET Core SignalR](/aspnet/core/signalr/introduction)をご覧ください。

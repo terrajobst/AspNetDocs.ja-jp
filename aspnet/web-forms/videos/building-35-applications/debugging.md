@@ -2,23 +2,23 @@
 uid: web-forms/videos/building-35-applications/debugging
 title: デバッグ |Microsoft Docs
 author: JoeStagner
-description: 説明:Visual Web Developer は、初心者と上級開発者にとっても、豊富なデバッグ エクスペリエンスを提供します。 このビデオでは Joe はツアーを VW をしています.
+description: '説明: Visual Web Developer では、初心者や専門家向けの豊富なデバッグエクスペリエンスが提供されます。 このビデオでは、VW について学習します。'
 ms.author: riande
 ms.date: 04/30/2009
 ms.assetid: d17389d8-3824-4900-9309-92d49bb756b1
 msc.legacyurl: /web-forms/videos/building-35-applications/debugging
 msc.type: video
 ms.openlocfilehash: 09af09e3de768225a3de5465d8f82abcba8066d8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404352"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78440284"
 ---
 # <a name="debugging"></a>デバッグ
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-説明:Visual Web Developer は、初心者と上級開発者にとっても、豊富なデバッグ エクスペリエンスを提供します。 このビデオの Joe ではツアーを VWD のデバッグ エクスペリエンスをします。
+説明: Visual Web Developer では、初心者や専門家向けの豊富なデバッグエクスペリエンスが提供されます。 このビデオでは、ここでは、VWD デバッグエクスペリエンスについて学習します。
 
-[&#9654;ビデオ (37 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/debugging)
+[&#9654;ビデオを見る (37 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/debugging)

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls
-title: ListView コントロールと DetailsView コントロールで DynamicControl の使用方法 | Microsoft Docs
+title: ListView コントロールと DetailsView コントロールで DynamicControl を使用するにはどうすればよいですか。 | Microsoft Docs
 author: shanselman
-description: このビデオでは、動的なデータが 1 回とせずに 2 回、記述された同じアプリケーションと比較します。 DynamicControl オブジェクトを ListView の処理で、追加する.
+description: このビデオでは、同じアプリケーションが2回記述されています。1回は動的データで、もう1回は不要です。 このプロセスでは、DynamicControl オブジェクトを ListView に追加します...
 ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: 816175a2-47b1-49ba-b346-cfb1ee33096a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls
 msc.type: video
 ms.openlocfilehash: 4916885afff0900d85f7ef58b84abc50144aa29e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406328"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439522"
 ---
-# <a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>ListView コントロールと DetailsView コントロールで DynamicControl の使用方法
+# <a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>ListView コントロールと DetailsView コントロールで DynamicControl を使用するにはどうすればよいですか。
 
-[Scott Hanselman](https://github.com/shanselman)による
+[Scott マン Selman](https://github.com/shanselman)
 
-このビデオでは、動的なデータが 1 回とせずに 2 回、記述された同じアプリケーションと比較します。 追加するプロセスで**DynamicControl**オブジェクトを**ListView**と**DetailsView**コントロール。
+このビデオでは、同じアプリケーションが2回記述されています。1回は動的データで、もう1回は不要です。 このプロセスでは、 **Dynamiccontrol**オブジェクトを**ListView**コントロールおよび**DetailsView**コントロールに追加します。
 
-[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls)
+[&#9654;ビデオを見る (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-display-unknown-datatypes.md)

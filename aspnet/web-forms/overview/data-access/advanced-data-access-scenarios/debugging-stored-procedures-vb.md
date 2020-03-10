@@ -9,11 +9,11 @@ ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 13d213ef4baf493a4f05a82daae8d2dc3b0aa61b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74604583"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78443818"
 ---
 # <a name="debugging-stored-procedures-vb"></a>ストアド プロシージャのデバッグ (VB)
 
@@ -151,7 +151,7 @@ SQL Server データベースインスタンスが Visual Studio と同じコン
 > [!NOTE]
 > 開発用コンピューターで Windows XP Service Pack 2 が実行されている場合は、リモートデバッグを許可するようにインターネット接続ファイアウォールを構成する必要があります。 「[方法: SQL Server 2005 デバッグを有効](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx)にする」の記事では、Visual Studio ホストコンピューターでの2つの手順 (a) が必要であることに注意してください。 `Devenv.exe` を例外の一覧に追加し、TCP 135 ポートを開く必要があります。リモート (SQL) マシンでは、(b) TCP 135 ポートを開き、`sqlservr.exe` を例外一覧に追加する必要があります。 ドメインポリシーで IPSec 経由でネットワーク通信を行う必要がある場合は、UDP 4500 および UDP 500 ポートを開く必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Visual Studio では、.NET アプリケーションコードに対してデバッグサポートを提供するだけでなく、SQL Server 2005 用のさまざまなデバッグオプションも用意されています。 このチュートリアルでは、直接データベースデバッグとアプリケーションデバッグという2つのオプションについて説明しました。 T-sql database オブジェクトを直接デバッグするには、サーバーエクスプローラーでオブジェクトを見つけて右クリックし、[ステップイン] を選択します。 これにより、デバッガーが起動し、データベースオブジェクトの最初のステートメントで停止します。この時点で、オブジェクトのステートメントをステップ実行し、パラメーター値を表示および変更できます。 手順1では、この方法を使用して `Products_SelectByCategoryID` ストアドプロシージャにステップインしました。
 
@@ -161,7 +161,7 @@ Visual Studio では、.NET アプリケーションコードに対してデバ�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

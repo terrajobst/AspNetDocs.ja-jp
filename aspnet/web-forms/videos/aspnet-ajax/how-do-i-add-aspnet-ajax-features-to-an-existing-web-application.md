@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-add-aspnet-ajax-features-to-an-existing-web-application
-title: '[How Do i:]既存の Web アプリケーションを ASP.NET AJAX の機能を追加しますか。 | Microsoft Docs'
+title: '[操作方法:]既存の Web アプリケーションに ASP.NET AJAX 機能を追加しますか? | Microsoft Docs'
 author: JoeStagner
-description: 既存の ASP.NET アプリケーションを Microsoft ASP.NET AJAX 機能を追加する簡単にする方法について説明します。 このビデオでは、機能を変更する必要はありません.
+description: Microsoft ASP.NET AJAX 機能を既存の ASP.NET アプリケーションに簡単に追加する方法について説明します。 このビデオは、サービスを変更する必要がないことを示しています...
 ms.author: riande
 ms.date: 01/26/2007
 ms.assetid: 5ef4c879-aa90-4492-859b-d4568b87bab3
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-add-aspnet-ajax-features-to-an-existing-web-application
 msc.type: video
 ms.openlocfilehash: 2d47913d3e29cdc7a69b0ba5a038e20fe0420460
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418080"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78420244"
 ---
-# <a name="how-do-i-add-aspnet-ajax-features-to-an-existing-web-application"></a>[How Do i:]既存の Web アプリケーションを ASP.NET AJAX の機能を追加しますか。
+# <a name="how-do-i-add-aspnet-ajax-features-to-an-existing-web-application"></a>[操作方法:]既存の Web アプリケーションに ASP.NET AJAX 機能を追加しますか?
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-既存の ASP.NET アプリケーションを Microsoft ASP.NET AJAX 機能を追加する簡単にする方法について説明します。 このビデオでは、サーバー コントロールやデータ アクセス コードの変更 - だけ追加し、いくつかの ASP.NET AJAX コントロールを構成する必要がないことを示します。 簡単です。
+Microsoft ASP.NET AJAX 機能を既存の ASP.NET アプリケーションに簡単に追加する方法について説明します。 このビデオは、サーバーコントロールまたはデータアクセスコードを変更する必要がないことを示しています。いくつかの ASP.NET AJAX コントロールを追加して構成するだけです。 簡潔!
 
-[&#9654;ビデオ (7 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-add-aspnet-ajax-features-to-an-existing-web-application)
+[&#9654;ビデオを見る (7 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-add-aspnet-ajax-features-to-an-existing-web-application)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md)

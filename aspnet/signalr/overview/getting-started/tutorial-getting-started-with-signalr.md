@@ -10,28 +10,28 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-s
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: bc4ef190b6e36812b6fe7ca4e16eb763431e0e82
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600464"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431566"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2"></a>チュートリアル: SignalR 2 を使用したリアルタイムチャット
 
 このチュートリアルでは、SignalR を使用してリアルタイムチャットアプリケーションを作成する方法について説明します。 SignalR を空の ASP.NET web アプリケーションに追加し、メッセージを送信して表示する HTML ページを作成します。
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * プロジェクトを設定する
-> * サンプルの実行
+> * プロジェクトのセットアップ
+> * サンプルを実行する
 > * コードを確認する
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-* **ASP.NET と web 開発**ワークロードを含む[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) と **ASP.NET および開発**ワークロード。
 
 ## <a name="set-up-the-project"></a>プロジェクトを設定する
 
@@ -167,11 +167,11 @@ SignalRChat アプリケーションは、2つの基本的な SignalR 開発タ�
 
 このコードは接続を開始し、HTML ページの **[送信]** ボタンでクリックイベントを処理する関数に渡します。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 SignalR の詳細については、次のリソースを参照してください。
 
@@ -181,12 +181,12 @@ SignalR の詳細については、次のリソースを参照してください
 
 * [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次のステップ
 
 このチュートリアルでは、次のことを行います。
 
 > [!div class="checklist"]
-> * プロジェクトを設定する
+> * プロジェクトのセットアップ
 > * サンプルを実行しました
 > * コードを調べる
 

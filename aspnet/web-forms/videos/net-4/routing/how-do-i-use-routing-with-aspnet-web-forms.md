@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/net-4/routing/how-do-i-use-routing-with-aspnet-web-forms
-title: How Do i:ASP.NET Web フォームによるルーティングを使用しますか。 | Microsoft Docs
+title: '操作方法: ASP.NET Web フォームでのルーティングの使用 | Microsoft Docs'
 author: rick-anderson
-description: このビデオでは、Chris Pels は ASP.NET 4 Web フォームのルーティングを実装する方法を示します。 最初に、URL ルーティングの概念は p に URL をマップに比較しています.
+description: このビデオでは、ASP.NET 4 で Web フォームのルーティングを実装する方法を示しています。 まず、URL のルーティングの概念を比較して、URL を p...
 ms.author: riande
 ms.date: 10/15/2010
 ms.assetid: a3ab6cd9-8f71-4b73-9336-21c0de078269
 msc.legacyurl: /web-forms/videos/net-4/routing/how-do-i-use-routing-with-aspnet-web-forms
 msc.type: video
 ms.openlocfilehash: f5036d780ed4fd0dd8caabbf4badb39fd9ee2de3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417066"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438574"
 ---
-# <a name="how-do-i-use-routing-with-aspnet-web-forms"></a>How Do i:ASP.NET Web フォームによるルーティングを使用しますか。
+# <a name="how-do-i-use-routing-with-aspnet-web-forms"></a>操作方法: ASP.NET Web フォームでのルーティングの使用
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは、Chris Pels は ASP.NET 4 Web フォームのルーティングを実装する方法を示します。 最初に、URL ルーティングの概念は、サイト内の物理ファイルに URL をマップに比較されます。 次に、サンプルのルート URL が、global.asax で定義されているファイル アプリケーション\_開始イベント ハンドラー。 ルートには、ユーザーが URL で入力できるパラメーター化された値が含まれています。 サンプル ページを作成し、ページで、ルート パラメーターの値が抽出される\_Load イベント ハンドラー。 次に、複数のパラメーターと最初のルートと同じページへのルートを持つ 2 つ目のルートが定義されています。 ページ\_Load イベント ハンドラーを拡張して追加ルート パラメーター値を抽出し、ページに渡された値に応じて異なる情報を表示しています。
+このビデオでは、ASP.NET 4 で Web フォームのルーティングを実装する方法を示しています。 まず、URL のルーティングの概念を比較して、URL をサイト内の物理ファイルにマップします。 次に、グローバルな global.asax ファイルアプリケーション\_開始イベントハンドラーで、URL のサンプルルートを定義します。 ルートには、ユーザーが URL に入力できるパラメーター化された値が含まれています。 次に、サンプルページが作成され、ルートパラメーターの値がページ\_読み込みイベントハンドラーに抽出されます。 次に、複数のパラメーターと、初期ルートと同じページへのルートを持つ2番目のルートを定義します。 ページ\_読み込みイベントハンドラーが拡張され、追加のルートパラメーター値が抽出され、ページに渡された値に応じて異なる情報が表示されます。
 
-[&#9654;(15 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-routing-with-aspnet-web-forms)
+[&#9654;ビデオを見る (15 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-routing-with-aspnet-web-forms)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-4-quick-hit-outbound-webforms-routing.md)

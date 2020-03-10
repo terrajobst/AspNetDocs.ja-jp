@@ -1,253 +1,253 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
-title: 使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 1。Getting Started |Microsoft Docs
+title: 'Entity Framework 4.0 と ObjectDataSource コントロールを使用して、パート 1: はじめに |Microsoft Docs'
 author: tdykstra
-description: このチュートリアル シリーズでは、Entity Framework のチュートリアル シリーズの概要を作成した Contoso University web アプリケーションに基づいています。 Yo 場合.
+description: このチュートリアルシリーズは、Entity Framework チュートリアルシリーズを使用してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 If...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
 ms.openlocfilehash: 2f14707eb058d438495dd2bc4c17b976c471fc97
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131342"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78440404"
 ---
-# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>使用するには、Entity Framework 4.0 と ObjectDataSource コントロール、パート 1。作業の開始
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 と ObjectDataSource コントロールを使用して、パート 1: はじめに
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。
+> このチュートリアルシリーズは、 [Entity Framework 4.0 チュートリアルシリーズを使用](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点として、作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)できます。 チュートリアルシリーズ全体で作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)することもできます。
 > 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso University の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 サンプルアプリケーションは、架空の Contoso 大学の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
 > 
-> このチュートリアルでは、c# で例を示します。 [ダウンロード可能なサンプル](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)c# および Visual Basic の両方でコードが含まれています。
+> このチュートリアルでは、 C#の例を示します。 ダウンロード可能な[サンプル](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)には、 C#と Visual Basic の両方のコードが含まれています。
 > 
-> ## <a name="database-first"></a>最初のデータベースします。
+> ## <a name="database-first"></a>Database First
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
+> Entity Framework のデータを操作するには、 *Database First*、 *Model First*、および*Code First*の3つの方法があります。 このチュートリアルは Database First を対象としています。 これらのワークフローの違いと、シナリオに最適なワークフローを選択する方法については、「 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)」を参照してください。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 
-> Getting Started シリーズなどは、このチュートリアル シリーズは、ASP.NET Web フォーム モデルを使用して、Visual Studio で ASP.NET Web フォームを操作する方法を把握するという前提で。 表示されない場合、 [ASP.NET 4.5 Web フォームの概要](../../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 ASP.NET MVC フレームワークで作業する場合を参照してください。 [ASP.NET MVC を使用して Entity Framework の概要](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
+> はじめにシリーズと同様に、このチュートリアルシリーズでは ASP.NET Web フォームモデルを使用しており、Visual Studio で ASP.NET Web フォームを操作する方法を理解していることを前提としています。 そうでない場合は、「[はじめにと ASP.NET 4.5 Web フォーム](../../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)」を参照してください。 ASP.NET MVC フレームワークを使用する場合は、「 [ASP.NET mvc を使用した Entity Framework でのはじめに](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)」を参照してください。
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 > 
-> | **このチュートリアルで示すように** | **でも使用できます。** |
+> | **チュートリアルに表示されます。** | **でも動作します。** |
 > | --- | --- |
 > | Windows 7 | Windows 8 |
-> | Visual Studio 2010 | Visual Studio 2010 Express for Web です。 このチュートリアルは以降のバージョンの Visual Studio でテストされていません。 メニューのダイアログ ボックス、およびテンプレートで多くの違いがあります。 |
-> | .NET 4 | .NET 4.5 は .NET 4 では、旧バージョンと互換性のあるが、このチュートリアルは .NET 4.5 でテストされていません。 |
-> | Entity Framework 4 | このチュートリアルは Entity Framework の以降のバージョンでテストされていません。 既定では、Entity Framework 5 以降では、EF で使用、`DbContext API`は EF 4.1 で導入されました。 EntityDataSource コントロールが使用するように設計、 `ObjectContext` API。 コントロールを EntityDataSource を使用する方法については、 `DbContext` API を参照してください[このブログの投稿](https://blogs.msdn.com/b/webdev/archive/2012/09/13/how-to-use-the-entitydatasource-control-with-entity-framework-code-first.aspx)します。 |
+> | Visual Studio 2010 | Visual Studio 2010 Express for Web。 このチュートリアルは、以降のバージョンの Visual Studio ではテストされていません。 メニューの選択、ダイアログボックス、テンプレートにはさまざまな違いがあります。 |
+> | .NET 4 | .Net 4.5 は .NET 4 と下位互換性がありますが、このチュートリアルは .NET 4.5 ではテストされていません。 |
+> | Entity Framework 4 | このチュートリアルは、以降のバージョンの Entity Framework ではテストされていません。 Entity Framework 5 以降では、ef 4.1 で導入された `DbContext API` が既定で使用されます。 EntityDataSource コントロールは、`ObjectContext` API を使用するように設計されています。 `DbContext` API で EntityDataSource コントロールを使用する方法の詳細については、[このブログ投稿](https://blogs.msdn.com/b/webdev/archive/2012/09/13/how-to-use-the-entitydatasource-control-with-entity-framework-code-first.aspx)を参照してください。 |
 > 
-> ## <a name="questions"></a>質問
+> ## <a name="questions"></a>疑問がある場合
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework と LINQ to エンティティ フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)します。
+> チュートリアルに直接関係のない質問がある場合は、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework と LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
-`EntityDataSource`コントロールでは、非常に高速にアプリケーションを作成することができますが、通常必要膨大なビジネス ロジックとデータ アクセス ロジックを保持すること、 *.aspx*ページ。 作成するには多くの開発時間が事前投資できます、アプリケーションで複雑化し、継続的なメンテナンスを必要とする場合は、 *n 層*または*層*アプリケーション構造これは、保守しやすくなります。 このアーキテクチャを実装するには、ビジネス ロジック層 (BLL) とデータ アクセス層 (DAL) からプレゼンテーション層を分離します。 この構造体を実装する方法の 1 つが使用するには、`ObjectDataSource`コントロールの代わりに、`EntityDataSource`コントロール。 使用すると、`ObjectDataSource`コントロール、データ アクセス コードを実装しでを呼び出す *.aspx*ページが多くの同じコントロールを使用するその他のデータ ソース コントロールの機能です。 これにより、n 層のアプローチの利点とデータ アクセスの Web フォーム コントロールを使用する利点を組み合わせることができます。
+`EntityDataSource` コントロールを使用すると、アプリケーションを非常に短時間で作成できますが、通常は、 *.aspx*ページで大量のビジネスロジックとデータアクセスロジックを保持する必要があります。 アプリケーションが複雑さを増し、継続的なメンテナンスを必要とする場合は、より保守しやすい*n 層* *または複数層の*アプリケーション構造を作成するために、より多くの開発時間を事前に投資することができます。 このアーキテクチャを実装するには、プレゼンテーション層をビジネスロジック層 (BLL) とデータアクセス層 (DAL) から分離します。 この構造体を実装する方法の1つは、`EntityDataSource` コントロールではなく、`ObjectDataSource` コントロールを使用することです。 `ObjectDataSource` コントロールを使用する場合は、独自のデータアクセスコードを実装し、他のデータソースコントロールと同じ機能の多くを持つコントロールを使用して *.aspx*ページで呼び出すことができます。 これにより、データアクセスに Web フォームコントロールを使用する利点と比較して、n 層アプローチの利点を組み合わせることができます。
 
-`ObjectDataSource`コントロールより柔軟で他の方法でも同様です。 独自のデータ アクセス コードを記述するためがしやすくは以上の読み取り、挿入、更新、または特定のエンティティの種類を削除は、タスクを`EntityDataSource`コントロールを実行するように設計します。 たとえば、エンティティが更新されるたびにログ記録を実行、エンティティを削除すると、または自動的に確認および更新を関連するデータの外部キー値を持つ行を挿入するときに、必要に応じてたびにデータをアーカイブできます。
+`ObjectDataSource` コントロールを使用すると、他の方法でも柔軟性を高めることができます。 独自のデータアクセスコードを記述するので、特定のエンティティ型を読み取り、挿入、更新、または削除するだけでなく、`EntityDataSource` コントロールが実行するように設計されたタスクでも、より簡単に行うことができます。 たとえば、エンティティが更新されるたびにログ記録を実行したり、エンティティが削除されるたびにデータをアーカイブしたり、外部キー値を持つ行を挿入するときに必要に応じて関連データを自動的にチェックおよび更新したりすることができます。
 
-## <a name="business-logic-and-repository-classes"></a>ビジネス ロジック、およびリポジトリ クラス
+## <a name="business-logic-and-repository-classes"></a>ビジネスロジックとリポジトリクラス
 
-`ObjectDataSource`作成するクラスを呼び出すことによって動作を制御します。 クラスには取得し、データを更新するメソッドが含まれています、これらのメソッドの名前を指定して、`ObjectDataSource`マークアップ内のコントロール。 レンダリングまたはポストバックの処理中に、`ObjectDataSource`指定したメソッドを呼び出します。
+`ObjectDataSource` コントロールは、作成したクラスを呼び出すことによって機能します。 クラスには、データを取得および更新するメソッドが含まれています。また、これらのメソッドの名前をマークアップの `ObjectDataSource` コントロールに指定します。 レンダリングまたはポストバック処理中に、`ObjectDataSource` は指定したメソッドを呼び出します。
 
-基本的な CRUD 操作、クラスで使用するために作成するだけでなく、`ObjectDataSource`コントロールは、ビジネス ロジックを実行する必要があるときに、`ObjectDataSource`の読み取りやデータを更新します。 たとえば、部署を更新するときに、1 人のユーザーが 1 つ以上の部門の管理者にすることはできませんので、他の部門が、同じ管理者ありませんを検証する必要があります。
+基本的な CRUD 操作に加えて、`ObjectDataSource` コントロールで使用するために作成するクラスは、`ObjectDataSource` がデータを読み取りまたは更新するときにビジネスロジックを実行することが必要になる場合があります。 たとえば、部門を更新するときに、1人のユーザーが複数の部門の管理者になることができないため、他の部署が同じ管理者を持っていないことを検証する必要がある場合があります。
 
-一部の`ObjectDataSource`ドキュメントについてなど、 [ObjectDataSource クラスの概要](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx)、コントロールと呼ばれるクラスを呼び出し、*ビジネス オブジェクト*ビジネス ロジックとデータ アクセス ロジックの両方を含む. このチュートリアルでは、ビジネス ロジックとデータ アクセス ロジックの別のクラスを作成します。 データ アクセス ロジックをカプセル化するクラスと呼ばれる、*リポジトリ*します。 ビジネス ロジック クラスには、ビジネス ロジックのメソッドとデータ アクセス メソッドの両方が含まれていますが、データ アクセス メソッドは、データ アクセス タスクを実行するリポジトリを呼び出します。
+[ObjectDataSource クラスの概要](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx)など、一部の `ObjectDataSource` ドキュメントでは、コントロールはビジネスロジックとデータアクセスロジックの両方を含む*ビジネスオブジェクト*と呼ばれるクラスを呼び出します。 このチュートリアルでは、ビジネスロジックとデータアクセスロジックに個別のクラスを作成します。 データアクセスロジックをカプセル化するクラスは、*リポジトリ*と呼ばれます。 ビジネスロジッククラスには、ビジネスロジックメソッドとデータアクセスメソッドの両方が含まれていますが、データアクセスメソッドはリポジトリを呼び出してデータアクセスタスクを実行します。
 
-BLL と自動化された単体を容易にする DAL の抽象化レイヤーを作成することも、BLL のテストします。 この抽象化レイヤーを実装するには、インターフェイスを作成し、ビジネス ロジック クラスでリポジトリをインスタンス化するときに、インターフェイスを使用します。 これにより、リポジトリ インターフェイスを実装する任意のオブジェクトへの参照にビジネス ロジック クラスを提供することが可能にします。 通常の操作の場合は、Entity Framework で動作するリポジトリ オブジェクトを提供します。 テストするには、コレクションとして定義されているクラス変数など、操作に簡単にする方法で格納されているデータで動作するリポジトリ オブジェクトを提供します。
+また、bll の自動単体テストを容易にする、BLL と DAL の間に抽象レイヤーを作成します。 この抽象化レイヤーは、ビジネスロジッククラスでリポジトリをインスタンス化するときに、インターフェイスを作成し、インターフェイスを使用することによって実装されます。 これにより、リポジトリインターフェイスを実装するオブジェクトへの参照をビジネスロジッククラスに提供できるようになります。 通常の操作では、Entity Framework と連携するリポジトリオブジェクトを指定します。 テストでは、コレクションとして定義されているクラス変数など、簡単に操作できる方法で格納されたデータを処理するリポジトリオブジェクトを提供します。
 
-次の図は、リポジトリなしのデータ アクセス ロジックを含むビジネス ロジック クラスと、リポジトリを使用する 1 つの違いを示します。
+次の図は、リポジトリを使用しないデータアクセスロジックとリポジトリを使用するビジネスロジッククラスの違いを示しています。
 
 [![Image05](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image1.png)
 
-Web ページの作成は、まず、`ObjectDataSource`基本的なデータ アクセス タスクのみを実行するために、リポジトリに直接コントロールがバインドされています。 次のチュートリアルでは、検証ロジックとビジネス ロジック クラスを作成し、バインド、`ObjectDataSource`リポジトリ クラスの代わりにそのクラスへのコントロール。 検証ロジックの単体テストも作成されます。 このシリーズの 3 番目のチュートリアルでは、並べ替えおよびフィルター処理、アプリケーションに機能を追加します。
+まず、基本的なデータアクセスタスクのみを実行するため、`ObjectDataSource` コントロールがリポジトリに直接バインドされている web ページを作成します。 次のチュートリアルでは、検証ロジックを使用してビジネスロジッククラスを作成し、リポジトリクラスではなく、そのクラスに `ObjectDataSource` コントロールをバインドします。 また、検証ロジックの単体テストも作成します。 このシリーズの3番目のチュートリアルでは、アプリケーションに並べ替えとフィルター処理の機能を追加します。
 
-このチュートリアルで作成したページを使用、`Departments`で作成したデータ モデルのエンティティ セット、[入門チュートリアル シリーズ](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)します。
+このチュートリアルで作成するページは、[はじめにチュートリアルシリーズ](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)で作成したデータモデルの `Departments` エンティティセットに対応しています。
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image3.png)
 
 [![Image02](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image5.png)
 
-## <a name="updating-the-database-and-the-data-model"></a>データベースとデータ モデルを更新しています
+## <a name="updating-the-database-and-the-data-model"></a>データベースとデータモデルの更新
 
-作成したデータ モデルに対応する変更を必要とする、データベースに 2 つの変更を加えて、このチュートリアルを開始するが、 [Entity Framework と Web フォーム概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアル。 これらのチュートリアルの 1 つは、データベースを変更した後、データベースとデータ モデルを同期するには、手動でのデザイナーで変更を加えた。 このチュートリアルでは、デザイナーを使用して**データベースからモデルを更新**データ モデルを自動的に更新するためのツール。
+このチュートリアルを開始するには、データベースに2つの変更を加えます。どちらも、 [Entity Framework および Web フォームのチュートリアルではじめに](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)で作成したデータモデルに対応する変更を必要とします。 これらのチュートリアルでは、データベースが変更された後に、デザイナーで手動で変更を行って、データモデルをデータベースと同期させました。 このチュートリアルでは、データベースツールのデザイナーの**更新モデル**を使用して、データモデルを自動的に更新します。
 
 ### <a name="adding-a-relationship-to-the-database"></a>データベースへのリレーションシップの追加
 
-Visual studio で作成した Contoso University web アプリケーションを開き、 [Entity Framework と Web フォーム概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアル シリーズでし、開きます、`SchoolDiagram`データベース ダイアグラム。
+Visual Studio で、 [Entity Framework および Web フォーム](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)チュートリアルシリーズを使用してはじめにで作成した Contoso 大学 web アプリケーションを開き、`SchoolDiagram` データベースダイアグラムを開きます。
 
-確認する場合、`Department`テーブル データベース ダイアグラムで表示されますが、`Administrator`列。 この列への外部キーには、`Person`テーブルがない外部キー リレーションシップが、データベースで定義されています。 リレーションシップを作成し、Entity Framework がこの関係を自動的に処理できるように、データ モデルを更新する必要があります。
+データベースダイアグラムの `Department` テーブルを見ると、`Administrator` 列があることがわかります。 この列は `Person` テーブルに対する外部キーですが、データベースに外部キーリレーションシップが定義されていません。 リレーションシップを作成し、データモデルを更新して、Entity Framework がこのリレーションシップを自動的に処理できるようにする必要があります。
 
-データベース ダイアグラムを右クリックし、`Department`テーブル、および選択**リレーションシップ**します。
+データベースダイアグラムで、`Department` テーブルを右クリックし、 **[リレーションシップ]** をクリックします。
 
 [![Image80](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image8.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image7.png)
 
-**Foreign Key Relationships**ボックス**追加**の省略記号をクリックし、**テーブルと列の指定**します。
+**[外部キーのリレーションシップ]** ボックスで **[追加]** をクリックし、 **[テーブルと列の指定]** の省略記号をクリックします。
 
 [![Image81](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image9.png)
 
-**テーブルと列** ダイアログ ボックスで、主キー テーブルを設定し、フィールドを`Person`と`PersonID`、および外部キー テーブルを設定し、フィールドを`Department`と`Administrator`します。 (これを行うと、リレーションシップの名前がから変更`FK_Department_Department`に`FK_Department_Person`)。
+**[テーブルと列]** ダイアログボックスで、主キーのテーブルとフィールドを `Person` と `PersonID`に設定し、外部キーのテーブルとフィールドを `Department` および `Administrator`に設定します。 (これを行うと、リレーションシップ名が `FK_Department_Department` から `FK_Department_Person`に変わります)。
 
 [![Image82](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image11.png)
 
-をクリックして**ok**で、**テーブルと列**ボックスで、**閉じる**で、 **Foreign Key Relationships**ボックス、および変更を保存します。 保存するかどうかを要求している場合、`Person`と`Department`テーブル、 をクリックして**はい**。
+**[テーブルと列]** ボックスの **[OK]** をクリックし、 **[外部キーのリレーションシップ]** ボックスの **[閉じる]** をクリックして、変更を保存します。 `Person` テーブルと `Department` テーブルを保存するかどうかを確認するメッセージが表示されたら、 **[はい]** をクリックします。
 
 > [!NOTE]
-> 削除してしまった場合`Person`は既にデータに対応する行、`Administrator`列で、この変更を保存できません。 その場合は、エディターでは、テーブルを使用して、**サーバー エクスプ ローラー**ことを確認する、`Administrator`値すべて`Department`行に実際に存在するレコードの ID が含まれています、`Person`テーブル。
+> `Administrator` 列に既に存在するデータに対応する `Person` 行を削除した場合、この変更を保存することはできません。 その場合は、**サーバーエクスプローラー**のテーブルエディターを使用して、すべての `Department` 行の `Administrator` 値に、`Person` テーブルに実際に存在するレコードの ID が含まれていることを確認してください。
 > 
-> 行を削除できませんが、変更を保存した後、`Person`テーブルの人物が部門の管理者である場合。 実稼働アプリケーションでは、データベースの制約により、削除、または連鎖削除を指定するときに特定のエラー メッセージを指定するは。 連鎖削除を指定する方法の例は、次を参照してください。 [。 Entity Framework と ASP.NET – 開始パート 2 を取得する](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)します。
+> 変更を保存した後、そのユーザーが部門の管理者である場合、`Person` テーブルから行を削除することはできません。 実稼働アプリケーションでは、データベースの制約によって削除が禁止されている場合、または連鎖削除を指定した場合に、特定のエラーメッセージが表示されます。 連鎖削除を指定する方法の例については、「 [Entity Framework と ASP.NET –はじめにパート 2](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)」を参照してください。
 
-### <a name="adding-a-view-to-the-database"></a>データベースにビューを追加します。
+### <a name="adding-a-view-to-the-database"></a>データベースへのビューの追加
 
-新しい*Departments.aspx*部門の管理者をユーザーが選択できるように、「姓, 名」の形式で名前を持つ、インストラクターのドロップダウン リストを提供したいページを作成することで、します。 そのために容易にできるように、データベースでビューが作成されます。 ビューは、ドロップダウン リストで必要なデータだけで構成されます: (適切に書式設定) 完全な名前とレコードのキー。
+作成*する新しい department*ページで、ユーザーが部門管理者を選択できるように、講師のドロップダウンリストを "last, first" の形式で入力します。 この操作を簡単に行うには、データベースにビューを作成します。 ビューは、ドロップダウンリストに必要なデータのみで構成されます。完全な名前 (正しい形式) とレコードキーです。
 
-**サーバー エクスプ ローラー**、展開*School.mdf*を右クリックし、**ビュー**フォルダー、および選択**新しいビューの追加**します。
+**サーバーエクスプローラー**で、[ *School .mdf*] を展開し、 **[ビュー]** フォルダーを右クリックして、 **[新しいビューの追加]** を選択します。
 
 [![Image06](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image13.png)
 
-をクリックして**閉じる**ときに、**テーブルの追加** ダイアログ ボックスが表示され、次の SQL ステートメントを SQL ペインに貼り付けます。
+**[テーブルの追加]** ダイアログボックスが表示されたら **[閉じる]** をクリックし、sql ペインに次の sql ステートメントを貼り付けます。
 
 [!code-sql[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample1.sql)]
 
-ビューとして保存`vInstructorName`します。
+ビューを `vInstructorName`として保存します。
 
-### <a name="updating-the-data-model"></a>データ モデルを更新します。
+### <a name="updating-the-data-model"></a>データモデルの更新
 
-*DAL*フォルダーを開き、 *SchoolModel.edmx*ファイルで、デザイン サーフェイスを右クリックし、選択**データベースからモデルを更新**します。
+*DAL*フォルダーで、 *SchoolModel*ファイルを開き、デザイン画面を右クリックして、 **[データベースからモデルを更新]** を選択します。
 
 [![Image07](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image16.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image15.png)
 
-**データベース オブジェクトの選択**ダイアログ ボックスで、**追加**タブし、作成したビューを選択します。
+**[データベースオブジェクトの選択]** ダイアログボックスで、 **[追加]** タブを選択し、先ほど作成したビューを選択します。
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image17.png)
 
 **[完了]** をクリックします。
 
-デザイナーで、表示、ツールが作成されたことを`vInstructorName`エンティティとの関連付けを新しく、`Department`と`Person`エンティティ。
+デザイナーでは、このツールによって、`vInstructorName` エンティティと、`Department` エンティティと `Person` エンティティの間の新しいアソシエーションが作成されたことがわかります。
 
 [![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image19.png)
 
 > [!NOTE]
-> **出力**と**エラー一覧**ツールがプライマリに自動的に作成されたことを通知する警告メッセージが表示される windows の新しいキーの`vInstructorName`ビュー。 これは通常の動作です。
+> **[出力]** ウィンドウと **[エラー一覧]** ウィンドウに、ツールによって新しい `vInstructorName` ビューの主キーが自動的に作成されたことを知らせる警告メッセージが表示される場合があります。 これは正しい動作です。
 
-新しいを参照するとき`vInstructorName`コード内のエンティティ、たくに小文字"v"を付けることのデータベースの規則を使用します。 そのため、エンティティとモデルのエンティティ セットを変更します。
+コードで新しい `vInstructorName` エンティティを参照する場合、小文字の "v" にプレフィックスとして付けるデータベース規則を使用しないことをお勧めします。 そのため、モデル内のエンティティとエンティティセットの名前を変更します。
 
-開く、**モデル ブラウザー**します。 表示`vInstructorName`としてエンティティ型とビューを一覧表示します。
+**モデルブラウザー**を開きます。 エンティティ型とビュー `vInstructorName` 表示されます。
 
 [![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image21.png)
 
-**SchoolModel** (いない**SchoolModel.Store**)、右クリック**vInstructorName**を選択し、**プロパティ**。 **プロパティ**ウィンドウで、変更、**名前**プロパティを"InstructorName"に変更、**エンティティ セット名**プロパティを"InstructorNames"。
+[ **SchoolModel** ( **SchoolModel**)] で、 **[vInstructorName]** を右クリックし、 **[プロパティ]** を選択します。 **[プロパティ]** ウィンドウで、 **[名前]** プロパティを "InstructorName" に変更し、 **[エンティティセット名]** プロパティを "InstructorNames" に変更します。
 
 [![Image15](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image24.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image23.png)
 
-保存して、データ モデルを終了し、プロジェクトをリビルドします。
+データモデルを保存して閉じてから、プロジェクトをリビルドします。
 
-## <a name="using-a-repository-class-and-an-objectdatasource-control"></a>リポジトリのクラスと ObjectDataSource コントロールを使用してください。
+## <a name="using-a-repository-class-and-an-objectdatasource-control"></a>リポジトリクラスと ObjectDataSource コントロールの使用
 
-新しいクラス ファイルを作成、 *DAL*フォルダー、名前を付けます*SchoolRepository.cs*、既存のコードを次のコードに置き換えます。
+*DAL*フォルダーに新しいクラスファイルを作成し、 *SchoolRepository.cs*という名前を付けて、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample2.cs)]
 
-このコードにより、1 つ`GetDepartments`内のエンティティのすべてを返すメソッド、`Departments`エンティティ セット。 アクセスすることがわかっているため、`Person`ナビゲーション プロパティのすべての行に返されたを指定する一括を使用してそのプロパティの読み込み、`Include`メソッド。 クラスを実装しても、`IDisposable`オブジェクトが破棄されたときに、データベース接続が解放されるようにするインターフェイス。
+このコードは、`Departments` エンティティセット内のすべてのエンティティを返す1つの `GetDepartments` メソッドを提供します。 返されるすべての行の `Person` ナビゲーションプロパティにアクセスすることがわかっているので、`Include` メソッドを使用して、そのプロパティの一括読み込みを指定します。 また、クラスは、オブジェクトが破棄されたときにデータベース接続が解放されるように、`IDisposable` インターフェイスも実装します。
 
 > [!NOTE]
-> 一般的な方法では、各エンティティ型のリポジトリ クラスを作成します。 このチュートリアルでは、複数のエンティティ型の 1 つのリポジトリ クラスが使用されます。 リポジトリ パターンの詳細については、内の投稿を参照してください。 [、Entity Framework チームのブログ](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx)と[Julie Lerman のブログ](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/)します。
+> 一般的な方法は、エンティティ型ごとにリポジトリクラスを作成することです。 このチュートリアルでは、複数のエンティティ型に対して1つのリポジトリクラスを使用します。 リポジトリパターンの詳細については、 [Entity Framework チームのブログ](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx)と[ジュリー Lerman のブログ](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/)で投稿を参照してください。
 
-`GetDepartments`メソッドを返します、`IEnumerable`オブジェクトではなく、`IQueryable`リポジトリ オブジェクト自体が破棄された後でも、返されたコレクションが使用可能なことを確認するにはオブジェクトです。 `IQueryable`オブジェクトによってデータベース アクセス、アクセスはなく、リポジトリ オブジェクトは、データ バインド コントロールが、データをレンダリングしようとしています。 時間によって破棄される可能性があります。 などの別の種類のコレクションを返すことができます、`IList`オブジェクトの代わりに、`IEnumerable`オブジェクト。 ただし、返す、`IEnumerable`オブジェクトは、一般的な読み取り専用リスト処理タスクをなど、実行できることにより、`foreach`ループと、LINQ クエリことはできませんを追加またはそのような変更であることを示唆する、コレクション内の項目を削除データベースに保存します。
+`GetDepartments` メソッドは、リポジトリオブジェクト自体が破棄された後でも返されたコレクションが使用可能であることを確認するために、`IQueryable` オブジェクトではなく `IEnumerable` オブジェクトを返します。 `IQueryable` オブジェクトは、アクセスされるたびにデータベースへのアクセスが発生する可能性がありますが、データの表示を試みたときにリポジトリオブジェクトが破棄される可能性があります。 `IEnumerable` オブジェクトではなく、`IList` オブジェクトなど、別のコレクション型を返すこともできます。 ただし、`IEnumerable` オブジェクトを返すと、`foreach` ループや LINQ クエリなどの一般的な読み取り専用のリスト処理タスクを実行できますが、コレクション内のアイテムを追加したり削除したりすることはできません。このような変更がデータベースに保存される可能性があります。
 
-作成、 *Departments.aspx*を使用するページ、 *Site.Master*マスター ページ、およびでは、次のマークアップを追加、`Content`という名前のコントロール`Content2`:
+*.Master*マスターページを使用する department *.aspx*ページを作成し、`Content2`という名前の `Content` コントロールに次のマークアップを追加します。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample3.aspx)]
 
-このマークアップを作成、`ObjectDataSource`コントロールを作成したリポジトリ クラスを使用して、`GridView`データを表示するコントロール。 `GridView`コントロールを指定します**編集**と**削除**コマンドがまだそれらをサポートするコードを追加していません。
+このマークアップは、先ほど作成したリポジトリクラスを使用する `ObjectDataSource` コントロールと、データを表示するための `GridView` コントロールを作成します。 `GridView` コントロールでは、 **Edit**コマンドと**Delete**コマンドが指定されていますが、まだサポートするためのコードは追加されていません。
 
-複数の列を使用して、`DynamicField`そのデータの自動書式設定と検証機能の利用を制御します。 呼び出す必要があるこれらの場合、`EnableDynamicData`メソッドで、`Page_Init`イベント ハンドラー。 (`DynamicControl`でコントロールが使用されていない、`Administrator`フィールドため、ナビゲーション プロパティでは動作しません)。
+いくつかの列では、データの自動書式設定と検証機能を利用できるように `DynamicField` コントロールを使用しています。 これらの機能を使用するには、`Page_Init` イベントハンドラーで `EnableDynamicData` メソッドを呼び出す必要があります。 (`DynamicControl` コントロールは、ナビゲーションプロパティでは機能しないため、[`Administrator`] フィールドでは使用されません)。
 
-`Vertical-Align="Top"`属性重要になる後では、入れ子になった列を追加するときに`GridView`グリッド コントロール。
+入れ子になった `GridView` コントロールを持つ列をグリッドに追加すると、後で `Vertical-Align="Top"` 属性が重要になります。
 
-開く、 *Departments.aspx.cs*ファイルを開き、次の追加`using`ステートメント。
+*Departments.aspx.cs*ファイルを開き、次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample4.cs)]
 
-次のページのハンドラーを追加し、`Init`イベント。
+次に、ページの `Init` イベントに対して次のハンドラーを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample5.cs)]
 
-*DAL*フォルダーという新しいクラス ファイルを作成*Department.cs*既存のコードを次のコードに置き換えます。
+*DAL*フォルダーで、 *Department.cs*という名前の新しいクラスファイルを作成し、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample6.cs)]
 
-このコードは、データ モデルにメタデータを追加します。 指定します、`Budget`のプロパティ、`Department`エンティティは、そのデータ型が実際には通貨を表します`Decimal`、し、値が 0 ~ $1,000,000.00 の範囲でなければならないことを指定します。 指定する、`StartDate`プロパティは、形式年/月/日の日付として書式設定する必要があります。
+このコードでは、メタデータをデータモデルに追加します。 これは、`Department` エンティティの [`Budget`] プロパティが実際には通貨を表すことを指定しますが、そのデータ型は `Decimal`、0から $1000000.00 の間の値である必要があることを指定します。 また、`StartDate` プロパティを mm/dd/yyyy の形式で日付として書式設定するように指定します。
 
-実行、 *Departments.aspx*ページ。
+Department *. .aspx*ページを実行します。
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image26.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image25.png)
 
-書式設定文字列で指定しなかったことに注意して、 *Departments.aspx*ページのマークアップを**予算**または**Start Date**列、既定の通貨と日付これらの書式設定が適用されて、`DynamicField`コントロールに提供されているメタデータを使用して、 *Department.cs*ファイル。
+Department ページマークアップでは、**予算**または**開始日**の列の書式設定文字列を指定していませんが、 *Department.cs*ファイルで指定したメタデータを使用して、`DynamicField` コントロールによって既定の通貨と日付の書式設定が適用されていることに注意して*ください。*
 
-## <a name="adding-insert-and-delete-functionality"></a>追加の挿入および削除の機能
+## <a name="adding-insert-and-delete-functionality"></a>挿入機能と削除機能の追加
 
-開いている*SchoolRepository.cs*、作成するには、次のコードを追加、`Insert`メソッドと`Delete`メソッド。 コードは、という名前のメソッドも含まれています。`GenerateDepartmentID`で使用するための次の使用可能なレコード キー値を計算する、`Insert`メソッド。 これは、これを自動的に計算する、データベースが構成されていないために必要な`Department`テーブル。
+*SchoolRepository.cs*を開き、`Insert` メソッドと `Delete` メソッドを作成するために次のコードを追加します。 このコードには、`Insert` メソッドで使用するために使用できる次のレコードキー値を計算する `GenerateDepartmentID` という名前のメソッドも含まれています。 この設定が必要なのは、データベースが `Department` テーブルに対して自動的に計算するように構成されていないためです。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample7.cs)]
 
 ### <a name="the-attach-method"></a>Attach メソッド
 
-`DeleteDepartment`メソッドの呼び出し、`Attach`メソッドがメモリ内のエンティティとデータベースの間、オブジェクト コンテキストのオブジェクト状態マネージャーに保持されているリンクを再確立するには、行を表します。 これは、メソッド呼び出しの前に発生する必要があります、`SaveChanges`メソッド。
+`DeleteDepartment` メソッドは、メモリ内のエンティティとそれが表すデータベース行との間で、オブジェクトコンテキストのオブジェクト状態マネージャーに保持されているリンクを再確立するために、`Attach` メソッドを呼び出します。 これは、メソッドが `SaveChanges` メソッドを呼び出す前に行う必要があります。
 
-用語*オブジェクト コンテキスト*から派生した Entity Framework クラスを参照、`ObjectContext`クラス、エンティティ セットとエンティティにアクセスするために使用します。 このプロジェクトのコードでクラスの名前は`SchoolEntities`、そのインスタンスの名前は常に`context`します。 オブジェクト コンテキストの*オブジェクト状態マネージャー*から派生したクラスには、`ObjectStateManager`クラス。 オブジェクトの連絡先は、エンティティ オブジェクトを格納して、それぞれに対応するテーブルの行またはデータベース内の行と同期されているかどうかを追跡するオブジェクト状態マネージャーを使用します。
+*オブジェクトコンテキスト*という用語は、エンティティセットとエンティティにアクセスするために使用する `ObjectContext` クラスから派生した Entity Framework クラスを指します。 このプロジェクトのコードでは、クラスには `SchoolEntities`という名前が付けられ、のインスタンスには常に `context`という名前が付けられます。 オブジェクトコンテキストの*オブジェクト状態マネージャー*は、`ObjectStateManager` クラスから派生するクラスです。 オブジェクトの連絡先は、オブジェクト状態マネージャーを使用してエンティティオブジェクトを格納し、それぞれがデータベース内の対応するテーブル行と同期しているかどうかを追跡します。
 
-エンティティを読み取るときに、オブジェクト コンテキストはオブジェクト状態マネージャーに格納しのオブジェクトの表現は、データベースと同期されているかどうかを追跡します。 たとえば、プロパティ値を変更する場合は、フラグがプロパティを変更するにはデータベースと同期が不要になったことを示す設定されます。 その後呼び出す、`SaveChanges`メソッド、オブジェクト コンテキストでは、オブジェクト状態マネージャーは、エンティティの現在の状態と、データベースの状態の相違点だけを知っているため、データベースで実行することがわかっています。
+エンティティを読み取ると、オブジェクトコンテキストはオブジェクトをオブジェクト状態マネージャーに格納し、オブジェクトの表現がデータベースと同期されているかどうかを追跡します。 たとえば、プロパティ値を変更すると、変更したプロパティがデータベースと同期されなくなったことを示すフラグが設定されます。 その後、`SaveChanges` メソッドを呼び出すと、オブジェクトの状態マネージャーは、エンティティの現在の状態とデータベースの状態との間で何が異なるのかを認識しているので、データベースで何を行うのかがオブジェクトのコンテキストに認識されます。
 
-ただし、このプロセス通常機能しません、web アプリケーションで、ページが表示されたら、と共に、オブジェクトの状態マネージャー内のすべてのエンティティを読み取るオブジェクト コンテキスト インスタンスが破棄されるためです。 オブジェクト コンテキスト インスタンスに変更を適用する必要がありますが、ポストバック処理がインスタンス化するか新しいします。 場合、`DeleteDepartment`メソッド、`ObjectDataSource`コントロール再作成しますエンティティの元のバージョンをビュー ステートの値からが再作成この`Department`オブジェクト状態マネージャーにエンティティが存在しません。 呼び出した場合、`DeleteObject`この再作成されたエンティティのメソッドは、オブジェクト コンテキストにエンティティがデータベースと同期するかどうかがわからないため、呼び出しが失敗します。 ただし、呼び出し、`Attach`メソッドがオブジェクト コンテキストの以前のインスタンスで、エンティティが読み取られたときに自動的に実行された最初のデータベースで再作成されたエンティティと値の間の追跡を再確立します。
+ただし、このプロセスは通常、web アプリケーションでは機能しません。これは、エンティティを読み取るオブジェクトコンテキストインスタンスとそのオブジェクト状態マネージャーのすべての要素が、ページのレンダリング後に破棄されるためです。 変更を適用する必要があるオブジェクトコンテキストインスタンスは、ポストバック処理用にインスタンス化された新しいインスタンスです。 `DeleteDepartment` 方法の場合、`ObjectDataSource` コントロールは、ビューステートの値から元のエンティティのエンティティを再作成しますが、この再作成された `Department` エンティティはオブジェクト状態マネージャーに存在しません。 この再作成されたエンティティで `DeleteObject` メソッドを呼び出した場合、エンティティがデータベースと同期されているかどうかがオブジェクトコンテキストで認識されないため、呼び出しは失敗します。 ただし、`Attach` メソッドを呼び出すと、再作成されたエンティティと、オブジェクトコンテキストの以前のインスタンスでエンティティが読み取られたときに、最初に自動的に実行されたデータベース内の値との間で同じ追跡が再確立されます。
 
-ありますが、オブジェクト状態マネージャー内のエンティティを追跡するためにオブジェクト コンテキストをしたくないし、実行を防ぐためにフラグを設定することができます。 この例は、このシリーズの以降のチュートリアルに表示されます。
+オブジェクトコンテキストがオブジェクト状態マネージャーのエンティティを追跡しないようにする場合があります。また、この処理が行われないようにフラグを設定することもできます。 この例については、このシリーズの後のチュートリアルで説明します。
 
 ### <a name="the-savechanges-method"></a>SaveChanges メソッド
 
-この単純なリポジトリ クラスは、CRUD 操作を実行する方法の基本原則を示しています。 この例で、`SaveChanges`各更新後すぐにメソッドが呼び出されます。 実稼働アプリケーションで呼び出すする可能性があります、`SaveChanges`データベースが更新されたときより詳細に制御を提供する別のメソッドからのメソッド。 (次のチュートリアルの最後の unit of work パターンは関連する更新プログラムを調整する 1 つの方法を説明するホワイト ペーパーへのリンクが検索されます)。また、例では、`DeleteDepartment`メソッドでは、同時実行の競合を処理するためのコードは含まれません。 そのためにコードをこのシリーズの後のチュートリアルで追加します。
+この単純なリポジトリクラスは、CRUD 操作を実行する方法の基本的な原則を示しています。 この例では、`SaveChanges` メソッドが各更新の直後に呼び出されます。 実稼働アプリケーションでは、別のメソッドから `SaveChanges` メソッドを呼び出すことによって、データベースをいつ更新するかをより細かく制御できます。 (次のチュートリアルの最後に、関連する更新プログラムを調整するための1つの方法である、作業単位パターンについて説明したホワイトペーパーへのリンクがあります)。この例では、`DeleteDepartment` メソッドに、同時実行の競合を処理するコードが含まれていないことにも注意してください。そのためのコードは、このシリーズの後のチュートリアルで追加します。
 
-### <a name="retrieving-instructor-names-to-select-when-inserting"></a>インストラクターの名前を挿入するときに選択を取得します。
+### <a name="retrieving-instructor-names-to-select-when-inserting"></a>挿入時に選択するインストラクター名を取得しています
 
-ユーザーは、新しい部門を作成するときに、ドロップダウン リストでインストラクターの一覧から管理者を選択できる必要があります。 そのため、次のコードを追加*SchoolRepository.cs*先ほど作成したビューを使用したインストラクターのリストを取得するメソッドを作成します。
+ユーザーは、新しい部門を作成するときに、ドロップダウンリストでインストラクターの一覧から管理者を選択できる必要があります。 したがって、次のコードを*SchoolRepository.cs*に追加して、前に作成したビューを使用してインストラクターの一覧を取得するメソッドを作成します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample8.cs)]
 
-### <a name="creating-a-page-for-inserting-departments"></a>部門を挿入するためのページを作成します。
+### <a name="creating-a-page-for-inserting-departments"></a>部署を挿入するためのページの作成
 
-作成、 *DepartmentsAdd.aspx*を使用するページ、 *Site.Master*ページとでは、次のマークアップを追加、`Content`という名前のコントロール`Content2`:
+*DepartmentsAdd*ページを使用するページを作成し、`Content2`という*名前の `Content`* コントロールに次のマークアップを追加します。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample9.aspx)]
 
-このマークアップでは、2 つ作成されます`ObjectDataSource`には、新規に挿入するため 1`Department`エンティティと instructor 名を取得する 1 つずつ、`DropDownList`部門の管理者を選択するために使用されるコントロール。 マークアップは、作成、`DetailsView`コントロールのハンドラーを指定しますの新しい部門を入力制御`ItemInserting`イベント設定できるように、`Administrator`外部キーの値。 最後には、`ValidationSummary`エラー メッセージを表示するコントロール。
+このマークアップでは、2つの `ObjectDataSource` コントロールが作成されます。1つは新しい `Department` エンティティを挿入するためのコントロールで、もう1つは部門管理者の選択に使用される `DropDownList` コントロールのインストラクター名を取得するためのものです。 マークアップは、新しい部署を入力するための `DetailsView` コントロールを作成し、`Administrator` 外部キーの値を設定できるように、コントロールの `ItemInserting` イベントのハンドラーを指定します。 は、エラーメッセージを表示するための `ValidationSummary` コントロールです。
 
-開いている*DepartmentsAdd.aspx.cs*し、以下の追加`using`ステートメント。
+*DepartmentsAdd.aspx.cs*を開き、次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample10.cs)]
 
-次のクラスの変数とメソッドを追加します。
+次のクラス変数とメソッドを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample11.cs)]
 
-`Page_Init`メソッド Dynamic Data 機能を有効にします。 ハンドラーは、`DropDownList`コントロールの`Init`イベント ハンドラーをコントロールへの参照を保存します、`DetailsView`コントロールの`Inserting`イベントでは、その参照を使用して、取得、`PersonID`の値が選択したインストラクターと更新プログラム`Administrator`の外部キー プロパティ、`Department`エンティティ。
+`Page_Init` メソッドを使用すると、動的データ機能が有効になります。 `DropDownList` コントロールの `Init` イベントのハンドラーは、コントロールへの参照を保存します。また、`DetailsView` コントロールの `Inserting` イベントのハンドラーは、その参照を使用して、選択されたインストラクターの `PersonID` 値を取得し、`Administrator` エンティティの `Department` 外部キープロパティを更新します。
 
-ページの実行、新しい部署の情報を追加し、クリックして、**挿入**リンク。
+ページを実行し、新しい部署の情報を追加して、 **[挿入]** リンクをクリックします。
 
 [![Image04](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image28.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image27.png)
 
-もう 1 つの新しい部署の値を入力します。 1,000,000.00 よりも大きい数値を入力、**予算**フィールドと次のフィールド タブ。 フィールドに、アスタリスクが表示され、上にマウス ポインターを保持する場合は、そのフィールドのメタデータで指定したエラー メッセージを表示できます。
+別の新しい部門の値を入力します。 **[予算]** フィールドに1000000.00 より大きい数値を入力し、tab キーを押して次のフィールドに入力します。 フィールドにアスタリスクが表示され、その上にマウスポインターを置くと、そのフィールドのメタデータに入力したエラーメッセージが表示されます。
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image30.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image29.png)
 
-をクリックして**挿入**、によって表示されるエラー メッセージが表示して、`ValidationSummary`ページの下部にあるコントロール。
+**[挿入]** をクリックすると、ページの下部にある `ValidationSummary` コントロールによって表示されるエラーメッセージが表示されます。
 
 [![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image32.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image31.png)
 
-次に、ブラウザーを終了し、開く、 *Departments.aspx*ページ。 削除機能を追加、 *Departments.aspx*ページを追加することで、`DeleteMethod`属性を`ObjectDataSource`コントロール、および`DataKeyNames`属性を`GridView`コントロール。 これらのコントロールの開始タグは次の例のようになります。
+次に、ブラウザーを閉じて、department *.aspx*ページを開きます。 `ObjectDataSource` コントロールに `DeleteMethod` 属性を追加し、`GridView` コントロールに `DataKeyNames` 属性を追加して、department ページに削除機能を追加*します。* これらのコントロールの開始タグは、次の例のようになります。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample12.aspx)]
 
@@ -255,66 +255,66 @@ Visual studio で作成した Contoso University web アプリケーションを
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image34.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image33.png)
 
-削除を実行したときに追加した部門、 *DepartmentsAdd.aspx*ページ。
+*DepartmentsAdd*ページを実行したときに追加した部署を削除します。
 
-## <a name="adding-update-functionality"></a>更新プログラムの機能を追加します。
+## <a name="adding-update-functionality"></a>更新機能の追加
 
-開いている*SchoolRepository.cs*し、以下の追加`Update`メソッド。
+*SchoolRepository.cs*を開き、次の `Update` メソッドを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample13.cs)]
 
-クリックすると**Update**で、 *Departments.aspx*  ページで、`ObjectDataSource`コントロールでは、2 つ作成されます`Department`に渡すエンティティ、`UpdateDepartment`メソッド。 ビューステートに格納されている元の値が含まれていて、もう一方に入力された新しい値を格納、`GridView`コントロール。 内のコード、`UpdateDepartment`メソッドが渡す、`Department`元の値を持つエンティティ、`Attach`エンティティとデータベースの間の追跡を確立するためのメソッド。 このコードではその後、`Department`エンティティに新しい値を持つ、`ApplyCurrentValues`メソッド。 オブジェクト コンテキストでは、新旧の値を比較します。 新しい値が古い値と異なる場合は、オブジェクト コンテキストは、プロパティの値を変更します。 `SaveChanges`メソッドは、データベースで変更された列のみを更新します。 (ただし場合、このエンティティの update 関数は、ストアド プロシージャにマップされて、行全体が更新されますに関係なく、列が変更されました。)
+Department ページで **[更新]** をクリックすると、`ObjectDataSource` コントロールによって、`UpdateDepartment` メソッドに渡す2つの `Department` エンティティが作成され*ます。* 一方には、ビューステートに格納されている元の値が含まれ、もう1つは、`GridView` コントロールに入力された新しい値を格納します。 `UpdateDepartment` メソッドのコードは、元の値を持つ `Department` エンティティを `Attach` メソッドに渡して、エンティティとデータベース内のデータの間の追跡を確立します。 次に、新しい値を持つ `Department` エンティティを `ApplyCurrentValues` メソッドに渡します。 オブジェクトコンテキストは、古い値と新しい値を比較します。 新しい値が古い値と異なる場合は、オブジェクトコンテキストによってプロパティ値が変更されます。 `SaveChanges` メソッドは、データベース内の変更された列のみを更新します。 (ただし、このエンティティの update 関数がストアドプロシージャにマップされていた場合、どの列が変更されたかにかかわらず、行全体が更新されます)。
 
-開く、 *Departments.aspx*ファイルを開き、次の属性を追加、`DepartmentsObjectDataSource`コントロール。
+学科の *.aspx*ファイルを開き、次の属性を `DepartmentsObjectDataSource` コントロールに追加します。
 
 - `UpdateMethod="UpdateDepartment"`
 - `ConflictDetection="CompareAllValues"`   
- このエラーの原因の古い値をビューステートに格納されたで新しい値を持つとを比較できるように、`Update`メソッド。
+ これにより、古い値が `Update` メソッドの新しい値と比較できるように、古い値がビューステートに格納されます。
 - `OldValuesParameterFormatString="orig{0}"`   
- これを元の値パラメーターの名前は、コントロールに知らせます`origDepartment`します。
+ これにより、元の values パラメーターの名前が `origDepartment` であることがコントロールに通知されます。
 
-開始タグのマークアップ、`ObjectDataSource`コントロール次の例のようになります。
+`ObjectDataSource` コントロールの開始タグのマークアップは、次の例のようになります。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample14.aspx)]
 
-追加、`OnRowUpdating="DepartmentsGridView_RowUpdating"`属性を`GridView`コントロール。 これを使用して、設定するのには、`Administrator`プロパティの値、ユーザーがドロップダウン リストで選択行に基づいています。 `GridView`次の例では、開始タグを今すぐに似ています。
+`GridView` コントロールに `OnRowUpdating="DepartmentsGridView_RowUpdating"` 属性を追加します。 このプロパティを使用して、ユーザーがドロップダウンリストで選択した行に基づいて、`Administrator` プロパティの値を設定します。 `GridView` の開始タグは、次の例のようになります。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample15.aspx)]
 
-追加、`EditItemTemplate`の制御、`Administrator`列を`GridView`直後、制御、`ItemTemplate`その列の制御。
+`Administrator` 列の `EditItemTemplate` コントロールを `GridView` コントロールに追加します。その際、その列の `ItemTemplate` コントロールの直後に追加します。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample16.aspx)]
 
-これは、`EditItemTemplate`コントロールに似ていますが、`InsertItemTemplate`を制御、 *DepartmentsAdd.aspx*ページ。 違いを使用して、コントロールの初期値を設定すること、`SelectedValue`属性。
+この `EditItemTemplate` コントロールは、 *DepartmentsAdd*ページの `InsertItemTemplate` コントロールに似ています。 違いは、コントロールの初期値が `SelectedValue` 属性を使用して設定されていることです。
 
-前に、`GridView`コントロールを追加、`ValidationSummary`で行ったように制御、 *DepartmentsAdd.aspx*ページ。
+`GridView` コントロールの前に、 *DepartmentsAdd*ページで行ったように `ValidationSummary` コントロールを追加します。
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample17.aspx)]
 
-開いている*Departments.aspx.cs* 、部分クラス宣言の直後後を参照するプライベート フィールドを作成する次のコードを追加し、`DropDownList`コントロール。
+*Departments.aspx.cs*を開き、部分クラス宣言の直後に、次のコードを追加して、`DropDownList` コントロールを参照するプライベートフィールドを作成します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample18.cs)]
 
-ハンドラーを追加し、`DropDownList`コントロールの`Init`イベントと`GridView`コントロールの`RowUpdating`イベント。
+次に、`DropDownList` コントロールの `Init` イベントと `GridView` コントロールの `RowUpdating` イベントのハンドラーを追加します。
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample19.cs)]
 
-ハンドラーは、`Init`イベントへの参照を保存する、`DropDownList`クラス フィールド内のコントロール。 ハンドラーは、`RowUpdating`イベントでは、参照を使用して、ユーザーが入力した値を取得し、それを適用、`Administrator`のプロパティ、`Department`エンティティ。
+`Init` イベントのハンドラーは、クラスフィールドに `DropDownList` コントロールへの参照を保存します。 `RowUpdating` イベントのハンドラーは、参照を使用してユーザーが入力した値を取得し、それを `Department` エンティティの `Administrator` プロパティに適用します。
 
-使用して、 *DepartmentsAdd.aspx*ページに、新しい部門を追加し、実行、 *Departments.aspx*ページし、をクリックして**編集**追加した行にします。
+*DepartmentsAdd*ページを使用して新しい部署を追加し、次に department *.aspx*ページを実行して、追加した行の **[編集]** をクリックします。
 
 > [!NOTE]
-> 追加しなかった行を編集することはできません (つまり、データベース内に既に)、データベースでは無効なデータのためデータベースで作成された行の管理者とは、受講者です。 これらのいずれかを編集しようとする場合のようなエラーを報告するエラー ページが表示されます。 `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> データベース内のデータが無効なため、追加していない行 (つまり、データベースに既に存在していた行) を編集することはできません。データベースで作成された行の管理者は、students です。 これらのいずれかを編集しようとすると、次のようなエラーを報告するエラーページが表示され `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
 
-無効な入力すると**予算**金額し、順にクリックします**Update**、同じアスタリスクとに示したエラー メッセージを参照してください、 *Departments.aspx*ページ。
+無効な**予算**金額を入力して **[更新]** をクリックすると、[department *] ページで*確認したのと同じアスタリスクとエラーメッセージが表示されます。
 
-フィールドの値を変更または別の管理者を選択し、クリックして**Update**します。 変更が表示されます。
+フィールド値を変更するか、別の管理者を選択して **[更新]** をクリックします。 変更が表示されます。
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image38.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image37.png)
 
-これで完了の使用の概要、`ObjectDataSource`コントロールの基本的な CRUD (作成、読み取り、更新、削除)、Entity Framework での操作。 単純な n 層アプリケーションを構築したがビジネス ロジック層は、データ アクセス層は、自動化された単体テストが複雑になっても密に結合されています。 次のチュートリアルでは、単体テストを容易にするリポジトリ パターンを実装する方法を確認します。
+このチュートリアルでは、Entity Framework で基本的な CRUD (作成、読み取り、更新、削除) 操作に `ObjectDataSource` コントロールを使用する方法の概要を説明します。 単純な n 層アプリケーションを構築しましたが、ビジネスロジック層はデータアクセス層と緊密に結合されているため、自動単体テストが複雑になります。 次のチュートリアルでは、単体テストを容易にするリポジトリパターンを実装する方法について説明します。
 
 > [!div class="step-by-step"]
-> [次へ](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+> [Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

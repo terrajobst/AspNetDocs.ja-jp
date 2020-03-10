@@ -1,19 +1,19 @@
 ---
 uid: mvc/pluralsight
-title: Pluralsight の MVC ビデオ トレーニング |Microsoft Docs
+title: Pluralsight | からの MVC ビデオトレーニングMicrosoft Docs
 author: rick-anderson
-description: この無料ビデオ トレーニングの Pluralsight の MVC ビデオ トレーニングが揃って稼働している ASP.NET MVC を使用します。 開発用の設定からのすべてのものについて説明しています.
+description: Pluralsight の MVC ビデオトレーニングこの無料のビデオトレーニングは、ASP.NET MVC を使用して実行できます。 開発のセットアップのすべてについて説明しています...
 ms.author: riande
 ms.date: 03/09/2011
 ms.assetid: 87612fe1-258c-4f50-88d8-c3047dec3f14
 msc.legacyurl: /mvc/pluralsight
 msc.type: content
 ms.openlocfilehash: 200e6b8cf8c32fbf70b383fc02e2fd74cbc313e5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419874"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78432370"
 ---
 # <a name="mvc-video-training-from-pluralsight"></a>Pluralsight の MVC ビデオ トレーニング
 
@@ -26,15 +26,15 @@ ms.locfileid: "59419874"
 - [Web API 2](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m5-webapi2&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
 - [Entity Framework 6](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m6-ef6&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
 - [SignalR](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m7-signalr&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
-- [Web Developer Tools と Visual Studio 2013](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m8-visualstudio&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
+- [Web 開発者ツールと Visual Studio 2013](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m8-visualstudio&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
 
-> Pluralsight の K. Scott Allen によって記録されたこの MVC 5 コースでは、ASP.NET MVC の最新リリースにすばやくいくを取得する優れた手段を提供します。 Scott のプレゼンテーションのスタイルは簡単に理解して、技術的には説得力のあるコース形式、ビデオ プレーヤー、および全体的なパターンは非常に優れた. さらに – MVC 5 を今すぐ学習する言い訳は通用しませんので、無料です。
+> この MVC 5 コースは、Pluralsight によって記録されています。 Scott Allen for は、ASP.NET MVC の最新リリースを迅速に取得するためのすばらしい方法を提供します。 Scott のプレゼンテーションスタイルは、簡単にフォローでき、技術的に説得力があり、コースの形式、ビデオプレーヤー、および全体的なリズムは非常に優れています。 また、これは無料であるため、現在 MVC 5 について学習する必要はありません。
 >
-> &mdash;Scott Guthrie、エグゼクティブ バイス プレジデント、マイクロソフトのクラウドおよびエンタープライズのグループ、Microsoft
+> &mdash;Scott Guthrie、役員副社長、Microsoft Cloud、エンタープライズグループ、Microsoft
 
-![pluralsight-logo-playbutton](pluralsight/_static/image1.png)
+![pluralsight-playbutton](pluralsight/_static/image1.png)
 
-3,000 + dev へのアクセスをロック解除、IT とクリエイティブなコースをいつでも、どこで見ることができます。
+3,000 以上の開発者、IT、およびクリエイティブなコースへのアクセスのロックを解除し、どこからでも見ることができます。
 
 * [ASP.NET MVC 5 の基礎](https://www.pluralsight.com/courses/aspdotnet-mvc5-fundamentals)
 * [Pluralsight の価格とプラン](https://www.pluralsight.com/pricing)

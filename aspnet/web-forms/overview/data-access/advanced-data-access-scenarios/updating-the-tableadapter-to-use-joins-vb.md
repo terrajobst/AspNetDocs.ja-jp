@@ -9,11 +9,11 @@ ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5c94baa99b126cdd24d69afc3d02bfe8b069419b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74604223"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78427528"
 ---
 # <a name="updating-the-tableadapter-to-use-joins-vb"></a>JOIN を使用するように TableAdapter を更新する (VB)
 
@@ -161,7 +161,7 @@ TableAdapter のメインクエリには、次の `SELECT` ステートメント
 
 ## <a name="step-4-implementing-the-business-logic-layer"></a>手順 4: ビジネスロジック層を実装する
 
-`EmployeesBLLWithSprocs.vb`という名前の `~/App_Code/BLL` フォルダーに新しいクラスファイルを作成します。 このクラスは、既存の `EmployeesBLL` クラスのセマンティクスを模倣しています。この新しいクラスでは、より少数のメソッドを提供し、`Northwind` データセットではなく `NorthwindWithSprocs` データセットを使用します。 `EmployeesBLLWithSprocs` クラスに次のコードを追加します。
+`EmployeesBLLWithSprocs.vb`という名前の `~/App_Code/BLL` フォルダーに新しいクラスファイルを作成します。 このクラスは、既存の `EmployeesBLL` クラスのセマンティクスを模倣しています。この新しいクラスでは、より少数のメソッドを提供し、`Northwind` データセットではなく `NorthwindWithSprocs` データセットを使用します。 次のコードを `EmployeesBLLWithSprocs` クラスに追加します。
 
 [!code-vb[Main](updating-the-tableadapter-to-use-joins-vb/samples/sample6.vb)]
 
@@ -207,7 +207,7 @@ Visual Studio によって、`EmployeesDataTable` s 列ごとに BoundField が 
 
 この作業をリーダーの演習として残しておきます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 リレーショナルデータベースを使用する場合、クエリでは、複数の関連テーブルからデータを取得するのが一般的です。 相関サブクエリと `JOIN` には、クエリ内の関連テーブルからデータにアクセスするための2つの異なる手法が用意されています。 前のチュートリアルでは、通常、相関サブクエリを使用しました。これは、TableAdapter が `JOIN` に関連するクエリの `INSERT`、`UPDATE`、および `DELETE` ステートメントを自動生成できないためです。 これらの値は手動で指定できますが、アドホック SQL ステートメントを使用する場合は、TableAdapter 構成ウィザードの完了時にすべてのカスタマイズが上書きされます。
 
@@ -217,7 +217,7 @@ TableAdapter 構成ウィザードを再実行すると、`Employees_Select` ス
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

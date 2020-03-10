@@ -9,11 +9,11 @@ ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
 ms.openlocfilehash: 4235f4fe666cdeb7d0821127a2b349f2ff30cd6e
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057029"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78433672"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
 
@@ -31,7 +31,7 @@ ASP.NET MVC 4 は、適切に確立された設計パターンと ASP.NET と .N
 > すべてのサンプルコードとスニペットは、 [Microsoft web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)で入手できる Web キャンプトレーニングキットに含まれています。 このラボに固有のプロジェクトは、 [「ASP.NET 4.5 の Web フォームの新機能](https://github.com/Microsoft-Web/HOL-ASPNETWebForms)」から入手できます。
 
 <a id="Objectives"></a>
-### <a name="objectives"></a>目的
+### <a name="objectives"></a>目標
 
 このハンズオンラボでは、次の方法を学習します。
 
@@ -45,7 +45,7 @@ ASP.NET MVC 4 は、適切に確立された設計パターンと ASP.NET と .N
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>必要条件
+### <a name="prerequisites"></a>前提条件
 
 このラボを完了するには、次の項目が必要です。
 
@@ -95,13 +95,13 @@ Visual Studio Code のスニペットを使い慣れておらず、その使用�
 <a id="Task_1_-_Exploring_the_Internet_Application_Template"></a>
 #### <a name="task-1---exploring-the-internet-application-template"></a>タスク 1-インターネットアプリケーションテンプレートを探索する
 
-1. **Visual Studio**を開きます。
+1. **Visual Studio** を開きます。
 2. ファイルを選択してください **|新規 |[プロジェクト**] メニューコマンド。 **新しいプロジェクト** ダイアログで、 **Visual C# | を選択します。** 左側のウィンドウツリーで web テンプレート を選択し、 **ASP.NET MVC 4 web アプリケーション** を選択します。 プロジェクトに**Photogallery**という名前を設定し、場所を選択して (または既定値のままにして)、[ **OK]** をクリックします。
 
     > [!NOTE]
     > 後で、作成中の PhotoGallery ASP.NET MVC 4 ソリューションをカスタマイズします。
 
-    ![新しいプロジェクトの作成](whats-new-in-aspnet-mvc-4/_static/image1.png "新しいプロジェクトの作成")
+    ![新しいプロジェクトの作成](whats-new-in-aspnet-mvc-4/_static/image1.png "新しいプロジェクトを作成します。")
 
     *新しいプロジェクトの作成*
 3. **[New ASP.NET MVC 4 プロジェクト]** ダイアログボックスで、 **[インターネットアプリケーション]** プロジェクトテンプレートを選択し、 **[OK]** をクリックします。 ビューエンジンとして Razor が選択されていることを確認します。
@@ -203,7 +203,7 @@ ASP.NET MVC 4 は、モバイルおよびタブレットブラウザー用の we
 
         モバイルアプリケーションプロジェクトテンプレートには、モバイルブラウザー互換性のためのオープンソースライブラリである jQuery Mobile library が含まれています。 jQuery Mobile は、CSS と JavaScript をサポートするモバイルブラウザーにプログレッシブ拡張機能を適用します。 プログレッシブ拡張機能を使用すると、すべてのブラウザーで web ページの基本コンテンツを表示できるだけではありますが、リッチコンテンツを表示できるのは最も強力なブラウザーのみになります。 JQuery Mobile スタイルに含まれている JavaScript ファイルと CSS ファイルを使用すると、モバイルブラウザーでページマークアップを変更することなく、コンテンツを画面に収めることができます。
 
-        ![jQuery: テンプレートに含まれています。](whats-new-in-aspnet-mvc-4/_static/image12.png)
+        ![jQuery-mobile-library-included-in-the-template](whats-new-in-aspnet-mvc-4/_static/image12.png)
 
         *テンプレートに含まれている jQuery mobile ライブラリ*
     - **HTML5 ベースのマークアップ**
@@ -211,7 +211,7 @@ ASP.NET MVC 4 は、モバイルおよびタブレットブラウザー用の we
         ![-HTML5-マークアップの使用](whats-new-in-aspnet-mvc-4/_static/image13.png)
 
         *HTML5 マークアップを使用したモバイルアプリケーションテンプレート (Login. cshtml および index. cshtml)*
-4. **F5**キーを押してソリューションを実行します。
+4. F5 キーを押して、ソリューションを実行します。
 5. **Windows Phone 7 エミュレーター**を開きます。
 6. 電話のスタート画面で、Internet Explorer を開きます。 デスクトップアプリケーションが開始した URL を確認し、電話からその URL を参照します (例: `http://localhost:[PortNumber]/`)。
 7. これで、ログインページを入力したり、[バージョン情報] ページを確認したりできるようになりました。 Web サイトのスタイルは、mobile 用の新しい Metro アプリに基づいていることに注意してください。 ASP.NET MVC 4 プロジェクトテンプレートがモバイルデバイスに正しく表示され、ページのすべての要素が表示され、有効になっていることを確認します。 ヘッダーのリンクは、クリックまたはタップするのに十分な大きさであることに注意してください。
@@ -256,7 +256,7 @@ ASP.NET MVC 4 は、モバイルおよびタブレットブラウザー用の we
 
 アダプティブレンダリングがどのように動作するかを調べ、ASP.NET MVC 4 の既定の web サイトテンプレートの読みやすさを向上させます。
 
-1. タスク1で作成した**photogallery .sln**ソリューションを開き、 **photogallery**プロジェクトを選択します。 **F5**キーを押してソリューションを実行します。
+1. タスク1で作成した**photogallery .sln**ソリューションを開き、 **photogallery**プロジェクトを選択します。 F5 キーを押して、ソリューションを実行します。
 2. ブラウザーの幅を変更し、ウィンドウを半分または元のサイズの4分の1に設定します。 ヘッダーの項目がどのように処理されるかに注意してください。一部の要素は、ヘッダーの表示領域に表示されません。
 3. **コンテンツ**プロジェクトフォルダーにある Visual Studio ソリューションエクスプローラーから、**サイトの .css**ファイルを開きます。 **CTRL + F**キーを押して Visual Studio 統合検索を開き、`@media` を記述して**CSS メディアクエリ**を見つけます。
 
@@ -318,7 +318,7 @@ ASP.NET MVC 4 は、モバイルおよびタブレットブラウザー用の we
 
     *モック写真サービスのテスト*
 
-実際の実装では、 [ASP.NET Web API](../../../../web-api/index.md)を使用してフォトギャラリーサービスを実装できます。 ASP.NET Web API は、ブラウザーやモバイルデバイスを含む広範なクライアントに接続できる HTTP サービスを簡単に構築できるフレームワークです。 ASP.NET Web API は、.NET Framework に基づいて RESTful アプリケーションを構築するのに最適なプラットフォームです。
+実際の実装では、 [ASP.NET Web API](../../../../web-api/index.md)を使用してフォトギャラリーサービスを実装できます。 ASP.NET Web API は、ブラウザーやモバイル デバイスなどを含む多様なクライアントに提供できる HTTP サービスの構築が容易になるフレームワークです。 ASP.NET Web API は、.NET Framework 上で RESTful アプリケーションを構築するためのプラットフォームとして理想的です。
 
 <a id="Task_2_-_Displaying_the_Photo_Gallery"></a>
 #### <a name="task-2---displaying-the-photo-gallery"></a>タスク 2-フォトギャラリーを表示する
@@ -354,7 +354,7 @@ ASP.NET MVC 4 は、モバイルおよびタブレットブラウザー用の we
 9. ファイルエクスプローラーを開き、このラボの **[Source\ Assets]** フォルダーの下にある **[Photos]** フォルダー全体を、ソリューションエクスプローラーのプロジェクトのルートフォルダーにコピーします。
 10. アプリケーションを実行します。 これで、ギャラリーに写真を表示するホームページが表示されます。
 
-    ![フォトギャラリー](whats-new-in-aspnet-mvc-4/_static/image21.png "フォトギャラリー")
+    ![フォトギャラリー](whats-new-in-aspnet-mvc-4/_static/image21.png "フォト ギャラリー")
 
     *フォトギャラリー*
 11. Visual Studio で、 **SHIFT** + **F5**キーを押してアプリケーションのデバッグを停止します。
@@ -397,7 +397,7 @@ ASP.NET MVC 4 の主要な更新プログラムの1つに、モバイル開発�
 
     - **Views/Shared/\_layout: mobile. cshtml**: 小さい画面用に最適化された jQuery モバイルベースのレイアウトです。 Web サイトがモバイルブラウザーから要求を受信すると、元のレイアウト (\_Layout) がこの web サイトに置き換えられます。
     - ビュースイッチャーコンポーネント: **Views/Shared/\_ViewSwitcher (cshtml** partial) ビューと**ViewSwitcherController.cs**コントローラーで構成されます。 このコンポーネントは、ユーザーがページのデスクトップバージョンに切り替えることができるように、モバイルブラウザーにリンクを表示します。  
-        ![Mobile support を使用したフォトギャラリープロジェクト](whats-new-in-aspnet-mvc-4/_static/image23.png "Phmobile サポート付き oto Gallery プロジェクト)
+        ![Mobile support を使用したフォトギャラリープロジェクト](whats-new-in-aspnet-mvc-4/_static/image23.png "Mobile support を使用したフォトギャラリープロジェクト")
 
         *Mobile support を使用したフォトギャラリープロジェクト*
 4. モバイルバンドルを登録します。 これを行うには、 **Global.asax.cs**ファイルを開き、次の行を追加します。
@@ -433,7 +433,7 @@ ASP.NET MVC 4 の主要な更新プログラムの1つに、モバイル開発�
 
     > [!NOTE] 
     > 
-    > 以下の点に注意してください。
+    > 次のことに注意してください。
     > 
     > - **Listview**に設定されている**データロール**属性は、listview スタイルを使用してリストを表示します。
     > 
@@ -516,7 +516,7 @@ jQuery Mobile の既定のテーマには、クイックリファレンス用に
 
     - **ClearOverriddenBrowser ()** メソッドは、現在の要求に対してオーバーライドされたユーザーエージェントを削除します。
     - **SetOverriddenBrowser ()** メソッドは、指定されたユーザーエージェントを使用して、要求の実際のユーザーエージェント値をオーバーライドします。  
-        ![ViewSwitcher コントローラー](whats-new-in-aspnet-mvc-4/_static/image31.png "ViewSwitcher コントローラー ")  
+        ![ViewSwitcher コントローラー](whats-new-in-aspnet-mvc-4/_static/image31.png "ViewSwitcher コントローラー")  
 *ViewSwitcher コントローラー*
 
         ブラウザーのオーバーライドは ASP.NET MVC 4 の中核機能であり、jQuery パッケージをインストールしない場合でも利用できます。 ただし、この機能は、ビュー、レイアウト、および部分ビューのみに影響し、要求の Browser オブジェクトに依存する機能には影響しません。
@@ -538,7 +538,7 @@ jQuery Mobile の既定のテーマには、クイックリファレンス用に
     ![デスクトップビューで表示されたビュースイッチャー](whats-new-in-aspnet-mvc-4/_static/image32.png "デスクトップビューで表示されたビュースイッチャー")
 
     *デスクトップビューで表示されたビュースイッチャー*
-7. もう一度モバイルビューに切り替えて、 **[バージョン情報]** ページ (http://localhost [ポート]/Home/About) に移動します。 About. Mobile. cshtml ビューを作成していない場合でも、モバイルレイアウト (\_Layout) を使用して [バージョン情報] ページが表示されることに注意してください。
+7. もう一度モバイルビューに切り替えて、 **[バージョン情報]** ページ (http://localhost[ポート]/Home/About) に移動します。 About. Mobile. cshtml ビューを作成していない場合でも、モバイルレイアウト (\_Layout) を使用して [バージョン情報] ページが表示されることに注意してください。
 
     ![[バージョン情報] ページ](whats-new-in-aspnet-mvc-4/_static/image33.png "About ページ")
 
@@ -598,7 +598,7 @@ jQuery Mobile の既定のテーマには、クイックリファレンス用に
 <a id="Exercise_4_Using_Asynchronous_Controllers"></a>
 ### <a name="exercise-4-using-asynchronous-controllers"></a>演習 4: 非同期コントローラーの使用
 
-Microsoft .NET Framework 4.5 でC#は、と Visual Basic の新しい言語機能が導入されており、.net プログラミングにおける非同期性の新しい基盤を提供しています。 この新しい基盤により、非同期プログラミングは、と同様に、同期型のプログラミングと同様に簡単に行うことができます。 **Asynccontroller**クラスを使用して、ASP.NET MVC 4 で非同期アクションメソッドを記述できるようになりました。 非同期アクションメソッドは、実行時間の長い CPU にバインドされていない要求に使用できます。 これにより、要求の処理中に Web サーバーが作業を実行できなくなります。 AsyncController クラスは、通常、実行時間の長い Web サービス呼び出しに使用されます。
+Microsoft .NET Framework 4.5 でC#は、と Visual Basic の新しい言語機能が導入されており、.net プログラミングにおける非同期性の新しい基盤を提供しています。 この新しい基盤により、非同期プログラミングは、と同様に、同期型のプログラミングと同様に簡単に行うことができます。 **Asynccontroller**クラスを使用して、ASP.NET MVC 4 で非同期アクションメソッドを記述できるようになりました。 非同期アクション メソッドは、実行に時間のかかる CPU バインド以外の要求に使用できます。 これにより、要求の処理中に Web サーバーによる処理の実行が妨げられることがなくなります。 AsyncController クラスは、通常、実行時間の長い Web サービス呼び出しに使用されます。
 
 この演習では、ASP.NET MVC 4 での非同期操作の基本について説明します。 詳細については、次の記事を確認してください: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
@@ -771,7 +771,7 @@ Microsoft .NET Framework 4.5 でC#は、と Visual Basic の新しい言語機�
     *ライセンス条項に同意する*
 5. ダウンロードとインストールのプロセスが完了するまで待ちます。
 
-    ![インストールの進行状況](whats-new-in-aspnet-mvc-4/_static/image46.png)
+    ![Installation progress](whats-new-in-aspnet-mvc-4/_static/image46.png)
 
     *インストールの進行状況*
 6. インストールが完了したら、 **[完了]** をクリックします。
@@ -812,7 +812,7 @@ Microsoft .NET Framework 4.5 でC#は、と Visual Basic の新しい言語機�
     *ライセンス条項に同意する*
 5. ダウンロードとインストールのプロセスが完了するまで待ちます。
 
-    ![インストールの進行状況](whats-new-in-aspnet-mvc-4/_static/image51.png "インストールの進行状況")
+    ![インストールの進行状況](whats-new-in-aspnet-mvc-4/_static/image51.png "Installation progress")
 
     *インストールの進行状況*
 6. インストールが完了したら、 **[完了]** をクリックします。
@@ -933,7 +933,7 @@ Microsoft .NET Framework 4.5 でC#は、と Visual Basic の新しい言語機�
 7. **[ダッシュボード]** ページの **[概要] セクションで**、 **[発行プロファイルのダウンロード]** リンクをクリックします。
 
     > [!NOTE]
-    > *発行プロファイル*には、有効になっている各発行方法について、Windows Azure web サイトに web アプリケーションを発行するために必要なすべての情報が含まれています。 発行プロファイルには、パブリケーションメソッドが有効になっている各エンドポイントに接続して認証するために必要な Url、ユーザー資格情報、およびデータベース文字列が含まれています。 **Microsoft WebMatrix 2**、 **Microsoft Visual Studio Express for Web**および**Microsoft Visual Studio 2012**では、発行プロファイルを読み取り、Web アプリケーションを Windows Azure websites に発行するためのこれらのプログラムの構成を自動化することがサポートされています。
+    > *発行プロファイル*には、有効になっている各発行方法について、Windows Azure web サイトに web アプリケーションを発行するために必要なすべての情報が含まれています。 発行プロファイルには、発行メソッドが有効化される各エンドポイントに接続して認証するために必要な URL、ユーザーの資格情報、およびデータベース文字列が含まれています。 **Microsoft WebMatrix 2**、 **Microsoft Visual Studio Express for Web**および**Microsoft Visual Studio 2012**では、発行プロファイルを読み取り、Web アプリケーションを Windows Azure websites に発行するためのこれらのプログラムの構成を自動化することがサポートされています。
 
     ![Web サイト発行プロファイルをダウンロードしています](whats-new-in-aspnet-mvc-4/_static/image67.png "Web サイト発行プロファイルをダウンロードしています")
 
@@ -1005,12 +1005,12 @@ Microsoft .NET Framework 4.5 でC#は、と Visual Basic の新しい言語機�
      ![変換先の接続文字列を構成しています](whats-new-in-aspnet-mvc-4/_static/image77.png "変換先の接続文字列を構成しています")
 
      *変換先の接続文字列を構成しています*
-6. 次に、 **[OK]** をクリックします。 データベースの作成を求めるメッセージが表示されたら、[**はい]** をクリックします。
+6. 次に、 **[OK]** をクリックします データベースの作成を求めるメッセージが表示されたら、[**はい]** をクリックします。
 
     ![データベースの作成](whats-new-in-aspnet-mvc-4/_static/image78.png "データベース文字列の作成")
 
     *データベースの作成*
-7. Windows Azure の SQL Database に接続するために使用する接続文字列は、[既定の接続] ボックスに表示されます。 **[次へ]** をクリックします。
+7. Windows Azure の SQL Database に接続するために使用する接続文字列は、[既定の接続] ボックスに表示されます。 続けて、 **[次へ]** をクリックします。
 
     ![SQL Database を指す接続文字列](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL Database を指す接続文字列")
 

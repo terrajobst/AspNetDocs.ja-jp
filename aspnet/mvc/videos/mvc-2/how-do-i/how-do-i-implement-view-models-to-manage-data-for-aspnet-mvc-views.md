@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
-title: How Do i:ASP.NET MVC ビューのデータを管理するビュー モデルを実装するか。 | Microsoft Docs
+title: '操作方法: ビューモデルを実装して ASP.NET MVC ビューのデータを管理する | Microsoft Docs'
 author: rick-anderson
-description: このビデオでは、Chris Pels がの概念を使用する方法を示しています、&quot;ビュー モデル&quot;ASP.NET MVC ビューのデータを管理するためです。 最初に、サンプルの MVC プロジェクトでは、資格情報が、.
+description: このビデオでは、ASP.NET MVC ビューのデータを管理するために、&quot;ビューモデル&quot; の概念を使用する方法を示します。 最初に、サンプルの MVC プロジェクトは cre...
 ms.author: riande
 ms.date: 12/11/2009
 ms.assetid: 22f55d63-78f7-44fd-9107-f74cbe16022b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
 msc.type: video
 ms.openlocfilehash: 5f883c4ab42e71fc76df221c2b282e124a3d97bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59423020"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431998"
 ---
-# <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>How Do i:ASP.NET MVC ビューのデータを管理するビュー モデルを実装するか。
+# <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>操作方法: ビューモデルを実装して ASP.NET MVC ビューのデータを管理する
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオの Chris Pels では、ASP.NET MVC ビューのデータを管理するため「ビュー モデル」の概念を使用する方法を示します。 まず、パッケージ化し、コント ローラーからビューにデータを渡す、ViewDataDictionary を使用してサンプルの MVC プロジェクトを作成します。 次に、サンプルの MVC プロジェクト内でビューをビュー モデルを表すクラスが作成されます。 この実装の一部として、ビュー モデル アプローチの利点を説明します。 最後に、ビュー モデルの実装を使用する場合は、アプリケーション ロジックをパーティション分割する方法の詳細については。
+このビデオでは、ASP.NET MVC ビューのデータを管理するための "ビューモデル" の概念を使用する方法を示します。 まず、ViewDataDictionary を使用してコントローラーからビューにデータをパッケージ化して渡すサンプル MVC プロジェクトが作成されます。 次に、サンプル MVC プロジェクトのビューのビューモデルを表すクラスが作成されます。 この実装の一部として、ビューモデルのアプローチの利点について説明します。 最後に、ビューモデルの実装を使用するときに、アプリケーションロジックをパーティション分割する方法について説明します。
 
-[&#9654;ビデオ (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views)
+[&#9654;ビデオを見る (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)

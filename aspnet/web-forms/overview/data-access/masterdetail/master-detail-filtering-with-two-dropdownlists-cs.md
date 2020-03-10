@@ -9,11 +9,11 @@ ms.assetid: ac4b0d77-4816-4ded-afd0-88dab667aedd
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e24b7f91d34fbce1676f7f28ebb7d23903157f7f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625789"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78424288"
 ---
 # <a name="masterdetail-filtering-with-two-dropdownlists-c"></a>2 つの DropDownList でマスター/詳細をフィルター処理する (C#)
 
@@ -165,13 +165,13 @@ DetailsView で使用可能なフィールドを表示するかどうかを選�
 
 **図 21**: `ProductsByCategory` DropDownList の `DataBound` イベントが発生したときに `ProductDetails` DetailsView が明示的に更新される ([クリックしてフルサイズの画像を表示する](master-detail-filtering-with-two-dropdownlists-cs/_static/image63.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 DropDownList はマスター/詳細レポートの理想的なユーザーインターフェイス要素として機能し、マスターレコードと詳細レコードの間に一対多のリレーションシップが存在します。 前のチュートリアルでは、1つの DropDownList を使用して、選択したカテゴリによって表示される製品をフィルター処理する方法を説明しました。 このチュートリアルでは、製品の GridView を DropDownList に置き換え、DetailsView を使用して選択した製品の詳細を表示しました。 このチュートリアルで説明する概念は、顧客、注文、注文品目など、複数の一対多リレーションシップを含むデータモデルに簡単に拡張できます。 一般に、一対多のリレーションシップでは、"one" エンティティごとに DropDownList をいつでも追加できます。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

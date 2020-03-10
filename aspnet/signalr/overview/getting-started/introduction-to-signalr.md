@@ -9,15 +9,15 @@ ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 8dbc31a5c8d59fa55dc5b513c1a51d24d18a685f
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519402"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78431098"
 ---
 # <a name="introduction-to-signalr"></a>SignalR 入門
 
-提供者: [Patrick Fletcher](https://github.com/pfletcher)
+([パトリック Fletcher](https://github.com/pfletcher) )
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
@@ -25,13 +25,13 @@ ms.locfileid: "76519402"
 > 
 > ## <a name="questions-and-comments"></a>質問とコメント
 > 
-> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr)にて投稿してください。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr)に投稿できます。
 
 ## <a name="what-is-signalr"></a>SignalR とは何か
 
 ASP.NET SignalR は、リアルタイム Web 機能をアプリケーションに追加するプロセスを簡素化する ASP.NET 開発者向けのライブラリです。 リアルタイム Web 機能とは、サーバーがクライアントからの新しいデータ要求を待つのではなく、サーバー コードが接続クライアントに対して利用可能になったコンテンツを瞬時にプッシュできる機能です。
 
-SignalR は、ASP.NET アプリケーションに何らかの「リアルタイム」Web 機能を追加するために使用することができます。 よくチャットが例として使用されますが、もっと多くのことを行うことができます。 ユーザーが新しいデータを表示するために Web ページを更新したり、ページが[ロングポーリング](http://en.wikipedia.org/wiki/Push_technology#Long_polling)を実装して新しいデータを取得したりする場合は、SignalR を使用することをおすすめします。 サンプルとしては、ダッシュ ボード アプリケーションや監視アプリケーション、コラボレーション アプリケーション (ドキュメントの同時編集など)、ジョブの進行状況の更新プログラム、およびリアルタイム フォームが含まれます。
+SignalR は、ASP.NET アプリケーションに何らかの「リアルタイム」Web 機能を追加するために使用することができます。 よくチャットが例として使用されますが、もっと多くのことを行うことができます。 ユーザーが新しいデータを表示するために web ページを更新するたびに、またはページが[長いポーリング](http://en.wikipedia.org/wiki/Push_technology#Long_polling)を実装して新しいデータを取得すると、SignalR を使用することができます。 サンプルとしては、ダッシュ ボード アプリケーションや監視アプリケーション、コラボレーション アプリケーション (ドキュメントの同時編集など)、ジョブの進行状況の更新プログラム、およびリアルタイム フォームが含まれます。
 
 SignalR はリアルタイム ゲームなど、サーバーから高頻度で更新を必要とするまったく新しいタイプの Web アプリケーションを有効にできます。
 
@@ -53,7 +53,7 @@ SignalR アプリケーションは、組み込みの、サードパーティの
 サードパーティプロバイダーには次のものがあります。
 * [Ncache](https://www.alachisoft.com/ncache/asp-net-core-signalr.html)。
 
-SignalR はオープンソースで、[GitHub](https://github.com/signalr) を通してアクセスできます。
+SignalR はオープンソースであり、 [GitHub](https://github.com/signalr)を介してアクセスできます。
 
 ## <a name="signalr-and-websocket"></a>SignalR と WebSocket
 
@@ -67,29 +67,29 @@ SignalR は、クライアントとサーバー間のリアルタイムの作業
 
 ### <a name="html-5-transports"></a>HTML 5 トランスポート
 
-これらのトランスポートは [HTML 5](http://en.wikipedia.org/wiki/HTML5) のサポートに依存します。 クライアントのブラウザーが HTML 5 標準をサポートしていない場合は、古いトランスポートが使用されます。
+これらのトランスポートは、 [HTML 5](http://en.wikipedia.org/wiki/HTML5)のサポートに依存します。 クライアントのブラウザーが HTML 5 標準をサポートしていない場合は、古いトランスポートが使用されます。
 
 - **Websocket** (サーバーとブラウザーの両方が websocket をサポートできることを示している場合)。 WebSocket は、クライアントとサーバー間の通信における真に永続的な双方向接続を確立するためのトランスポートです。 ただし、WebSocket には細かい要件もあります。WebSocket は Microsoft Internet Explorer、Google Chrome、Mozilla Firefox の最新のバージョンでのみ完全にサポートされ、Opera や Safari などの他のブラウザーでは部分的にしか実装されません。
 - **サーバー送信イベント**。 EventSource とも呼ばれます (ブラウザーがサーバー送信イベントをサポートしている場合は、これは基本的に Internet Explorer を除くすべてのブラウザーです)。
 
 ### <a name="comet-transports"></a>コメットのトランスポート
 
-以下のトランスポートは、ブラウザーまたは他のクライアントが長期保持 HTTP リクエストを管理する [Comet](http://en.wikipedia.org/wiki/Comet_(programming)) Web アプリケーションのモデルに基づいています。これは、クライアントからの特別な要求をすることなくサーバーからクライアントへデータをプッシュすることができます。
+次のトランスポートは、[コメット](http://en.wikipedia.org/wiki/Comet_(programming))web アプリケーションモデルに基づいています。このモデルでは、ブラウザーまたは他のクライアントが長い形式の HTTP 要求を保持しています。これは、サーバーがクライアントにデータをプッシュするために使用できます。
 
-- **Forever Frame** (Internet Explorer の場合のみ): Forever Frame は、サーバー上のエンドポイントへの要求が完了しない非表示の IFrame を作成します。 サーバーは、すぐに実行されるスクリプトを継続的にクライアントに送信し、サーバーからクライアントへの一方向のリアルタイム接続を提供します。 クライアントからサーバーへの接続は、サーバーからクライアントとは異なる接続を使用し、標準の HTTP 要求のように、送信する必要のあるデータがあるたびに新しい接続が作成されます。
-- **Ajax long polling**: Long Polling では永続的な接続は作成されませんが、サーバーが応答を完了するまで開いたままの要求でサーバーをポーリングします。接続が閉じられたら即座に新しい接続が要求されます。 これにより、接続がリセットされるまでの待機時間が発生する可能性があります。
+- **無期限フレーム**(Internet Explorer の場合のみ)。 Forever Frame は、サーバー上のエンドポイントへの要求が完了しない非表示の IFrame を作成します。 サーバーは、すぐに実行されるスクリプトを継続的にクライアントに送信し、サーバーからクライアントへの一方向のリアルタイム接続を提供します。 クライアントからサーバーへの接続は、サーバーからクライアントとは異なる接続を使用し、標準の HTTP 要求のように、送信する必要のあるデータがあるたびに新しい接続が作成されます。
+- **Ajax 長時間ポーリング**。 Long Polling では永続的な接続は作成されませんが、サーバーが応答を完了するまで開いたままの要求でサーバーをポーリングします。接続が閉じられたら即座に新しい接続が要求されます。 これにより、接続がリセットされるまでの待機時間が発生する可能性があります。
 
-どの構成でどのようなトランスポートがサポートされているかについての詳細は、[サポートされているプラットフォーム](supported-platforms.md)を参照してください。
+構成でサポートされているトランスポートの詳細については、「[サポートされ](supported-platforms.md)ているプラットフォーム」を参照してください。
 
 ### <a name="transport-selection-process"></a>トランスポート選択のプロセス
 
 SignalR が使用するトランスポートを決定する手順を以下に示します。
 
 1. ブラウザーが Internet Explorer 8 またはそれ以前の場合は、Long Polling が使用されます。
-2. JSONP が設定されている場合 (つまり、接続が開始されると `jsonp`パラメーターが `true`に設定される)、Long Polling が使用されます。
+2. JSONP が構成されている場合 (つまり、接続が開始されたときに `jsonp` パラメーターが `true` に設定されている場合)、長いポーリングが使用されます。
 3. クロス ドメイン接続が確立されている場合 (つまり、SignalR エンドポイントが、ホスティング ページと同じドメインにない)、次の条件が満たされた場合に WebSocket が使用されます。
 
-   - クライアントが CORS (クロス オリジン リソース共有) をサポートしている。 CORS をサポートしているクライアントの詳細については、[caniuse.com での CORS](http://www.caniuse.com/CORS) を参照してください。
+   - クライアントが CORS (クロス オリジン リソース共有) をサポートしている。 CORS をサポートするクライアントの詳細については、「 [cors at caniuse.com](http://www.caniuse.com/CORS)」を参照してください。
    - クライアントが WebSocket をサポートしている。
    - サーバーが WebSocket をサポートしている。
 
@@ -154,11 +154,11 @@ SignalR API には、クライアントとサーバー間の通信用に、永�
 
 サーバー側コードでは、クライアントでメソッドを呼び出すと、呼び出されるメソッドの名前とパラメーターを含むパケットがアクティブなトランスポート経由で送信されます (オブジェクトがメソッド パラメーターとして送信される場合、JSON を使用してシリアル化されます)。 次にクライアントは、メソッド名をクライアント側のコードで定義されているメソッドと一致させます。 一致するものがある場合は、逆シリアル化されたパラメーターデータを使用してクライアントメソッドが実行されます。
 
-メソッドは、[Fiddler](http://fiddler2.com/) などのツールを使用して監視することができます。 次のイメージは、Fiddler の [ログ] ウィンドウで、SignalR サーバーから Web ブラウザー クライアントに送信されたメソッドの呼び出しを示します。 メソッドの呼び出しは、`MoveShapeHub` というハブから送信され、呼び出されるメソッドは `updateShape`と呼ばれます。
+メソッドの呼び出しは、Fiddler などのツールを使用して監視でき[ます。](http://fiddler2.com/) 次のイメージは、Fiddler の [ログ] ウィンドウで、SignalR サーバーから Web ブラウザー クライアントに送信されたメソッドの呼び出しを示します。 メソッド呼び出しは `MoveShapeHub`と呼ばれるハブから送信され、呼び出されるメソッドは `updateShape`と呼ばれます。
 
 ![SignalR トラフィックを示す Fiddler ログの表示](introduction-to-signalr/_static/image6.png)
 
-この例では、ハブ名は`H`パラメーターで識別されます。メソッド名は、`M`パラメーターで識別され、メソッドに送信されるデータは`A`パラメーターで識別されます。 このメッセージを生成したアプリケーションは、[高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)チュートリアルで作成されます。
+この例では、ハブ名は `H` パラメーターで識別されます。メソッド名は `M` パラメーターで識別され、メソッドに送信されるデータは `A` パラメーターで識別されます。 このメッセージを生成したアプリケーションは、[高頻度のリアルタイム](tutorial-high-frequency-realtime-with-signalr.md)チュートリアルで作成されます。
 
 ### <a name="choosing-a-communication-model"></a>通信モデルの選択
 

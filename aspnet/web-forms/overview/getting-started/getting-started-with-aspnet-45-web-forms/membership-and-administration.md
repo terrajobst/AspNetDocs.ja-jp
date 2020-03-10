@@ -9,11 +9,11 @@ ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
 ms.openlocfilehash: ab00bc90bfc767d06e747be6dfb973245b5aae88
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615470"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78439930"
 ---
 # <a name="membership-and-administration"></a>メンバーシップと管理
 
@@ -29,7 +29,7 @@ ms.locfileid: "74615470"
 
 このチュートリアルでは、Wingtip Toys チュートリアルシリーズで、前述の「PayPal を使用した精算と支払い」というタイトルのチュートリアルを基にしています。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 - コードを使用して、カスタムロールとユーザーをアプリケーションに追加する方法。
 - 管理フォルダーとページへのアクセスを制限する方法。
@@ -61,7 +61,7 @@ ASP.NET Identity を使用すると、カスタムロールを追加し、コー
 5. 次のように、黄色で強調表示されているコードを追加して、 *Global.asax.cs*ファイルを変更します。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
-6. `AddUserAndRole` が赤で下線が引かれていることに注意してください。 AddUserAndRole コードをダブルクリックします。  
+6. `AddUserAndRole` は赤色の下線付きになっています。 AddUserAndRole コードをダブルクリックします。  
    強調表示されたメソッドの先頭にある文字 "A" に下線が引かれます。
 7. 文字 "A" をポイントし、`AddUserAndRole` メソッドのメソッドスタブを生成するための UI をクリックします。 
 
@@ -124,11 +124,11 @@ Wingtip Toys サンプルアプリケーションでは、匿名ユーザーと�
 1. [ *Admin* ] フォルダーを右クリックし、 **[追加]** [ -&gt;**新しい項目**] の順に選択します。  
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. C# Visual web テンプレートの一覧から、中央の一覧から [ <strong>web 構成ファイル</strong>] を選択し、web.config の既定の名前をそのまま<strong>使用し</strong><em>て、[</em><strong>追加</strong>] を選択します。
-3. *Web.config ファイル内*の既存の XML コンテンツを次の内容に置き換えます。  
+3. *Web.config* ファイルの XML の内容を次の内容で置き換えます。  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
 
-*Web.config ファイルを*保存します。 Web.config*ファイルは*、アプリケーションの "canedit" ロールに属しているユーザーのみが、*管理*フォルダーに含まれるページにアクセスできることを指定します。
+*Web.config* ファイルを保存します。 Web.config*ファイルは*、アプリケーションの "canedit" ロールに属しているユーザーのみが、*管理*フォルダーに含まれるページにアクセスできることを指定します。
 
 ### <a name="including-custom-role-navigation"></a>カスタムロールナビゲーションを含む
 
@@ -175,7 +175,7 @@ Wingtip Toys サンプルアプリケーションでは、匿名ユーザーと�
 
 [!code-xml[Main](membership-and-administration/samples/sample10.xml)]
 
-#### <a name="regular-expressions"></a>正規表現
+#### <a name="regular-expressions"></a>[正規表現]
 
 *Adminpage .aspx*ページの製品価格は、 **RegularExpressionValidator**コントロールを使用して検証されます。 このコントロールは、関連付けられている入力コントロール ("AddProductPrice" テキストボックス) の値が正規表現で指定されたパターンと一致するかどうかを検証します。 正規表現は、パターンマッチングの表記で、特定の文字パターンをすばやく検索して一致させることができます。 **RegularExpressionValidator**コントロールには、次に示すように、価格入力の検証に使用される正規表現を含む `ValidationExpression` という名前のプロパティが含まれています。
 
@@ -236,7 +236,7 @@ Wingtip Toys サンプルアプリケーションでは、匿名ユーザーと�
    *Login.aspx*ページが表示されます。
 3. 次のユーザー名とパスワードを使用します。  
    ユーザー名: canEditUser@wingtiptoys.com  
-   パスワード: Pa $ $word 1 
+   Password: Pa$$word1 
 
     ![メンバーシップと管理-[ログイン] ページ](membership-and-administration/_static/image3.png)
 4. ページの下部にある **[ログイン]** ボタンをクリックします。
@@ -263,11 +263,11 @@ Wingtip Toys サンプルアプリケーションでは、匿名ユーザーと�
 13. [ログオフ] を**クリックして**、存在する管理モードにします。   
     上部のナビゲーションウィンドウに **[管理]** メニュー項目が表示されなくなっていることに注意してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、カスタムロールとカスタムロールに属しているユーザー、管理フォルダーとページへの制限付きアクセス、およびカスタムロールに属しているユーザーのナビゲーションを追加しました。 モデルバインドを使用して、 **DropDownList**コントロールにデータを設定しています。 **FileUpload**コントロールと検証コントロールを実装しています。 また、データベースの製品を追加および削除する方法についても説明しました。 次のチュートリアルでは、ASP.NET ルーティングを実装する方法について説明します。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [Web.config-authorization 要素](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
 [ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  

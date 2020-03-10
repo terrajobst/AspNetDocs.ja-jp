@@ -9,11 +9,11 @@ ms.assetid: e5d99c2b-d8ee-413c-80d5-c120cffb0a4c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e0a1f8986047da04db6fde8e54b6fd0ac6ee2603
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599634"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430792"
 ---
 # <a name="triggering-an-animation-in-another-control-c"></a>別のコントロールでアニメーションをトリガーする (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599634"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 通常、アニメーションの起動は、同じコントロールでのユーザー操作によってトリガーされます。 ただし、1つのコントロールと対話し、別のコントロールをアニメーションすることもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 通常、アニメーションの起動は、同じコントロールでのユーザー操作によってトリガーされます。 ただし、1つのコントロールと対話し、別のコントロールをアニメーションすることもできます。
 

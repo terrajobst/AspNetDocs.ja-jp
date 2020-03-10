@@ -9,11 +9,11 @@ ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 37574e4cdc86f518d01d12da58cc2862bc77d463
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74643209"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78423808"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>メンバーシップ ユーザー ストアに対してユーザー資格情報を確認する (VB)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74643209"
 
 ユーザーアカウントの作成と同様に、資格情報はプログラムによって、または宣言によって検証できます。 メンバーシップ API には、ユーザーストアに対してユーザーの資格情報をプログラムによって検証するためのメソッドが含まれています。 と ASP.NET には、ログイン Web コントロールが付属しています。これにより、ユーザー名とパスワードのテキストボックスとログインするボタンを含むユーザーインターフェイスがレンダリングされます。
 
-このチュートリアルでは、プログラムによる方法とログイン制御の両方を使用して、メンバーシップユーザーストアに対してユーザーの資格情報を検証する方法について説明します。 また、ログインコントロールの外観と動作をカスタマイズする方法についても説明します。 では、始めましょう。
+このチュートリアルでは、プログラムによる方法とログイン制御の両方を使用して、メンバーシップユーザーストアに対してユーザーの資格情報を検証する方法について説明します。 また、ログインコントロールの外観と動作をカスタマイズする方法についても説明します。 作業開始
 
 ## <a name="step-1-validating-credentials-against-the-membership-user-store"></a>手順 1: メンバーシップユーザーストアに対して資格情報を検証する
 
@@ -51,7 +51,7 @@ ms.locfileid: "74643209"
 
 このコードは非常に単純です。 まず、`Membership.ValidateUser` メソッドを呼び出して、指定されたユーザー名とパスワードを渡します。 このメソッドが True を返す場合、ユーザーは `FormsAuthentication` クラスの RedirectFromLoginPage メソッドを使用してサイトにサインインします。 ( <a id="Tutorial02"> </a> [ *「フォーム認証の概要*](../introduction/an-overview-of-forms-authentication-vb.md)」チュートリアルで説明したように、`FormsAuthentication.RedirectFromLoginPage` はフォーム認証チケットを作成し、ユーザーを適切なページにリダイレクトします)。ただし、資格情報が無効な場合は、ユーザー名またはパスワードが間違っていることを知らせる `InvalidCredentialsMessage` ラベルが表示されます。
 
-必要な作業は以上です。
+これですべて完了です。
 
 ログインページが想定どおりに動作することをテストするには、前のチュートリアルで作成したユーザーアカウントのいずれかでログインを試みます。 または、まだアカウントを作成していない場合は、[`~/Membership/CreatingUserAccounts.aspx`] ページからアカウントを作成します。
 
@@ -230,7 +230,7 @@ ms.locfileid: "74643209"
 
 ## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>手順 4: ログインコントロールの無効な資格情報メッセージを改善する
 
-ユーザーが無効な資格情報でログオンしようとすると、ログインの試行が失敗したことを示すメッセージが表示されます。 特に、コントロールには[`FailureText` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx)によって指定されたメッセージが表示されます。このプロパティには、ログイン試行の既定値が正しくありませんでした。 やり直してください。
+ユーザーが無効な資格情報でログオンしようとすると、ログインの試行が失敗したことを示すメッセージが表示されます。 特に、コントロールには[`FailureText` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx)によって指定されたメッセージが表示されます。このプロパティには、ログイン試行の既定値が正しくありませんでした。 再試行してください。
 
 ユーザーの資格情報が無効になる理由は数多くあります。
 
@@ -255,7 +255,7 @@ ms.locfileid: "74643209"
 
 **図 11**: Tito は無効なログイン試行回数が多すぎて、ロックアウトされています ([クリックすると、フルサイズの画像が表示](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルの前に、ログインページでは、指定された資格情報を、ハードコーディングされたユーザー名とパスワードの組み合わせに対して検証しました。 このチュートリアルでは、メンバーシップフレームワークに対して資格情報を検証するためにページを更新しました。 手順 1. では、`Membership.ValidateUser` メソッドをプログラムで使用する方法を説明しました。 手順2では、手動で作成したユーザーインターフェイスとコードをログインコントロールに置き換えました。
 
@@ -265,7 +265,7 @@ Login コントロールは、標準のログインユーザーインターフ�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -275,7 +275,7 @@ Login コントロールは、標準のログインユーザーインターフ�
 - [ログイン制御の技術ドキュメント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
 - [ログインコントロールの使用](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

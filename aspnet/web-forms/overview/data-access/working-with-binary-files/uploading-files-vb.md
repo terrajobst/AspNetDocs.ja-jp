@@ -9,11 +9,11 @@ ms.assetid: f7c00fbd-652c-433d-8ed3-0e5168a4d4df
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 6e0d57ef2f1e8132f19777a7d14e94611c68adcd
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615281"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78441496"
 ---
 # <a name="uploading-files-vb"></a>ファイルのアップロード (VB)
 
@@ -229,13 +229,13 @@ FileUpload コントロールは、大きなファイルのアップロードに
 
 アプリケーションで大きなファイルを処理する必要がある場合は、問題を慎重に調査し、特定のニーズに適したソリューションを見つける必要があります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 バイナリデータをキャプチャする必要があるアプリケーションを構築すると、さまざまな課題が生じます。 このチュートリアルでは、最初の2つについて説明します。バイナリデータを格納する場所を決定し、ユーザーが web ページを使用してバイナリコンテンツをアップロードできるようにします。 次の3つのチュートリアルでは、アップロードされたデータをデータベース内のレコードに関連付ける方法と、バイナリデータをテキストデータフィールドと共に表示する方法について説明します。
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -244,7 +244,7 @@ FileUpload コントロールは、大きなファイルのアップロードに
 - [ASP.NET 2.0 FileUpload サーバーコントロール](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [ファイルのアップロードのダークサイド](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

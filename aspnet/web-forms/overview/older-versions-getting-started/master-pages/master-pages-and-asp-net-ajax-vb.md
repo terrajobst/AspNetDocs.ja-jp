@@ -9,11 +9,11 @@ ms.assetid: 0ee9318c-29bb-4d58-b1dc-94e575b8ae10
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 7be4ff422b91321ff83ed1f1c731c9a0bfe768f1
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637835"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78421816"
 ---
 # <a name="master-pages-and-aspnet-ajax-vb"></a>マスター ページと ASP.NET AJAX (VB)
 
@@ -129,7 +129,7 @@ ASP.NET AJAX フレームワークには、指定された時間にポストバ�
 
 [!code-vb[Main](master-pages-and-asp-net-ajax-vb/samples/sample6.vb)]
 
-必要な作業は以上です。 ブラウザーを使用してページを再度参照してください。 最初に、ランダムな製品情報が表示されます。 我慢強くを見ると、15秒後に、新しい製品に関する情報が既存の表示を魔法のように置き換えられることがわかります。
+これですべて完了です。 ブラウザーを使用してページを再度参照してください。 最初に、ランダムな製品情報が表示されます。 我慢強くを見ると、15秒後に、新しい製品に関する情報が既存の表示を魔法のように置き換えられることがわかります。
 
 ここで何が起こっているかをよりよく確認するために、表示が最後に更新された時刻を表示するラベルコントロールを UpdatePanel に追加してみましょう。 UpdatePanel 内にラベル Web コントロールを追加し、その `ID` を `LastUpdateTime`に設定して、`Text` プロパティをクリアします。 次に、UpdatePanel の `Load` イベントのイベントハンドラーを作成し、ラベルに現在の時刻を表示します。 (UpdatePanel の `Load` イベントは、ページの完全ポストバックまたは部分ポストバックごとに発生します)。
 
@@ -204,7 +204,7 @@ ScriptManager に関連するカスタマイズをページごとに追加する
 
 **図 12**: [再開] ボタンをクリックしてタイマーを再起動する ([クリックすると、フルサイズの画像が表示](master-pages-and-asp-net-ajax-vb/_static/image36.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Ajax 対応の web アプリケーションを ASP.NET AJAX フレームワークを使用してビルドする場合、すべての AJAX 対応 web ページに ScriptManager コントロールが含まれている必要があります。 このプロセスを容易にするために、scriptmanager を各コンテンツページに追加することを忘れずに、ScriptManager をマスターページに追加することができます。 手順 1. では、ScriptManager をマスターページに追加する方法について説明しましたが、手順 2. では、コンテンツページへの AJAX 機能の実装について見てきました。
 
@@ -212,7 +212,7 @@ Ajax 対応の web アプリケーションを ASP.NET AJAX フレームワー�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -223,7 +223,7 @@ Ajax 対応の web アプリケーションを ASP.NET AJAX フレームワー�
 - [NEWID を使用してレコードをランダムに並べ替える](http://www.sqlteam.com/article/using-newid-to-randomly-sort-records)
 - [Timer コントロールの使用](http://aspnet.4guysfromrolla.com/articles/061808-1.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

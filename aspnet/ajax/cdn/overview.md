@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 228194a7b35e116cabae6d819e7a3a8060a3ef6a
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 92fa428608d4ac2bf56d3c6dc9c50f1449295869
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074918"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438022"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -22,7 +22,7 @@ ms.locfileid: "77074918"
 >
 > Microsoft Ajax CDN には、Azure CDN を超える SLA はありません。
 >
-> Microsoft Ajax CDN に関する問題を報告するには、[この GitHub の問題](https://github.com/aspnet/AspNetDocs/issues/116)を使用します。
+> Microsoft Ajax CDN に関する問題を報告するには、[この GitHub の問題](https://github.com/dotnet/AspNetDocs/issues/116)を使用します。
 
 ## <a name="table-of-contents"></a>目次
 
@@ -777,7 +777,7 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 
 ### <a name="respond-releases-on-the-cdn"></a>CDN でのリリースの応答
 
-[応答](https://github.com/scottjehl/Respond "応答")の次のリリースは CDN でホストされます。
+[応答](https://github.com/scottjehl/Respond "対応")の次のリリースは CDN でホストされます。
 
 #### <a name="respond-version-142"></a>バージョン1.4.2 に応答する
 
@@ -1180,7 +1180,7 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 ASP.NET Ajax ライブラリの次のリリースは、CDN でホストされています。 各リンクをクリックすると、ファイルの実際の一覧が表示されます。
 
 - [ASP.NET Web フォームと Ajax バージョン4.5.2](cdnajax452.md "ASP.NET Web フォームと Ajax 4.5.2")
-- [ASP.NET Web Forms および Ajax version 4](cdnajax4.md "ASP.NET Web フォームと Ajax 4")
+- [ASP.NET Web Forms および Ajax version 4](cdnajax4.md "ASP.NET Web Forms および Ajax 4")
 - [ASP.NET Ajax バージョン3.5](cdnajax35.md "ASP.NET Ajax 3.5")
 
 <a id="ASPNET_MVC_Releases_on_the_CDN_16"></a>

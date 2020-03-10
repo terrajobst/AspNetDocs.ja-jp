@@ -9,11 +9,11 @@ ms.assetid: a86c0276-6481-46ee-8b4f-8c2009399ee9
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 4924d4f70099255b930d53f6a72e810be7a47485
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606837"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78430930"
 ---
 # <a name="disabling-actions-during-animation-vb"></a>アニメーション中のアクションを無効にする (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606837"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、マウスクリックなどの操作もサポートしています。 ただし、マウスクリックでアニメーションを開始する場合は、アニメーション中にマウスのクリックを無効にすることをお勧めします。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 また、マウスクリックなどの操作もサポートしています。 ただし、マウスクリックでアニメーションを開始する場合は、アニメーション中にマウスのクリックを無効にすることをお勧めします。
 

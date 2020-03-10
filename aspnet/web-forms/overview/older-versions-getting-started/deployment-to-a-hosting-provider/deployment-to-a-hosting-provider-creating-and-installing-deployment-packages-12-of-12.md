@@ -9,11 +9,11 @@ ms.assetid: 3fc23eed-921d-4d46-a610-a2d156e4bd03
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: db8f58e3679e6dea865dadb6f64916032dd9f38c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74639874"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78424036"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: トラブルシューティング (12 インチ)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74639874"
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>'/' アプリケーションのサーバーエラー-現在のカスタムエラー設定により、エラーの詳細をリモートで表示できません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 リモートホストにサイトを展開した後、web.config ファイルの customErrors 設定を示すエラーメッセージが表示されますが、エラーの実際の原因は示されていません。
 
@@ -44,13 +44,13 @@ ms.locfileid: "74639874"
 1. アプリケーションの Web.config ファイルの `system.web` 要素に `customErrors` 要素がある場合は、`mode` 属性を "off" に変更します。 それ以外の場合は、次の例に示すように、`mode` 属性を "off" に設定して、`system.web` 要素に `customErrors` 要素を追加します。
 
     [!code-xml[Main](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12/samples/sample2.xml?highlight=3)]
-2. アプリケーションを展開します。
+2. アプリケーションをデプロイします。
 3. アプリケーションを実行し、エラーが発生する原因となったものをすべて繰り返します。 これで、実際のエラーメッセージを確認できます。
 4. エラーを解決したら、元の `customErrors` 設定を復元し、アプリケーションを再展開します。
 
 ## <a name="access-is-denied-in-a-web-page-that-uses-sql-server-compact"></a>を使用する Web ページでアクセスが拒否される SQL Server Compact
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 SQL Server Compact を使用するサイトを展開し、データベースにアクセスする配置済みサイトでページを実行すると、次のエラーメッセージが表示されます。
 
@@ -62,7 +62,7 @@ SQL Server Compact を使用するサイトを展開し、データベースに�
 
 ## <a name="cannot-read-configuration-file-due-to-insufficient-permissions"></a>アクセス許可が不足しているため、構成ファイルを読み取れません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 Visual Studio の [発行] ボタンをクリックしてローカルコンピューター上の IIS にアプリケーションを配置すると、発行が失敗し、次のようなエラーメッセージが**出力**ウィンドウに表示されます。
 
@@ -74,7 +74,7 @@ Visual Studio の [発行] ボタンをクリックしてローカルコンピ�
 
 ## <a name="could-not-connect-to-the-destination-computer--using-the-specified-process"></a>対象のコンピューターに接続できませんでした...指定されたプロセスの使用
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 Visual Studio の [発行] ボタンをクリックしてアプリケーションを配置すると、発行が失敗し、**出力**ウィンドウに次のようなエラーメッセージが表示されます。
 
@@ -88,7 +88,7 @@ Visual Studio の [発行] ボタンをクリックしてアプリケーショ�
 
 ## <a name="default-net-40-application-pool-does-not-exist"></a>既定の .NET 4.0 アプリケーションプールが存在しません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 .NET Framework 4 を必要とするアプリケーションを展開すると、次のエラーメッセージが表示されます。
 
@@ -104,7 +104,7 @@ ASP.NET 4 は IIS にインストールされていません。 配置先のサ�
 
 ## <a name="format-of-the-initialization-string-does-not-conform-to-specification-starting-at-index-0"></a>初期化文字列の形式は、インデックス0から始まる仕様に準拠していません。
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 ワンクリック発行を使用してアプリケーションを配置した後、データベースにアクセスするページを実行すると、次のエラーメッセージが表示されます。
 
@@ -124,7 +124,7 @@ ASP.NET 4 は IIS にインストールされていません。 配置先のサ�
 
 ## <a name="http-500-internal-server-error"></a>HTTP 500 内部サーバーエラー
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 展開されたサイトを実行すると、次のエラーメッセージが表示され、エラーの原因を示す特定の情報が表示されません。
 
@@ -136,7 +136,7 @@ ASP.NET 4 は IIS にインストールされていません。 配置先のサ�
 
 ## <a name="http-50021-internal-server-error"></a>HTTP 500.21 内部サーバーエラー
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 展開されたサイトを実行すると、次のエラーメッセージが表示されます。
 
@@ -152,7 +152,7 @@ ASP.NET 4 は IIS にインストールされていません。 配置先のサ�
 
 ## <a name="login-failed-opening-sql-server-express-database-in-app_data"></a>アプリ\_データ内の SQL Server Express データベースを開くことができませんでした
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 *Web.config ファイルの*接続文字列を更新して、 *App\_Data*フォルダー内の *.mdf*ファイルとして SQL Server Express データベースを指すようにしました。アプリケーションを初めて実行すると、次のエラーメッセージが表示されます。
 
@@ -164,7 +164,7 @@ ASP.NET 4 は IIS にインストールされていません。 配置先のサ�
 
 ## <a name="model-compatibility-cannot-be-checked"></a>モデルの互換性を確認できません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 新しい SQL Server Express データベースを指すように*web.config ファイルの接続文字列を更新*し、アプリケーションを初めて実行したときに、次のエラーメッセージが表示されます。
 
@@ -176,7 +176,7 @@ Web.config ファイルに指定したデータベース名が、コンピュー
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>スクリプトがユーザーまたはロールを作成しようとしたときの SQL エラー
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 **[Sql のパッケージ化/発行]** タブで構成されたデータベース配置を使用している場合、配置中に実行される SQL スクリプトには create User または create Role コマンドがあり、これらのコマンドが実行されるとスクリプトの実行が失敗します。 次のような詳細なメッセージが表示される場合があります。
 
@@ -194,7 +194,7 @@ Web.config ファイルに指定したデータベース名が、コンピュー
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>配置時にカスタムスクリプトを実行すると SQL Server タイムアウトエラーが発生する
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 配置時に実行するカスタム SQL スクリプトを指定し、Web 配置実行するとタイムアウトになります。
 
@@ -206,7 +206,7 @@ Web.config ファイルに指定したデータベース名が、コンピュー
 
 ## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>サイトマニフェストのストリームデータはまだ使用できません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 `t` (テスト) オプションを指定して *.deploy*ファイルを使用してパッケージをインストールすると、次のエラーメッセージが表示されます。
 
@@ -218,7 +218,7 @@ Web.config ファイルに指定したデータベース名が、コンピュー
 
 ## <a name="this-application-requires-managedruntimeversion-v40"></a>このアプリケーションには ManagedRuntimeVersion v4.0 が必要です
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 を展開しようとすると、次のエラーメッセージが表示されます。
 
@@ -232,7 +232,7 @@ ASP.NET 4 は IIS にインストールされていません。 配置先のサ�
 
 ## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Microsoft. Deployment. DeploymentProviderOptions をキャストできません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 パッケージを展開すると、次のエラーメッセージが表示されます。
 
@@ -244,7 +244,7 @@ Web 配置 1.1 UI を使用して、Web 配置2.0 がインストールされて
 
 ## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>SQL Server Compact のネイティブコンポーネントを読み込むことができません
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 展開されたサイトを実行すると、次のエラーメッセージが表示されます。
 
@@ -256,7 +256,7 @@ Web 配置 1.1 UI を使用して、Web 配置2.0 がインストールされて
 
 ## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>Entity Framework Code First アプリケーションを展開した後の "パスが有効ではありません" エラーが発生する
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 Entity Framework Code First Migrations を使用するアプリケーションと DBMS (SQL Server Compact など) をデプロイして、そのデータベースをアプリの\_データフォルダー内のファイルに格納します。 最初の配置後にデータベースを作成するように構成された Code First Migrations。 アプリケーションを実行すると、次の例のようなエラーメッセージが表示されます。
 
@@ -268,7 +268,7 @@ Entity Framework Code First Migrations を使用するアプリケーション�
 
 ## <a name="com-object-that-has-been-separated-from-its-underlying-rcw-cannot-be-used"></a>"基になる RCW から分離された COM オブジェクトは使用できません。"
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 これで、ワンクリック発行を使用してアプリケーションをデプロイした後、次のエラーが表示されるようになりました。
 
@@ -280,27 +280,27 @@ Entity Framework Code First Migrations を使用するアプリケーション�
 
 ## <a name="deployment-fails-because-user-credentials-used-for-publishing-dont-have-setacl-authority"></a>発行に使用されるユーザーの資格情報に setACL 機関がないため、展開が失敗する
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 フォルダーのアクセス許可を設定する権限がないことを示すエラーが表示され、発行が失敗します (使用しているユーザーアカウントには setACL 機関がありません)。
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio はサイトのルートフォルダーに対する読み取りアクセス許可を設定し、App\_Data フォルダーに対する書き込みアクセス許可を設定します。 サイトフォルダーの既定のアクセス許可が正しいことがわかっていて、設定する必要がない場合は、この動作を無効にします。そのためには、発行プロファイルファイル (単一のプロファイルに影響を与える場合) または (すべてのプロファイルに影響を与える場合は) .targets ファイルに **&lt;includesetaclprovideron ondestination&lt;&gt;** を追加します。 これらのファイルを編集する方法の詳細については、「[方法: プロファイル (pubxml) ファイルの配置設定を編集](https://msdn.microsoft.com/library/ff398069.aspx)する」を参照してください。 
+既定では、Visual Studio はサイトのルートフォルダーに対する読み取りアクセス許可を設定し、App\_Data フォルダーに対する書き込みアクセス許可を設定します。 サイトフォルダーの既定のアクセス許可が正しいことがわかっていて、設定する必要がない場合は、この動作を無効にします。そのためには、発行プロファイルファイル (単一のプロファイルに影響を与える場合) または (すべてのプロファイルに影響を与える場合は) .targets ファイルに **&lt;includesetaclprovideron ondestination&lt;&gt;** を追加します。&gt; これらのファイルを編集する方法の詳細については、「[方法: プロファイル (pubxml) ファイルの配置設定を編集](https://msdn.microsoft.com/library/ff398069.aspx)する」を参照してください。 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>アプリケーションがアプリケーションフォルダーに書き込もうとしたときにアクセス拒否エラーが発生する
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 アプリケーションフォルダーのいずれかでファイルを作成または編集しようとすると、アプリケーションエラーが発生します。これは、そのフォルダーに対する書き込み権限がないためです。
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio はサイトのルートフォルダーに対する読み取りアクセス許可を設定し、App\_Data フォルダーに対する書き込みアクセス許可を設定します。 アプリケーションにサブフォルダーへの書き込みアクセス権が必要な場合は、[フォルダーのアクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)と[運用環境への配置に](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)関するチュートリアルに従って、そのフォルダーのアクセス許可を設定できます。 アプリケーションにサイトのルートフォルダーへの書き込みアクセス権が必要な場合は、ルートフォルダーに対する読み取り専用アクセスを設定できないようにする必要があります。これを行うには、発行プロファイルファイル (単一のプロファイルに影響を与える場合) または (すべてのプロファイルに影響を与える場合) .targets ファイルに **&lt;includesetaclprovideron&lt;&gt;on**を追加します これらのファイルを編集する方法の詳細については、「[方法: プロファイル (pubxml) ファイルの配置設定を編集](https://msdn.microsoft.com/library/ff398069.aspx)する」を参照してください。 <a id="aspnet45error"></a>
+既定では、Visual Studio はサイトのルートフォルダーに対する読み取りアクセス許可を設定し、App\_Data フォルダーに対する書き込みアクセス許可を設定します。 アプリケーションにサブフォルダーへの書き込みアクセス権が必要な場合は、[フォルダーのアクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)と[運用環境への配置に](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)関するチュートリアルに従って、そのフォルダーのアクセス許可を設定できます。 アプリケーションにサイトのルートフォルダーへの書き込みアクセス権が必要な場合は、ルートフォルダーに対する読み取り専用アクセスを設定できないようにする必要があります。これを行うには、発行プロファイルファイル (単一のプロファイルに影響を与える場合) または (すべてのプロファイルに影響を与える場合) .targets ファイルに **&lt;includesetaclprovideron&lt;&gt;on**を追加します&gt; これらのファイルを編集する方法の詳細については、「[方法: プロファイル (pubxml) ファイルの配置設定を編集](https://msdn.microsoft.com/library/ff398069.aspx)する」を参照してください。 <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>構成エラー-targetFramework 属性が、インストールされているバージョンより後のバージョンを参照してい .NET Framework
 
-### <a name="scenario"></a>通信の種類
+### <a name="scenario"></a>シナリオ
 
 ASP.NET 4.5 を対象とする web プロジェクトが正常に発行されましたが、アプリケーションを実行すると (web.config ファイルで `customErrors` モードが "off" に設定されている場合)、次のエラーが表示されます。
 
@@ -317,4 +317,4 @@ ASP.NET 4.5 を対象とする web プロジェクトが正常に発行されま
 [プロジェクトの**プロパティ**] ウィンドウには [ターゲットフレームワーク] ドロップダウンリストが含まれていますが、 **.NET Framework 4.5**から **.NET Framework 4**に変更するだけでこの問題を解決することはできません。 ターゲットフレームワークを以前のバージョンの framework に変更すると、プロジェクトはその後のフレームワークバージョンのアセンブリへの参照を保持し、実行されなくなります。 これらの参照を手動で変更するか、.NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、「 [Web サイトのターゲット設定 .NET Framework](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx)」を参照してください。
 
 > [!div class="step-by-step"]
-> [前へ](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [[戻る]](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

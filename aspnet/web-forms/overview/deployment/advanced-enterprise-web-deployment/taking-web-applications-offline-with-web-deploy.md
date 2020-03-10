@@ -9,17 +9,17 @@ ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
 ms.openlocfilehash: ba60664a0c3daa0650cd7e7cfc4ab9da08df3440
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075139"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78422212"
 ---
 # <a name="taking-web-applications-offline-with-web-deploy"></a>Web 配置の際、Web アプリをオフラインにする
 
 [Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、インターネットインフォメーションサービス (IIS) Web 配置ツール (Web 配置) を使用して、自動展開の間に web アプリケーションをオフラインにする方法について説明します。 Web アプリケーションを参照するユーザーは、デプロイが完了するまで、*オフライン .htm ファイル\_アプリ*にリダイレクトされます。
 
@@ -157,7 +157,7 @@ Web 発行パイプライン (WPP) は、 **Filesforの Ingfromproject**とい�
 
 このトピックでは、デプロイ中に web アプリケーションをオフラインにする方法について説明します。そのためには、展開プロセスの開始時に移行先サーバーに*アプリ\_オフライン .htm*ファイルを発行し、最後にそのサーバーを削除します。 また、web 配置パッケージに*アプリ\_offline .htm*ファイルを組み込む方法についても説明します。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 パッケージ化と配置のプロセスの詳細については、「 [Web アプリケーションプロジェクトのビルドとパッケージ化](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)」、「Web[パッケージ配置のパラメーターの構成](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md)」、および「 [web パッケージの配置](../web-deployment-in-the-enterprise/deploying-web-packages.md)」を参照してください。
 

@@ -9,11 +9,11 @@ ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
 ms.openlocfilehash: 6169c972ad0f4ee2079d3638c54a5accc4b8b3de
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519350"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78432736"
 ---
 # <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>ログイン、電子メール確認、パスワード リセットを使用して安全な ASP.NET MVC 5 Web アプリを作成する (C#)
 
@@ -184,7 +184,7 @@ ms.locfileid: "76519350"
 電子メールを使用せずに検証リンクをテストするには、[完成したサンプル](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)をダウンロードします。 ページに確認のリンクと確認コードが表示されます。
 
 <a id="addRes"></a>
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 - [推奨されるリソースへのリンク ASP.NET Identity](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [ASP.NET Identity を使用したアカウントの確認とパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)パスワードの回復とアカウントの確認についてさらに詳しく説明します。

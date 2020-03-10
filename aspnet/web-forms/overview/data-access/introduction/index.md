@@ -2,22 +2,22 @@
 uid: web-forms/overview/data-access/introduction/index
 title: 概要 |Microsoft Docs
 author: rick-anderson
-description: この入門チュートリアルのセットでは、サイト全体のデータ アクセス層 (DAL)、ビジネス ロジック層 (BLL)、および一貫性のある外観を作成する方法について説明します。
+description: この入門編のチュートリアルでは、データアクセス層 (DAL)、ビジネスロジック層 (BLL)、およびサイト全体で一貫性のある外観を作成する方法について説明します。
 ms.author: riande
 ms.date: 11/11/2011
 ms.assetid: 74f3a86b-81fa-4d64-820a-304613f72caa
 msc.legacyurl: /web-forms/overview/data-access/introduction
 msc.type: chapter
 ms.openlocfilehash: a62b473993804312021725642a102c1eeff20f74
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132195"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78426364"
 ---
 # <a name="introduction"></a>はじめに
 
-> この入門チュートリアルのセットでは、サイト全体のデータ アクセス層 (DAL)、ビジネス ロジック層 (BLL)、および一貫性のある外観を作成する方法について説明します。
+> この入門編のチュートリアルでは、データアクセス層 (DAL)、ビジネスロジック層 (BLL)、およびサイト全体で一貫性のある外観を作成する方法について説明します。
 
 - [データ アクセス層を作成する (C#)](creating-a-data-access-layer-cs.md)
 - [ビジネス ロジック層を作成する (C#)](creating-a-business-logic-layer-cs.md)
