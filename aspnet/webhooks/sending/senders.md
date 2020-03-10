@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 33001ae2-8e1b-4807-8b02-16c7fd8ad38d
 ms.openlocfilehash: 6cf1a3c706dbdb97ae62fa7c21bc473a2c9ae96c
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309224"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78513928"
 ---
-# <a name="aspnet-webhook-senders"></a><span data-ttu-id="c8b3a-103">ASP.NET WebHook 送信者</span><span class="sxs-lookup"><span data-stu-id="c8b3a-103">ASP.NET WebHook senders</span></span>
+# <a name="aspnet-webhook-senders"></a><span data-ttu-id="2a9a9-103">ASP.NET WebHook 送信者</span><span class="sxs-lookup"><span data-stu-id="2a9a9-103">ASP.NET WebHook senders</span></span>
 
-<span data-ttu-id="c8b3a-104">詳細については、 [ASP.NET webhook を使用した webhook の送信](https://devblogs.microsoft.com/aspnet/sending-webhooks-with-asp-net-webhooks-preview/)に関するブログを参照してください。</span><span class="sxs-lookup"><span data-stu-id="c8b3a-104">See the blog [Sending WebHooks with ASP.NET WebHooks Preview](https://devblogs.microsoft.com/aspnet/sending-webhooks-with-asp-net-webhooks-preview/) for more details.</span></span>
+<span data-ttu-id="2a9a9-104">詳細については、 [ASP.NET webhook を使用した webhook の送信](https://devblogs.microsoft.com/aspnet/sending-webhooks-with-asp-net-webhooks-preview/)に関するブログを参照してください。</span><span class="sxs-lookup"><span data-stu-id="2a9a9-104">See the blog [Sending WebHooks with ASP.NET WebHooks Preview](https://devblogs.microsoft.com/aspnet/sending-webhooks-with-asp-net-webhooks-preview/) for more details.</span></span>

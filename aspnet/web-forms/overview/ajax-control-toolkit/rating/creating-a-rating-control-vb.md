@@ -9,64 +9,64 @@ ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 08e245edfe73db4e3896db51151e5d7a0fa9697c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78496036"
 ---
-# <a name="creating-a-rating-control-vb"></a><span data-ttu-id="69c3b-104">評価コントロールを作成する (VB)</span><span class="sxs-lookup"><span data-stu-id="69c3b-104">Creating a Rating Control (VB)</span></span>
+# <a name="creating-a-rating-control-vb"></a><span data-ttu-id="ee8a8-104">評価コントロールを作成する (VB)</span><span class="sxs-lookup"><span data-stu-id="ee8a8-104">Creating a Rating Control (VB)</span></span>
 
-<span data-ttu-id="69c3b-105">[Christian Wenz](https://github.com/wenz)別</span><span class="sxs-lookup"><span data-stu-id="69c3b-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="ee8a8-105">[Christian Wenz](https://github.com/wenz)別</span><span class="sxs-lookup"><span data-stu-id="ee8a8-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="69c3b-106">[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="69c3b-106">[Download Code](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip) or [Download PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)</span></span>
+<span data-ttu-id="ee8a8-106">[コードのダウンロード](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip)または[PDF のダウンロード](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="ee8a8-106">[Download Code](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip) or [Download PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)</span></span>
 
-> <span data-ttu-id="69c3b-107">E コマースからコミュニティサイトまで、多くの web サイトでは、記事や項目を評価することができます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-107">Many websites, from e-commerce to community sites, offer their users to rate articles or items.</span></span> <span data-ttu-id="69c3b-108">これには通常、何らかのコーディング作業が必要ですが、制御ツールキットが用意されています。</span><span class="sxs-lookup"><span data-stu-id="69c3b-108">This usually requires some coding effort, but we do have the Control Toolkit to our disposal.</span></span>
+> <span data-ttu-id="ee8a8-107">E コマースからコミュニティサイトまで、多くの web サイトでは、記事や項目を評価することができます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-107">Many websites, from e-commerce to community sites, offer their users to rate articles or items.</span></span> <span data-ttu-id="ee8a8-108">これには通常、何らかのコーディング作業が必要ですが、制御ツールキットが用意されています。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-108">This usually requires some coding effort, but we do have the Control Toolkit to our disposal.</span></span>
 
-## <a name="overview"></a><span data-ttu-id="69c3b-109">の概要</span><span class="sxs-lookup"><span data-stu-id="69c3b-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="ee8a8-109">概要</span><span class="sxs-lookup"><span data-stu-id="ee8a8-109">Overview</span></span>
 
-<span data-ttu-id="69c3b-110">E コマースからコミュニティサイトまで、多くの web サイトでは、記事や項目を評価することができます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-110">Many websites, from e-commerce to community sites, offer their users to rate articles or items.</span></span> <span data-ttu-id="69c3b-111">これには通常、何らかのコーディング作業が必要ですが、制御ツールキットが用意されています。</span><span class="sxs-lookup"><span data-stu-id="69c3b-111">This usually requires some coding effort, but we do have the Control Toolkit to our disposal.</span></span>
+<span data-ttu-id="ee8a8-110">E コマースからコミュニティサイトまで、多くの web サイトでは、記事や項目を評価することができます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-110">Many websites, from e-commerce to community sites, offer their users to rate articles or items.</span></span> <span data-ttu-id="ee8a8-111">これには通常、何らかのコーディング作業が必要ですが、制御ツールキットが用意されています。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-111">This usually requires some coding effort, but we do have the Control Toolkit to our disposal.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="69c3b-112">手順</span><span class="sxs-lookup"><span data-stu-id="69c3b-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="ee8a8-112">手順</span><span class="sxs-lookup"><span data-stu-id="ee8a8-112">Steps</span></span>
 
-<span data-ttu-id="69c3b-113">まず、2種類のイメージ (少なくとも) が必要です。1つは、入力された評価項目用で、もう1つは空の評価項目用です。</span><span class="sxs-lookup"><span data-stu-id="69c3b-113">First of all, you need (at least) two kinds of images: one for a filled out rating item, and one for an empty rating item.</span></span> <span data-ttu-id="69c3b-114">通常、評価項目は星またはスマイルです。</span><span class="sxs-lookup"><span data-stu-id="69c3b-114">A rating item is usually a star or a smiley.</span></span> <span data-ttu-id="69c3b-115">このシナリオでは、このチュートリアルのソースコードのダウンロードの一部として、3つのファイル、smiley-done、および空の .png とを見つけます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-115">For this scenario, you find three files, smiley.png and empty.png and smiley-done.png as part of the source code downloads for this tutorial.</span></span>
+<span data-ttu-id="ee8a8-113">まず、2種類のイメージ (少なくとも) が必要です。1つは、入力された評価項目用で、もう1つは空の評価項目用です。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-113">First of all, you need (at least) two kinds of images: one for a filled out rating item, and one for an empty rating item.</span></span> <span data-ttu-id="ee8a8-114">通常、評価項目は星またはスマイルです。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-114">A rating item is usually a star or a smiley.</span></span> <span data-ttu-id="ee8a8-115">このシナリオでは、このチュートリアルのソースコードのダウンロードの一部として、3つのファイル、smiley-done、および空の .png とを見つけます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-115">For this scenario, you find three files, smiley.png and empty.png and smiley-done.png as part of the source code downloads for this tutorial.</span></span>
 
-<span data-ttu-id="69c3b-116">次に、新しい ASP.NET ファイルを作成し、`ScriptManager` コントロールの追加を開始します。</span><span class="sxs-lookup"><span data-stu-id="69c3b-116">Then, create a new ASP.NET file and start with adding a `ScriptManager` control to it:</span></span>
+<span data-ttu-id="ee8a8-116">次に、新しい ASP.NET ファイルを作成し、`ScriptManager` コントロールの追加を開始します。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-116">Then, create a new ASP.NET file and start with adding a `ScriptManager` control to it:</span></span>
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample1.aspx)]
 
-<span data-ttu-id="69c3b-117">次に、ASP.NET AJAX Control Toolkit から `Rating` コントロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="69c3b-117">Then, add the `Rating` control from the ASP.NET AJAX Control Toolkit.</span></span> <span data-ttu-id="69c3b-118">この例では、次の属性を設定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="69c3b-118">The following attributes need to be set for this example:</span></span>
+<span data-ttu-id="ee8a8-117">次に、ASP.NET AJAX Control Toolkit から `Rating` コントロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-117">Then, add the `Rating` control from the ASP.NET AJAX Control Toolkit.</span></span> <span data-ttu-id="ee8a8-118">この例では、次の属性を設定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-118">The following attributes need to be set for this example:</span></span>
 
-- <span data-ttu-id="69c3b-119">使用する初期評価を `CurrentRating` します</span><span class="sxs-lookup"><span data-stu-id="69c3b-119">`CurrentRating` the initial rating to be used</span></span>
-- <span data-ttu-id="69c3b-120">最大評価の `MaxRating`</span><span class="sxs-lookup"><span data-stu-id="69c3b-120">`MaxRating` the maximum rating</span></span>
-- <span data-ttu-id="69c3b-121">評価項目 (星) が空のときに使用する CSS クラスを `EmptyStarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="69c3b-121">`EmptyStarCssClass` the CSS class to use when a rating item ( star ) is empty</span></span>
-- <span data-ttu-id="69c3b-122">評価項目 (星) が入力されたときに使用する CSS クラスを `FilledStarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="69c3b-122">`FilledStarCssClass` the CSS class to use when a rating item ( star ) is filled out</span></span>
-- <span data-ttu-id="69c3b-123">表示される stat に使用する CSS クラスを `StarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="69c3b-123">`StarCssClass` the CSS class to use for a visible stat</span></span>
-- <span data-ttu-id="69c3b-124">星評価がサーバーに送り返されるときに使用する CSS クラスを `WaitingStarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="69c3b-124">`WaitingStarCssClass` the CSS class to use while a star rating is sent back to the server</span></span>
+- <span data-ttu-id="ee8a8-119">使用する初期評価を `CurrentRating` します</span><span class="sxs-lookup"><span data-stu-id="ee8a8-119">`CurrentRating` the initial rating to be used</span></span>
+- <span data-ttu-id="ee8a8-120">最大評価の `MaxRating`</span><span class="sxs-lookup"><span data-stu-id="ee8a8-120">`MaxRating` the maximum rating</span></span>
+- <span data-ttu-id="ee8a8-121">評価項目 (星) が空のときに使用する CSS クラスを `EmptyStarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="ee8a8-121">`EmptyStarCssClass` the CSS class to use when a rating item ( star ) is empty</span></span>
+- <span data-ttu-id="ee8a8-122">評価項目 (星) が入力されたときに使用する CSS クラスを `FilledStarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="ee8a8-122">`FilledStarCssClass` the CSS class to use when a rating item ( star ) is filled out</span></span>
+- <span data-ttu-id="ee8a8-123">表示される stat に使用する CSS クラスを `StarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="ee8a8-123">`StarCssClass` the CSS class to use for a visible stat</span></span>
+- <span data-ttu-id="ee8a8-124">星評価がサーバーに送り返されるときに使用する CSS クラスを `WaitingStarCssClass` します</span><span class="sxs-lookup"><span data-stu-id="ee8a8-124">`WaitingStarCssClass` the CSS class to use while a star rating is sent back to the server</span></span>
 
-<span data-ttu-id="69c3b-125">次に示すのは、5つの項目 (smileys) を持つ評価コントロールを作成するマークアップです。この場合、最初は何も入力されません。</span><span class="sxs-lookup"><span data-stu-id="69c3b-125">And here is the markup which creates a rating control with five items (smileys) of which none is filled out initially:</span></span>
+<span data-ttu-id="ee8a8-125">次に示すのは、5つの項目 (smileys) を持つ評価コントロールを作成するマークアップです。この場合、最初は何も入力されません。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-125">And here is the markup which creates a rating control with five items (smileys) of which none is filled out initially:</span></span>
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample2.aspx)]
 
-<span data-ttu-id="69c3b-126">参照される3つの CSS クラスは、CSS を使用して簡単に実行できる適切なイメージファイルを表示する必要があります。</span><span class="sxs-lookup"><span data-stu-id="69c3b-126">The three referenced CSS classes now need to show the appropriate image files, which is easy to do using CSS:</span></span>
+<span data-ttu-id="ee8a8-126">参照される3つの CSS クラスは、CSS を使用して簡単に実行できる適切なイメージファイルを表示する必要があります。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-126">The three referenced CSS classes now need to show the appropriate image files, which is easy to do using CSS:</span></span>
 
 [!code-css[Main](creating-a-rating-control-vb/samples/sample3.css)]
 
-<span data-ttu-id="69c3b-127">3つのイメージの幅と高さを指定していることを確認してください。そうしないと、表示が少し失敗に見えます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-127">Make sure that you provide the width and height of the three images, otherwise the display may look a bit messed up.</span></span>
+<span data-ttu-id="ee8a8-127">3つのイメージの幅と高さを指定していることを確認してください。そうしないと、表示が少し失敗に見えます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-127">Make sure that you provide the width and height of the three images, otherwise the display may look a bit messed up.</span></span>
 
-<span data-ttu-id="69c3b-128">最後に、評価の結果がユーザーに表示される (少なくともデータベースに保存されている) 必要があります。</span><span class="sxs-lookup"><span data-stu-id="69c3b-128">Finally, the result of the rating should be displayed to the user (or, at least saved in a database).</span></span> <span data-ttu-id="69c3b-129">そのため、テキストメッセージの出力のラベルと、評価フォームをサーバーにポストバックするための [送信] ボタンを追加します。</span><span class="sxs-lookup"><span data-stu-id="69c3b-129">So add a label for the output of a text message and a submit button to post back the rating form to the server:</span></span>
+<span data-ttu-id="ee8a8-128">最後に、評価の結果がユーザーに表示される (少なくともデータベースに保存されている) 必要があります。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-128">Finally, the result of the rating should be displayed to the user (or, at least saved in a database).</span></span> <span data-ttu-id="ee8a8-129">そのため、テキストメッセージの出力のラベルと、評価フォームをサーバーにポストバックするための [送信] ボタンを追加します。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-129">So add a label for the output of a text message and a submit button to post back the rating form to the server:</span></span>
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample4.aspx)]
 
-<span data-ttu-id="69c3b-130">サーバー側コードで、`ID` を使用して評価コントロールにアクセスし、選択した評価項目の番号である `CurrentRating` プロパティにアクセスします。この例では、0 ~ 5 の値を使用します。</span><span class="sxs-lookup"><span data-stu-id="69c3b-130">In the server-side code, access the Rating control via its `ID` and then access its `CurrentRating` property which is the number of the selected rating items, in our example a value between 0 and 5.</span></span>
+<span data-ttu-id="ee8a8-130">サーバー側コードで、`ID` を使用して評価コントロールにアクセスし、選択した評価項目の番号である `CurrentRating` プロパティにアクセスします。この例では、0 ~ 5 の値を使用します。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-130">In the server-side code, access the Rating control via its `ID` and then access its `CurrentRating` property which is the number of the selected rating items, in our example a value between 0 and 5.</span></span>
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample5.aspx)]
 
-<span data-ttu-id="69c3b-131">ページを保存し、ブラウザーに読み込みます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-131">Save the page and load it into your browser.</span></span> <span data-ttu-id="69c3b-132">(最初に空になっている) 評価項目をポイントすると、JavaScript の効果が発生します。評価が変更されます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-132">When you hover over the (initially empty) rating items, a JavaScript effect occurs: The rating changes.</span></span> <span data-ttu-id="69c3b-133">星のセットをクリックすると、現在の評価が保持されます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-133">When you click on the set of stars, the current rating is retained.</span></span> <span data-ttu-id="69c3b-134">最後に、フォームを送信すると、サーバー側のコードによって、選択した評価が出力されます。</span><span class="sxs-lookup"><span data-stu-id="69c3b-134">Finally, when you submit the form, the server-side code outputs the selected rating.</span></span>
+<span data-ttu-id="ee8a8-131">ページを保存し、ブラウザーに読み込みます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-131">Save the page and load it into your browser.</span></span> <span data-ttu-id="ee8a8-132">(最初に空になっている) 評価項目をポイントすると、JavaScript の効果が発生します。評価が変更されます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-132">When you hover over the (initially empty) rating items, a JavaScript effect occurs: The rating changes.</span></span> <span data-ttu-id="ee8a8-133">星のセットをクリックすると、現在の評価が保持されます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-133">When you click on the set of stars, the current rating is retained.</span></span> <span data-ttu-id="ee8a8-134">最後に、フォームを送信すると、サーバー側のコードによって、選択した評価が出力されます。</span><span class="sxs-lookup"><span data-stu-id="ee8a8-134">Finally, when you submit the form, the server-side code outputs the selected rating.</span></span>
 
-<span data-ttu-id="69c3b-135">[最小限のコードで評価システムを作成 ![には](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="69c3b-135">[![Creating a rating system with minimal code](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)</span></span>
+<span data-ttu-id="ee8a8-135">[最小限のコードで評価システムを作成 ![には](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="ee8a8-135">[![Creating a rating system with minimal code](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)</span></span>
 
-<span data-ttu-id="69c3b-136">最小限のコードで評価システムを作成[する (クリックすると、フルサイズの画像が表示](creating-a-rating-control-vb/_static/image3.png)されます)</span><span class="sxs-lookup"><span data-stu-id="69c3b-136">Creating a rating system with minimal code ([Click to view full-size image](creating-a-rating-control-vb/_static/image3.png))</span></span>
+<span data-ttu-id="ee8a8-136">最小限のコードで評価システムを作成[する (クリックすると、フルサイズの画像が表示](creating-a-rating-control-vb/_static/image3.png)されます)</span><span class="sxs-lookup"><span data-stu-id="ee8a8-136">Creating a rating system with minimal code ([Click to view full-size image](creating-a-rating-control-vb/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="69c3b-137">前へ</span><span class="sxs-lookup"><span data-stu-id="69c3b-137">Previous</span></span>](creating-a-rating-control-cs.md)
+> <span data-ttu-id="ee8a8-137">[[戻る]](creating-a-rating-control-cs.md)</span><span class="sxs-lookup"><span data-stu-id="ee8a8-137">[Previous](creating-a-rating-control-cs.md)</span></span>

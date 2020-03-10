@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/web-development-best-practices/async-and-await
-title: Async と Await |Microsoft Docs
+title: Async および Await |Microsoft Docs
 author: shanselman
-description: Scott Hanselman は、非同期を使用し、ASP.NET 4.5 でのサポートを待機する方法を示します。
+description: Scott マン Selman は、ASP.NET 4.5 で Async および Await のサポートを使用する方法を示しています。
 ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 776bf687-c2c2-438f-8796-a93d0ccd164b
 msc.legacyurl: /aspnet/overview/web-development-best-practices/async-and-await
 msc.type: video
 ms.openlocfilehash: 97a1d761c545a4087b006890b031a14c14c6d886
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399035"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500140"
 ---
-# <a name="async-and-await"></a><span data-ttu-id="6ff34-103">Async と Await</span><span class="sxs-lookup"><span data-stu-id="6ff34-103">Async and Await</span></span>
+# <a name="async-and-await"></a><span data-ttu-id="b649d-103">Async と Await</span><span class="sxs-lookup"><span data-stu-id="b649d-103">Async and Await</span></span>
 
-<span data-ttu-id="6ff34-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="6ff34-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="b649d-104">[Scott マン Selman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="b649d-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="6ff34-105">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="6ff34-105">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/async-and-await)
+[<span data-ttu-id="b649d-105">&#9654;ビデオを見る (5 分)</span><span class="sxs-lookup"><span data-stu-id="b649d-105">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/async-and-await)
