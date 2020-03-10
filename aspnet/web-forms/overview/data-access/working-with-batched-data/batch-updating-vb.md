@@ -9,11 +9,11 @@ ms.assetid: d191a204-d7ea-458d-b81c-0b9049ecb55f
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
 ms.openlocfilehash: f0bb83b17585876dd6d28a5893a223cce15da31d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74591235"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78501310"
 ---
 # <a name="batch-updating-vb"></a>一括更新 (VB)
 
@@ -99,7 +99,7 @@ GridView s スマートタグから [列の編集] リンクをクリックし�
 
 `UnitPrice` 編集インターフェイスの場合は、まず `EditItemTemplate` から `ItemTemplate`にテキストボックスをコピーします。 次に、テキストボックスの前に $ を置き、その `ID` プロパティを UnitPrice に、その `Columns` プロパティを8に設定します。
 
-また、CompareValidator を `UnitPrice` s `ItemTemplate` に追加して、ユーザーが入力した値が $0.00 以上の有効な通貨値であることを確認します。 [バリデーター s `ControlToValidate`] プロパティを [UnitPrice] に、[`ErrorMessage`] プロパティを [UnitPrice] に設定し、有効な通貨値を入力する必要があります。 通貨記号を省略し、その `Text` プロパティを \*に、`Type` プロパティを `Currency`に、その `Operator` プロパティを0に、その `GreaterThanEqual`プロパティを0にします。
+また、CompareValidator を `UnitPrice` s `ItemTemplate` に追加して、ユーザーが入力した値が $0.00 以上の有効な通貨値であることを確認します。 [バリデーター s `ControlToValidate`] プロパティを [UnitPrice] に、[`ErrorMessage`] プロパティを [UnitPrice] に設定し、有効な通貨値を入力する必要があります。 通貨記号を省略し、その `Text` プロパティを \*に、`Type` プロパティを `Currency`に、その `Operator` プロパティを0に、その `GreaterThanEqual`プロパティを0にします。`ValueToCompare`
 
 [入力した価格が負でない通貨値であることを確認するために CompareValidator を追加 ![ます。](batch-updating-vb/_static/image7.gif)](batch-updating-vb/_static/image11.png)
 
@@ -232,7 +232,7 @@ GridView の編集インターフェイスは TemplateFields `ItemTemplate` s �
 
 [!code-vb[Main](batch-updating-vb/samples/sample8.vb)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView には、行単位の編集機能が組み込まれていますが、完全に編集可能なインターフェイスの作成はサポートされていません。 このチュートリアルで説明したように、このようなインターフェイスは可能ですが、多少の作業が必要です。 すべての行が編集可能な GridView を作成するには、GridView s フィールドを TemplateFields に変換し、`ItemTemplate` 内で編集インターフェイスを定義する必要があります。 また、GridView とは別に、すべての型のボタン Web コントロールをページに追加する必要があります。 イベントハンドラー `Click` これらのボタンは、GridView の `Rows` コレクションを列挙し、変更を `ProductsDataTable`に格納して、更新された情報を適切な BLL メソッドに渡す必要があります。
 
@@ -240,7 +240,7 @@ GridView には、行単位の編集機能が組み込まれていますが、�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

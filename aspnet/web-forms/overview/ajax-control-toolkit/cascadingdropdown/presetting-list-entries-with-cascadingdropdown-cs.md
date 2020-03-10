@@ -9,11 +9,11 @@ ms.assetid: 04c79748-0f21-4a3b-aba5-e1ce3161c32e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 3bb4a51092534e6fddbd40f868c53c58d12eef2f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574668"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78483784"
 ---
 # <a name="presetting-list-entries-with-cascadingdropdown-c"></a>CascadingDropDown で一覧のエントリを事前設定する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74574668"
 
 > AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 少量のコードを使用すると、データが動的に読み込まれた後でリスト要素が事前選択される可能性があります。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。少量のコードを使用すると、データが動的に読み込まれた後でリスト要素が事前選択される可能性があります。
 

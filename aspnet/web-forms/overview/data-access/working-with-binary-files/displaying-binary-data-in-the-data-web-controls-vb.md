@@ -9,11 +9,11 @@ ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 27c901af092aa990f557750dc5d2c42ba2644c02
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640909"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78489100"
 ---
 # <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>データ Web コントロールにバイナリ データを表示する (VB)
 
@@ -180,7 +180,7 @@ ImageField を追加した後、GridView の宣言構文は次のようになり
 
 **図 13**: 各行にカテゴリ s の画像が表示される ([クリックすると、フルサイズの画像が表示](displaying-binary-data-in-the-data-web-controls-vb/_static/image20.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、バイナリデータを表示する方法について説明します。 データの表示方法は、データの種類によって異なります。 PDF のパンフレットファイルの場合、ユーザーに [ビューのパンフレット] リンクが用意されています。このリンクをクリックすると、ユーザーが直接 PDF ファイルに表示されます。 Category s picture では、まずデータベースからバイナリデータを取得して返すページを作成し、そのページを使用して、GridView に各カテゴリの画像を表示しました。
 
@@ -188,7 +188,7 @@ ImageField を追加した後、GridView の宣言構文は次のようになり
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -9,11 +9,11 @@ ms.assetid: 7d821db5-6cbb-4b38-af14-198f9155fc82
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
 ms.openlocfilehash: dee95ee2789a69aac5aa79b8358e58e3ee99e1b2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636543"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78475888"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-vb"></a>トランザクション内のデータベース変更をラップする (VB)
 
@@ -157,7 +157,7 @@ ADO.NET で SqlClient プロバイダーを使用する場合、トランザク�
 
 **図 6**: [更新]、[挿入]、[削除] の各タブのドロップダウンリストを (なし) に設定する ([クリックしてフルサイズの画像を表示する](wrapping-database-modifications-within-a-transaction-vb/_static/image6.png))
 
-データソースの構成ウィザードを完了すると、Visual Studio によって、連結されたフィールドと製品データフィールドの CheckBoxField が作成されます。 `ProductID`、`ProductName`、`CategoryID`、および `CategoryName` を除くすべてのフィールドを削除し、`ProductName` プロパティと `CategoryName` BoundFields をそれぞれ Product および Category に変更します。 スマートタグから、[ページングを有効にする] オプションをオンにします。 これらの変更を行った後、GridView および ObjectDataSource s 宣言マークアップは次のようになります。
+データソースの構成ウィザードを完了すると、Visual Studio によって、連結されたフィールドと製品データフィールドの CheckBoxField が作成されます。 `ProductID`、`ProductName`、`CategoryID`、および `CategoryName` を除くすべてのフィールドを削除し、`ProductName` プロパティと `CategoryName` BoundFields をそれぞれ Product および Category に変更します。`HeaderText` スマートタグから、[ページングを有効にする] オプションをオンにします。 これらの変更を行った後、GridView および ObjectDataSource s 宣言マークアップは次のようになります。
 
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample7.aspx)]
 
@@ -199,7 +199,7 @@ ADO.NET で SqlClient プロバイダーを使用する場合、トランザク�
 
 **図 10**: 一部の製品 `CategoryID` 値が更新されましたが、他の製品は更新されませんでした ([クリックしてフルサイズの画像を表示](wrapping-database-modifications-within-a-transaction-vb/_static/image14.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 既定では、TableAdapter のメソッドは、実行されたデータベースステートメントをトランザクションのスコープ内にラップしませんが、わずかな作業で、トランザクションを作成、コミット、およびロールバックするメソッドを追加できます。 このチュートリアルでは、`ProductsTableAdapter` クラスに、`BeginTransaction`、`CommitTransaction`、および `RollbackTransaction`の3つのメソッドを作成しました。 これらのメソッドを `Try...Catch` ブロックと共に使用して、一連のデータ変更ステートメントをアトミックにする方法について説明しました。 具体的には、`ProductsTableAdapter`で `UpdateWithTransaction` メソッドを作成しました。このメソッドは、バッチ更新パターンを使用して、指定された `ProductsDataTable`の行に対して必要な変更を実行します。 また、`DeleteProductsWithTransaction` メソッドを BLL の `ProductsBLL` クラスに追加しました。このクラスは、`ProductID` 値の `List` を入力として受け取り、各 `Delete` に対して DB Direct pattern メソッド `ProductID`を呼び出します。 どちらの方法でも、最初にトランザクションを作成し、次に `Try...Catch` ブロック内でデータ変更ステートメントを実行します。 例外が発生した場合は、トランザクションがロールバックされます。それ以外の場合はコミットされます。
 
@@ -207,7 +207,7 @@ ADO.NET で SqlClient プロバイダーを使用する場合、トランザク�
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -217,7 +217,7 @@ ADO.NET で SqlClient プロバイダーを使用する場合、トランザク�
 - [TransactionScope と Dataadapter](http://andyclymer.blogspot.com/2007/01/transactionscope-and-dataadapters.html)
 - [.NET での Oracle Database トランザクションの使用](http://www.oracle.com/technology/pub/articles/price_dbtrans_dotnet.html)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

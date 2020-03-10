@@ -9,11 +9,11 @@ ms.assetid: ec9db57c-9f68-402a-bf4c-0d63d5f6908e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 msc.type: authoredcontent
 ms.openlocfilehash: dd045ae56696c7944df98cf805ba812fde1bb4ff
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74598817"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78496636"
 ---
 # <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>ポップアップ コントロールからポストバックを処理する (UpdatePanel あり) (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74598817"
 
 > AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 このようなポップアップ内でポストバックが発生した場合は、特別な注意が必要です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 このようなポップアップ内でポストバックが発生した場合は、特別な注意が必要です。
 

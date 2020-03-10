@@ -9,11 +9,11 @@ ms.assetid: b83ab819-2b05-4776-b7b4-79ef78d457a5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: db838633accdedd7c0693b126a007e254ca681e4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74627197"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78458170"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: 運用環境へのデプロイ-12/12
 
@@ -25,7 +25,7 @@ ms.locfileid: "74627197"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、ホスティングプロバイダーを使用してアカウントを設定し、Visual Studio のワンクリック発行機能を使用して ASP.NET web アプリケーションを運用環境にデプロイします。
 
@@ -129,7 +129,7 @@ Visual Studio の**ソリューションエクスプローラー**で、ContosoU
 
 ![証明書のエラー](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image27.png)
 
-[次へ] をクリックします。
+**[次へ]** をクリックします。
 
 **[設定]** タブの **[データベース]** セクションで、テスト発行プロファイルに入力したものと同じ値を入力します。 必要な接続文字列がドロップダウンリストに表示されます。
 
@@ -140,7 +140,7 @@ Visual Studio の**ソリューションエクスプローラー**で、ContosoU
 
 ![Web の発行ウィザードの [設定] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
 
-[次へ] をクリックします。
+**[次へ]** をクリックします。
 
 **[プレビュー]** タブで、 **[プレビューの開始]** をクリックして、コピーされるファイルの一覧を表示します。 ローカルコンピューターの IIS に展開したときと同じ一覧が表示されます。
 
@@ -148,7 +148,7 @@ Visual Studio の**ソリューションエクスプローラー**で、ContosoU
 
 ![Web の発行ウィザードのプロファイルの管理](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image29.png)
 
-**[Web 発行プロファイルの編集]** ダイアログボックスで、実稼働プロファイルを選択し、 **[名前の変更]** をクリックして、プロファイル名を「production」に変更します。 **[閉じる]** をクリックします。
+**[Web 発行プロファイルの編集]** ダイアログボックスで、実稼働プロファイルを選択し、 **[名前の変更]** をクリックして、プロファイル名を「production」に変更します。 次に、 **[閉じる]** をクリックします。
 
 ![[Web 発行プロファイルの編集] ダイアログボックス](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image30.png)
 

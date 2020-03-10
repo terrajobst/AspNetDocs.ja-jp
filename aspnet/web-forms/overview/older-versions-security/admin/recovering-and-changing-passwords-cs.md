@@ -9,11 +9,11 @@ ms.assetid: 19c4d042-4e34-4b44-9f1d-6bf2253ba366
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8c07b8a3c36e4863c6d2d356b8483544ac4cafeb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576715"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78457192"
 ---
 # <a name="recovering-and-changing-passwords-c"></a>パスワードを復元し、変更する (C#)
 
@@ -144,7 +144,7 @@ HTML 形式の電子メールセットを[`IsBodyHtml`](https://msdn.microsoft.c
 
 ### <a name="programmatically-resetting-a-users-password"></a>プログラムによるユーザーのパスワードのリセット
 
-ユーザーのパスワードをリセットすると、PasswordRecovery コントロールは `MembershipUser` オブジェクトの[`ResetPassword` メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx)を呼び出します。 このメソッドには、次の2つのオーバーロードがあります。
+ユーザーのパスワードをリセットすると、PasswordRecovery コントロールは `MembershipUser` オブジェクトの[`ResetPassword` メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx)を呼び出します。 このメソッドには 2 つのオーバーロードがあります。
 
 - **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -ユーザーのパスワードをリセットします。 `RequiresQuestionAndAnswer` が False の場合は、このオーバーロードを使用します。
 - **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -指定した*securityanswer*が正しい場合にのみ、ユーザーのパスワードをリセットします。 `RequiresQuestionAndAnswer` が True の場合は、このオーバーロードを使用します。
@@ -253,7 +253,7 @@ ChangePassword コントロールを使用して別のユーザーのパスワ�
 > [!NOTE]
 > 現在、`UserInformation.aspx` ページは、パスワードをクリアまたはハッシュ形式で格納するようにメンバーシップフレームワークが構成されている場合にのみ機能します。 新しいパスワードを暗号化するためのコードは不足していますが、この機能を追加するように招待されています。 必要なコードを追加する方法は、デコンパイラのようなを使用して、.NET Framework 内のメソッドのソース[コードを調べる](http://www.aisto.com/roeder/dotnet/)ことです。まず、`SqlMembershipProvider` クラスの `ChangePassword` メソッドを調べます。 これは、パスワードのハッシュを作成するためのコードを記述するために使用した手法です。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET には、ユーザーがパスワードを管理するのに役立つ2つのコントロールが用意されています。 PasswordRecovery コントロールは、パスワードを忘れたユーザーに役立ちます。 メンバーシップフレームワークの構成によっては、ユーザーは既存のパスワードまたはランダムに生成された新しいパスワードを電子メールで送信することになります。 ChangePassword コントロールを使用すると、ユーザーは自分のパスワードを更新できます。
 
@@ -261,7 +261,7 @@ Login および CreateUserWizard コントロールと同様に、PasswordRecove
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -270,7 +270,7 @@ Login および CreateUserWizard コントロールと同様に、PasswordRecove
 - [ASP.NET で電子メールを送信しています](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [`System.Net.Mail` Faq](http://www.systemnetmail.com/)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

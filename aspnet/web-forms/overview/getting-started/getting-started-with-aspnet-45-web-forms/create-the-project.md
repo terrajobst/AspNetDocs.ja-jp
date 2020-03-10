@@ -9,13 +9,13 @@ ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
 ms.openlocfilehash: 62918b17f42e54dfe4e45a08927b1039dcbb7012
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576068"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78461572"
 ---
-# <a name="create-the-project"></a>プロジェクトの作成
+# <a name="create-the-project"></a>プロジェクトを作成する
 
 [Erik Reitan](https://github.com/Erikre)
 
@@ -25,7 +25,7 @@ ms.locfileid: "74576068"
 
 このチュートリアルでは、Visual Studio で既定のプロジェクトを作成、確認、実行します。これにより、ASP.NET の機能を理解することができます。 また、Visual Studio 環境を確認します。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 - 新しい Web フォームプロジェクトを作成する方法。
 - Web フォームプロジェクトのファイル構造。
@@ -40,7 +40,7 @@ ms.locfileid: "74576068"
 
     ![[プロジェクトの作成]-[新しいプロジェクト] メニュー項目](create-the-project/_static/image1.png)
 3. 左側にある [**テンプレート** -&gt; **Visual C#**  -&gt; **Web**テンプレート] グループを選択します。
-4. 中央の列で**ASP.NET Web アプリケーション**テンプレートを選択します。  
+4. 中央の列で **[ASP.NET Web アプリケーション]** を選択します。  
  このチュートリアルシリーズでは .NET Framework 4.5.2 を使用しています。
 5. プロジェクトに*ウィングヒント*の名前を指定し、 **[OK** ] をクリックします。 
 
@@ -91,7 +91,7 @@ Visual Studio では、 **[ソリューションエクスプローラー]** ウ�
 
 Visual Studio では、プロジェクトの初期フォルダーとファイルがいくつか作成されます。 このチュートリアルの後半で使用する最初のファイルは、次のとおりです。
 
-| **ファイル** | **目的** |
+| **[最近使ったファイル]** | **目的** |
 | --- | --- |
 | *Default.aspx* | 通常、アプリケーションをブラウザーで実行したときに最初に表示されるページです。 |
 | *サイト. Master* | 一貫性のあるレイアウトを作成し、アプリケーションのページに対して標準動作を使用できるページ。 |
@@ -182,11 +182,11 @@ Visual Studio のプライマリウィンドウには、**ソリューション�
 
 Visual Studio の詳細については、「visual [Web Developer のビジュアルガイド](https://msdn.microsoft.com/library/ee410104.aspx)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、既定の Web フォームアプリケーションを作成し、確認して、実行しました。 既定の Web フォームアプリケーションのさまざまな機能を確認し、Visual Studio 環境の使用方法についていくつかの基本事項を学習しました。 次のチュートリアルでは、データアクセス層を作成します。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [適切にプログラミングモデルを選択する](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
 Web[アプリケーションプロジェクトと Web サイトプロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)   

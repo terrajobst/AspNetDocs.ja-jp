@@ -2,22 +2,22 @@
 uid: web-forms/videos/net-4/index
 title: .NET 4 |Microsoft Docs
 author: rick-anderson
-description: ASP.NET の新機能と .NET Framework 4 で使用できる機能。
+description: .NET Framework 4 で利用できる新しい ASP.NET の機能です。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: bac10aee-6731-4a0f-84d7-9eef5e560ae5
 msc.legacyurl: /web-forms/videos/net-4
 msc.type: chapter
 ms.openlocfilehash: 47d4c49762768351246402b48373374f99fd636f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128467"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78501082"
 ---
 # <a name="net-4"></a>.NET 4
 
-> ASP.NET の新機能と .NET Framework 4 で使用できる機能。
+> .NET Framework 4 で利用できる新しい ASP.NET の機能です。
 
 - [Ajax](ajax/index.md)
 

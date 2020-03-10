@@ -9,11 +9,11 @@ ms.assetid: 718628e2-224c-455f-b33a-a41efd48d5a0
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
 ms.openlocfilehash: adee419764cff2f39ee16962080c24b52553aa14
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637473"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78480460"
 ---
 # <a name="customizing-the-datalists-editing-interface-vb"></a>DataList の編集インターフェイスをカスタマイズする (VB)
 
@@ -151,7 +151,7 @@ Category および supplier DropDownLists の `NULL` 値をサポートするに
 
 この変更により、`NULL` データベース値に対応するいずれかのドロップダウンリストからユーザーが [(なし)] オプションを選択した場合、`Nothing` の値が `UpdateProduct` BLL メソッドに渡されます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、3つの異なる入力 Web コントロール (TextBox)、2つの DropDownLists、および検証コントロールと共にチェックボックスを含む、より複雑な DataList 編集インターフェイスを作成する方法を説明しました。 編集インターフェイスを構築する場合、使用されている Web コントロールに関係なく、手順は同じです。まず、DataList s `EditItemTemplate`に Web コントロールを追加します。適切な Web コントロールプロパティを使用して、対応するデータフィールドの値を割り当てるには、databinding 構文を使用します。また、`UpdateCommand` イベントハンドラーでは、プログラムによって Web コントロールとそのプロパティにアクセスし、その値を BLL に渡します。
 
@@ -159,7 +159,7 @@ Category および supplier DropDownLists の `NULL` 値をサポートするに
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -168,4 +168,4 @@ Category および supplier DropDownLists の `NULL` 値をサポートするに
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Patterson が、David 氏 u、および Randy のようなものです。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
+> [[戻る]](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)

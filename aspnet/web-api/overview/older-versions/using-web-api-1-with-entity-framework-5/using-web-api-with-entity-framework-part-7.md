@@ -9,11 +9,11 @@ ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: fe4074c701159a137be3644d65ca844f160c2399
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599987"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484450"
 ---
 # <a name="part-7-creating-the-main-page"></a>パート 7: メインページの作成
 
@@ -72,7 +72,7 @@ ms.locfileid: "74599987"
 
 そうですね。コードは非常に簡単ですが、ステップバイステップで構築しましたので、設計は明確であることをお勧めします。 これで、いくつかのノックアウトバインドを HTML に追加できるようになりました。
 
-**Products**
+**成果物**
 
 製品リストのバインドは次のとおりです。
 
@@ -90,7 +90,7 @@ Products 配列に対して反復処理を行い、名前と価格を表示し�
 
 これにより、カート配列を反復処理し、名前、価格、および数量を表示します。 [削除] リンクと [注文の作成] ボタンがビューモデル関数にバインドされていることに注意してください。
 
-**注文**
+**Orders (注文)**
 
 Orders リストのバインドを次に示します。
 
@@ -106,14 +106,14 @@ Orders リストのバインドを次に示します。
 
 これにより、注文の項目を反復処理し、製品、価格、および数量を表示します。 周囲の div は、details 配列に1つ以上の項目が含まれている場合にのみ表示されます。
 
-## <a name="conclusion"></a>結論
+## <a name="conclusion"></a>まとめ
 
 このチュートリアルでは、Entity Framework を使用してデータベースと通信するアプリケーションを作成し、データ層の上に公開インターフェイスを提供するように ASP.NET Web API しました。 ASP.NET MVC 4 を使用して HTML ページをレンダリングします。また、ページを再読み込みせずに動的な対話を行うために、ノックアウトと jQuery を組み合わせて使用します。
 
-その他の技術情報:
+その他のリソース:
 
 - [ASP.NET データアクセスコンテンツマップ](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [Entity Framework デベロッパーセンター](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
-> [前へ](using-web-api-with-entity-framework-part-6.md)
+> [[戻る]](using-web-api-with-entity-framework-part-6.md)

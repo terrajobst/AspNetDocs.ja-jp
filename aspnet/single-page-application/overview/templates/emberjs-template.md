@@ -1,6 +1,6 @@
 ---
 uid: single-page-application/overview/templates/emberjs-template
-title: EmberJS テンプレート |Microsoft Docs
+title: EmberJS template |Microsoft Docs
 author: xqiu
 description: EmberJS テンプレート
 ms.author: riande
@@ -9,151 +9,151 @@ ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1aefa46dd0841b1b06675409cc8a09f9a218d7ac
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113503"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78467158"
 ---
 # <a name="emberjs-template"></a>EmberJS テンプレート
 
-によって[Xinyang Qiu](https://github.com/xqiu)
+[Xinyang Qiu](https://github.com/xqiu)
 
-> EmberJS の MVC テンプレートは、Nathan Totten、Thiago Santos、および Xinyang Qiu によって書き込まれます。
+> EmberJS MVC テンプレートは、Nathan、Thiago Santos、および Xinyang Qiu によって作成されています。
 > 
-> [EmberJS MVC テンプレートをダウンロードします。](https://go.microsoft.com/fwlink/?LinkId=282647)
+> [EmberJS MVC テンプレートをダウンロードする](https://go.microsoft.com/fwlink/?LinkId=282647)
 
-EmberJS SPA テンプレートは EmberJS を使用して対話型のクライアント側 web アプリをすばやく構築を開始するために設計されています。
+EmberJS SPA テンプレートは、EmberJS を使用して、対話型のクライアント側 web アプリの構築をすぐに開始できるように設計されています。
 
-「シングル ページ アプリケーション」(SPA) は、1 つの HTML ページが読み込まれ、新しいページの読み込みではなく、ページを動的に更新する web アプリケーションの一般的な用語です。 最初のページの読み込み後に、SPA は、AJAX 要求を介してサーバーとで説明します。
+"シングルページアプリケーション" (SPA) は、1つの HTML ページを読み込み、新しいページを読み込むのではなく、ページを動的に更新する web アプリケーションの一般的な用語です。 最初のページの読み込み後、SPA は AJAX 要求によってサーバーと通信します。
 
 ![](emberjs-template/_static/image1.png)
 
-AJAX は目新しいものでは、現在 JavaScript フレームワークを構築し、大規模な高度な SPA アプリケーションを管理するが容易では。 また、HTML 5、CSS3 が簡単に豊富な Ui を作成します。
+AJAX はまったく新しいものではありませんが、今日では、大規模な高度な SPA アプリケーションを簡単に構築して維持できる JavaScript フレームワークが用意されています。 また、HTML 5 と CSS3 は、豊富な Ui の作成を容易にします。
 
-EmberJS SPA テンプレートを使用して、 [Ember](http://emberjs.com/) AJAX 要求からのページ更新を処理する JavaScript ライブラリです。 Ember.js では、データ バインディングを使用して、ページを最新のデータと同期します。 これにより、任意の JSON データについて説明し、DOM を更新するコードを記述する必要はありません。 代わりに、Ember.js、データを表示する方法を指示する HTML で宣言型属性を配置します。
+EmberJS SPA テンプレートでは、 [Ember.js](http://emberjs.com/) JavaScript ライブラリを使用して、AJAX 要求からのページ更新を処理します。 Ember.js は、データバインディングを使用して、ページを最新のデータと同期します。 このようにして、JSON データを処理するコードを記述して DOM を更新する必要はありません。 代わりに、データの表示方法を Ember.js に指示する宣言型の属性を HTML に配置します。
 
-EmberJS テンプレートのとほぼ同じですが、サーバー側で、 [KnockoutJS SPA テンプレート](../introduction/knockoutjs-template.md)します。 HTML ドキュメント、およびクライアントからの AJAX 要求を処理するために ASP.NET Web API を処理するために、ASP.NET MVC を使用します。 テンプレートの機能についての詳細についてを参照してください、 [KnockoutJS テンプレート](../introduction/knockoutjs-template.md)ドキュメント。 このトピックでは、Knockout テンプレートと EmberJS テンプレートの違いについて説明します。
+サーバー側では、EmberJS テンプレートは[KNOCKOUTJS SPA テンプレート](../introduction/knockoutjs-template.md)とほぼ同じです。 ASP.NET MVC を使用して HTML ドキュメントを提供し、ASP.NET Web API クライアントからの AJAX 要求を処理します。 テンプレートのこれらの側面の詳細については、 [KnockoutJS テンプレート](../introduction/knockoutjs-template.md)のドキュメントを参照してください。 このトピックでは、ノックアウトテンプレートと EmberJS テンプレートの違いについて説明します。
 
-## <a name="create-an-emberjs-spa-template-project"></a>EmberJS SPA テンプレート プロジェクトを作成します。
+## <a name="create-an-emberjs-spa-template-project"></a>EmberJS SPA テンプレートプロジェクトを作成する
 
-ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 Visual Studio を再起動する必要があります。
+上の [ダウンロード] ボタンをクリックして、テンプレートをダウンロードしてインストールします。 場合によっては、Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトの名前し、クリックして**OK**します。
+**[テンプレート]** ペインで、 **[インストールされたテンプレート]** を選択し、  **C#ビジュアル**ノードを展開します。 **[ビジュアルC# ]** で **[Web]** を選択します。 プロジェクトテンプレートの一覧で、 **[ASP.NET MVC 4 Web アプリケーション]** を選択します。 プロジェクト名を指定して、 **[OK]** をクリックします。
 
 ![](emberjs-template/_static/image2.png)
 
-**新しいプロジェクト**ウィザードで、 **Ember.js SPA プロジェクト**します。
+**新しいプロジェクト**ウィザードで、 **[ember.js SPA プロジェクト]** を選択します。
 
 ![](emberjs-template/_static/image4.png)
 
 ## <a name="emberjs-spa-template-overview"></a>EmberJS SPA テンプレートの概要
 
-EmberJS テンプレートは、jQuery、Ember.js、smooth、対話型の UI を作成する Handlebars.js の組み合わせを使用します。
+EmberJS テンプレートでは、jQuery、Ember.js、ハンドルの組み合わせを使用して、スムーズで対話型の UI を作成します。
 
-Ember.js は、クライアント側の MVC パターンを使用して JavaScript ライブラリです。
+Ember.js は、クライアント側の MVC パターンを使用する JavaScript ライブラリです。
 
-- A*テンプレート*、Handlebars テンプレート作成言語で記述されたアプリケーションのユーザー インターフェイスについて説明します。 リリース モードで、 [Handlebars コンパイラ](https://github.com/Myslik/csharp-ember-handlebars)バンドルし、handlebars テンプレートのコンパイルに使用されます。
-- A*モデル*(ToDo リストと ToDo 項目)、サーバーから取得したアプリケーション データを格納します。
-- A*コント ローラー*アプリケーションの状態を格納します。 コント ローラーは、多くの場合、対応するテンプレート モデル データを提示します。
-- A*ビュー*アプリケーションのプリミティブのイベントを変換し、コント ローラーに渡されます。
-- A*ルーター* Url とテンプレートの同期を保つ、アプリケーションの状態を管理します。
+- ハンドルテンプレート言語で記述された*テンプレート*は、アプリケーションのユーザーインターフェイスについて説明します。 リリースモードでは、[ハンドルコンパイラ](https://github.com/Myslik/csharp-ember-handlebars)を使用してハンドルテンプレートをバンドルし、コンパイルします。
+- *モデル*には、サーバーから取得したアプリケーションデータ (todo リストと todo 項目) が格納されます。
+- *コントローラー*は、アプリケーションの状態を格納します。 多くの場合、コントローラーは対応するテンプレートにモデルデータを提示します。
+- *ビュー*は、プリミティブイベントをアプリケーションから変換し、コントローラーに渡します。
+- *ルーター*は、url とテンプレートの同期を維持しながら、アプリケーションの状態を管理します。
 
-さらに、Ember データ ライブラリを使用して、(RESTful API を使用してサーバーから取得された) JSON オブジェクトとクライアントのモデルを同期することができます。
+また、Ember.js Data library を使用して、(RESTful API を使用してサーバーから取得した) JSON オブジェクトとクライアントモデルを同期できます。
 
-EmberJS SPA テンプレートには、8 つの層に、スクリプトが編成されています。
+EmberJS SPA テンプレートでは、スクリプトが8つのレイヤーに編成されます。
 
-- webapi\_adapter.js、webapi\_serializer.js:ASP.NET Web API を使用する Ember データ ライブラリを拡張します。
-- Scripts/helpers.js:新しい Ember Handlebars ヘルパーを定義します。
-- Scripts/app.js:アプリを作成し、アダプターとシリアライザーを構成します。
-- スクリプト/アプリ/モデル/\*.js:モデルを定義します。
-- Scripts/app/views/\*.js:ビューを定義します。
-- コント ローラー アプリケーション/スクリプト//\*.js:コント ローラーを定義します。
-- Scripts/app/routes, Scripts/app/router.js:ルートを定義します。
-- テンプレート/\*.hbs:Handlebars テンプレートを定義します。
+- webapi\_webapi\_serializer: Ember.js Data library を拡張して ASP.NET Web API を操作します。
+- Scripts/Ember.js: 新しいハンドルヘルパーを定義します。
+- Scripts/app.config: アプリを作成し、アダプターとシリアライザーを構成します。
+- Scripts/app/model/\*.js: モデルを定義します。
+- Scripts/app/views/\*.js: ビューを定義します。
+- Scripts/app/controllers/\*.js: コントローラーを定義します。
+- Scripts/app/route, Scripts/app/router js: ルートを定義します。
+- Templates/\*: ハンドルテンプレートを定義します。
 
-詳細でこれらのスクリプトのいくつかを見てみましょう。
+これらのスクリプトのいくつかをさらに詳しく見てみましょう。
 
 ## <a name="models"></a>モデル
 
-モデルは、スクリプト/アプリ/models フォルダーで定義されます。 2 つのモデル ファイルがある: todoItem.js と todoList.js します。
+モデルは、[スクリプト/アプリ/モデル] フォルダーで定義されています。 TodoItem と todoList という2つのモデルファイルがあります。
 
-**todo.model.js** to do リストのクライアント側 (ブラウザー) モデルを定義します。 2 つのモデル クラスがあります: todoItem todoList とします。 Ember、モデルとは、DS のサブクラスです。モデル。 モデル プロパティの属性を持つことができます。
+**todo。モデル**は、to do リストのクライアント側 (ブラウザー) モデルを定義します。 モデルクラスには、todoItem と todoList の2つがあります。 Ember.js では、モデルは DS のサブクラスです。型. モデルには、属性を持つプロパティを含めることができます。
 
 [!code-javascript[Main](emberjs-template/samples/sample1.js)]
 
-モデルは、その他のモデルのリレーションシップを定義できます。
+モデルでは、他のモデルとのリレーションシップを定義できます。
 
 [!code-css[Main](emberjs-template/samples/sample2.css)]
 
-モデルには、その他のプロパティにバインドするプロパティが計算ことができます。
+モデルは、他のプロパティにバインドする計算されたプロパティを持つことができます。
 
 [!code-javascript[Main](emberjs-template/samples/sample3.js)]
 
-モデルには、オブザーバー関数は、監視対象のプロパティが変更されたときに呼び出されることがあります。
+モデルには、観察されたプロパティが変更されたときに呼び出されるオブザーバー関数を含めることができます。
 
 [!code-javascript[Main](emberjs-template/samples/sample4.js)]
 
-## <a name="views"></a>Views
+## <a name="views"></a>ビュー
 
-ビューは、スクリプト/アプリ/ビュー フォルダーで定義されます。 ビューは、アプリケーションの UI からのイベントを変換します。 イベント ハンドラーは、コント ローラーの関数にコールバックまたはデータ コンテキストを直接呼び出します。
+ビューは、Scripts/app/views フォルダーで定義されています。 ビューは、アプリケーション UI からのイベントを変換します。 イベントハンドラーは、コントローラー関数にコールバックすることも、単にデータコンテキストを直接呼び出すこともできます。
 
-たとえば、次のコードは views/TodoItemEditView.js します。 イベント処理、テキスト入力フィールドを定義します。
+たとえば、次のコードは views/TodoItemEditView からのものです。 入力テキストフィールドのイベント処理を定義します。
 
 [!code-javascript[Main](emberjs-template/samples/sample5.js)]
 
 ## <a name="controller"></a>コントローラー
 
-コント ローラーは、スクリプト/アプリ/controllers フォルダーで定義されます。 1 つのモデルを表現する拡張`Ember.ObjectController`:
+コントローラーは、Scripts/app/controllers フォルダーで定義されています。 1つのモデルを表すには、`Ember.ObjectController`を拡張します。
 
 [!code-javascript[Main](emberjs-template/samples/sample6.js)]
 
-コント ローラーを拡張することによってモデルのコレクションを表すことができますも`Ember.ArrayController`します。 たとえば、TodoListController がの配列を表します`todoList`オブジェクト。 コント ローラーを todoList id、降順で並べ替えます。
+コントローラーは、`Ember.ArrayController`を拡張することによって、モデルのコレクションを表すこともできます。 たとえば、Todolistcontroller.cs は `todoList` オブジェクトの配列を表します。 コントローラーは、todoList ID で降順に並べ替えます。
 
 [!code-javascript[Main](emberjs-template/samples/sample7.js)]
 
-コント ローラーという名前の関数を定義する`addTodoList`、新しい todoList を作成し、配列に追加します。 この関数が呼び出される方法を表示するには、テンプレート フォルダー内の todoListTemplate.html をという名前のテンプレート ファイルを開きます。 次のテンプレート コードにバインドするためのボタン、`addTodoList`関数。
+コントローラーは `addTodoList`という名前の関数を定義します。この関数は、新しい todoList を作成して配列に追加します。 この関数がどのように呼び出されるかを確認するには、テンプレートフォルダーで todoListTemplate という名前のテンプレートファイルを開きます。 次のテンプレートコードは、ボタンを `addTodoList` 関数にバインドします。
 
 [!code-html[Main](emberjs-template/samples/sample8.html)]
 
-コント ローラーにも含まれています、`error`プロパティで、エラー メッセージを保持します。 (TodoListTemplate.html) でもエラー メッセージを表示するテンプレート コードを次に示します。
+このコントローラーには、エラーメッセージを保持する `error` プロパティも含まれています。 エラーメッセージを表示するためのテンプレートコードを次に示します (todoListTemplate でも同様)。
 
 [!code-html[Main](emberjs-template/samples/sample9.html)]
 
 ## <a name="routes"></a>ルート
 
-Router.js では、ルートとアプリケーションの状態のセットを表示します。 既定のテンプレートを定義し、ルート Url と一致します。
+Router は、表示するルートと既定のテンプレートを定義し、アプリケーションの状態を設定して、Url をルートに一致させることができます。
 
 [!code-javascript[Main](emberjs-template/samples/sample10.js)]
 
-TodoListRoute.js は、setupController 関数をオーバーライドすることで、TodoListRoute のデータを読み込みます。
+TodoListRoute は、setupController 関数をオーバーライドすることによって、TodoListRoute のデータを読み込みます。
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Ember は、Url、ルート名、コント ローラー、およびテンプレートに一致するように、名前付け規則を使用します。 詳細については、次を参照してください。 [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) EmberJS ドキュメント。
+Ember.js は、Url、ルート名、コントローラー、およびテンプレートを一致させるために名前付け規則を使用します。 詳細については、EmberJS のドキュメントの「 [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) 」を参照してください。
 
 ## <a name="templates"></a>テンプレート
 
-テンプレート フォルダーには、4 つのテンプレートが含まれています。
+Templates フォルダーには、次の4つのテンプレートが含まれています。
 
-- application.hbs:アプリケーションの起動時に表示される既定のテンプレート。
-- about.hbs:「/約」ルート テンプレート。
-- index.hbs:ルート テンプレート「/」のルート。
-- todoList.hbs:テンプレートを"/todo"ルート。
-- \_navbar.hbs:テンプレートは、ナビゲーション メニューを定義します。
+- application. hbs: アプリケーションの起動時に表示される既定のテンプレート。
+- about. hbs: "/about" ルートのテンプレート。
+- index. hbs: ルート "/" ルートのテンプレート。
+- todoList: "/todo" ルートのテンプレート。
+- \_のナビゲーションバー: テンプレートは、ナビゲーションメニューを定義します。
 
-アプリケーション テンプレートは、マスター ページと同様に機能します。 ヘッダー、フッター、および「{{アウトレット}}」をルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、次を参照してください。 [ http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)します。
+アプリケーションテンプレートは、マスターページのように機能します。 ルートに応じて、に他のテンプレートを挿入するためのヘッダー、フッター、および "{{アウトレット}}" が含まれています。 Ember.js のアプリケーションテンプレートの詳細については、「 [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)」を参照してください。
 
-"/TodoList"テンプレートには、2 つのループ式が含まれています。 外側のループが`{{#each controller}}`、および内部ループは`{{#each todos}}`します。 次のコードは、組み込み`Ember.Checkbox`表示、カスタマイズされた`App.TodoItemEditView`とのリンクを`deleteTodo`アクション。
+"/TodoList" テンプレートには、2つのループ式が含まれています。 外側のループが `{{#each controller}}`、内側のループが `{{#each todos}}`。 次のコードは、組み込みの `Ember.Checkbox` ビュー、カスタマイズされた `App.TodoItemEditView`、および `deleteTodo` アクションを含むリンクを示しています。
 
 [!code-html[Main](emberjs-template/samples/sample12.html)]
 
-`HtmlHelperExtensions` Controllers/HtmlHelperExtensions.cs で定義されているクラス定義のヘルパー関数をキャッシュし、テンプレートの挿入時にファイル**デバッグ**に設定されている**true** Web.config ファイルで。 この関数は Views/Home/App.cshtml で定義されている ASP.NET MVC ビュー ファイルから呼び出されます。
+`HtmlHelperExtensions` クラスは、Controllers/Htmlによって定義されます。これは、web.config ファイルで**debug**が**true**に設定されている場合に、テンプレートファイルをキャッシュおよび挿入するためのヘルパー関数を定義します。 この関数は、Views/Home/App.xaml に定義されている ASP.NET MVC ビューファイルから呼び出されます。
 
 [!code-cshtml[Main](emberjs-template/samples/sample13.cshtml)]
 
-関数を引数なしで呼び出されると、すべてのテンプレート ファイル テンプレート フォルダーをレンダリングします。 サブフォルダーまたは特定のテンプレート ファイルを指定することもできます。
+引数を指定せずに呼び出された関数は、Templates フォルダー内のすべてのテンプレートファイルを表示します。 サブフォルダーまたは特定のテンプレートファイルを指定することもできます。
 
-ときに**デバッグ**は**false** 、web.config ファイルで、アプリケーションにはバンドルの項目"~/bundles/templates"が含まれています。 BundleConfig.cs、Handlebars コンパイラのライブラリを使用するのには、バンドルは、この項目が追加されます。
+Web.config で**debug**が**false**の場合、バンドル項目 "~/bundles/templates" がアプリケーションに含まれます。 このバンドル項目は、ハンドルコンパイラライブラリを使用して BundleConfig.cs に追加されます。
 
 [!code-csharp[Main](emberjs-template/samples/sample14.cs)]

@@ -9,11 +9,11 @@ ms.assetid: d62c3a63-0940-4019-874e-4a4047df0c1c
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 754188352cbfb08e610027f5b7890a32bd88ae26
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74609562"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78483052"
 ---
 # <a name="displaying-data-with-the-objectdatasource-vb"></a>ObjectDataSource でデータを表示する (VB)
 
@@ -140,7 +140,7 @@ GridView テーマの名前を DataWebControls に変更します (`App_Theme` �
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-vb/samples/sample5.xml)]
 
-必要な作業は以上です。 `styleSheetTheme` 設定は、テーマで指定されたプロパティが、コントロールレベルで指定されたプロパティをオーバーライドし*ない*ようにすることを示します。 テーマ設定でコントロールの設定を優先するように指定するには、`styleSheetTheme`の代わりに `theme` 属性を使用します。残念ながら、Visual Studio のデザインビューにテーマの設定は表示されません。 テーマとスキンの詳細については、 [「ASP.NET theme And スキンの概要」と「](https://msdn.microsoft.com/library/ykzx33wh.aspx) [テーマを使用したサーバー側のスタイル](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)」を参照してください。テーマを使用するようにページを構成する方法の詳細については、「[方法: ASP.NET テーマを適用](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx)する」を参照してください。
+これですべて完了です。 `styleSheetTheme` 設定は、テーマで指定されたプロパティが、コントロールレベルで指定されたプロパティをオーバーライドし*ない*ようにすることを示します。 テーマ設定でコントロールの設定を優先するように指定するには、`styleSheetTheme`の代わりに `theme` 属性を使用します。残念ながら、Visual Studio のデザインビューにテーマの設定は表示されません。 テーマとスキンの詳細については、 [「ASP.NET theme And スキンの概要」と「](https://msdn.microsoft.com/library/ykzx33wh.aspx) [テーマを使用したサーバー側のスタイル](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)」を参照してください。テーマを使用するようにページを構成する方法の詳細については、「[方法: ASP.NET テーマを適用](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx)する」を参照してください。
 
 [GridView に ![製品の名前、カテゴリ、仕入先、価格、および廃止された情報が表示されます。](displaying-data-with-the-objectdatasource-vb/_static/image31.png)](displaying-data-with-the-objectdatasource-vb/_static/image30.png)
 
@@ -198,7 +198,7 @@ Formview のスマートタグを使用すると、FormView を直接データ�
 
 DetailsView と同様に、FormView は、ObjectDataSource から返された最初のレコードのみを表示します。 FormView でページングを有効にすると、ユーザーが一度に1つずつ製品をステップ実行できるようになります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ビジネスロジックレイヤーからのデータへのアクセスと表示は、ASP.NET 2.0 の ObjectDataSource コントロールによってコード行を記述しなくても実現できます。 ObjectDataSource は、クラスの指定されたメソッドを呼び出し、結果を返します。 これらの結果は、ObjectDataSource にバインドされているデータ Web コントロールに表示できます。 このチュートリアルでは、GridView、DetailsView、および FormView コントロールを ObjectDataSource にバインドする方法について説明しました。
 
@@ -206,7 +206,7 @@ DetailsView と同様に、FormView は、ObjectDataSource から返された最
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -217,7 +217,7 @@ DetailsView と同様に、FormView は、ObjectDataSource から返された最
 - [テーマを使用したサーバー側のスタイル](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
 - [方法: プログラムによって ASP.NET テーマを適用する](https://msdn.microsoft.com/library/tx35bd89.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

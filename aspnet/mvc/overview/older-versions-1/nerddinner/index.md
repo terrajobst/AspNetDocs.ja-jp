@@ -1,27 +1,27 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/index
-title: NerdDinner | Microsoft Docs
+title: 中 Dディナー |Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 1 を使用して、NerdDinner.com web サイトを構築する方法。 ASP.NET MVC 3 のバージョンは、GitHub で nerddinner を参照してください。
+description: ASP.NET MVC 1 を使用して NerdDinner.com web サイトをビルドする方法。 ASP.NET MVC 3 バージョンについては、GitHub の「web サイト」を参照してください。
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 6edfe14c-415a-4281-b6fa-69e9b38a82c8
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner
 msc.type: chapter
 ms.openlocfilehash: 4d85781cbd792c6d553665f33d8e699ac3f8fbc3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125571"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78468928"
 ---
 # <a name="nerddinner"></a>NerdDinner
 
-> ASP.NET MVC 1 を使用して、NerdDinner.com web サイトを構築する方法。 ASP.NET MVC のバージョンを参照してください[GitHub で NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner)します。
+> ASP.NET MVC 1 を使用して NerdDinner.com web サイトをビルドする方法。 ASP.NET MVC バージョンについては、 [GitHub の](https://github.com/AspNetMVPSamples/NerdDinner)「web サイト」を参照してください。
 
 - [NerdDinner チュートリアルの紹介](introducing-the-nerddinner-tutorial.md)
 - [新しい ASP.NET MVC プロジェクトを作成する](create-a-new-aspnet-mvc-project.md)
-- [データベースを作成する](create-a-database.md)
+- [データベースの作成](create-a-database.md)
 - [ビジネス ルール検証でモデルをビルドする](build-a-model-with-business-rule-validations.md)
 - [コントローラーとビューを使用し、リスティング/詳細 UI を実装する](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
 - [CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する](provide-crud-create-read-update-delete-data-form-entry-support.md)

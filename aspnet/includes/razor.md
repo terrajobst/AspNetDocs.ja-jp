@@ -1,12 +1,4 @@
----
-ms.openlocfilehash: 514b6e4894c6fdf74921eaa8b5323c6109d4d7e0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57141127"
----
-このチュートリアルの更新バージョンが利用可能な[ここ](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc)の最新バージョンを使用して[Visual Studio](https://visualstudio.microsoft.com/)します。 新しいチュートリアルは [ASP.NET Core MVC](https://docs.microsoft.com/aspnet/core/mvc/) を使用しており、このチュートリアルよりも**多くの**改善点が含まれています。
+このチュートリアルの最新バージョンは、最新バージョンの[Visual Studio](https://visualstudio.microsoft.com/)[を使用して入手でき](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc)ます。 この新しいチュートリアルでは[ASP.NET CORE MVC](https://docs.microsoft.com/aspnet/core/mvc/)を使用しています。このチュートリアルでは、**多く**の機能強化が行われています。
 
 このチュートリアルでは、ASP.NET Core MVC のコントローラーとビューについて説明します。 ASP.NET Core 2.0 の新しい代替である Razor ページはページ ベースのプログラミング モデルであり、Web UI の開発を容易にし、生産性を高めます。 MVC のバージョンの前に、[Razor ページ](https://docs.microsoft.com/aspnet/core/mvc/razor-pages)のチュートリアルを試すことをお勧めします。 この Razor ページのチュートリアルの特徴は次のとおりです。
 

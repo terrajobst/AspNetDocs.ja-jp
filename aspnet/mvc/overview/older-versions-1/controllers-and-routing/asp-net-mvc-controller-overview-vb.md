@@ -1,102 +1,102 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
-title: ASP.NET MVC コント ローラーの概要 (VB) |Microsoft Docs
+title: ASP.NET MVC コントローラーの概要 (VB) |Microsoft Docs
 author: StephenWalther
-description: このチュートリアルで Stephen Walther がわかる ASP.NET MVC コント ローラー。 新しいコント ローラーを作成し、さまざまな種類のアクション res を返す方法を学習します.
+description: このチュートリアルでは、Stephen Walther が、MVC コントローラーの ASP.NET について説明します。 新しいコントローラーを作成し、さまざまな種類のアクションを返す方法について説明します。
 ms.author: riande
 ms.date: 02/16/2008
 ms.assetid: 94c3e5d9-a904-445e-a34e-d92fd1ca108a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: f19e7dd7fc025de2e0c387db898d36623e790e6a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123683"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486922"
 ---
 # <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC コントローラーの概要 (VB)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-> このチュートリアルで Stephen Walther がわかる ASP.NET MVC コント ローラー。 新しいコント ローラーを作成し、さまざまな種類のアクションの結果を返す方法を学習します。
+> このチュートリアルでは、Stephen Walther が、MVC コントローラーの ASP.NET について説明します。 新しいコントローラーを作成し、さまざまな種類のアクション結果を返す方法について説明します。
 
-このチュートリアルでは、ASP.NET MVC コント ローラー、コント ローラーのアクションおよびアクションの結果のトピックについて説明します。 このチュートリアルを完了すると、コント ローラーを使用して ASP.NET MVC web サイトを訪問者と対話する方法を制御する方法を理解できます。
+このチュートリアルでは、ASP.NET MVC コントローラー、コントローラーアクション、およびアクションの結果について説明します。 このチュートリアルを完了すると、ユーザーが ASP.NET MVC web サイトと対話する方法を制御するためにコントローラーがどのように使用されるかを理解できます。
 
-## <a name="understanding-controllers"></a>コント ローラーの説明
+## <a name="understanding-controllers"></a>コントローラーについて
 
-MVC コント ローラーは、ASP.NET MVC の web サイトに対して行われた要求に応答します。 各ブラウザーの要求は、特定のコント ローラーにマップされます。 たとえば、お使いのブラウザーのアドレス バーに次の URL を入力してください。
+MVC コントローラーは、ASP.NET MVC web サイトに対して行われた要求に応答する役割を担います。 各ブラウザー要求は、特定のコントローラーにマップされます。 たとえば、ブラウザーのアドレスバーに次の URL を入力したとします。
 
 `http://localhost/Product/Index/3`
 
-この場合は、「productcontroller」という名前のコント ローラーが呼び出されます。 「Productcontroller」はブラウザー要求に対する応答を生成しますします。 たとえば、コント ローラーは、ブラウザーに特定のビューを返す可能性があります。 またはコント ローラーは別のコント ローラーにユーザーをリダイレクトする可能性があります。
+この場合、ProductController という名前のコントローラーが呼び出されます。 ProductController は、ブラウザー要求に対する応答を生成します。 たとえば、コントローラーが特定のビューをブラウザーに返す場合や、コントローラーがユーザーを別のコントローラーにリダイレクトする場合があります。
 
-1 を一覧表示するには、「productcontroller」という名前のシンプルなコント ローラーにはが含まれています。
+リスト1には、ProductController という名前のシンプルなコントローラーが含まれています。
 
-**Listing1 - Controllers\ProductController.vb**
+**Listing1-visual basic**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample1.vb)]
 
-リスト 1 からわかるように、コント ローラー、クラス (Visual Basic .NET または c# のクラス) だけです。 コント ローラーは、基本の System.Web.Mvc.Controller クラスから派生したクラスです。 コント ローラーが無料でいくつかの便利なメソッドを継承するコント ローラーは、この基本クラスから継承、するため (これらのメソッドで説明する時点)。
+リスト1からわかるように、コントローラーはクラス (Visual Basic .NET またはC#クラス) にすぎません。 コントローラーは、基本の System.web. Mvc クラスから派生するクラスです。 コントローラーはこの基本クラスを継承するため、コントローラーはいくつかの便利なメソッドを無料で継承します (これらのメソッドについては後で説明します)。
 
-## <a name="understanding-controller-actions"></a>コント ローラー アクションを理解します。
+## <a name="understanding-controller-actions"></a>コントローラーアクションについて
 
-コント ローラーは、コント ローラー アクションを公開します。 アクションは、ブラウザーのアドレス バーで、特定の URL を入力するときに呼び出されるコント ローラーのメソッドです。 たとえば、次の URL の要求を行うことを考えてみましょう。
+コントローラーは、コントローラーアクションを公開します。 アクションは、ブラウザーのアドレスバーに特定の URL を入力したときに呼び出されるコントローラー上のメソッドです。 たとえば、次の URL に対して要求を行うとします。
 
 `http://localhost/Product/Index/3`
 
-この場合、Index() メソッドは、「productcontroller」クラスで呼び出されます。 Index() メソッドは、コント ローラー アクションの例を示します。
+この場合、ProductController クラスで Index () メソッドが呼び出されます。 Index () メソッドは、コントローラーアクションの一例です。
 
-コント ローラーのアクションは、コント ローラー クラスのパブリック メソッドである必要があります。 Visual Basic.NET メソッドは、既定では、パブリック メソッドです。 コント ローラー クラスに追加したすべてのパブリック メソッドがコント ローラーのアクションとして自動的に公開されることを実現 (する必要がありますこれについて注意が必要ですので、コント ローラーのアクションは、ブラウザーのアドレス バーに適切な URL を入力するだけで、世界中のだれでも呼び出すことができます)。
+コントローラーアクションは、コントローラークラスのパブリックメソッドである必要があります。 既定では、Visual Basic.NET メソッドはパブリックメソッドです。 コントローラークラスに追加したパブリックメソッドは、コントローラーアクションとして自動的に公開されることに注意してください (コントローラーアクションは、ブラウザーのアドレスバーに適切な URL を入力するだけで、宇宙の任意のユーザーによって呼び出すことができるため、注意する必要があります)。
 
-コント ローラーのアクションで満たす必要があるいくつかの追加要件があります。 コント ローラーのアクションとして使用されるメソッドをオーバー ロードできません。 さらに、コント ローラーのアクションは、静的メソッドをすることはできません。 それ以外には、コント ローラーのアクションとしてほとんどすべてのメソッドを使用できます。
+コントローラーアクションによって満たされる必要がある追加の要件がいくつかあります。 コントローラーアクションとして使用されているメソッドをオーバーロードすることはできません。 さらに、コントローラーアクションを静的メソッドにすることはできません。 それ以外の場合は、任意のメソッドをコントローラーアクションとしてのみ使用できます。
 
-## <a name="understanding-action-results"></a>アクションの結果を理解します。
+## <a name="understanding-action-results"></a>アクションの結果について
 
-コント ローラーのアクションを返しますと呼ばれるものを*アクション結果*します。 アクションの結果は、コント ローラーのアクションはブラウザーの要求に応答を返します。
+コントローラーアクションは、*アクション結果*と呼ばれるものを返します。 アクションの結果は、ブラウザー要求に応じてコントローラーアクションが返すものです。
 
-ASP.NET MVC フレームワークでは、アクションの結果などのいくつかの種類をサポートします。
+ASP.NET MVC フレームワークでは、次のようないくつかの種類のアクションの結果をサポートしています。
 
-1. ViewResult - 表します HTML とマークアップ。
-2. EmptyResult のない結果を表します。
-3. RedirectResult - は、新しい URL へのリダイレクトを表します。
-4. JsonResult - は、AJAX アプリケーションで使用できる JavaScript Object Notation 結果を表します。
-5. JavaScriptResult - JavaScript のスクリプトを表します。
-6. ContentResult - は、テキストの結果を表します。
-7. FileContentResult - は、ダウンロード可能な (バイナリ コンテンツ) を含むファイルを表します。
-8. FilePathResult - は、ダウンロード可能な (パス) を使用してファイルを表します。
-9. FileStreamResult - は、(ファイル ストリーム) をダウンロード可能なファイルを表します。
+1. ViewResult-HTML およびマークアップを表します。
+2. EmptyResult-結果を表しません。
+3. RedirectResult-新しい URL へのリダイレクトを表します。
+4. JsonResult-AJAX アプリケーションで使用できる JavaScript Object Notation の結果を表します。
+5. JavaScriptResult-JavaScript スクリプトを表します。
+6. ContentResult-テキストの結果を表します。
+7. FileContentResult-ダウンロード可能なファイルを表します (バイナリコンテンツを含む)。
+8. FilePathResult-ダウンロード可能なファイル (パスを含む) を表します。
+9. FileStreamResult-ダウンロード可能なファイル (ファイルストリームを含む) を表します。
 
-これらのアクション結果のすべては、基本の ActionResult クラスから継承します。
+これらのアクションの結果はすべて、基本 ActionResult クラスから継承されます。
 
-ほとんどの場合は、コント ローラーのアクションは、ViewResult を返します。 たとえば、リスト 2 でインデックスのコント ローラー アクションは、ViewResult を返します。
+ほとんどの場合、コントローラーアクションは ViewResult を返します。 たとえば、リスト2のインデックスコントローラーアクションは ViewResult を返します。
 
-**Listing 2 - Controllers\BookController.vb**
+**リスト 2-コントローラーの一覧表示 (vb)**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample2.vb)]
 
-アクション、ViewResult が戻るとき、ブラウザーに HTML が返されます。 リスト 2 で Index() メソッドは、ブラウザーにインデックスをという名前のビューを返します。
+アクションから ViewResult が返されると、ブラウザーに HTML が返されます。 リスト2の Index () メソッドは、ブラウザーに Index という名前のビューを返します。
 
-リスト 2 で Index() アクションが、ViewResult() を返さないことに注意してください。 代わりに、コント ローラーの基本クラスの View() メソッドが呼び出されます。 通常、アクションの結果を直接返すはされません。 代わりに、コント ローラーの基本クラスの次のメソッドのいずれかを呼び出します。
+リスト2の Index () アクションから ViewResult () が返されないことに注意してください。 代わりに、コントローラーの基底クラスの View () メソッドが呼び出されます。 通常、アクションの結果は直接返されません。 代わりに、コントローラーの基本クラスの次のいずれかのメソッドを呼び出します。
 
-1. 表示 - ViewResult アクションの結果を返します。
-2. リダイレクト - RedirectResult アクションの結果を返します。
-3. RedirectToAction - RedirectToRouteResult アクションの結果を返します。
-4. RedirectToRoute - RedirectToRouteResult アクションの結果を返します。
-5. Json - JsonResult アクションの結果を返します。
-6. JavaScriptResult - は、JavaScriptResult を返します。
-7. コンテンツ - ContentResult アクションの結果を返します。
-8. ファイル - FileContentResult、FilePathResult、またはパラメーターに応じて FileStreamResult がメソッドに渡されるを返します。
+1. View-ViewResult アクションの結果を返します。
+2. リダイレクト-RedirectResult アクションの結果を返します。
+3. RedirectToAction-RedirectToRouteResult アクションの結果を返します。
+4. RedirectToRoute-RedirectToRouteResult アクションの結果を返します。
+5. Json-JsonResult アクションの結果を返します。
+6. JavaScriptResult-JavaScriptResult を返します。
+7. Content-ContentResult アクションの結果を返します。
+8. File-メソッドに渡されたパラメーターに応じて、FileContentResult、FilePathResult、または FileStreamResult を返します。
 
-そのため、ブラウザーにビューを返す場合には、View() メソッドを呼び出します。 1 つのコント ローラー アクションからユーザーをリダイレクトする場合は、RedirectToAction() メソッドを呼び出します。 たとえば、リスト 3 の Details() アクション ビューを表示します。 またはユーザー Id パラメーターが値を持つかどうかに応じて Index() アクションにリダイレクトします。
+そのため、ビューをブラウザーに返す場合は、View () メソッドを呼び出します。 コントローラーアクション間でユーザーをリダイレクトする場合は、RedirectToAction () メソッドを呼び出します。 たとえば、リスト3の Details () アクションは、Id パラメーターに値があるかどうかに応じて、ビューを表示するか、ユーザーを Index () アクションにリダイレクトします。
 
-**3 - CustomerController.vb を一覧表示します。**
+**リスト 3-顧客コントローラー .vb**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample3.vb)]
 
-ContentResult アクションの結果は特殊です。 ContentResult アクションの結果を使用して、プレーン テキストとしてアクションの結果を返すことができます。 たとえば、リスト 4 Index() メソッドは、HTML ではなく、プレーン テキストとして、メッセージを返します。
+ContentResult アクションの結果は特殊です。 ContentResult アクションの結果を使用して、アクションの結果をプレーンテキストとして返すことができます。 たとえば、リスト4の Index () メソッドは、HTML としてではなく、プレーンテキストとしてメッセージを返します。
 
-**Listing 4 - Controllers\StatusController.vb**
+**リスト 4-コントローラーのステータスコントローラー**
 
 > StatusController
 > 
@@ -105,19 +105,19 @@ ContentResult アクションの結果は特殊です。 ContentResult アクシ
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample4.vb)]
 
-StatusController.Index() アクションが呼び出されたときに、ビューは返されません。 代わりに、未加工のテキスト"Hello World!" ブラウザーに返されます。
+StatusController. Index () アクションを呼び出すと、ビューは返されません。 代わりに、生のテキスト "Hello World!" がブラウザーに返されます。
 
-コント ローラーのアクションは、日付や整数 - の結果などのアクションの結果のないであるを返す場合は、結果が自動的にラップされた ContentResult でし。 たとえば、リスト 5 WorkController の Index() アクションが呼び出されたときに、日付が返されます ContentResult として自動的に。
+コントローラーアクションが、アクション結果ではない結果 (日付や整数など) を返す場合、結果は ContentResult に自動的にラップされます。 たとえば、リスト5のワークコントローラーの Index () アクションが呼び出されると、その日付は ContentResult として自動的に返されます。
 
-**5 - WorkController.vb を一覧表示します。**
+**リスト 5-ワークコントローラー .vb**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample5.vb)]
 
-リスト 5 Index() アクションは、DateTime オブジェクトを返します。 ASP.NET MVC フレームワークでは、DateTime オブジェクトを文字列に変換し、ContentResult で DateTime 値を自動的にラップします。 ブラウザーは、日付と時刻をプレーン テキストとして受信します。
+リスト5の Index () アクションは、DateTime オブジェクトを返します。 ASP.NET MVC フレームワークは、DateTime オブジェクトを文字列に変換し、ContentResult の DateTime 値を自動的にラップします。 ブラウザーは、日付と時刻をプレーンテキストとして受け取ります。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルの目的は、ASP.NET MVC コント ローラー、コント ローラー アクション、コント ローラー アクションの結果の概念を紹介しました。 最初のセクションでは、ASP.NET MVC プロジェクトに新しいコント ローラーを追加する方法について説明しました。 次に、コント ローラーのメソッドを公開する方法を学習しました。 コント ローラー アクションとして、世界に公開されます。 最後に、コント ローラー アクションから返されるアクションの結果の種類を説明します。 具体的には、コント ローラー アクションから ViewResult、RedirectToActionResult、および ContentResult を返す方法を説明します。
+このチュートリアルの目的は、ASP.NET MVC コントローラー、コントローラーアクション、およびコントローラーアクションの結果の概念を紹介することでした。 最初のセクションでは、ASP.NET MVC プロジェクトに新しいコントローラーを追加する方法について学習しました。 次に、コントローラーのパブリックメソッドをコントローラーアクションとして universe に公開する方法について学習しました。 最後に、コントローラーアクションから返される可能性があるさまざまな種類のアクションの結果について説明しました。 特に、ViewResult、RedirectToActionResult、および ContentResult をコントローラーアクションから返す方法について説明しました。
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-custom-route-constraint-cs.md)

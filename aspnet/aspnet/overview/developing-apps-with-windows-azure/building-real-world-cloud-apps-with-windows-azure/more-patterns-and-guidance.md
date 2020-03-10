@@ -9,11 +9,11 @@ ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
 ms.openlocfilehash: 57e32bf7568ecb0eb22f0f2b585310dcab2d5d43
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457077"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472618"
 ---
 # <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>その他のパターンとガイダンス (Azure を使用した実際のクラウドアプリの構築)
 
@@ -51,7 +51,7 @@ ms.locfileid: "77457077"
 - [フェイルセーフ: 回復力のあるクラウドアーキテクチャに関するガイダンス](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)。 ホワイトペーパー (Marc Mercuri、Ulrich Homann、Andrew Townhill)。 フェールセーフビデオシリーズの Web ページバージョン。
 - [Azure のガイダンス](https://azure.microsoft.com/develop/net/guidance/)Azure 用アプリケーションの開発に関連する公式ドキュメントのポータルページです。
 
-Videos
+ビデオ
 
 - [Azure を使用した実際のクラウドアプリの構築-パート 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324)と[パート 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325) この電子書籍の基になっている Scott Guthrie によるプレゼンテーションのビデオ。 2013年9月のオーストラリアに発表されています。 同じプレゼンテーションの以前のバージョンは、2013年6月: [NDC part 1](http://vimeo.com/68215538), [NDC part 2](http://vimeo.com/68215602)で、ノルウェーの開発者のカンファレンス (NDC) で提供されています。
 - [フェイルセーフ: スケーラブルで回復力のある Cloud Services を構築](https://channel9.msdn.com/Series/FailSafe)します。 Ulrich Homann、Marc Mercuri、Mark Simm による9部構成のビデオシリーズ。 クラウドアプリを設計する方法の400レベルのビューについて説明します。 このシリーズでは、理論上、推奨されるパターンの背後にある理由を中心に説明します。詳細については、「Simm」を参照してください。

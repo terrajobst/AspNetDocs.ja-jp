@@ -9,17 +9,17 @@ ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 264ff9850bad397826b45649d52fbfefafc53a01
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594524"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78485788"
 ---
 # <a name="creating-custom-html-helpers-c"></a>カスタム HTML ヘルパーの作成 (C#)
 
 [Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
 > このチュートリアルの目的は、MVC ビュー内で使用できるカスタム HTML ヘルパーを作成する方法を示すことです。 HTML ヘルパーを利用することで、標準の HTML ページを作成するために実行する必要がある HTML タグの面倒な入力の量を減らすことができます。
 
@@ -33,17 +33,17 @@ HTML ヘルパーは、文字列を返すメソッドにすぎません。 文�
 
 ASP.NET MVC フレームワークには、次の一連の標準 HTML ヘルパーが含まれています (これは完全な一覧ではありません)。
 
-- Html.actionlink ()
-- Html. BeginForm ()
-- Html. CheckBox ()
-- Html. DropDownList ()
-- Html. EndForm ()
-- Html. Hidden ()
-- Html. ListBox ()
-- Html. Password ()
-- Html. RadioButton ()
-- Html. TextArea ()
-- Html. TextBox ()
+- Html.ActionLink()
+- Html.BeginForm()
+- Html.CheckBox()
+- Html.DropDownList()
+- Html.EndForm()
+- Html.Hidden()
+- Html.ListBox()
+- Html.Password()
+- Html.RadioButton()
+- Html.TextArea()
+- Html.TextBox()
 
 たとえば、リスト1のフォームについて考えてみます。 このフォームは、標準の HTML ヘルパーの2つのヘルプを使用してレンダリングされます (図1を参照)。 このフォームでは、`Html.BeginForm()` と `Html.TextBox()` のヘルパーメソッドを使用して、単純な HTML フォームをレンダリングします。
 
@@ -110,7 +110,7 @@ ASP.NET MVC フレームワークに含まれている標準の HTML ヘルパ�
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample6.aspx)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、カスタム HTML ヘルパーを作成する2つの方法を学習しました。 まず、文字列を返す静的メソッドを作成して、カスタム `Label()` HTML ヘルパーを作成する方法について学習しました。 次に、`HtmlHelper` クラスに拡張メソッドを作成して、カスタム `Label()` HTML ヘルパーメソッドを作成する方法について学習しました。
 

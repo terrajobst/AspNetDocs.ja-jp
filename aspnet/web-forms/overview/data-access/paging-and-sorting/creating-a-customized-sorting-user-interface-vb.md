@@ -9,11 +9,11 @@ ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 66127630560141cd795beb15f525a7fba85f3993
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607347"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78502648"
 ---
 # <a name="creating-a-customized-sorting-user-interface-vb"></a>カスタマイズされた並べ替えユーザー インターフェイスを作成する (VB)
 
@@ -163,15 +163,15 @@ BoundFields 以外のフィールド型を処理するには、`currentValue` �
 > [!NOTE]
 > `NULL` データベースの値が `CategoryID`、`SupplierID`、または `UnitPrice` フィールドに含まれている製品がある場合、既定では、これらの値は GridView で空の文字列として表示されます。つまり、`NULL` 値を持つ製品の区切り行 s テキストは Category として読み取られます (つまり、category: 飲料ではなく、category の後に名前 ここに表示される値を使用する場合は、BoundFields [`NullDisplayText` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx)に表示するテキストを設定するか、`currentValue` を separator 行 s `Text` プロパティに割り当てるときに、Render メソッドに条件付きステートメントを追加できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView には、並べ替えインターフェイスをカスタマイズするための多くの組み込みオプションは含まれていません。 ただし、低レベルのコードでは、GridView のコントロール階層を微調整して、よりカスタマイズされたインターフェイスを作成することができます。 このチュートリアルでは、並べ替え可能な GridView の並べ替えグループの区切り行を追加する方法を説明しました。これにより、個別のグループとそれらのグループの境界を簡単に識別できます。 カスタマイズされた並べ替えインターフェイスのその他の例については、 [Scott Guthrie](https://weblogs.asp.net/scottgu/) s[の ASP.NET 2.0 GridView の並べ替えのヒントと秘訣](https://weblogs.asp.net/scottgu/archive/2006/02/11/437995.aspx)に関するブログ記事をご覧ください。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
-> [前へ](sorting-custom-paged-data-vb.md)
+> [[戻る]](sorting-custom-paged-data-vb.md)

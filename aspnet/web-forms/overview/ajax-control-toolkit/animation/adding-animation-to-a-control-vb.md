@@ -9,11 +9,11 @@ ms.assetid: c120187e-963e-4439-bb85-32771bc7f1f4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: efaee9c1665d795dc1a889b9ac9f25dd1c08f4e2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607179"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484126"
 ---
 # <a name="adding-animation-to-a-control-vb"></a>コントロールにアニメーションを追加する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74607179"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 このチュートリアルでは、このようなアニメーションを設定する方法について説明します。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 このチュートリアルでは、このようなアニメーションを設定する方法について説明します。
 

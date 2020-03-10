@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
-title: 'チュートリアル: EF Database First と ASP.NET MVC の Web アプリケーションとデータ モデルを作成します。'
-description: このチュートリアルでは、web アプリケーションを作成して、データベース テーブルに基づくデータ モデルの生成に焦点を当てています。
+title: 'チュートリアル: ASP.NET MVC を使用して EF Database First 用の Web アプリケーションとデータモデルを作成する'
+description: このチュートリアルでは、web アプリケーションを作成し、データベーステーブルに基づいてデータモデルを生成する方法について説明します。
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,67 +10,67 @@ ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: 30fd42be5677df6fa6ee0630914098c30d21385b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404521"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499528"
 ---
-# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>チュートリアル: EF Database First と ASP.NET MVC の Web アプリケーションとデータ モデルを作成します。
+# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>チュートリアル: ASP.NET MVC を使用して EF Database First 用の Web アプリケーションとデータモデルを作成する
 
- MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。
+ MVC、Entity Framework、ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成できます。 このチュートリアルシリーズでは、ユーザーがデータベーステーブルに格納されているデータを表示、編集、作成、および削除できるようにするコードを自動的に生成する方法について説明します。 生成されたコードは、データベーステーブルの列に対応しています。
 
-このチュートリアルでは、web アプリケーションを作成して、データベース テーブルに基づくデータ モデルの生成に焦点を当てています。
+このチュートリアルでは、web アプリケーションを作成し、データベーステーブルに基づいてデータモデルを生成する方法について説明します。
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
 > * ASP.NET Web アプリを作成する
-> * モデルを生成します。
+> * モデルを生成する
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-* [Entity Framework 6 Database First と MVC 5 の使用の概要](setting-up-database.md)
+* [MVC 5 を使用した Entity Framework 6 Database First の概要](setting-up-database.md)
 
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET Web アプリを作成する
 
-新しいソリューションまたはデータベース プロジェクトと同じソリューションで、Visual Studio で新しいプロジェクトを作成し、 **ASP.NET Web アプリケーション**テンプレート。 プロジェクトに名前を**ContosoSite**します。
+新しいソリューションまたはデータベースプロジェクトと同じソリューションのどちらかで、Visual Studio で新しいプロジェクトを作成し、 **ASP.NET Web アプリケーション**テンプレートを選択します。 プロジェクトに**ContosoSite**という名前を指定します。
 
-![プロジェクトを作成します。](creating-the-web-application/_static/image1.png)
+![プロジェクトの作成](creating-the-web-application/_static/image1.png)
 
 **[OK]** をクリックします。
 
-新しい ASP.NET プロジェクト ウィンドウで、選択、 **MVC**テンプレート。 オフにすることができます、**クラウドでホスト**は後で、クラウドにアプリケーションを展開するために、ここではオプションです。 クリックして**OK**アプリケーションを作成します。
+New ASP.NET プロジェクト ウィンドウで、 **MVC** テンプレートを選択します。 ここでは、クラウドにアプリケーションを後でデプロイするため、[クラウド] オプション**でホスト**をクリアできます。 **[OK]** をクリックしてアプリケーションを作成します。
 
-既定のファイルとフォルダー、プロジェクトが作成されます。
+既定のファイルとフォルダーを使用してプロジェクトが作成されます。
 
-このチュートリアルでは、Entity Framework 6 を使用します。 NuGet パッケージの管理 ウィンドウを使用してプロジェクトで Entity Framework のバージョンを再確認することができます。 必要に応じて、Entity Framework のバージョンを更新します。
+このチュートリアルでは Entity Framework 6 を使用します。 [NuGet パッケージの管理] ウィンドウで、プロジェクトの Entity Framework のバージョンを再確認できます。 必要に応じて、Entity Framework のバージョンを更新します。
 
-![バージョンを表示します。](creating-the-web-application/_static/image3.png)
+![バージョンの表示](creating-the-web-application/_static/image3.png)
 
-## <a name="generate-the-models"></a>モデルを生成します。
+## <a name="generate-the-models"></a>モデルを生成する
 
-Entity Framework モデルをデータベース テーブルから作成されます。 これらのモデルは、データを操作に使用するクラスです。 各モデルでは、ミラー データベースのテーブルとテーブルの列に対応するプロパティが含まれています。
+次に、データベーステーブルから Entity Framework モデルを作成します。 これらのモデルは、データを操作するために使用するクラスです。 各モデルは、データベース内のテーブルをミラー化し、テーブル内の列に対応するプロパティを格納します。
 
-右クリックし、**モデル**フォルダー、および選択**追加**と**新しい項目の**します。
+**[モデル]** フォルダーを右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択します。
 
-新しい項目の追加 ウィンドウで、次のように選択します。**データ**左側のウィンドウで、 **ADO.NET Entity Data Model**から中央のウィンドウのオプション。 新しいモデル ファイルに名前**ContosoModel**します。
+新しい項目の追加 ウィンドウで、左ペインの **データ** を選択し、中央のウィンドウのオプションから**Entity Data Model を ADO.NET**します。 新しいモデルファイルに**ContosoModel**という名前を指定します。
 
 **[追加]** をクリックします。
 
-Entity Data Model ウィザード、選択**データベースの EF デザイナー**します。
+Entity Data Model ウィザードで、 **[データベースから EF Designer]** を選択します。
 
 **[次へ]** をクリックします。
 
-開発環境内で定義されているデータベースの接続があれば、事前選択されているこれらの接続のいずれかを表示可能性があります。 ただし、このチュートリアルの最初の部分で作成したデータベースへの新しい接続を作成します。 をクリックして、**新しい接続**ボタンをクリックします。
+開発環境内にデータベース接続が定義されている場合は、これらの接続のいずれかが事前に選択されている可能性があります。 ただし、このチュートリアルの最初の部分で作成したデータベースへの新しい接続を作成する必要があります。 **[新しい接続]** ボタンをクリックします。
 
-接続のプロパティ ウィンドウで、作成されたデータベースのローカル サーバーの名前を指定します (ここで **(localdb) \ProjectsV13**)。 サーバーの名前を指定するには、利用可能なデータベースから、ContosoUniversityData を選択します。
+接続プロパティウィンドウで、データベースが作成されたローカルサーバーの名前を指定します (この場合は **(localdb)、projectsv13**)。 サーバー名を指定した後、使用可能なデータベースからコンテキストデータを選択します。
 
 ![接続プロパティの設定](creating-the-web-application/_static/image8.png)
 
 **[OK]** をクリックします。
 
-適切な接続プロパティが表示されます。 Web.Config ファイルでは、接続の既定の名前を使用できます。
+これで、正しい接続プロパティが表示されます。 Web.config ファイルでは、接続の既定の名前を使用できます。
 
 **[次へ]** をクリックします。
 
@@ -78,30 +78,30 @@ Entity Framework の最新バージョンを選択します。
 
 **[次へ]** をクリックします。
 
-選択**テーブル**の 3 つすべてのテーブル モデルを生成します。
+**[テーブル]** を選択すると、3つのテーブルすべてに対してモデルが生成されます。
 
 **[完了]** をクリックします。
 
-でセキュリティ警告が発生する場合は、選択**OK**テンプレートの実行を続行します。
+セキュリティの警告が表示された場合は、 **[OK]** を選択してテンプレートの実行を続行します。
 
-モデルは、データベースのテーブルから生成され、プロパティと、テーブル間のリレーションシップを示すダイアグラムが表示されます。
+モデルはデータベーステーブルから生成され、テーブル間のプロパティとリレーションシップを示すダイアグラムが表示されます。
 
-![モデルのダイアグラム](creating-the-web-application/_static/image11.png)
+![モデルの図](creating-the-web-application/_static/image11.png)
 
-今すぐ、Models フォルダーには、データベースから生成されたモデルに関連する多くの新しいファイルが含まれます。
+[モデル] フォルダーには、データベースから生成されたモデルに関連する多数の新しいファイルが含まれるようになりました。
 
-**ContosoModel.Context.cs**ファイルにはから派生したクラスが含まれています、 **DbContext**クラス、および各データベース テーブルに対応するモデル クラスのプロパティを提供します。 **Course.cs**、 **Enrollment.cs**、および**Student.cs**ファイルがデータベース テーブルを表すモデル クラスが含まれます。 スキャフォールディングを使用する場合は、モデル クラスとコンテキスト クラスの両方を使用します。
+**ContosoModel.Context.cs**ファイルには、 **dbcontext**クラスから派生したクラスが含まれており、データベーステーブルに対応する各モデルクラスのプロパティを提供します。 **Course.cs**、 **Enrollment.cs**、および**Student.cs**の各ファイルには、databases テーブルを表すモデルクラスが含まれています。 スキャフォールディングを操作するときは、コンテキストクラスとモデルクラスの両方を使用します。
 
-このチュートリアルで前に、プロジェクトをビルドします。 セクションでは、プロジェクトがビルドされていない場合は機能しませんが、次のセクションで、データ モデルに基づくコードが生成されます。
+このチュートリアルを続行する前に、プロジェクトをビルドしてください。 次のセクションでは、データモデルに基づいてコードを生成しますが、プロジェクトがビルドされていない場合は、そのセクションは機能しません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * ASP.NET web アプリの作成
-> * モデルの生成
+> * ASP.NET web アプリを作成しました
+> * モデルが生成されました
 
-チュートリアルに進み、[次へ] を作成する方法については、データ モデルに基づくコードを生成します。
+次のチュートリアルに進み、データモデルに基づいてコードを生成する方法を学習してください。
 > [!div class="nextstepaction"]
 > [ビューの生成](generating-views.md)

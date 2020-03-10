@@ -9,11 +9,11 @@ ms.assetid: a1b3d789-93b4-487f-b90d-80c9c9b4f8fa
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
 ms.openlocfilehash: 24f7de303ef7f5a457bd509ecc6bd0e3be7e3d9d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456330"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78485494"
 ---
 # <a name="intro-to-aspnet-mvc-3-vb"></a>ASP.NET MVC 3 入門 (VB)
 
@@ -77,7 +77,7 @@ Visual Web Developer は、IDE または統合開発環境です。 Microsoft Wo
 
 ![1InternetAppRazor_SM](intro-to-aspnet-mvc-3/_static/image8.png)
 
-**[OK]** をクリックすると、 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートを使用しています。これにより、何も実行することなく、すぐに動作するアプリケーションが完成しました。 これは単純な "Hello World!" です。 プロジェクトは、アプリケーションを起動するのに適した場所です。
+**[OK]** をクリックします。 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートを使用しています。これにより、何も実行することなく、すぐに動作するアプリケーションが完成しました。 これは単純な "Hello World!" です。 プロジェクトは、アプリケーションを起動するのに適した場所です。
 
 [![](intro-to-aspnet-mvc-3/_static/image10.png)](intro-to-aspnet-mvc-3/_static/image9.png)
 

@@ -10,15 +10,15 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 0afea8eacfc646f1489b87629fdb2d437815d88c
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472264"
 ---
 # <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity でユーザーの主キーを変更する
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
 > Visual Studio 2013 では、既定の web アプリケーションは、ユーザーアカウントのキーに文字列値を使用します。 ASP.NET Identity を使用すると、データ要件に合わせてキーの種類を変更できます。 たとえば、キーの型を文字列から整数に変更できます。
 > 
@@ -32,7 +32,7 @@ ms.locfileid: "76519142"
 
 このチュートリアルの手順を実行するには、Visual Studio 2013 Update 2 (以降)、および ASP.NET Web アプリケーションテンプレートから作成された web アプリケーションが必要です。 Update 3 でテンプレートが変更されました。 このトピックでは、Update 2 および Update 3 でテンプレートを変更する方法について説明します。
 
-このトピックは、次のセクションで構成されています。
+このトピックには、次のセクションが含まれます。
 
 - [Identity user クラスのキーの種類を変更する](#userclass)
 - [キーの種類を使用するカスタマイズされた Id クラスを追加する](#customclass)

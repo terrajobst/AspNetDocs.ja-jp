@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'チュートリアル: ASP.NET MVC アプリで ef 接続の回復性とコマンド傍受を使用して、'
+title: 'チュートリアル: ASP.NET MVC アプリの EF で接続の回復性とコマンドインターセプトを使用する'
 author: tdykstra
-description: このチュートリアルでは、接続の回復性とコマンド傍受を使用する方法を学習します。 これは、Entity Framework 6 の 2 つの重要な機能です。
+description: このチュートリアルでは、接続の回復性とコマンドインターセプトの使用方法について説明します。 Entity Framework 6 の2つの重要な機能です。
 ms.author: riande
 ms.date: 01/22/2019
 ms.topic: tutorial
@@ -10,186 +10,186 @@ ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 276266f8ae9df38529d44742ebe6ac0dc8e79727
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57025899"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471400"
 ---
-# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>チュートリアル: 接続の回復性とコマンド傍受を Entity Framework で ASP.NET MVC アプリで使用します。
+# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリの Entity Framework で接続の回復性とコマンドインターセプトを使用する
 
-これまでに、アプリケーションを実行したローカル IIS Express で開発用コンピューターにします。 で実際のアプリケーションをインターネット経由で使用するには、他のユーザーに使用できるように、web ホスティング プロバイダーにデプロイする必要があるし、データベース サーバーにデータベースを展開します。
+これまでは、アプリケーションは開発用コンピューターの IIS Express でローカルに実行されていました。 実際のアプリケーションを他のユーザーがインターネット経由で使用できるようにするには、それを web ホスティングプロバイダーに展開する必要があり、データベースをデータベースサーバーに配置する必要があります。
 
-このチュートリアルでは、接続の回復性とコマンド傍受を使用する方法を学習します。 Entity Framework 6 のクラウド環境にデプロイするときに特に役に立つできる 2 つの重要な機能は: (一時的なエラーの自動再試行) の接続復元性とコマンド傍受 (catch データベースに送信するすべての SQL クエリまたはするためにログ変更)。
+このチュートリアルでは、接続の回復性とコマンドインターセプトの使用方法について説明します。 これは Entity Framework 6 の2つの重要な機能であり、クラウド環境にデプロイするときに特に便利です。接続の回復性 (一時的なエラーの自動再試行) とコマンドインターセプト (データベースに送信されたすべての SQL クエリをキャッチする)をログに記録するか変更します)。
 
-この接続の回復性とコマンド傍受チュートリアルでは、省略可能です。 このチュートリアルをスキップする場合は、若干の調整が以降のチュートリアルで作成する必要があります。
+この接続の回復性とコマンドインターセプトのチュートリアルは省略可能です。 このチュートリアルをスキップする場合は、次のチュートリアルでいくつかの細かい調整を行う必要があります。
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * 接続の回復を有効にします。
-> * コマンド傍受を有効にします。
-> * 新しい構成をテストします。
+> * 接続の回復性を有効にする
+> * コマンドインターセプトを有効にする
+> * 新しい構成をテストする
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 * [並べ替え、フィルター処理、ページング](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
-## <a name="enable-connection-resiliency"></a>接続の回復を有効にします。
+## <a name="enable-connection-resiliency"></a>接続の回復性を有効にする
 
-Windows Azure にアプリケーションを展開するときに、Windows Azure SQL Database のクラウド データベース サービスにデータベースをデプロイします。 一時的な接続エラーは、ときに、web サーバーとデータベース サーバーに直接接続されてまとめて、同じデータ センターでのクラウド データベース サービスに接続するときに通常より頻繁に。 クラウドの web サーバーとクラウド データベース サービスが同じデータ センターでホストされている場合でも、ロード バランサーなどの問題はそれらの間の以上のネットワーク接続があります。
+アプリケーションを Windows Azure にデプロイする場合は、データベースをクラウドデータベースサービスである Windows Azure SQL Database に配置します。 通常、一時的な接続エラーは、web サーバーとデータベースサーバーが同じデータセンターに直接接続されている場合よりも、クラウドデータベースサービスに接続すると、より頻繁に発生します。 クラウド web サーバーとクラウドデータベースサービスが同じデータセンターでホストされている場合でも、ロードバランサーなど、問題が発生する可能性のあるネットワーク接続が増加します。
 
-クラウド サービスを通常で共有されます他のユーザー、つまり、それらにより、応答性の影響を受けることができます。 調整の対象のデータベースにアクセスする場合があります。 サービス レベル アグリーメント (SLA) では許可されているよりも頻繁にアクセスが詳細にしようとすると、データベース サービスに例外がスロー手段を調整します。
+また、クラウドサービスは通常、他のユーザーによって共有されます。これは、そのサービスの応答性が影響を受ける可能性があることを意味します。 また、データベースへのアクセスが制限される可能性があります。 調整とは、データベースサービスが、サービスレベルアグリーメント (SLA) で許可されているよりも頻繁にアクセスしようとした場合に、例外をスローすることを意味します。
 
-クラウド サービスにアクセスするときの多くまたはほとんど接続の問題は一時的なものには、短時間で解決自体。 したがって、データベース操作をやり直してくださいは通常、一時的エラーの種類を取得すると後、少し待つと、操作が成功する可能性があります、操作を再試行でした。 ここでも、自動的に試行することで一時的なエラーを処理する場合、ユーザーのエクスペリエンスが大幅に改善を行うことができます、顧客に、これらのほとんどを非表示にします。 Entity Framework 6 で、接続の回復性機能は、SQL クエリが再試行の処理に失敗したことを自動化します。
+クラウドサービスにアクセスするときの接続に関する多くの問題は、一時的なものです。つまり、短時間に解決されます。 そのため、データベース操作を試行して、通常は一時的なエラーの種類を取得した場合は、しばらく待ってから操作を再試行することができ、操作は成功する可能性があります。 一時的なエラーを自動的に再試行することによって、ユーザーにとってより良いエクスペリエンスを提供できます。そのほとんどは、顧客に対して非表示になります。 Entity Framework 6 の接続の復元機能では、失敗した SQL クエリを再試行するプロセスを自動化できます。
 
-特定のデータベース サービスの接続の回復性機能を適切に構成する必要があります。
+接続の回復性機能は、特定のデータベースサービスに対して適切に構成されている必要があります。
 
-- どの例外が一時的である可能性があります。 ネットワーク接続、一時的な損失によって発生したエラーなどのプログラムのバグによって発生したエラーいないを再試行するには。
-- 失敗した操作の再試行の間隔を適切な時間待機する必要があります。 待機できますになったバッチ処理の再試行間隔よりも、応答をユーザーが待機しているオンラインの web ページのことができます。
-- 再試行回数その前に、適切な数があります。 再試行回以上のオンライン アプリケーションで行う場合、バッチ処理する可能性があります。
+- どの例外が一時的なものである可能性があるかを把握しておく必要があります。 たとえば、プログラムのバグによるエラーではなく、ネットワーク接続が一時的に失われたことによって発生したエラーを再試行します。
+- 失敗した操作が再試行されるまでの間、適切な時間を待機する必要があります。 バッチ処理の再試行の間隔は、ユーザーが応答を待機しているオンライン web ページの場合よりも長くなる可能性があります。
+- この場合は、適切な回数の再試行を行う必要があります。 バッチ処理では、オンラインアプリケーションの場合と同じように再試行することができます。
 
-Entity Framework プロバイダーでサポートされている任意のデータベース環境の手動でこれらの設定を構成できますが、通常 Windows Azure SQL Database を使用するオンライン アプリケーションにも適している既定値は、構成済みおよびこれらは、Contoso University アプリケーションの実装を設定します。
+これらの設定は、Entity Framework プロバイダーでサポートされている任意のデータベース環境に対して手動で構成できますが、通常は Windows Azure SQL Database を使用するオンラインアプリケーションに対して適切に機能する既定値は、既に構成されています。これらは、Contoso 大学アプリケーション用に実装する設定です。
 
-接続の回復を有効にするために必要なアセンブリから派生したクラスを作成するが、 [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx)クラスし、そのクラスには、SQL データベースを設定*実行戦略*EF では別の用語の*再試行ポリシー*します。
+接続の回復性を有効にするために必要なのは、 [Dbconfiguration](https://msdn.microsoft.com/data/jj680699.aspx)クラスから派生したクラスをアセンブリに作成することだけです。このクラスでは、EF では、*再試行ポリシー*のもう1つの用語として SQL Database*実行方法*を設定します。
 
-1. という名前のクラス ファイルを追加、DAL フォルダーで*SchoolConfiguration.cs*します。
+1. DAL フォルダーで、 *SchoolConfiguration.cs*という名前のクラスファイルを追加します。
 2. テンプレート コードを次のコードに置き換えます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、[EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)を参照してください。
-3. *StudentController.cs*、追加、`using`ステートメント`System.Data.Entity.Infrastructure`します。
+    Entity Framework は、`DbConfiguration`から派生したクラスで検出されたコードを自動的に実行します。 `DbConfiguration` クラスを使用する*と、web.config ファイルで*実行するコードで構成タスクを実行できます。 詳細については、「 [Entityframework コードベースの構成](https://msdn.microsoft.com/data/jj680699)」を参照してください。
+3. *StudentController.cs*で、`System.Data.Entity.Infrastructure`の `using` ステートメントを追加します。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
-4. すべての変更、`catch`その catch ブロック`DataException`例外をキャッチするように`RetryLimitExceededException`例外代わりにします。 例えば:
+4. `DataException` 例外をキャッチするすべての `catch` ブロックを、`RetryLimitExceededException` 例外をキャッチするように変更します。 次に例を示します。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs?highlight=1)]
 
-    使用していた`DataException`にわかりやすい「もう一度やり直してください」のメッセージを提供するために一時的な可能性のあるエラーを特定しようとしています。 再試行ポリシーを有効にした、これで一過性のエラーの中からのみが既にがされてしようとしたや複数回失敗しましたに返される実際の例外がラップされます、`RetryLimitExceededException`例外。
+    `DataException` を使用して、"もう一度やり直してください" というメッセージを表示するために、一時的なエラーを特定しようとしています。 ただし、再試行ポリシーを有効にしたので、一時的なエラーだけが既に試行されており、何度も失敗したため、返された実際の例外は `RetryLimitExceededException` 例外でラップされます。
 
-詳細については、[Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)を参照してください。
+詳細については、「 [Entity Framework 接続の回復性/再試行ロジック](https://msdn.microsoft.com/data/dn456835)」を参照してください。
 
-## <a name="enable-command-interception"></a>コマンド傍受を有効にします。
+## <a name="enable-command-interception"></a>コマンドインターセプトを有効にする
 
-これで再試行ポリシーを有効にした、方法をテストすることが、正しく動作することを確認するでしょうか。 一時的なエラーが発生、特に、ローカルで実行しているし、特に自動化された単体テストに実際の一時的なエラーを統合することは困難を強制するために簡単ではありません。 接続の回復性機能をテストするには、Entity Framework は SQL Server に送信するクエリをインターセプトし、SQL Server の応答を置き換えますが、通常は一時的な例外の種類の方法が必要です。
+再試行ポリシーを有効にしたので、正常に動作しているかどうかをテストするにはどうすればよいでしょうか。 特にローカルで実行している場合は、一時的なエラーを強制的に実行するのは簡単ではなく、実際の一時的なエラーを自動化された単体テストに統合することは特に困難です。 接続の回復性機能をテストするには、SQL Server に送信 Entity Framework するクエリをインターセプトし、通常は一時的な例外の種類に SQL Server 応答を置き換える方法が必要です。
 
-クラウド アプリケーションのベスト プラクティスを実装するために、クエリのインターセプトを使用することもできます:[待機時間と成功または失敗の外部サービスへのすべての呼び出しのログに記録](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)データベース サービスなどです。 EF6 の提供、[専用のログ記録 API](https://msdn.microsoft.com/data/dn469464)を簡単に、ログ記録を行うことが、チュートリアルのこのセクションで、Entity Framework の使用方法が学習[インターセプション機能](https://msdn.microsoft.com/data/dn469464)の両方を直接ログ記録と一時的なエラーをシミュレートするためです。
+また、クエリインターセプトを使用して、クラウドアプリケーションのベストプラクティスを実装することもできます。データベースサービスなど[、外部サービスへのすべての呼び出しの待機時間と成功または失敗をログに記録](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)します。 EF6 にはログ記録を容易にする[専用のログ API](https://msdn.microsoft.com/data/dn469464)が用意されていますが、チュートリアルのこのセクションでは、ログ記録と一時的なエラーのシミュレートの両方で、Entity Framework の[傍受機能](https://msdn.microsoft.com/data/dn469464)を直接使用する方法について学習します。
 
-### <a name="create-a-logging-interface-and-class"></a>ログ記録のインターフェイスとクラスを作成します。
+### <a name="create-a-logging-interface-and-class"></a>ログインターフェイスとクラスを作成する
 
-A[ベスト プラクティスのログ記録](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)インターフェイスを使用して、ハード コーディング System.Diagnostics.Trace または logging クラスの呼び出しではなく。 これによりを実行する必要が生じた場合、後で、ログ記録メカニズムを変更します。 このセクションでは、ログ記録のインターフェイスとその/p を実装するクラスを作成しますように >
+[ログ記録のベストプラクティス](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)としては、トレースまたはログ記録クラスのハードコーディングではなく、インターフェイスを使用します。 これにより、後で必要になったときにログ記録メカニズムを簡単に変更できるようになります。 このセクションでは、ログインターフェイスとそれを実装するクラスを作成します。/p >
 
-1. プロジェクトのフォルダーを作成し、名前*ログ*します。
-2. *ログ*フォルダー、という名前のクラス ファイルを作成する*ILogger.cs*、テンプレート コードを次のコードに置き換えます。
+1. プロジェクトにフォルダーを作成し、*ログ記録*という名前を指定します。
+2. [ *Logging* ] フォルダーで、 *ILogger.cs*という名前のクラスファイルを作成し、テンプレートコードを次のコードに置き換えます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-    ログの相対的な重要度を示す 3 つのトレース レベルと 1 つのデータベースのクエリなどの外部サービスの呼び出しの待機時間情報を提供するインターフェイスを提供します。 ログ作成メソッドがあるオーバー ロードを例外で渡すことができます。 これは、スタック トレースと内部例外を含む例外情報は、アプリケーション全体でログ記録メソッド呼び出しのたびに実行されているではなく、インターフェイスを実装するクラスによって確実に記録されるようにします。
+    インターフェイスには、ログの相対的な重要度を示す3つのトレースレベルが用意されています。また、データベースクエリなどの外部サービスの呼び出しの待機時間情報を提供するように設計されています。 ログ記録メソッドには、例外を渡すことができるオーバーロードがあります。 これは、スタックトレースや内部例外などの例外情報が、インターフェイスを実装するクラスによって確実にログに記録されるようにするためです。これは、アプリケーション全体での各ログ記録メソッドの呼び出しで実行されることに依存するものではありません。
 
-    TraceApi メソッドでは、SQL Database などの外部サービスへの各呼び出しの待機時間を追跡することができます。
-3. *ログ*フォルダー、という名前のクラス ファイルを作成する*Logger.cs*、テンプレート コードを次のコードに置き換えます。
+    TraceApi メソッドを使用すると、SQL Database などの外部サービスに対する各呼び出しの待機時間を追跡できます。
+3. [ *Logging* ] フォルダーで、 *Logger.cs*という名前のクラスファイルを作成し、テンプレートコードを次のコードに置き換えます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-    実装では、System.Diagnostics を使用して、トレースを行います。 これは、簡単に生成して、トレース情報を使用する .NET の組み込み機能です。 ファイルは、たとえば、ログを書き込む、または azure blob storage に書き込んだりする System.Diagnostics トレース、使用することができます"多数"リスナーがあります。 いくつかのオプション、およびその他の詳細については、リソースへのリンクを参照してください[Visual Studio で Azure Websites のトラブルシューティング](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio)します。 このチュートリアルでについてのみ取り上げますが、Visual Studio でログ**出力**ウィンドウ。
+    の実装では、トレースを実行するためにシステム診断を使用します。 これは .NET の組み込み機能で、トレース情報の生成と使用が簡単になります。 システム診断トレースでは、ログをファイルに書き込む場合や、Azure の blob ストレージに書き込む場合など、多くの "リスナー" を使用できます。 詳細については、「 [Visual Studio での Azure websites のトラブルシューティング](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio)」のオプションとその他のリソースへのリンクを参照してください。 このチュートリアルでは、Visual Studio の **[出力]** ウィンドウのログのみを確認します。
 
-    実稼働アプリケーションで以外、System.Diagnostics トレースのパッケージを検討する可能性があり、ILogger インターフェイスにより、さまざまなトレース メカニズムに切り替える場合はそのためには比較的簡単です。
+    実稼働アプリケーションでは、ILogger 以外のトレースパッケージを使用することを検討できます。また、そのような場合は、別のトレースメカニズムに簡単に切り替えることができます。
 
-### <a name="create-interceptor-classes"></a>インターセプターのクラスを作成します。
+### <a name="create-interceptor-classes"></a>インターセプタークラスの作成
 
-次に、データベース、一時的なエラーをシミュレートするために 1 つとログ記録を行うクエリを送信するたびに、Entity Framework を呼び出すクラスを作成します。 これらのインターセプター クラスがから派生する必要があります、`DbCommandInterceptor`クラス。 クエリが実行されるときに自動的に呼び出されるメソッドのオーバーライドを作成します。 これらのメソッドで確認またはログ データベースに送信されるクエリ、およびデータベースに送信される前に、クエリを変更したり、何かを返す Entity Framework に自分でも、データベースにクエリを渡さずにします。
+次に、クエリをデータベースに送信するたびに Entity Framework が呼び出すクラスを作成します。1つは一時的なエラーをシミュレートし、もう1つはログ記録を行います。 これらのインターセプタークラスは、`DbCommandInterceptor` クラスから派生する必要があります。 ここでは、クエリが実行されるときに自動的に呼び出されるメソッドオーバーライドを記述します。 これらの方法では、データベースに送信されているクエリを確認またはログに記録できます。また、クエリをデータベースに渡す前にクエリを変更したり、クエリをデータベースに渡したりしなくても Entity Framework に返すことができます。
 
-1. データベースに送信されるすべての SQL クエリがログに記録するインターセプター クラスを作成するには、という名前のクラス ファイルを作成*SchoolInterceptorLogging.cs*で、 *DAL*フォルダー、およびテンプレートのコードでは、置換次のコードでは:
+1. データベースに送信されるすべての SQL クエリをログに記録するインターセプタークラスを作成するには、 *SchoolInterceptorLogging.cs*という名前のクラスファイルを*DAL*フォルダーに作成し、テンプレートコードを次のコードに置き換えます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-    成功したクエリまたはコマンドの場合は、このコードは、待機時間情報と情報ログを書き込みます。 例外の場合は、エラー ログが作成されます。
-2. "Throw"を入力すると、ダミーの一時的なエラーを生成するインターセプター クラスを作成する、**検索**という名前のクラス ファイルを作成するボックスに、 *SchoolInterceptorTransientErrors.cs* で*DAL*フォルダー、およびテンプレートのコードを次のコードに置き換えます。
+    クエリまたはコマンドが成功した場合、このコードは待機時間情報を含む情報ログを書き込みます。 例外の場合は、エラーログが作成されます。
+2. **検索**ボックスに「Throw」と入力したときにダミーの一時的なエラーを生成するインターセプタークラスを作成するには、 *SchoolInterceptorTransientErrors.cs*という名前のクラスファイルを*DAL*フォルダーに作成し、テンプレートコードを次のコードに置き換えます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-    これは、コードでは唯一の上書き、`ReaderExecuting`メソッドで、複数行のデータを返すことができるクエリと呼びます。 オーバーライドも他の種類のクエリの接続の回復性を確認したい場合、`NonQueryExecuting`と`ScalarExecuting`はログ記録インターセプターとしてメソッド。
+    このコードは、`ReaderExecuting` メソッドをオーバーライドするだけです。このメソッドは、複数行のデータを返すことができるクエリに対して呼び出されます。 他の種類のクエリの接続の回復性を確認する場合は、ログインターセプターと同様に `NonQueryExecuting` および `ScalarExecuting` メソッドをオーバーライドすることもできます。
 
-    学生のページを実行して、検索文字列として「スロー」を入力して、ときに、このコードはエラー番号 20、通常は一時的である既知の型のダミー SQL データベースの例外を作成します。 一時的なものとして認識されて、その他のエラー番号は、64、233、10053、10054、10060、10928、10929、40197、40501、および 40613 が、これらは新しいバージョンの SQL データベースで変更されます。
+    学生ページを実行し、検索文字列として「Throw」と入力すると、このコードでは、通常は一時的なものであることが知られているエラー番号20のダミー SQL Database 例外が作成されます。 現在 transient として認識されている他のエラー番号は、64、233、10053、10054、10060、10928、10929、40197、40501、40613ですが、これらは SQL Database の新しいバージョンで変更される可能性があります。
 
-    コードでは、Entity framework クエリを実行して、バック クエリの結果を渡すことではなく、例外を返します。 一時的な例外が 4 回返され、コードをデータベースにクエリを渡すことの通常の手順を元に戻します。
+    このコードは、クエリを実行してクエリ結果を返すのではなく、Entity Framework に例外を返します。 一時的な例外が4回返された後、コードは、クエリをデータベースに渡す通常の手順に戻ります。
 
-    すべてがログに記録するために成功すると、前に 4 回のクエリを実行しようとする Entity Framework をアプリケーションの唯一の違いはクエリ結果のページを表示するために時間がかかることを確認することができます。
+    すべてのログが記録されるので、Entity Framework がクエリの実行を4回試行してから最後に成功することを確認できます。アプリケーションの唯一の違いは、クエリ結果を含むページのレンダリングに時間がかかることです。
 
-    Entity Framework の再試行回数が構成可能です。コードを 4 回を指定します、SQL Database の実行ポリシーの既定値であるためです。 場合は、実行ポリシーを変更する必要がありましたも変更は、ここに、コードの一時的なエラーが生成される回数を指定します。 Entity Framework がスローされますのでより多くの例外を生成するコードを変更することも、`RetryLimitExceededException`例外。
+    Entity Framework が再試行される回数は構成可能です。このコードでは、SQL Database 実行ポリシーの既定値であるため、4回指定されています。 実行ポリシーを変更した場合は、一時的なエラーが生成される回数を指定するコードも変更します。 さらに、Entity Framework が `RetryLimitExceededException` 例外をスローするように、より多くの例外を生成するようにコードを変更することもできます。
 
-    検索ボックスに入力する値に`command.Parameters[0]`と`command.Parameters[1]`(ファースト ネームとラスト ネームに対して 1 つの 1 つ使用されます)。 値「Throw %」が見つかると、「スロー」で置き換えられますこれらのパラメーター「、」一部の受講者が検出し、返されるようにします。
+    検索ボックスに入力した値は `command.Parameters[0]` と `command.Parameters[1]` になります (1 つは名に使用され、姓は1になります)。 値 "% Throw%" が検出されると、これらのパラメーターの "Throw" が "a" に置き換えられるため、一部の学生が検索されて返されます。
 
-    これは、アプリケーションの UI をいくつかの入力の変更に基づいて接続の回復性をテストする便利な方法だけです。 に関するコメントの後半で説明したとおりに、すべてのクエリや更新プログラムの一時的なエラーを生成するコードを記述することもできます、 *DbInterception.Add*メソッド。
-3. *Global.asax*、次の追加`using`ステートメント。
+    これは、アプリケーション UI への入力の変更に基づいて、接続の回復性をテストするための便利な方法です。 また、後の「 *Dbinterception. Add*メソッドに関するコメント」で説明されているように、すべてのクエリまたは更新の一時的なエラーを生成するコードを記述することもできます。
+3. *Global.asax*で、次の `using` ステートメントを追加します。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
-4. 強調表示された行を追加、`Application_Start`メソッド。
+4. 強調表示された行を `Application_Start` メソッドに追加します。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs?highlight=7-8)]
 
-    これらの行のコードでは、Entity Framework がデータベースにクエリを送信するときに実行するインターセプター コードの原因は何です。 一時的なエラーのシミュレーションの個別のインターセプター クラスを作成したログ記録、個別に有効にして無効にするために注意します。
+    これらのコード行により、Entity Framework がデータベースにクエリを送信するときにインターセプターコードが実行されます。 一時的なエラーのシミュレーションとログ記録用に個別のインターセプタークラスを作成したので、個別に有効または無効にすることができます。
 
-    使用してインターセプターを追加することができます、`DbInterception.Add`メソッドは、コードで任意の場所である必要はありません、`Application_Start`メソッド。 実行ポリシーを構成する前に作成した DbConfiguration クラスにこのコードを配置するもう 1 つの方法です。
+    コード内の任意の場所で `DbInterception.Add` メソッドを使用して、インターセプターを追加できます。`Application_Start` メソッド内に存在する必要はありません。 別の方法として、前の手順で作成した DbConfiguration クラスにこのコードを配置して、実行ポリシーを構成することもできます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs?highlight=6-7)]
 
-    場所に配置するこのコードは、実行しないように注意する`DbInterception.Add`または 1 回以上同じインターセプターの追加のインターセプター インスタンスが表示されます。 たとえば、ログ記録のインターセプターを 2 回追加すると、すべての SQL クエリの 2 つのログが表示されます。
+    このコードをどこに置いても、同じインターセプターの `DbInterception.Add` を複数回実行しないように注意する必要があります。または、追加のインターセプターインスタンスを取得します。 たとえば、ログインターセプターを2回追加すると、すべての SQL クエリに対して2つのログが表示されます。
 
-    インターセプターは、登録の順序で実行される (順序、`DbInterception.Add`メソッドが呼び出されます)。 順序は重要でによっては、インターセプターで何をしている可能性があります。 たとえば、インターセプターを変更 SQL コマンドで取得した、`CommandText`プロパティ。 SQL コマンドを変更するは、[次へ] のインターセプターにより、変更された SQL コマンド、元の SQL コマンドではありませんが表示されます。
+    インターセプターは、登録の順序 (`DbInterception.Add` メソッドが呼び出される順序) で実行されます。 この順序は、インターセプターで行っていることによっては重要です。 たとえば、インターセプターでは、`CommandText` プロパティで取得した SQL コマンドが変更される場合があります。 SQL コマンドを変更した場合、次のインターセプターでは、元の SQL コマンドではなく、変更された SQL コマンドが取得されます。
 
-    UI で、別の値を入力して一時的なエラーが発生することができる方法では、一時的なエラーのシミュレーション コードを記述しました。 代わりには、常に特定のパラメーター値をチェックすることがなく一時的な例外のシーケンスを生成するインターセプター コードを記述する可能性があります。 一時的なエラーを生成する場合にのみ、インターセプターを追加できます。 これを行う場合、データベースの初期化が完了した後までインターセプター追加しないでください。 つまり、一時的なエラーの生成を開始する前に、クエリなど、エンティティ セットの 1 つ上の少なくとも 1 つのデータベースの操作を実行します。 Entity Framework がデータベースの初期化中にいくつかのクエリを実行し、ため、初期化中にエラーが発生する一貫性のない状態を取得するコンテキストのトランザクションでは実行されず。
+    一時的なエラーのシミュレーションコードを記述しました。これにより、UI に別の値を入力して一時的なエラーを発生させることができます。 別の方法として、特定のパラメーター値を確認せずに、一時的な例外のシーケンスを常に生成するようにインターセプターコードを記述することもできます。 その後、一時的なエラーを生成する場合にのみ、インターセプターを追加できます。 ただし、これを行う場合は、データベースの初期化が完了するまでインターセプターを追加しないでください。 つまり、一時的なエラーの生成を開始する前に、いずれかのエンティティセットに対してクエリなどのデータベース操作を少なくとも1つ実行します。 Entity Framework は、データベースの初期化中に複数のクエリを実行し、トランザクションでは実行されないため、初期化中にエラーが発生するとコンテキストが不整合な状態になる可能性があります。
 
-## <a name="test-the-new-configuration"></a>新しい構成をテストします。
+## <a name="test-the-new-configuration"></a>新しい構成をテストする
 
-1. キーを押して**f5 キーを押して**デバッグ モードでアプリケーションを実行し、**学生**タブ。
-2. Visual Studio を見て**出力**トレース出力を表示するウィンドウ。 一部の JavaScript エラー、ロガーによって書き込まれたログを表示するスクロールする必要があります。
+1. **F5**キーを押してデバッグモードでアプリケーションを実行し、 **[Students]** タブをクリックします。
+2. Visual Studio の **[出力]** ウィンドウでトレース出力を確認します。 ロガーによって書き込まれたログを取得するために、いくつかの JavaScript エラーを前にスクロールすることが必要になる場合があります。
 
-    データベースに送信される実際の SQL クエリを表示できることに注意してください。 最初のクエリと Entity Framework で開始するには、データベースのバージョンをチェックするコマンドと (学習の移行に関する次のチュートリアルで) 移行履歴テーブルを参照してください。 クエリ ページング、受講者の数を確認するを参照してくださいし、受講者データを取得するクエリが最後に表示します。
+    実際の SQL クエリがデータベースに送信されていることがわかります。 最初のクエリと Entity Framework コマンドがいくつか表示されます。開始するには、データベースのバージョンと移行の履歴テーブルを確認します (次のチュートリアルでは、移行について学習します)。 また、ページングのクエリが表示され、学生の数がわかります。最後に、学生データを取得するクエリが表示されます。
 
     ![通常のクエリのログ記録](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-3. **学生**ページで、検索文字列として「スロー」を入力してをクリックして**検索**します。
+3. **[Students]** ページで、検索文字列として「Throw」と入力し、 **[検索]** をクリックします。
 
-    ![検索文字列をスローします。](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+    ![検索文字列をスローする](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-    ブラウザーが Entity Framework は、複数回に、クエリには再試行中の数秒間の停止していることがわかります。 最初の再試行非常には迅速に発生し、各追加の再試行する前に増加する前に待機します。 このプロセスの再試行の間隔が呼び出される前に長時間待つ*指数関数的バックオフ*します。
+    Entity Framework がクエリを何度か再試行している間に、ブラウザーが数秒間ハングしているように見えます。 最初の再試行は非常に短時間で行われます。その後、再試行のたびに、待機時間が長くなります。 各再試行の前に待機するこのプロセスは、*指数バックオフ*と呼ばれます。
 
-    ページが表示されたら、表示されている受講者を持つが名前に「、」の [出力] ウィンドウで、確認し、同じクエリで、最初に 4 回返される一時的な 5 つの時刻が試行されたことを確認します例外。 各一時的なエラーで一時的なエラーを生成するときに作成したログが表示されます、`SchoolInterceptorTransientErrors`クラス (「Returning 一時的なエラー... コマンドの」) とするときに書き込まれたログが表示されます`SchoolInterceptorLogging`例外を取得します。
+    このページが表示されると、名前に "a" を持つ学生が表示され、[出力] ウィンドウを見ると、同じクエリが5回試行されたことがわかります。最初の4回は一時的な例外を返します。 一時的なエラーが発生するたびに、`SchoolInterceptorTransientErrors` クラス (「コマンドの一時エラーを返す」) で一時的なエラーを生成したときに記述したログが表示され、`SchoolInterceptorLogging` が例外を取得したときにログが書き込まれます。
 
-    ![再試行回数を示すログ出力](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+    ![再試行を示すログ出力](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-    検索文字列を入力したため、受講者データを返すクエリがパラメーター化します。
+    検索文字列を入力したため、学生データを返すクエリがパラメーター化されます。
 
     [!code-sql[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.sql)]
 
-    パラメーターの値を記録しているしないを実行できます。 パラメーターの値を表示する場合からパラメーター値を取得するログ記録コードを記述することができます、`Parameters`のプロパティ、`DbCommand`インターセプターのメソッドで取得するオブジェクト。
+    パラメーターの値はログに記録されませんが、これを行うことはできます。 パラメーター値を確認する場合は、インターセプターメソッドで取得した `DbCommand` オブジェクトの `Parameters` プロパティからパラメーター値を取得するためのログ記録コードを記述できます。
 
-    アプリケーションを停止して再起動した場合を除き、このテストを繰り返すことはできませんに注意してください。 エラー カウンターをリセットするコードを記述して、アプリケーションの 1 つの実行で複数回の接続の回復性をテストできる場合は、`SchoolInterceptorTransientErrors`します。
-4. 違いを確認する実行戦略 (再試行ポリシー) が、コメント、`SetExecutionStrategy`行*SchoolConfiguration.cs*、デバッグ モードで、[Students] ページを再度実行して、"Throw"再検索します。
+    アプリケーションを停止して再起動しない限り、このテストを繰り返すことはできないことに注意してください。 アプリケーションの1回の実行で接続の回復性を複数回テストできるようにするには、`SchoolInterceptorTransientErrors`でエラーカウンターをリセットするコードを記述します。
+4. 実行戦略 (再試行ポリシー) の違いを確認するには、 *SchoolConfiguration.cs*の `SetExecutionStrategy` 行をコメントアウトし、[Students] ページをデバッグモードでもう一度実行して、もう一度 "Throw" を検索します。
 
-    今回初めてクエリを実行するときにすぐに生成された最初の例外で、デバッガーが停止します。
+    今回は、最初に生成された例外でデバッガーが最初にクエリを実行しようとすると直ちに停止します。
 
     ![ダミーの例外](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-5. コメントを解除、 *SetExecutionStrategy*行*SchoolConfiguration.cs*します。
+5. *SchoolConfiguration.cs*で*setexecutionstrategy*行のコメントを解除します。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトのダウンロード](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
-その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+その他の Entity Framework リソースへのリンクについては[、「ASP.NET Data Access-推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
-> * 有効な接続の回復
-> * 有効なコマンド傍受
-> * 新しい構成のテスト
+> * 接続の回復性を有効にする
+> * 有効なコマンドインターセプト
+> * 新しい構成をテストした
 
-Code First migrations と Azure の展開の詳細については、次の記事に進んでください。
+次の記事に進み、Code First 移行と Azure デプロイについて学習してください。
 > [!div class="nextstepaction"]
-> [Code First migrations と Azure のデプロイ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [移行と Azure のデプロイの Code First](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
