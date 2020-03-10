@@ -8,11 +8,11 @@ title: ASP.NET のドキュメント
 ms.date: 08/24/2018
 description: ASP.NET および ASP.NET Web アプリケーションを構築する方法を説明します。 ドキュメント、コード例、チュートリアル、その他を入手します。
 ms.openlocfilehash: 6309704444d60d42d49c3a8f1683045dc503e761
-ms.sourcegitcommit: cd35be4b25eb05724a5f074214bbdf6573349eda
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161689"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78419776"
 ---
 <!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
